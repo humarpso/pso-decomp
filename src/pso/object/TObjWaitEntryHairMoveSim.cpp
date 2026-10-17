@@ -23,7 +23,6 @@ s32 get_move_done_result__24TObjWaitEntryHairMoveSimFPv(H_800FE32C *h);
 s32 queue_destruction__7TObjectFv(void *);
 void TObjWaitEntryHairMoveSim__sub_800FE3BC(int);
 extern void *hair_bone_rotation_descriptor[];
-#define hair_bone_rotation_descriptor (*(RecoveredGlobal_800FE364_lbl_8049DC78 *)&hair_bone_rotation_descriptor)
 int is_move_done__24TObjWaitEntryHairMoveSimFv(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -48,7 +47,7 @@ typedef char RecoveredGlobal_800FE364_lbl_8049DC78_size[sizeof(RecoveredGlobal_8
 void T_OWEHMS_Exp::start_bone_rotation() {
     s32 bone = (s32)player->m_8ac;
     TObjWaitEntryHairMoveSim__sub_800FE3BC(bone);
-    TObjEZBoneRotPlayer::create((void *)player, (void *)bone, (void *)((u8*)&hair_bone_rotation_descriptor.value + descriptor_index * 0x14));
+    TObjEZBoneRotPlayer::create((void *)player, (void *)bone, (void *)((u8*)&(*(RecoveredGlobal_800FE364_lbl_8049DC78 *)&hair_bone_rotation_descriptor).value + descriptor_index * 0x14));
 }
 extern "C" {
 
@@ -73,7 +72,6 @@ T_OWEHMS_Exp* T_OWEHMS_Exp::destroy(s16 should_free) {
 }
 #pragma pop
 
-#undef hair_bone_rotation_descriptor
 #pragma push
 
 extern "C" {

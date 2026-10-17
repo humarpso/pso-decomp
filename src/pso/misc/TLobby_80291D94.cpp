@@ -170,7 +170,6 @@ void *lbl_804DB888[6] = {
     (void *)0x0, (void *)0x0, (void *)&TLobby__sub_802936AC, (void *)&update_destruction_countdown__6TLobbyFPv,
     (void *)&render__7TObjectFv, (void *)&render_shadows__7TObjectFv,
 };
-#define lbl_804DB1F0 (*(RecoveredGlobal_80291DC0_lbl_804DB1F0 *)&lbl_804DB1F0)
 s32 is_challenge_mode_active(void);
 #define is_challenge_mode_active ((int (*)(void*))is_challenge_mode_active)
 s32 mix_seed_checked__6TLobbyFi(s32);
@@ -181,7 +180,7 @@ void TLobby::update_screen() { if (is_challenge_mode_active((void*)(this)) != 0)
 typedef char RecoveredGlobal_80291DC0_lbl_804DB1F0_size[sizeof(RecoveredGlobal_80291DC0_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
 void TLobby::set_challenge_split_flag() {
     if (((s32)is_challenge_mode_active((void*)(this))) != 0) {
-        *(s32 *)((s8 *)(&lbl_804DB1F0.value) + 0x34) = 1;
+        *(s32 *)((s8 *)(&(*(RecoveredGlobal_80291DC0_lbl_804DB1F0 *)&lbl_804DB1F0).value) + 0x34) = 1;
     }
 }
 typedef char RecoveredGlobal_80070ACC_lbl_8048D208_size[sizeof(RecoveredGlobal_80070ACC_lbl_8048D208) == 0x18 ? 1 : -1];
@@ -192,7 +191,7 @@ void TLobby__sub_80291DF8(s32 v) {
         if (v < 0x3c || v > 0xe10) {
             return;
         }
-        (*(G_80070B34 *)&lbl_804DB1F0).x10 = mix_seed_checked__6TLobbyFi(v);
+        (*(G_80070B34 *)&(*(RecoveredGlobal_80291DC0_lbl_804DB1F0 *)&lbl_804DB1F0)).x10 = mix_seed_checked__6TLobbyFi(v);
     }
 }
 typedef char RecoveredGlobal_80399928_lbl_804F5900_size[sizeof(RecoveredGlobal_80399928_lbl_804F5900) == 0x100 ? 1 : -1];
@@ -206,7 +205,6 @@ struct RecoveredGlobal_80291EAC_lbl_804DB1F0 {
 
 extern "C" {
 
-#undef lbl_804DB1F0
 #define lbl_804DB1F0 (*(s32 (*)[1])&lbl_804DB1F0)
 void TLobby__sub_80291EAC(s32 arg0);
 s32 TLobby::get_normalized_mode() {
@@ -1015,7 +1013,6 @@ struct G_8006F2CC { u8 pad[0x28]; s32 x28; };
 
 extern "C" {
 #define is_challenge_mode_active ((s32 (*)())is_challenge_mode_active)
-#define lbl_804DB1F0 (*(RecoveredGlobal_8006F23C_lbl_8048C9D8 *)&lbl_804DB1F0)
 int TLobby__sub_80292F5C(void* p);
 int get_instance__11TCameraCtrlFv(void*);
 
@@ -1037,7 +1034,7 @@ int TLobby__sub_80292F5C(void* p) { return get_instance__11TCameraCtrlFv(p); }
 typedef char RecoveredGlobal_8006F23C_lbl_8048C9D8_size[sizeof(RecoveredGlobal_8006F23C_lbl_8048C9D8) == 0x748 ? 1 : -1];
 s32 TLobby::get_challenge_mode_flag() {
     if (is_challenge_mode_active() != 0) {
-        return *(s32 *)((s8 *)(&lbl_804DB1F0.value) + 0x34);
+        return *(s32 *)((s8 *)(&(*(RecoveredGlobal_8006F23C_lbl_8048C9D8 *)&lbl_804DB1F0).value) + 0x34);
     }
     return 0;
 }
@@ -1045,16 +1042,15 @@ s32 TLobby::get_challenge_mode_flag() {
 
 void TLobby::start_challenge_countdown() {
     if (is_challenge_mode_active() != 0) {
-        switch ((*(G_8006F2CC *)&lbl_804DB1F0).x28) {
+        switch ((*(G_8006F2CC *)&(*(RecoveredGlobal_8006F23C_lbl_8048C9D8 *)&lbl_804DB1F0)).x28) {
         case 0:
-            (*(G_8006F2CC *)&lbl_804DB1F0).x28 = 1;
+            (*(G_8006F2CC *)&(*(RecoveredGlobal_8006F23C_lbl_8048C9D8 *)&lbl_804DB1F0)).x28 = 1;
             break;
         }
     }
 }
 
 #undef is_challenge_mode_active
-#undef lbl_804DB1F0
 #define is_challenge_mode_active ((s32 (*)())is_challenge_mode_active)
 s32 queue_destruction__7TObjectFv(void*);
 
@@ -1093,12 +1089,10 @@ void TLobby__sub_802930A8(void);
 void enable_split_screen_challenge_mode(void);
 
     extern int split_screen_flag;
-#define challenge_mode_active_flag (*(int *)&challenge_mode_active_flag)
-void TLobby__sub_802930A8(void) { challenge_mode_active_flag = 0; split_screen_flag = 0; }
+void TLobby__sub_802930A8(void) { (*(int *)&challenge_mode_active_flag) = 0; split_screen_flag = 0; }
 
-void enable_split_screen_challenge_mode(void) { challenge_mode_active_flag = 1; split_screen_flag = 1; }
+void enable_split_screen_challenge_mode(void) { (*(int *)&challenge_mode_active_flag) = 1; split_screen_flag = 1; }
 
-#undef challenge_mode_active_flag
 int TLobby__sub_80293124(void* p);
 void *create_challenge4p__6TLobbyFv(void);
 struct C_80293720;
@@ -1227,7 +1221,6 @@ u32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
 
 extern s32 lbl_80464E58[];
 extern s32 lbl_805D6584;
-#define split_screen_flag (*(s32 *)&split_screen_flag)
 
 #define challenge_default_settings (*(RecoveredGlobal_8029379C_lbl_804DAB60 *)challenge_default_settings)
 #define lbl_804DB1F0 (*(s32 (*)[422])lbl_804DB1F0)
@@ -1237,20 +1230,20 @@ void setup_split_screen(void) {
     u32 player;
     u32 temp_r4;
 
-    split_screen_flag = 1;
+    (*(s32 *)&split_screen_flag) = 1;
     lbl_805D6584 = 0;
     if ((u32) challenge_retry_object != 0U) {
-        split_screen_flag = 0;
+        (*(s32 *)&split_screen_flag) = 0;
         return;
     }
     if (is_split_screen() == 0) {
-        split_screen_flag = 0;
+        (*(s32 *)&split_screen_flag) = 0;
         return;
     }
-    if ((s32) split_screen_flag != 0) {
+    if ((s32) (*(s32 *)&split_screen_flag) != 0) {
         challenge_retry_object = create_challenge4p__6TLobbyFv();
         lbl_805D6584 = 1;
-        split_screen_flag = 0;
+        (*(s32 *)&split_screen_flag) = 0;
         set_split_screen_name__6TLobbyFi(lbl_80464E58);
         var_r31 = 0U;
         do {
@@ -1433,5 +1426,4 @@ void TLobby::copy_global_value_block() {
 #undef get_character_save_record
 #undef set_split_screen_name__6TLobbyFi
 #undef create_challenge4p__6TLobbyFv
-#undef split_screen_flag
 __declspec(section ".ctors") static void *const __sinit_TLobby_80291D94_cpp_ref = (void *)TLobby::copy_global_value_block;

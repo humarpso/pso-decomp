@@ -1462,7 +1462,6 @@ extern RecoveredGlobal_800A6BE0_lbl_804FF5E8 lbl_804FF5E8;
 #define subtract_vector ((f32 (*)(void*, void*))(subtract_vector))
 s32 angle_diff_s16(s32, s32);
 void step_angle_clamped__10TObjPlayerFPvi(void *arg0, s32 arg1);
-#define lbl_8043A8D0 (*(const f64 *)&lbl_8043A8D0)
 void turn_toward_target__10TObjPlayerFPv(Obj_800A6B14 *self);
 #define TObjPlayer__sub_800A42C0 ((s32 (*)(void*))(TObjPlayer__sub_800A42C0))
 #define sub_800A435C__12TObjEneSaverFv ((s32 (*)(void*))(sub_800A435C__12TObjEneSaverFv))
@@ -1853,7 +1852,7 @@ void turn_toward_target__10TObjPlayerFPv(Obj_800A6B14 *self) {
     VecCopy((Vec *)&d, (const Vec *)&self->target->pos);
     subtract_vector(&d, &self->pos);
     step_angle_clamped__10TObjPlayerFPvi(self,
-        angle_diff_s16(self->angle, (s32)(lbl_8043A8D0 * atan2_float(d.x, d.z))));
+        angle_diff_s16(self->angle, (s32)((*(const f64 *)&lbl_8043A8D0) * atan2_float(d.x, d.z))));
 }
 
 void step_angle_clamped__10TObjPlayerFPvi(void *arg0, s32 arg1) {
@@ -2040,37 +2039,28 @@ void * create_ene_saver(void *arg0) {
     return o2;
 }
 
-#define player_object_ptr_array (*(u32 *)&player_object_ptr_array)
-#define lbl_805D5064 (*(u32 *)&lbl_805D5064)
-#define lbl_805D5068 (*(u32 *)&lbl_805D5068)
-#define lbl_805D506C (*(u32 *)&lbl_805D506C)
-
 void TObjPlayer::free_resources() {
-    if ((u32) player_object_ptr_array != 0U) {
-        mem_free((void*)player_object_ptr_array);
-        player_object_ptr_array = 0U;
+    if ((u32) (*(u32 *)&player_object_ptr_array) != 0U) {
+        mem_free((void*)(*(u32 *)&player_object_ptr_array));
+        (*(u32 *)&player_object_ptr_array) = 0U;
     }
-    if ((u32) lbl_805D5064 != 0U) {
-        __dt__11TBoss4Type3FPvs((void*)lbl_805D5064, 1);
-        lbl_805D5064 = 0U;
+    if ((u32) (*(u32 *)&lbl_805D5064) != 0U) {
+        __dt__11TBoss4Type3FPvs((void*)(*(u32 *)&lbl_805D5064), 1);
+        (*(u32 *)&lbl_805D5064) = 0U;
     }
-    if ((u32) lbl_805D5068 != 0U) {
-        __dt__11TBoss4Type3FPvs((void*)lbl_805D5068, 1);
-        lbl_805D5068 = 0U;
+    if ((u32) (*(u32 *)&lbl_805D5068) != 0U) {
+        __dt__11TBoss4Type3FPvs((void*)(*(u32 *)&lbl_805D5068), 1);
+        (*(u32 *)&lbl_805D5068) = 0U;
     }
-    if ((u32) lbl_805D506C != 0U) {
-        __dt__11TBoss4Type3FPvs((void*)lbl_805D506C, 1);
-        lbl_805D506C = 0U;
+    if ((u32) (*(u32 *)&lbl_805D506C) != 0U) {
+        __dt__11TBoss4Type3FPvs((void*)(*(u32 *)&lbl_805D506C), 1);
+        (*(u32 *)&lbl_805D506C) = 0U;
     }
     if ((u32) saver_bml_resource != 0U) {
         TLobby__sub_8001FE7C((void*)saver_bml_resource, 1);
         saver_bml_resource = 0U;
     }
 }
-#undef player_object_ptr_array
-#undef lbl_805D5064
-#undef lbl_805D5068
-#undef lbl_805D506C
 
 u8 lbl_8043A738[];
 u8 lbl_8043A74C[];
@@ -2227,14 +2217,8 @@ void TObjEneSaver::sub_800A7734(s32 i) {
     ((O_800A7734 *)this)->x24 = (*(G_800A7734 * *)&saver_bml_resource)->tbl[i].xc;
 }
 
-#define player_object_ptr_array (*(u32 *)&player_object_ptr_array)
-#define lbl_805D5064 (*(u32 *)&lbl_805D5064)
-#define lbl_805D5068 (*(u32 *)&lbl_805D5068)
-#define lbl_805D506C (*(u32 *)&lbl_805D506C)
-
 }
 #undef subtract_vector
-#undef lbl_8043A8D0
 #undef TObjPlayer__sub_800A42C0
 #undef sub_800A435C__12TObjEneSaverFv
 #undef update_collapse_and_destroy__10TObjPlayerFPv
@@ -2253,7 +2237,3 @@ void TObjEneSaver::sub_800A7734(s32 i) {
 #undef get_field_3e4__10TObjPlayerFv
 #undef get_player_by_client_id
 #undef advance_animation_playback
-#undef player_object_ptr_array
-#undef lbl_805D5064
-#undef lbl_805D5068
-#undef lbl_805D506C

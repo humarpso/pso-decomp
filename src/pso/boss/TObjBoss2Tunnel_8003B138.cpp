@@ -666,8 +666,6 @@ u8 *TObjBoss2Tunnel::sub_8003C21C() {
 
 }
 
-#define TObjBoss2Tunnel__global_flags (*(s32 *)&TObjBoss2Tunnel__global_flags)
-
 struct Obj_8003C374 { u8 pad[0x28]; s32 start; s32 q[6]; };
 
 struct Obj_8003C2A0 { u8 pad[0x2c]; s32 q[6]; s32 idx; };
@@ -686,12 +684,12 @@ extern "C" {
 
 void enable_fog__15TObjBoss2TunnelFPv(void *arg0) {
     TFogCtrl::update_all((s32)(*(s32 *)((s8 *)arg0 + 0xB0)), (s32)(1));
-    TObjBoss2Tunnel__global_flags |= 4;
+    (*(s32 *)&TObjBoss2Tunnel__global_flags) |= 4;
 }
 
 void enable_fog__15TObjBoss2TunnelFv(void) {
     TFogCtrl::update_all((s32)(0xB), (s32)(1));
-    TObjBoss2Tunnel__global_flags |= 2;
+    (*(s32 *)&TObjBoss2Tunnel__global_flags) |= 2;
 }
 
 void shift_queue_push_next__15TObjBoss2TunnelFPv(Obj_8003C2A0 *self) {
@@ -734,9 +732,6 @@ void TObjBoss2Tunnel::init_queue_from_start() {
 
 }
 
-#undef TObjBoss2Tunnel__global_flags
-#define boss2_tunnel_instance (*(void * *)&boss2_tunnel_instance)
-#define TObjBoss2Tunnel__global_flags (*(s32 *)&TObjBoss2Tunnel__global_flags)
 #define init_queue_from_start__15TObjBoss2TunnelFv ((void (*)(Tunnel_8003C45C *))init_queue_from_start__15TObjBoss2TunnelFv)
 #define __nw__7TObjectFUl ((void * (*)(int))__nw__7TObjectFUl)
 #define __ct__7TObjectFP7TObject ((void (*)(void *))__ct__7TObjectFP7TObject)
@@ -816,7 +811,7 @@ void *TObjBoss2Tunnel__ct(void *arg0, void *arg1) {
     TObjBoss2Tunnel::reset_floats((s32)self->sub68);
     self->name = lbl_805D2708;
     self->i24 = 0;
-    TObjBoss2Tunnel__global_flags = 0;
+    (*(s32 *)&TObjBoss2Tunnel__global_flags) = 0;
     self->f1C = (0.0f);
     self->f20 = (0.0f);
     self->i28 = 0;
@@ -856,37 +851,37 @@ void *TObjBoss2Tunnel__ct(void *arg0, void *arg1) {
 }
 
 void TObjBoss2Tunnel::set_global_flag_200() {
-    TObjBoss2Tunnel__global_flags |= 0x200;
+    (*(s32 *)&TObjBoss2Tunnel__global_flags) |= 0x200;
 }
 
 void TObjBoss2Tunnel::set_global_flag_100() {
-    TObjBoss2Tunnel__global_flags |= 0x100;
+    (*(s32 *)&TObjBoss2Tunnel__global_flags) |= 0x100;
 }
 
 s32 TObjBoss2Tunnel::is_active() {
-    return TObjBoss2Tunnel__global_flags & 1;
+    return (*(s32 *)&TObjBoss2Tunnel__global_flags) & 1;
 }
 
 void TObjBoss2Tunnel::clear_global_flag_3000() {
-    TObjBoss2Tunnel__global_flags &= 0xFFFFCFFF;
+    (*(s32 *)&TObjBoss2Tunnel__global_flags) &= 0xFFFFCFFF;
 }
 
 void TObjBoss2Tunnel__sub_8003C5F8(void) {
-    (*(u32 *)&TObjBoss2Tunnel__global_flags) |= 0x2000;
-    (*(u32 *)&TObjBoss2Tunnel__global_flags) &= ~0x1000;
+    (*(u32 *)&(*(s32 *)&TObjBoss2Tunnel__global_flags)) |= 0x2000;
+    (*(u32 *)&(*(s32 *)&TObjBoss2Tunnel__global_flags)) &= ~0x1000;
 }
 
 void TObjBoss2Tunnel__sub_8003C610(void) {
-    (*(u32 *)&TObjBoss2Tunnel__global_flags) |= 0x1000;
-    (*(u32 *)&TObjBoss2Tunnel__global_flags) &= ~0x2000;
+    (*(u32 *)&(*(s32 *)&TObjBoss2Tunnel__global_flags)) |= 0x1000;
+    (*(u32 *)&(*(s32 *)&TObjBoss2Tunnel__global_flags)) &= ~0x2000;
 }
 
 void TObjBoss2Tunnel::set_global_flag_800() {
-    TObjBoss2Tunnel__global_flags |= 0x800;
+    (*(s32 *)&TObjBoss2Tunnel__global_flags) |= 0x800;
 }
 
 void TObjBoss2Tunnel::set_global_flag_400() {
-    TObjBoss2Tunnel__global_flags |= 0x400;
+    (*(s32 *)&TObjBoss2Tunnel__global_flags) |= 0x400;
 }
 
 void TObjBoss2Tunnel__sub_8003C648(void) {  }
@@ -905,8 +900,8 @@ void TObjBoss2Tunnel::clear_target_flags() {
     s32 *temp_r3;
     s32 *temp_r3_2;
 
-    TObjBoss2Tunnel__global_flags = 0;
-    temp_r3 = *(s32 **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)boss2_tunnel_instance + 0x42C)) + 0xA8)) + 0x2C)) + 0x30);
+    (*(s32 *)&TObjBoss2Tunnel__global_flags) = 0;
+    temp_r3 = *(s32 **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)&boss2_tunnel_instance) + 0x42C)) + 0xA8)) + 0x2C)) + 0x30);
     lbl_805D4C08 = temp_r3;
     temp_r3_2 = *(s32 **)((s8 *)temp_r3 + 0x30);
     lbl_805D4C04 = temp_r3_2;
@@ -961,5 +956,4 @@ void *TUnk_804835D8::init() {
 #undef __nw__7TObjectFUl
 #undef __ct__7TObjectFP7TObject
 
-#undef TObjBoss2Tunnel__global_flags
 #undef boss2_tunnel_instance

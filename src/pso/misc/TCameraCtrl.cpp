@@ -491,7 +491,6 @@ void TCameraCtrl::update_active_controller() {
 
 #define camera_controller_registry ((Ctl_8006AA90 **)camera_controller_registry)
 #define lbl_80488AC0 ((u8 *)lbl_80488AC0)
-#define camera_ctrl_instance (*(s32 *)&camera_ctrl_instance)
 
 struct Ctl_8006AA90 {
     u8 pad[0x18];
@@ -525,7 +524,7 @@ Ctl_8006AA90 *TCameraCtrl__sub_8006AA90(Ctl_8006AA90 *self, s16 arg1) {
     s32 i;
     if (self != NULL) {
         *(u8 **)((u8 *)self + 0x18) = lbl_80488AC0;
-        camera_ctrl_instance = 0;
+        (*(s32 *)&camera_ctrl_instance) = 0;
         for (i = 0; i < 13; i++) {
             if (camera_controller_registry[i] != NULL) {
                 delete camera_controller_registry[i];
@@ -545,7 +544,6 @@ Ctl_8006AA90 *TCameraCtrl__sub_8006AA90(Ctl_8006AA90 *self, s16 arg1) {
 
 #undef camera_controller_registry
 #undef lbl_80488AC0
-#undef camera_ctrl_instance
 
 #pragma inline_depth(1)
 #pragma auto_inline off

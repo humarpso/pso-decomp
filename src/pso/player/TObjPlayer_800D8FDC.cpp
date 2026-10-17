@@ -159,7 +159,6 @@ void spawn_dead_spot__10TObjPlayerFiiif(s32 point, s32 selector, s32 delay, f32 
 
 #undef __nw__7TObjectFUl
 
-#define player_corpse_mark_resource (*(u32 *)&player_corpse_mark_resource)
 extern const f32 lbl_805DA3D8;
 extern s32 player_particle_effect_enabled;
 extern u8 corpse_mark_resource_descriptor[];
@@ -170,9 +169,9 @@ s32 set_chunk_blend(s32);
 s32 set_chunk_material_override_pair(s32, s32);
 
 void TObjPlayer::destroy_static_lobby() {
-    if ((u32) player_corpse_mark_resource != 0U) {
-        TLobby__sub_8001FE7C((void*)player_corpse_mark_resource, 1);
-        player_corpse_mark_resource = 0U;
+    if ((u32) (*(u32 *)&player_corpse_mark_resource) != 0U) {
+        TLobby__sub_8001FE7C((void*)(*(u32 *)&player_corpse_mark_resource), 1);
+        (*(u32 *)&player_corpse_mark_resource) = 0U;
     }
 }
 
@@ -183,7 +182,7 @@ void load_corpse_mark_resource(void) {
     if (p != 0) {
         p = load_resource_from_descriptor(p, 1, corpse_mark_resource_descriptor, 0, 0, 0);
     }
-    player_corpse_mark_resource = (u32)p;
+    (*(u32 *)&player_corpse_mark_resource) = (u32)p;
     player_particle_effect_enabled = 1;
 }
 
@@ -197,8 +196,6 @@ void TUnk_80494AE0::clear_flag_and_notify() {
     set_chunk_material_override_pair(0xFF00, 0);
     set_chunk_blend(0x2500);
 }
-
-#undef player_corpse_mark_resource
 
 s32 set_chunk_material_color();
 

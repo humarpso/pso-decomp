@@ -170,7 +170,6 @@ extern __declspec(section ".rodata") const PairPad_80288DA4 lbl_80450AB4[1];
 #define TQuestListChallenge__stage_table (*(RecoveredGlobal_80289200_lbl_8045080C *)TQuestListChallenge__stage_table)
 #define quest_list_challenge_stage_table (*(RecoveredGlobal_80289200_lbl_80450910 *)quest_list_challenge_stage_table)
 #define quest_list_battle_stage_table (*(RecoveredGlobal_80289200_lbl_80450A20 *)quest_list_battle_stage_table)
-#define TQuestListChallenge__name (*(s32 *)&TQuestListChallenge__name)
 #define lbl_80450AB4 ((const Pair_80288DA4 *)lbl_80450AB4)
 
 #pragma push
@@ -391,7 +390,7 @@ u8 *TQuestListChallenge__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 var_r3;
     __ct__15TShopWindowBaseFv();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80289200___vt__19TQuestListChallenge *)&__vt__19TQuestListChallenge).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TQuestListChallenge__name;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) (*(s32 *)&TQuestListChallenge__name);
     if ((void *) (*(u8 * *)&TQuestListChallenge__active_instance) != NULL) {
         return arg0;
     }
@@ -468,7 +467,6 @@ void * TObjNpcKenkyu__create(void *arg0) {
 #undef TQuestListChallenge__stage_table
 #undef quest_list_challenge_stage_table
 #undef quest_list_battle_stage_table
-#undef TQuestListChallenge__name
 #undef lbl_80450AB4
 extern "C" const char lbl_804507A8[] = "challenge2_mlt_stg1";
 extern "C" const char lbl_804507BC[] = "challenge2_mlt_stg2";

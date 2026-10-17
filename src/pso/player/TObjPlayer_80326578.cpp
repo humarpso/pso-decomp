@@ -368,9 +368,8 @@ void TObjPlayer__sub_80326F9C(O_80326F9C *arg0);
 void *__dt__13TUnk_804ED390Fv(void *arg0, s16 arg1);
 
 #define lbl_804ED298 ((unsigned char *)lbl_804ED298)
-#define lbl_805DF660 (*(const float *)&lbl_805DF660)
     extern const float lbl_805DF678;
-void*TUnk_804ED298::set_mode_floats(s32 _w1, void *_w2) { ((int (*)())TItemWeapon__ct)(); *(int*)((char*)this + 0x18) = (int)lbl_804ED298; *(float*)((char*)this + 0x1f8) = lbl_805DF660; this->m_1fc = lbl_805DF678; return this; }
+void*TUnk_804ED298::set_mode_floats(s32 _w1, void *_w2) { ((int (*)())TItemWeapon__ct)(); *(int*)((char*)this + 0x18) = (int)lbl_804ED298; *(float*)((char*)this + 0x1f8) = (*(const float *)&lbl_805DF660); this->m_1fc = lbl_805DF678; return this; }
 
 extern const f32 lbl_805DF684;
 extern const f32 lbl_805DF688;
@@ -427,7 +426,6 @@ void *__dt__13TUnk_804ED390Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-#undef lbl_805DF660
 #undef lbl_804ED298
 void config_dark_flow_attack_collider(int a0, void* a1);
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -438,8 +436,7 @@ s16 obj_getS16_32C(s32);
 s32 update_active_game_effect__10TObjPlayerFv(void *);
 
 #define lbl_804ED390 ((unsigned char *)lbl_804ED390)
-#define lbl_805DF680 (*(const float *)&lbl_805DF680)
-void*TUnk_804ED390::init_vtable_1f8(s32 _w1, void *_w2) { ((int (*)())TItemWeapon__ct)(); *(int*)((char*)this + 0x18) = (int)lbl_804ED390; *(float *)&this->unk_1F8 = lbl_805DF680; return this; }
+void*TUnk_804ED390::init_vtable_1f8(s32 _w1, void *_w2) { ((int (*)())TItemWeapon__ct)(); *(int*)((char*)this + 0x18) = (int)lbl_804ED390; *(float *)&this->unk_1F8 = (*(const float *)&lbl_805DF680); return this; }
 
     extern const float lbl_805DF690;
 
@@ -479,7 +476,6 @@ void TUnk_804ED488::emit_marker_effects() {
     update_active_game_effect__10TObjPlayerFv(this);
 }
 
-#undef lbl_805DF680
 #undef lbl_804ED390
 void *__dt__13TUnk_804ED488Fv(void *arg0, s16 arg1);
 void *construct_dark_flow(void *arg0);

@@ -20,7 +20,6 @@ f32 lbl_805D6800;
 s8 lbl_805D6804;
 extern const char lbl_80471D70[] = "TAdFadeGC";
 const char *TAdFadeGC__name = lbl_80471D70;
-#define TAdFadeGC__name (*(void **)&TAdFadeGC__name)
 
 void TAdFadeGC::draw_fade() {
     u8 *arg0 = (u8 *)this;
@@ -149,7 +148,7 @@ void TAdFadeGC::start_fade(void *arg1) {
 TAdFadeGC::~TAdFadeGC() {}
 }
 TAdFadeGC::TAdFadeGC(TObject *arg1, void *arg2) : TObject(arg1) {
-    *(void * *)&this->m_name = TAdFadeGC__name;
+    *(void * *)&this->m_name = (*(void **)&TAdFadeGC__name);
     *(u32 *)((s8 *)this + 0x1C) = -1;
     *(f32 *)((s8 *)this + 0x20) = (0.0f);
     *(void **)((s8 *)this + 0x28) = arg2;

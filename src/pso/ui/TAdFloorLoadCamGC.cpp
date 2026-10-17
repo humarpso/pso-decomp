@@ -50,13 +50,6 @@ extern const f32 lbl_805DFDB4 = 100.0f;
 extern const f32 lbl_805DFDB8 = 0.0f;
 extern const f32 lbl_805DFDBC = 99.3f;
 extern const f32 lbl_805DFDC0 = 0.4f;
-#define lbl_805DFDA8 (*(const f32 *)&lbl_805DFDA8)
-#define lbl_805DFDAC (*(const f32 *)&lbl_805DFDAC)
-#define lbl_805DFDB0 (*(const f32 *)&lbl_805DFDB0)
-#define lbl_805DFDB4 (*(const f32 *)&lbl_805DFDB4)
-#define lbl_805DFDB8 (*(const f32 *)&lbl_805DFDB8)
-#define lbl_805DFDBC (*(const f32 *)&lbl_805DFDBC)
-#define lbl_805DFDC0 (*(const f32 *)&lbl_805DFDC0)
 }
 #pragma push
 #pragma fp_contract on
@@ -74,24 +67,24 @@ void TAdFloorLoadCamGC::run_task() {
     activate_camera_mode(9);
     s->ticks++;
     tilt = controller_physical_port_bank.tilt;
-    s->angle += (s32)(lbl_805DFDA8 * (f32)(s32)(lbl_805DFDAC * (f32)controller_physical_port_bank.speed)) / 10 + 0x1B4;
+    s->angle += (s32)((*(const f32 *)&lbl_805DFDA8) * (f32)(s32)((*(const f32 *)&lbl_805DFDAC) * (f32)controller_physical_port_bank.speed)) / 10 + 0x1B4;
     a = s->angle;
     if (a >= 0x10000) {
         a -= 0x10000;
     }
     s->angle = a;
-    s->pos.x = lbl_805DFDB0 * sin_table_lookup(s->angle);
-    s->pos.y = lbl_805DFDB4 * cos_table_lookup(s->angle);
-    s->pos.z = lbl_805DFDB4 * sin_table_lookup(s->angle);
-    s->target.x = lbl_805DFDB8;
-    s->target.y = lbl_805DFDBC * cos_table_lookup(s->angle + 0x1B4);
-    s->target.z = lbl_805DFDBC * sin_table_lookup(s->angle + 0x1B4);
+    s->pos.x = (*(const f32 *)&lbl_805DFDB0) * sin_table_lookup(s->angle);
+    s->pos.y = (*(const f32 *)&lbl_805DFDB4) * cos_table_lookup(s->angle);
+    s->pos.z = (*(const f32 *)&lbl_805DFDB4) * sin_table_lookup(s->angle);
+    s->target.x = (*(const f32 *)&lbl_805DFDB8);
+    s->target.y = (*(const f32 *)&lbl_805DFDBC) * cos_table_lookup(s->angle + 0x1B4);
+    s->target.z = (*(const f32 *)&lbl_805DFDBC) * sin_table_lookup(s->angle + 0x1B4);
     if (s->direction == 0) {
-        x = lbl_805DFDC0 * (f32)tilt + -s->pos.x;
+        x = (*(const f32 *)&lbl_805DFDC0) * (f32)tilt + -s->pos.x;
         y = -s->pos.y;
         z = -s->pos.z;
     } else {
-        x = lbl_805DFDC0 * (f32)tilt + s->pos.x;
+        x = (*(const f32 *)&lbl_805DFDC0) * (f32)tilt + s->pos.x;
         y = s->pos.y;
         z = s->pos.z;
     }
@@ -102,7 +95,7 @@ void TAdFloorLoadCamGC::run_task() {
     s->up.y += dy;
     s->up.z += dz;
     VecCopy((Vec *)&up, (const Vec *)&s->up);
-    if (vec_squared_length(&s->up) == lbl_805DFDB8) {
+    if (vec_squared_length(&s->up) == (*(const f32 *)&lbl_805DFDB8)) {
         up.y = 1.0f;
     } else {
         normalize_vector(&up);
@@ -130,9 +123,9 @@ TAdFloorLoadCamGC::TAdFloorLoadCamGC(TObject *arg1, void *arg2) : TObject(arg1) 
     *(void * *)&this->m_name = new_var;
     this->m_20 = 0;
     this->m_24 = 0;
-    *((f32 *) (((s8 *) this) + 0x40)) = lbl_805DFDB8;
-    *((f32 *) (((s8 *) this) + 0x44)) = lbl_805DFDB8;
-    this->m_48 = lbl_805DFDB8;
+    *((f32 *) (((s8 *) this) + 0x40)) = (*(const f32 *)&lbl_805DFDB8);
+    *((f32 *) (((s8 *) this) + 0x44)) = (*(const f32 *)&lbl_805DFDB8);
+    this->m_48 = (*(const f32 *)&lbl_805DFDB8);
     *((void **) (((s8 *) this) + 0x1C)) = arg2;
     set_default_camera__21TAdMultiChgGameModeGCFv(new_var);
 }

@@ -608,8 +608,6 @@ s32 TObjFish::init_fish_school(void *arg1_arg, s32 arg2, s32 arg3) {
 #define get_global_state__14TOKeyMachine01Fv ((s32 (*)(void))get_global_state__14TOKeyMachine01Fv)
 #define render__8TObjFishFv ((void (*)())render__8TObjFishFv)
 #define init_fish_school__8TObjFishFPvll ((s32 (*)(void *, void *, int, int))init_fish_school__8TObjFishFPvll)
-#define tl_05 (*(s32 *)&tl_05)
-#define TObjFish__area_bml_resource (*(u32 *)&TObjFish__area_bml_resource)
 
 extern "C" {
 s32 is_split_screen(void);
@@ -672,15 +670,15 @@ u8 *TObjFish__create(u8 *arg0) {
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0xA4));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TObjFish__ct((u8 *)(temp_r3), (s32)(tl_05), (u8 *)(arg0)));
+        var_r0 = (u8 *)(TObjFish__ct((u8 *)(temp_r3), (s32)((*(s32 *)&tl_05)), (u8 *)(arg0)));
     }
     return var_r0;
 }
 
 void TObjFish::free_resource() {
-    if ((u32) TObjFish__area_bml_resource != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjFish__area_bml_resource, 1);
-        TObjFish__area_bml_resource = 0U;
+    if ((u32) (*(u32 *)&TObjFish__area_bml_resource) != 0U) {
+        TLobby__sub_8001FE7C((void*)(*(u32 *)&TObjFish__area_bml_resource), 1);
+        (*(u32 *)&TObjFish__area_bml_resource) = 0U;
     }
 }
 void vfunc_6__13TUnk_804B9870FPsl();
@@ -783,7 +781,7 @@ void TObjFish::load_area_resource() {
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, base + 0x50, 0, 0, 0);
         }
-        TObjFish__area_bml_resource = (u32)p;
+        (*(u32 *)&TObjFish__area_bml_resource) = (u32)p;
         break;
     case 27:
     case 34:
@@ -792,7 +790,7 @@ void TObjFish::load_area_resource() {
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, base + 0x80, 0, 0, 0);
         }
-        TObjFish__area_bml_resource = (u32)p;
+        (*(u32 *)&TObjFish__area_bml_resource) = (u32)p;
         break;
     case 28:
         TObjFish__area_event_stage = 3;
@@ -800,7 +798,7 @@ void TObjFish::load_area_resource() {
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, base + 0xB0, 0, 0, 0);
         }
-        TObjFish__area_bml_resource = (u32)p;
+        (*(u32 *)&TObjFish__area_bml_resource) = (u32)p;
         break;
     case 29:
         TObjFish__area_event_stage = 4;
@@ -808,7 +806,7 @@ void TObjFish::load_area_resource() {
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, base + 0xE0, 0, 0, 0);
         }
-        TObjFish__area_bml_resource = (u32)p;
+        (*(u32 *)&TObjFish__area_bml_resource) = (u32)p;
         break;
     case 15:
     default:
@@ -817,7 +815,7 @@ void TObjFish::load_area_resource() {
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, base + 0x20, 0, 0, 0);
         }
-        TObjFish__area_bml_resource = (u32)p;
+        (*(u32 *)&TObjFish__area_bml_resource) = (u32)p;
         break;
     }
 }
@@ -828,5 +826,3 @@ void TObjFish::load_area_resource() {
 #undef get_global_state__14TOKeyMachine01Fv
 #undef render__8TObjFishFv
 #undef init_fish_school__8TObjFishFPvll
-#undef tl_05
-#undef TObjFish__area_bml_resource

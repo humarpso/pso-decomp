@@ -155,9 +155,6 @@ void present_frame_and_wait_vsync(void) {
 
 
 #define frame_update_callback (*(s32 (**)())&frame_update_callback)
-#define video_current_framebuffer (*(s32 *)&video_current_framebuffer)
-#define video_initial_draw_framebuffer (*(s32 *)&video_initial_draw_framebuffer)
-#define video_initial_display_framebuffer (*(s32 *)&video_initial_display_framebuffer)
 void TMovie::run_callback() {
     if (((s32 (*)()) frame_update_callback) != NULL) {
         frame_update_callback();
@@ -169,10 +166,10 @@ void init_locked_cache_heap(u8 *arg0) {
     s32 start;
 
     LCEnable();
-    video_initial_display_framebuffer = *(s32 *)((s8 *)arg0 + 8);
+    (*(s32 *)&video_initial_display_framebuffer) = *(s32 *)((s8 *)arg0 + 8);
     temp_r0 = *(s32 *)((s8 *)arg0 + 0xC);
-    video_initial_draw_framebuffer = temp_r0;
-    video_current_framebuffer = temp_r0;
+    (*(s32 *)&video_initial_draw_framebuffer) = temp_r0;
+    (*(s32 *)&video_current_framebuffer) = temp_r0;
     gx_fifo_buffer = *(s32 *)((s8 *)arg0 + 0x10);
     gx_fifo_buffer_size = *(s32 *)((s8 *)arg0 + 0x14);
     start = *(s32 *)((s8 *)arg0 + 0x18);
@@ -181,7 +178,6 @@ void init_locked_cache_heap(u8 *arg0) {
 }
 
 
-#define last_present_retrace_count (*(s32 *)&last_present_retrace_count)
 
 void set_present_interval(s32 *arg0, s32 arg1) {
     s32 var_r4;
@@ -194,7 +190,7 @@ void set_present_interval(s32 *arg0, s32 arg1) {
         var_r4 = 1;
     }
     video_present_interval_retraces = var_r4;
-    last_present_retrace_count = VIGetRetraceCount();
+    (*(s32 *)&last_present_retrace_count) = VIGetRetraceCount();
 }
 
 #define rmode ((RMode_803DD0D8 *)active_gx_render_mode)
@@ -227,25 +223,21 @@ void init_gx_display(void) {
         addr += 0x2000;
     }
     GXSetTlutRegionCallback((void *)fn_803DD3C8);
-    GXCopyDisp((void *)video_current_framebuffer, 1);
+    GXCopyDisp((void *)(*(s32 *)&video_current_framebuffer), 1);
 }
 #undef rmode
 
 
 void fn_803DD294(void) {
-    VISetNextFrameBuffer((void *) (video_initial_display_framebuffer));
-    video_current_framebuffer = video_initial_draw_framebuffer;
+    VISetNextFrameBuffer((void *) ((*(s32 *)&video_initial_display_framebuffer)));
+    (*(s32 *)&video_current_framebuffer) = (*(s32 *)&video_initial_draw_framebuffer);
     VIFlush();
     VIWaitForRetrace();
     if ((u32) (*active_gx_render_mode & 1) != 0) {
         VIWaitForRetrace();
     }
 }
-#undef last_present_retrace_count
 #undef frame_update_callback
-#undef video_current_framebuffer
-#undef video_initial_draw_framebuffer
-#undef video_initial_display_framebuffer
 
 
 

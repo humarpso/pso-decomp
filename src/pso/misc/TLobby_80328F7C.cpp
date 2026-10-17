@@ -235,16 +235,12 @@ int TUnk_804ED7D0::vfunc_5(s32) {
     return 1;
 }
 
-#define lbl_805D6C80 (*(u32 *)&lbl_805D6C80)
-
 void TLobby::free_singleton_805D6C80() {
-    if ((u32) lbl_805D6C80 != 0U) {
-        mem_free((void*)lbl_805D6C80);
-        lbl_805D6C80 = 0U;
+    if ((u32) (*(u32 *)&lbl_805D6C80) != 0U) {
+        mem_free((void*)(*(u32 *)&lbl_805D6C80));
+        (*(u32 *)&lbl_805D6C80) = 0U;
     }
 }
-
-#undef lbl_805D6C80
 
 void alloc_work_buffer__6TLobbyFv(void);
 s32 mem_alloc(s32);

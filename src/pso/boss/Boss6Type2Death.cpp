@@ -101,7 +101,6 @@ extern "C" const u32 lbl_80478140[3] = {0x1010000, 0x0, 0x3f333333};
 extern "C" const u32 boss6_type2_death_emitter_ranges[12] = {0x0, 0x8e, 0x228, 0xfa, 0x13a, 0x22a, 0x11d, 0x1ac, 0x22e, 0xf2, 0x13a, 0x179};
 extern "C" const u32 lbl_8047817C[3] = {0xffff4000, 0xffffff60, 0xffff4000};
 extern "C" const char *TBoss6Demo21_TYPE2_DEAD__name = lbl_80478088;
-#define TBoss6Demo21_TYPE2_DEAD__name (*(s32 *)&TBoss6Demo21_TYPE2_DEAD__name)
 #define lbl_804780A0 ((u8 *)lbl_804780A0)
 #define lbl_804780AC ((Vec_8033E0F0 *)lbl_804780AC)
 #define lbl_804780B8 ((Vec_8033E0F0 *)lbl_804780B8)
@@ -397,7 +396,7 @@ void *TBoss6Demo21_TYPE2_DEAD__ct(void *arg0p, void *arg1, void *arg2) {
     s32 i;
     __ct__7TObjectFP7TObject(arg0);
     *(u8 **)((s8 *)arg0 + 0x18) = __vt__23TBoss6Demo21_TYPE2_DEAD;
-    *(s32 *)((s8 *)arg0 + 0) = TBoss6Demo21_TYPE2_DEAD__name;
+    *(s32 *)((s8 *)arg0 + 0) = (*(s32 *)&TBoss6Demo21_TYPE2_DEAD__name);
     *(void **)((s8 *)arg0 + 0x54) = arg1;
     VecCopy((Vec *)(arg0 + 0x58), (const Vec *)lbl_804780A0);
     VecCopy((Vec *)&v, (const Vec *)arg2);

@@ -61,19 +61,15 @@ void TObjPlayer::create_cleanup_object(void *arg0) {
 
 #undef TObjPlayer__sub_80363C5C
 
-#define player_item_id_list (*(u32 *)&player_item_id_list)
-
 void TObjPlayer::free_static_buffer() {
-    if ((u32) player_item_id_list != 0U) {
-        ::operator delete((void *)player_item_id_list);
-        player_item_id_list = 0U;
+    if ((u32) (*(u32 *)&player_item_id_list) != 0U) {
+        ::operator delete((void *)(*(u32 *)&player_item_id_list));
+        (*(u32 *)&player_item_id_list) = 0U;
     }
 }
 
 }
-#undef player_item_id_list
 
-#define player_item_id_list (*(void * *)&player_item_id_list)
 #define run_and_return_arg__10TObjPlayerFi ((void * (*)(void *))run_and_return_arg__10TObjPlayerFi)
 
 struct VBase_18_1419ea { char pad[0x18]; };
@@ -128,7 +124,7 @@ void TObjPlayer::alloc_and_run_object() {
     if (o != NULL) {
         o = run_and_return_arg__10TObjPlayerFi(o);
     }
-    player_item_id_list = o;
+    (*(void **)&player_item_id_list) = o;
 }
 void TUnk_804F2A10::render() {
     s32 *p;
@@ -165,7 +161,6 @@ void TUnk_804F2A10::render() {
     *(s32 *)(lbl_805D6FB8 + 0xB0) = 0;
 }
 
-#undef player_item_id_list
 #undef run_and_return_arg__10TObjPlayerFi
 
 void *__dt__13TUnk_804F2A10Fv(void *arg0, s16 arg1);
@@ -193,35 +188,29 @@ void *__dt__13TUnk_804F2A10Fv(void *arg0, s16 arg1) {
 }
 
 #define lbl_804F2A10 ((unsigned char *)lbl_804F2A10)
-#define lbl_805D6FB8 (*(int *)&lbl_805D6FB8)
 #define reset_id_array__10TObjPlayerFPv ((int (*)(void*))reset_id_array__10TObjPlayerFPv)
 void* init_vtable_804F2A10__13TUnk_804F2A10Fv(void* a0);
 
-void*TUnk_804F2A10::init_vtable_804F2A10() { __ct__7TObjectFP7TObject(); *(int*)((char*)this + 0x18) = (int)lbl_804F2A10; reset_id_array__10TObjPlayerFPv((void*)(lbl_805D6FB8)); return this; }
+void*TUnk_804F2A10::init_vtable_804F2A10() { __ct__7TObjectFP7TObject(); *(int*)((char*)this + 0x18) = (int)lbl_804F2A10; reset_id_array__10TObjPlayerFPv((void*)((*(int *)&lbl_805D6FB8))); return this; }
 
 #undef lbl_804F2A10
-#undef lbl_805D6FB8
 #undef reset_id_array__10TObjPlayerFPv
 
-#define lbl_805D6FB8 (*(void * *)&lbl_805D6FB8)
 #define push_to_list__10TObjPlayerFPvi ((s32 (*)(void *, s32))push_to_list__10TObjPlayerFPvi)
 #define reset_id_array__10TObjPlayerFPv ((s32 (*)(void *))reset_id_array__10TObjPlayerFPv)
 void TObjPlayer::push_id_to_list(s32 arg0) {
-    if ((s32) *(s32 *)((s8 *)lbl_805D6FB8 + 0xB0) == 0) {
-        reset_id_array__10TObjPlayerFPv(lbl_805D6FB8);
+    if ((s32) *(s32 *)((s8 *)(*(void **)&lbl_805D6FB8) + 0xB0) == 0) {
+        reset_id_array__10TObjPlayerFPv((*(void **)&lbl_805D6FB8));
     }
-    push_to_list__10TObjPlayerFPvi(lbl_805D6FB8, arg0);
+    push_to_list__10TObjPlayerFPvi((*(void **)&lbl_805D6FB8), arg0);
 }
 
 }
-#undef lbl_805D6FB8
 #undef push_to_list__10TObjPlayerFPvi
 #undef reset_id_array__10TObjPlayerFPv
 
 #define copy_vec4__13TRaderMapCoreFPvPv ((s32 (*)(void *, void *))copy_vec4__13TRaderMapCoreFPvPv)
 #define init_vtable_804F2A10__13TUnk_804F2A10Fv ((void * (*)(void *, void *))init_vtable_804F2A10__13TUnk_804F2A10Fv)
-#define model_material_color (*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)
-#define lbl_805D6FB8 (*(void * *)&lbl_805D6FB8)
 
 struct RecoveredGlobal_803640C8_lbl_8058D4C0 {
     s32 value;
@@ -261,7 +250,7 @@ void TObjPlayer::spawn_cleanup_helper(void *arg0) {
 }
 
 void TObjPlayer::warn_if_gauge_low() {
-    if (*(f32 *)((s8 *)lbl_805D6FB8 + 0x2C) < lbl_805E0288) {
+    if (*(f32 *)((s8 *)(*(void **)&lbl_805D6FB8) + 0x2C) < lbl_805E0288) {
         set_chunk_blend(0x2500);
         TObjPlayer::copy_gauge_warn_vec();
     }
@@ -277,52 +266,46 @@ void TObjPlayer::set_model_fade_alpha(f32 farg0) {
         r.a = farg0 - lbl_805E0288;
         ((TObjPlayer *)((s32 *)&r))->push_model_fade_color();
     }
-    *(f32 *)((u8 *)lbl_805D6FB8 + 0x2C) = farg0;
+    *(f32 *)((u8 *)(*(void **)&lbl_805D6FB8) + 0x2C) = farg0;
 }
 
 void TObjPlayer::copy_gauge_warn_vec() {
-    copy_vec4__13TRaderMapCoreFPvPv((void *) (&model_material_color.value), (void *) ((*(s32 *)&lbl_805D6FB8) + 0x1C));
+    copy_vec4__13TRaderMapCoreFPvPv((void *) (&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color).value), (void *) ((*(s32 *)&(*(void **)&lbl_805D6FB8)) + 0x1C));
 }
 typedef char RecoveredGlobal_8036414C_lbl_8058D4C0_size[sizeof(RecoveredGlobal_8036414C_lbl_8058D4C0) == 0x10 ? 1 : -1];
 
 typedef char RecoveredGlobal_803640F8_lbl_8058D4C0_size[sizeof(RecoveredGlobal_803640F8_lbl_8058D4C0) == 0x10 ? 1 : -1];
 void TObjPlayer::push_model_fade_color() {
-    copy_vec4__13TRaderMapCoreFPvPv((void *) ((*(s32 *)&lbl_805D6FB8) + 0x1C), (void *) (&(*(RecoveredGlobal_803640F8_lbl_8058D4C0 *)&model_material_color).value));
+    copy_vec4__13TRaderMapCoreFPvPv((void *) ((*(s32 *)&(*(void **)&lbl_805D6FB8)) + 0x1C), (void *) (&(*(RecoveredGlobal_803640F8_lbl_8058D4C0 *)&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)).value));
     if (((s32 *)this) != NULL) {
-        copy_vec4__13TRaderMapCoreFPvPv((void *) (&(*(RecoveredGlobal_803640F8_lbl_8058D4C0 *)&model_material_color).value), (void *) (((s32 *)this)));
+        copy_vec4__13TRaderMapCoreFPvPv((void *) (&(*(RecoveredGlobal_803640F8_lbl_8058D4C0 *)&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)).value), (void *) (((s32 *)this)));
     }
 }
 
 void TObjPlayer__sub_8036414C(void) {
-    model_render_flags = *(s32 *)((s8 *)(*(u8 * *)&lbl_805D6FB8) + 0);
-    copy_vec4__13TRaderMapCoreFPvPv((void *) (&(*(RecoveredGlobal_8036414C_lbl_8058D4C0 *)&model_material_color).value), (void *) ((*(u8 * *)&lbl_805D6FB8) + 0xC));
-    chunk_polygon_flags_and_mask = *(s32 *)((s8 *)(*(u8 * *)&lbl_805D6FB8) + 4);
-    chunk_polygon_flags_or_mask = *(s32 *)((s8 *)(*(u8 * *)&lbl_805D6FB8) + 8);
+    model_render_flags = *(s32 *)((s8 *)(*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 0);
+    copy_vec4__13TRaderMapCoreFPvPv((void *) (&(*(RecoveredGlobal_8036414C_lbl_8058D4C0 *)&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)).value), (void *) ((*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 0xC));
+    chunk_polygon_flags_and_mask = *(s32 *)((s8 *)(*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 4);
+    chunk_polygon_flags_or_mask = *(s32 *)((s8 *)(*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 8);
 }
 typedef char RecoveredGlobal_80364198_lbl_8058D4C0_size[sizeof(RecoveredGlobal_80364198_lbl_8058D4C0) == 0x10 ? 1 : -1];
 void TObjPlayer__sub_80364198(void) {
-    *(s32 *)((s8 *)(*(u8 * *)&lbl_805D6FB8) + 0) = (s32) model_render_flags;
-    copy_vec4__13TRaderMapCoreFPvPv((void *) ((*(u8 * *)&lbl_805D6FB8) + 0xC), (void *) (&(*(RecoveredGlobal_80364198_lbl_8058D4C0 *)&model_material_color).value));
-    *(s32 *)((s8 *)(*(u8 * *)&lbl_805D6FB8) + 4) = (s32) chunk_polygon_flags_and_mask;
-    *(s32 *)((s8 *)(*(u8 * *)&lbl_805D6FB8) + 8) = (s32) chunk_polygon_flags_or_mask;
+    *(s32 *)((s8 *)(*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 0) = (s32) model_render_flags;
+    copy_vec4__13TRaderMapCoreFPvPv((void *) ((*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 0xC), (void *) (&(*(RecoveredGlobal_80364198_lbl_8058D4C0 *)&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)).value));
+    *(s32 *)((s8 *)(*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 4) = (s32) chunk_polygon_flags_and_mask;
+    *(s32 *)((s8 *)(*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 8) = (s32) chunk_polygon_flags_or_mask;
 }
 
 #undef copy_vec4__13TRaderMapCoreFPvPv
 #undef init_vtable_804F2A10__13TUnk_804F2A10Fv
-#undef model_material_color
-#undef lbl_805D6FB8
 
-#define lbl_805D6FB8 (*(u32 *)&lbl_805D6FB8)
 void TObjPlayer::free_global_805D6FB8() {
-    if ((u32) lbl_805D6FB8 != 0U) {
-        ::operator delete((void *)lbl_805D6FB8);
-        lbl_805D6FB8 = 0U;
+    if ((u32) (*(u32 *)&lbl_805D6FB8) != 0U) {
+        ::operator delete((void *)(*(u32 *)&lbl_805D6FB8));
+        (*(u32 *)&lbl_805D6FB8) = 0U;
     }
 }
 
-#undef lbl_805D6FB8
-
-#define lbl_805D6FB8 (*(void * *)&lbl_805D6FB8)
 #define run_and_return_arg__10TObjPlayerFi ((void * (*)(void *))run_and_return_arg__10TObjPlayerFi)
 void TObjPlayer::alloc_and_init_object_b4() {
     void *o;
@@ -331,11 +314,10 @@ void TObjPlayer::alloc_and_init_object_b4() {
     if (o != NULL) {
         o = run_and_return_arg__10TObjPlayerFi(o);
     }
-    lbl_805D6FB8 = o;
+    (*(void **)&lbl_805D6FB8) = o;
 }
 
 }
-#undef lbl_805D6FB8
 #undef run_and_return_arg__10TObjPlayerFi
 
 struct Elt80364258_80364258 { s32 f0; };

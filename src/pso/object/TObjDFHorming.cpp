@@ -648,9 +648,7 @@ void TBoss4DarkFalz::update_roar_sound_timer() {
 
 #pragma push
 #pragma fp_contract on
-#define lbl_805D8918 (*(f32 *)&lbl_805D8918)
 
-#undef lbl_805D8918
 #pragma pop
 
 }

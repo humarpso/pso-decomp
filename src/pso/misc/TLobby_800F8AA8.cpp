@@ -750,21 +750,19 @@ int TKeyBoardControl__sub_8000F92C(void);
 void TLobby__sub_800F8BD8(void);
 
 extern u32 main_phase_deferred_callback;
-#define area_transfer_pending_flag (*(s8 *)&area_transfer_pending_flag)
 
 void TLobby__sub_800F8AD0(void) {
     if ((u32) main_phase_deferred_callback != 0U) {
-        area_transfer_pending_flag = 1;
+        (*(s8 *)&area_transfer_pending_flag) = 1;
     }
 }
 
 bool is_area_transfer_pending(void) {
-    return (*(u8 *)&area_transfer_pending_flag) != 0;
+    return (*(u8 *)&(*(s8 *)&area_transfer_pending_flag)) != 0;
 }
 
 void TLobby::clear_callback_and_reset_keyboard() { TLobby::set_keyboard_mode(0); TKeyBoardControl::reset(); }
 
-#undef area_transfer_pending_flag
 s32 get_main_phase();
 s32 is_quest_active();
 void apply_phase_keyboard_mode(void);
@@ -806,9 +804,7 @@ void TLobby::invoke_callback() {
 
 #undef main_phase_deferred_callback
 
-#define main_phase_deferred_callback (*(int *)&main_phase_deferred_callback)
-void TLobby::set_keyboard_mode(int a0) { main_phase_deferred_callback = a0; }
-#undef main_phase_deferred_callback
+void TLobby::set_keyboard_mode(int a0) { (*(int *)&main_phase_deferred_callback) = a0; }
 extern s32 *pending_file_read_handle_ref;
 extern s32 pending_file_read_sector_count;
 extern u32 pending_file_read_destination;
@@ -840,13 +836,7 @@ void TLobby::flush_checked_reads() {
     }
 }
 
-#define pending_file_read_handle_ref (*(int *)&pending_file_read_handle_ref)
-#define pending_file_read_sector_count (*(int *)&pending_file_read_sector_count)
-#define pending_file_read_destination (*(int *)&pending_file_read_destination)
-void TLobby::reset_read_state() { pending_file_read_handle_ref = 0; pending_file_read_sector_count = 0; pending_file_read_destination = 0; }
-#undef pending_file_read_handle_ref
-#undef pending_file_read_sector_count
-#undef pending_file_read_destination
+void TLobby::reset_read_state() { (*(int *)&pending_file_read_handle_ref) = 0; (*(int *)&pending_file_read_sector_count) = 0; (*(int *)&pending_file_read_destination) = 0; }
 void TLobby::clear_player_slot_tables(s32 n) {
     s32 i;
     if (n == -1) {
@@ -884,16 +874,9 @@ void set_draw_texture_and_color(void *, int);
 void TLobby__sub_800F8DD8(void);
 void TLobby__sub_800F8F34(void);
 
-#define pending_file_read_handle_ref (*(int *)&pending_file_read_handle_ref)
-#define pending_file_read_sector_count (*(int *)&pending_file_read_sector_count)
-#define pending_file_read_destination (*(int *)&pending_file_read_destination)
-void TLobby::set_read_params(int a0, int a1, int a2) { pending_file_read_handle_ref = a0; pending_file_read_sector_count = a1; pending_file_read_destination = a2; }
-#undef pending_file_read_handle_ref
-#undef pending_file_read_sector_count
-#undef pending_file_read_destination
+void TLobby::set_read_params(int a0, int a1, int a2) { (*(int *)&pending_file_read_handle_ref) = a0; (*(int *)&pending_file_read_sector_count) = a1; (*(int *)&pending_file_read_destination) = a2; }
 
-#define pending_file_read_flush_requested (*(int *)&pending_file_read_flush_requested)
-void TLobby__sub_800F8DD8(void) { pending_file_read_flush_requested = 1; }
+void TLobby__sub_800F8DD8(void) { (*(int *)&pending_file_read_flush_requested) = 1; }
 
     extern unsigned char lobby_state_byte_flag;
 
@@ -939,12 +922,11 @@ void TLobby__sub_800F8F34(void) { lobby_state_byte_flag = 1; }
 
 #pragma push
 
-#define lobby_state_byte_flag (*(s8 *)&lobby_state_byte_flag)
 extern u8 lobby_wait_ready_flag;
 
 void TLobby::reset_state_byte() {
     if ((u8) lobby_wait_ready_flag == 0) {
-        lobby_state_byte_flag = 0;
+        (*(s8 *)&lobby_state_byte_flag) = 0;
     }
 }
 
@@ -952,7 +934,6 @@ void TLobby::reset_state_byte() {
 
 #pragma pop
 
-#undef lobby_state_byte_flag
 #pragma push
 
 #include "pso/TAdPlayerLoadGC.h"
@@ -963,17 +944,15 @@ extern "C" {
 
 s32 TLobby__sub_801384E4();
 
-#define lobby_wait_ready_flag (*(s8 *)&lobby_wait_ready_flag)
-
 void TLobby::wait_ready_loop() {
-    lobby_wait_ready_flag = 0;
+    (*(s8 *)&lobby_wait_ready_flag) = 0;
 loop_1:
     if (TLobby::run_disk_error_check() != 1) {
         if (get_main_phase() == 0xF) {
             TLobby__sub_801384E4();
         }
         TAdPlayerLoadGC::set_state(1);
-        lobby_wait_ready_flag = 1;
+        (*(s8 *)&lobby_wait_ready_flag) = 1;
         render_tick();
         goto loop_1;
     }
@@ -1054,7 +1033,7 @@ s32 TLobby::run_disk_error_check() {
         break;
     case 1:
         controller_stuff();
-        if (pending_file_read_flush_requested != 0 && (TKeyBoardControl::check_reset_button() != 0 || func_801A5E54__Fv() != 0)) {
+        if ((*(int *)&pending_file_read_flush_requested) != 0 && (TKeyBoardControl::check_reset_button() != 0 || func_801A5E54__Fv() != 0)) {
             system_reset();
         }
         break;
@@ -1132,5 +1111,4 @@ s32 TLobby::run_disk_error_check() {
 
 #pragma pop
 
-#undef lobby_wait_ready_flag
 #undef pending_file_read_flush_requested

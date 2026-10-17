@@ -59,7 +59,6 @@ int TAdSinglePlyChrSelectGC__sub_8033B244(void* p);
 s32 call_funcs_reverse__6TLobbyFPvUi(void *, int);
 s32 delete_all_task_children__9TMainTaskFv(void *);
 extern void *character_select_scene_resource_callbacks[];
-#define character_select_scene_resource_callbacks (*(RecoveredGlobal_8033B264_lbl_804EF728 *)&character_select_scene_resource_callbacks)
 void TAdSinglePlyChrSelectGC__sub_8033B264(void);
 s32 TWindow__close(void *);
 int check_room_seq_4__16TAdChrSelASlotGCFl(void*, void*);
@@ -381,7 +380,7 @@ void TAdSinglePlyChrSelectGC__sub_8033B264(void) {
     delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8033B264_main_task *)&main_task).value));
     TLobby::stop_audio_streams();
     TLobby::set_and_notify((int) (0));
-    call_funcs_reverse__6TLobbyFPvUi((void *) (&character_select_scene_resource_callbacks.value), (int) (0x30));
+    call_funcs_reverse__6TLobbyFPvUi((void *) (&(*(RecoveredGlobal_8033B264_lbl_804EF728 *)&character_select_scene_resource_callbacks).value), (int) (0x30));
     render_tick();
 }
 
@@ -417,7 +416,7 @@ void init_single_player_char_select_scene(void) {
     u32 p;
     set_copy_clear_color_argb(0, 0, 0);
     reset_controller_input_state();
-    run_load_callback_table(&character_select_scene_resource_callbacks, 0x30);
+    run_load_callback_table(&(*(RecoveredGlobal_8033B264_lbl_804EF728 *)&character_select_scene_resource_callbacks), 0x30);
     init_menu_scene_lights(default_scene_light_config, 4);
     p = __nw__7TObjectFUl(0x1D4);
     if (p != 0) {
@@ -462,7 +461,6 @@ typedef char RecoveredGlobal_8033B264_main_task_size[sizeof(RecoveredGlobal_8033
 
 #pragma pop
 
-#undef character_select_scene_resource_callbacks
 #pragma push
 
 #include "pso/misc/TWindowCtrlMain.h"

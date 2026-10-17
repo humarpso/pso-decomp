@@ -14,7 +14,6 @@ extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" __declspec(section ".data") s32 lappy_variant_speed_ptr_table[2];
 #define lappy_variant_speed_ptr_table ((f32 * *)lappy_variant_speed_ptr_table)
 extern "C" void * rappy_variant_speed_table[40];
-#define rappy_variant_speed_table (*(G_800BFCD4 *)&rappy_variant_speed_table)
 
 #define CAT2(a,b) a##b
 #define CAT(a,b) CAT2(a,b)
@@ -410,8 +409,8 @@ void TObjEneLappy::apply_variant_speeds() {
     }
     self->fa4->fc = lappy_variant_speed_ptr_table[self->f368][0];
     p = lappy_variant_speed_ptr_table[self->f368];
-    rappy_variant_speed_table.f68 = p[1];
-    rappy_variant_speed_table.f88 = p[2];
+    (*(G_800BFCD4 *)&rappy_variant_speed_table).f68 = p[1];
+    (*(G_800BFCD4 *)&rappy_variant_speed_table).f88 = p[2];
 }
 
 s32 TObjEneLappy::advance_flee_step() {
@@ -1133,7 +1132,6 @@ void run_task__12TObjEneLappyFPv(u8 *arg0) {
 #undef set_speed_params__12TObjEneLappyFl
 #undef sub_800C20C0__12TObjEneLappyFv
 
-#undef rappy_variant_speed_table
 #undef lappy_variant_speed_ptr_table
 
 void *TObjControl__ct(void *, void *);
@@ -1162,7 +1160,6 @@ void *TObjEneLappy::create(void *arg0) {
 
 #undef TObjEneLappy__ct
 
-#define rappy_visibility_node (*(s32 *)&rappy_visibility_node)
 #define update_action_hold__12TObjEneLappyFi (*(void (*)())&update_action_hold__12TObjEneLappyFi)
 #define try_clear_flags_60__10TObjPlayerFi (*(void (*)())&try_clear_flags_60__10TObjPlayerFi)
 #define set_action_state_3__10TObjPlayerFPv (*(void (*)())&set_action_state_3__10TObjPlayerFPv)
@@ -1718,22 +1715,20 @@ extern const Desc_800C17B8 lappy_resource_binding_desc;
 extern s32 game_difficulty_selection;
 extern s32 TLobby__event_theme_id;
 extern s32 rappy_alternate_texture_list;
-#define rappy_bml_resource (*(u32 *)&rappy_bml_resource)
-#define rappy_alternate_texture_list (*(u32 *)&rappy_alternate_texture_list)
 
 void TLobby::cleanup_handles() {
     if (TLobby::get_instance() == 0) {
-        if ((u32) rappy_alternate_texture_list != 0U) {
-            TLobby__sub_803DA16C((void*)rappy_alternate_texture_list);
-            TAdSinglePlyChrSelectGC::safe_free(rappy_alternate_texture_list);
-            rappy_alternate_texture_list = 0U;
+        if ((u32) (*(u32 *)&rappy_alternate_texture_list) != 0U) {
+            TLobby__sub_803DA16C((void*)(*(u32 *)&rappy_alternate_texture_list));
+            TAdSinglePlyChrSelectGC::safe_free((*(u32 *)&rappy_alternate_texture_list));
+            (*(u32 *)&rappy_alternate_texture_list) = 0U;
         }
     } else {
-        rappy_alternate_texture_list = 0U;
+        (*(u32 *)&rappy_alternate_texture_list) = 0U;
     }
-    if ((u32) rappy_bml_resource != 0U) {
-        TLobby__sub_8001FE7C((void*)rappy_bml_resource, 1);
-        rappy_bml_resource = 0U;
+    if ((u32) (*(u32 *)&rappy_bml_resource) != 0U) {
+        TLobby__sub_8001FE7C((void*)(*(u32 *)&rappy_bml_resource), 1);
+        (*(u32 *)&rappy_bml_resource) = 0U;
     }
 }
 
@@ -1754,13 +1749,13 @@ void TObjEneLappy::load_resources() {
                 if (p != 0) {
                     p = load_resource_from_descriptor(p, 1, lbl_80492E08, 0, 0, 0);
                 }
-                rappy_bml_resource = p;
+                (*(u32 *)&rappy_bml_resource) = p;
             } else {
                 p = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
                 if (p != 0) {
                     p = load_resource_from_descriptor(p, 1, lbl_80492DC0, 0, 0, 0);
                 }
-                rappy_bml_resource = p;
+                (*(u32 *)&rappy_bml_resource) = p;
             }
             break;
         case 4:
@@ -1770,13 +1765,13 @@ void TObjEneLappy::load_resources() {
                 if (p != 0) {
                     p = load_resource_from_descriptor(p, 1, lbl_80492CE8, 0, 0, 0);
                 }
-                rappy_bml_resource = p;
+                (*(u32 *)&rappy_bml_resource) = p;
             } else {
                 p = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
                 if (p != 0) {
                     p = load_resource_from_descriptor(p, 1, lbl_80492CA0, 0, 0, 0);
                 }
-                rappy_bml_resource = p;
+                (*(u32 *)&rappy_bml_resource) = p;
             }
             break;
         case 5:
@@ -1786,13 +1781,13 @@ void TObjEneLappy::load_resources() {
                 if (p != 0) {
                     p = load_resource_from_descriptor(p, 1, lbl_80492D78, 0, 0, 0);
                 }
-                rappy_bml_resource = p;
+                (*(u32 *)&rappy_bml_resource) = p;
             } else {
                 p = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
                 if (p != 0) {
                     p = load_resource_from_descriptor(p, 1, lbl_80492D30, 0, 0, 0);
                 }
-                rappy_bml_resource = p;
+                (*(u32 *)&rappy_bml_resource) = p;
             }
             break;
         default:
@@ -1802,13 +1797,13 @@ void TObjEneLappy::load_resources() {
                 if (p != 0) {
                     p = load_resource_from_descriptor(p, 1, lbl_80492C58, 0, 0, 0);
                 }
-                rappy_bml_resource = p;
+                (*(u32 *)&rappy_bml_resource) = p;
             } else {
                 p = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
                 if (p != 0) {
                     p = load_resource_from_descriptor(p, 1, lbl_80492C10, 0, 0, 0);
                 }
-                rappy_bml_resource = p;
+                (*(u32 *)&rappy_bml_resource) = p;
             }
             break;
         }
@@ -1819,25 +1814,25 @@ void TObjEneLappy::load_resources() {
             if (p != 0) {
                 p = load_resource_from_descriptor(p, 1, lbl_80492C58, 0, 0, 0);
             }
-            rappy_bml_resource = p;
+            (*(u32 *)&rappy_bml_resource) = p;
         } else {
             p = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
             if (p != 0) {
                 p = load_resource_from_descriptor(p, 1, lbl_80492C10, 0, 0, 0);
             }
-            rappy_bml_resource = p;
+            (*(u32 *)&rappy_bml_resource) = p;
         }
     }
     if (TLobby::get_instance() == 0) {
         if (rare) {
-            rappy_alternate_texture_list = load_gvm_texture_file(lbl_8043BA28);
+            (*(u32 *)&rappy_alternate_texture_list) = load_gvm_texture_file(lbl_8043BA28);
         } else {
-            rappy_alternate_texture_list = load_gvm_texture_file(lbl_8043BA44);
+            (*(u32 *)&rappy_alternate_texture_list) = load_gvm_texture_file(lbl_8043BA44);
         }
     } else {
-        rappy_alternate_texture_list = *(s32 *)(*(u8 **)(RES_800C17B8 + 0x42C) + 0x1C);
+        (*(u32 *)&rappy_alternate_texture_list) = *(s32 *)(*(u8 **)(RES_800C17B8 + 0x42C) + 0x1C);
     }
-    rappy_visibility_node = TBoss3Volopt::collect_and_count((u32)(*(s32 *)(*(u8 **)(RES_800C17B8 + 0x42C) + 8)), (s32)0x12);
+    (*(s32 *)&rappy_visibility_node) = TBoss3Volopt::collect_and_count((u32)(*(s32 *)(*(u8 **)(RES_800C17B8 + 0x42C) + 8)), (s32)0x12);
     for (i = 0; i < 2; i++) {
         lappy_boss_stats_handles[i] = register_boss__6TLobbyFl(i + 0x18);
         lappy_boss_stats_ptrs_b[i] = dispatch_shared_handler_b__6TLobbyFl(i + 0x18);
@@ -1851,7 +1846,7 @@ void TObjEneLappy::load_resources() {
         spawn_npc_enemy__6TLobbyFslllff(5, *(s32 *)(*(u8 **)(RES_800C17B8 + 0x42C) + 8),
                                         *(s32 *)(*(u8 **)(RES_800C17B8 + 0x42C) + 0xC), &d, lbl_805D9F28, lbl_805D9F4C);
         if (TLobby::get_instance() == 0) {
-            spawn_npc_enemy__6TLobbyFslllff(6, *(s32 *)(*(u8 **)(RES_800C17B8 + 0x42C) + 8), rappy_alternate_texture_list, &d,
+            spawn_npc_enemy__6TLobbyFslllff(6, *(s32 *)(*(u8 **)(RES_800C17B8 + 0x42C) + 8), (*(u32 *)&rappy_alternate_texture_list), &d,
                                             lbl_805D9F28, lbl_805D9F4C);
         } else {
             spawn_npc_enemy__6TLobbyFslllff(6, *(s32 *)(*(u8 **)(RES_800C17B8 + 0x42C) + 0x18),
@@ -1861,8 +1856,6 @@ void TObjEneLappy::load_resources() {
 }
 
 #undef RES_800C17B8
-#undef rappy_bml_resource
-#undef rappy_alternate_texture_list
 
 void *__dt__12TObjEneLappyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -1896,7 +1889,7 @@ u8 *TObjEneLappy__ct(u8 *self, s32 arg1, Set_800C1C4C *set) {
     if (calc_boss4_scale__10TObjPlayerFi(self) < lbl_805D9F94) {
         *(s32 *)(self + 0x368) = 1;
         if (TLobby::get_instance() == 1) {
-            rappy_visibility_node = TBoss3Volopt::collect_and_count((u32)(*(void **)(*(u8 **)((u8 *)rappy_bml_resource + 0x42C) + 0x18)), (s32)0x12);
+            (*(s32 *)&rappy_visibility_node) = TBoss3Volopt::collect_and_count((u32)(*(void **)(*(u8 **)((u8 *)rappy_bml_resource + 0x42C) + 0x18)), (s32)0x12);
         }
     }
     if (*(s32 *)(self + 0x368) == 0) {
@@ -2181,5 +2174,3 @@ void TObjPlayer__sub_800C220C(Obj_800C220C *o) {
 #undef set_action_state_3__10TObjPlayerFPv
 #undef try_clear_flags_60__10TObjPlayerFi
 #undef update_action_hold__12TObjEneLappyFi
-
-#undef rappy_visibility_node

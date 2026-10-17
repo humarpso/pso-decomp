@@ -1642,8 +1642,6 @@ void TObjEneBm3Fly__vt87(void* p) { vfunc_89__9TObjEneDDFv(p); clamp_flight_heig
 #undef find_entity_by_id
 #undef clamp_flight_height__13TObjEneBm3FlyFv
 
-#define lbl_805D50EC (*(f32 * *)&lbl_805D50EC)
-#define TObjEneBm3Fly__breakup_model (*(void * *)&TObjEneBm3Fly__breakup_model)
 #define VBase_18 VBase_18__p3
 #define VObj_18 VObj_18__p3
 
@@ -2178,7 +2176,7 @@ void update_state_flag__13TObjEneBm3FlyFPv(void *arg0) {
     void *temp_r5;
 
     temp_r5 = *(void **)((s8 *)arg0 + 0x350);
-    if (TObjEneEpsilon__sub_800B92F8(arg0, *(void **)((s8 *)temp_r5 + 8), *lbl_805D50EC) != 0U) {
+    if (TObjEneEpsilon__sub_800B92F8(arg0, *(void **)((s8 *)temp_r5 + 8), *(*(f32 **)&lbl_805D50EC)) != 0U) {
         *(s32 *)((s8 *)arg0 + 0x428) = (s32) (*(s32 *)((s8 *)arg0 + 0x428) | 2);
         return;
     }
@@ -2470,12 +2468,12 @@ u8 *TObjEneBm3Fly__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *arg5
 }
 
 void TObjEneBm3Fly::release_shared_data() {
-    void *obj = TObjEneBm3Fly__breakup_model;
+    void *obj = (*(void **)&TObjEneBm3Fly__breakup_model);
     if (obj != NULL) {
         if (obj != NULL) {
             ((VObj_800B2214_800B1978 *)obj)->m2(1);
         }
-        TObjEneBm3Fly__breakup_model = NULL;
+        (*(void **)&TObjEneBm3Fly__breakup_model) = NULL;
     }
 }
 
@@ -2503,11 +2501,11 @@ void TObjEneBm3Fly::load_resources() {
     if (var_r0 != 0) {
         var_r0 = init_from_model__11TBreakUpMdlFl((int) (temp_r3), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)bm3_fly_nest_resources + 0x42C)) + 8)));
     }
-    (*(s32 *)&TObjEneBm3Fly__breakup_model) = var_r0;
+    (*(s32 *)&(*(void **)&TObjEneBm3Fly__breakup_model)) = var_r0;
     bm3_fly_boss_stat_handle = register_boss__6TLobbyFl((int) (0));
     TObjEneBm3Fly__attack_params = dispatch_shared_handler_b__6TLobbyFl((int) (0));
     lbl_805D50E8 = register_object__6TLobbyFl((int) (0));
-    (*(s32 *)&lbl_805D50EC) = dispatch_shared_handler_a__6TLobbyFl((int) (0));
+    (*(s32 *)&(*(f32 **)&lbl_805D50EC)) = dispatch_shared_handler_a__6TLobbyFl((int) (0));
     stack.sp8 = *(s32 *)((s8 *)(&bm3_fly_resource_binding_desc.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&bm3_fly_resource_binding_desc.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&bm3_fly_resource_binding_desc.value) + 8);
@@ -2559,5 +2557,4 @@ void TObjEneBm3Fly::load_resources() {
 #undef VBase_18
 #undef VObj_18
 
-#undef TObjEneBm3Fly__breakup_model
 #undef lbl_805D50EC

@@ -346,14 +346,6 @@ void TObjEneDimedian::free_boss_objects() {
     }
 }
 
-#define dimedian_boss_object_buf (*(s32 **)&dimedian_boss_object_buf)
-#define lbl_805D5074 (*(s32 **)&lbl_805D5074)
-#define TObjEneDimedian__boss_objects (*(s32 **)&TObjEneDimedian__boss_objects)
-#define dimedian_buffer_ptr (*(s32 **)&dimedian_buffer_ptr)
-#define dimedian_resource_ptr (*(u8 **)&dimedian_resource_ptr)
-#define dimedian_type3_object (*(void **)&dimedian_type3_object)
-#define lbl_805D5088 (*(void **)&lbl_805D5088)
-
 #define RES_800A8118 ((Res_800A8118 *)dimedian_resource_ptr)
 #define dimedian_resource_descriptor ((u8 *)dimedian_resource_descriptor)
 #define dimedian_action_table ((Act_800A8118 *)dimedian_action_table)
@@ -365,15 +357,15 @@ void TLobby::load_dimedian_resources() {
     void *p;
     s32 i;
     if (TObjEneDD::check_v2_mode() != 0) {
-        dimedian_resource_ptr = load_enemy_bml_resource_named(dimedian_resource_descriptor, lbl_8043AAA4);
+        (*(u8 **)&dimedian_resource_ptr) = load_enemy_bml_resource_named(dimedian_resource_descriptor, lbl_8043AAA4);
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, dimedian_resource_descriptor, 0, 0, 0);
         }
-        dimedian_resource_ptr = (u8 *)p;
+        (*(u8 **)&dimedian_resource_ptr) = (u8 *)p;
     }
-    r = *(u8 **)((s8 *)dimedian_resource_ptr + 0x42C);
+    r = *(u8 **)((s8 *)(*(u8 **)&dimedian_resource_ptr) + 0x42C);
     dimedian_resource_handles[0] = CHAIN_800A8118(*(u8 **)((s8 *)r + 0x8));
     dimedian_resource_handles[1] = CHAIN_800A8118(*(u8 **)((s8 *)r + 0x18));
     dimedian_resource_handles[2] = CHAIN_800A8118(*(u8 **)((s8 *)r + 0x28));
@@ -384,37 +376,37 @@ void TLobby::load_dimedian_resources() {
     if (p != NULL) {
         p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805D9AC0, lbl_805D9AA4, lbl_805D9AB8);
     }
-    dimedian_type3_object = p;
+    (*(void **)&dimedian_type3_object) = p;
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x18);
     if (p != NULL) {
         p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805D9AC0, lbl_805D9AA4, lbl_805D9AB8);
     }
-    lbl_805D5088 = p;
-    draw_trail_with_colors(dimedian_type3_object, RES_800A8118->bodies->model,
+    (*(void **)&lbl_805D5088) = p;
+    draw_trail_with_colors((*(void **)&dimedian_type3_object), RES_800A8118->bodies->model,
         RES_800A8118->motions[dimedian_action_table[3].idx].b, 5, 8);
-    draw_trail_with_colors(lbl_805D5088, RES_800A8118->bodies->model,
+    draw_trail_with_colors((*(void **)&lbl_805D5088), RES_800A8118->bodies->model,
         RES_800A8118->motions[dimedian_action_table[4].idx].b, 0xA, 0xD);
-    dimedian_boss_object_buf = mem_alloc(0xC);
-    lbl_805D5074 = mem_alloc(0xC);
-    TObjEneDimedian__boss_objects = mem_alloc(0xC);
-    dimedian_buffer_ptr = mem_alloc(0xC);
-    dimedian_boss_object_buf[0] = register_boss__6TLobbyFl(0x53);
-    dimedian_boss_object_buf[1] = register_boss__6TLobbyFl(0x54);
-    dimedian_boss_object_buf[2] = register_boss__6TLobbyFl(0x55);
-    lbl_805D5074[0] = dispatch_shared_handler_b__6TLobbyFl(0x5A);
-    lbl_805D5074[1] = dispatch_shared_handler_b__6TLobbyFl(0x5B);
-    lbl_805D5074[2] = dispatch_shared_handler_b__6TLobbyFl(0x5C);
-    TObjEneDimedian__boss_objects[0] = register_object__6TLobbyFl(0x52);
-    TObjEneDimedian__boss_objects[1] = register_object__6TLobbyFl(0x53);
-    TObjEneDimedian__boss_objects[2] = register_object__6TLobbyFl(0x54);
-    dimedian_buffer_ptr[0] = dispatch_shared_handler_a__6TLobbyFl(0x52);
-    dimedian_buffer_ptr[1] = dispatch_shared_handler_a__6TLobbyFl(0x53);
-    dimedian_buffer_ptr[2] = dispatch_shared_handler_a__6TLobbyFl(0x54);
+    (*(s32 **)&dimedian_boss_object_buf) = mem_alloc(0xC);
+    (*(s32 **)&lbl_805D5074) = mem_alloc(0xC);
+    (*(s32 **)&TObjEneDimedian__boss_objects) = mem_alloc(0xC);
+    (*(s32 **)&dimedian_buffer_ptr) = mem_alloc(0xC);
+    (*(s32 **)&dimedian_boss_object_buf)[0] = register_boss__6TLobbyFl(0x53);
+    (*(s32 **)&dimedian_boss_object_buf)[1] = register_boss__6TLobbyFl(0x54);
+    (*(s32 **)&dimedian_boss_object_buf)[2] = register_boss__6TLobbyFl(0x55);
+    (*(s32 **)&lbl_805D5074)[0] = dispatch_shared_handler_b__6TLobbyFl(0x5A);
+    (*(s32 **)&lbl_805D5074)[1] = dispatch_shared_handler_b__6TLobbyFl(0x5B);
+    (*(s32 **)&lbl_805D5074)[2] = dispatch_shared_handler_b__6TLobbyFl(0x5C);
+    (*(s32 **)&TObjEneDimedian__boss_objects)[0] = register_object__6TLobbyFl(0x52);
+    (*(s32 **)&TObjEneDimedian__boss_objects)[1] = register_object__6TLobbyFl(0x53);
+    (*(s32 **)&TObjEneDimedian__boss_objects)[2] = register_object__6TLobbyFl(0x54);
+    (*(s32 **)&dimedian_buffer_ptr)[0] = dispatch_shared_handler_a__6TLobbyFl(0x52);
+    (*(s32 **)&dimedian_buffer_ptr)[1] = dispatch_shared_handler_a__6TLobbyFl(0x53);
+    (*(s32 **)&dimedian_buffer_ptr)[2] = dispatch_shared_handler_a__6TLobbyFl(0x54);
     {
         s16 ids[3] = { 0x1B, 0x1C, 0x1D };
         Anim_800A8118 anim = { (s32)RES_800A8118->motions, dimedian_action_table, 2, 0xC0000 };
         for (i = 0; i < 3; i++) {
-            u8 *b = *(u8 **)((s8 *)dimedian_resource_ptr + 0x42C) + i * 0x10;
+            u8 *b = *(u8 **)((s8 *)(*(u8 **)&dimedian_resource_ptr) + 0x42C) + i * 0x10;
             spawn_npc_enemy__6TLobbyFslllff(ids[i], *(s32 *)((s8 *)b + 8), *(s32 *)((s8 *)b + 0xC), &anim,
                 dimedian_collision_body_table[i].radius, lbl_805D9AC4);
         }
@@ -470,13 +462,13 @@ void *TObjEneDimedian__ct(void *arg0_, void *arg1_, void *arg2_) {
     ((TObjEneDimedian *)arg0)->load_dimedian_param_entry(*(s32 *)((s8 *)arg0 + 0x368));
     *(u8 **)((s8 *)arg0 + 0xD8) = dimedian_action_table;
     ((TObjPlayer *)arg0)->set_field_d8((s32)(*(u8 **)((s8 *)arg0 + 0xD8)));
-    *(s32 *)((s8 *)arg0 + 0xDC) = *(s32 *)((s8 *)dimedian_resource_ptr + 0x430);
+    *(s32 *)((s8 *)arg0 + 0xDC) = *(s32 *)((s8 *)(*(u8 **)&dimedian_resource_ptr) + 0x430);
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
     ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
     init_collision_body_parts(arg0, dimedian_collision_body_table + *(s32 *)((s8 *)arg0 + 0x334) * 0x2C, 1);
-    bind_enemy_combat_stats(arg0, dimedian_boss_object_buf[*(s32 *)((s8 *)arg0 + 0x334)],
-        lbl_805D5074[*(s32 *)((s8 *)arg0 + 0x334)], TObjEneDimedian__boss_objects[*(s32 *)((s8 *)arg0 + 0x334)]);
+    bind_enemy_combat_stats(arg0, (*(s32 **)&dimedian_boss_object_buf)[*(s32 *)((s8 *)arg0 + 0x334)],
+        (*(s32 **)&lbl_805D5074)[*(s32 *)((s8 *)arg0 + 0x334)], (*(s32 **)&TObjEneDimedian__boss_objects)[*(s32 *)((s8 *)arg0 + 0x334)]);
     *(u8 **)((s8 *)arg0 + 0x350) = dimedian_movement_params + *(s32 *)((s8 *)arg0 + 0x334) * 0x1C;
     *(s16 *)((s8 *)arg0 + 0x33E) = *(s16 *)((s8 *)arg0 + 0x32C);
     ((TObjEnemy *)arg0)->update_prev_position();
@@ -523,10 +515,10 @@ void *TObjEneDimedian__ct(void *arg0_, void *arg1_, void *arg2_) {
     *(s32 *)((s8 *)arg0 + 0x3C4) = create__12TObjEneSaverFPvPv(0xA0303030, color);
     *(s32 *)((s8 *)arg0 + 0x3C8) = create__12TObjEneSaverFPvPv(0xA0303030, color);
     *(s32 *)((s8 *)arg0 + 0x390) = 1;
-    *(f32 *)((s8 *)arg0 + 0x398) = ((f32 **)dimedian_buffer_ptr)[*(s32 *)((s8 *)arg0 + 0x334)][0];
-    *(f32 *)((s8 *)arg0 + 0x3A0) = ((f32 **)dimedian_buffer_ptr)[*(s32 *)((s8 *)arg0 + 0x334)][1];
-    *(f32 *)((s8 *)arg0 + 0x39C) = ((f32 **)dimedian_buffer_ptr)[*(s32 *)((s8 *)arg0 + 0x334)][2];
-    *(f32 *)((s8 *)arg0 + 0x3A4) = ((f32 **)dimedian_buffer_ptr)[*(s32 *)((s8 *)arg0 + 0x334)][3];
+    *(f32 *)((s8 *)arg0 + 0x398) = ((f32 **)(*(s32 **)&dimedian_buffer_ptr))[*(s32 *)((s8 *)arg0 + 0x334)][0];
+    *(f32 *)((s8 *)arg0 + 0x3A0) = ((f32 **)(*(s32 **)&dimedian_buffer_ptr))[*(s32 *)((s8 *)arg0 + 0x334)][1];
+    *(f32 *)((s8 *)arg0 + 0x39C) = ((f32 **)(*(s32 **)&dimedian_buffer_ptr))[*(s32 *)((s8 *)arg0 + 0x334)][2];
+    *(f32 *)((s8 *)arg0 + 0x3A4) = ((f32 **)(*(s32 **)&dimedian_buffer_ptr))[*(s32 *)((s8 *)arg0 + 0x334)][3];
     for (i = 0; i < 4; i++) {
         ((TObjPlayer *)(&((Self_800A8530 *)arg0)->subs[i]))->activate_and_dispatch();
     }

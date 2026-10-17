@@ -616,13 +616,9 @@ void TObjEneMe3Stelth::render() {
 #undef TObjEneMe3Stelth__material_color_pointers
 #undef sub_800F47D4__16TObjEneMe3StelthFv
 #undef draw_model__16TObjEneMe3StelthFPv
-#define TObjEneMe3Stelth__render_node_index (*(int *)&TObjEneMe3Stelth__render_node_index)
-#define stelth_projection_texture_handle (*(int *)&stelth_projection_texture_handle)
-void TObjEneMe3Stelth::add_instance() { ((TOTrapAncient02 *)stelth_projection_texture_handle)->load_projection_tex_matrix(); TObjEneMe3Stelth__render_node_index = (TObjEneMe3Stelth__render_node_index + 0x1); }
+void TObjEneMe3Stelth::add_instance() { ((TOTrapAncient02 *)(*(int *)&stelth_projection_texture_handle))->load_projection_tex_matrix(); (*(int *)&TObjEneMe3Stelth__render_node_index) = ((*(int *)&TObjEneMe3Stelth__render_node_index) + 0x1); }
 
 }
-#undef TObjEneMe3Stelth__render_node_index
-#undef stelth_projection_texture_handle
 
 typedef struct { f32 x, y, z; } Vec_800F290C;
 struct VBase_18 { char pad[0x18]; };
@@ -3162,8 +3158,6 @@ s32 push_matrix_from(void *);
 #define TObjEneMe3Stelth__behavior_params_by_variant ((Info_800F4700 * *)&TObjEneMe3Stelth__behavior_params_by_variant)
 extern u8 *TObjEneMe3Stelth__bml_resource;
 extern s32 __vt__16TObjEneMe3Stelth[];
-#define lbl_805010E0 (*(Tbl_800F5124 *)&lbl_805010E0)
-#define TObjEneMe3Stelth__alternate_texture_list (*(RecoveredGlobal_800F4758_lbl_8050110C *)&TObjEneMe3Stelth__alternate_texture_list)
 extern u8 identity_matrix[];
 extern const f32 lbl_805DA814;
 extern const f32 lbl_805DA81C;
@@ -3438,7 +3432,7 @@ void create_resta_effect__16TObjEneMe3StelthFPv(Obj_800F4700 *self) {
 void TObjEneMe3Stelth::sub_800F4758() {
     u8 *arg0 = (u8 *)this;
     if (((s32 (*)(void *))sub_800F47D4__16TObjEneMe3StelthFv)((void *) (arg0)) != 0) {
-        *(s32 **)((s8 *)arg0 + 0x24) = &TObjEneMe3Stelth__alternate_texture_list.value;
+        *(s32 **)((s8 *)arg0 + 0x24) = &(*(RecoveredGlobal_800F4758_lbl_8050110C *)&TObjEneMe3Stelth__alternate_texture_list).value;
         initialize_enemy_state__9TObjEneDDFv((void *) (arg0), (int) (0x3F));
         *(s32 *)((s8 *)arg0 + 0x3C8) = 1;
         return;
@@ -3766,8 +3760,6 @@ void TObjEneMe3StelthReal::init_common() {
 #undef sin_table_lookup
 #undef cos_table_lookup
 #undef TObjEneMe3Stelth__behavior_params_by_variant
-#undef lbl_805010E0
-#undef TObjEneMe3Stelth__alternate_texture_list
 #undef sub_800F5864__12TObjEneDD_STFl
 #undef sub_800F5874__12TObjEneDD_STFl
 void *TObjEneMe3Stelth__ct(void *arg0);
@@ -3795,14 +3787,10 @@ struct VB_800F5324 { u8 pad[0xC]; };
 struct VO_800F5324 : VB_800F5324 { virtual ~VO_800F5324(); };
 
 extern "C" {
-#define TObjEneMe3Stelth__animation_descriptors (*(RecoveredGlobal_8031B170_lbl_804E8880 *)&TObjEneMe3Stelth__animation_descriptors)
 s32 TLobby__sub_8001FE7C(void *, s32);
 s32 __dt__11TBoss4Type3FPvs(void *, s32);
 s32 mem_free(void *);
 #define TObjEneMe3Stelth__alternate_texture_list ((void * *)&TObjEneMe3Stelth__alternate_texture_list)
-#define TObjEneMe3Stelth__bml_resource (*(void * *)&TObjEneMe3Stelth__bml_resource)
-#define TObjEneMe3Stelth__breakup_model (*(VO_800F5324 * *)&TObjEneMe3Stelth__breakup_model)
-#define TObjEneMe3Stelth__trail_buffer (*(void * *)&TObjEneMe3Stelth__trail_buffer)
 typedef struct RecoveredGlobal_8031B170_lbl_804E8880 RecoveredGlobal_8031B170_lbl_804E8880;
 typedef char RecoveredGlobal_8031B170_lbl_804E8880_size[((sizeof(RecoveredGlobal_8031B170_lbl_804E8880)) == 0xD0) ? (1) : (-1)];
 void TObjEneMe3Stelth::set_slot_min_clamped_value(s32 arg0, f32 farg0) {
@@ -3813,34 +3801,30 @@ void TObjEneMe3Stelth::set_slot_min_clamped_value(s32 arg0, f32 farg0) {
   {
     var_f1 = lbl_805DA8AC;
   }
-  new_var = (u8 *) (&TObjEneMe3Stelth__animation_descriptors.value);
+  new_var = (u8 *) (&(*(RecoveredGlobal_8031B170_lbl_804E8880 *)&TObjEneMe3Stelth__animation_descriptors).value);
   new_var = new_var + (arg0 * 0x10);
   *((f32 *) (((s8 *) new_var) + 8)) = var_f1;
 }
 void TObjEneMe3Stelth::free_shared_resources() {
-    if (TObjEneMe3Stelth__trail_buffer != 0) {
-        __dt__11TBoss4Type3FPvs(TObjEneMe3Stelth__trail_buffer, 1);
-        TObjEneMe3Stelth__trail_buffer = 0;
+    if ((*(void **)&TObjEneMe3Stelth__trail_buffer) != 0) {
+        __dt__11TBoss4Type3FPvs((*(void **)&TObjEneMe3Stelth__trail_buffer), 1);
+        (*(void **)&TObjEneMe3Stelth__trail_buffer) = 0;
     }
-    if (TObjEneMe3Stelth__breakup_model != 0) {
-        delete TObjEneMe3Stelth__breakup_model;
-        TObjEneMe3Stelth__breakup_model = 0;
+    if ((*(VO_800F5324 **)&TObjEneMe3Stelth__breakup_model) != 0) {
+        delete (*(VO_800F5324 **)&TObjEneMe3Stelth__breakup_model);
+        (*(VO_800F5324 **)&TObjEneMe3Stelth__breakup_model) = 0;
     }
     if (TObjEneMe3Stelth__alternate_texture_list[0] != 0) {
         mem_free(TObjEneMe3Stelth__alternate_texture_list[0]);
         TObjEneMe3Stelth__alternate_texture_list[0] = 0;
     }
-    if (TObjEneMe3Stelth__bml_resource != 0) {
-        TLobby__sub_8001FE7C(TObjEneMe3Stelth__bml_resource, 1);
-        TObjEneMe3Stelth__bml_resource = 0;
+    if ((*(void **)&TObjEneMe3Stelth__bml_resource) != 0) {
+        TLobby__sub_8001FE7C((*(void **)&TObjEneMe3Stelth__bml_resource), 1);
+        (*(void **)&TObjEneMe3Stelth__bml_resource) = 0;
     }
 }
 
-#undef TObjEneMe3Stelth__animation_descriptors
 #undef TObjEneMe3Stelth__alternate_texture_list
-#undef TObjEneMe3Stelth__bml_resource
-#undef TObjEneMe3Stelth__breakup_model
-#undef TObjEneMe3Stelth__trail_buffer
 int create__20TObjEneMe3StelthRealFPv(void*);
 
 int TObjEneMe3Stelth::create_real() { return create__20TObjEneMe3StelthRealFPv(this); }

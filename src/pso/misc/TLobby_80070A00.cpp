@@ -93,10 +93,9 @@ u8 is_flag_set__6TLobbyFv(void);
 s32 mix_seed_checked__6TLobbyFi(s32);
 void TLobby__sub_80070B34(s32 v);
 void set_split_screen_flag__6TLobbyFv(void);
-#define challenge_task (*(s32 *)&challenge_task)
 
 u8 is_flag_set__6TLobbyFv(void) {
-    return (u8) (challenge_task != 0);
+    return (u8) ((*(s32 *)&challenge_task) != 0);
 }
 
     extern int chat_last_line_buffer;
@@ -132,7 +131,6 @@ typedef char RecoveredGlobal_80399928_lbl_804F5900_size[sizeof(RecoveredGlobal_8
 }
 
 #undef challenge_mode_state
-#undef challenge_task
 
 struct RecoveredGlobal_80070BE8_lbl_8048C9D8 {
     s32 value;
@@ -147,7 +145,6 @@ extern "C" {
 
 void TLobby__sub_80070BE8(s32 arg0);
 void TLobby__sub_8026A328(void *);
-#define challenge_task (*(H_80070C50 **)&challenge_task)
 void TLobby__sub_80070C50(void);
 s32 TLobby::get_state() {
     if (((s32 (*)(void))is_flag_set__6TLobbyFv)() == 0) {
@@ -174,7 +171,7 @@ void TLobby__sub_80070BE8(s32 arg0) {
 void TLobby__sub_80070C50(void) {
     s32 i;
     H_80070C50 *q;
-    H_80070C50 *p = challenge_task;
+    H_80070C50 *p = (*(H_80070C50 **)&challenge_task);
     if (p != NULL) {
         (*(G_80070C50 *)&challenge_mode_state).fc = 0;
         (*(G_80070C50 *)&challenge_mode_state).f20 = 0;
@@ -186,16 +183,14 @@ void TLobby__sub_80070C50(void) {
             (*(G_80070C50 *)&challenge_mode_state).a680[i] = 0;
         }
         p->f20 = 0;
-        challenge_task->f24 = 0;
-        q = challenge_task;
+        (*(H_80070C50 **)&challenge_task)->f24 = 0;
+        q = (*(H_80070C50 **)&challenge_task);
         q->f28 = 1;
         TLobby__sub_8026A328(q);
     }
 }
 
 }
-
-#undef challenge_task
 
 struct RecoveredGlobal_80070F4C_lbl_8048C9D8 {
     s32 value;

@@ -370,7 +370,6 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
 #define update_drop__20TBoss3VoloptHiraisinFPv ((s32 (*)())update_drop__20TBoss3VoloptHiraisinFPv)
 #define TBoss3VoloptHiraisin__sub_80041314 ((s32 (*)())TBoss3VoloptHiraisin__sub_80041314)
 #define fn_80040FDC ((s32 (*)())fn_80040FDC)
-#define TBoss3VoloptHiraisin__breakup_model (*(void **)&TBoss3VoloptHiraisin__breakup_model)
 
 struct Base_8004172C_8004155C { char pad[0xC]; };
 struct VObj_8004172C_8004155C : Base_8004172C_8004155C {
@@ -521,11 +520,11 @@ void run_task__20TBoss3VoloptHiraisinFv(u8 *arg0) {
 }
 
 void destroy__20TBoss3VoloptHiraisinFv(void) {
-    struct VObj_8004172C_8004155C *o = (struct VObj_8004172C_8004155C *)TBoss3VoloptHiraisin__breakup_model;
+    struct VObj_8004172C_8004155C *o = (struct VObj_8004172C_8004155C *)(*(void **)&TBoss3VoloptHiraisin__breakup_model);
     if (o != NULL) {
         o->m0(1);
     }
-    TBoss3VoloptHiraisin__breakup_model = NULL;
+    (*(void **)&TBoss3VoloptHiraisin__breakup_model) = NULL;
 }
 
 }
@@ -534,12 +533,10 @@ void destroy__20TBoss3VoloptHiraisinFv(void) {
 #undef update_drop__20TBoss3VoloptHiraisinFPv
 #undef TBoss3VoloptHiraisin__sub_80041314
 #undef fn_80040FDC
-#undef TBoss3VoloptHiraisin__breakup_model
 #define __vt__20TBoss3VoloptHiraisin ((s32 *)__vt__20TBoss3VoloptHiraisin)
 #define sub_800C7860__15TObjEnemyCustomFv ((void (*)(void *))sub_800C7860__15TObjEnemyCustomFv)
 #define TBoss3VoloptHiraisin__init_param_table (*(Param_800418C8 *)TBoss3VoloptHiraisin__init_param_table)
 #define play_sound_effect ((int (*)(int, void *, int, int))play_sound_effect)
-#define volopt_hiraisin_model_data (*(s32 **)&volopt_hiraisin_model_data)
 
 #include <stddef.h>
 #include "pso/enemy/TObjEneLappy.h"
@@ -758,7 +755,7 @@ void TBoss3VoloptHiraisin::init_models() {
 
     TBoss3VoloptHiraisin__resource_bundle = boss3_volopt_resources;
     temp_r3 = collect_and_count__12TBoss3VoloptFUll(get_bml_model(boss3_volopt_resources, 0x10), 0xB);
-    volopt_hiraisin_model_data = temp_r3;
+    (*(s32 **)&volopt_hiraisin_model_data) = temp_r3;
     *temp_r3 &= 0xFFFFFFFD;
     var_r31 = ((TAdSinglePlyChrSelectGC *)0x10)->alloc();
     if (var_r31 != 0) {
@@ -972,7 +969,6 @@ void TBoss3VoloptHiraisin__sub_80041D3C(Hira_80041D3C *self) {
 #undef sub_800C7860__15TObjEnemyCustomFv
 #undef TBoss3VoloptHiraisin__init_param_table
 #undef play_sound_effect
-#undef volopt_hiraisin_model_data
 
 #undef get_bml_model
 extern "C" void vfunc_65__15TObjEnemyCustomFll();

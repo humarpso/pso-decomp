@@ -159,20 +159,6 @@ extern const f32 lbl_805DD1B4 = 0.1794f;
 extern const f32 lbl_805DD1B8 = 100000.0f;
 extern const f32 lbl_805DD1BC = 0.5f;
 }
-#define lbl_805DD188 (*(const f32 *)&lbl_805DD188)
-#define lbl_805DD18C (*(const f32 *)&lbl_805DD18C)
-#define lbl_805DD190 (*(const f32 *)&lbl_805DD190)
-#define lbl_805DD194 (*(const f32 *)&lbl_805DD194)
-#define lbl_805DD198 (*(const f32 *)&lbl_805DD198)
-#define lbl_805DD19C (*(const f32 *)&lbl_805DD19C)
-#define lbl_805DD1A0 (*(const f32 *)&lbl_805DD1A0)
-#define lbl_805DD1A4 (*(const f32 *)&lbl_805DD1A4)
-#define lbl_805DD1A8 (*(const f32 *)&lbl_805DD1A8)
-#define lbl_805DD1AC (*(const f32 *)&lbl_805DD1AC)
-#define lbl_805DD1B0 (*(const f32 *)&lbl_805DD1B0)
-#define lbl_805DD1B4 (*(const f32 *)&lbl_805DD1B4)
-#define lbl_805DD1B8 (*(const f32 *)&lbl_805DD1B8)
-#define lbl_805DD1BC (*(const f32 *)&lbl_805DD1BC)
 
 void TWindowSubShortCutList::select_cursor_entry() {
     get_array_entry__13TUnk_804CE018Fi(this, *(s16 *)&this->unk_74);
@@ -197,11 +183,11 @@ void TWindowSubStatusDisp::clamp_scroll_offset() {
     Stack_80266EB8 stack;
     f32 temp_f1;
     if ((u32) *(u32 *)((s8 *)arg0 + 0x84) != 0U) {
-        stack.sp8 = lbl_805DD188;
-        temp_f1 = this->m_4c - lbl_805DD18C;
+        stack.sp8 = (*(const f32 *)&lbl_805DD188);
+        temp_f1 = this->m_4c - (*(const f32 *)&lbl_805DD18C);
         stack.spC = temp_f1;
         if ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) {
-            stack.spC = temp_f1 - lbl_805DD190;
+            stack.spC = temp_f1 - (*(const f32 *)&lbl_805DD190);
         }
         clamp_list_scroll_offset((int) (*(u32 *)((s8 *)arg0 + 0x84)), (void *) (arg0 + 0x68), (void *) (&stack.sp8));
     }
@@ -321,7 +307,7 @@ void TWindowSubStatusDisp::add_status_entry(s8 arg1, s32 src, s32 arg3) {
         }
         temp_r31 = ((void *(*)(void *, s16))get_array_entry__13TUnk_804CE018Fi)(this, temp_r5);
         init_status_entry__20TWindowSubStatusDispFPvcUii(temp_r31, var_r29, src, arg3);
-        *(f32 *)((s8 *)temp_r31 + 8) = (f32) lbl_805DD194;
+        *(f32 *)((s8 *)temp_r31 + 8) = (f32) (*(const f32 *)&lbl_805DD194);
         if (arg1 & 2) {
             *(s8 *)((s8 *)temp_r31 + 0x1C) = 0xE;
             *(u16 *)((s8 *)temp_r31 + 0) = (u16) (*(u16 *)((s8 *)temp_r31 + 0) | 0x100);
@@ -344,7 +330,7 @@ void TWindowSubStatusDisp::append_entry(s32 arg1, s32 arg2, s32 arg3, s32 arg4, 
             *e |= 0x400;
         }
         if (arg5 != 0) {
-            k = lbl_805DD198;
+            k = (*(const f32 *)&lbl_805DD198);
             i = 0;
             *e |= 0x1000;
             while (i < *(s16 *)(((u8 *)this) + 0x76)) {
@@ -431,22 +417,22 @@ void draw_item_list_capacity(void *arg0, Win_80267714 *arg1, s32 arg2, s32 arg3)
   Pt_80267714 pt;
   if (arg1->i30 >= 0)
   {
-    pt.x = (lbl_805DD19C + arg1->x) - lbl_805DD180;
-    pt.y = arg1->y - lbl_805DD1A0;
-    draw_window_tab(arg1, &pt, 0, lbl_805DD1A4);
-    pt.x += lbl_805DD1A8;
-    pt.y += lbl_805DD1AC;
-    set_text_draw_params(arg1, 0, 0, lbl_805DD1B0 / (lbl_805DD1B4 + arg1->f38), lbl_805DD1B8);
+    pt.x = ((*(const f32 *)&lbl_805DD19C) + arg1->x) - lbl_805DD180;
+    pt.y = arg1->y - (*(const f32 *)&lbl_805DD1A0);
+    draw_window_tab(arg1, &pt, 0, (*(const f32 *)&lbl_805DD1A4));
+    pt.x += (*(const f32 *)&lbl_805DD1A8);
+    pt.y += (*(const f32 *)&lbl_805DD1AC);
+    set_text_draw_params(arg1, 0, 0, (*(const f32 *)&lbl_805DD1B0) / ((*(const f32 *)&lbl_805DD1B4) + arg1->f38), (*(const f32 *)&lbl_805DD1B8));
     text_builder_reset();
     TWindowSubStatusDisp__sub_80228F5C(arg2);
     get_shared_text_buffer();
     pt.x -= (f32) calc_text_width();
     map_char_to_font_code(0x2F);
     new_var = get_font_char_advance();
-    pt.x -= lbl_805DD1BC * new_var;
+    pt.x -= (*(const f32 *)&lbl_805DD1BC) * new_var;
     text_builder_append(lbl_805DD1C0);
     TWindowSubStatusDisp__sub_80228F5C(arg3);
-    draw_window_text(&pt, get_shared_text_buffer(), -1, 0, lbl_805DD1B8);
+    draw_window_text(&pt, get_shared_text_buffer(), -1, 0, (*(const f32 *)&lbl_805DD1B8));
   }
 }
 
@@ -548,7 +534,7 @@ void TUnk_804D0618::create_menu_scroll_bar() {
     if ((u32) *(u32 *)&this->unk_84 == 0U) {
         temp_f2 = this->m_38;
         temp_f1 = temp_f2 - lbl_805DD180;
-        stack.spC = lbl_805DD188;
+        stack.spC = (*(const f32 *)&lbl_805DD188);
         stack.sp8 = temp_f1;
         temp_r3 = ((TAdSinglePlyChrSelectGC *)0xC)->alloc();
         var_r0 = temp_r3;
@@ -592,9 +578,9 @@ void TWindowSubStatusDisp::init_scroll_pos() {
     if (!(temp_r4 & 0x20)) {
         *(u16 *)((s8 *)this + 0x70) = (u16) (temp_r4 | 0x20);
         temp = ((u16 *(*)(void *, s16))get_array_entry__13TUnk_804CE018Fi)((void *)(this), (s16)(*(s16 *)((s8 *)this + 0x74)));
-        this->m_3c = (f32) (lbl_805DD18C + *(f32 *)((s8 *)temp + 0x14));
+        this->m_3c = (f32) ((*(const f32 *)&lbl_805DD18C) + *(f32 *)((s8 *)temp + 0x14));
         if (this->m_2c & 0x40) {
-            this->m_3c = (f32) (this->m_3c + lbl_805DD190);
+            this->m_3c = (f32) (this->m_3c + (*(const f32 *)&lbl_805DD190));
         }
         *(s32 *)((s8 *)this + 0x50) = 3;
     }
@@ -608,7 +594,7 @@ void TUnk_804D0618::center_list_selection() {
     if ((*(u32 *)&this->unk_84 != 0U) && (*(u32 *)((s8 *)((u8 *)this) + 0x50) == 0U)) {
         f32 t = (*(f32 *)&this->m_4c - lbl_805DD1C8) - lbl_805DD1CC;
         target = lbl_805DD1C4 + (f32) (*(s16 *)&this->unk_74 * 0x14);
-        target -= lbl_805DD1BC * t;
+        target -= (*(const f32 *)&lbl_805DD1BC) * t;
         *(f32 *)&this->unk_6C += target - *(f32 *)&this->unk_6C;
     }
 }
@@ -618,11 +604,11 @@ void TUnk_804D0618::clamp_item_list_scroll() {
     Stack_80267D14 stack;
     f32 temp_f1;
     if ((u32) *(u32 *)&this->unk_84 != 0U) {
-        stack.sp8 = lbl_805DD188;
-        temp_f1 = *(f32 *)&this->m_4c - (*(const f32 *)&lbl_805DD18C);
+        stack.sp8 = (*(const f32 *)&lbl_805DD188);
+        temp_f1 = *(f32 *)&this->m_4c - (*(const f32 *)&(*(const f32 *)&lbl_805DD18C));
         stack.spC = temp_f1;
         if ((u32) *(u32 *)&this->m_80 != 0U) {
-            stack.spC = temp_f1 - (*(const f32 *)&lbl_805DD190);
+            stack.spC = temp_f1 - (*(const f32 *)&(*(const f32 *)&lbl_805DD190));
         }
         clamp_list_scroll_offset((int) (*(u32 *)&this->unk_84), (void *) (((u8 *)this) + 0x68), (void *) (&stack.sp8));
     }
@@ -640,7 +626,7 @@ void TUnk_804D0618::update_scroll_offset() {
   }
   else
   {
-    var_f4 = lbl_805DD188;
+    var_f4 = (*(const f32 *)&lbl_805DD188);
   }
   n = *((u32 *) (((s8 *) this) + 0x50));
   if (n == 0)
@@ -649,7 +635,7 @@ void TUnk_804D0618::update_scroll_offset() {
   }
   else
   {
-    var_f4 += lbl_805DD1BC * ((*((f32 *) (((s8 *) this) + 0x3C))) - (*((f32 *) (((s8 *) this) + 0x4C))));
+    var_f4 += (*(const f32 *)&lbl_805DD1BC) * ((*((f32 *) (((s8 *) this) + 0x3C))) - (*((f32 *) (((s8 *) this) + 0x4C))));
     *((f32 *) (((s8 *) this) + 0x6C)) += (var_f4 - (*((f32 *) (((s8 *) this) + 0x6C)))) / ((f32) n);
   }
 }

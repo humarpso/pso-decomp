@@ -4355,7 +4355,6 @@ void update_air_fire_state__12TBoss1DragonFv(u8 *arg0, u32 arg1) {
 #pragma pop
 #undef VecCopy__FP3VecPC3Vec
 
-#define TBoss1Dragon__data_804FE17C (*(G_80025C68 *)&TBoss1Dragon__data_804FE17C)
 #define prepare_flight_destination__12TBoss1DragonFPv ((s32 (*)(void *, void *))prepare_flight_destination__12TBoss1DragonFPv)
 #pragma push
 #pragma fp_contract on
@@ -4381,7 +4380,7 @@ void TBoss1Dragon::update_flight_state(u32 arg1) {
             init_acceleration_curve(arg0 + 0x5F4, TBoss1Dragon__data_805D7F90, lbl_805D8054, *(f32 *)((s8 *)arg0 + 0x3AC), TBoss1Dragon__data_805D7F24);
             break;
         case 1:
-            init_acceleration_curve(arg0 + 0x5F4, TBoss1Dragon__data_805D7F90, lbl_805D8054, *(f32 *)((s8 *)arg0 + 0x3AC), *(f32 *)((s8 *)TBoss1Dragon__data_804FE17C.value + 0x14));
+            init_acceleration_curve(arg0 + 0x5F4, TBoss1Dragon__data_805D7F90, lbl_805D8054, *(f32 *)((s8 *)arg0 + 0x3AC), *(f32 *)((s8 *)(*(G_80025C68 *)&TBoss1Dragon__data_804FE17C).value + 0x14));
             break;
         }
         VecCopy__FP3VecPC3Vec((s32)base, (s32)(arg0 + 0x38));
@@ -4397,7 +4396,7 @@ void TBoss1Dragon::update_flight_state(u32 arg1) {
             init_acceleration_curve(arg0 + 0x618, lbl_805D8058, lbl_805D805C, (f32)var, lbl_805D8038);
             break;
         case 1:
-            init_acceleration_curve(arg0 + 0x618, lbl_805D8058, lbl_805D805C, (f32)var, (f32)(s32)(lbl_805D8060 * *(f32 *)((s8 *)TBoss1Dragon__data_804FE17C.value + 0x14)));
+            init_acceleration_curve(arg0 + 0x618, lbl_805D8058, lbl_805D805C, (f32)var, (f32)(s32)(lbl_805D8060 * *(f32 *)((s8 *)(*(G_80025C68 *)&TBoss1Dragon__data_804FE17C).value + 0x14)));
             break;
         }
         *(s32 *)((s8 *)arg0 + 0x874) = this->rotation_y;
@@ -4455,7 +4454,6 @@ void TBoss1Dragon::update_flight_state(u32 arg1) {
     }
 }
 #pragma pop
-#undef TBoss1Dragon__data_804FE17C
 #undef prepare_flight_destination__12TBoss1DragonFPv
 #undef advance_animation_playback
 

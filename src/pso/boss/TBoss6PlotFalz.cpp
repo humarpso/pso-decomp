@@ -766,30 +766,25 @@ f32 TBoss6PlotFalz::cosine_ease(f32 t) {
     }
     return 0.5f * (1.0f - cos_table_lookup((s32)(32768.0f * t)));
 }
-#define TBoss6PlotFalz__type1_instance (*(void **)&TBoss6PlotFalz__type1_instance)
-#define TBoss6PlotFalz__type2_instance (*(u8 **)&TBoss6PlotFalz__type2_instance)
 s32 TBoss6PlotFalz__sub_802ABADC(void);
 f32 TBoss6PlotFalz::get_value() {
-    if ((TBoss6PlotFalz__sub_802ABADC() == 0) || ((void *) TBoss6PlotFalz__type1_instance == NULL)) {
+    if ((TBoss6PlotFalz__sub_802ABADC() == 0) || ((void *) (*(void **)&TBoss6PlotFalz__type1_instance) == NULL)) {
         return 0.0f;
     }
-    return *(f32 *)((s8 *)TBoss6PlotFalz__type1_instance + 0x3C);
+    return *(f32 *)((s8 *)(*(void **)&TBoss6PlotFalz__type1_instance) + 0x3C);
 }
 s32 TBoss6PlotFalz::is_boss_active() {
-    if (((void *) TBoss6PlotFalz__type2_instance == NULL) || (((TBoss6Type2 *)TBoss6PlotFalz__type2_instance)->get_state() == 0x23)) {
+    if (((void *) (*(u8 **)&TBoss6PlotFalz__type2_instance) == NULL) || (((TBoss6Type2 *)(*(u8 **)&TBoss6PlotFalz__type2_instance))->get_state() == 0x23)) {
         return 0;
     }
     return 1;
 }
 s32 TBoss6PlotFalz__sub_802ABADC(void) {
-    if (((void *) (*(u8 * *)&TBoss6PlotFalz__type1_instance) == NULL) || (((TBoss6GravBall *)(*(u8 * *)&TBoss6PlotFalz__type1_instance))->get_state() == 0x28)) {
+    if (((void *) (*(u8 * *)&(*(void **)&TBoss6PlotFalz__type1_instance)) == NULL) || (((TBoss6GravBall *)(*(u8 * *)&(*(void **)&TBoss6PlotFalz__type1_instance)))->get_state() == 0x28)) {
         return 0;
     }
     return 1;
 }
-
-#undef TBoss6PlotFalz__type1_instance
-#undef TBoss6PlotFalz__type2_instance
 
 void destroy_static_instance__14TBoss6PlotFalzFv(void);
 void queue_instance_destruction__14TBoss6PlotFalzFv(void);
@@ -1298,8 +1293,6 @@ void TBoss6PlotFalz__sub_802AC724(u8 *arg0, u32 arg1) {
 #define end_cutscene_camera__14TBoss6PlotFalzFPv ((s32 (*)())end_cutscene_camera__14TBoss6PlotFalzFPv)
 #define ensure_field384__14TBoss6PlotFalzFPv ((s32 (*)(void *))ensure_field384__14TBoss6PlotFalzFPv)
 #define update_active_flag__14TBoss6PlotFalzFv ((s32 (*)())update_active_flag__14TBoss6PlotFalzFv)
-#define TBoss6PlotFalz__type1_instance (*(s32 *)&TBoss6PlotFalz__type1_instance)
-#define TBoss6PlotFalz__type2_instance (*(s32 *)&TBoss6PlotFalz__type2_instance)
 
 struct VBase_18_aa4667 { char pad[0x18]; };
 struct VObj_18_aa4667 : VBase_18_aa4667 {
@@ -1607,8 +1600,8 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x380) = create_boss4_fade();
     *(s32 *)((s8 *)arg0 + 0x384) = 0;
     ensure_field384__14TBoss6PlotFalzFPv((void *) (arg0));
-    TBoss6PlotFalz__type1_instance = 0;
-    TBoss6PlotFalz__type2_instance = 0;
+    (*(s32 *)&TBoss6PlotFalz__type1_instance) = 0;
+    (*(s32 *)&TBoss6PlotFalz__type2_instance) = 0;
     *(s32 *)((s8 *)arg0 + 0x3DC) = 0;
     TBoss6PlotFalz__fade_amount = (-1.0f);
     *(s8 *)((s8 *)arg0 + 0x37C) = 0;

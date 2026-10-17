@@ -408,7 +408,6 @@ extern "C" {
 #define controller_input_state ((s32 *)&controller_input_state)
 #define controller_physical_port_bank ((s32 *)controller_physical_port_bank)
 #define pad_recalibration_counters ((s32 *)pad_recalibration_counters)
-#define lbl_805D5D09 (*(s8 *)&lbl_805D5D09)
 #define TKeyBoardControl__global_key_state ((u8 *)&TKeyBoardControl__global_key_state)
 
 struct Sub_801A67A4
@@ -610,7 +609,7 @@ void TKeyBoardControl::init_pad_state() {
     controller_input_state[2] = TKeyBoardControl__sub_803DEB74(0xC);
     controller_input_state[3] = TKeyBoardControl__sub_803DEB74(0x12);
     lbl_805D5D08 = 0;
-    lbl_805D5D09 = 0;
+    (*(s8 *)&lbl_805D5D09) = 0;
     keyboard_reset_button_pressed = 0;
     for (i = 0; i < 4; i++) {
         pad_recalibration_hold_frames[i] = 0;
@@ -641,7 +640,6 @@ s32 TKeyBoardControl::poll_key_state() {
 #undef controller_input_state
 #undef controller_physical_port_bank
 #undef pad_recalibration_counters
-#undef lbl_805D5D09
 #undef TKeyBoardControl__global_key_state
 #pragma pop
 

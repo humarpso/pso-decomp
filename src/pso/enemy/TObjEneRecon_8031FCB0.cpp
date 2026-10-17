@@ -466,8 +466,6 @@ u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     return arg0;
 }
 
-#define TObjEneRecobox__static_instance (*(int *)&TObjEneRecobox__static_instance)
-
 int TObjEneRecobox__sub_803201D0(void);
 
 u32 TObjEneRecobox::remap_area_sound_id(u32 arg0) {
@@ -490,11 +488,8 @@ u32 TObjEneRecobox::remap_area_sound_id(u32 arg0) {
     return ret;
 }
 
-int TObjEneRecobox__sub_803201D0(void) {  return TObjEneRecobox__static_instance; }
+int TObjEneRecobox__sub_803201D0(void) {  return (*(int *)&TObjEneRecobox__static_instance); }
 
-#undef TObjEneRecobox__static_instance
-
-#define TObjEneRecobox__static_instance (*(u32 *)&TObjEneRecobox__static_instance)
 #define TObjEneRecobox__ct ((void *(*)(void *, void *, void *))TObjEneRecobox__ct)
 void *TObjEneRecobox__create(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
@@ -502,9 +497,9 @@ void *__nw__7TObjectFUl(int);
 
 void TObjEneRecobox::release_static_instance() {
     TObjEneRecon::release_static_instance();
-    if ((u32) TObjEneRecobox__static_instance != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjEneRecobox__static_instance, 1);
-        TObjEneRecobox__static_instance = 0U;
+    if ((u32) (*(u32 *)&TObjEneRecobox__static_instance) != 0U) {
+        TLobby__sub_8001FE7C((void*)(*(u32 *)&TObjEneRecobox__static_instance), 1);
+        (*(u32 *)&TObjEneRecobox__static_instance) = 0U;
     }
 }
 
@@ -573,7 +568,7 @@ void TObjEneRecobox::load_resources() {
         } else {
             res = load_enemy_bml_resource(lbl_804EC6F8);
         }
-        TObjEneRecobox__static_instance = res;
+        (*(u32 *)&TObjEneRecobox__static_instance) = res;
     }
     recobox_boss_register_id = register_boss__6TLobbyFl(0x41);
     lbl_805D6B14 = dispatch_shared_handler_b__6TLobbyFl(0x41);
@@ -583,7 +578,7 @@ void TObjEneRecobox::load_resources() {
     {
         Sub_80320260 *sp = &lbl_804EC684;
         Spawn_80320260 s = recobox_resource_binding_desc;
-        box = (Box_80320260 *)TObjEneRecobox__static_instance;
+        box = (Box_80320260 *)(*(u32 *)&TObjEneRecobox__static_instance);
         s.a = box->f430;
         TLobby::spawn_npc_enemy((s16)0xD, (s32)(box->f42C->f18), (s32)(box->f42C->f1C), (s32)(&s), (f32)(getf_80320260(sp)), (f32)lbl_805DF46C);
     }

@@ -560,13 +560,10 @@ int TUnk_8049387C::vfunc_116() {
 #define queue_destruction__7TObjectFv ((void (*)(void *))queue_destruction__7TObjectFv)
 #define TObjEneMe1Gee__data_8043BDB0 ((const u8 *)&TObjEneMe1Gee__data_8043BDB0)
 #define copy_vec4__13TRaderMapCoreFPvPv ((int (*)(void *, void *))copy_vec4__13TRaderMapCoreFPvPv)
-#define TObjEneMe1Gee__resource_bundle (*(int *)&TObjEneMe1Gee__resource_bundle)
 #define sub_800C84C8__13TUnk_8049387CFv ((s32 (*)(void *))sub_800C84C8__13TUnk_8049387CFv)
 #define create_breakup_mdl__12TBoss3VoloptFlllll ((void (*)(s32, s32, s32, s32, s32))create_breakup_mdl__12TBoss3VoloptFlllll)
 #define TObjEneMe1Gee__fade_command_streams ((char * *)&TObjEneMe1Gee__fade_command_streams)
 #define me1_gee_dispatch_table ((s32 *)&me1_gee_dispatch_table)
-#define gee_camera_ctrl_vec (*(RecoveredGlobal_800C913C_lbl_80500E68 *)&gee_camera_ctrl_vec)
-#define gee_resource_bundle_ptr (*(s32 * *)&gee_resource_bundle_ptr)
 
 #include <stddef.h>
 
@@ -2379,7 +2376,7 @@ void TUnk_8049387C::vfunc_105() {
     }
 }
 
-void TUnk_8049387C::vfunc_106() { *(int*)((char*)this + 0x34) = *(int*)((char*)*(int*)((char*)TObjEneMe1Gee__resource_bundle + 0x42c) + 0x8); *(int*)((char*)this + 0x24) = *(int*)((char*)*(int*)((char*)TObjEneMe1Gee__resource_bundle + 0x42c) + 0xc); }
+void TUnk_8049387C::vfunc_106() { *(int*)((char*)this + 0x34) = *(int*)((char*)*(int*)((char*)(*(int *)&TObjEneMe1Gee__resource_bundle) + 0x42c) + 0x8); *(int*)((char*)this + 0x24) = *(int*)((char*)*(int*)((char*)(*(int *)&TObjEneMe1Gee__resource_bundle) + 0x42c) + 0xc); }
 
 void TObjEneMe1Gee__sub_800C8BCC(u8 *arg0) {
     if (TObjPlayer::check_demo_mode() != 0) {
@@ -2535,12 +2532,12 @@ void TObjEneMe1Gee::advance_camera_ctrl_step() {
     case 4:
         pos = gee_camera_ctrl_step_ptr;
         gee_camera_ctrl_step_ptr = pos + 0xC;
-        get_camera_ctrl__9TObjEneDDFv((s32) &gee_camera_ctrl_vec.value, pos);
+        get_camera_ctrl__9TObjEneDDFv((s32) &(*(RecoveredGlobal_800C913C_lbl_80500E68 *)&gee_camera_ctrl_vec).value, pos);
         break;
     case 7:
         temp_r4_2 = gee_camera_ctrl_step_ptr;
         gee_camera_ctrl_step_ptr = temp_r4_2 + 0xC;
-        get_camera_ctrl__9TObjEneDDFv((s32) &gee_camera_ctrl_vec.value, temp_r4_2);
+        get_camera_ctrl__9TObjEneDDFv((s32) &(*(RecoveredGlobal_800C913C_lbl_80500E68 *)&gee_camera_ctrl_vec).value, temp_r4_2);
         break;
     }
     TObjEneMe1Gee__render_node_index += 1;
@@ -3774,8 +3771,8 @@ void TObjEneMe1Gee::update_photon_target() {
 int TObjEneMe1Gee::vfunc_109() { return 1; }
 
 void TObjEneMe1Gee::vfunc_113() {
-    if ((s32 *) gee_resource_bundle_ptr != NULL) {
-        *gee_resource_bundle_ptr = *(s32 *)((s8 *)this + 0x478);
+    if ((s32 *) (*(s32 **)&gee_resource_bundle_ptr) != NULL) {
+        *(*(s32 **)&gee_resource_bundle_ptr) = *(s32 *)((s8 *)this + 0x478);
     }
 }
 
@@ -4068,8 +4065,8 @@ void calc_position__13TObjEneMe1GeeFiPv(s32 actor, void *arg1) {
 #pragma pop
 
 void TObjEneMe1Gee::vfunc_106() {
-    *(s32 *)((s8 *)this + 0x34) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&TObjEneMe1Gee__resource_bundle) + 0x42C)) + 8);
-    *(s32 *)((s8 *)this + 0x24) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&TObjEneMe1Gee__resource_bundle) + 0x42C)) + 0xC);
+    *(s32 *)((s8 *)this + 0x34) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&(*(int *)&TObjEneMe1Gee__resource_bundle)) + 0x42C)) + 8);
+    *(s32 *)((s8 *)this + 0x24) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&(*(int *)&TObjEneMe1Gee__resource_bundle)) + 0x42C)) + 0xC);
 }
 
 #pragma push
@@ -4131,7 +4128,7 @@ void TObjEneMe1Gee::vfunc_63() {
 
 void TObjEneMe1Gee::vfunc_28() {  }
 
-int TObjEneMe1Gee__sub_800CC2BC(void) {  return TObjEneMe1Gee__resource_bundle; }
+int TObjEneMe1Gee__sub_800CC2BC(void) {  return (*(int *)&TObjEneMe1Gee__resource_bundle); }
 
 void run_task__13TObjEneMe1GeeFv(u8 *arg0) {
     u8 *temp_r3;
@@ -4180,7 +4177,7 @@ void init_state__13TObjEneMe1GeeFPv(u8 *arg0) {
     ((TObjEneMe1Gee *)(arg0))->vfunc_106();
     init_model__9TObjEneDDFv((void *) (arg0), (void *) lbl_8049379C, (int) (1));
     ((TObjPlayer *)arg0)->set_field_d8((s32)((void *) TObjEneMe1Gee__motion_parameters));
-    ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)(*(u8 * *)&TObjEneMe1Gee__resource_bundle) + 0x430)));
+    ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)(*(u8 * *)&(*(int *)&TObjEneMe1Gee__resource_bundle)) + 0x430)));
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (*(s16 *)((s8 *)arg0 + 0xB8)));
     ((TObjMotion *)arg0)->set_field_b8((int) (*(s16 *)((s8 *)arg0 + 0xB8)));
@@ -4262,27 +4259,23 @@ u8 *TObjEneMe1Gee__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4, s16 arg5
 #undef queue_destruction__7TObjectFv
 #undef TObjEneMe1Gee__data_8043BDB0
 #undef copy_vec4__13TRaderMapCoreFPvPv
-#undef TObjEneMe1Gee__resource_bundle
 #undef sub_800C84C8__13TUnk_8049387CFv
 #undef create_breakup_mdl__12TBoss3VoloptFlllll
 #undef TObjEneMe1Gee__fade_command_streams
 #undef me1_gee_dispatch_table
-#undef gee_camera_ctrl_vec
-#undef gee_resource_bundle_ptr
 #pragma pop
 #pragma push
 #define sub_800CC0C4__13TObjEneMe1GeeFv ((void (*)(void *))sub_800CC0C4__13TObjEneMe1GeeFv)
 #define init_state__13TObjEneMe1GeeFPv ((void (*)(void *))init_state__13TObjEneMe1GeeFPv)
 #define init_object__12TObjEneDD_STFv ((void (*)(void *))init_object__12TObjEneDD_STFv)
 #define init_common__13TUnk_80494938Fv ((void (*)(void *))init_common__13TUnk_80494938Fv)
-#define lbl_805D2A68 (*(void * *)&lbl_805D2A68)
 void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 
 void *init__13TObjEneMe1GeeFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
     init_object__12TObjEneDD_STFv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjEneMe1Gee;
     init_common__13TUnk_80494938Fv((void *)((char *)arg0 + 972));
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D2A68;
+    *(void **)((s8 *)arg0 + 0x0) = (*(void **)&lbl_805D2A68);
     invoke_initialization_hook__9TObjEneDDFv(arg0, arg2);
     *(u32 *)((s8 *)arg0 + 0x3C8) = 0;
     sub_800CC0C4__13TObjEneMe1GeeFv(arg0);
@@ -4298,7 +4291,6 @@ void *init__13TObjEneMe1GeeFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *a
 #undef init_state__13TObjEneMe1GeeFPv
 #undef init_object__12TObjEneDD_STFv
 #undef init_common__13TUnk_80494938Fv
-#undef lbl_805D2A68
 #pragma pop
 #pragma push
 

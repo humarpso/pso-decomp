@@ -368,15 +368,14 @@ s32 set_model_node_callback(void *);
 
 #define trigger_by_id__14TOTrapSeabed01FUi (*(s32 (*)[1])&trigger_by_id__14TOTrapSeabed01FUi)
 extern s32 actor_frame_tick;
-#define TOTrapSeabed01__ginja_model (*(u8 * *)&TOTrapSeabed01__ginja_model)
 extern s32 lbl_805D681C;
 extern s32 seabed01_ginja_mesh_index;
 
 void TOTrapSeabed01::render_effect_layers() {
     TObjFish::set_global_param((s32)((void *)((void *) (TOTrapSeabed01__texture_file))));
     if ((s32) actor_frame_tick != (s32) lbl_805D681C) {
-        if (((void *) TOTrapSeabed01__ginja_model != NULL) && ((s32) seabed01_ginja_mesh_index != -1)) {
-            scroll_ginja_mesh_uvs((int) (*(s32 *)((s8 *)TOTrapSeabed01__ginja_model + 4)), (int) (0), (int) (-0x14), (void *) ((u16) seabed01_ginja_mesh_index), (int) (1));
+        if (((void *) (*(u8 **)&TOTrapSeabed01__ginja_model) != NULL) && ((s32) seabed01_ginja_mesh_index != -1)) {
+            scroll_ginja_mesh_uvs((int) (*(s32 *)((s8 *)(*(u8 **)&TOTrapSeabed01__ginja_model) + 4)), (int) (0), (int) (-0x14), (void *) ((u16) seabed01_ginja_mesh_index), (int) (1));
             PPCSync();
         }
         lbl_805D681C = actor_frame_tick;
@@ -476,7 +475,6 @@ void render__14TOTrapSeabed01Fv(S_802CA550 *arg0) {
 #pragma pop
 
 #undef trigger_by_id__14TOTrapSeabed01FUi
-#undef TOTrapSeabed01__ginja_model
 #define lbl_805DE640 (lbl_805DE640[0])
 #define lbl_805DE658 (lbl_805DE658[0])
 #pragma push
@@ -633,7 +631,6 @@ s32 TOTrap__ct(void *);
 extern SeabedTrapCollisionBody seabed_trap_collision_body;
 extern void *__vt__14TOTrapSeabed01[];
 extern s32 TOTrapSeabed01_class_name;
-#define TOTrapSeabed01__bml_resource (*(u32 *)&TOTrapSeabed01__bml_resource)
 u8 *TOTrapSeabed01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
@@ -642,8 +639,6 @@ extern u8 lbl_804720E8[];
 extern u8 lbl_80472100[];
 extern SeabedTrapResourceDescriptor seabed_trap_resource_descriptor;
 
-#define TOTrapSeabed01__texture_file (*(u32 *)&TOTrapSeabed01__texture_file)
-#define TOTrapSeabed01__ginja_model (*(s32 *)&TOTrapSeabed01__ginja_model)
 extern s32 trap_seabed01_param_index_table[];
 void vfunc_6__14TOTrapSeabed01FPsl(void *arg0, s16 *arg1, s32 arg2);
 void *__dt__14TOTrapSeabed01Fv(void *arg0, s16 arg1);
@@ -726,14 +721,14 @@ void *TOTrapSeabed01::create(void *arg0) {
 }
 
 void TOTrapSeabed01::free_static_resources() {
-    if ((u32) TOTrapSeabed01__texture_file != 0U) {
-        TLobby__sub_803DA16C((void*)TOTrapSeabed01__texture_file);
-        TAdSinglePlyChrSelectGC::safe_free(TOTrapSeabed01__texture_file);
-        TOTrapSeabed01__texture_file = 0U;
+    if ((u32) (*(u32 *)&TOTrapSeabed01__texture_file) != 0U) {
+        TLobby__sub_803DA16C((void*)(*(u32 *)&TOTrapSeabed01__texture_file));
+        TAdSinglePlyChrSelectGC::safe_free((*(u32 *)&TOTrapSeabed01__texture_file));
+        (*(u32 *)&TOTrapSeabed01__texture_file) = 0U;
     }
-    if ((u32) TOTrapSeabed01__bml_resource != 0U) {
-        TLobby__sub_8001FE7C((void*)TOTrapSeabed01__bml_resource, 1);
-        TOTrapSeabed01__bml_resource = 0U;
+    if ((u32) (*(u32 *)&TOTrapSeabed01__bml_resource) != 0U) {
+        TLobby__sub_8001FE7C((void*)(*(u32 *)&TOTrapSeabed01__bml_resource), 1);
+        (*(u32 *)&TOTrapSeabed01__bml_resource) = 0U;
     }
 }
 
@@ -742,11 +737,11 @@ void TOTrapSeabed01::load_resources() {
     if (p != 0) {
         p = load_resource_from_descriptor(p, 5, (void *)&seabed_trap_resource_descriptor, 0, 0, 0);
     }
-    TOTrapSeabed01__bml_resource = (u32)p;
-    TOTrapSeabed01__texture_file = load_gvm_texture_file(lbl_804720E8);
-    s32 n = ((TObjSeabedSuisoBrakable *)(get_bml_model(TOTrapSeabed01__bml_resource, 0)))->count_linked_switches(5);
-    u32 t = TOTrapSeabed01__texture_file;
-    TOTrapSeabed01__ginja_model = n;
+    (*(u32 *)&TOTrapSeabed01__bml_resource) = (u32)p;
+    (*(u32 *)&TOTrapSeabed01__texture_file) = load_gvm_texture_file(lbl_804720E8);
+    s32 n = ((TObjSeabedSuisoBrakable *)(get_bml_model((*(u32 *)&TOTrapSeabed01__bml_resource), 0)))->count_linked_switches(5);
+    u32 t = (*(u32 *)&TOTrapSeabed01__texture_file);
+    (*(s32 *)&TOTrapSeabed01__ginja_model) = n;
     lbl_805D681C = 0;
     seabed01_ginja_mesh_index = -1;
     if (t != 0U) {
@@ -788,8 +783,8 @@ u8 *TOTrapSeabed01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802CA9AC___vt__14TOTrapSeabed01 *)&__vt__14TOTrapSeabed01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOTrapSeabed01_class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TOTrapSeabed01__bml_resource)), (int) (0));
-    *(s32 *)((s8 *)arg0 + 0xF8) = get_bml_motion((int) ((*(s32 *)&TOTrapSeabed01__bml_resource)), (int) (0));
+    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&(*(u32 *)&TOTrapSeabed01__bml_resource))), (int) (0));
+    *(s32 *)((s8 *)arg0 + 0xF8) = get_bml_motion((int) ((*(s32 *)&(*(u32 *)&TOTrapSeabed01__bml_resource))), (int) (0));
     *(f32 *)((s8 *)arg0 + 0xC8) = (f32) lbl_805DE640;
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) TOTrapSeabed01__data_805DE644[0];
     ((TOTrapSeabed01 *)arg0)->clamp_params_and_init();
@@ -806,9 +801,6 @@ u8 *TOTrapSeabed01__ct(u8 *arg0, s32 arg1, s32 arg2) {
 
 #undef lbl_805DE640
 #undef lbl_805DE658
-#undef TOTrapSeabed01__bml_resource
-#undef TOTrapSeabed01__texture_file
-#undef TOTrapSeabed01__ginja_model
 
 void vfunc_89__6TOTrapFv();
 void vfunc_86__6TOTrapFv();
