@@ -1,4 +1,8 @@
 #include "types.h"
+extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
+extern "C" void test_flag30_512__13TUnk_804806E8Fv();
+extern "C" void test_flag_1000__13TUnk_804806E8Fv();
+extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/render/depth_buffer.h"
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -928,10 +932,10 @@ void *__vt__14TOTrapSeabed01[91] = {
     (void *)&vfunc_28__13TUnk_804806E8Fv,
     (void *)&vfunc_29__13TUnk_804806E8Fv,
     (void *)&is_target_in_attack_range__10TObjPlayerFv,
-    (void *)&TObjPlayer::test_flag_256,
-    (void *)&TObjPlayer::test_flag30_512,
-    (void *)&TObjPlayer::has_flag_0x800,
-    (void *)&TObjPlayer::test_flag_1000,
+    (void *)&test_flag_256__13TUnk_804806E8Fv,
+    (void *)&test_flag30_512__13TUnk_804806E8Fv,
+    (void *)&has_flag_0x800__13TUnk_804806E8Fv,
+    (void *)&test_flag_1000__13TUnk_804806E8Fv,
     (void *)&update_poison_status__13TUnk_804806E8Fv,
     (void *)&update_action_hold_status__13TUnk_804806E8Fv,
     (void *)&update_action_timer__10TObjPlayerFPv,

@@ -1,4 +1,8 @@
 #include "pso/boss/TBoss4Zako.h"
+extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
+extern "C" void test_flag30_512__13TUnk_804806E8Fv();
+extern "C" void test_flag_1000__13TUnk_804806E8Fv();
+extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/boss/TBoss4Type3.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -1288,10 +1292,10 @@ s32 __vt__11TBoss4Bishi[83] = {
     (s32)vfunc_28__13TUnk_804806E8Fv,
     (s32)vfunc_29__13TUnk_804806E8Fv,
     (s32)is_target_in_attack_range__10TObjPlayerFv,
-    (s32)TObjPlayer::test_flag_256,
-    (s32)TObjPlayer::test_flag30_512,
-    (s32)TObjPlayer::has_flag_0x800,
-    (s32)TObjPlayer::test_flag_1000,
+    (s32)&test_flag_256__13TUnk_804806E8Fv,
+    (s32)&test_flag30_512__13TUnk_804806E8Fv,
+    (s32)&has_flag_0x800__13TUnk_804806E8Fv,
+    (s32)&test_flag_1000__13TUnk_804806E8Fv,
     (s32)update_poison_status__13TUnk_804806E8Fv,
     (s32)update_action_hold_status__13TUnk_804806E8Fv,
     (s32)update_action_timer__10TObjPlayerFPv,
@@ -1373,10 +1377,10 @@ s32 __vt__9TBoss4Uro[83] = {
     (s32)vfunc_28__13TUnk_804806E8Fv,
     (s32)vfunc_29__13TUnk_804806E8Fv,
     (s32)is_target_in_attack_range__10TObjPlayerFv,
-    (s32)TObjPlayer::test_flag_256,
-    (s32)TObjPlayer::test_flag30_512,
-    (s32)TObjPlayer::has_flag_0x800,
-    (s32)TObjPlayer::test_flag_1000,
+    (s32)&test_flag_256__13TUnk_804806E8Fv,
+    (s32)&test_flag30_512__13TUnk_804806E8Fv,
+    (s32)&has_flag_0x800__13TUnk_804806E8Fv,
+    (s32)&test_flag_1000__13TUnk_804806E8Fv,
     (s32)update_poison_status__13TUnk_804806E8Fv,
     (s32)update_action_hold_status__13TUnk_804806E8Fv,
     (s32)update_action_timer__10TObjPlayerFPv,
@@ -1458,10 +1462,10 @@ s32 __vt__10TBoss4Zako[83] = {
     (s32)vfunc_28__13TUnk_804806E8Fv,
     (s32)vfunc_29__13TUnk_804806E8Fv,
     (s32)is_target_in_attack_range__10TObjPlayerFv,
-    (s32)TObjPlayer::test_flag_256,
-    (s32)TObjPlayer::test_flag30_512,
-    (s32)TObjPlayer::has_flag_0x800,
-    (s32)TObjPlayer::test_flag_1000,
+    (s32)&test_flag_256__13TUnk_804806E8Fv,
+    (s32)&test_flag30_512__13TUnk_804806E8Fv,
+    (s32)&has_flag_0x800__13TUnk_804806E8Fv,
+    (s32)&test_flag_1000__13TUnk_804806E8Fv,
     (s32)update_poison_status__13TUnk_804806E8Fv,
     (s32)update_action_hold_status__13TUnk_804806E8Fv,
     (s32)update_action_timer__10TObjPlayerFPv,

@@ -1,4 +1,9 @@
 #include "types.h"
+extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
+extern "C" void test_flag30_512__13TUnk_804806E8Fv();
+extern "C" void test_flag_1000__13TUnk_804806E8Fv();
+extern "C" void test_flag_256__13TUnk_804806E8Fv();
+#include "pso/player/TUnk_804806E8.h"
 extern "C" void apply_switch_attack__13TUnk_804806E8Fv();
 #include "pso/object/TObjMotion.h"
 #include "pso/item/TItem.h"
@@ -999,13 +1004,13 @@ s32 TUnk_804806E8::check_heavy_damage_flag(f32 farg0) {
     return 0;
 }
 
-int TObjPlayer::test_flag_1000(void* p) { return ((int (*)(void*, int))obj_testFlags30)(p, 4096); }
+int TUnk_804806E8::test_flag_1000() { return ((int (*)(void*, int))obj_testFlags30)(this, 4096); }
 
-int TObjPlayer::has_flag_0x800(void* p) { return ((int (*)(void*, int))obj_testFlags30)(p, 2048); }
+int TUnk_804806E8::has_flag_0x800() { return ((int (*)(void*, int))obj_testFlags30)(this, 2048); }
 
-int TObjPlayer::test_flag30_512(void* p) { return ((int (*)(void*, int))obj_testFlags30)(p, 512); }
+int TUnk_804806E8::test_flag30_512() { return ((int (*)(void*, int))obj_testFlags30)(this, 512); }
 
-int TObjPlayer::test_flag_256(void* p) { return ((int (*)(void*, int))obj_testFlags30)(p, 256); }
+int TUnk_804806E8::test_flag_256() { return ((int (*)(void*, int))obj_testFlags30)(this, 256); }
 
 bool TUnk_804806E8::vfunc_29() {
     return *(s32 *)&this->target == 0;
@@ -1896,10 +1901,10 @@ void *lbl_804806E8[] = {
     (void *)vfunc_28__13TUnk_804806E8Fv,
     (void *)vfunc_29__13TUnk_804806E8Fv,
     (void *)is_target_in_attack_range__10TObjPlayerFv,
-    (void *)TObjPlayer::test_flag_256,
-    (void *)TObjPlayer::test_flag30_512,
-    (void *)TObjPlayer::has_flag_0x800,
-    (void *)TObjPlayer::test_flag_1000,
+    (void *)&test_flag_256__13TUnk_804806E8Fv,
+    (void *)&test_flag30_512__13TUnk_804806E8Fv,
+    (void *)&has_flag_0x800__13TUnk_804806E8Fv,
+    (void *)&test_flag_1000__13TUnk_804806E8Fv,
     (void *)update_poison_status__13TUnk_804806E8Fv,
     (void *)update_action_hold_status__13TUnk_804806E8Fv,
     (void *)update_action_timer__10TObjPlayerFPv,

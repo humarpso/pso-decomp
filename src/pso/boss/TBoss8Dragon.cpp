@@ -1,4 +1,8 @@
 #include "types.h"
+extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
+extern "C" void test_flag30_512__13TUnk_804806E8Fv();
+extern "C" void test_flag_1000__13TUnk_804806E8Fv();
+extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TMainCursor.h"
 #include "pso/enemy/TObjEneDD_ST.h"
@@ -2156,8 +2160,8 @@ void *__vt__12TBoss8Dragon[107] = {
     (void *)&TObjPlayer__sub_8001119C, (void *)&TObjPlayer__sub_80018EE4, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&TObjPlayer__sub_80011704,
     (void *)&TObjPlayer__sub_80016454, (void *)&TObjPlayer__sub_80015DE8, (void *)&TObjPlayer__sub_80014108, (void *)&calc_direct_attack_damage__12TBoss8DragonFPvPvPviii,
     (void *)&TObjPlayer__sub_80011824, (void *)&TObjPlayer__sub_8001401C, (void *)&try_start_action__13TUnk_804806E8Fll, (void *)&TObjPlayer__sub_800162E0,
-    (void *)&vfunc_28__12TBoss8DragonFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&TObjPlayer__sub_8001745C, (void *)&TObjPlayer::test_flag_256,
-    (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&TObjPlayer__sub_800171A0,
+    (void *)&vfunc_28__12TBoss8DragonFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&TObjPlayer__sub_8001745C, (void *)&test_flag_256__13TUnk_804806E8Fv,
+    (void *)&test_flag30_512__13TUnk_804806E8Fv, (void *)&has_flag_0x800__13TUnk_804806E8Fv, (void *)&test_flag_1000__13TUnk_804806E8Fv, (void *)&TObjPlayer__sub_800171A0,
     (void *)&TObjPlayer__sub_80016FF8, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__13TUnk_804806E8Fv, (void *)&TObjPlayer__sub_80016D78,
     (void *)&update_shock_clock__13TUnk_804806E8Fv, (void *)&TObjPlayer__sub_80016944, (void *)&TObjPlayer__sub_800166DC, (void *)&vfunc_43__13TUnk_804806E8Fv,
     (void *)&vfunc_44__12TBoss8DragonFv, (void *)&vfunc_45__12TBoss8DragonFv, (void *)&vfunc_46__12TBoss8DragonFv, (void *)&vfunc_47__12TBoss8DragonFv,

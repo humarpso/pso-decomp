@@ -336,10 +336,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     int set_action_palette_mode();
     int clear_flag0_bit1();
     int set_flag_2();
-    static int test_flag_1000(void* p);
-    static int has_flag_0x800(void* p);
-    static int test_flag30_512(void* p);
-    static int test_flag_256(void* p);
     u16 get_field_2d4();
     s32 is_local_player();
     void apply_velocity();
