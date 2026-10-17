@@ -6,6 +6,7 @@
 
 struct TObjNpcBase : public TObjEnemy {
     virtual ~TObjNpcBase();
+    virtual void run_task();
     virtual void vfunc_83();
     virtual void update_standing();
     virtual void update_wandering();

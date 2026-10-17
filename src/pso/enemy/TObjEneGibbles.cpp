@@ -394,7 +394,7 @@ struct Gib_802D9110;
 void TObjEneGibbles__sub_802D9110(Gib_802D9110 *);
 void vfunc_60__14TObjEneGibblesFv(u8 *arg0);
 void vfunc_58__14TObjEneGibblesFv(u8 *arg0);
-void run_task__14TObjEneGibblesFPv(TObjEneGibbles *arg0);
+void run_task__14TObjEneGibblesFv(TObjEneGibbles *arg0);
 void* vfunc_9__14TObjEneGibblesFv(void* p);
 s32 vec3_add_to(f32 *, void *);
 s32 matrix_mult_vec(int, void *, void *);
@@ -768,7 +768,7 @@ void *lbl_804E296C[33] = {
     (void *)0x0,
 };
 void *lbl_804E29F0[83] = {
-    (void *)0x0, (void *)0x0, (void *)&TObjEneGibbles__sub_802DB920, (void *)&run_task__14TObjEneGibblesFPv,
+    (void *)0x0, (void *)0x0, (void *)&TObjEneGibbles__sub_802DB920, (void *)&run_task__14TObjEneGibblesFv,
     (void *)&draw_model__14TObjEneGibblesFPv, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__14TObjEneGibblesFv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
@@ -2326,65 +2326,65 @@ void draw_model__14TObjEneGibblesFPv(TObjEneGibbles *arg0) {
     }
 }
 
-void run_task__14TObjEneGibblesFPv(TObjEneGibbles *arg0) {
+void TObjEneGibbles::run_task() {
     s16 temp_r0;
     u8 *temp_r4;
     if (TObjPlayer::check_demo_mode() == 1) {
-        ((void (*)(u8 *))TObjEneGibbles__sub_802D7E3C)((u8 *)arg0);
+        ((void (*)(u8 *))TObjEneGibbles__sub_802D7E3C)((u8 *)this);
         return;
     }
     {
-        switch (arg0->mode) {
+        switch (this->mode) {
         case 0:
-            arg0->init_state();
+            this->init_state();
             break;
         case 1:
-            arg0->update_spawn_state();
+            this->update_spawn_state();
             break;
         case 2:
-            arg0->update_death_sequence();
+            this->update_death_sequence();
             break;
         case 3:
-            arg0->sub_802DA0BC();
+            this->sub_802DA0BC();
             break;
         case 4:
-            TObjEneGibbles__sub_802D9110((Gib_802D9110 *)arg0);
+            TObjEneGibbles__sub_802D9110((Gib_802D9110 *)this);
             break;
         case 5:
-            TObjEneGibbles__sub_802D8E8C((u8 *)arg0);
+            TObjEneGibbles__sub_802D8E8C((u8 *)this);
             break;
         case 6:
-            arg0->sub_802D8984();
+            this->sub_802D8984();
             break;
         case 7:
-            TObjEneGibbles__sub_802D8580((u8 *)arg0);
+            TObjEneGibbles__sub_802D8580((u8 *)this);
             break;
         case 8:
-            arg0->update_action_state();
+            this->update_action_state();
             break;
         case 9:
-            arg0->sub_802D8140();
+            this->sub_802D8140();
             break;
         case 10:
-            arg0->sub_802DA7A4();
+            this->sub_802DA7A4();
             break;
         case 11:
-            arg0->update_wander();
+            this->update_wander();
             break;
         }
     }
-    temp_r4 = (u8 *)(arg0->target);
+    temp_r4 = (u8 *)(this->target);
     if ((temp_r4 != NULL) && (*(s32 *)((s8 *)temp_r4 + 0x30) & 0x02000800)) {
-        *(s16 *)((s8 *)arg0 + 0x37E) = 0;
-        arg0->actorFlags = (s32) (arg0->actorFlags & 0xFFDFFFFF);
-        arg0->m_374 = (s32) (arg0->m_374 & 0xFFFF0000);
-        arg0->target = NULL;
+        *(s16 *)((s8 *)this + 0x37E) = 0;
+        this->actorFlags = (s32) (this->actorFlags & 0xFFDFFFFF);
+        this->m_374 = (s32) (this->m_374 & 0xFFFF0000);
+        this->target = NULL;
     }
-    arg0->update_position();
-    arg0->update_shadow_height();
-    copy_position__20TBoss3VoloptHiraisinFi((s32)arg0);
-    arg0->sync_state();
-    arg0->m_2b4 = (f32) (arg0->m_2b4 + TObjEneGibbles__data_805DE7EC);
+    this->update_position();
+    this->update_shadow_height();
+    copy_position__20TBoss3VoloptHiraisinFi((s32)this);
+    this->sync_state();
+    this->m_2b4 = (f32) (this->m_2b4 + TObjEneGibbles__data_805DE7EC);
 }
 
 void TObjEneGibbles::init_params() {

@@ -80,11 +80,11 @@ void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
 void *spawn_particle_effect(void *pos, s32 id);
 s32 play_sound_effect(int, void *, int, int);
 extern Vec_80198A2C boss3_volopt_init_vec;
-void TBoss3Volopt__sub_80198A2C(u8 *arg0);
+void run_task__13TUnk_804B8DE8Fv(u8 *arg0);
 #pragma push
 #pragma fp_contract on
-void TBoss3Volopt__sub_80198A2C(u8 *arg0) {
-    Obj_80198A2C *self = (Obj_80198A2C *)arg0;
+void TUnk_804B8DE8::run_task() {
+    Obj_80198A2C *self = (Obj_80198A2C *)((u8 *)this);
     s32 state;
     if (self->counter++ >= self->limit) {
         spawn_particle_effect_with_flags(&self->pos, 0x45, 0x40);
@@ -360,7 +360,7 @@ extern const f32 chunk_material_color_half_alpha_f32[];
 extern u32 blob_shadow_texture_list;
 void TObjPlayer__sub_801994DC(s32 arg0, void *arg1, void *arg2, s32 arg3, void *arg4, f32 farg0);
 
-void TWindowTimer::clear_status_flags() {
+void TUnk_804B8E00::render() {
     (*(G_80199078 *)&(*(RecoveredGlobal_80199470_lbl_8050DDAC *)&gogo_ball_sync_state)).flags &= ~1;
     (*(G_80199078 *)&(*(RecoveredGlobal_80199470_lbl_8050DDAC *)&gogo_ball_sync_state)).flags &= ~2;
     (*(G_80199078 *)&(*(RecoveredGlobal_80199470_lbl_8050DDAC *)&gogo_ball_sync_state)).flags &= ~0x10;
@@ -456,7 +456,7 @@ void *lbl_804B8DA0[3] = {
 
 struct E54_801990B4 { u8 b[0x54]; };
 
-void TWindowTimer__sub_801990B4(u8 *arg0) {
+void TUnk_804B8E00::run_task() {
     u8 *pad;
     s32 m;
     s32 r;
@@ -474,7 +474,7 @@ void TWindowTimer__sub_801990B4(u8 *arg0) {
         set_timer_value__12TWindowTimerFii(0, 0);
     }
     m = TLobby::get_internet_beat();
-    r = (s32)fabs_float((f32)(m - *(s32 *)((s8 *)arg0 + 0x1C)));
+    r = (s32)fabs_float((f32)(m - *(s32 *)((s8 *)((u8 *)this) + 0x1C)));
     if (r == 1 || r == 999) {
         *(s16 *)((s8 *)(&(*(RecoveredGlobal_80199470_lbl_8050DDAC *)&gogo_ball_sync_state).value) + 0x12) = 1;
         idx = m % 10;
@@ -500,7 +500,7 @@ void TWindowTimer__sub_801990B4(u8 *arg0) {
             TWindowTimer__sub_8019886C((u8 *)o, (u8 *)lbl_804B8DA0, 0, 1, (s32)(*(s16 *)((s8 *)gogo_ball_configuration + 0x14)), (u8 *)tl_04);
         }
     }
-    *(s32 *)((s8 *)arg0 + 0x1C) = m;
+    *(s32 *)((s8 *)((u8 *)this) + 0x1C) = m;
 }
 
 void TWindowTimer::copy_state(u8 *arg1) {

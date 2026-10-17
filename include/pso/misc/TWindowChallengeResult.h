@@ -6,6 +6,7 @@
 
 struct TWindowChallengeResult : public TUnk_804CE018 {
     virtual ~TWindowChallengeResult();
+    virtual void render();
 
     u8 unk_1C[0x4C];
 };

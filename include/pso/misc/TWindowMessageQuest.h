@@ -6,6 +6,7 @@
 
 struct TWindowMessageQuest : public TWindowMessage {
     virtual ~TWindowMessageQuest();
+    virtual void render();
     u8 unk_90[0x4];
 };
 

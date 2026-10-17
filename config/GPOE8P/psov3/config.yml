@@ -7252,6 +7252,7 @@ force_active:
   - render__12TChCrEffFadeFv
   - render__12TChCrTagNameFv
   - render__12TLevelSelectFv
+  - render__12TObjEneLappyFv
   - render__12TObjEneSharkFv
   - render__13TAdTitleTexGCFv
   - render__13TObjBoss7DustFv
@@ -7268,7 +7269,8 @@ force_active:
   - render__14TChCrEffTagStrFv
   - render__14TFontSmallTaskFv
   - render__14TOTrapChainSawFv
-  - render__14TObjEneBm5WolfFPv
+  - render__14TObjEneBm5WolfFv
+  - render__14TObjEneDolmOlmFv
   - render__15TAdDrawLineCtrlFv
   - render__15TBoss2PhotonPadFv
   - render__15TBoss3VoloptP01Fv
@@ -7288,6 +7290,7 @@ force_active:
   - render__17TObjBoss8DemoRoomFv
   - render__17TObjCityDoor_ShopFv
   - render__17TObjCityDoor_WarpFv
+  - render__17TObjEneBm3FlyNestFv
   - render__17TObjVoloptShutterFv
   - render__17TWindowSetLevelUpFv
   - render__18TAdGameStartBackGCFv
@@ -7295,10 +7298,11 @@ force_active:
   - render__18TAdMultiPlayerNoGCFv
   - render__18TBoss2PhotonBulletFv
   - render__18TBoss7PhotonBulletFv
-  - render__18TChCrTagOccupationFPv
+  - render__18TChCrTagOccupationFv
   - render__18TItemReverseTechBGFv
   - render__18TObjCityDoor_GuildFv
   - render__18TObjCityDoor_LobbyFv
+  - render__18TObjEneBalClawClawFv
   - render__18TPlayerLobbyMarkerFv
   - render__19TBoss1DragonColli_CFv
   - render__19TBoss8DragonColli_CFv
@@ -7327,7 +7331,6 @@ force_active:
   - render__9TAdFadeGCFv
   - render__9TBoss2FinFv
   - render_background_status__18TAdGameStartBackGCFv
-  - render_body__14TObjEneDolmOlmFPv
   - render_by_state__18TAdLoadQuestLineGCFv
   - render_cursor__19TAdMcSelectCursorGCFv
   - render_debug__14TObjEneBm5WolfFPv
@@ -7438,6 +7441,7 @@ force_active:
   - run_task__12TItemTexLoadFv
   - run_task__12TLevelSelectFv
   - run_task__12TMemberCheckFv
+  - run_task__12TObjEneLappyFv
   - run_task__12TObjEneReconFv
   - run_task__12TObjRainCtrlFv
   - run_task__12T_OWEHMS_ExpFv
@@ -7471,7 +7475,9 @@ force_active:
   - run_task__14TFontSmallTaskFv
   - run_task__14TItemEffHeavenFv
   - run_task__14TOTrapChainSawFv
-  - run_task__14TObjEneDolmOlmFPv
+  - run_task__14TObjEneBm5WolfFv
+  - run_task__14TObjEneDolmOlmFv
+  - run_task__14TObjEneRecoboxFv
   - run_task__14TSetEvtDestroyFv
   - run_task__14TWindowCtrlSubFv
   - run_task__15TAdDrawLineCtrlFv
@@ -7483,6 +7489,7 @@ force_active:
   - run_task__15TItemEffLandHitFv
   - run_task__15TItemMagGrowEffFv
   - run_task__15TObjDeadListWinFv
+  - run_task__15TObjEneMe1GiGueFv
   - run_task__15TObjLiveMonitorFv
   - run_task__15TObjSoloPlayWinFv
   - run_task__16TAdGuideButtonGCFv
@@ -7496,6 +7503,7 @@ force_active:
   - run_task__16TItemReverseTechFv
   - run_task__16TObjBagWarnWin4PFv
   - run_task__16TObjCityDoor_MedFv
+  - run_task__16TObjEneNanoDragoFv
   - run_task__16TObjOnlineEndingFv
   - run_task__17TAdGameStartSubGCFv
   - run_task__17TAdSelectTxtSubGCFv
@@ -7506,6 +7514,7 @@ force_active:
   - run_task__17TObjBoss8DemoRoomFv
   - run_task__17TObjCityDoor_ShopFv
   - run_task__17TObjCityDoor_WarpFv
+  - run_task__17TObjEneBm3FlyNestFv
   - run_task__17TObjVoloptShutterFv
   - run_task__17TWindowSetLevelUpFv
   - run_task__18TAdGameStartBackGCFv
@@ -7516,6 +7525,8 @@ force_active:
   - run_task__18TItemReverseTechBGFv
   - run_task__18TObjCityDoor_GuildFv
   - run_task__18TObjCityDoor_LobbyFv
+  - run_task__18TObjEneBalClawClawFv
+  - run_task__18TObjSeabedSuiso_CHFv
   - run_task__18TObjTailsTailsMoveFv
   - run_task__18TPlayerLobbyMarkerFv
   - run_task__19THunterGuildWarningFv
@@ -8208,13 +8219,14 @@ force_active:
   - update__23TShopJudgmentItemWindowFv
   - update__24TShopEquipmentSellWindowFv
   - update__9TObjGrassFv
+  - update_action_hold_status__12TObjEneLappyFv
   - update_action_hold_status__15TObjEneMe1GiGueFv
+  - update_action_hold_status__16TObjEneNanoDragoFv
   - update_active__10TChallengeFv
   - update_ai__9TObjGrassFPv
   - update_and_destroy__13TUnk_804C349CFv
   - update_and_send_lobby__9TWindowDDFv
   - update_anim__12TOSwitchItemFv
-  - update_anim_if_active__23TObjSeabedSuisoBrakableFPv
   - update_appearance_drop__11TObjEneMojaFv
   - update_appearance_jump__11TObjEneMojaFv
   - update_approach_state__11TObjEneMojaFv
@@ -8336,7 +8348,7 @@ force_active:
   - update_move_flag__10TBoss2MineFv
   - update_move_to_target__18TObjEneBalClawClawFPv
   - update_move_to_target_state__10TBoss4ZakoFv
-  - update_movement__15TObjEneMe1GiGueFPv
+  - update_movement_status__12TObjEneLappyFv
   - update_moving__12TObjEneLappyFv
   - update_node_oscillation__11TItemMagSubFPv
   - update_or_dispatch__14TBoss7DeRolLeCFv
@@ -8397,14 +8409,16 @@ force_active:
   - update_state__12TObjNpcEnemyFv
   - update_state__12TObjWarpBossFv
   - update_state__14TBoss6GravBallFPv
-  - update_state__14TOTrapChainSawFPv
+  - update_state__14TOTrapChainSawFv
   - update_state__14TObjEneBm5WolfFPv
   - update_state__14TObjVoloptCageFv
   - update_state__15TBoss3VoloptP01Fv
+  - update_state__17TOTrapChainSawKeyFv
   - update_state__18TObjEneBalClawClawFv
   - update_state__18TObjSeabedSuiso_CHFv
   - update_state__19TBoss3VoloptMonitorFv
   - update_state__19TObjStendGlassLobbyFv
+  - update_state__20TOTrapChainSawDamageFv
   - update_state__25TObjCityMainWarpChallengeFv
   - update_state__8TOKurageFv
   - update_state__8TObjDoorFv

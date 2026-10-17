@@ -5,7 +5,7 @@
 
 extern "C" {
 void *init_s_rank_shot(void *a0);
-void s_rank_shot_open_spread(u8 *arg0);
+void update_idle__13TUnk_804A444CFv(u8 *arg0);
 }
 
 #endif

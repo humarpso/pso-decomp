@@ -61,7 +61,7 @@ void launch_slicer_shot(u8 *weapon) {
     TTecSlicer::create((u16*)&launch);
 }
 
-void TObjPlayer::update_slicer_hinge_idle() {
+void TUnk_804A5B20::update_idle() {
     u8 *arg0 = (u8 *)this;
   int new_var;
   switch ((s32) get_slot_count__14TItemProShieldFv())

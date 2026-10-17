@@ -140,7 +140,7 @@ void *__dt__13TUnk_804F0810Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804F0908Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804F0A00Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804F0AF8Fv(void *arg0, s16 arg1);
-void TObjPlayer__sub_8034F8B8(void* p);
+void update_idle__13TUnk_804F0AF8Fv(void* p);
 s32 rotate_matrix_x(s32, s32);
 int add_angle_clamped__10TObjPlayerFPlll(void*, void*, void*);
 int update_trail_slot__11TItemWeaponFPvi(void*, void*);
@@ -163,7 +163,7 @@ void TObjPlayer::rotate_by_player_list() {
 }
 
 void TUnk_804F0810::reserved_53() { draw_weapon_at_joint((s32)this, (s8)((void*)49)); update_trail_slot__11TItemWeaponFPvi(this, (void*)0); update_trail_slot__11TItemWeaponFPvi(this, (void*)1); }
-int TObjPlayer::apply_recoil_forward() { return add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1f8), (void*)(1820), (void*)(13653)); }
+void TUnk_804F0810::update_idle() { add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1f8), (void*)(1820), (void*)(13653)); }
 void TUnk_804F0810::update_attack() { add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1f8), (void*)(-4551), (void*)(0)); }
 
 extern s32 lbl_804F0810[];
@@ -333,7 +333,7 @@ void TObjPlayer::pose_gi_gue_bazooka_nodes() {
     }
 }
 
-void TObjPlayer::return_gi_gue_bazooka_angles() { add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1f8), (void*)((void*)1820), (void*)((void*)7281)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1fc), (void*)((void*)-1820), (void*)((void*)-5461)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x200), (void*)((void*)1820), (void*)((void*)9102)); }
+void TUnk_804F0A00::update_idle() { add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1f8), (void*)((void*)1820), (void*)((void*)7281)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1fc), (void*)((void*)-1820), (void*)((void*)-5461)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x200), (void*)((void*)1820), (void*)((void*)9102)); }
 
 void TUnk_804F0A00::update_attack() { add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1f8), (void*)((void*)-3640), (void*)((void*)0)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1fc), (void*)((void*)2730), (void*)((void*)0)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x200), (void*)((void*)-1820), (void*)((void*)0)); }
 
@@ -389,7 +389,7 @@ void TObjPlayer::dispatch_by_state() {
 
 void TUnk_804F0AF8::reserved_53() { draw_weapon_at_joint((s32)this, (s8)((void*)49)); update_trail_slot__11TItemWeaponFPvi(this, (void*)0); update_trail_slot__11TItemWeaponFPvi(this, (void*)1); }
 
-void TObjPlayer__sub_8034F8B8(void* p) { add_angle_clamped__10TObjPlayerFPlll((void*)((char*)p + 0x1f8), (void*)((void*)-8192), (void*)((void*)-30947)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)p + 0x1fc), (void*)((void*)-1820), (void*)((void*)-7281)); }
+void TUnk_804F0AF8::update_idle() { add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1f8), (void*)((void*)-8192), (void*)((void*)-30947)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1fc), (void*)((void*)-1820), (void*)((void*)-7281)); }
 
 void TUnk_804F0AF8::update_attack() { add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1f8), (void*)((void*)16384), (void*)((void*)0)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1fc), (void*)((void*)3640), (void*)((void*)0)); }
 

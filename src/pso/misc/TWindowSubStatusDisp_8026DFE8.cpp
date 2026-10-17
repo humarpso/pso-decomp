@@ -57,7 +57,7 @@ void TUnk_804D0948::render() {
 }
 #pragma pop
 
-void TUnk_804D0948::run_task() { update_item_list_window((u8 *)this); }
+void TUnk_804D0948::run_task() { run_task__13TUnk_804D0618Fv((u8 *)this); }
 
 void *TWindowSubStatusDisp::deleting_dtor(s16 arg1) {
     if (this != NULL) {

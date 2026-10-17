@@ -471,7 +471,7 @@ extern s32 *lbl_805D6940;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-void TObjPlayer__sub_802E80F4(u8 *arg0);
+void render__14TBoss7DeRolLeCFv(u8 *arg0);
 void TObjPlayer__sub_802E80A0(void);
 int get_bml_motion(void*, void*);
 int TObjFish__sub_8001EDB0(void*, void*);
@@ -491,15 +491,15 @@ typedef char RecoveredGlobal_802E80F4_lbl_8050BEC0_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_802E80F4_main_task_size[sizeof(RecoveredGlobal_802E80F4_main_task) == 0x34 ? 1 : -1];
 typedef char RecoveredGlobal_802E80F4_lbl_805412C0_size[sizeof(RecoveredGlobal_802E80F4_lbl_805412C0) == 0x268 ? 1 : -1];
 typedef char RecoveredGlobal_802E80F4_lbl_8058D4C0_size[sizeof(RecoveredGlobal_802E80F4_lbl_8058D4C0) == 0x10 ? 1 : -1];
-void TObjPlayer__sub_802E80F4(u8 *unused) {
+void TBoss7DeRolLeC::render() {
     s32 *var_r30;
     s32 var_r29;
-    if (!(get_mode__11TCameraCtrlFPv((void *) (&(*(RecoveredGlobal_802E80F4_main_task *)&main_task).value)) & 0x20) || !(*(f32 *)((s8 *)unused + 0x3C) < lbl_805DEA1C)) {
-        var_r30 = (s32 *)(unused + 0x5F8);
+    if (!(get_mode__11TCameraCtrlFPv((void *) (&(*(RecoveredGlobal_802E80F4_main_task *)&main_task).value)) & 0x20) || !(*(f32 *)((s8 *)((u8 *)this) + 0x3C) < lbl_805DEA1C)) {
+        var_r30 = (s32 *)(((u8 *)this) + 0x5F8);
         var_r29 = 0;
         do {
             if (((TBoss7Joint *)(*var_r30))->is_part_active() != 0U) {
-                TObjPlayer__sub_802E7F30(unused, var_r29);
+                TObjPlayer__sub_802E7F30(((u8 *)this), var_r29);
             }
             var_r29 += 1;
             var_r30 = (s32 *)((u8 *)var_r30 + (4));
@@ -511,14 +511,14 @@ void TObjPlayer__sub_802E80F4(u8 *unused) {
         TObjEneDD::clear_global_flag_400();
         TParticleCtrl::begin_effect_render();
         push_matrix();
-        if ((u32) *(u32 *)((s8 *)unused + 0x7AC) != 0U) {
-            if (*(s32 *)((s8 *)unused + 0x628) & 0x40) {
+        if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x7AC) != 0U) {
+            if (*(s32 *)((s8 *)((u8 *)this) + 0x628) & 0x40) {
                 *(s32 **)((s8 *)lbl_805D693C + 0x2C) = &boss7_derolle_light_pool.value;
             } else {
                 *(s32 **)((s8 *)lbl_805D693C + 0x2C) = (s32 *) lbl_805D6940;
             }
             TObjPlayer::draw_effect();
-            ((TObjPlayer *)(*(u32 *)((s8 *)unused + 0x7AC)))->draw_node_tree_if_visible();
+            ((TObjPlayer *)(*(u32 *)((s8 *)((u8 *)this) + 0x7AC)))->draw_node_tree_if_visible();
         }
         pop_matrix();
         TParticleCtrl::end_effect_render();
@@ -526,8 +526,8 @@ void TObjPlayer__sub_802E80F4(u8 *unused) {
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;
         model_render_flags = lbl_805D5660;
-        TObjPlayer__sub_802E7FC0(unused);
-        ((TObject *)(unused + 0x690))->render_nodes();
+        TObjPlayer__sub_802E7FC0(((u8 *)this));
+        ((TObject *)(((u8 *)this) + 0x690))->render_nodes();
     }
 }
 

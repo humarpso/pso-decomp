@@ -6,6 +6,7 @@
 
 struct TObjEneRe2Flower : public TObjEneDD_ST {
     virtual ~TObjEneRe2Flower();
+    virtual void run_task();
     virtual void vfunc_88();
     virtual void vfunc_105();
     virtual void vfunc_106();

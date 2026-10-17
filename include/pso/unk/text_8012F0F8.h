@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void madam_parasol_close(u8 *arg0);
+void update_idle__13TUnk_804A6200Fv(u8 *arg0);
 }
 
 #endif

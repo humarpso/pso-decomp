@@ -6,6 +6,7 @@
 class TUnk_804CF0B8 : public TUnk_804CDFE8 {
 public:
     virtual ~TUnk_804CF0B8();
+    virtual void render();
     void clear_flag();
     s16 get_field_20();
     int get_flag_bit1();

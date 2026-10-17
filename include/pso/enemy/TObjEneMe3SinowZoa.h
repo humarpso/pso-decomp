@@ -6,6 +6,8 @@
 
 struct TObjEneMe3SinowZoa : public TObjEneDD_ST {
     virtual ~TObjEneMe3SinowZoa();
+    virtual void run_task();
+    virtual void render();
     u8 check_body_collision_at(s32, f32);
     s32 sub_8031A4D0();
     u8 is_outside_visible_range();

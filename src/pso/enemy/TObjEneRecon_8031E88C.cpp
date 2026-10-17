@@ -219,12 +219,13 @@ void TObjEneRecobox::draw_with_debug_info() {
     draw_chunk_object((void *)debug_chunk_object);
     pop_matrix();
 }
-void render__12TObjEneReconFPv(u8 *arg0) {
+void TObjEneRecobox::render() {
     s32 temp_r30;
     Fade_8031EA70 *temp_r29;
     s32 var_r29;
     s32 var_r28;
     s32 var_r27;
+    u8 *arg0 = (u8 *)this;
     if (TObjPlayer::check_demo_mode() != 0) {
         ((TObjEneRecobox *)arg0)->draw_with_debug_info();
         return;

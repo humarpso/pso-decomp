@@ -59,7 +59,7 @@ u8 *TOMineTrapDisp__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3) {
     return arg0;
 }
 
-void TOMineDisp::draw() {
+void TOMineDisp::render() {
     s32 temp_r31;
     s32 temp_r4;
     u16 id = TCameraCtrl::get_nth_view_player_id(get_camera_mode__11TCameraCtrlFv());

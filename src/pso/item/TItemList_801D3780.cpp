@@ -107,14 +107,14 @@ extern const f32 lbl_805DC3D0;
 void *find_placement_obstruction(void *self, Body_801D3E20 *s);
 extern const f32 lbl_805DC3C8;
 void TItemList__sub_801D59A0(void *, int);
-void update_placement_search(u8 *arg0);
+void run_task__13TUnk_804C4480Fv(u8 *arg0);
 s32 get_item_type_or_default__9TItemListFv(void *);
 void send_6x29_delete_item__10TObjPlayerFPvii(void *, s32, s32);
 void *get_player_by_client_id(u16);
 void *get_ptr_0x44__9TItemListFPv(void *);
 s32 TItemList__sub_801D58DC(void *);
 void TItemList__sub_801D591C(void *);
-void run_item_drop_search_task(u8 *arg0);
+void run_task__13TUnk_804C4468Fv(u8 *arg0);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
 s32 *csnVecterUnder(s32 origin, s32 mask);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
@@ -134,39 +134,39 @@ void *__nw__7TObjectFUl(int);
 
 extern void *tl_07;
 
-void run_item_drop_search_task(u8 *arg0) {
+void TUnk_804C4468::run_task() {
     Req_801D3780 *r;
     void *player;
-    switch (((TUnk_804C4498 *)arg0)->step_placement_search()) {
+    switch (((TUnk_804C4498 *)((u8 *)this))->step_placement_search()) {
     case 0:
         return;
     case 1:
-        TItemList__sub_801D59A0(arg0, *(s32 *)(arg0 + 0x54));
-        TItemList__sub_801D591C(arg0);
-        r = (Req_801D3780 *)run_item_count_update__9TItemListFv(arg0);
-        player = get_player_by_client_id(TItemList__sub_801D58DC(arg0));
+        TItemList__sub_801D59A0(((u8 *)this), *(s32 *)(((u8 *)this) + 0x54));
+        TItemList__sub_801D591C(((u8 *)this));
+        r = (Req_801D3780 *)run_item_count_update__9TItemListFv(((u8 *)this));
+        player = get_player_by_client_id(TItemList__sub_801D58DC(((u8 *)this)));
         if (player != NULL) {
             if (r->id == -1) {
                 if (r->source == -1) {
-                    ((TItem *)(r->item))->assign_id_and_init((s32)(TItemList__sub_801D58DC(arg0)), (s32)(get_ptr_0x44__9TItemListFPv(arg0)));
+                    ((TItem *)(r->item))->assign_id_and_init((s32)(TItemList__sub_801D58DC(((u8 *)this))), (s32)(get_ptr_0x44__9TItemListFPv(((u8 *)this))));
                     send_6x29_delete_item__10TObjPlayerFPvii(player, r->source, r->extra);
                     TObjPlayer::send_code_45_1((s32)player);
                 } else {
-                    ((TItem *)(r->item))->assign_id_and_init((s32)(TItemList__sub_801D58DC(arg0)), (s32)(get_ptr_0x44__9TItemListFPv(arg0)));
+                    ((TItem *)(r->item))->assign_id_and_init((s32)(TItemList__sub_801D58DC(((u8 *)this))), (s32)(get_ptr_0x44__9TItemListFPv(((u8 *)this))));
                     send_6x29_delete_item__10TObjPlayerFPvii(player, r->source, get_item_type_or_default__9TItemListFv(r->item));
                     TObjPlayer::send_code_45_1((s32)player);
                 }
             } else {
-                TObjPlayer::send_6x2A_drop_item(player, r->source, get_ptr_0x44__9TItemListFPv(arg0), get_item_type_or_default__9TItemListFv(r->item));
+                TObjPlayer::send_6x2A_drop_item(player, r->source, get_ptr_0x44__9TItemListFPv(((u8 *)this)), get_item_type_or_default__9TItemListFv(r->item));
                 TObjPlayer::send_code_45_1((s32)player);
             }
         }
         break;
     case 2:
-        ((TItemList *)arg0)->lookup_entry_by_count(*(s32 *)(arg0 + 0x54));
+        ((TItemList *)((u8 *)this))->lookup_entry_by_count(*(s32 *)(((u8 *)this) + 0x54));
         break;
     }
-    queue_destruction__7TObjectFv(arg0);
+    queue_destruction__7TObjectFv(((u8 *)this));
 }
 
 void *TItemList::create_node(void *arg0, void *arg1, void *arg2, s8 arg3) {
@@ -215,19 +215,19 @@ block_5:
     return arg0;
 }
 
-void update_placement_search(u8 *arg0) {
-    switch (((TUnk_804C4498 *)arg0)->step_placement_search()) {
+void TUnk_804C4480::run_task() {
+    switch (((TUnk_804C4498 *)((u8 *)this))->step_placement_search()) {
     case 0:
         return;
     case 1:
-        TItemList__sub_801D59A0(arg0, *(s32 *)((s8 *)arg0 + 0x54));
-        ((TUnk_804C4480 *)arg0)->sub_801D5A70();
+        TItemList__sub_801D59A0(((u8 *)this), *(s32 *)((s8 *)((u8 *)this) + 0x54));
+        ((TUnk_804C4480 *)((u8 *)this))->sub_801D5A70();
         break;
     case 2:
-        ((TItemList *)arg0)->lookup_entry_by_count(*(s32 *)((s8 *)arg0 + 0x54));
+        ((TItemList *)((u8 *)this))->lookup_entry_by_count(*(s32 *)((s8 *)((u8 *)this) + 0x54));
         break;
     }
-    queue_destruction__7TObjectFv(arg0);
+    queue_destruction__7TObjectFv(((u8 *)this));
 }
 
 void * TItemList__sub_801D3B00(void *arg0, void *arg1, void *arg2, s8 arg3) {

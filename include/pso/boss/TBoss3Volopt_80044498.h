@@ -14,7 +14,7 @@ void destroy_sub_objects__12TBoss3VoloptFPv(void *arg0);
 s32 imin_80045EEC(s32 a, s32 b);
 f32 max_80045EEC(f32 a, f32 b);
 f32 min_80045EEC(f32 a, f32 b);
-void render__12TBoss3VoloptFPv(u8 *arg0);
+void render__13TUnk_80484610Fv(u8 *arg0);
 void update_state__12TBoss3VoloptFPv(void *arg0);
 }
 

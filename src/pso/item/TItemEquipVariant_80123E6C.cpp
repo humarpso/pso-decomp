@@ -6,12 +6,12 @@
 
 extern "C" {
 
-void sorcerers_cane_idle(void *arg0) {
+void TUnk_804A1E28::update_idle() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x1FE);
+    temp_r0 = *(s16 *)((s8 *)this + 0x1FE);
     if ((temp_r0 == 1) || (temp_r0 == 0)) {
-        *(s16 *)((s8 *)arg0 + 0x1FE) = 2;
+        *(s16 *)((s8 *)this + 0x1FE) = 2;
     }
 }
 

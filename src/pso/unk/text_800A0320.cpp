@@ -21,7 +21,7 @@ s32 TUnk_80490470::advance_toward_max() {
     calc_recoil_offsets__13TUnk_80490470Fv(temp_f1);
     return *(f32 *)&this->unk_18 >= lbl_805D995C;
 }
-s32 TObjPlayer::update_recoil_offset() {
+s32 TUnk_80490470::decay_value_toward_floor() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x18);

@@ -25,6 +25,7 @@ struct DragonAnimationEntry { u32 unknown00; s32 motionIndex; u8 unknown08[8]; }
 
 struct TBoss1Dragon : public TObjEneDD_ST {
     virtual ~TBoss1Dragon();
+    virtual void run_task();
     virtual void vfunc_88();
     virtual void render();
     virtual void render_shadows();

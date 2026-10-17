@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void TObjPlayer__sub_8023A70C(void *p);
+void run_task__13TUnk_804CCC68Fv(void *p);
 void move_ground_technique_projectile(void *p);
 void move_technique_projectile(u8 *arg0);
 }

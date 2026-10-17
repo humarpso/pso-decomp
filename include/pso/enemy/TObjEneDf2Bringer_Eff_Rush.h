@@ -6,6 +6,8 @@
 class TObjEneDf2Bringer_Eff_Rush : public TObject {
 public:
     virtual ~TObjEneDf2Bringer_Eff_Rush();
+    virtual void run_task();
+    virtual void render();
     u8 unk_1C[0x4];
     f32 m_20;
     u8 unk_24[0x4];

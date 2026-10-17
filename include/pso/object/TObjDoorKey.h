@@ -6,6 +6,7 @@
 
 struct TObjDoorKey : public TOKey {
     virtual ~TObjDoorKey();
+    virtual void trigger_activate_sound();
     virtual void update_armed_switch();
     virtual void vfunc_17();
     virtual void vfunc_16();
@@ -33,7 +34,7 @@ extern "C" {
 void *TObjDoorKey__create(void *arg0);
 void *TObjDoorKey__ct(TObjDoorKey *arg0, void *arg1, void *arg2);
 void TObjDoorKey__sub_8018FAEC(void);
-void TObjDoorKey__vt16(u8 *arg0);
+void trigger_activate_sound__11TObjDoorKeyFv(u8 *arg0);
 void *TObjEnvSoundGlobal__create(void *arg0);
 void *__dt__11TObjDoorKeyFv(void *arg0, s16 arg1);
 }

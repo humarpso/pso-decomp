@@ -61,7 +61,7 @@ struct W_8019D764 {
 extern "C" {
 u8 TWindowShortListCtrl__check_controller_button(void *, int);
 extern RecoveredGlobal_8019D850_lbl_8050E208 controller_input_state;
-void TObjWarpBase__vt15(s32 arg0, s32 arg1);
+void vfunc_18__12TObjWarpBaseFl(s32 arg0, s32 arg1);
 void fn_8019DD24(void *p, u32 v);
 void *get_player_by_client_id(u32);
 void TWindow__close(u8 *arg0);
@@ -88,7 +88,7 @@ struct VObj_8019D6F8_8019D4E4 : Base_8019D6F8_8019D4E4 {
     virtual void m12(); virtual void m13();
 };
 
-u8 TObjWarpBase__vt13(void *arg0);
+u8 vfunc_16__12TObjWarpBaseFv(void *arg0);
 void *__dt__11TObjMapWarpFv(void *arg0, s16 arg1);
 void *__dt__12TObjWarpBaseFv(void *arg0, s16 arg1);
 s32 __dl__7TObjectFPv(void *);
@@ -197,7 +197,7 @@ void *TObjMapWarp__ct(W_8019D764 *self, void *parent, void *set) {
     return self;
 }
 
-void TObjWarpBase__vt15(s32 arg0, s32 arg1) {
+void TObjWarpBase::vfunc_18(s32 arg1) {
     TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&(*(RecoveredGlobal_8019D818_lbl_8050E208 *)&controller_input_state).value + (arg1 * 0x50) + 0x20), 4);
 }
 
@@ -205,9 +205,9 @@ void TObjWarpBase::vfunc_17() {
     TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), 4);
 }
 
-u8 TObjWarpBase__vt13(void *arg0) {
+u8 TObjWarpBase::vfunc_16() {
     void *var_r31;
-    u32 id = *(u16 *)((s8 *)arg0 + 0xB8);
+    u32 id = *(u16 *)((s8 *)this + 0xB8);
 
     var_r31 = NULL;
     if ((id != 0xFFFF) && ((var_r31 = get_player_by_client_id(id), ((var_r31 == NULL) != 0)) || (check_flag_100__10TObjPlayerFPv() != 0))) {

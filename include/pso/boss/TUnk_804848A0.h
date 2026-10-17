@@ -6,6 +6,7 @@
 class TUnk_804848A0 : public TUnk_804999E8 {
 public:
     virtual ~TUnk_804848A0();
+    virtual void run_task();
     void *init_fade_color(void *, void *);
     u8 unk_24[0x4];
 };

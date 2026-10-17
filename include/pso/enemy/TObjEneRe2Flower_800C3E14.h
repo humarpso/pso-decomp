@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void TObjEneRe2Flower__sub_800C3F70(u8 *arg0);
+void run_task__16TObjEneRe2FlowerFv(u8 *arg0);
 void TObjPlayer__sub_800C44C4(void);
 void *destroy__16TObjEneRe2FlowerFPvs(void *arg0, s16 arg1);
 void dispatch_action__16TObjEneRe2FlowerFiUii(s32 arg0, u32 arg1, s32 arg2);

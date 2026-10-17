@@ -560,7 +560,7 @@ s32 pop_matrix();
 extern s32 model_render_flags;
 extern const f32 lbl_805D881C;
 extern const f32 lbl_805D8820;
-void render__12TBoss3VoloptFPv(u8 *arg0);
+void render__13TUnk_80484610Fv(u8 *arg0);
 void *__nw__7TObjectFUl(s32);
 u8 *fn_800480B0(u8 *arg0, s32 arg1, s32 arg2);
 extern void *tl_04;
@@ -1683,7 +1683,8 @@ void TBoss3Volopt::set_action(s16 arg1) {
         this->vfunc_60();
     }
 }
-void render__12TBoss3VoloptFPv(u8 *arg0) {
+void TUnk_80484610::render() {
+    u8 *arg0 = (u8 *)this;
     if (!(((TUnk_80484610 *)arg0)->actorFlags & 0x02000000) && (((VObjA_80044498 *)arg0)->m8(lbl_805D881C, lbl_805D8820) != 0)) {
         if (((RenderFadeState*)(arg0 + 0x490))->updateFromCamera((const f32*)(arg0 + 0x2FC)) != 0) {
             ((VObjB_80044498 *)(arg0 + 0x490))->n6();

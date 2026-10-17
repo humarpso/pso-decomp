@@ -6,6 +6,8 @@
 
 struct TObjEneBm3FlyNest : public TObjEneDD {
     virtual ~TObjEneBm3FlyNest();
+    virtual void run_task();
+    virtual void render();
     virtual void vfunc_88();
     virtual void render_with_state_debug();
     virtual void render_shadows();
@@ -68,8 +70,8 @@ void handle_attachment_sample__17TObjEneBm3FlyNestFi(s32 arg0);
 void handle_event__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
 void handle_motion_event__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1);
 void handle_state__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
-void render__17TObjEneBm3FlyNestFPv(u8 *arg0);
-void run_task__17TObjEneBm3FlyNestFPv(u8 *arg0);
+void render__17TObjEneBm3FlyNestFv(u8 *arg0);
+void run_task__17TObjEneBm3FlyNestFv(u8 *arg0);
 void state_dying__17TObjEneBm3FlyNestFPvi(u8 *actor, s32 arg1);
 void state_spawn__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
 void state_wait__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);

@@ -6,6 +6,7 @@
 
 struct TObjAreaWarpEndingJung : public TObjAreaWarpEnding {
     virtual ~TObjAreaWarpEndingJung();
+    virtual void debug_print_area_num();
     void render();
     void run_task();
 };

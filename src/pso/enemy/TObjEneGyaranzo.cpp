@@ -720,8 +720,8 @@ void TObjPlayer__sub_800D2E8C(Ene_800D2E8C *arg0);
 void vfunc_63__15TObjEneGyaranzoFv(u8 *arg0);
 void vfunc_62__15TObjEneGyaranzoFv(u8 *arg0);
 void TObjPlayer__sub_800D35D4(void);
-void TObjPlayer__sub_800D35D8(u8 *arg0);
-void update_main__10TObjPlayerFPv(u8 *arg0);
+void render__15TObjEneGyaranzoFv(u8 *arg0);
+void run_task__15TObjEneGyaranzoFv(u8 *arg0);
 Obj_800D3E54 * fn_800D3E54(Obj_800D3E54 *arg0, s16 arg1);
 u8 *TObjEneGyaranzo__ct(TObjEneGyaranzo *arg0, s32 arg1, u8 *arg2);
 s32 __dt__13TUnk_80494938Fv(void *, s16);
@@ -1081,8 +1081,8 @@ void *gyaranzo_death_breakup_params[7] = {
     (void *)0x3df5c28f, (void *)0x3f0ccccd, (void *)0x3f000000,
 };
 void *gyaranzo_actor_vtable_ops[83] = {
-    (void *)0x0, (void *)0x0, (void *)&fn_800D3E54, (void *)&update_main__10TObjPlayerFPv,
-    (void *)&TObjPlayer__sub_800D35D8, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
+    (void *)0x0, (void *)0x0, (void *)&fn_800D3E54, (void *)&run_task__15TObjEneGyaranzoFv,
+    (void *)&render__15TObjEneGyaranzoFv, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
     (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
@@ -1415,60 +1415,60 @@ void TObjPlayer__sub_800D35D4(void) {  }
 
 #pragma push
 #pragma opt_common_subs off
-void TObjPlayer__sub_800D35D8(u8 *arg0) {
+void TObjEneGyaranzo::render() {
     s32 temp_r3;
     s32 var_r30;
     s32 var_r29;
-    if (!(((TObjEneGyaranzo *)arg0)->actorFlags & 0x02000000)) {
+    if (!(((TObjEneGyaranzo *)((u8 *)this))->actorFlags & 0x02000000)) {
         var_r30 = 0;
         if (is_split_screen() != 0) {
             var_r30 = get_camera_mode__11TCameraCtrlFv();
         }
         var_r29 = 1;
-        temp_r3 = ((VObj_18_ca64a0 *)(arg0))->m9(lbl_805DA284, lbl_805DA288, lbl_805DA28C);
+        temp_r3 = ((VObj_18_ca64a0 *)(((u8 *)this)))->m9(lbl_805DA284, lbl_805DA288, lbl_805DA28C);
         if (temp_r3 != 0) {
             lbl_805D5660 = model_render_flags;
-            var_r30 = (s32)&((Obj_800D35D8 *)arg0)->arr[var_r30];
+            var_r30 = (s32)&((Obj_800D35D8 *)((u8 *)this))->arr[var_r30];
             update_fade_value(var_r30);
-            if (((RenderFadeState *)var_r30)->updateFromCamera((const f32*)(arg0 + 0x2FC)) != 0) {
+            if (((RenderFadeState *)var_r30)->updateFromCamera((const f32*)(((u8 *)this) + 0x2FC)) != 0) {
                 ((VObj_14_fddec9 *)(var_r30))->m6();
-                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
+                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(((u8 *)this)) != 0) {
                     model_render_flags = lbl_805D5660;
                     return;
                 }
             }
-            TObjPlayer__sub_800D2E8C((Ene_800D2E8C *) (arg0));
-            TObjFish::set_global_param((int) (((TObjEneGyaranzo *)arg0)->texture_id));
-            select_actor_lighting(arg0);
+            TObjPlayer__sub_800D2E8C((Ene_800D2E8C *) (((u8 *)this)));
+            TObjFish::set_global_param((int) (((TObjEneGyaranzo *)((u8 *)this))->texture_id));
+            select_actor_lighting(((u8 *)this));
             TObjPlayer::toggle_particle_effect();
             push_matrix();
-            post_translate_matrix(arg0 + 0x38);
-            rotate_matrix_y(0, (int) (((TObjEneGyaranzo *)arg0)->rotation_y));
+            post_translate_matrix(((u8 *)this) + 0x38);
+            rotate_matrix_y(0, (int) (((TObjEneGyaranzo *)((u8 *)this))->rotation_y));
             if (TObjPlayer::check_demo_mode() == 1) {
-                draw_chunk_object((int) (*(s32 *)((s8 *)arg0 + 0x34)));
-            } else if (((TObjEneGyaranzo *)arg0)->m_388 & 4) {
-                if (((Obj_800D35D8 *)arg0)->light.m8() != 0) {
-                    ((Obj_800D35D8 *)arg0)->light.m6();
+                draw_chunk_object((int) (*(s32 *)((s8 *)((u8 *)this) + 0x34)));
+            } else if (((TObjEneGyaranzo *)((u8 *)this))->m_388 & 4) {
+                if (((Obj_800D35D8 *)((u8 *)this))->light.m8() != 0) {
+                    ((Obj_800D35D8 *)((u8 *)this))->light.m6();
                     if (temp_r3 == 1) {
-                        ((TObjEneRe7Berura *)arg0)->draw();
+                        ((TObjEneRe7Berura *)((u8 *)this))->draw();
                     } else {
-                        ((TObjEnemy *)arg0)->render_world_model();
+                        ((TObjEnemy *)((u8 *)this))->render_world_model();
                     }
-                    ((Obj_800D35D8 *)arg0)->light.m7();
+                    ((Obj_800D35D8 *)((u8 *)this))->light.m7();
                 } else {
                     var_r29 = 0;
                 }
             } else if (temp_r3 == 1) {
-                ((TObjEneRe7Berura *)arg0)->draw();
+                ((TObjEneRe7Berura *)((u8 *)this))->draw();
             } else {
-                ((TObjEnemy *)arg0)->render_world_model();
+                ((TObjEnemy *)((u8 *)this))->render_world_model();
             }
             pop_matrix();
             restore_scene_lighting();
             TParticleCtrl::end_effect_render();
-            if (!(((TObjEneGyaranzo *)arg0)->actorFlags & 0x800) && (var_r29 != 0)) {
+            if (!(((TObjEneGyaranzo *)((u8 *)this))->actorFlags & 0x800) && (var_r29 != 0)) {
                 Vec_800D35D8 sp8 = lbl_8043C26C;
-                ((TObjEnemy *)arg0)->render_with_position_override((u8 *)&sp8, 0);
+                ((TObjEnemy *)((u8 *)this))->render_with_position_override((u8 *)&sp8, 0);
             }
             ((VObj_14_fddec9 *)(var_r30))->m7();
         }
@@ -1570,31 +1570,31 @@ void TObjPlayer::dispatch_state_update() {
   }
 }
 
-void update_main__10TObjPlayerFPv(u8 *arg0) {
+void TObjEneGyaranzo::run_task() {
     s32 temp_r3;
 
     if (TObjPlayer::check_demo_mode() == 1) {
-        ((s32 (*)(void *))TObjPlayer__sub_800D35D4)(arg0);
+        ((s32 (*)(void *))TObjPlayer__sub_800D35D4)(((u8 *)this));
         return;
     }
-    ((TObjEneGyaranzo *)arg0)->sub_800D37F4();
-    temp_r3 = ((TObjEneGyaranzo *)arg0)->m_3b8;
+    ((TObjEneGyaranzo *)((u8 *)this))->sub_800D37F4();
+    temp_r3 = ((TObjEneGyaranzo *)((u8 *)this))->m_3b8;
     if (temp_r3 >= 0) {
-        ((TObjEneGyaranzo *)arg0)->m_3b8 = (temp_r3 - 1);
+        ((TObjEneGyaranzo *)((u8 *)this))->m_3b8 = (temp_r3 - 1);
     }
-    if ((s16) ((TObjEneGyaranzo *)arg0)->mode != (s32) ((TObjEneGyaranzo *)arg0)->next_action) {
-        if ((s32) ((TObjEneGyaranzo *)arg0)->state != -1) {
-            ((TObjEneGyaranzo *)arg0)->state = -1;
-            ((TObjPlayer *)arg0)->dispatch_state_update();
+    if ((s16) ((TObjEneGyaranzo *)((u8 *)this))->mode != (s32) ((TObjEneGyaranzo *)((u8 *)this))->next_action) {
+        if ((s32) ((TObjEneGyaranzo *)((u8 *)this))->state != -1) {
+            ((TObjEneGyaranzo *)((u8 *)this))->state = -1;
+            ((TObjPlayer *)((u8 *)this))->dispatch_state_update();
         }
-        ((TObjEneGyaranzo *)arg0)->mode = (s16) ((TObjEneGyaranzo *)arg0)->next_action;
-        ((TObjEneGyaranzo *)arg0)->state = 0;
+        ((TObjEneGyaranzo *)((u8 *)this))->mode = (s16) ((TObjEneGyaranzo *)((u8 *)this))->next_action;
+        ((TObjEneGyaranzo *)((u8 *)this))->state = 0;
     }
-    ((TObjPlayer *)arg0)->dispatch_state_update();
-    ((TObjEnemy *)arg0)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFi(arg0);
-    submit_cursor_candidate(arg0, -1);
-    minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
+    ((TObjPlayer *)((u8 *)this))->dispatch_state_update();
+    ((TObjEnemy *)((u8 *)this))->update_prev_position();
+    copy_position__20TBoss3VoloptHiraisinFi(((u8 *)this));
+    submit_cursor_candidate(((u8 *)this), -1);
+    minimap_render_dot(((u8 *)this) + 0x38, -0x5DB4, 1, 0);
 }
 
 void *TObjEneGyaranzo::create(void *arg0) {

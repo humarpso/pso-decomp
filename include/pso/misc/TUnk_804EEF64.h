@@ -6,6 +6,8 @@
 class TUnk_804EEF64 : public TObject {
 public:
     virtual ~TUnk_804EEF64();
+    virtual void run_task();
+    virtual void render();
     u8 *construct_title_scene();
     void *destroy(s16);
     void sub_8033645C();

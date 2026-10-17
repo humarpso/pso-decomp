@@ -6,6 +6,7 @@
 class TUnk_8048FE64 : public TObject {
 public:
     virtual ~TUnk_8048FE64();
+    virtual void render();
     u8 unk_1C[0x30];
     f32 m_4c;
     u8 unk_50[0x4];

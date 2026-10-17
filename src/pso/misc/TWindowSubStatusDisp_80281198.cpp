@@ -263,7 +263,7 @@ extern "C" {
 s32 fn_8026C7AC(void *arg0, s8 arg1);
 s32 handle_list_page_flip_input(int);
 extern s32 lbl_805DD6F4;
-void TWindowSubStatusDisp__sub_80281644(TWindowSubStatusDisp *arg0);
+void run_task__20TWindowSubStatusDispFv(TWindowSubStatusDisp *arg0);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 void *init__21TWindowSubComCardListFiii(void *, int, int, s32);
 s32 get_window_layout_position(int);
@@ -337,7 +337,7 @@ void TWindowSubStatusDisp::dispatch_page_update() {
 #pragma defer_codegen off
 
 extern "C" {
-void TWindowSubStatusDisp::update_status() {
+void TWindowSubStatusDisp::render() {
     s32 temp_r3;
 
     if (get_player_by_client_id(this->m_20) != 0U) {
@@ -348,7 +348,8 @@ void TWindowSubStatusDisp::update_status() {
     }
 }
 
-void TWindowSubStatusDisp__sub_80281644(TWindowSubStatusDisp *arg0) {
+void TWindowSubStatusDisp::run_task() {
+    TWindowSubStatusDisp *arg0 = (TWindowSubStatusDisp *)this;
   if (!((arg0->m_2c) & 2))
   {
     *(s32 *)&arg0->m_5c = 0x01000000;

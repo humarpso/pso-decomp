@@ -15,7 +15,7 @@ extern s32 TWindowSubEquipKind__class_name;
 s32 draw_window_frame(void *, s32);
 s32 get_draw_context__11TWindowBaseFPv();
 s32 draw_visible_window_entries(void *, void *, s32);
-s32 update_item_list_window();
+s32 run_task__13TUnk_804D0618Fv();
 s32 draw_window_scrollbar(s32, s32, void *);
 s32 draw_tab_label__20TWindowSubStatusDispFPvPv(void *, s32);
 void __dl__7TObjectFPv(void *);
@@ -42,7 +42,7 @@ void render__19TWindowSubEquipKindFv(u8 *arg0) {
 void TWindowSubEquipKind::run_task() {
     int temp_r3;
 
-    update_item_list_window();
+    run_task__13TUnk_804D0618Fv();
     temp_r3 = this->m_8a;
     if (temp_r3 != 0) {
         this->m_8a = (temp_r3 - 1);

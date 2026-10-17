@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TOTrapChainSawDamage.h"
+#include "pso/misc/TOTrapChainSawKey.h"
 #include "pso/misc/TOTrapChainSaw.h"
 #include "pso/object/TObjMotion.h"
 extern "C" void vfunc_28__20TOTrapChainSawDamageFv();
@@ -205,7 +207,7 @@ void TParticleCtrl__sub_802C8464(u32 arg0);
 void vfunc_27__17TOTrapChainSawKeyFv(void);
 void check_player_contact__17TOTrapChainSawKeyFv(void* p);
 void vfunc_14__17TOTrapChainSawKeyFv(void);
-void TOTrapChainSawKey__vt22(u8 *arg0);
+void update_state__17TOTrapChainSawKeyFv(u8 *arg0);
 void vfunc_18__17TOTrapChainSawKeyFv(S_802C86D4 *arg0);
 int decode_params__17TOTrapChainSawKeyFv(void* p);
 void * __dt__17TOTrapChainSawKeyFv(void *arg0, s16 arg1);
@@ -214,7 +216,7 @@ void vfunc_27__20TOTrapChainSawDamageFv(u8 *arg0);
 void vfunc_26__20TOTrapChainSawDamageFv(void* p);
 void vfunc_14__20TOTrapChainSawDamageFv(void);
 void vfunc_25__20TOTrapChainSawDamageFv(void *arg0);
-void TOTrapChainSawDamage__vt22(void *arg0);
+void update_state__20TOTrapChainSawDamageFv(void *arg0);
 void TOTrapChainSawDamage__vt16(u8 *arg0, u8 *arg1);
 void TOTrapChainSawDamage__vt14(Obj_802C8C60 *arg0, f32 _w1);
 void decode_params__20TOTrapChainSawDamageFv(void *arg0);
@@ -228,7 +230,7 @@ void set_hit_cooldown_for_player__14TOTrapChainSawFPv(S_802C9124 *arg0, void *ar
 s32 consume_counter__14TOTrapChainSawFPv(S_802C9174 *arg0, void *arg1);
 int check_player_contact__14TOTrapChainSawFv(void *arg0);
 void update_sweep__14TOTrapChainSawFv(void *arg0);
-void update_state__14TOTrapChainSawFPv(u8 *arg0);
+void update_state__14TOTrapChainSawFv(u8 *arg0);
 void run_task__14TOTrapChainSawFv(void *arg0);
 void decode_params__14TOTrapChainSawFv(void *arg0);
 void * __dt__14TOTrapChainSawFv(void *arg0, s16 arg1);
@@ -444,8 +446,9 @@ void TOTrapChainSawKey::vfunc_14() {
     TObjNpcEnemy::set_global_count(0xF0F0F0FF);
 }
 
-void TOTrapChainSawKey__vt22(u8 *arg0) {
-    ((s32 (*)())update_state__14TOTrapChainSawFPv)();
+void TOTrapChainSawKey::update_state() {
+    u8 *arg0 = (u8 *)this;
+    ((s32 (*)())update_state__14TOTrapChainSawFv)();
     *(f32 *)((s8 *)arg0 + 0x104) = (f32) (*(f32 *)((s8 *)arg0 + 0x104) + *(f32 *)((s8 *)arg0 + 0x108));
     if (*(f32 *)((s8 *)arg0 + 0x104) > (f32) (u32) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x100)) + 4) - 1)) {
         *(f32 *)((s8 *)arg0 + 0x104) = (f32) (0.0f);
@@ -573,13 +576,13 @@ void TOTrapChainSawDamage::vfunc_25() {
 #pragma auto_inline off
 #pragma dont_inline off
 #pragma inline_depth(1)
-void TOTrapChainSawDamage__vt22(void *arg0) {
-    ((s32 (*)())update_state__14TOTrapChainSawFPv)();
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xF0) == 1) {
-        ((TObjPlayer *)arg0)->clear_player_status_flag(1, 0x100);
+void TOTrapChainSawDamage::update_state() {
+    ((s32 (*)())update_state__14TOTrapChainSawFv)();
+    if ((s32) *(s32 *)((s8 *)this + 0xF0) == 1) {
+        ((TObjPlayer *)this)->clear_player_status_flag(1, 0x100);
         return;
     }
-    set_indexed_flags(arg0, 1, 0x100);
+    set_indexed_flags(this, 1, 0x100);
 }
 #pragma pop
 
@@ -867,7 +870,8 @@ extern "C" { u8 *lbl_805D6808; }
 
 #pragma push
 #pragma opt_propagation off
-void update_state__14TOTrapChainSawFPv(u8 *arg0) {
+void TOTrapChainSaw::update_state() {
+    u8 *arg0 = (u8 *)this;
     static Act_802C9600 tbl[2] = { &VObj_802C9600::m20, &VObj_802C9600::m21 };
     (((VObj_802C9600 *)arg0)->*tbl[*(s32 *)((s8 *)arg0 + 0xF4)])();
     if (*(u8 **)((s8 *)arg0 + 0xBC) != NULL) {
@@ -995,7 +999,7 @@ s32 __vt__18TOTrapChainSawEdge[31] = {
     (s32)&clear_field_d8__14TOTrapChainSawFv,
     (s32)&update_extension__18TOTrapChainSawEdgeFv,
     (s32)&update_sweep__18TOTrapChainSawEdgeFv,
-    (s32)&update_state__14TOTrapChainSawFPv,
+    (s32)&update_state__14TOTrapChainSawFv,
     (s32)&vfunc_25__18TOTrapChainSawEdgeFv,
     (s32)&vfunc_26__14TOTrapChainSawFv,
     (s32)&vfunc_27__14TOTrapChainSawFv,
@@ -1028,7 +1032,7 @@ s32 __vt__17TOTrapChainSawKey[31] = {
     (s32)&clear_field_d8__14TOTrapChainSawFv,
     (s32)&update_extension__14TOTrapChainSawFv,
     (s32)&update_sweep__14TOTrapChainSawFv,
-    (s32)&TOTrapChainSawKey__vt22,
+    (s32)&update_state__17TOTrapChainSawKeyFv,
     (s32)&vfunc_25__17TOTrapChainSawKeyFv,
     (s32)&vfunc_26__14TOTrapChainSawFv,
     (s32)&vfunc_27__17TOTrapChainSawKeyFv,
@@ -1061,7 +1065,7 @@ s32 __vt__20TOTrapChainSawDamage[31] = {
     (s32)&clear_field_d8__14TOTrapChainSawFv,
     (s32)&update_extension__14TOTrapChainSawFv,
     (s32)&update_sweep__14TOTrapChainSawFv,
-    (s32)&TOTrapChainSawDamage__vt22,
+    (s32)&update_state__20TOTrapChainSawDamageFv,
     (s32)&vfunc_25__20TOTrapChainSawDamageFv,
     (s32)&vfunc_26__20TOTrapChainSawDamageFv,
     (s32)&vfunc_27__20TOTrapChainSawDamageFv,
@@ -1094,7 +1098,7 @@ s32 __vt__14TOTrapChainSaw[31] = {
     (s32)&clear_field_d8__14TOTrapChainSawFv,
     (s32)&update_extension__14TOTrapChainSawFv,
     (s32)&update_sweep__14TOTrapChainSawFv,
-    (s32)&update_state__14TOTrapChainSawFPv,
+    (s32)&update_state__14TOTrapChainSawFv,
     (s32)&vfunc_25__14TOTrapChainSawFv,
     (s32)&vfunc_26__14TOTrapChainSawFv,
     (s32)&vfunc_27__14TOTrapChainSawFv,

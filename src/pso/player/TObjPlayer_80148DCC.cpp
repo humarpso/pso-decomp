@@ -115,7 +115,7 @@ s32 advance_animation_playback(void *);
 s32 submit_cursor_candidate(void *, int);
 extern u8 *quest_mission_manager;
 extern u8 *quest_area_manager;
-void run_task__11TObjNpcBaseFPv(u8 *arg0);
+void run_task__11TObjNpcBaseFv(u8 *arg0);
 void draw_chunk_object(void *child);
 void restore_scene_lighting(void);
 void select_actor_lighting(s32 obj);
@@ -172,19 +172,19 @@ void TObjPlayer::draw_model() {
 }
 typedef struct VBase_18_3eea3b VBase_18_3eea3b;
 typedef struct VObj_18_3eea3b VObj_18_3eea3b;
-void run_task__11TObjNpcBaseFPv(u8 *arg0) {
+void TObjNpcBase::run_task() {
   s32 temp_r4;
   s32 temp_r4_2;
   u8 *new_var;
   u8 *var_r31;
-  if ((((s32) (*((s32 *) (((s8 *) arg0) + ((((((((((0x3A0 & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu))))) <= 0) && (((s32) (*((s32 *) (((s8 *) arg0) + 0x3A4)))) <= 0))
+  if ((((s32) (*((s32 *) (((s8 *) ((u8 *)this)) + ((((((((((0x3A0 & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu))))) <= 0) && (((s32) (*((s32 *) (((s8 *) ((u8 *)this)) + 0x3A4)))) <= 0))
   {
-    *((s32 *) (((s8 *) arg0) + 0x390)) = 1;
-    set_indexed_flags(arg0, 0, 1);
+    *((s32 *) (((s8 *) ((u8 *)this)) + 0x390)) = 1;
+    set_indexed_flags(((u8 *)this), 0, 1);
   }
   else
   {
-    if (((s32) (*((s32 *) (((s8 *) arg0) + 0x38C)))) == 0)
+    if (((s32) (*((s32 *) (((s8 *) ((u8 *)this)) + 0x38C)))) == 0)
     {
       var_r31 = (u8 *) quest_mission_manager;
     }
@@ -192,51 +192,51 @@ void run_task__11TObjNpcBaseFPv(u8 *arg0) {
     {
       var_r31 = (u8 *) quest_area_manager;
     }
-    temp_r4 = *((s32 *) (((s8 *) arg0) + 0x3A0));
+    temp_r4 = *((s32 *) (((s8 *) ((u8 *)this)) + 0x3A0));
     if (temp_r4 > 0)
     {
       if (get_register__12TQuestThreadFPvi(var_r31, temp_r4) != 0)
       {
-        *((s32 *) (((s8 *) arg0) + 0x390)) = 1;
-        set_indexed_flags(arg0, 0, 1);
+        *((s32 *) (((s8 *) ((u8 *)this)) + 0x390)) = 1;
+        set_indexed_flags(((u8 *)this), 0, 1);
       }
       else
       {
-        *((s32 *) (((s8 *) arg0) + 0x390)) = 0;
-        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1U);
+        *((s32 *) (((s8 *) ((u8 *)this)) + 0x390)) = 0;
+        ((TObjPlayer *)((u8 *)this))->clear_player_status_flag(0, 1U);
       }
     }
-    temp_r4_2 = *((s32 *) (((s8 *) arg0) + 0x3A4));
+    temp_r4_2 = *((s32 *) (((s8 *) ((u8 *)this)) + 0x3A4));
     if ((temp_r4_2 > 0) && (get_register__12TQuestThreadFPvi(var_r31, temp_r4_2) != 0))
     {
-      *((s32 *) (((s8 *) arg0) + 0x390)) = 0;
-      ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1U);
+      *((s32 *) (((s8 *) ((u8 *)this)) + 0x390)) = 0;
+      ((TObjPlayer *)((u8 *)this))->clear_player_status_flag(0, 1U);
     }
   }
-  switch (*((s16 *) (((s8 *) arg0) + 0x326)))
+  switch (*((s16 *) (((s8 *) ((u8 *)this)) + 0x326)))
   {
     case 0:
-      (((TObjNpcBase *)(arg0))->vfunc_83());
+      (((TObjNpcBase *)(((u8 *)this)))->vfunc_83());
       break;
     case 1:
-      (((TObjNpcBase *)(arg0))->update_standing());
+      (((TObjNpcBase *)(((u8 *)this)))->update_standing());
       break;
     case 2:
-      (((TObjNpcBase *)(arg0))->update_wandering());
+      (((TObjNpcBase *)(((u8 *)this)))->update_wandering());
       break;
     case 3:
-      (((TObjNpcBase *)(arg0))->update_conversation());
+      (((TObjNpcBase *)(((u8 *)this)))->update_conversation());
       break;
   }
-  advance_animation_playback((void *) arg0);
-  ((TObjEnemy *)arg0)->update_prev_position();
-  new_var = arg0;
+  advance_animation_playback((void *) ((u8 *)this));
+  ((TObjEnemy *)((u8 *)this))->update_prev_position();
+  new_var = ((u8 *)this);
   copy_position__20TBoss3VoloptHiraisinFi((s32) new_var);
-  if ((((s32) (*((s32 *) (((s8 *) arg0) + 0x3A8)))) > 0) && (TRaderMapCore::is_not_split_screen() == 0))
+  if ((((s32) (*((s32 *) (((s8 *) ((u8 *)this)) + 0x3A8)))) > 0) && (TRaderMapCore::is_not_split_screen() == 0))
   {
-    submit_cursor_candidate((void *) arg0, -1);
+    submit_cursor_candidate((void *) ((u8 *)this), -1);
   }
-  ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x1B3FU);
+  ((TUnk_804B9870 *)((u8 *)this))->obj_clearFlags30(0x1B3FU);
 }
 
 }

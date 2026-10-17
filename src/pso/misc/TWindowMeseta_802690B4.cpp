@@ -25,8 +25,9 @@ s32 TWindowMeseta::get_meseta_value() {
 void TWindowMeseta::draw_value(s32 arg1) {
     draw_window_tab(arg1, arg1 + 0x10, 3, this->m_60);
 }
-void update_display__13TWindowMesetaFi(s32 arg0) {
+void TWindowMeseta::render() {
     s32 ctx;
+    s32 arg0 = (s32)this;
 
     ctx = ((TUnk_804CE018 *)arg0)->setup_window_draw_context(arg0 + 0x6C);
     ((TWindowMeseta *)arg0)->draw_value(ctx);

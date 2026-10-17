@@ -184,8 +184,8 @@ void vfunc_62__12TObjEneSaverFv(Obj_800A48C4 *o);
 void vfunc_60__12TObjEneSaverFv(Obj_800A5A68 *self);
 void vfunc_59__12TObjEneSaverFv(void *arg0);
 void vfunc_58__12TObjEneSaverFv(u8 *arg0);
-void TObjPlayer__sub_800A6C54(u8 *arg0);
-void TObjPlayer__sub_800A6EC0(u8 *arg0);
+void render__12TObjEneSaverFv(u8 *arg0);
+void run_task__12TObjEneSaverFv(u8 *arg0);
 void vfunc_74__9TObjEnemyFl();
 void add_actor_exp__13TUnk_804806E8Fl();
 void apply_action_hold_status__13TUnk_804806E8Ff();
@@ -290,8 +290,8 @@ void *saver_collision_body_part_table[11] = {
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
 void *TObjEneSaver__vtable[83] = {
-    (void *)0x0, (void *)0x0, (void *)&__dt__12TObjEneSaverFv, (void *)&TObjPlayer__sub_800A6EC0,
-    (void *)&TObjPlayer__sub_800A6C54, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
+    (void *)0x0, (void *)0x0, (void *)&__dt__12TObjEneSaverFv, (void *)&run_task__12TObjEneSaverFv,
+    (void *)&render__12TObjEneSaverFv, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__12TObjEneSaverFv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
     (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
@@ -1857,8 +1857,9 @@ void TObjPlayer::step_cutscene_frame() {
     lbl_805D505C += 1;
 }
 
-void TObjPlayer__sub_800A6C54(u8 *arg0) {
+void TObjEneSaver::render() {
     s32 v;
+    u8 *arg0 = (u8 *)this;
     v = ((VObj_800A6C54_b *)arg0)->m9(lbl_805D9A8C, lbl_805D9A90, lbl_805D9A80);
     if (v != 0) {
         select_actor_lighting((s32)arg0);
@@ -1932,7 +1933,7 @@ void TObjPlayer__sub_800A6C54(u8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_800A6EC0(u8 *arg0) {
+void TObjEneSaver::run_task() {
     s16 temp_r0;
     u8 *temp_r4;
     if ((s32) lbl_805D5058 != (s32) actor_frame_tick) {
@@ -1940,62 +1941,62 @@ void TObjPlayer__sub_800A6EC0(u8 *arg0) {
         TObjPlayer__sub_8023DEE0((s16 *)lbl_805D5054, 0xE, 0, 0);
     }
     if (TObjPlayer::check_demo_mode() == 1) {
-        TObjPlayer__sub_800A42C0(arg0);
+        TObjPlayer__sub_800A42C0(((u8 *)this));
         return;
     }
-    temp_r0 = ((TObjEneSaver *)arg0)->mode;
+    temp_r0 = ((TObjEneSaver *)((u8 *)this))->mode;
     {
         switch (temp_r0) {
         case 0:
-            ((TObjEneSaver *)arg0)->init_render_flags();
+            ((TObjEneSaver *)((u8 *)this))->init_render_flags();
             break;
         case 1:
-            advance_motion_state__12TObjEneSaverFv(arg0);
+            advance_motion_state__12TObjEneSaverFv(((u8 *)this));
             break;
         case 2:
-            TObjPlayer__sub_800A5FA8((arg0));
+            TObjPlayer__sub_800A5FA8((((u8 *)this)));
             break;
         case 3:
-            update_move_toward_target__12TObjEneSaverFv(arg0);
+            update_move_toward_target__12TObjEneSaverFv(((u8 *)this));
             break;
         case 4:
-            TObjPlayer__sub_800A54B4((arg0));
+            TObjPlayer__sub_800A54B4((((u8 *)this)));
             break;
         case 5:
-            TObjPlayer__sub_800A5154((arg0));
+            TObjPlayer__sub_800A5154((((u8 *)this)));
             break;
         case 6:
-            TObjPlayer__sub_800A4D9C((arg0));
+            TObjPlayer__sub_800A4D9C((((u8 *)this)));
             break;
         case 7:
-            TObjPlayer__sub_800A49B4(arg0);
+            TObjPlayer__sub_800A49B4(((u8 *)this));
             break;
         case 8:
-            update_knockback_state__12TObjEneSaverFv(arg0);
+            update_knockback_state__12TObjEneSaverFv(((u8 *)this));
             break;
         case 9:
-            update_entry_motion__12TObjEneSaverFv(arg0);
+            update_entry_motion__12TObjEneSaverFv(((u8 *)this));
             break;
         case 10:
-            update_collapse_and_destroy__10TObjPlayerFPv((arg0));
+            update_collapse_and_destroy__10TObjPlayerFPv((((u8 *)this)));
             break;
         case 11:
-            sub_800A62D4__12TObjEneSaverFv(arg0);
+            sub_800A62D4__12TObjEneSaverFv(((u8 *)this));
             break;
         }
     }
-    temp_r4 = (u8 *)(((TObjEneSaver *)arg0)->target);
+    temp_r4 = (u8 *)(((TObjEneSaver *)((u8 *)this))->target);
     if ((temp_r4 != NULL) && (*(s32 *)((s8 *)temp_r4 + 0x30) & 0x02000800)) {
-        *(s16 *)((s8 *)arg0 + 0x37E) = 0;
-        ((TObjEneSaver *)arg0)->actorFlags = (s32) (((TObjEneSaver *)arg0)->actorFlags & 0xFFDFFFFF);
-        *(s32 *)((s8 *)arg0 + 0x374) = (s32) (*(s32 *)((s8 *)arg0 + 0x374) & 0xFFFF0000);
-        *(s32 *)((s8 *)arg0 + 0x374) = (s32) (*(s32 *)((s8 *)arg0 + 0x374) | 0x40);
-        ((TObjEneSaver *)arg0)->target = NULL;
+        *(s16 *)((s8 *)((u8 *)this) + 0x37E) = 0;
+        ((TObjEneSaver *)((u8 *)this))->actorFlags = (s32) (((TObjEneSaver *)((u8 *)this))->actorFlags & 0xFFDFFFFF);
+        *(s32 *)((s8 *)((u8 *)this) + 0x374) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x374) & 0xFFFF0000);
+        *(s32 *)((s8 *)((u8 *)this) + 0x374) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x374) | 0x40);
+        ((TObjEneSaver *)((u8 *)this))->target = NULL;
     }
-    ((TObjEnemy *)arg0)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFi((s32)arg0);
-    sub_800A435C__12TObjEneSaverFv(arg0);
-    ((TObjEneSaver *)arg0)->m_2b4 = (f32) (((TObjEneSaver *)arg0)->m_2b4 + lbl_805D9A40);
+    ((TObjEnemy *)((u8 *)this))->update_prev_position();
+    copy_position__20TBoss3VoloptHiraisinFi((s32)((u8 *)this));
+    sub_800A435C__12TObjEneSaverFv(((u8 *)this));
+    ((TObjEneSaver *)((u8 *)this))->m_2b4 = (f32) (((TObjEneSaver *)((u8 *)this))->m_2b4 + lbl_805D9A40);
 }
 
 void * create_ene_saver(void *arg0) {

@@ -28,12 +28,12 @@ void TUnk_804A4848::reserved_53() {
     }
 }
 
-void s_rank_windmill_slow_down(void *arg0) {
+void TUnk_804A4848::update_idle() {
     s32 temp_r4;
 
-    temp_r4 = *(s32 *)((s8 *)arg0 + 0x200);
+    temp_r4 = *(s32 *)((s8 *)this + 0x200);
     if (temp_r4 > 0xCCC) {
-        *(s32 *)((s8 *)arg0 + 0x200) = (temp_r4 - 0xB6);
+        *(s32 *)((s8 *)this + 0x200) = (temp_r4 - 0xB6);
     }
 }
 

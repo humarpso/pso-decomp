@@ -6,6 +6,7 @@
 class TUnk_80491478 : public TUnk_804AF8A0 {
 public:
     virtual ~TUnk_80491478();
+    virtual void run_task();
     void *destroy_with_particle_cleanup(s16);
     u8 unk_AC[0x2];
     s16 m_ae;

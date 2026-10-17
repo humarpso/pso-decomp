@@ -261,7 +261,7 @@ extern "C" void TItemWeapon__sub_8011E5C4();
 extern "C" void TItemWeapon__sub_8011E5C8();
 extern "C" void update_weapon__11TItemWeaponFv();
 extern "C" void reserved_53__11TItemWeaponFv();
-extern "C" void TItemWeapon__sub_8011E5D8();
+extern "C" void update_idle__11TItemWeaponFv();
 extern "C" void update_attack__11TItemWeaponFv();
 extern "C" void vfunc_17__11TItemWeaponFl();
 extern "C" void vfunc_14__11TItemWeaponFv();
@@ -327,7 +327,7 @@ void *s_rank_j_cutter_weapon_vtable[64] = {
     (void *)&TItem__sub_80100648, (void *)&TItem__sub_801005E4, (void *)&TItem__sub_801005D8, (void *)&TItemWeapon__sub_80121064,
     (void *)&vfunc_44__11TItemWeaponFv, (void *)&vfunc_45__11TItemWeaponFv, (void *)&vfunc_46__11TItemWeaponFv, (void *)&release__11TItemWeaponFv,
     (void *)&vfunc_48__11TItemWeaponFv, (void *)&vfunc_49__11TItemWeaponFv, (void *)&vfunc_50__11TItemWeaponFv, (void *)&launch_shot__11TItemWeaponFPUclll,
-    (void *)&emit_marker_effects__13TUnk_804A4238Fv, (void *)&update_attack__11TItemWeaponFv, (void *)&TItemWeapon__sub_8011E5D8, (void *)&reserved_53__11TItemWeaponFv,
+    (void *)&emit_marker_effects__13TUnk_804A4238Fv, (void *)&update_attack__11TItemWeaponFv, (void *)&update_idle__11TItemWeaponFv, (void *)&reserved_53__11TItemWeaponFv,
     (void *)&update_weapon__11TItemWeaponFv, (void *)&start_srank_regen_timer__10TObjPlayerFv, (void *)&TItemWeapon__sub_8011E5C8, (void *)&TItemWeapon__sub_8011E5C4,
     (void *)&TItemWeapon__sub_8011E5C0, (void *)&receive_srank_hit, (void *)&srank_marker_noop, (void *)0x0,
 };
@@ -345,7 +345,7 @@ void *s_rank_slicer_weapon_vtable[64] = {
     (void *)&TItem__sub_80100648, (void *)&TItem__sub_801005E4, (void *)&TItem__sub_801005D8, (void *)&TItemWeapon__sub_80121064,
     (void *)&vfunc_44__11TItemWeaponFv, (void *)&vfunc_45__11TItemWeaponFv, (void *)&vfunc_46__11TItemWeaponFv, (void *)&release__11TItemWeaponFv,
     (void *)&vfunc_48__11TItemWeaponFv, (void *)&vfunc_49__11TItemWeaponFv, (void *)&vfunc_50__11TItemWeaponFv, (void *)&launch_shot__11TItemWeaponFPUclll,
-    (void *)&emit_marker_effects__13TUnk_804A4338Fv, (void *)&update_attack__11TItemWeaponFv, (void *)&TItemWeapon__sub_8011E5D8, (void *)&reserved_53__11TItemWeaponFv,
+    (void *)&emit_marker_effects__13TUnk_804A4338Fv, (void *)&update_attack__11TItemWeaponFv, (void *)&update_idle__11TItemWeaponFv, (void *)&reserved_53__11TItemWeaponFv,
     (void *)&update_weapon__11TItemWeaponFv, (void *)&start_srank_regen_timer__10TObjPlayerFv, (void *)&TItemWeapon__sub_8011E5C8, (void *)&TItemWeapon__sub_8011E5C4,
     (void *)&TItemWeapon__sub_8011E5C0, (void *)&receive_srank_hit, (void *)&srank_marker_noop, (void *)0x0,
 };

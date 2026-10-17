@@ -388,7 +388,7 @@ void *TItemProShield__sub_80116D54(void *arg0) {
 void vfunc_14__11TItemObjectFv();
 void TItemObject__vt16(u8 *arg0, u8 *item);
 void vfunc_31__11TItemObjectFv();
-s32 TItemObject__vt35(TItemObject *arg0, s32 arg1);
+s32 vfunc_37__11TItemObjectFl(TItemObject *arg0, s32 arg1);
 s32 vfunc_38__11TItemObjectFl(void *arg0, s32 arg1);
 void vfunc_9__11TItemObjectFv();
 void TItem__sub_801005D8();
@@ -464,7 +464,7 @@ void *item_hp_recovery_vtable[46] = {
     (void *)&vfunc_34__5TItemFv,
     (void *)&vfunc_35__5TItemFv,
     (void *)&vfunc_36__11TItemObjectFv,
-    (void *)&TItemObject__vt35,
+    (void *)&vfunc_37__11TItemObjectFl,
     (void *)&vfunc_38__11TItemObjectFl,
     (void *)&ret_8010064C,
     (void *)&TItem__sub_80100648,
@@ -512,7 +512,7 @@ void *item_mag_transform_vtable[46] = {
     (void *)&vfunc_34__5TItemFv,
     (void *)&vfunc_35__5TItemFv,
     (void *)&vfunc_36__11TItemObjectFv,
-    (void *)&TItemObject__vt35,
+    (void *)&vfunc_37__11TItemObjectFl,
     (void *)&vfunc_38__11TItemObjectFl,
     (void *)&ret_8010064C,
     (void *)&TItem__sub_80100648,
@@ -560,7 +560,7 @@ void *item_moon_atomizer_vtable[46] = {
     (void *)&vfunc_34__5TItemFv,
     (void *)&vfunc_35__5TItemFv,
     (void *)&vfunc_36__11TItemObjectFv,
-    (void *)&TItemObject__vt35,
+    (void *)&vfunc_37__11TItemObjectFl,
     (void *)&vfunc_38__11TItemObjectFl,
     (void *)&ret_8010064C,
     (void *)&TItem__sub_80100648,
@@ -608,7 +608,7 @@ void *item_status_cure_vtable[46] = {
     (void *)&vfunc_34__5TItemFv,
     (void *)&vfunc_35__5TItemFv,
     (void *)&vfunc_36__11TItemObjectFv,
-    (void *)&TItemObject__vt35,
+    (void *)&vfunc_37__11TItemObjectFl,
     (void *)&vfunc_38__11TItemObjectFl,
     (void *)&ret_8010064C,
     (void *)&TItem__sub_80100648,
@@ -656,7 +656,7 @@ void *item_sol_atomizer_vtable[46] = {
     (void *)&vfunc_34__5TItemFv,
     (void *)&vfunc_35__5TItemFv,
     (void *)&vfunc_36__11TItemObjectFv,
-    (void *)&TItemObject__vt35,
+    (void *)&vfunc_37__11TItemObjectFl,
     (void *)&vfunc_38__11TItemObjectFl,
     (void *)&ret_8010064C,
     (void *)&TItem__sub_80100648,
@@ -704,7 +704,7 @@ void *item_star_atomizer_vtable[46] = {
     (void *)&vfunc_34__5TItemFv,
     (void *)&vfunc_35__5TItemFv,
     (void *)&vfunc_36__11TItemObjectFv,
-    (void *)&TItemObject__vt35,
+    (void *)&vfunc_37__11TItemObjectFl,
     (void *)&vfunc_38__11TItemObjectFl,
     (void *)&ret_8010064C,
     (void *)&TItem__sub_80100648,

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBm9Mericarol.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -157,7 +158,7 @@ struct VObj18_802D0D3C : VBase18_802D0D3C {
 extern "C" {
 extern const f32 lbl_805DE704;
 s32 transition_enemy_state(void * a0, s32 a1);
-void TObjEneBm9Mericarol__sub_802D0B04(u8 *arg0);
+void run_task__19TObjEneBm9MericarolFv(u8 *arg0);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 void TObjEneBm9Mericarol__sub_802D073C(s32 arg0);
@@ -252,7 +253,7 @@ extern "C" void vfunc_13__13TUnk_804AF8A0Fl();
 extern "C" void vfunc_74__9TObjEnemyFl();
 extern "C" void apply_hit_message_flags__9TObjEnemyFPv();
 extern "C" void draw_color_variant__19TObjEneBm9MericarolFv();
-extern "C" void TObjPlayer__sub_802CE8CC(u8 *arg0);
+extern "C" void render__19TObjEneBm9MericarolFv(u8 *arg0);
 extern "C" void add_actor_exp__13TUnk_804806E8Fl();
 extern "C" void apply_action_hold_status__13TUnk_804806E8Ff();
 extern "C" void apply_anti_technique__13TUnk_804806E8Fl();
@@ -437,8 +438,8 @@ void *lbl_804E1634[36] = {
     (void *)0x10000, (void *)0x0, (void *)0x3f333333, (void *)0x0,
 };
 void *TObjEneBm9Mericarol__vtable[107] = {
-    (void *)0x0, (void *)0x0, (void *)&__dt__19TObjEneBm9MericarolFPvs, (void *)&TObjEneBm9Mericarol__sub_802D0B04,
-    (void *)&TObjPlayer__sub_802CE8CC, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
+    (void *)0x0, (void *)0x0, (void *)&__dt__19TObjEneBm9MericarolFPvs, (void *)&run_task__19TObjEneBm9MericarolFv,
+    (void *)&render__19TObjEneBm9MericarolFv, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
     (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
@@ -615,33 +616,33 @@ void dispatch_state_handler__19TObjEneBm9MericarolFiUii(s32 actor, u32 arg1, s32
 
 #pragma push
 #pragma fp_contract on
-void TObjEneBm9Mericarol__sub_802D0B04(u8 *arg0) {
+void TObjEneBm9Mericarol::run_task() {
     s16 temp_r3_2;
     s32 temp_r3;
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((TObjEneBm9Mericarol *)(arg0))->vfunc_105();
+        ((TObjEneBm9Mericarol *)(((u8 *)this)))->vfunc_105();
         return;
     }
-    temp_r3 = *(s32 *)((s8 *)arg0 + 0x438);
+    temp_r3 = *(s32 *)((s8 *)((u8 *)this) + 0x438);
     if (temp_r3 & 0x10) {
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x390) == 0U) {
-            *(s32 *)((s8 *)arg0 + 0x438) = (s32) (temp_r3 & 0xFFFFFFEF);
+        if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x390) == 0U) {
+            *(s32 *)((s8 *)((u8 *)this) + 0x438) = (s32) (temp_r3 & 0xFFFFFFEF);
         }
-    } else if ((u32) *(u32 *)((s8 *)arg0 + 0x390) != 0U) {
-        *(s32 *)((s8 *)arg0 + 0x438) = (s32) (temp_r3 | 0x10);
+    } else if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x390) != 0U) {
+        *(s32 *)((s8 *)((u8 *)this) + 0x438) = (s32) (temp_r3 | 0x10);
     }
-    if (((TObjEneBm9Mericarol *)(arg0))->vfunc_83() != 4) {
-        ((TObjEneBm9Mericarol *)(arg0))->vfunc_85();
+    if (((TObjEneBm9Mericarol *)(((u8 *)this)))->vfunc_83() != 4) {
+        ((TObjEneBm9Mericarol *)(((u8 *)this)))->vfunc_85();
     } else {
-        temp_r3_2 = *(s16 *)((s8 *)arg0 + 0x326);
+        temp_r3_2 = *(s16 *)((s8 *)((u8 *)this) + 0x326);
         if ((temp_r3_2 == 0) || (temp_r3_2 == 1)) {
-            ((VSub *)(arg0 + 0x46C))->m2();
-            transition_enemy_state(arg0, 2);
+            ((VSub *)(((u8 *)this) + 0x46C))->m2();
+            transition_enemy_state(((u8 *)this), 2);
         }
     }
-    ((TObjEneBm9Mericarol *)arg0)->sync_center_position();
-    ((TBoss8Dragon *)arg0)->set_player_state_default();
-    ((TObjEneBm9Mericarol *)(arg0))->vfunc_100();
+    ((TObjEneBm9Mericarol *)((u8 *)this))->sync_center_position();
+    ((TBoss8Dragon *)((u8 *)this))->set_player_state_default();
+    ((TObjEneBm9Mericarol *)(((u8 *)this)))->vfunc_100();
 }
 #pragma pop
 

@@ -14,12 +14,12 @@ extern const f32 lbl_805DAE98;
 extern const f32 lbl_805DAE9C;
 extern const f32 lbl_805DAEA0;
 extern const f32 lbl_805DAEA4;
-void update_brionac_idle_scale(u8 *arg0) {
+void TUnk_804A4D70::update_idle() {
     if (get_slot_count__14TItemProShieldFv() == 5) {
-        TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x204), (f32)lbl_805DAE84, (f32)lbl_805DAE88);
-        if (((TUnk_804A4D70 *)arg0)->m_204 <= lbl_805DAE88) {
-            TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x20C), (f32)lbl_805DAE8C, (f32)lbl_805DAE90);
-            TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x218), (f32)lbl_805DAE94, (f32)lbl_805DAE98);
+        TItemEffOrgaFlowShot::approach_value((f32 *)(((u8 *)this) + 0x204), (f32)lbl_805DAE84, (f32)lbl_805DAE88);
+        if (((TUnk_804A4D70 *)((u8 *)this))->m_204 <= lbl_805DAE88) {
+            TItemEffOrgaFlowShot::approach_value((f32 *)(((u8 *)this) + 0x20C), (f32)lbl_805DAE8C, (f32)lbl_805DAE90);
+            TItemEffOrgaFlowShot::approach_value((f32 *)(((u8 *)this) + 0x218), (f32)lbl_805DAE94, (f32)lbl_805DAE98);
         }
     }
 }

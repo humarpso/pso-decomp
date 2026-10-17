@@ -5,7 +5,7 @@
 
 struct TObjDFDemo5;
 extern "C" {
-void darkfalz_death_update(TObjDFDemo5 *arg0);
+void run_task__11TObjDFDemo5Fv(TObjDFDemo5 *arg0);
 }
 
 #endif

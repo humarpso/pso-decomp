@@ -5,7 +5,7 @@
 
 extern "C" {
 s32 TObjPlayer__sub_801290D0(u8 *arg0);
-void TObjPlayer__sub_80129124(void *p);
+void update_idle__13TUnk_804A4138Fv(void *p);
 void *__dt__13TUnk_804A4020Fv(void *arg0, s16 arg1);
 }
 

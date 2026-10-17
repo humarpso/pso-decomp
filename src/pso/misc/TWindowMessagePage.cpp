@@ -22,7 +22,7 @@ extern s32 __vt__18TWindowMessagePage[];
 extern s32 lbl_805D3998;
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
-s32 draw__14TWindowMessageFv();
+s32 run_task__14TWindowMessageFv();
 extern RecoveredGlobal_8026AF24_lbl_8050E208 controller_input_state;
 s32 get_shared_text_buffer();
 u32 copy_message_page_text__20TWindowSubStatusDispFv(u32);
@@ -80,7 +80,7 @@ typedef char RecoveredGlobal_8026AF24_lbl_8050E208_size[sizeof(RecoveredGlobal_8
 void TWindowMessagePage::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r5;
-    draw__14TWindowMessageFv();
+    run_task__14TWindowMessageFv();
     temp_r5 = is_player_input_active((this->m_20)) * 0x50;
     if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + temp_r5 + 0x20), 4, temp_r5) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 4) != 0)) {
         if (((TWindowMessagePage *)arg0)->is_message_window_ready() != 0) {

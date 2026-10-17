@@ -22,7 +22,7 @@ s32 push_matrix();
 void __dl__7TObjectFPv(void *);
 void *__dt__10TORockCaveFv(void *arg0, s16 arg1);
 
-void TORockCaveSimple::play_trigger_effect() {
+void TORockCaveSimple::render() {
     u8 *arg0 = (u8 *)this;
     VObj1_80175024 *self = (VObj1_80175024 *)arg0;
     if (self->m8(*(f32 *)&this->unk_AC, this->m_b0) != 0) {

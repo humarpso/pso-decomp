@@ -126,9 +126,9 @@ void TCameraCtrl::post_update_view();
 CreationCameraVTable lbl_804DAB08 = {{0,0}, {
     (void(*)())TCameraCtrl__sub_80291C64, run_task__14CreationCameraFv,
     render__7TObjectFv, render_shadows__7TObjectFv,
-    TCameraCtrl__sub_80067654, TCameraCtrl__sub_80067658,
-    TCameraCtrl__sub_80067660, TCameraCtrl__sub_8006765C,
-    TCameraCtrl__sub_80067664, TCameraCtrl::post_update_view,
+    vfunc_6__13TUnk_80488A28Fv, vfunc_7__13TUnk_80488A28Fv,
+    vfunc_8__13TUnk_80488A28FPv, vfunc_9__13TUnk_80488A28FPUcPUc,
+    vfunc_10__13TUnk_80488A28Fv, TCameraCtrl::post_update_view,
 }};
 void *TCameraCtrl__vt8(void) {
     void *o = __nw__7TObjectFUl(0x90);

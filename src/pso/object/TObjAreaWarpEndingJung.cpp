@@ -340,7 +340,7 @@ s32 TObjMapWarp__sub_80141CB4(void *, f32);
 s32 test_player_body_overlap_at(void *, void *, Vec_8019D250 *);
 s32 TObjCityMainWarp__sub_80186AF4();
 void * TObjAreaWarpEndingJung__create(void *arg0);
-void TObjAreaWarpEndingJung__vt18(Warp_8019B170 *arg0);
+void debug_print_area_num__22TObjAreaWarpEndingJungFv(Warp_8019B170 *arg0);
 void * __dt__22TObjAreaWarpEndingJungFv(void *arg0, s16 arg1);
 void * TObjAreaWarpEndingJung__ct(void *arg0);
 void * create_TObjWarpString(void *arg0, void *arg1);
@@ -354,15 +354,15 @@ s32 TObjMapForceWarp__vt16(TObjMapForceWarp *arg0, u16 arg1);
 void TObjMapForceWarp__vt17(Obj_8019B978 *arg0);
 void * __dt__16TObjMapForceWarpFv(void *arg0, s16 arg1);
 void * TObjMapForceWarp__ct(void *arg0);
-void TObjAreaWarpEnding__vt18(Obj_8019BCBC *self);
+void debug_print_area_num__18TObjAreaWarpEndingFv(Obj_8019BCBC *self);
 void * __dt__18TObjAreaWarpEndingFv(void *arg0, s16 arg1);
 u8 * TObjAreaWarpEnding__ct(u8 *arg0, s32 arg1, s32 arg2);
 void TObjAreaWarpQuest__vt17(Warp_8019C05C *arg0, void *arg1);
-void TObjAreaWarpQuest__vt18(Obj_8019C144 *self);
+void debug_print_area_num__17TObjAreaWarpQuestFv(Obj_8019C144 *self);
 void * __dt__17TObjAreaWarpQuestFv(void *arg0, s16 arg1);
 u8 * TObjAreaWarpQuest__ct(u8 *arg0, s32 arg1, s32 arg2);
-void TObjAreaWarpForest__vt18(Obj_8019C53C *self);
-int TObjAreaWarpForest__vt17(void* p);
+void debug_print_area_num__18TObjAreaWarpForestFv(Obj_8019C53C *self);
+int confirm_area_transfer__18TObjAreaWarpForestFl(void* p);
 void * __dt__18TObjAreaWarpForestFv(void *arg0, s16 arg1);
 u8 * TObjAreaWarpForest__ct(u8 *arg0, s32 arg1, s32 arg2);
 void handle_6x94_inter_level_warp(Pkt_8019C988 *arg0);
@@ -374,7 +374,7 @@ void process_player_warps__11TObjMapWarpFPv(VObj_8019D250 *self);
 s32 can_warp__11TObjMapWarpFlUs(void *, u16);
 void *__dt__11TObjMapWarpFv(void *arg0, s16 arg1);
 s32 TObjMapWarp__ct();
-s32 TObjWarpBase__vt13(s32);
+s32 vfunc_16__12TObjWarpBaseFv(s32);
 void * find_warp_player_in_range(void *, u16, f32);
 void *__dt__12TObjWarpBaseFv(void *arg0, s16 arg1);
 s32 TObjWarpBase__ct();
@@ -483,13 +483,13 @@ void *TObjAreaWarpEndingJung__create(void *arg0) {
     return o;
 }
 
-void TObjAreaWarpEndingJung__vt18(Warp_8019B170 *arg0) {
+void TObjAreaWarpEndingJung::debug_print_area_num() {
     TObjNpcEnemy::set_global_count(0xFF00FF);
-    if (arg0->f8C < 0) {
-        arg0->f8C = 0;
+    if (((Warp_8019B170 *)this)->f8C < 0) {
+        ((Warp_8019B170 *)this)->f8C = 0;
     }
-    arg0->f8C = arg0->f8C % 2;
-    if (arg0->f8C == 0) {
+    ((Warp_8019B170 *)this)->f8C = ((Warp_8019B170 *)this)->f8C % 2;
+    if (((Warp_8019B170 *)this)->f8C == 0) {
         TObjNpcEnemy::set_global_count(0xFFFFFF);
         debug_printf_at(0x130022, lbl_804463A4);
     } else {
@@ -704,7 +704,7 @@ void TObjMapForceWarp__vt17(Obj_8019B978 *arg0) {
 
 void TObjMapForceWarp::render() {  }
 
-int TObjMapForceWarp::run_task(void* p) { return ((int (*)(void*))process_player_warps__11TObjMapWarpFPv)(p); }
+void TObjMapForceWarp::run_task() { ((int (*)(void*))process_player_warps__11TObjMapWarpFPv)(this); }
 
 void *__dt__16TObjMapForceWarpFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -751,7 +751,7 @@ void TKeyBoardControl::dispatch_select_phase() {
     init__23TAdSinglePlyChrSelectGCFv();
 }
 
-void TObjAreaWarpEnding::create_and_init() {
+void TObjAreaWarpEnding::confirm_area_transfer(s32) {
     play_sound_effect(0x40003205, 0, 0, 0);
     u32 obj = ((u32 (*)(s32))__nw__7TObjectFUl)(0x28);
     if (obj != 0U) {
@@ -775,14 +775,14 @@ void TObjAreaWarpEnding::open_confirm_window(s16 arg1) {
     }
 }
 
-void TObjAreaWarpEnding__vt18(Obj_8019BCBC *self) {
-    ((TObjAreaWarp *)self)->TObjAreaWarp::debug_print_area_num();
+void TObjAreaWarpEnding::debug_print_area_num() {
+    ((TObjAreaWarp *)((Obj_8019BCBC *)this))->TObjAreaWarp::debug_print_area_num();
     TObjNpcEnemy::set_global_count(0xFF00FF);
-    if (self->f8C < 0) {
-        self->f8C = 0;
+    if (((Obj_8019BCBC *)this)->f8C < 0) {
+        ((Obj_8019BCBC *)this)->f8C = 0;
     }
-    self->f8C = self->f8C % 2;
-    if (self->f8C == 0) {
+    ((Obj_8019BCBC *)this)->f8C = ((Obj_8019BCBC *)this)->f8C % 2;
+    if (((Obj_8019BCBC *)this)->f8C == 0) {
         TObjNpcEnemy::set_global_count(0xFFFFFF);
         debug_printf_at(0x130022, lbl_804463B4);
     } else {
@@ -906,19 +906,19 @@ void TObjAreaWarpQuest__vt17(Warp_8019C05C *arg0, void *arg1) {
     send_6x21_inter_level_warp(arg1, (s32)(get_dest_area__17TObjAreaWarpQuestFv(((u8 *)&lbl_80515BA0))));
 }
 
-void TObjAreaWarpQuest__vt18(Obj_8019C144 *self) {
-    ((TObjAreaWarp *)self)->TObjAreaWarp::debug_print_area_num();
-    if (self->f68 < 0.0f) {
-        self->f68 = 0.0f;
+void TObjAreaWarpQuest::debug_print_area_num() {
+    ((TObjAreaWarp *)((Obj_8019C144 *)this))->TObjAreaWarp::debug_print_area_num();
+    if (((Obj_8019C144 *)this)->f68 < 0.0f) {
+        ((Obj_8019C144 *)this)->f68 = 0.0f;
     }
-    self->fC4 = (s32)self->f68;
-    if (self->f8C < 0) {
-        self->f8C = 0;
+    ((Obj_8019C144 *)this)->fC4 = (s32)((Obj_8019C144 *)this)->f68;
+    if (((Obj_8019C144 *)this)->f8C < 0) {
+        ((Obj_8019C144 *)this)->f8C = 0;
     }
-    self->f8C = self->f8C % 2;
+    ((Obj_8019C144 *)this)->f8C = ((Obj_8019C144 *)this)->f8C % 2;
     TObjNpcEnemy::set_global_count(0xFF00FF);
-    debug_printf_at(0x13001C, lbl_80446404, self->fC4);
-    if (self->f8C == 0) {
+    debug_printf_at(0x13001C, lbl_80446404, ((Obj_8019C144 *)this)->fC4);
+    if (((Obj_8019C144 *)this)->f8C == 0) {
         TObjNpcEnemy::set_global_count(0xFFFFFF);
         debug_printf_at(0x130022, lbl_804463B4);
     } else {
@@ -1022,14 +1022,14 @@ u8 *TObjAreaWarpQuest__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TObjAreaWarpForest__vt18(Obj_8019C53C *self) {
-    ((TObjAreaWarp *)self)->TObjAreaWarp::debug_print_area_num();
+void TObjAreaWarpForest::debug_print_area_num() {
+    ((TObjAreaWarp *)((Obj_8019C53C *)this))->TObjAreaWarp::debug_print_area_num();
     TObjNpcEnemy::set_global_count(0xFF00FF);
-    if (self->f8C < 0) {
-        self->f8C = 0;
+    if (((Obj_8019C53C *)this)->f8C < 0) {
+        ((Obj_8019C53C *)this)->f8C = 0;
     }
-    self->f8C = self->f8C % 2;
-    if (self->f8C == 0) {
+    ((Obj_8019C53C *)this)->f8C = ((Obj_8019C53C *)this)->f8C % 2;
+    if (((Obj_8019C53C *)this)->f8C == 0) {
         TObjNpcEnemy::set_global_count(0xFFFFFF);
         debug_printf_at(0x130022, lbl_804463B4);
     } else {
@@ -1080,7 +1080,7 @@ void TObjAreaWarpForest::render() {
     }
 }
 
-int TObjAreaWarpForest__vt17(void* p) { return ((int (*)(void*))confirm_area_transfer__12TObjAreaWarpFPvi)(p); }
+void TObjAreaWarpForest::confirm_area_transfer(s32) { ((int (*)(void*))confirm_area_transfer__12TObjAreaWarpFPvi)(this); }
 
 void TObjAreaWarpForest::run_task() {
     u8 *arg0 = (u8 *)this;
@@ -1243,7 +1243,7 @@ loop_2:
         goto loop_2;
     }
 block_6:
-    return TObjWarpBase__vt13(arg0);
+    return vfunc_16__12TObjWarpBaseFv(arg0);
 }
 
 void TObjAreaWarp::open_confirm_window(u16 arg1) {

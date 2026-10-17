@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void TObjEneRecon__sub_80302DBC(void);
+void render__30TObjEneDellBiter_Eff_TpAbsorb1Fv(void);
 }
 
 #endif

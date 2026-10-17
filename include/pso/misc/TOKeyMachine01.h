@@ -6,6 +6,7 @@
 
 struct TOKeyMachine01 : public TOKey {
     virtual ~TOKeyMachine01();
+    virtual void trigger_activate_sound();
     virtual s32 is_confirm_pressed();
     virtual void vfunc_16();
     virtual void vfunc_17();

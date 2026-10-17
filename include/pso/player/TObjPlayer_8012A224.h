@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void s_rank_windmill_slow_down(void *arg0);
+void update_idle__13TUnk_804A4848Fv(void *arg0);
 void s_rank_windmill_turn_blade(void *p);
 }
 

@@ -115,7 +115,6 @@ struct TNpcPlayer : public TObject {
     void set_npc_ctrl_state(s32 v);
     void byteswap_header();
     void send_state_60();
-    void update_model_load();
     u8 unk_E0[0x8];
     void update_combat_action();
     u8 *destroy_and_materialize_player(s16 arg1);

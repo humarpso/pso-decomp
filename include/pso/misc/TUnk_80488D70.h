@@ -6,6 +6,7 @@
 class TUnk_80488D70 : public TUnk_80488A28 {
 public:
     virtual ~TUnk_80488D70();
+    virtual void run_task();
     virtual void vfunc_6();
     void *init_subobject();
 };

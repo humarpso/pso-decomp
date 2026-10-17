@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TUnk_804A6FA8.h"
+#include "pso/object/TUnk_804A6F78.h"
 #include "pso/object/TObjLight_80133568.h"
 #include "pso/object/TObjLight_803DF220.h"
 #include "pso/system/memory.h"
@@ -189,7 +191,7 @@ __declspec(section ".data") u32 TObjLight__data_80506A5C;
 
 void*TObjLight::init_light(int a1) { *(int *)&this->m_name = light_type_id_table[a1]; *(float *)&this->m_up = TObjLight__data_805DB088; *(float *)&this->m_next = TObjLight__data_805DB088; *(float *)&this->m_prev = TObjLight__data_805DB088; TAdSinglePlyChrSelectGC__sub_80133548(); *(float *)&this->m_down = lbl_805DB08C; *(float*)((char*)this + 0x18) = lbl_805DB090; TAdSinglePlyChrSelectGC__sub_80133544(this); *(float *)&this->m_20 = lbl_805DB094; *(float *)&this->texture_id = lbl_805DB094; *(float *)&this->m_28 = lbl_805DB094; TAdSinglePlyChrSelectGC__sub_801334E4(this); return this; }
 
-void TObjLight__sub_801335EC(void) {  }
+void TUnk_804A6F78::render() {  }
 
 void TObjLight::unregister_and_free() {
     s32 i;
@@ -400,7 +402,7 @@ void init_map_lights(u8 *arg0) {
     }
 }
 
-void reset_actor_light_registries(void) {
+void TUnk_804A6FA8::run_task() {
     s32 i;
     s32 j;
     for (i = 0; i < 32; i++) {

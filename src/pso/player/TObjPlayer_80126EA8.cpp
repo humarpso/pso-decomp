@@ -14,7 +14,7 @@ void TObjPlayer::handle_tentacle_state_2() { if (get_player_list__10TObjPlayerFv
 extern const f32 lbl_805DADA0;
 extern const f32 lbl_805DADA4;
 
-void TObjPlayer::update_orga_flow_shot() {
+void TUnk_804A2F78::update_idle() {
     s32 arg0 = (s32)this;
     TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x200), (f32)lbl_805DADA0, (f32)lbl_805DADA4);
 }

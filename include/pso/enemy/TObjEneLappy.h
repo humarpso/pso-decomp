@@ -8,6 +8,10 @@ struct LappyVec { f32 x, y, z; };
 
 struct TObjEneLappy : public TObjEnemy {
     virtual ~TObjEneLappy();
+    virtual void run_task();
+    virtual void render();
+    virtual s32 update_action_hold_status();
+    virtual s32 update_movement_status();
     virtual void vfunc_28();
     virtual int test_flag_256();
     virtual void vfunc_58();

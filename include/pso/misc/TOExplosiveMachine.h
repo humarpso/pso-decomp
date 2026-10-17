@@ -6,6 +6,7 @@
 
 struct TOExplosiveMachine : public TUnk_804B9870 {
     virtual ~TOExplosiveMachine();
+    virtual void run_task();
     u8 unk_90[0x4];
     f32 m_94;
     u8 unk_98[0x4];

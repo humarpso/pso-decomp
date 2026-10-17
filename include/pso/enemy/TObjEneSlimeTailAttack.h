@@ -6,6 +6,8 @@
 
 struct TObjEneSlimeTailAttack : public TObjEnemy {
     virtual ~TObjEneSlimeTailAttack();
+    virtual void run_task();
+    virtual void render();
     int find_nearest_enemy_with_flag(f32);
 };
 
@@ -20,8 +22,8 @@ void TObjPlayer__sub_800E80C0(u8 *dst);
 void TObjPlayer__sub_800E8128(void);
 void TObjPlayer__sub_800E81A8(void);
 void TObjPlayer__sub_800E841C(u8 *arg0);
-void TObjPlayer__sub_800E84F8(u8 *arg0);
-void TObjPlayer__sub_800E87FC(u8 *arg0);
+void render__22TObjEneSlimeTailAttackFv(u8 *arg0);
+void run_task__22TObjEneSlimeTailAttackFv(u8 *arg0);
 void TObjPlayer__sub_800E9D7C(void *p);
 void TObjPlayer__sub_800E9EFC(u8 *arg0);
 void TObjPlayer__sub_800EA120(u8 *actor);

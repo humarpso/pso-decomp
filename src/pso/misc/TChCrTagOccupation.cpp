@@ -1,4 +1,5 @@
 #include "types.h"
+extern "C" void render__18TChCrTagOccupationFv();
 #include "pso/TChCrCharSelect.h"
 #include "pso/TChCrTagOccupation.h"
 #include "pso/TChCrTagOccHeader.h"
@@ -193,7 +194,7 @@ void TChCrTagOccupation::sub_802A2DF4() {
 }
 #pragma pop
 
-int TChCrTagOccupation::render(void* p) { return ((int (*)(void *))sub_802A2DF4__18TChCrTagOccupationFv)(p); }
+void TChCrTagOccupation::render() { ((int (*)(void *))sub_802A2DF4__18TChCrTagOccupationFv)(this); }
 
 int TChCrTagOccupation__vt4(Obj_802A2F78 *self) {
     if (get_selected_char__15TChCrCharSelectFv(self) == self->f20) return 1;
@@ -243,7 +244,7 @@ void *__vt__18TChCrTagOccupation[8] = {
     0,
     (void *)__dt__18TChCrTagOccupationFv,
     (void *)update_fade__8TChCrTagFPv,
-    (void *)TChCrTagOccupation::render,
+    (void *)&render__18TChCrTagOccupationFv,
     (void *)render_shadows__7TObjectFv,
     (void *)TChCrTagOccupation__vt4,
     0,

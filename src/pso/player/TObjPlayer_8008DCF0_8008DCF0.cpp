@@ -227,7 +227,7 @@ struct VObj390V_8008e74c_8008DCF0 : VObj390_8008e74c_8008DCF0 {
     virtual void m7(); virtual s32 m8();
 };
 
-void draw_main__10TObjPlayerFPv(u8 *arg0);
+void render__18TObjEneBalClawBodyFv(u8 *arg0);
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_x(s32, s32);
 void draw_chunk_object(void *child);
@@ -503,10 +503,11 @@ void TObjPlayer::update_me1_gigue_state() {
     update_if_active__15TObjEneMe1GiGueFl(this, (int)(get_flag_0x388_b24() ? 9 : 2));
 }
 
-void draw_main__10TObjPlayerFPv(u8 *arg0) {
+void TObjEneBalClawBody::render() {
     s32 var_r30;
     s32 temp_r3;
     s32 var_r29;
+    u8 *arg0 = (u8 *)this;
 
     if (!(((TObjEneBalClawBody *)arg0)->actorFlags & 0x02000000)) {
         lbl_805D5660 = model_render_flags;

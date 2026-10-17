@@ -41,7 +41,7 @@ extern RecoveredGlobal_8032DC94_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_8032DC94_lbl_8058D4C0 model_material_color;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-void TObjPlayer__sub_8032DC94(u8 *arg0);
+void render__13TUnk_804EDD20Fv(u8 *arg0);
 void *__dt__13TUnk_804EDC28Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804EDD20Fv(void *arg0, s16 arg1);
 s32 fire_shot_at_target__11TItemWeaponFv(void *, s32 *, s32, s32);
@@ -118,7 +118,7 @@ typedef struct RecoveredGlobal_8032DC94_lbl_8050BEC0 RecoveredGlobal_8032DC94_lb
 typedef struct RecoveredGlobal_8032DC94_lbl_8058D4C0 RecoveredGlobal_8032DC94_lbl_8058D4C0;
 typedef char RecoveredGlobal_8032DC94_lbl_8050BEC0_size[((sizeof(RecoveredGlobal_8032DC94_lbl_8050BEC0)) == 0x20) ? (1) : (-1)];
 typedef char RecoveredGlobal_8032DC94_lbl_8058D4C0_size[((sizeof(RecoveredGlobal_8032DC94_lbl_8058D4C0)) == 0x10) ? (1) : (-1)];
-void TObjPlayer__sub_8032DC94(u8 *arg0) {
+void TUnk_804EDD20::render() {
   s32 *var_r30;
   s32 *var_r31;
   s32 *var_r3;
@@ -127,8 +127,8 @@ void TObjPlayer__sub_8032DC94(u8 *arg0) {
   f32 var_f0;
   u8 *var_r29;
   var_f0 = lbl_805DF7D8;
-  var_r29 = (u8 *) arg0;
-  if ((!((((TUnk_804EDD20 *)arg0)->m_80) <= var_f0)) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0))
+  var_r29 = (u8 *) ((u8 *)this);
+  if ((!((((TUnk_804EDD20 *)((u8 *)this))->m_80) <= var_f0)) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0))
   {
     var_r3 = (s32 *) (*((s32 **) (((s8 *) var_r29) + 0x60)));
     var_r31 = (s32 *) query_game_join_id__10TObjPlayerFv(var_r3);
@@ -255,7 +255,7 @@ void anchor_card_effect(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 u8 *find_item_by_id(s32 id);
 s8 TObjPlayer__sub_80102C30();
-void run_card_effect(u8 *arg0);
+void run_task__13TUnk_804EDD44Fv(u8 *arg0);
 
 void anchor_card_effect(u8 *arg0) {
   u16 temp_r3;
@@ -314,8 +314,9 @@ void TUnk_804EDD44::start_card_effect_flash() {
 }
 #pragma pop
 
-void run_card_effect(u8 *arg0) {
+void TUnk_804EDD44::run_task() {
     s32 i;
+    u8 *arg0 = (u8 *)this;
     if (find_item_by_id(((TUnk_804EDD44 *)arg0)->m_60) == 0U) {
         queue_destruction__7TObjectFv(arg0);
         return;

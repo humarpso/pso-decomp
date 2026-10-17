@@ -6,6 +6,8 @@
 class TUnk_804B8DE8 : public TObject {
 public:
     virtual ~TUnk_804B8DE8();
+    virtual void run_task();
+    virtual void render();
     u8 unk_1C[0x4];
     f32 m_20;
     u8 unk_24[0x10];

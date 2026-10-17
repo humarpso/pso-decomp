@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TUnk_804AF7B0.h"
 #include "pso/system/memory.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TNpcPlayer.h"
@@ -3756,7 +3757,7 @@ int get_registered_object_count(void) {  return registered_entity_count; }
 
 u16 TNpcPlayer::get_action_flags() { return *(u16*)((char*)this + 0x678); }
 
-void TObjFogCollisionPoison::update_poison_damage() {
+void TUnk_804AF7B0::run_task() {
     s32 temp_r0;
     s32 temp_r31;
 

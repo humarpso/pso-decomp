@@ -7,6 +7,8 @@
 
 struct TObjEneBm5Wolf : public TObjEneDD_ST {
     virtual ~TObjEneBm5Wolf();
+    virtual void run_task();
+    virtual void render();
     virtual void vfunc_88();
     void update_collision_center();
     void select_subtype();
@@ -124,10 +126,10 @@ s32 get_group_id__14TObjEneBm5WolfFPv(void *p);
 void play_footsteps__14TObjEneBm5WolfFPv(u8 *arg0);
 void play_sound__14TObjEneBm5WolfFPv(void *arg0);
 void play_variant_sound__14TObjEneBm5WolfFPv(void *arg0);
-void render__14TObjEneBm5WolfFPv(u8 *arg0);
+void render__14TObjEneBm5WolfFv(u8 *arg0);
 void render_debug__14TObjEneBm5WolfFPv(u8 *arg0);
 void returning_state__14TObjEneBm5WolfFPvi(u8 *actor, s32 arg1);
-void run_task__14TObjEneBm5WolfFPv(u8 *arg0);
+void run_task__14TObjEneBm5WolfFv(u8 *arg0);
 void schedule_pack_reaction__14TObjEneBm5WolfFPvis(void *arg0, s32 arg1, s16 arg2);
 void select_target__14TObjEneBm5WolfFPv(void *arg0);
 void set_field8_from_obj__14TObjEneBm5WolfFPvi(void *arg0, s32 arg1);

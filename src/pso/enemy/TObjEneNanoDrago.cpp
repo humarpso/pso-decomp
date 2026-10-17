@@ -78,10 +78,11 @@ void find_open_direction__10TObjPlayerFPvPv(u8 *arg0, f32 *arg1);
 s16 obj_getField1c(void *);
 s32 angle_difference_abs(s32, s32);
 void subtract_vector(void *, void *);
-s32 TObjPlayer__sub_800D9C34(s32 arg0);
+s32 update_action_hold_status__16TObjEneNanoDragoFv(s32 arg0);
 s32 update_action_hold_status__13TUnk_804806E8Fv();
 
-s32 TObjPlayer__sub_800D9C34(s32 arg0) {
+s32 TObjEneNanoDrago::update_action_hold_status() {
+    s32 arg0 = (s32)this;
     if (update_action_hold_status__13TUnk_804806E8Fv() != 0) {
         ((TObjEneNanoDrago *)arg0)->sub_800D9BBC();
         return 1;
@@ -1195,7 +1196,7 @@ void init_and_activate__10TObjPlayerFv();
 s32 find_active_entity_by_id(int);
 
 void TObjPlayer__sub_800DBAB8(void);
-void update__10TObjPlayerFPv(u8 *arg0);
+void run_task__16TObjEneNanoDragoFv(u8 *arg0);
 void TLobby__sub_800DC028(void);
 Obj_800DC0FC * __dt__16TObjEneNanoDragoFv(Obj_800DC0FC *arg0, s16 arg1);
 u8 * TObjEneNanoDrago__ct(u8 *arg0, s32 arg1, u8 *arg2);
@@ -1520,7 +1521,7 @@ void *lbl_80494C38[22] = {
     (void *)0x0, (void *)0x0,
 };
 void *lbl_80494C90[83] = {
-    (void *)0x0, (void *)0x0, (void *)&__dt__16TObjEneNanoDragoFv, (void *)&update__10TObjPlayerFPv,
+    (void *)0x0, (void *)0x0, (void *)&__dt__16TObjEneNanoDragoFv, (void *)&run_task__16TObjEneNanoDragoFv,
     (void *)&render_enemy_with_fade__10TObjPlayerFPv, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
@@ -1529,7 +1530,7 @@ void *lbl_80494C90[83] = {
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker__13TUnk_804806E8FPUc, (void *)&try_start_action__13TUnk_804806E8Fll, (void *)&roll_physical_accuracy__13TUnk_804806E8FPvlf,
     (void *)&vfunc_28__15TObjEnemyCustomFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__13TUnk_804806E8Fv,
     (void *)&test_flag30_512__13TUnk_804806E8Fv, (void *)&has_flag_0x800__13TUnk_804806E8Fv, (void *)&test_flag_1000__13TUnk_804806E8Fv, (void *)&update_poison_status__13TUnk_804806E8Fv,
-    (void *)&TObjPlayer__sub_800D9C34, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__13TUnk_804806E8Fv, (void *)&update_movement_status__13TUnk_804806E8Fv,
+    (void *)&update_action_hold_status__16TObjEneNanoDragoFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__13TUnk_804806E8Fv, (void *)&update_movement_status__13TUnk_804806E8Fv,
     (void *)&update_shock_clock__13TUnk_804806E8Fv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&vfunc_43__13TUnk_804806E8Fv,
     (void *)&apply_poison_status__13TUnk_804806E8Fv, (void *)&apply_paralysis__13TUnk_804806E8Fv, (void *)&apply_slow_status__13TUnk_804806E8Fv, (void *)&apply_confusion_status__13TUnk_804806E8Fv,
     (void *)&apply_movement_ailment__13TUnk_804806E8Fl, (void *)&apply_shock_status__13TUnk_804806E8Fv, (void *)&clear_harmful_statuses__13TUnk_804806E8Fv, (void *)&apply_attack_stat_status__13TUnk_804806E8FPv,
@@ -1665,11 +1666,12 @@ void TObjEneNanoDrago::dispatch_action_state() {
   }
 }
 
-void update__10TObjPlayerFPv(u8 *arg0) {
+void TObjEneNanoDrago::run_task() {
     s32 temp_r3;
     u8 *temp_r3_2;
     u8 *temp_r3_3;
     u8 *temp_r3_4;
+    u8 *arg0 = (u8 *)this;
 
     if (TObjPlayer::check_demo_mode() == 1) {
         ((void (*)(void *))TObjPlayer__sub_800D9E08)(arg0);

@@ -39,7 +39,7 @@ extern const f32 lbl_805D8844;
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
-void TBoss3Volopt__sub_800485C8(void) {  }
+void TUnk_80484870::run_task() {  }
 
 extern s32 lbl_80484870[];
 
@@ -117,7 +117,7 @@ u8 *TBoss3Volopt__sub_8004885C(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4,
     return arg0;
 }
 
-void TBoss3Volopt::fade_out_and_finish() {
+void TUnk_804848A0::run_task() {
     u8 *arg0 = (u8 *)this;
   s32 (*temp_r12)();
   const f32 *new_var;

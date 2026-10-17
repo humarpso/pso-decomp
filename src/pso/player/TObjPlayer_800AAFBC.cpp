@@ -196,7 +196,7 @@ void *get_player_by_client_id(s32 i);
 s32 vec3_add_to(void *, void *);
 extern const f32 lbl_805D9B5C;
 extern const f32 lbl_805D9B60;
-void TObjPlayer__sub_800AB1C8(u8 *arg0);
+void run_task__13TUnk_80491460Fv(u8 *arg0);
 f32 fabs_float(f32);
 extern const f32 lbl_805D9B10;
 s32 rotate_vector_by_matrix(int, void *, void *);
@@ -217,7 +217,7 @@ f32 newton_sqrtf();
 s32 project_actor_to_ground(void *, Vec_800AB4F4 *, int);
 s32 subtract_vector(void *, void *);
 
-void TObjPlayer__sub_800AB4F4(u8 *arg0);
+void run_task__13TUnk_80491478Fv(u8 *arg0);
 s16 obj_getField1c(void *);
 u8 *csnLookAt(void *, Vec_800AB7A0 *);
 u32 TObjPlayer__sub_800A4204(void *, void *, void *, void *, int);
@@ -289,10 +289,11 @@ s32 TUnk_80491460::try_hit_target(int arg1) {
     }
 }
 
-void TObjPlayer__sub_800AB1C8(u8 *arg0) {
+void TUnk_80491460::run_task() {
   s32 var_r31;
   u8 *temp_r3;
   s32 new_var;
+    u8 *arg0 = (u8 *)this;
   vec3_add_to(arg0 + 0x1C, arg0 + 0x34);
   ((TUnk_80491460 *)arg0)->m_60 = (s32) ((((TUnk_80491460 *)arg0)->m_60) + 1);
   if (!((((TUnk_80491460 *)arg0)->m_60) & 3))
@@ -389,9 +390,10 @@ void TObjPlayer::draw_model_no_fog() {
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer__sub_800AB4F4(u8 *arg0) {
+void TUnk_80491478::run_task() {
     f32 t;
     f32 var_f1;
+    u8 *arg0 = (u8 *)this;
     switch (((TUnk_80491478 *)arg0)->m_ae) {
     case 0: {
         Vec_800AB4F4 v = *(Vec_800AB4F4 *)(arg0 + 0xF0);

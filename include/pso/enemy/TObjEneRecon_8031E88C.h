@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void render__12TObjEneReconFPv(u8 *arg0);
+void render__14TObjEneRecoboxFv(u8 *arg0);
 }
 
 #endif

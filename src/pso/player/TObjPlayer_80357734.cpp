@@ -344,7 +344,7 @@ void TObjPlayer__sub_80357954(u8 *arg0) {
     }
 }
 
-int TObjPlayer::clear_field1f8_flag8192() { return add_angle_clamped__10TObjPlayerFPlll((char*)this + 0x1f8, 1820, 8192); }
+void TUnk_804F14A8::update_idle() { add_angle_clamped__10TObjPlayerFPlll((char*)this + 0x1f8, 1820, 8192); }
 void TUnk_804F14A8::update_attack() { add_angle_clamped__10TObjPlayerFPlll((char*)this + 0x1f8, -3640, 0); }
 
 extern s32 item_equip_variant_vtable[];

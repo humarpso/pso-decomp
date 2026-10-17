@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss5Gryphon.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -591,7 +592,7 @@ s32 update_obstruction_fade(void *);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
 extern const f32 lbl_805D8D58;
 extern const f32 lbl_805D8DAC;
-void update_main__13TBoss5GryphonFPv(u8 *arg0);
+void run_task__13TBoss5GryphonFv(u8 *arg0);
 s32 fill_value_array(int);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
 s32 emit_enemy_effect__9TObjEneDDFllPUcl(void *, int, void *, int);
@@ -2086,7 +2087,7 @@ void *gryphon_particle_position_vec[3] = {
     (void *)0x0, (void *)0xc61c4000, (void *)0x0,
 };
 void *__vt__13TBoss5Gryphon[107] = {
-    (void *)0x0, (void *)0x0, (void *)&__dt__13TBoss5GryphonFv, (void *)&update_main__13TBoss5GryphonFPv,
+    (void *)0x0, (void *)0x0, (void *)&__dt__13TBoss5GryphonFv, (void *)&run_task__13TBoss5GryphonFv,
     (void *)&TBoss8Dragon__sub_8005DF60, (void *)&render_shadows__13TBoss5GryphonFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
@@ -5168,11 +5169,12 @@ void TBoss8Dragon::update_animation_by_state() {
 struct O_8005F740;
 struct Obj_8005FBC4;
 struct VObj_80065370_80062BA0;
-void update_main__13TBoss5GryphonFPv(u8 *arg0) {
+void TBoss5Gryphon::run_task() {
     s32 temp_r31;
     s32 temp_r31_2;
     s32 var_r30;
     s32 i;
+    u8 *arg0 = (u8 *)this;
     if (((int (*)())check_demo_mode__10TObjPlayerFv)() != 0) {
         ((TBoss5Gryphon *)(arg0))->vfunc_83();
         return;

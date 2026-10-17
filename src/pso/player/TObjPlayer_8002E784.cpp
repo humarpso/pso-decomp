@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804820A8.h"
 #include "pso/boss/TBoss8Dragon_8002CC48.h"
 #include "pso/player/TObjPlayer_8002E784.h"
 #include "pso/system/vector.h"
@@ -118,18 +119,18 @@ void TObjPlayer__sub_8002E7C8(void) {
     TObjPlayer__sub_8002ECC4((Obj_8002ECC4 *)((void *) var_r0), 0x1C);
 }
 
-void TObjPlayer__sub_8002E974(u8 *arg0) {
+void TUnk_804820A8::run_task() {
     u8 *temp_r30;
     s32 var_r29;
     Boss2 *self;
-    *(s32 *)((s8 *)arg0 + 0x1C) += 1;
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) >= 0xA0) {
-        queue_destruction__7TObjectFv((arg0));
+    *(s32 *)((s8 *)((u8 *)this) + 0x1C) += 1;
+    if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x1C) >= 0xA0) {
+        queue_destruction__7TObjectFv((((u8 *)this)));
         return;
     }
     var_r29 = 0;
     do {
-        temp_r30 = (u8 *)&((Boss2 *)arg0)->units[var_r29];
+        temp_r30 = (u8 *)&((Boss2 *)((u8 *)this))->units[var_r29];
         if (TObjPlayer__sub_8002EDCC(temp_r30) != 0) {
             if ((var_r29 % 2) == 0) {
                 create_particle__17TObjBoss2CeilJunkFv(temp_r30, 0x171);

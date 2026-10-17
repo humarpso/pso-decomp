@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void fn_80362164(u8 *arg0);
+void run_task__18TObjEneEpsilonBodyFv(u8 *arg0);
 }
 
 #endif

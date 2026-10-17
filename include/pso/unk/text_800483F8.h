@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void fn_80048560(u8 *arg0);
+void render__13TUnk_80484870Fv(u8 *arg0);
 }
 
 #endif

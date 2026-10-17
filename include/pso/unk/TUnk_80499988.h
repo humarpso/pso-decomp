@@ -6,6 +6,7 @@
 class TUnk_80499988 : public TObject {
 public:
     virtual ~TUnk_80499988();
+    virtual void run_task();
     s32 sub_800F8250(f32);
     u8 unk_1C[0x14];
 };

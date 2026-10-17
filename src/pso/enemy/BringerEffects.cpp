@@ -138,7 +138,7 @@ void *__dt__13TUnk_8048FE08Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 void*TUnk_8048FE08::init(int a1, int a2, int a3) { construct_collision_body(); *(int*)((char*)this + 0x18) = (int)((unsigned char *)&lbl_8048FE08); *(int *)&this->m_name = bringer_tp_absorb_effect_name; *(int*)((char*)this + 0xb0) = 0; *(float *)&this->unk_D0 = 0.0f; *(float*)((char*)this + 0xc8) = 0.0f; this->m_cc = 0.0f; this->m_b4 = 0; *(float*)((char*)this + 0x38) = 0.0f; *(float*)((char*)this + 0x3c) = 0.0f; *(float*)((char*)this + 0x40) = 0.0f; *(float*)((char*)this + 0xb8) = 0.0f; this->m_bc = 0.0f; *(float*)((char*)this + 0xc0) = 0.0f; this->m_c4 = a3; *(int*)((char*)*(int *)&this->m_a4 + 0x14) = 1; return this; }
-void TObjEneDf2Bringer__sub_8009A2A0(void) {  }
+void TUnk_8048FE64::render() {  }
 
 #pragma push
 #pragma fp_contract on
@@ -232,33 +232,33 @@ extern Vec_8009A640 bringer_effect_vec_table[6];
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 u32 __cvt_fp2unsigned();
 extern u32 bringer_effect_color_table[];
-void update_expanding_fade_effect(Obj_8009A4B8 *self);
+void run_task__13TUnk_8048FE7CFv(Obj_8009A4B8 *self);
 
-void update_expanding_fade_effect(Obj_8009A4B8 *self) {
-    switch (self->state) {
+void TUnk_8048FE7C::run_task() {
+    switch (((Obj_8009A4B8 *)this)->state) {
     case 0:
-        self->scale += 7.0f;
-        if (self->scale >= self->scale_max) {
-            self->scale = self->scale_max;
-            self->state = 1;
+        ((Obj_8009A4B8 *)this)->scale += 7.0f;
+        if (((Obj_8009A4B8 *)this)->scale >= ((Obj_8009A4B8 *)this)->scale_max) {
+            ((Obj_8009A4B8 *)this)->scale = ((Obj_8009A4B8 *)this)->scale_max;
+            ((Obj_8009A4B8 *)this)->state = 1;
         }
-        ((TUnk_8048FE7C *)self)->sub_8009A640();
+        ((TUnk_8048FE7C *)((Obj_8009A4B8 *)this))->sub_8009A640();
         break;
     case 1:
-        self->alpha = self->alpha - 0.05f;
-        if (self->alpha < 0.0f) {
-            self->alpha = 0.0f;
-            queue_destruction__7TObjectFv(self);
+        ((Obj_8009A4B8 *)this)->alpha = ((Obj_8009A4B8 *)this)->alpha - 0.05f;
+        if (((Obj_8009A4B8 *)this)->alpha < 0.0f) {
+            ((Obj_8009A4B8 *)this)->alpha = 0.0f;
+            queue_destruction__7TObjectFv(((Obj_8009A4B8 *)this));
             return;
         }
         break;
     }
-    self->angle += 0x800;
-    self->frame++;
-    if (self->frame >= 12) {
-        self->frame = 0;
+    ((Obj_8009A4B8 *)this)->angle += 0x800;
+    ((Obj_8009A4B8 *)this)->frame++;
+    if (((Obj_8009A4B8 *)this)->frame >= 12) {
+        ((Obj_8009A4B8 *)this)->frame = 0;
     }
-    ((TUnk_8048FE7C *)self)->sub_8009A598();
+    ((TUnk_8048FE7C *)((Obj_8009A4B8 *)this))->sub_8009A598();
 }
 
 void TUnk_8048FE7C::sub_8009A598() {
@@ -397,31 +397,31 @@ void init_bringer_effect_tables(void) {
 
 }
 
-void render_bringer_rush_effect_noop(void) {  }
+void TObjEneDf2Bringer_Eff_Rush::render() {  }
 
-void update_bringer_rush_effect(u8 *arg0) {
+void TObjEneDf2Bringer_Eff_Rush::run_task() {
     f32 temp_f1;
-    obj_getField1c((void *) (*(u8 **)((s8 *)arg0 + 0x1C)));
+    obj_getField1c((void *) (*(u8 **)((s8 *)((u8 *)this) + 0x1C)));
     if (is_player_entity_id() != 0) {
-        queue_destruction__7TObjectFv(arg0);
+        queue_destruction__7TObjectFv(((u8 *)this));
         return;
     }
-    if (is_alive__9TObjEneDDFv((void *) (*(u8 **)((s8 *)arg0 + 0x1C))) == 0) {
-        queue_destruction__7TObjectFv(arg0);
+    if (is_alive__9TObjEneDDFv((void *) (*(u8 **)((s8 *)((u8 *)this) + 0x1C))) == 0) {
+        queue_destruction__7TObjectFv(((u8 *)this));
         return;
     }
-    if (obj_isState2_324__13TUnk_804806E8Fv((void *) (*(u8 **)((s8 *)arg0 + 0x1C))) != 0) {
-        queue_destruction__7TObjectFv(arg0);
+    if (obj_isState2_324__13TUnk_804806E8Fv((void *) (*(u8 **)((s8 *)((u8 *)this) + 0x1C))) != 0) {
+        queue_destruction__7TObjectFv(((u8 *)this));
         return;
     }
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0x2C);
+    temp_f1 = *(f32 *)((s8 *)((u8 *)this) + 0x2C);
     if (temp_f1 <= 0.02f) {
-        queue_destruction__7TObjectFv(arg0);
+        queue_destruction__7TObjectFv(((u8 *)this));
         return;
     }
-    *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x308) = (f32) (((TObjEneDf2Bringer_Eff_Rush *)arg0)->m_20 * temp_f1);
-    *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x310) = (f32) (((TObjEneDf2Bringer_Eff_Rush *)arg0)->m_28 * *(f32 *)((s8 *)arg0 + 0x2C));
-    *(f32 *)((s8 *)arg0 + 0x2C) *= 0.8f;
+    *(f32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x1C)) + 0x308) = (f32) (((TObjEneDf2Bringer_Eff_Rush *)((u8 *)this))->m_20 * temp_f1);
+    *(f32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x1C)) + 0x310) = (f32) (((TObjEneDf2Bringer_Eff_Rush *)((u8 *)this))->m_28 * *(f32 *)((s8 *)((u8 *)this) + 0x2C));
+    *(f32 *)((s8 *)((u8 *)this) + 0x2C) *= 0.8f;
 }
 
 void *__dt__26TObjEneDf2Bringer_Eff_RushFv(void *arg0, s16 arg1) {

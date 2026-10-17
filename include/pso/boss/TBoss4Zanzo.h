@@ -7,7 +7,7 @@ extern "C" {
 u8 *TBoss4Type2__ct(u8 *arg0, s32 parent, s32 *arg2);
 void TBoss4Type2__sub_80056998(u8 *arg0);
 void TBoss4Type2__sub_80056B3C(void *arg0, s32 lo, s32 hi);
-void TBoss4Type2__sub_80057578(void *p);
+void render__13TUnk_80486924Fv(void *p);
 void TBoss4Type2__vt0(void *arg0);
 void TBoss4Type2__vt1(u8 *arg0);
 void TBoss4Type2__vt10(void *arg0);

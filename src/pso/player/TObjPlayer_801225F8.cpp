@@ -31,7 +31,7 @@ void TObjPlayer::notify_container_if_mode1() { if (get_player_list__10TObjPlayer
 extern f32 lbl_805DACF0;
 extern f32 lbl_805DACF4;
 
-void TObjPlayer::update_state_1fc() {
+void TUnk_804A1098::update_idle() {
     if ((s32) this->m_1fc == 3) {
         this->m_1fc = 1;
     }

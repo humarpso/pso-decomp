@@ -415,7 +415,7 @@ void vfunc_13__13TUnk_804AF8A0Fl();
 void vfunc_14__12TObjWarpBaseFv();
 void open_confirm_window__12TObjAreaWarpFUs();
 void vfunc_17__12TObjWarpBaseFv();
-void TObjWarpBase__vt15(s32 arg0, s32 arg1);
+void vfunc_18__12TObjWarpBaseFl(s32 arg0, s32 arg1);
 void confirm_area_transfer__12TObjAreaWarpFPvi(u8 *arg0, s32 arg1);
 void *boss_warp_model_names[4] = {
     (void *)&lbl_80446480, (void *)&lbl_80446494, (void *)&lbl_804464AC, (void *)0x0,
@@ -472,7 +472,7 @@ s32 __vt__17TObjWarpBossMulti[21] = {
     (s32)&open_confirm_window__12TObjAreaWarpFUs,
     (s32)&TObjAreaWarp::is_warp_enabled,
     (s32)&vfunc_17__12TObjWarpBaseFv,
-    (s32)&TObjWarpBase__vt15,
+    (s32)&vfunc_18__12TObjWarpBaseFl,
     (s32)&confirm_area_transfer__12TObjAreaWarpFPvi,
     (s32)&debug_print_area_num__17TObjWarpBossMultiFv
 };

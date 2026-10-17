@@ -69,7 +69,7 @@ void *lbl_804CE2AC[3] = {
 };
 void *lbl_804CE2B8[6] = {
     (void *)0x0, (void *)0x0, (void *)&dt__22TWindowChallengeResultFPvs, (void *)&init_subwindow__22TWindowChallengeResultFPv,
-    (void *)&fn_80246CE8, (void *)&render_shadows__7TObjectFv,
+    (void *)&render__22TWindowChallengeResultFv, (void *)&render_shadows__7TObjectFv,
 };
 #define lbl_804CE2B8 ((s32 *)lbl_804CE2B8)
 

@@ -1612,7 +1612,7 @@ void TBoss4Type2::advance_afterimage() {
     *(f32 *)((s8 *)arg0 + 0x300) = (f32) (*(f32 *)((s8 *)arg0 + 0x300) + lbl_805D8C18);
 }
 
-void TBoss4Type2__sub_80057578(void* p) { ((TBoss4Type2 *)p)->init_hanger(); }
+void TUnk_80486924::render() { ((TBoss4Type2 *)this)->init_hanger(); }
 
 struct Vec_80057598 { f32 x, y, z; };
 class TBoss4Type2_80057598 { public: u8 pad[0x374]; s32 f374; };

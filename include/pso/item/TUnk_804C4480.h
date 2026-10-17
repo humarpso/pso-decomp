@@ -6,6 +6,7 @@
 class TUnk_804C4480 : public TUnk_804C4498 {
 public:
     virtual ~TUnk_804C4480();
+    virtual void run_task();
     void sub_801D5A70();
     u8 unk_54[0x4];
 };

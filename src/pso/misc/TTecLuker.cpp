@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CCA0C.h"
 #include "pso/misc/TUnk_804CC990.h"
 #include "pso/system/byteswap.h"
 #include "pso/system/vector.h"
@@ -246,7 +247,7 @@ f32 horizontal_distance_squared(void *, void *);
 extern s32 camera_ctrl_instance;
 extern const f32 lbl_805DC864;
 extern const f32 lbl_805DC868;
-void update_telepipe_visual(Obj_802342A4 *self);
+void run_task__13TUnk_804CCA0CFv(Obj_802342A4 *self);
 Hit_8023453C *csnVecterUnder(void *, s32);
 u32 spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 void *create_telepipe_marker(void *, void *, s32, s32, s32, s32, s32, f32, f32);
@@ -511,7 +512,8 @@ void handle_6x68_set_telepipe_state(Pkt_802341B0 *pkt) {
 
 typedef struct Obj_802342A4 Obj_802342A4;
 typedef struct Vec_802342A4 Vec_802342A4;
-void update_telepipe_visual(Obj_802342A4 *self) {
+void TUnk_804CCA0C::run_task() {
+    Obj_802342A4 *self = (Obj_802342A4 *)this;
   f32 d;
   f32 best;
   s32 j;

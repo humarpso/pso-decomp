@@ -69,10 +69,10 @@ extern const f32 lbl_805DC918;
 extern const f32 lbl_805DC91C;
 extern const f32 lbl_805DC920;
 void step_ground_technique_projectile(RecoveredFields_8023A510_arg0 *arg0);
-void TObjPlayer__sub_8023A70C(void* p);
+void run_task__13TUnk_804CCC68Fv(void* p);
 void move_ground_technique_projectile(void* p);
 
-void TTecGiZonde::render() {  }
+void TUnk_804CCC68::render() {  }
 void TUnk_804CCC68::advance_lifetime_or_destroy() {
     f32 temp_f1;
 
@@ -172,6 +172,6 @@ void move_technique_projectile(u8 *arg0) {
 }
 #pragma pop
 
-void TObjPlayer__sub_8023A70C(void* p) { move_technique_projectile((u8 *)p); ((TUnk_804CCC68 *)p)->advance_lifetime_or_destroy(); }
+void TUnk_804CCC68::run_task() { move_technique_projectile((u8 *)this); ((TUnk_804CCC68 *)this)->advance_lifetime_or_destroy(); }
 
 }

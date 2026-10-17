@@ -6,6 +6,7 @@
 class TObjSeabedSuiso_CH : public TUnk_804AFBF8 {
 public:
     virtual ~TObjSeabedSuiso_CH();
+    virtual void run_task();
     void init_kind_params();
     void update_state();
     u8 unk_C8[0xC];

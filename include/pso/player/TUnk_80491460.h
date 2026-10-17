@@ -6,6 +6,7 @@
 class TUnk_80491460 : public TObject {
 public:
     virtual ~TUnk_80491460();
+    virtual void run_task();
     s32 try_hit_target(int);
     u8 unk_1C[0x3C];
     f32 m_58;

@@ -95,23 +95,23 @@ Obj_8004FD50 *__dt__11TObjDFDemo5Fv(Obj_8004FD50 *arg0, s16 arg1);
 #pragma push
 #pragma opt_common_subs off
 #pragma readonly_strings on
-void darkfalz_death_update(TObjDFDemo5 *arg0) {
+void TObjDFDemo5::run_task() {
     f32 temp_f1;
     s32 temp_r0;
-    arg0->update_particle_emitters();
-    if ((s32) arg0->m_e4 == 0x8C) {
+    this->update_particle_emitters();
+    if ((s32) this->m_e4 == 0x8C) {
         play_cue_stream_file((s32) "dfdeath.adx");
         TBoss3Volopt::queue_event_1D(0xC0, 0xF);
     }
-    { f32 k = 0.5f; temp_f1 = *(f32 *)((s8 *)arg0 + 0xE8) + k; }
-    *(f32 *)((s8 *)arg0 + 0xE8) = temp_f1;
+    { f32 k = 0.5f; temp_f1 = *(f32 *)((s8 *)this + 0xE8) + k; }
+    *(f32 *)((s8 *)this + 0xE8) = temp_f1;
     if (temp_f1 > 149.0f) {
-        *(f32 *)((s8 *)arg0 + 0xE8) = (f32) 149.0f;
+        *(f32 *)((s8 *)this + 0xE8) = (f32) 149.0f;
     }
-    temp_r0 = arg0->m_e4 + 1;
-    arg0->m_e4 = temp_r0;
+    temp_r0 = this->m_e4 + 1;
+    this->m_e4 = temp_r0;
     if (temp_r0 >= 0x12C) {
-        queue_destruction__7TObjectFv(arg0);
+        queue_destruction__7TObjectFv(this);
     }
 }
 #pragma pop

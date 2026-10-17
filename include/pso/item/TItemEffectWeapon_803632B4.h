@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void s_rank_launcher_extend(s32 arg0);
+void update_idle__13TUnk_804F28E0Fv(s32 arg0);
 }
 
 #endif

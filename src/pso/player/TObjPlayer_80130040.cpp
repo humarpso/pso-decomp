@@ -9,12 +9,12 @@ extern "C" {
 extern const f32 lbl_805DAFF0;
 extern const f32 lbl_805DAFF4;
 
-void update_cane_weapon_idle(u8 *arg0) {
-    if ((s32) ((TUnk_804A68C8 *)arg0)->m_1fc == 1) {
-        ((TUnk_804A68C8 *)arg0)->m_1fc = 0;
+void TUnk_804A68C8::update_idle() {
+    if ((s32) ((TUnk_804A68C8 *)((u8 *)this))->m_1fc == 1) {
+        ((TUnk_804A68C8 *)((u8 *)this))->m_1fc = 0;
     }
-    if (((TItemProShield *)arg0)->get_slot_count() == 5) {
-        TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1F8), (f32)lbl_805DAFF0, (f32)lbl_805DAFF4);
+    if (((TItemProShield *)((u8 *)this))->get_slot_count() == 5) {
+        TItemEffOrgaFlowShot::approach_value((f32 *)(((u8 *)this) + 0x1F8), (f32)lbl_805DAFF0, (f32)lbl_805DAFF4);
     }
 }
 

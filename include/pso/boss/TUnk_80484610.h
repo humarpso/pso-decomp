@@ -6,6 +6,7 @@
 class TUnk_80484610 : public TObjEnemyCustom {
 public:
     virtual ~TUnk_80484610();
+    virtual void render();
     void *destroy(s16);
     virtual f32 receive_physical_attack(void *, f32);
     void load_params_from_table(s32);

@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void yasminkov_2000h_idle(u8 *arg0);
+void update_idle__13TUnk_804A6CC8Fv(u8 *arg0);
 }
 
 #endif

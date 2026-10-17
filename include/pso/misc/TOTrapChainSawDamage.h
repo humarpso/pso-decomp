@@ -6,6 +6,7 @@
 
 struct TOTrapChainSawDamage : public TOTrapChainSaw {
     virtual ~TOTrapChainSawDamage();
+    virtual void update_state();
     virtual void decode_params();
     virtual void vfunc_25();
     virtual void vfunc_14();

@@ -766,7 +766,6 @@ struct TLobby : public TObject {
     static s32 tmp_buf_use_req(const char *name);
     void handle_quest_download_chunk();
     static u16 alloc_actor_ids(s32 arg);
-    void clear_item_list();
     void reduce_owner_matched_items();
     void reduce_child_item_amounts();
     static s32 cancel_pending_alarms();
@@ -828,7 +827,6 @@ struct TLobby : public TObject {
     static void set_fade_params(s32 arg0);
     static s32 get_quest_thread_state();
     void *ct_register();
-    void update_fade_in_alpha();
     void*init_entry_fields(int a1, int a2, int a3);
     void *init_fade(void *arg1, void *arg2);
     u8 *pop_stack_entry(s16 arg1);

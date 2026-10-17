@@ -680,7 +680,7 @@ void TShopJudgmentItemWindow__sub_80267F9C(V_80267F9C v, s32 x) {
     lbl_804D05F8[1] = x;
 }
 
-void TWindowSubStatusDisp::render_card_and_list() {
+void TUnk_804D0618::render() {
     s32 temp_r3;
 
     temp_r3 = get_draw_context__11TWindowBaseFPv();
@@ -696,56 +696,56 @@ void TWindowSubStatusDisp::render_card_and_list() {
 }
 
 typedef char RecoveredGlobal_80268048_lbl_8050E208_size[sizeof(RecoveredGlobal_80268048_lbl_8050E208) == 0x1B0 ? 1 : -1];
-void update_item_list_window(u8 *arg0) {
+void TUnk_804D0618::run_task() {
     s32 temp_r31;
     u32 temp_r3;
     u32 temp_r3_2;
     u8 *input;
     u8 *temp_r29_2;
     u8 *temp_r29_3;
-    temp_r31 = is_player_input_active(((s32) ((TUnk_804D0618 *)arg0)->m_20));
-    if ((((TUnk_804D0618 *)arg0)->get_flag() == 0) && (get_status_flag__13TUnk_804D0618Fv(arg0) == 0) && (((TUnk_804CE018 *)arg0)->sub_80244994() != 0)) {
-        if (((TUnk_804D0618 *)arg0)->m_70 & 0x10) {
+    temp_r31 = is_player_input_active(((s32) ((TUnk_804D0618 *)((u8 *)this))->m_20));
+    if ((((TUnk_804D0618 *)((u8 *)this))->get_flag() == 0) && (get_status_flag__13TUnk_804D0618Fv(((u8 *)this)) == 0) && (((TUnk_804CE018 *)((u8 *)this))->sub_80244994() != 0)) {
+        if (((TUnk_804D0618 *)((u8 *)this))->m_70 & 0x10) {
             input = (u8 *)&controller_input_state.value + (temp_r31 * 0x50) + 0x20;
             if ((TWindowChoiceSetting::apply_choice((s32)input, 0x10, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), 0x10, 6, 1) != 0)) {
-                ((TUnk_804D0618 *)arg0)->move_cursor();
+                ((TUnk_804D0618 *)((u8 *)this))->move_cursor();
             }
             if ((TWindowChoiceSetting::apply_choice((s32)input, 0x20, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), 0x20, 6, 1) != 0)) {
-                ((TUnk_804D0618 *)arg0)->move_cursor_next();
+                ((TUnk_804D0618 *)((u8 *)this))->move_cursor_next();
             }
         } else {
             temp_r29_2 = (u8 *)&controller_input_state.value + (temp_r31 * 0x50) + 0x20;
             if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int)temp_r29_2, 0x10, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), 0x10, 6, 1) != 0)) {
-                ((TUnk_804D0618 *)arg0)->move_cursor();
+                ((TUnk_804D0618 *)((u8 *)this))->move_cursor();
             }
             if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int)temp_r29_2, 0x20, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), 0x20, 6, 1) != 0)) {
-                ((TUnk_804D0618 *)arg0)->move_cursor_next();
+                ((TUnk_804D0618 *)((u8 *)this))->move_cursor_next();
             }
         }
         temp_r29_3 = (u8 *)&controller_input_state.value + (temp_r31 * 0x50) + 0x20;
         if ((TWindowShortListCtrl__check_controller_button((int)temp_r29_3, 4) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 4) != 0)) {
-            ((TUnk_804D0618 *)arg0)->handle_open();
+            ((TUnk_804D0618 *)((u8 *)this))->handle_open();
         }
         if ((TWindowShortListCtrl__check_controller_button((int)temp_r29_3, 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 2) != 0)) {
-            ((TUnk_804D0618 *)arg0)->set_flag4();
+            ((TUnk_804D0618 *)((u8 *)this))->set_flag4();
         }
     }
-    if ((f32) ((TUnk_804D0618 *)arg0)->m_5c >= lbl_805DD1D0) {
-        temp_r3 = *(u32 *)((s8 *)arg0 + 0x80);
+    if ((f32) ((TUnk_804D0618 *)((u8 *)this))->m_5c >= lbl_805DD1D0) {
+        temp_r3 = *(u32 *)((s8 *)((u8 *)this) + 0x80);
         if (temp_r3 != 0U) {
             ((TWindowSubStatusDisp *)temp_r3)->update_subwindow();
         }
-        temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x84);
+        temp_r3_2 = *(u32 *)((s8 *)((u8 *)this) + 0x84);
         if (temp_r3_2 != 0U) {
             ((TWindowSubStatusDisp *)temp_r3_2)->increment_counter();
         }
     }
-    ((TWindowDD *)arg0)->initialize_subwindow();
-    ((TUnk_804D0618 *)arg0)->update_scroll_offset();
-    ((TUnk_804CDFE8 *)arg0)->step_window_tween();
-    ((TUnk_804D0618 *)arg0)->center_list_selection();
-    ((TUnk_804D0618 *)arg0)->clamp_item_list_scroll();
-    ((TUnk_804CE018 *)arg0)->update_window_entry_list(arg0 + 0x24);
+    ((TWindowDD *)((u8 *)this))->initialize_subwindow();
+    ((TUnk_804D0618 *)((u8 *)this))->update_scroll_offset();
+    ((TUnk_804CDFE8 *)((u8 *)this))->step_window_tween();
+    ((TUnk_804D0618 *)((u8 *)this))->center_list_selection();
+    ((TUnk_804D0618 *)((u8 *)this))->clamp_item_list_scroll();
+    ((TUnk_804CE018 *)((u8 *)this))->update_window_entry_list(((u8 *)this) + 0x24);
 }
 
 void *TWindowSubStatusDisp::destroy_item_list_resources(s16 arg1) {

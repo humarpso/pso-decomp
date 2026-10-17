@@ -7,7 +7,8 @@ extern "C" {
 
 int construct_srank_weapon(void);
 
-void s_rank_shot_open_spread(u8 *arg0) {
+void TUnk_804A444C::update_idle() {
+    u8 *arg0 = (u8 *)this;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x200) < 0x2000) {
         TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x200), 0x2D8, 0x2000);
     }

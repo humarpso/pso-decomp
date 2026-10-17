@@ -86,7 +86,7 @@ extern "C" void render_shadows__9TObjEnemyFv(u8 *arg0);
 extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__13TUnk_804806E8Fv();
 extern "C" void roll_physical_accuracy__13TUnk_804806E8FPvlf();
-extern "C" void run_task__11TObjNpcBaseFPv(u8 *arg0);
+extern "C" void run_task__11TObjNpcBaseFv(u8 *arg0);
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
 extern "C" void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 extern "C" void try_start_action__13TUnk_804806E8Fll();
@@ -119,7 +119,7 @@ void *lbl_804A7EC0[22] = {
     (void *)0x0, (void *)0x0,
 };
 void *__vt__14TObjNpcBringer[94] = {
-    (void *)0x0, (void *)0x0, (void *)&__dt__14TObjNpcBringerFv, (void *)&run_task__11TObjNpcBaseFPv,
+    (void *)0x0, (void *)0x0, (void *)&__dt__14TObjNpcBringerFv, (void *)&run_task__11TObjNpcBaseFv,
     (void *)&draw_model__10TObjPlayerFv, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&handle_message_event__17TObjNpcFemaleBaseFUs, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,

@@ -6,7 +6,7 @@
 extern "C" {
 int TLobby__sub_80134A20(void *p);
 void TObjBoss2Tunnel__sub_801339EC(f32 farg0, f32 farg1, f32 farg2);
-void TObjLight__sub_801335EC(void);
+void render__13TUnk_804A6F78Fv(void);
 void TObjLight__sub_801336DC(void);
 void TObjLight__sub_80133714(void);
 void TObjLight__sub_8013379C(void);
@@ -25,7 +25,7 @@ void load_light_entry_file(void);
 void publish_actor_light_scalars(u32 arg0, f32 farg0, f32 farg1);
 void publish_light_direction_color(u32 id, void *dir, void *color);
 void register_actor_light(s32 arg0, s32 arg1);
-void reset_actor_light_registries(void);
+void run_task__13TUnk_804A6FA8Fv(void);
 void restore_scene_lighting(void);
 void select_actor_lighting(s32 obj);
 void set_scene_light_diffuse(void *_w0);

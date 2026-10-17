@@ -6,6 +6,7 @@
 class TUnk_804A4848 : public TUnk_804A4948 {
 public:
     virtual ~TUnk_804A4848();
+    virtual void update_idle();
     virtual void update_weapon();
     virtual void update_attack();
     virtual void reserved_53();

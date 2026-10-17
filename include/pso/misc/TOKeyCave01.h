@@ -6,6 +6,7 @@
 
 struct TOKeyCave01 : public TOKey {
     virtual ~TOKeyCave01();
+    virtual void trigger_activate_sound();
     virtual s32 is_confirm_pressed();
     virtual void vfunc_16();
     virtual void vfunc_17();

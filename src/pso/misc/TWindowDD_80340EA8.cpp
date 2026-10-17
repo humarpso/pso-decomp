@@ -69,9 +69,10 @@ void *TWindowDD__sub_80340F70(void) {
 
 extern f32 lbl_805DFC90;
 
-void draw_and_scroll_entry__9TWindowDDFi(s32 arg0) {
+void TWindowDD_WS_String::render() {
     f32 ctx;
     void *temp_r3;
+    s32 arg0 = (s32)this;
 
     temp_r3 = draw_default_entry__9TWindowDDFl();
     ((TUnk_804CE018 *)arg0)->calc_inner_rect((u8 *)temp_r3);

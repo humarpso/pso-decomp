@@ -9,7 +9,8 @@ extern "C" {
 extern const f32 lbl_805DAED0;
 extern const f32 lbl_805DAED4;
 
-void psycho_wand_idle(u8 *arg0) {
+void TUnk_804A4F60::update_idle() {
+    u8 *arg0 = (u8 *)this;
     TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x278), 0x38E, 0x2AAA);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x278) == 0x2AAA) {
         TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x274), (f32)lbl_805DAED0, (f32)lbl_805DAED4);

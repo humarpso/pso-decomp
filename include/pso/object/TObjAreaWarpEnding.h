@@ -6,12 +6,13 @@
 
 struct TObjAreaWarpEnding : public TObjAreaWarp {
     virtual ~TObjAreaWarpEnding();
+    virtual void debug_print_area_num();
+    virtual void confirm_area_transfer(s32);
     u32 m_c8;
     u32 m_cc;
     u32 m_d0;
     u32 m_d4;
     u32 m_d8;
-    static void create_and_init();
     void open_confirm_window(s16 arg1);
     void render();
     void run_task();

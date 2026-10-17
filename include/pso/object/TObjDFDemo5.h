@@ -6,6 +6,7 @@
 
 struct TObjDFDemo5 : public TUnk_804B9870 {
     virtual ~TObjDFDemo5();
+    virtual void run_task();
     void update_particle_emitters();
     u8 unk_90[0x4];
     u32 m_94;

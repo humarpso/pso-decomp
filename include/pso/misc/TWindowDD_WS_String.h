@@ -6,6 +6,7 @@
 class TWindowDD_WS_String : public TUnk_804CE018 {
 public:
     virtual ~TWindowDD_WS_String();
+    virtual void render();
     void draw(s32, s32, f32);
     void draw_entry_if_visible(void *);
     u8 unk_1C[0x38];

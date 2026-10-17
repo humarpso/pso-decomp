@@ -6,6 +6,7 @@
 class TUnk_804F28E0 : public TUnk_804A4948 {
 public:
     virtual ~TUnk_804F28E0();
+    virtual void update_idle();
     void*init(s32, void *);
     virtual void update_attack();
     virtual void emit_marker_effects();

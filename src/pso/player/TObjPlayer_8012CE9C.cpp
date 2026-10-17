@@ -11,7 +11,7 @@ void TItemWeapon__ct(void *);
 void set_status_flags__10TObjPlayerFUl(void *, int);
 int get_player_list__10TObjPlayerFv(void*);
 
-int TObjPlayer__sub_8012CE9C(void* p) { return add_angle_clamped__10TObjPlayerFPlll((char*)p + 0x1f8, 1820, 10922); }
+void TUnk_804A5740::update_idle() { add_angle_clamped__10TObjPlayerFPlll((char*)this + 0x1f8, 1820, 10922); }
 void TUnk_804A5740::update_attack() { add_angle_clamped__10TObjPlayerFPlll((char*)this + 0x1f8, -1820, 0); }
 void TObjPlayer::release_container_if_positive() { if (get_player_list__10TObjPlayerFv(this) > 0) { rotate_matrix_x((void*)0, *(void* *)&this->unk_1F8); } }
 

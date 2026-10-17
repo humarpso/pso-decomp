@@ -6,6 +6,8 @@
 
 struct TObjEneBm5GibonU : public TObjEneDD_ST {
     virtual ~TObjEneBm5GibonU();
+    virtual void run_task();
+    virtual void render();
     virtual void vfunc_88();
     virtual s32 vfunc_83();
     virtual void render_debug();
@@ -89,7 +91,7 @@ u8 *TObjEneBm5GibonU__ct(u8 *arg0, s32 arg1, s32 arg2);
 void TObjEneBm5GibonU__sub_800CCD8C(u8 *arg0);
 void TObjEneBm5GibonU__sub_800CCDE4(u8 *arg0);
 void TObjEneBm5GibonU__sub_800CCE28(u8 *arg0);
-void TObjEneBm5GibonU__sub_800CD204(u8 *arg0);
+void render__16TObjEneBm5GibonUFv(u8 *arg0);
 void TObjEneBm5GibonU__sub_800CE060(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800CE370(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800CE694(u8 *arg0, s32 arg1);
@@ -107,7 +109,7 @@ void TObjEneBm5GibonU__sub_800D0738(u8 *actor, u32 arg1, s32 msg);
 void TObjEneBm5GibonU__sub_800D095C(void *arg0, s32 arg1, s16 arg2);
 s32 TObjEneBm5GibonU__sub_800D0968(u8 *arg0, int _w1);
 void TObjEneBm5GibonU__sub_800D10A0(u8 *arg0);
-void TObjEneBm5GibonU__sub_800D1268(u8 *arg0);
+void run_task__16TObjEneBm5GibonUFv(u8 *arg0);
 s32 TObjEneBm5GibonU__sub_800D1D70(void *p);
 void *TObjEneBm5GibonU__sub_800D1D78(void *p);
 s32 __dt__16TObjEneBm5GibonUFis(s32 arg0, s16 arg1);

@@ -6,6 +6,8 @@
 
 struct TObjEneRecobox : public TObjEneDD_ST {
     virtual ~TObjEneRecobox();
+    virtual void run_task();
+    virtual void render();
     s32 render_trap_model_if_visible();
     virtual void update_if_800BB858();
     virtual void draw_with_debug_info();

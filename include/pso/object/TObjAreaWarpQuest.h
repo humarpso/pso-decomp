@@ -6,6 +6,7 @@
 
 struct TObjAreaWarpQuest : public TObjAreaWarp {
     virtual ~TObjAreaWarpQuest();
+    virtual void debug_print_area_num();
     u8 _padC8[0x4];
     u32 m_cc;
     u32 m_d0;

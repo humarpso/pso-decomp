@@ -50,7 +50,7 @@ void *TUnk_80488D70::init_subobject() {
     return this;
 }
 
-void TCameraCtrl__sub_8006C928(void) {  }
+void TUnk_80488D70::run_task() {  }
 
 extern unsigned char lbl_80488DA0[];
 
@@ -69,7 +69,7 @@ extern const f64 lbl_80438510;
 extern const f64 lbl_80438518;
 #pragma push
 #pragma fp_contract on
-void TCameraCtrl::update_debug_camera() {
+void TUnk_80488DA0::run_task() {
     Vec_8006C964 target = lbl_804384F4;
     Vec_8006C964 v;
     Pad_8006C964 *pad = &controller_input_state.pad;

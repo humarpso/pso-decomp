@@ -45,7 +45,7 @@ void TWindowSubEquipList::render() {
 }
 #pragma pop
 
-void TWindowSubEquipList::run_task() { { (void)(update_item_list_window((u8 *)this)); return; } }
+void TWindowSubEquipList::run_task() { { (void)(run_task__13TUnk_804D0618Fv((u8 *)this)); return; } }
 
 void *__dt__19TWindowSubEquipListFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -64,7 +64,7 @@ extern const f32 lbl_805DB744;
 s32 play_sound_effect(s32, s32, s32, s32);
 extern RecoveredGlobal_8016BF68_lbl_80441B4C lbl_80441B4C;
 extern s32 enable_v2_features;
-void TOKeyCave01__vt16(s32 arg0);
+void trigger_activate_sound__11TOKeyCave01Fv(s32 arg0);
 u8 *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
 void *mem_alloc(u32 size);
 u8 *load_gvm_texture_file(s32 arg0);
@@ -91,7 +91,7 @@ void set_chunk_material_color(f32 *arg);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-void TOKeyAncient03__vt16(s32 arg0);
+void trigger_activate_sound__14TOKeyAncient03Fv(s32 arg0);
 void *__dt__14TOKeyAncient03Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
@@ -104,7 +104,8 @@ void TOKeyAncient03::vfunc_19() {
     play_sound_effect(0x4004B20D, arg0 + 0x38, 0, 0);
 }
 
-void TOKeyAncient03__vt16(s32 arg0) {
+void TOKeyAncient03::trigger_activate_sound() {
+    s32 arg0 = (s32)this;
     play_sound_effect(0x4004B20D, arg0 + 0x38, 0, 0);
 }
 
@@ -344,9 +345,10 @@ void TOKeyCave01::vfunc_19() {
 }
 
 typedef char RecoveredGlobal_8016C010_lbl_80441B4C_size[sizeof(RecoveredGlobal_8016C010_lbl_80441B4C) == 0x90 ? 1 : -1];
-void TOKeyCave01__vt16(s32 arg0) {
+void TOKeyCave01::trigger_activate_sound() {
     s32 temp_r3;
     s32 temp_r3_2;
+    s32 arg0 = (s32)this;
     if (((s32) enable_v2_features == 1) && ((TOKeyMachine01::get_global_state() == 0x10) || (TOKeyMachine01::get_global_state() == 0x11))) {
         temp_r3 = *(s32 *)((s8 *)(&(*(RecoveredGlobal_8016C010_lbl_80441B4C *)&lbl_80441B4C).value) + (TOKeyMachine01::get_global_state() * 4));
         if (temp_r3 >= 0) {

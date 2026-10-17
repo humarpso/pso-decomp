@@ -470,7 +470,7 @@ f32 xz_distance_squared(void *, void *);
 Pl_800D5614 *get_player_by_client_id(s32);
 s32 submit_cursor_candidate(void *, int);
 extern const f32 TObjEneMerillLia__data_805DA2F4;
-void run_state_dispatch__16TObjEneMerillLiaFPv(u8 *arg0);
+void run_task__16TObjEneMerillLiaFv(u8 *arg0);
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
@@ -485,7 +485,7 @@ extern const f32 lbl_805DA324;
 extern const f32 lbl_805DA328;
 extern const f32 lbl_805DA32C;
 extern const f32 lbl_805DA330;
-void render__16TObjEneMerillLiaFPv(u8 *arg0);
+void render__16TObjEneMerillLiaFv(u8 *arg0);
 extern u32 TObjEneMerillLia__entry_params_resource;
 extern s32 game_difficulty_selection;
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
@@ -711,8 +711,8 @@ void *lbl_804946A4[33] = {
     (void *)0x0,
 };
 void *lbl_80494728[103] = {
-    (void *)0x0, (void *)0x0, (void *)&__dt__16TObjEneMerillLiaFPvs, (void *)&run_state_dispatch__16TObjEneMerillLiaFPv,
-    (void *)&render__16TObjEneMerillLiaFPv, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
+    (void *)0x0, (void *)0x0, (void *)&__dt__16TObjEneMerillLiaFPvs, (void *)&run_task__16TObjEneMerillLiaFv,
+    (void *)&render__16TObjEneMerillLiaFv, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
     (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
@@ -1436,40 +1436,40 @@ void TObjEneMerillLia::beast_update_approach() {
     ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x200000);
 }
 
-void render__16TObjEneMerillLiaFPv(u8 *arg0) {
+void TObjEneMerillLia::render() {
   Stack_800D6810 stack;
   s32 var_r30;
   s16 temp_r0;
   s32 temp_r3;
   s32 var_r29;
-  temp_r3 = (((VObj_18_ca64a0 *)(arg0))->m9((lbl_805DA324), (lbl_805DA328), (lbl_805DA314)));
+  temp_r3 = (((VObj_18_ca64a0 *)(((u8 *)this)))->m9((lbl_805DA324), (lbl_805DA328), (lbl_805DA314)));
   if (temp_r3 != 0)
   {
     lbl_805D5660 = model_render_flags;
-    select_actor_lighting((void *) arg0);
-    TObjFish::set_global_param((int) ((RecoveredFields_800D6810_arg0 *) arg0)->field_24);
+    select_actor_lighting((void *) ((u8 *)this));
+    TObjFish::set_global_param((int) ((RecoveredFields_800D6810_arg0 *) ((u8 *)this))->field_24);
     push_matrix();
-    translate_matrix(0, (f32) TObjEneMerillLia__data_805DA300, (f32) ((RecoveredFields_800D6810_arg0 *) arg0)->field_380, (f32) TObjEneMerillLia__data_805DA300);
-    post_translate_matrix(arg0 + 0x38);
-    rotate_matrix_y(0, (int) ((RecoveredFields_800D6810_arg0 *) arg0)->field_60);
+    translate_matrix(0, (f32) TObjEneMerillLia__data_805DA300, (f32) ((RecoveredFields_800D6810_arg0 *) ((u8 *)this))->field_380, (f32) TObjEneMerillLia__data_805DA300);
+    post_translate_matrix(((u8 *)this) + 0x38);
+    rotate_matrix_y(0, (int) ((RecoveredFields_800D6810_arg0 *) ((u8 *)this))->field_60);
     if (TObjPlayer::check_demo_mode() == 1)
     {
-      draw_chunk_object((int) ((RecoveredFields_800D6810_arg0 *) arg0)->field_34);
+      draw_chunk_object((int) ((RecoveredFields_800D6810_arg0 *) ((u8 *)this))->field_34);
     }
     else
     {
       TObjPlayer::toggle_particle_effect();
       var_r30 = 1;
       var_r29 = 0;
-      if (((s16) ((RecoveredFields_800D6810_arg0 *) arg0)->field_326) == 0xD)
+      if (((s16) ((RecoveredFields_800D6810_arg0 *) ((u8 *)this))->field_326) == 0xD)
       {
         var_r29 = 1;
-        var_r30 = (((VObj_14_fddec9 *)(((u8 *) arg0) + 936))->m8());
+        var_r30 = (((VObj_14_fddec9 *)(((u8 *) ((u8 *)this)) + 936))->m8());
       }
       if (var_r29 != 0)
       {
-        (((VObj_14_fddec9 *)(((u8 *) arg0) + 936))->m6());
-        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) arg0) != 0)
+        (((VObj_14_fddec9 *)(((u8 *) ((u8 *)this)) + 936))->m6());
+        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) ((u8 *)this)) != 0)
         {
           var_r30 = 0;
         }
@@ -1479,31 +1479,31 @@ void render__16TObjEneMerillLiaFPv(u8 *arg0) {
         if (temp_r3 == 1)
         {
           TObjPlayer::set_global_flag();
-          ((TObjEneRe7Berura *)arg0)->draw();
+          ((TObjEneRe7Berura *)((u8 *)this))->draw();
           TObjPlayer::clear_global_state();
         }
         else
         {
           TObjPlayer::set_global_flag();
-          ((TObjEnemy *)arg0)->render_world_model();
+          ((TObjEnemy *)((u8 *)this))->render_world_model();
           TObjPlayer::clear_global_state();
         }
       }
       TParticleCtrl::end_effect_render();
       if (var_r29 != 0)
       {
-        (((VObj_14_fddec9 *)(((u8 *) arg0) + 936))->m7());
+        (((VObj_14_fddec9 *)(((u8 *) ((u8 *)this)) + 936))->m7());
       }
     }
     pop_matrix();
     restore_scene_lighting();
-    temp_r0 = ((RecoveredFields_800D6810_arg0 *) arg0)->field_326;
+    temp_r0 = ((RecoveredFields_800D6810_arg0 *) ((u8 *)this))->field_326;
     if ((temp_r0 >= 0xA) || (temp_r0 < 8))
     {
       stack.sp8 = lbl_805DA32C;
       stack.spC = TObjEneMerillLia__data_805DA2F4;
       stack.sp10 = lbl_805DA330;
-      ((TObjEnemy *)arg0)->render_with_position_override((u8 *)&stack.sp8, 0);
+      ((TObjEnemy *)((u8 *)this))->render_with_position_override((u8 *)&stack.sp8, 0);
     }
   }
 }
@@ -1541,65 +1541,65 @@ void TObjEneMerillLia::select_action_by_distance() {
 
 typedef struct VBase_18_477421 VBase_18_477421;
 typedef struct VObj_18_477421 VObj_18_477421;
-void run_state_dispatch__16TObjEneMerillLiaFPv(u8 *arg0) {
+void TObjEneMerillLia::run_task() {
   s16 temp_r0;
   if (TObjPlayer::check_demo_mode() == 1)
   {
-    (((TObjEneMerillLia *)(arg0))->vfunc_101());
+    (((TObjEneMerillLia *)(((u8 *)this)))->vfunc_101());
     return;
   }
-  temp_r0 = ((TObjEneMerillLia *)arg0)->mode;
+  temp_r0 = ((TObjEneMerillLia *)((u8 *)this))->mode;
   {
     switch (temp_r0)
     {
       case 0:
-        (((TObjEneMerillLia *)(arg0))->vfunc_83());
+        (((TObjEneMerillLia *)(((u8 *)this)))->vfunc_83());
         break;
       case 1:
-        (((TObjEneMerillLia *)(arg0))->beast_idle_update());
+        (((TObjEneMerillLia *)(((u8 *)this)))->beast_idle_update());
         break;
       case 2:
-        (((TObjEneMerillLia *)(arg0))->update_turn_toward_target());
+        (((TObjEneMerillLia *)(((u8 *)this)))->update_turn_toward_target());
         break;
       case 3:
-        (((TObjEneMerillLia *)(arg0))->beast_update_approach());
+        (((TObjEneMerillLia *)(((u8 *)this)))->beast_update_approach());
         break;
       case 4:
-        (((TObjEneMerillLia *)(arg0))->beast_update_group_chase());
+        (((TObjEneMerillLia *)(((u8 *)this)))->beast_update_group_chase());
         break;
       case 5:
-        (((TObjEneMerillLia *)(arg0))->beast_update_attack());
+        (((TObjEneMerillLia *)(((u8 *)this)))->beast_update_attack());
         break;
       case 6:
-        (((TObjEneMerillLia *)(arg0))->vfunc_89());
+        (((TObjEneMerillLia *)(((u8 *)this)))->vfunc_89());
         break;
       case 7:
-        (((TObjEneMerillLia *)(arg0))->beast_update_hurt());
+        (((TObjEneMerillLia *)(((u8 *)this)))->beast_update_hurt());
         break;
       case 8:
-        (((TObjEneMerillLia *)(arg0))->beast_update_dead());
+        (((TObjEneMerillLia *)(((u8 *)this)))->beast_update_dead());
         break;
       case 9:
-        (((TObjEneMerillLia *)(arg0))->beast_retire_corpse());
+        (((TObjEneMerillLia *)(((u8 *)this)))->beast_retire_corpse());
         break;
       case 10:
-        TObjEneMerillLia::update_kafun_attack((void *)((void *) arg0));
+        TObjEneMerillLia::update_kafun_attack((void *)((void *) ((u8 *)this)));
         break;
       case 11:
-        TObjEneMerillLia::update_emerge_state((void *) arg0);
+        TObjEneMerillLia::update_emerge_state((void *) ((u8 *)this));
         break;
       case 12:
-        TObjEneMerillLia::search_target((void *) arg0);
+        TObjEneMerillLia::search_target((void *) ((u8 *)this));
         break;
       case 13:
-        ((TObjEneMerillLia *)arg0)->sub_800D5570();
+        ((TObjEneMerillLia *)((u8 *)this))->sub_800D5570();
         break;
     }
   }
-  ((TObjEnemy *)arg0)->update_prev_position();
-  copy_position__20TBoss3VoloptHiraisinFi((void *) arg0);
-  submit_cursor_candidate((void *) arg0, -1);
-  ((TObjEneMerillLia *)arg0)->m_2b4 = (f32) ((((TObjEneMerillLia *)arg0)->m_2b4) + TObjEneMerillLia__data_805DA2F4);
+  ((TObjEnemy *)((u8 *)this))->update_prev_position();
+  copy_position__20TBoss3VoloptHiraisinFi((void *) ((u8 *)this));
+  submit_cursor_candidate((void *) ((u8 *)this), -1);
+  ((TObjEneMerillLia *)((u8 *)this))->m_2b4 = (f32) ((((TObjEneMerillLia *)((u8 *)this))->m_2b4) + TObjEneMerillLia__data_805DA2F4);
 }
 
 void * TObjEneMerillLia__create(void *arg0) {

@@ -270,7 +270,7 @@ extern "C" {
 int transition_enemy_state(void*, int);
 s32 draw_model__23TObjEneMe3ShinowaMirageFv();
 s32 queue_destruction__7TObjectFv(void *);
-void TObjEneMe3Shinowa__sub_800E7724(u8 *arg0);
+void run_task__17TObjEneMe3ShinowaFv(u8 *arg0);
 void *find_entity_by_id(u16 id);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 create_particle_emitter(s32, s32);
@@ -397,7 +397,7 @@ void TObjEneMe3ShinowaMirage::run_task() {
         return;
     }
     if (!(*(s32 *)((s8 *)arg0 + 0x3C4) & 0x100)) {
-        TObjEneMe3Shinowa__sub_800E7724((arg0));
+        run_task__17TObjEneMe3ShinowaFv((arg0));
     }
 }
 

@@ -1,4 +1,6 @@
 #include "types.h"
+extern "C" void update_movement_status__17TObjEneDarkGunnerFv();
+#include "pso/enemy/TObjEneDarkGunner.h"
 #include "pso/enemy/TObjEneDarkGunCenter.h"
 #include "pso/enemy/TUnk_804909C4.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
@@ -659,7 +661,7 @@ void *__vt__17TObjEneDarkGunner[83] = {
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker__13TUnk_804806E8FPUc, (void *)&try_start_action__13TUnk_804806E8Fll, (void *)&roll_physical_accuracy__13TUnk_804806E8FPvlf,
     (void *)&vfunc_28__17TObjEneDarkGunnerFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__13TUnk_804806E8Fv,
     (void *)&test_flag30_512__13TUnk_804806E8Fv, (void *)&has_flag_0x800__13TUnk_804806E8Fv, (void *)&test_flag_1000__13TUnk_804806E8Fv, (void *)&update_poison_status__13TUnk_804806E8Fv,
-    (void *)&update_action_hold_status__17TObjEneDarkGunnerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__13TUnk_804806E8Fv, (void *)&TObjPlayer::update_movement_and_notify,
+    (void *)&update_action_hold_status__17TObjEneDarkGunnerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__13TUnk_804806E8Fv, (void *)&update_movement_status__17TObjEneDarkGunnerFv,
     (void *)&update_shock_clock__13TUnk_804806E8Fv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&vfunc_43__13TUnk_804806E8Fv,
     (void *)&apply_poison_status__13TUnk_804806E8Fv, (void *)&apply_paralysis__13TUnk_804806E8Fv, (void *)&apply_slow_status__13TUnk_804806E8Fv, (void *)&apply_confusion_status__13TUnk_804806E8Fv,
     (void *)&apply_movement_ailment__13TUnk_804806E8Fl, (void *)&apply_shock_status__13TUnk_804806E8Fv, (void *)&clear_harmful_statuses__13TUnk_804806E8Fv, (void *)&apply_attack_stat_status__13TUnk_804806E8FPv,
@@ -730,7 +732,8 @@ void fn_800A0FDC(TObjEneLappy *arg0) {
 
 void TObjPlayer__sub_800A100C(s32 _w0) {  }
 
-s32 TObjPlayer::update_movement_and_notify(s32 arg0) {
+s32 TObjEneDarkGunner::update_movement_status() {
+    s32 arg0 = (s32)this;
     if (update_movement_status__13TUnk_804806E8Fv() != 0) {
         TObjPlayer__sub_800A100C(arg0);
         return 1;

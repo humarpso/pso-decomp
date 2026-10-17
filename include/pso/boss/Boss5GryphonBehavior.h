@@ -50,7 +50,7 @@ void trigger_effect__12TBoss8DragonFPvi(void *arg0, s32 arg1);
 void turn_toward_angle_limited__13TBoss5GryphonFPvii(void *selfv, s32 arg1, s32 arg2);
 void update_active_player_count__19TPlayerBattleCtrl4PFPvi(void *arg0, s32 arg1);
 void update_dive_motion__12TBoss8DragonFPvi(u8 *arg0, s32 arg1);
-void update_main__13TBoss5GryphonFPv(u8 *arg0);
+void run_task__13TBoss5GryphonFv(u8 *arg0);
 }
 
 #endif

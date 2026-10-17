@@ -83,7 +83,7 @@ extern const f32 lbl_805D9FAC;
 extern const f32 lbl_805D9FBC;
 void TObjPlayer__sub_800C44C4(void);
 s32 transition_enemy_state(void * a0, s32 a1);
-void TObjEneRe2Flower__sub_800C3F70(u8 *arg0);
+void run_task__16TObjEneRe2FlowerFv(u8 *arg0);
 void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1);
 void fn_800C2A88(void *self, s32 msg);
 void fn_800C2AC4(u8 *arg0, int arg1);
@@ -260,7 +260,7 @@ AnimationAction TObjEneRe2Flower__animation_descriptors[8] = {
     {1, 0, 3, 0.6f, 0}, {1, 0, 0, 2.0f, 0}
 };
 void *__vt__16TObjEneRe2Flower[107] = {
-    (void *)0x0, (void *)0x0, (void *)&destroy__16TObjEneRe2FlowerFPvs, (void *)&TObjEneRe2Flower__sub_800C3F70,
+    (void *)0x0, (void *)0x0, (void *)&destroy__16TObjEneRe2FlowerFPvs, (void *)&run_task__16TObjEneRe2FlowerFv,
     (void *)&TObjPlayer__sub_800C220C, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
@@ -355,24 +355,24 @@ void dispatch_action__16TObjEneRe2FlowerFiUii(s32 arg0, u32 arg1, s32 arg2) {
     }
 }
 
-void TObjEneRe2Flower__sub_800C3F70(u8 *arg0) {
+void TObjEneRe2Flower::run_task() {
     s16 temp_r3;
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((TObjEneRe2Flower *)(arg0))->vfunc_105();
+        ((TObjEneRe2Flower *)(((u8 *)this)))->vfunc_105();
         return;
     }
-    if (((TObjEneRe2Flower *)(arg0))->vfunc_83() != 4) {
-        ((TObjEneRe2Flower *)(arg0))->vfunc_85();
+    if (((TObjEneRe2Flower *)(((u8 *)this)))->vfunc_83() != 4) {
+        ((TObjEneRe2Flower *)(((u8 *)this)))->vfunc_85();
     } else {
-        temp_r3 = ((TObjEneRe2Flower *)arg0)->mode;
+        temp_r3 = ((TObjEneRe2Flower *)((u8 *)this))->mode;
         if ((temp_r3 == 0) || (temp_r3 == 1)) {
-            ((VObj_14_2f517b *)(arg0 + (1012)))->m2();
-            transition_enemy_state(arg0, 2);
+            ((VObj_14_2f517b *)(((u8 *)this) + (1012)))->m2();
+            transition_enemy_state(((u8 *)this), 2);
         }
     }
-    ((TObjEneRe2Flower *)arg0)->sub_800C3DC4();
-    ((TBoss8Dragon *)arg0)->set_player_state_default();
-    ((TObjEneRe2Flower *)(arg0))->vfunc_100();
+    ((TObjEneRe2Flower *)((u8 *)this))->sub_800C3DC4();
+    ((TBoss8Dragon *)((u8 *)this))->set_player_state_default();
+    ((TObjEneRe2Flower *)(((u8 *)this)))->vfunc_100();
 }
 
 void *destroy__16TObjEneRe2FlowerFPvs(void *arg0, s16 arg1) {

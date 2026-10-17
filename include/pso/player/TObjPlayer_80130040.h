@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void update_cane_weapon_idle(u8 *arg0);
+void update_idle__13TUnk_804A68C8Fv(u8 *arg0);
 }
 
 #endif

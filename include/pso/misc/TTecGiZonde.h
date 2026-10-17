@@ -10,7 +10,6 @@ struct TTecGiZonde : public TUnk_804CCC68 {
     s32 find_chain_targets();
     void create(void *arg1, void *arg2, void *arg3);
     void run_task();
-    static void render();
     void init_parameters();
     u8 unk_130[0x5C];
     void deliver_chain_hits();

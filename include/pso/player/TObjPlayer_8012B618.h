@@ -5,7 +5,7 @@
 
 extern "C" {
 void TObjPlayer__sub_8012B618(void *p);
-void TObjPlayer__sub_8012B658(void *p);
+void update_idle__13TUnk_804A4E68Fv(void *p);
 }
 
 #endif

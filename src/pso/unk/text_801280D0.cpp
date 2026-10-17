@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A3928.h"
 #include "pso/player/TObjPlayer.h"
 
 struct Obj_80128128 { u8 pad[0x200]; f32 c; };
@@ -22,7 +23,7 @@ u8 *TObjPlayer::create_state_variant(u8 *arg0) {
     }
     return NULL;
 }
-void TObjPlayer::decay_gauge_c_to_floor_b() {
+void TUnk_804A3928::update_idle() {
     Obj_80128128 *self = (Obj_80128128 *)this;
     if (lbl_805DADE0 < self->c) {
         self->c -= lbl_805DADE4;

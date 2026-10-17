@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804EFA88.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
@@ -112,7 +113,7 @@ void TObjPlayer::copy_node_record(s32 arg1) {
     *(u8 *)((s8 *)arg0 + 0x23) = (u8) *(u8 *)((s8 *)arg1 + 0x23);
 }
 
-void TObjPlayer::draw_ginja_item_list() {
+void TUnk_804EFA88::render() {
     s32 i;
     for (i = 0; i < ((O_8033EB4C *)this)->n; i++) {
         ((TParticleCtrl *)(((O_8033EB4C *)this)->items[i].obj))->get_object();
@@ -133,7 +134,7 @@ void TObjPlayer::draw_ginja_item_list() {
     }
 }
 
-void TLobby::clear_item_list() {
+void TUnk_804EFA88::run_task() {
     O_8033EC40 *arg0 = (O_8033EC40 *)this;
     s32 i;
     if (arg0->items == 0) {

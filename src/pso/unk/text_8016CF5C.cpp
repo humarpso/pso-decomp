@@ -31,7 +31,7 @@ extern const f32 lbl_805DB78C;
 s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_8016D1A8_lbl_80441D84 key_machine01_state_table;
 extern s32 enable_v2_features;
-void TOKeyMachine01__vt16(s32 arg0);
+void trigger_activate_sound__14TOKeyMachine01Fv(s32 arg0);
 extern const f32 lbl_805DB790;
 s32 get_current_floor();
 extern s32 local_client_id;
@@ -140,10 +140,11 @@ void TOKeyMachine01::vfunc_19() {
 }
 
 typedef char RecoveredGlobal_8016D2A4_lbl_80441D84_size[sizeof(RecoveredGlobal_8016D2A4_lbl_80441D84) == 0x90 ? 1 : -1];
-void TOKeyMachine01__vt16(s32 arg0) {
+void TOKeyMachine01::trigger_activate_sound() {
     s32 temp_r3;
     s32 temp_r3_2;
     s32 temp_r3_3;
+    s32 arg0 = (s32)this;
     if (((s32) enable_v2_features == 1) && ((TOKeyMachine01::get_global_state() == 0x10) || (TOKeyMachine01::get_global_state() == 0x11))) {
         temp_r3 = *(s32 *)((s8 *)(&(*(RecoveredGlobal_8016D2A4_lbl_80441D84 *)&key_machine01_state_table).value) + (TOKeyMachine01::get_global_state() * 4));
         if (temp_r3 >= 0) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe3Shinowa.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -1511,7 +1512,7 @@ void fn_800E762C(void);
 void vfunc_88__17TObjEneMe3ShinowaFv(u8 *arg0);
 void vfunc_61__17TObjEneMe3ShinowaFv(void);
 void vfunc_28__17TObjEneMe3ShinowaFv(void);
-void TObjEneMe3Shinowa__sub_800E7724(u8 *arg0);
+void run_task__17TObjEneMe3ShinowaFv(u8 *arg0);
 void * __dt__17TObjEneMe3ShinowaFv(void *arg0, s16 arg1);
 void * TObjEneMe3Shinowa__ct(void *arg0);
 void set_animation__10TObjPlayerFPvs(void *, s16);
@@ -3290,17 +3291,17 @@ void TObjEneMe3Shinowa::vfunc_63() { if (*(short*)((char*)this + 0x326) != 13) {
 
 void TObjEneMe3Shinowa::vfunc_28() {  }
 
-void TObjEneMe3Shinowa__sub_800E7724(u8 *arg0) {
+void TObjEneMe3Shinowa::run_task() {
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((TObjEneMe3Shinowa *)(arg0))->update_mirage();
+        ((TObjEneMe3Shinowa *)(((u8 *)this)))->update_mirage();
         return;
     }
-    if (((TObjEneMe3Shinowa *)(arg0))->vfunc_83() != 4) {
-        ((TObjEneMe3Shinowa *)(arg0))->vfunc_85();
+    if (((TObjEneMe3Shinowa *)(((u8 *)this)))->vfunc_83() != 4) {
+        ((TObjEneMe3Shinowa *)(((u8 *)this)))->vfunc_85();
     }
-    ((TObjEneMe3Shinowa *)arg0)->copy_position_vector();
-    ((TBoss8Dragon *)arg0)->set_player_state_default();
-    ((TObjEneMe3Shinowa *)(arg0))->vfunc_100();
+    ((TObjEneMe3Shinowa *)((u8 *)this))->copy_position_vector();
+    ((TBoss8Dragon *)((u8 *)this))->set_player_state_default();
+    ((TObjEneMe3Shinowa *)(((u8 *)this)))->vfunc_100();
 }
 
 void *__dt__17TObjEneMe3ShinowaFv(void *arg0, s16 arg1) {

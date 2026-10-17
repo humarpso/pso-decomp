@@ -31,7 +31,7 @@ void TObjPlayer::cast_shifta_deband() {
     }
     update_active_game_effect();
 }
-int s_red_blade_unfold(void* p) { return add_angle_clamped__10TObjPlayerFPlll((char*)p + 0x1f8, 1820, 10922); }
+void TUnk_804A5F18::update_idle() { add_angle_clamped__10TObjPlayerFPlll((char*)this + 0x1f8, 1820, 10922); }
 void TUnk_804A5F18::update_attack() { add_angle_clamped__10TObjPlayerFPlll((char*)this + 0x1f8, -1820, 0); }
 void s_red_blade_equip_rolls(void* p) { roll_technique__11TItemWeaponFv(p); roll_technique__11TItemWeaponFv(p); }
 void s_red_blade_turn_node(void* p) { if (get_player_list__10TObjPlayerFv(p) == 1) { rotate_matrix_x((void*)0, *(void**)((char*)p + 0x1f8)); } }

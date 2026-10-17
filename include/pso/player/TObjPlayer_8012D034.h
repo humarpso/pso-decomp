@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void reset_soul_scythe_idle(void *p);
+void update_idle__13TUnk_804A5838Fv(void *p);
 }
 
 #endif

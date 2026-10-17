@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void update_brionac_idle_scale(u8 *arg0);
+void update_idle__13TUnk_804A4D70Fv(u8 *arg0);
 }
 
 #endif

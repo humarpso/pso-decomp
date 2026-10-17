@@ -6,6 +6,8 @@
 
 struct TObjEneBm9Mericarol : public TObjEneDD_ST {
     virtual ~TObjEneBm9Mericarol();
+    virtual void run_task();
+    virtual void render();
     virtual void vfunc_88();
     virtual void vfunc_105();
     virtual void draw_color_variant();

@@ -6,6 +6,8 @@
 
 struct TObjAreaWarpForest : public TObjAreaWarp {
     virtual ~TObjAreaWarpForest();
+    virtual void confirm_area_transfer(s32);
+    virtual void debug_print_area_num();
     u32 m_c8;
     u32 m_cc;
     u32 m_d0;

@@ -34,7 +34,7 @@ s32 handle_list_page_flip_input(s32);
 s32 draw_window_frame(void *, s32);
 s32 get_draw_context__11TWindowBaseFPv();
 s32 draw_visible_window_entries(void *, void *, s32);
-s32 update_item_list_window();
+s32 run_task__13TUnk_804D0618Fv();
 s32 draw_list_page_indicator(s32, s32);
 void __dl__7TObjectFPv(void *);
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
@@ -103,7 +103,7 @@ void render__22TWindowSubShortCutListFv(u8 *arg0) {
 }
 
 void TWindowSubShortCutList::run_task() {
-    update_item_list_window();
+    run_task__13TUnk_804D0618Fv();
     if ((get_status_flag() == 0) && (handle_list_page_flip_input(this->m_88) != 0)) {
         refresh_entries();
     }

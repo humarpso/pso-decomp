@@ -195,8 +195,8 @@ void TObjEneBm9Mericarol::draw_color_variant() {
         }
     }
 }
-void TObjPlayer__sub_802CE8CC(u8 *arg0) {
-    Self_802CE8CC *self = (Self_802CE8CC *)arg0;
+void TObjEneBm9Mericarol::render() {
+    Self_802CE8CC *self = (Self_802CE8CC *)((u8 *)this);
     s32 vis;
     Fade_802CE8CC *fade;
     s16 saved;
@@ -207,7 +207,7 @@ void TObjPlayer__sub_802CE8CC(u8 *arg0) {
     s32 s2;
     Node_802CE8CC *n;
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((TObjEneBm9Mericarol *)arg0)->draw_color_variant();
+        ((TObjEneBm9Mericarol *)((u8 *)this))->draw_color_variant();
         return;
     }
     cam = 0;
@@ -222,11 +222,11 @@ void TObjPlayer__sub_802CE8CC(u8 *arg0) {
     }
     if (is_main_phase_15__9TObjEneDDFv() != 0) {
         if (TOKeyMachine01::get_global_state() == 0x23) {
-            mode = ((Obj_802CE8CC *)arg0)->m9(600.0f, 600.0f, lbl_805DE704);
+            mode = ((Obj_802CE8CC *)((u8 *)this))->m9(600.0f, 600.0f, lbl_805DE704);
         } else {
-            mode = ((Obj_802CE8CC *)arg0)->m9(lbl_805D9E88, lbl_805D9E84, lbl_805DE704);
+            mode = ((Obj_802CE8CC *)((u8 *)this))->m9(lbl_805D9E88, lbl_805D9E84, lbl_805DE704);
         }
-    } else if (((Obj_802CE8CC *)arg0)->m8(lbl_805DE700, lbl_805DE704) != 0) {
+    } else if (((Obj_802CE8CC *)((u8 *)this))->m8(lbl_805DE700, lbl_805DE704) != 0) {
         mode = 1;
     } else {
         mode = 0;
@@ -236,10 +236,10 @@ void TObjPlayer__sub_802CE8CC(u8 *arg0) {
     }
     if (self->f326 != 0xB) {
         Vec_802CE740 v = lbl_80472490;
-        update_player_state__9TObjEneDDFv(arg0, &v, 0);
+        update_player_state__9TObjEneDDFv(((u8 *)this), &v, 0);
     }
-    ((TObjEneDD *)arg0)->update_secondary_light();
-    switch (((TObjEneBm9Mericarol *)arg0)->get_phase()) {
+    ((TObjEneDD *)((u8 *)this))->update_secondary_light();
+    switch (((TObjEneBm9Mericarol *)((u8 *)this))->get_phase()) {
     case 1:
         s0 = (*self->f24)[2];
         s1 = (*self->f24)[5];
@@ -279,25 +279,25 @@ void TObjPlayer__sub_802CE8CC(u8 *arg0) {
     if (self->f438 & 8) {
         if (self->f46C.m8() != 0) {
             self->f46C.m6();
-            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) == 0) {
-                ((TObjEneRe7Berura *)arg0)->draw();
+            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(((u8 *)this)) == 0) {
+                ((TObjEneRe7Berura *)((u8 *)this))->draw();
             }
             self->f46C.m7();
         }
     } else if (vis != 0) {
         fade->m6();
-        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) == 0) {
+        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(((u8 *)this)) == 0) {
             if (mode == 1) {
-                ((TObjEneRe7Berura *)arg0)->draw();
+                ((TObjEneRe7Berura *)((u8 *)this))->draw();
             } else {
-                ((TObjEnemy *)arg0)->render_world_model();
+                ((TObjEnemy *)((u8 *)this))->render_world_model();
             }
         }
         fade->m7();
     } else if (mode == 1) {
-        ((TObjEneRe7Berura *)arg0)->draw();
+        ((TObjEneRe7Berura *)((u8 *)this))->draw();
     } else {
-        ((TObjEnemy *)arg0)->render_world_model();
+        ((TObjEnemy *)((u8 *)this))->render_world_model();
     }
     if (!(self->f438 & 0x10)) {
         ((void (*)(void *))set_global_state__16TObjEneRe7BeruraFl)(NULL);
@@ -307,8 +307,8 @@ void TObjPlayer__sub_802CE8CC(u8 *arg0) {
     restore_default_scene();
     pop_matrix();
     model_render_flags = lbl_805D5660;
-    ((TObjEneDD *)arg0)->update_primary_light();
-    if (((TObjEneBm9Mericarol *)arg0)->get_phase() != 0) {
+    ((TObjEneDD *)((u8 *)this))->update_primary_light();
+    if (((TObjEneBm9Mericarol *)((u8 *)this))->get_phase() != 0) {
         (*self->f24)[2] = s0;
         (*self->f24)[5] = s1;
         (*self->f24)[8] = s2;

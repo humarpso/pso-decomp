@@ -14,6 +14,16 @@ struct TechniqueContactList;
 
 struct TObjPlayer : public TUnk_804806E8 {
     virtual ~TObjPlayer();
+    virtual void vfunc_65(s32, s32);
+    virtual u8 *update_actor_ground_y();
+    virtual u8 *vfunc_18(u8 *);
+    virtual void vfunc_73();
+    virtual s32 vfunc_37();
+    virtual s32 vfunc_41();
+    virtual s32 vfunc_42();
+    virtual s32 is_actor_cadence_frame(s32);
+    virtual s32 add_actor_exp(s32);
+    virtual void reset_pose();
     s8 get_class_index();
     virtual void get_pos(s32);
     virtual void apply_switch_attack();
@@ -218,7 +228,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     static void draw_area_chunk_objects();
     void save_position();
     static void copy_screen_to_texture(s32 mode, void *src);
-    static s32 update_movement_and_notify(s32 arg0);
     void step_along_ground();
     void update_move_to_destination();
     s32 update_hide_sequence();
@@ -537,16 +546,13 @@ struct TObjPlayer : public TUnk_804806E8 {
     static int get_player_list();
     void cast_foie_effect();
     void release_container_if_active();
-    void update_freeze_state();
     void *enter_state_804A0BC0();
     s32 get_tp();
     void set_effect_state(s32 v);
     void notify_tentacle_if_mode1();
-    void update_shield_effect();
     void set_atp(s16 v);
     void cast_tech_gibarta();
     void notify_container_if_mode1();
-    void update_state_1fc();
     void update_twice();
     void *init_substate_a();
     void cast_foie();
@@ -566,7 +572,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void *init_state_vt2678();
     void apply_shield_scale_to_unit();
     void handle_tentacle_state_2();
-    void update_orga_flow_shot();
     void start_shield_action();
     void notify_container_change();
     void cast_jellen_zalure();
@@ -580,10 +585,8 @@ struct TObjPlayer : public TUnk_804806E8 {
     static s32 is_rand_below_threshold();
     void update_area_effect_objects();
     void apply_conveyor_effect();
-    void init_positions();
     void apply_conveyor_move();
     void check_shield_combo();
-    void approach_shield_effect();
     s32 get_hp_by_flag();
     void *construct_weapon_variant(s32 arg1, void *arg2);
     void *init_state(s32 arg1, void *arg2);
@@ -1189,7 +1192,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     int set_flag1();
     void reset_field4();
     void *reset_field28();
-    int clear_field1f8_flag8192();
     u8 *create_state_34_alt();
     static void update_battle_control_on_unlock(void *arg0, void *arg1, void *arg2, s32 arg3);
     void handle_exp_steal_effect(s32 arg1, s32 arg2, s32 arg3);
@@ -1259,7 +1261,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     static void draw_player_model_by_id(s32 arg0, f32 farg0);
     void draw_shadowed_node_tree();
     static void rebuild_players_for_stage(s32 arg0);
-    s32 update_recoil_offset();
     void pick_open_direction(f32 *dir, f32 a, f32 b);
     static s32 snap_to_ground(s32 arg0, s32 arg1);
     static void spawn_appearance_effect(s32 idx);
@@ -1268,13 +1269,11 @@ struct TObjPlayer : public TUnk_804806E8 {
     static u8 *create_enter_state_804A0BC0(u8 *arg0);
     static u8 *create_vtable_804a1288(u8 *arg0);
     static u8 *create_obj_80122C2C(u8 *arg0);
-    void decay_shared_gauge_to_floor();
     static u8 *create_bringer_effect(u8 *arg0);
     static u8 *create_twin_chakram(u8 *arg0);
     void spawn_particle_at_icon();
     static u8 *create_state_35(u8 *arg0);
     static u8 *create_set_vtable_state(u8 *arg0);
-    void decay_gauge_c_to_floor();
     static u8 *create_state_80125154(u8 *arg0);
     static u8 *create_configured_state(u8 *arg0);
     static void spawn_faust_wall_explosion(s32 arg0, s32 arg1);
@@ -1284,7 +1283,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     static u8 *create_vtable_804A3548(u8 *arg0);
     static u8 *create_with_id_2(u8 *arg0);
     static u8 *create_state_variant(u8 *arg0);
-    void decay_gauge_c_to_floor_b();
     static u8 *create_obj_80128580(u8 *arg0);
     static u8 *create_shoot_model_callback(u8 *arg0);
     static u8 *create_shot_state(u8 *arg0);
@@ -1296,7 +1294,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     static u8 *create_variant_ct(u8 *arg0);
     static u8 *create_handlers_state(u8 *arg0);
     static u8 *create_variant_2_5a28(u8 *arg0);
-    void update_slicer_hinge_idle();
     static void spawn_weapon_casing(s32 arg0, u32 arg1, u32 arg2, u32 arg3, u32 arg4);
     static void launch_weapon_casing(s32 arg0, u32 arg1, s32 arg2, u32 arg3, u32 arg4);
     static u8 *create_inferno_bazooka(u8 *arg0);
@@ -1380,7 +1377,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     static void free_chr_select();
     static void load_jungle_ebi_resources();
     static void load_seabed_dolphin();
-    void update_bone_attach_points();
     static void new_child_object(s32 arg0);
     void clamp_stat_354();
     void update_ground_effect();
@@ -1639,23 +1635,17 @@ struct TObjPlayer : public TUnk_804806E8 {
     static s32 dt_follow_particle_ctrl(s32 arg0, s16 arg1);
     u8 *create_vtable_variant();
     void apply_container_item();
-    void approach_target_angle();
     u8 *create_state_1536();
-    void update_orga_flow_params();
     u8 *create_mode_floats_state();
-    void approach_orgaflow_shot();
     u8 *create_vtable_1f8_state();
     static s32 try_add_item_count(s32 arg0, s32 arg1, s32 arg2, u8 arg3);
-    void draw_ginja_item_list();
     void rotate_by_player_list();
-    int apply_recoil_forward();
     static void spawn_particle_at_entity_slot(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
     u8 *create_rappys_fan();
     static void spawn_fire_explosion_for_item(s32 arg0, s32 arg1);
     static void spawn_fire_explosion_at_item(s32 arg0, s32 arg1);
     static s32 spawn_fire_explosion(u32 a0, s32 a1);
     void pose_gi_gue_bazooka_nodes();
-    void return_gi_gue_bazooka_angles();
     static u8 *create_gi_gue_bazooka(s32 arg0);
     static void finish_quest_thread();
     static void destroy_static_array();

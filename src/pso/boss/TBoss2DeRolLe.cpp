@@ -70,7 +70,7 @@ extern "C" void vfunc_102__9TObjEneDDFv();
 extern "C" int TObjEneEpsilon__vt101(void *p);
 extern "C" void vfunc_83__12TObjEneDD_STFv();
 extern "C" void vfunc_105__13TBoss2DeRolLeFv();
-extern "C" void render__13TBoss2DeRolLeFPv(u8 *arg0);
+extern "C" void render__13TBoss2DeRolLeFv(u8 *arg0);
 extern "C" void vfunc_29__13TUnk_804806E8Fv();
 extern "C" void vfunc_73__13TUnk_804806E8Fv();
 extern "C" void consume_timer_field__13TUnk_804806E8Fl();
@@ -251,7 +251,7 @@ void *boss2_derolle_particle_limits[3] = {
 };
 void *__vt__13TBoss2DeRolLe[107] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__13TBoss2DeRolLeFv, (void *)&run_task__13TBoss2DeRolLeFPv,
-    (void *)&render__13TBoss2DeRolLeFPv, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
+    (void *)&render__13TBoss2DeRolLeFv, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
     (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
@@ -608,13 +608,13 @@ extern s32 lbl_805D5668;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 
-void render__13TBoss2DeRolLeFPv(u8 *arg0) {
-    Me_8002F258 *e = (Me_8002F258 *)arg0;
+void TBoss2DeRolLe::render() {
+    Me_8002F258 *e = (Me_8002F258 *)((u8 *)this);
     Vec4_8002F258 *col;
     s32 i;
     Vec_8002F258 *out;
 
-    if (((TObjEneDD *)arg0)->get_target_info() != 0) {
+    if (((TObjEneDD *)((u8 *)this))->get_target_info() != 0) {
         e->m104();
         return;
     }
@@ -634,7 +634,7 @@ void render__13TBoss2DeRolLeFPv(u8 *arg0) {
         Vec_8002F258 sc = lbl_804359D8[0];
         scale_current_matrix(&sc);
     }
-    update_pulsing_colors__13TBoss2DeRolLeFPv(arg0);
+    update_pulsing_colors__13TBoss2DeRolLeFPv(((u8 *)this));
     for (i = 0; i < 10; i++) {
         TBoss2Joint__sub_8003688C((u8 *)e->joints[i]);
     }
@@ -643,7 +643,7 @@ void render__13TBoss2DeRolLeFPv(u8 *arg0) {
     } else {
         derolle_texture_list_handle->tex = lbl_805D4BCC;
     }
-    fn_8002F5AC(arg0);
+    fn_8002F5AC(((u8 *)this));
     TObjFish::set_global_param(e->f24);
     TObjEneRe7Berura::set_global_state((s32)((void *)TObjPlayer__sub_8002F61C));
     {
@@ -657,7 +657,7 @@ void render__13TBoss2DeRolLeFPv(u8 *arg0) {
         TObjLight__sub_8013379C(current_scene_light, &TObjLight__scene_light_state);
         TObjLight__sub_801336DC(lbl_805D5564);
     }
-    ((TObjEneRe7Berura *)arg0)->draw();
+    ((TObjEneRe7Berura *)((u8 *)this))->draw();
     copy_vec4__13TRaderMapCoreFPvPv(col, &saved);
     }
     TObjEneRe7Berura::set_global_state((s32)NULL);
@@ -5623,7 +5623,7 @@ extern "C" void vfunc_102__9TObjEneDDFv();
 extern "C" int TObjEneEpsilon__vt101(void *p);
 extern "C" void vfunc_83__12TObjEneDD_STFv();
 extern "C" void vfunc_105__13TBoss2DeRolLeFv();
-extern "C" void render__13TBoss2DeRolLeFPv(u8 *arg0);
+extern "C" void render__13TBoss2DeRolLeFv(u8 *arg0);
 extern "C" void vfunc_29__13TUnk_804806E8Fv();
 extern "C" void vfunc_73__13TUnk_804806E8Fv();
 extern "C" void consume_timer_field__13TUnk_804806E8Fl();

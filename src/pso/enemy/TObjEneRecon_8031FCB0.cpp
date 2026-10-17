@@ -133,7 +133,7 @@ void __dl__7TObjectFPv(void *);
 void TObjEneRecon__sub_8031F408(void *arg0, s32 arg1);
 void TObjEneRecon__sub_8031F600(void *arg0, s32 arg1);
 void dispatch_state__12TObjEneReconFiUii(s32 arg0, u32 arg1, s32 arg2);
-void fn_8031FD3C(u8 *arg0);
+void run_task__14TObjEneRecoboxFv(u8 *arg0);
 Obj_8031FE14 * fn_8031FE14(Obj_8031FE14 *arg0, s16 arg1);
 void __destroy_arr(void *, void *, int, int);
 void __construct_array(void *, void *, void *, int, int);
@@ -170,7 +170,7 @@ extern "C" void vfunc_102__9TObjEneDDFv();
 extern "C" int TObjEneEpsilon__vt101(void *p);
 extern "C" void vfunc_83__12TObjEneDD_STFv();
 extern "C" void draw_with_debug_info__14TObjEneRecoboxFv();
-extern "C" void render__12TObjEneReconFPv(u8 *arg0);
+extern "C" void render__14TObjEneRecoboxFv(u8 *arg0);
 extern "C" void TObjEneRecon__sub_8031FB6C(u8 *arg0);
 extern "C" void vfunc_61__14TObjEneRecoboxFv();
 extern "C" void vfunc_62__14TObjEneRecoboxFv();
@@ -308,8 +308,8 @@ void *TObjEneRecobox__animation_entries[16] = {
     (void *)0x30000, (void *)0x0, (void *)0x3f19999a, (void *)0x0,
 };
 void *TObjEneRecobox__vtable[107] = {
-    (void *)0x0, (void *)0x0, (void *)&fn_8031FE14, (void *)&fn_8031FD3C,
-    (void *)&render__12TObjEneReconFPv, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
+    (void *)0x0, (void *)0x0, (void *)&fn_8031FE14, (void *)&run_task__14TObjEneRecoboxFv,
+    (void *)&render__14TObjEneRecoboxFv, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
     (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
@@ -368,21 +368,21 @@ void dispatch_state__12TObjEneReconFiUii(s32 arg0, u32 arg1, s32 arg2) {
     }
 }
 
-void fn_8031FD3C(u8 *arg0) {
+void TObjEneRecobox::run_task() {
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((TObjEneRecobox *)(arg0))->update_if_800BB858();
+        ((TObjEneRecobox *)(((u8 *)this)))->update_if_800BB858();
         return;
     }
-    if (((TObjEneRecobox *)(arg0))->vfunc_83() != 4) {
-        ((TObjEneRecobox *)(arg0))->vfunc_85();
-    } else if ((s16) ((TObjEneRecobox *)arg0)->mode == 1) {
-        transition_enemy_state(arg0, 0);
+    if (((TObjEneRecobox *)(((u8 *)this)))->vfunc_83() != 4) {
+        ((TObjEneRecobox *)(((u8 *)this)))->vfunc_85();
+    } else if ((s16) ((TObjEneRecobox *)((u8 *)this))->mode == 1) {
+        transition_enemy_state(((u8 *)this), 0);
     }
-    ((TObjEneRecobox *)(arg0))->vfunc_88();
-    ((TObjEneRecon *)arg0)->restore_position();
-    ((TBoss8Dragon *)arg0)->set_player_state_default();
-    ((TObjEneRecobox *)(arg0))->vfunc_100();
-    ((TObjEneRecobox *)arg0)->update_floor_probe();
+    ((TObjEneRecobox *)(((u8 *)this)))->vfunc_88();
+    ((TObjEneRecon *)((u8 *)this))->restore_position();
+    ((TBoss8Dragon *)((u8 *)this))->set_player_state_default();
+    ((TObjEneRecobox *)(((u8 *)this)))->vfunc_100();
+    ((TObjEneRecobox *)((u8 *)this))->update_floor_probe();
 }
 
 Obj_8031FE14 *fn_8031FE14(Obj_8031FE14 *arg0, s16 arg1) {

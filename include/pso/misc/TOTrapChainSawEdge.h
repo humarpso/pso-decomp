@@ -19,10 +19,10 @@ typedef char TOTrapChainSawEdge_size[sizeof(TOTrapChainSawEdge) == 0x108 ? 1 : -
 extern "C" {
 void *TOTrapChainSawDamage__ct(void *arg0, void *arg1, void *arg2);
 void TOTrapChainSawDamage__vt16(u8 *arg0, u8 *arg1);
-void TOTrapChainSawDamage__vt22(void *arg0);
+void update_state__20TOTrapChainSawDamageFv(void *arg0);
 u8 *TOTrapChainSawEdge__ct(u8 *arg0);
 u8 *TOTrapChainSawKey__ct(u8 *arg0, void *_w1, void *_w2);
-void TOTrapChainSawKey__vt22(u8 *arg0);
+void update_state__17TOTrapChainSawKeyFv(u8 *arg0);
 u8 *TOTrapChainSaw__ct(u8 *arg0, s32 arg1, s32 arg2);
 void TParticleCtrl__sub_802C8464(u32 arg0);
 void *__dt__14TOTrapChainSawFv(void *arg0, s16 arg1);
@@ -30,7 +30,7 @@ void *__dt__17TOTrapChainSawKeyFv(void *arg0, s16 arg1);
 void *__dt__18TOTrapChainSawEdgeFv(void *arg0, s16 arg1);
 void *__dt__20TOTrapChainSawDamageFv(void *arg0, s16 arg1);
 s32 get_area_table_value__17TOTrapChainSawKeyFii(s32 arg0, s32 arg1);
-void update_state__14TOTrapChainSawFPv(u8 *arg0);
+void update_state__14TOTrapChainSawFv(u8 *arg0);
 }
 
 #endif

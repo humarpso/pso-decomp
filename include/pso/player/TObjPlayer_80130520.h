@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void TObjPlayer__sub_801305E8(void *arg0);
+void update_idle__13TUnk_804A69DCFv(void *arg0);
 }
 
 #endif

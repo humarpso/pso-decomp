@@ -211,26 +211,26 @@ void TObjDoorKey::debug_draw_key_id() {
 
 void TObjDoorKey::vfunc_19() {  }
 
-void TObjDoorKey__vt16(u8 *arg0) {
+void TObjDoorKey::trigger_activate_sound() {
     switch (TOKeyMachine01::get_global_state()) {
     case 3:
     case 4:
     case 5:
-        play_sound_effect(0x42D0A, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x42D0A, ((u8 *)this) + 0x38, 0, 0);
         break;
     case 0x13:
     case 0x14:
-        play_sound_effect(0x4C601, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x4C601, ((u8 *)this) + 0x38, 0, 0);
         break;
     case 0x15:
     case 0x16:
-        play_sound_effect(0x4004C601, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x4004C601, ((u8 *)this) + 0x38, 0, 0);
         break;
     default:
-        play_sound_effect(0x4C60A, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x4C60A, ((u8 *)this) + 0x38, 0, 0);
         break;
     }
-    *(s32 *)(arg0 + 0xE8) = 1;
+    *(s32 *)(((u8 *)this) + 0xE8) = 1;
 }
 
 void TObjDoorKey::vfunc_16() {

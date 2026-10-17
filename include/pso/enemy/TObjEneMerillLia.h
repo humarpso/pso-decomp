@@ -6,6 +6,8 @@
 
 struct TObjEneMerillLia : public TUnk_80493450 {
     virtual ~TObjEneMerillLia();
+    virtual void run_task();
+    virtual void render();
     virtual void beast_update_approach();
     virtual void beast_update_group_chase();
     virtual void vfunc_93();
@@ -51,8 +53,8 @@ void TObjEneMerillLia__sub_800D4EC8(s32 arg0);
 void TObjEneMerillLia__sub_800D501C(s32 arg0);
 void TObjEneMerillLia__sub_800D5BCC(u8 *arg0);
 void *__dt__16TObjEneMerillLiaFPvs(void *arg0, s16 arg1);
-void render__16TObjEneMerillLiaFPv(u8 *arg0);
-void run_state_dispatch__16TObjEneMerillLiaFPv(u8 *arg0);
+void render__16TObjEneMerillLiaFv(u8 *arg0);
+void run_task__16TObjEneMerillLiaFv(u8 *arg0);
 void spawn_ground_effect__16TObjEneMerillLiaFPv(u8 *arg0);
 }
 

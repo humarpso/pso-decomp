@@ -6,6 +6,8 @@
 
 struct TObjEnePanarms : public TObjEnemy {
     virtual ~TObjEnePanarms();
+    virtual void run_task();
+    virtual void render();
     s32 sub_800DE390();
     void vfunc_63();
     void vfunc_62();

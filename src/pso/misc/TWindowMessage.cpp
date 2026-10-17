@@ -29,7 +29,7 @@ void TWindowMessage::render() {
     draw_visible_window_entries((void *)arg0, (void *)(arg0 + 0x24), (int)temp_r3);
 }
 
-void TWindowMessage::draw() {
+void TWindowMessage::run_task() {
     u8 *arg0 = (u8 *)this;
     if (!(this->m_2c & 2)) {
         this->m_5c = 0x01000000;

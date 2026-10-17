@@ -455,7 +455,7 @@ void TObjEneEpsilonGuard__sub_803606A0(Obj_803606A0 *, s32);
 extern const f32 lbl_805E021C;
 extern const f32 lbl_805E0220;
 extern const f32 lbl_805E0224;
-void TObjEneEpsilonGuard__sub_803607DC(u8 *arg0);
+void render__18TObjEneEpsilonBodyFv(u8 *arg0);
 u32 find_entity_by_id(s32);
 s32 is_state_flag_set__19TObjEneEpsilonGuardFv();
 void TObjEneEpsilonGuard__sub_8035F844(W_8035F844 *arg0, s32 arg1);
@@ -963,45 +963,45 @@ void TObjEneEpsilonGuard__sub_803606A0(Obj_803606A0 *g6, s32 i) {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
-void TObjEneEpsilonGuard__sub_803607DC(u8 *arg0) {
+void TObjEneEpsilonBody::render() {
     s32 var_r31;
     s32 i;
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((TObjEneEpsilonBody *)(arg0))->vfunc_106();
+        ((TObjEneEpsilonBody *)(((u8 *)this)))->vfunc_106();
         return;
     }
-    if (!(*(s32 *)((s8 *)arg0 + 0x30) & 0x02000000)) {
+    if (!(*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0x02000000)) {
         if (is_split_screen() != 0) {
             get_camera_mode__11TCameraCtrlFv();
         }
-        if (*(s32 *)((s8 *)arg0 + 0x438) & 1) {
+        if (*(s32 *)((s8 *)((u8 *)this) + 0x438) & 1) {
             var_r31 = 0;
         } else if (is_main_phase_15__9TObjEneDDFv() != 0) {
-            var_r31 = ((VObj_18_1fdb47 *)(arg0))->m9(lbl_805E021C, lbl_805E021C, lbl_805E0220);
-        } else if (((VObj_18_1fdb47 *)(arg0))->m8(lbl_805E0224, lbl_805E0220) != 0) {
+            var_r31 = ((VObj_18_1fdb47 *)(((u8 *)this)))->m9(lbl_805E021C, lbl_805E021C, lbl_805E0220);
+        } else if (((VObj_18_1fdb47 *)(((u8 *)this)))->m8(lbl_805E0224, lbl_805E0220) != 0) {
             var_r31 = 1;
         } else {
             var_r31 = 0;
         }
         if (var_r31 != 0) {
-            update_player_state__9TObjEneDDFv(arg0, 0, 0);
-            ((TObject *)arg0)->toggle_flag_9_if_flag_10_is_clear();
-            draw_with_fade__19TObjEneEpsilonGuardFPvi((u8 *)(arg0), (s32)(var_r31));
-            if ((s16) *(s16 *)((s8 *)arg0 + 0x326) == 6) {
-                if (*(s32 *)((s8 *)arg0 + 0x438) & 0x200) {
-                    ((TObjEneEpsilonGuard *)arg0)->render_body_effect();
+            update_player_state__9TObjEneDDFv(((u8 *)this), 0, 0);
+            ((TObject *)((u8 *)this))->toggle_flag_9_if_flag_10_is_clear();
+            draw_with_fade__19TObjEneEpsilonGuardFPvi((u8 *)(((u8 *)this)), (s32)(var_r31));
+            if ((s16) *(s16 *)((s8 *)((u8 *)this) + 0x326) == 6) {
+                if (*(s32 *)((s8 *)((u8 *)this) + 0x438) & 0x200) {
+                    ((TObjEneEpsilonGuard *)((u8 *)this))->render_body_effect();
                 }
             }
         } else {
             i = 0;
             do {
-                TObjEneEpsilonGuard__sub_803606A0((Obj_803606A0 *) (arg0), i);
+                TObjEneEpsilonGuard__sub_803606A0((Obj_803606A0 *) (((u8 *)this)), i);
                 i += 1;
             } while (i < 4);
         }
-        if ((s16) *(s16 *)((s8 *)arg0 + 0x326) == 2) {
-            if (*(s32 *)((s8 *)arg0 + 0x438) & 0x100) {
-                ((TObjEneEpsilonGuard *)arg0)->draw_debug_line();
+        if ((s16) *(s16 *)((s8 *)((u8 *)this) + 0x326) == 2) {
+            if (*(s32 *)((s8 *)((u8 *)this) + 0x438) & 0x100) {
+                ((TObjEneEpsilonGuard *)((u8 *)this))->draw_debug_line();
             }
         }
     }

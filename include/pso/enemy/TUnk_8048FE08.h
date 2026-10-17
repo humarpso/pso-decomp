@@ -6,6 +6,7 @@
 class TUnk_8048FE08 : public TUnk_804928CC {
 public:
     virtual ~TUnk_8048FE08();
+    virtual void render();
     void*init(int, int, int);
     void sub_8009A11C();
     u8 unk_B0[0x4];

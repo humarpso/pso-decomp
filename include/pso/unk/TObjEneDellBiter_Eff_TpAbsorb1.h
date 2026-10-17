@@ -6,6 +6,7 @@
 class TObjEneDellBiter_Eff_TpAbsorb1 : public TUnk_804928CC {
 public:
     virtual ~TObjEneDellBiter_Eff_TpAbsorb1();
+    virtual void render();
     u8 unk_B0[0x4];
     f32 m_b4;
     u8 unk_B8[0x4];

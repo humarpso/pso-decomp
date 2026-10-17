@@ -47,7 +47,7 @@ void TObjPlayer::release_container_if_active() { if (get_player_list__10TObjPlay
 extern f32 lbl_805DACC8;
 extern f32 lbl_805DACCC;
 
-void TObjPlayer::update_freeze_state() {
+void TUnk_804A0BC0::update_idle() {
     if ((s32) this->m_1fc == 3) {
         this->m_1fc = 1;
     }

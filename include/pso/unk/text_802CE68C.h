@@ -5,7 +5,7 @@
 
 extern "C" {
 void TObjPlayer__sub_802CE68C(u8 *arg0, s32 arg1, s32 arg2);
-void TObjPlayer__sub_802CE8CC(u8 *arg0);
+void render__19TObjEneBm9MericarolFv(u8 *arg0);
 }
 
 #endif

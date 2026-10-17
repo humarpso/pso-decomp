@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void psycho_wand_idle(u8 *arg0);
+void update_idle__13TUnk_804A4F60Fv(u8 *arg0);
 }
 
 #endif

@@ -6,6 +6,8 @@
 class TObjHMS_EZRope_Player : public TObjEZRopeBase {
 public:
     virtual ~TObjHMS_EZRope_Player();
+    virtual void run_task();
+    virtual void render();
     void sub_800FF2D0();
     u8 unk_30[0xC];
     void * m_3c;

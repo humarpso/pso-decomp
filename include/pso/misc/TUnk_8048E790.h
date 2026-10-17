@@ -6,6 +6,7 @@
 class TUnk_8048E790 : public TUnk_8048E728 {
 public:
     virtual ~TUnk_8048E790();
+    virtual void run_task();
     void *init_random_particle(void *, void *, void *, void *);
     void retire_orbit_particle();
     virtual void render();

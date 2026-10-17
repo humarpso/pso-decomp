@@ -29,12 +29,12 @@ void TObjPlayer::set_temp_flag10_and_update() {
     }
 }
 
-void TObjPlayer__sub_801305E8(void *arg0) {
+void TUnk_804A69DC::update_idle() {
     s32 temp_r4;
 
-    temp_r4 = ((TUnk_804A69DC *)arg0)->m_1fc;
+    temp_r4 = ((TUnk_804A69DC *)this)->m_1fc;
     if (temp_r4 > 0xCCC) {
-        ((TUnk_804A69DC *)arg0)->m_1fc = (temp_r4 - 0xB6);
+        ((TUnk_804A69DC *)this)->m_1fc = (temp_r4 - 0xB6);
     }
 }
 

@@ -6,6 +6,7 @@
 
 struct TBoss6Mine : public TObjEnemy {
     virtual ~TBoss6Mine();
+    virtual void run_task();
     virtual void vfunc_63();
     virtual void vfunc_62();
     virtual void render_shadows();

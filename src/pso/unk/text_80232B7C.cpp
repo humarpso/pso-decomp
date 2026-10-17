@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804CC888.h"
 #include "pso/misc/TLobby_80226070.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
@@ -67,7 +68,7 @@ extern SGrp_80232C50 technique_effect_entry_table[];
 extern void *tl_07;
 extern s32 technique_effect_bml;
 extern s32 lbl_805D63B0;
-void grants_presentation_update(Ctl_80232C50 *arg0);
+void run_task__13TUnk_804CC888Fv(Ctl_80232C50 *arg0);
 
 Obj_80232B7C *construct_grants_flash(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C *pos, f32 scale) {
     __ct__7TObjectFP7TObject(self, parent);
@@ -95,35 +96,35 @@ Obj_80232B7C *construct_grants_flash(Obj_80232B7C *self, s32 id, void *parent, V
     return self;
 }
 
-void grants_presentation_update(Ctl_80232C50 *arg0) {
+void TUnk_804CC888::run_task() {
     u32 i;
     s32 dir;
     u8 *obj;
     s32 r;
     void *p;
-    arg0->timer++;
-    if (arg0->timer % 5 == 0) {
+    ((Ctl_80232C50 *)this)->timer++;
+    if (((Ctl_80232C50 *)this)->timer % 5 == 0) {
         p = __nw__7TObjectFUl(0x50);
         if (p != 0) {
-            construct_grants_flash((Obj_80232B7C *) p, arg0->id, tl_07, 0, lbl_805DC854);
+            construct_grants_flash((Obj_80232B7C *) p, ((Ctl_80232C50 *)this)->id, tl_07, 0, lbl_805DC854);
         }
     }
-    if (arg0->timer >= 30) {
-        for (i = 0; i < technique_effect_entry_table[arg0->kind].count; i++) {
-            obj = (u8 *)find_entity_by_id(arg0->id);
+    if (((Ctl_80232C50 *)this)->timer >= 30) {
+        for (i = 0; i < technique_effect_entry_table[((Ctl_80232C50 *)this)->kind].count; i++) {
+            obj = (u8 *)find_entity_by_id(((Ctl_80232C50 *)this)->id);
             if (obj != 0) {
-                SEnt_80232C50 *e = &technique_effect_entry_table[arg0->kind].ents[i];
+                SEnt_80232C50 *e = &technique_effect_entry_table[((Ctl_80232C50 *)this)->kind].ents[i];
                 if (e->flags & 0x20) {
                     r = (s32)spawn_particle_effect(obj + 0x38, e->a);
                     if (r != 0) {
-                        attach_particle_model((u8 *)r, (s32)(get_bml_model(technique_effect_bml, technique_effect_entry_table[arg0->kind].ents[i].flags >> 16)), (s32)lbl_805D63B0, 0, 1, (f32)lbl_805DC854);
+                        attach_particle_model((u8 *)r, (s32)(get_bml_model(technique_effect_bml, technique_effect_entry_table[((Ctl_80232C50 *)this)->kind].ents[i].flags >> 16)), (s32)lbl_805D63B0, 0, 1, (f32)lbl_805DC854);
                     }
                 } else {
                     spawn_particle_effect(obj + 0x38, e->a);
                 }
             }
         }
-        switch (arg0->kind) {
+        switch (((Ctl_80232C50 *)this)->kind) {
         case 0:
         case 1:
             dir = 0x100;
@@ -139,9 +140,9 @@ void grants_presentation_update(Ctl_80232C50 *arg0) {
         }
         p = __nw__7TObjectFUl(0x28);
         if (p != 0) {
-            construct_timed_sound_voice((u8 *)p, (s32)arg0->f30, (s16)(0xF), 0x4002A60D, (s32)dir, (s32)tl_07);
+            construct_timed_sound_voice((u8 *)p, (s32)((Ctl_80232C50 *)this)->f30, (s16)(0xF), 0x4002A60D, (s32)dir, (s32)tl_07);
         }
-        queue_destruction__7TObjectFv(arg0);
+        queue_destruction__7TObjectFv(((Ctl_80232C50 *)this));
     }
 }
 

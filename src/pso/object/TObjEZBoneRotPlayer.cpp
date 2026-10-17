@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjHMS_EZRope_Player.h"
 #include "pso/object/TObjEZBoneRotPlayer.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/TObjEZRopeBase.h"
@@ -67,8 +68,8 @@ void push_matrix(void);
 extern u8 TObjEZBoneRotPlayer__chain_gravity[];
 int sub_800FF2D0__21TObjHMS_EZRope_PlayerFv(void*);
 
-int TObjPlayer__sub_800FEE84(void* p) { return sub_800FF2D0__21TObjHMS_EZRope_PlayerFv(p); }
-void TObjPlayer::update_bone_attach_points() {
+void TObjHMS_EZRope_Player::render() { sub_800FF2D0__21TObjHMS_EZRope_PlayerFv(this); }
+void TObjHMS_EZRope_Player::run_task() {
     RotSrc_800FEEA4 *rs;
     RotDst_800FEEA4 *rd;
     PosSrc_800FEEA4 *ps;

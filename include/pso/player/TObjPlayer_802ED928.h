@@ -5,7 +5,7 @@
 
 extern "C" {
 void TObjPlayer__sub_802ED984(void);
-void TObjPlayer__sub_802ED988(u8 *arg0);
+void run_task__14TBoss7DeRolLeCFv(u8 *arg0);
 }
 
 #endif

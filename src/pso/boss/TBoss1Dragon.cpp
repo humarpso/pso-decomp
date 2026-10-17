@@ -1389,7 +1389,7 @@ s32 add_radar_scaled_marker(void *, int, int, int, f32);
 extern s32 TBoss1Dragon__data_805D4B38;
 extern s32 local_client_id;
 extern const f32 lbl_805D80C0;
-void run_task__12TBoss1DragonFPv(u8 *arg0);
+void run_task__12TBoss1DragonFv(u8 *arg0);
 void get_camera_ctrl__9TObjEneDDFv(s32, s32);
 void update_camera_sequence__9TObjEneDDFv(void);
 s32 mult_vec_array__10TObjPlayerFUll(int, void *, int, int);
@@ -1725,7 +1725,7 @@ void *lbl_804811CC[45] = {
     (void *)0x42480000,
 };
 void *lbl_80481280[107] = {
-    (void *)0x0, (void *)0x0, (void *)&destroy__12TBoss1DragonFPvs, (void *)&run_task__12TBoss1DragonFPv,
+    (void *)0x0, (void *)0x0, (void *)&destroy__12TBoss1DragonFPvs, (void *)&run_task__12TBoss1DragonFv,
     (void *)&render__12TBoss1DragonFv, (void *)&render_shadows__12TBoss1DragonFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
@@ -6325,7 +6325,7 @@ void TBoss1Dragon__sub_80028AFC(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void run_task__12TBoss1DragonFPv(u8 *arg0) {
+void TBoss1Dragon::run_task() {
     s16 temp_r0;
     s16 temp_r3;
     s16 temp_r3_2;
@@ -6334,6 +6334,7 @@ void run_task__12TBoss1DragonFPv(u8 *arg0) {
     s32 temp_r0_2;
     s32 temp_r30;
     s32 temp_r30_2;
+    u8 *arg0 = (u8 *)this;
     if (TObjPlayer::check_demo_mode() != 0) {
         ((TBoss1Dragon *)(arg0))->vfunc_105();
         return;

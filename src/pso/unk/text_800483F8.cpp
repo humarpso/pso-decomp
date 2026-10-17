@@ -67,9 +67,9 @@ Obj_800483F8 *fn_800483F8(Obj_800483F8 *self, Vec_800483F8 *from, Vec_800483F8 *
     return self;
 }
 
-void fn_80048560(u8 *arg0) {
-    VecCopy((Vec *)(&lbl_804FF1D0.value), (const Vec *)(*(s32 *)((s8 *)arg0 + 0x1C)));
-    VecCopy((Vec *)((u8 *)&lbl_804FF1D0.value + 0xC), (const Vec *)(((TUnk_80484870 *)arg0)->m_20));
+void TUnk_80484870::render() {
+    VecCopy((Vec *)(&lbl_804FF1D0.value), (const Vec *)(*(s32 *)((s8 *)((u8 *)this) + 0x1C)));
+    VecCopy((Vec *)((u8 *)&lbl_804FF1D0.value + 0xC), (const Vec *)(((TUnk_80484870 *)((u8 *)this))->m_20));
     TObjPlayer::init_xyz_limits();
     draw_line_list(&lbl_80484860.value, 1, 5);
     TObjPlayer::reset_transform_state();

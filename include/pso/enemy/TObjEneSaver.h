@@ -6,6 +6,8 @@
 
 struct TObjEneSaver : public TObjEnemy {
     virtual ~TObjEneSaver();
+    virtual void run_task();
+    virtual void render();
     void sub_800A7734(s32);
     void init_render_flags();
     void sub_800A62D4();

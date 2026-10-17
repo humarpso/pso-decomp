@@ -309,9 +309,9 @@ void TObjPlayer__sub_800E8128(void);
 void TObjPlayer__sub_800E81A8(void);
 void draw_stretched_segment__10TObjPlayerFPvPvPvf(u8 *arg0, Vec_800E82B8 *arg1, Vec_800E82B8 *arg2, f32 t);
 void TObjPlayer__sub_800E841C(u8 *arg0);
-void TObjPlayer__sub_800E84F8(u8 *arg0);
+void render__22TObjEneSlimeTailAttackFv(u8 *arg0);
 s32 TObjPlayer__sub_800E85BC();
-void TObjPlayer__sub_800E87FC(u8 *arg0);
+void run_task__22TObjEneSlimeTailAttackFv(u8 *arg0);
 void * create__22TObjEneSlimeTailAttackFiiii(s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void * dt__22TObjEneSlimeTailAttackFPvs(void *arg0, s16 arg1);
 void *TObjEneSlimeTailAttack__ct(TObjEneSlimeTailAttack *, void *, s32, s32, s32);
@@ -833,8 +833,8 @@ void *slime_tail_attack_transform[3] = {
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
 void *__vt__22TObjEneSlimeTailAttack[83] = {
-    (void *)0x0, (void *)0x0, (void *)&dt__22TObjEneSlimeTailAttackFPvs, (void *)&TObjPlayer__sub_800E87FC,
-    (void *)&TObjPlayer__sub_800E84F8, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
+    (void *)0x0, (void *)0x0, (void *)&dt__22TObjEneSlimeTailAttackFPvs, (void *)&run_task__22TObjEneSlimeTailAttackFv,
+    (void *)&render__22TObjEneSlimeTailAttackFv, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
     (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
@@ -1001,28 +1001,28 @@ void TObjPlayer__sub_800E841C(u8 *arg0) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TObjPlayer__sub_800E84F8(u8 *arg0) {
+void TObjEneSlimeTailAttack::render() {
   f32 temp_f1;
   f32 temp_f3;
-  TObjPlayer__sub_800E841C(arg0);
-  if (((s32) (*((s32 *) (((s8 *) arg0) + 0x378)))) != 0)
+  TObjPlayer__sub_800E841C(((u8 *)this));
+  if (((s32) (*((s32 *) (((s8 *) ((u8 *)this)) + 0x378)))) != 0)
   {
-    temp_f3 = ((TObjEneSlimeTailAttack *)arg0)->m_c0;
+    temp_f3 = ((TObjEneSlimeTailAttack *)((u8 *)this))->m_c0;
     temp_f1 = lbl_805DA68C;
     if (temp_f3 < temp_f1)
     {
-      draw_stretched_segment__10TObjPlayerFPvPvPvf((u8 *)((void *) arg0), (Vec_800E82B8 *)((void *) ((*((s32 *) (((s8 *) arg0) + 0x374))) + 0x38)), (Vec_800E82B8 *)(arg0 + 0x38), (f32) (temp_f3 / temp_f1));
+      draw_stretched_segment__10TObjPlayerFPvPvPvf((u8 *)((void *) ((u8 *)this)), (Vec_800E82B8 *)((void *) ((*((s32 *) (((s8 *) ((u8 *)this)) + 0x374))) + 0x38)), (Vec_800E82B8 *)(((u8 *)this) + 0x38), (f32) (temp_f3 / temp_f1));
     }
     else
       if ((temp_f3 >= lbl_805DA690) && (temp_f3 < lbl_805DA694))
     {
-      draw_stretched_segment__10TObjPlayerFPvPvPvf((u8 *)((void *) arg0), (Vec_800E82B8 *)(arg0 + 0x38), (Vec_800E82B8 *)((void *) ((*((s32 *) (((s8 *) arg0) + 0x374))) + 0x38)), (f32) ((temp_f3 - lbl_805DA690) / temp_f1));
+      draw_stretched_segment__10TObjPlayerFPvPvPvf((u8 *)((void *) ((u8 *)this)), (Vec_800E82B8 *)(((u8 *)this) + 0x38), (Vec_800E82B8 *)((void *) ((*((s32 *) (((s8 *) ((u8 *)this)) + 0x374))) + 0x38)), (f32) ((temp_f3 - lbl_805DA690) / temp_f1));
     }
   }
-  temp_f1 = ((TObjEneSlimeTailAttack *)arg0)->m_c0;
+  temp_f1 = ((TObjEneSlimeTailAttack *)((u8 *)this))->m_c0;
   if ((temp_f1 >= lbl_805DA698) && (temp_f1 < lbl_805DA69C))
   {
-    ((TObjPlayer *)arg0)->draw_blob_shadows();
+    ((TObjPlayer *)((u8 *)this))->draw_blob_shadows();
   }
 }
 #pragma pop
@@ -1032,26 +1032,26 @@ void TObjPlayer__sub_800E84F8(u8 *arg0) {
 #pragma auto_inline off
 #pragma dont_inline off
 #pragma fp_contract on
-void TObjPlayer__sub_800E87FC(u8 *arg0) {
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x378) != 0) {
+void TObjEneSlimeTailAttack::run_task() {
+    if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x378) != 0) {
         TObjPlayer__sub_800E85BC();
-        advance_animation_playback(arg0);
-        if (((TObjEneSlimeTailAttack *)arg0)->animationFlags & 0x10) {
-            queue_destruction__7TObjectFv(arg0);
+        advance_animation_playback(((u8 *)this));
+        if (((TObjEneSlimeTailAttack *)((u8 *)this))->animationFlags & 0x10) {
+            queue_destruction__7TObjectFv(((u8 *)this));
             return;
         }
-        if (((TObjEneSlimeOne *)(*(s32 *)((s8 *)arg0 + 0x374)))->is_in_water_bomb_states() != 0) {
-            *(s32 *)((s8 *)arg0 + 0x378) = 0;
+        if (((TObjEneSlimeOne *)(*(s32 *)((s8 *)((u8 *)this) + 0x374)))->is_in_water_bomb_states() != 0) {
+            *(s32 *)((s8 *)((u8 *)this) + 0x378) = 0;
         }
     } else {
-        ((TObjEneSlimeTailAttack *)arg0)->m_c0 += lbl_805DA670 * (lbl_805DA68C - ((TObjEneSlimeTailAttack *)arg0)->m_c0);
-        *(f32 *)((s8 *)arg0 + 0x38C) = (f32) (*(f32 *)((s8 *)arg0 + 0x38C) + lbl_805DA6B8);
-        *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) + lbl_805DA6BC);
-        *(f32 *)((s8 *)arg0 + 0x380) = (f32) (*(f32 *)((s8 *)arg0 + 0x380) + lbl_805DA6C0);
-        *(f32 *)((s8 *)arg0 + 0x384) = (f32) (*(f32 *)((s8 *)arg0 + 0x384) + lbl_805DA6C4);
-        *(f32 *)((s8 *)arg0 + 0x388) = (f32) (*(f32 *)((s8 *)arg0 + 0x388) + lbl_805DA6C0);
-        if (*(f32 *)((s8 *)arg0 + 0x384) <= lbl_805DA684) {
-            queue_destruction__7TObjectFv(arg0);
+        ((TObjEneSlimeTailAttack *)((u8 *)this))->m_c0 += lbl_805DA670 * (lbl_805DA68C - ((TObjEneSlimeTailAttack *)((u8 *)this))->m_c0);
+        *(f32 *)((s8 *)((u8 *)this) + 0x38C) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x38C) + lbl_805DA6B8);
+        *(f32 *)((s8 *)((u8 *)this) + 0x3C) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x3C) + lbl_805DA6BC);
+        *(f32 *)((s8 *)((u8 *)this) + 0x380) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x380) + lbl_805DA6C0);
+        *(f32 *)((s8 *)((u8 *)this) + 0x384) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x384) + lbl_805DA6C4);
+        *(f32 *)((s8 *)((u8 *)this) + 0x388) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x388) + lbl_805DA6C0);
+        if (*(f32 *)((s8 *)((u8 *)this) + 0x384) <= lbl_805DA684) {
+            queue_destruction__7TObjectFv(((u8 *)this));
         }
     }
 }

@@ -6,9 +6,9 @@
 class TChCrTagOccupation : public TChCrTag {
 public:
     virtual ~TChCrTagOccupation();
+    virtual void render();
     void sub_802A2DF4();
 public:
-    static int render(void* p);
     static void *create(void *arg0);
     static void create_all();
 };

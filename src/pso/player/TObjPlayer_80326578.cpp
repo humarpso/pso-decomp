@@ -218,7 +218,7 @@ void TObjPlayer::apply_container_item() {
     }
 }
 
-void TObjPlayer::approach_target_angle() {
+void TUnk_804ED0A8::update_idle() {
     u8 *arg0 = (u8 *)this;
     TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x1F8), 0x71C, 0x4000);
     if ((s32) *(s32 *)&this->unk_1F8 == 0x4000) {
@@ -330,7 +330,7 @@ extern const f32 lbl_805DF668;
 extern const f32 lbl_805DF66C;
 extern const f32 lbl_805DF670;
 
-void TObjPlayer::update_orga_flow_params() {
+void TUnk_804ED298::update_idle() {
     s32 arg0 = (s32)this;
     TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1F8), (f32)lbl_805DF664, (f32)lbl_805DF668);
     TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1FC), (f32)lbl_805DF66C, (f32)lbl_805DF670);
@@ -401,7 +401,7 @@ void TObjPlayer__sub_80326F9C(O_80326F9C *arg0) {
     }
 }
 
-void TObjPlayer::approach_orgaflow_shot() {
+void TUnk_804ED390::update_idle() {
     s32 arg0 = (s32)this;
     TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1F8), (f32)lbl_805DF684, (f32)lbl_805DF688);
 }

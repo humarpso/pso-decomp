@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void fn_80246CE8(s32 arg0);
+void render__22TWindowChallengeResultFv(s32 arg0);
 }
 
 #endif

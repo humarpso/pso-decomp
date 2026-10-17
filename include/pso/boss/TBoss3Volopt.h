@@ -39,7 +39,6 @@ struct TBoss3Volopt : public TObjEnemyCustom {
     void update_and_send_60();
     void swap_6x18_fields();
     void broadcast_state();
-    void fade_out_and_finish();
     void update_fade_out();
     s32 query_field_30(s32 *arg1);
     static void create_breakup_mdl(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
@@ -54,7 +53,6 @@ struct TBoss3Volopt : public TObjEnemyCustom {
     static void alloc_effect_node(u32 arg0, s16 arg1, s32 arg2);
     static void queue_event_1D(s16 arg0, s16 arg1);
     static s32 remap_area_sound_id(s32 arg0);
-    void draw_screen_fade();
     u8 unk_3C0[0x20];
     s32 m_3e0;
     u8 unk_3E4[0xC];

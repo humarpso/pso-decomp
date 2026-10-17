@@ -6,6 +6,7 @@
 class TUnk_8048E6DC : public TUnk_804B9870 {
 public:
     virtual ~TUnk_8048E6DC();
+    virtual void render();
     virtual void run_task();
     u8 unk_90[0x1C];
 };

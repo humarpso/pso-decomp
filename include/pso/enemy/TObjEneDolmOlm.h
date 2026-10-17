@@ -6,6 +6,8 @@
 
 struct TObjEneDolmOlm : public TUnk_80493450 {
     virtual ~TObjEneDolmOlm();
+    virtual void run_task();
+    virtual void render();
     s32 render_model_if_visible();
     void check_path_ahead(s32, f32);
     void sub_80301148();
@@ -51,7 +53,7 @@ u8 *TObjEneDolmOlm__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 TObjEneDolmOlm__sub_80300CF0(void);
 s32 TObjEneDolmOlm__sub_8030177C(void *arg0_);
 s32 TObjEneDolmOlm__sub_80301C3C(void *arg0_);
-void run_task__14TObjEneDolmOlmFPv(u8 *arg0_);
+void run_task__14TObjEneDolmOlmFv(u8 *arg0_);
 }
 
 #endif

@@ -42,7 +42,8 @@ void *TPlyPtclObjectLeftHand__ct(void *arg0, u8 * _w1) {
     return arg0;
 }
 
-void TPlyFollowParticleCtrl::destroy_if_inactive(s32 arg0) {
+void TPlyFollowParticleCtrl::run_task() {
+    s32 arg0 = (s32)this;
     if (get_player_by_client_id((u16) get_lifetime__22TPlyFollowParticleCtrlFv()) == 0U) {
         queue_destruction__7TObjectFv((void *)arg0);
     }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_80488A28.h"
 #include "pso/misc/TCameraCtrl_80067654.h"
 #include "pso/misc/TCameraCtrl_80067FC0.h"
 #include "pso/system/vector.h"
@@ -30,11 +31,11 @@ void *get_player_by_client_id(s32 i);
 extern s32 lbl_804887C8[];
 void __dl__7TObjectFPv(void *);
 
-void TCameraCtrl__sub_80067654(void) {  }
-void TCameraCtrl__sub_80067658(void) {  }
-void TCameraCtrl__sub_8006765C(void) {  }
-void TCameraCtrl__sub_80067660(void) {  }
-void TCameraCtrl__sub_80067664(void) {  }
+void TUnk_80488A28::vfunc_6() {  }
+void TUnk_80488A28::vfunc_7() {  }
+void TUnk_80488A28::vfunc_9(u8 *, u8 *) {  }
+void TUnk_80488A28::vfunc_8(void *) {  }
+void TUnk_80488A28::vfunc_10() {  }
 
 void * TCameraCtrl__vt11(void) {
     void *o;
