@@ -80,7 +80,7 @@ __declspec(section ".rodata") extern const char lbl_804416D8[];
 
 void TOFenceAncient04::vfunc_16() {  }
 
-void TOFenceAncient04::vfunc_15() { *(int *)&this->m_ac = 0; *(int *)&this->unk_D0 = 0; { int i; for (i = 0; i < 4; i++) { ((TUnk_804AF8A0 *)this)->clear_player_status_flag((s32)((void*)i), (u32)((void*)8)); } } }
+void TOFenceAncient04::vfunc_15() { *(int *)&this->m_ac = 0; *(int *)&this->unk_D0 = 0; { int i; for (i = 0; i < 4; i++) { this->clear_player_status_flag((s32)((void*)i), (u32)((void*)8)); } } }
 
 void TOFenceAncient04::vfunc_14() { *(int *)&this->m_ac = 1; *(int *)&this->unk_D0 = 1; { int i; for (i = 0; i < 4; i++) { set_indexed_flags(i, (s32)((void*)8)); } } }
 

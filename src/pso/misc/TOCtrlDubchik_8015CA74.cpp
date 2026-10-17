@@ -242,7 +242,7 @@ void TOCtrlDubchik::sub_8015CCF4() {
     new_var2 = (f32) TOCtrlDubchik__data_805DB3AC;
     *((f32 *) (((s8 *) ((u8 *)this)) + 0x388)) = new_var2;
     *((s16 *) (((s8 *) ((u8 *)this)) + 0x326)) = 3;
-    ((TUnk_804AF8A0 *)((u8 *)this))->clear_player_status_flag(0, 0x08000004);
+    this->clear_player_status_flag(0, 0x08000004);
  do { set_indexed_flags(0, 2); } while (0 != 0U);
   }
   new_var4 = new_var4;

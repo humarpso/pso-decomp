@@ -50,7 +50,7 @@ s32 TItemList__sub_801D5868(Arr_801D5868 *arg0, s32 arg1) {
 }
 
 void* get_ptr_0x44__9TItemListFPv(void* p) { return (char*)p + 0x44; }
-void TUnk_804C4498::sub_801D5884(u8 v) { ((TUnk_804C4498 *)this)->m_1d = v; }
+void TUnk_804C4498::sub_801D5884(u8 v) { this->m_1d = v; }
 
 void TItemList::lookup_entry_by_count(s32 arg1) {
     TItemList__sub_801D58C8((void*)(((u8 *)TItemList__sub_801D5868((Arr_801D5868 *)(arg1), (s8)(get_item_count())))));
@@ -58,7 +58,7 @@ void TItemList::lookup_entry_by_count(s32 arg1) {
 
 void TItemList__sub_801D58C8(void* p) { *(s32*)((char*)p + 0x0) = 3; }
 u8 TItemList::get_item_count() { return *(u8*)((char*)this + 0x1c); }
-u16 TUnk_804C4468::sub_801D58DC() { return ((TUnk_804C4468 *)this)->m_20; }
+u16 TUnk_804C4468::sub_801D58DC() { return this->m_20; }
 
 void TItemList::run_item_count_update() {
     u8 *arg0 = (u8 *)this;

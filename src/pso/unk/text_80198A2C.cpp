@@ -216,10 +216,10 @@ void TWindowTimer::throw_gogo_ball(s32 arg1, s32 arg2) {
     stack.sp14 = *(f32 *)((s8 *)((u8 *)this) + 0);
     stack.sp18 = *(f32 *)((s8 *)((u8 *)this) + 8);
     if (is_on_current_screen__11TCameraCtrlFv((void *) ((u8 *)&controller_input_state.value + 0x20), 4) != 0) {
-        play_sound_effect(0x4001A311, ((u8 *)this), 0, 0);
+        play_sound_effect(0x4001A311, this, 0, 0);
         stack.sp1C = 1;
     } else {
-        play_sound_effect(0x4002A600, ((u8 *)this), 0, 0);
+        play_sound_effect(0x4002A600, this, 0, 0);
         stack.sp1C = 0;
     }
     ((TWindowTimer *)((s32)&stack.sp8))->send_gogo_ball();

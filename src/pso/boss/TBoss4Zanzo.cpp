@@ -1353,11 +1353,11 @@ void TBoss4Type2::sub_80056998() {
     s32 temp_r3;
     s32 var_r4;
     s32 var_r5;
-    if (((s32) *(s32 *)((s8 *)((u8 *)this) + 0x3E0) < 3) && (calc_boss4_scale__10TObjPlayerFi(((u8 *)this)) < lbl_805D8BE4)) {
+    if (((s32) *(s32 *)((s8 *)((u8 *)this) + 0x3E0) < 3) && (calc_boss4_scale__10TObjPlayerFi(this) < lbl_805D8BE4)) {
         sub_80056F90(4, (s32)((int)((void *) (sub_80057224()))));
         return;
     }
-    if (calc_boss4_scale__10TObjPlayerFi(((u8 *)this)) < lbl_805D8BE4) {
+    if (calc_boss4_scale__10TObjPlayerFi(this) < lbl_805D8BE4) {
         temp_r3 = *(s32 *)((s8 *)((u8 *)this) + 0x424);
         var_r5 = temp_r3 + 1;
         var_r4 = temp_r3;
@@ -1371,10 +1371,10 @@ void TBoss4Type2::sub_80056998() {
         if (var_r5 > 0xC) {
             var_r5 = 0xC;
         }
-        ((s32 (*)(void *, int, int))TBoss4Type2__sub_80056B3C)(((u8 *)this), var_r4, var_r5);
+        ((s32 (*)(void *, int, int))TBoss4Type2__sub_80056B3C)(this, var_r4, var_r5);
         return;
     }
-    ((TBoss4Type2 *)((u8 *)this))->choose_next_action();
+    this->choose_next_action();
 }
 
 void TBoss4Type2::choose_next_action() {
@@ -1610,7 +1610,7 @@ void TBoss4Type2::advance_afterimage() {
     *(f32 *)((s8 *)arg0 + 0x300) = (f32) (*(f32 *)((s8 *)arg0 + 0x300) + lbl_805D8C18);
 }
 
-void TUnk_80486924::render() { ((TUnk_80486924 *)this)->init_hanger(); }
+void TUnk_80486924::render() { this->init_hanger(); }
 
 struct Vec_80057598 { f32 x, y, z; };
 class TBoss4Type2_80057598 { public: u8 pad[0x374]; s32 f374; };

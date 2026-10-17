@@ -39,7 +39,7 @@ f32 xyz_distance(void *, void *);
 extern u8 identity_matrix[];
 extern s32 tl_05;
 void TUnk_804A2260::sub_80124C90() {
-    Me_80124C90 *me = (Me_80124C90 *)((u8 *)this);
+    Me_80124C90 *me = (Me_80124C90 *)this;
     void *ext;
     Vec_80124C90 *pos;
     void *e;
@@ -67,7 +67,7 @@ void TUnk_804A2260::sub_80124C90() {
     if (found == 0) {
         Vec_80124C90 off;
         push_matrix_from(identity_matrix);
-        f32 *r1 = get_weapon_range_record(((u8 *)this), 2);
+        f32 *r1 = get_weapon_range_record(this, 2);
         off.x = off.y = 0.0f;
         off.z = *r1;
         rotate_matrix_y(0, me->pl->angle);
@@ -98,7 +98,7 @@ void TUnk_804A2260::sub_80124C90() {
         }
     }
     {
-        f32 *rec = get_weapon_range_record(((u8 *)this), 2);
+        f32 *rec = get_weapon_range_record(this, 2);
         s32 ang = me->pl->angle;
         Vec_80124C90 o;
         Vec_80124C90 v;
@@ -114,7 +114,7 @@ void TUnk_804A2260::sub_80124C90() {
             if (hit != NULL) {
                 VecCopy((Vec *)&o, (const Vec *)hit->pos);
             }
-            create_lavis_shot(((u8 *)this), pos, &o, xyz_distance(pos, &o) / me->scale);
+            create_lavis_shot(this, pos, &o, xyz_distance(pos, &o) / me->scale);
         }
     }
 }

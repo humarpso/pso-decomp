@@ -1362,13 +1362,13 @@ void TObjMapWarp::draw_debug_destinations() {
 }
 
 void TObjMapWarp::process_player_warps() {
-    Data_8019D250 *d = (Data_8019D250 *)((VObj_8019D250 *)this);
+    Data_8019D250 *d = (Data_8019D250 *)this;
     s32 i;
     void *t;
     s32 j;
     if (TRaderMapCore::is_not_split_screen() == 1) {
         for (i = 0; i < 4; i++) {
-            if (can_warp__11TObjMapWarpFlUs(((VObj_8019D250 *)this), i) == 0) {
+            if (can_warp__11TObjMapWarpFlUs(this, i) == 0) {
                 if (d->win[i] != NULL) {
                     TWindow__close(d->win[i]);
                     d->win[i] = NULL;
@@ -1378,12 +1378,12 @@ void TObjMapWarp::process_player_warps() {
                     ((TQuestVmDownLoadServer *)(d->win[i]))->clear_flag4_bit4();
                     allow_rendering__7TObjectFv((TObject *)d->win[i]);
                 }
-                t = find_warp_player_in_range(((VObj_8019D250 *)this), i, d->fAC);
+                t = find_warp_player_in_range(this, i, d->fAC);
                 if (t != NULL) {
                     ((VObj_8019D250 *)this)->m13(obj_getField1c(t));
                     if (((TObjPlayer *)t)->is_target_valid() != 0 && ((VObj_8019D250 *)this)->m16(((TRaderMapCore *)t)->get_map_id()) != 0) {
                         for (j = 0; j < 4; j++) {
-                            if (test_player_body_overlap_at(((VObj_8019D250 *)this), t, &d->ends[j]) == 0) {
+                            if (test_player_body_overlap_at(this, t, &d->ends[j]) == 0) {
                                 send_6x55_intra_map_warp(obj_getField1c(t), &d->ends[j], d->f84);
                             }
                         }

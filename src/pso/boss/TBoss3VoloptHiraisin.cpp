@@ -720,7 +720,7 @@ void TBoss3VoloptHiraisin::init_params() {
     ((Hira_800418C8 *)this)->hp32C = ((Hira_800418C8 *)this)->hp2B8;
     ((Hira_800418C8 *)this)->hp32E = ((Hira_800418C8 *)this)->hp2BA;
     ((Hira_800418C8 *)this)->unk33E = ((Hira_800418C8 *)this)->hp32C;
-    ((TObjEnemy *)this)->set_param(0x2E);
+    this->set_param(0x2E);
     ((TBoss3Volopt *)this)->reset_photon_effect();
     this->load_params_from_table(0x10);
     sub_800C7860__15TObjEnemyCustomFv(this);

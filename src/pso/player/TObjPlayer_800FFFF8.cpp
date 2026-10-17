@@ -143,7 +143,7 @@ void TItem::sub_8010043C(u8 arg1) {
     this->m_ea = 0;
 }
 
-u16 TItem::sub_80100474() { return ((TItem *)this)->m_e8; }
+u16 TItem::sub_80100474() { return this->m_e8; }
 
 void TUnk_804A5930::sub_8010047C(s16 arg1) {
     if (*(s32 *)((s8 *)((u8 *)this) + 0xDC) & 0x100) {

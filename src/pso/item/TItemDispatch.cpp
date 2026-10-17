@@ -365,7 +365,7 @@ void TItem::clear_item_flags(u32 v) { *(u32 *)&(*(void * *)((u8 *)this + 0xDC)) 
 void TObjPlayer::add_item_flags(u32 v) { *(u32 *)&this->motion_list |= v; }
 int TObjPlayer::has_flag_128() { return test_item_flags((u32)((u32)(128))); }
 s8 TItem::sub_80102C30() {
-    return (s8) ((TItem *)((u8 *)this))->render_mode;
+    return (s8) this->render_mode;
 }
 }
 

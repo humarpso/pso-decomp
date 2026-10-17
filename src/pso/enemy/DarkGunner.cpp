@@ -878,7 +878,7 @@ void TObjPlayer::trigger_action_if_not_flagged() {
 
 void TObjEneDarkGunner::sub_800A1520() {
   s16 temp_r0;
-  temp_r0 = *((s16 *) (((0, (s8 *) ((u8 *)this))) + 0x326));
+  temp_r0 = *((s16 *) (((0, (s8 *) this)) + 0x326));
   {
     switch (temp_r0)
     {
@@ -886,16 +886,16 @@ void TObjEneDarkGunner::sub_800A1520() {
         TObjPlayer__sub_800A27CC((void *) ((u8 *)this));
         return;
       case 1:
-        TObjPlayer__sub_800A2390(((u8 *)this));
+        TObjPlayer__sub_800A2390(this);
         return;
       case 2:
-        TObjPlayer__sub_800A1FEC((void *)((void *) ((u8 *)this)));
+        TObjPlayer__sub_800A1FEC((void *)this);
         return;
       case 4:
-        TObjPlayer__sub_800A1D70((u8 *)((void *) ((u8 *)this)));
+        TObjPlayer__sub_800A1D70((u8 *)this);
         return;
       case 3:
-        TObjPlayer__sub_800A16C4((u8 *)((void *) ((u8 *)this)));
+        TObjPlayer__sub_800A16C4((u8 *)this);
         return;
       case 5:
         TObjPlayer__sub_800A1C84((void *) ((u8 *)this));
@@ -1471,8 +1471,8 @@ s32 TUnk_804909C4::sub_800A3290(s32 id) {
     }
     other->sub->flags &= ~1;
     TObjPlayer::init_all_slots();
-    ((TObjPlayer *)((Obj_800A3290 *)this))->check_object_collisions();
-    check_enemy_body_collisions(((Obj_800A3290 *)this));
+    ((TObjPlayer *)this)->check_object_collisions();
+    check_enemy_body_collisions(this);
     other->sub->flags |= 1;
     if (((Obj_800A3290 *)this)->sub->flags & 0x180000) {
         for (i = 0; i < 16; i++) {

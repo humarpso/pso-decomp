@@ -956,7 +956,7 @@ void TObjEneDubchik::sub_800AA10C() {
                 this->m_390 = (this->m_390 + 1);
                 if ((s16) this->m_390 > 3) {
                     this->m_390 = 0;
-                    ((TObjEneDubchik *)((u8 *)this))->target_nearest_player(lbl_805D9B20);
+                    this->target_nearest_player(lbl_805D9B20);
                 }
                 ((TObjEneMe1GiGue *)((u8 *)this))->update_if_active(2);
                 return;

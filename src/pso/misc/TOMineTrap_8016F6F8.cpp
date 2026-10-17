@@ -581,7 +581,7 @@ void TOMine::detonate() {
         }
     }
     this->mode = 6;
-    ((TUnk_804AF8A0 *)((u8 *)this))->clear_player_status_flag(0, 1);
+    this->clear_player_status_flag(0, 1);
     this->receive_physical_attack(0, TOMineTrap__data_805DB868);
 }
 

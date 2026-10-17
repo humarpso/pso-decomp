@@ -390,7 +390,7 @@ void TBoss6PlotFalz::run_phase_action() {
   member_action.words[2] = *((s32 *) (((s8 *) temp_r6) + 0x30));
   if (member_action.action != 0)
   {
-    (((TBoss6PlotFalz *)((void *) this))->*( member_action.action))();
+    (this->*( member_action.action))();
   }
   update_random_shake__14TBoss6PlotFalzFPv((void *) this);
 }
@@ -409,7 +409,7 @@ void TBoss6PlotFalz::call_state_action() {
   member_action.words[2] = *((s32 *) (((s8 *) temp_r6) + 0x24));
   if (member_action.action != 0)
   {
-    (((TBoss6PlotFalz *)((void *) this))->*( member_action.action))();
+    (this->*( member_action.action))();
   }
 }
 

@@ -532,12 +532,12 @@ void TLobby::start_duel_battle() {
     if ((p = update_battle_controller__10TObjPlayerFv()) != 0) {
         obj_clear_flag30_20000((void *)p);
     }
-    clear_counter__6TLobbyFPv(((Lobby_801C2F40 *)this));
+    clear_counter__6TLobbyFPv(this);
     st = TOKeyMachine01::get_global_state();
     name = (st == 0x10) ? lbl_80446FF0 : lbl_80446FFC;
     obj = __nw__7TObjectFUl(0x40);
     if (obj != NULL) {
-        init_with_name__6TLobbyFPvPvPvPv(obj, ((Lobby_801C2F40 *)this), name, 0x2D);
+        init_with_name__6TLobbyFPvPvPvPv(obj, this, name, 0x2D);
     }
     for (i = 0; i < 8; i++) {
         ((Lobby_801C2F40 *)this)->pending[i] = 1;
@@ -555,9 +555,9 @@ void TPlayerBattleCtrl::init_battle_round() {
   s32 var_ctr;
   s32 var_r3;
   s32 i;
-  ((TPlayerBattleCtrl *)this)->m_3c = TLobby__sub_801C417C();
+  this->m_3c = TLobby__sub_801C417C();
   TWindowCtrl::create_alt_timer();
-  ((TWindowCtrl *)(((TPlayerBattleCtrl *)this)->m_3c))->set_timer_window_time();
+  ((TWindowCtrl *)(this->m_3c))->set_timer_window_time();
   TOMineTrap::destroy_matching_traps();
   char_select_slot = TAdSinglePlyChrSelectGC::get_char_select_slot();
   char_select_slot = char_select_slot + 1;

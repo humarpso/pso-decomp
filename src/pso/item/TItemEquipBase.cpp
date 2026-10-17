@@ -674,7 +674,7 @@ void TItemEquipBase::request_model_load(s32 arg1) {
     init__9TItemDataFv(&item_data.data1.data_u8[0]);
     item_data.data1.data_u8[0] = this->get_field_ec();
     item_data.data1.data_u8[1] = arg1;
-    item_data.data1.data_u8[2] = ((TItem *)((u8 *)this))->get_slot_count();
+    item_data.data1.data_u8[2] = this->get_slot_count();
     this->m_172 = request_item_model_load((&item_data.data1.data_u8[0]));
 }
 

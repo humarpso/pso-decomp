@@ -3339,8 +3339,8 @@ void TObjEneMe3SinowZoaReal::init_enemy() {
     *(s32 *)((s8 *)((u8 *)this) + 0x34) = (s32) *(s32 *)((s8 *)temp_r6 + 8);
     init_model__9TObjEneDDFv((void *)this, ((void * *)sinow_zoa_collision_parts), 1, (int)temp_r6);
     *(s32 *)((s8 *)((u8 *)this) + 0xB0) = 0;
-    ((TObjMotion *)((u8 *)this))->set_field_d8((s32)lbl_804E8880);
-    ((TObjMotion *)((u8 *)this))->set_field_dc((int) (*(s32 *)((s8 *)TObjEneMe3SinowZoa__data_805D6AD8 + 0x430)));
+    this->set_field_d8((s32)lbl_804E8880);
+    this->set_field_dc((int) (*(s32 *)((s8 *)TObjEneMe3SinowZoa__data_805D6AD8 + 0x430)));
     set_animation((*(s16 *)((s8 *)((u8 *)this) + 0xB8)));
     temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x3C8);
     {
@@ -3376,7 +3376,7 @@ void TObjEneMe3SinowZoaReal::init_enemy() {
     if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x3C0) == 1) {
         set_indexed_flags(0, 0x08000000);
     } else {
-        ((TUnk_804AF8A0 *)((u8 *)this))->clear_player_status_flag(0, 0x08000000);
+        this->clear_player_status_flag(0, 0x08000000);
     }
 }
 }

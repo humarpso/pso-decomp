@@ -173,5 +173,5 @@ void TUnk_804CCC68::move_technique_projectile() {
 }
 #pragma pop
 
-void TUnk_804CCC68::run_task() { move_technique_projectile(); ((TUnk_804CCC68 *)this)->advance_lifetime_or_destroy(); }
+void TUnk_804CCC68::run_task() { move_technique_projectile(); this->advance_lifetime_or_destroy(); }
 }

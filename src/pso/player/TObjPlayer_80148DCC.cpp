@@ -201,14 +201,14 @@ void TObjNpcBase::run_task() {
       else
       {
         this->m_390 = 0;
-        ((TUnk_804AF8A0 *)((u8 *)this))->clear_player_status_flag(0, 1U);
+        this->clear_player_status_flag(0, 1U);
       }
     }
     temp_r4_2 = this->m_3a4;
     if ((temp_r4_2 > 0) && (get_register__12TQuestThreadFPvi(var_r31, temp_r4_2) != 0))
     {
       this->m_390 = 0;
-      ((TUnk_804AF8A0 *)((u8 *)this))->clear_player_status_flag(0, 1U);
+      this->clear_player_status_flag(0, 1U);
     }
   }
   switch (this->mode)

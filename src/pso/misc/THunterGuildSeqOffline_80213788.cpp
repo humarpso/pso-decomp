@@ -462,7 +462,7 @@ void TShopWindowBase::confirm_and_close_if_valid() {
     VObj_80213FD0 *o = (VObj_80213FD0 *)this;
     if (o->m8() != 0 && (sub_80223A48__15TShopWindowBaseFv(this) != 0 || sub_802239EC__13TShopSequenceFv(this) != 0)) {
         o->m7(0xc, 1);
-        ((TShopWindowBase *)this)->set_field_20(0xc);
+        this->set_field_20(0xc);
     }
 }
 

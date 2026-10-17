@@ -1603,7 +1603,7 @@ void TObjEneDolmOlm::vfunc_60() {
             this->m_b8 = 0xA;
         }
         obj_clearFlags30(0x04040000);
-        ((TUnk_804AF8A0 *)((u8 *)this))->clear_player_status_flag(0, 0x0A000000);
+        this->clear_player_status_flag(0, 0x0A000000);
         break;
     default:
         id = this->targetId;
@@ -1631,7 +1631,7 @@ void TObjEneDolmOlm::vfunc_60() {
             this->phase = 0;
             obj_setFlags30(this, 0x200000);
             obj_clearFlags30(0x04040000);
-            ((TUnk_804AF8A0 *)((u8 *)this))->clear_player_status_flag(0, 0x0A000000);
+            this->clear_player_status_flag(0, 0x0A000000);
             return;
         }
         if (var_f30 < TObjEneDolmOlm__data_805DEF6C) {
@@ -1644,7 +1644,7 @@ void TObjEneDolmOlm::vfunc_60() {
             }
             obj_setFlags30(this, 0x200000);
             obj_clearFlags30(0x04040000);
-            ((TUnk_804AF8A0 *)((u8 *)this))->clear_player_status_flag(0, 0x0A000000);
+            this->clear_player_status_flag(0, 0x0A000000);
         }
         break;
     }
@@ -1676,11 +1676,11 @@ void TObjEneDolmOlm::sub_80301148() {
     if (*(s32 *)&this->variant < 1) {
         *(s32 *)&this->subtype = 0;
         *(s32 *)&this->variant = 0;
-        ((TObjEnemy *)((u8 *)this))->set_param(0x40);
+        this->set_param(0x40);
     } else {
         *(s32 *)&this->subtype = 2;
         *(s32 *)&this->variant = 1;
-        ((TObjEnemy *)((u8 *)this))->set_param(0x41);
+        this->set_param(0x41);
     }
     this->load_params_from_table(*(s32 *)&this->variant);
     TObjPlayer::set_global_flag();

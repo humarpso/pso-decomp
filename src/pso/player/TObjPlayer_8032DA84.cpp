@@ -213,14 +213,14 @@ void construct_card_effect_on_target(void *);
 void *TUnk_804EDD20::init_offsets_object() {
     __ct__13TUnk_804EDD44FP7TObjectPfPfll(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804EDD20;
-    ((TUnk_804EDD20 *)this)->init_offset_vectors();
+    this->init_offset_vectors();
     return this;
 }
 
 void *TUnk_804EDD20::init_effect_object() {
     construct_card_effect_on_target(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804EDD20;
-    ((TUnk_804EDD20 *)this)->init_offset_vectors();
+    this->init_offset_vectors();
     return this;
 }
 
@@ -260,15 +260,15 @@ s8 sub_80102C30__5TItemFv();
 void TUnk_804EDD44::anchor_card_effect() {
   u16 temp_r3;
   u8 *temp_r3_2;
-  temp_r3 = ((TUnk_804EDD44 *)((u8 *)this))->m_34;
+  temp_r3 = this->m_34;
   if (temp_r3 != ((-1U) & 0xFFFFu))
   {
     if (find_entity_by_id(temp_r3) != 0)
     {
-      temp_r3_2 = (u8 *) ((*((s32 *) (((s8 *) (*((u8 **) (((s8 *) ((u8 *)this)) + 0x28)))) + 0xA4))) + ((((TUnk_804EDD44 *)((u8 *)this))->m_2c) * 0x2C));
-      *((f32 *) (((s8 *) ((u8 *)this)) + 0x64)) = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x1C))) - (((TUnk_804EDD44 *)((u8 *)this))->m_44));
-      ((TUnk_804EDD44 *)((u8 *)this))->m_68 = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x20))) - (*((f32 *) (((s8 *) ((u8 *)this)) + 0x48))));
-      *((f32 *) (((s8 *) ((u8 *)this)) + 0x6C)) = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x24))) - (((TUnk_804EDD44 *)((u8 *)this))->m_4c));
+      temp_r3_2 = (u8 *) ((*((s32 *) (((s8 *) (*((u8 **) (((s8 *) ((u8 *)this)) + 0x28)))) + 0xA4))) + ((this->m_2c) * 0x2C));
+      *((f32 *) (((s8 *) ((u8 *)this)) + 0x64)) = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x1C))) - (this->m_44));
+      this->m_68 = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x20))) - (*((f32 *) (((s8 *) ((u8 *)this)) + 0x48))));
+      *((f32 *) (((s8 *) ((u8 *)this)) + 0x6C)) = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x24))) - (this->m_4c));
     }
   }
 }

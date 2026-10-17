@@ -14,7 +14,7 @@ void TOBarrierEnergy01::vfunc_17() {
     this->play_ambient_loop_sound();
     if (!(this->m_d0 & 1)) {
         this->m_ac = 3;
-        ((TUnk_804AF8A0 *)this)->clear_player_status_flag(0, 8);
+        this->clear_player_status_flag(0, 8);
         this->texture_id = (s32) *TOBarrierEnergy01__texture_lists;
     }
 }

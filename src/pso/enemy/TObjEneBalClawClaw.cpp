@@ -156,15 +156,15 @@ void TObjEneBalClawClaw::update_chase_state() {
         break;
     case 1:
         if (*(void * *)&this->target == NULL || --*(s16 *)((s8 *)((u8 *)this) + 0x3C8) <= 0) {
-            update_if_active__15TObjEneMe1GiGueFl(((u8 *)this), 0);
+            update_if_active__15TObjEneMe1GiGueFl(this, 0);
             break;
         }
         *(f32 *)((s8 *)((u8 *)this) + 0x30C) = (0.0f);
-        move_along_ground_avoiding_walls__10TObjPlayerFPviff(((u8 *)this), *(Vec_80090504 *)((s8 *)(this->target) + 0x2FC), *(u8 * *)&this->m_a4, (-0.6f), *(f32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0xC));
-        update_angle__10TObjPlayerFlPv(((u8 *)this), *(s32 *)((s8 *)(*(void * *)&this->movementParameters) + 8), ((u8 *)this) + 0x308);
-        advance_animation_playback(((u8 *)this));
-        apply_actor_gravity((TObjEnemy *)((u8 *)this), (s32 *)(0), (0.0f));
-        update_collisions__10TObjPlayerFv(((u8 *)this));
+        move_along_ground_avoiding_walls__10TObjPlayerFPviff(this, *(Vec_80090504 *)((s8 *)(this->target) + 0x2FC), *(u8 * *)&this->m_a4, (-0.6f), *(f32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0xC));
+        update_angle__10TObjPlayerFlPv(this, *(s32 *)((s8 *)(*(void * *)&this->movementParameters) + 8), ((u8 *)this) + 0x308);
+        advance_animation_playback(this);
+        apply_actor_gravity((TObjEnemy *)this, (s32 *)(0), (0.0f));
+        update_collisions__10TObjPlayerFv(this);
         break;
     }
 }
@@ -178,7 +178,7 @@ void TObjEneBalClawClaw::run_active_state() {
     case 1:
         if (((VObj_14_0d3ae4 *)(((u8 *)this) + (912)))->m5() == 1) {
             ((RecoveredFields_8009060C_arg0 *)((u8 *)this))->field_388 = (s32) (((RecoveredFields_8009060C_arg0 *)((u8 *)this))->field_388 & ~5);
-            reset_active_state__18TObjEneBalClawClawFPv(((u8 *)this));
+            reset_active_state__18TObjEneBalClawClawFPv(this);
         }
         return;
     case -1:

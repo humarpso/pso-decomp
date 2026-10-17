@@ -987,7 +987,7 @@ void TObjEneEpsilonBody::render() {
             draw_with_fade__19TObjEneEpsilonGuardFPvi((u8 *)(this), (s32)(var_r31));
             if ((s16) *(s16 *)((s8 *)((u8 *)this) + 0x326) == 6) {
                 if (*(s32 *)((s8 *)((u8 *)this) + 0x438) & 0x200) {
-                    ((TObjEneEpsilonBody *)((u8 *)this))->render_body_effect();
+                    this->render_body_effect();
                 }
             }
         } else {
@@ -1050,7 +1050,7 @@ void TObjEneEpsilonGuard::update_fade(s32 arg1) {
     switch (arg1) {
     case 4:
         set_field_378__9TObjEneDDFl(this, 2);
-        ((TObjEneEpsilonBody *)this)->vfunc_96();
+        this->vfunc_96();
         *(s32 *)((s8 *)this + 0x438) = (s32) (*(s32 *)((s8 *)this + 0x438) | 0x10);
         temp_r4 = *(s32 *)((s8 *)this + 0x438);
         *(s32 *)((s8 *)this + 0x438) = (s32) (temp_r4 & ~0x243);
@@ -1064,7 +1064,7 @@ void TObjEneEpsilonGuard::update_fade(s32 arg1) {
         }
         break;
     case 0:
-        advance_animation_playback((void *)((void *)((void *)(this))));
+        advance_animation_playback((void *)((void *)this));
         switch (*(s32 *)((s8 *)this + 0x4E4)) {
         case 0:
             *(u32 *)((s8 *)this + 0x44C) = (u32) (*(u32 *)((s8 *)this + 0x44C) + 0x22);
@@ -1085,7 +1085,7 @@ void TObjEneEpsilonGuard::update_fade(s32 arg1) {
             *(s32 *)((s8 *)this + 0x4E4) = 2;
             break;
         }
-        ((TObjEneEpsilonBody *)this)->vfunc_89();
+        this->vfunc_89();
         return;
     case 5:
         clear_attack_receipts__9TObjEneDDFv();
@@ -1149,14 +1149,14 @@ struct W_8035FCEC;
 #define F_8036(off, T) (*(T *)(arg0 + (off)))
 
 void TObjEneEpsilonGuard::handle_warp_state(s32 arg1) {
-    Guard_80360D9C *g = (Guard_80360D9C *)((u8 *)this);
+    Guard_80360D9C *g = (Guard_80360D9C *)this;
     switch (arg1) {
     case 4:
-        set_field_378__9TObjEneDDFl(((u8 *)this), 4);
-        ((TObjEneDD *)(((u8 *)this)))->vfunc_96();
+        set_field_378__9TObjEneDDFl(this, 4);
+        ((TObjEneDD *)(this))->vfunc_96();
         g->flags |= 0x242;
         g->flags &= ~1;
-        ((void (*)(void *))set_guard_state__18TObjEneEpsilonBodyFl)(((u8 *)this));
+        ((void (*)(void *))set_guard_state__18TObjEneEpsilonBodyFl)(this);
         g->state = 0;
         g->timer = 0;
         g->alpha = 0.0f;
@@ -1164,11 +1164,11 @@ void TObjEneEpsilonGuard::handle_warp_state(s32 arg1) {
         break;
     case 3:
         if (g->state == 3) {
-            transition_enemy_state(((u8 *)this), 2);
+            transition_enemy_state(this, 2);
         }
         break;
     case 0:
-        advance_animation_playback(((u8 *)this));
+        advance_animation_playback(this);
         if (g->emitter != 0) {
             ((TNowLoading *)((void *)g->emitter))->copy_pos(g->f2fc);
         }
@@ -1185,7 +1185,7 @@ void TObjEneEpsilonGuard::handle_warp_state(s32 arg1) {
                 g->vy = (lbl_80479CAC[g->idx].z - g->pos.z) / 30.0f;
                 g->vz = (lbl_80479CAC[g->idx].w - g->pos.w) / 30.0f;
             }
-            play_persistent_sound(0x4003A349, (s32)((u8 *)this), (u32)(((u8 *)this) + 0x38), 0, 0);
+            play_persistent_sound(0x4003A349, (s32)this, (u32)(((u8 *)this) + 0x38), 0, 0);
             break;
         case 1:
             g->timer--;
@@ -1197,7 +1197,7 @@ void TObjEneEpsilonGuard::handle_warp_state(s32 arg1) {
                 g->alpha = 1.0f;
                 g->state = 2;
             }
-            play_persistent_sound(0x4003A349, (s32)((u8 *)this), (u32)(((u8 *)this) + 0x38), 0, 0);
+            play_persistent_sound(0x4003A349, (s32)this, (u32)(((u8 *)this) + 0x38), 0, 0);
             break;
         case 2:
             g->alpha = g->alpha - 0.033333335f;
@@ -1206,11 +1206,11 @@ void TObjEneEpsilonGuard::handle_warp_state(s32 arg1) {
                 g->state = 3;
                 play_sound_effect(0x40039F4A, ((u8 *)this) + 0x38, 0, 0);
             } else {
-                play_persistent_sound(0x4003A349, (s32)((u8 *)this), (u32)(((u8 *)this) + 0x38), 0, 0);
+                play_persistent_sound(0x4003A349, (s32)this, (u32)(((u8 *)this) + 0x38), 0, 0);
             }
             break;
         }
-        ((TObjEneDD *)(((u8 *)this)))->vfunc_89();
+        ((TObjEneDD *)(this))->vfunc_89();
         break;
     case 5:
         if (g->emitter != 0) {

@@ -175,7 +175,7 @@ s32 TObjPlayer::fire_zonde_at_players() {
     void *obj;
     S_80042B34 s = lbl_8043663C[0];
 
-    s.b = fn_800443DC(((u8 *)this), 0);
+    s.b = fn_800443DC(this, 0);
     n = 0;
     for (i = 0; i < lbl_805D586C; i++) {
         p = (u8 *)get_player_data__10TObjPlayerFi(i);
@@ -188,7 +188,7 @@ s32 TObjPlayer::fire_zonde_at_players() {
         }
     }
     if (n > 0) {
-        TObjPlayer__sub_80042ED0(((u8 *)this), 0xC, &pos);
+        TObjPlayer__sub_80042ED0(this, 0xC, &pos);
         for (j = 0; j < n; j++) {
             q = list[j];
             src = (Vec_80042B34 *)(q + 0x2FC);
@@ -202,7 +202,7 @@ s32 TObjPlayer::fire_zonde_at_players() {
             VecCopy((Vec *)&pos, (const Vec *)src);
             {
                 S_80042B34 t = s;
-                ((VObj_18_b27ba1 *)q)->m21(((u8 *)this), &t, 0, -1, -1);
+                ((VObj_18_b27ba1 *)q)->m21(this, &t, 0, -1, -1);
             }
         }
         e = (u8 *)find_entity_by_id(lbl_805D271A);
@@ -1280,7 +1280,7 @@ void TBoss3VoloptP01::init_params() {
     void *p;
     F(this, s32, 0xDC) = F(TBoss3VoloptP01__resource_bundle, s32, 0x430);
     F(this, s32, 0xD8) = (s32) volopt_p01_action_table;
-    ((TObjMotion *)this)->set_field_d8(F(this, s32, 0xD8));
+    this->set_field_d8(F(this, s32, 0xD8));
     init_collision_body_parts(this, (void *) lbl_804841EC, 1);
     F(this, s32, 0x368) = 0;
     F(this, s32, 0x350) = (s32) lbl_804841D0;
@@ -1291,7 +1291,7 @@ void TBoss3VoloptP01::init_params() {
     F(this, s16, 0x32C) = F(this, s16, 0x2B8);
     F(this, s16, 0x32E) = F(this, s16, 0x2BA);
     F(this, s16, 0x33E) = F(this, s16, 0x32C);
-    ((TObjEnemy *)this)->set_param(0x2E);
+    this->set_param(0x2E);
     this->update_prev_position();
     ((TBoss3Volopt *)this)->reset_photon_effect();
     load_volopt_param_entry(0x11);

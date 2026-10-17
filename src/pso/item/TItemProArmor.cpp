@@ -424,7 +424,7 @@ void TItemProArmor::vfunc_16() {
     }
 }
 
-void TItemProArmor::vfunc_46() { if (((TItemEquipBase *)this)->get_flag_40() == 0) { obj_getField1c(*(void* *)&this->m_f0); spawn_appearance_effect__10TObjPlayerFl(); } }
+void TItemProArmor::vfunc_46() { if (this->get_flag_40() == 0) { obj_getField1c(*(void* *)&this->m_f0); spawn_appearance_effect__10TObjPlayerFl(); } }
 
 typedef char RecoveredGlobal_80117B98___vt__13TItemProArmor_size[sizeof(RecoveredGlobal_80117B98___vt__13TItemProArmor) == 0xCC ? 1 : -1];
 u8 *TItemProArmor__ct(TItemProArmor *item_pro_armor, s32 arg1, u8 *item) {

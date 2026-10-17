@@ -576,7 +576,7 @@ void TOTrapChainSawDamage::vfunc_25() {
 void TOTrapChainSawDamage::update_state() {
     ((s32 (*)())update_state__14TOTrapChainSawFv)();
     if ((s32) *(s32 *)((s8 *)this + 0xF0) == 1) {
-        ((TUnk_804AF8A0 *)this)->clear_player_status_flag(1, 0x100);
+        this->clear_player_status_flag(1, 0x100);
         return;
     }
     set_indexed_flags(1, 0x100);

@@ -972,11 +972,11 @@ void TObjEneMe1GiGue::break_apart() {
     position.y += 40.0f + this->m_3ec;
     TBoss3Volopt::create_breakup_mdl((s32)TObjEneMe1GiGue__barrier_obj, 0, (s32)((int) (this->texture_id)), (s32)((void *)&position.x), (s32)((int) (this->rotation_y)));
     ((TObjPlayer *)((u8 *)this))->refresh_lobby_state();
-    ((TObjEnemy *)((u8 *)this))->send_entity_set_flags();
+    this->send_entity_set_flags();
     spawn_particle_effect((&position.x), 0x205);
     spawn_particle_effect((&position.x), 0x206);
-    play_sound_effect((void *) (TObjEneMe1GiGue::remap_sound_id((((u8 *)this)), 0x3AF1C)), &position.x, 0, 0);
-    queue_destruction__7TObjectFv((((u8 *)this)));
+    play_sound_effect((void *) (TObjEneMe1GiGue::remap_sound_id((this), 0x3AF1C)), &position.x, 0, 0);
+    queue_destruction__7TObjectFv((this));
 }
 
 void TObjEneMe1GiGue::update_hit_reaction() {
@@ -1001,12 +1001,12 @@ void TObjEneMe1GiGue::update_hit_reaction() {
         spawn_particle_effect(((u8 *)this) + 0x2FC, 0xF2);
         *(s32 *)&this->state = 1;
     case 1:
-        advance_animation_playback(((u8 *)this));
+        advance_animation_playback(this);
         if (!(*(s32 *)&this->actorFlags & 0x01000000)) {
             Vec_802CBA98 v = *(Vec_802CBA98 *)((s8 *)((u8 *)this) + 0x2FC);
             v.x += *(f32 *)((s8 *)((u8 *)this) + 0x308);
             v.z += this->m_310;
-            if (check_path_obstructed(((u8 *)this), &v) == 0) {
+            if (check_path_obstructed(this, &v) == 0) {
                 move_with_wall_slide(((u8 *)this));
             } else {
                 *(f32 *)((s8 *)((u8 *)this) + 0x308) = this->m_310 = 0.0f;
@@ -1014,7 +1014,7 @@ void TObjEneMe1GiGue::update_hit_reaction() {
             *(f32 *)((s8 *)((u8 *)this) + 0x308) *= 0.5f;
             this->m_310 *= 0.5f;
         }
-        apply_actor_gravity(((u8 *)this), 0, 0.0f);
+        apply_actor_gravity(this, 0, 0.0f);
         ((TObjPlayer *)((u8 *)this))->update_collisions();
         if ((u32) this->m_b4 != 8U) {
             *(s32 *)&this->state = -1;
@@ -1039,10 +1039,10 @@ void TObjEneMe1GiGue::update_hit_reaction() {
             this->targetId = (u16) this->m_2d4;
             *(s32 *)&this->next_action = 9;
         } else if (*(s32 *)&this->actorFlags & 0x01000000) {
-            update_if_active__15TObjEneMe1GiGueFl(((u8 *)this), 0xD);
+            update_if_active__15TObjEneMe1GiGueFl(this, 0xD);
             *(s32 *)&this->m_378 = (s32) *(s32 *)&this->m_380;
         } else {
-            update_if_active__15TObjEneMe1GiGueFl(((u8 *)this), 0);
+            update_if_active__15TObjEneMe1GiGueFl(this, 0);
         }
         this->referenceHp = (s16) this->hp;
         break;

@@ -705,9 +705,9 @@ void TItemData::decode_packed_name_chars(s8 *out) {
       u8 hi = q[6] & 0xFFFFFFFFFFFFFFFFu;
       u8 lo = q[7];
       h = lo | ((hi << 8) & 0x7F00);
-      p[0] = ((s8 (*)(void *, s8)) TItemData__sub_8010CAB0)(((u8 *)this), (h >> 10) & 0x3F);
-      p[1] = ((s8 (*)(void *, s8)) TItemData__sub_8010CAB0)(((u8 *)this), (h >> 5) & 0x1F);
-      p[2] = ((s8 (*)(void *, s8)) TItemData__sub_8010CAB0)(((u8 *)this), h & 0x1F);
+      p[0] = ((s8 (*)(void *, s8)) TItemData__sub_8010CAB0)(this, (h >> 10) & 0x3F);
+      p[1] = ((s8 (*)(void *, s8)) TItemData__sub_8010CAB0)(this, (h >> 5) & 0x1F);
+      p[2] = ((s8 (*)(void *, s8)) TItemData__sub_8010CAB0)(this, h & 0x1F);
       i++;
       p += 3;
     }

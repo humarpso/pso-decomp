@@ -3587,7 +3587,7 @@ void TObjEneMe1Gee::vfunc_105() {
     ((s32 (*)(void *, int))transition_enemy_state)(arg0, 7);
 }
 
-void TObjEneMe1Gee::update() { if (((TObjEneDD_ST *)this)->enemy_has_live_target() != 0) { ((TObjEneDD_ST *)this)->enemy_copy_target_destination(); ((TObjEneDD *)this)->update_velocity(); ((TObjEneMe1Gee *)this)->update_angle(); } }
+void TObjEneMe1Gee::update() { if (this->enemy_has_live_target() != 0) { this->enemy_copy_target_destination(); this->update_velocity(); this->update_angle(); } }
 
 void TObjEneMe1Gee::update_angle() {
     this->rotation_y = approach_angle_limited(this->rotation_y, (s32) (lbl_8043BF28 * atan2_float(this->m_3a0, *(f32 *)((s8 *)this + 0x3A8))), 0x400);
@@ -3792,22 +3792,22 @@ void TObjEneMe1Gee::init_state() {
     s32 i;
     s32 var_r30;
     u8 *temp_r4;
-    ((TObjEneDD *)((u8 *)this))->init_position_vectors();
-    ((TObjEneMe1Gee *)(((u8 *)this)))->vfunc_106();
-    init_model__9TObjEneDDFv(((u8 *)this), (void *) lbl_8049379C, 1);
-    ((TObjMotion *)((u8 *)this))->set_field_d8((s32)((void *) TObjEneMe1Gee__motion_parameters));
-    ((TObjMotion *)((u8 *)this))->set_field_dc((int) (*(s32 *)((s8 *)(*(u8 * *)&(*(int *)&TObjEneMe1Gee__resource_bundle)) + 0x430)));
+    this->init_position_vectors();
+    ((TObjEneMe1Gee *)(this))->vfunc_106();
+    init_model__9TObjEneDDFv(this, (void *) lbl_8049379C, 1);
+    this->set_field_d8((s32)((void *) TObjEneMe1Gee__motion_parameters));
+    this->set_field_dc((int) (*(s32 *)((s8 *)(*(u8 * *)&(*(int *)&TObjEneMe1Gee__resource_bundle)) + 0x430)));
     *(s16 *)((s8 *)((u8 *)this) + 0xB8) = 0;
     set_animation((*(s16 *)((s8 *)((u8 *)this) + 0xB8)));
-    ((TObjMotion *)((u8 *)this))->set_field_b8((int) (*(s16 *)((s8 *)((u8 *)this) + 0xB8)));
-    reset_hp__9TObjEneDDFv(((u8 *)this), gee_boss_stat_handle_table[*(s32 *)((s8 *)((u8 *)this) + 0x3C4)], lbl_80500E44[*(s32 *)((s8 *)((u8 *)this) + 0x3C4)], lbl_80500E50[*(s32 *)((s8 *)((u8 *)this) + 0x3C4)]);
-    ((TObjEneDD *)((u8 *)this))->check_state_flag_1();
+    this->set_field_b8((int) (*(s16 *)((s8 *)((u8 *)this) + 0xB8)));
+    reset_hp__9TObjEneDDFv(this, gee_boss_stat_handle_table[*(s32 *)((s8 *)((u8 *)this) + 0x3C4)], lbl_80500E44[*(s32 *)((s8 *)((u8 *)this) + 0x3C4)], lbl_80500E50[*(s32 *)((s8 *)((u8 *)this) + 0x3C4)]);
+    this->check_state_flag_1();
     *(s32 **)((s8 *)((u8 *)this) + 0x350) = me1_gee_init_params;
-    initialize_enemy_state__9TObjEneDDFv(((u8 *)this), 0x36);
+    initialize_enemy_state__9TObjEneDDFv(this, 0x36);
     *(f32 *)((s8 *)((u8 *)this) + 0x37C) = (f32) lbl_805DA0B8;
-    ((TObjEneDD_ST *)((u8 *)this))->enemy_init_acquire_period(0x2D);
-    ((TObjEneDD_ST *)((u8 *)this))->enemy_init_validate_period(0x2D);
-    ((TObjEneDD_ST *)((u8 *)this))->set_active();
+    this->enemy_init_acquire_period(0x2D);
+    this->enemy_init_validate_period(0x2D);
+    this->set_active();
     *(s32 *)((s8 *)((u8 *)this) + 0x30) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x30) | 0x01000000);
     *(s32 *)((s8 *)((u8 *)this) + 0x42C) = lbl_80500E5C[*(s32 *)((s8 *)((u8 *)this) + 0x3C4)];
     ((VObj_14_559b06 *)(((u8 *)this) + (972)))->m2(lbl_80500E5C);
@@ -3844,10 +3844,10 @@ void TObjEneMe1Gee::init_state() {
     *(s32 *)((s8 *)((u8 *)this) + 0x480) = 0;
     *(s32 *)((s8 *)((u8 *)this) + 0x484) = 0;
     *(s32 *)((s8 *)((u8 *)this) + 0x488) = 0;
-    ((TObjEneMe1Gee *)((u8 *)this))->copy_pos();
-    set_part_position__9TObjEneDDFPvPvi(((u8 *)this), (int) (*(s32 *)((s8 *)((u8 *)this) + 0xA4)), 0);
+    this->copy_pos();
+    set_part_position__9TObjEneDDFPvPvi(this, (int) (*(s32 *)((s8 *)((u8 *)this) + 0xA4)), 0);
     *(s16 *)((s8 *)((u8 *)this) + 0x326) = 0;
-    ((VObj_18_3bc1aa *)(((u8 *)this)))->m85(*(s16 *)((s8 *)((u8 *)this) + 0x326), 4);
+    ((VObj_18_3bc1aa *)(this))->m85(*(s16 *)((s8 *)((u8 *)this) + 0x326), 4);
     if (*(void **)((s8 *)((u8 *)this) + 0x3C0) != NULL) {
         *(s16 *)((s8 *)((u8 *)this) + 0x48C) = obj_getField1c(*(void **)((s8 *)((u8 *)this) + 0x3C0));
         return;
