@@ -45,7 +45,7 @@ s16 TObjPlayer__sub_801D2F4C(s16 *arg0);
 s16 get_validated_attack_stage(u8 *arg0);
 f32 query_extended_state__10TObjPlayerFv(void *);
 void get_weapon_color__11TItemWeaponFPv(f32 *, void *);
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
+void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
 void launch_slicer__10TObjPlayerFPv(u8 *weapon);
 void *__dt__13TUnk_804ECDC0Fv(void *arg0, s16 arg1);
 void fn_80325F7C(void *arg0);
@@ -109,7 +109,7 @@ void launch_slicer__10TObjPlayerFPv(u8 *weapon) {
     launch.stage = get_validated_attack_stage(*(u8 * *)&((TUnk_804ECDC0 *)weapon)->player + 0x7CC);
     launch.multiplier = query_extended_state__10TObjPlayerFv(*(u8 * *)&((TUnk_804ECDC0 *)weapon)->player);
     get_weapon_color__11TItemWeaponFPv(tmp, weapon);
-    copy_vec4__13TRaderMapCoreFPvPv(launch.color, tmp);
+    copy_vec4__13TRaderMapCoreFPv(launch.color, tmp);
     launch.facing = *(s32 *)((s8 *)(*(u8 * *)&((TUnk_804ECDC0 *)weapon)->player) + 0x60);
     ((TObjPlayer *)weapon)->draw_icon(0x2, (s32)launch.first);
     ((TObjPlayer *)weapon)->draw_icon(0x1, (s32)launch.second);

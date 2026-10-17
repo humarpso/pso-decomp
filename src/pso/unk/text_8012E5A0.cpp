@@ -23,11 +23,11 @@ extern const f32 lbl_805DAF7C;
 extern const f32 lbl_805DAF84;
 extern const f32 lbl_805DAF88;
 extern const f32 lbl_805DAF8C;
-void update_casing_eject__10TObjPlayerFPv(Self_8012E5A0 *self);
-void update_casing_eject__10TObjPlayerFPv(Self_8012E5A0 *self) {
+void TObjPlayer::update_casing_eject() {
     s32 ang;
     Vec_8012E5A0 v;
     Ang_8012E5A0 a;
+    Self_8012E5A0 *self = (Self_8012E5A0 *)this;
     if (self->state == 1) {
         TItemEffOrgaFlowShot::approach_value(&self->f1FC, lbl_805DAF84, lbl_805DAF88);
         if (lbl_805DAF88 == self->f1FC) {

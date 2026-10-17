@@ -74,7 +74,7 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void *get_player_by_client_id(s32 i);
 s32 push_to_player_list__5TItemFPv();
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
+void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
 s8 sub_80102C30__5TItemFv(u8 *);
 void func_80141618__Fv(void);
 s32 set_depth_buffer_settings_id__FUl(int);
@@ -136,9 +136,9 @@ void TItem::render_shadows() {
             lbl_805D5660 = model_render_flags;
             lbl_805D5664 = chunk_polygon_flags_and_mask;
             lbl_805D5668 = chunk_polygon_flags_or_mask;
-            copy_vec4__13TRaderMapCoreFPvPv((&saved_model_draw_color.value), (&model_material_color.value));
+            copy_vec4__13TRaderMapCoreFPv((&saved_model_draw_color.value), (&model_material_color.value));
             this->vfunc_27();
-            copy_vec4__13TRaderMapCoreFPvPv((&model_material_color.value), (&saved_model_draw_color.value));
+            copy_vec4__13TRaderMapCoreFPv((&model_material_color.value), (&saved_model_draw_color.value));
             chunk_polygon_flags_and_mask = lbl_805D5664;
             chunk_polygon_flags_or_mask = lbl_805D5668;
             model_render_flags = lbl_805D5660;

@@ -73,9 +73,10 @@ void *lbl_804A71C4[6] = {
     (void *)&render__7TObjectFv, (void *)&render_shadows__7TObjectFv,
 };
 
-s32 check_can_pickup__11TMainCursorFi(s32 arg0) {
+s32 TMainCursor::check_can_pickup() {
     s32 temp_r3;
     u32 temp_r3b;
+    s32 arg0 = (s32)this;
 
     ((TMainCursor *)(arg0 + 0x60))->get_id();
     temp_r3 = find_entity_by_id();

@@ -163,7 +163,6 @@ void TWindow__close(u8 *arg0);
 s32 get_selected_menu_value(int);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(int);
 extern s32 lbl_8044C1D4[];
-void handle_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0);
 u16 obj_getField1c(s32);
 void fn_80221838(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_appraisal_text(s32 arg0);
@@ -178,7 +177,6 @@ f32 get_scale__15TShopWindowBaseFv(void *);
 u8 *create_yes_no_window(s32 arg0, s32 arg1, u32 arg2, u32 arg3);
 s32 get_window_layout_position(s32);
 extern u8 lbl_8044C1B0[];
-void update_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0);
 u8 *find_item_by_id(s32 id);
 u32 get_equip_field_d04__10TObjPlayerFv(int, s32);
 void send_6x26_unequip_item__10TObjPlayerFPvPv(void *self, void *item);
@@ -397,7 +395,8 @@ void TShopJudgmentItemWindow::handle_equip_prompt() {
 }
 #undef F
 
-void update_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
+void TShopJudgmentItemWindow::update_judge_confirm() {
+    u8 *arg0 = (u8 *)this;
     s32 selected_menu_value;
     if (((TShopWindowBase *)(arg0))->vfunc_10() != 0) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0x158) == 0U) {
@@ -510,9 +509,10 @@ void TShopJudgmentItemWindow::create_result_windows() {
 
 #pragma push
 #pragma fp_contract on
-void handle_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
+void TShopJudgmentItemWindow::handle_judge_confirm() {
     s32 selected_menu_value;
     u8 *temp_r31;
+    u8 *arg0 = (u8 *)this;
     if (((TShopJudgmentItemWindow *)arg0)->vfunc_10() != 0) {
         if ((*(void **)((s8 *)arg0 + 0x158) != NULL) && (((TWindowMenu *)(*(void **)((s8 *)arg0 + 0x158)))->is_visible() != 0)) {
             selected_menu_value = get_selected_menu_value((int) (*(u32 *)((s8 *)arg0 + 0x158)));
@@ -636,13 +636,13 @@ void TShopJudgmentItemWindow::vfunc_11() {
         ((TShopJudgmentItemWindow *)arg0)->handle_input();
         return;
     case 2:
-        handle_judge_confirm__23TShopJudgmentItemWindowFPv(arg0);
+        ((TShopJudgmentItemWindow *)arg0)->handle_judge_confirm();
         return;
     case 3:
         ((TShopJudgmentItemWindow *)arg0)->create_result_windows();
         return;
     case 4:
-        update_judge_confirm__23TShopJudgmentItemWindowFPv(arg0);
+        ((TShopJudgmentItemWindow *)arg0)->update_judge_confirm();
         return;
     case 5:
         ((TShopJudgmentItemWindow *)arg0)->update();

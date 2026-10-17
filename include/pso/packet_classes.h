@@ -523,6 +523,8 @@ public:
 		header.bswap();
 		tag.bswap();
 	};
+public:
+    s32 *copy_with_guild_card_tag(s32 *arg1);
 };
 
 class TPlyStartGame {

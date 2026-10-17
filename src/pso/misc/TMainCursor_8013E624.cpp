@@ -26,7 +26,7 @@ extern "C" {
 
 s32 destroy__11TMainCursorFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
-        free_if_valid__14TPlyDispConfigFis(arg0, -1);
+        free_if_valid__14TPlyDispConfigFls(arg0, -1);
         if (arg1 > 0) {
             __dl__FPv((void*)arg0);
         }

@@ -654,7 +654,6 @@ void TObjEneBm9Mericarol__sub_802CEDA0(u8 *arg0, s32 arg1);
 s32 TObjPlayer__sub_802CE68C(void *, void *, int);
 s32 try_set_mode8_if_flag2__19TObjEneBm9MericarolFv();
 s32 TObjEneBm9Mericarol__sub_802D1880(void *, void *, void *, void *, s32, f32, f32);
-void handle_shot_state__19TObjEneBm9MericarolFPvi(u8 *arg0, s32 arg1);
 s32 enemy_set_target_id(void *, u16);
 u16 set_squared_value__9TObjEneDDFf(void *, f32);
 u16 enemy_find_nearest_player_in_range(void *, f32);
@@ -1224,10 +1223,11 @@ void TObjPlayer__sub_802CFB64(u8 *player, s32 arg1) {
 }
 #define OBJINBAND(o, f) ((s32 (*)(void *, f32))objInBand__FP7GameObjf)((o), (f))
 #define PHASE(o) ((TObjEneBm9Mericarol *)o)->get_phase()
-void handle_shot_state__19TObjEneBm9MericarolFPvi(u8 *arg0, s32 arg1) {
+void TObjEneBm9Mericarol::handle_shot_state(s32 arg1) {
     u32 obj;
     s32 cmp;
     f32 lim;
+    u8 *arg0 = (u8 *)this;
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;

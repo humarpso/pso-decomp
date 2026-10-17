@@ -19,6 +19,7 @@ struct TBoss3VoloptHiraisin : public TObjEnemyCustom {
     void spawn_effects();
     void damage_player_if_aligned();
     void update_state();
+    void copy_position();
 };
 
 typedef char TBoss3VoloptHiraisin_size[sizeof(TBoss3VoloptHiraisin) == 0x390 ? 1 : -1];

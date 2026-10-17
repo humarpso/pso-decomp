@@ -1,4 +1,5 @@
 #include "pso/TObjNewFloorWin.h"
+#include "pso/misc/TLobby.h"
 #include "pso/ui/TObjNewFloorWin.h"
 
 TObjNewFloorWin::~TObjNewFloorWin() {}
@@ -26,13 +27,14 @@ TObjNewFloorWin::TObjNewFloorWin(TObject *arg1, void *arg2) : TObject(arg1) {
 }
 extern "C" {
 
-u8 *create_new_floor_windows__6TLobbyFi(s32 arg0) {
+u8 *TLobby::create_new_floor_windows() {
   u32 var_r30;
   u8 *temp_r3;
   u8 *temp_r3_2;
   u8 *var_r0;
   u8 *var_r0_2;
   u8 *var_r31;
+    s32 arg0 = (s32)this;
   if (is_split_screen() == 0)
   {
     temp_r3 = (u8 *) __nw__7TObjectFUl(0x50);

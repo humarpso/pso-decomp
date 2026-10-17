@@ -109,7 +109,6 @@ s32 apply_context_transform_to_rect(u8 *, Rect_80270394 *);
 s32 start_text_color_transition(void *, s32, f32);
 void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1);
-s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0);
 void update_lockon_window(u8 *arg0);
 s32 update_photon_blast_player_marker(s32 arg0, s32 arg1);
 s32 rand(void);
@@ -179,11 +178,12 @@ void TWindowSubStatusDisp::update_status_entry() {
     }
 }
 
-s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0) {
+s32 TWindowSubStatusDisp::update_hp_gauge() {
     s32 var_r4;
     s32 var_r31;
     void *temp_r30;
     void *temp_r3;
+    s32 arg0 = (s32)this;
 
     get_width__19TWindowSimpleStatusFv();
     temp_r3 = get_player_by_client_id();
@@ -329,7 +329,7 @@ void TWindowSubStatusDisp::update_hp_tp_level() {
     temp_r31 = ((s32 (*)(void *, int))get_array_entry__13TUnk_804CE018Fi)(arg0, 6);
     *(s32 *)((s8 *)temp_r31 + 0x2C) = ((TWindowSubStatusDisp *)arg0)->update_hp_entry();
     temp_r31_2 = ((s32 (*)(void *, int))get_array_entry__13TUnk_804CE018Fi)(arg0, 7);
-    *(s32 *)((s8 *)temp_r31_2 + 0x2C) = update_hp_gauge__20TWindowSubStatusDispFi((s32) arg0);
+    *(s32 *)((s8 *)temp_r31_2 + 0x2C) = ((TWindowSubStatusDisp *)arg0)->update_hp_gauge();
     update_status_entry();
 }
 

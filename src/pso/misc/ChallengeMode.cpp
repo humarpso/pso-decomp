@@ -107,7 +107,7 @@ s32 update_card_save_info__6TLobbyFv(void *);
 void TLobby__sub_800722AC(s32 arg0);
 void TLobby__sub_80072618(void);
 s32 TLobby__sub_800739BC(void *);
-u8 *create_new_floor_windows__6TLobbyFi(s32 arg0);
+u8 *create_new_floor_windows__6TLobbyFv(s32 arg0);
 s32 TLobby__sub_8026A328();
 s32 check_player_state_flag_2__6TLobbyFv();
 
@@ -376,7 +376,7 @@ void *challenge_mode_state[420] = {
 void TLobby::create_time_window(void * _w0) {
     TLobby::spawn_player_tombstones();
     create_ch_time_win((void *)tl_07);
-    create_new_floor_windows__6TLobbyFi(tl_07);
+    create_new_floor_windows__6TLobbyFv(tl_07);
     if ((s32) *(s32 *)((s8 *)challenge_mode_state + 0x30) == 0) {
         TObjSoloPlayWin::create((TObject*)tl_07);
     }

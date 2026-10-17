@@ -41,7 +41,7 @@ typedef struct Obj_80049430 {
 } Obj_80049430;
 
 extern "C" {
-void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0);
+void copy_position__20TBoss3VoloptHiraisinFv(s32 arg0);
 s32 TObjVoloptCage__sub_800C76F0(void *);
 s32 submit_cursor_candidate(void *, int);
 s32 is_locally_controlled__10TObjPlayerFPv();
@@ -113,7 +113,7 @@ void TObjVoloptCage::run_task() {
     }
     update_state();
     ((TObjEnemy *)arg0)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFi((s32)arg0);
+    copy_position__20TBoss3VoloptHiraisinFv((s32)arg0);
     submit_cursor_candidate(arg0, -1);
 }
 

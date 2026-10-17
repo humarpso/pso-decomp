@@ -32,13 +32,12 @@ s32 TWindowDD__sub_803482B0(void *);
 s32 TWindowDD__sub_80348424(void *, s16);
 s16 TWindowDD__sub_80348448(void *, s32);
 s32 push_recent_id(s32);
-void handle_confirm_input__9TWindowDDFPv(W_80342ED0 *arg0);
 s32 apply_entry_layout__9TWindowDDFPv(void *);
-s32 update_selection_state__9TWindowDDFPv();
+s32 update_selection_state__9TWindowDDFv();
 s32 TWindowDD__sub_803484C4(void *);
 
 void TWindowDD::update() {
-    update_selection_state__9TWindowDDFPv();
+    update_selection_state__9TWindowDDFv();
     if (test_input_flag_4() != 0) {
         TWindowDD::play_sound();
         if ((s32) *(s32 *)((s8 *)this + 0xB0) == 1) {
@@ -56,8 +55,9 @@ void TWindowDD::update() {
     }
 }
 
-void handle_confirm_input__9TWindowDDFPv(W_80342ED0 *arg0) {
+void TWindowDD::handle_confirm_input() {
     s32 id;
+    W_80342ED0 *arg0 = (W_80342ED0 *)this;
     TWindowDD__sub_80347C50();
     if (((TWindowDD *)arg0)->test_input_flag_4() != 0) {
         TWindowDD::play_sound();

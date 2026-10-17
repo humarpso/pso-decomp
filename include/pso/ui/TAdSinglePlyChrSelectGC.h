@@ -206,6 +206,9 @@ struct TAdSinglePlyChrSelectGC : public TObject {
     void apply_rng_cipher(u32 *data, s32 len);
     void crypt_data_be(u32 *data, s32 len);
     void append_extension_if_missing(char *name, char *ext);
+    u8 *init_char_record();
+    static s32 is_load_complete();
+    s32 check_capacity();
 };
 
 typedef char TAdSinglePlyChrSelectGC_size[sizeof(TAdSinglePlyChrSelectGC) == 0x60 ? 1 : -1];

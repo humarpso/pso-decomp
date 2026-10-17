@@ -118,6 +118,9 @@ public:
 public:
     TPlyDispConfigSmth m_smth;
     TPlyDispConfigSmth m_smth1;
+public:
+    void bswap_pair();
+    static s32 free_if_valid(s32 arg0, s16 arg1);
 };
 
 class TPlyDispData {

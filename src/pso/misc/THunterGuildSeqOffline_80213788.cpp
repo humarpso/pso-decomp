@@ -460,11 +460,11 @@ extern "C" {
 int sub_802239EC__13TShopSequenceFv(void *);
 int sub_80223A48__15TShopWindowBaseFv(void *);
 
-void confirm_and_close_if_valid__15TShopWindowBaseFPv(void *arg0) {
-    VObj_80213FD0 *o = (VObj_80213FD0 *)arg0;
-    if (o->m8() != 0 && (sub_80223A48__15TShopWindowBaseFv(arg0) != 0 || sub_802239EC__13TShopSequenceFv(arg0) != 0)) {
+void TShopWindowBase::confirm_and_close_if_valid() {
+    VObj_80213FD0 *o = (VObj_80213FD0 *)this;
+    if (o->m8() != 0 && (sub_80223A48__15TShopWindowBaseFv(this) != 0 || sub_802239EC__13TShopSequenceFv(this) != 0)) {
         o->m7(0xc, 1);
-        ((TShopWindowBase *)arg0)->set_field_20(0xc);
+        ((TShopWindowBase *)this)->set_field_20(0xc);
     }
 }
 
@@ -942,7 +942,7 @@ void dispatch_state__22THunterGuildSeqOfflineFPv(Seq_80214978 *arg0) {
     case 9: ((TShopWindowBase *)arg0)->set_field_20((s32)((void *)0xC)); break;
     case 10: ((TShopWindowBase *)arg0)->set_field_20((s32)((void *)0xC)); break;
     case 12: arg0->m11(); break;
-    case 13: confirm_and_close_if_valid__15TShopWindowBaseFPv(arg0); break;
+    case 13: ((TShopWindowBase *)arg0)->confirm_and_close_if_valid(); break;
     case 14: return;
     }
 }

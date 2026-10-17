@@ -81,7 +81,6 @@ f32 cos_table_lookup(s32);
 extern const f32 lbl_805DA66C;
 extern const f32 lbl_805DA6B4;
 extern const f32 lbl_805DA758;
-s32 try_spawn_child__15TObjEneSlimeOneFiPv(int arg0, void *arg1);
 extern const f32 lbl_805DA6AC;
 s32 TObjEneSlimeOne__sub_800EAD84(Obj_800EAD84 *arg0);
 void TObjPlayer__sub_800EBE48(f32 farg0);
@@ -1870,7 +1869,7 @@ void TObjEneSlimeOne::vfunc_62() {
     u8 *arg0 = (u8 *)this;
     if ((s32) this->m_384 != 0xC) {
         if (((s32) this->m_2d4 < (s32) lbl_805D586C) && (((u32 (*)(void))get_player_by_client_id)() != 0U) && (check_player_field_7cc__15TObjEneSlimeOneFv() == 2) && ((u32) this->m_3f0 != 0U) && (((TObject *)((void *) this->m_3f0))->all_parents_unqueued_for_destruction() != 0)) {
-            try_spawn_child__15TObjEneSlimeOneFiPv(this->m_3f0, (u8 *)&this->position);
+            ((TObjEneSlimeOne *)(this->m_3f0))->try_spawn_child((u8 *)&this->position);
         }
         this->actorFlags = (s32) (this->actorFlags & 0xFFFFFDFF);
         ((TObjEneSlimeOne *)arg0)->set_state((s32)((void*)(0xC)));
@@ -2117,12 +2116,13 @@ s32 TObjEneSlimeOne::create(s32 arg0, s32 arg1) {
     }
     return var_r31;
 }
-s32 try_spawn_child__15TObjEneSlimeOneFiPv(int origin, void *arg1) {
+s32 TObjEneSlimeOne::try_spawn_child(void *arg1) {
     s32 i;
     Vec_800EB654 pos;
     Vec_800EB654 dir;
     s32 ang;
     s32 n;
+    int origin = (int)this;
     n = *(s32 *)((s8 *)origin + 0x3B4);
     for (i = 0; i < n && *(s32 *)((s8 *)((u8 *) origin + i * 8) + 0x3B8) != 0; i++) {
     }

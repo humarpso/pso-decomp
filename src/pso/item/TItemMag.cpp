@@ -161,7 +161,6 @@ u8 get_slot_count__5TItemFv();
 void *lookup_item_pmt_record(u8 *item);
 void try_add_action__8TItemMagFii(s32 arg0, s32 arg1);
 void TItemMag__vt40(TItemMag_80110B94 *self);
-void register_photon_blasts__8TItemMagFPv(u8 *arg0);
 void tick_fullness_timer__8TItemMagFPv(O_80110F04 *self);
 u8 mag_owner_has_motion_action(void *arg0);
 s32 mag_owner_freezes_follow(void *arg0);
@@ -403,9 +402,10 @@ void TItemMag::copy_owner_data() {
     }
 }
 
-void register_photon_blasts__8TItemMagFPv(u8 *arg0) {
+void TItemMag::register_photon_blasts() {
     s32 i;
     s32 slot;
+    u8 *arg0 = (u8 *)this;
     assign_default_photon_blast_palette_slots((u8 *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x500));
     slot = 0;
     do {
@@ -990,7 +990,7 @@ void TItemMag::apply_form_change() {
         ((VObj_18_8b050c *)(arg0))->m45();
         *(s32 *)&this->m_18c = (s32) (*(s32 *)&this->m_18c | 0x40);
         ((VObj_18_8b050c *)(arg0))->m44();
-        ((s32 (*)(void *))register_photon_blasts__8TItemMagFPv)(arg0);
+        ((TItemMag *)arg0)->register_photon_blasts();
     }
     if (((TItemEquipBase *)arg0)->get_flag_40() == 0) {
         play_sound_effect(0x4000B20A, (int) (*(s32 *)&this->m_f0 + 0x38), 0, 0);
@@ -1531,7 +1531,7 @@ void serialize_mag__9TItemDataFPvPv(void *, const void *);
 s32 request_model_load__14TItemEquipBaseFl(s32, u8);
 void *__dt__14TItemEquipBaseFv(void *arg0, s16 arg1);
 s32 *__dt__9TItemLoadFPvs(s32 *arg0, s16 arg1);
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
+void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
 int fn_800F953C(void*);
 
 void TItemMag::update() {
@@ -1693,7 +1693,7 @@ void TItemMag__vt42(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x18C) = 0;
     if (((s32 (*)(void *))obj_isState2_324__13TUnk_804806E8Fv)((void *) (*(u8 **)((s8 *)arg0 + 0xF0))) == 0) {
         *(s32 *)((s8 *)arg0 + 0x18C) = 0x10;
-        ((s32 (*)(void *))register_photon_blasts__8TItemMagFPv)(arg0);
+        ((TItemMag *)arg0)->register_photon_blasts();
     }
     ((TItemMag *)arg0)->request_support_action(1);
     *(s16 *)((s8 *)arg0 + 0x1D4) = ((VObj_18 *)(*(u8 **)((s8 *)arg0 + 0xF0)))->m14();
@@ -1842,7 +1842,7 @@ extern "C" {
 
 }
 void TItemMagSub::set_node_id(s32 index, s32 id) { node_ids[index] = id; }
-void TItemMagSub::set_material_node(s32 node, void* parameters) { node_ids[0] = node; if (parameters != 0) copy_vec4__13TRaderMapCoreFPvPv(material_parameters, parameters); }
+void TItemMagSub::set_material_node(s32 node, void* parameters) { node_ids[0] = node; if (parameters != 0) copy_vec4__13TRaderMapCoreFPv(material_parameters, parameters); }
 
 }
 void TItemMagSub::set_model(void* model_arg, u32 textures_arg, void* animation_arg) {

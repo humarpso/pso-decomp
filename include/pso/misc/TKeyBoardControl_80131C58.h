@@ -14,7 +14,7 @@ void TKeyBoardControl__sub_801327DC(s32 arg0, u8 chan);
 u8 get_key_state__16TKeyBoardControlFPv(void *p);
 bool is_key_57_pressed__16TKeyBoardControlFi(s32 arg0);
 void render__16TKeyBoardControlFv(void);
-void reset_inactive_keys__16TKeyBoardControlFi(s32 arg0);
+void reset_inactive_keys__16TKeyBoardControlFv(s32 arg0);
 void reset_state__16TKeyBoardControlFi(s32 arg0);
 void run_task__16TKeyBoardControlFv(TKeyBoardControl *arg0);
 }

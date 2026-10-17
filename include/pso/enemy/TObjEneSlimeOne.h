@@ -50,6 +50,7 @@ struct TObjEneSlimeOne : public TObjEnemy {
     static s32 create(s32 arg0, s32 arg1, s32 arg2);
     static s32 create(s32 arg0, s32 arg1);
     void set_state(s32 arg1);
+    s32 try_spawn_child(void *arg1);
 };
 
 typedef char TObjEneSlimeOne_size[sizeof(TObjEneSlimeOne) == 0x3F4 ? 1 : -1];

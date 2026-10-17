@@ -54,6 +54,12 @@ struct TObjEneMe3Stelth : public TObjEneDD_ST {
     static void free_shared_resources();
     int create_real();
     static void load_shared_resources();
+    void handle_breakup_state(s32 arg1);
+    void update_state_resta_cast(s32 arg1);
+    void state_chase_target(s32 arg1);
+    void update_state_drop(s32 arg1);
+    void update_state_fade_in(s32 arg1);
+    void state_chase(s32 arg1);
 };
 
 #endif

@@ -1210,7 +1210,7 @@ void *create_ch_time_win(void *arg0);
 void TLobby__sub_802933FC(void *arg0);
 void setup_split_screen(void);
 int TAdPlayerLoadGC__sub_801E1510(void);
-u8 *create_new_floor_windows__6TLobbyFi(s32 arg0);
+u8 *create_new_floor_windows__6TLobbyFv(s32 arg0);
 #define set_split_screen_name__6TLobbyFi ((s32 (*)(void *))set_split_screen_name__6TLobbyFi)
 s32 export_character_data__10TObjPlayerFPvPv(u32, u32);
 #define create_challenge4p__6TLobbyFv ((u32 (*)())create_challenge4p__6TLobbyFv)
@@ -1301,7 +1301,7 @@ void TLobby::spawn_player_tombstones2() {
 void TLobby::create_time_window2(void * _w0) {
     TLobby::spawn_player_tombstones2();
     create_ch_time_win((void *)tl_07);
-    create_new_floor_windows__6TLobbyFi(tl_07);
+    create_new_floor_windows__6TLobbyFv(tl_07);
     if ((s32) *(s32 *)((s8 *)lbl_804DB1F0 + 0x30) == 0) {
         TObjSoloPlayWin::create((TObject*)tl_07);
     }

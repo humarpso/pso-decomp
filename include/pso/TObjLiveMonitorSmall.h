@@ -8,6 +8,8 @@ public:
     virtual ~TObjLiveMonitorSmall();
     virtual void run_task();
     virtual void render();
+public:
+    s32 spawn_for_each_fish();
 };
 
 #endif

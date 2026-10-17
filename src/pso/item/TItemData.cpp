@@ -114,13 +114,11 @@ void add_shield_stat_contribution__9TItemDataFPviiPv(u8 *self, s32 player, s32 u
 s16 get_field6_bswap__9TItemDataFPv(void *arg0);
 void apply_unit_stat_bonus__9TItemDataFPviiPvPvPv(void *self, s32 arg1, s32 arg2, void *res, Stats_8010BEC4 *st, Stats2_8010BEC4 *st2);
 void apply_bonuses(u8 *item, s32 arg1, u8 *a, u8 *b, Stats_8010BA9C *st);
-u16 get_packed_value__9TItemDataFPv(void *arg0);
 s32 is_usable__9TItemDataFPv(void *arg0);
 s32 is_custom_name_srank__9TItemDataFPv(u8 *arg0);
 void serialize_mag__9TItemDataFPvPv(Item_8010D510 *item, const Mag_8010D510 *mag);
 void init__9TItemDataFv(TItemData_8010E344 *self);
 s32 memset(s8 *, s32, s32);
-void decode_packed_name_chars__9TItemDataFPvPv(u8 *self, s8 *out);
 }
 #define get_set_bonus_multiplier__9TItemDataFPvi ((f32 (*)(void *, s32))get_set_bonus_multiplier__9TItemDataFPvi)
 #define lookup_item_pmt_record ((Parm_8010C1E0 * (*)(void *))lookup_item_pmt_record)
@@ -513,9 +511,9 @@ void TItemData::set_packed_value(u16 arg1) {
     *(u8 *)((s8 *)this + 0xA) = (u8) (*(u8 *)((s8 *)this + 0xA) | 0x80);
 }
 
-u16 get_packed_value__9TItemDataFPv(void *arg0) {
+u16 TItemData::get_packed_value() {
     if (is_usable__9TItemDataFPv() != 0) {
-        return (u16) (((*(u8 *)((s8 *)arg0 + 0xA) << 8) & 0x7F00) | *(u8 *)((s8 *)arg0 + 0xB));
+        return (u16) (((*(u8 *)((s8 *)this + 0xA) << 8) & 0x7F00) | *(u8 *)((s8 *)this + 0xB));
     }
     return 0U;
 }
@@ -692,7 +690,7 @@ s8 TItemData::char_to_letter_index(void *self, s8 c) {
     return r;
 }
 
-void decode_packed_name_chars__9TItemDataFPvPv(u8 *self, s8 *out) {
+void TItemData::decode_packed_name_chars(s8 *out) {
   u16 h;
   s8 *p;
   s32 i;
@@ -702,13 +700,13 @@ void decode_packed_name_chars__9TItemDataFPvPv(u8 *self, s8 *out) {
     i = 0;
     do
     {
-      u8 *q = &self[i * 2];
+      u8 *q = &((u8 *)this)[i * 2];
       u8 hi = q[6] & 0xFFFFFFFFFFFFFFFFu;
       u8 lo = q[7];
       h = lo | ((hi << 8) & 0x7F00);
-      p[0] = ((s8 (*)(void *, s8)) TItemData__sub_8010CAB0)(self, (h >> 10) & 0x3F);
-      p[1] = ((s8 (*)(void *, s8)) TItemData__sub_8010CAB0)(self, (h >> 5) & 0x1F);
-      p[2] = ((s8 (*)(void *, s8)) TItemData__sub_8010CAB0)(self, h & 0x1F);
+      p[0] = ((s8 (*)(void *, s8)) TItemData__sub_8010CAB0)(((u8 *)this), (h >> 10) & 0x3F);
+      p[1] = ((s8 (*)(void *, s8)) TItemData__sub_8010CAB0)(((u8 *)this), (h >> 5) & 0x1F);
+      p[2] = ((s8 (*)(void *, s8)) TItemData__sub_8010CAB0)(((u8 *)this), h & 0x1F);
       i++;
       p += 3;
     }
@@ -1707,7 +1705,7 @@ s32 format_item_description(u8 *item) {
             }
         }
         if (format != NULL) {
-            sprintf(out, format, get_packed_value__9TItemDataFPv(item));
+            sprintf(out, format, ((TItemData *)item)->get_packed_value());
         }
     return (s32)out;
     }
@@ -1746,7 +1744,7 @@ void TItemData::format_item_name(char *buf) {
     if (t == 0) {
         if (is_custom_name_srank__9TItemDataFPv(arg0) != 0) {
             memset(tmp, 0, 10);
-            decode_packed_name_chars__9TItemDataFPvPv(arg0, tmp);
+            ((TItemData *)arg0)->decode_packed_name_chars(tmp);
             if (tmp[0] - 0x41 == 1) {
                 if (item->grind != 0) {
                     sprintf(buf, lbl_8043E360, &tmp[1], item->grind);

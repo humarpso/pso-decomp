@@ -58,7 +58,6 @@ s32 __nw__7TObjectFUl(s32);
 extern s32 tl_loc_start;
 extern s32 tl_loc_end;
 extern s32 tl_window;
-void reset_and_spawn_cursors__13TLockOnCursorFi(s32 arg0);
 s32 is_split_screen();
 s32 get_split_screen_view_index__11TCameraCtrlFUs(void *);
 s32 get_mode__11TCameraCtrlFPv(void *);
@@ -129,11 +128,12 @@ void TLockOnCursor::run_task() {
     TLockOnCursor__sub_8013EB80((void *)(arg0 + 0x520));
 }
 
-void reset_and_spawn_cursors__13TLockOnCursorFi(s32 arg0) {
+void TLockOnCursor::reset_and_spawn_cursors() {
     s32 var_r31_2;
     s32 var_r31_3;
     s32 var_r31_4;
     s32 i;
+    s32 arg0 = (s32)this;
     ((TObjPlayer *)(arg0 + 0x1C))->clear_id();
     for (i = 0; i < 4; i++) {
         ((TMainCursor *)((s32)&((Cur_8013DAB0 *)arg0)->arr[i]))->reset_state();

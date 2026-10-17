@@ -117,7 +117,7 @@ void TObjPlayer::alloc_and_run_object() {
 
     o = alloc__23TAdSinglePlyChrSelectGCFv(0xB4);
     if (o != NULL) {
-        o = (void *)run_and_return_arg__10TObjPlayerFi((s32)o);
+        o = (void *)TObjPlayer::run_and_return_arg((s32)o);
     }
     (*(void **)&player_item_id_list) = o;
 }
@@ -129,7 +129,7 @@ void TUnk_804F2A10::render() {
     lbl_805D5660 = model_render_flags;
     lbl_805D5664 = chunk_polygon_flags_and_mask;
     lbl_805D5668 = chunk_polygon_flags_or_mask;
-    copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, model_material_color);
+    copy_vec4__13TRaderMapCoreFPv(saved_model_draw_color, model_material_color);
     n = *(s32 *)(lbl_805D6FB8 + 0xB0);
     p = (s32 *)(lbl_805D6FB8 + 0x30);
     while (n != 0) {
@@ -138,14 +138,14 @@ void TUnk_804F2A10::render() {
             set_depth_buffer_settings_id(1);
             obj->m26();
             TObjPlayer::reset_transform_state();
-            copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
+            copy_vec4__13TRaderMapCoreFPv(model_material_color, saved_model_draw_color);
             chunk_polygon_flags_and_mask = lbl_805D5664;
             chunk_polygon_flags_or_mask = lbl_805D5668;
             model_render_flags = lbl_805D5660;
             set_depth_buffer_settings_id(2);
             obj->m26();
             TObjPlayer::reset_transform_state();
-            copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
+            copy_vec4__13TRaderMapCoreFPv(model_material_color, saved_model_draw_color);
             chunk_polygon_flags_and_mask = lbl_805D5664;
             chunk_polygon_flags_or_mask = lbl_805D5668;
             model_render_flags = lbl_805D5660;
@@ -193,7 +193,7 @@ void TObjPlayer::push_id_to_list(s32 arg0) {
     if ((s32) *(s32 *)((s8 *)(*(void **)&lbl_805D6FB8) + 0xB0) == 0) {
         reset_id_array__10TObjPlayerFPv((*(void **)&lbl_805D6FB8));
     }
-    push_to_list__10TObjPlayerFPvi((u8 *)(*(void **)&lbl_805D6FB8), arg0);
+    ((TObjPlayer *)(*(void **)&lbl_805D6FB8))->push_to_list(arg0);
 }
 
 }
@@ -255,28 +255,28 @@ void TObjPlayer::set_model_fade_alpha(f32 farg0) {
 }
 
 void TObjPlayer::copy_gauge_warn_vec() {
-    copy_vec4__13TRaderMapCoreFPvPv((&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color).value), (void *)((*(s32 *)&(*(void **)&lbl_805D6FB8)) + 0x1C));
+    copy_vec4__13TRaderMapCoreFPv((&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color).value), (void *)((*(s32 *)&(*(void **)&lbl_805D6FB8)) + 0x1C));
 }
 typedef char RecoveredGlobal_8036414C_lbl_8058D4C0_size[sizeof(RecoveredGlobal_8036414C_lbl_8058D4C0) == 0x10 ? 1 : -1];
 
 typedef char RecoveredGlobal_803640F8_lbl_8058D4C0_size[sizeof(RecoveredGlobal_803640F8_lbl_8058D4C0) == 0x10 ? 1 : -1];
 void TObjPlayer::push_model_fade_color() {
-    copy_vec4__13TRaderMapCoreFPvPv((void *)((*(s32 *)&(*(void **)&lbl_805D6FB8)) + 0x1C), (&(*(RecoveredGlobal_803640F8_lbl_8058D4C0 *)&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)).value));
+    copy_vec4__13TRaderMapCoreFPv((void *)((*(s32 *)&(*(void **)&lbl_805D6FB8)) + 0x1C), (&(*(RecoveredGlobal_803640F8_lbl_8058D4C0 *)&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)).value));
     if (this != NULL) {
-        copy_vec4__13TRaderMapCoreFPvPv((&(*(RecoveredGlobal_803640F8_lbl_8058D4C0 *)&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)).value), (this));
+        copy_vec4__13TRaderMapCoreFPv((&(*(RecoveredGlobal_803640F8_lbl_8058D4C0 *)&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)).value), (this));
     }
 }
 
 void TObjPlayer__sub_8036414C(void) {
     model_render_flags = *(s32 *)((s8 *)(*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 0);
-    copy_vec4__13TRaderMapCoreFPvPv((&(*(RecoveredGlobal_8036414C_lbl_8058D4C0 *)&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)).value), ((*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 0xC));
+    copy_vec4__13TRaderMapCoreFPv((&(*(RecoveredGlobal_8036414C_lbl_8058D4C0 *)&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)).value), ((*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 0xC));
     chunk_polygon_flags_and_mask = *(s32 *)((s8 *)(*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 4);
     chunk_polygon_flags_or_mask = *(s32 *)((s8 *)(*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 8);
 }
 typedef char RecoveredGlobal_80364198_lbl_8058D4C0_size[sizeof(RecoveredGlobal_80364198_lbl_8058D4C0) == 0x10 ? 1 : -1];
 void TObjPlayer__sub_80364198(void) {
     *(s32 *)((s8 *)(*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 0) = (s32) model_render_flags;
-    copy_vec4__13TRaderMapCoreFPvPv(((*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 0xC), (&(*(RecoveredGlobal_80364198_lbl_8058D4C0 *)&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)).value));
+    copy_vec4__13TRaderMapCoreFPv(((*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 0xC), (&(*(RecoveredGlobal_80364198_lbl_8058D4C0 *)&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)).value));
     *(s32 *)((s8 *)(*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 4) = (s32) chunk_polygon_flags_and_mask;
     *(s32 *)((s8 *)(*(u8 * *)&(*(void **)&lbl_805D6FB8)) + 8) = (s32) chunk_polygon_flags_or_mask;
 }
@@ -295,7 +295,7 @@ void TObjPlayer::alloc_and_init_object_b4() {
 
     o = alloc__23TAdSinglePlyChrSelectGCFv(0xB4);
     if (o != NULL) {
-        o = (void *)run_and_return_arg__10TObjPlayerFi((s32)o);
+        o = (void *)TObjPlayer::run_and_return_arg((s32)o);
     }
     (*(void **)&lbl_805D6FB8) = o;
 }
@@ -306,13 +306,13 @@ struct Elt80364258_80364258 { s32 f0; };
 
 extern "C" {
 
-void push_to_list__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
+void TObjPlayer::push_to_list(s32 arg1) {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xB0);
+    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0xB0);
     if (temp_r0 < 0x20) {
-        ((struct Elt80364258_80364258 *)(arg0 + 0x30))[temp_r0].f0 = arg1;
-        *(s32 *)((s8 *)arg0 + 0xB0) = (s32) (*(s32 *)((s8 *)arg0 + 0xB0) + 1);
+        ((struct Elt80364258_80364258 *)(((u8 *)this) + 0x30))[temp_r0].f0 = arg1;
+        *(s32 *)((s8 *)((u8 *)this) + 0xB0) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0xB0) + 1);
     }
 }
 
@@ -327,7 +327,7 @@ void reset_id_array__10TObjPlayerFPv(void *arg0) {
 
 #define reset_id_array__10TObjPlayerFPv ((s32 (*)(void))reset_id_array__10TObjPlayerFPv)
 
-s32 run_and_return_arg__10TObjPlayerFi(s32 arg0) {
+s32 TObjPlayer::run_and_return_arg(s32 arg0) {
     reset_id_array__10TObjPlayerFPv();
     return arg0;
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
@@ -22,7 +23,6 @@ int get_player_data__10TObjPlayerFi(int a0);
 u16 obj_getField1c(void*);
 void TObjPlayer__sub_80042ED0(P_80042ED0*,s32,s32);
 void fn_80044330(void*);
-void cast_tech_on_players__10TObjPlayerFPv(u8*);
 s32 play_sound_effect(s32,s32,s32,s32);
 void* __nw__7TObjectFUl(u32);
 s32 subtract_vector(void*,void*);
@@ -33,7 +33,6 @@ void push_nearby_players__10TObjPlayerFPv(Obj_80042DE8*);
 s32 obj_testFlags30__13TUnk_804AF8A0FUl(void*,s32);
 s32 update_if_active__15TObjEneMe1GiGueFl(void*,s32);
 s32 update_pulse_scale__15TBoss3VoloptP01FPv(S_8004301C*);
-s32 fire_zonde_at_players__10TObjPlayerFPv(u8*);
 void sub_80043758__15TBoss3VoloptP01Fv(u8*);
 void reset_look_state__11TCameraCtrlFv(void*);
 s32 advance_animation_playback(void*);
@@ -72,8 +71,8 @@ extern "C" {
 u16 obj_getField1c(void *);
 extern s32 volopt_active_player_id;
 extern s32 lbl_805D586C;
-void cast_tech_on_players__10TObjPlayerFPv(u8 *arg0);
-void cast_tech_on_players__10TObjPlayerFPv(u8 *arg0) {
+void TObjPlayer::cast_tech_on_players() {
+    u8 *arg0 = (u8 *)this;
     s32 sp8;
     s32 n;
     s32 i;
@@ -165,7 +164,7 @@ extern S_80042B34 lbl_8043663C[];
 extern u16 lbl_805D271A;
 extern s32 tl_07;
 
-s32 fire_zonde_at_players__10TObjPlayerFPv(u8 *arg0) {
+s32 TObjPlayer::fire_zonde_at_players() {
     u8 *list[4];
     Vec_80042B34 pos;
     Vec_80042B34 d;
@@ -180,7 +179,7 @@ s32 fire_zonde_at_players__10TObjPlayerFPv(u8 *arg0) {
     void *obj;
     S_80042B34 s = lbl_8043663C[0];
 
-    s.b = fn_800443DC(arg0, 0);
+    s.b = fn_800443DC(((u8 *)this), 0);
     n = 0;
     for (i = 0; i < lbl_805D586C; i++) {
         p = (u8 *)get_player_data__10TObjPlayerFi(i);
@@ -193,7 +192,7 @@ s32 fire_zonde_at_players__10TObjPlayerFPv(u8 *arg0) {
         }
     }
     if (n > 0) {
-        TObjPlayer__sub_80042ED0(arg0, 0xC, &pos);
+        TObjPlayer__sub_80042ED0(((u8 *)this), 0xC, &pos);
         for (j = 0; j < n; j++) {
             q = list[j];
             src = (Vec_80042B34 *)(q + 0x2FC);
@@ -207,7 +206,7 @@ s32 fire_zonde_at_players__10TObjPlayerFPv(u8 *arg0) {
             VecCopy((Vec *)&pos, (const Vec *)src);
             {
                 S_80042B34 t = s;
-                ((VObj_18_b27ba1 *)q)->m21(arg0, &t, 0, -1, -1);
+                ((VObj_18_b27ba1 *)q)->m21(((u8 *)this), &t, 0, -1, -1);
             }
         }
         e = (u8 *)find_entity_by_id(lbl_805D271A);
@@ -222,7 +221,7 @@ s32 fire_zonde_at_players__10TObjPlayerFPv(u8 *arg0) {
             if (TBoss3Volopt__sub_80040FCC(e) != 0) {
                 Pkt_80042B34 pkt;
                 ((TBoss3Volopt *)(&pkt))->set_type();
-                pkt.id = *(u16 *)((s8 *)arg0 + 0x1C);
+                pkt.id = *(u16 *)((s8 *)((u8 *)this) + 0x1C);
                 pkt.kind = 2;
                 ((TBoss3Volopt *)(&pkt))->finalize_and_send_60();
             }
@@ -505,7 +504,7 @@ s32 dispatch_shared_handler_b__6TLobbyFl(s32);
 s32 register_boss__6TLobbyFl(s32);
 int TBoss3Volopt__sub_8003F398(void);
 s32 link_photon__10TObjPlayerFUs(u16, s32);
-s32 copy_position__20TBoss3VoloptHiraisinFi(void *, int, f32, f32);
+s32 copy_position__20TBoss3VoloptHiraisinFv(void *, int, f32, f32);
 void TBoss3VoloptP01__sub_80042F84(u8 *arg0);
 s32 TBoss3VoloptP01__sub_80042FCC(u8 *arg0);
 void reset_state__15TBoss3VoloptP01FPv(TBoss3VoloptP01 *arg0);
@@ -862,9 +861,9 @@ void TBoss3VoloptP01__sub_800430D0(void *arg0_) {
     case 7:
         if (F430D0(s32, 0x3A8) != 0) {
             if (TBoss3Volopt__sub_8003F398() != 0) {
-                cast_tech_on_players__10TObjPlayerFPv(arg0);
+                ((TObjPlayer *)arg0)->cast_tech_on_players();
             } else {
-                fire_zonde_at_players__10TObjPlayerFPv(arg0);
+                ((TObjPlayer *)arg0)->fire_zonde_at_players();
             }
             F430D0(s16, 0x39C)++;
         }
@@ -1227,7 +1226,7 @@ void run_task__15TBoss3VoloptP01Fv(TBoss3VoloptP01 *arg0) {
         arg0->m_300 = (f32) (temp_f2 + ((18.0f) + *(f32 *)((s8 *)arg0 + 0x38C)));
         temp_r4 = (unsigned char *) (arg0->m_a4);
         *(f32 *)((s8 *)temp_r4 + 4) = (f32) ((18.0f) + *(f32 *)((s8 *)arg0 + 0x38C));
-        copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0), (int) (temp_r4), (f32) ((18.0f)), (f32) (temp_f2));
+        copy_position__20TBoss3VoloptHiraisinFv((void *) (arg0), (int) (temp_r4), (f32) ((18.0f)), (f32) (temp_f2));
         temp_r4_2 = arg0->m_3b4;
         arg0->m_3b4 = (s32) (temp_r4_2 + 0x400);
         ((VObj_18 *)(arg0))->m53(temp_r4_2);

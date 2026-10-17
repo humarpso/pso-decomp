@@ -78,37 +78,37 @@ void TObjPlayer::apply_effect_variant_b(s32 point, s32 delay) {
 extern const f32 lbl_805DA3C4;
 
 void TObjPlayer__sub_800D9290(s32 point, s32 delay) {
-    spawn_dead_spot__10TObjPlayerFiiif(point, 1, delay, lbl_805DA3C4);
+    TObjPlayer::spawn_dead_spot(point, 1, delay, lbl_805DA3C4);
 }
 
 void TObjPlayer__sub_800D92BC(s32 point, s32 delay) {
-    spawn_dead_spot__10TObjPlayerFiiif(point, 1, delay, lbl_805DA3C8);
+    TObjPlayer::spawn_dead_spot(point, 1, delay, lbl_805DA3C8);
 }
 
 void TObjPlayer::spawn_dead_spot_default(s32 point, s32 delay) {
-    spawn_dead_spot__10TObjPlayerFiiif(point, 1, delay, lbl_805DA3CC);
+    TObjPlayer::spawn_dead_spot(point, 1, delay, lbl_805DA3CC);
 }
 
 extern const f32 lbl_805DA3D0;
 
 void TObjPlayer::spawn_dead_spot_here(s32 point, s32 delay) {
-    spawn_dead_spot__10TObjPlayerFiiif(point, 1, delay, lbl_805DA3D0);
+    TObjPlayer::spawn_dead_spot(point, 1, delay, lbl_805DA3D0);
 }
 
 void spawn_landing_dead_spot(s32 point, s32 delay) {
-    spawn_dead_spot__10TObjPlayerFiiif(point, 2, delay, lbl_805DA3C4);
+    TObjPlayer::spawn_dead_spot(point, 2, delay, lbl_805DA3C4);
 }
 
 void TObjPlayer::spawn_dead_spot_type2(s32 point, s32 delay) {
-    spawn_dead_spot__10TObjPlayerFiiif(point, 2, delay, lbl_805DA3C8);
+    TObjPlayer::spawn_dead_spot(point, 2, delay, lbl_805DA3C8);
 }
 
 void spawn_dead_spot_scale15(s32 point, s32 delay) {
-    spawn_dead_spot__10TObjPlayerFiiif(point, 2, delay, lbl_805DA3CC);
+    TObjPlayer::spawn_dead_spot(point, 2, delay, lbl_805DA3CC);
 }
 
 void TObjPlayer__sub_800D93C4(s32 point, s32 delay) {
-    spawn_dead_spot__10TObjPlayerFiiif(point, 2, delay, lbl_805DA3D0);
+    TObjPlayer::spawn_dead_spot(point, 2, delay, lbl_805DA3D0);
 }
 
 #define __nw__7TObjectFUl ((void * (*)(s32))__nw__7TObjectFUl)
@@ -124,7 +124,7 @@ void TObjPlayer__sub_800D93F0(s32 point, s32 selector, s32 delay, f32 farg0) {
     }
 }
 
-void spawn_dead_spot__10TObjPlayerFiiif(s32 point, s32 selector, s32 delay, f32 farg0) {
+void TObjPlayer::spawn_dead_spot(s32 point, s32 selector, s32 delay, f32 farg0) {
     void *obj = __nw__7TObjectFUl(0xC8);
     if (obj != NULL) {
         __ct__9TDeadSpotFv(obj, tl_05, point, *(s32 *)((s8 *)(*(void **)((s8 *)player_corpse_mark_resource + 0x42C)) + 0xC), selector, delay, farg0);

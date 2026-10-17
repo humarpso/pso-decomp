@@ -319,7 +319,7 @@ extern s32 lbl_805D514C;
 extern s32 TObjGrass__render_node_index;
 extern u32 lbl_805D5158;
 extern u32 lbl_805D515C;
-s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
+s32 copy_position__20TBoss3VoloptHiraisinFv(void *);
 void TObjGrass__sub_800BCA2C(void *);
 s32 submit_cursor_candidate(void *, int);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
@@ -1702,7 +1702,7 @@ void TObjGrass::run_task() {
         this->target = NULL;
     }
     ((TObjEnemy *)arg0)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFi(arg0);
+    copy_position__20TBoss3VoloptHiraisinFv(arg0);
     submit_cursor_candidate(arg0, -1);
     this->m_2b4 += (1.0f);
 }
@@ -1835,7 +1835,7 @@ u8 *TObjGrass__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(u8 **)((s8 *)arg0 + 0x350) = (u8 *)&((E1C_800BF924 *)lbl_804929E4)[*(s32 *)((s8 *)arg0 + 0x368)];
     *(s16 *)((s8 *)arg0 + 0x33E) = *(s16 *)((s8 *)arg0 + 0x32C);
     ((TObjEnemy *)arg0)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFi(arg0);
+    copy_position__20TBoss3VoloptHiraisinFv(arg0);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(f32 *)((s8 *)arg0 + 0x398) = (0.0f);
     *(s16 *)((s8 *)arg0 + 0x326) = 0;

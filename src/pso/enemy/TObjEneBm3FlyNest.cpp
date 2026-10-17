@@ -742,7 +742,7 @@ s32 get_camera_mode__11TCameraCtrlFv();
 s32 get_flag_b4__9TObjEneDDFv(void *);
 void rotate_xz_pair_by_angle(f32 *arg0, f32 *arg1, s32 arg2);
 void *spawn_particle_effect(void *pos, s32 id);
-u16 get_active_id__13TObjEneBm3FlyFPv(void *);
+u16 get_active_id__13TObjEneBm3FlyFv(void *);
 void render_with_state_debug__17TObjEneBm3FlyNestFv(u8 *arg0);
 void render__17TObjEneBm3FlyNestFv(u8 *arg0);
 void handle_attachment_sample__17TObjEneBm3FlyNestFi(s32 arg0);
@@ -1226,7 +1226,7 @@ s32 TObjEneBm3FlyNest::has_free_attack_slot(u16 id) {
     s32 i;
     for (i = 0; i < self->count; i++) {
         u8 *p = (u8 *)find_entity_by_id(self->ids[i]);
-        if (p != 0 && id == get_active_id__13TObjEneBm3FlyFPv(p)) {
+        if (p != 0 && id == get_active_id__13TObjEneBm3FlyFv(p)) {
             n++;
         }
     }

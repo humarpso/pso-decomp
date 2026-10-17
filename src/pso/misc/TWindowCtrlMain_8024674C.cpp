@@ -82,7 +82,7 @@ int TWindowFukidasi__sub_8024695C(void* p) { return (*(u32*)((char*)p + 0x2c) >>
 int TWindowFukidasi::get_visible_flag() { return (*(u32*)((char*)this + 0x2c) >> 9) & 0x1; }
 
 int TWindowFukidasi::is_bit10_set() { return (*(u32*)((char*)this + 0x2c) >> 10) & 0x1; }
-void update_entry_visibility__20TWindowSubStatusDispFi(s32 arg0) {
+void TWindowSubStatusDisp::update_entry_visibility() {
     u32 temp_r31;
     u32 temp_r30;
     u32 temp_r29;
@@ -91,6 +91,7 @@ void update_entry_visibility__20TWindowSubStatusDispFi(s32 arg0) {
     u32 temp_r26;
     u32 temp_r25;
     u32 temp_r24;
+    s32 arg0 = (s32)this;
     temp_r31 = ((TUnk_804CE018 *)arg0)->get_array_entry(7);
     temp_r30 = ((TUnk_804CE018 *)arg0)->get_array_entry(6);
     temp_r29 = ((TUnk_804CE018 *)arg0)->get_array_entry(5);

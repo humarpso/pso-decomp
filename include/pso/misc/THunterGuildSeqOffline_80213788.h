@@ -14,7 +14,7 @@ u8 *__dt__28THunterGuildSeqOnline_ClientFv(u8 *arg0, s16 arg1);
 u8 *__dt__28THunterGuildSeqOnline_ServerFv(u8 *arg0, s16 arg1);
 void clear_slot_flags__22THunterGuildSeqOfflineFv(void);
 void clear_slots__22THunterGuildSeqOfflineFv(void);
-void confirm_and_close_if_valid__15TShopWindowBaseFPv(void *arg0);
+void confirm_and_close_if_valid__15TShopWindowBaseFv(void *arg0);
 void create_judgment_item_window__15TShopWindowBaseFPv(void *arg0);
 void fn_80214254(u8 *arg0);
 void handle_close__22THunterGuildSeqOfflineFPv(void *arg0);

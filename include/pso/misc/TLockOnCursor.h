@@ -51,6 +51,7 @@ struct TLockOnCursor : public TObject {
     void reset_fields();
     u8 unk_524[0x8];
     static s32 dt(s32 arg0, s16 arg1);
+    void reset_and_spawn_cursors();
 };
 
 typedef char TLockOnCursor_size[sizeof(TLockOnCursor) == 0x52C ? 1 : -1];

@@ -1401,7 +1401,6 @@ extern RecoveredGlobal_8002116C_lbl_804FE194 lbl_804FE194;
 extern s32 lbl_805D4B10;
 s32 TBoss1Dragon__sub_80027590(void* object, void* action);
 extern const RecoveredGlobal_80027AAC_lbl_80434EB4 boss1_dragon_ground_impact_params;
-void remap_sequence_after_recovery__12TBoss1DragonFPv(u8 *arg0);
 s32 reload_stats_keep_hp_tp__9TObjEneDDFv(void *, int, int, int);
 extern s32 TBoss1Dragon__data_805D4B00;
 extern s32 TBoss1Dragon__data_805D4B04;
@@ -1426,7 +1425,6 @@ void update_emergence_state__12TBoss1DragonFv(u8 *arg0, u32 arg1);
 void TBoss1Dragon__sub_80023A2C(u8 *arg0, u32 arg1);
 void update_dive_state__12TBoss1DragonFv(u8 *arg0, u32 arg1);
 s32 TBoss1Dragon__sub_80025168(void *, void *);
-void update_air_fire_state__12TBoss1DragonFv(u8 *arg0, u32 arg1);
 void TBoss1Dragon__sub_80026B98(u8 *arg0, u32 arg1);
 void dispatch_action__12TBoss1DragonFiUii(s32 arg0, u32 arg1, s32 arg2);
 void send_6x2F_change_player_hp(s32 arg0, s32 arg1, s32 arg2);
@@ -4117,7 +4115,7 @@ void TBoss1Dragon::update_head_down_attack_state(u32 arg1) {
         break;
     case 9:
         if (((s32) this->impactAge == 2) && (((TObjEneDD *)arg0)->get_flag_b4() != 0)) {
-            remap_sequence_after_recovery__12TBoss1DragonFPv(arg0);
+            ((TBoss1Dragon *)arg0)->remap_sequence_after_recovery();
             return;
         }
         break;
@@ -4188,7 +4186,7 @@ void TBoss1Dragon::update_head_down_attack_state(u32 arg1) {
 #define advance_animation_playback ((s32 (*)(void *))advance_animation_playback)
 #pragma push
 #pragma fp_contract on
-void update_air_fire_state__12TBoss1DragonFv(u8 *arg0, u32 arg1) {
+void TBoss1Dragon::update_air_fire_state(u32 arg1) {
     extern u8 TBoss1Dragon__data_80434E80[0xC];
     Vec_80025710 *tgt;
     f32 dist;
@@ -4196,6 +4194,7 @@ void update_air_fire_state__12TBoss1DragonFv(u8 *arg0, u32 arg1) {
     Vec_80025710 d;
     Vec_80025710 out;
     u8 *obj;
+    u8 *arg0 = (u8 *)this;
 
     tgt = (Vec_80025710 *)(arg0 + 0x890);
     switch (arg1) {
@@ -4926,7 +4925,7 @@ void dispatch_action__12TBoss1DragonFiUii(s32 arg0, u32 arg1, s32 arg2) {
         ((TBoss1Dragon *)arg0)->update_flight_state(arg2);
         return;
     case 7:
-        update_air_fire_state__12TBoss1DragonFv((u8 *)arg0, (u32)arg2);
+        ((TBoss1Dragon *)arg0)->update_air_fire_state((u32)arg2);
         return;
     case 8:
     case 10:
@@ -5638,21 +5637,21 @@ typedef char RecoveredGlobal_8002826C_lbl_80480D00_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8002826C_lbl_80480D48_size[sizeof(RecoveredGlobal_8002826C_lbl_80480D48) == 0x240 ? 1 : -1];
 typedef char RecoveredFields_8002826C_arg0_67C_offset[offsetof(RecoveredFields_8002826C_arg0, field_67C) == 0x67C ? 1 : -1];
 typedef char RecoveredFields_8002826C_arg0_760_offset[offsetof(RecoveredFields_8002826C_arg0, field_760) == 0x760 ? 1 : -1];
-void remap_sequence_after_recovery__12TBoss1DragonFPv(u8 *arg0) {
-    if ((s32) ((RecoveredFields_8002826C_arg0 *)arg0)->field_760 != 0) {
-        next_sequence_action__12TBoss1DragonFv(arg0);
+void TBoss1Dragon::remap_sequence_after_recovery() {
+    if ((s32) ((RecoveredFields_8002826C_arg0 *)((u8 *)this))->field_760 != 0) {
+        next_sequence_action__12TBoss1DragonFv(((u8 *)this));
         return;
     }
-    if (((TBoss1Dragon *)arg0)->update_max_hp_phase() == 0) {
+    if (((TBoss1Dragon *)((u8 *)this))->update_max_hp_phase() == 0) {
         switch (isV2Mode__12TBoss1DragonFv()) {
         case 0:
-            ((RecoveredFields_8002826C_arg0 *)arg0)->field_67C = (s32) *(s32 *)((s8 *)((s32 *)boss1_dragon_sequence_remap_table) + (((RecoveredFields_8002826C_arg0 *)arg0)->field_67C * 4));
+            ((RecoveredFields_8002826C_arg0 *)((u8 *)this))->field_67C = (s32) *(s32 *)((s8 *)((s32 *)boss1_dragon_sequence_remap_table) + (((RecoveredFields_8002826C_arg0 *)((u8 *)this))->field_67C * 4));
             break;
         case 1:
-            ((RecoveredFields_8002826C_arg0 *)arg0)->field_67C = (s32) *(s32 *)((s8 *)((s32 *)lbl_80480D48) + (((RecoveredFields_8002826C_arg0 *)arg0)->field_67C * 4));
+            ((RecoveredFields_8002826C_arg0 *)((u8 *)this))->field_67C = (s32) *(s32 *)((s8 *)((s32 *)lbl_80480D48) + (((RecoveredFields_8002826C_arg0 *)((u8 *)this))->field_67C * 4));
             break;
         }
-        next_sequence_action__12TBoss1DragonFv(arg0);
+        next_sequence_action__12TBoss1DragonFv(((u8 *)this));
     }
 }
 

@@ -58,11 +58,11 @@ extern const f32 lbl_805D5260;
 extern const f32 lbl_805D5268;
 extern s32 lbl_805D5270;
 extern s32 local_client_id;
-void update_homing_shot__10TObjPlayerFPv(Me_800DC9EC *arg0);
-void update_homing_shot__10TObjPlayerFPv(Me_800DC9EC *arg0) {
+void TObjPlayer::update_homing_shot() {
     Vec_800DC9EC dir;
     void *att;
     Obj_800DC4B4 *obj;
+    Me_800DC9EC *arg0 = (Me_800DC9EC *)this;
     att = ((void *(*)(u16))find_entity_by_id)(arg0->attacker);
     if (att == NULL) {
         queue_destruction__7TObjectFv(arg0);

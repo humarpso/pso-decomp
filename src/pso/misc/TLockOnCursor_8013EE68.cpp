@@ -4,14 +4,14 @@
 
 extern "C" {
 
-s32 free_if_valid__14TPlyDispConfigFis(s32 arg0, s16 arg1);
+s32 free_if_valid__14TPlyDispConfigFls(s32 arg0, s16 arg1);
 
 extern s32 lbl_804A7248[];
 
 void *TLockOnCursor::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 * *)&this->m_prev = lbl_804A7248;
-        free_if_valid__14TPlyDispConfigFis((s32)this, 0);
+        free_if_valid__14TPlyDispConfigFls((s32)this, 0);
         if (arg1 > 0) {
             ::operator delete(this);
         }

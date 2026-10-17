@@ -165,6 +165,8 @@ struct TWindowDD
     static s32 lookup_item_category(s32 arg0);
     static s32 draw_default_entry(s32 arg0);
     u8 *construct_base(u8 *arg1, s16 arg2, u8 *arg3);
+    void handle_confirm_input();
+    void update_selection_state();
 };
 
 #include <stddef.h>

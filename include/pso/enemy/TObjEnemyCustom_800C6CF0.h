@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-u16 pick_random_nearby_player__10TObjPlayerFPvf(u8 *arg0, f32 radius);
+u16 pick_random_nearby_player__10TObjPlayerFf(u8 *arg0, f32 radius);
 }
 
 #endif

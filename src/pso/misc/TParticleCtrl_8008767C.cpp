@@ -101,7 +101,7 @@ struct Ctrl_8008767C {
 struct GenEntry_8008767C { s32 id; Gen_8008767C fn; };
 
 extern "C" {
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *, void *);
+s32 copy_vec4__13TRaderMapCoreFPv(void *, void *, void *);
 void set_particle_tint_color(u8 *arg0, void *arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
@@ -567,7 +567,7 @@ void TParticleCtrl::attach_model(s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 far
 
 void set_particle_tint_color(u8 *arg0, void *arg1) {
     *(u16 *)((s8 *)arg0 + 0x24) = (u16) (*(u16 *)((s8 *)arg0 + 0x24) | 0x100);
-    copy_vec4__13TRaderMapCoreFPvPv(arg0 + 0x48, arg1, arg0);
+    copy_vec4__13TRaderMapCoreFPv(arg0 + 0x48, arg1, arg0);
 }
 
 void set_particle_draw_scale(void* p, f32 a, f32 b) { *(f32*)((char*)p + 0xa4) = a; *(f32*)((char*)p + 0xa8) = b; }

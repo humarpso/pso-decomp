@@ -16,6 +16,7 @@ struct TBoss6RockChase : public TUnk_804AF8A0 {
     s32 damage_players_in_range();
     virtual void render();
     virtual void run_task();
+    static s32 spawn(s32 arg0, s32 arg1);
 };
 
 typedef char TBoss6RockChase_size[sizeof(TBoss6RockChase) == 0xC8 ? 1 : -1];
@@ -23,7 +24,7 @@ typedef char TBoss6RockChase_size[sizeof(TBoss6RockChase) == 0xC8 ? 1 : -1];
 extern "C" {
 u8 *TBoss6RockChase__ct(TBoss6RockChase *arg0, s32 arg1, s32 arg2, s32 arg3);
 void *__dt__15TBoss6RockChaseFv(void *arg0, s16 arg1);
-s32 spawn__15TBoss6RockChaseFii(s32 arg0, s32 arg1);
+s32 spawn__15TBoss6RockChaseFll(s32 arg0, s32 arg1);
 }
 
 #endif

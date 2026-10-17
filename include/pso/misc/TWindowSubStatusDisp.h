@@ -179,6 +179,9 @@ struct TWindowSubStatusDisp : public TUnk_804CE018 {
     s32 update_hp_entry();
     static s32 destroy_status_display(s32 arg0, s16 arg1);
     u8 *construct_type1_heading(s32 arg1, s32 arg2);
+    void update_entry_visibility();
+    void update_item_colors(s32 arg1);
+    s32 update_hp_gauge();
 };
 
 typedef char TWindowSubStatusDisp_offset_m_60[(offsetof(TWindowSubStatusDisp, m_60) == 0x60) ? 1 : -1];

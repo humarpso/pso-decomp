@@ -365,7 +365,6 @@ void confirm_area_transfer__12TObjAreaWarpFPvi(u8 *arg0, s32 arg1);
 u8 * __dt__12TObjAreaWarpFv(u8 *arg0, s16 arg1);
 void * TObjAreaWarp__ct(void *arg0);
 u8 * TObjMapWarpForest__ct(u8 *arg0);
-void process_player_warps__11TObjMapWarpFPv(VObj_8019D250 *self);
 s32 can_warp__11TObjMapWarpFlUs(void *, u16);
 void *__dt__11TObjMapWarpFv(void *arg0, s16 arg1);
 s32 TObjMapWarp__ct();
@@ -699,7 +698,7 @@ void TObjMapForceWarp__vt17(Obj_8019B978 *arg0) {
 
 void TObjMapForceWarp::render() {  }
 
-void TObjMapForceWarp::run_task() { ((int (*)(void*))process_player_warps__11TObjMapWarpFPv)(this); }
+void TObjMapForceWarp::run_task() { process_player_warps(); }
 
 void *__dt__16TObjMapForceWarpFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -1312,7 +1311,7 @@ void TObjMapWarpForest::render() {
 void TObjMapWarpForest::run_task() {
     this->frame+=lbl_805DBFDC;
     if((f32)(u32)(this->motion->frameCount-1)<this->frame)this->frame=lbl_805DBFE4;
-    process_player_warps__11TObjMapWarpFPv((VObj_8019D250 *)this);
+    process_player_warps();
 }
 
 u8 *TObjMapWarpForest__ct(u8 *arg0) {
@@ -1360,14 +1359,14 @@ void TObjMapWarp::draw_debug_destinations() {
     }
 }
 
-void process_player_warps__11TObjMapWarpFPv(VObj_8019D250 *self) {
-    Data_8019D250 *d = (Data_8019D250 *)self;
+void TObjMapWarp::process_player_warps() {
+    Data_8019D250 *d = (Data_8019D250 *)((VObj_8019D250 *)this);
     s32 i;
     void *t;
     s32 j;
     if (TRaderMapCore::is_not_split_screen() == 1) {
         for (i = 0; i < 4; i++) {
-            if (can_warp__11TObjMapWarpFlUs(self, i) == 0) {
+            if (can_warp__11TObjMapWarpFlUs(((VObj_8019D250 *)this), i) == 0) {
                 if (d->win[i] != NULL) {
                     TWindow__close(d->win[i]);
                     d->win[i] = NULL;
@@ -1377,24 +1376,24 @@ void process_player_warps__11TObjMapWarpFPv(VObj_8019D250 *self) {
                     ((TQuestVmDownLoadServer *)(d->win[i]))->clear_flag4_bit4();
                     allow_rendering__7TObjectFv((TObject *)d->win[i]);
                 }
-                t = find_warp_player_in_range(self, i, d->fAC);
+                t = find_warp_player_in_range(((VObj_8019D250 *)this), i, d->fAC);
                 if (t != NULL) {
-                    self->m13(obj_getField1c(t));
-                    if (((TObjPlayer *)t)->is_target_valid() != 0 && self->m16(((TRaderMapCore *)t)->get_map_id()) != 0) {
+                    ((VObj_8019D250 *)this)->m13(obj_getField1c(t));
+                    if (((TObjPlayer *)t)->is_target_valid() != 0 && ((VObj_8019D250 *)this)->m16(((TRaderMapCore *)t)->get_map_id()) != 0) {
                         for (j = 0; j < 4; j++) {
-                            if (test_player_body_overlap_at(self, t, &d->ends[j]) == 0) {
+                            if (test_player_body_overlap_at(((VObj_8019D250 *)this), t, &d->ends[j]) == 0) {
                                 send_6x55_intra_map_warp(obj_getField1c(t), &d->ends[j], d->f84);
                             }
                         }
                     }
                 } else {
-                    self->m18(i);
+                    ((VObj_8019D250 *)this)->m18(i);
                 }
             }
         }
         return;
     }
-    if (self->m14() == 0) {
+    if (((VObj_8019D250 *)this)->m14() == 0) {
         if (d->fB0 != NULL) {
             TWindow__close(d->fB0);
             d->fB0 = NULL;
@@ -1406,18 +1405,18 @@ void process_player_warps__11TObjMapWarpFPv(VObj_8019D250 *self) {
             ((TQuestVmDownLoadServer *)(d->fB0))->clear_flag4_bit4();
             allow_rendering__7TObjectFv((TObject *)d->fB0);
         }
-        t2 = find_warp_player_in_range(self, local_client_id, d->fAC);
+        t2 = find_warp_player_in_range(((VObj_8019D250 *)this), local_client_id, d->fAC);
         if (t2 != NULL) {
-            self->m13(local_client_id);
-            if (((TObjPlayer *)t2)->is_target_valid() != 0 && self->m16(((TRaderMapCore *)t2)->get_map_id()) != 0) {
+            ((VObj_8019D250 *)this)->m13(local_client_id);
+            if (((TObjPlayer *)t2)->is_target_valid() != 0 && ((VObj_8019D250 *)this)->m16(((TRaderMapCore *)t2)->get_map_id()) != 0) {
                 for (j2 = 0; j2 < 4; j2++) {
-                    if (test_player_body_overlap_at(self, t2, &d->ends[j2]) == 0) {
+                    if (test_player_body_overlap_at(((VObj_8019D250 *)this), t2, &d->ends[j2]) == 0) {
                         send_6x55_intra_map_warp(obj_getField1c(t2), &d->ends[j2], d->f84);
                     }
                 }
             }
         } else {
-            self->m12();
+            ((VObj_8019D250 *)this)->m12();
         }
     }
 }

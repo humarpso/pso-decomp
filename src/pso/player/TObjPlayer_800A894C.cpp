@@ -273,7 +273,7 @@ extern const f32 lbl_805D9B2C;
 extern const f32 lbl_805D9B30;
 void TObjPlayer__sub_800AA334(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(s32 arg0);
-u16 pick_random_nearby_player__10TObjPlayerFPvf(u8 *arg0, f32 radius);
+u16 pick_random_nearby_player__10TObjPlayerFf(u8 *arg0, f32 radius);
 s32 find_target_in_range__15TObjEnemyCustomFf(void *, f32);
 extern const f32 lbl_805D9B14;
 extern const f32 lbl_805D9B18;
@@ -940,7 +940,7 @@ void TObjEneDubchik::sub_800AA10C() {
         if (this->m_3a4 >= lbl_805D9B14) {
             this->m_3a4 = (f32) lbl_805D9AE0;
             if ((*(f32 *)((s8 *)((u8 *)this) + 0x354) >= lbl_805D9AE0) && (calc_boss4_scale__10TObjPlayerFi((s32)this) < lbl_805D9B18)) {
-                this->targetId = pick_random_nearby_player__10TObjPlayerFPvf((((u8 *)this)), lbl_805D9B1C);
+                this->targetId = pick_random_nearby_player__10TObjPlayerFf((((u8 *)this)), lbl_805D9B1C);
                 if (this->targetId != 0xFFFF) {
                     *(u32 *)((s8 *)((u8 *)this) + 0x2A8) = find_active_entity_by_id(this->targetId);
                     ((TObjEneMe1GiGue *)((u8 *)this))->update_if_active(9);

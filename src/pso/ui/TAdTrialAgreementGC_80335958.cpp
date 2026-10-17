@@ -117,7 +117,7 @@ void TAdTrialAgreementGC::render_screen() {
         TParticleCtrl::begin_effect_render();
         TCameraCtrl::restore_full_screen_view();
         lbl_805D5660 = model_render_flags;
-        copy_vec4__13TRaderMapCoreFPvPv((&saved_model_draw_color.value), (&model_material_color.value));
+        copy_vec4__13TRaderMapCoreFPv((&saved_model_draw_color.value), (&model_material_color.value));
         if ((s32) this->m_24 == 0) {
             model_render_flags |= 0x10;
             set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)(arg0 + 0x28));
@@ -146,7 +146,7 @@ void TAdTrialAgreementGC::render_screen() {
             }
             TObjPlayer::reset_transform_state();
         }
-        copy_vec4__13TRaderMapCoreFPvPv((&model_material_color.value), (&saved_model_draw_color.value));
+        copy_vec4__13TRaderMapCoreFPv((&model_material_color.value), (&saved_model_draw_color.value));
         model_render_flags = lbl_805D5660;
         TCameraCtrl__sub_80068EF0();
         TParticleCtrl::end_effect_render();

@@ -694,7 +694,6 @@ int is_quest_active(void);
 int TCameraCtrl__sub_8006B3B8(void* p);
 s32 get_mode__11TCameraCtrlFPv(void* p);
 void render__11TCameraCtrlFv(void *arg0);
-void set_target__11TCameraCtrlFii(int a0, int a1);
 int reset_to_local_player__11TCameraCtrlFv(void*);
 int set_fixed_position_and_target__11TCameraCtrlFPUcPUc(void*);
 
@@ -1036,7 +1035,7 @@ int TCameraCtrl::get_camera_id() {  return TCameraCtrl__camera_id; }
 
     extern short TCameraCtrl__viewport_size;
     extern short TCameraCtrl__viewport_height;
-void set_target__11TCameraCtrlFii(int a0, int a1) { TCameraCtrl__viewport_size = a0; TCameraCtrl__viewport_height = a1; }
+void TCameraCtrl::set_target(int a0, int a1) { TCameraCtrl__viewport_size = a0; TCameraCtrl__viewport_height = a1; }
 
     extern short TCameraCtrl__viewport_x;
     extern short TCameraCtrl__viewport_y;

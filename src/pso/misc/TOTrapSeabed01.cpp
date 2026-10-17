@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOTrapSeabed01.h"
 #include "pso/object/TObjMotion.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
@@ -198,7 +199,6 @@ s32 is_valid_and_active__10TObjPlayerFUl();
 extern s32 lbl_805D3530;
 s32 vfunc_67__14TOTrapSeabed01Fv(Trap_802C9F70 *self);
 void TOTrapSeabed01__vt20(s32 arg0, s32 arg1, f32 farg0);
-void trigger_by_id__14TOTrapSeabed01FUi(u32 arg0);
 s32 receive_physical_attack__6TOTrapFPvf(s32, s32, f32);
 s32 sub_802C9D38__14TOTrapSeabed01Fv();
 
@@ -319,7 +319,7 @@ void TOTrapSeabed01::vfunc_81() {
     }
 }
 
-void trigger_by_id__14TOTrapSeabed01FUi(u32 arg0) {
+void TOTrapSeabed01::trigger_by_id(u32 arg0) {
     if (arg0 == (u32) TOTrapSeabed01__ginja_model) {
         TParticleCtrl::begin_effect_render();
         return;
@@ -380,7 +380,7 @@ void TOTrapSeabed01::render_effect_layers() {
         }
         lbl_805D681C = actor_frame_tick;
     }
-    set_model_node_callback((s32)trigger_by_id__14TOTrapSeabed01FUi);
+    set_model_node_callback((s32)TOTrapSeabed01::trigger_by_id);
     push_matrix();
     post_translate_matrix((void *) (((u8 *)this) + 0x38));
     ((s32 (*)(int, int))rotate_matrix_y)(0, (int)((int) (*(s32 *)((s8 *)((u8 *)this) + 0x60))));

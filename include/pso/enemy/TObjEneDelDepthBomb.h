@@ -36,11 +36,11 @@ void TObjEneDelDepth__sub_80315518(void);
 void *__dt__15TObjEneDelDepthFv(void *arg0, s16 arg1);
 void *__dt__19TObjEneDelDepthBombFv(void *arg0, s16 arg1);
 void *create__19TObjEneDelDepthBombFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
-void move_toward_target__15TObjEneDelDepthFPv(u8 *arg0);
+void move_toward_target__15TObjEneDelDepthFv(u8 *arg0);
 void render__19TObjEneDelDepthBombFv(u8 *arg0);
 void set_depth_offset__15TObjEneDelDepthFPvii(void *arg0, s32 arg1, s32 arg2);
 void set_draw_mode__15TObjEneDelDepthFPvi(void *arg0, s32 arg1);
-void start_move_toward_player__15TObjEneDelDepthFPv(u8 *actor);
+void start_move_toward_player__15TObjEneDelDepthFv(u8 *actor);
 }
 
 #endif

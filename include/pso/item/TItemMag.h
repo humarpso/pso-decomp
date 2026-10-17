@@ -107,6 +107,8 @@ struct TItemMag
     void select_support_action(s32 arg1);
     s32 get_type();
     void add_stat_level_capped(s16 arg1);
+    void register_photon_blasts();
+    s32 is_pb_registered(u8 arg1);
 };
 
 typedef char MagOffset_m_24[offsetof(TItemMag, m_24) == 0x24 ? 1 : -1];

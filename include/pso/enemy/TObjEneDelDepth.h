@@ -74,6 +74,8 @@ struct TObjEneDelDepth : public TObjEnemy {
     void start_attack_motion();
     void enter_appear_state();
     void update_scale_pulse();
+    void move_toward_target();
+    void start_move_toward_player();
 };
 
 typedef char TObjEneDelDepth_size[sizeof(TObjEneDelDepth) == 0x3F4 ? 1 : -1];

@@ -64,11 +64,11 @@ void TItemEffArmor::render() {
     scale_matrix(0, temp_f1, TItemEffArmor__data_805DAAEC, temp_f1);
     lbl_805D5660 = model_render_flags;
     model_render_flags |= 0x10;
-    copy_vec4__13TRaderMapCoreFPvPv(&saved_model_draw_color.value, &model_material_color.value);
+    copy_vec4__13TRaderMapCoreFPv(&saved_model_draw_color.value, &model_material_color.value);
     set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)(arg0 + 0x38));
     TObjPlayer::notify_fish_if_valid(this->m_78);
     draw_ginja_model_with_motion(this->m_70, this->m_74, this->m_24);
-    copy_vec4__13TRaderMapCoreFPvPv(&model_material_color.value, &saved_model_draw_color.value);
+    copy_vec4__13TRaderMapCoreFPv(&model_material_color.value, &saved_model_draw_color.value);
     model_render_flags = lbl_805D5660;
     pop_matrix();
 }

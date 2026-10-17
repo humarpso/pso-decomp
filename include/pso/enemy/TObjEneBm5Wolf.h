@@ -88,6 +88,12 @@ struct TObjEneBm5Wolf : public TObjEneDD_ST {
     static void register_global_objects();
     void flanking_state(s32 arg1);
     void howling_state(s32 arg1);
+    void anchor_state(s32 arg1);
+    void update_default();
+    void apply_global_to_position();
+    void update(void* a1);
+    void apply_to_position(void* a1);
+    void set_field8_from_obj(s32 arg1);
 };
 
 typedef char WolfOffset_target[offsetof(TObjEneBm5Wolf, target) == 0x390 ? 1 : -1];
@@ -113,9 +119,9 @@ u8 *TObjEneBm5Wolf__ct(u8 *arg0, void *arg1, void *arg2);
 s32 __dt__14TObjEneBm5WolfFis(s32 arg0, s16 arg1);
 u8 *__dt__14TObjEneBm5WolfFv(u8 *arg0, s16 arg1);
 s32 actor_rand_int(s32 actor, s32 arg1);
-void anchor_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
-void apply_global_to_position__14TObjEneBm5WolfFi(s32 arg0);
-void apply_to_position__14TObjEneBm5WolfFPvPv(void *p, void *a1);
+void anchor_state__14TObjEneBm5WolfFl(u8 *arg0, s32 arg1);
+void apply_global_to_position__14TObjEneBm5WolfFv(s32 arg0);
+void apply_to_position__14TObjEneBm5WolfFPv(void *p, void *a1);
 void approach_target__14TObjEneBm5WolfFPvf(void *arg0, f32 farg0);
 s32 calc_lunge_aim__14TObjEneBm5WolfFPv(u8 *arg0);
 void calc_rotated_vector__14TObjEneBm5WolfFPviPvPv(void *arg0, s32 arg1, void *arg2, s32 *arg3);
@@ -132,11 +138,11 @@ void returning_state__14TObjEneBm5WolfFPvi(u8 *actor, s32 arg1);
 void run_task__14TObjEneBm5WolfFv(u8 *arg0);
 void schedule_pack_reaction__14TObjEneBm5WolfFPvis(void *arg0, s32 arg1, s16 arg2);
 void select_target__14TObjEneBm5WolfFPv(void *arg0);
-void set_field8_from_obj__14TObjEneBm5WolfFPvi(void *arg0, s32 arg1);
+void set_field8_from_obj__14TObjEneBm5WolfFl(void *arg0, s32 arg1);
 void set_state_by_timer__14TObjEneBm5WolfFi(s32 arg0);
 void spawn_recoil_dust__14TObjEneBm5WolfFiPv(s32 arg0, u8 *arg1);
-void update__14TObjEneBm5WolfFPvPv(void *p, void *a1);
-void update_default__14TObjEneBm5WolfFi(s32 arg0);
+void update__14TObjEneBm5WolfFPv(void *p, void *a1);
+void update_default__14TObjEneBm5WolfFv(s32 arg0);
 void update_state__14TObjEneBm5WolfFPv(void *arg0);
 }
 

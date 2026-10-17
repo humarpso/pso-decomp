@@ -51,7 +51,7 @@ s32 TWindowSubTechnique::lookup_technique(s32 arg0, s32 arg1) {
     }
     return can_use_palette_action__10TObjPlayerFPvUcUc(temp, 3, (u8) arg0);
 }
-void draw_technique_row__19TWindowSubTechniqueFiii(s32 id, s32 arg1, s32 arg2) {
+void TWindowSubTechnique::draw_technique_row(s32 id, s32 arg1, s32 arg2) {
     s32 technique_name;
 
     technique_name = get_technique_name(id);
@@ -74,7 +74,7 @@ void TWindowSubTechnique::rebuildTechniqueList(s32 list, s32 category) {
     selected = get_cursor_pos__20TWindowShortListCtrlFv(list);
     ((TWindowSubComCardList *)list)->reset_entries();
     while (*entry != 19) {
-        draw_technique_row__19TWindowSubTechniqueFiii(*entry, playerIndex, list);
+        TWindowSubTechnique::draw_technique_row(*entry, playerIndex, list);
         ++entry;
     }
     ((TWindowSubComCardList *)list)->update_layout_height(lbl_805DD838);

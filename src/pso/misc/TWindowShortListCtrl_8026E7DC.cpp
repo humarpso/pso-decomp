@@ -73,7 +73,7 @@ s32 is_player_input_active(s32 param_1);
 extern RecoveredGlobal_8026EA60_lbl_8050E208 controller_input_state;
 s32 get_character_save_record(u32 arg0);
 void align_menu_entry_positions(void *);
-void draw_technique_row__19TWindowSubTechniqueFiii(s32 id, s32 arg1, s32 arg2);
+void draw_technique_row__19TWindowSubTechniqueFlll(s32 id, s32 arg1, s32 arg2);
 s32 TWindow__close(void *);
 void queue_destruction__7TObjectFv(void *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
@@ -275,7 +275,7 @@ void TWindowShortListCtrl::refresh_technique_rows(s32 arg1, void *arg2_arg) {
     cur = ((TWindowShortListCtrl *)arg1)->get_cursor_pos();
     ((TWindowSubComCardList *)arg1)->reset_entries();
     for (i = 0; i < 0x13; i++) {
-        draw_technique_row__19TWindowSubTechniqueFiii(tbl->e[i], ((Wn_8026EBB0 *)this)->card, arg1);
+        draw_technique_row__19TWindowSubTechniqueFlll(tbl->e[i], ((Wn_8026EBB0 *)this)->card, arg1);
     }
     ((TWindowSubComCardList *)arg1)->set_scroll_target(arg2->x, arg2->y);
     align_menu_entry_positions((void *)arg1);

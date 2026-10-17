@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804928CC.h"
 #include "pso/enemy/TUnk_80493450.h"
 #include "pso/object/TObjMotion.h"
@@ -191,7 +192,6 @@ s32 normalize_vector(void *);
 extern const f32 lbl_805DB27C;
 extern const f32 lbl_805DB280;
 s32 resolve_actor_sphere_contact(u8 *arg0, s32 arg1, s32 arg2);
-s32 find_or_alloc_slot__10TObjPlayerFUi(u32 arg0);
 void* refresh_actor_body_spheres(CollisionBody_80155FBC, CollisionBody_80155FBC);
 void* find_actor_body_contact__13TUnk_804AF8A0FPUcf(u8* arg0, u8* arg1, f32 limit);
 extern s32 TObjPlayer__data_8050D460[];
@@ -476,7 +476,7 @@ void *find_entity_by_id(u16 id) {
 
 void TOTrapAncient02R__sub_80154D78(void) {  }
 void TObjPlayer::init_all_slots() { { int i; for (i = 0; i < 16; i++) { TObjPlayer__sub_80154E28((int)((void*)i), (int)((void*)0)); } } }
-s32 find_or_alloc_slot__10TObjPlayerFUi(u32 arg0) {
+s32 TObjPlayer::find_or_alloc_slot(u32 arg0) {
     s32 var_r31;
     u32 battle_param;
 
@@ -952,7 +952,7 @@ void*TUnk_804AF8A0::find_actor_body_contact(u8*arg1, f32 limit) {
             VecCopy__FP3VecPC3Vec((void *)&destination.position, (void *)(arg1+0x38));
             destination.facing=*(s32*)(arg1+0x60);
             result=refresh_actor_body_spheres(source,destination);
-            if (result) {find_or_alloc_slot__10TObjPlayerFUi((u32)arg1);return result;}
+            if (result) {TObjPlayer::find_or_alloc_slot((u32)arg1);return result;}
         }
     }
     return 0;
@@ -1012,7 +1012,7 @@ u32 TUnk_804AF8A0::check_actor_body_contact(void *o_arg, f32 range) {
             b.facing = o->f60;
             hit = (u8 *)refresh_actor_body_spheres(a, b);
             if (hit != 0) {
-                find_or_alloc_slot__10TObjPlayerFUi((u32)o);
+                TObjPlayer::find_or_alloc_slot((u32)o);
                 *(u32 *)(hit + 0x18) |= 0x04000000;
                 return (u32)hit;
             }

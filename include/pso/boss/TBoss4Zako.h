@@ -25,6 +25,7 @@ struct TBoss4Zako {
     void set_state3();
     void update_orbit_velocity();
     static s32 queue_entry(void *v, s32 a, s32 b);
+    void update_target_position();
 };
 typedef char TBoss4ZakoSize[(sizeof(TBoss4Zako)==0x3C4)?1:-1];
 #include <stddef.h>

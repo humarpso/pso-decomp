@@ -105,8 +105,9 @@ void TLobby__send_and_handle_60(u8 *arg0) {
     lbl_805D5E50 = 0;
 }
 
-void update_players__6TLobbyFi(s32 arg0) {
+void TLobby::update_players() {
     void *var_r31;
+    s32 arg0 = (s32)this;
 
     if ((s32) TLobby__join_state_flag == 1) {
         TLobby__send_and_handle_60((u8 *)arg0);

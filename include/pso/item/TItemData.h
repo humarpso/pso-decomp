@@ -83,6 +83,8 @@ struct TItemData {
     s32 calc_action_flags(s32 mask, u8 *player);
     s32 calc_price();
     s32 update_mag_status_gauges();
+    u16 get_packed_value();
+    void decode_packed_name_chars(s8 *out);
 };
 
 #include <stddef.h>

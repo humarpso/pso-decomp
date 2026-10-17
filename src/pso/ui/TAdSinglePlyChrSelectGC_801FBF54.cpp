@@ -123,7 +123,6 @@ void* init_char_data__23TAdSinglePlyChrSelectGCFPv(void* p);
 s32 TAdSinglePlyChrSelectGC__sub_801FC8B4(s32 arg0, s16 arg1);
 s32 init_char_slots__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 void *TAdSinglePlyChrSelectGC__sub_802115C0(void *p);
-u8 *init_char_record__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 Buf_801FBFD0 *alloc__22TQuestVmDownLoadServerFv(u32);
 u32 TAdSinglePlyChrSelectGC__sub_80201204(u8 *, u32);
 s32 load_system_file__23TAdSinglePlyChrSelectGCFiPv(s32 arg0, s32 *arg1);
@@ -517,13 +516,13 @@ s32 init_char_slots__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     return arg0;
 }
 
-void* init_char_data__23TAdSinglePlyChrSelectGCFPv(void* p) { __ct__12TPlyCharDataFv((s32)p); init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)((char*)p + 0x41c)); return p; }
+void* init_char_data__23TAdSinglePlyChrSelectGCFPv(void* p) { __ct__12TPlyCharDataFv((s32)p); ((TAdSinglePlyChrSelectGC *)((char*)p + 0x41c))->init_char_record(); return p; }
 
 typedef char RecoveredGlobal_80202A40_lbl_8051381C_size[sizeof(RecoveredGlobal_80202A40_lbl_8051381C) == 0xE8 ? 1 : -1];
-u8 *init_char_record__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
-    __construct_array(arg0 + 0x250, (void*)((void *)TAdSinglePlyChrSelectGC__sub_802115C0), (void*)(0), 0x18, 0xc8);
-    ((TAdSinglePlyChrSelectGC *)(arg0 + 0x1510))->init_guild_card_tag();
-    return arg0;
+u8 *TAdSinglePlyChrSelectGC::init_char_record() {
+    __construct_array(((u8 *)this) + 0x250, (void*)((void *)TAdSinglePlyChrSelectGC__sub_802115C0), (void*)(0), 0x18, 0xc8);
+    ((TAdSinglePlyChrSelectGC *)(((u8 *)this) + 0x1510))->init_guild_card_tag();
+    return ((u8 *)this);
 }
 
 s32 TAdSinglePlyChrSelectGC::fields_equal(void *arg1) {
@@ -655,7 +654,6 @@ extern u8 *selected_character_data;
 s32 forward_to_global_instance__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 s32 __ct__12TPlyCharDataFv(s32);
 int alloc__23TAdSinglePlyChrSelectGCFv(void *);
-u8 *init_char_record__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 s32 memset(int, int, int);
 void alloc_char_records__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 s32 get_fog_ctrl__16TKeyBoardControlFv();
@@ -832,7 +830,7 @@ void alloc_char_records__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     var_r0_2 = temp_r3_2;
     if (var_r0_2 != 0)
     {
-      var_r0_2 = (s32)init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)temp_r3_2);
+      var_r0_2 = (s32)((TAdSinglePlyChrSelectGC *)temp_r3_2)->init_char_record();
     }
     *((s32 *) (((s8 *) temp_r30) + 0x10)) = var_r0_2;
     memset((int) (*((s32 *) (((s8 *) temp_r30) + 0))), 0, 0x41C);
@@ -4188,7 +4186,6 @@ s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
 s32 __ct__12TPlyCharDataFv(s32);
 s32 alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 init_char_slots__23TAdSinglePlyChrSelectGCFi(s32);
-u8 *init_char_record__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 void alloc_char_records__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 s32 init_windows__23TAdSinglePlyChrSelectGCFi(s32);
 void init_timestamped_data(void);
@@ -4356,7 +4353,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
         selected_character_data = var_r0_2;
         var_r0_3 = alloc__23TAdSinglePlyChrSelectGCFv(0x2370);
         if (var_r0_3 != 0) {
-            var_r0_3 = (s32)init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)var_r0_3);
+            var_r0_3 = (s32)((TAdSinglePlyChrSelectGC *)var_r0_3)->init_char_record();
         }
         active_character_save_record = var_r0_3;
         system_save_payload = alloc__23TAdSinglePlyChrSelectGCFv(0x11C);
@@ -4380,7 +4377,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
         selected_character_data = var_r0_6;
         var_r0_7 = alloc__23TAdSinglePlyChrSelectGCFv(0x2370);
         if (var_r0_7 != 0) {
-            var_r0_7 = (s32)init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)var_r0_7);
+            var_r0_7 = (s32)((TAdSinglePlyChrSelectGC *)var_r0_7)->init_char_record();
         }
         active_character_save_record = var_r0_7;
         var_r0_8 = alloc__23TAdSinglePlyChrSelectGCFv(0xE28C);
@@ -4408,7 +4405,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
         selected_character_data = var_r0_11;
         var_r0_12 = alloc__23TAdSinglePlyChrSelectGCFv(0x2370);
         if (var_r0_12 != 0) {
-            var_r0_12 = (s32)init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)var_r0_12);
+            var_r0_12 = (s32)((TAdSinglePlyChrSelectGC *)var_r0_12)->init_char_record();
         }
         active_character_save_record = var_r0_12;
         break;
@@ -4431,7 +4428,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
         selected_character_data = var_r0_15;
         var_r0_16 = alloc__23TAdSinglePlyChrSelectGCFv(0x2370);
         if (var_r0_16 != 0) {
-            var_r0_16 = (s32)init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)var_r0_16);
+            var_r0_16 = (s32)((TAdSinglePlyChrSelectGC *)var_r0_16)->init_char_record();
         }
         active_character_save_record = var_r0_16;
         break;
@@ -4454,7 +4451,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
         selected_character_data = var_r0_19;
         var_r0_20 = alloc__23TAdSinglePlyChrSelectGCFv(0x2370);
         if (var_r0_20 != 0) {
-            var_r0_20 = (s32)init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)var_r0_20);
+            var_r0_20 = (s32)((TAdSinglePlyChrSelectGC *)var_r0_20)->init_char_record();
         }
         active_character_save_record = var_r0_20;
         break;
@@ -4477,7 +4474,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
         selected_character_data = var_r0_23;
         var_r0_24 = alloc__23TAdSinglePlyChrSelectGCFv(0x2370);
         if (var_r0_24 != 0) {
-            var_r0_24 = (s32)init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)var_r0_24);
+            var_r0_24 = (s32)((TAdSinglePlyChrSelectGC *)var_r0_24)->init_char_record();
         }
         active_character_save_record = var_r0_24;
         break;
@@ -4500,7 +4497,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
         selected_character_data = var_r0_27;
         var_r0_28 = alloc__23TAdSinglePlyChrSelectGCFv(0x2370);
         if (var_r0_28 != 0) {
-            var_r0_28 = (s32)init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)var_r0_28);
+            var_r0_28 = (s32)((TAdSinglePlyChrSelectGC *)var_r0_28)->init_char_record();
         }
         active_character_save_record = var_r0_28;
         break;
@@ -4523,7 +4520,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
         selected_character_data = var_r0_31;
         var_r0_32 = alloc__23TAdSinglePlyChrSelectGCFv(0x2370);
         if (var_r0_32 != 0) {
-            var_r0_32 = (s32)init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)var_r0_32);
+            var_r0_32 = (s32)((TAdSinglePlyChrSelectGC *)var_r0_32)->init_char_record();
         }
         active_character_save_record = var_r0_32;
         break;
@@ -4546,7 +4543,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
         selected_character_data = var_r0_35;
         var_r0_36 = alloc__23TAdSinglePlyChrSelectGCFv(0x2370);
         if (var_r0_36 != 0) {
-            var_r0_36 = (s32)init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)var_r0_36);
+            var_r0_36 = (s32)((TAdSinglePlyChrSelectGC *)var_r0_36)->init_char_record();
         }
         active_character_save_record = var_r0_36;
         break;
@@ -4569,7 +4566,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
         selected_character_data = var_r0_39;
         var_r0_40 = alloc__23TAdSinglePlyChrSelectGCFv(0x2370);
         if (var_r0_40 != 0) {
-            var_r0_40 = (s32)init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)var_r0_40);
+            var_r0_40 = (s32)((TAdSinglePlyChrSelectGC *)var_r0_40)->init_char_record();
         }
         active_character_save_record = var_r0_40;
         break;
@@ -4592,7 +4589,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
         selected_character_data = var_r0_43;
         var_r0_44 = alloc__23TAdSinglePlyChrSelectGCFv(0x2370);
         if (var_r0_44 != 0) {
-            var_r0_44 = (s32)init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)var_r0_44);
+            var_r0_44 = (s32)((TAdSinglePlyChrSelectGC *)var_r0_44)->init_char_record();
         }
         active_character_save_record = var_r0_44;
         break;
@@ -4615,7 +4612,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
         selected_character_data = var_r0_47;
         var_r0_48 = alloc__23TAdSinglePlyChrSelectGCFv(0x2370);
         if (var_r0_48 != 0) {
-            var_r0_48 = (s32)init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)var_r0_48);
+            var_r0_48 = (s32)((TAdSinglePlyChrSelectGC *)var_r0_48)->init_char_record();
         }
         active_character_save_record = var_r0_48;
         break;
@@ -4638,7 +4635,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
         selected_character_data = var_r0_51;
         var_r0_52 = alloc__23TAdSinglePlyChrSelectGCFv(0x2370);
         if (var_r0_52 != 0) {
-            var_r0_52 = (s32)init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)var_r0_52);
+            var_r0_52 = (s32)((TAdSinglePlyChrSelectGC *)var_r0_52)->init_char_record();
         }
         active_character_save_record = var_r0_52;
         break;
@@ -4661,7 +4658,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
         selected_character_data = var_r0_55;
         var_r0_56 = alloc__23TAdSinglePlyChrSelectGCFv(0x2370);
         if (var_r0_56 != 0) {
-            var_r0_56 = (s32)init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)var_r0_56);
+            var_r0_56 = (s32)((TAdSinglePlyChrSelectGC *)var_r0_56)->init_char_record();
         }
         active_character_save_record = var_r0_56;
         break;
@@ -4684,7 +4681,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
         selected_character_data = var_r0_59;
         var_r0_60 = alloc__23TAdSinglePlyChrSelectGCFv(0x2370);
         if (var_r0_60 != 0) {
-            var_r0_60 = (s32)init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)var_r0_60);
+            var_r0_60 = (s32)((TAdSinglePlyChrSelectGC *)var_r0_60)->init_char_record();
         }
         active_character_save_record = var_r0_60;
         break;
@@ -4707,7 +4704,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
         selected_character_data = var_r0_63;
         var_r0_64 = alloc__23TAdSinglePlyChrSelectGCFv(0x2370);
         if (var_r0_64 != 0) {
-            var_r0_64 = (s32)init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)var_r0_64);
+            var_r0_64 = (s32)((TAdSinglePlyChrSelectGC *)var_r0_64)->init_char_record();
         }
         active_character_save_record = var_r0_64;
         break;
@@ -4730,7 +4727,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
         selected_character_data = var_r0_67;
         var_r0_68 = alloc__23TAdSinglePlyChrSelectGCFv(0x2370);
         if (var_r0_68 != 0) {
-            var_r0_68 = (s32)init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)var_r0_68);
+            var_r0_68 = (s32)((TAdSinglePlyChrSelectGC *)var_r0_68)->init_char_record();
         }
         active_character_save_record = var_r0_68;
         break;
@@ -4753,7 +4750,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
         selected_character_data = var_r0_71;
         var_r0_72 = alloc__23TAdSinglePlyChrSelectGCFv(0x2370);
         if (var_r0_72 != 0) {
-            var_r0_72 = (s32)init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)var_r0_72);
+            var_r0_72 = (s32)((TAdSinglePlyChrSelectGC *)var_r0_72)->init_char_record();
         }
         active_character_save_record = var_r0_72;
         break;
@@ -4776,7 +4773,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
         selected_character_data = var_r0_75;
         var_r0_76 = alloc__23TAdSinglePlyChrSelectGCFv(0x2370);
         if (var_r0_76 != 0) {
-            var_r0_76 = (s32)init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)var_r0_76);
+            var_r0_76 = (s32)((TAdSinglePlyChrSelectGC *)var_r0_76)->init_char_record();
         }
         active_character_save_record = var_r0_76;
         break;
@@ -4799,7 +4796,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
         selected_character_data = var_r0_79;
         var_r0_80 = alloc__23TAdSinglePlyChrSelectGCFv(0x2370);
         if (var_r0_80 != 0) {
-            var_r0_80 = (s32)init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)var_r0_80);
+            var_r0_80 = (s32)((TAdSinglePlyChrSelectGC *)var_r0_80)->init_char_record();
         }
         active_character_save_record = var_r0_80;
         break;
@@ -4822,7 +4819,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
         selected_character_data = var_r0_83;
         var_r0_84 = alloc__23TAdSinglePlyChrSelectGCFv(0x2370);
         if (var_r0_84 != 0) {
-            var_r0_84 = (s32)init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)var_r0_84);
+            var_r0_84 = (s32)((TAdSinglePlyChrSelectGC *)var_r0_84)->init_char_record();
         }
         active_character_save_record = var_r0_84;
         break;
@@ -4845,7 +4842,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
         selected_character_data = var_r0_87;
         var_r0_88 = alloc__23TAdSinglePlyChrSelectGCFv(0x2370);
         if (var_r0_88 != 0) {
-            var_r0_88 = (s32)init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)var_r0_88);
+            var_r0_88 = (s32)((TAdSinglePlyChrSelectGC *)var_r0_88)->init_char_record();
         }
         active_character_save_record = var_r0_88;
         break;
@@ -4868,7 +4865,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
         selected_character_data = var_r0_91;
         var_r0_92 = alloc__23TAdSinglePlyChrSelectGCFv(0x2370);
         if (var_r0_92 != 0) {
-            var_r0_92 = (s32)init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)var_r0_92);
+            var_r0_92 = (s32)((TAdSinglePlyChrSelectGC *)var_r0_92)->init_char_record();
         }
         active_character_save_record = var_r0_92;
         break;
@@ -4880,7 +4877,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
         guild_card_save_payload = var_r0_93;
         var_r0_94 = alloc__23TAdSinglePlyChrSelectGCFv(0x2370);
         if (var_r0_94 != 0) {
-            var_r0_94 = (s32)init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)var_r0_94);
+            var_r0_94 = (s32)((TAdSinglePlyChrSelectGC *)var_r0_94)->init_char_record();
         }
         active_character_save_record = var_r0_94;
         var_r0_95 = alloc__23TAdSinglePlyChrSelectGCFv(0x41C);

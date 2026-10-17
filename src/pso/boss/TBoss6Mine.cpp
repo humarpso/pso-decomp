@@ -280,10 +280,11 @@ s32 TBoss6Mine::is_far_from_origin() {
     return vector_length((void *)(arg0 + 0x38)) > lbl_805DF58C;
 }
 
-void explode_damage_players__10TBoss6MineFPv(u8 *arg0) {
+void TBoss6Mine::explode_damage_players() {
     s32 n;
     s32 i;
     u8 *pl;
+    u8 *arg0 = (u8 *)this;
     n = TLobby::get_game_mode();
     for (i = 0; i < n; i++) {
         pl = (u8 *)get_player_data__10TObjPlayerFi(i);
@@ -310,7 +311,7 @@ void TBoss6Mine__vt7(void* p) { spawn_particle_effect_with_flags(((char*)p + 0x3
 extern f32 lbl_805DF598;
 
 void TBoss6Mine__vt6(s32 arg0) {
-    explode_damage_players__10TBoss6MineFPv((u8 *)arg0);
+    ((TBoss6Mine *)arg0)->explode_damage_players();
     spawn_particle_effect_with_flags((void *)(arg0 + 0x38), 0xFB, 0x40);
     spawn_particle_effect_with_flags((void *)(arg0 + 0x38), 0xFC, 0x40);
     TBoss6PlotFalz::apply_radial_effect_to_players((void *)(arg0 + 0x38), (s16)0xC0, (s16)0xF, (f32)lbl_805DF598);

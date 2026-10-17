@@ -16,13 +16,11 @@ int TAdSinglePlyChrSelectGC__sub_802E18C8(void);
 void sub_802E1F14__12TAdTimeSetGCFv(u8 *arg0);
 void apply_settings__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 void change_state__12TAdTimeSetGCFl(u8 *arg0, s32 arg1);
-s32 check_capacity__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 void close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void* p, void* a1, void* a2, void* a3, void* a4);
 void close_and_next__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void* p, void* a1, void* a2, void* a3, void* a4);
 void close_windows__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 void create_backgrounds__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 s32 get_localized_text_entry(s32, s32);
-s32 is_load_complete__23TAdSinglePlyChrSelectGCFv(void);
 s32 is_visible__11TWindowMenuFv();
 extern u8 lbl_804C88C0[];
 extern u8 lbl_804C89BC[];
@@ -173,7 +171,7 @@ s32 TAdSinglePlyChrSelectGC__sub_802E15C8(void) {
     return (u8) (find_card_file__15TAdPlayerLoadGCFiPv(0, (const char *)((s32) &(*(RecoveredGlobal_802E1560_lbl_804C89BC *)&pso_system_card_filename).value)) == 0);
 }
 
-s32 is_load_complete__23TAdSinglePlyChrSelectGCFv(void) {
+s32 TAdSinglePlyChrSelectGC::is_load_complete() {
     return (u32) __cntlzw((u32) TAdPlayerLoadGC__sub_801E24F8(0, 0, 0, 0, 0)) >> 5;
 }
 
@@ -397,7 +395,8 @@ s32 TAdPlayerLoadGC__sub_801E0FA4(s32);
 s32 query_memcard_capacity__15TAdPlayerLoadGCFl(s32, s32);
 s32 count_flags__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 
-s32 check_capacity__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
+s32 TAdSinglePlyChrSelectGC::check_capacity() {
+    s32 arg0 = (s32)this;
     s32 temp_r29;
     s32 temp_r30;
     s32 temp_r31;
@@ -953,7 +952,7 @@ extern "C" {
 
 void TAdSinglePlyChrSelectGC::update_load_state() {
     s32 arg0 = (s32)this;
-    if (is_load_complete__23TAdSinglePlyChrSelectGCFv() != 0) {
+    if (TAdSinglePlyChrSelectGC::is_load_complete() != 0) {
         if (((TAdPlayerLoadGC *)0)->check_card_result_code() == 0) {
             ((s32 (*)(void *, s32))change_state__12TAdTimeSetGCFl)((void *)arg0, 0x16);
             return;
@@ -1081,7 +1080,7 @@ void TAdSinglePlyChrSelectGC::report_card_status() {
             return;
         }
     }
-    if (check_capacity__23TAdSinglePlyChrSelectGCFi((s32)this) == 0) {
+    if (check_capacity() == 0) {
         ((s32 (*)(void *, s32))change_state__12TAdTimeSetGCFl)(this, 0x17);
         return;
     }

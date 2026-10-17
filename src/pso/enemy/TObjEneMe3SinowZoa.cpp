@@ -1307,7 +1307,7 @@ struct Zoa_8031786C {
     VObj_14_aa9368 sub;
 };
 
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
+void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 rotate_matrix_y(int, int);
@@ -1357,7 +1357,7 @@ void TObjEneMe3SinowZoa::render() {
         lbl_805D5660 = model_render_flags;
         lbl_805D5664 = chunk_polygon_flags_and_mask;
         lbl_805D5668 = chunk_polygon_flags_or_mask;
-        copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, model_material_color);
+        copy_vec4__13TRaderMapCoreFPv(saved_model_draw_color, model_material_color);
         if (!(o->f3D0 & 0x4000)) {
             v->m106();
             TObjEneDD::clear_global_flag_400();
@@ -1400,7 +1400,7 @@ void TObjEneMe3SinowZoa::render() {
         if (v->m108() == 0 && TObjEneMe3SinowZoa__sub_800D72A4(&o->sub) != 0) {
             o->sub.m7();
         }
-        copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
+        copy_vec4__13TRaderMapCoreFPv(model_material_color, saved_model_draw_color);
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;
         model_render_flags = lbl_805D5660;

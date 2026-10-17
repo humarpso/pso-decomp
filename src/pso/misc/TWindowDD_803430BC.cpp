@@ -173,7 +173,7 @@ s32 update_layout__9TWindowDDFv(void *);
 s32 update_transition__9TWindowDDFv(void *);
 void TWindowDD__sub_80342D14(u8 *arg0);
 s32 update__9TWindowDDFv(void *);
-s32 handle_confirm_input__9TWindowDDFPv(void *);
+s32 handle_confirm_input__9TWindowDDFv(void *);
 void run_state__9TWindowDDFPv(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 s16 TWindowDD__sub_8034214C(u8 *arg0);
@@ -567,7 +567,7 @@ void TWindowDD__sub_803435A0(u8 *arg0) {
 void run_state__9TWindowDDFPv(u8 *arg0) {
     switch (*(u32 *)((s8 *)arg0 + 0xB0)) {
     case 0:
-        handle_confirm_input__9TWindowDDFPv(arg0);
+        handle_confirm_input__9TWindowDDFv(arg0);
         return;
     case 1:
     case 2:

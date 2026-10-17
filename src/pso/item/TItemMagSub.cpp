@@ -364,7 +364,7 @@ void TItemMagSub::apply_node_oscillation(void* _w1) {
         }
     } else if (test_flags__11TItemMagSubFUl(this, 0x20) != 0) {
         TParticleCtrl::end_effect_render();
-        copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
+        copy_vec4__13TRaderMapCoreFPv(model_material_color, saved_model_draw_color);
         model_render_flags = lbl_805D5660;
         clear_flags(0x20);
     }
@@ -460,7 +460,7 @@ void TItemMagSub::render_shadows() {
     lbl_805D5660 = model_render_flags;
     lbl_805D5664 = chunk_polygon_flags_and_mask;
     lbl_805D5668 = chunk_polygon_flags_or_mask;
-    copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, model_material_color);
+    copy_vec4__13TRaderMapCoreFPv(saved_model_draw_color, model_material_color);
     if (self->model) {
         TItemMagSub__oscillating_instance = self;
         TObjPlayer::notify_fish_if_valid(self->textures);
@@ -486,13 +486,13 @@ void TItemMagSub::render_shadows() {
         TItemMagSub__oscillating_instance = 0;
         if (test_flags__11TItemMagSubFUl(self, 0x20)) {
             TParticleCtrl::end_effect_render();
-            copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
+            copy_vec4__13TRaderMapCoreFPv(model_material_color, saved_model_draw_color);
             model_render_flags = lbl_805D5660;
             ((TItemMagSub *)self)->clear_flags(0x20);
         }
     }
     TObjPlayer::reset_transform_state();
-    copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
+    copy_vec4__13TRaderMapCoreFPv(model_material_color, saved_model_draw_color);
     chunk_polygon_flags_and_mask = lbl_805D5664;
     chunk_polygon_flags_or_mask = lbl_805D5668;
     model_render_flags = lbl_805D5660;
@@ -520,7 +520,7 @@ void TItemMagSub::render() {
         TItemMagSub__oscillating_instance = 0;
         if (test_flags__11TItemMagSubFUl(self, 0x20)) {
             TParticleCtrl::end_effect_render();
-            copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
+            copy_vec4__13TRaderMapCoreFPv(model_material_color, saved_model_draw_color);
             model_render_flags = lbl_805D5660;
             ((TItemMagSub *)self)->clear_flags(0x20);
         }

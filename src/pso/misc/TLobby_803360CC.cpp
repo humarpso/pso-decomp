@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 #include "pso/misc/TUnk_804EEF64.h"
 struct TCameraCtrl;
 #include "pso/player/TObjPlayer_8023E480.h"
@@ -103,7 +104,7 @@ void TLobby::queue_destruction_and_cleanup() {
     }
 }
 
-void destroy_download_server__6TLobbyFv(void* _w0) {
+void TLobby::destroy_download_server(void* _w0) {
     queue_destruction__7TObjectFv((_w0));
     if ((u32) title_scene_instance != 0U) {
         ((TLobby *)title_scene_instance)->set_flag_and_clear_download();
@@ -267,7 +268,7 @@ u8 *TUnk_804EEF64::construct_title_scene() {
     }
     p = __nw__7TObjectFUl(0x28);
     if (p != 0) {
-        ((TLobby *)p)->init_fade((void *)tl_fade, (void *)destroy_download_server__6TLobbyFv);
+        ((TLobby *)p)->init_fade((void *)tl_fade, (void *)TLobby::destroy_download_server);
     }
     TItemReverseTechCtrl::create(arg0);
     return arg0;

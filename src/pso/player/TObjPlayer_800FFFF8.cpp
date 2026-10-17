@@ -52,13 +52,13 @@ s32 is_wrapped__9TItemDataFPv(s32);
 s32 find_item_by_id();
 s32 scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
 s8 sub_80102C30__5TItemFv();
-u16 get_packed_value__9TItemDataFPv(void *arg0);
+u16 get_packed_value__9TItemDataFv(void *arg0);
 s32 is_usable__9TItemDataFPv(void *arg0);
 
 void TItem::apply_item_flags(s32 arg1) {
     if (is_usable__9TItemDataFPv((void *)arg1) != 0) {
         this->m_dc = (s32) (this->m_dc | 0x100);
-        this->m_e8 = get_packed_value__9TItemDataFPv((void *)arg1);
+        this->m_e8 = get_packed_value__9TItemDataFv((void *)arg1);
     }
     if (is_wrapped__9TItemDataFPv(arg1) != 0) {
         this->m_dc = (s32) (this->m_dc | 0x400);
@@ -83,7 +83,7 @@ void TObjPlayer__sub_80100070(u8 *arg0) {
         lbl_805D5660 = model_render_flags;
         lbl_805D5664 = chunk_polygon_flags_and_mask;
         lbl_805D5668 = chunk_polygon_flags_or_mask;
-        copy_vec4__13TRaderMapCoreFPvPv((&saved_model_draw_color.value), (&model_material_color.value));
+        copy_vec4__13TRaderMapCoreFPv((&saved_model_draw_color.value), (&model_material_color.value));
         model_render_flags |= 0x10;
         set_depth_buffer_settings_id(3);
         TParticleCtrl::begin_effect_render();
@@ -99,7 +99,7 @@ void TObjPlayer__sub_80100070(u8 *arg0) {
         TParticleCtrl::end_effect_render();
         TObjPlayer::reset_transform_state();
         func_80141618__Fv();
-        copy_vec4__13TRaderMapCoreFPvPv((&model_material_color.value), (&saved_model_draw_color.value));
+        copy_vec4__13TRaderMapCoreFPv((&model_material_color.value), (&saved_model_draw_color.value));
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;
         model_render_flags = lbl_805D5660;

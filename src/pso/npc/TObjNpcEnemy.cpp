@@ -39,7 +39,7 @@ struct Ent_802D732C { s16 id; u8 rest[0x22]; };
 
 extern "C" {
 extern RecoveredGlobal_802D72E4_TObjNpcEnemy__data_80540FF0 TObjNpcEnemy__entry_table;
-void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0);
+void copy_position__20TBoss3VoloptHiraisinFv(s32 arg0);
 s32 TObjNpcBase__ct(void *);
 s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_802D78A0_lbl_804A7CB8 npc_default_battle_stats;
@@ -294,7 +294,7 @@ u8 *TObjNpcEnemy__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_collision_body_parts(arg0, &TObjNpcEnemy__collision_body_parts.value, 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TObjEnemy *)arg0)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFi((s32)arg0);
+    copy_position__20TBoss3VoloptHiraisinFv((s32)arg0);
     ((TObjNpcEnemy *)arg0)->set_npc_data((void *)((int) (((s32)TObjNpcEnemy::get_entry_by_index((s16)((int) ((s16) *(s32 *)((s8 *)arg0 + 0x5C))))))));
     return arg0;
 }

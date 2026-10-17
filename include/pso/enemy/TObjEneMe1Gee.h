@@ -88,6 +88,9 @@ struct TObjEneMe1Gee : public TObjEneDD_ST {
     void set_move_speed_x();
     static void free_globals();
     static void *create(void *arg0);
+    void set_flag3c8_bit4();
+    void set_state_flag(s32 arg1, s32 arg2);
+    void update();
 };
 
 typedef char TObjEneMe1Gee_size[sizeof(TObjEneMe1Gee) == 0x490 ? 1 : -1];

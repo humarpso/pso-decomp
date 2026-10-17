@@ -138,7 +138,7 @@ Self_80108020 *TItemEffArmor__ct(Self_80108020 *self, u8 *obj, f32 a, f32 b) {
     self->f60 = default_scene_light_config.f1C;
     self->f64 = (TItemEffArmor__data_805DAAEC - self->f5C) / lbl_805DAAFC;
     self->f1C = (s32)create_particle_emitter(self->f6C + 0x38, 0x1BA);
-    copy_vec4__13TRaderMapCoreFPvPv(self->v38, lbl_8043E140);
+    copy_vec4__13TRaderMapCoreFPv(self->v38, lbl_8043E140);
     {
         Vec_80108020 v = lbl_8043E160[0];
         p = __nw__7TObjectFUl(0x64);

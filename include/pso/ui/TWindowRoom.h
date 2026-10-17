@@ -25,6 +25,7 @@ struct TWindowRoom {
     void *get_title_entry();
     void draw_tab(void *context);
     void run_task();
+    void draw_status();
 };
 
 typedef char TWindowRoomSize[sizeof(TWindowRoom) == 0x64 ? 1 : -1];
@@ -36,7 +37,7 @@ typedef char RoomTabParameterOffset[offsetof(TWindowRoom, tabParameter) == 0x60 
 
 extern "C" {
 void *__dt__11TWindowRoomFv(void *arg0, s16 arg1);
-void draw_status__11TWindowRoomFi(s32 arg0);
+void draw_status__11TWindowRoomFv(s32 arg0);
 }
 
 #endif

@@ -89,7 +89,7 @@ void TUnk_804F0BF0::render() {
             lbl_805D5660 = model_render_flags;
             lbl_805D5664 = chunk_polygon_flags_and_mask;
             lbl_805D5668 = chunk_polygon_flags_or_mask;
-            copy_vec4__13TRaderMapCoreFPvPv((saved_model_draw_color), (model_material_color));
+            copy_vec4__13TRaderMapCoreFPv((saved_model_draw_color), (model_material_color));
             model_render_flags |= 0x20;
             set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)(arg0 + 0x28));
             TParticleCtrl::begin_effect_render();
@@ -108,7 +108,7 @@ void TUnk_804F0BF0::render() {
             pop_matrix();
             pop_matrix();
             TParticleCtrl::end_effect_render();
-            copy_vec4__13TRaderMapCoreFPvPv((model_material_color), (saved_model_draw_color));
+            copy_vec4__13TRaderMapCoreFPv((model_material_color), (saved_model_draw_color));
             chunk_polygon_flags_and_mask = lbl_805D5664;
             chunk_polygon_flags_or_mask = lbl_805D5668;
             model_render_flags = lbl_805D5660;

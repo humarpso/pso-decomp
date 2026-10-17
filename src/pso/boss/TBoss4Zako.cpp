@@ -142,7 +142,6 @@ f32 cos_table_lookup(s32);
 extern const f32 lbl_805D8CF4;
 extern const f32 lbl_805D8CF8;
 extern const f32 lbl_805D8CFC;
-void update_target_position__10TBoss4ZakoFPv(u8 *arg0);
 
 void enter_state_3__11TBoss4BishiFPv(void* p);
 f32 vector_length(void *);
@@ -905,7 +904,7 @@ V2_8005BF68 TBoss4Bishi_spawn_offsets[4] = {
 #pragma push
 void vt4__9TBoss4UroFv(void *actor) {
     struct VOff_8005C450_arg0_8005BABC *self = (struct VOff_8005C450_arg0_8005BABC *)actor;
-    update_target_position__10TBoss4ZakoFPv((u8 *)actor);
+    ((TBoss4Zako *)actor)->update_target_position();
     ((TBoss4Zako *)actor)->update_orbit_velocity();
     VecCopy__FP3VecPC3Vec((void *)((void *)((char *)actor + 68)), self->f_38);
     vec3_add_to(self->f_38, (void *)((char *)actor + 908));
@@ -913,9 +912,10 @@ void vt4__9TBoss4UroFv(void *actor) {
 #pragma pop
 #pragma push
 #pragma fp_contract on
-void update_target_position__10TBoss4ZakoFPv(u8 *actor) {
+void TBoss4Zako::update_target_position() {
     s32 temp_r31;
     s32 temp_r3;
+    u8 *actor = (u8 *)this;
     if (!(*(s32 *)((s8 *)actor + 0x3B8) & 0x7F)) {
         if (*(s32 *)((s8 *)actor + 0x388) == 0xFFFF) {
             *(u32 *)((s8 *)actor + 0x388) = (u32) find_nearest_visible_player(actor, 0, lbl_805D8CF4);

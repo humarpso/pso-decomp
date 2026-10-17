@@ -101,8 +101,6 @@ s32 rotate_xz_pair_by_angle(void *, void *, s32);
 s32 check_v2_mode__9TObjEneDDFv();
 void select_subtype__14TObjEneBm5WolfFv(u8 *arg0);
 Wolf_800B850C * find_pack_leader__14TObjEneBm5WolfFi(s32 id);
-void update_default__14TObjEneBm5WolfFi(s32 arg0);
-void apply_global_to_position__14TObjEneBm5WolfFi(s32 arg0);
 void *fn_800B8B00(void *p);
 s16 obj_getField1c();
 void update_collision_center__14TObjEneBm5WolfFv(u8 *arg0);
@@ -111,10 +109,7 @@ void run_task__14TObjEneBm5WolfFv(u8 *arg0);
 void vfunc_62__14TObjEneBm5WolfFv(void* p);
 void vfunc_63__14TObjEneBm5WolfFv(void *arg0);
 void vfunc_88__14TObjEneBm5WolfFv(void *arg0);
-void update__14TObjEneBm5WolfFPvPv(void* p, void* a1);
-void apply_to_position__14TObjEneBm5WolfFPvPv(void* p, void* a1);
 s32 destroy__14TObjEneBm5WolfFis(s32 arg0, s16 arg1);
-void set_field8_from_obj__14TObjEneBm5WolfFPvi(void *arg0, s32 arg1);
 void TObjEneBm5Wolf__sub_800B8A24(O_800B8A24 *self);
 u8 * TObjEneBm5Wolf__ct(u8 *arg0, void *arg1, void *arg2);
 extern void* bm5_wolf_decision_row[];
@@ -1075,7 +1070,6 @@ extern const f32 lbl_805D9E28;
 extern const f32 lbl_805D9E2C;
 extern const f32 lbl_805D9E30;
 void queue_destruction__7TObjectFv(void *self);
-void anchor_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
 void appearing_state__14TObjEneBm5WolfFPvi(Obj_800B7018 *o, s32 arg1);
 void dispatch_state__14TObjEneBm5WolfFPvUii(TObjEneBm5Wolf *arg0, u32 state, s32 event);
 #define spawn_recoil_dust__14TObjEneBm5WolfFiPv ((s32 (*)(void *, void *))&spawn_recoil_dust__14TObjEneBm5WolfFiPv)
@@ -1245,9 +1239,9 @@ void update_state__14TObjEneBm5WolfFPv(void *arg0) {
         select_subtype__14TObjEneBm5WolfFv(arg0);
         if (temp_r31 != (s32) *(s32 *)((s8 *)arg0 + 0x3D8)) {
             if (temp_r31 != 0) {
-                update_default__14TObjEneBm5WolfFi((s32)arg0);
+                ((TObjEneBm5Wolf *)arg0)->update_default();
             } else {
-                apply_global_to_position__14TObjEneBm5WolfFi((s32)arg0);
+                ((TObjEneBm5Wolf *)arg0)->apply_global_to_position();
             }
         }
         update_collision_center__14TObjEneBm5WolfFv(arg0);
@@ -2442,8 +2436,9 @@ void appearing_state__14TObjEneBm5WolfFPvi(Obj_800B7018 *o, s32 arg1) {
 }
 
 #pragma pop
-void anchor_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
+void TObjEneBm5Wolf::anchor_state(s32 arg1) {
     u32 temp_r3;
+    u8 *arg0 = (u8 *)this;
 
     switch (arg1) {
     case 4:
@@ -2679,7 +2674,7 @@ typedef void (*State_800B73A8)(u8 *, s32);
 void dispatch_state__14TObjEneBm5WolfFPvUii(TObjEneBm5Wolf *arg0, u32 state, s32 event) {
     switch (state) {
     case 0:
-        anchor_state__14TObjEneBm5WolfFPvi((u8 *)arg0, event);
+        ((TObjEneBm5Wolf *)arg0)->anchor_state(event);
         break;
     case 1:
         appearing_state__14TObjEneBm5WolfFPvi((Obj_800B7018 *)arg0, event);
@@ -3518,7 +3513,7 @@ u8 *__dt__14TObjEneBm5WolfFv(u8 *arg0, s16 arg1) {
         }
         ((TObjEneBm5Wolf *)arg0)->update_with_default_state();
         if (*(s32 *)((s8 *)arg0 + 0x3D8) != 0) {
-            update_default__14TObjEneBm5WolfFi((s32)arg0);
+            ((TObjEneBm5Wolf *)arg0)->update_default();
         }
         free_collision_body_parts(arg0);
         destroy__14TObjEneBm5WolfFis((s32)(arg0 + 0x3CC), -1);
@@ -3564,11 +3559,11 @@ u8 *TObjEneBm5Wolf__ct(u8 *arg0, void *arg1, void *arg2) {
     *(f32 *)((s8 *)arg0 + 0x37C) = (*(f32 *)&TObjEneBm5Wolf__data_805D9DF4);
     ((TObjEneDD_ST *)arg0)->enemy_init_acquire_period(0x14);
     ((TObjEneDD_ST *)arg0)->enemy_init_validate_period(0x14);
-    set_field8_from_obj__14TObjEneBm5WolfFPvi(arg0 + 0x3C0, (s32)arg0);
+    ((TObjEneBm5Wolf *)(arg0 + 0x3C0))->set_field8_from_obj((s32)arg0);
     ((TObjEneBm5Wolf *)arg0)->apply_position_to_node_list();
     if (*(s32 *)((s8 *)arg0 + 0x3D8) != 0) {
-        set_field8_from_obj__14TObjEneBm5WolfFPvi(arg0 + 0x3CC, (s32)arg0);
-        apply_global_to_position__14TObjEneBm5WolfFi((s32)arg0);
+        ((TObjEneBm5Wolf *)(arg0 + 0x3CC))->set_field8_from_obj((s32)arg0);
+        ((TObjEneBm5Wolf *)arg0)->apply_global_to_position();
     }
     *(u16 *)((s8 *)arg0 + 0x3E0) = 0xFFFF;
     *(s32 *)((s8 *)arg0 + 0x3E4) = 0;
@@ -3627,26 +3622,28 @@ Wolf_800B850C *find_pack_leader__14TObjEneBm5WolfFi(s32 id) {
     return 0;
 }
 
-void update_default__14TObjEneBm5WolfFi(s32 arg0) {
-    update__14TObjEneBm5WolfFPvPv((void *)((s32) &(*(RecoveredGlobal_800B8570_TObjEneBm5Wolf__data_80500B8C *)&TObjEneBm5Wolf__instance_list).value), (void *)(arg0 + 0x3CC));
+void TObjEneBm5Wolf::update_default() {
+    s32 arg0 = (s32)this;
+    ((TObjEneBm5Wolf *)((s32) &(*(RecoveredGlobal_800B8570_TObjEneBm5Wolf__data_80500B8C *)&TObjEneBm5Wolf__instance_list).value))->update((void *)(arg0 + 0x3CC));
 }
 
 typedef char RecoveredGlobal_800B85D0_TObjEneBm5Wolf__data_80500B78_size[sizeof(RecoveredGlobal_800B85D0_TObjEneBm5Wolf__data_80500B78) == 0x14 ? 1 : -1];
 
 typedef char RecoveredGlobal_800B85A0_TObjEneBm5Wolf__data_80500B8C_size[sizeof(RecoveredGlobal_800B85A0_TObjEneBm5Wolf__data_80500B8C) == 0xC ? 1 : -1];
-void apply_global_to_position__14TObjEneBm5WolfFi(s32 arg0) {
-    apply_to_position__14TObjEneBm5WolfFPvPv((void *)((s32) &(*(RecoveredGlobal_800B85A0_TObjEneBm5Wolf__data_80500B8C *)&(*(RecoveredGlobal_800B8570_TObjEneBm5Wolf__data_80500B8C *)&TObjEneBm5Wolf__instance_list)).value), (void *)(arg0 + 0x3CC));
+void TObjEneBm5Wolf::apply_global_to_position() {
+    s32 arg0 = (s32)this;
+    ((TObjEneBm5Wolf *)((s32) &(*(RecoveredGlobal_800B85A0_TObjEneBm5Wolf__data_80500B8C *)&(*(RecoveredGlobal_800B8570_TObjEneBm5Wolf__data_80500B8C *)&TObjEneBm5Wolf__instance_list)).value))->apply_to_position((void *)(arg0 + 0x3CC));
 }
 
 void TObjEneBm5Wolf::update_with_default_state() {
     s32 arg0 = (s32)this;
-    update__14TObjEneBm5WolfFPvPv((void *)((s32) &(*(RecoveredGlobal_800B85D0_TObjEneBm5Wolf__data_80500B78 *)&TObjEneBm5Wolf__pack_member_list).value), (void *)(arg0 + 0x3C0));
+    ((TObjEneBm5Wolf *)((s32) &(*(RecoveredGlobal_800B85D0_TObjEneBm5Wolf__data_80500B78 *)&TObjEneBm5Wolf__pack_member_list).value))->update((void *)(arg0 + 0x3C0));
 }
 
 typedef char RecoveredGlobal_800B8600_TObjEneBm5Wolf__data_80500B78_size[sizeof(RecoveredGlobal_800B8600_TObjEneBm5Wolf__data_80500B78) == 0x14 ? 1 : -1];
 void TObjEneBm5Wolf::apply_position_to_node_list() {
     s32 arg0 = (s32)this;
-    apply_to_position__14TObjEneBm5WolfFPvPv((void *)((s32) &(*(RecoveredGlobal_800B8600_TObjEneBm5Wolf__data_80500B78 *)&(*(RecoveredGlobal_800B85D0_TObjEneBm5Wolf__data_80500B78 *)&TObjEneBm5Wolf__pack_member_list)).value), (void *)(arg0 + 0x3C0));
+    ((TObjEneBm5Wolf *)((s32) &(*(RecoveredGlobal_800B8600_TObjEneBm5Wolf__data_80500B78 *)&(*(RecoveredGlobal_800B85D0_TObjEneBm5Wolf__data_80500B78 *)&TObjEneBm5Wolf__pack_member_list)).value))->apply_to_position((void *)(arg0 + 0x3C0));
 }
 
 void TObjEneBm5Wolf::release_global_805D5120() {
@@ -3748,8 +3745,8 @@ void TObjEneBm5Wolf::load_resources() {
     }
 }
 
-void update__14TObjEneBm5WolfFPvPv(void* p, void* a1) { ((TObjEneBm5Wolf *)a1)->unlink_list_node((void ***)(p), (void **)((void*)((char*)p + 0x4))); }
-void apply_to_position__14TObjEneBm5WolfFPvPv(void* p, void* a1) { ((TObjEneBm5Wolf *)a1)->push_list_node((void **)(p), (void **)((void*)((char*)p + 0x4))); }
+void TObjEneBm5Wolf::update(void* a1) { ((TObjEneBm5Wolf *)a1)->unlink_list_node((void ***)(this), (void **)((void*)((char*)this + 0x4))); }
+void TObjEneBm5Wolf::apply_to_position(void* a1) { ((TObjEneBm5Wolf *)a1)->push_list_node((void **)(this), (void **)((void*)((char*)this + 0x4))); }
 void TObjEneBm5Wolf::reset_fields() { *(s32 *)&this->m_name = 0; *(s32 *)&this->m_flags = 0; }
 s32 __dt__14TObjEneBm5WolfFis(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
@@ -3761,8 +3758,8 @@ void*TObjEneBm5Wolf::reset() { reset_fields(); return this; }
 void play_sound__14TObjEneBm5WolfFPv(void *arg0) {
     find_entity_by_id(*(u16 *)((s8 *)arg0 + 8));
 }
-void set_field8_from_obj__14TObjEneBm5WolfFPvi(void *arg0, s32 arg1) {
-    *(s16 *)((s8 *)arg0 + 8) = obj_getField1c(arg1);
+void TObjEneBm5Wolf::set_field8_from_obj(s32 arg1) {
+    *(s16 *)((s8 *)this + 8) = obj_getField1c(arg1);
 }
 
 void TObjEneBm5Wolf::push_list_node(void **arg1, void **arg2) {

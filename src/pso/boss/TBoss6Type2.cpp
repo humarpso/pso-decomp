@@ -206,7 +206,7 @@ void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern const f32 TBoss6Type2__data_805DE410;
 u8 * get_player_data__10TObjPlayerFi(s32);
 s32 play_sound_effect(s32, void *, s32, s32);
-void spawn__15TBoss6RockChaseFii(void *, void *);
+void spawn__15TBoss6RockChaseFll(void *, void *);
 s32 rand(void);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
@@ -1336,7 +1336,7 @@ void TBoss6Type2::spawn_rocks_around_players() {
             p.x += r * sin_table_lookup(ang);
             p.y = TBoss6Type2__data_805DE410;
             p.z += r * cos_table_lookup(ang);
-            spawn__15TBoss6RockChaseFii(this, &p);
+            spawn__15TBoss6RockChaseFll(this, &p);
             n++;
         }
     }
@@ -1346,7 +1346,7 @@ void TBoss6Type2::spawn_rocks_around_players() {
         VecCopy((Vec *)&q, (const Vec *)&TBoss6Type2__data_8047105C);
         q.x += dx;
         q.z += dz;
-        spawn__15TBoss6RockChaseFii(this, &q);
+        spawn__15TBoss6RockChaseFll(this, &q);
         n++;
     }
     play_sound_effect(0x4006AB1D, &TBoss6Type2__data_8047105C, 0, 1);

@@ -50,7 +50,7 @@ extern const f32 lbl_805DC1C8;
 extern const f32 lbl_805DC1CC;
 extern const f32 lbl_805DC1D0;
 extern const f32 lbl_805DC1D4;
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
+void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
 s32 scroll_strip_uvs(void *, s16, int);
 s32 clear_render_context__10TObjPlayerFv(void *);
 s32 rotate_matrix_y(int, int);
@@ -79,7 +79,7 @@ void TPhotonLeilla::render() {
         translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
         rotate_matrix_y(0, self->f60);
         lbl_805D5660 = model_render_flags;
-        copy_vec4__13TRaderMapCoreFPvPv(&saved_model_draw_color, &model_material_color);
+        copy_vec4__13TRaderMapCoreFPv(&saved_model_draw_color, &model_material_color);
         lbl_805D5664 = chunk_polygon_flags_and_mask;
         lbl_805D5668 = chunk_polygon_flags_or_mask;
         model_render_flags |= 0x200820;
@@ -92,7 +92,7 @@ void TPhotonLeilla::render() {
         clear_render_context__10TObjPlayerFv(self);
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;
-        copy_vec4__13TRaderMapCoreFPvPv(&model_material_color, &saved_model_draw_color);
+        copy_vec4__13TRaderMapCoreFPv(&model_material_color, &saved_model_draw_color);
         model_render_flags = lbl_805D5660;
         pop_matrix();
         TParticleCtrl::end_effect_render();

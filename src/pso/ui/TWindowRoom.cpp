@@ -61,8 +61,9 @@ void TWindowRoom::draw_tab(void *context) {
 }
 
 extern "C" {
-void draw_status__11TWindowRoomFi(s32 arg0) {
+void TWindowRoom::draw_status() {
     s32 temp_r3;
+    s32 arg0 = (s32)this;
 
     temp_r3 = draw_default_entry__9TWindowDDFl();
     ((TWindowRoom *)arg0)->draw_tab((void *)temp_r3);

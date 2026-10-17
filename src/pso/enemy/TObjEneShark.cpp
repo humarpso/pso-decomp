@@ -1002,7 +1002,7 @@ struct Shark_800AC6B0 : VObj_800AC6B0 {
 
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-void copy_position__20TBoss3VoloptHiraisinFi(void *);
+void copy_position__20TBoss3VoloptHiraisinFv(void *);
 
 void init_enemy_base__13TUnk_80493450Fv(void *);
 void initialize_enemy_photon_effect(void *);
@@ -1042,7 +1042,7 @@ void *TObjEneShark__ct(void *arg0, void *arg1, void *arg2) {
     self->f350 = lbl_804915B4 + self->f334 * 0x1C;
     self->f33E = self->f32C;
     ((TObjEnemy *)self)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFi(self);
+    copy_position__20TBoss3VoloptHiraisinFv(self);
     initialize_enemy_photon_effect(self);
     self->f2AC = (s32)(lbl_805D9BD0 * (lbl_805D9BD4 * calc_boss4_scale__10TObjPlayerFi(self)));
     self->f33A = 0xF;

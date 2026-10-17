@@ -24,7 +24,7 @@ u8 check_timeout__6TLobbyFPv(void *arg0);
 void clear_battle_player_ready_flags(void);
 void clear_counter__6TLobbyFPv(void *a0);
 void close_and_play_effect__6TLobbyFii(int arg0, s32 arg1);
-void destroy_matching_children__6TLobbyFPv(void *arg0);
+void destroy_matching_children__6TLobbyFv(void *arg0);
 void end_battle_mode_cleanup__6TLobbyFPv(void *arg0);
 void finish_chr_select_scene_init__6TLobbyFv(void);
 s32 fn_801C4CE0(TPlayerBattleCtrl *arg0);

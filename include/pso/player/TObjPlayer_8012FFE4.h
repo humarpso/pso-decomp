@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void update_shield_effect__10TObjPlayerFPv(void *arg0);
+void update_shield_effect__10TObjPlayerFv(void *arg0);
 }
 
 #endif

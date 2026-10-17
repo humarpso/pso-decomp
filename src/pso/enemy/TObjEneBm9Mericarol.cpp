@@ -175,7 +175,7 @@ void TObjEneBm9Mericarol__sub_802CF368(u8 *actor, s32 arg1);
 void TObjEneBm9Mericarol__sub_802CF4F8(u8 *arg0, s32 arg1);
 void TObjEneDD__sub_802CF7B4(u8 *arg0, s32 arg1);
 void TObjPlayer__sub_802CFB64(u8 *arg0, s32 arg1);
-void handle_shot_state__19TObjEneBm9MericarolFPvi(u8 *arg0, s32 arg1);
+void handle_shot_state__19TObjEneBm9MericarolFl(u8 *arg0, s32 arg1);
 void TObjEneBm9Mericarol__sub_802D01D8(u8 *actor, s32 arg1);
 void TObjEneBm9Mericarol__sub_802D05BC(u8 *arg0, s32 arg1);
 void dispatch_state_handler__19TObjEneBm9MericarolFiUii(s32 arg0, u32 arg1, s32 arg2);
@@ -585,7 +585,7 @@ void dispatch_state_handler__19TObjEneBm9MericarolFiUii(s32 actor, u32 arg1, s32
         TObjEneBm9Mericarol__sub_802D01D8((u8 *)actor, (msg));
         return;
     case 4:
-        handle_shot_state__19TObjEneBm9MericarolFPvi((u8 *)actor, (msg));
+        handle_shot_state__19TObjEneBm9MericarolFl((u8 *)actor, (msg));
         return;
     case 5:
         TObjPlayer__sub_802CFB64((u8 *)actor, (msg));

@@ -119,7 +119,7 @@ u32 __nw__7TObjectFUl(int);
 extern const f32 lbl_805DC1A0;
 extern const f32 lbl_805DC1A4;
 extern const f32 lbl_805DC1A8;
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
+void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
 s32 scroll_strip_uvs(void *, s16, int);
 s32 clear_render_context__10TObjPlayerFv(void *);
 s32 rotate_matrix_y(int, int);
@@ -185,7 +185,7 @@ void TPhotonGolla::sub_801AB688() { this->m_15c = lbl_805DC188; *(float*)((char*
 #pragma fp_contract on
 #pragma opt_common_subs off
 #define self ((Golla_801AB6A0 *)arg0)
-s32 spawn_concentrate__12TPhotonGollaFPv(void *arg0) {
+s32 TPhotonGolla::spawn_concentrate(void *arg0) {
     Vec_801AB6A0 target;
     Vec_801AB6A0 local;
     Vec_801AB6A0 rotated;
@@ -240,7 +240,7 @@ s32 spawn_concentrate__12TPhotonGollaFPv(void *arg0) {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_loop_invariants off
-void collect_hit_targets__12TPhotonGollaFPv(void *arg0) {
+void TPhotonGolla::collect_hit_targets(void *arg0) {
     s32 i;
     Target_801AB868 *candidate;
     TObjPlayer::init_all_slots();
@@ -314,7 +314,7 @@ void TPhotonGolla::render() {
         rotate_matrix_y(0, self->f60);
         ((TUnk_804C3248 *)self)->set_photon_blast_joint_callback();
         lbl_805D5660 = model_render_flags;
-        copy_vec4__13TRaderMapCoreFPvPv(&saved_model_draw_color, &model_material_color);
+        copy_vec4__13TRaderMapCoreFPv(&saved_model_draw_color, &model_material_color);
         lbl_805D5664 = chunk_polygon_flags_and_mask;
         lbl_805D5668 = chunk_polygon_flags_or_mask;
         model_render_flags |= 0x200820;
@@ -325,7 +325,7 @@ void TPhotonGolla::render() {
         TObjPlayer::clear_global_state();
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;
-        copy_vec4__13TRaderMapCoreFPvPv(&model_material_color, &saved_model_draw_color);
+        copy_vec4__13TRaderMapCoreFPv(&model_material_color, &saved_model_draw_color);
         model_render_flags = lbl_805D5660;
         clear_render_context__10TObjPlayerFv(self);
         pop_matrix();
@@ -370,11 +370,11 @@ void TPhotonGolla::run_task() {
     if ((s32) *(s32 *)&this->unk_1C8 == 0x50) {
         VecCopy((Vec *)(arg0 + 0x1AC), (const Vec *)(this->m_148 + 0x44));
         spawn_particle_effect((arg0 + 0x1AC), 0x133);
-        spawn_concentrate__12TPhotonGollaFPv(arg0);
+        TPhotonGolla::spawn_concentrate(arg0);
     }
     temp_r0 = *(s32 *)&this->unk_1C8;
     if ((temp_r0 == 0x56) || (temp_r0 == 0x5C) || (temp_r0 == 0x62) || (temp_r0 == 0x68) || (temp_r0 == 0x6E) || (temp_r0 == 0x74)) {
-        spawn_concentrate__12TPhotonGollaFPv(arg0);
+        TPhotonGolla::spawn_concentrate(arg0);
     }
     if ((s32) this->m_1c4 != 0) {
         play_persistent_sound(0x4002462F, (s32)arg0, 0, 0, 0);

@@ -15,7 +15,7 @@ void *dt__12TObjNpcLappyFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1);
 
-void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0);
+void copy_position__20TBoss3VoloptHiraisinFv(s32 arg0);
 void TObjNpcBase__ct(void *, void *);
 void init_collision_body_parts(void *, void *, s32);
 extern u8 npc_default_battle_stats[];
@@ -178,7 +178,7 @@ u8 *TObjNpcLappy__ct(u8 *self, void *parent, s32 arg2) {
     init_collision_body_parts(self, lbl_804A9DA8, 1);
     ((TObjPlayer *)self)->reset_photon_effect();
     ((TObjEnemy *)self)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFi((s32)self);
+    copy_position__20TBoss3VoloptHiraisinFv((s32)self);
     return self;
 }
 

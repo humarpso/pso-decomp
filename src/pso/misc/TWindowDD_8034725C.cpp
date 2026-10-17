@@ -65,7 +65,6 @@ extern const f32 lbl_805DFCD0;
 extern const f32 lbl_805DFCD4;
 void TWindowDD__sub_80347CC8(W_80347CC8 *arg0, void *arg1);
 void TWindowDD__sub_80348D90(void *, int);
-void update_selection_state__9TWindowDDFPv(W_80347B70 *arg0);
 extern const f32 TWindowDD__data_805DFB6C;
 extern const f32 TWindowDD__data_805DFB74;
 void *get_player_by_client_id(s32 i);
@@ -285,8 +284,9 @@ void TWindowDD__sub_80347A4C(u8 *arg0, s32 arg1) {
 #pragma fp_contract on
 
 struct W_80347CC8;
-void update_selection_state__9TWindowDDFPv(W_80347B70 *arg0) {
+void TWindowDD::update_selection_state() {
     s32 v;
+    W_80347B70 *arg0 = (W_80347B70 *)this;
     v = TWindowDD__sub_80342158(arg0->tbl[arg0->idx]);
     if ((s16)v != arg0->cur) {
         switch (arg0->state) {

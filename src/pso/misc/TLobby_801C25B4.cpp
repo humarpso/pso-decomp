@@ -373,17 +373,14 @@ void TObjEneRe4Sorcerer__sub_801E3F18(void);
 void *__nw__7TObjectFUl(u32);
 extern char lbl_80446FF0[];
 extern char lbl_80446FFC[];
-void start_duel_battle__6TLobbyFPv(Lobby_801C2F40 *self);
 void queue_destruction__7TObjectFv(void *arg0);
 s32 check_value_equals__13TUnk_804B6C24Fl(void *, s32);
 extern s32 lbl_805D2A98;
-void destroy_matching_children__6TLobbyFPv(void *arg0);
 s32 obj_getField1c();
 void reset_cameras_to_actor(void *actor, s32 arg1);
 s32 TObjPlayer__send_selected_spawn_position(s32, u16);
 extern u16 battle_mode_data_table[];
 extern s32 tl_05;
-void finish_chr_select_scene_init__6TLobbyFv(void);
 s32 rand();
 void send_6x7D_set_battle_mode_data(void);
 s32 obj_set_flag_20000();
@@ -443,19 +440,19 @@ void clear_battle_player_ready_flags(void) {
     }
 }
 
-void destroy_matching_children__6TLobbyFPv(void *arg0) {
+void TLobby::destroy_matching_children() {
     void *var_r31;
-    var_r31 = *(void **)((s8 *)arg0 + 0x14);
+    var_r31 = *(void **)((s8 *)this + 0x14);
 while (var_r31 != NULL) {
         if (check_value_equals__13TUnk_804B6C24Fl(var_r31, lbl_805D2A98) != 0) {
             queue_destruction__7TObjectFv(var_r31);
         }
-        destroy_matching_children__6TLobbyFPv(var_r31);
+        ((TLobby *)var_r31)->destroy_matching_children();
         var_r31 = *(void **)((s8 *)var_r31 + 0xC);
     }
 }
 
-void finish_chr_select_scene_init__6TLobbyFv(void) {
+void TLobby::finish_chr_select_scene_init() {
     s32 temp_r3;
     TLobby::init_scene_objects();
     temp_r3 = update_battle_controller__10TObjPlayerFv();
@@ -463,7 +460,7 @@ void finish_chr_select_scene_init__6TLobbyFv(void) {
         TObjPlayer__send_selected_spawn_position(temp_r3, battle_mode_data_table[(u16)obj_getField1c()]);
         reset_cameras_to_actor((void *)temp_r3, 0);
     }
-    destroy_matching_children__6TLobbyFPv((void *)tl_05);
+    ((TLobby *)tl_05)->destroy_matching_children();
     TAdSinglePlyChrSelectGC::destroy();
 }
 
@@ -519,7 +516,7 @@ void init__6TLobbyFPv(void *arg0) {
         var_r31 += 1;
     } while (var_r31 < 4);
 }
-void start_duel_battle__6TLobbyFPv(Lobby_801C2F40 *self) {
+void TLobby::start_duel_battle() {
     char *name;
     void *obj;
     u32 p;
@@ -527,25 +524,25 @@ void start_duel_battle__6TLobbyFPv(Lobby_801C2F40 *self) {
     s32 i;
     TObjEneRe4Sorcerer__sub_801E3F14(4);
     TObjEneRe4Sorcerer__sub_801E3F18();
-    self->time = OSGetTime();
+    ((Lobby_801C2F40 *)this)->time = OSGetTime();
     handle_battle_result__6TLobbyFii(local_client_id, 1);
     if ((p = update_battle_controller__10TObjPlayerFv()) != 0) {
         obj_clear_flag30_20000((void *)p);
     }
-    clear_counter__6TLobbyFPv(self);
+    clear_counter__6TLobbyFPv(((Lobby_801C2F40 *)this));
     st = TOKeyMachine01::get_global_state();
     name = (st == 0x10) ? lbl_80446FF0 : lbl_80446FFC;
     obj = __nw__7TObjectFUl(0x40);
     if (obj != NULL) {
-        init_with_name__6TLobbyFPvPvPvPv(obj, self, name, 0x2D);
+        init_with_name__6TLobbyFPvPvPvPv(obj, ((Lobby_801C2F40 *)this), name, 0x2D);
     }
     for (i = 0; i < 8; i++) {
-        self->pending[i] = 1;
+        ((Lobby_801C2F40 *)this)->pending[i] = 1;
         if (battle_event_second_table[i] == 0) {
-            self->pending[i] = 0;
+            ((Lobby_801C2F40 *)this)->pending[i] = 0;
         }
     }
-    self->f64 = TLobby__battle_ctrl_default_value;
+    ((Lobby_801C2F40 *)this)->f64 = TLobby__battle_ctrl_default_value;
 }
 __declspec(section ".rodata") char lbl_80446FF0[] = "duel1.adx";
 __declspec(section ".rodata") char lbl_80446FFC[] = "duel2.adx";
@@ -802,7 +799,6 @@ extern s32 lbl_805D5DA4;
 extern s32 lbl_805D5DB0;
 extern u8 TLobby__battle_player_ready_flags[4];
 void handle_6x7D_set_battle_mode_data(Pkt_801C374C *pkt);
-void start_duel_battle__6TLobbyFPv(Lobby_801C484C *);
 void send_battle_mode_params__6TLobbyFcii(s8 arg0, s32 arg1, s32 arg2);
 s64 OSGetTime();
 s32 check_battle_end__6TLobbyFv(Lobby_801C484C *);
@@ -905,7 +901,6 @@ s32 calc_player_rankings__6TLobbyFPv(Lobby_801C484C *);
 void TLobby__sub_801036CC(void);
 void play_effect_default__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 update_battle_controller__10TObjPlayerFv();
-void finish_chr_select_scene_init__6TLobbyFv(void);
 s32 clear_buffer__12TQuestThreadFPv(u32);
 void TLobby__sub_8020BC50(void);
 void TLobby__sub_801C38A4(void);
@@ -1219,7 +1214,7 @@ void TLobby__sub_801C38E8(void *arg0) {
         break;
     case 2:
         if (lbl_805D5DB4 != 0) {
-            finish_chr_select_scene_init__6TLobbyFv();
+            TLobby::finish_chr_select_scene_init();
             TLobby::set_fade_params((s32)((void *)TLobby__sub_801C38A4));
             *(s32 *)((u8 *)arg0 + 0x20) = 3;
         }
@@ -1658,7 +1653,7 @@ void update_timed_wait__6TLobbyFPv(Lobby_801C484C *self) {
     s32 rem;
     switch (self->state) {
     case 0:
-        start_duel_battle__6TLobbyFPv(self);
+        ((TLobby *)self)->start_duel_battle();
         self->state = 1;
     case 1:
         if (check_team_balance__6TLobbyFPvi((Lobby_801C484C *)(self), 1) != 0) {

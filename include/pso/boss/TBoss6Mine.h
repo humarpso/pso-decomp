@@ -38,6 +38,7 @@ struct TBoss6Mine : public TObjEnemy {
     s32 is_far_from_origin();
     static s32 create(s32 arg0);
     static f32 next_random_float(s32 *arg0);
+    void explode_damage_players();
 };
 
 typedef char TBoss6Mine_size[sizeof(TBoss6Mine) == 0x3D0 ? 1 : -1];
@@ -53,7 +54,7 @@ void TBoss6Mine__vt5(u8 *arg0);
 void TBoss6Mine__vt6(s32 arg0);
 void TBoss6Mine__vt7(void *p);
 void *__dt__10TBoss6MineFPvs(void *arg0, s16 arg1);
-void explode_damage_players__10TBoss6MineFPv(u8 *arg0);
+void explode_damage_players__10TBoss6MineFv(u8 *arg0);
 }
 
 #endif

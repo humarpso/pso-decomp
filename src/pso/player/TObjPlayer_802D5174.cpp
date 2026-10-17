@@ -714,7 +714,7 @@ void update_swim_flag__10TObjPlayerFPv(void *arg0);
 s32 get_attack_stage__11TItemWeaponFv();
 s32 get_weapon_color__11TItemWeaponFPv(s32 *, void *);
 int TItemWeapon__ct(void);
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
+void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
 int set_status_flags__10TObjPlayerFUl(void*, void*);
 
 void set_radar_marker_params__10TObjPlayerFPvPv(u8 *weapon, u8 *arg1) {
@@ -724,7 +724,7 @@ void set_radar_marker_params__10TObjPlayerFPvPv(u8 *weapon, u8 *arg1) {
     *(s32 *)((s8 *)arg1 + 0x58) = 0xC000;
     *(s32 *)((s8 *)arg1 + 0x40) = (s32) (*(s32 *)((s8 *)arg1 + 0x40) | 2);
     get_weapon_color__11TItemWeaponFPv(&sp8, weapon);
-    copy_vec4__13TRaderMapCoreFPvPv(arg1 + 0x60, &sp8);
+    copy_vec4__13TRaderMapCoreFPv(arg1 + 0x60, &sp8);
     *(s32 *)((s8 *)arg1 + 0x74) = (s32) *(s32 *)((s8 *)weapon + 0x208);
     *(s32 *)((s8 *)arg1 + 0x70) = (s32) *(s32 *)((s8 *)weapon + 0x204);
 }

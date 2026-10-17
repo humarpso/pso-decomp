@@ -26,7 +26,7 @@ u8 *create_guardianna(u8 *arg0);
 extern const f32 lbl_805DF7D8;
 extern const f32 lbl_805DF7DC;
 extern const f32 lbl_805DF7E0;
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
+void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
 s32 *query_game_join_id__10TObjPlayerFv(s32 *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 notify_fish_if_valid__10TObjPlayerFUl();
@@ -142,7 +142,7 @@ void TUnk_804EDD20::render() {
         lbl_805D5660 = model_render_flags;
         var_r3 = &saved_model_draw_color.value;
         var_r4 = &model_material_color.value;
-        copy_vec4__13TRaderMapCoreFPvPv((&saved_model_draw_color.value), (&model_material_color.value));
+        copy_vec4__13TRaderMapCoreFPv((&saved_model_draw_color.value), (&model_material_color.value));
         var_r3 = (s32 *)(var_r29 + 0x80);
         model_render_flags |= 0x20;
         set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)var_r3);
@@ -164,7 +164,7 @@ void TUnk_804EDD20::render() {
         var_r4 = &saved_model_draw_color.value;
         var_r3 = &model_material_color.value;
         var_r4 = &saved_model_draw_color.value;
-        copy_vec4__13TRaderMapCoreFPvPv((&model_material_color.value), (&saved_model_draw_color.value));
+        copy_vec4__13TRaderMapCoreFPv((&model_material_color.value), (&saved_model_draw_color.value));
         model_render_flags = lbl_805D5660;
       }
     }

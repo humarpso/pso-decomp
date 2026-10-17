@@ -1835,7 +1835,7 @@ f32 calc_boss4_scale__10TObjPlayerFi(s32);
 s32 obj_getField1c(void *);
 f32 newton_sqrtf(f32);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+s32 copy_vec4__13TRaderMapCoreFPv(void *, void *);
 bool is_vec_xz_cross_negative(u8 *arg0, u8 *arg1);
 f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
 void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
@@ -2482,7 +2482,7 @@ void TObjEneMe1CanadinLeader::update_formation_state(void *arg0) {
         if (self->f4B8 == 0) {
             self->state = 3;
             self->flags3C8 &= ~8;
-            copy_vec4__13TRaderMapCoreFPvPv(self->v4A4, ((s32 *)canadin_formation_reset_vec4));
+            copy_vec4__13TRaderMapCoreFPv(self->v4A4, ((s32 *)canadin_formation_reset_vec4));
             for (i = 0; i < self->count; i++) {
                 if (((s32 (*)(void *, s32))TObjEneMe1CanadinLeader__sub_8009E31C)(self->members[i], 0x200) != 0) {
                     ((s32 (*)(void *))TObjEneMe1CanadinLeader__sub_8009E27C)(self->members[i]);
@@ -2502,7 +2502,7 @@ void TObjEneMe1CanadinLeader::update_formation_state(void *arg0) {
         break;
     case 5:
         if (self->f4B8 == 0) {
-            copy_vec4__13TRaderMapCoreFPvPv(self->v4A4, ((s32 *)canadin_formation_reset_vec4));
+            copy_vec4__13TRaderMapCoreFPv(self->v4A4, ((s32 *)canadin_formation_reset_vec4));
             self->state = 6;
             for (i = 0; i < self->count; i++) {
                 if (((s32 (*)(void *, s32))TObjEneMe1CanadinLeader__sub_8009E31C)(self->members[i], 0x100) != 0) {
@@ -2521,7 +2521,7 @@ void TObjEneMe1CanadinLeader::update_formation_state(void *arg0) {
     case 8:
         if (self->f4B8 == 0) {
             self->state = 9;
-            copy_vec4__13TRaderMapCoreFPvPv(self->v4A4, ((s32 *)canadin_formation_reset_vec4));
+            copy_vec4__13TRaderMapCoreFPv(self->v4A4, ((s32 *)canadin_formation_reset_vec4));
             for (j = 0; j < self->count; j++) {
                 ((s32 (*)(void *))TObjEneMe1CanadinLeader__sub_8009E258)(self->members[j]);
             }
@@ -3940,7 +3940,7 @@ void TObjEneMe1Canadin::pack_color_rgba() {
         | (u8) __cvt_fp2unsigned(lbl_805D9914 * *(f32 *)((s8 *)arg0 + 0x4A8));
 }
 
-void TObjEneMe1Canadin::reset_map_core(void * _w1) { ((int (*)(void*))copy_vec4__13TRaderMapCoreFPvPv)((char*)this + 0x4a4); pack_color_rgba(); }
+void TObjEneMe1Canadin::reset_map_core(void * _w1) { ((int (*)(void*))copy_vec4__13TRaderMapCoreFPv)((char*)this + 0x4a4); pack_color_rgba(); }
 
 void TObjEneMe1CanadinLeader__sub_8009E4AC(u8 *arg0, s32 arg1) {
     ((TObjEneMe1Canadin *)arg0)->reset_map_core(&canadin_formation_fade_start_color.value);
@@ -3983,7 +3983,7 @@ void TObjEneMe1CanadinLeader::update_fade_sequence(void *pv) {
                 break;
             case 0x63:
                 p->state = 0;
-                copy_vec4__13TRaderMapCoreFPvPv(&p->f4a4, (void *)canadin_formation_reset_vec4);
+                copy_vec4__13TRaderMapCoreFPv(&p->f4a4, (void *)canadin_formation_reset_vec4);
                 break;
             case 0x61:
                 p->f4a4 = lbl_805D98D4;
@@ -4329,7 +4329,7 @@ void TObjEneMe1Canadin::setup_enemy() {
     *(f32 *)((s8 *)arg0 + 0x498) = lbl_805D9898;
     *(s32 *)((s8 *)arg0 + 0x49C) = 0;
     *(s32 *)((s8 *)arg0 + 0x4A0) = 0;
-    ((void (*)(void *, void *))copy_vec4__13TRaderMapCoreFPvPv)(arg0 + 0x4A4, TObjEneMe1Canadin__map_core_default_vec4);
+    ((void (*)(void *, void *))copy_vec4__13TRaderMapCoreFPv)(arg0 + 0x4A4, TObjEneMe1Canadin__map_core_default_vec4);
     *(f32 *)((s8 *)arg0 + 0x4A4) = lbl_805D9898;
     *(s32 *)((s8 *)arg0 + 0x4B8) = 0;
     *(s32 *)((s8 *)arg0 + 0x4B4) = 0;

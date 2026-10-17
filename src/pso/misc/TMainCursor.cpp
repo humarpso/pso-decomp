@@ -24,7 +24,7 @@ s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__11TMainCursor[];
 extern s32 main_cursor_class_name;
 u8 *TMainCursor__ct(u8 *arg0, s32 arg1, s32 arg2, u8 arg3, u8 arg4, u8 arg5, s32 arg6, f32 farg0);
-s32 check_can_pickup__11TMainCursorFi(s32 arg0);
+s32 check_can_pickup__11TMainCursorFv(s32 arg0);
 s32 check_visible__11TMainCursorFv(void *, int, void *, int);
 s32 check_field_24__11TMainCursorFv();
 u8 update_sub_60__11TMainCursorFv(void *);
@@ -73,7 +73,7 @@ void TMainCursor::refresh_target_marker() {
     *(f32 *)&this->unk_30 = *(f32 *)&this->unk_38;
     this->m_3c = lbl_805DB0DC;
     this->update_position();
-    if (check_can_pickup__11TMainCursorFi((s32)this) != 0) {
+    if (check_can_pickup__11TMainCursorFv((s32)this) != 0) {
         this->check_flag_4();
     }
     if (this->update() != 0) {

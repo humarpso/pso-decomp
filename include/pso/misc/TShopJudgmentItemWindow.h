@@ -47,6 +47,8 @@ struct TShopJudgmentItemWindow : public TShopWindowBase {
     void add_list_entry(s32 arg1, s32 arg2);
     void handle_pay_confirm();
     static int get_item_record(void* p);
+    void update_judge_confirm();
+    void handle_judge_confirm();
 };
 
 typedef char TShopJudgmentItemWindow_size[sizeof(TShopJudgmentItemWindow) == 0x178 ? 1 : -1];

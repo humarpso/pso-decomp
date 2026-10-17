@@ -238,7 +238,7 @@ struct RecoveredGlobal_801C5B68_lbl_8058D4C0 {
 struct Obj_801C5C38 { u8 pad[4]; s32 n; };
 
 extern "C" {
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
+void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
 extern RecoveredGlobal_801C5B68_lbl_8058D4C0 model_material_color;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
@@ -280,7 +280,7 @@ void save_render_material_state(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) model_render_flags;
     *(s32 *)((s8 *)arg0 + 4) = (s32) chunk_polygon_flags_and_mask;
     *(s32 *)((s8 *)arg0 + 8) = (s32) chunk_polygon_flags_or_mask;
-    copy_vec4__13TRaderMapCoreFPvPv((arg0 + 0xC), (&model_material_color.value));
+    copy_vec4__13TRaderMapCoreFPv((arg0 + 0xC), (&model_material_color.value));
 }
 
 void TObjPlayer::set_vec4_const() { *(float*)((char*)this + 0x1c) = lbl_805DC320[0]; *(float *)&this->m_20 = lbl_805DC320[0]; *(float *)&this->texture_id = lbl_805DC320[0]; *(float *)&this->m_28 = lbl_805DC320[0]; }

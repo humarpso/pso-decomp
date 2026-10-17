@@ -5,7 +5,7 @@
 
 extern "C" {
 void bswap__12TPlyCharDataFv(s32 arg0);
-void bswap_pair__14TPlyDispConfigFPv(void *p);
+void bswap_pair__14TPlyDispConfigFv(void *p);
 }
 
 #endif

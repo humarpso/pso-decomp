@@ -73,7 +73,7 @@ extern const Packet_801AA710 photon_estlla_line_packet_init;
 extern u8 identity_matrix[];
 extern const f32 lbl_805DC138;
 extern const f32 lbl_805DC13C;
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
+void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
 s32 scroll_strip_uvs(void *, s16, int);
 s32 clear_render_context__10TObjPlayerFv(void *);
 s32 push_matrix();
@@ -130,7 +130,7 @@ void TPhotonEstlla::render() {
         rotate_matrix_y(0, self->f60);
         ((TUnk_804C3248 *)self)->set_photon_blast_joint_callback();
         lbl_805D5660 = model_render_flags;
-        copy_vec4__13TRaderMapCoreFPvPv(&saved_model_draw_color, &model_material_color);
+        copy_vec4__13TRaderMapCoreFPv(&saved_model_draw_color, &model_material_color);
         lbl_805D5664 = chunk_polygon_flags_and_mask;
         lbl_805D5668 = chunk_polygon_flags_or_mask;
         model_render_flags |= 0x200820;
@@ -141,7 +141,7 @@ void TPhotonEstlla::render() {
         TObjPlayer::clear_global_state();
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;
-        copy_vec4__13TRaderMapCoreFPvPv(&model_material_color, &saved_model_draw_color);
+        copy_vec4__13TRaderMapCoreFPv(&model_material_color, &saved_model_draw_color);
         model_render_flags = lbl_805D5660;
         clear_render_context__10TObjPlayerFv(self);
         pop_matrix();

@@ -88,7 +88,6 @@ extern const f32 TObjEneDelDepth__data_805DF280;
 extern const f32 lbl_805DF288;
 extern const f32 lbl_805DF28C;
 extern const f32 lbl_805DF290;
-void move_toward_target__15TObjEneDelDepthFPv(u8 *arg0);
 void submit_cursor_candidate(void *, s32);
 void minimap_render_dot(void *, s32, s32, s32);
 f32 cos_table_lookup(s32);
@@ -360,7 +359,6 @@ void TObjEneDelDepth__sub_803138F8(void* a0);
 void TObjEneDelDepth__sub_80313954(u8 *arg0);
 void TObjEneDelDepth__sub_80313DE4(void* p);
 void TObjEneDelDepth__sub_80314500(u8 *arg0);
-void start_move_toward_player__15TObjEneDelDepthFPv(u8 *arg0);
 void TObjEneDelDepth__sub_80314EC4(u8 *arg0);
 void set_draw_mode__15TObjEneDelDepthFPvi(void *arg0, s32 arg1);
 s32 TObjEneDelDepth__sub_80315380(Obj_80315380 *arg0);
@@ -799,10 +797,11 @@ void TObjEneDelDepth::update_bomb_drop() {
 
 void TObjEneDelDepth::init_draw_state() { this->m_384 = 30; *(int*)((char*)this + 0x388) = 8; set_motion__15TObjEneDelDepthFl((void*)(*(void**)((char*)this + 0x37c)), (void*)((void*)2)); ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)(this, (void*)((void*)2)); }
 
-void move_toward_target__15TObjEneDelDepthFPv(u8 *arg0) {
+void TObjEneDelDepth::move_toward_target() {
     Vec_80313FAC v;
     s32 ang;
     s32 id;
+    u8 *arg0 = (u8 *)this;
     v.x = 1.0f;
     v.y = 0.0f;
     v.z = 0.0f;
@@ -1082,9 +1081,10 @@ void TObjEneDelDepth::update_movement() {
 #pragma push
 #pragma fp_contract on
 #pragma fp_contract on
-void start_move_toward_player__15TObjEneDelDepthFPv(u8 *actor) {
+void TObjEneDelDepth::start_move_toward_player() {
     f32 temp_f1;
     s32 temp_r31;
+    u8 *actor = (u8 *)this;
     *(f32 *)((s8 *)actor + 0x3AC) = (*(const f32 *)&TObjEneDelDepth__data_805DF258);
     if (find_nearest_visible_player(actor, (int)(actor + 0x3B0), TObjEneDelDepth__data_805DF26C) == 0xFFFF) {
         ((TObjEneDelDepth *)actor)->set_action_state(2);

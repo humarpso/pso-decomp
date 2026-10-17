@@ -54,7 +54,7 @@ s32 test_flag_2000000__10TObjPlayerFPv(int);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 test_flags_any(s32 *, s32);
 extern s32 lbl_805D53EC;
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+s32 copy_vec4__13TRaderMapCoreFPv(void *, void *);
 extern RecoveredGlobal_80101088_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_80101088_lbl_8058D4C0 model_material_color;
 extern s32 lbl_805D5660;
@@ -143,7 +143,7 @@ void TObjPlayer::play_particle_effect_once() {
 }
 void TObjPlayer__sub_80101088(void) {
     if (test_flags_any(&lbl_805D53EC, 1) != 0) {
-        copy_vec4__13TRaderMapCoreFPvPv(&model_material_color.value, &saved_model_draw_color.value);
+        copy_vec4__13TRaderMapCoreFPv(&model_material_color.value, &saved_model_draw_color.value);
         model_render_flags = lbl_805D5660;
         ((TAdRicoRing *)(&lbl_805D53EC))->clear_flags(1);
     }

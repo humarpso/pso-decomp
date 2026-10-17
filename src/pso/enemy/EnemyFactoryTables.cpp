@@ -98,15 +98,15 @@ void* TObjNpcEnemy__create(void* placement);
 void* TObjEneDelDepth__create(void* placement);
 void* TObjEneMe3SinowZoaReal__create(void* placement);
 void* create__13TObjEneMorfosFv(void* placement);
-void* create_variant_13__14TObjNpcNgcBaseFi(void* placement);
+void* create_variant_13__14TObjNpcNgcBaseFl(void* placement);
 void* TObjNpcNgcBase__sub_80358B70(void* placement);
 void* TObjNpcNgcBase__sub_80358BF8(void* placement);
 void* TObjNpcNgcBase__sub_80358C80(void* placement);
 void* TObjNpcNgcBase__sub_80358D08(void* placement);
-void* create_variant_8__14TObjNpcNgcBaseFi(void* placement);
-void* create_variant_7__14TObjNpcNgcBaseFi(void* placement);
-void* create_variant_6__14TObjNpcNgcBaseFi(void* placement);
-void* create_variant_5__14TObjNpcNgcBaseFi(void* placement);
+void* create_variant_8__14TObjNpcNgcBaseFl(void* placement);
+void* create_variant_7__14TObjNpcNgcBaseFl(void* placement);
+void* create_variant_6__14TObjNpcNgcBaseFl(void* placement);
+void* create_variant_5__14TObjNpcNgcBaseFl(void* placement);
 void* TObjNpcNgcBase__sub_80358FB0(void* placement);
 void* TObjNpcNgcBase__sub_80359038(void* placement);
 void* TObjNpcNgcBase__sub_803590C0(void* placement);
@@ -358,7 +358,7 @@ EnemyFactoryEntry enemy_factories_floor_18[39] = {
     { 0x00F5, TObjNpcNgcBase__sub_80359038, 250000.0f, 0 },
     { 0x00F6, TObjNpcNgcBase__sub_80358FB0, 250000.0f, 0 },
     { 0x0031, TObjNpcNFM01__create, 250000.0f, 0 },
-    { 0x00F7, create_variant_5__14TObjNpcNgcBaseFi, 250000.0f, 0 },
+    { 0x00F7, create_variant_5__14TObjNpcNgcBaseFl, 250000.0f, 0 },
     { 0x00D0, TObjNpcKenkyu__create, 250000.0f, 0 },
     { 0x00D1, TObjNpcSoutokufu__create, 250000.0f, 0 },
     { 0x00D2, TObjNpcHosa__create, 250000.0f, 0 },
@@ -366,14 +366,14 @@ EnemyFactoryEntry enemy_factories_floor_18[39] = {
     { 0x0033, TObjNpcEnemy__create, 250000.0f, 0 },
     { 0x00F0, TObjNpcHosa2__create, 250000.0f, 0 },
     { 0x00F1, TObjNpcKenkyu2__create, 250000.0f, 0 },
-    { 0x00F8, create_variant_6__14TObjNpcNgcBaseFi, 250000.0f, 0 },
-    { 0x00F9, create_variant_7__14TObjNpcNgcBaseFi, 250000.0f, 0 },
-    { 0x00FA, create_variant_8__14TObjNpcNgcBaseFi, 250000.0f, 0 },
+    { 0x00F8, create_variant_6__14TObjNpcNgcBaseFl, 250000.0f, 0 },
+    { 0x00F9, create_variant_7__14TObjNpcNgcBaseFl, 250000.0f, 0 },
+    { 0x00FA, create_variant_8__14TObjNpcNgcBaseFl, 250000.0f, 0 },
     { 0x00FB, TObjNpcNgcBase__sub_80358D08, 250000.0f, 0 },
     { 0x00FC, TObjNpcNgcBase__sub_80358C80, 250000.0f, 0 },
     { 0x00FD, TObjNpcNgcBase__sub_80358BF8, 250000.0f, 0 },
     { 0x00FE, TObjNpcNgcBase__sub_80358B70, 250000.0f, 0 },
-    { 0x00FF, create_variant_13__14TObjNpcNgcBaseFi, 250000.0f, 0 },
+    { 0x00FF, create_variant_13__14TObjNpcNgcBaseFl, 250000.0f, 0 },
     { -1, 0, 250000.0f, 0 },
 };
 

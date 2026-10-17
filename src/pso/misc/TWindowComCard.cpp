@@ -28,7 +28,6 @@ s32 get_class_name_text(s32 arg0);
 s32 TWindowSubComCard__sub_8007B070(s32);
 void *__nw__7TObjectFUl(int);
 extern s32 local_client_id;
-s32 create_com_card_window__17TWindowSubComCardFi(s32 arg0);
 s32 update_com_card_display(s32, s32);
 extern s32 lbl_805D38C0;
 u8 *TWindowComCard__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -153,7 +152,7 @@ void *TWindowComCard::create(void *arg0, void *arg1) {
     return o;
 }
 
-s32 create_com_card_window__17TWindowSubComCardFi(s32 arg0) {
+s32 TWindowSubComCard::create_com_card_window(s32 arg0) {
     s32 keyboard_mode;
     s32 temp_r3_2;
     s32 var_r0;

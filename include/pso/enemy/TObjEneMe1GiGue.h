@@ -52,6 +52,10 @@ struct TObjEneMe1GiGue : public TObjEnemyCustom {
     u8 unk_44C[0xC];
     static int get_barrier_count();
     void apply_hit_shake(u32 arg1);
+    s32 check_vector_bit(s32 arg1);
+    static s32 remap_sound_id(void *obj, s32 id);
+    void break_apart();
+    void update_hit_reaction();
 };
 
 typedef char TObjEneMe1GiGue_size[sizeof(TObjEneMe1GiGue) == 0x458 ? 1 : -1];

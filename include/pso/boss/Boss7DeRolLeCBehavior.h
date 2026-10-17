@@ -36,7 +36,7 @@ void TObjPlayer__sub_802E8274(void);
 void fn_802EC52C(s32 arg0, s32 arg1);
 void fn_802EC9A4(void *arg0, void *arg1);
 void fn_802EC9F0(void *arg0, void *arg1);
-void free_laser_light__15TBoss7LaserPtclFPv(void *arg0);
+void free_laser_light__15TBoss7LaserPtclFv(void *arg0);
 void handle_6xA9_barba_ray_boss_actions(void *arg0);
 void handle_6xAA_barba_ray_boss_actions(void *arg0);
 void queue_boss_effect__10TObjPlayerFPv(void *a0);

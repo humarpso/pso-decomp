@@ -13,5 +13,6 @@ struct TObjMapWarp : public TObjWarpBase {
     void draw_debug_destinations();
     static u8 can_warp(s32 arg0, u16 arg1);
     void open_player_warp_window(s32 arg1);
+    void process_player_warps();
 };
 #endif

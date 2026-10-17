@@ -97,7 +97,7 @@ s32 __dl__7TObjectFPv(void *);
 extern void *TObjEneSaver__vtable[83];
 Obj_800A73F8 *__dt__12TObjEneSaverFv(Obj_800A73F8 *arg0, s16 arg1);
 void* vfunc_9__12TObjEneSaverFv(void* p);
-void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0);
+void copy_position__20TBoss3VoloptHiraisinFv(s32 arg0);
 s32 create__12TObjEneSaverFPvPv(u32, u32);
 int initialize_enemy_photon_effect(void *p);
 s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
@@ -1999,7 +1999,7 @@ void TObjEneSaver::run_task() {
         this->target = NULL;
     }
     this->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFi((s32)this);
+    copy_position__20TBoss3VoloptHiraisinFv((s32)this);
     sub_800A435C__12TObjEneSaverFv(this);
     this->m_2b4 = (f32) (this->m_2b4 + lbl_805D9A40);
 }
@@ -2168,7 +2168,7 @@ u8 *TObjEneSaver__ct(TObjEneSaver *arg0, void *arg1, void *arg2) {
     arg0->movementParameters = (u8*)lbl_80490B28;
     arg0->referenceHp = arg0->hp;
     ((TObjEnemy *)arg0)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFi((s32)arg0);
+    copy_position__20TBoss3VoloptHiraisinFv((s32)arg0);
     initialize_enemy_photon_effect(arg0);
     *(s32 *)((s8 *)arg0 + 0x374) = 1;
     *(s32 *)((s8 *)arg0 + 0x38C) = 0;

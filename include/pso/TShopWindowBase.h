@@ -18,6 +18,8 @@ public:
     virtual void run_task();
 public:
     static f32 get_scale();
+public:
+    void confirm_and_close_if_valid();
 };
 
 #endif

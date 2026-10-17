@@ -24,6 +24,10 @@ struct TWindowTimer : public TUnk_804CE018 {
     static s32 create();
     static s32 create_alt();
     void copy_state(u8 *arg1);
+    void throw_gogo_ball(s32 arg1, s32 arg2);
+    void send_gogo_ball();
+    static s16 get_timer_value(s32 i);
+    static int set_timer_value(int a0, int a1);
 };
 
 typedef char TWindowTimer_size[sizeof(TWindowTimer) == 0x64 ? 1 : -1];

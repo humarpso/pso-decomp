@@ -93,13 +93,14 @@ void TObjEnemyCustom::vfunc_79() {
     this->mode = temp_r31;
 }
 
-u16 pick_random_nearby_player__10TObjPlayerFPvf(u8 *arg0, f32 radius) {
+u16 TObjPlayer::pick_random_nearby_player(f32 radius) {
     u16 list[32];
     s32 count;
     s32 n;
     s32 i;
     f32 r2;
     u8 *p;
+    u8 *arg0 = (u8 *)this;
     r2 = radius * radius;
     count = 0;
     if (obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x10) != 0) {

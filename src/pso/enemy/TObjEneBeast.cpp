@@ -417,7 +417,7 @@ struct VObj_800927DC : VBase_800927DC {
 
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 void obj_setFlags30(void *, u32);
-void copy_position__20TBoss3VoloptHiraisinFi(void *);
+void copy_position__20TBoss3VoloptHiraisinFv(void *);
 void init_enemy_base__13TUnk_80493450Fv(void *, void *);
 void bind_enemy_combat_stats(void *, u32, u32, u32);
 void init_collision_body_parts(void *, void *, s32);
@@ -458,7 +458,7 @@ void *TObjEneBeast__ct(void *arg0v, void *arg1, void *arg2) {
     F(arg0, void *, 0x350) = &((Rec1C_800927DC *)beast_movement_params)[F(arg0, s32, 0x334)];
     F(arg0, s16, 0x33E) = F(arg0, s16, 0x32C);
     ((TObjEnemy *)arg0)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFi(arg0);
+    copy_position__20TBoss3VoloptHiraisinFv(arg0);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     F(arg0, s32, 0x2AC) = (s32)(lbl_805D970C * (lbl_805D9710 * calc_boss4_scale__10TObjPlayerFi(arg0)));
     F(arg0, s16, 0x33A) = 0xF;

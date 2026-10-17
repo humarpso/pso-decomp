@@ -75,7 +75,7 @@ void TItemMag::add_photon_blast(u8 blast) {
     if (blast >= 6) {
         return;
     }
-    if (is_pb_registered__8TItemMagFiUc((s32)data, blast) != 0) {
+    if (((TItemMag *)data)->is_pb_registered(blast) != 0) {
         return;
     }
     if (!(data->flags & lbl_805DABC4[0])) {
@@ -225,8 +225,9 @@ void mag_feed_add_def(u8 *mag, s16 arg1) {
 }
 #pragma pop
 
-s32 is_pb_registered__8TItemMagFiUc(s32 arg0, u8 arg1) {
+s32 TItemMag::is_pb_registered(u8 arg1) {
     s32 slot;
+    s32 arg0 = (s32)this;
 
     if (arg1 < 6U) {
         slot = 0;

@@ -55,8 +55,6 @@ extern "C" {
 void send_6x70_player_data__6TLobbyFi(s32 arg0);
 void send_6x6F_quest_flags(s32 arg0);
 void send_6x6E_sync_game_state__6TLobbyFi(s32 arg0);
-void send_compressed_packet_6c__6TLobbyFi(s32 arg0);
-void send_cmd_6B__6TLobbyFi(s32 arg0);
 char * get_seq_phase__6TLobbyFPv(int);
 void lobby_debug_printf_stub(const char *fmt, ...);
 s32 get_player_by_client_id(void *);
@@ -873,7 +871,7 @@ void TLobby::send_6x6D_item_state() {
     }
 }
 
-void send_compressed_packet_6c__6TLobbyFi(s32 arg0) {
+void TLobby::send_compressed_packet_6c() {
     u32 *src;
     s32 len;
     u32 size;
@@ -882,6 +880,7 @@ void send_compressed_packet_6c__6TLobbyFi(s32 arg0) {
     u32 n;
     u32 *p;
     u32 i;
+    s32 arg0 = (s32)this;
     buf = (Pkt_80135BD0 *)mem_alloc(0x8000);
     if (buf != NULL) {
         memset(buf, 0, 0x8000);
@@ -908,7 +907,7 @@ void send_compressed_packet_6c__6TLobbyFi(s32 arg0) {
     }
 }
 
-void send_cmd_6B__6TLobbyFi(s32 arg0) {
+void TLobby::send_cmd_6B() {
     S12_801358B4 *src;
     s32 len;
     u32 size;
@@ -917,6 +916,7 @@ void send_cmd_6B__6TLobbyFi(s32 arg0) {
     u32 n;
     S12_801358B4 *p;
     u32 i;
+    s32 arg0 = (s32)this;
     buf = (Pkt_80135CD8 *)mem_alloc(0x8000);
     if (buf != NULL) {
         memset(buf, 0, 0x8000);
@@ -1124,8 +1124,8 @@ void on_game_player_add__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     }
     if (local_client_id == TLobby__designated_client_id) {
         ((TLobby *)(e.client_id))->send_6x6D_item_state();
-        send_cmd_6B__6TLobbyFi(e.client_id);
-        send_compressed_packet_6c__6TLobbyFi(e.client_id);
+        ((TLobby *)(e.client_id))->send_cmd_6B();
+        ((TLobby *)(e.client_id))->send_compressed_packet_6c();
         send_6x6E_sync_game_state__6TLobbyFi(e.client_id);
         send_6x6F_quest_flags(e.client_id);
         ((TLobby *)(e.client_id))->send_6x71_to_player();

@@ -30,7 +30,7 @@ int TAdSinglePlyChrSelectGC__sub_802E3038(void *p);
 void *__dt__18T_ATS_DrawCalendarFv(void *arg0, s16 arg1);
 void advance_when_load_done__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 void apply_settings__23TAdSinglePlyChrSelectGCFi(s32 arg0);
-s32 check_capacity__23TAdSinglePlyChrSelectGCFi(s32 arg0);
+s32 check_capacity__23TAdSinglePlyChrSelectGCFv(s32 arg0);
 void close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void *p, void *a1, void *a2, void *a3, void *a4);
 void close_and_next__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void *p, void *a1, void *a2, void *a3, void *a4);
 void close_windows__23TAdSinglePlyChrSelectGCFPv(void *arg0);

@@ -122,7 +122,7 @@ extern const f32 lbl_805DC214;
 extern const f32 lbl_805DC218;
 extern const f32 lbl_805DC21C;
 extern const f32 lbl_805DC220;
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
+void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
 s32 clear_render_context__10TObjPlayerFv(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
@@ -189,7 +189,7 @@ void TPhotonMylla::render() {
         translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
         rotate_matrix_y(0, self->f60);
         lbl_805D5660 = model_render_flags;
-        copy_vec4__13TRaderMapCoreFPvPv(&saved_model_draw_color, &model_material_color);
+        copy_vec4__13TRaderMapCoreFPv(&saved_model_draw_color, &model_material_color);
         lbl_805D5664 = chunk_polygon_flags_and_mask;
         lbl_805D5668 = chunk_polygon_flags_or_mask;
         model_render_flags |= 0x200820;
@@ -203,7 +203,7 @@ void TPhotonMylla::render() {
         set_material_alpha_compare_reference(0xBF);
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;
-        copy_vec4__13TRaderMapCoreFPvPv(&model_material_color, &saved_model_draw_color);
+        copy_vec4__13TRaderMapCoreFPv(&model_material_color, &saved_model_draw_color);
         model_render_flags = lbl_805D5660;
         clear_render_context__10TObjPlayerFv(self);
         pop_matrix();

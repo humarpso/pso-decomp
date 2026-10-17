@@ -13,11 +13,11 @@ s32 TObjNpcNgcBase__sub_80358FB0(s32 arg0);
 s32 TObjNpcNgcBase__sub_80359038(s32 arg0);
 s32 TObjNpcNgcBase__sub_803590C0(s32 arg0);
 s32 TObjNpcNgcBase__sub_80359148(s32 arg0);
-s32 create_variant_13__14TObjNpcNgcBaseFi(s32 arg0);
-s32 create_variant_5__14TObjNpcNgcBaseFi(s32 arg0);
-s32 create_variant_6__14TObjNpcNgcBaseFi(s32 arg0);
-s32 create_variant_7__14TObjNpcNgcBaseFi(s32 arg0);
-s32 create_variant_8__14TObjNpcNgcBaseFi(s32 arg0);
+s32 create_variant_13__14TObjNpcNgcBaseFl(s32 arg0);
+s32 create_variant_5__14TObjNpcNgcBaseFl(s32 arg0);
+s32 create_variant_6__14TObjNpcNgcBaseFl(s32 arg0);
+s32 create_variant_7__14TObjNpcNgcBaseFl(s32 arg0);
+s32 create_variant_8__14TObjNpcNgcBaseFl(s32 arg0);
 }
 
 #endif

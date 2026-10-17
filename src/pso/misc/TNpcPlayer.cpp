@@ -480,7 +480,7 @@ s8 get_cast_technique_level(void *, s16);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 void TLobby__send_and_handle_60(u8 *arg0);
-void update_players__6TLobbyFi(s32 arg0);
+void update_players__6TLobbyFv(s32 arg0);
 void __dl__7TObjectFPv(s32);
 void * __nw__7TObjectFUl(u32);
 s32 __dt__7TObjectFv(void *, int);
@@ -3659,7 +3659,7 @@ void TNpcPlayer__sub_80152A78(s16 *self) {
     }
 }
 
-void TNpcPlayer::update() { bswap_6x45_packet((void*)(this)); update_players__6TLobbyFi((s32)this); }
+void TNpcPlayer::update() { bswap_6x45_packet((void*)(this)); update_players__6TLobbyFv((s32)this); }
 
 void bswap_6x45_packet(void* p) { read_be16_field2__10TObjPlayerFv((void*)(p)); bswap_16__FPUs((void*)((char*)p + 0x4)); bswap_16__FPUs((void*)((char*)p + 0x6)); }
 
@@ -3670,7 +3670,7 @@ void init_6x45_attack_packet(u8 *arg0) {
     *(s8 *)((s8 *)arg0 + 1) = 2;
 }
 
-void TNpcPlayer::update_players() { bswap_6x44_packet((void*)(this)); update_players__6TLobbyFi((s32)this); }
+void TNpcPlayer::update_players() { bswap_6x44_packet((void*)(this)); update_players__6TLobbyFv((s32)this); }
 
 void bswap_6x44_packet(void* p) { read_be16_field2__10TObjPlayerFv((void*)(p)); bswap_16__FPUs((void*)((char*)p + 0x4)); bswap_16__FPUs((void*)((char*)p + 0x6)); }
 
@@ -3681,7 +3681,7 @@ void init_6x44_attack_packet(u8 *arg0) {
     *(s8 *)((s8 *)arg0 + 1) = 2;
 }
 
-void TNpcPlayer::update_lobby() { bswap_6x43_packet((void*)(this)); update_players__6TLobbyFi((s32)this); }
+void TNpcPlayer::update_lobby() { bswap_6x43_packet((void*)(this)); update_players__6TLobbyFv((s32)this); }
 
 void bswap_6x43_packet(void* p) { read_be16_field2__10TObjPlayerFv((void*)(p)); bswap_16__FPUs((void*)((char*)p + 0x4)); bswap_16__FPUs((void*)((char*)p + 0x6)); }
 
@@ -3722,13 +3722,13 @@ void *TNpcPlayer::init_cast_technique_cmd() {
 
 void TNpcPlayer__sub_80152D64(void* p) { *(u8*)((char*)p + 0x3) = 0; *(u8*)((char*)p + 0x2) = 0; *(u8*)((char*)p + 0x1) = 0; *(u8*)((char*)p + 0x0) = 0; }
 
-void TNpcPlayer::reset_model() { init_model(); update_players__6TLobbyFi((s32)this); }
+void TNpcPlayer::reset_model() { init_model(); update_players__6TLobbyFv((s32)this); }
 
 void TNpcPlayer::init_model() { read_be16_field2__10TObjPlayerFv((void*)(this)); ((TObjPlayer *)((char*)this + 0x4))->bswap_pkt_u32x2(); }
 
 void TNpcPlayer::reset_move_state() { *(float*)((char*)this + 0x8) = TNpcPlayer__data_805DB1F0; *(float*)((char*)this + 0x4) = TNpcPlayer__data_805DB1F0; *(unsigned char*)((char*)this + 0x0) = 66; *(unsigned char*)((char*)this + 0x1) = 3; }
 
-void TNpcPlayer::sync_from_lobby() { swap_endian(); update_players__6TLobbyFi((s32)this); }
+void TNpcPlayer::sync_from_lobby() { swap_endian(); update_players__6TLobbyFv((s32)this); }
 
 void TNpcPlayer::swap_endian() { read_be16_field2__10TObjPlayerFv((void*)(this)); ((TObjPlayer *)((char*)this + 0x4))->bswap_pkt_u32x2(); bswap_32__FPUl((char*)this + 0xc); }
 

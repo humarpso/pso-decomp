@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/packet_classes.h"
 #include "pso/misc/TPlyGuildCardTag_8013ABCC.h"
 #include "pso/misc/TPlyRecvLogin.h"
 #include "pso/TPlyGuildCardTag.h"
@@ -17,12 +18,13 @@ void bswap__13TPlyRecvLoginFv(s32 arg0) {
 }
 
 s32 __ct__13TPlyRecvLoginFRC13TPlyRecvLogin(s32 arg0, s32 arg1) {
-    copy_with_guild_card_tag__13TPlyRecvLoginFPvPv((s32 *)arg0, (s32 *)arg1);
+    ((TPlyRecvLogin *)arg0)->copy_with_guild_card_tag((s32 *)arg1);
     *(ByteBlock_20 *)(arg0 + 8 + 4) = *(const ByteBlock_20 *)(arg1 + 8 + 4);
     return arg0;
 }
 
-s32 *copy_with_guild_card_tag__13TPlyRecvLoginFPvPv(s32 *arg0, s32 *arg1) {
+s32 *TPlyRecvLogin::copy_with_guild_card_tag(s32 *arg1) {
+    s32 *arg0 = (s32 *)this;
     *arg0 = *arg1;
     __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag((s32 *)((s8 *)arg0 + 4), (s32 *)((s8 *)arg1 + 4));
     return arg0;

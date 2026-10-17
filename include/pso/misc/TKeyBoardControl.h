@@ -84,6 +84,7 @@ struct TKeyBoardControl : public TObject {
     static void enable_keyboard_polling(s32 arg0);
     static void update_camera();
     static void set_key_state(s32 arg0);
+    void reset_inactive_keys();
 };
 
 typedef char TKeyBoardControl_size[sizeof(TKeyBoardControl) == 0x2C ? 1 : -1];

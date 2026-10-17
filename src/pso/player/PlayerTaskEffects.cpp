@@ -58,7 +58,6 @@ void* __nw__7TObjectFUl(s32);
 
 extern "C" {
 
-void revive_or_spawn_marker__10TObjPlayerFi(s32 arg0);
 s32 __ct__11TPlayerSoulFP7TObjectUs();
 
 s32 is_script_controlled__10TObjPlayerFv(s32);
@@ -197,7 +196,7 @@ s32 get_contact_surface_type(s32 arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_801C6FF8_lbl_804C4008 __vt__18TPlayerLobbyMarker;
 u8 *__ct__18TPlayerLobbyMarkerFP7TObjectsSc(u8 *arg0, u8 *arg1, s16 arg2, s8 arg3);
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
+void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
 s32 test_flag_2000000__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_801BF914(s32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
@@ -312,7 +311,6 @@ extern s32 __vt__18TPlayerLobbyMarker[];
 #undef TObjPlayer__sub_801C6FCC
 
 extern "C" {
-void revive_or_spawn_marker__10TObjPlayerFi(s32 arg0);
 }
 
 namespace accessors {
@@ -709,7 +707,7 @@ void TPlayerLobbyMarker::render() {
         push_matrix();
         TParticleCtrl::begin_effect_render();
         lbl_805D5660 = model_render_flags;
-        copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, model_material_color);
+        copy_vec4__13TRaderMapCoreFPv(saved_model_draw_color, model_material_color);
         TObjFish::set_global_param((s32)shared_effect_texture_list);
         model_render_flags |= 0x11;
         translate_matrix_vec3(0, TObjPlayer__sub_801BF914(temp_r3 + 0x84C));
@@ -718,7 +716,7 @@ void TPlayerLobbyMarker::render() {
         set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)(player_lobby_marker_color_table + get_material_index() * 0x10));
         TMainCursor::get_cursor_state();
         draw_chunk_object();
-        copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
+        copy_vec4__13TRaderMapCoreFPv(model_material_color, saved_model_draw_color);
         model_render_flags = lbl_805D5660;
         TParticleCtrl::end_effect_render();
         pop_matrix();
@@ -916,8 +914,9 @@ TObjPlayer*TPlayerSoul::get_player() {
 }
 
 extern "C" {
-void revive_or_spawn_marker__10TObjPlayerFi(s32 arg0) {
+void TObjPlayer::revive_or_spawn_marker() {
     s32 temp_r3;
+    s32 arg0 = (s32)this;
 
     if ((check_flag_0x8000__10TObjPlayerFv() != 0) || (obj_isState3_324__13TUnk_804806E8Fv(arg0) != 0) || (is_script_controlled__10TObjPlayerFv(arg0) != 0)) {
         ((TObjPlayer *)arg0)->set_flag_0x8000();

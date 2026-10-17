@@ -10,7 +10,6 @@ extern "C" {
 
 void TObjBoss1Floor__sub_8002CB40(void);
 void TObjBoss1Floor__sub_8002CB78(void);
-void create_instance__14TObjBoss1FloorFv(void);
 s32 update_dragon_trail_uvs(void *);
 s32 push_matrix();
 s32 set_chunk_material_override_pair(int, int, void *, void *);
@@ -19,7 +18,7 @@ void TObjBoss1Floor__sub_8002CB40(void) {  }
 
 extern s32 tl_02;
 
-void create_instance__14TObjBoss1FloorFv(void) {
+void TObjBoss1Floor::create_instance() {
     void* obj = new TObjBoss1Floor((TObject *)tl_02);
 }
 

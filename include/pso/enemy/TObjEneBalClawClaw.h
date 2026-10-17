@@ -22,6 +22,8 @@ struct TObjEneBalClawClaw : public TObjEneBalClaw {
     void clear_flag();
     void enter_hit_state(s16 arg1);
     s32 check_active();
+    void update_chase_state();
+    void run_active_state();
 };
 
 typedef char TObjEneBalClawClaw_size[sizeof(TObjEneBalClawClaw) == 0x428 ? 1 : -1];
@@ -38,9 +40,9 @@ void action__18TObjEneBalClawClawFPv(u8 *arg0);
 void *deleting_dtor__18TObjEneBalClawClawFPvs(void *arg0, s16 arg1);
 void render__18TObjEneBalClawClawFv(u8 *arg0);
 int reset_active_state__18TObjEneBalClawClawFPv(void *p);
-void run_active_state__18TObjEneBalClawClawFPv(u8 *arg0);
+void run_active_state__18TObjEneBalClawClawFv(u8 *arg0);
 void spawn_lobby_npc_enemy(void);
-void update_chase_state__18TObjEneBalClawClawFPv(u8 *arg0);
+void update_chase_state__18TObjEneBalClawClawFv(u8 *arg0);
 }
 
 #endif

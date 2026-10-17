@@ -169,7 +169,7 @@ void clear_enabled_main_warps(void);
 s32 get_floor_warp_bit__16TObjCityMainWarpFl();
 u8 *__dt__12TObjAreaWarpFv(u8 *arg0, s16 arg1);
 void TObjAreaWarp__ct(void *);
-s32 process_player_warps__11TObjMapWarpFPv(void *);
+s32 process_player_warps__11TObjMapWarpFv(void *);
 void *__dt__11TObjMapWarpFv(void *arg0, s16 arg1);
 void TObjMapWarp__ct(void *);
 int vfunc_14__12TObjWarpBaseFv(void*);
@@ -278,7 +278,7 @@ void run_task__15TObjLaboMapWarpFv(u8 *arg0) {
     if (TLobby::get_instance() == 0 && (get_game_play_mode() == 1 || get_game_play_mode() == 2)) {
         return;
     }
-    process_player_warps__11TObjMapWarpFPv(arg0);
+    process_player_warps__11TObjMapWarpFv(arg0);
 }
 
 int TObjLaboMapWarp::is_field88_zero() { return *(u32*)((char*)this + 0x88) == 0; }
@@ -403,7 +403,7 @@ void TObjCityMapWarp::run_task() {
     if (TLobby::get_instance() == 0 && (get_game_play_mode() == 1 || get_game_play_mode() == 2)) {
         return;
     }
-    ((void (*)(void *))process_player_warps__11TObjMapWarpFPv)(arg0);
+    ((void (*)(void *))process_player_warps__11TObjMapWarpFv)(arg0);
 }
 
 int TObjCityMapWarp::is_field88_zero() { return *(u32*)((char*)this + 0x88) == 0; }

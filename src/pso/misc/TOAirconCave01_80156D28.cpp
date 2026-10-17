@@ -28,7 +28,7 @@ extern int chunk_polygon_flags_and_mask;
 extern int model_render_flags;
 void TObjPlayer__sub_800D9718(void *);
 
-void TUnk_804AF8D8::clear_flag_and_notify() { copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color); chunk_polygon_flags_and_mask = lbl_805D5664; chunk_polygon_flags_or_mask = lbl_805D5668; model_render_flags = lbl_805D5660; }
+void TUnk_804AF8D8::clear_flag_and_notify() { copy_vec4__13TRaderMapCoreFPv(model_material_color, saved_model_draw_color); chunk_polygon_flags_and_mask = lbl_805D5664; chunk_polygon_flags_or_mask = lbl_805D5668; model_render_flags = lbl_805D5660; }
 
 extern s32 lbl_804AF8D8[];
 
@@ -39,7 +39,7 @@ void TUnk_804AF8D8::set_flags_and_apply_damage_color() {
     (*(s32 *)&lbl_805D5660) = (*(s32 *)&model_render_flags);
     (*(s32 *)&lbl_805D5664) = (*(s32 *)&chunk_polygon_flags_and_mask);
     (*(s32 *)&lbl_805D5668) = (*(s32 *)&chunk_polygon_flags_or_mask);
-    copy_vec4__13TRaderMapCoreFPvPv((&(*(RecoveredGlobal_80156D70_lbl_8050BEC0 *)&saved_model_draw_color).value), (&(*(RecoveredGlobal_80156D70_lbl_8058D4C0 *)&model_material_color).value));
+    copy_vec4__13TRaderMapCoreFPv((&(*(RecoveredGlobal_80156D70_lbl_8050BEC0 *)&saved_model_draw_color).value), (&(*(RecoveredGlobal_80156D70_lbl_8058D4C0 *)&model_material_color).value));
     (*(s32 *)&model_render_flags) |= 0x8021;
     set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)arg0);
     set_color_blend_mode(1, 4, 5, 0);

@@ -157,6 +157,8 @@ struct TBoss1Dragon : public TObjEneDD_ST {
     void sweep_death_body_attack();
     int apply_foot_step_attack(int arg1);
     void receive_state_request(u8 *arg1);
+    void update_air_fire_state(u32 arg1);
+    void remap_sequence_after_recovery();
 };
 
 #include <stddef.h>

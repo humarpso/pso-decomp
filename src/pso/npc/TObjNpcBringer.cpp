@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/npc/TObjNpcBringer.h"
 #include "pso/unk/text_8014952C.h"
 
 extern "C" {
 
-void * create__14TObjNpcBringerFPv(void *arg0);
 void *__dt__14TObjNpcBringerFv(void *arg0, s16 arg1);
 void *TObjControl__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -12,7 +12,7 @@ void *__nw__7TObjectFUl(int);
 
 extern void *tl_04;
 
-void * create__14TObjNpcBringerFPv(void *arg0) {
+void *TObjNpcBringer::create(void *arg0) {
     void *o;
     void *o2;
     o = __nw__7TObjectFUl(0x20);

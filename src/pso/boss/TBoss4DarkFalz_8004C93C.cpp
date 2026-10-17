@@ -310,7 +310,6 @@ void *create__11TBoss4Type2Fl(void *);
 void normalize_vector(Vec_8004C940 *);
 extern const f32 lbl_805D8948;
 extern const f32 lbl_805D894C;
-void enter_demo2_phase__14TBoss4DarkFalzFPv(Obj_8004C940 *arg0);
 void TBoss4DarkFalz__sub_8004C93C(void);
 void TBoss4DarkFalz__sub_8004CA80(void);
 void TBoss4DarkFalz__sub_8004CBBC(void);
@@ -323,11 +322,12 @@ s32 is_timer_expired__14TBoss4DarkFalzFv();
 void TBoss4DarkFalz__sub_8004C93C(void) {  }
 
 #pragma fp_contract on
-void enter_demo2_phase__14TBoss4DarkFalzFPv(Obj_8004C940 *arg0) {
+void TBoss4DarkFalz::enter_demo2_phase() {
     u16 arr[4];
     Vec_8004C940 v;
     s32 flag;
     s32 i;
+    Obj_8004C940 *arg0 = (Obj_8004C940 *)this;
     ((s32 (*)(void))freeze_all_players__14TBoss4DarkFalzFPv)();
     TLobby::stop_audio_streams();
     if ((u32)TBoss4DarkFalz__type2_instance != 0) {

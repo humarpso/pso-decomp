@@ -996,7 +996,7 @@ int initialize__9TObjEnemyFPv(void);
     extern const float lbl_805DA060;
     extern const float lbl_805DA064;
 s32 update_movement_status__13TUnk_804806E8Fv(void *);
-void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0);
+void copy_position__20TBoss3VoloptHiraisinFv(s32 arg0);
 s32 submit_cursor_candidate(void *, int);
 extern const f32 lbl_805DA048;
 s32 update_action_hold_status__13TUnk_804806E8Fv(void *);
@@ -1644,7 +1644,7 @@ void TUnk_80493450::run_task() {
     }
   }
   ((TObjEnemy *)arg0)->update_prev_position();
-  copy_position__20TBoss3VoloptHiraisinFi((s32)arg0);
+  copy_position__20TBoss3VoloptHiraisinFv((s32)arg0);
   submit_cursor_candidate((void *) arg0, -1);
   this->m_2b4 = (f32) ((this->m_2b4) + lbl_805DA048);
 }

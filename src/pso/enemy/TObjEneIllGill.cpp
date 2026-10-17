@@ -190,7 +190,7 @@ extern const f32 lbl_805E02C8;
 extern const f32 TObjEneIllGill__data_805E02CC;
 extern const f32 lbl_805E02D0;
 extern const f32 lbl_805E02D4;
-void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0);
+void copy_position__20TBoss3VoloptHiraisinFv(s32 arg0);
 void initialize__9TObjEnemyFPv(void *, s32, void *);
 void set_animation__10TObjMotionFs(void *, s16);
 s32 init_collision_body_parts(void *, void *, int);
@@ -1713,7 +1713,7 @@ void TObjEneIllGill::run_task() {
         o->x2a8 = NULL;
     }
     ((TObjEnemy *)o)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFi((s32)o);
+    copy_position__20TBoss3VoloptHiraisinFv((s32)o);
     submit_cursor_candidate(o, -1);
     o->x2b4 += TObjEneIllGill__data_805E02CC;
 }
@@ -1772,7 +1772,7 @@ u8 *TObjEneIllGill__ct(u8 *self, s32 arg1, u8 *arg2) {
     ((TUnk_804806E8 *)self)->add_flags_2e4(8);
     init_collision_body_parts(self, lbl_804F2F40, 1);
     ((TObjEnemy *)self)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFi((s32)self);
+    copy_position__20TBoss3VoloptHiraisinFv((s32)self);
     ((TObjPlayer *)self)->reset_photon_effect();
     FIG_8036858C(void *, 0x350) = lbl_804F2F24;
     FIG_8036858C(s32, 0x394) = 0;

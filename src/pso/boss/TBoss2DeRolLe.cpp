@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/boss/TBoss2DeRolLe.h"
@@ -594,7 +595,6 @@ struct Me_8002F258 : VObj_18_3a6650 {
 
 extern "C" {
 
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 void update_pulsing_colors__13TBoss2DeRolLeFPv(u8 *arg0);
 s32 TObjLight__sub_801336DC(s32);
 s32 TObjLight__sub_8013379C(s32, void *);
@@ -651,7 +651,7 @@ void TBoss2DeRolLe::render() {
     {
     Vec4_8002F258 saved;
     col = &TObjLight__scene_light_state.col;
-    copy_vec4__13TRaderMapCoreFPvPv(&saved, col);
+    ((TRaderMapCore *)(&saved))->copy_vec4(col);
     if (TObjBoss2Tunnel::is_active() != 0) {
         TObjLight__scene_light_state.col.y = 0.3f;
         TObjLight__scene_light_state.col.z = 0.4f;
@@ -660,7 +660,7 @@ void TBoss2DeRolLe::render() {
         TObjLight__sub_801336DC(lbl_805D5564);
     }
     ((TObjEneRe7Berura *)((u8 *)this))->draw();
-    copy_vec4__13TRaderMapCoreFPvPv(col, &saved);
+    ((TRaderMapCore *)col)->copy_vec4(&saved);
     }
     TObjEneRe7Berura::set_global_state((s32)NULL);
     TObjLight__sub_801337F8(current_scene_light);
@@ -701,9 +701,8 @@ void TBoss2DeRolLe::render() {
 #pragma pop
 
 #pragma push
-void copy_vec4__13TRaderMapCoreFPvPv(void* p, void* q);
 
-void copy_vec4__13TRaderMapCoreFPvPv(void* p, void* q) { *(f32*)((char*)p + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); }
+void TRaderMapCore::copy_vec4(void* q) { *(f32*)((char*)this + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)this + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)this + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)this + 0xc) = *(f32*)((char*)q + 0xc); }
 
 }
 
@@ -728,7 +727,7 @@ extern s32 lbl_805D4BC0;
 typedef char RecoveredGlobal_8002F5AC_lbl_804FE30C_size[sizeof(RecoveredGlobal_8002F5AC_lbl_804FE30C) == 0x10 ? 1 : -1];
 void fn_8002F5AC(u8 *arg0) {
     TBoss2DeRolLe__current_attack_id = 0;
-    copy_vec4__13TRaderMapCoreFPvPv((&lbl_804FE30C.value), (arg0 + 0x608));
+    ((TRaderMapCore *)(&lbl_804FE30C.value))->copy_vec4((arg0 + 0x608));
     lbl_805D4BB0 = *(s32 *)((s8 *)arg0 + 0x3C0);
     TBoss2DeRolLe__sequence_match_index = 0;
     lbl_805D4BB4 = arg0 + 0x3F8;

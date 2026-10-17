@@ -120,7 +120,7 @@ void *__nw__7TObjectFUl(int);
 
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
-void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0);
+void copy_position__20TBoss3VoloptHiraisinFv(s32 arg0);
 void TObjNpcBase__ct(void *, void *);
 void init_collision_body_parts(void *, void *, s32);
 extern u8 npc_default_battle_stats[];
@@ -293,7 +293,7 @@ void *TObjNpcMoja__ct(void *selfv, void *parent, void *arg2v) {
     init_collision_body_parts(self, lbl_804AABD8, 1);
     ((TObjPlayer *)self)->reset_photon_effect();
     ((TObjEnemy *)self)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFi((s32)self);
+    copy_position__20TBoss3VoloptHiraisinFv((s32)self);
     return self;
 }
 

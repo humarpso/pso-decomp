@@ -19,8 +19,9 @@ extern "C" {
 
 extern "C" {
 
-void apply_luck_reward__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
+void TObjPlayer::apply_luck_reward(u8 arg1) {
     u8 var_r31;
+    s32 arg0 = (s32)this;
 
     var_r31 = arg1;
     if (is_camera_mode_active__10TObjPlayerFv() != 0) {
@@ -31,8 +32,9 @@ void apply_luck_reward__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
 }
 
 }
-void add_dfp_material__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
+void TObjPlayer::add_dfp_material(u8 arg1) {
     u8 var_r31;
+    s32 arg0 = (s32)this;
 
     var_r31 = arg1;
     if (is_camera_mode_active__10TObjPlayerFv() != 0) {
@@ -43,8 +45,9 @@ void add_dfp_material__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
 }
 
 }
-void add_evp_material__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
+void TObjPlayer::add_evp_material(u8 arg1) {
     u8 var_r31;
+    s32 arg0 = (s32)this;
 
     var_r31 = arg1;
     if (is_camera_mode_active__10TObjPlayerFv() != 0) {
@@ -55,8 +58,9 @@ void add_evp_material__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
 }
 
 }
-void add_mst_and_item__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
+void TObjPlayer::add_mst_and_item(u8 arg1) {
     u8 var_r31;
+    s32 arg0 = (s32)this;
 
     var_r31 = arg1;
     if (is_camera_mode_active__10TObjPlayerFv() != 0) {
@@ -67,8 +71,9 @@ void add_mst_and_item__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
 }
 
 }
-void add_stat_and_item__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
+void TObjPlayer::add_stat_and_item(u8 arg1) {
     u8 var_r31;
+    s32 arg0 = (s32)this;
 
     var_r31 = arg1;
     if (is_camera_mode_active__10TObjPlayerFv() != 0) {
@@ -79,8 +84,9 @@ void add_stat_and_item__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
 }
 
 }
-void set_speed_scaled_by_camera__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
+void TObjPlayer::set_speed_scaled_by_camera(u8 arg1) {
     u8 var_r31;
+    s32 arg0 = (s32)this;
 
     var_r31 = arg1;
     if (is_camera_mode_active__10TObjPlayerFv() != 0) {
@@ -90,8 +96,9 @@ void set_speed_scaled_by_camera__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
 }
 
 }
-void apply_speed_with_camera_scale__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
+void TObjPlayer::apply_speed_with_camera_scale(u8 arg1) {
     u8 var_r31;
+    s32 arg0 = (s32)this;
 
     var_r31 = arg1;
     if (is_camera_mode_active__10TObjPlayerFv() != 0) {

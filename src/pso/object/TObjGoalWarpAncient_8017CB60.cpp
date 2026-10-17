@@ -150,7 +150,7 @@ struct VObj_8017CED8_more_8017cca4_1 : VObjBase_8017CED8_more_8017cca4_1 {
 };
 
 extern "C" {
-void process_player_warps__11TObjMapWarpFPv(void *);
+void process_player_warps__11TObjMapWarpFv(void *);
 void *TObjMapWarpAncient__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
@@ -243,7 +243,7 @@ void TObjMapWarpAncient::run_task() {
     {
       *((f32 *) (((s8 *) arg0) + 0xFC)) = (f32) lbl_805DBAC4;
     }
-    process_player_warps__11TObjMapWarpFPv(arg0);
+    process_player_warps__11TObjMapWarpFv(arg0);
   }
 }
 

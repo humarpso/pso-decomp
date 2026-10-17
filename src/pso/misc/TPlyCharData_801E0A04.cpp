@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TPlyDispData.h"
 #include "pso/misc/TLobby_8001D6A0.h"
 #include "pso/misc/TLobby_8013A874.h"
 #include "pso/misc/TPlyCharData_801E0A04.h"
@@ -16,9 +17,9 @@ void bswap__12TPlyCharDataFv(s32 arg0) {
     }
     bswap__15disp_data_part2Fv(arg0 + 0x370);
     bswap__12player_statsFv((void *)(arg0 + 0x34C));
-    bswap_pair__14TPlyDispConfigFPv((void*)(arg0 + 0x3C0));
+    ((TPlyDispConfig *)(arg0 + 0x3C0))->bswap_pair();
 }
 
-void bswap_pair__14TPlyDispConfigFPv(void* p) { bswap__18TPlyDispConfigSmthFv((s32)p); bswap__18TPlyDispConfigSmthFv((s32)((char*)p + 0x24)); }
+void TPlyDispConfig::bswap_pair() { bswap__18TPlyDispConfigSmthFv((s32)this); bswap__18TPlyDispConfigSmthFv((s32)((char*)this + 0x24)); }
 
 }

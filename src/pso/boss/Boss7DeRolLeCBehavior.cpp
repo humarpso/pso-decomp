@@ -457,7 +457,7 @@ extern s32 lbl_805D6930;
 extern s32 lbl_805D6934;
 extern s32 lbl_805D6944;
 void TObjPlayer__sub_802E8274(void);
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
+void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
 s32 get_mode__11TCameraCtrlFPv(void *);
 s32 TObjPlayer__sub_802E7FC0(void *);
 extern RecoveredGlobal_802E80F4_lbl_8050BEC0 saved_model_draw_color;
@@ -506,7 +506,7 @@ void TBoss7DeRolLeC::render() {
         lbl_805D5660 = model_render_flags;
         lbl_805D5664 = chunk_polygon_flags_and_mask;
         lbl_805D5668 = chunk_polygon_flags_or_mask;
-        copy_vec4__13TRaderMapCoreFPvPv((&saved_model_draw_color.value), (&model_material_color.value));
+        copy_vec4__13TRaderMapCoreFPv((&saved_model_draw_color.value), (&model_material_color.value));
         TObjEneDD::clear_global_flag_400();
         TParticleCtrl::begin_effect_render();
         push_matrix();
@@ -521,7 +521,7 @@ void TBoss7DeRolLeC::render() {
         }
         pop_matrix();
         TParticleCtrl::end_effect_render();
-        copy_vec4__13TRaderMapCoreFPvPv((&model_material_color.value), (&saved_model_draw_color.value));
+        copy_vec4__13TRaderMapCoreFPv((&model_material_color.value), (&saved_model_draw_color.value));
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;
         model_render_flags = lbl_805D5660;
@@ -602,7 +602,6 @@ void TObjPlayer__sub_802E8274(void) {
 
 extern "C" {
 void TBoss7LaserPtcl__sub_802ECE28(u8 *arg0);
-void free_laser_light__15TBoss7LaserPtclFPv(void *arg0);
 void release_laser_light__15TBoss7LaserPtclFPv(void *arg0);
 void TObjFish__sub_802ED4AC(u8 *arg0, s32 arg1);
 f32 TObjFish__sub_802ED3E4(u8 *arg0);
@@ -1694,7 +1693,7 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
                 }
                 *(u32 *)((s8 *)arg0 + 0x7A8) = var_r0;
                 TBoss7LaserPtcl__sub_802ECE28((arg0));
-                free_laser_light__15TBoss7LaserPtclFPv((arg0));
+                ((TBoss7LaserPtcl *)arg0)->free_laser_light();
                 TObjFish::set_effect_target_position((void *)arg0, (void *) (0x39E0F), (void *) ((u8 *)arg0 + 0x50C));
                 return;
             }
@@ -3411,12 +3410,12 @@ void release_laser_light__15TBoss7LaserPtclFPv(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0x628) = (s32) (*(s32 *)((s8 *)arg0 + 0x628) & 0xFFFFFFEF);
 }
 
-void free_laser_light__15TBoss7LaserPtclFPv(void *arg0) {
-    void *temp_r3 = *(void **)((s8 *)arg0 + 0x708);
+void TBoss7LaserPtcl::free_laser_light() {
+    void *temp_r3 = *(void **)((s8 *)this + 0x708);
     if ((u32) temp_r3 != 0U) {
         TBoss7LaserLight__sub_802EF12C(temp_r3);
     }
-    *(s32 *)((s8 *)arg0 + 0x628) = (s32) (*(s32 *)((s8 *)arg0 + 0x628) | 0x10);
+    *(s32 *)((s8 *)this + 0x628) = (s32) (*(s32 *)((s8 *)this + 0x628) | 0x10);
 }
 #pragma push
 #pragma fp_contract on

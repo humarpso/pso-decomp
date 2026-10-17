@@ -24,6 +24,9 @@ public:
     u8 unk_1C0[0x4];
     s32 m_1c4;
     u8 unk_1C8[0x4];
+public:
+    static s32 spawn_concentrate(void *arg0);
+    static void collect_hit_targets(void *arg0);
 };
 typedef char TPhotonGolla_size[sizeof(TPhotonGolla) == 0x1CC ? 1 : -1];
 

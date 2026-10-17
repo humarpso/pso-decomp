@@ -133,7 +133,6 @@ void NetUnregisterTimer(void *);
 u8 *TLobby__sub_804256B8(s32);
 extern u8 lbl_805CF240[];
 s32 TLobby__sub_8042558C(void *);
-s32 post_send_message__6TLobbyFiUs(s32 arg0, u16 arg1);
 extern u8 lbl_805E1190[6];
 s32 TLobby__sub_80426660(u8 *arg0);
 void enable_network_multicast_address(void *arg0);
@@ -400,10 +399,11 @@ s32 TLobby__sub_80426440(void) {
     return 0;
 }
 
-s32 post_send_message__6TLobbyFiUs(s32 arg0, u16 arg1) {
+s32 TLobby::post_send_message(u16 arg1) {
     s32 temp_r3;
     u8 *msg;
     u8 pad[8];
+    s32 arg0 = (s32)this;
     temp_r3 = TLobby__sub_8042558C((void *)arg1);
     if (temp_r3 == 0) {
         return -1;

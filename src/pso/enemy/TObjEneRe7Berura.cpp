@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/object/TObjMotion.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
@@ -459,7 +460,6 @@ void set_data_and_draw_node_tree__16TObjEneRe7BeruraFii(int a0, int a1);
 void draw_node_tree__16TObjEneRe7BeruraFPv(void *arg0);
 void apply_attack_params__16TObjEneRe7BeruraFiPv(s32 arg0, u8 *arg1);
 u8 TObjEneRe7Berura__sub_8009518C(O_8009518C *self);
-s32 acquire_target_in_view__16TObjEneRe7BeruraFPv(Berura_800951AC *self);
 void TObjEneRe7Berura__sub_80095328(void);
 void vfunc_88__16TObjEneRe7BeruraFv(void *arg0);
 void vfunc_61__16TObjEneRe7BeruraFv(void);
@@ -1023,7 +1023,7 @@ u8 TObjEneRe7Berura__sub_8009518C(O_8009518C *self) {
 
 #pragma push
 #pragma fp_contract on
-s32 acquire_target_in_view__16TObjEneRe7BeruraFPv(Berura_800951AC *self) {
+s32 TObjEneRe7Berura::acquire_target_in_view() {
     Vec_800951AC v;
     s32 n;
     Player_800951AC *p;
@@ -1034,6 +1034,7 @@ s32 acquire_target_in_view__16TObjEneRe7BeruraFPv(Berura_800951AC *self) {
     f32 limit;
     f32 d;
     f32 best;
+    Berura_800951AC *self = (Berura_800951AC *)this;
     best = TObjEneRe7Berura__data_805D972C;
     id = 0xFFFF;
     limit = cos_table_lookup(0xAAA);

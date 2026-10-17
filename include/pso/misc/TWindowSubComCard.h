@@ -138,6 +138,7 @@ struct TWindowSubComCard : public TObject {
     void set_page(s16 v);
     void set_flag_10();
     void set_display_page();
+    static s32 create_com_card_window(s32 arg0);
 };
 
 typedef char TWindowSubComCard_size[sizeof(TWindowSubComCard) == 0x88 ? 1 : -1];

@@ -61,6 +61,7 @@ struct TObjEneGibbles : public TObjEnemy {
     static void load_resources();
     f32 get_pos_x();
     void turn_toward_target();
+    void slam_damage_players(s32 arg1);
 };
 typedef char TObjEneGibbles_size[(sizeof(TObjEneGibbles) ==0x44C) ?1:-1];
 
@@ -77,7 +78,7 @@ void draw_model__14TObjEneGibblesFPv(TObjEneGibbles *arg0);
 void gibbles_render_node_callback(void);
 void render_and_get_joint_pos__14TObjEneGibblesFPvii(u8 *arg0, s32 arg1, s32 arg2);
 void run_task__14TObjEneGibblesFv(TObjEneGibbles *arg0);
-void slam_damage_players__14TObjEneGibblesFii(s32 target, s32 arg1);
+void slam_damage_players__14TObjEneGibblesFl(s32 target, s32 arg1);
 }
 
 #endif

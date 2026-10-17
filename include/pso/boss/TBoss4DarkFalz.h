@@ -85,6 +85,7 @@ struct TBoss4DarkFalz : public TObjEnemy {
     static u8 is_state_ready();
     static u8 is_active();
     void spawn_zako_rings();
+    void enter_demo2_phase();
 };
 
 typedef char TBoss4DarkFalz_size[sizeof(TBoss4DarkFalz) == 0x39C ? 1 : -1];

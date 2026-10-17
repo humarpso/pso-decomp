@@ -54,10 +54,10 @@ void draw_ui_sprite_tinted(s32 arg0, f32 *arg1, f32 *arg2, f32 *arg3, f32 farg0)
         st.q.h = ui_sprite_scale * arg2[1];
         st.q.tbl = creation_sprite_table;
         TCharaMaking__resolve_creation_sprite_table(&st.table, &arg0);
-        copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, model_material_color);
+        copy_vec4__13TRaderMapCoreFPv(saved_model_draw_color, model_material_color);
         set_chunk_material_color__13TUnk_80494AE0Fv(arg3);
         TLobby::draw_with_camera((s32)&st.q, (s32)arg0, 0x22, (f32)farg0);
-        copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
+        copy_vec4__13TRaderMapCoreFPv(model_material_color, saved_model_draw_color);
     }
 }
 

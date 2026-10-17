@@ -249,9 +249,10 @@ void TKeyBoardControl::push_key_to_buffer(u8 arg1) {
     }
 }
 
-void reset_inactive_keys__16TKeyBoardControlFi(s32 arg0) {
+void TKeyBoardControl::reset_inactive_keys() {
     s32 var_r29;
     u8 *var_r28;
+    s32 arg0 = (s32)this;
     var_r29 = 0;
     var_r28 = (unsigned char *) (arg0 + 0xA0);
     do {
@@ -315,7 +316,7 @@ void TKeyBoardControl__sub_80132650(Kb_80132650 *kb) {
     for (i = 0; i < 4; i++) {
         kb->tab[i] = bits[i];
     }
-    reset_inactive_keys__16TKeyBoardControlFi((s32)kb);
+    ((TKeyBoardControl *)kb)->reset_inactive_keys();
 }
 
 void TKeyBoardControl::reset_keys() {

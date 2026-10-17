@@ -83,6 +83,8 @@ struct TObjEneBm5GibonU : public TObjEneDD_ST {
     void select_attack_by_range();
     void approach_target(f32 farg0);
     s32 face_target();
+    void forward_hit_to_enemy_list();
+    void init_child_from_list();
 };
 
 typedef char TObjEneBm5GibonU_size[sizeof(TObjEneBm5GibonU) == 0x568 ? 1 : -1];
@@ -116,8 +118,8 @@ void *TObjEneBm5GibonU__sub_800D1D78(void *p);
 s32 __dt__16TObjEneBm5GibonUFis(s32 arg0, s16 arg1);
 void action__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1);
 void calc_rotated_vector__16TObjEneBm5GibonUFPviPvPv(void *arg0, s32 arg1, void *arg2, s32 *arg3);
-void forward_hit_to_enemy_list__16TObjEneBm5GibonUFi(s32 arg0);
-void init_child_from_list__16TObjEneBm5GibonUFi(s32 arg0);
+void forward_hit_to_enemy_list__16TObjEneBm5GibonUFv(s32 arg0);
+void init_child_from_list__16TObjEneBm5GibonUFv(s32 arg0);
 int is_active__16TObjEneBm5GibonUFPv(void *p);
 void update_photon_mylla__16TObjEneBm5GibonUFPv(void *arg0);
 void update_target__16TObjEneBm5GibonUFPv(void *arg0);

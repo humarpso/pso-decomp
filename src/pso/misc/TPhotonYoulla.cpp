@@ -71,7 +71,7 @@ void TPhotonYoulla::render() {
         post_translate_matrix(&self->pos);
         rotate_matrix_y(0, self->f60);
         lbl_805D5660 = model_render_flags;
-        copy_vec4__13TRaderMapCoreFPvPv(&saved_model_draw_color, &model_material_color);
+        copy_vec4__13TRaderMapCoreFPv(&saved_model_draw_color, &model_material_color);
         lbl_805D5664 = chunk_polygon_flags_and_mask;
         lbl_805D5668 = chunk_polygon_flags_or_mask;
         model_render_flags |= 0x200820;
@@ -86,7 +86,7 @@ void TPhotonYoulla::render() {
         clear_render_context__10TObjPlayerFv(self);
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;
-        copy_vec4__13TRaderMapCoreFPvPv(&model_material_color, &saved_model_draw_color);
+        copy_vec4__13TRaderMapCoreFPv(&model_material_color, &saved_model_draw_color);
         model_render_flags = lbl_805D5660;
         pop_matrix();
         TParticleCtrl::end_effect_render();

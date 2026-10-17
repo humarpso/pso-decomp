@@ -108,7 +108,7 @@ struct VObj_18_3eea3b : VBase_18_3eea3b {
 };
 
 extern "C" {
-void copy_position__20TBoss3VoloptHiraisinFi(s32);
+void copy_position__20TBoss3VoloptHiraisinFv(s32);
 void set_indexed_flags__13TUnk_804AF8A0Fll(void *, s32, s32);
 s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1);
 s32 advance_animation_playback(void *);
@@ -230,7 +230,7 @@ void TObjNpcBase::run_task() {
   advance_animation_playback((void *) ((u8 *)this));
   this->update_prev_position();
   new_var = ((u8 *)this);
-  copy_position__20TBoss3VoloptHiraisinFi((s32) new_var);
+  copy_position__20TBoss3VoloptHiraisinFv((s32) new_var);
   if ((((s32)this->m_3a8) > 0) && (TRaderMapCore::is_not_split_screen() == 0))
   {
     submit_cursor_candidate((void *) this, -1);

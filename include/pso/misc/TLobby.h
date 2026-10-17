@@ -1384,6 +1384,15 @@ struct TLobby : public TObject {
     static void send_slot_entity_or_local(u16 arg0, s32 arg1);
     void send_slot_entity(u16 arg1, s32 arg2);
     void start_entry_timer(u16 arg1, s32 src);
+    void destroy_matching_children();
+    static void finish_chr_select_scene_init();
+    void start_duel_battle();
+    void update_players();
+    static void destroy_download_server(void* _w0);
+    void send_compressed_packet_6c();
+    void send_cmd_6B();
+    s32 post_send_message(u16 arg1);
+    u8 *create_new_floor_windows();
 };
 
 typedef char TLobby_size[sizeof(TLobby) == 0x1C ? 1 : -1];

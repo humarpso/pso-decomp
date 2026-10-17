@@ -31,7 +31,6 @@ void *TBoss3VoloptHiraisin__init_param_table[45] = {
     (void *)0x0
 };
 extern void *__vt__20TBoss3VoloptHiraisin[];
-void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0);
 s32 lbl_805D4C70;
 s32 volopt_hiraisin_shared_handler_b;
 s32 volopt_hiraisin_object_handle;
@@ -506,7 +505,7 @@ void run_task__20TBoss3VoloptHiraisinFv(u8 *arg0) {
     {
       ((TBoss3VoloptHiraisin *)arg0)->m_300 = (f32) ((((TBoss3VoloptHiraisin *)arg0)->m_300) - (3e+01f));
     }
-    copy_position__20TBoss3VoloptHiraisinFi((s32)arg0);
+    ((TBoss3VoloptHiraisin *)arg0)->copy_position();
     submit_cursor_candidate((void *) arg0, -1);
     minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
     temp_r4 = *((s32 *) (((s8 *) volopt_hiraisin_model_data) + 0x18));
@@ -708,7 +707,7 @@ void TBoss3VoloptHiraisin::init_params() {
     prm = &TBoss3VoloptHiraisin__init_param_table;
     VecCopy((Vec *)((s32)((Hira_800418C8 *)this)->home), (const Vec *)((s32)((Hira_800418C8 *)this)->pos));
     ((Hira_800418C8 *)this)->home[1] -= (3e+01f);
-    copy_position__20TBoss3VoloptHiraisinFi((s32)this);
+    copy_position();
     ((Hira_800418C8 *)this)->unkDC = *(s32 *)(TBoss3VoloptHiraisin__resource_bundle + 0x430);
     ((Hira_800418C8 *)this)->unkD8 = prm->unk1C;
     ((TObjMotion *)((Hira_800418C8 *)this))->set_field_d8((s32)(((Hira_800418C8 *)this)->unkD8));
@@ -759,7 +758,8 @@ u8 *TBoss3VoloptHiraisin__sub_80041AA0(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0) {
+void TBoss3VoloptHiraisin::copy_position() {
+    s32 arg0 = (s32)this;
     VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x2FC));
 }
 

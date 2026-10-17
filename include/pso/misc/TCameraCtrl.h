@@ -168,6 +168,7 @@ struct TCameraCtrl : public TObject {
     static void load_camera_banks();
     void update_follow_motion_state();
     static s32 init_projection_state();
+    static void set_target(int a0, int a1);
 };
 
 typedef char TCameraCtrl_size[sizeof(TCameraCtrl) == 0x1D4 ? 1 : -1];

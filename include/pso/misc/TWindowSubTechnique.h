@@ -31,6 +31,7 @@ struct TWindowSubTechnique : public TObject {
     static s32 lookup_technique(s32 arg0, s32 arg1);
     s32 create_title_window();
     static s32 is_technique_available(s32 arg0, s32 arg1);
+    static void draw_technique_row(s32 id, s32 arg1, s32 arg2);
 };
 
 typedef char TWindowSubTechnique_size[sizeof(TWindowSubTechnique) == 0x40 ? 1 : -1];
