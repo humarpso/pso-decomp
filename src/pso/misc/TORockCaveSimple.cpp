@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TORockCaveSimple.h"
 #include "pso/object/TObjFish.h"
 
@@ -15,10 +17,8 @@ void *TORockCaveSimple__ct(void *arg0);
 void *__dt__16TORockCaveSimpleFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
 void *TORockCave__ct(void *arg0);
-void draw_ginja_object(void *child);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__dt__10TORockCaveFv(void *arg0, s16 arg1);
 

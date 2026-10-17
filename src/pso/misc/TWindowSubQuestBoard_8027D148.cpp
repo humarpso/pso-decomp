@@ -1,12 +1,12 @@
 #include "types.h"
+#include "pso/misc/TWindowSubQuestBoard_8027D148.h"
+#include "pso/misc/TWindowSubQuestBoard_8027D1E8.h"
+#include "pso/unk/text_8027DA14.h"
 #include "pso/misc/TWindowSubQuestBoard.h"
 #include "pso/misc/TWindowSubQuestBoardSelect.h"
 
 extern "C" {
 
-int TWindowSubQuestBoard__sub_8027D1DC(void* p);
-void TWindowCtrl__sub_8027D214(void);
-u8 *TWindowSubQuestBoardSelect__ct(u8 *arg0);
 void *__nw__7TObjectFUl(int);
 
 extern void *TWindowSubQuestBoard__class_name;

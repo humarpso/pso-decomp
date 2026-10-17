@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TPlyOnCountOver_801C5FF8.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/TPlyOnCountOver.h"
 
 struct RecoveredGlobal_801C606C___vt__15TPlyOnCountOver {
@@ -11,8 +13,6 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_801C606C___vt__15TPlyOnCountOver __vt__15TPlyOnCountOver;
 extern s32 TPlyOnCountOver__name;
 extern u8 *tl_06;
-u8 *__ct__15TPlyOnCountOverFv(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
-void queue_destruction__7TObjectFv(void *);
 u32 get_player_by_client_id(int);
 typedef char RecoveredGlobal_801C606C___vt__15TPlyOnCountOver_size[sizeof(RecoveredGlobal_801C606C___vt__15TPlyOnCountOver) == 0x18 ? 1 : -1];
 

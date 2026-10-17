@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/misc/TWindowCtrl_8024A054.h"
+#include "pso/misc/TWindowSubStatusDisp_802671F0.h"
+#include "pso/unk/text_80203418.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowSubShortCutList.h"
@@ -131,8 +135,6 @@ struct Win_8027ABFC { u8 pad0[0x20]; s16 id; u8 pad1[0x72 - 0x22]; s16 sel; u8 p
 
 Quest_8027ABFC *get_quest_id__12TQuestListVMFv(void *);
 void calc_list_content_extent(void *);
-void push_status_disp_entry(void *, s32, s32);
-void add_battle_stat_entry(void *, s32, s32, s32);
 void TWindowSubItem__sub_8027AB10(Wn_8027AB10 *arg0);
 void populate_sub_item_list(Win_8027ABFC *arg0);
 u32 get_slot_value__10TObjPlayerFPvi(s32, s8);
@@ -144,17 +146,14 @@ void decrement_clamped(void *, s32);
 void play_sound_effect(s32, s32, s32, s32);
 s32 __nw__7TObjectFUl(s32);
 void TWindow__close(void *);
-s32 is_player_input_active(s32);
 s32 TWindowCtrl__sub_8024A228(s32);
 u32 __ct__15TWindowHelpItemFPvUs(s32, s32, s32);
 s32 get_selected_menu_value(u32);
 extern Pad_80279FFC controller_input_state[];
 void *TWindowSubItem__ct(void *arg0, s32 arg1, s32 arg2);
 void *__dt__14TWindowSubItemFv(void *arg0, s16 arg1);
-s32 get_localized_text_entry(s32, s32);
 s32 send_6x26_unequip_item__10TObjPlayerFPvPv(s32, s32);
 s32 send_6x25_equip_item(s32, s32, s32);
-s32 is_boss_area();
 int clamp_selection_to_valid_entry__20TShopArmorListWindowFv(void*);
 int reset_list__20TShopArmorListWindowFv(void*);
 s32 TWindowHelpItem__set_displayed_item_by_id(u32);

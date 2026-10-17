@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/system/MaterialAlphaCompare.h"
+#include "pso/unk/text_80141550.h"
+#include "pso/unk/text_80156BBC.h"
+#include "pso/unk/text_80193524.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/object/TObjDoorJung.h"
 #include "pso/misc/TUnk_804AF8D8.h"
@@ -107,16 +113,11 @@ struct Node_80193CA4 {
 };
 
 extern "C" {
-void TLazerFenceSw__vt14(u8 *arg0);
 s32 get_state_flag__9TMainTaskFv();
-void func_80141618__Fv(void);
 s32 fn_80156BBC(void *, void *);
-s32 fn_80156C38(f32 *arg0);
-void set_material_alpha_compare_reference(s32 reference);
 extern const f32 lbl_805DBE7C;
 extern const f32 lbl_805DBE80;
 extern const f32 TLazerFenceSw__data_805DBE84;
-void TLazerFenceSw__vt15(u8 *arg0);
 void debug_draw_key_id__5TOKeyFv();
 void debug_printf_at(int, void *, ...);
 extern u16 lbl_80445CB8[];
@@ -125,20 +126,17 @@ void TLazerFenceSw__vt24(Sw_80193978 *arg0);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_key__5TOKeyFv(void *, void *);
 void *TOKey__ct(void *arg0);
-void TLazerFenceSw__sub_8018A554(void *p, f32 v);
 extern u8 lbl_804B8370[];
 extern s32 __vt__13TLazerFenceSw[];
 extern s32 lbl_805D33B0;
 extern const f32 lbl_805DBE8C;
 extern const f32 lbl_805DBE90;
-void *TLazerFenceSw__ct(void *arg0, void *arg1, void *arg2);
 void construct_collider_proxy__13TUnk_804AF8A0Fv(void *);
 extern u16 lbl_80445BE0[];
 extern u8 laser_fence4_collision_body_sets[];
 extern s32 __vt__15TObjLazerFence4[];
 extern s32 lazer_fence4_class_name;
 extern const f32 lbl_805DBE6C;
-void *TObjLazerFence4__ct(void *arg0, void *arg1, void *arg2);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 s32 load_gvm_texture_file(void *);
@@ -153,11 +151,6 @@ extern u8 fe_obj_switch_laz_j_resource_descriptor[];
 extern u8 lbl_80445CF0[];
 extern u8 lbl_80445D08[];
 extern u8 lbl_80445D20[];
-void TLazerFenceSw__sub_80193C5C(void);
-void TLazerFenceSw__vt16(void *arg0);
-void TLazerFenceSw__vt17(void *arg0);
-void *__dt__13TLazerFenceSwFv(void *arg0, s16 arg1);
-void *__dt__15TObjLazerFence4Fv(void *arg0, s16 arg1);
 s32 TLobby__sub_8001FE7C(void *, s32);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
@@ -242,9 +235,7 @@ void PPCSync(void);
 void push_matrix(void);
 void post_translate_matrix(void *);
 s32 rotate_matrix_y(int, int);
-void draw_ginja_object(void *child);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
-s32 pop_matrix(void);
 extern u32 actor_frame_tick;
 extern s32 model_render_flags;
 extern const f32 lbl_805DBE78;

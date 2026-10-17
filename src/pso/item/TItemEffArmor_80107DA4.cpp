@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/item/TItemEffArmor_80107DA4.h"
+#include "pso/object/TObjLight_80133568.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/unk/TUnk_8049EFB8.h"
 #include "pso/system/vector.h"
 #include "pso/item/TItemEffArmor.h"
@@ -22,22 +28,16 @@ struct RecoveredGlobal_80107DF0_lbl_8058D4C0 {
 
 extern "C" {
 u16 obj_getField1c(void *);
-void queue_destruction__7TObjectFv(void *);
-void publish_actor_light_scalars(u32 arg0, f32 farg0, f32 farg1);
 extern const f32 TItemEffArmor__data_805DAAEC;
 extern const f32 lbl_805DAAF0;
 extern const f32 lbl_805DAAF4;
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_80107DA4_lbl_8049EFB8 lbl_8049EFB8;
-u8 *fn_80107DA4(u8 *arg0, u8 *arg1, s16 arg2);
-void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model_with_motion(int, int, f32);
-void set_chunk_material_color(f32 *arg);
 extern RecoveredGlobal_80107DF0_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_80107DF0_lbl_8058D4C0 model_material_color;
 extern s32 lbl_805D5660;

@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/ui/TAdAgreementBaseGC.h"
+#include "pso/ui/TAdTrialAgreementGC_8033573C.h"
 #include "pso/ui/TAdTrialAgreementGC.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/misc/TLobby.h"
@@ -24,17 +27,13 @@ struct RecoveredGlobal_80335870___vt__19TAdTrialAgreementGC {
 
 extern "C" {
 extern const f32 lbl_805DF8B0;
-void queue_destruction__7TObjectFv(void *arg0);
 s32 __nw__7TObjectFUl(int);
 s32 TAdScrollWinGC__ct(int, void *, int, int);
 s32 TAdAgreementBaseGC__ct(void *);
 extern s32 __vt__19TAdTrialAgreementGC[];
 extern s32 TAdTrialAgreementGC__name;
-u8 *TAdTrialAgreementGC__ct(u8 *arg0);
-void *__dt__19TAdTrialAgreementGCFv(void *arg0, s16 arg1);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32 *);
 void __dl__7TObjectFPv(void *);
-void *__dt__18TAdAgreementBaseGCFv(void *arg0, s16 arg1);
 s32 wait_for_load__19TAdTrialAgreementGCFv(s32);
 
 extern s32 pso_system_card_filename[];

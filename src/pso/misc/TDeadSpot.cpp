@@ -1,6 +1,14 @@
 #ifndef PSO_TDEADSPOT_H
 #define PSO_TDEADSPOT_H
 #include "pso/TObject.h"
+#include "pso/boss/TBoss8Dragon_8002CC48.h"
+#include "pso/math/MatrixVector.h"
+#include "pso/misc/TDeadSpot.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_801418C4.h"
+#include "pso/unk/text_80141A30.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803DA798.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_804949D8.h"
 #include "pso/misc/TUnk_804949F4.h"
@@ -81,7 +89,6 @@ f32 vec3_add_to(void *, void *);
 extern const f32 lbl_805DA380;
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804949F4[];
-u8 *construct_fire_base__9TDeadSpotFPvPvPvif(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, f32 farg0);
 u32 __cvt_fp2unsigned(f32);
 extern const f32 TDeadSpot__data_805DA388;
 extern const f32 TDeadSpot__data_805DA38C;
@@ -92,18 +99,14 @@ void update_fade_in_alpha__9TDeadSpotFPv(Obj_800D7FD4 *arg0);
 extern s32 lbl_80494A10[];
 Obj_800D80E4 *init_corner_vertices__9TDeadSpotFPv(Obj_800D80E4 *arg0, void * _w1, Vec_800D8314 * _w2, void * _w3, s32 _w4, s32 _w5, f32 _w6);
 void run_task__9TDeadSpotFv(Obj_800D8228 *arg0);
-void queue_destruction__7TObjectFv(void *arg0);
-f32 lerp__9TDeadSpotFff(f32, f32);
 Ground_800D8314 *csnVecterUnder(void *, s32);
 s32 direction_to_rotation_yx(void *, s32 *, s32 *);
 s32 rand();
-void set_matrix_identity(u8 *arg0);
 s32 fn_803D8DE0(int, void *, void *, int);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_z(int, int);
 s32 rotate_matrix_x(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 extern void *__vt__9TDeadSpot[];
 extern s32 lbl_805D2A98;
 extern const f32 lbl_805DA3A0;
@@ -114,19 +117,10 @@ extern const f32 lbl_805DA3B0;
 extern const f32 lbl_805DA3B4;
 extern const f32 lbl_805DA3B8;
 Mark_800D8314 *__ct__9TDeadSpotFv(Mark_800D8314 *self, void *parent, Vec_800D8314 *point, void *texture, s32 selector, s32 delay, f32 maxScale);
-void *__dt__13TUnk_804949D8Fv(void *arg0, s16 arg1);
-void *__dt__13TUnk_804949F4Fv(void *arg0, s16 arg1);
-void *__dt__13TUnk_80494A10Fv(void *arg0, s16 arg1);
-void *init__9TDeadSpotFPv(void *arg0, u8 * _w1, u8 * _w2, s32 _w3, f32 _w4);
-void render__9TDeadSpotFv(u8 *arg0);
-void update_lifetime__9TDeadSpotFPv(void *arg0);
 f32 horizontal_distance_squared(void *, s32);
-s32 set_texture_num(s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void __dt__9TDeadSpotFv(void *, int);
-void setup_alpha_test_render_state(u8 arg0);
-void restore_saved_depth_alpha_state(void);
 s32 draw_particle_strip(void *, s32, s32);
 
 extern s32 lbl_804949D8[];

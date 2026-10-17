@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/math/MatrixTransforms.h"
+#include "pso/misc/TLobby_8030A6A8.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TUnk_804B27D8.h"
 #include "pso/misc/TOCapsuleAncient01.h"
@@ -54,23 +58,17 @@ s32 is_split_screen();
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_indexed_flags(void *, int, int);
 s32 init_collision_body_parts(void *, void *, int);
-s32 get_game_play_mode();
 extern RecoveredGlobal_8015A4D0_lbl_804AFE88 lbl_804AFE88;
 extern s32 __vt__18TOCapsuleAncient01[];
 extern s32 enable_v2_features;
 extern s32 lbl_805D2ECC;
 extern const f32 lbl_805DB378;
 extern const f32 lbl_805DB37C;
-u8 *TOCapsuleAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
-void *__dt__18TOCapsuleAncient01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
-void draw_ginja_model(s32 model);
 s32 free_collision_body_parts(void *);
 s32 rotate_matrix_y(int, int);
-void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
-s32 pop_matrix();
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 

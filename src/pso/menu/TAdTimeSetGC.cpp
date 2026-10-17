@@ -1,14 +1,13 @@
 #include "pso/TAdTimeSetGC.h"
+#include "pso/menu/TAdTimeSetGC.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_802E13C8.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 extern "C" {
 s32 poll_load_status__12TAdTimeSetGCFv();
 }
 extern void *lbl_804E32A4[];
-
-extern "C" {
-void TWindow__close(u8 *arg0);
-void queue_destruction__7TObjectFv(void *);
-}
 
 #pragma opt_common_subs off
 void TAdTimeSetGC::run_task() {
@@ -51,11 +50,7 @@ TAdTimeSetGC::~TAdTimeSetGC() {
 
 extern "C" {
 
-void *TAdTimeSetGC__ct(void *arg0);
-void TAdTimeSetGC__sub_802E34A4(void);
-void TAdTimeSetGC__sub_802E34A8(void);
 void __ct__7TObjectFP7TObject(void *);
-void init__23TAdSinglePlyChrSelectGCFPv(void *);
 
 extern s32 __vt__12TAdTimeSetGC[];
 extern void *TAdTimeSetGC_class_name;
@@ -75,30 +70,9 @@ void TAdTimeSetGC__sub_802E34A8(void) {  }
 }
 
 extern "C" void render__18T_ATS_DrawCalendarFv();
-extern "C" void *__dt__18T_ATS_DrawCalendarFv(void *arg0, s16 arg1);
-extern "C" int TAdSinglePlyChrSelectGC__sub_802E1F8C(void *p);
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E1FAC(u8 *arg0);
-extern "C" void show_confirm_dialog__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E2158();
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E22A4(u8 *arg0);
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E23E8(u8 *arg0);
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E2450(u8 *arg0);
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E24B8();
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E2520(u8 *arg0);
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E2588();
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E2610(u8 *arg0);
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E2848(void *p);
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E289C(void *arg0);
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E2A7C(void *p);
-extern "C" void advance_when_load_done__23TAdSinglePlyChrSelectGCFi(s32 arg0);
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E2BC8(void *p);
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E2BD4(s32 arg0);
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E2D3C(void *p);
 extern "C" void handle_confirm_menu__23TAdSinglePlyChrSelectGCFv();
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E2F20();
-extern "C" int TAdSinglePlyChrSelectGC__sub_802E2F68(void *p);
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E2FEC();
-extern "C" int TAdSinglePlyChrSelectGC__sub_802E3038(void *p);
 extern "C" void report_card_status__23TAdSinglePlyChrSelectGCFv();
 extern "C" void build_selection_summary__23TAdSinglePlyChrSelectGCFv();
 extern "C" void close_and_next_cancel__23TAdSinglePlyChrSelectGCFv();
@@ -116,10 +90,7 @@ extern "C" void update_char_timer__23TAdSinglePlyChrSelectGCFv();
 extern "C" void update_close_on_load__23TAdSinglePlyChrSelectGCFv();
 extern "C" void update_close_timer__23TAdSinglePlyChrSelectGCFv();
 extern "C" void update_load_countdown__23TAdSinglePlyChrSelectGCFv();
-extern "C" void update_load_state__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 extern "C" void update_load_state__23TAdSinglePlyChrSelectGCFv();
-extern "C" void update_state__23TAdSinglePlyChrSelectGCFPv(void *arg0);
-extern "C" void update_state__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 extern "C" void update_timer__23TAdSinglePlyChrSelectGCFv();
 __declspec(section ".data") void *lbl_804E3040[2] = {
     (void *)0x0, (void *)0x42b40000,

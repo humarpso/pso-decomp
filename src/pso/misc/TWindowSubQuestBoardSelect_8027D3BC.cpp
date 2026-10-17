@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubQuestBoardSelect_8027D3BC.h"
 #include "pso/misc/TWindowSubQuestBoardSelect.h"
 
 extern "C" {

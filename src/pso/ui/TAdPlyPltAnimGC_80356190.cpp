@@ -1,3 +1,5 @@
+#include "pso/ui/TAdPlyPltAnimGC_80356190.h"
+
 extern "C" {
     int TLobby__sub_8023E4B4(void*, void*);
     extern unsigned char lbl_80479300[];

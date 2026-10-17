@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TLobby_8020B334.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 
-int get_object_count__6TLobbyFPv(void* p);
 int get_matching_object__6TLobbyFv(void*);
 int get_object_count__6TLobbyFv(void*);
 

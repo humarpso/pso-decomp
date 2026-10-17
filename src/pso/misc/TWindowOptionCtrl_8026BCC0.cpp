@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/boss/TObjBoss2Tunnel_8007C5C0.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TLoadCtrl_80227390.h"
+#include "pso/misc/TWindowOptionCtrl_8026C5D8.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowSoundBalance.h"
 #include "pso/misc/TWindowMessageYesNo.h"
@@ -27,27 +33,19 @@ struct Opt_8026BCC0 {
 };
 
 extern "C" {
-void TWindow__close(u8 *arg0);
 void *create_menu__17TWindowOptionCtrlFv(void *);
 s32 get_selected_menu_value(void *);
 void *create_select_menu_window__17TWindowOptionCtrlFv(void *);
 s32 update_selected_item__17TWindowOptionCtrlFv(void *);
-void TWindowOptionCtrl__sub_802273B4(s32 arg0);
 void *create_list_window__17TWindowOptionCtrlFv(void *);
-void play_area_music(char *name);
 extern u8 lbl_8044F4B4[];
 void *create_sound_mode_menu__17TWindowOptionCtrlFv(void *);
 void *create_sound_balance_window__17TWindowOptionCtrlFv(void *);
-int TWindowOptionCtrl__sub_8026C658(void *p);
 s32 get_field_64__17TWindowOptionCtrlFv(void *p);
 void set_params__17TWindowOptionCtrlFPvsSc(void *arg0, s16 arg1, s8 arg2);
-s32 save_screen_snapshot(void);
 void *create_snap_shot_window__17TWindowOptionCtrlFv(void *);
-int TWindowOptionCtrl__sub_8026C630(void *p);
 void *__nw__7TObjectFUl(u32);
 void *ct__13TUnk_804F01A8Fv(void *arg0);
-void queue_destruction__7TObjectFv(void *);
-void TKeyBoardControl__sub_8000F9CC(s32 arg0);
 void *create_sub_menu_window__17TWindowOptionCtrlFv(void *);
 void *create_option_menu__17TWindowOptionCtrlFv(void *);
 void set_field_value__17TWindowOptionCtrlFls(s32 arg0, s16 arg1);

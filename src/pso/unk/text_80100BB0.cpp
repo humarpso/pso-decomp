@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80100BB0.h"
 
 struct VObjBase { char pad[0x18]; };
 
@@ -20,7 +21,6 @@ s32 set_facing__10TObjPlayerFs(s32, s32);
 void *get_equip_field_d04__10TObjPlayerFv(s32, s32);
 s32 get_player_by_client_id(s32);
 s32 set_technique_level_entry(s32, s16, u8);
-void set_item_owner_technique_level(void *arg0, s16 arg1, s16 arg2);
 #pragma push
 #pragma fp_contract on
 void set_item_owner_technique_level(void *arg0, s16 i, s16 arg2) {

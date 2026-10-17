@@ -1,8 +1,8 @@
 #include "pso/effect/TEffGuard.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/system/vector.h"
 extern "C" {
-void queue_destruction__7TObjectFv(void*);
-void *spawn_particle_effect(void *pos, s32 id);
 extern const char* TEffGuard__class_name;
 s32 play_sound_effect(u32, const Vec*, s32, s32);
 }

@@ -1,8 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLobby_803D439C.h"
 
 extern "C" {
-
-void mfci_set_error_callback(s32 arg0, s32 arg1);
 
 extern s32 mfci_error_callback;
 extern s32 mfci_error_callback_context;

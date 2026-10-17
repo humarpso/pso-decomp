@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/item/TItemDropSub_80107BF0.h"
 #include "pso/TItemDropSub.h"
 
 extern "C" {
 
-void *TItemDropSub__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern s32 __vt__12TItemDropSub[];

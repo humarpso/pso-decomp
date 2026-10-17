@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D853C.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/TObjSuisoChip.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSnapShot.h"
@@ -23,12 +26,9 @@ struct O_802A60CC {
 };
 
 extern "C" {
-void rotate_matrix_yxz(s32, s32, s32, s32);
 void rotate_matrix_y(s32, s32);
 void push_matrix();
-s32 pop_matrix(void);
 void post_translate_matrix(void *);
-void draw_ginja_object(void *child);
 s32 TObjChip__vt6();
 int TObjChip__vt8(void*, void*);
 

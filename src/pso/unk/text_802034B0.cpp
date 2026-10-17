@@ -1,7 +1,7 @@
 #include "types.h"
+#include "pso/unk/text_802034B0.h"
 extern "C" {
 extern s32 item_disabled_area_table[];
-s32 is_item_area_enabled(s32 x);
 s32 is_item_area_enabled(s32 x) {
     s32 i = 0;
     while (item_disabled_area_table[i] != -1) {

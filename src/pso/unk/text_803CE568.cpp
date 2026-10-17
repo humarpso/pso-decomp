@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803CE568.h"
 #include "pso/misc/TLobby.h"
 
 typedef s32 (*RecoveredCallback_4873a87e26d6)(s32, s32 *, s32);
@@ -44,8 +45,6 @@ extern s8 fs_default_device_name[];
 extern Ent_803CF958 cvfs_entry_table[];
 void *memset(void *, s32, u32);
 extern s32 lbl_805D7600;
-void SIGetTypeAsync(void);
-void TLobby__sub_803CEF60(void);
 s32 TLobby::cv_fs_get_stat() {
     u8 *arg0 = (u8 *)this;
     s32 (*temp_r12)(s32);

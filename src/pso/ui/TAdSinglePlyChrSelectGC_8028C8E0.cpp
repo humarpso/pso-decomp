@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/menu/TChCrLoadGmNjReq.h"
+#include "pso/misc/TLobby_8028D714.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_8028C8E0.h"
 #include "pso/misc/TChCrLoadReq.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/TChCrLoadAfs.h"
@@ -88,15 +92,8 @@ u32 TLobby__sub_801E38A0(void *, s32 *, s32 *, s32, s32);
 s32 is_node_tree_valid(u32, s32);
 void *get_result__23TAdSinglePlyChrSelectGCFv(void *);
 void blend_creation_proportion_shapes(void *);
-void *create_ch_cr_load_gm_nj_req(void *arg0, void *arg1);
-s32 TLobby__sub_8028D738(s32 i);
 extern s32 chr_select_preview_stride_table[];
 extern s32 chr_select_preview_base_offset_table[];
-
-s32 TAdSinglePlyChrSelectGC__sub_8028C998(void *arg0);
-s32 TAdSinglePlyChrSelectGC__sub_8028CF6C(void);
-void close_and_destroy__12TChCrLoadReqFv(void *arg0);
-void queue_destruction__7TObjectFv(void *arg0);
 
 extern s32 chr_select_slot_state;
 

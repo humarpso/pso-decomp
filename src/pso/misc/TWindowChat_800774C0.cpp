@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowChat_800774C0.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TWindowChat.h"
 #include "pso/misc/TWindowSubSymbolChat.h"
@@ -18,8 +19,6 @@ extern "C" {
 int get_symbol_chat_preset(s32);
 s32 set_stream_and_load_file__6TLobbyFi(char *);
 extern char symbol_chat_default_data_filename[];
-void TLobby__sub_80077608(void);
-void clear_received_symbol_chat(void);
 
 void TWindowChat::open_symbol_chat(s32 *arg0) {
     get_symbol_chat_preset(*arg0);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_800870BC.h"
 struct Ent_800870BC { u8 data[0x98]; };
 
 extern "C" {
@@ -7,7 +8,6 @@ extern Ent_800870BC *particle_global_entry_table;
 extern Ent_800870BC *particle_area_entry_table;
 void *__nw__7TObjectFUl(int);
 void *__ct__13TParticleCtrlFv(void *self, void *pos, void *dir, void *ent, int a, int b, int c, int d, int e);
-void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
 #pragma push
 #pragma opt_propagation off
 void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e) {

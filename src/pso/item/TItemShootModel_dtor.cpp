@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemShootModel_dtor.h"
 
 extern "C" {
 extern void *__vt__15TItemShootModel[];

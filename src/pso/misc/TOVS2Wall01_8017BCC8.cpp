@@ -1,13 +1,12 @@
 #include "types.h"
+#include "pso/misc/TOVS2Wall01_8017BCC8.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/misc/TOVS2Wall01.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void init__11TOVS2Wall01Fi(s32 arg0);
-f32 take_hit__11TOVS2Wall01FPvUi(u8 *arg0, u32 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
-void *spawn_particle_effect(void *pos, s32 id);
 s32 is_locally_controlled__10TObjPlayerFPv(u32);
 u16 obj_getField1c(u32);
 

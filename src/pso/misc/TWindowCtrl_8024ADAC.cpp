@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl_8024ADAC.h"
 #include "pso/misc/TWindowCtrl.h"
 
 extern "C" {
@@ -45,9 +46,7 @@ struct RecoveredGlobal_8024ADF0_lbl_804CEA10 {
 extern "C" {
 s32 call_window_method__11TWindowCtrlFPvi(void *, void *);
 extern RecoveredGlobal_8024ADAC_lbl_804CEA1C lbl_804CEA1C;
-void TWindowCtrl__sub_8024ADAC(s32 arg0);
 extern RecoveredGlobal_8024ADF0_lbl_804CEA10 lbl_804CEA10;
-void TWindowCtrl__sub_8024ADF0(s32 arg0);
 typedef char RecoveredGlobal_8024ADAC_lbl_804CEA1C_size[sizeof(RecoveredGlobal_8024ADAC_lbl_804CEA1C) == 0xC ? 1 : -1];
 void TWindowCtrl__sub_8024ADAC(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_8024ADAC, sp8) == 0x0) ? 1 : -1];

@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/unk/text_801E283C.h"
 #include "pso/system/date.h"
 
 extern "C" {
-u8 calc_day_in_cycle(s32 *date);
 u8 calc_day_in_cycle(s32 *date) {
     u32 sp8;
     u32 var_r4;

@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl_8024A054.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/protocol/TradeSession.h"
+#include "pso/unk/text_802D298C.h"
 #include "pso/misc/TWindowSubTrade.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowMenu.h"
@@ -23,20 +27,14 @@ struct VObj_18_204a81 : VBase_18_204a81 {
 
 extern "C" {
 void __dl__7TObjectFPv(s32);
-void TWindow__close(u8 *arg0);
-s32 TLobby__sub_802D2A2C(u32);
 s32 __dt__7TObjectFv(void *, int);
 extern s32 __vt__15TWindowSubTrade[];
-u8 *__dt__15TWindowSubTradeFv(u8 *arg0, s16 arg1);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
 s32 play_sound_effect(int, int, int, int);
-s32 is_player_input_active(s32 param_1);
 s32 get_selected_menu_value(int);
 u32 TWindowSubComCard__sub_802B1C1C(void *);
-void send_modify_trade_proposal__6TLobbyFi(s32 arg0);
 extern s32 controller_input_state[];
-s32 TLobby__sub_802D2A50(u32 arg0);
 
 void TWindowSubTrade::render() {  }
 

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjTombstone.h"
 #include "pso/object/TObjFish.h"
 
@@ -7,10 +9,8 @@ extern "C" {
 s32 PPCSync();
 s32 scroll_ginja_mesh_uvs(void *, int, int, int, int);
 s32 post_translate_matrix(void *);
-void draw_ginja_object(void *child);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 
 extern u32 TObjTombstone__shared_resource_object;
 extern s32 tombstone_first_run_flag;

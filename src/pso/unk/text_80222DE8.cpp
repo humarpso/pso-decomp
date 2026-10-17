@@ -1,7 +1,7 @@
 #include "types.h"
+#include "pso/unk/text_80222DE8.h"
 
 extern "C" {
-s32 is_single_purchase_shop_item(u8 *p);
 s32 is_single_purchase_shop_item(u8 *p) {
     if (p[0] == 3) {
         switch (p[1]) {

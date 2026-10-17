@@ -1,12 +1,11 @@
 #include "types.h"
+#include "pso/misc/TLobby_801E43E4.h"
+#include "pso/misc/TLobby_8020E400.h"
 #include "pso/system/byteswap.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-
-void TLobby__send_and_handle_60(u8 *arg0);
-void build_6x76_set_entity_set_flags(void* p);
 
 void TLobby::bswap_player_fields() { ((TObjPlayer *)this)->read_be16_field2(); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); }
 void TLobby::send_player_update() { bswap_player_fields(); TLobby__send_and_handle_60((u8 *)this); }
@@ -26,8 +25,6 @@ void append_wave_member(Obj_8020E484 *o, Item_8020E484 *item) {
         o->vals[o->count++] = item->v;
     }
 }
-
-s32 get_shop_unit_count(s32 arg0);
 
 s32 TLobby::get_lobby_group(s32 arg0) {
     if ((arg0 >= 1) && (arg0 <= 0xA)) {

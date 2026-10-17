@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_800BA138.h"
+#include "pso/enemy/TObjEneDD_800C2614.h"
+#include "pso/unk/text_80087278.h"
+#include "pso/unk/text_800C3A60.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneRe2Flower.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -12,19 +16,14 @@ struct Vec_800C2628 { f32 x, y, z; };
 struct Prm_800C2628 { f32 a, b, c, d, e; };
 
 extern "C" {
-void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
-void TObjEneDD__sub_800BA5A4(void *p, void *a1);
 s32 transition_enemy_state(void *, s32);
 s32 noop__9TObjEneDDFv(void *, s32);
-s32 fn_800C3A60(s32 arg0, s32 arg1);
 s32 advance_animation_playback();
 s32 play_sound_effect(s32, void *, s32, s32);
 extern Prm_800C2628 enemy_dd_attack_param_block;
 extern Prm_800C2628 lbl_8043BBA0;
 extern f32 *const lbl_805D5170;
 extern const f32 lbl_805D9FBC;
-void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1);
-void TObjEneDD__sub_800C2618(void* p);
 s32 objInBand__FP7GameObjf(f32);
 
 void TObjEneRe2Flower::vfunc_105() {  }

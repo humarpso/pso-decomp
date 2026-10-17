@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubSymbolChatFaceType_80283A70.h"
+#include "pso/misc/TWindowSubSymbolChat_80283954.h"
 #include "pso/misc/TWindowChoiceSetting.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 #include "pso/misc/TUnk_804CE018.h"
@@ -31,19 +33,15 @@ s32 draw_default_entry__9TWindowDDFl();
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 s32 forward_render__20TWindowSubStatusDispFv(int, int);
-void render__28TWindowSubSymbolChatFaceTypeFv(u8 *arg0);
-s32 fn_802839A4(void *);
 void TWindowSubSymbolChatFaceType__sub_80283C84(void *, void *, f32, f32);
 extern const f32 lbl_805DD778;
 extern const f32 lbl_805DD77C;
 extern const f32 lbl_805DD780;
-void TWindowSubSymbolChatFaceType__sub_80283F38(u8 *arg0, u8 *arg1);
 s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_80283A70_lbl_8050E208 controller_input_state;
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 extern const f32 lbl_805DD784;
-void run_task__28TWindowSubSymbolChatFaceTypeFv(u8 *arg0);
 
 typedef struct Stack_80283F38 Stack_80283F38;
 

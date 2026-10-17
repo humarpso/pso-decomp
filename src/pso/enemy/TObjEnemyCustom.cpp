@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl_800687BC.h"
 #include "pso/enemy/TObjEnemyCustom.h"
 
 struct RecoveredGlobal_800C7F80___vt__15TObjEnemyCustom {
@@ -12,7 +13,6 @@ extern s32 __vt__15TObjEnemyCustom[];
 extern s32 lbl_805D2A60;
 u8 *TObjEnemyCustom__ct(u8 *arg0);
 void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
-s32 restore_player_cameras();
 void __dl__7TObjectFPv(void *);
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 

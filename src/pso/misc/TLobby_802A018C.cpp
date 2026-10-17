@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_802A018C.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TODoorFourLightBase.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -15,7 +16,6 @@ extern s32 bm_o_door_seabed01_resource_descriptor[];
 extern u32 door_labo_bml_resource;
 extern u32 lbl_805D6604;
 extern u32 lbl_805D6608;
-void TLanguage__sub_802A0204(void);
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 TLobby__sub_803DA16C(void*);
 

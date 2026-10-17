@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLockOnCursor_8013EA08.h"
 #include "pso/misc/TLockOnCursor.h"
 #include "pso/misc/TMainCursor.h"
 #include "pso/misc/TWindowActionPalette.h"
@@ -9,8 +10,6 @@ struct Obj_8013EB6C { u8 pad[0x5c]; Rec_8013EB6C recs[1]; };
 
 extern "C" {
 Rec_8013EB6C *TLockOnCursor__sub_8013EB6C(Obj_8013EB6C *self, s32 i);
-s32 TLockOnCursor__sub_8013EB2C(void* p);
-int TLockOnCursor__sub_8013EB34(void);
 int test_flags_any(void*, int);
 int clear_flags__11TAdRicoRingFUl(void*, int);
 int set_flags__10TObjPlayerFUl(void*, int);

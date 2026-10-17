@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjDoorJung.h"
 #include "pso/object/TObjLazerFenceExtra.h"
 #include "pso/TParticleCtrl.h"
@@ -8,9 +10,7 @@ struct Obj_80192554 { u8 pad0[0x38]; u8 f38[0x24]; s32 f5C; s32 f60; u8 pad64[0x
 extern "C" {
 void rotate_matrix_y(int, int);
 void push_matrix();
-s32 pop_matrix(void);
 void post_translate_matrix(void *);
-void draw_ginja_object(void *child);
 void draw_ginja_model_with_motion(s32, s32, f32);
 extern u16 lbl_80445B7C[];
 extern s32 lazer_fence_norm_texture_list;

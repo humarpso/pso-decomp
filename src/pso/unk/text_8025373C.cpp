@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowHelpItem_80255AB4.h"
+#include "pso/unk/text_8025373C.h"
 #include "pso/item/TItemData.h"
 #include "pso/misc/TWindowHelpItem.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -23,9 +25,7 @@ struct Mag_8025373C {
 extern "C" {
 void deserialize_mag__9TItemDataFPvPv(s32, Mag_8025373C *);
 Entry_8025373C *get_array_entry__13TUnk_804CE018Fi(void *, s32);
-s32 TWindowHelpItem__sub_80255DDC(void *p);
 extern const f32 TWindowHelpItem__data_805DCDE4;
-s32 fn_8025373C(u8 *self);
 s32 fn_8025373C(u8 *self) {
     Mag_8025373C mag;
     Entry_8025373C *help;

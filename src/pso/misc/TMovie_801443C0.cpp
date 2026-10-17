@@ -1,12 +1,11 @@
 #include "types.h"
+#include "pso/misc/TMovie_801443C0.h"
 #include "pso/misc/TMovie.h"
 #include "pso/system/main_loop.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 
-void *__dt__6TMovieFv(void *arg0, s16 arg1);
-s32 close__6TMovieFis(s32 arg0, s16 arg1);
 s32 render_until_finished__6TMovieFv(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);

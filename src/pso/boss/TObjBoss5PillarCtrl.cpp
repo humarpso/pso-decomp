@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/boss/TObjBoss5PillarCtrl.h"
 #include "pso/boss/TObjBoss5Pillar.h"
 
@@ -23,7 +24,6 @@ struct Ctrl_8028B23C {
 extern "C" {
 void *__nw__7TObjectFUl(int);
 void __dt__7TObjectFv(void *, int);
-void queue_destruction__7TObjectFv(void *);
 void mem_free(void *);
 void __dl__7TObjectFPv(void *);
 extern u8 __vt__19TObjBoss5PillarCtrl[];

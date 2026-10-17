@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
 #include "pso/misc/TLOC_End.h"
 #include "pso/misc/TLOC_Start.h"
 #include "pso/misc/TMainCursor.h"
@@ -16,7 +17,6 @@ struct Pl_8013B0F0 {
 };
 
 extern "C" {
-s32 get_main_phase();
 s32 bind_action_channels__11TMainCursorFv(Cur_8013B0F0 *);
 s32 TMainCursor__sub_8013E03C(void *);
 s32 set_target_index__11TMainCursorFs(void *, int);

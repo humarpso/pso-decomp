@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/item/TItemEffPG_8034FF4C.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/object/TObject_8001A448.h"
+#include "pso/unk/text_802E4A4C.h"
 #include "pso/item/TUnk_804E355C.h"
 #include "pso/item/TItemEffPG.h"
 #include "pso/item/TItemAttackCol.h"
@@ -8,21 +12,16 @@ typedef char RecoveredGlobal_8035007C___vt__10TItemEffPG_size[sizeof(RecoveredGl
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
-u8 *construct_attack_collision(u8 *arg0, s32 arg1, u8 *arg2);
 s32 TItemEffPG__visual_ct(int, void *, void *);
 extern s32 __vt__10TItemEffPG[];
 extern s32 lbl_805D4350;
 extern const float lbl_805DFE14;
 extern const f32 lbl_805DFE18;
-u8 *TItemEffPG__ct(u8 *arg0, s32 arg1, u8 *arg2);
-void *__dt__10TItemEffPGFv(void *arg0, s16 arg1);
 s32 check_hits__14TItemAttackColFPv(void *);
 void TItemEffPG__begin_visual_fade(void *p);
 int TObjPlayer__sub_802E451C(void);
 void __dl__7TObjectFPv(void *);
-void disallow_rendering__7TObjectFv(void *arg0);
 s32 has_game_join_id__13TUnk_804E355CFv();
-void queue_destruction__7TObjectFv(void *arg0);
 
 void TItemEffPG::run_task() {
     f32 temp_f1;

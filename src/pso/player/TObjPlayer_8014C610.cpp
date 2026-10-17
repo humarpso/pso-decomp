@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/math/MatrixVector.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
@@ -6,10 +8,7 @@
 
 extern "C" {
 
-void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 s32 rotate_matrix_y(s32, s32);
-s32 push_matrix_from(void *src);
-s32 pop_matrix();
 
 extern s32 model_render_flags;
 

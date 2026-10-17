@@ -1,13 +1,11 @@
 #include "types.h"
+#include "pso/misc/TPlyPtclObjectLeftHand_8030A4C8.h"
 #include "pso/misc/TPlyPtclObjectRightHand.h"
 
 extern "C" {
 
-void *TPlyPtclObjectRightHand__ct(void *arg0);
-void *__dt__23TPlyPtclObjectRightHandFv(void *arg0, s16 arg1);
 void TPlyFollowParticleCtrl__ct(void *);
 void __dl__7TObjectFPv(void *);
-void *__dt__22TPlyFollowParticleCtrlFv(void *arg0, s16 arg1);
 
 extern s32 __vt__23TPlyPtclObjectRightHand[];
 

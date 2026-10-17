@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/DarkGunner.h"
+#include "pso/object/TObjControl.h"
 typedef struct Obj_800A0884 {
     u8 pad0[0x37C];
     s32 count;
@@ -7,9 +9,6 @@ typedef struct Obj_800A0884 {
 } Obj_800A0884;
 
 extern "C" {
-void clear_lappy_flag_set_param(u8 *arg0);
-void fn_800A0FDC(u8 *arg0);
-u8 *get_enemy_entity(u16 arg0);
 s32 fn_800A0884(Obj_800A0884 *o);
 s32 fn_800A0884(Obj_800A0884 *o) {
     void *ents[16];

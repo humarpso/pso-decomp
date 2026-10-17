@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8012CE9C.h"
 #include "pso/player/TUnk_804A5740.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-int TObjPlayer__sub_8012CE9C(void* p);
 int rotate_matrix_x(void*, void*);
 int add_angle_clamped__10TObjPlayerFPlll(void*, int, int);
 void TItemWeapon__ct(void *);

@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TLobby_800FA2A0.h"
+#include "pso/unk/text_803CC294.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 
-s32 create_named_entry__6TLobbyFiiUiiPv(s32 arg0, s32 arg1, u32 arg2, s32 arg3, void **arg4);
-s32 TLobby__sub_803CC53C(u8 *arg0);
 s32 adxf_open__6TLobbyFUii(void *, int);
 u8 *alloc_from_heap__6TLobbyFPv(s32);
 u8 *link_into_list__6TLobbyFv();

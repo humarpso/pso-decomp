@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80083594.h"
+#include "pso/unk/text_803D96A8.h"
 
 #include <stddef.h>
 #include "pso/misc/TOTrapAncient02.h"
@@ -20,7 +22,6 @@ s32 PSMTXConcat(void *, void *, void *);
 s32 C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
 s32 rotate_matrix_y(int, void *);
 s32 push_matrix();
-s32 pop_matrix();
 s32 load_current_pos_matrix(int);
 s32 load_current_tex_matrix(int);
 extern const f64 lbl_80439358;
@@ -28,8 +29,6 @@ extern s32 current_matrix;
 extern const f32 lbl_805D93DC;
 extern const f32 lbl_805D940C;
 extern const f32 lbl_805D9414;
-void load_projected_texture_matrix(f32 farg0);
-void setup_particle_tev(s32 arg0);
 s32 GXSetTevOp(s32, s32);
 s32 GXSetTevOrder(s32, s32, s32, s32);
 s32 set_ginja_post_texgen_count(s32);

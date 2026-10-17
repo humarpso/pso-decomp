@@ -1,11 +1,8 @@
 #include "types.h"
+#include "pso/unk/text_801A6A28.h"
+#include "pso/unk/text_801A6A5C.h"
 
 extern "C" {
-void fn_801A6A28(void *, s32, s32);
-void map_c_stick_to_buttons(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
-void map_main_stick_to_buttons(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
-void update_button_hold_counter(void *, void *, int, int);
-void update_button_hold_counters(u8 *arg0);
 void map_c_stick_to_buttons(u8 *arg0, s16 arg1, s16 arg2, s32 arg3) {
     if (arg2 > 0x30) {
         fn_801A6A28(arg0, 0x08000000, arg3);

@@ -1,8 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLobby_8020CFC8.h"
 
 extern "C" {
-
-void TLobby__sub_8020CFC8(void *arg0, void *arg1);
 
 void TLobby__sub_8020CFC8(void *arg0, void *arg1) {
     *(s16 *)((s8 *)arg0 + 0) = (s16) *(s16 *)((s8 *)arg1 + 0);

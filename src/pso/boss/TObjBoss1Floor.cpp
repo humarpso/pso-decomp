@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/math/MatrixTransforms.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/boss/TObjBoss1Floor.h"
 #include "pso/boss/TObjBoss1MokoHill_Solo.h"
 #include "pso/object/TObjFish.h"
@@ -9,10 +12,7 @@ void TObjBoss1Floor__sub_8002CB40(void);
 void TObjBoss1Floor__sub_8002CB78(void);
 void create_instance__14TObjBoss1FloorFv(void);
 s32 update_dragon_trail_uvs(void *);
-void draw_chunk_object(void *child);
-void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
-s32 pop_matrix();
 s32 set_chunk_material_override_pair(int, int, void *, void *);
 
 void TObjBoss1Floor__sub_8002CB40(void) {  }

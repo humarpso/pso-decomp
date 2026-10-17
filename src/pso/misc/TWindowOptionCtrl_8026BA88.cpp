@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TLobby_80132ED0.h"
 #include "pso/misc/TWindowOptionCtrl.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 
 extern "C" {
-s32 get_localized_text_entry(s32 arg0, s32 arg1);
 s32 refresh_with_default_list__20TWindowSubStatusDispFll(int, void *);
 int get_option_entry__17TWindowOptionCtrlFi(int);
 extern s32 lbl_8044F48C[];

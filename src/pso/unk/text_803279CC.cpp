@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803279CC.h"
 
 struct Rec_80327A38 { u8 type; u8 pad; u16 val; u8 pad2[0xC]; };
 
@@ -7,7 +8,6 @@ struct Src_80327A38 { Rec_80327A38 *recs; u8 pad[4]; void *t0; void *t1; };
 struct Acc_80327A38 { s32 sum; s32 count; };
 
 extern "C" {
-void visit_model_tree_recursive(s32 arg0, u8 *arg1, s32 arg2);
 s32 has_texture_scroll_entry(void *, u16);
 void fn_80327A38(Acc_80327A38 *acc, Src_80327A38 *src, s32 id);
 void visit_model_tree_recursive(s32 acc, u8 *arg1, s32 arg2) {

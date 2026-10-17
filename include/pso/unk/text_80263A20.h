@@ -1,0 +1,10 @@
+#ifndef PSO_UNK_TEXT_80263A20_H
+#define PSO_UNK_TEXT_80263A20_H
+
+#include "types.h"
+
+extern "C" {
+void toggle_help_window_on_button(u32 arg0, s32 arg1);
+}
+
+#endif

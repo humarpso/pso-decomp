@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMainMenu_8024E3CC.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowMainMenu.h"
 #include "pso/misc/TWindowDD.h"
@@ -6,12 +7,6 @@
 #include "pso/misc/TWindowSubStatusDisp.h"
 
 extern "C" {
-
-void TWindowMainMenu__sub_8024E3CC(void);
-void TWindowMainMenu__sub_8024E3D0(void);
-int TWindowMainMenu__sub_8024E3D4(void* p);
-int TWindowMainMenu__sub_8024E3E0(void* p);
-int TWindowMainMenu__sub_8024E3F4(void* p);
 
 void TWindowMainMenu__sub_8024E3CC(void) {  }
 void TWindowMainMenu__sub_8024E3D0(void) {  }

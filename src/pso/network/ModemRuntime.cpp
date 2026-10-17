@@ -1,4 +1,6 @@
 #include "pso/network/NetworkTransport.h"
+#include "pso/network/ModemRuntime.h"
+#include "pso/network/NetworkMessageTransport.h"
 
 #include "types.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -91,8 +93,6 @@ extern s32 lbl_805D7C98;
 s32 EXIUnlock(s32);
 void TAdSinglePlyChrSelectGC__sub_8042D6A4(void *);
 extern s32 lbl_805D4918;
-void TAdSinglePlyChrSelectGC__sub_8042DDE4(int, int);
-s32 TAdSinglePlyChrSelectGC__sub_8042DD70(s32 arg0, s32 arg1, s32 arg2);
 extern u8 lbl_805CF380[];
 extern u8 TLobby__pppoe_message_queue[];
 typedef struct Ent_804267F0 {
@@ -105,7 +105,6 @@ typedef struct Tbl_804267F0 {
     Ent_804267F0 ent[6];
 } Tbl_804267F0;
 
-s16 TLobby__sub_804262CC(void *);
 extern u8 lbl_805CF240[];
 char *strcat(char *, const char *);
 char *strcpy(char *, const char *);
@@ -120,8 +119,6 @@ extern char lbl_805D4980[5];
 extern Names_8042E7B8 lbl_80480234;
 extern char lbl_805D4988[4];
 
-s32 fn_8042E8B8(void);
-
 #pragma push
 #pragma opt_propagation off
 #pragma pop
@@ -132,7 +129,6 @@ s32 fn_8042E8B8(void);
 #pragma pop
 
 #define arg0 ((s32)argp)
-s16 TLobby__sub_804262CC(void *argp);
 #undef arg0
 
 #pragma push

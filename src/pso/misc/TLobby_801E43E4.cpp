@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TLobby_80131794.h"
+#include "pso/misc/TLobby_801E43E4.h"
 #include "pso/system/byteswap.h"
 #include "pso/TProtocol.h"
 #include "pso/misc/TGStream.h"
@@ -11,12 +14,10 @@ s32 TProtocol__send_60(int, int, int);
 s32 dispatch_6x_subcommand(void *);
 extern u32 TLobby__protocol_instance;
 extern s32 lbl_805D5E50;
-void TLobby__send_and_handle_60(u8 *arg0);
 extern u32 local_client_id;
 void *tmp_buf_use_req__6TLobbyFPCc(char *);
 void *alloc__22TQuestVmDownLoadServerFv(void);
 void debug_print__6TLobbyFle(const char *, ...);
-s32 change_file_extension__6TLobbyFPvPvPv(char *arg0, char *arg1, char *arg2);
 char *strncpy(char *, const char *, u32);
 s32 load_gvm_texture_archive(void *, s32);
 extern char texture_pvm_not_found_format[];
@@ -25,10 +26,7 @@ extern char texture_pvm_load_error_format[];
 extern char lbl_805DC448[4];
 s32 load_texture_list(s32 **);
 extern char pso_texture_load_error_format[];
-void dispatch_packet__6TLobbyFPv(void *arg0);
-void update_players__6TLobbyFi(s32 arg0);
 s32 append_command_to_batch_buffer(void *, s32);
-s32 get_main_phase();
 s32 send_pso_data_long2__9TProtocolFcR17long_game_commandUl(void*, u32, void *, s32);
 
 void TLobby::send_command(u32 arg1) {

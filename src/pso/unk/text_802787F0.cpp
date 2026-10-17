@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_802671F0.h"
 #include "pso/item/TItem.h"
 #include "pso/misc/TShopJudgmentItemWindow.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -15,7 +16,6 @@ u8 *find_item_by_id(s32 id);
 u8 *get_player_by_client_id(s16);
 void calc_list_content_extent(void *);
 void build_usable_item_list(Wn_802788A8 *arg0);
-void push_status_disp_entry(void *, s32, s32);
 void fill_trade_item_list(Wn_802787F0 *arg0, Ent_802787F0 *arg1);
 
 void fill_trade_item_list(Wn_802787F0 *arg0, Ent_802787F0 *arg1) {

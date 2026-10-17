@@ -1,12 +1,11 @@
 #include "types.h"
+#include "pso/misc/TLobby_80215AE4.h"
+#include "pso/unk/text_800F9B84.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
-    s32 create_named_object(s32 arg0);
     extern unsigned char lbl_8044BD3C[];
 extern u32 item_appraisal_rules;
-void load_judge_item(void);
-void update_all__6TLobbyFi(s32 arg0);
 s32 adjust_appraisal_percentages(s32);
 s32 adjust_appraisal_special(s32);
 s32 is_slot_match__6TLobbyFv();

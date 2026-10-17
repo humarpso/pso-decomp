@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80156BBC.h"
 #include "pso/misc/TUnk_804AF8D8.h"
 #include "pso/misc/TRaderMapCore.h"
 
@@ -11,11 +12,9 @@ struct Laser_80156CA0 {
 };
 
 extern "C" {
-s32 fn_80156C88(f32 *arg0);
 f32 xz_distance_squared(void *, void *);
 extern u8 *camera_ctrl_instance;
 s32 fn_80156BBC(O_80156BBC *arg0, void *arg1);
-s32 fn_80156C38(f32 *arg0);
 void step_laser_fence_fade(struct Laser_80156CA0 *p);
 
 s32 fn_80156BBC(O_80156BBC *arg0, void *pos) {

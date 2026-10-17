@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TItemLoad.h"
+#include "pso/item/TItemLoad_8010FC28.h"
 #include "pso/system/memory.h"
 #include "pso/item/TUnk_8049F42C.h"
 #include "pso/TItemLoad.h"
@@ -13,8 +15,6 @@ extern "C" {
 s32 test_flags_any(void *, int);
 extern RecoveredGlobal_8010FCB4_lbl_8049F42C lbl_8049F42C;
 extern s32 item_load_work_buffer_busy;
-u8 *__dt__13TUnk_8049F42CFv(u8 *arg0, s16 arg1);
-s32 TItemLoad__sub_801107DC(void *);
 
 extern s32 item_load_compressed_work_buffer;
 

@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TOContainerAncientItemRare.h"
 #include "pso/player/TUnk_804B08BC.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void *__dt__26TOContainerAncientItemRareFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 extern s32 __vt__26TOContainerAncientItemRare[];

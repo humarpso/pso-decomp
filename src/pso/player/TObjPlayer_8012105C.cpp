@@ -1,13 +1,11 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8012105C.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/items/TItemWeapon.h"
 
 extern "C" {
 
 int obj_testFlags30(void*, void*);
-void TObjPlayer__sub_8012105C(void);
-void TObjPlayer__sub_80121060(void);
-u8 TItemWeapon__sub_80121064(void* p);
 int get_attack_damage_scale(void*);
 int TObjPlayer__sub_801D2F4C(void*);
 
@@ -17,8 +15,6 @@ u8 TItemWeapon__sub_80121064(void* p) { return *(u8*)((char*)p + 0x1d3); }
 void TObjPlayer::set_status_flags(u32 v) { this->m_1b8 |= v; }
 void TItemWeapon::clear_equip_flags(u32 v) { *(u32*)((char*)this + 0x1b8) &= ~v; }
 void TObjPlayer::set_flag_8() { set_status_flags(8); }
-
-void set_weapon_trail_joints(s32 arg0, s32 arg1, s8 arg2, s8 arg3);
 
 void set_weapon_trail_joints(s32 arg0, s32 arg1, s8 arg2, s8 arg3) {
     u8 *temp_r3;

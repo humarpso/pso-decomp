@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/item/TItemEffEquip_801088F8.h"
 
 extern "C" {
 
-void TItemEffEquip__sub_801088F8(u32 arg0);
 s32 release_effect__13TItemEffEquipFv();
 
 void TItemEffEquip__sub_801088F8(u32 arg0) {

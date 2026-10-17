@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80141A30.h"
+#include "pso/unk/text_803DA798.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/TPlayerFootStamp.h"
 #include "pso/object/TObjMistCtrl.h"
@@ -41,13 +44,8 @@ s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
 s32 construct_world_actor_base(void *, void *);
 extern s32 __vt__12TObjMistCtrl[];
 extern s32 lbl_805D3E80;
-u8 *TObjMistCtrl__ct(u8 *arg0, s32 arg1, u32 arg2);
-void queue_destruction__7TObjectFv(void *);
-void *__dt__12TObjMistCtrlFv(void *arg0, s16 arg1);
 f32 horizontal_distance_squared(void *, void *);
-s32 set_texture_num(s32 i);
 void __dl__7TObjectFPv(void *);
-void restore_saved_depth_alpha_state(void);
 s32 draw_particle_strip(void *, int, int);
 
 void TObjMistCtrl::run_task() { { (void)(sub_802AF64C()); return; } }

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/item/TObjContainerAbeEnemy.h"
@@ -34,7 +36,6 @@ struct Spawn_80188B3C {
 struct Obj_80188B3C { u8 pad[0x38]; f32 x, y, z; };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_container_base(void *, s32);
 extern RecoveredGlobal_801889B8_lbl_804B63BC forest_box_collision_body_parts;
@@ -46,7 +47,6 @@ s32 post_translate_matrix(void *);
 s32 rotate_matrix_y(s32, s32);
 void dispatch_fish_event__6TLobbyFPv(void *a0);
 void draw_ginja_box_tree(void);
-s32 pop_matrix();
 extern void *container_breakup_model_archive;
 extern s32 lbl_805D5B8C;
 s32 spawn_particle_effect_with_flags(void *, int, int);

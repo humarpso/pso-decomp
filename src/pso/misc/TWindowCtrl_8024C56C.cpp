@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/misc/TWindowMainMenu_8024E3CC.h"
+#include "pso/unk/text_8026ACDC.h"
 #include "pso/misc/TWindowCtrl.h"
 
 extern "C" {
-
-void TWindowMainMenu__sub_8024E3D0(void);
-void TLobby__sub_8026ACDC(void);
 
 extern s32 TWindowCtrl__active_window;
 

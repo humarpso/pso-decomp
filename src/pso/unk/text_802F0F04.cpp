@@ -1,12 +1,11 @@
 #include "types.h"
+#include "pso/boss/TObjBoss2Tunnel_802F2070.h"
+#include "pso/unk/text_802F0F04.h"
 #include "pso/object/TObjAreaWarpForest.h"
 
 extern "C" {
 
-void TObjAreaWarpForest__sub_802F0F30(void *arg0);
-void *__dt__13TUnk_804E48D8Fv(void *arg0, s16 arg1);
 void TObjAreaWarpForest__ct(void *);
-s32 TObjBoss2Tunnel__sub_802F2070();
 void __dl__7TObjectFPv(void *);
 void *__dt__18TObjAreaWarpForestFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);

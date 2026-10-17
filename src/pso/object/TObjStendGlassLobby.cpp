@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TOKey_8015845C.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/object/TObjStendGlassLobby.h"
@@ -40,19 +43,13 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern u32 TObjStendGlassLobby__static_model_resource;
 extern s32 stend_glass_lobby_type;
-void *init_map_object_base(void *a0);
 extern s32 __vt__19TObjStendGlassLobby[];
 extern s32 TObjStendGlassLobby__name;
-u8 *TObjStendGlassLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
-void TObjStendGlassLobby__sub_803596C0(void);
-void *__dt__19TObjStendGlassLobbyFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);
-void draw_ginja_object(void *child);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 

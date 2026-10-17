@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801BF6B0.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -6,17 +7,6 @@ extern "C" {
 s32 is_timer_running();
 s32 TObjPlayer__sub_801BF640();
 int clear_fields__20TWindowSubStatusDispFv(void*);
-f32 TObjPlayer__sub_801BF6B0(void* p);
-void* TObjPlayer__sub_801BF6B8(void* p);
-void TObjPlayer__sub_801BF6C0(void* p, f32 v);
-void TObjPlayer__sub_801BF6C8(void* p, f32 a, f32 b);
-void TObjPlayer__sub_801BF6D4(void* p, s16 v);
-void TObjPlayer__sub_801BF6DC(void* p, s16 v);
-int TObjPlayer__sub_801BF6E4(void* p);
-void TObjPlayer__sub_801BF7B8(void* p);
-f32 TObjPlayer__sub_801BF814(void* p);
-int TObjPlayer__sub_801BF840(void* p);
-int TObjPlayer__sub_801BF8AC(void* p);
 int TObjPlayer__sub_801BF8CC(void* p);
 int set_flags__10TObjPlayerFUl(void*, int);
 int clear_id__10TObjPlayerFv(void*);

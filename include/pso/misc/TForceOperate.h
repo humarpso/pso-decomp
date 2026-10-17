@@ -14,4 +14,14 @@ struct TForceOperate : public TObject {
 };
 
 typedef char TForceOperate_size[sizeof(TForceOperate) == 0x24 ? 1 : -1];
+extern "C" {
+void *TForceOperate__ct(void *arg0, void *arg1, void *arg2);
+void calc_death_sink_offset(void *arg0);
+void reset_player_appearance_opacity(void *a0);
+void run_task__13TForceOperateFv(s32 arg0);
+void save_render_material_state(u8 *arg0);
+void update_player_appear_fade(u8 *arg0);
+void update_target_lock__10TObjPlayerFii(s32 arg0, s32 arg1);
+}
+
 #endif

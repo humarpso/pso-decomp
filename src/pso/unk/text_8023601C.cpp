@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8023601C.h"
 
 struct Stack_8023601C {
     f32 sp8;
@@ -11,7 +12,6 @@ f32 vec_squared_length(void *, f32);
 s32 normalize_vector(void *);
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DC88C;
-void offset_point_toward_camera(u8 *arg0, u8 *arg1, f32 farg0);
 #pragma push
 #pragma fp_contract on
 void offset_point_toward_camera(u8 *arg0, u8 *arg1, f32 farg0) {

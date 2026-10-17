@@ -1,16 +1,15 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_80144B14.h"
+#include "pso/unk/text_8026A14C.h"
 #include "pso/THeap.h"
 
 extern "C" {
 extern void *chat_log_lines[];
 extern void *TAdScrollWinGC__chat_log_heap;
 extern void *chat_last_line_buffer;
-void fn_8026A14C(void);
-char *parse_text_control_codes(char *p, s32 *a, s32 *b);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
 extern s32 current_language;
-void fn_8026A1C4(char *dst, char *src, s32 size);
 void fn_8026A14C(void) {
     s32 i;
     for (i = 0x1D; i >= 0; i--) {

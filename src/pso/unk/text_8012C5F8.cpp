@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/item/SpecialProjectileWeapons.h"
+#include "pso/player/TObjPlayer_8012C950.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_8012C5F8.h"
 #include "pso/TAdRicoRing.h"
 #include "pso/TItemAttacker.h"
 #include "pso/player/TObjPlayer.h"
@@ -61,12 +65,7 @@ struct VObj_18 : VBase_18 {
 
 extern "C" {
 s32 test_flags_any(void *p, s32 n);
-void draw_ginja_object(void *p);
 void rocket_punch_node_callback(Obj_8012C714 *self);
-void increment_burst_counter(u8 *arg0);
-s32 get_burst_counter(void *p);
-void rocket_punch_return_timer(u32);
-void rocket_punch_marker(u8 *arg0);
 
 void rocket_punch_marker(u8 *arg0) {
     s32 temp_r31;

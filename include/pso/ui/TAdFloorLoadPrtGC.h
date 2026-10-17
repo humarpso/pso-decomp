@@ -14,4 +14,9 @@ struct TAdFloorLoadPrtGC : public TObject {
 };
 
 typedef char TAdFloorLoadPrtGC_size[sizeof(TAdFloorLoadPrtGC) == 0x3A0 ? 1 : -1];
+extern "C" {
+void fn_8034AD28(void);
+void fn_8034AD2C(void);
+}
+
 #endif

@@ -1,0 +1,11 @@
+#ifndef PSO_MISC_TOGRASSJUNGLE_8029CD90_H
+#define PSO_MISC_TOGRASSJUNGLE_8029CD90_H
+
+#include "types.h"
+
+extern "C" {
+u8 *TOGrassJungle__ct(u8 *arg0, s32 parent, s32 arg2);
+void *__dt__13TOGrassJungleFv(void *arg0, s16 arg1);
+}
+
+#endif

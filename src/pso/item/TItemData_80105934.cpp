@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/item/TItemMagSub_80114524.h"
 #include "pso/item/TItemData.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void initialize_mag_item_data(void *arg0);
 int get_slot_value__10TObjPlayerFPvi(void*, int);
 
 int TItemData::test_flag3() { return get_slot_value__10TObjPlayerFPvi((char*)this + 0xd04, 3); }

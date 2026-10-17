@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TLobby_8001D6A0.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
-s32 get_character_save_record(u32 arg0);
-s32 *get_shared_text_buffer(void);
 s32 TWindowSubComCard__sub_80225E80(void *, int);
 s32 strncpy(int, int, int);
 extern s32 info_board_state_flags;

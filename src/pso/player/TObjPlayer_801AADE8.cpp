@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/math/MatrixTransforms.h"
+#include "pso/player/TObjPlayer_801AADE8.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/unk/text_800F5BC0.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TUnk_804C3248.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TPhotonFarlla.h"
@@ -31,16 +37,10 @@ struct Self_801AAF00 {
 extern "C" {
 extern u8 *photon_blast_shared_resource;
 extern u32 estlla_photon_blast_model;
-void create_estlla_photon_blast_model(void);
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 s32 scroll_strip_uvs(void *, s16, int);
 s32 clear_render_context__10TObjPlayerFv(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
-void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
-void set_chunk_material_override_pair(s32 arg0, s32 arg1);
-void set_chunk_material_color(f32 *arg);
 extern Color_801AAF00 saved_model_draw_color;
 extern Color_801AAF00 model_material_color;
 extern s32 lbl_805D5660;
@@ -51,7 +51,6 @@ extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 s32 queue_photon_blast_hit(u16, s32, s32, f32);
-void *destroy_buffer_pair(void *arg0, s16 arg1);
 u32 obj_getField1c();
 
 void TObjPlayer::destroy_global_buffer() {

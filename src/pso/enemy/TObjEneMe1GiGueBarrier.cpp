@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/obj_band.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80143818.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
 #include "pso/object/TObjMotion.h"
@@ -37,20 +41,16 @@ s32 advance_animation_playback(void *);
 s32 play_sound_effect(int, void *, int, int);
 s32 is_active_state__22TObjEneMe1GiGueBarrierFv(int);
 u16 obj_getField1c(void *);
-u8 *TObjMotion__ct(u8 *arg0);
 s32 set_field_d8__10TObjPlayerFl(void *, void *, int);
-void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void TObjEneMe1GiGueBarrier__sub_802CABF4(void *p);
 extern RecoveredGlobal_80325BCC_lbl_804ECD40 TObjEneMe1GiGueBarrier__animation_definitions;
 extern s32 __vt__22TObjEneMe1GiGueBarrier[];
 extern s32 lbl_805D4198;
 extern s32 TObjEneMe1GiGueBarrier__barrier_resource_object;
 u8 *TObjEneMe1GiGueBarrier__ct(u8 *arg0, s32 arg1, u8 *arg2);
-void queue_destruction__7TObjectFv(void *arg0);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
 extern const f32 lbl_805DF620;
 extern const f32 lbl_805DF624;

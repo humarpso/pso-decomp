@@ -1,13 +1,14 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
+#include "pso/unk/text_801F43B4.h"
 #include "pso/TLevelSelect.h"
 #include "pso/misc/THunterGuildSeqOffline.h"
 #include "pso/misc/TRaderMapCore.h"
 
 extern "C" {
 
-s32 get_main_phase();
 int is_quest_active(void);
-s32 get_character_save_record(u32 arg0);
 s32 memcpy(s32, s32 *, s32);
 extern u8 quest_story_flags_by_difficulty[4][128];
 extern s32 game_difficulty_selection;

@@ -1,14 +1,14 @@
 #include "types.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/unk/TUnk_804A5340.h"
 
 extern "C" {
 
 s32 post_translate_matrix(void *);
-void draw_ginja_object(void *child);
 s32 rotate_matrix_x(int, int);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 is_owner_alive__15TItemShootModelFv();
 
 #include "pso/player/TObjPlayer.h"

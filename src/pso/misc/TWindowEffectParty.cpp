@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TWindowEffectParty.h"
 #include "pso/misc/TWindowEffectParty.h"
 #include "pso/boss/TBoss4Type2.h"
@@ -10,17 +11,14 @@ struct Pos_8024FAD8 { s32 a, b, c; };
 
 extern "C" {
 extern Obj_8024FB80 *TWindowCtrl__active_window;
-void *TWindowCtrl__sub_8024FB80(s8 i);
 void *__ct__7TObjectFP7TObject(void *);
 s32 spawn_continuous_particle_effect_with_flags(void *, void *, s32);
 extern s32 __vt__18TWindowEffectParty[];
 extern s32 TWindowEffectParty__name;
 u8 *__ct__18TWindowEffectPartyFP7TObjectScScPv(u8 *arg0, void *arg1, s8 arg2, s8 arg3, void *arg4);
-void *__dt__18TWindowEffectPartyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 sub_80244994__13TUnk_804CE018Fv();
-void queue_destruction__7TObjectFv(void *arg0);
 
 void TWindowEffectParty::render() {  }
 

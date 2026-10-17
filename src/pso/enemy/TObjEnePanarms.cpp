@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_800F0810.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
@@ -302,7 +304,6 @@ u8 TObjEnePanarms__sub_800E2E68(void *arg0);
 u8 is_below_half_hp__14TObjEnePanarmsFPv(void *arg0);
 s32 TObjEnePanarms__sub_800E2FB4(O_800E2FB4 *self);
 int clear_render_callback__8TObjFishFv(void);
-void draw_blob_shadow(s32 arg0);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 TObjControl__ct(s32, s32);
 void refresh_lobby_state__10TObjPlayerFv();
@@ -333,7 +334,6 @@ s32 rotate_matrix_z(int, int);
 s32 rotate_matrix_x(int, void *);
 s32 normalize_vector(void *);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *, f32);
 int set_global_state__16TObjEneRe7BeruraFl(void*);
 

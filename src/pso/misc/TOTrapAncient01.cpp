@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TOTrap_801791EC.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_800D7BFC.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/misc/TOTrapAncient02R.h"
@@ -226,12 +230,9 @@ extern const f32 lbl_805DBA5C;
 f32 TObjPlayer__sub_8017A1A4(Obj_8017A1A4 *self, s32 i);
 s32 free_collision_body_parts(void *);
 s32 __destroy_arr(void *, void *, int, int);
-void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
-void *__dt__6TOTrapFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 extern s32 __vt__15TOTrapAncient01[];
 Self_80179EC0 *__dt__15TOTrapAncient01Fv(Self_80179EC0 *self, s16 flag);
-s32 get_main_phase();
 s32 init_collision_body_parts(void *, void *, int);
 void TOTrap__ct(void *, void *, void *);
 void __construct_array(void *, void *, void *, int, int);
@@ -241,7 +242,6 @@ extern s32 TOTrapAncient01__class_name;
 extern const f32 lbl_805DBA54;
 extern const f32 lbl_805DBA6C;
 extern const f32 lbl_805DBA74;
-void *TOTrapAncient01__ct(void *arg0, void *arg1, void *arg2);
 void set_indexed_flags(void *, int, int);
 VObj_801797D4 *get_battle_param__10TObjPlayerFi(s32);
 s32 obj_is_hit_receivable(void *);
@@ -276,7 +276,6 @@ void TOTrapAncient02R__sub_80141CF0(void *, void *, void *);
 void TOTrapAncient02R__sub_80154D78(void *);
 void *__nw__7TObjectFUl(int);
 s32 is_current_room(void *);
-void queue_destruction__7TObjectFv(void *arg0);
 
 void TOTrap::apply_knockback_from_attacker(u8 *) {  }
 void TOTrapAncient01::vfunc_86() {  }

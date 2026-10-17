@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowKeyBoardSoft_80132A5C.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
 #include "pso/misc/TLanguage.h"
 #include "pso/misc/TLobby.h"
@@ -18,7 +19,6 @@ extern s32 lbl_8043ED08[];
 extern int TWindowKeyBoardSoft__text_resource;
 extern int text_language_group_table;
 extern int TWindowKeyBoardSoft__language_text_resources;
-void select_language_text_resources(s32 arg0);
 s32 begin_render__20TWindowSubStatusDispFl();
 struct Outer_80132A5C *load_gvm_texture_file(void *);
 extern s32 lbl_8043EAE8[];
@@ -43,7 +43,6 @@ extern s32 lbl_8043EC88[];
 extern s32 lbl_8043ECA4[];
 extern s32 lbl_8043ECC0[];
 extern struct Outer_80132A5C *localized_alphabet_list;
-void TLanguage__ct(s32 arg0);
 s32 TLobby__sub_803DA16C(void *);
 
 void TWindowKeyBoardSoft::free_instance() {
@@ -131,7 +130,6 @@ void select_language_text_resources(s32 arg0) {
     (*(s32 *)&text_language_group_table) = *(s32 *)((s8 *)(*(u8 * *)&TWindowKeyBoardSoft__text_resource) + 4);
 }
 
-int TLobby__sub_80132EC8(void);
 void *get_global_state__23TAdSinglePlyChrSelectGCFv();
 
 extern s32 current_language;

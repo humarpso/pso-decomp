@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe3Stelth_800F0AE4.h"
+#include "pso/map/CsnQuery.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneMe3Stelth.h"
@@ -16,17 +19,13 @@ extern "C" {
 int load_gvm_texture_file(void*);
     extern unsigned char lbl_8043D438[];
 extern u32 blob_shadow_texture_list;
-void load_ha_u032_kage(void);
 s32 attach_particle_model(int, int, int, int, int, f32);
-s32 *csnVectorUnder(s32 arg0, u32 *arg1, s32 arg2);
-void *spawn_particle_effect(void *pos, s32 id);
 s32 TObjEneGibbles__sub_800D8988(void *);
 extern const f32 TObjEneMe3Stelth__data_805DA808;
 extern const f32 TObjEneMe3Stelth__data_805DA80C;
 s32 play_sound_effect(s32, s32, s32, s32);
 extern const f32 lbl_805DA814;
 extern const f32 lbl_805DA818;
-void TObjEneMe3Stelth__sub_800F0C90(u8 *arg0);
 s32 TLobby__sub_803DA16C(void*);
 
 void TObjEneMe3Stelth::destroy_resources() {

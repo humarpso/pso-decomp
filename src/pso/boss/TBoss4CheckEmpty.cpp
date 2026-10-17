@@ -1,13 +1,13 @@
 #include "pso/TBoss4CheckEmpty.h"
+#include "pso/misc/TLoadCtrl_80227390.h"
+#include "pso/object/TObject_80019A50.h"
 
 #include "types.h"
 #include "pso/boss/TBoss4Thanks.h"
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 s32 is_active__11TBoss4Type2Fv();
 s32 init_music_sequencer(int);
-void play_area_music(char *name);
 s32 is_door_open_and_ready__12TBoss4ThanksFv();
 extern s32 lbl_804789DC[];
 void TBoss4CheckEmpty::render() {  }

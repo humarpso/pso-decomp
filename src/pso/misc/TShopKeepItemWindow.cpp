@@ -3,6 +3,10 @@
 #pragma dont_inline off
 
 #include "types.h"
+#include "pso/misc/TShopWindowBase.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80222C28.h"
 #include "pso/item/TItem.h"
 #include "pso/misc/TShopArmorListWindow.h"
 #include "pso/player/TObjPlayer.h"
@@ -99,7 +103,6 @@ struct Self_80221F08 {
 extern "C" {
 u32 obj_getField1c(s32);
 f32 get_scale__15TShopWindowBaseFv(void *);
-void TWindow__close(u8 *arg0);
 u32 create_yes_no_window(s32, s32, s32, s32);
 s32 get_window_layout_position(s32);
 s32 handle_deposit_list_select__19TShopKeepItemWindowFv(void *);
@@ -111,18 +114,12 @@ s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 get_selected_menu_value(void *);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
-s32 get_shop_text(s32);
 void TWindowHelpItem__set_displayed_item_by_id(u32, s32);
 void calc_list_content_extent(u32);
 u32 create_item_list_window(s32, s32, u16);
 extern f32 lbl_805DC710;
-void *TShopKeepItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
-void *__dt__19TShopKeepItemWindowFv(void *arg0, s16 arg1);
 void sort_bank_items(s32 slot);
-void *__ct__15TShopWindowBaseFv(void *arg0);
 void __dl__7TObjectFPv(void *);
-void *__dt__15TShopWindowBaseFv(void *self, s16 m);
-void queue_destruction__7TObjectFv(void *arg0);
 
 void TShopKeepItemWindow::vfunc_7() {
     struct VObj_80221844 *temp_r3;

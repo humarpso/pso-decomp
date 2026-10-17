@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl_8024A054.h"
+#include "pso/misc/TWindowSubStatusDisp_80228F5C.h"
 #include "pso/misc/TWindowMessage.h"
 #include "pso/misc/TWindowMessagePage.h"
 
@@ -21,13 +23,11 @@ extern s32 lbl_805D3998;
 u8 *TWindowMessagePage__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
-s32 is_player_input_active(s32 param_1);
 s32 draw__14TWindowMessageFv();
 extern RecoveredGlobal_8026AF24_lbl_8050E208 controller_input_state;
 void *__dt__18TWindowMessagePageFv(void *arg0, s16 arg1);
 s32 get_shared_text_buffer();
 u32 copy_message_page_text__20TWindowSubStatusDispFv(u32);
-void text_builder_reset(void);
 void __dl__7TObjectFPv(void *);
 void *__dt__14TWindowMessageFv(void *arg0, s16 arg1);
 int render__14TWindowMessageFv(void*);

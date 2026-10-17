@@ -1,4 +1,5 @@
 #include "pso/TBoss4Fade.h"
+#include "pso/boss/TBoss4Fade.h"
 
 TBoss4Fade::~TBoss4Fade() {}
 
@@ -6,7 +7,6 @@ TBoss4Fade::~TBoss4Fade() {}
 
 extern "C" {
 
-void *__ct__10TBoss4FadeFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern s32 __vt__10TBoss4Fade[];

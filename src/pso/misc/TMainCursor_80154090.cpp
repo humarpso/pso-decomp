@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TMainCursor_80154090.h"
 #include "pso/misc/TMainCursor.h"
 
 struct E_80154098 { u8 pad[0x18]; u32 flags; u8 pad2[0x2c - 0x1c]; };
@@ -14,9 +15,6 @@ void TMainCursor__sub_80154098(void *self, E_80154098 *arr, s32 i);
 void TMainCursor__sub_801540D8(E_801540D8 *arr, s32 n);
 void TMainCursor__sub_801540B8(void *self, E_801540B8 *arr, s32 i);
 void TMainCursor__sub_801540FC(E_801540FC *arr, s32 n);
-void TMainCursor__sub_80154090(void);
-void TMainCursor__sub_80154094(void);
-s32 TMainCursor__sub_80154288(u8 *arg0, s32 arg1, u16 arg2);
 s32 test_flags_any(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 clear_flags__11TAdRicoRingFUl(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 set_flags__10TObjPlayerFUl(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);

@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/unk/text_80253698.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 
 extern "C" {
-s32 are_status_entries_ready__13TWindowSubMagFi(s32 arg0);
 #pragma push
 #pragma opt_propagation off
 s32 are_status_entries_ready__13TWindowSubMagFi(s32 arg0) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjBgmCol_8017E7F0.h"
 #include "pso/object/TObjBgmCol.h"
 #include "pso/TParticleCtrl.h"
 
@@ -14,8 +15,6 @@ struct TObjBgmCol8017E8_8017E7F0 : TObjBase8017E8_8017E7F0 {
 
 extern "C" {
 
-void *TObjBgmCol__ct(void *arg0, s32 arg1, s32 arg2);
-void *__dt__10TObjBgmColFv(void *arg0, s16 arg1);
 s32 construct_world_actor_base();
 void __dl__7TObjectFPv(void *);
 

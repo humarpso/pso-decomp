@@ -1,9 +1,8 @@
 #include "pso/enemy/EnemyFactoryTables.h"
+#include "pso/misc/TLobby_8020CCD0.h"
 #include "types.h"
 
 extern "C" {
-
-void copy_enemy_factory_entry(EnemyFactoryEntry *arg0, EnemyFactoryEntry *arg1);
 
 void copy_enemy_factory_entry(EnemyFactoryEntry *arg0, EnemyFactoryEntry *arg1) {
     arg0->type = arg1->type;

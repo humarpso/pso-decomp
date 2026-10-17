@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TObjNpcNHW00.h"
 #include "pso/npc/TObjNpcNFW01.h"
 #include "pso/npc/TUnk_804A8640.h"
 #include "pso/npc/TObjNpcBase.h"
@@ -100,11 +101,7 @@ extern s32 __vt__12TObjNpcNFW01[];
 extern s32 TObjNpcNFW01__name;
 extern s32 *TObjNpcNFW01__shared_object_resource;
 extern s32 TObjNpcNFW01__texture_gvm;
-u8 *TObjNpcNFW01__ct(u8 *arg0, s32 arg1, s32 arg2);
-void * TObjNpcNHW00__create(void *arg0);
-void *__dt__12TObjNpcNFW01Fv(void *arg0, s16 arg1);
 void *TObjControl__ct(void *, void *);
-u8 *TObjNpcNHW00__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 

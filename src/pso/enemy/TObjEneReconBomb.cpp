@@ -1,4 +1,12 @@
 #include "types.h"
+#include "pso/math/MatrixTransforms.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_800F0810.h"
+#include "pso/player/TObjPlayer_80141D1C.h"
+#include "pso/unk/text_80087278.h"
+#include "pso/unk/text_803D853C.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEneReconBomb.h"
 #include "pso/enemy/TObjEneRecobox.h"
@@ -75,14 +83,12 @@ struct Obj_8031B808 {
 };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *, int);
 s16 obj_getField1c(int);
 f32 horizontal_distance_squared(void *, void *);
 s32 fn_8031B618(Obj_8031B618 *arg0);
 VObj_8031B808 *get_player_data__10TObjPlayerFi(s32);
 u32 csnVector(void *, void *, int);
-void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 s32 project_actor_to_ground(void *, void *, void *);
 s32 play_sound_effect(s32, void *, int, int);
 s32 TObjEneRecon__sub_8031C250(u32);
@@ -93,21 +99,13 @@ extern const f32 lbl_805DF3B0;
 extern const f32 lbl_805DF3B4;
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
-void draw_blob_shadow(s32 arg0);
-void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
-void rotate_matrix_zyx(void *m, s32 x, s32 y, s32 z);
 s32 rotate_matrix_z(int, int);
-void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 rotate_matrix_x(int, void *);
 s32 push_matrix();
-s32 pop_matrix();
 s32 scale_current_matrix(void *);
-void draw_chunk_object(void *child);
 s32 find_nearest_visible_player(void *, int, f32);
 Ctrl_8031B618 *get_player_by_client_id(s32);
 extern u32 recon_bomb_bml_resource;
-u8 *TObjEneReconBomb__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-void *__dt__16TObjEneReconBombFv(void *arg0, s16 arg1);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 s32 calc_scaled_value__12TObjEneReconFv(int);

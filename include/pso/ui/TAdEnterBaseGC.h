@@ -20,4 +20,8 @@ struct TAdEnterBaseGC : public TObject {
 };
 
 typedef char TAdEnterBaseGC_size[sizeof(TAdEnterBaseGC) == 0x38 ? 1 : -1];
+extern "C" {
+void fn_8032AC94(void);
+}
+
 #endif

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TMainCursor_8013F104.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TMainCursor.h"
 #include "pso/player/TObjPlayer.h"
@@ -18,12 +20,10 @@ s32 init_field_60__11TMainCursorFv(void *, void *);
 s32 TMainCursor__sub_8013E6E0(void *, void *);
 s32 set_target_id_at_60__11TMainCursorFUc(void *, void *);
 s32 TMainCursor__sub_8013E800(void *);
-u8 *TMainCursor__sub_8013F1F0(u8 *arg0);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__11TMainCursor[];
 extern s32 main_cursor_class_name;
 u8 *TMainCursor__ct(u8 *arg0, s32 arg1, s32 arg2, u8 arg3, u8 arg4, u8 arg5, s32 arg6, f32 farg0);
-void queue_destruction__7TObjectFv(void *arg0);
 s32 check_can_pickup__11TMainCursorFi(void *);
 s32 check_visible__11TMainCursorFv(void *, int, void *, int);
 s32 check_field_24__11TMainCursorFv();

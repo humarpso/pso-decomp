@@ -1,4 +1,5 @@
 #include "pso/TObjDFYutai.h"
+#include "pso/ui/TObjDFYutai.h"
 
 TObjDFYutai::~TObjDFYutai() {}
 
@@ -6,7 +7,6 @@ TObjDFYutai::~TObjDFYutai() {}
 
 extern "C" {
 
-void *__ct__11TObjDFYutaiFv(void *arg0, s32 arg1, s32 arg2, s16 arg3);
 s32 __ct__7TObjectFP7TObject();
 
 extern void *__vt__11TObjDFYutai[];

@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/object/TObjFish_8001ED90.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 
-s32 TLobby__sub_8001EEF4();
 u32 TLobby__sub_8002058C(u32, s32, void *, void *, s32, s32, s32);
 
 void TAdSinglePlyChrSelectGC::start_character_load_task() {

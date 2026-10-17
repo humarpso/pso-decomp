@@ -1,6 +1,6 @@
 #include "types.h"
+#include "pso/unk/text_80077B34.h"
 extern "C" {
-u32 *fn_80077B34(u32 *dst, u32 *src);
 u32 *fn_80077B34(u32 *dst, u32 *src) {
     u32 *d = dst;
     u32 b;

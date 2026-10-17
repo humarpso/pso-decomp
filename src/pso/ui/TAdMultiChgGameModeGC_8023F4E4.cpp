@@ -1,18 +1,13 @@
 #include "types.h"
+#include "pso/ui/TAdMultiChgGameModeGC_8023F4E4.h"
+#include "pso/unk/text_8023F1B8.h"
 #include "pso/system/main_loop.h"
 #include "pso/TAdMultiChgGameModeGC.h"
 #include "pso/ui/TAdEnterSerialAccessGC.h"
 
 extern "C" {
-void init_game_mode_select_scene(void);
-void TAdMultiChgGameModeGC__sub_8023F564(void);
-void TAdMultiChgGameModeGC__sub_8023F58C(void);
-void TAdMultiChgGameModeGC__sub_8023F5B4(void);
-void TAdMultiChgGameModeGC__sub_8023F62C(void);
 extern s32 multi_chg_game_mode_state;
     extern int lbl_805D384C;
-void TAdMultiChgGameModeGC__sub_8023F4E4(void);
-void TAdMultiChgGameModeGC__sub_8023F50C(void);
 
 void TAdMultiChgGameModeGC__sub_8023F4E4(void) { init_game_mode_select_scene(); TAdMultiChgGameModeGC::set_mode_change_state(); render_tick(); }
 void TAdMultiChgGameModeGC__sub_8023F50C(void) { init_game_mode_select_scene(); TAdMultiChgGameModeGC::set_change_mode_flags(); render_tick(); }

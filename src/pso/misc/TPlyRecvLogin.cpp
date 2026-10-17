@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TPlyGuildCardTag_8013ABCC.h"
+#include "pso/misc/TPlyRecvLogin.h"
 #include "pso/TPlyGuildCardTag.h"
 
 struct ByteBlock_20 { u8 bytes[0x20]; };
@@ -7,10 +9,6 @@ struct ByteBlock_20 { u8 bytes[0x20]; };
 #pragma auto_inline on
 #pragma dont_inline off
 extern "C" {
-s32 * copy_with_guild_card_tag__13TPlyRecvLoginFPvPv(s32 *arg0, s32 *arg1);
-s32 __ct__13TPlyRecvLoginFRC13TPlyRecvLogin(s32 arg0, s32 arg1);
-void bswap__13TPlyRecvLoginFv(s32 arg0);
-void __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *arg0, void *arg1);
 s32 bswap__13packet_headerFv();
 
 void bswap__13TPlyRecvLoginFv(s32 arg0) {

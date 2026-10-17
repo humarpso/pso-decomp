@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TODoorAncient06_8015F3B8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/unk/TUnk_804B0BB8.h"
 #include "pso/misc/TODoorAncient06.h"
@@ -48,7 +49,6 @@ extern void *TODoorAncient06__shared_resource;
 extern void *TODoorAncient06__texture_lists;
 extern const f32 lbl_805DB438;
 extern const f32 lbl_805DB448;
-u8 *TODoorAncient06__ct(u8 *arg0, s32 arg1, s32 arg2);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void copy_model_node(u8 *arg0, u8 *arg1);
 u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
@@ -58,7 +58,6 @@ extern u8 lbl_80440B48[];
 extern u8 lbl_80440B64[];
 extern u8 door_ancient_567_resource_descriptor[];
 extern void *TODoorAncient06__detached_model_nodes;
-void *__dt__15TODoorAncient06Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);

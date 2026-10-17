@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TLobby_80140FF4.h"
+#include "pso/object/TObjLight_80133568.h"
+#include "pso/unk/text_80140D50.h"
 #include "pso/boss/TBoss4DarkFalz.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -11,22 +15,15 @@ struct Ent_80140F18 { void *key; u8 pad[0x14]; };
 struct Obj_80140F18 { u8 pad[0x1c]; Ent_80140F18 *slots[1]; };
 
 extern "C" {
-void fn_80140DFC(s32 arg0, s32 arg1);
-void *TLobby__sub_80141030(void *p);
-void fn_80140EA8(s32 arg0, s32 arg1);
 void register_slot(Obj_80140EE4 *self, void *p);
 void collect_collision_groups(Obj_80140F18 *self, Ent_80140F18 *e);
-void remove_value_from_id_list(s32 arg0, u32 arg1);
-s32 get_main_phase();
 s32 is_split_screen();
 s32 is_quest_active();
-void init_area_lights();
 void TLobby__sub_801403B4(int);
 void init_music_sequencer(int);
 void play_area_music(void *);
 void load_floor_sound_bank();
 extern char lbl_8043F260[];
-s32 fn_80140D50(void);
 
 s32 fn_80140D50(void) {
     TOKeyMachine01::get_global_state();

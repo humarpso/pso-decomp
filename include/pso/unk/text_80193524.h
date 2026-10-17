@@ -1,0 +1,18 @@
+#ifndef PSO_UNK_TEXT_80193524_H
+#define PSO_UNK_TEXT_80193524_H
+
+#include "types.h"
+
+extern "C" {
+void *TLazerFenceSw__ct(void *arg0, void *arg1, void *arg2);
+void TLazerFenceSw__sub_80193C5C(void);
+void TLazerFenceSw__vt14(u8 *arg0);
+void TLazerFenceSw__vt15(u8 *arg0);
+void TLazerFenceSw__vt16(void *arg0);
+void TLazerFenceSw__vt17(void *arg0);
+void *TObjLazerFence4__ct(void *arg0, void *arg1, void *arg2);
+void *__dt__13TLazerFenceSwFv(void *arg0, s16 arg1);
+void *__dt__15TObjLazerFence4Fv(void *arg0, s16 arg1);
+}
+
+#endif

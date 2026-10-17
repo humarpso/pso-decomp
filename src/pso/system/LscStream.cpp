@@ -1,4 +1,5 @@
 #include "pso/system/LscStream.h"
+#include "pso/system/AdxStreamRuntime.h"
 #include "pso/misc/TLobby.h"
 
 struct SJIf_803D1A98 {
@@ -16,8 +17,6 @@ void *memset(void *dst, int val, unsigned long n);
 extern LscStream lsc_slot_table[];
 extern s32 lobby_slot_refcount;
 extern char lbl_8047DD34[];
-void TLobby__sub_803C89C4(u8 *arg0);
-void TLobby__sub_803C8B38(u8 *arg0);
 extern char lbl_8047DDB8[];
 extern char lbl_8047DDE4[];
 extern const char *volatile lbl_805E0DB0;

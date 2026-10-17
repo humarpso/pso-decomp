@@ -1,17 +1,15 @@
 #include "types.h"
+#include "pso/item/TItemShootModel_dtor.h"
+#include "pso/player/TObjPlayer_80129048.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TAdRicoRing.h"
 #include "pso/TItemShootModel.h"
 
 extern "C" {
 
-void *__dt__13TUnk_804A4020Fv(void *arg0, s16 arg1);
-s32 TObjPlayer__sub_801290D0(u8 *arg0);
-void TObjPlayer__sub_80129124(void* p);
 int rotate_matrix_z(void*, void*);
 s32 test_flags_any(void *, int);
 void __dl__7TObjectFPv(void *);
-void *__dt__15TItemShootModelFv(void *self, s16 flag);
 int get_player_list__10TObjPlayerFv(void*);
 
 extern s32 lbl_804A4020[];

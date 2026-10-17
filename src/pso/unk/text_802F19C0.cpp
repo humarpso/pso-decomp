@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_802F19C0.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
@@ -6,8 +7,6 @@
 
 extern "C" {
 
-void draw_particle_effect(void* a0);
-void fn_802F19C0(void);
 int draw_ginja_model_with_motion(void*, void*, float);
 void *__ct__7TObjectFP7TObject(void *, void *);
 void *__nw__7TObjectFUl(int);

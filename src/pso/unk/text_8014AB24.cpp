@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/unk/text_8014AB24.h"
 
 extern "C" {
 
-void * TObjNpcGovernorBase__create(void *arg0);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcGovernorBase__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);

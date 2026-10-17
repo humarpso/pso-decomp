@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type3_800524E8.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/TObjDFYutai.h"
 #include "pso/player/TObjPlayer.h"
@@ -28,15 +31,12 @@ typedef struct Obj_800502FC {
 } Obj_800502FC;
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
-s32 TBoss4Type3__sub_8005254C(u16 id);
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
 u8 *get_player_by_client_id(u16);
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
 void push_matrix();
-s32 pop_matrix(void);
 void post_translate_matrix(void *);
 
 void *lbl_804858A8[3] = {

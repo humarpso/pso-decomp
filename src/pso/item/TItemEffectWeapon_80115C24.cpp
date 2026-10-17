@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemEffectWeapon_80115C24.h"
 #include "pso/item/TItemEffectWeapon.h"
 
 extern "C" {

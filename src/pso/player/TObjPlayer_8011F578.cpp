@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/WeaponAttackActions.h"
 #include "pso/item/TUnk_804A4D70.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -20,7 +21,6 @@ VV(61)VV(62)VV(63)VV(64)
 extern "C" {
 
 s32 restore_action_type__11TItemWeaponFv(void *);
-void remap_extra_attack_type(u8 *arg0);
 s32 is_active_in_game__11TItemWeaponFv();
 
 struct Base_8011F578 { char pad[0x18]; };

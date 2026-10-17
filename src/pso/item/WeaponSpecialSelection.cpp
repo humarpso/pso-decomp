@@ -1,4 +1,5 @@
 #include "pso/items/TItemWeapon.h"
+#include "pso/item/WeaponSpecialSelection.h"
 #include "pso/unk/TUnk_804A4948.h"
 #include "pso/player/TObjPlayer.h"
 

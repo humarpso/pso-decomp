@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjFish_8001ED90.h"
 #include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_8001EDF4_lbl_804FE148 {
@@ -26,7 +27,6 @@ extern "C" {
 s32 strcmp(void *, void *);
 extern RecoveredGlobal_8001EDF4_lbl_804FE148 TLobby__tmp_buf_name;
 extern s32 tmp_buf_in_use_flag;
-void TLobby__sub_8001EDF4(u8 *arg0);
 s32 get_bml_motion(Fish_8001ED9C *self, s32 i);
 s32 TObjFish__sub_8001EDB0(Fish_8001EDB0 *self, s32 i);
 s32 get_bml_model(Fish_8001EDC4 *self, s32 i);
@@ -36,8 +36,6 @@ extern char lbl_80434AE8[];
 extern s32 lobby_download_buffer;
 extern char lbl_80434AA0[];
 extern char lbl_80434AC0[];
-s32 TLobby__sub_8001EEF4(void);
-int fn_8001ED90(void* p);
 
 int fn_8001ED90(void* p) { return (*(u32*)((char*)p + 0x0) >> 10) & 0x1; }
 

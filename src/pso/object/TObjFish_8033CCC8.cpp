@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type2_800874F4.h"
+#include "pso/misc/TCameraCtrl_800687BC.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_803E4954.h"
+#include "pso/unk/text_80087278.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TBoss6Demo11_TYPE1_DEAD.h"
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/object/TObjFish.h"
@@ -14,21 +20,15 @@ struct Vec_8033CDF8 { f32 x, y, z; };
 struct Fish_8033CDF8 { u8 pad[0x4C]; Vec_8033CDF8 vecs[3]; };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
-void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
-void *create_particle_emitter(void *pos, s32 id);
 s32 play_persistent_sound(int, void *, int, int, int);
 s32 play_sound_effect(int, int, int, int);
 extern Range_8033CDF8 fish_spawn_entry_table[];
 int clear_render_callback__8TObjFishFv(void);
 s32 push_matrix(void);
-s32 pop_matrix(void);
 f32 post_translate_matrix(void);
-void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern const f32 lbl_805DFA58;
 extern const f32 lbl_805DFA5C;
 extern const f32 lbl_805DFA60;
-s32 restore_player_cameras(void);
 void *TObjFish__sub_8033D1AC(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);

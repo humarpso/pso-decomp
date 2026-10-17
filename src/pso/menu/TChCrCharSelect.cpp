@@ -1,4 +1,7 @@
 #include "pso/TChCrCharSelect.h"
+#include "pso/menu/TChCrCharSelect.h"
+#include "pso/unk/text_802993F0.h"
+#include "pso/unk/text_8029945C.h"
 #include "pso/TChCrEffTag.h"
 
 TChCrCharSelect::~TChCrCharSelect() {}
@@ -7,8 +10,6 @@ extern "C" {
 
 s32 __ct__7TObjectFP7TObject(void *);
 void init_widgets__15TChCrCharSelectFv(void);
-void fn_802993F0(void);
-void fn_8029945C(u8 *arg0);
 extern u8 lbl_80464E88[];
 extern void *__vt__15TChCrCharSelect[];
 extern s32 lbl_805D3CB0;

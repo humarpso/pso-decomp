@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TPlyPhotonChair_80142524.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/unk/text_801424DC.h"
 
 struct Stack_801424DC {
     f32 sp8;
@@ -8,10 +11,6 @@ struct Stack_801424DC {
 };
 
 extern "C" {
-void set_global_draw_flag_bits(s32, s32);
-void set_chunk_material_override_pair(s32, s32);
-void set_chunk_material_color(f32 *arg);
-void fn_801424DC(s32 arg0, f32 farg0, f32 farg1, f32 farg2, f32 farg3);
 void fn_801424DC(s32 arg0, f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
     Stack_801424DC stack;
     stack.sp8 = farg0;

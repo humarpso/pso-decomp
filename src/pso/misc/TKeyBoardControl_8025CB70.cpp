@@ -1,15 +1,11 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8025CB70.h"
 #include "pso/misc/TWindowChat.h"
 #include "pso/misc/TWindowKeyBoardHard.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
 
 extern "C" {
-void TKeyBoardControl__sub_8025CBC0(void* p);
-void TKeyBoardControl__sub_8025CC3C(void* p);
-void TKeyBoardControl__sub_8025CC04(u8 *arg0);
-void TKeyBoardControl__sub_8025CBCC(u8 *arg0);
 extern s32 current_language;
-void TWindowKeyBoardHard__sub_8025CC48(void *arg0);
 
 void TWindowChat::reset_input() {
     u8 *arg0 = (u8 *)this;

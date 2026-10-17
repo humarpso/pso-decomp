@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8034960C.h"
 #include "pso/TObjCMHairMenu.h"
 struct Desc_80349844 {
     f32 *pos;
@@ -38,14 +39,11 @@ extern const f32 lbl_805DFD08;
 extern const f32 lbl_805DFD0C;
 extern const f32 lbl_805DFD10;
 extern const f32 lbl_805DFD14;
-void fn_80349844(void);
 extern const Vec2_80349728 lbl_80478718[2];
 extern const Vec2_80349728 lbl_80478728[2];
 extern const f32 lbl_805DFD00;
-void draw_quest_load_letterbox_bars(void);
 extern const Vec2_8034960C lbl_80478738[2];
 extern const Vec2_8034960C quest_load_panel_overlay_offsets[2];
-void draw_quest_load_panel_overlays(void);
 
 void draw_quest_load_panel_overlays(void) {
     f32 pos[8];

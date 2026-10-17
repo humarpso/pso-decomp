@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjEZBoneRotPlayer.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/TObjEZRopeBase.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
@@ -62,9 +64,7 @@ struct Self_800FEEA4 {
 extern "C" {
 void matrix_mult_vec(s32, void *, void *);
 void push_matrix(void);
-s32 pop_matrix(void);
 extern u8 TObjEZBoneRotPlayer__chain_gravity[];
-int TObjPlayer__sub_800FEE84(void* p);
 int sub_800FF2D0__21TObjHMS_EZRope_PlayerFv(void*);
 
 int TObjPlayer__sub_800FEE84(void* p) { return sub_800FF2D0__21TObjHMS_EZRope_PlayerFv(p); }

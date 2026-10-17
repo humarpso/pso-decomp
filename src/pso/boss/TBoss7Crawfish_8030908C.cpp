@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/boss/TBoss1DragonColli.h"
+#include "pso/boss/TBoss7Crawfish_8030908C.h"
+#include "pso/misc/obj_band.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -110,10 +113,8 @@ s32 register_boss__6TLobbyFl(int);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
 s32 set_field_b8__10TObjMotionFs(void *, int);
-void fn_8002B630(u8 *arg0, u8 *arg1);
 s32 bind_enemy_combat_stats(void *, int, int, int);
 s32 initialize__9TObjEnemyFPv();
-void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 s32 TBoss7Crawfish__sub_80308ED8(void *, void *);
 extern s32 crawfish_collision_body_desc[];
 extern s32 lbl_804E7380[];
@@ -122,8 +123,6 @@ extern s32 TBoss7Crawfish__class_name;
 extern const f32 TBoss7Crawfish__data_805DF0D8;
 extern const f32 TBoss7Crawfish__data_805DF0DC;
 extern const f32 lbl_805DF100;
-u8 *TBoss7Crawfish__ct(u8 *arg0, s32 arg1, s32 arg2);
-void *__dt__14TBoss7CrawfishFv(void *arg0, s16 arg1);
 s32 advance_animation_playback(void *);
 int TBoss7Crawfish__sub_80308BEC(void *p);
 void TLobby__sub_8001FE7C(void*, int);

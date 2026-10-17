@@ -1,0 +1,10 @@
+#ifndef PSO_ENEMY_TOBJENERECON_8031F408_H
+#define PSO_ENEMY_TOBJENERECON_8031F408_H
+
+#include "types.h"
+
+extern "C" {
+void TObjEneRecon__sub_8031F408(void *arg0, s32 arg1);
+}
+
+#endif

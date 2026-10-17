@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type3_800524E8.h"
 #include "pso/boss/TBoss4Type3.h"
 #include "pso/boss/TBoss3Volopt.h"
 
@@ -6,9 +7,7 @@ struct Player_8005254C { u8 pad[0x30]; u32 flags; };
 
 extern "C" {
 extern const f32 lbl_805D8AE0;
-f32 TBoss4Type3__sub_800524E8(f32 farg0);
 Player_8005254C *get_player_by_client_id(s32 id);
-s32 TBoss4Type3__sub_8005254C(u16 id);
 f32 cos_table_lookup(s32);
 
 extern const f32 lbl_805D8AE4;

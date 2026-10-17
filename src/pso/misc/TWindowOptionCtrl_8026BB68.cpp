@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TLobby_80132ED0.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowOptionCtrl.h"
 
 extern "C" {
 
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
-s32 get_localized_text_entry(s32, s32);
 s32 align_menu_entry_positions(s32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(s32, s32);
 s32 get_option_entry__17TWindowOptionCtrlFi(s32);

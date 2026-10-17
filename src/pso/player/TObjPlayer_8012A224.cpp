@@ -1,14 +1,13 @@
 #include "types.h"
+#include "pso/item/TItemMenuCtrl_80115AF0.h"
+#include "pso/player/TObjPlayer_8012A224.h"
+#include "pso/unk/text_80120908.h"
 #include "pso/item/TUnk_804A4848.h"
 
 extern "C" {
 
-void s_rank_windmill_turn_blade(void* p);
-void s_rank_windmill_slow_down(void *arg0);
 int rotate_matrix_x(void*, void*);
-void advance_angle_wrap(s32 *arg0, s32 arg1);
 s32 update_trail_slot__11TItemWeaponFPvi(void *, s32);
-s32 draw_weapon_model(void *);
 int get_player_list__10TObjPlayerFv(void*);
 
 void s_rank_windmill_turn_blade(void* p) { if (get_player_list__10TObjPlayerFv(p) == 3) { rotate_matrix_x((void*)0, *(void**)((char*)p + 0x1fc)); } }

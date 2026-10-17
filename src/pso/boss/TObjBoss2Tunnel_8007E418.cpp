@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TObjBoss2Tunnel_8007E418.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -6,17 +8,12 @@
 extern "C" {
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-void rotate_vec_xz(void *arg0, void *arg1, s32 arg2);
 s32 get_view_matrix__11TCameraCtrlFv();
 s32 matrix_mult_vec(s32, s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
-void rotate_xz_pair_by_angle(f32 *arg0, f32 *arg1, s32 arg2);
 extern const f32 TObjBoss2Tunnel__data_805D9234;
-bool is_vec_xz_cross_negative(u8 *arg0, u8 *arg1);
 s32 angle_diff_s16(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
-s32 count_active_segments__15TObjBoss2TunnelFPv(void *arg0);
 int vec3_add_to(void*, void*);
 void *csnVecterUnder(void *, s32, f32);
 

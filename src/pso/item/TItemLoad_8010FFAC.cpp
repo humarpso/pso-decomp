@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/unk/text_803CC294.h"
 #include "pso/TItemLoad.h"
 
 extern "C" {
 
 s32 free_texture__9TItemLoadFv();
-s32 TLobby__sub_803CC53C(u8 *arg0);
 u32 adxf_open_afs__6TLobbyFii(s32, s32);
 
 u32 TItemLoad::load_data(s32 arg1) {

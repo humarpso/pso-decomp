@@ -1,18 +1,15 @@
 #include "types.h"
+#include "pso/misc/TLobby_801DEFC4.h"
+#include "pso/misc/TPlyMeetUserExtension.h"
+#include "pso/network/TProtocol_801E08CC.h"
 #include "pso/system/byteswap.h"
 #include "pso/misc/TLobby.h"
 #include "pso/TPlyGuildCardTag.h"
 
 extern "C" {
 
-int TLobby__sub_801DF024(void* p);
-int TLobby__sub_801DF064(void* p);
-void bswap_cmd_D3_item_bank(void* p);
-void bswap_cmd_c5(void* p);
 int bswap__13packet_headerFv(void* a0 = 0);
-void bswap__21TPlyMeetUserExtensionFv(s32 arg0);
 void bswap__9TItemDataFv(s32 arg0);
-void fn_801E0900(void *p);
 
 void bswap_cmd_D3_item_bank(void* p) { bswap__13packet_headerFv(p); bswap_16((u16 *)((char*)p + 0x4)); bswap_16((u16 *)((char*)p + 0x6)); { int i; for (i = 0; i < 32; i++) { bswap__9TItemDataFv((s32)((char*)p + 0x8 + i * 20)); } } }
 int TLobby__sub_801DF024(void* p) { return bswap__13packet_headerFv(p); }

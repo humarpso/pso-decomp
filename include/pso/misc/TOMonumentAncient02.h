@@ -25,4 +25,9 @@ struct TOMonumentAncient02 : public TUnk_804AFBF8 {
 };
 
 typedef char TOMonumentAncient02_size[sizeof(TOMonumentAncient02) == 0xF0 ? 1 : -1];
+extern "C" {
+u8 *TOMonumentAncient02__ct(u8 *arg0, s32 arg1, s32 arg2);
+void *__dt__19TOMonumentAncient02Fv(void *arg0, s16 arg1);
+}
+
 #endif

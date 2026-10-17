@@ -1,4 +1,7 @@
 #include <dolphin/mtx.h>
+#include "pso/misc/TOTrapAncient01_80226534.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "types.h"
@@ -84,7 +87,6 @@ extern const f32 lbl_805DF0E4;
 extern const f32 lbl_805DF0E8;
 
 extern const f32 TBoss7Crawfish__data_805DF0D8;
-void *spawn_particle_effect(void *pos, s32 id);
 s32 exchange_object_state__9TObjEnemyFls(void *, void *, int);
 s32 get_mode__11TCameraCtrlFPv(void *);
 f32 horizontal_distance_squared(void *, void *);
@@ -102,12 +104,10 @@ s32 play_sound_effect(s32, s32, s32, s32);
 int change_state__14TBoss7CrawfishFl(void*, int);
 int scale_current_matrix(void*);
 int post_translate_matrix(void*);
-s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 int rotate_matrix_yxz(void*, void*, void*, void*);
 int push_matrix(void);
 int pop_matrix(void);
 int draw__16TObjEneRe7BeruraFv(void*);
-void queue_destruction__7TObjectFv(void *arg0);
 
 extern f32 lbl_805DF0C8;
 

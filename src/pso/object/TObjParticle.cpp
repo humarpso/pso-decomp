@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/object/TObject_8001A448.h"
+#include "pso/unk/text_8013157C.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjParticle.h"
@@ -40,8 +43,6 @@ extern "C" {
 s32 is_split_screen(void);
 u8 *__nw__7TObjectFUl(s32);
 extern s32 tl_05;
-u8 *TObjParticle__create(u8 *arg0);
-void disallow_rendering__7TObjectFv(void *arg0);
 s32 spawn_particle_effect_with_rotation(void *, void *, s32, u16);
 s32 spawn_continuous_particle_with_direction(void *, void *, s32);
 s32 construct_world_actor_base(void *, void *);
@@ -49,10 +50,7 @@ extern s32 __vt__12TObjParticle[];
 extern s32 obj_particle_class_name;
 extern const f32 lbl_805DBEEC;
 Part_80195400 *TObjParticle__ct(Part_80195400 *arg0, s32 arg1, Src_80195400 *arg2);
-void *__dt__12TObjParticleFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
-void queue_destruction__7TObjectFv(void *);
 
 extern s32 camera_ctrl_instance;
 extern const f32 lbl_805DBEE0;

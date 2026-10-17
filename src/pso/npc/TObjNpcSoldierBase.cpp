@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8014B8A4.h"
 #include "pso/npc/TUnk_804A9F50.h"
 #include "pso/npc/TObjNpcSoldierBase.h"
 #include "pso/npc/TObjNpcBase.h"
@@ -103,12 +104,8 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8014D7CC_lbl_804AB978 TObjNpcSoldierBase__body_resource_desc;
 extern u32 TObjNpcSoldierBase__shared_model_resource;
-u8 *construct_male_npc_base(u8 *arg0);
 extern s32 __vt__18TObjNpcSoldierBase[];
 extern s32 TObjNpcSoldierBase__name;
-u8 *TObjNpcSoldierBase__ct(u8 *arg0, s32 arg1, s32 arg2);
-void * TObjNpcSoldierMacho__create(void *arg0);
-void *__dt__18TObjNpcSoldierBaseFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcSoldierMacho__ct(void *, void *, void *);

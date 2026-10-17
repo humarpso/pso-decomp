@@ -1,13 +1,12 @@
 #include "types.h"
+#include "pso/misc/TWindowSnapShot_802A7D68.h"
 #include "pso/misc/TWindowSnapShot.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 
-void TWindowSnapShot__sub_802A7DA0(void);
 int get_resource_file_size__6TLobbyFv(void);
 int Dolphin_ARAlloc(void);
-int TWindowSnapShot__sub_802A7EAC(void);
 
     extern int shared_snapshot_capture;
     extern int lbl_805D669C;

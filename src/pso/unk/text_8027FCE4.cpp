@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/unk/text_8027FCE4.h"
+#include "pso/unk/text_8027FD88.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TUnk_804D1AD0.h"
@@ -11,11 +13,9 @@ struct RecoveredGlobal_8027FCE4_lbl_804D1AD0 {
 extern "C" {
 s32 __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-void fn_8027FD88(void *p, f32 a, f32 b);
 s32 TWindowSubStatusDisp__ct(int, int);
 extern RecoveredGlobal_8027FCE4_lbl_804D1AD0 status_category_window_vtable;
 extern const f32 lbl_805DD6DC;
-u8 *construct_status_category_window(u8 *arg0, s32 arg1, s32 arg2);
 typedef char RecoveredGlobal_8027FCE4_lbl_804D1AD0_size[sizeof(RecoveredGlobal_8027FCE4_lbl_804D1AD0) == 0x18 ? 1 : -1];
 u8 *construct_status_category_window(u8 *arg0, s32 arg1, s32 arg2) {
     s32 storage;

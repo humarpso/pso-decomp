@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TCameraCtrl.h"
 
@@ -10,7 +11,6 @@ s32 get_view_matrix__11TCameraCtrlFv();
 s32 get_model_joint_matrix(void *, s32);
 s32 transform_point_by_current_matrix(f32 *, s32);
 s32 push_matrix();
-s32 pop_matrix();
 
 extern const f32 lbl_805DAC98;
 

@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLockOnCursor_8013E0D0.h"
+#include "pso/misc/TMainCursor_8013DF5C.h"
+#include "pso/misc/TQuestListVM_8007EAF8.h"
 #include "pso/misc/TUnk_804A7260.h"
 #include "pso/misc/TForceOperate.h"
 #include "pso/misc/TMainCursor.h"
@@ -7,13 +10,8 @@
 struct Obj_8013E020 { u16 a; u16 b; s32 c; };
 
 extern "C" {
-void TMainCursor__sub_8013DFC4(u8 *arg0);
-int matches_type_and_enabled__11TMainCursorFiUcUc(s32 arg0, u8 arg1, u8 arg2);
 void fn_8013E020(Obj_8013E020 *self);
-u16 TMainCursor__sub_8013E03C(void* p);
-void TLockOnCursor__sub_8013E0D0(void* p, s32 v);
 void __dl__7TObjectFPv(void *);
-void __dl__FPv(void);
 void __dt__7TObjectFv(void *, int);
 
 int matches_type_and_enabled__11TMainCursorFiUcUc(s32 arg0, u8 arg1, u8 arg2) {

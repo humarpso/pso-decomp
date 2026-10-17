@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TOAirconCave01_80156F64.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TOAirconCave01.h"
 #include "pso/object/TObjFish.h"
 
@@ -12,12 +15,9 @@ struct AirV_80156e8c : AirBase_80156e8c {
     virtual s32 m8(void *a, f32 b, f32 c);
 };
 
-u8 *TOAirconCave01__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 post_translate_matrix(void *);
-void draw_ginja_model(s32 model);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix(int);
-s32 pop_matrix();
 void *__nw__7TObjectFUl(int);
 
 extern u8 *TOAirconCave01__model_archive;

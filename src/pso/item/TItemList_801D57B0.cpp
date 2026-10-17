@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/item/TItemList.h"
+#include "pso/item/TItemList_801D57B0.h"
+#include "pso/object/TObject_8001A448.h"
 #include "pso/item/TUnk_804C4468.h"
 #include "pso/item/TUnk_804C4498.h"
 #include "pso/TItemList.h"
@@ -11,25 +14,12 @@ struct Ent_801D5854 { u8 d[0x1C]; };
 struct Obj_801D5854 { u8 pad[0xA8]; Ent_801D5854 arr[1]; };
 
 extern "C" {
-void TItemList__sub_801D5804(s32 *arg0);
-void TItemList__sub_801D58C8(void* p);
 s32 TItemList__sub_801D5868(Arr_801D5868 *, s32);
-void TItemList__sub_801D59DC(void* p);
-void TItemList__sub_801D59A0(u8 *arg0, s32 arg1);
 Ent_801D5854 *TItemList__sub_801D5854(Obj_801D5854 *p, s32 i);
-void TItemList__sub_801D5838(void* p);
-int TItemList__sub_801D5844(void* p);
-void TItemList__sub_801D5884(void* p, u8 v);
-u16 TItemList__sub_801D58DC(void* p);
-void TItemList__sub_801D591C(u8 *arg0);
 s32 TItemList__sub_801D598C(Obj_801D598C *arg0, s32 arg1);
-void *__ct__9TItemListFv(void *arg0);
-int copy_position__9TItemListFPv(void* p);
-void* get_ptr_0x44__9TItemListFPv(void* p);
 int VecCopy__FP3VecPC3Vec(void*);
 void __ct__7TObjectFP7TObject(void *);
 int copy_item_data__6TLobbyFPv(void*);
-void disallow_rendering__7TObjectFv(void *);
 
 extern s32 __vt__9TItemList[];
 extern void *TItemList__name;

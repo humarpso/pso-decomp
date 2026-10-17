@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdPlayerLoadGC_800F9EF8.h"
 #include "pso/item/TUnk_8049C658.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/item/TItemDrop.h"
@@ -10,8 +11,6 @@ extern u8 resource_load_task_root[];
 extern u8 resource_load_task_root_dtor_registration[];
 extern s32 lbl_805D2B10;
 extern s32 disc_read_filename;
-void TLobby__sub_800F9F08(void);
-s32 TLoadCtrl__sub_800F9F00(void);
 
     extern int TAdPlayerLoadGC__load_state;
 void TAdPlayerLoadGC::set_state(int a0) { TAdPlayerLoadGC__load_state = a0; }

@@ -1,14 +1,12 @@
 #include "types.h"
+#include "pso/misc/TLobby_801C4F80.h"
+#include "pso/misc/TLobby_801E43E4.h"
 #include "pso/system/byteswap.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 
-s32 TLobby__sub_801C4FC4(void* p);
-void build_6x7D_set_battle_mode_data(void* p);
-void TLobby__send_and_handle_60(u8 *arg0);
 int read_be16_field2__10TObjPlayerFv(void* a0 = 0);
-void dispatch_packet__6TLobbyFPv(void *src);
 s32 TObjPlayer__sub_801C19C8(f32);
 
 extern const f32 lbl_805DC300;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/unk/TUnk_804C349C.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -17,7 +18,6 @@ s32 deliver_photon_blast_results_delayed(void *);
 s32 step_photon_blast_sequence(void *);
 s32 get_player_by_client_id(u16);
 s32 queue_deferred_photon_blast_support(s32, s32, s32);
-void queue_destruction__7TObjectFv(void *arg0);
 
 void TUnk_804C349C::update_and_destroy() {
     SA9_801a9bac *self = (SA9_801a9bac *)((u8 *)this);

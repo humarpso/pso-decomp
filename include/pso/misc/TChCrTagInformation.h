@@ -20,4 +20,9 @@ struct TChCrTagInformation : public TChCrTag {
 };
 
 typedef char TChCrTagInformation_size[sizeof(TChCrTagInformation) == 0x3C ? 1 : -1];
+extern "C" {
+int TChCrTagInformation__vt4(void);
+void *__dt__19TChCrTagInformationFv(void *arg0, s16 arg1);
+}
+
 #endif

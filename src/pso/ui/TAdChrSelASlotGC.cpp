@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
 #include "pso/ui/TAdChrSelASlotGC.h"
 #include "pso/TAdChrSelMovePlateGC.h"
 #include "pso/TAdPlayerLoadGC.h"
@@ -42,7 +46,6 @@ struct V2_8030C750 { f32 x, y; };
 struct V2_8030C814 { f32 x, y; };
 
 extern "C" {
-s32 get_localized_text_entry(s32, s32);
 s32 free_member__17TWindowSubComCardFv(s32, s32);
 s32 forward_slot_selection__16TAdChrSelASlotGCFPvPv(s32, s32, s32, f32);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(s32, s32, s32, s32);
@@ -68,7 +71,6 @@ extern RecoveredGlobal_8030CEEC_lbl_80475858 lbl_80475858;
 extern RecoveredGlobal_8030CEEC_lbl_80475878 lbl_80475878;
 extern const f32 lbl_805DF218;
 void TAdChrSelASlotGC__sub_8030CEEC(u8 *arg0);
-s32 *TAdSinglePlyChrSelectGC__sub_801FE4BC(u32 i);
 bool TAdChrSelASlotGC__sub_8030C3C0(s32 arg0, u32 arg1);
 s32 is_slot_value_ready__19TAdPlyChrSelPlateGCFl(void *, int);
 extern G_8030C45C lbl_80542E60;
@@ -86,12 +88,8 @@ void TAdChrSelASlotGC__sub_8030CCE0(void);
 void TAdChrSelASlotGC__sub_8030D5DC(void *arg0);
 u32 TAdChrSelASlotGC__sub_8030CB08(void *, s32, s32);
 s32 TAdChrSelSlotGC__sub_802C7498(s32, s32);
-s32 TAdSinglePlyChrSelectGC__sub_801FDAAC();
-s32 write_encrypted_save__23TAdSinglePlyChrSelectGCFv();
 s32 TAdSubPlyItemGC__sub_802D6D88(s32);
 s32 play_sound_effect(s32, s32, s32, s32);
-void TWindow__close(u8 *arg0);
-void queue_destruction__7TObjectFv(void *arg0);
 
 extern f32 lbl_805DF210;
 

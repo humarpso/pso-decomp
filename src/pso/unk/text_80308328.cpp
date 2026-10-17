@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdVIConfigGC_80308200.h"
 #include "pso/player/TUnk_804E71F8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdVIConfigGC.h"
@@ -7,7 +8,6 @@ struct T_80308328 { u8 pad0[0x40]; u32 flags; u8 pad44[0xC]; s32 f50; u8 pad54[0
 
 extern "C" {
 s32 fire_shot_at_target__11TItemWeaponFv(void *, void *, int, int);
-void spawn_nug2000_hit_explosion(s32 arg0, s32 arg1);
 void config_nug2000_attack_collider__10TObjPlayerFPvPv(void *self, T_80308328 *p);
 
 void config_nug2000_attack_collider__10TObjPlayerFPvPv(void *self, T_80308328 *p) {

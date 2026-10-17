@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/misc/TMainCursor_8013E44C.h"
 #include "pso/misc/TMainCursor.h"
 
 extern "C" {
-int TMainCursor__sub_8013E40C(u8 *arg0, u16 arg1);
 int set_flags__10TObjPlayerFUl(void*, int);
 
 int TMainCursor::is_same_target(void *b) {

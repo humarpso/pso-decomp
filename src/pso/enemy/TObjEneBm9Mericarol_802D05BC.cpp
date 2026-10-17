@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBm9Mericarol_802D05BC.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneBm9Mericarol.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -32,7 +33,6 @@ struct VObj_802D06E0_802D05BC : Base_802D06E0_802D05BC {
 #undef VM
 };
 
-void TObjEneBm9Mericarol__sub_802D05BC(u8 *arg0, s32 arg1);
 s32 advance_animation_playback();
 s32 TObjEneBm9Mericarol__sub_802D093C(void *);
 s32 transition_enemy_state(void *, s32);

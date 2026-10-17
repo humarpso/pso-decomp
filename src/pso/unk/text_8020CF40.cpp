@@ -1,4 +1,5 @@
 #include "pso/object/ObjectFactoryTables.h"
+#include "pso/misc/TLobby_8020CFC8.h"
 
 #include "types.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -21,7 +22,6 @@ typedef struct SpawnRecord_8020CC48 {
 typedef ObjectFactoryEntry SpawnFactory_8020CC48;
 
 extern "C" {
-void TLobby__sub_8020CFC8(void *arg0, void *arg1);
 s32 find_set_factory_index(SpawnRecord_8020CC48 *row, SpawnFactory_8020CC48 *out);
 s32 find_set_factory_index(SpawnRecord_8020CC48 *row, SpawnFactory_8020CC48 *out) {
     s32 index = 0;

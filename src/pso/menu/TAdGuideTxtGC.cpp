@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/menu/TAdGuideTxtGC.h"
+#include "pso/misc/TWindowSubStatusDisp_80144B14.h"
 #include "pso/TObject.h"
 #include "pso/TAdGuideTxtGC.h"
 
@@ -42,13 +44,11 @@ extern s32 lbl_805D3EA0;
 extern s32 lbl_805DE290;
 extern const f32 lbl_805DE294;
 TAdGuideTxtGC_802B19E8 *__ct__13TAdGuideTxtGCFv(TAdGuideTxtGC_802B19E8 *o);
-u32 calc_text_width(char *s);
 extern const f32 lbl_805DE280;
 extern const f32 lbl_805DE284;
 extern const f32 lbl_805DE288;
 extern const f32 lbl_805DE28C;
 void run_task__13TAdGuideTxtGCFv(TAdGuideTxtGC_802B1878 *o);
-void reset__15TLobby_802D2F7CFPv(u8 *arg0);
 
 #pragma push
 #pragma fp_contract on

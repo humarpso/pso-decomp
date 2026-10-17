@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8012BCD4.h"
 #include "pso/unk/TUnk_804A4F60.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -8,11 +9,9 @@ typedef char RecoveredGlobal_8012BCD4_lbl_804A4F60_size[sizeof(RecoveredGlobal_8
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-u8 *create_psycho_wand(s32 arg0);
 u8 * TItemWeapon__ct(void *, void *);
 extern RecoveredGlobal_8012BCD4_lbl_804A4F60 psycho_wand_weapon_vtable;
 extern const f32 lbl_805DAEC8;
-u8 *psycho_wand_ct(u8 *arg0, u8 *arg1, s32 _w2);
 
 u8 *psycho_wand_ct(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);

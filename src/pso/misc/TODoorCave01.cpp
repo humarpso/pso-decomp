@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/math/MatrixTransforms.h"
+#include "pso/misc/TODoorCave01_80161A30.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TODoorCave01.h"
 #include "pso/TParticleCtrl.h"
@@ -18,17 +22,12 @@ struct VObj_801618fc : VBase_801618fc {
 };
 
 extern "C" {
-void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
-s32 pop_matrix();
-void draw_ginja_model(s32 model);
 s32 set_chunk_material_color(void *, int);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern u8 *TODoorCave01__texture_lists;
 extern s32 model_render_flags;
-void render__12TODoorCave01Fv(u8 *arg0);
-u8 *TODoorCave01__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model_with_motion(void *, int, f32);
 s32 rotate_matrix_y(int, int);

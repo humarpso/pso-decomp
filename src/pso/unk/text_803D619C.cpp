@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803D619C.h"
 #include "pso/boss/TBoss8Dragon.h"
 
 extern "C" {

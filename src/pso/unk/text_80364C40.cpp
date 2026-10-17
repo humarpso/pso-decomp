@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80364C40.h"
 #include "pso/object/TUnk_804F2B60.h"
 
 struct RecoveredGlobal_80364C40_lbl_804F2B60 {
@@ -9,7 +10,6 @@ struct RecoveredGlobal_80364C40_lbl_804F2B60 {
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_80364C40_lbl_804F2B60 lbl_804F2B60;
-u8 *fn_80364C40(u8 *arg0, s16 arg1, u8 *arg2, f32 farg0);
 typedef char RecoveredGlobal_80364C40_lbl_804F2B60_size[sizeof(RecoveredGlobal_80364C40_lbl_804F2B60) == 0x18 ? 1 : -1];
 u8 *fn_80364C40(u8 *arg0, s16 arg1, u8 *arg2, f32 farg0) {
     __ct__7TObjectFP7TObject(arg0, arg2);

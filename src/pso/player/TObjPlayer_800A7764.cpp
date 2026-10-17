@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/math/MatrixVector.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_800A7764.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneDimedian.h"
 #include "pso/player/TObjPlayer.h"
@@ -100,10 +104,8 @@ s32 copy_target_state__14TObjEnePanarmsFPv(s32, s32);
 s32 TObjPlayer__sub_800A0554(void *);
 s32 advance_animation_playback();
 s32 mult_vec_array__10TObjPlayerFUll(int, int, void *, int);
-void set_matrix_identity(u8 *arg0);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
 extern s32 dimedian_type3_object;
 extern s32 lbl_805D5088;
@@ -141,11 +143,8 @@ struct A7B00Obj_800a7b00_800A7764 : A7B00Base_800a7b00_800A7764 {
     virtual s32 m4();
 };
 
-s16 TObjPlayer__sub_800A776C(void* p);
-int TObjPlayer__sub_800A7774(void* p);
 int VecCopy__FP3VecPC3Vec(void*);
 f32 calc_boss4_scale__10TObjPlayerFi();
-void queue_destruction__7TObjectFv(void *arg0);
 
 s16 TObjPlayer::get_field_2c8() { return *(s16 *)&this->m_2c8; }
 s16 TObjPlayer__sub_800A776C(void* p) { return *(s16*)((char*)p + 0x2ca); }

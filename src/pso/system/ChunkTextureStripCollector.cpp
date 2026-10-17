@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/ChunkTextureStripCollector.h"
 struct Model_800F5A50 { void *vlist; void *plist; };
 
 struct Node_800F5A50 {
@@ -19,10 +20,8 @@ extern "C" {
 void count_model_strips_by_texture(void *ctx, Node_800F5A50 *node, void *arg);
 void collect_model_strips_by_texture(void *ctx, Node_800F5A50 *node, void *arg);
 extern s32 plist_texture_matches_filter;
-void count_plist_strips_by_texture(void *ctx, void *plist, void *arg);
 extern StripRef_800F591C *plist_strip_write_ptr;
 extern s16 *plist_strip_uv_write_ptr;
-void collect_plist_strips_by_texture(void *ctx, s16 *p, s32 tex);
 
 void collect_model_strips_by_texture(void *ctx, Node_800F5A50 *node, void *arg) {
     do {

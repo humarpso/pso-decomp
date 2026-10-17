@@ -1,4 +1,5 @@
 #include "pso/TBoss6EffFlowSoul.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 
 #include "types.h"
@@ -22,7 +23,6 @@ struct Soul_8036A6B0 {
     s32 age;
 };
 
-void queue_destruction__7TObjectFv(void *);
 u8 *get_player_by_client_id(s32);
 s32 is_state_1f__14TBoss6PlotFalzFUi(void *);
 void subtract_vector(Vec_8036A6B0 *, Vec_8036A6B0 *);

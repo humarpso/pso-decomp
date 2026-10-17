@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80087278.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TPhotonConcentrate.h"
 #include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
@@ -8,14 +11,10 @@
 
 extern "C" {
 
-u8 *TPhotonConcentrate__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
-void *__dt__18TPhotonConcentrateFv(void *arg0, s16 arg1);
-void render__18TPhotonConcentrateFv(void);
 s32 create_particle_emitter(void *, s32);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv(s32, s32);
 s32 find_entity_by_id(s32, f32);
 void __dl__7TObjectFPv(void *);
-void queue_destruction__7TObjectFv(void *);
 extern s32 __vt__18TPhotonConcentrate[];
 extern s32 lbl_805D34D0;
 
@@ -57,7 +56,6 @@ typedef struct PC_801A7E7C
   void *emitter;
   Owner_801A7E7C *owner;
 } PC_801A7E7C;
-void *spawn_particle_effect(void *, s32);
 f32 sin_table_lookup(s32);
 void vec3_add_to(void *, void *);
 f32 vector_length(void *);
@@ -65,8 +63,6 @@ void rotate_vector_by_matrix(void *, void *, void *);
 void rotate_matrix_y(void *, s32);
 void rotate_matrix_z(void *, s32);
 void subtract_vector(void *, void *);
-s32 push_matrix_from(void *src);
-s32 pop_matrices(s32 arg0);
 f32 xyz_distance(void *, void *);
 extern u8 identity_matrix[];
 extern const f32 lbl_805DC0F8;

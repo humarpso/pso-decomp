@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80052420.h"
 #include "pso/player/TObjPlayer.h"
 struct VBase_80052420 { u8 pad[0x18]; };
 
@@ -85,7 +86,6 @@ s16 obj_getS16_32C(VObj_80052420 *);
 s32 TBoss4Type3__sub_8005254C(s32);
 void send_6x2F_change_player_hp(s32, s32, s16);
 VObj_80052420 *get_player_by_client_id(u16);
-u32 drain_player_hp(s32 arg0, u32 arg1);
 u32 drain_player_hp(s32 id, u32 arg1) {
     u32 n;
     VObj_80052420 *p;

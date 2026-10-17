@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/system/CityTraffic.h"
+#include "pso/unk/text_80180D18.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/unk/TObjCityAirCar_Car.h"
 #include "pso/TParticleCtrl.h"
@@ -23,11 +27,9 @@ struct Rec16_80180D18 { s32 f0; s32 f4; s32 f8; s32 fc; };
 
 extern "C" {
 s32 scroll_strip_uvs(int, s16, int);
-s32 get_city_common_model(s32 i);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_z(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object();
 s32 draw_chunk_object(int, void *);
@@ -39,7 +41,6 @@ extern void **city_air_car_model_handle;
 extern void **city_common_texture_list;
 extern const f32 lbl_805DBBA0;
 extern const f32 lbl_805DBBA4;
-void render__18TObjCityAirCar_CarFPv(u8 *arg0);
 }
 struct Vec_80180E70 { f32 x, y, z; };
 
@@ -74,7 +75,6 @@ struct Car_80181074 {
 };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 u32 spawn_continuous_particle_effect_with_flags(void *, int, int);
 s32 update_technique_slot__10TTecRaFoieFl(s32, int, int);
 s32 play_persistent_sound(int, void *, void *, int, int);
@@ -90,7 +90,6 @@ extern const f32 lbl_805DBBBC;
 void run_task__18TObjCityAirCar_CarFv(Car_80180E70 *self);
 f64 atan2_float(f32, f32);
 s32 angle_diff_s16(s32, s32);
-s32 sample_aircar_path_position(s32, void *, f32);
 s32 vec3_add_to(void *, void *);
 extern const f64 lbl_80443B90;
 extern const f32 lbl_805DBBC0;

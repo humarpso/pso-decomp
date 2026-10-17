@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/unk/text_8020EEFC.h"
+#include "pso/unk/text_80223B98.h"
 #include "pso/misc/TLobby.h"
 
 #pragma inline_depth(1)
@@ -49,27 +51,17 @@ extern "C" {
 extern RecoveredGlobal_80224404_lbl_80513F20 shop_tool_stock_buffers;
 s32 memset(void *, int, int);
 extern RecoveredGlobal_802243D4_lbl_80513F10 shop_tool_flags;
-void clear_shop_tool_flags(void);
-void mark_shop_tool_sold_out(s32 a, s32 b);
 void init__9TItemDataFv(void *);
-s32 classify_tool_shop_level_bracket(s32 arg0);
 extern Pair_802242F8 shop_tool_group_subtype_table[];
 extern s32 shop_tool_stock_counts[];
 extern Tbl_802242F8 **lobby_tool_random_rel;
 extern s32 shop_tool_stock_level;
-void generate_shop_common_tool_pool(s32 arg0);
-s32 TLobby__sub_80223D48(s32 arg0);
 s32 rand();
 void roll_shop_technique_level(Obj_80223EE0 *arg0, s32 arg1);
-s32 fn_80223B98(s32 arg0);
 void push_shop_pool_entry(void *, u8);
-void shuffle_shop_pool_n_times(void *, s32);
 s32 TLobby__sub_80223DD8(Item_802242F8 *, s32);
 extern s32 shop_technique_pool_table[];
-void generate_shop_technique_pool(s32 arg0);
-s32 fn_80223C28(s32 arg0);
 s32 TLobby__sub_80223E64(Item_802242F8 *, s32);
-void generate_shop_rare_tool_pool(s32 arg0);
 s32 fn_80223B98(s32 arg0) {
     if ((arg0 >= 1) && (arg0 <= 0xA)) {
         return 4;

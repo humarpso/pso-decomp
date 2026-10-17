@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/boss/TObjBoss5FloorStone_80289868.h"
 #include "pso/TObjBoss5FloorStone.h"
 
 extern "C" {
 
-void *__ct__19TObjBoss5FloorStoneFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern s32 __vt__19TObjBoss5FloorStone[];

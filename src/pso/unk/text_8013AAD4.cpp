@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8013AAD4.h"
 #include "pso/TPlyGuildCardTag.h"
 
 #pragma inline_depth(1)
@@ -14,7 +15,6 @@ struct ByteBlock_50 { u8 bytes[0x50]; };
 struct ByteBlock_348 { u8 bytes[0x348]; };
 
 extern "C" {
-u8 *fn_8013AAD4(u8 *arg0, u8 *arg1);
 u8 *fn_8013AAD4(u8 *arg0, u8 *arg1) {
     u8 *temp_r4;
     u8 *temp_r4_2;

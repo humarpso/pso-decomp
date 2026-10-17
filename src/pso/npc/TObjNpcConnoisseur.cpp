@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8014B8A4.h"
 #include "pso/npc/TUnk_804A9F50.h"
 #include "pso/npc/TObjNpcConnoisseur.h"
 #include "pso/TFontSmallTask.h"
@@ -97,18 +98,14 @@ struct RecoveredGlobal_801499DC___vt__18TObjNpcConnoisseur {
 };
 
 extern "C" {
-u8 *construct_male_npc_base(u8 *arg0);
 extern s32 __vt__18TObjNpcConnoisseur[];
 extern s32 TObjNpcConnoisseur__name;
 extern u32 TObjNpcConnoisseur__instance;
-u8 *TObjNpcConnoisseur__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *load_resource_from_descriptor(void *, s32, s32, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 extern s32 tekker_descriptor_selector_table[];
 extern u8 TLobby__data_805011D8[];
 extern s32 lbl_805D5748;
-void * TObjNpcExpertBase__create(void *arg0);
-void *__dt__18TObjNpcConnoisseurFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcExpertBase__ct(void *, void *, void *);

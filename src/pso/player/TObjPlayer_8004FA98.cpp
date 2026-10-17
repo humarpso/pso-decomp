@@ -1,4 +1,11 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl_800687BC.h"
+#include "pso/misc/TLobby_802268F4.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_8004FA98.h"
+#include "pso/player/TObjPlayer_80052374.h"
+#include "pso/player/TObjPlayer_803E4954.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjDFDemo5.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
@@ -8,11 +15,8 @@
 
 extern "C" {
 s32 post_translate_matrix(void *);
-void draw_model_motion(void *arg0, void *arg1, f32 farg0);
-void TObjPlayer__sub_80052390(f32 x);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 s32 clear_render_callback__8TObjFishFv(s32);
 void TObjPlayer::release_subobjects() {
     u8 *arg0 = (u8 *)this;
@@ -84,11 +88,7 @@ typedef struct Obj_8004FD50 {
 } Obj_8004FD50;
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
-void play_cue_stream_file(s32);
-void darkfalz_death_update(u8 *arg0);
 s32 is_ending_or_split_screen__14TBoss4DarkFalzFv();
-s32 restore_player_cameras(void);
 void __dl__7TObjectFPv(void *);
 extern u8 lbl_804857F4[];
 Obj_8004FD50 *__dt__11TObjDFDemo5Fv(Obj_8004FD50 *arg0, s16 arg1);

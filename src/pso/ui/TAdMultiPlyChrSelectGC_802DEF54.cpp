@@ -1,4 +1,17 @@
 #include "types.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802C50EC.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802DBCC4.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802DC3D4.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802DC760.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802DCD14.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802DD8E0.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802DE094.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802DEC44.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802DEF54.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 #include "pso/misc/TWindowSubComCard.h"
 
@@ -34,13 +47,8 @@ extern V2_802DF9B4 lbl_80472848[];
 extern s32 tl_02;
 extern s32 tl_clipout;
 extern s32 TAdMultiPlyChrSelectGC__data_805DE898;
-void update_state_serial__22TAdMultiPlyChrSelectGCFPv(void *arg0);
-s32 get_field_118__22TAdEnterSerialAccessGCFv(void);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32, s32);
-void TWindow__close(u8 *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 TAdMultiPlyChrSelectGC__sub_802C6558();
-void queue_destruction__7TObjectFv(void *arg0);
 
 extern s8 controller_physical_port_bank[];
 extern u32 multi_chr_select_serial_access_state;
@@ -118,27 +126,11 @@ struct C_802DF114 {
     u32 f64;
 };
 typedef void (C_802DF114::*Pmf_802DF114)();
-s32 get_localized_text_entry(s32 arg0, s32 arg1);
 void set_default_camera__21TAdMultiChgGameModeGCFv(void *);
-s32 TAdMultiPlyChrSelectGC__sub_802C6848(s32 arg0);
 s32 TAdMultiPlyChrSelectGC__sub_802C6920();
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DC310(void *arg0);
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DC440(void *arg0);
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DC5CC(void *arg0);
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DC8A0(void *arg0);
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DCA20(u8 *arg0);
 extern "C" void TAdMultiPlyChrSelectGC__sub_802DCCA4();
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DCD14(void *arg0);
 extern "C" void update_idle_timer__22TAdMultiPlyChrSelectGCFv();
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DCF68(void *arg0);
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DD010(void *arg0);
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DD2B0(void *arg0);
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DD400(u8 *arg0);
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DDBA8(u8 *arg0);
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DDD08(u8 *arg0);
 extern "C" void reset_to_select__22TAdMultiPlyChrSelectGCFv();
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DE7D0(void *arg0);
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DEDA8(u8 *arg0);
 extern "C" void check_cancel_input__22TAdMultiPlyChrSelectGCFv();
 extern "C" void close_and_reset__22TAdMultiPlyChrSelectGCFv();
 extern "C" void close_windows__22TAdMultiPlyChrSelectGCFv();
@@ -148,7 +140,6 @@ extern "C" void handle_input__22TAdMultiPlyChrSelectGCFv();
 extern "C" void init_windows__22TAdMultiPlyChrSelectGCFv();
 extern "C" void open_char_select__22TAdMultiPlyChrSelectGCFv();
 extern "C" void request_scene_change__22TAdMultiPlyChrSelectGCFv();
-extern "C" void update__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 extern "C" void update_button_input__22TAdMultiPlyChrSelectGCFv();
 extern "C" void update_card_confirm__22TAdMultiPlyChrSelectGCFv();
 extern "C" void update_card_select__22TAdMultiPlyChrSelectGCFv();

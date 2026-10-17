@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80048360.h"
 #include "pso/player/TUnk_80484840.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void *__dt__13TUnk_80484840Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 queue_destruction__7TObjectFv();

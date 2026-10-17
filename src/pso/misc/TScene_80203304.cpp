@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TScene_80203304.h"
 #include "pso/misc/TContainerAncient01.h"
 #include "pso/misc/TScene.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -6,8 +7,6 @@
 struct Tbl_8020335C { s32 v[8]; };
 
 extern "C" {
-s32 *resolve_indirect_object_record(s32 arg0, u8 *arg1);
-s32 *resolve_indirect_node_record(s32 arg0, u8 *arg1);
 extern struct Tbl_8020335C group_selection_area_id_table;
     extern int TScene__render_callback;
 

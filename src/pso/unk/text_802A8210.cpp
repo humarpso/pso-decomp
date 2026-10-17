@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TEffIndirectCtrl.h"
+#include "pso/unk/text_802A8210.h"
 #include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_802A8210_lbl_804DDF04 {
@@ -9,16 +11,11 @@ struct RecoveredGlobal_802A8210_lbl_804DDF04 {
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_802A8210_lbl_804DDF04 lbl_804DDF04;
-u8 *fn_802A8210(u8 *arg0, s32 arg1, u8 *arg2);
 u8 *__nw__7TObjectFUl(u32);
-s8 find_indirect_effect_ctrl(u8 arg0);
-void TEffIndirectCtrl__sub_802A9548(void *p);
-u8 TEffIndirectCtrl__sub_802A9554(void *p);
 u8 *TEffIndirectCtrl__ct(u8 *, s32, s32);
 extern u8 *indirect_effect_ctrl_table[];
 extern s32 tl_01;
 extern u8 indirect_effect_ctrl_count;
-void register_indirect_effect_ctrl(s32 arg0);
 typedef char RecoveredGlobal_802A8210_lbl_804DDF04_size[sizeof(RecoveredGlobal_802A8210_lbl_804DDF04) == 0x18 ? 1 : -1];
 u8 *fn_802A8210(u8 *arg0, s32 kind, u8 *arg2) {
     __ct__7TObjectFP7TObject(arg0, arg2);

@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/unk/text_801E4F04.h"
 #include "pso/unk/TUnk_804C57F0.h"
 
 extern "C" {
 
-void *__dt__13TUnk_804C57F0Fv(void *arg0, s16 arg1);
-void *quad_sprite_base_ct(void *arg0, void *arg_r4, void *arg2);
 s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);

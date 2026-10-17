@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/item/TItemLoad_8010F3D8.h"
 #include "pso/TItemLoad.h"
 
 extern "C" {
 
-void *__dt__13TUnk_8049F3F4Fv(void *arg0, s16 arg1);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 s32 free_texture_if_valid(void *, void *);

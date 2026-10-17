@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8025CB70.h"
+#include "pso/misc/TWindowKeyBoardHard_802601D4.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowKeyBoardHard.h"
@@ -19,12 +21,9 @@ s32 get_window_layout_position(int);
 extern RecoveredGlobal_80260304_lbl_804CFAD0 lbl_804CFAD0;
 extern s32 __vt__19TWindowKeyBoardHard[];
 extern s32 TWindowKeyBoardHard__name;
-u8 *TWindowKeyBoardHard__ct(u8 *arg0, s32 arg1);
-void *__dt__19TWindowKeyBoardHardFv(void *arg0, s16 arg1);
 s32 is_key_active__19TWindowKeyBoardHardFv();
 void __dl__7TObjectFPv(void *);
 s32 initialize_subwindow__9TWindowDDFv(void *);
-void TWindowKeyBoardHard__sub_8025CC48(void *arg0);
 s32 has_non_modifier_key__16TKeyBoardControlFv(void *);
 
 extern s32 current_language;

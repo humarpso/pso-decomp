@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TObjEneEpsilon_800B92AC.h"
+#include "pso/unk/text_800C3088.h"
+#include "pso/unk/text_800C3A60.h"
 #include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
@@ -147,7 +150,6 @@ s32 queue_destruction__7TObjectFv(int);
 u32 create_particle_emitter(void *, int);
 s32 transition_enemy_state(void *, int);
 s32 noop__9TObjEneDDFv(void *);
-s32 fn_800C3A60(s32 arg0, s32 arg1);
 s32 check_hit_flag__16TObjEneRe2FlowerFv(void *);
 s32 TObjPlayer__sub_800C4A5C(int, void *, void *, int);
 s32 advance_animation_playback(void *);
@@ -156,13 +158,10 @@ u32 __nw__7TObjectFUl(int);
 extern u8 *lbl_805D5170;
 extern const f32 lbl_805D9FD8;
 extern const f32 lbl_805D9FDC;
-void fn_800C32DC(u8 *arg0, s32 arg1);
-s32 enemy_validate_retained_target(u8 *arg0);
 extern const f32 lbl_805D9FAC;
 extern const f32 lbl_805D9FC0;
 extern const f32 lbl_805D9FC4;
 extern const f32 lbl_805D9FD4;
-void fn_800C3088(u8 *arg0, int arg1);
 
 typedef struct RecoveredFields_800C3088_arg0 RecoveredFields_800C3088_arg0;
 typedef struct VBase_18_880cfd VBase_18_880cfd;

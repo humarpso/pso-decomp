@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_800483F8.h"
 #include "pso/boss/TUnk_80484870.h"
 #include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
@@ -33,7 +34,6 @@ extern "C" {
 s32 draw_line_list(void *, int, int);
 extern RecoveredGlobal_80048560_lbl_80484860 lbl_80484860;
 extern RecoveredGlobal_80048560_lbl_804FF1D0 lbl_804FF1D0;
-void fn_80048560(u8 *arg0);
 void direction_to_rotation_xy(Vec_800483F8 *, s32 *, s32 *);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);

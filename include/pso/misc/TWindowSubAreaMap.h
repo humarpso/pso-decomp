@@ -15,4 +15,8 @@ struct TWindowSubAreaMap : public TObject {
 };
 
 typedef char TWindowSubAreaMap_size[sizeof(TWindowSubAreaMap) == 0x28 ? 1 : -1];
+extern "C" {
+void *__dt__17TWindowSubAreaMapFv(void *arg0, s16 arg1);
+}
+
 #endif

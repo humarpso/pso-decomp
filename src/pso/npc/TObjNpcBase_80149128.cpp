@@ -1,3 +1,5 @@
+#include "pso/npc/TObjNpcBase_80149128.h"
+
 extern "C" {
     int load_encrypted_archive_data(void*);
     extern unsigned char lbl_8043F560[];

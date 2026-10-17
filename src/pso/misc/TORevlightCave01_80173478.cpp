@@ -1,11 +1,13 @@
 #include "types.h"
+#include "pso/misc/TORevlightCave01_80173478.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TORevlightCave01.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-void TORevlightCave01__sub_80173478(void *_w0);
 struct TORevlightCave01Base_80173478 { char pad[0x18]; };
 struct TORevlightCave01_80173478 : TORevlightCave01Base_80173478 {
     virtual void m0();
@@ -20,12 +22,10 @@ struct TORevlightCave01_80173478 : TORevlightCave01Base_80173478 {
 };
 
 s32 post_translate_matrix(void *);
-void draw_ginja_model(s32 model);
 s32 rotate_matrix_z(s32, s32);
 s32 rotate_matrix_x(s32, s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 
 void TORevlightCave01__sub_80173478(void * _w0) {  }
 

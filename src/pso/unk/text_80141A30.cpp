@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/MaterialAlphaCompare.h"
+#include "pso/unk/text_80141A30.h"
 #include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80141A30_lbl_8050C000 {
@@ -15,11 +17,8 @@ extern "C" {
 s32 GXSetAlphaCompare(int, int, int, int, int);
 s32 GXSetZMode(int, int, int);
 s32 GXSetZCompLoc(int);
-void set_material_alpha_compare_reference(s32 reference);
 extern RecoveredGlobal_80141A30_lbl_8050C000 depth_buffer_settings;
 extern RecoveredGlobal_80141A30_lbl_8050C028 saved_depth_alpha_scene_state;
-void restore_saved_depth_alpha_state(void);
-u32 calc_pulse_flash_color(u8 r, u8 g, u8 b, s32 frame, s32 period, s32 start, s32 peak, s32 end);
 typedef char RecoveredGlobal_80141A30_lbl_8050C000_size[sizeof(RecoveredGlobal_80141A30_lbl_8050C000) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_80141A30_lbl_8050C028_size[sizeof(RecoveredGlobal_80141A30_lbl_8050C028) == 0x18 ? 1 : -1];
 void restore_saved_depth_alpha_state(void) {

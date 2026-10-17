@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/boss/TBoss2Mine_800375C0.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/boss/TBoss2Mine.h"
 
@@ -7,10 +9,8 @@ extern "C" {
 void *TBoss2Mine__ct(void *arg0, s32 arg1, s16 arg2, s16 arg3, s32 arg4);
 void TBoss2Mine__sub_80038D84(void);
 int TBoss2Mine__sub_80038D88(void* p);
-void init__10TBoss2MineFPvi(u8 *arg0, s32 arg1);
 s32 TObjEneDD__ct(void *, s32);
 int TObjPlayer__sub_800F0928(void*);
-s32 get_instance__13TBoss2DeRolLeFv(void);
 
 extern void *__vt__10TBoss2Mine[];
 extern s32 TBoss2Mine__name;

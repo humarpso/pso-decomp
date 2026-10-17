@@ -5,7 +5,6 @@
 extern "C" {
 void *__nw__7TObjectFUl(int);
 void *TObjEneMorfosArm__ct(void *, void *, void *);
-void TObjEneMorfosArm__sub_8033542C(void);
 
 void TObjEneMorfosArm__sub_8033542C(void) {  }
 

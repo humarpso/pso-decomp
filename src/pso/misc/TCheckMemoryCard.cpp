@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/misc/TCheckMemoryCard.h"
 
 struct Base_8033C4E0_8033C420 { char pad[0x18]; };
@@ -26,8 +27,6 @@ extern RecoveredGlobal_8033C424_lbl_804EF940 lbl_804EF940;
 extern "C" {
 
 void *__ct__16TCheckMemoryCardFP7TObjectPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
-void *__dt__16TCheckMemoryCardFv(void *arg0, s16 arg1);
-void TWindow__close(u8 *arg0);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 void *__nw__7TObjectFUl(int);

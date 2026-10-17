@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/misc/TLobby_8020E3BC.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 
-void TLobby__sub_8020E3BC(void);
-void TLobby__sub_8020E3C0(void);
 s32 Dolphin_ARAlloc(s32);
 
 void TLobby__sub_8020E3BC(void) {  }

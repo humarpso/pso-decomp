@@ -1,11 +1,9 @@
 #include "types.h"
+#include "pso/misc/TShopEquipmentSequence_8021E2E4.h"
 #include "pso/misc/TShopEquipmentSequence.h"
 
 extern "C" {
 
-void *create_medical_center_sequence(void *arg0);
-int TMedicalCenterSequence__sub_8021E390(int a0);
-int get_equipment_shop_slot_active_flag(int a0);
 void *TMedicalCenterSequence__ct(void *, void *, void *);
 void *TShopEquipmentSequence__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);

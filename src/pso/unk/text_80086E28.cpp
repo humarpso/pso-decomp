@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80086E28.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/ui/TAdLoadQuestPrtTxtGC.h"
 struct Rec_80086E28 { u8 pad[0x98]; };
@@ -11,7 +12,6 @@ extern s32 particle_pool_limit;
 extern Rec_80086E28 *particle_global_entry_table;
 extern Rec_80086E28 *particle_area_entry_table;
 void *__ct__13TParticleCtrlFv(void *, void *, void *, void *, s32, s32, s32, s32, u16);
-void *create_particle_controller_with_angles(void *arg0, void *arg1, s32 arg2, s32 arg3, u16 arg4);
 void *TAdLoadQuestPrtTxtGC::create_particle(void *position, s32 arg1, s32 use_self) {
     void *o;
     if (particle_pool_limit > arg1) {

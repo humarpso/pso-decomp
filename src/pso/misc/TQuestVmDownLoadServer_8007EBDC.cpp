@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TQuestVmDownLoadServer_8007EBDC.h"
 #include "pso/misc/TUnk_8048DF58.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -7,9 +8,7 @@ extern "C" {
 extern u8 lbl_805005A4[];
 extern u8 lbl_80500598[];
 void *__ct__13TUnk_8048DF58Fv(void *arg0);
-void *__dt__13TUnk_8048DF58Fv(void *arg0, s16 arg1);
 void __register_global_object(void *obj, void *dtor, void *entry);
-int TQuestVmDownLoadServer__sub_8007EBDC(void* p);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 int fn_803DE864(void*);

@@ -1,6 +1,6 @@
 #include "types.h"
+#include "pso/unk/text_803DF204.h"
 extern "C" {
-u32 fn_803DF204(u32 x);
 #pragma push
 #pragma scheduling off
 #pragma peephole off

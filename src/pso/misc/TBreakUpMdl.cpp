@@ -1,4 +1,12 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon_8002CC48.h"
+#include "pso/boss/TObjBoss2Tunnel_8007E418.h"
+#include "pso/misc/TCameraCtrl_803D6538.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/system/memory.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneDf2Bringer.h"
@@ -101,32 +109,21 @@ struct BreakUp_80096AD8 {
 };
 
 extern "C" {
-void compose_motion_node_matrix(void *arg0);
 s32 matrix_mult_vec(int, int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 rotate_matrix_by_node_angles(void *, int);
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-void bind_motion_context(s32, f32);
-s32 push_matrix_from(void *src);
 extern s32 TBreakUpMdl__vtable[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
 u8 *init__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
 extern const f32 lbl_805D97C8;
-s32 count_active_segments__15TObjBoss2TunnelFPv(void *);
 void *mem_alloc(u32 size);
 extern const f32 lbl_805D97CC;
 void alloc_breakup_piece_records(Brk_80096EBC *arg0, void *arg1);
-void draw_ginja_model(s32);
-void set_chunk_material_override_pair(s32 arg0, s32 arg1);
-void set_chunk_material_color(f32 *arg);
-void draw_chunk_model(void *arg0);
 extern Color_8009680C breakup_default_color;
 extern u32 lbl_805D5660;
 extern u32 model_render_flags;
-void queue_destruction__7TObjectFv(void *);
-f32 rand_signed_unit(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
 void rotate_vector_by_matrix(s32, void *, void *);

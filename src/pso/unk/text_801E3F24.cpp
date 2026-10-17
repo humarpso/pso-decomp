@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_801E3F24.h"
 #include "pso/system/debug_print.h"
 #include "pso/misc/TOKeyMachine01.h"
 
@@ -14,19 +15,11 @@ struct Msg_801E3FA4 {
 };
 
 extern "C" {
-void TObjPlayer__sub_801E3F24(s32 arg0);
-void TObjPlayer__sub_801E3F30(f32 farg0, f32 farg1, f32 farg2);
-void fn_801E3F44(f32 farg0, f32 farg1);
 int sprintf(char *, const char *, ...);
 extern char pso_data2_receive_log_format[];
 extern u8 subcommand_area_masks[];
 extern Ent_801E3FA4 pso_command_dispatch_table[];
 void dispatch_6x_subcommand(Msg_801E3FA4 *arg0);
-void TObjCMHairMenu__sub_801E3F54(void* p, void* q);
-void handle_6x02(void);
-void handle_6x03(void);
-void handle_6x04_legacy_activate_switch_by_token(void *arg0);
-void handle_6x9E_player_camera_shutter_sound(void);
 s32 TObjDoorKey__sub_8018FAEC(u16, u16);
 s32 bswap_switch_activate_token__6TLobbyFv();
 

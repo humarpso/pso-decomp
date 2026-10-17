@@ -1,0 +1,18 @@
+#ifndef PSO_UNK_TEXT_802D298C_H
+#define PSO_UNK_TEXT_802D298C_H
+
+#include "types.h"
+
+extern "C" {
+u8 *TLobby__sub_802D298C(void);
+u8 *TLobby__sub_802D299C(void);
+s32 TLobby__sub_802D29B8(u32 arg0);
+int TLobby__sub_802D29DC(int a0);
+s32 TLobby__sub_802D29E8(u32 arg0);
+s32 TLobby__sub_802D2A0C(u32 arg0);
+s32 TLobby__sub_802D2A2C(u32 arg0);
+s32 TLobby__sub_802D2A50(u32 arg0);
+s32 *get_trade_window_state(void);
+}
+
+#endif

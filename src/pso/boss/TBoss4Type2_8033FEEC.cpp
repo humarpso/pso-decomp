@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type2_8033FEEC.h"
 #include "pso/boss/TBoss6Demo15_TYPE2_WAIT.h"
 #include "pso/boss/TBoss4Type2.h"
 
 extern "C" {
-
-void TObjFish__sub_8033FF64(void* p);
 
 extern const f32 lbl_805DFB08;
 extern const f32 lbl_805DFB0C;

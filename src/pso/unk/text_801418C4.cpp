@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_801418C4.h"
 
 struct RecoveredGlobal_801418C4_lbl_8050C000 {
     s32 value;
@@ -10,7 +11,6 @@ void GXSetZMode(u8, s32, s32);
 void GXSetZCompLoc(s32);
 s32 GXSetAlphaCompare(int, void *, int, int, int);
 extern RecoveredGlobal_801418C4_lbl_8050C000 depth_buffer_settings;
-void setup_alpha_test_render_state(u8 arg0);
 typedef char RecoveredGlobal_801418C4_lbl_8050C000_size[sizeof(RecoveredGlobal_801418C4_lbl_8050C000) == 0x28 ? 1 : -1];
 void setup_alpha_test_render_state(u8 arg0) {
     *(s8 *)((s8 *)(&depth_buffer_settings.value) + 4) = 0;

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TItemEquipBase_80119060.h"
+#include "pso/unk/text_8011085C.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/item/TItemEquipBase.h"
 
@@ -13,15 +15,7 @@ struct RecoveredGlobal_801190B0_lbl_80506228 {
 };
 
 extern "C" {
-void fn_8011085C(u8 *arg0, s32 arg1);
 extern RecoveredGlobal_80119060_lbl_80506228 item_effect_object_table;
-void fn_801108C8(u8 *arg0, s32 arg1);
-void TItemEquipBase__sub_80119100(int arg0);
-void TItemEquipBase__sub_80119168(int arg0);
-void TItemEquipBase__sub_8011919C(int arg0);
-void TItemEquipBase__sub_801191D0(int arg0);
-void fn_80119204(int arg0);
-void notify_stealth_enemies_10(int arg0);
 u32 get_player_by_client_id(u16);
 
 typedef char RecoveredGlobal_80119060_lbl_80506228_size[sizeof(RecoveredGlobal_80119060_lbl_80506228) == 0x20 ? 1 : -1];

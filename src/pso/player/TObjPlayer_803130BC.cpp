@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_803130BC.h"
 #include "pso/player/TObjPlayer.h"
 
 struct T_803131B4 { u8 pad[0x8]; s32 arr[1]; };
@@ -6,11 +7,7 @@ struct T_803131B4 { u8 pad[0x8]; s32 arr[1]; };
 struct Ids_80313138 { u16 a; s16 b; };
 
 extern "C" {
-s16 TObjPlayer__sub_80313114(u8 *arg0);
 s32 *TObjPlayer__sub_803131B4(T_803131B4 *self, s32 i);
-int TObjPlayer__sub_803131AC(void);
-int TObjPlayer__sub_80313218(void* p);
-void TObjPlayer__sub_80313250(void *arg0, s32 arg1);
 int test_flags_any(void*, int);
 int TObjPlayer__sub_801AA64C(void* a0 = 0);
 int set_flags__10TObjPlayerFUl(void*, int);

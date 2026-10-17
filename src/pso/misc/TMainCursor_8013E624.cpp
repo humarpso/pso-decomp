@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/misc/TMainCursor_8013E624.h"
+#include "pso/misc/TPlyDispConfig_80071F1C.h"
 #include "pso/misc/TMainCursor.h"
 
 extern "C" {
 s32 __dl__FPv(void* a0);
-s32 free_if_valid__14TPlyDispConfigFis(s32 arg0, s16 arg1);
-void TMainCursor__sub_8013E694(void* p, s16 v);
-int TMainCursor__sub_8013E6E0(void* p);
 int set_slot__20TWindowActionPaletteFUc(void*);
 int set_mode__20TWindowActionPaletteFUc(void*);
 

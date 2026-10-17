@@ -13,4 +13,11 @@ struct TObjTradeCollision : public TUnk_804AF8A0 {
 };
 
 typedef char TObjTradeCollision_size[sizeof(TObjTradeCollision) == 0xB0 ? 1 : -1];
+extern "C" {
+void *TObjTradeCollision__create(void *arg0);
+u8 *TObjTradeCollision__ct(u8 *arg0, s32 arg1, s32 arg2);
+void *__dt__18TObjTradeCollisionFv(void *arg0, s16 arg1);
+void run_task__18TObjTradeCollisionFv(s32 arg0);
+}
+
 #endif

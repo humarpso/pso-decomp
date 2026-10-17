@@ -1,4 +1,6 @@
 #include "pso/TWindowCtrlSub.h"
+#include "pso/misc/TWindowChoiceSetting_80249610.h"
+#include "pso/ui/TWindowCtrlSub.h"
 
 extern s32 TWindowCtrlMain__sub_controller;
 
@@ -7,9 +9,7 @@ extern s32 TWindowCtrlMain__sub_controller;
 #include "pso/misc/TWindowCtrlMain.h"
 
 extern "C" {
-void resolve_chat_balloon_overlaps(void);
 extern s32 TWindowCtrlMain__window_task_root;
-void *TWindowCtrlSub__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern s32 __vt__14TWindowCtrlSub[];

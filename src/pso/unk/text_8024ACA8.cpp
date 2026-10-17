@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8024ACA8.h"
 
 #include <stddef.h>
 struct Stack_8024ACA8 {
@@ -15,7 +16,6 @@ struct RecoveredGlobal_8024ACA8_lbl_804CEA40 {
 extern "C" {
 s32 call_window_method__11TWindowCtrlFPvi(void *, void *);
 extern RecoveredGlobal_8024ACA8_lbl_804CEA40 lbl_804CEA40;
-void TWindowReturnCity__sub_8024ACA8(s32 arg0);
 typedef char RecoveredGlobal_8024ACA8_lbl_804CEA40_size[sizeof(RecoveredGlobal_8024ACA8_lbl_804CEA40) == 0xC ? 1 : -1];
 void TWindowReturnCity__sub_8024ACA8(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_8024ACA8, sp8) == 0x0) ? 1 : -1];

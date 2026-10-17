@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TUnk_804B27D8.h"
 #include "pso/misc/TOComputerMachine01.h"
@@ -61,9 +63,7 @@ extern "C" {
 s32 scroll_ginja_mesh_uvs(int, int, int, int, int);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void draw_ginja_model(s32 model);
 extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMachine01__scroll_mesh_ptrs;
 extern s32 actor_frame_tick;
 extern s32 TOComputerMachine01__last_render_frame_tick;
@@ -76,11 +76,9 @@ extern u8 *TOComputerMachine01__model_resource;
 extern s32 tl_05;
 extern const f32 lbl_805DB390;
 extern const f32 lbl_805DB394;
-u8 *TOComputerMachine01__ct(u8 *arg0, s32 arg1);
 void TLobby__sub_8001FE7C(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern s32 bm_fs_obj_kenkyu_com_resource_descriptor[];
-void *__dt__19TOComputerMachine01Fv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);

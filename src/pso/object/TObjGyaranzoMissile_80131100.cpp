@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/item/TItemEquipVariant_80120CF8.h"
+#include "pso/object/TObjGyaranzoMissile_80131100.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/unk/TUnk_804A6CC8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/object/TUnk_804A6DC0.h"
@@ -10,19 +13,13 @@ struct Ent_80131488 { void *p; s32 a; s32 b; };
 struct Obj_80131488 { Ent_80131488 *ents; u32 count; };
 
 extern "C" {
-void* yasminkov_2000h_ct(void *, s32, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-u8 *create_yasminkov_2000h(s32 arg0);
-void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
 extern s32 lbl_804A6DC0[];
-void *__dt__13TUnk_804A6DC0Fv(void *arg0, s16 arg1);
 int TItemWeapon__ct(void);
 extern unsigned char spawn_weapon_impact_effect[];
     extern const float lbl_805DB054;
     extern const float lbl_805DB060;
-void* yasminkov_7000v_ct(void* a0, s32 _w1, void * _w2);
-u8 *create_yasminkov_7000v(u8 *arg0);
 f32 vec_squared_length();
 f32 newton_sqrtf();
 extern f32 lbl_805DB068;
@@ -32,10 +29,8 @@ f32 cos_table_lookup(s32);
 extern const f32 lbl_805DB050;
 extern const f32 lbl_805DB058;
 extern const f32 lbl_805DB05C;
-void *spawn_particle_effect(void *pos, s32 id);
 extern u8 lbl_80506250[];
 void TObjGyaranzoMissile__sub_80131488(Obj_80131488 *self);
-void yasminkov_7000v_node_callback(void* p);
 int post_translate_matrix(void*);
 int get_player_list__10TObjPlayerFv(void*);
 

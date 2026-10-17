@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TOBind_801586B8.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TOBind.h"
 #include "pso/TParticleCtrl.h"
@@ -47,7 +50,6 @@ extern const f32 lbl_805DB300;
 extern const f32 lbl_805DB304;
 extern const f32 lbl_805DB308;
 extern const f32 lbl_805DB30C;
-u8 *TOBind__ct(u8 *arg0, s32 arg1);
 struct BindBase_801586B8 { char pad[0x18]; };
 struct BindObj_801586B8 : BindBase_801586B8 {
     virtual void m0();
@@ -61,15 +63,12 @@ struct BindObj_801586B8 : BindBase_801586B8 {
     virtual s32 m8(f32, f32);
 };
 
-void *__dt__6TOBindFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
-void draw_ginja_object(void *child);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 free_collision_body_parts(void *);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 

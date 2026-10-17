@@ -1,4 +1,11 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type2_800874F4.h"
+#include "pso/misc/TParticleCtrl_800867E4.h"
+#include "pso/misc/TTecGiZonde_8023A4CC.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_800871A0.h"
+#include "pso/unk/text_80087278.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804CCC68.h"
 #include "pso/misc/TTecGiBarta.h"
@@ -124,15 +131,9 @@ extern "C" {
 void *get_bml_motion(void *, u32);
 void *get_bml_model(void *, u32);
 void attach_particle_model(void *, void *, void *, void *, s32, f32);
-void *create_timed_particle_emitter(void *, s32, s32, s32);
-void *spawn_continuous_particle_with_direction(void *pos, void *dir, s32 id);
-void *spawn_particle_effect(void *, s32);
-void *create_particle_emitter(void *pos, s32 id);
 void **mem_alloc(u32);
 void matrix_mult_vec(s32, void *, void *);
 void rotate_matrix_y(s32, s32);
-s32 push_matrix_from(void *src);
-s32 pop_matrices(s32 arg0);
 extern Vec_802304A0 lbl_8044D288;
 extern u8 identity_matrix[];
 extern void *technique_effect_bml;
@@ -147,7 +148,6 @@ extern RecoveredGlobal_802308A0_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_802308A0_lbl_804CC55C lbl_804CC55C;
 u16 obj_getField1c(void *);
 void TTecGiBarta__vt6(Obj_802309AC *self, VObj_802309AC *target);
-void queue_destruction__7TObjectFv(void *arg0);
 void mem_free(void *p);
 void __dl__7TObjectFPv(void *);
 extern void *__vt__11TTecGiBarta[];
@@ -160,7 +160,6 @@ void construct_facing_technique__10TObjPlayerFPviPvii();
 s32 play_sound_effect(s32, s32, s32, s32);
 u32 find_entity_by_id(u16);
 void *__nw__7TObjectFUl(int);
-void move_technique_projectile(u8 *arg0);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 
 void TTecGiBarta::update_technique_by_phase() {

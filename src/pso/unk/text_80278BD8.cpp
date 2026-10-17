@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80278BD8.h"
 #include "pso/item/TItem.h"
 #include "pso/misc/TShopJudgmentItemWindow.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -12,8 +13,6 @@ u8 *get_player_by_client_id(s16);
 void calc_list_content_extent(void *);
 void populate_judgment_item_list(Wn_80278DA4 *arg0);
 u8 get_field_ec__5TItemFv();
-void build_mag_item_candidates(void *arg0, u16 arg1);
-void add_armor_equip_candidates(u8 *arg0, u16 kind, u16 sub);
 
 void add_armor_equip_candidates(u8 *arg0, u16 kind, u16 sub) {
     s32 ids[30];

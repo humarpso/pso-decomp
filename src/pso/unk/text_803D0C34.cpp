@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803D0C34.h"
 
 #include "stdarg.h"
 typedef void (*RecoveredCallback_c88e8900640a)(s32, u8 *);
@@ -8,7 +9,6 @@ typedef void (*RecoveredCallback_c88e8900640a)(s32, u8 *);
 
 extern "C" {
 extern s32 dvd_synchronous_read_enabled;
-void set_dvd_synchronous_read_mode(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 int vsprintf(char *s, const char *fmt, va_list ap);
 extern u8 log_printf_buffer[];
 extern RecoveredCallback_c88e8900640a log_printf_callback;

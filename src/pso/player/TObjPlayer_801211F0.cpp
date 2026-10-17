@@ -1,11 +1,9 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801211F0.h"
 #include "pso/items/TItemWeapon.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-
-void increment_model_node_counter(void);
-void reset_model_node_counter(void);
 
     extern int model_node_counter;
 void increment_model_node_counter(void) {

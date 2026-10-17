@@ -1,4 +1,5 @@
 #include "pso/protocol/subcommand_validation.h"
+#include "pso/protocol/subcommand_validation_technique.h"
 
 extern "C" {
 s32 is_valid_technique_id__10TObjPlayerFs(s32);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowKeyBoardSoft_8024E68C.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -41,7 +42,6 @@ extern const f32 lbl_805DCC88;
 extern const float lbl_805DCC78;
 extern const f32 lbl_805DCC7C;
 extern const f32 lbl_805DCC80;
-void apply_window_closing_stretch(u8 *arg0, int arg1);
 void apply_context_transform_to_rect(Ctx_8024E6D8 *c, f32 *q);
 s32 is_split_screen();
 f32 TCameraCtrl__sub_80068A04(s32);
@@ -57,8 +57,6 @@ extern const f32 lbl_805DCC9C;
 extern const f32 lbl_805DCCA0;
 extern const f32 lbl_805DCCA4;
 u32 init_text_window_layout(Win_8024EA50 *win, f32 *pos, f32 *size, f32 *scale, u32 flags, f32 depth);
-u32 open_singleton__19TWindowKeyBoardSoftFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, u32 _w4, f32 _w5);
-s32 try_open__19TWindowKeyBoardSoftFii(s32 arg0, s32 arg1);
 
 typedef struct RecoveredFields_8024E754_arg0 RecoveredFields_8024E754_arg0;
 #pragma fp_contract on

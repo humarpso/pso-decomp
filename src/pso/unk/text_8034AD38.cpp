@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80086E28.h"
+#include "pso/unk/text_8034AD38.h"
 #include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
 struct Slot_8034AD38 { void *ctrl; u8 pad[0x18]; };
@@ -28,13 +31,10 @@ struct Node_8034AF18 { s32 f0; s32 f4; };
 
 extern "C" {
 void *__dt__7TObjectFv(void *, s16);
-void queue_destruction__7TObjectFv(void *);
 void __dl__7TObjectFPv(void *);
 extern void *__vt__17TAdFloorLoadPrtGC[];
 TAdFloorLoadPrtGC_8034AD38 *__dt__17TAdFloorLoadPrtGCFv(TAdFloorLoadPrtGC_8034AD38 *self, s16 deleting);
 extern s16 lbl_804F0070[];
-void push_recent_id(s16 arg0);
-void *create_particle_controller_with_angles(void *arg0, void *arg1, s32 arg2, s32 arg3, u16 arg4);
 s32 __ct__7TObjectFP7TObject(void *);
 void *memset(void *, int, u32);
 extern Vec_8034ADE0 floor_load_particle_positions[];
@@ -43,7 +43,6 @@ extern Vec_8034ADE0 lbl_80478B48[];
 extern Ang_8034ADE0 lbl_80478B54[];
 extern s32 lbl_805D4330;
 Prt_8034ADE0 *TAdFloorLoadPrtGC__ct(Prt_8034ADE0 *arg0);
-void clear_window_dd_nodes(void);
 TAdFloorLoadPrtGC_8034AD38 *__dt__17TAdFloorLoadPrtGCFv(TAdFloorLoadPrtGC_8034AD38 *self, s16 deleting) {
     s32 i;
     if (self) {

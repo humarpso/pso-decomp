@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_8026934C.h"
 #include "pso/misc/TShopSequence.h"
 #include "pso/misc/TJudgmentSequence.h"
 #include "pso/TShopWindowBase.h"
@@ -49,16 +52,13 @@ struct Win_80215CB8 { u8 pad[0x16c]; void *cb0; void *cb1; void *cb2; };
 struct Seq_80215CB8 { u8 pad[0x24]; s32 f24; };
 
 extern "C" {
-s32 create_meseta_window(s32);
 s32 set_service_counter_camera(void *, int);
 s32 get_window_layout_position(int, f32);
 extern const f32 lbl_805DC680;
 extern const f32 lbl_805DC684;
-void queue_destruction__7TObjectFv(void *arg0);
 void *__dt__13TShopSequenceFv(void *arg0, s16 arg1);
 s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 __dl__7TObjectFPv(void *);
-void TWindow__close(u8 *arg0);
 extern RecoveredGlobal_80215EF8___vt__17TJudgmentSequence __vt__17TJudgmentSequence;
 extern RecoveredGlobal_80215EF8_TJudgmentSequence__data_80513E80 TJudgmentSequence__slot_flags;
 extern s32 judgment_sequence_instance;

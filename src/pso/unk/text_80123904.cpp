@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80123904.h"
 #include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80123904_lbl_804A1B40 {
@@ -9,10 +10,8 @@ struct RecoveredGlobal_80123904_lbl_804A1B40 {
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_80123950(u8 *arg0);
 u8 * TItemWeapon__ct(void *, void *);
 extern RecoveredGlobal_80123904_lbl_804A1B40 lbl_804A1B40;
-u8 *TObjPlayer__sub_80123904(u8 *arg0, u8 *arg1, s32 _w2);
 
 typedef char RecoveredGlobal_80123904_lbl_804A1B40_size[sizeof(RecoveredGlobal_80123904_lbl_804A1B40) == 0xF8 ? 1 : -1];
 u8 *TObjPlayer__sub_80123904(u8 *arg0, u8 *arg1, s32 _w2) {

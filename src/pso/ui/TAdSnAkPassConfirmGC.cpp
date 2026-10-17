@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/ui/TAdSnAkPassConfirmGC.h"
 #include "pso/TMainTask.h"
 #include "pso/misc/TWindowOptionCtrl.h"
@@ -44,15 +47,8 @@ extern u8 lbl_804772D0[];
 extern s32 __vt__20TAdSnAkPassConfirmGC[];
 extern s32 lbl_805D41F0;
 Obj_8032C004 *TAdSnAkPassConfirmGC__ct(Obj_8032C004 *arg0);
-int TAdSnAkPassConfirmGC__vt4(void* p);
-int TAdSnAkPassConfirmGC__vt5(void* p);
-void TAdSnAkPassConfirmGC__vt8(void);
-void *__dt__20TAdSnAkPassConfirmGCFv(void *arg0, s16 arg1);
-s32 get_localized_text_entry(s32 arg0, s32 arg1);
 void *__dt__14TAdYesNoBaseGCFv(void *arg0, s16 arg1);
-void TWindow__close(u8 *arg0);
 void __dl__7TObjectFPv(void *);
-void queue_destruction__7TObjectFv(void *);
 int request_transition__21TAdMultiChgGameModeGCFv(void*);
 int set_state_0x1a__21TAdMultiChgGameModeGCFv(void*);
 

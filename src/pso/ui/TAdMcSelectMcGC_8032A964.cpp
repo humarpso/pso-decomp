@@ -1,4 +1,5 @@
 #include "pso/TObject.h"
+#include "pso/ui/TAdMcSelectMcGC_8032A964.h"
 class TAdMcSelectMcGC : public TObject {
 public:
     virtual ~TAdMcSelectMcGC();
@@ -22,15 +23,12 @@ struct Alt_8032A9BC { u8 pad[0x120]; s32 f120, f124, f128, f12C, f130; };
 extern "C" {
 s32 TLobby__sub_803DA16C(void *, s32);
 extern int TAdMcSelectMcGC__texture_list_ptr;
-void release_selected_entry__15TAdMcSelectMcGCFv(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 __vt__15TAdMcSelectMcGC[];
 extern s32 lbl_805D41D8;
 extern const f32 lbl_805DF75C;
 extern const f32 lbl_805DF760;
 Obj_8032A9BC *__ct__15TAdMcSelectMcGCFv(Obj_8032A9BC *arg0, void *arg1, s32 arg2);
-s32 TAdMcSelectMcGC__sub_8032AAC4(void* p);
-void init_memorycard__15TAdMcSelectMcGCFv(void);
 int TLobby__sub_8023E4B4(void*, void*);
 
     extern unsigned char lbl_80477150[];

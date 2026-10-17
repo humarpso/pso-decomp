@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_802431D0.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/misc/TWindowKeyBoardHard.h"
 
 extern "C" {
 
-int TAdSinglePlyChrSelectGC__sub_802431D0(void);
 s32 TAdPlayerLoadGC__sub_801E15A4(s32, s32, s32, s32, s32 *, s32);
 int TAdPlayerLoadGC__sub_801E1944(void*, int, int, int);
 int reset_pad_rumble_effects_and_channels(void*);

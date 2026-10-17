@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8014B8A4.h"
 #include "pso/npc/TObjNpcMaleFat.h"
 #include "pso/npc/TUnk_804A9F50.h"
 #include "pso/npc/TObjNpcBase.h"
@@ -96,13 +97,9 @@ struct RecoveredGlobal_8014BFD4___vt__14TObjNpcMaleFat {
 };
 
 extern "C" {
-u8 *construct_male_npc_base(u8 *arg0);
 extern s32 __vt__14TObjNpcMaleFat[];
 extern s32 TObjNpcMaleFat__name;
 extern u8 *TObjNpcMaleFat__static_model_resource;
-u8 *TObjNpcMaleFat__ct(u8 *arg0, s32 arg1, s32 arg2);
-void * TObjNpcMaleMacho__create(void *arg0);
-void *__dt__14TObjNpcMaleFatFv(void *arg0, s16 arg1);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcMaleMacho__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);

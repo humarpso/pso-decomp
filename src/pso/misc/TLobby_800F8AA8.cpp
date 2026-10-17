@@ -1,4 +1,13 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl_803D6538.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TLobby_800F8AA8.h"
+#include "pso/misc/TPlyJoinLobbyEntry.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
+#include "pso/misc/pso_date.h"
+#include "pso/system/ModelDrawContext.h"
+#include "pso/unk/text_80141A30.h"
+#include "pso/unk/text_803DCDFC.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/system/main_loop.h"
 #include "pso/misc/TKeyBoardControl.h"
@@ -744,11 +753,6 @@ __declspec(section ".data") void *lbl_8049C61C[2] = {
 
 void TLobby::reset_keyboard_state() { area_transfer_pending_flag = 0; TKeyBoardControl::reset(); }
 
-bool is_area_transfer_pending(void);
-void TLobby__sub_800F8AD0(void);
-s32 TKeyBoardControl__sub_8000F92C(void);
-void TLobby__sub_800F8BD8(void);
-
 extern u32 main_phase_deferred_callback;
 
 void TLobby__sub_800F8AD0(void) {
@@ -763,9 +767,7 @@ bool is_area_transfer_pending(void) {
 
 void TLobby::clear_callback_and_reset_keyboard() { TLobby::set_keyboard_mode(0); TKeyBoardControl::reset(); }
 
-s32 get_main_phase();
 int is_quest_active(void);
-void apply_phase_keyboard_mode(void);
 #define main_phase_deferred_callback (*(s32 (**)())&main_phase_deferred_callback)
 
 void apply_phase_keyboard_mode(void) {
@@ -868,11 +870,6 @@ extern const char lbl_8043D9F4[];
 void *tmp_buf_use_req__6TLobbyFPCc(const char *);
 s32 prs_decompress_buffer(void *, void *);
 s32 load_gvm_texture_archive(void *, void *);
-void begin_screen_draw(s32 arg0);
-void draw_textured_quad_at_depth(f32 *q, f32 depth);
-void set_draw_texture_and_color(s32 idx, s32 arg1);
-void TLobby__sub_800F8DD8(void);
-void TLobby__sub_800F8F34(void);
 
 void TLobby::set_read_params(int a0, int a1, int a2) { (*(int *)&pending_file_read_handle_ref) = a0; (*(int *)&pending_file_read_sector_count) = a1; (*(int *)&pending_file_read_destination) = a2; }
 
@@ -942,8 +939,6 @@ void TLobby::reset_state_byte() {
 
 extern "C" {
 
-void TLobby__sub_801384E4(void);
-
 void TLobby::wait_ready_loop() {
     (*(s8 *)&lobby_wait_ready_flag) = 0;
 loop_1:
@@ -974,15 +969,9 @@ typedef struct {
 s32 DVDGetDriveStatus(void);
 void TCameraCtrl__sub_80068EF0(void);
 
-void restore_saved_depth_alpha_state(void);
 void draw_string__14TObjWarpStringFlff(u8 *arg0, s32 arg1, f32 farg0, f32 farg1);
 s8 func_801A5E54__Fv(void);
-void reset_system(void);
-void system_reset(void);
 s32 DVDCheckDisk(void);
-void set_perspective_projection_from_fov(s32, f32, f32, f32);
-void set_cached_blend_factor(s32, s32);
-void func_803DCDFC__Fv(void);
 
 #define show_msg_800F8FB8(arr, i) ((void (*)(f32, f32, u8 *, s32))draw_string__14TObjWarpStringFlff)(arr[i].x, arr[i].y, arr[i].str, 0x8FFFFFFF)
 

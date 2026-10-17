@@ -17,4 +17,9 @@ struct TMotorcycle : public TObjMesBase {
 };
 
 typedef char TMotorcycle_size[sizeof(TMotorcycle) == 0xC0 ? 1 : -1];
+extern "C" {
+void *TMotorcycle__ct(void *arg0, void *arg1, void *arg2);
+void *__dt__11TMotorcycleFv(void *arg0, s16 arg1);
+}
+
 #endif

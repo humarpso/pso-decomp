@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/boss/TBoss6Type2.h"
 
 extern "C" {
@@ -7,7 +8,6 @@ void post_translate_matrix(void *);
 void boss6type2_draw_models(void *, void *, void *, void *, void *, void *, void *, void *, f32);
 void rotate_matrix_y(int, void *);
 void push_matrix(void *);
-s32 pop_matrix(void);
 
 extern const f32 TBoss6Type2__data_805DE40C;
 

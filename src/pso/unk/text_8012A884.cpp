@@ -1,4 +1,13 @@
 #include "types.h"
+#include "pso/item/TItemEquipVariant_8012A82C.h"
+#include "pso/item/TItem_80100508.h"
+#include "pso/item/TItem_80100674.h"
+#include "pso/item/WeaponAttackActions.h"
+#include "pso/misc/pso_const_ids6.h"
+#include "pso/player/TObjPlayer_8012105C.h"
+#include "pso/player/TObjPlayer_801283B8.h"
+#include "pso/unk/text_8012A418.h"
+#include "pso/unk/text_8012A884.h"
 #include "pso/unk/TUnk_804A4948.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItem.h"
@@ -11,31 +20,18 @@ extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 void TItemWeapon__ct(void *);
-u8 *construct_srank_weapon(void *arg0, s32 arg1, void *arg2);
 
 struct Inc_8012A884;
 extern "C" s8 TItemEquipBase__sub_8010A77C(u8 *arg0);
-extern "C" void TItem__sub_801005D8();
-extern "C" void TItem__sub_801005E0();
-extern "C" int TItem__sub_801005E4(void);
-extern "C" void TItem__sub_80100648();
-extern "C" int TItem__sub_80100B8C(void *p);
 extern "C" void vfunc_6__13TUnk_804B9870FPsl();
-extern "C" void TItemWeapon__sub_8011E5C0();
-extern "C" void TItemWeapon__sub_8011E5C4();
-extern "C" void TItemWeapon__sub_8011E5C8();
 extern "C" void update_weapon__11TItemWeaponFv();
 extern "C" void reserved_53__11TItemWeaponFv();
-extern "C" void TItemWeapon__sub_8011E5D8();
 extern "C" void update_attack__11TItemWeaponFv();
 extern "C" void vfunc_17__11TItemWeaponFl();
 extern "C" void vfunc_14__11TItemWeaponFv();
 extern "C" void vfunc_50__11TItemWeaponFv();
 extern "C" void TItemWeapon__write_item_data();
 extern "C" void vfunc_45__11TItemWeaponFv();
-extern "C" u8 TItemWeapon__sub_80121064(void *p);
-extern "C" void srank_marker_noop();
-extern "C" void receive_srank_hit(void *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 farg0);
 extern "C" void emit_marker_effects__13TUnk_804A4948Fv();
 extern "C" void add_equip_stats__14TItemEquipBaseFl();
 extern "C" void vfunc_44__11TItemWeaponFv();
@@ -50,7 +46,6 @@ extern "C" void vfunc_26__11TItemWeaponFv();
 extern "C" void equip__14TItemEquipBaseFv();
 extern "C" void get_attack_flags__11TItemWeaponFv();
 extern "C" void get_motion_ptr__11TItemWeaponFv();
-extern "C" void *__dt__13TUnk_804A4948Fv(void *arg0, s16 arg1);
 extern "C" void launch_shot__11TItemWeaponFPUclll();
 extern "C" void vfunc_46__11TItemWeaponFv();
 extern "C" void register_attack__5TItemFv();
@@ -59,10 +54,6 @@ extern "C" void remove_equip_stats__14TItemEquipBaseFl();
 extern "C" void render_shadows__5TItemFv();
 extern "C" void vfunc_49__11TItemWeaponFv();
 extern "C" void release__11TItemWeaponFv();
-extern "C" int ret_8010064C(void);
-extern "C" int ret_80100654(void);
-extern "C" int ret_8010065C(void);
-extern "C" int ret_80100664(void);
 extern "C" void run_task__5TItemFv();
 extern "C" void set_attach_slot__14TItemEquipBaseFSc();
 extern "C" void subtract_equip_stats__14TItemEquipBaseFlPUcPUc();

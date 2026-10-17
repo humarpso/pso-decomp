@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/GinjaModelQueue.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TLobby.h"
@@ -22,24 +24,17 @@ struct Tbl_803D9E38 { u8 pad[8]; Ent_803D9E38 arr[1]; };
 extern "C" {
 extern u32 matrix_stack_base;
 extern u32 current_matrix;
-s32 pop_matrix(void);
-s32 pop_matrices(s32 arg0);
 f32 PSMTXConcat(int, int, int);
-s32 TObjPlayer__sub_803DB244();
 extern u32 matrix_stack_limit;
-s32 push_matrix_from(void *src);
-void TObjPlayer__sub_803D9C60(u32 *p);
 void PSMTXQuat(void *, void *);
 s32 fn_803DA12C(u8 *, s32, s32, s32);
 extern G_803D9DA8 lbl_8058D470;
 s32 TObjPlayer__sub_803D9DA8(A_803D9DA8 *arg0, B_803D9DA8 *arg1);
 void PSMTXRotRad(Matrix34*, char, f32);
 void rotate_matrix_x(Matrix34* matrix, s32 angle);
-u32 *find_gvrt_texture_chunk(void *arg0, u32 *arg1, u32 *arg2);
 s32 find_free_slot__10TObjPlayerFPvPv(void *, int);
 s32 TObjPlayer__sub_803DAD24(int, int);
 extern s32 record_array_ptr;
-s32 TObjPlayer__sub_803D9E38(s32 *arg0, u32 arg1, s32 *arg2, u32 *arg3);
 
 __declspec(section ".sdata2") extern const f64 lbl_805E0F48;
 void rotate_matrix_x(Matrix34* matrix, s32 angle) {

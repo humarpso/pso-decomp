@@ -1,8 +1,7 @@
 #include "types.h"
+#include "pso/npc/TObjNpcLappy_8014B828.h"
 
 extern "C" {
-
-void TObjNpcLappy__sub_8014B828(void);
 
 extern u32 npc_lappy_cached_object;
 

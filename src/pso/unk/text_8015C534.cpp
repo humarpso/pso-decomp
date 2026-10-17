@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/unk/text_8015C534.h"
+#include "pso/unk/text_8018A150.h"
 #include "pso/player/TUnk_804B08BC.h"
 #include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
@@ -18,15 +20,12 @@ s32 TLobby__sub_8001FE7C(u32, int);
 void mem_free(void *p);
 extern u32 ancient_container_resource_bundle;
 extern u32 ancient_container_fragment_texture_lists;
-void fn_8015C5F8(void);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
 s32 init_collision_body_parts(void *, void *, int);
-u8 *init_container_base(u8 *arg0, s32 arg1, s32 arg2);
 extern RecoveredGlobal_8015C534_lbl_804B00C8 TOContainerAncientEnemy__collision_body_params;
 extern RecoveredGlobal_8015C534_lbl_804B08BC lbl_804B08BC;
 extern s32 tl_05;
-u8 *init_ancient_container(u8 *arg0, s32 arg1);
 
 typedef char RecoveredGlobal_8015C534_lbl_804B00C8_size[sizeof(RecoveredGlobal_8015C534_lbl_804B00C8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8015C534_lbl_804B08BC_size[sizeof(RecoveredGlobal_8015C534_lbl_804B08BC) == 0x14C ? 1 : -1];

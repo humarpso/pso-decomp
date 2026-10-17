@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8012E760.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TItemAttacker.h"
 
 extern "C" {
 void *__nw__7TObjectFUl(u32);
-int expire_weapon_casing(void *p);
 
 void TObjPlayer::spawn_weapon_casing(s32 arg0, u32 arg1, u32 arg2, u32 arg3, u32 arg4) {
     void *p;

@@ -1,10 +1,7 @@
 #include "types.h"
+#include "pso/ui/TAdLoadQuestGC_80309854.h"
 
 extern "C" {
-
-int TAdLoadQuestGC__sub_80309854(int a0);
-int TAdLoadQuestGC__sub_80309868(int a0);
-int TAdLoadQuestGC__sub_8030987C(int a0);
 
     extern int ad_load_quest_cell_table[];
 int TAdLoadQuestGC__sub_80309854(int a0) {  return ad_load_quest_cell_table[a0]; }

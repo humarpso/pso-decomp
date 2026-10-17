@@ -1,14 +1,14 @@
 #include "types.h"
+#include "pso/misc/TWindowMakeTeam_80265298.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TWindowMakeTeam.h"
 
 extern "C" {
 
-void *__dt__15TWindowMakeTeamFv(void *arg0, s16 arg1);
 void mem_free(void *);
-void TWindow__close(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void queue_destruction__7TObjectFv(void *);
 
 extern s32 __vt__15TWindowMakeTeam[];
 

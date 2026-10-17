@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/misc/TOKey_8015845C.h"
+#include "pso/misc/TORainbowCave01_80173014.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TORainbowCave01.h"
@@ -53,21 +58,15 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_80173330_lbl_804B3A18 abeniji_fe_obj001_niji_resource_descriptor;
 extern u32 TORainbowCave01__static_model_resource;
-void *init_map_object_base(void *a0);
 extern s32 __vt__15TORainbowCave01[];
 extern s32 TORainbowCave01__name;
-u8 *TORainbowCave01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void rotate_matrix_y(s32, s32);
 void push_matrix(void);
-s32 pop_matrix(void);
 void scale_current_matrix(void *);
 void post_translate_matrix(void *);
-void draw_ginja_object(void *child);
-void set_chunk_material_color(f32 *arg);
 extern Color_8017310C chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-void *__dt__15TORainbowCave01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 f32 horizontal_distance_squared(s32, s32);
 s32 find_entity_by_id(u16);

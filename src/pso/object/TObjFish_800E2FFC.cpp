@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TQuestListVM_8007EAF8.h"
+#include "pso/object/TObjFish_800E2FFC.h"
 #include "pso/object/TObjFish.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -21,11 +23,8 @@ struct Arg_800E3074 { Entry_800E3074 *list; Param_800E3074 *params; };
 
 extern "C" {
 u8 * fn_800E31C4(void *, void *, s32);
-s32 TObjFish__sub_800E3124(u8 *arg0, s32 arg1);
 extern State_800E2FFC TObjFish_draw_callback_state;
 int transform_to_view__11TCameraCtrlFii(void *, void *);
-s32 TObjFish__sub_800E3188(s32 arg0, s16 arg1);
-void __dl__FPv(void);
 
 void TObjFish::draw_callback_transform_to_view() {
     Entry_800E2FFC *p = TObjFish_draw_callback_state.list;

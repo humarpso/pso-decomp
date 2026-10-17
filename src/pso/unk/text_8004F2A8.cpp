@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_80052374.h"
+#include "pso/player/TObjPlayer_803E4954.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjDFDemo4.h"
 #include "pso/boss/TBoss4Type2.h"
@@ -44,15 +48,11 @@ struct Self_8004F3D4
 };
 
 extern "C" {
-void TObjPlayer__sub_80052390(f32);
 void rotate_matrix_y(s32, s32);
 void push_matrix();
-s32 pop_matrix(void);
 void post_translate_matrix(void *);
-void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern const f32 lbl_805D89F4;
 extern const f32 lbl_805D89F8;
-void queue_destruction__7TObjectFv(void *);
 void set_scripted_camera_pose(void *, void *, void *);
 u32 spawn_particle_effect(void *, s32);
 u32 create_particle_emitter(void *, s32);

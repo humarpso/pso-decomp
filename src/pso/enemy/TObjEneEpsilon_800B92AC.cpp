@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneEpsilon_800B92AC.h"
 #include "pso/boss/TBoss5Gryphon.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/boss/TBoss2DeRolLe.h"
@@ -8,11 +9,9 @@
 struct O_800B98C0;
 extern "C" {
 s32 tick_period_counter(s32, void *, s32);
-int copy_position__14TObjEneEpsilonFPv(void *, void *);
 void enemy_clear_target__12TObjEneDD_STFUs(O_800B98C0 *self, u16 _w1);
 s32 enemy_tick_target_acquisition__12TObjEneDD_STFPllf(u8 *arg0, s32 *counter, s32 limit, f32 scale);
 void spawn_part__14TObjEneEpsilonFi(s32 arg0);
-s32 enemy_bind_or_clear_target(void *self, u16 x);
 u16 enemy_find_nearest_player_in_range(void *, f32);
 }
 #define enemy_clear_target__12TObjEneDD_STFUs ((s32 (*)(void *))enemy_clear_target__12TObjEneDD_STFUs)
@@ -124,12 +123,7 @@ struct VObj_18_807e53 : VBase_18_807e53 {
 };
 
 extern "C" {
-void enemy_turn_and_move_on_ground(u8 *arg0, s32 arg1, f32 farg0);
-void TObjEneEpsilon__sub_800B9384(u8 *arg0, s32 arg1, f32 farg0);
-void TObjEneEpsilon__sub_800B92AC(u8 *arg0, s32 arg1, f32 farg0);
-void TObjEneEpsilon__sub_800B92F8(u8 *arg0, s32 arg1, f32 farg0);
 s32 transform_relative_position__9TObjEneDDFPv(void *, int);
-s32 enemy_validate_retained_target(u8 *arg0);
 struct Base_800B9578_800B92AC { char pad[0x18]; };
 struct VObj_800B9578_800B92AC : Base_800B9578_800B92AC {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -423,7 +417,6 @@ struct VObj_800B97B4 : Base_800B97B4 {
 
 extern "C" {
 
-s32 enemy_bind_or_clear_target(void *, u16);
 u16 set_squared_value__9TObjEneDDFf(void *, f32);
 
 void TObjEneDD_ST::select_and_apply_target(f32 farg0) {
@@ -457,7 +450,6 @@ s32 find_active_entity_by_id(u16);
 void enemy_set_target_id(Obj_800B9958 *self, u16 id);
 void *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
-int TObjEneEpsilon__vt101(void* p);
 
 s32 enemy_bind_or_clear_target(void *self, u16 x) {
     if (x != 0xFFFF) {

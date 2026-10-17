@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/ui/TAdDialingMessageWindow_8036A064.h"
 #include "pso/ui/TUnk_804F3428.h"
 #include "pso/ui/TAdDialingMessageWindow.h"
 
 extern "C" {
 
-void *__dt__13TUnk_804F3428Fv(void *arg0, s16 arg1);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);

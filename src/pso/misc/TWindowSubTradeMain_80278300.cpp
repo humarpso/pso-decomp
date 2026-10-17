@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_80287570.h"
 #include "pso/misc/TWindowSubTradeMain.h"
 
 extern "C" {
@@ -25,7 +26,6 @@ s32 get_message_10__20TWindowSubStatusDispFl(s32);
 u32 calc_text_width(void);
 void draw_window_text(V2_8027831C *, s32, u32, s32, f32);
 void set_text_draw_params(Win_8027831C *, s32, s32, f32, f32);
-f32 TWindowSubStatusDisp__sub_80287570(void *arg0);
 void draw_window_tab(Win_8027831C *, V2_8027831C *, u8, f32);
 extern s32 status_disp_tab_label_message_ids[];
 extern const u8 lbl_805DD5F8[4];

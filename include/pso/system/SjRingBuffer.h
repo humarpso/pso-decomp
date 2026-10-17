@@ -55,4 +55,22 @@ s32 sj_ring_buffer_get_extra_buffer_size(SjRingBuffer* buffer);
 s32 sj_ring_buffer_get_buffer_size(SjRingBuffer* buffer);
 u8* sj_ring_buffer_get_buffer(SjRingBuffer* buffer);
 }
+extern "C" {
+SjRingBuffer *sj_ring_buffer_create(void *data, s32 bsize, s32 x24);
+void sj_ring_buffer_destroy(SjRingBuffer *arg0);
+void sj_ring_buffer_error_halt(void *, s32);
+s32 sj_ring_buffer_get_available(SjRingBuffer *arg0, s32 arg1);
+u8 *sj_ring_buffer_get_buffer(SjRingBuffer *buffer);
+s32 sj_ring_buffer_get_buffer_size(SjRingBuffer *buffer);
+void sj_ring_buffer_get_chunk(SjRingBuffer *r, s32 which, s32 max, SjChunk *out);
+s32 sj_ring_buffer_get_extra_buffer_size(SjRingBuffer *buffer);
+const u8 *sj_ring_buffer_get_uuid(SjRingBuffer *arg0);
+void sj_ring_buffer_init(void);
+bool sj_ring_buffer_is_chunk_available(SjRingBuffer *o, s32 mode, s32 n, s32 *out);
+void sj_ring_buffer_put_chunk(SjRingBuffer *o, s32 mode, SjChunk *b);
+void sj_ring_buffer_reset(SjRingBuffer *arg0);
+void sj_ring_buffer_shutdown(void);
+void sj_ring_buffer_unget_chunk(SjRingBuffer *arg0, s32 arg1, SjChunk *arg2);
+}
+
 #endif

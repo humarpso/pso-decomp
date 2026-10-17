@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8012121C.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/player/TUnk_804A3358.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -49,12 +51,9 @@ struct Rec_80127694 {
 };
 
 extern "C" {
-void *spawn_particle_effect(void *pos, s32 id);
 void draw_icon__10TObjPlayerFll(void *, int, void *);
 s16 is_status_subsystem_ready__10TObjPlayerFv(void *);
-s16 get_captured_target_collider_index(void *);
 void *get_captured_target_entry(void *, int);
-s32 get_captured_target_count(s32 *arg0);
 void TUnk_804A3358::emit_marker_effects() {
     u8 pos[12];
     Rec_80127694 rec;

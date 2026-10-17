@@ -1,15 +1,9 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801AEB84.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void apply_luck_reward__10TObjPlayerFiUc(s32 arg0, u8 arg1);
-void add_dfp_material__10TObjPlayerFiUc(s32 arg0, u8 arg1);
-void add_evp_material__10TObjPlayerFiUc(s32 arg0, u8 arg1);
-void add_mst_and_item__10TObjPlayerFiUc(s32 arg0, u8 arg1);
-void add_stat_and_item__10TObjPlayerFiUc(s32 arg0, u8 arg1);
-void set_speed_scaled_by_camera__10TObjPlayerFiUc(s32 arg0, u8 arg1);
-void apply_speed_with_camera_scale__10TObjPlayerFiUc(s32 arg0, u8 arg1);
 s32 add_actor_tp_bonus(void *, int);
 s32 add_actor_hp_bonus(void *, int);
 s32 get_class_index__10TObjPlayerFv(void *);

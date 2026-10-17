@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TOWreckAncient.h"
@@ -55,11 +57,9 @@ u8 *TOWreckAncient__ct(u8 *arg0, s32 arg1);
 void *__dt__14TOWreckAncientFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
-void draw_ginja_object(void *child);
 s32 free_collision_body_parts(void *);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 s32 __dl__7TObjectFPv(void *);
 
 void TOWreckAncient::render() {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl_8006782C.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_804887F8.h"
 #include "pso/misc/TUnk_80488E00.h"
@@ -36,8 +37,6 @@ extern const f32 lbl_805D8F3C;
 extern const f32 lbl_805D8F40;
 extern const f32 lbl_805D8F44;
 extern const f32 lbl_805D8F48;
-void *TCameraCtrl__vt12(void);
-void *__dt__13TUnk_804887F8Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);

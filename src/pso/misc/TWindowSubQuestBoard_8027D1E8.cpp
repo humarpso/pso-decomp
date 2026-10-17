@@ -1,12 +1,11 @@
 #include "types.h"
+#include "pso/misc/TWindowSubQuestBoard_8027D1E8.h"
 #include "pso/misc/TWindowSubQuestBoard.h"
 
 struct Obj_8027D1E8 { u8 pad[0x60]; s8 f60; };
 
 extern "C" {
 void fn_8027D1E8(Obj_8027D1E8 *o);
-void TWindowCtrl__sub_8027D1F8(void);
-void TWindowCtrl__sub_8027D214(void);
 
 extern void *TWindowCtrl__active_window;
 

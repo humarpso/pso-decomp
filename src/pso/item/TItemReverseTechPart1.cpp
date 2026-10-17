@@ -1,4 +1,6 @@
 #include "pso/TItemReverseTechPart1.h"
+#include "pso/item/TItemReverseTechPart1.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/ui/TAdRicoRingCtrl.h"
 
 #include "types.h"
@@ -15,7 +17,6 @@ struct Self_80119DA0 {
     void *ring;
 };
 
-void queue_destruction__7TObjectFv(void *);
 void TAdRicoRingCtrl__sub_8001B4A0(void *, f32);
 void *TAdRicoRingCtrl__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
@@ -79,7 +80,6 @@ TItemReverseTechPart1::~TItemReverseTechPart1() {}
 
 extern "C" {
 
-void *TItemReverseTechPart1__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern s32 __vt__21TItemReverseTechPart1[];

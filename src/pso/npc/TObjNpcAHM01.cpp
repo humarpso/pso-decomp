@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TLanguage_801E4874.h"
+#include "pso/npc/TObjNpcARM00.h"
+#include "pso/unk/text_800F9B84.h"
+#include "pso/unk/text_8014B8A4.h"
 #include "pso/npc/TUnk_804A9F50.h"
 #include "pso/npc/TObjNpcAHM01.h"
 #include "pso/misc/TLobby.h"
@@ -99,21 +103,14 @@ struct RecoveredGlobal_80147C18___vt__12TObjNpcAHM01 {
 
 extern "C" {
 s32 play_sound_effect(int, void *, int, int);
-u8 *construct_male_npc_base(u8 *arg0);
 extern s32 __vt__12TObjNpcAHM01[];
 extern s32 TObjNpcAHM01__name;
 extern u32 TObjNpcAHM01__shared_object;
 extern u32 TObjNpcAHM01__texture_handle;
-u8 *TObjNpcAHM01__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 create_named_object(s32 arg0);
-u8 *load_gvm_texture_file(s32 arg0);
 extern char lbl_8043F438[];
 extern char lbl_8043F44C[];
-void * TObjNpcARM00__create(void *arg0);
-void *__dt__12TObjNpcAHM01Fv(void *arg0, s16 arg1);
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);
-u8 *TObjNpcARM00__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 

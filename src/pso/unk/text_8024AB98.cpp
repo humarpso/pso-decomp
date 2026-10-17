@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8024AB98.h"
 
 #include <stddef.h>
 struct Stack_8024AB98 {
@@ -37,11 +38,8 @@ struct RecoveredGlobal_8024AC20_lbl_804CEA58 {
 extern "C" {
 s32 call_window_method__11TWindowCtrlFPvi(void *, void *);
 extern RecoveredGlobal_8024AB98_lbl_804CEA70 TWindowSubComCard__window_ctrl_callback_pmf;
-void TWindowSubComCard__sub_8024AB98(s32 arg0);
 extern RecoveredGlobal_8024ABDC_lbl_804CEA64 lbl_804CEA64;
-void TObjPlayer__sub_8024ABDC(s32 arg0);
 extern RecoveredGlobal_8024AC20_lbl_804CEA58 lbl_804CEA58;
-void TLobby__sub_8024AC20(s32 arg0);
 typedef char RecoveredGlobal_8024AB98_lbl_804CEA70_size[sizeof(RecoveredGlobal_8024AB98_lbl_804CEA70) == 0xC ? 1 : -1];
 void TWindowSubComCard__sub_8024AB98(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_8024AB98, sp8) == 0x0) ? 1 : -1];

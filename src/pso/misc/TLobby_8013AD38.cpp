@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_8013AD38.h"
 #include "pso/misc/TUnk_804D0618.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TCheckRoomSequence.h"
@@ -15,15 +16,8 @@ struct RecoveredGlobal_8013AD80_TAdEnterSerialAccessGC__data_804EC9C4 {
 
 extern "C" {
 extern u8 *text_language_group_table;
-s32 TAdDialingGC__sub_8013ADBC(s32 arg0);
 extern RecoveredGlobal_8013ADB0_TAdEnterSerialAccessGC__data_804EC9B8 TAdEnterSerialAccessGC__raw_serial_buffer;
-s32 *get_raw_serial_input_buffer(void);
 extern RecoveredGlobal_8013AD80_TAdEnterSerialAccessGC__data_804EC9C4 TAdEnterSerialAccessGC__access_key_input_buffer;
-s32 *get_access_key_input_buffer(void);
-int TLobby__sub_8013AD50(void* p);
-s32 TLobby__sub_8013AD5C(void* p);
-u8 TLobby__sub_8013AD6C(void* p);
-int TLobby__sub_8013AD74(void* p);
 int hex_to_decimal_string__22TAdEnterSerialAccessGCFi(void);
 
 int TUnk_804D0618::get_status_flag() { return (this->m_70 >> 1) & 0x1; }

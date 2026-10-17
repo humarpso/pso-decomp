@@ -1,4 +1,11 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type2_800874F4.h"
+#include "pso/misc/TCameraCtrl_800687BC.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_803E4954.h"
+#include "pso/unk/text_8004D9A8.h"
+#include "pso/unk/text_80087278.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2.h"
@@ -12,9 +19,7 @@ extern "C" {
 
 s32 TObjPlayer__sub_80052390();
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern void *lbl_80485550[3];
 
 struct O_8004D9A8 { u8 pad0[0xBC]; s32 bc[6]; s32 d4[6]; s32 ec[6]; f32 f104; f32 f108; f32 f10c; };
@@ -54,14 +59,10 @@ struct Self_8004DA7C { u8 pad[0x90]; s32 t; u8 pad94[0x14]; void *p[5]; u8 padbc
 struct Ent_8004DA7C { s32 arg; s32 start; s32 end; u8 data[0xC]; };
 
 extern "C" {
-void *create_particle_emitter(void *, s32);
 void subtract_vector(void *, void *);
 void normalize_vector(void *);
 void vec3_add_to(void *, void *);
-void *spawn_particle_effect(void *pos, s32 id);
 s32 play_sound_effect(int, void *, int, int);
-void queue_destruction__7TObjectFv(void *);
-void TBoss3Volopt__sub_8004DA7C(u8 *self);
 void *TObjDFDemo0__entry_table[30] = {
     (void *)0x14b, (void *)0x0, (void *)0x82, (void *)0x0,
     (void *)0x0, (void *)0xc2f00000, (void *)0x14c, (void *)0x50,
@@ -215,7 +216,6 @@ struct S_8004DE44 {
 
 extern "C" {
 void fn_8004AA04(void *);
-s32 restore_player_cameras(void);
 void __dl__7TObjectFPv(void *);
 extern void *__vt__11TObjDFDemo0[13];
 S_8004DE44 *__dt__11TObjDFDemo0Fv(S_8004DE44 *o, s16 flag);
@@ -267,7 +267,6 @@ s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 void init_model_node_tables(void *, void *, s32);
-s32 activate_camera_mode(s32 arg0);
 void set_scripted_camera_pose(void *, void *, void *);
 void construct_world_actor_base(void *, void *);
 extern u8 TObjDFDemo0__model_node_entries[];

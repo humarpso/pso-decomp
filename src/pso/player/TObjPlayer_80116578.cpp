@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_801E43E4.h"
 #include "pso/system/byteswap.h"
 #include "pso/item/TItem.h"
 #include "pso/player/TObjPlayer.h"
@@ -9,7 +10,6 @@ struct Obj_80116620 { u8 pad[0x4]; Rec_80116620 recs[1]; };
 
 extern "C" {
 Rec_80116620 *TObjPlayer__sub_80116620(Obj_80116620 *self, s32 i);
-void TLobby__send_and_handle_60(u8 *arg0);
 
 s32 TItem::get_item_flags() { return *(s32 *)&this->m_dc; }
 void TObjPlayer::bswap_fields_x4() { read_be16_field2(); { int i; for (i = 0; i < 4; i++) { bswap_16((u16 *)((char*)this + 0x4 + i * 2)); } } }

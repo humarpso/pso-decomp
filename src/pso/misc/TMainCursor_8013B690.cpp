@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TMainCursor_8013AE18.h"
+#include "pso/misc/TMainCursor_8013B690.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/TAdRicoRing.h"
 #include "pso/misc/TMainCursor.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -33,14 +36,11 @@ u8 get_cast_technique_level(void *, s32);
 s32 is_invalid_slot__10TObjPlayerFUc(u8);
 s32 reset_key_machine_state__10TObjPlayerFv(void);
 u8 *calc_technique_parameters(s32, s32, s32);
-s32 check_can_pickup__11TMainCursorFi(s32 arg0);
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 TMainCursor__sub_8013F180(void *);
 s32 find_entity_by_id();
 s32 can_pickup_item_by_id__10TObjPlayerFii(u32, s32);
-void queue_destruction__7TObjectFv(void *arg0);
 
-extern "C" u8 *__dt__14TLOC_ListClearFv(u8 *arg0, s16 arg1);
 extern "C" u8 lbl_8043F090[];
 extern "C" u8 lbl_8043F0A4[];
 extern "C" u8 lbl_8043F0B8[];

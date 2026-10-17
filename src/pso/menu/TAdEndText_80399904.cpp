@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/menu/TAdEndText_80399904.h"
 
 struct RecoveredGlobal_8039994C_lbl_804F5800 {
     s32 value;
@@ -17,11 +18,8 @@ struct RecoveredGlobal_80399928_lbl_804F5900 {
 
 extern "C" {
 extern RecoveredGlobal_8039994C_lbl_804F5800 lbl_804F5800;
-s32 TAdEndText__sub_8039994C(u8 arg0);
 extern RecoveredGlobal_80399904_lbl_804F5A00 lbl_804F5A00;
-u32 TAdEndText__sub_80399904(s32 arg0);
 extern RecoveredGlobal_80399928_lbl_804F5900 lbl_804F5900;
-u32 TAdEndText__sub_80399928(s32 arg0);
 typedef char RecoveredGlobal_8039994C_lbl_804F5800_size[sizeof(RecoveredGlobal_8039994C_lbl_804F5800) == 0x100 ? 1 : -1];
 
 typedef char RecoveredGlobal_80399904_lbl_804F5A00_size[sizeof(RecoveredGlobal_80399904_lbl_804F5A00) == 0x100 ? 1 : -1];

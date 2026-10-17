@@ -1,4 +1,5 @@
 #include "pso/TAttackTrace.h"
+#include "pso/misc/TAttackTrace.h"
 
 TAttackTrace::~TAttackTrace() {}
 
@@ -6,7 +7,6 @@ TAttackTrace::~TAttackTrace() {}
 
 extern "C" {
 
-void *TAttackTrace__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern s32 __vt__12TAttackTrace[];

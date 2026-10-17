@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8029C214.h"
 #include "pso/misc/TORockJungleL01.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
@@ -27,7 +28,6 @@ struct Copy_8029C214 { u32 w[15]; };
 extern "C" {
 s32 init_collision_body_parts(void *, void *, int);
 void *TORockCave__ct(void *arg0);
-s32 get_jungle_rock_texture_resource(s32 a);
 extern "C" void vfunc_15__15TORockJungleL01Fv();
 extern "C" void vfunc_14__15TORockJungleL01Fv();
 extern "C" void vfunc_6__13TUnk_804B9870FPsl();
@@ -52,7 +52,6 @@ extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 extern void *bm_o_rock_jungle_model_names[6];
 extern s32 lbl_805D3D44;
 extern const f32 lbl_805DDD1C;
-u8 *TORockJungleL01__ct(u8 *arg0, s32 arg1);
 void *bm_o_rock_jungle_model_names[6] = {
     (void *)&lbl_80465788, (void *)&lbl_8046579C, (void *)&lbl_804657B4, (void *)&lbl_804657C8,
     (void *)&lbl_804657E0, (void *)0x0,

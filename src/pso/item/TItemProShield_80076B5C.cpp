@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/item/TItemProShield_80076B5C.h"
 #include "pso/item/TItemProShield.h"
 
 extern "C" {
 
-void *__dt__13TUnk_804CC048Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 

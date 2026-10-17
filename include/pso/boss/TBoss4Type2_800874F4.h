@@ -1,0 +1,10 @@
+#ifndef PSO_BOSS_TBOSS4TYPE2_800874F4_H
+#define PSO_BOSS_TBOSS4TYPE2_800874F4_H
+
+#include "types.h"
+
+extern "C" {
+void *create_particle_emitter(void *pos, s32 id);
+}
+
+#endif

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl_8024A054.h"
+#include "pso/misc/TWindowKeyBoardSoft_80261440.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
 #include "pso/misc/TWindowDD.h"
@@ -11,7 +13,6 @@ s32 TWindowKeyBoardSoft__sub_80260E30(void *, s32);
 s32 sub_80244994__13TUnk_804CE018Fv();
 s32 update_fade__13TUnk_804CE018Fv(void *);
 s32 initialize_subwindow__9TWindowDDFv(void *);
-s32 is_player_input_active(s32 param_1);
 
 extern const f32 lbl_805DD0D4;
 
@@ -55,8 +56,6 @@ extern RecoveredGlobal_80262740___vt__19TWindowKeyBoardSoft soft_keyboard_window
 extern s32 __vt__19TWindowKeyBoardSoft[];
 extern s32 keyboard_soft_type_name_pointer;
 extern const f32 TWindowKeyBoardSoft__data_805DD090;
-u8 *TWindowKeyBoardSoft__ct(u8 *arg0, s32 arg1, s16 arg2);
-void *__dt__19TWindowKeyBoardSoftFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 void *__dt__19TWindowKeyBoardSoftFv(void *arg0, s16 arg1) {

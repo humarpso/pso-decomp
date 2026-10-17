@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/object/TObject_8001A448.h"
+#include "pso/unk/text_800870BC.h"
+#include "pso/unk/text_80177608.h"
 #include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
 #pragma inline_depth(1)
@@ -9,15 +12,12 @@ struct Tbl_80177608 { s32 v[18]; };
 struct Parm_80177608 { s32 a; s32 b; s32 c; };
 
 extern "C" {
-void disallow_rendering__7TObjectFv(void *);
-void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern Tbl_80177608 switch_attack_sub_id_table;
 extern Tbl_80177608 switch_attack_sub_init_table;
 extern s32 __vt__17TOSwitchAttackSub[];
 extern s32 lbl_805D317C;
 extern const f32 lbl_805DBA04;
-u8 *TOSwitchAttackSub__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, u32 arg4, f32 farg0);
 u8 *TOSwitchAttackSub__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, u32 arg4, f32 farg0) {
     Parm_80177608 p;
     Tbl_80177608 a;

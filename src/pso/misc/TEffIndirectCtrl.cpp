@@ -4,15 +4,11 @@
 
 extern "C" {
 extern u32 indirect_effect_tile_buffer;
-u16 get_indirect_tile_coord(u8 arg0, s32 arg1);
 void read_disc_file(void *, void *);
 s16 calc_i8_tiled_texel_offset(u8, u8, s32);
 void *memset(void *, s32, u32);
 extern void *lbl_805D3E24;
 extern u32 indirect_recipe_buffer;
-void load_indirect_info(void);
-void TEffIndirectCtrl__sub_802A9548(void* p);
-u8 TEffIndirectCtrl__sub_802A9554(void* p);
 
 void TEffIndirectCtrl::free_buffers() {
     if ((u32) indirect_recipe_buffer != 0U) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
 #include "pso/system/main_loop.h"
 #include "pso/ui/TAdTrialAgreementGC.h"
 #include "pso/TAdPlayerLoadGC.h"
@@ -22,7 +23,6 @@ struct VObj_80335648 : Base_80335648 {
 extern "C" {
 
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-void TKeyBoardControl__sub_8000F9CC(s32 arg0);
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 
 void TAdTrialAgreementGC::render() {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdWarningBaseGC_8032CE1C.h"
 #include "pso/ui/TUnk_804EDBD0.h"
 #include "pso/misc/TLobby.h"
 
@@ -15,7 +16,6 @@ typedef void (TAdWarningBaseGC_8032CEB4::*Act_8032CEB4)();
 
 extern "C" {
 s32 *get_quest_download_file_header(void);
-void request_aram_load_state__16TAdWarningBaseGCFPv(u8 *arg0);
 void DCInvalidateRange(void *, u32);
 void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void (*)(u32));
 void clear_aram_request_busy(u32);
@@ -24,15 +24,8 @@ extern u32 ad_warning_aram_base;
 extern s32 warning_aram_load_done_flag;
 extern int TAdWarningBaseGC__aram_alloc_size;
 extern s32 aram_request_busy_flag;
-s32 load_from_aram_sync__16TAdWarningBaseGCFi(s32 arg0);
 void DCFlushRange(void *, u32);
 extern u32 TAdWarningBaseGC__aram_capacity;
-s32 post_aram_request__16TAdWarningBaseGCFii(s32 arg0, s32 arg1);
-void wait_aram_request__16TAdWarningBaseGCFv(void *arg0);
-void enter_request_state__16TAdWarningBaseGCFv(void* p);
-int TAdWarningBaseGC__sub_8032D020(void);
-void *__dt__13TUnk_804EDBD0Fv(void *arg0, s16 arg1);
-int get_alloc_size__16TAdWarningBaseGCFv(void);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);

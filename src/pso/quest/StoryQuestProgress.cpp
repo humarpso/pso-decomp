@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/quest/StoryQuestProgress.h"
+#include "pso/unk/text_801F43B4.h"
+#include "pso/unk/text_801F45FC.h"
 
 #include <stddef.h>
 #include "pso/misc/TLobby.h"
@@ -7,16 +10,9 @@ struct Induction_80219EE8_var_r31 { u8 bytes[0x8]; };
 struct Pair_80219F64 { s32 a; s32 b; };
 
 extern "C" {
-s32 get_story_flag(s32 flag);
 extern const s32 episode1_story_quest_flag_pairs[];
-s32 should_record_episode1_quest_completion(void);
 extern const Pair_80219F64 episode2_story_quest_flag_pairs[];
-s32 are_all_story_quests_complete(void);
-void clear_story_flag(s32 flag);
-void clear_episode1_quest_availability(void* unusedDifficulty);
 s32 dispatch_by_main_phase__14TBoss4DarkFalzFUs(s32);
-void apply_story_quest_unlock_rules(void* unusedDifficulty);
-void refresh_story_quest_availability(void* p);
 typedef char Induction_80219EE8_var_r31_size_check[sizeof(Induction_80219EE8_var_r31) == 0x8 ? 1 : -1];
 s32 should_record_episode1_quest_completion(void) {
     s32 var_r29;

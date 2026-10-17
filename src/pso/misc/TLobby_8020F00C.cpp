@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/misc/TLobby_8020F00C.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TRaderMapCore.h"
 
 extern "C" {
-
-void push_shop_pool_entry(u8 *arg0, s8 arg1);
 
 void push_shop_pool_entry(u8 *arg0, s8 arg1) {
     s32 temp_r5;

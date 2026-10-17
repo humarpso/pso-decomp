@@ -1,8 +1,7 @@
 #include "types.h"
+#include "pso/misc/TPlyGuildCardTag.h"
 
 extern "C" {
-
-void __ct__16TPlyGuildCardTagFUsUl(void *arg0, s16 arg1, s32 arg2);
 
 void __ct__16TPlyGuildCardTagFUsUl(void *arg0, s16 arg1, s32 arg2) {
     *(s8 *)((s8 *)arg0 + 0) = 0;

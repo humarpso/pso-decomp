@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/item/TItemEffArmor.h"
 #include "pso/boss/TBoss4Type2.h"
 
 extern "C" {
 
-void *__dt__13TItemEffArmorFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 

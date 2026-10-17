@@ -27,4 +27,9 @@ struct TBoss5GryphonShockWave : public TObject {
 };
 
 typedef char TBoss5GryphonShockWave_size[sizeof(TBoss5GryphonShockWave) == 0x70 ? 1 : -1];
+extern "C" {
+void TBoss8Dragon__sub_80066A4C(void);
+void *__dt__22TBoss5GryphonShockWaveFv(void *arg0, s16 arg1);
+}
+
 #endif

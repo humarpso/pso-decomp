@@ -1,4 +1,11 @@
 #include "types.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/item/TItemEffPG_8034FF4C.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/object/TObject_8001A448.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804F0AF8.h"
@@ -14,8 +21,6 @@ struct RecoveredGlobal_8034FCF0_lbl_804F0BF0 {
 };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
-void disallow_rendering__7TObjectFv(void *);
 s32 play_persistent_sound(int, void *, void *, int, int);
 extern const f32 lbl_805DFE08;
 extern const f32 lbl_805DFE0C;
@@ -27,16 +32,12 @@ extern s32 lbl_804F0BF0[];
 extern const f32 lbl_805DFE10;
 u8 *TItemEffPG__visual_ct(u8 *arg0, u8 *arg1, u8 *arg2);
 s32 get_state_flag__9TMainTaskFv();
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 u32 query_game_join_id__10TObjPlayerFv(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-void draw_ginja_model(s32 model);
-void set_chunk_material_color(f32 *arg);
 extern s32 saved_model_draw_color[];
 extern s32 model_material_color[];
 extern s32 lbl_805D5660;
@@ -49,7 +50,6 @@ void TItemEffPG__begin_visual_fade(void* p);
 void *__dt__13TUnk_804F0BF0Fv(void *arg0, s16 arg1);
 void TItemWeapon__ct(void *);
 void __dl__7TObjectFPv(void *);
-void *__dt__10TItemEffPGFv(void *arg0, s16 arg1);
 void __dt__7TObjectFv(void *, int);
 void set_status_flags__10TObjPlayerFUl(void *, int);
 

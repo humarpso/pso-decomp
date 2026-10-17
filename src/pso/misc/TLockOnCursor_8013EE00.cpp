@@ -1,12 +1,10 @@
 #include "types.h"
+#include "pso/misc/TLockOnCursor_8013EE00.h"
+#include "pso/misc/TMainCursor_8013E624.h"
+#include "pso/misc/TPlyDispConfig_80071F1C.h"
 #include "pso/system/memory.h"
 
 extern "C" {
-
-s32 destroy__13TLockOnCursorFis(s32 arg0, s16 arg1);
-
-s32 free_if_valid__14TPlyDispConfigFis(s32 arg0, s16 arg1);
-s32 destroy__11TMainCursorFis(s32 arg0, s16 arg1);
 
 s32 destroy__13TLockOnCursorFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {

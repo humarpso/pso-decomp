@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TSceneSora_8029F428.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TSceneSora.h"
 #include "pso/misc/TUnk_804DC7C4.h"
@@ -125,13 +127,11 @@ struct RecoveredGlobal_80069A6C_TCameraCtrl__data_804FF628 {
 extern "C" {
 extern s32 lbl_805D65F0;
 extern RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4 sora_reflection_ray_direction;
-void *create_instance__10TSceneSoraFPv(void *arg0);
 s32 __ct__7TObjectFP7TObject();
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 void *__nw__7TObjectFUl(s32);
 void *construct_indirect_effect_task(void *, s32, s32, s32);
-void queue_destruction__7TObjectFv(void *arg0);
 
 extern s32 lbl_804DC7C4[];
 extern s16 scene_sora_reflect_active;

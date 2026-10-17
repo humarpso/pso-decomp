@@ -1,14 +1,11 @@
 #include "types.h"
+#include "pso/misc/TWindowDD_80341A08.h"
+#include "pso/misc/TWindowDD_80347F34.h"
 #include "pso/misc/TWindowDD.h"
 
 extern "C" {
 extern const s32 TWindowDD__data_805DFB50;
 extern const f32 TWindowDD__data_805DFC10;
-void TWindowDD__sub_80347F48(u8 *arg0);
-void TWindowDD__sub_80347FA0(s32 arg0, s32 arg1);
-void TWindowDD__sub_80341AE0(u8 *arg0);
-void TWindowDD__sub_80341AF8(u8 *arg0);
-s32 TWindowDD__sub_8034217C(u8 *arg0);
 
     extern unsigned char lbl_804EFCA8[];
 void*TWindowDD::get_entry(int a0, int a1) {  return (char*)lbl_804EFCA8 + a1 * 8; }

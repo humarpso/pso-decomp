@@ -49,4 +49,10 @@ struct TObjLight : public TUnk_804B9870 {
 };
 
 typedef char TObjLight_size[sizeof(TObjLight) == 0x100 ? 1 : -1];
+extern "C" {
+u8 *TObjLight__create(u8 *arg0);
+u8 *TObjLight__ct(u8 *arg0, s32 arg1, u8 *arg2);
+void *__dt__9TObjLightFv(void *arg0, s16 arg1);
+}
+
 #endif

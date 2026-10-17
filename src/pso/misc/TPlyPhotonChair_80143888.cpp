@@ -1,13 +1,11 @@
 #include "types.h"
+#include "pso/misc/TPlyPhotonChair_80143888.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TUnk_804A7478.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TPlyPhotonChair.h"
 
 extern "C" {
-
-void *__dt__13TUnk_804A7488Fv(void *arg0, s16 arg1);
-s32 TPlyPhotonChair__sub_80143930(void* p);
 
 extern s32 lbl_804A7478[];
 

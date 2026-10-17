@@ -1,0 +1,10 @@
+#ifndef PSO_UNK_TEXT_802F1FB0_H
+#define PSO_UNK_TEXT_802F1FB0_H
+
+#include "types.h"
+
+extern "C" {
+u8 *fn_802F1FB0(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, f32 farg0);
+}
+
+#endif

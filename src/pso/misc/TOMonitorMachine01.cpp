@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/math/MatrixTransforms.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TOMonitorMachine01.h"
 #include "pso/TParticleCtrl.h"
@@ -99,10 +102,7 @@ extern const f32 lbl_805DB904;
 extern const f32 lbl_805DB908;
 int rotate_matrix_y(int, int);
 int push_matrix();
-s32 pop_matrix(void);
 int post_translate_matrix(void *);
-void draw_ginja_model(s32 model);
-void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 void scale_matrix(s32, f32, f32, f32);
 u32 load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
@@ -115,8 +115,6 @@ extern s32 TOMonitorMachine01__name;
 extern s32 tl_05;
 extern const f32 lbl_805DB90C;
 extern const f32 lbl_805DB910;
-void *TOMonitorMachine01__ct(void *arg0_, void *arg1);
-void *__dt__18TOMonitorMachine01Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 

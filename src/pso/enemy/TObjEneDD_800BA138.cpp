@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_800BA138.h"
 #include "pso/player/TUnk_804928CC.h"
 #include "pso/enemy/TObjEneDD.h"
 
@@ -80,10 +81,8 @@ struct Obj_800BA244 { u8 pad[0x30]; u32 flags; u8 pad2[0xa4 - 0x34]; Part_800BA2
 extern "C" {
 extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B68C;
 extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B684;
-void TObjEneDD__sub_800BA378(s32 arg0, u8 *arg1);
 extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B67C;
 extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B674;
-void TObjEneDD__sub_800BA438(s32 arg0, u8 *arg1);
 struct EneDDBase2_800BA138 { char pad[0x18]; };
 struct EneDDObj2_800BA138 : EneDDBase2_800BA138 {
     virtual void m0();
@@ -122,9 +121,6 @@ struct EneDDObj_800BA138 : EneDDBase_800BA138 {
     virtual void m13(void *, void *, void *);
 };
 
-void TObjEneDD__sub_800BA5A4(void* p, void* a1);
-int TObjEneDD__sub_800BA6B8(void* p);
-int TObjEneDD__sub_800BA6C4(void* p);
 int is_target_unobstructed__9TObjEneDDFl(void* a0 = 0, void* a1 = 0, void* a2 = 0);
 int add_flags_2e4__13TUnk_804806E8FUl(void*, int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();

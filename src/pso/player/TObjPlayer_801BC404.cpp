@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801BC404.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TLevelSelect.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 
-void TObjPlayer__sub_801BC504(void);
 s32 check_camera_mode__10TObjPlayerFv();
 void TObjPlayer__sub_801BEEAC(u8 *arg0, u8 *arg1);
 void TObjPlayer__sub_801BEEE0(void *p, void *q);

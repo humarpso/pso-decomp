@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80126104.h"
 #include "pso/item/TUnk_804A2960.h"
 #include "pso/item/TItemProShield.h"
 #include "pso/player/TObjPlayer.h"
@@ -146,7 +147,6 @@ struct Pl_801261BC : PlB_801261BC {
 
 extern "C" {
 s32 obj_is_hit_receivable(void *);
-void frozen_shooter_freeze_hit(int arg0, u8 *arg1);
 extern const f32 lbl_805DAD70;
 void frozen_shooter_collider_block(Obj_80126180 *self, Out_80126180 *o);
 void fire_shot_at_target__11TItemWeaponFv(void *, void *, s32, s32);

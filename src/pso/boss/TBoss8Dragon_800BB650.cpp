@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon_800BB650.h"
 #include "pso/enemy/TObjEneBm3Fly.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -9,17 +10,11 @@ struct Part_800BB780 { u8 pad[0x18]; u32 flags; u8 pad2[0x10]; };
 struct Obj_800BB780 { u8 pad[0x30]; u32 flags; u8 pad1[0x70]; Part_800BB780 *parts; s32 count; u8 pad2[0x230]; s32 f2dc; u8 pad3[0x4c]; s16 f32c; u8 pad4[0x10]; s16 f33e; };
 
 extern "C" {
-void enemy_find_nearest_player_in_range(f32 farg0);
-s32 enemy_nearest_visible_player_sq(u8 *arg0, f32 farg0);
 s32 get_player_data__10TObjPlayerFi(int);
 s32 obj_getField1c(void *);
 u32 csnLookAt(void *, void *);
 s32 is_alive__9TObjEneDDFv(void *);
 f32 horizontal_distance_squared(void *, void *);
-void TBoss8Dragon__sub_800BB650(void* p, void* q);
-void TBoss8Dragon__sub_800BB7D4(void);
-void TBoss8Dragon__sub_800BB7D8(void);
-void TBoss8Dragon__sub_800BB7DC(void);
 int submit_cursor_candidate(void*, int);
 int refresh_lobby_state__10TObjPlayerFv(void*);
 int send_entity_set_flags__9TObjEnemyFv(void*);

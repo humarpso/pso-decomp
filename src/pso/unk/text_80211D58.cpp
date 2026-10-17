@@ -1,8 +1,10 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TLobby_8030A6A8.h"
+#include "pso/unk/text_80211D58.h"
 #include "pso/THunterGuildWarning.h"
 #include "pso/misc/TRaderMapCore.h"
 extern "C" {
-s32 get_main_phase();
 s32 get_nth_view_player_id__11TCameraCtrlFl(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 get_map_id__13TRaderMapCoreFv();
@@ -12,10 +14,8 @@ s32 TPlayerBattleCtrl4P__sub_80211B10(s32);
 s32 THunterGuildSeqOffline__sub_80211FEC(s32);
 s32 THunterGuildSeqOffline__sub_80212000(s32);
 s32 THunterGuildSeqOffline__sub_80212060(s32);
-s32 get_game_play_mode();
 extern u8 controller_input_state[][0x50];
 extern s32 lbl_805D55C0;
-s32 TLobby__sub_80211D58(s32 arg0);
 s32 TLobby__sub_80211D58(s32 arg0) {
     s32 kind;
     s32 player;

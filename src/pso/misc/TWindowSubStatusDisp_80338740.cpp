@@ -1,24 +1,21 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_80228F5C.h"
+#include "pso/misc/TWindowSubStatusDisp_80338740.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 
 extern "C" {
-int TEneParticleCtrl__vt7(void* p);
 int get_field_38_ptr__16TEneParticleCtrlFv(void*);
     extern unsigned char lbl_804EF440[];
     extern const float lbl_805DF9CC;
-int TWindowSubStatusDisp__sub_80338B88(void* p);
 int reset_entry__20TWindowSubStatusDispFPv(void*, int);
 s32 deleting_destructor__20TWindowSubStatusDispFs(void *, s32);
 void mem_free(void *p);
 extern u8 lbl_804EF440[];
-void TWindowSubStatusDisp__sub_80338A9C(void);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
-void TWindowSubStatusDisp__sub_803387F8(void *arg0, s8 arg1);
 s32 mem_alloc(void *);
 s32 measure_string_len__20TWindowSubStatusDispFv(void *);
 s32 strncpy(int, void *, int);
-void TWindowSubStatusDisp__sub_80338740(u8 *arg0, s32 arg1, s32 arg2, s8 arg3, s8 arg4, s8 arg5, s8 arg6, s8 arg7, s32 arg_sp8);
 typedef struct
 {
   f32 x;
@@ -56,9 +53,6 @@ typedef struct
   f32 x48;
 } Win_80338890;
 s32 get_shared_text_buffer();
-void TWindowSubStatusDisp__sub_80228F5C(s32 arg0);
-void text_builder_append(u8 *str);
-void text_builder_reset();
 void draw_window_text(V2_80338890 *, s32, s32, s32, f32);
 void set_text_draw_params(Win_80338890 *, s32, s32, f32, f32);
 void draw_item_list_icon(Win_80338890 *, V2_80338890 *, s8, s32, f32);

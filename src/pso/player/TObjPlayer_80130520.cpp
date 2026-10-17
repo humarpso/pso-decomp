@@ -1,14 +1,14 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80130520.h"
+#include "pso/unk/text_80120908.h"
 #include "pso/item/TUnk_804A69DC.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void TObjPlayer__sub_801305E8(void *arg0);
 int rotate_matrix_x(void*, void*);
 s32 advance_angle_wrap(void *, s32);
 s32 update_trail_slot__11TItemWeaponFPvi(void *, s32);
-s32 draw_weapon_model(void *);
 int get_player_list__10TObjPlayerFv(void*);
 
 void TObjPlayer::handle_container_state_3() { if (get_player_list__10TObjPlayerFv(this) == 3) { rotate_matrix_x((void*)0, *(void* *)&this->unk_1F8); } }

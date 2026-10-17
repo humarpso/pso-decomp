@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/unk/text_80353414.h"
 
 extern "C" {
 void *fn_803533D8(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-u8 *fn_80353414(u8 *arg0);
 u8 *fn_80353414(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;

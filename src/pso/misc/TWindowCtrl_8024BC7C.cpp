@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TWindowSubShortMail_80246CB8.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/TObject.h"
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(int);
 u32 __nw__7TObjectFUl(int);
-s32 is_guild_card_receive_active();
 s32 TWindowCtrl__sub_8024701C(int);
 s32 has_player_active_menu__11TWindowCtrlFv(void *);
 s32 is_slot_visible__11TWindowCtrlFv(void *);

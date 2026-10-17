@@ -1,22 +1,12 @@
 #include "types.h"
+#include "pso/item/TItemLockCountCtrl_8011E184.h"
+#include "pso/player/TObjPlayer_801BE778.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void TObjPlayer__sub_801BE784(void* p, u8 v);
-void TObjPlayer__sub_801BE794(void* p, u8 v);
-void TObjPlayer__sub_801BE7A4(void* p, u8 v);
-u8 get_mag_level__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_801BE7B4(void* p, u8 v);
-int TObjPlayer__sub_801BE7BC(void* p);
-void TObjPlayer__sub_801BE7E0(void* p, u8 v);
-void TObjPlayer__sub_801BE80C(void* p, u8 v);
-void TObjPlayer__sub_801BE838(void* p, u8 v);
-void TObjPlayer__sub_801BE864(void* p, u8 v);
-int TObjPlayer__sub_801BEABC(void* p);
 int check_flag__10TObjPlayerFl(void*, int);
-void TObjPlayer__sub_8011E204(void *arg0, s32 arg1);
 int TObjPlayer__sub_801BED70(void*);
 int TObjPlayer__sub_801BED78(void*);
 int TObjPlayer__sub_801BED80(void*);

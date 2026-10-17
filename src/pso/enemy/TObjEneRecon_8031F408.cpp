@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecon_8031F408.h"
 #include "pso/enemy/TObjEneDD.h"
 
 extern "C" {
 
-void TObjEneRecon__sub_8031F408(void *arg0, s32 arg1);
 s32 advance_animation_playback();
 s32 transition_enemy_state(void *, s32);
 s32 get_flag_b4__9TObjEneDDFv();

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8012B3C4.h"
 #include "pso/item/TUnk_804A4D70.h"
 #include "pso/item/TItemEffOrgaFlowShot.h"
 
@@ -10,7 +11,6 @@ extern const f32 lbl_805DAE8C;
 extern const f32 lbl_805DAE90;
 extern const f32 lbl_805DAE94;
 extern const f32 lbl_805DAE98;
-void update_brionac_idle_scale(u8 *arg0);
 extern const f32 lbl_805DAE9C;
 extern const f32 lbl_805DAEA0;
 extern const f32 lbl_805DAEA4;

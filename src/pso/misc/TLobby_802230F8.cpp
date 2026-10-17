@@ -1,14 +1,11 @@
 #include "types.h"
+#include "pso/misc/TLobby_802230F8.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/misc/TLobby.h"
 
 struct Rec_802231F0 { u8 b[0x18]; };
 
 extern "C" {
-s32 TAdSinglePlyChrSelectGC__sub_80223350(void *arg0, void *arg1);
-u32 TAdSinglePlyChrSelectGC__sub_8022338C(u8 *arg0, u8 *arg1);
-s32 TLobby__sub_802232F8(void *arg0, void *arg1);
-u32 TLobby__sub_8022318C(u8 *arg0, u8 *arg1);
 
 s32 TLobby::compare_version(void *arg1) {
     u32 b, a;

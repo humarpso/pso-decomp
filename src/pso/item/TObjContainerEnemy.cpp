@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/misc/TWindowKeyBoardHard_801FBA48.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80087278.h"
+#include "pso/unk/text_8018A150.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -41,31 +46,24 @@ struct Spawn_8018990C {
 struct Obj_8018990C { u8 pad[0x38]; f32 x, y, z; u8 pad44[0x326 - 0x44]; s16 f326; };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 s32 init_collision_body_parts(void *, void *, int);
-u8 *init_container_base(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_container_param(int);
 extern RecoveredGlobal_801897A4_lbl_804B63BC forest_box_collision_body_parts;
 extern s32 __vt__18TObjContainerEnemy[];
 extern s32 TObjContainerEnemy__name;
-u8 *TObjContainerEnemy__ct(u8 *arg0, s32 arg1, s32 arg2);
-void draw_ginja_box_tree(u8 *arg0);
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
 void push_matrix();
-s32 pop_matrix(void);
 void post_translate_matrix(void *);
 extern u32 lbl_805D5B78;
 extern s32 lbl_805D5B7C;
 extern const f32 lbl_805DBCFC;
-void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 s32 construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
 void play_container_break_sound(s32 arg0);
 void *__nw__7TObjectFUl(int);
 extern Spawn_8018990C *const lbl_805D5B80;
 extern Spawn_8018990C *const lbl_805D5B84;
 extern void *tl_05;
-void *__dt__18TObjContainerEnemyFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);

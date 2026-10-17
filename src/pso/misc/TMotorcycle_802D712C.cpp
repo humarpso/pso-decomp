@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TMotorcycle_802D712C.h"
 #include "pso/misc/TMotorcycle.h"
 
 extern "C" {

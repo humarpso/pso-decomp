@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TPlyDispConfigSmth.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void bswap__18TPlyDispConfigSmthFv(s32 arg0);
 s32 bswap_32__FPUl();
 
 void bswap__18TPlyDispConfigSmthFv(s32 arg0) {

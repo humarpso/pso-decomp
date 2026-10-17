@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80325F7C.h"
 #include "pso/system/vector.h"
 #include "pso/TBoss5GryphonLightningWing.h"
 #include "pso/TBoss5GryphonLightningHorn.h"
@@ -34,7 +35,6 @@ void TObjPlayer__sub_80325D58(void *, void *, void *, void *);
 void project_point_onto_line(void *, void *, void *);
 extern const f32 lbl_805DF630;
 extern const f32 lbl_805DF638;
-void fn_80325F7C(void *arg0);
 Hit_80326074 *csnVecterUnder(void *, s32);
 s32 rand(void);
 void vec3_add_to(void *, void *);

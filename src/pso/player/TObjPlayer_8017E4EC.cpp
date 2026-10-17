@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLoadCtrl_80227390.h"
+#include "pso/object/TObjBgmColCtrl_8017E8E4.h"
+#include "pso/player/TObjPlayer_8017E4EC.h"
 #include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -26,9 +29,6 @@ extern Row_8017E550 lbl_80443690[];
 extern Row_8017E550 lbl_80443780[];
 extern s32 bgm_zone_category;
 extern s32 TObjBgmColCtrl__instance;
-void create_bgm_col_zones(void);
-int get_quest_bgm_issued_flag(void);
-void play_area_music(char *name);
 
 extern s32 area_music_filename_table[];
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl_800687BC.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/object/TObjFish.h"
@@ -14,7 +15,6 @@ struct S_8004F5F8 {
 
 extern "C" {
 void fn_8004AA04(void *);
-s32 restore_player_cameras(void);
 void __dl__7TObjectFPv(void *);
 extern u8 lbl_80485764[];
 S_8004F5F8 *__dt__11TObjDFDemo4Fv(S_8004F5F8 *o, s16 flag);

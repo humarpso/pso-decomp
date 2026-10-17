@@ -1,0 +1,10 @@
+#ifndef PSO_BOSS_TBOSS5GRYPHONLIGHTNINGWING_80324CEC_H
+#define PSO_BOSS_TBOSS5GRYPHONLIGHTNINGWING_80324CEC_H
+
+#include "types.h"
+
+extern "C" {
+f32 TBoss5GryphonLightningWing__sub_80324CEC(void);
+}
+
+#endif

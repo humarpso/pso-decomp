@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_803DF7A8.h"
+#include "pso/player/TObjPlayer_803E21B8.h"
+#include "pso/unk/text_803D853C.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2008.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/system/memory.h"
 #include "pso/system/ChunkMaterialState.h"
 #include "pso/player/TObjPlayer.h"
@@ -85,11 +91,6 @@ typedef union WGPipe_803E352C {
 
 typedef f32 Mtx_803E4354[3][4];
 extern "C" {
-void setup_blended_textured_draw(void);
-void load_context_texture_obj(void);
-void TLobby__sub_803E2EE4(s32 arg0);
-s32 draw_chunk_vertices_cached__10TObjPlayerFPv(void *);
-void draw_chunk_model(void *arg0);
 void GXSetNumTexGens(u8);
 s32 GXSetTevOp(int, int);
 s32 GXSetTevOrder(int, int, int, int);
@@ -97,16 +98,11 @@ s32 GXSetNumTevStages(int);
 extern s32 model_render_flags;
 extern u8 lbl_805D77D8;
 extern u8 lbl_805D77D9;
-void setup_chunk_tev_stages(void);
 s32 GXSetZMode(int, int, int);
 s32 GXSetZCompLoc(int);
-s32 pop_matrix();
-void apply_scene_fog(void);
 extern s32 ginja_draw_flags;
 extern s32 (*player_chunk_draw_end_callback)();
-void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map);
 extern s32 chunk_texture_record_index;
-void apply_chunk_texture_command(s32 arg0, s32 arg1);
 void GXSetChanMatColor(s32, ByteColor);
 void convert_color_f32_to_u8(const FloatColor*,ByteColor*);
 void convert_color_u8_to_f32(const ByteColor*,FloatColor*);
@@ -115,18 +111,13 @@ extern const ByteColor lbl_805E1090;
 extern s32 model_render_flags,ginja_draw_flags;
 extern u32 chunk_blend_header_bits;
 extern u32 chunk_strip_dirty_flags;
-void set_chunk_blend(u32 x);
 void GXSetAlphaCompare(int comp0, int ref0, int op, int comp1, int ref1);
-s32 set_chunk_alpha_compare_ref(int ref);
 extern s32 chunk_vertex_cache_buffer;
 extern s32 lbl_805D77FC;
 extern s32 chunk_render_flags;
-void TObjPlayer__sub_803E492C(s32 a, s32 b);
 void transform_chunk_object_tree(void *, void (*)(void *));
-void draw_chunk_object(void *arg0);
 extern s32 current_matrix;
 s32 __cvt_fp2unsigned(f32);
-void get_current_matrix(void *m);
 void apply_quat_rotation__10TObjPlayerFf(f32 *arg0, f32 farg0);
 void rotate_matrix_by_node_angles(void *, int);
 void push_matrix(void);
@@ -144,7 +135,6 @@ void draw_strip_list_pos_nrm__10TObjPlayerFPvPvUi(s16 *list, Vtx_803E36C4 *verts
 void GXSetChanCtrl(s32 chan, u8 enable, s32 ambSrc, s32 matSrc, u32 lightMask, s32 diffFn, s32 attnFn);
 extern u32 gx_chan_ctrl_light_mask;
 extern u32 chunk_has_vertex_colors;
-void set_strip_lighting_chan_ctrl(u32 flags);
 void draw_strip_pos_normal__10TObjPlayerFPvPvUi(s16 *list, Vtx_803E46FC *verts, u32 info);
 void draw_triangle_strips__10TObjPlayerFPvPvUi(s16 *list, Vtx_803E47E0 *verts, u32 info);
 s32 GXSetBlendMode(int, int, int, int);
@@ -154,7 +144,6 @@ extern u32 lbl_805E1094;
 extern const u32 lbl_805E1098;
 extern const f32 lbl_805E109C;
 extern const f32 lbl_805E10A0;
-void set_chunk_blend_depth_mode(s32 arg0, s32 arg1);
 void GXSetVtxAttrFmt(int, int, int, int, u8);
 void draw_chunk_textured_strips(s16 *list, Vtx_803E352C *verts, u32 info, s32 large);
 struct ChunkModel_803E44D4 { u32 *vertices; u16 *polygons; };
@@ -176,8 +165,6 @@ s32 GXLoadNrmMtxImm(void *, int);
 s32 GXLoadTexMtxImm(void *, int, int);
 extern Mtx_803E4354 identity_matrix;
 extern s32 chunk_previous_strip_flags;
-void func_803e11e8__FUl(s32 arg0);
-void func_803e11f0__Fv(void);
 
 #pragma push
 #pragma dont_inline off

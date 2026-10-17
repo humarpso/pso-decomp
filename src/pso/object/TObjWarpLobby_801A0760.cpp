@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TPlyJoinLobbyEntry.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObjWarpLobby_801A0760.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/object/TObjWarpLobby.h"
@@ -33,22 +37,18 @@ extern s32 warp_lobby_directory_label_table[];
 extern const f32 lbl_805DC058;
 extern const f32 lbl_805DC05C;
 s32 queue_destruction__7TObjectFv(u32);
-void send_room_change__6TLobbyFi(s32 arg0);
 s32 is_idle__6TLobbyFv();
 u32 find_warp_player_in_range(void *, u16, f32);
-void TWindow__close(u8 *arg0);
 s32 get_selected_menu_value(u32);
 extern s32 local_client_id;
 extern const f32 lbl_805DC068;
 extern const f32 lbl_805DC06C;
 extern const f32 lbl_805DC070;
 void run_task__13TObjWarpLobbyFv(VO_801A0894 *arg0);
-void *__dt__13TObjWarpLobbyFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 u8 *__dt__12TObjAreaWarpFv(u8 *arg0, s16 arg1);
 

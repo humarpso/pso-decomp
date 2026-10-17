@@ -1,4 +1,5 @@
 #include "pso/protocol/subcommand_validation.h"
+#include "pso/protocol/subcommand_validation_actions.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {

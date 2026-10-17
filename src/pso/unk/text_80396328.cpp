@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/unk/text_80396328.h"
 
 extern "C" {
 s32 GetTRKConnected();
 u8 TRKCloseFile(int, void *);
-s32 __close_console(s32 arg0);
 s32 __close_console(s32 arg0) {
     u8 temp_r3;
     if (GetTRKConnected() == 0) {

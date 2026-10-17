@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubSymbolChat_80076F88.h"
+#include "pso/misc/TWindowSubSymbolChat_8007763C.h"
 
 #include "pso/protocol/subcmd_6x.h"
 #include <stddef.h>
@@ -39,16 +41,12 @@ u8 *get_message_10__20TWindowSubStatusDispFl(s32);
     extern int selected_symbol_chat_preset;
 s32 is_initialized__20TWindowSubSymbolChatFv();
 int get_instance__20TWindowSubSymbolChatFv(void*);
-int TWindowSubSymbolChat__sub_80076FE0(void* p);
 s32 strncpy(void *, void *, int);
 s32 copy_symbol_chat_entry__6TLobbyFPvPv(void *, void *);
-void TWindowSubSymbolChat__sub_80077704(void *p);
 extern s32 local_client_id;
 s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_800773BC_lbl_80438830 symbol_chat_sound_ids;
 E_80077480 *get_character_save_record(u32 id);
-u8 *get_symbol_chat_preset(s32 i);
-s32 is_symbol_chat_preset_in_use(u32 *arg0);
 
 void TWindowSubSymbolChat::send_selected_symbol_chat(s32 *arg0) {
     G_SymbolChat_6x07 packet;

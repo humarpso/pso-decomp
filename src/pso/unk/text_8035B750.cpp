@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8035B750.h"
 
 extern "C" {
 void TLobby__sub_8001FE7C(void*, int);

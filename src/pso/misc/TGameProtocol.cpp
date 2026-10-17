@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TGameProtocol.h"
 #include "pso/TGameProtocol.h"
 
 extern "C" {
 
-void *TGameProtocol__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 

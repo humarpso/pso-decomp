@@ -9,4 +9,9 @@ struct TOWreckAncient04 : public TOWreckAncient {
 };
 
 typedef char TOWreckAncient04_size[sizeof(TOWreckAncient04) == 0xB4 ? 1 : -1];
+extern "C" {
+void *TOWreckAncient04__create(void *arg0);
+void *__dt__16TOWreckAncient04Fv(void *arg0, s16 arg1);
+}
+
 #endif

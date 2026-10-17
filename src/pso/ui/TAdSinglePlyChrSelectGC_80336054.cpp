@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_80336054.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/misc/THunterGuildSeqOffline.h"
 
 extern "C" {
 
-int TAdSinglePlyChrSelectGC__sub_8033605C(void);
 u32 __nw__7TObjectFUl(s32);
 
     extern int lobby_game_mode_state;

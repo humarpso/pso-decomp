@@ -1,10 +1,11 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/TObjBoss8Piller.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 u32 get_enemy_entity(int);
 s32 TBoss8Dragon__sub_802FB1B0(int, f32, void *);
 extern const f32 lbl_805DF150;
@@ -13,7 +14,6 @@ s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);
 s32 draw_model_motion(int, int, f32);
 s32 push_matrix();
-s32 pop_matrix();
 s32 is_split_screen();
 
 extern u8 *TObjBoss8Piller__shared_resource;

@@ -1,13 +1,12 @@
 #include "types.h"
+#include "pso/unk/text_80076E84.h"
 #include "pso/misc/TWindowSubSymbolChat.h"
 
 struct Pkt_80076E98 { u8 pad[4]; s32 f4; u32 f8; };
 
 extern "C" {
 extern u8 *text_language_group_table;
-s32 get_technique_name(s32 arg0);
 s32 obj_getField1c(s32);
-void *copy_symbol_chat_entry__6TLobbyFPvPv(void *, void *);
 s32 get_player_by_client_id(s32);
 void open_balloon__11TWindowCtrlFUsPUcll(s32, void *, s32, s32);
 void dispatch_by_index__6TLobbyFUsi(u16, void *);

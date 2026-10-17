@@ -1,0 +1,15 @@
+#ifndef PSO_OBJECT_TOBJCMICON_80299488_H
+#define PSO_OBJECT_TOBJCMICON_80299488_H
+
+#include "types.h"
+
+extern "C" {
+void TObjCMIcon__sub_802994B0(s32 arg0);
+void TObjCMIcon__sub_802994C8(s32 arg0, s32 *arg1);
+void TObjCMIcon__sub_8029957C(void *p, void *q);
+s32 TObjCMIcon__sub_80299598(s32 arg0, s32 arg1);
+void render__10TObjCMIconFv(s32 self);
+void run_task__10TObjCMIconFv(s32 arg0);
+}
+
+#endif

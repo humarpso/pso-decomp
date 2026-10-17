@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8012789C.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TTecJelin.h"
 #include "pso/misc/TTecZarua.h"
 
 extern "C" {
 
-void TObjPlayer__sub_8012789C(void* p);
 int roll_technique__11TItemWeaponFv(void*);
 s32 get_attack_stage__11TItemWeaponFv();
 

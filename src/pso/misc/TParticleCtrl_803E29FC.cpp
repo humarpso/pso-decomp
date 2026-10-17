@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_803E21B8.h"
+#include "pso/unk/text_803E20B0.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -11,12 +13,8 @@ struct Particle_803E2A1C {
 };
 
 extern "C" {
-void load_camera_view_matrix(void);
-void setup_blended_textured_draw(void);
-void load_context_texture_obj(void);
 s32 GXBegin(int, int, u16);
 void TParticleCtrl__sub_803E2A1C(Particle_803E2A1C *p, s32 n);
-void TObjPlayer__sub_803E2248(void);
 
 void TParticleCtrl::reset_particles() {
     TObjPlayer__sub_803E2248();

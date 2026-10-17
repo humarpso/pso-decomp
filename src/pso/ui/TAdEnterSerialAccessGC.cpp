@@ -1,4 +1,11 @@
 #include "types.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/misc/TQuestThread.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/misc/TWindowSubStatusDisp_80144B14.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/ui/TAdEnterBaseGC_8032B38C.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
 #include "pso/ui/TAdEnterSerialAccessGC.h"
 #pragma readonly_strings on
 
@@ -139,29 +146,19 @@ extern "C" {
 void strncpy(s32, s32, s32);
 s32 memset(void *, int, int);
 extern RecoveredGlobal_803217B8_TAdEnterSerialAccessGC__data_804EC9C4 TAdEnterSerialAccessGC__access_key_input_buffer;
-void TAdEnterSerialAccessGC__sub_8032190C(s32 arg0);
 extern RecoveredGlobal_803216C0_lbl_8047653C lbl_8047653C;
 extern RecoveredGlobal_803216C0_lbl_805430D0 enter_serial_formatted_buffer;
 extern RecoveredGlobal_803217B8_lbl_80476524 lbl_80476524;
 extern RecoveredGlobal_803217B8_lbl_805430A4 lbl_805430A4;
-s32 *TAdEnterSerialAccessGC__sub_803217B8(void);
 extern RecoveredGlobal_80321874_lbl_80476518 lbl_80476518;
 extern RecoveredGlobal_80321874_TAdEnterSerialAccessGC__data_804EC9B8 TAdEnterSerialAccessGC__raw_serial_buffer;
 extern RecoveredGlobal_80321874_lbl_80543090 TAdEnterSerialAccessGC_serial_buffer;
-s32 *TAdEnterSerialAccessGC__sub_80321874(void);
 extern RecoveredGlobal_80322418_lbl_804ED9F8 serial_access_entered_value_table;
-void TAdEnterSerialAccessGC__sub_80322418(s32 arg0, s32 arg1);
-void TAdEnterSerialAccessGC__sub_8032195C(s32 arg0);
 int serial_to_hex_string__22TAdEnterSerialAccessGCFi(void);
-void init__22TAdEnterSerialAccessGCFv(void);
-void queue_destruction__7TObjectFv(void *);
 void mem_free(void *p);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-void free_menu_object(void *p);
-s32 get_field_118__22TAdEnterSerialAccessGCFv();
 s32 play_sound_effect(int, int, int, int);
-void TWindow__close(u8 *arg0);
 s32 forward_input__22TAdEnterSerialAccessGCFPv(void *, void *, int);
 s32 strlen(int);
 extern RecoveredGlobal_80321B28_TAdEnterSerialAccessGC__data_804764E8 TAdEnterSerialAccessGC__selection_positions;
@@ -169,20 +166,16 @@ extern RecoveredGlobal_80321B28_lbl_8050E208 controller_input_state;
 extern RecoveredGlobal_80321B28_lbl_8050E3B8 controller_physical_port_bank;
 extern u32 TAdEnterSerialAccessGC__keyboard_control;
 extern s32 TAdEnterSerialAccessGC__input_state;
-void TAdEnterSerialAccessGC__sub_80321B28(u8 *arg0, int arg1);
 s32 get_state_flag__9TMainTaskFv();
 extern char lbl_804764D8[];
 extern char lbl_804764E0[];
-void create_draw_callback__22TAdEnterSerialAccessGCFv(void);
 extern T_80321738 lbl_80476530;
 extern u8 lbl_805430BC[];
-u8 *TAdEnterSerialAccessGC__sub_80321738(void);
 int sprintf(char *, const char *, ...);
 void sscanf(int, const char *, ...);
 extern char lbl_80543010[];
 extern const char serial_unsigned_decimal_scan_format[4] = "%lu";
 extern char lbl_80543050[];
-s32 get_localized_text_entry(s32 arg0, s32 arg1);
 s32 update_window_mode_from_progress__6TLobbyFPv(void *, void *);
 extern u8 lbl_804764C8[];
 extern u8 lbl_804764D0[];
@@ -191,12 +184,10 @@ void *__nw__7TObjectFUl(int);
 void __ct__9TAdBackGCFv(void *, void *);
 void __ct__12TAdBackTxtGCFv(void *, void *);
 void *__ct__14TAdSelectCurGCFv(void *, s32, void *, void *);
-void *TAdEnterBaseGC__ct(void *arg0);
 extern u8 lbl_804764F8[];
 extern s32 __vt__22TAdEnterSerialAccessGC[];
 extern s32 TAdEnterSerialAccessGC__name;
 extern s32 tl_clipout;
-u8 *TAdEnterSerialAccessGC__ct(u8 *arg0);
 void TAdEnterSerialAccessGC__sub_802C4B64(void *, void *, Col_803214C4, int);
 void __dt__19TAdPlyChrSelPlateGCFv(void *, int);
 void *__ct__19TAdPlyChrSelPlateGCFv(void *, s32, void *);
@@ -216,11 +207,7 @@ extern char lbl_805DF4E0[4];
 extern const f32 lbl_805DF4E4;
 void draw_window_frame();
 extern V_803212F8 serial_entry_status_line_position[];
-void TAdEnterSerialAccessGC__sub_80321F18(void* p);
-void TAdEnterSerialAccessGC__sub_80321F3C(void* p);
-void *__dt__22TAdEnterSerialAccessGCFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void *__dt__14TAdEnterBaseGCFv(void *arg0, s16 arg1);
 
 extern const f32 lbl_805DF4E8;
 extern s32 lbl_805DF4EC;
@@ -656,7 +643,6 @@ struct TAdEnterSerialAccessGC_80321F60 {
     s32 field_5C;
     s32 field_60;
 };
-u32 calc_text_width(char *s);
 void *__ct__10TAdTitleGCFP7TObjectl(void *, void *, s32);
 void run_task__22TAdEnterSerialAccessGCFv(TAdEnterSerialAccessGC_80321F60 *self) {
     void *p;

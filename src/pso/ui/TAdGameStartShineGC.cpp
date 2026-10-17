@@ -1,4 +1,5 @@
 #include "pso/TAdGameStartShineGC.h"
+#include "pso/system/ModelDrawContext.h"
 
 #include "types.h"
 #include "pso/TMainTask.h"
@@ -43,7 +44,6 @@ extern const f32 lbl_805DFD6C;
 extern const f32 lbl_805DFD70;
 extern const f32 lbl_805DFD74;
 Shine_8034AB4C *__ct__19TAdGameStartShineGCFv(Shine_8034AB4C *self);
-void set_cached_blend_factor(s32 arg0, s32 arg1);
 
 void TAdGameStartShineGC::render() {
     if ((TMainTask::get_state_flag() != 1) && ((s32) *(s32 *)((s8 *)this + 0x7C) != 0)) {

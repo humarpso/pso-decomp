@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801284F0.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804A3C20.h"
 
 extern "C" {
 
-void *TObjPlayer__sub_80128538(void *arg0);
 int update_trail_slot__11TItemWeaponFPvi(void*, void*);
 int draw_weapon_at_joint(void*, void*);
 void construct_srank_weapon(void *);

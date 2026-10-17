@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8014B8A4.h"
 #include "pso/npc/TUnk_804A9F50.h"
 #include "pso/npc/TObjNpcMaleDwarf.h"
 #include "pso/npc/TObjNpcMaleFat.h"
@@ -109,15 +110,10 @@ extern RecoveredGlobal_8014BD54_lbl_804AA3F0 bm_n_efsm_i_body_3_resource_descrip
 extern u32 TObjNpcMaleDwarf__shared_model_resource;
 extern RecoveredGlobal_8014BF2C_lbl_804AA580 bm_n_efm_i_body_resource_descriptor;
 extern u32 TObjNpcMaleFat__static_model_resource;
-u8 *construct_male_npc_base(u8 *arg0);
 extern s32 __vt__16TObjNpcMaleDwarf[];
 extern s32 TObjNpcMaleDwarf__name;
-u8 *TObjNpcMaleDwarf__ct(u8 *arg0, s32 arg1, s32 arg2);
-void * TObjNpcMaleFat__create(void *arg0);
-void *__dt__16TObjNpcMaleDwarfFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
-u8 *TObjNpcMaleFat__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 

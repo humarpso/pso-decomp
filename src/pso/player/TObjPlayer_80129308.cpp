@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80129308.h"
 
 extern "C" {
 
-void *TObjPlayer__sub_80129308(void *arg0);
 void construct_srank_weapon(void *);
 
 extern s32 lbl_804A4138[];

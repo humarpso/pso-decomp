@@ -1,9 +1,11 @@
 #include "pso/object/TObjSoloPlayWin.h"
+#include "pso/misc/TLobby_8006F278.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
 
 extern "C" {
-s32 TLobby__sub_8006FBE4();
 u32 get_player_by_client_id(s32);
 s32 TWindowCtrlMain__sub_8024CE58();
 s32 obj_testFlags30(u32, s32);
@@ -11,8 +13,6 @@ void* get_window_layout_position(s32);
 void* set_window_mode_4__6TLobbyFPvll(void*, void*, s32);
 void* TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 send_and_handle__6TLobbyFii(void*, void*, s32);
-void TWindow__close(u8 *arg0);
-void queue_destruction__7TObjectFv(void *arg0);
 extern s32 local_client_id;
 extern const char TObjSoloPlayWin_class_name[] = "TObjSoloPlayWin";
 const char* TObjSoloPlayWin_name = TObjSoloPlayWin_class_name;

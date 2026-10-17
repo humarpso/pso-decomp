@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TChCrTagInformation_802A1FAC.h"
+#include "pso/unk/text_803098DC.h"
 #include "pso/misc/TChCrTagInformation.h"
 
 extern "C" {
 
-void *TChCrTagInformation__ct(void *arg0);
 void __ct__8TChCrTagFv(void *);
-void fn_803098E8(void);
 
 extern const f32 lbl_805DDE20;
 extern s32 __vt__19TChCrTagInformation[];

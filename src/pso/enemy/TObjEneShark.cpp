@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/enemy/TObjEneShark.h"
+#include "pso/misc/obj_band.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_803D96A8.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -163,10 +167,8 @@ s32 post_translate_matrix(void *);
 s32 draw_chunk_object(s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 extern s32 model_render_flags;
 void __dl__7TObjectFPv(void *);
-void queue_destruction__7TObjectFv(void *);
 void vfunc_101__12TObjEneSharkFv(void);
 extern s32 shark_render_node_index;
 s32 vec3_add_to(void *, void *);
@@ -178,7 +180,6 @@ void vfunc_97__12TObjEneSharkFv(s32 arg0);
 void vfunc_95__12TObjEneSharkFv(s32 arg0);
 s32 TObjPlayer__sub_800D92BC(void *, int);
 s32 rotate_vector_by_matrix(int, void *, void *);
-s32 push_matrix_from(void *);
 extern RecoveredGlobal_800ABA9C_lbl_8058D490 identity_matrix;
 extern const f32 lbl_805D9BA0;
 extern const f32 lbl_805D9BA4;
@@ -605,10 +606,8 @@ extern u32 shark_resource_buffer;
 extern const f32 lbl_805D9BC8;
 extern const f32 lbl_805D9BCC;
 void vfunc_99__13TUnk_80493450Fv(void);
-void TObjPlayer__sub_800ACA0C(void);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
-void *TObjEneShark__ct(void *, void *, void *);
 void __dt__11TBoss4Type3FPvs(void*, int);
 void mem_free(void*);
 
@@ -1008,7 +1007,6 @@ void copy_position__20TBoss3VoloptHiraisinFi(void *);
 void init_enemy_base__13TUnk_80493450Fv(void *);
 void initialize_enemy_photon_effect(void *);
 void bind_enemy_combat_stats(void *, s32, s32, s32);
-void set_animation__10TObjPlayerFPvs(void *, s16);
 void init_collision_body_parts(void *, void *, s32);
 void *__construct_array(void *, void *, void *, s32, s32);
 void init_and_activate__10TObjPlayerFv(void *);

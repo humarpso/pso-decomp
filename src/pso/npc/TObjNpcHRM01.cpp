@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLanguage_801E4874.h"
+#include "pso/unk/text_800F9B84.h"
+#include "pso/unk/text_8014B8A4.h"
 #include "pso/npc/TUnk_804A9F50.h"
 #include "pso/npc/TObjNpcHRM01.h"
 #include "pso/misc/TLobby.h"
@@ -98,18 +101,12 @@ struct RecoveredGlobal_8014B59C___vt__12TObjNpcHRM01 {
 };
 
 extern "C" {
-u8 *construct_male_npc_base(u8 *arg0);
 extern s32 __vt__12TObjNpcHRM01[];
 extern s32 TObjNpcHRM01__name;
 extern u32 TObjNpcHRM01__shared_object_resource;
 extern u32 TObjNpcHRM01__body_texture_gvm_handle;
-u8 *TObjNpcHRM01__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 create_named_object(s32 arg0);
-u8 *load_gvm_texture_file(s32 arg0);
 extern char TObjNpcHRM01__data_rel_filename[];
 extern char TObjNpcHRM01__body_texture_filename[];
-void * TObjNpcLappy__create(void *arg0);
-void *__dt__12TObjNpcHRM01Fv(void *arg0, s16 arg1);
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);
 u8 *TObjNpcLappy__ct(u8 *self, void *parent, s32 arg2);

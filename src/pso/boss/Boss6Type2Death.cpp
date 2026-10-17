@@ -1,4 +1,11 @@
 #include "types.h"
+#include "pso/boss/Boss6Type2Death.h"
+#include "pso/boss/TBoss4Type2_800874F4.h"
+#include "pso/misc/TCameraCtrl_800687BC.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_803E4954.h"
+#include "pso/unk/text_80087278.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss6Demo21_TYPE2_DEAD.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -53,19 +60,14 @@ struct Pl_8033E0F0 {
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
-void * create_boss6_type2_death(void *arg0, void *arg1);
-s32 restore_player_cameras();
 s32 refresh_players_equipment__14TBoss6PlotFalzFPv();
 extern void *__vt__23TBoss6Demo21_TYPE2_DEAD[];
 void clear_render_callback__8TObjFishFv(int);
 void push_matrix();
-s32 pop_matrix(void);
 void post_translate_matrix(void *);
-void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 s32 get_bml_motion(void *, int);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
-s32 activate_camera_mode(s32 arg0);
 void set_scripted_camera_pose(void *, void *, void *);
 s32 TObjFish__sub_800E3124(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
@@ -76,17 +78,12 @@ f32 vector_length(void *);
 void subtract_vector(void *, void *);
 void normalize_vector(void *);
 #define __vt__23TBoss6Demo21_TYPE2_DEAD ((u8 *)__vt__23TBoss6Demo21_TYPE2_DEAD)
-void *TBoss6Demo21_TYPE2_DEAD__ct(void *arg0p, void *arg1, void *arg2);
 s32 play_sound_effect(int, void *, int, int);
 s32 play_persistent_sound(int, void *, void *, int, int);
-void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
-void *create_particle_emitter(void *pos, s32 id);
 Pl_8033E0F0 *get_player_data__10TObjPlayerFi(s32);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 s32 is_state_1f__14TBoss6PlotFalzFUi(void *);
-void queue_destruction__7TObjectFv(void *);
 void run_task__23TBoss6Demo21_TYPE2_DEADFv(Fish_8033E0F0 *arg0);
-void render__23TBoss6Demo21_TYPE2_DEADFv(void* p);
 
 }
 extern "C" const char lbl_80478088[] = "TBoss6Demo21_TYPE2_DEAD";

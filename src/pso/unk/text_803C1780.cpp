@@ -1,13 +1,12 @@
 #include "types.h"
+#include "pso/unk/text_803C1780.h"
 #include "pso/misc/TLobby.h"
 
 typedef void (*RecoveredCallback_1268626c296b)(void *);
 struct Obj_803C1A24 { u8 pad[0xAC]; void *fac; };
 
 extern "C" {
-void TLobby__sub_803C1A00(u8 *arg0, s32 arg1);
 extern RecoveredCallback_1268626c296b lbl_805D7514;
-void TLobby__sub_803C19D8(void);
 extern s32 (*lbl_805D7510)();
 
 void TLobby__sub_803C19D8(void) {

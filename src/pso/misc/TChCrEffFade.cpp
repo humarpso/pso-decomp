@@ -1,16 +1,16 @@
 #include "pso/TChCrEffFade.h"
+#include "pso/misc/TChCrEffFade.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80293D84.h"
 
 #include "types.h"
 #include "pso/misc/TCameraCtrl.h"
 
 extern "C" {
 
-void *__ct__12TChCrEffFadeFv(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 TCameraCtrl__sub_80068EF0();
 s32 draw_fade_strip__12TChCrEffFadeFf(void *, f32);
 s32 __ct__7TObjectFP7TObject(s32, s32);
-void fn_80293E58(void *arg0, f32 scale);
-void queue_destruction__7TObjectFv(void *arg0);
 
 void TChCrEffFade::render() {
     f32 temp_f0;

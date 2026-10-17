@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8024AB54.h"
 
 #include <stddef.h>
 struct Stack_8024AB54 {
@@ -15,7 +16,6 @@ struct RecoveredGlobal_8024AB54_lbl_804CEA7C {
 extern "C" {
 s32 call_window_method__11TWindowCtrlFPvi(void *, void *);
 extern RecoveredGlobal_8024AB54_lbl_804CEA7C window_ctrl_init_params;
-void fn_8024AB54(s32 arg0);
 typedef char RecoveredGlobal_8024AB54_lbl_804CEA7C_size[sizeof(RecoveredGlobal_8024AB54_lbl_804CEA7C) == 0xC ? 1 : -1];
 void fn_8024AB54(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_8024AB54, sp8) == 0x0) ? 1 : -1];

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_800A0408.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/player/TUnk_80490470.h"
@@ -23,21 +24,16 @@ u8 *TObjEnemyCustom__ct(u8 *arg0);
 extern s32 __vt__14TObjEneBalClaw[];
 extern s32 lbl_805D2968;
 extern const f32 lbl_805D960C;
-u8 *TObjEneBalClaw__ct(u8 *arg0);
 extern Ent_8008D68C lbl_8048EC1C[];
 extern s32 balclaw_last_shared_update_frame;
 extern s32 actor_frame_tick;
 void TObjPlayer__sub_8023DEE0(void *obj, s32 a, s32 b, u16 c);
-void TObjEneBalClaw__sub_8008D68C(void);
 extern V_8008D700 lbl_80439B34;
 extern f32 lbl_805D9600;
 extern const f32 lbl_805D9604;
 f32 sin_table_lookup(s32);
 extern const f32 lbl_805D9608;
-void TObjEneBalClawClaw__sub_8008DC14(void);
-void *__dt__14TObjEneBalClawFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
-void *__dt__13TUnk_80490470Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
 

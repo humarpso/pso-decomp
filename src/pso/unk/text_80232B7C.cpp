@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby_80226070.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 
 struct Ent_80232E0C { u32 a; u32 count; };
@@ -43,9 +45,7 @@ struct Ctl_80232C50 {
 
 extern "C" {
 void __dt__7TObjectFv(void *, s32);
-void queue_destruction__7TObjectFv(void *);
 void mem_free(void *);
-void stop_sound_request(s32);
 void __dl__7TObjectFPv(void *);
 extern Ent_80232E0C grants_effect_emitter_table[];
 extern u8 __vt__13TUnk_804CC888[];

@@ -1,16 +1,16 @@
 #include "types.h"
+#include "pso/math/MatrixTransforms.h"
+#include "pso/unk/text_803D853C.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/enemy/TObjEneRecon.h"
 #include "pso/object/TObjFish.h"
 
 extern "C" {
 s32 TObjFish__sub_8001EDB0(u32, s32);
 s32 get_bml_model(u32, s32);
-void rotate_matrix_zyx(void *m, s32 x, s32 y, s32 z);
 s32 scale_matrix(s32, f32, f32, f32);
-void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
-s32 pop_matrix();
-void draw_chunk_object(void *child);
 extern u32 TObjEneRecon__recobox_static_instance;
 extern const f32 lbl_805DF3B8;
 void TObjEneRecon::render_shadows() {

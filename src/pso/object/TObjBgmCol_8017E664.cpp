@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/unk/text_8013157C.h"
 #include "pso/object/TObjBgmCol.h"
 
 extern "C" {
 
 u32 get_player_by_client_id(s32);
-f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
 
 extern s32 local_client_id;
 

@@ -1,4 +1,5 @@
 #include "pso/TObjTailsTailsMove.h"
+#include "pso/object/TObjTailsTailsMove.h"
 
 #include "types.h"
 #include "pso/item/TItemObject.h"
@@ -8,12 +9,6 @@ extern "C" {
 s32 advance_field28__23TAdSinglePlyChrSelectGCFv();
 s32 sub_800FFC6C__18TObjTailsTailsMoveFv();
 void *__nw__7TObjectFUl(int);
-void *TObjTailsTailsMove__ct(void *, void *);
-void *TObjTailsTailsMove__ct(void *arg0, void *arg1);
-int TObjTailsTailsMove__sub_800FFE04(void);
-void TObjTailsTailsMove__sub_800FFE0C(void);
-void TObjTailsTailsMove__sub_800FFE10(void);
-int TObjTailsTailsMove__sub_800FFE14(void);
 void __ct__7TObjectFP7TObject(void *);
 
 extern s32 __vt__18TObjTailsTailsMove[];

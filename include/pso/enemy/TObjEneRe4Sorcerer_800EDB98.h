@@ -1,0 +1,25 @@
+#ifndef PSO_ENEMY_TOBJENERE4SORCERER_800EDB98_H
+#define PSO_ENEMY_TOBJENERE4SORCERER_800EDB98_H
+
+#include "types.h"
+
+extern "C" {
+void TBoss3Volopt__sub_800F059C(void);
+void *TObjEneRe4Sorcerer__ct(void *arg0, void *arg1, void *arg2);
+void TObjEneRe4Sorcerer__sub_800EE0F8(u8 *arg0, s32 arg1);
+void TObjEneRe4Sorcerer__sub_800EE1CC(u8 *arg0, s32 arg1);
+void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1);
+s32 TObjEneRe4Sorcerer__sub_800EEC00(void *arg0p, void *arg1p);
+s32 TObjEneRe4Sorcerer__sub_800EEDE4(void *arg0p, void *arg1p);
+void TObjEneRe4Sorcerer__sub_800EEFE4(u8 *arg0, s32 arg1);
+void TObjEneRe4Sorcerer__sub_800EF214(s32 arg0);
+void TObjEneRe4Sorcerer__sub_800EFE30(void);
+void TObjEneRe4Sorcerer__vt85(s32 arg0p, u32 arg1, s32 arg1p);
+s32 remap_area_sound_id(s32 arg0, s32 arg1);
+void render__18TObjEneRe4SorcererFv(u8 *arg0);
+void run_task__18TObjEneRe4SorcererFv(u8 *arg0);
+s32 select_attack_target__18TObjEneRe4SorcererFiff(s32 arg0, f32 farg0, f32 farg1);
+void set_motion_by_state__18TObjEneRe4SorcererFPv(void *arg0);
+}
+
+#endif

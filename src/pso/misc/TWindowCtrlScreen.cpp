@@ -3,7 +3,6 @@
 
 extern "C" {
 
-void *TWindowCtrlScreen__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern s32 __vt__17TWindowCtrlScreen[];

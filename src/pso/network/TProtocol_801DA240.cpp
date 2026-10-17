@@ -1,4 +1,5 @@
 #include "pso/TProtocol.h"
+#include "pso/misc/TLobby_801DEFC4.h"
 #include "pso/misc/TLobby.h"
 #include <stddef.h>
 typedef char TradeResultCallbackOffset[(offsetof(TProtocol, m_recv_handlers) + offsetof(recv_packet_handlers, handle_D4_trade_result_packet) == 0xBC9C) ? 1 : -1];
@@ -98,14 +99,11 @@ struct Pkt_801DA734 {
 };
 
 extern "C" {
-void bswap_cmd_D3_item_bank(void *);
 int sprintf(char *, const char *, ...);
 extern char TProtocol__recv_trade_list_log_format[];
 void handle_cmd_D3__9TProtocolFR6packet(u8 *arg0, Pkt_801DA35C *src);
 extern char TProtocol__send_trade_list_log_format[];
 void send_trade_list__6TLobbyFPvPv(VObj_18_801DA4A0 *obj, Pkt_801DA4A0 *src);
-int TLobby__sub_801DF024(void *);
-int TLobby__sub_801DF064(void *);
 typedef void (*Fn_801DA240)(char *);
 typedef void (*Fn_801DA5E4)(void *);
 

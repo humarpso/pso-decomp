@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TShopWindowBase.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80222C28.h"
 #include "pso/misc/TShopArmorListWindow.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowSubShortCutList.h"
@@ -144,8 +148,6 @@ struct Win_8021C968 : VObj_8021C968 {
 };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
-s32 get_shop_text(s32);
 void *create_item_list_window(s32, s32, u16);
 void calc_list_content_extent(void *);
 void *__nw__7TObjectFUl(u32);
@@ -169,13 +171,10 @@ void *__ct__18TWindowInputNumberFPvllls(void *, s32, s32, s32, s32, s16);
 s32 align_menu_entry_positions(u32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, s32, s32);
 u32 create_window_menu(s32, s32, u16);
-void TWindow__close(u8 *arg0);
 s32 get_selected_menu_value(void *);
 void *TShopEquipmentSellWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void *__dt__24TShopEquipmentSellWindowFv(void *arg0, s16 arg1);
-void *__ct__15TShopWindowBaseFv(void *arg0);
 void __dl__7TObjectFPv(void *);
-void *__dt__15TShopWindowBaseFv(void *self, s16 m);
 void memset(void *, int, int);
 
 void TShopEquipmentSellWindow::vfunc_7() {

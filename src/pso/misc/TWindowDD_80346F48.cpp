@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowDD_80346F48.h"
 #include "pso/misc/TWindowDD.h"
 
 struct DD_80346FE4 {
@@ -14,7 +15,6 @@ struct DD_80346FE4 {
 };
 
 extern "C" {
-s32 TWindowDD__sub_80346FC0(s16 arg0);
 u32 get_player_by_client_id(int);
 char *strncpy(char *, const char *, u32);
 extern s32 local_client_id;

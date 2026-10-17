@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby_8013A874.h"
+#include "pso/unk/text_8013AAD4.h"
 #include "pso/system/byteswap.h"
 #include "pso/misc/TLobby.h"
 
@@ -8,13 +10,7 @@
 struct ByteBlock_10 { u8 bytes[0x10]; };
 
 extern "C" {
-u8 *fn_8013AAD4(u8 *arg0, u8 *arg1);
 s32 __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag();
-u8 *TLobby__sub_8013AA64(u8 *arg0, u8 *arg1);
-void bswap_telepipe_record(void* p);
-void TLobby__sub_8013A9C0(void* p);
-void bswap_object_source_record(void* p);
-void bswap__15disp_data_part2Fv(s32 arg0);
 
 void TLobby::bswap_fields() { bswap_16((u16 *)((char*)this + 0x2)); bswap_32((u32 *)((char*)this + 0x4)); }
 

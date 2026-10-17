@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjQuestCol2_80196E68.h"
 #include "pso/misc/TQuestColCtrl.h"
 #include "pso/TObject.h"
 
@@ -9,7 +10,6 @@ struct Base_80195F50 { u8 pad[0x18]; };
 struct Obj_80195F50 : Base_80195F50 { virtual ~Obj_80195F50(); };
 
 extern "C" {
-void TQuestColCtrl__sub_80196EC0(void);
 extern u32 quest_collision_task_root;
 void *__nw__7TObjectFUl(int);
 void *TObjQuestColApcINW__ct(void *self, void *parent, void *arg);

@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TChCrLoadAfs.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_803CC294.h"
 #include "pso/TChCrLoadAfs.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
@@ -6,7 +9,6 @@
 extern "C" {
 
 void release_load_slot__12TChCrLoadAfsFv(void *arg0);
-s32 try_begin_load__12TChCrLoadAfsFPv(void *arg0);
 
 int TChCrLoadAfs::is_unloaded() { return *(u32*)((char*)this + 0x4a8) == 0; }
 
@@ -47,9 +49,6 @@ extern "C" {
 s32 TLobby__sub_803CC4C0(int);
 void close_adxf_handle__6TLobbyFv(int);
 void poll_load__12TChCrLoadAfsFv(L_8028B948 *arg0);
-void sub_8028B940__12TChCrLoadAfsFv(void);
-void sub_8028B944__12TChCrLoadAfsFv(void);
-s32 TLobby__sub_803CC53C(u8 *arg0);
 u32 adxf_open_afs__6TLobbyFii(s32, s32);
 
 void sub_8028B940__12TChCrLoadAfsFv(void) {  }
@@ -110,12 +109,10 @@ struct Ld_8028BE00 {
 
 extern "C" {
 extern Te_8028BFA4 player_class_texture_archive_table[];
-void queue_destruction__7TObjectFv(void *arg0);
 f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
 f32 TLobby__sub_8028C50C(f32);
 s32 strcmp(const char *, const char *);
 extern const f32 lbl_805DD920;
-s32 find_player_texture_name_ordinal(u8 *arg0);
 void set_texture_name(void *, void *, s32, s32);
 s32 load_texture_list(void *);
 void *__ct__12TChCrLoadAfsFP7TObjectPvPv(void *arg0, void *arg1, void *arg2, void *arg3);

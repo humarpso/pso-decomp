@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803D8030.h"
 struct E_803D8030 { u8 pad[0x10]; };
 
 extern "C" {
@@ -12,7 +13,6 @@ extern s32 debug_text_global_count;
 extern f32 debug_text_scale;
 extern const f32 lbl_805E0EA0;
 void fn_803D8030(E_803D8030 *p, s32 n, s32 x);
-void fn_803D8064(u16 arg0);
 #pragma push
 #pragma scheduling off
 void fn_803D8030(E_803D8030 *p, s32 n, s32 x) {

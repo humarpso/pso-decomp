@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TOJungleDesign.h"
+#include "pso/misc/TOJungleDesign_802FEEB4.h"
 
 extern "C" {
 
-void *TOJungleDesign__create(void *arg0);
-u8 *TOJungleDesign__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;

@@ -1,13 +1,12 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/ui/TObjBagWarnWin_8006EF24.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/misc/TCheckMemoryCard.h"
 #include "pso/misc/TWindowSubComCard.h"
 
 extern "C" {
-
-s32 TKeyBoardControl__sub_8000F8EC();
-s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 
 void TQuestVmDownLoadServer::init_from_keyboard_state() {
     s32 var_r31;

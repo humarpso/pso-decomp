@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80086FE0.h"
 #include "pso/system/vector.h"
 #include "pso/ui/TAdLoadNetworkGC.h"
 #include "pso/boss/TBoss4Type2.h"
@@ -14,11 +16,9 @@ struct Ray_803085A0 { V_803084AC a; V_803084AC b; };
 extern "C" {
 extern V_803084AC TAdLoadNetworkGC__object_offset_table[];
 void __dt__7TObjectFv(void *, int);
-void queue_destruction__7TObjectFv(void *);
 void __dl__7TObjectFPv(void *);
 extern u8 __vt__16TAdLoadNetworkGC[];
 Net_80308518 *__dt__16TAdLoadNetworkGCFv(Net_80308518 *self, s16 flag);
-void *fn_80086FE0(void *, void *, s32, s32);
 void *__ct__7TObjectFP7TObject(void *, void *);
 extern const s32 load_network_object_id_table[];
 extern Ray_803085A0 lbl_804FF5E8;

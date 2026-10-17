@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemLoad_8010FDF0.h"
 #include "pso/item/TItemMag.h"
 #include "pso/misc/TLobby.h"
 #include "pso/TItemLoad.h"
@@ -12,8 +13,6 @@ extern s32 lbl_805D49D8;
 extern u32 item_loader_instance;
 
 extern "C" {
-
-s32 *__dt__9TItemLoadFPvs(s32 *arg0, s16 arg1);
 
 void TLobby::free_item_loader() {
     if ((u32) item_loader_instance != 0U) {

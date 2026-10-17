@@ -33,4 +33,16 @@ struct TWindowFukidasi
     void draw_tail(void *view, u32 color, f32 *off, f32 depth);
 };
 
+extern "C" {
+void TWindowFukidasi__ct(void *arg0, s16 arg1, s32 str, s16 arg3, f32 farg0);
+void TWindowFukidasi__sub_802504A8(void *arg0);
+s32 clamp_position__15TWindowFukidasiFPvPvf(void *arg0, void *arg1, f32 farg0);
+void complete_speech_balloon(u8 *arg0);
+void init_flags__15TWindowFukidasiFPvi(void *arg0, s32 arg1);
+s32 is_speech_balloon_ready(u8 *arg0);
+void open__15TWindowFukidasiFPvPvi(u8 *arg0, u32 *arg1, s32 arg2);
+void set_color__15TWindowFukidasiFPvUs(void *arg0, u16 arg1);
+void set_text__15TWindowFukidasiFPvii(u8 *arg0, s32 str, s32 arg2);
+}
+
 #endif

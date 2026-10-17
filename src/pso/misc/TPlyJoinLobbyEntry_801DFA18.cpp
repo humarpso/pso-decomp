@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TPlyCharData_801E0A04.h"
+#include "pso/misc/TPlyJoinLobbyEntry_801DFA18.h"
 #include "pso/system/byteswap.h"
 
 extern "C" {
 
-void bswap__18TPlyJoinLobbyEntryFv(s32 arg0);
-void bswap__12TPlyCharDataFv(s32 arg0);
 s32 bswap__16TPlyGuildCardTagFv();
 
 void bswap__18TPlyJoinLobbyEntryFv(s32 arg0) {

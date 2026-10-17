@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/boss/TBoss3Volopt_800485C8.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80086D50.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TUnk_804999E8.h"
 #include "pso/boss/TUnk_804848B8.h"
@@ -19,7 +22,6 @@ struct RecoveredGlobal_8004885C_lbl_80484888 {
 struct Raw_80048674 { u8 b[12]; };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
 extern s32 lbl_805D4D14;
 extern const f32 lbl_805D8850;
 extern const f32 lbl_805D8854;
@@ -27,8 +29,6 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_80484888[];
 extern u8 *tl_07;
 extern const f32 lbl_805D8848;
-u8 *TBoss3Volopt__sub_8004885C(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4, f32 farg0, f32 farg1);
-void *spawn_directional_particle(void *pos, void *dir, s32 id);
 s32 rand();
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -36,9 +36,6 @@ extern const f32 lbl_805D8838;
 extern const f32 lbl_805D883C;
 extern const f32 lbl_805D8840;
 extern const f32 lbl_805D8844;
-void update_particle_emitter__12TBoss3VoloptFPv(u8 *arg0);
-void TBoss3Volopt__sub_800485C8(void);
-void *__dt__13TUnk_80484888Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -152,9 +149,6 @@ extern u32 TBoss3Volopt__fade_active_flag;
 extern const f32 lbl_805D8858;
 
 extern "C" {
-
-void *__dt__13TUnk_804848A0Fv(void *arg0, s16 arg1);
-void *__dt__13TUnk_804848B8Fv(void *arg0, s16 arg1);
 
 extern s32 lbl_804848A0[];
 

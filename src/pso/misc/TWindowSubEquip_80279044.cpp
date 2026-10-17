@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/misc/TWindowSubEquip_80279044.h"
 #include "pso/misc/TWindowSubEquip.h"
 
 struct Item_80279098 { u8 pad[0x34]; u32 flags; };
 
 extern "C" {
-s32 get_class_weapon_icon_index(void *self, u8 *p);
-void TWindowSubEquip__sub_80279044(void* p);
 int build_equipment_list__15TWindowSubEquipFv(void*);
 int clamp_selection_to_valid_entry__20TShopArmorListWindowFv(void*);
 int reset_list__20TShopArmorListWindowFv(void*);

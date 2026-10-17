@@ -1,14 +1,14 @@
 #include "types.h"
+#include "pso/boss/TBoss4Thanks_8035C8F0.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/unk/text_8035C9E8.h"
 #include "pso/boss/TBoss4Thanks.h"
 
 extern "C" {
 s32 fn_8035C2B4();
 int is_door_0x97_open__12TBoss4ThanksFv(void*);
-int TBoss4Thanks__sub_8035C96C(void* p);
 u8 *TBoss4Thanks__ct(u8 *arg0, u8 *arg1);
 void *__nw__7TObjectFUl(int);
-s32 any_player_has_listed_item();
-s32 get_main_phase();
 s32 is_split_screen();
 
 extern void *tl_02;

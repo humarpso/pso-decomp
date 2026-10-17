@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6Tube_802B15F4.h"
 #include "pso/boss/TBoss6Tube.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -9,7 +10,6 @@ extern u8 lbl_80470A68[];
 extern u8 boss06_tube_dat_resource_descriptor[];
 extern u32 boss6_tube_bml_resource;
 extern u32 boss6_tube_texture_list;
-u8 *TBoss6Tube__ct(u8 *arg0, u8 *arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 void *__nw__7TObjectFUl(int);

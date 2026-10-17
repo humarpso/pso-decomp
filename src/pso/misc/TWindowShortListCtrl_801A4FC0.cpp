@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TWindowShortListCtrl_801A4FC0.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TUnk_804C2298.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowShortListCtrl.h"
@@ -9,12 +12,7 @@ struct RecoveredGlobal_801A51C0_lbl_80446980 {
 };
 
 extern "C" {
-s32 fn_801A51F0(void);
 extern RecoveredGlobal_801A51C0_lbl_80446980 short_list_ctrl_interval_table;
-void *construct_option_scene(void *arg0);
-s32 TWindowShortListCtrl__sub_801A513C(void* p);
-int TWindowShortListCtrl__sub_801A5144(void* p);
-void TKeyBoardControl__sub_8000F90C(s32 arg0);
 void *TWindowOptionCtrl__ct(void *, void *);
 void *__ct__10TAdTitleGCFP7TObjectl(void *, void *, int);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
@@ -24,7 +22,6 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
 void *get_character_save_record();
-void queue_destruction__7TObjectFv(void *);
 
 extern s32 lbl_804C2298[];
 

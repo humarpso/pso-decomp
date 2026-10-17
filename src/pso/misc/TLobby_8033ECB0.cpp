@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby_8033ECB0.h"
+#include "pso/ui/TAdMcCheckGC.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TUnk_804EFA88.h"
@@ -13,9 +15,7 @@ extern "C" {
 extern s32 lbl_805D6DA0;
 int mem_alloc(void *);
 s32 __ct__7TObjectFP7TObject();
-void TLobby__sub_8033EE38(void *p);
 extern s32 lbl_804EFA88[];
-u8 *TLobby__sub_8033ED24(u8 *arg0);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 void mem_free(void *p);

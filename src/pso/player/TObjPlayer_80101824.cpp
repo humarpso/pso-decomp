@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem_801013BC.h"
 #include "pso/items/TItemWeapon.h"
 #include "pso/item/TItem.h"
 #include "pso/player/TObjPlayer.h"
@@ -6,7 +7,6 @@
 extern "C" {
 s32 get_player_by_client_id(void *);
 int draw_ginja_object(void*);
-void draw_model_node_tree(u8 *arg0);
 s32 check_equip_requirements(s32, void *, s32 *);
 s32 init__9TItemDataFv(void *);
 

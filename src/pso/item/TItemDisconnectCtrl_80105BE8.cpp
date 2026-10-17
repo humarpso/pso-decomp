@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/item/TItemDisconnectCtrl_80105BE8.h"
 #include "pso/item/TItemDisconnectCtrl.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-
-void TItemDisconnectCtrl__sub_80105BE8(void);
 
     extern int lbl_805D54E0;
 void TItemDisconnectCtrl__sub_80105BE8(void) { lbl_805D54E0 = 0; }

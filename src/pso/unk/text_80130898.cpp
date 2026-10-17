@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/item/TUnk_804A6AD8.h"
 
 struct PlB_80130974 { char pad[0x18]; };
@@ -67,7 +68,6 @@ extern const f32 lbl_805DB014;
 extern const f32 lbl_805DB008;
 extern const f32 lbl_805DB00C;
 extern const f32 lbl_805DB010;
-void *spawn_particle_effect(void *pos, s32 id);
 
 #pragma push
 #pragma opt_common_subs off

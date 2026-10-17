@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TRecvDownloadHead.h"
 #include "pso/system/byteswap.h"
 
 extern "C" {
 
-void bswap__17TRecvDownloadHeadFv(s32 arg0);
 s32 bswap__13packet_headerFv();
 
 void bswap__17TRecvDownloadHeadFv(s32 arg0) {

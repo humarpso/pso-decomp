@@ -1,0 +1,14 @@
+#ifndef PSO_MISC_TPLYGUILDCARDTAG_8013ABCC_H
+#define PSO_MISC_TPLYGUILDCARDTAG_8013ABCC_H
+
+#include "types.h"
+
+extern "C" {
+void TPlyGuildCardTag__sub_8013ACA4(void *arg0, void *arg1);
+void TQuestListOnline__sub_8013ACF4(s32 arg0);
+void __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *arg0, void *arg1);
+void fn_8013ACE4(int a0);
+void set_area_random_seed(int a0);
+}
+
+#endif

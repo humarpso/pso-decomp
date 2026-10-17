@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TWindowHelpItem_8025A12C.h"
+#include "pso/misc/TWindowSubStatusDisp_80144B14.h"
+#include "pso/misc/TWindowSubStatusDisp_80228F5C.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TUnk_804CF930.h"
 #include "pso/misc/TWindowHelpItem.h"
@@ -36,21 +39,13 @@ typedef struct Vec2_8025A354 { f32 x, y; } Vec2_8025A354;
 
 extern "C" {
 s32 sub_80256BDC__13TUnk_804CF930Fs(void *, void *);
-u8 *TWindowHelpItem__sub_8025A594(u8 *arg0, s32 arg1, s32 arg2);
 void mem_free(void *p);
 s32 mem_alloc(s32);
 s32 strncpy(s32, u32, s32);
 void set_text_draw_params(void *, s32, s32, f32, f32);
-int TWindowHelpItem__sub_8025A600(void* p);
 void draw_window_text(void *, void *, s32, s32, f32);
 void render_summary_row__15TWindowHelpItemFv(Item_8025A354 *self, Win_8025A354 *w);
 s32 get_shared_text_buffer();
-u32 calc_text_width(char *s);
-void text_builder_reset();
-void TWindowSubStatusDisp__sub_80228F5C(s32);
-void text_builder_append(u8 *str);
-void *destroy__15TWindowHelpItemFPvs(void *arg0, s16 arg1);
-void tick_display_timer__15TWindowHelpItemFPv(void *arg0);
 s32 measure_string_len__20TWindowSubStatusDispFv(u32);
 
 void *lbl_804CF9F8[6] = {

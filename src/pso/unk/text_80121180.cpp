@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80121180.h"
 
 struct RecoveredGlobal_80121198_lbl_804C43CC {
     s32 value;
@@ -19,9 +20,7 @@ extern "C" {
 s16 get_validated_attack_stage();
 extern RecoveredGlobal_80121198_lbl_804C43CC attack_type_accuracy_scales;
 extern RecoveredGlobal_80121198_lbl_804C43D8 attack_combo_accuracy_multipliers;
-f32 get_attack_accuracy_scale(s16 *arg0);
 extern RecoveredGlobal_80121180_lbl_804C43C0 attack_damage_scale_table;
-f32 get_attack_damage_scale(s16 *arg0);
 typedef char RecoveredGlobal_80121198_lbl_804C43CC_size[sizeof(RecoveredGlobal_80121198_lbl_804C43CC) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_80121198_lbl_804C43D8_size[sizeof(RecoveredGlobal_80121198_lbl_804C43D8) == 0x10 ? 1 : -1];
 

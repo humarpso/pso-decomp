@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/misc/TPlyPhotonChair_80142524.h"
+#include "pso/misc/TPlyPhotonChair_80143888.h"
+#include "pso/player/TObjPlayer_803E4954.h"
+#include "pso/system/ChunkMaterialState.h"
 #include "pso/misc/TUnk_804A7488.h"
 #include "pso/misc/TPlyPhotonChair.h"
 
@@ -24,34 +29,22 @@ struct RecoveredGlobal_80142734_lbl_8058D4C0 {
 
 extern "C" {
 extern s32 model_render_flags;
-void set_global_draw_flag_bits(s32 arg0, s32 arg1);
     extern int lbl_805D566C;
     extern int lbl_805D5670;
     extern int lbl_805D5674;
     extern int chunk_polygon_flags_or_mask;
     extern int chunk_polygon_flags_and_mask;
-int TPlyPhotonChair__sub_8014270C(s32 _w0);
-int TPlyPhotonChair__sub_80142720(s32 _w0);
-void restore_actor_draw_lighting(void);
-void setup_actor_draw_lighting(void);
 s32 activate__15TPlyPhotonChairFv();
 extern const f32 lbl_805DB168;
 extern const f32 lbl_805DB16C;
 int draw_chunk_object(void);
-int TLobby__sub_80142944(void* p);
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 extern RecoveredGlobal_801426DC_lbl_8050BFF0 photon_chair_color_vec4;
 extern RecoveredGlobal_801426DC_lbl_8058D4C0 model_material_color;
-s32 TPlyPhotonChair__sub_80143930(void *);
-void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern const f64 lbl_8043F298;
 extern const f64 lbl_8043F2A0;
 extern const f64 lbl_8043F2A8;
 extern const f32 __float_nan[];
 extern const f32 __float_huge[];
-f64 TPlyPhotonChair__sub_80142624(f64 x);
-void set_chunk_material_color(f32 *arg);
-void set_chunk_material_override_pair(s32 arg0, s32 arg1);
 
 void TPlyPhotonChair::play_sound_with_arg(void* p, void* a1) { set_global_draw_flag_bits((s32)(p), (s32)((void*)2064)); set_chunk_material_override_pair((s32)((void*)-1), (s32)((void*)2048)); set_chunk_material_color((f32 *)a1); }
 

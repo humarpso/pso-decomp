@@ -1,4 +1,7 @@
 #include "pso/TAdSelectTxtGC.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_8023E480.h"
+#include "pso/ui/TAdSelectTxtGC.h"
 
 #include "types.h"
 #include "pso/misc/TLobby.h"
@@ -40,18 +43,12 @@ struct Src_802A1838 {
 struct Tbl_802A194C { s32 v[5]; };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 void *__nw__7TObjectFUl(s32);
 void *__ct__17TAdSelectTxtSubGCFv(void *, void *, void *);
-s32 TLobby__sub_8023E4B4(s32 arg0, s32 arg1);
 extern Tbl_802A194C select_gamen_resource_name_table;
 extern Tbl_802A194C select_gamen_resource_name_table_b;
 extern const s32 current_language;
 extern u32 ad_select_text_texture_handle;
-void TLobby__sub_802A194C(void);
-void TAdSelectTxtGC__sub_802A16A8(void* p);
-s32 TAdSelectTxtGC__sub_802A16C0(void* p);
-void TLobby__sub_802A1918(void);
 void TLobby__sub_803DA16C(void*);
 
     extern const float lbl_805DDDF8;

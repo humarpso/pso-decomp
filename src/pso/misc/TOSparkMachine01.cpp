@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TOSparkMachine01.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
@@ -80,16 +82,12 @@ extern s32 tl_05;
 extern const f32 lbl_805DB9F0;
 extern const f32 lbl_805DB9F4;
 extern const f32 lbl_805DB9F8;
-void *TOSparkMachine01__ct(void *arg0, void *arg1);
 s32 rand(void);
 extern const f32 lbl_805DB9E8;
 void begin_effect_render__13TParticleCtrlFv(void *);
 void rotate_matrix_y(int, int);
 void push_matrix();
-s32 pop_matrix(void);
 void post_translate_matrix(void *);
-void draw_ginja_model(s32 model);
-void *__dt__16TOSparkMachine01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);

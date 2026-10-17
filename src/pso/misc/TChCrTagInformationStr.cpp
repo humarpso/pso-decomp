@@ -1,4 +1,5 @@
 #include "pso/TChCrTagInformationStr.h"
+#include "pso/misc/TChCrTagInformationStr.h"
 
 TChCrTagInformationStr::~TChCrTagInformationStr() {}
 
@@ -12,8 +13,6 @@ extern const f32 lbl_805DF110;
 extern const f32 lbl_805DF124;
 extern const f32 lbl_805DF128;
 extern const f32 lbl_805DF12C;
-void run_task__22TChCrTagInformationStrFv(u8 *arg0);
-void *__ct__22TChCrTagInformationStrFv(void *arg0, s32 arg1, s32 arg2);
 s32 __ct__7TObjectFP7TObject();
 void *__nw__7TObjectFUl(int);
 

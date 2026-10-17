@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802DC3D4.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -6,19 +10,13 @@
 
 extern "C" {
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
-void TWindow__close(u8 *arg0);
-void load_tables(int a0);
-s32 swap_characters__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 i);
 s32 play_sound_effect(s32, s32, s32, s32);
 u32 TAdMultiPlyChrSelectGC__sub_802DBE4C(void *, s32 *);
 s32 TAdMultiPlyChrSelectGC__sub_802DBEC4(void *, s32 *);
 extern s8 lbl_80472880[];
 extern s8 lbl_80472888[];
 extern s8 controller_physical_port_bank[];
-void TAdMultiPlyChrSelectGC__sub_802DC5CC(void *arg0);
-void TAdMultiPlyChrSelectGC__sub_802DC440(void *arg0);
 s32 clear_entries__18TAdChrMoveEffectGCFv();
-void queue_destruction__7TObjectFv(void *arg0);
 
 void TAdMultiPlyChrSelectGC::check_cancel_input() {
     if ((((TAdMultiPlyChrSelectGC *)(this->m_6c))->get_mode() < 0x14) || (TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0)) {

@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801299DC.h"
 #include "pso/player/TUnk_804A444C.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void s_rank_shot_open_spread(u8 *arg0);
-void* init_s_rank_shot(void* a0);
 int construct_srank_weapon(void);
 
 void s_rank_shot_open_spread(u8 *arg0) {

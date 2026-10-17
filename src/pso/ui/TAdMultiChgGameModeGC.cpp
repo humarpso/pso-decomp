@@ -1,4 +1,7 @@
 #include "pso/TAdMultiChgGameModeGC.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/ui/TAdMultiChgGameModeGC.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801334D4.h"
 
 #include "types.h"
 #include "pso/TLevelSelect.h"
@@ -39,8 +42,6 @@ struct Obj_802FFE58 {
 };
 
 extern "C" {
-s32 get_localized_text_entry(s32 arg0, s32 arg1);
-s32 TAdSinglePlyChrSelectGC__sub_801334DC(void *p);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 extern RecoveredGlobal_802FFCE4_lbl_8050E208 controller_input_state;
@@ -63,8 +64,6 @@ extern void *__vt__21TAdMultiChgGameModeGC[];
 extern s32 TAdMultiChgGameModeGC__name;
 extern const f32 lbl_805DEF38;
 Obj_802FFE58 *__ct__21TAdMultiChgGameModeGCFv(Obj_802FFE58 *self);
-void fn_802FFC78(void);
-void fn_802FFC7C(void);
 s32 is_multiplayer_character_slot_selected(u32);
 s32 TAdMultiPlyChrSelectGC__sub_802C658C(u32);
 

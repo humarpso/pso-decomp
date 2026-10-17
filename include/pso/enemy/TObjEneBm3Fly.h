@@ -58,4 +58,34 @@ typedef char TObjEneBm3Fly_owner_id_offset[(offsetof(TObjEneBm3Fly, owner_id) ==
 typedef char TObjEneBm3Fly_particle_effect_offset[(offsetof(TObjEneBm3Fly, particle_effect) == 0x458) ? 1 : -1];
 typedef char TObjEneBm3Fly_alternate_phase_offset[(offsetof(TObjEneBm3Fly, alternate_phase) == 0x45C) ? 1 : -1];
 typedef char TObjEneBm3Fly_size[sizeof(TObjEneBm3Fly) == 0x4A8 ? 1 : -1];
+extern "C" {
+u8 *TObjEneBm3Fly__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *arg5, u8 *arg6);
+void TObjEneBm3Fly__play_orbit_flight_sound(s32 arg0);
+void TObjEneBm3Fly__sub_800B02C8(u8 *arg0, s32 arg1);
+void TObjEneBm3Fly__sub_800B0B20(u8 *arg0, s32 arg1);
+void TObjEneBm3Fly__sub_800B0F70(u8 *arg0, s32 arg1);
+void TObjEneBm3Fly__sub_800B1214(u8 *arg0, s32 arg1);
+void TObjEneBm3Fly__vt102(void *arg0, f32 farg0);
+void TObjEneBm3Fly__vt103(void);
+void TObjEneBm3Fly__vt104(u8 *arg0);
+void TObjEneBm3Fly__vt85(s32 arg0, u32 arg1, s32 arg2);
+void TObjEneBm3Fly__vt86(u8 *arg0);
+void TObjEneBm3Fly__vt87(void *p);
+void *__dt__13TObjEneBm3FlyFv(void *arg0, s16 arg1);
+void action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1);
+f32 approach_value__13TObjEneBm3FlyFff(f32 farg0, f32 farg1);
+s32 can_attack_target__13TObjEneBm3FlyFPv(u8 *arg0);
+void circle_destination__13TObjEneBm3FlyFPvi(void *arg0, s32 arg1);
+void execute_action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1);
+u16 get_active_id__13TObjEneBm3FlyFPv(void *arg0);
+void handle_message__13TObjEneBm3FlyFPvi(void *arg0, s32 arg1);
+void state_circle_target__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1);
+void state_death_fall__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1);
+void update__13TObjEneBm3FlyFPv(void *arg0);
+void update_dd_flag__13TObjEneBm3FlyFPv(void *arg0);
+void update_height_offset__13TObjEneBm3FlyFPv(void *arg0);
+void update_recoil_state__13TObjEneBm3FlyFv(u8 *arg0, s32 arg1);
+void update_state_flag__13TObjEneBm3FlyFPv(void *arg0);
+}
+
 #endif

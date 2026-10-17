@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_8030C340.h"
 #include "pso/TObject.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TWindowCtrl.h"
@@ -45,9 +48,7 @@ struct TWindowCtrl_8024C308 {
 
 extern "C" {
 void __dt__7TObjectFv(void *, int);
-void queue_destruction__7TObjectFv(void *);
 void __dl__7TObjectFPv(void *);
-void TWindow__close(u8 *arg0);
 extern u8 __vt__11TWindowCtrl[];
 extern void *TWindowCtrl__active_window;
 TWindowCtrl_8024C160 *__dt__11TWindowCtrlFv(TWindowCtrl_8024C160 *self, s16 flag);
@@ -57,7 +58,6 @@ void __ct__7TObjectFP7TObject(void *);
 void *TWindowBreakIn__ct(void *);
 void *__ct__11TWindowChatFP7TObjectPv(void *, s32, void *);
 void *__ct__17TWindowCtrlPlayerFP7TObjectl(void *, void *, s32);
-void *create_party_status_window(s32);
 extern s32 lbl_805D38C8;
 extern s32 local_client_id;
 extern s32 tl_00;

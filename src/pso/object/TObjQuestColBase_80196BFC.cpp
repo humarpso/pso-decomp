@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjQuestColBase_80196BFC.h"
+#include "pso/unk/text_8013157C.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjQuestColBase.h"
 #include "pso/TObject.h"
@@ -90,7 +92,6 @@ extern "C" {
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_80196D50___vt__16TObjQuestColBase __vt__16TObjQuestColBase;
 extern s32 TObjQuestColBase__instance_count;
-u8 *__dt__16TObjQuestColBaseFv(u8 *arg0, s16 arg1);
 s32 TObjRoomId__sub_80141CF4(void *, void *, f32);
 extern RecoveredGlobal_80196C60_lbl_804A7438 lbl_804A7438;
 extern const f32 lbl_805DBEF8;
@@ -98,9 +99,7 @@ extern const f32 lbl_805DBEFC;
 extern const f32 lbl_805DBF00;
 extern s32 quest_col_base_class_name;
 extern u16 quest_collision_next_id;
-u8 *TObjQuestColBase__ct(u8 *arg0, s32 arg1, s32 arg2);
 u32 get_player_by_client_id(s32);
-f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
 
 extern s32 local_client_id;
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TQuestColCtrl_8003F3BC.h"
 #include "pso/misc/TQuestColCtrl.h"
 
 extern "C" {

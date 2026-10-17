@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/ModelDrawContext.h"
 #include "pso/boss/TObjBoss5PillarDemo.h"
 #include "pso/misc/TNowLoading.h"
 
@@ -32,7 +33,6 @@ void __dl__7TObjectFPv(void *);
 void *__dt__15TObjBoss5PillarFv(void *arg0, s16 arg1);
 s32 clear_child_target_refs(s32, s32);
 s32 clear_chain_flags(s32, s32);
-void set_model_node_callback(s32 arg0);
 
 void TObjBoss5PillarDemo__sub_8028AB38(void) {
     void *temp_r4;

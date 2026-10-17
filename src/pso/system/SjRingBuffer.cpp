@@ -7,11 +7,7 @@ extern "C" {
 s32 sj_ring_buffer_get_extra_buffer_size(SjRingBuffer* buffer) { return buffer->extra_buffer_size; }
 s32 sj_ring_buffer_get_buffer_size(SjRingBuffer* buffer) { return buffer->buffer_size; }
 u8* sj_ring_buffer_get_buffer(SjRingBuffer* buffer) { return buffer->buffer; }
-void sj_ring_buffer_get_chunk(SjRingBuffer *r, s32 which, s32 max, SjChunk *out);
-bool sj_ring_buffer_is_chunk_available(SjRingBuffer *o, s32 mode, s32 n, s32 *out);
-void sj_ring_buffer_unget_chunk(SjRingBuffer *arg0, s32 arg1, SjChunk *arg2);
 void *memcpy(void *, const void *, unsigned long);
-void sj_ring_buffer_put_chunk(SjRingBuffer *o, s32 mode, SjChunk *b);
 #define MIN_803D2A14(a, b) ((a) < (b) ? (a) : (b))
 
 #define MIN_803D2640(a, b) ((a) < (b) ? (a) : (b))
@@ -140,11 +136,7 @@ void sj_ring_buffer_get_chunk(SjRingBuffer *r, s32 which, s32 max, SjChunk *out)
 }
 
 #pragma optimize_for_size on
-s32 sj_ring_buffer_get_available(SjRingBuffer *arg0, s32 arg1);
-void sj_ring_buffer_reset(SjRingBuffer *arg0);
 void sj_ring_buffer_set_error_callback(SjRingBuffer *arg0, SjErrorCallback arg1, void* arg2);
-const u8* sj_ring_buffer_get_uuid(SjRingBuffer *arg0);
-void sj_ring_buffer_destroy(SjRingBuffer *arg0);
 s32 memset(void *, int, int);
 
 s32 sj_ring_buffer_get_available(SjRingBuffer *arg0, s32 arg1) {
@@ -191,14 +183,10 @@ void sj_ring_buffer_destroy(SjRingBuffer *arg0) {
 #pragma optimize_for_size off
 extern SjRingBuffer sj_ring_buffer_pool[256];
 extern s32 sj_ring_buffer_init_count;
-void sj_ring_buffer_shutdown(void);
 
-void sj_ring_buffer_error_halt(void*, s32);
 extern SjRingBufferInterface sj_ring_buffer_interface;
 __declspec(section ".rodata") extern const u8 sj_ring_buffer_uuid[16];
-SjRingBuffer *sj_ring_buffer_create(void* data, s32 bsize, s32 x24);
 __declspec(section ".sdata2") extern const char *const volatile sj_version_pointer;
-void sj_ring_buffer_init(void);
 SjRingBuffer *sj_ring_buffer_create(void* data, s32 bsize, s32 x24) {
     SjRingBuffer *s;
     s32 i;

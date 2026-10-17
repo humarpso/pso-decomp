@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/misc/TWindowSubStatusDisp_8026F6DC.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowSimpleStatus.h"
 #include "pso/misc/TWindowDD.h"
@@ -11,9 +13,7 @@ struct SS_80270668 { s32 f0; u8 pad4[0x14]; void *vt; s16 f1c; s16 f1e; s16 f20;
 extern "C" {
 s32 draw_default_entry__9TWindowDDFl();
 s32 draw_visible_window_entries(void *, void *, int);
-void render__19TWindowSimpleStatusFv(s32 arg0);
 void __dl__7TObjectFPv(void *);
-void TWindow__close(u8 *arg0);
 extern u8 __vt__19TWindowSimpleStatus[];
 u8 *__dt__19TWindowSimpleStatusFv(SS_802705D8 *arg0, s16 arg1);
 extern s32 TWindowSimpleStatus__name;
@@ -22,8 +22,6 @@ SS_80270668 *TWindowSimpleStatus__ct(SS_80270668 *arg0, void *arg1, s32 arg2, vo
 s32 get_window_layout_position(s32);
 void *__nw__7TObjectFUl(int);
 s32 update_hp_tp_level__20TWindowSubStatusDispFv();
-void update_lockon_window(u8 *arg0);
-void update_status_help_item(s32 arg0);
 
 void render__19TWindowSimpleStatusFv(s32 arg0) {
     s32 ctx;

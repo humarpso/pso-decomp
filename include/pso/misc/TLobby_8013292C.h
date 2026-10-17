@@ -1,0 +1,10 @@
+#ifndef PSO_MISC_TLOBBY_8013292C_H
+#define PSO_MISC_TLOBBY_8013292C_H
+
+#include "types.h"
+
+extern "C" {
+void select_main_menu_item_10(s32 arg0);
+}
+
+#endif

@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801283B8.h"
 #include "pso/player/TUnk_804A3B20.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void srank_marker_noop(void);
 s32 get_attack_stage__11TItemWeaponFv();
 void construct_srank_weapon(void *);
 

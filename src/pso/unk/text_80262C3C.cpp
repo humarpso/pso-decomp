@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/item/TItemDispatch.h"
+#include "pso/misc/TWindowHelpItem_8025A60C.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/misc/TWindowSubStatusDisp_8026F6DC.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80262C3C.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TWindowComCard.h"
 #include "pso/misc/TUnk_804CE018.h"
@@ -141,7 +147,6 @@ extern Cb_802634E8 lockon_photon_blast_marker_callback;
 extern const f32 TWindowLockOn__data_805DD110;
 extern const f32 lbl_805DD124;
 extern const f32 lbl_805DD128;
-s32 TWindowLockOn__update_for_other_player(s32 a0, s32 a1);
 extern const f32 lbl_805DD12C;
 
 extern u8 lockon_window_layout_entries[];
@@ -154,20 +159,14 @@ extern const f32 lbl_805DD11C;
 extern const f32 lbl_805DD120;
 
 s32 obj_testFlags30(s32, s32);
-s8 TObjPlayer__sub_80102C30(u8 *arg0);
-s32 update_photon_blast_player_marker(s32 arg0, s32 arg1);
 s32 obj_isState3_324__13TUnk_804806E8Fv(void *);
 s32 is_script_controlled__10TObjPlayerFv(void *);
-void TWindow__close(u8 *arg0);
 void calc_row_width__20TWindowSubStatusDispFv(void *);
 u8 calc_display_grade__5TItemFv(void *);
-f32 get_item_star_row_width(u8 *arg0);
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 void __dl__7TObjectFPv(void *);
-void queue_destruction__7TObjectFv(void *);
 void *__nw__7TObjectFUl(u32);
-u8 *TWindowLockOn__ct(u8 *, s16, s32);
 s32 construct_base__9TWindowDDFPUcsPUc(void *, void *, void *, int);
 s32 get_window_layout_position(int);
 extern u8 lbl_804D0268[];
@@ -175,13 +174,7 @@ extern s32 lbl_805D3948;
 extern const f32 lbl_805DD130;
 extern const f32 lbl_805DD134;
 
-bool is_lockable_target__13TWindowLockOnFi(s32 arg0);
-void TWindowLockOn__update_for_enemy(s32, s32);
-s32 TWindowLockOn__update_for_item(s32 a0, s32 a1);
-void update_for_target__13TWindowLockOnFii(s32 arg0, s32 arg1);
 void bind_target__13TWindowLockOnFv(Win_8026366C *w, u16 id);
-void render__13TWindowLockOnFv(u8 *arg0);
-void *__dt__13TWindowLockOnFv(void *arg0, s16 arg1);
 
 #define PSO_VCALL_VObj_18_7b8813_m31(_self) (((VObj_18_7b8813 *)(_self))->m31())
 void TWindowLockOn::validate_target() {

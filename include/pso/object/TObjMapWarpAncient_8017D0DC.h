@@ -1,0 +1,11 @@
+#ifndef PSO_OBJECT_TOBJMAPWARPANCIENT_8017D0DC_H
+#define PSO_OBJECT_TOBJMAPWARPANCIENT_8017D0DC_H
+
+#include "types.h"
+
+extern "C" {
+u8 *TObjMapWarpAncient__ct(u8 *arg0);
+void *__dt__18TObjMapWarpAncientFv(void *arg0, s16 arg1);
+}
+
+#endif

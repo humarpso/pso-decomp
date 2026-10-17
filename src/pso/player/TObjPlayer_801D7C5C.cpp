@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TMainCursor_8013DEF8.h"
+#include "pso/misc/TMainCursor_8013DF5C.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 s32 get_result_entry__18TChallenge4PResultFPv(s32, s32);
-void TMainCursor__sub_8013DFC4(u8 *arg0);
-void TObjPlayer__sub_8013DEF8(u8 *arg0);
 s32 can_use_palette_action_for_entry__10TObjPlayerFUl(s32, s32);
 s32 TObjPlayer__sub_801D84B0(s32);
 

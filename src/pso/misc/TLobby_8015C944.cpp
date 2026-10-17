@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby_8015C944.h"
+#include "pso/misc/TLobby_801E43E4.h"
 #include "pso/system/byteswap.h"
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804B6C24.h"
@@ -19,9 +21,6 @@ extern const f32 TOCtrlDubchik__data_805DB3A8;
 extern const f32 TOCtrlDubchik__data_805DB3AC;
 f32 TOCtrlDubchik__vt22(O_8015C9D4 *arg0, void *arg1, A_8015C9D4 *arg2);
 
-void TLobby__send_and_handle_60(u8 *arg0);
-void TOCtrlDubchik__sub_8015C9D0(void);
-void byteswap_event_packet__6TLobbyFi(s32 arg0);
 s32 read_be16_field2__10TObjPlayerFv();
 
 void TLobby::byteswap_and_send() {

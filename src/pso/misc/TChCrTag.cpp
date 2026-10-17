@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TChCrTag.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/TChCrTag.h"
 extern "C" void render__8TChCrTagFv();
 #include "pso/TChCrTag.h"
@@ -15,17 +17,12 @@ struct VObj_18_c1c33b : VBase_18_c1c33b {
 };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 extern const f32 lbl_805DDE00;
 extern const f32 lbl_805DDE04;
-void update_fade__8TChCrTagFPv(u8 *arg0);
-int TChCrTag__vt4(void);
-void *__ct__8TChCrTagFv(void *arg0, void *arg1, void *arg2);
 void __ct__7TObjectFP7TObject(void *);
 void __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(void *);
 void render_shadows__7TObjectFv(void);
-void *__dt__8TChCrTagFv(void *self, s16 arg1);
 
 int TChCrTag__vt4(void) { return 0; }
 void TChCrTag::render() {  }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TTecDeband.h"
 #include "pso/misc/TTecAnti.h"
 #include "pso/misc/TWindowCtrl.h"
@@ -76,8 +77,6 @@ s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 extern s32 __vt__10TTecDeband[];
 extern s32 tec_deband_class_name_ptr;
 extern const f32 lbl_805DC7F0;
-u8 *TTecDeband__sub_8022F948(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-void queue_destruction__7TObjectFv(void *arg0);
 u32 find_entity_by_id(int);
 s32 is_parents_unqueued__9TTecLukerFUl();
 s32 deliver_technique_to_party_targets(void *);
@@ -85,8 +84,6 @@ void run_task__10TTecDebandFv(Deband_8022F73C *self);
 s32 is_split_screen();
 s32 is_script_controlled__10TObjPlayerFv(void *);
 void copy_technique_target_list(void *, void *, s32);
-s32 TTecDeband__ct(u32 a0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-void *__dt__10TTecDebandFv(void *arg0, s16 arg1);
 s32 calc_technique_parameters(s32, s16, s32);
 void __dl__7TObjectFPv(void *);
 void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1);

@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8023E480.h"
 #include "pso/misc/TLobby.h"
 
 struct Tbl_8033A844 { s32 v[5]; };
 
 extern "C" {
-s32 TLobby__sub_8023E4B4(s32 arg0, s32 arg1);
 extern const s32 lobby_menu_cursor_resource_name_table[];
 extern const s32 menu_cursor_resource_name_table_b[];
 extern const s32 current_language;

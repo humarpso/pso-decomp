@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/misc/TQuestListVM_8007EAF8.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 
 extern "C" {
-
-void __dl__FPv(void);
 
 s32 TObjBoss2Tunnel::maybe_delete(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {

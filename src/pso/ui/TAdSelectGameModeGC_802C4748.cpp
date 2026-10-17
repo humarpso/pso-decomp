@@ -1,4 +1,9 @@
 #include "pso/TAdSelectGameModeGC.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802C50EC.h"
+#include "pso/ui/TAdSelectGameModeGC_802C4748.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801334D4.h"
 
 TAdSelectGameModeGC::~TAdSelectGameModeGC() {}
 
@@ -26,19 +31,13 @@ struct S24_802C4944 { T12_802C4944 t[2]; };
 
 extern "C" {
 int enable_camera__19TAdSelectGameModeGCFv(void);
-s32 get_main_phase();
 s32 free_sub_ctrls__19TAdSelectGameModeGCFv();
-s32 TAdMultiPlyChrSelectGC__sub_802C6558();
-void TAdSelectGameModeGC__sub_802C478C(void);
-s32 get_localized_text_entry(s32 arg0, s32 arg1);
-s32 TAdSinglePlyChrSelectGC__sub_801334DC(void *p);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 play_sound_effect(int, int, int, int);
 extern RecoveredGlobal_802C47E8_lbl_8050E208 controller_input_state;
 extern RecoveredGlobal_802C47E8_lbl_8050E3B8 controller_physical_port_bank;
 extern s32 TAdSelectGameModeGC__cached_mode_value;
-void run_task__19TAdSelectGameModeGCFv(u8 *arg0);
 void create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 void *__nw__7TObjectFUl(int);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -56,8 +55,6 @@ extern S16_802C4944 select_game_mode_button_rect;
 extern s32 __vt__19TAdSelectGameModeGC[];
 extern void *TAdSelectGameModeGC__name;
 extern const f32 lbl_805DE538;
-u8 *__ct__19TAdSelectGameModeGCFv(u8 *arg0, void *parent);
-int fn_802C4748(void* p);
 int sync_char_select_state__10TObjPlayerFv(void*);
 
 int fn_802C4748(void* p) { return sync_char_select_state__10TObjPlayerFv(p); }

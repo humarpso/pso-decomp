@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecon_8031D780.h"
+#include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneRecon.h"
 #include "pso/enemy/TObjEneEpsilon.h"
@@ -35,9 +37,6 @@ struct VObj_8031D780 : Base_8031D780 {
 
 extern "C" {
 
-u16 TObjEneRecon__sub_8031D878(void *arg0);
-void TObjEneRecon__vt102(void *arg0, f32 farg0);
-s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 s32 spawn_part__14TObjEneEpsilonFi(void *, f32);
 
 void TObjEneRecon__vt102(void *arg0, f32 farg0) {

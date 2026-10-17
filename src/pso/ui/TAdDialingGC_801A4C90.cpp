@@ -1,11 +1,9 @@
 #include "types.h"
+#include "pso/ui/TAdDialingGC_801A4C90.h"
 #include "pso/misc/TUnk_804C2298.h"
 #include "pso/ui/TAdDialingGC.h"
 
 extern "C" {
-
-void TAdDialingGC__sub_801A4C90(void);
-s32 TAdDialingGC__sub_801A4C9C(void);
 
     extern int player_action_provider_selector;
 void TAdDialingGC__sub_801A4C90(void) { player_action_provider_selector = 1; }

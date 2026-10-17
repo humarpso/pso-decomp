@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/misc/TWindowSubComCard_80265410.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_801A5AEC.h"
+#include "pso/unk/text_80222C28.h"
+#include "pso/unk/text_8026934C.h"
 #include "pso/misc/TShopSequence.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowMenu.h"
@@ -88,16 +94,13 @@ struct Seq_8021D7B8 { u8 pad[0x24]; void *f24; u8 pad28[4]; void *win; };
 extern "C" {
 s32 set_field_20__15TShopWindowBaseFl(void *, s32);
 unsigned short get_child_field1c__13TShopSequenceFv(void *);
-s32 create_meseta_window(s32);
 s32 set_service_counter_camera(void *, int);
 s32 get_window_layout_position(int, f32);
 extern const f32 lbl_805DC6E0;
 extern const f32 lbl_805DC6E4;
-void queue_destruction__7TObjectFv(void *arg0);
 void *__dt__13TShopSequenceFv(void *arg0, s16 arg1);
 s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 __dl__7TObjectFPv(void *);
-void TWindow__close(u8 *arg0);
 extern RecoveredGlobal_8021DA90___vt__22TShopEquipmentSequence __vt__22TShopEquipmentSequence;
 extern RecoveredGlobal_8021DA90_TShopEquipmentSequence__data_80513EC0 TShopEquipmentSequence__slot_active_flags;
 u8 *__dt__22TShopEquipmentSequenceFv(u8 *arg0, s16 arg1);
@@ -111,7 +114,6 @@ s32 TShopEquipmentSequence__sub_8021D65C(void);
 s32 restore_player_state__13TShopSequenceFv(void *);
 void TShopEquipmentSequence__sub_8021DC08(void);
 void TShopEquipmentSequence__sub_8021DBE0(void);
-void reset_controller_input_state(void);
 void *__nw__7TObjectFUl(u32);
 void *TShopEquipmentSellWindow__ct(void *, s32, void *, s32, s32);
 void exit__22TShopEquipmentSequenceFPv(void *arg0);
@@ -119,12 +121,9 @@ void init_window__22TShopEquipmentSequenceFPv(void *arg0);
 extern void *tl_05;
 void *TShopEquipmentListWindow__ct(void *, s32, void *, s32);
 u16 obj_getField1c(void *);
-s32 get_shop_text(s32 arg0);
 f32 get_scale__15TShopWindowBaseFv(void *);
 s32 get_selected_menu_value(void *);
 void align_menu_entry_positions(void *w);
-int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
-s32 create_window_menu(s32, s32, s32);
 struct Base_8021D524 { char pad[0x18]; };
 struct VObj_8021D524 : Base_8021D524 {
     virtual void m0();

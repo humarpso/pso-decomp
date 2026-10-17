@@ -1,9 +1,10 @@
 #include "types.h"
+#include "pso/boss/TObjBoss5Pillar_8028B714.h"
+#include "pso/player/TObjPlayer_8023E480.h"
 #include "pso/system/memory.h"
 
 extern "C" {
 
-s32 free_texture_if_valid(u32 arg0);
 s32 is_unloaded__12TChCrLoadAfsFv();
 
 struct SubBase { char pad[0x18]; };

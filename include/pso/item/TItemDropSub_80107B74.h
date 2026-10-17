@@ -1,0 +1,10 @@
+#ifndef PSO_ITEM_TITEMDROPSUB_80107B74_H
+#define PSO_ITEM_TITEMDROPSUB_80107B74_H
+
+#include "types.h"
+
+extern "C" {
+s32 TItemDropSub__sub_80107B74(void);
+}
+
+#endif

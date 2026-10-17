@@ -1,13 +1,11 @@
 #include "types.h"
+#include "pso/misc/TWindowOptionCtrl_8026C5D8.h"
 #include "pso/misc/TWindowSoundBalance.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowOptionCtrl.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
-
-int TWindowOptionCtrl__sub_8026C630(void* p);
-int TWindowOptionCtrl__sub_8026C658(void* p);
 
 s32 TWindowOptionCtrl::get_chr_select_base_plus_1154c() {
     return TAdSinglePlyChrSelectGC::get_instance() + 0x1154C;

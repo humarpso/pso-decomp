@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TLobby_80269C6C.h"
+#include "pso/unk/text_80269FE8.h"
 extern "C" {
 s32 __nw__7TObjectFUl(int);
-s32 *TLobby__sub_80269CB4(void);
 s32 TLobby__sub_80269DA4(void *, int);
 s32 TWindowMessageInfomation__ct(int, void *, void *);
-s32 create_message_information_window(s32 arg0, s32 arg1, s32 arg2);
 s32 create_message_information_window(s32 arg0, s32 arg1, s32 arg2) {
   s32 temp_r3_2;
   u8 *temp_r3;

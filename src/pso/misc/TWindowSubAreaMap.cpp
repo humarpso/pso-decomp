@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/misc/TWindowSubAreaMap.h"
 #include "pso/misc/TWindowSubAreaMapDisp.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -35,9 +36,6 @@ s32 is_flag_set__11TLoadingCurFv(void *, int);
 s32 is_on_current_screen__11TCameraCtrlFv(int, int);
 extern const f32 lbl_805DD478;
 extern const f32 lbl_805DD47C;
-void *__dt__17TWindowSubAreaMapFv(void *arg0, s16 arg1);
-u8 *TWindowSubAreaMapDisp__ct(u8 *arg0);
-void TWindow__close(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);

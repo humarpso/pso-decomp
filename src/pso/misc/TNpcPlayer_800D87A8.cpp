@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/misc/TNpcPlayer_800D87A8.h"
 #include "pso/misc/TNpcPlayer.h"
 
 extern "C" {
-void *find_active_entity_by_id(void);
 void *find_entity_by_id();
 s32 is_valid_and_active__10TObjPlayerFUl();
 void *get_battle_param__10TObjPlayerFi();

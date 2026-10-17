@@ -1,4 +1,5 @@
 #include "pso/TObjBoss2Dust.h"
+#include "pso/boss/TObjBoss2Dust.h"
 #include "pso/system/vector.h"
 
 #include "types.h"
@@ -13,7 +14,6 @@ s32 TObjBoss2DustCtrl__sub_8003AB5C();
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8003AA9C___vt__13TObjBoss2Dust __vt__13TObjBoss2Dust;
 extern s32 lbl_805D26FC;
-u8 *__ct__13TObjBoss2DustFv(u8 *arg0, s32 arg1, s32 arg2);
 s32 queue_destruction__7TObjectFv();
 
 extern const f32 lbl_805D85B0;

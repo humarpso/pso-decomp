@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/misc/TLobby_8013A874.h"
+#include "pso/misc/TPlyJoinLobby.h"
 #include "pso/system/memory.h"
 
 extern "C" {
 
-u8 *__ct__13TPlyJoinLobbyFRC13TPlyJoinLobby(u8 *arg0, u8 *arg1);
-s32 __dt__13TPlyJoinLobbyFv(s32 arg0, s16 arg1);
-u8 *TLobby__sub_8013AA64(u8 *arg0, u8 *arg1);
 s32 __destroy_arr(s32, s32 *, s32, s32);
 
 u8 *__ct__13TPlyJoinLobbyFRC13TPlyJoinLobby(u8 *arg0, u8 *arg1) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_80269064.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TQuestListVM.h"
@@ -6,8 +7,6 @@
 #include "pso/misc/TWindowSubStatusDisp.h"
 
 extern "C" {
-void fn_80269078(u8 *arg0, s32 arg1);
-int TWindowSubComCard__sub_8026906C(void* p);
 
 s32 TWindowSubComCard::get_entry_id() { return *(s32*)((char*)this + 0x18); }
 

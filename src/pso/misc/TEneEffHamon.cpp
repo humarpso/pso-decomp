@@ -1,4 +1,9 @@
 #include "pso/TObject.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/misc/TEneEffHamon.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TeneFakeTecThunderEff.h"
 class TEneEffHamon : public TObject {
@@ -34,7 +39,6 @@ typedef struct Cam_800A3D1C { u8 pad0[8]; f32 cx; f32 cy; u8 pad10[8]; f32 sw; f
 extern "C" {
 s32 queue_destruction__7TObjectFv();
 extern const f32 lbl_805D99E0;
-void run_task__12TEneEffHamonFv(u8 *arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_800A38A4___vt__12TEneEffHamon __vt__12TEneEffHamon;
 extern s32 TEneEffHamon__name;
@@ -42,15 +46,9 @@ extern const f32 lbl_805D99E4;
 extern const f32 lbl_805D99E8;
 extern const f32 lbl_805D99EC;
 extern s32 tl_06;
-u8 *__ct__12TEneEffHamonFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 s32 scale_matrix(int, f32, f32, f32);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void set_chunk_material_override_pair(s32 arg0, s32 arg1);
-void set_chunk_material_color(f32 *arg);
-void draw_chunk_object(void *child);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern u8 saved_model_draw_color[];
 extern u8 model_material_color[];
@@ -63,8 +61,6 @@ extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 void render__12TEneEffHamonFv(Hamon_800A36A8 *o);
-void TEneEffHamon__sub_800A380C(void);
-void init_fish_effects__12TEneEffHamonFv(void);
 int TObjFish__sub_8001EDB0(void*, void*);
 int get_bml_model(void*, void*);
 

@@ -1,8 +1,8 @@
 #include "pso/TProtocol.h"
+#include "pso/unk/text_801DF280.h"
 
 extern "C" {
 void TProtocol__sub_801DF774(ChoiceSearchParameters *, ChoiceSearchParameters *);
-void fn_801DF6BC(void *p);
 }
 
 typedef char ProtocolConnectedOffset[(offsetof(TProtocol, m_connected) == 0x1910) ? 1 : -1];

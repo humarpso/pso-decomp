@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TORevlightCave01_801736BC.h"
 
 struct TORevlightCave01Base {
     char pad0[0x18];
@@ -14,7 +15,6 @@ struct TORevlightCave01 : TORevlightCave01Base {
 
 extern "C" {
 
-void *TORevlightCave01__ct(void *arg0, s32 arg1, s32 arg2);
 s32 init_map_object_base();
 
 extern const s32 __vt__16TORevlightCave01[];

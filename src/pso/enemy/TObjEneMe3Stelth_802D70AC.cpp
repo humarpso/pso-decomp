@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TMotorcycle_802D712C.h"
 #include "pso/enemy/TObjEneMe3Stelth.h"
 
 extern "C" {
 
 u8 *insert_slot_by_id__12TObjNpcEnemyFs();
-void copy_position_data(void *arg0, void *arg1);
 
 void TObjEneMe3Stelth::spawn_attack(s16 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0, f32 farg1) {
     u8 *temp_r3;

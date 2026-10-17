@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TOAirconCave02_801571A0.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TOAirconCave02.h"
 #include "pso/object/TObjFish.h"
 
@@ -17,12 +20,9 @@ struct VObj570D4_801570d4 : VBase570D4_801570d4 {
     virtual s32 m8(f32, f32);
 };
 
-u8 *TOAirconCave02__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 post_translate_matrix(void *);
-void draw_ginja_object(void *child);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 void *__nw__7TObjectFUl(int);
 
 extern u8 *TOAirconCave02__bml_resource;

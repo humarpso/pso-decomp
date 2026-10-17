@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TPlyGuildCardTag_8007B434.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
-void __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *arg0, void *arg1);
-s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
 s32 strncpy(void *, int, int);
 extern s32 current_language;
 extern u8 *TLobby__protocol_instance;

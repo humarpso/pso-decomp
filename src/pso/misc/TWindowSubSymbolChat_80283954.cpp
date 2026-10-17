@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubSymbolChat_80283954.h"
 #include "pso/misc/TWindowSubSymbolChatFaceType.h"
 #include "pso/misc/TWindowSubSymbolChatParts.h"
 #include "pso/misc/TWindowSubSymbolChat.h"

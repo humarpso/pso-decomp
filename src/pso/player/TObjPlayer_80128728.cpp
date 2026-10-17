@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80128728.h"
 
 extern "C" {
 
-void s_rank_harisen_scale_node(void* p);
-void s_rank_harisen_reset_fan(void* a0);
 int scale_current_matrix(void*);
 int get_player_list__10TObjPlayerFv(void*);
 

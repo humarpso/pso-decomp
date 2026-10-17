@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80231BF4.h"
 #include "pso/misc/TTecGiZonde.h"
 
 #include <stddef.h>
@@ -115,7 +116,6 @@ struct VObj_18_9c98dd : VBase_18_9c98dd {
 };
 
 extern "C" {
-void TTecGiZonde__vt6(u8 *arg0, u8 *arg1);
 typedef char RecoveredGlobal_802384E0_lbl_804CCB28_size[sizeof(RecoveredGlobal_802384E0_lbl_804CCB28) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_802385EC_lbl_804CCB28_size[sizeof(RecoveredGlobal_802385EC_lbl_804CCB28) == 0x18 ? 1 : -1];
 #pragma push

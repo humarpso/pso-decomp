@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803D60C8.h"
 #include "pso/audio/GcrnaError.h"
 
 extern "C" {

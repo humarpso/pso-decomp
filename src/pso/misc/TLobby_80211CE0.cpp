@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
@@ -7,7 +8,6 @@ s32 create_lobby_object_05(s32);
 s32 create_tl05_object__6TLobbyFPv(s32);
 s32 create__22THunterGuildSeqOfflineFPv(s32);
 
-s32 get_main_phase();
 extern s32 local_client_id;
 extern s32 TLobby__designated_client_id;
 

@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/misc/TWindowSubComCard_80265410.h"
+#include "pso/ui/TAdEnterBaseGC_8032B38C.h"
+#include "pso/ui/TAdEnterSerialAccessGC_8032AD30.h"
+#include "pso/unk/text_8032AC9C.h"
 #include "pso/ui/TAdEnterSerialAccessGC.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowMakeTeam.h"
@@ -9,10 +14,8 @@ struct Lim_8032B1A4 { u32 n[4]; };
 struct B4_8032AD30 { u8 b[4]; };
 
 extern "C" {
-void fn_8032AC9C(void *arg0, void *arg1);
 extern char lbl_80477188[];
 extern char lbl_80477190[];
-s32 get_localized_text_entry(s32 arg0, s32 arg1);
 s32 update_window_mode_from_progress__6TLobbyFPv(void *, void *);
 extern u8 lbl_80477178[];
 extern u8 lbl_80477180[];
@@ -35,17 +38,11 @@ extern Lim_8032B1A4 serial_input_max_length_table;
 extern Lim_8032B1A4 serial_access_input_limits;
 s32 TKeyBoardControl__ct(void *, s32, s32, s32, s32, s32);
 void *__nw__7TObjectFUl(s32);
-void update_chat_window(void *);
 int get_keyboard_field_6c__15TWindowMakeTeamFv(void* p);
-s32 has_serial_input__22TAdEnterSerialAccessGCFv(void);
-u8 *get_serial_text__22TAdEnterSerialAccessGCFii(s32 arg0, s32 arg1);
 extern s32 serial_keyboard_field_width_table[];
 extern u8 serial_keyboard_position_table[][8];
 extern s32 local_client_id;
 extern B4_8032AD30 lbl_805DF770;
-void clear_state(void);
-int validate_input__22TAdEnterSerialAccessGCFPviPv(void *arg0, s32 arg1, char *arg2);
-s32 TAdPsoPassSaveGC__sub_8032B584();
 s32 strncpy(s32, s32, s32);
 
 u32 TAdEnterSerialAccessGC::create_keyboard_control(s32 arg0, s32 arg1) {

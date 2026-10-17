@@ -1,0 +1,11 @@
+#ifndef PSO_BOSS_TBOSS7JOINT_802EE6E0_H
+#define PSO_BOSS_TBOSS7JOINT_802EE6E0_H
+
+#include "types.h"
+
+extern "C" {
+void TBoss7Joint__sub_802EE7B8(void *p);
+void TBoss7Joint__sub_802EE800(void *p);
+}
+
+#endif

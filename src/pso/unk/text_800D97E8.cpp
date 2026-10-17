@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl_803D6538.h"
+#include "pso/unk/text_803D96A8.h"
 typedef struct Vec_800D97E8 {
     f32 x, y, z;
 } Vec_800D97E8;
@@ -11,10 +13,8 @@ typedef struct Node_800D97E8 {
 } Node_800D97E8;
 
 extern "C" {
-void compose_motion_node_matrix(void *arg0);
 void matrix_mult_vec(int, void *, void *);
 void push_matrix(void);
-s32 pop_matrix(void);
 extern Vec_800D97E8 lbl_80500F80;
 extern Vec_800D97E8 *lbl_805D5230;
 extern s32 lbl_805D5234;

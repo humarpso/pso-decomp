@@ -11,4 +11,8 @@ struct TObjQuestColApc : public TObjQuestColBase {
 };
 
 typedef char TObjQuestColApc_size[sizeof(TObjQuestColApc) == 0xBC ? 1 : -1];
+extern "C" {
+void *TObjQuestColApc__ct(void *arg0);
+}
+
 #endif

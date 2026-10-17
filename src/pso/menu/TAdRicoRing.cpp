@@ -1,4 +1,10 @@
 #include "pso/TAdRicoRing.h"
+#include "pso/menu/TAdRicoRing.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_803D853C.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
 
 #include "types.h"
 #include "pso/ui/TAdRicoRingCtrl.h"
@@ -9,25 +15,17 @@ struct RecoveredGlobal_8001BD0C___vt__11TAdRicoRing { s32 value; u8 remaining[0x
 typedef char RecoveredGlobal_8001BD0C___vt__11TAdRicoRing_size[sizeof(RecoveredGlobal_8001BD0C___vt__11TAdRicoRing) == 0x18 ? 1 : -1];
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
 volatile int test_flags_any(void *, s32);
 extern const f32 lbl_805D7E4C;
 extern const f32 lbl_805D7E54;
-int TKeyBoardControl__sub_8000F828(void);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
 s32 __ct__7TObjectFP7TObject();
 extern RecoveredGlobal_8001BD0C___vt__11TAdRicoRing __vt__11TAdRicoRing;
 extern s32 TAdRicoRing__class_name;
 extern s32 TAdRicoRing__resource_bundle;
-u8 *__ct__11TAdRicoRingFv(u8 *arg0);
-void rotate_matrix_zyx(void *m, s32 x, s32 y, s32 z);
 int post_translate_matrix(void*);
-void draw_chunk_object(void *child);
 int push_matrix(void*);
-s32 pop_matrix(void);
-void func_803e11e8__FUl(s32 arg0);
-void func_803e11f0__Fv(void);
 
 void TAdRicoRing::render() { push_matrix(this); TObjFish::set_global_param((s32)(*(void**)((char*)this + 0x50))); post_translate_matrix((char*)this + 0x58); rotate_matrix_zyx((void*)0, (s32)(*(void**)((char*)this + 0x64)), (s32)(*(void**)((char*)this + 0x68)), (s32)(*(void**)((char*)this + 0x6c))); func_803e11e8__FUl((s32)((void*)1)); draw_chunk_object((void *)(*(void**)((char*)this + 0x4c))); func_803e11e8__FUl((s32)((void*)2)); draw_chunk_object((void *)(*(void**)((char*)this + 0x4c))); func_803e11f0__Fv(); pop_matrix(); }
 

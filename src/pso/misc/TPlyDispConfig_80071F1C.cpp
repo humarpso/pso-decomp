@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/misc/TPlyDispConfig_80071F1C.h"
+#include "pso/misc/TQuestListVM_8007EAF8.h"
 
 extern "C" {
 
-void *__ct__14TPlyDispConfigFv(void *arg0);
-s32 free_if_valid__14TPlyDispConfigFis(s32 arg0, s16 arg1);
-void __dl__FPv(void);
 void fn_80071F90(void *);
 
 s32 free_if_valid__14TPlyDispConfigFis(s32 arg0, s16 arg1) {

@@ -1,10 +1,10 @@
 #include "pso/effect/TechniqueChargeEmitter.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80087278.h"
+#include "pso/unk/text_802333D4.h"
 #include "pso/player/TObjPlayer.h"
 extern "C" {
 extern u32 ice_technique_charge_particle_ids[];
-void *spawn_particle_effect(void *pos, s32 id);
-void queue_destruction__7TObjectFv(void*);
-void updateIceTechniqueCharge(TechniqueChargeEmitter* state);
 void updateIceTechniqueCharge(TechniqueChargeEmitter* state) {
     ++state->age;
     if(state->age%10==0) {

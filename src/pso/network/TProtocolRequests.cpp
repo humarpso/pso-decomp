@@ -1,4 +1,7 @@
 #include "pso/TProtocol.h"
+#include "pso/misc/TChatMessage.h"
+#include "pso/misc/TPlyGuildCardTag_8007B434.h"
+#include "pso/unk/text_801DF280.h"
 #include <stddef.h>
 
 struct CharacterSaveInfoPacket {
@@ -15,14 +18,6 @@ typedef char CharacterSaveInfoPacket_size[sizeof(CharacterSaveInfoPacket) == 0xC
 typedef char ChangeShipOrBlockPacket_size[sizeof(ChangeShipOrBlockPacket) == 0x1C ? 1 : -1];
 typedef char TProtocol_connected_offset[offsetof(TProtocol, m_connected) == 0x1910 ? 1 : -1];
 typedef char TProtocol_guildcard_offset[offsetof(TProtocol, m_guildcard_tag) == 0x1900 ? 1 : -1];
-
-extern "C" {
-void bswap_save_packet(s32);
-void bswap__12TChatMessageFv(s32);
-s32 fn_801DF8A8(s32 arg0);
-void fn_801DF874(void *);
-void __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *arg0, void *arg1);
-}
 
 void TProtocol::send_character_save_info(int creation_timestamp, int event_counter) {
     CharacterSaveInfoPacket packet;

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_8034A090.h"
 #include "pso/ui/TAdLoadQuestPrtTxtGC.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TNowLoading.h"
@@ -36,10 +38,8 @@ extern "C" {
 s32 __nw__7TObjectFUl(int);
 s32 TAdLoadQuestPrtTxtGC__ct(int, void *, void *);
 extern RecoveredGlobal_8034A5D0_lbl_804EFF80 quest_load_prt_txt_by_slot;
-s32 get_or_create_prt_txt__14TAdLoadQuestGCFii(s32 arg0, s32 arg1);
 extern const f32 lbl_805DFD20;
 extern const f32 lbl_805DFD24;
-void queue_destruction__7TObjectFv(void *arg0);
 typedef char RecoveredGlobal_8034A5D0_lbl_804EFF80_size[sizeof(RecoveredGlobal_8034A5D0_lbl_804EFF80) == 0xC ? 1 : -1];
 
 void TAdLoadQuestPrtTxtGC::run_task() {

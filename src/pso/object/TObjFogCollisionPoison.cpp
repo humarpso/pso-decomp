@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/object/TObjFogCollision_Manager.h"
 #include "pso/object/TObjFogCollisionPoison.h"
 #include "pso/misc/TFogCtrl.h"
@@ -41,10 +42,8 @@ extern s32 lbl_804AF7B0[];
 extern RecoveredGlobal_801532C8_lbl_804AF7C8 lbl_804AF7C8;
 extern RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430 TObjFogCollisionPoison__instances;
 extern s32 lbl_805D2E84;
-void record_fog_collision_hit(s32 arg0, s32 arg1, s32 arg2);
 void __dt__7TObjectFv(void *, int);
 void __dl__7TObjectFPv(void *);
-u8 *__dt__24TObjFogCollision_ManagerFv(u8 *arg0, s16 arg1);
 void vfunc_14__22TObjFogCollisionSwitchFv(void *self);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_80440078[];
@@ -53,12 +52,7 @@ s32 obj_getField1c(s32);
 s32 is_valid_target__9TObjEneDDFv(s32);
 s32 send_6x2F_change_player_hp(s32, s32, s16);
 s32 get_player_by_client_id(u16);
-s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
-void TObjFogCollisionPoison__sub_80153520(s32 arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
-void TObjFogCollisionPoison__sub_801535D0(s32 arg0);
-void *__dt__13TUnk_804AF7B0Fv(void *arg0, s16 arg1);
-void TObjFogCollisionPoison__sub_801533BC(void);
 u8 is_current_floor_switch_set(u16);
 s32 sub_80153A0C__22TObjFogCollisionSwitchFv();
 void *__nw__7TObjectFUl(s32);

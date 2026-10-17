@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowDD_8034AF68.h"
 #include "pso/misc/TWindowDD.h"
 
 struct RecoveredGlobal_8034B008_lbl_80478B78 {
@@ -21,7 +22,6 @@ struct Ent_8034B050 { s32 *list; s32 count; s32 result; };
 
 extern "C" {
 extern RecoveredGlobal_8034B008_lbl_80478B78 word_select_type_state_table;
-s32 TWindowDD__sub_8034B008(s32 arg0, s32 arg1);
 extern G_8034AF68 lbl_804F0070;
 extern H_8034AF68 *TWindowDD__ws_data_base;
 extern H_8034AF68 *TWindowDD__ws_data_table;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdScrollWinGC_8026A5F8.h"
 #include "pso/misc/TWindowMessageLog.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdScrollWinGC.h"
@@ -10,21 +11,14 @@ struct RecoveredGlobal_8026A6DC_lbl_805187D8 {
 };
 
 extern "C" {
-void TWindowSubLog__sub_8026A664(u8 *arg0, f32 farg0);
 u8 *heap_alloc__5THeapFUl(s32, s32);
 s32 measure_string_len__20TWindowSubStatusDispFv(void *);
 s32 strncpy(int, void *, int);
 extern s32 current_language;
 extern s32 TAdScrollWinGC__chat_log_heap;
 extern u8 *chat_last_line_buffer;
-void cache_last_chat_line(u32 arg0);
 extern RecoveredGlobal_8026A6DC_lbl_805187D8 chat_log_lines;
-void chat_log_remove_line(s32 arg0);
 s32 strlen();
-void chat_log_add_line(s32 arg0);
-s32 chat_text_lacks_language_tag(const char *text);
-void TAdScrollWinGC__sub_8026A5F8(void* a0);
-void fn_8026A61C(void* p, f32 v);
 
     extern const float lbl_805DD240;
 void TAdScrollWinGC__sub_8026A5F8(void* a0) { *(float*)((char*)a0 + 0x84) = lbl_805DD240; *(float*)((char*)a0 + 0x6c) = lbl_805DD240; *(float*)((char*)a0 + 0x94) = lbl_805DD240; }

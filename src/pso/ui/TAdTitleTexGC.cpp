@@ -1,4 +1,6 @@
 #include "pso/TAdTitleTexGC.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/ui/TAdTitleTexGC.h"
 
 #include "types.h"
 #include "pso/TMainTask.h"
@@ -24,8 +26,6 @@ extern const f32 lbl_805DDF90;
 extern const f32 lbl_805DDF94;
 extern const f32 lbl_805DDF98;
 void update_title_tex_positions__13TAdTitleTexGCFPv(Obj_802A4EF4 *arg0);
-void *__ct__13TAdTitleTexGCFv(void *arg0);
-s32 get_localized_text_entry(s32, s32);
 void __ct__7TObjectFP7TObject(void *);
 s32 render_status_pair__20TWindowSubStatusDispFl(void *, s32);
 

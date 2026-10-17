@@ -1,16 +1,14 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TKeyBoardControl_80290CB0.h"
+#include "pso/object/TObjCMMainMenu_8028EA88.h"
+#include "pso/player/TObjPlayer_801A5AEC.h"
 #include "pso/system/main_loop.h"
 #include "pso/misc/TKeyBoardControl.h"
 
 extern "C" {
 extern u8 main_menu_scene_active_flag;
-void TKeyBoardControl__sub_80290D10(void);
-void TKeyBoardControl__sub_8000F90C(s32 arg0);
-void TKeyBoardControl__sub_8000F91C(s32 arg0);
-s32 TKeyBoardControl__sub_8000F92C();
-void reset_controller_input_state(void);
 s32 set_copy_clear_color_argb(s32, s32, s32);
-void init_creation_menu_scene(void);
 
 void TKeyBoardControl::update_main_menu_scene() {
     set_copy_clear_color_argb(0, 0, 0xFF);

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TUnk_804B2578.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TUnk_804AFBF8.h"
@@ -47,9 +49,7 @@ s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_z(int, int);
 s32 rotate_matrix_x(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void draw_ginja_model(s32 model);
 extern const f32 lbl_805DB6A8;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_80168F94_lbl_804B26C8 bm_fs_obj_hanger_moto_resource_descriptor;
@@ -62,9 +62,6 @@ extern s32 TOHangerMachine01__class_name;
 extern s32 tl_05;
 extern const f32 lbl_805DB6AC;
 extern const f32 lbl_805DB6B0;
-u8 *TOHangerMachine01__ct(u8 *arg0, s32 arg1);
-void TOHangerMachine01__sub_80169168(void);
-void *__dt__17TOHangerMachine01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);

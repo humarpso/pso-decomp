@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TWindowMakeTeam_8026534C.h"
 #include "pso/misc/TWindowMakeTeam.h"
 
 extern "C" {
 
-void *TWindowMakeTeam__ct(void *arg0, void *arg1, s32 arg2);
 s32 init_status_disp__15TWindowMakeTeamFc(u8);
 s32 draw_entry_0x110__15TWindowMakeTeamFSc(u8);
 s32 create_menu__15TWindowMakeTeamFv(struct TWMT *);

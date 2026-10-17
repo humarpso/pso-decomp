@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80081FC8.h"
 
 extern "C" {
 
-void create__10TObjPlayerFUiii(u32 arg0, s32 arg1, s32 arg2);
 s32 construct_freeze_shell__10TObjPlayerFPUcPUc(u32, u32, s32, s32);
 s32 reset_key_machine_state__10TObjPlayerFv();
 u32 __nw__7TObjectFUl(s32);

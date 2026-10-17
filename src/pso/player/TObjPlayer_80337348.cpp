@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80337348.h"
 #include "pso/player/TObjPlayer.h"
 
 struct T_803374C4 { u8 b[8]; void *p; };
@@ -11,8 +12,6 @@ s32 TObjPlayer__sub_801BED78(s32);
 s32 TObjPlayer__sub_801BED80(s32);
 s32 TObjPlayer__sub_801BED88(s32);
 s32 TObjPlayer__sub_801BED90();
-s32 get_total_materials_used(s32 arg0);
-u8 get_material_limit_for_class(s32 arg0);
 int fn_803374F0(s32, s32, u8);
 s32 fn_803374F8(s32, s32);
 

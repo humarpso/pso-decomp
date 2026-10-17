@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/system/ModelDrawContext.h"
+#include "pso/unk/text_80145A94.h"
 #include "pso/ui/TAdScrollWinGC.h"
 
 struct O_8032745C { u8 pad[0x44]; s32 mode; };
 
 extern "C" {
-s32 TLobby__sub_80145DB4(s32 arg0);
-void set_cached_blend_factor(s32 arg0, s32 arg1);
 int get_state_flag__9TMainTaskFv(void*);
 
 void TAdScrollWinGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)10)); render_status_value(); set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)6)); } }

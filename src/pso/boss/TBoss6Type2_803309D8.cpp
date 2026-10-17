@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6Type2_803309D8.h"
 #include "pso/boss/TBoss6Type2.h"
 
 struct Base_803309D8 { char pad[0x18]; };
@@ -15,7 +16,6 @@ struct VObj_803309D8 : Base_803309D8 {
 
 extern "C" {
 
-void fn_80330A40(u8 *arg0);
 s32 TBoss6Mag__ct(s32, s32, s32);
 s32 TObjControl__ct(s32, s32);
 s32 __nw__7TObjectFUl(s32);

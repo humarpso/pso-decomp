@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80121D88.h"
 #include "pso/item/TItemShootParticle.h"
 #include "pso/item/TUnk_804A0CB8.h"
 #include "pso/TObject.h"
 
 extern "C" {
 
-u32 belra_cannon_create_extra_shot(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 u32 spawn_shoot_particle__10TObjPlayerFUlllf(void *, s32, s32, f32);
 u32 create_shoot_model__10TObjPlayerFUiiif();
 

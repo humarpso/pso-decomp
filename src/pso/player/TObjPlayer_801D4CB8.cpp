@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_801D4CB8.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -25,7 +27,6 @@ struct VObj_801D4D48 : Base_801D4D48 {
 extern "C" {
 
 s32 lookup_item_def__9TItemDataFPv(s32);
-void set_mode_and_refresh_object__10TObjPlayerFPvi(void* a0, int a1);
 void *get_owner_if_alive__10TObjPlayerFv(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 
@@ -68,7 +69,6 @@ struct V_801D4E94 : VB_801D4E94 {
 extern "C" {
 s32 is_item_valid__9TItemListFl(void *);
 int find_matching_inventory_item_node(void*);
-void queue_destruction__7TObjectFv(void *arg0);
 
 void TObjPlayer::find_first_inventory_entry(int a1) { inventory_search_item_data = a1; ((TObjPlayer *)(*(int *)&this->unk_1C4))->find_inventory_item_matching_data(); }
 

@@ -1,0 +1,11 @@
+#ifndef PSO_OBJECT_TOBJQUESTCOLBASE_80196BFC_H
+#define PSO_OBJECT_TOBJQUESTCOLBASE_80196BFC_H
+
+#include "types.h"
+
+extern "C" {
+u8 *TObjQuestColBase__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *__dt__16TObjQuestColBaseFv(u8 *arg0, s16 arg1);
+}
+
+#endif

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
 #include "pso/TShopWindowBase.h"
 #include "pso/misc/THunterGuildSeqOffline.h"
 #include "pso/misc/TLobby.h"
@@ -17,8 +18,6 @@ struct VObj_8021277C : Base_8021277C {
     virtual void m6();
     virtual void m7(int, int);
 };
-
-void TKeyBoardControl__sub_8000F950(void);
 
 extern struct VObj_8021277C *THunterGuildSeqOffline__active_instance;
 

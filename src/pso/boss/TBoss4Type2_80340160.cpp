@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss6Demo15_TYPE2_WAIT.h"
 #include "pso/boss/TBoss4Type2.h"
@@ -7,7 +8,6 @@
 #include "pso/misc/TNowLoading.h"
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
 s32 play_persistent_sound(int, void *, void *, int, int);
 void *TObjFish__sub_8034029C(void *, void *);
 int TObjPlayer__sub_8033FDB0(void*);

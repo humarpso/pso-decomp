@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80081A30.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Tex_80081A30 {
@@ -31,7 +32,6 @@ extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 void *construct_texture_wave(void *, void *);
-s32 TScene__sub_80081B24(void);
 extern u8 lbl_8048E168[];
 extern void *TEF_PvrWave__class_name;
 Wave_80081A30 *construct_pvr_wave__6TSceneFPvPvPvii(Wave_80081A30 *self, void *parent, void *image, s32 size, s32 index);

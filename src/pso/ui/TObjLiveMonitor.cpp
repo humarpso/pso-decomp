@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/object/TObjControl.h"
+#include "pso/ui/TObjLiveMonitor.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjLiveCamera.h"
 #include "pso/TObjLiveMonitor.h"
 #include "pso/TParticleCtrl.h"
@@ -38,10 +41,7 @@ void fn_8030B370(O_8030B370 *o) {
 s32 TObjPlayer__sub_80084500();
 s32 TObjLiveMonitor__sub_8030C050();
 s32 push_matrix();
-s32 pop_matrix();
 s32 draw_ginja_object(int);
-void render__15TObjLiveMonitorFv(u8 *arg0);
-int run_task__15TObjLiveMonitorFv(void* p);
 
 void render__15TObjLiveMonitorFv(u8 *arg0) {
     s32 temp_r3;
@@ -66,7 +66,6 @@ TObjLiveMonitor::~TObjLiveMonitor() {}
 
 extern "C" {
 
-void *__ct__15TObjLiveMonitorFv(void *arg0);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 __ct__7TObjectFP7TObject();
@@ -123,12 +122,6 @@ extern RecoveredGlobal_8030B658_lbl_804E76C0 bm_obj_boss8_monitor_resource_descr
 s32 construct_world_actor_base(void *, void *);
 extern s32 __vt__14TObjLiveCamera[];
 extern s32 TObjLiveCamera__class_name;
-u8 *TObjLiveCamera__ct(u8 *arg0, s32 arg1, s32 arg2);
-void *TObjLiveCamera__create(void *arg0);
-void TObjLiveCamera__sub_8030B630(void);
-void *__dt__14TObjLiveCameraFv(void *arg0, s16 arg1);
-void render__14TObjLiveCameraFv(void);
-void run_task__14TObjLiveCameraFv(void);
 int TLobby__sub_8001FE7C(void*, void*);
 void __dl__7TObjectFPv(void *);
 
@@ -178,9 +171,6 @@ void *TObjLiveCamera__create(void *arg0) {
     return o;
 }
 
-void fn_8030B7B4(void);
-void fn_8030B7B8(void);
-int call_null__12TBoss8DragonFv(void);
 int update_single_screen__11TCameraCtrlFv(void*);
 int get_global_part_count__12TBoss8DragonFl(void*);
 
@@ -196,7 +186,6 @@ int call_null__12TBoss8DragonFv(void) { return get_global_part_count__12TBoss8Dr
 extern "C" {
 s32 angle_diff_s16(int);
 extern const f32 lbl_805DF17C;
-u8 *get_enemy_entity(u16);
 u8 *get_player_by_client_id(s32);
 u32 TBoss8Dragon__sub_802F3348(int);
 s32 TBoss8Dragon__sub_802FCCBC(int);
@@ -213,7 +202,6 @@ extern const f32 lbl_805DF1CC;
 extern const f32 lbl_805DF1D0;
 extern const f32 lbl_805DF1D4;
 f32 calc_random_ratio__10TObjPlayerFv(void *);
-int TBoss8Dragon__sub_8030B80C(void);
 extern const f32 lbl_805DF180;
 extern const f32 lbl_805DF184;
 extern const f32 lbl_805DF188;

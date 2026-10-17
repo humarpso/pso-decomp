@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon_802F3F20.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/system/MaterialAlphaCompare.h"
+#include "pso/unk/text_801414B0.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss8Dragon.h"
@@ -53,20 +58,15 @@ extern u8 *camera_ctrl_instance;
 extern f32 boss8_dragon_visibility_distance;
 extern const f32 TBoss8Dragon__data_805DED50;
 extern const f32 TBoss8Dragon__data_805DED64;
-s32 TBoss8Dragon__sub_802F3F20(u8 *arg0);
 s32 isFading__15RenderFadeStateCFv(int);
 s32 TObjLight__sub_801337F8(void *);
-void fn_801414B0(u8 arg0, u8 arg1, u8 arg2, u8 arg3);
 s32 has_enough_enemies__12TBoss8DragonFv();
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_z(int, int);
 s32 rotate_matrix_x(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-void set_material_alpha_compare_reference(s32 reference);
-void set_chunk_material_override_pair(s32 arg0, s32 arg1);
 extern s32 current_scene_light;
 extern s32 lbl_805D5660;
 extern u8 *TBoss8Dragon__data_805D6988;

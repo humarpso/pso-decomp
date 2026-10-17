@@ -1,10 +1,11 @@
 #include "pso/TObjTagChallenge.h"
+#include "pso/menu/TObjTagChallenge.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TWindowCtrl.h"
 
 extern "C" {
 s32 TWindowCtrlMain__sub_8024CE58(void);
 void fn_800740DC(void);
-void queue_destruction__7TObjectFv(void *);
 }
 
 void TObjTagChallenge::run_task() {
@@ -22,7 +23,6 @@ TObjTagChallenge::~TObjTagChallenge() {}
 
 extern "C" {
 
-void *TObjTagChallenge__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern s32 __vt__16TObjTagChallenge[];

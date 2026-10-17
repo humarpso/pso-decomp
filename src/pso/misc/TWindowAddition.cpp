@@ -1,15 +1,13 @@
 #include "types.h"
+#include "pso/misc/TLobby_8001D6A0.h"
+#include "pso/misc/TWindowSubStatusDisp_80228CC0.h"
+#include "pso/misc/TWindowSubStatusDisp_80228F5C.h"
+#include "pso/ui/TObjBagWarnWin_8006EF24.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowAddition.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 
 extern "C" {
-s32 *get_shared_text_buffer(void);
-s32 TQuestVmDownLoadServer__sub_8006EF6C(s32 arg0);
-void append_text_space(void);
-void append_padded_number(s32 v, u8 n);
-void text_builder_append(u8 *str);
-void text_builder_reset(void);
 extern s32 TWindowSubStatusDisp__count_ratio_value;
 extern s32 lbl_805DCAB8;
 void sub_802443B4__13TUnk_804CDFE8Fv(void *, void *);

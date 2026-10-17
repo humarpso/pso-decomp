@@ -20,4 +20,9 @@ struct TBoss7LaserLight : public TObject {
 };
 
 typedef char TBoss7LaserLight_size[sizeof(TBoss7LaserLight) == 0x44 ? 1 : -1];
+extern "C" {
+void TBoss7LaserLight__sub_802EF120(void *p);
+void TBoss7LaserLight__sub_802EF12C(void *p);
+}
+
 #endif

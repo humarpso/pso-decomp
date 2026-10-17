@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80290D1C.h"
 #include "pso/player/TObjPlayer.h"
 
 struct Desc_80290D1C { void *verts; u32 *colors; int start; int count; };
@@ -11,7 +12,6 @@ extern u32 lbl_804DA97C[4];
 extern s32 lbl_804DA98C[];
 extern const f32 lbl_805DD958;
 extern const f32 lbl_805DD95C;
-void draw_creation_ruler_lines(f32 farg0);
 void draw_creation_ruler_lines(f32 farg0) {
     Desc_80290D1C d;
     u32 colors[32];

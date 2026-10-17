@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdPlayerLoadGC_801E0C30.h"
 #include "pso/system/date.h"
 #include "pso/system/memory.h"
 #include "pso/TAdPlayerLoadGC.h"
@@ -50,7 +51,6 @@ struct Date_801E21A8 { u16 year; u8 mon; u8 mday; u8 hour; u8 min; u8 sec; u8 pa
 struct Info_801E21A8 { u32 length; s16 blocks; u8 f6; u8 f7; s16 f8; u16 year; u8 mon; u8 mday; u8 hour; u8 min; u8 sec; u8 pad; };
 
 extern "C" {
-s32 TAdPlayerLoadGC__sub_801E1518(void *arg0, s32 arg1, u32 arg2);
 extern s32 TAdPlayerLoadGC__card_result_code;
 s32 TAdPlayerLoadGC__sub_801E101C(s32);
 s32 CARDProbeEx(s32, s32 *, s32 *);
@@ -62,8 +62,6 @@ s32 CARDDelete();
 s32 CARDCheckAsync(void *, int);
 extern RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0 TAdPlayerLoadGC__banner_buffers;
 extern s32 TAdPlayerLoadGC__banner_file_buf;
-void TAdPlayerLoadGC__sub_801E14E8(u8 *arg0, s32 arg1);
-void TAdPlayerLoadGC__sub_801E1350(void);
 s32 CARDGetResultCode(void *);
 s32 CARDUnmount();
 s32 read_disc_file(const char*, void*);
@@ -80,12 +78,9 @@ extern char lbl_805DC414[4];
 s32 build_save_file_image__15TAdPlayerLoadGCFPvPv(u8 *arg0, Src_801E17F4 *arg1);
 s32 CARDGetStatus(s32, s32, CARDStat_801E2048 *);
 int strncmp(const char *, const char *, u32);
-s32 find_card_file__15TAdPlayerLoadGCFiPv(s32 chan, const char *name);
 void fn_801E283C(u32, Date_801E21A8 *);
 int strcmp(const char *s1, const char *s2);
 s32 get_card_file_info__15TAdPlayerLoadGCFiPvPv(s32 chan, const char *name, Info_801E21A8 *info);
-void TAdPlayerLoadGC__sub_801E14E4(void);
-int TAdPlayerLoadGC__sub_801E1510(void);
 s32 CARDGetSerialNo();
 
 void TAdPlayerLoadGC::reset_load_state(void *arg0, void *arg1) {

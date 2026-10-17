@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TParticleCtrl_800867E4.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TTecReverser.h"
 #include "pso/misc/TUnk_804CCBC0.h"
@@ -128,7 +130,6 @@ extern RecoveredGlobal_802394B0_lbl_804CC55C lbl_804CC55C;
 extern s32 lbl_804CCBC0[];
 extern Row_8023967C TTecResta__self_recovery_effect_table[];
 void __ct__7TObjectFP7TObject(void *, void *);
-void *create_timed_particle_emitter_with_flags(void *pos, s32 id, s32 a, s32 b, s32 c);
 void set_owner_id__13TParticleCtrlFUs(void *, s32);
 Resta_8023967C *construct_self_recovery__9TTecRestaFPvPviPv(Resta_8023967C *self, Vec_8023967C *pos, s32 owner, void *parent);
 s32 queue_destruction__7TObjectFv();
@@ -136,7 +137,6 @@ u32 find_entity_by_id(int);
 void deliver_technique_to_party_targets(void *);
 void run_task__9TTecRestaFv(Resta_802399F8 *self);
 s32 is_split_screen(void);
-void *spawn_particle_effect_with_flags(void *, s32, s32);
 s32 is_script_controlled__10TObjPlayerFv(void *);
 void *__nw__7TObjectFUl(int);
 void construct_delayed_point_sound(void *, void *, s32, s32, s32);

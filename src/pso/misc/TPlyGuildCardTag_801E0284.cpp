@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TPlyGuildCardTag_801E0284.h"
 #include "pso/system/byteswap.h"
 #include "pso/packet_classes.h"
 #include "pso/TPlyGuildCardTag.h"
 #pragma inline_depth(1)
 #pragma auto_inline on
 #pragma dont_inline off
-extern "C" { void *TPlyGuildCardTag__sub_801E0314(void *arg0, void *arg1); }
 template <typename T, int num_entries, int num_pad_entries> class TMenuList;
 class LobbyListEntry;
 template <> class TMenuList<LobbyListEntry, 16, 0> {

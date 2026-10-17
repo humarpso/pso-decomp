@@ -13,9 +13,6 @@ s32 setup_content_frame__15TWindowMainMenuFPv();
 extern s32 window_menu_main_menu_params[];
 extern s32 __vt__19TWindowMenuMainMenu[];
 extern s32 lbl_805D3E68;
-u8 *TWindowMenuMainMenu__ct(u8 *arg0, s32 arg1, s16 arg2);
-void *__dt__19TWindowMenuMainMenuFv(void *arg0, s16 arg1);
-void run_task__19TWindowMenuMainMenuFv(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 
 void render__19TWindowMenuMainMenuFv(s32 arg0) {

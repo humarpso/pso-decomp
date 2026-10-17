@@ -1,0 +1,10 @@
+#ifndef PSO_UNK_TEXT_803D9FF0_H
+#define PSO_UNK_TEXT_803D9FF0_H
+
+#include "types.h"
+
+extern "C" {
+void convert_string_chars_via_table(u8 *arg0);
+}
+
+#endif

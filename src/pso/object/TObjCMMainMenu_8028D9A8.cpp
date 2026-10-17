@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjCMMainMenu_8028D9A8.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
 #include "pso/object/TObjCMMainMenu.h"
 
 struct RecoveredGlobal_8028D9B4_lbl_8051C094 { s32 value; u8 remaining[0x50]; };
@@ -22,16 +24,9 @@ struct RecoveredGlobal_8028D9F8_lbl_8051C094 {
 extern "C" {
 u8 * copy_player_visual_record(void *, void *);
 extern RecoveredGlobal_8028D9B4_lbl_8051C094 character_creation_visual_record;
-void TObjCMMainMenu__sub_8028D9B4(u8 *arg0);
-s32 *TObjCMMainMenu__sub_8028D9A8(void);
 s32 strncpy(void *, void *, int);
 extern RecoveredGlobal_8028DA0C_lbl_8051C07C character_creation_name_buffer;
-void TObjCMMainMenu__sub_8028D9F8(void);
-s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
 u8 *get_class_appearance_preset(s32 arg0);
-void fn_8028DBC4(s32 _w0);
-int TAdSinglePlyChrSelectGC__sub_8028DC14(void);
-int TAdSinglePlyChrSelectGC__sub_8028DC1C(void* p);
 s32 TAdEndText__sub_8001B3EC(s32);
 s32 submit_card_password__17TWindowSubComCardFl(u8 *);
 

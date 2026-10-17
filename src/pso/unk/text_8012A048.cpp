@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80128A70.h"
 #include "pso/item/TUnk_804A4748.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -57,7 +58,6 @@ struct VObj_18 : VBase_18 {
 };
 
 extern "C" {
-void TObjPlayer__sub_80128A70(void);
 void TUnk_804A4748::emit_marker_effects() {
     u8 *arg0 = (u8 *)this;
     TObjPlayer__sub_80128A70();

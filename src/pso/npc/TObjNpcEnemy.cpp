@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/math/MatrixVector.h"
+#include "pso/object/TObjLight_80133568.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/npc/TObjNpcEnemy.h"
@@ -151,15 +156,9 @@ struct NpcV_802d7748_802D745C : NpcBase_802d7748_802D745C {
 
 void * TObjNpcEnemy__create(void *arg0);
 void *__dt__12TObjNpcEnemyFv(void *arg0, s16 arg1);
-void draw_ginja_object(void *child);
 void *TObjControl__ct(void *, void *);
-void draw_chunk_object(void *child);
-void restore_scene_lighting(void);
-void select_actor_lighting(s32 obj);
 s32 rotate_matrix_y(int, int);
 s32 translate_matrix(int, int, f32, f32, f32);
-s32 push_matrix_from(void *src);
-s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
@@ -167,7 +166,6 @@ s32 draw__16TObjEneRe7BeruraFv();
 s32 draw_model__12TObjNpcEnemyFv();
 s32 init_npc_animation__10TObjPlayerFPvPvPv(void *, s32, s32, s16);
 s32 set_global_flag__10TObjPlayerFv(void *);
-void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 
 typedef char RecoveredGlobal_802D72E4_TObjNpcEnemy__data_80540FF0_size[sizeof(RecoveredGlobal_802D72E4_TObjNpcEnemy__data_80540FF0) == 0x240 ? 1 : -1];
 s16 *TObjNpcEnemy::get_entry_by_index(s16 arg0) {

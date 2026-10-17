@@ -1,12 +1,11 @@
 #include "types.h"
+#include "pso/misc/TButterfly_8017F364.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TButterfly.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void *TButterfly__create(void *arg0);
-void *TButterfly__ct(void *arg0, void *arg1, void *arg2);
 void TLobby__sub_8001FE7C(void*, int);
 void construct_world_actor_base(void *);
 void *__nw__7TObjectFUl(int);

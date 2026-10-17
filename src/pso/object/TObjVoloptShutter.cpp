@@ -1,4 +1,8 @@
 #include "pso/TObjVoloptShutter.h"
+#include "pso/math/MatrixTransforms.h"
+#include "pso/object/TObjVoloptShutter.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
 
 #include "types.h"
 #include "pso/TParticleCtrl.h"
@@ -23,12 +27,8 @@ extern RecoveredGlobal_8004A86C___vt__17TObjVoloptShutter __vt__17TObjVoloptShut
 extern s32 lbl_805D2768;
 extern u8 *tl_04;
 extern const f32 lbl_805D8904;
-u8 *__ct__17TObjVoloptShutterFv(u8 *arg0, s32 arg1);
 s32 rotate_matrix_y(s32, s32);
-void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
-s32 pop_matrix();
-void draw_chunk_model(void *arg0);
 
 extern s32 volopt_shutter_model_a;
 extern s32 volopt_shutter_model_b;

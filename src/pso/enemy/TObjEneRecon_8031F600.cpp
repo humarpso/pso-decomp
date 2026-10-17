@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecon_8031F600.h"
 #include "pso/enemy/TObjEneDD.h"
 
 struct Base_8031F600 { char pad[0x18]; };
@@ -34,7 +35,6 @@ struct VObj_8031F600 : Base_8031F600 {
 
 extern "C" {
 
-void TObjEneRecon__sub_8031F600(void *arg0, s32 arg1);
 s32 transition_enemy_state(void *, s32);
 s32 advance_animation_playback();
 s32 TObjEneRecon__sub_8031FACC(void *);

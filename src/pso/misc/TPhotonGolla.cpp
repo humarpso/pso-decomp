@@ -1,14 +1,13 @@
 #include "types.h"
+#include "pso/misc/PhotonBlastSummon.h"
 #include "pso/misc/TUnk_804C3248.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TPhotonGolla.h"
 
 extern "C" {
 
-void *destroy__12TPhotonGollaFPvs(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
-void *destroy_photon_motion_object(void *arg0, s16 arg1);
 
 extern s32 lbl_804C35F4[];
 

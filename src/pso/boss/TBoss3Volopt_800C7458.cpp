@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss3Volopt_800C7458.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneGyaranzo.h"
@@ -36,8 +38,6 @@ void TBoss3Volopt::set_flag8_list(u32 **arg0) {
         *p |= 8;
     }
 }
-
-void collect_active_nodes__12TBoss3VoloptFPv(void *arg0);
 
 extern void **volopt_active_node_cursor;
 extern s32 volopt_active_node_counter;
@@ -83,14 +83,11 @@ struct RecoveredGlobal_800C762C_lbl_8043BCA0 {
 
 extern "C" {
 s32 rotate_matrix_y(int, int);
-s32 push_matrix_from(void *);
-s32 pop_matrix();
 f32 post_translate_matrix(void *);
 extern RecoveredGlobal_800C7698_lbl_8058D490 identity_matrix;
 s32 matrix_mult_vec(int, void *, void *);
 extern RecoveredGlobal_800C762C_lbl_8043BCA0 lbl_8043BCA0;
 extern s32 anim_model_matrix_array;
-void TObjVoloptCage__sub_800C76F0(void);
 
 s32 TBoss3Volopt::query_field_30(s32 *arg1) {
     s32 temp_r31;

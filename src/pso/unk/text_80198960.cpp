@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/unk/text_80198960.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/unk/TUnk_804B8DE8.h"
 #include "pso/object/TObjFish.h"
 
@@ -17,14 +19,12 @@ s32 get_bml_model(void *, int);
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_chunk_object();
 extern RecoveredGlobal_80198960_lbl_804B8DAC lobby_gvm_texture_handles;
 extern RecoveredGlobal_80198960_lbl_8050DD58 gogo_ball_configuration;
 extern u32 gogo_ball_bml_resource;
 extern const f32 lbl_805DBF44;
-void TWindowTimer__sub_80198960(u8 *arg0);
 typedef char RecoveredGlobal_80198960_lbl_804B8DAC_size[sizeof(RecoveredGlobal_80198960_lbl_804B8DAC) == 0x24 ? 1 : -1];
 typedef char RecoveredGlobal_80198960_lbl_8050DD58_size[sizeof(RecoveredGlobal_80198960_lbl_8050DD58) == 0x54 ? 1 : -1];
 void TWindowTimer__sub_80198960(u8 *arg0) {

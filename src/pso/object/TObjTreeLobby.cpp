@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/object/TUnk_804F2B60.h"
 #include "pso/system/BmlResourceDescriptor.h"
@@ -72,16 +75,10 @@ extern s32 tree_lobby_type;
 void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);
-void draw_ginja_object(void *child);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
-void *TObjTreeLobby__ct(void *arg0, s32 arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);
-void queue_destruction__7TObjectFv(void *);
 Ctrl_80364B6C *get_player_by_client_id(u16);
-void *__dt__13TUnk_804F2B60Fv(void *arg0, s16 arg1);
-void *__dt__13TObjTreeLobbyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 init_map_object_base();

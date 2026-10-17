@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80141A30.h"
 #include "pso/system/memory.h"
 #include "pso/boss/TBoss6Zanzo.h"
 #include "pso/boss/TBoss6Type1.h"
@@ -32,15 +33,12 @@ struct Src_803209F0 { s32 a; u8 *p; };
 struct Obj_803209F0 { s32 f0; u8 pad[0x14]; void *vt; Src_803209F0 *arr; Src_803209F0 *last; s32 n; s32 m; };
 
 extern "C" {
-void TBoss6Zanzo__sub_803205A0(s32 *arg0, s32 *arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void mem_free(void *);
 void run_task__11TBoss6ZanzoFv(Obj_803208CC *arg0);
 u8 *mem_alloc(s32);
 extern s32 TBoss6Zanzo__name;
-s32 fn_803204B0(void* p);
 int TBoss6Zanzo__sub_803205C4(void*);
-void restore_saved_depth_alpha_state(void);
 int set_depth_buffer_settings_1__Fv(void*);
 
 s32 fn_803204B0(void* p) { return *(s32*)((char*)p + 0x4); }

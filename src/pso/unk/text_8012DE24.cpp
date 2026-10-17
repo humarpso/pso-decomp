@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/unk/TUnk_804A5C18.h"
 struct VBase_8012DE24 { char pad[0x18]; };
 
@@ -61,7 +62,6 @@ struct Self_8012DE24 {
 };
 
 extern "C" {
-void *spawn_particle_effect(void *pos, s32 id);
 s32 draw_icon__10TObjPlayerFll(void *, int, void *);
 extern s32 basic_shot_angle_table[];
 void TUnk_804A5C18::emit_marker_effects() {

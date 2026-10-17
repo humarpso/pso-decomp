@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_8036DBC4.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TLanguage.h"
@@ -12,7 +13,6 @@ extern u8 lbl_8047AD14[];
 extern u8 lbl_8047AD20[];
 extern u32 TBGMulti__textures;
 extern s32 split_screen_hud_animation_frame;
-void TBGMulti__ct(void);
 s32 TLobby__sub_803DA16C(void*);
 
 void TLobby::free_singleton_805D7018() {

@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_80087278.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss6Rock.h"
 #include "pso/object/TObjMotion.h"
@@ -81,7 +85,6 @@ s32 rand();
 extern const f32 lbl_805E03D0;
 extern const f32 lbl_805E03D8;
 extern const f32 lbl_805E03E4;
-s32 spawn__15TBoss6RockChaseFii(s32 arg0, s32 arg1);
 s32 get_bml_model(int, int);
 int TBoss6Rock__sub_80353A04(void);
 int TBoss6Rock__sub_80353A0C(void);
@@ -96,10 +99,7 @@ extern const f32 lbl_805E03CC;
 extern const f32 lbl_805E03D4;
 extern const f32 lbl_805E03DC;
 extern const f32 lbl_805E03E0;
-u8 *TBoss6RockChase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-void queue_destruction__7TObjectFv(void *);
 s32 query_teammate_state__9TObjEneDDFv(void);
-void *spawn_particle_effect(void *pos, s32 id);
 s32 play_sound_effect(int, void *, int, int);
 extern const f32 lbl_805E03C0;
 extern const f32 lbl_805E03C4;
@@ -110,14 +110,11 @@ f32 vector_length(void *);
 int subtract_vector(void *, void *);
 extern RecoveredGlobal_8036D4E0_lbl_8047ACE8 boss6_rock_chase_model_radius_table;
 extern const f32 lbl_805E03BC;
-void *__dt__15TBoss6RockChaseFv(void *arg0, s16 arg1);
 int post_translate_matrix(void*);
 int rotate_matrix_z(void*, void*);
-void draw_ginja_object(void *child);
 int rotate_matrix_x(void*, void*);
 int rotate_matrix_y(void*, void*);
 int push_matrix(void*);
-s32 pop_matrix(void);
 void __dl__7TObjectFPv(void *);
 
 #pragma push

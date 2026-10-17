@@ -1,13 +1,13 @@
 #include "types.h"
+#include "pso/unk/text_803D853C.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 extern s32 (*player_apply_callback_fn)(s32);
-void get_current_matrix(void *m);
 s32 push_matrix();
-s32 pop_matrix();
-void draw_chunk_model(void *arg0);
 
 extern s32 player_node_matrix_cursor;
 extern s32 player_node_matrix_count;

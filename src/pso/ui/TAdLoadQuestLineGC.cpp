@@ -7,7 +7,6 @@ extern "C" {
 s32 __nw__7TObjectFUl(int);
 void *__ct__18TAdLoadQuestLineGCFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 extern TAdLoadQuestLineGC *ad_load_quest_line_instances[3];
-s32 get_or_create_line__14TAdLoadQuestGCFii(s32 arg0, s32 arg1);
 s32 init_quest_line_draw_colors();
 s32 fn_80349E5C();
 

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_803E4954.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/boss/TBoss6Mine.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -154,7 +156,6 @@ f32 cos_table_lookup(s32);
 extern const f32 lbl_805DF5BC;
 extern const f32 lbl_805DF5C0;
 extern const f32 lbl_805DF5C4;
-void TBoss6Mine__vt0(u8 *arg0);
 s32 render_actor_shadows_default();
 extern const f32 TBoss6Mine__data_805DF580;
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
@@ -164,20 +165,16 @@ f32 subtract_vector(void *, void *);
 f32 normalize_vector(void *);
 extern const f32 lbl_805DF59C;
 extern const f32 lbl_805DF5A0;
-void TBoss6Mine__vt5(u8 *arg0);
 u8 *get_player_data__10TObjPlayerFi(s32);
 s32 play_sound_effect(int, void *, int, int);
 extern const f32 lbl_805DF590;
 extern const f32 lbl_805DF594;
-void explode_damage_players__10TBoss6MineFPv(u8 *arg0);
 extern const f32 lbl_805DF588;
-void TBoss6Mine__vt3(u8 *arg0);
 f64 atan2_float(f32, f32);
 s32 approach_angle_limited(s32, s32, s32);
 f64 TBoss5GryphonLightningWing__sub_80324CEC(f32);
 extern const f64 lbl_804766A0[];
 s32 play_persistent_sound(s32, s32, u32, s16, s32);
-void TBoss6Mine__vt2(u8 *arg0);
 f32 *dispatch_shared_handler_a__6TLobbyFl(s32);
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
@@ -196,12 +193,6 @@ extern const f32 lbl_805DF5D0;
 extern const f32 lbl_805DF5D4;
 extern const f32 lbl_805DF5D8;
 extern const f32 lbl_805DF5DC;
-s32 TBoss6Mine__ct(s32 arg0, s32 arg1, s32 arg2);
-void TBoss6Mine__vt1(void *arg0);
-void TBoss6Mine__vt4(u8 *arg0);
-void TBoss6Mine__vt6(s32 arg0);
-void TBoss6Mine__vt7(void* p);
-void *__dt__10TBoss6MineFPvs(void *arg0, s16 arg1);
 void TBoss6PlotFalz__sub_802AC008(f32 farg0, f32 farg1);
 void TBoss6Type1__sub_802B5DD4(void *);
 int post_translate_matrix(void*);
@@ -209,13 +200,11 @@ int spawn_particle_effect_with_flags(void*, void*, void*);
 int rotate_matrix_x(void*, void*);
 s32 TObjControl__ct(s32, s32);
 void free_collision_body_parts(void *);
-void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 int rotate_matrix_y(void*, void*);
 int push_matrix(void*);
-s32 pop_matrix(void);
 void __dl__7TObjectFPv(void *);
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 s32 __nw__7TObjectFUl(s32);

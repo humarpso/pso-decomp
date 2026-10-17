@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/object/LobbyPigeonTheme.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
-
-s32 filter_lobby_pigeon_theme(void);
 
 s32 filter_lobby_pigeon_theme(void) {
     s32 filtered_event_theme;

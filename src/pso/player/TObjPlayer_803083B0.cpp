@@ -1,13 +1,13 @@
 #include "types.h"
+#include "pso/item/TItemEquipVariant_80120CF8.h"
+#include "pso/player/TObjPlayer_803083B0.h"
 #include "pso/player/TUnk_804E71F8.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-void *__dt__13TUnk_804E71F8Fv(void *arg0, s16 arg1);
 void TItemWeapon__ct(void *);
-void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
 void set_status_flags__10TObjPlayerFUl(void *, int);
 
 extern s32 lbl_804E71F8[];

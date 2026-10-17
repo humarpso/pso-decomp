@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_801D726C.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {

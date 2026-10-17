@@ -103,8 +103,6 @@ int memcmp(const void *, const void *, unsigned long);
 unsigned long strlen(const char *);
 extern char *lbl_805D4688;
 s32 parse_aix_header__6TLobbyFPviPv(u8 *arg0, s32 arg1, Out_803CDEC8 *arg2);
-void middleware_interrupt_lock_leave(void);
-void middleware_interrupt_lock_enter(void);
 void TLobby__sub_803D3130(Chunk_803CDB0C *, s32, Chunk_803CDB0C *, Chunk_803CDB0C *);
 void *memcpy(void *, const void *, u32);
 

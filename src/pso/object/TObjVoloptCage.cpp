@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TQuestColCtrl_8003F3BC.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -43,7 +45,6 @@ s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
 s32 TObjVoloptCage__sub_800C76F0(void *);
 s32 submit_cursor_candidate(void *, int);
 s32 is_locally_controlled__10TObjPlayerFPv();
-void clear_volopt_cage_flag(void);
 void obj_clear_flag30_20000(void *arg0);
 void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
@@ -51,7 +52,6 @@ s32 get_player_by_client_id(int);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8004938C___vt__14TObjVoloptCage __vt__14TObjVoloptCage;
 u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1);
-void queue_destruction__7TObjectFv(void *);
 void TObjEnemyCustom__ct();
 void init_collision_body_parts(void *, void *, int);
 extern u8 volopt_cage_collision_body_desc[];

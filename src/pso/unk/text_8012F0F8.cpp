@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8012F0F8.h"
 #include "pso/item/TItemEffOrgaFlowShot.h"
 
 extern "C" {
@@ -6,7 +7,6 @@ s32 play_sound_effect(int, int, int, int);
 extern const f32 lbl_805DAF98;
 extern const f32 lbl_805DAF9C;
 extern const f32 lbl_805DAFA0;
-void madam_parasol_close(u8 *arg0);
 void madam_parasol_close(u8 *arg0) {
     f32 temp_f2;
     s32 var_r31;

@@ -1,4 +1,5 @@
 #include "pso/TBoss6CrushPtcl.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/boss/TBoss4Type2.h"
 
 #include "types.h"
@@ -11,7 +12,6 @@ void *__ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__15TBoss6CrushPtcl[];
 extern s32 TBoss6CrushPtcl__name;
 u8 *TBoss6CrushPtcl__ct(u8 *arg0, void *arg1, Vec_80359EF0 *arg2);
-void queue_destruction__7TObjectFv(void*);
 }
 
 void TBoss6CrushPtcl::run_task() {

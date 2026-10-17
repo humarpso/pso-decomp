@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLockOnCursor_8013EB80.h"
+#include "pso/unk/text_80072004.h"
 #include "pso/misc/TMainCursor.h"
 #include "pso/misc/TLockOnCursor.h"
 
@@ -9,12 +11,6 @@ struct Obj_8013EC38 { u16 h0; s16 h2; f32 f4; u8 f8[4]; u8 fc[8]; u8 f14[8]; };
 extern "C" {
 void TLockOnCursor__sub_8013EC1C(Obj_8013EC1C *self);
 extern const f32 TMainCursor__data_805DB0C0;
-void init__6gc_tagFv(void *p);
-void TLockOnCursor__sub_8013EB80(void* p);
-void TLockOnCursor__sub_8013EB8C(void* p);
-s32 TLockOnCursor__sub_8013EBBC(void* p);
-s32 TLockOnCursor__sub_8013EBE8(void* p);
-s32 TLockOnCursor__sub_8013EC14(void* p);
 
 void TLockOnCursor__sub_8013EB80(void* p) { *(s32*)((char*)p + 0x4) = 0; }
 void TLockOnCursor__sub_8013EB8C(void* p) { *(s32*)((char*)p + 0x4) = 1; }

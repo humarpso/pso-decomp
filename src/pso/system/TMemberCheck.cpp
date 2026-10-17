@@ -1,8 +1,8 @@
 #include "pso/TMemberCheck.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
-void TWindow__close(u8 *arg0);
 void* memset(void*, int, unsigned long);
 extern const char* member_check_name_ptr;
 extern s32 TMemberCheck__previous_member_count;

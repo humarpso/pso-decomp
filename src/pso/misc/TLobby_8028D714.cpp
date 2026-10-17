@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_8028D714.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -18,8 +19,6 @@ extern RecoveredGlobal_8028D738_lbl_80518850 lbl_80518850;
 extern RecoveredGlobal_8028D738_lbl_80518860 chr_select_load_buffer_table;
 extern u32 chr_select_load_buffer_base;
 extern u32 chr_select_load_buffer;
-s32 TLobby__sub_8028D738(s32 arg0);
-void TLobby__sub_8028D7D0(s32 i);
 int TLobby::start_load_default() { return alloc_load_buffer(0); }
 
 typedef char RecoveredGlobal_8028D738_lbl_80518850_size[sizeof(RecoveredGlobal_8028D738_lbl_80518850) == 0x10 ? 1 : -1];

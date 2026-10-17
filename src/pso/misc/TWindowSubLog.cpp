@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl_8024ADAC.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/ui/TAdScrollWinGC_8026A5F8.h"
+#include "pso/unk/text_80076BC4.h"
 #include "pso/misc/TWindowSubLog.h"
 #include "pso/misc/TWindowChat.h"
 #include "pso/ui/TAdScrollWinGC.h"
@@ -24,7 +29,6 @@ struct RecoveredGlobal_8027AF58_lbl_8050E208 {
 struct Lg_8027B194 { s32 f0; u8 pad4[0x14]; void *vt; void *f1c; void *f20; s32 f24; void *f28; u8 f2c[0x10]; };
 
 extern "C" {
-s32 chat_accept_submission(s32 arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 is_flag_set__11TLoadingCurFv(void *, int);
@@ -33,27 +37,18 @@ s32 play_sound_effect(int, int, int, int);
 s32 TWindowCtrl__sub_8024701C(int);
 void TWindowChat__sub_80247DFC(u8 *arg0);
 void TWindowChat__sub_80247E50(u8 *arg0);
-void fn_8026A61C(void *p, f32 v);
-void TWindowSubLog__sub_8026A664(u8 *arg0, f32 farg0);
 extern RecoveredGlobal_8027AF58_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DD638;
 extern const f32 lbl_805DD63C;
 extern const f32 lbl_805DD640;
 extern const f32 lbl_805DD644;
-void TWindowCtrl__sub_8024ADAC(s32 arg0);
 s32 create_message_log_window(void *, void *, void *);
-int fn_8027B288(void* p);
-void fn_8027B2A8(void* p);
 extern u8 lbl_8044F9C8[];
 extern u8 lbl_8044F9D0[];
 extern s32 __vt__13TWindowSubLog[];
 extern s32 TWindowSubLog__class_name;
-void *__dt__13TWindowSubLogFv(void *arg0, s16 arg1);
-void TWindowCtrl__sub_8024ADF0(s32 arg0);
-void TWindow__close(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void queue_destruction__7TObjectFv(void *);
 int show_child_window__17TWindowMainMenu4PFv(void*);
 int update_trade_submenu__15TWindowMainMenuFv(void*);
 

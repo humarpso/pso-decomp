@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80126EA8.h"
 #include "pso/item/TUnk_804A2F78.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemEffOrgaFlowShot.h"
 
 extern "C" {
 
-void TObjPlayer__sub_80126F3C(void);
 int scale_current_matrix(void*);
 int get_player_list__10TObjPlayerFv(void*);
 

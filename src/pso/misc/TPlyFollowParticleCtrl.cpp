@@ -1,12 +1,8 @@
 #include "types.h"
+#include "pso/misc/TQuestListVM_8007EAF8.h"
 #include "pso/misc/TPlyFollowParticleCtrl.h"
 
 extern "C" {
-
-s32 __dt__22TPlyFollowParticleCtrlFis(s32 arg0, s16 arg1);
-void TPlyFollowParticleCtrl__sub_8030A694(void);
-
-void __dl__FPv(void);
 
 void TPlyFollowParticleCtrl::set_type(s16 v) { *(s16 *)&this->m_name = v; }
 s32 __dt__22TPlyFollowParticleCtrlFis(s32 arg0, s16 arg1) {

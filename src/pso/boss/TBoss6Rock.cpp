@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_80087278.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TUnk_804F1280.h"
 #include "pso/boss/TBoss6Rock.h"
@@ -102,7 +106,6 @@ extern const f32 lbl_805DFF6C;
 extern const f32 lbl_805DFF70;
 extern const f32 lbl_805DFF74;
 extern const f32 lbl_805DFF78;
-void *spawn_particle_effect(void *pos, s32 id);
 s32 play_sound_effect(s32, u32, int, s32);
 extern const f32 TBoss6Rock__data_805DFF50;
 extern const f32 lbl_805DFF54;
@@ -127,9 +130,7 @@ s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_z(int, int);
 s32 rotate_matrix_x(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void draw_ginja_object(void *child);
 extern int TBoss6Rock__data_805D6EF0;
 extern int TBoss6Rock__data_805D6EF4;
 u32 create__10TObjMapCsnFl(void *, void *, f32);
@@ -141,7 +142,6 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
 int is_active__10TBoss6RockFv(void*);
-void queue_destruction__7TObjectFv(void *arg0);
 
 void TBoss6Rock::set_target(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0) {
     u8 *arg0 = (u8 *)this;

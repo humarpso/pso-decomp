@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowDD_80348D0C.h"
 #include "pso/system/byteswap.h"
 #include "pso/misc/TWindowDD.h"
 
@@ -15,7 +16,6 @@ struct S_80348D0C { u16 a; u16 b; u16 c[8]; u32 d; u32 e; };
 extern "C" {
 void TWindowDD__sub_80348D90(S_80348D90 *self, s16 v);
 void TWindowDD__sub_80348DD8(S_80348DD8 *self, s16 v);
-s32 TWindowDD__sub_80348D88(void* p);
 
 void TWindowDD::bswap_word_select() {
     S_80348D0C *arg0 = (S_80348D0C *)this;

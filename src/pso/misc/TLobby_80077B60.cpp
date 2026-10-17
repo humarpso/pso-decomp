@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TLobby_80077B60.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 extern u32 lbl_805D4E58;
 extern u32 lbl_805D4E5C;
-void TLobby__sub_80077BAC(void);
 
 void TLobby::free_static_windows() {
     if ((u32) lbl_805D4E5C != 0U) {

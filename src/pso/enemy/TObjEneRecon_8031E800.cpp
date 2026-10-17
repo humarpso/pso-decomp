@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecon_8029E89C.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/enemy/TObjEneRecon.h"
 #include "pso/enemy/TObjEneRecobox.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
@@ -10,8 +12,6 @@ s32 get_mode__11TCameraCtrlFPv(void *);
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
-void restore_render_scissor(s32 arg0);
 
 s32 TObjEneRecobox::render_trap_model_if_visible() {
     if (get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x20) {

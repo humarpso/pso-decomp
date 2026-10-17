@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLanguage_801E4874.h"
+#include "pso/unk/text_800F9B84.h"
 #include "pso/npc/TObjNpcNFW00.h"
 #include "pso/npc/TUnk_804A8640.h"
 #include "pso/npc/TObjNpcNFW01.h"
@@ -103,18 +105,12 @@ extern s32 __vt__12TObjNpcNFW00[];
 extern s32 TObjNpcNFW00__name;
 extern s32 *TObjNpcNFW00__named_object_resource;
 extern s32 TObjNpcNFW00__texture_gvm_handle;
-u8 *TObjNpcNFW00__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 create_named_object(s32 arg0);
-u8 *load_gvm_texture_file(s32 arg0);
 extern u32 TObjNpcNFW01__shared_object_resource;
 extern u32 TObjNpcNFW01__texture_gvm;
 extern char lbl_8043FDC8[];
 extern char lbl_8043FDDC[];
-void * TObjNpcNFW01__create(void *arg0);
-void *__dt__12TObjNpcNFW00Fv(void *arg0, s16 arg1);
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);
-u8 *TObjNpcNFW01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 

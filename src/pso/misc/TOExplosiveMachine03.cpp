@@ -9,9 +9,6 @@ struct VObj_80166024_80165F84 : Base_80166024_80165F84 {
     virtual void m4(); virtual void m5(s32);
 };
 
-void *TOExplosiveMachine03__create(void *arg0);
-void *TOExplosiveMachine03__ct(void *arg0, s32 arg1);
-void *__dt__20TOExplosiveMachine03Fv(void *arg0, s16 arg1);
 s32 TOExplosiveMachine__ct();
 s32 TObjFish__sub_8001EDB0(s32, s32);
 void *get_bml_model(s32, s32);

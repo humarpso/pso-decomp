@@ -119,4 +119,19 @@ s32 parse_netinfo(char *text, u32 size, NetworkInfoConfig *config);
 s32 decode_network_info_payload(u8 *key, u8 *payload, u32 size, NetworkInfoConfig *config);
 }
 
+extern "C" {
+u32 *allocate_network_info_cipher_key(s32 src);
+void bind_network_info_cipher_pool(u32 *p, s32 n);
+void clear_network_info_cipher_pool(void);
+void copy_network_info_cipher_block(u32 *dst, u32 *src);
+s32 copy_network_info_config_string(char *arg0, char *arg1, u32 arg2, u32 arg3);
+void decrypt_network_info_cipher_block(u32 *arg0, NetworkInfoCipherBlock *src, NetworkInfoCipherBlock *dst);
+s32 decrypt_network_info_cipher_blocks(u32 *key, u8 *src, s32 len, u8 *dst);
+void decrypt_network_info_cipher_round(u32 *arg0, u32 *arg1);
+s32 parse_hex_string(char *s);
+s32 parse_network_info_config_decimal(char *s, u32 n);
+s32 parse_network_info_config_hex(char *s, u32 n);
+void release_network_info_cipher_key(u32 *mask);
+}
+
 #endif

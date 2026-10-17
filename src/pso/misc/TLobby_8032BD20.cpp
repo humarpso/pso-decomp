@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_8032BD20.h"
 #include "pso/misc/TUnk_804EDAC0.h"
 #include "pso/misc/TLobby.h"
 
@@ -14,11 +15,8 @@ u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8032BD64_lbl_804EDAC0 lbl_804EDAC0;
 extern int lbl_805D6CB8;
-u8 *__dt__13TUnk_804EDAC0Fv(u8 *arg0, s16 arg1);
 void __ct__7TObjectFP7TObject(void *);
 O_8032BDC4 *TLobby__sub_8032BDC4(O_8032BDC4 *arg0);
-void TLobby__sub_8032BE30(void);
-void TLobby__sub_8032BE3C(void);
 int clear_password__18TAdEnterPasswordGCFPv(void*);
 int update_children__18TAdEnterPasswordGCFPv(void*);
 

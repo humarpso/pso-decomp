@@ -1,10 +1,8 @@
 #include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowDD_80346A84.h"
 
 extern "C" {
-s32 TWindowDD__sub_80346F30(u8 *arg0);
 s32 get_word_select_context__9TWindowDDFv();
-s32 TWindowDD__sub_80346DB8(s32 arg0);
-void ws_data_load(void);
 void *load_encrypted_archive_data(s32 *);
 
 extern s32 TWindowDD__window_mode;

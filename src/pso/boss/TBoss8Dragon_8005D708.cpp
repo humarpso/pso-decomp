@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_803E4954.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/boss/TBoss5Gryphon.h"
 #include "pso/object/TObjFish.h"
 struct Cnt_8005D708 { u32 f0; u32 count; };
@@ -41,9 +43,7 @@ void TObjLight__sub_801337F8(s32);
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
 void push_matrix();
-s32 pop_matrix(void);
 void post_translate_matrix(void *);
-void draw_model_motion(void *, void *, f32);
 extern s32 current_scene_light;
 extern u32 model_render_flags;
 extern const f32 lbl_805D8D4C;

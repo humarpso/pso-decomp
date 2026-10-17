@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TLobby_8001D6A0.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802C6F88.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 
 extern "C" {
 
-int TAdMultiPlyChrSelectGC__sub_802C6FA8(void);
-void TLobby__sub_8001E998(f32 farg0, f32 farg1, f32 farg2, f32 farg3);
 s32 TLobby__sub_8001EA5C(s32, f32, f32, f32, f32);
 
 s32 TAdMultiPlyChrSelectGC::get_field_20() { return *(s32 *)&this->m_20; }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowKeyBoardHard_801A529C.h"
 #include "pso/network/packet_copy.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowKeyBoardHard.h"
@@ -11,8 +12,6 @@ extern void *TLobby__protocol_instance;
 extern s32 deferred_packet_buffer;
 extern s32 deferred_packet_buffer_used;
 extern s32 lbl_805D5D04;
-void buffer_reset(void);
-void set_fresh_card_flag(void *arg0);
 void *get_character_save_record();
 s32 memcpy(s32, void *, u16);
 s32 memset(s32, s32, s32);
@@ -81,7 +80,6 @@ void buffer_reset(void) {
     lbl_805D5D04 = 1;
 }
 
-void TLobby__sub_801A5478(void);
 void mem_free(void *p);
 
 void TLobby__sub_801A5478(void) { mem_free((void *)(deferred_packet_buffer)); deferred_packet_buffer = 0; }
@@ -115,7 +113,6 @@ struct S_801A5544 { u8 pad[0x8B8]; s32 cnt; u8 buf[0x5B4]; };
 
 extern "C" {
 void append_command_to_batch_buffer(S_801A5544 *arg0, u8 *arg1);
-void TLobby__sub_801A54E8(u8 *arg0);
 
 void TLobby__sub_801A54E8(u8 *arg0) {
     s32 temp_r4;

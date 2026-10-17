@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss1Crater_8002C6B4.h"
 #include "pso/boss/TObjBoss1Crater.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/misc/TLobby.h"
@@ -8,16 +9,12 @@ struct Ent_8002C730 { u8 pad0[0x38]; f32 f38; u8 pad3c[4]; f32 f40; };
 struct Obj_8002C730 { f32 x; u8 pad[4]; f32 z; };
 
 extern "C" {
-void attack_target_list_remove(u8 *arg0, s32 arg1);
 extern s32 TObjBoss1Crater__instance_count;
 extern s32 TObjBoss1Crater__instance_list[];
-void TObjBoss1Crater__sub_8002C7B8(void);
 f32 newton_sqrtf(f32);
 extern const f32 lbl_805D8168;
 extern const f32 lbl_805D816C;
 f32 calc_nearest_crater_distance(Obj_8002C730 *self);
-void TObjBoss1Crater__sub_8002C7B4(void);
-s32 TObjBoss1Crater__sub_8002C7E4(void* p);
 void *TObjBoss1Crater__ct(void *, void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 void *get_instance__12TBoss1DragonFv(void);

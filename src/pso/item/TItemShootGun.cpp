@@ -1,4 +1,7 @@
 #include "pso/TItemShootGun.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_80087278.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjDoorJung.h"
 #include "pso/TItemShootModel.h"
 #include "pso/TParticleCtrl.h"
@@ -8,8 +11,6 @@ extern "C" {
 void  push_matrix(void);
 void  post_translate_matrix(Vec*);
 void  rotate_matrix_by_node_angles(void*, s32);
-void  draw_ginja_object(void*);
-s32 pop_matrix(void);
 }
 
 void TItemShootGun::render() {
@@ -37,7 +38,6 @@ void TItemShootGun::hook() {
 
 extern "C" {
 
-void *spawn_particle_effect(void *pos, s32 id);
 u32 __ct__13TItemShootGunFPvPC3VecPC3Vecf(void *, s32, s32, s32, f32);
 u32 __nw__7TObjectFUl(s32);
 

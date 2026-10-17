@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_801E43E4.h"
 #include "pso/misc/TWindowDD.h"
 
 struct Pkt_80348C78 { u8 hdr[2]; u16 player; u8 body[0x1c]; };
@@ -6,7 +7,6 @@ struct Pkt_80348C78 { u8 hdr[2]; u16 player; u8 body[0x1c]; };
 extern "C" {
 extern s32 local_client_id;
 void copy_chat_entry__9TWindowDDFPvPv(void *, void *);
-void TLobby__send_and_handle_60(u8 *arg0);
 int bswap_word_select__9TWindowDDFv(void*);
 
 int TWindowDD::handle_word_select() { return bswap_word_select__9TWindowDDFv((char*)this + 0x4); }

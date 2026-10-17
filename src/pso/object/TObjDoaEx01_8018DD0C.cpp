@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjDoorJung.h"
 #include "pso/object/TObjDoaEx01.h"
 #include "pso/TParticleCtrl.h"
@@ -30,11 +33,8 @@ struct VObj_18_26a62c : VBase_18_26a62c {
 extern "C" {
 s32 rotate_matrix_by_node_angles(void *, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-void draw_ginja_model(s32 model);
-void set_chunk_material_color(f32 *arg);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern u8 *TObjDoaEx01__alpha_model_node;

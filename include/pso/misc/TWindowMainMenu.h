@@ -61,4 +61,9 @@ struct TWindowMainMenu : public TObject {
     void update_description_text(s32 arg1);
 };
 
+extern "C" {
+u8 *__dt__15TWindowMainMenuFv(u8 *arg0, s16 arg1);
+int test_keyboard_card_flag4(void *p);
+}
+
 #endif

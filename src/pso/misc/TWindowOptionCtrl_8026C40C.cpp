@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TWindowOptionCtrl_8026C40C.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/misc/TWindowOptionCtrl.h"
 #include "pso/misc/TWindowSubComCard.h"
 
 extern "C" {
 
-void *__dt__17TWindowOptionCtrlFv(void *arg0, s16 arg1);
-void TWindow__close(u8 *arg0);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 

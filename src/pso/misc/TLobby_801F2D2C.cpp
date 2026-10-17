@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLobby_801E43E4.h"
+#include "pso/misc/TLobby_801F2D2C.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/misc/TLobby.h"
 #include "pso/TObject.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
@@ -89,44 +92,13 @@ extern u32 TLobby__quest_state_object_16c;
 extern u16 TLobby__quest_state_word_170;
 extern u16 TLobby__quest_state_word_172;
 extern RecoveredGlobal_801F3268_lbl_80512B18 lbl_80512B18;
-s32 *TObjItemOKWindow__sub_801F3268(void);
 extern struct Op_801F2E64 qst_opcode_table[];
 extern s32 TLobby__quest_window_state;
-s32 dispatch_quest_opcode(void);
 int bswap_16__FPUs(void*);
 void *memset(void *, int, u32);
 extern s16 TLobby__data_805D5ECC;
 void init_quest_script_context(Hdr_801F3124 *h, Ctx_801F3124 *c);
-void TLobby__sub_801F3314(s32 arg0);
-int TLobby__sub_801F3384(void* p);
-int TLobby__sub_801F33A8(void* p);
-int TLobby__sub_801F33CC(void* p);
-int TLobby__sub_801F33F0(void* p);
-int TLobby__sub_801F345C(void* p);
-void TLobby__sub_801F34E8(int a0, int a1);
-int TLobby__sub_801F34F8(void);
-int TLobby__sub_801F3500(void* p);
-void TLobby__sub_801F3568(void);
-void TLobby__sub_801F3614(void);
-int TLobby__sub_801F3694(void* p);
-void TLobby__sub_801F36BC(void);
-void TLobby__sub_801F36D8(void);
-void TLobby__sub_801F36E4(void);
-int TLobby__sub_801F36F0(void);
-int TLobby__sub_801F36F8(void);
-int TLobby__sub_801F3700(void);
-int TLobby__sub_801F3708(void);
-void TMainTask__sub_801F34D0(u8 *arg0);
-void bswap_header__6TLobbyFPv(void* p);
-void build_6x77_sync_quest_register(void* p);
-int fn_801F3480(void* p);
-int fn_801F34A0(void* p);
-s32 fn_get_field_3ac(void* p);
-s32 get_field_d4(void* p);
-int set_flag_4__6TLobbyFPv(void* p);
-void TLobby__send_and_handle_60(u8 *arg0);
 int test_action_mask__10TObjPlayerFl(void*, int);
-void TWindow__close(u8 *arg0);
 int VecCopy__FP3VecPC3Vec(void*);
 s32 queue_destruction__7TObjectFv(s32);
 int set_flags__10TObjPlayerFUl(void*, int);

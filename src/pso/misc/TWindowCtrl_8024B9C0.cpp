@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl_8024B9C0.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/misc/TWindowLockOn.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -8,14 +10,12 @@
 
 extern "C" {
 
-void TWindowCtrl__sub_8024B9C0(void *arg0);
 s32 has_player_active_menu__11TWindowCtrlFv(s32);
 s32 TWindowCtrl__sub_8024B000(void *, s32);
 s32 is_slot_visible__11TWindowCtrlFv(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32, s32 *);
 s32 is_split_screen();
 s32 fn_8002AE08(s32);
-void window_request_show(void *arg0);
 
 extern s32 local_client_id;
 

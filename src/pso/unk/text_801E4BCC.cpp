@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/THeap.h"
 #include "pso/player/TObjPlayer.h"
 struct Wave_801E4BCC {
     s32 height;
@@ -13,7 +14,6 @@ struct Wave_801E4BCC {
 };
 
 extern "C" {
-u32 calc_gx_tile_index(u32 x, u32 y, s16 w);
 void distort_texture_wave_image(Wave_801E4BCC *wave);
 void distort_texture_wave_image(Wave_801E4BCC *wave) {
     s32 y;

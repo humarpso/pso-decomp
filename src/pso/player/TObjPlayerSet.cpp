@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TQuestThread.h"
+#include "pso/object/TObject_8001A448.h"
 #include "pso/object/TObjQuestCol2.h"
 #include "pso/player/TObjPlayerSet.h"
 #include "pso/TObject.h"
@@ -22,11 +24,9 @@ struct RecoveredGlobal_80195720___vt__13TObjPlayerSet {
 };
 
 extern "C" {
-u8 *__ct__12TQuestThreadFv(u8 *arg0, s32 arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);
 extern s32 tl_00;
 u8 *TObjQuestCol2__vt14(u8 *arg0);
-void disallow_rendering__7TObjectFv(void *);
 u8 * construct_world_actor_base(void *);
 extern s32 __vt__13TObjPlayerSet[];
 extern s32 TObjPlayer__player_set_class_name;

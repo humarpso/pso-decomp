@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_8001A448.h"
 #include "pso/item/TItemShootParticle.h"
 #include "pso/boss/TBoss4Type2.h"
 
@@ -13,7 +14,6 @@ void __dl__7TObjectFPv(void *p);
 extern void *__vt__18TItemShootParticle[];
 TItemShootParticle_8011B77C *__dt__18TItemShootParticleFv(TItemShootParticle_8011B77C *self, s16 flag);
 void __ct__10TItemShootFPvPC3VecPC3Vecf(void *self, void *a, void *b, void *c, f32 f);
-void disallow_rendering__7TObjectFv(void *self);
 extern u32 item_shoot_particle_class_name;
 TItemShootParticle_8011B7FC *TItemShootParticle__ct(TItemShootParticle_8011B7FC *self, void *a, void *b, void *c, f32 f);
 #pragma push

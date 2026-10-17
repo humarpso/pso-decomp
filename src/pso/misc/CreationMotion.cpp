@@ -1,4 +1,5 @@
 #include "pso/misc/CharacterAppearance.h"
+#include "pso/misc/CreationMotion.h"
 extern "C" {
 extern CharacterAppearanceFields* creation_player_character;
 s32 creation_motion_group() {

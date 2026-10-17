@@ -1,4 +1,11 @@
 #include "types.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/misc/TWindowSubStatusDisp_80071774.h"
+#include "pso/misc/TWindowSubStatusDisp_80228CC0.h"
+#include "pso/misc/TWindowSubStatusDisp_80228F5C.h"
+#include "pso/player/TObjPlayer_800A7764.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
+#include "pso/unk/text_8027FD88.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TWindowHelpItem.h"
@@ -62,43 +69,27 @@ typedef struct Entry_80280B1C {
 
 extern "C" {
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
-s32 get_localized_text_entry(s32, s32);
 s32 TLobby__sub_801C2614();
 void *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 s32 init_window_layout_entries(void *, s32 *, s16);
 s32 set_text_entry_string(void *, s32, s32);
 extern s32 TWindowSubStatusDisp__record_summary_layout[];
 extern const f32 TWindowSubStatusDisp__data_805DD708;
-void vt3__20TWindowSubStatusDispFv(u8 *arg0);
 extern s32 TWindowSubStatusDisp__resistance_layout[];
-void vt2__20TWindowSubStatusDispFv(u8 *arg0);
 s8 get_type__20TWindowSubStatusDispFv(int);
 Q_80280F14 *get_quest_id__12TQuestListVMFv();
 s32 get_player_by_client_id(s16);
 void vt11__20TWindowSubStatusDispFv(Wn_80280F14 *arg0);
 extern s32 TWindowSubStatusDisp__stat_page_layout[];
-void vt1__20TWindowSubStatusDispFv(u8 *arg0);
 s32 get_class_name_text(s32);
 extern s32 TWindowSubStatusDisp__summary_page_layout[];
-void vt0__20TWindowSubStatusDispFv(u8 *arg0);
-s16 TObjPlayer__sub_800A776C(void *p);
 s32 build_player_class_stat_template(int, void *);
 s32 build_player_equipment_requirement_stats(int, void *);
-void vt12__20TWindowSubStatusDispFv(u8 *arg0);
-u16 TAdSinglePlyChrSelectGC__sub_801FC36C(int arg0);
-void vt7__20TWindowSubStatusDispFv(u8 *arg0);
 s32 get_shared_text_buffer();
 s32 get_layout_id__20TWindowSubStatusDispFv(s32);
-s32 TWindowSubStatusDisp__sub_80071A24(s32, u16, s32);
-void append_padded_number(s32 v, u8 n);
-void text_builder_append(u8 *str);
-void text_builder_reset(void);
 extern s32 status_disp_vt5_message_ids[];
 extern s32 TWindowSubStatusDisp__numbered_times_layout[];
 extern char lbl_805DD6E4[2];
-void vt5__20TWindowSubStatusDispFv(u8 *arg0);
-void fn_8027FD88(void* p, f32 a, f32 b);
-void fn_8027FD94(void* p, s16 v);
 
 void fn_8027FD88(void* p, f32 a, f32 b) { *(f32*)((char*)p + 0x6c) = a; *(f32*)((char*)p + 0x70) = b; }
 void fn_8027FD94(void* p, s16 v) { *(s16*)((char*)p + 0x62) = v; }

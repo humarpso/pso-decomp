@@ -105,4 +105,36 @@ typedef char WolfOffset_stoppingDistance[offsetof(TObjEneBm5Wolf, stoppingDistan
 typedef char WolfOffset_nearTarget[offsetof(TObjEneBm5Wolf, nearTarget) == 0x468 ? 1 : -1];
 
 typedef char TObjEneBm5Wolf_size[sizeof(TObjEneBm5Wolf) == 0x46C ? 1 : -1];
+extern "C" {
+u8 *TObjEneBm5Wolf__ct(u8 *arg0, void *arg1, void *arg2);
+s32 __dt__14TObjEneBm5WolfFis(s32 arg0, s16 arg1);
+u8 *__dt__14TObjEneBm5WolfFv(u8 *arg0, s16 arg1);
+s32 actor_rand_int(s32 actor, s32 arg1);
+void anchor_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
+void apply_global_to_position__14TObjEneBm5WolfFi(s32 arg0);
+void apply_to_position__14TObjEneBm5WolfFPvPv(void *p, void *a1);
+void approach_target__14TObjEneBm5WolfFPvf(void *arg0, f32 farg0);
+s32 calc_lunge_aim__14TObjEneBm5WolfFPv(u8 *arg0);
+void calc_rotated_vector__14TObjEneBm5WolfFPviPvPv(void *arg0, s32 arg1, void *arg2, s32 *arg3);
+s32 destroy__14TObjEneBm5WolfFis(s32 arg0, s16 arg1);
+void dispatch_state__14TObjEneBm5WolfFPvUii(u8 *arg0, u32 state, s32 event);
+int get_flag_bit0__14TObjEneBm5WolfFPv(void *p);
+s32 get_group_id__14TObjEneBm5WolfFPv(void *p);
+void play_footsteps__14TObjEneBm5WolfFPv(u8 *arg0);
+void play_sound__14TObjEneBm5WolfFPv(void *arg0);
+void play_variant_sound__14TObjEneBm5WolfFPv(void *arg0);
+void render__14TObjEneBm5WolfFPv(u8 *arg0);
+void render_debug__14TObjEneBm5WolfFPv(u8 *arg0);
+void returning_state__14TObjEneBm5WolfFPvi(u8 *actor, s32 arg1);
+void run_task__14TObjEneBm5WolfFPv(u8 *arg0);
+void schedule_pack_reaction__14TObjEneBm5WolfFPvis(void *arg0, s32 arg1, s16 arg2);
+void select_target__14TObjEneBm5WolfFPv(void *arg0);
+void set_field8_from_obj__14TObjEneBm5WolfFPvi(void *arg0, s32 arg1);
+void set_state_by_timer__14TObjEneBm5WolfFi(s32 arg0);
+void spawn_recoil_dust__14TObjEneBm5WolfFiPv(s32 arg0, u8 *arg1);
+void update__14TObjEneBm5WolfFPvPv(void *p, void *a1);
+void update_default__14TObjEneBm5WolfFi(s32 arg0);
+void update_state__14TObjEneBm5WolfFPv(void *arg0);
+}
+
 #endif

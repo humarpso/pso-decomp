@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801231DC.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void *construct_twin_chakram(void *arg0);
 void TItemWeapon__ct(void *);
 
 extern s32 lbl_804A1760[];

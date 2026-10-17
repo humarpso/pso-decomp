@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8017DC5C.h"
 #include "pso/player/TObjPlayer.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
@@ -28,7 +29,6 @@ u8 *TOWreckAncient__ct(u8 *arg0, s32 arg1);
 extern RecoveredGlobal_8017DC5C_lbl_804B5418 TOWreckAncient__collision_body_templates;
 extern RecoveredGlobal_8017DC5C___vt__16TOWreckAncient01 __vt__16TOWreckAncient01;
 extern s32 TOWreckAncient01__name;
-u8 *TOWreckAncient01__ct(u8 *arg0, s32 arg1);
 typedef char RecoveredGlobal_8017DC5C_lbl_804B5418_size[sizeof(RecoveredGlobal_8017DC5C_lbl_804B5418) == 0x134 ? 1 : -1];
 typedef char RecoveredGlobal_8017DC5C___vt__16TOWreckAncient01_size[sizeof(RecoveredGlobal_8017DC5C___vt__16TOWreckAncient01) == 0x38 ? 1 : -1];
 u8 *TOWreckAncient01__ct(u8 *arg0, s32 arg1) {

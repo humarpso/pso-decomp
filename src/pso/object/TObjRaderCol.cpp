@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/object/TObject_8001A448.h"
 #include "pso/object/TObjRaderCol.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -24,18 +26,14 @@ struct Col_8019750C { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x4C]; f32 f90; s32 f9
 struct Ply_8019750C { u8 pad0[0x38]; f32 pos[3]; };
 
 extern "C" {
-void disallow_rendering__7TObjectFv(void *arg0);
 s32 construct_world_actor_base(void *);
 extern s32 __vt__12TObjRaderCol[];
 extern s32 lbl_805D3410;
-u8 *TObjRaderCol__ct(u8 *arg0, s32 arg1, s32 arg2);
-void queue_destruction__7TObjectFv(void *);
 f32 xz_distance_squared(void *, void *);
 int test_flag_2000000__10TObjPlayerFPv(void *);
 Ply_8019750C *get_player_by_client_id(s32);
 void check_any_player_in_range__12TObjRaderColFPv(Col_8019750C *arg0);
 extern s32 local_client_id;
-void *__dt__12TObjRaderColFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 void TObjRaderCol::render() {  }

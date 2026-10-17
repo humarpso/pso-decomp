@@ -33,4 +33,9 @@ struct TObjCityMainWarpChallenge : public TObjAreaWarp {
 };
 
 typedef char TObjCityMainWarpChallenge_size[sizeof(TObjCityMainWarpChallenge) == 0x180 ? 1 : -1];
+extern "C" {
+u8 *TObjCityMainWarpChallenge__ct(u8 *arg0);
+void *__dt__25TObjCityMainWarpChallengeFv(void *arg0, s16 arg1);
+}
+
 #endif

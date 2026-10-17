@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/misc/TPlyMeetUserExtension.h"
 #include "pso/system/byteswap.h"
 #include "pso/TPlyGuildCardTag.h"
 
 extern "C" {
-
-void bswap__21TPlyMeetUserExtensionFv(s32 arg0);
 
 void bswap__21TPlyMeetUserExtensionFv(s32 arg0) {
     s32 var_r31;

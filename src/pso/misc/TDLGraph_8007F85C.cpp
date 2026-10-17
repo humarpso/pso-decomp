@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/unk/text_8007F8D0.h"
 #include "pso/misc/TDLGraph.h"
 #include "pso/ui/TAdDialingGC.h"
 
 extern "C" {
 extern void *lbl_8048DF94[];
-s32 launch_switcher_dol(const char *arg0);
 void *TDLGraph__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 

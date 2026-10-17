@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjLuker_801329B0.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjTombstone.h"
 
@@ -52,7 +53,6 @@ extern char lbl_80438810[];
 extern char lbl_804387C8[];
 extern char lbl_804387E0[];
 extern s32 current_language;
-s32 enemy_name_for_rt_index(s32);
 s32 check_height_ready__13TObjTombstoneFv();
 
 void TObjTombstone::render() {

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
+#include "pso/unk/text_8026C664.h"
 
 struct Stack_8026C708
 {
@@ -14,7 +16,6 @@ struct Stack_8026C708
 
 extern "C" {
 void apply_context_transform_to_rect(void *, void *);
-void draw_textured_quad_at_depth(f32 *q, f32 depth);
 extern const f32 lbl_805DD270;
 extern const f32 lbl_805DD274;
 extern const f32 lbl_805DD278;
@@ -22,10 +23,8 @@ extern const f32 lbl_805DD27C;
 extern const f32 lbl_805DD280;
 extern const f32 lbl_805DD284;
 extern const f32 lbl_805DD288;
-void fn_8026C664(u8 *arg0, f32 farg0, f32 farg1, f32 farg2, f32 farg3);
 extern const f32 lbl_805DD28C;
 extern const f32 lbl_805DD290;
-void fn_8026C708(u8 *arg0, f32 farg0, f32 farg1, f32 farg2, f32 farg3);
 void fn_8026C664(u8 *arg0, f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
   f32 buffer_8[8];
   buffer_8[0] = farg0;

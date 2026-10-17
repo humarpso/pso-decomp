@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_800F9DA0.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/system/main_loop.h"
 #include "pso/misc/TLobby.h"
@@ -8,7 +9,6 @@
 
 extern "C" {
 
-void read_disc_file(int a0);
 int read_whole_file__8TGStreamFlPUc(void);
 u32 TLoadCtrl__sub_800F9F00();
 s32 TLobby__sub_800F8AD0();

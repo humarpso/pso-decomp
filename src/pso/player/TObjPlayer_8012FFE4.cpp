@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8012FFE4.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void update_shield_effect__10TObjPlayerFPv(void *arg0);
 u8 get_slot_count__14TItemProShieldFv();
 s32 scale_matrix(s32, f32, f32, f32);
 

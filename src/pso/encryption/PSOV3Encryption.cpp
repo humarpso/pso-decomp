@@ -1,4 +1,6 @@
 #include <global_types.h>
+#include "pso/boss/TBoss8Dragon_8036AEF8.h"
+#include "pso/unk/text_8036AE2C.h"
 #include <string.h>
 #include "pso/macros.h"
 #include "types.h"
@@ -69,9 +71,6 @@ void init__15PSOV3EncryptionFUl(PSOV3Encryption_layout *self, u32 seed) {
 	PSOV3_UPDATE_STREAM(self);
 	self->m_buffer_start = &self->m_buffer[size-1];
 }
-
-s32 * *TBoss8Dragon__sub_8036AEF8(s32 * *arg0, s16 arg1);
-u8 *__dt__15PSOV3EncryptionFv(u8 *arg0, s16 arg1);
 
 void *lbl_804F3610[6] = {
 	0,

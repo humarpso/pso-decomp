@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TOMonumentAncient01.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
@@ -13,7 +14,6 @@ s32 draw_ginja_object();
 s32 get_bml_model(s32, s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 
 void TOMonumentAncient01::vfunc_16() {  }
 

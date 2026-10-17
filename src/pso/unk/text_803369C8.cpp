@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803369C8.h"
 #include "pso/unk/TUnk_804EEF80.h"
 #include "pso/TMainTask.h"
 #include "pso/TParticleCtrl.h"
@@ -10,7 +11,6 @@ extern "C" {
 f32 sin_table_lookup(void *);
 f32 cos_table_lookup(void *);
 extern const f32 lbl_805DF924;
-void rotate_title_background_quad(s32 arg0, u8 *arg1, u8 *arg2, s32 arg3, f32 farg0);
 u8 *get_title_texture_list(void);
 void draw_title_background_layer(void *,s32,s32,f32);
 void render_logo_with_default(void *,s32,s32,f32);

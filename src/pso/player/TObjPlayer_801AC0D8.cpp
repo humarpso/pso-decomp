@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801AC0D8.h"
+#include "pso/unk/text_800F5BC0.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -6,8 +8,6 @@
 extern "C" {
 extern u8 *photon_blast_shared_resource;
 extern u32 golla_photon_blast_buffer_pair;
-void create_golla_photon_blast_model(void);
-void *destroy_buffer_pair(void *arg0, s16 arg1);
 
 void TObjPlayer::destroy_static_buffer_pair() {
     if ((u32) golla_photon_blast_buffer_pair != 0U) {

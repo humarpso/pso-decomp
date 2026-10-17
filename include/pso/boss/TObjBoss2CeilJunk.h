@@ -21,4 +21,8 @@ struct TObjBoss2CeilJunk : public TUnk_804B9870 {
 };
 
 typedef char TObjBoss2CeilJunk_size[sizeof(TObjBoss2CeilJunk) == 0xB8 ? 1 : -1];
+extern "C" {
+void *__dt__17TObjBoss2CeilJunkFv(void *arg0, s16 arg1);
+}
+
 #endif

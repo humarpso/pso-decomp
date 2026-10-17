@@ -1,8 +1,7 @@
 #include "types.h"
+#include "pso/npc/TObjNpcFemaleTall_8014AA48.h"
 
 extern "C" {
-
-void TObjNpcFemaleTall__sub_8014AA48(void);
 
 extern u32 lbl_805D5798;
 

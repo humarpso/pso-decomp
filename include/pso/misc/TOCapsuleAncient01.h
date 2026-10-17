@@ -15,4 +15,9 @@ struct TOCapsuleAncient01 : public TUnk_804B27D8 {
 };
 
 typedef char TOCapsuleAncient01_size[sizeof(TOCapsuleAncient01) == 0xE8 ? 1 : -1];
+extern "C" {
+u8 *TOCapsuleAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
+void *__dt__18TOCapsuleAncient01Fv(void *arg0, s16 arg1);
+}
+
 #endif

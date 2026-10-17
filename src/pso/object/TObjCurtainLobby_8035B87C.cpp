@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/object/TObjCurtainLobby_8035B87C.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/object/TObjCurtainLobby.h"
@@ -31,21 +34,15 @@ struct Curtain_8035B94C {
 };
 
 extern "C" {
-s32 get_lobby_theme_clamped__16TObjCurtainLobbyFv(void);
-void TObjCurtainLobby__sub_8035B8B4(void);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);
-void draw_ginja_object(void *child);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 void TLobby__sub_8001FE7C(void*, int);
-void *TObjCurtainLobby__ct(void *arg0, s32 arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern u32 TObjCurtainLobby__model_resource;
 extern s32 curtain_lobby_type;
-void *__dt__16TObjCurtainLobbyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 s32 init_map_object_base();
 extern s32 __vt__16TObjCurtainLobby[];

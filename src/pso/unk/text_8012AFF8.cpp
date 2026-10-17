@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80120908.h"
 #include "pso/player/TUnk_804A4C78.h"
 #include "pso/player/TObjPlayer.h"
 struct Obj_8012AFF8 {
@@ -10,8 +11,6 @@ struct Obj_8012AFF8 {
 
 extern "C" {
 void update_trail_slot__11TItemWeaponFPvi(void *, s32);
-s32 draw_weapon_model(void *arg0);
-void draw_weapon_at_joint(s32 arg0, s8 arg1);
 s32 is_rand_below_threshold__10TObjPlayerFv(void *);
 extern u8 lbl_805D53EC;
 void TUnk_804A4C78::reserved_53() {

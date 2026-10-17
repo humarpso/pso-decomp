@@ -1,8 +1,9 @@
 #include "types.h"
+#include "pso/item/TItemShootGun_dtor.h"
+#include "pso/item/TItemShootModel_dtor.h"
 
 extern "C" {
 extern void *__vt__13TItemShootGun[];
-void *__dt__15TItemShootModelFv(void *self, s16 flag);
 void __dl__7TObjectFPv(void *p);
 
 void *__dt__13TItemShootGunFv(void *self, s16 flag) {

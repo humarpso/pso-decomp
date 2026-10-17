@@ -1,18 +1,16 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
 #include "pso/ui/TAdMultiSaveGC.h"
 
 extern "C" {
 
-void *TAdMultiSaveGC__ct(void *arg0);
-void *__dt__14TAdMultiSaveGCFv(void *arg0, s16 arg1);
-void copy_chr_slots_from_request__23TAdSinglePlyChrSelectGCFv(void);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 void *__ct__9TAdBackGCFv(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
-void queue_destruction__7TObjectFv(void *);
 
 extern s32 __vt__14TAdMultiSaveGC[];
 

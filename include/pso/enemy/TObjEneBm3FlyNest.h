@@ -52,4 +52,28 @@ struct TObjEneBm3FlyNest : public TObjEneDD {
 };
 
 typedef char TObjEneBm3FlyNest_size[sizeof(TObjEneBm3FlyNest) == 0x4DC ? 1 : -1];
+extern "C" {
+u8 *TObjEneBm3FlyNest_CarryFly__ct(u8 *self, void *parent, s32 a, s32 b, s32 unused, s32 c, s32 d);
+void *TObjEneBm3FlyNest__ct(void *arg0, void *arg1, void *arg2);
+void *TObjEneBm3FlyNest__sub_800B2A54(void *p);
+void TObjEneBm3FlyNest__sub_800B318C(u8 *arg0, s32 arg1);
+s32 TObjEneBm3FlyNest__sub_800B3AC8(u8 *arg0);
+int TObjEneBm3FlyNest__sub_800B4158(void);
+void *__dt__26TObjEneBm3FlyNest_CarryFlyFv(void *arg0, s16 arg1);
+int copy_target_state__17TObjEneBm3FlyNestFPv(void *p);
+void dispatch_state__17TObjEneBm3FlyNestFiUii(s32 arg0, u32 arg1, s32 arg2);
+void handle_appear__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1);
+void handle_attachment_sample__17TObjEneBm3FlyNestFi(s32 arg0);
+void handle_event__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
+void handle_motion_event__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1);
+void handle_state__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
+void render__17TObjEneBm3FlyNestFPv(u8 *arg0);
+void run_task__17TObjEneBm3FlyNestFPv(u8 *arg0);
+void state_dying__17TObjEneBm3FlyNestFPvi(u8 *actor, s32 arg1);
+void state_spawn__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
+void state_wait__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
+void update_monest_carrier(u8 *self);
+void update_state__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
+}
+
 #endif

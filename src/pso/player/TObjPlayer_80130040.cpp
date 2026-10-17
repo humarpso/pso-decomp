@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80130040.h"
 #include "pso/item/TUnk_804A68C8.h"
 #include "pso/item/TItemEffOrgaFlowShot.h"
 #include "pso/item/TItemProShield.h"
 
 extern "C" {
-
-void update_cane_weapon_idle(u8 *arg0);
 
 extern const f32 lbl_805DAFF0;
 extern const f32 lbl_805DAFF4;

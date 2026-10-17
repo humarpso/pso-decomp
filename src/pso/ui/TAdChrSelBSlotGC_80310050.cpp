@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/ui/TAdChrSelBSlotGC_80310050.h"
 #include "pso/ui/TAdChrSelBSlotGC.h"
 
 extern "C" {
 
-void *TAdChrSelBSlotGC__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern s32 __vt__16TAdChrSelBSlotGC[];

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/unk/text_80144AC8.h"
+#include "pso/unk/text_80145804.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TLanguage.h"
 #include "pso/object/TObjFish.h"
@@ -33,7 +35,6 @@ typedef struct Glyph_80145804 {
 
 extern "C" {
 s32 set_stream_and_load_file__6TLobbyFi(void *);
-u8 *TNECFontEORFunction__ct(u8 *arg0);
 void *mem_alloc(u32);
 void *__nw__7TObjectFUl(u32);
 void set_texture_name(void *, void *, u32, u32);
@@ -46,7 +47,6 @@ extern s32 menu_font_upload_flags;
 extern Glyph_80145804 *menu_font_glyph_table;
 extern u8 lbl_805D56C0;
 extern void *menu_font_object;
-void load_menu_font(void);
 __declspec(section ".data") u32 *menu_font_glyph_pixel_buffers[2];
 Rect_80145804 lbl_8050C048[2];
 Tex_80145804 lbl_8050C090[2];

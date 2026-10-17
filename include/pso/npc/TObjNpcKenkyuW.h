@@ -11,4 +11,10 @@ struct TObjNpcKenkyuW : public TUnk_804A9F50 {
 };
 
 typedef char TObjNpcKenkyuW_size[sizeof(TObjNpcKenkyuW) == 0x3B8 ? 1 : -1];
+extern "C" {
+u8 *TObjNpcKenkyuW__ct(u8 *arg0, s32 arg1, s32 arg2);
+void *__dt__14TObjNpcKenkyuWFv(void *arg0, s16 arg1);
+void clear_technique_contacts__10TObjPlayerFv(void);
+}
+
 #endif

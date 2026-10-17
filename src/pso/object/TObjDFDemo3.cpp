@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl_800687BC.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_80052374.h"
+#include "pso/player/TObjPlayer_803E4954.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjDFDemo3.h"
 #include "pso/TParticleCtrl.h"
@@ -11,25 +17,18 @@
 #pragma readonly_strings on
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 u32 spawn_particle_effect(void *, s32);
 u32 create_particle_emitter(void *, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 void run_task__11TObjDFDemo3Fv(u8 *arg0);
-void TObjPlayer__sub_80052390(f32 x);
 s32 clear_render_callback__8TObjFishFv(s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void func_803e11e8__FUl(s32 arg0);
-void func_803e11f0__Fv(void);
-void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 void render__11TObjDFDemo3Fv(u8 *arg0);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
-s32 activate_camera_mode(s32 arg0);
 void set_scripted_camera_pose(void *, void *, void *);
 s32 construct_world_actor_base(void *, void *);
 }
@@ -49,7 +48,6 @@ struct S_EF94 {
 
 extern "C" {
 s32 is_ending_or_split_screen__14TBoss4DarkFalzFv();
-s32 restore_player_cameras(void);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 s32 TObjFish__sub_800E3124(void *, void *);

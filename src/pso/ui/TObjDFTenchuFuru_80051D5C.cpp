@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80052374.h"
+#include "pso/ui/TObjDFTenchuFuru_80051D5C.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/misc/CharacterAppearance.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TObjDFTenchuFuru.h"
@@ -7,12 +11,9 @@
 
 extern "C" {
 
-void TObjPlayer__sub_80052390(f32 x);
 u8 *get_player_by_client_id(s32);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(s32 *);
-void draw_chunk_object(void *child);
 extern s32 lbl_804FF228[];
 extern s32 lbl_804FF234[];
 extern const f32 lbl_805D8A30;

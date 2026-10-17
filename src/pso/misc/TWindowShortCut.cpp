@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowShortCut.h"
 #include "pso/misc/TWindowDD.h"
@@ -26,9 +27,6 @@ s32 TWindowSubStatusDisp__sub_8026E1D4(void *, void *, void *);
 extern RecoveredGlobal_8026E728_lbl_804D0AE0 lbl_804D0AE0;
 extern s32 __vt__15TWindowShortCut[];
 extern s32 TWindowShortCut__name;
-u8 *TWindowShortCut__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-void *__dt__15TWindowShortCutFv(void *arg0, s16 arg1);
-void TWindow__close(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 int initialize_subwindow__9TWindowDDFv(void*);
 

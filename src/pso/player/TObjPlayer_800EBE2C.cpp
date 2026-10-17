@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_800EBE2C.h"
+#include "pso/system/ChunkMaterialState.h"
 #include "pso/enemy/TObjEneSlimeTailAttack.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEneSlimeOne.h"
@@ -12,9 +14,6 @@ struct Stack_800EBE74 {
 
 extern "C" {
 extern const f32 lbl_805DA6B4;
-void TObjPlayer__sub_800EBE48(f32 farg0);
-void set_chunk_material_override_pair(s32, s32);
-void set_chunk_material_color(f32 *arg);
 extern int lbl_805D5660;
 extern int lbl_805D5664;
 extern int lbl_805D5668;

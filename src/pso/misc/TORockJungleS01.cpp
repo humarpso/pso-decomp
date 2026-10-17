@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TORockJungleS01.h"
@@ -75,9 +77,7 @@ extern RecoveredGlobal_8029C9C8_lbl_804DC424 rock_jungle_vec3_table;
 extern s32 __vt__15TORockJungleS01[];
 extern s32 TORockJungleS01__name;
 extern const f32 lbl_805DDD1C;
-u8 *TORockJungleS01__ct(u8 *arg0, s32 arg1);
 extern u32 TORockJungleS01__texture_resource;
-s32 get_jungle_rock_texture_resource(s32 a);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 load_gvm_texture_file(void *);
@@ -92,20 +92,16 @@ void *__nw__7TObjectFUl(int);
 s32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
-s32 push_matrix_from(void *);
-s32 pop_matrix();
 extern Offs_8029C7DC lbl_8046581C;
 extern Spawn_8029C7DC lbl_80465828;
 extern u8 identity_matrix[];
 extern s32 tl_05;
-void *__dt__15TORockJungleS01Fv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void *__dt__18TORockCaveBrakableFv(void *arg0, s16 arg1);
-void queue_destruction__7TObjectFv(void *);
 
 void TORockJungleS01::vfunc_18() {
     s32 arg0 = (s32)this;

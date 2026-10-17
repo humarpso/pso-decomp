@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/misc/TParticleCtrl_800867E4.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/object/TObject_8001A448.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TUnk_8048E1A4.h"
 
 #include <stddef.h>
@@ -27,16 +33,11 @@ struct VObj_80081EA4 : VBase_80081EA4 {
 };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
-void disallow_rendering__7TObjectFv(void *arg0);
 u32 find_active_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
 f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
-s32 push_matrix_from(void *);
-s32 pop_matrix();
 extern RecoveredGlobal_80081CD0_lbl_8058D490 identity_matrix;
 extern const f32 lbl_805D9378;
 extern const f32 lbl_805D9388;
@@ -55,9 +56,6 @@ s32 push_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFl();
-void draw_ginja_object(void *child);
-void set_chunk_material_override_pair(s32 arg0, s32 arg1);
-void set_chunk_material_color(f32 *arg);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;

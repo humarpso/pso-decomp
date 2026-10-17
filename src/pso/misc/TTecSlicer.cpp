@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLobby_80226070.h"
+#include "pso/misc/TQuestListVM_8007EAF8.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/misc/TUnk_804CCD0C.h"
 #include "pso/system/vector.h"
 
@@ -7,15 +10,12 @@
 #include "pso/player/TObjPlayer.h"
 extern "C" {
 extern u32 lightning_charge_particle_ids[];
-void *spawn_particle_effect(void *pos, s32 id);
 int queue_destruction__7TObjectFv(void*);
 void TTecSlicer__updateLightningTechniqueCharge(TechniqueChargeEmitter* state);
 u8 *init_from_owner__10TTecSlicerFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 play_sound_effect(int, void *, int, int);
-void stop_sound_request(s32 idx);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
-void __dl__FPv(void);
 void __dt__7TObjectFv(void *, int);
 
 s32 TTecSlicer::get_field_110() { return *(s32 *)&this->model; }

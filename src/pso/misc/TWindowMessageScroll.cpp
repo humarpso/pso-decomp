@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowMessageQuest.h"
+#include "pso/unk/text_8026B260.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowMessageScroll.h"
 #include "pso/misc/TLobby.h"
@@ -12,14 +14,10 @@ struct RecoveredGlobal_8035D694___vt__20TWindowMessageScroll {
 
 extern "C" {
 s32 retire_scrolled_lines__14TWindowMessageFv(f32);
-u8 *TWindowMessageQuest__ct(u8 *arg0, s32 arg1);
 extern s32 __vt__20TWindowMessageScroll[];
 extern s32 TWindowMessageScroll__class_name;
 extern const f32 lbl_805E01B8;
-u8 *TWindowMessageScroll__ct(u8 *arg0, s32 arg1, s32 *arg2);
-void *__dt__20TWindowMessageScrollFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void *__dt__19TWindowMessageQuestFv(void *arg0, s16 arg1);
 
 void TWindowMessageScroll::run_task() {
     u8 *arg0 = (u8 *)this;

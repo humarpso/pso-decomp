@@ -1,13 +1,11 @@
 #include "types.h"
+#include "pso/misc/TPhotonRainbow_801AE640.h"
 #include "pso/misc/TPhotonRainbow.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TPhotonYoulla.h"
 
 extern "C" {
 
-void TObjPlayer__sub_801AE724(void);
-void TObjPlayer__sub_801AE728(void);
-u8 *TPhotonRainbow__ct(u8 *arg0, s32 arg1_unused, s32 arg2);
 s32 construct_world_actor_base();
 
 extern void *__vt__14TPhotonRainbow[];

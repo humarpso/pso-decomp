@@ -16,4 +16,9 @@ struct TObjEneMe3SinowZoaReal : public TObjEneMe3SinowZoa {
 };
 
 typedef char TObjEneMe3SinowZoaReal_size[sizeof(TObjEneMe3SinowZoaReal) == 0x45C ? 1 : -1];
+extern "C" {
+u8 *TObjEneMe3SinowZoaReal__ct(u8 *arg0, s32 arg1, s32 arg2);
+void *__dt__22TObjEneMe3SinowZoaRealFv(void *arg0, s16 arg1);
+}
+
 #endif

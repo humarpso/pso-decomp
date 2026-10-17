@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/ui/TAdChrSelPlyPlateGC.h"
 
 extern "C" {
 
-void *__dt__19TAdChrSelPlyPlateGCFv(void *arg0, s16 arg1);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 

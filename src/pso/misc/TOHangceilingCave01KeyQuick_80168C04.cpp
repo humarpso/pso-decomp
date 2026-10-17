@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOHangceilingCave01.h"
 #include "pso/misc/TOHangceilingCave01KeyQuick.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
@@ -31,7 +32,6 @@ s32 construct_actor_base__10TObjPlayerFPvPv(void *);
 s32 get_bml_motion(void *, void *);
 s32 get_bml_model(void *, void *);
 s32 init_collision_body_parts(void *, void *, int);
-void reset_state(u8 *arg0);
 extern RecoveredGlobal_80168C6C_lbl_804B2174 lbl_804B2174;
 extern s32 lbl_804B2578[];
 extern s32 TOHangceilingCave01__model_archive;

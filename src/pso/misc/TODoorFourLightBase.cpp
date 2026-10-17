@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/unk/TUnk_804B0BB8.h"
 #include "pso/misc/TODoorFourLightBase.h"
@@ -88,22 +91,18 @@ struct VObj_802A07E0 : VBase_802A07E0 {
 extern "C" {
 f32 rotate_matrix_by_node_angles(void *, void *);
 s32 push_matrix();
-s32 pop_matrix();
 s32 scale_current_matrix(void *);
 f32 post_translate_matrix(void *);
-void draw_ginja_model(s32 model);
 void init_door_base(void *, void *);
 extern s32 __vt__19TODoorFourLightBase[];
 extern s32 TODoorFourLightBase__class_name;
 Door_802A0994 *TODoorFourLightBase__ct(Door_802A0994 *arg0, void *arg1, s32 arg2);
 u8 is_current_floor_switch_set(int);
 s32 rotate_matrix_y(int, int);
-void draw_ginja_object(void *child);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 void render__19TODoorFourLightBaseFv(u8 *arg0);
 void *__dt__19TODoorFourLightBaseFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-s32 get_main_phase();
 
 s32 TODoorFourLightBase::init_door_switch_binding() {
     s32 temp_r0;

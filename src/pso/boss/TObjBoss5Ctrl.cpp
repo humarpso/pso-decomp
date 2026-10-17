@@ -1,13 +1,13 @@
 #include "pso/TObjBoss5Ctrl.h"
+#include "pso/boss/TObjBoss5Ctrl.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/boss/TObjBoss5PillarDemo.h"
 #pragma fp_contract on
 
-extern "C" void queue_destruction__7TObjectFv(void*);
 extern s32 boss5_ctrl_instance;
 
 extern "C" {
 s32 play_sound_effect(int, int, int, int);
-void *TObjBoss5Ctrl__ct(void *arg0);
 s32 rand();
 s32 __ct__7TObjectFP7TObject(void *);
 s32 get_current_floor(f32, f32, f32);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdPlayerLoadGC_803F18B8.h"
 #include "pso/TAdPlayerLoadGC.h"
 
 struct S_803F3328 { u8 pad0[4]; s32 state; u8 card[0x80]; };
@@ -21,7 +22,6 @@ typedef Slot_803F3478 Slot_803F1CC4, Slot_803F1E90, Slot_803F2058;
 
 extern "C" {
 extern s32 lbl_805D7940;
-s32 TAdPlayerLoadGC__sub_803F31BC(void);
 s32 memset(void *, int, int);
 s32 CARDClose(void *);
 void *CARDGetDiskID(s32);

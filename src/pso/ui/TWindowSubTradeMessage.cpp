@@ -1,4 +1,6 @@
 #include "pso/ui/TWindowSubTradeMessage.h"
+#include "pso/misc/TWindowCtrl_8024A054.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
 struct TradeMessageParentBase { u8 base[0x18]; };
 struct TradeMessageParentVirtual : TradeMessageParentBase {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -6,13 +8,11 @@ struct TradeMessageParentVirtual : TradeMessageParentBase {
 };
 struct TradeMessageInput { u8 base[0x20]; u8 buttons[0x30]; };
 extern "C" {
-s32 is_player_input_active(s32);
 s32 TWindowShortListCtrl__check_controller_button(void*,s32);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void*,s32);
 void play_sound_effect(s32,s32,s32,s32);
 void TLobby__sub_802D29B8(void*);
 void TLobby__sub_802D29DC(void*);
-void TWindow__close(u8 *arg0);
 u8* get_window_layout_position(s32);
 TWindowMessage* create_message_window__6TLobbyFllUls(void*,const f32*,s32,s32);
 int send_and_handle__6TLobbyFii(void*,const char*,s32);

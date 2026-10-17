@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss5GryphonTornado.h"
@@ -37,14 +39,11 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__20TBoss5GryphonTornado[];
 extern s32 lbl_805D4398;
 extern const f32 lbl_805DFFA8;
-u8 *TBoss5GryphonTornado__ct(u8 *arg0, u8 *arg1, s32 arg2, u8 *arg3, s16 arg4);
-void queue_destruction__7TObjectFv(void *);
 s32 get_bml_motion(s32, s32);
 s32 get_bml_model(s32, s32);
 void TBoss8Dragon__sub_800640A4(s32, Vec_80355570 *);
 void attach_particle_model(void *, s32, s32, s32, s32, f32);
 Res_80355570 *csnVecterUnder(Vec_80355570 *, s32);
-void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
 void add_radar_scaled_marker(Vec_80355570 *, s32, s32, s32, f32);
 void play_persistent_sound(s32, void *, Vec_80355570 *, s32, s32);
 extern s32 boss5_gryphon_bml_resource;
@@ -55,7 +54,6 @@ extern const f32 lbl_805DFFAC;
 extern const f32 lbl_805DFFB0;
 extern const f32 lbl_805DFFB4;
 extern const f32 lbl_805DFFB8;
-void *__dt__20TBoss5GryphonTornadoFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 

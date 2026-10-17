@@ -1,4 +1,7 @@
 #include "pso/TEndingAB.h"
+#include "pso/menu/TAdEndText.h"
+#include "pso/misc/TEndingAB_8008CE08.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
 
 #include "types.h"
 #include "pso/misc/TScene.h"
@@ -158,13 +161,10 @@ struct RecoveredGlobal_8008CE80___vt__9TEndingAB { s32 value; u8 remaining[0x14]
 typedef char RecoveredGlobal_8008CE80___vt__9TEndingAB_size[sizeof(RecoveredGlobal_8008CE80___vt__9TEndingAB) == 0x18 ? 1 : -1];
 
 extern "C" {
-int TKeyBoardControl__sub_8000F828(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8008CE80___vt__9TEndingAB __vt__9TEndingAB;
 
 extern s32 TEndingAB__fade_sequence_state;
-u8 *__ct__9TEndingABFv(u8 *arg0, u8 *arg1);
-s32 get_ending_scene_active(void);
 void bind_gvm_texture_list(const char *, void *);
 
 extern u32 ending_ab_wall_texture_list;

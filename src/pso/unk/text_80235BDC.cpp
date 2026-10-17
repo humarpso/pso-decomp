@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80235BDC.h"
 #include "pso/misc/TUnk_804CCA90.h"
 #include "pso/system/vector.h"
 
@@ -10,7 +11,6 @@ struct RecoveredGlobal_80235BDC_lbl_804CCA90 {
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_80235BDC_lbl_804CCA90 lbl_804CCA90;
-u8 *construct_delayed_point_sound(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3, u8 *arg4);
 typedef char RecoveredGlobal_80235BDC_lbl_804CCA90_size[sizeof(RecoveredGlobal_80235BDC_lbl_804CCA90) == 0x18 ? 1 : -1];
 u8 *construct_delayed_point_sound(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3, u8 *arg4) {
     __ct__7TObjectFP7TObject(arg0, arg4);

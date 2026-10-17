@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/unk/text_802C6DD4.h"
 
 extern "C" {
 u8 * TAdChrSelPlyPlateGC__ct(void *, s32, s32);
 u8 *__nw__7TObjectFUl(s32);
 extern u8 *ad_chr_sel_ply_plate_instance;
-u8 *fn_802C6F20(s32 arg0, s32 arg1);
 u8 *fn_802C6F20(s32 arg0, s32 arg1) {
     u8 *temp_r3;
     u8 *var_r0;

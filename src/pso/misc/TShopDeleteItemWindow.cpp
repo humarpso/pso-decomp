@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TShopWindowBase.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/TShopWindowBase.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowSubComCardList.h"
@@ -72,7 +74,6 @@ void TWindow__close(void *);
 s32 get_selected_menu_value(int);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(int);
 void handle_confirm_dialog__21TShopDeleteItemWindowFPv(u8 *arg0);
-void queue_destruction__7TObjectFv(void *arg0);
 s32 TShopDeleteItemWindow__sub_80337E2C(void *);
 u16 obj_getField1c(void *);
 f32 get_scale__15TShopWindowBaseFv(void *);
@@ -93,9 +94,7 @@ struct VObj_80337980_80337910 : Base_80337980_80337910 {
 
 void *TShopDeleteItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
 void *__dt__21TShopDeleteItemWindowFv(void *arg0, s16 arg1);
-void *__ct__15TShopWindowBaseFv(void *arg0);
 void __dl__7TObjectFPv(void *);
-void *__dt__15TShopWindowBaseFv(void *self, s16 m);
 void init__9TItemDataFv(void *);
 
 void TShopDeleteItemWindow::vfunc_7() {

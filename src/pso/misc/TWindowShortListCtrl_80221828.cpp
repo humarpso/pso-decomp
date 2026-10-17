@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TWindowShortListCtrl_80221828.h"
 #include "pso/misc/TWindowSubShortCutList.h"
 #include "pso/misc/TWindowShortListCtrl.h"
 
 extern "C" {
-void fn_80221838(u8 *arg0, s32 arg1, s32 arg2);
 void TWindowSubShortCutList::set_flag70_bit10() { this->m_70 |= 0x10; }
 
 void fn_80221838(u8 *arg0, s32 arg1, s32 arg2) {

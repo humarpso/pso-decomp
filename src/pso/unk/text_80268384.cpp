@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80268384.h"
 
 struct VBase_18_2ead46 { char pad[0x18]; };
 
@@ -28,9 +29,7 @@ struct RecoveredGlobal_802683F4_lbl_804D0618 {
 extern "C" {
 s32 construct_with_parent__13TUnk_804CDFE8FPv(void *, void *, void *, void *);
 extern RecoveredGlobal_80268384_lbl_804D0618 lbl_804D0618;
-u8 *fn_80268384(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 extern RecoveredGlobal_802683F4_lbl_804D0604 lbl_804D0604;
-u8 *fn_802683F4(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 typedef char RecoveredGlobal_80268384_lbl_804D0618_size[sizeof(RecoveredGlobal_80268384_lbl_804D0618) == 0x20 ? 1 : -1];
 u8 *fn_80268384(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     construct_with_parent__13TUnk_804CDFE8FPv((void *) (arg0), (void *) (arg4), (void *) (arg3), (void *) (arg1));

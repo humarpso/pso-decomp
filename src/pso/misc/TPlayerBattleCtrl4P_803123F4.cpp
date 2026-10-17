@@ -1,4 +1,5 @@
 #include "pso/misc/TPlayerBattleCtrl4P.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
 
 #include "types.h"
 
@@ -18,7 +19,6 @@ extern const BattleIntroWindowSize lbl_80475B60;
 s32 lbl_805D6AB0;
 void send_and_handle__6TLobbyFii(void *, void *, int);
 void *destroy__19TPlayerBattleCtrl4PFs(void *arg0, s16 arg1);
-void TWindow__close(u8 *arg0);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 void run_task__19TPlayerBattleCtrl4PFv(TPlayerBattleCtrl4P *self);

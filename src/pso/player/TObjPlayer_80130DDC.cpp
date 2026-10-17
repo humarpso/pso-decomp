@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80130DDC.h"
 #include "pso/item/TUnk_804A6BD0.h"
 
 extern "C" {
 
-void* yasminkov_3000r_ct(void* a0);
 int TItemWeapon__ct(void);
 
     extern unsigned char spawn_weapon_impact_effect[];

@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/unk/text_8014B904.h"
 
 extern "C" {
 
-void * TObjNpcMaleBase__create(void *arg0);
 void *TObjControl__ct(void *, void *);
 u8 *TObjNpcMaleBase__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);

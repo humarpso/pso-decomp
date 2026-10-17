@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/math/MatrixTransforms.h"
+#include "pso/math/MatrixVector.h"
+#include "pso/misc/TMainCursor_8013B524.h"
+#include "pso/misc/TMainCursor_8013E1C8.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TMainCursor.h"
 #include "pso/misc/TPlyPhotonChair.h"
@@ -7,16 +12,11 @@ extern "C" {
 
 struct VOff_8013B524_arg0_8013B524 { char pad_0[0x4C]; char f_4C[1]; };
 
-void render__11TMainCursorFPv(u8 *arg0);
-int TMainCursor__sub_8013E2DC(void);
 s32 rotate_matrix_z(s32, s32);
 void draw_chunk_object(void);
 s32 rotate_matrix_y(s32, s32);
-void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
-s32 pop_matrix();
 s32 offset_point_toward_camera(void *, s32 *, f32);
-void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 
 void TMainCursor::update_chair() {
     struct VOff_8013B524_arg0_8013B524 *self = (struct VOff_8013B524_arg0_8013B524 *)this;

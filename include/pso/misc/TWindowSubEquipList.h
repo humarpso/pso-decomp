@@ -11,4 +11,10 @@ struct TWindowSubEquipList : public TUnk_804D0618 {
 };
 
 typedef char TWindowSubEquipList_size[sizeof(TWindowSubEquipList) == 0x88 ? 1 : -1];
+extern "C" {
+u8 *TWindowSubEquipList__ct(u8 *arg0, s32 arg1, s16 arg2);
+void *__dt__19TWindowSubEquipListFv(void *arg0, s16 arg1);
+u8 *create_equip_list_window(s32 arg0, s32 arg1, s16 arg2);
+}
+
 #endif

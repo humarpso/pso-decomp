@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/npc/TObjNpcAHM01.h"
 #include "pso/misc/TOBoss4Rock.h"
 
 extern "C" {
 
 void * TObjNpcAHM01__create(void *arg0);
 void *TObjControl__ct(void *, void *);
-u8 *TObjNpcAHM01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);
 void mem_free(void *p);
 void *mem_alloc(u32 size);

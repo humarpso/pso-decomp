@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby_801E43E4.h"
+#include "pso/player/TObjPlayer_80102C78.h"
 #include "pso/system/byteswap.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -6,8 +8,6 @@ extern "C" {
 
 s32 is_matching_id__6TLobbyFlUs(void *, u16);
 int get_slot_value__10TObjPlayerFPvi(void*);
-void TLobby__send_and_handle_60(u8 *arg0);
-void TObjPlayer__sub_80102D84(u8 *arg0);
 
 void TObjPlayer::set_facing(s16 v) { *(s16 *)&this->m_32e = v; }
 s16 TObjPlayer::get_stat_bonus() { return *(s16 *)&this->unk_2BE; }

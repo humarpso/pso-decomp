@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type2_800874F4.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_803E4954.h"
+#include "pso/unk/text_801F43B4.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/boss/TBoss6Thanks.h"
 
 #include <stddef.h>
@@ -28,9 +33,7 @@ extern "C" {
 
 s32 scale_matrix(int, f32, f32, f32);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void draw_model_motion(void *, void *, f32);
 extern u8 TBoss6Thanks__data_80479BA8[];
 extern const f32 lbl_805E019C;
 extern const f32 lbl_805E01A0;
@@ -66,16 +69,13 @@ void __dl__7TObjectFPv(s32);
 int TBoss6Thanks__sub_8035CB40(void);
 u8 *__dt__12TBoss6ThanksFv(u8 *arg0, s16 arg1);
 void TBoss6Thanks__sub_8035CCAC(s32 arg0);
-void *create_particle_emitter(void *pos, s32 id);
 extern Ent_8035CB88 boss6_thanks_particle_emitter_table[];
 u8 *get_player_data__10TObjPlayerFi(s32);
 f32 xyz_distance(void *, void *);
 extern const f32 lbl_805E0198;
 u8 fn_8035CAE0(void);
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 get_story_flag(s32);
 int dispatch_by_main_phase__14TBoss4DarkFalzFUs(void*);
-void queue_destruction__7TObjectFv(void *arg0);
 
 u8 fn_8035CAE0(void) {
     return (u8) (get_story_flag(0x9A) != 0);

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby_80351E64.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TUnk_804F0EA8.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -11,21 +13,15 @@ struct L_80351EAC { u8 pad[0x1C]; u32 flags; s32 mode; };
 extern "C" {
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
-void queue_destruction__7TObjectFv(void *arg0);
 extern const s32 lbl_804F0EA8[];
 extern void *lobby_event_theme_controller;
 s32 TLobby__sub_803DA16C(void*);
 extern int lobby_main_texture_gvm;
-void TLobby__sub_8035202C(void);
 int load_gvm_texture_file(void*);
     extern unsigned char lbl_80478E20[];
-void load_obj_lobby_main(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 *tl_00;
-u8 *TLobby__sub_80351FDC(u8 *arg0);
-s32 get_theme_lobby_type(void);
 void TLobby__sub_80351DF8(void *, s32);
-void TLobby__sub_80351F3C(void);
 void *__nw__7TObjectFUl(int);
 
 s32 TLobby::is_connected() {

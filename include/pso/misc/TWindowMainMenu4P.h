@@ -20,4 +20,9 @@ struct TWindowMainMenu4P : public TWindowMainMenu {
 };
 
 typedef char TWindowMainMenu4P_size[sizeof(TWindowMainMenu4P) == 0x60 ? 1 : -1];
+extern "C" {
+void *TWindowMainMenu4P__ct(void *arg0);
+void *__dt__17TWindowMainMenu4PFv(void *arg0, s16 arg1);
+}
+
 #endif

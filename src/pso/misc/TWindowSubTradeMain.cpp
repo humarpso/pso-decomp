@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/map/CsnQuery.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneMorfos.h"
@@ -44,13 +46,11 @@ struct O_803323D8 {
 };
 
 extern "C" {
-s32 *csnVectorUnder(s32 arg0, u32 *arg1, s32 arg2);
 extern s32 actor_frame_tick;
 extern const f32 TObjEneMorfos__data_805DF870;
 void update_player_state__9TObjEneDDFv(void *, V3_803323D8 *, int);
 s32 rotate_matrix_y(int, int);
 void push_matrix(void);
-s32 pop_matrix(void);
 int post_translate_matrix(void *);
 s32 draw_model_motion(int, Anim_803323D8 *, f32);
 extern const V3_803323D8 lbl_804775F0;

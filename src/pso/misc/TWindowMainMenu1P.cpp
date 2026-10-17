@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl_800687BC.h"
 #include "pso/misc/TWindowMainMenu.h"
 #include "pso/misc/TWindowMainMenu1P.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -8,11 +9,8 @@ struct RecoveredGlobal_80288838___vt__17TWindowMainMenu1P { s32 value; u8 remain
 typedef char RecoveredGlobal_80288838___vt__17TWindowMainMenu1P_size[sizeof(RecoveredGlobal_80288838___vt__17TWindowMainMenu1P) == 0x28 ? 1 : -1];
 
 extern "C" {
-void TCameraCtrl__sub_800694A8(void);
 void __dl__7TObjectFPv(s32);
-u8 *__dt__15TWindowMainMenuFv(u8 *arg0, s16 arg1);
 extern s32 __vt__17TWindowMainMenu1P[];
-u8 *__dt__17TWindowMainMenu1PFv(u8 *arg0, s16 arg1);
 extern const f32 lbl_805DD8A0;
 extern const f32 lbl_805DD8A4;
 extern const f32 lbl_805DD8A8;
@@ -24,7 +22,6 @@ extern const f32 lbl_805DD8BC;
 extern const f32 lbl_805DD8C0;
 extern const f32 lbl_805DD8C4;
 extern const f32 lbl_805DD8C8;
-void *TWindowMainMenu1P__ct(void *arg0);
 void TWindowMainMenu__ct(void *);
 
 #pragma fp_contract on

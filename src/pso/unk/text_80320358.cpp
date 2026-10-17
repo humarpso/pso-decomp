@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80320358.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TScene.h"
 
@@ -11,7 +12,6 @@ extern "C" {
 s32 read_disc_file(void *, void *);
 u8 *fn_803204B0(void *);
 s32 OSLink(void *, void *);
-u8 *load_rel_module(u8 *arg0, s32 arg1);
 void OSUnlink(void *);
 S_80320358 *fn_80320358(S_80320358 *arg0, s16 arg1);
 

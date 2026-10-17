@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubTradeMain_802D2808.h"
 #include "pso/misc/TWindowSubTradeMain.h"
 #include "pso/misc/TLobby.h"
 
@@ -14,14 +15,7 @@ extern s32 TLobby__trade_window_state[];
 extern s32 local_client_id;
 extern u8 TLobby__trade_partner_client_id;
 extern s32 TLobby__data_805D688C;
-void TWindowSubTradeMain__sub_802D2870(void);
 extern u16 trade_protocol_flags;
-s32 are_both_trade_offers_confirmed(void);
-void clear_local_trade_final_confirmation(void);
-void set_local_trade_final_confirmation(void);
-s32 is_local_trade_offer_confirmation_requested(void);
-void clear_local_trade_offer_confirmation(void);
-void set_local_trade_offer_confirmation(void);
 
 s32 are_both_trade_offers_confirmed(void) {
     u16 v = trade_protocol_flags;

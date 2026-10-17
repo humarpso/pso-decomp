@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_800822D0.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/misc/TUnk_8048E1A4.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-
-s32 TObjPlayer__sub_80082300(void* p);
 
 void TUnk_8048E1A4::apply_knockback_from_attacker(u8 *) {  }
 void TObjPlayer::set_position_xy(f32 a, f32 b) { this->position[2] = a; *(f32 *)&this->m_44 = b; }

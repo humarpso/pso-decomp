@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80302DC0.h"
 #include "pso/unk/TObjEneDellBiter_Eff_TpAbsorb1.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TNowLoading.h"
@@ -27,14 +29,12 @@ typedef struct Vec_80302DC0 { f32 x; f32 y; f32 z; } Vec_80302DC0;
 typedef struct Arg_80302DC0 { s32 id; f32 val; } Arg_80302DC0;
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 u32 csnVector(void *, void *, int);
 extern u8 lbl_8047511C[];
 extern s32 lbl_80475124[];
 extern const f32 lbl_805DEFA0;
 extern const f32 lbl_805DEFA4;
 extern const f32 lbl_805DEFA8;
-void fn_80302DC0(u8 *arg0);
 #pragma push
 #pragma fp_contract on
 void fn_80302DC0(u8 *arg0) {

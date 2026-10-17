@@ -6,19 +6,7 @@ extern SjMemoryBuffer sj_memory_buffer_pool[32];
 extern s32 sj_memory_buffer_init_count;
 extern SjMemoryBufferInterface sj_memory_buffer_interface;
 __declspec(section ".rodata") extern const u8 sj_memory_buffer_uuid[16];
-s32 sj_memory_buffer_is_chunk_available(SjMemoryBuffer* arg0, s32 arg1, s32 arg2, s32* arg3);
-void sj_memory_buffer_unget_chunk(SjMemoryBuffer* arg0, s32 arg1, SjChunk* arg2);
-void sj_memory_buffer_put_chunk(SjMemoryBuffer* arg0, u32 arg1, SjChunk* arg2);
-void sj_memory_buffer_get_chunk(SjMemoryBuffer* arg0, s32 arg1, s32 arg2, SjChunk* arg3);
-s32 sj_memory_buffer_get_available(SjMemoryBuffer* arg0, s32 arg1);
-void sj_memory_buffer_reset(SjMemoryBuffer* arg0);
 void sj_memory_buffer_set_error_callback(SjMemoryBuffer* arg0, SjErrorCallback arg1, void* arg2);
-const u8* sj_memory_buffer_get_uuid(SjMemoryBuffer* arg0);
-void sj_memory_buffer_destroy(SjMemoryBuffer* arg0);
-SjMemoryBuffer* sj_memory_buffer_create(void* arg0, s32 arg1);
-void sj_memory_buffer_shutdown(void);
-void sj_memory_buffer_init(void);
-void sj_memory_buffer_error_halt(void*, s32);
 
 s32 sj_memory_buffer_is_chunk_available(SjMemoryBuffer* arg0, s32 arg1, s32 arg2, s32* arg3) {
     s32 n;

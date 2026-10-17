@@ -1,22 +1,21 @@
 #include "types.h"
+#include "pso/math/MatrixVector.h"
+#include "pso/player/TObjPlayer_80052374.h"
+#include "pso/player/TObjPlayer_803E4954.h"
+#include "pso/ui/TObjDFJisin.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/TObjDFTenchuFuru.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TCharaMaking.h"
 #include "pso/object/TObjFish.h"
 
 extern "C" {
-int TObjDFTenchuFuru__sub_80051A7C(void);
-void TObjPlayer__sub_80052390(f32 x);
 u8 *get_player_by_client_id(s32);
 s32 TCharaMaking__draw_colored_hair(int, void *, int, f32);
-s32 push_matrix_from(void *);
-s32 pop_matrix(void);
-void draw_chunk_object(void *child);
-void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern s32 df_captured_matrix_pair[];
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
-void set_matrix_identity(u8 *arg0);
 int push_matrix(void);
 
     extern int TObjDFTenchuFuru__matrix_node_index;

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TOTrap.h"
 #include "pso/misc/TLobby.h"
@@ -60,9 +62,6 @@ struct VObj_80178EF8_80178BC0 : Base_80178EF8_80178BC0 {
     virtual void m83();
 #undef VM
 };
-
-void *spawn_particle_effect(void *pos, s32 id);
-void queue_destruction__7TObjectFv(void *arg0);
 
 f32 TOTrap::scale_by_table_value(f32 farg0) {
     u32 v[4];

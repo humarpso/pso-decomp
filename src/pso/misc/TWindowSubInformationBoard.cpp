@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TWindowSubInformationBoard.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TLobby.h"
@@ -18,12 +20,10 @@ struct VObj_18_204a81 : VBase_18_204a81 {
 };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
 void mem_free(void *p);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 play_sound_effect(int, int, int, int);
-void TWindow__close(u8 *arg0);
 s32 get_selected_menu_value(int);
 s32 get_cursor_pos__20TWindowShortListCtrlFv(int);
 s32 set_info_board_text__6TLobbyFv();
@@ -33,7 +33,6 @@ u32 open_card_info_window__26TWindowSubInformationBoardFv(void *);
 u32 TWindowSubComCard__sub_8034CDE0(void *);
 u32 create_info_board_menu(void *);
 extern s32 controller_input_state[];
-void *__dt__26TWindowSubInformationBoardFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 

@@ -1,4 +1,7 @@
 #include "pso/TAdBackGC.h"
+#include "pso/system/ModelDrawContext.h"
+#include "pso/ui/TAdBackGC_8029A7B0.h"
+#include "pso/unk/text_80141A30.h"
 #include "pso/render/depth_buffer.h"
 
 #include "types.h"
@@ -6,12 +9,9 @@
 
 extern "C" {
 s32 draw_title_background_layer(void *, int, int, f32);
-void restore_saved_depth_alpha_state(void);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 s32 fn_8029A6EC(void *);
-void set_cached_blend_factor(s32 arg0, s32 arg1);
 extern s32 chr_select_ad_pic_2_texture_descriptor[];
-void *__ct__9TAdBackGCFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 void TAdBackGC::render() {

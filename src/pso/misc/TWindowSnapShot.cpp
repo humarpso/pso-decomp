@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_80132ED0.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowSnapShot.h"
 #include "pso/misc/TWindowDD.h"
@@ -35,16 +36,13 @@ struct RecoveredGlobal_802A80A0___vt__15TWindowSnapShot {
 extern "C" {
 extern int player_motion_data_filename_ptr;
 extern void *shared_snapshot_capture;
-s32 load_player_motion_data(void);
 s32 TObjBoss2Tunnel__sub_8007CAE8(f32 *, f32);
-s32 get_localized_text_entry(s32, s32);
 u8 *draw_default_entry__9TWindowDDFl();
 s32 draw_window_frame(void *, void *);
 s32 draw_window_text(void *, s32, s32, s32, f32);
 s32 draw_visible_window_entries(void *, void *, void *);
 extern const f32 lbl_805DE018;
 extern const f32 lbl_805DE01C;
-void render__15TWindowSnapShotFv(u8 *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 extern RecoveredGlobal_802A7FB0_lbl_8050E208 controller_input_state;
@@ -52,9 +50,6 @@ s32 verify_snapshot_checksum__15TObjBoss2TunnelFv(void);
 extern RecoveredGlobal_802A80A0_lbl_804DDEB4 window_snapshot_layout;
 extern s32 __vt__15TWindowSnapShot[];
 extern s32 TWindowSnapShot__name;
-u8 *TWindowSnapShot__ct(u8 *arg0, s32 arg1);
-int TWindowSnapShot__sub_802A7EAC(void);
-void *__dt__15TWindowSnapShotFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void __dl__7TObjectFPv(void *);
 

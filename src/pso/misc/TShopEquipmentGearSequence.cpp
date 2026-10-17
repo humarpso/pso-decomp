@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TShopEquipmentGearSequence.h"
 #include "pso/TShopWindowBase.h"
 #include "pso/misc/TQuestListVM.h"
@@ -29,7 +30,6 @@ s32 close_if_single_screen__13TShopSequenceFv(void *);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 s32 close_window__13TShopSequenceFv(void *);
-void queue_destruction__7TObjectFv(void *arg0);
 
 extern s32 lbl_805D6218;
 extern s32 lbl_805D621C;

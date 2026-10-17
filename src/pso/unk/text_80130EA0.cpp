@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80130EA0.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {

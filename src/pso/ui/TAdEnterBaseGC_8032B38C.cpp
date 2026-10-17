@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/ui/TAdEnterBaseGC_8032B38C.h"
 #include "pso/ui/TAdEnterBaseGC.h"
 
 struct RecoveredGlobal_8032B390_lbl_80477198 {
@@ -20,13 +22,9 @@ extern RecoveredGlobal_8032B390_lbl_80477198 lbl_80477198;
 extern RecoveredGlobal_8032B390_lbl_804771B8 lbl_804771B8;
 extern s32 tl_clipout;
 extern int TAdEnterBaseGC__entry_mode;
-void *TAdEnterBaseGC__ct(void *arg0);
-s32 TAdPsoPassSaveGC__sub_8032B584(void);
-void *__dt__14TAdEnterBaseGCFv(void *arg0, s16 arg1);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void queue_destruction__7TObjectFv(void *);
 
 void TAdEnterBaseGC::run_task() {  }
 

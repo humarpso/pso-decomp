@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TCheckRoomSequence_8021E464.h"
 #include "pso/misc/TCheckRoomSequence.h"
 
 extern "C" {
 
-int get_check_room_slot_active_flag(int a0);
 void *TCheckRoomSequence__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 

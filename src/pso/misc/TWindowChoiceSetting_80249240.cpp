@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowChoiceSetting_80249240.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TUnk_804CE018.h"
@@ -14,7 +15,6 @@ struct RecoveredGlobal_802492C8_lbl_8050E208 {
 };
 
 extern "C" {
-void render__20TWindowChoiceSettingFv(u8 *arg0);
 s32 draw_window_frame(void *, s32);
 s32 get_draw_context__11TWindowBaseFPv();
 s32 draw_visible_window_entries(void *, void *, s32);
@@ -25,8 +25,6 @@ s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 fn_80249078(void *);
 extern RecoveredGlobal_802492C8_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DCBC0;
-void *TWindowChoiceSetting__ct(void *arg0);
-void *__dt__20TWindowChoiceSettingFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void fn_80269004(void *);
 

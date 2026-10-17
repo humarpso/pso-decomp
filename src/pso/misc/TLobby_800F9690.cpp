@@ -1,19 +1,19 @@
 #include "types.h"
+#include "pso/misc/TLobby_8007C550.h"
+#include "pso/misc/TLobby_800F9690.h"
+#include "pso/object/TObjFish_8001ED90.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TGStream.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
-s32 load_encrypted_text_archive(char *arg0, s32 *arg1);
 s32 alloc_named_object(s32, s32, s32, s32);
 int sprintf(char *, const char *, ...);
 extern char lbl_8043D9FC[];
 extern char lbl_8043DA04[];
-s32 load_text_resource_pair(s32 arg0);
 s32 subtractive_rng_xor_buffer(s32 *, void *, s32);
 s32 subtractive_rng_seed(s32 *, s32);
-s32 __ct__14SubtractiveRngFv(void *arg0);
 s32 prs_decompress_buffer(void *, s32);
 
 struct Sp8_800f9690 { s8 data[240]; };
@@ -54,7 +54,6 @@ s32 TLobby::alloc_download_quest(s32 arg1, s32 *arg2) {
     }
     return ret;
 }
-s32 TLobby__sub_8001EEF4();
 u8 *set_stream_and_load_file__6TLobbyFi(s32);
 s32 update_lobby_scene__6TSceneFv();
 s32 read_disc_file(s32, s32);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/enemy/TObjEneMe1Canadin_EffLineFade.h"
 #include "pso/enemy/TObjEneDarkGunner.h"
 
@@ -6,7 +7,6 @@ extern "C" {
 
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void queue_destruction__7TObjectFv(void *arg0);
 
 void TObjEneMe1Canadin_EffLineFade::run_task() {
     s32 var_r31;

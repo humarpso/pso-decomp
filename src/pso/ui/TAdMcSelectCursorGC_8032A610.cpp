@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/ui/TAdMcSelectCursorGC_8032A610.h"
 #include "pso/ui/TAdMcSelectCursorGC.h"
 
 extern "C" {
 s32 TLobby__sub_803DA16C(void *, s32);
 extern int TAdMcSelectCursorGC__texture_entry;
-s32 TAdMcSelectCursorGC__sub_8032A6D8(void* p);
 u32 TAdMcSelectCursorGC__ct(u32, s32);
 int TLobby__sub_8023E4B4(void*, void*);
 u32 __nw__7TObjectFUl(s32);

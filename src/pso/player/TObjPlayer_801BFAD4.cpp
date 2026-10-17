@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801BFAD4.h"
 #include "pso/system/memory.h"
 
 extern "C" {
-
-void *TObjPlayer__sub_801BFAD4(void *arg0, s16 arg1);
 
 extern s32 lbl_804C3E38[];
 

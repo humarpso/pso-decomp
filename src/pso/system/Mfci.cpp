@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby_803D3988.h"
+#include "pso/system/Mfci.h"
 
 typedef s32 (*RecoveredCallback_4873a87e26d6)(s32, s32 *, s32);
 struct RecoveredGlobal_803CFEA0_lbl_8047DAE4 {
@@ -12,25 +14,18 @@ extern "C" {
 extern RecoveredGlobal_803CFEA0_lbl_8047DAE4 lbl_8047E170;
 extern s32 mfci_error_callback_context;
 extern RecoveredCallback_4873a87e26d6 mfci_error_callback;
-s32 mfci_get_position(MfciFileEntry *arg0);
-void TLobby__sub_803D3988(void);
-void TLobby__sub_803D39C0(void);
 s32 memset(void *, int, int);
 extern s32 lbl_8047E0C8[];
-void mfci_close(MfciFileEntry *arg0);
 extern s32 lbl_8047E18C[];
-s32 mfci_seek(MfciFileEntry *arg0, s32 arg1, s32 arg2);
 unsigned long strlen(const char *);
 int sprintf(char *, const char *, ...);
 unsigned long strtoul(const char *, char **, int);
 extern char mfci_error_message_buffer[0x12C];
 extern char lbl_8047E04C[];
 extern char lbl_8047E08C[];
-u32 mfci_parse_file_size(char *s);
 char *strcpy(char *, const char *);
 extern char lbl_8047DF90[];
 extern MfciFilePool mfci_file_pool;
-MfciFileEntry *mfci_open(const char *name, s32 arg1, s32 mode);
 typedef char RecoveredGlobal_803CFEA0_lbl_8047DAE4_size[sizeof(RecoveredGlobal_803CFEA0_lbl_8047DAE4) == 0x18 ? 1 : -1];
 s32 mfci_get_position(MfciFileEntry *arg0) {
     if (arg0 == NULL) {

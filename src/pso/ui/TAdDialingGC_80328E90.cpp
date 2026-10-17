@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TLobby_802A0F3C.h"
 #include "pso/misc/TUnk_804ED7D0.h"
 #include "pso/ui/TAdDialingGC.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 s32 is_handle_valid__10TObjPlayerFv();
-void TLobby__sub_802A0F70(void);
 s32 TLobby__sub_802A5154();
 
 extern s32 TAdDialingGC__instance;

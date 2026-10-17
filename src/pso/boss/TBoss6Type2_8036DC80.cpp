@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6Type2_8036DC80.h"
 #include "pso/boss/TBoss6Type2.h"
 
 struct E_8036DDE8 { s32 f0; u8 pad[0x28]; };
@@ -7,7 +8,6 @@ struct Ent_8036DD30 { s32 active; u8 v0[8]; u8 v1[8]; u8 v2[8]; s32 a; s32 b; s3
 
 extern "C" {
 extern s8 boss6_type2_player_snapshot_table[];
-void TLobby__sub_8036DDE8(void);
 u8 *get_player_by_client_id(s32);
 s32 is_state_1f__14TBoss6PlotFalzFUi(void *);
 u16 obj_getField1c();

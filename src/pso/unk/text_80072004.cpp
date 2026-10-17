@@ -1,7 +1,7 @@
 #include "types.h"
+#include "pso/unk/text_80072004.h"
 
 extern "C" {
-void init__6gc_tagFv(void *arg0);
 s32 init_gc_tag(s32 arg0) {
     init__6gc_tagFv((void *)(arg0));
     return arg0;

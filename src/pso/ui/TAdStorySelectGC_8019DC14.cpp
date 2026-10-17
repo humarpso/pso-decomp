@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/ui/TAdStorySelectGC_8019DC14.h"
 #include "pso/TAdStorySelectGC.h"
 #include "pso/object/TObjMapForceWarp.h"
 
 extern "C" {
 
-int TAdStorySelectGC__sub_8019DC14(void);
 int get_bml_motion(void*, void*);
 int get_bml_model(void*, void*);
 

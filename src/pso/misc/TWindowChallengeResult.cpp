@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TWindowChallengeResult.h"
+#include "pso/misc/TWindowSubStatusDisp_80228CC0.h"
+#include "pso/misc/TWindowSubStatusDisp_80228F5C.h"
+#include "pso/unk/text_80246CE8.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowDD.h"
@@ -25,9 +29,6 @@ struct Win_80246DCC {
 
 s32 get_shared_text_buffer(void);
 Entry_80246DCC *get_array_entry__13TUnk_804CE018Fi(void *, s32);
-void append_padded_number(s32 v, u8 n);
-void text_builder_append(u8 *str);
-void text_builder_reset(void);
 void refresh_status_display__9TWindowDDFv(Entry_80246DCC *);
 void draw_right_aligned_number(void);
 void set_text_entry_string(void *, s32, s32);
@@ -39,11 +40,8 @@ extern char lbl_805DCB64[2];
 extern const f32 lbl_805DCB68;
 extern const f32 lbl_805DCB6C;
 
-void *dt__22TWindowChallengeResultFPvs(void *arg0, s16 arg1);
-void init_subwindow__22TWindowChallengeResultFPv(void* p);
 void __dl__7TObjectFPv(void *);
 
-extern "C" void fn_80246CE8(s32 arg0);
 extern "C" u8 lbl_8044E790[];
 extern "C" u8 lbl_8044E7A0[];
 extern "C" u8 lbl_8044E7B0[];

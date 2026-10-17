@@ -1,6 +1,6 @@
 #include "types.h"
+#include "pso/unk/text_803DAF30.h"
 extern "C" {
-void fn_803DAF30(u32 *p);
 #pragma push
 #pragma scheduling off
 #pragma peephole off

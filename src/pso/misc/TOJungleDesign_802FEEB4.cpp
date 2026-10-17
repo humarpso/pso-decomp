@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TOJungleDesign_802FEEB4.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D853C.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TOJungleDesign.h"
 #include "pso/object/TObjFish.h"
@@ -43,14 +47,9 @@ s32 init_collision_body_parts(void *, int, int);
 extern RecoveredGlobal_802FEF98_lbl_804E6580 TOJungleDesign__collision_desc_table;
 extern s32 __vt__14TOJungleDesign[];
 extern s32 TOJungleDesign__name;
-u8 *TOJungleDesign__ct(u8 *arg0, s32 arg1, s32 arg2);
-void *__dt__14TOJungleDesignFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
-void draw_ginja_object(void *child);
-void rotate_matrix_yxz(s32 matrix, s32 arg1, s32 arg2, s32 arg3);
 void free_collision_body_parts(void *);
 s32 push_matrix();
-s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 
 extern const f32 lbl_805DEF20;

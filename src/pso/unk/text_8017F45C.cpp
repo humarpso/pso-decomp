@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/unk/text_8017F45C.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 #pragma inline_depth(1)
@@ -22,19 +24,15 @@ struct Rec_8017F550 { u8 pad[0x14]; s32 f14; };
 struct Obj_8017F550 { u8 pad0[0x38]; u8 pos[0x28]; s32 f60; u8 pad1[0x88]; Rec_8017F550 recs[8]; };
 
 extern "C" {
-void fn_8017F5F0(u8 *arg0, u8 *arg1);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8017F45C_lbl_804B5830 bm_o_abe_butterfly_resource_descriptor;
 extern s32 butterfly_bml_resource;
-void fn_8017F45C(void);
 void fn_8017F52C(O_8017F52C *self);
 s32 play_sound_effect(s32, void *, s32, s32);
 void fn_8017F4AC(Self_8017F4AC *self);
 void vec3_add_to(void *, void *);
 void matrix_mult_vec(int, void *, void *);
 void rotate_matrix_y(int, s32);
-s32 push_matrix_from(void *src);
-s32 pop_matrix(void);
 extern Rec_8017F550 lbl_804439D8[];
 extern u8 identity_matrix[];
 void fn_8017F550(Obj_8017F550 *arg0);

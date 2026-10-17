@@ -1,4 +1,7 @@
 #include "pso/TAdMultiPlayerNoGC.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/system/ModelDrawContext.h"
 
 #include "types.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -22,15 +25,10 @@ struct Self_8033A668 {
 };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern void *__vt__18TAdMultiPlayerNoGC[];
 extern s32 TAdMultiPlayerNoGC__name;
 Self_8033A668 *__ct__18TAdMultiPlayerNoGCFv(Self_8033A668 *self, void *parent, s32 n, u32 idx, u32 arg);
-void draw_textured_quad_at_depth(f32 *q, f32 depth);
-void begin_screen_draw(s32 arg0);
-void set_draw_texture_and_color(s32 idx, s32 arg1);
-void set_cached_blend_factor(s32 arg0, s32 arg1);
 int get_state_flag__9TMainTaskFv(void*);
 
 extern s32 lbl_805D6D78;

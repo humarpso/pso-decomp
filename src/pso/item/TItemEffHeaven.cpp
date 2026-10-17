@@ -1,4 +1,7 @@
 #include "pso/TItemEffHeaven.h"
+#include "pso/item/TItemEffHeaven.h"
+#include "pso/object/TObject_8001A448.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
@@ -48,14 +51,12 @@ struct Self_8010900C {
 
 extern "C" {
 int queue_destruction__7TObjectFv(void*);
-void *spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 VObj_8010900C *resolve_hittable_target(u16, s16);
 void play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805DAB28;
 extern const f32 lbl_805DAB2C;
 extern const f32 lbl_805DAB30;
 
-void disallow_rendering__7TObjectFv(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 __vt__14TItemEffHeaven[];
 extern s32 TItemEffHeaven__class_name;
@@ -130,8 +131,6 @@ TItemEffHeaven::~TItemEffHeaven() {
 }
 
 extern "C" {
-
-int destroy__14TItemEffHeavenFPv(void* p);
 
 }
 TItemEffHeaven::TItemEffHeaven(TObject *parent, s32 a, s16 b, s32 c) : TObject(parent) {

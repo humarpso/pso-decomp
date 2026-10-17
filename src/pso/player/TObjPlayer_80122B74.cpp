@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80122B74.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TTecFoie.h"
 
 extern "C" {
 
-void *TObjPlayer__sub_80122BE4(void *arg0);
-void *spawn_particle_effect(void *pos, s32 id);
 void TItemWeapon__ct(void *);
 
 void TObjPlayer::cast_foie() {

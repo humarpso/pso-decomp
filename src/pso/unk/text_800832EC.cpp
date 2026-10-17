@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_800832EC.h"
 #include "pso/misc/TUnk_8048E5DC.h"
 #include "pso/system/vector.h"
 
@@ -10,7 +11,6 @@ struct RecoveredGlobal_800832EC_lbl_8048E5DC {
 extern "C" {
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_800832EC_lbl_8048E5DC lbl_8048E5DC;
-u8 *fn_800832EC(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 typedef char RecoveredGlobal_800832EC_lbl_8048E5DC_size[sizeof(RecoveredGlobal_800832EC_lbl_8048E5DC) == 0x18 ? 1 : -1];
 u8 *fn_800832EC(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0) {
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));

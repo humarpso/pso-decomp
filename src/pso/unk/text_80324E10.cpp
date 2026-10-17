@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/boss/TBoss5GryphonLightningEff.h"
 #include "pso/TBoss5GryphonLightning.h"
 
 extern "C" {
 u8 *__ct__25TBoss5GryphonLightningEffFv(void *, s32, s32, s32, f32, f32, f32);
 u8 *__nw__7TObjectFUl(s32);
-void TBoss5GryphonLightningEff__sub_80325064(void *p);
 extern s32 tl_07;
 #pragma fp_contract on
 void TBoss5GryphonLightning::spawn_gryphon_lightning() {

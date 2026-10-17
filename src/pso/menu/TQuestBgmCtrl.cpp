@@ -1,4 +1,6 @@
 #include "pso/menu/TQuestBgmCtrl.h"
+#include "pso/misc/TLoadCtrl_80227390.h"
+#include "pso/misc/TQuestThread.h"
 
 s32 TQuestBgmCtrl__bgm_issued_flag;
 s32 TQuestBgmCtrl__bgm_forced_flag;
@@ -7,8 +9,6 @@ TQuestBgmCtrl* TQuestBgmCtrl__instance;
 extern "C" const char* TQuestBgmCtrl__class_name;
 
 extern "C" {
-s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1);
-void play_area_music(char *name);
 extern s32 quest_mission_manager;
 extern void *quest_bgm_area_filename_table[];
 }

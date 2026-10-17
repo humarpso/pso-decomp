@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/item/TItemEffectWeapon_803632B4.h"
 #include "pso/item/TItemEffOrgaFlowShot.h"
 
 extern "C" {
-
-void s_rank_launcher_extend(s32 arg0);
 
 extern const f32 lbl_805E0270;
 extern const f32 lbl_805E0274;

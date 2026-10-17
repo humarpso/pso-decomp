@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowHelpItem_80243408.h"
+#include "pso/misc/TWindowSubStatusDisp_802598E4.h"
 #include "pso/misc/TWindowHelpItem.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -31,12 +33,9 @@ struct UV_80243630 { f32 u; f32 v; };
 extern "C" {
 u32 get_player_by_client_id(s32);
 s8 clamp_char_at__10TObjPlayerFl(u32, s32);
-s32 get_help_value__15TWindowHelpItemFv(void);
-void draw_right_aligned_number(void *);
 extern const f32 lbl_805DCA28;
 extern const f32 lbl_805DCA2C;
 extern const f32 lbl_805DCA30;
-void update_palette_item_count_label(u8 *arg0, u8 *arg1, u16 arg2, u16 arg3, s32 arg4);
 extern const f32 lbl_805DCA34;
 extern const f32 lbl_805DCA38;
 extern const f32 lbl_805DCA3C;

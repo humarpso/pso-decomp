@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TObjNpcNgcBase_80358AE8.h"
 #include "pso/npc/TObjNpcNgcBase.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -85,20 +86,6 @@ s32 __nw__7TObjectFUl(int);
 s32 TObjNpcNgcBase__ct(int, int, void *, int);
 extern RecoveredGlobal_803591D0_TObjNpcNgcBase__data_805439A8 TObjNpcNgcBase__data_805439A8;
 extern s32 tl_04;
-s32 TObjNpcNgcBase__create(s32 arg0);
-s32 TObjNpcNgcBase__sub_80358BF8(s32 arg0);
-s32 TObjNpcNgcBase__sub_80358C80(s32 arg0);
-s32 TObjNpcNgcBase__sub_80358B70(s32 arg0);
-s32 create_variant_13__14TObjNpcNgcBaseFi(s32 arg0);
-s32 create_variant_7__14TObjNpcNgcBaseFi(s32 arg0);
-s32 create_variant_8__14TObjNpcNgcBaseFi(s32 arg0);
-s32 TObjNpcNgcBase__sub_80358D08(s32 arg0);
-s32 TObjNpcNgcBase__sub_803590C0(s32 arg0);
-s32 create_variant_6__14TObjNpcNgcBaseFi(s32 arg0);
-s32 TObjNpcNgcBase__sub_80359038(s32 arg0);
-s32 create_variant_5__14TObjNpcNgcBaseFi(s32 arg0);
-s32 TObjNpcNgcBase__sub_80358FB0(s32 arg0);
-s32 TObjNpcNgcBase__sub_80359148(s32 arg0);
 s32 TLobby__sub_8001FE7C(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern Rec_803592B8 npc_delta_w_body_model_names[];

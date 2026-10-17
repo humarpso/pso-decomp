@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby_8007C550.h"
+#include "pso/unk/text_800F7DAC.h"
 #include "pso/system/byteswap.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/misc/TQuestListVM.h"
@@ -6,8 +8,6 @@
 extern "C" {
 
 s32 subtractive_rng_seed(s32 *, u32);
-u32 prs_decompress_buffer(s32 arg0, s32 arg1);
-s32 __ct__14SubtractiveRngFv(void *arg0);
 
 u32 TQuestListVM::decrypt_quest_data(s32 arg1, s32 arg2, u32 arg3) {
     u8 *arg0 = (u8 *)this;

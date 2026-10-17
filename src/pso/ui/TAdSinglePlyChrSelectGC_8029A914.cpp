@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_8029A914.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
@@ -6,7 +7,6 @@ extern "C" {
     extern unsigned char lbl_80465284[];
     extern unsigned char chr_select_ad_pic_2_texture_descriptor[];
 extern u32 chr_select_ad_pic_texture;
-void register_texture_f256_ad_pic_2(void);
 void TLobby__sub_803DA16C(void*);
 
 void TAdSinglePlyChrSelectGC::free_global() {

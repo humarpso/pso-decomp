@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801266D8.h"
 #include "pso/item/TUnk_804A2A58.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void* baranz_launcher_ct(void* a0);
 int TItemWeapon__ct(void);
 
     extern unsigned char baranz_launcher_create_shot[];

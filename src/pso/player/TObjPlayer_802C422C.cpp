@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_802C422C.h"
+#include "pso/ui/TAdSelectGameModeGC_802C4748.h"
 #include "pso/system/date.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TAdSelectGameModeGC.h"
@@ -7,11 +9,9 @@
 
 extern "C" {
 
-s32 sync_state__10TObjPlayerFi(s32 arg0);
 u32 update_battle_controller__10TObjPlayerFv();
 s32 export_state_to_record__10TObjPlayerFPvPv(u32, s32);
 
-int fn_802C4748(void* p);
 extern s32 local_client_id;
 
 s32 sync_state__10TObjPlayerFi(s32 arg0) {
@@ -29,9 +29,6 @@ int get_char_index__23TAdSinglePlyChrSelectGCFUi(void*);
 
 void TObjPlayer::sync_char_select_state() { get_char_index__23TAdSinglePlyChrSelectGCFUi((void*)65535); ((int (*)(void))sync_state__10TObjPlayerFi)(); }
 
-s32 try_assign_battle_ctrl__10TObjPlayerFiUs(s32 arg0, u16 arg1);
-s32 update_battle__10TObjPlayerFi(s32 arg0);
-void export_player_record__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 s32 get_player_by_client_id(void *);
 
 s32 try_assign_battle_ctrl__10TObjPlayerFiUs(s32 arg0, u16 arg1) {
@@ -93,8 +90,6 @@ void split_capped_value__10TObjPlayerFUcPUcPSc(s32, u8 *, E_802C4698 *);
 s32 TObjPlayer__sub_802A1018();
 extern s32 current_language;
 void is_slot_within_limit__10TObjPlayerFllUc(u8 id, s16 i, u8 v);
-int init_character_action_config(void* p);
-int TObjPlayer__sub_802C46E0(void* p);
 int TObjPlayer__sub_8011E204(void*, void*);
 int init_action_config__10TObjPlayerFv(void*);
 int set_palette_entry__20TWindowActionPaletteFlllll(void*);

@@ -1,0 +1,11 @@
+#ifndef PSO_MISC_TRECVGENERATEID_H
+#define PSO_MISC_TRECVGENERATEID_H
+
+#include "types.h"
+
+extern "C" {
+void TRecvGenerateID__sub_801DFBC4(void *p);
+void bswap__15TRecvGenerateIDFv(s32 arg0);
+}
+
+#endif

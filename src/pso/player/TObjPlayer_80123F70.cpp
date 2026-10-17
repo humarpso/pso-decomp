@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80123F70.h"
 #include "pso/item/TUnk_804A1E28.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void sorcerers_cane_equip(void* p);
-void sorcerers_cane_unequip(void* p);
 s32 submit_computer_command__10TObjPlayerFv(s32, s32, s32, s32);
 s32 refresh_owner_stats__5TItemFv();
 

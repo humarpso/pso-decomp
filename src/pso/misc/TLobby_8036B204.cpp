@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby_8036B204.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TUnk_804F3640.h"
 
@@ -23,14 +25,9 @@ void mem_free(void *p);
 extern s32 lbl_804F3640[];
 extern u32 slot_entity_dispatcher_instance;
 void *__nw__7TObjectFUl(int);
-void create_singleton__6TLobbyFPv(void *arg0);
-void TLobby__sub_8036B50C(void);
-void TLobby__sub_8036B510(void);
-void queue_destruction__7TObjectFv(void *);
 void *mem_alloc(u32 size);
 void __ct__7TObjectFP7TObject(void *);
 Mgr_8036B424 *TLobby__sub_8036B424(Mgr_8036B424 *arg0, void * _w1);
-void dispatch_by_index__6TLobbyFUsi(u16 arg0, s32 arg1);
 
 void TLobby::send_slot_entity_or_local(u16 arg0, s32 arg1) {
     if (((u32) slot_entity_dispatcher_instance != 0U) && (arg0 < 4U)) {

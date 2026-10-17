@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBalClawClaw_8008DC18.h"
 #include "pso/enemy/TObjEneBalClawBody.h"
 
 #include <stddef.h>
@@ -29,7 +30,6 @@ extern const f32 lbl_805D9618;
 
 extern "C" {
 
-void TObjEneBalClawClaw__sub_8008DC90(void);
 f32 xz_distance_squared(s32, s32);
 
 typedef char RecoveredGlobal_8008DC18_lbl_80439B5C_size[sizeof(RecoveredGlobal_8008DC18_lbl_80439B5C) == 0x14 ? 1 : -1];

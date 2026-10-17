@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8012AE00.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void *heaven_punisher_ct(void *arg0);
 void TItemWeapon__ct(void *);
 void TObjPlayer__sub_8012AF00(void *);
 

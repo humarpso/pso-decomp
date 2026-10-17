@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/item/TItemMenuCtrl_80115A28.h"
 #include "pso/TItemMenuCtrl.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void *TItemMenuCtrl__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern s32 __vt__13TItemMenuCtrl[];

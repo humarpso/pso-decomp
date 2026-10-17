@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8020A2AC.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -12,7 +13,6 @@ extern s32 lbl_805D60A4;
 extern s32 item_drop_server_seed;
 extern const f32 lbl_805DC618;
 extern const f32 lbl_805DC61C;
-void TLobby__sub_8020A2AC(void);
 void TLobby__sub_8020A2AC(void) {
     s32 temp_r3;
     s32 temp_r3_2;

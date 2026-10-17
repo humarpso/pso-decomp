@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/unk/text_803D8DE0.h"
 
 extern "C" {
 typedef struct { f32 x, y, z, w; } Quat_803D8E0C;
 
 extern s32 current_matrix;
 s32 PSMTXMultVecArraySR(int);
-void fn_803D8DE0(u32 arg0);
 #pragma push
 #pragma scheduling off
 void fn_803D8DE0(u32 arg0) {

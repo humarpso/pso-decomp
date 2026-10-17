@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TOExplosiveMachine.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
@@ -78,10 +80,8 @@ s32 play_persistent_sound(int, void *, void *, int, int);
 extern const f32 lbl_805DB604;
 void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
-void draw_ginja_object(void *child);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 
 void TOExplosiveMachine::explode() {
     u8 *arg0 = (u8 *)this;

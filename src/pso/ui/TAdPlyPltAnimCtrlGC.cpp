@@ -14,17 +14,13 @@ struct O_80355148 { u8 pad[0x1c]; s32 state; };
 
 extern "C" {
 s32 TAdPlyPltAnimCtrlGC__sub_80355D38();
-void TAdPlyPltAnimCtrlGC__sub_80355168(u8 *arg0);
-u8 fn_8035510C(s32 *arg0, s32 arg1);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 s32 get_or_create__15TAdPlyPltAnimGCFii(void *, int);
 extern s32 __vt__19TAdPlyPltAnimCtrlGC[];
 extern s32 lbl_805D4390;
-u8 *TAdPlyPltAnimCtrlGC__ct(u8 *arg0, s32 arg1);
 s32 TAdPlyPltAnimCtrlGC__sub_80355148(O_80355148 *self);
 void start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(void *, void *);
 extern u32 ply_plt_anim_time_threshold_table[];
-void *__dt__19TAdPlyPltAnimCtrlGCFv(void *arg0, s16 arg1);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 u32 __nw__7TObjectFUl(s32);

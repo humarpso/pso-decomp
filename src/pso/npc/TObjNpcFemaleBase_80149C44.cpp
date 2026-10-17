@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/npc/TObjNpcFemaleBase_80149C44.h"
 #include "pso/npc/TObjNpcFemaleBase.h"
 
 extern "C" {
-
-void TObjNpcFemaleBase__sub_80149C64(void);
 
 void TObjNpcFemaleBase::request_action(s32 arg1) {
     if (arg1 != 1) {

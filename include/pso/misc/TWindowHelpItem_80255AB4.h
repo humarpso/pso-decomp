@@ -1,0 +1,12 @@
+#ifndef PSO_MISC_TWINDOWHELPITEM_80255AB4_H
+#define PSO_MISC_TWINDOWHELPITEM_80255AB4_H
+
+#include "types.h"
+
+extern "C" {
+void TWindowHelpItem__sub_80255B20(u8 *arg0);
+s32 TWindowHelpItem__sub_80255DDC(void *p);
+s32 get_help_text_string(s32 arg0);
+}
+
+#endif

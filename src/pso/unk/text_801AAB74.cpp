@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/misc/PhotonBlastSummon.h"
+#include "pso/misc/TLobby_802268F4.h"
+#include "pso/misc/TPhotonRainbow_801AE640.h"
+#include "pso/misc/obj_band.h"
+#include "pso/unk/text_801AAB74.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_804C3248.h"
 #include "pso/misc/TPhotonEstlla.h"
@@ -10,15 +15,10 @@
 struct Stack_801AAB74 { f32 x, y, z; };
 
 extern "C" {
-void *photon_base_ct(void *arg0);
-void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
-void spawn_photon_blast_opening_effects(s32 arg0, s32 arg1);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
 s32 sub_801AA6F8__13TPhotonEstllaFv(void *, int);
 s32 construct_photon_magic_square_normal(void *, void *, int, void *, int);
-u8 *TPhotonRainbow__ct(u8 *arg0, s32 arg1_unused, s32 arg2);
-void play_cue_stream_file(s32 name);
 void *__nw__7TObjectFUl(int);
 extern u8 lbl_80446D10[];
 extern u8 lbl_80446D1C[];
@@ -27,7 +27,6 @@ extern s32 __vt__13TPhotonEstlla[];
 extern s32 lbl_805D34D8;
 extern u8 *photon_blast_shared_resource;
 extern const f32 lbl_805DC140;
-u8 *TPhotonEstlla__ct(u8 *arg0, u8 *arg1);
 u8 *TPhotonEstlla__ct(u8 *arg0, u8 *arg1) {
     Stack_801AAB74 pos;
     u8 *e;

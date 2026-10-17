@@ -1,13 +1,10 @@
 #include "pso/item/TItemMagGrowEff.h"
+#include "pso/boss/TBoss4Type2_800874F4.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/TObject.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/item/TItemMagSub.h"
 #include "pso/misc/TNowLoading.h"
-
-extern "C" {
-void queue_destruction__7TObjectFv(void *);
-void *create_particle_emitter(void *pos, s32 id);
-}
 
 void TItemMagGrowEff::run_task() {
     f32 position[3];

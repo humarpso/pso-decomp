@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8012C3F4.h"
+#include "pso/player/TObjPlayer_8012C950.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/unk/TUnk_804A5340.h"
 
 struct Ent_8012C384 { u8 pad[0x1c]; u8 f1c[0x10]; };
@@ -6,10 +9,7 @@ struct Ent_8012C384 { u8 pad[0x1c]; u8 f1c[0x10]; };
 struct Mylla_8012C384 { u8 pad[0xa4]; Ent_8012C384 *ents; s32 count; };
 
 extern "C" {
-void *spawn_particle_effect(void *pos, s32 id);
-void rocket_punch_return_timer(u32 arg0);
 Mylla_8012C384 *find_entity_by_id(u32);
-void rocket_punch_target_impact(void *self, u32 a, u32 b, s32 idx);
 s32 play_sound_effect(s32, s32, s32, s32);
 
 void rocket_punch_target_impact(void *self, u32 a, u32 b, s32 idx) {

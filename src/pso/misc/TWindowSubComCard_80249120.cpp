@@ -1,16 +1,14 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_80249120.h"
 #include "pso/misc/TWindowSubComCard.h"
 
 extern "C" {
 s32 __nw__7TObjectFUl(int);
-int TWindowSubComCard__sub_80249220(void *, void *);
 s32 TWindowChoiceSetting__ct(int, void *, void *);
-s32 create_choice_setting_window__17TWindowSubComCardFiii(s32 arg0, s32 arg1, s32 arg2);
 void *get_array_entry__13TUnk_804CE018Fi(void *, s16);
 s32 get_field_74__20TWindowChoiceSettingFv(void *);
 extern const f32 lbl_805DCBB8;
 extern const f32 lbl_805DCBBC;
-void TWindowSubComCard__sub_80249144(void *arg0);
 int fn_80268C5C(void*);
 
 void TWindowSubComCard::begin_scroll(f32 farg0) {

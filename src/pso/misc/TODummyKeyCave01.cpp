@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D853C.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TODummyKeyCave01.h"
 #include "pso/TParticleCtrl.h"
@@ -57,24 +61,16 @@ u8 * construct_world_actor_base(void *);
 s32 sub_80165940__16TODummyKeyCave01Fv(void *, f32);
 extern s32 __vt__16TODummyKeyCave01[];
 extern s32 TODummyKeyCave01__class_name;
-u8 *TODummyKeyCave01__ct(u8 *arg0, s32 arg1, s32 arg2);
-void rotate_matrix_zyx(void *m, s32 x, s32 y, s32 z);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-void draw_ginja_model(s32 model);
-void set_chunk_material_color(f32 *arg);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 s32 TODummyKeyCave01Sound__ct(void *, void *, s32, s32);
 u8 is_current_floor_switch_set(u16);
 void *__nw__7TObjectFUl(int);
-void TODummyKeyCave01__sub_80165E88(void);
-void TODummyKeyCave01__sub_80165E8C(void);
-void *__dt__16TODummyKeyCave01Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 extern void *tl_05;

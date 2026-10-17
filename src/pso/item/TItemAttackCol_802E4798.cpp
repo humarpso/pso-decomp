@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemAttackCol_802E4798.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/item/TUnk_804E355C.h"
 #include "pso/item/TItemAttackCol.h"
@@ -30,7 +31,6 @@ s32 TObjPlayer__sub_801542F4(void *);
 s32 TObjPlayer__sub_8015431C(void *);
 s32 reset_global_table();
 Hit_802E4798 *get_attack_entry__16TObjOnlineEndingFi(int);
-void check_hits__14TItemAttackColFPv(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 

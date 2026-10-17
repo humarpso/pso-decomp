@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_801A3B84.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TScene.h"
 

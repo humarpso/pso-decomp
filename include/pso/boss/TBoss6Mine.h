@@ -40,4 +40,18 @@ struct TBoss6Mine : public TObjEnemy {
 };
 
 typedef char TBoss6Mine_size[sizeof(TBoss6Mine) == 0x3D0 ? 1 : -1];
+extern "C" {
+s32 TBoss6Mine__ct(s32 arg0, s32 parent, s32 arg2);
+void TBoss6Mine__vt0(u8 *arg0);
+void TBoss6Mine__vt1(void *arg0);
+void TBoss6Mine__vt2(u8 *arg0);
+void TBoss6Mine__vt3(u8 *arg0);
+void TBoss6Mine__vt4(u8 *arg0);
+void TBoss6Mine__vt5(u8 *arg0);
+void TBoss6Mine__vt6(s32 arg0);
+void TBoss6Mine__vt7(void *p);
+void *__dt__10TBoss6MineFPvs(void *arg0, s16 arg1);
+void explode_damage_players__10TBoss6MineFPv(u8 *arg0);
+}
+
 #endif

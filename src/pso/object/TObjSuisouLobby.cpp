@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/object/TObjSuisouLobby.h"
 #include "pso/TParticleCtrl.h"
@@ -28,27 +31,19 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern u32 TObjSuisouLobby__instance;
 extern s32 TObjSuisouLobby__lobby_type;
-void TObjSuisouLobby__sub_80369B5C(void);
 void run_task__15TObjSuisouLobbyFv(Suisou_80369BF4 *self);
 u32 create_particle_emitter(void *, int);
 s32 init_map_object_base(void *, void *);
 s32 is_lobby_event_active(void);
-void TObjSuisouLobby__sub_80369D68(void);
 s32 matrix_mult_vec(int, void *, void *);
 s32 set_matrix_identity(int);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void *TObjSuisouLobby__ct(void *arg0, void *arg1, void *arg2);
-void *__dt__15TObjSuisouLobbyFv(void *arg0, s16 arg1);
-void render__15TObjSuisouLobbyFv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 s32 scale_matrix(int, f32, f32, f32);
-void draw_ginja_object(void *child);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void queue_destruction__7TObjectFv(void *);
 
 void render_shadows__7TObjectFv(); void vfunc_6__13TUnk_804B9870FPsl(); void apply_object_set_data__13TUnk_804B9870FPv(); void release_member_90__10TObjPlayerFv();
 void vfunc_9__13TUnk_804B9870Fv(); void update_object_view_visibility__13TUnk_804B9870Fff(); void classify_actor_view_detail__13TUnk_804B9870Ffff();

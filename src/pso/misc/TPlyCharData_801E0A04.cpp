@@ -1,13 +1,11 @@
 #include "types.h"
+#include "pso/misc/TLobby_8001D6A0.h"
+#include "pso/misc/TLobby_8013A874.h"
+#include "pso/misc/TPlyCharData_801E0A04.h"
+#include "pso/misc/TPlyDispConfigSmth.h"
+#include "pso/misc/TPlyInventoryItem.h"
 
 extern "C" {
-
-void bswap_pair__14TPlyDispConfigFPv(void* p);
-void bswap__12TPlyCharDataFv(s32 arg0);
-void bswap__12player_statsFv(void *arg0);
-void bswap__15disp_data_part2Fv(s32 arg0);
-void bswap__17TPlyInventoryItemFv(s32 arg0);
-void bswap__18TPlyDispConfigSmthFv(s32 arg0);
 
 void bswap__12TPlyCharDataFv(s32 arg0) {
     s32 off;

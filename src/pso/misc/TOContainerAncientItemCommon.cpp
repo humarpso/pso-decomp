@@ -1,4 +1,11 @@
 #include "types.h"
+#include "pso/misc/TLobby_8030A6A8.h"
+#include "pso/object/TObjChip.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_80087278.h"
+#include "pso/unk/text_8015C534.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804B6C24.h"
 #include "pso/player/TUnk_804B08BC.h"
@@ -35,20 +42,14 @@ struct Obj_8015C48C { u8 pad[0x326]; s16 a326; u8 pad2[0x364 - 0x328]; s32 a364;
 extern "C" {
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void draw_ginja_model(s32 model);
 int is_quest_active(void);
-void * TOContainerAncientItemCommon__ct(void *, void *);
 s32 __nw__7TObjectFUl(int);
-s32 get_game_play_mode();
 extern s32 enable_v2_features;
 void submit_cursor_candidate(Obj_8015C48C *self, s32 x);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
-void *spawn_particle_effect(void *pos, s32 id);
-u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
 void play_container_break_sound(s32 arg0);
 extern Desc_8015C234 fish_break_debris_desc;
 extern Desc_8015C234 lbl_8044074C;
@@ -80,10 +81,7 @@ struct VObj_8015C098 : Base_8015C098 {
     virtual void m77();
 };
 
-void *__dt__28TOContainerAncientItemCommonFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-u8 *init_ancient_container(u8 *arg0, s32 arg1);
-void queue_destruction__7TObjectFv(void *arg0);
 
 void TOContainerAncientItemCommon::vfunc_6(s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 1) {

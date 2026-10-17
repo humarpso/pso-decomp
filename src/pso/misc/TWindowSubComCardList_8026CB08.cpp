@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TQuestListVM_8007EAF8.h"
+#include "pso/misc/TWindowSubComCardList_8026CB08.h"
 #include "pso/misc/TWindowSubComCardList.h"
 
 extern "C" {
-
-void __dl__FPv(void);
 
 s32 delete_if_allocated(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {

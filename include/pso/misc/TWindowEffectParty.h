@@ -25,4 +25,9 @@ struct TWindowEffectParty : public TObject {
 };
 
 typedef char TWindowEffectParty_size[sizeof(TWindowEffectParty) == 0x34 ? 1 : -1];
+extern "C" {
+void *TWindowCtrl__sub_8024FB80(s8 i);
+void *__dt__18TWindowEffectPartyFv(void *arg0, s16 arg1);
+}
+
 #endif

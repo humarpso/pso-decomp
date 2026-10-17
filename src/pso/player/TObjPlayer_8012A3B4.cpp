@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8012A3B4.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void *TObjPlayer__sub_8012A3B4(void *arg0);
 void construct_srank_weapon(void *);
 
 extern s32 s_rank_windmill_weapon_vtable[];

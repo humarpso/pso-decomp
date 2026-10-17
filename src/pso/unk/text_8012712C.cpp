@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8012712C.h"
 #include "pso/item/TUnk_804A3070.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemProShield.h"
@@ -8,7 +9,6 @@ struct Self_8012712C { u8 pad[0x18]; void *vt; u8 pad1c[0x1e4 - 0x1c]; f32 f1e4;
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-u8 *create_agito_weapon(u8 *arg0);
 void TItemWeapon__ct(void *, s32, void *);
 void create_lavis_shot(void);
 extern void *lbl_804A3070[];

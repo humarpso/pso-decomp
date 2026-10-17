@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TScene_800838C4.h"
+#include "pso/unk/text_803D96A8.h"
 
 #include <stddef.h>
 #include "pso/misc/TScene.h"
@@ -23,7 +25,6 @@ s32 is_split_screen();
 f32 PSMTXConcat(void *, void *, void *);
 s32 C_MTXLightFrustum(void *, f32, f32, f32, f32, f32, f32, f32, f32);
 f32 rotate_matrix_by_node_angles(void *, int);
-s32 pop_matrix();
 s32 set_ginja_post_texgen_count(s32);
 s32 set_ginja_post_tev_stage_count(s32);
 f32 rotate_current_matrix_x_ps(int);
@@ -39,7 +40,6 @@ extern const f32 lbl_805D9418;
 extern const f32 lbl_805D941C;
 extern const f32 lbl_805D9420;
 extern const f32 lbl_805D9424;
-void render_projected_shadow_receiver(u8 *arg0, s32 arg1);
 f64 get_end_text_value__10TObjPlayerFv(f32);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
@@ -48,7 +48,6 @@ extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805D940C;
 extern const f32 lbl_805D9428;
 extern const f32 lbl_805D942C;
-f32 calc_camera_fov_degrees(void);
 void TScene::apply_single_screen_state() {
     if ((is_split_screen() == 0) && (TObjPlayer::check_all_players_ready() != 0)) {
         model_render_flags &= 0xFFF7FFFF;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80362164.h"
 #include "pso/unk/TObjEneEpsilonBody.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/enemy/TObjEneEpsilonGuard.h"
@@ -7,7 +8,6 @@
 extern "C" {
 s32 transition_enemy_state(void *, int);
 s32 play_persistent_sound(int, void *, void *, int, int);
-void fn_80362164(u8 *arg0);
 void fn_80362164(u8 *arg0) {
     if (TObjPlayer::check_demo_mode() != 0) {
         ((TObjEneEpsilonBody *)(arg0))->vfunc_105();

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCardList_8026CB08.h"
 #include "pso/misc/TUnk_804D0618.h"
 #include "pso/misc/TWindowSubShortCutList.h"
 #include "pso/misc/TWindowChat.h"
@@ -36,7 +37,6 @@ s32 draw_visible_window_entries(void *, void *, s32);
 s32 update_item_list_window();
 s32 draw_list_page_indicator(s32, s32);
 void __dl__7TObjectFPv(void *);
-s32 delete_if_allocated(s32 arg0, s16 arg1);
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
 
 void TWindowSubShortCutList::refresh_entries() {

@@ -1,16 +1,16 @@
 #include "types.h"
+#include "pso/boss/TBoss6EmptyWarp_802B0E2C.h"
+#include "pso/misc/TLoadCtrl_80227390.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/boss/TBoss6EmptyWarp.h"
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/boss/TBoss6Thanks.h"
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
-void play_area_music(char *name);
 s32 is_flag_set__14TBoss6PlotFalzFv();
 s32 is_ship_door_ready__12TBoss6ThanksFv();
 extern s32 lbl_804709E0[];
 extern s32 lbl_804709E8[];
-void *__dt__15TBoss6EmptyWarpFv(void *arg0, s16 arg1);
 void end_cutscene_camera__14TBoss6PlotFalzFPv(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -51,7 +51,6 @@ void *__dt__15TBoss6EmptyWarpFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void *TBoss6EmptyWarp__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern void *lbl_805D3E90;
@@ -65,8 +64,6 @@ void *TBoss6EmptyWarp__ct(void *arg0) {
     return arg0;
 }
 
-void TBoss6EmptyWarp__sub_802B1004(void* p);
-int TBoss6EmptyWarp__sub_802B1018(void);
 s32 play_sound_effect(s32, s32, s32, s32);
 void *__nw__7TObjectFUl(int);
 

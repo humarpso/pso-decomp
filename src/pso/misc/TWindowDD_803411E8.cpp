@@ -1,14 +1,14 @@
 #include "types.h"
+#include "pso/misc/TWindowDD_803411E8.h"
+#include "pso/misc/TWindowSubStatusDisp_8025A9B4.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowDD.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 
 extern "C" {
-void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 extern const f32 TWindowDD__data_805DFB58;
 extern const f32 lbl_805DFC98;
-void TWindowDD__sub_803412A0(u8 *arg0);
 void TWindowDD::init_and_set_field50(void *arg1) {
     ((TWindowSubSymbolChatPartsSet *)((char *)this + 48))->copy_vec2((void *)((void *)((char *)this + 100)));
     *(void **)((s8 *)this + 0x50) = arg1;

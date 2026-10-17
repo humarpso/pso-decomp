@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/ShopToolStock.h"
+#include "pso/unk/text_80223B98.h"
 #include "pso/misc/TLobby.h"
 #include "pso/item/TItemData.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -56,12 +58,8 @@ extern u8 lbl_8044C478[];
 extern s32 shop_tool_stock_buffers[];
 extern u32 lobby_tool_random_rel;
 extern int shop_tool_stock_level;
-void load_tool_random_rel(void);
 void mem_free(void *p);
 void sort_shop_items(s32, s32, s32);
-void generate_shop_technique_pool(s32);
-void generate_shop_rare_tool_pool(s32);
-void generate_shop_common_tool_pool(s32);
 u32 lobby_tool_random_rel;
 int shop_tool_stock_level;
 

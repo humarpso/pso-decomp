@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjBgmColCtrl_8017E8E4.h"
 #include "pso/object/TObjBgmColCtrl.h"
 
 extern "C" {

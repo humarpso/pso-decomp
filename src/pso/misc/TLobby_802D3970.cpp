@@ -1,16 +1,11 @@
 #include "types.h"
+#include "pso/misc/TLobby_802D3970.h"
 #include "pso/system/byteswap.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-int TLobby__sub_802D39BC(void* p);
-int TLobby__sub_802D39DC(void* p);
-int TLobby__sub_802D39FC(void* p);
-void TLobby__sub_802D3AA8(void);
-void build_6xA6_modify_trade_proposal(void* p);
-int close_trade_request__6TLobbyFPv(void* p);
 int reset_trade_state__6TLobbyFv(void*);
 int close_trade_request__6TLobbyFv(void*);
 

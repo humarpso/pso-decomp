@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/Boss6Type2Death.h"
 #include "pso/boss/TBoss6Type2.h"
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/boss/TBoss4DarkFalz.h"
@@ -10,7 +11,6 @@ extern "C" {
 s32 refresh_players_equipment__14TBoss6PlotFalzFPv();
 s32 end_cutscene_camera__14TBoss6PlotFalzFPv();
 s32 destroy_static_instance__14TBoss6PlotFalzFv(void *);
-void *create_boss6_type2_death(void *arg0, void *arg1);
 s32 is_ending_or_split_screen__14TBoss6PlotFalzFv(void *);
 s32 is_ready__14TBoss6PlotFalzFv(void *);
 s32 obj_setArrS16_FC(void *, int, void *);

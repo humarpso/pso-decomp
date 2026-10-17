@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/npc/TObjNpcLappy_8014B840.h"
 #include "pso/npc/TUnk_804A9F50.h"
 #include "pso/npc/TObjNpcLappy.h"
 
 extern "C" {
 
-void TObjNpcLappy__sub_8014B840(void);
 void __dl__7TObjectFPv(void *);
 void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1);
 

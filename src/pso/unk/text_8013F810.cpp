@@ -1,4 +1,7 @@
 #include "pso/map/FloorResourceCallbacks.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
+#include "pso/unk/text_8013F810.h"
+#include "pso/unk/text_803DF204.h"
 
 #include "types.h"
 #include "pso/misc/TLobby.h"
@@ -37,15 +40,10 @@ struct Lz_8013F99C {
 
 extern "C" {
 void lzss_insert_ring_node(Lz_8013FDC4 *lz, s32 r);
-void TLobby__sub_8013FF64(u8 *arg0, s8 arg1);
-u8 lzss_read_byte(u8 *arg0);
-u8 lzss_input_exhausted(u8 *arg0);
 void lzss_remove_ring_node(Lz_8013FCB0 *t, s32 p);
 void debug_print__FPCc(const char *);
 void bswap_32__FPUl(u32 *);
 int sprintf(char *, const char *, ...);
-u32 TLobby__sub_803DF1CC(void);
-u32 fn_803DF204(u32 x);
 extern char lbl_8043F168[];
 
 #pragma push

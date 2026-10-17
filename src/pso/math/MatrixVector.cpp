@@ -1,14 +1,12 @@
 #include "types.h"
+#include "pso/math/MatrixVector.h"
 
 struct Vec_803D8D1C { f32 x, y, z; };
 
 extern "C" {
-f32 vec_squared_length(u8 *arg0);
 f32 matrix_identity(void *);
 extern u8 *current_matrix;
-void set_matrix_identity(u8 *arg0);
 s32 PSMTXMultVecSR(int);
-void rotate_vector_by_matrix(u32 arg0);
 void GXGetProjectionv(f32 *p);
 void GXGetViewportv(f32 *vp);
 void GXProject(f32 x, f32 y, f32 z, u8 *mtx, f32 *pm, f32 *vp, f32 *sx, f32 *sy, f32 *sz);
@@ -16,9 +14,6 @@ void project_world_to_screen(u8 *mtx, Vec_803D8D1C *pos, f32 *out);
 void PSMTXConcat(void *, void *, void *);
 void PSMTXRotAxisRad(void *, void *, f32);
 extern f64 lbl_805E0ED8;
-void rotate_matrix_about_axis(u8 *arg0, s32 arg1, s32 arg2);
-void scale_matrix_vec3(u8 *arg0, u8 *arg1);
-void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 s32 scale_matrix(f32, f32, f32);
 s32 translate_matrix(f32, f32, f32);
 

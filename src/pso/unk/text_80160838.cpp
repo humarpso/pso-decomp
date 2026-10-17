@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_80160804.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TODoorAncient09.h"
 #include "pso/misc/TLobby.h"
@@ -12,7 +13,6 @@ struct Obj_80160838 { u8 pad[4]; s16 kind; };
 struct Self_80160838 { u8 pad[0x1C]; u16 id; u8 pad1e[0x80 - 0x1E]; Obj_80160838 *obj; };
 
 extern "C" {
-void update_and_send_60__6TLobbyFPv(void *);
 void TODoorAncient09::door_ancient09_sync_state(void *src_arg) {
     Self_80160838 *self = (Self_80160838 *)this;
     State_80160838 *src = (State_80160838 *)src_arg;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/item_param.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" void* item_pmt_tbl;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl_80271DFC.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/misc/TWindowCtrl.h"
 

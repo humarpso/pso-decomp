@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/unk/text_803CC294.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 
 u8 *alloc_from_heap__6TLobbyFPv(s32);
 s32 adxf_get_fsize_byte__6TLobbyFv();
-s32 TLobby__sub_803CC53C(u8 *arg0);
 s32 adxf_open__6TLobbyFUii(s32, s32);
 u8 *link_into_list__6TLobbyFv();
 s32 strncpy(void *, s32, s32);

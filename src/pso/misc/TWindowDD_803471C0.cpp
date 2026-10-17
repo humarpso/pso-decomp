@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TWindowDD_803471C0.h"
 #include "pso/misc/TWindowDD.h"
 #include "pso/misc/TWindowCtrl.h"
 
 extern "C" {
-s32 TWindowDD__sub_80347238(s16 arg0);
 s32 update_state__9TWindowDDFv(s32, s32, s32);
 
 extern s32 window_dd_buffer_a;

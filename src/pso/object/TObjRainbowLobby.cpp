@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/object/TObjRainbowLobby.h"
 #include "pso/TParticleCtrl.h"
@@ -23,17 +25,13 @@ extern "C" {
 
 s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);
-void draw_ginja_object(void *child);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
-void *TObjRainbowLobby__ct(void *arg0, s32 arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);
 void TLobby__sub_8001FE7C(void*, int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_80350808_lbl_804F0DF0 bm_obj_lobby_rainbow_resource_descriptor;
 extern u32 TObjRainbowLobby__shared_model_resource;
-void *__dt__16TObjRainbowLobbyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 s32 init_map_object_base();
 s32 is_lobby_event_active();

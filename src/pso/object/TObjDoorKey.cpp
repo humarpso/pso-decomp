@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjDoorJung.h"
 #include "pso/object/TObjMotion.h"
@@ -83,17 +87,13 @@ void scroll_ginja_mesh_uvs(void *, int, int, int, int);
 void PPCSync();
 void rotate_matrix_y(int, int);
 void push_matrix();
-s32 pop_matrix(void);
 void post_translate_matrix(void *);
-void draw_ginja_object(void *);
-void set_chunk_material_color(f32 *arg);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern u8 door_key_beam_color_table[][0x10];
 extern s32 actor_frame_tick;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 void play_sound_effect(int, void *, int, int);
-void TObjDoorKey__vt16(u8 *arg0);
 s32 spawn_continuous_particle_effect_with_flags(Vec_80190020 *, int, int);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_key__5TOKeyFv(void *, void *);
@@ -102,11 +102,6 @@ extern u8 TObjDoorKey__collision_body_parts[];
 extern s32 __vt__11TObjDoorKey[];
 extern s32 TObjDoorKey__class_name;
 extern const f32 lbl_805DBE0C;
-void *TObjDoorKey__ct(void *arg0, void *arg1, void *arg2);
-void *TObjDoorKey__create(void *arg0);
-void TObjDoorKey__sub_8018FAEC(void);
-void * TObjEnvSoundGlobal__create(void *arg0);
-void *__dt__11TObjDoorKeyFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 int update_armed_switch__5TOKeyFv(void*);
 s32 free_collision_body_parts(void *);
@@ -117,7 +112,6 @@ void *__dt__5TOKeyFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 void *fn_8018FA6C();
 int is_not_split_screen__13TRaderMapCoreFv(void *);
-void queue_destruction__7TObjectFv(void *arg0);
 
 void TObjDoorKey__sub_8018FAEC(void) {
     void *temp_r3;

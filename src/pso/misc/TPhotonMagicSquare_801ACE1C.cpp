@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/misc/TPhotonMagicSquare_801ACE1C.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_803E4954.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TPhotonMagicSquare.h"
 #include "pso/TParticleCtrl.h"
@@ -30,14 +36,10 @@ struct Self_801ACE1C {
 };
 
 extern "C" {
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-void set_chunk_material_color(f32 *arg);
-void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern Color_801ACE1C chunk_material_color_half_alpha_f32;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
@@ -88,8 +90,6 @@ struct Self_801ACF24 {
     u32 fC4;
     f32 fC8;
 };
-
-void queue_destruction__7TObjectFv(void *);
 
 #pragma push
 #pragma fp_contract on
@@ -151,11 +151,8 @@ extern RecoveredGlobal_801AD0F0_TPhotonMagicSquare__data_804C3940 TPhotonMagicSq
 extern RecoveredGlobal_801AD0F0___vt__18TPhotonMagicSquare __vt__18TPhotonMagicSquare;
 extern s32 TPhotonMagicSquare__data_805D3508;
 extern u8 *photon_blast_shared_resource;
-u8 *TPhotonMagicSquare__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
-u8 *construct_photon_magic_square_normal(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 find_entity_by_id(void *);
 s32 play_sound_effect(int, int, int, int);
-void *__dt__18TPhotonMagicSquareFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 void *__dt__18TPhotonMagicSquareFv(void *arg0, s16 arg1) {

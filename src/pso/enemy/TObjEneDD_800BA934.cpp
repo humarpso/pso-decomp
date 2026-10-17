@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/boss/TObjBoss2Tunnel_8007E418.h"
+#include "pso/math/MatrixTransforms.h"
+#include "pso/math/MatrixVector.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -28,17 +32,13 @@ struct Obj_800BAA2C { u8 pad0[0x38]; f32 x; f32 y; f32 z; u8 pad44[0x60 - 0x44];
 
 extern "C" {
 int push_matrix(void);
-void set_matrix_identity(u8 *arg0);
 f32 post_translate_matrix(void *);
 int rotate_matrix_y(void *, void *);
 int matrix_mult_vec(void *, void *, void *);
-s32 pop_matrix(void);
-void rotate_xz_pair_by_angle(f32 *x, f32 *z, s32 angle);
 void subtract_vector(Vec_800BAAE4 *a, Vec_800BAAE4 *b);
 void set_part_local_pos__9TObjEneDDFPvPvi(Obj_800BAAE4 *self, Vec_800BAAE4 *v, s32 i);
 void vec3_add_to(Vec_800BA9BC *a, Vec_800BA9BC *b);
 void set_part_position__9TObjEneDDFPvPvi(Obj_800BA9BC *self, Vec_800BA9BC *v, s32 i);
-void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 void update_local_colliders_from_world(Obj_800BAA2C *arg0, V3_800BAA2C *arg1);
 int init_collision_body_parts(void*);
 

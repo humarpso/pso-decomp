@@ -1,4 +1,6 @@
 #include <dolphin/mtx.h>
+#include "pso/boss/TBoss5GryphonLightningWing.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 #include "pso/TBoss5GryphonLightning.h"
 #include "pso/TBoss5GryphonLightningWing.h"
@@ -39,24 +41,16 @@ struct Wing_80351C18 {
 };
 
 extern "C" {
-void fn_80351DA8(s32 arg0, u8 *arg1, u8 *arg2, s32 arg3, s32 arg4);
 u8 *csnVecterUnder(s32 *, s32);
 s32 __nw__7TObjectFUl(int);
 extern const f32 lbl_805D8D48;
-s32 spawn_lightning_wing__12TBoss8DragonFiiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
-void queue_destruction__7TObjectFv(void *arg0);
 s32 play_sound_effect(int, void *, int, int);
-void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0);
 extern const f32 lbl_805DFED4;
-void run_task__26TBoss5GryphonLightningWingFv(u8 *arg0);
 extern s32 TLobby__event_theme_id;
 s32 TBoss5GryphonLightning__ct(f32);
 extern u8 __vt__26TBoss5GryphonLightningWing[];
 extern s32 lbl_805D4368;
 extern const f32 lbl_805DFED8;
-s32 __ct__26TBoss5GryphonLightningWingFv(int arg0, void *arg1, void *a, void *mid, void *b, void *arg5, void *arg6);
-void TLobby__sub_80351DF8(void);
-u8 is_lobby_event_active(void);
 s32 TBoss8Dragon__sub_80063FB8(s32, s32 *, f32);
 
 extern f32 lbl_805DFED0;

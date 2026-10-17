@@ -8,4 +8,9 @@ struct TPacket
     void clear_send_buffer();
 };
 
+extern "C" {
+void *TPacket__ct(void *arg0);
+void *__dt__7TPacketFv(void *arg0, s16 arg1);
+}
+
 #endif

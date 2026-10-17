@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TDLGraph_8007F7DC.h"
 #include "pso/misc/TDLGraph.h"
 
 extern "C" {
 
-void *TDLGraph__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern const f32 lbl_805D9298;

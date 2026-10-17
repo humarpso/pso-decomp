@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubShortMail_80246CB8.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TWindowCtrl.h"
 
 extern "C" {
@@ -7,9 +9,7 @@ s32 has_player_active_menu__11TWindowCtrlFv(s32);
 s32 is_slot_visible__11TWindowCtrlFv(s32);
 void *TWindowTradeRequest__ct(void *, void *);
 void *__nw__7TObjectFUl(s32);
-s32 is_trade_active();
 s32 TWindowCtrl__sub_8024701C(void *);
-void queue_destruction__7TObjectFv(void *arg0);
 
 extern s32 local_client_id;
 

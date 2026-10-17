@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/network/TProtocol.h"
 #include "pso/TProtocol.h"
 
 extern "C" {
-
-void bswap_cmd_AB__9TProtocolFPv(void *p);
 
 void TProtocol::handle_cmd_AB(packet &pkt) {
     void *arg1 = &pkt;

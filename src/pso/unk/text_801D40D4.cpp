@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/item/TItemDispatch.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TLobby_8030A6A8.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
+#include "pso/unk/text_801D40D4.h"
 #include "pso/system/memory.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItem.h"
@@ -32,32 +37,17 @@ typedef struct List_801D4744 {
 extern "C" {
 u8 get_field_ec__5TItemFv(void *, int);
 s32 is_item_equipped(void *, int);
-void TObjPlayer__sub_801D45B0(s32 *arg0, s32 arg1);
-s8 TObjPlayer__sub_80102C30(u8 *arg0);
-s32 export_inventory_entry__10TObjPlayerFiPv(s32 arg0, u8 *arg1);
 s32 start_inventory_update__10TObjPlayerFi(void *, void *);
 s32 set_field_1c__10TObjPlayerFl(int, int);
-s32 TObjPlayer__sub_801D47EC(s32 arg0, s32 arg1, s32 arg2);
 u8 *get_ptr_4__10TObjPlayerFv();
-s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
-s32 fn_801D4270(s32 arg0);
 void mem_free(void *p);
-u8 *TObjPlayer__sub_801D4678(u8 *arg0, s16 arg1);
 void *mem_alloc(u32 size);
 s32 __construct_new_array(void *, void *, int, int, int);
-void TObjPlayer__sub_801D4730(void* p);
-u8 *TObjPlayer__sub_801D46D4(u8 *arg0, s32 arg1);
 void fn_801C1BA8(void *, void *);
 s32 fn_801D40D4(s32 arg0, Rec_801D40D4 *arg1, u8 *arg2);
-int reset(void* p);
 s32 is_both_confirmed__23TAdSinglePlyChrSelectGCFv(void *);
 void memcpy(void *, void *, s32);
-void remove_list_entry_by_id(s32 arg0);
-void TObjPlayer__sub_801D47D8(void* p, void* q);
-s32 check_player_action_allowed(void);
 s32 is_quest_active();
-s32 get_game_play_mode();
-s32 get_main_phase();
 s32 is_technique_ready__8TTecCtrlFv();
 int memset(void*, int, int);
 

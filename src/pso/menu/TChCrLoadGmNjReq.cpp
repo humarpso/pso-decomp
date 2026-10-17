@@ -1,4 +1,5 @@
 #include "pso/TChCrLoadGmNjReq.h"
+#include "pso/menu/TChCrLoadGmNjReq.h"
 
 extern "C" void TLobby__sub_8001FE7C(void*, int);
 
@@ -10,8 +11,6 @@ s32 update_model_load__6TLobbyFv();
 s32 start_character_load_task__23TAdSinglePlyChrSelectGCFv();
 struct VOff_8028C7BC_arg0_8028C6EC { char pad_0[0x30]; char f_30[1]; };
 
-void *TChCrLoadGmNjReq__ct(void *arg0, void *arg1, void *arg2);
-void * create_ch_cr_load_gm_nj_req(void *arg0, void *arg1);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 void strncpy(void *, void *, int);

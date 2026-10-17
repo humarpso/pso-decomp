@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TQuestColCtrl.h"
 
 struct Obj_80195CF0 { u8 pad0[6]; u16 f6; u8 pad8[4]; Obj_80195CF0 *next; u8 pad10[4]; Obj_80195CF0 *child; };
@@ -16,7 +17,6 @@ extern s32 lbl_805D33FC;
 extern s32 lbl_805D3400;
 extern u32 quest_collision_task_root;
 Obj_80195CF0 *find_by_id__13TQuestColCtrlFUs(u16 arg0);
-void queue_destruction__7TObjectFv(void *);
 s32 TQuestColCtrl__ct(s32, s32);
 u32 __ct__7TObjectFP7TObject(s32, s32);
 u32 __nw__7TObjectFUl(s32);

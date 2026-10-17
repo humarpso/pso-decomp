@@ -14,4 +14,10 @@ struct TObjBigTuitate : public TUnk_804AF8A0 {
 };
 
 typedef char TObjBigTuitate_size[sizeof(TObjBigTuitate) == 0xCC ? 1 : -1];
+extern "C" {
+void *TObjBigTuitate__create(void *arg0);
+void *TObjBigTuitate__ct(void *arg0, void *arg1, void *arg2);
+void *__dt__14TObjBigTuitateFv(void *arg0, s16 arg1);
+}
+
 #endif

@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/misc/TQuestThread.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/ui/TAdMcCheckGC.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/TAdPlayerLoadGC.h"
@@ -11,18 +14,12 @@ struct RecoveredGlobal_8033F1C4___vt__12TAdMcCheckGC {
 
 extern "C" {
 s32 __dt__7TObjectFv(void *, int);
-void queue_destruction__7TObjectFv(void *arg0);
 s32 __dl__7TObjectFPv(void *);
 extern s32 memcard_cursor_instance_table[];
 extern s32 __vt__12TAdMcCheckGC[];
-u8 *__dt__12TAdMcCheckGCFv(u8 *arg0, s16 arg1);
-void TLobby__sub_8033EE38(void* p);
-void set_tex_coord_gen2(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 GXSetTexCoordGen2(s32, s32, s32, s32, s32, s32);
-s32 get_localized_text_entry(s32, s32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(void *, s32, s32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
-void set_status_flag_80__12TQuestThreadFPv(void *p);
 
 void set_tex_coord_gen2(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     GXSetTexCoordGen2(arg0, arg1, arg2, arg3, 0, 0x7D);

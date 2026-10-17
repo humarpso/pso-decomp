@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/player/TUnk_804CCC68.h"
 #include "pso/misc/TTecSifta.h"
 #include "pso/misc/TTecAnti.h"
@@ -82,7 +83,6 @@ s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
 s32 is_split_screen();
 s32 is_script_controlled__10TObjPlayerFv(void *);
-void queue_destruction__7TObjectFv(void *arg0);
 u32 find_entity_by_id(int);
 void deliver_technique_to_party_targets(void *);
 void run_task__9TTecSiftaFv(Sifta_8023AF94 *self);

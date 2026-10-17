@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TQuestVmDownLoadServer_800FA8A4.h"
 #include "pso/misc/TFogCtrl_EOR.h"
 #include "pso/misc/TFogCtrl.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
@@ -23,7 +24,6 @@ extern s32 lbl_8049C700[];
 extern RecoveredGlobal_800FA95C_lbl_80515F48 lbl_80515F48;
 extern s32 lbl_805D2B1C;
 s32 TFogCtrl__sub_800FAC84(void *p);
-void *__dt__12TFogCtrl_EORFv(void *arg0, s16 arg1);
 int parse_serial_value__22TAdEnterSerialAccessGCFv(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);

@@ -1,4 +1,5 @@
 #include "pso/TBoss6CrushRock.h"
+#include "pso/boss/TBoss6CrushRock.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss6Rock.h"
 
@@ -27,7 +28,6 @@ extern const f32 lbl_805E00C8;
 extern const f32 lbl_805E00CC;
 extern const f32 lbl_805E00D0;
 extern const f32 lbl_805E00D4;
-u8 *__ct__15TBoss6CrushRockFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void *__nw__7TObjectFUl(int);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);

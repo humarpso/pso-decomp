@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/item/TItem.h"
 #include "pso/item/TUnk_804E355C.h"
@@ -147,7 +149,6 @@ struct Obj_802E3C4C {
 struct Hit_802E3D8C { s32 pad; void *pos; };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
 s32 disallow_rendering__7TObjectFv(void *);
 s32 test_flags_any(void *, int);
 s32 copy_position__15TEffStarLight2DFPv(int, void *);
@@ -170,7 +171,6 @@ s32 run_with_transform_context__10TObjPlayerFii(int, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 rotate_matrix_by_node_angles(void *, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 extern int attack_collider_render_owner;

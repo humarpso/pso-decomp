@@ -1,8 +1,7 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801D9E10.h"
 
 extern "C" {
-
-void TObjPlayer__sub_801D9E10(void* p, s16 v);
 
 void TObjPlayer__sub_801D9E10(void* p, s16 v) { *(s16*)((char*)p + 0x8) = v; }
 

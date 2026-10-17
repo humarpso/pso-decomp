@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TOBarrierEnergy01.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
@@ -20,11 +22,9 @@ struct BarrierObj_80157F30 : BarrierBase_80157F30 {
 
 void *TOBarrierEnergy01__ct(void *, void *, void *);
 s32 post_translate_matrix(void *);
-void draw_ginja_object(void *child);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 void *__nw__7TObjectFUl(int);
 
 extern u8 *TOBarrierEnergy01__texture_lists;

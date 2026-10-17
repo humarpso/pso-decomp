@@ -1,0 +1,10 @@
+#ifndef PSO_ENEMY_TOBJENEME3SHINOWAREAL_8002ADD8_H
+#define PSO_ENEMY_TOBJENEME3SHINOWAREAL_8002ADD8_H
+
+#include "types.h"
+
+extern "C" {
+s32 fn_8002AE08(void *p);
+}
+
+#endif

@@ -1,10 +1,15 @@
 #include "types.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/object/TObjFogCollisionPoison.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/unk/text_80153A7C.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/object/TObjFogCollisionSwitch.h"
 #include "pso/object/TObjFogCollision.h"
 
 extern "C" {
 
-void *__dt__22TObjFogCollisionSwitchFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__dt__16TObjFogCollisionFv(void *arg0, s16 arg1);
 
@@ -21,7 +26,6 @@ void *__dt__22TObjFogCollisionSwitchFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void *TObjFogCollisionSwitch__ct(void *arg0);
 void TObjFogCollision__ct(void *);
 
 extern void *lbl_805D2E7C;
@@ -54,16 +58,9 @@ struct Color_80153B64 { u32 v[4]; };
 struct O_80153D98 { u8 pad[0x88]; s32 mode; };
 
 extern "C" {
-int TObjFogCollision__sub_80153F68(void *);
-int TObjFogCollision__sub_80153F70(void);
-void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 scale_matrix(int, f32, f32, f32);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void set_chunk_material_override_pair(s32 arg0, s32 arg1);
-void set_chunk_material_color(f32 *arg);
-void draw_chunk_object(void *child);
 extern Color_80153B64 lbl_8044002C;
 extern Color_80153B64 fog_collision_color_a;
 extern Color_80153B64 fog_collision_color_b;
@@ -84,9 +81,6 @@ extern char lbl_804400C8[];
 extern char lbl_804400D4[];
 extern char lbl_804400E0[];
 extern char lbl_805DB268;
-void record_fog_collision_hit(s32 arg0, s32 arg1, s32 arg2);
-int TObjFogCollision__sub_80153F68(void * _w0);
-void *TObjFogCollisionSwitch__create(void *arg0);
 f32 horizontal_distance_squared(void *, s32);
 s32 get_player_by_client_id(u16);
 void *__nw__7TObjectFUl(int);

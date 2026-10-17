@@ -1,4 +1,11 @@
 #include "types.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802C6F88.h"
+#include "pso/ui/TAdScrollWinGC_8026A5F8.h"
+#include "pso/ui/TAdScrollWinGC_80327504.h"
+#include "pso/unk/text_8026A14C.h"
 #include "pso/misc/TWindowMessage.h"
 #include "pso/misc/TWindowMessageLog.h"
 #include "pso/ui/TAdScrollWinGC.h"
@@ -8,12 +15,8 @@ struct RecoveredGlobal_80327698___vt__14TAdScrollWinGC { s32 value; u8 remaining
 
 extern "C" {
 u8 * __dt__7TObjectFv(void *, s16);
-void queue_destruction__7TObjectFv(void *);
 void __dl__7TObjectFPv(s32);
-void fn_8026A14C(void);
 extern RecoveredGlobal_80327698___vt__14TAdScrollWinGC __vt__14TAdScrollWinGC;
-u8 *__dt__14TAdScrollWinGCFv(u8 *arg0, s16 arg1);
-void fn_8026A61C(void *, f32);
 extern u8 controller_physical_port_bank[];
 extern const f32 lbl_805DF69C;
 extern const f32 lbl_805DF6A0;
@@ -21,11 +24,8 @@ extern const f32 lbl_805DF6A4;
 extern const f32 lbl_805DF6A8;
 extern const f32 lbl_805DF6AC;
 extern const f32 lbl_805DF6B0;
-s32 get_localized_text_entry(s32, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
-void TAdScrollWinGC__sub_8026A5F8(void *a0);
 s32 create_message_log_window(void *, void *, s32);
-int TAdMultiPlyChrSelectGC__sub_802C6FA8(void);
 extern u8 lbl_80476770[];
 extern u8 lbl_80476778[];
 extern s32 TAdScrollWinGC__class_name;
@@ -34,8 +34,6 @@ extern const f32 lbl_805DF6B4;
 extern const f32 lbl_805DF6B8;
 extern const f32 lbl_805DF6BC;
 extern const f32 lbl_805DF6C0;
-void *TAdScrollWinGC__ct(void *arg0, void *arg1, s32 arg2, s32 arg3);
-void TWindow__close(u8 *arg0);
 
 void TAdScrollWinGC::close_window() { if (*(unsigned int *)&this->m_40 != 0) { TWindow__close((u8 *)(*(void* *)&this->m_40)); *(int *)&this->m_40 = 0; } }
 

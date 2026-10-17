@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TWindowSubSymbolChat_8007763C.h"
 #include "pso/system/byteswap.h"
 #include "pso/misc/TWindowSubSymbolChat.h"
 
 extern "C" {
 
-void TWindowSubSymbolChat__sub_80077704(void* p);
 int read_be16_field2__10TObjPlayerFv(void*);
 int update_players__6TLobbyFi(void*);
 

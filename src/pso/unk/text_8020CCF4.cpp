@@ -1,4 +1,5 @@
 #include "pso/enemy/EnemyFactoryTables.h"
+#include "pso/unk/text_8020CCF4.h"
 
 #include "types.h"
 

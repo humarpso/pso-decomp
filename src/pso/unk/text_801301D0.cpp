@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_801301D0.h"
 #include "pso/item/TUnk_804A68C8.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -10,11 +11,9 @@ struct RecoveredGlobal_801301D0_lbl_804A68C8 {
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-u8 *create_cane_weapon(u8 *arg0);
 u8 * TItemWeapon__ct(void *, void *);
 extern RecoveredGlobal_801301D0_lbl_804A68C8 lbl_804A68C8;
 extern const f32 lbl_805DAFFC;
-u8 *construct_cane_weapon(u8 *arg0, u8 *arg1, u8 *arg2);
 
 typedef char RecoveredGlobal_801301D0_lbl_804A68C8_size[sizeof(RecoveredGlobal_801301D0_lbl_804A68C8) == 0xF8 ? 1 : -1];
 u8 *construct_cane_weapon(u8 *arg0, u8 *arg1, u8 *arg2) {

@@ -1,0 +1,14 @@
+#ifndef PSO_PLAYER_TOBJPLAYER_801A5AEC_H
+#define PSO_PLAYER_TOBJPLAYER_801A5AEC_H
+
+#include "types.h"
+
+extern "C" {
+void accumulate_key_bits(s32 arg0, s32 *arg1);
+void bind_controller_devices(void);
+s32 func_801A5E54__Fv(void);
+void reset_controller_input_state(void);
+void update_pad_recalibration(void);
+}
+
+#endif

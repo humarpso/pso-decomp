@@ -1,13 +1,13 @@
 #include "types.h"
+#include "pso/misc/TPlyMeetUserExtension.h"
+#include "pso/misc/TRecvPort.h"
+#include "pso/misc/TUserAns.h"
 #include "pso/system/byteswap.h"
 #include "pso/TPlyGuildCardTag.h"
 
 extern "C" {
 
-void bswap__8TUserAnsFv(s32 arg0);
 s32 bswap__13packet_headerFv();
-void bswap__21TPlyMeetUserExtensionFv(s32 arg0);
-void bswap__9TRecvPortFv(s32 arg0);
 
 void bswap__8TUserAnsFv(s32 arg0) {
     bswap__13packet_headerFv();

@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/math/MatrixTransforms.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_80087278.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803DA798.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_804B8DD0.h"
 #include "pso/misc/TWindowTimer.h"
@@ -43,27 +49,20 @@ u8 *get_bml_model(s32, s32);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_z(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void draw_ginja_model(s32 model);
 extern RecoveredGlobal_801982D4_lbl_804B8DAC lobby_gvm_texture_handles;
 extern s32 gogo_ball_bml_resource;
 s32 construct_world_actor_base(void *, void *);
 extern s32 __vt__12TObjSinBoard[];
 extern s32 TObjSinBoard__class_name;
-u8 *TObjSinBoard__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_state_flag__9TMainTaskFv();
 void scale_matrix(int, f32, f32, f32);
-void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 void rotate_matrix_x(int, int);
-s32 set_texture_num(s32 i);
 extern Pos_8019806C TObjSinBoard__quad_position_table;
 extern Uv_8019806C sin_board_uv_table;
 extern u8 signboard_texture_list[];
 extern u32 TObjSinBoard__texture_buffer;
-void queue_destruction__7TObjectFv(void *arg0);
 extern u8 gogo_ball_sync_state[];
-void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 s32 TWindowTimer__sub_80198CF8(void *, void *, s16, s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
 void *__nw__7TObjectFUl(int);
@@ -72,8 +71,6 @@ extern u8 gogo_ball_configuration[];
 extern void *tl_05;
 extern s32 tl_06;
 extern const f32 lbl_805DBF40;
-void *TObjSinBoard__create(void *arg0);
-void *__dt__12TObjSinBoardFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 void TObjSinBoard::render() {

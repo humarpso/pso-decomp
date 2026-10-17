@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/item/TItemEquipVariant_80120CF8.h"
+#include "pso/item/TItemEquipVariant_8012B7FC.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-
-void *__dt__13TUnk_804A4E68Fv(void *arg0, s16 arg1);
-void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
 
 extern s32 imperial_pick_weapon_vtable[];
 

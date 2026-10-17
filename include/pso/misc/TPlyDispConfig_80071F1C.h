@@ -1,0 +1,11 @@
+#ifndef PSO_MISC_TPLYDISPCONFIG_80071F1C_H
+#define PSO_MISC_TPLYDISPCONFIG_80071F1C_H
+
+#include "types.h"
+
+extern "C" {
+void *__ct__14TPlyDispConfigFv(void *arg0);
+s32 free_if_valid__14TPlyDispConfigFis(s32 arg0, s16 arg1);
+}
+
+#endif

@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TLobby_8001D6A0.h"
+#include "pso/misc/TWindowSubStatusDisp_80228CC0.h"
+#include "pso/misc/TWindowSubStatusDisp_80228F5C.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
+#include "pso/unk/text_803DE864.h"
 #include "pso/system/date.h"
 #include "pso/system/byteswap.h"
 #include "pso/system/memory.h"
@@ -6,19 +12,10 @@
 #include "pso/misc/TRaderMapCore.h"
 
 extern "C" {
-s32* get_shared_text_buffer(void);
-s32 get_card_window_area__6TLobbyFv(void);
-int get_flag_bit0__6TLobbyFv(void);
-void broadcast_to_players__6TLobbyFii(s32 arg0, s32 arg1);
-void TLobby__sub_8001DF58(s32 arg0, s32 arg1);
-void copy_all_entries__6TLobbyFii(s32 arg0, s32 arg1);
-void copy_all_data__6TLobbyFii(s32 arg0, s32 arg1);
 void* get_player_entry__6TLobbyFii(int a0, int a1);
-u8 is_valid_player_index__6TLobbyFi(s32 arg0);
 void* TLobby__sub_8001E270(int a0, int a1);
 void* TLobby__sub_8001E2A8(int a0, int a1);
 void* get_entry__6TLobbyFii(int a0, int a1);
-void set_difficulty__6TLobbyFi(s32 arg0);
 }
 
 struct Ent_8001D768 { u32 f0; u32 f4; u32 f8; u32 fc; };
@@ -39,8 +36,6 @@ struct Pool_8001D6E0 { u8 pad[0x2C]; Node_8001D6E0 *head; };
 
 extern "C" {
 extern s32 aram_dma_pending;
-void TLobby__sub_8001D9DC(void);
-s32 get_character_save_record(u32 arg0);
 
 s32 TWindowSubComCard__sub_80225E80(void *, int);
 s32 strncpy(int, int, int);
@@ -48,15 +43,12 @@ extern s32 auto_reply_flags;
 Ent_8001D768 *find_free_pool_entry__6TLobbyFPv(Obj_8001D768 *self);
 void archive_pool_free(Pool_8001D7AC *pool, Node_8001D7AC *node);
 Node_8001D808 *archive_pool_alloc(Pool_8001D808 *pool, u32 size);
-void TLobby__sub_8001D9E8(void* p);
 
 void send_disable_auto_reply__9TProtocolFv(s32);
 extern s32 TLobby__protocol_instance;
-u32 *free_and_delete__6TLobbyFPvs(u32 *arg0, s16 arg1);
 
 s32 aram_read_sync__6TLobbyFllll(s32, s32);
 s32 aram_transfer_sync__6TLobbyFlUlll(s32, void *, s32);
-u8 *fn_803DE864(s32, s32);
 
 void TLobby::send_or_handle_packet(void *arg0, void *arg1, void *arg2, void *arg3, u32 arg4) {
     if (arg4 == 0U) {
@@ -247,10 +239,7 @@ struct RecoveredGlobal_8001DC24_lbl_80515BC8 {
 };
 
 extern "C" {
-void TLobby__sub_8001DBD8(s32 _w0);
 extern RecoveredGlobal_8001DC24_lbl_80515BC8 text_builder_buffer;
-
-void TLobby__sub_8001DC04(void* p);
 
 s32 TLobby::is_active() {
     return *((s8* (*)(void))get_card_window_area__6TLobbyFv)() == 0 ? 0 : 1;
@@ -307,7 +296,6 @@ struct File_8001DC30
   Sw_8001DC30 sw[4][0x60];
   Pair_8001DC30 pairs[4][0x60];
 };
-void bswap__12player_statsFv(void *);
 s32 is_main_phase_15__9TObjEneDDFv(void);
 void read_disc_file(const char *, void *);
 void mem_free(void *);
@@ -410,8 +398,6 @@ void load_battle_param_entry(void) {
 
 void TLobby::broadcast(void* a0) { ((int (*)(void*, void*))broadcast_to_players__6TLobbyFii)((void*)(TLobby__lobby_instance), a0); }
 
-void TLobby__sub_8001DE30(void* a0);
-
 void TLobby__sub_8001DE30(void* a0) { ((int (*)(void*, void*))TLobby__sub_8001DF58)((void*)(TLobby__lobby_instance), a0); }
 
 void TLobby::copy_all_entries(void* a0) { ((int (*)(void*, void*))copy_all_entries__6TLobbyFii)((void*)(TLobby__lobby_instance), a0); }
@@ -429,7 +415,6 @@ struct Obj_8001DF0C { Blk_8001DF0C a; Blk_8001DF0C b; };
 
 extern "C" {
 Obj_8001DF0C *copy_pair__6TLobbyFPvPv(Obj_8001DF0C *d, Obj_8001DF0C *s);
-void TLobby__sub_8001DEA8(s32 arg0);
 
 void TLobby__sub_8001DEA8(s32 arg0) {
     TLobby__lobby_instance = arg0;
@@ -451,8 +436,6 @@ Obj_8001DF0C *copy_pair__6TLobbyFPvPv(Obj_8001DF0C *d, Obj_8001DF0C *s) {
     d->b = s->b;
     return d;
 }
-
-void copy_data__6TLobbyFPvPv(void *arg0, void *arg1);
 
 void TLobby__sub_8001DF58(s32 arg0, s32 ent) {
     s32 var_r31;
@@ -576,12 +559,9 @@ void set_difficulty__6TLobbyFi(s32 arg0) {
 
 u8 *mem_alloc(u32 size);
 
-void load_battle_param_entry(void);
 extern u32 TLobby__battle_parameter_buffer;
 
 extern s32 game_difficulty_selection;
-void alloc_battle_param_tables(void);
-void bswap__12player_statsFv(void *arg0);
 void mem_free(void*);
 
 extern s32 enable_v2_features;
@@ -666,7 +646,6 @@ void bswap__12player_statsFv(void *arg0) {
 }
 
 extern f32 TLobby__data_805D7EC8;
-s32 TLobby__sub_8001E75C(void *arg0);
 extern s32 selected_episode;
 
 s32 TLobby::get_instance() {
@@ -698,11 +677,7 @@ s32 TLobby::calc_alpha_shifted(f32 farg0) {
     return __cvt_fp2unsigned(lbl_805D7ED4 * farg0) << 0x18;
 }
 
-void append_padded_number(s32 v, u8 n);
-void text_builder_reset(void);
-
 u32 get_name_text_width();
-void text_builder_append(u8 *str);
 
 extern s32 TLobby__data_8050AAAC[];
 extern s32 TLobby__data_805D55AC;
@@ -719,7 +694,6 @@ void TLobby::close_result_windows() {
     append_padded_number(TLobby__lobby_number + 1, 2);
 }
 
-s32 get_main_phase();
 extern f32 TLobby__data_805D7EE0;
 
 f32 TLobby::calc_result_offset() {
@@ -736,15 +710,10 @@ f32 TLobby::calc_result_offset() {
 
 extern f32 lbl_805D4AC0;
 
-void TLobby__sub_8001ED74(void);
-
 void draw_small_font_text(s32, void *, f32, f32, f32);
 
 extern const f32 lbl_805D7EEC;
 extern const f32 lbl_805D7EF0;
-void TLobby__sub_8001E998(f32 farg0, f32 farg1, f32 farg2, f32 farg3);
-s32 default_clock_offset_frames(void);
-void TLobby__sub_8001ED70(void);
 
 extern f32 lbl_805D7EE4;
 extern f32 lbl_805D7EE8;

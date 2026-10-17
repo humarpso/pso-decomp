@@ -1,4 +1,6 @@
 #include "pso/system/TGStream.h"
+#include "pso/object/TObjFish_8001ED90.h"
+#include "pso/unk/text_800F7DAC.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TGStream.h"
 #include "pso/misc/TLobby.h"
@@ -21,33 +23,18 @@ struct Stream_800FDBA8 {
 };
 
 extern "C" {
-void load_area_gsl();
-GslArchiveEntry * find_gsl_entry(void *);
 s32 get_file_size__6TLobbyFv(void *);
 s32 is_split_screen();
-void open_gsl_archive(char *);
-u32 prs_decompress_buffer(s32 arg0, s32 arg1);
-int get_gstream_file_size();
-TGStreamPrefix * destroy_gstream(TGStreamPrefix *, s16);
-TGStreamPrefix * open__8TGStreamFPvPvi(TGStreamPrefix *, void *, s32);
 void debug_print__6TLobbyFle(const char *, ...);
 s32 TLobby__sub_803CC4C0(s32);
 s32 read_checked_align__6TLobbyFlll(s32);
-void reset_gstream_buffer();
-void TGStream__sub_800FDD64();
-void close_gsl_archive();
 s32 strcmp(void *, void *);
 s32 fn_800F93B4(void *, GslArchiveEntry *, s32);
 s32 change_file_extension__6TLobbyFPvPvPv(void *, void *, const void *);
 s32 strlen(char *);
 s32 strncpy(char *, char *, s32);
 u32 adxf_open__6TLobbyFUii(char *, s32);
-void align_gstream_read_offset(void *, s32);
 s32 get_gstream_buffered_bytes();
-s32 refill_gstream_buffer(s32);
-void TItemDrop__sub_800FE2D8();
-void reset_gstream_globals();
-s32 TLobby__sub_8001EEF4();
 s32 TLobby__sub_803CC578(s32, s32, s32);
 extern char lbl_8043DB04[];
 extern char lbl_8043DB14[];

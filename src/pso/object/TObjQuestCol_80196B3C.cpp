@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/object/TObjQuestCol_80196B3C.h"
 #include "pso/object/TObjQuestColBase.h"
 #include "pso/object/TObjQuestCol.h"
 
 extern "C" {
 
-void *TObjQuestCol__ct(void *arg0);
 void TObjQuestColBase__ct(void *);
 s32 is_within_range__16TObjQuestColBaseFf(f32);
 

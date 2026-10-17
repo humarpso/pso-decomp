@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TSlicerHistory.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TTecSlicer.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-u8 *__ct__14TSlicerHistoryFv(u8 *arg0, s32 arg1, s32 arg2, u32 arg3, s32 arg4);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 __ct__7TObjectFP7TObject();
 

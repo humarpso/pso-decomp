@@ -1,4 +1,6 @@
 #include "pso/TFontSmallHelp.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/object/TObject_8001A448.h"
 #include "pso/system/vector.h"
 
 struct HelpTextPlayerState {
@@ -11,8 +13,6 @@ typedef char HelpTextPlayerPosition[offsetof(HelpTextPlayerState, position) == 0
 typedef char HelpTextPlayerIdentity[offsetof(HelpTextPlayerState, identity) == 0xDB0 ? 1 : -1];
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
-void disallow_rendering__7TObjectFv(void *arg0);
 TObject *get_instance__15TWindowCtrlMainFv();
 HelpTextPlayerState *get_player_by_client_id(u32);
 extern const char *lbl_805D2B20;

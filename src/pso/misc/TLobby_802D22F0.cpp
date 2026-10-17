@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_802D22F0.h"
 #include "pso/misc/TLobby.h"
 
 struct E_802D2334 { u32 a; u32 b; };
@@ -11,7 +12,6 @@ extern "C" {
 E_802D2334 *TLobby__sub_802D2334(E_802D2334 *p, u32 key);
 E_802D230C *find_free_trade_slot__6TLobbyFPv(E_802D230C *p);
 void TLobby__sub_802D2358(E_802D2358 *p);
-void TLobby__sub_802D22F0(void* p, void* q);
 int byteswap_trade_packet__6TLobbyFv(void);
 
 void TLobby__sub_802D22F0(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }

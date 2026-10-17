@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TLobby_80291D94.h"
+#include "pso/misc/TPlyJoinLobbyEntry.h"
+#include "pso/unk/text_803000C8.h"
 extern "C" {
 s32 is_split_screen(void);
-void set_player_count__6TLobbyFi(int);
-void enable_split_screen_challenge_mode(void);
 extern s32 TAdMultiSelGameModeGC__data_805D69F0;
-void fn_803000C8(void);
 void fn_803000C8(void) {
     if (is_split_screen() != 0) {
         switch (TAdMultiSelGameModeGC__data_805D69F0) {

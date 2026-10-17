@@ -1,17 +1,16 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_800D7BFC.h"
+#include "pso/unk/text_8029C214.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TORockJungleL01.h"
 
 extern "C" {
 
-void *TORockJungleL01__create(void *arg0);
-u8 *TORockJungleL01__ct(u8 *arg0, s32 arg1);
 void __dl__7TObjectFPv(void *);
 void *__dt__10TORockCaveFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
-void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
-void queue_destruction__7TObjectFv(void *);
 
 void *TORockJungleL01__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD8);

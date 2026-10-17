@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/item/TUnk_804A6BD0.h"
 #include "pso/player/TObjPlayer.h"
 typedef struct Obj_80130CD8 { u8 pad[0x200]; f32 f200; s32 f204; } Obj_80130CD8;
@@ -20,7 +21,6 @@ extern "C" {
 extern const f32 lbl_805DB024;
 extern const f32 lbl_805DB028;
 extern const f32 lbl_805DB02C;
-void *spawn_particle_effect(void *pos, s32 id);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern s32 tl_05;

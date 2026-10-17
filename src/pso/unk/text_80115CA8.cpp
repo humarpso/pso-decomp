@@ -1,13 +1,12 @@
 #include "types.h"
+#include "pso/item/TItemDispatch.h"
+#include "pso/unk/text_80115CA8.h"
 
 extern "C" {
-u8 * TItemMoney__ct(void *, s32, void *);
-u8 *TItem__ct(u8 *self, void *parent, u8 *item);
 extern s32 __vt__10TItemMoney[];
 extern s32 lbl_805D2C20;
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-u8 *fn_80115D10(u8 *arg0);
 }
 
 struct Money_80115CA8 {

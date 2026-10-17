@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/math/MatrixVector.h"
+#include "pso/misc/TLobby_80351E64.h"
+#include "pso/misc/TOKey_8015845C.h"
+#include "pso/object/TObjLobbyMain_803520D8.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/object/TObjLobbyMain.h"
@@ -44,14 +50,11 @@ struct Fish_8035255C { s32 a; u32 cnt; };
 extern "C" {
 void update_fade__13TObjLobbyMainFv(u8 *arg0);
 void update_fade_in__13TObjLobbyMainFv(u8 *arg0);
-s32 get_theme_lobby_type();
 void resolve_theme_index__13TObjLobbyMainFv(u8 *arg0);
 void set_mode_index_from_state__13TObjLobbyMainFv(u8 *arg0);
 void matrix_mult_vec(int, Vec3_80352240 *, Vec3_80352240 *);
-void set_matrix_identity(u8 *arg0);
 void rotate_matrix_y(int, s32);
 void push_matrix();
-s32 pop_matrix(void);
 void post_translate_matrix(void *);
 void update_emitter_positions__13TObjLobbyMainFv(u8 *arg0);
 s32 get_bml_motion(void *, s32);
@@ -62,9 +65,6 @@ s32 draw_ginja_model_with_motion(s32, s32, f32);
 extern void *TObjLobbyMain__bml_resource;
 extern void *lobby_main_lobby_type;
 void advance_motion_frame__13TObjLobbyMainFv(Obj_8035255C *o);
-void TObjLobbyMain__sub_803520D8(void);
-void reset_state__13TObjLobbyMainFPv(void *arg0);
-void update_computer_machines__13TObjLobbyMainFv(void);
 void update_particles__13TObjLobbyMainFv(void *arg0);
 s32 PPCSync();
 s32 scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
@@ -328,16 +328,12 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_803527F0_lbl_804F0F24 bm_obj_lobby_main_resource_descriptor;
 u32 create_particle_emitter(void *, int);
 s32 init_collision_body_parts(void *, void *, int);
-void *init_map_object_base(void *a0);
 extern RecoveredGlobal_80352940_lbl_804F0F34 lbl_804F0F34;
 extern s32 __vt__13TObjLobbyMain[];
-u8 *TObjLobbyMain__ct(u8 *arg0, s32 arg1, s32 arg2);
-void *__dt__13TObjLobbyMainFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void queue_destruction__7TObjectFv(void *);
 
 void TObjLobbyMain::run_task() {
     s32 temp_r0;

@@ -18,8 +18,6 @@ u8 * get_window_layout_position(s32);
 extern RecoveredGlobal_80246C58_lbl_804CE1B8 lbl_804CE1B8;
 extern s32 __vt__14TWindowBreakIn[];
 extern s32 lbl_805D3890;
-u8 *TWindowBreakIn__ct(u8 *arg0);
-void *__dt__14TWindowBreakInFv(void *arg0, s16 arg1);
 int update_entry_visibility__20TWindowSubStatusDispFi(void*);
 s32 draw_visible_window_entries(s32, s32, s32);
 void __dl__7TObjectFPv(void *);

@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_8001A448.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
+#include "pso/unk/text_802A1144.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 #include "pso/TAdMultiChgGameModeGC.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -6,16 +11,11 @@
 struct Obj_802DCCA4 { u8 pad[0x2C]; s32 f2C; };
 
 extern "C" {
-void TKeyBoardControl__sub_8000F9CC(s32);
-s32 get_field_118__22TAdEnterSerialAccessGCFv();
-void set_opening_movie_purpose(int a0);
 void collect_player_slots__22TAdMultiPlyChrSelectGCFv(void *);
 extern s32 multi_chr_select_serial_access_state;
 void TAdMultiPlyChrSelectGC__sub_802DCCA4(Obj_802DCCA4 *arg0);
 s32 set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s32, s32, s32 *);
 s32 TWindowShortListCtrl__check_controller_button(char *, s32);
-void TWindow__close(u8 *arg0);
-void disallow_rendering__7TObjectFv(void *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 
 extern char controller_physical_port_bank[];

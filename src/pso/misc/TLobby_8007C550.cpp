@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/misc/TLobby_8007C550.h"
 
 extern "C" {
 u32 subtractive_rng_next(void *self);
-u16 TAdSinglePlyChrSelectGC__sub_8007C584(void *self, u16 x);
-s32 __ct__14SubtractiveRngFv(void* arg0);
 s32 subtractive_rng_seed(void*, int);
 
 s32 __ct__14SubtractiveRngFv(void* arg0) {

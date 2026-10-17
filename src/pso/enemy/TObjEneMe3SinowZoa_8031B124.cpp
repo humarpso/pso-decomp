@@ -1,12 +1,11 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe3SinowZoa_8031B124.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TUnk_80494938.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
 
 extern "C" {
-
-void *TObjEneMe3SinowZoa__ct(void *arg0);
 
 extern s32 __vt__18TObjEneMe3SinowZoa[];
 extern void *lbl_805D4120;

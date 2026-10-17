@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/ui/TAdMultiSaveGC_802FF14C.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/ui/TAdMultiSaveGC.h"
@@ -15,23 +19,13 @@ s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(void *, int);
 extern s32 lbl_80474D90[];
 extern const f32 lbl_805DEF28;
-s32 TAdMultiSaveGC__sub_802FF170(void);
 s32 update_window_mode_from_progress__6TLobbyFPv(void *, void *);
-s32 get_localized_text_entry(s32 arg0, s32 arg1);
 extern u8 TAdMultiSaveGC__data_80474D70[];
 extern u8 TAdMultiSaveGC__data_80474D78[];
-s32 TAdMultiSaveGC__sub_802FF1F4(void);
-s32 TAdMultiSaveGC__sub_802FF254(void);
-s32 TAdMultiSaveGC__sub_802FF2B4(void);
-s32 TAdMultiSaveGC__sub_802FF314(void);
 s32 verify_system_file__23TAdSinglePlyChrSelectGCFPv();
-s32 TAdSinglePlyChrSelectGC__sub_801FDAAC();
-s32 write_encrypted_save__23TAdSinglePlyChrSelectGCFv();
 void *__nw__7TObjectFUl(u32);
-void TWindow__close(u8 *arg0);
 s32 get_selected_menu_value(int);
 extern s32 tl_fade;
-void run_task__14TAdMultiSaveGCFv(u8 *arg0);
 int queue_destruction__7TObjectFv(void);
 
 void TAdMultiSaveGC::queue_destruction() { queue_destruction__7TObjectFv(); TAdMultiChgGameModeGC::begin_change_game_mode(); }

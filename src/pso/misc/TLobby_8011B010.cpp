@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_801E43E4.h"
 #include "pso/system/memory.h"
 #include "pso/system/byteswap.h"
 #include "pso/misc/TLobby.h"
@@ -9,7 +10,6 @@ int mem_alloc(void*);
     extern int build_item_id_mode;
 extern s32 item_sync_counter_table;
 extern s32 item_id_counter_table;
-void TLobby__send_and_handle_60(u8 *arg0);
 int read_be16_field2__10TObjPlayerFv(void*);
 extern s32 TLobby__data_805D6140;
 void mem_free(void *p);

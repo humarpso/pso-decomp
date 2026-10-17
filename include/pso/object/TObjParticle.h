@@ -13,4 +13,9 @@ struct TObjParticle : public TUnk_804B9870 {
 };
 
 typedef char TObjParticle_size[sizeof(TObjParticle) == 0x98 ? 1 : -1];
+extern "C" {
+u8 *TObjParticle__create(u8 *arg0);
+void *__dt__12TObjParticleFv(void *arg0, s16 arg1);
+}
+
 #endif

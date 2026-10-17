@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowDD_80341334.h"
+#include "pso/misc/TWindowSubStatusDisp_8025A9B4.h"
 #include "pso/misc/TWindowDD_WS_String.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowDD.h"
@@ -33,21 +35,16 @@ struct RecoveredGlobal_8034146C_TWindowDD__data_804EFC24 {
 
 extern "C" {
 s32 refresh_status_display__9TWindowDDFv(int);
-void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 extern RecoveredGlobal_8034138C_TWindowDD__data_804EFC24 TWindowDD__data_804EFC24;
 extern s32 lbl_804EFC38[];
 extern s32 lbl_805D42D8;
 extern s32 lbl_805DFC18;
 extern const f32 lbl_805DFC94;
-u8 *TWindowDD__sub_8034138C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 extern RecoveredGlobal_803414DC_lbl_804EFC00 lbl_804EFC00;
 extern s32 TWindowDD__data_805DFC14;
 extern const f32 lbl_805DFC20;
-void TWindowDD__sub_803414DC(void);
 s32 __nw__7TObjectFUl(int);
 extern const f32 TWindowDD__data_805DFB20;
-s32 TWindowDD__sub_8034146C(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
-void *__dt__9TWindowDDFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 void *__dt__9TWindowDDFPvs(void *arg0, s16 arg1) {

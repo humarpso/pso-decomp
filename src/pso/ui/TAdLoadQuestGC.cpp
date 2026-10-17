@@ -1,11 +1,11 @@
 #include "pso/ui/TAdLoadQuestGC.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TCameraCtrl.h"
 
 #include "types.h"
 
 extern "C" {
 
-s32 create_cost_window(s32 arg0);
 s32 TWindowCost__ct(s32, s32, s32, s32);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 __nw__7TObjectFUl(s32);
@@ -24,7 +24,6 @@ s32 create_cost_window(s32 arg0) {
     return var_r30;
 }
 
-void queue_destruction__7TObjectFv(void *);
 TObject *TAdLoadQuestGC__sub_80309854(s32);
 TObject *TAdLoadQuestGC__sub_80309868(s32);
 TObject *TAdLoadQuestGC__sub_8030987C(s32);

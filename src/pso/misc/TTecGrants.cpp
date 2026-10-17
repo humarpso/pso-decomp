@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TTecGrants.h"
 #include "pso/unk/TUnk_804CC148.h"
 
@@ -79,7 +80,6 @@ struct VObj_802386F8 : VBase_802386F8 {
 extern "C" {
 u8 * find_entity_by_id(u16);
 u8 * __ct__13TUnk_804CC888FPUclP7TObject(void *, s32, s32, s32);
-void queue_destruction__7TObjectFv(void *arg0);
 void *__nw__7TObjectFUl(int);
 extern s32 tl_07;
 void run_task__10TTecGrantsFv(u8 *arg0);

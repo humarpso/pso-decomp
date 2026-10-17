@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801C1FF8.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-int TObjPlayer__sub_801C2114(void);
 s32 set_action_provider_variant__10TObjPlayerFPvs(void *, s16);
 s32 create_inventory__10TObjPlayerFv();
 

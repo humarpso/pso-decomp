@@ -1,12 +1,11 @@
 #include "types.h"
+#include "pso/misc/ShopWeaponStock.h"
+#include "pso/misc/TShopGetItemWindow_8021F0A4.h"
+#include "pso/unk/text_8020E700.h"
+#include "pso/unk/text_80223B98.h"
 #include "pso/TFontSmallTask.h"
 
 extern "C" {
-
-void reset_shop_stock_and_params(void);
-void clear_shop_armor_flags(void);
-void clear_shop_weapon_flags(void);
-void clear_shop_tool_flags(void);
 
 extern s32 TLobby__data_805011D8[];
 extern s32 game_difficulty_selection;

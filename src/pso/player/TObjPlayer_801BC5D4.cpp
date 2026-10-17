@@ -1,12 +1,11 @@
 #include "types.h"
+#include "pso/item/TItemLockCountCtrl_8011E184.h"
+#include "pso/player/TObjPlayer_801BF548.h"
+#include "pso/player/TObjPlayer_801BF918.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TAdRicoRing.h"
 
 extern "C" {
-
-void TObjPlayer__sub_801BF690(u8 *arg0);
-void zero_vec3(void *a0);
-void TObjPlayer__sub_8011E204(void *arg0, s32 arg1);
 
 extern const f32 TObjPlayer__data_805DC278;
 

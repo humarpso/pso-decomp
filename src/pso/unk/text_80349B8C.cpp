@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80349B8C.h"
 #include "pso/TObjCMHairMenu.h"
 
 #pragma inline_depth(1)
@@ -47,14 +48,10 @@ struct Item_80349C54 {
 
 extern "C" {
 extern RecoveredGlobal_80349E5C_lbl_8047890C TAdLoadQuestLineGC__rectangle_groups;
-void fn_80349E5C(s32 arg0);
 extern RecoveredGlobal_80349DC8_lbl_804788B8 quest_line_color_quad_coordinates;
 extern RecoveredGlobal_80349DC8_lbl_804788D8 quest_line_quad_vertices;
 extern RecoveredGlobal_80349DC8_lbl_8047896C quest_line_color_entry_table;
-void init_quest_line_draw_colors(s32 arg0);
 extern const f32 lbl_805DFD18;
-void draw_filled_rects_2d(void *arg0, void *arg1, int arg2);
-s32 draw_color_quad_2d(void *arg0, void *arg1p, int arg2);
 typedef char RecoveredGlobal_80349E5C_lbl_8047890C_size[sizeof(RecoveredGlobal_80349E5C_lbl_8047890C) == 0x60 ? 1 : -1];
 
 typedef char RecoveredGlobal_80349DC8_lbl_804788B8_size[sizeof(RecoveredGlobal_80349DC8_lbl_804788B8) == 0x20 ? 1 : -1];

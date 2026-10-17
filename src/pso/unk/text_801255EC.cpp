@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_801255EC.h"
 #include "pso/player/TObjPlayer.h"
 
 struct Elem_80125628 { u8 pad[0x1c]; u8 f1c[0x2c - 0x1c]; };
@@ -15,7 +16,6 @@ extern "C" {
 u32 find_item_by_id(void);
 s32 spawn_faust_explosion(u32 a0 = 0, s32 a1 = 0);
 s32 spawn_faust_explosion(u32 a0, s32 a1);
-void spawn_faust_hit_explosion(s32 arg0, s32 arg1);
 void config_faust_attack_collider__10TObjPlayerFPvPv(Self_8012573C *self, Out_8012573C *out);
 void TObjPlayer::spawn_faust_wall_explosion(s32 arg0, s32 arg1) {
     u32 temp_r3 = find_item_by_id();

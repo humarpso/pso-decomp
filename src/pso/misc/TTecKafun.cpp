@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/unk/TUnk_804CC148.h"
 #include "pso/misc/TTecKafun.h"
 
@@ -9,8 +11,6 @@ struct RecoveredGlobal_802A9880___vt__9TTecKafun { s32 value; u8 remaining[0x24]
 typedef char RecoveredGlobal_802A9880___vt__9TTecKafun_size[sizeof(RecoveredGlobal_802A9880___vt__9TTecKafun) == 0x28 ? 1 : -1];
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
-void *spawn_particle_effect(void *pos, s32 id);
 u32 find_entity_by_id(int);
 u16 obj_getField1c(void *);
 s32 play_sound_effect(s32, u32, s16, s32);

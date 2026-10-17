@@ -1,6 +1,5 @@
 #include "pso/TItemEffLandHit.h"
-
-extern "C" void queue_destruction__7TObjectFv(void *arg0);
+#include "pso/object/TObject_80019A50.h"
 
 void TItemEffLandHit::run_task() {
     if (this->m_38) {

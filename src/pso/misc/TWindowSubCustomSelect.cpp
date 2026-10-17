@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl_8024A054.h"
+#include "pso/misc/TWindowHelpItem_80243408.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowSubCustomSelect.h"
@@ -42,7 +44,6 @@ s32 get_draw_context__11TWindowBaseFPv();
 s32 draw_window_frame(void *, int);
 s32 draw_window_scrollbar(int, int, void *);
 s32 forward_render__20TWindowSubStatusDispFv(int, int);
-void render__22TWindowSubCustomSelectFv(u8 *arg0);
 void draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif(void *, void *, s32, f32);
 extern const f32 TWindowSubCustomSelect__data_805DD5B0;
 extern const f32 lbl_805DD5C4;
@@ -51,7 +52,6 @@ extern const f32 lbl_805DD5CC;
 extern const f32 lbl_805DD5D0;
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
-s32 is_player_input_active(s32 param_1);
 extern RecoveredGlobal_80277928_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DD5E4;
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -69,7 +69,6 @@ extern s32 __vt__22TWindowSubCustomSelect[];
 extern s32 TWindowSubCustomSelect__class_name;
 extern const f32 lbl_805DD5E8;
 extern const f32 lbl_805DD5EC;
-u8 *TWindowSubCustomSelect__ct(u8 *arg0, s32 arg1);
 s32 clamp_list_scroll_offset(void *, void *, void *);
 extern const f32 lbl_805DD5A8;
 extern const f32 lbl_805DD5AC;
@@ -79,14 +78,12 @@ extern const f32 lbl_805DD5BC;
 extern const f32 lbl_805DD5C0;
 s32 can_use_palette_action__10TObjPlayerFPvUcUc(s32, u8, u8);
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
-void update_palette_item_count_label(u8 *arg0, u8 *arg1, u16 arg2, u16 arg3, s32 arg4);
 s32 draw_action_palette_icon(void *, u16, u16);
 s32 draw_visible_window_entries(void *, void *, void *);
 extern const f32 lbl_805DD5D4;
 extern const f32 lbl_805DD5D8;
 extern const f32 lbl_805DD5DC;
 extern const f32 lbl_805DD5E0;
-void *__dt__22TWindowSubCustomSelectFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 void TWindowSubCustomSelect::handle_cancel() {

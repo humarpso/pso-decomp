@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjLight_80133568.h"
+#include "pso/object/TObjLight_803DF220.h"
 #include "pso/system/memory.h"
 #include "pso/system/byteswap.h"
 #include "pso/system/vector.h"
@@ -138,68 +140,34 @@ struct Light_80133C1C {
 };
 
 extern "C" {
-void set_light_ambient_color(f32 r, f32 g, f32 b);
-void submit_scene_ambient_color(void);
 s32 GXInitLightDir(s32 *, f32, f32, f32);
-void init_distant_light(s32 idx, f32 x, f32 y, f32 z);
 extern s32 TObjLight__gx_light_objects[];
-void set_gx_light_color(s32 idx, f32 r, f32 g, f32 b);
-void set_scene_light_diffuse(void *);
-void submit_scene_light_direction(void *);
-void TObjLight__sub_8013397C(void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 extern s32 lbl_804A6F90[];
 extern u8 *lbl_805D5558;
-void TObjBoss2Tunnel__sub_801339EC(f32 farg0, f32 farg1, f32 farg2);
-void load_gx_light_slot(s32 arg0);
-void restore_scene_lighting(void);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 extern s32 TObjLight__actor_light_count;
-void register_actor_light(s32 arg0, s32 arg1);
-u8 * TObjLight__sub_80133980(u8 *arg0, int);
 u32 __nw__7TObjectFUl(int);
 f32 vector_length(void *);
 f32 normalize_vector(void *);
 extern s32 tl_02;
 extern const float TObjLight__data_805DB088;
-void init_menu_scene_lights(u8 *arg0);
-u8 *TObjLight__sub_80133980(u8 *arg0, int _w1);
-void init_map_lights(u8 *arg0);
 extern RecoveredGlobal_80133D78_lbl_804A6F34 default_scene_light_config;
 extern u32 TObjLight__light_entry_data;
 extern const f32 lbl_805DB0A4;
-void init_area_lights(void);
 extern s32 TObjLight__active_light_count;
 extern s32 light_entry_file_size;
 __declspec(section ".rodata") char lbl_8043ED80[] = "lightentry.bin";
 s32 read_disc_file(void *, u32);
-void load_light_entry_file(void);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
-void set_scene_light_diffuse(void * _w0);
-void submit_scene_light_direction(void * _w0);
-void TObjLight__sub_8013397C(void * _w0);
 void GXInitLightSpot(void *, s32, f32);
 void GXInitLightDistAttn(void *, s32, f32, f32);
-void submit_light0(s32, s32);
 extern const f32 lbl_805DB098;
 extern const f32 lbl_805DB09C;
 extern const f32 lbl_805DB0A0;
-void apply_environment_light(s32 arg0);
 extern s32 TObjLight__light_count;
-void reset_actor_light_registries(void);
-void publish_light_direction_color(u32 id, void *dir, void *color);
-void TObjLight__sub_801336DC(void);
-void TObjLight__sub_80133714(void);
 extern s32 lbl_804A6F78[];
 extern void *lbl_805D5564;
-void *__dt__13TUnk_804A7008Fv(void *arg0, s16 arg1);
-int TLobby__sub_80134A20(void* p);
-void TObjLight__sub_801335EC(void);
-void TObjLight__sub_8013379C(void);
-void TObjLight__sub_801337F8(void);
-void TObjLight__sub_801337FC(void);
-void *__dt__13TUnk_804A6F78Fv(void *arg0, s16 arg1);
-void *__dt__13TUnk_804A6F90Fv(void *arg0, s16 arg1);
 int TAdSinglePlyChrSelectGC__sub_801334E4(void*);
 int TAdSinglePlyChrSelectGC__sub_80133544(void*);
 int TAdSinglePlyChrSelectGC__sub_80133548(void);

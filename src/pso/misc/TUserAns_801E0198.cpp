@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TPlyGuildCardTag_8013ABCC.h"
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -21,7 +22,6 @@ struct TUserAns_801E0198 {
 };
 
 extern "C" {
-void __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *arg0, void *arg1);
 void *fn_801DF61C(void *, void *);
 TUserAns_801E0198 *__ct__8TUserAnsFRC8TUserAns(TUserAns_801E0198 *dst, TUserAns_801E0198 *src);
 TUserAns_801E0198 *__ct__8TUserAnsFRC8TUserAns(TUserAns_801E0198 *dst, TUserAns_801E0198 *src) {

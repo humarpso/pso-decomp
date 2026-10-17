@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8012BC28.h"
 #include "pso/unk/TUnk_804A4F60.h"
 #include "pso/item/TItemEffOrgaFlowShot.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-
-void psycho_wand_idle(u8 *arg0);
 
 extern const f32 lbl_805DAED0;
 extern const f32 lbl_805DAED4;

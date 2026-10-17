@@ -1,4 +1,11 @@
 #include "types.h"
+#include "pso/boss/TObjBoss2Tunnel_8007C5C0.h"
+#include "pso/boss/TObjBoss2Tunnel_8007CF0C.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/misc/TPlyJoinLobbyEntry.h"
+#include "pso/player/TObjPlayer_80083B38.h"
+#include "pso/unk/text_803DCDFC.h"
 #include "pso/system/main_loop.h"
 #include "pso/misc/TWindowMessage.h"
 #include "pso/TParticleCtrl.h"
@@ -56,7 +63,6 @@ struct VObj_8007C8AC : VBase_8007C8AC {
 
 extern "C" {
 s32 DCFlushRange(int, int);
-s32 TObjPlayer__sub_800845F8();
 s32 TAdPlayerLoadGC__sub_801E1538(void *, int);
 s32 TAdPlayerLoadGC__sub_801E1B50(int);
 s32 memcpy(int, void *, int);
@@ -68,11 +74,9 @@ extern const f32 lbl_805D9224;
 extern const f32 lbl_805D9228;
 extern const f32 lbl_805D922C;
 extern const f32 lbl_805D9230;
-void TObjBoss2Tunnel__sub_8007CAE8(u32 arg0);
 extern s32 TObjBoss2Tunnel__data_80438A08[];
 void poll_load_status__15TAdPlayerLoadGCFl(s32 a, void *b);
 s32 TAdSinglePlyChrSelectGC__sub_80201204(s32 *, s32);
-s32 memcard_check_snapshot(s32 arg0, s32 *arg1);
 void TAdPlayerLoadGC__sub_801E14E4(void *);
 void TAdPlayerLoadGC__sub_801E14E8(void *, s32);
 void build_save_file_image__15TAdPlayerLoadGCFPvPv(s32, void *, void *);
@@ -83,16 +87,10 @@ extern char lbl_80438A28[];
 extern u8 lbl_80438A4C[];
 extern char lbl_804C8974[];
 extern s32 *boss2_tunnel_snapshot_buffer;
-s32 get_main_phase(void);
-void draw_snapshot_capture_overlay(void);
 VObj_8007C5C0 *create__8TDLGraphFv(void);
-s32 get_localized_text_entry(s32, s32);
-void process_deferred_player_setup__6TLobbyFv(void);
-void reset_state_flags__6TLobbyFv(void);
 s8 func_801A5E54__Fv(void);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 void render__9TMainTaskFv(void *);
-void func_803DCDFC__Fv(void);
 extern f32 lbl_80438A78[];
 extern f32 lbl_80438A80[];
 extern f32 lbl_8048DF4C[];

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80087278.h"
 struct Smoke_8028AEA4 {
     u8 pad[0x18];
     void *vt;
@@ -20,12 +22,10 @@ struct Smoke_8028AF6C {
 
 extern "C" {
 void __dt__7TObjectFv(void *, s32);
-void queue_destruction__7TObjectFv(void *);
 void mem_free(void *);
 void __dl__7TObjectFPv(void *);
 extern s32 __vt__20TObjBoss5PillarSmoke[];
 Smoke_8028AEA4 *__dt__20TObjBoss5PillarSmokeFv(Smoke_8028AEA4 *arg0, s16 arg1);
-void *spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 void **mem_alloc(s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 lbl_80450CD0[];

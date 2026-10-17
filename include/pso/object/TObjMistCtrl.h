@@ -12,4 +12,9 @@ struct TObjMistCtrl : public TUnk_804B9870 {
 };
 
 typedef char TObjMistCtrl_size[sizeof(TObjMistCtrl) == 0x94 ? 1 : -1];
+extern "C" {
+u8 *TObjMistCtrl__ct(u8 *arg0, s32 parent, u32 arg2);
+void *__dt__12TObjMistCtrlFv(void *arg0, s16 arg1);
+}
+
 #endif

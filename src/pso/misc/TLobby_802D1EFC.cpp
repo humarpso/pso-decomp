@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_802D1EFC.h"
 #include "pso/misc/TLobby.h"
 #include "pso/item/TItem.h"
 #include "pso/player/TObjPlayer.h"
@@ -31,7 +32,6 @@ s32 TObjPlayer__sub_801C1AC8();
 Entry_802D20C8 *find_free_trade_slot__6TLobbyFPv(void *);
 u8 *get_quest_id__12TQuestListVMFv(void *);
 u8 *get_player_by_client_id(s32);
-void snapshot_player_trade_inventory(s32 arg0, s32 arg1);
 int TLobby__sub_802D2358(void*);
 
 void TLobby::set_trade_field_4(s32 arg1) {

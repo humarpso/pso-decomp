@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/ui/TAdChrSelBSlotGC_8030E354.h"
+#include "pso/ui/TAdChrSelBSlotGC_8030ED88.h"
 #include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/TAdChrSelMovePlateGC.h"
 #include "pso/TAdPlayerLoadGC.h"
@@ -11,20 +15,9 @@
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 
 extern "C" {
-void TWindow__close(u8 *arg0);
 s32 get_state_result__22TAdMultiPlyChrSelectGCFv();
 s32 get_global_state__16TAdChrSelBSlotGCFv(void *);
-void TAdChrSelBSlotGC__sub_8030F13C(u8 *arg0);
 u32 TAdChrSelASlotGC__sub_8030CB08(s32, s32, s32);
-void TAdChrSelBSlotGC__sub_8030F228(u8 *arg0);
-void TAdChrSelBSlotGC__sub_8030F2E4(u8 *arg0);
-void TAdChrSelBSlotGC__sub_8030F3A0(u8 *arg0);
-void TAdChrSelBSlotGC__sub_8030EF74(void *arg0);
-void close_windows__16TAdChrSelBSlotGCFPv(void *arg0);
-void reset_windows__16TAdChrSelBSlotGCFPv(void *arg0);
-void update_card_confirm__16TAdChrSelBSlotGCFPv(void *arg0);
-void update_card_select__16TAdChrSelBSlotGCFPv(void *arg0);
-void update_slot_state__16TAdChrSelBSlotGCFPv(void *arg0);
 s32 TAdChrSelASlotGC__sub_8030C4F8(s32, s32);
 u32 TAdChrSelASlotGC__sub_8030C5C0(s32, s32);
 s32 TAdChrSelASlotGC__sub_8030C688(s32, s32);
@@ -33,7 +26,6 @@ u32 create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdPlayerLoadGC__sub_801E24F8(s32, s32, s32, s32, s32);
 s32 TAdSubPlyItemGC__sub_802D6D88(s32);
-void queue_destruction__7TObjectFv(void *arg0);
 
 void update_slot_state__16TAdChrSelBSlotGCFPv(void *arg0) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0x70) != 0U) {
@@ -418,18 +410,8 @@ struct C_8030F874 {
 };
 typedef void (C_8030F874::*Pmf_8030F874)();
 
-extern "C" void TAdChrSelBSlotGC__sub_8030E458();
-extern "C" void TAdChrSelBSlotGC__sub_8030E550();
-extern "C" void TAdChrSelBSlotGC__sub_8030E620();
 extern "C" void TAdChrSelBSlotGC__sub_8030E624();
 extern "C" void reset_plate_positions__16TAdChrSelBSlotGCFv();
-extern "C" void TAdChrSelBSlotGC__sub_8030E768(u8 *arg0);
-extern "C" void TAdChrSelBSlotGC__sub_8030E824(u8 *arg0);
-extern "C" void TAdChrSelBSlotGC__sub_8030E8E0(u8 *arg0);
-extern "C" void TAdChrSelBSlotGC__sub_8030E99C(u8 *arg0);
-extern "C" void TAdChrSelBSlotGC__sub_8030EA58(u8 *arg0);
-extern "C" void TAdChrSelBSlotGC__sub_8030EB14(u8 *arg0);
-extern "C" void TAdChrSelBSlotGC__sub_8030EBD0(u8 *arg0);
 extern "C" void check_cancel_and_close__16TAdChrSelBSlotGCFv();
 extern "C" void enter_state17__16TAdChrSelBSlotGCFv();
 extern "C" void init__16TAdChrSelBSlotGCFv();

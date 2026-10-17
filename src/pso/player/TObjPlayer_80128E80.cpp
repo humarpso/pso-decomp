@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80128E80.h"
+#include "pso/unk/text_80120908.h"
 #include "pso/TAdRicoRing.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-
-void srank_punch_draw(u8 *arg0);
-void draw_weapon_at_joint(s32 arg0, s8 arg1);
 
 void srank_punch_draw(u8 *arg0) {
     s32 temp_r31;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801BCC30.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -14,7 +15,6 @@ s32 get_quest_status__10TObjPlayerFv(void *, void *);
 s32 TObjPlayer__sub_801BEC10(void *);
 s32 get_field_0x374__10TObjPlayerFv(void *, void *);
 s32 TObjPlayer__sub_801BEC3C(void *);
-void TObjPlayer__sub_801BCC50(void);
 
 void TObjPlayer::load_char_data(u8 *arg1) {
     sub_801BEE2C((int) (*(s16 *)((s8 *)arg1 + 0x24)));

@@ -1,12 +1,12 @@
 #include "types.h"
+#include "pso/misc/TQuestListOnline_8021824C.h"
+#include "pso/misc/TShopWindowBase.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/misc/TQuestListOnline.h"
 
 extern "C" {
 
-void *__dt__16TQuestListOnlineFv(void *arg0, s16 arg1);
-void TWindow__close(u8 *arg0);
 s32 __dl__7TObjectFPv(void *);
-void *__dt__15TShopWindowBaseFv(void *self, s16 m);
 
 extern s32 __vt__16TQuestListOnline[];
 extern s32 TQuestListOnline__instance;

@@ -20,4 +20,11 @@ struct TObjEneDarkGunCenter : public TObjEnemy {
 };
 
 typedef char TObjEneDarkGunCenter_size[sizeof(TObjEneDarkGunCenter) == 0x3A8 ? 1 : -1];
+extern "C" {
+void TObjEneDarkGunCenter__sub_800A0B18(void);
+void TObjEneDarkGunCenter__sub_800A0E7C(void);
+void TObjEneDarkGunCenter__sub_800A0E80(void);
+void *__dt__20TObjEneDarkGunCenterFv(void *arg0, s16 arg1);
+}
+
 #endif

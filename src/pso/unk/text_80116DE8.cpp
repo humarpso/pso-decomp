@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/item/TItemObject_80115D6C.h"
+#include "pso/item/TItem_80100508.h"
+#include "pso/item/TItem_80100674.h"
+#include "pso/misc/pso_const_ids6.h"
+#include "pso/unk/text_80116DE8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/unk/TUnk_8049FBC0.h"
 
@@ -93,8 +98,6 @@ s32 add_stat_and_item__10TObjPlayerFiUc(void *, int);
 s32 set_speed_scaled_by_camera__10TObjPlayerFiUc(void *, int);
 s32 apply_speed_with_camera_scale__10TObjPlayerFiUc(void *, int);
 void vfunc_44__13TUnk_8049FBC0Fv(u8 *arg0);
-void *__dt__11TItemObjectFv(void *arg0, s16 arg1);
-void *__dt__13TUnk_8049FBC0Fv(void *arg0, s16 arg1);
 void run_task__5TItemFv();
 void dispatch_state__5TItemFv();
 void render_shadows__5TItemFv();
@@ -102,15 +105,12 @@ void vfunc_6__13TUnk_804B9870FPsl();
 void apply_object_set_data__13TUnk_804B9870FPv();
 void release_member_90__10TObjPlayerFv();
 void vfunc_9__11TItemObjectFv();
-int TItem__sub_80100B8C(void *p);
 void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void register_attack__5TItemFv();
 void try_pick_up_item__5TItemFl();
 void vfunc_14__11TItemObjectFv();
-void TItem__sub_801005E0();
 void vfunc_16__5TItemFv();
 void vfunc_17__5TItemFv();
-void TItemObject__vt16(u8 *arg0, u8 *item);
 void vfunc_19__5TItemFSc();
 void vfunc_20__5TItemFv();
 void vfunc_21__5TItemFPUclll();
@@ -129,12 +129,6 @@ void vfunc_33__5TItemFv();
 void vfunc_34__5TItemFv();
 void vfunc_35__5TItemFv();
 void vfunc_36__11TItemObjectFv();
-s32 TItemObject__vt35(void *arg0, s32 arg1);
-s32 TItemObject__vt36(void *arg0, s32 arg1);
-int ret_8010064C(void);
-void TItem__sub_80100648();
-int TItem__sub_801005E4(void);
-void TItem__sub_801005D8();
 void vfunc_43__5TItemFv();
 void *lbl_8049FBC0[45] = {
     0, 0, (void *)__dt__13TUnk_8049FBC0Fv, (void *)run_task__5TItemFv, (void *)dispatch_state__5TItemFv, (void *)render_shadows__5TItemFv, (void *)vfunc_6__13TUnk_804B9870FPsl, (void *)apply_object_set_data__13TUnk_804B9870FPv, (void *)release_member_90__10TObjPlayerFv, (void *)vfunc_9__11TItemObjectFv, (void *)TItem__sub_80100B8C, (void *)classify_actor_view_detail__13TUnk_804B9870Ffff, (void *)register_attack__5TItemFv, (void *)try_pick_up_item__5TItemFl, (void *)vfunc_14__11TItemObjectFv, (void *)TItem__sub_801005E0, (void *)vfunc_16__5TItemFv, (void *)vfunc_17__5TItemFv, (void *)TItemObject__vt16, (void *)vfunc_19__5TItemFSc, (void *)vfunc_20__5TItemFv, (void *)vfunc_21__5TItemFPUclll, (void *)vfunc_22__5TItemFl, (void *)vfunc_23__5TItemFl, (void *)vfunc_24__5TItemFllPs, (void *)vfunc_25__5TItemFv, (void *)vfunc_26__5TItemFv, (void *)vfunc_27__5TItemFv, (void *)vfunc_28__5TItemFv, (void *)destroy__5TItemFv, (void *)vfunc_30__5TItemFv, (void *)vfunc_31__11TItemObjectFv, (void *)vfunc_32__5TItemFv, (void *)vfunc_33__5TItemFv, (void *)vfunc_34__5TItemFv, (void *)vfunc_35__5TItemFv, (void *)vfunc_36__11TItemObjectFv, (void *)TItemObject__vt35, (void *)TItemObject__vt36, (void *)ret_8010064C, (void *)TItem__sub_80100648, (void *)TItem__sub_801005E4, (void *)TItem__sub_801005D8, (void *)vfunc_43__5TItemFv, (void *)vfunc_44__13TUnk_8049FBC0Fv

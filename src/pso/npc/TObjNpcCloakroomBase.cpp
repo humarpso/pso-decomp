@@ -106,9 +106,6 @@ extern RecoveredGlobal_80149738_lbl_804A8098 bm_n_trunk_i_body_resource_descript
 extern u32 TObjNpcCloakroomBase__static_instance;
 extern s32 __vt__20TObjNpcCloakroomBase[];
 extern s32 TObjNpcCloakroomBase__name;
-u8 *TObjNpcCloakroomBase__ct(u8 *arg0, s32 arg1, s32 arg2);
-void * TObjNpcConnoisseur__create(void *arg0);
-void *__dt__20TObjNpcCloakroomBaseFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);

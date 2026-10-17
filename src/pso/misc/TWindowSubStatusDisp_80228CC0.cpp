@@ -1,12 +1,11 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_80228CC0.h"
+#include "pso/misc/TWindowSubStatusDisp_80228F5C.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 
 extern "C" {
 extern char *text_builder_write_cursor;
 extern char text_builder_buffer[];
-void append_text_space(void);
-void append_padded_number(s32 v, u8 n);
-void text_builder_append(u8 *str);
 extern s32 lbl_8044CB60[];
 extern s32 lbl_805DC790;
 extern s32 lbl_805DC794;

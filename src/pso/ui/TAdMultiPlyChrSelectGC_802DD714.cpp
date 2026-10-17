@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
 #include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -8,11 +10,9 @@ extern "C" {
 
 s32 TAdMultiPlyChrSelectGC__sub_802C6848();
 s32 TAdMultiPlyChrSelectGC__sub_802DBEC4(void *, s32 *);
-s32 try_move_char__23TAdSinglePlyChrSelectGCFii(s32, s32);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(s32);
 s32 get_card_index__22TAdMultiPlyChrSelectGCFv(s32, s32);
-void queue_destruction__7TObjectFv(void *arg0);
 
 extern s32 lbl_80472868[];
 

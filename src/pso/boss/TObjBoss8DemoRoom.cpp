@@ -1,4 +1,8 @@
 #include "pso/TObjBoss8DemoRoom.h"
+#include "pso/boss/TObjBoss8DemoRoom.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
 
 #include "types.h"
 #include "pso/object/TObjFish.h"
@@ -6,14 +10,10 @@
 
 extern "C" {
 
-void run_task__17TObjBoss8DemoRoomFv(s32 arg0);
 u32 TBoss8Dragon__sub_802F3348(s32);
 s32 TBoss8Dragon__sub_802FCCBC();
-void draw_chunk_object(void *child);
 s32 TObjPlayer__sub_8023DEE0(s32, s32, s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
-void queue_destruction__7TObjectFv(void *arg0);
 
 extern void *TObjBoss8DemoRoom__shared_resource_object;
 

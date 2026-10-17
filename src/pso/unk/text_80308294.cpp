@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80308294.h"
 #include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -28,7 +29,6 @@ s32 create_fire_explosion_effect(void *, void *, s32, s32, f32);
 void *TObjPlayer__sub_802E449C(void *a0);
 extern s32 tl_particle;
 extern const f32 lbl_805DF0B8;
-s32 spawn_fire_explosion_at(u32 a0, s32 a1);
 s32 spawn_fire_explosion_at(u32 a0, s32 a1) {
     Info_8034F4FC info;
     void *o;

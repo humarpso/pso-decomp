@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjButterflyLobby_80350958.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjButterflyLobby.h"
 #include "pso/TParticleCtrl.h"
@@ -42,17 +44,13 @@ s32 rand();
 f32 sin_table_lookup(int);
 void rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
-s32 push_matrix_from(void *src);
-s32 pop_matrices(s32 arg0);
 extern u8 identity_matrix[];
-void render__18TObjButterflyLobbyFPv(u8 *arg0);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_x(int, int);
 s32 draw_ginja_model_with_motion(int, void *, f32);
 s32 get_bml_motion(void *, int);
 s32 push_matrix();
-s32 pop_matrix();
 
 extern s32 lobby_butterfly_bml_resource;
 
@@ -287,9 +285,6 @@ s32 construct_world_actor_base();
 s32 is_lobby_event_active();
 extern s32 __vt__18TObjButterflyLobby[];
 extern s32 lbl_805D4360;
-u8 *TObjButterflyLobby__ct(u8 *arg0, int arg1, u8 *arg2);
-void *TObjButterflyLobby__create(void *arg0);
-void *__dt__18TObjButterflyLobbyFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);

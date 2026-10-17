@@ -1,4 +1,5 @@
 #include "pso/item/ChallengeStageLoadouts.h"
+#include "pso/unk/text_80071B30.h"
 #include "pso/system/vector.h"
 
 #include "types.h"
@@ -47,7 +48,6 @@ extern "C" {
 s32 get_layout_id__20TWindowSubStatusDispFv(s32);
 s32 *TWindowSubStatusDisp__sub_8006F0D8(void *);
 extern u8 challenge_mode_state[];
-s32 TLobby__sub_80071B30(s32 arg0, s32 arg1);
 void copy_player_visual_record(Chr_80071BC0 *, void *);
 Plr_80071BC0 *get_player_by_client_id(s32);
 Plr_80071BC0 *create_player_object(s32, s32, TPlyCharData *);

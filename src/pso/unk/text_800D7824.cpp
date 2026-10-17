@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/unk/TUnk_80494968.h"
 struct P_800D78CC { u8 b[0x10]; };
 
@@ -24,7 +25,6 @@ struct Obj_800D7824 : B_800D7824 {
 };
 
 extern "C" {
-void TAdDrawLineTask__sub_80019A8C(void *p, void *q);
 
 void TUnk_80494968::vfunc_6(void *p0_arg, void *p1_arg) {
     Obj_800D7824 *self = (Obj_800D7824 *)this;

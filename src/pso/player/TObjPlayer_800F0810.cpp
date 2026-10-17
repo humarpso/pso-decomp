@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_800F0810.h"
+#include "pso/system/ModelDrawContext.h"
+#include "pso/unk/text_80141A30.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 
@@ -36,19 +39,13 @@ s32 set_chunk_material_override_pair(s32, s32);
 extern s32 model_render_flags;
 extern RecoveredGlobal_800F08AC_lbl_80501080 lbl_80501080;
 extern RecoveredGlobal_800F08AC_lbl_805010D0 lbl_805010D0;
-s32 *TObjPlayer__sub_800F08AC(s32 arg0, s32 arg1);
-void TObjPlayer__sub_800F083C(void);
 s32 draw__16TObjEneRe7BeruraFv(void *);
 s32 is_split_screen();
-s32 is_split_screen__10TObjPlayerFv(void);
-void restore_saved_depth_alpha_state(void);
-void set_cached_blend_factor(s32 arg0, s32 arg1);
 extern RecoveredGlobal_800F09E8_lbl_804976B0 blob_shadow_rect_desc;
 extern s32 blob_shadow_texture_list;
 extern const f32 lbl_805DA7F8;
 extern const f32 lbl_805DA7FC;
 extern const f32 lbl_805DA800;
-void draw_blob_shadow(s32 arg0);
 int init_directional_light__9TObjLightFv(void*);
 int TObjLight__sub_801337F8(void*);
 

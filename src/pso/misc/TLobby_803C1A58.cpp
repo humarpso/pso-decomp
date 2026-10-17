@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLobby_803BFE50.h"
+#include "pso/misc/TLobby_803C1A58.h"
+#include "pso/system/AdxStreamRuntime.h"
 #include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_803C0B08_lbl_80570AC0 {
@@ -141,47 +144,30 @@ struct Snd_803C1DC4
 };
 
 extern "C" {
-void TLobby__sub_803C4020(u8 *arg0, s32 arg1, s32 arg2);
-s8 TLobby__sub_803C3B38(u8 *arg0);
 s32 memset(void *, int, int);
 extern RecoveredGlobal_803C0B08_lbl_80570AC0 adx_channel_record_pool;
-void TLobby__sub_803C406C(void);
 int memcmp(const void *a, const void *b, unsigned long n);
 extern const char lbl_805E0CE0[4];
 extern s32 lbl_805E0CC0;
 extern s32 lbl_805E0CC8;
 extern s32 lbl_805E0CD0;
 extern s32 lbl_805E0CD8;
-void TLobby__sub_803C0B3C(u8 *arg0);
 void TLobby__sub_803C19D8(void *);
 void TLobby__sub_803C3570(void *);
 void TLobby__sub_803C40D0(void *);
 void TLobby__sub_803C34F4(Obj_803C34F4 *arg0);
 s32 DVDReadPrio(void *, void *, void *);
-s32 TLobby__sub_803C3B68(s32 arg0, u16 *arg1, s32 arg2);
-s32 TLobby__sub_803C43A8(void *arg0, void *arg1, void *arg2);
 s32 TLobby__sub_803C44C0(Hdr_803C44C0 *hdr, s32 arg1, s16 *arg2, s8 *arg3, s8 *arg4, s8 *arg5, s8 *arg6, s32 *arg7, s32 *arg8, s32 *arg9, s16 *arg10);
 u8 *TLobby__sub_803C2388(u8 *, s32 *, s32 *, s32 *, s32 *);
 s32 __DVDPrepareResetAsync(void *, void *, void *, void *, void *, void *, void *, void *, void *);
 s32 TLobby__sub_803C48C8(void *, void *, void *);
 s32 ARStartDMA(void *, void *, void *, void *, void *, void *, void *, void *, void *, void *);
-void TLobby__sub_803CB570(u8 *arg0, u8 *arg1, s16 *arg2);
 extern s32 lbl_8047C520[];
 extern s32 lbl_8047C540[];
-s32 TRK__write_aram(void *arg0p, void *arg1, void *arg2);
 u32 adx_allocate_decoder_channel();
-s32 get_progress_info__6TLobbyFPvPvPvPv(u8 *arg0, s32 *arg1, s32 *arg2, s32 *arg3);
 Rec_803C3E88 *alloc_record__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 u32 GXSetCopyFilter(void *, void *, void *, void *, void *, void *, void *);
-s32 TLobby__sub_803C30E8(u8 *arg0, s32 arg1, s32 arg2);
 void process_byteswapped_pcm_transfer(Snd_803C1DC4 *arg0);
-void TLobby__sub_803C3984(u8 *arg0);
-void TLobby__sub_803C39CC(u8 *arg0);
-void TLobby__sub_803C3A04(u8 *arg0);
-s32 TLobby__sub_803C3ABC(u8 *arg0);
-s32 TLobby__sub_803C3AC4(u8 *arg0);
-s32 TLobby__sub_803C3B44(u8 *arg0);
-void TLobby__sub_803C3B5C(u8 *arg0, s32 arg1, s32 arg2);
 void TLobby__sub_803C2A00(Strm_803C1A8C *o);
 extern s16 lbl_804F9B80[];
 

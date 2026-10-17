@@ -1,7 +1,10 @@
 #include "pso/TItemReverseTech.h"
+#include "pso/item/TItemReverseTech.h"
+#include "pso/misc/TCameraCtrl_800687BC.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TLoadCtrl_80227390.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TLobby.h"
-
-extern "C" s32 request_queued_main_phase(void);
 
 #pragma opt_common_subs off
 #include "types.h"
@@ -17,9 +20,6 @@ struct Stack_8011A00C {
 };
 extern "C" {
 
-void queue_destruction__7TObjectFv(void *arg0);
-void set_active_camera_pose(u8 *arg0, u8 *arg1);
-s32 activate_camera_mode(s32 arg0);
 u32 __ct__21TItemReverseTechPart2Fv(int, void *, int);
 void *__nw__7TObjectFUl(int);
 struct RecoveredGlobal_8011A00C_lbl_8043E6A4 {
@@ -87,9 +87,7 @@ TItemReverseTech::~TItemReverseTech() {
 
 extern "C" {
 
-void *TItemReverseTech__ct(void *arg0);
 void *TItemReverseTechPart1__ct(void *, void *, void *);
-void play_area_music(char *name);
 void *__ct__10TAdEndTextFv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 

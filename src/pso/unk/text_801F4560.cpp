@@ -1,7 +1,7 @@
 #include "types.h"
+#include "pso/unk/text_801F4560.h"
 extern "C" {
 extern u8 quest_story_flags_by_difficulty[4][128];
-void clear_story_flag_in_bank(s32 n, s32 flag);
 void clear_story_flag_in_bank(s32 n, s32 flag) {
     s32 v;
     s32 bit;

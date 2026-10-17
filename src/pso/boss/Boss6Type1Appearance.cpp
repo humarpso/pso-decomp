@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/boss/Boss6Type1Appearance.h"
+#include "pso/misc/TCameraCtrl_800687BC.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_803E4954.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/boss/TBoss6Demo10_TYPE1_APPEAR.h"
 #include "pso/boss/TBoss6Demo10_TYPE1_APPEAR.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -32,16 +37,13 @@ struct Fish_8033CB4C
 };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 u32 create_particle_emitter(int, int);
 s32 play_sound_effect(int, int, int, int);
 extern const f32 lbl_805DFA48;
 extern const f32 lbl_805DFA4C;
-void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
-s32 activate_camera_mode(s32 arg0);
 int set_scripted_camera_pose(void *, void *, void *);
 s32 TObjFish__sub_800E3124(void *, void *);
 int __ct__7TObjectFP7TObject(void *, void *);
@@ -60,14 +62,9 @@ struct AppearanceZero { f32 value; u32 padding; };
 __declspec(section ".sdata2") extern const AppearanceZero lbl_805DFA50;
 Fish_8033CB4C *__ct__25TBoss6Demo10_TYPE1_APPEARFP7TObject(Fish_8033CB4C *self, void *parent);
 u8 *__dt__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0, s16 arg1);
-void render__25TBoss6Demo10_TYPE1_APPEARFv(void* p);
-void *TBoss6Demo10_TYPE1_APPEAR__create(void *arg0);
 s32 refresh_players_equipment__14TBoss6PlotFalzFPv();
-s32 restore_player_cameras();
 s32 post_translate_matrix(s32 *);
-void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 s32 push_matrix();
-s32 pop_matrix();
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);

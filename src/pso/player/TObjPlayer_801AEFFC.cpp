@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 int is_locally_controlled__10TObjPlayerFPv(void*);
 s32 obj_getField1c(void *);
 s32 init_pad_binding(void *, void *, int);
-s32 get_character_save_record(u32);
 s32 test_action_mask__10TObjPlayerFl(s32, s32);
 s32 update_movement_by_screen__10TObjPlayerFv(s32);
 s32 TObjPlayer__sub_801AF868(s32);

@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TNeedleShoot_802A4754.h"
+#include "pso/misc/TNeedleShoot_802A4A44.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TNeedleShoot.h"
 #include "pso/misc/TObjEneMe1Gee_NEEDLE.h"
 
@@ -32,11 +35,8 @@ struct VObj_18_174c10 : VBase_18_174c10 {
 struct Pair_802A4AEC { s32 a; f32 b; };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
-void *__dt__20TObjEneMe1Gee_NEEDLEFv(void *arg0, s16 arg1);
 s32 play_sound_effect(int, void *, int, int);
 void __dl__7TObjectFPv(void *);
-void *__dt__12TNeedleShootFv(void *arg0, s16 arg1);
 
 void*TNeedleShoot::get_shoot_data() { return (char*)this + 0x28; }
 

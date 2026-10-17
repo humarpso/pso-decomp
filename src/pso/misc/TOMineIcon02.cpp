@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TOMine.h"
@@ -45,7 +46,6 @@ struct Icon_801717C0 {
 };
 
 extern "C" {
-void *spawn_particle_effect(void *pos, s32 id);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 void init_collision_body_parts(void *, void *, s32);
@@ -60,8 +60,6 @@ extern const f32 lbl_805DB8AC;
 extern const f32 lbl_805DB8B0;
 extern const f32 lbl_805DB8B4;
 extern const f32 lbl_805DB8B8;
-void *TOMineIcon02__ct(void *arg0, void *arg1, void *arg2);
-void *__dt__12TOMineIcon02Fv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__dt__6TOMineFv(void *arg0, s16 arg1);

@@ -1,4 +1,5 @@
 #include "pso/TAdDrawLineTask.h"
+#include "pso/ui/TAdDrawLineTask.h"
 #include "pso/TObject.h"
 
 TAdDrawLineTask::~TAdDrawLineTask() {}
@@ -8,8 +9,6 @@ TAdDrawLineTask::~TAdDrawLineTask() {}
 
 extern "C" {
 
-void render__15TAdDrawLineTaskFv(void* p);
-void run_task__15TAdDrawLineTaskFv(void *arg0);
 int draw_projected_line_strip__10TObjPlayerFPvii(void*, void*, void*);
 s32 allow_rendering__7TObjectFv();
 s32 fn_80019B08(u32, s32);

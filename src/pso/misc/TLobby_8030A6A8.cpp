@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby_80291D94.h"
+#include "pso/misc/TLobby_8030A6A8.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -6,9 +8,6 @@
 
 extern "C" {
 s32 is_flag_set__6TLobbyFv();
-s32 is_challenge_mode_active();
-s32 get_game_play_mode(void);
-s32 TLobby__sub_8030A770(void);
 int is_quest_active(void);
 
 extern s32 game_difficulty_selection;

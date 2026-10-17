@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TPlyInventoryItem.h"
 #include "pso/system/byteswap.h"
 
 extern "C" {
 
-void bswap__17TPlyInventoryItemFv(s32 arg0);
 void bswap__9TItemDataFv(s32 arg0);
 
 void bswap__17TPlyInventoryItemFv(s32 arg0) {

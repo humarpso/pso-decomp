@@ -23,4 +23,31 @@ struct TBoss7TentacleNeedle : public TObject {
 };
 
 typedef char TBoss7TentacleNeedle_size[sizeof(TBoss7TentacleNeedle) == 0x7C ? 1 : -1];
+extern "C" {
+void TBoss7Tentacle__sub_802EF954(void *p);
+u8 TBoss7Tentacle__sub_802F0904(u8 *arg0);
+void TBoss7Tentacle__sub_802F0918(void *p);
+void TBoss7Tentacle__sub_802F09B4(void *p);
+void TBoss7Tentacle__sub_802F09C8(void *a0);
+void TBoss7Tentacle__sub_802F09EC(void *p);
+void TBoss7Tentacle__sub_802F09FC(u8 *arg0);
+void TBoss7Tentacle__sub_802F0A14(u8 *arg0);
+void TBoss7Tentacle__sub_802F0A2C(u8 *arg0);
+void TBoss7Tentacle__sub_802F0A44(u8 *arg0);
+void TBoss7Tentacle__sub_802F0AD0(void *a0);
+void TBoss7Tentacle__sub_802F0AF0(u8 *arg0);
+void TBoss7Tentacle__sub_802F0B58(u8 *arg0);
+void TBoss7Tentacle__sub_802F0B70(void *p);
+void TBoss7Tentacle__sub_802F0B80(void *p);
+void TObjPlayer__sub_802EFEC4(void);
+void TObjPlayer__sub_802F0D2C(void);
+void *__dt__20TBoss7TentacleNeedleFv(void *arg0, s16 arg1);
+void advance_needle_timer__20TBoss7TentacleNeedleFPv(void *arg0);
+void damage_nearby_players__14TBoss7TentacleFPv(u8 *arg0);
+void fn_802EFEA8(void);
+void render__14TBoss7TentacleFv(u8 *arg0);
+void run_task__14TBoss7TentacleFv(u8 *arg0);
+void update_retract_state__14TBoss7TentacleFPv(u8 *arg0);
+}
+
 #endif

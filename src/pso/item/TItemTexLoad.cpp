@@ -1,14 +1,14 @@
 #include "pso/item/TItemTexLoad.h"
+#include "pso/object/TObjFish_8001ED90.h"
+#include "pso/player/TObjPlayer_8023E480.h"
+#include "pso/unk/text_803CC294.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 void prs_decompress_alloc(void*, s32, s32);
 void load_gvm_texture_archive(s32, void*);
-s32 free_texture_if_valid(u32 arg0);
-s32 TLobby__sub_803CC53C(u8 *arg0);
 u32 adxf_open_afs__6TLobbyFii(int, int);
 s32* lookup_item_pmt_record(void*);
-s32 TLobby__sub_8001EEF4();
 s32 TLobby__sub_803CC4C0(s32);
 void mem_free(void*);
 void* mem_alloc(u32);

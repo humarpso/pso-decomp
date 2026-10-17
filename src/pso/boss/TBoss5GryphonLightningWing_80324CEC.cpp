@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/boss/TBoss5GryphonLightningWing_80324CEC.h"
 #include "pso/TBoss5GryphonLightningWing.h"
 
 extern "C" {
 
-f32 TBoss5GryphonLightningWing__sub_80324CEC(void);
 int VecCopy__FP3VecPC3Vec(s32, s32, s32);
 f64 asin();
 

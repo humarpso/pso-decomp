@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_80144B14.h"
+#include "pso/misc/TWindowSubStatusDisp_80228F5C.h"
 #include "pso/misc/TWindowOptionCtrl.h"
 #include "pso/misc/TWindowDuelResult.h"
 #include "pso/misc/TWindowMessage.h"
@@ -181,9 +183,6 @@ void TWindowMessage::update_scroll() {
 
 #pragma fp_contract on
 s32 get_shared_text_buffer(void);
-u32 calc_text_width(char *s);
-void text_builder_append(u8 *str);
-void text_builder_reset(void);
 s32 append_message_window_line(void *, s32, u32, s32);
 extern const f32 lbl_805DD234;
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjEZBoneRotPlayer_800FE834.h"
 #include "pso/TObjEZBoneRotPlayer.h"
 
 struct RecoveredGlobal_800FE930___vt__19TObjEZBoneRotPlayer {
@@ -10,7 +11,6 @@ extern "C" {
 u8 * TObjEZBoneRotBase__ct(void *, s32, void *);
 extern RecoveredGlobal_800FE930___vt__19TObjEZBoneRotPlayer __vt__19TObjEZBoneRotPlayer;
 extern s32 TObjEZBoneRotPlayer__name;
-u8 * __ct__19TObjEZBoneRotPlayerFv(u8 *arg0, s32 arg1, u8 *arg2, void *);
 void *__nw__7TObjectFUl(int);
 extern const f32 lbl_805DAA4C;
 extern const f32 lbl_805DAA40;

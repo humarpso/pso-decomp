@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_802A1020.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 typedef struct Entry_802A1020 {
     s32 file;
@@ -11,7 +12,6 @@ u8 *set_stream_and_load_file__6TLobbyFi(s32);
 u32 get_file_size__6TLobbyFv(s32);
 extern Entry_802A1020 file_integrity_table[];
 extern s32 lobby_cursor_active_flag;
-s32 fn_802A1020(void);
 s32 fn_802A1020(void) {
     s32 i;
     u32 size;

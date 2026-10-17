@@ -23,4 +23,21 @@ struct TObjEneBalClawClaw : public TObjEneBalClaw {
 };
 
 typedef char TObjEneBalClawClaw_size[sizeof(TObjEneBalClawClaw) == 0x428 ? 1 : -1];
+extern "C" {
+s32 TObjEneBalClawClaw__ct(void *arg0);
+void TObjEneBalClawClaw__sub_80090824(void);
+void TObjEneBalClawClaw__sub_80090A10(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3);
+void TObjEneBalClawClaw__sub_800914A4(void);
+void TObjEneBalClawClaw__sub_8009173C(u8 *arg0);
+u8 *TObjEneBalClawClaw__sub_80091B98(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *arg5, s32 arg6, s32 _w7);
+u8 *TObjEneBalClawClaw__sub_80091C58(u8 *arg0, s32 arg1, u8 *arg1_arg);
+void action__18TObjEneBalClawClawFPv(u8 *arg0);
+void *deleting_dtor__18TObjEneBalClawClawFPvs(void *arg0, s16 arg1);
+void render__18TObjEneBalClawClawFPv(u8 *arg0);
+int reset_active_state__18TObjEneBalClawClawFPv(void *p);
+void run_active_state__18TObjEneBalClawClawFPv(u8 *arg0);
+void spawn_lobby_npc_enemy(void);
+void update_chase_state__18TObjEneBalClawClawFPv(u8 *arg0);
+}
+
 #endif

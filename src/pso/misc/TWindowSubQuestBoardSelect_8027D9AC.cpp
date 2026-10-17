@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TWindowSubQuestBoardSelect_8027D9AC.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TWindowDD.h"
 
 extern "C" {
 
-void *__dt__26TWindowSubQuestBoardSelectFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 extern s32 __vt__26TWindowSubQuestBoardSelect[];

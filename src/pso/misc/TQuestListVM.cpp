@@ -1,4 +1,11 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TShopWindowBase.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObjFish_8001ED90.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/ui/TAdPlayerLoadGC_801E0C30.h"
+#include "pso/ui/TObjBagWarnWin_8006EF24.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TShopArmorListWindow.h"
 #include "pso/misc/TUnk_804CDFE8.h"
@@ -169,15 +176,12 @@ struct Dl_802194BC { u8 pad[0x58]; u8 *data; s32 size; };
 struct Ent_802194BC { u8 pad[0x13]; s8 c; char name[0x20]; char desc[0x80]; };
 
 extern "C" {
-s32 TLobby__sub_8001EEF4();
-s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 extern s32 TQuestListVM__data_8044BF20[];
 extern s32 TQuestListVM__decrypted_quest_buffer;
 extern s32 TQuestListVM__decompression_capacity;
 extern RecoveredGlobal_8033B9C4_lbl_80513910 download_rng_seed_pair;
 void seed_download_rng(s32 arg0);
 extern int evt2_random_enemies_mode;
-void *__ct__15TShopWindowBaseFv(void *arg0);
 extern s32 __vt__12TQuestListVM[];
 extern s32 TQuestListVM__class_name;
 extern s32 TQuestListVM__quest_data_output_cursor;
@@ -205,7 +209,6 @@ extern const f32 lbl_805DC6B8;
 extern const f32 lbl_805DC6BC;
 s32 TAdPlayerLoadGC__sub_801E1538(Dl_80218E94 *, s32);
 s32 poll_download__12TQuestListVMFv(void *);
-void TWindow__close(u8 *arg0);
 s32 get_selected_menu_value(void *);
 s32 calc_list_content_extent(void *);
 u32 set_window_mode_4__6TLobbyFPvll(int, void *, int);
@@ -213,7 +216,6 @@ u32 create_item_list_window(void *, int, u16);
 extern char lbl_8044BF04[];
 extern char lbl_8044BF14[];
 extern Pair_80218D40 lbl_8044BF40[];
-s32 find_card_file__15TAdPlayerLoadGCFiPv(s32 chan, const char *name);
 char *strcpy(char *, const char *);
 void *memcpy(void *, const void *, unsigned long);
 struct Base_802186E4_80218570 { char pad[0x18]; };
@@ -226,11 +228,7 @@ struct VObj_802186E4_80218570 : Base_802186E4_80218570 {
 
 void TQuestVmDownLoadServer__sub_80219EC4(void* p);
 void *__dt__12TQuestListVMFv(void *arg0, s16 arg1);
-void TKeyBoardControl__sub_8000F950(void);
-void TLobby__sub_8001EDF4(u8 *arg0);
 s32 __dl__7TObjectFPv(void *);
-void *__dt__15TShopWindowBaseFv(void *self, s16 m);
-void queue_destruction__7TObjectFv(void *arg0);
 
 s32 TQuestListVM::update_load_status() {
     s32 temp_r3;

@@ -1,4 +1,8 @@
 #include "pso/system/GinjaMaterialState.h"
+#include "pso/player/TObjPlayer_803DF7A8.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/system/GinjaModelQueue.h"
+#include "pso/unk/text_803E2008.h"
 #include "pso/system/GinjaModel.h"
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
@@ -52,39 +56,26 @@ typedef struct GinjaCounts_803DB734 {
 } GinjaCounts_803DB734;
 
 extern "C" {
-void draw_ginja_model(s32 arg0);
 s32 Dolphin_GXSetVtxDesc(int, void *);
 s32 GXClearVtxDesc();
-s32 get_ginja_vertex_descriptor_type(u32 arg0, s32 arg1);
-void set_ginja_indexed_vtx_desc(s32 arg0);
 void GXSetZMode(u8, s32, s32);
 void GXSetZCompLoc(s32);
-void apply_scene_fog(void);
 extern RecoveredCallback_d26337a2813d ginja_draw_end_callback;
 extern s32 ginja_draw_flags;
 extern s32 model_render_flags;
-void end_ginja_model_draw(void);
 void queue_model_draw_matrix(s32, s32);
 extern s32 current_matrix;
-s32 queue_model_draw_current_matrix(s32 arg0);
 extern S_803DB560 ginja_material_cache;
-u32 update_ginja_cached_parameter(s32 i, u32 v);
 extern u32 ginja_blend_override;
-void set_ginja_blend_param(u32 x);
 void GXSetAlphaCompare(s32 comp0, s32 ref0, s32 op, s32 comp1, s32 ref1);
-void ginja_set_alpha_compare(s32 ref);
 extern s32 ginja_texcoord_ids[];
 extern s32 ginja_texmap_ids[];
 void GXSetTevOp(s32, s32);
 void GXSetTevOrder(s32, s32, s32, s32);
-void set_ginja_tev_order(u32 parameter);
 extern s32 ginja_vertex_attributes[];
 extern s32 ginja_vertex_component_counts[];
 extern s32 ginja_vertex_component_types[];
 void GXSetVtxAttrFmt(s32, s32, s32, s32, u8);
-void ginja_set_vertex_format(u32 arg0);
-void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map);
-void ginja_load_texture_slot(u32 arg0);
 void GXSetArray(s32, void *, u8);
 void set_ginja_vertex_arrays(Arr_803DC3BC *arg0);
 GinjaMaterialCache *invalidate_ginja_inherited_state();
@@ -92,11 +83,9 @@ s32 apply_ginja_material_params(GinjaDrawRecord *);
 s32 GXCallDisplayList(void *, u32);
 extern s32 ginja_draw_list_state, ginja_draw_list_mask, ginja_draw_flags;
 s32 draw_ginja_model_lists(GinjaModel *model);
-void prepare_ginja_model(void);
 void GXSetTexCoordGen2(s32 dst, u32 func, u32 src, s32 mtx, s32 normalize, s32 pt);
 extern s32 ginja_texture_matrix_ids[];
 extern s32 lbl_805D7700;
-void set_ginja_texcoord_gen(u32 arg0);
 void PSMTXConcat(void *, void *, void *);
 void PSMTXTranspose(void *, void *);
 void PSMTXInverse(void *, void *);
@@ -105,20 +94,15 @@ void PSMTXScale(void *, f32, f32, f32);
 void GXLoadPosMtxImm(void *, void *);
 void GXLoadNrmMtxImm(void *, void *);
 void GXLoadTexMtxImm(void *, int, int);
-s32 load_ginja_model_matrices(int arg0);
 void GXSetChanMatColor(s32, C_803DB9A0);
 void convert_color_f32_to_u8(const F_803DB9A0 *, C_803DB9A0 *);
 void convert_color_u8_to_f32(const C_803DB9A0 *, F_803DB9A0 *);
 extern F_803DB9A0 model_material_color;
 extern const C_803DB9A0 lbl_805E0F68;
-void set_ginja_material_color(u32 v);
 void init_model_draw_queue(void *);
-void flush_model_draw_queue(void);
 void traverse_model_node_tree(void *, void *);
-void draw_ginja_object(void *arg0);
 void GXSetChanCtrl(s32,s32,s32,s32,s32,s32,s32);
 extern s32 gx_chan_ctrl_light_mask;
-void set_ginja_channel_ctrl(s32 channel,s32 flags);
 void GXSetNumChans(u8);
 void GXSetNumTexGens(u8);
 void GXSetNumTevStages(u8);
@@ -128,7 +112,6 @@ extern RecoveredCallback_bfe74032a8e8 ginja_pre_tev_callback;
 extern RecoveredCallback_b52dc2a08a00 ginja_post_channel_callback;
 extern RecoveredCallback_b52dc2a08a00 ginja_post_texgen_callback;
 extern RecoveredCallback_b52dc2a08a00 ginja_post_tev_callback;
-void set_ginja_channel_counts(s32 arg0, s32 arg1);
 
 void draw_ginja_object(void *child) {
     prepare_ginja_model();

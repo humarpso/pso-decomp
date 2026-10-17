@@ -1,4 +1,7 @@
 #include "pso/TObject.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/ui/TObjCMHexTile.h"
+#include "pso/unk/text_802948A8.h"
 #include "types.h"
 
 class TObjCMHexTile : public TObject {
@@ -12,10 +15,8 @@ public:
 struct H_80294324 { u8 pad0[0x34]; f32 f34; f32 f38; f32 f3c; f32 f40; u8 pad44[4]; f32 f48; f32 f4c; };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805DDA0C;
 extern const f32 lbl_805DDA10;
-void run_task__13TObjCMHexTileFv(u8 *arg0);
 void draw_ui_sprite_scaled(int, void *, void *, f32, f32);
 extern const f32 lbl_805DDA00;
 extern const f32 lbl_805DDA04;
@@ -148,7 +149,6 @@ struct V2_802947A8 {
     f32 y;
 };
 
-void *create_TObjCMHexTile(void *pos);
 extern const f32 lbl_805DDA38;
 extern const f32 lbl_805DDA3C;
 extern const f32 lbl_805DDA40;

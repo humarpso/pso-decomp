@@ -1,12 +1,12 @@
 #include "types.h"
+#include "pso/item/TItemReverseTechBG.h"
+#include "pso/item/TItemReverseTechPart2_801198F8.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/TItemReverseTechPart2.h"
 
 extern "C" {
 
-void run_task__21TItemReverseTechPart2Fv(u8 *arg0);
-void *__ct__18TItemReverseTechBGFv(void *arg0, void *arg1, void *arg3);
 u32 __nw__7TObjectFUl(s32);
-void queue_destruction__7TObjectFv(void *arg0);
 
 void TItemReverseTechPart2::render() {  }
 

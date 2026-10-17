@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/misc/TWindowMainMenu_8024E3CC.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_8026AC50.h"
 #include "pso/misc/TWindowCtrl.h"
 
 extern "C" {
-
-void TWindowMainMenu__sub_8024E3CC(void);
-void fn_8026AC50(void);
-void queue_destruction__7TObjectFv(void*);
 
 extern u32 TWindowCtrl__active_window;
 

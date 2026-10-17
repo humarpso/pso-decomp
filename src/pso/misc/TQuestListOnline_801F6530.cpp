@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TQuestListOnline_801F6530.h"
 #include "pso/misc/TQuestListOnline.h"
 
 extern "C" {

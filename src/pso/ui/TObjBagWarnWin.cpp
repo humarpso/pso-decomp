@@ -1,4 +1,6 @@
 #include "pso/TObjBagWarnWin.h"
+#include "pso/ui/TObjBagWarnWin_8006EF24.h"
+#include "pso/unk/text_8006EF80.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 
@@ -23,7 +25,6 @@ struct Ctrl_8006EC20 {
 extern "C" {
 s32 TWindow__close(int);
 s32 TWindowCtrlMain__sub_8024CE58();
-s32 fn_8006EF80();
 Ctrl_8006EC20 *get_player_by_client_id(s32);
 s32 TLobby__sub_80211C3C();
 extern s32 local_client_id;
@@ -31,7 +32,6 @@ extern const f32 lbl_805D90B8;
 extern const f32 lbl_805D90BC;
 extern const f32 lbl_805D90C0;
 extern const f32 lbl_805D90C4;
-s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 send_and_handle__6TLobbyFii(u32, void *, s32);
 u32 set_window_mode_4__6TLobbyFPvll(s32, void *, s32);
 s32 get_window_layout_position(s32);

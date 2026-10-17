@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowDD_803488A8.h"
 #include "pso/misc/TWindowDD_WS_String.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowDD.h"
@@ -15,15 +16,12 @@ extern "C" {
 extern f32 lbl_805DFB1C;
 extern const f32 TWindowDD__data_805DFCD8;
 extern f32 lbl_805DFCDC;
-void TWindowDD__sub_80348A2C(void *arg0, void *arg1);
 extern const f32 lbl_805DFCE0;
 extern const f32 lbl_805DFCE4;
-f32 TWindowDD__sub_80348AD4(f32 farg0, f32 farg1);
 extern Src_80348A9C TWindowDD__data_805434E8[][8];
 extern s32 *TWindowDD__player_name_buffers;
 extern s32 *TWindowDD__data_805D6E28;
 extern s16 *lbl_805D6E34;
-s32 TWindowDD__sub_80348B70(s16 arg0);
 extern const f32 TWindowDD__data_805DFB58;
 extern const f32 lbl_805DFB5C;
 extern const f32 lbl_805DFCD4;

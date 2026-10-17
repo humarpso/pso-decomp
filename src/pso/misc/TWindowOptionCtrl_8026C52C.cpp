@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TWindowOptionCtrl_8026C52C.h"
 #include "pso/misc/TWindowOptionCtrl.h"
 
 extern "C" {
 
-void *TWindowOptionCtrl__ct(void *arg0);
 void *__ct__15TAdPlayerLoadGCFv(void *, void *, int);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);

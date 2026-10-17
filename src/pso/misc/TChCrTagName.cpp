@@ -1,4 +1,5 @@
 #include "pso/TChCrTag.h"
+#include "pso/misc/TChCrTagName.h"
 class TChCrTagName : public TChCrTag {
 public:
     virtual void render_shadows();
@@ -81,10 +82,7 @@ u8 * __ct__8TChCrTagFv(void *, s32);
 extern void *__vt__12TChCrTagName[];
 __declspec(section ".rodata") extern const char lbl_804663F8[] = "TChCrTagName";
 const char *TChCrTagName__class_name = lbl_804663F8;
-u8 *__ct__12TChCrTagNameFv(u8 *arg0, s32 arg1, s32 _w2);
 f32 cos_table_lookup(s32);
-void update_slide_in__12TChCrTagNameFPv(u8 *arg0);
-s32 TChCrTagName__vt4(u8 *arg0);
 f32 calc_highlight_scale__12TChCrTagNameFPv(Tag_802A265C *arg0);
 extern vec2f lbl_80466408[];
 void draw_tag_sprite__12TChCrTagNameFPv(TChCrTagName_802A2500 *self);
@@ -95,11 +93,6 @@ extern vec2f lbl_80466428[];
 int TChCrTagName__sub_802A226C(TChCrTagName_802A226C *self);
 f32 sin_table_lookup(s32);
 extern vec2f lbl_80466430[];
-int draw_tag_sprites__12TChCrTagNameFPv(void *p);
-void *create__12TChCrTagNameFPv(void *arg0);
-void create_all__12TChCrTagNameFv(void);
-void render__12TChCrTagNameFv(void* p);
-void run_task__12TChCrTagNameFv(void *arg0);
 struct TChCrTagName_802A226C; int TChCrTagName__sub_802A226C(TChCrTagName_802A226C *);
 s32 update_fade__8TChCrTagFPv();
 void *__nw__7TObjectFUl(int);

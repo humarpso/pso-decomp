@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneDD_ST.h"
@@ -355,7 +357,6 @@ s32 play_sound_effect(s32, void *, s32, s32);
 s32 advance_animation_playback(void *);
 extern const f32 TObjEneRe7Berura__data_805D9738;
 void TObjEneRe7Berura__sub_80093470(Berura_80093470 *obj, s32 mode);
-void queue_destruction__7TObjectFv(void *);
 void TObjEneRe7BeruraPunch__sub_800962F4(void *p);
 void TObjPlayer__sub_800A04F0(void *);
 s32 is_split_screen();
@@ -369,7 +370,6 @@ s32 scroll_strip_uvs(s32, int, int);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
 extern Vec_80092CCC lbl_80439EC4[];
 extern Elem_80092CCC TObjEneRe7Berura__detached_part_states[];

@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/misc/TLobby_802A7848.h"
+#include "pso/misc/TLockOnCursor_8013D91C.h"
+#include "pso/misc/TPlayerFootStamp_802B01D8.h"
+#include "pso/misc/TPlyJoinLobbyEntry.h"
+#include "pso/unk/text_80354BE4.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TPlayerFootStamp.h"
 #include "pso/misc/TLobby.h"
@@ -6,14 +11,6 @@
 #include "pso/misc/TWindowSnapShot.h"
 
 extern "C" {
-
-void load_target_cursor_models(void);
-void set_player_count__6TLobbyFi(int a0);
-void TLobby__sub_802A7BD8(void);
-s32 copy_if_space(void);
-s32 load_player_motion_data(void);
-void load_player_footstamp(void);
-void TObjPlayer__sub_80354E7C(void);
 
     extern unsigned char lobby_rule_settings[];
     extern int lbl_805D5D7C;

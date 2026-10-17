@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLanguage_801E4874.h"
+#include "pso/unk/text_800F9B84.h"
+#include "pso/unk/text_8014B8A4.h"
 #include "pso/npc/TUnk_804A9F50.h"
 #include "pso/npc/TObjNpcGovernorBase.h"
 #include "pso/npc/TObjNpcHFW00.h"
@@ -105,22 +108,15 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8014ABC4_lbl_804A9428 bm_n_soutoku_i_body_resource_descriptor;
 extern u32 TObjNpcGovernorBase__shared_resource;
-u8 *construct_male_npc_base(u8 *arg0);
 extern s32 __vt__19TObjNpcGovernorBase[];
 extern s32 TObjNpcGovernorBase__name;
-u8 *TObjNpcGovernorBase__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 create_named_object(s32 arg0);
-u8 *load_gvm_texture_file(s32 arg0);
 extern u32 TObjNpcHFW00__shared_resource_obj;
 extern u32 TObjNpcHFW00__texture_handle;
 extern char lbl_8043FA38[];
 extern char lbl_8043FA4C[];
-void * TObjNpcHFW00__create(void *arg0);
-void *__dt__19TObjNpcGovernorBaseFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);
-u8 *TObjNpcHFW00__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 

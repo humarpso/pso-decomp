@@ -17,4 +17,13 @@ struct TObjParticleLobby : public TUnk_804AFBF8 {
 };
 
 typedef char TObjParticleLobby_size[sizeof(TObjParticleLobby) == 0xD8 ? 1 : -1];
+extern "C" {
+u8 *TObjParticleLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
+void TObjParticleLobby__sub_80369698(void);
+void TObjParticleLobby__sub_80369A60(void);
+void TObjParticleLobby__sub_80369A64(void);
+void *__dt__17TObjParticleLobbyFv(void *arg0, s16 arg1);
+s32 get_event_theme_index__17TObjParticleLobbyFv(void);
+}
+
 #endif

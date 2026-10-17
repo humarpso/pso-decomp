@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_800666B0.h"
 #include "pso/boss/TBoss5GryphonShockWave.h"
 
 struct O_800666C4 { s16 a; s16 b; s32 arr[4]; };
 
 extern "C" {
 void fn_800666C4(O_800666C4 *self);
-void set_camera_capture_overlay_alpha(int a0);
 
     extern unsigned char camera_capture_overlay_alpha;
     extern unsigned char camera_capture_flags;

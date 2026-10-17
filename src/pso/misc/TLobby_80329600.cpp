@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/menu/TAdRicoRing_8001BEE8.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-
-u8 test_flags_any(s32 *arg0, s32 arg1);
 
 extern s32 lbl_805D6C84;
 

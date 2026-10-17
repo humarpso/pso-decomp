@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/enemy/TObjEneDelDepth.h"
 
 struct Stack_80315D60 {
@@ -10,9 +12,6 @@ struct Stack_80315D60 {
 
 extern "C" {
 extern const f32 TObjEneDelDepth__data_805DF258;
-void set_chunk_material_override_pair(s32 arg0, s32 arg1);
-void set_chunk_material_color(f32 *arg);
-void set_chunk_blend(u32 x);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;

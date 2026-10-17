@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemyCustom_800C6CF0.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEneBalClawBody.h"
@@ -60,7 +62,6 @@ f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(void *, void *, Vec_800C6EF8 *);
 u16 obj_getField1c(void *);
 u16 find_nearest_enemy__10TObjPlayerFPvPvf(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out, f32 radius);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-u16 pick_random_nearby_player__10TObjPlayerFPvf(u8 *arg0, f32 radius);
 s32 find_nearest_visible_player(void *, void *, f32);
 Obj_800C6FFC *find_entity_by_id(int);
 BOOL select_nearest_target__10TObjPlayerFPvf(Obj_800C6FFC *arg0, f32 radius);
@@ -74,8 +75,6 @@ void vec3_cross(void *, void *, void *);
 void rotate_vector_by_matrix(int, void *, void *);
 void rotate_matrix_y(int, s32);
 void subtract_vector(void *, void *);
-s32 push_matrix_from(void *src);
-s32 pop_matrices(s32 arg0);
 extern const f64 lbl_8043BCC8;
 extern s32 identity_matrix[];
 extern const f32 lbl_805DA070;

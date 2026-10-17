@@ -1,13 +1,10 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_803CBDE0.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 
-void TLobby__sub_803CBE20(void);
-void TLobby__sub_803CBE40(u8 *arg0);
-void TLobby__sub_803CBE64(u8 *arg0);
-void wait_for_vi_retrace(void);
 s32 TLobby__sub_803CBEC8(int);
 s32 apply_field__6TLobbyFv(int);
 s32 VIWaitForRetrace();

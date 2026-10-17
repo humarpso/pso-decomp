@@ -1,21 +1,17 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon_802F3AB4.h"
+#include "pso/object/TObjDFHorming.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TUnk_804E4BF0.h"
 
 extern "C" {
-s32 TBoss8Dragon__sub_802F3C94(void *arg0, s32 arg1);
-void clear_boss8_dragon_leader_part(void);
     extern void* boss8_dragon_leader_part;
-void TBoss8Dragon__sub_802F3C74(void);
 void *__nw__7TObjectFUl(int);
-void * TBoss8Dragon__sub_802F3C24(void *arg0, void *arg1);
-void TBoss4DarkFalz__sub_8004B4F0(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 extern s32 lbl_804E4BF0[];
 extern void *boss8_dragon_leader_part;
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
-s32 setup_attack_slot__12TBoss8DragonFiUiiiPv(s32 arg0, u32 arg1, s32 arg2, s32 arg3, u8 *arg4);
 
 #include "pso/boss/TBoss8Dragon.h"
 

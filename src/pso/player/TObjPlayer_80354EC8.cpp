@@ -1,17 +1,16 @@
 #include "types.h"
+#include "pso/misc/TQuestListVM_8007EAF8.h"
+#include "pso/player/TObjPlayer_80354EC8.h"
+#include "pso/ui/TAdPlyPltAnimCtrlGC.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 s32 __destroy_arr(void *, void *, int, int);
-s32 TObjPlayer__sub_80355098(s32 arg0, s16 arg1);
 extern u8 lbl_80543984[];
 void __register_global_object(void *, void *, void *);
 void __construct_array(void *, void *, void *, u32, u32);
-void* init_and_reset_forward__10TObjPlayerFPv(void* p);
 extern u8 lbl_80543978[];
-void TObjPlayer__sub_80354EEC(void);
 int create_quest_thread(void);
-s32 get_quest_thread_id__10TObjPlayerFPv(void* p);
 
 void TObjPlayer::finish_quest_thread() { ((int (*)())get_quest_thread_id__10TObjPlayerFPv)(); create_quest_thread(); }
 
@@ -33,11 +32,6 @@ __declspec(section ".ctors") static void *const __sinit_TObjPlayer_80354EC8_8035
 
 extern "C" {
 
-void __dl__FPv(void);
-u8 fn_8035510C(s32 *arg0, s32 arg1);
-void TObjPlayer__sub_80354F8C(void* p);
-int TObjPlayer__sub_80354FB0(void* p);
-int TObjPlayer__sub_8035501C(void* p);
 int set_flags__10TObjPlayerFUl(void*, int);
 int clear_flags__11TAdRicoRingFUl(void*, int);
 int test_flags_any(void*, int);

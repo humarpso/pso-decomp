@@ -83,4 +83,40 @@ struct TObjEneBm5GibonU : public TObjEneDD_ST {
 };
 
 typedef char TObjEneBm5GibonU_size[sizeof(TObjEneBm5GibonU) == 0x568 ? 1 : -1];
+extern "C" {
+u8 *TObjEneBm5GibonU__ct(u8 *arg0, s32 arg1, s32 arg2);
+void TObjEneBm5GibonU__sub_800CCD8C(u8 *arg0);
+void TObjEneBm5GibonU__sub_800CCDE4(u8 *arg0);
+void TObjEneBm5GibonU__sub_800CCE28(u8 *arg0);
+void TObjEneBm5GibonU__sub_800CD204(u8 *arg0);
+void TObjEneBm5GibonU__sub_800CE060(u8 *arg0, s32 arg1);
+void TObjEneBm5GibonU__sub_800CE370(u8 *arg0, s32 arg1);
+void TObjEneBm5GibonU__sub_800CE694(u8 *arg0, s32 arg1);
+void TObjEneBm5GibonU__sub_800CE978(u8 *actor, s32 arg1);
+void TObjEneBm5GibonU__sub_800CEBD8(u8 *actor, s32 arg1);
+void TObjEneBm5GibonU__sub_800CF4BC(u8 *actor, s32 arg1);
+void TObjEneBm5GibonU__sub_800CF7CC(u8 *actor, s32 arg1);
+void TObjEneBm5GibonU__sub_800CFE30(u8 *_w0, s32 _w1);
+void TObjEneBm5GibonU__sub_800CFE34(u8 *arg0, s32 arg1);
+void TObjEneBm5GibonU__sub_800CFFBC(u8 *arg0, s32 arg1);
+void TObjEneBm5GibonU__sub_800D00F0(u8 *actor, s32 arg1);
+void TObjEneBm5GibonU__sub_800D01DC(u8 *arg0, s32 arg1);
+void TObjEneBm5GibonU__sub_800D0420(u8 *arg0, s32 arg1);
+void TObjEneBm5GibonU__sub_800D0738(u8 *actor, u32 arg1, s32 msg);
+void TObjEneBm5GibonU__sub_800D095C(void *arg0, s32 arg1, s16 arg2);
+s32 TObjEneBm5GibonU__sub_800D0968(u8 *arg0, int _w1);
+void TObjEneBm5GibonU__sub_800D10A0(u8 *arg0);
+void TObjEneBm5GibonU__sub_800D1268(u8 *arg0);
+s32 TObjEneBm5GibonU__sub_800D1D70(void *p);
+void *TObjEneBm5GibonU__sub_800D1D78(void *p);
+s32 __dt__16TObjEneBm5GibonUFis(s32 arg0, s16 arg1);
+void action__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1);
+void calc_rotated_vector__16TObjEneBm5GibonUFPviPvPv(void *arg0, s32 arg1, void *arg2, s32 *arg3);
+void forward_hit_to_enemy_list__16TObjEneBm5GibonUFi(s32 arg0);
+void init_child_from_list__16TObjEneBm5GibonUFi(s32 arg0);
+int is_active__16TObjEneBm5GibonUFPv(void *p);
+void update_photon_mylla__16TObjEneBm5GibonUFPv(void *arg0);
+void update_target__16TObjEneBm5GibonUFPv(void *arg0);
+}
+
 #endif

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby_803382E4.h"
+#include "pso/misc/TWindowOptionCtrl_8034C384.h"
 #include "pso/misc/TUnk_804F01A8.h"
 #include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/misc/TWindowOptionCtrl.h"
@@ -15,10 +17,6 @@ s32 TAdPlayerLoadGC__sub_801E1B50(int);
 s32 TAdPlayerLoadGC__sub_801E24F8(int, int, int, int, int);
 s32 play_sound_effect(int, int, int, int);
 extern s32 controller_input_state[];
-int TLobby__sub_8034C384(void* p);
-int TLobby__sub_8034C3A4(void* p);
-void TWindowOptionCtrl__sub_8034C4C4(void* p);
-void TLobby__sub_80338534(void);
 u32 create__19TWindowMessageYesNoFPvPvPvPv(s32, s32, s32, s32);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);

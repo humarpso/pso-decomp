@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/unk/text_800C3A60.h"
 
 extern "C" {
 s32 get_flag_11__16TObjEneRe2FlowerFv();
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, void *);
-s32 fn_800C3A60(s32 arg0, s32 arg1);
 s32 fn_800C3A60(s32 arg0, s32 arg1) {
     if (get_flag_11__16TObjEneRe2FlowerFv() != 0) {
         switch (arg1) {

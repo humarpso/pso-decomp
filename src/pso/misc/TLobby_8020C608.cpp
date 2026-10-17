@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/unk/text_8020BC50.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
 
 extern "C" {
-
-void send_6x76_set_entity_set_flags(void *arg0, s16 arg1);
 
 s32 TObjEnemy::send_entity_set_flags() {
     if ((u32) *(u32 *)&this->m_80 != 0U) {

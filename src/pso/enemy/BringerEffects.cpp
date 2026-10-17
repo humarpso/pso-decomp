@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/enemy/BringerEffects.h"
+#include "pso/misc/TParticleCtrl_800867E4.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/enemy/TObjEneDf2Bringer_Eff_Rush.h"
 #include "pso/enemy/TUnk_8048FE64.h"
 #include "pso/enemy/TUnk_8048FE7C.h"
@@ -43,19 +47,14 @@ extern "C" {
 int construct_collision_body(void);
 extern s32 lbl_8048FE08[];
     extern s32 bringer_tp_absorb_effect_name;
-void TObjEneDf2Bringer__sub_8009A2A0(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 extern s32 bringer_projectile_actor_ops_table[];
-void *__dt__13TUnk_8048FE64Fv(void *arg0, s16 arg1);
-void queue_destruction__7TObjectFv(void *);
 void *csnVector(void *, void *, s32);
-void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
 void subtract_vector(void *, void *);
 extern u8 lbl_8043A164[];
 extern s32 lbl_8043A16C[];
 void update_shot__17TObjEneDf2BringerFPv(Bringer_80099F0C *self);
-void *__dt__13TUnk_8048FE08Fv(void *arg0, s16 arg1);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 s32 fill_value_array(int);
@@ -179,7 +178,6 @@ struct RecoveredGlobal_8009A398_lbl_8048FE64 {
 
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
-u8 *fn_8009A398(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3);
 typedef char RecoveredGlobal_8009A398_lbl_8048FE64_size[sizeof(RecoveredGlobal_8009A398_lbl_8048FE64) == 0x18 ? 1 : -1];
 u8 *fn_8009A398(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3) {
     ((s32 (*)())__ct__7TObjectFP7TObject)();
@@ -197,7 +195,6 @@ u8 *fn_8009A398(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3) {
 
 void rotate_matrix_y(u32, s32);
 s32 push_matrix(void);
-s32 pop_matrix(void);
 f32 post_translate_matrix(void);
 void TObjPlayer::draw_trail_pair() {
     push_matrix();
@@ -342,9 +339,6 @@ TUnk_8048FE7C::TUnk_8048FE7C(TObject *arg1, u8 *arg2, f32 farg0) : TObject(arg1)
     *(s32 *)((s8 *)this + 0x30) = 0;
     this->sub_8009A640();
     this->sub_8009A598();
-}
-extern "C" {
-
 }
 
 #include <stddef.h>

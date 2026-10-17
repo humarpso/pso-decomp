@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/map/CsnQuery.h"
+#include "pso/unk/text_802CE510.h"
 #include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
@@ -19,7 +21,6 @@ struct RecoveredFields_802CE510_temp_r3
 
 extern "C" {
 s32 attach_particle_model(int, int, int, int, int, f32);
-s32 *csnVectorUnder(s32 arg0, u32 *arg1, s32 arg2);
 u32 spawn_particle_effect(void *, int);
 s32 fn_800D8830(void *, void *);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
@@ -30,7 +31,6 @@ extern const f32 lbl_805DE6F0;
 extern const f32 lbl_805DE6F4;
 extern const f32 lbl_805DE6F8;
 extern const f32 lbl_805DE6FC;
-void fn_802CE510(int arg0);
 typedef struct RecoveredFields_802CE510_temp_r3 RecoveredFields_802CE510_temp_r3;
 typedef struct Stack_802CE510 Stack_802CE510;
 void fn_802CE510(int arg0) {

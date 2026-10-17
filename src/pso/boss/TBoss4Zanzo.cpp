@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type3_800524E8.h"
+#include "pso/boss/TBoss4Zanzo.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/boss/TUnk_80486924.h"
@@ -99,7 +103,6 @@ extern const f32 lbl_805D8BCC;
 extern const f32 lbl_805D8BD0;
 extern const f32 lbl_805D8BD4;
 extern const f32 TBoss4Type2__data_805D8BD8;
-void TBoss4Type2__vt15(u8 *arg0);
 s32 TBoss4Type2__sub_80054DA8();
 s32 create_all_tenchu_furu__11TBoss4Type2Fi();
 extern const f32 lbl_805D8BA4;
@@ -453,7 +456,6 @@ f32 calc_boss4_scale__10TObjPlayerFi(void *);
 void * get_player_data__10TObjPlayerFi(s32 i);
 u16 obj_getField1c(void *);
 s32 is_split_screen();
-void queue_destruction__7TObjectFv(void *);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
@@ -464,48 +466,12 @@ s32 TBoss4DarkFalz__sub_8004AF5C(s32, s16 *, s16 *);
 s32 TBoss4DarkFalz__sub_8004B4F0(void *, void *);
 s32 TObjPlayer__sub_80052390(f32);
 s32 drain_player_hp(u16, s32);
-f32 TBoss4Type3__sub_800524E8(f32);
-s32 TBoss4Type3__sub_8005254C(u16);
 s32 TBoss4Type2__sub_80055300();
-void render__11TBoss4ZanzoFv(u8 *arg0);
-void run_task__11TBoss4ZanzoFv(void *arg0);
-void * __ct__11TBoss4ZanzoFv(void *arg0, void *arg1, void *arg2);
-void fn_8005586C(u8 *arg0, u8 *arg1);
-void TBoss4Type2__vt36(u8 *arg0);
-void TBoss4Type2__vt35(void);
-void TBoss4Type2__vt34(u8 *arg0);
-void TBoss4Type2__vt24(void *arg0);
-void TBoss4Type2__vt23(void *arg0);
-void TBoss4Type2__vt31(void *arg0);
-void TBoss4Type2__vt28(void *arg0);
-void TBoss4Type2__vt25(void *arg0);
-void TBoss4Type2__vt22(void *arg0);
-void TBoss4Type2__vt20(void);
-void TBoss4Type2__vt19(u8 *arg0);
-void TBoss4Type2__vt14(void);
-void TBoss4Type2__vt13(u8 *arg0);
-void TBoss4Type2__vt12(u8 *arg0);
-void TBoss4Type2__vt11(void);
-void TBoss4Type2__vt10(void *arg0);
-void TBoss4Type2__vt8(void* p);
-void TBoss4Type2__vt7(void *arg0);
-void TBoss4Type2__vt6(u8 *arg0);
-void TBoss4Type2__vt5(void);
-void TBoss4Type2__vt4(void* p);
-void TBoss4Type2__vt3(u8 *arg0);
-void TBoss4Type2__vt2(void *arg0);
-void TBoss4Type2__vt1(u8 *arg0);
-void TBoss4Type2__vt0(void *arg0);
-void TBoss4Type2__sub_80056998(u8 *arg0);
-void TBoss4Type2__sub_80056B3C(void *arg0, s32 lo, s32 hi);
 void find_target_pos__11TBoss4Type2FPvPv(O_80056C30 *self, Vec_80056C30 *out);
-f32 compute_wave_offset__11TBoss4Type2Ff(f32 farg0);
 void TBoss4Type2__sub_80056F90(Obj_80056F90 *self, s32 arg1, s32 arg2);
 void TBoss4Type2__sub_80056FEC(Obj_80056FEC *self, s32 arg1);
 s32 TBoss4Type2__sub_80057224(Obj_80057224 *self);
-void TBoss4Type2__sub_80057578(void* p);
 S_800578E8 * __dt__13TUnk_80486924Fv(S_800578E8 *o, s16 flag);
-u8 *TBoss4Type2__ct(u8 *, s32, s32 *);
 void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0);
 void update_target_effect_timer__11TBoss4Type3FPv(void *arg0);
 void handle_damage_taken__11TBoss4Type3FPv(O_80059618 *o);
@@ -544,7 +510,6 @@ s32 matrix_mult_vec(int, void *, void *);
 s32 set_matrix_identity(int);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 f32 post_translate_matrix(void *);
 f32 xyz_distance(Vec_80056C30 *, Vec_80056C30 *);
 s32 draw_model_motion(int, int, f32);
@@ -575,7 +540,6 @@ extern u8 lbl_805D4D84;
 extern s32 local_client_id;
 extern s32 lbl_805D586C;
 struct Def_804867C8 { s32 value; s32 remaining[39]; };
-void TBoss4Type2__vt9(u8 *arg0);
 
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);

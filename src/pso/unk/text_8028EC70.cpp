@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8028EC70.h"
 #include "pso/misc/TCharaMaking.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -30,11 +31,9 @@ extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_8028F084(u32, void *);
 u32 find_free_slot__23TAdSinglePlyChrSelectGCFv();
 extern s32 creation_player_character;
-void TAdSinglePlyChrSelectGC__sub_8028ED54(s32 arg0);
 void copy_slot_data__23TAdSinglePlyChrSelectGCFPvPv(Dst_8028ED24 *d, Src_8028ED24 *s);
 void copy_player_visual_record(void *, void *);
 extern Row_8028EE20 class_appearance_table[];
-s32 TAdSinglePlyChrSelectGC__sub_8028EE20(void *arg0, void *arg1_);
 s32 is_entry_equal__23TAdSinglePlyChrSelectGCFPvPv(A_8028EC70 *a, B_8028EC70 *b);
 s32 count_char_diffs__23TAdSinglePlyChrSelectGCFPvPv(A_8028ECCC *a, B_8028ECCC *b);
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80166B6C.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TOFenceAncient02.h"
 #include "pso/player/TUnk_804B1B80.h"
@@ -53,7 +54,6 @@ extern s32 TOFenceAncient01__class_name;
 extern const f32 lbl_805DB610;
 extern const f32 lbl_805DB614;
 extern const f32 lbl_805DB618;
-u8 *TOFenceAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
 O_80166C40 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 O_80166C40 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 Arr_80166C40 *mem_alloc(s32);
@@ -61,7 +61,6 @@ s32 load_gvm_texture_file(void *);
 extern char lbl_80441498[];
 extern char lbl_804414B0[];
 extern char lbl_804414C8[];
-void *__dt__16TOFenceAncient01Fv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);

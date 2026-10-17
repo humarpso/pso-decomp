@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_801A210C.h"
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/object/TObjMotion.h"
@@ -19,7 +20,6 @@ extern u16 lbl_805D5CD4;
 extern u16 lbl_805D5CD6;
 void vfunc_6__13TUnk_804B9870FPsl(void);
 u16 TLobby__sub_801A20C8(s32);
-u16 fn_801A210C(s32);
 
 s16 TUnk_804B9870::get_stat_by_key_state() {
     s32 global_state;

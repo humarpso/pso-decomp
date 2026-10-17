@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubShortMail_80246CB8.h"
 #include "pso/misc/TWindowSubShortMail.h"
 
 extern "C" {

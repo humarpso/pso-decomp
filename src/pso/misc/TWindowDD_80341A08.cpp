@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/misc/TWindowDD_80341A08.h"
 #include "pso/misc/TUnk_804CE018.h"
 
 extern "C" {
-s32 TWindowDD__sub_80341AC0(u8 *arg0);
-s32 can_scroll__9TWindowDDFPvi(void *arg0, s32 arg1);
 #define TWindowDD__sub_80341AC0 ((s32 (*)(void))TWindowDD__sub_80341AC0)
 
 s32 can_scroll__9TWindowDDFPvi(void *arg0, s32 arg1) {
@@ -32,9 +31,6 @@ s32 can_scroll__9TWindowDDFPvi(void *arg0, s32 arg1) {
 }
 
 #undef TWindowDD__sub_80341AC0
-
-void TWindowDD__sub_80341AE0(u8 *arg0);
-void TWindowDD__sub_80341AF8(u8 *arg0);
 
 s32 TWindowDD__sub_80341AC0(u8 *arg0) {
     return *(s32 *)((s8 *)arg0 + 0x74) > *(s32 *)((s8 *)arg0 + 0x78);
@@ -83,13 +79,10 @@ struct Entry_80341FFC {
 };
 
 extern "C" {
-s16 TWindowDD__sub_8034214C(u8 *arg0);
-s32 TWindowDD__sub_8034217C(u8 *arg0);
 s32 apply_both_choices__9TWindowDDFll(void *, int);
 s32 sub_80342268__17TWindowDD_WS_WordFv();
 extern const f32 TWindowDD__data_805DFB20;
 extern const float TWindowDD__data_805DFCA8;
-int TWindowDD__sub_80342158(u8 *arg0);
 s32 init_window_layout_entries(void *, void *, int);
 extern RecoveredGlobal_80341F9C_TWindowDD__data_804EFC50 TWindowDD__data_804EFC50;
 s16 *mem_alloc(int);

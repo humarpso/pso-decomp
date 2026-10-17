@@ -1,9 +1,11 @@
 #include "pso/TBoss6EffHyoui.h"
+#include "pso/boss/TBoss4Type2_800874F4.h"
+#include "pso/boss/TBoss6EffHyoui.h"
+#include "pso/object/TObject_80019A50.h"
 
 #include "types.h"
 
 extern "C" {
-void *create_particle_emitter(void *, s32);
 s32 get_player_by_client_id(int);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 is_active__14TBoss6PlotFalzFv();
@@ -13,7 +15,6 @@ extern s32 lbl_805D44D8;
 extern f32 lbl_805D6FF8;
 extern s8 lbl_805D6FFC;
 extern const f32 lbl_805E0380;
-void *TBoss6EffHyoui__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 }
 
 #include "pso/boss/TBoss4Type2.h"
@@ -21,7 +22,6 @@ void *TBoss6EffHyoui__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *a
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_02;

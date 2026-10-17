@@ -1,4 +1,11 @@
 #include "pso/TEffClitical.h"
+#include "pso/effect/TEffClitical.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/unk/text_80087278.h"
+#include "pso/unk/text_80141A30.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/system/vector.h"
 
@@ -39,28 +46,20 @@ struct RecoveredGlobal_800823E0_lbl_80438EC8 {
 extern "C" {
 f32 approach_vector_fixed_distance(void *, void *, void *, f32);
 f32 vector_length(void *);
-void approach_position_if_far(u8 *arg0, u8 *arg1, f32 farg0);
-void queue_destruction__7TObjectFv(void *arg0);
 s32 approach_vector_in_place(void *, void *, f32);
 s32 approach_alpha_clamped(void *, void *, f32);
-void *spawn_particle_effect(void *pos, s32 id);
 extern RecoveredGlobal_800823E0_lbl_80438EB8 clitical_vec_a;
 extern RecoveredGlobal_800823E0_lbl_80438EC8 clitical_vec_b;
 extern const f32 TEffClitical__alpha_approach_step;
 extern const f32 lbl_805D93A8;
 extern const f32 lbl_805D93AC;
-void init_texture_copy_rect(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 copy_slot_to_anim_frame(void *);
 s32 fn_800829E0(void *);
-void restore_saved_depth_alpha_state(void);
 s32 begin_effect_render__13TParticleCtrlFv(int);
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void set_chunk_material_color(f32 *arg);
-void draw_chunk_object(void *child);
 extern s32 lbl_8048E2E0[];
 extern s32 technique_ringwave_texture_list[];
 extern u8 *camera_ctrl_instance;

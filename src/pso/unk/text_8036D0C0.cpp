@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type2_800874F4.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 struct Vec_8036D0C0 { f32 x, y, z; };
 
@@ -18,8 +20,6 @@ struct Hold_8036D0C0 {
 
 extern "C" {
 s16 obj_getField1c(void *);
-void queue_destruction__7TObjectFv(void *);
-void *create_particle_emitter(void *pos, s32 id);
 void construct_world_actor_base(void *, s32);
 extern void *__vt__17TObjEneHoldEffect[];
 extern s32 lbl_805D44E8;

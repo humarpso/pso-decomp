@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_800D7BFC.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjFish.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjTuitate.h"
@@ -59,7 +62,6 @@ s32 isFading__15RenderFadeStateCFv(void *);
 s32 matrix_mult_vec(int, void *, void *);
 void rotate_matrix_y(int, int);
 void push_matrix(void);
-s32 pop_matrix(void);
 void post_translate_matrix(void *);
 void set_global_param__8TObjFishFl(void);
 void draw_ginja_object(void);
@@ -74,17 +76,11 @@ extern s32 __vt__11TObjTuitate[];
 extern s32 TObjTuitate__class_name;
 extern const f32 lbl_805DBFB4;
 extern const f32 lbl_805DBFBC;
-void *TObjTuitate__ct(void *arg0, void *arg1, void *arg2);
-void *TObjTuitate__create(void *arg0);
-void *__dt__11TObjTuitateFv(void *arg0, s16 arg1);
-void fn_8019B09C(void);
 void TLobby__sub_8001FE7C(void*, int);
 void free_collision_body_parts(void *);
 int update_obstruction_fade(void*);
-void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void queue_destruction__7TObjectFv(void *);
 
 void TObjTuitate::render() {
     Obj_8019ADA0 *self = (Obj_8019ADA0 *)this;

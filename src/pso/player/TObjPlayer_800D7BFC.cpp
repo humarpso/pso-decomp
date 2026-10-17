@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_800D7BFC.h"
+#include "pso/player/TObjPlayer_800D8FDC.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/system/memory.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -11,10 +14,7 @@ struct VObj_800D7BFC : Base_800D7BFC {
 
 extern "C" {
 
-void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
-void *__dt__13TUnk_80494AE0Fv(void *arg0, s16 arg1);
 void TObjPlayer__sub_800D9718(void *);
-void set_chunk_blend(u32 x);
 
 void TObjPlayer::activate_and_dispatch() {
     struct VObj_800D7BFC *o = (struct VObj_800D7BFC *)this;

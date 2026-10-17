@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TCharaMaking_8028E3F4.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
 #include "pso/misc/TCharaMaking.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 
@@ -21,10 +23,8 @@ extern u8 lbl_80451280[];
 extern void *player_class_texture_buffer_table[];
 extern Ent_8028E6B4 player_class_texture_archive_table[];
 extern u8 lbl_8051BC64[];
-void TCharaMaking__sub_8028E6B4(void);
 void build_appearance_texture_names__12TCharaMakingFv(TextureOutput *output, Appearance *appearance, ClassAppearance *definition, TextureList *source);
 int is_quest_active(void);
-s32 get_main_phase();
 
 s32 TCharaMaking::is_end() {
     if ((get_main_phase() == 0xF) || (is_quest_active() != 0)) {

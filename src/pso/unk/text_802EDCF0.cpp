@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_800B9A34.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_802EDCF0.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjFish.h"
 
@@ -20,15 +23,12 @@ struct Obj_802EDCF0 {
 
 extern "C" {
 s32 __dt__7TObjectFv(void *, int);
-void queue_destruction__7TObjectFv(void *arg0);
 s32 free_if_positive__13TBoss2DeRolLeFis(void *, int);
-void *__dt__12TObjEneDD_STFv(void *arg0, s16 arg1);
 s32 delete_buffer__12TBoss8DragonFis(void *, int);
 void mem_free(void *p);
 s32 __dl__7TObjectFPv(void *);
 extern s32 TBoss7DeRolLeC__vtable[];
 extern u32 boss7_joint_state;
-u8 *__dt__14TBoss7DeRolLeCFv(u8 *arg0, s16 arg1);
 u8 *__dt__14TBoss7DeRolLeCFv(u8 *arg0, s16 arg1) {
     Obj_802EDCF0 *o = (Obj_802EDCF0 *) arg0;
     s32 i;

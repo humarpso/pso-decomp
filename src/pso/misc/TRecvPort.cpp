@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TRecvPort.h"
 #include "pso/system/byteswap.h"
 
 extern "C" {
 
-void bswap__9TRecvPortFv(s32 arg0);
 s32 bswap__13packet_headerFv();
 
 void bswap__9TRecvPortFv(s32 arg0) {

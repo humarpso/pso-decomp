@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss2CeilJunk_8003A81C.h"
 #include "pso/boss/TObjBoss2CeilJunk.h"
 
 extern "C" {
@@ -7,8 +8,6 @@ extern void *lbl_805D4BEC;
 extern void *boss2_tunnel_instance;
 void TLobby__sub_803DA16C(void *);
 void TLobby__sub_8001FE7C(void *, int);
-void TLobby__sub_8003A874(void);
-void TObjBoss2CeilJunk__sub_8003A868(void);
 void *TObjBoss2CeilJunk__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 

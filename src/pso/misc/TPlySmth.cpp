@@ -1,4 +1,5 @@
 #include "pso/packet_classes.h"
+#include "pso/misc/TPlySmth.h"
 #include "pso/TPlySmth.h"
 
 struct ByteBlock_8 { u8 bytes[0x8]; };
@@ -7,8 +8,6 @@ struct ByteBlock_8 { u8 bytes[0x8]; };
 #pragma auto_inline on
 #pragma dont_inline off
 extern "C" {
-void __as__8TPlySmthFRC8TPlySmth(s32 arg0, s32 arg1);
-void __ct__8TPlySmthFv(void*);
 int __ct__16TPlyGuildCardTagFv(void*);
 int fn_80077AA4(void*);
 

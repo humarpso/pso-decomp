@@ -1,4 +1,6 @@
 #include "pso/TObjBoss7RaftSplash.h"
+#include "pso/boss/TBoss8Dragon_8002CC48.h"
+#include "pso/boss/TObjBoss7RaftSplash.h"
 #include "pso/system/vector.h"
 
 #include "types.h"
@@ -14,14 +16,12 @@ struct RecoveredGlobal_802F16CC___vt__19TObjBoss7RaftSplash { s32 value; u8 rema
 extern "C" {
 u16 TCameraCtrl__sub_8006A5DC();
 extern const f32 lbl_805DEC68;
-f32 rand_signed_unit(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
 extern RecoveredGlobal_802F16CC___vt__19TObjBoss7RaftSplash __vt__19TObjBoss7RaftSplash;
 extern s32 lbl_805D3FE8;
 extern const f32 lbl_805DEC88;
 extern const f32 lbl_805DEC8C;
-u8 *TObjBoss7RaftSplash__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4);
 s32 spawn_particle__8TObjFishFllf(f32);
 
 extern const f32 lbl_805DEC90;

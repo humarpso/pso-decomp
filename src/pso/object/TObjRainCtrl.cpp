@@ -1,13 +1,13 @@
 #include "pso/TObjRainCtrl.h"
+#include "pso/object/TObjRain.h"
+#include "pso/object/TObjRainCtrl.h"
 
 #include "types.h"
 #include "pso/misc/TOKeyMachine01.h"
 
 extern "C" {
-u8 *__ct__8TObjRainFv(u8 *arg0, s32 arg1, u32 arg2);
 u32 __nw__7TObjectFUl(int);
 extern s32 tl_particle;
-void *TObjRainCtrl__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern s32 __vt__12TObjRainCtrl[];

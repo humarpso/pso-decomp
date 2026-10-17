@@ -1,4 +1,6 @@
 #include "pso/TSaveChCr.h"
+#include "pso/misc/TSaveChCr_8033A088.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
 #include "types.h"
 
 #include <stddef.h>
@@ -31,10 +33,7 @@ void *__ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8033A34C___vt__9TSaveChCr __vt__9TSaveChCr;
 extern s32 TSaveChCr__name;
-u8 *TSaveChCr__ct(u8 *arg0, u8 *arg1, s32 arg2);
-int TSaveChCr__sub_8033A138(void);
 int load_character_from_card__23TAdSinglePlyChrSelectGCFi(void*);
-void TWindow__close(u8 *arg0);
 int begin_action_from_char_select__10TObjPlayerFv(void*);
 
 void TSaveChCr::close_window() {

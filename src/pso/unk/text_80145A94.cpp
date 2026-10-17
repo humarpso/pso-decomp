@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/network/NetworkInfoLoader.h"
+#include "pso/network/NetworkInfoRequests.h"
+#include "pso/ui/TAdPlayerLoadGC_803F18B8.h"
+#include "pso/ui/TAdPlayerLoadGC_803F3CF4.h"
+#include "pso/unk/text_80145A94.h"
+#include "pso/unk/text_8042EE4C.h"
 #include "pso/system/main_loop.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TLobby.h"
@@ -10,26 +16,17 @@ struct Buf_80145A94 { s32 hdr; s8 name[0xA0]; s8 x[0x270 - 0xA4]; };
 extern "C" {
 s32 TLobby__sub_8014618C();
 s32 TAdPlayerLoadGC__sub_803F2F1C();
-s32 TAdPlayerLoadGC__sub_803F31BC();
 s32 TAdPlayerLoadGC__sub_803F31D8();
 s32 TLobby__sub_803F3BF8(int, s32, u32);
 s32 TAdPlayerLoadGC__sub_803F3CF4();
-s32 TLobby__sub_803F3D60();
 s32 request_network_info_load(s32, void *);
-s32 take_network_info_request_result(s32 *, s32 *);
-s32 request_network_info_exists(s32);
-s32 take_network_info_exists_result(s32 *, s32 *);
-s32 get_network_info_file_size(void);
 s32 TLobby__sub_803F53A0(int, void *, int);
-s32 TLobby__sub_8042EE4C(s32 *arg0);
 s32 memset(void *, int, int);
 extern s32 lbl_8043F3E8[];
 extern s16 disc_error_code;
 extern s32 lbl_805D56C8;
 extern u16 lbl_805D56CC;
 extern u16 lbl_805D56CE;
-s32 TLobby__sub_80145A94(void);
-s32 TLobby__sub_80145DB4(s32 arg0);
 s32 TLobby__sub_80145A94(void) {
     Buf_80145A94 buf;
     Ids_80145A94 ids;

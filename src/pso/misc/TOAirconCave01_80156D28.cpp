@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/player/TObjPlayer_800D8FDC.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/unk/text_803DC86C.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TUnk_804AF8D8.h"
 #include "pso/misc/TOAirconCave01.h"
@@ -14,9 +18,6 @@ struct RecoveredGlobal_80156D70_lbl_8058D4C0 {
 };
 
 extern "C" {
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
-void set_color_blend_mode(s32, s32, s32, s32);
-void set_chunk_material_color(f32 *arg);
 extern unsigned char saved_model_draw_color[];
 extern unsigned char model_material_color[];
 extern int lbl_805D5660;
@@ -25,7 +26,6 @@ extern int lbl_805D5668;
 extern int chunk_polygon_flags_or_mask;
 extern int chunk_polygon_flags_and_mask;
 extern int model_render_flags;
-void *__dt__13TUnk_80494AE0Fv(void *arg0, s16 arg1);
 void TObjPlayer__sub_800D9718(void *);
 
 void TUnk_804AF8D8::clear_flag_and_notify() { copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color); chunk_polygon_flags_and_mask = lbl_805D5664; chunk_polygon_flags_or_mask = lbl_805D5668; model_render_flags = lbl_805D5660; }

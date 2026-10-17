@@ -1,4 +1,5 @@
 #include "pso/system/GinjaTextureMatrices.h"
+#include "pso/system/GinjaModelQueue.h"
 #include <stddef.h>
 typedef char queue_models_offset[(offsetof(GinjaModelQueue, models) == 0) ? 1 : -1];
 typedef char queue_count_offset[(offsetof(GinjaModelQueue, count) == 4) ? 1 : -1];
@@ -8,8 +9,6 @@ extern "C" {
 extern void* model_draw_queue_models[10];
 void init_model_draw_queue(void (*draw)(void*));
 void queue_model_draw_matrix(void* model, const GinjaMatrix matrix);
-void flush_model_draw_queue();
-void draw_queued_models(u32 count);
 
 s32 TObjPlayer__sub_803DB23C() { return 0; }
 s32 TObjPlayer__sub_803DB244() { return 0; }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8035C9E8.h"
 #include "pso/item/TItem.h"
 #include "pso/item/TItemProShield.h"
 #include "pso/misc/TLobby.h"
@@ -10,7 +11,6 @@ void *obj_getField1c(void *);
 s32 TBoss4Type3__sub_8005254C(void *);
 void *get_equip_field_d04__10TObjPlayerFv(void *, int);
 extern u8 lbl_80479B4C[][3];
-s32 any_player_has_listed_item(void);
 s32 any_player_has_listed_item(void) {
     s32 n = TLobby::get_game_mode();
     s32 i;

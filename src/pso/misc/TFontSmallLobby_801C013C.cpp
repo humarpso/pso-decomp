@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TFontSmallLobby_801C013C.h"
 #include "pso/system/byteswap.h"
 #include "pso/misc/TUnk_804DDD28.h"
 #include "pso/misc/TFontSmallLobby.h"
@@ -15,40 +16,12 @@ struct O_801C0708 { u8 a; u8 b; u8 pad[2]; s32 c; u16 d; u16 e; };
 struct O_801C0350 { u8 a; u8 b; u8 pad[2]; u16 c; u16 d; };
 
 extern "C" {
-int TFontSmallLobby__sub_801C013C(void* p);
 int clear_flags__11TAdRicoRingFUl(void*, int);
 extern s32 fn_80152EF8[];
 void __construct_array(void *, void *, int, int, int);
-void *TFontSmallLobby__sub_801C0164(void *arg0);
-int TFontSmallLobby__sub_801C01BC(void* p);
 int read_be16_field2__10TObjPlayerFv(void*);
 void __copy(void *, void *, int);
-void *TFontSmallLobby__sub_801C01DC(void *arg0, void *arg1);
-void TFontSmallLobby__sub_801C029C(void* p);
 int TLobby__send_and_handle_60(void*);
-void* TFontSmallLobby__sub_801C030C(void* p, void* a1);
-void TFontSmallLobby__sub_801C0378(void* p);
-void TFontSmallLobby__sub_801C0438(void* p);
-void TFontSmallLobby__sub_801C044C(void* p);
-void TFontSmallLobby__sub_801C0480(void* p);
-void TFontSmallLobby__sub_801C04C8(void* p);
-void *TObjPlayer__sub_801C06BC(void *arg0, void *arg1);
-void TObjPlayer__sub_801C0734(void* p);
-void *TFontSmallLobby__sub_801C03E0(void *arg0, void *arg1);
-void fn_801C04DC(void* p);
-void fn_801C0510(void* p);
-void fn_801C0558(void* p);
-void fn_801C056C(void* p);
-void fn_801C05A0(void* p);
-void fn_801C05B4(void* p);
-void fn_801C05E8(void* p);
-void fn_801C05FC(void* p);
-void fn_801C0630(void* p);
-void fn_801C0644(void* p);
-void TFontSmallLobby__sub_801C041C(u8 *arg0);
-void* TFontSmallLobby__sub_801C0228(void* p, void* _w1);
-u8 *TObjPlayer__sub_801C07B4(u8 *arg0, u8 *arg1);
-void TFontSmallLobby__sub_801C0258(void* p, void* q);
 int TFontSmallLobby__sub_801C013C(void* p) { return clear_flags__11TAdRicoRingFUl((void*)((char*)p + 0x10), (int)(2)); }
 
 void *TFontSmallLobby__sub_801C0164(void *arg0) {

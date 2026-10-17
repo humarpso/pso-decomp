@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby_801E2F94.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 #include "pso/TObjRain.h"
 #include "pso/player/TObjPlayer.h"
@@ -33,12 +35,9 @@ struct Rain_801977D4 {
 };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
 void vec3_add_to(void *, void *);
 f32 xz_distance_squared(void *, void *);
 void draw_line_list(void *, int, int);
-void reset_line_width(void);
-void set_line_width(int);
 void subtract_vector(void *, void *);
 f32 normalize_vector(void *);
 extern u8 *TObjRain__streak_line_list[];

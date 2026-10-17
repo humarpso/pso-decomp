@@ -1,4 +1,5 @@
 #include "pso/TChCrEffCtrlPl.h"
+#include "pso/unk/text_80141A30.h"
 #include "pso/render/depth_buffer.h"
 
 #include "types.h"
@@ -10,7 +11,6 @@ struct O_80339808 { s32 f0; u8 pad[0x14]; void *vt; s32 f1c; s32 f20; u8 v[8]; f
 struct O_803396C8 { u8 pad[0x24]; f32 x; f32 y; f32 f2c; f32 f30; s32 f34; };
 
 extern "C" {
-void restore_saved_depth_alpha_state(void);
 s32 draw_ui_sprite(int, void *, f32, f32);
 extern u8 lbl_80477C70[];
 extern s32 TChCrEffCtrlPl__name;

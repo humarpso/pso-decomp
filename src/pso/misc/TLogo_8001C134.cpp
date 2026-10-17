@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLogo_8001C134.h"
 #include "pso/TLogo.h"
 
 extern "C" {
@@ -6,7 +7,6 @@ int TLobby__sub_8023E4B4(void*, void*);
     extern unsigned char lbl_804349A0[];
     extern unsigned char texture_logo_e_descriptor[];
 extern u32 logo_texture_e_handle;
-void register_texture_logo_e(void);
 int queue_destruction__7TObjectFv(void);
     extern int TLogo__exit_requested_flag;
 void TLobby__sub_803DA16C(void*);

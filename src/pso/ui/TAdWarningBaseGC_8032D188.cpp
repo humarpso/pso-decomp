@@ -1,8 +1,7 @@
 #include "types.h"
+#include "pso/ui/TAdWarningBaseGC_8032D188.h"
 
 extern "C" {
-
-void TAdWarningBaseGC__sub_8032D188(void);
 
     extern int ad_warning_aram_base;
     extern int TAdWarningBaseGC__aram_capacity;

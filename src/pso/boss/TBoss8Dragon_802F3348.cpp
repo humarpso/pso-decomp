@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon_802F3348.h"
+#include "pso/misc/TLobby_8007C550.h"
 #include "pso/boss/TBoss8Dragon.h"
 
 struct Vec_802F33C8 { f32 x, y, z; };
@@ -8,10 +10,8 @@ struct Ent_802F33C8 { u8 pad0[0x38]; f32 x, y, z; u8 pad44[0x60 - 0x44]; s32 rot
 extern "C" {
 s32 get_enemy_entity();
 extern u8 *boss8_dragon_leader_part;
-s32 TBoss8Dragon__sub_802F3348(s32 arg0);
 f32 calc_random_ratio__10TObjPlayerFv(void *);
 void subtractive_rng_seed(void *, s32);
-s32 __ct__14SubtractiveRngFv(void *arg0);
 void spawn_attack_object__12TBoss8DragonFllll(void *, Vec_802F33C8 *, u16, s32, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);

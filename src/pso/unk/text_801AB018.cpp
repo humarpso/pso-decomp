@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_804C3248.h"
 #include "pso/object/TObjMotion.h"
@@ -20,7 +21,6 @@ struct Stack_801AB018 {
 };
 
 extern "C" {
-void *spawn_particle_effect(void *pos, s32 id);
 s32 advance_animation_playback(void *);
 s32 find_entity_by_id(int);
 s32 spawn_photon_blast_attachment_effects(void *, int);

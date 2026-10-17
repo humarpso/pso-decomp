@@ -31,4 +31,11 @@ struct TODummyKeyCave01 : public TUnk_804B9870 {
 };
 
 typedef char TODummyKeyCave01_size[sizeof(TODummyKeyCave01) == 0xD4 ? 1 : -1];
+extern "C" {
+u8 *TODummyKeyCave01__ct(u8 *arg0, s32 arg1, s32 arg2);
+void TODummyKeyCave01__sub_80165E88(void);
+void TODummyKeyCave01__sub_80165E8C(void);
+void *__dt__16TODummyKeyCave01Fv(void *arg0, s16 arg1);
+}
+
 #endif

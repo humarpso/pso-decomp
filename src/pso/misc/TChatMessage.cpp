@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TChatMessage.h"
 #include "pso/system/byteswap.h"
 #include "pso/TPlyGuildCardTag.h"
 
 extern "C" {
 
-void bswap__12TChatMessageFv(s32 arg0);
 s32 bswap__13packet_headerFv();
 
 void bswap__12TChatMessageFv(s32 arg0) {

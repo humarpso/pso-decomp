@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/item/TItemLoad_801105AC.h"
 #include "pso/item/TUnk_8049F3F4.h"
 #include "pso/TItemLoad.h"
 
 extern "C" {
 
-s32 TItemLoad__sub_80110740(void *p);
-s32 TItemLoad__sub_80110748(void *p);
 s32 TItemLoad__sub_80110750(u32, s32);
 
 extern u32 item_texture_archive_loader;

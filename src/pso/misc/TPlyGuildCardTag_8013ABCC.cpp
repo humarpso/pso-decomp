@@ -1,17 +1,13 @@
 #include "types.h"
+#include "pso/misc/TPlyGuildCardTag_8013ABCC.h"
 #include "pso/TShopWindowBase.h"
 #include "pso/TPlyGuildCardTag.h"
 #include "pso/misc/TQuestListVM.h"
 
 extern "C" {
-void TPlyGuildCardTag__sub_8013ACA4(void *arg0, void *arg1);
-void __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *arg0, void *arg1);
     extern int item_drop_server_seed;
-void fn_8013ACE4(int a0);
     extern int area_random_seed;
-void set_area_random_seed(int a0);
 extern u8 *TQuestListOnline__instance;
-void TQuestListOnline__sub_8013ACF4(s32 arg0);
 void *TPlyGuildCardTag::copy_full(void *arg1) {
     copy((void*)(arg1));
     ((TPlyGuildCardTag *)((char *)this + 36))->copy((void *)((char *)arg1 + 36));

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_801DA054.h"
 #include "pso/protocol.h"
 
 struct VBase_18 { char pad[0x18]; };
@@ -20,12 +21,9 @@ struct Cfg_801DA054 { u32 w[8]; };
 struct Pkt_801DA054 { u8 cmd; u8 flag; u16 size; struct Cfg_801DA054 cfg; };
 
 extern "C" {
-void handle_cmd_DA__9TProtocolFR6packet(u8 *arg0, s32 *arg1);
 s32 bswap_packet_header__9TProtocolFv(void *);
 s32 __as__16TPlyClientConfigFRC16TPlyClientConfig(void *, void *);
 s32 memset(void *, int, int);
-void handle_cmd_9F__9TProtocolFR6packet(u8 *arg0);
-int handle_cmd_D7__9TProtocolFR6packet(void* p);
 int fn_801E08F4(void*);
 
 void handle_cmd_9F__9TProtocolFR6packet(u8 *arg0) {

@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TLobby_801E43E4.h"
+#include "pso/unk/text_801F3774.h"
+#include "pso/unk/text_801F4560.h"
+#include "pso/unk/text_801F469C.h"
 #include "pso/system/byteswap.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
@@ -23,19 +27,11 @@ struct Stack_801F3778 {
 
 extern "C" {
 void read_be16_field2__10TObjPlayerFv(void *);
-void TLobby__send_and_handle_60(u8 *arg0);
-void build_6x75_update_quest_flag_dc(void* p);
 extern s32 game_difficulty_selection;
-void send_and_handle_6x75(void *arg0);
-void clear_story_flag_in_bank(s32 n, s32 flag);
-void set_story_flag_in_bank(s32 n, s32 flag);
-void handle_6x75_update_quest_flag_dc(u8 *arg0);
 extern s32 current_language;
 extern char offline_quest_filename_buffer_a[],offline_quest_filename_buffer_b[];
 extern char lbl_80449CD8[],lbl_80449CE0[],lbl_80449CE8[],lbl_80449CF0[],lbl_80449CF8[],lbl_80449D00[];
 void replace_file_extension__6TLobbyFPvPvPv(char*,const char*,const char*);
-void prepare_offline_quest_filenames(const char* identity);
-void TLobby__sub_801F3774(void);
 
 void TLobby__sub_801F3774(void) {  }
 

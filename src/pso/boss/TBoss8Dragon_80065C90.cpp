@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon_80065C90.h"
+#include "pso/misc/TLobby_801E43E4.h"
 #include "pso/system/byteswap.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss5Gryphon.h"
@@ -25,12 +27,6 @@ struct RecoveredGlobal_80065F08_lbl_80437938_80065C90 {
 struct O_80065FD4 { u16 a; u16 b; u32 c[4]; };
 
 extern "C" {
-s32 *TBoss8Dragon__sub_80065F08(void);
-void TBoss8Dragon__sub_800660A4(void* p);
-void TBoss8Dragon__sub_80066108(void);
-void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
-void fn_800660B8(u8 *arg0);
-void TLobby__send_and_handle_60(u8 *arg0);
 s32 read_be16_field2__10TObjPlayerFv(void *);
 
 extern RecoveredGlobal_80065EA0_lbl_80487CCC_80065C90 boss8_dragon_follow_camera_offsets;

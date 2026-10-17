@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/item/TItem_80100508.h"
+#include "pso/item/TItem_80100674.h"
+#include "pso/misc/pso_const_ids6.h"
+#include "pso/unk/text_8011892C.h"
 #include "pso/item/TItemProUnit.h"
 #include "pso/item/TItem.h"
 #include "pso/item/TItemData.h"
@@ -74,9 +78,7 @@ void set_technique_level_entry(void *, s16, u8);
 void vfunc_48__12TItemProUnitFv(Unit_80118AD4 *self);
 s32 memset(void *, s32, s32);
 void vfunc_49__12TItemProUnitFv(u8 *arg0);
-u8 *TItemProUnit__ct(u8 *arg0, s32 arg1, u8 *arg2);
 void vfunc_45__12TItemProUnitFv(void *arg0);
-void TItem__sub_8011892C(void);
 u8 *lookup_item_pmt_record(void *);
 s32 TItemEquipBase__ct();
 s16 get_field6_bswap__9TItemDataFPv(void *);
@@ -215,11 +217,9 @@ void vfunc_6__13TUnk_804B9870FPsl();
 void apply_object_set_data__13TUnk_804B9870FPv();
 void release_member_90__10TObjPlayerFv();
 void vfunc_9__13TUnk_804B9870Fv();
-int TItem__sub_80100B8C(void *p);
 void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void register_attack__5TItemFv();
 void try_pick_up_item__5TItemFl();
-void TItem__sub_801005E0();
 void vfunc_17__5TItemFv();
 void set_attach_slot__14TItemEquipBaseFSc();
 void equip__14TItemEquipBaseFv();
@@ -237,13 +237,6 @@ void vfunc_32__5TItemFv();
 s8 TItemEquipBase__sub_8010A77C(u8 *arg0);
 void vfunc_34__5TItemFv();
 void vfunc_35__5TItemFv();
-int ret_80100664(void);
-int ret_8010065C(void);
-int ret_80100654(void);
-int ret_8010064C(void);
-void TItem__sub_80100648();
-int TItem__sub_801005E4(void);
-void TItem__sub_801005D8();
 void vfunc_43__5TItemFv();
 void vfunc_46__14TItemEquipBaseFv();
 void release__14TItemEquipBaseFv();

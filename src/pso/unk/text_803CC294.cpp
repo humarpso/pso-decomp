@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLobby_803CD804.h"
+#include "pso/system/AdxStreamRuntime.h"
+#include "pso/unk/text_803CC294.h"
 #include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_803CC500_lbl_8047C910 {
@@ -68,7 +71,6 @@ struct LogHdr_803CCE9C { u8 pad[0x6]; u16 seq; };
 extern "C" {
 extern RecoveredGlobal_803CC500_lbl_8047C910 lbl_8047C910;
 extern RecoveredGlobal_803CC53C_lbl_8047C93C lbl_8047C93C;
-s32 TLobby__sub_803CC53C(u8 *arg0);
 s32 TLobby__sub_803CCB98();
 extern RecoveredGlobal_803CCB5C_lbl_8047CA28 lbl_8047CA28;
 extern char lbl_8047C88C[];
@@ -78,7 +80,6 @@ extern s32 adx_afs_partition_id_range_error[];
 extern s32 afs_file_id_out_of_range_error[];
 extern Ent_803CC294 *afs_archive_toc_table[];
 s32 memcmp(void *, void *, int);
-void TLobby__sub_803CD804(void);
 extern s32 lbl_8047C818[];
 extern s32 lobby_adxf_current_file_id;
 extern Strm_803CD5C4 *lobby_adxf_open_file_handle;
@@ -96,15 +97,10 @@ u32 TLobby__sub_803C8CDC(u32, s32, s32);
 extern s32 lbl_8047CBA4[];
 extern s32 lbl_8047CBD8[];
 Slot_803CD16C *adxf_open__6TLobbyFUii(u32 arg0, s32 arg1);
-s32 TLobby__sub_803C85AC(u8 *arg0, s32 *arg1);
-void TLobby__sub_803C89C4(u8 *arg0);
 s32 invalidate_cache__6TLobbyFv(s32, s32);
 extern s32 lbl_8047C9B0[];
 extern s32 lbl_8047C9D4[];
 extern s32 lbl_805D75E4;
-short TLobby__sub_803C8B2C(u8 *arg0);
-void TLobby__sub_803CC884(void);
-void TLobby__sub_803C8B38(u8 *arg0);
 void *memset(void *, int, unsigned long);
 typedef char RecoveredGlobal_803CC500_lbl_8047C910_size[sizeof(RecoveredGlobal_803CC500_lbl_8047C910) == 0x2C ? 1 : -1];
 

@@ -1,19 +1,18 @@
 #pragma push
 
 #include "types.h"
+#include "pso/misc/TDuelEffectNumber_80080460.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/TDuelEffectString.h"
 #include "pso/TDuelEffectNumber.h"
 #pragma fp_contract on
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805D9330;
 s32 __cvt_fp2unsigned(f32);
-void begin_screen_draw(s32);
-void set_draw_texture_and_color(s32, s32);
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805D932C;
-void render__17TDuelEffectStringFv(u8 *arg0);
 extern const f32 lbl_805D9310;
 extern const f32 lbl_805D9314;
 extern const f32 lbl_805D9318;
@@ -47,7 +46,6 @@ void TDuelEffectNumber::calc_digit_transform(s32 arg0, f32 *arg1, f32 *arg2, s32
 
 extern "C" {
 
-f32 TBoss8Dragon__sub_8008072C(void);
 f64 pow();
 
 extern void *TDuelEffectString__class_name;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TPlayerFootStamp_802B01D8.h"
 #include "pso/TPlayerFootStamp.h"
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/object/TObjOnlineEnding.h"
@@ -7,8 +8,6 @@ struct Obj_802B0204 { u8 pad[0xbe]; s16 fbe; };
 
 extern "C" {
 
-void TBoss6PlotFalz__sub_802B0228(void *arg0);
-void load_player_footstamp(void);
 s32 end_cutscene_camera__14TBoss6PlotFalzFPv();
 int freeze_all_players__14TBoss6PlotFalzFv(void*);
 int load_gvm_texture_file(void*);

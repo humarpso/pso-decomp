@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/TParticleCtrl.h"
 
 extern "C" {
 
-void queue_destruction__7TObjectFv(void *);
 void *validate_ctrl__13TParticleCtrlFv(void *);
 
 void TParticleCtrl::destroy_particle() {

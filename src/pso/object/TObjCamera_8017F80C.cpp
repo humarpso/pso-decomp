@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjCamera_8017F80C.h"
+#include "pso/object/TObject_8001A448.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/object/TObjCamera.h"
 #include "pso/misc/TOKey.h"
@@ -95,8 +97,6 @@ void draw_ginja_model_with_motion(s32, s32, f32);
 extern Vec_8017F80C camera_slot_positions[];
 extern const f32 lbl_805DBB60;
 extern const f32 lbl_805DBB64;
-void allow_rendering__7TObjectFv(void *);
-void disallow_rendering__7TObjectFv(void *);
 void fn_8017F4AC(void *);
 void fn_8017F52C();
 Obj_8017F910 *get_player_by_client_id(s32);
@@ -119,7 +119,6 @@ extern s32 lbl_805D5668;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-void TObjChip__vt10(u8 *arg0);
 s32 is_split_screen(void);
 void *__ct__15TEffStarLight2DFPvPvP7TObject(void *, void *, void *, void *);
 void init_map_object_base(void *);
@@ -129,8 +128,6 @@ extern Copy_8017FA9C camera_object_init_params;
 extern s32 __vt__10TObjCamera[];
 extern s32 TObjCamera__name;
 extern const f32 lbl_805DBB70;
-u8 *TObjCamera__ct(u8 *arg0, s32 arg1, s32 arg2);
-void *__dt__10TObjCameraFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 

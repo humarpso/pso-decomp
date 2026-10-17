@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/math/MatrixTransforms.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/items/TItemWeapon.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/player/TObjPlayer.h"
@@ -19,14 +22,11 @@ typedef struct B_802D6390 {
 } B_802D6390;
 
 extern "C" {
-void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 void get_weapon_color__11TItemWeaponFPv(void *, void *);
 extern u8 forward_item_effect_callback__10TObjPlayerFll[];
 extern const f32 lbl_805DE7AC;
 void TAdPlayerLoadGC__sub_802D6390(A_802D6390 *arg0, B_802D6390 *arg1);
-void *spawn_particle_effect(void *pos, s32 id);
 s32 fire_shot_at_target__11TItemWeaponFv(s32, s32 *, s32, s32);
-void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 
 extern f32 lbl_805DE7A8;
 

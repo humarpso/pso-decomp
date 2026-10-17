@@ -1,4 +1,12 @@
 #include "types.h"
+#include "pso/misc/TFontSmallLobby_801C013C.h"
+#include "pso/misc/TPlyDispConfig_80071F1C.h"
+#include "pso/misc/TWindowActionPalette_801C1890.h"
+#include "pso/player/TObjPlayer_801BD384.h"
+#include "pso/player/TObjPlayer_801BF548.h"
+#include "pso/player/TObjPlayer_801BFAD4.h"
+#include "pso/player/TObjPlayer_801BFB1C.h"
+#include "pso/player/TObjPlayer_801BFE50.h"
 #include "pso/misc/TFontSmallLobby.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/player/TObjPlayer.h"
@@ -6,9 +14,7 @@
 
 extern "C" {
 
-void TObjPlayer__sub_801BD3A4(void);
 void update_body_parts__10TObjPlayerFv(void* p);
-void TObjPlayer__sub_801BD384(void* p);
 int copy_player_visual_record(void*);
 int TObjWaitEntryHairMoveSim__sub_800FE73C(void*);
 int free_loaded_buffers__12TCharaMakingFv(void*);
@@ -30,7 +36,6 @@ void TObjPlayer__sub_801BBC64(void *);
 void TObjPlayer__sub_801BBB94(void *);
 void TObjPlayer__sub_801BB8AC(void *);
 void destroy__10TObjPlayerFis(void *, int);
-void *TObjPlayer__sub_801BFAD4(void *arg0, s16 arg1);
 void dt__10TObjPlayerFls(void *, int);
 void __dt__14TPlyDispConfigFv(void *, int);
 void TObjPlayer__sub_80309E4C(void *, int);
@@ -76,9 +81,6 @@ void *__dt__10TObjPlayerFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void *TObjPlayer__ct(void *arg0, void *arg1, void *arg2);
-void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2);
-void *TFontSmallLobby__sub_801C0164(void *arg0);
 void TObjPlayer__sub_801BB85C(void *, void *);
 void sub_801BBC2C__10TObjPlayerFv(void *, void *);
 void init_battle__10TObjPlayerFv(void *, void *);
@@ -88,12 +90,7 @@ void init_player_data__10TObjPlayerFv(void *, void *);
 void is_flag_set_550__10TObjPlayerFv(void *, void *);
 void sub_801BD240__10TObjPlayerFv(void *, void *);
 void TObjPlayer__sub_801BEC78(void *);
-void *TObjPlayer__sub_801BF660(void *arg0);
-void TObjPlayer__sub_801BFB4C(u8 *arg0);
-s32 init_state__10TObjPlayerFi(s32 arg0);
-void *TObjPlayer__sub_801C1A00(void *p);
 void init_player_telepipe_record(void *);
-void *__ct__14TPlyDispConfigFv(void *arg0);
 void construct_actor_base__10TObjPlayerFPvPv(void *);
 void TObjPlayer__sub_801BBB70(void *, void *);
 void TObjPlayer__sub_80309E9C(void *);

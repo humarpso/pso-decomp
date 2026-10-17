@@ -47,4 +47,9 @@ struct TWindowSubCustomEquip : public TUnk_804CE018 {
 };
 
 typedef char TWindowSubCustomEquip_size[sizeof(TWindowSubCustomEquip) == 0x70 ? 1 : -1];
+extern "C" {
+void *__dt__21TWindowSubCustomEquipFv(void *arg0, s16 arg1);
+void render__21TWindowSubCustomEquipFv(u8 *arg0);
+}
+
 #endif

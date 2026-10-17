@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLanguage_801E4874.h"
 #include "pso/object/TObjGoalWarpAncient.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -26,7 +27,6 @@ extern "C" {
 extern int ancient_warp_shared_resource;
 extern s32 goal_warp_ancient_gvm_texture;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80443308;
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 bm_o_warp_ancient_resource_descriptor;
 void TObjGoalWarpAncient__sub_8017D2D4(void* a0);

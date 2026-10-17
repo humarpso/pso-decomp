@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/item/TItemData_80104D0C.h"
+#include "pso/item/TItemMagSub_80114524.h"
+#include "pso/unk/text_80104F4C.h"
 #include "pso/item/TItemData.h"
 #include "pso/item/TItem.h"
 
@@ -30,13 +33,10 @@ struct Rec_80104DAC { u8 pad0[6]; u8 b6; u8 b7; u8 b8; u8 b9; u8 bA; u8 bB; u8 b
 
 extern "C" {
 s32 get_actor_section_id__15TPlyPhotonChairFv(void *);
-void *find_unique_combination_target(void *player, void *item);
 s32 check_equip_requirements(void *, void *, int);
 void deserialize_mag__9TItemDataFPvPv(void *, void *);
 void init__9TItemDataFv(void *);
-s16 get_mag_total_level(void *);
 Rec_80104DAC *find_item_combination_recipe(u8 *, void *);
-s32 find_eligible_combination_recipe(s32 arg0, u8 *arg1);
 s32 is_wrapped__9TItemDataFPv(u8 *);
 void *lookup_item_pmt_record(u8 *);
 

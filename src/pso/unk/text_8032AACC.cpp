@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_80144B14.h"
+#include "pso/unk/text_8032AACC.h"
 #include "pso/ui/TAdEnterSerialAccessGC.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -18,7 +20,6 @@ struct Arg_8032AC24 { f32 x, y; u8 pad[8]; };
 
 extern "C" {
 char *realloc_buffer__17TWindowSubComCardFv(void *);
-u32 calc_text_width(char *s);
 void mem_free(void *p);
 void fn_8025DE10(s32, Pos_8032AACC *);
 void TAdEnterSerialAccessGC__sub_802C4B64(void *, void *, void *, int);
@@ -33,11 +34,9 @@ extern s32 tl_clipout;
 extern void *password_entry_keyboard_control;
 extern Word_8032AACC lbl_805DF76C;
 extern char lbl_805DF774[4];
-void draw_masked_password_field(s32 arg0);
 extern u8 lbl_80477200[];
 extern const f32 lbl_80477208[];
 extern Word_8032AC24 lbl_805DF768;
-void fn_8032AC24(void);
 void draw_masked_password_field(s32 arg0) {
     char buf[0x80];
     Plate_8032AACC plate;

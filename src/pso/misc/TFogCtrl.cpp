@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/unk/text_803E1FC8.h"
+#include "pso/unk/text_803E2008.h"
+#include "pso/unk/text_803E2070.h"
 #include <stddef.h>
 #include "pso/misc/TFogCtrl.h"
 #include "pso/TParticleCtrl.h"
@@ -191,7 +194,6 @@ void create_area_fog_ctrl(void);
 void init_scene_fog_system(void);
 void mem_free(void *p);
 void *mem_alloc(u32 size);
-void TObjFogCollisionPoison__sub_801533BC(void);
 void __dl__7TObjectFPv(s32);
 u32 __nw__7TObjectFUl(int);
 u8 * __dt__7TObjectFv(void *, s16);
@@ -199,10 +201,6 @@ void __ct__7TObjectFP7TObject(void *, void *);
 void GXInitFogAdjTable(GXFogAdjTable_800FAE1C *, s32, void *);
 void GXSetFogRangeAdj(s32, s32, GXFogAdjTable_800FAE1C *);
 f32 sin_table_lookup(s32);
-void fn_803E1FC8(u32);
-void set_scene_fog_distances(f32, f32);
-void set_scene_fog_type(s32);
-void reset_scene_fog(void);
 
 extern s32 TFogCtrl__fog_instance_table[];
 extern RecoveredGlobal_800FB8A0___vt__8TFogCtrl __vt__8TFogCtrl;

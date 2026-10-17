@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/misc/TLobby_803CBEC8.h"
 
 extern "C" {
 
-void TLobby__sub_803CBEC8(void);
 s32 gcrna_get_stream_id();
 
 void TLobby__sub_803CBEC8(void) {

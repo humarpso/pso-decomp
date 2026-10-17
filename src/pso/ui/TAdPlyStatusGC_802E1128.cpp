@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/misc/TWindowSubStatusDisp_80144B14.h"
+#include "pso/ui/TAdPlyStatusGC_802E1128.h"
 #include "pso/system/date.h"
 #include "pso/menu/T_ATS_DrawCalendar.h"
 #include "pso/ui/TAdPlyStatusGC.h"
@@ -15,8 +18,6 @@ struct Clock_802E11D4 { u8 pad0[0x1C]; s32 visible; Pt_802E11D4 pos; };
 
 extern "C" {
 char *get_localized_text_entry(s32, s32);
-u32 calc_text_width(char *s);
-u32 TWindowSubStatusDisp__sub_80144E9C(char *s);
 int sprintf(char *, const char *, ...);
 extern char ply_status_date_format[];
 extern char ply_status_date_format_mdy[];
@@ -26,9 +27,6 @@ extern const f32 lbl_805DE8E8;
 extern const f32 lbl_805DE8EC;
 extern const f32 lbl_805DE8F0;
 extern const f32 lbl_805DE8F4;
-void TAdPlyStatusGC__sub_802E11BC(void* p);
-void TAdPlyStatusGC__sub_802E11C8(void* p);
-void TWindow__close(u8 *arg0);
 
 s32 TAdPlyStatusGC::get_field_498() { return *(s32*)((char*)this + 0x498); }
 void*TAdPlyStatusGC::get_chara_making_data() { return (char*)this + 0x1b8; }

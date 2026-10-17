@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TLobby_80105A2C.h"
+#include "pso/unk/text_8011A780.h"
 
 #include <stddef.h>
 #include "pso/misc/TLobby.h"
@@ -54,35 +57,24 @@ struct Req_8011AD1C {
 extern "C" {
 extern s32 item_sync_counter_table;
 extern s32 item_id_counter_table;
-u32 advance_item_id_counter(s32 arg0);
-void TLobby__sub_8011AA44(s16 arg0, s32 _w1);
 s32 bswap_6xa2_fields__6TLobbyFv();
 s32 handle_box_drop_directive(void *);
-void handle_6xA2_specializable_item_drop_request(void *arg0);
-void TLobby__sub_8011AED8(s8 arg0, s16 arg1, u8 *arg2, f32 farg0, f32 farg1);
 void set_boss_buf_entry__6TLobbyFii(s32 v, u16 idx);
 void bswap_pick_up_item_request__6TLobbyFi(Msg_8011A9D8 *msg);
 void *find_item_condition_entry__6TLobbyFii(s16 a, u32 b);
 void handle_6x5A_pick_up_item_request(Msg_8011A9D8 *msg);
-s32 get_main_phase();
 int is_quest_active(void);
 extern s32 build_item_id_mode;
-u32 build_item_id(u16 arg0);
 void init__9TItemDataFv(void *);
 void normalize__9TItemDataFv(void *p);
 extern Source_8011AA68 *TLobby__data_805D6140;
 void apply_by_index__9TObjEnemyFs(s16, void *);
 void drop_item_from_slot__10TObjPlayerFlll(s8 arg0, s32 arg1, s32 arg2);
 extern Source_8011AB64 *TLobby__data_805D6144;
-void process_enemy_drop_request(s8 area, s16 source, int client, s16 room, int slot, f32 x, f32 z);
 s32 TItemData__sub_8010C740(void *, int);
 s32 TItemData__sub_8010CCB0(void *);
 s32 spawn_dropped_item_from_msg(void *, int);
 void handle_6x5F_drop_item(Pkt_8011ADF4 *pkt);
-void bswap_6x60_drop_request_fields(void *);
-void handle_6x60_standard_drop_item_request(void *arg0);
-void handle_6x5C_destroy_floor_item(void *arg0);
-void handle_6x62(void);
 s32 bswap_packet__6TLobbyFv();
 
 u32 build_item_id(u16 arg0) {

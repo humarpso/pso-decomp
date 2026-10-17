@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8012981C.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void s_rank_shot_turn_barrels(void *arg0);
 s32 rotate_matrix_z(s32, s32);
 
 void s_rank_shot_turn_barrels(void *arg0) {

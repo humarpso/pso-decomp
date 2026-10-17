@@ -14,8 +14,6 @@ u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 extern s32 __vt__18TWindowCtrlClipOut[];
 extern s32 window_clip_out_instance;
-u8 *__dt__18TWindowCtrlClipOutFv(u8 *arg0, s16 arg1);
-void *TWindowCtrlClipOut__ct(void *arg0);
 int TCameraCtrl__sub_80068EF0(void);
 int TWindowCtrlMain__sub_8024CE34(void);
 int is_window_display_enabled(void*);

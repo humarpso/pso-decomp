@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss6Type2_802BF558.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/boss/TBoss6Type2.h"
 
 typedef struct S_802BF6CC {
@@ -12,17 +14,12 @@ typedef struct S_802BF6CC {
 } S_802BF6CC;
 
 extern "C" {
-void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 s32 play_sound_effect(int, void *, int, int);
-void TBoss6Type2__sub_802BF834(u8 *arg0);
 extern s32 lbl_805D6750;
 extern u8 lbl_805D6754;
 extern const f32 lbl_805DE3F4;
 extern const f32 lbl_805DE4DC;
 s32 TBoss6Type2__sub_802BB7C0(void *);
-void TBoss6Type2__sub_802BF904(void* p);
-void TBoss6Type2__sub_802BFA1C(u8 *arg0);
-void TBoss6Type2__sub_802BFBE4(void* p);
 s32 TBoss6Type2__sub_802BA944(void *);
 s32 TBoss6Type2__sub_802BA9E4();
 int TBoss6Type2__sub_802BB694(void);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/menu/TAdEndText.h"
 #include "pso/misc/TMovie.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TLobby.h"
@@ -8,7 +9,6 @@ extern "C" {
 s32 is_playback_finished__6TMovieFv(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 TKeyBoardControl__sub_8000F91C(s32);
-s32 TAdEndText__sub_8001B41C();
 s32 activate_main_menu_scene();
 s32 fn_801449F0();
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);

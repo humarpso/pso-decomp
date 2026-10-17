@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowFukidasi_80252AE4.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TUnk_804CF0B8.h"
 #include "pso/misc/TWindowAddition.h"
@@ -7,7 +8,6 @@
 
 extern "C" {
 
-u8 *__dt__13TUnk_804CF0B8Fv(u8 *arg0, s16 arg1);
 void mem_free(void *p);
 s32 __dl__7TObjectFPv(void *);
 

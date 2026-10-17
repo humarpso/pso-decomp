@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_800D8A2C.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
 

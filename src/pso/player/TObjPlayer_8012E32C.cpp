@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/unk/TUnk_804A5D10.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -6,14 +8,12 @@ extern "C" {
 
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_z(s32, s32);
-void draw_ginja_object(void *child);
 s32 rotate_matrix_x(s32, s32);
 u8 *query_game_join_id__10TObjPlayerFv(s32);
 s32 get_entity_id__10TObjPlayerFv();
 s32 notify_fish_if_valid__10TObjPlayerFUl();
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 
 void TUnk_804A5D10::render() {
     u8 *arg0 = (u8 *)this;

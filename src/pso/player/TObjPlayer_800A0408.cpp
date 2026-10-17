@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/enemy/DarkGunner.h"
+#include "pso/object/TObjControl.h"
+#include "pso/player/TObjPlayer_800A0408.h"
+#include "pso/player/TObjPlayer_800D8FDC.h"
 #include "pso/system/memory.h"
 #include "pso/player/TUnk_80490470.h"
 
@@ -89,9 +93,6 @@ void TObjPlayer__sub_800A0554(Obj_800A0554 *self) {
     self->vc = lbl_805D9958;
 }
 
-void *__dt__13TUnk_80490470Fv(void *arg0, s16 arg1);
-void *__dt__13TUnk_80494AE0Fv(void *arg0, s16 arg1);
-
 extern s32 lbl_80490470[];
 
 void *__dt__13TUnk_80490470Fv(void *arg0, s16 arg1) {
@@ -116,9 +117,7 @@ struct Obj_800A06B4 { u8 pad[0x37c]; s32 count; u8 pad2[4]; u16 ids[1]; };
 struct Obj_800A0728 { u8 pad[0x374]; s32 mode; s32 timer; s32 count; u8 pad2[4]; u16 ids[1]; };
 
 extern "C" {
-u8 *get_enemy_entity(u16 arg0);
 void TObjPlayer__sub_800A0654(Obj_800A0654 *self);
-int TObjPlayer__sub_800A1808(void *p);
 s32 TObjPlayer__sub_800A06B4(Obj_800A06B4 *self);
 int TObjPlayer__sub_800D9718(void);
 

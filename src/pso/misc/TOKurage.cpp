@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TOKey_8015845C.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/unk/text_803D853C.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TOKurage.h"
@@ -63,11 +67,8 @@ struct TOKurage_8016DB24 {
 };
 
 extern "C" {
-void rotate_matrix_zyx(void *m, s32 x, s32 y, s32 z);
 void push_matrix(void);
-s32 pop_matrix(void);
 void post_translate_matrix(void *);
-void set_chunk_material_color(f32 *arg);
 void TObjEneSlimeOne__sub_803E4B54(s32, s32, s32, f32);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
@@ -79,8 +80,6 @@ s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 subtract_vector(void *, void *);
 s32 normalize_vector(void *);
-s32 push_matrix_from(void *);
-s32 pop_matrices(s32 arg0);
 f32 xyz_distance(void *, void *);
 extern u8 identity_matrix[];
 }
@@ -94,16 +93,13 @@ extern u32 TOKurage__static_model_resource;
 u8 *get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-void *init_map_object_base(void *a0);
 extern s32 __vt__8TOKurage[];
 extern s32 TOKurage__name;
-u8 *TOKurage__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 is_current_room(void *);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern const char lbl_80441EA0[];
 extern const char lbl_80441EB0[];
 extern const char lbl_80441EBC[];
-void *__dt__8TOKurageFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 is_any_player_within_radius_xz(f32);
 void __dl__7TObjectFPv(void *);

@@ -1,0 +1,10 @@
+#ifndef PSO_UNK_TEXT_803DA038_H
+#define PSO_UNK_TEXT_803DA038_H
+
+#include "types.h"
+
+extern "C" {
+s32 TObjPlayer__sub_803DA104(u8 x);
+}
+
+#endif

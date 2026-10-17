@@ -1,16 +1,16 @@
 #include "types.h"
+#include "pso/misc/TLobby_80222D24.h"
+#include "pso/unk/text_800F9B84.h"
 #include "pso/misc/TLobby.h"
 
 #pragma fp_contract on
 #pragma fp_contract on
 extern "C" {
-s32 create_named_object(s32);
 extern s32 lbl_804CA288[];
 extern s32 current_language;
 extern s32 lbl_805D6238;
 extern u32 lbl_805D6258;
 s32 is_split_screen();
-s32 TShopGenerator__sub_80222DAC(s32 arg0);
 void TLobby::free_singleton() {
     if ((u32) lbl_805D6258 != 0U) {
         TLobby::free_nodes_with_id((u32)((void*)lbl_805D6258));

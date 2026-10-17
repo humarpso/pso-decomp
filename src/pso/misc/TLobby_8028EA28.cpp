@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_80131C58.h"
+#include "pso/misc/TLobby_800FC3CC.h"
+#include "pso/unk/text_802910EC.h"
+#include "pso/unk/text_80291268.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TWindowCtrlMain.h"
@@ -6,11 +10,7 @@
 
 extern "C" {
 
-void TKeyBoardControl__sub_80131F5C(void);
 int TLobby__sub_8001FE7C(void*, void*);
-void TLobby__sub_800FC3CC(void);
-void fn_80291138(void);
-void fn_80291268(void);
 void reset__11TCameraCtrlFv(void);
 
     extern int creation_menu_main_obj;

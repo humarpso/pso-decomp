@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/ShortMail.h"
+#include "pso/misc/TPlyGuildCardTag_8007B434.h"
 #include "pso/item/TItemData.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -70,31 +72,12 @@ typedef struct Hdr_8022525C
 
 extern "C" {
 extern unsigned char lbl_80513F70[];
-void *TLobby__sub_8022598C(int a0);
 s32 strncpy(void *, void *, int);
 extern s32 lbl_805D6270;
-void fill_list_entry__6TLobbyFPvPv(u8 *arg0, u8 *arg1);
-int is_flag_set__6TLobbyFPv(void* p);
-s32 find_free_slot__6TLobbyFv(void);
-void TLobby__sub_80225C8C(void* p);
-void TLobby__sub_802258C8(void);
 s32 is_name_too_long__6TLobbyFPv(O_80225B90 *o);
-int get_short_mail_ctrl__6TLobbyFv(void);
-s32 get_lobby_id__6TLobbyFPv(void* p);
-void *find_short_mail_by_id__6TLobbyFUi(u32 id);
 extern int lobby_short_mail_entry_count;
-void remove_entry_at__6TLobbyFi(s32 idx);
-void clear_lobby_flag__6TLobbyFv(void);
-void clear_all_entries__6TLobbyFPv(void* _w0);
-void __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
 void send_simple_mail__9TProtocolFR12TChatMessage(void *, void *);
-void* get_com_card_list__6TLobbyFPv(void* p);
 extern u8 *TLobby__protocol_instance;
-void send_simple_mail__6TLobbyFiPv(s32 arg0, void *arg1);
-void TLobby__sub_80225C44(void* p);
-void TLobby__sub_80225C64(void* p);
-void TLobby__sub_80225CB8(void);
-void try_close__6TLobbyFPv(void* p);
 void TLobby__sub_80225A08(void*);
 
 unsigned char lbl_80513F70[0x680];

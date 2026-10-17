@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_803E4954.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjDFDemo4.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
@@ -7,9 +9,7 @@ extern "C" {
 s32 clear_render_callback__8TObjFishFv(int);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 void TObjDFDemo4::sub_8004F1FC() {
     u8 *arg0 = (u8 *)this;
     s32 var_r31;

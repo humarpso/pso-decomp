@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_801D9E50.h"
 #include "pso/protocol.h"
 
 struct VBase_18_44382c { char pad[0x18]; };
@@ -22,7 +23,6 @@ struct Stack_801D9E50 {
 };
 
 extern "C" {
-void send_keepalive(u8 *arg0);
 void send_keepalive(u8 *arg0) {
     Stack_801D9E50 stack;
     stack.sp8 = 0x1D;

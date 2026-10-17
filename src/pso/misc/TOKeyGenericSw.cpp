@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_8016CF5C.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TOKeyGenericSw.h"
@@ -66,8 +69,6 @@ extern "C" {
 s32 push_matrix();
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_y(s32, s32);
-void draw_ginja_object(void *child);
-s32 pop_matrix();
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 extern s32 *TOKeyGenericSw__texture_lists;
 extern Map_8016CA64 *TOKeyGenericSw__shared_resource_ptrs[];
@@ -80,7 +81,6 @@ s32 load_gvm_texture_file(void *);
 extern char lbl_80441D04[];
 extern char lbl_80441D24[];
 void *__dt__14TOKeyGenericSwFv(void *arg0, s16 arg1);
-void *TOKeyGenericSw__ct(void *, void *, void *);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void *__dt__5TOKeyFv(void *arg0, s16 arg1);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMessageQuest_8026B118.h"
 #include "pso/misc/TUnk_804CE018.h"
 
 struct RecoveredGlobal_8026B118_lbl_8044F464 {
@@ -25,7 +26,6 @@ extern "C" {
 s32 create_quest_message_window_at(int, void *);
 s32 get_window_layout_position(int);
 extern RecoveredGlobal_8026B118_lbl_8044F464 lbl_8044F464;
-void create_quest_message_window(void);
 Ctx_8026B148 *get_draw_context__11TWindowBaseFPv(void *);
 void draw_window_frame(void *, void *);
 void draw_visible_window_entries(void *, void *, void *);

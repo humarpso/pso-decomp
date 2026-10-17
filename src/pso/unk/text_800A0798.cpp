@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjControl.h"
 struct Obj_800A0798 { u8 pad[0x374]; s32 mode; s32 timer; s32 count; u8 pad2[4]; u16 ids[1]; };
 
 struct EBase_800A0798 { u8 pad[0x18]; };
@@ -19,7 +20,6 @@ struct Ent_800A0798 : EBase_800A0798 {
 };
 
 extern "C" {
-u8 *get_enemy_entity(u16 arg0);
 void fn_800A0798(Obj_800A0798 *self);
 void fn_800A0798(Obj_800A0798 *self) {
     s32 i;

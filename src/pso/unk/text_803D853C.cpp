@@ -1,4 +1,5 @@
 #include "pso/render/DebugFont.h"
+#include "pso/unk/text_803D853C.h"
 #define PSO_SDK_COMPACT_MATH
 #include <dolphin/gx/GXStruct.h>
 #undef PSO_SDK_COMPACT_MATH
@@ -13,14 +14,10 @@ f32 PSMTXMultVecArray(s32, s32);
 extern s32 current_matrix;
 s32 PSMTXInverse(int, int);
 s32 PSMTXMultVec(int);
-void matrix_mult_vec(u32 arg0);
 void rotate_matrix_z(void *, s32);
 void rotate_matrix_x(void *, s32);
 void rotate_matrix_y(void *, s32);
-void rotate_matrix_zyx(void *m, s32 x, s32 y, s32 z);
 void PSMTXCopy(void *src, void *dst);
-void get_current_matrix(void *m);
-void rotate_matrix_yxz(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void PSMTXScale(f32 (*m)[4], f32 sx, f32 sy, f32 sz);
 void PSMTXConcat(f32 (*a)[4], f32 (*b)[4], f32 (*ab)[4]);
 void scale_matrix(f32 (*m)[4], f32 sx, f32 sy, f32 sz);

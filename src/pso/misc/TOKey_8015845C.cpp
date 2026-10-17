@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TOKey_8015845C.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TOKey.h"
@@ -22,9 +25,7 @@ struct VObj_18_ca64a0 : VBase_18_ca64a0 {
 extern "C" {
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 f32 post_translate_matrix(void *);
-void draw_chunk_object(void *child);
 s32 draw_model_motion(int, int, f32);
 extern const f32 lbl_805DB2E8;
 extern const f32 lbl_805DB2EC;
@@ -33,8 +34,6 @@ extern s32 lbl_804AFBF8[];
     extern const float lbl_805DB2F0;
     extern const float lbl_805DB2F4;
     extern const float lbl_805DB2F8;
-void* init_map_object_base(void* a0);
-void TORainbowCave01__sub_80158604(void);
 void __dl__7TObjectFPv(void *);
 
 void TUnk_804AFBF8::render() {

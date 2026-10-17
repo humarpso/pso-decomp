@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe3SinowZoa_800D72A4.h"
+#include "pso/player/TObjPlayer_800D8FDC.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/system/memory.h"
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
 #include "pso/player/TObjPlayer.h"
@@ -13,7 +16,6 @@ extern const float lbl_805DA350;
 extern const f32 lbl_805DA354;
 extern const f32 lbl_805DA358;
 s32 TObjEneMe3SinowZoa__sub_800D72A4(O_800D72A4 *self);
-void set_chunk_blend(u32 x);
 
 s32 TObjEneMe3SinowZoa__sub_800D72A4(O_800D72A4 *self) {
     return self->f18 > (*(const f32 *)&lbl_805DA348) && self->f18 < lbl_805DA34C;
@@ -123,9 +125,6 @@ void TObjEneMe3SinowZoa__sub_800D758C(V_800D758C *self) {
     self->f8 = lbl_805DA348;
     self->fc = lbl_805DA348;
 }
-
-void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
-void *__dt__13TUnk_80494AE0Fv(void *arg0, s16 arg1);
 
 extern s32 lbl_80494938[];
 

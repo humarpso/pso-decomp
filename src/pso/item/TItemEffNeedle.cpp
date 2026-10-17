@@ -1,11 +1,9 @@
 #include "types.h"
+#include "pso/item/TItemEffNeedle.h"
 #include "pso/TItemEffNeedleBase.h"
 
 extern "C" {
 
-void *__dt__14TItemEffNeedleFv(void *self, s16 arg1);
-void *__dt__18TItemEffNeedleBaseFv(void *self, s16 arg1);
-void *__dt__17TItemEffNeedlePosFv(void *self, s16 arg1);
 int vfunc_6__18TItemEffNeedleBaseFv(void);
 void __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(void *);

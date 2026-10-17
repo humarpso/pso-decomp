@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/npc/TObjNpcHHM00.h"
+#include "pso/unk/text_8014AAC4.h"
 #include "pso/npc/TObjNpcHFW01.h"
 #include "pso/npc/TUnk_804A92A8.h"
 #include "pso/npc/TObjNpcBase.h"
@@ -96,16 +98,11 @@ struct RecoveredGlobal_8014B020___vt__12TObjNpcHFW01 {
 };
 
 extern "C" {
-u8 *fn_8014AAC4(u8 *arg0);
 extern s32 __vt__12TObjNpcHFW01[];
 extern s32 TObjNpcHFW01__name;
 extern s32 *TObjNpcHFW01__resource_node;
 extern s32 TObjNpcHFW01__texture_handle;
-u8 *TObjNpcHFW01__ct(u8 *arg0, s32 arg1, s32 arg2);
-void * TObjNpcHHM00__create(void *arg0);
-void *__dt__12TObjNpcHFW01Fv(void *arg0, s16 arg1);
 void *TObjControl__ct(void *, void *);
-u8 *TObjNpcHHM00__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 

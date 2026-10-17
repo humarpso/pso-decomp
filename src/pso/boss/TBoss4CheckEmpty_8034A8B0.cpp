@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/boss/TBoss4CheckEmpty_8034A8B0.h"
 #include "pso/TBoss4CheckEmpty.h"
 
 extern "C" {
 
-void *__ct__16TBoss4CheckEmptyFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern s32 __vt__16TBoss4CheckEmpty[];

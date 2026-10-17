@@ -1,7 +1,7 @@
 #include "pso/TSetManager.h"
+#include "pso/misc/TSetManager_8020D7D4.h"
 
 extern "C" {
-void TSetManager__sub_8020D7D4(void);
 extern "C" void apply_floor_set_rows__11TSetManagerFv();
 extern "C" void update_decoration_spawning__11TSetManagerFv();
 void *set_manager_task_pmf_table[3] = {

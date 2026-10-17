@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8014B8A4.h"
 #include "pso/npc/TUnk_804A9F50.h"
 #include "pso/npc/TObjNpcKenkyu.h"
 #include "pso/npc/TObjNpcBase.h"
@@ -105,12 +106,8 @@ extern RecoveredGlobal_80289400_lbl_804D3190 bm_npc_kenkyu_resource_descriptor;
 extern u32 TObjNpcKenkyu__static_model;
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-u8 *construct_male_npc_base(u8 *arg0);
 extern s32 __vt__13TObjNpcKenkyu[];
 extern s32 TObjNpcKenkyu__name;
-u8 *TObjNpcKenkyu__ct(u8 *arg0, s32 arg1, s32 arg2);
-void * TObjNpcSoutokufu__create(void *arg0);
-void *__dt__13TObjNpcKenkyuFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcSoutokufu__ct(void *, void *, void *);

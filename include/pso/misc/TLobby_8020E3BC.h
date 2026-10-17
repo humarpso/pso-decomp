@@ -1,0 +1,11 @@
+#ifndef PSO_MISC_TLOBBY_8020E3BC_H
+#define PSO_MISC_TLOBBY_8020E3BC_H
+
+#include "types.h"
+
+extern "C" {
+void TLobby__sub_8020E3BC(void);
+void TLobby__sub_8020E3C0(void);
+}
+
+#endif

@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/boss/TBoss3Volopt_8004812C.h"
+#include "pso/math/MatrixVector.h"
+#include "pso/misc/TLobby_801E43E4.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/byteswap.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TUnk_80484610.h"
@@ -35,25 +39,18 @@ typedef struct Color_80048260 {
 
 extern "C" {
 extern s32 lbl_805D4CDC;
-f32 TBoss3Volopt__sub_8004812C(s32 arg0);
 extern G_8004813C *lbl_805D4CE4;
 extern G_8004816C *lbl_805D4D1C;
-s32 TBoss3Volopt__sub_8004816C(s32 i);
 void draw_line_list(void *, s32, s32);
 void vec3_add_to(void *, void *);
 void matrix_mult_vec(s32, void *, void *);
-void set_matrix_identity(u8 *arg0);
 void rotate_matrix_y(s32, s32);
 void rotate_matrix_x(s32, s32);
 void push_matrix(void);
-s32 pop_matrix(void);
 extern Vec_80048260 direction_line_zero_vec;
 extern Color_80048260 direction_line_color_pair[];
 extern u8 boss3_volopt_direction_line_desc[];
 extern Vec_80048260 boss3_volopt_direction_line_points[];
-void TBoss3Volopt__sub_800481B4(void* p);
-void TBoss3Volopt__sub_8004824C(void* p);
-void TLobby__send_and_handle_60(u8 *arg0);
 int read_be16_field2__10TObjPlayerFv(void*);
 
 f32 TBoss3Volopt__sub_8004812C(s32 arg0) {

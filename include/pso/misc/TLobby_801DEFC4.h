@@ -1,0 +1,13 @@
+#ifndef PSO_MISC_TLOBBY_801DEFC4_H
+#define PSO_MISC_TLOBBY_801DEFC4_H
+
+#include "types.h"
+
+extern "C" {
+int TLobby__sub_801DF024(void *p);
+int TLobby__sub_801DF064(void *p);
+void bswap_cmd_D3_item_bank(void *p);
+void bswap_cmd_c5(void *p);
+}
+
+#endif

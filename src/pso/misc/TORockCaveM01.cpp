@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/misc/TORockCaveM01.h"
+#include "pso/unk/text_80174AB4.h"
 #include "pso/object/TObjMotion.h"
 
 extern "C" {
 
-void *TORockCaveM01__create(void *arg0);
-void *__dt__13TORockCaveM01Fv(void *arg0, s16 arg1);
-u8 *TORockCaveM01__ct(u8 *arg0, s32 arg1);
 s32 __dl__7TObjectFPv(void *);
 void *__dt__10TORockCaveFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);

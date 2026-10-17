@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8011BEF0.h"
 #include "pso/item/TItemShootParticle.h"
 #include "pso/TItemShoot.h"
 

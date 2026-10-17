@@ -1,21 +1,17 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_801BC81C.h"
+#include "pso/player/TObjPlayer_801BE778.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 void for_each_player_slot__10TObjPlayerFv(void *);
-void TObjPlayer__sub_801BC8F0(s32 arg0);
-void TObjPlayer__sub_801BCA0C(void);
-void TObjPlayer__sub_801BCA10(void);
-void TObjPlayer__sub_801BCAB0(void);
-void TObjPlayer__sub_801BCB28(void);
 int is_script_controlled__10TObjPlayerFv(void*);
 s32 sub_801A1DDC__10TObjPlayerFv(s32);
 s32 is_final_phase__10TObjPlayerFv();
 s32 obj_isState2_324__13TUnk_804806E8Fv();
-void queue_destruction__7TObjectFv(void *arg0);
-void set_flag_400000__10TObjPlayerFi(s32 arg0);
 
 extern "C" {
 
@@ -101,7 +97,6 @@ void TObjPlayer__sub_801BCA10(void) {  }
 
 s32 TObjPlayer__sub_801C21C4(void *, s32);
 s32 get_slot_value_checked__10TObjPlayerFl(void *, s32);
-void TObjPlayer__sub_801BCA14(u8 *arg0, void *arg1);
 
 void TObjPlayer__sub_801BCA14(u8 *arg0, void *arg1) {
     s32 i;

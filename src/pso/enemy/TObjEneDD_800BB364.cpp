@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon_800BB650.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/misc/TLobby.h"
 
@@ -26,7 +27,6 @@ s32 is_alive__9TObjEneDDFv(void *);
 f32 horizontal_distance_squared(void *, void *);
 
 u16 enemy_nearest_visible_enemy_sq(Ent_800BB388 *self, f32 range);
-void TBoss8Dragon__sub_800BB650(void *p, void *q);
 extern const f32 TObjEneDD__data_805D9E8C;
 s32 collect_enemy_target_candidates(s32 arg0, Ent_800BB484 *out, f32 farg0);
 

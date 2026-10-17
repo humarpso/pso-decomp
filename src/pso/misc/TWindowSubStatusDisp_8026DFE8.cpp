@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_802671F0.h"
 #include "pso/misc/TUnk_804D0618.h"
 #include "pso/misc/TUnk_804D0948.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -26,7 +27,6 @@ extern s32 item_list_window_vtable[];
 extern s32 local_client_id;
 u8 * get_window_layout_position(s32);
 s32 fn_802683F4(void *, int, void *, void *);
-void update_item_list_window(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 
 #pragma push

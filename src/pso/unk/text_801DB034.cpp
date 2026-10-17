@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/unk/text_801DF280.h"
 struct Pkt_801DB034 { u32 hdr; u8 body[0x10]; };
 
 extern "C" {
-int bswap_cmd_8a_header(void *p);
 void handle_cmd_8A__9TProtocolFR6packet(u8 *arg0, Pkt_801DB034 *arg1);
 typedef void (*Fn_801DB034)(void *);
 void handle_cmd_8A__9TProtocolFR6packet(u8 *arg0, Pkt_801DB034 *arg1) {

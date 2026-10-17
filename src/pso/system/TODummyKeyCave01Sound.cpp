@@ -1,10 +1,10 @@
 #include "pso/TODummyKeyCave01Sound.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/system/TODummyKeyCave01Sound.h"
 
 #include "types.h"
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
-void *TODummyKeyCave01Sound__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 __ct__7TObjectFP7TObject();
 
 extern s32 __vt__21TODummyKeyCave01Sound[];

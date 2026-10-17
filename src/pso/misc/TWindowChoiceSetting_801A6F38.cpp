@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore_801A6CEC.h"
 #include "pso/misc/TWindowChoiceSetting.h"
 
 extern "C" {
 
-s32 pack_flags__13TRaderMapCoreFii(s32, s32);
 s32 input_press_or_repeat(s32, s32, s32, s32);
 
 s32 TWindowChoiceSetting::apply_choice(s32 input, s32 arg1, s32 delay, s32 period) {

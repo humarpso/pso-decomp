@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss6GravBall.h"
 #include "pso/boss/TBoss6PlotFalz.h"
@@ -32,7 +33,6 @@ extern u8 lbl_80476684[];
 extern const f32 TBoss6GravBall__data_805DF550;
 extern const f32 lbl_805DF570;
 void TBoss6GravBall__sub_803236F8(Obj_803236F8 *arg0);
-void queue_destruction__7TObjectFv(void *arg0);
 s32 project_actor_to_ground(void *, void *, int);
 extern const f32 TBoss6GravBall__data_805DF558;
 extern const f32 lbl_805DF574;

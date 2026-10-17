@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/math/MatrixTransforms.h"
+#include "pso/player/TObjPlayer_80129B60.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-
-void s_rank_bazooka_slide_barrel(void *arg0);
-void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 
 extern f32 lbl_805DAE48;
 extern f32 lbl_805DAE4C;

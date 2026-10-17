@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_801F6548.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/TMCFormatSequence.h"
 #include "pso/TAdPlayerLoadGC.h"
@@ -23,15 +27,10 @@ struct MCFmt_801F68FC {
 struct Pair_801F68FC { s32 a; s32 b; };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 is_message_window_ready__18TWindowMessagePageFv();
 extern s8 controller_input_state[];
-void wait_confirm_and_finish__17TMCFormatSequenceFPv(void *arg0);
-void update_wait_confirm__17TMCFormatSequenceFPv(void *arg0);
 extern RecoveredGlobal_801F6548_lbl_80512790 offline_quest_filename_buffer_a;
-s32 *TQuestThread__sub_801F6548(void);
-s32 get_localized_text_entry(s32, s32);
 s32 init_shop_judgment_window();
 s32 set_text__18TWindowMessagePageFlll(s32, void *, s32);
 s32 get_window_layout_position(s32);
@@ -39,7 +38,6 @@ extern Pair_801F68FC lbl_8044A684[];
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdPlayerLoadGC__sub_801E24F8(s32, s32, s32, s32, s32);
 s32 get_selected_menu_value(u32);
-void TWindow__close(u8 *arg0);
 
 typedef char RecoveredGlobal_801F6548_lbl_80512790_size[sizeof(RecoveredGlobal_801F6548_lbl_80512790) == 0x20 ? 1 : -1];
 s32 *TQuestThread__sub_801F6548(void) {

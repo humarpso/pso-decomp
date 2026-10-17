@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjTombstone_80075DA8.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjTombstone.h"
@@ -31,12 +33,10 @@ u8 *get_player_by_client_id(s32);
 extern s32 local_client_id;
 extern s32 TLobby__designated_client_id;
 extern const f32 TObjTombstone__data_805D9184;
-void *__dt__13TObjTombstoneFv(void *arg0, s16 arg1);
 f32 get_distance_to_local_player_xz__13TObjTombstoneFPv(void *);
 s32 TObjTombstone__sub_80075DFC(void *);
 void __dl__7TObjectFPv(void *);
 s32 check_owner__13TObjTombstoneFv();
-void queue_destruction__7TObjectFv(void *arg0);
 
 void TObjTombstone::init_parts() { format_player_name(); format_label(); build_name_text(); format_enemy_text(); format_quoted_name(); format_date_text(); }
 

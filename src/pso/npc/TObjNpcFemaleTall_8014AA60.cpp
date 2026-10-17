@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/npc/TObjNpcFemaleTall_8014AA60.h"
 #include "pso/npc/TUnk_804A92A8.h"
 #include "pso/npc/TObjNpcFemaleTall.h"
 
 extern "C" {
 
-void TObjNpcFemaleTall__sub_8014AA60(void);
 void __dl__7TObjectFPv(void *);
 void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1);
 

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TItemLoad.h"
+#include "pso/item/TItemLoad_80110010.h"
 #include "pso/system/memory.h"
 #include "pso/item/TUnk_8049F3F4.h"
 #include "pso/item/TUnk_8049F42C.h"
@@ -26,7 +28,6 @@ struct Node_801103F4 : Base_801103F4 {
 struct Load_8011006C { void *buf; s32 f4; s32 f8; s32 fC; s32 f10; void *f14; };
 
 extern "C" {
-s32 TItemLoad__sub_801107E4(void *p);
 extern u32 TItemLoad__completed_model_load_task_root;
 void *TItemLoad__sub_801107EC(void *p);
 Parm_8011029C *lookup_item_pmt_record(void *);
@@ -35,12 +36,10 @@ extern s16 lbl_8043E4C0[];
 extern s16 lbl_8043E4C8[];
 extern void *TItemLoad__model_load_task_root;
 extern s32 *TItemLoad__model_slot_in_use;
-s32 request_item_model_load(u8 *item);
 void *mem_alloc(u32);
 void TLobby__sub_801E3E9C(s32, s32, void *, s32);
 extern s32 lbl_8049F43C[];
 Load_8011006C *init_buffer__9TItemLoadFPviii(Load_8011006C *self, s32 arg1, s32 arg2, s32 count);
-int TItemLoad__sub_801107F4(void *p);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);

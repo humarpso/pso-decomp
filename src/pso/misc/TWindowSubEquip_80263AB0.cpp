@@ -1,11 +1,9 @@
 #include "types.h"
+#include "pso/misc/TWindowSubEquip_80263AB0.h"
 #include "pso/misc/TWindowMainMenu.h"
 #include "pso/misc/TWindowSubEquip.h"
 
 extern "C" {
-f32 TWindowSubEquip__sub_80263AF8(u8 *arg0, u32 arg1);
-void TWindowSubEquip__sub_80263AF4(void);
-void call_if_split_screen(u32 arg0);
 s32 create_submenu__15TWindowMainMenuFUl(s32, s16);
 s32 destroy_submenu__15TWindowMainMenuFv();
 s32 fn_802449E0(u32);

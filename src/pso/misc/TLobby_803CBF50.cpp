@@ -1,13 +1,9 @@
 #include "types.h"
+#include "pso/misc/TLobby_803CBF50.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 
-void TLobby__sub_803CBF50(void);
-void TLobby__sub_803CBF90(void);
-void TLobby__sub_803CBFB0(void);
-void TLobby__sub_803CBFF0(void);
-void TLobby__sub_803CC030(void);
 s32 set_stream_channel_pan__6TLobbyFll();
 s32 set_sound_stream_volume();
 s32 set_stream_frequency__6TLobbyFl();

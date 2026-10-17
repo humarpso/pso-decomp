@@ -20,4 +20,9 @@ public:
 };
 typedef char TeneFakeTecThunderEff_size[sizeof(TeneFakeTecThunderEff) == 0x348 ? 1 : -1];
 
+extern "C" {
+u8 *TObjPlayer__sub_800A4204(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4);
+void *__dt__21TeneFakeTecThunderEffFv(void *arg0, s16 arg1);
+}
+
 #endif

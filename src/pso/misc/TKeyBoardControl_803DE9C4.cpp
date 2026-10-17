@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_803DE9C4.h"
+#include "pso/unk/text_803E2070.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TLobby.h"
@@ -47,7 +49,6 @@ typedef struct Out_803DEA18
 
 extern "C" {
 extern RecoveredGlobal_803DEB74_lbl_8058D8E0 keyboard_control_pad_slots;
-u8 *TKeyBoardControl__sub_803DEB74(u32 arg0);
 s32 Dolphin_PADRead(void *, void *);
 extern s32 keyboard_pad_status_buffer[];
 extern s32 TKeyBoardControl__pad_status_buffer[];
@@ -65,8 +66,6 @@ extern const f32 lbl_805E0FB4;
 extern const f32 lbl_805E0FB8;
 extern const f32 lbl_805E0FBC;
 void GXInitLightAttnK(void *, f32, f32, f32);
-void reset_scene_fog(void);
-void init_light_globals(void);
 extern u8 identity_matrix[];
 extern u32 matrix_stack_limit;
 extern u32 matrix_stack_base;
@@ -75,7 +74,6 @@ void PSMTXIdentity(void *);
 extern Pad_803DEA18 TKeyBoardControl_prev_pad_state[4];
 void *memmove(void *, const void *, u32);
 s32 PADReset(u32);
-void set_some_id__FUl(s32 arg0);
 
 #pragma push
 #pragma scheduling off

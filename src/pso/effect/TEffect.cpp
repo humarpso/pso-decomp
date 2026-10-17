@@ -1,4 +1,5 @@
 #include "pso/effect/TEffect.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 
 #include "types.h"
 
@@ -29,9 +30,6 @@ struct B_80082CDC { u8 pad[0xC]; C_80082CDC *c; };
 struct A_80082CDC { u8 pad[0x8]; B_80082CDC *b; };
 
 extern "C" {
-void begin_screen_draw(s32 arg0);
-void draw_textured_quad_at_depth(f32 *q, f32 depth);
-void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805D93C0;
 extern const f32 lbl_805D93C4;

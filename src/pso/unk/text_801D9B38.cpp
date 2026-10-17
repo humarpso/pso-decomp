@@ -1,13 +1,12 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801D9E08.h"
+#include "pso/unk/text_801D9B38.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 u8 TObjPlayer__sub_801C010C(void *self, s16 i);
 u8 clamp_to_max__10TObjPlayerFlUcUc(s32 arg0, u8 arg1, u8 arg2);
-void get_effective_technique_level__10TObjPlayerFPvs(u8 *self, s16 idx);
 void set_technique_level_entry(void *, s16, void *);
-int TObjPlayer__sub_801D9E08(void);
-void TObjPlayer__sub_801D9C34(u8 *self, s16 idx, void *arg2);
 
 void TObjPlayer::set_all_technique_levels(void *arg1) {
     s32 i;

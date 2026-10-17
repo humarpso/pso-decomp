@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/unk/text_8042EE4C.h"
 #include "pso/ui/TAdExNetConfirmGC.h"
 
 extern "C" {
-
-s32 TLobby__sub_8042EE4C(s32 *);
 
 s32 TAdExNetConfirmGC::is_confirmed() {
     s32 sp8;

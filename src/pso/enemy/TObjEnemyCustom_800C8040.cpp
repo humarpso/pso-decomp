@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemyCustom_800C8040.h"
 #include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 u32 get_enemy_entity(u16);
-void handle_6x09_legacy_kill_enemy(s32 arg0);
-void TLobby__sub_800C80D0(void);
 
     extern int enemy_custom_camera_active_flag;
 s32 legacy_enemy_kill_received_flags[128];

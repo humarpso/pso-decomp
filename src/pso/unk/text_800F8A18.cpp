@@ -1,11 +1,12 @@
 #include "types.h"
+#include "pso/unk/text_800F8A18.h"
+#include "pso/unk/text_800F8A78.h"
+#include "pso/unk/text_803DEE48.h"
 
 extern "C" {
 
-void fn_800F8A78(void);
 s32 strncmp(s32, s32 *, s32);
 s32 strncpy(s32 *, s32, s32);
-s32 fn_803DEE48(const char *dir);
 extern s32 player_name_copy_buffer[];
 extern s32 lbl_805DA914;
 

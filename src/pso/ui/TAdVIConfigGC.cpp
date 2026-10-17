@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_8001A448.h"
+#include "pso/unk/text_80307BE8.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TLobby.h"
 #include "pso/TObject.h"
@@ -47,11 +51,7 @@ extern "C" {
 void TAdVIConfigGC__vt5(void* p);
 void *VIGetDTVStatus(void *);
 void TAdVIConfigGC__vt4(void *arg0);
-void allow_rendering__7TObjectFv(void *arg0);
-void disallow_rendering__7TObjectFv(void *);
-void update_players_in_range(u8 *arg0);
 u8 *get_player_by_client_id(s32);
-void TWindow__close(u8 *arg0);
 s32 get_window_layout_position(s32);
 char *strncpy(char *, const char *, u32);
 extern u8 player_names_window_pos[];
@@ -61,7 +61,6 @@ void TAdVIConfigGC__vt8(void);
 void *__dt__13TAdVIConfigGCFv(void *arg0, s16 arg1);
 void *destroy__13TAdVIConfigGCFPvs(void *arg0, s16 arg1);
 int OSSetProgressiveMode(void*);
-s32 get_localized_text_entry(s32 arg0, s32 arg1);
 void *TAdYesNoBaseGC__ct(void *arg0);
 void *__dt__14TAdYesNoBaseGCFv(void *arg0, s16 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *);

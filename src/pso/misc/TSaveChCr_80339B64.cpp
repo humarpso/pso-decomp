@@ -1,23 +1,19 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TSaveChCr_80339B64.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/TSaveChCr.h"
 
 extern "C" {
 int close_and_advance__9TSaveChCrFPv(void*, int);
 int close_window__9TSaveChCrFv(void*);
-void fn_80339D78(u8 *arg0);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(int, void *);
 extern s32 lbl_804C88C0[];
 extern s32 pso_system_card_filename[];
 extern s32 lbl_804C89BC[];
-s32 TAdSinglePlyChrSelectGC__sub_80339DBC(void);
-int TSaveChCr__sub_80339B94(void* p);
-void TSaveChCr__sub_80339CE4(void);
-s32 request_queued_main_phase(void);
-void TKeyBoardControl__sub_8000F9CC(s32 arg0);
 int TSaveChCr__sub_80339F30(void*);
 s32 TSaveChCr__sub_8033A138(void *);
 s32 poll_memcard_status__9TSaveChCrFv();
-void queue_destruction__7TObjectFv(void *arg0);
 s32 save_character__9TSaveChCrFv(void *);
 
 void TSaveChCr::destroy_if_keyboard_idle() { if (*(int *)&this->timer == 0) { queue_destruction__7TObjectFv(this); request_queued_main_phase(); } }

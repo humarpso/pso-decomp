@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8012EAA8.h"
 #include "pso/player/TUnk_804A5F18.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TTecDeband.h"
@@ -6,9 +7,6 @@
 
 extern "C" {
 
-int s_red_blade_unfold(void* p);
-void s_red_blade_equip_rolls(void* p);
-void s_red_blade_turn_node(void* p);
 int rotate_matrix_x(void*, void*);
 int add_angle_clamped__10TObjPlayerFPlll(void*, int, int);
 s32 is_mode_two_and_ready__10TObjPlayerFv();

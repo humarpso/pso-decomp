@@ -1,4 +1,6 @@
 #include "pso/item/TItemTexLoad.h"
+#include "pso/misc/TWindowSubMag_802627D8.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_804CE018.h"
 
@@ -16,19 +18,13 @@ extern s32 tl_07;
 extern const f32 lbl_805DD0D8;
 extern const f32 lbl_805DD0F0;
 extern const f32 lbl_805DD0FC;
-void *TWindowLoadItemTexture__ct(void *arg0, void *arg1, void *arg2, void *arg3);
-void *__dt__22TWindowLoadItemTextureFv(void *arg0, s16 arg1);
-void fn_80262C2C(void* p);
-void render__22TWindowLoadItemTextureFv(u8 *arg0);
 
 s32 draw_window_frame(void *, s32);
 s32 draw_visible_window_entries(void *, void *, s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void set_sprite_uv_bounds(f32, f32, f32, f32);
-void fn_8026287C(u8 *arg0);
 int initialize_subwindow__9TWindowDDFv(void*);
-void queue_destruction__7TObjectFv(void *);
 
 extern s32 lbl_8044F280[];
 extern const f32 lbl_805DD0EC;

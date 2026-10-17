@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/unk/text_80355C1C.h"
 
 extern "C" {
 u8 * photon_field_weapon_ct(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-u8 *create_photon_field_weapon(u8 *arg0);
 u8 *create_photon_field_weapon(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;

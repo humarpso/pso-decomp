@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8012F05C.h"
 
 extern "C" {
 
-void madam_parasol_scale_canopy(void* p);
-void madam_parasol_start_regen(void *arg0);
 int scale_current_matrix(void*);
 s32 get_id__13TItemProArmorFv(void *);
 s32 init_item_timer_event__13TUnk_804A0648Fv(s32, u32, s32, s32);

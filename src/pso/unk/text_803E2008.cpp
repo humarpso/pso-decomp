@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/unk/text_803E2008.h"
 
 extern "C" {
 
-void set_scene_fog_type(s32 arg0);
 struct G_803E2010 { u8 pad[0x44]; f32 f44; f32 f48; };
 extern G_803E2010 scene_projection_state;
 extern f32 scene_fog_end_distance;
@@ -11,7 +11,6 @@ extern u32 scene_fog_color;
 extern s8 scene_fog_enable_flag;
 typedef struct { u8 r, g, b, a; } Col_803E2010;
 void Dolphin_GXSetFog(s32, f32, f32, f32, f32, Col_803E2010);
-void apply_scene_fog(void);
 
 extern s32 scene_fog_type;
 

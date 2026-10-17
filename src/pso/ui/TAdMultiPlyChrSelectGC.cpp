@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 
 struct RecoveredGlobal_802DFF0C___vt__22TAdMultiPlyChrSelectGC {
@@ -20,7 +21,6 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_802DFF0C___vt__22TAdMultiPlyChrSelectGC __vt__22TAdMultiPlyChrSelectGC;
 extern s32 lbl_805D3F68;
 u8 *TAdMultiPlyChrSelectGC__ct(u8 *arg0, u8 *arg1, s32 arg2);
-void queue_destruction__7TObjectFv(void *);
 void __dl__7TObjectFPv(s32);
 s32 __dt__7TObjectFv(void *, int);
 u8 *__dt__22TAdMultiPlyChrSelectGCFv(u8 *arg0, s16 arg1);

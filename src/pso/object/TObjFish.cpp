@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/math/MatrixVector.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80141550.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/system/vector.h"
 #include "pso/TLevelSelect.h"
@@ -118,7 +122,6 @@ s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 s32 set_global_param__8TObjFishFl();
 extern u32 TOKeyJungleMain__static_model_resource;
 void render__15TOKeyJungleMainFv(u8 *arg0);
@@ -401,8 +404,6 @@ struct Fish_8029D5C8 {
 extern "C" {
 
 s32 get_state_flag__9TMainTaskFv();
-void func_80141618__Fv(void);
-void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DDD40;
 extern const f32 TObjFish__data_805DDD44;
@@ -611,7 +612,6 @@ s32 TObjFish::init_fish_school(void *arg1_arg, s32 arg2, s32 arg3) {
 extern "C" {
 s32 is_split_screen(void);
 u8 *TObjFish__create(u8 *arg0);
-void queue_destruction__7TObjectFv(void *arg0);
 s32 construct_world_actor_base();
 extern s32 lbl_805D3D58;
 u8 *TObjFish__ct(u8 *arg0, s32 arg1, u8 *arg2);

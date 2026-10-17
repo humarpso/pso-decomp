@@ -27,4 +27,8 @@ public:
 };
 typedef char TPhotonGolla_size[sizeof(TPhotonGolla) == 0x1CC ? 1 : -1];
 
+extern "C" {
+void *destroy__12TPhotonGollaFPvs(void *arg0, s16 arg1);
+}
+
 #endif

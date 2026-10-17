@@ -1,4 +1,15 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_80131C58.h"
+#include "pso/misc/TLoadCtrl_80227390.h"
+#include "pso/misc/TLobby_80227A2C.h"
+#include "pso/object/TObjCMMainMenu_8028D9A8.h"
+#include "pso/object/TObjCMMainMenu_8028EA88.h"
+#include "pso/ui/TAdBackTxtGC.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_8029A914.h"
+#include "pso/unk/text_8028D8B8.h"
+#include "pso/unk/text_802910EC.h"
+#include "pso/unk/text_80291290.h"
 #include "pso/object/TObjCMMainMenu.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TCharaMaking.h"
@@ -17,35 +28,20 @@ struct RecoveredGlobal_8028EBCC_TObjCMMainMenu__data_804DB9C8 {
 
 extern "C" {
 extern RecoveredGlobal_8028EC24_lbl_8051C07C character_creation_name_buffer;
-void TObjCMMainMenu__sub_8028EC24(void);
 extern RecoveredGlobal_8028EBCC_TObjCMMainMenu__data_804DB9C8 TObjCMMainMenu__data_804DB9C8;
-s32 TObjCMMainMenu__sub_8028EBCC(u8 *arg0);
 void *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
 u8 *TCameraCtrl__ct(u8 *arg0, void *parent);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-void TKeyBoardControl__sub_80131F60(void);
 s32 init_menu_scene_lights(s32 *, s32);
-s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
-void play_area_music(char *name);
-void load_floor_sound_bank(s32 arg0);
 void *__nw__7TObjectFUl(s32);
 s32 TWindowCtrlMain__ct(void *);
-void fn_8028D940(void);
-void TObjCMMainMenu__sub_8028D9F8(void);
-void TObjCMMainMenu__sub_8028EC18(void);
-void TObjCMMainMenu__sub_8028EC34(void);
-void fn_80291178(void);
-void fn_80291290(void);
 s32 init_and_create__15TChCrCharSelectFv(s32);
-void register_texture_f256_ad_pic_2(void);
-void register_texture_f256_backtext(void);
 extern s32 lbl_80451290[];
 extern s32 default_scene_light_config[];
 extern s32 creation_menu_resource_descriptor[];
 extern s32 tl_camera;
 extern s32 tl_03;
 extern void *creation_menu_main_obj;
-void init_creation_menu_scene(void);
 extern s32 TObjCMMainMenu__data_805D659C;
 
 typedef char RecoveredGlobal_8028EBCC_TObjCMMainMenu__data_804DB9C8_size[sizeof(RecoveredGlobal_8028EBCC_TObjCMMainMenu__data_804DB9C8) == 0xA0 ? 1 : -1];

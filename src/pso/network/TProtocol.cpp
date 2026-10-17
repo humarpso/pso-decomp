@@ -1,4 +1,7 @@
 #include <global_types.h>
+#include "pso/misc/TPlyJoinLobbyEntry.h"
+#include "pso/network/TProtocol.h"
+#include "pso/unk/text_801DFC3C.h"
 #include "pso/system/byteswap.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -276,9 +279,7 @@ struct Text_801DC1E4 { u8 command; u8 flags; u16 size; char text[0x200]; };
 struct Proto_801DC1E4 { u8 pad[0x1910]; s32 connected; u8 pad1914[0x74]; u8 char_data[0x41C]; };
 
 void TItem__sub_80101CF8(void *);
-u8 *copy_player_data__9TProtocolFPvPv(u8 *arg0, u8 *arg1);
 void TProtocol__sub_801DF774(void *, void *);
-void bswap_player_record_upload(u8 *arg0);
 void destroy__9TProtocolFis(void *, int);
 s32 validate_player_visual_record(void *arg0);
 
@@ -690,7 +691,6 @@ void TProtocol::recv_user_ans(packet &pkt) {
 };
 
 struct ByteBlock_C { u8 bytes[0xc]; };
-extern "C" u8 *__as__14LobbyListEntryFRC14LobbyListEntry(void *arg0, const void *arg1);
 
 void TProtocol::recv_room_info(packet &pkt) {
 	typedef TMenuList<LobbyListEntry, 16, 0> lobby_list;

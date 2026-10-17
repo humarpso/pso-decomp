@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/ui/TAdExNetConfirmGC_8032C504.h"
+#include "pso/ui/TAdWarningBaseGC.h"
+#include "pso/unk/text_80145A94.h"
 #include "pso/ui/TAdExNetConfirmGC.h"
 #include "pso/TAdMultiChgGameModeGC.h"
 #include "pso/misc/TLobby.h"
@@ -29,17 +35,8 @@ struct RecoveredGlobal_8032C618___vt__17TAdExNetConfirmGC { s32 value; u8 remain
 typedef char RecoveredGlobal_8032C618___vt__17TAdExNetConfirmGC_size[sizeof(RecoveredGlobal_8032C618___vt__17TAdExNetConfirmGC) == 0x28 ? 1 : -1];
 
 extern "C" {
-s32 get_localized_text_entry(s32 arg0, s32 arg1);
-void TKeyBoardControl__sub_8000F9CC(s32);
-void queue_destruction__7TObjectFv(void *);
-s32 TLobby__sub_80145A94(void);
-s32 TLobby__sub_80145DB4(s32);
-void *TAdWarningBaseGC__ct(void *arg0);
 extern s32 __vt__17TAdExNetConfirmGC[];
 extern s32 lbl_805D4200;
-u8 *TAdExNetConfirmGC__ct(u8 *arg0);
-void *__dt__17TAdExNetConfirmGCFv(void *arg0, s16 arg1);
-void *__dt__16TAdWarningBaseGCFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 

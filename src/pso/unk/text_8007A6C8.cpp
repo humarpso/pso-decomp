@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/unk/text_8007A6C8.h"
 #include "pso/object/TObjMapCsn.h"
 extern "C" {
 void __construct_array(void *, void *, s32, s32, s32);
 extern u8 TObjPlayer__sub_8007A7B8[];
-void fn_8007A6C8(void);
 u8 lbl_804FF9C0[0x380];
 u8 lbl_804FFD40[0x400];
 __declspec(section ".data") u8 lbl_80500140[8];

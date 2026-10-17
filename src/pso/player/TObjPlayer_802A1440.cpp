@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_802A1440.h"
+#include "pso/ui/TAdSelectTxtGC.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TAdSelectTxtGC.h"
 #include "pso/misc/TLobby.h"
@@ -7,9 +9,6 @@ struct P_802A1544 { u8 pad0[0x408]; s8 v[0x14]; };
 
 extern "C" {
 
-void TObjPlayer__sub_802A1588(void* p);
-void TAdSelectTxtGC__sub_802A16A8(void *p);
-s32 TAdSelectTxtGC__sub_802A16C0(void *);
 s32 export_character_data__10TObjPlayerFPvPv(void *, void *);
 int clear_player_data_block(void*);
 int init_inventory_items__12TPlyCharDataFv(void*);

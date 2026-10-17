@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_80287570.h"
 #include "pso/ui/TWindowRoom.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TWindowDD.h"
@@ -23,7 +24,6 @@ struct RoomTitleEntry {
 };
 
 extern "C" {
-f32 TWindowSubStatusDisp__sub_802877A4(f32);
 int get_array_entry__13TUnk_804CE018Fi(void*, int);
 s32 save_position__13TUnk_804CE018Fv(void *);
 void construct_base__9TWindowDDFPUcsPUc(void *, void *, s16, void *);
@@ -37,8 +37,6 @@ extern const f32 lbl_805DD2F0;
 extern const f32 lbl_805DD2F4;
 extern const f32 lbl_805DD2F8;
 s32 clamp_list_scroll_offset(struct Pos_8026D740 *a, struct Pos_8026D740 *b, struct Pos_8026D740 *c);
-void *__dt__11TWindowRoomFv(void *arg0, s16 arg1);
-void draw_status__11TWindowRoomFi(s32 arg0);
 s32 draw_visible_window_entries(s32, s32, s32);
 int update_window_entry_list__13TUnk_804CE018FPv(void*, void*);
 s32 draw_window_tab(s32, s32, s32, f32);

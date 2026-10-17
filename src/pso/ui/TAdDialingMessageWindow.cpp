@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/ui/TAdDrawLineCtrl.h"
 #include "pso/ui/TUnk_804F3428.h"
 #include "pso/ui/TAdDialingMessageWindow.h"
 #include "pso/TObject.h"
@@ -13,14 +15,10 @@ extern s32 lbl_8047A400[];
 extern s32 lbl_8047A408[];
 extern const f32 lbl_805E0364;
 extern const f32 lbl_805E0368;
-void *TAdDialingMessageWindow__ct(void *arg0, void *arg1, void *arg2);
-void *__dt__23TAdDialingMessageWindowFv(void *arg0, s16 arg1);
-u8 *create_draw_line_ctrl__13TAdMcSelectGCFiif(s32 arg0, s32 arg1, f32 farg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 void *__nw__7TObjectFUl(int);
-void queue_destruction__7TObjectFv(void *arg0);
 
     extern const float lbl_805E0360;
 void TAdDialingMessageWindow::set_flag_and_notify() { *(int *)&this->m_1c = (*(int *)&this->m_1c | 0x1); create_draw_line_ctrl__13TAdMcSelectGCFiif((*(int *)&this->m_28), 17, lbl_805E0360); }

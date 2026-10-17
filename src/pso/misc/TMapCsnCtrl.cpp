@@ -1,10 +1,10 @@
 #include "pso/TMapCsnCtrl.h"
+#include "pso/misc/TMapCsnCtrl.h"
 
 #include "types.h"
 
 extern "C" {
 
-void *TMapCsnCtrl__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 void TMapCsnCtrl::sub_80140F44() {

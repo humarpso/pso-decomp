@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TLobby_80207DA8.h"
+#include "pso/misc/TLobby_8020B03C.h"
+#include "pso/misc/TLobby_8030A6A8.h"
+#include "pso/unk/text_8020AD40.h"
 #include "pso/misc/TLobby.h"
 
 struct Stack_8020AF0C {
@@ -30,16 +34,13 @@ extern s32 TLobby__next_enemy_set_actor_id;
 extern s32 map_set_enemy_id_counter;
 extern s32 TLobby__data_805D614C;
 s32 advance_object_id_counter(int);
-s32 TLobby__sub_8020B308();
 extern s32 map_set_object_id_counter;
 extern s32 map_object_id_counter;
 extern s32 TLobby__data_805D6148;
 s32 read_disc_file(void *, Rec_8020AD40 *);
 void debug_print__6TLobbyFle(void *, ...);
 void replace_file_extension__6TLobbyFPvPvPv(void *, s32, void *);
-void swap_object_row_endian(void *arg0);
 void load_object_set_entries__6TLobbyFlPUcUl(s32, Rec_8020AD40 *, s32);
-s32 get_game_play_mode();
 extern u8 lbl_8044BBB0[];
 extern u8 lbl_8044BBB8[];
 extern u8 lbl_8044BBDC[];
@@ -47,7 +48,6 @@ extern u8 lbl_8044BBE8[];
 extern Grp_8020AD40 *TLobby__data_805D6068;
 extern Rec_8020AD40 *TLobby__map_set_file_buffer;
 extern s32 TLobby__map_set_file_buffer_size;
-s32 load_area_object_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 
 s32 load_area_object_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     char name[0x20];

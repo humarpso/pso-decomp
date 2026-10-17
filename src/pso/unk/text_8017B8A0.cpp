@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TOVS2Wall01_8017BCC8.h"
+#include "pso/misc/TOVS2Wall01_8017C7A4.h"
+#include "pso/unk/text_8017B8A0.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TOTrapAncient02R.h"
 #include "pso/misc/TLobby.h"
@@ -51,13 +54,9 @@ extern "C" {
 extern const f32 lbl_805DBA78;
 s32 check_value_equals__13TQuestColCtrlFPll(void *, int);
 VObj_8017B9B0 *find_entity_by_id();
-void init__11TOVS2Wall01Fi(s32 arg0);
-void TOVS2Wall01__sub_8017CA48(void *, s32);
-s32 TOVS2Wall01__sub_8017CA50(void *);
 extern s32 TOVS2Wall01__class_name;
 extern Ent_8017B9B0 *TLobby__data_805D6140;
 void handle_6x86_hit_destructible_object(Pkt_8017B9B0 *arg0);
-void TOVS2Wall01__sub_8017B9AC(void);
 
 f32 TOTrapAncient02R::receive_direct_attack(void *, void *, void *, s32, s32) {
     Obj_8017B8A0 *self = (Obj_8017B8A0 *)this;

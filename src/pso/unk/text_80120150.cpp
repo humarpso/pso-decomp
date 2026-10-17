@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/player/TObjPlayer_80100E00.h"
+#include "pso/player/TObjPlayer_801211F0.h"
+#include "pso/unk/text_80120150.h"
 #include "pso/items/TItemWeapon.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -84,12 +88,8 @@ extern s16 weapon_node_material_index;
 extern s16 TObjPlayer__weapon_node_ids[];
 extern u8* weapon_render_callback_object;
 extern u32 lbl_805D53EC;
-void TObjPlayer__sub_80101088();
 s32 test_flags_any(void*,u32);
-void increment_model_node_counter();
-void apply_weapon_node_material();
 WeaponColorDescriptor_80120304 *get_photon_color_record(s16 color_index);
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 WeaponArgb get_weapon_color__11TItemWeaponFPv(void *weapon);
 extern u8 lbl_805DACA4;
 void TItemWeapon__write_item_data(Src_80120454 *arg0, Dst_80120454 *arg1);

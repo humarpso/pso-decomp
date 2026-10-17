@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803DA798.h"
 #include "pso/misc/TBGLightningCtrl.h"
 #include "pso/TObject.h"
 class TBGLightning : public TObject {
@@ -77,24 +78,13 @@ int load_gvm_texture_file(void*);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(u8 *, void *);
-void TBGLightningCtrl__sub_802A9A08(void);
-void spawn_lightning_at_angle__16TBGLightningCtrlFPvi(u8 *arg0, s32 arg1);
-void * __dt__16TBGLightningCtrlFv(void *arg0, s16 arg1);
-u8 * TBGLightningCtrl__ct(u8 *arg0, s32 arg1, s32 arg2);
-void * TBGLightningCtrl__create(void *arg0);
-void submit_particle_quad(void *arg0, f32 *p, f32 *d, s32 c);
 void fn_802A9DF4(Obj_802A9DF4 *self, Vec_802A9DF4 *dir);
 void fn_802A9F48(Obj_802A9F48 *self, Vec_802A9F48 *dir);
-void render__12TBGLightningFv(s32 arg0);
-void run_task__12TBGLightningFv(void *arg0);
-u8 * create__12TBGLightningFiif(s32 arg0, s32 arg1, f32 farg0);
-u8 * __ct__12TBGLightningFv(u8 *arg0, void *arg1, s32 arg2, f32 farg0);
 u32 __cvt_fp2unsigned(f32);
 s32 rand();
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 s32 TLobby__sub_803DA16C(void*);
-s32 set_texture_num(s32 i);
 void TParticleCtrl__sub_803E2A1C(void *, int);
 
 extern void *__vt__12TBGLightning[];

@@ -1,6 +1,7 @@
 #pragma push
 
 #include "types.h"
+#include "pso/system/ModelDrawContext.h"
 #include "pso/TObjCMHairMenu.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 #include "pso/ui/TAdChrMoveEffectGC.h"
@@ -102,12 +103,9 @@ void TAdChrMoveEffectGC__sub_80349194(W_80349194 *arg0, void *arg1);
 extern V2_803490D8 chr_move_effect_pos_table[];
 extern C4_803490D8 lbl_804786E8[];
 extern u8 lbl_804786F0[];
-void *TAdChrMoveEffectGC__ct(void *arg0);
-void *__dt__18TAdChrMoveEffectGCFv(void *arg0, s16 arg1);
 void __ct__7TObjectFP7TObject(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
-void set_cached_blend_factor(s32 arg0, s32 arg1);
 
 int get_state_flag__9TMainTaskFv(void*);
 

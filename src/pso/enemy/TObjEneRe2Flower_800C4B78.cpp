@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRe2Flower_800C4B78.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 #include "pso/TObject.h"
 #include "pso/enemy/TObjEneRe2Flower_EffCurse3.h"
@@ -79,8 +81,6 @@ s32 subtract_vector(void *, void *);
 extern void *player_render_texture_buffer;
 void TLobby__sub_803DA16C(void *);
 void mem_free(void *);
-void TObjPlayer__sub_800C4D44(void);
-void queue_destruction__7TObjectFv(void *arg0);
 s32 is_alive__9TObjEneDDFv(s32);
 extern u8 *camera_ctrl_instance;
 s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);

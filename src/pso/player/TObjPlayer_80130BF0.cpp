@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80130BF0.h"
 
 extern "C" {
 
-void yasminkov_3000r_node_callback(void* p);
 int post_translate_matrix(void*);
 int get_player_list__10TObjPlayerFv(void*);
 

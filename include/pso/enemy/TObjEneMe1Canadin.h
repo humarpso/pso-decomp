@@ -71,4 +71,44 @@ struct TObjEneMe1Canadin : public TObjEneDD_ST {
 };
 
 typedef char TObjEneMe1Canadin_size[sizeof(TObjEneMe1Canadin) == 0x4CC ? 1 : -1];
+extern "C" {
+void *TObjEneMe1CanadinLeader__ct(void *arg0, void *a, void *b);
+void TObjEneMe1CanadinLeader__sub_8009E258(u8 *arg0);
+void TObjEneMe1CanadinLeader__sub_8009E27C(void *p);
+u8 TObjEneMe1CanadinLeader__sub_8009E31C(u8 *arg0, s32 arg1);
+void TObjEneMe1CanadinLeader__sub_8009E334(u8 *arg0);
+void TObjEneMe1CanadinLeader__sub_8009E350(u8 *arg0);
+int TObjEneMe1CanadinLeader__sub_8009E36C(void *p);
+void TObjEneMe1CanadinLeader__sub_8009E4AC(u8 *arg0, s32 arg1);
+void TObjEneMe1CanadinLeader__vt104(void *arg0);
+u8 TObjEneMe1CanadinLeader__vt107(void *arg0);
+void TObjEneMe1CanadinLeader__vt108(u8 *arg0, s32 arg1);
+void TObjEneMe1CanadinLeader__vt111(void *arg0);
+u8 *TObjEneMe1Canadin__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4, s16 arg5);
+void TObjEneMe1Canadin__sub_8009BFF8(u8 *arg0, s32 arg1);
+void TObjEneMe1Canadin__sub_8009C178(u8 *arg0, s32 arg1);
+void TObjEneMe1Canadin__sub_8009C2EC(u8 *arg0, s32 arg1);
+void TObjEneMe1Canadin__sub_8009C510(u8 *arg0, s32 arg1);
+void TObjEneMe1Canadin__sub_8009C91C(void *arg0, s32 arg1);
+void TObjEneMe1Canadin__sub_8009D320(void *arg0, s32 arg1);
+void TObjEneMe1Canadin__sub_8009DE90(void *argv0, s32 arg1);
+s32 TObjEneMe1Canadin__sub_8009E76C(u8 *arg0);
+void TObjEneMe1Canadin__sub_8009E930(u8 *arg0);
+void TObjEneMe1Canadin__sub_8009E948(u8 *arg0);
+void TObjEneMe1Canadin__sub_8009EB14(u8 *arg0, f32 height);
+void TObjEneMe1Canadin__sub_8009EB98(u8 *arg0, f32 farg0);
+void *__dt__17TObjEneMe1CanadinFv(void *arg0, s16 arg1);
+void *__dt__23TObjEneMe1CanadinLeaderFv(void *arg0, s16 arg1);
+void advance_state_5_to_4__17TObjEneMe1CanadinFPv(void *arg0);
+void calc_move_vector__17TObjEneMe1CanadinFiPv(s32 actor, void *arg1);
+void fn_8009BD00(void);
+void fn_8009E1D4(u8 *arg0, s32 arg1);
+void fn_8009E2DC(u8 *arg0);
+s32 fn_8009E300(u8 *arg0);
+void fn_8009E378(void *arg0);
+void noop__17TObjEneMe1CanadinFv(void);
+void run_task__23TObjEneMe1CanadinLeaderFv(u8 *pv);
+int select_and_apply_target__17TObjEneMe1CanadinFPv(void *p);
+}
+
 #endif

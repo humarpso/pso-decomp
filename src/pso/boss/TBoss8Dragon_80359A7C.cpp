@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon_80359A7C.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/TObject.h"
 #include "pso/boss/TBoss8Dragon.h"
@@ -119,7 +121,6 @@ struct RecoveredGlobal_80359DC4_lbl_804F1A78 {
 };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 s32 project_sound_origin_from_camera(void *, void *, f32);
 s32 query_teammate_state__9TObjEneDDFv();
 s32 is_main_phase_15__9TObjEneDDFv();
@@ -129,10 +130,8 @@ extern s32 local_client_id;
 extern s32 TBoss8Dragon__data_805D69B8;
 extern const f32 lbl_805E00B0;
 extern const f32 lbl_805E00B4;
-void TBoss8Dragon__sub_80359A7C(u8 *arg0);
 u8 * TBoss8Dragon__ct(void *, s32, s32);
 extern s32 boss8_dragon_attack_object_vtable[];
-void *__dt__13TUnk_804F1A78Fv(void *arg0, s16 arg1);
 u8 *__dt__12TBoss8DragonFv(u8 *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 

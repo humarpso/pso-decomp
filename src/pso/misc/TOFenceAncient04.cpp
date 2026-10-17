@@ -68,8 +68,6 @@ int set_indexed_flags(void*, void*, void*);
 s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, int, int, f32);
 s32 init_fields__13TUnk_804B1B80Fv();
-void * __dt__16TOFenceAncient04Fv(void *arg0, s16 arg1);
-u8 * TOFenceAncient04__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 load_gvm_texture_file(void *);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);

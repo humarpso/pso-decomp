@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby_8007C550.h"
+#include "pso/unk/text_80209584.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -7,9 +9,7 @@ struct Hdr_802095EC { s32 type; s32 size; s32 id; s32 x; };
 struct Hdr_8020967C { s32 type; s32 size; s32 id; s32 x; };
 
 extern "C" {
-s32 __ct__14SubtractiveRngFv(void *);
 int mem_alloc(void *);
-u8 *TLobby__sub_80209584(u8 *arg0, s32 arg1);
 Hdr_802095EC *find_type5_header__6TLobbyFPvi(Hdr_802095EC *arg, s32 id);
 Hdr_8020967C *find_chunk_by_id__6TLobbyFPvi(Hdr_8020967C *arg, s32 id);
 u8 *TLobby__sub_80209584(u8 *arg0, s32 arg1) {

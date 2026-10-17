@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/item/TItem_80101CEC.h"
+#include "pso/player/TObjPlayer_801BD384.h"
+#include "pso/player/TObjPlayer_801BDD8C.h"
 
 extern "C" {
 
-void *create_remote_player_object(void *arg0);
-void TItem__sub_80101CF0(void);
-void *__ct__10TObjPlayerFPvPvPv(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_03;

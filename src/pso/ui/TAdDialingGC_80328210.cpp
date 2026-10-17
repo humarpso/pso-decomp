@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/misc/TLobby_803FAEA0.h"
+#include "pso/ui/TAdDialingGC_80328210.h"
 #include "pso/ui/TAdDialingGC.h"
 
 struct Stack_803286AC {
@@ -19,7 +22,6 @@ struct RecoveredGlobal_803284F8_lbl_8050E208 {
 struct Obj_803285C0 { u8 pad[0x20]; s32 mode; u8 pad2[0xC]; s16 state; };
 
 extern "C" {
-s32 get_localized_text_entry(s32 arg0, s32 arg1);
 s32 create_guide_button(void *, void *, f32);
 s32 init_guide_button_params(void *);
 extern const f32 lbl_805DF6E4;
@@ -27,7 +29,6 @@ extern const f32 lbl_805DF6E8;
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 extern RecoveredGlobal_803284F8_lbl_8050E208 controller_input_state;
-s32 TAdDialingGC__sub_803284F8(s32 _w0);
 struct Obj_80328730 { u8 pad[0x1C]; s32 state; s32 f20; u8 pad2[0x9C - 0x24]; s32 f9C; };
 extern Obj_80328730 *TAdDialingGC__instance;
 void init_dialog__12TAdDialingGCFv(void *);
@@ -35,7 +36,6 @@ void draw_dialing_status__12TAdDialingGCFv(void *);
 void spawn_title_screen__12TAdDialingGCFl(void *arg0, s32);
 s32 update_status_message__12TAdDialingGCFv();
 s32 create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
-void TLobby__sub_803FB184(u8 *arg0);
 s32 __ct__10TAdTitleGCFP7TObjectl(u32, void *, s32);
 u32 __nw__7TObjectFUl(s32);
 s8 func_801A5E54__Fv();

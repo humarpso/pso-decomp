@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/unk/text_803D853C.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMistCtrl.h"
 #include "pso/misc/TNowLoading.h"
@@ -11,11 +13,8 @@ struct Cam_802AF64C { u8 pad[0x178]; Vec_802AF64C v178; u8 pad2[0x190 - 0x184]; 
 
 extern "C" {
 s32 vec3_add_to(void *, void *);
-void rotate_matrix_zyx(void *m, s32 x, s32 y, s32 z);
 s32 rotate_vector_by_matrix(s32, void *, void *);
 s32 normalize_vector(void *);
-s32 push_matrix_from(void *);
-s32 pop_matrix();
 extern Vec_802AF64C lbl_804707E8;
 extern u8 identity_matrix[];
 extern Cam_802AF64C *camera_ctrl_instance;

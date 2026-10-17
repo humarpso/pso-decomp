@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_8001A448.h"
+#include "pso/unk/text_8013157C.h"
 #include "pso/object/TObjRaderHideCol.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -24,15 +26,11 @@ struct Pl_801973B0 { u8 pad0[0x38]; f32 pos[3]; };
 struct Hide_801973B0 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x4C]; f32 f90; s32 f94; };
 
 extern "C" {
-void disallow_rendering__7TObjectFv(void *arg0);
 s32 construct_world_actor_base(void *);
 extern s32 __vt__16TObjRaderHideCol[];
 extern s32 lbl_805D3414;
-u8 *TObjRaderHideCol__ct(u8 *arg0, s32 arg1, s32 arg2);
-f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
 Pl_801973B0 *get_player_by_client_id(s32);
 extern s32 local_client_id;
-void *__dt__16TObjRaderHideColFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 void TObjRaderHideCol::render() {  }

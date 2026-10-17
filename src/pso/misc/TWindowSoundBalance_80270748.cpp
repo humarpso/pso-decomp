@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowSoundBalance.h"
 
 extern "C" {
-
-void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2);
 
 void TWindowSoundBalance::apply_balance(void *arg1) {
     s32 temp;

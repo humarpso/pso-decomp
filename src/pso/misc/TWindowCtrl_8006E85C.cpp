@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_8030A6A8.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/THunterGuildWarning.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -6,8 +7,6 @@
 
 extern "C" {
 
-s32 TLobby__sub_8030A770();
-s32 get_game_play_mode();
 int check_flag__10TObjPlayerFl(void*, int);
 
 extern void *TWindowCtrl__active_window;

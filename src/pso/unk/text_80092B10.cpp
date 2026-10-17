@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/TParticleCtrl.h"
@@ -48,7 +49,6 @@ typedef struct {
 void update_player_state__9TObjEneDDFv(void *, Vec_80092B10 *, s32);
 s32 rotate_matrix_y(int, int);
 void push_matrix(void);
-s32 pop_matrix(void);
 void post_translate_matrix(void *);
 s32 draw_model_motion(int, Motion_80092B10 *, f32);
 extern Vec_80092B10 re7_berura_init_vec;

@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TChCrEffTag_8029AC44.h"
 #include "pso/TChCrEffTag.h"
 
 extern "C" {
 
-void *__ct__11TChCrEffTagFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern s32 __vt__11TChCrEffTag[];

@@ -1,8 +1,7 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80121010.h"
 
 extern "C" {
-
-s32 create_weapon_for_item(s32 arg0);
 
 s32 (*get_weapon_factory_for_item())(s32);
 

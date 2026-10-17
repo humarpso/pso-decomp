@@ -1,21 +1,17 @@
 #include "types.h"
+#include "pso/boss/TBoss6Type2_8032E708.h"
+#include "pso/boss/TBoss6Type2_80336E6C.h"
 #include "pso/boss/TBoss6Type2.h"
 
 struct O_80337054 { u8 pad[0x3CC]; s32 f3cc; u8 pad2[0x410 - 0x3D0]; s32 f410; };
 
 extern "C" {
-void TBoss6Type2__sub_8032F5C4(void *);
 s32 set_action__9TBoss6MagFl(void * a0, s32 a1);
 extern const f32 lbl_805DF978;
 extern const f32 lbl_805DF97C;
 extern const f32 lbl_805DF980;
 extern const f32 lbl_805DF984;
 void spawn_mag_mines__11TBoss6Type2Fv();
-void TBoss6Type2__sub_80336F00(void* p);
-void TBoss6Type2__sub_80336FB8(void* p);
-void TBoss6Type2__sub_80337108(void);
-void TBoss6Type2__sub_80337160(void);
-void TBoss6Type2__sub_803371B4(void* p);
 int play_sound_effect(void*, void*, void*, void*);
 s32 turn_toward_target__11TBoss6Type2Fv();
 s32 fly_toward_target__11TBoss6Type2Fv();

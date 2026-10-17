@@ -1,8 +1,7 @@
 #include "types.h"
+#include "pso/misc/TMovie_80143C94.h"
 
 extern "C" {
-
-void TMovie__sub_80143C94(int a0, int a1, int a2);
 
     extern int lbl_805D56A0;
     extern int lbl_805D56A4;

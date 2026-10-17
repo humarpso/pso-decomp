@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/player/TUnk_804A2548.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -6,7 +7,6 @@ extern "C" {
 
 s32 has_game_join_id__13TUnk_804E355CFv();
 s32 check_hits__14TItemAttackColFPv(void *);
-void queue_destruction__7TObjectFv(void *arg0);
 
 extern f32 lbl_805DAD50;
 

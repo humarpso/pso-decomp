@@ -1,12 +1,12 @@
 #include "pso/item/TItemData.h"
+#include "pso/item/TItem_80100674.h"
+#include "pso/player/TObjPlayer_800FFFF8.h"
 #include "pso/item/TUnk_804A5930.h"
 #include "types.h"
 
 #include <stddef.h>
 #include "pso/player/TObjPlayer.h"
 extern "C" {
-u16 TObjPlayer__sub_80100474(void *);
-void replace_item_with_new_code(void *arg0, u32 arg1);
 void TUnk_804A5930::vfunc_31() {
     s32 arg0 = (s32)this;
     TItemData item_data;

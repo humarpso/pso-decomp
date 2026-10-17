@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/boss/TBoss7PhotonBullet_802EF26C.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_800BC4C8.h"
 #include "pso/boss/TBoss7PhotonBullet.h"
 #include "pso/player/TUnk_804928CC.h"
 extern "C" void render__15TBoss7PhotonPadFv();
@@ -51,19 +54,14 @@ struct Bullet_802EF2AC {
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
-u8 *construct_collision_body(u8 *arg0, s32 arg1, u32 arg2);
 extern void *__vt__18TBoss7PhotonBullet[];
 extern s32 lbl_805D3FD4;
-u8 *TBoss7PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
-void queue_destruction__7TObjectFv(void *);
 s32 project_actor_to_ground(void *, void *, void *);
 extern V2_802EF2AC lbl_80474038[];
 extern s32 lbl_80474040[];
 extern const f32 lbl_805DEA00;
 extern const f32 lbl_805DEA04;
 void run_task__18TBoss7PhotonBulletFv(Bullet_802EF2AC *arg0);
-void *__dt__18TBoss7PhotonBulletFv(void *arg0, s16 arg1);
-void render__18TBoss7PhotonBulletFv(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 
 void render__18TBoss7PhotonBulletFv(u8 *arg0) {
@@ -178,10 +176,8 @@ extern s32 lbl_805D3FD0;
 u32 __nw__7TObjectFUl(int);
 
 void run_task__15TBoss7PhotonPadFv(Pad_802EF604 *self);
-u8 *__ct__15TBoss7PhotonPadFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void __dt__7TObjectFv(void *, s16);
 void render_shadows__7TObjectFv(void);
-void *__dt__15TBoss7PhotonPadFv(void *self, s16 arg1);
 
 void TBoss7PhotonPad::render() {  }
 void TBoss7PhotonPad::run_task() {

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_800B9B84.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -7,11 +9,9 @@ extern "C" {
 s32 vec3_add_to(void *, void *, f32);
 s32 subtract_vector(void *, void *);
 extern s32 camera_ctrl_instance;
-void project_sound_origin_from_camera(s32 arg0, u8 *arg1, f32 farg0);
 int is_local_client_floor_leader(void*);
 int TObjPlayer__sub_801BA42C(void*);
 int freeze_all_players__10TObjPlayerFv(void*);
-s32 get_main_phase();
 int is_any_teammate_in_state__10TObjPlayerFv(void*);
 
 extern s32 enable_v2_features;

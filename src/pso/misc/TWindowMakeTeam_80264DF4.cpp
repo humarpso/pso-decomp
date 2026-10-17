@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TWindowChoiceSetting.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/misc/TWindowSubComCard_80265410.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TUnk_804D0658.h"
 #include "pso/misc/TWindowMakeTeam.h"
@@ -20,8 +24,6 @@ typedef struct Self_80264EB8 {
 } Self_80264EB8;
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
-void TWindow__close(u8 *arg0);
 s32 update_selected_entry__17TWindowSubComCardFv(void *);
 void *__nw__7TObjectFUl(u32);
 void *TKeyBoardControl__ct(void *, void *, s32, s32, s32, s32);
@@ -29,7 +31,6 @@ extern s32 local_client_id;
 void *get_window_layout_position(s32);
 extern const f32 lbl_805DD144;
 void get_lobby_field_20__15TWindowMakeTeamFv(void *, f32);
-void update_chat_window(void *);
 void get_keyboard_field_6c__15TWindowMakeTeamFv(void *, char *);
 void mem_free(void *);
 char *realloc_buffer__17TWindowSubComCardFv(void *);
@@ -43,7 +44,6 @@ u8 get_selected_menu_value(void *);
 char *draw_entry_0x110__15TWindowMakeTeamFSc(u8);
 char *init_status_disp__15TWindowMakeTeamFc(u8);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
-s32 create_information_counter_window(s32);
 
 s32 TWindowMakeTeam::create_menu() {
     s32 information_counter_window;

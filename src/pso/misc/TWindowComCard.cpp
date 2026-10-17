@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_8026CB5C.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/misc/TWindowComCard.h"
 #include "pso/misc/TUnk_804CE018.h"
@@ -310,8 +312,6 @@ typedef struct Win_80249ED8 {
     s32 mode;
 } Win_80249ED8;
 
-char *get_zero_vec2(void);
-void queue_destruction__7TObjectFv(void *);
 extern struct Obj054_80249DE4 *TWindowCtrl__active_window;
 extern u16 lbl_805D63FC;
 struct Obj054_80249DE4 { char pad[0x38]; u32 field38; };

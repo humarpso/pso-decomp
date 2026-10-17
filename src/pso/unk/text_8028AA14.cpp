@@ -1,13 +1,13 @@
 #include "types.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/TObjBoss5FloorGrass.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void draw_ginja_object(void *child);
 s32 push_matrix();
-s32 pop_matrix();
 
 extern void *lbl_805D4DD8;
 extern s32 boss5_common_texture_list;

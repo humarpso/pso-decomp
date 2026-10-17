@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowKeyBoardSoft_803E6610.h"
 
 #include <stddef.h>
 #include "pso/misc/TWindowKeyBoardSoft.h"
@@ -39,8 +40,6 @@ struct S_803E6610 { s32 idx; s32 rest; };
 
 extern "C" {
 extern Fn_803E6610 keyboard_soft_dispatch_fn_table[];
-void TWindowKeyBoardSoft__sub_803E67D4(s32 a, s32 b);
-void TWindowKeyBoardSoft__sub_803E6868(s32 a, s32 b);
 s32 TWindowKeyBoardSoft::dispatch_by_index() {
     S_803E6610 *arg0 = (S_803E6610 *)this;
     s32 i = arg0->idx;

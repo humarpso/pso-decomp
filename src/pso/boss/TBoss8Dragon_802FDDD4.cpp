@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon_802FDDD4.h"
+#include "pso/misc/TLobby_801E43E4.h"
 #include "pso/system/byteswap.h"
 #include "pso/boss/TBoss8Dragon.h"
 
@@ -16,9 +18,6 @@ extern "C" {
 void copy_model_node(u8 *, u8 *);
 Node_802FDDD4 *clone_node_tree__12TBoss8DragonFPvPvi(Node_802FDDD4 *src, Node_802FDDD4 *dst, s32 v);
 int read_be16_field2__10TObjPlayerFv(void*);
-void TLobby__send_and_handle_60(u8 *arg0);
-void build_6xA8_gol_dragon_boss_actions(void* p);
-void TBoss8Dragon__sub_802FDF10(void);
 extern f32 lbl_805D6980;
 extern f32 lbl_805D6984;
 extern f32 lbl_805D69C0;

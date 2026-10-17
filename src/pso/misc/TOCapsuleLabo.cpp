@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLobby_8030A6A8.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TUnk_804B27D8.h"
 #include "pso/system/BmlResourceDescriptor.h"
@@ -64,23 +67,17 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 set_indexed_flags(void *, int, int);
 s32 init_collision_body_parts(void *, void *, int);
-s32 get_game_play_mode();
 extern RecoveredGlobal_802AF4F4_lbl_804DE450 TOCapsuleLabo__collision_parts;
 extern s32 __vt__13TOCapsuleLabo[];
 extern s32 enable_v2_features;
 extern s32 lbl_805D3E7C;
 extern const f32 lbl_805DE1E8;
 extern const f32 lbl_805DE1EC;
-u8 *TOCapsuleLabo__ct(u8 *arg0, s32 arg1, s32 arg2);
-void *__dt__13TOCapsuleLaboFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
-void draw_ginja_model(s32 model);
-void draw_ginja_object(void *child);
 void free_collision_body_parts(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 
 void TOCapsuleLabo::unload_static_data() {

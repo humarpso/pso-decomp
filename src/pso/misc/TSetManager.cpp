@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TSetManager.h"
 #include "pso/TSetManager.h"
 
 extern "C" {
 
-void *TSetManager__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern s32 __vt__11TSetManager[];

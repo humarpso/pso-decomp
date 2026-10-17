@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBeast.h"
+#include "pso/misc/obj_band.h"
+#include "pso/object/TObject_80019A50.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -24,7 +27,6 @@ struct Ids_8009241C { s16 id[3]; };
 struct O_80092724 { u8 pad0[0x18]; void *vptr; u8 pad1c[0x38c]; void *objs[2]; };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
 void __dt__13TUnk_80493450Fv(void *, int);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
@@ -45,10 +47,8 @@ s32 spawn_npc_enemy__6TLobbyFslllff(int, s32, s32, Quad_8009241C *, f32, f32);
 extern Ids_8009241C lbl_80439D68[];
 extern Quad_8009241C lbl_80439D70[];
 extern s32 lbl_80439D80[];
-void free_boss4_rock_pool(void);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
-void *TObjEneBeast__ct(void *, void *, void *);
 void __dt__11TBoss4Type3FPvs(void*, int);
 void *__nw__7TObjectFUl(int);
 void mem_free(void*);
@@ -418,7 +418,6 @@ void obj_setFlags30(void *, u32);
 void copy_position__20TBoss3VoloptHiraisinFi(void *);
 void init_enemy_base__13TUnk_80493450Fv(void *, void *);
 void bind_enemy_combat_stats(void *, u32, u32, u32);
-void set_animation__10TObjPlayerFPvs(void *, s16);
 void init_collision_body_parts(void *, void *, s32);
 void __construct_array(void *, void *, void *, int, int);
 extern u8 init_and_activate__10TObjPlayerFv[];

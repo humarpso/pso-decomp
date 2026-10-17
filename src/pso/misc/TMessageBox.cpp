@@ -1,9 +1,9 @@
 #include "pso/packet_classes.h"
+#include "pso/misc/TMessageBox.h"
 #include "pso/TPlyGuildCardTag.h"
 
 extern "C" {
 
-void bswap__11TMessageBoxFv(s32 arg0);
 s32 bswap__13packet_headerFv();
 
 void bswap__11TMessageBoxFv(s32 arg0) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_800BA754.h"
 #include "pso/enemy/TObjEneDD.h"
 
 struct Part_800BA030 { u8 pad[0x2c]; };
@@ -10,8 +11,6 @@ struct Part_800BA084 { u8 pad[0x2c]; };
 struct Obj_800BA084 { u8 pad[0xa4]; Part_800BA084 *parts; s32 count; };
 
 extern "C" {
-void set_collider_contact_low(u8 *arg0);
-void set_collider_contact_high(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi();
 
 extern f32 lbl_805D9E98;

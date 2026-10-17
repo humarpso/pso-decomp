@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80327844.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TScene.h"
 
@@ -13,7 +14,6 @@ struct Scene_80327B40 { u8 pad0[4]; s32 count; Entry_80327B40 *entries; };
 extern "C" {
 void DCFlushRangeNoSync(void *, u32);
 s32 mem_alloc(s32);
-void visit_matching_models(s32 arg0, u8 *arg1, s32 arg2);
 s32 visit_model_tree_recursive();
 void mem_free(void *p);
 

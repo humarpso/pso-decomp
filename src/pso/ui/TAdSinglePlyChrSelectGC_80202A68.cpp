@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TPlyCharData.h"
+#include "pso/misc/TPlyCharData_8007214C.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_80202A68.h"
 #include "pso/system/memory.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -96,28 +99,18 @@ struct B8_801FDFB8 { u32 w[2]; };
 struct P_801FDFB8 { u8 pad[0x41C]; u8 a[0x39A8 - 0x41C]; B8_801FDFB8 f278C; s32 f2794; };
 
 extern "C" {
-s32 TAdSinglePlyChrSelectGC__sub_80202A68(u8 *arg0);
-int fn_8020325C(void *arg0);
 s32 __destroy_arr(s32, s32 *, s32, s32);
 extern int card_character_save_buffer;
 extern s32 *active_character_save_record;
 extern int TAdSinglePlyChrSelectGC__selection_index;
-s32 destroy_chardata_array__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);
 void init__9TItemDataFv(void *);
 s32 *TAdSinglePlyChrSelectGC__sub_80202B38(Obj_80202B38 *self, s32 i);
 Ent_80202B1C *TAdSinglePlyChrSelectGC__sub_80202B1C(Obj_80202B1C *self, s32 i);
 void __construct_array(void *, void *, void *, int, int);
-void* TAdSinglePlyChrSelectGC__sub_80203158(void* p);
 void *TAdSinglePlyChrSelectGC__sub_802115C0(void *p);
-u8 *TAdSinglePlyChrSelectGC__sub_80203190(u8 *arg0);
 Save_80202C68 *copy_save_data__23TAdSinglePlyChrSelectGCFPvPv(Save_80202C68 *arg0, Save_80202C68 *arg1);
 void TAdSinglePlyChrSelectGC__sub_80076D9C(void *, void *);
 void copy_player_data__9TProtocolFPvPv();
-void *TAdSinglePlyChrSelectGC__sub_80202D7C(void *a0, void *a1);
-u8 TAdSinglePlyChrSelectGC__sub_80202B30(void* p);
-void TAdSinglePlyChrSelectGC__sub_80203210(void* p);
-s32 __ct__12TPlyCharDataFv(s32 arg0);
-s32 __dt__12TPlyCharDataFv(s32 arg0, s16 arg1);
 int copy_item_data__6TLobbyFPv(void*);
 int init_guild_card_tag__17TWindowSubComCardFi(void*);
 

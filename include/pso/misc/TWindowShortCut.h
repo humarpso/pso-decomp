@@ -21,4 +21,10 @@ struct TWindowShortCut : public TUnk_804CE018 {
 };
 
 typedef char TWindowShortCut_size[sizeof(TWindowShortCut) == 0x74 ? 1 : -1];
+extern "C" {
+u8 *TWindowShortCut__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+void *__dt__15TWindowShortCutFv(void *arg0, s16 arg1);
+void render__15TWindowShortCutFv(u8 *arg0);
+}
+
 #endif

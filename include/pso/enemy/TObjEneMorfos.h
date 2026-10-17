@@ -53,4 +53,22 @@ struct TObjEneMorfos : public TObjEneDD_ST {
 };
 
 typedef char TObjEneMorfos_size[sizeof(TObjEneMorfos) == 0x4D8 ? 1 : -1];
+extern "C" {
+void *TObjEneMorfos__ct(void *arg0, void *arg1, void *arg2);
+void TObjEneMorfos__sub_80332DBC(u8 *arg0, s32 arg1);
+void TObjEneMorfos__sub_80332FD4(u8 *arg0, s32 arg1);
+void TObjEneMorfos__sub_80333690(u8 *arg0, s32 arg1);
+void TObjEneMorfos__sub_80333AD0(u8 *arg0, s32 arg1);
+void TObjEneMorfos__sub_80333E48(u8 *arg0, s32 arg1);
+void TObjEneMorfos__sub_80334030(u8 *arg0, s32 arg1);
+void TObjEneMorfos__sub_803342B8(u8 *arg0, s32 arg1);
+s32 TObjEneMorfos__sub_803344F0(void *arg0);
+int TObjEneMorfos__sub_80334704(void);
+void TObjEneMorfos__vt85(u8 *arg0, u32 arg1, s32 ev);
+u8 *__dt__13TObjEneMorfosFv(u8 *arg0, s16 arg1);
+void render__13TObjEneMorfosFv(u8 *arg0);
+void run_task__13TObjEneMorfosFv(u8 *arg0);
+void state_rotating_projectile_burst__13TObjEneMorfosFPvi(u8 *arg0, s32 arg1);
+}
+
 #endif

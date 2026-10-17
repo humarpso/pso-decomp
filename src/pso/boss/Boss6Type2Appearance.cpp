@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/boss/Boss6Type2Appearance.h"
+#include "pso/boss/TBoss4Type2_800874F4.h"
+#include "pso/misc/TCameraCtrl_800687BC.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_803E4954.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss6PlotFalz.h"
@@ -32,15 +38,12 @@ const u8 lbl_80478058[12] = {0xC6, 0x1C, 0x40, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0
 const u8 lbl_80478064[12] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 const u8 boss6_type2_appear_camera_script[12] = {0x01, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x3F, 0x33, 0x33, 0x33};
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern const f32 lbl_805DFA70;
 extern const f32 lbl_805DFA74;
 extern const f32 lbl_805DFA78;
 
 extern const f32 lbl_805DFA7C;
-void render__25TBoss6Demo20_TYPE2_APPEARFv(void* p);
 s32 clear_render_callback__8TObjFishFv(s32);
 
 void TBoss6Demo20_TYPE2_APPEAR::draw_model_12() {
@@ -180,13 +183,10 @@ typedef struct O_8033D6DC {
 extern "C" {
 s32 __dt__7TObjectFv(void *, int);
 s32 __dl__7TObjectFPv(void *);
-s32 restore_player_cameras();
 s32 refresh_players_equipment__14TBoss6PlotFalzFPv();
 extern s32 __vt__25TBoss6Demo20_TYPE2_APPEAR[];
 O_8033D9E4 *__dt__25TBoss6Demo20_TYPE2_APPEARFv(O_8033D9E4 *arg0, s16 arg1);
-void queue_destruction__7TObjectFv(void *);
 void spawn_particle_effect_with_flags(void *, int, int);
-void *create_particle_emitter(void *, s32);
 void play_persistent_sound(int, void *, int, int, int);
 void play_sound_effect(int, void *, int, int);
 
@@ -298,11 +298,9 @@ O_8033D9E4 *__dt__25TBoss6Demo20_TYPE2_APPEARFv(O_8033D9E4 *arg0, s16 arg1) {
 extern "C" {
 
 extern const f32 lbl_805DFA90;
-void initialize_boss6_type2_appear_particle_origin(void);
 s32 get_bml_motion(int, int);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-s32 activate_camera_mode(s32 arg0);
 void set_scripted_camera_pose(void *, void *, void *);
 s32 TObjFish__sub_800E3124(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
@@ -314,7 +312,6 @@ extern s32 lbl_804DF614[];
 __declspec(section ".data") extern s32 boss6_type2_appear_motion_indices[];
 struct AppearanceClassTag { const char *value; u32 padding; };
 __declspec(section ".sdata") extern AppearanceClassTag TBoss6Demo20_TYPE2_APPEAR__name;
-u8 *TBoss6Demo20_TYPE2_APPEAR__ct(u8 *arg0, s32 arg1);
 void *__nw__7TObjectFUl(int);
 
 #pragma push

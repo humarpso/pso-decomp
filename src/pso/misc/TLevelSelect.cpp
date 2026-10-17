@@ -1,4 +1,9 @@
 #include "pso/TLevelSelect.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TLevelSelect.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801334D4.h"
 
 #include "types.h"
 #include "pso/TAdMultiChgGameModeGC.h"
@@ -28,18 +33,12 @@ struct Pos_8013319C { s32 x; s32 y; };
 struct Poss_8013319C { Pos_8013319C p[4]; };
 
 extern "C" {
-int count_unlocked_difficulties__12TLevelSelectFv(void);
-void TKeyBoardControl__sub_8000F9CC(s32);
-void queue_destruction__7TObjectFv(void *);
-s32 get_localized_text_entry(s32, s32);
-s32 TAdSinglePlyChrSelectGC__sub_801334DC(void *p);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 extern u8 controller_input_state[];
 extern u8 controller_physical_port_bank[];
 extern s32 game_difficulty_selection;
 void __ct__7TObjectFP7TObject(void *, void *);
-void TKeyBoardControl__sub_8000F90C(s32);
 void *__nw__7TObjectFUl(u32);
 void __ct__9TAdBackGCFv(void *, void *);
 void __ct__12TAdBackTxtGCFv(void *, void *);

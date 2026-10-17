@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/unk/text_80120908.h"
 #include "pso/item/TUnk_804A1570.h"
 extern "C" {
 void update_trail_slot__11TItemWeaponFPvi(void *, s32);
-void draw_weapon_at_joint(s32, s8);
 void TUnk_804A1570::reserved_53() {
   s32 temp_r31;
   s32 new_var;

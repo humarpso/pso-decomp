@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
+#include "pso/player/TObjPlayer_803DF7A8.h"
+#include "pso/player/TObjPlayer_803E21B8.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -10,19 +13,10 @@ union Pipe_803DEECC { u8 u8v; u16 u16v; u32 u32v; s32 s32v; f32 f32v; };
 union Pipe_803DF00C { u8 u8v; u16 u16v; u32 u32v; s32 s32v; f32 f32v; };
 
 extern "C" {
-void setup_blended_textured_draw(void);
-void begin_screen_draw(s32 arg0);
-void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map);
 extern s32 constant_material_color;
-void set_draw_texture_and_color(s32 arg0, s32 arg1);
 void GXBegin(u32, u32, u16);
 extern const f32 lbl_805E0FC8;
-void draw_textured_quad_at_depth(f32 *q, f32 depth);
 s64 OSGetTime(void);
-u32 TLobby__sub_803DF1CC(void);
-void set_constant_material_color(u32 x);
-void DVDConvertEntrynumToPath(f32 *q);
-void TObjPlayer__sub_803E2248(void);
 
 void begin_screen_draw(s32 arg0) {
     TObjPlayer::load_screen_space_matrix();

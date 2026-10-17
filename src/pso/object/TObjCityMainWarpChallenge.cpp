@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjCityMainWarpChallenge.h"
 #include "pso/TParticleCtrl.h"
@@ -21,7 +24,6 @@ extern "C" {
 extern const f32 lbl_805DBCC4;
 extern const f32 lbl_805DBCC8;
 extern const f32 lbl_805DBCCC;
-void queue_destruction__7TObjectFv(void *arg0);
 s32 register_entity_by_id(void *, int, f32);
 s32 TObjAreaWarp__ct();
 extern s32 __vt__25TObjCityMainWarpChallenge[];
@@ -29,20 +31,16 @@ extern s32 lbl_805D32B8;
 extern u8 *city_common_model_archive;
 extern s32 city_main_warp_destination_id;
 extern const f32 lbl_805DBCD0;
-u8 *TObjCityMainWarpChallenge__ct(u8 *arg0);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_80444A44[];
 extern char lbl_80444A58[];
-void *__dt__25TObjCityMainWarpChallengeFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
-void draw_ginja_object(void *child);
 s32 update_floor_switch_state__16TObjCityMainWarpFv();
 s32 update_warp_sequence__16TObjCityMainWarpFv();
 s32 update_challenge_state__25TObjCityMainWarpChallengeFv();
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 s32 __dl__7TObjectFPv(void *);
 u8 *__dt__12TObjAreaWarpFv(u8 *arg0, s16 arg1);
 f32 xz_distance_squared(s32, void *);

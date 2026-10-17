@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/unk/text_80140D50.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjMapCsn.h"
@@ -45,18 +47,15 @@ struct Csn_801946D0 {
 };
 
 extern "C" {
-void fn_80140DFC(s32 arg0, s32 arg1);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_80194988___vt__10TObjMapCsn __vt__10TObjMapCsn;
 u8 *__dt__10TObjMapCsnFv(u8 *arg0, s16 arg1);
-void fn_80140EA8(s32 arg0, s32 arg1);
 extern s32 TObjMapCsn__class_name;
 u8 *TObjMapCsn__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 matrix_mult_vec(int, void *, void *);
 s32 translate_matrix_vec3(int, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
-s32 push_matrix_from(void *);
 s32 pop_matrix();
 extern s8 lbl_804B8448[];
 extern Vec_801946D0 lbl_804B8460[];

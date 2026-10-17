@@ -26,4 +26,8 @@ typedef char GcrnaStream_silence_offset[offsetof(GcrnaStream, silence_samples) =
 
 extern "C" void GCRNA_SetTransSw(GcrnaStream* stream, s32 enabled);
 
+extern "C" {
+void GCRNA_SetTransSw(GcrnaStream *stream, s32 enabled);
+}
+
 #endif

@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/object/TObject_8001A448.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjLight.h"
@@ -59,17 +63,12 @@ extern "C" {
 s32 is_split_screen(void);
 u8 *__nw__7TObjectFUl(s32);
 extern s32 tl_05;
-u8 *TObjLight__create(u8 *arg0);
-void disallow_rendering__7TObjectFv(void *arg0);
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 s32 construct_world_actor_base(void *);
 extern s32 __vt__9TObjLight[];
 extern RecoveredGlobal_80194528_TObjLight__data_80506320 TObjLight__scene_light_state;
 extern s32 lbl_805D33B8;
-u8 *TObjLight__ct(u8 *arg0, s32 arg1, u8 *arg2);
 Actor_80193FE8 *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
-void queue_destruction__7TObjectFv(void *);
 f32 xyz_distance_squared(void *, void *);
 void register_actor_light(s32, void *);
 f32 horizontal_distance_squared(void *, void *);
@@ -80,12 +79,9 @@ f32 vector_length(void *);
 void rotate_matrix_y(void *, s32);
 void rotate_matrix_z(void *, s32);
 void normalize_vector(void *);
-s32 push_matrix_from(void *src);
-s32 pop_matrices(s32 arg0);
 extern const Vec_80193FE8 lbl_80445D44;
 extern u8 identity_matrix[];
 extern u8 *camera_ctrl_instance;
-void *__dt__9TObjLightFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 void TObjLight::render() {  }

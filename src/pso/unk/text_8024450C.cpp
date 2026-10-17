@@ -1,20 +1,17 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/misc/TWindowSubStatusDisp_80144B14.h"
+#include "pso/object/TObjResultWin.h"
+#include "pso/unk/text_8024450C.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 
 extern "C" {
-int TObjNewFloorWin__sub_8007410C(void);
-int TWindowSubComCard__sub_80244774(void);
-void fn_8024450C(s32 arg0);
-u32 calc_text_width(char *s);
 s32 __nw__7TObjectFUl(int);
 s32 TWindowArea__ct();
-void fn_802449E0(u8 *arg0);
 u8 *get_title_entry__11TWindowRoomFv(s32);
 extern const f32 lbl_805DCABC;
 extern const f32 lbl_805DCAC0;
-s32 create_area_window(s32 arg0);
 void *get_field_20__17TWindowSubComCardFv(void *);
-s32 create_window_area(void);
 void fn_8024450C(s32 arg0) {
     s32 var_r30;
     s32 var_r31;

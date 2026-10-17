@@ -39,4 +39,8 @@ struct TMovie : public TObject {
 };
 
 typedef char TMovie_size[sizeof(TMovie) == 0x4C ? 1 : -1];
+extern "C" {
+s32 close__6TMovieFis(s32 arg0, s16 arg1);
+}
+
 #endif

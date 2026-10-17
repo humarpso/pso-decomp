@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowKeyBoardBase_8008102C.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TEF_LensFlare.h"
 #include "pso/misc/TWindowKeyBoardBase.h"
@@ -9,12 +10,9 @@ s32 is_split_screen(void);
 u8 * TEF_LensFlare__ct(void *, s32, s32);
 u8 *__nw__7TObjectFUl(s32);
 extern s32 tl_05;
-u8 *TEF_LensFlare__create(s32 arg0);
 void mem_free(void *p);
 s16 *mem_alloc(s32);
 u32 __cvt_fp2unsigned(f32);
-void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2);
-u32 *destroy__19TWindowKeyBoardBaseFPvs(u32 *arg0, s16 arg1);
 f32 horizontal_distance_squared(s32, s32);
 u32 get_player_by_client_id(s32);
 

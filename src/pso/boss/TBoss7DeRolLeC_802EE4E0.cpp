@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss7DeRolLeC_802EE4E0.h"
 #include "pso/boss/TBoss7DeRolLeC.h"
 #include "pso/misc/TWindowCtrl.h"
 
@@ -46,7 +47,6 @@ extern s32 boss7_joint_state;
 extern u8 *lbl_805D693C;
 extern s32 lbl_805D6940;
 extern const f32 lbl_805DEA10;
-void TObjPlayer__sub_802EE574(void);
 void *TBoss7DeRolLeC__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 

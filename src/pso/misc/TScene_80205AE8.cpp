@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TScene_80205AE8.h"
 #include "pso/misc/TScene.h"
 
 struct Cyc_80205D24 { u16 id; u16 reserved; s16 texture; s16 index; s32 timer; };
@@ -28,8 +29,6 @@ extern u8 lbl_8044A80C[];
 SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
 SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 void* alloc__23TAdSinglePlyChrSelectGCFv(u32);
-void TScene__sub_80205AE8(void);
-void TScene__sub_80205FD0(void);
 
 void TScene__sub_80205AE8(void) {  }
 

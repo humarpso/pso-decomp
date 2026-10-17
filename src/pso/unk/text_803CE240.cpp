@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/unk/text_803CE240.h"
 struct Ent_803CE240 { u8 state; u8 pad[0x1BF]; };
 
 extern "C" {
 void TLobby__sub_803CD99C();
 void TLobby__sub_803CE2A0(void *);
 extern Ent_803CE240 lbl_80581330[];
-void TLobby__sub_803CE240(void);
 void TLobby__sub_803CE240(void) {
     s32 i;
     TLobby__sub_803CD99C();

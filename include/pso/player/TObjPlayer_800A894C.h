@@ -1,0 +1,19 @@
+#ifndef PSO_PLAYER_TOBJPLAYER_800A894C_H
+#define PSO_PLAYER_TOBJPLAYER_800A894C_H
+
+#include "types.h"
+
+extern "C" {
+void TObjPlayer__sub_800A8C1C(u8 *arg0);
+void TObjPlayer__sub_800A8C4C(u8 *arg0);
+void TObjPlayer__sub_800A8E04(u8 *arg0);
+void TObjPlayer__sub_800A8FB4(void *arg0_);
+void TObjPlayer__sub_800A93E4(void *arg0_);
+void TObjPlayer__sub_800A9C38(void *arg0_);
+void TObjPlayer__sub_800A9E9C(void *arg0_);
+void TObjPlayer__sub_800AA330(void *_w0);
+void TObjPlayer__sub_800AA334(u8 *arg0);
+void TObjPlayer__sub_800AA82C(void);
+}
+
+#endif

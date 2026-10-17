@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/unk/text_800F7DAC.h"
 #include "pso/item/TUnk_8049F42C.h"
 #include "pso/TItemLoad.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-u32 prs_decompress_buffer(s32 arg0, s32 arg1);
 extern int item_load_compressed_work_buffer;
 struct VOff_8010FD2C_arg0_8010fd2c { char pad_0[0x1C]; char f_1C[1]; };
 

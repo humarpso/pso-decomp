@@ -1,4 +1,7 @@
 #include "pso/ui/TAdDrawLineCtrl.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80141A30.h"
 #include "pso/render/depth_buffer.h"
 
 #include "types.h"
@@ -7,15 +10,11 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
 void *__ct__15TAdDrawLineCtrlFP7TObjectPvf(void *arg0, void *arg1, void *arg2, f32 farg0);
 void *__nw__7TObjectFUl(int);
 extern u32 lbl_805D49D8;
-u8 *create_draw_line_ctrl__13TAdMcSelectGCFiif(s32 arg0, s32 arg1, f32 farg0);
 void __ct__7TObjectFP7TObject(void *);
 void fn_80019B08(void *, int);
-void restore_saved_depth_alpha_state(void);
-s32 get_main_phase();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 void TAdDrawLineCtrl::render() {

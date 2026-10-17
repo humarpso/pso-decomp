@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80121180.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/items/TItemWeapon.h"
 #include "pso/item/TItem.h"
@@ -107,7 +108,6 @@ extern "C" {
 s32 obj_getField1c(void *);
 s8 TObjPlayer__sub_80102C30();
 s32 play_weapon_hit_sound(void *);
-f32 get_attack_accuracy_scale(s16 *arg0);
 s32 apply_camera_shake__10TObjPlayerFiii(void *, void *, int);
 extern s32 tl_05;
 extern const f32 lbl_805DAC94;

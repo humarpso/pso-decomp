@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneMe3ShinowaMirage.h"
 #include "pso/enemy/TObjEnePanarmsAtkColli.h"
@@ -470,7 +471,6 @@ struct Obj_800E37E4 {
 };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
 s32 set_flag_0x100__23TObjEneMe3ShinowaMirageFv();

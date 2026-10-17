@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80171A98.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TOMine.h"
@@ -57,7 +58,6 @@ extern const f32 lbl_805DB8C4;
 extern const f32 lbl_805DB8C8;
 extern const f32 lbl_805DB8CC;
 extern const f32 lbl_805DB8D0;
-void *TOMineIcon03__ct(void *arg0, void *arg1, void *arg2);
 #pragma push
 #pragma fp_contract on
 void *TOMineIcon03__ct(void *arg0, void *arg1, void *arg2) {

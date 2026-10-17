@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80100E00.h"
+#include "pso/player/TObjPlayer_80102C78.h"
 #include "pso/item/TItemEquipBase.h"
 #include "pso/items/TItemWeapon.h"
 #include "pso/item/TItem.h"
@@ -57,7 +59,6 @@ extern RecoveredGlobal_80101088_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_80101088_lbl_8058D4C0 model_material_color;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-void TObjPlayer__sub_80101088(void);
 s32 set_chunk_material_color(s32);
 void copy_to_item_data__5TItemFPv(void *, void *);
 s32 get_player_by_client_id(u16);
@@ -66,10 +67,7 @@ u32 get_equip_field_d04__10TObjPlayerFv(s32, s32);
 s32 get_stat_bonus__10TObjPlayerFv(s32);
 s32 get_stat__10TObjPlayerFv(s32);
 s32 obj_isState2_324__13TUnk_804806E8Fv(int);
-void TObjPlayer__sub_80102D84(u8 *arg0);
 struct VObj_80101350_80100E00 *find_item_by_id(s32);
-void handle_6x61_activate_mag_effect(void *arg0);
-int TObjPlayer__sub_80100F34(void);
 s32 setup_particle_tev(s32);
 
 extern f32 lbl_805DAA90;

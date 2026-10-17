@@ -1,4 +1,5 @@
 #include "pso/TAdADXlogo.h"
+#include "pso/ui/TAdADXlogo_80019848.h"
 
 #include "types.h"
 #include "pso/misc/THunterGuildSeqOffline.h"
@@ -13,7 +14,6 @@ extern int TAdADXlogo__state;
 extern void *tl_00;
 extern const f32 lbl_805D7DD4;
 void *__nw__7TObjectFUl(u32 size);
-void TAdADXlogo__sub_80019848(void);
 int queue_destruction__7TObjectFv(void);
 
     extern int lbl_805D49D0;

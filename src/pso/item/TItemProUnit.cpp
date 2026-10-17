@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/unk/text_8011892C.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TUnk_804A0608.h"
 #include "pso/item/TItemProUnit.h"
 
 extern "C" {
-u8 *TItemProUnit__ct(u8 *arg0, s32 arg1, u8 *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 void TItemProUnit__sub_80118FB4(void);

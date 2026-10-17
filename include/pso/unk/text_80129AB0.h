@@ -1,0 +1,10 @@
+#ifndef PSO_UNK_TEXT_80129AB0_H
+#define PSO_UNK_TEXT_80129AB0_H
+
+#include "types.h"
+
+extern "C" {
+u8 *create_s_rank_shot(s32 arg0);
+}
+
+#endif

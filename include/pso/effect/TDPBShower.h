@@ -20,4 +20,8 @@ typedef char TDPBShowerPositionOffset[(offsetof(TDPBShower, m_position) == 0x1C)
 typedef char TDPBShowerCountdownOffset[(offsetof(TDPBShower, m_countdown) == 0x28) ? 1 : -1];
 typedef char TDPBShowerEffectOffset[(offsetof(TDPBShower, m_2c) == 0x2C) ? 1 : -1];
 
+extern "C" {
+void *create_TDPBShower(void *arg0, void *arg1);
+}
+
 #endif

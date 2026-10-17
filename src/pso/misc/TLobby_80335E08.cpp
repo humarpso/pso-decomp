@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLobby_80335E08.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
+#include "pso/ui/TAdTrialAgreementGC_80335958.h"
 #include "pso/ui/TUnk_804EE458.h"
 #include "pso/misc/TUnk_804EE470.h"
 #include "pso/misc/TLobby.h"
@@ -64,15 +67,8 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 extern s32 lbl_804EE470[];
 int __ct__7TObjectFP7TObject(void *);
-void TLobby__sub_80335FE0(void);
-void TLobby__sub_80335FE4(void);
     extern unsigned char lobby_record_table[];
-s32 TAdTrialAgreementGC__sub_8033596C(void *p);
-int TLobby__sub_80336030(void* p);
 s32 TCameraCtrl__sub_80068EF0();
-void begin_screen_draw(s32 arg0);
-void draw_textured_quad_at_depth(f32 *q, f32 depth);
-void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern const f32 lbl_805DF8C8;
 extern const f32 lbl_805DF8CC;
 extern const f32 lbl_805DF8D0;
@@ -82,10 +78,6 @@ extern const f32 lbl_805DF8DC;
 extern const f32 lbl_805DF8E0;
 extern const f32 lbl_805DF8E4;
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 title_texture_list;
-void bind_title_texture_list(void);
-void *get_title_texture_list(void);
-void TLobby__sub_80335E74(void);
-void TLobby__sub_80335E78(void);
 
     extern unsigned char lbl_804EE458[];
     extern const float lbl_805DF8B4;

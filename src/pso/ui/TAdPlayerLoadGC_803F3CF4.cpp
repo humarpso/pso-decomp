@@ -1,11 +1,9 @@
 #include "types.h"
+#include "pso/network/NetworkInfoLoader.h"
+#include "pso/ui/TAdPlayerLoadGC_803F3CF4.h"
 
 extern "C" {
 s32 OSFreeToHeap(int, void *);
-s32 get_network_config_mode();
-s32 get_or_set_network_config_mode(s32 arg0);
-s32 get_or_set_network_config_backup_mode(s32 arg0);
-void set_network_config_card_channel(s32 arg0);
 extern s32 __OSCurrHeap;
 extern s32 lbl_805D79B0;
 extern u32 lobby_net_config_buffer;

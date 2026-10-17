@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby_80227A2C.h"
+#include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TOTrapAncient01.h"
 
@@ -17,9 +19,6 @@ struct SndEnt_8022675C {
 
 extern "C" {
 s32 fn_802264B8(int, int);
-int TLobby__sub_80227AF8(void *p);
-s32 play_packed_sound_once(u32 arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 normalize_sound_request(u32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 extern SndEnt_8022675C lbl_805145F0[40];
 extern s32 last_sound_effect_slot;
 extern s32 lbl_805D62B0;

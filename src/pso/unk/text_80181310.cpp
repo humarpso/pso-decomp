@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon_8002CC48.h"
+#include "pso/unk/text_801811FC.h"
 #include "pso/TObject.h"
 
 struct Rec_80181310 { s32 timer; s32 count; void *objs[2]; };
@@ -7,9 +9,6 @@ struct Ctrl_80181310 { u8 pad0[0x24]; s32 counter; Rec_80181310 recs[5]; };
 
 extern "C" {
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
-f32 lerp__9TDeadSpotFff(f32, f32);
-f32 fn_801811FC(void *);
-f32 fn_80181204(void *);
 void *construct_city_air_car(void *, void *, s32, s32, f32);
 void *__nw__7TObjectFUl(u32);
 s32 rand(void);

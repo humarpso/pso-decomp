@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/misc/TWindowMessageQuest.h"
 
 extern "C" {
 
-void *__dt__19TWindowMessageQuestFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__dt__14TWindowMessageFv(void *arg0, s16 arg1);
 

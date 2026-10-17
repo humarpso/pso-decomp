@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 
-void reset_pad_rumble_effects_and_channels(s16 arg0);
 s32 PADControlMotor(s32, s32);
 
     extern const float lbl_805DCA04;

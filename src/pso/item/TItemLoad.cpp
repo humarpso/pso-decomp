@@ -1,4 +1,5 @@
 #include "pso/TItemLoad.h"
+#include "pso/item/TItemLoad.h"
 #include "pso/item/TUnk_8049F42C.h"
 
 #include "types.h"
@@ -9,10 +10,6 @@ struct O_80110788 { s32 arr[4]; s32 f10; s32 f14; };
 
 extern "C" {
 s32 TItemLoad__sub_80110750(O_80110750 *self, s32 i);
-s32 TItemLoad__sub_801107DC(void* p);
-s32 TItemLoad__sub_801107E4(void* p);
-void* TItemLoad__sub_801107EC(void* p);
-int TItemLoad__sub_801107F4(void* p);
 int TLobby__sub_803CC4C0(void*);
 int test_flags_any(void*, int);
 

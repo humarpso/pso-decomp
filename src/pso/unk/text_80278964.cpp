@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TWindowSubEquip_80279044.h"
+#include "pso/misc/TWindowSubStatusDisp_802671F0.h"
+#include "pso/unk/text_80278964.h"
 
 extern "C" {
 
 s32 calc_list_content_extent(void *);
-void advance_status_disp_entry(void *arg0, s32 arg1);
-void add_battle_stat_entry(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void TWindowSubEquip__sub_80279044(void *p);
 s32 TWindowSubItem__sub_8027AA78(s32 arg0);
 
 void refresh_battle_stat_list(void *arg0) {

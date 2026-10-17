@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecon_8031E574.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TUnk_80494938.h"
@@ -7,7 +8,6 @@
 
 extern "C" {
 
-u8 *TObjEneRecon__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3, s16 arg4, s32 arg5, s32 arg6);
 s32 init_object__12TObjEneDD_STFv();
 s16 obj_getField1c(void *);
 

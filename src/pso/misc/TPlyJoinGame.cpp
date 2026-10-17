@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TPlyJoinGame.h"
+#include "pso/unk/text_801E051C.h"
 #include "pso/system/byteswap.h"
 
 #pragma inline_depth(1)
@@ -16,8 +18,6 @@ struct Join_801E03B8 {
 };
 
 extern "C" {
-u8 *fn_801E051C(u8 *arg0, u8 *arg1);
-u8 *__ct__12TPlyJoinGameFRC12TPlyJoinGame(u8 *arg0, u8 *arg1);
 void bswap__13packet_headerFv();
 void bswap__12TPlyJoinGameFv(Join_801E03B8 *self);
 

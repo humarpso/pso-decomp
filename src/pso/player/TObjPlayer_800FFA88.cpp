@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80141D1C.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
@@ -15,8 +16,6 @@ extern const f32 lbl_805DAA6C;
 extern const f32 lbl_805DAA70;
 extern const f32 lbl_805DAA74;
 extern const f32 lbl_805DAA78;
-s32 TAdSinglePlyChrSelectGC__sub_80141E8C(f32);
-f32 TAdSinglePlyChrSelectGC__sub_80141EA0(s32);
 s32 TObjMotion::get_item_ptr(s32 arg1) {
     return (*(s32 *)&this->motion_buffer) + (arg1 * 0x30);
 }

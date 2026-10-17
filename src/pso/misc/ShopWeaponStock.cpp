@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/ShopWeaponStock.h"
+#include "pso/unk/text_80104FCC.h"
+#include "pso/unk/text_8020EEFC.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubComCard.h"
 
@@ -94,7 +97,6 @@ typedef struct Hdr_8022525C
 extern "C" {
 s32 memset(void *, int, int);
 extern RecoveredGlobal_8022559C_lbl_80513F50 shop_weapon_stock_generated_flags;
-void clear_shop_weapon_flags(void);
 extern G_80225550 shop_weapon_stock_buffers;
 void get_shop_weapon_stock_item(C14_80225550 *dst, s32 idx, s32 tbl);
 s32 is_split_screen(void);
@@ -105,10 +107,7 @@ extern u32 lobby_weapon_random_tables_ptr;
 s32 memcmp(const void *, const void *, u32);
 extern Cnt_80224B7C shop_weapon_stock_counts[];
 s32 is_duplicate_shop_weapon(C14_80224B7C *item, s32 tbl);
-int roll_weapon_special_channel15(void *p);
-void shuffle_shop_pool_n_times(void *, s32);
 void push_shop_pool_entry(void *, u8);
-s32 TLobby__sub_80224840(s32 arg0);
 extern int shop_weapon_stock_level;
 void roll_shop_weapon_special(Obj_80224F7C *obj);
 extern char lbl_8044C7C0[];
@@ -116,7 +115,6 @@ extern char lbl_8044C7D8[];
 extern char lbl_8044C7F0[];
 extern char lbl_8044C80C[];
 extern s32 shop_difficulty_tier;
-void load_weapon_random_tables(void);
 u8 get_entry_field16__9TItemDataFv(void *);
 s32 rand();
 extern s32 section_id_favored_grind_table[];
@@ -130,8 +128,6 @@ void init__9TItemDataFv(void *);
 extern Pair_8022525C shop_weapon_group_subtype_table[];
 extern Pair_8022525C shop_section_id_weapon_table_a[];
 extern Pair_8022525C shop_section_id_weapon_table_b[];
-void generate_shop_weapon_stock(s32 tbl);
-void TLobby__sub_80225238(int a0, int a1);
 
 u32 lobby_weapon_random_tables_ptr;
 int shop_weapon_stock_level;

@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecon_8031BE8C.h"
+#include "pso/math/MatrixTransforms.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -140,9 +143,7 @@ s32 is_main_phase_15__9TObjEneDDFv();
 s32 update_player_state__9TObjEneDDFv(void *, void *, int);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 rotate_matrix_y(int, int);
-void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
-s32 pop_matrix();
 extern Vec_8031BE8C lbl_804760FC;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -157,7 +158,6 @@ extern const f32 lbl_805D9E88;
 extern const f32 lbl_805DF3BC;
 extern const f32 TObjEneRecon__data_805DF3C0;
 extern const f32 TObjEneRecon__data_805DF3C4;
-void render__12TObjEneReconFv(u8 *arg0);
 #pragma push
 #pragma opt_common_subs off
 void render__12TObjEneReconFv(u8 *arg0) {

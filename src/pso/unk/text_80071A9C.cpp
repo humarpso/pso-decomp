@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/unk/text_80071A9C.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TLobby.h"
 extern "C" {
 s32 get_layout_id__20TWindowSubStatusDispFv(s32);
 s32 *TWindowSubStatusDisp__sub_8006F0D8(s32, s32);
-s32 fn_80071A9C(s32 arg0, s32 arg1, s32 arg2);
 s32 fn_80071A9C(s32 arg0, s32 arg1, s32 slot) {
     s32 n;
     s32 i;

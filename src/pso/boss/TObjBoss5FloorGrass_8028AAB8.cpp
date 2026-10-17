@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/boss/TObjBoss5FloorGrass_8028AAB8.h"
 #include "pso/TObjBoss5FloorGrass.h"
 
 extern "C" {
 
-void *__ct__19TObjBoss5FloorGrassFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern s32 __vt__19TObjBoss5FloorGrass[];

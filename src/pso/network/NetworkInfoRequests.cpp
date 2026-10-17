@@ -1,4 +1,5 @@
 #include "pso/network/NetworkInfoLoader.h"
+#include "pso/network/NetworkInfoRequests.h"
 
 extern "C" {
 

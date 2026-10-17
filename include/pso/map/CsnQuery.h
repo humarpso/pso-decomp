@@ -26,4 +26,23 @@ extern "C" {
 CsnGroup* select_ground_query_groups(CsnVector* origin, u32 mask);
 }
 
+extern "C" {
+void TObjPlayer__sub_80079108(void);
+void TObjPlayer__sub_8007910C(void);
+void TObjPlayer__sub_80079110(void);
+void TObjPlayer__sub_80079114(void);
+s32 TObjPlayer__sub_80079118(s32 *_w0);
+void TObjPlayer__sub_8007911C(void);
+void TObjPlayer__sub_80079120(s32 _w0);
+void TObjPlayer__sub_80079124(void *_w0, void *_w1);
+s32 *csnLookAt(s32 arg0, s32 arg1);
+s32 *csnVecterUnder(s32 origin, s32 mask);
+s32 *csnVectorUnder(s32 arg0, u32 *arg1, s32 arg2);
+s32 get_csn_group_flags(u8 arg0);
+s32 prepare_wall_query_polygons(void *arg0, f32 r, s32 mask);
+void *query_prepared_wall_polygons(void *self);
+s32 query_wall_segment(void *arg0, void *arg1, void *arg2, s32 arg3);
+CsnGroup *select_ground_query_groups(CsnVector *origin, u32 mask);
+}
+
 #endif

@@ -1,13 +1,12 @@
 #include "types.h"
+#include "pso/unk/text_803F1804.h"
 
 extern "C" {
 s32 SIRegisterPollingHandler(void *);
 s32 Dolphin_SIUnregisterPollingHandler(void *);
 extern u32 si_polling_callback;
-u32 fn_803F1864(u32 arg0);
 void OSClearContext(void *);
 void OSSetCurrentContext(void *);
-void fn_803F1804(s32 arg0, void *arg1);
 
 void fn_803F1804(s32 arg0, void *arg1) {
     u8 ctx[0x2C8];

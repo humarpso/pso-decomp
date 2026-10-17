@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/item/TItemEquipVariant_80120CF8.h"
+#include "pso/item/TItemEquipVariant_8012AB74.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-
-void *__dt__13TUnk_804A4A88Fv(void *arg0, s16 arg1);
-void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
 
 extern s32 lavis_cannon_weapon_vtable[];
 

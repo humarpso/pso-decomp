@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 #include "pso/unk/TUnk_804CC148.h"
 
@@ -137,7 +138,6 @@ struct Zarua_8023C2D0 {
 };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 u32 find_entity_by_id(int);
 void run_task__9TTecZaruaFv(struct Self_8023C1B8 *self);
 void construct_area_technique_base(void *);

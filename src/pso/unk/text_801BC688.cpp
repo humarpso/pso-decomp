@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowActionPalette_801C1890.h"
 #include "pso/misc/TUnk_804ED7D0.h"
 #include "pso/misc/TUnk_804DDBF0.h"
 #include "pso/player/TObjPlayer.h"
@@ -10,7 +11,6 @@ struct VObj_801BC688 : Base_801BC688 { virtual void m0(); virtual void m1(int); 
 
 extern "C" {
 s32 set_flag_400000__10TObjPlayerFi(void *);
-void fn_801C19F4(void *p);
 u8 *heap_alloc__10TObjPlayerFPv(s32);
 extern const f32 TObjPlayer__data_805DC278;
 #pragma push

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl_80067FC0.h"
+#include "pso/misc/TCameraCtrl_8006C8E4.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_80488DA0.h"
 #include "pso/misc/TUnk_80488D70.h"
@@ -29,7 +31,6 @@ struct Cam_8006C964 {
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
-void *TCameraCtrl__sub_8006CC30(void *);
 V_8006CC7C get_target_position__11TCameraCtrlFv(void);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
@@ -37,9 +38,6 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void debug_printf_at(s32, const char *, ...);
 extern Ctl_8006C964 controller_input_state;
-void TCameraCtrl__sub_8006C928(void);
-void *__dt__13TUnk_80488DA0Fv(void *arg0, s16 arg1);
-void *__dt__13TUnk_80488A28Fv(void *arg0, s16 arg1);
 int __ct__13TUnk_80488A28Fv(void);
 void __dl__7TObjectFPv(void *);
 

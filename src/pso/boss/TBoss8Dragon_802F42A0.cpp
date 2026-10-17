@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/boss/TBoss8Dragon.h"
 
 extern "C" {
@@ -9,7 +10,6 @@ s32 rotate_matrix_z(int, int);
 s32 rotate_matrix_x(int, int);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 draw__16TObjEneRe7BeruraFv(void *, int);
 
 extern u8 *TBoss8Dragon__data_805D6988;

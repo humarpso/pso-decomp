@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/unk/text_8007F4B8.h"
 
 struct E_8007F4B8 { s32 a; f32 f; };
 
 struct O_8007F4B8 { u8 pad[0x40]; s32 count; E_8007F4B8 e[4]; };
 
 extern "C" {
-void fn_8007F560(void* p, void* q);
 s32 fn_8007F4B8(O_8007F4B8 *arg0, s32 arg1, f32 farg0);
 
 s32 fn_8007F4B8(O_8007F4B8 *arg0, s32 arg1, f32 farg0) {

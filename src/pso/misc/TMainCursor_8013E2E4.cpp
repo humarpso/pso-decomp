@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TMainCursor_8013E2E4.h"
 #include "pso/misc/TMainCursor.h"
 #include "pso/TAdRicoRing.h"
 #include "pso/misc/TLockOnCursor.h"
@@ -6,9 +7,6 @@
 
 extern "C" {
 
-int TMainCursor__sub_8013E310(void* p);
-int TMainCursor__sub_8013E338(void* p);
-int TMainCursor__sub_8013E358(void* p);
 int set_flags__10TObjPlayerFUl(void*, int);
 int TMainCursor__sub_8013B2A4(void*);
 int get_enabled__11TMainCursorFv(void*);

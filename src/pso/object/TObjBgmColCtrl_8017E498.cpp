@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/object/TObjBgmColCtrl_8017E498.h"
 #include "pso/object/TObjBgmColCtrl.h"
 
 extern "C" {
 
-void *TObjBgmColCtrl__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern s32 __vt__14TObjBgmColCtrl[];

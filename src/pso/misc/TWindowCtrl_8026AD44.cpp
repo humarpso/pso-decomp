@@ -1,10 +1,8 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl_8026AD44.h"
 #include "pso/misc/TWindowCtrl.h"
 
 extern "C" {
-
-void TWindowCtrl__sub_8026AD60(void);
-void TWindowCtrl__sub_8026AD78(s32 arg0);
 
 extern void *TWindowCtrl__active_window;
 

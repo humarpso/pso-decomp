@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/Boss5GryphonBehavior.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/boss/TBoss5GryphonShockWave.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss5GryphonShockWave.h"
@@ -10,10 +12,8 @@ extern "C" {
 s32 TBoss8Dragon__sub_8005D700(void *self);
 extern u8 lbl_80437F40[];
 extern void *gryphon_shockwave_particle_ids_ptr;
-void queue_destruction__7TObjectFv(void *);
 s32 get_bml_motion(s32, s32);
 s32 get_bml_model(s32, s32);
-void TBoss8Dragon__sub_80064114(s32 arg0, s32 arg1);
 s32 attach_particle_model(s32, s32, s32, s32, s32, f32);
 s32 spawn_particle_effect_with_flags(void *, s32, s32);
 u32 spawn_continuous_particle_effect_with_flags(void *, s32, s32);
@@ -24,8 +24,6 @@ extern s32 boss5_gryphon_bml_resource;
 extern s32 boss5_gryphon_texture_list;
 extern const f32 lbl_805D8EE8;
 u8 *__ct__22TBoss5GryphonShockWaveFP7TObjectlPUcPUcls(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8 *arg4, s32 arg5, s16 arg6);
-void TBoss8Dragon__sub_80066A4C(void);
-void *__dt__22TBoss5GryphonShockWaveFv(void *arg0, s16 arg1);
 s32 vec3_add_to(void *, s32);
 s32 subtract_vector(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);

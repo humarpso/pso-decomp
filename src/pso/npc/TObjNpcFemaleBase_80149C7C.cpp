@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TObjNpcFemaleBase_80149C7C.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/npc/TUnk_804A8640.h"
 #include "pso/npc/TObjNpcFemaleBase.h"
@@ -19,7 +20,6 @@ u8 * TObjNpcBase__ct(void *);
 extern RecoveredGlobal_80149CE0_lbl_8043F810 npc_female_base_action_table;
 extern s32 lbl_804A8640[];
 extern s32 *npc_town_motion_data;
-void TObjNpcFemaleBase__sub_80149C7C(void);
 void __dl__7TObjectFPv(void *);
 void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1);
 

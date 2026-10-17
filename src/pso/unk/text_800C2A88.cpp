@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_800D8FDC.h"
+#include "pso/unk/text_800C2A88.h"
+#include "pso/unk/text_800C3A60.h"
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/boss/TBoss8Dragon.h"
@@ -154,8 +158,6 @@ struct RecoveredFields_800C2AC4_arg0
 extern "C" {
 s32 TBoss8Dragon__sub_800BB7D4(void *, int);
 s32 transition_enemy_state(void *, int);
-s32 fn_800C3A60(s32 arg0, s32 arg1);
-void TObjPlayer__sub_800D9290(s32 point, s32 delay);
 s32 advance_animation_playback(void *);
 s32 play_sound_effect(void *, void *, int, int);
 f32 sin_table_lookup(int);
@@ -165,9 +167,6 @@ extern const f32 lbl_805D9FAC;
 extern const f32 lbl_805D9FC4;
 extern const f32 lbl_805D9FC8;
 extern const f32 lbl_805D9FCC;
-void fn_800C2AC4(u8 *arg0, int arg1);
-void queue_destruction__7TObjectFv(void *self);
-void fn_800C2A88(void *self, s32 msg);
 typedef struct RecoveredFields_800C2AC4_arg0 RecoveredFields_800C2AC4_arg0;
 typedef struct Stack_800C2AC4 Stack_800C2AC4;
 typedef struct VBase_14_00f1d1 VBase_14_00f1d1;

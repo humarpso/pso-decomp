@@ -1,9 +1,7 @@
 #include "types.h"
+#include "pso/ui/TAdBackGC.h"
 
 extern "C" {
-
-int draw_title_background_layer(void* p, int a1, int a2);
-int render_logo_with_default(void* p, int a1, int a2);
 
 int draw_title_background_quads(void*, int, int, int);
 

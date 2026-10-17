@@ -1,0 +1,12 @@
+#ifndef PSO_MISC_TPHOTONRAINBOW_801AE640_H
+#define PSO_MISC_TPHOTONRAINBOW_801AE640_H
+
+#include "types.h"
+
+extern "C" {
+void TObjPlayer__sub_801AE724(void);
+void TObjPlayer__sub_801AE728(void);
+u8 *TPhotonRainbow__ct(u8 *arg0, s32 arg1_unused, s32 arg2);
+}
+
+#endif

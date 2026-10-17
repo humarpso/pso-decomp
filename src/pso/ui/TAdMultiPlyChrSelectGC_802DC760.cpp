@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_8001A448.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802DC760.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
 #include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 #include "pso/TLevelSelect.h"
@@ -32,14 +36,8 @@ s32 TAdMultiPlyChrSelectGC__sub_802C5A44(int, void *, int);
 extern RecoveredGlobal_802DCA20_TAdMultiPlyChrSelectGC__data_804727B0 TAdMultiPlyChrSelectGC__character_slot_positions;
 extern RecoveredGlobal_802DCA20_lbl_804727E8 multi_chr_select_item_rect_table;
 extern s32 controller_physical_port_bank[];
-void TAdMultiPlyChrSelectGC__sub_802DCA20(u8 *arg0);
-void allow_rendering__7TObjectFv(void *arg0);
-void load_tables(int a0);
-s32 is_slot_active__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
-void TWindow__close(u8 *arg0);
 s32 TAdMultiPlyChrSelectGC__sub_802DBD64(void *);
 s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
-void TAdMultiPlyChrSelectGC__sub_802DC8A0(void *arg0);
 void TAdMultiPlyChrSelectGC::update_input_state() {
     s32 temp_r3;
 

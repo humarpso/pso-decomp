@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80122334.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void *guld_milla_ct(void *arg0);
 void TItemWeapon__ct(void *);
 
 extern s32 lbl_804A0EA8[];

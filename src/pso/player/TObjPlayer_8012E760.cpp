@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8012E760.h"
 
 extern "C" {
 
-void *__dt__13TUnk_804A5D10Fv(void *arg0, s16 arg1);
-int expire_weapon_casing(void* p);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 int queue_destruction__7TObjectFv(void*);

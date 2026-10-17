@@ -1,4 +1,7 @@
 #include "pso/network/NetworkTransport.h"
+#include "pso/misc/TLobby_80429598.h"
+#include "pso/network/ModemRuntime.h"
+#include "pso/network/NetworkMessageTransport.h"
 
 #include "types.h"
 #include "pso/misc/TLobby.h"
@@ -112,13 +115,10 @@ s32 OSRestoreInterrupts(s32);
 s32 OSSleepThread(void *);
 extern u32 lbl_805D7C4C;
 extern s32 exi_receive_callback;
-void TLobby__sub_8042B58C(u32 arg0, s32 arg1);
 extern s32 lbl_805D7C44;
 extern s32 lbl_805D7C48;
-void TLobby__sub_8042BA48(s32 arg0, s32 arg1);
 s32 EXILock(s32, u32, u32);
 s32 EXIUnlock(s32);
-void TAdSinglePlyChrSelectGC__sub_8042DDE4(int, int);
 extern u8 lbl_805CF380[];
 extern u8 TLobby__pppoe_message_queue[];
 typedef struct Ent_804267F0 {
@@ -131,7 +131,6 @@ typedef struct Tbl_804267F0 {
     Ent_804267F0 ent[6];
 } Tbl_804267F0;
 
-s16 TLobby__sub_804262CC(void *);
 extern u8 lbl_805CF240[];
 s32 EXIDma(s32, void *, s32, u32, void *);
 extern s32 exi_dma_read_length;
@@ -146,11 +145,9 @@ void TLobby__sub_80429648(void);
 extern u16 lbl_805D7C6C[2];
 extern u8 *lbl_805D7C74;
 extern u16 lbl_805D7C7A;
-void TLobby__sub_80429AC8(void);
 int memcmp(const void *, const void *, unsigned long);
 u16 TLobby__sub_8042BA8C(void *);
 extern s32 lbl_805D4830;
-void enable_network_multicast_address(void *arg0);
 
 #pragma push
 #pragma opt_propagation off
@@ -162,7 +159,6 @@ void enable_network_multicast_address(void *arg0);
 #pragma pop
 
 #define arg0 ((s32)argp)
-s16 TLobby__sub_804262CC(void *argp);
 #undef arg0
 
 #pragma push
@@ -512,8 +508,6 @@ u8 TLobby::exi_read_status_byte() {
 #pragma opt_common_subs off
 typedef char RecoveredGlobal_8042DD70_lbl_805D1D20_size[sizeof(RecoveredGlobal_8042DD70_lbl_805D1D20) == 0x1C ? 1 : -1];
 #pragma pop
-
-void TAdSinglePlyChrSelectGC__sub_8042DDE4(int _w0, int _w1);
 
 typedef char RecoveredGlobal_8042E768_lbl_805D1D20_size[sizeof(RecoveredGlobal_8042E768_lbl_805D1D20) == 0x1C ? 1 : -1];
 

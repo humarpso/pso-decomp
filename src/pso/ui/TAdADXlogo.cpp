@@ -1,4 +1,6 @@
 #include "pso/TAdADXlogo.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/ui/TAdADXlogo.h"
 TAdADXlogo::~TAdADXlogo() {}
 
 #include "types.h"
@@ -6,10 +8,6 @@ TAdADXlogo::~TAdADXlogo() {}
 
 extern "C" {
 
-void TLogo__sub_80019A28(void);
-void TLogo__sub_80019A2C(void);
-void *__ct__10TAdADXlogoFv(void *arg0);
-s32 get_logo_texture_e_handle(void);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 

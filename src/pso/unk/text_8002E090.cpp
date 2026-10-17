@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/boss/TObjBoss1Rock.h"
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
 s32 vec3_add_to(void *, void *);
 extern const f32 lbl_805D8204;
 extern const f32 lbl_805D8208;

@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/unk/TUnk_8049EFB8.h"
 
 extern "C" {
 s32 obj_getField1c(int);
 s32 get_field_3e0__12TBoss3VoloptFv();
-void *spawn_particle_effect(void *pos, s32 id);
 s32 TObjPlayer__sub_80117E50();
 s32 get_player_by_client_id(int);
 s32 is_item_area_enabled();

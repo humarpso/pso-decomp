@@ -1,17 +1,15 @@
 #include "types.h"
+#include "pso/misc/TEffIndirectCtrl_802A9284.h"
+#include "pso/player/TObjPlayer_802A8368.h"
 #include "pso/misc/TEffIndirectCtrl.h"
 
 extern "C" {
 s32 read_disc_file(s32, u8 *);
-void TObjPlayer__sub_802A841C(void);
-void load_indirect_info(void);
 u8 *xmalloc__FUl(u32);
 s32 xfree__FPv(s32);
 void *memcpy(void *, const void *, u32);
 extern s32 TEffIndirectCtrl__source_buffers[];
 extern s32 lbl_805D3E20;
-void load_indirect_dat(void);
-void TObjPlayer__sub_802A83F4(void);
 
 void TEffIndirectCtrl::free_all() {
     s32 var_r28;

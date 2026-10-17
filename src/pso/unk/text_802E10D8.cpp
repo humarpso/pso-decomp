@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_802E10D8.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_802E10D8_lbl_804D3900 { s32 value; u8 remaining[0xC]; };
@@ -8,7 +9,6 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_802E10D8_lbl_804D3900 creation_menu_resource_descriptor;
 extern s32 TAdMultiPlyChrSelectGC__resource_bundle;
-void fn_802E10D8(void);
 void fn_802E10D8(void) {
     s32 temp_r3;
     s32 var_r0;

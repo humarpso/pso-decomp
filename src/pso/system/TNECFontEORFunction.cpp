@@ -1,10 +1,10 @@
 #include "pso/TNECFontEORFunction.h"
+#include "pso/unk/text_803DAFA8.h"
 
 #include "types.h"
 
 extern "C" {
 s32 DCFlushRange(void *, int);
-void init_and_load_tlut(s32 arg0, s32 arg1, u16 arg2, void *arg3);
 extern s32 lbl_805D56B4;
 extern s32 menu_font_upload_flags;
 extern u8 lbl_805D56C0;

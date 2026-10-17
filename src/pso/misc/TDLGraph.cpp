@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_8007ECF0.h"
 #include "pso/misc/TDLGraph.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/player/TObjPlayer.h"
@@ -15,7 +17,6 @@ u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8007F77C___vt__8TDLGraph __vt__8TDLGraph;
 extern s32 TDLGraph__graph_object;
-u8 *__dt__8TDLGraphFv(u8 *arg0, s16 arg1);
 void TCameraCtrl__sub_80068EF0(void);
 void fn_8007F27C(TDLGraph_8007F66C *self, void *a, void *b);
 extern u8 lbl_80438AA4[];
@@ -23,8 +24,6 @@ extern u8 lbl_80438AAC[];
 extern const f32 lbl_805D92CC;
 extern const f32 lbl_805D92D0;
 extern const f32 lbl_805D92D4;
-void queue_destruction__7TObjectFv(void *arg0);
-void fn_8007ECF0(u8 *arg0, s32 arg1, s32 arg2);
 void TDLGraph::sub_8007F644() {
     this->m_3c = 0;
     sub_8007F5A4();

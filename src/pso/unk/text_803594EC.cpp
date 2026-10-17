@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80141A30.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/misc/TWindowCtrlMain.h"
 #include "pso/TBoss4Fade.h"
@@ -30,7 +31,6 @@ typedef struct Quad_803594EC
 } Quad_803594EC;
 
 extern "C" {
-void restore_saved_depth_alpha_state(void);
 extern u8 TBoss4Fade__fullscreen_vertices[];
 extern const f32 lbl_805E0098;
 extern const f32 lbl_805E009C;

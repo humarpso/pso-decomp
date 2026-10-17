@@ -1,16 +1,14 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80109344.h"
+#include "pso/unk/text_80126B6C.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-u8 *create_handgun_weapon(u8 *arg0);
 u8 * init_with_update_handler__13TUnk_804A2D88Fv(void *, s32, void *);
-u8 *create_suppressed_gun_weapon(u8 *arg0);
 s32 TItemWeapon__ct(void*,s32,void*);
-void spawn_weapon_impact_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 extern s32 lbl_804A2C90[];
-u8 *construct_handgun_weapon(u8 *arg0, s32 arg1, u8 *arg2);
 
 u8 *create_suppressed_gun_weapon(u8 *arg0) {
     u8 *temp_r3;

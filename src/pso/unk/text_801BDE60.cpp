@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801C1FF8.h"
+#include "pso/unk/text_801BDE60.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TLobby.h"
 
@@ -15,9 +17,7 @@ u8 * construct_player_instance__10TObjPlayerFlslPUc(void *, s32, s16, s32, void 
 s32 TItem__sub_80101CEC(void *);
 u8 *__nw__7TObjectFUl(s32);
 extern s32 tl_03;
-u8 *create_player_object(s16 arg0, s32 arg1, u8 *arg2);
 s32 get_char_data__10TObjPlayerFv(void *);
-s32 TObjPlayer__sub_801C22B4(void *);
 
 u8 *TObjPlayer::create_player_instance(s32 arg0, s32 arg1) {
     u8 *p;

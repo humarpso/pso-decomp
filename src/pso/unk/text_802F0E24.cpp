@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_802F0E24.h"
 #include "pso/misc/TLobby.h"
 #include "pso/TParticleCtrl.h"
 
@@ -10,12 +11,10 @@ void TLobby__sub_8001FE7C(void *, int);
 extern u32 boss7_dermt_slot_table[];
 extern void *lbl_805D6950;
 extern void *lbl_805D6954;
-void fn_802F0E24(void);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 extern u8 lbl_80474344[];
 extern u8 boss7_common_resource_descriptor[];
-void load_boss7_common_resources(void);
 void fn_802F0E24(void) {
     s32 i;
     TParticleCtrl::free_heap();

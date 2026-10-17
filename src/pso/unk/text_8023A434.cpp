@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_8023A434.h"
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804CCC68.h"
 
@@ -13,9 +15,7 @@ struct Stack_8023A434 {
 };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 u8 *csnVector(f32 *, f32 *, s32);
-void check_technique_projectile_wall_hit(u8 *arg0);
 #pragma push
 #pragma opt_common_subs off
 void check_technique_projectile_wall_hit(u8 *arg0) {

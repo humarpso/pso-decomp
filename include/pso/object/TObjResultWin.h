@@ -45,4 +45,9 @@ typedef char ResultCloseField[(offsetof(TObjResultWin,m_close_requested)==0x20)?
 typedef char ResultTimerField[(offsetof(TObjResultWin,m_countdown)==0x24)?1:-1];
 typedef char ResultTextField[(offsetof(TObjResultWin,m_text)==0x28)?1:-1];
 typedef char ResultRecordField[(offsetof(TObjResultWin,m_result)==0x128)?1:-1];
+extern "C" {
+int TObjNewFloorWin__sub_8007410C(void);
+ChallengeResultRecord *copy_challenge_result_record(ChallengeResultRecord *destination, const ChallengeResultRecord *source);
+}
+
 #endif

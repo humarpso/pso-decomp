@@ -1,4 +1,6 @@
 #include "pso/TChCrEffTagStr.h"
+#include "pso/misc/TChCrEffTagStr.h"
+#include "pso/unk/text_80141A30.h"
 #include "pso/render/depth_buffer.h"
 
 #include "types.h"
@@ -10,7 +12,6 @@ struct Stack_8029AEDC {
 };
 
 extern "C" {
-void restore_saved_depth_alpha_state(void);
 s32 draw_creation_sprite_offset(s32, void *, f32 *, f32, f32, f32, f32, f32);
 extern const f32 lbl_805DDCB8;
 extern const f32 lbl_805DDCBC;
@@ -19,7 +20,6 @@ s32 queue_destruction__7TObjectFv();
 extern const f32 lbl_805DDCC4;
 extern const f32 lbl_805DDCC8;
 extern const f32 lbl_805DDCCC;
-void TChCrEffTagStr__sub_8029AED0(void* p);
 
 void TChCrEffTagStr__sub_8029AED0(void* p) { *(s32*)((char*)p + 0x1c) = 1; }
 

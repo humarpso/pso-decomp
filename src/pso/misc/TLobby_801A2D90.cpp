@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TLobby_801A2D90.h"
+#include "pso/misc/TLobby_8030A6A8.h"
+#include "pso/misc/TSwitch.h"
+#include "pso/object/TObjLaboMapWarp_80185248.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TNpcPlayer.h"
@@ -18,19 +23,9 @@ s32 is_split_screen();
 extern s32 local_client_id;
 extern s32 lbl_805D53A8;
 s32 reset_quest_result_callbacks__22THunterGuildSeqOfflineFPv();
-void clear_enabled_main_warps(void);
-void clear_switch_table(void);
 s32 queue_destruction__7TObjectFv(u32);
 extern u32 quest_mission_manager;
 Ctrl_801A2E00 *get_player_by_client_id(s32);
-s32 get_game_play_mode();
-void TLobby__sub_801A2E00(void);
-void TLobby__sub_801A2DF4(void);
-void TLobby__sub_801A2DF8(void);
-void TLobby__sub_801A2DFC(void);
-s32 TKeyBoardControl__sub_8000F92C(void);
-void TKeyBoardControl__sub_8000F95C(void);
-void clear_keyboard_key_state(void);
 
 void TLobby::reset_keyboard_input() { TKeyBoardControl::reset(); TKeyBoardControl__sub_8000F92C(); clear_keyboard_key_state(); TKeyBoardControl__sub_8000F95C(); TLobby::clear_counter(); }
 void TLobby::shutdown_keyboard_control() { TKeyBoardControl::reset(); TLobby::reset_quest_state(); TKeyBoardControl__sub_8000F92C(); clear_keyboard_key_state(); TKeyBoardControl__sub_8000F95C(); TLobby::clear_counter(); }

@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80126278.h"
 
 extern "C" {
 
-void frozen_shooter_start_curse(void *arg0);
 s32 get_id__13TItemProArmorFv(void *);
 s32 freeze_curse_timer_ct(s32, u32, s32, s32, f32);
 s32 __nw__15TItemHeapObjectFUl(s32);

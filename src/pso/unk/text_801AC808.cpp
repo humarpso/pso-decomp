@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/PhotonBlastSummon.h"
+#include "pso/misc/TLobby_802268F4.h"
+#include "pso/misc/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_804C3248.h"
 #include "pso/object/TObjMotion.h"
@@ -31,15 +34,11 @@ struct Res_801AC808 { u8 pad[0x18]; s32 f18; s32 f1C; };
 struct Game_801AC808 { u8 pad[0x42C]; Res_801AC808 *res; s32 f430; };
 
 extern "C" {
-void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
-void spawn_photon_blast_opening_effects(s32 arg0, s32 arg1);
 s32 spawn_photon_blast_attachment_effects(void *, int);
-void *photon_base_ct(void *arg0);
 void sub_801AC444__13TPhotonLeillaFv(void *, u8);
 void construct_photon_magic_square_normal(void *, void *, s32, void *, s32);
 void TPhotonRainbow__ct(void *, void *, void *, s32);
-void play_cue_stream_file(s32 name);
 u8 *__nw__7TObjectFUl(s32, f32);
 extern u8 lbl_80446DF8[];
 extern u8 lbl_80446E04[];

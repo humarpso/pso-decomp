@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLobby_8020B03C.h"
+#include "pso/system/TGStream.h"
+#include "pso/unk/text_800F8A18.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -31,7 +34,6 @@ s32 TLobby::init_handle(s32 arg0) {
 }
 
 s32 get_player_name_copy_buffer();
-void copy_name(s32 arg0);
 s32 strncmp(s32, s32 *, s32);
 extern s32 map_set_object_id_counter;
 extern s32 TLobby__next_enemy_set_actor_id;
@@ -69,8 +71,6 @@ struct Ent_8020B1E4 { u8 pad[2]; s16 f2; s16 f4; s16 f6; };
 struct Grp_8020B1E4 { u8 pad[4]; s32 count; u8 pad2[0xC]; Ent_8020B1E4 *ents; };
 
 extern "C" {
-void close_gsl_archive(void);
-void open_gsl_archive(char *name);
 extern RecoveredGlobal_8020B118_lbl_8044BBF0 lbl_8044BBF0;
 extern RecoveredGlobal_8020B118_lbl_8044BC04 lbl_8044BC04;
 extern s32 map_set_data_handle_a;
@@ -78,7 +78,6 @@ extern s32 map_set_data_handle_b;
 extern s16 TLobby__data_805D6134;
 extern s32 TLobby__data_80513CC8[];
 extern s32 TLobby__data_80513C80[];
-s32 TLobby__sub_8020B308(void);
 extern struct Floor_8020B260 TLobby__floor_enemy_group_table[];
 void TLobby::load_set_gsl_files() {
     map_set_data_handle_a = 0;

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804B6C24.h"
@@ -33,7 +35,6 @@ struct Spawn_8018CFD4 {
 struct Obj_8018CFD4 { u8 pad[0x38]; Vec_8018CFD4 pos; };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_container_base(void *, s32);
 extern RecoveredGlobal_8018D314_lbl_804B7168 container_jung_collision_desc;
@@ -58,7 +59,6 @@ s32 free_collision_body_parts(void *);
 s32 submit_cursor_candidate(void *, s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 s32 __dl__7TObjectFPv(void *);
 s32 set_global_param__8TObjFishFl();
 

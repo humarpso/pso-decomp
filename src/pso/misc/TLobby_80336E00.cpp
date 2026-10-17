@@ -1,13 +1,10 @@
 #include "types.h"
+#include "pso/misc/TLobby_80336E00.h"
 #include "pso/unk/TUnk_804EEF80.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
     extern int lobby_global_flags;
-void clear_lobby_global_flags(void);
-void TLobby__sub_80336E64(void);
-void TLobby__sub_80336E68(void);
-void TLobby__sub_80336E44(void);
 void __ct__7TObjectFP7TObject(void *);
 
 extern s32 __vt__13TUnk_804EEF80[];

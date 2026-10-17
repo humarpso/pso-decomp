@@ -1,22 +1,15 @@
 #include "types.h"
+#include "pso/item/TObjItemLight.h"
+#include "pso/object/TObjBgmCol_8017E7F0.h"
+#include "pso/object/TObjRaderCol.h"
+#include "pso/unk/text_801A2B38.h"
 
 extern "C" {
 
-void *TOContainerAncientEnemyRare__create(void *arg0);
-void *TOContainerAncientItemRare__create(void *arg0);
-void *TObjBgmCol__create(void *arg0);
-void *TObjCityMainWarpChallenge__create(void *arg0);
-void *TObjContainerAbeEnemy__create(void *arg0);
-void *TObjItemLight__create(void *arg0);
-void *TObjRaderCol__create(void *arg0);
-void *TObjRaderHideCol__create(void *arg0);
 void *TOContainerAncientEnemyRare__ct(void *, void *);
 void *TOContainerAncientItemRare__ct(void *, void *);
-void *TObjBgmCol__ct(void *arg0, s32 arg1, s32 arg2);
 void *TObjCityMainWarpChallenge__ct(void *, void *, void *);
 void *TObjContainerAbeEnemy__ct(void *, void *, void *);
-u8 *TObjItemLight__ct(u8 *arg0, s32 arg1, s32 arg2);
-u8 *TObjRaderCol__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *TObjRaderHideCol__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 

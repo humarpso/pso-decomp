@@ -1,19 +1,10 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801BEB0C.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TPlyPhotonChair.h"
 
 extern "C" {
 
-s32 TObjPlayer__sub_801BEB0C(void* p);
-u8 TObjPlayer__sub_801BEB3C(void* p);
-u8 TObjPlayer__sub_801BEB44(void* p);
-u8 TObjPlayer__sub_801BEB4C(void* p);
-int TObjPlayer__sub_801BEB68(void* p);
-u8 TObjPlayer__sub_801BEB8C(void* p);
-u8 TObjPlayer__sub_801BEBB8(void* p);
-u8 TObjPlayer__sub_801BEBE4(void* p);
-u8 TObjPlayer__sub_801BEC10(void* p);
-u8 TObjPlayer__sub_801BEC3C(void* p);
 int unregister_object_by_id__13TUnk_804AF8A0Fv(void*);
 int TObjPlayer__sub_801BED98(void*);
 int TObjPlayer__sub_801BEDA0(void*);

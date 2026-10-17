@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl_8026AD44.h"
+#include "pso/misc/TWindowMessageLog_8026AA38.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowMessage.h"
 #include "pso/misc/TWindowMessageLog.h"
@@ -27,17 +29,13 @@ s32 draw_window_scrollbar(int, int, void *);
 extern const f32 lbl_805DD254;
 void *__dt__14TWindowMessageFv(void *arg0, s16 arg1);
 s32 __dl__7TObjectFPv(void *);
-void TWindowCtrl__sub_8026AD60(void);
 extern RecoveredGlobal_8026AB3C___vt__17TWindowMessageLog __vt__17TWindowMessageLog;
-u8 *__dt__17TWindowMessageLogFv(u8 *arg0, s16 arg1);
 s32 alloc__23TAdSinglePlyChrSelectGCFv(int, f32, f32);
 u8 *TWindowMessage__ct(u8 *arg0, s32 arg1, u32 arg2, s32 arg3);
-void TWindowCtrl__sub_8026AD78(s32 arg0);
 s32 reset_selection__20TWindowSubStatusDispFv(int, void *);
 extern s32 lbl_805D3990;
 extern const f32 lbl_805DD240;
 extern const f32 lbl_805DD258;
-u8 *TWindowMessageLog__ct(u8 *arg0, s32 arg1, s32 arg2);
 void TWindowMessageLog::render() {
     s32 temp_r3;
     temp_r3 = get_draw_context__11TWindowBaseFPv();

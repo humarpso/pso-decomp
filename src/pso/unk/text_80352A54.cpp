@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TItem_80100674.h"
+#include "pso/player/TObjPlayer_800FFFF8.h"
 #include "pso/unk/TUnk_804F0FF0.h"
 #include "pso/item/TItem.h"
 
@@ -13,8 +15,6 @@ struct Stack_80352A54 {
 };
 
 extern "C" {
-u16 TObjPlayer__sub_80100474(void *);
-void replace_item_with_new_code(void *arg0, u32 arg1);
 void TUnk_804F0FF0::vfunc_44() {
     s32 arg0 = (s32)this;
     typedef char sp8_offset[(offsetof(Stack_80352A54, sp8) == 0x0) ? 1 : -1];

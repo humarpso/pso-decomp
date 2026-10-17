@@ -1,20 +1,11 @@
 #include "types.h"
+#include "pso/misc/TMainCursor_8013E7B8.h"
 #include "pso/misc/TLockOnCursor.h"
 #include "pso/misc/TMainCursor.h"
 
 extern "C" {
 
 s32 init__6gc_tagFv();
-void copy_target_record__11TMainCursorFPvPv(u8 *arg0, u8 *arg1);
-int TMainCursor__sub_8013E8A0(void* p);
-int TMainCursor__sub_8013E900(void* p);
-s16 TMainCursor__sub_8013E920(void* p);
-void TMainCursor__sub_8013E928(void* p, s16 v);
-void TMainCursor__sub_8013E930(void* p, s16 v);
-int TMainCursor__sub_8013E9A0(void* p);
-int TMainCursor__sub_8013E9C0(void* p);
-int TMainCursor__sub_8013E9E0(void* p);
-void TMainCursor__sub_8013EA00(void* p, s32 v);
 int test_flags_any(void*, int);
 int TObjPlayer__sub_8013DEF8(void*);
 int is_channel_active__11TMainCursorFv(void*);
@@ -73,8 +64,6 @@ void TMainCursor::init_slot(s32 i) {
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-
-void TMainCursor__sub_8013E970(u8 *arg0, s16 arg1, s16 arg2, s16 arg3);
 
 int TMainCursor__sub_8013E8A0(void* p) { return TObjPlayer__sub_8013DEF8(p); }
 int TMainCursor::get_selected_entry() { return is_channel_active__11TMainCursorFv(this); }

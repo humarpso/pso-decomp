@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TLobby_803CFE68.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 
-void TLobby__sub_803CFE9C(void);
 extern s32 (*cvfs_completion_callback)(s32);
 
 extern s32 lbl_805D75FC;

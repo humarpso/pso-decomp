@@ -1,9 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLobby_803D3988.h"
 
 extern "C" {
-
-void TLobby__sub_803D3988(void);
-void TLobby__sub_803D39C0(void);
 
 extern s32 lbl_805D7664;
 

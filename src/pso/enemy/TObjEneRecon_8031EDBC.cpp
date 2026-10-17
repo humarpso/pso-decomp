@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/map/CsnQuery.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneRecobox.h"
 #include "pso/enemy/TObjEneRecon.h"
@@ -21,7 +22,6 @@ struct Rec_8031EDF8
 };
 
 extern "C" {
-s32 *csnVectorUnder(s32 arg0, u32 *arg1, s32 arg2);
 extern s32 actor_frame_tick;
 extern const f32 lbl_805DF448;
 

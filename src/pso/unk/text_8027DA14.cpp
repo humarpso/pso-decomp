@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TQuestThread.h"
+#include "pso/misc/TWindowSubStatusDisp_8025A9B4.h"
+#include "pso/unk/text_8027DA14.h"
 #include "pso/misc/TWindowDD.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -17,19 +20,16 @@ struct RecoveredGlobal_8027DA14___vt__26TWindowSubQuestBoardSelect {
 };
 
 extern "C" {
-char *get_quest_name__12TQuestThreadFv(void);
 u8 * get_window_layout_position(s32);
 s32 construct_type1_heading__20TWindowSubStatusDispFll(s32, s32, s32);
 s32 get_message_10__20TWindowSubStatusDispFl(int);
 u32 calc_text_width();
-void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 s32 update_slot_display_flags__26TWindowSubQuestBoardSelectFv(void *, f32, f32);
 extern RecoveredGlobal_8027DA14_lbl_804D19A8 TWindowSubQuestBoardSelect__window_parameters;
 extern RecoveredGlobal_8027DA14___vt__26TWindowSubQuestBoardSelect __vt__26TWindowSubQuestBoardSelect;
 extern s32 TWindowSubQuestBoardSelect__class_name;
 extern const f32 lbl_805DD6B8;
 extern const f32 lbl_805DD6BC;
-u8 *TWindowSubQuestBoardSelect__ct(u8 *arg0);
 #pragma push
 #pragma fp_contract on
 typedef char RecoveredGlobal_8027DA14_lbl_804D19A8_size[sizeof(RecoveredGlobal_8027DA14_lbl_804D19A8) == 0x14 ? 1 : -1];

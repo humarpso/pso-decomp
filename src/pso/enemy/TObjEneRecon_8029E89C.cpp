@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecon_8029E89C.h"
+#include "pso/unk/text_8029E7BC.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TSceneSora.h"
 #include "pso/enemy/TObjEneRecon.h"
@@ -17,19 +20,15 @@ struct Stack_8029E960 {
 };
 
 extern "C" {
-void restore_render_scissor(s32 arg0);
 s32 GXSetScissor(s32, s32, s32, s32);
 void project_world_to_screen(s32, void *, void *);
 extern u16 scene_sora_reflect_active;
 extern const f32 lbl_805DDD8C;
 extern const f32 lbl_805DDD94;
-s32 TObjEneRecon__sub_8029EA4C(void *arg0, s32 _w1);
 s32 reflect_matrix_in_plane(s32, s32 *);
 s32 push_matrix();
 extern const f32 lbl_805DDD90;
-s32 pop_matrix();
 u32 get_player_by_client_id(u32);
-s32 fn_8029E7BC(s32 arg0, u8 *arg1);
 s32 reset_ind_tev_stages__13TParticleCtrlFPv();
 
 s32 TObjEneRecon::render_player_marker(u16 arg0, s32 arg1) {

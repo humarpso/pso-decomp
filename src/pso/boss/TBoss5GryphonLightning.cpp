@@ -1,6 +1,5 @@
 #include "pso/TBoss5GryphonLightning.h"
-
-extern "C" void queue_destruction__7TObjectFv(void*);
+#include "pso/object/TObject_80019A50.h"
 
 TBoss5GryphonLightning::~TBoss5GryphonLightning() {
     if (m_44 != nullptr) { queue_destruction__7TObjectFv(m_44); m_44 = nullptr; }

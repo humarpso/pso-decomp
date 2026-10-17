@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TWindowSubTradeMain_80187C98.h"
 #include "pso/system/byteswap.h"
 #include "pso/misc/TWindowSubTradeMain.h"
 
 extern "C" {
 
-void *TObjGbAdvance__create(void *arg0);
 int TLobby__send_and_handle_60(void*);
 void *TObjGbAdvance__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);

@@ -1,4 +1,8 @@
 #include "pso/TBoss5GryphonLightningEff.h"
+#include "pso/boss/TBoss5GryphonLightningEff.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/unk/text_80087278.h"
+#include "pso/unk/text_80141A30.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/system/vector.h"
 #include "pso/TTecZondeEff.h"
@@ -42,7 +46,6 @@ struct L2_80325070 { u8 pad[0xC]; s32 *p; };
 struct L1_80325070 { u8 pad[8]; L2_80325070 *a; u8 pad2[8]; L2_80325070 *b; };
 
 extern "C" {
-void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 void run_task__12TTecZondeEffFv(void *);
 s32 rand(void);
 void randomize_bolt_jitter__12TTecZondeEffFPv(void *);
@@ -53,10 +56,7 @@ extern s32 __vt__25TBoss5GryphonLightningEff[];
 extern s32 lbl_805D4188;
 Self_8032537C *__ct__25TBoss5GryphonLightningEffFv(Self_8032537C *self, void *parent, void *a, void *b, f32 x0, f32 x1, f32 scale);
 extern L1_80325070 **inazuma_texture_list;
-void TBoss5GryphonLightningEff__sub_80325064(void* p);
-void set_chunk_material_color(f32 *arg);
 s32 project_lightning_points(void *, void *, void *, void *);
-void restore_saved_depth_alpha_state(void);
 
 void TBoss5GryphonLightningEff__sub_80325064(void* p) { *(u8*)((char*)p + 0x260) = 1; }
 

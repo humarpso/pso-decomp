@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80109344.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/player/TObjPlayer.h"
 
 struct W_801093B4 { s32 a; s32 b; s32 c; };
@@ -6,9 +8,7 @@ struct W_801093B4 { s32 a; s32 b; s32 c; };
 union V_801093B4 { W_801093B4 w; struct { f32 x; f32 y; f32 z; } f; };
 
 extern "C" {
-void spawn_weapon_impact_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 extern const f32 lbl_805DAB38;
-void *spawn_particle_effect(void *pos, s32 id);
 s32 __ct__14TItemEffHeavenFP7TObjectlsl(u32, s32, u32, u16, s32);
 u32 __nw__7TObjectFUl(s32);
 
@@ -47,7 +47,6 @@ void spawn_weapon_impact_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     ((TObjPlayer *)arg3)->spawn_hit_particle_trio();
 }
 
-void invoke_menu_callback__10TObjPlayerFPv(void *arg0);
 u8 *find_item_by_id(s32 id);
 
 void invoke_menu_callback__10TObjPlayerFPv(void *arg0) {

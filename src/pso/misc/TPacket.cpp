@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/network/TTcpSocket.h"
 #include "pso/misc/TPacket.h"
 
 extern "C" {
@@ -9,11 +10,8 @@ struct VObj_80078064_801a5598_801A558C : Base_80078064_801a5598_801A558C {
     virtual void m4(); virtual void m5();
 };
 
-void *TPacket__ct(void *arg0);
-void *__dt__7TPacketFv(void *arg0, s16 arg1);
 void *TUdpSocket__ct(void *arg0);
 s32 __dl__7TObjectFPv(void *);
-void *__dt__10TUdpSocketFv(void *arg0, s16 arg1);
 
 void TPacket::clear_send_buffer() { *(s32*)((char*)this + 0x8b8) = 0; }
 

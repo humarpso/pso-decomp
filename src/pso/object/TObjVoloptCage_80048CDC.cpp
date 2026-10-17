@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/object/TObject_8001A448.h"
+#include "pso/unk/text_80048118.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/object/TObjVoloptCage.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -115,9 +119,6 @@ struct VObj_80048E80 : Base_80048E80 {
 extern "C" {
 struct Vec_80048CDC { f32 x, y, z; };
 
-void queue_destruction__7TObjectFv(void *);
-void disallow_rendering__7TObjectFv(void *);
-void *spawn_particle_effect(void *pos, s32 id);
 void create_breakup_mdl__12TBoss3VoloptFlllll(void *, void *, s32, void *, s32);
 s32 rand(void);
 f32 sin_table_lookup(s32);
@@ -131,7 +132,6 @@ extern const f32 lbl_805D8868;
 extern const f32 lbl_805D886C;
 extern Pair_80048C04 lbl_804366E8[];
 void fn_80048C04(Self_80048C04 *self);
-s32 TObjVoloptPillar__sub_80048118(s32);
 s32 play_sound_effect(s32, u32, s16, s32);
 extern const f32 lbl_805D8874;
 extern const f32 lbl_805D8878;

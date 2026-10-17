@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjInfoCol.h"
+#include "pso/unk/text_801A2640.h"
 #include "pso/system/vector.h"
 
 struct Vec_801A2640 { f32 x, y, z; };
@@ -33,19 +35,6 @@ extern u8 lbl_804B9870[];
 extern const f32 lbl_805DC098;
 extern const f32 lbl_805DC0A0;
 Obj_801A2640 *construct_world_actor_base(Obj_801A2640 *self, void *parent);
-void *TODoorFourLightRuins__create(void *arg0);
-void *TODoorFourLightSeabedU__create(void *arg0);
-void *TODoorFourLightSeabed__create(void *arg0);
-void *TODoorFourLightSpace__create(void *arg0);
-void *TODoorLaboNormal__create(void *arg0);
-void *TODoorLabo__create(void *arg0);
-void *TObjAreaWarpEnding__create(void *arg0);
-void *TObjAreaWarpForest__create(void *arg0);
-void *TObjAreaWarpQuest__create(void *arg0);
-void *TObjInfoCol__create(void *arg0);
-void *TObjMapForceWarp__create(void *arg0);
-void *TObjMapWarpForest__create(void *arg0);
-void *TObjWarpLobby__create(void *arg0);
 void *TODoorFourLightRuins__ct(void *, void *, void *);
 void *TODoorFourLightSeabedU__ct(void *, void *, void *);
 void *TODoorFourLightSeabed__ct(void *, void *, void *);
@@ -55,7 +44,6 @@ void *TODoorLabo__ct(void *, void *, void *);
 void *TObjAreaWarpEnding__ct(void *, void *, void *);
 void *TObjAreaWarpForest__ct(void *, void *, void *);
 void *TObjAreaWarpQuest__ct(void *, void *, void *);
-u8 *TObjInfoCol__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *TObjMapForceWarp__ct(void *, void *, void *);
 void *TObjMapWarpForest__ct(void *, void *, void *);
 void *TObjWarpLobby__ct(void *, void *, void *);

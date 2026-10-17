@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TScene_80206494.h"
+#include "pso/unk/text_800F8A18.h"
 #include "pso/misc/TScene.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
@@ -18,7 +20,6 @@ struct Res_80207038 { s32 table; s32 index; s32 pad; };
 
 extern "C" {
 s32 get_player_name_copy_buffer();
-void copy_name(s32 arg0);
 s32 strncmp(s32, s32, s32);
 s32 TLobby__sub_803DA16C(u32);
 extern s32 TScene__current_floor_name;
@@ -36,16 +37,12 @@ s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__6TScene[];
 extern s32 lbl_805D3618;
 extern u32 TScene__texture_wave_resource;
-u8 *TScene__ct(u8 *arg0, s32 arg1);
 s32 replace_file_extension__6TLobbyFPvPvPv(s32 *, s32, s32 *);
 s32 *load_relocatable_file(s32 *, u32);
 extern u8 lbl_8044A948[];
 extern Ent_802066BC scene_format_dispatch_tables[];
 extern s32 TScene__data_805D5FE8;
 extern s32 TScene__map_rel_load_size_limit;
-void load_scene_map_file(s32 arg0);
-void TScene__sub_802065E8(void);
-void TScene__sub_802065EC(void);
 s32 get_floor_map_selection(s32, void *);
 Ent_802066BC *get_floor_scene_table(s32);
 void bind_gvm_texture_list(s32 *, u32);
@@ -60,7 +57,6 @@ extern s32 TScene__map_section_render_callback;
 extern s32 TScene__active_scene_callback;
 extern s32 TScene__render_callback;
 extern const f32 TScene__data_805DC5D8;
-void load_floor_scene(void);
 extern s32 lbl_805D5FF8;
 extern s32 lbl_805D600C;
 extern s32 lbl_805D6014;
@@ -72,7 +68,6 @@ s32 debug_print__6TLobbyFle(s32 *, ...);
 s32 collect_collision_groups(u32, s32);
 extern s32 lbl_8044A950[];
 extern s32 lbl_8044A958[];
-void load_scene_collision_file(s32 arg0);
 extern u8 lbl_8044A938[];
 s32 read_disc_file(char *, u32);
 extern const char lbl_8044A940[];
@@ -84,7 +79,6 @@ struct Sp8Buf20_80206494 {
     s32 f10; s32 f14; s32 f18; s32 f1c;
 };
 
-void *__dt__6TSceneFv(void *arg0, s16 arg1);
 s32 TScene__sub_80205AE8(s32 *);
 s32 TScene__sub_80205FD4(void *);
 s32 __dl__7TObjectFPv(void *);

@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80105874.h"
+#include "pso/unk/text_80103674.h"
+#include "pso/unk/text_8010F168.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TItemLoad.h"
 #include "pso/item/TItemBuff.h"
@@ -11,13 +14,10 @@ struct RecoveredGlobal_801058AC_lbl_8049EE60 {
 };
 
 extern "C" {
-void fn_80103674(void);
 s32 fn_8010F210(s32);
 extern RecoveredGlobal_801058AC_lbl_8049EE60 item_class_load_unload_table;
 extern s32 lbl_805D5440;
 extern int item_class_load_handle;
-void fn_801058E8(void* p);
-void *TItemDrop__sub_8010F168(void *arg0, s16 arg1);
 int get_slot_value__10TObjPlayerFPvi(void*, int);
 
 void TObjPlayer::free_item_globals() { TItemDrop__sub_8010F168((void *)(item_class_load_handle), (s16)((void*)1)); item_class_load_handle = 0; TItemLoad::free_all(); TItemBuff::free_all_and_init(); }

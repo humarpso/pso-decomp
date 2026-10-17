@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80271400.h"
 
 struct RecoveredGlobal_80271400_lbl_804D0F78 { s32 value; u8 remaining[0x10]; };
 typedef char RecoveredGlobal_80271400_lbl_804D0F78_size[sizeof(RecoveredGlobal_80271400_lbl_804D0F78) == 0x14 ? 1 : -1];
@@ -10,7 +11,6 @@ s32 get_window_layout_position(int);
 s32 create__19TWindowSimpleStatusFPv(int, void *);
 s32 TWindowStatus__ct(int, int, void *, void *);
 extern RecoveredGlobal_80271400_lbl_804D0F78 lbl_804D0F78;
-s32 create_status_window(s32 arg0);
 s32 create_status_window(s32 arg0) {
     s32 window_layout_position;
     s32 temp_r3;

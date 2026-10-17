@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjTombstone_800762F0.h"
 #include "pso/system/vector.h"
 
 #include <stddef.h>
@@ -40,7 +41,6 @@ s32 construct_collider_proxy__13TUnk_804AF8A0Fv();
 extern RecoveredGlobal_8007643C___vt__13TObjTombstone __vt__13TObjTombstone;
 extern const char* TObjTombstone__class_name;
 extern s32 TObjTombstone__shared_resource_object;
-u8 *TObjTombstone__ct(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 fn_80074E04(s32, void *);

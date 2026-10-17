@@ -1,20 +1,15 @@
 #include "types.h"
+#include "pso/misc/TLockOnCursor_8013EDC4.h"
+#include "pso/misc/TLockOnCursor_8013EEC8.h"
+#include "pso/misc/TMainCursor_8013F104.h"
+#include "pso/unk/text_80072004.h"
 #include "pso/misc/TLockOnCursor.h"
 #include "pso/misc/TMainCursor.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-void TMainCursor__sub_8013F114(void* p);
 extern s32 TMainCursor__sub_8013E2B0[];
 void __construct_array(void *, void *, int, int, int);
-void TMainCursor__sub_8013F10C(void* p, s32 v);
-void TMainCursor__sub_8013F104(void* p, s32 v);
-void *fn_8013F0A0(void *arg0);
-s32 init_gc_tag(s32 arg0);
-void * TLockOnCursor__sub_8013EFB8(void *arg0);
-void* init_sub__13TLockOnCursorFPv(void* p);
-s32 TLockOnCursor__sub_8013EDC4(s32 arg0, s16 arg1);
-int TLockOnCursor__sub_8013F000(void *self);
 int TLockOnCursor__sub_8013EC1C(void*);
 int reset_nearest_target_record(void*);
 void *fn_8004438C(void *p);

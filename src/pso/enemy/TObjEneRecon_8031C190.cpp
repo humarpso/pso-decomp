@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/map/CsnQuery.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneRecon.h"
 
@@ -8,7 +9,6 @@ struct Stack_8031C190 {
 };
 
 extern "C" {
-s32 *csnVectorUnder(s32 arg0, u32 *arg1, s32 arg2);
 extern s32 actor_frame_tick;
 extern const f32 TObjEneRecon__data_805DF3C0;
 void TObjEneRecon::update_ground_probe() {

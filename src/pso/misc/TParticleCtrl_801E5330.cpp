@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TParticleCtrl_801E5330.h"
 #include "pso/TParticleCtrl.h"
 
 extern "C" {

@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8012121C.h"
+#include "pso/unk/text_80124C90.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/item/TItem.h"
 #include "pso/player/TObjPlayer.h"
@@ -24,19 +27,14 @@ void spawn_item_attacker(s32, void *, s32, void *);
 void create_lavis_shot(void *, void *, void *, f32);
 f32 *get_weapon_range_record(void *, s32);
 f32 query_extended_state__10TObjPlayerFv(void *);
-s16 get_captured_target_collider_index(void *);
 void *get_captured_target_entry(void *, s32);
-s32 get_captured_target_count(s32 *arg0);
 Tgt_80124C90 *resolve_hittable_target(u16, s16);
 void vec3_add_to(void *, void *);
 s32 rotate_matrix_y(int, int);
-s32 push_matrix_from(void *src);
 s32 transform_point_by_current_matrix(void *, void *);
-s32 pop_matrix();
 f32 xyz_distance(void *, void *);
 extern u8 identity_matrix[];
 extern s32 tl_05;
-void TObjPlayer__sub_80124C90(u8 *arg0);
 void TObjPlayer__sub_80124C90(u8 *owner) {
     Me_80124C90 *me = (Me_80124C90 *)owner;
     void *ext;

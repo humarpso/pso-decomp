@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TChCrCharSelect_802938E4.h"
 #include "pso/TChCrCharSelect.h"
 
 extern "C" {
 
-void handle_cursor_input__15TChCrCharSelectFv(s32 arg0);
 s32 wrap_slot_index_to_range__15TChCrCharSelectFv(void *);
 s32 clamp_slot_index_to_range__15TChCrCharSelectFv(s32);
 s32 play_sound_effect(s32, s32, s32, s32);

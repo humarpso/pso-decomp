@@ -1,13 +1,12 @@
 #include "types.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802D50A0.h"
+#include "pso/unk/text_80120908.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 #include "pso/TAdMultiSelGameModeGC.h"
 
 extern "C" {
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *);
-void fn_802D50B8(void *arg0, void *arg1, void *arg2, void *arg3);
 void update_trail_slot__11TItemWeaponFPvi(void *, s32);
-void draw_weapon_at_joint(s32, s8);
-void draw_twin_weapon_trails(s32 arg0);
 s32 TAdMultiPlyChrSelectGC::get_player_index() { return *(s32 *)&this->m_24; }
 void TAdMultiPlyChrSelectGC::set_cursor_index(s32 v) { *(s32 *)&this->m_24 = v; }
 void TAdMultiPlyChrSelectGC::set_field_100(s32 v) { *(s32*)((char*)this + 0x100) = v; }

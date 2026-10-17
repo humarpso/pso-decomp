@@ -30,4 +30,8 @@ struct TWindowSubSymbolChatFaceType : public TUnk_804CE018 {
 };
 
 typedef char TWindowSubSymbolChatFaceType_size[sizeof(TWindowSubSymbolChatFaceType) == 0x6C ? 1 : -1];
+extern "C" {
+void *__dt__28TWindowSubSymbolChatFaceTypeFv(void *arg0, s16 arg1);
+}
+
 #endif

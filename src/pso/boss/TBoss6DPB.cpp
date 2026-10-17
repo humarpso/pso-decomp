@@ -1,4 +1,8 @@
 #include "pso/TBoss6DPB.h"
+#include "pso/boss/TBoss6DPB.h"
+#include "pso/effect/TDPBShower.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEneEpsilonGuard.h"
@@ -63,9 +67,6 @@ struct Shower_8035D924 {
 };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
-void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
-void *create_TDPBShower(void *arg0, void *arg1);
 extern s32 tl_02;
 extern const f32 lbl_805E01C8;
 u8 *__nw__7TObjectFUl(s32);
@@ -76,7 +77,6 @@ extern RecoveredGlobal_8035DB70___vt__9TBoss6DPB __vt__9TBoss6DPB;
 extern s32 TBoss6DPB__class_name;
 extern const f32 lbl_805E01CC;
 extern const f32 lbl_805E01D4;
-u8 *__ct__9TBoss6DPBFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
 f32 receive_direct_attack__10TObjPlayerFv(void *, s32, Msg_8035DD18, void *, s32, s32);
 f32 TObjEneEpsilonGuard__vt21(s32 arg0, s32 arg1, Msg_8035DD18 *msg, void *arg3, s32 arg4, s32 arg5);
 Pl_8035D924 *get_player_data__10TObjPlayerFi(s32);

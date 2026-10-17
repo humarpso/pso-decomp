@@ -1,0 +1,10 @@
+#ifndef PSO_UI_TADSINGLEPLYCHRSELECTGC_8001ED80_H
+#define PSO_UI_TADSINGLEPLYCHRSELECTGC_8001ED80_H
+
+#include "types.h"
+
+extern "C" {
+s32 TLobby__sub_8001ED88(void *p);
+}
+
+#endif

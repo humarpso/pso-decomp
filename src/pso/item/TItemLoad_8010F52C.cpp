@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TItemLoad_8010F52C.h"
+#include "pso/object/TObjFish_8001ED90.h"
 #include "pso/system/memory.h"
 #include "pso/item/TUnk_8049F41C.h"
 #include "pso/item/TUnk_8049F40C.h"
@@ -23,11 +25,9 @@ extern s32 lbl_805D2BEC;
 extern void *item_texture_archive_loader;
 extern void *item_model_chunk_loader;
 extern s32 item_load_model_buffer;
-void TItemLoad__sub_8010F5A0(void);
 void init__13TUnk_8049F42CFv(void *, void *, int, int);
 extern s32 lbl_8049F40C[];
 s32 decompress_buffer__9TItemLoadFUl();
-s32 TLobby__sub_8001EEF4();
 void *TLobby__sub_801E38A0(s32, u32 *, s32 *, s32, s32 *);
 extern u8 lbl_80506208[];
 extern s32 item_load_tmp_buffer;
@@ -36,7 +36,6 @@ struct VObj_8010F52C : Base_8010F52C {
     virtual void m0(int);
 };
 
-void *__dt__13TUnk_8049F41CFv(void *arg0, s16 arg1);
 s32 __dt__13TUnk_8049F42CFv(void *, s32);
 s32 load_gvm_texture_archive(s32, s32);
 void mem_free(void *p);

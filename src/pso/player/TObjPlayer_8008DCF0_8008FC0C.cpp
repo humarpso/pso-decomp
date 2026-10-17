@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8008DCF0_8008FC0C.h"
 #include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/enemy/TObjEneBalClawBody.h"
 #include "pso/enemy/TObjEneBalClaw.h"
@@ -46,8 +47,6 @@ extern const f32 lbl_805D9670;
 extern const f32 lbl_805D9674;
 extern const f32 lbl_805D9678;
 extern const f32 lbl_805D967C;
-void TObjEneMe1GiGue__sub_8008FC10(u8 *arg0);
-void TObjEneMe1GiGue__sub_8008FC0C(void);
 
 void TObjEneMe1GiGue__sub_8008FC0C(void) {  }
 

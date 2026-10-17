@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/system/ModelDrawContext.h"
+#include "pso/ui/TAdBackTxtGC.h"
+#include "pso/unk/text_80141A30.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/TObject.h"
 #include "pso/TAdBackTxtGC.h"
@@ -7,12 +10,7 @@
 
 extern "C" {
 
-void *__ct__12TAdBackTxtGCFv(void *arg0);
-void render__12TAdBackTxtGCFv(void *arg0);
-void run_task__12TAdBackTxtGCFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
-void set_cached_blend_factor(s32 arg0, s32 arg1);
-void restore_saved_depth_alpha_state(void);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 void render__12TAdBackTxtGCFv(void *arg0) {
@@ -76,7 +74,6 @@ void *__ct__12TAdBackTxtGCFv(void *arg0) {
     };
     __declspec(section ".data") TexList_804DC0D4 TAdBackTxtGC_backtext_tex_list = { lbl_804DC098, 5 };
 extern u32 TAdBackTxtGC__backtext_texture_list;
-void register_texture_f256_backtext(void);
 void TLobby__sub_803DA16C(void*);
 
 void TAdSinglePlyChrSelectGC::free_singleton_805D65C0() {

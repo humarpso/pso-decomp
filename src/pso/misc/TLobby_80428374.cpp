@@ -1,4 +1,7 @@
 #include "pso/network/NetworkTransport.h"
+#include "pso/misc/TLobby_80428374.h"
+#include "pso/network/ModemRuntime.h"
+#include "pso/network/NetworkMessageTransport.h"
 
 #include "types.h"
 #include "pso/misc/TLobby.h"
@@ -93,7 +96,6 @@ extern s32 lbl_805D7BF0;
 extern s32 lbl_805D7BF4;
 extern s32 lbl_805D7BF8;
 extern s32 lbl_805D7BFC;
-void TAdSinglePlyChrSelectGC__sub_8042DDE4(int, int);
 extern u8 lbl_805CF380[];
 extern u8 TLobby__pppoe_message_queue[];
 typedef struct Ent_804267F0 {
@@ -106,7 +108,6 @@ typedef struct Tbl_804267F0 {
     Ent_804267F0 ent[6];
 } Tbl_804267F0;
 
-s16 TLobby__sub_804262CC(void *);
 extern u8 lbl_805CF240[];
 s32 TLobby__sub_803F97E8(int);
 extern void *lbl_805C18A0[];
@@ -122,7 +123,6 @@ extern s16 lbl_805D7A86;
 #pragma pop
 
 #define arg0 ((s32)argp)
-s16 TLobby__sub_804262CC(void *argp);
 #undef arg0
 
 #pragma push
@@ -227,8 +227,6 @@ void TLobby::reset_buffer_pool() {
 #pragma opt_common_subs off
 typedef char RecoveredGlobal_8042DD70_lbl_805D1D20_size[sizeof(RecoveredGlobal_8042DD70_lbl_805D1D20) == 0x1C ? 1 : -1];
 #pragma pop
-
-void TAdSinglePlyChrSelectGC__sub_8042DDE4(int _w0, int _w1);
 
 typedef char RecoveredGlobal_8042E768_lbl_805D1D20_size[sizeof(RecoveredGlobal_8042E768_lbl_805D1D20) == 0x1C ? 1 : -1];
 

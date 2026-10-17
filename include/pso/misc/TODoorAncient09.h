@@ -28,4 +28,8 @@ struct TODoorAncient09 : public TUnk_804B0BB8 {
 };
 
 typedef char TODoorAncient09_size[sizeof(TODoorAncient09) == 0xE8 ? 1 : -1];
+extern "C" {
+void *__dt__15TODoorAncient09Fv(void *arg0, s16 arg1);
+}
+
 #endif

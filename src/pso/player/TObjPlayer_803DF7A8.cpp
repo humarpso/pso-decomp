@@ -3,6 +3,7 @@
 
 
 #include "types.h"
+#include "pso/player/TObjPlayer_803DF7A8.h"
 #include "pso/player/TObjPlayer.h"
 
 
@@ -52,14 +53,11 @@ extern "C" {
 s32 GXLoadPosMtxImm(void *, int);
 extern RecoveredGlobal_803E1D1C_lbl_804FC780 gx_pos_mtx_index_table;
 extern s32 current_matrix;
-void load_current_pos_matrix(s32 arg0);
 extern const f32 lbl_805E1038;
 extern const f32 lbl_805E103C;
 f32 xyz_distance(Vec_803E1A58 *a, Vec_803E1A58 *b);
 extern s32 tex_matrix_id_table[];
 void GXLoadTexMtxImm(void *mtx, u32 id, s32 type);
-void load_current_tex_matrix(s32 i);
-s32 spheres_overlap(u8 *arg0, u8 *arg1);
 void OSPanic(const char *, int, const char *, ...);
 void TObjPlayer__sub_803DAE1C(void *, int, void *);
 extern char lbl_804FC7F8[];
@@ -71,7 +69,6 @@ void GXLoadTexObj(TexObj_803E1D90 *, s32);
 extern s32 list_texture_map_table[];
 extern TexObj_803E1D90 list_texture_tex_obj;
 extern Ctx_803E1D90 *current_render_context;
-void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map);
 extern const f32 lbl_805E1020;
 extern const f32 lbl_805E1024;
 extern const f64 lbl_805E1028;

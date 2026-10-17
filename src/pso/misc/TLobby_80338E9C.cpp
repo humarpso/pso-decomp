@@ -1,13 +1,13 @@
 #include "types.h"
+#include "pso/misc/TLobby_80338E9C.h"
+#include "pso/unk/text_80338F3C.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 
 extern "C" {
 
-void *__dt__13TUnk_804EF4E0Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-u8 *fn_80338F3C(u8 *arg0, s32 arg1);
 
 void *TLobby::create_object(void *arg0) {
     void *o = __nw__7TObjectFUl(0x8C);

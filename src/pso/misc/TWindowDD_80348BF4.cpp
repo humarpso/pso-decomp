@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowDD_80348BF4.h"
 #include "pso/misc/TWindowDD.h"
 
 extern "C" {

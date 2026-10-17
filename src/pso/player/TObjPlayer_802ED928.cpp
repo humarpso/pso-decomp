@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/math/MatrixVector.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_802ED928.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/boss/TBoss7DeRolLeC.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -127,23 +131,18 @@ struct VObj_18 : VBase_18 {
 };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 s32 query_teammate_state__9TObjEneDDFv();
 s32 is_main_phase_15__9TObjEneDDFv();
 u32 __nw__7TObjectFUl(int);
 s32 fn_802E79B0(void *);
 s32 TParticleCtrl__sub_802EC550(void *);
 s32 sub_802ECB10__14TBoss7DeRolLeCFv();
-void TObjPlayer__sub_802ED984(void);
 s32 apply_with_callback__10TObjPlayerFlf(int, int);
-void set_matrix_identity(u8 *arg0);
 s32 rotate_matrix_by_node_angles(void *, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 extern s32 lbl_804E3BF0[];
-void TObjPlayer__sub_802ED988(u8 *arg0);
 void TBoss7DeRolLeC::update_or_dispatch() {
     if (sub_802ECB10__14TBoss7DeRolLeCFv() != 0) {
         sub_802ECAA4();

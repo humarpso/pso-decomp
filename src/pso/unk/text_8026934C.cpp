@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/unk/text_8026934C.h"
 
 extern "C" {
 s32 get_message_10__20TWindowSubStatusDispFl(int);
 s32 __nw__7TObjectFUl(int);
 s32 TWindowMeseta__ct(int, int, void *, int);
 s32 get_window_layout_position(int);
-s32 create_meseta_window(s32 arg0);
 #pragma push
 #pragma scheduling off
 s32 create_meseta_window(s32 arg0) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_801E43E4.h"
 #include "pso/system/byteswap.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/misc/TLobby.h"
@@ -11,8 +12,6 @@
 extern s32 TLobby__data_805D6144;
 
 extern "C" {
-
-void TLobby__send_and_handle_60(u8 *arg0);
 
 void TObjPlayer::set_field_dc(s32 v) { *(s32 *)&this->motion_list = v; }
 void TObjPlayer::set_field_d8(s32 v) { (*(s32 *)&this->action_table) = v; }

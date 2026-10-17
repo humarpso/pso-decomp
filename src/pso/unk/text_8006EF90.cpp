@@ -1,4 +1,5 @@
 #include "pso/item/ChallengeStageLoadouts.h"
+#include "pso/unk/text_8006EF90.h"
 
 #include "types.h"
 #include "pso/misc/TLobby.h"
@@ -6,7 +7,6 @@
 extern "C" {
 s32 is_flag_set__6TLobbyFv(void);
 extern s32 challenge_mode_state[];
-int TLobby__sub_8006EF90(void);
 
 int TLobby__sub_8006EF90(void) { return 1; }
 u8 *TLobby::get_stage_table_entry(s32 arg0, s32 arg1) {

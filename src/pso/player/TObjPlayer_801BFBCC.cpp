@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801BF918.h"
+#include "pso/player/TObjPlayer_801BFBCC.h"
 #include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_801BFBEC_lbl_804C3E38 {
@@ -12,9 +14,6 @@ extern "C" {
 extern RecoveredGlobal_801BFBEC_lbl_804C3E38 lbl_804C3E38;
 void TObjPlayer__sub_801BFC90(O_801BFC90 *p);
 extern const f32 lbl_805DC2DC;
-int init_player_scale_state(void *arg0);
-void TObjPlayer__sub_801BFD3C(void* p);
-void zero_vec3(void *a0);
 int reset_stat_scale_and_ring__10TObjPlayerFi(void*);
 
 extern const f32 TObjPlayer__data_805DC278;

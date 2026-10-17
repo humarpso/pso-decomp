@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8012ECFC.h"
 #include "pso/item/TUnk_804A6010.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void twinkle_star_turn_stars(void *arg0);
 s32 get_attack_stage__11TItemWeaponFv();
 s32 rotate_matrix_y(s32, s32);
 

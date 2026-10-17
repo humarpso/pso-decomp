@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TOCapsuleMachine01.h"
@@ -53,7 +55,6 @@ extern s32 lbl_805D2ED4;
 extern s32 tl_05;
 extern const f32 lbl_805DB380;
 extern const f32 lbl_805DB384;
-u8 *TOCapsuleMachine01__ct(u8 *arg0, s32 arg1);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8015A734_lbl_804AFF00 bm_fs_obj_cap_moto_resource_descriptor;
 extern s32 capsule_machine_ginja_mesh_handle;
@@ -70,15 +71,12 @@ struct VObj_8015A5E8 : Base_8015A5E8 {
     virtual s32 m8(f32, f32);
 };
 
-void *__dt__18TOCapsuleMachine01Fv(void *arg0, s16 arg1);
 s32 PPCSync();
 s32 scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
 s32 post_translate_matrix(void *);
-void draw_ginja_object(void *child);
 s32 free_collision_body_parts(void *);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 

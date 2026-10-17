@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/pso_const_ids4.h"
 
 extern "C" {
 void set_slot_mode__20TWindowActionPaletteFllll(void *, int, int, int);
 extern s32 lbl_80447184[];
-void assign_default_photon_blast_palette_slots(u8 *arg0);
 int ret_801D78E4(void) { return 0; }
 int ret_801D78EC(void) { return 0; }
 int ret_801D78F4(void) { return 0; }

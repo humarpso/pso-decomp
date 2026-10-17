@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8014B8A4.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -17,7 +18,6 @@ u8 * TObjNpcBase__ct(void *);
 extern RecoveredGlobal_8014B8A4_lbl_8043FB50 male_npc_idle_animation_parameters;
 extern RecoveredGlobal_8014B8A4_lbl_804A9F50 lbl_804A9F50;
 extern s32 *npc_town_motion_data;
-u8 *construct_male_npc_base(u8 *arg0);
 typedef char RecoveredGlobal_8014B8A4_lbl_8043FB50_size[sizeof(RecoveredGlobal_8014B8A4_lbl_8043FB50) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_8014B8A4_lbl_804A9F50_size[sizeof(RecoveredGlobal_8014B8A4_lbl_804A9F50) == 0x178 ? 1 : -1];
 u8 *construct_male_npc_base(u8 *arg0) {

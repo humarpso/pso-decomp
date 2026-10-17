@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/item/TItemLockCountCtrl_8011E184.h"
 #include "pso/TItemLockCountCtrl.h"
 #include "pso/items/TItemWeapon.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-void fn_8011E1D4(u8 *arg0);
-void TObjPlayer__sub_8011E204(void *arg0, s32 arg1);
 void *TItemLockCountCtrl__ct(void *, int, int, void *, void *);
 void *__nw__7TObjectFUl(int);
 

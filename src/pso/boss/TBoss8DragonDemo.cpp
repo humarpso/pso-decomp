@@ -1,4 +1,8 @@
 #include "pso/TBoss8DragonDemo.h"
+#include "pso/boss/TBoss8DragonColli.h"
+#include "pso/boss/TBoss8DragonDemo.h"
+#include "pso/misc/TCameraCtrl_800687BC.h"
+#include "pso/object/TObject_80019A50.h"
 
 #include "types.h"
 
@@ -26,21 +30,13 @@ struct RecoveredGlobal_802F2CC4_lbl_804E4A44 {
 struct Obj_8002B118 { u8 pad[0x1c]; void *colli[3]; };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
-s32 restore_player_cameras();
 u8 *get_scripted_camera_playback();
-s32 activate_camera_mode(s32 arg0);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_802F2D8C___vt__16TBoss8DragonDemo __vt__16TBoss8DragonDemo;
 extern s32 lbl_805D3FF8;
 extern const f32 lbl_805DED18;
-u8 *__ct__16TBoss8DragonDemoFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
 extern RecoveredGlobal_802F2CC4_lbl_804E4A44 lbl_804E4A44;
 extern const f32 lbl_805DE9F4;
-void TBoss8DragonDemo__sub_802F2CC4(void);
-void TBoss8DragonColli__sub_802F3074(void *c);
-f32 TBoss8DragonDemo__sub_802F2CB4(void* p);
-f32 TBoss8DragonDemo__sub_802F2CBC(void* p);
 int VecCopy__FP3VecPC3Vec(void*);
 
 int TBoss8DragonDemo::copy_position() { return VecCopy__FP3VecPC3Vec((char*)this + 0x78); }

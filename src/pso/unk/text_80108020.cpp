@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TItemLoad.h"
 struct Vec_80108164 { f32 x, y, z; };
@@ -107,7 +108,6 @@ void *__nw__7TObjectFUl(u32);
 Quest_80108164 *get_quest_id__12TQuestListVMFv(Player_80108164 *);
 extern const f32 lbl_805DAB04;
 extern const f32 lbl_805DAB08;
-void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 create_particle_emitter(void *, s32);
 void __ct__7TObjectFP7TObject(void *, s32);
 void construct_actor_light_task(void *, void *, void *, s32, u8 *, f32, s32);

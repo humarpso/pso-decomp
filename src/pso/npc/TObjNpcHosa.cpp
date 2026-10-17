@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/npc/TObjNpcKenkyuW.h"
+#include "pso/unk/text_8014B8A4.h"
 #include "pso/npc/TUnk_804A9F50.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/npc/TObjNpcHosa.h"
@@ -114,15 +116,10 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern u32 TObjNpcHosa__static_model_resource;
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-u8 *construct_male_npc_base(u8 *arg0);
 extern s32 __vt__11TObjNpcHosa[];
 extern s32 TObjNpcHosa__name;
-u8 *TObjNpcHosa__ct(u8 *arg0, s32 arg1, s32 arg2);
-void * TObjNpcKenkyuW__create(void *arg0);
-void *__dt__11TObjNpcHosaFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
-u8 *TObjNpcKenkyuW__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 

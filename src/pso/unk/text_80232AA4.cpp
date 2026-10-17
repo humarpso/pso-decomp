@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 #include "pso/unk/TUnk_804CC870.h"
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 s32 find_entity_by_id(int);
 extern const f32 lbl_805DC844;
 void TUnk_804CC870::run_task() {

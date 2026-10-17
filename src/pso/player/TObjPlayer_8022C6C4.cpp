@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8022C6C4.h"
 #include "pso/player/TObjPlayer.h"
 extern "C" void render__8TTecCtrlFv();
 extern "C" void run_task__8TTecCtrlFv();
@@ -116,7 +117,6 @@ extern LightData_8022C738 TObjLight__scene_light_state;
 extern s32 tl_07;
 extern const f32 lbl_805DC7DC;
 extern const f32 lbl_805DC7E0;
-void create_technique_charge_light(u32 kind, void *owner);
 extern "C" void __dt__8TTecCtrlFv();
 extern "C" void render_shadows__7TObjectFv();
 void *tech_high_level_linear_power_table[19] = {

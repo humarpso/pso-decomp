@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl_8024A054.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowSubCustomEquip.h"
 #include "pso/misc/TWindowDD.h"
@@ -28,7 +29,6 @@ s32 draw_default_entry__9TWindowDDFl();
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 s32 forward_render__20TWindowSubStatusDispFv(int, int);
-void render__21TWindowSubCustomEquipFv(u8 *arg0);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern f32 TWindowSubCustomEquip__ring_scale;
@@ -48,7 +48,6 @@ s32 fn_8002AE08(int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 apply_choice__20TWindowChoiceSettingFllll(void *, int, int, int);
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 is_player_input_active(s32 param_1);
 extern RecoveredGlobal_80276D14_lbl_8050E208 controller_input_state;
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 extern const f32 lbl_805DD5A4;
@@ -62,7 +61,6 @@ s32 get_slot_type__20TWindowActionPaletteFlll(s32, s32, s32);
 extern const Vec2_802766C8 custom_equip_entry_offset_table[];
 extern const f32 lbl_805DD57C;
 extern const f32 lbl_805DD580;
-void *__dt__21TWindowSubCustomEquipFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 extern const f32 lbl_805DD568;

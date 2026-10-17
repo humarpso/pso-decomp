@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8011C000.h"
+#include "pso/unk/text_8011B620.h"
+#include "pso/unk/text_80120D50.h"
 #include "pso/items/TItemWeapon.h"
 #include "pso/item/TItemData.h"
 #include "pso/player/TObjPlayer.h"
@@ -17,17 +20,14 @@ extern "C" {
 u8 get_field_ed__5TItemFv(void *);
 s32 TItemEquipBase__ct(void *, void *, u8 *);
 void *lookup_item_pmt_record(u8 *item);
-u8 get_weapon_class_motion_type(u8);
 s32 set_weapon_trail_joints(void *, int, int, int);
 s32 memcpy(void *, void *, int);
 s32 memset(void *, int, int);
-s32 create_gun_shot(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
 extern void *__vt__11TItemWeapon[];
 extern s32 lbl_805D53EC;
 extern const f32 lbl_805DAC98;
 extern u8 lbl_805DACA4;
 extern const f32 lbl_805DACB0;
-u8 *TItemWeapon__ct(u8 *arg0, void *arg1, u8 *arg2);
 u8 *TItemWeapon__ct(u8 *arg0, void *parent, u8 *item) {
     s32 temp_r3;
     u8 temp_r0;

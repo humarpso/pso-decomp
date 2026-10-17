@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TOKey_8015845C.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/player/TUnk_804B1B80.h"
 #include "pso/misc/TOFenceAncient01.h"
@@ -22,15 +25,12 @@ struct VObj18_80166970 : VBase18_80166970 {
 
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-void draw_ginja_model(s32 model);
 s32 rotate_matrix_z(int, int);
 s32 rotate_matrix_x(int, int);
 s32 draw_ginja_model_with_motion(void *, int, f32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-void *init_map_object_base(void *a0);
 
 void TObjPlayer::on_zone_exit() {
     u8 *arg0 = (u8 *)this;

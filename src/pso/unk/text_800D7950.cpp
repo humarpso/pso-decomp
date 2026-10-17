@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/unk/text_800D7950.h"
 
 extern "C" {
 
-void *__dt__13TUnk_80494968Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__12TAttackTraceFv(void *, int);
 

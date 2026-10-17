@@ -1,4 +1,7 @@
 #include "pso/TBoss1DragonDemo.h"
+#include "pso/boss/TBoss1DragonDemo.h"
+#include "pso/misc/TCameraCtrl_800687BC.h"
+#include "pso/object/TObject_80019A50.h"
 
 #include "types.h"
 
@@ -18,18 +21,12 @@ struct RecoveredGlobal_8002B744___vt__16TBoss1DragonDemo {
 };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
-s32 restore_player_cameras();
 u8 *get_scripted_camera_playback();
 s32 isV2Mode__12TBoss1DragonFv();
-s32 activate_camera_mode(s32 arg0);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8002B744___vt__16TBoss1DragonDemo __vt__16TBoss1DragonDemo;
 extern s32 TBoss1DragonDemo__name;
 extern const f32 lbl_805D8128;
-u8 *__ct__16TBoss1DragonDemoFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
-void TBoss1DragonDemo__sub_8002B68C(void);
-void TBoss1DragonDemo__sub_8002B690(void);
 
 void TBoss1DragonDemo__sub_8002B68C(void) {  }
 void TBoss1DragonDemo__sub_8002B690(void) {  }

@@ -1,0 +1,13 @@
+#ifndef PSO_UI_TADENTERSERIALACCESSGC_8032AD30_H
+#define PSO_UI_TADENTERSERIALACCESSGC_8032AD30_H
+
+#include "types.h"
+
+extern "C" {
+void clear_state(void);
+u8 *get_serial_text__22TAdEnterSerialAccessGCFii(s32 arg0, s32 arg1);
+s32 has_serial_input__22TAdEnterSerialAccessGCFv(void);
+int validate_input__22TAdEnterSerialAccessGCFPviPv(void *arg0, s32 arg1, char *arg2);
+}
+
+#endif

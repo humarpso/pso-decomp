@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TLanguage_801E4874.h"
+#include "pso/misc/TOKeyMachine01_8016D448.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TOKey.h"
@@ -32,12 +38,10 @@ struct VObj_8016D540 : VBase_8016D540 { virtual void m0(); virtual void m1(); vi
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int mem_alloc(void *);
-u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8016D714_lbl_80441E24 lbl_80441E24;
 extern RecoveredGlobal_8016D714_lbl_804B2DD8 bm_fs_obj_ki_doa_panel_resource_descriptor;
 extern u32 key_machine_model_archive;
 extern s32 *TOKeyMachine01__texture_lists;
-s32 get_main_phase(void);
 s32 is_split_screen(void);
 u8 * TOKey__ct(void *);
 extern s32 __vt__14TOKeyMachine01[];
@@ -46,17 +50,12 @@ extern const f32 lbl_805DB784;
 extern const f32 lbl_805DB788;
 extern const f32 lbl_805DB794;
 extern const f32 lbl_805DB798;
-u8 *TOKeyMachine01__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void draw_ginja_model(s32 model);
-void set_chunk_material_color(f32 *arg);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-void *__dt__14TOKeyMachine01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void *__dt__5TOKeyFv(void *arg0, s16 arg1);

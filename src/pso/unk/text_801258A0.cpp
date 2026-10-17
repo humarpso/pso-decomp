@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_801258A0.h"
 #include "pso/player/TUnk_804A2564.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemProShield.h"
@@ -11,13 +12,11 @@ struct RecoveredGlobal_801258A0_lbl_804A2564 {
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-u8 *create_panzer_faust(s32 arg0);
 u8 * TItemWeapon__ct(void *, void *);
 extern RecoveredGlobal_801258A0_lbl_804A2564 lbl_804A2564;
 extern const f32 lbl_805DAD50;
 extern const f32 lbl_805DAD58;
 extern const f32 lbl_805DAD60;
-u8 *construct_panzer_faust(u8 *arg0, u8 *arg1, s32 _w2);
 
 typedef char RecoveredGlobal_801258A0_lbl_804A2564_size[sizeof(RecoveredGlobal_801258A0_lbl_804A2564) == 0xFC ? 1 : -1];
 u8 *construct_panzer_faust(u8 *arg0, u8 *arg1, s32 _w2) {

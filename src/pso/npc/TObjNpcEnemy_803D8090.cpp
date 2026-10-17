@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TObjNpcEnemy_803D8090.h"
 #include "pso/enemy/TObjEneMe1Gee.h"
 #include "pso/npc/TObjNpcEnemy.h"
 
@@ -15,7 +16,6 @@ int sprintf(char *, const char *, ...);
 extern char lbl_805D46A0[6];
 extern const f32 lbl_805E0EB8;
 extern const f32 lbl_805E0EBC;
-void print_float_padded(s32 arg0, s32 prec, f32 val);
 void TObjNpcEnemy::set_global_count(s32 arg0) {
     debug_text_global_count = arg0;
 }

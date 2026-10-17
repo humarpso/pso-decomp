@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_800F5BC0.h"
 #include "pso/system/memory.h"
 
 struct StripRef_800F5BC0 { s16 *strip; s16 *uv; };

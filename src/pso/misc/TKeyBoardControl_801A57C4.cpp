@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_80131C58.h"
+#include "pso/misc/TKeyBoardControl_801A57C4.h"
 #include "pso/misc/TKeyBoardControl.h"
 
 struct RecoveredGlobal_801A58B0_TKeyBoardControl__data_80506270 {
@@ -14,16 +16,10 @@ struct RecoveredGlobal_801A58D8_TKeyBoardControl__data_80506270 {
 struct Pad_801A57D0 { u8 pad0[0x10]; u32 f10; u8 pad14[4]; u16 f18; u16 f1A; s16 f1C; s16 f1E; };
 
 extern "C" {
-bool TKeyBoardControl__sub_801321B4(s32 arg0);
 extern s32 TKeyBoardControl__global_key_state[];
-void TKeyBoardControl__sub_801A58B0(void);
-s32 TKeyBoardControl__sub_80132310(s32);
-void TKeyBoardControl__sub_801A58D8(void);
 extern Pad_801A57D0 *controller_input_state[];
 u8 TKeyBoardControl__sub_8013239C(void *, u8);
-void init_stick_escape_detector(void *arg0, void *arg1);
 s32 OSGetResetButtonState();
-void update_state_from_input__16TKeyBoardControlFPv(void *arg0);
 s32 TKeyBoardControl__sub_801323C8(void *, void *);
 
     extern unsigned char lbl_805D5D09;

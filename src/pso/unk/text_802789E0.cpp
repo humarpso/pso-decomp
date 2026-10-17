@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_802789E0.h"
 #include "pso/item/TItem.h"
 #include "pso/misc/TShopJudgmentItemWindow.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -7,7 +8,6 @@ extern "C" {
 u8 *find_item_by_id(s32 id);
 u8 *get_player_by_client_id(s16);
 void calc_list_content_extent(void *);
-void fn_802789E0(u8 *arg0);
 void fn_802789E0(u8 *arg0) {
     u32 ids[32];
     u8 *pl;

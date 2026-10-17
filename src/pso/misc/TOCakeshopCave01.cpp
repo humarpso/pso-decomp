@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TOCakeshopCave01.h"
@@ -75,15 +77,11 @@ extern s32 lbl_805D2EC4;
 extern s32 tl_05;
 extern const f32 lbl_805DB36C;
 extern const f32 lbl_805DB370;
-void *TOCakeshopCave01__ct(void *arg0_, void *arg1);
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void draw_ginja_model(s32 model);
 extern const f32 lbl_805DB368;
-void *__dt__16TOCakeshopCave01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);

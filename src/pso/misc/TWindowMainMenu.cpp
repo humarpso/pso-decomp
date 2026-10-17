@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TWindowLockOn.h"
 #include "pso/misc/TWindowMenuMainMenu.h"
@@ -70,7 +71,6 @@ u8 * __dt__7TObjectFv(void *, s16);
 s32 get_player_by_client_id(u32);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8026492C___vt__15TWindowMainMenu __vt__15TWindowMainMenu;
-u8 *__dt__15TWindowMainMenuFv(u8 *arg0, s16 arg1);
 void sub_80263D7C__15TWindowMainMenuFv(void *, int);
 void update_keyboard_card_state__15TWindowMainMenuFv(void *, int);
 s16 TWindowMainMenu__sub_802ADB00(u32);
@@ -78,11 +78,8 @@ void populate_menu__15TWindowMainMenuFPvPv(u8 *arg0, Ent_802646E4 *arg1);
 void *__ct__7TObjectFP7TObject(void *);
 extern s32 lbl_805D3950;
 Win_802649C0 *TWindowMainMenu__ct(Win_802649C0 *arg0, void *arg1, s32 arg2);
-int test_keyboard_card_flag4(void* p);
 int park_selection__15TWindowMainMenuFPv(void*);
-void TWindow__close(u8 *arg0);
 s32 is_split_screen();
-void window_request_show(void *arg0);
 
 void TWindowMainMenu4P::show_child_window() { if (*(unsigned int*)((char*)this + 0x1c) != 0) { window_request_show(*(void**)((char*)this + 0x1c)); ((TWindowMainMenu *)(*(void**)((char*)this + 0x1c)))->update_scaled_position(); } }
 void TWindowMainMenu::update_trade_submenu() { void* m = *(void**)((char*)this + 0x1c); if (m) ((TWindowLockOn *)m)->request_close(); }

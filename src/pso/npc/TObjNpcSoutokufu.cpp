@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8014B8A4.h"
 #include "pso/npc/TUnk_804A9F50.h"
 #include "pso/TObjBoss5FloorStone.h"
 #include "pso/boss/TBoss8Dragon.h"
@@ -115,14 +116,11 @@ extern RecoveredGlobal_802895D8_lbl_804D3320 bm_npc_soutokufu_resource_descripto
 extern u32 TObjNpcSoutokufu__shared_model_resource;
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-u8 *construct_male_npc_base(u8 *arg0);
 extern s32 __vt__16TObjNpcSoutokufu[];
 extern s32 TObjNpcSoutokufu__name;
-u8 *TObjNpcSoutokufu__ct(u8 *arg0, s32 arg1, s32 arg2);
 f32 calc_sq_offset__12TBoss8DragonFf(void *, void *, f32);
 extern void *lbl_805D4DD8;
 extern const f32 lbl_805DD8E8;
-void *__dt__16TObjNpcSoutokufuFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 

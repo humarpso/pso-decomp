@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/player/TUnk_804A0AA8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
@@ -6,11 +8,9 @@
 extern "C" {
 
 s32 post_translate_matrix(void *);
-void draw_ginja_object(void *child);
 s32 is_owner_alive__15TItemShootModelFv();
 s32 rotate_matrix_by_node_angles(void *, s32);
 s32 push_matrix();
-s32 pop_matrix();
 void __ct__15TItemShootModelFPvPC3VecPC3Vecf(void *);
 
 void TUnk_804A0AA8::render() {

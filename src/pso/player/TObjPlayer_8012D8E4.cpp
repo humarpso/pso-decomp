@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8012D8E4.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void enlarge_flight_cutter_slicer(void *arg0);
 s32 scale_current_matrix(void *);
 u8 get_slot_count__14TItemProShieldFv();
 s32 post_translate_matrix(void *);

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjFish_8001ED90.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_8001ED80.h"
 #include "pso/TChCrLoadGmNjReq.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -52,8 +54,6 @@ public:
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *, int, int);
-s32 TLobby__sub_8001ED88(void *p);
-int fn_8001ED90(void *p);
 u32 get_bml_model(int, int);
 s32 TLobby__sub_8001FE7C(int, int);
 u32 TLobby__sub_8002058C(int, int, void *, void *, int, int, int);

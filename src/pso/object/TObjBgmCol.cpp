@@ -1,12 +1,12 @@
 #include "types.h"
+#include "pso/misc/TLoadCtrl_80227390.h"
+#include "pso/object/TObjBgmColCtrl_8017E8E4.h"
 #include "pso/object/TObjBgmCol.h"
 #include "pso/object/TObjBgmColCtrl.h"
 
 struct Zone_8017E748 { u8 pad[0x9C]; s32 category; };
 
 extern "C" {
-int get_quest_bgm_issued_flag(void);
-void play_area_music(char *name);
 extern s32 area_music_filename_table[];
 extern s32 bgm_zone_category;
 extern s32 lbl_805D5B04;

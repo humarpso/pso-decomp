@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TLobby_80132ED0.h"
 #include "pso/ui/TAdPsoPassSaveGC.h"
 
 struct Base_8034A63C { char pad[0x18]; };
@@ -32,15 +34,8 @@ struct VObj_8034A6E8_8034A63C : Base_8034A6E8_8034A63C {
 
 extern "C" {
 
-void *TAdPsoPassSaveGC__ct(void *arg0);
-void TAdPsoPassSaveGC__vt4(void);
-void TAdPsoPassSaveGC__vt5(void);
-void TAdPsoPassSaveGC__vt8(void);
-void *__dt__16TAdPsoPassSaveGCFv(void *arg0, s16 arg1);
-s32 get_localized_text_entry(s32, s32);
 void *TAdYesNoBaseGC__ct(void *arg0);
 void *__dt__14TAdYesNoBaseGCFv(void *arg0, s16 arg1);
-void TKeyBoardControl__sub_8000F9CC(s32 arg0);
 void *__ct__10TAdTitleGCFP7TObjectl(void *, void *, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);

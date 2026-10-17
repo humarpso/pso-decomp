@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl_8024AEAC.h"
 
 #include <stddef.h>
 #include "pso/misc/TWindowCtrl.h"
@@ -60,7 +61,6 @@ struct RecoveredGlobal_8024AEAC_lbl_804CEA04 {
 extern "C" {
 s32 TWindowCtrl__sub_8024B098(void *, void *);
 extern RecoveredGlobal_8024B000_lbl_804CE9D4 lbl_804CE9D4;
-void TWindowCtrl__sub_8024B000(s32 arg0, s32 arg1);
 extern RecoveredGlobal_8024AFB8_lbl_804CE9E0 window_ctrl_apply_default_vec_callback_entry;
 extern RecoveredGlobal_8024AF74_lbl_804CE9EC TWindowCtrl__player_menu_query_cb;
 extern RecoveredGlobal_8024AEF0_lbl_804CE9F8 TWindowCtrl__unsuppress_slot_cb;

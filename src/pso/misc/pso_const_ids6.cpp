@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/pso_const_ids6.h"
 #include "pso/item/TItem.h"
 
 extern "C" {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8034DAA0.h"
 struct Vec2i_8034DAA0 {
     s32 x;
     s32 y;
@@ -74,7 +75,6 @@ extern Vec2i_8034DAA0 lbl_80478C90[];
 extern Vec2i_8034DAA0 lbl_80478C98[];
 extern Vec2i_8034DAA0 lbl_80478CA0[];
 extern Vec2i_8034DAA0 lbl_80478CA8[];
-void TLobby__sub_8034DAA0(s32 arg0, u32 arg1);
 void TLobby__sub_8034DAA0(s32 arg0, u32 arg1) {
     Player_8034DAA0 *p;
     p = get_player_by_client_id(arg0);

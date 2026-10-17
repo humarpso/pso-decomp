@@ -1,14 +1,14 @@
 #include "types.h"
+#include "pso/boss/TBoss6Thanks_8035D1F4.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/unk/text_8035D2EC.h"
 #include "pso/boss/TBoss6Thanks.h"
 
 extern "C" {
 s32 fn_8035CAE0();
 int check_ship_door__12TBoss6ThanksFv(void*);
-int TBoss6Thanks__sub_8035D270(void* p);
 u8 *TBoss6Thanks__ct(u8 *arg0, u8 *arg1);
 void *__nw__7TObjectFUl(int);
-s32 any_player_has_listed_equipment();
-s32 get_main_phase();
 s32 is_split_screen();
 
 extern void *tl_02;

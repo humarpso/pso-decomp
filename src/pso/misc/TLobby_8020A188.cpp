@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_8020A188.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
@@ -6,7 +7,6 @@
 
 extern "C" {
 
-void init_buffers__6TLobbyFii(s32 arg0, s32 arg1);
 int free_boss4rock__6TLobbyFs(void*, void*);
 u32 find_type5_header__6TLobbyFPvi(s32, s32);
 u32 find_chunk_by_id__6TLobbyFPvi(s32, s32);

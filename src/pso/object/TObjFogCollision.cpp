@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_8001A448.h"
 #include "pso/object/TObjFogCollision.h"
 #include "pso/TParticleCtrl.h"
 
@@ -19,7 +20,6 @@ struct RecoveredGlobal_80153FD0___vt__16TObjFogCollision {
 };
 
 extern "C" {
-void disallow_rendering__7TObjectFv(void *arg0);
 s32 construct_world_actor_base(void *);
 extern s32 __vt__16TObjFogCollision[];
 extern s32 lbl_805D2E78;

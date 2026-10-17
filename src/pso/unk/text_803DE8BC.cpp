@@ -1,15 +1,12 @@
 #include "types.h"
+#include "pso/unk/text_803DE7E0.h"
+#include "pso/unk/text_803DE8BC.h"
 
 extern "C" {
 extern void *sys_heap_handle;
 void OSFreeToHeap(void *heap, void *ptr);
-void free_to_sys_heap(void *ptr);
 void *OSAllocFromHeap(void *heap, u32 size);
-void *sys_alloc(u32 size);
-void fill_memory(void *p, u8 c, u32 n);
-void *sys_calloc(s32 arg0, s32 arg1);
 void move_data__6TLobbyFPCvUl(void *, void *, void *);
-void *fn_803DE960(void *arg0, void *arg1);
 
 #pragma push
 #pragma scheduling off

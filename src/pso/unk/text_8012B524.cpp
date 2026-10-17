@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8012B524.h"
 #include "pso/item/TUnk_804A4D70.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemProShield.h"
@@ -9,12 +10,10 @@ typedef char RecoveredGlobal_8012B524_lbl_804A4D70_size[sizeof(RecoveredGlobal_8
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-u8 *create_partisan_weapon(u8 *arg0);
 u8 * TItemWeapon__ct(void *, void *);
 extern RecoveredGlobal_8012B524_lbl_804A4D70 partisan_weapon_vtable;
 extern const f32 lbl_805DAE88;
 extern const f32 lbl_805DAEA4;
-u8 *TItemWeaponPartisan__ct(u8 *arg0, u8 *arg1, s32 _w2);
 
 u8 *TItemWeaponPartisan__ct(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);

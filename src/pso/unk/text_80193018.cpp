@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80193018.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TOKeyMachine01.h"
 
@@ -31,7 +32,6 @@ extern u8 lbl_80445BB8[];
 extern u8 lbl_80445BCC[];
 extern s32 lazer_fence_norm_texture_list;
 extern void *lazer_fence_norm_bml_resource;
-void load_lazer_fence_norm_resources(void);
 void load_lazer_fence_norm_resources(void) {
     void *obj;
     switch (TOKeyMachine01::get_global_state()) {

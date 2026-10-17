@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/CanadinEffects.h"
+#include "pso/enemy/TObjEneMe1Canadin.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/enemy/TObjEneMe1Canadin_EffDischarge.h"
 #include "pso/enemy/TObjEneMe1Canadin_EffLight.h"
 #include "pso/enemy/TObjEneMe1Canadin_EffLine.h"
@@ -151,7 +154,6 @@ extern s32 TObjEneMe1Canadin_EffLight__name;
 extern const f32 canadin_light_width_decay;
 Obj_8009FC44 *TObjEneMe1Canadin_EffLight__ct(Obj_8009FC44 *self, void *parent, s32 count);
 void run_task__26TObjEneMe1Canadin_EffLightFv(Obj_8009FA24 *arg0);
-void *__dt__26TObjEneMe1Canadin_EffLightFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void mem_free(void *);
@@ -239,14 +241,10 @@ Obj_8009FC44 *TObjEneMe1Canadin_EffLight__ct(Obj_8009FC44 *self, void *parent, s
     return self;
 }
 
-void render__30TObjEneMe1Canadin_EffDischargeFv(void);
-
 void render__30TObjEneMe1Canadin_EffDischargeFv(void) {  }
 
 #pragma fp_contract on
 #define VC_B ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)
-void queue_destruction__7TObjectFv(void *arg0);
-void fn_8009E1D4(u8 *arg0, s32 arg1);
 u32 __nw__7TObjectFUl(s32);
 void subtract_vector(void *, void *);
 extern s32 tl_05;
@@ -321,12 +319,10 @@ struct Obj_8009FEB8 {
 
 extern "C" {
 s32 draw_line_list(void *, int, int);
-void render__25TObjEneMe1Canadin_EffLineFv(s32 arg0);
 #define VC_C ((void (*)(void *, const void *))VecCopy__FP3VecPC3Vec)
 extern s32 __vt__30TObjEneMe1Canadin_EffDischarge[];
 extern s32 TObjEneMe1Canadin_EffDischarge__name;
 Obj_8009FEB8 *TObjEneMe1Canadin_EffDischarge__ct(Obj_8009FEB8 *self, void *parent, Vec_8009FEB8 *from, Vec_8009FEB8 *to);
-void *__dt__30TObjEneMe1Canadin_EffDischargeFv(void *arg0, s16 arg1);
 
 void *__dt__30TObjEneMe1Canadin_EffDischargeFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -376,7 +372,6 @@ void render__25TObjEneMe1Canadin_EffLineFv(s32 arg0) {
     draw_line_list((void *) (&stack.sp8), (int) (1), (int) (5));
 }
 
-void run_task__25TObjEneMe1Canadin_EffLineFv(u8 *arg0);
 void *__dt__25TObjEneMe1Canadin_EffLineFv(void *arg0, s16 arg1);
 #define VC_D ((s32 (*)(void *, s32))VecCopy__FP3VecPC3Vec)
 s32 fn_800A02AC(void *, s32, void *, void *);
@@ -402,7 +397,6 @@ TObjEneMe1Canadin_EffLine::~TObjEneMe1Canadin_EffLine() {
 }
 extern "C" {
 
-u8 *TObjEneMe1Canadin_EffLine__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 rand(s32);
 
 extern s32 TObjEneMe1Canadin_EffLine__name;

@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl_8024A054.h"
+#include "pso/misc/TWindowInputNumber_80256170.h"
+#include "pso/misc/TWindowSubStatusDisp_802598E4.h"
 #include "pso/misc/TWindowChoiceSetting.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 #include "pso/misc/TUnk_804CE018.h"
@@ -41,7 +44,6 @@ typedef struct InNum_802561E8 {
 struct Win_80256354 { u8 p0[0x62]; s8 f62; u8 p63[5]; s32 f68; };
 
 extern "C" {
-void draw_right_aligned_number(void *);
 void construct_base__9TWindowDDFPUcsPUc(void *, void *, s16, void *);
 extern RecoveredGlobal_80256A60_lbl_804CF8EC lbl_804CF8EC;
 extern s32 __vt__18TWindowInputNumber[];
@@ -54,8 +56,6 @@ extern const f32 lbl_805DCE1C;
 extern const f32 lbl_805DCE20;
 extern const f32 lbl_805DCE24;
 extern const s32 number_input_decimal_place_values[];
-void *__dt__18TWindowInputNumberFv(void *arg0, s16 arg1);
-void render__18TWindowInputNumberFv(u8 *arg0);
 s32 draw_arrows__18TWindowInputNumberFv(void *, int, int, int);
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
@@ -63,7 +63,6 @@ u32 construct_type1_heading__20TWindowSubStatusDispFll(u32, s32, s16);
 void __dl__7TObjectFPv(void *);
 s32 forward_render__20TWindowSubStatusDispFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
-s32 is_player_input_active(s32 param_1);
 extern const f32 lbl_805DCE54;
 
 void TWindowInputNumber::create(s32 arg1) {

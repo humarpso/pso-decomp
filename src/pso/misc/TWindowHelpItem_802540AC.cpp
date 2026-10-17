@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/misc/TWindowHelpItem_802531A0.h"
+#include "pso/misc/TWindowHelpItem_802540AC.h"
+#include "pso/player/TObjPlayer_800A7764.h"
+#include "pso/unk/text_80253974.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/misc/TWindowHelpItem.h"
 #include "pso/item/TItem.h"
@@ -212,7 +217,6 @@ struct T_80255440 {
 
 extern "C" {
 s32 is_wrapped__9TItemDataFPv(void *);
-s32 get_localized_text_entry(s32 arg0, s32 arg1);
 s8 get_type__20TWindowSubStatusDispFv(s32);
 extern s8 lbl_805D6448;
 extern s8 lbl_805D6449;
@@ -220,18 +224,12 @@ extern s8 lbl_805D644A;
 extern s8 lbl_805D644B;
 
 s32 get_array_entry__13TUnk_804CE018Fi(void *, s32);
-void TWindowHelpItem__vt7(s32 arg0);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
-void TWindowHelpItem__vt4(void *arg0);
 s32 check_equip_requirements(s32, s32, s32 *);
 s32 get_player_by_client_id(s16);
-void update_stat_disp2__15TWindowHelpItemFPv(void *arg0);
 u32 get_quest_id__12TQuestListVMFv();
 u8 *lookup_item_pmt_record(s32);
-void update_level_requirement__15TWindowHelpItemFPv(u8 *arg0);
 u8 * find_item_by_id(s32);
-void TWindowHelpItem__set_displayed_item_by_id(u8 *arg0, s32 arg1);
-void show_item_by_id__15TWindowHelpItemFPvi(u8 *arg0, s32 arg1);
 s32 init_window_layout_entries(void *, void *, int);
 s32 set_help_text__15TWindowHelpItemFUl(void *, int);
 void TWindowHelpItem__vt9(HelpItem_80254F18 *self);
@@ -249,9 +247,7 @@ extern const f32 lbl_805DCDEC;
 extern const f32 lbl_805DCE0C;
 s32 build_player_equipment_requirement_stats(s32, Stats_80254CE4 *);
 void update_requirements__15TWindowHelpItemFv(Help_80254CE4 *self);
-s16 TObjPlayer__sub_800A776C(void *p);
 void update_stat_comparison__15TWindowHelpItemFv(Help_802549B0 *self);
-extern "C" void TWindowHelpItem__vt1(void *arg0);
 extern "C" void TWindowHelpItem__vt0(HelpItem_802551C4 *self);
 extern "C" void TWindowHelpItem__vt3(HelpItem_8025500C *self);
 extern "C" Op_802544D8 *get_attribute_entry__10TObjPlayerFl(s32, s32);
@@ -261,8 +257,6 @@ extern "C" u8 lbl_8044EDE0[];
 extern "C" u8 lbl_8044EDE8[];
 extern "C" u8 lbl_8044EDF0[];
 extern "C" u8 lbl_805DCDFC[4];
-extern "C" void TWindowHelpItem__vt10(u8 *arg0);
-extern "C" void TWindowHelpItem__vt11(u8 *window);
 extern "C" void sub_802534B0__15TWindowHelpItemFv(void *);
 extern "C" u8 lbl_8044EDB8[];
 extern "C" u8 lbl_8044EDC0[];

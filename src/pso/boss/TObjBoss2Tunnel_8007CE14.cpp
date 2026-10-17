@@ -1,17 +1,16 @@
 #include "types.h"
+#include "pso/boss/TObjBoss2Tunnel_8007C5C0.h"
+#include "pso/boss/TObjBoss2Tunnel_8007CF0C.h"
+#include "pso/player/TObjPlayer_80083B38.h"
 #include "pso/system/memory.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/TAdPlayerLoadGC.h"
 
 extern "C" {
-void * *TObjPlayer__sub_80084694(void);
 extern u8 *boss2_tunnel_snapshot_buffer;
 extern u8 *TObjBoss2Tunnel__snapshot_buffer;
 extern s32 TObjBoss2Tunnel__snapshot_saved_flag;
 s32 verify_snapshot_checksum__15TObjBoss2TunnelFv();
-
-s32 save_screen_snapshot();
-s32 memcard_check_snapshot(s32, s32 *);
 
 s32 TObjBoss2Tunnel::save_snapshot() {
     s32 sp8;

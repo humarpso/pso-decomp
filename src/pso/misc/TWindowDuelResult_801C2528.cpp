@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TPlayerBattleCtrl4P_8031012C.h"
+#include "pso/misc/TWindowDuelResult_801C2528.h"
 #include "pso/misc/TWindowDuelResult.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -9,9 +11,7 @@ struct RecoveredGlobal_801C257C_TLobby__data_80511C80 {
 };
 
 extern "C" {
-s32 *get_split_screen_battle_rankings(void);
 extern RecoveredGlobal_801C257C_TLobby__data_80511C80 TLobby__duel_result_table;
-s32 *TWindowDuelResult__sub_801C257C(void);
 void __ct__7TObjectFP7TObject(void *);
 
 extern s32 duel_result_window_dispatch_table[];

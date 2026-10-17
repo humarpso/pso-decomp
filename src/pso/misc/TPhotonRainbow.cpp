@@ -1,16 +1,15 @@
 #include "types.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/misc/TPhotonRainbow.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
 
 extern "C" {
 
-void *__dt__14TPhotonRainbowFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
-void draw_chunk_object(void *child);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 
 extern u8 *camera_ctrl_instance;

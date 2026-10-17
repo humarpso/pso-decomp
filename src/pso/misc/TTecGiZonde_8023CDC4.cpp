@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TTecGiZonde_8023CDC4.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_804CCD78.h"
 #include "pso/misc/TTecGiZonde.h"
@@ -9,11 +11,8 @@ struct RecoveredGlobal_8023CE54_lbl_804CCD78 {
 };
 
 extern "C" {
-void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804CCD78[];
-u8 *construct_helper_effect__11TTecGiZondeFPvPvPvPvi(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4);
-void *__dt__13TUnk_804CCD78Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 queue_destruction__7TObjectFv();

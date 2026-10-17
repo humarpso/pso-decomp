@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6Rock_80354A44.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/boss/TBoss6Rock.h"
 #include "pso/misc/TLobby.h"
@@ -27,7 +28,6 @@ u32 load_gvm_texture_file(void *);
 void TBoss6Rock__sub_80354188(void);
 extern u8 lbl_80479298[];
 extern s32 lbl_805D6EFC;
-void TBoss6Rock__sub_80354A44(void);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 

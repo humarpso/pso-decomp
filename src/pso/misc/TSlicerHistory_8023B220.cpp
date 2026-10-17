@@ -1,10 +1,13 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/TSlicerHistory.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805DC950;
 extern const f32 lbl_805DC94C;
 u32 query_game_join_id__10TObjPlayerFv(int);
@@ -13,11 +16,8 @@ s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_z(int, int);
 s32 rotate_matrix_x(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-void draw_ginja_object(void *child);
-void set_chunk_material_color(f32 *arg);
 typedef struct { f32 r, g, b, a; } Col_8023B220;
 extern Col_8023B220 chunk_material_color_half_alpha_f32;
 extern s32 lbl_805D5660;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TQuestThread.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjQuestColApcINW.h"
 #include "pso/object/TObjQuestColBase.h"
@@ -14,9 +15,7 @@ Pl_801960F8 *get_player_by_client_id(s32);
 extern u8 quest_col_apc_warp_target_pos[];
 extern s32 local_client_id;
 extern s32 quest_collision_warp_pending;
-void *TObjQuestColApcINW__ct(void *arg0);
 void TObjQuestColBase__ct(void *);
-u32 create__12TQuestThreadFi(s32 arg0);
 int destroy_board__17TQuestThreadBoardFv(void*);
 
 int TObjQuestColApcINW::vfunc_16() { destroy_board__17TQuestThreadBoardFv(this); create__12TQuestThreadFi((s32)(*(void* *)&this->m_b0)); }

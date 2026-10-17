@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/network/NetworkInfoLoader.h"
+#include "pso/unk/text_803F4D84.h"
 #include "pso/misc/TLobby.h"
 typedef struct Ent_803F4D84 {
     s16 v;
@@ -605,32 +607,11 @@ typedef struct Big_803F53A0 {
 } Big_803F53A0;
 
 extern "C" {
-s32 get_network_config_mode();
-s32 get_network_config_backup_mode();
 void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
 extern Big_803F4D84 *lobby_net_config_buffer;
-s32 TLobby__sub_803F4EBC(char *dst, s32 len);
 void *memcpy(void *, const void *, u32);
-s32 TLobby__sub_803F4FF4(void *dst);
-s32 TLobby__sub_803F50B8(void *dst);
-s32 TLobby__sub_803F517C(u8 *dst);
-s32 TLobby__sub_803F524C(char *dst, s32 len);
-s32 TLobby__sub_803F5524(char *dst, s32 len);
-s32 TLobby__sub_803F5678(u8 *dst);
-s32 TLobby__sub_803F5748(void *dst);
-s32 TLobby__sub_803F5824(void *arg0);
-s32 TLobby__sub_803F5900(void *arg0);
-s32 TLobby__sub_803F59DC(char *buf, u32 n);
-s32 TLobby__sub_803F5B20(char *buf, s32 n);
-s32 TLobby__sub_803F5C58(char *buf, s32 n);
-s32 TLobby__sub_803F5D90(char *buf, s32 n);
-s32 TLobby__sub_803F5EC8(char *buf, s32 n);
-s32 TLobby__sub_803F6000(char *buf, s32 n);
-s32 TLobby__sub_803F6138(char *buf, s32 n);
-s32 TLobby__sub_803F6270(u16 *arg0);
-s32 TLobby__sub_803F53A0(s32 n, char *dst, s32 len);
 #pragma push
 #pragma scheduling off
 #pragma peephole off

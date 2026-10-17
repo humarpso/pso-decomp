@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TOMineDisp_8016EF68.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TOMineTrapDisp.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
@@ -32,7 +34,6 @@ extern "C" {
 s32 TOMineDisp__ct(void *, void *, void *);
 extern RecoveredGlobal_8016EF68___vt__14TOMineTrapDisp __vt__14TOMineTrapDisp;
 extern s32 TOMineTrapDisp__name;
-u8 *TOMineTrapDisp__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3);
 s32 is_locally_controlled__10TObjPlayerFPv(void);
 f32 horizontal_distance_squared(void *, void *);
 void get_player_state__6TOMineFv(void *, u16);
@@ -42,7 +43,6 @@ extern const f32 lbl_805DB850;
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 set_chunk_material_color(void *, int);
 extern u8 chunk_material_color_half_alpha_f32[];

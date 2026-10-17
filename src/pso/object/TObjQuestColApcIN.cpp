@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TQuestThread.h"
+#include "pso/unk/text_8013157C.h"
 #include "pso/object/TObjQuestColApcIN.h"
 
 struct Pl_801962B4 { u8 pad0[0x38]; f32 pos[3]; };
@@ -6,12 +8,9 @@ struct Pl_801962B4 { u8 pad0[0x38]; f32 pos[3]; };
 struct Col_801962B4 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x68]; f32 fAC; u8 padB0[0xC]; f32 fBC; };
 
 extern "C" {
-f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
 Pl_801962B4 *get_player_by_client_id(s32);
 extern s32 local_client_id;
-void *TObjQuestColApcIN__ct(void *arg0);
 void TObjQuestColBase__ct(void *);
-u32 create__12TQuestThreadFi(s32 arg0);
 int destroy_board__17TQuestThreadBoardFv(void*);
 
 int TObjQuestColApcIN::vfunc_16() { destroy_board__17TQuestThreadBoardFv(this); create__12TQuestThreadFi((s32)(*(void* *)&this->m_b0)); }

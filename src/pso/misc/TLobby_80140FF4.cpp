@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/misc/TLobby_80140FF4.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
-void TLobby__sub_80141038(u8 *arg0, s32 arg1, s32 arg2);
-void* TLobby__sub_80141030(void* p);
 void *TMapCsnCtrl__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 

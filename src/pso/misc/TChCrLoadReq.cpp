@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_8028C8E0.h"
 #include "pso/misc/TChCrLoadReq.h"
 #include "pso/misc/TCharaMaking.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -15,7 +17,6 @@ struct Rq_8028D214 { u8 pad0[0x38]; void *f38; s32 f3c; s32 f40; s32 *f44; B_802
 extern "C" {
 u16 obj_getField1c(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
-void queue_destruction__7TObjectFv(void *);
 extern s32 __vt__12TChCrLoadReq[];
 extern void *lbl_805D3B60;
 u8 *TChCrLoadReq__sub_8028D360(u8 *arg0, s32 arg1);
@@ -25,7 +26,6 @@ void *__ct__12TChCrLoadReqFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 void *__dt__12TChCrLoadReqFv(void *arg0, s16 arg1);
 void * create_ch_cr_load_req(void *arg0, void *arg1);
 void sub_8028CEEC__12TChCrLoadReqFPl(void *);
-s32 TAdSinglePlyChrSelectGC__sub_8028CF6C();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);

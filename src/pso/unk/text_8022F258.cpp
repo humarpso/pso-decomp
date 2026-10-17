@@ -1,15 +1,14 @@
 #include "pso/effect/TechniqueChargeEmitter.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80087278.h"
+#include "pso/unk/text_8022F258.h"
 #include "types.h"
 #include "pso/item/TItemEquipBase.h"
 #include "pso/player/TObjPlayer.h"
 extern "C" {
 extern u32 dark_technique_charge_effect_ids[];
-void *spawn_particle_effect(void *pos, s32 id);
-void queue_destruction__7TObjectFv(void*);
-void updateDarkTechniqueCharge(TechniqueChargeEmitter* state);
 s32 __construct_array(void *, void *, int, int, int);
 extern s32 TItemEquipBase__sub_8010B73C[];
-void *fn_8022F258(void *self);
 
 void *fn_8022F258(void *self) {
     __construct_array(self, (void *)TItemEquipBase__sub_8010B73C, 0, 8, 6);

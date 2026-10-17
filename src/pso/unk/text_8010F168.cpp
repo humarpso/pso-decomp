@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/unk/text_8010F168.h"
 #include "pso/system/memory.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void *TItemDrop__sub_8010F168(void *arg0, s16 arg1);
-u8 *TItemDrop__sub_8010F1B8(u8 *arg0, s32 arg1, s32 arg2);
 s32 mem_alloc(void *);
 s32 fn_8010F018();
 s32 fn_8010F0C0(void *);

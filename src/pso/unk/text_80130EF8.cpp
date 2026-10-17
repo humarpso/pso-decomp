@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/unk/text_80087278.h"
+#include "pso/unk/text_80130EF8.h"
 #include "pso/unk/TUnk_804A6CC8.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -6,7 +8,6 @@ struct Obj_80131070 { u8 pad[0x208]; s32 state; };
 
 extern "C" {
 extern const f32 lbl_805DB038;
-void yasminkov_2000h_idle(u8 *arg0);
 extern const f32 lbl_805DB03C;
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -14,7 +15,6 @@ extern s32 tl_05;
 extern const f32 lbl_805DB040;
 extern const f32 lbl_805DB044;
 extern const f32 lbl_805DB048;
-void *spawn_particle_effect(void *pos, s32 id);
 void yasminkov_2000h_idle(u8 *arg0) {
     s32 temp_r0;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x1F8);

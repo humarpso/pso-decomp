@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801C00C4.h"
 #include "pso/misc/TUnk_804DDD28.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -7,7 +8,6 @@ struct O_801C010C { u8 pad[0x5c]; u8 arr[1]; };
 struct O_801C0124 { u8 pad[0x48]; u8 arr[1]; };
 
 extern "C" {
-u8 is_action_id_none(s32 arg0);
 u8 TObjPlayer__sub_801C010C(O_801C010C *self, s16 i);
 u8 TObjPlayer__sub_801C0124(O_801C0124 *self, s16 i);
 int TObjPlayer__sub_801C210C(void*);

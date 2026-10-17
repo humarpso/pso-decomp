@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_80131794.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowMakeTeam.h"
 #include "pso/misc/TWindowSubTradeMain.h"
@@ -8,9 +9,7 @@ int strcmp(const char *a, const char *b);
 char *strcat(char *, const char *);
 char *strncpy(char *, const char *, u32);
 void *memset(void *, int, u32);
-s32 replace_file_extension__6TLobbyFPvPvPv(char *arg0, char *arg1, char *arg2);
 extern char lbl_805DB070;
-s32 change_file_extension__6TLobbyFPvPvPv(char *arg0, char *arg1, char *arg2);
 void TLobby::debug_print(s32 arg0, ...) {}
 
 s32 replace_file_extension__6TLobbyFPvPvPv(char *arg0, char *arg1, char *arg2) {

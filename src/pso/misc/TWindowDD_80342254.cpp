@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowDD_80342254.h"
 #include "pso/misc/TWindowDD_WS_Word.h"
 #include "pso/misc/TWindowDD.h"
 
@@ -19,13 +20,10 @@ s32 update_selection_state__9TWindowDDFPv(void *);
 s32 TWindowDD__sub_80347C50();
 s32 TWindowDD__sub_803482B0(void *);
 s32 TWindowDD__sub_803484C4(void *);
-void TWindowDD__sub_80342428(u8 *arg0);
 s32 __nw__7TObjectFUl(int);
-s32 TWindowDD__sub_80342384(s32 arg0, s32 arg1);
 s32 reset_fields__9TWindowDDFv(void *, void *);
 extern s32 lbl_805D42E0;
 extern const f32 TWindowDD__data_805DFCA8;
-s32 TWindowDD__sub_803422F0(int a0, void *a1, void *a2);
 void *destroy__17TWindowDD_WS_WordFs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void mem_free(void *);

@@ -1,0 +1,18 @@
+#ifndef PSO_ENEMY_TOBJENEEPSILON_800B92AC_H
+#define PSO_ENEMY_TOBJENEEPSILON_800B92AC_H
+
+#include "types.h"
+
+extern "C" {
+void TObjEneEpsilon__sub_800B92AC(u8 *arg0, s32 arg1, f32 farg0);
+void TObjEneEpsilon__sub_800B92F8(u8 *arg0, s32 arg1, f32 farg0);
+void TObjEneEpsilon__sub_800B9384(u8 *arg0, s32 arg1, f32 farg0);
+int TObjEneEpsilon__vt101(void *p);
+int copy_position__14TObjEneEpsilonFPv(void *p, void *_w1);
+s32 enemy_bind_or_clear_target(void *self, u16 x);
+void enemy_turn_and_move_on_ground(u8 *arg0, s32 arg1, f32 farg0);
+s32 enemy_validate_retained_target(u8 *arg0);
+void spawn_part__14TObjEneEpsilonFi(s32 arg0);
+}
+
+#endif

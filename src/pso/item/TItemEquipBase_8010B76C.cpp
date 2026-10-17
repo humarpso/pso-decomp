@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/item/TItemEquipBase_8010B76C.h"
 #include "pso/item/TItemEquipBase.h"
 
 extern "C" {
-void fn_8010B7D8(u8 *arg0, s32 arg1);
-void fn_8010B7E8(u8 *arg0, s32 arg1);
 int clear_flags__11TAdRicoRingFUl(void*, int);
 int set_flags__10TObjPlayerFUl(void*, int);
 

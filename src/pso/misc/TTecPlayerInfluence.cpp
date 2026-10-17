@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TTecRaBarta.h"
 
@@ -89,7 +90,6 @@ typedef struct Rabarta_80237494
 } Rabarta_80237494;
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
 s32 approach_vector_in_place(void *, void *, f32);
 s32 TObjRoomId__sub_80141CF4(void *, void *, f32);
 extern RecoveredGlobal_80237194_lbl_8044D8EC lbl_8044D8EC;

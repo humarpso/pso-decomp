@@ -29,4 +29,8 @@ typedef char TEndingPhase[offsetof(TEnding, phase) == 0x1C ? 1 : -1];
 typedef char TEndingRate[offsetof(TEnding, timing_rate) == 0x24 ? 1 : -1];
 typedef char TEndingTicks[offsetof(TEnding, elapsed_ticks) == 0x28 ? 1 : -1];
 typedef char TEndingRing[offsetof(TEnding, ring_controller) == 0x70C ? 1 : -1];
+extern "C" {
+void TEnding__sub_8008C9F8(void);
+}
+
 #endif

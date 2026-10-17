@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/ui/TAdRicoRingCtrl_8001B4A0.h"
 #include "pso/ui/TAdRicoRingCtrl.h"
 
 #include <stddef.h>
@@ -36,10 +38,8 @@ extern s32 TAdRicoRingCtrl__class_name;
 extern s32 tl_04;
 extern const f32 lbl_805D7E4C;
 extern const f32 TAdRicoRingCtrl__data_805D7E50;
-u8 *TAdRicoRingCtrl__ct(u8 *arg0, s32 arg1);
 extern const f32 lbl_805D7E48;
 void TAdRicoRingCtrl__sub_8001B4A0(Obj_8001B4A0 *self, f32 x);
-void queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805D7E54;
 s32 test_flags_any(void *, int);
 

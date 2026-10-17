@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_80144B14.h"
+#include "pso/misc/TWindowSubStatusDisp_8025A9B4.h"
+#include "pso/misc/TWindowSubStatusDisp_80287570.h"
+#include "pso/ui/TObjBagWarnWin_8006EF24.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TWindowMainMenu.h"
 #include "pso/misc/TUnk_804CE018.h"
@@ -20,12 +24,7 @@ struct RecoveredGlobal_8024E548___vt__14TWindowDeposit
 
 extern "C" {
 s32 draw_visible_window_entries(void *, void *, int);
-void render__14TWindowDepositFv(s32 arg0);
-f32 TWindowSubStatusDisp__sub_802877A4(f32);
-s32 TQuestVmDownLoadServer__sub_8006EF6C(s32 arg0);
-u32 calc_text_width(char *s);
 s32 construct_base__9TWindowDDFPUcsPUc(void *, void *, void *, int);
-void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 s32 get_window_layout_position(int);
 extern RecoveredGlobal_8024E548_lbl_804CEB70 window_deposit_layout;
 extern s32 __vt__14TWindowDeposit[];
@@ -35,8 +34,6 @@ extern const f32 lbl_805DCC64;
 extern const f32 lbl_805DCC68;
 extern const f32 lbl_805DCC6C;
 extern const f32 lbl_805DCC70;
-u8 *TWindowDeposit__ct(u8 *arg0, s32 arg1);
-void *__dt__14TWindowDepositFv(void *arg0, s16 arg1);
 s32 draw_window_tab(s32, s32, s32, f32);
 void __dl__7TObjectFPv(void *);
 int initialize_subwindow__9TWindowDDFv(void*);

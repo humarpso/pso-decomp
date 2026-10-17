@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/ui/TAdYesNoBaseGC.h"
@@ -45,7 +47,6 @@ void *TAdYesNoBaseGC__ct(void *arg0);
 void *__dt__14TAdYesNoBaseGCFv(void *arg0, s16 arg1);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 get_selected_menu_value(u32);
-void TWindow__close(u8 *arg0);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 void *__ct__9TAdBackGCFv(void *, void *);
@@ -53,7 +54,6 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *);
-void queue_destruction__7TObjectFv(void *);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 
 s32 TAdYesNoBaseGC::sub_8032C0B4() {

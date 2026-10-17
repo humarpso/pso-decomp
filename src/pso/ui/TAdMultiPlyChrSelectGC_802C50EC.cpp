@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_803DE9C4.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
+#include "pso/system/ModelDrawContext.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802C50EC.h"
+#include "pso/unk/text_80299420.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 #include "pso/TMainTask.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -123,27 +128,16 @@ struct RecoveredGlobal_802C64D0_TAdMultiPlyChrSelectGC__data_804E0A48 {
 };
 
 extern "C" {
-void TAdMultiPlyChrSelectGC__sub_802C65C0(s32 arg0);
 int TAdMultiPlyChrSelectGC__sub_802C6920(void);
     extern int TAdMultiPlyChrSelectGC__data_805D67D8;
 extern s32 TAdMultiPlyChrSelectGC__select_mode;
 extern s32 TAdMultiPlyChrSelectGC__selected_slot;
-int TAdMultiPlyChrSelectGC__sub_80299454(void);
-s32 TAdMultiPlyChrSelectGC__sub_802C658C(s32 arg0);
-s32 find_active_slot__22TAdMultiPlyChrSelectGCFv(void);
-u8 * TKeyBoardControl__sub_803DEB74(u32);
 extern RecoveredGlobal_802C6848_lbl_804E0B00 multiplayer_controller_device_codes;
-s32 TAdMultiPlyChrSelectGC__sub_802C6848(s32 arg0);
-s32 TAdMultiPlyChrSelectGC__sub_802C6558(void);
 extern const f32 TAdMultiPlyChrSelectGC__data_805DE56C;
 extern s32 multi_ply_chr_select_default_slot_table[][5];
 extern s32 TAdMultiPlyChrSelectGC__data_804E0A68[][5];
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *);
 s32 get_field_20__22TAdMultiPlyChrSelectGCFv();
-void set_cached_blend_factor(s32 arg0, s32 arg1);
-void begin_screen_draw(s32 arg0);
-void draw_textured_quad_at_depth(f32 *q, f32 depth);
-void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern s32 lbl_805D67D4;
 extern const f32 lbl_805DE57C;
 extern const f32 lbl_805DE580;
@@ -153,8 +147,6 @@ s32 TAdMultiPlyChrSelectGC__sub_802C5F1C(void *, int);
 extern u8 controller_physical_port_bank[];
 extern Jump_802C5C84 multi_chr_select_cursor_jump_table[][5];
 extern void *TAdMultiPlyChrSelectGC__data_804E0A48[4];
-bool is_multiplayer_character_slot_selected(s32 arg0);
-u32 get_multiplayer_controller_active_index(int param_1);
 s32 TAdMultiPlyChrSelectGC__sub_802C50EC(s32);
 s32 TAdMultiPlyChrSelectGC__sub_802C522C(s32);
 

@@ -15,4 +15,9 @@ struct TPlyFollowParticleCtrl : public TUnk_804AF8A0 {
 };
 
 typedef char TPlyFollowParticleCtrl_size[sizeof(TPlyFollowParticleCtrl) == 0xB0 ? 1 : -1];
+extern "C" {
+void TPlyFollowParticleCtrl__sub_8030A694(void);
+s32 __dt__22TPlyFollowParticleCtrlFis(s32 arg0, s16 arg1);
+}
+
 #endif

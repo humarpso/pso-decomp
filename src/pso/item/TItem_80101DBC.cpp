@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TItem_80101DBC.h"
+#include "pso/misc/TLobby_80102DD4.h"
 #include "pso/misc/TLobby.h"
 #include "pso/item/TItem.h"
 
@@ -46,7 +48,6 @@ struct Item_80101E7C { u8 data1[0xC]; u32 id; u8 data2[4]; };
 struct Pkt_80101E7C { u8 subcommand; u8 size; u16 client_id; Item_80101E7C item; };
 
 extern "C" {
-void init_6x5E_buy_item_header(void *p);
 void normalize__9TItemDataFv(void *p);
 void TItem::send_owner_item_packet(void *item, u16 client_id) {
     Pkt_80101E7C pkt;

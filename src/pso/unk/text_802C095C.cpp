@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/unk/text_802C095C.h"
 
 extern "C" {
 
-void *create_lobby_pigeon(void *arg0);
 void *construct_lobby_pigeon(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 

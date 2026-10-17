@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/object/TObjCMMainMenu_8028EA88.h"
+#include "pso/unk/text_80141550.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/misc/CharacterAppearance.h"
 #include "pso/system/ChunkMaterialState.h"
 #include "pso/misc/TCharaMaking.h"
@@ -76,8 +79,6 @@ struct P_8028DCCC { f32 a; f32 b; };
 extern "C" {
 extern RecoveredGlobal_8028DE78_lbl_804D9164 class_appearance_preset_table;
 u8 *get_class_appearance_preset(s32 arg0);
-void set_shadow_material_state(void);
-void draw_chunk_object(void *child);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -90,7 +91,6 @@ s32 calc_section_id_from_name(s8 *arg0);
 extern P_8028DCCC character_proportion_height_table[];
 f32 calc_character_height(void *p);
 s32 TLobby__sub_803DA16C(void *);
-s32 TObjCMMainMenu__sub_8028EBCC(u8 *arg0);
 
 extern u32 creation_main_menu_obj;
 
@@ -211,9 +211,6 @@ void TCharaMaking::update_body_parts() {
     ((s32 (*)(void *, void *, void *, void *))TCharaMaking__bind_appearance_texture_lists)(arg0 + 0x8B8, arg0 + 0xA24, arg0 + 0xB90, arg0 + 0x85C);
     TChCrLoadReq::create(arg0);
 }
-
-void restore_default_scene(void);
-void set_scene_override(u8 scene);
 
 s32 validate_player_visual_record(void *arg0) {
     s32 bad;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/MaterialAlphaCompare.h"
 
 extern "C" {
 extern s32 material_alpha_compare_reference;

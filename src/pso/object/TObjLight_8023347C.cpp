@@ -1,13 +1,12 @@
 #include "types.h"
+#include "pso/misc/TLobby_80226070.h"
+#include "pso/object/TObjLight_8023347C.h"
 #include "pso/object/TUnk_804CC948.h"
 #include "pso/system/vector.h"
 
 extern "C" {
 
-void *__dt__13TUnk_804CC948Fv(void *arg0, s16 arg1);
-u8 *init__9TObjLightFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 play_sound_effect(int, void *, int, int);
-void stop_sound_request(s32 idx);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);

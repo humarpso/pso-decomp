@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/system/RefCountedWorkBuffer.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 
-void TLobby__sub_803D2ED4(void);
 s32 memset(void *, int, int);
 
 u8 ref_counted_load_buffer[0xC00];

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/unk/text_8035D2EC.h"
 #include "pso/item/TItem.h"
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/item/TItemProShield.h"
@@ -14,8 +16,6 @@ extern "C" {
 void *get_player_data__10TObjPlayerFi(int);
 void *get_equip_field_d04__10TObjPlayerFv(void *, int);
 extern u8 listed_equipment_table[][3];
-s32 any_player_has_listed_equipment(void);
-void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 void get_weapon_color__11TItemWeaponFPv(void *, void *);
 void fn_8035D3E0(Obj_8035D3E0 *arg0, Out_8035D3E0 *arg1);
 s32 any_player_has_listed_equipment(void) {

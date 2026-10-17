@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/camera/CreationCamera.h"
+#include "pso/misc/TCameraCtrl_80067654.h"
+#include "pso/misc/TCameraCtrl_80067FC0.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
 #include "pso/camera/TUnk_804DAB08.h"
 #include "pso/object/TObjCMProportion.h"
 struct CreationCameraVTable { void* reserved[2]; void (*methods[10])(); };
@@ -28,7 +32,6 @@ extern const f32 lbl_805DD9A0;
 f32 cos_table_lookup(s32);
 extern const f32 lbl_805DD96C,lbl_805DD978,lbl_805DD998;
 void approach_creation_camera_target(void *, int, int, f32, f32);
-u32 get_character_creation_selected_entry_id();
 extern const f32 lbl_805DD96C;
 extern const f32 lbl_805DD998;
 extern const f32 lbl_805DD9A4;
@@ -41,8 +44,6 @@ void get_creation_pad_stick(void*,void*);
 s32 TObjCMProportion__sub_8029914C(s32);
 f32 sin_table_lookup(s32),cos_table_lookup(s32);
 extern const f32 lbl_805DD974,lbl_805DD978,lbl_805DD9B4,lbl_805DD9B8,lbl_805DD9BC,lbl_805DD9C0;
-void *TCameraCtrl__vt8(void);
-void *construct_creation_camera(void *);
 void *__nw__7TObjectFUl(int);
 void update_creation_camera_auto(Cam_80291784*);
 
@@ -61,17 +62,11 @@ extern CreationCameraVTable lbl_804DAB08;
     extern const float lbl_805DD974;
     extern const float lbl_805DD9C4;
     extern const float lbl_805DD9C8;
-void* construct_creation_camera(void* a0);
     extern int TObjCMMainMenu__selected_entry_id;
-u32 get_character_creation_selected_entry_id(void);
-s32 get_character_save_record(u32);
 s32 decode_obfuscated_string__6TLobbyFPvi(void *, void *, int, int);
 extern RecoveredGlobal_80291D4C_lbl_80540958 lbl_80540958;
-s32 *TLobby__sub_80291D4C(void);
 void calc_spherical_camera_position__13TUnk_804DAB08Fv(CreationCamera*);
 int creation_camera_mode;
-void *TCameraCtrl__sub_80291C64(void *arg0, s16 arg1);
-void *__dt__13TUnk_80488A28Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 typedef char RecoveredGlobal_80291D4C_lbl_80540958_size[sizeof(RecoveredGlobal_80291D4C_lbl_80540958) == 0x10 ? 1 : -1];
@@ -129,9 +124,7 @@ CreationViewParameters creation_view_parameters[2] = {
 };
 void run_task__14CreationCameraFv();
 void render__7TObjectFv(); void render_shadows__7TObjectFv();
-void TCameraCtrl__sub_80067654(); void TCameraCtrl__sub_80067658();
-void TCameraCtrl__sub_80067660(); void TCameraCtrl__sub_8006765C();
-void TCameraCtrl__sub_80067664(); void TCameraCtrl::post_update_view();
+void TCameraCtrl::post_update_view();
 CreationCameraVTable lbl_804DAB08 = {{0,0}, {
     (void(*)())TCameraCtrl__sub_80291C64, run_task__14CreationCameraFv,
     render__7TObjectFv, render_shadows__7TObjectFv,

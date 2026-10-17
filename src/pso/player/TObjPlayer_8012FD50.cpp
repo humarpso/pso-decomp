@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8012FD50.h"
 
 extern "C" {
 
-void madam_umbrella_scale_canopy(void* p);
-void madam_umbrella_start_regen(void *arg0);
 int scale_current_matrix(void*);
 s32 get_id__13TItemProArmorFv(void *);
 int get_player_list__10TObjPlayerFv(void*);

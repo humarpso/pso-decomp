@@ -1,9 +1,11 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801BE778.h"
+#include "pso/player/TObjPlayer_801BFED4.h"
+#include "pso/player/TObjPlayer_802C3B14.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-s32 begin_action_state__10TObjPlayerFPv(u8 *arg0);
 s32 get_ptr_4__10TObjPlayerFv();
 s32 get_class_starting_inventory(u8);
 s32 init_technique_levels(s32, s32);
@@ -31,8 +33,6 @@ s32 begin_action_state__10TObjPlayerFPv(u8 *arg0) {
     return 1;
 }
 
-u8 get_mag_level__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_801BFFA0(void *p);
 s32 TObjPlayer__sub_802C4668(s32, s32);
 int get_char_index__23TAdSinglePlyChrSelectGCFUi(void*);
 

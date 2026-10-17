@@ -1,19 +1,16 @@
 #include "types.h"
+#include "pso/boss/Boss6Type1Appearance.h"
+#include "pso/misc/TLoadCtrl_80227390.h"
+#include "pso/misc/TPlayerFootStamp_802B0808.h"
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/boss/TBoss4DarkFalz.h"
 
 extern "C" {
 
-void TBoss6PlotFalz__sub_802B0808(void);
-void TBoss6PlotFalz__sub_802B08F0(void* p);
-void TBoss6PlotFalz__sub_802B0A34(void* p);
-void init_proto1_adx(void *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 TBoss6PlotFalz__sub_802ABADC();
 int refresh_players_equipment__14TBoss6PlotFalzFPv(void);
 int end_cutscene_camera__14TBoss6PlotFalzFPv(void*);
-void play_area_music(char *name);
-void *TBoss6Demo10_TYPE1_APPEAR__create(void *parent);
 int is_ready__14TBoss6PlotFalzFv(void*);
 
 void TBoss6PlotFalz__sub_802B0808(void) {  }

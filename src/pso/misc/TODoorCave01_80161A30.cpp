@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TODoorCave01_80161A30.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/unk/TUnk_804B0BB8.h"
 #include "pso/system/BmlResourceDescriptor.h"
@@ -62,7 +63,6 @@ extern s32 lbl_805D2F60;
 extern u32 door_cave_shared_bml_archive;
 extern const f32 lbl_805DB49C;
 extern const f32 lbl_805DB4A8;
-u8 *TODoorCave01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 *mem_alloc(s32);
@@ -72,7 +72,6 @@ extern u8 lbl_80440D94[];
 
 extern s32 enable_v2_features;
 extern s32 *TODoorCave01__texture_lists;
-void *__dt__12TODoorCave01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);

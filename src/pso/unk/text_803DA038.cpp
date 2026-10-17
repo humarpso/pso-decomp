@@ -1,12 +1,12 @@
 #include "types.h"
+#include "pso/unk/text_803D9FF0.h"
+#include "pso/unk/text_803DA038.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
-s32 TObjPlayer__sub_803DA104(u8 x);
 s32 strcmp(const char *, const char *);
 char *strcat(char *, const char *);
 char *strcpy(char *, const char *);
-void convert_string_chars_via_table(u8 *arg0);
 u32 strlen(const char *);
 
 void TAdSinglePlyChrSelectGC::append_extension_if_missing(char *name, char *ext) {

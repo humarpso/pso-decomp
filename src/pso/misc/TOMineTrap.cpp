@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_801E43E4.h"
 #include "pso/system/byteswap.h"
 #include "pso/misc/TOMineIcon01.h"
 #include "pso/misc/TOMine.h"
@@ -15,7 +16,6 @@ int TOMineTrap__sub_80171350(void);
 u16 TOMineTrap__sub_80171358(void* p);
 void TOMineTrap__sub_8017141C(void* p);
 void fn_80171314(void* p);
-void TLobby__send_and_handle_60(u8 *arg0);
 int read_be16_field2__10TObjPlayerFv(void*);
 
 void fn_80171314(void* p) { ((TObjPlayer *)p)->check_flag((s32)((void*)65536)); }

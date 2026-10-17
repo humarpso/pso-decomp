@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80128A70.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/player/TUnk_804A444C.h"
 
 struct VBase_18_8622c5 { char pad[0x18]; };
@@ -62,9 +64,7 @@ struct RecoveredGlobal_80129878_lbl_804A4438 {
 };
 
 extern "C" {
-void *spawn_particle_effect(void *pos, s32 id);
 s32 draw_icon__10TObjPlayerFll(void *, int, void *);
-void TObjPlayer__sub_80128A70(void);
 extern RecoveredGlobal_80129878_lbl_804A4438 s_rank_shot_marker_offsets;
 typedef char RecoveredGlobal_80129878_lbl_804A4438_size[sizeof(RecoveredGlobal_80129878_lbl_804A4438) == 0x14 ? 1 : -1];
 void TUnk_804A444C::emit_marker_effects() {

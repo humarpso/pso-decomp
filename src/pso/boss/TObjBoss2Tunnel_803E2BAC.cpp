@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TObjBoss2Tunnel_803E2BAC.h"
+#include "pso/player/TObjPlayer_803E21B8.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -10,13 +12,9 @@ struct Vtx_803E2BCC {
 };
 
 extern "C" {
-void setup_opaque_color_draw(void);
-void TObjPlayer__sub_803E21DC(void);
-void TObjBoss2Tunnel__sub_803E2D10(s32 arg0);
 s32 GXBegin(int, int, u16);
 extern const f32 lbl_805E1080;
 void draw_projected_quads__15TObjBoss2TunnelFPvi(Vtx_803E2BCC *p, s32 n);
-void TObjPlayer__sub_803E2248(void);
 
 void TObjBoss2Tunnel::reset_player_state() {
     TObjPlayer__sub_803E2248();

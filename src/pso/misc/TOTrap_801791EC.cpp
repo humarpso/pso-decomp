@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOTrap_801791EC.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/misc/TOTrap.h"
 
@@ -10,7 +11,6 @@ extern s32 __vt__6TOTrap[];
 extern s32 lbl_805D3198;
 extern const f32 TOTrap__data_805DBA3C;
 Self_80179244 *TOTrap__ct(Self_80179244 *self, void *a, void *b);
-void *__dt__6TOTrapFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 void *__dt__6TOTrapFv(void *arg0, s16 arg1) {

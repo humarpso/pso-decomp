@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowHelpItem_80255AB4.h"
+#include "pso/misc/TWindowSubComCardList_8026CB08.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowHelpItem.h"
 #include "pso/misc/TWindowDD.h"
@@ -14,7 +16,6 @@
 
 extern "C" {
 extern u8 *text_language_group_table;
-s32 get_help_text_string(s32 arg0);
 extern void *__vt__15TWindowHelpItem[];
 extern s32 TWindowHelpItem__object_vtable[];
 extern u32 lbl_805D3910;
@@ -24,14 +25,11 @@ void *alloc__23TAdSinglePlyChrSelectGCFv(u32 size);
 void *init__21TWindowSubComCardListFiii(void *p, s32 a, s32 b, s32 c);
 void call_if_split_screen(void *self, s32 idx);
 
-void TWindowHelpItem__sub_80255B20(u8 *arg0);
-s32 TWindowHelpItem__sub_80255DDC(void* p);
 s32 handle_list_page_flip_input(s32);
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 s32 draw_list_page_indicator(int, int);
 void __dl__7TObjectFPv(void *);
-s32 delete_if_allocated(s32 arg0, s16 arg1);
 void destroy_window_base__9TWindowDDFs(void *, int);
 s32 toggle_help_window_on_button(void *, s16);
 s32 decay_page_arrow_offset(s32);

@@ -1,5 +1,14 @@
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "pso/item/TItemMagSub.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/item/TItemMagSub_80114524.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_803E4954.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_80141550.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803DC86C.h"
 #include "pso/system/vector.h"
 
 #include "types.h"
@@ -258,8 +267,6 @@ struct Sub_80115334 {
 };
 
 s32 memset(void *, int, int);
-void queue_destruction__7TObjectFv(void *);
-void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 TItem__sub_80100A40(f32 *, f32, f32);
 void run_with_transform_context__10TObjPlayerFii(void *, void (*)(void *));
 u32 mag_owner_has_motion_action(s32);
@@ -267,7 +274,6 @@ s32 mag_owner_freezes_follow(int);
 int set_flags__11TItemMagSubFUl(void*, int);
 u32 test_flags__11TItemMagSubFUl(void *, u32);
 s32 obj_isState7_324(void *);
-void update_mag_node_oscillation_state(void *);
 s32 mag_node_oscillation_is_disabled(Feed_80114AB4 *);
 void reset_oscillation__11TItemMagSubFv(u8 *arg0);
 void accumulate_mag_axis_oscillation(f32 *arg0, s32 *arg1, void *arg2);
@@ -280,7 +286,6 @@ s32 mag_node_oscillation_angle(void *arg0);
 int mag_node_oscillation_uses_x(void* p);
 int mag_node_oscillation_node_index(void* p);
 int mag_item_tests_flag_20(void* p);
-void set_shadow_material_state();
 f32 sin_table_lookup(s32);
 void vec3_add_to(void *, void *);
 s32 rotate_matrix_zyx(int, int, int, int, int);
@@ -288,15 +293,9 @@ s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, void *);
 s32 rotate_matrix_z(int, int);
 s32 rotate_matrix_x(int, int);
-s32 push_matrix_from(void *);
 f32 transform_point_by_current_matrix(void *, void *);
 void push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void draw_ginja_object(void *child);
-void set_color_blend_mode(s32, s32, s32, s32);
-void set_chunk_material_color(f32 *arg);
-void draw_model_motion(void *, void *, f32);
 
 extern void *TItemMagSub__oscillating_instance;
 extern s32 TItemMagSub__feed_sequence_index;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8020B5CC.h"
 #include "pso/THeap.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -20,7 +21,6 @@ extern s32 tl_02;
 extern s32 tl_05;
 extern s32 tl_06;
 extern s32 tl_07;
-void TLobby__sub_8020BB18(void);
 void archive_pool_free(u32, void *);
 void *archive_pool_alloc(u32, u32);
 void *alloc__22TQuestVmDownLoadServerFv(u32);

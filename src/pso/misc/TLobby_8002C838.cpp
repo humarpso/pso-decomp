@@ -1,4 +1,13 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type2_800874F4.h"
+#include "pso/boss/TObjBoss1Crater_8002C6B4.h"
+#include "pso/misc/TLobby_8002C838.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_8002C190.h"
+#include "pso/unk/text_8002E174.h"
+#include "pso/unk/text_80141550.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/boss/TObjBoss1Floor.h"
 #include "pso/misc/TLobby.h"
@@ -32,30 +41,18 @@ extern "C" {
 extern char __vt__14TObjBoss1Floor[];
 extern s32 TObjBoss1Floor__name;
 extern const f32 lbl_805D8174;
-void queue_destruction__7TObjectFv(void *);
-void *create_particle_emitter(void *pos, s32 id);
 Player_8002C968 *get_player_by_client_id(s32);
 extern const f32 lbl_805D8170;
 void run_task__14TObjBoss1FloorFv(Floor_8002C968 *self);
 void *__dt__7TObjectFv(void *, int);
 void __dl__7TObjectFPv(void *);
-u8 *__dt__14TObjBoss1FloorFv(u8 *self, s16 flag);
-void render__14TObjBoss1FloorFv(void);
 int TBoss8Dragon__sub_8002D5F8(void);
-void draw_ginja_model(s32 model);
-void TObjBoss1Crater__sub_8002C7B4(void);
-void TObjBoss1Crater__sub_8002C7B8(void);
 void TObjBoss1Floor__sub_8002CB40(void);
 void TObjBoss1Floor__sub_8002CB78(void);
-void TObjBoss1Rock__sub_8002E3CC(void);
-void TObjBoss1Rock__sub_8002E3D0(void);
 s32 render_projected_shadow_receiver(void *, void *);
 s32 push_matrix();
-s32 pop_matrix();
 int create_instance__14TObjBoss1FloorFv(void*);
 s32 end_effect_render__13TParticleCtrlFv(int);
-void load_dragon_ground_assets(void);
-void func_80141618__Fv(void);
 
 void TLobby::update_boss1_objects() { TBoss8Dragon::free_resources(); TObjBoss1Rock__sub_8002E3CC(); TObjBoss1Crater__sub_8002C7B4(); TObjBoss1Floor__sub_8002CB40(); TLobby::free_char_select(); }
 int TLobby::forward_floor_2CB44() { return create_instance__14TObjBoss1FloorFv(this); }

@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/misc/TLobby_800F9A60.h"
 
 extern "C" {
 
-void TLobby__sub_800F9A60(void *arg0, void *arg1, void *arg2);
 void *__nw__7TObjectFUl(int);
 void apply_rel_relocations(void *);
 void *ct_object__13TUnk_8049C658Fv(void *, void *);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80268384.h"
 #include "pso/misc/TUnk_804D0618.h"
 #include "pso/misc/TWindowSubEquipKind.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -9,12 +10,8 @@ struct RecoveredGlobal_80278FE0___vt__19TWindowSubEquipKind {
 };
 
 extern "C" {
-u8 *fn_802683F4(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 extern s32 __vt__19TWindowSubEquipKind[];
 extern s32 TWindowSubEquipKind__class_name;
-u8 *TWindowSubEquipKind__ct(u8 *arg0, s32 arg1, s16 arg2);
-void *__dt__19TWindowSubEquipKindFv(void *arg0, s16 arg1);
-void render__19TWindowSubEquipKindFv(u8 *arg0);
 s32 draw_window_frame(void *, s32);
 s32 get_draw_context__11TWindowBaseFPv();
 s32 draw_visible_window_entries(void *, void *, s32);

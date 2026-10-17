@@ -1,10 +1,8 @@
 #include "types.h"
+#include "pso/object/TObjDoor_801F3754.h"
 #include "pso/object/TObjDoor.h"
 
 extern "C" {
-
-void TObjDoor__sub_801F3754(void);
-void TObjDoor__sub_801F3760(void);
 
 extern s32 TObjDoor__data_805D5BC8;
 

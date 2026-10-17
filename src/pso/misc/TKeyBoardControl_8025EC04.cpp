@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8025EC04.h"
+#include "pso/unk/text_8025FF8C.h"
 #include "pso/misc/TWindowKeyBoardBase.h"
 #include "pso/misc/KeyboardCharacterMaps.h"
 #include "pso/misc/TKeyBoardControl.h"
@@ -74,7 +76,6 @@ struct Ctl_8025F4A0 {
 
 extern "C" {
 
-void TKeyBoardControl__sub_8025EC04(u8 *arg0);
 s32 TKeyBoardControl__sub_801321B4(void *);
 s32 TKeyBoardControl__sub_80132274(void *);
 s32 is_key_57_pressed__16TKeyBoardControlFi(void *);
@@ -87,7 +88,6 @@ s32 TKeyBoardControl__sub_801A58B0(void);
 s32 TKeyBoardControl__sub_8025CBC0(u32);
 s32 TKeyBoardControl__sub_8025CBCC(u32);
 s32 TKeyBoardControl__sub_8025CC04(u32);
-void fn_8025FF8C(void *arg0);
 s32 set_input_mode__20TWindowSubStatusDispFUc(s32, s32);
 
 void TKeyBoardControl__sub_8025EC04(u8 *arg0) {

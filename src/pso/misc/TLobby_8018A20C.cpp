@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_8018A20C.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"

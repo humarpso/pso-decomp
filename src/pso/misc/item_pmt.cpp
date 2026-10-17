@@ -1,4 +1,6 @@
 #include "pso/TObject.h"
+#include "pso/item/TItemLoad_8010FDF0.h"
+#include "pso/misc/item_pmt.h"
 #include "types.h"
 #include "pso/TItemLoad.h"
 
@@ -9,7 +11,6 @@ extern "C" TObject* item_mgr;
 extern "C" char* const item_pmt_filename_descriptor;
 
 extern "C" void*    alloc__23TAdSinglePlyChrSelectGCFv(int size);
-extern "C" s32 *__dt__9TItemLoadFPvs(s32 *arg0, s16 arg1);
 extern "C" void*    get_type__8TItemMagFv(void* pmt);
 extern "C" TObject* create_drop__9TItemDropFi(int arg);
 

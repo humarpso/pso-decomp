@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/player/TObjPlayer_80100CC8.h"
 #include "pso/items/TItemWeapon.h"
 #include "pso/item/TItemMag.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -8,12 +10,7 @@
 
 extern "C" {
 
-u8 fn_80100CC8(void);
-s32 item_model_is_shown(void *arg0);
-void fn_80100D68(void *arg0);
-void fn_80100D9C(void* p, u8 v);
 s32 get_flag_40__8TItemMagFv();
-s32 get_main_phase();
 void copy_to_item_data__5TItemFPv(void *, void *);
 void TItemData__sub_8010C738(void *);
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss8DragonEffBullet.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -54,14 +55,11 @@ extern RecoveredGlobal_802FE378_lbl_80474B80 lbl_80474B80;
 extern s32 __vt__21TBoss8DragonEffBullet[];
 extern s32 TBoss8DragonEffBullet__name;
 extern const f32 lbl_805DEF04;
-u8 *TBoss8DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5);
-void queue_destruction__7TObjectFv(void *);
 s32 spawn_particle_effect_with_flags(void *, void *, int);
 u8 * spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 s32 get_enemy_entity(int);
 s32 TBoss8Dragon__sub_802FB220(int, void *, int);
 extern const f32 lbl_805DEF00;
-void *__dt__21TBoss8DragonEffBulletFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby_80082048.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/object/TObjMotion.h"
@@ -67,7 +69,6 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern u32 freeze_shell_bml_resource;
 s32 construct_actor_base__10TObjPlayerFPvPv(void *, void *);
 s16 obj_getField1c(void *);
-void queue_destruction__7TObjectFv(void *arg0);
 s32 get_bml_model(void *, int);
 u8 *get_quest_id__12TQuestListVMFv(void *);
 s32 create_particle_emitter(void *, int);
@@ -77,7 +78,6 @@ extern const f32 lbl_805D9378;
 extern const f32 lbl_805D9398;
 extern const f32 lbl_805D939C;
 extern const f32 lbl_805D93A0;
-void *__dt__13TUnk_8048E1A4Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 

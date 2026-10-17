@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/boss/TBoss7LaserPtcl.h"
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
 
 void TBoss7LaserPtcl::destroy_particles() {
     s32 arg0 = (s32)this;

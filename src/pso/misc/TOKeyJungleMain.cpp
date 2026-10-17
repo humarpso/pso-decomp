@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
 #include "pso/misc/TOKeyJungleMain.h"
 
 extern "C" {
 
-s32 get_main_phase();
 s32 send_6x75_quest_flag__6TLobbyFsss(int, s32, s32);
 s32 set_story_flag_in_bank(s32, u16);
 

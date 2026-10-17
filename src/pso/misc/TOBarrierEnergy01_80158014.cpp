@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLanguage_801E4874.h"
+#include "pso/misc/TOBarrierEnergy01_80158014.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/unk/TUnk_804B0BB8.h"
 #include "pso/misc/TUnk_804AFBF8.h"
@@ -51,7 +53,6 @@ s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int mem_alloc(void *);
-u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_80158078_lbl_80440200 lbl_80440200;
 extern RecoveredGlobal_80158078_lbl_804AFB24 bm_fs_obj_lazerguard_resource_descriptor;
 extern u32 barrier_energy_shared_bml_archive;
@@ -67,8 +68,6 @@ extern const f32 lbl_805DB2D8;
 extern const f32 lbl_805DB2DC;
 extern const f32 lbl_805DB2E0;
 extern const f32 lbl_805DB2E4;
-u8 *TOBarrierEnergy01__ct(u8 *arg0, s32 arg1, s32 arg2);
-void *__dt__17TOBarrierEnergy01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);

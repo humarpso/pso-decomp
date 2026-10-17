@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/object/TObjWeddingLobby.h"
@@ -52,7 +53,6 @@ s32 get_bml_model(void *, int);
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object();
 s32 draw_ginja_model_with_motion(int, int, f32);
@@ -62,9 +62,6 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 s32 init_map_object_base(void *, void *);
 extern s32 __vt__16TObjWeddingLobby[];
 extern s32 TObjWeddingLobby__class_name;
-u8 *TObjWeddingLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
-void TObjWeddingLobby__sub_8035BC20(void);
-void *__dt__16TObjWeddingLobbyFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);

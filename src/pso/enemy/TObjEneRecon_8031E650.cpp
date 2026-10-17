@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecon_8031BC38.h"
 #include "pso/enemy/TObjEneRecon.h"
 
 struct Base_8031E650 { char pad[0xC]; };
@@ -7,8 +8,6 @@ struct VObj_8031E650 : Base_8031E650 {
 };
 
 extern "C" {
-
-void TObjEneRecon__sub_8031BC38(void);
 
 extern struct VObj_8031E650 *boss3_volopt_instance;
 

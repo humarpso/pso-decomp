@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TLobby_8013AD38.h"
 #include "pso/ui/TAdDialingGC.h"
 
 extern "C" {
 
-s32 TAdDialingGC__sub_8013ADBC(s32);
 s32 render_status_disp__23TAdSinglePlyChrSelectGCFff(f32, f32);
 
 extern const f32 TAdDialingGC__data_805DF6EC;

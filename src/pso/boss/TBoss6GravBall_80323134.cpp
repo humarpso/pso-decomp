@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type2_800874F4.h"
+#include "pso/boss/TBoss6GravBall_80323134.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss6GravBall.h"
 #include "pso/boss/TBoss4Type2.h"
@@ -21,9 +23,7 @@ struct Obj_80323134 { u8 pad[0xC8]; Vec_80323134 pos; void *items[9]; };
 struct T_80323320 { u8 pad[0xD4]; s32 arr[9]; };
 
 extern "C" {
-void *create_particle_emitter(void *pos, s32 id);
 extern RecoveredGlobal_80323214_lbl_80476658 TBoss6GravBall__emitter_id_table;
-void TBoss6GravBall__sub_80323214(s32 arg0, s32 arg1);
 void TBoss6GravBall__sub_80323320(T_80323320 *self);
 Ctl_80323134 *get_player_by_client_id(int);
 void fn_80323134(Obj_80323134 *arg0);

@@ -1,6 +1,10 @@
 #pragma push
 
 #include "types.h"
+#include "pso/misc/TLobby_8030A6A8.h"
+#include "pso/object/TObjGoalWarpAncient_8017CB60.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/npc/TObjNpcEnemy.h"
 #include "pso/object/TObjAreaWarp.h"
@@ -40,7 +44,6 @@ extern "C" {
 extern const f32 lbl_805DBAC0;
 extern const f32 lbl_805DBAC4;
 extern const f32 lbl_805DBAC8;
-void run_task__19TObjGoalWarpAncientFv(u8 *arg0);
 s32 is_split_screen();
 s32 queue_destruction__7TObjectFv(void *);
 s32 register_warp_object__19TObjGoalWarpAncientFPv(int);
@@ -48,11 +51,9 @@ s32 register_warp__19TObjGoalWarpAncientFPv(int);
 s32 TObjGoalWarpAncient__sub_8017D2D4(int);
 s32 TObjAreaWarp__ct(void *, void *, void *);
 s32 init__13TAdVIConfigGCFf(int, void *, f32);
-s32 get_game_play_mode();
 extern s32 __vt__19TObjGoalWarpAncient[];
 extern s32 TObjGoalWarpAncient__class_name;
 extern const f32 lbl_805DBABC;
-u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 debug_print_area_num__12TObjAreaWarpFv();
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_80443288[];
@@ -60,14 +61,10 @@ extern char lbl_804432A4[];
 s32 draw_debug_destinations__11TObjMapWarpFv();
 extern char lbl_804432C8[];
 extern char lbl_804432E8[];
-void *__dt__19TObjGoalWarpAncientFv(void *arg0, s16 arg1);
-void render__19TObjGoalWarpAncientFv(u8 *arg0);
 s32 post_translate_matrix(void *);
-void draw_ginja_object(void *child);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 u8 *__dt__12TObjAreaWarpFv(u8 *arg0, s16 arg1);
 
@@ -154,7 +151,6 @@ struct VObj_8017CED8_more_8017cca4_1 : VObjBase_8017CED8_more_8017cca4_1 {
 
 extern "C" {
 void process_player_warps__11TObjMapWarpFPv(void *);
-void *TObjMapWarpAncient__create(void *arg0);
 void *TObjMapWarpAncient__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 

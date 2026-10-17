@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TLobby_8030A834.h"
 #include "pso/misc/TLobby.h"
 #include "pso/TBoss4ZakoDraw.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-void *fn_8030A83C(void *arg0);
 void *__ct__14TBoss4ZakoDrawFv(void *, void *);
 void *__nw__7TObjectFUl(int);
     extern int lobby_online_ready_flag;

@@ -32,4 +32,18 @@ struct TBoss3VoloptCore
     u32 m_3c8;
 };
 
+extern "C" {
+void TBoss3VoloptCore__sub_80040788(void);
+void *TBoss3VoloptCore__sub_800407E0(void *arg0);
+void *TBoss3VoloptCore__sub_80040A7C(void *arg0, void *arg1, void *arg1_arg);
+void TObjPlayer__sub_8003F81C(u8 *arg0);
+void TObjPlayer__sub_8003F9D4(void *arg0_);
+void TObjPlayer__sub_8003FCD0(u8 *arg0);
+void TObjPlayer__sub_800401CC(u8 *arg0);
+void TObjPlayer__sub_80040558(void *_w0);
+s32 TObjPlayer__sub_80040AE4(s32 i);
+void cache_volopt_resource_ptrs(void);
+void *create_TBoss3VoloptCore(void *arg0, void *arg1, s16 arg2, s16 arg3);
+}
+
 #endif

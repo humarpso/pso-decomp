@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore_801FB964.h"
 #include "pso/misc/TRaderMapCore.h"
 
 extern "C" {
 
-void *__dt__13TUnk_804C88A8Fv(void *arg0, s16 arg1);
 s32 get_bml_model(s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);

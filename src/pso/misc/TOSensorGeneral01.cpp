@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/math/MatrixTransforms.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TOSensorGeneral01.h"
 #include "pso/TParticleCtrl.h"
@@ -54,11 +57,8 @@ extern RecoveredGlobal_80176308_lbl_80442A80 lbl_80442A80;
 extern u32 sensor_general_shared_bml_archive;
 extern s32 *TOSensorGeneral01__texture_lists;
 s32 rotate_matrix_y(int, int);
-void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void draw_ginja_model(s32 model);
 s32 TOSensor__ct(void *, void *);
 extern s32 __vt__17TOSensorGeneral01[];
 extern s32 lbl_805D3154;

@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecon_8031BC38.h"
+#include "pso/enemy/TObjEneRecon_8031FCB0.h"
 #include "pso/enemy/TObjEneRecon.h"
 
 extern "C" {
 
-void TObjEneRecon__sub_8031BC38(void);
-void TObjEneRecon__sub_8031BC94(void);
-int TObjEneRecobox__sub_803201D0(void);
 void *TObjEneReconBomb__ct(void *, void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 

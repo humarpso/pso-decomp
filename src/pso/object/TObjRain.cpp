@@ -1,4 +1,5 @@
 #include "pso/TObjRain.h"
+#include "pso/object/TObjRain.h"
 
 #include "types.h"
 
@@ -11,7 +12,6 @@ extern "C" {
 s32 __ct__7TObjectFP7TObject();
 extern RecoveredGlobal_80197C84___vt__8TObjRain __vt__8TObjRain;
 extern s32 lbl_805D3420;
-u8 *__ct__8TObjRainFv(u8 *arg0, s32 arg1, u32 arg2);
 void TObjRain::render() { draw_streaks(); }
 void TObjRain::run_task() { update_drops(); }
 typedef char RecoveredGlobal_80197C84___vt__8TObjRain_size[sizeof(RecoveredGlobal_80197C84___vt__8TObjRain) == 0x18 ? 1 : -1];

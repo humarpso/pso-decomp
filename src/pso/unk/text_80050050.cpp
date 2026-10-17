@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_803E4954.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/object/TObjDFDemoF.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
@@ -14,10 +17,7 @@ s32 queue_destruction__7TObjectFv();
 extern const f32 lbl_805D8A20;
 extern const f32 lbl_805D8A24;
 s32 push_matrix();
-s32 pop_matrix();
 f32 post_translate_matrix(void *);
-void draw_chunk_object(void *child);
-void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern RecoveredGlobal_80050050_lbl_80485864 three_part_model_translate_offset;
 
 typedef struct RecoveredGlobal_80050050_lbl_80485864 RecoveredGlobal_80050050_lbl_80485864;

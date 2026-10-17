@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TChatMessage_801DF918.h"
+#include "pso/unk/text_801DB998.h"
 
 struct VBase_18_44382c { char pad[0x18]; };
 
@@ -29,12 +31,9 @@ struct Stack_801DB998 {
 };
 
 extern "C" {
-void fn_801DF918(void *p);
-void *fn_801DF954(void *p);
 s32 __as__8TPlySmthFRC8TPlySmth(void *, void *);
 s32 strncpy(void *, void *, int);
 s32 memset(void *, int, int);
-void send_register_9c(u8 *arg0);
 void send_register_9c(u8 *arg0) {
     Stack_801DB998 stack;
     fn_801DF954((&stack.sp8));

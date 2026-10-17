@@ -1,14 +1,12 @@
 #include "types.h"
+#include "pso/misc/TLobby_80105A2C.h"
+#include "pso/misc/TLobby_801E43E4.h"
 #include "pso/system/byteswap.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
     extern const float lbl_805DAAB0;
-void build_6x05_write_switch_flag(void* a0);
-void dispatch_packet__6TLobbyFPv(void *src);
-void bswap_6x60_drop_request_fields(void* p);
-void * build_6x06_send_guild_card(void *arg0);
 
 void TLobby::dispatch_packet_wrapper() { bswap_6x60_drop_request_fields((void*)(this)); dispatch_packet__6TLobbyFPv(this); }
 

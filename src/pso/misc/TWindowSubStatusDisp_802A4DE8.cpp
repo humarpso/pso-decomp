@@ -1,12 +1,9 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFish.h"
 
 extern "C" {
-
-void draw_textured_quad_at_depth(f32 *q, f32 depth);
-void begin_screen_draw(s32 arg0);
-void set_draw_texture_and_color(s32 idx, s32 arg1);
 
 extern s32 lbl_805D6668;
 extern f32 lbl_805DDF88;

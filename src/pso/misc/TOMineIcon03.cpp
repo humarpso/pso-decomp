@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/unk/text_80171A98.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TOMineIcon03.h"
 
 extern "C" {
 
-void *__dt__12TOMineIcon03Fv(void *arg0, s16 arg1);
-void *TOMineIcon03__ct(void *, void *, void *);
 s32 __dl__7TObjectFPv(void *);
 void *__dt__6TOMineFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);

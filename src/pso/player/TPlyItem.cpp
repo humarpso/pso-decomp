@@ -1,4 +1,6 @@
 #include "pso/TPlyItem.h"
+#include "pso/item/TItemList.h"
+#include "pso/player/TPlyItem.h"
 #include "pso/item/TItem.h"
 
 #include "types.h"
@@ -112,7 +114,6 @@ extern u8 item_reduce_owner_match_field_ec;
 extern u8 reduce_owner_match_id;
 extern s32 *TObjPlayer__owner_field_write_cursor;
 extern s32 inventory_walk_visit_count;
-void *TItemList__sub_801D5B10(void *arg0, s16 arg1);
 }
 
 TPlyItem::~TPlyItem() {
@@ -126,7 +127,6 @@ TPlyItem::~TPlyItem() {
 
 extern "C" {
 
-void *TPlyItem__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern s32 __vt__8TPlyItem[];

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8014B8A4.h"
 #include "pso/npc/TUnk_804A9F50.h"
 #include "pso/npc/TObjNpcMaleBase.h"
 #include "pso/npc/TObjNpcBase.h"
@@ -103,7 +104,6 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8014B9A4_lbl_804AA0D0 bm_n_ebm_i_body_resource_descriptor;
 extern u32 TObjNpcMaleBase__shared_bml_archive;
-u8 *construct_male_npc_base(u8 *arg0);
 extern s32 __vt__15TObjNpcMaleBase[];
 extern s32 TObjNpcMaleBase__name;
 u8 *TObjNpcMaleBase__ct(u8 *arg0, s32 arg1, s32 arg2);

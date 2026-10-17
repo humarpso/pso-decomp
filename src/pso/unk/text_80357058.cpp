@@ -1,4 +1,11 @@
 #include "types.h"
+#include "pso/item/TItemAttackCol_802E4798.h"
+#include "pso/object/TObjLight_803DF220.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/object/TObject_8001A448.h"
+#include "pso/unk/text_80141A30.h"
+#include "pso/unk/text_802E4A4C.h"
+#include "pso/unk/text_80357058.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/item/TUnk_804E355C.h"
 #include "pso/item/TItemEffOrgaFlowShot.h"
@@ -38,7 +45,6 @@ struct V4_8035740C { f32 x, y, z; s32 w; };
 struct O_8035740C { u8 pad0[0xC4]; V4_8035740C v[10]; };
 
 extern "C" {
-u8 *construct_attack_collision(u8 *arg0, s32 arg1, u8 *arg2);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 f32 normalize_vector(void *);
@@ -48,35 +54,19 @@ extern const f32 lbl_805E0038;
 extern const f32 lbl_805E003C;
 extern const f32 lbl_805E0040;
 extern const f32 lbl_805E0044;
-u8 *TItemEffOrgaFlowShot__ct(u8 *arg0, s32 arg1, u8 *arg2);
 extern const f32 lbl_805E0028;
 extern const f32 lbl_805E002C;
 s32 is_local_client_floor_leader();
-void build_6xAD_olga_flow_subordinate_boss_actions(void* p);
-void send_6xAD_olga_flow_subordinate_boss_actions(u8 *arg0);
 void grid_to_world_pos__11TBoss6Type2FccPv(u8, u8, Vec_803570E4 *);
 void clear_rock_state__10TBoss6RockFl(s32 i, s32 a, s32 b);
-int read_be16_field2_forward(void* p);
 extern int olga_flow_subordinate_actions_enabled;
 void handle_6xAD_olga_flow_subordinate_boss_actions(Pkt_803570E4 *pkt);
-void queue_destruction__7TObjectFv(void *arg0);
-void disallow_rendering__7TObjectFv(void *arg0);
 s32 has_game_join_id__13TUnk_804E355CFv();
-void check_hits__14TItemAttackColFPv(u8 *arg0);
 extern const f32 lbl_805E0030;
 extern const f32 lbl_805E0034;
-void run_task__20TItemEffOrgaFlowShotFv(u8 *arg0);
-void TBoss6Type2__sub_803570C8(s8 *arg0);
-void TItemEffOrgaFlowShot__sub_80357204(void);
-void TItemEffOrgaFlowShot__sub_80357210(void);
-void *__dt__20TItemEffOrgaFlowShotFv(void *arg0, s16 arg1);
 int TLobby__send_and_handle_60(void*);
-void draw_untextured_trail_strip(void *arg0, void *arg1);
-void TObjPlayer__sub_803DF768(s32 arg0);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void restore_saved_depth_alpha_state(void);
-void reset_player_transform(void);
 
 void send_6xAD_olga_flow_subordinate_boss_actions(u8 *arg0) {
     B_80357058 b;

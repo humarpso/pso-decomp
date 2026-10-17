@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDelDepth_8031624C.h"
+#include "pso/misc/TQuestListVM_8007EAF8.h"
+#include "pso/player/TObjPlayer_803E4954.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneDelDepth.h"
 #include "pso/enemy/TObjEneDelDepthBomb.h"
@@ -38,7 +41,6 @@ typedef struct {
 
 extern "C" {
 s32 TObjFish__sub_8001EDB0(s32, int);
-void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 s32 find_nearest_hittable_enemy__10TObjPlayerFiPvf(void *, void *, f32);
 s32 get_bml_model(s32, s32);
 u8 *get_bml_motion(s32, s32);
@@ -48,8 +50,6 @@ extern const f32 lbl_805DF2EC;
 void advance_animation_playback(void *);
 extern f32 TObjEneDelDepth__animation_end_frame;
 extern u8 TObjEneDelDepth__animation_end_frame_initialized;
-void fn_80316680(void *arg0, s32 arg1);
-void __dl__FPv(void);
 
 int TObjEneDelDepth::get_flag_bit4() { return (this->actorFlags >> 4) & 0x1; }
 

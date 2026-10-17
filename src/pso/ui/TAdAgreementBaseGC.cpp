@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/misc/TWindowSubStatusDisp_80144B14.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801334D4.h"
 #include "pso/ui/TAdAgreementBaseGC.h"
 #include "pso/TLevelSelect.h"
 #include "pso/misc/TLobby.h"
@@ -34,10 +38,8 @@ struct Obj_80329AA8 { s32 f0; u8 pad[0x14]; void *vt; s32 f1C; u8 pad2[4]; s32 f
 struct Pos_803296E8 { f32 x, y; };
 
 extern "C" {
-s32 TAdSinglePlyChrSelectGC__sub_801334DC(void *p);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-void TWindow__close(u8 *arg0);
 extern RecoveredGlobal_80329830_lbl_8050E208 controller_input_state;
 extern RecoveredGlobal_80329830_lbl_8050E3B8 controller_physical_port_bank;
 extern const f32 lbl_805DF710;
@@ -49,7 +51,6 @@ void __ct__7TObjectFP7TObject(void *, void *);
 void __ct__9TAdBackGCFv(void *, void *);
 void __ct__12TAdBackTxtGCFv(void *, void *);
 void *__ct__14TAdSelectCurGCFv(void *, s32, void *, void *);
-void fn_80329BAC(void* p);
 extern u8 agreement_item_rect_table[];
 extern u8 lbl_804770A0[];
 extern s32 __vt__18TAdAgreementBaseGC[];
@@ -57,17 +58,14 @@ extern s32 lbl_805D41B8;
 extern s32 tl_clipout;
 Obj_80329AA8 *TAdAgreementBaseGC__ct(Obj_80329AA8 *arg0, void *arg1);
 void *get_localized_text_entry(int, u32);
-u32 calc_text_width(char *s);
 s32 render_status_line__15TAdSubPlyItemGCFi(void *, int, f32, f32, f32);
 void draw_window_frame();
 extern const f32 lbl_805DF700;
 extern const f32 lbl_805DF704;
 extern const f32 lbl_805DF708;
 extern const f32 lbl_805DF70C;
-void *__dt__18TAdAgreementBaseGCFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void queue_destruction__7TObjectFv(void *);
 
 void TAdAgreementBaseGC::check_main_task_state() {
     if (get_state_flag__9TMainTaskFv() == 1) { return;

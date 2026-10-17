@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/ModelDrawContext.h"
 #include "pso/misc/TCineCtrl.h"
 #include "pso/TObjCMHairMenu.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -22,18 +23,15 @@ u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 extern s32 __vt__9TCineCtrl[];
 extern void * TCineCtrl__instance;
-u8 *__dt__9TCineCtrlFv(u8 *arg0, s16 arg1);
 extern const f32 lbl_805D91E0;
 extern const f32 lbl_805D91E4;
 extern const f32 lbl_805D91E8;
 extern const f32 lbl_805D91EC;
 extern const f32 TCineCtrl__data_805D91D0;
 void TCameraCtrl__sub_80068EF0(void);
-void set_cached_blend_factor(s32, s32);
 extern const f32 lbl_805D91D4;
 extern const f32 lbl_805D91D8;
 extern const f32 lbl_805D91DC;
-void *TCineCtrl__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 
 extern void *TCineCtrl__instance;

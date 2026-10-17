@@ -35,4 +35,15 @@ MfciFileEntry* mfci_open(const char* name, s32 entry, s32 mode);
 u32 mfci_parse_file_size(char* name);
 }
 
+extern "C" {
+MfciFileEntry *find_free_803D4058(void);
+void mfci_close(MfciFileEntry *arg0);
+s32 mfci_get_position(MfciFileEntry *arg0);
+MfciFileEntry *mfci_open(const char *name, s32 arg1, s32 mode);
+u32 mfci_parse_file_size(char *s);
+s32 mfci_seek(MfciFileEntry *arg0, s32 arg1, s32 arg2);
+void parse_803D4058(char *s, u32 *hi, u32 *lo);
+void parse_803D4290(char *s, u32 *hi, u32 *lo);
+}
+
 #endif

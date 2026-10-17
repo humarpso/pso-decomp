@@ -1,4 +1,11 @@
 #include "types.h"
+#include "pso/misc/TParticleCtrl_80327D30.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_80083594.h"
+#include "pso/player/TObjPlayer_803DC834.h"
+#include "pso/unk/text_80141A30.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803DA798.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_804ED598.h"
@@ -18,32 +25,21 @@ struct Obj_80327D30 { u8 pad0[0x1C]; f32 w; f32 h; u8 pos[0xC]; u8 pad30; u8 f31
 extern "C" {
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void queue_destruction__7TObjectFv(void *arg0);
 extern s32 lbl_804ED598[];
-void *__dt__13TUnk_804ED598Fv(void *arg0, s16 arg1);
 int GXSetNumIndStages(int);
 int GXSetTevDirect(int);
-void set_ginja_post_texgen_count(s32 x);
 extern s32 lbl_804ED5B0[];
 int register_indirect_effect_ctrl(void*);
-void *__dt__13TUnk_804ED5B0Fv(void *arg0, s16 arg1);
 s32 __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 s32 construct_indirect_effect_task(int, int, int, int);
 extern s32 tl_05;
-u8 *create_telepipe_marker(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 arg5, s32 arg6, f32 farg0, f32 farg1);
-void play_indirect_effect_recipe(u8 arg0, u16 arg1, s32 arg2);
-void setup_particle_tev(s32 arg0);
-void load_projected_texture_matrix(f32 farg0);
-void restore_saved_depth_alpha_state(void);
 s32 GXSetNumTexGens(int);
 s32 GXSetNumTevStages(int);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_x(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_texture_num(s32 i);
 s32 TParticleCtrl__sub_803E2A1C(void *, int);
 extern u8 lbl_804C5820[];
 extern u8 *camera_ctrl_instance;

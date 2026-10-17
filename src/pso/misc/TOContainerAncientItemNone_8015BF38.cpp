@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TOContainerAncientItemNone_8015BF38.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TOContainerAncientItemNone.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -20,9 +22,7 @@ struct VObj_8015BF38 : Base_8015BF38 {
 
 extern "C" {
 
-void *TOContainerAncientItemNone__ct(void *arg0);
 void TOContainerAncientItemRare__ct(void *);
-void queue_destruction__7TObjectFv(void *arg0);
 
 extern s32 __vt__26TOContainerAncientItemNone[];
 extern void *lbl_805D2F04;

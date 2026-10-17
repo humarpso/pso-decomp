@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-
-void *spawn_particle_effect(void *pos, s32 id);
 
 void TObjPlayer::draw_icon_selected(s32 arg0) {
     s32 sp8[6];

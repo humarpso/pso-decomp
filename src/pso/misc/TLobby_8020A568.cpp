@@ -1,11 +1,9 @@
 #include "types.h"
+#include "pso/misc/TLobby_8020A568.h"
 #include "pso/system/byteswap.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
-
-void TLobby__sub_8020A568(void* p);
-void TLobby__sub_8020A618(void *arg0, void *arg1);
 
 void TLobby__sub_8020A568(void* p) { bswap_32((u32 *)p); bswap_32((u32 *)((char*)p + 0x4)); bswap_32((u32 *)((char*)p + 0x8)); bswap_32((u32 *)((char*)p + 0xc)); }
 

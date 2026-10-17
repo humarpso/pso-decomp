@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80120908.h"
 #include "pso/item/TItemEffectWeapon.h"
 #include "pso/item/TItemEquipBase.h"
 #include "pso/item/TItemMag.h"
@@ -21,8 +22,6 @@ extern const f32 lbl_805DAC9C;
 
 u32 test_flags_1b8__11TItemWeaponFUl(void *, u32);
 s32 update_trail_slot__11TItemWeaponFPvi(void *, int);
-s32 draw_weapon_model(void *);
-void draw_weapon_at_joint(s32 arg0, s8 arg1);
 s32 get_field_d8__5TItemFv(void *);
 
 void TItemWeapon::update_trails() {

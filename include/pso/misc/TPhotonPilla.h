@@ -25,4 +25,8 @@ public:
 };
 typedef char TPhotonPilla_size[sizeof(TPhotonPilla) == 0x1AC ? 1 : -1];
 
+extern "C" {
+void *destroy__12TPhotonPillaFPvs(void *arg0, s16 arg1);
+}
+
 #endif

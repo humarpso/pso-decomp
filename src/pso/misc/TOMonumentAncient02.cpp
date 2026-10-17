@@ -1,4 +1,11 @@
 #include "types.h"
+#include "pso/math/MatrixTransforms.h"
+#include "pso/misc/TLobby_8030A6A8.h"
+#include "pso/misc/TOKey_8015845C.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/system/BmlResourceDescriptor.h"
@@ -98,9 +105,6 @@ struct Mon_80172AE0 : VObj_80172AE0 {
 extern "C" {
 s32 create_particle_emitter(s32, s32);
 u32 init_collision_body_parts(void *, s32, s32);
-void *init_map_object_base(void *a0);
-s32 get_game_play_mode(void);
-void queue_destruction__7TObjectFv(void *arg0);
 extern RecoveredGlobal_80172EA0_lbl_804B39A8 monument_ancient02_collision_parts;
 extern s32 __vt__19TOMonumentAncient02[];
 extern s32 enable_v2_features;
@@ -109,17 +113,12 @@ extern u32 TOMonumentAncient02__model_resource;
 extern const f32 lbl_805DB92C;
 extern const f32 lbl_805DB934;
 extern const f32 lbl_805DB938;
-u8 *TOMonumentAncient02__ct(u8 *arg0, s32 arg1, s32 arg2);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 rand(void);
 int rotate_matrix_y(int, int);
 int push_matrix();
-s32 pop_matrix(void);
 int post_translate_matrix(void *);
-void draw_ginja_model(s32 model);
-void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
-void set_chunk_material_color(f32 *arg);
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern u8 chunk_material_color_half_alpha_f32[];
@@ -127,7 +126,6 @@ extern const f32 lbl_805DB920;
 extern const f32 lbl_805DB924;
 extern const f32 lbl_805DB928;
 extern const f32 lbl_805DB930;
-void *__dt__19TOMonumentAncient02Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
 void free_collision_body_parts(void *);

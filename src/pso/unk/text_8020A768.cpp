@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TLobby_80207DA8.h"
+#include "pso/unk/text_800F8A18.h"
+#include "pso/unk/text_801A2514.h"
+#include "pso/unk/text_8020A768.h"
 #include "pso/misc/TLobby.h"
 struct Ent_8020A768 { s16 a; s16 b; u8 pad[0x48 - 4]; };
 
@@ -11,17 +15,13 @@ struct Name_8020A834 { char s[0x20]; };
 extern "C" {
 s32 read_disc_file(Name_8020A768 *, void *);
 void replace_file_extension__6TLobbyFPvPvPv(Name_8020A768 *, s32, const void *);
-void bswap_enemy_set_row(void *arg0);
 void reserve_enemy_set_actor_ids(struct SpawnRecord_8020A9C4 *, s32, s32);
 void init_floor_enemy_count__6TLobbyFlPUcUl(s32, Ent_8020A768 *, s32);
 extern u8 lbl_8044BBA8[];
 extern Ent_8020A768 *TLobby__map_set_file_buffer;
 extern s32 TLobby__map_set_file_buffer_size;
-s32 load_enemy_set_file(s32 arg0, s32 arg1);
-void swap_object_row_endian(void *arg0);
 void load_object_set_entries__6TLobbyFlPUcUl(s32, Ent_8020A834 *, s32);
 extern u8 lbl_8044BBB0[];
-s32 load_object_set_file(s32 arg0, s32 arg1);
 s32 load_enemy_set_file(s32 idx, s32 arg1) {
     Name_8020A768 name;
     s32 size;
@@ -75,11 +75,6 @@ s32 load_object_set_file(s32 idx, s32 arg1) {
     return 1;
 }
 
-void copy_name(s32 arg0);
-void advance_enemy_id_counter(s32 arg0);
-void advance_object_id_counter(s32 arg0);
-s32 load_enemy_set_file(s32, s32);
-s32 load_object_set_file(s32, s32);
 extern s32 map_set_data_handle_a;
 extern s32 map_set_data_handle_b;
 extern s32 map_set_object_id_counter;

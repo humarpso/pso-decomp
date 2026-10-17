@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80086FE0.h"
 struct Rec_80086FE0 { u8 pad[0x98]; };
 
 extern "C" {
@@ -7,7 +8,6 @@ void *__nw__7TObjectFUl(int);
 extern s32 particle_pool_limit;
 extern Rec_80086FE0 *particle_global_entry_table;
 extern Rec_80086FE0 *particle_area_entry_table;
-void *fn_80086FE0(void *arg0, void *arg1, s32 arg2, s32 arg3);
 void *fn_80086FE0(void *arg0, void *arg1, s32 arg2, s32 arg3) {
     void *o;
     if (particle_pool_limit > arg2) {

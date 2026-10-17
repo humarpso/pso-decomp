@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/item/TItemAttacker.h"
 #include "pso/item/TItemBuff.h"
 
 extern "C" {
 
-void TItemBuff__ct(void);
 void mem_free(void *p);
 
 extern s32 item_nj_chunk_buffer_table[];

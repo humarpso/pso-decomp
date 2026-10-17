@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_800F9B84.h"
 #include "pso/TObject.h"
 
 struct RecoveredGlobal_800F9B84_lbl_8050113C {
@@ -19,7 +20,6 @@ u8 *__nw__7TObjectFUl(s32);
 s32 strncpy(void *, s32, s32);
 s32 memset(void *, s32, s32);
 extern RecoveredGlobal_800F9B84_lbl_8050113C resource_load_task_root;
-void clear_resource_load_tasks(void);
 u32 apply_pointer_relocations(Obj_800F9BAC *self, RelHdr_800F9BAC *hdr);
 s32 create_named_object(s32 arg0) {
     s32 temp_r3;

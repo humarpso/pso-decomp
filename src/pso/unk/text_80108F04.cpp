@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type2_800874F4.h"
+#include "pso/item/TItemEffHeaven.h"
+#include "pso/object/TObject_8001A448.h"
+#include "pso/unk/text_80108F04.h"
 #include "pso/TItemAttacker.h"
 
 struct Ent_80108F04 { u8 pad0[0x1C]; u8 sub[0x10]; };
@@ -18,16 +22,11 @@ struct Flame_80108F04 {
 
 extern "C" {
 void *__nw__7TObjectFUl(u32 size);
-int destroy__14TItemEffHeavenFPv(void *p);
 extern void *tl_05;
-void spawn_flame_effect(void *self, void *target);
 s16 obj_getField1c(void *);
-void disallow_rendering__7TObjectFv(void *);
-void *create_particle_emitter(void *, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern void *__vt__13TItemEffFlame[];
 extern s32 TItemEffFlame__class_name;
-void *TItemEffFlame__ct(void *arg0, void *parent, void *target);
 
 #define self ((Flame_80108F04 *)arg0)
 #define arg2 ((Arg_80108F04 *)target)

@@ -1,8 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLobby_803D3194.h"
 
 extern "C" {
-
-void TLobby__sub_803D3194(void);
 
 extern s32 lobby_callback_tables_refcount;
 

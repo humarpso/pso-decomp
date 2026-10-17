@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/item/SpecialProjectileWeapons.h"
+#include "pso/player/TObjPlayer_80109344.h"
+#include "pso/unk/text_8011B328.h"
+#include "pso/unk/text_8011B620.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TUnk_804A66D8.h"
 
@@ -73,10 +77,6 @@ u8 * initialize_effect_object__10TObjPlayerFv(void *, s32, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 void launch_rare_weapon_special__10TObjPlayerFPvlf(void *, void *, s32, f32);
-void increment_burst_counter(u8 *arg0);
-void spawn_weapon_impact_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 create_shoot_model_rot_z(u32 arg0, s32 arg1, s32 arg2, f32 farg0);
-s32 create_gun_shot(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
 extern const f32 lbl_805DAFC8;
 
 u8 *TObjPlayer::create_effect_object(s32 arg0) {

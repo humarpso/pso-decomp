@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TOChatSensorFolder.h"
 #include "pso/TOChatSensorFolder.h"
 
 extern "C" {
 
-void *TOChatSensorFolder__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern s32 __vt__18TOChatSensorFolder[];

@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/object/TObject_8001A448.h"
+#include "pso/player/TObjPlayer_803E4954.h"
+#include "pso/unk/text_803D853C.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/system/vector.h"
 #include "pso/TBoss7Tentacle.h"
 #include "pso/boss/TBoss7PhotonBullet.h"
@@ -13,9 +18,6 @@ f64 atan2_float(f32, f32);
 s32 approach_angle_limited(s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
 s32 TBoss7Tentacle__sub_802F0608(void *, f32);
-void TBoss7Tentacle__sub_802F09FC(u8 *arg0);
-void TBoss7Tentacle__sub_802F0A2C(u8 *arg0);
-void TBoss7Tentacle__sub_802F0A44(u8 *arg0);
 f32 sin_table_lookup(s32);
 s32 set_matrix_identity(int);
 s32 subtract_vector(void *, void *);
@@ -31,7 +33,6 @@ extern const f32 lbl_805DEC34;
 extern const f32 lbl_805DEC3C;
 extern const f32 lbl_805DEC40;
 extern const f32 lbl_805DEC44;
-void run_task__14TBoss7TentacleFv(u8 *arg0);
 struct RecoveredGlobal_802EFB1C_lbl_80541918 {
     s32 value;
     u8 remaining[0xC];
@@ -113,8 +114,6 @@ struct Ten_802F0A5C;
 typedef struct Anim_802F0BE8 { u8 pad0[4]; u32 n; } Anim_802F0BE8;
 
 s32 obj_testFlags30(void *, s32);
-void queue_destruction__7TObjectFv(void *arg0);
-void disallow_rendering__7TObjectFv(void *arg0);
 s32 attach_particle_model(int, int, int, int, int, f32);
 s32 spawn_particle_effect(void *, int);
 f32 horizontal_distance_squared(void *, void *);
@@ -125,34 +124,11 @@ s32 notify_fish_obj__10TObjPlayerFPv(int);
 s32 queue_boss_effect__10TObjPlayerFPv(int);
 s32 TObjPlayer__sub_802E80A0();
 void draw_effect__10TObjPlayerFv(void *);
-void TBoss7Tentacle__sub_802EF954(void* p);
-void damage_nearby_players__14TBoss7TentacleFPv(u8 *arg0);
-void update_retract_state__14TBoss7TentacleFPv(u8 *arg0);
-void advance_needle_timer__20TBoss7TentacleNeedleFPv(void *arg0);
-void * __dt__20TBoss7TentacleNeedleFv(void *arg0, s16 arg1);
-void fn_802EFEA8(void);
-void TObjPlayer__sub_802EFEC4(void);
-void render__14TBoss7TentacleFv(u8 *arg0);
-u8 TBoss7Tentacle__sub_802F0904(u8 *arg0);
-void TBoss7Tentacle__sub_802F0918(void* p);
-void TBoss7Tentacle__sub_802F09B4(void* p);
-void TBoss7Tentacle__sub_802F09C8(void* a0);
-void TBoss7Tentacle__sub_802F09EC(void* p);
-void TBoss7Tentacle__sub_802F0A14(u8 *arg0);
-void TBoss7Tentacle__sub_802F0AD0(void* a0);
-void TBoss7Tentacle__sub_802F0AF0(u8 *arg0);
-void TBoss7Tentacle__sub_802F0B58(u8 *arg0);
-void TBoss7Tentacle__sub_802F0B70(void* p);
-void TBoss7Tentacle__sub_802F0B80(void* p);
-void TObjPlayer__sub_802F0D2C(void);
 s32 rand(void);
-void rotate_matrix_zyx(void *m, s32 x, s32 y, s32 z);
 s32 rotate_matrix_y(int, int);
 void rotate_matrix_by_node_angles(void *, int);
 s32 scale_current_matrix(void *);
 void post_translate_matrix(void *);
-void draw_chunk_object(void *child);
-void draw_model_motion(void *, void *, f32);
 
 extern V_802F0A5C TBoss7Tentacle__segment_offsets[];
 extern s32 __vt__20TBoss7TentacleNeedle[];

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/ChunkMaterialState.h"
 #include "pso/enemy/TObjEneMe3ShinowaReal.h"
 #include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
@@ -298,11 +299,9 @@ s32 TObjEneMe3Shinowa__ct(void *, void *);
 extern s32 lbl_805D2AD0;
 extern const f32 lbl_805DA5C0;
 s32 TObjEneMe3ShinowaReal__sub_800E45CC(int, int);
-void set_chunk_material_color(f32 *arg);
 void __dl__7TObjectFPv(void *);
 void *__dt__17TObjEneMe3ShinowaFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
-void set_chunk_material_override_pair(s32 arg0, s32 arg1);
 
 void TObjEneMe3ShinowaMirage::render() {
     u8 *arg0 = (u8 *)this;

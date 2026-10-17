@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby_8001D6A0.h"
+#include "pso/misc/TNpcPlayer_802C3CD0.h"
 #include "pso/misc/TNpcPlayer.h"
 #include "pso/misc/TQuestListVM.h"
 #include "pso/player/TObjPlayer.h"
@@ -54,7 +56,6 @@ struct Item_802C3F74 : VBase_802C3F74 {
 extern "C" {
 s16 obj_getS16_32E(void *);
 s16 obj_getS16_32C(void *);
-void copy_data__6TLobbyFPvPv(void *, void *);
 void copy_player_visual_record(void *, void *);
 Eq_802C3D38 *get_equip_field_d04__10TObjPlayerFv(void *, s32);
 void TObjPlayer__sub_8013A748(void *, void *);
@@ -72,11 +73,9 @@ s32 get_class_stat_entry__10TObjPlayerFPUc(void *);
 void split_capped_value__10TObjPlayerFUcPUcPSc(s32, u8 *, E_802C4698 *);
 u8 *TObjPlayer__sub_802C4688(O_802C4688 *self, s32 i);
 E_802C4698 *TObjPlayer__sub_802C4698(O_802C4698 *self, s32 i);
-void export_character_data__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 s32 reset(s32);
 s32 export_inventory_entry__10TObjPlayerFiPv(Item_802C3F74 *, s32);
 s32 TObjPlayer__sub_802A1018();
-void export_state_to_record__10TObjPlayerFPvPv(u8 *arg0, s8 *arg1);
 int init_character_stats_for_level(s32, s8 *, s32);
 int copy_item_entry_array(s8, s32, s32);
 

@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/unk/text_802AA8FC.h"
 #include "pso/boss/TBoss6PlotFalz.h"
 
 extern "C" {
 
-s32 TBoss6PlotFalz__sub_802AAC74(u8 *arg0);
-s32 get_main_phase();
 s32 is_split_screen();
 
 extern s32 TBoss6PlotFalz__instance;

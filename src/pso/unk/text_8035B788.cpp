@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8035B788.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -23,7 +24,6 @@ extern Rec_8035B788 lbl_804798DC;
 extern Obj_8035B788 *lbl_805D6F50;
 extern const f32 lbl_805E0140;
 extern const f32 lbl_805E0144;
-void fn_8035B788(void);
 void fn_8035B788(void) {
     Obj_8035B788 *o = (Obj_8035B788 *)((TAdSinglePlyChrSelectGC *)0x440)->alloc();
     if (o != NULL) {

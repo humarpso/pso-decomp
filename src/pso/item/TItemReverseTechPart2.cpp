@@ -1,4 +1,6 @@
 #include "pso/TItemReverseTechPart2.h"
+#include "pso/item/TItemReverseTechPart2.h"
+#include "pso/item/TItemReverseTech_8011A1E8.h"
 
 TItemReverseTechPart2::~TItemReverseTechPart2() {}
 
@@ -9,7 +11,6 @@ typedef char RecoveredGlobal_80119B28___vt__21TItemReverseTechPart2_size[sizeof(
 
 extern "C" {
 s32 __ct__18TItemReverseTechBGFv(int, void *, void *);
-void TItemReverseTech__sub_8011A54C(void *a0);
 u32 __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_80119B28___vt__21TItemReverseTechPart2 __vt__21TItemReverseTechPart2;
@@ -31,7 +32,6 @@ extern const f32 lbl_805DAC3C;
 extern const f32 lbl_805DAC40;
 extern const f32 lbl_805DAC44;
 extern const f32 lbl_805DAC48;
-u8 *__ct__21TItemReverseTechPart2Fv(u8 *arg0, s32 arg1, s32 arg2);
 s32 queue_destruction__7TObjectFv();
 
 extern void *TItemReverseTechPart1__instance;

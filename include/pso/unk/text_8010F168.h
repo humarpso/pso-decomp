@@ -1,0 +1,11 @@
+#ifndef PSO_UNK_TEXT_8010F168_H
+#define PSO_UNK_TEXT_8010F168_H
+
+#include "types.h"
+
+extern "C" {
+void *TItemDrop__sub_8010F168(void *arg0, s16 arg1);
+u8 *TItemDrop__sub_8010F1B8(u8 *arg0, s32 arg1, s32 arg2);
+}
+
+#endif

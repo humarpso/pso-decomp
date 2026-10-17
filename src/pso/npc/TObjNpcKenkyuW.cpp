@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8014B8A4.h"
 #include "pso/npc/TObjNpcKenkyuW.h"
 #include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
@@ -161,13 +162,10 @@ extern RecoveredGlobal_802A3C30_lbl_804DCE48 bm_npc_kenkyu_w_resource_descriptor
 extern u32 TObjNpcKenkyuW__model_resource;
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-u8 *construct_male_npc_base(u8 *arg0);
 extern s32 __vt__14TObjNpcKenkyuW[];
 extern s32 TObjNpcKenkyuW__name;
-u8 *TObjNpcKenkyuW__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 obj_is_hit_receivable(void *);
 extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_list;
-void clear_technique_contacts__10TObjPlayerFv();
 Vec_802A3DE8 *get_shoot_data__12TNeedleShootFv(void *);
 void vector_length(void *);
 Pl_802A3DE8 *get_player_data__10TObjPlayerFi(s32);
@@ -178,7 +176,6 @@ extern const f32 lbl_805DDF64;
 TechniqueContactList *TObjPlayer__sub_802A3DE8(Obj_802A3DE8 *self, void *src);
 Pl_802A41CC *find_entity_by_id(u16);
 TechniqueContactList *TObjPlayer__sub_802A3FDC(Obj_802A3FDC *self, void *src);
-void *__dt__14TObjNpcKenkyuWFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 

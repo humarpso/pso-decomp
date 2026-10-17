@@ -27,4 +27,8 @@ struct TODoorCave01 : public TUnk_804B0BB8 {
 };
 
 typedef char TODoorCave01_size[sizeof(TODoorCave01) == 0xEC ? 1 : -1];
+extern "C" {
+void render__12TODoorCave01Fv(u8 *arg0);
+}
+
 #endif

@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TLoadCtrl_80227390.h"
 #include "pso/object/TObjBgmColCtrl.h"
 #include "pso/misc/TOKeyMachine01.h"
 
 struct Names_8017E1E4 { const char *name[2]; };
 
 extern "C" {
-void play_area_music(char *name);
 extern Names_8017E1E4 lbl_80443898[];
 extern char lbl_804438A0[];
 extern char lbl_804438B0[];

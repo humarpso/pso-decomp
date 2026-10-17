@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl_8024A054.h"
 struct Pad_8026C9DC {
     u8 pad0[0x20];
     u8 buttons[0x30];
@@ -15,7 +16,6 @@ struct Ctl_8026C9DC {
 extern "C" {
 s32 TWindowShortListCtrl__check_controller_button(void *, u32);
 void play_sound_effect(s32, s32, s32, s32);
-s32 is_player_input_active(s32);
 void decay_page_arrow_offset(void);
 extern Pad_8026C9DC controller_input_state[];
 extern const f32 lbl_805DD294;

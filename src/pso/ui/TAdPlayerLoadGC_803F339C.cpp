@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdPlayerLoadGC_803F339C.h"
 #include "pso/TAdPlayerLoadGC.h"
 
 struct S_803F3328 { u8 pad0[4]; s32 state; u8 card[0x80]; };
@@ -26,7 +27,6 @@ extern S_803F3328 lbl_805A29B0[];
 s32 CARDProbe(s32 chan);
 char *strcpy(char *, const char *);
 u32 strlen(const char *);
-s32 TAdPlayerLoadGC__sub_803F3998(s32 chan);
 
 s32 TAdPlayerLoadGC::finish_load_slot_state4(s32 arg0, s32 *arg1) {
     s32 r;

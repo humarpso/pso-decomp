@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TWindowSubSymbolChatFaceType.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TWindowDD.h"
 
 extern "C" {
 
-void *__dt__28TWindowSubSymbolChatFaceTypeFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 extern s32 __vt__28TWindowSubSymbolChatFaceType[];

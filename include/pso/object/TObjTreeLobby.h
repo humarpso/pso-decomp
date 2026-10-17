@@ -16,4 +16,10 @@ struct TObjTreeLobby : public TUnk_804AFBF8 {
 };
 
 typedef char TObjTreeLobby_size[sizeof(TObjTreeLobby) == 0xD0 ? 1 : -1];
+extern "C" {
+void *TObjTreeLobby__ct(void *arg0, s32 arg1, s32 arg2);
+void *__dt__13TObjTreeLobbyFv(void *arg0, s16 arg1);
+void *__dt__13TUnk_804F2B60Fv(void *arg0, s16 arg1);
+}
+
 #endif

@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/system/ModelDrawContext.h"
 #include "pso/TAdSelectCurGC.h"
 
 extern "C" {
 
-void set_cached_blend_factor(s32 arg0, s32 arg1);
 int get_state_flag__9TMainTaskFv(void*);
 int draw_select_cursor_quads(void*);
 

@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type2_800874F4.h"
+#include "pso/misc/TLobby_80226070.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TTecRaFoie.h"
 #include "pso/misc/TUnk_804CCB28.h"
@@ -142,7 +146,6 @@ struct RaBarta_802377FC {
 };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 u16 obj_getField1c(void *);
 void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target);
 
@@ -151,9 +154,7 @@ void *get_bml_motion(void *, int);
 void *get_bml_model(void *, int);
 void attach_particle_model(void *, void *, void *, int, int, f32);
 #define attach_particle_model ((void (*)(void *, void *, void *, void *, int, f32))attach_particle_model)
-void *spawn_particle_effect(void *pos, s32 id);
 
-void *create_particle_emitter(void *pos, s32 id);
 void **mem_alloc(int);
 extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
@@ -412,7 +413,6 @@ struct Self_80237A94 {
 };
 
 void mem_free(void *p);
-void stop_sound_request(s32 idx);
 
 void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *level);
 void create__11TTecRaBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);

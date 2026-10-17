@@ -1,13 +1,12 @@
 #include "types.h"
+#include "pso/unk/text_803DE7E0.h"
 
 extern "C" {
 void *memset(void *dst, s32 c, u32 n);
-void fill_memory(void *p, u8 c, u32 n);
 void *OSCreateHeap(void *start, void *end);
 extern void *sys_heap_handle;
 extern void *global_allocator;
 extern u8 sys_allocator_func_table[];
-void fn_803DE804(u8 *start, s32 size);
 #pragma push
 #pragma scheduling off
 #pragma peephole off

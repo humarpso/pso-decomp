@@ -1,15 +1,14 @@
 #include "types.h"
+#include "pso/item/TItemShootModel_dtor.h"
+#include "pso/player/TObjPlayer_80130778.h"
 #include "pso/item/TUnk_804A6AD8.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void *__dt__13TUnk_804A69C0Fv(void *arg0, s16 arg1);
-void TObjPlayer__sub_801307D0(void *arg0);
 int draw_weapon_model(void*);
 int draw_weapon_at_joint(void*, void*);
 void __dl__7TObjectFPv(void *);
-void *__dt__15TItemShootModelFv(void *self, s16 flag);
 
 extern s32 lbl_804A69C0[];
 

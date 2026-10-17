@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/unk/text_801424DC.h"
 #include "pso/misc/TMainCursor.h"
 #include "pso/misc/TPlyPhotonChair.h"
 
 extern "C" {
 
-void fn_801424DC(s32 arg0, f32 farg0, f32 farg1, f32 farg2, f32 farg3);
 s32 draw_chunk_object();
 
 extern f32 TMainCursor__data_805DB0C0;

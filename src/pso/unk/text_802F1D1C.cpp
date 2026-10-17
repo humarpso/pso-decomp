@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/boss/TBoss8DragonDemo.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80141550.h"
+#include "pso/unk/text_802F1D1C.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/unk/TUnk_804E4B24.h"
 #include "pso/TParticleCtrl.h"
@@ -11,20 +16,12 @@ struct GE_802F1DAC { s32 a, b, obj, d; };
 struct GE_802F1E54 { s32 a, b, obj, d; };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 s32 copy_position__16TBoss8DragonDemoFv(int, void *);
-f32 TBoss8DragonDemo__sub_802F2CB4(void *p);
-f32 TBoss8DragonDemo__sub_802F2CBC(void *p);
-void func_80141618__Fv(void);
 s32 draw_ginja_object(int);
 s32 is_in_camera_range__18TObjBoss7TunnelColFv(void *);
 s32 push_matrix();
-s32 pop_matrix();
 extern u8 *lbl_805D6950;
 extern u8 *lbl_805D6954;
-void draw_tunnel_segment(u8 *arg0);
-void fn_802F1DAC(u8 *arg0);
-void fn_802F1E54(u8 *arg0);
 
 void draw_tunnel_segment(u8 *arg0) {
     s32 var_r31;

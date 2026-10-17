@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80126D30.h"
 #include "pso/item/TUnk_804A2E80.h"
 
 extern "C" {
 
-void harisen_battle_fan_scale_node(void* p);
 int scale_current_matrix(void*);
 int get_player_list__10TObjPlayerFv(void*);
 

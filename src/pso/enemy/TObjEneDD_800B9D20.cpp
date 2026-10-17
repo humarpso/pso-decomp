@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/math/MatrixTransforms.h"
+#include "pso/player/TObjPlayer_800F0810.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -15,14 +18,11 @@ struct Obj_800B9E84 {
 
 extern "C" {
 s32 minimap_render_dot(void *, int, int, int);
-void draw_blob_shadow(s32 arg0);
 s32 direction_to_rotation_xz(void *, void *, void *);
 s32 rotate_matrix_y(int, void *);
 s32 rotate_matrix_z(int, int);
-void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 rotate_matrix_x(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 extern const f32 TObjEneDD__data_805D9E8C;

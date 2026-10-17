@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/THunterGuildSeqOffline_801F3718.h"
 
 struct RecoveredGlobal_801F3728_THunterGuildSeqOffline__data_80513DC8 {
     s32 value;
@@ -22,10 +23,6 @@ struct RecoveredGlobal_801F3718_THunterGuildSeqOffline__data_80513DC8 {
 
 extern "C" {
 extern RecoveredGlobal_801F3728_THunterGuildSeqOffline__data_80513DC8 THunterGuildSeqOffline__quest_result_callbacks;
-void set_quest_cancel_callback(s32 arg0);
-void set_quest_success_callback(s32 arg0);
-void THunterGuildSeqOffline__sub_801F3748(s32 arg0);
-void set_quest_exit_callback(s32 arg0);
 typedef char RecoveredGlobal_801F3728_THunterGuildSeqOffline__data_80513DC8_size[sizeof(RecoveredGlobal_801F3728_THunterGuildSeqOffline__data_80513DC8) == 0x10 ? 1 : -1];
 
 typedef char RecoveredGlobal_801F3718_THunterGuildSeqOffline__data_80513DC8_size[sizeof(RecoveredGlobal_801F3718_THunterGuildSeqOffline__data_80513DC8) == 0x10 ? 1 : -1];

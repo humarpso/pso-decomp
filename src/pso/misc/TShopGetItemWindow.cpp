@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TShopWindowBase.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80222C28.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TShopSequence.h"
 #include "pso/misc/TWindowMenu.h"
@@ -95,7 +98,6 @@ s32 copy_bank_to_card_window(int);
 s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 get_selected_menu_value(int);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(int);
-void queue_destruction__7TObjectFv(void *arg0);
 s32 copy_bank_item_with_stack_limit(s32 idx, void *data, s32 *out, s32 slot);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
@@ -103,7 +105,6 @@ void *__nw__7TObjectFUl(u32);
 u32 __ct__18TWindowInputNumberFPvllls(void *, s32, s32, s32, s32, s16);
 extern const f32 lbl_805DC6F0;
 s32 get_room_table_entry__18TCheckRoomSequenceFi(void);
-s32 get_shop_text(s32);
 u32 __ct__15TWindowHelpItemFPvUs(void *, s32, u16);
 void calc_list_content_extent(u32);
 void add_item_info_entry__20TWindowSubStatusDispFlll(u32, void *, s32, s32);
@@ -111,9 +112,7 @@ void TWindowSetLevelUp__sub_8026DE28(u32, s32);
 u32 create_item_list_window(s32, s32, u16);
 void *TShopGetItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
 void *__dt__18TShopGetItemWindowFv(void *arg0, s16 arg1);
-void *__ct__15TShopWindowBaseFv(void *arg0);
 void __dl__7TObjectFPv(void *);
-void *__dt__15TShopWindowBaseFv(void *self, s16 m);
 void init__9TItemDataFv(void *);
 
 s32 TShopGetItemWindow::close() {

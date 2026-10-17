@@ -1,4 +1,12 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type2_80086C44.h"
+#include "pso/boss/TBoss8Dragon_8002CC48.h"
+#include "pso/object/CitySeason.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_803E4954.h"
+#include "pso/unk/text_80087278.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -76,10 +84,6 @@ typedef struct Self_80183134 {
     f32 time;
 } Self_80183134;
 
-void queue_destruction__7TObjectFv(void *);
-void *create_oneshot_particle_emitter(void *pos, void *dir, s32 id, s32 flags);
-void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
-void *spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 s32 rand(void);
 extern const f32 lbl_805DBC18[1];
 extern const f32 lbl_805DBC1C[1];
@@ -184,7 +188,6 @@ extern const char lbl_80444248[];
 extern "C" {
 
 void __dl__7TObjectFPv(void *);
-void queue_destruction__7TObjectFv(void *);
 
 extern s32 __vt__24TObjCity_Season_FireWork[];
 
@@ -264,7 +267,6 @@ struct V3_8018355C { f32 x; f32 y; f32 z; };
 struct V4_8018355C { s32 a; s32 b; s32 c; s32 d; };
 
 extern "C" {
-f32 rand_signed_unit();
 s32 TLobby__sub_80184C54();
 u32 __nw__7TObjectFUl(int);
 s32 rand();
@@ -354,8 +356,6 @@ void TObjCity_Season_FireWorkCtrl::run_task() {
 
 extern "C" {
 
-void *TObjCity_Season_FireWorkCtrl__create(void *arg0);
-u8 *TObjCity_Season_FireWorkCtrl__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
 
 extern void *tl_05;
@@ -410,7 +410,6 @@ struct RecoveredGlobal_8018386C_lbl_804B5C58 {
 extern "C" {
 s32 construct_world_actor_base(void *, void *);
 extern s32 TObjCity_Season_FireWorkCtrl__name;
-u8 *TObjCity_Season_FireWorkCtrl__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -445,11 +444,9 @@ struct Fn801838D4VObj_801838d4 : Fn801838D4Base_801838d4 {
 extern "C" {
 
 s32 post_translate_matrix(void *);
-void draw_chunk_object(void *child);
 s32 scroll_strip_uvs(s32, s16, s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 
 extern u32 lbl_805D5B38;
 extern s32 lbl_805D5B3C;
@@ -492,8 +489,6 @@ void TObjCity_Season_Board::run_task() {
 
 extern "C" {
 
-void *TObjCity_Season_Board__create(void *arg0);
-u8 *TObjCity_Season_Board__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
 
 extern void *tl_05;
@@ -603,13 +598,11 @@ struct Obj_80183AF0 : VBase_80183AF0 {
 extern "C" {
 s32 construct_world_actor_base(void *, void *);
 extern s32 TObjCity_Season_Board__name;
-u8 *TObjCity_Season_Board__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern const char lbl_80444250[];
 
 int get_anim_frame__13TUnk_804B5E48Fv(void* a0);
 
-void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern s32 city_season_xmas_model_table[];
 }
 
@@ -693,8 +686,6 @@ s32 TObjCity_Season_SonicAdv2::sub_80183C38() {
 
 extern "C" {
 
-void *TObjCity_Season_SonicAdv2__create(void *arg0);
-u8 *TObjCity_Season_SonicAdv2__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
 
 extern void *tl_05;
@@ -755,13 +746,10 @@ extern "C" {
 int get_anim_frame__13TUnk_804B5E48Fv(void* a0);
 
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
 
 extern s32 lbl_805D5B34;
-u8 *init_city_season_object(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
 extern s32 TObjCity_Season_SonicAdv2__name;
-u8 *TObjCity_Season_SonicAdv2__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -813,12 +801,7 @@ void TObjCity_Season_21_21::run_task() {
 
 extern "C" {
 
-void *TObjCity_Season_21_21__create(void *arg0);
-void *__dt__21TObjCity_Season_21_21Fv(void *arg0, s16 arg1);
-u8 *TObjCity_Season_21_21__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
-
-void queue_destruction__7TObjectFv(void *);
 
 extern void *tl_05;
 
@@ -896,13 +879,10 @@ extern "C" {
 
 s32 create_particle_emitter(void *, int);
 int get_anim_frame__13TUnk_804B5E48Fv(void* a0);
-u8 *init_city_season_object(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
 extern s32 TObjCity_Season_21_21__name;
-u8 *TObjCity_Season_21_21__ct(u8 *arg0, s32 arg1, s32 arg2);
 extern RecoveredGlobal_80184054_lbl_8050DC38 city_season_easter_egg_model_table;
 
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
 
 extern RecoveredGlobal_80184054_lbl_8050DC38 city_season_easter_egg_model_table;
@@ -962,8 +942,6 @@ void TObjCity_Season_HalloweenPumpkin::run_task() {
 
 extern "C" {
 
-void *TObjCity_Season_HalloweenPumpkin__create(void *arg0);
-u8 *TObjCity_Season_HalloweenPumpkin__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
 
 extern void *tl_05;
@@ -1044,12 +1022,10 @@ struct RecoveredGlobal_8018411C_lbl_804B5D38 {
 extern "C" {
 
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
 
 s32 construct_world_actor_base(void *, void *);
 extern s32 TObjCity_Season_HalloweenPumpkin__name;
-u8 *TObjCity_Season_HalloweenPumpkin__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -1117,18 +1093,14 @@ extern "C" {
 s32 construct_world_actor_base(void *, void *);
 extern s32 __vt__26TObjCity_Season_XmasWreath[];
 extern s32 TObjCity_Season_XmasWreath__name;
-u8 *TObjCity_Season_XmasWreath__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
 
-void *TObjCity_Season_XmasWreath__create(void *arg0);
 s32 post_translate_matrix(void *);
 
-void draw_chunk_object(void *child);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 
 int get_anim_frame__13TUnk_804B5E48Fv(void* a0);
@@ -1213,10 +1185,8 @@ extern "C" {
 
 s32 create_particle_emitter(void *, int);
 int get_anim_frame__13TUnk_804B5E48Fv(void* a0);
-u8 *init_city_season_object(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
 extern s32 __vt__24TObjCity_Season_XmasTree[];
 extern s32 TObjCity_Season_XmasTree__name;
-u8 *TObjCity_Season_XmasTree__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -1228,15 +1198,11 @@ struct VObj_8018455c_80184408 : VBase_8018455c_80184408 {
     virtual s32 m8(f32, f32);
 };
 
-void *TObjCity_Season_XmasTree__create(void *arg0);
 s32 post_translate_matrix(void *);
 
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-
-void queue_destruction__7TObjectFv(void *);
 
 extern void *tl_05;
 
@@ -1322,10 +1288,8 @@ extern "C" {
 
 s32 create_particle_emitter(void *, int);
 int get_anim_frame__13TUnk_804B5E48Fv(void* a0);
-u8 *init_city_season_object(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
 extern s32 __vt__30TObjCity_Season_ValentineHeart[];
 extern s32 TObjCity_Season_ValentineHeart__name;
-u8 *TObjCity_Season_ValentineHeart__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -1337,16 +1301,10 @@ struct VObj_8018455c_80184620 : VBase_8018455c_80184620 {
     virtual s32 m8(f32, f32);
 };
 
-void *TObjCity_Season_ValentineHeart__create(void *arg0);
-void *__dt__30TObjCity_Season_ValentineHeartFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
-void draw_chunk_object(void *child);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-
-void queue_destruction__7TObjectFv(void *);
 
 extern void *tl_05;
 
@@ -1436,20 +1394,14 @@ extern "C" {
 
 s32 create_particle_emitter(void *, int);
 int get_anim_frame__13TUnk_804B5E48Fv(void* a0);
-u8 *init_city_season_object(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
 extern s32 __vt__25TObjCity_Season_EasterEgg[];
 extern s32 TObjCity_Season_EasterEgg__name;
-u8 *TObjCity_Season_EasterEgg__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 }
 
 extern "C" {
 
-void *TObjCity_Season_EasterEgg__create(void *arg0);
-void *__dt__25TObjCity_Season_EasterEggFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-
-void queue_destruction__7TObjectFv(void *);
 
 void TObjCity_Season_EasterEgg::run_task() {
     s32 temp_r3;
@@ -1597,7 +1549,6 @@ extern "C" {
 s32 init_collision_body_parts(void *, void *, int);
 
 extern const RecoveredGlobal_80184B44_lbl_804440B0 city_season_collision_template;
-u8 *init_city_season_object(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
 }
 
 extern "C" {

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TItemList_801D57B0.h"
+#include "pso/player/TObjPlayer_801D3554.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -14,15 +16,7 @@ struct ByteBlock_14 { u8 bytes[0x14]; };
 extern "C" {
 int TItemList__sub_801D3B00(void*, void*, void*, void*);
 int TItemList__sub_801D5868(void*, void*);
-void TItemList__sub_801D5804(s32 *arg0);
-void TItemList__sub_801D5838(void *p);
-void start_placement_search(s32 arg0, s32 arg1, s32 arg2);
-void fn_801D371C(void* p, void* q);
-u8 *copy_drop_node(u8 *arg0, u8 *arg1);
 void create_drop_nodes__9TItemListFPvPvPvPvi(void *arg0, void *arg1, void *arg2, Rec_801D35FC *arg3, s32 arg4);
-void insert_item_node__10TObjPlayerFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-void TItemList__sub_801D5838(void *p);
-int TItemList__sub_801D5844(void *p);
 s32 TItemList__sub_801D5854(s32, s32);
 s32 copy_item_data__9TItemListFv(s32, s32);
 s32 create_node__9TItemListFPvPvPvSc(s32, s32, s32, s32);

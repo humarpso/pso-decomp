@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe3SinowZoa_800D72A4.h"
+#include "pso/object/TObject_80019A50.h"
 struct Eps_803622B0 {
     u8 pad0[0x18];
     void *vt;
@@ -11,8 +13,6 @@ struct Eps_803622B0 {
 };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
-void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
 u32 find_entity_by_id(s32);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);

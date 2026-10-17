@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TOKeyAncient01.h"
 #include "pso/misc/TLobby.h"
@@ -61,9 +63,7 @@ s32 rotate_matrix_y(int, void *);
 s32 rotate_matrix_z(int, void *);
 s32 rotate_matrix_x(int, void *);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void draw_ginja_model(s32 model);
 s32 draw_ginja_model_with_motion(void *, int, f32);
 u8 *TLobby__sub_8001FE7C(void *, s16);
 void mem_free(void *p);

@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/ui/TAdWarningBaseGC.h"
+#include "pso/unk/text_8007FA24.h"
+#include "pso/unk/text_80145A94.h"
 #include "pso/ui/TAdTrialModemChkGC.h"
 #include "pso/misc/TLobby.h"
 
@@ -26,16 +30,7 @@ struct VObj_80335580_803354A4 : Base_80335580_803354A4 {
 
 extern "C" {
 
-void *TAdTrialModemChkGC__ct(void *arg0);
-void TAdTrialModemChkGC__sub_803354A4(void);
-int TAdTrialModemChkGC__sub_803354E8(void* p);
-void *__dt__18TAdTrialModemChkGCFv(void *arg0, s16 arg1);
-s32 get_localized_text_entry(s32 arg0, s32 arg1);
-void TAdTrialModemChkGC__sub_8007FA24(s32 arg0);
-void *TAdWarningBaseGC__ct(void *arg0);
-void *__dt__16TAdWarningBaseGCFv(void *arg0, s16 arg1);
 int TKeyBoardControl__sub_8000F9CC(void*);
-s32 TLobby__sub_80145A94();
 int stop_audio_streams__6TLobbyFv(void*);
 void __dl__7TObjectFPv(void *);
 

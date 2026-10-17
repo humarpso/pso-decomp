@@ -1,17 +1,13 @@
 #include "types.h"
+#include "pso/ui/TAdChrSelSlotGC.h"
+#include "pso/ui/TAdMcSelectGC_8032A0A4.h"
+#include "pso/ui/TAdMcSelectMcGC_8032A964.h"
 #include "pso/ui/TAdMcSelectGC.h"
 #include "pso/ui/TAdMcSelectCursorGC.h"
 
 extern "C" {
-void TAdMcSelectGC__sub_8032A180(void* p, s32 v);
-void TAdMcSelectGC__sub_8032A140(void* p);
-void TAdMcSelectGC__sub_8032A15C(void* p);
 void *TAdMcSelectGC__ct(void *, void *);
-void release_selected_entry__15TAdMcSelectMcGCFv(void);
-void TLobby__sub_802C78EC(void);
-void TLobby__sub_802C7920(void);
 void *__nw__7TObjectFUl(int);
-void init_memorycard__15TAdMcSelectMcGCFv(void);
 
 extern void *TAdMcSelectGC__instance;
 

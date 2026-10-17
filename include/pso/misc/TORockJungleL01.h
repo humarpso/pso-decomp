@@ -17,4 +17,8 @@ struct TORockJungleL01 : public TORockCave {
 };
 
 typedef char TORockJungleL01_size[sizeof(TORockJungleL01) == 0xD8 ? 1 : -1];
+extern "C" {
+void *TORockJungleL01__create(void *arg0);
+}
+
 #endif

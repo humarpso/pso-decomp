@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type2_80086C44.h"
+#include "pso/item/TItemDispatch.h"
+#include "pso/item/TItemEffShield_8010A390.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/object/TObject_8001A448.h"
 #include "pso/TItemEffShield.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -95,19 +100,13 @@ struct Shield_8010A4C0 {
 };
 
 extern "C" {
-void *create_oneshot_particle_emitter(void *pos, void *dir, s32 id, s32 flags);
-int get_item_system_generation(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_8049F148[];
-void disallow_rendering__7TObjectFv(void *);
 extern RecoveredGlobal_8010A5E0___vt__14TItemEffShield __vt__14TItemEffShield;
 extern s32 TItemEffShield__class_name;
-u8 *__ct__14TItemEffShieldFv(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3);
-void queue_destruction__7TObjectFv(void *);
 Player_8010A4C0 *get_player_by_client_id(u16);
 void play_sound_effect(s32, void *, s32, s32);
 void run_task__14TItemEffShieldFv(Shield_8010A4C0 *self);
-void *__dt__13TUnk_8049F148Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 

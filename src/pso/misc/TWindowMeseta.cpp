@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_80287570.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowMeseta.h"
@@ -26,7 +27,6 @@ struct Meseta_80269244 {
 extern "C" {
 void set_text_entry_string(void *, s32, s32);
 s32 get_meseta_value__13TWindowMesetaFv();
-f32 TWindowSubStatusDisp__sub_802877A4(f32);
 extern s32 TWindowMeseta__window_descriptor[];
 extern s32 __vt__13TWindowMeseta[];
 extern s32 TWindowMeseta__class_name;

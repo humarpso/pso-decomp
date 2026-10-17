@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/boss/TObjBoss2Tunnel_803E2BAC.h"
+#include "pso/misc/TLobby_803382E4.h"
+#include "pso/unk/text_800F7DAC.h"
+#include "pso/unk/text_80141A30.h"
+#include "pso/unk/text_803DA798.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/misc/TLobby.h"
 #include "pso/TAdPlayerLoadGC.h"
@@ -22,21 +28,15 @@ struct A_80338608 { u8 pad[0x14]; u32 col; };
 struct B_80338608 { u8 pad[0xC]; u32 col; };
 
 extern "C" {
-void TLobby__sub_803384D4(void);
-u32 prs_decompress_buffer(s32 arg0, s32 arg1);
 s32 set_stream_state__6TLobbyFi(void *, int);
 s32 load_gvm_texture_archive(int, void *);
 extern s32 lbl_80477BC4[];
 extern s32 lobby_request_flags;
 void TCameraCtrl__sub_80068EF0(void);
-s32 set_texture_num(s32 i);
 void draw_projected_quads__15TObjBoss2TunnelFPvi(void *, s32);
-void TObjBoss2Tunnel__sub_803E2D10(s32);
 void draw_projected_textured_strip(void *, s32);
-void TLobby__sub_803E2EE4(s32);
 extern s32 lbl_805D63F0;
 extern int info_icon_texture;
-void TLobby__sub_80338534(void);
 f32 cos_table_lookup(s32);
 extern s32 lobby_pulse_color_phase;
 extern const f32 lbl_805DF9A0;
@@ -44,7 +44,6 @@ extern const f32 lbl_805DF9A4;
 extern const f32 lbl_805DF9A8;
 extern const f32 lbl_805DF9B4;
 extern const f32 lbl_805DF9B8;
-void restore_saved_depth_alpha_state(void);
 u32 __cvt_fp2unsigned(f32);
 void set_perspective_projection_from_fov(s32, f32, f32, f32, f32, f32);
 extern const f32 lbl_805DF9AC;
@@ -52,8 +51,6 @@ extern const f32 lbl_805DF9B0;
 extern "C" u8 lbl_80477B90[];
 extern "C" u8 lbl_80477BA0[];
 extern "C" u8 lbl_80477BB4[];
-void TWindowSubStatusDisp__sub_803386F0(void);
-void load_info_icon(void);
 int load_gvm_texture_file(void*);
 s32 TLobby__sub_803DA16C(s32 *);
 int free_if_valid__10TObjPlayerFl(void*);

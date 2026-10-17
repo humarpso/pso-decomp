@@ -1,6 +1,8 @@
 // Adapted from pso-gc-reference (mrb0nk500) for GPOE8P (MWCC 2.6)
 
 #include "pso/THeap.h"
+#include "pso/misc/TPlyPhotonChair_80142524.h"
+#include "pso/system/THeap.h"
 #include <string.h>
 
 THeap *obj_heap;
@@ -10,8 +12,6 @@ THeap *alt_heap;
 struct V3_801412D0 { f32 x, y, z; };
 
 extern "C" {
-u32 calc_gx_tile_index(u32 x, u32 y, s16 w);
-f64 TPlyPhotonChair__sub_80142624(f64 x);
 s32 calc_triangle_normal__10TObjPlayerFPvPv(V3_801412D0 *v, V3_801412D0 *out);
 }
 
@@ -115,8 +115,6 @@ THeap::THeap(size_t size, int alignment) {
 
 extern "C" {
 
-void __dl__5THeapFPv(void);
-void __nw__5THeapFUl(void);
 s32 xfree__FPv();
 s32 xmalloc__FUl();
 

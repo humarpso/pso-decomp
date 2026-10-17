@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803D2F1C.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -8,7 +9,6 @@ struct ByteBlock_8 { u8 bytes[0x8]; };
 typedef struct Buf_803D2F1C { u8 *data; s32 size; } Buf_803D2F1C;
 
 extern "C" {
-void TLobby__sub_803D3130(s32 arg0, s32 arg1, u8 *arg2, u8 *arg3);
 int strncmp(const char *, const char *, u32);
 extern u32 lbl_804F9E60[];
 u8 *find_archive_entry__6TLobbyFPvPvPvPv(Buf_803D2F1C *arc, const char *name, const char *stop, Buf_803D2F1C *out);

@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/item/TItemMenuCtrl_80115AF0.h"
 #include "pso/player/TUnk_804A6108.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 s32 rotate_matrix_z(s32, s32);
-void advance_angle_wrap(s32 *arg0, s32 arg1);
 void TItemWeapon__ct(void *);
 
 void TObjPlayer::update_boss2tunnel_move() {

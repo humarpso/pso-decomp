@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_800443DC.h"
 #include "pso/boss/TBoss3VoloptP01.h"
 struct G_800443DC { u8 pad[0x18]; s32 arr[1]; };
 
@@ -10,7 +11,6 @@ struct O_800443F0 { u8 pad[0x24]; s32 f24; u8 pad2[0xc]; s32 f34; };
 
 extern "C" {
 extern G_800443DC *volopt_p01_shared_handler_handle;
-s32 fn_800443DC(void *self, s32 i);
 extern G_800443F0 *TBoss3VoloptP01__resource_bundle;
 s32 fn_800443DC(void *self, s32 i) {
     return volopt_p01_shared_handler_handle->arr[i];

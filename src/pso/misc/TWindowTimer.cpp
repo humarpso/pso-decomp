@@ -1,4 +1,11 @@
 #include "types.h"
+#include "pso/misc/TLobby_8001D6A0.h"
+#include "pso/misc/TWindowSubShortMail_80246CB8.h"
+#include "pso/misc/TWindowSubStatusDisp_80228CC0.h"
+#include "pso/misc/TWindowSubStatusDisp_80228F5C.h"
+#include "pso/misc/TWindowSubStatusDisp_8025A9B4.h"
+#include "pso/unk/text_80198A2C.h"
+#include "pso/unk/text_8026CB5C.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowTimer.h"
 #include "pso/misc/TWindowDD.h"
@@ -19,30 +26,17 @@ struct RecoveredGlobal_80287FBC___vt__12TWindowTimer {
 extern "C" {
 s32 draw_default_entry__9TWindowDDFl();
 s32 draw_visible_window_entries(void *, void *, int);
-void render__12TWindowTimerFv(s32 arg0);
-s16 get_timer_value__12TWindowTimerFi(s32 i);
-void run_task__12TWindowTimerFv(u8 *arg0);
 s32 draw_window_tab(void *, void *, int, f32);
 extern const f32 lbl_805DD890;
-char *get_zero_vec2(void);
 extern RecoveredGlobal_80287FBC_lbl_804D2E74 lbl_804D2E74;
 extern s32 __vt__12TWindowTimer[];
 extern s32 TWindowTimer__name;
-u8 *TWindowTimer__ct(u8 *arg0);
-s32 *get_shared_text_buffer(void);
-void append_padded_number(s32 v, u8 n);
-void text_builder_append(u8 *str);
-void text_builder_reset(void);
-void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 extern s32 lbl_8044FCE8[];
 extern s32 lbl_805DD888;
 extern s32 lbl_805DD88C;
-void *__dt__12TWindowTimerFv(void *arg0, s16 arg1);
 s32 get_window_layout_position(s32);
 void __dl__7TObjectFPv(void *);
 s32 __nw__7TObjectFUl(s32);
-s32 is_com_card_active();
-s32 is_guild_card_receive_active();
 s32 init_timer_window_layout(s32);
 s32 init_timer_window_layout_alt(s32);
 

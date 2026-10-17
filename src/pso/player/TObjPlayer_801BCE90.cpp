@@ -1,12 +1,11 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_801BE778.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void TObjPlayer__sub_801BE9A8(s32 arg0);
-void set_flag_20000__10TObjPlayerFi(s32 arg0);
 s32 reset_key_machine_state__10TObjPlayerFv();
-void queue_destruction__7TObjectFv(void *arg0);
 
 void TObjPlayer::update_recobox(s32 arg0) {
     if (reset_key_machine_state__10TObjPlayerFv() != 0) {

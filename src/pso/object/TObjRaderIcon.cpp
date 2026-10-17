@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_8001A448.h"
 #include "pso/object/TObjRaderIcon.h"
 #include "pso/TParticleCtrl.h"
 
@@ -21,15 +22,11 @@ struct RecoveredGlobal_8019733C___vt__13TObjRaderIcon {
 struct Icon_80197110 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x1C]; s32 f60; u8 pad64[0x2C]; s32 f90; s32 f94; s32 f98; f32 f9C; u32 fA0; };
 
 extern "C" {
-void disallow_rendering__7TObjectFv(void *arg0);
 s32 construct_world_actor_base(void *);
 extern s32 __vt__13TObjRaderIcon[];
 extern s32 lbl_805D3418;
-u8 *TObjRaderIcon__ct(u8 *arg0, s32 arg1, s32 arg2);
 void add_radar_scaled_gate(void *, u32, u16, s32, s32, f32);
 u8 is_current_floor_switch_set(u16);
-void *TObjRaderIcon__create(void *arg0);
-void *__dt__13TObjRaderIconFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 

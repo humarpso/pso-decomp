@@ -24,8 +24,6 @@ extern s32 lbl_804E4788[];
 extern const f32 TBoss7LaserLight__data_805DEBC4;
 void noop_laser__23TAdSinglePlyChrSelectGCFv(s32);
 void TAdSinglePlyChrSelectGC__sub_80133508(s32);
-void TBoss7LaserLight__sub_802EF120(void* p);
-void TBoss7LaserLight__sub_802EF12C(void* p);
 
 u8 *TBoss7LaserLight::construct_with_params(s32 arg1, s32 arg2, s32 arg3) {
     s32 i;

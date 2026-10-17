@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_801A0520.h"
 #include "pso/object/TObjDoorJung.h"
 #include "pso/system/BmlResourceDescriptor.h"
 
@@ -24,7 +25,6 @@ extern void *TObjWarpJung__beam_bml_resource;
 extern s32 warp_jung_beam_motion;
 extern s32 warp_jung_model_handle;
 extern s32 warp_jung_beam_models[6];
-void free_warp_jung_beam_resources(void);
 s32 get_bml_motion(void *, s32);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 Node_801A0578 *get_bml_model(void *, s32);
@@ -38,7 +38,6 @@ extern s32 warp_jung_beam_mesh_node;
 extern s32 warp_jung_beam_entry_index;
 extern s32 lbl_805D5CC0;
 extern s32 lbl_805D5CC4;
-void load_warp_beam_resources(void);
 void free_warp_jung_beam_resources(void) {
     s32 i;
     TLobby__sub_8001FE7C(TObjWarpJung__beam_bml_resource, 1);

@@ -1,4 +1,6 @@
 #include "pso/TTecCtrl.h"
+#include "pso/misc/TTecCtrl.h"
+#include "pso/misc/TTecZondeEff.h"
 
 TTecCtrl::~TTecCtrl() {}
 
@@ -13,13 +15,10 @@ struct RecoveredGlobal_8022F068_lbl_804CC934 {
 
 extern "C" {
 u8 * TLobby__sub_8001FE7C(void *, s16);
-void clear_zonde_beam_vertex_pointer(void);
 s32 TLobby__sub_803DA16C(void *, s32);
 extern RecoveredGlobal_8022F068_lbl_804CC934 technique_ringwave_texture_list;
 extern u8 *technique_effect_bml;
 extern void **lbl_805D63B0;
-void TLobby__sub_8022F068(void);
-s32 clamp_nonnegative_int(s32 x);
 extern u8 technique_resource_descriptor[];
 extern u8 lbl_8044D088[];
 extern u8 lbl_8044D094[];
@@ -27,9 +26,6 @@ u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 u8 *load_resource_from_descriptor(u8 *, s32, void *, s32, s32, s32);
 void **load_gvm_texture_file(void *);
 void bind_gvm_texture_list(void *, void *);
-void load_technique_resources(void);
-void* get_technique_base_params(int a0);
-void *__ct__8TTecCtrlFv(void *arg0);
 void reset_telepipe_visit_counts(void);
 void __ct__7TObjectFP7TObject(void *);
 

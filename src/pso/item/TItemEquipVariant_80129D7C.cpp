@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/item/TItemEquipVariant_80129D7C.h"
+#include "pso/item/TItemEquipVariant_8012A82C.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-
-void *__dt__13TUnk_804A4548Fv(void *arg0, s16 arg1);
-void *__dt__13TUnk_804A4948Fv(void *arg0, s16 arg1);
 
 extern s32 s_rank_bazooka_weapon_vtable[];
 

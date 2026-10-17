@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss3Volopt_800D8ACC.h"
+#include "pso/enemy/TObjEneRe4Sorcerer_800EDB98.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -16,10 +18,7 @@ extern "C" {
 s32 create_timed_particle_emitter(void *, int, int, int);
 s32 spawn_particle_effect(void *, int, f32);
 extern const f32 lbl_805DA3C0;
-void spawn_particles_at__12TBoss3VoloptFi(s32 arg0);
-s32 remap_area_sound_id(s32 arg0, s32 arg1);
 s32 play_sound_effect(int, void *, int, int);
-void TBoss3Volopt__sub_800D8D88(s32 arg0);
 s32 TBreakUpMdl__ct(void*, s32, s32, s32, s32, s32, s32);
 void* __nw__7TObjectFUl(s32);
 

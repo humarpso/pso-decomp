@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowDD_80340EA8.h"
 #include "pso/misc/TWindowDD_WS_String.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowDD_WS_ScrollBar.h"
@@ -6,8 +7,6 @@
 
 extern "C" {
 
-void *TWindowDD__sub_80340F70(void);
-void draw_and_scroll_entry__9TWindowDDFi(s32 arg0);
 void *dt__22TWindowDD_WS_ScrollBarFs(void *arg0, s16 arg1);
 s32 draw_visible_window_entries(s32, s32, void *, f32);
 int update_window_entry_list__13TUnk_804CE018FPv(void*, void*);

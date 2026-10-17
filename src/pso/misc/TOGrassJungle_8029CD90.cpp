@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TOGrassJungle_8029CD90.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TOKeyJungleMain.h"
 #include "pso/misc/TOGrassJungle.h"
 #include "pso/TParticleCtrl.h"
@@ -25,7 +27,6 @@ extern "C" {
 s32 construct_world_actor_base(void *, void *);
 extern s32 __vt__13TOGrassJungle[];
 extern s32 grass_jungle_class_name;
-u8 *TOGrassJungle__ct(u8 *arg0, s32 arg1, s32 arg2);
 struct Base_8029CD90 { char pad[0x18]; };
 struct VObj_8029CD90 : Base_8029CD90 {
     virtual void m0();
@@ -39,14 +40,12 @@ struct VObj_8029CD90 : Base_8029CD90 {
     virtual s32 m8(f32, f32);
 };
 
-void *__dt__13TOGrassJungleFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object();
 s32 get_bml_model(s32, s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 
 extern s32 TOGrassJungle__bml_resource;

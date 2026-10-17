@@ -26,7 +26,6 @@ u32 set_window_mode_4__6TLobbyFPvll(s32, void*, s32);
 extern ControllerInputStateResultWin controller_input_state;
 extern s32 current_lobby_id;
 extern TObject* tl_07;
-ChallengeResultRecord* copy_challenge_result_record(ChallengeResultRecord*, const ChallengeResultRecord*);
 __declspec(section ".rodata") extern const char TObjResultWin_class_name[];
 __declspec(section ".rodata") extern const char challenge_result_time_format[];
 __declspec(section ".rodata") extern const char challenge_result_total_time_format[];

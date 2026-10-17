@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/ui/TObjBagWarnWin_8006EED4.h"
 #include "pso/TObjBagWarnWin.h"
 
 extern "C" {
 
-void *__ct__14TObjBagWarnWinFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern s32 __vt__14TObjBagWarnWin[];

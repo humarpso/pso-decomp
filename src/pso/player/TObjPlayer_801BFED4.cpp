@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801BFED4.h"
+#include "pso/unk/text_80072004.h"
 #include "pso/misc/TUnk_804DDD28.h"
 #include "pso/boss/TBoss7Crawfish.h"
 #include "pso/player/TObjPlayer.h"
@@ -11,14 +13,10 @@ struct ByteBlock_8 { u8 bytes[0x8]; };
 
 extern "C" {
 extern const f32 TObjPlayer__data_805DC278;
-void TObjPlayer__sub_801BFF80(u8 *arg0);
 s32 TFontSmallLobby__sub_801C0228();
-void TObjPlayer__sub_801BFED4(void* p);
-s32 TObjPlayer__sub_801BFFA0(void* p);
 int clear_id__10TObjPlayerFv(void*);
 int get_valid_child__6TLobbyFv(void*);
 s32 init_forward__10TObjPlayerFv();
-s32 init_gc_tag(s32 arg0);
 
 void TObjPlayer__sub_801BFED4(void* p) { *(s32*)((char*)p + 0x4) = -1; }
 s32 TObjPlayer::setup_state() {

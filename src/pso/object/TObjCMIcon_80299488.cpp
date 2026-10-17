@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjCMIcon_80299488.h"
+#include "pso/unk/text_80141A30.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/TObjCMIcon.h"
 #include "pso/object/TObjCMMainMenu.h"
@@ -41,25 +43,18 @@ struct Icon_802997DC { s32 state; f32 a; f32 b; };
 struct Grp_802997DC { s32 n; s32 ids[4]; };
 
 extern "C" {
-s32 TObjCMIcon__sub_80299598(s32 arg0, s32 arg1);
 extern RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0 TObjCMIcon__icon_entries;
-void TObjCMIcon__sub_802994B0(s32 arg0);
-void TObjCMIcon__sub_8029957C(void* p, void* q);
 extern RecoveredGlobal_8029951C_lbl_8046518C lbl_8046518C;
 extern f32 TObjCMIcon__horizontal_scroll_offset;
-void TObjCMIcon__sub_802994C8(s32 arg0, s32 *arg1);
 s32 get_creation_sprite_id__14TObjCMMainMenuFl(s32);
 void draw_ui_sprite(s32, void *, f32, f32);
-void restore_saved_depth_alpha_state(void);
 extern f32 cm_icon_screen_position[];
 extern Grp_802995A0 TObjCMIcon__icon_group_table[];
-void render__10TObjCMIconFv(s32 self);
 extern const f32 lbl_805DDC44;
 extern const f32 lbl_805DDC48;
 extern const f32 lbl_805DDC4C;
 extern const f32 lbl_805DDC50;
 extern const f32 lbl_805DDC54;
-void run_task__10TObjCMIconFv(s32 arg0);
 typedef char RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0_size[sizeof(RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0) == 0x58 ? 1 : -1];
 
 void TObjCMIcon::reset_icon_flags() {

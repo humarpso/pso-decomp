@@ -1,12 +1,11 @@
 #include "types.h"
+#include "pso/misc/TLobby_801E43E4.h"
+#include "pso/misc/TOChatSensor_8015B214.h"
 #include "pso/system/byteswap.h"
 #include "pso/misc/TOChatSensor.h"
 
 extern "C" {
 
-s32 TOComputerMachine01__vt8(s32 arg0, f32 farg0, f32 farg1);
-void load_chat_sensor(void);
-void TLobby__send_and_handle_60(u8 *arg0);
 int load_encrypted_archive_data(void*);
 f32 xz_distance_squared(s32, s32);
 s32 update_object_view_visibility__13TUnk_804B9870Fff(s32, f32, f32);

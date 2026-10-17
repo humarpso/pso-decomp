@@ -1,11 +1,12 @@
 #include "types.h"
+#include "pso/item/TItemReverseTechCtrl.h"
+#include "pso/item/TItemReverseTech_8011A1E8.h"
+#include "pso/object/TObject_8001A448.h"
 #include "pso/TItemReverseTechCtrl.h"
 
 extern "C" {
 
-void *__ct__20TItemReverseTechCtrlFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
-void disallow_rendering__7TObjectFv(void *);
 
 extern s32 __vt__20TItemReverseTechCtrl[];
 extern void *lbl_805D2C58;
@@ -31,9 +32,6 @@ extern "C" {
 
 void *__nw__7TObjectFUl(int);
 
-extern "C" int TItemReverseTech__sub_8011A55C(void);
-extern "C" int TItemReverseTech__sub_8011A580(void);
-extern "C" void TItemReverseTech__sub_8011A5A4();
 extern void *lbl_804A0440[3];
 extern void *lbl_804A044C[3];
 extern void *lbl_804A0458[4];

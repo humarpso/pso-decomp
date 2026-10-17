@@ -1,6 +1,9 @@
 #ifndef PSO_TADSELECTCURGC_H
 #define PSO_TADSELECTCURGC_H
 #include "pso/TObject.h"
+#include "pso/misc/TOCapsuleLabo.h"
+#include "pso/player/TObjPlayer_8023E480.h"
+#include "pso/ui/TAdSelectCurGC_802AED98.h"
 #include "pso/misc/TWindowChoiceSetting.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 #include "types.h"
@@ -47,7 +50,6 @@ struct TAdSelectCurGC_802AF0E0 {
 };
 
 extern "C" {
-s32 TLobby__sub_8023E4B4(s32 arg0, s32 arg1);
 extern const s32 lbl_80470764[];
 extern const s32 lbl_80470778[];
 extern const s32 current_language;
@@ -61,15 +63,11 @@ extern u8 controller_input_state[];
 extern u8 controller_physical_port_bank[];
 void run_task__14TAdSelectCurGCFv(TAdSelectCurGC_802AED98 *o);
 void __ct__7TObjectFP7TObject(void *);
-void TAdSelectCurGC__sub_802AF274(void* p, f32 v);
 extern void *__vt__14TAdSelectCurGC[];
 extern s32 lbl_805D3E70;
 extern const f32 lbl_805DE1E0;
 TAdSelectCurGC_802AF0E0 *__ct__14TAdSelectCurGCFv(TAdSelectCurGC_802AF0E0 *o, void *unused, void *a, void *b);
-void TLobby__sub_802AF198(void);
-void *TOCapsuleLabo__create(void *arg0);
 void TLobby__sub_803DA16C(void*);
-u8 *TOCapsuleLabo__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);
 
 void run_task__14TAdSelectCurGCFv(TAdSelectCurGC_802AED98 *o) {

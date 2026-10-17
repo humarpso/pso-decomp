@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8012D034.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void reset_soul_scythe_idle(void* p);
 int rotate_matrix_z(void*, void*);
 int get_player_list__10TObjPlayerFv(void*);
 

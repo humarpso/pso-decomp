@@ -1,12 +1,11 @@
 #include "types.h"
+#include "pso/object/TObjCHTimeWin_80074C94.h"
 #include "pso/TObjCHTimeWin.h"
 #include "pso/misc/TWindowCtrl.h"
 
 extern "C" {
 
-void init_timer__13TObjCHTimeWinFv(void);
 s32 TWindowCtrlMain__sub_8024CE58();
-void *__ct__13TObjCHTimeWinFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 

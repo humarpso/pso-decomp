@@ -1,16 +1,11 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_800847A8.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-void TObjPlayer__sub_80084840(f32 farg0, f32 farg1, f32 farg2);
-void TObjPlayer__sub_80084834(s32 arg0);
-void TObjPlayer__sub_80084824(f32 farg0, f32 farg1);
 f64 atan();
-void TObjPlayer__sub_800847FC(void);
 s32 GXSetTexCoordGen2(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0, s32 a4 = 0, s32 a5 = 0);
-unsigned char TObjPlayer__sub_800847CC(void);
     extern unsigned char camera_capture_flags;
-s32 TObjPlayer__sub_800847A8(void);
 extern u8 camera_capture_flags;
 s32 TObjPlayer__sub_800847A8(void) {
     if ((camera_capture_flags & 2) && (camera_capture_flags & 1)) {

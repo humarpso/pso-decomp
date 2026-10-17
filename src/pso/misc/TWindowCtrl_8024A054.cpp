@@ -1,15 +1,14 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl_8024A054.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/TAdMultiChgGameModeGC.h"
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
 extern struct Obj054_8024A054 *TWindowCtrl__active_window;
 extern u16 lbl_805D63FC;
-void TWindowCtrl__sub_8024A08C(void);
 struct Obj054_8024A054 { char pad[0x38]; u32 field38; };
 
-s32 is_player_input_active(s32 arg0);
 s32 get_multiplayer_controller_active_index(s32);
 u32 get_player_by_client_id(s32);
 s32 get_map_id__13TRaderMapCoreFv();

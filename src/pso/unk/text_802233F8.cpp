@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_802233F8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TLobby.h"
@@ -8,10 +9,8 @@ extern "C" {
 s32 obj_getField1c(void *);
 u8 *get_player_by_client_id(s32);
 s32 TLobby__sub_8024AC20(u16);
-void fn_802233F8(void);
 s32 play_effect_default__10TObjPlayerFii(void *, s32);
 s32 TObjPlayer__sub_8024ABDC(u16);
-void fn_80223480(void);
 void fn_802233F8(void) {
     u16 self_slot;
     s32 i;

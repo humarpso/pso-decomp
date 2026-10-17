@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe1Gee_802A4BB8.h"
+#include "pso/misc/TNeedleShoot_802A4668.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TNeedleShoot.h"
 #include "pso/misc/TObjEneMe1Gee_NEEDLE.h"
 #include "pso/enemy/TObjEneMe1Gee.h"
@@ -12,15 +16,11 @@ struct RecoveredGlobal_802A4CC4_lbl_804DCFF8 {
 extern "C" {
 s32 TObjPlayer__sub_802A445C(void *, s32);
 u32 find_entity_by_id(u16);
-void TNeedleShoot__sub_802A4668(void *arg0);
-void queue_destruction__7TObjectFv(void *arg0);
 s32 update_lifetime__22TObjEneMe1GiGueMissileFv(void *);
 u16 obj_getField1c(void *);
 u8 * TNeedleShoot__ct(void *, s32, void *, void *);
 extern RecoveredGlobal_802A4CC4_lbl_804DCFF8 __vt__20TObjEneMe1Gee_NEEDLE;
 extern s32 TObjEneMe1Gee_NEEDLE__name;
-u8 *TObjEneMe1Gee_NEEDLE__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, f32 farg0, f32 farg1);
-void TObjEneMe1Gee__sub_802A4D4C(void);
 int TObjEneMe1Gee__sub_800CC2BC(void);
 extern u32 me1gee_cached_model_handle;
 s32 post_translate_matrix(void *);
@@ -31,7 +31,6 @@ s32 get_bml_model(void *, int);
 s32 set_global_param__8TObjFishFl();
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 
 void TObjEneMe1Gee_NEEDLE::render() {
     u8 *arg0 = (u8 *)this;

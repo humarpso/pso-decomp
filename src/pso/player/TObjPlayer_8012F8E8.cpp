@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8012F8E8.h"
 #include "pso/item/TUnk_804A65E0.h"
 #include "pso/items/TItemWeapon.h"
 #include "pso/misc/TTecGiZonde.h"
@@ -6,7 +7,6 @@
 
 extern "C" {
 
-void cast_gizonde_chain__10TObjPlayerFPv(u8 *arg0);
 u8 *get_captured_target_entry(s32, s32);
 s32 get_captured_target_count();
 s32 get_extended_state__10TObjPlayerFv(int);

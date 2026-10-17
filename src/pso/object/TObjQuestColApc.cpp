@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TQuestThread.h"
+#include "pso/unk/text_8013157C.h"
 #include "pso/object/TObjQuestColApc.h"
 
 struct Obj_80196448 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0xac - 0x44]; f32 radius; };
@@ -6,10 +8,7 @@ struct Obj_80196448 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0xac - 0x44]; f32 radi
 extern "C" {
 Obj_80196448 *get_player_by_client_id(s32);
 s32 obj_isState3_324__13TUnk_804806E8Fv(void *);
-f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
-void *TObjQuestColApc__ct(void *arg0);
 void TObjQuestColBase__ct(void *);
-u32 create__12TQuestThreadFi(s32 arg0);
 int destroy_board__17TQuestThreadBoardFv(void*);
 
 int TObjQuestColApc::vfunc_16() { destroy_board__17TQuestThreadBoardFv(this); create__12TQuestThreadFi((s32)(*(void* *)&this->m_b0)); }

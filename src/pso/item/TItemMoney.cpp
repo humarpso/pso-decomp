@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/item/TItemDispatch.h"
+#include "pso/item/TItemMoney.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-
-void *__dt__10TItemMoneyFv(void *arg0, s16 arg1);
-void *__dt__5TItemFv(void *arg0, s16 arg1);
 
 extern s32 __vt__10TItemMoney[];
 

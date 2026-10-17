@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneDf2Bringer.h"
 #include "pso/TParticleCtrl.h"
@@ -60,7 +61,6 @@ struct Bringer_80097100 : VObj_18_26a62c {
 
 extern "C" {
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
 void rotate_matrix_y(s32, s32);
 s32 update_player_state__9TObjEneDDFv(void *, void *, int);

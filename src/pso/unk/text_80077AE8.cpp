@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/unk/text_80077AE8.h"
+#include "pso/unk/text_80077B34.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
-
-void TAdSinglePlyChrSelectGC__sub_80077AE8(s32 arg0);
-u32 *fn_80077B34(u32 *dst, u32 *src);
 
 extern u32 lbl_805D4E58;
 

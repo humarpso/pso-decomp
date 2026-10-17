@@ -1,18 +1,18 @@
 #include "types.h"
+#include "pso/item/TItemShootModel_dtor.h"
+#include "pso/player/TObjPlayer_8012192C.h"
 #include "pso/item/TUnk_804A0BC0.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TTecFoie.h"
 
 extern "C" {
 
-void *__dt__13TUnk_804A0AA8Fv(void *arg0, s16 arg1);
 s32 rand();
 int rotate_matrix_x(void*, void*);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
 s32 roll_technique__11TItemWeaponFv(void *);
 int get_player_list__10TObjPlayerFv(void*);
 void __dl__7TObjectFPv(void *);
-void *__dt__15TItemShootModelFv(void *self, s16 flag);
 
 extern s32 lbl_804A0AA8[];
 

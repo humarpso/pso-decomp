@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/unk/text_80190940.h"
 
 extern "C" {
 
-void * TObjEnvSound__create(void *arg0);
 void *TObjEnvSound__ct(void *, void *, void *);
 int is_not_split_screen__13TRaderMapCoreFv(void *);
 void *__nw__7TObjectFUl(int);

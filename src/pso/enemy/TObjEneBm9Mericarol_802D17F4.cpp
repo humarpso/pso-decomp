@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804928CC.h"
 #include "pso/enemy/TObjEneBm9Mericarol_Bomb.h"
@@ -182,7 +183,6 @@ struct Vec_802D1880 { f32 x, y, z; };
 
 extern "C" {
 s32 subtract_vector(void *, void *);
-void queue_destruction__7TObjectFv(void *);
 s32 is_alive__9TObjEneDDFv(s32);
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DE778;

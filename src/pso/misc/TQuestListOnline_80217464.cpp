@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/misc/TQuestListOnline_80217464.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObjFish_8001ED90.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_800F7DAC.h"
+#include "pso/unk/text_801F43B4.h"
 #include "pso/misc/TQuestListOnline.h"
 #include "pso/misc/TLobby.h"
 
@@ -8,22 +14,15 @@ extern "C" {
 s32 select_cursor_entry__22TWindowSubShortCutListFv(void *);
 extern u32 TQuestListOnline__quest_list_buffer;
 extern void *TQuestListOnline__instance;
-u32 prs_decompress_buffer(s32 arg0, s32 arg1);
 extern s32 TQuestListOnline__decompression_cursor;
 extern u32 online_quest_dat_buffer;
 extern s32 online_quest_list_decompressed_size;
-void TQuestListOnline__sub_802176DC(s32 arg0);
 extern u32 online_quest_bin_data;
 extern s32 quest_bin_decompressed_size;
-void TLobby__sub_8001EDF4(u8 *arg0);
-s32 TLobby__sub_8001EEF4();
 extern s32 lbl_8044BEB0[];
 
 extern s32 online_quest_list_state;
-s32 get_story_flag(s32);
-void TWindow__close(u8 *arg0);
 s32 is_flag_set__6TLobbyFv();
-void queue_destruction__7TObjectFv(void *arg0);
 
 extern void *TQuestListOnline__selected_quest_info;
 

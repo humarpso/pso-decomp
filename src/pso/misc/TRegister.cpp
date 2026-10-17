@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TPlySmth.h"
+#include "pso/misc/TRegister.h"
+#include "pso/network/TProtocol_801E08CC.h"
 #include "pso/system/byteswap.h"
 #include "pso/packet_classes.h"
 
@@ -11,14 +14,8 @@ struct ByteBlock_70 { u8 bytes[0x70]; };
 #pragma dont_inline off
 extern "C" {
 s32 __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag();
-s32 __ct__14QuestListEntryFRC14QuestListEntry(s32 arg0, s32 arg1);
-s32 __ct__9TRegisterFv(s32 arg0);
-void bswap__9TRegisterFv(s32 arg0);
-int fn_801E0018(void* p);
-void __ct__8TPlySmthFv(void *);
 s32 bswap__13packet_headerFv();
 int bswap__16TPlyGuildCardTagFv(void*);
-void fn_801E0900(void *p);
 
 void bswap__9TRegisterFv(s32 arg0) {
     bswap__13packet_headerFv();

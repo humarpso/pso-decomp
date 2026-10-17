@@ -1,10 +1,8 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore_801A6CEC.h"
 #include "pso/misc/TRaderMapCore.h"
 
 extern "C" {
-
-s32 TRaderMapCore__sub_801A6D00(void *arg0, s32 arg1);
-s32 pack_flags__13TRaderMapCoreFii(s32 arg1, s32 arg2);
 
 s32 TRaderMapCore::pack_color_bits(s32 arg1, s32 arg2) {
     s32 temp_r3;

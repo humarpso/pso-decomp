@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss7Joint_802EE6E0.h"
+#include "pso/misc/TLobby_801E43E4.h"
 #include "pso/system/byteswap.h"
 #include "pso/boss/TBoss7DeRolLeC.h"
 #include "pso/boss/TBoss7Joint.h"
@@ -15,9 +17,6 @@ s32 reload_stats_keep_hp_tp__9TObjEneDDFv(void *, int, int, int);
 s32 play_sound_effect(int, void *, int, int);
 u32 __nw__7TObjectFUl(int);
 s32 TObjPlayer__sub_802E72DC(void *, void *, void *, int);
-void TBoss7Joint__sub_802EE7B8(void* p);
-void TBoss7Joint__sub_802EE800(void* p);
-void TLobby__send_and_handle_60(u8 *arg0);
 s32 vfunc_93__9TObjEneDDFv(void *);
 s32 vfunc_94__9TObjEneDDFv(void *);
 int read_be16_field2__10TObjPlayerFv(void*);

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubTradeMain_802D3924.h"
+#include "pso/object/TObject_8001A448.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjTradeCollision.h"
 #include "pso/player/TObjPlayer.h"
@@ -21,14 +23,8 @@ struct RecoveredGlobal_802C8034___vt__18TObjTradeCollision {
 
 extern "C" {
 s32 is_player_outside_trade_radius__18TObjTradeCollisionFUl(void *, int);
-void clear_trade_range_bit(s32 arg0);
-void set_trade_range_bit(s32 arg0);
-void disallow_rendering__7TObjectFv(void *arg0);
 extern s32 __vt__18TObjTradeCollision[];
 extern s32 TObjTradeCollision__name;
-u8 *TObjTradeCollision__ct(u8 *arg0, s32 arg1, s32 arg2);
-void *TObjTradeCollision__create(void *arg0);
-void *__dt__18TObjTradeCollisionFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 

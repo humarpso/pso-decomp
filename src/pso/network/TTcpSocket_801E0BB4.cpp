@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/network/TTcpSocket_801E0BB4.h"
 #include "pso/TTcpSocket.h"
 
 extern "C" {
 
-void *__ct__10TTcpSocketFP7TObject(void *arg0);
 void __ct__18PSOV3EncryptionTCPFv(void *);
 void __ct__7TSocketFP7TObject(void *);
 

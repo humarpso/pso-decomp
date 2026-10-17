@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLobby_801E43E4.h"
+#include "pso/misc/TOVS2Wall01_8017C7A4.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/system/byteswap.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TOVS2Wall01.h"
@@ -35,14 +38,7 @@ struct RecoveredGlobal_8017C7DC_lbl_804B4EBC
 };
 
 extern "C" {
-int TOVS2Wall01__vt24(void);
-int TOVS2Wall01__vt25(void);
-int TOVS2Wall01__vt18(void);
-int TOVS2Wall01__vt19(void);
-int TOVS2Wall01__vt20(void* p);
 int take_hit__11TOVS2Wall01FPvUi(void*);
-int TOVS2Wall01__vt21(void* p);
-int TOVS2Wall01__vt22(void* p);
 s32 TObjFish__sub_8001EDB0(int, void *);
 u8 *get_bml_model(s32, s32);
 s32 init_collision_body_parts(void *, void *, int);
@@ -57,11 +53,6 @@ s32 load_resource_from_descriptor(int, int, void *, int, int, int);
 extern RecoveredGlobal_8017C7DC_lbl_804B4EBC bm_o_vs2_resource_descriptor;
 extern const f32 lbl_805DBAA8;
 extern const f32 lbl_805DBAB4;
-void TOVS2Wall01__sub_8017CA48(void* p, s32 v);
-s32 TOVS2Wall01__sub_8017CA50(void* p);
-void TOVS2Wall01__vt23(void);
-void *TObjGoalWarpAncient__create(void *arg0);
-void TLobby__send_and_handle_60(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 void free_collision_body_parts(void *);
 void *TObjGoalWarpAncient__ct(void *, void *, void *);
@@ -70,7 +61,6 @@ void *__nw__7TObjectFUl(int);
 int bswap_header__6TLobbyFv(void*);
 void destroy_key_base__13TUnk_804AFBF8Fs(void *, int);
 int init__17TOBarrierEnergy01Fv(void*);
-void queue_destruction__7TObjectFv(void *);
 
 void TOVS2Wall01::release_model() {
     if ((u32) TOVS2Wall01__bml_resource != 0U) {

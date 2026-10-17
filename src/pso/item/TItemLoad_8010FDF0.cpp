@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TItemAttacker.h"
+#include "pso/item/TItemLoad_8010FDF0.h"
 #include "pso/system/memory.h"
 #include "pso/item/TUnk_8049C658.h"
 #include "pso/TItemLoad.h"
@@ -25,13 +27,10 @@ struct Sp8Buf_8010fe6c_8010FDF0 {
     s32 field3c;
 };
 
-s32 *__dt__9TItemLoadFPvs(s32 *arg0, s16 arg1);
-void TItemBuff__ct(void);
 s32 apply_rel_relocations(s32 *);
 s32 read_disc_file(u32, s32);
 s32 read_checked_align__6TLobbyFlll(s32, s32, s32, void *);
 int mem_alloc(void*);
-s32 create_item_buff(s32);
 s32 prs_decompress_alloc(s32, u32, s32);
 void mem_free(void *p);
 

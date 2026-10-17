@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_802910EC.h"
 #include "pso/misc/TLobby.h"
 #include "pso/TObjCMIcon.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -23,23 +24,19 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 TLobby__sub_803DA16C(void *);
 extern RecoveredGlobal_80291138_lbl_804D9668 creation_sprite_table;
 extern u32 cmicon_instance;
-void fn_80291138(void);
 extern RecoveredGlobal_802911E8_lbl_804DAA78 creation_view_parameters;
 extern f32 lbl_805D3CA0;
 extern const f32 lbl_805DD968;
 extern const f32 lbl_805DD96C;
 extern const f32 lbl_805DD970;
-void set_creation_projection_center(f32 farg0);
 extern u8 lbl_804D9578[];
 extern s32 creation_sprite_table_index;
-void TCharaMaking__resolve_creation_sprite_table(u8 **table, s32 *id);
 s32 create__10TObjCMIconFPv(int);
 extern s32 lbl_804DA944[];
 extern f32 ui_sprite_scale;
 extern s32 current_language;
 extern s32 tl_06;
 extern const f32 lbl_805DD964;
-void fn_80291178(void);
 typedef char RecoveredGlobal_80291138_lbl_804D9668_size[sizeof(RecoveredGlobal_80291138_lbl_804D9668) == 0x12DC ? 1 : -1];
 
 void TCharaMaking__resolve_creation_sprite_table(u8 **table, s32 *id) {

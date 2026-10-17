@@ -105,9 +105,6 @@ extern RecoveredGlobal_8014D41C_lbl_804AB658 bm_n_nurse_i_body_resource_descript
 extern u32 TObjNpcNurseBase__shared_model_resource;
 extern s32 __vt__16TObjNpcNurseBase[];
 extern s32 TObjNpcNurseBase__name;
-u8 *TObjNpcNurseBase__ct(u8 *arg0, s32 arg1, s32 arg2);
-void * TObjNpcSecretaryBase__create(void *arg0);
-void *__dt__16TObjNpcNurseBaseFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcSecretaryBase__ct(void *, void *, void *);

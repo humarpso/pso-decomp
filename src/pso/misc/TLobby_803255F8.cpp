@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_803255F8.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -6,7 +7,6 @@ extern "C" {
     int load_gvm_texture_file(void*);
     extern unsigned char lbl_804766F0[];
 extern u32 inazuma_texture_list;
-void load_f512_inazuma(void);
 s32 TLobby__sub_803DA16C(void*);
 
 void TLobby::free_char_select_singleton() {

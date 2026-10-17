@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type3_800D9960.h"
+#include "pso/enemy/TObjEneMe3ShinowaMirage_800E7A70.h"
 #include "pso/enemy/TObjEneMe3ShinowaMirage.h"
 
 struct RecoveredGlobal_8031B170_lbl_804E8880
@@ -15,7 +17,6 @@ extern "C" {
 extern RecoveredGlobal_8031B170_lbl_804E8880 shinowa_mirage_motion_param_table;
 extern const f32 TObjEneMe3ShinowaMirage__data_805DA5C4;
 s32 TLobby__sub_8001FE7C(void *, s32);
-s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1);
 void mem_free(void *p);
 extern void *lbl_80500FEC[];
 extern void *TObjEneMe3ShinowaMirage__data_805D5298;
@@ -23,7 +24,6 @@ extern VO_800E7A98 *TObjEneMe3ShinowaMirage__data_805D52A0;
 extern void *TObjEneMe3ShinowaMirage__data_805D52A4;
 extern void *TObjEneMe3ShinowaMirage__data_805D52A8;
 extern void *TObjEneMe3ShinowaMirage__data_805D52AC;
-int TObjEneMe3ShinowaMirage__sub_800E7B74(void* p);
 int create__21TObjEneMe3ShinowaRealFv(void*);
 
 typedef struct RecoveredGlobal_8031B170_lbl_804E8880 RecoveredGlobal_8031B170_lbl_804E8880;

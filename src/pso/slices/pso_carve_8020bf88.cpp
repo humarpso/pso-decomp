@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/slices/pso_carve_8020bf88.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {

@@ -5,8 +5,6 @@
 
 extern "C" {
 
-s32 close__6TMovieFis(s32 arg0, s16 arg1);
-
 s32 release__6TMovieFv();
 
 s32 close__6TMovieFis(s32 arg0, s16 arg1) {

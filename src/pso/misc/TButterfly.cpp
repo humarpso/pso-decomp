@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TButterfly.h"
 #include "pso/TParticleCtrl.h"
@@ -33,10 +34,7 @@ f32 sin_table_lookup(s16);
 void vec3_add_to(Vec_8017EA74 *, Vec_8017EA74 *);
 void rotate_vector_by_matrix(void *, Vec_8017EA74 *, Vec_8017EA74 *);
 void rotate_matrix_y(void *, s32);
-s32 push_matrix_from(void *);
-s32 pop_matrices(s32);
 extern u8 identity_matrix[];
-void *__dt__10TButterflyFv(void *arg0, s16 arg1);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 void __dl__7TObjectFPv(void *);
 s32 set_global_param__8TObjFishFl();

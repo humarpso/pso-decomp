@@ -1,12 +1,12 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80121370.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/item/TUnk_804A08B8.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void marina_bag_start_regen(void *arg0);
 s32 get_id__13TItemProArmorFv(void *);
-void *spawn_particle_effect(void *pos, s32 id);
 s32 init_item_timer_event__13TUnk_804A0648Fv(s32, u32, s32, s32);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
 s32 __nw__15TItemHeapObjectFUl(s32);

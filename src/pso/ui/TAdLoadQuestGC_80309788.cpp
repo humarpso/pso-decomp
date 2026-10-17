@@ -1,11 +1,9 @@
 #include "types.h"
+#include "pso/ui/TAdLoadQuestGC_80309788.h"
 #include "pso/ui/TAdLoadQuestGC.h"
 
 extern "C" {
 
-void *TAdLoadQuestGC__ct(void *arg0);
-void TAdLoadQuestGC__sub_8030984C(void);
-void TAdLoadQuestGC__sub_80309850(void);
 void *TAdLdQuestPrtGC__ct(void *, void *);
 void get_or_create_cell__14TAdLoadQuestGCFii(void *, int);
 void get_or_create_line__14TAdLoadQuestGCFii(void *, int);

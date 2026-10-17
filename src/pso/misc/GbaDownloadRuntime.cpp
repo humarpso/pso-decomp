@@ -1,4 +1,7 @@
 #include "pso/network/GbaJoybootState.h"
+#include "pso/misc/GbaDownloadRuntime.h"
+#include "pso/misc/TLobby_801F2D2C.h"
+#include "pso/ui/TAdWarningBaseGC_8032CE1C.h"
 #include "pso/system/date.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TDLGraph.h"
@@ -12,14 +15,9 @@ u32 create__8TDLGraphFv();
 int queue_destruction__7TObjectFv(void*);
 void xfree__FPv(void*);
 s32 xmalloc__FUl(s32);
-int TLobby__sub_8032C91C(void* p);
-s32 load_from_aram_sync__16TAdWarningBaseGCFi(s32 arg0);
-int TAdWarningBaseGC__sub_8032D020(void);
 s32 read_disc_file(s32, u32);
-int TLobby__sub_801F34F8(void);
 int GBAInit(void*);
 s32 GBAGetProcessStatus(s32, u8 *);
-int get_alloc_size__16TAdWarningBaseGCFv(void);
 u32 update_lobby_scene__6TSceneFv();
 
 extern u32 gba_download_data_buffer;
@@ -143,7 +141,6 @@ struct DateStamp_8032C9A8 { s32 days; s32 mins; s32 ticks; };
 struct Rec_8032C9A8 { u32 a; u32 b; u32 c; };
 
 extern "C" {
-int TLobby__sub_801F34F8(void);
 void *memmove(void *, const void *, u32);
 s32 rand();
 void *memset(void *, int, u32);
@@ -151,15 +148,10 @@ extern s32 current_language;
 extern u8 *TLobby__gba_joyboot_send_buffer;
 extern const f32 lbl_805DF7A8;
 extern const f32 lbl_805DF7AC;
-void TLobby__sub_8032C9A8(s32 arg0, s32 arg1);
 s32 GBAJoyBootAsync(s32, s32, s32, u8 *, s32, u8 *, void (*)(s32, s32));
-void gba_joyboot_transfer_callback(s32, s32);
 extern s32 gba_joyboot_send_buffer;
 extern u8 gba_joyboot_status;
-void TLobby__sub_8032CDD0(void* p);
 extern const u8 lbl_805DF7A0[4];
-void TLobby__sub_8032CDC0(void);
-void TLobby__sub_8032CDEC(void);
 
     extern unsigned char lbl_805D6CD9;
     extern short lbl_805D6CDA;

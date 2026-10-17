@@ -1,13 +1,10 @@
 #include "types.h"
+#include "pso/misc/TQuestListVM_8007EAF8.h"
 #include "pso/misc/TQuestListVM.h"
 
 extern "C" {
 
 void TLobby__sub_8007EB20(s32 arg0, ...);
-void TLobby__sub_8007EB70(void);
-s32 TQuestVmDownLoadServer__sub_8007EB14(void);
-void __dl__FPv(void);
-void debug_print__FPCc(void);
 s32 xfree__FPv();
 
 s32 TQuestListVM::get_quest_id() {

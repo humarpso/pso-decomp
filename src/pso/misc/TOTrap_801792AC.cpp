@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOTrap_801792AC.h"
 #include "pso/misc/TOTrap.h"
 
 struct Base_80179314_801792AC { char pad[0x18]; };
@@ -51,9 +52,6 @@ struct VObj_80179358_801792AC : Base_80179358_801792AC {
 };
 
 extern "C" {
-u8 TOTrap__sub_801792CC(u8 *arg0, s32 arg1);
-u8 TOTrap__sub_801792E4(u8 *arg0, s32 arg1);
-u8 TOTrap__sub_801792FC(u8 *arg0, s32 arg1);
 void TOTrap::vfunc_86() {  }
 void TOTrap::vfunc_88() {  }
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecon_8031FACC.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneRecobox.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -15,7 +16,6 @@ u8 *csnVectorUnder(s32 *, void *, s32);
 s32 set_part_local_pos__9TObjEneDDFPvPvi(void *, void *, int);
 extern const f32 lbl_805DF450;
 extern const f32 lbl_805DF460;
-void TObjEneRecon__sub_8031FB6C(u8 *arg0);
 s32 has_child_in_anim_5__12TObjEneReconFv();
 extern const f32 lbl_805DF45C;
 u8 TObjEneRecon__sub_8031FACC(Obj_8031FACC *arg0);

@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TPlyCharData_8007214C.h"
+#include "pso/player/TObjPlayer_801AA508.h"
+#include "pso/player/TObjPlayer_801C1FF8.h"
 #include "pso/system/memory.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TTecLuker.h"
@@ -20,37 +23,15 @@ struct O_801C21D4 { u8 pad[0x3a1]; u8 id; u8 pad2[0x408 - 0x3a2]; u8 arr[1]; };
 struct S_801C20A4 { u16 f0; s16 f2; s32 f4; f32 f8; f32 fC; f32 f10; s32 f14; u8 f18[1]; };
 
 extern "C" {
-s32 TObjPlayer__sub_801C2044(s32 *arg0);
 u8 TObjPlayer__sub_801C21C4(O_801C21C4 *self, s32 i);
 void is_slot_within_limit__10TObjPlayerFllUc(u8 id, s16 i, u8 v);
 void __destroy_arr(void *, void *, int, int);
-s32 TObjPlayer__sub_801AA528(s32 arg0, s16 arg1);
-void *fn_801C2308(void *arg0, s16 arg1);
 void __construct_array(void *, void *, void *, int, int);
 void init_arrays__10TObjPlayerFv(void);
-void *fn_801C2360(void *arg0);
 extern const f32 TObjPlayer__data_805DC278;
 S_801C20A4 *init_player_telepipe_record(S_801C20A4 *arg0);
-void* TObjPlayer__sub_801C2058(void* p);
-void TObjPlayer__sub_801C2098(void* p);
-void TObjPlayer__sub_801C210C(void* p, s32 v);
-int TObjPlayer__sub_801C2114(void);
-u8 TObjPlayer__sub_801C212C(void* p);
-u8 TObjPlayer__sub_801C2134(void* p);
-s32 get_level_row_exp_threshold(void* p);
-u8 TObjPlayer__sub_801C21AC(void* p);
-u8 TObjPlayer__sub_801C21B4(void* p);
-u8 TObjPlayer__sub_801C21BC(void* p);
-u8 TObjPlayer__sub_801C221C(void* p);
-u8 TObjPlayer__sub_801C2224(void* p);
-u8 TObjPlayer__sub_801C222C(void* p);
-u8 TObjPlayer__sub_801C2234(void* p);
-u8 TObjPlayer__sub_801C223C(void* p);
-void TObjPlayer__sub_801C2244(void* p, s16 v);
-s32 TObjPlayer__sub_801C22B4(void* p);
 int test_flags_any(void*, int);
 void TObjPlayer__sub_8012AF00(void *);
-s32 __ct__12TPlyCharDataFv(s32 arg0);
 int fn_8035B00C(void*);
 
 extern const f32 TObjPlayer__data_805DC294;

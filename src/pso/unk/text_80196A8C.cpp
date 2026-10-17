@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/unk/text_80196A8C.h"
 
 extern "C" {
 
-void *TObjQuestCol__create(void *arg0);
 void *TObjQuestCol__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 

@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TWindowDD_803424EC.h"
 #include "pso/misc/TWindowDD.h"
 
 extern "C" {
 
-void handle_input__9TWindowDDFi(s32 arg0);
 s32 apply_entry_layout__9TWindowDDFPv(s32);
 s32 update_selection_state__9TWindowDDFPv();
 s32 TWindowDD__sub_803482B0(s32);

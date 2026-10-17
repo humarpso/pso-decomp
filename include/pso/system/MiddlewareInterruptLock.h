@@ -5,4 +5,9 @@ extern "C" {
 void middleware_interrupt_lock_leave(void);
 void middleware_interrupt_lock_enter(void);
 }
+extern "C" {
+void middleware_interrupt_lock_enter(void);
+void middleware_interrupt_lock_leave(void);
+}
+
 #endif

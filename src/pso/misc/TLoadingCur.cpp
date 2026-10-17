@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_80141D1C.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 
 #include <stddef.h>
@@ -54,13 +57,11 @@ extern const f32 TLoadingCur__data_805D7E9C;
 extern const f32 lbl_805D7EA0;
 extern const f32 lbl_805D7EA4;
 s32 fn_80086FE0(void *, void *, int, int);
-void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__11TLoadingCur[];
 extern RecoveredGlobal_8001D0A0_lbl_804FF5E8 lbl_804FF5E8;
 extern s32 TLoadingCur__class_name;
 extern const f32 lbl_805D7E90;
-u8 *TLoadingCur__ct(u8 *arg0, s32 arg1);
 s32 is_split_screen(void);
 void calc_loading_cursor_pos(void *, void *);
 s32 is_flag_set__11TLoadingCurFv(void *, s32);
@@ -72,13 +73,10 @@ extern const f32 lbl_805D7EB8;
 extern const f32 lbl_805D7EBC;
 s32 project_world_to_screen(int, void *, void *);
 void push_matrix(void);
-s32 pop_matrix(void);
 extern const f32 lbl_805D7EA8;
 extern const f32 lbl_805D7EAC;
-void *__dt__11TLoadingCurFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void queue_destruction__7TObjectFv(void *);
 
 s32 TLoadingCur::calc_clamp_offset(s32 arg0, u8 *arg1, u8 *arg2) {
     f32 temp_f0;

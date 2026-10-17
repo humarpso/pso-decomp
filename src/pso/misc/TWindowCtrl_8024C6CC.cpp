@@ -1,24 +1,11 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl_8024C6CC.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/misc/TUnk_804CF0B8.h"
 #include "pso/misc/TWindowSimpleStatus.h"
 
 extern "C" {
-
-void TWindowCtrl__sub_8024C6CC(void* p);
-void TWindowCtrl__sub_8024C6DC(void* p);
-void TWindowCtrl__sub_8024C6EC(void* p);
-void TWindowCtrl__sub_8024C6FC(void* p);
-void TWindowCtrl__sub_8024C70C(void* p);
-void TWindowCtrl__sub_8024C71C(void* p);
-void TWindowCtrl__sub_8024C72C(void* p);
-void TWindowCtrl__sub_8024C73C(void* p);
-void TWindowCtrl__sub_8024C74C(void* p);
-void TWindowCtrl__sub_8024C75C(void* p);
-int TWindowCtrl__sub_8024C7D4(void* p);
-int TWindowCtrl__sub_8024C7E0(void* p);
-int TWindowCtrl__sub_8024C7F8(void* p);
 
 void TWindowCtrl__sub_8024C6CC(void* p) { *(u16*)((char*)p + 0x1c) |= 0x40; }
 void TWindowCtrl__sub_8024C6DC(void* p) { *(u16*)((char*)p + 0x1c) &= 0xffffffbf; }
@@ -39,7 +26,6 @@ void TWindowCtrl::clear_flag_bit0() {
     TRaderMapCore::show_radar();
 }
 
-bool TWindowCtrl__sub_8024C7C4(u8 *arg0);
 bool TWindowCtrl__sub_8024C7C4(u8 *arg0) {
     return *(s32 *)((s8 *)arg0 + 0x3C) != 0;
 }

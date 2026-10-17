@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_800D7BFC.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjFish.h"
 #include "pso/misc/TORockCaveBrakable.h"
@@ -103,13 +106,11 @@ struct Rock_8029C390 {
 extern "C" {
 s32 init_collision_body_parts(void *, void *, int);
 void *TORockCaveBrakable__ct(void *arg0);
-s32 get_jungle_rock_texture_resource(s32 a);
 extern RecoveredGlobal_8029C588_lbl_804DC3A0 rock_jungle_collision_body_parts;
 extern RecoveredGlobal_8029C588_lbl_804DC424 rock_jungle_vec3_table;
 extern s32 __vt__15TORockJungleM01[];
 extern s32 lbl_805D3D40;
 extern const f32 lbl_805DDD1C;
-u8 *TORockJungleM01__ct(u8 *arg0, s32 arg1);
 s32 isFading__15RenderFadeStateCFv(void *);
 void matrix_mult_vec(s32, void *, void *);
 extern const f32 lbl_805DDD18;
@@ -118,20 +119,15 @@ void *__nw__7TObjectFUl(int);
 int vec3_add_to(void *, void *);
 int rotate_vector_by_matrix(int, void *, void *);
 int rotate_matrix_y(int, int);
-s32 push_matrix_from(void *src);
-s32 pop_matrix(void);
 extern Offs_8029C390 lbl_80465884;
 extern ChipParam_8029C390 lbl_80465890;
 extern u8 identity_matrix[];
 extern void *tl_05;
-void *__dt__15TORockJungleM01Fv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void free_collision_body_parts(void *);
 int update_obstruction_fade(void*);
-void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__dt__18TORockCaveBrakableFv(void *arg0, s16 arg1);
-void queue_destruction__7TObjectFv(void *);
 
 void TORockJungleM01::run_task() { update_obstruction_fade((char*)this + 0xbc); update_break_state(); }
 

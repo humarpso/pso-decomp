@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80041E88.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"

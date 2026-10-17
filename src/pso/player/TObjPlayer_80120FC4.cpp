@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80120FC4.h"
 
 extern "C" {
 
-s32 create_common_weapon(s32 arg0);
 s32 TItemWeapon__ct(s32, s32, s32);
 s32 alloc_from_obj_heap__10TObjPlayerFPv(s32);
 

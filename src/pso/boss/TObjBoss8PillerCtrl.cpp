@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/system/memory.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TObjBoss8PillerCtrl.h"
@@ -28,13 +29,10 @@ struct Self_8035C03C {
 
 extern "C" {
 s32 __ct__7TObjectFP7TObject();
-void TObjBoss8PillerCtrl__sub_8035C034(void *, void *);
 extern RecoveredGlobal_8035C22C_lbl_804799DC boss8_piller_ctrl_params;
 extern s32 __vt__19TObjBoss8PillerCtrl[];
 extern s32 TObjBoss8PillerCtrl__class_name;
 extern const f32 lbl_805E017C;
-u8 *TObjBoss8PillerCtrl__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3);
-void queue_destruction__7TObjectFv(void *);
 void *__nw__7TObjectFUl(u32);
 void __ct__15TObjBoss8PillerFv(void *, s32, Vec_8035C03C *, f32, u16);
 s32 fn_8035BFF8(void *, Vec_8035C03C *);
@@ -44,7 +42,6 @@ extern const f32 lbl_805E0170;
 extern const f32 lbl_805E0174;
 extern const f32 lbl_805E0178;
 void run_task__19TObjBoss8PillerCtrlFv(Self_8035C03C *self);
-void *__dt__19TObjBoss8PillerCtrlFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 

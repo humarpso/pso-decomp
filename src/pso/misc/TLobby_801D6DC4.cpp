@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_801D6DC4.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -34,7 +35,6 @@ u8 ret_801D791C(Obj_801D7098 *p);
 u8 ret_801D792C(Obj_801D7100 *p);
 u8 TLobby__sub_801D7100(Obj_801D7100 *p);
 s32 is_invalid_slot__10TObjPlayerFUc(u8);
-u8 TLobby__sub_801D6DDC(void *arg0);
 u8 ret_801D78E4();
 
 void TLobby::set_volume(u8 arg1) {

@@ -1,10 +1,13 @@
 #include "types.h"
+#include "pso/misc/ShortMail.h"
+#include "pso/misc/TPlyGuildCardTag_8007B7EC.h"
+#include "pso/misc/TWindowSubComCard_8007A810.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
-s32 get_card_entry__17TWindowSubComCardFi(s32);
 s32 strncpy(void *, s32, s32);
 
 void TWindowSubComCard::set_card_text(s32 arg1) {
@@ -68,8 +71,6 @@ struct ByteBlock_6C { u8 bytes[0x6C]; };
 extern "C" {
 struct S_8007AA70;
 s32 forward_return_arg__17TWindowSubComCardFi(s32, S_8007AA70 *);
-s32 copy_card__17TWindowSubComCardFiPv(s32 arg0, u8 *arg1);
-s32 reinit__17TWindowSubComCardFi(s32);
 
 void TWindowSubComCard::swap_cards(s32 arg0, s32 arg1) {
     s32 sp8[64];
@@ -127,14 +128,10 @@ int copy_struct__17TWindowSubComCardFPvPv(S_8007AA70 *arg0, S_8007AA70 *arg1) {
     return (int)arg0;
 }
 
-s32 init__17TWindowSubComCardFi(s32);
-
 s32 reinit__17TWindowSubComCardFi(s32 arg0) {
     ((s32 (*)())init__17TWindowSubComCardFi)();
     return arg0;
 }
-
-s32 init_guild_card_tag__17TWindowSubComCardFi(s32);
 
 s32 init__17TWindowSubComCardFi(s32 arg0) {
     ((s32 (*)())init_guild_card_tag__17TWindowSubComCardFi)();
@@ -157,11 +154,9 @@ extern "C" {
 s32 has_inactive_card__17TWindowSubComCardFPvi(Card_8007AB84 *cards, s32 n);
 struct O_8007B26C;
 void TWindowSubComCard__sub_8007B26C(O_8007B26C *);
-void forward_to_matching_card__17TWindowSubComCardFPvPvi(void *, u8 *, s32);
 s8 TWindowSubComCard__sub_8007B6EC(void *);
 s32 TWindowSubComCard__sub_8007B6F4(void *);
 s32 TWindowSubComCard__sub_8007AC7C(Card_8007AC7C *self, Card_8007AC7C *cards, s32 count);
-u32 TWindowSubComCard__sub_8007B070(u8 *);
 int __ct__16TPlyGuildCardTagFv();
 
 s32 init_guild_card_tag__17TWindowSubComCardFi(s32 arg0) {
@@ -252,12 +247,8 @@ struct RecoveredGlobal_8007AE8C_TWindowGetComCard__data_80500158 {
 extern "C" {
 struct Card_8007B0D0;
 s32 TWindowSubComCard__sub_8007B0D0(Card_8007B0D0 *, Card_8007B0D0 *, s32);
-void TWindowSubComCard__sub_8007B1AC(void *, u8 *, s32);
 s32 bswap_guild_card__17TWindowSubComCardFv();
-void TWindowSubShortMail__sub_8007B824(void);
 extern RecoveredGlobal_8007AE8C_TWindowGetComCard__data_80500158 TWindowGetComCard__received_guild_card_tags;
-void handle_6x06_send_guild_card(s32 arg0);
-s32 load_player_data__23TAdSinglePlyChrSelectGCFv();
 
 void TWindowSubComCard::start_player_data_load(s32 arg0) {
     u32 temp;
@@ -299,11 +290,9 @@ struct Card_8007B0D0 {
 
 extern "C" {
 s32 init_card__17TWindowSubComCardFPv(s32 *, s32);
-void TWindowSubComCard__sub_8007AF10(s32 arg0);
 s32 count_leading_active__17TWindowSubComCardFPvi(Card_8007AF60 *p, s32 n);
 s32 TWindowSubComCard__sub_8007B010(Card_8007B010 *p, s32 n);
 int fill_guild_card_from_char__6TLobbyFl(void*, void*);
-int clear(void* p);
 int memset(void*, int, int);
 
 #pragma push
@@ -417,10 +406,6 @@ void TWindowSubComCard__sub_8007B26C(O_8007B26C *self) {
 
 int clear(void* p) { return memset(p, 0, 144); }
 
-s32 TWindowSubShortMail__sub_8007B834(void *);
-void *fn_8007B83C(void *p);
-void *find_short_mail_by_id__6TLobbyFUi(u32 id);
-s32 fn_8007B2E0(u8 *arg0, s32 arg1);
 void TWindowSubComCard::clear_and_init(void* a1) { clear(this); fill_guild_card_from_char__6TLobbyFl(this, a1); }
 s32 fn_8007B2E0(u8 *arg0, s32 id) {
     u8 *temp_r3;

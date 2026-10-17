@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TWindowKeyBoardSoft_8025B85C.h"
+#include "pso/misc/TWindowSubStatusDisp_80144B14.h"
+#include "pso/misc/TWindowSubStatusDisp_80228F5C.h"
 #include "pso/misc/TWindowKeyBoardBase.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
 #include "pso/misc/TWindowChat.h"
@@ -24,54 +27,22 @@ struct Kbd_8025C804 {
 };
 
 extern "C" {
-void TWindowKeyBoardSoft__sub_8025BA44(u8 *arg0);
 s32 is_chat_shortcut_set(int);
-void TWindowKeyBoardSoft__vt14(u8 *arg0);
-void TWindowKeyBoardSoft__vt13(u8 *arg0);
-void TWindowKeyBoardSoft__vt12(u8 *arg0);
-void TWindowKeyBoardSoft__vt11(u8 *arg0);
-void TWindowKeyBoardSoft__vt10(u8 *arg0);
-void TWindowKeyBoardSoft__vt7(u8 *arg0);
-void TWindowKeyBoardSoft__vt6(u8 *arg0);
-void TWindowKeyBoardSoft__vt17(u8 *arg0);
 s32 TWindowKeyBoardSoft__sub_8025D664();
 s32 select_next__19TWindowKeyBoardSoftFv();
-void TWindowKeyBoardSoft__vt18(u8 *arg0);
-void TWindowKeyBoardSoft__vt20(u8 *arg0);
 s32 TWindowKeyBoardSoft__sub_800808FC(int, int);
-void TWindowKeyBoardSoft__vt19(u8 *arg0);
-void TWindowKeyBoardSoft__vt0(u8 *arg0);
-void TWindowKeyBoardSoft__vt21(u8 *arg0);
-void TWindowKeyBoardSoft__vt2(u8 *arg0);
-void TWindowKeyBoardSoft__sub_8025BA28(u8 *arg0);
 s32 TWindowKeyBoardSoft__sub_8025D8C8();
-void TWindowKeyBoardSoft__vt15(u8 *arg0);
-void TWindowKeyBoardSoft__vt5(u8 *arg0);
-void TWindowKeyBoardSoft__vt4(u8 *arg0);
-void TWindowKeyBoardSoft__vt3(u8 *arg0);
-void TWindowKeyBoardSoft__vt1(u8 *arg0);
 void TWindowKeyBoardSoft__sub_8025CFA8(void *, void *);
 s32 TWindowKeyBoardSoft__sub_803E67D4(void *, void *);
-void TWindowKeyBoardSoft__sub_8025B92C(u8 *arg0);
-void TWindowKeyBoardSoft__vt9(u8 *arg0);
-void TWindowKeyBoardSoft__vt8(u8 *arg0);
 s32 get_shared_text_buffer();
 s32 append_text__19TWindowKeyBoardSoftFPvPv(void *, s32);
-void text_builder_append(u8 *str);
-void text_builder_reset(void);
 s32 *TWindowCtrl__sub_8024B7D4(s32);
 s32 TWindowKeyBoardSoft__sub_8025DBDC(void *, s32);
 extern s32 lbl_805DD030;
 extern s32 lbl_805DD034;
-void TWindowKeyBoardSoft__sub_8025C51C(u8 *arg0, s32 arg1);
 s32 TWindowKeyBoardSoft__sub_8025D7FC();
-void TWindowKeyBoardSoft__vt16(u8 *arg0);
-bool is_alnum__19TWindowKeyBoardSoftFUs(u16 arg0);
 extern s32 current_language;
-u16 map_char_to_font_code(u16);
-u32 get_font_char_advance(u16 arg0);
 void export_keyboard_text(Base_8025C974 *base, char *out);
-void TWindowKeyBoardSoft__sub_8025B928(void);
 int set_text_from_string__19TWindowKeyBoardSoftFPc(void*);
 
 bool is_alnum__19TWindowKeyBoardSoftFUs(u16 arg0) {

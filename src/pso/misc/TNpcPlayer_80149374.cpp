@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_801E43E4.h"
 #include "pso/system/byteswap.h"
 #include "pso/npc/TObjNpcBringer.h"
 #include "pso/npc/TObjNpcBase.h"
@@ -6,7 +7,6 @@
 extern "C" {
 s32 read_be16_field2__10TObjPlayerFv();
     extern const float lbl_805DB1C4;
-void TLobby__send_and_handle_60(u8 *arg0);
 
 #include "pso/misc/TNpcPlayer.h"
 

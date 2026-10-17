@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D853C.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjLazerFenceExtra.h"
 #include "pso/system/BmlResourceDescriptor.h"
@@ -43,21 +46,15 @@ s32 construct_world_actor_base(void *);
 extern s32 __vt__9TKomorebi[];
 extern s32 komorebi_class_name;
 extern u32 TKomorebi__resource_bundle;
-u8 *TKomorebi__ct(u8 *arg0, s32 arg1, s32 arg2);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern s32 komorebi_last_uv_update_frame;
 s32 get_bml_motion(s32, s32);
 extern s32 lazer_fence_norm_bml_resource;
-void *TKomorebi__create(void *arg0);
-void *__dt__9TKomorebiFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(s32, f32, f32, f32);
-void draw_ginja_object(void *child);
-void rotate_matrix_yxz(s32 matrix, s32 arg1, s32 arg2, s32 arg3);
 s32 push_matrix();
-s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 f32 xz_distance_squared(void *, s32);

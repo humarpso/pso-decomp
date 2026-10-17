@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby_8001D6A0.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 
 #include <stddef.h>
@@ -37,7 +39,6 @@ extern u32 camera_ctrl_instance;
 extern const f32 lbl_805D7EC0;
 void DCInvalidateRange(void *, u32);
 void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void *);
-void TLobby__sub_8001D9DC(void);
 extern s32 aram_dma_pending;
 s32 TLoadingCur__ct(void *, void *, void *);
 s32 direction_to_rotation_xz(void *, void *, void *);
@@ -53,7 +54,6 @@ void TNowLoading__sub_8001D4D4(void);
 void *__dt__11TNowLoadingFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void queue_destruction__7TObjectFv(void *);
 
 void TNowLoading::render() {  }
 

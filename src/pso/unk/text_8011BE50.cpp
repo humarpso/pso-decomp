@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/unk/text_8011BA54.h"
+#include "pso/unk/text_8011BE50.h"
 #include "pso/item/TItemShootParticle.h"
 #include "pso/TObject.h"
 
 extern "C" {
 s32 spawn_shoot_particle__10TObjPlayerFUlllf(u32, s32, s32, f32);
-s32 create_shoot_model__10TObjPlayerFUiiif(u32, s32, s32, f32);
-s32 create_shoot_model_with_particles(u32 arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 create_shoot_model_with_particles(u32 owner, s32 arg1, s32 arg2, f32 farg0) {
     s32 temp_r30;
     s32 temp_r31;

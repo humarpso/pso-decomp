@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80122014.h"
 #include "pso/item/TUnk_804A0DB0.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void belra_cannon_return_timer(void *arg0);
 int scale_current_matrix(void*);
 int get_player_list__10TObjPlayerFv(void*);
 

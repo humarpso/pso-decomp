@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby_802A0F3C.h"
+#include "pso/player/TObjPlayer_8023E480.h"
 #include "pso/misc/TLobby.h"
 
 #pragma inline_depth(1)
@@ -7,13 +9,10 @@
 struct ByteBlock_14 { s32 v[5]; };
 
 extern "C" {
-s32 TLobby__sub_8023E4B4(s32 arg0, s32 arg1);
 extern const s32 lbl_804661E4[];
 extern const s32 lbl_804661F8[];
 extern const s32 current_language;
 extern u32 lbl_805D6630;
-void TLobby__sub_802A0F70(void);
-int TObjPlayer__sub_802A1018(void);
 void TLobby__sub_803DA16C(void*);
 
 void TLobby::free_dialog_global() {

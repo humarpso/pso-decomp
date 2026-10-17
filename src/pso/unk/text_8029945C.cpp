@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8029945C.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 
 struct RecoveredGlobal_80069094_camera_controller_registry { s32 value; u8 remaining[0x64]; };
@@ -120,7 +121,6 @@ struct RecoveredGlobal_80069A6C_TCameraCtrl__data_804FF628 {
 
 extern "C" {
 extern RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4 cm_icon_screen_position;
-void fn_8029945C(u8 *arg0);
 typedef char RecoveredGlobal_80069094_camera_controller_registry_size[sizeof(RecoveredGlobal_80069094_camera_controller_registry) == 0x68 ? 1 : -1];
 typedef char RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4_size[sizeof(RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_800687C8_TCameraCtrl__data_804FF6C4_size[sizeof(RecoveredGlobal_800687C8_TCameraCtrl__data_804FF6C4) == 0xC ? 1 : -1];

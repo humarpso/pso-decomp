@@ -1,6 +1,10 @@
 #pragma push
 
 #include "types.h"
+#include "pso/misc/TCameraCtrl_800687BC.h"
+#include "pso/player/TObjPlayer_80052374.h"
+#include "pso/player/TObjPlayer_803E4954.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjDFDemo0.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
@@ -60,12 +64,9 @@ struct Self_8004E068
 };
 
 extern "C" {
-void TObjPlayer__sub_80052390(f32);
 void rotate_matrix_y(s32, s32);
 void push_matrix();
-s32 pop_matrix(void);
 void post_translate_matrix(void *);
-void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern const f32 lbl_805D8988;
 extern const f32 lbl_805D898C;
 extern const f32 lbl_805D89A0;
@@ -235,7 +236,6 @@ struct S_8004E634 {
 
 extern "C" {
 void fn_8004AA04(void *);
-s32 restore_player_cameras(void);
 void __dl__7TObjectFPv(void *);
 extern u8 lbl_80485640[];
 S_8004E634 *fn_8004E634(S_8004E634 *o, s16 flag);

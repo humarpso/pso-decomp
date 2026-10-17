@@ -27,4 +27,8 @@ public:
 };
 typedef char TPhotonFarlla_size[sizeof(TPhotonFarlla) == 0x1A8 ? 1 : -1];
 
+extern "C" {
+void *destroy__13TPhotonFarllaFPvs(void *arg0, s16 arg1);
+}
+
 #endif

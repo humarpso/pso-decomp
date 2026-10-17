@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80121F58.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void *belra_cannon_ct(void *arg0);
 void TItemWeapon__ct(void *);
 
 extern s32 lbl_804A0CB8[];

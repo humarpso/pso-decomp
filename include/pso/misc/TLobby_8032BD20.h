@@ -1,0 +1,12 @@
+#ifndef PSO_MISC_TLOBBY_8032BD20_H
+#define PSO_MISC_TLOBBY_8032BD20_H
+
+#include "types.h"
+
+extern "C" {
+void TLobby__sub_8032BE30(void);
+void TLobby__sub_8032BE3C(void);
+u8 *__dt__13TUnk_804EDAC0Fv(u8 *arg0, s16 arg1);
+}
+
+#endif

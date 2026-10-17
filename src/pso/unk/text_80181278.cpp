@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80181278.h"
 #include "pso/unk/TObjCityAirCar_Car.h"
 
 struct RecoveredGlobal_80181278_lbl_804B5908 {
@@ -11,7 +12,6 @@ u8 * construct_world_actor_base(void *);
 extern RecoveredGlobal_80181278_lbl_804B5908 __vt__18TObjCityAirCar_Car;
 extern s32 TObjCityAirCar_Car__name;
 extern const f32 lbl_805DBBC8;
-u8 *construct_city_air_car(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
 typedef char RecoveredGlobal_80181278_lbl_804B5908_size[sizeof(RecoveredGlobal_80181278_lbl_804B5908) == 0x34 ? 1 : -1];
 u8 *construct_city_air_car(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
     construct_world_actor_base(arg0);

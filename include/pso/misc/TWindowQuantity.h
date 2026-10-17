@@ -18,4 +18,11 @@ struct TWindowQuantity : public TUnk_804CE018 {
 };
 
 typedef char TWindowQuantity_size[sizeof(TWindowQuantity) == 0x6C ? 1 : -1];
+extern "C" {
+void *TWindowQuantity__ct(void *arg0, void *arg1);
+void *__dt__15TWindowQuantityFv(void *arg0, s16 arg1);
+void *create_window_quantity(void *arg0);
+void render__15TWindowQuantityFv(s32 arg0);
+}
+
 #endif

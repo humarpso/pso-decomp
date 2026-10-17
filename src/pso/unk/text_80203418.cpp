@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby_80207644.h"
+#include "pso/unk/text_80203418.h"
 #include "pso/misc/TOKeyMachine01.h"
 
 struct Stack_80203470 {
@@ -7,12 +9,9 @@ struct Stack_80203470 {
 };
 
 extern "C" {
-s32 get_floor_map_selection(s32 arg0, u8 *arg1);
 extern s32 current_floor_index;
 extern s32 current_floor_area_type;
-void set_current_floor_area(s32 arg0);
 extern s32 boss_area_id_table[];
-s32 is_boss_area(void);
 
 s32 is_boss_area(void) {
     s32 state = TOKeyMachine01::get_global_state();

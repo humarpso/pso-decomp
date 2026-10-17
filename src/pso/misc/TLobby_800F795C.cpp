@@ -1,4 +1,27 @@
 #include "pso/map/FloorResourceCallbacks.h"
+#include "pso/boss/TBoss1DragonDemo.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/boss/TBoss7DeRolLeC_802EE4E0.h"
+#include "pso/boss/TBoss8Dragon_802F3AB4.h"
+#include "pso/enemy/SaverLifecycle.h"
+#include "pso/enemy/TObjEneDarkGunCenter.h"
+#include "pso/enemy/TObjEneRe2Flower_800C3E14.h"
+#include "pso/misc/TLobby_800F795C.h"
+#include "pso/misc/TLobby_801E43E4.h"
+#include "pso/npc/TObjNpcBase_80149128.h"
+#include "pso/npc/TObjNpcFemaleBase_80149C44.h"
+#include "pso/npc/TObjNpcFemaleBase_80149C7C.h"
+#include "pso/npc/TObjNpcFemaleTall_8014AA48.h"
+#include "pso/npc/TObjNpcFemaleTall_8014AA60.h"
+#include "pso/npc/TObjNpcLappy_8014B828.h"
+#include "pso/npc/TObjNpcLappy_8014B840.h"
+#include "pso/player/TObjPlayer_800A894C.h"
+#include "pso/player/TObjPlayer_800D8FDC.h"
+#include "pso/unk/text_80090488.h"
+#include "pso/unk/text_8009F410.h"
+#include "pso/unk/text_8035B6B0.h"
+#include "pso/unk/text_8035B750.h"
+#include "pso/unk/text_8035B788.h"
 #include "pso/system/byteswap.h"
 #include "pso/boss/TBoss5Gryphon.h"
 #include "pso/enemy/TObjEneGyaranzo.h"
@@ -106,20 +129,9 @@ struct RecoveredGlobal_800F7A7C_lbl_8048C9D8 {
 };
 
 extern "C" {
-void init_6x9C_enemy_low_game_flags_packet(u8 *arg0);
 extern RecoveredGlobal_800F7A6C_lbl_804DB1F0 lbl_804DB1F0;
-f32 TLobby__sub_800F7A6C(void);
 extern RecoveredGlobal_800F7A7C_lbl_8048C9D8 challenge_mode_state;
-f32 TLobby__sub_800F7A7C(void);
-void send_6x0A_enemy_state_packet(void* p);
-void init_6x0A_enemy_state_packet(void* p);
-int get_attack_credit_slot_count(void);
-void unload_current_floor_resources(void);
-void TLobby__send_and_handle_60(u8 *arg0);
-void unload_floor_resources(s32 arg0);
-s32 load_floor_resources(s32 arg0);
 s32 is_area_transfer_pending();
-s32 load_current_floor_resources(void);
 int read_be16_field2__10TObjPlayerFv(void*);
 
 void TLobby::bswap_field() { read_be16_field2__10TObjPlayerFv(this); bswap_32((u32 *)((char*)this + 0x4)); }
@@ -184,46 +196,18 @@ s32 load_current_floor_resources(void) {
 }
 
 void load_resources__12TBoss1DragonFv();
-void TBoss1DragonDemo__sub_8002B68C();
-void TBoss1DragonDemo__sub_8002B690();
-void reset_parts__13TBoss2DeRolLeFv();
-void load_resources__13TBoss2DeRolLeFv();
 void TBoss8Dragon__sub_80065C90();
 void TObjEneBalClaw__sub_8008D924();
-void TObjEneBalClawClaw__sub_8008DC14();
-void fn_80090488();
-void spawn_lobby_npc_enemy();
-void free_boss4_rock_pool();
-void fn_8009F410();
 void fn_8009F554();
-void TObjEneDarkGunCenter__sub_800A0E7C();
-void TObjEneDarkGunCenter__sub_800A0E80();
 void TObjPlayer__sub_800A2DCC();
-void initialize_saver_resources();
-void TObjPlayer__sub_800AA82C();
 void load_resources__11TObjEneMojaFv();
-void TObjPlayer__sub_800C44C4();
 void TObjEneMerillLia__sub_800D6D64();
-void load_corpse_mark_resource();
 void TLobby__sub_800DC028();
 void TObjEneMe3ShinowaMirage__sub_800E7B94();
-void load_ply_motion_npc_town();
-void TObjNpcFemaleBase__sub_80149C64();
-void TObjNpcFemaleBase__sub_80149C7C();
-void TObjNpcFemaleTall__sub_8014AA48();
-void TObjNpcFemaleTall__sub_8014AA60();
-void TObjNpcLappy__sub_8014B828();
-void TObjNpcLappy__sub_8014B840();
 void TBoss4Type3__sub_802D1130();
-void TObjPlayer__sub_802EE574();
-void TBoss8Dragon__sub_802F3C74();
-void clear_boss8_dragon_leader_part();
 void TBoss8Dragon__sub_802FDA78();
 void TObjEneMe3SinowZoa__sub_8031B240();
 void TObjEneMorfos__sub_803350AC();
-void load_and_spawn_chao_npc();
-void fn_8035B750();
-void fn_8035B788();
 
 FloorResourceCallbacks floor_resource_callbacks_selector_00[43] = {
     { load_ply_motion_npc_town, TObjNpcBase::free_static },

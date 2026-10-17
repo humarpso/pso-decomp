@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TPlyJoinLobbyEntry.h"
 #include "pso/system/byteswap.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjInfoCol.h"
@@ -26,7 +27,6 @@ struct RecoveredGlobal_80191EC0___vt__11TObjInfoCol {
 };
 
 extern "C" {
-void open_lobby_warp_menu__6TLobbyFv(void);
 s32 is_idle__6TLobbyFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 check_flag_100__10TObjPlayerFPv();
@@ -36,8 +36,6 @@ extern s32 local_client_id;
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern s32 __vt__11TObjInfoCol[];
 extern s32 TObjInfoCol__class_name;
-u8 *TObjInfoCol__ct(u8 *arg0, s32 arg1, s32 arg2);
-void *__dt__11TObjInfoColFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 f32 xyz_distance_squared(const Vec *, const Vec *);
 int read_be16_field2__10TObjPlayerFv(void*);

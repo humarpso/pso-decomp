@@ -1,13 +1,12 @@
 #include "types.h"
+#include "pso/misc/TPlyJoinLobbyEntry.h"
+#include "pso/misc/TQuestListOnline_80218310.h"
+#include "pso/misc/TShopWindowBase.h"
 #include "pso/misc/TQuestListOnline.h"
 #include "pso/TShopWindowBase.h"
 #include "pso/misc/TQuestListVM.h"
 
 extern "C" {
-
-void *TQuestListOnline__ct(void *arg0, void *arg1, void *arg2, void *arg3);
-s32 __ct__13GameListEntryFv(s32 arg0);
-void *__ct__15TShopWindowBaseFv(void *arg0);
 
 extern s32 __vt__16TQuestListOnline[];
 extern void *TQuestListOnline__class_name;

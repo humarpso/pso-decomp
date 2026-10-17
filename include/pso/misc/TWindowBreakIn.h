@@ -14,4 +14,9 @@ struct TWindowBreakIn : public TUnk_804CE018 {
 };
 
 typedef char TWindowBreakIn_size[sizeof(TWindowBreakIn) == 0x60 ? 1 : -1];
+extern "C" {
+u8 *TWindowBreakIn__ct(u8 *arg0);
+void *__dt__14TWindowBreakInFv(void *arg0, s16 arg1);
+}
+
 #endif

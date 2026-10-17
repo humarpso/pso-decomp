@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80128A70.h"
 #include "pso/player/TUnk_804A3F20.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -57,7 +58,6 @@ struct VObj_18 : VBase_18 {
 };
 
 extern "C" {
-void TObjPlayer__sub_80128A70(void);
 u8 * init_shot_state__13TUnk_804A3E20Fv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;

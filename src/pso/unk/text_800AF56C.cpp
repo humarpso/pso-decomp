@@ -1,14 +1,14 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_800AF56C.h"
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(s32);
 s32 __destroy_arr(void *, void *, int, int);
 extern s32 __dt__13TUnk_804949A8Fv[];
 extern s32 __vt__11TObjEneMoja[];
-u8 *__dt__11TObjEneMojaFv(u8 *arg0, s16 arg1);
 u8 *__dt__11TObjEneMojaFv(u8 *arg0, s16 arg1) {
     u8 *temp_r3;
     if (arg0 != NULL) {

@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TTecFoie_802301EC.h"
+#include "pso/misc/TTecGiZonde_8023A4CC.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/player/TUnk_804CCC68.h"
 #include "pso/misc/TTecFoie.h"
 #include "pso/misc/TNowLoading.h"
@@ -19,11 +22,8 @@ u8 * __ct__13TUnk_804CCC68FlPUcPUcl(void *, s32, void *, void *, s16);
 extern RecoveredGlobal_802302A0___vt__8TTecFoie __vt__8TTecFoie;
 u8 * construct_facing_technique__10TObjPlayerFPviPvii(void *, s32, void *, s32, s16);
 extern s32 TTecFoie__name;
-u8 *TTecFoie__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4);
 extern Band_802301EC TTecFoie__emitter_profile_table[];
 u32 find_entity_by_id(u16);
-void queue_destruction__7TObjectFv(void *);
-void move_technique_projectile(u8 *arg0);
 void dispatch_technique_contact__13TUnk_804CCC68Fv(void *, s32);
 void run_task__8TTecFoieFv(Foie_802301EC *self);
 

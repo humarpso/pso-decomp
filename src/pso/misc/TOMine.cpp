@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TOMineTrap_8016F6F8.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/misc/TOMine.h"
@@ -45,7 +48,6 @@ u16 find_nearest_visible_player(void *, int, f32);
 s32 get_player_by_client_id(int);
 void rotate_matrix_y(int, int);
 void push_matrix();
-s32 pop_matrix(void);
 void post_translate_matrix(void *);
 void set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
@@ -61,8 +63,6 @@ extern const f32 lbl_805DB85C;
 Obj_80171278 *TOMine__ct(Obj_80171278 *arg0);
 void *__dt__6TOMineFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
-void TOMineTrap__sub_80170CD4(void *p);
-void draw_ginja_object(void *child);
 s32 submit_cursor_candidate(void *, int);
 int submit_target_to_player_cursor(void*);
 void __dl__7TObjectFPv(void *);

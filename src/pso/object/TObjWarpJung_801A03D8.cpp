@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjWarpJung_801A03D8.h"
 #include "pso/object/TObjWarpJung.h"
 
 extern "C" {
@@ -6,7 +7,6 @@ void free_children__12TObjDoorJungFPv(void *, u16);
 extern void *warp_jung_beam_models[];
 extern s32 warp_jung_beam_entry_index;
 extern s32 lbl_805D5CC0;
-s32 TObjWarpJung__sub_801A0404(s32 arg0);
 s32 scroll_ginja_mesh_uvs(s32, s32, s32, u16, s32);
 int draw_ginja_object(void);
 int get_bml_model(void*, void*);

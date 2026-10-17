@@ -1,0 +1,11 @@
+#ifndef PSO_MISC_TWINDOWKEYBOARDSOFT_80261440_H
+#define PSO_MISC_TWINDOWKEYBOARDSOFT_80261440_H
+
+#include "types.h"
+
+extern "C" {
+u8 *TWindowKeyBoardSoft__ct(u8 *arg0, s32 arg1, s16 arg2);
+void *__dt__19TWindowKeyBoardSoftFv(void *arg0, s16 arg1);
+}
+
+#endif

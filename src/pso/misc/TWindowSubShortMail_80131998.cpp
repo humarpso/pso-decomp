@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/misc/TWindowSubShortMail_80131998.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TWindowLockOn.h"
 #include "pso/misc/TWindowSubShortMail.h"
@@ -7,8 +9,6 @@
 #include "pso/misc/TWindowSubTradeMain.h"
 
 extern "C" {
-
-void window_request_show(void *arg0);
 
 void TWindowSubShortMail__sub_80131998(void *arg0) {
     u16 temp_r3;

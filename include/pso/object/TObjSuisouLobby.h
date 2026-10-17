@@ -19,4 +19,12 @@ struct TObjSuisouLobby : public TUnk_804AFBF8 {
 };
 
 typedef char TObjSuisouLobby_size[sizeof(TObjSuisouLobby) == 0xDC ? 1 : -1];
+extern "C" {
+void *TObjSuisouLobby__ct(void *arg0, void *arg1, void *arg2);
+void TObjSuisouLobby__sub_80369B5C(void);
+void TObjSuisouLobby__sub_80369D68(void);
+void *__dt__15TObjSuisouLobbyFv(void *arg0, s16 arg1);
+void render__15TObjSuisouLobbyFv(u8 *arg0);
+}
+
 #endif

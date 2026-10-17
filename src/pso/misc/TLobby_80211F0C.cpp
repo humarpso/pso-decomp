@@ -1,14 +1,14 @@
 #include "types.h"
+#include "pso/misc/THunterGuildSeqOffline_80213788.h"
+#include "pso/misc/THunterGuildWarning_80211700.h"
+#include "pso/misc/THunterGuildWarning_8021170C.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TLobby_80211F0C.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/THunterGuildSeqOffline.h"
 #include "pso/misc/TQuestListOnline.h"
 
 extern "C" {
-
-s32 get_main_phase();
-void THunterGuildWarning__sub_80211700(void);
-void clear_slots__22THunterGuildSeqOfflineFv(void);
-void clear_slot_flags__22THunterGuildSeqOfflineFv(void);
 
 void update_hunter_guild_phase(void) {
     if (get_main_phase() == 0xE) {
@@ -23,9 +23,6 @@ void update_hunter_guild_phase(void) {
 }
 
 void THunterGuildSeqOffline__sub_8021339C(void);
-void THunterGuildWarning__sub_8021170C(void);
-void THunterGuildSeqOffline__sub_80213CA4(void);
-void zero_four_slots__22THunterGuildSeqOfflineFv(void);
 
 void TLobby::update_guild_or_quest_phase() {
     if (get_main_phase() == 0xE) {

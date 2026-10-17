@@ -1,16 +1,16 @@
 #include "pso/TBoss4ZakoDraw.h"
+#include "pso/boss/TBoss4ZakoDraw_8030A96C.h"
+#include "pso/object/TObject_80019A50.h"
 
 #include "types.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 extern u8 boss4_zako_draw_buffers[];
 extern u32 dark_falz_controller_instance;
 extern s32 TBoss4ZakoDraw__draw_buffer_index;
 extern s32 TBoss4ZakoDraw__rotation_phase;
-void TCameraCtrl__sub_8030ABF4(void);
 
 void TBoss4ZakoDraw::render() { TObjPlayer::toggle_particle_effect(); TCameraCtrl__sub_8030ABF4(); TParticleCtrl::end_effect_render(); }
 void TBoss4ZakoDraw::run_task() {

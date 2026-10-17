@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe3ShinowaReal_8002ADD8.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneMe3ShinowaReal.h"
 #include "pso/boss/TBoss8Dragon.h"
@@ -7,7 +8,6 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-s32 fn_8002AE08(void *p);
 f64 floor();
 
 int TObjEneDD::get_flag_b4() { return (this->animationFlags >> 4) & 0x1; }

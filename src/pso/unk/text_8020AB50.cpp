@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLobby_80207DA8.h"
+#include "pso/misc/TLobby_8030A6A8.h"
+#include "pso/unk/text_8020AB50.h"
 
 struct E3_8020AB50 { s32 a; s32 name; s32 c; };
 
@@ -10,10 +13,8 @@ extern "C" {
 s32 read_disc_file(void *, void *);
 void debug_print__6TLobbyFle(const char *, ...);
 s32 replace_file_extension__6TLobbyFPvPvPv(void *, s32, void *);
-void bswap_enemy_set_row(void *arg0);
 s32 reserve_enemy_set_actor_ids(void *, u32, s32);
 s32 init_floor_enemy_count__6TLobbyFlPUcUl(s32, void *, s32);
-s32 get_game_play_mode();
 extern char lbl_8044BBA8[];
 extern char lbl_8044BBB8[];
 extern char lbl_8044BBC8[];
@@ -21,7 +22,6 @@ extern char lbl_8044BBD4[];
 extern E1_8020AB50 *TLobby__data_805D6068;
 extern u8 *TLobby__map_set_file_buffer;
 extern s32 TLobby__map_set_file_buffer_size;
-s32 load_area_enemy_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 load_area_enemy_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     char buf[0x28];
     s32 name;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80141A30.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/misc/TChCrTagInformation.h"
 #include "pso/TChCrCharSelect.h"
@@ -9,7 +10,6 @@ struct V2_802A1C04 { f32 x; f32 y; };
 struct Self_802A1C04 { u8 pad[0x24]; f32 t; };
 
 extern "C" {
-void restore_saved_depth_alpha_state(void);
 void draw_ui_sprite_scaled(s32, V2_802A1C04 *, V2_802A1C04 *, f32, f32);
 void draw_ui_sprite(s32, V2_802A1C04 *, f32, f32);
 extern V2_802A1C04 lbl_8046638C[];

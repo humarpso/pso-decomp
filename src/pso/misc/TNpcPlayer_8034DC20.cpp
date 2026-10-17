@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TNpcPlayer_8034DC20.h"
 #include "pso/misc/TUnk_804F07C8.h"
 #include "pso/misc/TNpcPlayer.h"
 #include "pso/misc/TLobby.h"
@@ -41,21 +42,17 @@ struct RecoveredGlobal_8034DC24_lbl_804F07C8
 struct RecoveredGlobal_8034DC24_lbl_804F07C8;
 extern "C" {
 extern RecoveredGlobal_8034DE10_lbl_80478C70 party_position_table;
-u8 *get_party_position(void);
 extern RecoveredGlobal_8034DE70_lbl_80478C50 npc_lobby_entry_positions;
 s32 copy__10TNpcPlayerFPv(void *, void *, int);
 extern RecoveredGlobal_8034DEA0_TNpcPlayer__data_804ABC90 TNpcPlayer__template_table;
 extern RecoveredGlobal_801A51C0_lbl_80446980 lbl_80478C88;
-s32 get_party_yaw(void);
 extern RecoveredGlobal_801A51C0_lbl_80446980 lbl_80478C68;
-s32 TNpcPlayer__sub_8034DE40(void);
 s32 __dt__7TObjectFv(void *, int);
 s32 obj_isState3_324__13TUnk_804806E8Fv(int);
 s32 is_script_controlled__10TObjPlayerFv();
 u8 *get_player_by_client_id(s32);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8034DC24_lbl_804F07C8 lbl_804F07C8;
-u8 *__dt__13TUnk_804F07C8Fv(u8 *arg0, s16 arg1);
 void construct_partner__10TNpcPlayerFPviisPv(void *, u16, u16, s32, void *);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);

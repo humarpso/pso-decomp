@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TORevlightCave01_80173664.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TOKey.h"
 
 extern "C" {
 
-void *__dt__16TORevlightCave01Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 extern s32 __vt__16TORevlightCave01[];

@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TChCrEffCtrlPl.h"
 #include "pso/TChCrEffCtrlPl.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 
 extern "C" {
 
-int TChCrEffCtrlPl__sub_80298F6C(void* p);
 int TAdMultiPlyChrSelectGC__sub_80299454(void*);
 
 s32 TChCrEffCtrlPl::get_clamped_player_index() {

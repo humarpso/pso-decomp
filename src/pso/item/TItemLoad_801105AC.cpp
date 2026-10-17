@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TItemLoad_8010F52C.h"
+#include "pso/item/TItemLoad_801105AC.h"
 #include "pso/item/TUnk_8049F42C.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/TItemLoad.h"
@@ -31,7 +33,6 @@ struct VObj_801105AC : Base_801105AC {
 extern "C" {
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
-void TItemLoad__sub_8010F5A0();
 u32 mem_alloc(u32);
 void * __nw__7TObjectFUl(s32);
 void *__ct__7TObjectFP7TObject(void *, void *);
@@ -40,8 +41,6 @@ extern void *TItemLoad__model_load_task_root;
 extern void *TItemLoad__completed_model_load_task_root;
 extern s32 TItemLoad__model_slot_in_use;
 extern s32 item_load_resource_handle;
-s32 TItemLoad__sub_80110740(void* p);
-s32 TItemLoad__sub_80110748(void* p);
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 __ct__9TItemLoadFv(void *, s32);
 void mem_free(void *p);

@@ -1,4 +1,6 @@
 #include "pso/TShopWindowBase.h"
+#include "pso/misc/TLobby_80222D24.h"
+#include "pso/misc/TShopWindowBase.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TShopSequence.h"
 
@@ -17,11 +19,9 @@ struct RecoveredGlobal_80223A48_lbl_8050E208 {
 
 extern "C" {
 s32 obj_getField1c(void *);
-s32 TShopGenerator__sub_80222DAC(s32 arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 extern RecoveredGlobal_802239EC_lbl_8050E208 controller_input_state;
 void vfunc_11__15TShopWindowBaseFv(void);
-void *__ct__15TShopWindowBaseFv(void *arg0);
 void run_task__15TShopWindowBaseFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 

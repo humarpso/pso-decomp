@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss5Pillar_8028B810.h"
 
 #include <stddef.h>
 struct Stack_8028B810 {
@@ -16,7 +17,6 @@ extern "C" {
 u8 * create_ch_cr_load_req(void *, void *);
 s32 copy_player_visual_record(void *, void *);
 s32 TCharaMaking__bind_appearance_texture_lists(void *, void *, void *, void *);
-u8 *init_appearance_load_request__10TNpcPlayerFPvPvii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
 
 u8 *init_appearance_load_request__10TNpcPlayerFPvPvii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     typedef char sp8_offset[(offsetof(Stack_8028B810, sp8) == 0x0) ? 1 : -1];

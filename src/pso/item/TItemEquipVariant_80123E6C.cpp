@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TItemEquipVariant_80120CF8.h"
+#include "pso/item/TItemEquipVariant_80123E6C.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TUnk_804A1E28.h"
 
@@ -21,9 +23,6 @@ void TUnk_804A1E28::update_attack() {
         *(s16 *)&this->unk_1FE = 1;
     }
 }
-
-void *__dt__13TUnk_804A1E28Fv(void *arg0, s16 arg1);
-void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
 
 extern s32 lbl_804A1E28[];
 

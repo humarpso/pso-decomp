@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/object/TObjLuker_801329B0.h"
 #include "pso/object/TObjLuker.h"
 
 struct RecoveredGlobal_801329B0_lbl_8043EA58 {
@@ -9,10 +11,7 @@ struct RecoveredGlobal_801329B0_lbl_8043EA58 {
 extern "C" {
 extern u8 *text_language_group_table;
 extern s32 game_difficulty_selection;
-s32 enemy_name_for_rt_index(s32 arg0);
-s32 get_localized_text_entry(s32, s32);
 extern RecoveredGlobal_801329B0_lbl_8043EA58 floor_destination_text_id_table;
-void get_floor_destination_name(u32 arg0);
     extern int luker_stat_entry_ptr_table[];
 
 typedef char RecoveredGlobal_801329B0_lbl_8043EA58_size[sizeof(RecoveredGlobal_801329B0_lbl_8043EA58) == 0x90 ? 1 : -1];

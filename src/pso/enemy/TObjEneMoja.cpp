@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type3_800D9960.h"
 #include "pso/enemy/TObjEneMoja.h"
 
 extern "C" {
@@ -6,7 +7,6 @@ extern "C" {
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
 void *TObjEneMoja__ct(void *, void *, void *);
-s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 void mem_free(void*);
 

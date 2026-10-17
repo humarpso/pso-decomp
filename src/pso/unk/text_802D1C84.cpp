@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_802D1C84.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -115,7 +116,6 @@ extern u32 lbl_80540BC8[];
 extern void *lbl_805D6880;
 void TLobby__sub_803DA16C(void *);
 void mem_free(void *);
-void fn_802D1C84(void);
 void fn_802D1C84(void) {
     void *p = lbl_80540BC8;
     if (p != 0) {

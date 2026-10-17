@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801D6C4C.h"
 #include "pso/system/memory.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-s8 TObjPlayer__sub_801D6D28(void *arg0);
-s32 destroy__10TObjPlayerFis(s32 arg0, s16 arg1);
 s32 destroy_particle__13TParticleCtrlFv();
 int clear_player_sub_object_slots(void*);
 

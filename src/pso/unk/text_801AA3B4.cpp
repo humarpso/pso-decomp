@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_801AA3B4.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -46,12 +47,10 @@ void call_funcs_reverse__6TLobbyFPvUi(void *, int);
 extern u8 photon_blast_load_callback_table[];
 extern u32 photon_blast_donation_flags[];
 extern u32 photon_blast_shared_resource;
-void TObjPlayer__sub_801AA3B4(void);
 extern struct PhotonBlastChain_801AA424 photon_blast_sequence_table[];
 u8 *load_resource_from_descriptor(u8 *, int, void *, int, int, int);
 u8 *alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 run_load_callback_table(void *, int);
-void load_photon_blast_resources(void);
 void TObjPlayer__sub_801AA3B4(void) {
     s32 i;
     call_funcs_reverse__6TLobbyFPvUi(photon_blast_load_callback_table, 0x50);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/MaterialAlphaCompare.h"
 #include "pso/render/depth_buffer.h"
 
 struct RecoveredGlobal_80141944_lbl_8050C000 {
@@ -9,7 +10,6 @@ struct RecoveredGlobal_80141944_lbl_8050C000 {
 extern "C" {
 void GXSetZMode(u8, s32, s32);
 void GXSetZCompLoc(s32);
-void set_material_alpha_compare_reference(s32);
 extern RecoveredGlobal_80141944_lbl_8050C000 depth_buffer_settings;
 void GXSetAlphaCompare(s32, s32, s32, s32, s32);
 typedef char RecoveredGlobal_80141944_lbl_8050C000_size[sizeof(RecoveredGlobal_80141944_lbl_8050C000) == 0x28 ? 1 : -1];
@@ -37,7 +37,4 @@ void set_depth_buffer_settings_3(void) {
     GXSetZCompLoc(1);
     GXSetZMode(1U, 1, 1);
     set_material_alpha_compare_reference(*(u8 *)((s8 *)(&depth_buffer_settings.value) + 0xD));
-}
-extern "C" {
-
 }

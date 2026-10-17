@@ -13,4 +13,8 @@ struct TOGrassJungle : public TUnk_804B9870 {
 };
 
 typedef char TOGrassJungle_size[sizeof(TOGrassJungle) == 0x94 ? 1 : -1];
+extern "C" {
+void *TOGrassJungle__create(void *arg0);
+}
+
 #endif

@@ -4,9 +4,6 @@
 
 extern "C" {
 
-void *TOVS2Wreck04__create(void *arg0);
-void *TOVS2Wreck04__ct(void *arg0, void *arg1);
-void *__dt__12TOVS2Wreck04Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 

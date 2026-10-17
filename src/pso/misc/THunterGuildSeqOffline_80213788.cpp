@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/misc/THunterGuildSeqOffline_80213788.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TQuestListOnline_80218310.h"
+#include "pso/misc/TQuestThread.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/ui/TObjBagWarnWin_8006EF24.h"
 #include "pso/misc/TShopSequence.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/TShopWindowBase.h"
@@ -124,20 +130,15 @@ extern "C" {
 s32 get_window_layout_position(int, f32);
 extern const f32 lbl_805DC658;
 extern const f32 lbl_805DC65C;
-void THunterGuildSeqOffline__sub_80213B18(u8 *arg0);
 s32 queue_destruction__7TObjectFv(int);
 void *__dt__13TShopSequenceFv(void *arg0, s16 arg1);
 s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 __dl__7TObjectFPv(void *);
-void TWindow__close(u8 *arg0);
 extern RecoveredGlobal_80213CCC_lbl_804C9740 __vt__28THunterGuildSeqOnline_Client;
 extern RecoveredGlobal_80213CCC_lbl_80513E70 lbl_80513E70;
 extern s32 hunter_guild_seq_online_client_instance;
-u8 *__dt__28THunterGuildSeqOnline_ClientFv(u8 *arg0, s16 arg1);
 extern RecoveredGlobal_80213CCC_lbl_80513E70 lbl_80513E70;
-void THunterGuildSeqOffline__sub_80213CA4(void);
 extern RecoveredGlobal_80213CCC_lbl_80513E70 lbl_80513E70;
-void clear_slots__22THunterGuildSeqOfflineFv(void);
 u8 *TShopSequence__ct(u8 *);
 s32 sub_8022397C__15TShopWindowBaseFv(void *);
 extern RecoveredGlobal_80213CCC_lbl_804C9740 __vt__28THunterGuildSeqOnline_Client;
@@ -145,26 +146,15 @@ extern RecoveredGlobal_80213CCC_lbl_80513E70 lbl_80513E70;
 extern s32 THunterGuildSeqOnline_Client__name;
 extern s32 hunter_guild_seq_online_client_instance;
 Seq_80213D84 *THunterGuildSeqOnline_Client__ct(Seq_80213D84 *arg0, s32 arg1, s32 arg2);
-void THunterGuildSeqOffline__sub_80213B18(u8 *arg0);
-void handle_close__22THunterGuildSeqOfflineFPv(void *arg0);
-void update_close_shop__22THunterGuildSeqOfflineFPv(void *arg0);
-void update_shop_close__22THunterGuildSeqOfflineFPv(void *arg0);
 void THunterGuildSeqOffline__sub_80213BE0(Seq_80213BE0 *arg0);
 int is_quest_active(void);
 s32 create_quest_thread(s32);
-s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 extern s32 THunterGuildSeqOffline__quest_result_callbacks[];
 extern s32 quest_mission_manager;
 void THunterGuildSeqOffline__sub_80213980(Obj_80213980 *self);
-void handle_close__22THunterGuildSeqOfflineFPv(void *arg0);
-void reset_random_enemies_mode(void);
-void restore_and_init_quest_list__22THunterGuildSeqOfflineFPv(void *arg0);
-void update_close_shop__22THunterGuildSeqOfflineFPv(void *arg0);
-void update_shop_close__22THunterGuildSeqOfflineFPv(void *arg0);
 s32 set_service_counter_camera(void *, s32);
-void TKeyBoardControl__sub_8000F950(void);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 s32 restore_player_state__13TShopSequenceFv();
@@ -363,10 +353,6 @@ struct VObj_80213E64_80213E38 : Base_80213E64_80213E38 {
     virtual void m7(int, int);
 };
 
-void THunterGuildSeqOffline__sub_80213E64(void);
-void set_random_enemies_mode(void);
-void TKeyBoardControl__sub_8000F950(void);
-
     extern int evt2_random_enemies_mode;
 void set_random_enemies_mode(void) { TLobby::set_enemy_mode_flag(); evt2_random_enemies_mode = 2; TKeyBoardControl__sub_8000F950(); }
 
@@ -396,9 +382,6 @@ struct VObj_18 : VBase_18 {
     virtual s32 m5(s32, s32);
 };
 extern "C" {
-s32 TQuestVmDownLoadServer__sub_8006EF6C(s32 arg0);
-void reset_quest_list_vm__22THunterGuildSeqOfflineFv(void);
-void THunterGuildSeqOffline__sub_80213EBC(void);
 
 struct Base_80213EBC { char pad[0x18]; };
 struct VObj_80213EBC : Base_80213EBC {
@@ -448,8 +431,6 @@ struct VObj_80213F78 : Base_80213F78 {
     virtual void m7(int, int);
 };
 
-void THunterGuildSeqOffline__sub_80213F78(void);
-
 extern struct VObj_80213F78 *offline_quest_list_vm;
 
 void THunterGuildSeqOffline__sub_80213F78(void) {
@@ -481,7 +462,6 @@ struct VObj_80213FD0 : Base_80213FD0 {
 
 extern "C" {
 
-void confirm_and_close_if_valid__15TShopWindowBaseFPv(void *arg0);
 int sub_802239EC__13TShopSequenceFv(void *);
 int sub_80223A48__15TShopWindowBaseFv(void *);
 
@@ -520,12 +500,7 @@ struct Seq_80214058 : VObj_80214058 {
 struct List_80214058 { u8 pad[0x28]; void *f28; void *f2c; void *f30; void *f34; };
 
 extern "C" {
-void *TQuestListOnline__ct(void *, void *, void *, void *);
 void *__nw__7TObjectFUl(u32);
-void THunterGuildSeqOffline__sub_80213E64(void);
-void THunterGuildSeqOffline__sub_80213EBC(void);
-void reset_quest_list_vm__22THunterGuildSeqOfflineFv(void);
-void THunterGuildSeqOffline__sub_80213F78(void);
 extern s32 tl_05;
 void fn_80214058(Seq_80214058 *arg0);
 void fn_80214058(Seq_80214058 *arg0) {
@@ -574,8 +549,6 @@ void close_window__13TShopSequenceFv(void *);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 void *__nw__7TObjectFUl(u32);
-void reset_random_enemies_mode(void);
-void set_random_enemies_mode(void);
 extern s32 TLobby__protocol_instance;
 extern s32 tl_00;
 void handle_random_enemies_choice__6TLobbyFPv(Seq_80214104 *self);
@@ -638,10 +611,8 @@ struct RecoveredGlobal_80214254_THunterGuildSeqOffline__data_80513DC8 {
 
 extern "C" {
 s32 create_quest_thread(s32);
-void TWindow__close(u8 *arg0);
 s32 get_selected_menu_value(void *);
 extern RecoveredGlobal_80214254_THunterGuildSeqOffline__data_80513DC8 THunterGuildSeqOffline__quest_result_callbacks;
-void fn_80214254(u8 *arg0);
 typedef char RecoveredGlobal_80214254_THunterGuildSeqOffline__data_80513DC8_size[sizeof(RecoveredGlobal_80214254_THunterGuildSeqOffline__data_80513DC8) == 0x10 ? 1 : -1];
 void fn_80214254(u8 *arg0) {
     s32 selected_menu_value;
@@ -760,16 +731,11 @@ extern const f32 lbl_805DC65C;
 void init_window__22THunterGuildSeqOfflineFPv(u8 *arg0);
 int is_quest_active(void);
 s32 create_quest_thread(s32);
-s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 extern s32 THunterGuildSeqOffline__quest_result_callbacks[];
 extern s32 quest_mission_manager;
 void THunterGuildSeqOffline__sub_802145F8(u8 *arg0);
-void create_judgment_item_window__15TShopWindowBaseFPv(void *arg0);
-void restore_shop_and_init_quest_state(void *arg0);
-void update__15TShopWindowBaseFPv(void *arg0);
-void update_confirm_input__15TShopWindowBaseFPv(void *arg0);
 s32 set_service_counter_camera(void *, s32);
 s32 create_yes_no_window(s32, u16, s32, s32);
 s32 sub_802239EC__13TShopSequenceFv(void *);
@@ -970,15 +936,11 @@ s32 queue_destruction__7TObjectFv(int);
 void *__dt__13TShopSequenceFv(void *arg0, s16 arg1);
 s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 __dl__7TObjectFPv(void *);
-void TWindow__close(u8 *arg0);
 extern RecoveredGlobal_80214A84_lbl_804C97F0 lbl_804C97F0;
 extern RecoveredGlobal_80214A84_lbl_80513E60 lbl_80513E60;
 extern s32 offline_quest_list_vm;
-u8 *__dt__28THunterGuildSeqOnline_ServerFv(u8 *arg0, s16 arg1);
 extern RecoveredGlobal_80214A84_lbl_80513E60 lbl_80513E60;
-void zero_four_slots__22THunterGuildSeqOfflineFv(void);
 extern RecoveredGlobal_80214A84_lbl_80513E60 lbl_80513E60;
-void clear_slot_flags__22THunterGuildSeqOfflineFv(void);
 u8 *TShopSequence__ct(u8 *);
 s32 sub_8022397C__15TShopWindowBaseFv(void *);
 extern RecoveredGlobal_80214A84_lbl_804C97F0 lbl_804C97F0;
@@ -986,12 +948,7 @@ extern RecoveredGlobal_80214A84_lbl_80513E60 lbl_80513E60;
 extern s32 lbl_805D3664;
 extern s32 offline_quest_list_vm;
 Seq_80214B3C *THunterGuildSeqOffline__sub_80214B3C(Seq_80214B3C *arg0, s32 arg1, s32 arg2);
-void confirm_and_close_if_valid__15TShopWindowBaseFPv(void *);
 void fn_80214058(void *);
-void fn_80214254(u8 *arg0);
-void create_judgment_item_window__15TShopWindowBaseFPv(void *);
-void update__15TShopWindowBaseFPv(void *);
-void update_confirm_input__15TShopWindowBaseFPv(void *);
 void THunterGuildSeqOffline__sub_802145F8(void *);
 void init_window__22THunterGuildSeqOfflineFPv(void *);
 void dispatch_state__22THunterGuildSeqOfflineFPv(Seq_80214978 *arg0);

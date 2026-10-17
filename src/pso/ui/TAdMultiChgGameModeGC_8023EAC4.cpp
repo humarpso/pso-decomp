@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowShortListCtrl_801A4FC0.h"
+#include "pso/ui/TAdSelectGameModeGC_802C4748.h"
 #include "pso/TAdMultiChgGameModeGC.h"
 
 extern "C" {
@@ -23,11 +25,9 @@ void *TAdVIConfigGC__ct(void *, s32);
 void *construct_title_scene__13TUnk_804EEF64Fv(void *, s32);
 void *__ct__12TLevelSelectFv(void *);
 void *__ct__16TAdStorySelectGCFv(void *, s32);
-u8 *__ct__19TAdSelectGameModeGCFv(u8 *arg0, void *parent);
 void *__ct__21TAdMultiChgGameModeGCFv(void *, s32);
 void *__ct__21TAdMultiSelGameModeGCFv(void *, s32, s32);
 void *__ct__5TLogoFv(void *, s32);
-void *construct_option_scene(void *);
 extern u8 lbl_8044DD18[];
 extern s32 multi_chg_game_mode_state;
 extern s32 tl_01;

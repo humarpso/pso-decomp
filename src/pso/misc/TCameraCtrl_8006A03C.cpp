@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl_8006A03C.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/player/TObjPlayer.h"
@@ -12,7 +13,6 @@ struct Sel_8006A13C { u8 busy; u8 pad1; u16 slot; u8 pad4[0xC]; };
 extern "C" {
 extern void *camera_ctrl_instance;
 s32 queue_event_1D__12TBoss3VoloptFss(s32, s32, void *);
-void TCameraCtrl__sub_8006A044(s32 id, f32 v);
 s32 obj_testFlags30(u32, s32);
 s32 is_split_screen();
 s32 reset_cameras_to_actor(u32, s32);

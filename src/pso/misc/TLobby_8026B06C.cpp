@@ -1,13 +1,12 @@
 #include "types.h"
+#include "pso/misc/TLobby_8026B06C.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 s32 __nw__7TObjectFUl(int);
 s32 TLobby__sub_80269DA4(void *, int);
 s32 TWindowMessageQuest__ct(int, void *);
-s32 create_quest_message_window_at(s32 arg0, s32 arg1);
 int append_message_window_line(void *w, int text, int flags, int color);
-int dispatch_message_window_text(void *w, int text, int flags);
 void TLobby::set_field_90(s32 v) { *(s32*)((char*)this + 0x90) = v; }
 
 int dispatch_message_window_text(void *w, int text, int flags) {

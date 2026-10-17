@@ -1,10 +1,11 @@
 #include "types.h"
+#include "pso/boss/TBoss5GryphonColli.h"
+#include "pso/boss/TBoss5GryphonDemo.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/TBoss5GryphonDemo.h"
 #include "pso/TBoss5GryphonColli.h"
 extern "C" {
 s32 gryphon_demo_collision_body_desc[11] = { 0, 0, 0, 0x3F800000, 0, 0, 0x8003, 0, 0, 0, 0 };
-
-void TBoss5GryphonDemo__sub_8006626C(void* p);
 
 int TBoss5GryphonDemo::get_state() { return ((int (*)(void*))TBoss5GryphonDemo__sub_8006626C)(*(void**)((char*)this + 0x1c)); }
 void TBoss5GryphonDemo::draw_linked_model(void* position, s32 yaw) { ((TBoss5GryphonDemo *)(((TBoss5GryphonColli*)this)->objects[0]))->draw_model(position, yaw); }
@@ -12,8 +13,6 @@ void TBoss5GryphonDemo::draw_linked_model(void* position, s32 yaw) { ((TBoss5Gry
 s32 TBoss5GryphonDemo__sub_800663DC(int, void *, int, void *, f32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 }
-
-extern "C" void queue_destruction__7TObjectFv(void*);
 
 TBoss5GryphonColli::~TBoss5GryphonColli() {
     for (s32 index = 0; index < 1; ++index) {
@@ -43,7 +42,6 @@ extern s32 lbl_805D280C;
 extern const f32 lbl_805D8ED0;
 extern const f32 lbl_805D8ED4;
 extern const f32 lbl_805D8ED8;
-u8 *TBoss5GryphonColli__ct(u8 *arg0, s32 arg1);
 typedef char RecoveredGlobal_800661E4___vt__18TBoss5GryphonColli_size[sizeof(RecoveredGlobal_800661E4___vt__18TBoss5GryphonColli) == 0x18 ? 1 : -1];
 u8 *TBoss5GryphonColli__ct(u8 *arg0, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_800661E4, sp8) == 0x0) ? 1 : -1];

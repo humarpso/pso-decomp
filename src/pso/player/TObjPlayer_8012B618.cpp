@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8012B618.h"
 
 extern "C" {
 
-void TObjPlayer__sub_8012B618(void* p);
-void TObjPlayer__sub_8012B658(void* p);
 int rotate_matrix_z(void*, void*);
 int get_player_list__10TObjPlayerFv(void*);
 

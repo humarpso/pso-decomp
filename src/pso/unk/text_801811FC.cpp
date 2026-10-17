@@ -1,13 +1,11 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_801811FC.h"
 #include "pso/TParticleCtrl.h"
 
 extern "C" {
 
-f32 fn_801811FC(void* p);
-f32 fn_80181204(void* p);
-void *__dt__18TObjCityAirCar_CarFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void queue_destruction__7TObjectFv(void *);
 
 f32 fn_801811FC(void* p) { return *(f32*)((char*)p + 0x94); }
 f32 fn_80181204(void* p) { return *(f32*)((char*)p + 0x90); }

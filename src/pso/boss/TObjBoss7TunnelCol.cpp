@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss1DragonColli.h"
+#include "pso/math/MatrixVector.h"
 #include "pso/unk/TUnk_804E4B24.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/boss/TObjBoss7TunnelCol.h"
@@ -9,14 +11,9 @@ extern "C" {
 struct VOff_802F1BEC_arg0_802F1B7C { char pad_0[0xAC]; char f_AC[1]; };
 struct VOff_802F1C68_arg0_802f1c68_802F1B7C { char pad_0[0x48]; char f_48[1]; };
 
-void *TObjBoss7TunnelCol__ct(void *arg0);
-void *__dt__18TObjBoss7TunnelColFv(void *arg0, s16 arg1);
 void rotate_matrix_yxz(void *, void *, void *, void *);
-void set_matrix_identity(u8 *arg0);
 void __dl__7TObjectFPv(void *);
-void fn_8002B630(u8 *arg0, u8 *arg1);
 s32 get_mode__11TCameraCtrlFPv(void *p);
-void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 
 void TObjBoss7TunnelCol::render() {  }
 void TObjBoss7TunnelCol::run_task() {  }

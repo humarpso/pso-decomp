@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/object/TObjWarpLobby_801A0A34.h"
 #include "pso/object/TObjWarpLobby.h"
 
 extern "C" {
 
-void *TObjWarpLobby__ct(void *arg0);
 s32 TObjAreaWarp__ct();
 
 extern s32 __vt__13TObjWarpLobby[];

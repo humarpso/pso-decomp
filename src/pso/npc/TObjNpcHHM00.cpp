@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TLanguage_801E4874.h"
+#include "pso/npc/TObjNpcHRM00.h"
+#include "pso/unk/text_800F9B84.h"
+#include "pso/unk/text_8014B8A4.h"
 #include "pso/npc/TUnk_804A9F50.h"
 #include "pso/npc/TObjNpcHHM00.h"
 #include "pso/misc/TLobby.h"
@@ -98,21 +102,14 @@ struct RecoveredGlobal_8014B1F4___vt__12TObjNpcHHM00 {
 };
 
 extern "C" {
-u8 *construct_male_npc_base(u8 *arg0);
 extern s32 __vt__12TObjNpcHHM00[];
 extern s32 TObjNpcHHM00__name;
 extern u32 TObjNpcHHM00__model_object;
 extern u32 TObjNpcHHM00__body_texture_gvm_handle;
-u8 *TObjNpcHHM00__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 create_named_object(s32 arg0);
-u8 *load_gvm_texture_file(s32 arg0);
 extern char TObjNpcHHM00__data_rel_filename[];
 extern char TObjNpcHHM00__body_texture_filename[];
-void * TObjNpcHRM00__create(void *arg0);
-void *__dt__12TObjNpcHHM00Fv(void *arg0, s16 arg1);
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);
-u8 *TObjNpcHRM00__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 

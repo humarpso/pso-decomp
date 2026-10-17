@@ -1,0 +1,12 @@
+#ifndef PSO_MISC_TLOBBY_8033ECB0_H
+#define PSO_MISC_TLOBBY_8033ECB0_H
+
+#include "types.h"
+
+extern "C" {
+u8 *TLobby__sub_8033ED24(u8 *arg0);
+void TLobby__sub_8033EDF8(void);
+void TLobby__sub_8033EE04(void);
+}
+
+#endif

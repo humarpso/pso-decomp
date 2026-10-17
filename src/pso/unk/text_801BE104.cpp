@@ -1,15 +1,15 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801BE1C0.h"
+#include "pso/player/TObjPlayer_801BFED4.h"
+#include "pso/unk/text_801BE104.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 extern u8 TObjPlayer__char_data_array[];
-s32 destroy_char_data__10TObjPlayerFis(s32 arg0, s16 arg1);
 void __destroy_arr(void *arr, void *dtor, u32 size, u32 n);
 void __register_global_object(void *obj, void *dtor, void *chain);
 void *__construct_array(void *, void *, void *, u32, u32);
-void TObjPlayer__sub_801BFF80(u8 *arg0);
 void init_char_data__10TObjPlayerFv(void *);
-void TObjPlayer__sub_801BE104(void);
 
 u8 TObjPlayer__arrival_override_table[0xF0];
 u8 player_slot_table[0x30];

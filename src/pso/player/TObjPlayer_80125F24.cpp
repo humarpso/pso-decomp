@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80125F24.h"
 
 extern "C" {
 
-void *TObjPlayer__sub_80125F24(void *arg0);
 void TItemWeapon__ct(void *);
 
 extern s32 lbl_804A2770[];

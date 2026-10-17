@@ -22,4 +22,13 @@ struct TObjFogCollisionPoison : public TObjFogCollisionSwitch {
 };
 
 typedef char TObjFogCollisionPoison_size[sizeof(TObjFogCollisionPoison) == 0x9C ? 1 : -1];
+extern "C" {
+void TObjFogCollisionPoison__sub_801533BC(void);
+void TObjFogCollisionPoison__sub_80153520(s32 arg0);
+void TObjFogCollisionPoison__sub_801535D0(s32 arg0);
+void *__dt__13TUnk_804AF7B0Fv(void *arg0, s16 arg1);
+u8 *__dt__24TObjFogCollision_ManagerFv(u8 *arg0, s16 arg1);
+void record_fog_collision_hit(s32 arg0, s32 arg1, s32 arg2);
+}
+
 #endif

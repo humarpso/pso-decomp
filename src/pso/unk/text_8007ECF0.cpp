@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_80144B14.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_8007ECF0.h"
 #include "pso/misc/TDLGraph.h"
 #include "pso/TObjWarpString.h"
 
@@ -18,11 +21,7 @@ struct Obj_8007F0E4 {
     s32 f30;
 };
 
-void queue_destruction__7TObjectFv(void *arg0);
-void fn_8007ECF0(u8 *arg0, s32 arg1, s32 arg2);
-s32 draw_outlined_string_right_aligned__14TObjWarpStringFPviiPv(void *arg0, s32 x0, s32 y0, s8 *str);
 s32 fn_8007F4B8(void *, s32, f32);
-u32 calc_text_width(char *s);
 int sprintf(s8 *, const char *, ...);
 
 extern const char lbl_80438AD8[];

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8036A5B4.h"
 
 extern "C" {
 

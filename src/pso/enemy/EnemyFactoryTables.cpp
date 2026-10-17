@@ -1,4 +1,43 @@
 #include "pso/enemy/EnemyFactoryTables.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/boss/TBoss3VoloptCore.h"
+#include "pso/boss/TBoss3Volopt_80044498.h"
+#include "pso/enemy/SaverLifecycle.h"
+#include "pso/enemy/TObjEneDellBiter.h"
+#include "pso/enemy/TObjEneDolmOlm.h"
+#include "pso/enemy/TObjEneMerillLia.h"
+#include "pso/enemy/TObjEneRecon_8031FCB0.h"
+#include "pso/misc/TQuestListChallenge.h"
+#include "pso/npc/TObjNpcAHM01.h"
+#include "pso/npc/TObjNpcARM00.h"
+#include "pso/npc/TObjNpcConnoisseur.h"
+#include "pso/npc/TObjNpcGovernorBase.h"
+#include "pso/npc/TObjNpcHFW00.h"
+#include "pso/npc/TObjNpcHFW01.h"
+#include "pso/npc/TObjNpcHHM00.h"
+#include "pso/npc/TObjNpcHRM00.h"
+#include "pso/npc/TObjNpcHRM01.h"
+#include "pso/npc/TObjNpcHosa.h"
+#include "pso/npc/TObjNpcKenkyu.h"
+#include "pso/npc/TObjNpcKenkyu2.h"
+#include "pso/npc/TObjNpcMaleChild.h"
+#include "pso/npc/TObjNpcMaleDwarf.h"
+#include "pso/npc/TObjNpcMaleFat.h"
+#include "pso/npc/TObjNpcMaleMacho.h"
+#include "pso/npc/TObjNpcMaleOld.h"
+#include "pso/npc/TObjNpcNFM01.h"
+#include "pso/npc/TObjNpcNFW00.h"
+#include "pso/npc/TObjNpcNFW01.h"
+#include "pso/npc/TObjNpcNHW00.h"
+#include "pso/npc/TObjNpcNHW01.h"
+#include "pso/npc/TObjNpcNurseBase.h"
+#include "pso/npc/TObjNpcSecretaryBase.h"
+#include "pso/npc/TObjNpcSoldierBase.h"
+#include "pso/ui/TAdSelectTxtSubGC.h"
+#include "pso/unk/text_8014AB24.h"
+#include "pso/unk/text_8014B904.h"
+#include "pso/unk/text_802FEA38.h"
+#include "pso/unk/text_80362264.h"
 #include "pso/boss/TBoss5Gryphon.h"
 #include "pso/enemy/TObjEneBalClawBody.h"
 #include "pso/enemy/TObjEneGyaranzo.h"
@@ -33,26 +72,17 @@
 
 extern "C" {
 void* create__12TBoss1DragonFl(void* placement);
-void* create__13TBoss2DeRolLeFPv(void* placement);
-void* TBoss3VoloptCore__sub_800407E0(void* placement);
-void* TBoss3Volopt__sub_80047DD4(void* placement);
 void* create__14TBoss4DarkFalzFl(void* placement);
 void* create__18TObjEneBalClawClawFv(void* placement);
 void* create__16TObjEneRe7BeruraFv(void* placement);
 void* create__17TObjEneDf2BringerFv(void* placement);
-void* create_ene_saver(void* placement);
-void* TObjEneMerillLia__create(void* placement);
 void* create__14TObjEnePanarmsFl(void* placement);
 void* TObjEneMe3ShinowaMirage__sub_800E7B74(void* placement);
 void* create__12TObjEneSlimeFl(void* placement);
 void* create__18TObjEneRe4SorcererFv(void* placement);
 void* create_real__16TObjEneMe3StelthFv(void* placement);
 void* TObjNpcAHM01__create(void* placement);
-void* TObjNpcARM00__create(void* placement);
-void* TObjNpcARW00__create(void* placement);
 void* create__14TObjNpcBringerFPv(void* placement);
-void* TObjNpcConnoisseur__create(void* placement);
-void* TObjNpcExpertBase__create(void* placement);
 void* TObjNpcFemaleBase__create(void* placement);
 void* TObjNpcFemaleChild__create(void* placement);
 void* TObjNpcFemaleDwarf__create(void* placement);
@@ -60,43 +90,13 @@ void* TObjNpcFemaleFat__create(void* placement);
 void* TObjNpcFemaleMacho__create(void* placement);
 void* TObjNpcFemaleOld__create(void* placement);
 void* TObjNpcFemaleTall__create(void* placement);
-void* TObjNpcGovernorBase__create(void* placement);
-void* TObjNpcHFW00__create(void* placement);
-void* TObjNpcHFW01__create(void* placement);
-void* TObjNpcHHM00__create(void* placement);
-void* TObjNpcHRM00__create(void* placement);
-void* TObjNpcHRM01__create(void* placement);
-void* TObjNpcLappy__create(void* placement);
-void* TObjNpcMaleBase__create(void* placement);
 void* TObjNpcMaleChild__create(void* placement);
-void* TObjNpcMaleDwarf__create(void* placement);
-void* TObjNpcMaleFat__create(void* placement);
-void* TObjNpcMaleMacho__create(void* placement);
-void* TObjNpcMaleOld__create(void* placement);
-void* TObjNpcMaleTall__create(void* placement);
 void* TObjNpcNFM00__create(void* placement);
 void* TObjNpcNFM01__create(void* placement);
-void* TObjNpcNFW00__create(void* placement);
-void* TObjNpcNFW01__create(void* placement);
-void* TObjNpcNHW00__create(void* placement);
-void* TObjNpcNHW01__create(void* placement);
-void* TObjNpcNurseBase__create(void* placement);
-void* TObjNpcSecretaryBase__create(void* placement);
-void* TObjNpcSoldierBase__create(void* placement);
-void* TObjNpcSoldierMacho__create(void* placement);
-void* TObjNpcKenkyu__create(void* placement);
-void* TObjNpcSoutokufu__create(void* placement);
-void* TObjNpcHosa__create(void* placement);
-void* TObjNpcKenkyuW__create(void* placement);
 void* create__14TBoss6PlotFalzFl(void* placement);
 void* TObjNpcEnemy__create(void* placement);
-void* TObjNpcKenkyu2__create(void* placement);
-void* TObjNpcHosa2__create(void* placement);
-void* TObjEneDolmOlm__create(void* placement);
-void* TObjEneDellBiter__create(void* placement);
 void* TObjEneDelDepth__create(void* placement);
 void* TObjEneMe3SinowZoaReal__create(void* placement);
-void* TObjEneRecobox__create(void* placement);
 void* create__13TObjEneMorfosFv(void* placement);
 void* create_variant_13__14TObjNpcNgcBaseFi(void* placement);
 void* TObjNpcNgcBase__sub_80358B70(void* placement);
@@ -112,7 +112,6 @@ void* TObjNpcNgcBase__sub_80359038(void* placement);
 void* TObjNpcNgcBase__sub_803590C0(void* placement);
 void* TObjNpcNgcBase__sub_80359148(void* placement);
 void* TObjNpcNgcBase__create(void* placement);
-void* create_TObjEneEpsilonBody(void* placement);
 void* create__14TObjEneIllGillFv(void* placement);
 
 EnemyFactoryEntry enemy_factories_floor_00[40] = {

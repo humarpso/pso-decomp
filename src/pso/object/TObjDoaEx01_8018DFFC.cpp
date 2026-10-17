@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjDoaEx01_8018DFFC.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/unk/TUnk_804B0BB8.h"
 #include "pso/system/BmlResourceDescriptor.h"
@@ -65,9 +66,6 @@ extern s32 TObjDoaEx01__name;
 extern const f32 TObjDoaEx01__data_805DBDA0;
 extern const f32 TObjDoaEx01__data_805DBDA8;
 extern const f32 lbl_805DBDBC;
-u8 *TObjDoaEx01__ct(u8 *arg0, s32 arg1, s32 arg2);
-void *TObjDoaEx01__create(void *arg0);
-void *__dt__11TObjDoaEx01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);

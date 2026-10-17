@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TLobby_800F7744.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
-
-void TLobby__sub_800F7744(void);
-s32 get_main_phase();
 
 void TLobby__sub_800F7744(void) {  }
 

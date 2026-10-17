@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8020EE2C.h"
 extern "C" {
 s32 is_split_screen(void);
 s32 create_named_object(void *);
@@ -7,7 +8,6 @@ extern u8 lbl_8044BC40[];
 extern s32 lbl_80513D78[];
 extern s32 lbl_805D6158;
 extern s32 lbl_805D615C;
-void load_armor_random_table(void);
 void load_armor_random_table(void) {
     s32 i;
     lbl_805D6158 = create_named_object(lbl_8044BC40);

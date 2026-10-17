@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/map/CsnQuery.h"
+#include "pso/unk/text_8029E7BC.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TOKeyMachine01.h"
 
@@ -10,9 +12,7 @@ struct Stack_8029E7BC
 };
 
 extern "C" {
-s32 *csnVecterUnder(s32 origin, s32 mask);
 extern const f32 lbl_805DDD88;
-s32 fn_8029E7BC(s32 arg0, u8 *arg1);
 typedef struct Stack_8029E7BC Stack_8029E7BC;
 s32 fn_8029E7BC(s32 arg0, u8 *arg1) {
   Stack_8029E7BC stack;

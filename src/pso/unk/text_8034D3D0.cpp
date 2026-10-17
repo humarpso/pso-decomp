@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8034D3D0.h"
 #include "pso/system/vector.h"
 typedef struct Vec4_8034D500 {
     f32 x, y, z, w;
@@ -112,8 +113,6 @@ struct PartnerText_8034DA38
 
 extern "C" {
 extern struct PartnerText_8034D9E0 partner_dialogue_table[];
-const char *get_partner_custom_text(s32 kind, u16 player);
-void set_partner_dialogue_override(const char *text, s32 kind, u16 player);
 struct V3_8034D790 { f32 x, y, z; };
 struct Ent_8034D790 { V3_8034D790 p; f32 weight; };
 void normalize_vector(void *);

@@ -13,4 +13,9 @@ struct TObjRaderHideCol : public TUnk_804B9870 {
 };
 
 typedef char TObjRaderHideCol_size[sizeof(TObjRaderHideCol) == 0x98 ? 1 : -1];
+extern "C" {
+u8 *TObjRaderHideCol__ct(u8 *arg0, s32 arg1, s32 arg2);
+void *__dt__16TObjRaderHideColFv(void *arg0, s16 arg1);
+}
+
 #endif

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TODragonflyCave01.h"
 #include "pso/misc/TODragonfly.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/TODummyKeyCave01Sound.h"
@@ -30,7 +31,6 @@ struct Sub_80165434 { u8 pad[8]; s32 a; s32 b; };
 struct O_80165434 { u8 pad[0x42C]; Sub_80165434 *sub; s32 f430; };
 
 extern "C" {
-u8 *TODragonfly__ct(u8 *arg0);
 s32 rand(void);
 f32 sin_table_lookup(s32);
 extern s32 __vt__20TODragonflyMachine01[];
@@ -43,7 +43,6 @@ extern const f32 lbl_805DB5C0;
 extern const f32 lbl_805DB5C4;
 extern const f32 lbl_805DB5C8;
 extern const f32 lbl_805DB5CC;
-u8 *TODragonflyMachine01__ct(u8 *arg0, int arg1);
 O_80165434 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 O_80165434 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 extern s32 dragonfly_machine_attack_effect_params[];
@@ -52,13 +51,11 @@ extern s32 lbl_805D599C;
 extern s32 lbl_805D59A0;
 extern const f32 lbl_805DB5B0;
 extern const f32 lbl_805DB5B4;
-void *__dt__20TODragonflyMachine01Fv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TODragonflyMachine01__sub_80164F50(void *);
 s32 rotate_matrix_y(s32, s32);
 void __dl__7TObjectFPv(void *);
-void *__dt__11TODragonflyFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 
 void TODragonflyMachine01::update_timer() {

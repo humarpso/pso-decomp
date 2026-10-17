@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/item/TItemEffectWeapon_803631A0.h"
+#include "pso/math/MatrixTransforms.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/items/TItemWeapon.h"
 #include "pso/item/TUnk_804F28E0.h"
 #include "pso/player/TObjPlayer.h"
@@ -10,14 +14,10 @@ struct Obj_803631E8 {
 struct Src_803631E8 { u8 pad[0x188]; s32 i188; };
 
 extern "C" {
-void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 void get_weapon_color__11TItemWeaponFPv(void *, void *);
 extern const f32 lbl_805E026C;
 void s_rank_launcher_collider_block(Src_803631E8 *arg0, Obj_803631E8 *arg1);
-void s_rank_launcher_slide_node(void *arg0);
-void *spawn_particle_effect(void *pos, s32 id);
 s32 fire_shot_at_target__11TItemWeaponFv(s32, s32 *, s32, s32);
-void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 
 extern f32 lbl_805E0268;
 

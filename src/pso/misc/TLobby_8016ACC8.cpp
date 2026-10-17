@@ -1,12 +1,12 @@
 #include "types.h"
+#include "pso/misc/TLobby_8016ACC8.h"
+#include "pso/misc/TLobby_801E43E4.h"
 #include "pso/misc/TOKey.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyAncient01.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-void init_6x04_packet(u8 *arg0);
-void TLobby__send_and_handle_60(u8 *arg0);
 void bswap_6x05_switch_flag__5TOKeyFv(void* p);
 
 void TLobby::finalize_and_send_60() { bswap_6x05_switch_flag__5TOKeyFv(this); TLobby__send_and_handle_60((u8 *)this); }

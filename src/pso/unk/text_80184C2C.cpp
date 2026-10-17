@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/unk/text_800F5BC0.h"
+#include "pso/unk/text_80184C2C.h"
 #include "pso/misc/TLobby.h"
 #include "pso/npc/TObjNpcEnemy.h"
 #include "pso/object/TObjLaboMapWarp.h"
@@ -9,7 +11,6 @@ extern "C" {
 extern int lbl_8050DC20[];
 extern s32 lobby_event_theme_id_table[];
 extern s32 TLobby__event_theme_id;
-void TLobby__sub_80184C80(void *p);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern const char lbl_804449C0[];
 extern const char lbl_804449D0[];
@@ -19,7 +20,6 @@ extern const char lbl_80444A00[];
 extern const char lbl_80444A10[];
 extern const char *lbl_804B6028[];
 void TLobby__sub_8001FE7C(void *, s32);
-void *destroy_buffer_pair(void *arg0, s16 arg1);
 extern int city_season_easter_egg_model_table[];
 extern int city_season_xmas_model_table[];
 extern void *lbl_805D5B34;
@@ -28,11 +28,6 @@ extern s32 lbl_805D5B3C;
 extern s32 lbl_805D5B40;
 extern s32 lbl_805D5B44;
 extern void *lbl_805D5B48;
-int TLobby__sub_80184C2C(int a0);
-int get_season_model_resource(int a0);
-u8 TLobby__sub_80184C54(void);
-int TLobby__sub_80184C6C(int a0);
-void TLobby__sub_80184CE0(void* p);
 
 int TLobby__sub_80184C2C(int a0) {  return city_season_xmas_model_table[a0]; }
 

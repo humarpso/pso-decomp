@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubQuestBoardSelect_8027D6A0.h"
 #include "pso/misc/TWindowChoiceSetting.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowSubQuestBoardSelect.h"
@@ -22,7 +23,6 @@ s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 s32 TWindowSubQuestBoardSelect__sub_8027D444(void *, int);
 s32 forward_render__20TWindowSubStatusDispFv(int, int);
-void render__26TWindowSubQuestBoardSelectFv(u8 *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 extern RecoveredGlobal_8027D888_lbl_8050E208 controller_input_state;

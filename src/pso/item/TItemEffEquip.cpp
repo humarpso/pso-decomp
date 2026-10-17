@@ -1,9 +1,12 @@
 #include "pso/TItemEffEquip.h"
+#include "pso/boss/TBoss1DragonColli.h"
+#include "pso/item/TItemEffEquip.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/object/TObject_8001A448.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/item/TUnk_8049F038.h"
-
-extern "C" void queue_destruction__7TObjectFv(void *arg0);
 
 struct Equip_Self { u8 pad0[0x18]; void *vt; void *m_1c; void *m_20; };
 extern "C" {
@@ -49,8 +52,6 @@ struct Obj_80108C90 {
     s32 f_B0;
     u8 sub[0x10];
 };
-void disallow_rendering__7TObjectFv(void *);
-void fn_8002B630(u8 *arg0, u8 *arg1);
 s32 pop_free_id__6TLobbyFv();
 void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern u8 lbl_8043E1A0[];
@@ -63,8 +64,6 @@ extern u8 lbl_8043E1A0[];
 extern "C" {
 
 s32 play_sound_effect(s32, s32, s32, s32);
-void *TItemEffEquip__ct(void *, void *, void *, void *, void *, void *);
-void *spawn_particle_effect(void *pos, s32 id);
 void *__nw__7TObjectFUl(int);
 struct Equip_80108A20 { s32 x0; u8 pad4[0x18 - 4]; void *vt; void *src; s32 x20; void *x24; };
 s32 __ct__7TObjectFP7TObject(void *, void *);

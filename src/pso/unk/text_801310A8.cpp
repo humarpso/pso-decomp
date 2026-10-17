@@ -1,9 +1,10 @@
 #include "types.h"
+#include "pso/item/TItemEquipVariant_80120CF8.h"
+#include "pso/unk/text_801310A8.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
 extern s32 lbl_804A6CC8[];
 
 void *__dt__13TUnk_804A6CC8Fv(void *arg0, s16 arg1) {

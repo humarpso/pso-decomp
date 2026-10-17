@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_8023F160.h"
+#include "pso/unk/text_8036A620.h"
 #include "pso/misc/TWindowOptionCtrl.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
@@ -8,12 +12,7 @@ extern "C" {
 void *get_global_state__23TAdSinglePlyChrSelectGCFv();
 s16 init_sound_mode__6TLobbyFPv();
 s32 play_area_music();
-void fn_8023F160(void);
-void fn_8023F18C(void);
-void window_request_refresh(u8 *arg0);
 u32 create_menu__17TWindowOptionCtrlFv(void *);
-s32 fn_8036A648(s32);
-void queue_destruction__7TObjectFv(void *arg0);
 
 void TWindowOptionCtrl::set_params(void *arg0, s16 arg1, s8 arg2) {
     void *temp_r3;

@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TObjEneLappy_800F5DE0.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/unk/text_80141550.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneLappy.h"
@@ -8,11 +11,7 @@
 
 extern "C" {
 s32 obj_testFlags30(void *, s32);
-void set_shadow_material_state(void);
-void set_chunk_material_override_pair(s32, s32);
 extern s32 model_render_flags;
-void render_actor_shadows_default(u8 *arg0);
-int initialize_enemy_photon_effect(void* p);
 
 void TObjEneLappy::set_param(s32 v) { *(s32 *)&this->control = v; }
 

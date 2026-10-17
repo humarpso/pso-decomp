@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/boss/TBoss2LaserLight.h"
 #include "pso/boss/TUnk_80482C58.h"
 #include "pso/object/TObjLight.h"
@@ -29,9 +30,6 @@ extern const f32 TBoss2LaserLight__data_805D849C;
 s32 noop_laser__23TAdSinglePlyChrSelectGCFv(void *);
 s32 TAdSinglePlyChrSelectGC__sub_80133508(void *);
 extern const f32 lbl_805D84A8;
-void TBoss2LaserLight__sub_80037474(void* p);
-void TBoss2LaserLight__sub_80037480(void* p);
-void queue_destruction__7TObjectFv(void *);
 
 }
 TUnk_80482C58::~TUnk_80482C58() {

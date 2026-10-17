@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TPlyMeetUserExtension_801DAC6C.h"
+#include "pso/unk/text_801DF280.h"
 #include "pso/protocol.h"
 
 struct Tags_801DAC6C { u32 w[16]; };
@@ -44,12 +46,9 @@ struct VObjDAD38 : BaseDAD38 {
 };
 
 extern "C" {
-void handle_cmd_9A__9TProtocolFR6packet(u8 *arg0, s32 *arg1);
 Ext_801DAC6C *__as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(Ext_801DAC6C *arg0, const Ext_801DAC6C *arg1);
 void reset__18PSOV3EncryptionTCPFUl(void *, u32);
 void bswap__21TRecvPsoRegistConnectFv(void *);
-void fn_801DF280(void *);
-s32 fn_801DF2BC(s32 arg0);
 void __as__8TPlySmthFRC8TPlySmth(void *, void *);
 s32 strcmp(const char *, const char *);
 s32 strncpy(void *, s32, s32);

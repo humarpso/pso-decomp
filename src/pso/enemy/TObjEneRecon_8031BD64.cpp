@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/enemy/TObjEneRecon.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -15,10 +17,8 @@ struct VObj800AFB60_8031bd64 : VBase800AFB60_8031bd64 {
 extern "C" {
 
 s32 post_translate_matrix(void *);
-void draw_chunk_object(void *child);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 s32 update_player_state__9TObjEneDDFv(void *, s32, s32);
 
 extern const f32 lbl_805DF3BC;

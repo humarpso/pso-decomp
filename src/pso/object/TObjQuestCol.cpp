@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TQuestThread.h"
 #include "pso/object/TObjQuestCol.h"
 
 extern "C" {
 
 s32 update_trigger_state__16TObjQuestColBaseFf(f32);
 int destroy_board__17TQuestThreadBoardFv(void*);
-u32 create__12TQuestThreadFi(s32 arg0);
 
 int TObjQuestCol::vfunc_16() { destroy_board__17TQuestThreadBoardFv(this); create__12TQuestThreadFi((s32)(*(void* *)&this->m_b0)); }
 

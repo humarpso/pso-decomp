@@ -1,0 +1,11 @@
+#ifndef PSO_MISC_TWINDOWCTRL_8024A054_H
+#define PSO_MISC_TWINDOWCTRL_8024A054_H
+
+#include "types.h"
+
+extern "C" {
+void TWindowCtrl__sub_8024A08C(void);
+s32 is_player_input_active(s32 param_1);
+}
+
+#endif

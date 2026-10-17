@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_803E4954.h"
+#include "pso/ui/TAdPlyStatusGC_8033FD48.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/ui/TAdPlyStatusGC.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
@@ -11,12 +14,9 @@ struct RecoveredGlobal_8033FDB0_lbl_80478430
 
 extern "C" {
 s32 push_matrix();
-s32 pop_matrix();
 f32 post_translate_matrix(void *);
-void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern RecoveredGlobal_8033FDB0_lbl_80478430 lbl_80478430;
 extern const f32 lbl_805DFAF8;
-void TObjPlayer__sub_8033FDB0(s32 arg0);
 u32 TAdPlyStatusGC__ct(u32, s32, s32);
 u32 __nw__7TObjectFUl(s32);
 

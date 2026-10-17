@@ -1,3 +1,5 @@
+#include "pso/ui/TAdRayGC_8029BFFC.h"
+
 extern "C" {
     int TLobby__sub_8023E4B4(void*, void*);
     extern unsigned char lbl_8046577C[];

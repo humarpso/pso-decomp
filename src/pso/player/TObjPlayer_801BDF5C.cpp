@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801C1FF8.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 void mem_free(void*);
-void *fn_801C2308(void *arg0, s16 arg1);
 
 extern u32 TObjPlayer__shared_photon_blast_state;
 extern u32 TObjPlayer__shared_model_buffer;

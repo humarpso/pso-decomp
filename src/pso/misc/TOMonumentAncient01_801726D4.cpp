@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TOMonumentAncient01_801726D4.h"
+#include "pso/unk/text_801F43B4.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TOMonumentAncient02.h"
 #include "pso/misc/TUnk_804B27D8.h"
@@ -35,7 +37,6 @@ struct RecoveredGlobal_80172810___vt__19TOMonumentAncient01 {
 extern "C" {
 s32 start_camera_pan__10TObjPlayerFs(int, int, void *);
 s32 get_player_by_client_id(void *);
-void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_80172758_lbl_804B38E0 bm_fs_obj_o_sekihi01_resource_descriptor;
 extern u32 TOMonumentAncient01__resource_bundle;
@@ -47,10 +48,7 @@ extern s32 __vt__19TOMonumentAncient01[];
 extern s32 TOMonumentAncient01__name;
 extern const f32 lbl_805DB918;
 extern const f32 lbl_805DB91C;
-u8 *TOMonumentAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 get_story_flag(s32);
 s32 dispatch_by_main_phase__14TBoss4DarkFalzFUs(s32);
-void *__dt__19TOMonumentAncient01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);

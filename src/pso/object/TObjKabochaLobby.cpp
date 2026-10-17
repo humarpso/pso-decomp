@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/object/TObjKabochaLobby.h"
@@ -46,16 +48,12 @@ extern "C" {
 
 s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);
-void draw_ginja_object(void *child);
-void *TObjKabochaLobby__ct(void *arg0, s32 arg1, s32 arg2);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 void *__nw__7TObjectFUl(int);
 void TLobby__sub_8001FE7C(void*, int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern u32 TObjKabochaLobby__model_resource;
-void *__dt__16TObjKabochaLobbyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 s32 init_map_object_base();
 extern s32 __vt__16TObjKabochaLobby[];

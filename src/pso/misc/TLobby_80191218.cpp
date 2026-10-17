@@ -1,13 +1,10 @@
 #include "types.h"
+#include "pso/misc/TLobby_80191218.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void TLobby__sub_80191264(void);
-void TLobby__sub_80191270(void);
-void TObjHashiVersus2__sub_801912A4(void);
-void TObjHashiVersus2__sub_801912B0(void);
 void set_player_quest_control_flag(register s32 r3);
 void *TLobby__sub_8019118C(void *, void *, void *);
 void *__nw__7TObjectFUl(int);

@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/item/TItemDrop_80105D0C.h"
+#include "pso/misc/TLobby_8020A350.h"
+#include "pso/misc/TLobby_8020A568.h"
 #include "pso/misc/TLobby.h"
 struct Ent_802098AC { f32 a, b, c; u32 d, e, f, g; };
 
@@ -29,11 +32,8 @@ s32 next_event_shuffle_entry(s32);
 extern s32 lbl_805D60A4;
 extern Ent_802098AC *lbl_805D60B8;
 s16 clamp_min_drop__6TLobbyFUl(s32, s32);
-void TLobby__sub_8020A48C(void *p);
-void TLobby__sub_8020A568(void *p);
 extern u8 *TLobby__item_data_table_buffer;
 void TLobby__sub_802099FC(Out_802099FC *arg0, s32 arg1);
-s32 item_drop_rng_below(s32 arg0, u32 arg1);
 extern s32 item_drop_rng;
 Rec_802099FC *bsearch_record__6TLobbyFPvii(void *arg0, s32 n, s32 key);
 void TLobby::pick_random_entry() {

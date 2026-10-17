@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8036A620.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowOptionCtrl.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -13,8 +14,6 @@ s32 check_room_seq_4__16TAdChrSelASlotGCFl(s32, s32);
 s32 get_option_entry__17TWindowOptionCtrlFi(s32);
 s32 fn_8036A514(s32);
 s32 check_flag_index_set(s32);
-s32 fn_8036A620(s32);
-s32 get_option_table_entry(s32);
 
 extern s32 lbl_8044F4AC[];
 extern const f32 lbl_805DD268;

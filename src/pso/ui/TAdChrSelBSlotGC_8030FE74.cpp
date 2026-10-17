@@ -1,12 +1,12 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/ui/TAdChrSelBSlotGC_8030FE74.h"
 #include "pso/ui/TAdChrSelBSlotGC.h"
 
 extern "C" {
 
-void *__dt__16TAdChrSelBSlotGCFv(void *arg0, s16 arg1);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
-void queue_destruction__7TObjectFv(void *arg0);
 
 extern void *__vt__16TAdChrSelBSlotGC[];
 

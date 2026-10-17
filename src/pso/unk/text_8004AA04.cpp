@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_800F5BC0.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Uro.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -19,7 +20,6 @@ typedef struct Obj_8004AA80 {
 } Obj_8004AA80;
 
 extern "C" {
-void *destroy_buffer_pair(void *arg0, s16 arg1);
 void mem_free(void *p);
 void fn_8004AA04(Obj_8004AA04 *self);
 s32 get_bml_model(s32, s32);

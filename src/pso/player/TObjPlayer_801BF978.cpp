@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801BF978.h"
+#include "pso/unk/text_80072004.h"
 #include "pso/system/memory.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -10,11 +12,7 @@ struct RecoveredGlobal_801BF9F0_lbl_804C3E50 {
 extern "C" {
 s32 free_if_valid__14TPlyDispConfigFis(void *, int);
 extern RecoveredGlobal_801BF9F0_lbl_804C3E50 lbl_804C3E50;
-u8 *TObjPlayer__sub_801BF9F0(u8 *arg0, s16 arg1);
-void TObjPlayer__sub_801BF9E0(void* p, s16 v);
-s32 TObjPlayer__sub_801BFA4C(s32 arg0, s16 arg1);
 s32 clear_id__10TObjPlayerFv();
-void init__6gc_tagFv(void *);
 
 void TObjPlayer::init_tag() {
     s32 *arg0 = (s32 *)this;

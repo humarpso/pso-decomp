@@ -1,14 +1,14 @@
 #include "types.h"
+#include "pso/misc/TChCrCharSelect_802937D4.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
 #include "pso/TChCrCharSelect.h"
 #include "pso/misc/TCharaMaking.h"
 
 extern "C" {
 
-int get_char_select_class_id(int a0);
 s32 get_class_appearance_preset();
 s32 copy_player_visual_record(int, int);
-s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
-void queue_destruction__7TObjectFv(void *arg0);
 
 extern s32 TChCrCharSelect__selected_slot_index;
 extern s32 tl_03;

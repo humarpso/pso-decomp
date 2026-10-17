@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_802D22F0.h"
 #include "pso/misc/TWindowSubTradeMain.h"
 #include "pso/misc/TLobby.h"
 
@@ -7,7 +8,6 @@ struct E_802D2240 { u32 id; s32 cnt; };
 struct T_802D2240 { s32 a; s32 b; };
 
 extern "C" {
-void TLobby__sub_802D22F0(void* p, void* q);
 void * TLobby__sub_802D2334(void);
 
 s32 TWindowSubTradeMain::get_state() {

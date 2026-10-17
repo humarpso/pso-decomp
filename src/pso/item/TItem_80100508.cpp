@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem_80100508.h"
 
 #include "pso/item/TItemData.h"
 #include "pso/item/TItem.h"
@@ -48,11 +49,6 @@ struct VObj_18_72f473 : VBase_18_72f473 {
 };
 
 extern "C" {
-s32 feed_item_to_mag(u8 *arg0, u32 arg1);
-void TItem__sub_801005D8(void);
-void TItem__sub_801005E0(void);
-int TItem__sub_801005E4(void);
-void TItem__sub_80100648(void);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
 s32 set_owner_id__13TParticleCtrlFUs(s32, s32);

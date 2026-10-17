@@ -10,4 +10,8 @@ struct TWindowCtrlScreen : public TObject {
 };
 
 typedef char TWindowCtrlScreen_size[sizeof(TWindowCtrlScreen) == 0x1C ? 1 : -1];
+extern "C" {
+void *TWindowCtrlScreen__ct(void *arg0);
+}
+
 #endif

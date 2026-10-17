@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/item/TItemEffPG_8034FE28.h"
 #include "pso/item/TUnk_804F0C08.h"
 
 extern "C" {
 
-void create__10TItemEffPGFPvPvPv(void *arg0, void *arg1, void *arg2);
 void TItemEffPG__ct(void *);
 void *__nw__7TObjectFUl(int);
 

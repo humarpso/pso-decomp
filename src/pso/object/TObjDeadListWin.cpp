@@ -1,15 +1,15 @@
 #include "pso/object/TObjDeadListWin.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
 extern "C" {
-void queue_destruction__7TObjectFv(void*);
 s32 get_player_by_client_id(s32);
 s32 obj_testFlags30(s32, s32);
 s32 TWindowCtrlMain__sub_8024CE58();
 char* strncpy(char*, const char*, int);
 char* strcat(char*, const char*);
 void* get_window_layout_position(s32);
-void TWindow__close(u8 *arg0);
 void send_and_handle__6TLobbyFii(u32, void*, s32);
 u32 set_window_mode_4__6TLobbyFPvll(void*, void*, s32);
 extern s32 local_client_id;

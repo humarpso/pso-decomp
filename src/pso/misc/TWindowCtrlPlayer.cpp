@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TWindowCtrlPlayer.h"
 #include "pso/TObject.h"
 #include "pso/misc/TWindowCtrl.h"
@@ -20,11 +22,8 @@ struct Ctl_8024E2A8 {
 
 extern "C" {
 
-void *__dt__17TWindowCtrlPlayerFv(void *arg0, s16 arg1);
-void TWindow__close(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void queue_destruction__7TObjectFv(void *);
 void run_all_updates__11TWindowCtrlFv(void* p);
 
 s32 is_split_screen(void);

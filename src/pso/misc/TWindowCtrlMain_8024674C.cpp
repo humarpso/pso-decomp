@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrlMain_8024674C.h"
+#include "pso/misc/TWindowSubShortMail_80246CB8.h"
+#include "pso/player/TObjPlayer_8023E480.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowCtrlMain.h"
 #include "pso/misc/TWindowFukidasi.h"
@@ -12,11 +15,6 @@
 struct Obj_80246948 { u8 pad[0x2c]; u32 f2c; };
 
 extern "C" {
-s32 is_trade_active();
-s32 is_com_card_active();
-s32 is_guild_card_receive_active();
-void update_entry_visibility__20TWindowSubStatusDispFi(s32 arg0);
-s32 TLobby__sub_8023E554(s32 arg0, s32 arg1);
 extern s32 lbl_8044E658[];
 extern s32 lbl_8044E688[];
 extern s32 hud_palette_texture_filename[];
@@ -32,8 +30,6 @@ extern s32 lbl_8044E758[];
 extern s32 lbl_804D2F3C[];
 extern u32 lbl_805D63F0;
 extern s16 window_ui_theme_index;
-void load_hud_palette_textures(void);
-int TWindowFukidasi__sub_8024695C(void* p);
 void TLobby__sub_803DA16C(void*);
 
 void TWindowCtrlMain::free_window() {

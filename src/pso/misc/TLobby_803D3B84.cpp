@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/misc/TLobby_803D3988.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 
 extern s32 (*mfci_error_callback)(s32, s32 *, s32);
-void TLobby__sub_803D3988(void);
-void TLobby__sub_803D39C0(void);
 
 extern s32 lbl_8047E0C8[];
 extern s32 mfci_error_callback_context;

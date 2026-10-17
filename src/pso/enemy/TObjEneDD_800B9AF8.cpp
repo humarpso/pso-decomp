@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_800B9AF8.h"
 #include "pso/enemy/TObjEneDD.h"
 
 extern "C" {
 
-void TObjEneDD__sub_800B9B24(void);
 int TObjLight__sub_801337F8(void*);
 int TObjLight__sub_801337FC(void*);
 

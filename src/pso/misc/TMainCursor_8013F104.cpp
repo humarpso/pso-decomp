@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TMainCursor_8013F104.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TMainCursor.h"
 #include "pso/misc/TLockOnCursor.h"
@@ -16,20 +17,9 @@ struct Obj_8013F154 { u8 pad[0x4]; Rec_8013F154 recs[1]; };
 struct Obj_8013F24C { u8 pad[0x44]; u8 arr[1]; };
 
 extern "C" {
-void TMainCursor__sub_8013F13C(s32 *arg0);
-void TMainCursor__sub_8013F22C(void* a0);
 extern s32 lbl_804A7254[];
-u8 *TMainCursor__sub_8013F1F0(u8 *arg0);
 Rec_8013F154 *get_record_at__11TMainCursorFPvi(Obj_8013F154 *self, s32 i);
 u8 fn_8013F24C(Obj_8013F24C *self, s16 i);
-void TMainCursor__sub_8013F104(void* p, s32 v);
-void TMainCursor__sub_8013F10C(void* p, s32 v);
-void TMainCursor__sub_8013F114(void* p);
-f32 TMainCursor__sub_8013F14C(void* p);
-s32 TMainCursor__sub_8013F168(void* p);
-void TMainCursor__sub_8013F170(void* p, s32 v);
-void TMainCursor__sub_8013F180(void* p, f32 v);
-int TMainCursor__sub_8013F244(void);
 int copy_vec4__13TRaderMapCoreFPvPv(void*);
 
 void TMainCursor__sub_8013F104(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }

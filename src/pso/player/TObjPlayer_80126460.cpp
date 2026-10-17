@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80126460.h"
 #include "pso/item/TItemShootParticle.h"
 #include "pso/TObject.h"
 
 extern "C" {
 
-u32 baranz_launcher_create_shot(void *arg0, s32 arg1, s32 arg2, f32 farg0);
-void baranz_launcher_node_callback(void* p);
 u32 spawn_shoot_particle__10TObjPlayerFUlllf(void *, s32, s32, f32);
 u32 create_shoot_model__10TObjPlayerFUiiif();
 int get_player_list__10TObjPlayerFv(void*);

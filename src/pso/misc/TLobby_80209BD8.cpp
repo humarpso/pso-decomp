@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TLobby_80209BD8.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 
-s32 pick_random_slot__6TLobbyFPv(s16 *arg0);
 s32 TLobby__sub_802099FC(s16 *, s32);
 
 extern s32 lobby_random_slot_id_table[];

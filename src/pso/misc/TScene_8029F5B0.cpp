@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TScene_8029F5B0.h"
 #include "pso/player/TObjPlayer.h"
 
 typedef struct { u8 r, g, b, a; } GXColor_8029F5F8;
 extern "C" {
 extern f32 TScene__visibility_radius_margin;
-void TScene__sub_8029F5E4(f32 farg0);
 s32 GXPixModeSync();
 s32 GXSetTexCopySrc(s32, s32, s32, s32);
 s32 GXSetTexCopyDst(s32, s32, s32, s32);
@@ -12,9 +12,6 @@ s32 GXSetCopyClear(GXColor_8029F5F8, s32);
 s32 GXCopyTex(s32, s32);
 s32 GXSetZMode(s32, s32, s32);
 extern GXColor_8029F5F8 lbl_805E1220;
-void TScene__sub_8029F5D8(void);
-void TScene__sub_8029F5EC(void);
-void fn_8029F5B0(s32 a0, s32 a1, s32 a2, s32 a3);
 s32 GXSetTexCoordGen2(s32, s32, s32, s32, s32, s32);
 
 void fn_8029F5B0(s32 a0, s32 a1, s32 a2, s32 a3) {

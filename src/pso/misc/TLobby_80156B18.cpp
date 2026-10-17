@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TLobby_80156B18.h"
+#include "pso/misc/TLobby_801E43E4.h"
 #include "pso/system/byteswap.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 s32 read_be16_field2__10TObjPlayerFv();
-void TLobby__send_and_handle_60(u8 *arg0);
-void TLobby__sub_80156BA8(void* p);
 void TLobby::bswap_60_header(void* p) { ((TLobby *)p)->bswap_header(); }
 void TLobby::bswap_header() {
     s32 arg0 = (s32)this;

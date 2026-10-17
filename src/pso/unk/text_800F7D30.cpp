@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/unk/text_800F7D30.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 u32 prs_decompress(int, int, int, int);
 u32 reset_counters__6TLobbyFv();
-u32 prs_decompress_alloc(s32 arg0, s32 arg1);
 #pragma scheduling off
 u32 prs_decompress_alloc(s32 arg0, s32 arg1) {
   s32 var_r28;

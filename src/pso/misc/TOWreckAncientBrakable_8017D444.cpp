@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TOWreckAncientBrakable_8017D444.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TOWreckAncientBrakable.h"
 
@@ -30,14 +32,11 @@ void *__nw__7TObjectFUl(u32);
 void vec3_add_to(Vec_8017D448 *, Vec_8017D448 *);
 void rotate_vector_by_matrix(int, Vec_8017D448 *, Vec_8017D448 *);
 void rotate_matrix_y(int, int);
-s32 push_matrix_from(void *src);
-s32 pop_matrix(void);
 extern Arr_8017D448 TOWreckAncientBrakable__debris_table;
 extern Param_8017D448 TOWreckAncientBrakable__debris_param_table;
 extern u8 identity_matrix[];
 extern void *wreck_ancient_brakable_bml_resource;
 extern s32 tl_05;
-void TOWreckAncientBrakable__sub_8017D444(void);
 
 void TOWreckAncientBrakable__sub_8017D444(void) {  }
 void TOWreckAncientBrakable::spawn_debris() {

@@ -1,4 +1,6 @@
 #include "pso/system/AdxmThreadStorage.h"
+#include "pso/misc/TLobby_803D3988.h"
+#include "pso/unk/text_803CBCF8.h"
 
 #include "types.h"
 
@@ -15,11 +17,6 @@ extern s32 lbl_804F9D80[];
 extern s32 lbl_805D7594;
 extern s32 lbl_805D75AC;
 extern s32 lbl_805D75B0;
-void __OSCallResetFunctions(void);
-void dispatch_callback(void);
-void dispatch_lobby_callback(void);
-void TLobby__sub_803D3988(void);
-void TLobby__sub_803D39C0(void);
 
 void __OSCallResetFunctions(void) {
     s32 enabled;

@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/ui/TObjBagWarnWin_8006EF24.h"
 #include "pso/TObjBagWarnWin.h"
 
 extern "C" {
 extern u8 *text_language_group_table;
-s32 TQuestVmDownLoadServer__sub_8006EF6C(s32 arg0);
 void *__ct__14TObjBagWarnWinFv(void *, void *);
 void *__nw__7TObjectFUl(int);
 

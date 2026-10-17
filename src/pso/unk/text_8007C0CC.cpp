@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby_8007C550.h"
+#include "pso/unk/text_8007C0CC.h"
 #include "pso/system/byteswap.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -7,15 +9,10 @@ struct Crypt_8007C438 { s32 pos; u32 k[0x38]; };
 struct R_8007C48C { s32 f0; s32 tbl[55]; s32 fe0; s32 fe4; };
 
 extern "C" {
-s32 subtractive_rng_next(s32 *arg0);
-void subtractive_rng_xor_buffer(s32 *self, u32 *data, s32 len);
 void subtractive_rng_refill(Crypt_8007C438 *c);
 void subtractive_rng_seed(R_8007C48C *arg0, s32 arg1);
 extern void* memcpy(void*,const void*,u32);
-void subtractive_rng_unshuffle(void* stream,const u8* source,u8* destination,u32 size);
 extern u8 save_block_shuffle_permutation[256], save_block_unshuffle_permutation[256];
-u16 TAdSinglePlyChrSelectGC__sub_8007C584(void *self, u16 x);
-void subtractive_rng_make_shuffle(s32* stream);
 extern u8 save_block_shuffle_permutation[256], save_block_shuffle_permutation[256];
 
 void TAdSinglePlyChrSelectGC::apply_rng_cipher(u32 *data, s32 len) {

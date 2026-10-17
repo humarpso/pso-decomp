@@ -1,14 +1,8 @@
 #include "pso/TPlyGuildCardTag.h"
+#include "pso/misc/TPlyGuildCardTag_8007B7EC.h"
 #include "pso/misc/TPlyPhotonChair.h"
 
 #include "types.h"
-extern "C" {
-void* TObjPlayer__vt10(void* p);
-void TWindowSubShortMail__sub_8007B824(void);
-s32 TWindowSubShortMail__sub_8007B834(void* p);
-void* fn_8007B83C(void* p);
-
-}
 
 void TPlyGuildCardTag::bswap() {
     bswap_32(&m_guildcard_number);

@@ -1,4 +1,5 @@
 #include "pso/item/TItemTexLoad.h"
+#include "pso/misc/TWindowSubMag_802627D8.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
 
 #include "types.h"
@@ -6,9 +7,6 @@
 
 extern "C" {
 u16 * get_array_entry__13TUnk_804CE018Fi(void * a0, s32 a1);
-void fn_8026287C(u8 *arg0);
-int TWindowSubMag__sub_802627D8(void* p);
-int TWindowSubMag__sub_80262808(void* p);
 
 u16 * get_array_entry__13TUnk_804CE018Fi(void * a0 = 0, s32 a1 = 0);
 

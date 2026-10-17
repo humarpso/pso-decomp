@@ -1,4 +1,6 @@
 #include "pso/misc/TPlayerBattleCtrl4P.h"
+#include "pso/misc/TPlayerBattleCtrl4P_8031012C.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
 
 #include "types.h"
 #include "pso/misc/TLobby.h"
@@ -39,7 +41,6 @@ struct O_8031224C { u8 pad[0x20]; s32 w0; u8 pad2[0x240 - 0x24]; s32 timer; u8 p
 extern "C" {
 s64 OSGetTime(void);
 s32 is_battle_decided__19TPlayerBattleCtrl4PFv(void *);
-s32 calculate_split_screen_battle_rankings(void *);
 VObj_18_26c590 *get_player_by_client_id(s32);
 s32 send_and_handle__6TLobbyFii(s32, void *, int);
 int sprintf(char *, const char *, ...);
@@ -51,7 +52,6 @@ s32 __ct__15TDuelEffectCtrlFP7TObjectUc(void *, void *, s32);
 void *__nw__7TObjectFUl(s32);
 void set_type__10TObjPlayerFl(void *, s32);
 s32 update_all_players__19TPlayerBattleCtrl4PFv();
-void TWindow__close(u8 *arg0);
 s32 check_all_players_flag__19TPlayerBattleCtrl4PFv(void *);
 
 }

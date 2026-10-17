@@ -14,4 +14,10 @@ struct TWindowSubItemList : public TUnk_804D0618 {
 };
 
 typedef char TWindowSubItemList_size[sizeof(TWindowSubItemList) == 0x90 ? 1 : -1];
+extern "C" {
+u8 *TWindowSubItemList__ct(u8 *arg0, s32 arg1, s16 arg2);
+void *__dt__18TWindowSubItemListFv(void *arg0, s16 arg1);
+u8 *create_sub_item_list_window(s32 arg0, s32 arg1, s16 arg2);
+}
+
 #endif

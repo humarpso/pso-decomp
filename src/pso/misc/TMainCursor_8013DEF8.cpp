@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TMainCursor_8013DEF8.h"
 #include "pso/misc/TMainCursor.h"
 #include "pso/misc/TForceOperate.h"
 #include "pso/misc/TWindowActionPalette.h"
 
 extern "C" {
-void TObjPlayer__sub_8013DEF8(u8 *arg0);
 int find_action_slot_for_target__11TMainCursorFllll(void*);
 
 void TObjPlayer__sub_8013DEF8(u8 *arg0) {

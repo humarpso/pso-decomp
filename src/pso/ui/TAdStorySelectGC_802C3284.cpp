@@ -1,4 +1,9 @@
 #include "pso/TAdStorySelectGC.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801334D4.h"
+#include "pso/ui/TAdStorySelectGC_8019DC14.h"
+#include "pso/unk/text_80299420.h"
 #include "pso/object/TObjPathObj.h"
 
 #include "types.h"
@@ -21,10 +26,6 @@ struct C_802C3400 { CE_802C3400 e[2]; };
 struct Self_802C3400 { s32 f0; u8 pad4[0x14]; void *vt; void *f1C; void *f20; };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
-s32 get_localized_text_entry(s32, s32);
-s32 TAdSinglePlyChrSelectGC__sub_801334DC(void *p);
-int TAdStorySelectGC__sub_8019DC14(void);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 void play_sound_effect(s32, s32, s32, s32);
@@ -33,7 +34,6 @@ extern s32 lbl_805D67C0;
 void create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);
-int TAdMultiPlyChrSelectGC__sub_80299454(void);
 void __ct__9TAdBackGCFv(void *, void *);
 void __ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__8TAdRayGCFv(void *, void *);

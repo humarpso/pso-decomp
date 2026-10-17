@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_803F0C50.h"
 #include "pso/misc/TKeyBoardControl.h"
 
 struct RecoveredGlobal_803F1548_lbl_805A2720 {
@@ -120,21 +121,17 @@ struct Kb_803F1604 {
 
 extern "C" {
 extern RecoveredGlobal_803F1548_lbl_805A2720 keyboard_pad_state_table;
-u8 TKeyBoardControl__sub_803F1548(s32 arg0);
 s32 SIDisablePolling(u32);
 extern s32 TKeyBoardControl__polling_channel_mask;
 extern s32 TKeyBoardControl__polling_disabled;
 s32 OSDisableInterrupts(void);
 void OSRestoreInterrupts(s32);
 void Dolphin_SIGetTypeAsync(s32, void *);
-void TKeyBoardControl__sub_803F107C(s32 chan, u32 type);
 void OSInitThreadQueue(void *);
 s32 OSRegisterResetFunction(void *);
 s32 SIRefreshSamplingRate(void);
 void *memset(void *, int, u32);
 extern u8 lbl_804FCD38[];
-void TKeyBoardControl__sub_803F0E8C(void);
-s32 TKeyBoardControl__sub_803F0E90(s32 arg0, void *arg1);
 void OSClearContext(OSContext_803F0F84 *);
 void OSSetCurrentContext(OSContext_803F0F84 *);
 void handle_pad_transfer_done__16TKeyBoardControlFiUiPv(s32 chan, u32 status, OSContext_803F0F84 *ctx);
@@ -148,7 +145,6 @@ s32 SIGetResponse(s32, void *);
 void *memmove(void *, const void *, u32);
 s32 SIIsChanBusy(s32);
 u32 SIGetStatus(s32);
-s32 poll_keyboard_port(s32 chan, u8 *out);
 typedef char RecoveredGlobal_803F0CF4_lbl_805A2720_size[sizeof(RecoveredGlobal_803F0CF4_lbl_805A2720) == 0x1A0 ? 1 : -1];
 
 void TKeyBoardControl::init_pad_states() {

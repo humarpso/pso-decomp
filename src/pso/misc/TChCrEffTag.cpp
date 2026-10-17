@@ -1,4 +1,5 @@
 #include "pso/TChCrEffTag.h"
+#include "pso/misc/TChCrEffTagStr.h"
 
 #include "types.h"
 
@@ -14,7 +15,6 @@ struct RecoveredGlobal_8029AA74_lbl_804652A4 {
 };
 
 extern "C" {
-void TChCrEffTagStr__sub_8029AED0(void *p);
 u32 create_str__11TChCrEffTagFPvPvPv(void *, int, void *);
 extern RecoveredGlobal_8029AA74_lbl_804652A4 lbl_804652A4;
 extern s32 TChCrEffTag__selected_heading;

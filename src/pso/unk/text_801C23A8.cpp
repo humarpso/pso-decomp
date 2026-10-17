@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_801C23A8.h"
 #include "pso/unk/TUnk_804C3E60.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowDuelResult.h"
@@ -9,16 +11,13 @@ struct RecoveredGlobal_801C241C_lbl_804C3E60 {
 };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805DC2E0;
 u8 *__nw__7TObjectFUl(s32);
 extern u8 *duel_result_window;
 extern s32 tl_00;
-void show_duel_result_window(s32 arg0, s32 arg1);
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_801C241C_lbl_804C3E60 duel_result_window_dispatch_table;
-u8 *__dt__13TUnk_804C3E60Fv(u8 *arg0, s16 arg1);
 
 void show_duel_result_window(s32 arg0, s32 arg1) {
     u8 *temp_r3;

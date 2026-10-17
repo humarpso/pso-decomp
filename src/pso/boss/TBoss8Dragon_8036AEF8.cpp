@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon_8036AEF8.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 #include "pso/system/memory.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -21,19 +23,11 @@ struct Obj_8036B1AC {
 
 extern "C" {
 extern s32 lbl_804F3610[];
-void TBoss8Dragon__sub_8036AF40(s32 **arg0);
-void begin_screen_draw(s32 arg0);
-void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern s32 lbl_805D63F0;
 extern s32 lbl_805D7000;
-void TBoss8Dragon__sub_8036B088(void);
 void TLobby__sub_8036B1AC(Obj_8036B1AC *arg0);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-void DVDConvertEntrynumToPath(f32 *q);
-void TBoss8Dragon__sub_8036AF50(f32 *o, f32 *p, s32 a, s32 b);
-s32 **TBoss8Dragon__sub_8036AEF8(s32 **arg0, s16 arg1);
-void fn_8036B18C(void);
 
 s32 **TBoss8Dragon__sub_8036AEF8(s32 **arg0, s16 arg1) {
     if (arg0 != NULL) {

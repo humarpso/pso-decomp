@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/TGStream.h"
+#include "pso/unk/text_800FA464.h"
 #include "pso/misc/TLobby.h"
 struct AsyncFileReadRequest {
     u32 flags;
@@ -14,7 +16,6 @@ struct AsyncFileReadRequest {
 };
 
 extern "C" {
-void TGStream__sub_800FDD64();
 s32 TLobby__sub_803CC4C0(u32);
 u32 adxf_open__6TLobbyFUii(void *, s32);
 void load_gvm_texture_archive(u32, s32);
@@ -24,7 +25,6 @@ extern s32 async_file_read_state;
 extern u32 async_file_read_sector_buffer;
 extern u32 lobby_download_state_ptr;
 extern u32 async_file_read_texture_buffer;
-void process_async_file_reads(void);
 void process_async_file_reads(void) {
     switch (async_file_read_state) {
     case 0:

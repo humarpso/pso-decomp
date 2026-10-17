@@ -1,4 +1,7 @@
 #include "pso/packet_classes.h"
+#include "pso/misc/TPlyCharData.h"
+#include "pso/misc/TPlyCharData_8007214C.h"
+#include "pso/network/TProtocol_801DFCAC.h"
 #include "pso/system/memory.h"
 #include <stddef.h>
 #include "pso/TProtocol.h"
@@ -13,8 +16,6 @@ typedef char NamedPasswordActionNameOffset[(offsetof(TSendAction<3>, name) == 0x
 typedef char NamedPasswordActionPasswordOffset[(offsetof(TSendAction<3>, password) == 0x1C) ? 1 : -1];
 
 extern "C" {
-s32 __ct__12TPlyCharDataFv(s32);
-s32 __dt__12TPlyCharDataFv(s32 arg0, s16 arg1);
 
 s32 destroy__9TProtocolFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {

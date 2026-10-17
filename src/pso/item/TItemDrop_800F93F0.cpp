@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemDrop_800F93F0.h"
 #include "pso/item/TUnk_8049C658.h"
 #include "pso/item/TItemDrop.h"
 #include "pso/misc/TLobby.h"
@@ -20,8 +21,6 @@ int safe_free__23TAdSinglePlyChrSelectGCFUl(void*);
 s32 apply_rel_relocations(void *);
 void *construct__13TUnk_8049C658Fv(void *);
 s32 read_disc_file(void *, void *);
-int fn_800F953C(void* p);
-int fn_800F955C(void* p);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 int set_stream_and_load_file__6TLobbyFi(void*);

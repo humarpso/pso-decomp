@@ -1,8 +1,8 @@
 #include "pso/TOSwitchAttackSub.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/TParticleCtrl.h"
 
 extern "C" {
-void queue_destruction__7TObjectFv(void*);
 f32 horizontal_distance_squared(const f32*, const f32*);
 u8* get_player_by_client_id(void*);
 u8 is_current_floor_switch_set(int);

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TOWreckAncientBrakable.h"
 #include "pso/player/TObjPlayer.h"
@@ -7,9 +9,7 @@ extern "C" {
 
 s32 play_sound_effect(s32, void *, s32, s32);
 u8 is_current_floor_switch_set(u16);
-void *spawn_particle_effect(void *pos, s32 id);
 s32 TOWreckAncientBrakable__sub_8017D444(void *);
-void queue_destruction__7TObjectFv(void *arg0);
 
 void TOWreckAncientBrakable::run_task() {
     u8 *arg0 = (u8 *)this;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/enemy/TObjEneRecon.h"
 #include "pso/TParticleCtrl.h"
 
@@ -7,7 +8,6 @@ extern "C" {
 s32 update_camera_sequence__9TObjEneDDFv();
 s32 matrix_mult_vec(s32, s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 
 extern s32 recon_intro_stage;
 extern s32 recon_model_matrix_ptr;

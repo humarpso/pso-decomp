@@ -14,6 +14,8 @@ extern "C" void get_render_mode_for_tv_format(GXRenderModeObj_803DD430 *rmode, G
 
 
 #include "types.h"
+#include "pso/system/ModelDrawContext.h"
+#include "pso/unk/text_803DCDFC.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TMovie.h"
@@ -93,14 +95,6 @@ extern Tlut_803DD0D8 gx_tlut_region_table[];
 extern void *lbl_805D771C;
 extern void *lbl_805D7720;
 
-void func_803DCDFC__Fv(void);
-void fn_803DCEC8(void);
-void fn_803DCF0C(void);
-void present_frame_and_wait_vsync(void);
-void init_locked_cache_heap(u8 *arg0);
-void set_present_interval(s32 *arg0, s32 arg1);
-void init_gx_display(void);
-void fn_803DD294(void);
 
 #define active_gx_render_mode ((RMode_803DCDFC *)active_gx_render_mode)
 
@@ -271,9 +265,7 @@ typedef struct {
     f32 b;
 } Pair_803DD300;
 
-void select_render_context(s32);
 void init_render_context(Elem_803DD300 *);
-void init_sin_cos_table(void);
 extern Elem_803DD300 render_contexts[6];
 extern f32 camera_clip_parameters[];
 extern Cam_803DD300 lbl_8058D4F8;

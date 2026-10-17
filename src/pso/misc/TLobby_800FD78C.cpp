@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TLobby_800FD78C.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 
-u8 fn_800FD7C0(void *arg0);
 int TCameraCtrl__sub_8006B370(f32 farg0);
 
 void TLobby::init_range(s32 flags) {

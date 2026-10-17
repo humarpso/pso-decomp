@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLanguage_801E4874.h"
 #include "pso/system/byteswap.h"
 #include "pso/misc/TLanguage.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -24,17 +25,14 @@ extern s32 TLanguage__read_cursor;
 u8 *TQuestVmDownLoadServer__sub_8007EBDC(s32, s32);
 u32 alloc__22TQuestVmDownLoadServerFv();
 void debug_print__6TLobbyFle(void *, ...);
-u16 read_file_header__9TLanguageFiPv(s32 arg0, u8 *arg1);
 void load_gvm_texture_archive(u32, u8 *);
 extern u8 texture_file_load_error_format[];
 extern u8 lbl_8044983C[];
-u8 *load_gvm_texture_file(s32 arg0);
 struct Base_801E4B68_801E4874 { char pad[0x50]; };
 struct VObj_801E4B68_801E4874 : Base_801E4B68_801E4874 {
     virtual void m0();
 };
 
-void update_texture_wave_image(void *arg0);
 s32 distort_texture_wave_image(void *);
 s32 is_split_screen();
 

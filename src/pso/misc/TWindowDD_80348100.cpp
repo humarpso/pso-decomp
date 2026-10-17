@@ -1,9 +1,9 @@
 #include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowDD_80348100.h"
 
 #include "types.h"
 
 extern "C" {
-u8 TWindowDD__sub_803482B0(u8 *arg0);
 int play_sound_effect(void*, void*, void*, void*);
 int refresh_sub__9TWindowDDFPvPv(void);
 int update__9TWindowDDFPvPv(void);

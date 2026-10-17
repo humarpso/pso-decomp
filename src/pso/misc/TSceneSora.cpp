@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/misc/TLobby_80131794.h"
+#include "pso/misc/TLobby_80140FF4.h"
+#include "pso/misc/TLobby_80207644.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TSceneSora.h"
 #include "pso/TParticleCtrl.h"
@@ -49,9 +54,6 @@ void TSceneSora__sub_80207430(void);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_802072E0___vt__10TSceneSora __vt__10TSceneSora;
 u8 *__dt__10TSceneSoraFv(u8 *arg0, s16 arg1);
-void TLobby__sub_80141038(u8 *arg0, s32 arg1, s32 arg2);
-s32 get_floor_map_terrain(s32);
-void randomize_adventure_maps(void);
 extern RecoveredGlobal_802075F8_lbl_80515BA0 lbl_80515BA0;
 extern s32 pending_adventure_map_floor;
 void prepare_adventure_maps(void);
@@ -64,15 +66,12 @@ extern s32 TSceneSora__has_sky_motion;
 extern const f32 lbl_805DC608;
 extern const f32 lbl_805DC60C;
 u8 *TSceneSora__ct(u8 *arg0, s32 _w1);
-void draw_ginja_object(void *child);
 s32 draw_ginja_model_with_motion(int, int, f32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 set_global_param__8TObjFishFl();
 void *get_current_floor();
 u32 TLobby__sub_8002058C(void *, int, Res_80207478 *, Res_80207478 *, int, int, int);
-s32 replace_file_extension__6TLobbyFPvPvPv(char *, char *, char *);
 s32 lookup_scene_object__6TLobbyFPv(void *, Ref_80207478 *);
 Ent_80207478 *get_floor_scene_table(s32);
 void *adxf_open__6TLobbyFUii(char *, int);

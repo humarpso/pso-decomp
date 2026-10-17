@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/system/PadRumble.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type3.h"
 
 extern "C" {
-s32 *find_active_pad_rumble_effect_by_id(u32 arg0);
-s32 *find_free_pad_rumble_effect_slot(void);
 int reset_state__23TAdSinglePlyChrSelectGCFv();
 
 void TBoss3Volopt::update_if_active(s32 _w0) {

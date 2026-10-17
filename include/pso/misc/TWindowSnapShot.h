@@ -37,4 +37,12 @@ struct TWindowSnapShot : public TUnk_804CE018 {
 };
 
 typedef char TWindowSnapShot_size[sizeof(TWindowSnapShot) == 0x64 ? 1 : -1];
+extern "C" {
+u8 *TWindowSnapShot__ct(u8 *arg0, s32 arg1);
+int TWindowSnapShot__sub_802A7EAC(void);
+void *__dt__15TWindowSnapShotFv(void *arg0, s16 arg1);
+s32 load_player_motion_data(void);
+void render__15TWindowSnapShotFv(u8 *arg0);
+}
+
 #endif

@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/PhotonBlastSummon.h"
+#include "pso/misc/TLobby_802268F4.h"
+#include "pso/misc/obj_band.h"
+#include "pso/unk/text_801AE1F8.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_804C3248.h"
 #include "pso/misc/TPhotonPilla.h"
@@ -10,16 +14,12 @@
 struct Vec_801AE1F8 { f32 x, y, z; };
 
 extern "C" {
-void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
 s32 init_collision_body_parts(void *, void *, int);
-void spawn_photon_blast_opening_effects(s32 arg0, s32 arg1);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
-void *photon_base_ct(void *arg0);
 s32 TPhotonMagicSquare__ct(void *, void *, int, void *, int, f32);
 void sub_801ADC7C__12TPhotonPillaFv(void *, u8);
 u8 *TPhotonRainbow__ct(void *, void *, void *, s32);
-void play_cue_stream_file(s32 name);
 void *__nw__7TObjectFUl(u32);
 extern u8 lbl_80446EE0[];
 extern u8 lbl_80446EEC[];
@@ -33,7 +33,6 @@ extern "C" void vfunc_12__13TUnk_804B9870Fv();
 extern "C" void vfunc_9__13TUnk_804B9870Fv();
 extern "C" void apply_object_set_data__13TUnk_804B9870FPv();
 extern "C" void classify_actor_view_detail__13TUnk_804B9870Ffff();
-extern "C" void *destroy__12TPhotonPillaFPvs(void *arg0, s16 arg1);
 extern "C" void enter_scene__13TUnk_804C3248Fv();
 extern "C" void render__12TPhotonPillaFv();
 extern "C" void render_shadows__7TObjectFv();
@@ -41,7 +40,6 @@ extern "C" void reset_movement__10TObjPlayerFv();
 extern "C" void update_if_active__13TUnk_804C3248Fv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 extern "C" void run_task__12TPhotonPillaFv();
-u8 *TPhotonPilla__ct(u8 *arg0, u8 *arg1);
 void *lbl_804C3A38[8] = {
     (void *)0x30000, (void *)0x3, (void *)0x3f800000, (void *)0x0,
     (void *)0x10000, (void *)0xa, (void *)0x3f800000, (void *)0x0,

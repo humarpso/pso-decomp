@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/PhotonBlastSummon.h"
+#include "pso/misc/TPhotonLeilla.h"
 #include "pso/misc/TUnk_804C3248.h"
 
 extern "C" {
 
-void *__dt__13TPhotonLeillaFv(void *arg0, s16 arg1);
 s32 __dl__7TObjectFPv(void *);
-void *destroy_photon_motion_object(void *arg0, s16 arg1);
 
 extern s32 __vt__13TPhotonLeilla[];
 

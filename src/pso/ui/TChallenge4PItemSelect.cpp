@@ -1,4 +1,7 @@
 #include "pso/ui/TChallenge4PItemSelect.h"
+#include "pso/item/TItemData_8010EDA8.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowSubComCardList.h"
@@ -23,7 +26,6 @@ extern "C" {
 void init__9TItemDataFv(void *);
 s32 get_selected_menu_value(void *);
 extern RecoveredGlobal_8034B158_lbl_804F00C8 TChallenge4PItemSelect__item_table;
-void TWindow__close(u8 *arg0);
 }
 
 #include "pso/misc/TLobby.h"
@@ -33,12 +35,10 @@ void TWindow__close(u8 *arg0);
 extern "C" {
 
 u32 create_window_menu(s32, s32, s32);
-s32 get_text_collection(s32);
 s32 TWindowSubComCard__sub_80265500(u32);
 s32 get_window_layout_position(s32);
 s32 fn_8034BE30(TChallenge4PResult *);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, s32, s32);
-void queue_destruction__7TObjectFv(void *);
 
 }
 void TChallenge4PItemSelect::close_with_callback() {

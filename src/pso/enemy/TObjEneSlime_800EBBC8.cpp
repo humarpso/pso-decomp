@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEneSlime_800EBBC8.h"
+#include "pso/object/TObjDFHorming.h"
 #include "pso/enemy/TObjEneSlime.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/player/TObjPlayer.h"
@@ -9,12 +11,9 @@ struct RecoveredGlobal_800EBC28___vt__12TObjEneSlime {
 };
 
 extern "C" {
-void TBoss4DarkFalz__sub_8004B4F0(void *arg0p, void *arg1p);
 s32 initialize__9TObjEnemyFPv(void *);
 extern s32 __vt__12TObjEneSlime[];
 extern s32 lbl_805D2AD8;
-u8 *TObjEneSlime__ct(u8 *arg0, s32 arg1, u8 *arg2);
-void *__dt__12TObjEneSlimeFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);

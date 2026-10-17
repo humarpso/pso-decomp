@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TEffStarLight2D_Base.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/TEffStarLight2D.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TUnk_8048E640.h"
@@ -73,12 +75,7 @@ u8 * construct_world_actor_base(void *);
 void * __nw__7TObjectFUl(s32, s32);
 extern s32 lbl_8048E640[];
 extern void *tl_particle;
-u8 *TEffStarLight2D_Base__ct(u8 *arg0, s32 arg1, s32 arg2);
-int copy_position__15TEffStarLight2DFPv(void* p);
-void *TEffStarLight2D_Base__create(void *arg0, s32 _w1);
-void *__dt__20TEffStarLight2D_BaseFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void queue_destruction__7TObjectFv(void *);
 
 void *TEffStarLight2D_Base__create(void *arg0, s32 _w1) {
     void *o = __nw__7TObjectFUl((s32)(0x94), (s32)(_w1));

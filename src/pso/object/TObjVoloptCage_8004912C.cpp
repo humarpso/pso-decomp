@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/object/TObjVoloptCage.h"
 #include "pso/object/TObjFish.h"
 
@@ -19,10 +21,8 @@ struct TObjVoloptCageVObj_8004912C : TObjVoloptCageBase_8004912C {
 
 s32 init_from_model__11TBreakUpMdlFl(s32, s32);
 s32 post_translate_matrix(void *);
-void draw_chunk_object(void *child);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 s32 alloc__23TAdSinglePlyChrSelectGCFv(s32, void *);
 s32 dispatch_shared_handler_a__6TLobbyFl(s32);
 s32 register_boss__6TLobbyFl(s32);

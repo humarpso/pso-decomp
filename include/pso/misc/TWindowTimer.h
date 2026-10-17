@@ -28,4 +28,11 @@ struct TWindowTimer : public TUnk_804CE018 {
 };
 
 typedef char TWindowTimer_size[sizeof(TWindowTimer) == 0x64 ? 1 : -1];
+extern "C" {
+u8 *TWindowTimer__ct(u8 *arg0);
+void *__dt__12TWindowTimerFv(void *arg0, s16 arg1);
+void render__12TWindowTimerFv(s32 arg0);
+void run_task__12TWindowTimerFv(u8 *arg0);
+}
+
 #endif

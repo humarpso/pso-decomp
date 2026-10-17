@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMorfosArm_80335218.h"
+#include "pso/misc/obj_band.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80143818.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneMorfosArm.h"
@@ -15,24 +20,18 @@ struct RecoveredGlobal_80335354___vt__16TObjEneMorfosArm { s32 value; u8 remaini
 typedef char RecoveredGlobal_80335354___vt__16TObjEneMorfosArm_size[sizeof(RecoveredGlobal_80335354___vt__16TObjEneMorfosArm) == 0x38 ? 1 : -1];
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 void *TObjEneMorfosArm__sub_803326B4(void *p);
 s32 TObjEneMorfosArm__sub_803326BC(void *);
 s32 advance_animation_playback();
 u16 obj_getField1c(void *);
-u8 *TObjMotion__ct(u8 *arg0);
 s32 set_field_d8__10TObjPlayerFl(void *, void *, int);
-void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 extern RecoveredGlobal_80335354_lbl_804EE3B0 morfos_arm_motion_params;
 extern s32 __vt__16TObjEneMorfosArm[];
 extern s32 TObjEneMorfosArm__name;
 extern u32 TObjEneMorfosArm__parent_morfos_instance;
-u8 *TObjEneMorfosArm__ct(u8 *arg0, s32 arg1, u8 *arg2);
-void *__dt__16TObjEneMorfosArmFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__dt__10TObjMotionFv(void *arg0, s16 arg1);
 

@@ -9,9 +9,6 @@ struct VObj_80166194_801660F4 : Base_80166194_801660F4 {
 
 extern "C" {
 
-void *TOExplosiveMachine02__create(void *arg0);
-void *TOExplosiveMachine02__ct(void *arg0, s32 arg1);
-void *__dt__20TOExplosiveMachine02Fv(void *arg0, s16 arg1);
 s32 TOExplosiveMachine__ct();
 s32 TObjFish__sub_8001EDB0(s32, s32);
 void *get_bml_model(s32, s32);

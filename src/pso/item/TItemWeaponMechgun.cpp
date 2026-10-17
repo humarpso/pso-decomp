@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/item/TItemMenuCtrl_80115AF0.h"
+#include "pso/item/TItemWeaponMechgun.h"
+#include "pso/unk/text_80120D50.h"
 #include "pso/item/TUnk_804A3260.h"
 #include "pso/items/TItemWeaponMechgun.h"
 #include "pso/player/TObjPlayer.h"
@@ -61,12 +64,8 @@ extern const f32 lbl_805DADD0;
 extern const f32 lbl_805DADD4;
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-u8 *create_mechgun_weapon(u8 *arg0);
-u8 *TItemWeapon__ct(u8 *arg0, void *parent, u8 *item);
 void spawn_weapon_impact_effect();
 extern s32 lbl_804A3260[];
-void *TItemWeaponMechgun__ct(void *arg0, s32 parent, void *arg2);
-void advance_angle_wrap(s32 *arg0, s32 arg1);
 }
 void TItemWeaponMechgun::prepareMarker() {
     TItemWeaponMechgun* arg0=this;

@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/boss/TObjBoss5Pillar_8028B6C0.h"
 #include "pso/boss/TObjBoss5Pillar.h"
 
 extern "C" {
 
-void TObjBoss5Pillar__sub_8028B70C(void);
-void TObjBoss5Pillar__sub_8028B710(void);
 u8 *TObjBoss5Pillar__ct(u8 *arg0, u8 *arg1, u8 *arg2);
 void *__nw__7TObjectFUl(int);
 

@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/player/TObjPlayer_800FFFF8.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_80141550.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/item/TItem.h"
 #include "pso/player/TObjPlayer.h"
@@ -27,15 +33,9 @@ struct RecoveredGlobal_80100070_lbl_8058D4C0 {
 };
 
 extern "C" {
-void TObjPlayer__sub_8010047C(u8 *arg0, s16 arg1);
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
-void func_80141618__Fv(void);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void draw_ginja_model(s32 model);
-void set_chunk_material_color(f32 *arg);
 extern RecoveredGlobal_80100070_lbl_8049E8F8 item_box_primary_colors;
 extern RecoveredGlobal_80100070_lbl_8049E958 item_box_secondary_colors;
 extern RecoveredGlobal_80100070_lbl_8050BEC0 saved_model_draw_color;
@@ -46,13 +46,10 @@ extern s32 lbl_805D5668;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-void TObjPlayer__sub_80100070(u8 *arg0);
-u16 TObjPlayer__sub_80100474(void* p);
 s32 PPCSync();
 s32 is_wrapped__9TItemDataFPv(s32);
 s32 find_item_by_id();
 s32 scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
-void draw_ginja_object(void *child);
 s8 TObjPlayer__sub_80102C30();
 u16 get_packed_value__9TItemDataFPv(void *arg0);
 s32 is_usable__9TItemDataFPv(void *arg0);

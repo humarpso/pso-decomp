@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TCharaMaking_8028E790.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_8028D8B8.h"
+#include "pso/unk/text_80291268.h"
 #include "pso/misc/TCharaMaking.h"
 #include "pso/TChCrCharSelect.h"
 #include "pso/TSaveChCr.h"
@@ -24,7 +28,6 @@ s32 create__14TObjCMMainMenuFv(void *);
 extern RecoveredGlobal_8028E9A4___vt__12TCharaMaking __vt__12TCharaMaking;
 extern s32 lbl_805D3B6C;
 extern s32 creation_main_menu_obj;
-u8 *TCharaMaking__ct(u8 *arg0, s32 arg1);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern RecoveredGlobal_8028E794_TObjLight__data_80506320 TObjLight__scene_light_state;
@@ -32,14 +35,9 @@ extern const f32 lbl_805DD938;
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 extern void *creation_player_character;
-u8 *__dt__12TCharaMakingFv(u8 *arg0, s16 arg1);
 s32 is_active__23TAdSinglePlyChrSelectGCFv(void *self);
-void TCharaMaking__sub_8028E790(void);
-void fn_8028D8F4(void);
-void fn_80291268(void);
 s32 is_state_3__14TObjCMMainMenuFv(s32);
 s32 is_state_4__14TObjCMMainMenuFv(s32);
-void queue_destruction__7TObjectFv(void *arg0);
 
 void TCharaMaking__sub_8028E790(void) {  }
 

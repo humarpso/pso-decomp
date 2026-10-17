@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/math/MatrixTransforms.h"
 #include "dolphin/mtx.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -7,11 +8,8 @@ struct Matrix34 { f32 elements[3][4]; };
 extern "C" {
 s32 matrix_apply_translation(int, f32, f32, f32);
 extern u32 current_matrix;
-void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
-void euler_zyx_to_quaternion(u8 *arg0, u8 *arg1);
-void euler_yxz_to_quaternion(u8 *arg0, u8 *arg1);
 
 __declspec(section ".sdata2") extern const f64 lbl_805E0F08;
 __declspec(section ".sdata2") extern const f64 lbl_805E0F10;

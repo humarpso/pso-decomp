@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80082910.h"
 struct C_80082AA8 { s32 v; };
 
 struct B_80082AA8 { u8 pad[0xc]; C_80082AA8 *c; };
@@ -31,8 +32,6 @@ extern char lbl_80438EF8[];
 extern void *lbl_80438EE8[];
 void *create_named_object(const char *name);
 void bind_gvm_texture_list(const char *name, void *data);
-void load_critical_effect_resources(void);
-s32 find_particle_texture_index(s32 id);
 void copy_slot_to_anim_frame(struct Copy_80082954 *c);
 void fn_800829E0(struct Copy_800829E0 *c);
 

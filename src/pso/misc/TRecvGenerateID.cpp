@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/misc/TRecvGenerateID.h"
 #include "pso/system/byteswap.h"
 
 extern "C" {
 
-void TRecvGenerateID__sub_801DFBC4(void* p);
-void bswap__15TRecvGenerateIDFv(s32 arg0);
 s32 bswap__13packet_headerFv();
 
 void bswap__15TRecvGenerateIDFv(s32 arg0) {

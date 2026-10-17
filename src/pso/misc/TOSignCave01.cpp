@@ -1,4 +1,7 @@
 #include "pso/misc/TOSignCave01.h"
+#include "pso/math/MatrixTransforms.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 
 #include "types.h"
@@ -49,11 +52,8 @@ struct RecoveredGlobal_80176800___vt__12TOSignCave01 {
 
 extern "C" {
 s32 rotate_matrix_y(int, int);
-void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
-s32 pop_matrix();
 f32 post_translate_matrix(void *);
-void draw_ginja_model(s32 model);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern u32 TOSignCave01__shared_resource;
 s32 init_map_object_base(void *, void *);
@@ -61,8 +61,6 @@ extern s32 __vt__12TOSignCave01[];
 extern s32 lbl_805D315C;
 extern const f32 lbl_805DB9D0;
 extern const f32 lbl_805DB9D4;
-u8 *TOSignCave01__ct(u8 *arg0, s32 arg1, s32 arg2);
-void *__dt__12TOSignCave01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);

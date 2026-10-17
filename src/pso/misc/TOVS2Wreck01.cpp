@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TOVS2Wreck01.h"
 #include "pso/misc/TOVS2.h"
 #include "pso/misc/TOVS2Wall01.h"
@@ -19,14 +21,9 @@ struct VObj_8017C640 : Base_8017C640 {
     virtual s32 m8(f32, f32);
 };
 
-void *TOVS2Wreck01__create(void *arg0);
-void *TOVS2Wreck01__ct(void *arg0, void *arg1);
-void *__dt__12TOVS2Wreck01Fv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
-void draw_ginja_object(void *child);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 

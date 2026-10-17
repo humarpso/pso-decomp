@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDimedian.h"
+#include "pso/misc/obj_band.h"
+#include "pso/object/TObject_80019A50.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -96,7 +99,6 @@ void init_enemy_base__13TUnk_80493450Fv(void *);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
 void initialize_enemy_photon_effect(void *);
 void bind_enemy_combat_stats(void *, s32, s32, s32);
-void set_animation__10TObjPlayerFPvs(void *, s16);
 void init_collision_body_parts(void *, void *, s32);
 void __construct_array(void *, void *, void *, int, int);
 void init_and_activate__10TObjPlayerFv();
@@ -104,7 +106,6 @@ extern s32 lbl_805D29F0;
 extern const f32 lbl_805D9AC8;
 extern const f32 lbl_805D9ACC;
 extern const f32 lbl_805D9AD0;
-void queue_destruction__7TObjectFv(void *);
 void __dt__13TUnk_80493450Fv(void *, int);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
@@ -114,7 +115,6 @@ extern u8 __dt__13TUnk_804949A8Fv[];
 O_800A846C *TObjPlayer__sub_800A846C(O_800A846C *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
-void *TObjEneDimedian__ct(void *, void *, void *);
 void __dt__11TBoss4Type3FPvs(void*, int);
 void *__nw__7TObjectFUl(int);
 void mem_free(void*);

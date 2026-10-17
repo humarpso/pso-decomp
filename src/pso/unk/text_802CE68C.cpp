@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/unk/text_802CE68C.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/enemy/TObjEnemy.h"
 
 #include <stddef.h>
@@ -101,18 +104,14 @@ struct Self_802CE8CC {
 extern "C" {
 s32 matrix_mult_vec(int, void *, void *);
 s32 rotate_matrix_y(int, int);
-s32 push_matrix_from(void *);
-s32 pop_matrix();
 f32 post_translate_matrix(void *);
 extern RecoveredGlobal_802CE68C_lbl_804724A8 player_sub_802ce68c_zero_vec;
 extern RecoveredGlobal_802CE68C_lbl_8058D490 identity_matrix;
 extern s32 anim_model_matrix_array;
-void TObjPlayer__sub_802CE68C(u8 *arg0, s32 arg1, s32 arg2);
 s32 update_player_state__9TObjEneDDFv(void *, Vec_802CE740 *, int);
 s32 restore_default_scene();
 s32 set_scene_override(int);
 s32 push_matrix();
-void draw_chunk_object(void *child);
 extern Vec_802CE740 lbl_8047249C;
 extern const f32 lbl_805DE700;
 extern const f32 lbl_805DE704;
@@ -130,7 +129,6 @@ extern s32 model_render_flags;
 extern const f32 lbl_805D9E84;
 extern const f32 lbl_805D9E88;
 extern const f32 lbl_805DE70C;
-void TObjPlayer__sub_802CE8CC(u8 *arg0);
 typedef char RecoveredGlobal_802CE68C_lbl_804724A8_size[sizeof(RecoveredGlobal_802CE68C_lbl_804724A8) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_802CE68C_lbl_8058D490_size[sizeof(RecoveredGlobal_802CE68C_lbl_8058D490) == 0x30 ? 1 : -1];
 void TObjPlayer__sub_802CE68C(u8 *arg0, s32 arg1, s32 arg2) {

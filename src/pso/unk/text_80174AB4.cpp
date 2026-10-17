@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80174AB4.h"
 #include "pso/misc/TORockCaveM01.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
@@ -34,7 +35,6 @@ extern RecoveredGlobal_80174AB4___vt__13TORockCaveM01 __vt__13TORockCaveM01;
 extern s32 lbl_805D3114;
 extern u8 *cave_rock_resource_bundle;
 extern const f32 lbl_805DB970;
-u8 *TORockCaveM01__ct(u8 *arg0, s32 arg1);
 typedef char RecoveredGlobal_80174AB4_lbl_804B3BA8_size[sizeof(RecoveredGlobal_80174AB4_lbl_804B3BA8) == 0x84 ? 1 : -1];
 typedef char RecoveredGlobal_80174AB4___vt__13TORockCaveM01_size[sizeof(RecoveredGlobal_80174AB4___vt__13TORockCaveM01) == 0x40 ? 1 : -1];
 u8 *TORockCaveM01__ct(u8 *arg0, s32 arg1) {

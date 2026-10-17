@@ -1,8 +1,9 @@
 #include "types.h"
+#include "pso/item/TItemShootModelRotZ_dtor.h"
+#include "pso/item/TItemShootModel_dtor.h"
 
 extern "C" {
 extern void *__vt__19TItemShootModelRotZ[];
-void *__dt__15TItemShootModelFv(void *self, s16 flag);
 void __dl__7TObjectFPv(void *p);
 
 void *__dt__19TItemShootModelRotZFv(void *self, s16 flag) {

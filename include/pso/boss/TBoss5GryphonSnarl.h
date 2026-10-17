@@ -15,4 +15,10 @@ public:
 };
 typedef char TBoss5GryphonSnarlChildren20[offsetof(TBoss5GryphonSnarl, children_20) == 0x20 ? 1 : -1];
 typedef char TBoss5GryphonSnarlChildrenA0[offsetof(TBoss5GryphonSnarl, children_a0) == 0xA0 ? 1 : -1];
+extern "C" {
+void TBoss5GryphonSnarl__sub_80066E84(void);
+void TBoss5GryphonSnarl__sub_80066E88(void *self);
+void TLobby__sub_80066EC0(void);
+}
+
 #endif

@@ -1,12 +1,10 @@
 #include "types.h"
+#include "pso/misc/TLazerFenceSw.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/player/TUnk_804B6C24.h"
 #include "pso/misc/TContainerAncient01.h"
 
 extern "C" {
-
-void TLazerFenceSw__sub_8018A554(void* p, f32 v);
-
-void *spawn_particle_effect(void *pos, s32 id);
 
 void TUnk_804B6C24::vfunc_81() {  }
 void TUnk_804B6C24::vfunc_80() {  }

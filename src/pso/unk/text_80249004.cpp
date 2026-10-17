@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/unk/text_80249004.h"
+#include "pso/unk/text_80268384.h"
 #include "pso/misc/TUnk_804CE7E8.h"
 
 struct RecoveredGlobal_80249004_lbl_804CE7E8 {
@@ -7,9 +9,7 @@ struct RecoveredGlobal_80249004_lbl_804CE7E8 {
 };
 
 extern "C" {
-u8 *fn_802683F4(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 extern RecoveredGlobal_80249004_lbl_804CE7E8 status_disp_window_dispatch_table;
-u8 *fn_80249004(u8 *arg0, s32 arg1, s16 arg2);
 typedef char RecoveredGlobal_80249004_lbl_804CE7E8_size[sizeof(RecoveredGlobal_80249004_lbl_804CE7E8) == 0x20 ? 1 : -1];
 u8 *fn_80249004(u8 *arg0, s32 arg1, s16 arg2) {
     fn_802683F4(arg0, arg1, 5, arg2);

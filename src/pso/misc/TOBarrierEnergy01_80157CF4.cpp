@@ -1,13 +1,14 @@
 #include "types.h"
+#include "pso/misc/TLobby_80156B18.h"
+#include "pso/misc/TOBarrierEnergy01_80158014.h"
+#include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/misc/TOAttackableCol.h"
 #include "pso/misc/TOBarrierEnergy01.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
 
 extern "C" {
-s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 void vfunc_20__17TOBarrierEnergy01Fv(void);
-void TLobby__sub_80156BA8(void *p);
 
 extern "C" void vfunc_6__13TUnk_804B9870FPsl();
 extern "C" void play_proximity_sound__17TOBarrierEnergy01Fv();
@@ -17,7 +18,6 @@ extern "C" void vfunc_18__17TOBarrierEnergy01Fv();
 extern "C" void vfunc_13__13TUnk_804AF8A0Fl();
 extern "C" void vfunc_12__13TUnk_804B9870Fv();
 extern "C" void vfunc_9__13TUnk_804B9870Fv();
-extern "C" void *__dt__17TOBarrierEnergy01Fv(void *arg0, s16 arg1);
 extern "C" void apply_object_set_data__13TUnk_804B9870FPv();
 extern "C" void classify_actor_view_detail__13TUnk_804B9870Ffff();
 extern "C" void init_door_switch_binding__13TUnk_804B0BB8Fv();

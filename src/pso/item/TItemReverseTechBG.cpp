@@ -1,4 +1,7 @@
 #include "pso/TItemReverseTechBG.h"
+#include "pso/item/TItemReverseTechBG.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
+#include "pso/object/TObject_80019A50.h"
 
 #include "types.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -18,11 +21,6 @@ struct TItemReverseTechBG_80119658 {
 };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
-void *__ct__18TItemReverseTechBGFv(void *arg0, void *arg1, void *arg3);
-void draw_textured_quad_at_depth(f32 *q, f32 depth);
-void begin_screen_draw(s32 arg0);
-void set_draw_texture_and_color(s32 idx, s32 arg1);
 s32 __ct__7TObjectFP7TObject();
 void reset_transform_state__10TObjPlayerFv(void *);
 

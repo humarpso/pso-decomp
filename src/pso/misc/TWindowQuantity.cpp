@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_8025A9B4.h"
+#include "pso/misc/TWindowSubStatusDisp_80287570.h"
+#include "pso/ui/TObjBagWarnWin_8006EF24.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowQuantity.h"
@@ -19,13 +22,9 @@ struct Quantity_8026D000 {
 
 extern "C" {
 s32 draw_visible_window_entries(void *, void *, int);
-void render__15TWindowQuantityFv(s32 arg0);
-s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 u32 calc_text_width(void);
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
-void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 s32 get_window_layout_position(s32);
-f32 TWindowSubStatusDisp__sub_802877A4(f32);
 extern u8 lbl_804D0870[];
 extern s32 __vt__15TWindowQuantity[];
 extern s32 lbl_805D39B0;
@@ -34,9 +33,6 @@ extern const f32 lbl_805DD2D4;
 extern const f32 lbl_805DD2D8;
 extern const f32 lbl_805DD2DC;
 extern const f32 lbl_805DD2E0;
-void *TWindowQuantity__ct(void *arg0, void *arg1);
-void *create_window_quantity(void *arg0);
-void *__dt__15TWindowQuantityFv(void *arg0, s16 arg1);
 s32 draw_window_tab(s32, s32, s32, f32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);

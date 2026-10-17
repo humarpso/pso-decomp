@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/item/TItemEquipVariant_80128A18.h"
+#include "pso/item/TItemEquipVariant_8012A82C.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-
-void *__dt__13TUnk_804A3F20Fv(void *arg0, s16 arg1);
-void *__dt__13TUnk_804A4948Fv(void *arg0, s16 arg1);
 
 extern s32 lbl_804A3F20[];
 

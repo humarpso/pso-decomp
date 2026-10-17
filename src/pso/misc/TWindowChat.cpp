@@ -1,4 +1,10 @@
 #include "pso/misc/TWindowChat.h"
+#include "pso/misc/TKeyBoardControl_8025EC04.h"
+#include "pso/misc/TWindowKeyBoardHard_802601D4.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_8024ACEC.h"
+#include "pso/unk/text_8024AD30.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TObject.h"
@@ -55,7 +61,6 @@ s32 sub_8025CB10__19TWindowKeyBoardBaseFv(s32);
 bool TWindowCtrl__sub_8024701C(Win_8024701C *w);
 s32 get_player_by_client_id(s32);
 extern s32 local_client_id;
-void end_player_keyboard_hold(s32 arg0);
 s32 has_player_active_menu__11TWindowCtrlFv(s32);
 s32 fn_8002AE08(s32);
 void send_chat_shortcut(s32);
@@ -63,10 +68,6 @@ s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
 s32 check_flag_100__10TObjPlayerFPv();
 extern u8 controller_input_state[];
-void TKeyBoardControl__sub_8025EC04(u8 *arg0);
-void TWindow__close(u8 *arg0);
-void queue_destruction__7TObjectFv(void *arg0);
-void begin_player_keyboard_hold(s32 arg0);
 s32 __nw__7TObjectFUl(int);
 s32 construct_symbol_chat_selection(int, void *);
 s32 TWindowKeyBoardSoft__ct(int, void *, void *);
@@ -75,7 +76,6 @@ s32 TWindowDD__ct(int, void *, void *);
 void *__dt__11TWindowChatFv(void *, s16);
 void *__dt__11TWindowChatFv(void *arg0, s16 arg1);
 u8 *TWindowKeyBoardBase__ct(u8 *arg0);
-u8 *TWindowKeyBoardHard__ct(u8 *arg0, s32 arg1);
 void init_keyboard_text_field(u8 *arg0, u32 arg1, u32 arg2);
 extern void *window_chat_type_name_pointer;
 void TWindowChat__sub_80247D2C(void* p);

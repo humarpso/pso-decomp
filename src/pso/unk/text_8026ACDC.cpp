@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/unk/text_8026ACDC.h"
 extern "C" {
 void *__nw__5THeapFUl(u32);
 void *__ct__5THeapFUli(void *, u32, s32);
 extern void *chat_log_lines[];
 extern void *TAdScrollWinGC__chat_log_heap;
 extern void *chat_last_line_buffer;
-void TLobby__sub_8026ACDC(void);
 void TLobby__sub_8026ACDC(void) {
     void *heap;
     s32 i;

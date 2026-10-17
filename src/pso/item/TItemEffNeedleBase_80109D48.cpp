@@ -1,4 +1,11 @@
 #include "types.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/item/TItemEffNeedleBase_80109D48.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/object/TObject_8001A448.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/item/TItem.h"
 #include "pso/TItemEffNeedleBase.h"
 #include "pso/TObject.h"
@@ -16,24 +23,16 @@ struct Needle_80109D48 {
 };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
-void allow_rendering__7TObjectFv(void *arg0);
-void disallow_rendering__7TObjectFv(void *arg0);
 u32 query_game_join_id__10TObjPlayerFv(int);
 extern const f32 lbl_805DAB50;
 extern const f32 lbl_805DAB54;
-void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 void rotate_matrix_by_node_angles(void *, s32);
 void push_matrix();
-s32 pop_matrix(void);
 void post_translate_matrix(void *);
-void draw_ginja_object(void *);
-void set_chunk_material_color(f32 *arg);
 extern u8 saved_model_draw_color[];
 extern u8 model_material_color[];
 extern u32 lbl_805D5660;
 extern u32 model_render_flags;
-u8 *__ct__18TItemEffNeedleBaseFv(u8 *arg0, void *arg1, u8 *arg2);
 s32 __ct__7TObjectFP7TObject();
 
 extern s32 __vt__18TItemEffNeedleBase[];

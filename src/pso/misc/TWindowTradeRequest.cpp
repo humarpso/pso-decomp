@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/protocol/TradeSession.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowTradeRequest.h"
 
 extern "C" {
-
-void reset__6TLobbyFv(void);
 
 extern u8 TLobby__trade_proposal_state;
 

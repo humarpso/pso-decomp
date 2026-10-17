@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803DC86C.h"
 #include "pso/object/TObjDFUsoTower.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
@@ -28,11 +31,8 @@ extern const f32 lbl_805D8ACC;
 extern const f32 lbl_805D8AD0;
 extern const f32 lbl_805D8AD4;
 s32 post_translate_matrix(void *);
-void draw_ginja_object(void *child);
 s32 TObjPlayer__sub_80052390();
 s32 push_matrix();
-s32 pop_matrix();
-void set_color_blend_mode(s32 a, s32 b, s32 c, s32 d);
 
 void TObjDFUsoTower::render() {
     f32 temp_f1;

@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_800BB804.h"
+#include "pso/enemy/TObjEneRecon_8031E88C.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneRecobox.h"
@@ -141,14 +145,11 @@ struct Holder_8031EA70 { u8 pad[0x460]; Fade_8031EA70 arr[4]; };
 
 extern "C" {
 s32 get_target_info__9TObjEneDDFv();
-s32 pack_debug_text_position(s32, s32);
 s32 debug_printf_at(s32, const char *, ...);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_x(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void draw_chunk_object(void *child);
 extern char lbl_804763D4[];
 extern char lbl_804763E4[];
 extern char lbl_804763F4[];
@@ -174,7 +175,6 @@ extern const f32 lbl_805D9E84;
 extern const f32 lbl_805D9E88;
 extern const f32 lbl_805DF440;
 extern const f32 lbl_805DF444;
-void render__12TObjEneReconFPv(u8 *arg0);
 void TObjEneRecobox::draw_with_debug_info() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;

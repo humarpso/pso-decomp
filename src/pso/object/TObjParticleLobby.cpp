@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/object/TObjParticleLobby.h"
@@ -31,16 +32,9 @@ s32 create_particle_emitter(void *, int);
 s32 init_map_object_base(void *, void *);
 extern s32 __vt__17TObjParticleLobby[];
 extern s32 lbl_805D44B8;
-u8 *TObjParticleLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 get_event_theme_index__17TObjParticleLobbyFv(void);
-void TObjParticleLobby__sub_80369698(void);
 void set_flags__11TBoss4Type2FUl(void *, u16);
-void TObjParticleLobby__sub_80369A60(void);
-void TObjParticleLobby__sub_80369A64(void);
-void *__dt__17TObjParticleLobbyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void queue_destruction__7TObjectFv(void *);
 
 s32 get_event_theme_index__17TObjParticleLobbyFv(void) {
     s32 r = TLobby::get_filtered_event_theme();

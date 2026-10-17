@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80125550.h"
 #include "pso/item/TUnk_804E355C.h"
 #include "pso/item/TItemAttackCol.h"
 
 extern "C" {
 
-void *__dt__13TUnk_804A2548Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 extern s32 lbl_804A2548[];

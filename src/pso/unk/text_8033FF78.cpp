@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss6Demo15_TYPE2_WAIT.h"
 #include "pso/boss/TBoss6PlotFalz.h"
@@ -29,7 +30,6 @@ struct P_8034009C {
 struct O_8034009C { u8 pad[0x60]; void *o[10]; };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
 void fn_80340040(O_80340040 *arg0);
 P_8033FF78 *get_player_data__10TObjPlayerFi(int);
 f32 vector_length(void *);

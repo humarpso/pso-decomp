@@ -1,0 +1,12 @@
+#ifndef PSO_MISC_TWINDOWSUBMAG_802627D8_H
+#define PSO_MISC_TWINDOWSUBMAG_802627D8_H
+
+#include "types.h"
+
+extern "C" {
+int TWindowSubMag__sub_802627D8(void *p);
+int TWindowSubMag__sub_80262808(void *p);
+void fn_8026287C(u8 *arg0);
+}
+
+#endif

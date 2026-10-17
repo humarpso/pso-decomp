@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjGbAdvance.h"
 
 struct VObjBase { char pad[0x18]; };
@@ -22,7 +23,6 @@ s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 s32 set_global_param__8TObjFishFl();
 
 extern s32 TObjGbAdvance__data_805D5B74;

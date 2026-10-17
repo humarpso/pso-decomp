@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TMovie_80143CE8.h"
+#include "pso/player/TObjPlayer_80083B38.h"
 #include "pso/misc/TMovie.h"
 
 extern "C" {
@@ -15,7 +17,6 @@ void TMovie::calc_frame_buffer_size(s32 arg0, s32 arg1) {
 }
 
 s32 DCFlushRangeNoSync(s32, s32);
-s32 TObjPlayer__sub_800845F8();
 s32 GXGetTexBufferSize(s32, s32, s32, s32, s32);
 extern s32 (*framebuffer_flush_callback)(s32, s32, s32);
 extern s32 (*movie_flush_framebuffer_callback)(s32, s32, s32);

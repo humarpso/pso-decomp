@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TContainerAncient01_8018B79C.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TContainerAncient01.h"
 #include "pso/object/TObjFish.h"
@@ -36,7 +40,6 @@ struct VObj8018B8BC_8018B79C : VBase8018B8BC_8018B79C {
 };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *);
 u32 get_bml_motion(int, int);
 s32 get_bml_model(int, int);
 s32 submit_cursor_candidate(void *, int, f32);
@@ -49,14 +52,11 @@ extern const f32 lbl_805DBD54;
 extern const f32 lbl_805DBD58;
 f32 xyz_distance_squared(void *, void *, void *);
 extern const f32 TContainerAncient01__data_805DBD44;
-s32 TContainerAncient01__vt18(s32 arg0, s32 arg1);
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-void draw_ginja_object(void *child);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 s32 reset_state__19TContainerAncient01Fv();
 
 extern f32 TContainerAncient01__data_805DBD14;

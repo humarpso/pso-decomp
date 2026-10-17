@@ -1,4 +1,6 @@
 #include "pso/object/T_OWEHMS_Exp.h"
+#include "pso/object/TObjWaitEntryHairMoveSim.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/TObjEZBoneRotPlayer.h"
 #include "pso/player/TObjPlayer.h"
 extern "C" {
@@ -20,10 +22,7 @@ struct H_800FE32C { u8 pad[0x878]; u8 state; u8 pad879[0x88E - 0x879]; s8 flags;
 
 extern "C" {
 s32 get_move_done_result__24TObjWaitEntryHairMoveSimFPv(H_800FE32C *h);
-void queue_destruction__7TObjectFv(void *arg0);
-void TObjWaitEntryHairMoveSim__sub_800FE3BC(int);
 extern void *hair_bone_rotation_descriptor[];
-int is_move_done__24TObjWaitEntryHairMoveSimFv(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -146,12 +145,7 @@ struct Self_800FE5A0 {
 
 extern "C" {
 
-void *__ct__24TObjWaitEntryHairMoveSimFv(void *arg0, void *arg1);
-
-s32 TObjWaitEntryHairMoveSim__sub_800FE73C(s32 arg0);
 s32 is_level_in_table__24TObjWaitEntryHairMoveSimFPv(Obj_800FE698 *o);
-
-void create_hair_effects__24TObjWaitEntryHairMoveSimFPv(void *arg0);
 
 extern "C" void render__7TObjectFv();
 extern "C" void render_shadows__7TObjectFv();

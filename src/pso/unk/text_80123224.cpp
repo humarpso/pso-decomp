@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/player/TObjPlayer.h"
 
 struct Vec_8012327C { f32 x, y, z; };
@@ -7,7 +8,6 @@ extern "C" {
 u8 * construct_twin_chakram(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-void *spawn_particle_effect(void *pos, s32 id);
 extern const f32 lbl_805DAD08;
 u8 *TObjPlayer::create_twin_chakram(u8 *arg0) {
     u8 *temp_r3;

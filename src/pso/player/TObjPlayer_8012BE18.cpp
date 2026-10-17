@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/unk/text_803D853C.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-
-void get_current_matrix(void *m);
 
 void TObjPlayer::apply_conveyor_effect() {
     s32 player_list;

@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TMainCursor_8013DF5C.h"
+#include "pso/player/TObjPlayer_801D84A8.h"
 #include "pso/misc/TMainCursor.h"
 
 extern "C" {
 
-int matches_type_and_enabled__11TMainCursorFiUcUc(s32 arg0, u8 arg1, u8 arg2);
-s32 TObjPlayer__sub_801D84F0(void *p);
 s32 TWindowActionPalette__sub_801C1C68(s32, s32);
 
 s32 TMainCursor::find_action_slot(s32 arg0, void *arg1, s16 arg2, s32 arg3, s32 arg4) {

@@ -14,4 +14,9 @@ public:
     static void load_shared_resource();
 };
 typedef char TOSignCave01_size[sizeof(TOSignCave01) == 0xC8 ? 1 : -1];
+extern "C" {
+u8 *TOSignCave01__ct(u8 *arg0, s32 arg1, s32 arg2);
+void *__dt__12TOSignCave01Fv(void *arg0, s16 arg1);
+}
+
 #endif

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLanguage_801E4874.h"
+#include "pso/unk/text_800F9B84.h"
 #include "pso/npc/TUnk_804A8640.h"
 #include "pso/npc/TObjNpcNHW01.h"
 #include "pso/misc/TLobby.h"
@@ -102,13 +104,8 @@ extern s32 __vt__12TObjNpcNHW01[];
 extern s32 TObjNpcNHW01__name;
 extern u32 TObjNpcNHW01__model_object;
 extern u32 TObjNpcNHW01__texture_handle;
-u8 *TObjNpcNHW01__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 create_named_object(s32 arg0);
-u8 *load_gvm_texture_file(s32 arg0);
 extern char lbl_8043FE38[];
 extern char lbl_8043FE4C[];
-void * TObjNpcNurseBase__create(void *arg0);
-void *__dt__12TObjNpcNHW01Fv(void *arg0, s16 arg1);
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcNurseBase__ct(void *, void *, void *);

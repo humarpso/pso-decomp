@@ -26,4 +26,8 @@ struct TAdMcSelectCursorGC : public TObject {
 };
 
 typedef char TAdMcSelectCursorGC_size[sizeof(TAdMcSelectCursorGC) == 0x140 ? 1 : -1];
+extern "C" {
+void *__dt__19TAdMcSelectCursorGCFv(void *arg0, s16 arg1);
+}
+
 #endif

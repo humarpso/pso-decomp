@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/player/TObjPlayer_80363BE0.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/unk/text_80141550.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/system/memory.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/player/TUnk_804F2A10.h"
@@ -7,19 +12,13 @@
 #include "pso/TItemLoad.h"
 
 extern "C" {
-void* TObjPlayer__sub_80363C5C(void*);
-void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 void* init_vtable_804F2A10__13TUnk_804F2A10Fv(void*);
 extern s32 lbl_804F29F8[];
 extern s32 lbl_804F2A10[];
 extern u8 model_material_color[];
 extern u8 * lbl_805D6FB8;
 extern int player_item_id_list;
-void push_to_list__10TObjPlayerFPvi(u8 *, s32);
-void reset_id_array__10TObjPlayerFPv(void *);
-s32 run_and_return_arg__10TObjPlayerFi(s32);
 #define reset_id_array__10TObjPlayerFPv ((int (*)(void*))reset_id_array__10TObjPlayerFPv)
-void *__dt__13TUnk_804F29F8Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -40,7 +39,6 @@ void *__dt__13TUnk_804F29F8Fv(void *arg0, s16 arg1) {
 
 #define lbl_804F29F8 ((unsigned char *)lbl_804F29F8)
 #define reset_id_array__10TObjPlayerFPv ((int (*)(void*))reset_id_array__10TObjPlayerFPv)
-void* TObjPlayer__sub_80363C5C(void* a0);
 int __ct__7TObjectFP7TObject(void);
 
 void* TObjPlayer__sub_80363C5C(void* a0) { __ct__7TObjectFP7TObject(); *(int*)((char*)a0 + 0x18) = (int)lbl_804F29F8; reset_id_array__10TObjPlayerFPv((void*)(player_item_id_list)); return a0; }
@@ -106,7 +104,6 @@ struct VObj_18_1419ea : VBase_18_1419ea {
 
 extern "C" {
 VObj_18_1419ea *query_game_join_id__10TObjPlayerFv(s32);
-void func_80141618__Fv(void);
 extern u8 saved_model_draw_color[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -163,7 +160,6 @@ void TUnk_804F2A10::render() {
 
 #undef run_and_return_arg__10TObjPlayerFi
 
-void *__dt__13TUnk_804F2A10Fv(void *arg0, s16 arg1);
 s32 submit_computer_command__10TObjPlayerFv(s32, s32, s32, s32);
 
 void TUnk_804F2A10::run_task() {
@@ -235,10 +231,6 @@ struct RecoveredGlobal_803640F8_lbl_8058D4C0 {
 struct Rec_80364028 { f32 a; s32 b; s32 c; s32 d; };
 
 extern "C" {
-void TObjPlayer__sub_8036414C(void);
-void TObjPlayer__sub_80364198(void);
-void set_chunk_material_override_pair(s32, s32);
-void set_chunk_blend(u32 x);
 extern Rec_80364028 lbl_80479FF8;
 extern const f32 lbl_805E0288;
 void TObjPlayer::spawn_cleanup_helper(void *arg0) {
@@ -324,8 +316,6 @@ struct Elt80364258_80364258 { s32 f0; };
 
 extern "C" {
 
-void push_to_list__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
-
 void push_to_list__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r0;
 
@@ -335,8 +325,6 @@ void push_to_list__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0xB0) = (s32) (*(s32 *)((s8 *)arg0 + 0xB0) + 1);
     }
 }
-
-void reset_id_array__10TObjPlayerFPv(void *arg0);
 
 void reset_id_array__10TObjPlayerFPv(void *arg0) {
     s32 *p = (s32 *)((u8 *)arg0 + 0x30);
@@ -348,7 +336,6 @@ void reset_id_array__10TObjPlayerFPv(void *arg0) {
 }
 
 #define reset_id_array__10TObjPlayerFPv ((s32 (*)(void))reset_id_array__10TObjPlayerFPv)
-s32 run_and_return_arg__10TObjPlayerFi(s32 arg0);
 
 s32 run_and_return_arg__10TObjPlayerFi(s32 arg0) {
     reset_id_array__10TObjPlayerFPv();

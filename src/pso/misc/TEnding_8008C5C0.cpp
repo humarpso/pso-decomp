@@ -1,4 +1,11 @@
 #include "pso/misc/TEnding.h"
+#include "pso/misc/TCameraCtrl_803D6538.h"
+#include "pso/misc/TEnding_8008C5C0.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TLoadCtrl_80227390.h"
+#include "pso/object/TObjLight_80133568.h"
+#include "pso/player/TObjPlayer_801A5AEC.h"
+#include "pso/unk/text_800F9B84.h"
 #include "pso/misc/TCameraCtrl.h"
 
 #include "types.h"
@@ -6,20 +13,13 @@
 struct Vec_8008C5E8 { s32 x, y, z; };
 
 extern "C" {
-void TKeyBoardControl__sub_8000F90C(s32 arg0);
-void TKeyBoardControl__sub_8000F91C(s32 arg0);
 void set_active_camera_pose(void *, void *);
 u8 *TCameraCtrl__ct(u8 *arg0, void *parent);
 void __ct__7TEndingFv(void *);
-void clear_resource_load_tasks(void);
 void run_load_callback_table(void *, int);
-void init_map_lights(u8 *arg0);
-void reset_controller_input_state(void);
 void set_copy_clear_color_argb(int, int, int);
 int render_tick__Fv(void);
-void play_area_music(char *name);
 void *__nw__7TObjectFUl(int);
-void set_screen_size(f32 farg0, f32 farg1);
 extern Vec_8008C5E8 lbl_80439570;
 extern Vec_8008C5E8 lbl_8043957C;
 extern u8 lbl_80439588[];

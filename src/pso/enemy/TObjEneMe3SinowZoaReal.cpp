@@ -103,8 +103,6 @@ s32 invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 void *TObjEneMe3SinowZoa__ct(void *, void *, void *);
 extern s32 __vt__22TObjEneMe3SinowZoaReal[];
 extern s32 TObjEneMe3SinowZoaReal__name;
-u8 *TObjEneMe3SinowZoaReal__ct(u8 *arg0, s32 arg1, s32 arg2);
-void *__dt__22TObjEneMe3SinowZoaRealFv(void *arg0, s16 arg1);
 s32 transition_enemy_state(void *, s32);
 int vfunc_62__18TObjEneMe3SinowZoaFv(void*);
 int vfunc_63__18TObjEneMe3SinowZoaFv(void*);

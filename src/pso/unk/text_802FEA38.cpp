@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/npc/TObjNpcKenkyu2.h"
+#include "pso/unk/text_802FEA38.h"
 
 extern "C" {
 
-void * TObjNpcKenkyu2__create(void *arg0);
 void *TObjControl__ct(void *, void *);
-u8 *TObjNpcKenkyu2__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_04;

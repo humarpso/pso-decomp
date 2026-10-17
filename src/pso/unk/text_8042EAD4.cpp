@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8042EAD4.h"
 struct Ctx_8042EBA4 { u8 pad[0x100]; s32 f100; s32 f104; s32 f108; };
 
 typedef struct Ctx_8042ED98 {
@@ -11,15 +12,12 @@ char *strcpy(char *, const char *);
 void fn_8042E8C4(Ctx_8042EBA4 *);
 extern char lbl_80480404[];
 extern Ctx_8042EBA4 *lbl_805D7CB0;
-void fn_8042EBA4(s32 arg0, s32 arg1);
 char *strncpy(char *, const char *, unsigned long);
 void *memset(void *, int, unsigned long);
 unsigned long strlen(const char *);
 extern s32 lbl_805D7CA8;
 extern Ctx_8042ED98 *lbl_805D7CB8;
-s32 fn_8042ED98(s32 arg0, const char *arg1);
 extern u8 *lbl_805D7CC0;
-s32 fn_8042EAD4(u8 *arg0, u32 arg1);
 
 #pragma push
 #pragma optimize_for_size off

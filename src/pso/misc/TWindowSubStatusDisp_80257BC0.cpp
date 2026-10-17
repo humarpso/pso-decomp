@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_80256B94.h"
+#include "pso/misc/TWindowSubStatusDisp_80257BC0.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -37,7 +39,6 @@ extern const f32 lbl_805DCE58;
 void step_gauge_bar_width(Gauge_802571B4 *g);
 void draw_status_gauge_bar__13TUnk_804CF930FPvPvff(Gauge_80256E0C *self, void *ctx, Pos_80256E0C *pos, f32 depth, f32 len);
 void *destroy__13TUnk_804CF930Fs(void *arg0, s16 arg1);
-void *TWindowSubStatusDisp__sub_80257298(void *arg0, s16 arg1);
 
 #define draw_status_gauge_bar__13TUnk_804CF930FPvPvff ((s32 (*)(void *, void *, void *, f32, f32))draw_status_gauge_bar__13TUnk_804CF930FPvPvff)
 struct RecoveredGlobal_80257B4C_lbl_804CF948 {
@@ -100,8 +101,6 @@ void* init_from__13TUnk_804CF930FPvi(void* a0, void* a1, int a2);
 u8 * init_layout_entry_copy__20TWindowSubStatusDispFPUc(u8 *arg0, u8 *arg1);
 void draw_visible_window_entries(void *self, List_80257BC0 *list, void *ctx);
 void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 arg2);
-void TWindowSubStatusDisp__sub_80258050(void);
-void TWindowSubStatusDisp__sub_80258054(void);
 void * init_layout_entry_rect__20TWindowSubStatusDispFPUcs(void *, void *, s32);
 void * TWindowSubStatusDisp__sub_80259D3C(void *, void *, s32);
 void * init_layout_entry_scaled__20TWindowSubStatusDispFPUcl(void *, void *, s32);

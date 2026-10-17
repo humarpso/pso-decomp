@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/object/TObjQuestColBase_80196BFC.h"
+#include "pso/object/TObjQuestCol_8019703C.h"
 
 extern "C" {
 
-void *__dt__12TObjQuestColFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-u8 *__dt__16TObjQuestColBaseFv(u8 *arg0, s16 arg1);
 
 extern s32 __vt__12TObjQuestCol[];
 

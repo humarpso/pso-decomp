@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/math/MatrixTransforms.h"
+#include "pso/player/TObjPlayer_801ADC6C.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_804C3248.h"
 #include "pso/object/TObjMotion.h"
@@ -35,15 +40,10 @@ typedef struct Vec_801ADD10 { f32 x, y, z; } Vec_801ADD10;
 typedef struct Packet_801ADD10 { Vec_801ADD10 pos; u32 w[9]; } Packet_801ADD10;
 
 extern "C" {
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 s32 scroll_strip_uvs(void *, s16, int);
 s32 clear_render_context__10TObjPlayerFv(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
-void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
-void set_chunk_material_override_pair(s32 arg0, s32 arg1);
-void set_chunk_material_color(f32 *arg);
 extern Color_801ADDDC saved_model_draw_color;
 extern Color_801ADDDC model_material_color;
 extern s32 lbl_805D5660;
@@ -59,8 +59,6 @@ void vec3_add_to(void *, void *);
 extern Packet_801ADD10 photon_pilla_laser_packet;
 extern Vec_801ADD10 lbl_804C3A84[];
 extern const f32 lbl_805DC22C;
-void TObjPlayer__sub_801ADC6C(void);
-void TObjPlayer__sub_801ADC78(void);
 s32 advance_animation_playback(void *);
 s32 play_persistent_sound(s32, void *, s32, s32, s32);
 s32 queue_photon_blast_hit(u16, s32, s32, f32);

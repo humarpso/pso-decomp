@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80124C90.h"
 #include "pso/item/TUnk_804A2260.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -6,7 +7,6 @@ extern "C" {
 
 s32 rotate_matrix_z(s32, s32);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
-void TObjPlayer__sub_80124C90(u8 *owner);
 
 extern f32 lbl_805DAD3C;
 

@@ -1,4 +1,7 @@
 #include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowDD_80348304.h"
+#include "pso/misc/TWindowDD_8034AF68.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
 
 #include "types.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -17,12 +20,7 @@ struct W_80348520 {
 extern "C" {
 s32 copy_chat_entry__9TWindowDDFPvPv(int, void *);
 s32 reset_selection__9TWindowDDFv(void *, void *);
-void TWindowDD__sub_803484C4(u8 *arg0);
-s32 TWindowDD__sub_8034B008(s32 arg0, s32 arg1);
-void TWindowDD__sub_80348448(s32 arg0, s16 arg1);
-void TWindow__close(u8 *arg0);
 s32 is_flag_set__6TLobbyFv();
-int TWindowDD__sub_80348424(s32 _w0, s32 _w1);
 s32 TWindowDD__sub_8034435C();
 s32 TWindowDD__sub_80344568();
 s32 TWindowDD__sub_80344774();

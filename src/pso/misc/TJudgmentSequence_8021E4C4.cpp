@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TJudgmentSequence_8021E4C4.h"
 #include "pso/misc/TShopGetItemWindow.h"
 #include "pso/misc/TJudgmentSequence.h"
 
@@ -22,7 +23,6 @@ struct VObj_8021E55C_8021E4C4 : Base_8021E55C_8021E4C4 {
 
 extern "C" {
 
-int get_judgment_shop_slot_flags(int a0);
 void *TJudgmentSequence__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_80144B14.h"
 #include "pso/misc/TWindowTimer.h"
 struct Obj_80287BE8 { u8 pad[0x30]; f32 f30; f32 f34; u8 pad2[8]; f32 f40; f32 f44; };
 
@@ -18,7 +19,6 @@ struct Wn_80287AD8 { u8 pad[0x60]; u32 f60; };
 
 extern "C" {
 extern const f32 lbl_805DD880;
-u32 calc_text_width(char *);
 TimerChild_80287B60 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 extern char lbl_8044FCD8[];
 extern const f32 lbl_805DD878;

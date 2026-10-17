@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore_801FB2B8.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/TParticleCtrl.h"
 
@@ -43,12 +45,9 @@ s32 update_follow_projection__13TRaderMapCoreFv(void *, void *);
 s32 update_pan_zoom_input__13TRaderMapCoreFv();
 extern u32 TRaderMapCore__floor_map_resource;
 extern s32 TRaderMapCore__view_mode;
-void run_task__13TRaderMapCoreFv(u8 *arg0);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_801FB430___vt__13TRaderMapCore __vt__13TRaderMapCore;
 extern s32 TRaderMapCore__instance;
-u8 *__dt__13TRaderMapCoreFv(u8 *arg0, s16 arg1);
-void queue_destruction__7TObjectFv(void *arg0);
 s32 construct_world_actor_base(void *, void *);
 s32 init_map_ptr__13TRaderMapCoreFv(void *, int);
 s32 fn_803D64F8(void *);

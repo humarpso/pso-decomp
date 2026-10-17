@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl_80082FCC.h"
 #include "pso/TMainTask.h"
 #include "pso/misc/TUnk_8048E5DC.h"
 
@@ -62,7 +63,6 @@ extern const f32 lbl_805D93F4;
 extern const f32 lbl_805D93F8;
 extern const f32 lbl_805D93FC;
 extern const f32 lbl_805D9400;
-void calc_projection_screen_offset(f32 *arg0, f32 *arg1);
 s32 load_list_texture(s32, s32, s32, s32);
 void VecCopy__FP3VecPC3Vec(void *);
 void __dl__7TObjectFPv(void *);

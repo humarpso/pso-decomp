@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/unk/text_800A0320.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/player/TUnk_80490470.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -6,8 +8,6 @@ extern "C" {
 extern const f32 lbl_805D9958;
 s32 calc_recoil_offsets__13TUnk_80490470Fv(f32);
 extern const f32 lbl_805D995C;
-void TObjPlayer__sub_800A0338(void);
-void set_chunk_blend(u32 x);
 
 s32 TUnk_80490470::vfunc_10() {
     return *(f32 *)&this->unk_18 > lbl_805D9958;

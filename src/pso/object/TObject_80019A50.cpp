@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon_8036AEF8.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/TObject.h"
 #include "pso/ui/TAdDrawLineCtrl.h"
 
@@ -17,12 +19,6 @@ struct Obj_80019AB0 { u8 pad[0x20]; Sub_80019AB0 *sub; f32 f24; };
 extern "C" {
 void fn_80019B08(Obj_80019B08 *self, s32 key);
 void fn_80019EB8(Node_80019AB0 *n, f32 v);
-void TAdDrawLineTask__sub_80019A8C(void* p, void* q);
-s32 get_logo_texture_e_handle(void);
-void func_80019A68__Fv(void);
-void queue_destruction__7TObjectFv(void *arg0);
-void TBoss8Dragon__sub_8036B088(void);
-void fn_8036B18C(void);
 
 void queue_destruction__7TObjectFv(void *arg0) {
     ((TObject *)arg0)->m_flags = (u16) (((TObject *)arg0)->m_flags| 1);

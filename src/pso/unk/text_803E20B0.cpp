@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/unk/text_803E20B0.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 s32 GXLoadPosMtxImm(int, int);
 extern s32 current_matrix;
-void load_camera_view_matrix(void);
 
 typedef f32 Mtx_803E20B0[3][4];
 typedef struct Cam_803E20B0 { u8 pad0[0x4C]; f32 f4C; u8 pad50[4]; f32 f54; } Cam_803E20B0;

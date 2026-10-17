@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/unk/text_802A8210.h"
+#include "pso/unk/text_803281B8.h"
 #include "pso/misc/TUnk_804ED5B0.h"
 
 struct RecoveredGlobal_803281B8_lbl_804ED5B0 {
@@ -8,9 +10,7 @@ struct RecoveredGlobal_803281B8_lbl_804ED5B0 {
 
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
-void register_indirect_effect_ctrl(s32);
 extern RecoveredGlobal_803281B8_lbl_804ED5B0 lbl_804ED5B0;
-u8 *construct_indirect_effect_task(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3);
 typedef char RecoveredGlobal_803281B8_lbl_804ED5B0_size[sizeof(RecoveredGlobal_803281B8_lbl_804ED5B0) == 0x18 ? 1 : -1];
 u8 *construct_indirect_effect_task(u8 *arg0, s32 kind, s32 arg2, u8 *arg3) {
     __ct__7TObjectFP7TObject(arg0, arg3);

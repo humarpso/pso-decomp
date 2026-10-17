@@ -18,4 +18,9 @@ struct TODragonflyMachine01 : public TODragonfly {
 };
 
 typedef char TODragonflyMachine01_size[sizeof(TODragonflyMachine01) == 0x108 ? 1 : -1];
+extern "C" {
+u8 *TODragonflyMachine01__ct(u8 *arg0, int arg1);
+void *__dt__20TODragonflyMachine01Fv(void *arg0, s16 arg1);
+}
+
 #endif

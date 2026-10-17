@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TMainCursor_8013E1C8.h"
 #include "pso/misc/TMainCursor.h"
 struct Obj_8013E240 { s32 a; u16 b; u16 c; f32 d; f32 e; };
 
@@ -8,11 +9,6 @@ int TObjPlayer__sub_8013A820(void* a0 = 0);
 extern const f32 TMainCursor__data_805DB0C0;
 extern const f32 lbl_805DB0C4;
 void reset_nearest_target_record(Obj_8013E240 *self);
-void TMainCursor__sub_8013E290(void* p, s32 v);
-s16 TMainCursor__sub_8013E298(void* p);
-s32 TMainCursor__sub_8013E2A0(void* p);
-void TMainCursor__sub_8013E2B0(void* p);
-int TMainCursor__sub_8013E2DC(void);
 extern int main_cursor_model;
 extern int lock_on_cursor_model;
 

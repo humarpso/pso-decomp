@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_800BB804.h"
+#include "pso/unk/text_800BC4C8.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -345,13 +347,10 @@ struct Obj_800BB88C {
 };
 
 extern "C" {
-void load_enemy_bml_resource_named(s32 arg0, s32 arg1);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-s32 load_enemy_bml_resource(u8 *arg0);
 void transition_enemy_state(V_800BBA18 *self, s16 state);
 s32 TObjEneDD__vt82(V_800BBB18 *self);
 extern const f32 TObjEneDD__data_805D9E8C;
-s32 pack_debug_text_position(s32 arg0, s32 arg1);
 s32 subtractive_rng_seed(void *, int);
 s32 vfunc_79__9TObjEnemyFv();
 int fn_800FD8A0(void*);
@@ -494,8 +493,6 @@ void TObjEneDD::init_position_vectors() {
     this->clear_lobby_object_state();
 }
 
-void *TObjEneDD__ct(void *arg0);
-void *__dt__9TObjEneDDFv(void *arg0, s16 arg1);
 void initialize__9TObjEnemyFPv(void *);
 void __dl__7TObjectFPv(void *);
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
@@ -545,9 +542,7 @@ void TObjEneDD::release_resource() {
     }
 }
 
-s32 tick_period_counter(s32 arg0, s32 *arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);
-u8 *construct_collision_body(u8 *arg0, s32 arg1, u32 arg2);
 
 void TObjEneDD::create_instance() {
     void *o;

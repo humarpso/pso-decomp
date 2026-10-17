@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/boss/TBoss2DeRolLe.h"
+#include "pso/misc/TLobby_80335E08.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/ui/TAdTrialAgreementGC_80335958.h"
 #include "pso/ui/TUnk_804EE458.h"
 #include "pso/misc/TWindowChoiceSetting.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
@@ -38,13 +42,8 @@ struct RecoveredGlobal_80335974_lbl_8050E3B8
 };
 
 extern "C" {
-u8 TAdTrialAgreementGC__sub_80335958(u8 *arg0);
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 s32 TCameraCtrl__sub_80068EF0();
 s32 draw_record_with_camera__19TAdTrialAgreementGCFlll(void *, void *, int);
-s32 TAdTrialAgreementGC__sub_8033596C(void* p);
-void bind_title_texture_list(void);
-void set_chunk_material_color(f32 *arg);
 extern RecoveredGlobal_80335BD4_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_80335BD4_lbl_8058D4C0 model_material_color;
 extern s32 lbl_805D5660;
@@ -59,7 +58,6 @@ extern const f32 lbl_805DF8B4;
 f32 sin_table_lookup(s32);
 extern const f32 lbl_805DF8B8;
 extern const f32 lbl_805DF8BC;
-void *__dt__13TUnk_804EE458Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 

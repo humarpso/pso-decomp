@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem_80101CEC.h"
 #include "pso/item/TItemData.h"
 #include "pso/item/TItem.h"
 
@@ -13,10 +14,6 @@ struct VObj_80101CFC : Base_80101CFC {
 
 extern "C" {
 
-void TItem__sub_80101CEC(void);
-void TItem__sub_80101CF0(void);
-void TItem__sub_80101CF4(void);
-void TItem__sub_80101CF8(void);
 s32 init__9TItemDataFv(void *);
 
 void TItem__sub_80101CEC(void) {  }

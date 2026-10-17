@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/object/TObjCityMainWarp_80186E24.h"
+#include "pso/unk/text_8024ACEC.h"
+#include "pso/unk/text_8024AD30.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/misc/TWindowSubTradeMain.h"
@@ -8,10 +12,7 @@ extern "C" {
 
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
 u32 find_local_player_in_range__16TObjCityMainWarpFf(f32);
-void TWindow__close(u8 *arg0);
 void request_active_window_close(void);
-void begin_player_keyboard_hold(s32 arg0);
-void end_player_keyboard_hold(s32 arg0);
 s32 align_menu_entry_positions(u32);
 u32 check_room_seq_4__16TAdChrSelASlotGCFl(s32, s32);
 s32 get_window_layout_position(s32);

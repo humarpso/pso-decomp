@@ -1,4 +1,5 @@
 #include "pso/TAdSEGAlogo.h"
+#include "pso/ui/TAdSEGAlogo.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 TAdSEGAlogo::~TAdSEGAlogo() {}
@@ -8,7 +9,6 @@ TAdSEGAlogo::~TAdSEGAlogo() {}
 
 extern "C" {
 
-void *__ct__11TAdSEGAlogoFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 

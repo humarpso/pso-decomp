@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -43,7 +45,6 @@ struct Obj_8018D4DC {
 };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 u8 * get_bml_model(void *, int);
 extern s32 TObjContainerJung__bml_model_resource;
 s32 TObjFish__sub_8001EDB0(void *, s32);
@@ -55,11 +56,9 @@ u8 * init_container_base(void *, s32);
 extern RecoveredGlobal_8018D85C_lbl_804B7168 container_jung_collision_desc;
 extern s32 __vt__17TObjContainerJung[];
 extern s32 TObjContainerJung__name;
-u8 *TObjContainerJung__ct(u8 *arg0, s32 arg1, s32 _w2);
 s32 scale_matrix(s32, f32, f32, f32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object();
 extern const f32 lbl_805DBD9C;
@@ -71,8 +70,6 @@ extern Spawn_8018D4DC container_jung_debris_desc;
 extern Spawn_8018D4DC container_jung_spawn_params;
 extern void *tl_05;
 void TObjContainerJung__vt77(const Obj_8018D4DC *self);
-s32 TObjContainerJung__sub_8018D3B8(void);
-void *__dt__17TObjContainerJungFv(void *arg0, s16 arg1);
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 free_collision_body_parts(void *);
 s32 submit_cursor_candidate(void *, s32);

@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/boss/Boss6Type2Appearance.h"
+#include "pso/misc/TLoadCtrl_80227390.h"
+#include "pso/misc/TPlayerFootStamp_802B03F4.h"
+#include "pso/object/TObject_80019A50.h"
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/misc/TLobby.h"
 
@@ -8,14 +12,7 @@ extern "C" {
 void apply_fade_alpha__14TBoss6PlotFalzFlf(void *, f32, s32);
 int end_cutscene_camera__14TBoss6PlotFalzFPv(void*);
 int refresh_players_equipment__14TBoss6PlotFalzFPv(void);
-void TBoss6PlotFalz__sub_802B06D0(void *arg0);
-void TBoss6PlotFalz__sub_802B03F4(void);
-void TBoss6PlotFalz__sub_802B0448(void* p);
-void stop_adx_audio(void *arg0);
-void play_area_music(char *name);
-void *create_boss6_type2_appearance(void *arg0);
 int is_ready__14TBoss6PlotFalzFv(void*);
-void queue_destruction__7TObjectFv(void *arg0);
 
 void TBoss6PlotFalz__sub_802B03F4(void) {  }
 void TBoss6PlotFalz::check_action_7() {
@@ -70,7 +67,6 @@ void TBoss6PlotFalz::update_cutscene_fade() {
 
 extern "C" {
 
-void init_hall_boss_scene(void *arg0);
 s32 alloc__8TObjFishFPv(void *);
 
 void TBoss6PlotFalz::check_and_advance_state() {

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl_800687BC.h"
+#include "pso/unk/text_80050134.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Uro.h"
@@ -6,8 +8,6 @@
 
 extern "C" {
 
-void *__dt__11TObjDFDemoFFPvs(void *arg0, s16 arg1);
-s32 restore_player_cameras(void);
 void __dl__7TObjectFPv(void *);
 
 typedef struct Data_80050194 Data_80050194;
@@ -37,7 +37,6 @@ typedef struct Data_80050194
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
-s32 activate_camera_mode(s32 arg0);
 void set_scripted_camera_pose(void *, void *, void *);
 void construct_world_actor_base(void *, void *);
 void play_sound_effect(s32, void *, s32, s32);

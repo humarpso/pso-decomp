@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8012FCB0.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void *twin_psychogun_ct(void *arg0);
 void TItemWeapon__ct(void *);
 
 extern s32 lbl_804A66D8[];

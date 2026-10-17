@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/misc/TLobby_800FC3CC.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
-
-void TLobby__sub_800FC3CC(void);
 
 void TLobby__sub_800FC3CC(void) {  }
 

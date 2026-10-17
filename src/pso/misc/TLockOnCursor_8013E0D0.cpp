@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLockOnCursor_8013E0D0.h"
+#include "pso/object/TObject_8001A448.h"
 #include "pso/misc/TUnk_804A7260.h"
 #include "pso/misc/TLockOnCursor.h"
 #include "pso/misc/TMainCursor.h"
@@ -7,9 +9,7 @@ extern "C" {
 
 struct VOff_8013E0D8_arg0_8013e0d8_8013E0D0 { char pad_0[0x1C]; char f_1C[1]; };
 
-void TLockOnCursor__sub_8013E0D0(void* p, s32 v);
 void __ct__7TObjectFP7TObject(void *);
-void disallow_rendering__7TObjectFv(void *);
 void fn_8013E020(void *);
 void set_field_0__13TForceOperateFs(void *, void *);
 

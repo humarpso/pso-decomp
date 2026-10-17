@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe3Stelth_803DC82C.h"
+#include "pso/player/TObjPlayer_803DC834.h"
+#include "pso/system/MaterialAlphaCompare.h"
+#include "pso/unk/text_80141550.h"
+#include "pso/unk/text_80141A30.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
@@ -17,7 +22,6 @@ s32 set_chunk_material_color(void *, f32);
 extern s32 model_render_flags;
 extern const f32 lbl_805DB150;
 extern const f32 lbl_805DB154;
-void set_shadow_material_state(void);
 int GXSetCullMode(void*);
 
 int TObjFish::set_cull_none() { return GXSetCullMode((void*)(0)); }
@@ -103,14 +107,6 @@ struct G_80141820 { u8 pad[0xd]; u8 scene; };
 extern "C" {
 void GXSetZMode(u8, s32, s32);
 void GXSetZCompLoc(s32);
-void set_material_alpha_compare_reference(s32);
-void set_ginja_draw_list_mask(s32 arg0);
-void func_80141618__Fv(void);
-void restore_default_scene(void);
-void set_scene_override(u8 scene);
-void set_ginja_draw_end_callback(s32 arg0);
-void restore_saved_depth_alpha_state();
-void TObjPlayer__sub_801416AC(void);
 void TObjPlayer::copy_config(void* q) { *(u32*)((char*)this + 0x0) = *(u32*)((char*)q + 0x0); *(u8*)((char*)this + 0x4) = *(u8*)((char*)q + 0x4); *(u8*)((char*)this + 0x5) = *(u8*)((char*)q + 0x5); *(u32*)((char*)this + 0x8) = *(u32*)((char*)q + 0x8); *(u8*)((char*)this + 0xc) = *(u8*)((char*)q + 0xc); *(u8*)((char*)this + 0xd) = *(u8*)((char*)q + 0xd); *(u32*)((char*)this + 0x10) = *(u32*)((char*)q + 0x10); }
 void TObjPlayer__sub_801416AC(void) {
     depth_buffer_settings.a = 7;
@@ -140,9 +136,6 @@ typedef char RecoveredGlobal_8014175C_lbl_8050C000_size[sizeof(RecoveredGlobal_8
 void set_depth_buffer_settings_id(u32 arg0) {
     *(s32 *)((s8 *)(&(*(RecoveredGlobal_8014175C_lbl_8050C000 *)&(*(RecoveredGlobal_80141860_lbl_8050C000 *)&depth_buffer_settings)).value) + 0x10) = arg0;
     set_ginja_draw_list_mask((s32)((void *) (arg0)));
-}
-extern "C" {
-
 }
 void restore_depth_buffer_settings(void) {
     ((TObjPlayer *)(&(*(RecoveredGlobal_80141788_lbl_8050C000 *)&(*(RecoveredGlobal_80141860_lbl_8050C000 *)&depth_buffer_settings)).value))->copy_config((void*)((void *) (&(*(RecoveredGlobal_80141788_lbl_8050C028 *)&(*(RecoveredGlobal_80141730_lbl_8050C028 *)&saved_depth_alpha_scene_state)).value)));

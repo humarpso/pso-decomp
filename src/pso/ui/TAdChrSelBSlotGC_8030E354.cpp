@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/misc/TWindowSubComCard_80244774.h"
+#include "pso/ui/TAdChrSelBSlotGC_8030E354.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
 #include "pso/ui/TAdChrSelBSlotGC.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/TMainTask.h"
@@ -29,29 +33,14 @@ struct G_8030E3BC { s32 a; s32 b; s32 c; f32 v[2]; };
 struct S_8030E3BC { s32 x; s32 y; };
 
 extern "C" {
-void TWindow__close(u8 *arg0);
 u32 TAdChrSelASlotGC__sub_8030CB08(void *, int, int);
-void TAdChrSelBSlotGC__sub_8030E768(u8 *arg0);
-void TAdChrSelBSlotGC__sub_8030E824(u8 *arg0);
-void TAdChrSelBSlotGC__sub_8030E8E0(u8 *arg0);
-void TAdChrSelBSlotGC__sub_8030E99C(u8 *arg0);
-void TAdChrSelBSlotGC__sub_8030EA58(u8 *arg0);
-void TAdChrSelBSlotGC__sub_8030EB14(u8 *arg0);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 extern RecoveredGlobal_8030EBD0_lbl_8050E3B8 controller_physical_port_bank;
-void TAdChrSelBSlotGC__sub_8030EBD0(u8 *arg0);
 s32 push_plate_position__19TAdPlyChrSelPlateGCFv(int, void *);
 s32 get_global_state__16TAdChrSelBSlotGCFv(void *);
 extern RecoveredGlobal_8030E6E0_lbl_804758E8 lbl_804758E8;
-s32 *TAdSinglePlyChrSelectGC__sub_801FE3E4(u32 i);
-s32 get_localized_text_entry(s32 arg0, s32 arg1);
 extern G_8030E3BC lbl_80542E78;
 G_8030E3BC *TAdChrSelBSlotGC__sub_8030E3BC(s32 arg0, s32 arg1, s32 arg2, void *arg3);
-void TAdChrSelBSlotGC__sub_8030E458(void);
-void TAdChrSelBSlotGC__sub_8030E550(void);
-void TAdChrSelBSlotGC__sub_8030E620(void);
-s32 encrypt_and_save__23TAdSinglePlyChrSelectGCFv();
-void open_confirm_window__23TAdSinglePlyChrSelectGCFv(void);
 
 void TAdChrSelBSlotGC::render() {
     if (TMainTask::get_state_flag() == 1) { return;

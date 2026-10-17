@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_802671F0.h"
 #include "pso/ui/TAdVIConfigGC.h"
 
 extern "C" {
 
-void TAdVIConfigGC__sub_80267704(s32 arg0);
 s32 TWindowSubStatusDisp__sub_80248BE8(s32, s32, s32);
 
 s32 TAdVIConfigGC::draw_with_layer(s32 arg0, s32 arg1, s32 arg2) {

@@ -16,4 +16,9 @@ struct TObjKabochaLobby : public TUnk_804AFBF8 {
 };
 
 typedef char TObjKabochaLobby_size[sizeof(TObjKabochaLobby) == 0xD0 ? 1 : -1];
+extern "C" {
+void *TObjKabochaLobby__ct(void *arg0, s32 arg1, s32 arg2);
+void *__dt__16TObjKabochaLobbyFv(void *arg0, s16 arg1);
+}
+
 #endif

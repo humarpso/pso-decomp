@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/unk/text_8013157C.h"
+#include "pso/unk/text_80156BBC.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804B6C24.h"
 #include "pso/item/TObjContainerBase.h"
@@ -138,10 +140,8 @@ struct Obj_80189F24 : VBase_80189F24 {
 
 extern "C" {
 s32 step_laser_fence_fade(void *);
-f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
 extern f32 lbl_805DBCF4;
 s32 fn_80156BBC(void *, void *);
-s32 fn_80156C38(f32 *arg0);
 extern f32 lbl_805DBCF0;
 
 void TUnk_804B6C24::render() {

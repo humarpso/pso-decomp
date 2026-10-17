@@ -44,4 +44,13 @@ struct TObjEneDolmOlm : public TUnk_80493450 {
 };
 
 typedef char TObjEneDolmOlm_size[sizeof(TObjEneDolmOlm) == 0x3E8 ? 1 : -1];
+extern "C" {
+void *TObjEneDolmOlm__create(void *arg0);
+u8 *TObjEneDolmOlm__ct(u8 *arg0, s32 arg1, s32 arg2);
+s32 TObjEneDolmOlm__sub_80300CF0(void);
+s32 TObjEneDolmOlm__sub_8030177C(void *arg0_);
+s32 TObjEneDolmOlm__sub_80301C3C(void *arg0_);
+void run_task__14TObjEneDolmOlmFPv(u8 *arg0_);
+}
+
 #endif

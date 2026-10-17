@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOAirconCave02_801571A0.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TOAirconCave02.h"
 #include "pso/misc/TOKey.h"
@@ -32,8 +33,6 @@ extern s32 __vt__14TOAirconCave02[];
 extern s32 lbl_805D2E94;
 extern const f32 lbl_805DB2C0;
 extern const f32 lbl_805DB2C4;
-u8 *TOAirconCave02__ct(u8 *arg0, s32 arg1, s32 arg2);
-void *__dt__14TOAirconCave02Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 

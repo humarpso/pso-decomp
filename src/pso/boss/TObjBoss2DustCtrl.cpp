@@ -1,4 +1,8 @@
 #include "pso/TObjBoss2DustCtrl.h"
+#include "pso/boss/TObjBoss2DustCtrl.h"
+#include "pso/math/MatrixTransforms.h"
+#include "pso/math/MatrixVector.h"
+#include "pso/unk/text_803D96A8.h"
 #include "types.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
@@ -30,11 +34,8 @@ typedef struct Out_8003AD54 { f32 x, y, z; u32 c; } Out_8003AD54;
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int, f32);
 void matrix_mult_vec(s32, Vec_8003AB7C *, Out_8003AB7C *);
-void set_matrix_identity(u8 *arg0);
-void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 void rotate_matrix_x(s32, s32);
 void push_matrix(void);
-s32 pop_matrix(void);
 Vec_8003AB7C boss2_dust_points[6];
 s32 boss2_dust_rotation_table[20];
 Out_8003AD54 boss2_dust_output_table[60];
@@ -46,10 +47,7 @@ extern const f32 lbl_805D85C4;
 extern const f32 lbl_805D85C8;
 extern s32 TObjBoss2DustCtrl_dust_counter;
 
-void TObjBoss2DustCtrl__sub_8003AB5C(void);
-void *TObjBoss2DustCtrl__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
-void TObjBoss2DustCtrl__sub_8003AD50(void);
 void* __nw__7TObjectFUl(s32);
 extern s32 __vt__17TObjBoss2DustCtrl[];
 extern void *lbl_805D26F8;
@@ -57,7 +55,6 @@ extern s32 tl_05;
 
 extern "C" {
 s32 post_translate_matrix(int);
-void boss2_dust_draw_at(s32 *arg0, s32 arg1);
 }
 
 extern "C" {

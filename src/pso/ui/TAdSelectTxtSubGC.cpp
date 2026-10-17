@@ -1,4 +1,7 @@
 #include "pso/TAdSelectTxtSubGC.h"
+#include "pso/npc/TObjNpcHosa.h"
+#include "pso/system/ModelDrawContext.h"
+#include "pso/ui/TAdSelectTxtSubGC.h"
 
 #include "types.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
@@ -31,7 +34,6 @@ extern "C" {
 extern const f32 lbl_805DDF3C;
 extern const f32 lbl_805DDF40;
 s32 __ct__7TObjectFP7TObject(void *, void *);
-int TObjNpcHosa__sub_802A39B0(void);
 extern s32 __vt__17TAdSelectTxtSubGC[];
 extern s32 ad_select_txt_sub_gc_class_name;
 extern s32 status_disp_texture_handle;
@@ -41,11 +43,8 @@ extern const f32 lbl_805DDF4C;
 extern const f32 lbl_805DDF54;
 extern const f32 lbl_805DDF58;
 Txt_802A37A0 *__ct__17TAdSelectTxtSubGCFv(Txt_802A37A0 *arg0, void *parent, Src_802A37A0 *src);
-void * TObjNpcHosa__create(void *arg0);
 void *TObjControl__ct(void *, void *);
-u8 *TObjNpcHosa__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);
-void set_cached_blend_factor(s32 arg0, s32 arg1);
 int get_state_flag__9TMainTaskFv(void*);
 
 void TAdSelectTxtSubGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)10)); render_status(); set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)6)); } }

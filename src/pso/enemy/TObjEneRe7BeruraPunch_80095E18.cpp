@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_800BA138.h"
+#include "pso/enemy/TObjEneRe7BeruraPunch_80095E18.h"
 #include "pso/enemy/TObjEneRe7BeruraPunch.h"
 #include "pso/enemy/TObjEneDD.h"
 
 extern "C" {
 
-void TObjEneRe7BeruraPunch__vt20(void *arg0, s32 arg1);
-void TObjEneDD__sub_800BA438(s32 arg0, u8 *arg1);
 s32 is_player_entity_id();
 s32 find_entity_by_id(u16);
 s32 apply_hit_if_active__13TUnk_804928CCFPvPf();

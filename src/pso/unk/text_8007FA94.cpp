@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLobby_802268F4.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/misc/TDuelEffectCtrl.h"
 struct Obj_8007FA94 { u8 pad[0x20]; s32 state; s32 value; };
 
@@ -8,14 +11,11 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 void *__ct__17TDuelEffectStringFP7TObjectPvPv(void *p, s32 v, void *s, s32 n);
 void send_neg50__6TLobbyFPvPv(void *a, s32 b);
-void queue_destruction__7TObjectFv(void *);
 extern u8 lbl_80438D48[];
 extern u8 lbl_80438D50[];
 void update_duel_end_effect(Obj_8007FA94 *self);
 void *__ct__17TDuelEffectNumberFP7TObjectPvPv(void *p, s32 v, void *s, s32 n);
-void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 s32 play_sound_effect(s32, void *, s32, s32);
-void play_cue_stream_file(s32 name);
 extern u8 lbl_80438D40[];
 extern u8 lbl_80438D58[];
 f32 duel_start_countdown_effect_pos[3] = { 320.0f, 221.0f, 0.5f };

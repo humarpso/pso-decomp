@@ -1,11 +1,9 @@
 #include "types.h"
+#include "pso/misc/TLobby_80207644.h"
+#include "pso/ui/TAdStorySelectGC.h"
 #include "pso/TAdStorySelectGC.h"
 
 extern "C" {
-
-s32 request_story_select_state(s32 arg0);
-void TLobby__sub_80207BB0(void);
-void init_floor_map_registry(void);
 
 extern s32 story_select_pending_state;
 

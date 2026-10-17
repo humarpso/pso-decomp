@@ -1,4 +1,6 @@
 #include "pso/boss/TBoss5GryphonSnarl.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/system/vector.h"
 
 #include "types.h"
@@ -14,17 +16,12 @@ extern "C" {
 s32 TBoss8Dragon__sub_8005D700(void *self);
 extern u8 boss5_gryphon_snarl_effect_id_table[];
 extern void *TBoss5GryphonSnarl__effect_table;
-void TBoss5GryphonSnarl__sub_80066E88(void *self);
-void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 __vt__18TBoss5GryphonSnarl[];
 extern s32 lbl_805D2820;
 extern const f32 lbl_805D8F0C;
 Obj_80066DC8 *TBoss5GryphonSnarl__ct(Obj_80066DC8 *self, void *parent, void *arg2);
-void queue_destruction__7TObjectFv(void *);
 
-void TBoss5GryphonSnarl__sub_80066E84(void);
-void TLobby__sub_80066EC0(void);
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 TLobby__sub_803DA16C(void*);
 

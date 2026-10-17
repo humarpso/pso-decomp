@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_8001C5E8.h"
 #include "pso/misc/TLoadCtrl.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 

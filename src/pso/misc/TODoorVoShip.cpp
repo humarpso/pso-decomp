@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8000F764.h"
+#include "pso/misc/TOKey_8015845C.h"
+#include "pso/system/ChunkMaterialState.h"
+#include "pso/unk/text_801F43B4.h"
+#include "pso/unk/text_803D96A8.h"
+#include "pso/unk/text_803E2D70.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TODoorVoShip.h"
@@ -35,13 +41,10 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_80163B8C_lbl_804B1760 bm_o_door_vo_ship_resource_descriptor;
 extern u32 TODoorVoShip__shared_bml_archive;
-s32 get_main_phase(void);
 s32 get_bml_motion(void *, s32);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 u32 init_collision_body_parts(void *, s32, s32);
-void *init_map_object_base(void *a0);
-s32 get_story_flag(s32);
 extern RecoveredGlobal_80163C44_lbl_804B1770 lbl_804B1770;
 extern s32 __vt__12TODoorVoShip[];
 extern s32 TODoorVoShip__class_name;
@@ -49,20 +52,15 @@ extern const f32 lbl_805DB534;
 extern const f32 lbl_805DB53C;
 extern const f32 lbl_805DB540;
 extern const f32 lbl_805DB544;
-u8 *TODoorVoShip__ct(u8 *arg0, s32 arg1, s32 arg2);
 extern const f32 lbl_805DB530;
 extern const f32 lbl_805DB538;
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void set_chunk_material_color(f32 *arg);
-void draw_chunk_model(void *arg0);
 s32 TObjEneSlimeOne__sub_803E4B54(int, int, int, f32);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-void *__dt__12TODoorVoShipFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);

@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/misc/TLobby_803D3988.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 
 s32 memset(void *, int, int);
-void TLobby__sub_803D3988(void);
-void TLobby__sub_803D39C0(void);
 
 void TLobby::set_packet_flags(s32 arg1) {
     u8 *arg0 = (u8 *)this;

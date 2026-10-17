@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80052374.h"
+#include "pso/system/ChunkMaterialState.h"
 #include "pso/player/TObjPlayer.h"
 
 struct C_80052390 { f32 a, b, c, d; };
 
 extern "C" {
-void set_chunk_material_override_pair(s32, s32);
-void set_chunk_material_color(f32 *arg);
 extern int lbl_805D5660;
 extern int lbl_805D5664;
 extern int lbl_805D5668;
@@ -15,7 +15,6 @@ extern int model_render_flags;
 extern const f32 lbl_805D8ADC;
 extern s32 lbl_805D8AE8;
 extern const f32 lbl_805D8AEC;
-void TObjPlayer__sub_80052390(f32 x);
 void TObjPlayer::sync_player_globals() { chunk_polygon_flags_and_mask = lbl_805D5664; chunk_polygon_flags_or_mask = lbl_805D5668; model_render_flags = lbl_805D5660; }
 void TObjPlayer__sub_80052390(f32 x) {
     C_80052390 c;

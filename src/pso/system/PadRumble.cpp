@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/boss/TBoss3Volopt_80242C48.h"
+#include "pso/misc/TLobby_80242910.h"
+#include "pso/system/PadRumble.h"
+#include "pso/unk/text_80242F0C.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -27,18 +31,10 @@ struct Sp_802430F4 { u32 a; u32 b; };
 
 extern "C" {
 extern RecoveredGlobal_802430E8_lbl_80518580 pad_rumble_effect_slots;
-s32 *get_pad_rumble_effect_slots(void);
-s32 *find_active_pad_rumble_effect_by_id(u32 arg0);
-s32 *find_free_pad_rumble_effect_slot(void);
 extern Pt_80243070 pad_rumble_channel_states[];
 extern const f32 lbl_805DCA04;
-void reset_pad_rumble_effects_and_channels(s16 arg0);
 void accumulate_rumble_strength__23TAdSinglePlyChrSelectGCFPsl(Sp_802430F4 *, u32, s32);
-void TAdSinglePlyChrSelectGC__sub_80242B24(void *p);
-void fn_80242C54(void *arg0);
-s32 fn_80242F0C(s32);
 void PADControlMotor(s32, u32);
-void update_pad_rumble(void);
 typedef char RecoveredGlobal_802430E8_lbl_80518580_size[sizeof(RecoveredGlobal_802430E8_lbl_80518580) == 0x180 ? 1 : -1];
 
 typedef char RecoveredGlobal_80242F94_lbl_80518580_size[sizeof(RecoveredGlobal_80242F94_lbl_80518580) == 0x180 ? 1 : -1];

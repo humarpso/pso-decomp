@@ -1,22 +1,19 @@
 #include "types.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/unk/text_8013ADE4.h"
 #include "pso/misc/TWindowMessage.h"
 #include "pso/misc/TWindowOptionCtrl.h"
 #include "pso/ui/TAdEnterSerialAccessGC.h"
 
 extern "C" {
-s32 get_localized_text_entry(s32, s32);
 u8 *get_window_layout_position(s32);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(s32, s32, s32, s32);
 s32 free_member__17TWindowSubComCardFv(int, int);
 s32 forward_slot_selection__16TAdChrSelASlotGCFPvPv(int, void *, int, f32);
 extern const f32 lbl_805DD268;
-s32 *TAdEnterPasswordGC__sub_8013ADE4(void);
 s32 set_window_mode_4__6TLobbyFPvll(void *, s32 *, s32);
 s32 warn_if_empty__17TWindowOptionCtrlFPUc(void *);
 void *get_chr_select_base_plus_1154c__17TWindowOptionCtrlFv();
-u8 *TAdEnterSerialAccessGC__sub_80321738(void);
-s32 *TAdEnterSerialAccessGC__sub_803217B8(void);
-s32 *TAdEnterSerialAccessGC__sub_80321874(void);
 extern s32 lbl_8044F4A4[];
 
 s32 TWindowOptionCtrl::create_serial_info_window(s32 arg1) {

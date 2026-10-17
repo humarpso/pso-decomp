@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/object/TObjMapWarpAncient_8017D0DC.h"
 #include "pso/object/TObjMapWarpAncient.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-u8 *TObjMapWarpAncient__ct(u8 *arg0);
-void *__dt__18TObjMapWarpAncientFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TObjGoalWarpAncient__sub_8017D2D4(int);
 s32 TObjMapWarp__ct();

@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80129CA0.h"
 
 extern "C" {
 
-void* init_s_rank_bazooka(void* a0);
 int construct_srank_weapon(void);
 
     extern unsigned char play_effect__13TItemEffFlameFllll[];

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/TObjBoss5FloorStone.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TScene.h"
@@ -8,10 +10,8 @@ extern "C" {
 s32 render_projected_shadow_receiver(void *, void *);
 s32 rotate_matrix_by_node_angles(void *, int);
 int push_matrix(void);
-s32 pop_matrix(void);
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-void draw_ginja_model(s32 model);
 int draw_if_all_ready__10TObjPlayerFv(void*);
 
 void TObjPlayer::draw_shadowed_node_tree() {

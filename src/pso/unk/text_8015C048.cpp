@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/unk/text_8015C048.h"
+#include "pso/unk/text_8015C534.h"
 #include "pso/misc/TOContainerAncientItemRare.h"
 
 struct RecoveredGlobal_8015C048___vt__26TOContainerAncientItemRare {
@@ -7,11 +9,9 @@ struct RecoveredGlobal_8015C048___vt__26TOContainerAncientItemRare {
 };
 
 extern "C" {
-u8 *init_ancient_container(u8 *arg0, s32 arg1);
 extern RecoveredGlobal_8015C048___vt__26TOContainerAncientItemRare __vt__26TOContainerAncientItemRare;
 extern s32 lbl_805D2F00;
 extern s32 *ancient_container_fragment_texture_lists;
-u8 *TOContainerAncientItemRare__ct(u8 *arg0, s32 arg1);
 typedef char RecoveredGlobal_8015C048___vt__26TOContainerAncientItemRare_size[sizeof(RecoveredGlobal_8015C048___vt__26TOContainerAncientItemRare) == 0x14C ? 1 : -1];
 u8 *TOContainerAncientItemRare__ct(u8 *arg0, s32 arg1) {
     init_ancient_container(arg0, arg1);

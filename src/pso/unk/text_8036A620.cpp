@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8036A620.h"
 
 struct RecoveredGlobal_8036A648_lbl_804F351C {
     s32 value;
@@ -12,11 +13,8 @@ struct RecoveredGlobal_8036A67C_lbl_804F3458 {
 
 extern "C" {
 extern RecoveredGlobal_8036A648_lbl_804F351C bgm_adx_filename_table;
-s32 fn_8036A648(s32 arg0);
 extern RecoveredGlobal_8036A67C_lbl_804F3458 option_name_table;
-s32 get_option_table_entry(s32 arg0);
 s32 check_flag_index_set(s32);
-s32 fn_8036A620(s32 idx);
 typedef char RecoveredGlobal_8036A648_lbl_804F351C_size[sizeof(RecoveredGlobal_8036A648_lbl_804F351C) == 0xC4 ? 1 : -1];
 
 s32 fn_8036A620(s32 idx) {

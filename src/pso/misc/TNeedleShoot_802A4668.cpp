@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TNeedleShoot_802A4668.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TNeedleShoot.h"
 
@@ -14,7 +15,6 @@ struct VObj_802A4668 : Base_802A4668 {
 
 extern "C" {
 s32 check_wall_hit__12TNeedleShootFv(void *, f32, f32);
-void TNeedleShoot__sub_802A4668(void *arg0);
 
 void TNeedleShoot__sub_802A4668(void *arg0) {
     struct VObj_802A4668 *o = (struct VObj_802A4668 *)arg0;

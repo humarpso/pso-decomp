@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/misc/TPlyCharData_8007214C.h"
+#include "pso/misc/TPlyDispConfig_80071F1C.h"
+#include "pso/misc/TPlyInventoryItem_800721D4.h"
 #include "pso/TPlyCharData.h"
 
 extern "C" {
-
-s32 __ct__12TPlyCharDataFv(s32 arg0);
-void *__ct__14TPlyDispConfigFv(void *arg0);
-void init__17TPlyInventoryItemFv(u8 *arg0);
 
 s32 __ct__12TPlyCharDataFv(s32 arg0) {
     __ct__14TPlyDispConfigFv((void *)(arg0 + 0x3C0));

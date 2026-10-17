@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/boss/TBoss6GravBall_80323878.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/unk/text_80087278.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -35,7 +38,6 @@ extern s32 __vt__14TBoss6GravBall[];
 extern s32 TBoss6GravBall__name;
 extern const f32 TBoss6GravBall__data_805DF550;
 Obj_80323D20 *TBoss6GravBall__ct(Obj_80323D20 *arg0, s32 arg1, void *arg2);
-void queue_destruction__7TObjectFv(void *arg0);
 s32 play_persistent_sound(int, void *, void *, int, int);
 s32 play_sound_effect(int, void *, int, int);
 s32 get_state__14TBoss6GravBallFv(int);
@@ -47,12 +49,8 @@ s32 TBoss6GravBall__sub_803236F8(void *);
 s32 clamp_to_ground__14TBoss6GravBallFv();
 extern const f32 lbl_805DF568;
 extern const f32 lbl_805DF578;
-void update_state__14TBoss6GravBallFPv(u8 *arg0);
-void *__dt__14TBoss6GravBallFv(void *arg0, s16 arg1);
-void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0);
 void clear_player_grav_flags__14TBoss6GravBallFv(void *);
 s32 TBoss6GravBall__sub_803233AC();
-void *spawn_particle_effect(void *pos, s32 id);
 void __dl__7TObjectFPv(void *);
 void init_parts__14TBoss6GravBallFv(void *);
 

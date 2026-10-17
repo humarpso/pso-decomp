@@ -1,4 +1,5 @@
 #include "pso/TItemLockCountCtrl.h"
+#include "pso/item/TItemLockCountCtrl.h"
 
 extern "C" void mem_free(void*);
 
@@ -10,7 +11,6 @@ TItemLockCountCtrl::~TItemLockCountCtrl() {
 
 extern "C" {
 
-void *TItemLockCountCtrl__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 __ct__7TObjectFP7TObject();
 s32 mem_alloc(s32);
 s32 memset(s32, s32, s32);

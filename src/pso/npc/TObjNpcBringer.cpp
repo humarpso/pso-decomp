@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/unk/text_8014952C.h"
 
 extern "C" {
 
 void * create__14TObjNpcBringerFPv(void *arg0);
 void *__dt__14TObjNpcBringerFv(void *arg0, s16 arg1);
 void *TObjControl__ct(void *, void *);
-u8 *TObjNpcBringer__ct(u8 *self, void *parent, s32 arg2);
 void __dl__7TObjectFPv(void *);
 void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);

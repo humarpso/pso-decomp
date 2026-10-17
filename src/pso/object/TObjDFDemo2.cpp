@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl_800687BC.h"
+#include "pso/object/TObject_80019A50.h"
+#include "pso/player/TObjPlayer_80052374.h"
+#include "pso/player/TObjPlayer_803E4954.h"
+#include "pso/unk/text_80087278.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjDFDemo3.h"
 #include "pso/object/TObjDFDemo2.h"
@@ -41,15 +47,10 @@ typedef struct Obj_8004EA2C {
 extern "C" {
 void render__11TObjDFDemo2Fv(Obj_8004E918 *arg0);
 void run_task__11TObjDFDemo2Fv(Obj_8004EA2C *arg0);
-void queue_destruction__7TObjectFv(void *arg0);
-void *spawn_particle_effect(void *pos, s32 id);
 s32 play_sound_effect(s32, void *, s32, s32);
-void TObjPlayer__sub_80052390(f32 x);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 struct Ent_8004EB78 { s32 a; s32 b; s32 c; };
 struct Obj_8004EB78 {
     s32 vt0;
@@ -67,7 +68,6 @@ struct Pose_8004EB78 { s32 a; s32 b; s32 c; };
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
-s32 activate_camera_mode(s32 arg0);
 void set_scripted_camera_pose(void *, void *, void *);
 s32 construct_world_actor_base(void *, void *);
 extern s32 boss4_zanzo_bml_index_table[];

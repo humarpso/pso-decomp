@@ -1,4 +1,6 @@
 #include "pso/TItemShootModelRotZ.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/TItemShootModel.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
@@ -7,8 +9,6 @@ extern "C" {
 void  push_matrix(void);
 void  post_translate_matrix(Vec*);
 void  rotate_matrix_by_node_angles(void*, s32);
-void  draw_ginja_object(void*);
-s32 pop_matrix(void);
 extern const char* item_shoot_model_rot_z_class_name;
 }
 

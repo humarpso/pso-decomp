@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803D31A4.h"
 
 struct RecoveredGlobal_803D31A4_lbl_8058B6B8 {
     s32 value;
@@ -28,9 +29,6 @@ extern s32 lobby_callback_tables_refcount;
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
 extern s32 lbl_805D765C;
-void TLobby__sub_803D33D4(s32 arg0, s32 arg1);
-void TLobby__sub_803D33E4(s32 arg0, s32 arg1);
-void TLobby__sub_803D346C(s32 arg0);
 char *strncpy(char *, const char *, unsigned long);
 void TLobby__sub_803D34B0(s32 arg0, void (*arg1)(s32), s32 arg2);
 extern char lbl_8047DF3C[];

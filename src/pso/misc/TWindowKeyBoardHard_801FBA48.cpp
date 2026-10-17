@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/misc/TWindowKeyBoardHard_801FBA48.h"
+#include "pso/system/GinjaMaterial.h"
+#include "pso/ui/TAdPlayerLoadGC_801E0C30.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801FBF54.h"
+#include "pso/unk/text_803D96A8.h"
 #include "pso/system/main_loop.h"
 #include "pso/misc/TWindowKeyBoardHard.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -9,13 +14,9 @@
 extern "C" {
 f32 rotate_matrix_by_node_angles(void *, void *);
 s32 push_matrix();
-s32 pop_matrix();
 s32 scale_current_matrix(void *);
 f32 post_translate_matrix(void *);
-void draw_ginja_model(s32 model);
-void draw_ginja_box_tree(u8 *arg0);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-void render_frame__23TAdSinglePlyChrSelectGCFv();
 void subtractive_rng_unshuffle(void *, void *, void *, s32);
 void subtractive_rng_make_shuffle(void *);
 void subtractive_rng_xor_buffer(void *, void *, s32);
@@ -26,19 +27,13 @@ void destroy_chardata_array__23TAdSinglePlyChrSelectGCFis(void *, s32);
 void copy_save_data__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
 extern u8 chr_select_rng_state[];
 extern s32 chr_select_serial_seeds[];
-void TAdSinglePlyChrSelectGC__sub_801FBC3C(void *arg0);
-s32 find_card_file__15TAdPlayerLoadGCFiPv(s32 chan, const char *name);
-s32 load_system_file__23TAdSinglePlyChrSelectGCFiPv(s32, s32 *);
-u32 TAdSinglePlyChrSelectGC__sub_80201204(u8 *arg0, u32 arg1);
 char *strncpy(char *, const char *, u32);
 void *memcpy(void *, const void *, u32);
 extern char lbl_804C8954[];
 extern s32 lbl_805D49B4;
 void poll_load_status__15TAdPlayerLoadGCFl(s32, void *);
 extern char lbl_804C88C0[];
-void TAdSinglePlyChrSelectGC__sub_801FBB1C(void);
 extern char lbl_804C89BC[];
-void TAdSinglePlyChrSelectGC__sub_801FBB7C(void);
 extern char pso_system_card_filename[];
 int TWindowKeyBoardHard::is_card_flag_set() { return TWindowKeyBoardHard::test_card_flag((s32)this, (s32)1); }
 void draw_ginja_box_tree(u8 *arg0) {

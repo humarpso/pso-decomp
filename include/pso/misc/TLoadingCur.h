@@ -22,4 +22,9 @@ struct TLoadingCur : public TObject {
 };
 
 typedef char TLoadingCur_size[sizeof(TLoadingCur) == 0x5C ? 1 : -1];
+extern "C" {
+u8 *TLoadingCur__ct(u8 *arg0, s32 arg1);
+void *__dt__11TLoadingCurFv(void *arg0, s16 arg1);
+}
+
 #endif

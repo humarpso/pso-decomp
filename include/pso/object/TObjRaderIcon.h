@@ -17,4 +17,10 @@ struct TObjRaderIcon : public TUnk_804B9870 {
 };
 
 typedef char TObjRaderIcon_size[sizeof(TObjRaderIcon) == 0xA4 ? 1 : -1];
+extern "C" {
+void *TObjRaderIcon__create(void *arg0);
+u8 *TObjRaderIcon__ct(u8 *arg0, s32 arg1, s32 arg2);
+void *__dt__13TObjRaderIconFv(void *arg0, s16 arg1);
+}
+
 #endif

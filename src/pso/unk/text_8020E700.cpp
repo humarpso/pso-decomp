@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/unk/text_8020E700.h"
+#include "pso/unk/text_8020EEFC.h"
 #include "pso/misc/TLobby.h"
 
 #pragma inline_depth(1)
@@ -30,16 +32,13 @@ extern "C" {
 extern RecoveredGlobal_8020ECD8_lbl_80513D78 lbl_80513D78;
 s32 memset(void *, int, int);
 extern RecoveredGlobal_8020ECA8_lbl_80513D58 shop_armor_stock_generated_flags;
-void clear_shop_armor_flags(void);
 extern s32 lbl_80513D68[];
 extern Tbl_8020E934 **lbl_805D6158;
 extern s32 lbl_805D615C;
 extern s32 shop_difficulty_tier;
 void push_shop_pool_entry(Ctr_8020E934 *, u8);
-void shuffle_shop_pool_n_times(void *arg0_, s32 arg1);
 void init__9TItemDataFv(Item_8020E934 *);
 s32 is_duplicate_shop_shield_or_unit(Item_8020E934 *, s32);
-void generate_shop_shield_pool(s32 arg0);
 s32 is_duplicate_shop_armor(Rec_8020E700 *arg0, s32 arg1);
 typedef char RecoveredGlobal_8020ECD8_lbl_80513D78_size[sizeof(RecoveredGlobal_8020ECD8_lbl_80513D78) == 0x10 ? 1 : -1];
 

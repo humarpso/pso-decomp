@@ -1,14 +1,13 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801AA5C0.h"
 #include "pso/player/TObjPlayer.h"
 struct O_801AA64C { u16 a; u16 b; };
 
 extern "C" {
 int __dl__FPv(void* a0);
-s32 TObjPlayer__sub_801AA584(s32 arg0, s16 arg1);
 extern "C" {
 s32 __construct_array(void *, void *, void *, int, int);
 void TObjPlayer__sub_801AA64C(O_801AA64C *p);
-void* TObjPlayer__sub_801AA61C(void* p);
 
 }
 

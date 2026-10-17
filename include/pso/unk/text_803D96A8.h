@@ -1,0 +1,15 @@
+#ifndef PSO_UNK_TEXT_803D96A8_H
+#define PSO_UNK_TEXT_803D96A8_H
+
+#include "types.h"
+
+extern "C" {
+void TObjPlayer__sub_803D9C60(u32 *p);
+s32 TObjPlayer__sub_803D9E38(s32 *arg0, u32 arg1, s32 *arg2, u32 *arg3);
+u32 *find_gvrt_texture_chunk(void *arg0, u32 *arg1, u32 *arg2);
+s32 pop_matrices(s32 arg0);
+s32 pop_matrix(void);
+s32 push_matrix_from(void *src);
+}
+
+#endif
