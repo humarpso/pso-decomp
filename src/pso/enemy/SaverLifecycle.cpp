@@ -1985,7 +1985,7 @@ void TObjEneSaver::run_task() {
             break;
         }
     }
-    temp_r4 = (u8 *)(this->target);
+    temp_r4 = this->target;
     if ((temp_r4 != NULL) && (*(s32 *)((s8 *)temp_r4 + 0x30) & 0x02000800)) {
         *(s16 *)((s8 *)((u8 *)this) + 0x37E) = 0;
         this->actorFlags = (s32) (this->actorFlags & 0xFFDFFFFF);

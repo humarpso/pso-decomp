@@ -1438,12 +1438,12 @@ void TObjEneGyaranzo::render() {
                 }
             }
             TObjPlayer__sub_800D2E8C((Ene_800D2E8C *) (this));
-            TObjFish::set_global_param((int) (this->texture_id));
+            TObjFish::set_global_param(this->texture_id);
             select_actor_lighting(this);
             TObjPlayer::toggle_particle_effect();
             push_matrix();
             post_translate_matrix(((u8 *)this) + 0x38);
-            rotate_matrix_y(0, (int) (this->rotation_y));
+            rotate_matrix_y(0, this->rotation_y);
             if (TObjPlayer::check_demo_mode() == 1) {
                 draw_chunk_object((int) (*(s32 *)((s8 *)((u8 *)this) + 0x34)));
             } else if (this->m_388 & 4) {
