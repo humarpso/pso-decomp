@@ -306,7 +306,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3 = ((s32)__nw__7TObjectFUl(0x2C));
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = (s32)construct_status_category_window((u8 *)(temp_r3), (s32)(((u8 *)this)), (s32)(*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0 = (s32)construct_status_category_window((u8 *)temp_r3, (s32)(((u8 *)this)), (s32)(*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0;
         return;
@@ -315,7 +315,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3_2 = ((s32)__nw__7TObjectFUl(0x38));
         var_r0_2 = temp_r3_2;
         if (var_r0_2 != 0) {
-            var_r0_2 = (s32)TWindowSubEquip__sub_80275CB0((void *)(temp_r3_2), (((u8 *)this)), (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_2 = (s32)TWindowSubEquip__sub_80275CB0((void *)temp_r3_2, (((u8 *)this)), (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_2;
         return;
@@ -324,7 +324,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3_3 = ((s32)__nw__7TObjectFUl(0x3C));
         var_r0_3 = temp_r3_3;
         if (var_r0_3 != 0) {
-            var_r0_3 = (s32)TWindowSubEquip__ct((u8 *)(temp_r3_3), (s32)(((u8 *)this)), (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_3 = (s32)TWindowSubEquip__ct((u8 *)temp_r3_3, (s32)(((u8 *)this)), (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_3;
         return;
@@ -332,7 +332,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3_4 = ((s32)__nw__7TObjectFUl(0x44));
         var_r0_4 = temp_r3_4;
         if (var_r0_4 != 0) {
-            var_r0_4 = (s32)TWindowSubItem__ct((void *)(temp_r3_4), (s32)(((u8 *)this)), (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_4 = (s32)TWindowSubItem__ct((void *)temp_r3_4, (s32)(((u8 *)this)), (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_4;
         return;
@@ -341,7 +341,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3_5 = ((s32)__nw__7TObjectFUl(0x50));
         var_r0_5 = temp_r3_5;
         if (var_r0_5 != 0) {
-            var_r0_5 = (s32)TWindowSubMag__ct((void *)(temp_r3_5), (s32)(((u8 *)this)), (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_5 = (s32)TWindowSubMag__ct((void *)temp_r3_5, (s32)(((u8 *)this)), (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_5;
         return;
@@ -351,7 +351,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3_6 = ((s32)__nw__7TObjectFUl(0x38));
         var_r0_6 = temp_r3_6;
         if (var_r0_6 != 0) {
-            var_r0_6 = __ct__15TWindowSubTradeFP7TObjectPv((int) (temp_r3_6), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_6 = __ct__15TWindowSubTradeFP7TObjectPv(temp_r3_6, (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_6;
         return;
@@ -359,7 +359,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3_7 = ((s32)__nw__7TObjectFUl(0xA8));
         var_r0_7 = temp_r3_7;
         if (var_r0_7 != 0) {
-            var_r0_7 = __ct__19TWindowSubTradeMainFP7TObjectPv((int) (temp_r3_7), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_7 = __ct__19TWindowSubTradeMainFP7TObjectPv(temp_r3_7, (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_7;
         return;
@@ -367,7 +367,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3_8 = ((s32)__nw__7TObjectFUl(0x2C));
         var_r0_8 = temp_r3_8;
         if (var_r0_8 != 0) {
-            var_r0_8 = __ct__22TWindowSubTradeMessageFP7TObjectl((int) (temp_r3_8), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_8 = __ct__22TWindowSubTradeMessageFP7TObjectl(temp_r3_8, (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_8;
         return;
@@ -376,7 +376,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3_9 = ((s32)__nw__7TObjectFUl(0x28));
         var_r0_9 = temp_r3_9;
         if (var_r0_9 != 0) {
-            var_r0_9 = __ct__17TWindowSubAreaMapFP7TObjectPv((int) (temp_r3_9), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_9 = __ct__17TWindowSubAreaMapFP7TObjectPv(temp_r3_9, (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_9;
         return;
@@ -385,7 +385,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3_10 = ((s32)__nw__7TObjectFUl(0x30));
         var_r0_10 = temp_r3_10;
         if (var_r0_10 != 0) {
-            var_r0_10 = __ct__20TWindowSubQuestBoardFP7TObjectPv((int) (temp_r3_10), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_10 = __ct__20TWindowSubQuestBoardFP7TObjectPv(temp_r3_10, (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_10;
         return;
@@ -394,7 +394,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3_11 = ((s32)__nw__7TObjectFUl(0x40));
         var_r0_11 = temp_r3_11;
         if (var_r0_11 != 0) {
-            var_r0_11 = (s32)TWindowSubTechnique__ct((void *)(temp_r3_11), (s32)(((u8 *)this)), (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_11 = (s32)TWindowSubTechnique__ct((void *)temp_r3_11, (s32)(((u8 *)this)), (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_11;
         return;
@@ -402,7 +402,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3_12 = ((s32)__nw__7TObjectFUl(0x60));
         var_r0_12 = temp_r3_12;
         if (var_r0_12 != 0) {
-            var_r0_12 = (s32)TWindowSubSymbolChat__ct((void *)(temp_r3_12), (s32)(((u8 *)this)), (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_12 = (s32)TWindowSubSymbolChat__ct((void *)temp_r3_12, (s32)(((u8 *)this)), (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_12;
         return;
@@ -410,7 +410,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3_13 = ((s32)__nw__7TObjectFUl(0x88));
         var_r0_13 = temp_r3_13;
         if (var_r0_13 != 0) {
-            var_r0_13 = __ct__17TWindowSubComCardFP7TObjectPv((int) (temp_r3_13), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_13 = __ct__17TWindowSubComCardFP7TObjectPv(temp_r3_13, (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_13;
         return;
@@ -418,7 +418,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3_14 = ((s32)__nw__7TObjectFUl(0x80));
         var_r0_14 = temp_r3_14;
         if (var_r0_14 != 0) {
-            var_r0_14 = __ct__13TWindowSubLogFP7TObjectPv((int) (temp_r3_14), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_14 = __ct__13TWindowSubLogFP7TObjectPv(temp_r3_14, (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_14;
         return;
@@ -426,7 +426,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3_15 = ((s32)__nw__7TObjectFUl(0x30));
         var_r0_15 = temp_r3_15;
         if (var_r0_15 != 0) {
-            var_r0_15 = (s32)TWindowSubQuestBoard__sub_8027CE74((u8 *)(temp_r3_15), (u8 *)(((u8 *)this)), (s32)(*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_15 = (s32)TWindowSubQuestBoard__sub_8027CE74((u8 *)temp_r3_15, (u8 *)(((u8 *)this)), (s32)(*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_15;
         return;
@@ -435,7 +435,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3_16 = ((s32)__nw__7TObjectFUl(0x60));
         var_r0_16 = temp_r3_16;
         if (var_r0_16 != 0) {
-            var_r0_16 = __ct__19TWindowSubShortMailFP7TObjectPv((int) (temp_r3_16), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_16 = __ct__19TWindowSubShortMailFP7TObjectPv(temp_r3_16, (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_16;
         return;
@@ -443,7 +443,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3_17 = ((s32)__nw__7TObjectFUl(0x914));
         var_r0_17 = temp_r3_17;
         if (var_r0_17 != 0) {
-            var_r0_17 = __ct__26TWindowSubInformationBoardFP7TObjectPv((int) (temp_r3_17), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_17 = __ct__26TWindowSubInformationBoardFP7TObjectPv(temp_r3_17, (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_17;
         return;
@@ -451,7 +451,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3_18 = ((s32)__nw__7TObjectFUl(0x94));
         var_r0_18 = temp_r3_18;
         if (var_r0_18 != 0) {
-            var_r0_18 = __ct__18TWindowSubShortCutFP7TObjectPv((int) (temp_r3_18), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_18 = __ct__18TWindowSubShortCutFP7TObjectPv(temp_r3_18, (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_18;
         return;
@@ -460,7 +460,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3_19 = ((s32)__nw__7TObjectFUl(0x2C));
         var_r0_19 = temp_r3_19;
         if (var_r0_19 != 0) {
-            var_r0_19 = (s32)TWindowSubGameEnd__ct((void *)(temp_r3_19), (s32)(((u8 *)this)), (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_19 = (s32)TWindowSubGameEnd__ct((void *)temp_r3_19, (s32)(((u8 *)this)), (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_19;
     default:

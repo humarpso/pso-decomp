@@ -346,7 +346,7 @@ void TItemObject__vt16(u8 *arg0, u8 *item) {
     if (((u8 (*)())get_field_ed__5TItemFv)() == 2) {
         *(u8 *)((s8 *)item + 4) = (u8) ((TItemObject *)arg0)->m_100;
     }
-    set_stack_count__24TShopEquipmentListWindowFSc((void *) (item), (void *) (((VObj_18 *)(arg0))->m34()));
+    set_stack_count__24TShopEquipmentListWindowFSc(item, (void *) (((VObj_18 *)(arg0))->m34()));
 }
 
 void *TItemObject__ct(void *arg0, void *arg1, void *item) {
@@ -375,9 +375,9 @@ u8 *TItemObject::create() {
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x104));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)TItemObject__ct((void *)(temp_r3), (void *)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)TItemObject__ct((void *)temp_r3, (void *)tl_05, (void *)arg0)));
         }
         return var_r0;
     }

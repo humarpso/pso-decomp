@@ -51,7 +51,7 @@ void TBoss6Type2::start_death_sequence(u8 *arg0) {
         var_r3 = (unsigned char *) ((void *)0x68523);
         break;
     }
-    play_sound_effect((int) (var_r3), (void *) (temp_r31 + 0x38), 0, 1);
+    play_sound_effect((int)var_r3, (void *) (temp_r31 + 0x38), 0, 1);
     ((TBoss6Type2 *)temp_r31)->destroy_part(0xD);
 }
 
@@ -197,7 +197,7 @@ void TBoss6Type2::init_timer_and_play_sound() {
 void TBoss6Type2__sub_802BFA1C(u8 *arg0) {
     s32 temp_r0;
 
-    play_persistent_sound(0x4006A612, (s32)(arg0), (u32)(arg0 + 0x38), 0, 1);
+    play_persistent_sound(0x4006A612, (s32)arg0, (u32)(arg0 + 0x38), 0, 1);
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x460) - 1;
     *(s32 *)((s8 *)arg0 + 0x460) = temp_r0;
     if (temp_r0 < 0) {

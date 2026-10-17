@@ -490,7 +490,7 @@ void TBoss6Type1::release_effect_slot(s32 arg1) {
     temp_r31 = (u8 *)(arg0 + (arg1 * 4));
     temp_r3 = *(u32 *)((s8 *)temp_r31 + 0x4F8);
     if (temp_r3 != 0U) {
-        TBoss4Type2::request_destroy((int) (temp_r3));
+        TBoss4Type2::request_destroy(temp_r3);
         *(u32 *)((s8 *)temp_r31 + 0x4F8) = 0U;
     }
 }
@@ -649,7 +649,7 @@ void TBoss6Type1__sub_802B5140(s32 arg0, s32 arg1, s32 arg2) {
     }
     temp_r31 = (s32) (lbl_805DE2F4 * var_f30);
     temp_f31 = sin_table_lookup(0x6000);
-    var_f31 = sin_table_lookup((s32)((int) (temp_r31))) / temp_f31;
+    var_f31 = sin_table_lookup((s32)(temp_r31)) / temp_f31;
     if (temp_r31 > 0x4000) {
         var_f31 += (TBoss6Type1__data_805DE2E4 - var_f31) * TBoss6PlotFalz::cosine_ease((var_f30 - lbl_805DE2F8) / lbl_805DE2FC);
     }
@@ -786,7 +786,7 @@ void calc_grid_cell_position__11TBoss6Type1FPvPv(Boss_802B5648 *o, Vec_802B5648 
 }
 #pragma pop
 
-void TBoss6Type1::handle_6xa4_action(u8 * _w1) { ((TBoss6Type1 *)((char*)this + 0x1))->decode_polar_position((u8 *)(_w1)); }
+void TBoss6Type1::handle_6xa4_action(u8 * _w1) { ((TBoss6Type1 *)((char*)this + 0x1))->decode_polar_position(_w1); }
 
 void TBoss6Type1::decode_polar_position(u8 *arg1) {
     u8 *arg0 = (u8 *)this;
@@ -797,7 +797,7 @@ void TBoss6Type1::decode_polar_position(u8 *arg1) {
   temp_f31 = (f32) (((s8) (*((u8 *) (((s8 *) arg0) + 1)))) * 0xA);
   temp_f30 = (f32) (((s8) (*((u8 *) (((s8 *) arg0) + 2)))) * 0xA);
   *((f32 *) (((s8 *) arg1) + 0)) = (f32) (temp_f31 * sin_table_lookup(temp_r31));
-  *((f32 *) (((s8 *) arg1) + 8)) = (f32) (temp_f31 * cos_table_lookup((s32)(temp_r31)));
+  *((f32 *) (((s8 *) arg1) + 8)) = (f32) (temp_f31 * cos_table_lookup(temp_r31));
   *((f32 *) (((s8 *) arg1) + 4)) = temp_f30;
 }
 
@@ -832,13 +832,13 @@ s32 TBoss6Type1::request_jittered_camera(void *arg0, void *arg1, void *arg2, int
 
 void TBoss6Type1::request_default_jittered_camera() {
     s32 arg0 = (s32)this;
-    TBoss6Type1::request_jittered_camera((void *)((void *) (arg0)), (void *)((void *) (&lbl_80470FFC.value)), (void *)((void *) (&lbl_80471008.value)), 0xFFFF);
+    TBoss6Type1::request_jittered_camera((void *)(arg0), (void *)((void *) (&lbl_80470FFC.value)), (void *)((void *) (&lbl_80471008.value)), 0xFFFF);
 }
 
 typedef char RecoveredGlobal_802B5970_lbl_80470FE4_size[sizeof(RecoveredGlobal_802B5970_lbl_80470FE4) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_802B5970_lbl_80470FF0_size[sizeof(RecoveredGlobal_802B5970_lbl_80470FF0) == 0xC ? 1 : -1];
 void TBoss6Type1__sub_802B5970(s32 arg0) {
-    TBoss6Type1::request_jittered_camera((void *)((void *) (arg0)), (void *)((void *) (&lbl_80470FE4.value)), (void *)((void *) (&lbl_80470FF0.value)), 0xFFFF);
+    TBoss6Type1::request_jittered_camera((void *)(arg0), (void *)((void *) (&lbl_80470FE4.value)), (void *)((void *) (&lbl_80470FF0.value)), 0xFFFF);
 }
 
 void TBoss6Type1__sub_802B59A8(void) {
@@ -964,7 +964,7 @@ void TBoss6Type1::sub_802B5CB4() {
         }
         break;
     default:
-        TBoss6Type1::request_jittered_camera((void *)((void *)((s32) ((u8 *)this))), (void *)((void *)(NULL)), (void *)((void *)(NULL)), 0xFFFF);
+        TBoss6Type1::request_jittered_camera((void *)((void *)((s32) ((u8 *)this))), (void *)(NULL), (void *)(NULL), 0xFFFF);
         break;
     }
 }
@@ -1084,7 +1084,7 @@ void TBoss6Type1::update_trail_points() {
 
 extern "C" {
 
-void TBoss6Type1::init_parts() { TBoss6Type1::set_part_default_value((int)(this), (void*)((char*)this + 0x5d8)); TBoss6Type1::set_part_default_value((int)(this), (void*)((char*)this + 0x5e4)); TBoss6Type1::set_part_default_value((int)(this), (void*)((char*)this + 0x5f0)); ((TBoss6Type1*)this)->update_trail_points(); }
+void TBoss6Type1::init_parts() { TBoss6Type1::set_part_default_value((int)this, (void*)((char*)this + 0x5d8)); TBoss6Type1::set_part_default_value((int)this, (void*)((char*)this + 0x5e4)); TBoss6Type1::set_part_default_value((int)this, (void*)((char*)this + 0x5f0)); ((TBoss6Type1*)this)->update_trail_points(); }
 
 }
 
@@ -1688,7 +1688,7 @@ void TBoss6Type1::update_turn_to_center() {
   s32 var_r31;
   s32 var_r4;
   var_r31 = 0;
-  if (((s32) (this->m_438)) != 0)
+  if ((this->m_438) != 0)
   {
     var_r31 = 0x8000;
   }
@@ -1707,13 +1707,13 @@ void TBoss6Type1::update_turn_to_center() {
   if (!(vector_length((void *) (&stack.sp8), (f32) temp_f1) <= TBoss6Type1__data_805DE310))
   {
     var_r4 = (s32) (TBoss6Type1__data_80471038 * atan2_float((f64) stack.sp8, (f64) stack.sp10));
-    if (((s32) (this->m_438)) != 0)
+    if ((this->m_438) != 0)
     {
       var_r4 += 0x8000;
     }
     var_r5 = 0x1555;
-    new_var = (int) (this->rotation_y);
-    if (((s32) (this->m_414)) == 0)
+    new_var = this->rotation_y;
+    if ((this->m_414) == 0)
     {
       var_r5 = 0x1B4;
     }
@@ -1882,7 +1882,7 @@ void TBoss6Type1::advance_animations() {
         lim = len - TBoss6Type1__data_805DE2E4;
         if (a->t >= lim) {
             a->t = lim;
-            set_motion_set((s32)(TBoss6Type1__motion_set_table[self->f43C].f4));
+            set_motion_set(TBoss6Type1__motion_set_table[self->f43C].f4);
         }
         break;
     }
@@ -2016,14 +2016,14 @@ void TBoss6Type1__sub_802B8BB4(u8 *arg0) {
 void TBoss6Type1__sub_802B8E1C(T1_802B8E1C *arg0) {
     S_802B8E1C s;
     s32 r4;
-    TBoss6Type1__sub_802B909C((void *)(arg0), (s32 *)((s32 *)&s));
+    TBoss6Type1__sub_802B909C(arg0, (s32 *)((s32 *)&s));
     s.b = 0x1C;
     r4 = 0x21;
     arg0->f438 = 1;
     if (arg0->y < lbl_805DE3DC) {
         r4 = 0x26;
     }
-    ((TBoss6Type1 *)arg0)->send_6xA4_action((s32)(r4), (s32 *)((s32 *)&s));
+    ((TBoss6Type1 *)arg0)->send_6xA4_action(r4, (s32 *)((s32 *)&s));
 }
 
 void TBoss6Type1::do_attack() {

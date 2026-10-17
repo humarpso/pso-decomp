@@ -113,19 +113,19 @@ void TUnk_8048E5DC::render_shadows() {
     Stack_800830B0 stack;
     if (is_split_screen() == 0) {
         TCameraCtrl::restore_full_screen_view();
-        GXSetViewport((f32) (lbl_805D93D0), (f32) (lbl_805D93D0), (f32) (lbl_805D9404), (f32) (lbl_805D9408), (f32) (lbl_805D93D0), (f32) (lbl_805D93D8));
+        GXSetViewport(lbl_805D93D0, lbl_805D93D0, lbl_805D9404, lbl_805D9408, lbl_805D93D0, lbl_805D93D8);
         GXSetScissor(0, 0, 0x280, 0x1E0);
         stack.sp20 = *(s32 *)((s8 *)(&camera_ctrl_up_vector.value) + 0);
         stack.sp24 = *(s32 *)((s8 *)(&camera_ctrl_up_vector.value) + 4);
         stack.sp28 = *(s32 *)((s8 *)(&camera_ctrl_up_vector.value) + 8);
-        set_perspective_projection_from_fov((int) (*(s32 *)((s8 *)camera_ctrl_instance + 0x19C)), (f32) (lbl_805D940C), (f32) (lbl_805D93D8), (f32) (lbl_805D9410));
+        set_perspective_projection_from_fov((int) (*(s32 *)((s8 *)camera_ctrl_instance + 0x19C)), lbl_805D940C, lbl_805D93D8, lbl_805D9410);
         set_camera_look_at((void *) (arg0 + 0x20), (void *) (arg0 + 0x2C), (void *) (&stack.sp20));
         if ((void *) camera_ctrl_instance != NULL) {
             stack.sp14 = *(f32 *)&this->unk_2C - this->m_20;
             stack.sp18 = this->m_30 - *(f32 *)&this->unk_24;
             stack.sp1C = *(f32 *)((s8 *)arg0 + 0x34) - this->m_28;
             direction_to_pitch_yaw((void *) (&stack.sp14), (void *) (&stack.sp10), (void *) (&stack.spC));
-            TCameraCtrl::calc_axes_from_angles((s32)((void *) (camera_ctrl_instance)), (s32)((int) (stack.sp10)), (s32)((int) (stack.spC)));
+            TCameraCtrl::calc_axes_from_angles((s32)(camera_ctrl_instance), (s32)(stack.sp10), (s32)(stack.spC));
         }
         TObjPlayer__sub_80084754();
         ((TMainTask *)(&(*(RecoveredGlobal_800830B0_main_task *)&main_task).value))->render_scene_passes();
@@ -139,7 +139,7 @@ void TUnk_8048E5DC::render_shadows() {
             GXCopyTex((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&camera_render_target_singleton) + 0x1C)) + 8)) + 0xC)) + 0x20)), (int) (1U));
             GXPixModeSync();
         }
-        GXSetViewport((f32) (lbl_805D93D0), (f32) (lbl_805D93D0), (f32) (lbl_805D9404), (f32) (lbl_805D9408), (f32) (lbl_805D93D0), (f32) (lbl_805D93D8));
+        GXSetViewport(lbl_805D93D0, lbl_805D93D0, lbl_805D9404, lbl_805D9408, lbl_805D93D0, lbl_805D93D8);
         GXSetScissor(0, 0, 0x280, 0x1E0);
         TCameraCtrl__sub_80068EF0();
         ((TCameraCtrl *)camera_ctrl_instance)->calc_rotated_axes();

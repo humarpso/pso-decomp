@@ -11,7 +11,7 @@
 
 struct T_8031C250 { u8 pad[0x326]; s16 state; };
 
-#define F(T, o) (*(T *)((s8 *)(arg0) + (o)))
+#define F(T, o) (*(T *)(arg0 + (o)))
 struct Pair_8031CF30 { s32 a; f32 b; };
 
 struct VB_8031CF30 {
@@ -227,7 +227,7 @@ struct VObj_18_414afc : VBase_18_414afc {
     virtual s32 m102(f32);
 };
 
-#define F(T, o) (*(T *)((s8 *)(arg0) + (o)))
+#define F(T, o) (*(T *)(arg0 + (o)))
 struct Vec_8031C364 { f32 x, y, z; };
 
 extern "C" {
@@ -415,17 +415,17 @@ void run_task__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
     case 3:
         temp_r3 = (s32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0x434)));
         if (temp_r3 == 0) {
-            queue_destruction__7TObjectFv((void *) (arg0));
+            queue_destruction__7TObjectFv(arg0);
             return;
         }
         if (is_anim_6__12TObjEneReconFv() == 1) {
-            transition_enemy_state((void *) (arg0), 7);
+            transition_enemy_state(arg0, 7);
             return;
         }
         if (((WObj_8031c7bc *) (arg0 + 0x480))->w4() != 0) {
             *(s32 *)((s8 *)arg0 + 0x444) = (s32) (*(s32 *)((s8 *)arg0 + 0x444) | 1);
-            remove_tracked_target__12TObjEneReconFPvPv((int) (temp_r3), (void *) (arg0));
-            queue_destruction__7TObjectFv((void *) (arg0));
+            remove_tracked_target__12TObjEneReconFPvPv(temp_r3, arg0);
+            queue_destruction__7TObjectFv(arg0);
         }
     case 5:
         return;
@@ -581,7 +581,7 @@ struct VB_8031CCFC {
     virtual void m96();
 };
 
-#define F(T, o) (*(T *)((s8 *)(arg0) + (o)))
+#define F(T, o) (*(T *)(arg0 + (o)))
 struct VBase_18_2afebf { char pad[0x18]; };
 
 struct VObj_18_2afebf : VBase_18_2afebf {
@@ -1038,7 +1038,7 @@ void TObjEneRecon::sub_8031D4B0(s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x30) = temp_r3;
         *(s32 *)((s8 *)arg0 + 0x3C0) = 0;
         *(s32 *)((s8 *)arg0 + 0x60) = (s32) (TObjEneRecon__data_80476110 * atan2_float((f32) (*(f32 *)((s8 *)arg0 + 0x428)), (f32) (*(f32 *)((s8 *)arg0 + 0x430))));
-        enemy_clear_target__12TObjEneDD_STFUs((void *) (arg0));
+        enemy_clear_target__12TObjEneDD_STFUs(arg0);
         break;
     case 3:
         if ((s32) *(s32 *)((s8 *)arg0 + 0x3C0) == 2) {
@@ -1052,7 +1052,7 @@ void TObjEneRecon::sub_8031D4B0(s32 arg1) {
         temp_f1 = *(f32 *)((s8 *)arg0 + 0x428);
         temp_f2 = *(f32 *)((s8 *)arg0 + 0x430);
         temp_f31 = (temp_f1 * temp_f1) + (temp_f2 * temp_f2);
-        ((TObjEneDD *)arg0)->move_with_wall_slide_on_ground((f32) (temp_f1), (f32) (temp_f2), (f32) (temp_f31));
+        ((TObjEneDD *)arg0)->move_with_wall_slide_on_ground(temp_f1, temp_f2, temp_f31);
         temp_r0 = *(s32 *)((s8 *)arg0 + 0x3C0);
         switch (temp_r0) {
         case 0:

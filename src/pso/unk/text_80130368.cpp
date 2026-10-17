@@ -87,7 +87,7 @@ s32 create_shoot_model__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg
         temp_r3 = __nw__7TObjectFUl(0x6C);
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = init_shoot_model__13TUnk_804A69C0Fv((int) (temp_r3), (void *) (arg0), (void *) (arg1), (void *) (arg2), (f32) (farg0));
+            var_r0 = init_shoot_model__13TUnk_804A69C0Fv((int)temp_r3, (void *)arg0, (void *)arg1, (void *)arg2, (f32)farg0);
         }
         var_r3 = var_r0;
     }
@@ -116,11 +116,11 @@ void TUnk_804A69DC::emit_marker_effects() {
         ((TObjPlayer *)arg0)->draw_status_icon((s32)((void *) (arg0 + 0x208)));
         if ((s32) this->m_1fc > 0x1999) {
             ((TItemEquipBase *)arg0)->send_6x61_activate_mag_effect(0);
-            TItemAttacker::spawn_item_timer((s32)((void *) (arg0)), (s32)((void *) (TObjPlayer__sub_801307D0)), 0x1E);
+            TItemAttacker::spawn_item_timer((s32)(arg0), (s32)(TObjPlayer__sub_801307D0), 0x1E);
             this->m_204 = 0;
             return;
         }
-        ((TUnk_804A69DC *)arg0)->for_each_target_in_range((f32) (lbl_805DB000));
+        ((TUnk_804A69DC *)arg0)->for_each_target_in_range(lbl_805DB000);
         return;
     }
     ((TObjPlayer *)arg0)->update_active_game_effect();

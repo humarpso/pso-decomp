@@ -112,7 +112,7 @@ s32 TAdPlayerLoadGC::check_card_result_code() {
     if (arg0 >= 2) {
         return 0;
     }
-    switch (CARDGetResultCode((void *)(arg0))) {
+    switch (CARDGetResultCode((void *)arg0)) {
     case -0x80:
     case -0xE:
     case -4:
@@ -142,7 +142,7 @@ s32 TAdPlayerLoadGC::probe_and_check_card() {
     s32 temp_r3_3;
     s32 temp_r3_4;
     s32 var_r0;
-    if ((TAdPlayerLoadGC__card_slot_state_flags & (0x400 << arg0)) && ((temp_r3 = CARDGetResultCode((void *) (arg0)), ((temp_r3 == -5) != 0)) || (temp_r3 == -2))) {
+    if ((TAdPlayerLoadGC__card_slot_state_flags & (0x400 << arg0)) && ((temp_r3 = CARDGetResultCode((void *)arg0), ((temp_r3 == -5) != 0)) || (temp_r3 == -2))) {
         var_r0 = -0x7F;
         if (temp_r3 == -2) {
             var_r0 = -0x7D;
@@ -160,15 +160,15 @@ s32 TAdPlayerLoadGC::probe_and_check_card() {
     if (sp8 == 0x2000) {
         if (!(TAdPlayerLoadGC__card_slot_state_flags & (4 << arg0))) {
             TAdPlayerLoadGC__sub_801E101C(arg0);
-            if ((u32) TAdPlayerLoadGC::get_load_result((void *)((void *) (arg0))) == -0x7FU) {
+            if ((u32) TAdPlayerLoadGC::get_load_result((void *)(arg0)) == -0x7FU) {
                 TAdPlayerLoadGC__card_result_code = -0x7F;
                 return 0;
             }
         }
-        temp_r3_3 = CARDCheckAsync((void *) (arg0), 0);
+        temp_r3_3 = CARDCheckAsync((void *)arg0, 0);
         if (temp_r3_3 == 0) {
             for (;;) {
-                temp_r3_4 = CARDGetResultCode((void *) (arg0));
+                temp_r3_4 = CARDGetResultCode((void *)arg0);
                 if (temp_r3_4 == -1) {
                     continue;
                 }
@@ -326,7 +326,7 @@ s32 TAdPlayerLoadGC::probe_card_slot() {
     if (arg0 >= 2) {
         return 0;
     }
-    if ((TAdPlayerLoadGC__card_slot_state_flags & (0x400 << arg0)) && (CARDGetResultCode((void *)(arg0)) == -5)) {
+    if ((TAdPlayerLoadGC__card_slot_state_flags & (0x400 << arg0)) && (CARDGetResultCode((void *)arg0) == -5)) {
         TAdPlayerLoadGC__card_result_code = -0x7D;
         return 1;
     }

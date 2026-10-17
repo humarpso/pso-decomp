@@ -201,7 +201,7 @@ extern void *tl_05;
 
 typedef char RecoveredGlobal_801A1CD8___vt__10TObjRoomId_size[sizeof(RecoveredGlobal_801A1CD8___vt__10TObjRoomId) == 0x38 ? 1 : -1];
 u8 *TObjRoomId__ct(u8 *arg0, s32 parent, s32 arg2) {
-    construct_world_actor_base((void *) (arg0), (void *) (parent));
+    construct_world_actor_base((void *)arg0, (void *)parent);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801A1CD8___vt__10TObjRoomId *)&__vt__10TObjRoomId).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D34B0;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
@@ -214,7 +214,7 @@ u8 *TObjRoomId__ct(u8 *arg0, s32 parent, s32 arg2) {
 void *create__10TObjRoomIdFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x9C);
     if (o != NULL) {
-        o = TObjRoomId__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TObjRoomId__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

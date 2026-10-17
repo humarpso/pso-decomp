@@ -147,7 +147,7 @@ void TWindowSubComCard::set_state(s32 arg1) {
         member_action.words[1] = *(s32 *)((s8 *)temp_r6 + 4);
         member_action.words[2] = *(s32 *)((s8 *)temp_r6 + 8);
         if (member_action.action != 0) {
-            (((TWindowSubComCard *)((void *) (arg0)))->*member_action.action)();
+            (((TWindowSubComCard *)(arg0))->*member_action.action)();
         }
     }
 }
@@ -158,7 +158,7 @@ void TWindowSubComCard::reset() {
     *(s32 *)((s8 *)this + 0x38) = 0;
     *(s32 *)((s8 *)this + 0x2C) = 0;
     *(s32 *)((s8 *)this + 0x24) = 0;
-    *(s32 *)((s8 *)this + 0x28) = sub_8033BB14__16TCheckMemoryCardFv((void *)(this));
+    *(s32 *)((s8 *)this + 0x28) = sub_8033BB14__16TCheckMemoryCardFv(this);
     *(s32 *)((s8 *)this + 0x3C) = 0;
     *(s32 *)((s8 *)this + 0x40) = 0;
     *(s32 *)((s8 *)this + 0x44) = 0;
@@ -170,7 +170,7 @@ void TWindowSubComCard::poll_card_status() {
     *(s32 *)((s8 *)arg0 + 0x3C) = 0;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x38) <= 0) {
         *(s32 *)((s8 *)arg0 + 0x2C) = 0;
-        *(s32 *)((s8 *)arg0 + 0x28) = sub_8033BB14__16TCheckMemoryCardFv((void *)(arg0));
+        *(s32 *)((s8 *)arg0 + 0x28) = sub_8033BB14__16TCheckMemoryCardFv(arg0);
         if ((s32) *(s32 *)((s8 *)arg0 + 0x28) != 0) {
             set_state(1);
             return;

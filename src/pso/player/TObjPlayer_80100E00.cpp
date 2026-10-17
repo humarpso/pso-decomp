@@ -87,7 +87,7 @@ void TItem::update_owner_visibility() {
     u32 temp_r0;
     temp_r0 = this->m_f0;
     if (temp_r0 != 0U) {
-        if ((test_flag_2000000__10TObjPlayerFPv((int) (temp_r0)) == 0) && (reset_key_machine_state__10TObjPlayerFv() == 1) && (is_flag_20000_set__10TObjPlayerFv((int) (this->m_f0)) == 0)) {
+        if ((test_flag_2000000__10TObjPlayerFPv(temp_r0) == 0) && (reset_key_machine_state__10TObjPlayerFv() == 1) && (is_flag_20000_set__10TObjPlayerFv(this->m_f0) == 0)) {
             ((TItem *)arg0)->sub_80102C68();
             return;
         }
@@ -210,7 +210,7 @@ s16 TObjPlayer::calc_equip_bonus(u16 arg0) {
 }
 void TItemEquipBase::send_6x61_activate_mag_effect(s32 arg1) {
     Stack_801012DC stack;
-    if (((u32) this->m_f0 != 0U) && (TOKeyMachine01::get_global_state() != 0xF) && (obj_isState2_324__13TUnk_804806E8Fv((int) (this->m_f0)) == 0)) {
+    if (((u32) this->m_f0 != 0U) && (TOKeyMachine01::get_global_state() != 0xF) && (obj_isState2_324__13TUnk_804806E8Fv(this->m_f0) == 0)) {
         TObjPlayer__sub_80102D84((u8 *)(&stack.sp8));
         stack.spC = ((TItem *)((u8 *)this))->get_field_d8();
         stack.sp10 = arg1;

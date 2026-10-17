@@ -206,7 +206,7 @@ void TObjTombstone::update_fade_by_distance() {
         } else {
             *(f32 *)&this->unk_B4 = (f32) ((TObjTombstone__data_805D917C - temp_f1) / TObjTombstone__data_805D9184);
         }
-        TObjTombstone::draw_name_labels((void *)((void *) (arg0)));
+        TObjTombstone::draw_name_labels((void *)(arg0));
     }
 }
 #pragma push

@@ -277,7 +277,7 @@ void *TObjOnlineEndingHexLine::create(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0xA0);
     if (o != NULL) {
-        o = __ct__23TObjOnlineEndingHexLineFv((Hex_802E57E0 *)(o), (s32)(arg0), (Pos_802E57E0 *)(arg1));
+        o = __ct__23TObjOnlineEndingHexLineFv((Hex_802E57E0 *)(o), (s32)arg0, (Pos_802E57E0 *)(arg1));
     }
     return o;
 }
@@ -511,7 +511,7 @@ u8 *TObjOnlineEndingHexMove__ct(u8 *arg0, void *origin) {
     for (i = 0; i < 4; i++) {
         TObjOnlineEndingHexLine::create(origin, &TObjOnlineEndingHexLine_corner_offsets[i]);
     }
-    copy_move_params__23TObjOnlineEndingHexMoveFPvPv((void*)(&online_ending_hex_line_state), (void*)(TObjOnlineEndingHexMove__default_move_params));
+    copy_move_params__23TObjOnlineEndingHexMoveFPvPv((void*)(&online_ending_hex_line_state), TObjOnlineEndingHexMove__default_move_params);
     *(s32 *)((s8 *)arg0 + 0x1C) = 0x1E;
     return arg0;
 }
@@ -522,7 +522,7 @@ void * fn_802E6218(void *arg0) {
     void *o;
     o = __nw__7TObjectFUl(0x20);
     if (o != NULL) {
-        o = TObjOnlineEndingHexMove__ct((u8 *)(o), (void *)(arg0));
+        o = TObjOnlineEndingHexMove__ct((u8 *)o, (void *)arg0);
     }
     return o;
 }

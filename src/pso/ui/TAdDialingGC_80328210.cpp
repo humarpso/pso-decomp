@@ -65,7 +65,7 @@ block_11:
             return;
         }
 block_12:
-        if (TAdDialingGC__sub_803284F8((s32)(this)) != 0) {
+        if (TAdDialingGC__sub_803284F8((s32)this) != 0) {
             *(s32 *)&this->m_20 = 3;
         }
         break;
@@ -98,7 +98,7 @@ block_11:
             return;
         }
 block_12:
-        if (TAdDialingGC__sub_803284F8((s32)(this)) != 0) {
+        if (TAdDialingGC__sub_803284F8((s32)this) != 0) {
             *(s32 *)&this->m_20 = 3;
         }
         break;
@@ -119,7 +119,7 @@ void TAdDialingGC::update_dial_state(s32 arg1) {
         temp_r4 = *(s32 *)&this->m_a0;
         *(s32 *)&this->m_a0 = temp_r4 + 1;
         if ((s32) *(s32 *)&this->m_a0 > 0x5A) {
-            spawn_title_screen__12TAdDialingGCFl((void *)((void *)(this)), (s32)((s32)(temp_r4)));
+            spawn_title_screen__12TAdDialingGCFl((void *)(this), (s32)(temp_r4));
             show_guide_button();
             *(s32 *)&this->m_a0 = 0;
             *(s32 *)&this->m_20 = 1;
@@ -145,7 +145,7 @@ void TAdDialingGC::update_dial_state(s32 arg1) {
             return;
         default:
             show_guide_button();
-            if (TAdDialingGC__sub_803284F8((s32)(this)) != 0) {
+            if (TAdDialingGC__sub_803284F8((s32)this) != 0) {
                 *(s32 *)&this->m_20 = 3;
                 return;
             }
@@ -249,7 +249,7 @@ void TAdDialingGC::show_guide_button() {
         stack.sp14 = lbl_805DF6E4;
         stack.sp10 = lbl_805DF6E8;
         stack.sp18 = lbl_805DF6E8;
-        create_guide_button((void *) (arg0), (void *) (&stack.sp8), (f32) (lbl_805DF6E4));
+        create_guide_button(arg0, (void *) (&stack.sp8), lbl_805DF6E4);
         *(s32 *)&this->m_a4 = (s32) (*(s32 *)&this->m_a4 | 2);
     }
 }

@@ -50,14 +50,14 @@ void TObjGoalWarpAncient::load_resources() {
     (*(u8 * *)&goal_warp_ancient_gvm_texture) = load_gvm_texture_file((s32) &lbl_80443308.value);
 }
 
-void TObjGoalWarpAncient::register_warp_object(void* a0) { TObjFish__sub_8001EDB0((void*)(ancient_warp_shared_resource), a0); }
+void TObjGoalWarpAncient::register_warp_object(void* a0) { TObjFish__sub_8001EDB0((void*)ancient_warp_shared_resource, a0); }
 
 s32 TObjGoalWarpAncient::get_instance() {
     return goal_warp_ancient_gvm_texture;
 }
 
-void TObjGoalWarpAncient::register_warp(void* a0) { get_bml_motion((void*)(ancient_warp_shared_resource), a0); }
+void TObjGoalWarpAncient::register_warp(void* a0) { get_bml_motion((void*)ancient_warp_shared_resource, a0); }
 
-void TObjGoalWarpAncient__sub_8017D2D4(void* a0) { get_bml_model((void*)(ancient_warp_shared_resource), a0); }
+void TObjGoalWarpAncient__sub_8017D2D4(void* a0) { get_bml_model((void*)ancient_warp_shared_resource, a0); }
 
 }

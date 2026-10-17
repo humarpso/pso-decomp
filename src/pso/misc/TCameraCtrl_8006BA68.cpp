@@ -359,7 +359,7 @@ void TCameraCtrl::cache_target_and_forward(s32 unused) {
         TCameraCtrl__saved_projection_angle = *(s32 *)((s8 *)camera_ctrl_instance + 0x19C);
         scripted_camera_projection_angle = unused;
     }
-    configure_scripted_camera_playback((u8 *)(playback_data), (s32)(unused));
+    configure_scripted_camera_playback((u8 *)playback_data, (s32)unused);
 }
 
 typedef char RecoveredGlobal_8006C140_camera_controller_registry_size[sizeof(RecoveredGlobal_8006C140_camera_controller_registry) == 0x68 ? 1 : -1];

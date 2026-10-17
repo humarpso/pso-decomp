@@ -23,7 +23,7 @@ void run_task__18TObjTradeCollisionFv(s32 arg0) {
     s32 var_r31;
     var_r31 = 0;
     do {
-        if (is_player_outside_trade_radius__18TObjTradeCollisionFUl((void *) (arg0), (int) (var_r31)) != 0) {
+        if (is_player_outside_trade_radius__18TObjTradeCollisionFUl((void *)arg0, (int)var_r31) != 0) {
             set_trade_range_bit((var_r31));
         } else {
             clear_trade_range_bit((var_r31));
@@ -59,7 +59,7 @@ u8 *TObjTradeCollision__ct(u8 *arg0, s32 arg1, s32 arg2) {
 void *TObjTradeCollision__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xB0);
     if (o != NULL) {
-        o = TObjTradeCollision__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TObjTradeCollision__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

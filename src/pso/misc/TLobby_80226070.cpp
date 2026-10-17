@@ -20,11 +20,11 @@ extern int lobby_layout_offset_c;
 extern s32 lbl_805D6290;
 extern s32 lobby_layout_start_position;
 
-void TLobby::set_and_notify(int a0) { lbl_805D6284 = a0; update_music_stream_gain((s32)((void*)(lbl_805D6280))); }
+void TLobby::set_and_notify(int a0) { lbl_805D6284 = a0; update_music_stream_gain((s32)(lbl_805D6280)); }
 
 void TLobby::reset_global() { lobby_layout_offset_c = 0; TLobby__sub_8022614C(lbl_805D6294); }
 
-void TLobby::close_option_window() { lbl_805D6284 = 0; update_music_stream_gain((s32)((void*)(lbl_805D6280))); }
+void TLobby::close_option_window() { lbl_805D6284 = 0; update_music_stream_gain((s32)(lbl_805D6280)); }
 
 void TLobby::init_layout_positions() {
     lbl_805D627C = -0x50;
@@ -102,7 +102,7 @@ void stop_sound_request(s32 idx) {
     }
 }
 
-int TLobby__sub_80226308(void* p) { return init_sound_mode__6TLobbyFPv((void *)(p)); }
+int TLobby__sub_80226308(void* p) { return init_sound_mode__6TLobbyFPv(p); }
 
 int init_sound_mode__6TLobbyFPv(void *) {
     u8 *p;
@@ -145,7 +145,7 @@ void TLobby::set_sound_output_mode(s32 arg0) {
         var_r30 = 0;
         break;
     }
-    TLobby::set_mode((int) (var_r30));
+    TLobby::set_mode(var_r30);
 }
 void TLobby__sub_8022644C(void) {
     s32 i;

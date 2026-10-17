@@ -24,13 +24,13 @@ void TLobby__sub_8020A2AC(void) {
     temp_r3 = ((TAdSinglePlyChrSelectGC *)0xE8)->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = run_step__9TItemDropFl((int) (temp_r3), (void *) (item_drop_server_seed));
+        var_r0 = run_step__9TItemDropFl((int)temp_r3, (void *)item_drop_server_seed);
     }
     item_drop_rng = var_r0;
     temp_r3_2 = ((TAdSinglePlyChrSelectGC *)0x14)->alloc();
     var_r0_2 = temp_r3_2;
     if (var_r0_2 != 0) {
-        var_r0_2 = (s32)TLobby__sub_80209584((u8 *)(temp_r3_2), 0x20);
+        var_r0_2 = (s32)TLobby__sub_80209584((u8 *)temp_r3_2, 0x20);
     }
     lbl_805D60A4 = var_r0_2;
 }

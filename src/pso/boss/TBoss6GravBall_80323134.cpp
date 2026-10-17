@@ -63,7 +63,7 @@ void TBoss6GravBall::destroy_part(s32 arg1) {
     temp_r31 = (u8 *)(arg0 + (arg1 * 4));
     temp_r3 = *(u32 *)((s8 *)temp_r31 + 0xD4);
     if (temp_r3 != 0U) {
-        TBoss4Type2::request_destroy((int) (temp_r3));
+        TBoss4Type2::request_destroy(temp_r3);
         *(u32 *)((s8 *)temp_r31 + 0xD4) = 0U;
     }
 }

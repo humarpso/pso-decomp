@@ -123,9 +123,9 @@ u8 *create_conversation_camera(s32 arg0) {
     }
     i = local_client_id;
     temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x38)));
-    var_r0 = (u8 *)(temp_r3);
+    var_r0 = temp_r3;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(((TCameraCtrl *)temp_r3)->init_conversation_camera((s32)(i), (s32)(arg0), (s32)(tl_07)));
+        var_r0 = (u8 *)(((TCameraCtrl *)temp_r3)->init_conversation_camera(i, arg0, tl_07));
     }
     return var_r0;
 }
@@ -144,9 +144,9 @@ void *__dt__13TUnk_80488AD8Fv(void *arg0, s16 arg1) {
         *(const s32 **)((s8 *)arg0 + 0x18) = lbl_80488AD8;
         restore_player_cameras();
         TCameraCtrl__fixed_npc_camera_active = 0;
-        __dt__7TObjectFv((void *)(arg0), 0);
+        __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *)(arg0));
+            __dl__7TObjectFPv(arg0);
         }
     }
     return arg0;
@@ -179,7 +179,7 @@ u8 *TCameraCtrl::init_conversation_camera(s32 i, s32 arg2, s32 arg3) {
 void TCameraCtrl::create(s32 arg0, s32 arg1, s32 arg2) {
     void *obj = __nw__7TObjectFUl(0x40);
     if (obj != NULL) {
-        TCameraCtrl__sub_8006B798((void *)(obj), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(tl_07));
+        TCameraCtrl__sub_8006B798(obj, arg0, arg1, arg2, tl_07);
     }
 }
 
@@ -199,9 +199,9 @@ void *TCameraCtrl::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_80488AF0;
         TCameraCtrl::reset_to_local_player();
-        __dt__7TObjectFv((void *)(this), 0);
+        __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *)(this));
+            __dl__7TObjectFPv(this);
         }
     }
     return this;
@@ -276,7 +276,7 @@ u8 *__dt__13TUnk_80488B08Fv(u8 *arg0, s16 arg1) {
         TCameraCtrl__fixed_npc_camera_active = 0;
         __dt__13TUnk_80488A28Fv(arg0, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *) (arg0));
+            __dl__7TObjectFPv(arg0);
         }
     }
     return arg0;

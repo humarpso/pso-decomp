@@ -141,7 +141,7 @@ extern void *tl_05;
 
 void TODoorMachine01::play_proximity_sound() {
     u8 *arg0 = (u8 *)this;
-    if ((this->m_d0 & 1) && (is_any_player_within_radius_xz((f32) (lbl_805DB4F4)) == 1)) {
+    if ((this->m_d0 & 1) && (is_any_player_within_radius_xz(lbl_805DB4F4) == 1)) {
         *(s32 *)&this->m_ac = 1;
         set_indexed_flags((arg0), 0, 8);
         play_sound_effect(0x4004BC01, (void *)((void *) (arg0 + 0x38)), 0, 0);
@@ -233,7 +233,7 @@ void TODoorMachine01::draw_part_models(u8 *arg1, s32 arg2) {
         temp_r4 = model_render_flags;
         lbl_805D5660 = temp_r4;
         model_render_flags = temp_r4 | 0x10;
-        set_chunk_material_color((void *) (arg0 + 0xDC), (int) (temp_r4));
+        set_chunk_material_color((void *) (arg0 + 0xDC), temp_r4);
     }
     TParticleCtrl::begin_effect_render();
     push_matrix();
@@ -269,7 +269,7 @@ void TODoorMachine01::render() {
             push_matrix();
             translate_matrix(0, n->x, n->y, n->z);
             draw_ginja_model(n->f4);
-            draw_part_models((u8 *)(n->child), (s32)(fl));
+            draw_part_models((u8 *)n->child, (s32)fl);
             pop_matrix();
             n = self->model->root->next;
             fl = (self->fD0 >> 17) & 1;
@@ -278,11 +278,11 @@ void TODoorMachine01::render() {
             translate_matrix(0, n->x, n->y, n->z);
             draw_ginja_model(n->f4);
             n = n->child;
-            draw_part_models((u8 *)(n), (s32)(fl));
+            draw_part_models((u8 *)n, (s32)fl);
             n = n->next;
             fl = (self->fD0 >> 18) & 1;
             TObjFish::set_global_param(TODoorMachine01__global_param_id_array[fl]);
-            draw_part_models((u8 *)(n), (s32)(fl));
+            draw_part_models((u8 *)n, (s32)fl);
             pop_matrix();
             n = self->model->root->next->next;
             fl = (self->fD0 >> 19) & 1;
@@ -290,7 +290,7 @@ void TODoorMachine01::render() {
             push_matrix();
             translate_matrix(0, n->x, n->y, n->z);
             draw_ginja_model(n->f4);
-            draw_part_models((u8 *)(n->child), (s32)(fl));
+            draw_part_models((u8 *)n->child, (s32)fl);
             pop_matrix();
         } else {
             TObjFish::set_global_param(TODoorMachine01__global_param_id_array[1]);
@@ -303,7 +303,7 @@ void TODoorMachine01::render() {
 void *TODoorMachine01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xEC);
     if (o != NULL) {
-        o = TODoorMachine01__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TODoorMachine01__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -368,7 +368,7 @@ u8 *TODoorMachine01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(u8 **)((s8 *)arg0 + 0xBC) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODoorMachine01__model_resource) + 0x430)) + 4));
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB4FC);
     ((TODoorMachine01 *)arg0)->m_b8 = (f32) lbl_805DB508;
-    init_collision_body_parts((void *) (arg0), (void *) (&TODoorMachine01__collision_body_parts.value), 1);
+    init_collision_body_parts(arg0, (void *) (&TODoorMachine01__collision_body_parts.value), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TODoorMachine01 *)(arg0))->init_door_switch_binding();

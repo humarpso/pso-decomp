@@ -375,7 +375,7 @@ s32 TWindowSubStatusDisp::upload_glyph_if_needed(u16 arg0, u8 *arg1, void **arg2
         return 0;
     }
     if (temp_r7 != (u8) (lbl_805D56C0 - 1)) {
-        upload_font_glyph(arg0, (void *)(arg1));
+        upload_font_glyph(arg0, arg1);
         return 1;
     }
     if ((void *) *arg2 == NULL) {
@@ -457,7 +457,7 @@ typedef char RecoveredGlobal_8000F9E4_lbl_804FE120_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8000F9CC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9CC_lbl_804FE120) == 0x18 ? 1 : -1];
 
 int end_render_forward__20TWindowSubStatusDispFPv(void* p) { return get_player__20TWindowSubStatusDispFv(p); }
-void TWindowSubStatusDisp::reset_gauge(void* p) { begin_screen_draw((s32)((void*)1)); TWindowSubStatusDisp::set_gauge_param((s32)(p)); set_draw_texture_and_color((s32)((void*)0), (s32)((void*)-1)); }
+void TWindowSubStatusDisp::reset_gauge(void* p) { begin_screen_draw((s32)((void*)1)); TWindowSubStatusDisp::set_gauge_param((s32)p); set_draw_texture_and_color((s32)((void*)0), (s32)((void*)-1)); }
 typedef struct Pos_8014556C Pos_8014556C;
 void draw_menu_font_string(const char *s, s32 arg1, u32 flags, f32 x, f32 y, f32 scale) {
   s32 mb = 0;

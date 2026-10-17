@@ -46,9 +46,9 @@ void translate_matrix_vec3(u8 *arg0, u8 *arg1) {
 #pragma scheduling off
 void set_matrix_identity(u8 *arg0) {
     u8 *var_r3;
-    var_r3 = (u8 *)(arg0);
+    var_r3 = arg0;
     if (var_r3 == NULL) {
-        var_r3 = (u8 *)(current_matrix);
+        var_r3 = current_matrix;
     }
     matrix_identity(var_r3);
 }
@@ -97,7 +97,7 @@ void rotate_vector_by_matrix(u32 arg0) {
     if (var_r3 == 0U) {
         var_r3 = (*(u32 *)&current_matrix);
     }
-    PSMTXMultVecSR((int) (var_r3));
+    PSMTXMultVecSR(var_r3);
 }
 #pragma pop
 

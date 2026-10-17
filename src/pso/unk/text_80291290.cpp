@@ -22,7 +22,7 @@ extern const f32 lbl_805DD978;
 typedef char RecoveredGlobal_80291290_lbl_804DAA78_size[sizeof(RecoveredGlobal_80291290_lbl_804DAA78) == 0x90 ? 1 : -1];
 void fn_80291290(void) {
     TCameraCtrl__sub_800695A0(((u8 *)&creation_view_parameters.value + 0x48));
-    set_creation_projection_center((f32) (lbl_805DD978));
+    set_creation_projection_center(lbl_805DD978);
 }
 
 void approach_creation_camera_target(u8 *arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1) {
@@ -94,8 +94,8 @@ void approach_creation_camera_target(u8 *arg0, s32 arg1, s32 arg2, f32 farg0, f3
         *(f32 *)((s8 *)arg0 + 0x8C) = (f32) lbl_805DD974;
     }
     *(f32 *)((s8 *)arg0 + 0x4C) = (f32) (*(f32 *)((s8 *)arg0 + 0x4C) + *(f32 *)((s8 *)arg0 + 0x8C));
-    *(s32 *)((s8 *)arg0 + 0x74) = approach_angle_limited((int) (*(s32 *)((s8 *)arg0 + 0x74)), (void *) (arg2), 0xC0);
-    *(s32 *)((s8 *)arg0 + 0x70) = approach_angle_limited((int) (*(s32 *)((s8 *)arg0 + 0x70)), (void *) (arg1), 0xC0);
+    *(s32 *)((s8 *)arg0 + 0x74) = approach_angle_limited((int) (*(s32 *)((s8 *)arg0 + 0x74)), (void *)arg2, 0xC0);
+    *(s32 *)((s8 *)arg0 + 0x70) = approach_angle_limited((int) (*(s32 *)((s8 *)arg0 + 0x70)), (void *)arg1, 0xC0);
 }
 
 }

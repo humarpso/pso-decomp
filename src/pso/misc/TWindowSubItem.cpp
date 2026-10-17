@@ -205,10 +205,10 @@ s32 has_armor_with_unit_slot(void *arg0, int arg1) {
 void TWindowSubItem::use_selected_item() {
     s32 temp_r31;
     s32 player;
-    player = get_player_by_client_id((s32)(this->m_24));
+    player = get_player_by_client_id(this->m_24);
     if (player != 0) {
         temp_r31 = ((TWindowSubItem *)(*(s32 *)&this->m_30))->get_selected_entry();
-        TObjPlayer__sub_801B7B58((int) (player), (int) (select_cursor_entry__22TWindowSubShortCutListFv((int) (*(s32 *)&this->m_30))), (int) (temp_r31));
+        TObjPlayer__sub_801B7B58(player, (int) (select_cursor_entry__22TWindowSubShortCutListFv((int) (*(s32 *)&this->m_30))), temp_r31);
     }
 }
 #pragma pop
@@ -362,18 +362,18 @@ void TWindowSubItem::draw_slot(s32 arg1, s32 arg2, s32 arg3) {
     temp_r3 = (u32)__cntlzw(4 - (arg3 & 0xF)) >> 5;
     temp_r31 = temp_r3 + 4;
     if ((reset_key_machine_state__10TObjPlayerFv(temp_r3) == 0) || (is_boss_area() != 0)) {
-        TWindowSubComCard::draw_text_gray((s32)(arg2), (s32)(get_localized_text_entry(0x10, 0xF)), 6, (s32)(temp_r31));
+        TWindowSubComCard::draw_text_gray(arg2, (s32)(get_localized_text_entry(0x10, 0xF)), 6, temp_r31);
         return;
     }
-    forward_trade_action_default__16TObjCityMainWarpFPviii((s32)(arg2), (s32)(get_localized_text_entry(0x10, 0xF)), 0x26, (s32)(temp_r31));
+    forward_trade_action_default__16TObjCityMainWarpFPviii(arg2, (s32)(get_localized_text_entry(0x10, 0xF)), 0x26, temp_r31);
 }
 
 void TWindowSubItem::add_meseta_purpose_actions(s32 arg0, s32 arg1) {
     if (TOKeyMachine01::get_global_state() == 0xF) {
-        TWindowSubComCard::draw_text_gray((s32)(arg1), (s32)(get_message_10__20TWindowSubStatusDispFl(0x5F)), 6, 6);
+        TWindowSubComCard::draw_text_gray(arg1, (s32)(get_message_10__20TWindowSubStatusDispFl(0x5F)), 6, 6);
         return;
     }
-    forward_trade_action_default__16TObjCityMainWarpFPviii((s32)(arg1), (s32)(get_message_10__20TWindowSubStatusDispFl(0x5F)), 6, 6);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(arg1, (s32)(get_message_10__20TWindowSubStatusDispFl(0x5F)), 6, 6);
 }
 
 extern const f32 lbl_805DD630;
@@ -396,13 +396,13 @@ s32 TWindowSubItem::create_count_input(s32 maximum) {
 s32 TWindowSubItem::create_menu_window() {
     s32 titled_window_menu;
     titled_window_menu = create_titled_window_menu(((int)get_window_layout_position(6)), 2, get_message_10__20TWindowSubStatusDispFl(0x27), (int) (*(s32 *)&this->m_24));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((s32)((int) (titled_window_menu)), (s32)((int) (get_message_10__20TWindowSubStatusDispFl(0x5D))), 6, 0);
-    forward_trade_action_default__16TObjCityMainWarpFPviii((s32)((int) (titled_window_menu)), (s32)((int) (get_message_10__20TWindowSubStatusDispFl(0x5E))), 6, 1);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((s32)(titled_window_menu), (s32)((int) (get_message_10__20TWindowSubStatusDispFl(0x5D))), 6, 0);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((s32)(titled_window_menu), (s32)((int) (get_message_10__20TWindowSubStatusDispFl(0x5E))), 6, 1);
     TWindowSubEquip__sub_80263AF8((s32)((int) (*(s32 *)&this->m_2c)), 2);
-    set_field_1c__6TLobbyFf((s32)((int) (titled_window_menu)));
+    set_field_1c__6TLobbyFf((s32)(titled_window_menu));
     ((TWindowSubComCardList *)titled_window_menu)->set_flag70_bit10();
-    ((TWindowSubComCardList *)titled_window_menu)->update_layout_height((f32) (lbl_805DD630));
-    align_menu_entry_positions((int) (titled_window_menu));
+    ((TWindowSubComCardList *)titled_window_menu)->update_layout_height(lbl_805DD630);
+    align_menu_entry_positions(titled_window_menu);
     return titled_window_menu;
 }
 
@@ -410,17 +410,17 @@ s32 TWindowSubItem::open_purpose_window(s32 arg1) {
     s32 titled_window_menu;
     titled_window_menu = create_titled_window_menu(((int)get_window_layout_position(4)), 3, get_message_10__20TWindowSubStatusDispFl(0x26), (int) (*(s32 *)&this->m_24));
     if (arg1 == -0xFF) {
-        TWindowSubItem::add_meseta_purpose_actions((s32)((void *) (((u8 *)this))), (s32)((int) (titled_window_menu)));
+        TWindowSubItem::add_meseta_purpose_actions((s32)((void *) (((u8 *)this))), (s32)(titled_window_menu));
     } else if ((s32) (arg1 & 0xFFFFFFF0) == -0x10) {
-        TWindowSubItem::draw_slot((s32)((void *) (((u8 *)this))), (s32)((int) (titled_window_menu)), (s32)((void *) (arg1)));
+        TWindowSubItem::draw_slot((s32)((void *) (((u8 *)this))), (s32)(titled_window_menu), (s32)(arg1));
     } else {
-        add_item_purpose_actions((u8 *)((void *) (((u8 *)this))), (s32)((int) (titled_window_menu)), (s32)((void *) (arg1)));
+        add_item_purpose_actions((u8 *)((void *) (((u8 *)this))), (s32)(titled_window_menu), (s32)(arg1));
     }
     TWindowSubEquip__sub_80263AF8((s32)((int) (*(s32 *)&this->m_2c)), 1);
-    set_field_1c__6TLobbyFf((s32)((int) (titled_window_menu)));
+    set_field_1c__6TLobbyFf((s32)(titled_window_menu));
     ((TWindowSubComCardList *)titled_window_menu)->set_flag70_bit10();
-    ((TWindowSubComCardList *)titled_window_menu)->update_layout_height((f32) (lbl_805DD630));
-    align_menu_entry_positions((int) (titled_window_menu));
+    ((TWindowSubComCardList *)titled_window_menu)->update_layout_height(lbl_805DD630);
+    align_menu_entry_positions(titled_window_menu);
     return titled_window_menu;
 }
 
@@ -428,7 +428,7 @@ void TWindowSubItem::render() {  }
 
 extern s32 __vt__14TWindowSubItem[];
 
-#define F(t, o) (*(t *)((s8 *)(arg0) + (o)))
+#define F(t, o) (*(t *)(arg0 + (o)))
 #define LIST F(s32, 0x30)
 #define BACK_PRESSED(idx) (TWindowShortListCtrl__check_controller_button(controller_input_state[idx].f20, 2) != 0 || test_flag_4c__23TAdSinglePlyChrSelectGCFv(controller_input_state[4].f20, 2) != 0)
 void TWindowSubItem::run_task() {
@@ -797,7 +797,7 @@ void populate_sub_item_list(Win_8027ABFC *arg0) {
         for (i = 0; i < arg0->n; i++) {
             it = find_item_by_id(ids[i]);
             if (it != NULL) {
-                ((TShopJudgmentItemWindow *)arg0)->add_list_entry((s32)it, (s32)(ids[i]));
+                ((TShopJudgmentItemWindow *)arg0)->add_list_entry((s32)it, ids[i]);
             }
         }
         for (i = 0; i < 5; i++) {

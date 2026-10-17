@@ -138,7 +138,7 @@ void TMCFormatSequence::open_windows() {
     if (self->f34 == 0) {
         Pair_801F68FC t = lbl_8044A684[0];
         self->f34 = set_text__18TWindowMessagePageFlll(get_window_layout_position(0x2F), &t, 1);
-        show_message(get_localized_text_entry((s32)(self->f2C), (s32)(self->f30)), 0);
+        show_message(get_localized_text_entry(self->f2C, self->f30), 0);
     }
     if (self->f38 == 0) {
         get_window_layout_position(0x2B);

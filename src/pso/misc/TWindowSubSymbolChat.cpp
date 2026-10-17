@@ -34,16 +34,16 @@ void TWindowSubSymbolChat::set_flag_bit1(s32 *arg0) {
 
 s32 TWindowSubSymbolChat::commit(s32 * _w1) {
     s32 arg0 = (s32)this;
-    ((TWindowSubSymbolChat *)arg0)->copy_chat_entry((s32 *)(_w1));
+    ((TWindowSubSymbolChat *)arg0)->copy_chat_entry(_w1);
     return arg0;
 }
 s32 *TWindowSubSymbolChat::copy_chat_entry(s32 *arg1) {
     u8 *temp_r4;
     u8 *temp_r5;
     *(s32 *)&this->m_name = *(s32 *)((s8 *)arg1 + 0);
-    __copy((void *) ((u8 *)(((s32 *)this)) + 4), (void *) ((u8 *)(arg1) + 4), 0x17);
+    __copy((void *) ((u8 *)(((s32 *)this)) + 4), (void *) ((u8 *)arg1 + 4), 0x17);
     temp_r5 = (u8 *)(((s32 *)this)) + 0x18;
-    temp_r4 = (u8 *)(arg1) + 0x18;
+    temp_r4 = (u8 *)arg1 + 0x18;
     *(ByteBlock_3C *)((s32) temp_r5 + 4) = *(const ByteBlock_3C *)((s32) temp_r4 + 4);
     return ((s32 *)this);
 }

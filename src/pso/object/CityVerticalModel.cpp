@@ -112,7 +112,7 @@ void TUnk_804B5C08::run_task() {
       if (((s32) (*((s32 *) (((s8 *) arg0) + 0x98)))) <= 0)
     {
       *((s32 *) (((s8 *) arg0) + 0x98)) = 0x12C;
-      if (((s32) (this->m_94)) == 2)
+      if ((this->m_94) == 2)
       {
         *((s32 *) (((s8 *) arg0) + 0x90)) = 1;
         *(f32 *)&this->m_9c = (f32) city_vertical_model_min_y_offset;
@@ -146,7 +146,7 @@ void TUnk_804B5C08::run_task() {
 void *create_city_vertical_model(void *arg0) {
     void *o = __nw__7TObjectFUl(0xA0);
     if (o != NULL) {
-        o = construct_city_vertical_model((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = construct_city_vertical_model((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -162,7 +162,7 @@ void *destroy_city_vertical_model(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_801830BC_lbl_804B5C08_size[sizeof(RecoveredGlobal_801830BC_lbl_804B5C08) == 0x38 ? 1 : -1];
 u8 *construct_city_vertical_model(u8 *arg0, s32 parent, s32 arg2) {
-    construct_world_actor_base((void *) (arg0), (void *) (parent));
+    construct_world_actor_base((void *)arg0, (void *)parent);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801830BC_lbl_804B5C08 *)&city_vertical_model_vtable).value;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     *(s32 *)((s8 *)arg0 + 0x90) = 1;

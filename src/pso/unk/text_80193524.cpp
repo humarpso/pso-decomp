@@ -167,7 +167,7 @@ extern void *tl_05;
 void *TObjLazerFence4::create() {
     void *o = __nw__7TObjectFUl(0xF8);
     if (o != NULL) {
-        o = TObjLazerFence4__ct((void *)(o), (void *)(tl_05), (void *)(this));
+        o = TObjLazerFence4__ct(o, tl_05, this);
     }
     return o;
 }
@@ -176,10 +176,10 @@ void *__dt__15TObjLazerFence4Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjLazerFence4;
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
-        free_collision_body_parts((void *)(arg0));
+        free_collision_body_parts(arg0);
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *)(arg0));
+            __dl__7TObjectFPv(arg0);
         }
     }
     return arg0;
@@ -244,7 +244,7 @@ void TLazerFenceSw::draw_laser_beam() {
     s32 i;
 
     for (i = 0; i < 3; i++) {
-        ((TObjDoorJung *)(lazer_fence_beam_node_table[i]))->free_children((void *)(self->fE8));
+        ((TObjDoorJung *)(lazer_fence_beam_node_table[i]))->free_children((void *)self->fE8);
     }
     TObjFish::set_global_param(TLazerFenceSw__texture_list);
     if (actor_frame_tick != self->f114 && self->f110 >= lbl_805DBE78) {
@@ -288,9 +288,9 @@ void TLazerFenceSw::render() {
             set_material_alpha_compare_reference(0x80);
             if (fn_80156BBC((void *) (arg0 + 0xF0), (void *) (arg0 + 0x38)) != 0) {
                 if (fn_80156C38((f32 *)(arg0 + 0xF0)) != 0) {
-                    ((VObj_14_aa9368 *)((u8 *)(arg0) + (240)))->m6();
+                    ((VObj_14_aa9368 *)(arg0 + (240)))->m6();
                     draw_laser_beam();
-                    ((VObj_14_aa9368 *)((u8 *)(arg0) + (240)))->m7();
+                    ((VObj_14_aa9368 *)(arg0 + (240)))->m7();
                 } else {
                     draw_laser_beam();
                 }
@@ -363,7 +363,7 @@ void TLazerFenceSw::run_task() {
 void *TLazerFenceSw::create() {
     void *o = __nw__7TObjectFUl(0x118);
     if (o != NULL) {
-        o = TLazerFenceSw__ct((void *)(o), (void *)(tl_05), (void *)(this));
+        o = TLazerFenceSw__ct(o, tl_05, this);
     }
     return o;
 }
@@ -433,11 +433,11 @@ void *__dt__13TLazerFenceSwFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TLazerFenceSw;
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
-        free_collision_body_parts((void *)(arg0));
+        free_collision_body_parts(arg0);
         ((TUnk_804AF8D8 *)((s8 *)arg0 + 0xF0))->destroy(-1);
         __dt__5TOKeyFv(arg0, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *)(arg0));
+            __dl__7TObjectFPv(arg0);
         }
     }
     return arg0;

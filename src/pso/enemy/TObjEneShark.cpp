@@ -222,24 +222,24 @@ void TObjEneShark::vfunc_101() {  }
 
 void TObjEneShark::vfunc_98() {
     s32 arg0 = (s32)this;
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), 0x4003A60C)), (void *) (arg0 + 0x38), 0, 0);
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003A60C)), (void *) (arg0 + 0x38), 0, 0);
     TObjPlayer::play_effect_if_v2(-0x300);
 }
 
 void TObjEneShark::vfunc_97() {
     s32 arg0 = (s32)this;
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), 0x4003A60B)), (void *) (arg0 + 0x38), 0, 0);
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003A60B)), (void *) (arg0 + 0x38), 0, 0);
     TObjPlayer::play_effect_if_v2(-0x300);
 }
 
 void TObjEneShark::vfunc_96() {
     s32 arg0 = (s32)this;
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), 0x4003A60D)), (void *) (arg0 + 0x38), 0, 0);
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003A60D)), (void *) (arg0 + 0x38), 0, 0);
 }
 
 void TObjEneShark::vfunc_95() {
     s32 arg0 = (s32)this;
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), 0x4003A60B)), (void *) (arg0 + 0x38), 0, 0);
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003A60B)), (void *) (arg0 + 0x38), 0, 0);
     TObjPlayer::play_effect_if_v2(-0x300);
 }
 
@@ -253,7 +253,7 @@ void TObjEneShark::vfunc_94() {
     stack.spC = lbl_805D9BA4;
     stack.sp10 = lbl_805D9BA8 * *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x2B0)) + 0x10);
     push_matrix_from((void *) (&identity_matrix.value));
-    rotate_matrix_y(0, (s32)((int) (this->rotation_y)));
+    rotate_matrix_y(0, (s32)(this->rotation_y));
     rotate_vector_by_matrix(0, (void *) (&stack.sp8), (void *) (&stack.sp8));
     pop_matrix();
     vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x38));
@@ -1031,7 +1031,7 @@ void *TObjEneShark__ct(void *arg0, void *arg1, void *arg2) {
     ((TObjEneShark *)self)->apply_clamped_mode_param();
     ((TObjEneShark *)self)->sub_800AC9DC(self->f368);
     self->fD8 = TObjEneShark__action_table;
-    ((TObjPlayer *)self)->set_field_d8((s32)(self->fD8));
+    ((TObjPlayer *)self)->set_field_d8((s32)self->fD8);
     self->fDC = *(s32 *)(shark_bml_resource + 0x430);
     self->fB8 = 0;
     set_animation__10TObjPlayerFPvs(self, self->fB8);

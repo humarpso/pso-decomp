@@ -217,7 +217,7 @@ u8 *__dt__21TWindowSubAreaMapDispFv(u8 *arg0, s16 arg1) {
         TWindowSubStatusDisp::destroy_status_display(*(s32 *)&((TWindowSubAreaMapDisp *)arg0)->m_70, 1);
         ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *) (arg0));
+            __dl__7TObjectFPv(arg0);
         }
     }
     return arg0;
@@ -241,13 +241,13 @@ u8 *TWindowSubAreaMapDisp__ct(u8 *arg0) {
     } else {
         var_r30 = (u8 *)(get_floor_destination_name(TOKeyMachine01::get_global_state()));
     }
-    temp_r3 = measure_string_len__20TWindowSubStatusDispFv((int) (var_r30));
+    temp_r3 = measure_string_len__20TWindowSubStatusDispFv((int)var_r30);
     *(s32 *)&((TWindowSubAreaMapDisp *)arg0)->m_74 = (s32)mem_alloc((temp_r3 + 1));
-    strncpy((int) (*(s32 *)&((TWindowSubAreaMapDisp *)arg0)->m_74), (int) (var_r30), (void *) (temp_r3 + 1));
+    strncpy((int) (*(s32 *)&((TWindowSubAreaMapDisp *)arg0)->m_74), (int)var_r30, (void *) (temp_r3 + 1));
     temp_r3_2 = ((TAdSinglePlyChrSelectGC *)((void *)0x24))->alloc();
     var_r0 = temp_r3_2;
     if (var_r0 != 0) {
-        var_r0 = construct_type1_heading__20TWindowSubStatusDispFll((int) (temp_r3_2), (int) (*(s32 *)&((TWindowSubAreaMapDisp *)arg0)->m_74), (int) ((s32) ((TWindowSubAreaMapDisp *)arg0)->m_20));
+        var_r0 = construct_type1_heading__20TWindowSubStatusDispFll(temp_r3_2, (int) (*(s32 *)&((TWindowSubAreaMapDisp *)arg0)->m_74), (int) ((s32) ((TWindowSubAreaMapDisp *)arg0)->m_20));
     }
     *(s32 *)&((TWindowSubAreaMapDisp *)arg0)->m_70 = var_r0;
     *(s32 *)&((TWindowSubAreaMapDisp *)arg0)->m_6c = 0;

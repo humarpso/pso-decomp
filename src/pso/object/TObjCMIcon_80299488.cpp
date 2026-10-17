@@ -77,7 +77,7 @@ void TObjCMIcon__sub_802994C8(s32 arg0, s32 *arg1) {
     s32 i;
     TObjCMIcon::reset_icon_flags();
     for (i = 0; i < arg0; i++) {
-        TObjCMIcon__sub_802994B0((s32)(arg1[i]));
+        TObjCMIcon__sub_802994B0(arg1[i]);
     }
 }
 
@@ -87,9 +87,9 @@ void TObjCMIcon::init_icon_table() {
     var_r29 = 0;
     var_r30 = (s32 *)(&(*(RecoveredGlobal_8029951C_TObjCMIcon__data_805409E0 *)&TObjCMIcon__icon_entries).value);
     do {
-        TObjCMIcon__sub_8029957C((void*)((int) (var_r30)), (void*)((void *) (&lbl_8046518C.value)));
+        TObjCMIcon__sub_8029957C((void*)((int)var_r30), (void*)((void *) (&lbl_8046518C.value)));
         var_r29 += 1;
-        var_r30 = (s32 *)((u8 *)((s32 *)((u8 *)(var_r30) + 0xC)));
+        var_r30 = (s32 *)((u8 *)((s32 *)((u8 *)var_r30 + 0xC)));
     } while (var_r29 < 7);
     TObjCMIcon__horizontal_scroll_offset = 0.0f;
 }

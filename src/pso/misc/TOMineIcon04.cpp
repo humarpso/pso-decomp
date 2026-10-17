@@ -295,7 +295,7 @@ void TOMineIcon04::vfunc_80() {
 void *TOMineIcon04::create() {
     void *o = __nw__7TObjectFUl(0x37C);
     if (o != NULL) {
-        o = TOMineIcon04__ct((void *)(o), (void *)(tl_05), (void *)(this));
+        o = TOMineIcon04__ct(o, tl_05, this);
     }
     return o;
 }

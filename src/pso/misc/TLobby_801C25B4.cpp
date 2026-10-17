@@ -305,7 +305,7 @@ void send_battle_mode_state__6TLobbyFPv(void *self) {
 }
 
 void set_flag_270__6TLobbyFPv(void *arg0) {
-    send_battle_mode_state__6TLobbyFPv((void *)(arg0));
+    send_battle_mode_state__6TLobbyFPv(arg0);
     *(s32 *)((s8 *)arg0 + 0x270) = 1;
 }
 void show_score_results__6TLobbyFPv(void *self) {
@@ -1254,12 +1254,12 @@ void init_battle_ctrl__6TLobbyFii(s32 arg0, s32 arg1) {
     if ((u32) (*(u32 *)&TLobby__battle_mode_data_ptr) == 0U) {
         var_r3 = __nw__7TObjectFUl(0x278);
         if (var_r3 != 0U) {
-            var_r3 = ((u32)TPlayerBattleCtrl__ct((void *)(var_r3), (s32)(tl_00)));
+            var_r3 = ((u32)TPlayerBattleCtrl__ct((void *)var_r3, (s32)tl_00));
         }
         (*(u32 *)&TLobby__battle_mode_data_ptr) = var_r3;
     }
     if ((u32) (*(u32 *)&TLobby__battle_mode_data_ptr) != 0U) {
-        strncpy((void *)((*(u32 *)&TLobby__battle_mode_data_ptr) + 0x68), (void *)(arg1), 0x200);
+        strncpy((void *)((*(u32 *)&TLobby__battle_mode_data_ptr) + 0x68), (void *)arg1, 0x200);
         TLobby__battle_config_ptr = arg0;
     }
 }
@@ -1358,29 +1358,29 @@ void apply_game_settings__6TLobbyFii(s32 arg0, s32 arg1) {
     ((TLobby *)lobby_rule_settings)->reset_settings_to_default();
     if (arg1 != 0) {
         s32 flag;
-        set_validated_field_0x1__6TLobbyFPvUc((void *) (lobby_rule_settings), CFG->b[0]);
-        set_field_2__6TLobbyFPvUc((void *) (lobby_rule_settings), CFG->b[1]);
-        set_field_3__6TLobbyFPvUc((void *) (lobby_rule_settings), CFG->b[2]);
-        set_clamped_field_4__6TLobbyFPvUc((void *) (lobby_rule_settings), CFG->b[3]);
-        set_field_5__6TLobbyFPvUc((void *) (lobby_rule_settings), CFG->b[4]);
-        set_field_0x6__6TLobbyFPvUc((void *) (lobby_rule_settings), CFG->b[5]);
-        set_field7_clamped__6TLobbyFPvUc((void *) (lobby_rule_settings), CFG->b[6]);
-        set_difficulty__6TLobbyFPvUc((void *) (lobby_rule_settings), CFG->b[7]);
-        set_byte9_clamped__6TLobbyFPvUc((void *) (lobby_rule_settings), CFG->b[8]);
-        set_field_b__6TLobbyFPvUc((void *) (lobby_rule_settings), CFG->b[0xA]);
-        set_clamped_field_c__6TLobbyFPvUc((void *) (lobby_rule_settings), CFG->b[0xB]);
-        fn_801D72B0((void *) (lobby_rule_settings), CFG->c);
+        set_validated_field_0x1__6TLobbyFPvUc(lobby_rule_settings, CFG->b[0]);
+        set_field_2__6TLobbyFPvUc(lobby_rule_settings, CFG->b[1]);
+        set_field_3__6TLobbyFPvUc(lobby_rule_settings, CFG->b[2]);
+        set_clamped_field_4__6TLobbyFPvUc(lobby_rule_settings, CFG->b[3]);
+        set_field_5__6TLobbyFPvUc(lobby_rule_settings, CFG->b[4]);
+        set_field_0x6__6TLobbyFPvUc(lobby_rule_settings, CFG->b[5]);
+        set_field7_clamped__6TLobbyFPvUc(lobby_rule_settings, CFG->b[6]);
+        set_difficulty__6TLobbyFPvUc(lobby_rule_settings, CFG->b[7]);
+        set_byte9_clamped__6TLobbyFPvUc(lobby_rule_settings, CFG->b[8]);
+        set_field_b__6TLobbyFPvUc(lobby_rule_settings, CFG->b[0xA]);
+        set_clamped_field_c__6TLobbyFPvUc(lobby_rule_settings, CFG->b[0xB]);
+        fn_801D72B0(lobby_rule_settings, CFG->c);
         for (s32 i = 0; i < 4; i++) {
-            fn_801D6D8C((void *) (lobby_rule_settings), CFG->b[i + 0xD], i);
+            fn_801D6D8C(lobby_rule_settings, CFG->b[i + 0xD], i);
         }
-        set_field_d__6TLobbyFPvUc((void *) (lobby_rule_settings), CFG->d11);
+        set_field_d__6TLobbyFPvUc(lobby_rule_settings, CFG->d11);
         ((TObjPlayer *)lobby_rule_settings)->set_level(CFG->lvl);
-        set_field_0xE__6TLobbyFPvUc((void *) (lobby_rule_settings), CFG->d13);
+        set_field_0xE__6TLobbyFPvUc(lobby_rule_settings, CFG->d13);
         ((TLobby *)lobby_rule_settings)->set_volume((u8) CFG->vol);
         ((TLobby *)lobby_rule_settings)->set_validated_field_0x11((u8) CFG->v1c);
         ((TLobby *)lobby_rule_settings)->set_clamped_index((s16) CFG->v20);
         ((TLobby *)lobby_rule_settings)->set_clamped_value_1c(CFG->v24);
-        fn_801D726C((void *) (lobby_rule_settings), (u8) CFG->v28);
+        fn_801D726C(lobby_rule_settings, (u8) CFG->v28);
         flag = 0;
         if ((s32) CFG->b[9] == 1 && TLobby::get_game_mode() == 4) {
             s32 toggle = 1;
@@ -1400,7 +1400,7 @@ void apply_game_settings__6TLobbyFii(s32 arg0, s32 arg1) {
             }
             flag = 1;
         }
-        set_field_a__6TLobbyFPvUc((void *) (lobby_rule_settings), (u8) (flag != 0));
+        set_field_a__6TLobbyFPvUc(lobby_rule_settings, (u8) (flag != 0));
         for (s32 i = 0; i < 4; i++) {
             u32 p = player_slot_table[i];
             if (p != 0U) {
@@ -1416,7 +1416,7 @@ void apply_game_settings__6TLobbyFii(s32 arg0, s32 arg1) {
                 ((TLobby *)(p + 0x79C))->set_pos_z(lbl_805D5DC8);
             }
         }
-        set_section_id__6TLobbyFPvUc((void *) (lobby_rule_settings), 1);
+        set_section_id__6TLobbyFPvUc(lobby_rule_settings, 1);
     }
     if (((u32 (*)(void))update_battle_controller__10TObjPlayerFv)() != 0U) {
         TLobby::apply_battle_rules_to_players();
@@ -1782,7 +1782,7 @@ void update_battle_intro__6TLobbyFPv(Lobby_801C49B8 *self) {
         if (check_all_players_ready__6TLobbyFv(self) != 0 || self->timer2 <= 0) {
             void *o = (void *)__nw__7TObjectFUl(0x28);
             if (o != NULL) {
-                __ct__15TDuelEffectCtrlFP7TObjectUc((void *)(o), (void *)(self), 0);
+                __ct__15TDuelEffectCtrlFP7TObjectUc(o, self, 0);
             }
             self->timer = 0x96;
             self->state = 8;
@@ -1838,22 +1838,22 @@ void update_player_battle_ctrl_state(void *arg0) {
     temp_r0 = *(u32 *)((s8 *)arg0 + 0x1C);
     switch (temp_r0) {
     case 0:
-        fn_801C4CE0((void *)((void *) (arg0)));
+        fn_801C4CE0((void *)(arg0));
         return;
     case 1:
-        update_battle_intro__6TLobbyFPv((void *) (arg0));
+        update_battle_intro__6TLobbyFPv(arg0);
         return;
     case 2:
-        update_timed_wait__6TLobbyFPv((void *) (arg0));
+        update_timed_wait__6TLobbyFPv(arg0);
         return;
     case 3:
-        update_duel_result__6TLobbyFPv((void *) (arg0));
+        update_duel_result__6TLobbyFPv(arg0);
         return;
     case 4:
         end_battle_mode_cleanup__6TLobbyFPv((arg0));
         return;
     case 5:
-        TLobby__sub_801C3AF4((void *) (arg0));
+        TLobby__sub_801C3AF4(arg0);
         return;
     case 6:
         TLobby__sub_801C38E8((arg0));

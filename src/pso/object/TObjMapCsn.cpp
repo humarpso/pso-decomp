@@ -151,7 +151,7 @@ s32 TObjMapCsn::create(s32 arg0) {
 
     var_r31 = __nw__7TObjectFUl(0x254);
     if (var_r31 != 0) {
-        var_r31 = ((s32)TObjMapCsn__ct((u8 *)(var_r31), (s32)(TObjMapCsn::get_map_count()), (s32)(arg0)));
+        var_r31 = ((s32)TObjMapCsn__ct((u8 *)var_r31, (s32)(TObjMapCsn::get_map_count()), (s32)arg0));
     }
     return var_r31;
 }
@@ -159,11 +159,11 @@ u8 *__dt__10TObjMapCsnFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__10TObjMapCsn.value;
         if (((u32)TObjMapCsn::get_map_count()) != 0U) {
-            fn_80140DFC((((u32)TObjMapCsn::get_map_count())), (s32)(arg0));
+            fn_80140DFC((((u32)TObjMapCsn::get_map_count())), (s32)arg0);
         }
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *) (arg0));
+            __dl__7TObjectFPv(arg0);
         }
     }
     return arg0;
@@ -189,7 +189,7 @@ u8 *TObjMapCsn__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjMapCsn *)arg0)->m_bc = (f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0));
     *(s32 *)&((TObjMapCsn *)arg0)->m_c0 = (s32) *(s32 *)((s8 *)arg0 + 0x88);
     if (((u32)TObjMapCsn::get_map_count()) != 0U) {
-        fn_80140EA8((((u32)TObjMapCsn::get_map_count())), (s32)(arg0));
+        fn_80140EA8((((u32)TObjMapCsn::get_map_count())), (s32)arg0);
     }
     return arg0;
 }

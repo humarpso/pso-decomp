@@ -469,7 +469,7 @@ void TContainerAncient01R::update_spawning() {
   if (TContainerAncient01__data_805DBD34 <= (this->m_2b4))
   {
     this->mode = 2;
-    this->m_b8 = (s16) (this->mode);
+    this->m_b8 = this->mode;
     this->m_2b4 = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD1C);
   }
 }
@@ -545,8 +545,8 @@ void TContainerAncient01R::open_container() {
     if (arg0->f360 == 0) {
         arg0->f360 = 1;
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
-        TContainerAncient01::trigger_spawn((void *)(arg0), (void *)(arg0->pos), (void *)(TContainerAncient01__open_effect_table[0]));
-        TContainerAncient01::trigger_spawn((void *)(arg0), (void *)(arg0->pos), (void *)(TContainerAncient01__open_effect_table[1]));
+        TContainerAncient01::trigger_spawn((void *)arg0, (void *)arg0->pos, (void *)TContainerAncient01__open_effect_table[0]);
+        TContainerAncient01::trigger_spawn((void *)arg0, (void *)arg0->pos, (void *)TContainerAncient01__open_effect_table[1]);
         if (TContainerAncient01::is_global_state_in_table() == 0) {
             ((TUnk_804806E8 *)arg0)->request_box_item_drop(arg0->pos, 1);
         }
@@ -585,7 +585,7 @@ int TContainerAncient01R::calc_distance_accuracy_penalty(void *, void *, void *,
 extern const f32 lbl_805DBD4C;
 
 s32 is_within_range__19TContainerAncient01Fii(s32 arg0, s32 arg1) {
-    return xyz_distance_squared((void *) (arg1 + 0x38), (void *) (arg0 + 0x38), (void *) (arg0)) < TContainerAncient01__data_805DBD44;
+    return xyz_distance_squared((void *) (arg1 + 0x38), (void *) (arg0 + 0x38), (void *)arg0) < TContainerAncient01__data_805DBD44;
 }
 
 void TContainerAncient01R::render() {
@@ -633,7 +633,7 @@ void TContainerAncient01R::run_task() {
             }
             temp_f1 = this->m_2b4;
             this->m_2b4 = (f32) (temp_f1 + (*(const f32 *)&TContainerAncient01__data_805DBD10));
-            submit_cursor_candidate((void *) (arg0), -1, (f32) (temp_f1));
+            submit_cursor_candidate(arg0, -1, temp_f1);
         } else {
             temp_f1_2 = this->m_368;
             if (temp_f1_2 <= lbl_805DBD50) {
@@ -646,13 +646,13 @@ void TContainerAncient01R::run_task() {
             }
         }
     }
-    if ((u32) this->unknownF8 == get_bml_motion((int) (TContainerAncient01R__bml_resource), 0)) {
-        *(s32 *)&this->model = get_bml_model((int) (TContainerAncient01R__bml_resource), 0);
+    if ((u32) this->unknownF8 == get_bml_motion(TContainerAncient01R__bml_resource, 0)) {
+        *(s32 *)&this->model = get_bml_model(TContainerAncient01R__bml_resource, 0);
     }
-    if ((u32) this->unknownF8 == get_bml_motion((int) (TContainerAncient01R__bml_resource), 1)) {
-        *(s32 *)&this->model = get_bml_model((int) (TContainerAncient01R__bml_resource), 1);
+    if ((u32) this->unknownF8 == get_bml_motion(TContainerAncient01R__bml_resource, 1)) {
+        *(s32 *)&this->model = get_bml_model(TContainerAncient01R__bml_resource, 1);
     }
-    run_task__7TObjectFv((void *) (arg0));
+    run_task__7TObjectFv(arg0);
 }
 
 extern void *tl_05;
@@ -698,7 +698,7 @@ void *TContainerAncient01R__ct(Obj_8018B030 *self, void *arg1, void *parent) {
     self->x34 = get_bml_model(TContainerAncient01R__bml_resource, 0);
     self->x24 = TObjFish__sub_8001EDB0(TContainerAncient01R__bml_resource, 0);
     self->animTbl = (void *)TContainerAncient01__anim_table;
-    ((TObjPlayer *)self)->set_field_d8((s32)(self->animTbl));
+    ((TObjPlayer *)self)->set_field_d8((s32)self->animTbl);
     self->xdc = ((Res_8018B030 *)TContainerAncient01R__bml_resource)->x430;
     self->anim = 0;
     set_animation__10TObjPlayerFPvs(self, self->anim);
@@ -790,12 +790,12 @@ void TContainerAncient01::sub_8018B48C() {
   advance_animation_playback(arg0);
   if (((__cvt_fp2unsigned(this->m_2b4) & 0xFFFFFFFF) % 15) == 0)
   {
-    TContainerAncient01::spawn_effect((void*)(arg0), (void*)(arg0 + 0x344), (void*)((void *) 0x7D));
+    TContainerAncient01::spawn_effect(arg0, (void*)(arg0 + 0x344), (void*)((void *) 0x7D));
   }
   if (TContainerAncient01__data_805DBD34 <= (this->m_2b4))
   {
     this->mode = 2;
-    this->m_b8 = (s16) (this->mode);
+    this->m_b8 = this->mode;
     this->m_2b4 = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD1C);
   }
 }
@@ -861,8 +861,8 @@ void TContainerAncient01::sub_8018B700() {
     if (arg0->f35C == 0) {
         arg0->f35C = 1;
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
-        TContainerAncient01::spawn_effect((void*)(arg0), (void*)(arg0->pos), (void*)(TContainerAncient01__effect_id_table[0]));
-        TContainerAncient01::spawn_effect((void*)(arg0), (void*)(arg0->pos), (void*)(TContainerAncient01__effect_id_table[1]));
+        TContainerAncient01::spawn_effect((void*)arg0, (void*)arg0->pos, (void*)TContainerAncient01__effect_id_table[0]);
+        TContainerAncient01::spawn_effect((void*)arg0, (void*)arg0->pos, (void*)TContainerAncient01__effect_id_table[1]);
         if (TContainerAncient01::is_global_state_in_table() == 0) {
             ((TUnk_804806E8 *)arg0)->request_box_item_drop(arg0->pos, 1);
         }

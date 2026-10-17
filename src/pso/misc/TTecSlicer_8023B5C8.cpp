@@ -320,10 +320,10 @@ s32 TTecSlicer::create(u16 *arg0) {
         if (player != NULL) {
             var_r0 = ((s32)__nw__7TObjectFUl(0x140));
             if (var_r0 != 0) {
-                var_r0 = TTecSlicer__ct((void *)((void *)var_r0), (void *)((void *)arg0), (void *)((void *)player), (void *)((void *) ((u8 *)(player) + 0x38)), (int)((int) (*(s32 *)((s8 *)player + 0x60))));
+                var_r0 = TTecSlicer__ct((void *)((void *)var_r0), (void *)((void *)arg0), (void *)((void *)player), (void *)((void *) (player + 0x38)), (int)((int) (*(s32 *)((s8 *)player + 0x60))));
             }
             var_r31 = var_r0;
-            TItemAttacker::spawn_item_timer((s32)((int) (var_r0)), (s32)((void *) (&destroy_if_set__10TTecSlicerFv)), 0x5A);
+            TItemAttacker::spawn_item_timer((s32)(var_r0), (s32)((void *) (&destroy_if_set__10TTecSlicerFv)), 0x5A);
         }
     }
     return var_r31;
@@ -367,7 +367,7 @@ void run_task__10TTecSlicerFv(u8 *arg0) {
     *(u32 *)((s8 *)arg0 + 0x10C) = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x114));
     *(u32 *)((s8 *)arg0 + 0x108) = query_game_join_id__10TObjPlayerFv(*(s32 *)&((TTecSlicer *)arg0)->weaponHandle);
     if (((u32) *(u32 *)((s8 *)arg0 + 0x108) == 0U) || ((u32) *(u32 *)((s8 *)arg0 + 0x10C) == 0U)) {
-        queue_destruction__7TObjectFv((s32)((void *)(arg0)));
+        queue_destruction__7TObjectFv((s32)(arg0));
         return;
     }
     allow_rendering__7TObjectFv(arg0);
@@ -388,12 +388,12 @@ void run_task__10TTecSlicerFv(u8 *arg0) {
         copy_position__15TEffStarLight2DFPv(*(void * *)&((TTecSlicer *)arg0)->star, arg0 + 0x38);
     }
     if (test_flags_any(arg0 + 0xC0, 2) != 0) {
-        queue_destruction__7TObjectFv((s32)((void *)(arg0)));
+        queue_destruction__7TObjectFv((s32)(arg0));
         return;
     }
     temp_r4 = *(s32 *)((s8 *)arg0 + 0x5C);
     *(s32 *)((s8 *)arg0 + 0x5C) = (s32) (temp_r4 + ((TTecSlicer *)arg0)->spinVelocity);
-    destroy_on_collision__10TTecSlicerFi((s32)(arg0), (s32)(temp_r4));
+    destroy_on_collision__10TTecSlicerFi((s32)arg0, (s32)temp_r4);
     *(u32 *)((s8 *)arg0 + 0x108) = 0U;
     *(u32 *)((s8 *)arg0 + 0x10C) = 0U;
 }

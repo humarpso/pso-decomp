@@ -206,12 +206,12 @@ s32 TLobby::setup_area() {
     if (TLobby::check_disconnect_conditions() != 0) {
         return 0;
     }
-    run_load_callback_table((s32 *)((void *) (lbl_804A7360)), 8);
+    run_load_callback_table((s32 *)(lbl_804A7360), 8);
     init_area_lights();
     TLobby::create_tasks();
     TLobby::create_boss2_tunnel();
     TLobby__sub_801403B4(0);
-    play_area_music((s32 *)((void *) (lbl_8043F1C8)));
+    play_area_music((s32 *)(lbl_8043F1C8));
     return 1;
 }
 

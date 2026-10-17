@@ -62,7 +62,7 @@ void TOGrassJungle::load_resources() {
     }
     (*(u8 * *)&TOGrassJungle__bml_resource) = (unsigned char *) ((void *) var_r0);
     (*(u8 * *)&TOGrassJungle__grass_gvm_texture) = load_gvm_texture_file((s32) &lbl_8046598C.value);
-    TMotorcycle::add_entry(0x3F, (int) (get_bml_model((*(u8 * *)&TOGrassJungle__bml_resource), 0)), (int) ((*(u8 * *)&TOGrassJungle__grass_gvm_texture)), (f32) (lbl_805DDD28), (f32) (lbl_805DDD2C));
+    TMotorcycle::add_entry(0x3F, (int) (get_bml_model((*(u8 * *)&TOGrassJungle__bml_resource), 0)), (int) ((*(u8 * *)&TOGrassJungle__grass_gvm_texture)), lbl_805DDD28, lbl_805DDD2C);
 }
 
 __declspec(section ".data") const char *bm_o_grass_jungle_model_names[3] = { lbl_80465938, lbl_80465950, NULL };

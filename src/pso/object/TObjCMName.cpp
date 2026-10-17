@@ -960,7 +960,7 @@ void TObjCMHairMenu::run_task() {
 void *TObjCMHairMenu::create() {
     void *o = __nw__7TObjectFUl(0x44);
     if (o != NULL) {
-        o = __ct__14TObjCMHairMenuFv((Hair_802964B0 *)(o), (void *)(this));
+        o = __ct__14TObjCMHairMenuFv((Hair_802964B0 *)(o), this);
     }
     return o;
 }
@@ -1378,7 +1378,7 @@ void * create__16TObjCMAssignMenuFPvPv(void *parent, void *kind) {
     void *o;
     o = __nw__7TObjectFUl(0x5C);
     if (o != NULL) {
-        o = __ct__16TObjCMAssignMenuFv((void *)(o), (void *)(parent), (void *)(kind));
+        o = __ct__16TObjCMAssignMenuFv(o, parent, kind);
     }
     return o;
 }
@@ -1590,7 +1590,7 @@ void TObjCMMainMenu::draw_root_menu() {
         base = 0.6f * sq;
         for (q = 0; q < m->count; q++) {
             flag = 0;
-            if (m->ids[q] == 9 && TObjCMMainMenu::validate_character_name((s8 *)(m->f1C)) == 0) {
+            if (m->ids[q] == 9 && TObjCMMainMenu::validate_character_name((s8 *)m->f1C) == 0) {
                 flag = 1;
             }
             r = flag;
@@ -1631,7 +1631,7 @@ void TObjCMMainMenu::sub_80297B18() {
     f32 s;
     f32 step;
     f32 y;
-    if (m->ids[m->sel] == 9 && TObjCMMainMenu::validate_character_name((s8 *)(m->f1C)) == 0) {
+    if (m->ids[m->sel] == 9 && TObjCMMainMenu::validate_character_name((s8 *)m->f1C) == 0) {
         color = ((u32)(TObjCMMainMenu__data_805DDB44 * (lbl_805DDA70 - lbl_805DDBA8 * fabs_float(sin_table_lookup(m->pulse << 10)))) << 24) | 0xFFFFFF;
         s = TObjCMMainMenu::get_scale();
         step = lbl_805DDBAC * s;
@@ -1648,7 +1648,7 @@ void TObjCMMainMenu::sub_80297B18() {
     switch (TObjCMMainMenu__data_805D659C) {
     case 0:
         if (is_active__23TAdSinglePlyChrSelectGCFv() != 0) {
-            if (m->ids[m->sel] == 9 && TObjCMMainMenu::validate_character_name((s8 *)(m->f1C)) == 0) {
+            if (m->ids[m->sel] == 9 && TObjCMMainMenu::validate_character_name((s8 *)m->f1C) == 0) {
                 v14 = lbl_805DDA5C;
                 TObjCMIcon__sub_802994C8(1, &v14);
             } else if (((s8 *)m->f1C)[0x30] == -1) {
@@ -1741,7 +1741,7 @@ void TObjCMMainMenu::run_task() {
     };
     (this->*table[TObjCMMainMenu__data_805D659C])();
     TObjCMMainMenu__selected_entry_id = this->entries[this->selected_entry];
-    TObjCMMainMenu::update_random_proportion_action((void *)(this));
+    TObjCMMainMenu::update_random_proportion_action(this);
     ((void (*)(void *))TObjCMMainMenu__sub_80298310)(this);
     switch (TObjCMMainMenu__data_805D659C) {
     case 4:
@@ -2012,7 +2012,7 @@ extern "C" {
 void *TObjCMMainMenu::create() {
     void *o = __nw__7TObjectFUl(0x58);
     if (o != NULL) {
-        o = TObjCMMainMenu__ct((void *)(o), (void *)(this));
+        o = TObjCMMainMenu__ct(o, this);
     }
     return o;
 }

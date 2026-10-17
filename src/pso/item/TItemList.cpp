@@ -27,7 +27,7 @@ void* reset_position__9TItemListFPv(void* a0);
 s32 check_value_equals__13TQuestColCtrlFPll(s32, s32);
 
 void TItemList__sub_801D59DC(void* p) { *(s32*)((char*)p + 0x0) = 2; }
-void decrement_placement_search_pending(void* p, void* a1) { TItemList__sub_801D5A0C((s32 *)((void*)(a1))); }
+void decrement_placement_search_pending(void* p, void* a1) { TItemList__sub_801D5A0C((s32 *)(a1)); }
 
 void TItemList__sub_801D5A0C(s32 *arg0) {
     s32 temp_r0;
@@ -48,7 +48,7 @@ extern s32 TItemList__name;
 
 void TUnk_804C4480::sub_801D5A70() {
     u8 *arg0 = (u8 *)this;
-    copy_position__9TItemListFPv(TItemList__sub_801D598C(*(s32 *)(arg0 + 0x54), ((s8)((TItemList *)arg0)->get_item_count())), ((s32)get_ptr_0x44__9TItemListFPv((void*)(arg0))));
+    copy_position__9TItemListFPv(TItemList__sub_801D598C(*(s32 *)(arg0 + 0x54), ((s8)((TItemList *)arg0)->get_item_count())), ((s32)get_ptr_0x44__9TItemListFPv(arg0)));
 }
 
 u8 TItemList::is_item_valid(s32 arg0) {
@@ -66,7 +66,7 @@ extern s32 lbl_804C445C[];
 void *TItemList__sub_801D5B10(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x24) = lbl_804C445C;
-        __dt__9TItemListFPvs((void *)((void *)(arg0)), (s16)((s16)(0)));
+        __dt__9TItemListFPvs((void *)(arg0), (s16)((s16)(0)));
         if (arg1 > 0) {
             ::operator delete(arg0);
         }
@@ -107,7 +107,7 @@ void *TItemList::init_items() {
 }
 
 void *TItemList::init_array() {
-    TItemList__sub_801D5CF8((u8 *)(this));
+    TItemList__sub_801D5CF8((u8 *)this);
     *(s32 **)((s8 *)this + 0x24) = lbl_804C4450;
     __construct_array((void *)((char *)this + 40), (s32 *)reset_position__9TItemListFPv, 0, 16, 8);
     return this;

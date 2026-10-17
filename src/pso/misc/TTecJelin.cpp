@@ -173,7 +173,7 @@ void TTecJelin::create(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 obj;
     obj = __nw__7TObjectFUl(0x14C);
     if (obj != 0U) {
-        construct__9TTecJelinFPviiii((Jelin_80233958 *)(obj), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3));
+        construct__9TTecJelinFPviiii((Jelin_80233958 *)(obj), arg0, arg1, arg2, arg3);
     }
 }
 void TTecJelin::render() {  }

@@ -80,7 +80,7 @@ void TOLightMachine01::render() {
 void *TOLightMachine01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xB0);
     if (o != NULL) {
-        o = TOLightMachine01__ct((u8 *)(o), (s32)(arg0));
+        o = TOLightMachine01__ct((u8 *)o, (s32)arg0);
     }
     return o;
 }
@@ -118,7 +118,7 @@ void *__dt__16TOLightMachine01Fv(void *arg0, s16 arg1) {
 #pragma push
 #pragma fp_contract on
 u8 *TOLightMachine01__ct(u8 *arg0, s32 arg1) {
-    construct_world_actor_base((void *) (arg0), (int) (tl_05));
+    construct_world_actor_base(arg0, tl_05);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016EC04___vt__16TOLightMachine01 *)&__vt__16TOLightMachine01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOLightMachine01__name;
     ((TOLightMachine01 *)(arg0))->apply_object_set_data((void *)arg1);

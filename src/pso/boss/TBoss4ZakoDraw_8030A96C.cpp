@@ -186,9 +186,9 @@ void TCameraCtrl__sub_8030ABF4(void) {
         var_r3 = (s32 *)(&TCameraCtrl__data_804FF634.value);
         var_r31 = (u8 *)(&TCameraCtrl__data_804FF634.value) + 0x30;
         if (is_split_screen() == 0) {
-            var_r4 = (u8 *)(var_r31);
+            var_r4 = var_r31;
             var_r3 = (s32 *)((u8 *)((s32 *)2));
-            set_viewport_scissor__11TCameraCtrlFiPv(2, (int) (var_r4));
+            set_viewport_scissor__11TCameraCtrlFiPv(2, (int)var_r4);
         }
         var_r4 = (u8 *)((void *)8);
         var_r3 = (s32 *)(*(s32 **)((s8 *)(get_bml_model(TBoss4Uro::get_instance_count(), 8)) + 0x2C));

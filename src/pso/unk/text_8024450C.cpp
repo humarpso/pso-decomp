@@ -23,7 +23,7 @@ void fn_8024450C(s32 arg0) {
     var_r3 = var_r30;
     var_r5 = TWindowSubComCard__sub_80244774();
     var_r4 = var_r31;
-    ((TWindowSubStatusDisp *)var_r3)->set_count_ratio_text((int) (var_r4), (int) (var_r5));
+    ((TWindowSubStatusDisp *)var_r3)->set_count_ratio_text(var_r4, var_r5);
 }
 #pragma push
 #pragma fp_contract on
@@ -34,8 +34,8 @@ s32 create_area_window(s32 arg0) {
     if (var_r30 != 0) {
         var_r30 = TWindowArea__ct();
     }
-    ((TWindowSubStatusDisp *)var_r30)->set_entry_display_value((s32)((void *) (arg0)));
-    fn_802449E0((u8 *)(var_r30));
+    ((TWindowSubStatusDisp *)var_r30)->set_entry_display_value((s32)(arg0));
+    fn_802449E0((u8 *)var_r30);
     temp_r31 = (u8 *)(get_title_entry__11TWindowRoomFv(var_r30));
     *(f32 *)((s8 *)temp_r31 + 8) = (f32) -((lbl_805DCAC0 * (f32) calc_text_width((char *)(arg0))) - lbl_805DCABC);
     return var_r30;

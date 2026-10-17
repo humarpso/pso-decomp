@@ -543,7 +543,7 @@ void TObjEneIllGill::update_ai() {
             d = update_angle__10TObjPlayerFlPv(o, (void *)(s32)(lbl_805E02B8 * (f32)o->param->turn), &v);
             if (d < ((TObjPlayer *)(o->f318))->get_field_0c()) {
                 s32 ang = (s32)(TObjEneIllGill__data_8047A348 * atan2_float(v.x, v.z));
-                o->f3ac = TObjEneIllGill__data_805E02C0 + (newton_sqrtf(TObjPlayer::calc_distance_to_client((s32)o, (u16)(o->f338), (u32)0)) + get_collision_body_radius(o, 0));
+                o->f3ac = TObjEneIllGill__data_805E02C0 + (newton_sqrtf(TObjPlayer::calc_distance_to_client((s32)o, o->f338, (u32)0)) + get_collision_body_radius(o, 0));
                 if (o->f3ac < lbl_805E02C4) {
                     o->f3ac = lbl_805E02C4;
                 }
@@ -586,7 +586,7 @@ void TObjEneIllGill::update_ai() {
             d = update_angle__10TObjPlayerFlPv(o, (void *)(s32)(lbl_805E02B8 * (f32)o->param->turn), &v);
             if (d < ((TObjPlayer *)(o->f318))->get_field_0c()) {
                 s32 ang = (s32)(TObjEneIllGill__data_8047A348 * atan2_float(v.x, v.z));
-                o->f3ac = TObjEneIllGill__data_805E02C0 + (newton_sqrtf(TObjPlayer::calc_distance_to_client((s32)o, (u16)(o->f338), (u32)0)) + get_collision_body_radius(o, 0));
+                o->f3ac = TObjEneIllGill__data_805E02C0 + (newton_sqrtf(TObjPlayer::calc_distance_to_client((s32)o, o->f338, (u32)0)) + get_collision_body_radius(o, 0));
                 if (o->f3ac < lbl_805E02C4) {
                     o->f3ac = lbl_805E02C4;
                 }
@@ -971,9 +971,9 @@ void TObjEneIllGill::vfunc_62() {
 void TObjEneIllGill__sub_803669B0(u8 *arg0) {
     s32 temp_r3;
     ((TUnk_804B9870 *)arg0)->obj_clearFlags30((int)(0x04040000U));
-    advance_animation_playback((void *)((void *) (arg0)));
+    advance_animation_playback((void *)(arg0));
     if (!(*(s32 *)((s8 *)arg0 + 0x30) & 0x800000)) {
-        apply_actor_gravity((void *) (arg0), 0, (f32) ((*(f32 *)&TObjEneIllGill__data_805E02BC)));
+        apply_actor_gravity(arg0, 0, (f32) ((*(f32 *)&TObjEneIllGill__data_805E02BC)));
     }
     ((TObjPlayer *)arg0)->update_collisions();
     temp_r3 = *(s32 *)((s8 *)arg0 + 0x39C);
@@ -1046,7 +1046,7 @@ void TObjEneIllGill__sub_80366AE4(u8 *actor) {
     }
     ((TUnk_804B9870 *)actor)->obj_clearFlags30(0x04040000);
     *(f32 *)((s8 *)actor + 0xC8) = *(f32 *)((s8 *)TObjEneIllGill__data_805D6FDC + 4) * (*(Rec_80366AE4 **)((s8 *)actor + 0xD8))[*(s16 *)((s8 *)actor + 0xB8)].f8;
-    advance_animation_playback((void *) (actor));
+    advance_animation_playback(actor);
     temp_r0 = *(s16 *)((s8 *)actor + 0x328);
     switch (temp_r0) {
     default:
@@ -1059,14 +1059,14 @@ void TObjEneIllGill__sub_80366AE4(u8 *actor) {
         } else {
             Vec3_80366AE4 v = *(Vec3_80366AE4 *)((s8 *)temp_r6 + 0x2FC);
             subtract_vector(&v, actor + 0x2FC);
-            temp_r30_2 = update_angle__10TObjPlayerFlPv((void *) (actor), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)actor + 0x350)) + 8)), (void *) (&v));
-            apply_actor_gravity((void *) (actor), 0, (f32) (TObjEneIllGill__data_805E02BC));
+            temp_r30_2 = update_angle__10TObjPlayerFlPv(actor, (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)actor + 0x350)) + 8)), (void *) (&v));
+            apply_actor_gravity(actor, 0, TObjEneIllGill__data_805E02BC);
             if (temp_r30_2 < ((TObjPlayer *)(*(s32 *)((s8 *)actor + 0x318)))->get_field_0c()) {
                 *(s16 *)((s8 *)actor + 0x328) = 2;
                 temp_f1_2 = *(f32 *)((s8 *)actor + 0x358);
                 if (TObjEneIllGill__data_805E02BC == temp_f1_2) {
-                    if (calc_boss4_scale__10TObjPlayerFi((s32)(actor)) > lbl_805E02EC) {
-                        if (calc_boss4_scale__10TObjPlayerFi((s32)(actor)) > lbl_805E02E0) {
+                    if (calc_boss4_scale__10TObjPlayerFi((s32)actor) > lbl_805E02EC) {
+                        if (calc_boss4_scale__10TObjPlayerFi((s32)actor) > lbl_805E02E0) {
                             *(s32 *)((s8 *)actor + 0x398) = 1;
                         } else {
                             *(s32 *)((s8 *)actor + 0x398) = 2;
@@ -1123,8 +1123,8 @@ void TObjEneIllGill__sub_80366AE4(u8 *actor) {
         }
         break;
     case 2:
-        apply_actor_gravity((void *) (actor), 0, (f32) (TObjEneIllGill__data_805E02BC));
-        if (objInBand((GameObj *)(actor), (f32) (TObjEneIllGill__data_805E02DC)) != 0) {
+        apply_actor_gravity(actor, 0, TObjEneIllGill__data_805E02BC);
+        if (objInBand((GameObj *)(actor), TObjEneIllGill__data_805E02DC) != 0) {
             play_sound_effect(0x4003A353, (void *) (actor + 0x38), 0, 0);
         }
         if (objInBand((GameObj *)(actor), (f32)((f32) *(s32 *)((s8 *)actor + 0x3A4))) != 0) {
@@ -1187,7 +1187,7 @@ void TObjEneIllGill__sub_80366AE4(u8 *actor) {
         }
         break;
     case 3:
-        apply_actor_gravity((void *) (actor), 0, (f32) (TObjEneIllGill__data_805E02BC));
+        apply_actor_gravity(actor, 0, TObjEneIllGill__data_805E02BC);
         *(s32 *)((s8 *)actor + 0x39C) = (s32) (*(s32 *)((s8 *)actor + 0x39C) - 1);
         if ((s32) *(s32 *)((s8 *)actor + 0x39C) < 0) {
             *(s32 *)((s8 *)actor + 0x30) = (s32) (*(s32 *)((s8 *)actor + 0x30) & 0xFFDFFFFF);
@@ -1406,17 +1406,17 @@ void TObjEneIllGill::run_attack_phase() {
     s16 temp_r0;
     u8 *temp_r4;
 
-    advance_animation_playback((void *)(arg0));
+    advance_animation_playback(arg0);
     temp_r0 = this->phase;
     switch (temp_r0) {
     case 0:
-        obj_setFlags30((void *) (arg0), 0x04040000);
+        obj_setFlags30(arg0, 0x04040000);
         TObjEneMe3SinowZoa__sub_800D758C((void *) (arg0 + 0x374));
         ((TBoss3Volopt *)(arg0 + 0x38))->play_area_se_with_particle();
         this->phase = 1;
         break;
     case 1:
-        obj_setFlags30((void *) (arg0), 0x04040000);
+        obj_setFlags30(arg0, 0x04040000);
         if (((IllGillVObj_80367984_8036690C *) (arg0 + 0x374))->m5() == 1) {
             this->phase = 2;
             this->m_b8 = 1;
@@ -1431,14 +1431,14 @@ void TObjEneIllGill::run_attack_phase() {
         } else {
             *(f32 *)&this->m_300 = (f32) (*(f32 *)&this->m_300 + TObjEneIllGill__data_805E02DC);
             temp_r4 = (unsigned char *) (*(void * *)&this->movementParameters);
-            enemy_wander_home((arg0), (*(s32 *)((s8 *)temp_r4 + 8)), (f32) (lbl_805E02E8 * *(f32 *)((s8 *)temp_r4 + 4)), (f32) (lbl_805E02C4), (f32) (lbl_805E02FC));
+            enemy_wander_home((arg0), (*(s32 *)((s8 *)temp_r4 + 8)), (f32) (lbl_805E02E8 * *(f32 *)((s8 *)temp_r4 + 4)), lbl_805E02C4, lbl_805E02FC);
         }
         ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
         break;
     default:
         this->m_b8 = 0;
         if (!(*(s32 *)&this->actorFlags & 0x800000)) {
-            apply_actor_gravity((void *) (arg0), 0, (f32) (TObjEneIllGill__data_805E02BC));
+            apply_actor_gravity(arg0, 0, TObjEneIllGill__data_805E02BC);
         }
         break;
     }
@@ -1509,7 +1509,7 @@ void TObjEneIllGill::sub_80367DC8(s32 arg1) {
     *(f32 *)((s8 *)(&lbl_8050BF00.value) + 0) = (f32) TObjEneIllGill__data_805E02BC;
     *(f32 *)((s8 *)(&lbl_8050BF00.value) + 8) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x350)) + 4);
     push_matrix_from((void *) (&identity_matrix.value));
-    rotate_matrix_y(0, (void *) (arg1));
+    rotate_matrix_y(0, (void *)arg1);
     rotate_vector_by_matrix(0, (void *) (&lbl_8050BF00.value), (void *) (&lbl_8050BF00.value));
     pop_matrices(1);
     vec3_add_to((void *) (&lbl_8050BF00.value), (void *) (((u8 *)this) + 0x38));
@@ -1703,25 +1703,25 @@ void TObjEneIllGill::run_task() {
         run_attack_phase();
         break;
     case 1:
-        TObjEneIllGill__sub_80367860((u8 *)(o));
+        TObjEneIllGill__sub_80367860((u8 *)o);
         break;
     case 2:
-        TObjEneIllGill::update_chase_target((void *)(o));
+        TObjEneIllGill::update_chase_target(o);
         break;
     case 3:
-        TObjEneIllGill__sub_80366AE4((u8 *)(o));
+        TObjEneIllGill__sub_80366AE4((u8 *)o);
         break;
     case 4:
         update_ai();
         break;
     case 5:
-        TObjEneIllGill__sub_803660A4((void *)(o));
+        TObjEneIllGill__sub_803660A4(o);
         break;
     case 6:
         TObjEneIllGill__sub_803669B0((u8 *)o);
         break;
     case 7:
-        TObjEneIllGill__sub_803667B8((u8 *)(o));
+        TObjEneIllGill__sub_803667B8((u8 *)o);
         break;
     case 8:
         update_death_fall();
@@ -1749,7 +1749,7 @@ void *TObjEneIllGill::create() {
     }
     o2 = __nw__7TObjectFUl(0x420);
     if (o2 != NULL) {
-        o2 = TObjEneIllGill__ct((u8 *)(o2), (s32)(o), (u8 *)(this));
+        o2 = TObjEneIllGill__ct((u8 *)o2, (s32)o, (u8 *)this);
     }
     return o2;
 }
@@ -1798,7 +1798,7 @@ u8 *TObjEneIllGill__ct(u8 *self, s32 arg1, u8 *arg2) {
     ((TObjPlayer *)self)->reset_photon_effect();
     FIG_8036858C(void *, 0x350) = lbl_804F2F24;
     FIG_8036858C(s32, 0x394) = 0;
-    bind_enemy_combat_stats((void *)(self), (int)(TObjEneIllGill__boss_registration_id), (int)(((s32 *)ill_gill_combat_parameter_variants)[FIG_8036858C(s32, 0x394)]), (int)(lbl_805D6FD8));
+    bind_enemy_combat_stats(self, TObjEneIllGill__boss_registration_id, (int)(((s32 *)ill_gill_combat_parameter_variants)[FIG_8036858C(s32, 0x394)]), lbl_805D6FD8);
     FIG_8036858C(s32, 0x3A0) = 0;
     FIG_8036858C(s16, 0x326) = 0;
     FIG_8036858C(s16, 0x328) = 0;
@@ -1837,7 +1837,7 @@ u8 *TObjEneIllGill__ct(u8 *self, s32 arg1, u8 *arg2) {
 }
 #undef FIG_8036858C
 
-void TObjEneIllGill::free_effect() { TLobby__sub_8001FE7C((void*)(TObjEneIllGill__shared_effect), (void*)1); TObjEneIllGill__shared_effect = 0;
+void TObjEneIllGill::free_effect() { TLobby__sub_8001FE7C((void*)TObjEneIllGill__shared_effect, (void*)1); TObjEneIllGill__shared_effect = 0;
  }
 
 struct Pos_80368818 { s32 w[4]; };

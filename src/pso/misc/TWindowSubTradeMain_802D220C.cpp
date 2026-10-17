@@ -40,7 +40,7 @@ void TLobby::remove_trade_entry(u32 arg1) {
         if ((u32)(p->id + 0x10000) == 0xFF01) {
             break;
         }
-        TLobby__sub_802D22F0((void*)(p - 1), (void*)(p));
+        TLobby__sub_802D22F0((void*)(p - 1), p);
         p->id = -1;
         i++;
         p->cnt = 0;

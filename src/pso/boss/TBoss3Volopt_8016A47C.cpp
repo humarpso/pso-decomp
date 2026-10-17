@@ -110,10 +110,10 @@ void TOKey::play_activate_sound() {
         temp_r0 = *(s32 *)&this->m_d0;
         switch (temp_r0) {
         case 0:
-            play_sound_effect(0x4C60A, (void *) ((u8 *)(arg0) + 0x38), 0, 0);
+            play_sound_effect(0x4C60A, (void *) (arg0 + 0x38), 0, 0);
             return;
         case 1:
-            play_sound_effect(0x4AD0B, (void *) ((u8 *)(arg0) + 0x38), 0, 0);
+            play_sound_effect(0x4AD0B, (void *) (arg0 + 0x38), 0, 0);
             return;
         }
         break;
@@ -123,10 +123,10 @@ void TOKey::play_activate_sound() {
         temp_r0_2 = *(s32 *)&this->m_d0;
         switch (temp_r0_2) {
         case 0:
-            play_sound_effect(0x44609, (void *) ((u8 *)(arg0) + 0x38), 0, 0);
+            play_sound_effect(0x44609, (void *) (arg0 + 0x38), 0, 0);
             return;
         case 1:
-            play_sound_effect(0x42D0A, (void *) ((u8 *)(arg0) + 0x38), 0, 0);
+            play_sound_effect(0x42D0A, (void *) (arg0 + 0x38), 0, 0);
             return;
         }
         break;
@@ -135,10 +135,10 @@ void TOKey::play_activate_sound() {
         temp_r0_3 = *(s32 *)&this->m_d0;
         switch (temp_r0_3) {
         case 0:
-            play_sound_effect(0x4004C603, (void *) ((u8 *)(arg0) + 0x38), 0, 0);
+            play_sound_effect(0x4004C603, (void *) (arg0 + 0x38), 0, 0);
             return;
         case 1:
-            play_sound_effect(0x4004AD04, (void *) ((u8 *)(arg0) + 0x38), 0, 0);
+            play_sound_effect(0x4004AD04, (void *) (arg0 + 0x38), 0, 0);
             return;
         }
         break;
@@ -148,10 +148,10 @@ void TOKey::play_activate_sound() {
         temp_r0_4 = *(s32 *)&this->m_d0;
         switch (temp_r0_4) {
         case 0:
-            play_sound_effect(0x4004C60A, (void *) ((u8 *)(arg0) + 0x38), 0, 0);
+            play_sound_effect(0x4004C60A, (void *) (arg0 + 0x38), 0, 0);
             return;
         case 1:
-            play_sound_effect(0x4004AD0B, (void *) ((u8 *)(arg0) + 0x38), 0, 0);
+            play_sound_effect(0x4004AD0B, (void *) (arg0 + 0x38), 0, 0);
             return;
         }
         break;
@@ -161,38 +161,38 @@ void TOKey::play_activate_sound() {
             temp_r0_5 = *(s32 *)&this->m_d0;
             switch (temp_r0_5) {
             case 0:
-                play_sound_effect(0x4004C601, (void *) ((u8 *)(arg0) + 0x38), 0, 0);
+                play_sound_effect(0x4004C601, (void *) (arg0 + 0x38), 0, 0);
                 return;
             case 1:
-                play_sound_effect(0x4004AD02, (void *) ((u8 *)(arg0) + 0x38), 0, 0);
+                play_sound_effect(0x4004AD02, (void *) (arg0 + 0x38), 0, 0);
                 return;
             }
         }
         break;
     case 19:
     case 20:
-        play_sound_effect(0x4C601, (void *) ((u8 *)(arg0) + 0x38), 0, 0);
+        play_sound_effect(0x4C601, (void *) (arg0 + 0x38), 0, 0);
         return;
     case 21:
     case 22:
-        play_sound_effect(0x4004C601, (void *) ((u8 *)(arg0) + 0x38), 0, 0);
+        play_sound_effect(0x4004C601, (void *) (arg0 + 0x38), 0, 0);
         return;
     case 23:
     case 24:
     case 25:
     case 26:
     case 27:
-        play_sound_effect(0x4C611, (void *) ((u8 *)(arg0) + 0x38), 0, 0);
+        play_sound_effect(0x4C611, (void *) (arg0 + 0x38), 0, 0);
         return;
     case 34:
-        play_sound_effect(0x4004C611, (void *) ((u8 *)(arg0) + 0x38), 0, 0);
+        play_sound_effect(0x4004C611, (void *) (arg0 + 0x38), 0, 0);
         return;
     case 35:
-        play_sound_effect(0x4004C611, (void *) ((u8 *)(arg0) + 0x38), 0, 0);
+        play_sound_effect(0x4004C611, (void *) (arg0 + 0x38), 0, 0);
         return;
     case 28:
     case 29:
-        play_sound_effect(0x4004C611, (void *) ((u8 *)(arg0) + 0x38), 0, 0);
+        play_sound_effect(0x4004C611, (void *) (arg0 + 0x38), 0, 0);
         break;
     }
 }

@@ -60,7 +60,7 @@ void arrive_floor_population(void) {
         TLobby__data_805D610C = (ObjRow_8020E08C *)((TQuestVmDownLoadServer *)bytes)->alloc();
     }
     if (TLobby__data_805D610C != NULL) {
-        TLobby::send_or_handle_packet((void *)TLobby__data_805D6104, (void *)(TLobby__data_80513A40[index].objects), (void *)TLobby__data_805D610C, (void *)bytes, (u32)1);
+        TLobby::send_or_handle_packet((void *)TLobby__data_805D6104, TLobby__data_80513A40[index].objects, (void *)TLobby__data_805D610C, (void *)bytes, (u32)1);
         o = TLobby__data_805D610C;
         r = floor->objectRows;
         for (i = 0; i < floor->objects; i++, o++, r++) {
@@ -77,7 +77,7 @@ void arrive_floor_population(void) {
         TLobby__data_805D6114 = (EneRow_8020E08C *)((TQuestVmDownLoadServer *)bytes)->alloc();
     }
     if (TLobby__data_805D6114 != NULL) {
-        TLobby::send_or_handle_packet((void *)TLobby__data_805D6104, (void *)(TLobby__data_80513A40[index].enemies), (void *)TLobby__data_805D6114, (void *)bytes, (u32)1);
+        TLobby::send_or_handle_packet((void *)TLobby__data_805D6104, TLobby__data_80513A40[index].enemies, (void *)TLobby__data_805D6114, (void *)bytes, (u32)1);
         e = TLobby__data_805D6114;
         r2 = floor->enemyRows;
         for (j = 0; j < floor->enemies; j++, e++, r2++) {

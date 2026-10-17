@@ -89,7 +89,7 @@ void TItem::unregister_from_world() {
 }
 
 void claim_ownership__5TItemFii(s32 arg0, s32 arg1) {
-    if ((u16) obj_getField1c((void *)(arg0)) == 0xFFFF) {
+    if ((u16) obj_getField1c((void *)arg0) == 0xFFFF) {
         set_item_count__13TUnk_804B9870Fs(arg0, pop_free_id__6TLobbyFv());
         ((TObjPlayer *)arg0)->reset_photon_effect();
         if (arg1 != 0) {
@@ -104,7 +104,7 @@ void TItem::set_mode(s8 arg1) {
     }
     if (arg1 == 0) {
         *(s32 *)&this->m_f0 = 0;
-        claim_ownership__5TItemFii((s32)(this), 0);
+        claim_ownership__5TItemFii((s32)this, 0);
     } else {
         unregister_from_world();
     }
@@ -115,7 +115,7 @@ s32 TItem::register_attack() {
     s32 sp8[8];
     s32 temp_r3;
 
-    copy_to_item_data((void *)(sp8));
+    copy_to_item_data(sp8);
     temp_r3 = get_item_chunk_buffer(0);
     ((TItemData *)sp8)->format_item_name((char *)temp_r3);
     return temp_r3;

@@ -273,7 +273,7 @@ s32 TOMine::try_start_action(s32, s32) { return 1; }
 void TOMine::apply_knockback_from_attacker(u8 *) {  }
 void TOMine::vfunc_79() {  }
 s32 TOMineTrap::check_trigger(u32 arg1) {
-    if (is_target_in_list((void *)(arg1)) == 1) {
+    if (is_target_in_list((void *)arg1) == 1) {
         return 0;
     }
     if (((s32) *(s32 *)&this->m_344 == 2) && (arg1 == (u32) *(u32 *)&this->target)) {
@@ -285,7 +285,7 @@ s32 TOMineTrap::check_trigger(u32 arg1) {
     return 0;
 }
 s32 TOMineTrap::can_trigger(u32 arg1) {
-    if (is_target_in_list((void *)(arg1)) == 1) {
+    if (is_target_in_list((void *)arg1) == 1) {
         return 0;
     }
     if (((s32) *(s32 *)&this->m_344 == 2) && (arg1 == (u32) *(u32 *)&this->target)) {
@@ -388,7 +388,7 @@ void TOMine::vfunc_6(s16 *arg1, s32 arg2) {
         }
         set_flag8();
         queue_destruction__7TObjectFv((((u8 *)this)));
-        access_object_saved_state((s16 *)((void *) (arg1)), 0);
+        access_object_saved_state((s16 *)(arg1), 0);
         return;
     }
     if (temp_r0 == 3) {
@@ -398,7 +398,7 @@ void TOMine::vfunc_6(s16 *arg1, s32 arg2) {
         ((TUnk_804806E8 *)((u8 *)this))->calc_attach_pos();
         refresh_collision_body_centers();
         ((TOMine *)(((u8 *)this)))->vfunc_81();
-        access_object_saved_state((s16 *)((void *) (arg1)), 0);
+        access_object_saved_state((s16 *)(arg1), 0);
         ((TObject *)((u8 *)this))->queue_destruction_for_each_node();
     }
 }
@@ -413,10 +413,10 @@ f32 TOMine::receive_physical_attack(void *, f32) {
     return lbl_805DB85C;
 }
 f32 TOMine::receive_weapon_special_attack(void *arg1, void *) {
-    if (is_target_in_list((void *)(arg1)) == 1) {
+    if (is_target_in_list(arg1) == 1) {
         return lbl_805DB85C;
     }
-    if ((is_locally_controlled__10TObjPlayerFPv((u32)(arg1)) != 0) && (((TObjPlayer *)arg1)->obj_getS16_116() != 0)) {
+    if ((is_locally_controlled__10TObjPlayerFPv((u32)arg1) != 0) && (((TObjPlayer *)arg1)->obj_getS16_116() != 0)) {
         this->receive_physical_attack(0, TOMineTrap__data_805DB868);
     }
     return lbl_805DB85C;
@@ -432,7 +432,7 @@ f32 TOMine::receive_direct_attack(void *arg1, void *arg2_arg, void *, s32, s32) 
   {
     return (*(const f32 *)&lbl_805DB85C);
   }
-  if (((TOMine *)((u8 *)this))->is_target_in_list((void *)(arg1)) == 1)
+  if (((TOMine *)((u8 *)this))->is_target_in_list(arg1) == 1)
   {
     return (*(const f32 *)&lbl_805DB85C);
   }
@@ -495,7 +495,7 @@ void TOMine::follow_target() {
   Stack_80170AC8 stack;
   f32 temp_f2;
   new_var = -1U;
-  if ((((u16) (this->m_35c)) == new_var) || (((void *) (this->target)) == 0))
+  if (((this->m_35c) == new_var) || ((this->target) == 0))
   {
     this->mode = 2;
     return;
@@ -513,7 +513,7 @@ void TOMine::follow_target() {
   vec3_add_to((void *) (arg0 + 0x38), (void *) (&stack.sp8));
   ((TObjPlayer *)arg0)->update_enemy_collision_flags();
   temp_f2 = *((f32 *) (((s8 *) arg0) + 0x48));
-  *((f32 *) (((s8 *) arg0) + 0x3C)) = (f32) ((lbl_805DB884 * ((lbl_805DB888 + (*((f32 *) (((s8 *) (this->target)) + 0x3C)))) - temp_f2)) + temp_f2);
+  *((f32 *) (((s8 *) arg0) + 0x3C)) = (f32) ((lbl_805DB884 * ((lbl_805DB888 + (*((f32 *) ((this->target) + 0x3C)))) - temp_f2)) + temp_f2);
   ((TUnk_804806E8 *)arg0)->calc_attach_pos();
   this->rotation_y = (s32) (lbl_80442200 * atan2_float((f64) stack.sp8, (f64) stack.sp10));
   ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();

@@ -12,7 +12,7 @@ extern "C" {
 void TObjPlayer::update_input_and_draw() {
     s32 ctl = (s32)this;
     if (reset_key_machine_state__10TObjPlayerFv() == 0) {
-        set_action_provider_variant__10TObjPlayerFPvs((void *) (ctl), (int) (TObjPlayer__sub_801C2114()));
+        set_action_provider_variant__10TObjPlayerFPvs((void *)ctl, (int) (TObjPlayer__sub_801C2114()));
     }
     ((TObjPlayer *)ctl)->init_idle_animation();
     ((TObjPlayer *)ctl)->draw();

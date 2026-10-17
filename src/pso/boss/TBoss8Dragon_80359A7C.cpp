@@ -207,11 +207,11 @@ void TBoss8Dragon__sub_80359A7C(u8 *arg0) {
     ((VObj_18 *)(arg0))->m86();
     ((TBoss8Dragon *)arg0)->store_position();
     ((TBoss8Dragon *)arg0)->set_player_state_default();
-    add_radar_scaled_marker((void *) (arg0 + 0x38), -0x5DB4, 1, 1, (f32) (lbl_805E00B0));
+    add_radar_scaled_marker((void *) (arg0 + 0x38), -0x5DB4, 1, 1, lbl_805E00B0);
     if (temp_r30_2 == 0) {
         ((TObject *)(arg0 + 0x3C4))->run_tasks();
     }
-    project_sound_origin_from_camera((s32)(arg0 + 0x38), (u8 *)(arg0 + 0x634), (f32) (lbl_805E00B4));
+    project_sound_origin_from_camera((s32)(arg0 + 0x38), (u8 *)(arg0 + 0x634), lbl_805E00B4);
 }
 
 void *__dt__13TUnk_804F1A78Fv(void *arg0, s16 arg1) {

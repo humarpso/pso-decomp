@@ -172,12 +172,12 @@ void TCameraCtrl::update_camera_state(f32 _w0, f32 _w1, f32 _w2) {
 void TCameraCtrl::look_at_position(f32 farg0, f32 farg1, f32 farg2) {
     u8 eye[0x14];
     V_803D6558 v;
-    TCameraCtrl__sub_803D65F8((u8 *)(eye));
+    TCameraCtrl__sub_803D65F8(eye);
     v.x = farg0;
     v.y = farg1;
     v.z = farg2;
     set_matrix_identity(0);
-    set_camera_look_at((u8*)(eye), (u8*)((u8 *)&v), (u8*)(lbl_804FA4F0));
+    set_camera_look_at(eye, (u8*)((u8 *)&v), lbl_804FA4F0);
 }
 
 #pragma push
@@ -309,10 +309,10 @@ void sample_camera_motion(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
     temp_r30 = (s32 *)(*(s32 **)((s8 *)arg2 + 8));
     temp_r29 = (s32 *)(*(s32 **)((s8 *)arg2 + 0xC));
     select_motion_context(0);
-    select_motion_sampler((s32 *) (arg1), (f32) (farg0));
+    select_motion_sampler((s32 *)arg1, (f32)farg0);
     temp_r31 = *(s32 *)((s8 *)current_motion_context + 0x20);
     if ((u32) (temp_r31 & 1) != 0) {
-        if (sample_motion_vector_channel((int) (temp_r27)) == 0) {
+        if (sample_motion_vector_channel((int)temp_r27) == 0) {
             *(f32 *)((s8 *)temp_r27 + 0) = (f32) *(f32 *)((s8 *)arg0 + 0);
             *(f32 *)((s8 *)temp_r27 + 4) = (f32) *(f32 *)((s8 *)arg0 + 4);
             *(f32 *)((s8 *)temp_r27 + 8) = (f32) *(f32 *)((s8 *)arg0 + 8);
@@ -329,7 +329,7 @@ void sample_camera_motion(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
         *(s32 *)((s8 *)current_motion_context + 0x1C) = (s32) (*(s32 *)((s8 *)current_motion_context + 0x1C) + 1);
     }
     if ((u32) (temp_r31 & 0x40) != 0) {
-        if (sample_motion_vector_channel((int) (temp_r26)) != 0) {
+        if (sample_motion_vector_channel((int)temp_r26) != 0) {
             *(f32 *)((s8 *)temp_r26 + 0) = (f32) (*(f32 *)((s8 *)temp_r26 + 0) - *(f32 *)((s8 *)temp_r27 + 0));
             *(f32 *)((s8 *)temp_r26 + 4) = (f32) (*(f32 *)((s8 *)temp_r26 + 4) - *(f32 *)((s8 *)temp_r27 + 4));
             *(f32 *)((s8 *)temp_r26 + 8) = (f32) (*(f32 *)((s8 *)temp_r26 + 8) - *(f32 *)((s8 *)temp_r27 + 8));
@@ -339,7 +339,7 @@ void sample_camera_motion(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
             *(f32 *)((s8 *)temp_r26 + 8) = (f32) *(f32 *)((s8 *)arg0 + 0x14);
         }
     } else if ((u32) (temp_r31 & 8) != 0) {
-        if (sample_motion_vector_channel((int) (temp_r26)) == 0) {
+        if (sample_motion_vector_channel((int)temp_r26) == 0) {
             *(f32 *)((s8 *)temp_r26 + 0) = (f32) *(f32 *)((s8 *)arg0 + 0xC);
             *(f32 *)((s8 *)temp_r26 + 4) = (f32) *(f32 *)((s8 *)arg0 + 0x10);
             *(f32 *)((s8 *)temp_r26 + 8) = (f32) *(f32 *)((s8 *)arg0 + 0x14);
@@ -355,11 +355,11 @@ void sample_camera_motion(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
     if ((u32) (temp_r31 & 0x20) != 0) {
         *(s32 *)((s8 *)current_motion_context + 0x1C) = (s32) (*(s32 *)((s8 *)current_motion_context + 0x1C) + 1);
     }
-    if (((u32) (temp_r31 & 0x80) != 0) && (TObjPlayer__sub_803D6C1C((int) (temp_r30)) == 0)) {
+    if (((u32) (temp_r31 & 0x80) != 0) && (TObjPlayer__sub_803D6C1C((int)temp_r30) == 0)) {
         *(s32 *)((s8 *)temp_r30 + 0) = *(s32 *)((s8 *)arg0 + 0x18);
     }
     if ((u32) (temp_r31 & 0x100) != 0) {
-        if (TObjPlayer__sub_803D6C1C((int) (temp_r29)) == 0) {
+        if (TObjPlayer__sub_803D6C1C((int)temp_r29) == 0) {
             *(s32 *)((s8 *)temp_r29 + 0) = *(s32 *)((s8 *)arg0 + 0x1C);
         }
     } else {
@@ -404,8 +404,8 @@ s32 TObjPlayer::run_next_key_callback(s32 arg0) {
 s32 TObjPlayer::sample_next_quaternion_key(s32 output) {
     if (G_803D6D0C->keys[G_803D6D0C->idx] != 0) {
       interpolate_motion_quaternion_keys(
-          (u32)(G_803D6D0C->keys[G_803D6D0C->idx]),
-          (u32)(G_803D6D0C->vals[G_803D6D0C->idx]), (s32)(output), G_803D6D0C->t);
+          G_803D6D0C->keys[G_803D6D0C->idx],
+          G_803D6D0C->vals[G_803D6D0C->idx], output, G_803D6D0C->t);
       G_803D6D0C->idx = G_803D6D0C->idx + 1;
       return 1;
     }
@@ -419,7 +419,7 @@ void interpolate_motion_quaternion_keys(u32 keys, u32 count, s32 output,
   MotionQuaternionKey *first;
   MotionQuaternionKey *second;
   find_motion_key_interval(
-      (void *)((void *)keys), (s32)(sizeof(MotionQuaternionKey)), (s32)(count),
+      (void *)((void *)keys), (s32)(sizeof(MotionQuaternionKey)), count,
       frame, (void *)(&first), (void *)(&second), (void *)(&fraction));
   ((void (*)(void *, void *, f32, void *))blend_quaternions_nlerp)(
       first->rotation, second->rotation, fraction, (void *)output);
@@ -679,7 +679,7 @@ void select_motion_sampler(s32 *arg0, f32 farg0) {
     s32 *var_r3;
     s32 temp_r31;
     s32 temp_r4;
-    var_r3 = (s32 *)(arg0);
+    var_r3 = arg0;
     if (var_r3 == NULL) {
         var_r3 = (s32 *)(&lbl_8047E3C8.value);
     }
@@ -792,7 +792,7 @@ void find_motion_key_interval(void *keys, s32 stride, s32 count, f32 t, void *k0
 #pragma scheduling off
 void bind_motion_context(s32 arg0, f32 farg0) {
     select_motion_context(0);
-    bind_motion_channel_samplers((int)((int)((void *) (arg0))), (f32) (farg0));
+    bind_motion_channel_samplers((int)((int)(arg0)), farg0);
 }
 #pragma pop
 
@@ -828,7 +828,7 @@ void compose_motion_node_matrix(void *arg0) {
     struct Angles_803D7CA4 rot;
     struct Quat_803D7CA4 quat;
     s32 kind;
-    kind = sample_motion_node_transform((void *)(arg0), (void *)(&trans), (void *)(&rot), (void *)(&scale), (void *)(&quat));
+    kind = sample_motion_node_transform(arg0, (void *)(&trans), (void *)(&rot), (void *)(&scale), (void *)(&quat));
     post_translate_matrix(&trans);
     switch (kind) {
     case 0:

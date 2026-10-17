@@ -111,7 +111,7 @@ void TObjPlayer::count_owned_items() {
 
     var_r31 = *(void * *)&this->m_down;
     while (var_r31 != NULL) {
-        if ((is_item_valid__9TItemListFl((void *)(var_r31)) != 0) && ((temp = ((TObjPlayer *)var_r31)->get_owner_if_alive()) != 0U) && (export_inventory_entry__10TObjPlayerFiPv((s32)temp, (u8 *)owned_item_export_cursor) != 0)) {
+        if ((is_item_valid__9TItemListFl(var_r31) != 0) && ((temp = ((TObjPlayer *)var_r31)->get_owner_if_alive()) != 0U) && (export_inventory_entry__10TObjPlayerFiPv((s32)temp, (u8 *)owned_item_export_cursor) != 0)) {
             owned_item_export_cursor += 0x1C;
             inventory_walk_visit_count += 1;
         }
@@ -197,7 +197,7 @@ void TObjPlayer::count_items_recursive() {
 
     var_r31 = *(void * *)&this->m_down;
     while (var_r31 != NULL) {
-        if ((is_item_valid__9TItemListFl((void *)(var_r31)) != 0) && ((temp = ((TObjPlayer *)var_r31)->get_owner_if_alive()) != 0U)) {
+        if ((is_item_valid__9TItemListFl(var_r31) != 0) && ((temp = ((TObjPlayer *)var_r31)->get_owner_if_alive()) != 0U)) {
             ((TItem *)temp)->copy_to_item_data(&sp8[0]);
             if (item_identity_matches((u8 *)&sp8[0], (u8 *)inventory_search_item_data) != 0) {
                 inventory_walk_visit_count += 1;
@@ -218,8 +218,8 @@ void *TObjPlayer::find_inventory_item_matching_data() {
         if (is_item_valid__9TItemListFl(node) != 0) {
             owner = ((TObjPlayer *)node)->get_owner_if_alive();
             if (owner != 0) {
-                ((TItem *)owner)->copy_to_item_data((s32 *)(data));
-                if (compare_item_data_masked((s32 *)(data), (void *)inventory_search_item_data, 0) != 0) {
+                ((TItem *)owner)->copy_to_item_data(data);
+                if (compare_item_data_masked(data, (void *)inventory_search_item_data, 0) != 0) {
                     return node;
                 }
             }
@@ -241,8 +241,8 @@ void *find_matching_inventory_item_node(ItemNode_801D563C *root) {
         if (is_item_valid__9TItemListFl(node) != 0) {
             owner = ((TObjPlayer *)node)->get_owner_if_alive();
             if (owner != 0) {
-                ((TItem *)owner)->copy_to_item_data((s32 *)(data));
-                if (item_identity_matches((u8 *)((s32 *)(data)), (u8 *)(inventory_search_item_data)) != 0) {
+                ((TItem *)owner)->copy_to_item_data(data);
+                if (item_identity_matches((u8 *)((s32 *)data), (u8 *)inventory_search_item_data) != 0) {
                     return node;
                 }
             }

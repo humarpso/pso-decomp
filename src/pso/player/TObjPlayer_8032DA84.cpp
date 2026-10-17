@@ -84,9 +84,9 @@ u8 *create_guardianna(u8 *arg0) {
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((TUnk_804EDC28 *)temp_r3)->construct_guardianna((s32)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_804EDC28 *)temp_r3)->construct_guardianna(tl_05, arg0)));
         }
         return var_r0;
     }
@@ -306,10 +306,10 @@ void TUnk_804EDD44::start_card_effect_flash() {
     *(u32 *)((s8 *)arg0 + 0x1C) = (u32)spawn_particle_effect_with_rotation(((u8 *)&this->unk_64), ((u8 *)&this->unk_54), 0x1B9, 0x104);
     p = *(u32 *)((s8 *)arg0 + 0x1C);
     if (p != 0U) {
-        ((TObjPlayer *)p)->set_position_xy((f32) (lbl_805DF7E8), (f32) (lbl_805DF7E8));
+        ((TObjPlayer *)p)->set_position_xy(lbl_805DF7E8, lbl_805DF7E8);
         q = this->m_50;
         if (q != 0U) {
-            ((TParticleCtrl *)(*(u32 *)((s8 *)arg0 + 0x1C)))->set_tint_color((int)(q));
+            ((TParticleCtrl *)(*(u32 *)((s8 *)arg0 + 0x1C)))->set_tint_color(q);
         }
     }
     spawn_particle_effect(((u8 *)&this->unk_64), 0x30);

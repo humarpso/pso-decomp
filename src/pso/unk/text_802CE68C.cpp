@@ -148,7 +148,7 @@ void TObjPlayer__sub_802CE68C(u8 *arg0, s32 arg1, s32 arg2) {
     stack.sp8 = *(s32 *)((s8 *)(&player_sub_802ce68c_zero_vec.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&player_sub_802ce68c_zero_vec.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&player_sub_802ce68c_zero_vec.value) + 8);
-    matrix_mult_vec(0, (void *) (&stack.sp8), (void *) (arg1));
+    matrix_mult_vec(0, (void *) (&stack.sp8), (void *)arg1);
     pop_matrix();
     TObjPlayer::clear_global_state();
 }
@@ -258,7 +258,7 @@ void TObjPlayer__sub_802CE8CC(u8 *arg0) {
         break;
     }
     lbl_805D5660 = model_render_flags;
-    TObjFish::set_global_param((s32)(self->f24));
+    TObjFish::set_global_param((s32)self->f24);
     push_matrix();
     post_translate_matrix(self->pos);
     rotate_matrix_y(0, self->f60);

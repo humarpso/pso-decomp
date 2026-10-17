@@ -78,10 +78,10 @@ void TBoss7LaserLight::run_task() {
         arg0->x38 = v;
         arg0->x3C = 40.0f + v;
         ((TAdSinglePlyChrSelectGC *)(arg0->x40))->forward_to_field_0x14(&arg0->x38);
-        ((TAdSinglePlyChrSelectGC *)(arg0->x40))->set_vec3((void*)(arg0->x1C));
+        ((TAdSinglePlyChrSelectGC *)(arg0->x40))->set_vec3((void*)arg0->x1C);
         break;
     case 2:
-        ((TAdSinglePlyChrSelectGC *)(arg0->x40))->set_vec3((void*)(arg0->x1C));
+        ((TAdSinglePlyChrSelectGC *)(arg0->x40))->set_vec3((void*)arg0->x1C);
         break;
     case 3:
         v = arg0->x38;
@@ -94,7 +94,7 @@ void TBoss7LaserLight::run_task() {
         arg0->x38 = v;
         arg0->x3C = 40.0f + v;
         ((TAdSinglePlyChrSelectGC *)(arg0->x40))->forward_to_field_0x14(&arg0->x38);
-        ((TAdSinglePlyChrSelectGC *)(arg0->x40))->set_vec3((void*)(arg0->x1C));
+        ((TAdSinglePlyChrSelectGC *)(arg0->x40))->set_vec3((void*)arg0->x1C);
         break;
     }
 }

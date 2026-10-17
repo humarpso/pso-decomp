@@ -17,7 +17,7 @@ void TPlayerBattleCtrl4P::init_instance_with_text(s32 arg0, s32 arg1) {
         }
     }
     if ((void *) TPlayerBattleCtrl4P__instance != NULL) {
-        strncpy((void *) (TPlayerBattleCtrl4P__instance + 0x38), (void *) (arg1), 0x200);
+        strncpy((void *) (TPlayerBattleCtrl4P__instance + 0x38), (void *)arg1, 0x200);
         *(s32 *)((s8 *)TPlayerBattleCtrl4P__instance + 0x1C) = arg0;
     }
 }

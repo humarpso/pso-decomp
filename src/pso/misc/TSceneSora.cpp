@@ -91,9 +91,9 @@ void TSceneSora::render() {
         TObjFish__sub_8001EDB0((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), 0);
         set_global_param__8TObjFishFl();
         push_matrix();
-        rotate_matrix_y(0, (int) (this->rotation_y));
+        rotate_matrix_y(0, this->rotation_y);
         if ((u32) this->m_94 != 0U) {
-            draw_ginja_model_with_motion((int) (*(s32 *)&this->m_90), (int) (*(s32 *)&this->m_94), (f32) (this->m_a0));
+            draw_ginja_model_with_motion((int) (*(s32 *)&this->m_90), (int) (*(s32 *)&this->m_94), this->m_a0);
         } else {
             draw_ginja_object((void *)(*(s32 *)&this->m_90));
         }
@@ -125,7 +125,7 @@ u8 *__dt__10TSceneSoraFv(u8 *arg0, s16 arg1) {
         TSceneSora__instance = 0;
         TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *) (arg0));
+            __dl__7TObjectFPv(arg0);
         }
     }
     return arg0;
@@ -133,7 +133,7 @@ u8 *__dt__10TSceneSoraFv(u8 *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_80207340___vt__10TSceneSora_size[sizeof(RecoveredGlobal_80207340___vt__10TSceneSora) == 0x38 ? 1 : -1];
 u8 *TSceneSora__ct(u8 *arg0, s32 _w1) {
-    construct_world_actor_base((void *) (arg0));
+    construct_world_actor_base(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80207340___vt__10TSceneSora *)&__vt__10TSceneSora).value;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3624;
     *(s32 *)&((TSceneSora *)arg0)->m_90 = get_bml_model((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), 0);
@@ -154,7 +154,7 @@ void TSceneSora::create_instance() {
     if ((u32) TSceneSora__sky_bml_resource != 0U) {
         var_r3 = __nw__7TObjectFUl(0xA4);
         if (var_r3 != 0) {
-            var_r3 = ((s32)TSceneSora__ct((u8 *)(var_r3), (s32)(tl_05)));
+            var_r3 = ((s32)TSceneSora__ct((u8 *)var_r3, (s32)tl_05));
         }
         TSceneSora__instance = var_r3;
         return;

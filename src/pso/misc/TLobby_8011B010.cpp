@@ -50,7 +50,7 @@ s32 TLobby::apply_table_entry(s16 arg0, void * _w1) {
     if (arg0 > 0xB9F) {
         return 0;
     }
-    ((TLobby *)(TLobby__data_805D6140 + (arg0 * 4)))->copy_short_fields((void *)(_w1));
+    ((TLobby *)(TLobby__data_805D6140 + (arg0 * 4)))->copy_short_fields(_w1);
     return 1;
 }
 void TLobby::copy_short_fields(void *arg1) {

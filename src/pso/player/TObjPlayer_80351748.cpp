@@ -38,19 +38,19 @@ s32 TObjPlayer::try_ground_action(s32 arg1) {
     if ((u32) *(u32 *)((s8 *)this + 0xC) == 0U) {
         return 0;
     }
-    if ((is_grounded() == 0) || (TObjPlayer__sub_803519D8((u8 *)(this), (s32)(arg1)) == 0)) {
+    if ((is_grounded() == 0) || (TObjPlayer__sub_803519D8((u8 *)this, (s32)arg1) == 0)) {
         return 0;
     }
-    return fn_803519FC((s32 *)(*(u32 *)((s8 *)this + 0xC)), (s32)(arg1));
+    return fn_803519FC((s32 *)(*(u32 *)((s8 *)this + 0xC)), arg1);
 }
 s32 TObjPlayer::check_action_usable(s32 arg1) {
     if ((u32) *(u32 *)((s8 *)this + 0xC) == 0U) {
         return 0;
     }
-    if ((is_grounded() == 0) || (TObjPlayer__sub_803519D8((u8 *)(this), (s32)(arg1)) == 0)) {
+    if ((is_grounded() == 0) || (TObjPlayer__sub_803519D8((u8 *)this, (s32)arg1) == 0)) {
         return 0;
     }
-    return fn_80351A14((u8 *)(*(u32 *)((s8 *)this + 0xC)), (s32)(arg1));
+    return fn_80351A14((u8 *)(*(u32 *)((s8 *)this + 0xC)), arg1);
 }
 
 typedef char RecoveredGlobal_803518E0_lbl_8050E208_size[sizeof(RecoveredGlobal_803518E0_lbl_8050E208) == 0x1B0 ? 1 : -1];

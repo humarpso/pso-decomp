@@ -145,12 +145,12 @@ void TEndingPic::draw_current_pic() {
         break;
     case 2:
         set_draw_texture_and_color(((*(s32 *)((s8 *)arg0 + 0x28) * 2) + 2), -1);
-        draw_textured_quad_at_depth((f32 *)(arg0 + 0xAC), (f32) (lbl_805DFEF0));
+        draw_textured_quad_at_depth((f32 *)(arg0 + 0xAC), lbl_805DFEF0);
         break;
     case 4:
     case 5:
         set_draw_texture_and_color(((*(s32 *)((s8 *)arg0 + 0x28) * 2) + 3), -1);
-        draw_textured_quad_at_depth((f32 *)(arg0 + 0xCC), (f32) (lbl_805DFEF0));
+        draw_textured_quad_at_depth((f32 *)(arg0 + 0xCC), lbl_805DFEF0);
         break;
     default:
         break;

@@ -32,7 +32,7 @@ void TORevlightCave01__sub_80173478(void * _w0) {  }
 void TORevlightCave01::run_task() {
     u8 *arg0 = (u8 *)this;
     if (TObjPlayer::check_demo_mode() == 1) {
-        TORevlightCave01__sub_80173478(((void *) (arg0)));
+        TORevlightCave01__sub_80173478((arg0));
     }
     *(s32 *)&this->m_c8 = (s32) (*(s32 *)&this->m_c8 + *(s32 *)&this->m_cc);
 }

@@ -138,13 +138,13 @@ void TBoss8Dragon::draw_with_fade(s32 arg1, s32 arg2) {
             ((RenderFadeState *)(&((Obj_802F4114 *)((u8 *)this))->fades[arg2]))->restore();
         }
         temp_r31 = (u8 *)&((Obj_802F4114 *)((u8 *)this))->fades[arg2];
-        if (isFading__15RenderFadeStateCFv((int) (temp_r31)) != 0) {
+        if (isFading__15RenderFadeStateCFv((int)temp_r31) != 0) {
             ((VObj_14_681f8e *)(temp_r31))->m6();
         }
         push_matrix();
-        post_translate_matrix((void *) (arg1));
-        rotate_matrix_y(0, (int) (this->m_60));
-        rotate_matrix_x(0, (int) (this->m_5c));
+        post_translate_matrix((void *)arg1);
+        rotate_matrix_y(0, this->m_60);
+        rotate_matrix_x(0, this->m_5c);
         rotate_matrix_z(0, (int) (*(s32 *)((s8 *)((u8 *)this) + 0x64)));
         scale_current_matrix((void *) (((u8 *)this) + 0x68));
         TObjPlayer::toggle_particle_effect();
@@ -159,7 +159,7 @@ void TBoss8Dragon::draw_with_fade(s32 arg1, s32 arg2) {
         ((TObjEneRe7Berura *)((u8 *)this))->draw();
         TObjPlayer::setup_tev_swap();
         TParticleCtrl::end_effect_render();
-        TObjLight__sub_801337F8((void *) (current_scene_light));
+        TObjLight__sub_801337F8((void *)current_scene_light);
         pop_matrix();
         set_chunk_material_override_pair(0xFF00, 0);
         set_material_alpha_compare_reference(0xBF);

@@ -162,7 +162,7 @@ void TWindowDD::handle_scroll_input() {
                     *(s32 *)((s8 *)arg0 + 0x6C) = temp_r4_3;
                     add_scroll_offset((int)((*(s32 *)((s8 *)arg0 + 0x74) - 1) - *(s32 *)((s8 *)arg0 + 0x68)));
                 } else {
-                    add_scroll_offset((int)(var_r30));
+                    add_scroll_offset(var_r30);
                     *(f32 *)((s8 *)arg0 + 0x88) = (f32) (((f32) var_r30 * TWindowDD__data_805DFB20) + *(f32 *)((s8 *)arg0 + 0x88));
                 }
             } else {

@@ -83,7 +83,7 @@ void TAdSinglePlyChrSelectGC__sub_8028ED54(s32 arg1_) {
             }
             goto block_7;
         }
-        if ((TAdSinglePlyChrSelectGC::has_matching_entry((void *) (&buf)) == 0) || (TAdSinglePlyChrSelectGC__sub_8028EE20((void *)((void *) (&buf)), (void *)((void *) (arg1_))) != 0)) {
+        if ((TAdSinglePlyChrSelectGC::has_matching_entry((void *) (&buf)) == 0) || (TAdSinglePlyChrSelectGC__sub_8028EE20((void *)((void *) (&buf)), (void *)(arg1_)) != 0)) {
 block_7:
             h = find_free_slot__23TAdSinglePlyChrSelectGCFv();
             if (h == 0U) {

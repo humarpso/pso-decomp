@@ -230,7 +230,7 @@ void *TWindowSubMag::create() {
     window_layout_position = get_window_layout_position(0xB);
     temp_r31 = create_message_window__6TLobbyFllUls(window_layout_position, lbl_8044FA00, 1, *(s32 *)&this->m_28);
     TWindowSubEquip__sub_80263AF8(*(s32 *)&this->m_30, 4);
-    set_field_1c__6TLobbyFf((void *)(temp_r31));
+    set_field_1c__6TLobbyFf(temp_r31);
     *(s32 *)((s8 *)temp_r31 + 0x5C) = 0x186A0;
     call_if_split_screen(temp_r31, *(s32 *)&this->m_28);
     return temp_r31;
@@ -269,10 +269,10 @@ s32 TWindowSubMag::create_list() {
     s32 equip_kind_window;
 
     s32 window_layout_position = get_window_layout_position(0xD);
-    equip_kind_window = create_equip_kind_window((s32)(window_layout_position), (s32 *)(lbl_8044F9F8), (s32)(*(s32 *)&this->m_28));
+    equip_kind_window = create_equip_kind_window(window_layout_position, lbl_8044F9F8, (s32)(*(s32 *)&this->m_28));
     ((TUnk_804D0618 *)equip_kind_window)->ensure_status_display(get_message_10__20TWindowSubStatusDispFl(0x24));
     TWindowSubEquip__sub_80263AF8(*(s32 *)&this->m_30, 2);
-    set_field_1c__6TLobbyFf((void *)(equip_kind_window));
+    set_field_1c__6TLobbyFf((void *)equip_kind_window);
     ((TWindowSubShortCutList *)equip_kind_window)->set_flag70_bit10();
     ((TShopArmorListWindow *)equip_kind_window)->close_list();
     return equip_kind_window;
@@ -285,10 +285,10 @@ s32 TWindowSubMag::setup_list() {
     s32 window_layout_position;
 
     window_layout_position = get_window_layout_position(7);
-    equip_kind_window = create_equip_kind_window((s32)(window_layout_position), (s32 *)(lbl_8044F9F0), (s32)(*(s32 *)&this->m_28));
+    equip_kind_window = create_equip_kind_window(window_layout_position, lbl_8044F9F0, (s32)(*(s32 *)&this->m_28));
     ((TUnk_804D0618 *)equip_kind_window)->ensure_status_display(get_message_10__20TWindowSubStatusDispFl(0x29));
     TWindowSubEquip__sub_80263AF8(*(s32 *)&this->m_30, 0);
-    set_field_1c__6TLobbyFf((void *)(equip_kind_window));
+    set_field_1c__6TLobbyFf((void *)equip_kind_window);
     ((TWindowSubShortCutList *)equip_kind_window)->set_flag70_bit10();
     ((TWindowSubMag *)equip_kind_window)->init_and_setup((void*)2);
     return equip_kind_window;
@@ -479,7 +479,7 @@ void TWindowSubMag::run_task(void *arg0) {
         self->state = 15;
     case 15:
         ((TWindowSubMag *)self)->update_mag_help();
-        if (TWindowSubMag__sub_8027C0E8((void*)(self->photon)) != 0) {
+        if (TWindowSubMag__sub_8027C0E8(self->photon) != 0) {
             self->state = 3;
         } else if (((TWindowSubMagPhoton *)(self->photon))->get_active_flag() != 0) {
             self->state = 3;

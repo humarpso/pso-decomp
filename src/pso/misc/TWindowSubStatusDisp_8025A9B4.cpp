@@ -176,7 +176,7 @@ void set_text_entry_string(u8 *arg0, u32 str, s32 arg2) {
     if ((str != 0U) && (arg2 & 0x20)) {
         temp_r3_2 = TWindowKeyBoardSoft::strnlen((s8 *)str, (u32)(0x400));
         *(u32 *)((s8 *)arg0 + 0x20) = ((u32)mem_alloc((u32)((void *) (temp_r3_2 + 1))));
-        strncpy((s32)((int) (*(u32 *)((s8 *)arg0 + 0x20))), (u32)((void *) (str)), (s32)((int) (temp_r3_2)));
+        strncpy((s32)((int) (*(u32 *)((s8 *)arg0 + 0x20))), (u32)(str), (s32)(temp_r3_2));
         *(s8 *)((s8 *)(temp_r3_2 + *(u32 *)((s8 *)arg0 + 0x20)) + 0) = 0;
         *(u16 *)((s8 *)arg0 + 0) = (u16) (*(u16 *)((s8 *)arg0 + 0) | 0x20);
     } else {
@@ -266,7 +266,7 @@ void *TWindowSubStatusDisp__sub_8025AF0C(void *arg0, s16 arg1) {
 }
 
 u8 *construct_text_entry(u8 *arg0, u8 *arg1, s32 arg2) {
-    reset_entry__20TWindowSubStatusDispFPv((void *) (arg0), (void *) (arg2));
+    reset_entry__20TWindowSubStatusDispFPv((void *)arg0, (void *)arg2);
     *(s32 **)((s8 *)arg0 + 4) = &(*(RecoveredGlobal_8025AF90_lbl_804CFA28 *)&lbl_804CFA28).value;
     *(f32 *)((s8 *)arg0 + 8) = (f32) *(f32 *)((s8 *)arg1 + 4);
     *(f32 *)((s8 *)arg0 + 0xC) = (f32) *(f32 *)((s8 *)arg1 + 8);

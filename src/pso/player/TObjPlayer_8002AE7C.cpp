@@ -30,7 +30,7 @@ s32 TObjEnemy::exchange_object_state(s32 arg1, s16 arg2) {
         return 0;
     }
     if (arg2 == 0) {
-        ((TLobby *)(TLobby__data_805D6144 + (temp_r31 * 0xC)))->copy_header((void *) (arg1));
+        ((TLobby *)(TLobby__data_805D6144 + (temp_r31 * 0xC)))->copy_header((void *)arg1);
     }
     if (arg2 == 1) {
         ((TLobby *)arg1)->copy_header((void *) (TLobby__data_805D6144 + (temp_r31 * 0xC)));

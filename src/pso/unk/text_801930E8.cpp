@@ -108,7 +108,7 @@ void TObjLazerFence4::draw_model() {
   TObjFish::set_global_param((s32)((void *)((*(s32 *)&lazer_fence_norm_texture_list))));
   push_matrix();
   post_translate_matrix((u8 *)&this->position);
-  rotate_matrix_y(0, (void *)(this->rotation_y));
+  rotate_matrix_y(0, (void *)this->rotation_y);
   draw_ginja_object((void *)(*((s32 *) (((s8 *) arg0) + 0xC0))));
   TParticleCtrl::begin_effect_render();
   new_var = (s32 *) (((s8 *) arg0) + 0xC4);
@@ -118,7 +118,7 @@ void TObjLazerFence4::draw_model() {
 }
 
 void TObjLazerFence4::reset_if_door_closed() {
-    if (is_current_floor_switch_set((u16)(this->m_ba)) == 0) {
+    if (is_current_floor_switch_set(this->m_ba) == 0) {
         set_indexed_flags(this, 0, 1);
         *(s32 *)&this->m_ac = 0;
     }

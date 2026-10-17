@@ -177,7 +177,7 @@ s32 try_open__19TWindowKeyBoardSoftFii(s32 arg0, s32 arg1) {
     if (clip_textured_quad__19TWindowKeyBoardSoftFPvPv((Win_8024E8E8 *)(arg0), (Box_8024E8E8 *)(arg1)) == 0) {
         return 0;
     }
-    apply_context_transform_to_rect((Ctx_8024E6D8 *)(arg0), (f32 *)(arg1));
+    apply_context_transform_to_rect((Ctx_8024E6D8 *)(arg0), (f32 *)arg1);
     return 1;
 }
 
@@ -273,7 +273,7 @@ u32 open_singleton__19TWindowKeyBoardSoftFiiii(s32 pos, s32 size, s32 scale, s32
     if ((u32) soft_keyboard_instance == 0U) {
         return 0U;
     }
-    init_text_window_layout((Win_8024EA50 *)(soft_keyboard_instance), (f32 *)(pos), (f32 *)(size), (f32 *)(scale), (u32)(flags), depth);
+    init_text_window_layout((Win_8024EA50 *)(soft_keyboard_instance), (f32 *)pos, (f32 *)size, (f32 *)scale, (u32)flags, depth);
     return soft_keyboard_instance;
 }
 

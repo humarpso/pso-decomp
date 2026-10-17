@@ -31,7 +31,7 @@ void TWindowCtrl__sub_8024B9C0(void *arg0) {
 
 void TWindowCtrl::update_trade_window() {
     if ((u32) this->m_34 != 0U) {
-        if ((is_slot_visible__11TWindowCtrlFv(local_client_id) != 0) || (TWindowCtrl__sub_8024B000((void *)(this), (s32)(local_client_id)) != 0) || ((is_split_screen() != 0) && (TRaderMapCore::is_active() == 0))) {
+        if ((is_slot_visible__11TWindowCtrlFv(local_client_id) != 0) || (TWindowCtrl__sub_8024B000(this, local_client_id) != 0) || ((is_split_screen() != 0) && (TRaderMapCore::is_active() == 0))) {
             ((TWindowLockOn *)(this->m_34))->request_close();
             return;
         }
@@ -43,7 +43,7 @@ extern u8 controller_input_state[];
 
 void TWindowCtrl::handle_controller() {
     s32 arg0 = (s32)this;
-    if ((TOKeyMachine01::get_global_state() == 0xF) && (is_slot_visible__11TWindowCtrlFv(local_client_id) == 0) && (TWindowCtrl__sub_8024B000((void *)(arg0), (s32)(local_client_id)) == 0) && (has_player_active_menu__11TWindowCtrlFv(local_client_id) == 0) && (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, fn_8002AE08(local_client_id), (s32 *)controller_input_state) != 0)) {
+    if ((TOKeyMachine01::get_global_state() == 0xF) && (is_slot_visible__11TWindowCtrlFv(local_client_id) == 0) && (TWindowCtrl__sub_8024B000((void *)arg0, (s32)local_client_id) == 0) && (has_player_active_menu__11TWindowCtrlFv(local_client_id) == 0) && (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, fn_8002AE08(local_client_id), (s32 *)controller_input_state) != 0)) {
         TWindowCtrlMain::advance_card_status(local_client_id);
     }
 }

@@ -67,9 +67,9 @@ extern void *tl_particle;
 void __dl__7TObjectFPv(void *);
 
 void *TEffStarLight2D_Base__create(void *arg0, s32 _w1) {
-    void *o = __nw__7TObjectFUl(0x94, (s32)(_w1));
+    void *o = __nw__7TObjectFUl(0x94, _w1);
     if (o != NULL) {
-        o = TEffStarLight2D_Base__ct((u8 *)(o), (s32)(tl_particle), (s32)(arg0));
+        o = TEffStarLight2D_Base__ct((u8 *)o, (s32)tl_particle, (s32)arg0);
     }
     return o;
 }
@@ -86,7 +86,7 @@ void TUnk_8048E640::render() {
     stack.spC = *(s32 *)((s8 *)(&star_light_2d_base_color.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&star_light_2d_base_color.value) + 8);
     stack.sp14 = *(s32 *)((s8 *)(&star_light_2d_base_color.value) + 0xC);
-    TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&stack.sp8), (int) (*(s32 *)((s8 *)(&star_light_2d_base_color.value) + 8)), (int) (*(s32 *)((s8 *)(&star_light_2d_base_color.value) + 4)), (int) (*(s32 *)((s8 *)(&star_light_2d_base_color.value) + 0)), (void *) (&star_light_2d_base_color.value), (f32) (lbl_805D9450));
+    TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&stack.sp8), (int) (*(s32 *)((s8 *)(&star_light_2d_base_color.value) + 8)), (int) (*(s32 *)((s8 *)(&star_light_2d_base_color.value) + 4)), (int) (*(s32 *)((s8 *)(&star_light_2d_base_color.value) + 0)), (void *) (&star_light_2d_base_color.value), lbl_805D9450);
 }
 
 void TUnk_8048E640::run_task() {
@@ -140,8 +140,8 @@ u8 *TEffStarLight2D_Base__ct(u8 *arg0, s32 arg1, s32 arg2) {
     temp_r4 = *(s32 *)&((TUnk_8048E640 *)arg0)->m_8c;
     stack.sp13 = (s8) temp_r4;
     stack.sp14 = 0;
-    temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x4C, (s32)(temp_r4))));
-    var_r0 = (u8 *)(temp_r3);
+    temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x4C, temp_r4)));
+    var_r0 = temp_r3;
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(__ct__15TEffStarLight2DFPvPvP7TObject(temp_r3, (s32) (arg0 + 0x38), (s32) &stack.sp8, (*(s32 *)&tl_particle)));
     }

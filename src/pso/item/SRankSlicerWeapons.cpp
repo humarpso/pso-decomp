@@ -99,7 +99,7 @@ u8 *create_s_rank_j_cutter_weapon(u8 *owner) {
     u8 *var_r0;
     if (owner != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1FC));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
             var_r0 = (u8 *)(construct_s_rank_j_cutter_weapon(temp_r3, tl_05, owner));
         }
@@ -224,7 +224,7 @@ u8 *create_s_rank_slicer_weapon(u8 *owner) {
     u8 *var_r0;
     if (owner != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1FC));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
             var_r0 = (u8 *)(construct_s_rank_slicer_weapon(temp_r3, tl_05, owner));
         }

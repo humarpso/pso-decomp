@@ -707,7 +707,7 @@ void* __vt__12T_OWEHMS_Exp[6] = {
 void TObjWaitEntryHairMoveSim::run_task() {
     void *arg0 = this;
     if ((s32) *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x1C)) + 0xCFC) == 0) {
-        create_hair_effects__24TObjWaitEntryHairMoveSimFPv((void *)(arg0));
+        create_hair_effects__24TObjWaitEntryHairMoveSimFPv(arg0);
         queue_destruction__7TObjectFv(arg0);
     }
 }
@@ -741,9 +741,9 @@ void create_hair_effects__24TObjWaitEntryHairMoveSimFPv(void *arg0) {
             }
             ((void (*)(s32))TObjWaitEntryHairMoveSim__sub_800FE3BC)(v);
             if (e->p4 != NULL) {
-                TObjEZBoneRotPlayer::create((void *)(self->pl), (void *)v, (void *)(e->p4));
+                TObjEZBoneRotPlayer::create(self->pl, (void *)v, e->p4);
             } else if (e->p8 != NULL) {
-                ((TObjPlayer *)(self->pl))->create_hairmove((void *)(e->p8), (void *)(e->pc));
+                ((TObjPlayer *)(self->pl))->create_hairmove((void *)e->p8, (void *)e->pc);
             }
         }
     }
@@ -766,18 +766,18 @@ s32 TObjWaitEntryHairMoveSim__sub_800FE73C(s32 arg0) {
     s32 temp_r3;
     s32 var_r0;
     if (((TCharaMaking *)(arg0 + 0x85C))->get_display_index() == 0xE) {
-        TObjTailsTailsMove::create((void *) (arg0));
+        TObjTailsTailsMove::create((void *)arg0);
         return 0;
     }
-    if (((s32 (*)(void *))is_move_done__24TObjWaitEntryHairMoveSimFv)((void *) (arg0)) != 0) {
+    if (((s32 (*)(void *))is_move_done__24TObjWaitEntryHairMoveSimFv)((void *)arg0) != 0) {
         T_OWEHMS_Exp::create((TObjPlayer*)arg0);
         return 0;
     }
-    if (is_level_in_table__24TObjWaitEntryHairMoveSimFPv((Obj_800FE698 *)((void *) (arg0))) != 0) {
+    if (is_level_in_table__24TObjWaitEntryHairMoveSimFPv((Obj_800FE698 *)(arg0)) != 0) {
         temp_r3 = ((s32 (*)(int))__nw__7TObjectFUl)(0x20);
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = ((s32)__ct__24TObjWaitEntryHairMoveSimFv((void *)((int) (temp_r3)), (void *)((void *) (arg0))));
+            var_r0 = ((s32)__ct__24TObjWaitEntryHairMoveSimFv((void *)(temp_r3), (void *)(arg0)));
         }
         return var_r0;
     }

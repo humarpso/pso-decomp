@@ -11,7 +11,7 @@ void __destroy_arr(void *, void *, u32, u32);
 s32 __dt__14TPlyDispConfigFv(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         destroy_arrays__14TPlyDispConfigFii((s32)(arg0 + 0x24), -1);
-        destroy_arrays__14TPlyDispConfigFii((s32)(arg0), -1);
+        destroy_arrays__14TPlyDispConfigFii(arg0, -1);
         if (arg1 > 0) {
             ::operator delete((void *)arg0);
         }

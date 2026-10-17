@@ -259,9 +259,9 @@ u8 *create_orbit_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 
     u8 *particle_memory;
     u8 *var_r0;
     particle_memory = (u8 *)(((u8 *)alloc_particle_memory(0xE0)));
-    var_r0 = (u8 *)(particle_memory);
+    var_r0 = particle_memory;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(init_orbit_sprite_particle((u8 *)(particle_memory), (u8 *)(arg0), (u8 *)(arg1), (u8 *)(arg2), (s32)(arg3), arg4, arg5));
+        var_r0 = (u8 *)(init_orbit_sprite_particle(particle_memory, arg0, arg1, arg2, arg3, arg4, arg5));
     }
     return var_r0;
 }
@@ -269,7 +269,7 @@ void *TParticleCtrl::alloc_child_particle(void *arg1, void *arg2, void *arg3) {
     void *o;
     o = alloc_particle_memory(0xe0);
     if (o != NULL) {
-        o = ((TUnk_8048E790 *)o)->init_random_particle((void *)(this), (void *)(arg1), (void *)(arg2), (void *)(arg3));
+        o = ((TUnk_8048E790 *)o)->init_random_particle(this, arg1, arg2, arg3);
     }
     return o;
 }
@@ -289,7 +289,7 @@ void TUnk_8048E790::render() {
     s32 temp_r4;
     u16 temp_r3;
     if (all_parents_unqueued_for_destruction__7TObjectFv() != 0) {
-        temp_f3 = *(f32 *)((s8 *)(this->m_20) + 0x70) * cos_table_lookup(this->m_dc);
+        temp_f3 = *(f32 *)((s8 *)this->m_20 + 0x70) * cos_table_lookup(this->m_dc);
         this->m_88 = (f32) (this->m_28 * (TParticleCtrl__data_805D9528 + temp_f3));
         *(f32 *)((s8 *)arg0 + 0x8C) = (f32) (*(f32 *)&this->unk_2C * (TParticleCtrl__data_805D9528 - temp_f3));
         this->m_88 = (f32) (this->m_88 * this->m_a4);
@@ -348,7 +348,7 @@ void TUnk_8048E790::render() {
                 ((TUnk_8048E728 *)arg0)->draw_particle_refraction_quad();
                 return;
             }
-            if (*(u8 *)((s8 *)(this->m_20) + 0x88) & 0x20) {
+            if (*(u8 *)((s8 *)this->m_20 + 0x88) & 0x20) {
                 append_node_to_tail__13TParticleCtrlFPvPv(((s32 *)((u8 *)&TParticleCtrl__data_80511F70 + 0xD8))[*(u16 *)((s8 *)arg0 + 0x1C)], arg0 + 0x6C);
                 return;
             }

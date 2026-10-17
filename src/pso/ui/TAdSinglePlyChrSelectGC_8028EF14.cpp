@@ -1117,9 +1117,9 @@ u8 *TAdSinglePlyChrSelectGC__sub_802908CC(u8 *arg0, s16 arg1) {
             }
         }
         ((TAdSinglePlyChrSelectGC *)arg0)->free_field_FC();
-        TLobby__sub_8001FE7C((void *) (chara_select_preview_resource), 1);
+        TLobby__sub_8001FE7C((void *)chara_select_preview_resource, 1);
         chara_select_preview_resource = 0;
-        TAdSinglePlyChrSelectGC__sub_802905D4((void *) (arg0));
+        TAdSinglePlyChrSelectGC__sub_802905D4(arg0);
         (*(s32 *)&chara_select_head_node) = 0;
         (*(s32 *)&chara_select_hair_node_b) = 0;
         (*(s32 *)&chara_select_hair_node_a) = 0;
@@ -1131,20 +1131,20 @@ u8 *TAdSinglePlyChrSelectGC__sub_802908CC(u8 *arg0, s16 arg1) {
         char_creation_figure_draw_flag = 0;
         __dt__10TObjMotionFv((arg0), 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *) (arg0));
+            __dl__7TObjectFPv(arg0);
         }
     }
     return arg0;
 }
-void update_pair__23TAdSinglePlyChrSelectGCFPv(void* p) { TAdSinglePlyChrSelectGC::init_entry_tables((void*)(p)); TAdSinglePlyChrSelectGC__sub_8029071C(p); }
+void update_pair__23TAdSinglePlyChrSelectGCFPv(void* p) { TAdSinglePlyChrSelectGC::init_entry_tables(p); TAdSinglePlyChrSelectGC__sub_8029071C(p); }
 void TAdSinglePlyChrSelectGC__sub_80290884(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
 void TAdSinglePlyChrSelectGC::init_entry_tables(void* _w0) {
     for (s32 i = 0; i < 10; i++) {
-        TAdSinglePlyChrSelectGC__sub_80290884((void*)(&lbl_80540888[i]), (void*)(lbl_80451CD0));
-        TAdSinglePlyChrSelectGC__sub_80290884((void*)(&lbl_805408D8[i]), (void*)(lbl_80451CD0));
+        TAdSinglePlyChrSelectGC__sub_80290884((void*)(&lbl_80540888[i]), lbl_80451CD0);
+        TAdSinglePlyChrSelectGC__sub_80290884((void*)(&lbl_805408D8[i]), lbl_80451CD0);
     }
     for (s32 i = 0; i < 5; i++) {
-        TAdSinglePlyChrSelectGC__sub_80290884((void*)(&lbl_80540928[i]), (void*)(lbl_80451CD0));
+        TAdSinglePlyChrSelectGC__sub_80290884((void*)(&lbl_80540928[i]), lbl_80451CD0);
     }
 }
 u8 TAdSinglePlyChrSelectGC::is_active() {
@@ -1153,7 +1153,7 @@ u8 TAdSinglePlyChrSelectGC::is_active() {
 int TAdSinglePlyChrSelectGC__sub_802905B8(void) {  return char_creation_figure_draw_flag; }
 void TAdSinglePlyChrSelectGC__sub_802905A4(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
 void reset_creation_shape_set(s32 arg0) {
-    TAdSinglePlyChrSelectGC__sub_802905A4((void*)((void *) (arg0)), (void*)((void *) (&creation_empty_model_node)));
+    TAdSinglePlyChrSelectGC__sub_802905A4((void*)(arg0), (void*)((void *) (&creation_empty_model_node)));
 }
 #pragma push
 #pragma fp_contract on
@@ -1164,7 +1164,7 @@ void reset_creation_head_shapes() {
   s32 i = 0;
   do
   {
-    reset_creation_shape_set((s32)(p));
+    reset_creation_shape_set((s32)p);
     ++i;
     ++p;
   }
@@ -1176,7 +1176,7 @@ void reset_creation_head_shapes() {
     s32 j = 0;
     do
     {
-      reset_creation_shape_set((s32)(q));
+      reset_creation_shape_set((s32)q);
       ++j;
       ++q;
     }
@@ -1196,7 +1196,7 @@ void reset_creation_body_shapes() {
   s32 i = 0;
   do
   {
-    reset_creation_shape_set((s32)(p));
+    reset_creation_shape_set((s32)p);
     ++i;
     ++p;
   }
@@ -1208,7 +1208,7 @@ void reset_creation_body_shapes() {
     s32 j = 0;
     do
     {
-      reset_creation_shape_set((s32)(q));
+      reset_creation_shape_set((s32)q);
       ++j;
       ++q;
     }
@@ -1222,7 +1222,7 @@ void TCharaMaking__bind_body_shape_nodes(CharacterAppearanceFields *appearance, 
     reset_creation_body_shapes();
     TObjPlayer::clear_next_entry((s32)model, (u8 *)(&creation_body_shape_destination));
     for (s32 i = 0; i < 7; ++i) {
-        TObjPlayer::clear_next_entry((s32)(char_creation_data_block[0][i]), (u8 *)(&creation_body_shape_samples[i]));
+        TObjPlayer::clear_next_entry((s32)char_creation_data_block[0][i], (u8 *)(&creation_body_shape_samples[i]));
     }
 }
 void TCharaMaking__bind_head_shape_nodes(CharacterAppearanceFields *appearance, void *model) {
@@ -1230,7 +1230,7 @@ void TCharaMaking__bind_head_shape_nodes(CharacterAppearanceFields *appearance, 
     TObjPlayer::clear_next_entry((s32)model, (u8 *)(&creation_head_shape_destination));
     s32 head = appearance->head + 1;
     for (s32 i = 0; i < 7; ++i) {
-        TObjPlayer::clear_next_entry((s32)(char_creation_data_block[head][i]), (u8 *)(&creation_head_shape_samples[i]));
+        TObjPlayer::clear_next_entry((s32)char_creation_data_block[head][i], (u8 *)(&creation_head_shape_samples[i]));
     }
 }
 void TAdSinglePlyChrSelectGC::reset_creation_parts() {
@@ -1249,7 +1249,7 @@ void TAdSinglePlyChrSelectGC::reset_creation_parts() {
 void load_creation_shape_rel(W_80290250 *arg0) {
     s32 rc;
     arg0->bufp = ((TQuestVmDownLoadServer *)0x44000)->alloc();
-    rc = TLobby::request_file_read((s32)(chara_select_creation_shape_rel_files[((TCharaMaking *)(*(void * *)&creation_player_character))->get_display_index()]), (s32)(arg0->bufp), (s32 *)(arg0->data), (void **)0);
+    rc = TLobby::request_file_read((s32)(chara_select_creation_shape_rel_files[((TCharaMaking *)(*(void * *)&creation_player_character))->get_display_index()]), (s32)arg0->bufp, (s32 *)arg0->data, (void **)0);
     arg0->rc = rc;
     if (rc >= 0) {
         if (arg0->rc > 0x44000) {
@@ -1324,7 +1324,7 @@ void TCMCharacter::apply_character_appearance() {
         chara_select_head_node = lbl_80540928[head].b;
     }
     char_creation_data_block = (void ***)relocate_data_block_pointers(this->shape_rel, this->shape_rel_size);
-    TCharaMaking__bind_body_shape_nodes((CharacterAppearanceFields *)((CharacterAppearanceFields *)app), (void *)(this->model));
+    TCharaMaking__bind_body_shape_nodes((CharacterAppearanceFields *)((CharacterAppearanceFields *)app), this->model);
     TCharaMaking__bind_head_shape_nodes((CharacterAppearanceFields *)((CharacterAppearanceFields *)app), (void *)((void *)chara_select_head_node));
     blend_creation_proportion_shapes(&((CharacterAppearanceFields *)creation_player_character)->width);
     lbl_805D49B4 = 0;
@@ -1491,7 +1491,7 @@ void TAdSinglePlyChrSelectGC::get_sorted_region_samples(s32 *samples) {
     s32 x;
     s32 i;
     TCharaMaking__sub_8028E3A0();
-    map_shape_region_samples((s32)(((void *)find_shape_triangle_region((u8 *)(this)))), (s32 *)(samples));
+    map_shape_region_samples((s32)(((void *)find_shape_triangle_region((u8 *)this))), (s32 *)samples);
     for (i = 0; i < 2; i++) {
         for (j = 2; j > i; j--) {
             x = samples[j];

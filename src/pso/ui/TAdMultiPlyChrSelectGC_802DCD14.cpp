@@ -263,7 +263,7 @@ void TAdMultiPlyChrSelectGC__sub_802DD400(u8 *arg0) {
     s32 temp_r5;
     if (((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x6C)))->get_mode() > 1) {
         temp_r5 = get_instance__22TAdMultiPlyChrSelectGCFv((s32)((int) (*(s32 *)((s8 *)arg0 + 0x5C)))) * 0x50;
-        if (TWindowShortListCtrl__check_controller_button((void *)((void *) ((u8 *)&(*(RecoveredGlobal_802DD400_lbl_8050E3B8 *)&controller_physical_port_bank).value + temp_r5 + 0x20)), 2, (s32)((int) (temp_r5))) != 0) {
+        if (TWindowShortListCtrl__check_controller_button((void *)((void *) ((u8 *)&(*(RecoveredGlobal_802DD400_lbl_8050E3B8 *)&controller_physical_port_bank).value + temp_r5 + 0x20)), 2, (s32)(temp_r5)) != 0) {
             goto block_2;
         }
     } else {

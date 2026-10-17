@@ -130,7 +130,7 @@ void TOKeyCave01::render() {
         TObjFish::set_global_param((int) TOKeyCave01__texture_lists[*(s32 *)&this->m_d4]);
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y(0, (int) (this->rotation_y));
+        rotate_matrix_y(0, this->rotation_y);
         temp_r31 = *(u8 * *)&this->model;
         post_translate_matrix((void *) (temp_r31 + 8));
         draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
@@ -171,7 +171,7 @@ void TOKeyCave01::render() {
 void *TOKeyCave01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x100);
     if (o != NULL) {
-        o = TOKeyCave01__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TOKeyCave01__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -199,7 +199,7 @@ void TOKeyCave01::load_resources() {
     global_state = TOKeyMachine01::get_global_state();
     if ((TContainerAncient01::is_global_state_in_table() == 1) || (global_state == 0x1C) || (global_state == 0x1D)) {
         temp_r3 = (u8 *)(((TAdSinglePlyChrSelectGC *)0x440)->alloc());
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
             var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &fs_obj_key_jungle_resource_descriptor.value, 0, 0, 0));
         }
@@ -211,7 +211,7 @@ void TOKeyCave01::load_resources() {
         return;
     }
     temp_r3_2 = (u8 *)(((TAdSinglePlyChrSelectGC *)0x440)->alloc());
-    var_r0_2 = (u8 *)(temp_r3_2);
+    var_r0_2 = temp_r3_2;
     if (var_r0_2 != NULL) {
         var_r0_2 = (u8 *)(load_resource_from_descriptor(temp_r3_2, 1, &bm_fs_obj_do_doa_panel_resource_descriptor.value, 0, 0, 0));
     }

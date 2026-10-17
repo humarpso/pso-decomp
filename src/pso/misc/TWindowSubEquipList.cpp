@@ -22,11 +22,11 @@ void __dl__7TObjectFPv(void *);
 u8 *create_equip_list_window(s32 arg0, s32 arg1, s16 arg2) {
     u8 *temp_r3;
     u8 *var_r0;
-    TShopJudgmentItemWindow__sub_80267F9C((void *) (arg1), 8);
+    TShopJudgmentItemWindow__sub_80267F9C((void *)arg1, 8);
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x88));
-    var_r0 = (u8 *)(temp_r3);
+    var_r0 = temp_r3;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TWindowSubEquipList__ct((u8 *)(temp_r3), (s32)(arg0), arg2));
+        var_r0 = (u8 *)(TWindowSubEquipList__ct(temp_r3, arg0, arg2));
     }
     return var_r0;
 }
@@ -36,11 +36,11 @@ u8 *create_equip_list_window(s32 arg0, s32 arg1, s16 arg2) {
 void TWindowSubEquipList::render() {
     s32 temp_r3;
     temp_r3 = get_draw_context__11TWindowBaseFPv();
-    draw_window_frame((void *) (((u8 *)this)), (int) (temp_r3));
-    draw_visible_window_entries((void *) (((u8 *)this)), (void *) (((u8 *)this) + 0x24), (int) (temp_r3));
-    draw_selected_list_entry((int) (temp_r3));
+    draw_window_frame((void *) (((u8 *)this)), temp_r3);
+    draw_visible_window_entries((void *) (((u8 *)this)), (void *) (((u8 *)this) + 0x24), temp_r3);
+    draw_selected_list_entry(temp_r3);
     if ((u32) *(u32 *)&this->m_80 != 0U) {
-        forward_render__20TWindowSubStatusDispFv(this->m_80, (int) (temp_r3));
+        forward_render__20TWindowSubStatusDispFv(this->m_80, temp_r3);
     }
 }
 #pragma pop

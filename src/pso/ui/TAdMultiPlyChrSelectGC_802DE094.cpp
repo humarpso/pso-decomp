@@ -328,7 +328,7 @@ void TAdMultiPlyChrSelectGC__sub_802DE7D0(void *arg0) {
         if (TAdMultiPlyChrSelectGC__sub_802C6558() > 0) {
             TAdMultiPlyChrSelectGC::split_slot_index(TAdMultiPlyChrSelectGC__sub_802C6920(), &stack.spC, &stack.sp8);
             TAdMultiPlyChrSelectGC::init();
-            ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x5C)))->set_field_4ec((s32)((void*)(stack.spC)));
+            ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x5C)))->set_field_4ec((s32)(stack.spC));
             TAdMultiPlyChrSelectGC__sub_802E0024(*(s32 *)((s8 *)arg0 + 0x5C), stack.sp8);
             return;
         }
@@ -338,7 +338,7 @@ void TAdMultiPlyChrSelectGC__sub_802DE7D0(void *arg0) {
     } else {
         var_r30 = 0;
         do {
-            if ((is_multiplayer_character_slot_selected(var_r30) != 0) && (TAdMultiPlyChrSelectGC__sub_802C6848((s32)(var_r30)) == 0)) {
+            if ((is_multiplayer_character_slot_selected(var_r30) != 0) && (TAdMultiPlyChrSelectGC__sub_802C6848(var_r30) == 0)) {
                 TAdMultiPlyChrSelectGC__sub_802C65C0(var_r30);
             }
             var_r30 += 1;

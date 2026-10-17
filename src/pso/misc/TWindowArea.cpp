@@ -33,8 +33,8 @@ u8 *TWindowArea__ct(u8 *arg0) {
     f32 var_f0;
     u8 *var_r31;
     u8 *var_r3;
-    window_layout_position = (s32 *)((u8 *)(NULL));
-    var_r31 = (u8 *)(arg0);
+    window_layout_position = (s32 *)(NULL);
+    var_r31 = arg0;
     __ct__11TWindowRoomFPc(arg0, 0);
     window_layout_position = (s32 *)(&(*(RecoveredGlobal_8024470C___vt__11TWindowArea *)&__vt__11TWindowArea).value);
     var_r3 = (u8 *)((void *)0x25);
@@ -44,7 +44,7 @@ u8 *TWindowArea__ct(u8 *arg0) {
     window_layout_position = (s32 *)(get_window_layout_position(0x25));
     ((TWindowSubSymbolChatPartsSet *)var_r3)->copy_vec2((void*)window_layout_position);
     var_f0 = lbl_805DCAC4;
-    var_r3 = (u8 *)(var_r31);
+    var_r3 = var_r31;
     *(f32 *)((s8 *)var_r31 + 0x60) = var_f0;
     return var_r3;
 }

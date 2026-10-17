@@ -179,14 +179,14 @@ void update_password_input__17TAdEnterPPPPassGCFPv(u8 *arg0) {
 void open_keyboard_window__17TAdEnterPPPPassGCFPv(u8 *arg0) {
     u32 temp_r3;
     *(s32 *)((s8 *)arg0 + 0x30) = TAdEnterSerialAccessGC::show_message_window((void *)arg0, (void *)3);
-    *(s32 *)((s8 *)arg0 + 0x34) = create_default_callback__22TAdEnterSerialAccessGCFv((void *) (arg0));
+    *(s32 *)((s8 *)arg0 + 0x34) = create_default_callback__22TAdEnterSerialAccessGCFv(arg0);
     temp_r3 = *(u32 *)((s8 *)arg0 + 0x2C);
     if (temp_r3 != 0U) {
         ((TAdEnterSerialAccessGC *)temp_r3)->reset_input_state();
         ((TLevelSelect *)(*(u32 *)((s8 *)arg0 + 0x2C)))->add_item_rect((void *) ((u8 *)&TAdEnterPPPPassGC__selection_positions.value + 0x10));
         ((TAdEnterSerialAccessGC *)(*(u32 *)((s8 *)arg0 + 0x2C)))->set_active();
     }
-    (*(s32 *)&password_entry_keyboard_control) = TAdEnterSerialAccessGC::create_keyboard_control((s32)((void *) (arg0)), 3);
+    (*(s32 *)&password_entry_keyboard_control) = TAdEnterSerialAccessGC::create_keyboard_control((s32)(arg0), 3);
     password_entry_dispatch_state = 1;
 }
 
@@ -216,7 +216,7 @@ void set_password__17TAdEnterPPPPassGCFi(s32 arg0) {
         TLobby::set_ppp_password(arg0);
         return;
     }
-    memset((void *) (ppp_password_buffer), 0, 0x20);
+    memset(ppp_password_buffer, 0, 0x20);
     strncpy((s32) ppp_password_buffer, arg0, 0x1F);
 }
 

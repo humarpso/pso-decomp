@@ -179,7 +179,7 @@ s32 get_selected_quest_text__19TQuestListChallengeFv(void) {
     if ((void *) (*(u8 * *)&TQuestListChallenge__active_instance) != NULL) {
         temp_r3 = *(u32 *)((s8 *)(*(u8 * *)&TQuestListChallenge__active_instance) + 0x38);
         if (temp_r3 != 0U) {
-            return get_quest_list_text((int) (*(s32 *)((s8 *)(*(u8 * *)&TQuestListChallenge__active_instance) + 0x50)), (int) (*(s32 *)((s8 *)(*(s32 *)((s8 *)(*(u8 * *)&TQuestListChallenge__active_instance) + 0x58) + (select_cursor_entry__22TWindowSubShortCutListFv((s32)((int) (temp_r3))) * 0x10)) + 0)), (int) ((*(u8 * *)&TQuestListChallenge__active_instance)));
+            return get_quest_list_text((int) (*(s32 *)((s8 *)(*(u8 * *)&TQuestListChallenge__active_instance) + 0x50)), (int) (*(s32 *)((s8 *)(*(s32 *)((s8 *)(*(u8 * *)&TQuestListChallenge__active_instance) + 0x58) + (select_cursor_entry__22TWindowSubShortCutListFv((s32)(temp_r3)) * 0x10)) + 0)), (int) ((*(u8 * *)&TQuestListChallenge__active_instance)));
         }
     }
     return 0;
@@ -246,7 +246,7 @@ void handle_confirm_select__19TQuestListChallengeFv(void *arg0) {
                 return;
             }
             if (selected_menu_value == 1) {
-                close_windows__19TQuestListChallengeFPv((void *)(arg0));
+                close_windows__19TQuestListChallengeFPv(arg0);
                 temp_r3_3 = *(VObj_80288C78_80288B5C **)((s8 *)arg0 + 0x30);
                 if (temp_r3_3 != NULL) {
                     temp_r3_3->m7(0x19, 0x80);
@@ -258,7 +258,7 @@ void handle_confirm_select__19TQuestListChallengeFv(void *arg0) {
         }
 block_9:
         if ((*(void **)((s8 *)arg0 + 0x34) != NULL) && (((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x34)))->get_status_flag() == 1)) {
-            close_windows__19TQuestListChallengeFPv((void *)(arg0));
+            close_windows__19TQuestListChallengeFPv(arg0);
             temp_r3_4 = *(VObj_80288C78_80288B5C **)((s8 *)arg0 + 0x30);
             if (temp_r3_4 != NULL) {
                 temp_r3_4->m7(0x19, 0x80);

@@ -330,7 +330,7 @@ void TOSensorAncient01::render() {
     if (((VObj_80175994 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y(0, (int) (this->rotation_y));
+        rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(*(s32 *)((s8 *)ancient_sensor_resource_pair_table + (*(s32 *)&this->m_8c * 8)));
         temp_r30 = (u8 *)(*(u8 * *)&this->model);
         post_translate_matrix((void *) (temp_r30 + 8));
@@ -401,7 +401,7 @@ extern void *tl_05;
 void *TOSensorAncient01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF8);
     if (o != NULL) {
-        o = TOSensorAncient01__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TOSensorAncient01__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -466,7 +466,7 @@ void *__dt__17TOSensorAncient01Fv(void *arg0, s16 arg1) {
 #pragma opt_common_subs off
 u8 *TOSensorAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     s32 temp_r0;
-    ((s32 (*)(void *))TOSensor__ct)((void *) (arg0));
+    ((s32 (*)(void *))TOSensor__ct)(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80175E2C___vt__17TOSensorAncient01 *)&__vt__17TOSensorAncient01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOSensorAncient01_class_name;
     ((TOSensorAncient01 *)(arg0))->apply_object_set_data((void *)arg2);

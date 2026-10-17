@@ -141,7 +141,7 @@ u8 *TPhotonYoulla__ct(u8 *arg0, u8 *arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TPhotonYoulla;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3528;
     *(s32 *)((s8 *)arg0 + 0x138) = 5;
-    VecCopy((Vec *)((u8 *)(arg0) + 0x38), (const Vec *)(arg1));
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg1));
     ((TPhotonYoulla *)arg0)->m_17c = (u16) *(u16 *)((s8 *)arg1 + 0xC);
     *(u8 **)((s8 *)arg0 + 0x180) = (u8 *)find_entity_by_id(((TPhotonYoulla *)arg0)->m_17c);
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x180));

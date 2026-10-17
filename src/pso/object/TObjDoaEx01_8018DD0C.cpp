@@ -111,7 +111,7 @@ void TObjDoaEx01::try_open() {
         push_matrix();
         post_translate_matrix(((u8 *)this) + 0x38);
         rotate_matrix_y(0, this->rotation_y);
-        ((TObjDoaEx01 *)((u8 *)this))->draw_object_tree((s32)(bml_model));
+        ((TObjDoaEx01 *)((u8 *)this))->draw_object_tree(bml_model);
         pop_matrix();
     }
 }

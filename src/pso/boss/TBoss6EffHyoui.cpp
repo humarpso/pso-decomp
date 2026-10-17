@@ -72,7 +72,7 @@ void *TBoss6EffHyoui::create(void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x2C);
     if (o != NULL) {
-        o = TBoss6EffHyoui__ct((void *)(o), (void *)(tl_02), (void *)(this), (void *)(arg1), (void *)(arg2));
+        o = TBoss6EffHyoui__ct(o, tl_02, this, arg1, arg2);
     }
     return o;
 }

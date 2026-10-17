@@ -7,7 +7,7 @@ extern "C" {
 void TItemEquipBase::set_slot(s32 arg1, s32 arg2) {
     s32 arg0 = (s32)this;
     if (arg1 < 6) {
-        TItemEquipBase__sub_8022F1F4((void *)(arg0 + (arg1 * 8)), (void *)(arg2));
+        TItemEquipBase__sub_8022F1F4((void *)(arg0 + (arg1 * 8)), (void *)arg2);
     }
 }
 

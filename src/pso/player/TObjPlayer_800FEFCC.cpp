@@ -162,7 +162,7 @@ void *TObjHMS_EZRope_Player__ct(void *arg0, void *arg1, void *arg2, void *arg3) 
         }
         TObjPlayer__sub_800FF1FC((f32 *)e4, (f32 *)(base + 0x20));
     }
-    ((TObjEZRopeBase *)arg0)->sub_800FF8CC((void *)(SELF->a), (void *)(SELF->b), (s32)(SELF->c));
+    ((TObjEZRopeBase *)arg0)->sub_800FF8CC((void *)SELF->a, (void *)SELF->b, (s32)SELF->c);
     return arg0;
 }
 
@@ -187,7 +187,7 @@ void *TObjPlayer::create_hairmove(void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x48);
     if (o != NULL) {
-        o = TObjHMS_EZRope_Player__ct((void *)(o), (void *)(this), (void *)(arg1), (void *)(arg2));
+        o = TObjHMS_EZRope_Player__ct(o, this, arg1, arg2);
     }
     return o;
 }

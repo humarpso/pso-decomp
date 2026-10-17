@@ -35,7 +35,7 @@ void TCameraCtrl__sub_8006A044(s32 id, f32 v) {
         (*(O_8006A044 * *)&camera_ctrl_instance)->v = v;
         p = (*(O_8006A044 * *)&camera_ctrl_instance);
         p->id = id;
-        queue_event_1D__12TBoss3VoloptFss(0x60, (s32)((s16)id), (void *)(p));
+        queue_event_1D__12TBoss3VoloptFss(0x60, (s32)((s16)id), p);
     }
 }
 

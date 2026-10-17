@@ -42,9 +42,9 @@ u8 *TItemProArmor::create() {
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x104));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((TUnk_8049FE00 *)temp_r3)->construct((void *)((void *)((*(s32 *)&tl_05))), (void *)((void *)(arg0)))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_8049FE00 *)temp_r3)->construct((void *)((void *)((*(s32 *)&tl_05))), (void *)(arg0))));
         }
         return var_r0;
     }
@@ -93,12 +93,12 @@ void create__13TItemProArmorFiUi(s32 arg0, u32 arg1) {
     if ((arg0 != 0) && (arg1 != 0U)) {
         temp_r3 = __nw__7TObjectFUl(0x20);
         if (temp_r3 != NULL) {
-            TItemProArmor__sub_8011751C((u8 *)(temp_r3), (u8 *)(arg0), (u8 *)(arg1));
+            TItemProArmor__sub_8011751C((u8 *)temp_r3, (u8 *)arg0, (u8 *)arg1);
         }
     }
 }
 
-void TUnk_8049FED0::vfunc_44() { create__13TItemProArmorFiUi((s32)((s32)((void*)(tl_05))), (u32)((u32)((void*)(*(int *)&this->m_f0)))); }
+void TUnk_8049FED0::vfunc_44() { create__13TItemProArmorFiUi((s32)((s32)(tl_05)), (u32)((u32)((void*)(*(int *)&this->m_f0)))); }
 
 extern s32 lbl_8049FED0[];
 

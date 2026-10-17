@@ -88,7 +88,7 @@ s32 update_challenge_result_player_locks() {
     }
     if (active) {
         for (s32 i = 0; i < 4; ++i) {
-            TObjPlayer *player = ((TObjPlayer *)get_player_by_client_id((int)(i)));
+            TObjPlayer *player = ((TObjPlayer *)get_player_by_client_id(i));
             if (player && ((TLobby *)player)->check_player_flag1() == 0) {
                 play_effect_default__10TObjPlayerFii(player, -1);
                 obj_set_flag_20000(player);
@@ -104,7 +104,7 @@ s32 update_challenge_result_player_locks() {
         }
     } else {
         for (s32 i = 0; i < 4; ++i) {
-            TObjPlayer *player = ((TObjPlayer *)get_player_by_client_id((int)(i)));
+            TObjPlayer *player = ((TObjPlayer *)get_player_by_client_id(i));
             if (player && ((TLobby *)player)->check_player_flag1() != 0) {
                 TObjPlayer::send_code_45_1((s32)player);
                 obj_clear_flag30_20000(player);
@@ -122,7 +122,7 @@ s32 update_challenge_result_player_locks() {
 void TChallenge4PResult::create(int arg0, s32 arg1) {
     void *temp;
 
-    if (get_player_by_client_id((u16)(arg0)) != 0U) {
+    if (get_player_by_client_id((u16)arg0) != 0U) {
         temp = (void *) __nw__7TObjectFUl(0x7C);
         if (temp != NULL) {
             __ct__18TChallenge4PResultFP7TObjectUsl(temp, tl_01, arg0, arg1);
@@ -154,12 +154,12 @@ void TChallenge4PResult::show_message(s32 text_handle) {
     if (message_window == NULL) {
         stack.sp8 = *(s32 *)((s8 *)lbl_80478BCC + 0);
         stack.spC = *(s32 *)((s8 *)lbl_80478BCC + 4);
-        message_window = (TWindowMessagePage *)TWindowMessagePage::create(get_window_layout_position(0x40, (int) (*(s32 *)((s8 *)lbl_80478BCC + 0)), (void *) (lbl_80478BCC)), (s32)(&stack.sp8), 1, slot_index);
+        message_window = (TWindowMessagePage *)TWindowMessagePage::create(get_window_layout_position(0x40, (int) (*(s32 *)((s8 *)lbl_80478BCC + 0)), lbl_80478BCC), (s32)(&stack.sp8), 1, slot_index);
     }
     if (message_window != NULL) {
         ((TWindowMessagePage *)message_window)->set_message((void *)text_handle, 0x81);
         if (TCameraCtrl::get_instance() > 2) {
-            ((TUnk_804CDFE8 *)message_window)->set_position_xy((f32) (lbl_805DFDA4), (f32) (lbl_805DFDA4));
+            ((TUnk_804CDFE8 *)message_window)->set_position_xy(lbl_805DFDA4, lbl_805DFDA4);
         }
     }
 }
@@ -167,17 +167,17 @@ void TChallenge4PResult::show_message(s32 text_handle) {
 extern "C" {
 
 void TChallenge4PResult::init_timer() {
-    ((TChallenge4PResult *)((void *)(this)))->show_message((s32)((s32)(get_localized_text_entry(0x2B, 5))));
+    ((TChallenge4PResult *)(this))->show_message((s32)((s32)(get_localized_text_entry(0x2B, 5))));
     this->wait_frames = 0x5A;
     *(s32 *)((s8 *)this + 0x1C) = 5;
 }
 void TChallenge4PResult::init_result_state() {
-    ((TChallenge4PResult *)((void *)(this)))->show_message((s32)((s32)(get_localized_text_entry(0x2B, 4))));
+    ((TChallenge4PResult *)(this))->show_message((s32)((s32)(get_localized_text_entry(0x2B, 4))));
     this->wait_frames = 0x5A;
     *(s32 *)((s8 *)this + 0x1C) = 5;
 }
 void TChallenge4PResult::init() {
-    ((TChallenge4PResult *)((void *)(this)))->show_message((s32)((s32)(get_localized_text_entry(0x2B, 3))));
+    ((TChallenge4PResult *)(this))->show_message((s32)((s32)(get_localized_text_entry(0x2B, 3))));
     this->wait_frames = 0x5A;
     *(s32 *)((s8 *)this + 0x1C) = 5;
 }
@@ -228,9 +228,9 @@ int TChallenge4PResult::queue_destruction() { return queue_destruction__7TObject
 typedef char RecoveredGlobal_8034BA68_lbl_8050E208_size[sizeof(RecoveredGlobal_8034BA68_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void TChallenge4PResult::update_wait_input() {
     s32 temp_r5;
-    if (get_player_by_client_id((int) (this->slot_index)) != 0U) {
+    if (get_player_by_client_id(this->slot_index) != 0U) {
         temp_r5 = get_map_id__13TRaderMapCoreFv() * 0x50;
-        if (TWindowShortListCtrl__check_controller_button((void *)((void *) ((u8 *)&(*(RecoveredGlobal_8034BA68_lbl_8050E208 *)&controller_input_state).value + temp_r5 + 0x20)), 4, (s32)((int) (temp_r5))) != 0) {
+        if (TWindowShortListCtrl__check_controller_button((void *)((void *) ((u8 *)&(*(RecoveredGlobal_8034BA68_lbl_8050E208 *)&controller_input_state).value + temp_r5 + 0x20)), 4, (s32)(temp_r5)) != 0) {
             this->state_1c = 3;
         }
     } else {
@@ -277,7 +277,7 @@ void TChallenge4PResult::update_input() {
     u32 p;
 
     if ((u32) *(u32 *)&this->message_window == 0U) {
-        ((TChallenge4PResult *)((void *)(this)))->show_message((s32)((s32)(get_localized_text_entry(0x2B, 6))));
+        ((TChallenge4PResult *)(this))->show_message((s32)((s32)(get_localized_text_entry(0x2B, 6))));
     }
     p = *(u32 *)&this->message_window;
     if ((p != 0U) && (((TWindowMessagePage *)p)->is_message_window_ready() != 0)) {
@@ -286,7 +286,7 @@ void TChallenge4PResult::update_input() {
             this->wait_frames = (s32) (temp_r3 - 1);
             return;
         }
-        if (get_player_by_client_id((u16)(this->slot_index)) != 0U) {
+        if (get_player_by_client_id(this->slot_index) != 0U) {
             temp_r5 = get_map_id__13TRaderMapCoreFv() * 0x50;
             if (TWindowShortListCtrl__check_controller_button(controller_input_state + temp_r5 + 0x20, 4, temp_r5) != 0) {
                 *(s32 *)((s8 *)this + 0x1C) = 1;

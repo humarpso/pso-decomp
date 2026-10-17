@@ -172,7 +172,7 @@ void TOSwitchAttack::run_task() {
         case 11: case 12: case 13: case 14: case 15: case 16: case 17:
         case 18: case 19: case 20:
             if (o->f14 == 0) {
-                TOSwitchAttack::create_sub((s32)o, (s32)(o->fA2), (s32)(o->fA0), (s32)(o->fA7 - 3), (f32)(o->f90));
+                TOSwitchAttack::create_sub((s32)o, o->fA2, o->fA0, (s32)(o->fA7 - 3), o->f90);
             }
             break;
         }
@@ -185,7 +185,7 @@ void TOSwitchAttack::run_task() {
 void *TOSwitchAttack::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xAC);
     if (o != NULL) {
-        o = TOSwitchAttack__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TOSwitchAttack__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -205,7 +205,7 @@ void *__dt__14TOSwitchAttackFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_80177C80___vt__14TOSwitchAttack_size[sizeof(RecoveredGlobal_80177C80___vt__14TOSwitchAttack) == 0x38 ? 1 : -1];
 u8 *TOSwitchAttack__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_world_actor_base((void *) (arg0));
+    construct_world_actor_base(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80177C80___vt__14TOSwitchAttack *)&__vt__14TOSwitchAttack).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3178;
     ((TOSwitchAttack *)(arg0))->apply_object_set_data((void *)arg2);

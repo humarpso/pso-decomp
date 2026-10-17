@@ -233,7 +233,7 @@ s16 TLobby::init_network_stack() {
     }
     temp_r3 = TLobby__network_stack_init_count;
     TLobby__network_stack_init_count = temp_r3 + 1;
-    var_r31 = TLobby__sub_80419A34((int) (temp_r3));
+    var_r31 = TLobby__sub_80419A34(temp_r3);
     if (var_r31 >= 0) {
         var_r31 = TLobby__sub_80415690();
         if (var_r31 >= 0) {
@@ -313,7 +313,7 @@ block_30:
 }
 
 s32 TLobby__sub_804217E4(void) {
-    TUdpSocket::unlock_mutex((int)((void *) (network_dispatch_state.value)));
+    TUdpSocket::unlock_mutex((int)(network_dispatch_state.value));
     return 0;
 }
 typedef char RecoveredGlobal_80421814_lbl_805C1C50_size[sizeof(RecoveredGlobal_80421814_lbl_805C1C50) == 0xF8 ? 1 : -1];
@@ -328,7 +328,7 @@ s32 TLobby__sub_80421844(s32 arg0) {
         return -2;
     }
     TLobby::lock_mutex((int)((void *) ((*(RecoveredGlobal_80421844_lbl_805C1C50 *)&network_dispatch_state).value)));
-    temp_r31 = NetUnregisterTimer((void *) (arg0));
+    temp_r31 = NetUnregisterTimer((void *)arg0);
     TUdpSocket::unlock_mutex((int)((void *) ((*(RecoveredGlobal_80421844_lbl_805C1C50 *)&network_dispatch_state).value)));
     return temp_r31;
 }
@@ -343,7 +343,7 @@ s32 TLobby__sub_804218AC(s32 arg0, s32 arg1) {
         return -2;
     }
     TLobby::lock_mutex((int)((void *) ((*(RecoveredGlobal_804218AC_lbl_805C1C50 *)&network_dispatch_state).value)));
-    temp_r31 = NetRegisterTimer((void *) (arg1), 0, (void *) (arg0));
+    temp_r31 = NetRegisterTimer((void *)arg1, 0, (void *)arg0);
     TUdpSocket::unlock_mutex((int)((void *) ((*(RecoveredGlobal_804218AC_lbl_805C1C50 *)&network_dispatch_state).value)));
     return temp_r31;
 }
@@ -368,7 +368,7 @@ s32 TLobby__sub_80421938(O_80421938 *o, void *src, void *dst, void *cb, s32 flag
 s32 TLobby__sub_804219D0(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r31;
     TLobby::lock_mutex((int)((void *) ((*(RecoveredGlobal_804219D0_lbl_805C1C50 *)&network_dispatch_state).value)));
-    temp_r31 = TLobby__sub_8040F9CC((void *) (arg0), (void *) (arg1), (void *) (arg2), 0);
+    temp_r31 = TLobby__sub_8040F9CC((void *)arg0, (void *)arg1, (void *)arg2, 0);
     TUdpSocket::unlock_mutex((int)((void *) ((*(RecoveredGlobal_804219D0_lbl_805C1C50 *)&network_dispatch_state).value)));
     return temp_r31;
 }
@@ -378,7 +378,7 @@ typedef char RecoveredGlobal_80421A50_lbl_805C1C50_size[sizeof(RecoveredGlobal_8
 s32 TLobby__sub_80421A50(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r31;
     TLobby::lock_mutex((int)((void *) ((*(RecoveredGlobal_80421A50_lbl_805C1C50 *)&network_dispatch_state).value)));
-    temp_r31 = TRKValidMemory32((void *) (arg0), (void *) (arg1), (void *) (arg2), 1, (int) (0U), (int) (0U));
+    temp_r31 = TRKValidMemory32((void *)arg0, (void *)arg1, (void *)arg2, 1, (int) (0U), (int) (0U));
     TUdpSocket::unlock_mutex((int)((void *) ((*(RecoveredGlobal_80421A50_lbl_805C1C50 *)&network_dispatch_state).value)));
     return temp_r31;
 }
@@ -397,7 +397,7 @@ s32 TLobby__sub_80421AD8(u8 *arg0, s32 arg1, s32 arg2, u32 arg3, s32 arg4) {
     stack.sp24 = arg1;
     stack.sp28 = arg2;
     if (arg3 != 0U) {
-        TLobby__sub_80421FB8((void *) (arg3), (void *) (&stack.sp1C), (void *) (arg0));
+        TLobby__sub_80421FB8((void *)arg3, (void *) (&stack.sp1C), (void *)arg0);
     }
     return 0;
 }
@@ -751,18 +751,18 @@ s16 TLobby__sub_80422F70(s16 arg0, s32 arg1, s32 arg2, s32 arg3) {
         return -2;
     }
     var_r29 = 0;
-    TLobby::lock_mutex((int)((void *) (network_dispatch_state.value)));
-    ((TLobby *)(&sp18))->init_packet_header((s32)((void *) (arg1)));
-    temp_r3_2 = TLobby__sub_8040F00C(arg0, (void *) (&sp18), (int) (arg2), (void *) (arg3));
+    TLobby::lock_mutex((int)(network_dispatch_state.value));
+    ((TLobby *)(&sp18))->init_packet_header((s32)(arg1));
+    temp_r3_2 = TLobby__sub_8040F00C(arg0, (void *) (&sp18), (int)arg2, (void *)arg3);
     if (temp_r3_2 > 0) {
         var_r29 = temp_r3_2;
         arg2 -= temp_r3_2 * 0x1C;
     }
-    temp_r3 = TLobby__sub_80412058(arg0, (void *) (&sp18), (int) (arg2), (void *) (arg3));
+    temp_r3 = TLobby__sub_80412058(arg0, (void *) (&sp18), (int)arg2, (void *)arg3);
     if (temp_r3 > 0) {
         var_r29 += temp_r3;
     }
-    TUdpSocket::unlock_mutex((int)((void *) (network_dispatch_state.value)));
+    TUdpSocket::unlock_mutex((int)(network_dispatch_state.value));
     if (var_r29 == 0) {
         if (temp_r3_2 < temp_r3) {
             return temp_r3_2;
@@ -780,7 +780,7 @@ s16 TLobby__sub_80423064(s16 idx, s32 arg1) {
     if (idx < 0) {
         return -2;
     }
-    TLobby::lock_mutex((int)((void *) (network_dispatch_state.value)));
+    TLobby::lock_mutex((int)(network_dispatch_state.value));
     level = OSDisableInterrupts();
     switch (arg1) {
     case 0:
@@ -804,8 +804,8 @@ s16 TLobby__sub_80423064(s16 idx, s32 arg1) {
         var_r31 = -2;
         break;
     }
-    OSRestoreInterrupts((int) (level));
-    TUdpSocket::unlock_mutex((int)((void *) (network_dispatch_state.value)));
+    OSRestoreInterrupts(level);
+    TUdpSocket::unlock_mutex((int)(network_dispatch_state.value));
     return var_r31;
 }
 
@@ -815,7 +815,7 @@ s32 TLobby__sub_8042315C(s16 arg0, P_8042315C *p) {
     if (arg0 < 0) {
         return -2;
     }
-    TLobby::lock_mutex((int)((void *) (network_dispatch_state.value)));
+    TLobby::lock_mutex((int)(network_dispatch_state.value));
     intr = OSDisableInterrupts();
     switch (p->type) {
     case 4:
@@ -834,7 +834,7 @@ s32 TLobby__sub_8042315C(s16 arg0, P_8042315C *p) {
         break;
     }
     OSRestoreInterrupts(intr);
-    TUdpSocket::unlock_mutex((int)((void *) (network_dispatch_state.value)));
+    TUdpSocket::unlock_mutex((int)(network_dispatch_state.value));
     return r;
 }
 

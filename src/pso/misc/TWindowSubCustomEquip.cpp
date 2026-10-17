@@ -245,22 +245,22 @@ void TWindowSubCustomEquip::handle_cursor_input() {
         *(s32 *)((s8 *)array_entry + 0x2C) = 0xFF666666;
     }
     temp_r31_2 = (u8 *)&controller_input_state.value + (temp_r29 * 0x50) + 0x20;
-    if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r31_2), 0xF0, 6, 1) != 0) || (TWindowShortListCtrl__check_controller_button((int) (temp_r31_2), (int) (fn_8002AE08((int) (this->m_20)))) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0xF0, 6, 1) != 0)) {
+    if ((apply_choice__20TWindowChoiceSettingFllll((void *)temp_r31_2, 0xF0, 6, 1) != 0) || (TWindowShortListCtrl__check_controller_button((int)temp_r31_2, (int) (fn_8002AE08((int)this->m_20))) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0xF0, 6, 1) != 0)) {
         play_sound_effect(0x54100, 0, 0, 0);
-        if (TWindowShortListCtrl__check_controller_button((int) (temp_r31_2), (int) (fn_8002AE08((int) (this->m_20)))) != 0) {
+        if (TWindowShortListCtrl__check_controller_button((int)temp_r31_2, (int) (fn_8002AE08((int)this->m_20))) != 0) {
             this->m_62 = (u8) (1 - this->m_62);
             this->m_63 = 3U;
         }
-        if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r31_2), 0x10, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x10, 6, 1) != 0)) {
+        if ((apply_choice__20TWindowChoiceSettingFllll(temp_r31_2, 0x10, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x10, 6, 1) != 0)) {
             this->m_61 = (u8) (this->m_61 - 1);
         }
-        if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r31_2), 0x20, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x20, 6, 1) != 0)) {
+        if ((apply_choice__20TWindowChoiceSettingFllll(temp_r31_2, 0x20, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x20, 6, 1) != 0)) {
             this->m_61 = (u8) (this->m_61 + 1);
         }
-        if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r31_2), 0x80, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x80, 6, 1) != 0)) {
+        if ((apply_choice__20TWindowChoiceSettingFllll(temp_r31_2, 0x80, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x80, 6, 1) != 0)) {
             this->m_61 = (u8) (this->m_61 - 1);
         }
-        if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r31_2), 0x40, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x40, 6, 1) != 0)) {
+        if ((apply_choice__20TWindowChoiceSettingFllll(temp_r31_2, 0x40, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x40, 6, 1) != 0)) {
             this->m_61 = (u8) (this->m_61 + 1);
         }
         temp_r3_2 = this->m_61;
@@ -277,10 +277,10 @@ void TWindowSubCustomEquip::handle_cursor_input() {
 void render__21TWindowSubCustomEquipFv(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFl();
-    draw_window_frame((void *) (arg0), (int) (temp_r3));
-    draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
+    draw_window_frame(arg0, temp_r3);
+    draw_visible_window_entries(arg0, (void *) (arg0 + 0x24), temp_r3);
     ((TWindowSubCustomEquip *)arg0)->draw_cursor((u8 *)temp_r3);
-    forward_render__20TWindowSubStatusDispFv((int) (*(s32 *)&((TWindowSubCustomEquip *)arg0)->m_6c), (int) (temp_r3));
+    forward_render__20TWindowSubStatusDispFv((int) (*(s32 *)&((TWindowSubCustomEquip *)arg0)->m_6c), temp_r3);
 }
 
 typedef char RecoveredGlobal_80277014_lbl_8050E208_size[sizeof(RecoveredGlobal_80277014_lbl_8050E208) == 0x1B0 ? 1 : -1];
@@ -292,10 +292,10 @@ void TWindowSubCustomEquip::run_task() {
     if (((TWindowSubCustomEquip *)arg0)->is_selected() == 0) {
         ((TWindowSubCustomEquip *)arg0)->handle_cursor_input();
         temp_r30_2 = (u8 *)&(*(RecoveredGlobal_80277014_lbl_8050E208 *)&controller_input_state).value + (temp_r30 * 0x50) + 0x20;
-        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r30_2), 4) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&(*(RecoveredGlobal_80277014_lbl_8050E208 *)&controller_input_state).value + 0x160), 4) != 0)) {
+        if ((TWindowShortListCtrl__check_controller_button((int)temp_r30_2, 4) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&(*(RecoveredGlobal_80277014_lbl_8050E208 *)&controller_input_state).value + 0x160), 4) != 0)) {
             handle_decide();
         }
-        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r30_2), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&(*(RecoveredGlobal_80277014_lbl_8050E208 *)&controller_input_state).value + 0x160), 2) != 0)) {
+        if ((TWindowShortListCtrl__check_controller_button((int)temp_r30_2, 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&(*(RecoveredGlobal_80277014_lbl_8050E208 *)&controller_input_state).value + 0x160), 2) != 0)) {
             handle_cancel();
         }
     }

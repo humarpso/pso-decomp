@@ -18,7 +18,7 @@ u8 *__dt__8TLOC_EndFv(u8 *arg0, s16 arg1) {
         }
         ((TUnk_804A7260 *)arg0)->destroy_cursor(0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *) (arg0));
+            __dl__7TObjectFPv(arg0);
         }
     }
     return arg0;

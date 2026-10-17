@@ -68,8 +68,8 @@ void TOHangerMachine01::render() {
     if (((VObj *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y(0, (int) (this->rotation_y));
-        TObjFish::set_global_param((int) (this->texture_id));
+        rotate_matrix_y(0, this->rotation_y);
+        TObjFish::set_global_param(this->texture_id);
         p = (u8 *)(*(u8 * *)&this->model);
         post_translate_matrix((void *) (p + 8));
         draw_ginja_model((*(s32 *)((s8 *)p + 4)));
@@ -120,7 +120,7 @@ void TOHangerMachine01::render() {
 void *TOHangerMachine01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xCC);
     if (o != NULL) {
-        o = TOHangerMachine01__ct((u8 *)(o), (s32)(arg0));
+        o = TOHangerMachine01__ct((u8 *)o, (s32)arg0);
     }
     return o;
 }
@@ -161,7 +161,7 @@ extern s32 local_client_id;
 typedef char RecoveredGlobal_8016904C_lbl_804B26D8_size[sizeof(RecoveredGlobal_8016904C_lbl_804B26D8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8016904C___vt__17TOHangerMachine01_size[sizeof(RecoveredGlobal_8016904C___vt__17TOHangerMachine01) == 0x3C ? 1 : -1];
 u8 *TOHangerMachine01__ct(u8 *arg0, s32 arg1) {
-    init_map_object_base((void *) (arg0), (int) (tl_05));
+    init_map_object_base(arg0, tl_05);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016904C___vt__17TOHangerMachine01 *)&__vt__17TOHangerMachine01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOHangerMachine01__class_name;
     ((TOHangerMachine01 *)(arg0))->apply_object_set_data((void *)arg1);
@@ -170,7 +170,7 @@ u8 *TOHangerMachine01__ct(u8 *arg0, s32 arg1) {
     ((TOHangerMachine01 *)arg0)->m_c0 = (f32) lbl_805DB6AC;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB6B0;
     *(s32 *)&((TOHangerMachine01 *)arg0)->actorFlags = (s32) (*(s32 *)&((TOHangerMachine01 *)arg0)->actorFlags| 0x40000000);
-    init_collision_body_parts((void *) (arg0), (void *) (&hanger_machine01_collision_body_parts.value), 1);
+    init_collision_body_parts(arg0, (void *) (&hanger_machine01_collision_body_parts.value), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(s32 *)&((TOHangerMachine01 *)arg0)->m_c8 = 0;

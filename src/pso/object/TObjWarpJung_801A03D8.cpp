@@ -12,7 +12,7 @@ int draw_ginja_object(void);
 int get_bml_model(void*, void*);
 
     extern int TObjWarpJung__beam_bml_resource;
-void TObjWarpJung::render_warp(void* a0) { get_bml_model((void*)(TObjWarpJung__beam_bml_resource), a0); draw_ginja_object(); }
+void TObjWarpJung::render_warp(void* a0) { get_bml_model((void*)TObjWarpJung__beam_bml_resource, a0); draw_ginja_object(); }
 
 extern s32 actor_frame_tick;
 extern s32 lbl_805D5CB4;

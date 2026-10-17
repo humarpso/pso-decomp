@@ -130,7 +130,7 @@ void run_task__12TTecReverserFv(u8 *arg0) {
         return;
     }
     entity = (u32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0xF0)));
-    if ((is_active__12TTecReverserFv() == 0) && (TObjPlayer::is_valid_and_active((int) (entity)) != 0)) {
+    if ((is_active__12TTecReverserFv() == 0) && (TObjPlayer::is_valid_and_active(entity) != 0)) {
         ((TTecReverser *)(arg0))->vfunc_6((void *)entity);
     }
     queue_destruction__7TObjectFv((arg0));
@@ -140,7 +140,7 @@ void TTecReverser::create(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x148);
     if (o != NULL) {
-        TTecReverser__ct((u8 *)(o), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3));
+        TTecReverser__ct((u8 *)o, (s32)arg0, (s32)arg1, (s32)arg2, (s32)arg3);
     }
 }
 
@@ -156,17 +156,17 @@ void *__dt__12TTecReverserFv(void *arg0, s16 arg1) {
 }
 u8 *TTecReverser__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u32 temp_r3;
-    __ct__13TUnk_804CC148Flll((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg4));
+    __ct__13TUnk_804CC148Flll((void *)arg0, (void *)arg1, (void *)arg2, (void *)arg4);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8023A094___vt__12TTecReverser *)&__vt__12TTecReverser).value;
     ((TObjPlayer *)(arg0 + 0xEC))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3818;
     ((TTecAnti *)(arg0 + 0x88))->copy_params((u8 *)((u8 *)&technique_param_table.value + 0x2EC));
-    ((TTecReverser *)arg0)->sub_8022BE64((u8 *)(arg0 + 0x88), (s32)((void *) (arg4)));
-    copy_technique_target_list((void *) (arg0 + 0xEC), (void *) (arg3));
+    ((TTecReverser *)arg0)->sub_8022BE64((u8 *)(arg0 + 0x88), (s32)(arg4));
+    copy_technique_target_list((void *) (arg0 + 0xEC), (void *)arg3);
     play_sound_effect(0x4002A812, (void *) (arg0 + 0x20), 0, 0);
     temp_r3 = *(u32 *)((s8 *)arg0 + 0x1C);
     if (temp_r3 != 0U) {
-        *(s16 *)((s8 *)arg0 + 0xB4) = obj_getField1c((int) (temp_r3));
+        *(s16 *)((s8 *)arg0 + 0xB4) = obj_getField1c(temp_r3);
     }
     return arg0;
 }

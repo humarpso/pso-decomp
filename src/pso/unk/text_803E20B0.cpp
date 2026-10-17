@@ -37,7 +37,7 @@ void load_camera_view_matrix(void) {
     s32 var_r4;
     var_r3 = current_matrix;
     var_r4 = 0;
-    GXLoadPosMtxImm((int) (var_r3), 0);
+    GXLoadPosMtxImm(var_r3, 0);
 }
 #pragma pop
 

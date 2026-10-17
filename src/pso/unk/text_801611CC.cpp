@@ -72,7 +72,7 @@ u8 *TODoorAncient09__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(u8 **)((s8 *)arg0 + 0xBC) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)door_ancient09_bml_resource + 0x430)) + 4));
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB484);
     ((TODoorAncient09 *)arg0)->m_b8 = (f32) (*(f32 *)((s8 *)arg0 + 0xB4) / lbl_805DB480);
-    init_collision_body_parts((void *) (arg0), (void *) (&TODoorAncient09__collision_body_template.value), 1);
+    init_collision_body_parts(arg0, (void *) (&TODoorAncient09__collision_body_template.value), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     temp_r0 = ((TODoorAncient09 *)arg0)->m_84;
@@ -152,7 +152,7 @@ void TODoorCave01::vfunc_17() {
 }
 void TODoorCave01::play_proximity_sound() {
     u8 *arg0 = (u8 *)this;
-    if ((this->m_d0 & 1) && (is_any_player_within_radius_xz((f32) (lbl_805DB494)) == 1)) {
+    if ((this->m_d0 & 1) && (is_any_player_within_radius_xz(lbl_805DB494) == 1)) {
         *(s32 *)&this->m_ac = 1;
         set_indexed_flags((arg0), 0, 8);
         play_sound_effect(0x42807, (void *)((void *) (arg0 + 0x38)), 0, 0);

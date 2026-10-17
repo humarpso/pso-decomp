@@ -123,7 +123,7 @@ void TLobby::clear_floor_flags_and_depart() {
     unused = TLobby__data_805D6134 & ~8;
     TLobby__data_805D6134 = unused;
     TLobby__data_805D6134 &= ~16;
-    depart_floor_population((int)(unused));
+    depart_floor_population(unused);
 }
 #pragma pop
 
@@ -142,7 +142,7 @@ void TLobby::setup_floor_decorations() {
     r = get_current_floor();
     TLobby__data_805D60FC = r;
     if (lookup_scene_object__6TLobbyFPv(r, &v) != 0) {
-        load_map_decoration_rows((s32)(v.a), (s32)(v.b), (s32)(v.c));
+        load_map_decoration_rows(v.a, v.b, v.c);
         return;
     }
     lbl_805D60F8 = -1;

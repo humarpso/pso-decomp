@@ -68,7 +68,7 @@ void TNeedleShoot::render() {
     stack.spC = *(s32 *)((s8 *)(&needle_shoot_color_white.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&needle_shoot_color_white.value) + 8);
     stack.sp14 = *(s32 *)((s8 *)(&needle_shoot_color_white.value) + 0xC);
-    TObjRoomId__sub_80141CF4((void *) (arg0 + 0x6C), (void *) (&stack.sp8), (int) (*(s32 *)((s8 *)(&needle_shoot_color_white.value) + 8)), (int) (*(s32 *)((s8 *)(&needle_shoot_color_white.value) + 4)), (int) (*(s32 *)((s8 *)(&needle_shoot_color_white.value) + 0)), (void *) (&needle_shoot_color_white.value), (f32) (lbl_805DDF68));
+    TObjRoomId__sub_80141CF4((void *) (arg0 + 0x6C), (void *) (&stack.sp8), (int) (*(s32 *)((s8 *)(&needle_shoot_color_white.value) + 8)), (int) (*(s32 *)((s8 *)(&needle_shoot_color_white.value) + 4)), (int) (*(s32 *)((s8 *)(&needle_shoot_color_white.value) + 0)), (void *) (&needle_shoot_color_white.value), lbl_805DDF68);
 }
 
 }

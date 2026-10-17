@@ -67,19 +67,19 @@ void TWindowSubLog::run_task() {
         TWindowChat__sub_80247DFC((u8 *)(*(s32 *)&this->m_28));
     }
     if (TWindowCtrl__sub_8024701C((int) (*(s32 *)&this->m_28)) != 0) {
-        TWindowSubLog__sub_8026A664((*(u8 * *)&this->m_24), (f32) (lbl_805DD638));
+        TWindowSubLog__sub_8026A664((*(u8 * *)&this->m_24), lbl_805DD638);
         return;
     }
-    TWindowSubLog__sub_8026A664((*(u8 * *)&this->m_24), (f32) (lbl_805DD63C));
+    TWindowSubLog__sub_8026A664((*(u8 * *)&this->m_24), lbl_805DD63C);
     temp_r31 = (u8 *)&controller_input_state.value + 0x20;
-    if ((is_on_current_screen__11TCameraCtrlFv((int) (temp_r31), 0x10) != 0) || (is_flag_set__11TLoadingCurFv((void *) ((u8 *)&controller_input_state.value + 0x160), 0x10) != 0)) {
-        fn_8026A61C((*(u8 * *)&this->m_24), (f32) (lbl_805DD640));
+    if ((is_on_current_screen__11TCameraCtrlFv((int)temp_r31, 0x10) != 0) || (is_flag_set__11TLoadingCurFv((void *) ((u8 *)&controller_input_state.value + 0x160), 0x10) != 0)) {
+        fn_8026A61C((*(u8 * *)&this->m_24), lbl_805DD640);
     }
-    if ((is_on_current_screen__11TCameraCtrlFv((int) (temp_r31), 0x20) != 0) || (is_flag_set__11TLoadingCurFv((void *) ((u8 *)&controller_input_state.value + 0x160), 0x20) != 0)) {
-        ((TAdScrollWinGC *)(*(u8 * *)&this->m_24))->advance_scroll((f32) (lbl_805DD644));
+    if ((is_on_current_screen__11TCameraCtrlFv((int)temp_r31, 0x20) != 0) || (is_flag_set__11TLoadingCurFv((void *) ((u8 *)&controller_input_state.value + 0x160), 0x20) != 0)) {
+        ((TAdScrollWinGC *)(*(u8 * *)&this->m_24))->advance_scroll(lbl_805DD644);
     }
     temp_r3 = (u8 *)(*(u8 * *)&this->m_24);
-    if ((*(f32 *)((s8 *)temp_r3 + 0x3C) == *(f32 *)((s8 *)temp_r3 + 0x4C)) && ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 2) != 0))) {
+    if ((*(f32 *)((s8 *)temp_r3 + 0x3C) == *(f32 *)((s8 *)temp_r3 + 0x4C)) && ((TWindowShortListCtrl__check_controller_button((int)temp_r31, 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 2) != 0))) {
         play_sound_effect(0x52F16, 0, 0, 0);
         temp_r3_2 = (u8 *)(*(u8 * *)&this->m_20);
         ((VObj_18_204a81 *)(temp_r3_2))->m7();

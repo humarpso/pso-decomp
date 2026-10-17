@@ -809,7 +809,7 @@ void TObjAreaWarpEnding::render() {
     Ids_8019BD84 ids = lbl_805DBFD0;
     for (node = arg0->fD0->child; node != 0; node = node->child) {
         if (node->model != 0) {
-            ((TObjDoorJung *)(node->model))->free_children((void *)(ids.id[arg0->f8C]));
+            ((TObjDoorJung *)(node->model))->free_children((void *)ids.id[arg0->f8C]);
         }
     }
     root = arg0->fCC;
@@ -866,7 +866,7 @@ u8 *TObjAreaWarpEnding__ct(u8 *arg0, s32 arg1, s32 arg2) {
     s32 var_r0;
     u32 temp_r0;
     u32 temp_r4;
-    ((s32 (*)(void *, void *, void *))TObjAreaWarp__ct)((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    ((s32 (*)(void *, void *, void *))TObjAreaWarp__ct)((void *)arg0, (void *)arg1, (void *)arg2);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8019BF88___vt__18TObjAreaWarpEnding *)&__vt__18TObjAreaWarpEnding).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjAreaWarpEnding__name;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DBFE4;
@@ -882,7 +882,7 @@ u8 *TObjAreaWarpEnding__ct(u8 *arg0, s32 arg1, s32 arg2) {
         temp_r3 = ((TAdSinglePlyChrSelectGC *)0x88)->alloc();
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = init__13TAdVIConfigGCFf((int) (temp_r3), (void *) (arg0 + 0x38), (f32) (lbl_805DBFD8));
+            var_r0 = init__13TAdVIConfigGCFf(temp_r3, (void *) (arg0 + 0x38), lbl_805DBFD8);
         }
         *(s32 *)((s8 *)arg0 + 0xC0) = var_r0;
     } else {
@@ -943,15 +943,15 @@ void TObjAreaWarpQuest::render() {
         n = self->fD4->next2C;
         while (n != NULL) {
             if (n->f4 != 0) {
-                ((TObjDoorJung *)(n->f4))->free_children((void *)(cols.c[self->f8C]));
+                ((TObjDoorJung *)(n->f4))->free_children((void *)cols.c[self->f8C]);
             }
             n = n->next2C;
         }
         m = self->fD0;
-        TObjFish::set_global_param((int)(self->fDC));
+        TObjFish::set_global_param(self->fDC);
         push_matrix();
         ((void (*)(void *))post_translate_matrix)(self->f38);
-        ((void (*)(int, int))rotate_matrix_y)(0, (int)(self->f60));
+        ((void (*)(int, int))rotate_matrix_y)(0, self->f60);
         push_matrix();
         ((void (*)(void *))post_translate_matrix)(m->f8);
         draw_ginja_model((s32)m->f4);
@@ -961,7 +961,7 @@ void TObjAreaWarpQuest::render() {
             push_matrix();
             ((void (*)(void *))post_translate_matrix)(m->f8);
             rotate_matrix_zyx(0, (m->f14), (m->f18), (m->f1C));
-            rotate_matrix_x(0, (s32)(self->fCC));
+            rotate_matrix_x(0, self->fCC);
             draw_ginja_model((s32)m->f4);
             ((void (*)(void))pop_matrix)();
             m = m->next30;
@@ -969,7 +969,7 @@ void TObjAreaWarpQuest::render() {
         TParticleCtrl::end_effect_render();
         ((void (*)(void))pop_matrix)();
         TParticleCtrl::begin_effect_render();
-        draw_ginja_model_with_motion((s32)(self->fD4), (s32)(self->fD8), self->fC8);
+        draw_ginja_model_with_motion((s32)self->fD4, (s32)self->fD8, self->fC8);
         TParticleCtrl::end_effect_render();
         ((void (*)(void))pop_matrix)();
     }
@@ -1002,7 +1002,7 @@ u8 *TObjAreaWarpQuest__ct(u8 *arg0, s32 arg1, s32 arg2) {
     s32 var_r0;
     u32 temp_r0;
     u32 temp_r4;
-    ((s32 (*)(void *, void *, void *))TObjAreaWarp__ct)((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    ((s32 (*)(void *, void *, void *))TObjAreaWarp__ct)((void *)arg0, (void *)arg1, (void *)arg2);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8019C454___vt__17TObjAreaWarpQuest *)&__vt__17TObjAreaWarpQuest).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjAreaWarpQuest__name;
     *(f32 *)((s8 *)arg0 + 0xC8) = (f32) lbl_805DBFE4;
@@ -1019,7 +1019,7 @@ u8 *TObjAreaWarpQuest__ct(u8 *arg0, s32 arg1, s32 arg2) {
         temp_r3 = ((TAdSinglePlyChrSelectGC *)0x88)->alloc();
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = init__13TAdVIConfigGCFf((int) (temp_r3), (void *) (arg0 + 0x38), (f32) (lbl_805DBFD8));
+            var_r0 = init__13TAdVIConfigGCFf(temp_r3, (void *) (arg0 + 0x38), lbl_805DBFD8);
         }
         *(s32 *)((s8 *)arg0 + 0xC0) = var_r0;
     } else {
@@ -1054,15 +1054,15 @@ void TObjAreaWarpForest::render() {
         n = self->fD4->next2C;
         while (n != NULL) {
             if (n->f4 != 0) {
-                ((TObjDoorJung *)(n->f4))->free_children((void *)(cols.c[self->f8C]));
+                ((TObjDoorJung *)(n->f4))->free_children((void *)cols.c[self->f8C]);
             }
             n = n->next2C;
         }
         m = self->fD0;
-        TObjFish::set_global_param((int)(self->fDC));
+        TObjFish::set_global_param(self->fDC);
         push_matrix();
         ((void (*)(void *))post_translate_matrix)(self->f38);
-        ((void (*)(int, int))rotate_matrix_y)(0, (int)(self->f60));
+        ((void (*)(int, int))rotate_matrix_y)(0, self->f60);
         push_matrix();
         ((void (*)(void *))post_translate_matrix)(m->f8);
         draw_ginja_model((s32)m->f4);
@@ -1072,7 +1072,7 @@ void TObjAreaWarpForest::render() {
             push_matrix();
             ((void (*)(void *))post_translate_matrix)(m->f8);
             rotate_matrix_zyx(0, (m->f14), (m->f18), (m->f1C));
-            rotate_matrix_x(0, (s32)(self->fCC));
+            rotate_matrix_x(0, self->fCC);
             draw_ginja_model((s32)m->f4);
             ((void (*)(void))pop_matrix)();
             m = m->next30;
@@ -1080,7 +1080,7 @@ void TObjAreaWarpForest::render() {
         TParticleCtrl::end_effect_render();
         ((void (*)(void))pop_matrix)();
         TParticleCtrl::begin_effect_render();
-        draw_ginja_model_with_motion((s32)(self->fD4), (s32)(self->fD8), self->fC8);
+        draw_ginja_model_with_motion((s32)self->fD4, (s32)self->fD8, self->fC8);
         TParticleCtrl::end_effect_render();
         ((void (*)(void))pop_matrix)();
     }
@@ -1115,7 +1115,7 @@ u8 *TObjAreaWarpForest__ct(u8 *arg0, s32 arg1, s32 arg2) {
     s32 var_r0;
     u32 temp_r0;
     u32 temp_r3;
-    ((s32 (*)(void *, void *, void *))TObjAreaWarp__ct)((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    ((s32 (*)(void *, void *, void *))TObjAreaWarp__ct)((void *)arg0, (void *)arg1, (void *)arg2);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8019C828___vt__18TObjAreaWarpForest *)&__vt__18TObjAreaWarpForest).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjAreaWarpForest__name;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DBFE4;
@@ -1123,8 +1123,8 @@ u8 *TObjAreaWarpForest__ct(u8 *arg0, s32 arg1, s32 arg2) {
     temp_r0 = *(u32 *)((s8 *)arg0 + 0x8C);
     temp_r3 = temp_r0 >> 0x1FU;
     *(u32 *)((s8 *)arg0 + 0x8C) = (u32) (((temp_r0 & 1) ^ temp_r3) - temp_r3);
-    if ((get_game_play_mode((int) (temp_r3)) == 1) && ((s32) *(u32 *)((s8 *)arg0 + 0x8C) == 0)) {
-        ((s32 (*)(void *))queue_destruction__7TObjectFv)((void *) (arg0));
+    if ((get_game_play_mode(temp_r3) == 1) && ((s32) *(u32 *)((s8 *)arg0 + 0x8C) == 0)) {
+        ((s32 (*)(void *))queue_destruction__7TObjectFv)(arg0);
         return arg0;
     }
     *(s32 *)((s8 *)arg0 + 0xCC) = register_warp__16TObjMapForceWarpFPv(0);
@@ -1135,7 +1135,7 @@ u8 *TObjAreaWarpForest__ct(u8 *arg0, s32 arg1, s32 arg2) {
         temp_r3_2 = ((TAdSinglePlyChrSelectGC *)0x88)->alloc();
         var_r0 = temp_r3_2;
         if (var_r0 != 0) {
-            var_r0 = init__13TAdVIConfigGCFf((int) (temp_r3_2), (void *) (arg0 + 0x38), (f32) (lbl_805DBFD8));
+            var_r0 = init__13TAdVIConfigGCFf(temp_r3_2, (void *) (arg0 + 0x38), lbl_805DBFD8);
         }
         *(s32 *)((s8 *)arg0 + 0xC0) = var_r0;
     } else {
@@ -1172,7 +1172,7 @@ void confirm_area_transfer__12TObjAreaWarpFPvi(u8 *arg0, s32 arg1) {
     ((s32 (*)(void))mark_area_change_pending)();
     ((s32 (*)(void *))get_dest_area__17TObjAreaWarpQuestFv)(&lbl_80515BA0.value);
     ((s32 (*)(void))send_inter_level_warp_all__10TNpcPlayerFl)();
-    send_6x21_inter_level_warp((void *)(arg1), (((s32 (*)(void *))get_dest_area__17TObjAreaWarpQuestFv)(&lbl_80515BA0.value)));
+    send_6x21_inter_level_warp((void *)arg1, (((s32 (*)(void *))get_dest_area__17TObjAreaWarpQuestFv)(&lbl_80515BA0.value)));
     ((s32 (*)(s32, u32, s16, s32))play_sound_effect)(0x40003205, 0U, 0, 0);
 }
 
@@ -1239,7 +1239,7 @@ s32 TObjAreaWarp::is_warp_enabled(s32 arg0) {
     if (TRaderMapCore::is_not_split_screen() == 1) {
         var_r31 = 0;
 loop_2:
-        if ((((u32 (*)(s32))get_player_by_client_id)((s32)(var_r31)) != 0U) && (check_flag_100__10TObjPlayerFPv() != 0)) {
+        if ((((u32 (*)(s32))get_player_by_client_id)(var_r31) != 0U) && (check_flag_100__10TObjPlayerFPv() != 0)) {
             return 0;
         }
         var_r31 += 1;
@@ -1287,7 +1287,7 @@ u8 *__dt__12TObjAreaWarpFv(u8 *arg0, s16 arg1) {
         ((TObjAreaWarp *)(arg0))->vfunc_14();
         __dt__12TObjWarpBaseFv(arg0, 0);
         if (arg1 > 0) {
-            ((s32 (*)(void *))__dl__7TObjectFPv)((void *) (arg0));
+            ((s32 (*)(void *))__dl__7TObjectFPv)(arg0);
         }
     }
     return arg0;
@@ -1327,7 +1327,7 @@ void TObjMapWarpForest::run_task() {
 }
 
 u8 *TObjMapWarpForest__ct(u8 *arg0) {
-    ((s32 (*)(void *))TObjMapWarp__ct)((void *) (arg0));
+    ((s32 (*)(void *))TObjMapWarp__ct)(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__17TObjMapWarpForest.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjMapWarpForest__name;
     *(s32 *)((s8 *)arg0 + 0x100) = register_warp__16TObjMapForceWarpFPv(4);
@@ -1354,13 +1354,13 @@ void TObjMapWarp::draw_debug_destinations() {
         Vec_8019D0A8 a = lbl_804462FC;
         push_matrix_from(identity_matrix);
         post_translate_matrix(&self->pos);
-        rotate_matrix_y(0, (s32)(self->yaw));
+        rotate_matrix_y(0, self->yaw);
         end = &self->ends[i];
         matrix_mult_vec(0, &map_warp_destination_offsets[i], end);
         pop_matrix();
         push_matrix_from(identity_matrix);
         post_translate_matrix(end);
-        rotate_matrix_y(0, (s32)(self->yaw2));
+        rotate_matrix_y(0, self->yaw2);
         matrix_mult_vec(0, &a, &a);
         pop_matrix();
         VecCopy((Vec *)&b, (const Vec *)end);

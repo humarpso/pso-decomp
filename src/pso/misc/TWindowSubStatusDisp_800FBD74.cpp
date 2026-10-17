@@ -139,7 +139,7 @@ void TWindowSubStatusDisp__sub_800FBD74(s32 arg0, f32 farg0, f32 farg1, f32 farg
     stack.sp1C = (0.921875f);
     stack.sp20 = (0.4296875f);
     stack.sp24 = (0.96875f);
-    draw_textured_quad_at_depth((&stack.sp8), (f32) (farg2));
+    draw_textured_quad_at_depth((&stack.sp8), farg2);
     stack.sp8 += (114.0f);
     stack.spC += (-3.0f);
     stack.sp10 = (15.0f) + stack.sp8;
@@ -148,7 +148,7 @@ void TWindowSubStatusDisp__sub_800FBD74(s32 arg0, f32 farg0, f32 farg1, f32 farg
     stack.sp1C = (0.92578125f);
     stack.sp20 = (0.50390625f);
     stack.sp24 = (0.98046875f);
-    draw_textured_quad_at_depth((&stack.sp8), (f32) (farg2));
+    draw_textured_quad_at_depth((&stack.sp8), farg2);
     TWindowSubStatusDisp::get_player();
 }
 
@@ -184,7 +184,7 @@ void draw_small_font_text(void *color, const char *s, f32 x, f32 y, f32 scale) {
         pos.x = x;
         pos.y = y;
         id = ((s32 (*)(s32))TWindowSubStatusDisp__sub_800FC248)(c);
-        ((void (*)(s32, Pos_800FBEA8 *))build_small_font_glyph_quad)((s32)(id), (Pos_800FBEA8 *)(&pos));
+        ((void (*)(s32, Pos_800FBEA8 *))build_small_font_glyph_quad)(id, (Pos_800FBEA8 *)(&pos));
         draw_textured_quad_at_depth((f32 *)&pos, scale);
         x += ((u8 (*)(s32))get_small_font_glyph_width)(id);
     }

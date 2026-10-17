@@ -64,7 +64,7 @@ void TKeyBoardControl__sub_801A58D8(void) {
 
 s32 TKeyBoardControl::check_and_read(s32 arg0) {
     if (TKeyBoardControl::check_input_ready((s32)TKeyBoardControl__global_key_state) != 0) {
-        return TKeyBoardControl::is_key_down((s32)(arg0));
+        return TKeyBoardControl::is_key_down(arg0);
     }
     return 0;
 }

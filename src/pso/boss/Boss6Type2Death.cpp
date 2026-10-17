@@ -117,8 +117,8 @@ void TBoss6Demo21_TYPE2_DEAD::draw_model_13() {
         post_translate_matrix((void *) (((u8 *)this) + 0x58));
         TObjFish::set_global_param((int) (*(s32 *)((s8 *)((u8 *)this) + 0x44)));
         ((TObjFish *)(this->m_9c))->set_draw_callback_list();
-        draw_model_motion((void *)(this->m_40), (void *)(this->m_48), (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x4C)));
-        clear_render_callback__8TObjFishFv((int) (this->m_9c));
+        draw_model_motion((void *)this->m_40, (void *)this->m_48, (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x4C)));
+        clear_render_callback__8TObjFishFv(this->m_9c);
         TObjPlayer::clear_global_state();
         pop_matrix();
     }
@@ -228,7 +228,7 @@ void TBoss6Demo21_TYPE2_DEAD::draw_fading_model_4() {
     }
 }
 
-void render__23TBoss6Demo21_TYPE2_DEADFv(void* p) { ((TBoss6Demo21_TYPE2_DEAD *)p)->draw_fading_model_4(); TBoss6Demo21_TYPE2_DEAD::draw_fading_model_5(p); TBoss6Demo21_TYPE2_DEAD::draw_fading_model_8((void *)(p)); ((TBoss6Demo21_TYPE2_DEAD *)p)->draw_model_13(); }
+void render__23TBoss6Demo21_TYPE2_DEADFv(void* p) { ((TBoss6Demo21_TYPE2_DEAD *)p)->draw_fading_model_4(); TBoss6Demo21_TYPE2_DEAD::draw_fading_model_5(p); TBoss6Demo21_TYPE2_DEAD::draw_fading_model_8(p); ((TBoss6Demo21_TYPE2_DEAD *)p)->draw_model_13(); }
 
 #pragma push
 #pragma pool_data off
@@ -298,7 +298,7 @@ void run_task__23TBoss6Demo21_TYPE2_DEADFv(Fish_8033E0F0 *arg0) {
                     ((TNowLoading *)(arg0->emit[i]))->copy_pos(ptrs[i]);
                 }
             } else if (arg0->emit[i] != 0) {
-                TBoss4Type2::request_destroy((u32)(arg0->emit[i]));
+                TBoss4Type2::request_destroy((u32)arg0->emit[i]);
                 arg0->emit[i] = 0;
             }
         }
@@ -439,7 +439,7 @@ void * create_boss6_type2_death(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0xB4);
     if (o != NULL) {
-        o = TBoss6Demo21_TYPE2_DEAD__ct((void *)(o), (void *)(arg0), (void *)(arg1));
+        o = TBoss6Demo21_TYPE2_DEAD__ct(o, arg0, arg1);
     }
     return o;
 }

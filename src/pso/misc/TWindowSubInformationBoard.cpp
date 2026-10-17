@@ -49,15 +49,15 @@ void TWindowSubInformationBoard::run_task() {
     case 0:
     case 1:
         if ((u32) this->m_2c == 0U) {
-            this->m_2c = create_info_board_menu((void *) (arg0));
+            this->m_2c = create_info_board_menu((void *)arg0);
         }
         if ((u32) this->m_34 == 0U) {
-            this->m_34 = open_card_info_window__26TWindowSubInformationBoardFv((void *) (arg0));
+            this->m_34 = open_card_info_window__26TWindowSubInformationBoardFv((void *)arg0);
         }
         ((TWindowSubComCard *)(this->m_2c))->clear_flag_and_release();
         this->m_1c = 2U;
     case 2:
-        set_message_index__26TWindowSubInformationBoardFl((void *) (arg0), (get_cursor_pos__20TWindowShortListCtrlFv((int) (this->m_2c))));
+        set_message_index__26TWindowSubInformationBoardFl((void *)arg0, (get_cursor_pos__20TWindowShortListCtrlFv((int)this->m_2c)));
         if (((TWindowSubComCard *)(this->m_2c))->get_status_flag() != 0) {
             temp_r3 = (u8 *)(*(u8 * *)&this->m_28);
             ((VObj_18_204a81 *)(temp_r3))->m7();
@@ -67,14 +67,14 @@ void TWindowSubInformationBoard::run_task() {
                 TWindow__close((u8 *)(*(void * *)&this->m_34));
                 this->m_34 = 0U;
             }
-            this->m_1c = get_selected_menu_value((int) (this->m_2c));
+            this->m_1c = get_selected_menu_value((int)this->m_2c);
         }
         break;
     case 3:
-        TLobby::init_once_data((u32)((void *) ((u8 *)(arg0) + 0x40)));
+        TLobby::init_once_data((u32)((void *) ((u8 *)arg0 + 0x40)));
         this->m_1c = 4U;
     case 4:
-        if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)(controller_input_state) + 0x20), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)(controller_input_state) + 0x160), 2) != 0)) {
+        if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)controller_input_state + 0x20), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)controller_input_state + 0x160), 2) != 0)) {
             play_sound_effect(0x52F16, 0, 0, 0);
             this->m_1c = 5U;
         }
@@ -84,7 +84,7 @@ void TWindowSubInformationBoard::run_task() {
         }
         break;
     case 5:
-        TWindowSubInformationBoard::clear_if_current((u32)((void *) ((u8 *)(arg0) + 0x40)));
+        TWindowSubInformationBoard::clear_if_current((u32)((void *) ((u8 *)arg0 + 0x40)));
         this->m_1c = 1U;
         break;
     case 6:
@@ -92,11 +92,11 @@ void TWindowSubInformationBoard::run_task() {
             this->m_30 = TWindowSubComCard__sub_8034CDE0(arg0);
         }
         if ((u32) this->m_34 == 0U) {
-            this->m_34 = show_card_a7__26TWindowSubInformationBoardFv((void *) (arg0));
+            this->m_34 = show_card_a7__26TWindowSubInformationBoardFv((void *)arg0);
         }
         this->m_1c = 7U;
     case 7:
-        ((TWindowSubInformationBoard *)arg0)->set_page((int) (get_selected_menu_value((int) (this->m_30))));
+        ((TWindowSubInformationBoard *)arg0)->set_page((int) (get_selected_menu_value((int)this->m_30)));
         if (((TWindowSubComCard *)(this->m_30))->get_status_flag() != 0) {
             this->m_1c = 8U;
             break;
@@ -115,7 +115,7 @@ void TWindowSubInformationBoard::run_task() {
             this->m_2c = 0U;
         }
         if ((u32) this->m_3c == 0U) {
-            this->m_3c = TWindowSubInformationBoard::open_keyboard((s32)((void *) (arg0)));
+            this->m_3c = TWindowSubInformationBoard::open_keyboard((s32)((void *)arg0));
         }
         this->m_1c = 0xAU;
     case 10:
@@ -127,7 +127,7 @@ void TWindowSubInformationBoard::run_task() {
             temp_r30 = ((TWindowSubComCard *)(this->m_3c))->realloc_buffer();
             set_info_board_text__6TLobbyFv();
             TLobby::flush_pending_send();
-            mem_free((void *)(temp_r30));
+            mem_free((void *)temp_r30);
             this->m_1c = 0xBU;
             break;
         }

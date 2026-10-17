@@ -25,13 +25,13 @@ u8 *fn_8013AAD4(u8 *arg0, u8 *arg1) {
     *(u8 *)((s8 *)arg0 + 2) = (u8) *(u8 *)((s8 *)arg1 + 2);
     *(u8 *)((s8 *)arg0 + 3) = (u8) *(u8 *)((s8 *)arg1 + 3);
     *(ByteBlock_348 *)((s32) arg0 + 4) = *(const ByteBlock_348 *)((s32) arg1 + 4);
-    temp_r6 = (u8 *)((void *)((u8 *)(arg0) + 0x348));
-    temp_r4 = (u8 *)((void *)((u8 *)(arg1) + 0x348));
+    temp_r6 = (u8 *)((void *)(arg0 + 0x348));
+    temp_r4 = (u8 *)((void *)(arg1 + 0x348));
     *(ByteBlock_24 *)((s32) temp_r6 + 4) = *(const ByteBlock_24 *)((s32) temp_r4 + 4);
-    *(ByteBlock_50 *)((s32) ((u8 *)(arg0) + 0x36C) + 4) = *(const ByteBlock_50 *)((s32) ((u8 *)(arg1) + 0x36C) + 4);
-    ((TPlyGuildCardTag *)((u8 *)(arg0) + 0x3C0))->copy_full((u8 *)(arg1) + 0x3C0);
-    temp_r5 = (u8 *)((void *)((u8 *)(arg0) + 0x404));
-    temp_r4_2 = (u8 *)((void *)((u8 *)(arg1) + 0x404));
+    *(ByteBlock_50 *)((s32) (arg0 + 0x36C) + 4) = *(const ByteBlock_50 *)((s32) (arg1 + 0x36C) + 4);
+    ((TPlyGuildCardTag *)(arg0 + 0x3C0))->copy_full(arg1 + 0x3C0);
+    temp_r5 = (u8 *)((void *)(arg0 + 0x404));
+    temp_r4_2 = (u8 *)((void *)(arg1 + 0x404));
     *(ByteBlock_14 *)((s32) temp_r5 + 4) = *(const ByteBlock_14 *)((s32) temp_r4_2 + 4);
     return arg0;
 }

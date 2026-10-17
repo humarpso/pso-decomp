@@ -39,5 +39,5 @@ void TItemEffFlame::run_task() {
 }
 
 TItemEffFlame::~TItemEffFlame() {
-    TBoss4Type2::request_destroy((u32)(this->m_1c));
+    TBoss4Type2::request_destroy((u32)this->m_1c);
 }

@@ -262,7 +262,7 @@ void TWindowCtrlMain::draw_strip_swap_color(s32 n, s32 flags, f32 scale) {
     u32 x;
     u32 *p;
     if (!(flags & 2)) {
-        ((TObjCMHairMenu *)((Ctrl_801E352C *)this))->draw_tri_fan_2d((s32)(n), (s32)(flags), scale);
+        ((TObjCMHairMenu *)((Ctrl_801E352C *)this))->draw_tri_fan_2d(n, flags, scale);
         return;
     }
     p = ((Ctrl_801E352C *)this)->data;
@@ -271,7 +271,7 @@ void TWindowCtrlMain::draw_strip_swap_color(s32 n, s32 flags, f32 scale) {
         *p = (x << 8) | (x >> 24);
         p++;
     }
-    ((TObjCMHairMenu *)((Ctrl_801E352C *)this))->draw_tri_fan_2d((s32)(n), (s32)(flags), scale);
+    ((TObjCMHairMenu *)((Ctrl_801E352C *)this))->draw_tri_fan_2d(n, flags, scale);
     {
     u32 *q = ((Ctrl_801E352C *)this)->data;
     u32 y;
@@ -567,10 +567,10 @@ extern "C" {
 
 s32 TKeyBoardControl__sub_801E3E24(s32 id, s32 name, s32 arg2) {
     s32 temp_r3;
-    temp_r3 = adxf_open_file__6TLobbyFiPviPv((void *) (id), (void *) (name), 0, (void *) (arg2));
+    temp_r3 = adxf_open_file__6TLobbyFiPviPv((void *)id, (void *)name, 0, (void *)arg2);
     if (temp_r3 >= 0) {
 loop_2:
-        if (read_afs_toc__6TLobbyFl((void *) (id)) != 3) {
+        if (read_afs_toc__6TLobbyFl((void *)id) != 3) {
             TLobby::run_disk_error_check();
             TKeyBoardControl::flush_input();
             update_global_sound_frame();
@@ -585,10 +585,10 @@ loop_2:
 
 s32 TLobby__sub_801E3E9C(s32 id, s32 name, s32 arg2) {
     s32 temp_r3;
-    temp_r3 = adxf_open_file__6TLobbyFiPviPv((void *) (id), (void *) (name), 0, (void *) (arg2));
+    temp_r3 = adxf_open_file__6TLobbyFiPviPv((void *)id, (void *)name, 0, (void *)arg2);
     if (temp_r3 >= 0) {
 loop_1:
-        if (read_afs_toc__6TLobbyFl((void *) (id)) != 3) {
+        if (read_afs_toc__6TLobbyFl((void *)id) != 3) {
             TLobby::run_disk_error_check();
             TLobby__sub_803382E4();
             TLobby::run_frame();

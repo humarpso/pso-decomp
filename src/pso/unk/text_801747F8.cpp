@@ -31,10 +31,10 @@ u8 *TORockCaveS02__ct(u8 *arg0, s32 arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__13TORockCaveS02.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3108;
     ((TORockCaveS02 *)(arg0))->apply_object_set_data((void *)arg1);
-    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *) (cave_rock_resource_bundle), 2);
-    ((TORockCaveS02 *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *) (cave_rock_resource_bundle), 2);
+    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *)cave_rock_resource_bundle, 2);
+    ((TORockCaveS02 *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *)cave_rock_resource_bundle, 2);
     ((TORockCaveS02 *)arg0)->m_b0 = (f32) lbl_805DB970;
-    init_collision_body_parts((void *) (arg0), (void *) (&cave_rock_collision_body_templates.value), 1);
+    init_collision_body_parts(arg0, (void *) (&cave_rock_collision_body_templates.value), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;

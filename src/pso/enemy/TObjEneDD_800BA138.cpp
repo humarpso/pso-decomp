@@ -209,9 +209,9 @@ void TObjEneDD__sub_800BA438(s32 arg0, u8 *arg1) {
     ((VObj_18_0c879f *)(arg1))->m21(arg0, &stack.sp8, 0, -1, -1);
 }
 
-void TObjEneDD::emit_effect_at_position(void* a1) { TObjEneDD::emit_enemy_effect((s32)(this), (s32)((char*)this + 0x38), (u8 *)(a1), (s32)((void*)0)); }
+void TObjEneDD::emit_effect_at_position(void* a1) { TObjEneDD::emit_enemy_effect((s32)this, (s32)((char*)this + 0x38), (u8 *)a1, (s32)((void*)0)); }
 
-void TObjEneDD::emit_effect(void* p, int a1, int a2) { TObjEneDD::emit_enemy_effect((s32)(p), (s32)(a1), (u8 *)(a2), 0); }
+void TObjEneDD::emit_effect(void* p, int a1, int a2) { TObjEneDD::emit_enemy_effect((s32)p, (s32)a1, (u8 *)a2, 0); }
 
 extern u8 *obj_ene_dd_instance;
 extern const f32 lbl_805D9EA0;
@@ -228,9 +228,9 @@ void TObjEneDD::emit_enemy_effect(s32 arg0, s32 arg1, u8 *arg2, s32 arg3) {
     ((EneDDObj2_800BA138*)obj_ene_dd_instance)->m15((void*)(arg2 + 0xC), (void*)arg3);
 }
 
-void TObjEneDD__sub_800BA5A4(void* p, void* a1) { TObjEneDD::setup_instance((s32)(p), (s32)((char*)p + 0x38), (u8 *)(a1), (s32)((void*)0)); }
+void TObjEneDD__sub_800BA5A4(void* p, void* a1) { TObjEneDD::setup_instance((s32)p, (s32)((char*)p + 0x38), (u8 *)a1, (s32)((void*)0)); }
 
-void TObjEneDD::setup(void* p, int a1, int a2) { TObjEneDD::setup_instance((s32)(p), (s32)(a1), (u8 *)(a2), 0); }
+void TObjEneDD::setup(void* p, int a1, int a2) { TObjEneDD::setup_instance((s32)p, (s32)a1, (u8 *)a2, 0); }
 
 void TObjEneDD::setup_instance(s32 arg0, s32 arg1, u8 *arg2, s32 arg3) {
     ((TUnk_804928CC *)obj_ene_dd_instance)->sub_800BC3E8((u8 *)arg0);

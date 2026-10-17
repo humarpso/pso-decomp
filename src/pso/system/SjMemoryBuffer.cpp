@@ -152,7 +152,7 @@ const u8* sj_memory_buffer_get_uuid(SjMemoryBuffer* arg0) {
 
 void sj_memory_buffer_destroy(SjMemoryBuffer* arg0) {
     if (arg0 != NULL) {
-        memset((void *)(arg0), 0, 0x24);
+        memset(arg0, 0, 0x24);
         arg0->in_use = 0;
     }
 }
@@ -195,7 +195,7 @@ void sj_memory_buffer_shutdown(void) {
 
 void sj_memory_buffer_init(void) {
     if ((s32) sj_memory_buffer_init_count == 0) {
-        memset((void *) (sj_memory_buffer_pool), 0, 0x480);
+        memset(sj_memory_buffer_pool, 0, 0x480);
     }
     sj_memory_buffer_init_count += 1;
 }

@@ -79,7 +79,7 @@ u8 *__ct__17TChCrTagPlGraphicFv(u8 *arg0, s32 arg1, s32 _w2) {
 void *TChCrTagPlGraphic::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x50);
     if (o != NULL) {
-        o = __ct__17TChCrTagPlGraphicFv((u8 *)(o), (s32)(tl_03), (s32)(arg0));
+        o = __ct__17TChCrTagPlGraphicFv((u8 *)o, (s32)tl_03, (s32)arg0);
     }
     return o;
 }

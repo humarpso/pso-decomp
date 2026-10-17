@@ -480,7 +480,7 @@ u8 is_wrapped__9TItemDataFPv(Item_8010C52C *it) {
     case 1:
         return ((it->b4 & 0x40) - 0x40) == 0;
     case 3:
-        if (lookup_item_def__9TItemDataFPv((void *)(it)) != 0) {
+        if (lookup_item_def__9TItemDataFPv(it) != 0) {
             return 0;
         }
         return ((it->b3 & 0x40) - 0x40) == 0;
@@ -680,7 +680,7 @@ void TItemData__sub_8010CA08(void *arg0, u32 arg1, u8 arg2) {
         memset(sp8, 0, 0xA);
         sp8[0] = 0x41;
         strncpy(&sp8[1], arg1, 8);
-        ((TItemData *)arg0)->pack_three_colors((u8 *)((s8 *)(sp8)));
+        ((TItemData *)arg0)->pack_three_colors((u8 *)(sp8));
     }
 }
 
@@ -1464,12 +1464,12 @@ void TItemData::apply_equip_effects(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 
     u8 temp_r0_2;
 
     if ((arg1 != 0) || (arg1 = get_player_by_client_id(local_client_id), ((arg1 == 0) == 0))) {
-        get_set_bonus_multiplier__9TItemDataFPvi((void *)(this), (s32)(arg1));
+        get_set_bonus_multiplier__9TItemDataFPvi(this, arg1);
         calc_clock_bonus__9TItemDataFPv(this, arg1);
         temp_r0 = *(u8 *)((s8 *)this + 0);
         switch ((s32) temp_r0) {
         case 0:
-            add_weapon_stat_bonuses((s32)(arg1), (s16 *)(arg2), (s32)(arg3), (s16 *)(arg4), (s32)(arg5));
+            add_weapon_stat_bonuses((s32)arg1, (s16 *)arg2, (s32)arg3, (s16 *)arg4, (s32)arg5);
             break;
         case 1:
             temp_r0_2 = *(u8 *)((s8 *)this + 1);
@@ -1895,7 +1895,7 @@ int TItemData::calc_display_grade() {
         break;
     case 1:
         if ((u8) *(u8 *)((s8 *)this + 1) == 3) {
-            temp_r3 = get_field6_bswap__9TItemDataFPv((void *)(this));
+            temp_r3 = get_field6_bswap__9TItemDataFPv(this);
             if (temp_r3 < 0) {
                 base_rarity -= 1;
             } else if (temp_r3 > 0) {

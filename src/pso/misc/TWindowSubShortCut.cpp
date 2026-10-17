@@ -69,7 +69,7 @@ s32 TWindowSubShortCut::open_confirm_message() {
 s32 TWindowSubShortCut::open_confirm_prompt() {
     Win_8027DBB8 *arg0 = (Win_8027DBB8 *)this;
     s32 r = create__19TWindowMessageYesNoFPvPvPvPv(arg0, arg0->f20, 0, 0);
-    open_yes_no_prompt((u8 *)(r), (get_message_10__20TWindowSubStatusDispFl(0x20)), (get_message_10__20TWindowSubStatusDispFl(0x3D)), (get_window_layout_position(0x75)), lbl_805DD6C0);
+    open_yes_no_prompt((u8 *)r, (get_message_10__20TWindowSubStatusDispFl(0x20)), (get_message_10__20TWindowSubStatusDispFl(0x3D)), (get_window_layout_position(0x75)), lbl_805DD6C0);
     ((TWindowSubShortMail *)r)->notify_warp_flag70();
     return r;
 }
@@ -128,7 +128,7 @@ void TWindowSubShortCut::run_task() {
             this->m_30 = 0U;
         }
         if ((u32) this->m_2c == 0U) {
-            this->m_2c = ((s32 (*)(void *))open_com_card_list__18TWindowSubShortCutFv)((void *) (arg0));
+            this->m_2c = ((s32 (*)(void *))open_com_card_list__18TWindowSubShortCutFv)(arg0);
         }
         ((TWindowSubShortCutList *)(this->m_2c))->refresh_entries();
         ((TWindowSubItem *)(this->m_2c))->clear_selected_and_update_entry();
@@ -161,7 +161,7 @@ void TWindowSubShortCut::run_task() {
             return;
         }
         if (((TWindowMenu *)(this->m_30))->is_visible() != 0) {
-            this->m_1c = get_selected_menu_value((int) (this->m_30));
+            this->m_1c = get_selected_menu_value(this->m_30);
             return;
         }
         break;
@@ -176,7 +176,7 @@ void TWindowSubShortCut::run_task() {
             this->m_2c = 0U;
         }
         if ((u32) this->m_38 == 0U) {
-            void *chat = new TWindowChat((TObject *)(void *) (arg0), (void *)(void *) ((u8 *)(arg0) + 0x40));
+            void *chat = new TWindowChat((TObject *)arg0, (void *)(void *) (arg0 + 0x40));
             *(void * *)&this->m_38 = chat;
             ((TWindowSubShortCut *)(this->m_38))->free_icon();
             ((TWindowSubShortCut *)(this->m_38))->close_and_clear_flag();
@@ -201,7 +201,7 @@ void TWindowSubShortCut::run_task() {
         if ((u32) this->m_3c == 0U) {
             var_r30 = __nw__7TObjectFUl(0x74);
             if (var_r30 != 0) {
-                var_r30 = (void *)TWindowShortCut__ct((u8 *)(var_r30), (get_window_layout_position(0x73)), (*(s32 *)&this->m_24), (s32)((u8 *)(arg0) + 0x40));
+                var_r30 = (void *)TWindowShortCut__ct((u8 *)var_r30, (get_window_layout_position(0x73)), (*(s32 *)&this->m_24), (s32)((u8 *)arg0 + 0x40));
             }
             *(void * *)&this->m_3c = var_r30;
         }
@@ -216,7 +216,7 @@ void TWindowSubShortCut::run_task() {
         }
         if (((TWindowMessageYesNo *)(this->m_34))->is_child_visible() != 0) {
             if (((TWindowSubComCard *)(this->m_34))->get_slot_or_neg1() == 0) {
-                store_chat_shortcut((*(s32 *)&this->m_24), (s32)((u8 *)(arg0) + 0x40));
+                store_chat_shortcut((*(s32 *)&this->m_24), (s32)(arg0 + 0x40));
                 this->m_1c = 1U;
                 return;
             }
@@ -237,7 +237,7 @@ void TWindowSubShortCut::run_task() {
         }
         if (((TWindowMessageYesNo *)(this->m_34))->is_child_visible() != 0) {
             if (((TWindowSubComCard *)(this->m_34))->get_slot_or_neg1() == 0) {
-                select_cursor_entry__22TWindowSubShortCutListFv((int) (this->m_2c));
+                select_cursor_entry__22TWindowSubShortCutListFv(this->m_2c);
                 clear_chat_shortcut();
                 this->m_1c = 1U;
                 return;

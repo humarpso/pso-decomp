@@ -45,7 +45,7 @@ extern u32 lbl_805D5660, lbl_805D5664, lbl_805D5668;
 extern Color saved_model_draw_color, model_material_color;
 extern EquippedItemDrawQueue *player_item_id_list;
 
-void TItem::push_to_player_list(void* a0) { push_to_list__10TObjPlayerFPvi((u8 *)(player_item_id_list), (s32)a0); }
+void TItem::push_to_player_list(void* a0) { push_to_list__10TObjPlayerFPvi((u8 *)player_item_id_list, (s32)a0); }
 void TUnk_804F29F8::render() {
     TObjPlayer::reset_transform_state();
     lbl_805D5660 = model_render_flags;

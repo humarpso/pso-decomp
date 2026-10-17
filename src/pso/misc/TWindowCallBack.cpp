@@ -37,7 +37,7 @@ void TBoss6Type2::update_and_send() { handle_olga_action(); TLobby__send_and_han
 int TBoss6Type2::handle_olga_action() { return read_be16_field2__10TObjPlayerFv(this); }
 void TBoss6Type2::init_packet() { *(u8*)((char*)this + 0x0) = 165; *(u8*)((char*)this + 0x1) = 5; }
 int fn_802ACD40(void* p) { return read_be16_field2__10TObjPlayerFv(p); }
-void fn_802ACD60(void* p) { fn_802ACD40((void*)(p)); TLobby__send_and_handle_60((u8 *)p); }
+void fn_802ACD60(void* p) { fn_802ACD40(p); TLobby__send_and_handle_60((u8 *)p); }
 void build_6xA3_olga_flow_boss_actions(void* p) { *(u8*)((char*)p + 0x0) = 163; *(u8*)((char*)p + 0x1) = 5; }
 void set_field_60__15TWindowCallBackFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x60) = v; }
 
@@ -79,7 +79,7 @@ u8 *TWindowCallBack__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3E58;
     ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x38))->copy_vec2(arg2);
     ((TUnk_804CE018 *)arg0)->save_position();
-    set_field_60__15TWindowCallBackFPvi((void*)(arg0), (s32)(arg3));
+    set_field_60__15TWindowCallBackFPvi(arg0, arg3);
     return arg0;
 }
 

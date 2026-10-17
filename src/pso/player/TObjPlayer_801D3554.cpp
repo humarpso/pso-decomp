@@ -25,14 +25,14 @@ void insert_item_node__10TObjPlayerFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3
     s32 temp_r31;
     s32 temp_r30;
 
-    temp_r31 = TItemList__sub_801D5868((void*)(arg0), (void*)(0));
+    temp_r31 = TItemList__sub_801D5868((void*)arg0, (void*)(0));
     temp_r30 = TItemList__sub_801D5854(arg0, 0);
     if (TItemList__sub_801D5844((void *)temp_r31) != 0) {
-        TItemList__sub_801D5838((void *)(temp_r31));
+        TItemList__sub_801D5838((void *)temp_r31);
         ((TObjPlayer *)temp_r30)->set_field4(arg4);
         copy_item_data__9TItemListFv(temp_r30, arg3);
         create_node__9TItemListFPvPvPvSc(arg0, arg2, arg1, 0);
-        TItemList__sub_801D5804((s32 *)(arg0));
+        TItemList__sub_801D5804((s32 *)arg0);
     }
 }
 
@@ -59,7 +59,7 @@ void create_drop_nodes__9TItemListFPvPvPvPvi(void *arg0, void *arg1, void *arg2,
 u8 *copy_drop_node(u8 *arg0, u8 *arg1) {
     u8 *temp_r4;
     u8 *temp_r5;
-    fn_801D371C((void*)((void *) (arg0)), (void*)((void *) (arg1)));
+    fn_801D371C((void*)(arg0), (void*)(arg1));
     temp_r5 = (u8 *)(arg0 + 4);
     temp_r4 = (u8 *)(arg1 + 4);
     *(s32 *)((s8 *)arg0 + 4) = (s32) *(s32 *)((s8 *)arg1 + 4);
@@ -69,9 +69,9 @@ u8 *copy_drop_node(u8 *arg0, u8 *arg1) {
 
 void fn_801D371C(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); }
 void start_placement_search(s32 arg0, s32 arg1, s32 arg2) {
-    TItemList__sub_801D5838(((void *)((s32)TItemList__sub_801D5868((void*)(arg0), (void*)(0)))));
-    TItemList__sub_801D3B00((void *)(arg0), (void *)(arg2), (void *)(arg1), 0);
-    TItemList__sub_801D5804((s32 *)((void *) (arg0)));
+    TItemList__sub_801D5838(((void *)((s32)TItemList__sub_801D5868((void*)arg0, (void*)(0)))));
+    TItemList__sub_801D3B00((void *)arg0, (void *)arg2, (void *)arg1, 0);
+    TItemList__sub_801D5804((s32 *)(arg0));
 }
 
 }

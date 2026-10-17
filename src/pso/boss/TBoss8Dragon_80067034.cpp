@@ -29,7 +29,7 @@ void TBoss8Dragon__sub_80067074(s32 arg0, s32 arg1) {
     if ((void *) boss5_ctrl_instance != NULL) {
         temp_r3 = *(u32 *)((s8 *)boss5_ctrl_instance + 0x1C);
         if (temp_r3 != 0U) {
-            TBoss8Dragon__sub_8028A900((void *)(temp_r3), (arg0), (arg1));
+            TBoss8Dragon__sub_8028A900((void *)temp_r3, (arg0), (arg1));
         }
         temp_r3_2 = *(u32 *)((s8 *)boss5_ctrl_instance + 0x20);
         if (temp_r3_2 != 0U) {

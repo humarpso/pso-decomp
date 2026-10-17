@@ -64,7 +64,7 @@ s32 TObjBoss2Tunnel::adjust_to_ground(s32 arg0, void *arg1) {
     return 0;
 }
 
-void TObjBoss2Tunnel::init_zako(void* a1, s32 _w2) { rotate_xz_pair_by_angle((f32 *)(this), (f32 *)((char*)this + 0x8), (s32)(_w2)); vec3_add_to(this, a1); }
+void TObjBoss2Tunnel::init_zako(void* a1, s32 _w2) { rotate_xz_pair_by_angle((f32 *)this, (f32 *)((char*)this + 0x8), (s32)_w2); vec3_add_to(this, a1); }
 
 s16 TObjBoss2Tunnel::turn_toward_angle_limited(s32 arg0, s32 cur, s32 target, s32 step, s32 limit) {
     target = angle_diff_s16(arg0, target);

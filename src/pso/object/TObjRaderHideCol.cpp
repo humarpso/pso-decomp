@@ -52,7 +52,7 @@ void *__dt__16TObjRaderHideColFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_80197490___vt__16TObjRaderHideCol_size[sizeof(RecoveredGlobal_80197490___vt__16TObjRaderHideCol) == 0x34 ? 1 : -1];
 u8 *TObjRaderHideCol__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_world_actor_base((void *) (arg0));
+    construct_world_actor_base(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80197490___vt__16TObjRaderHideCol *)&__vt__16TObjRaderHideCol).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3414;
     ((TObjRaderHideCol *)(arg0))->apply_object_set_data((void *)arg2);

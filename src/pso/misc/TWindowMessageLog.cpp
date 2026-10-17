@@ -47,7 +47,7 @@ void TWindowMessageLog::clamp_scroll_offset() {
     stack.sp8 = lbl_805DD240;
     temp_f1 = *(f32 *)&this->m_4c;
     stack.spC = temp_f1 - lbl_805DD244;
-    if (clamp_list_scroll_offset((int) (*(s32 *)((s8 *)((u8 *)this) + 0x90)), (void *) (((u8 *)this) + 0x68), (void *) (&stack.sp8), (f32) (temp_f1)) != 0) {
+    if (clamp_list_scroll_offset((int) (*(s32 *)((s8 *)((u8 *)this) + 0x90)), (void *) (((u8 *)this) + 0x68), (void *) (&stack.sp8), temp_f1) != 0) {
         this->m_84 = (f32) this->m_6c;
     }
 }

@@ -166,8 +166,8 @@ void TOContainerAncientEnemy::vfunc_81() {
         case 0:
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));
-            rotate_matrix_y(0, (int) (this->rotation_y));
-            TObjFish::set_global_param((int) (this->texture_id));
+            rotate_matrix_y(0, this->rotation_y);
+            TObjFish::set_global_param(this->texture_id);
             temp_r31 = (unsigned char *) (*(void * *)&this->model);
             push_matrix();
             post_translate_matrix((void *) (temp_r31 + 8));
@@ -223,7 +223,7 @@ u8 *TOContainerAncientEnemy__ct(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2F08;
     ((TOContainerAncientEnemy *)arg0)->mode = 0;
     *(s32 *)&((TOContainerAncientEnemy *)arg0)->actorFlags = (s32) (*(s32 *)&((TOContainerAncientEnemy *)arg0)->actorFlags| 0x60000000);
-    init_collision_body_parts((void *) (arg0), (void *) (&TOContainerAncientEnemy__collision_body_params.value), 1);
+    init_collision_body_parts(arg0, (void *) (&TOContainerAncientEnemy__collision_body_params.value), 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38));
     VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));

@@ -50,7 +50,7 @@ s32 TObjEneRecon::render_player_marker(u16 arg0, s32 arg1) {
         return 0;
     }
     if (arg1 != 0) {
-        var_r3 = TObjEneRecon__sub_8029EA4C((void *)(sp8), 1);
+        var_r3 = TObjEneRecon__sub_8029EA4C(sp8, 1);
     } else {
         var_r3 = 1;
     }

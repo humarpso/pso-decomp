@@ -29,7 +29,7 @@ void TBoss6Type2::render_body_effects() {
         var_r31 = 1;
     }
     if (var_r31 != 0) {
-        TBoss6PlotFalz__sub_802AC008((f32) (*(f32 *)&this->unk_4FC), (f32) (this->m_500));
+        TBoss6PlotFalz__sub_802AC008((f32) (*(f32 *)&this->unk_4FC), this->m_500);
     }
     ((TBoss6Type2 *)((u8 *)this))->draw_body_models();
     if (var_r31 != 0) {

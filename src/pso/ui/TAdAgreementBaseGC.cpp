@@ -191,7 +191,7 @@ Obj_80329AA8 *TAdAgreementBaseGC__ct(Obj_80329AA8 *arg0, void *arg1) {
     arg0->cur = p;
     ((TLevelSelect *)(arg0->cur))->add_item_rect(agreement_item_rect_table);
     ((TLevelSelect *)(arg0->cur))->add_item_rect(agreement_item_rect_table + 8);
-    fn_80329BAC((void*)(arg0->cur));
+    fn_80329BAC(arg0->cur);
     ((TLobby *)(arg0->cur))->set_ad_field(1);
     return arg0;
 }

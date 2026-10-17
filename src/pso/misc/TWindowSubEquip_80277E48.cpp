@@ -50,9 +50,9 @@ void __dt__7TObjectFv(void *, int);
 
 s32 TWindowSubEquip::open_equip_kind_list(u32 arg1) {
     s32 equip_kind_window;
-    equip_kind_window = create_equip_kind_window(get_window_layout_position(1), (void *) (lbl_8044F920), (int) (*(s32 *)&this->m_28));
+    equip_kind_window = create_equip_kind_window(get_window_layout_position(1), lbl_8044F920, (int) (*(s32 *)&this->m_28));
     TWindowSubEquip__sub_80263AF8((u8 *)(*(s32 *)&this->m_2c), 1);
-    set_field_1c__6TLobbyFf((int) (equip_kind_window));
+    set_field_1c__6TLobbyFf(equip_kind_window);
     ((TUnk_804D0618 *)equip_kind_window)->ensure_status_display((int) (TWindowSubStatusDisp::get_message_10(0x24)));
     ((TWindowSubShortCutList *)equip_kind_window)->set_flag70_bit10();
     switch (arg1) {
@@ -75,7 +75,7 @@ s32 TWindowSubEquip::open_equip_kind_list(u32 arg1) {
         ((TWindowSubMag *)equip_kind_window)->init_and_setup((void*)2);
         break;
     }
-    mark_unequippable_items((int) (equip_kind_window));
+    mark_unequippable_items(equip_kind_window);
     return equip_kind_window;
 }
 

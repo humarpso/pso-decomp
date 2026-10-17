@@ -32,7 +32,7 @@ u8 *init_container_base(u8 *arg0, s32 arg1, s32 arg2) {
         ((TUnk_804B6C24 *)arg0)->m_360 = 0;
     }
     ((TUnk_804AF8D8 *)(arg0 + 0x340))->sub_80156CEC();
-    TLazerFenceSw__sub_8018A554((arg0 + 0x340), (f32) (lbl_805DBD08));
+    TLazerFenceSw__sub_8018A554((arg0 + 0x340), lbl_805DBD08);
     ((TUnk_804B6C24 *)arg0)->m_364 = 0;
     return arg0;
 }

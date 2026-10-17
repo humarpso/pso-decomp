@@ -50,7 +50,7 @@ s32 fn_80140D50(void) {
 }
 
 void fn_80140DFC(s32 arg0, s32 arg1) {
-    remove_value_from_id_list((s32)((void *) (arg0)), (u32)((void *) (TLobby__sub_80141030((void *)(arg1)))));
+    remove_value_from_id_list((s32)((void *)arg0), (u32)((void *) (TLobby__sub_80141030((void *)arg1))));
 }
 
 void remove_value_from_id_list(s32 arg0, u32 arg1) {
@@ -76,7 +76,7 @@ void remove_value_from_id_list(s32 arg0, u32 arg1) {
 }
 
 void fn_80140EA8(s32 arg0, s32 arg1) {
-    register_slot((Obj_80140EE4 *)((void *) (arg0)), (void *)((void *) (TLobby__sub_80141030((void *)(arg1)))));
+    register_slot((Obj_80140EE4 *)((void *)arg0), (void *)((void *) (TLobby__sub_80141030((void *)arg1))));
 }
 void register_slot(Obj_80140EE4 *self, void *p) {
     s32 i;

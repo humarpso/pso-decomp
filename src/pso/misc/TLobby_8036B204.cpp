@@ -31,7 +31,7 @@ Mgr_8036B424 *TLobby__sub_8036B424(Mgr_8036B424 *arg0, void * _w1);
 
 void TLobby::send_slot_entity_or_local(u16 arg0, s32 arg1) {
     if (((u32) slot_entity_dispatcher_instance != 0U) && (arg0 < 4U)) {
-        ((TLobby *)slot_entity_dispatcher_instance)->send_slot_entity(arg0, (s32)(arg1));
+        ((TLobby *)slot_entity_dispatcher_instance)->send_slot_entity(arg0, arg1);
         return;
     }
     TLobby__sub_8036B1AC(arg1);
@@ -107,7 +107,7 @@ void create_singleton__6TLobbyFPv(void *arg0) {
     if ((*(void * *)&slot_entity_dispatcher_instance) == NULL) {
         o = __nw__7TObjectFUl(0x30);
         if (o != NULL) {
-            TLobby__sub_8036B424((Mgr_8036B424 *)(o), (void *)(arg0));
+            TLobby__sub_8036B424((Mgr_8036B424 *)(o), arg0);
         }
     }
 }

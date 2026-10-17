@@ -51,7 +51,7 @@ s32 spawn_for_each_fish__20TObjLiveMonitorSmallFi(s32 arg0) {
         if (live_monitor_small_spawned_flag != 0) {
             obj = __nw__7TObjectFUl(0x2C);
             if (obj != NULL) {
-                __ct__20TObjLiveMonitorSmallFv((void *)(obj), (void *)(arg0), (void *)(var_r31));
+                __ct__20TObjLiveMonitorSmallFv((void *)obj, (void *)arg0, (void *)var_r31);
             }
         }
         var_r31 = *(void **)((s8 *)var_r31 + 0x30);

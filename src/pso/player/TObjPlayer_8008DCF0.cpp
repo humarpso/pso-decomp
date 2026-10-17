@@ -298,7 +298,7 @@ void TObjPlayer__sub_8008EDE8(P_8008EDE8 *arg0) {
                     move_with_wall_slide((u8 *)arg0);
                 }
             }
-            ((TObjPlayer *)arg0)->update_angle((s32)(arg0->f350->f8), (void *)(&arg0->vel));
+            ((TObjPlayer *)arg0)->update_angle((s32)arg0->f350->f8, (void *)(&arg0->vel));
             arg0->f3C0 = xz_distance_squared(&arg0->pos, &arg0->target->pos);
             if (arg0->f3C0 <= ((TObjPlayer *)(arg0->f318))->get_pos_x() * ((TObjPlayer *)(arg0->f318))->get_pos_x()) {
                 arg0->fB8 = 2;
@@ -389,7 +389,7 @@ void TObjPlayer__sub_8008F1DC(void *arg0) {
                     move_with_wall_slide((u8 *)o);
                 }
             }
-            ((TObjPlayer *)o)->update_angle((s32)(o->f350->f8), (void *)(&o->vel));
+            ((TObjPlayer *)o)->update_angle((s32)o->f350->f8, (void *)(&o->vel));
             o->f3C0 = xz_distance_squared(&o->pos, &FLD(T_8008F1DC *, 0x2A8)->pos);
             if (o->f3C0 <= ((TObjPlayer *)(o->f318))->get_pos_x() * ((TObjPlayer *)(o->f318))->get_pos_x()) {
                 FLD(s16, 0xB8) = 7;
@@ -433,7 +433,7 @@ void TObjPlayer__sub_8008F1DC(void *arg0) {
                 move_with_wall_slide((u8 *)o);
             }
         }
-        ((TObjPlayer *)o)->update_angle((s32)(o->f350->f8), (void *)(&o->vel));
+        ((TObjPlayer *)o)->update_angle((s32)o->f350->f8, (void *)(&o->vel));
         if (objInBand((GameObj *)o, (f32)lbl_805D964C) != 0) {
             play_sound_effect(0x4003B034, (u8 *)o + 0x38, 0, 0);
             if (FLD(T_8008F1DC *, 0x2A8)->m18(o, lbl_805D9650) != 0) {

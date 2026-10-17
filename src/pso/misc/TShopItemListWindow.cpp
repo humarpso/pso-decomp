@@ -289,11 +289,11 @@ void TShopItemListWindow::build_item_list(void *p) {
         if (W->help != NULL && TLobby::is_camera_ctrl_active() > 2) {
             ((TLobby *)(W->help))->set_position(lbl_805DC6F8, lbl_805DC6F8);
         }
-        ((TWindowHelpItem *)(W->help))->set_displayed_item_colored((u32)(W->recs));
+        ((TWindowHelpItem *)(W->help))->set_displayed_item_colored((u32)W->recs);
     }
     if (W->status == NULL) {
         W->status = create_window_quantity(((TShopSequence *)W)->get_child_field1c());
-        n = ((TObjPlayer *)(*(s32 *)(W->player + 0xD00)))->count_items_by_id((s32)(W->recs));
+        n = ((TObjPlayer *)(*(s32 *)(W->player + 0xD00)))->count_items_by_id((s32)W->recs);
         ((TWindowSubStatusDisp *)(W->status))->set_entry1_field20(n);
     }
     if (W->cost == NULL) {
@@ -313,14 +313,14 @@ void TShopItemListWindow::vfunc_11() {
     temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);
     switch (temp_r0) {
     case 0:
-        TShopItemListWindow::build_item_list((void *)((void *) (arg0)));
+        TShopItemListWindow::build_item_list((void *)(arg0));
         ((TShopWindowBase *)arg0)->set_field_20(1);
         return;
     case 1:
-        TShopItemListWindow::handle_tool_list_select((void *)((void *) (arg0)));
+        TShopItemListWindow::handle_tool_list_select((void *)(arg0));
         return;
     case 2:
-        handle_amount_confirm__19TShopItemListWindowFv((void *) (arg0));
+        handle_amount_confirm__19TShopItemListWindowFv(arg0);
         return;
     case 3:
     case 8:
@@ -337,7 +337,7 @@ void TShopItemListWindow::vfunc_11() {
         ((TShopItemListWindow *)arg0)->handle_confirm();
         return;
     case 7:
-        prepare_tool_purchase__19TShopItemListWindowFv((void *) (arg0));
+        prepare_tool_purchase__19TShopItemListWindowFv(arg0);
     default:
         return;
     }
@@ -380,7 +380,7 @@ u8 *TShopItemListWindow__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)((s8 *)arg0 + 0x4C) = 0;
     *(s32 *)((s8 *)arg0 + 0x54) = 0;
     ((TShopGetItemWindow *)(*(s32 *)((s8 *)arg0 + 0x24)))->calc_item_count((s32 *)(&sp8));
-    TLobby::set_6264_and_call_2244B0((int)((void *) (sub_8022397C__15TShopWindowBaseFv((void *) (arg0)))), (int)((int) (sp8)));
+    TLobby::set_6264_and_call_2244B0((int)((void *) (sub_8022397C__15TShopWindowBaseFv(arg0))), (int)(sp8));
     return arg0;
 }
 

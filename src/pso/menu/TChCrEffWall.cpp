@@ -68,7 +68,7 @@ extern "C" {
 void *fn_8029AE88(void *arg0) {
     void *o = __nw__7TObjectFUl(0x1C);
     if (o != NULL) {
-        o = __ct__12TChCrEffWallFP7TObject((void *)(o), (void *)(arg0));
+        o = __ct__12TChCrEffWallFP7TObject(o, arg0);
     }
     return o;
 }

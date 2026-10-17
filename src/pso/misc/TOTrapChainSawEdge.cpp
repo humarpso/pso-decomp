@@ -455,9 +455,9 @@ void TOTrapChainSawKey__vt22(u8 *arg0) {
     if (*(f32 *)((s8 *)arg0 + 0x104) > (f32) (u32) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x100)) + 4) - 1)) {
         *(f32 *)((s8 *)arg0 + 0x104) = (f32) (0.0f);
     }
-    play_persistent_sound((void *) (((s32 (*)(void *, int))get_area_table_value__17TOTrapChainSawKeyFii)((void *) (arg0), 2)), (void *) (arg0), (void *) (arg0 + 0x38), 0, 0);
+    play_persistent_sound((void *) (((s32 (*)(void *, int))get_area_table_value__17TOTrapChainSawKeyFii)(arg0, 2)), arg0, (void *) (arg0 + 0x38), 0, 0);
     if ((s32) *(s32 *)((s8 *)arg0 + 0xF0) == 1) {
-        play_persistent_sound((void *) (((s32 (*)(void *, int))get_area_table_value__17TOTrapChainSawKeyFii)((void *) (arg0), 1)), (void *) (arg0), (void *) (arg0 + 0x38), 0, 0);
+        play_persistent_sound((void *) (((s32 (*)(void *, int))get_area_table_value__17TOTrapChainSawKeyFii)(arg0, 1)), arg0, (void *) (arg0 + 0x38), 0, 0);
     }
 }
 
@@ -495,7 +495,7 @@ void TOTrapChainSawKey::decode_params() { ((int (*)(void*))decode_params__14TOTr
 void *TOTrapChainSawKey::create() {
     void *o = __nw__7TObjectFUl(0x10C);
     if (o != NULL) {
-        o = TOTrapChainSawKey__ct((u8 *)(o), (void *)(tl_05), (void *)(this));
+        o = TOTrapChainSawKey__ct((u8 *)o, (void *)tl_05, (void *)this);
     }
     return o;
 }
@@ -519,7 +519,7 @@ u8 *TOTrapChainSawKey__ct(u8 *arg0, void * _w1, void * _w2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3F08;
     ((TOTrapChainSawKey *)(arg0))->decode_params();
     ((TOTrapChainSawKey *)(arg0))->vfunc_16();
-    init_collision_body_parts((void *) (arg0), (int) ((u8 *)(&((RecoveredGlobal_802C8910_lbl_804E0CC0 *)chain_saw_collision_body_part_table)->value) + (*(s32 *)((s8 *)arg0 + 0xF8) * 0x58)), 2);
+    init_collision_body_parts(arg0, (int) ((u8 *)(&((RecoveredGlobal_802C8910_lbl_804E0CC0 *)chain_saw_collision_body_part_table)->value) + (*(s32 *)((s8 *)arg0 + 0xF8) * 0x58)), 2);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;
@@ -601,7 +601,7 @@ void TOTrapChainSawDamage__vt16(u8 *arg0, u8 *arg1) {
     p.b = ((TOTrapChainSawDamage *)(arg0))->vfunc_30(*(f32 *)((s8 *)arg0 + 0xFC));
     P_802C8BD0 q = p;
     ((VObj_18_62e3d5 *)(arg1))->m21(arg0, (s32 *)&q, 0, -1, -1);
-    obj_setFlags30((void *) (arg1), 0x400);
+    obj_setFlags30(arg1, 0x400);
 }
 #pragma pop
 
@@ -619,7 +619,7 @@ void TOTrapChainSawDamage__vt14(Obj_802C8C60 *arg0, f32 _w1) {
     arg0->fF8 = (s32)arg0->f70;
     v = arg0->fF8;
     arg0->fF8 = v < 0 ? 0 : (v > 1 ? 1 : v);
-    arg0->fC8 = get_model__17TOTrapChainSawKeyFl((int)(a.v[arg0->fF8]), _w1);
+    arg0->fC8 = get_model__17TOTrapChainSawKeyFl(a.v[arg0->fF8], _w1);
     arg0->fBC = get_motion__17TOTrapChainSawKeyFl(b.v[arg0->fF8]);
     arg0->f24 = (s32)fn_802C9924(0);
     arg0->fB4 = (0.0f);
@@ -650,7 +650,7 @@ void TOTrapChainSawDamage::decode_params() {
 void *TOTrapChainSawDamage::create() {
     void *o = __nw__7TObjectFUl(0x10C);
     if (o != NULL) {
-        o = TOTrapChainSawDamage__ct((void *)(o), (void *)(tl_05), (void *)(this));
+        o = TOTrapChainSawDamage__ct(o, tl_05, this);
     }
     return o;
 }
@@ -943,7 +943,7 @@ void *__dt__14TOTrapChainSawFv(void *arg0, s16 arg1) {
 }
 
 u8 *TOTrapChainSaw__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    init_map_object_base((void *) (arg0), (void *) (arg1));
+    init_map_object_base((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802C9890___vt__14TOTrapChainSaw *)&__vt__14TOTrapChainSaw).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOTrapChainSaw__name;
     ((TOTrapChainSaw *)(arg0))->apply_object_set_data((void *)arg2);

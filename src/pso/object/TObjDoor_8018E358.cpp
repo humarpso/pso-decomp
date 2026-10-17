@@ -577,7 +577,7 @@ void *TObjDoor__ct(void *arg0, void *arg1, void *arg2) {
 void *TObjDoor__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD4);
     if (o != NULL) {
-        o = TObjDoor__ct((void *)(o), (void *)(tl_05), (void *)(arg0));
+        o = TObjDoor__ct(o, tl_05, arg0);
     }
     return o;
 }

@@ -45,7 +45,7 @@ void TAdMultiPlyChrSelectGC::handle_event(s32 arg1) {
         TAdMultiPlyChrSelectGC::split_slot_index((s32)temp_r3, (s32 *)(&sp14), (s32 *)(&sp10));
         TAdMultiPlyChrSelectGC::init();
         ((TAdMultiPlyChrSelectGC *)(this->m_5c))->set_field_4ec(sp14);
-        TAdMultiPlyChrSelectGC__sub_802E0024((O_802E0024 *)(this->m_5c), (s32)(sp10));
+        TAdMultiPlyChrSelectGC__sub_802E0024((O_802E0024 *)(this->m_5c), sp10);
         this->m_9c = 1;
         return;
     case 4:
@@ -56,7 +56,7 @@ void TAdMultiPlyChrSelectGC::handle_event(s32 arg1) {
             TAdMultiPlyChrSelectGC::split_slot_index((s32)temp_r3, (s32 *)(&spC), (s32 *)(&sp8));
             TAdMultiPlyChrSelectGC::init();
             ((TAdMultiPlyChrSelectGC *)(this->m_5c))->set_field_4ec(spC);
-            TAdMultiPlyChrSelectGC__sub_802E0024((O_802E0024 *)(this->m_5c), (s32)(sp8));
+            TAdMultiPlyChrSelectGC__sub_802E0024((O_802E0024 *)(this->m_5c), sp8);
         }
         this->m_9c = 1;
         return;
@@ -182,7 +182,7 @@ u8 *__dt__22TAdMultiPlyChrSelectGCFv(u8 *arg0, s16 arg1) {
         if ((u32) (*(u32 *)&TAdMultiPlyChrSelectGC__instance) != 0U) {
             (*(u32 *)&TAdMultiPlyChrSelectGC__instance) = 0U;
         }
-        __dt__7TObjectFv((void *) (arg0), 0);
+        __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);
         }
@@ -194,7 +194,7 @@ u8 *TAdMultiPlyChrSelectGC__ct(u8 *arg0, u8 *arg1, s32 arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__22TAdMultiPlyChrSelectGC.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3F68;
-    ((TAdMultiPlyChrSelectGC *)arg0)->initialize_selection_state((s32)(arg2));
+    ((TAdMultiPlyChrSelectGC *)arg0)->initialize_selection_state(arg2);
     ((TAdMultiPlyChrSelectGC *)arg0)->create_widgets();
     ((TAdMultiPlyChrSelectGC *)arg0)->handle_event(TAdMultiPlyChrSelectGC::get_select_flag());
     return arg0;
@@ -207,9 +207,9 @@ u8 *get_or_create__22TAdMultiPlyChrSelectGCFii(s32 arg0, s32 arg1) {
         return TAdMultiPlyChrSelectGC__instance;
     }
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0xA0));
-    var_r0 = (u8 *)(temp_r3);
+    var_r0 = temp_r3;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TAdMultiPlyChrSelectGC__ct((u8 *)(temp_r3), (u8 *)(arg0), (s32)(arg1)));
+        var_r0 = (u8 *)(TAdMultiPlyChrSelectGC__ct((u8 *)temp_r3, (u8 *)arg0, (s32)arg1));
     }
     TAdMultiPlyChrSelectGC__instance = var_r0;
     return var_r0;

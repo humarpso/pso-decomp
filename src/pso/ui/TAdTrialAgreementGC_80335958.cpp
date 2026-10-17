@@ -88,21 +88,21 @@ void TAdTrialAgreementGC::handle_cursor_input() {
     u8 *input;
     input = (u8 *)&controller_physical_port_bank.value + 0x20;
     *(f32 *)&this->m_28 = (f32) lbl_805DF8B4;
-    if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (input), 0x10, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), 0x10, 6, 1) != 0)) {
+    if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int)input, 0x10, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), 0x10, 6, 1) != 0)) {
         *(s32 *)&this->_pad20 = (s32) (*(s32 *)&this->_pad20 - 1);
         if ((s32) *(s32 *)&this->_pad20 < 0) {
             *(s32 *)&this->_pad20 = 3;
         }
         play_sound_effect(0x54100, 0, 0, 0);
     }
-    if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (input), 0x20, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), 0x20, 6, 1) != 0)) {
+    if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int)input, 0x20, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), 0x20, 6, 1) != 0)) {
         *(s32 *)&this->_pad20 = (s32) (*(s32 *)&this->_pad20 + 1);
         if ((s32) *(s32 *)&this->_pad20 >= 4) {
             *(s32 *)&this->_pad20 = 0;
         }
         play_sound_effect(0x54100, 0, 0, 0);
     }
-    if ((TWindowShortListCtrl__check_controller_button((int) (input), 4) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 4) != 0)) {
+    if ((TWindowShortListCtrl__check_controller_button((int)input, 4) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 4) != 0)) {
         *(s32 *)&this->m_24 = 2;
         play_sound_effect(0x40042309, 0, 0, 0);
     }
@@ -122,27 +122,27 @@ void TAdTrialAgreementGC::render_screen() {
             model_render_flags |= 0x10;
             set_chunk_material_color((f32 *)(arg0 + 0x28));
             bind_title_texture_list();
-            TLobby::draw_with_camera((int) (TLobby::get_record(0xA)), 0xA, 0x22, (f32) (lbl_805DF8B0));
+            TLobby::draw_with_camera((int) (TLobby::get_record(0xA)), 0xA, 0x22, lbl_805DF8B0);
         }
         temp_r0 = *(s32 *)&this->m_24;
         if ((temp_r0 == 1) || (temp_r0 == 2)) {
             var_r31 = 0xB;
             do {
-                draw_record_with_camera__19TAdTrialAgreementGCFlll((void *) (arg0), (void *) (var_r31), (int) (var_r31));
+                draw_record_with_camera__19TAdTrialAgreementGCFlll((void *)arg0, (void *)var_r31, (int)var_r31);
                 var_r31 += 1;
             } while (var_r31 != 0xF);
             bind_title_texture_list();
             TObjPlayer::init_xyz_limits();
-            temp_r31 = TAdTrialAgreementGC__sub_8033596C((void*)((void *) (arg0)));
+            temp_r31 = TAdTrialAgreementGC__sub_8033596C((void*)(arg0));
             if ((s32) *(s32 *)&this->m_24 == 1) {
-                draw_record_with_camera__19TAdTrialAgreementGCFlll((void *) (arg0), (void *) (temp_r31 + 0xF), 0xF);
-                draw_record_with_camera__19TAdTrialAgreementGCFlll((void *) (arg0), (void *) (temp_r31 + 0x13), 0x13);
-                draw_record_with_camera__19TAdTrialAgreementGCFlll((void *) (arg0), (void *) (temp_r31 + 0x17), 0x17);
+                draw_record_with_camera__19TAdTrialAgreementGCFlll(arg0, (void *) (temp_r31 + 0xF), 0xF);
+                draw_record_with_camera__19TAdTrialAgreementGCFlll(arg0, (void *) (temp_r31 + 0x13), 0x13);
+                draw_record_with_camera__19TAdTrialAgreementGCFlll(arg0, (void *) (temp_r31 + 0x17), 0x17);
             }
             if ((s32) *(s32 *)&this->m_24 == 2) {
-                draw_record_with_camera__19TAdTrialAgreementGCFlll((void *) (arg0), (void *) (temp_r31 + 0x1B), 0x1B);
-                draw_record_with_camera__19TAdTrialAgreementGCFlll((void *) (arg0), (void *) (temp_r31 + 0x1F), 0x1F);
-                draw_record_with_camera__19TAdTrialAgreementGCFlll((void *) (arg0), (void *) (temp_r31 + 0x23), 0x23);
+                draw_record_with_camera__19TAdTrialAgreementGCFlll(arg0, (void *) (temp_r31 + 0x1B), 0x1B);
+                draw_record_with_camera__19TAdTrialAgreementGCFlll(arg0, (void *) (temp_r31 + 0x1F), 0x1F);
+                draw_record_with_camera__19TAdTrialAgreementGCFlll(arg0, (void *) (temp_r31 + 0x23), 0x23);
             }
             TObjPlayer::reset_transform_state();
         }

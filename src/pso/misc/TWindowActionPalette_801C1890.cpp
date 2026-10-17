@@ -38,9 +38,9 @@ void init_6x21_inter_level_warp_packet(u8 *arg0) {
     *(s8 *)((s8 *)arg0 + 1) = 2;
 }
 
-void TObjPlayer::send_warp_packet() { bswap_warp_packet(); TLobby__send_and_handle_60((u8 *)(this)); }
+void TObjPlayer::send_warp_packet() { bswap_warp_packet(); TLobby__send_and_handle_60((u8 *)this); }
 
-void TObjPlayer__sub_801C18E0(void* p) { ((TObjPlayer *)p)->byteswap_set_position_cmd(); TLobby__send_and_handle_60((u8 *)(p)); }
+void TObjPlayer__sub_801C18E0(void* p) { ((TObjPlayer *)p)->byteswap_set_position_cmd(); TLobby__send_and_handle_60((u8 *)p); }
 
 void TObjPlayer::byteswap_set_position_cmd() {
     s32 arg0 = (s32)this;
@@ -136,7 +136,7 @@ int TWindowActionPalette::handle_input_forward() { return TWindowActionPalette__
 int TWindowActionPalette__sub_801C1C20(void* p) { return *(u32*)((char*)p + 0x0) == 0; }
 
 void TWindowActionPalette::is_channel_active_at(s32 arg0, s32 i, s32 arg2) {
-    s32 *p = (s32 *)((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)((s32)(arg0)), (s32)((s32)(i))));
+    s32 *p = (s32 *)((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)(arg0), (s32)(i)));
     ((TMainCursor *)(p + arg2))->is_channel_active();
 }
 
@@ -152,19 +152,19 @@ void is_action_channel_active(s32 *arg0, s32 arg1) {
 }
 
 void TWindowActionPalette::set_palette_entry(s32 arg0, s32 i, s32 arg2, s32 arg3, s32 arg4) {
-    s32 *p = (s32 *)((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)((s32)(arg0)), (s32)((s32)(i))));
+    s32 *p = (s32 *)((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)(arg0), (s32)(i)));
     s32 temp_r31 = (s32)(p + arg2);
     ((TWindowActionPalette *)temp_r31)->set_mode((u8)arg3);
     ((TWindowActionPalette *)temp_r31)->set_slot((u8)arg4);
 }
 
 void TWindowActionPalette::set_slot_by_index(s32 arg0, s32 i, s32 arg2, s32 arg3) {
-    s32 *p = (s32 *)((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)((s32)(arg0)), (s32)((s32)(i))));
+    s32 *p = (s32 *)((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)(arg0), (s32)(i)));
     ((TWindowActionPalette *)(p + arg2))->set_slot((u8)arg3);
 }
 
 void TWindowActionPalette::set_slot_mode(s32 arg0, s32 i, s32 arg2, s32 arg3) {
-    s32 *p = (s32 *)((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)((s32)(arg0)), (s32)((s32)(i))));
+    s32 *p = (s32 *)((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)(arg0), (s32)(i)));
     ((TWindowActionPalette *)(p + arg2))->set_mode((u8)arg3);
 }
 
@@ -173,21 +173,21 @@ u8 *TWindowActionPalette__sub_801C1D7C(s32 arg0, s32 i, s32 arg2) {
   u8 *var_r3;
   s32 new_var;
   var_r31 = arg2;
-  new_var = ((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)(arg0), (s32)(i)));
+  new_var = ((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)(arg0), i));
   var_r3 = (u8 *) (new_var + (var_r31 * 4));
   var_r3 = (u8 *) ((void *) ((TMainCursor *)var_r3)->get_enabled());
   return var_r3;
 }
 
 void TWindowActionPalette::get_entry_by_index(s32 *arg0, s32 arg1) {
-    TWindowActionPalette__sub_801C1D7C((s32)((s32) arg0), (s32)(*arg0), (s32)(arg1));
+    TWindowActionPalette__sub_801C1D7C((s32)((s32) arg0), (s32)(*arg0), arg1);
 }
 
 u8 *TWindowActionPalette::get_slot_type(s32 arg0, s32 i, s32 arg2) {
   s32 var_r31;
   s32 new_var;
   u8 *var_r3;
-  new_var = ((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)((s32)(arg0)), (s32)((s32)(i))));
+  new_var = ((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)(arg0), (s32)(i)));
   var_r31 = arg2;
   var_r3 = (u8 *) (new_var + (var_r31 * 4));
   var_r3 = (u8 *) ((void *) ((TMainCursor *)var_r3)->get_type());
@@ -195,7 +195,7 @@ u8 *TWindowActionPalette::get_slot_type(s32 arg0, s32 i, s32 arg2) {
 }
 
 void TWindowActionPalette::get_slot_type_for_index(s32 *arg0, s32 arg1) {
-    TWindowActionPalette::get_slot_type((s32)((s32) arg0), (s32)(*arg0), (s32)(arg1));
+    TWindowActionPalette::get_slot_type((s32)((s32) arg0), (s32)(*arg0), arg1);
 }
 
 void* fn_801C1E44(void* p) { return p; }
@@ -208,13 +208,13 @@ void fn_801C1E74(void* p) { fn_801C1E98((void*)((char*)p + 0x24)); }
 
 void fn_801C1E98(void* p) { *(s32*)((char*)p + 0x0) = 0; }
 
-void fn_801C1EA4(void* p) { fn_801C1E98((void*)(p)); }
+void fn_801C1EA4(void* p) { fn_801C1E98(p); }
 
 void fn_801C1EC4(void* p) { fn_801C1EE8((void*)((char*)p + 0x24)); }
 
 void fn_801C1EE8(void* p) { *(s32*)((char*)p + 0x0) = 1; }
 
-void fn_801C1EF4(void* p) { fn_801C1EE8((void*)(p)); }
+void fn_801C1EF4(void* p) { fn_801C1EE8(p); }
 
 void set_photon_blast_kind(void* p, s16 v) { *(s16*)((char*)p + 0x2) = v; }
 

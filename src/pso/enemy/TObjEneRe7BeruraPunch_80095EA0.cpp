@@ -103,7 +103,7 @@ extern const f32 lbl_805D97B4;
 #pragma fp_contract on
 void TObjEneRe7BeruraPunch::update_velocity_and_snap() {
     u8 *arg0 = (u8 *)this;
-    if (((VObj_14_c1c33b *)((u8 *)(arg0) + (248)))->m4() != 0) {
+    if (((VObj_14_c1c33b *)(arg0 + (248)))->m4() != 0) {
         *(s32 *)&this->m_b4 = 0;
     }
     *(f32 *)&this->m_dc = (f32) ((lbl_805D979C * (TObjEneRe7BeruraPunch__data_805D97A0 * *(f32 *)&this->unk_BC)) + *(f32 *)&this->m_dc);
@@ -155,8 +155,8 @@ s32 TObjEneRe7BeruraPunch::sub_80096150() {
     u8 *entity;
     void *temp_r4_2;
     entity = (u8 *)find_entity_by_id(this->m_b0);
-    *(f32 *)((s8 *)(this->m_a4) + 4) = *(f32 *)&this->unk_CC;
-    *(f32 *)((s8 *)(this->m_a4) + 0x30) = *(f32 *)&this->unk_CC;
+    *(f32 *)((s8 *)this->m_a4 + 4) = *(f32 *)&this->unk_CC;
+    *(f32 *)((s8 *)this->m_a4 + 0x30) = *(f32 *)&this->unk_CC;
     temp_r4_2 = this->m_a4;
     *(f32 *)((s8 *)temp_r4_2 + 0x34) = lbl_805D97AC * (lbl_805D97B0 * this->m_f4);
     refresh_collision_body_centers__13TUnk_804AF8A0Fv(this, temp_r4_2, lbl_805D97B0, lbl_805D97AC);

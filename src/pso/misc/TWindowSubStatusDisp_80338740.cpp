@@ -73,9 +73,9 @@ void TWindowSubStatusDisp__sub_80338740(u8 *arg0, s32 arg1, s32 arg2, s8 arg3, s
     } else {
         *(s8 *)((s8 *)arg0 + 0x1C) = 0x33;
     }
-    temp_r3 = measure_string_len__20TWindowSubStatusDispFv((void *) (arg2));
+    temp_r3 = measure_string_len__20TWindowSubStatusDispFv((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x24) = (s32)mem_alloc((temp_r3 + 1));
-    strncpy((int) (*(s32 *)((s8 *)arg0 + 0x24)), (void *) (arg2), (int) (temp_r3));
+    strncpy((int) (*(s32 *)((s8 *)arg0 + 0x24)), (void *)arg2, (int)temp_r3);
     *(s8 *)((s8 *)temp_r3 + (*(s32 *)((s8 *)arg0 + 0x24))) = 0;
     *(s8 *)((s8 *)arg0 + 0x1D) = arg7;
     *(s8 *)((s8 *)arg0 + 0x1E) = arg6;

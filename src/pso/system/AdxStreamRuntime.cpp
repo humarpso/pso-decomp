@@ -990,7 +990,7 @@ void TLobby__sub_803C8B38(u8 *arg0) {
         if (temp_r3_2 != NULL) {
             ((TLobby *)temp_r3_2)->cv_fs_close();
         }
-        memset((void *) (arg0), 0, 0x40);
+        memset(arg0, 0, 0x40);
     }
 }
 
@@ -1073,7 +1073,7 @@ Ent_803C8BAC *TLobby__sub_803C8CDC(const char *name, s32 mode, s32 arg) {
     } else {
         size = TLobby__sub_803CE568();
     }
-    h = TLobby__sub_803CF2F4((const char *)(name), (int)(mode), 0);
+    h = TLobby__sub_803CF2F4((const char *)(name), mode, 0);
     if (h == 0) {
         TLobby::report_adx_error((const char *)lbl_8047C634, (s32)name);
         return NULL;
@@ -1115,7 +1115,7 @@ inline Ent_803C8BAC *alloc_803C8E28(s32 arg, u32 h, s32 f10, s32 size) {
 Ent_803C8BAC *adxstm_open_fname_range_ex_rt__6TLobbyFPviiii(const char *name, s32 mode, s32 off, s32 nsect, s32 arg) {
     u32 h;
     Ent_803C8BAC *p;
-    h = TLobby__sub_803CF2F4((const char *)(name), (int)(mode), 0);
+    h = TLobby__sub_803CF2F4((const char *)(name), mode, 0);
     if (h == 0) {
         TLobby::report_adx_error((const char *)lbl_8047C600, (s32)name);
         return NULL;
@@ -1157,7 +1157,7 @@ inline Ent_803C8BAC *alloc_803C8F5C(s32 arg, u32 h, s32 f10, s32 size) {
 Ent_803C8BAC *adxstm_open_fname_range__6TLobbyFPviiii(const char *name, s32 mode, s32 off, s32 nsect, s32 arg) {
     u32 h;
     Ent_803C8BAC *p;
-    h = TLobby__sub_803CF2F4((const char *)(name), (int)(mode), 0);
+    h = TLobby__sub_803CF2F4((const char *)(name), mode, 0);
     if (h == 0) {
         TLobby::report_adx_error((const char *)lbl_8047C660, (s32)name);
         return NULL;
@@ -1816,7 +1816,7 @@ void TLobby__sub_803C9DB4(u8 *arg0) {
 void TLobby__sub_803C9E38(Obj_803C9E38 *arg0, VObj_803C9E38 *arg1) {
     s32 i;
     if (arg0->f8 != NULL) {
-        TLobby__sub_803C89C4((u8 *)(arg0->f8));
+        TLobby__sub_803C89C4((u8 *)arg0->f8);
         TLobby__sub_803C8B38((u8 *)((int)arg0->f8));
         if (arg0->f14 != NULL) {
             arg0->f14->vt->f14(arg0->f14);
@@ -1866,7 +1866,7 @@ void configure_audio_stream_output(Stream_803C9FCC *self) {
     s32 i;
     s32 v;
     Stream_803C9FCC *pp;
-    set_range__6TLobbyFPvii((u8 *)(self->f8), self->f3e << 11, self->f3c << 11);
+    set_range__6TLobbyFPvii((u8 *)self->f8, self->f3e << 11, self->f3c << 11);
     ((TLobby *)(self->f8))->set_scroll_position(0x19);
     ((TLobby *)(self->f8))->init_stream_position();
     v = self->f10;
@@ -1922,7 +1922,7 @@ void TLobby__sub_803CA194(Obj_803CA194 *arg0) {
     }
     if ((s32)arg0->f0 == 1) {
         if (arg0->f8 != NULL) {
-            TLobby__sub_803C89C4((u8 *)(arg0->f8));
+            TLobby__sub_803C89C4((u8 *)arg0->f8);
             TLobby__sub_803C8B38((u8 *)((int)arg0->f8));
             if (arg0->f14 != NULL) {
                 arg0->f14->vt->f14(arg0->f14);
@@ -2084,7 +2084,7 @@ void TLobby::adxt_start_mem_idx(u8 *arg1, s32 arg2) {
         TLobby::notify_error((const char *)adxt_start_mem_idx_stream_create_error);
         return;
     }
-    start_stream_playback((s32)(r));
+    start_stream_playback(r);
     ((u8 *)this)[2] = 2;
     ((u8 *)this)[0x98] = 0;
     TLobby::release_ref();
@@ -2501,7 +2501,7 @@ void TLobby::clear_record_data() {
     s32 *arg0 = (s32 *)this;
     if (arg0 != NULL) {
         *arg0 = 0;
-        memset((void *) (arg0), 0, 0x34);
+        memset(arg0, 0, 0x34);
     }
 }
 
@@ -2516,7 +2516,7 @@ void TLobby__sub_803CB570(u8 *arg0, u8 *arg1, s16 *arg2) {
 #pragma fp_contract on
 void TLobby::calc_adx_coeffs_at_offset(void *arg1, s32 arg2) {
     s32 arg0 = (s32)this;
-    calc_adx_predictor_coeffs((void *) (arg2), arg1, (void *) (arg0 + 0x30), (void *) (arg0 + 0x32));
+    calc_adx_predictor_coeffs((void *)arg2, arg1, (void *) (arg0 + 0x30), (void *) (arg0 + 0x32));
 }
 #pragma pop
 
@@ -2545,7 +2545,7 @@ Ch_803CB5C4 *adx_allocate_decoder_channel(void) {
 
 typedef char RecoveredGlobal_800F8A78_lbl_80501178_size[sizeof(RecoveredGlobal_800F8A78_lbl_80501178) == 0x10 ? 1 : -1];
 void TLobby::clear_buffer_340() {
-    memset((void *) (adx_decoder_channel_pool), 0, 0x340);
+    memset(adx_decoder_channel_pool, 0, 0x340);
 }
 
 void TLobby__sub_803CB74C(s32 *arg0) {

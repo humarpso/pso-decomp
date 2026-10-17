@@ -350,7 +350,7 @@ void TObjEneDimedian::free_boss_objects() {
 #define dimedian_resource_descriptor ((u8 *)dimedian_resource_descriptor)
 #define dimedian_action_table ((Act_800A8118 *)dimedian_action_table)
 #define dimedian_collision_body_table ((Part_800A8118 *)dimedian_collision_body_table)
-#define CHAIN_800A8118(p) (*(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 **)((s8 *)(*(u8 **)((s8 *)(*(u8 **)((s8 *)(p) + 0x2C)) + 0x30)) + 0x30)) + 4)) + 4))
+#define CHAIN_800A8118(p) (*(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 **)((s8 *)(*(u8 **)((s8 *)(*(u8 **)(p + 0x2C)) + 0x30)) + 0x30)) + 4)) + 4))
 
 void TLobby::load_dimedian_resources() {
     u8 *r;

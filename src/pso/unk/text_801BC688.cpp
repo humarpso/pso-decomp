@@ -34,14 +34,14 @@ void TObjPlayer::init_action_provider() {
     u8 *var_r0_2;
     if (TObjPlayer::get_hold_effect_count() == 1) {
         temp_r3 = (u8 *)(heap_alloc__10TObjPlayerFPv(0x8C));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
             var_r0 = (u8 *)(((TUnk_804DDBF0 *)temp_r3)->ct_variant());
         }
         *(u8 * *)&this->unk_380 = var_r0;
     } else if (TObjPlayer::get_hold_effect_count() == 0) {
         temp_r3_2 = (u8 *)(heap_alloc__10TObjPlayerFPv(0xC));
-        var_r0_2 = (u8 *)(temp_r3_2);
+        var_r0_2 = temp_r3_2;
         if (var_r0_2 != NULL) {
             var_r0_2 = (u8 *)(((TUnk_804ED7D0 *)temp_r3_2)->init_vtable8());
         }
@@ -75,7 +75,7 @@ void TObjPlayer::init_action_provider() {
     *(s32 *)&this->unk_420 = 0;
     this->m_3d0 = 0;
     ((TObjPlayer *)arg0)->reset_state();
-    set_flag_400000__10TObjPlayerFi((s32)(arg0));
+    set_flag_400000__10TObjPlayerFi((s32)arg0);
     if (TObjPlayer::get_player_count() == 1) {
         fn_801C19F4(((u8 *)&this->m_828));
     }

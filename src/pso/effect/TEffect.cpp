@@ -102,7 +102,7 @@ void TObjPlayer__sub_80082C30(void) {
     typedef char sp20_offset[(offsetof(Stack_80082C30, sp20) == 0x18) ? 1 : -1];
     typedef char sp24_offset[(offsetof(Stack_80082C30, sp24) == 0x1C) ? 1 : -1];
     Stack_80082C30 stack;
-    TObjFish::set_global_param((s32)((void *) (lbl_805D63F0)));
+    TObjFish::set_global_param((s32)(lbl_805D63F0));
     set_draw_texture_and_color(0, -1);
     begin_screen_draw(1);
     stack.sp8 = lbl_805D93C0;
@@ -113,7 +113,7 @@ void TObjPlayer__sub_80082C30(void) {
     stack.sp1C = lbl_805D93D4;
     stack.sp20 = lbl_805D93D8;
     stack.sp24 = lbl_805D93D8;
-    draw_textured_quad_at_depth((&stack.sp8), (f32) (lbl_805D93DC));
+    draw_textured_quad_at_depth((&stack.sp8), lbl_805D93DC);
     TWindowSubStatusDisp::get_player();
 }
 #pragma pop

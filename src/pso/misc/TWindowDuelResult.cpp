@@ -266,9 +266,9 @@ s32 TWindowDuelResult__sub_8024F330(void *arg0_) {
 void draw_window__17TWindowDuelResultFPv(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)((void *) (arg0 + 0x60)));
-    draw_window_frame((void *) (arg0), (int) (temp_r3));
-    draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
-    draw_list_page_indicator((int) (*(s32 *)((s8 *)arg0 + 0x68)), (int) (temp_r3));
+    draw_window_frame(arg0, temp_r3);
+    draw_visible_window_entries(arg0, (void *) (arg0 + 0x24), temp_r3);
+    draw_list_page_indicator((int) (*(s32 *)((s8 *)arg0 + 0x68)), temp_r3);
 }
 
 void update__17TWindowDuelResultFPv(u8 *arg0_) {
@@ -306,11 +306,11 @@ typedef char RecoveredGlobal_8024F5B0_lbl_804CF020_size[sizeof(RecoveredGlobal_8
 u8 *TWindowDuelResult__ct(u8 *arg0_, s16 arg1) {
     u8 *temp_r3;
     u8 *var_r0;
-    construct_base__9TWindowDDFPUcsPUc((void *) (arg0_), (void *) (&__vt__17TWindowDuelResult.value), (void *) (arg1), (int) (get_window_layout_position(0x24)));
+    construct_base__9TWindowDDFPUcsPUc((void *)arg0_, (void *) (&__vt__17TWindowDuelResult.value), (void *)arg1, (int) (get_window_layout_position(0x24)));
     *(s32 **)((s8 *)arg0_ + 0x18) = &(*(RecoveredGlobal_8024F5B0_lbl_804CF020 *)lbl_804CF020).value;
     *(s32 *)((s8 *)arg0_ + 0) = (s32) lbl_805D38F0;
     temp_r3 = (u8 *)(((TAdSinglePlyChrSelectGC *)((void *)0xC))->alloc());
-    var_r0 = (u8 *)(temp_r3);
+    var_r0 = temp_r3;
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(init__21TWindowSubComCardListFiii(temp_r3, 0, 2, (s32) *(s16 *)((s8 *)arg0_ + 0x20)));
     }
@@ -325,7 +325,7 @@ u8 *TWindowDuelResult__ct(u8 *arg0_, s16 arg1) {
         *(f32 *)((s8 *)arg0_ + 0x60) = (f32) (1.0f);
         *(f32 *)((s8 *)arg0_ + 0x64) = (f32) (1.0f);
     }
-    TWindowDuelResult__sub_8024F3CC((void *) (arg0_));
+    TWindowDuelResult__sub_8024F3CC(arg0_);
     return arg0_;
 }
 

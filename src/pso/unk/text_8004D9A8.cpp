@@ -226,7 +226,7 @@ S_8004DE44 *__dt__11TObjDFDemo0Fv(S_8004DE44 *o, s16 flag) {
         fn_8004AA04(o->f94);
         for (i = 0; i < 5; i++) {
             if (o->ptr[i] != 0) {
-                TBoss4Type2::request_destroy((u32)(o->ptr[i]));
+                TBoss4Type2::request_destroy((u32)o->ptr[i]);
                 o->ptr[i] = 0;
             }
         }

@@ -84,7 +84,7 @@ u8 update_numeric_parameter_input__9TWindowDDFPv(u8 *arg0) {
         get_current_child_index__9TWindowDDFv();
         temp_r3 = classify_id__9TWindowDDFs();
         if (temp_r3 != 7) {
-            open_numeric_parameter_input__9TWindowDDFPviii((void *) (arg0), 0, word_select_numeric_limits[temp_r3], (void *) (TWindowDD__sub_80348D88((void *) (arg0 + 0xC4))));
+            open_numeric_parameter_input__9TWindowDDFPviii(arg0, 0, word_select_numeric_limits[temp_r3], (void *) (TWindowDD__sub_80348D88((void *) (arg0 + 0xC4))));
             return 0U;
         }
         return 1U;

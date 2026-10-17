@@ -277,7 +277,7 @@ void TTecGiZonde::create(void *arg1, void *arg2, void *arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x18C);
     if (o != NULL) {
-        TTecGiZonde__ct((u8 *)(o), (void *)(this), (void *)(arg1), (void *)(arg2), (void *)(arg3));
+        TTecGiZonde__ct((u8 *)o, (void *)this, (void *)arg1, (void *)arg2, (void *)arg3);
     }
 }
 

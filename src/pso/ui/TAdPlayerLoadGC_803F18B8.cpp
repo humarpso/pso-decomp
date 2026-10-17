@@ -227,7 +227,7 @@ s32 TAdPlayerLoadGC::close_card_slot(s32 arg0) {
     if (arg0 >= 0 && arg0 < 0x64) {
         s = &lbl_805A29B0[arg0];
         ret = CARDClose(s->card);
-        memset((void *)(s), 0, 0x88);
+        memset(s, 0, 0x88);
         s->state = 2;
     }
     return ret;

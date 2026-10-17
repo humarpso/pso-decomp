@@ -44,7 +44,7 @@ extern void *tl_05;
 void *TOKeyCol::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE8);
     if (o != NULL) {
-        o = TOKeyCol__ct((void *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TOKeyCol__ct((void *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

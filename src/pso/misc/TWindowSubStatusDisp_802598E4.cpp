@@ -186,7 +186,7 @@ void *TWindowSubStatusDisp__sub_80259CE4(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_80259D3C_lbl_804CF9C8_size[sizeof(RecoveredGlobal_80259D3C_lbl_804CF9C8) == 0x18 ? 1 : -1];
 u8 *TWindowSubStatusDisp__sub_80259D3C(u8 *arg0, u8 *arg1, s32 arg2) {
-    reset_entry__20TWindowSubStatusDispFPv((void*)((void *) (arg0)), (int)((void *) (arg2)));
+    reset_entry__20TWindowSubStatusDispFPv((void*)(arg0), (int)(arg2));
     *(s32 **)((s8 *)arg0 + 4) = &(*(RecoveredGlobal_80259D3C_lbl_804CF9C8 *)&lbl_804CF9C8).value;
     *(f32 *)((s8 *)arg0 + 8) = (f32) *(f32 *)((s8 *)arg1 + 4);
     *(f32 *)((s8 *)arg0 + 0xC) = (f32) *(f32 *)((s8 *)arg1 + 8);
@@ -261,7 +261,7 @@ void TWindowSubStatusDisp::update_pb_counter_approach() {
         }
         temp_f2 = *(f32 *)((s8 *)((u8 *)this) + 0x28);
         temp_f30 = temp_f2 - *(f32 *)((s8 *)((u8 *)this) + 0x24);
-        temp_f31 = fabs_float((f32) (*(f32 *)((s8 *)((u8 *)this) + 0x2C)), (f32) (temp_f2));
+        temp_f31 = fabs_float((f32) (*(f32 *)((s8 *)((u8 *)this) + 0x2C)), temp_f2);
         if (((f32 (*)(f32)) fabs_float)(temp_f30) < temp_f31) {
             *(f32 *)((s8 *)((u8 *)this) + 0x24) = (f32) *(f32 *)((s8 *)((u8 *)this) + 0x28);
         } else {
@@ -275,7 +275,7 @@ void TWindowSubStatusDisp::update_pb_counter_approach() {
 void *TWindowSubStatusDisp__sub_8025A04C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 4) = lbl_804CF9E0;
-        TWindowSubStatusDisp__sub_80259CE4((void *)((void *)(arg0)), (s16)((s16)(0)));
+        TWindowSubStatusDisp__sub_80259CE4((void *)(arg0), (s16)((s16)(0)));
         if (arg1 > 0) {
             ::operator delete(arg0);
         }
@@ -285,7 +285,7 @@ void *TWindowSubStatusDisp__sub_8025A04C(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8025A0A4_lbl_804CF9E0_size[sizeof(RecoveredGlobal_8025A0A4_lbl_804CF9E0) == 0x18 ? 1 : -1];
 u8 *TWindowSubStatusDisp::init_layout_entry_scaled(u8 *arg1, s32 arg2) {
     u8 *arg0 = (u8 *)this;
-    TWindowSubStatusDisp__sub_80259D3C((u8 *)(arg0), (u8 *)(arg1), (s32)(arg2));
+    TWindowSubStatusDisp__sub_80259D3C(arg0, arg1, arg2);
     *(s32 **)((s8 *)arg0 + 4) = &(*(RecoveredGlobal_8025A0A4_lbl_804CF9E0 *)&lbl_804CF9E0).value;
     *(f32 *)((s8 *)arg0 + 0x28) = (f32) *(s32 *)((s8 *)arg0 + 0x20);
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) *(s32 *)((s8 *)arg0 + 0x20);

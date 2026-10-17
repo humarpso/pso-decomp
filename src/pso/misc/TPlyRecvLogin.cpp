@@ -17,7 +17,7 @@ void bswap__13TPlyRecvLoginFv(s32 arg0) {
 }
 
 s32 __ct__13TPlyRecvLoginFRC13TPlyRecvLogin(s32 arg0, s32 arg1) {
-    copy_with_guild_card_tag__13TPlyRecvLoginFPvPv((s32 *)(arg0), (s32 *)(arg1));
+    copy_with_guild_card_tag__13TPlyRecvLoginFPvPv((s32 *)arg0, (s32 *)arg1);
     *(ByteBlock_20 *)(arg0 + 8 + 4) = *(const ByteBlock_20 *)(arg1 + 8 + 4);
     return arg0;
 }

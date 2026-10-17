@@ -68,7 +68,7 @@ void *__dt__13TOGrassJungleFv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_8029CE64___vt__13TOGrassJungle_size[sizeof(RecoveredGlobal_8029CE64___vt__13TOGrassJungle) == 0x34 ? 1 : -1];
 u8 *TOGrassJungle__ct(u8 *arg0, s32 parent, s32 arg2) {
-    construct_world_actor_base((void *) (arg0), (void *) (parent));
+    construct_world_actor_base((void *)arg0, (void *)parent);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8029CE64___vt__13TOGrassJungle *)&__vt__13TOGrassJungle).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) grass_jungle_class_name;
     ((TOGrassJungle *)(arg0))->apply_object_set_data((void *)arg2);

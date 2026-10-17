@@ -195,7 +195,7 @@ s32 apply_hit_to_target__14TBoss7CrawfishFPvPv(void *arg0_, void *arg1_) {
             if (((VObj_18_405891 *)(temp_r31))->m18(arg0, TBoss7Crawfish__data_805DF0DC) != 0) {
                 ((VObj_18_405891 *)(temp_r31))->m20(arg0, TBoss7Crawfish__data_805DF0DC);
             }
-        } else if (obj_isState2_324__13TUnk_804806E8Fv((int) (temp_r31)) == 0) {
+        } else if (obj_isState2_324__13TUnk_804806E8Fv((int)temp_r31) == 0) {
             if ((s32) game_difficulty_selection == 3) {
                 if ((lbl_805DF0E0 * (f32) rand()) <= lbl_805DF0E4) {
                     p.id = 0x10;
@@ -229,10 +229,10 @@ void TBoss7Crawfish::clear_object_state_exchange() {
     typedef char sp8_offset[(offsetof(Stack_80308B38, sp8) == 0x0) ? 1 : -1];
     typedef char spE_offset[(offsetof(Stack_80308B38, spE) == 0x6) ? 1 : -1];
     Stack_80308B38 stack;
-    if (exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&stack.sp8), 1) != 0) {
+    if (exchange_object_state__9TObjEnemyFls((void *)arg0, (void *) (&stack.sp8), 1) != 0) {
         stack.sp8 = 0;
         stack.spE = 0;
-        exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&stack.sp8), 0);
+        exchange_object_state__9TObjEnemyFls((void *)arg0, (void *) (&stack.sp8), 0);
     }
 }
 
@@ -242,7 +242,7 @@ void TBoss7Crawfish::check_band_and_destroy() {
         spawn_ground_effects();
     }
     if (TBoss7Crawfish__data_805DF0D8 == ((TBoss7Crawfish *)arg0)->get_health()) {
-        queue_destruction__7TObjectFv((void *)(arg0));
+        queue_destruction__7TObjectFv((void *)arg0);
     }
 }
 

@@ -34,7 +34,7 @@ extern void *tl_06;
 void *TObjPlayerSet::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x90);
     if (o != NULL) {
-        o = TObjPlayerSet__ct((u8 *)(o), (s32)(tl_06), (s32)(arg0));
+        o = TObjPlayerSet__ct((u8 *)o, (s32)tl_06, (s32)arg0);
     }
     return o;
 }
@@ -83,14 +83,14 @@ u8 *TObjQuestCol2__vt14(u8 *arg0) {
     u8 *var_r0;
     u8 *var_r31;
     TQuestThreadBoard::destroy_board();
-    var_r31 = (u8 *)(NULL);
+    var_r31 = NULL;
     if ((u32) *(u32 *)((s8 *)arg0 + 0xBC) != 0U) {
         temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x194)));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
             var_r0 = (u8 *)(__ct__12TQuestThreadFv(temp_r3, (s32) *(u32 *)((s8 *)arg0 + 0xBC), *(s32 *)&((TObjQuestCol2 *)arg0)->m_b0));
         }
-        var_r31 = (u8 *)(var_r0);
+        var_r31 = var_r0;
         if (var_r0 != NULL) {
             ((TObject *)var_r0)->set_parent((TObject *)tl_00);
         }

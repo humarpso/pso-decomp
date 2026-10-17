@@ -45,7 +45,7 @@ void TBoss3VoloptCtrl__sub_80040B80(s32 arg0) {
     player = (u8 *)(get_player_by_client_id(local_client_id));
     if ((player != NULL) && (*(f32 *)((s8 *)player + 0x40) >= lbl_805D86F8)) {
         init_music_sequencer(3);
-        queue_destruction__7TObjectFv((void *)(arg0));
+        queue_destruction__7TObjectFv((void *)arg0);
     }
 }
 void *TUnk_80483B88::deleting_destructor(s16 arg1) {

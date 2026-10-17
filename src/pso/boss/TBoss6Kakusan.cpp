@@ -268,7 +268,7 @@ void *__dt__13TBoss6KakusanFv(void *arg0, s16 arg1) {
 u8 *TBoss6Kakusan__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4, f32 farg0) {
     f32 temp_f2;
     u32 temp_r3;
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80322994___vt__13TBoss6Kakusan *)&__vt__13TBoss6Kakusan).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss6Kakusan__name;
     *(s16 *)&((TBoss6Kakusan *)arg0)->m_20 = arg4;
@@ -305,9 +305,9 @@ u8 *TBoss6Type1::create_kakusan(s32 arg0, u8 *arg1, u8 *arg2, s16 arg3, f32 farg
     u8 *temp_r3;
     u8 *var_r0;
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x58));
-    var_r0 = (u8 *)(temp_r3);
+    var_r0 = temp_r3;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TBoss6Kakusan__ct((u8 *)(temp_r3), (s32)(arg0), (u8 *)(arg1), (u8 *)(arg2), arg3, farg0));
+        var_r0 = (u8 *)(TBoss6Kakusan__ct(temp_r3, arg0, arg1, arg2, arg3, farg0));
     }
     return var_r0;
 }

@@ -4,7 +4,7 @@
 
 extern "C" {
 s32 TWindowDD__sub_80348B70();
-void TWindowDD::maybe_scroll(void* a1) { if (count_chars_since_newline((s32 *)(a1)) > 15) { TWindowDD::append_char((s8)((void*)10), (s32)(this), (s32 *)(a1)); } }
+void TWindowDD::maybe_scroll(void* a1) { if (count_chars_since_newline((s32 *)a1) > 15) { TWindowDD::append_char((s8)((void*)10), (s32)this, (s32 *)a1); } }
 
 s32 TWindowDD::count_chars_since_newline(s32 *len) {
     u8 *buf = (u8 *)this;

@@ -141,7 +141,7 @@ void TWindowDD::format_type6_message(s32 arg1, void *pos) {
 }
 
 void TWindowDD__sub_8034740C(u8 *arg0, s32 arg1, s32 pos) {
-    TWindowDD__sub_80347474((s32)((s32) arg0), (s32)((s32) *(s16 *)((s8 *)arg0 + 4)), (s32)(arg1), (s32)(pos));
+    TWindowDD__sub_80347474((s32)((s32) arg0), (s32)((s32) *(s16 *)((s8 *)arg0 + 4)), arg1, pos);
     if ((s16) *(s16 *)((s8 *)arg0 + 0) > 1) {
         ((TWindowDD *)arg1)->append_prompt_newline((s32 *)pos);
         TWindowDD__sub_8034886C((s32) *(s16 *)((s8 *)arg0 + 6), arg1, (void *) pos);
@@ -260,7 +260,7 @@ u8 *TWindowDD::init_last_child() {
         var_r31 = ((u8 **)(arg0 + 0x24))[temp_r0 - 1];
         if (var_r31 != NULL) {
             ((TWindowDD *)var_r31)->init_and_mark_field8C();
-            ((TWindowDD *)var_r31)->set_pos_and_data((f32) (TWindowDD__data_805DFB6C));
+            ((TWindowDD *)var_r31)->set_pos_and_data(TWindowDD__data_805DFB6C);
             *(f32 *)((s8 *)var_r31 + 0x38) = (f32) TWindowDD__data_805DFB74;
         }
     }
@@ -269,15 +269,15 @@ u8 *TWindowDD::init_last_child() {
 
 void TWindowDD__sub_80347A4C(u8 *arg0, s32 arg1) {
     s32 temp_r3;
-    temp_r3 = TWindowDD__sub_80342158((void *) (arg1));
+    temp_r3 = TWindowDD__sub_80342158((void *)arg1);
     if (TWindowDD::is_state_zero_unless_0x2C8(temp_r3) != 0) {
-        TWindowDD__sub_80348DD8((void *) (arg0 + 0xC4), (int) (temp_r3));
-        TWindowDD__sub_80347CC8((W_80347CC8 *)((void *) (arg0)), (void *)((void *) (arg0 + 0xC4)));
+        TWindowDD__sub_80348DD8((void *) (arg0 + 0xC4), temp_r3);
+        TWindowDD__sub_80347CC8((W_80347CC8 *)(arg0), (void *)((void *) (arg0 + 0xC4)));
         *(s32 *)((s8 *)arg0 + 0x98) = 1;
         *(s32 *)((s8 *)arg0 + 0x9C) = (s32) (s16) temp_r3;
         return;
     }
-    TWindowDD__sub_80347FA0((s32)(arg0), 3);
+    TWindowDD__sub_80347FA0((s32)arg0, 3);
     *(s32 *)((s8 *)arg0 + 0x98) = 0;
     *(s32 *)((s8 *)arg0 + 0x9C) = (s32) (s16) temp_r3;
 }

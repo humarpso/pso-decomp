@@ -13,7 +13,7 @@ s32 TLobby__sub_803F3D60(void) {
         return -1;
     }
     if (((s32) lbl_805D79B0 == 1) && ((u32) lobby_net_config_buffer != 0U)) {
-        OSFreeToHeap((int) (__OSCurrHeap), (void *) (lobby_net_config_buffer));
+        OSFreeToHeap((int)__OSCurrHeap, (void *)lobby_net_config_buffer);
         lobby_net_config_buffer = 0U;
     }
     get_or_set_network_config_mode(0);

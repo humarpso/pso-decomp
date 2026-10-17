@@ -141,7 +141,7 @@ u8 *__dt__9TLoadCtrlFv(u8 *arg0, s16 arg1) {
 u8 *TLoadCtrl__ct(u8 *arg0, s32 arg1) {
     s32 temp_r3;
     s32 var_r0;
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__9TLoadCtrl.value;
     *(s32 *)&((TLoadCtrl *)arg0)->m_1c = 1;
     TLoadCtrl__fade_task = 0;
@@ -151,7 +151,7 @@ u8 *TLoadCtrl__ct(u8 *arg0, s32 arg1) {
         temp_r3 = __nw__7TObjectFUl(0x38);
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = __ct__9TAdFadeGCFP7TObjectPv((int) (temp_r3), (int) (tl_fade), 2);
+            var_r0 = __ct__9TAdFadeGCFP7TObjectPv(temp_r3, tl_fade, 2);
         }
         TLoadCtrl__fade_task = var_r0;
     }
@@ -203,7 +203,7 @@ void TLoadCtrl::start_loading(u32 arg0) {
     TCameraCtrl::reset_view_state();
     TCameraCtrl::init_default_view();
     if (var_r31 == 2U) {
-        temp_r3 = select_area_entrance((void *) (lbl_80515BA0));
+        temp_r3 = select_area_entrance(lbl_80515BA0);
         if (temp_r3 == 0) {
             var_r31 = 3U;
         } else if (temp_r3 == 1) {

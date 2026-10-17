@@ -190,7 +190,7 @@ void TODoorFourLightBase::draw_node_tree(u8 *arg1) {
     s32 temp_r31;
     u8 *temp_r4;
     u8 *var_r30;
-    var_r30 = (u8 *)(arg1);
+    var_r30 = arg1;
     do {
         temp_r31 = *(s32 *)((s8 *)var_r30 + 0);
         if (temp_r31 & 0x100000) {

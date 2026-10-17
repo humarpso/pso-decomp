@@ -21,7 +21,7 @@ void TObjPlayer::send_font_update_60() { TFontSmallLobby__sub_801C01BC(this); TL
 void TObjPlayer::bswap_shrink() { read_be16_field2(); bswap_32((u32 *)((char*)this + 0x4)); }
 
 void *TObjPlayer__sub_801C7360(void *arg0, void *arg1) {
-    TFontSmallLobby__sub_801C0228((void*)(arg0));
+    TFontSmallLobby__sub_801C0228(arg0);
     *(f32 *)((s8 *)arg0 + 0x4) = *(f32 *)((s8 *)arg1 + 0x4);
     return arg0;
 }

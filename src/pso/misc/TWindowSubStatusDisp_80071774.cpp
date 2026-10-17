@@ -131,11 +131,11 @@ s32 TWindowSubStatusDisp__sub_80071A24(s32 arg0, u16 arg1, s32 slot) {
     s32 temp_r3;
     u32 character_save_record;
     character_save_record = get_character_save_record((u32)arg1);
-    temp_r3 = get_layout_id__20TWindowSubStatusDispFv((void *) (slot));
+    temp_r3 = get_layout_id__20TWindowSubStatusDispFv((void *)slot);
     if ((arg0 < 0) || (arg0 >= temp_r3) || (character_save_record == 0U)) {
         return 0;
     }
-    return TLobby::get_valid_slot((int) (*(s32 *)((s8 *)(TWindowSubStatusDisp__sub_8006F0D8((void *) (character_save_record + 0x21C4), (void *) (slot))) + (arg0 * 4))));
+    return TLobby::get_valid_slot((int) (*(s32 *)((s8 *)(TWindowSubStatusDisp__sub_8006F0D8((void *) (character_save_record + 0x21C4), (void *)slot)) + (arg0 * 4))));
 }
 
 }

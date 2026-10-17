@@ -103,9 +103,9 @@ void TODoorVoShip::render() {
     if ((((VObj_801639B4 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) && (*(s32 *)&this->m_cc & 0xE)) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y(0, (int) (this->rotation_y));
-        TObjFish::set_global_param((int) (this->texture_id));
-        TObjEneSlimeOne__sub_803E4B54((void *)(*(s32 *)&this->model), (void *)(*(s32 *)&this->m_bc), (void *)(*(s32 *)&this->m_d0), (f32) (this->m_b0));
+        rotate_matrix_y(0, this->rotation_y);
+        TObjFish::set_global_param(this->texture_id);
+        TObjEneSlimeOne__sub_803E4B54((void *)(*(s32 *)&this->model), (void *)(*(s32 *)&this->m_bc), (void *)(*(s32 *)&this->m_d0), this->m_b0);
         TObjFish::set_global_param((int) (*(s32 *)&this->m_d8));
         temp_r4 = model_render_flags;
         lbl_805D5660 = temp_r4;
@@ -147,7 +147,7 @@ void TODoorVoShip::render() {
 void *TODoorVoShip::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xEC);
     if (o != NULL) {
-        o = TODoorVoShip__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TODoorVoShip__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

@@ -324,7 +324,7 @@ void TLobby::dec_ref_and_shutdown() {
         TLobby::init_once();
         TLobby::SVM_DelCbSvr(2, (s32)((void *) (1)));
         TLobby::SVM_DelCbSvr(2, (s32)((void *) (3)));
-        TLobby::SVM_DelCbSvr(4, (s32)((void *) (TLobby__svm_cb_svr_handle)));
+        TLobby::SVM_DelCbSvr(4, (s32)(TLobby__svm_cb_svr_handle));
         TLobby__sub_803D3194();
         TLobby::release_ref();
         TLobby::init_once();

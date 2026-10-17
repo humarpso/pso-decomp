@@ -274,8 +274,8 @@ void TObjLobbyMain::update_fade() {
     if (this->m_d4 <= (0.0f)) {
         *(s32 *)&this->m_c8 = 1;
         this->m_d4 = (f32) (0.0f);
-        resolve_theme_index__13TObjLobbyMainFv((u8 *)(arg0));
-        update_emitter_positions__13TObjLobbyMainFv((u8 *)((void *) (arg0)));
+        resolve_theme_index__13TObjLobbyMainFv(arg0);
+        update_emitter_positions__13TObjLobbyMainFv((u8 *)(arg0));
         this->m_b0 = (f32) (0.0f);
     }
 }
@@ -353,7 +353,7 @@ extern void *tl_05;
 void *TObjLobbyMain::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE0);
     if (o != NULL) {
-        o = TObjLobbyMain__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TObjLobbyMain__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -415,14 +415,14 @@ u8 *TObjLobbyMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
         ((TBoss4Type2 *)temp_r3_2)->set_flags(0x40);
         enable__13TParticleCtrlFv((int) (((TObjLobbyMain *)arg0)->m_dc));
     }
-    set_mode_index_from_state__13TObjLobbyMainFv((void *) (arg0));
-    resolve_theme_index__13TObjLobbyMainFv((void *) (arg0));
-    update_emitter_positions__13TObjLobbyMainFv((void *) (arg0));
+    set_mode_index_from_state__13TObjLobbyMainFv(arg0);
+    resolve_theme_index__13TObjLobbyMainFv(arg0);
+    update_emitter_positions__13TObjLobbyMainFv(arg0);
     ((TObjLobbyMain *)arg0)->m_d4 = (f32) (1.0f);
     *(s32 *)&((TObjLobbyMain *)arg0)->m_c8 = 2;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (1.2e+02f);
     ((TObjLobbyMain *)arg0)->m_b0 = (f32) (0.0f);
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804F0F34.value), 1);
+    init_collision_body_parts(arg0, (void *) (&lbl_804F0F34.value), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;

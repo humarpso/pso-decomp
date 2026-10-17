@@ -133,7 +133,7 @@ s32 run_floor_initialize_callbacks(s32 arg0) {
 
 void TLobby::update_key_machine() { TOKeyMachine01::get_global_state(); ((int (*)(void))run_floor_initialize_callbacks)(); }
 void bswap_enemy_set_row(void *arg0) {
-    ((s32 (*)(s32))bswap_16__FPUs)((s32)(arg0));
+    ((s32 (*)(s32))bswap_16__FPUs)((s32)arg0);
     bswap_enemy_set_row_fields((void *)((void *)((char *)arg0 + 4)));
 }
 
@@ -159,7 +159,7 @@ void bswap_enemy_set_row_fields(void *arg0) {
 }
 
 void swap_object_row_endian(void *arg0) {
-    ((s32 (*)(s32))bswap_16__FPUs)((s32)(arg0));
+    ((s32 (*)(s32))bswap_16__FPUs)((s32)arg0);
     bswap_object_row_fields((void *)((void *)((char *)arg0 + 4)));
 }
 
@@ -807,7 +807,7 @@ s32 load_area_event_set(s32 floor, s32 area, s32 terrain, s32 entities) {
     replace_file_extension__6TLobbyFPvPvPv((char *)&buf, (char *)TLobby__data_805D6068[area].terrs[terrain].ents[entities].data, (char *)lbl_8044BAC8);
     n = ((TScene *)(&buf))->update_lobby_scene();
     if (n > 0) {
-        p = ((void *)HA2((s32)((*(void * *)&area_event_set_heap)), (s32)(n)));
+        p = ((void *)HA2((s32)((*(void * *)&area_event_set_heap)), n));
         if (p != 0) {
             read_disc_file(&buf, p);
             ((void * *)&lobby_slot_ptr_table)[floor] = p;
@@ -837,11 +837,11 @@ s32 TLobby::load_all_floor_event_sets() {
     s32 var_r31;
     var_r31 = 0;
 loop_1:
-    if ((get_floor_map_selection((int) (var_r31), (void *) (&stack.sp8)) == 1) && (stack.sp8 >= 0)) {
+    if ((get_floor_map_selection(var_r31, (void *) (&stack.sp8)) == 1) && (stack.sp8 >= 0)) {
         if (is_area_transfer_pending() != 0) {
             return 0;
         }
-        ((s32 (*)(int, int, int, int))load_area_event_set)((int) (var_r31), (int) (stack.sp8), (int) (stack.spC), (int) (stack.sp10));
+        ((s32 (*)(int, int, int, int))load_area_event_set)(var_r31, stack.sp8, stack.spC, stack.sp10);
         goto block_6;
     }
 block_6:
@@ -881,13 +881,13 @@ void TLobby::load_set_event_gsl() {
     close_gsl_archive();
 }
 
-void TLobby::free_heap() { __dt__5THeapFv((void*)(area_event_set_heap), (void*)1); area_event_set_heap = 0; }
+void TLobby::free_heap() { __dt__5THeapFv((void*)area_event_set_heap, (void*)1); area_event_set_heap = 0; }
 
 void TLobby::create_heap_8000() {
     u8 *temp_r3;
     u8 *var_r0;
     temp_r3 = (u8 *)(__nw__5THeapFUl(0x14));
-    var_r0 = (u8 *)(temp_r3);
+    var_r0 = temp_r3;
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(__ct__5THeapFUli(temp_r3, 0x8000, 0x20));
     }

@@ -131,20 +131,20 @@ void TObjEnemyCustom::update_wander_state() {
         this->m_b8 = 1;
         *(s32 *)&this->state = 1;
     case 1:
-        advance_animation_playback((void *) (arg0));
+        advance_animation_playback(arg0);
         temp_r7 = (unsigned char *) (*(void * *)&this->target);
         if (temp_r7 != NULL) {
             Vec_800C7C30 v = *(Vec_800C7C30 *)(temp_r7 + 0x2FC);
             temp_r6 = (unsigned char *) (*(void * *)&this->movementParameters);
-            temp_f1 = update_enemy_wander_move((void *) (arg0), (void *) (&v), 1, (int) (temp_r6), (f32) (*(f32 *)((s8 *)temp_r6 + 4)));
+            temp_f1 = update_enemy_wander_move((void *)arg0, (void *) (&v), 1, (int)temp_r6, (f32) (*(f32 *)((s8 *)temp_r6 + 4)));
             temp_r3 = (unsigned char *) (*(void * *)&this->movementParameters);
             if ((*(f32 *)((s8 *)temp_r3 + 0) < temp_f1) || (temp_f1 < *(f32 *)((s8 *)temp_r3 + 4))) {
                 *(void * *)&this->target = NULL;
             }
             ((TObjPlayer *)arg0)->update_angle((s32)((void *) (*(s32 *)((s8 *)(*(void * *)&this->movementParameters) + 8))), (void *)(arg0 + 0x308));
         }
-        apply_actor_gravity((u8 *)((void *) (arg0)), (s32 *)(0), (f32) (lbl_805DA070));
-        update_collisions__10TObjPlayerFv((void *) (arg0));
+        apply_actor_gravity((u8 *)(arg0), (s32 *)(0), lbl_805DA070);
+        update_collisions__10TObjPlayerFv(arg0);
         return;
     }
 }

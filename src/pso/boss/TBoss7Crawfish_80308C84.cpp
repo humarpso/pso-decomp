@@ -33,19 +33,19 @@ void TBoss7Crawfish::update_motion_and_release() {
 
     temp_r4 = *(f32 * *)&this->m_3a0;
     this->m_c8 = (f32) (lbl_805DF0F4 * (TBoss7Crawfish__data_805DF0DC + *temp_r4));
-    register_attack_hits__14TBoss7CrawfishFv((void *) (arg0), (void *) (temp_r4), (f32) (TBoss7Crawfish__data_805DF0DC), (f32) (lbl_805DF0F4));
+    register_attack_hits__14TBoss7CrawfishFv(arg0, temp_r4, TBoss7Crawfish__data_805DF0DC, lbl_805DF0F4);
     {
         void *temp_ptr = (void *) this->m_3cc;
         if (temp_ptr != NULL) {
             ((TNowLoading *)temp_ptr)->copy_pos((void *) (arg0 + 0x38));
         }
     }
-    if (TBoss7Crawfish__sub_80308ED8((void *) (arg0), (void *) (arg0 + 0x308)) == 0) {
+    if (TBoss7Crawfish__sub_80308ED8(arg0, (void *) (arg0 + 0x308)) == 0) {
         ((TBoss7Crawfish *)arg0)->free_child();
         ((TBoss7Crawfish *)arg0)->change_state(3);
         return;
     }
-    TBoss7Crawfish__sub_803087D4((s32)(arg0), 0x3A80C);
+    TBoss7Crawfish__sub_803087D4((s32)arg0, 0x3A80C);
 }
 void TBoss7Crawfish::aim_at_nearest_player() {
     Craw_80308D1C *o = (Craw_80308D1C *)this;

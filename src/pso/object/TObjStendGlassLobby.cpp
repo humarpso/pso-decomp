@@ -53,10 +53,10 @@ void TObjStendGlassLobby::render() {
         TObjFish::set_global_param((int) (*(u32 *)&this->texture_id));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y(0, (int) (this->rotation_y));
+        rotate_matrix_y(0, this->rotation_y);
         if ((s32) *(s32 *)&this->m_c8 != 3) {
             temp_f1 = *(f32 *)&this->_padCC;
-            scale_matrix(0, (f32) (temp_f1), (f32) (1.0f), (f32) (temp_f1));
+            scale_matrix(0, temp_f1, (f32) (1.0f), temp_f1);
         }
         draw_ginja_object((void *)(*(s32 *)&this->model));
         pop_matrix();
@@ -122,7 +122,7 @@ extern void *tl_05;
 void *TObjStendGlassLobby::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD4);
     if (o != NULL) {
-        o = TObjStendGlassLobby__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TObjStendGlassLobby__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

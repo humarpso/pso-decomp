@@ -479,7 +479,7 @@ s32 __vt__17TObjWarpBossMulti[21] = {
 void *TObjWarpBossMulti::create() {
     void *o = __nw__7TObjectFUl(0x100);
     if (o != NULL) {
-        o = TObjWarpBossMulti__ct((Obj_8019E238 *)(o), (void *)(tl_05), (void *)(this));
+        o = TObjWarpBossMulti__ct((Obj_8019E238 *)(o), tl_05, this);
     }
     return o;
 }
@@ -1107,7 +1107,7 @@ s32 TObjWarpBoss::update_warp_dialogs() {
       self->dialog = TWindowMessageYesNo::create((void *)self, (void *)local_client_id, (void *)0, (void *)0);
       if (self->dialog != 0)
       {
-        initialize_option_dialog(self->dialog, get_message_10__20TWindowSubStatusDispFl(0x42), ((s32)get_window_layout_position((s32)(i))), lbl_805DC020);
+        initialize_option_dialog(self->dialog, get_message_10__20TWindowSubStatusDispFl(0x42), ((s32)get_window_layout_position(i)), lbl_805DC020);
       }
     }
       break;
@@ -1123,7 +1123,7 @@ s32 TObjWarpBoss::update_warp_dialogs() {
       ((TWindowSubTradeMain *)(self->list))->set_close_flag();
       for (i = 0; i < self->count; i++)
       {
-        TWindowSubStatusDisp::dispatch_without_flags((s32)(self->list), (s32)(self->names[i]), (s32)i);
+        TWindowSubStatusDisp::dispatch_without_flags((s32)self->list, (s32)self->names[i], (s32)i);
       }
     }
     request_active_window_close();
@@ -1233,7 +1233,7 @@ void *__dt__12TObjWarpBossFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjWarpBoss;
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         close_windows__17TObjWarpBossMultiFPv(arg0);
-        __dt__12TObjAreaWarpFv((u8 *)(arg0), 0);
+        __dt__12TObjAreaWarpFv((u8 *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -1292,7 +1292,7 @@ s32 TObjWarpBossMulti__create(s32 arg0) {
     temp_r3 = ((s32)__nw__7TObjectFUl(0x184));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = ((s32)TObjWarpBoss__ct((Obj_8019F578 *)((int) (temp_r3)), (int)((int) ((*(s32 *)&tl_05))), (void *)((void *) (arg0))));
+        var_r0 = ((s32)TObjWarpBoss__ct((Obj_8019F578 *)(temp_r3), (int)((int) ((*(s32 *)&tl_05))), (void *)(arg0)));
     }
     return var_r0;
 }

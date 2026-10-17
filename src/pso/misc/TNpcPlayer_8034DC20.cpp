@@ -147,7 +147,7 @@ void TNpcPlayer::copy_entry_by_index(s32 arg1) {
     s32 arg0 = (s32)this;
     s32 temp_r5;
     temp_r5 = arg1 * 0x28;
-    copy__10TNpcPlayerFPv((void *) ((u8 *)&TNpcPlayer__template_table.value + temp_r5), (void *) (arg0), (int) (temp_r5));
+    copy__10TNpcPlayerFPv((void *) ((u8 *)&TNpcPlayer__template_table.value + temp_r5), (void *)arg0, (int)temp_r5);
 }
 
 }

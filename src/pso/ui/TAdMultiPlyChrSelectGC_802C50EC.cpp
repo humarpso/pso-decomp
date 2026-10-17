@@ -304,7 +304,7 @@ void TAdMultiPlyChrSelectGC::reset_slot_selection_table() {
 
 void TAdMultiPlyChrSelectGC::split_slot_index(s32 arg0, s32 *arg1, s32 *arg2) {
     s32 var_r3;
-    var_r3 = TAdMultiPlyChrSelectGC__sub_802C658C((s32)(arg0));
+    var_r3 = TAdMultiPlyChrSelectGC__sub_802C658C(arg0);
     *arg1 = var_r3 > 3;
     if (var_r3 > 3) {
         var_r3 -= 4;
@@ -453,16 +453,16 @@ void TAdMultiPlyChrSelectGC::handle_dpad_input() {
     m = TAdMultiPlyChrSelectGC__sub_802C6558();
     if (m != n && self->f4DC[self->f4EC] != 0 && self->f4F8 == 0) {
         if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)WIN_802C61E4, 0x10, 6, 1) != 0) {
-            move_cursor((s32)(self->f4EC), (s32)(self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC]), 0, -1, (s32)(self->f4DC[self->f4EC]));
+            move_cursor(self->f4EC, self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC], 0, -1, self->f4DC[self->f4EC]);
         }
         if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)WIN_802C61E4, 0x20, 6, 1) != 0) {
-            move_cursor((s32)(self->f4EC), (s32)(self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC]), 0, 1, (s32)(self->f4DC[self->f4EC]));
+            move_cursor(self->f4EC, self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC], 0, 1, self->f4DC[self->f4EC]);
         }
         if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)WIN_802C61E4, 0x80, 6, 1) != 0) {
-            move_cursor((s32)(self->f4EC), (s32)(self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC]), 1, 0, 2);
+            move_cursor(self->f4EC, self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC], 1, 0, 2);
         }
         if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)WIN_802C61E4, 0x40, 6, 1) != 0) {
-            move_cursor((s32)(self->f4EC), (s32)(self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC]), -1, 0, 2);
+            move_cursor(self->f4EC, self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC], -1, 0, 2);
         }
     }
     if (TWindowShortListCtrl__check_controller_button(WIN_802C61E4, 4) != 0 && self->f4F8 == 0) {
@@ -509,7 +509,7 @@ s32 TAdMultiPlyChrSelectGC::count_ready() {
     var_r31 = 0;
     var_r30 = 0;
     do {
-        if (TAdMultiPlyChrSelectGC__sub_802C6848((s32)(var_r30)) != 0) {
+        if (TAdMultiPlyChrSelectGC__sub_802C6848(var_r30) != 0) {
             var_r31 += 1;
         }
         var_r30 += 1;
@@ -612,7 +612,7 @@ s32 find_active_slot__22TAdMultiPlyChrSelectGCFv(void) {
     s32 var_r31;
     var_r31 = 0;
 loop_1:
-    if ((TAdMultiPlyChrSelectGC__sub_802C6848((s32)(var_r31)) != 0) && (((s32 (*)(s32))is_multiplayer_character_slot_selected)((s32)(var_r31)) == 0)) {
+    if ((TAdMultiPlyChrSelectGC__sub_802C6848(var_r31) != 0) && (((s32 (*)(s32))is_multiplayer_character_slot_selected)(var_r31) == 0)) {
         return var_r31;
     }
     var_r31 += 1;

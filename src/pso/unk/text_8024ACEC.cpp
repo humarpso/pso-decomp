@@ -25,7 +25,7 @@ void begin_player_keyboard_hold(s32 arg0) {
     stack.sp8 = *(s32 *)((s8 *)(&player_keyboard_hold_cb.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&player_keyboard_hold_cb.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&player_keyboard_hold_cb.value) + 8);
-    call_window_method__11TWindowCtrlFPvi((void *) (arg0), (void *) (&stack.sp8));
+    call_window_method__11TWindowCtrlFPvi((void *)arg0, (void *) (&stack.sp8));
 }
 
 }

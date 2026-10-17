@@ -174,7 +174,7 @@ const u8* sj_ring_buffer_get_uuid(SjRingBuffer *arg0) {
 void sj_ring_buffer_destroy(SjRingBuffer *arg0) {
     middleware_interrupt_lock_enter();
     if (arg0 != NULL) {
-        memset((void *) (arg0), 0, 0x30);
+        memset(arg0, 0, 0x30);
         arg0->in_use = 0;
     }
     middleware_interrupt_lock_leave();

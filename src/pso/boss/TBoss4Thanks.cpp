@@ -98,7 +98,7 @@ void TBoss4Thanks::update_particle_emitters() {
             }
         } else {
             if (o->p[i] != NULL) {
-                TBoss4Type2::request_destroy((u32)(o->p[i]));
+                TBoss4Type2::request_destroy((u32)o->p[i]);
                 o->p[i] = NULL;
             }
         }
@@ -110,7 +110,7 @@ void TBoss4Thanks::destroy_effects() {
     s32 i;
     for (i = 0; i < 4; i++) {
         if (arg0->e[i].p != NULL) {
-            TBoss4Type2::request_destroy((u32)(arg0->e[i].p));
+            TBoss4Type2::request_destroy((u32)arg0->e[i].p);
             arg0->e[i].p = NULL;
         }
     }
@@ -194,7 +194,7 @@ void TBoss4Thanks::advance_thanks_state() {
     }
 }
 
-void TBoss4Thanks::mark_done() { if (TBoss4Thanks::is_player_nearby((void *)(this)) != 0) { *(int *)&this->next_motion = 1; *(int *)&this->state = 1; } }
+void TBoss4Thanks::mark_done() { if (TBoss4Thanks::is_player_nearby(this) != 0) { *(int *)&this->next_motion = 1; *(int *)&this->state = 1; } }
 
 typedef struct Anim_8035C6FC Anim_8035C6FC;
 typedef struct Thanks_8035C6FC Thanks_8035C6FC;

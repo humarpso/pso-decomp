@@ -93,7 +93,7 @@ void TUnk_804ED598::render() {
         }
         TParticleCtrl::reset_particles();
         TParticleCtrl::disable_if_single_screen();
-        TParticleCtrl::reset_ind_tev_stages((void *)(o->f40));
+        TParticleCtrl::reset_ind_tev_stages(o->f40);
         pop_matrix();
         TParticleCtrl::end_effect_render();
     }
@@ -133,7 +133,7 @@ typedef char RecoveredGlobal_80327F88_lbl_804ED598_size[sizeof(RecoveredGlobal_8
 u8 *create_telepipe_marker(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 arg5, s32 arg6, f32 farg0, f32 farg1) {
     s32 temp_r3;
     s32 var_r0;
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg4));
+    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg4);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80327F88_lbl_804ED598 *)&lbl_804ED598).value;
     *(f32 *)((s8 *)arg0 + 0x1C) = farg0;
     ((TUnk_804ED598 *)arg0)->m_20 = farg1;
@@ -144,7 +144,7 @@ u8 *create_telepipe_marker(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 a
     temp_r3 = __nw__7TObjectFUl(0x20);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (s32)construct_indirect_effect_task((u8 *)(temp_r3), 0x1F, 0, (u8 *)(tl_05));
+        var_r0 = (s32)construct_indirect_effect_task((u8 *)temp_r3, 0x1F, 0, (u8 *)tl_05);
     }
     *(s32 *)((s8 *)arg0 + 0x40) = var_r0;
     *(s32 *)((s8 *)arg0 + 0x38) = 1;

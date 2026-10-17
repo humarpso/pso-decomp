@@ -77,11 +77,11 @@ void TObjEneMe1GiGueBarrier::render() {
     }
     if (((VObj_18_ca64a0 *)(arg0))->m9(lbl_805DF628, lbl_805DF62C, lbl_805DF624) != 0) {
 block_6:
-        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0)) == 0) {
+        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) == 0) {
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));
-            rotate_matrix_y(0, (int) (this->rotation_y));
-            TObjFish::set_global_param((int) (this->texture_id));
+            rotate_matrix_y(0, this->rotation_y);
+            TObjFish::set_global_param(this->texture_id);
             TParticleCtrl::end_effect_render();
             ((TObjEneRe7Berura *)arg0)->draw();
             pop_matrix();
@@ -101,7 +101,7 @@ void TObjEneMe1GiGueBarrier::run_task() {
     }
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(((TObjEneMe1GiGueBarrier *)temp_r0)->update_and_get_pos()));
     this->rotation_y = ((TObjEneMe1GiGueBarrier *)(this->m_fc))->get_timer();
-    advance_animation_playback((void *) (arg0));
+    advance_animation_playback(arg0);
     *(s32 *)&this->m_108 = (s32) (*(s32 *)&this->m_108 - 1);
     temp_r0_2 = *(s32 *)&this->m_104;
     switch (temp_r0_2) {
@@ -123,7 +123,7 @@ void TObjEneMe1GiGueBarrier::run_task() {
         break;
     default:
     case 1:
-        if (((s32) *(s32 *)&this->m_108 <= 0) || (is_active_state__22TObjEneMe1GiGueBarrierFv((int) (this->m_fc)) != 0)) {
+        if (((s32) *(s32 *)&this->m_108 <= 0) || (is_active_state__22TObjEneMe1GiGueBarrierFv(this->m_fc) != 0)) {
             *(s32 *)&this->m_104 = 2;
             this->m_b8 = 2;
         }
@@ -158,7 +158,7 @@ u8 *TObjEneMe1GiGueBarrier__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjEneMe1GiGueBarrier__barrier_resource_object) + 0x42C)) + 0x28);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjEneMe1GiGueBarrier__barrier_resource_object) + 0x42C));
     ((TObjEneMe1GiGueBarrier *)arg0)->texture_id = (s32) *(s32 *)((s8 *)temp_r5 + 0x2C);
-    set_field_d8__10TObjPlayerFl((void *) (arg0), (void *) (&TObjEneMe1GiGueBarrier__animation_definitions.value), (int) (temp_r5));
+    set_field_d8__10TObjPlayerFl((void *)arg0, (void *) (&TObjEneMe1GiGueBarrier__animation_definitions.value), (int)temp_r5);
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)(*(u8 * *)&TObjEneMe1GiGueBarrier__barrier_resource_object) + 0x430)));
     ((TObjEneMe1GiGueBarrier *)arg0)->m_b8 = 0;
     set_animation__10TObjPlayerFPvs((arg0), (((TObjEneMe1GiGueBarrier *)arg0)->m_b8));
@@ -172,7 +172,7 @@ void *TObjEneMe1GiGueBarrier::create(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x10C);
     if (o != NULL) {
-        o = TObjEneMe1GiGueBarrier__ct((u8 *)(o), (s32)(arg0), (u8 *)(arg1));
+        o = TObjEneMe1GiGueBarrier__ct((u8 *)o, (s32)arg0, (u8 *)arg1);
     }
     return o;
 }

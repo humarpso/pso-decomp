@@ -372,7 +372,7 @@ void TItemMagSub::apply_node_oscillation(void* _w1) {
 void TItemMagSub::update_node_oscillation(void* arg) {
 
     if (TItemMagSub__oscillating_instance != 0) {
-        ((TItemMagSub *)TItemMagSub__oscillating_instance)->apply_node_oscillation((void *)(arg));
+        ((TItemMagSub *)TItemMagSub__oscillating_instance)->apply_node_oscillation(arg);
         TItemMagSub__feed_sequence_index++;
     }
 }

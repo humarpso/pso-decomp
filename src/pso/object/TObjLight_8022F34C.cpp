@@ -30,7 +30,7 @@ void *TObjLight::destroy(s16 arg1) {
 }
 
 u8 *init_from_source__9TObjLightFPvii(u8 *arg0, s32 arg1, s32 arg2) {
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg2));
+    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg2);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CC74C;
     *(s32 *)((s8 *)arg0 + 0x1C) = arg1;
     VecCopy((Vec *)(arg0 + 0x20), (const Vec *)(*(s32 *)((s8 *)arg0 + 0x1C) + 0x2FC));

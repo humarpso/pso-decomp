@@ -231,7 +231,7 @@ u8 *__ct__18TChCrTagOccupationFv(u8 *arg0, s32 arg1, s32 _w2) {
 void *TChCrTagOccupation::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x44);
     if (o != NULL) {
-        o = __ct__18TChCrTagOccupationFv((u8 *)(o), (s32)(tl_03), (s32)(arg0));
+        o = __ct__18TChCrTagOccupationFv((u8 *)o, (s32)tl_03, (s32)arg0);
     }
     return o;
 }

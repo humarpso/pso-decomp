@@ -61,11 +61,11 @@ void TOSwitchTimer::send_switch_states() {
     if ((u32) this->m_98 == 0U) {
         if ((u16) this->m_a8 < 0x100U) {
             ((TOChatSensor *)(&stack.sp14))->init_packet_type();
-            stack.sp18 = (s16) (this->m_b4);
+            stack.sp18 = this->m_b4;
             stack.sp1A = this->m_a8;
             stack.sp1C = 0;
             ((TOChatSensor *)(&stack.sp14))->send_state();
-            clear_floor_switch_flag((this->m_a8), ((s16) (this->m_b4)));
+            clear_floor_switch_flag((this->m_a8), (this->m_b4));
         }
     } else {
         var_r30 = (u16 *)((u8 *)(arg0 + 0xAA));
@@ -73,7 +73,7 @@ void TOSwitchTimer::send_switch_states() {
         do {
             if ((u16) *var_r30 < 0x100U) {
                 ((TOChatSensor *)(&stack.sp8))->init_packet_type();
-                stack.spC = (s16) (this->m_b4);
+                stack.spC = this->m_b4;
                 stack.spE = *var_r30;
                 stack.sp10 = 1;
                 ((TOChatSensor *)(&stack.sp8))->send_state();

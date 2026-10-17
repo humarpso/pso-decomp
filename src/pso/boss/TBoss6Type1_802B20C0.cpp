@@ -141,10 +141,10 @@ extern const f32 lbl_805DE2C4;
 
 void TBoss6Type1::enter_flag800_state() {
     if (*(s32 *)((s8 *)this + 0x30) & 0x800) {
-        send_flow_action_if_idle__11TBoss6Type1FPvc((void*)(this), (void*)(0x28));
+        send_flow_action_if_idle__11TBoss6Type1FPvc(this, (void*)(0x28));
         return;
     }
-    send_flow_action_if_idle__11TBoss6Type1FPvc((void*)(this), (void*)(1));
+    send_flow_action_if_idle__11TBoss6Type1FPvc(this, (void*)(1));
 }
 
 void TBoss6Type1::update_attack_countdown() {
@@ -195,7 +195,7 @@ void TBoss6Type1::update_countdown_state() {
 
 void TBoss6Type1::update_if_ready() {
     if (((s32) *(s32 *)((s8 *)this + 0x410) == 0) || (is_timer_expired__11TBoss6Type1Fv() != 0)) {
-        TBoss6Type1__sub_802B8E1C((void*)(this));
+        TBoss6Type1__sub_802B8E1C(this);
     }
 }
 
@@ -215,14 +215,14 @@ void TBoss6Type1::update_countdown() {
 void TBoss6Type1::update_state() {
     if ((s32) *(s32 *)((s8 *)this + 0x410) == 0) {
         if (is_normal_difficulty() != 0) {
-            TBoss6Type1__sub_802B8E1C((void*)(this));
+            TBoss6Type1__sub_802B8E1C(this);
             return;
         }
         if (is_field3F8_over_0x20() != 0) {
-            send_flow_action_if_idle__11TBoss6Type1FPvc((void*)(this), (void*)(0x25));
+            send_flow_action_if_idle__11TBoss6Type1FPvc(this, (void*)(0x25));
             return;
         }
-        TBoss6Type1__sub_802B8E1C((void*)(this));
+        TBoss6Type1__sub_802B8E1C(this);
     }
 }
 
@@ -339,7 +339,7 @@ void TBoss6Type1__sub_802B2724(u8 *arg0) {
     }
 }
 
-void TBoss6Type1::update_if_idle() { if (*(int*)((char*)this + 0x410) == 0) { TBoss6Type1__sub_802B8E1C((void*)(this)); } }
+void TBoss6Type1::update_if_idle() { if (*(int*)((char*)this + 0x410) == 0) { TBoss6Type1__sub_802B8E1C(this); } }
 
 void TBoss6Type1::enter_release_state() {
     u8 *arg0 = (u8 *)this;
@@ -392,10 +392,10 @@ void TBoss6Type1::update_hit_timer() {
 void TBoss6Type1::update_attack_state() {
     if ((s32) *(s32 *)((s8 *)this + 0x410) == 0) {
         if (is_field4b0_delta_reached__11TBoss6Type1Fv() != 0) {
-            send_flow_action_if_idle__11TBoss6Type1FPvc((void*)(this), (void*)(0x20));
+            send_flow_action_if_idle__11TBoss6Type1FPvc(this, (void*)(0x20));
             return;
         }
-        send_flow_action_if_idle__11TBoss6Type1FPvc((void*)(this), (void*)(0x1F));
+        send_flow_action_if_idle__11TBoss6Type1FPvc(this, (void*)(0x1F));
     }
 }
 
@@ -461,7 +461,7 @@ void TBoss6Type1::update_phase() {
 
 void TBoss6Type1::trigger_falz_phase() {
     if (((s32) *(s32 *)((s8 *)this + 0x410) == 0) && (is_normal_difficulty() != 0)) {
-        TBoss6Type1__sub_802B8E1C((void*)(this));
+        TBoss6Type1__sub_802B8E1C(this);
     }
 }
 
@@ -531,10 +531,10 @@ void TBoss6Type1__sub_802B2F00(u8 *arg0) {
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x410) == 0) {
         if (TBoss6Type1__sub_802B6060(arg0) != 0) {
-            send_flow_action_if_idle__11TBoss6Type1FPvc((void*)(arg0), (void*)(0x1A));
+            send_flow_action_if_idle__11TBoss6Type1FPvc(arg0, (void*)(0x1A));
             return;
         }
-        send_flow_action_if_idle__11TBoss6Type1FPvc((void*)(arg0), (void*)(0x22));
+        send_flow_action_if_idle__11TBoss6Type1FPvc(arg0, (void*)(0x22));
     }
 }
 
@@ -545,7 +545,7 @@ void TBoss6Type1::update_charge() {
     s32 temp_r0;
 
     ((TBoss6Type1 *)arg0)->interpolate_pos_to_target((s32)(*(s32 *)((s8 *)arg0 + 0x410)), (s32)(*(s32 *)((s8 *)arg0 + 0x40C)));
-    play_persistent_sound(0x40038F0F, (s32)(arg0), (u32)(arg0 + 0x38), 0, 0);
+    play_persistent_sound(0x40038F0F, (s32)arg0, (u32)(arg0 + 0x38), 0, 0);
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x410) - 1;
     *(s32 *)((s8 *)arg0 + 0x410) = temp_r0;
     if (temp_r0 < 0) {
@@ -553,7 +553,7 @@ void TBoss6Type1::update_charge() {
     }
 }
 
-void TBoss6Type1::start_action_if_idle() { if (*(int*)((char*)this + 0x410) == 0) { send_flow_action_if_idle__11TBoss6Type1FPvc((void*)(this), (void*)((void*)25)); } }
+void TBoss6Type1::start_action_if_idle() { if (*(int*)((char*)this + 0x410) == 0) { send_flow_action_if_idle__11TBoss6Type1FPvc(this, (void*)((void*)25)); } }
 
 void TBoss6Type1::set_phase_90() { *(int*)((char*)this + 0x40c) = 90; *(int*)((char*)this + 0x410) = 90; latch_phase_counter(); spawn_effect_slot((s32)((void*)((void*)0))); release_effect_slot((s32)((void*)((void*)1))); }
 
@@ -604,7 +604,7 @@ void TBoss6Type1__sub_802B31E4(u8 *arg0) {
     temp_r3 = *(s32 *)((s8 *)arg0 + 0x410);
     if ((temp_r3 <= (s32) *(s32 *)((s8 *)arg0 + 0x4A0)) && (temp_r3 >= 0x1E)) {
         ((TBoss6Type1 *)arg0)->increase_field_clamped_max();
-        TBoss6Type1__sub_802B6C30((void *) (arg0));
+        TBoss6Type1__sub_802B6C30(arg0);
     } else {
         ((TBoss6Type1 *)arg0)->decrease_field_clamped_min();
     }
@@ -613,12 +613,12 @@ void TBoss6Type1__sub_802B31E4(u8 *arg0) {
         if (*(f32 *)((s8 *)arg0 + 0x4DC) > lbl_805DE2BC) {
             var_r3 = 0x4003AD0D;
         }
-        play_persistent_sound((s32)(var_r3), (s32)(arg0), (u32)(arg0 + 0x5CC), 0, 1);
+        play_persistent_sound((s32)var_r3, (s32)arg0, (u32)(arg0 + 0x5CC), 0, 1);
     }
     if (*(f32 *)((s8 *)arg0 + 0x4DC) > lbl_805DE2BC) {
         TBoss6Type1__sub_802B4B04((arg0));
     } else {
-        TBoss6Type1__sub_802B4A9C((void *) (arg0));
+        TBoss6Type1__sub_802B4A9C(arg0);
     }
     temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x410) - 1;
     *(s32 *)((s8 *)arg0 + 0x410) = temp_r0_2;
@@ -827,7 +827,7 @@ void TBoss6Type1::choose_next_action() {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x410) == 0) {
         if ((s32) *(s32 *)((s8 *)arg0 + 0x414) == 0) {
             if (((TBoss6Type1 *)arg0)->is_ready() != 0) {
-                ((s32 (*)(void *, int))send_flow_action_if_idle__11TBoss6Type1FPvc)((void *) (arg0), 0x17);
+                ((s32 (*)(void *, int))send_flow_action_if_idle__11TBoss6Type1FPvc)(arg0, 0x17);
                 return;
             }
             if (((TBoss6Type1 *)arg0)->count_matches(2, 0x10) == 0) {
@@ -842,7 +842,7 @@ void TBoss6Type1::choose_next_action() {
             return;
         }
         if (((TBoss6Type1 *)arg0)->is_time_up() != 0) {
-            TBoss6Type1__sub_802B8A70((void *) (arg0));
+            TBoss6Type1__sub_802B8A70(arg0);
             return;
         }
         TBoss6Type1__sub_802B8BB4((arg0));

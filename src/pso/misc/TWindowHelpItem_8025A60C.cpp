@@ -133,7 +133,7 @@ void *TWindowHelpItem__sub_8025A904(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_8025A95C_lbl_804CFA10_size[sizeof(RecoveredGlobal_8025A95C_lbl_804CFA10) == 0x18 ? 1 : -1];
 u8 *TWindowHelpItem__sub_8025A95C(u8 *arg0, s32 arg1, s32 arg2) {
-    sub_80256BDC__13TUnk_804CF930Fs((void *) (arg0), (void *) (arg2));
+    sub_80256BDC__13TUnk_804CF930Fs((void *)arg0, (void *)arg2);
     *(s32 **)((s8 *)arg0 + 4) = &(*(RecoveredGlobal_8025A95C_lbl_804CFA10 *)&lbl_804CFA10).value;
     ((TWindowSubSymbolChatPartsSet *)(arg0 + 8))->copy_vec2((void *) (arg1 + 4));
     *(s32 *)((s8 *)arg0 + 0x10) = 0;

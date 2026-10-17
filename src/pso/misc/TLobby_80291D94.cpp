@@ -176,10 +176,10 @@ s32 mix_seed_checked__6TLobbyFi(s32);
 void TLobby__sub_80291DF8(s32 v);
 int is_multi_ready__6TLobbyFv(void);
 
-void TLobby::update_screen() { if (is_challenge_mode_active((void*)(this)) != 0) { is_multi_ready__6TLobbyFv(); } }
+void TLobby::update_screen() { if (is_challenge_mode_active(this) != 0) { is_multi_ready__6TLobbyFv(); } }
 typedef char RecoveredGlobal_80291DC0_lbl_804DB1F0_size[sizeof(RecoveredGlobal_80291DC0_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
 void TLobby::set_challenge_split_flag() {
-    if (((s32)is_challenge_mode_active((void*)(this))) != 0) {
+    if (((s32)is_challenge_mode_active(this)) != 0) {
         *(s32 *)((s8 *)(&(*(RecoveredGlobal_80291DC0_lbl_804DB1F0 *)&lbl_804DB1F0).value) + 0x34) = 1;
     }
 }
@@ -463,7 +463,7 @@ void TLobby::store_challenge_seeds(s32 arg0) {
 void TLobby__sub_80292200(s32 arg0) {
     TLobby::is_value_out_of_range(arg0);
     fabs_float((f32) (arg0 - *(s32 *)((s8 *)(&(*(RecoveredGlobal_80292200_lbl_804DB1F0 *)&lbl_804DB1F0).value) + 0xC)));
-    TLobby::store_challenge_seeds((s32)((void *) (arg0)));
+    TLobby::store_challenge_seeds((s32)(arg0));
 }
 
 int TLobby__sub_80292268(void) { return 1; }
@@ -575,7 +575,7 @@ void TLobby::set_encoded_name_and_color(u8 *arg0, s32 arg1) {
 }
 typedef char RecoveredGlobal_802925C4_lbl_80540968_size[sizeof(RecoveredGlobal_802925C4_lbl_80540968) == 0x20 ? 1 : -1];
 void set_split_screen_name__6TLobbyFi(s32 arg0) {
-    strncpy((void *) (&split_screen_player_name.value), (void *) (arg0), 0x20);
+    strncpy((void *) (&split_screen_player_name.value), (void *)arg0, 0x20);
     *(s8 *)((s8 *)(&split_screen_player_name.value) + 0x1F) = 0;
 }
 typedef char RecoveredGlobal_80292604_lbl_804DB1F0_size[sizeof(RecoveredGlobal_80292604_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
@@ -777,7 +777,7 @@ s32 TLobby__sub_8029299C(void) {
     var_r31 = 0;
     var_r30 = 0;
     do {
-        player = (u8 *)(((s32)get_player_by_client_id((int)(var_r30))));
+        player = (u8 *)(((s32)get_player_by_client_id(var_r30)));
         if ((player != NULL) && (((int)((TLobby *)player)->check_player_state_flag_2()) != 0)) {
             TLobby__sub_80293218((s32) var_r30);
             var_r31 = 1;
@@ -798,7 +798,7 @@ s32 TLobby__sub_80292A34(void) {
     }
     var_r31 = 0;
 loop_3:
-    player = (u8 *)(((u8 *)get_player_by_client_id((int)(var_r31))));
+    player = (u8 *)(((u8 *)get_player_by_client_id(var_r31)));
     if ((player != NULL) && (((int)((TLobby *)player)->check_player_state_flag_2()) == 0)) {
         return 0;
     }
@@ -889,7 +889,7 @@ s32 count_card_layout_entries__6TLobbyFv(void) {
     }
     id = TWindowSubStatusDisp::resolve_player_slot(-1);
     arr = TWindowSubStatusDisp__sub_8006F0D8(win + 0x21C4, id);
-    layout = get_layout_id__20TWindowSubStatusDispFv((s32)(id));
+    layout = get_layout_id__20TWindowSubStatusDispFv(id);
     n = 0;
     for (i = 0; i < layout; i++) {
         if (arr[i] == 0) {
@@ -1336,7 +1336,7 @@ void TLobby__sub_802933FC(void *arg0) {
         v = get_current_floor();
         if (lbl_804DB1F0[2] != v) {
             lbl_804DB1F0[2] = v;
-            TLobby::create_time_window2((void *)((void *)(arg0)));
+            TLobby::create_time_window2((void *)(arg0));
         }
         break;
     }
@@ -1372,7 +1372,7 @@ s32 TLobby::check_destruction_by_phase() {
     }
 }
 
-void TLobby::maybe_handle_destruction() { if (check_destruction_by_phase() == 0) { TLobby__sub_802933FC((void *)(this)); } }
+void TLobby::maybe_handle_destruction() { if (check_destruction_by_phase() == 0) { TLobby__sub_802933FC(this); } }
 
 void update_destruction_countdown__6TLobbyFPv(void *arg0) {
     if (TAdPlayerLoadGC__sub_801E1510() != 1) {

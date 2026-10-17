@@ -125,7 +125,7 @@ void handle_6x5A_pick_up_item_request(Msg_8011A9D8 *msg) {
 }
 
 void TLobby__sub_8011AA44(s16 arg0, s32 _w1) {
-    TLobby::remove_item_condition((s32)((void *) (arg0)), (s32)(_w1));
+    TLobby::remove_item_condition((s32)(arg0), _w1);
 }
 
 void TLobby::drop_item_from_source(s16 source, int client, s16 room, int slot, f32 x, f32 z) {
@@ -200,7 +200,7 @@ void handle_6xA2_specializable_item_drop_request(void *arg0) {
         handle_box_drop_directive(arg0);
         return;
     }
-    process_enemy_drop_request((s8)(temp_b), (s16)(*(s16 *)((s8 *)arg0 + 6)), (int)(*(s8 *)((s8 *)arg0 + 4)), (s16)(*(s16 *)((s8 *)arg0 + 0x10)), (int)(*(s8 *)((s8 *)arg0 + 0x14)), *(f32 *)((s8 *)arg0 + 8), *(f32 *)((s8 *)arg0 + 0xC));
+    process_enemy_drop_request(temp_b, (s16)(*(s16 *)((s8 *)arg0 + 6)), (int)(*(s8 *)((s8 *)arg0 + 4)), (s16)(*(s16 *)((s8 *)arg0 + 0x10)), (int)(*(s8 *)((s8 *)arg0 + 0x14)), *(f32 *)((s8 *)arg0 + 8), *(f32 *)((s8 *)arg0 + 0xC));
 }
 #pragma pop
 
@@ -245,7 +245,7 @@ void handle_6x5F_drop_item(Pkt_8011ADF4 *pkt) {
     } else {
         Row4_8011ADF4 row = (*(Row4_8011ADF4 * *)&TLobby__data_805D6140)[pkt->source];
         row.claim = 0xFFFF;
-        TLobby::apply_table_entry((s16)(pkt->source), (Source_8011AA68 *)(&row));
+        TLobby::apply_table_entry(pkt->source, (Source_8011AA68 *)(&row));
     }
     spawn_dropped_item_from_msg(&pkt->client, 0);
 }
@@ -262,7 +262,7 @@ void TLobby__sub_8011AED8(s8 arg0, s16 arg1, u8 *arg2, f32 farg0, f32 farg1) {
     stack.spC = farg0;
     stack.sp10 = farg1;
     stack.sp14 = arg1;
-    ((TLobby *)(&stack.sp18))->copy_item_data((void *) (arg2));
+    ((TLobby *)(&stack.sp18))->copy_item_data(arg2);
     ((TLobby *)(*(s32 *)((s8 *)arg2 + 0xC)))->observe_item_id();
     ((TLobby *)(&stack.sp8))->insert_sorted_entry();
 }

@@ -498,7 +498,7 @@ s32 TLobby__sub_803C30E8(u8 *arg0, s32 arg1, s32 arg2) {
         var_r31 = 0;
         var_r5 = -1;
     } else {
-        temp_r3 = GXSetCopyFilter((void *) (arg1), (void *) (arg2), (void *) (&sp8), (void *) (&spC), (void *) (&sp10), (void *) (&sp14), (void *) (&sp18));
+        temp_r3 = GXSetCopyFilter((void *)arg1, (void *)arg2, (void *) (&sp8), (void *) (&spC), (void *) (&sp10), (void *) (&sp14), (void *) (&sp18));
         if (temp_r3 == 0U) {
             var_r5 = -1;
         } else {
@@ -714,19 +714,19 @@ void TLobby__sub_803C3B5C(u8 *arg0, s32 arg1, s32 arg2) {
 
 s32 TLobby__sub_803C3B68(s32 arg0, u16 *hdr, s32 size) {
     if ((u16) *(u16 *)((s8 *)hdr + 0) == 0x8000) {
-        return TRK__write_aram((void *)((void *)arg0), (void *)(hdr), (void *)((void *)size));
+        return TRK__write_aram((void *)((void *)arg0), hdr, (void *)((void *)size));
     }
     if (((TLobby *)hdr)->is_spsd_header() != 0) {
-        return TLobby__sub_803C43A8((void *)((void *) (arg0)), (void *)((void *) (hdr)), (void *)((void *) (size)));
+        return TLobby__sub_803C43A8((void *)(arg0), (void *)(hdr), (void *)(size));
     }
     if (((TLobby *)hdr)->is_riff_wave() != 0) {
-        return DVDReadPrio((void *) (arg0), (void *) (hdr), (void *) (size));
+        return DVDReadPrio((void *)arg0, (void *)hdr, (void *)size);
     }
     if (((TLobby *)hdr)->is_aiff_header() != 0) {
-        return ((TLobby *)arg0)->parse_stream_header((void *)((void *) (hdr)), (void *)((void *) (size)));
+        return ((TLobby *)arg0)->parse_stream_header((void *)(hdr), (void *)(size));
     }
     if (((TLobby *)hdr)->is_snd_header() != 0) {
-        return TLobby__sub_803C30E8((u8 *)((u8 *) (arg0)), (s32)((s32) (hdr)), (s32)((s32) (size)));
+        return TLobby__sub_803C30E8((u8 *)(arg0), (s32)(hdr), (s32)(size));
     }
     return 0;
 }
@@ -739,12 +739,12 @@ s32 TRK__write_aram(void *arg0p, void *hdr, void *size) {
     s16 temp_r6;
     u8 *temp_r3;
     *(s16 *)((s8 *)arg0 + 2) = 1;
-    if (ARStartDMA((u8 *)(hdr), (s32)(size), (s16 *)(&sp10), (u8 *)(arg0 + 0xC), (s8 *)(arg0 + 0xD), (s8 *)(arg0 + 0xF), (u8 *)(arg0 + 0xE), (s32 *)(arg0 + 0x14), (s32 *)(arg0 + 0x18), (s32 *)(arg0 + 0x10)) < 0) {
+    if (ARStartDMA((u8 *)hdr, (s32)size, (s16 *)(&sp10), (u8 *)(arg0 + 0xC), (s8 *)(arg0 + 0xD), (s8 *)(arg0 + 0xF), (u8 *)(arg0 + 0xE), (s32 *)(arg0 + 0x14), (s32 *)(arg0 + 0x18), (s32 *)(arg0 + 0x10)) < 0) {
         return 0;
     }
     if ((s8) *(u8 *)((s8 *)arg0 + 0xC) > 4) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0xAC) == 0U) {
-            TLobby::report_adx_error((const char *)lbl_8047C520, (s32)((void *) (lbl_8047C540)));
+            TLobby::report_adx_error((const char *)lbl_8047C520, (s32)(lbl_8047C540));
             return 0;
         }
         *(s8 *)((s8 *)arg0 + 0xD) = 8;
@@ -756,12 +756,12 @@ s32 TRK__write_aram(void *arg0p, void *hdr, void *size) {
     if (TLobby__sub_803C48C8((u8 *)hdr, (s32)size, (u16 *)(arg0 + 0x1C)) < 0) {
         return 0;
     }
-    if (((TLobby *)hdr)->parse_header_loop_points((s32)((void *) (size)), (u16 *)(&sp18), (u16 *)(&sp14)) < 0) {
+    if (((TLobby *)hdr)->parse_header_loop_points((s32)(size), (u16 *)(&sp18), (u16 *)(&sp14)) < 0) {
         return 0;
     }
     ((TLobby *)(*(s32 *)((s8 *)arg0 + 8)))->calc_adx_coeffs_at_offset((void *)(*(s32 *)((s8 *)arg0 + 0x14)), (s32)((int) (*(s16 *)((s8 *)arg0 + 0x1C))));
     TLobby__sub_803CB570((u8 *)(*(s32 *)((s8 *)arg0 + 8)), (u8 *)(&sp18), (s16 *)(&sp14));
-    __DVDPrepareResetAsync((u8 *)(hdr), (s32)(size), (s32 *)(arg0 + 0x20), (s16 *)(arg0 + 0x24), (s16 *)(arg0 + 0x26), (s32 *)(arg0 + 0x28), (s32 *)(arg0 + 0x2C), (s32 *)(arg0 + 0x30), (s32 *)(arg0 + 0x34));
+    __DVDPrepareResetAsync((u8 *)hdr, (s32)size, (s32 *)(arg0 + 0x20), (s16 *)(arg0 + 0x24), (s16 *)(arg0 + 0x26), (s32 *)(arg0 + 0x28), (s32 *)(arg0 + 0x2C), (s32 *)(arg0 + 0x30), (s32 *)(arg0 + 0x34));
     *(s16 *)((s8 *)arg0 + 0xA8) = 0;
 block_11:
     temp_r3 = (u8 *)(arg0 + 0x4C);
@@ -776,7 +776,7 @@ block_11:
     *(s16 *)((s8 *)arg0 + 0x7E) = temp_r6;
     *(u8 **)((s8 *)arg0 + 0x80) = temp_r3;
     *(s32 *)((s8 *)arg0 + 0x9C) = 0;
-    memset((void *) (temp_r3), 0, 4);
+    memset(temp_r3, 0, 4);
     return sp10;
 }
 
@@ -784,7 +784,7 @@ void TLobby::clear_record() {
     u8 *arg0 = (u8 *)this;
     if (arg0 != NULL) {
         ((TLobby *)(*(s32 *)&this->m_prev))->clear_record_data();
-        memset((void *) (arg0), 0, 0xB8);
+        memset(arg0, 0, 0xB8);
         *(s16 *)&this->m_name = 0;
     }
 }
@@ -883,7 +883,7 @@ s32 TLobby__sub_803C43A8(void *arg0, void *hdr, void *arg2) {
     h->f9c = 0;
     h->f98 = 0;
     h->fa8 = 2;
-    memset((void *)(h->f4c), 0, 4);
+    memset(h->f4c, 0, 4);
     return n;
 }
 s32 TLobby__sub_803C44C0(Hdr_803C44C0 *hdr, s32 arg1, s16 *arg2, s8 *arg3, s8 *arg4, s8 *arg5, s8 *arg6, s32 *arg7, s32 *arg8, s32 *arg9, s16 *arg10) {

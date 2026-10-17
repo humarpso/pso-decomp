@@ -319,11 +319,11 @@ void close_and_destroy__12TChCrLoadReqFv(void *arg0) {
         ((TAdSinglePlyChrSelectGC *)arg0)->load_preview_models();
         temp_r4 = *(s32 **)((s8 *)arg0 + 0x3C);
         *temp_r4 &= 0xFFFFFF7F;
-        ((TChCrLoadReq *)arg0)->sub_8028CEEC((s32 *)(temp_r4));
+        ((TChCrLoadReq *)arg0)->sub_8028CEEC(temp_r4);
         queue_destruction__7TObjectFv(arg0);
     }
 }
 
-void TChCrLoadReq::try_advance_state() { if (TAdSinglePlyChrSelectGC__sub_8028C998((void *)(this)) != 0) { start_preview_loads__23TAdSinglePlyChrSelectGCFPv((Gc_8028CB6C *)(this)); *(int *)&this->state = 2; } }
+void TChCrLoadReq::try_advance_state() { if (TAdSinglePlyChrSelectGC__sub_8028C998(this) != 0) { start_preview_loads__23TAdSinglePlyChrSelectGCFPv((Gc_8028CB6C *)(this)); *(int *)&this->state = 2; } }
 
 }

@@ -60,7 +60,7 @@ void TODoorAncient05::reset() {
 #define G5918 (*(u8 **)&door_ancient05_bml_resource)
 #define G591C (*(s32 **)&TODoorAncient05__switch_texture_lists)
 #define G5920 (*(u8 **)&door_ancient05_static_model_nodes)
-#define NODE(p, o) (*(u8 **)((u8 *)(p) + (o)))
+#define NODE(p, o) (*(u8 **)(p + (o)))
 void TODoorAncient05::load_resources() {
     u8 *p;
     s32 *buf;
@@ -108,7 +108,7 @@ u8 *TODoorAncient05__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(u8 **)((s8 *)arg0 + 0xBC) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&door_ancient05_bml_resource) + 0x430)) + 4));
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB428);
     ((TODoorAncient05 *)arg0)->m_b8 = (f32) (*(f32 *)((s8 *)arg0 + 0xB4) / lbl_805DB418);
-    init_collision_body_parts((void *) (arg0), (void *) (&TODoorAncient05__collision_body.value), 1);
+    init_collision_body_parts(arg0, (void *) (&TODoorAncient05__collision_body.value), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TODoorAncient05 *)(arg0))->init_door_switch_binding();

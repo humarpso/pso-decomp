@@ -76,7 +76,7 @@ void try_begin_load__22TChCrLoadAfsTextureReqFPv(void* p);
 void *__nw__7TObjectFUl(int);
 f64 log();
 
-void try_begin_load__22TChCrLoadAfsTextureReqFPv(void* p) { if (try_acquire_load_slot__22TChCrLoadAfsTextureReqFPv((void *)(p)) != 0) { *(int*)((char*)p + 0x2c) = 1; } }
+void try_begin_load__22TChCrLoadAfsTextureReqFPv(void* p) { if (try_acquire_load_slot__22TChCrLoadAfsTextureReqFPv(p) != 0) { *(int*)((char*)p + 0x2c) = 1; } }
 
 s32 TChCrLoadAfsTextureReq__active_load_count;
 
@@ -179,7 +179,7 @@ void init_texture_table__22TChCrLoadAfsTextureReqFPv(R_8028C310 *arg0) {
 }
 
 u8 *TChCrLoadAfsTextureReq__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 *arg3, s32 arg4) {
-    __ct__7TObjectFP7TObject((void *)(arg0), (void *)(arg1));
+    __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8028C378___vt__22TChCrLoadAfsTextureReq *)&__vt__22TChCrLoadAfsTextureReq).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) (*(s32 *)&lbl_805D3B50);
     *(s32 *)((s8 *)arg0 + 0x30) = arg2;
@@ -192,7 +192,7 @@ u8 *TChCrLoadAfsTextureReq__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 *arg3, s32 arg4
 }
 
 void *init__22TChCrLoadAfsTextureReqFPvPvPv(void *arg0, void *arg1, void *arg2) {
-    __ct__7TObjectFP7TObject((void *)(arg0), (void *)(arg1));
+    __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TChCrLoadAfsTextureReq;
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D3B50;
     *(void **)((s8 *)arg0 + 0x30) = *(void **)((s8 *)arg2 + 0x0);
@@ -207,7 +207,7 @@ void * create_ch_cr_load_afs_texture_req(void *arg0, void *arg1, void *arg2, voi
     void *o;
     o = __nw__7TObjectFUl(0x194);
     if (o != NULL) {
-        o = TChCrLoadAfsTextureReq__ct((u8 *)(o), (u8 *)(arg0), (s32)(arg1), (s32 *)(arg2), (s32)(arg3));
+        o = TChCrLoadAfsTextureReq__ct((u8 *)o, (u8 *)arg0, (s32)arg1, (s32 *)arg2, (s32)arg3);
     }
     return o;
 }
@@ -216,7 +216,7 @@ void * create__22TChCrLoadAfsTextureReqFPvPv(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x194);
     if (o != NULL) {
-        o = init__22TChCrLoadAfsTextureReqFPvPvPv((void *)(o), (void *)(arg0), (void *)(arg1));
+        o = init__22TChCrLoadAfsTextureReqFPvPvPv(o, arg0, arg1);
     }
     return o;
 }
@@ -242,7 +242,7 @@ void TLobby::update_model_load() {
         }
         var_r31 = ((TAdSinglePlyChrSelectGC *)0x440)->alloc();
         if (var_r31 != 0U) {
-            var_r31 = TLobby__sub_8002058C((int) (var_r31), 6, (void *) (((u8 *)this) + 0x60), (void *) (((u8 *)this) + 0x64), 0, 0, (int) (((TLobby *)(*(s32 *)((s8 *)((u8 *)this) + 0x24)))->start_load_default()));
+            var_r31 = TLobby__sub_8002058C(var_r31, 6, (void *) (((u8 *)this) + 0x60), (void *) (((u8 *)this) + 0x64), 0, 0, (int) (((TLobby *)(*(s32 *)((s8 *)((u8 *)this) + 0x24)))->start_load_default()));
         }
         *(u32 *)((s8 *)((u8 *)this) + 0x68) = var_r31;
         if (var_r31 != 0U) {
@@ -259,7 +259,7 @@ void TLobby::update_model_load() {
             temp_r5 = *(s32 **)((s8 *)((u8 *)this) + 0x28);
             temp_r4 = *temp_r5;
             *temp_r5 = temp_r4 & ~*(s32 *)((s8 *)((u8 *)this) + 0x20);
-            queue_destruction__7TObjectFv((void *) (((u8 *)this)), (int) (temp_r4), (int) (temp_r5));
+            queue_destruction__7TObjectFv((void *) (((u8 *)this)), (int)temp_r4, (int)temp_r5);
         }
     }
 }

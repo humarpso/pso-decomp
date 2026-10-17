@@ -19,11 +19,11 @@ s32 TObjPlayer__sub_801BEC3C(void *);
 void TObjPlayer::load_char_data(u8 *arg1) {
     sub_801BEE2C((int) (*(s16 *)((s8 *)arg1 + 0x24)));
     sub_801BEE24((int) (*(s16 *)((s8 *)arg1 + 0x26)));
-    get_field_0x374__10TObjPlayerFv((void *) (((u8 *)this)), (void *) (TObjPlayer__sub_801BEC3C((void *) (arg1))));
-    get_quest_status__10TObjPlayerFv((void *) (((u8 *)this)), (void *) (TObjPlayer__sub_801BEC10((void *) (arg1))));
-    query_flags_374__10TObjPlayerFv((void *) (((u8 *)this)), (void *) (TObjPlayer__sub_801BEBE4((void *) (arg1))));
-    query_field374__10TObjPlayerFv((void *) (((u8 *)this)), (void *) (TObjPlayer__sub_801BEBB8((void *) (arg1))));
-    TObjPlayer__sub_801BEB68((void *) (((u8 *)this)), (void *) (TObjPlayer__sub_801BEB8C((void *) (arg1))));
+    get_field_0x374__10TObjPlayerFv((void *) (((u8 *)this)), (void *) (TObjPlayer__sub_801BEC3C(arg1)));
+    get_quest_status__10TObjPlayerFv((void *) (((u8 *)this)), (void *) (TObjPlayer__sub_801BEC10(arg1)));
+    query_flags_374__10TObjPlayerFv((void *) (((u8 *)this)), (void *) (TObjPlayer__sub_801BEBE4(arg1)));
+    query_field374__10TObjPlayerFv((void *) (((u8 *)this)), (void *) (TObjPlayer__sub_801BEBB8(arg1)));
+    TObjPlayer__sub_801BEB68((void *) (((u8 *)this)), (void *) (TObjPlayer__sub_801BEB8C(arg1)));
     init_player_data__10TObjPlayerFv((void *) (((u8 *)this)), (void *) (arg1 + 0x118));
     this->hp = (s16) *(s16 *)((s8 *)arg1 + 0x22);
     TObjPlayer__sub_801B2014((void *) (((u8 *)this)));

@@ -68,9 +68,9 @@ void TObjEnemyCustom__sub_800C77A4(u8 *arg0) {
         *(s16 *)((s8 *)arg0 + 0xB8) = 4;
         *(s32 *)((s8 *)arg0 + 0x37C) = 1;
     case 1:
-        advance_animation_playback((void *) (arg0));
+        advance_animation_playback(arg0);
         ((s32 (*)(void *, s32, f32))apply_actor_gravity)(arg0, 0, lbl_805DA070);
-        update_collisions__10TObjPlayerFv((void *) (arg0));
+        update_collisions__10TObjPlayerFv(arg0);
         if (*(f32 *)((s8 *)arg0 + 0xC0) < (K_800C77A4 * (lbl_805DA08C * *(f32 *)((s8 *)arg0 + 0xC8)))) {
             move_with_wall_slide((arg0));
             f32 k;

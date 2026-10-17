@@ -305,31 +305,31 @@ void *__vt__12TObjEneRecon[107] = {
 void TObjEneRecon__vt85(s32 arg0, u32 arg1, s32 msg) {
     switch (arg1) {
     case 0:
-        ((TObjEneRecon *)arg0)->sub_8031D4B0((s32)((void *) (msg)));
+        ((TObjEneRecon *)arg0)->sub_8031D4B0((s32)(msg));
         return;
     case 1:
-        TObjEneRecon__sub_8031D380((u8 *)(arg0), (msg));
+        TObjEneRecon__sub_8031D380((u8 *)arg0, (msg));
         return;
     case 2:
-        TObjEneRecon__sub_8031CF30((u8 *)(arg0), (msg));
+        TObjEneRecon__sub_8031CF30((u8 *)arg0, (msg));
         return;
     case 3:
-        TObjEneRecon__sub_8031CCFC((u8 *)(arg0), (msg));
+        TObjEneRecon__sub_8031CCFC((u8 *)arg0, (msg));
         return;
     case 4:
-        TObjEneRecon__sub_8031C920((u8 *)(arg0), (msg));
+        TObjEneRecon__sub_8031C920((u8 *)arg0, (msg));
         return;
     case 6:
-        TObjEneRecon__sub_8031C624((u8 *)(arg0), (msg));
+        TObjEneRecon__sub_8031C624((u8 *)arg0, (msg));
         return;
     case 7:
-        TObjEneRecon__sub_8031C364((u8 *)(arg0), (msg));
+        TObjEneRecon__sub_8031C364((u8 *)arg0, (msg));
         return;
     case 5:
-        run_task__12TObjEneReconFPvi((u8 *)(arg0), (msg));
+        run_task__12TObjEneReconFPvi((u8 *)arg0, (msg));
         return;
     case 8:
-        ((TObjEneRecon *)arg0)->handle_message((s32)((void *) (msg)));
+        ((TObjEneRecon *)arg0)->handle_message((s32)(msg));
     default:
         return;
     }
@@ -355,7 +355,7 @@ void run_task__12TObjEneReconFv(u8 *arg0) {
         return;
     }
     temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
-    if ((temp_r0 != 8) && (temp_r0 != 7) && (is_anim_6__12TObjEneReconFv((int) (entity)) == 1)) {
+    if ((temp_r0 != 8) && (temp_r0 != 7) && (is_anim_6__12TObjEneReconFv(entity) == 1)) {
         *(s32 *)((s8 *)arg0 + 0x2DC) = (s32) (*(s32 *)((s8 *)arg0 + 0x2DC) | 4);
         ((TObjPlayer *)arg0)->set_hp_clamped(0);
         obj_setFlags30(arg0, 0xA00U);
@@ -431,16 +431,16 @@ void TObjEneRecon::init_state() {
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjEneRecon__recobox_static_instance + 0x42C)) + 8);
     temp_r6 = (u8 *)(*(u8 **)((s8 *)TObjEneRecon__recobox_static_instance + 0x42C));
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)temp_r6 + 0xC);
-    init_model__9TObjEneDDFv((void *) (arg0), (void *) TObjEneRecon__collision_body_template, 1, (int) (temp_r6));
+    init_model__9TObjEneDDFv((void *)arg0, (void *) TObjEneRecon__collision_body_template, 1, (int)temp_r6);
     ((TObjPlayer *)arg0)->set_field_d8((s32)((void *) TObjEneRecon__animation_entries));
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)TObjEneRecon__recobox_static_instance + 0x430)));
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs((arg0), (*(s16 *)((s8 *)arg0 + 0xB8)));
     ((TObjMotion *)arg0)->set_field_b8((int) (*(s16 *)((s8 *)arg0 + 0xB8)));
-    reset_hp__9TObjEneDDFv((void *) (arg0), (void *) (lbl_805D6AF0), (int) (TObjEneRecon__attack_params), (void *) (TObjEneRecon__resistance_params));
+    reset_hp__9TObjEneDDFv((void *)arg0, (void *)lbl_805D6AF0, (int)TObjEneRecon__attack_params, (void *)TObjEneRecon__resistance_params);
     ((TObjEneDD *)arg0)->check_state_flag_4();
     *(void **)((s8 *)arg0 + 0x350) = (void *) TObjEneRecon__ai_parameters;
-    initialize_enemy_state__9TObjEneDDFv((void *) (arg0), 0x44);
+    initialize_enemy_state__9TObjEneDDFv(arg0, 0x44);
     *(f32 *)((s8 *)arg0 + 0x37C) = (f32) TObjEneRecon__data_805DF3D4;
     ((TObjEneDD_ST *)arg0)->enemy_init_acquire_period(0xA);
     ((TObjEneDD_ST *)arg0)->enemy_init_validate_period(0xA);
@@ -463,7 +463,7 @@ void TObjEneRecon::init_state() {
     *(s32 *)((s8 *)arg0 + 0x47C) = 0;
     *(s32 *)((s8 *)arg0 + 0x418) = 0;
     VecCopy((Vec *)(arg0 + 0x41C), (const Vec *)(arg0 + 0x38));
-    ((VObj_14_2f517b *)((u8 *)(arg0) + (1152)))->m2();
+    ((VObj_14_2f517b *)(arg0 + (1152)))->m2();
     *(s32 *)((s8 *)arg0 + 0x46C) = 0;
     *(s32 *)((s8 *)arg0 + 0x470) = 0;
     VecCopy((Vec *)(arg0 + 0x40C), (const Vec *)(arg0 + 0x38));

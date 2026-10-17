@@ -211,7 +211,7 @@ void TOMonitorMachine01::render() {
 void *TOMonitorMachine01::create() {
     void *o = __nw__7TObjectFUl(0xD8);
     if (o != NULL) {
-        o = TOMonitorMachine01__ct((void *)(o), (void *)(this));
+        o = TOMonitorMachine01__ct(o, this);
     }
     return o;
 }

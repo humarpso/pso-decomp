@@ -18,7 +18,7 @@ u8 *fn_800480B0(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &volopt_boss_dispatch_table.value;
     ((TObjPlayer *)(arg0 + 0x490))->init_and_activate();
     ((TUnk_80484610 *)(arg0))->apply_set_data((void *)arg2);
-    TBoss3VoloptP02__ct((void *) (arg0));
+    TBoss3VoloptP02__ct(arg0);
     return arg0;
 }
 

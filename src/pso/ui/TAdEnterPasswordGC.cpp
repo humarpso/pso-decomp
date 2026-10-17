@@ -233,7 +233,7 @@ void update_password_input__18TAdEnterPasswordGCFPv(Pw_8032B6A0 *self) {
 
 void open_keyboard_window__18TAdEnterPasswordGCFPv(s32 arg0) {
     *(s32 *)((s8 *)arg0 + 0x30) = TAdEnterSerialAccessGC::show_message_window((void *)arg0, (void *)2);
-    *(s32 *)((s8 *)arg0 + 0x34) = create_default_callback__22TAdEnterSerialAccessGCFv((void *) (arg0));
+    *(s32 *)((s8 *)arg0 + 0x34) = create_default_callback__22TAdEnterSerialAccessGCFv((void *)arg0);
     if ((u32) *(u32 *)((s8 *)arg0 + 0x2C) != 0U) {
         ((TAdEnterSerialAccessGC *)(*(void **)((s8 *)arg0 + 0x2C)))->reset_input_state();
         ((TLevelSelect *)(*(u32 *)((s8 *)arg0 + 0x2C)))->add_item_rect((void *) (&enter_password_item_rect_table.value));
@@ -289,13 +289,13 @@ u8 *TAdEnterPasswordGC__ct(u8 *parent) {
     if ((s8) *(u8 *)((s8 *)(TAdSinglePlyChrSelectGC::get_instance()) + 0x1154C) != 0) {
         set_password__18TAdEnterPasswordGCFi((s32)((void *) (TAdSinglePlyChrSelectGC::get_instance() + 0x1154C)));
         TKeyBoardControl__sub_8000F9CC(0xF);
-        queue_destruction__7TObjectFv((void *) (parent));
+        queue_destruction__7TObjectFv(parent);
         return parent;
     }
     ((TAdEnterBaseGC *)parent)->create_parts();
     temp_r3 = __nw__7TObjectFUl(0x138);
     if (temp_r3 != 0U) {
-        __ct__10TAdTitleGCFP7TObjectl((int) (temp_r3), (void *) (parent), 0xC);
+        __ct__10TAdTitleGCFP7TObjectl(temp_r3, parent, 0xC);
     }
     return parent;
 }
@@ -331,7 +331,7 @@ s32 dispatch_input_to_instance__18TAdEnterPasswordGCFi(s32 arg0) {
         if (((TAdSnAkPassConfirmGC *)lbl_805D6CB8)->get_confirm_state() != 0) {
             return 0;
         }
-        TAdEnterPasswordGC__sub_8032BC94((u8 *)(lbl_805D6CB8), (s32)(arg0));
+        TAdEnterPasswordGC__sub_8032BC94((u8 *)lbl_805D6CB8, (s32)arg0);
         return 1;
     }
     return 0;

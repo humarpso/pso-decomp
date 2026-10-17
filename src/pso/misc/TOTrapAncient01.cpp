@@ -209,18 +209,18 @@ void TOTrapAncient01::release_trapped_player() {
             temp_r3 = (s32)get_player_by_client_id((obj_getField1c(*(void * *)&this->target)));
             if (temp_r3 != 0) {
                 if (check_player_flag1__6TLobbyFv() != 0) {
-                    TObjPlayer::send_code_45_1((int) (temp_r3));
+                    TObjPlayer::send_code_45_1(temp_r3);
                 }
-                obj_clear_flag30_20000((void *)(temp_r3));
+                obj_clear_flag30_20000((void *)temp_r3);
             }
         }
     } else if ((*(void * *)&this->target != NULL) && ((s32) local_client_id == (s32) obj_getField1c(*(void * *)&this->target))) {
         temp_r3_2 = (s32)get_player_by_client_id(local_client_id);
         if (temp_r3_2 != 0) {
             if (check_player_flag1__6TLobbyFv() != 0) {
-                TObjPlayer::send_code_45_1((int) (temp_r3_2));
+                TObjPlayer::send_code_45_1(temp_r3_2);
             }
-            obj_clear_flag30_20000((void *)(temp_r3_2));
+            obj_clear_flag30_20000((void *)temp_r3_2);
         }
     }
 }
@@ -374,7 +374,7 @@ void render__15TOTrapAncient01Fv(Trap_80179B8C *self) {
 void *TOTrapAncient01::create() {
     void *o = __nw__7TObjectFUl(0x3C8);
     if (o != NULL) {
-        o = TOTrapAncient01__ct((void *)(o), (void *)(tl_05), (void *)(this));
+        o = TOTrapAncient01__ct(o, tl_05, this);
     }
     return o;
 }

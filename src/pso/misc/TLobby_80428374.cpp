@@ -180,9 +180,9 @@ s32 TLobby::wait_timeout_loop() {
         if ((u32)(now - start) > limit) {
             break;
         }
-        TUdpSocket::unlock_mutex((int)(lbl_805C18A0[0]));
+        TUdpSocket::unlock_mutex((int)lbl_805C18A0[0]);
         TLobby__sub_803F97E8(100);
-        TLobby::lock_mutex((int)(lbl_805C18A0[0]));
+        TLobby::lock_mutex((int)lbl_805C18A0[0]);
     }
     return ret;
 }
@@ -197,7 +197,7 @@ s32 TLobby::init_buffer_pool() {
     lbl_805D7BF4 = lobby_buffer_pool_base;
     lbl_805D7BF8 = lobby_buffer_pool_base + lobby_buffer_pool_size;
     lbl_805D7BFC = lobby_buffer_pool_size;
-    if (TLobby__sub_803F96AC((void *) (&lobby_buffer_pool_alarm_handle), (void *) (lobby_buffer_pool_base), (void *) (lobby_buffer_pool_size)) < 0) {
+    if (TLobby__sub_803F96AC((void *) (&lobby_buffer_pool_alarm_handle), (void *)lobby_buffer_pool_base, (void *)lobby_buffer_pool_size) < 0) {
         return -1;
     }
     TLobby::reset_buffer_pool();

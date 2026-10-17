@@ -64,7 +64,7 @@ void TAdSinglePlyChrSelectGC::accumulate_rumble_strength(s16 *arg0, s32 arg1) {
                     stack.spC = *(f32 *)((s8 *)var_r30 + 8) - *(f32 *)((s8 *)player + 0x3C);
                     temp_f1 = *(f32 *)((s8 *)var_r30 + 0xC);
                     stack.sp10 = temp_f1 - *(f32 *)((s8 *)player + 0x40);
-                    var_r3 = (s16) -((lbl_805DCA00 * update_scale__15TObjBoss2TunnelFv((void *) (&stack.sp8), (f32) (temp_f1))) - (f32) *(s16 *)((s8 *)var_r30 + 0x10));
+                    var_r3 = (s16) -((lbl_805DCA00 * update_scale__15TObjBoss2TunnelFv((void *) (&stack.sp8), temp_f1)) - (f32) *(s16 *)((s8 *)var_r30 + 0x10));
                     if (var_r3 < 0xA) {
                         var_r3 = 0xA;
                     }

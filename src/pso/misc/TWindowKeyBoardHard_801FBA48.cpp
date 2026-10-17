@@ -37,7 +37,7 @@ void draw_ginja_box_tree(u8 *arg0) {
     s32 temp_r31;
     u8 *temp_r3;
     u8 *var_r30;
-    var_r30 = (u8 *)(arg0);
+    var_r30 = arg0;
     do {
         temp_r31 = *(s32 *)((s8 *)var_r30 + 0);
         push_matrix();

@@ -64,7 +64,7 @@ extern "C" {
 
 typedef char RecoveredGlobal_80191EC0___vt__11TObjInfoCol_size[sizeof(RecoveredGlobal_80191EC0___vt__11TObjInfoCol) == 0x38 ? 1 : -1];
 u8 *TObjInfoCol__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_collider_proxy__13TUnk_804AF8A0Fv((void *) (arg0), (void *) (arg1));
+    construct_collider_proxy__13TUnk_804AF8A0Fv((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80191EC0___vt__11TObjInfoCol *)&__vt__11TObjInfoCol).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjInfoCol__class_name;
     ((TObjInfoCol *)(arg0))->apply_object_set_data((void *)arg2);

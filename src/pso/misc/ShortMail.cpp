@@ -99,7 +99,7 @@ void send_simple_mail__6TLobbyFiPv(s32 arg0, void *arg1) {
         strncpy((void *)(&t.b[0xC]), (void *)(((void *)get_com_card_list__6TLobbyFPv((void*)((void *)mode)))), 0x17);
         *(s32 *)&t.b[0x1C] = arg0;
         t.b[0x23] = 0;
-        strncpy((void *)(&t.b[0x20]), (void *)(arg1), 0xAB);
+        strncpy((void *)(&t.b[0x20]), arg1, 0xAB);
         t.b[0xCB] = 0;
         send_simple_mail__9TProtocolFR12TChatMessage(TLobby__protocol_instance, &t);
     }
@@ -112,7 +112,7 @@ void TLobby__sub_802258C8(void) {
   var_r30 = (s32 *) (&(*(RecoveredGlobal_802258C8_lbl_80513F70 *)&lbl_80513F70).value);
   do
   {
-    if (((s32)is_flag_set__6TLobbyFPv((void*)(var_r30))) != 0)
+    if (((s32)is_flag_set__6TLobbyFPv(var_r30)) != 0)
     {
       TLobby__sub_80225C8C((void*)((int) var_r30));
     }
@@ -126,8 +126,8 @@ void *find_short_mail_by_id__6TLobbyFUi(u32 id) {
     s32 count = ((s32)get_short_mail_ctrl__6TLobbyFv());
     s32 i;
     for (i = 0; i < count; i++) {
-        void *o = TLobby__sub_8022598C((int)(i));
-        if (id == get_lobby_id__6TLobbyFPv((void*)(o))) {
+        void *o = TLobby__sub_8022598C(i);
+        if (id == get_lobby_id__6TLobbyFPv(o)) {
             return o;
         }
     }
@@ -151,7 +151,7 @@ s32 find_free_slot__6TLobbyFv(void) {
   var_r31 = 0;
   var_r30 = (s32 *) (&(*(RecoveredGlobal_802259A0_lbl_80513F70 *)&lbl_80513F70).value);
   loop_1:
-  if (is_flag_set__6TLobbyFPv((void*)(var_r30)) == 0)
+  if (is_flag_set__6TLobbyFPv(var_r30) == 0)
   {
     return var_r31;
   }
@@ -223,8 +223,8 @@ void fill_list_entry__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
     *(s8 *)((s8 *)arg0 + 0xCB) = 0;
 }
 
-void TLobby__sub_80225C44(void* p) { clear_all_entries__6TLobbyFPv((void*)(p)); }
-void TLobby__sub_80225C64(void* p) { clear_all_entries__6TLobbyFPv((void*)(p)); }
+void TLobby__sub_80225C44(void* p) { clear_all_entries__6TLobbyFPv(p); }
+void TLobby__sub_80225C64(void* p) { clear_all_entries__6TLobbyFPv(p); }
 void* get_com_card_list__6TLobbyFPv(void* p) { return (char*)p + 0x8; }
 void TLobby__sub_80225C8C(void* p) { *(u8*)((char*)p + 0xcc) &= 0xfffffffd; }
 int is_flag_set__6TLobbyFPv(void* p) { return *(u8*)((char*)p + 0xcc) & 0x1; }

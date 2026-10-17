@@ -79,7 +79,7 @@ void TObjParticle::run_task() {
         var_f31 = lbl_805DBEE8;
     }
     if (xyz_distance_squared((u8 *)&this->position, (u8 *)(camera_ctrl_instance + 0x178)) > var_f31) {
-        queue_destruction__7TObjectFv((void *)(arg0));
+        queue_destruction__7TObjectFv(arg0);
         return;
     }
     if ((u32) this->m_90 != 0U) {
@@ -175,9 +175,9 @@ u8 *TObjParticle__create(u8 *arg0) {
         return NULL;
     }
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x98));
-    var_r0 = (u8 *)(temp_r3);
+    var_r0 = temp_r3;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TObjParticle__ct((Part_80195400 *)(temp_r3), (s32)(tl_05), (Src_80195400 *)(arg0)));
+        var_r0 = (u8 *)(TObjParticle__ct((Part_80195400 *)(temp_r3), tl_05, (Src_80195400 *)(arg0)));
     }
     return var_r0;
 }

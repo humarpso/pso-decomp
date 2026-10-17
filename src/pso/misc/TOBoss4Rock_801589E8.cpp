@@ -312,7 +312,7 @@ void *__dt__12TOBoss4TowerFv(void *arg0, s16 arg1);
 void *TOBoss4Tower__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x98);
     if (o != NULL) {
-        o = TOBoss4Tower__ct((u8 *)(o), (s32)(arg0));
+        o = TOBoss4Tower__ct((u8 *)o, (s32)arg0);
     }
     return o;
 }
@@ -340,9 +340,9 @@ u8 *TOBoss4Tower__ct(u8 *arg0, s32 arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80159514___vt__12TOBoss4Tower *)&__vt__12TOBoss4Tower).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2EB8;
     ((TOBoss4Tower *)(arg0))->apply_object_set_data((void *)arg1);
-    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *) (lbl_805D58A8), 5);
+    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *)lbl_805D58A8, 5);
     ((TOBoss4Tower *)arg0)->m_94 = (f32) (6e+01f);
-    ((TOBoss4Tower *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *) (lbl_805D58A8), 5);
+    ((TOBoss4Tower *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *)lbl_805D58A8, 5);
     return arg0;
 }
 

@@ -105,7 +105,7 @@ u8 *TOBarrierEnergy01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(u8 **)((s8 *)arg0 + 0xBC) = get_bml_motion((*(s32 *)&barrier_energy_shared_bml_archive), 0);
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB2D8);
     ((TOBarrierEnergy01 *)arg0)->m_b8 = (f32) lbl_805DB2DC;
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AFB34.value), 1);
+    init_collision_body_parts(arg0, (void *) (&lbl_804AFB34.value), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOBarrierEnergy01 *)(arg0))->init_door_switch_binding();

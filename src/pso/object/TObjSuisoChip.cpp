@@ -32,7 +32,7 @@ void *__dt__13TObjSuisoChipFv(void *self, s16 arg1) {
 }
 
 u8 *__ct__13TObjSuisoChipFv(u8 *arg0, u8 *arg1) {
-    __ct__8TObjChipFv((void *) (arg0), (void *) (tl_05));
+    __ct__8TObjChipFv((void *)arg0, (void *)tl_05);
     *(void ***)((s8 *)arg0 + 0x18) = __vt__13TObjSuisoChip;
     *(s32 *)((s8 *)arg0 + 0) = (s32) suiso_chip_class_name_ptr;
     if (arg1 != NULL) {
@@ -50,7 +50,7 @@ u8 *__ct__13TObjSuisoChipFv(u8 *arg0, u8 *arg1) {
 }
 
 u8 *init__13TObjSuisoChipFPvPv(u8 *arg0, u8 *arg1) {
-    construct_debris__8TObjChipFPvPvPv((void *) (arg0), (void *) (tl_05));
+    construct_debris__8TObjChipFPvPvPv((void *)arg0, (void *)tl_05);
     *(void ***)((s8 *)arg0 + 0x18) = __vt__13TObjSuisoChip;
     *(s32 *)((s8 *)arg0 + 0) = (s32) suiso_chip_class_name_ptr;
     if (arg1 != NULL) {
@@ -217,12 +217,12 @@ void TObjSeabedSuisoBrakable::sub_802A6438() {
     s32 *var_r3;
     f32 var_f0;
     u8 *var_r31;
-    var_r31 = (u8 *)(arg0);
+    var_r31 = arg0;
     var_r3 = (s32 *)(&TObjSeabedSuisoBrakable__chip_record_set_table.value);
     var_r3 = (s32 *)(&TObjSeabedSuisoBrakable__chip_record_set_table.value);
     var_r3 = (s32 *)(*(s32 *)((s8 *)(&TObjSeabedSuisoBrakable__chip_record_set_table.value) + (*(s32 *)((s8 *)var_r31 + 0xBC) * 0x120)));
-    *(s32 *)((s8 *)var_r31 + 0x34) = ((s32 (*)(int))get_model__23TObjSeabedSuisoBrakableFi)((int) (var_r3));
-    var_r3 = (s32 *)((u8 *)(NULL));
+    *(s32 *)((s8 *)var_r31 + 0x34) = ((s32 (*)(int))get_model__23TObjSeabedSuisoBrakableFi)((int)var_r3);
+    var_r3 = (s32 *)(NULL);
     *(s32 *)((s8 *)var_r31 + 0x24) = ((s32 (*)(int))get_instance__23TObjSeabedSuisoBrakableFv)(0);
     var_f0 = lbl_805DDFFC;
     *(f32 *)((s8 *)var_r31 + 0xB0) = var_f0;
@@ -271,7 +271,7 @@ void *TObjSeabedSuisoBrakable::create_instance(void *arg0) {
     void *o;
     o = __nw__7TObjectFUl(0xC0);
     if (o != NULL) {
-        o = TObjSeabedSuisoBrakable__ct((u8 *)(o), (s32)(arg0));
+        o = TObjSeabedSuisoBrakable__ct((u8 *)o, (s32)arg0);
     }
     return o;
 }
@@ -307,7 +307,7 @@ u8 *TObjSeabedSuisoBrakable__ct(u8 *arg0, s32 arg1) {
     if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {
         *(s32 *)&((TObjSeabedSuisoBrakable *)arg0)->m_b8 = -1;
     }
-    init_collision_body_parts((void *) (arg0), (int) ((u8 *)&lbl_804DD6E8.value + (*(s32 *)&((TObjSeabedSuisoBrakable *)arg0)->m_bc* 0x2C)), 1);
+    init_collision_body_parts(arg0, (int) ((u8 *)&lbl_804DD6E8.value + (*(s32 *)&((TObjSeabedSuisoBrakable *)arg0)->m_bc* 0x2C)), 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;
 }

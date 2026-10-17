@@ -37,7 +37,7 @@ s32 get_or_create_player__22TAdMultiPlyChrSelectGCFiiii(s32 arg0, s32 arg1, s32 
         temp_r3 = __nw__7TObjectFUl(0x174);
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = ((s32)((TUnk_804E3008 *)temp_r3)->init_player((void *)((void *) (arg0)), (void *)((void *) (arg1)), (void *)((void *) (arg2)), (void *)((void *) (arg3))));
+            var_r0 = ((s32)((TUnk_804E3008 *)temp_r3)->init_player((void *)(arg0), (void *)(arg1), (void *)(arg2), (void *)(arg3)));
         }
         *(s32 *)((s8 *)(&multi_chr_select_player_slot_table.value) + temp_r30) = var_r0;
     }

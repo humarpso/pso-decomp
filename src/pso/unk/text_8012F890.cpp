@@ -10,7 +10,7 @@ u8 *TObjPlayer::create_position_state(u8 *arg0) {
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x208));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
             var_r0 = (u8 *)(init_position_state__13TUnk_804A64E8Fv(temp_r3, tl_05, arg0));
         }

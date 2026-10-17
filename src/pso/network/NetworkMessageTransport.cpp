@@ -192,7 +192,7 @@ s32 TLobby::post_message(s32 arg1, s32 arg2, s32 arg3) {
     s32 ok;
     u8 *p;
     if (arg3 != 0) {
-        p = TLobby::find_entry_by_address((s32)(arg1));
+        p = TLobby::find_entry_by_address(arg1);
     } else {
         p = TLobby__sub_804256B8(arg1);
     }
@@ -222,7 +222,7 @@ void TLobby::message_thread_loop() {
             OSReceiveMessage(lbl_805CF380, &sp8, 1);
             network_message_pending_count -= 1;
         }
-        TLobby::clear_message_entry((s32)(id));
+        TLobby::clear_message_entry(id);
     }
 }
 
@@ -356,8 +356,8 @@ s16 TLobby__sub_804262CC(void *argp) {
     if ((s32) lbl_805D7BB0 == 1) {
         return 0;
     }
-    NetMemset((void *)(arg0), 0, 0x56);
-    if (TLobby__sub_8042AAA0((void *) (lbl_805D7BC8)) != 1) {
+    NetMemset((void *)arg0, 0, 0x56);
+    if (TLobby__sub_8042AAA0((void *)lbl_805D7BC8) != 1) {
         var_r0 = -1;
     } else {
         if ((u32) lbl_805D7BC4 != 0U) {
@@ -368,10 +368,10 @@ s16 TLobby__sub_804262CC(void *argp) {
         var_r30 = (s16 *)((u8 *)(arg0 + 6));
         do {
             if ((s16) *(s16 *)((s8 *)var_r30 + 0) > 0) {
-                enable_network_multicast_address(((u8 *)(var_r30) + 2));
+                enable_network_multicast_address(((u8 *)var_r30 + 2));
             }
             var_r29 += 1;
-            var_r30 = (s16 *)((u8 *)((s16 *)((u8 *)(var_r30) + 8)));
+            var_r30 = (s16 *)((u8 *)((s16 *)((u8 *)var_r30 + 8)));
         } while (var_r29 < 6);
         TLobby__sub_80426190((Obj_80426110 *) (arg0));
         var_r0 = 0;
@@ -385,7 +385,7 @@ s16 TLobby__sub_804262CC(void *argp) {
     if (TLobby__sub_803F9B94((void *) (&TLobby::message_thread_loop), (void *) (&lobby_message_thread_handle)) < 0) {
         return -1;
     }
-    NetResumeThread((void *) (lobby_message_thread_handle));
+    NetResumeThread((void *)lobby_message_thread_handle);
     lbl_805D7BB0 = 1;
     network_link_status_cache = -1;
     lbl_805D7BB8 = 0;
@@ -404,11 +404,11 @@ s32 post_send_message__6TLobbyFiUs(s32 arg0, u16 arg1) {
     s32 temp_r3;
     u8 *msg;
     u8 pad[8];
-    temp_r3 = TLobby__sub_8042558C((void *) (arg1));
+    temp_r3 = TLobby__sub_8042558C((void *)arg1);
     if (temp_r3 == 0) {
         return -1;
     }
-    NetMemcpy((void *)(temp_r3), (void *)(arg0), (int) (void *) (arg1));
+    NetMemcpy((void *)temp_r3, (void *)arg0, (int) (void *)arg1);
     msg = (u8 *)(TLobby__sub_804256B8(temp_r3));
     if (msg != NULL) {
         *(s32 *)((s8 *)msg + 4) = (s32) arg1;
@@ -418,7 +418,7 @@ s32 post_send_message__6TLobbyFiUs(s32 arg0, u16 arg1) {
 }
 
 void TLobby::clear_message_entry_wrapper(s32 arg0) {
-    TLobby::clear_message_entry((s32)(arg0));
+    TLobby::clear_message_entry(arg0);
 }
 
 u16 TLobby::recv_pppoe_message(s32 *arg0, u16 *arg1) {
@@ -573,7 +573,7 @@ s32 TLobby::open_channel_checked(s16 arg0, u16 arg1) {
 void TLobby::forward_to_channel(void *b) {
     if (this != NULL) {
         void *q = lobby_net_channel_table;
-        dispatch_received_ethernet_frame((void *)(q), (void *)(this), (void *)(b));
+        dispatch_received_ethernet_frame(q, this, b);
     }
 }
 

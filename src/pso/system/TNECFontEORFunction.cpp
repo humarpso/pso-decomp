@@ -28,8 +28,8 @@ s32 menu_font_char_advance_table[191] = {
 };
 void TNECFontEORFunction::run_task() {
     if (menu_font_upload_flags & 2) {
-        DCFlushRange((void *) (lbl_805D56B4), 0x80);
-        init_and_load_tlut(0, 2, 0x80, (void *)(lbl_805D56B4));
+        DCFlushRange((void *)lbl_805D56B4, 0x80);
+        init_and_load_tlut(0, 2, 0x80, (void *)lbl_805D56B4);
         menu_font_upload_flags &= 0xFFFFFFFD;
     }
     if (menu_font_upload_flags & 1) {

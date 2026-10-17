@@ -27,7 +27,7 @@ s32 fn_800C3A60(s32 arg0, s32 arg1) {
             return 0x40039942;
         }
     }
-    return copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), (void *) (arg1));
+    return copy_target_state__14TObjEnePanarmsFPv((void *)arg0, (void *)arg1);
 }
 
 }

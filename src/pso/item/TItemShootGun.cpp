@@ -17,7 +17,7 @@ void TItemShootGun::render() {
     if (is_owner_alive()) {
         if (this->m_58 != NULL) {
             ((TObjDoorJung *)(*(s32*)((u8*)this->m_58 + 4)))->free_children((void *)(this->m_70 & 0xFFFF));
-            TObjPlayer::notify_fish_if_valid((u32)(this->m_5C));
+            TObjPlayer::notify_fish_if_valid((u32)this->m_5C);
             TParticleCtrl::begin_effect_render();
             push_matrix();
             post_translate_matrix(&this->m_pos);

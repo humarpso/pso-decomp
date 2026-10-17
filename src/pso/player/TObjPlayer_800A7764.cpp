@@ -160,19 +160,19 @@ void TObjEneDimedian::vfunc_101() {  }
 
 void TObjEneDimedian::vfunc_99() {
     s32 arg0 = (s32)this;
-    play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((s32)((void *) (arg0)), 0x4003AD40)))), (s32)((void *) (arg0 + 0x38)), 0, 0);
+    play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((s32)(arg0), 0x4003AD40)))), (s32)((void *) (arg0 + 0x38)), 0, 0);
     TObjPlayer::play_effect_if_v2(-0x100);
 }
 
 void TObjEneDimedian::vfunc_98() {
     s32 arg0 = (s32)this;
-    play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((s32)((void *) (arg0)), 0x4003AD3D)))), (s32)((void *) (arg0 + 0x38)), 0, 0);
+    play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((s32)(arg0), 0x4003AD3D)))), (s32)((void *) (arg0 + 0x38)), 0, 0);
     TObjPlayer::play_effect_if_v2(-0x100);
 }
 
 void TObjEneDimedian::vfunc_97() {
     s32 arg0 = (s32)this;
-    play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((s32)((void *) (arg0)), 0x4003A83E)))), (s32)((void *) (arg0 + 0x38)), 0, 0);
+    play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((s32)(arg0), 0x4003A83E)))), (s32)((void *) (arg0 + 0x38)), 0, 0);
     TObjPlayer::play_effect_if_v2(-0x100);
 }
 
@@ -180,7 +180,7 @@ extern f32 lbl_805D9AA0;
 
 void TObjEneDimedian::vfunc_96() {
     s32 arg0 = (s32)this;
-    play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((s32)((void *) (arg0)), 0x4003A83F)))), (s32)((void *) (arg0 + 0x38)), 0, 0);
+    play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((s32)(arg0), 0x4003A83F)))), (s32)((void *) (arg0 + 0x38)), 0, 0);
     TObjPlayer::play_effect_if_v2(-0x100);
 }
 
@@ -207,7 +207,7 @@ void TObjEneDimedian::vfunc_94() {
         play_sound_effect(0x3AD3F, (s32)(arg0 + 0x38), 0, 0);
         return;
     }
-    play_sound_effect((s32)(((s32)copy_target_state__14TObjEnePanarmsFPv((s32)((void *) (arg0)), 0x4003AD25))), (s32)(arg0 + 0x38), 0, 0);
+    play_sound_effect((s32)(((s32)copy_target_state__14TObjEnePanarmsFPv((s32)(arg0), 0x4003AD25))), (s32)(arg0 + 0x38), 0, 0);
 }
 
 void TObjEneDimedian::vfunc_93() {

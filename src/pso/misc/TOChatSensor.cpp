@@ -42,7 +42,7 @@ u32 TOChatSensor__ct(int arg0, void *parent, void *arg2) {
     if (n > 0) {
         t = (s32 *) *(s32 *)((s8 *)chat_sensor_table + 4);
         t += n;
-        ((TOChatSensor *)arg0)->set_trigger_text((void *)(t[-1]));
+        ((TOChatSensor *)arg0)->set_trigger_text((void *)t[-1]);
     }
     return arg0;
 }
@@ -65,14 +65,14 @@ u32 TOChatSensor__create(s32 arg0) {
     if ((u32) TOChatSensorFolder__instance == 0U) {
         temp_r3 = __nw__7TObjectFUl(0x1C);
         if (temp_r3 != 0U) {
-            TOChatSensorFolder__ct((int) (temp_r3), (int) (tl_05));
+            TOChatSensorFolder__ct(temp_r3, tl_05);
         }
     }
     if ((u32) TOChatSensorFolder__instance != 0U) {
         temp_r3_2 = __nw__7TObjectFUl(0xD0);
         var_r0 = temp_r3_2;
         if (var_r0 != 0U) {
-            var_r0 = TOChatSensor__ct((int)((int) (temp_r3_2)), (void *)((void *) (TOChatSensorFolder__instance)), (void *)((void *) (arg0)));
+            var_r0 = TOChatSensor__ct((int)(temp_r3_2), (void *)(TOChatSensorFolder__instance), (void *)(arg0));
         }
         return var_r0;
     }

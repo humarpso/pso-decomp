@@ -130,7 +130,7 @@ Obj_8004FD50 *__dt__11TObjDFDemo5Fv(Obj_8004FD50 *arg0, s16 arg1) {
         }
         for (i = 0; i < 5; i++) {
             if (arg0->items[i] != NULL) {
-                TBoss4Type2::request_destroy((u32)(arg0->items[i]));
+                TBoss4Type2::request_destroy((u32)arg0->items[i]);
                 arg0->items[i] = NULL;
             }
         }

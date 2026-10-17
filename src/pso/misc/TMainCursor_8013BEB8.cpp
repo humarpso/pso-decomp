@@ -52,7 +52,7 @@ u8 get_active__11TMainCursorFv(s32);
 
 s32 try_move__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2) {
     if (is_channel_active__11TMainCursorFv() != 0) {
-        return matches_type_and_enabled__11TMainCursorFiUcUc((void*)(arg0), (void*)(arg1), (void*)(arg2));
+        return matches_type_and_enabled__11TMainCursorFiUcUc((void*)arg0, (void*)arg1, (void*)arg2);
     }
     return 0;
 }
@@ -249,9 +249,9 @@ void TMainCursor::reset_cursor_parts() {
     var_r30 = 0;
     *(f32 *)((s8 *)arg0 + 0x18) = (f32) TMainCursor__data_805DB0C0;
     do {
-        get_record_at__11TMainCursorFPvi((void *) (arg0 + 0x40), (int) (var_r30));
-        set_size__11TMainCursorFf((f32) (TMainCursor__data_805DB0C0));
-        set_cursor_id__11TMainCursorFs(get_record_at__11TMainCursorFPvi((void *) (arg0 + 0x40), (int) (var_r30)), 0xFFFF);
+        get_record_at__11TMainCursorFPvi((void *) (arg0 + 0x40), var_r30);
+        set_size__11TMainCursorFf(TMainCursor__data_805DB0C0);
+        set_cursor_id__11TMainCursorFs(get_record_at__11TMainCursorFPvi((void *) (arg0 + 0x40), var_r30), 0xFFFF);
         var_r30 += 1;
     } while (var_r30 < 0xA);
 }
@@ -289,8 +289,8 @@ void TMainCursor::quick_sort(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 
     if (arg2 < arg3) {
         temp_r3 = ((s32 (*)(void))quick_sort_partition__11TMainCursorFiPvii)();
-        TMainCursor::quick_sort((s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(temp_r3 - 1));
-        TMainCursor::quick_sort((s32)(arg0), (s32)(arg1), (s32)(temp_r3 + 1), (s32)(arg3));
+        TMainCursor::quick_sort(arg0, arg1, arg2, (s32)(temp_r3 - 1));
+        TMainCursor::quick_sort(arg0, arg1, (s32)(temp_r3 + 1), arg3);
     }
 }
 

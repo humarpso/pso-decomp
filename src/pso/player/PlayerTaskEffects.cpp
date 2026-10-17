@@ -638,16 +638,16 @@ void *__dt__13TForceOperateFv(void *arg0, s16 arg1) {
 namespace accessors {
 extern "C" {
 s32 get_contact_surface_type(s32 arg0) {
-    if (((s32)TObjPlayer__sub_801C7098((void*)(arg0))) != 0) {
+    if (((s32)TObjPlayer__sub_801C7098((void*)arg0)) != 0) {
         return 1;
     }
-    if (has_water_ground_flag((void *)(arg0)) != 0) {
+    if (has_water_ground_flag((void *)arg0) != 0) {
         return 2;
     }
-    if (((s32)test_flag_8__10TObjPlayerFPv((void*)((void *) (arg0)))) != 0) {
+    if (((s32)test_flag_8__10TObjPlayerFPv((void*)(arg0))) != 0) {
         return 3;
     }
-    return (((s32)set_action_flag16__10TObjPlayerFPv((void*)((void *) (arg0)))) != 0) ? 4 : 0;
+    return (((s32)set_action_flag16__10TObjPlayerFPv((void*)(arg0))) != 0) ? 4 : 0;
 }
 
 }

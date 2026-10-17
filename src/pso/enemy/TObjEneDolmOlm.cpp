@@ -1268,10 +1268,10 @@ void render_body__14TObjEneDolmOlmFPv(Ene_803021AC *arg0) {
 s32 TObjEneDolmOlm::render_model_if_visible() {
     if (get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x20) {
         if (((TObjEneRecon *)(((u8 *)this) + 0x3D8))->push_reflect_matrix() != 0) {
-            TObjFish::set_global_param((int) (this->texture_id));
+            TObjFish::set_global_param(this->texture_id);
             push_matrix();
             post_translate_matrix((void *) (((u8 *)this) + 0x38));
-            rotate_matrix_y(0, (int) (this->rotation_y));
+            rotate_matrix_y(0, this->rotation_y);
             ((TObjEneRe7Berura *)((u8 *)this))->draw();
             pop_matrix();
             restore_render_scissor(1);
@@ -1668,7 +1668,7 @@ void TObjEneDolmOlm::check_path_ahead(s32 arg1, f32 farg0) {
     stack.sp8 = TObjEneDolmOlm__data_805DEF54;
     stack.sp10 = (TObjEneDolmOlm__data_805DEF68 * farg0) + *(f32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0xC);
     push_matrix_from((void *) (&(*(RecoveredGlobal_80301264_lbl_8058D490 *)&identity_matrix).value));
-    rotate_matrix_y(0, (int)((void *) (arg1)));
+    rotate_matrix_y(0, (int)(arg1));
     rotate_vector_by_matrix(0, (void *) (&stack.sp8), (void *) (&stack.sp8));
     pop_matrices(1);
     vec3_add_to((void *) (&stack.sp8), (void *) (((u8 *)this) + 0x2FC));
@@ -1742,9 +1742,9 @@ void TObjEneDolmOlm::vfunc_94() {
     Stack_80300FC0 stack;
     stack.sp8 = TObjEneDolmOlm__data_805DEF54;
     stack.spC = lbl_805DEF58;
-    stack.sp10 = TObjEneDolmOlm__data_805DEF5C * *(f32 *)((s8 *)(this->m_2b0) + 0x10);
+    stack.sp10 = TObjEneDolmOlm__data_805DEF5C * *(f32 *)(this->m_2b0 + 0x10);
     push_matrix_from((void *) (&identity_matrix.value));
-    rotate_matrix_y(0, (int) (this->rotation_y));
+    rotate_matrix_y(0, this->rotation_y);
     rotate_vector_by_matrix(0, (void *) (&stack.sp8), (void *) (&stack.sp8));
     pop_matrix();
     vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x38));
@@ -1753,22 +1753,22 @@ void TObjEneDolmOlm::vfunc_94() {
 }
 void TObjEneDolmOlm::vfunc_95() {
     s32 arg0 = (s32)this;
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), 0x4003AD00)), (void *) (arg0 + 0x38), 0, 0);
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003AD00)), (void *) (arg0 + 0x38), 0, 0);
 }
 void TObjEneDolmOlm::vfunc_96() {
     s32 arg0 = (s32)this;
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), 0x4003B203)), (void *) (arg0 + 0x38), 0, 0);
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003B203)), (void *) (arg0 + 0x38), 0, 0);
 }
 void TObjEneDolmOlm::vfunc_97() {
     s32 arg0 = (s32)this;
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), 0x4003A802)), (void *) (arg0 + 0x38), 0, 0);
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003A802)), (void *) (arg0 + 0x38), 0, 0);
 }
 void TObjEneDolmOlm::vfunc_98() {
     s32 arg0 = (s32)this;
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), 0x4003A801)), (void *) (arg0 + 0x38), 0, 0);
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003A801)), (void *) (arg0 + 0x38), 0, 0);
 }
 void TObjEneDolmOlm::init_body_sub() {
-    spawn_ground_effects__14TObjEneDolmOlmFPvPv((u8 *)(this), (Vec_80300D00 *)((s8 *)this + 0x38));
+    spawn_ground_effects__14TObjEneDolmOlmFPvPv((u8 *)this, (Vec_80300D00 *)((s8 *)this + 0x38));
 }
 void spawn_ground_effects__14TObjEneDolmOlmFPvPv(u8 *arg0, Vec_80300D00 *arg1) {
     Vec_80300D00 v;

@@ -775,7 +775,7 @@ void TObjEneRe7Berura::handle_message_transition(s32 msg) {
     case 0:
         return;
     case 3:
-        ((s32 (*)(void *, s32))transition_enemy_state)((void *)(this), 1);
+        ((s32 (*)(void *, s32))transition_enemy_state)(this, 1);
         break;
     }
 }
@@ -783,40 +783,40 @@ void TObjEneRe7Berura::handle_message_transition(s32 msg) {
 void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 mode) {
     switch (arg1) {
     case 0:
-        ((TObjEneRe7Berura *)arg0)->handle_message_transition((s32)((void *) (mode)));
+        ((TObjEneRe7Berura *)arg0)->handle_message_transition((s32)(mode));
         return;
     case 1:
-        ((TObjEneRe7Berura *)arg0)->state_attack((s32)((void *) (mode)));
+        ((TObjEneRe7Berura *)arg0)->state_attack((s32)(mode));
         return;
     case 3:
-        TObjEneRe7Berura__sub_8009472C((u8 *)(arg0), (mode));
+        TObjEneRe7Berura__sub_8009472C((u8 *)arg0, (mode));
         return;
     case 2:
-        TObjEneRe7Berura__sub_80094624((u8 *)(arg0), (mode));
+        TObjEneRe7Berura__sub_80094624((u8 *)arg0, (mode));
         return;
     case 8:
-        ((TObjEneRe7Berura *)arg0)->handle_state((s32)((void *) (mode)));
+        ((TObjEneRe7Berura *)arg0)->handle_state((s32)(mode));
         return;
     case 4:
-        TObjEneRe7Berura__sub_800940E8((u8 *)(arg0), (mode));
+        TObjEneRe7Berura__sub_800940E8((u8 *)arg0, (mode));
         return;
     case 5:
-        TObjEneRe7Berura__sub_80093C80((u8 *)(arg0), (mode));
+        TObjEneRe7Berura__sub_80093C80((u8 *)arg0, (mode));
         return;
     case 6:
-        TObjEneRe7Berura__sub_80093888((u8 *)(arg0), (mode));
+        TObjEneRe7Berura__sub_80093888((u8 *)arg0, (mode));
         return;
     case 7:
-        ((TObjEneRe7Berura *)arg0)->run_flash_warning_state((s32)((void *) (mode)));
+        ((TObjEneRe7Berura *)arg0)->run_flash_warning_state((s32)(mode));
         return;
     case 9:
-        state_patrol__16TObjEneRe7BeruraFPvi((void *)(arg0), (mode));
+        state_patrol__16TObjEneRe7BeruraFPvi((void *)arg0, (mode));
         return;
     case 10:
-        TObjEneRe7Berura__sub_80093470((void *) (arg0), (void *) (mode));
+        TObjEneRe7Berura__sub_80093470((void *)arg0, (void *)mode);
         return;
     case 11:
-        ((TObjEneRe7Berura *)arg0)->update_death_state((s32)((void *) (mode)));
+        ((TObjEneRe7Berura *)arg0)->update_death_state((s32)(mode));
     default:
         return;
     }
@@ -836,7 +836,7 @@ s32 TObjEneRe7Berura::check_death_trigger() {
 void TObjEneRe7Berura::play_band_sound() {
     u8 *arg0 = (u8 *)this;
     if ((objInBand((GameObj *)arg0, (f32)lbl_805D9770) != 0) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)TObjEneRe7Berura__data_805D9764)) != 0)) {
-        play_sound_effect(copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), 0x4003BC1F), (u32) (arg0 + 0x38), 0, 0);
+        play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003BC1F), (u32) (arg0 + 0x38), 0, 0);
     }
 }
 #pragma pop
@@ -972,8 +972,8 @@ void apply_attack_params__16TObjEneRe7BeruraFiPv(s32 child, u8 *arg1) {
     temp_r4 = *(s32 *)((s8 *)arg1 + 8);
     berura_attack_node_range_end = temp_r4;
     berura_attack_node_vec_ptr = (long) (arg1 + 0x58);
-    push_matrix_from((void *) (identity_matrix), (int) (temp_r4), (int) (temp_r5), (int) (temp_r6));
-    TObjEneRe7Berura::collect_node_matrices((void *)((void *) (child)), 0);
+    push_matrix_from(identity_matrix, temp_r4, temp_r5, temp_r6);
+    TObjEneRe7Berura::collect_node_matrices((void *)(child), 0);
     pop_matrix();
 }
 
@@ -1075,7 +1075,7 @@ void TObjEneRe7Berura::update_collision_center() {
     *(f32 *)((s8 *)arg0 + 0x2FC) = (f32) *(f32 *)((s8 *)arg0 + 0x38);
     *(f32 *)((s8 *)arg0 + 0x300) = (f32) (TObjEneRe7Berura__data_805D9764 + *(f32 *)((s8 *)arg0 + 0x3C));
     *(f32 *)((s8 *)arg0 + 0x304) = (f32) *(f32 *)((s8 *)arg0 + 0x40);
-    ((s32 (*)(void *, void *, void *, f32))VecCopy__FP3VecPC3Vec)((void *) (arg0 + 0x74), (void *) (arg0 + 0x2FC), (void *) (arg0), (f32) (TObjEneRe7Berura__data_805D9764));
+    ((s32 (*)(void *, void *, void *, f32))VecCopy__FP3VecPC3Vec)((void *) (arg0 + 0x74), (void *) (arg0 + 0x2FC), arg0, TObjEneRe7Berura__data_805D9764);
 }
 
 void TObjEneRe7Berura::vfunc_61() {  }
@@ -1087,7 +1087,7 @@ void TObjEneRe7Berura::vfunc_62() {
         return;
     }
     if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 0xA) {
-        transition_enemy_state((void*)((void *)(arg0)), (void*)(0xA));
+        transition_enemy_state((void*)(arg0), (void*)(0xA));
     }
 }
 
@@ -1234,7 +1234,7 @@ void TObjEneRe7Berura::destroy_children() {
 void *TObjEneRe7Berura::create() {
     void *o = __nw__7TObjectFUl(0x4E4);
     if (o != NULL) {
-        o = TObjEneRe7Berura__ct((void *)(o), (void *)(tl_04), (void *)(this));
+        o = TObjEneRe7Berura__ct(o, tl_04, this);
     }
     return o;
 }

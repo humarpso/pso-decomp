@@ -32,7 +32,7 @@ void TNeedleShoot::update_position() {
     temp_f2 = this->m_9c;
     temp_f1 = *(f32 *)&this->_padAC;
     this->m_74 = (f32) ((temp_f2 * temp_f1) + this->m_74);
-    check_wall_hit__12TNeedleShootFv((void *) (arg0), (f32) (temp_f1), (f32) (temp_f2));
+    check_wall_hit__12TNeedleShootFv(arg0, temp_f1, temp_f2);
 }
 #pragma pop
 

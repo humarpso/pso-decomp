@@ -184,7 +184,7 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 int fn_802E3BA8(void*, void*);
 
-void TItemAttackCol::add_to_active_list(void* a0) { fn_802E3BA8((void*)(attack_collider_render_owner), a0); attack_collider_active_count = (attack_collider_active_count + 0x1); }
+void TItemAttackCol::add_to_active_list(void* a0) { fn_802E3BA8((void*)attack_collider_render_owner, a0); attack_collider_active_count = (attack_collider_active_count + 0x1); }
 
 void TItemAttackCol::shift_collision_bounds() {
     *(s32 *)&this->_pad104 = (s32) (*(s32 *)&this->_pad104 + 0xCCC);
@@ -246,7 +246,7 @@ void TItemAttackCol::move_with_collision(void *arg1) {
 
 void TItemAttackCol::render() {
     u8 *arg0 = (u8 *)this;
-    if (all_parents_unqueued_for_destruction__7TObjectFv() == 0 || query_game_join_id__10TObjPlayerFv((int) (this->m_ac)) == 0U) {
+    if (all_parents_unqueued_for_destruction__7TObjectFv() == 0 || query_game_join_id__10TObjPlayerFv(this->m_ac) == 0U) {
         return;
     }
     {
@@ -262,7 +262,7 @@ void TItemAttackCol::render() {
             rotate_matrix_by_node_angles((void *) (arg0 + 0xF0), 1);
             rotate_matrix_by_node_angles((void *) (arg0 + 0xFC), 1);
             scale_current_matrix((void *) (arg0 + 0x108));
-            run_with_transform_context__10TObjPlayerFii((int) (this->m_e8), (void *) TItemAttackCol::add_to_active_list);
+            run_with_transform_context__10TObjPlayerFii(this->m_e8, (void *) TItemAttackCol::add_to_active_list);
             pop_matrix();
             attack_collider_render_owner = 0;
             TParticleCtrl::end_effect_render();
@@ -276,9 +276,9 @@ void TItemAttackCol::run_task() {
     u32 temp_r3_2;
     u32 temp_r3_3;
     u32 temp_r3_4;
-    if (has_game_join_id__13TUnk_804E355CFv((void *) (arg0)) == 0) {
-        queue_destruction__7TObjectFv((void *) (arg0));
-        disallow_rendering__7TObjectFv((void *) (arg0));
+    if (has_game_join_id__13TUnk_804E355CFv(arg0) == 0) {
+        queue_destruction__7TObjectFv(arg0);
+        disallow_rendering__7TObjectFv(arg0);
         return;
     }
     if (*(s32 *)&this->m_e4 & 4) {
@@ -290,7 +290,7 @@ void TItemAttackCol::run_task() {
     this->vfunc_7();
     temp_r3 = this->m_12c;
     if (temp_r3 != 0U) {
-        copy_position__15TEffStarLight2DFPv((int) (temp_r3), (void *) (arg0 + 0x24));
+        copy_position__15TEffStarLight2DFPv(temp_r3, (void *) (arg0 + 0x24));
     }
     temp_r3_2 = this->m_130;
     if (temp_r3_2 != 0U) {
@@ -304,9 +304,9 @@ void TItemAttackCol::run_task() {
     if (temp_r3_4 != 0U) {
         ((TNowLoading *)temp_r3_4)->copy_pos((void *) (arg0 + 0x24));
     }
-    check_hits__14TItemAttackColFPv((void *) (arg0));
+    check_hits__14TItemAttackColFPv(arg0);
     if ((this->m_dc <= vec_distance_squared((void *) (arg0 + 0x24), (void *) (arg0 + 0xC4))) || (test_flags_any((void *) (arg0 + 0xE0), 1) != 0)) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv(arg0);
     }
 }
 
@@ -385,14 +385,14 @@ s32 TUnk_804E355C::resolve_attack_col_hit(u8 *arg1) {
             break;
         }
         temp_r31_2 = (s32) var_f31;
-        TObjPlayer::calc_photon_blast_charge((void *)temp_r29, (s32)((int) (temp_r31_2)));
+        TObjPlayer::calc_photon_blast_charge((void *)temp_r29, (s32)(temp_r31_2));
         ((VObj_18_f2ea1e *)(temp_r29))->m73();
-        apply_camera_shake__10TObjPlayerFiii((s32)(temp_r29), (s32)(temp_r30), (s32)(temp_r31_2));
+        apply_camera_shake__10TObjPlayerFiii((s32)temp_r29, (s32)temp_r30, (s32)temp_r31_2);
         ((TObjPlayer *)(&stack.sp8))->reset_status_block();
         stack.sp8 = ((TItem *)item)->get_field_ed();
         stack.sp9 = ((TItemProShield *)item)->get_slot_count();
-        stack.spC = (u8 *)(temp_r29);
-        stack.sp14 = (u8 *)(temp_r30);
+        stack.spC = temp_r29;
+        stack.sp14 = temp_r30;
         stack.sp18 = *(s32 *)((s8 *)arg1 + 4);
         play_weapon_hit_sound((void *) (&stack.sp8));
         return 1;

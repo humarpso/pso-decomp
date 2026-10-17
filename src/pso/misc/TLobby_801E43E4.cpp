@@ -36,7 +36,7 @@ void TLobby::send_command(u32 arg1) {
     bswap_32((u32 *)&sp8);
     if ((u32) local_client_id == arg1) {
         lbl_805D5E50 = 1;
-        dispatch_6x_subcommand((void *)(this));
+        dispatch_6x_subcommand(this);
         lbl_805D5E50 = 0;
         return;
     }
@@ -53,7 +53,7 @@ void dispatch_packet__6TLobbyFPv(void *src) {
     len = *(u8 *)((s8 *)src + 1) * 4;
     if (get_main_phase() == 0xE) {
         lbl_805D5E50 = 1;
-        dispatch_6x_subcommand((void *)(src));
+        dispatch_6x_subcommand(src);
         lbl_805D5E50 = 0;
         return;
     }
@@ -91,17 +91,17 @@ void TLobby__send_and_handle_60(u8 *arg0) {
     u8 *var_r31;
     u8 *var_r3;
     u8 *src;
-    var_r31 = (u8 *)(arg0);
+    var_r31 = arg0;
     src = (u8 *)((*(u8 * *)&TLobby__protocol_instance));
     len = *(u8 *)((s8 *)arg0 + 1) * 4;
     if (src != NULL) {
-        var_r3 = (u8 *)(src);
-        src = (u8 *)(var_r31);
-        TProtocol__send_60((int) (var_r3), (int) (src), (int) (len));
+        var_r3 = src;
+        src = var_r31;
+        TProtocol__send_60((int)var_r3, (int)src, (int)len);
     }
-    var_r3 = (u8 *)(var_r31);
+    var_r3 = var_r31;
     lbl_805D5E50 = 1;
-    dispatch_6x_subcommand((void *)((int) (var_r3)));
+    dispatch_6x_subcommand((void *)(var_r3));
     lbl_805D5E50 = 0;
 }
 
@@ -109,7 +109,7 @@ void update_players__6TLobbyFi(s32 arg0) {
     void *var_r31;
 
     if ((s32) TLobby__join_state_flag == 1) {
-        TLobby__send_and_handle_60((u8 *)(arg0));
+        TLobby__send_and_handle_60((u8 *)arg0);
         return;
     }
     if ((void *) game_protocol_instance != NULL) {
@@ -120,7 +120,7 @@ void update_players__6TLobbyFi(s32 arg0) {
         }
     }
     lbl_805D5E50 = 1;
-    dispatch_6x_subcommand((void *)(arg0));
+    dispatch_6x_subcommand((void *)arg0);
     lbl_805D5E50 = 0;
 }
 

@@ -121,7 +121,7 @@ void run_task__10TAdTitleGCFv(u8 *arg0) {
         *(s32 *)((s8 *)arg0 + 0x12C) = 0xFF;
     }
     ((TAdTitleGC *)arg0)->update_title_rects();
-    TAdTitleGC::calc_text_pos((s32)(arg0), (u8 *)(arg0 + 0x120), (s32)(get_localized_text_entry(0x13, *(s32 *)((s8 *)arg0 + 0x1C))));
+    TAdTitleGC::calc_text_pos((s32)arg0, (u8 *)(arg0 + 0x120), (s32)(get_localized_text_entry(0x13, *(s32 *)((s8 *)arg0 + 0x1C))));
 }
 #pragma push
 #pragma opt_common_subs off

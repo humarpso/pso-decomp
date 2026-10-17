@@ -17,7 +17,7 @@ void *fn_8004438C(void *p);
 extern s32 lbl_804A7248[];
 
 void *TLockOnCursor::init_vtable() {
-    init_gc_tag((s32)(this));
+    init_gc_tag((s32)this);
     *(s32 * *)&this->m_prev = lbl_804A7248;
     *(u32 *)&this->m_flags = 0;
     return this;
@@ -28,7 +28,7 @@ void*TLockOnCursor::init_forward() { TLockOnCursor__sub_8013EC1C(this); return t
 void*TLockOnCursor::cleanup() { init_gc_tag((s32)((char*)this + 0x8)); ((TMainCursor *)((char*)this + 0xc))->reset(); ((TMainCursor *)((char*)this + 0x14))->reset(); reset_state(); return this; }
 
 void *TLockOnCursor__sub_8013EFB8(void *arg0) {
-    init_gc_tag((s32)(arg0));
+    init_gc_tag((s32)arg0);
     ((TObjPlayer *)((char *)arg0 + 64))->construct_target_cursor_records();
     TLockOnCursor__sub_8013F000((void *)((void *)((void *)((char *)arg0 + 156))));
     ((TMainCursor *)arg0)->reset_state();
@@ -47,10 +47,10 @@ void TLockOnCursor::reset_fields() { *(s32 *)&this->m_name = 0; *(s32 *)&this->m
 struct VOff_8013F0A0_arg0 { char pad_0[0x8]; char f_8[1]; };
 void *fn_8013F0A0(void *arg0) {
     struct VOff_8013F0A0_arg0 *self = (struct VOff_8013F0A0_arg0 *)arg0;
-    TMainCursor__sub_8013F114((void*)(arg0));
+    TMainCursor__sub_8013F114(arg0);
     __construct_array(self->f_8, TMainCursor__sub_8013E2B0, 0, 4, 4);
-    TMainCursor__sub_8013F10C((void*)(arg0), 4);
-    TMainCursor__sub_8013F104((void*)(arg0), (s32)(self->f_8));
+    TMainCursor__sub_8013F10C(arg0, 4);
+    TMainCursor__sub_8013F104((void*)arg0, (s32)self->f_8);
     return arg0;
 }
 

@@ -33,7 +33,7 @@ void fn_80141CBC(void *a, void *b, f32 s) {
     v.x = s;
     v.y = s;
     v.z = s;
-    TOTrapAncient02R__sub_80141CF0((void *)(a), (Vec_80141CBC *)(&v), (void *)(b));
+    TOTrapAncient02R__sub_80141CF0(a, (Vec_80141CBC *)(&v), b);
 }
 
 void TOTrapAncient02R__sub_80141CF0(void * _w0, Vec_80141CBC * _w1, void * _w2) {  }

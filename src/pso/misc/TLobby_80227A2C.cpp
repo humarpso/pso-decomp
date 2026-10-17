@@ -304,7 +304,7 @@ typedef char RecoveredGlobal_80069094_camera_controller_registry_size[sizeof(Rec
 typedef char RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4_size[sizeof(RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_800687C8_TCameraCtrl__data_804FF6C4_size[sizeof(RecoveredGlobal_800687C8_TCameraCtrl__data_804FF6C4) == 0xC ? 1 : -1];
 void TLobby::set_menu_index_main(u8 *arg0) {
-    set_menu_index__6TLobbyFPvi((&(*(RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4 *)&sound_control_state).value), (s32)(arg0));
+    set_menu_index__6TLobbyFPvi((&(*(RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4 *)&sound_control_state).value), (s32)arg0);
 }
 typedef char RecoveredGlobal_80069024_TCameraCtrl__data_804FF634_size[sizeof(RecoveredGlobal_80069024_TCameraCtrl__data_804FF634) == 0x48 ? 1 : -1];
 typedef char RecoveredGlobal_80069024_lbl_804FF67C_size[sizeof(RecoveredGlobal_80069024_lbl_804FF67C) == 0x48 ? 1 : -1];
@@ -518,17 +518,17 @@ void load_floor_sound_bank(s32 arg0) {
 
     if (arg0 >= 0) {
         temp_r0 = arg0 * 4;
-        temp_r31 = *(s32 *)((s8 *)((u8 *)(floor_sound_bank_table) + temp_r0) + 0);
+        temp_r31 = *(s32 *)((s8 *)((u8 *)floor_sound_bank_table + temp_r0) + 0);
         if (temp_r31 >= 0) {
             if (arg0 < 0x24) {
-                ((s32 (*)(void *, f32))apply_clamped_field_27c__6TLobbyFv)((void *) (floor_sound_bank_volume_table), (f32) (*(f32 *)((s8 *)((u8 *)(floor_sound_bank_volume_table) + temp_r0) + 0)));
+                ((s32 (*)(void *, f32))apply_clamped_field_27c__6TLobbyFv)((void *)floor_sound_bank_volume_table, (f32) (*(f32 *)((s8 *)((u8 *)floor_sound_bank_volume_table + temp_r0) + 0)));
             }
-            validate_and_set_selection__6TLobbyFPvi((void *) (sound_control_state), (int) (temp_r31));
+            validate_and_set_selection__6TLobbyFPvi((void *)sound_control_state, (int)temp_r31);
             do {
                 TLobby::run_disk_error_check();
                 TLobby__sub_803CB81C();
                 TLobby::run_frame();
-            } while (((s32 (*)(void *))is_ready__6TLobbyFPv)((void *) (sound_control_state)) == 0);
+            } while (((s32 (*)(void *))is_ready__6TLobbyFPv)((void *)sound_control_state) == 0);
             TLobby__sub_80226B64(0);
         }
     }
@@ -616,7 +616,7 @@ void run_area_scene_cleanup(u8 *arg0) {
     s32 var_r3;
     u8 *var_r31;
     var_r4 = (s32 *)(&sp8);
-    var_r31 = (u8 *)(arg0);
+    var_r31 = arg0;
     var_r3 = *(s32 *)((s8 *)arg0 + 4);
     if (lookup_scene_object__6TLobbyFPv(var_r3, var_r4) != 0) {
         var_r3 = (s32) &area_initializer_dispatch_table.value;
@@ -645,11 +645,11 @@ void load_area_scene_and_init(u8 *arg0) {
     s32 *var_r4;
     s32 var_r3;
     u8 *var_r31;
-    var_r31 = (u8 *)(arg0);
+    var_r31 = arg0;
     var_r3 = *(s32 *)((s8 *)arg0 + 4);
     set_current_floor_area((var_r3));
     var_r3 = *(s32 *)((s8 *)var_r31 + 0x10);
-    TScene::set_scene((int) (var_r3));
+    TScene::set_scene(var_r3);
     var_r3 = *(s32 *)((s8 *)var_r31 + 4);
     var_r4 = (s32 *)(&sp8);
     if (lookup_scene_object__6TLobbyFPv(var_r3, var_r4) != 0) {
@@ -674,7 +674,7 @@ void promote_area_floor(u8 *arg0) {
     s32 var_r3;
     u8 *var_r31;
     var_r4 = (s32 *)(&sp8);
-    var_r31 = (u8 *)(arg0);
+    var_r31 = arg0;
     var_r3 = *(s32 *)((s8 *)arg0 + 4);
     if (lookup_scene_object__6TLobbyFPv(var_r3, var_r4) != 0) {
         var_r3 = (s32) &(*(RecoveredGlobal_80228754_lbl_804CBE98 *)&area_initializer_dispatch_table).value;

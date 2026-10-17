@@ -44,7 +44,7 @@ void matrix_mult_vec(u32 arg0) {
         var_r3_2 = (*(u32 *)&current_matrix);
         phi_r3 = var_r3_2;
     }
-    PSMTXMultVec((int) (phi_r3));
+    PSMTXMultVec(phi_r3);
 }
 #pragma pop
 
@@ -80,7 +80,7 @@ void TObjPlayer::invert_matrix_in_place(u32 arg0) {
     if (var_r3 == 0U) {
         var_r3 = (*(u32 *)&current_matrix);
     }
-    PSMTXInverse((int) (var_r3), (int) (var_r3));
+    PSMTXInverse(var_r3, var_r3);
 }
 #pragma pop
 
@@ -102,13 +102,13 @@ void rotate_matrix_zyx(void *m, s32 x, s32 y, s32 z) {
 
 void rotate_matrix_yxz(s32 matrix, s32 arg1, s32 arg2, s32 arg3) {
     if (arg2 != 0) {
-        rotate_matrix_y((void *)((void *) (matrix)), (s32)((void *) (arg2)));
+        rotate_matrix_y((void *)(matrix), (s32)(arg2));
     }
     if (arg1 != 0) {
-        rotate_matrix_x((void *)((void *) (matrix)), (s32)((void *) (arg1)));
+        rotate_matrix_x((void *)(matrix), (s32)(arg1));
     }
     if (arg3 != 0) {
-        rotate_matrix_z((void *)((void *) (matrix)), (s32)((void *) (arg3)));
+        rotate_matrix_z((void *)(matrix), (s32)(arg3));
     }
 }
 typedef f32 Mtx_803D8B5C[3][4];

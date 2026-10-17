@@ -138,9 +138,9 @@ void apply_part_to_window__28TWindowSubSymbolChatPartsSetFPvPvi(Obj_80248088 *ar
     void *w;
     u8 f;
     w = arg0->tbl->win[arg2];
-    ((TWindowSubSymbolChatPartsSet *)w)->set_pos((s16)(arg1->a), (s16)(arg1->b));
+    ((TWindowSubSymbolChatPartsSet *)w)->set_pos(arg1->a, arg1->b);
     f = arg1->flags;
-    TWindowSubSymbolChatPartsSet::set_part_sprite((void *)(w), (s16)(arg1->id), (s32)(f & 1), (s32)((f >> 1) & 1));
+    TWindowSubSymbolChatPartsSet::set_part_sprite(w, arg1->id, (s32)(f & 1), (s32)((f >> 1) & 1));
 }
 
 void setup_part_sprites__28TWindowSubSymbolChatPartsSetFPvPvPvUsiiii(Part_802480EC *arg0, Part_802480EC *arg1, Part_802480EC *arg2, u16 arg3, s32 arg4, s32 arg5, s32 arg6, s32 arg7) {
@@ -197,7 +197,7 @@ void get_parts_entry__28TWindowSubSymbolChatPartsSetFii(s32 arg0, s32 arg1) {
 
 void fn_80248324(Ctl_80248324 *c, s32 arg1, s32 cur) {
     s32 *p = c->tbl + cur;
-    setup_part_sprites__28TWindowSubSymbolChatPartsSetFPvPvPvUsiiii((Part_802480EC *)(p[5]), (Part_802480EC *)(p[9]), (Part_802480EC *)(p[1]), (u16)((u8)arg1), (s32)((arg1 >> 8) & 7), (s32)((arg1 >> 11) & 1), (s32)((arg1 >> 12) & 1), (s32)(cur));
+    setup_part_sprites__28TWindowSubSymbolChatPartsSetFPvPvPvUsiiii((Part_802480EC *)(p[5]), (Part_802480EC *)(p[9]), (Part_802480EC *)(p[1]), (u16)((u8)arg1), (s32)((arg1 >> 8) & 7), (s32)((arg1 >> 11) & 1), (s32)((arg1 >> 12) & 1), cur);
 }
 
 #define w ((Win_80248374 *)arg0)
@@ -227,7 +227,7 @@ void set_symbol_chat_parts__20TWindowSubSymbolChatFiPv(s32 arg0, void *arg1) {
     j = 0;
     off = 0;
     do {
-        apply_part_to_window__28TWindowSubSymbolChatPartsSetFPvPvi((Obj_80248088 *)(arg0), (Part_80248088 *)((s8 *)arg1 + off + 0xC), (s32)(j));
+        apply_part_to_window__28TWindowSubSymbolChatPartsSetFPvPvi((Obj_80248088 *)(arg0), (Part_80248088 *)((s8 *)arg1 + off + 0xC), j);
         off += 4;
         j += 1;
     } while (j < 0xC);
@@ -235,7 +235,7 @@ void set_symbol_chat_parts__20TWindowSubSymbolChatFiPv(s32 arg0, void *arg1) {
 
 void TWindowSubSymbolChat::init_layout_entries(s32 player) {
     s32 arg0 = (s32)this;
-    init_window_layout_entries((void *) (arg0), (void *) (&lbl_804CE2E8.value), (void *) (player));
+    init_window_layout_entries((void *)arg0, (void *) (&lbl_804CE2E8.value), (void *)player);
 }
 
 void TWindowSubSymbolChatPartsSet::update_visibility() {

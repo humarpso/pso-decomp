@@ -402,7 +402,7 @@ void TObjEneDD::vfunc_79() {
 
 void load_enemy_bml_resource_named(s32 arg0, s32 arg1) {
     s32 sp8;
-    ((TObjEneDD *)(&sp8))->copy_resource_desc((u8 *)((void *) (arg0)));
+    ((TObjEneDD *)(&sp8))->copy_resource_desc((u8 *)(arg0));
     sp8 = arg1;
     load_enemy_bml_resource((u8 *)((void *)((void *) (&sp8))));
 }

@@ -50,9 +50,9 @@ s32 *TLobby__sub_80269CB4(void) {
 u8 *TLobby::create_message_window(s32 arg0, s32 arg1, u32 arg2, s16 arg3) {
     u8 *temp_r3;
     u8 *var_r0;
-    ((s32 (*)(void *, void *))TLobby__sub_80269DA4)((void *) (arg1), (void *) (arg2));
+    ((s32 (*)(void *, void *))TLobby__sub_80269DA4)((void *)arg1, (void *)arg2);
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x90));
-    var_r0 = (u8 *)(temp_r3);
+    var_r0 = temp_r3;
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(TWindowMessage__ct(temp_r3, arg0, arg2, arg3));
     }
@@ -60,14 +60,14 @@ u8 *TLobby::create_message_window(s32 arg0, s32 arg1, u32 arg2, s16 arg3) {
 }
 
 void TLobby::set_window_mode_4(void *arg0, s32 arg1, s32 arg2) {
-    TLobby::create_message_window((s32)(arg0), (s32)(arg1), (u32)(arg2), (s16)(4));
+    TLobby::create_message_window((s32)arg0, (s32)arg1, (u32)arg2, (s16)(4));
 }
 
 extern const f32 lbl_805DD238;
 
 void TLobby::update_window_mode_from_progress(void *arg1) {
     s32 arg0 = (s32)this;
-    TLobby::set_window_mode_4((void *)((void *)(arg0)), (s32)((s32)(arg1)), (s32)((s32)((s32) TWindowSubStatusDisp::round_away_from_zero((*(f32 *)((s8 *)arg1 + 4) - lbl_805DD238) / lbl_805DD238) + 2)));
+    TLobby::set_window_mode_4((void *)(arg0), (s32)(arg1), (s32)((s32)((s32) TWindowSubStatusDisp::round_away_from_zero((*(f32 *)((s8 *)arg1 + 4) - lbl_805DD238) / lbl_805DD238) + 2)));
 }
 
 s32 TLobby__sub_80269DA4(V2_80269DA4 size, void *arg1) {

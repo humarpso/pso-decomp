@@ -166,7 +166,7 @@ void TOKeyAncient03::render() {
         TObjFish::set_global_param((int) (*(s32 *)((s8 *)TOKeyAncient03__texture_variants + (*(s32 *)&this->m_d4 * 4))));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y(0, (int) (this->rotation_y));
+        rotate_matrix_y(0, this->rotation_y);
         temp_r31 = *(u8 * *)&this->model;
         post_translate_matrix((void *) (temp_r31 + 8));
         draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
@@ -200,7 +200,7 @@ void TOKeyAncient03::render() {
 void *TOKeyAncient03::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xFC);
     if (o != NULL) {
-        o = TOKeyAncient03__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TOKeyAncient03__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -226,7 +226,7 @@ void TOKeyAncient03::load_resources() {
     u8 *temp_r3;
     u8 *var_r0;
     temp_r3 = (u8 *)(((TAdSinglePlyChrSelectGC *)0x440)->alloc());
-    var_r0 = (u8 *)(temp_r3);
+    var_r0 = temp_r3;
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &bm_fs_obj_o_doorpanel_resource_descriptor.value, 0, 0, 0));
     }
@@ -333,12 +333,12 @@ void TOKeyCave01::vfunc_19() {
     if (((s32) enable_v2_features == 1) && ((TOKeyMachine01::get_global_state() == 0x10) || (TOKeyMachine01::get_global_state() == 0x11))) {
         temp_r3 = *(s32 *)((s8 *)(&lbl_80441B4C.value) + (TOKeyMachine01::get_global_state() * 4));
         if (temp_r3 >= 0) {
-            play_sound_effect((s32)(temp_r3), (s32)(arg0 + 0x38), 0, 0);
+            play_sound_effect(temp_r3, (s32)(arg0 + 0x38), 0, 0);
         }
     } else {
         temp_r3_2 = *(s32 *)((s8 *)(&lbl_80441B4C.value) + (TOKeyMachine01::get_global_state() * 4));
         if (temp_r3_2 >= 0) {
-            play_sound_effect((s32)(temp_r3_2), (s32)(arg0 + 0x38), 0, 0);
+            play_sound_effect(temp_r3_2, (s32)(arg0 + 0x38), 0, 0);
         }
     }
 }
@@ -350,12 +350,12 @@ void TOKeyCave01__vt16(s32 arg0) {
     if (((s32) enable_v2_features == 1) && ((TOKeyMachine01::get_global_state() == 0x10) || (TOKeyMachine01::get_global_state() == 0x11))) {
         temp_r3 = *(s32 *)((s8 *)(&(*(RecoveredGlobal_8016C010_lbl_80441B4C *)&lbl_80441B4C).value) + (TOKeyMachine01::get_global_state() * 4));
         if (temp_r3 >= 0) {
-            play_sound_effect((s32)(temp_r3), (s32)(arg0 + 0x38), 0, 0);
+            play_sound_effect(temp_r3, (s32)(arg0 + 0x38), 0, 0);
         }
     } else {
         temp_r3_2 = *(s32 *)((s8 *)(&(*(RecoveredGlobal_8016C010_lbl_80441B4C *)&lbl_80441B4C).value) + (TOKeyMachine01::get_global_state() * 4));
         if (temp_r3_2 >= 0) {
-            play_sound_effect((s32)(temp_r3_2), (s32)(arg0 + 0x38), 0, 0);
+            play_sound_effect(temp_r3_2, (s32)(arg0 + 0x38), 0, 0);
         }
     }
 }

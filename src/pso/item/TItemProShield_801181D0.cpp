@@ -59,7 +59,7 @@ s32 obj_testFlags30(void *, s32);
 extern s32 model_render_flags;
 
 void TItemProShield::deactivate_shield_effect(s32 arg1) {
-    if (((u32) this->m_f4 != 0U) && ((u32) this->m_f0 != 0U) && (obj_testFlags30(this, 0x08000000) == 0) && (get_flag_40__8TItemMagFv((void *)(this)) == 0)) {
+    if (((u32) this->m_f4 != 0U) && ((u32) this->m_f0 != 0U) && (obj_testFlags30(this, 0x08000000) == 0) && (get_flag_40__8TItemMagFv(this) == 0)) {
         ((TObjMotion *)(this->m_f0))->get_item_ptr(arg1);
         push_matrix_from();
         TObjPlayer__sub_80364198();
@@ -105,8 +105,8 @@ void TItemProShield::vfunc_16() {
     ((TItemEquipBase *)this)->bind_loaded_resources();
 }
 void TItemProShield__vt16(void *arg0, void *arg1) {
-    set_dfp_bonus__9TItemDataFs((s32)(arg1), (int)(((TItemProShield *)arg0)->m_198));
-    set_bswapped_field_8__9TItemDataFs((s32)(arg1), (int)(((TItemProShield *)arg0)->m_199));
+    set_dfp_bonus__9TItemDataFs((s32)arg1, (int)(((TItemProShield *)arg0)->m_198));
+    set_bswapped_field_8__9TItemDataFs((s32)arg1, (int)(((TItemProShield *)arg0)->m_199));
 }
 void TItemProShield::vfunc_45() { TItemEquipBase__sub_8010A82C((s32)this); }
 void TItemProShield::vfunc_44() {
@@ -125,11 +125,11 @@ void TItemProShield::vfunc_44() {
             if ((u32) this->m_174 != 0U) {
                 temp_r3_2 = __nw__15TItemHeapObjectFUl(0x2C);
                 if (temp_r3_2 != 0) {
-                    init_item_timer_event__13TUnk_804A0648Fv((int) (temp_r3_2), (int) (this->m_174), (void *) (get_id__13TItemProArmorFv((void *) (((u8 *)this)))), 0x1C2);
+                    init_item_timer_event__13TUnk_804A0648Fv(temp_r3_2, this->m_174, (void *) (get_id__13TItemProArmorFv((void *) (((u8 *)this)))), 0x1C2);
                 }
                 temp_r3_3 = __nw__15TItemHeapObjectFUl(0x2C);
                 if (temp_r3_3 != 0) {
-                    construct_timer_event__13TUnk_804A0628Fv((int) (temp_r3_3), (int) (this->m_174), (void *) (get_id__13TItemProArmorFv((void *) (((u8 *)this)))), 0x1C2);
+                    construct_timer_event__13TUnk_804A0628Fv(temp_r3_3, this->m_174, (void *) (get_id__13TItemProArmorFv((void *) (((u8 *)this)))), 0x1C2);
                 }
             }
             break;
@@ -137,7 +137,7 @@ void TItemProShield::vfunc_44() {
             if ((u32) this->m_174 != 0U) {
                 temp_r3_4 = __nw__7TObjectFUl(0x2C);
                 if (temp_r3_4 != 0) {
-                    ct_init__14TItemEffShieldFPUcs((int) (temp_r3_4), (int) (this->m_174), (void *) (get_id__13TItemProArmorFv((void *) (((u8 *)this)))));
+                    ct_init__14TItemEffShieldFPUcs(temp_r3_4, this->m_174, (void *) (get_id__13TItemProArmorFv((void *) (((u8 *)this)))));
                 }
             }
             break;
@@ -145,7 +145,7 @@ void TItemProShield::vfunc_44() {
         if ((temp_r3 >= 0x53U) && (temp_r3 <= 0x82U)) {
             temp_r3_5 = __nw__7TObjectFUl(0x30);
             if (temp_r3_5 != 0) {
-                __ct__13TUnk_8049F130FP7TObjectsUc((int) (temp_r3_5), (int) (this->m_174), (void *) (get_id__13TItemProArmorFv((void *) (((u8 *)this)))), (int) (temp_r3));
+                __ct__13TUnk_8049F130FP7TObjectsUc(temp_r3_5, this->m_174, (void *) (get_id__13TItemProArmorFv((void *) (((u8 *)this)))), temp_r3);
             }
         }
     }
@@ -200,16 +200,16 @@ u8 *TItemProShield::create_instance() {
     u8 *var_r0;
     if (arg0 != 0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1A0));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(TItemProShield__ct((u8 *)(temp_r3), (s32)(tl_05), (u8 *)(arg0)));
+            var_r0 = (u8 *)(TItemProShield__ct((u8 *)temp_r3, (s32)tl_05, (u8 *)arg0));
         }
         return var_r0;
     }
     return NULL;
 }
 
-void TItemProShield::free() { fn_800F953C((void*)(TItemProShield__shield_table)); TItemProShield__shield_table = 0; }
+void TItemProShield::free() { fn_800F953C((void*)TItemProShield__shield_table); TItemProShield__shield_table = 0; }
 void TItemProShield::load_data() {
     s32 temp_r3;
     s32 var_r31;

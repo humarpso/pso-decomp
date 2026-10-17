@@ -91,7 +91,7 @@ void TItemEffHeaven::run_task() {
     }
     if (self->f28 == 0x19) {
         for (i = 0; i != 2; i++) {
-            TBoss4Type2::request_destroy((u32)(self->arr[i]));
+            TBoss4Type2::request_destroy((u32)self->arr[i]);
             self->arr[i] = 0;
         }
         u32 id = self->f3C;
@@ -110,7 +110,7 @@ void TItemEffHeaven::run_task() {
         self->arr[2] = spawn_continuous_particle_effect_with_flags(&self->pos, 0x139, 0x40);
     }
     if (self->f28 == 0x28) {
-        TBoss4Type2::request_destroy((u32)(self->arr[2]));
+        TBoss4Type2::request_destroy((u32)self->arr[2]);
         self->arr[2] = 0;
         queue_destruction__7TObjectFv(self);
         return;
@@ -126,7 +126,7 @@ void TItemEffHeaven::run_task() {
 
 TItemEffHeaven::~TItemEffHeaven() {
     for (int i = 0; i != 3; i++) {
-        TBoss4Type2::request_destroy((u32)(m_arr[i]));
+        TBoss4Type2::request_destroy((u32)m_arr[i]);
     }
 }
 

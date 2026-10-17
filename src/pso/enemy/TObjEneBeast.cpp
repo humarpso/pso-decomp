@@ -386,7 +386,7 @@ O_80092724 *TObjPlayer__sub_80092724(O_80092724 *arg0, s16 arg1) {
     }
     return arg0;
 }
-#define F(o, T, off) (*(T *)((u8 *)(o) + (off)))
+#define F(o, T, off) (*(T *)(o + (off)))
 struct VBase_800927DC { char pad[0x18]; };
 struct VObj_800927DC : VBase_800927DC {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();

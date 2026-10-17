@@ -211,7 +211,7 @@ s32 TLobby__sub_801E38A0(s32, s32, s32, s32, u32 *);
 s32 load_nj_chunk_model_resource(s32, s32, s32);
 int xfree__FPv(void*);
 
-void TLobby::free_if_not_owner(void* a1) { if (*(unsigned int*)((char*)this + 0x424) == 0) { xfree__FPv((void*)(a1)); } }
+void TLobby::free_if_not_owner(void* a1) { if (*(unsigned int*)((char*)this + 0x424) == 0) { xfree__FPv(a1); } }
 
 s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 base, s32 arg2, s32 arg3) {
     u32 sp8;
@@ -502,7 +502,7 @@ void increment_ref_and_set_flag__6TLobbyFPv(void *arg0) {
     void *temp_r4;
     temp_r4 = *(void **)((s8 *)arg0 + 0);
     *(s32 *)((s8 *)temp_r4 + 0xC) = (s32) (*(s32 *)((s8 *)temp_r4 + 0xC) + 1);
-    check_bin_model_loaded__6TLobbyFPvPv((Obj_8001F8D8 *)(*(void **)((s8 *)arg0 + 0)), (void *)(temp_r4));
+    check_bin_model_loaded__6TLobbyFPvPv((Obj_8001F8D8 *)(*(void **)((s8 *)arg0 + 0)), temp_r4);
     temp_r3 = *(s32 **)((s8 *)arg0 + 4);
     *temp_r3 |= 1;
 }
@@ -513,14 +513,14 @@ void load_bin_motion_callback(void *arg0) {
     void *temp_r4;
     **(s32 **)((s8 *)arg0 + 0) = 0;
     spC = 0;
-    temp_r3 = alloc_load_data__6TLobbyFPviii((void *)(*(void **)((s8 *)arg0 + 4)), (s32)(lobby_download_buffer), (s32)(&spC), (s32)(&sp8));
+    temp_r3 = alloc_load_data__6TLobbyFPviii((void *)(*(void **)((s8 *)arg0 + 4)), lobby_download_buffer, (s32)(&spC), (s32)(&sp8));
     if (temp_r3 == 0) {
         debug_print__6TLobbyFle(lbl_80434C48);
     }
     **(s32 **)((s8 *)arg0 + 0) = temp_r3;
     temp_r4 = *(void **)((s8 *)arg0 + 4);
     *(s32 *)((s8 *)temp_r4 + 8) = (s32) (*(s32 *)((s8 *)temp_r4 + 8) + 1);
-    check_bin_model_loaded__6TLobbyFPvPv((Obj_8001F8D8 *)(*(void **)((s8 *)arg0 + 4)), (void *)(temp_r4));
+    check_bin_model_loaded__6TLobbyFPvPv((Obj_8001F8D8 *)(*(void **)((s8 *)arg0 + 4)), temp_r4);
 }
 
 struct Obj_8001F8D8;
@@ -619,7 +619,7 @@ s32 TLobby::load_bin_motion(s32 arg1, s32 arg2) {
         debug_print__6TLobbyFle(lbl_80434D30, size - 0x40000);
     }
     offset = 0;
-    data = alloc_load_data__6TLobbyFPviii((void *)(arg0), (s32)(lobby_download_buffer), (s32)(&offset), (s32)(&tag));
+    data = alloc_load_data__6TLobbyFPviii(arg0, lobby_download_buffer, (s32)(&offset), (s32)(&tag));
     if (data == 0) {
         debug_print__6TLobbyFle(lbl_80434D54);
     }
@@ -640,9 +640,9 @@ s32 TLobby::load_bin_model(s32 arg1, s32 arg2) {
         debug_print__6TLobbyFle(lbl_80434D94, size - 0x40000);
     }
     set_stream_state__6TLobbyFi(arg1, lobby_download_buffer);
-    bind_bml_model((Lobby_8001FBEC *)(((Lobby_8001FD98 *)this)), (u32)(size), (s32)(arg2), (s32)(lobby_download_buffer));
+    bind_bml_model((Lobby_8001FBEC *)(((Lobby_8001FD98 *)this)), size, arg2, lobby_download_buffer);
     if (((Lobby_8001FD98 *)this)->entries[arg2].texture != NULL) {
-        ((TLobby *)((Lobby_8001FD98 *)this))->load_texture_sub((void *)(arg1), (s32)(arg2));
+        ((TLobby *)((Lobby_8001FD98 *)this))->load_texture_sub((void *)arg1, (s32)arg2);
     }
     return 1;
 }
@@ -777,7 +777,7 @@ Lobby_80020004 *load_resource_from_descriptor(Lobby_80020004 *self, s32 kind, De
                     disc_read_filename = lbl_805D2B10;
                     prs_decompress_buffer(buf, (s32)resource_decompress_buffer);
                     TAdSinglePlyChrSelectGC::safe_free(buf);
-                    bind_bml_model((Lobby_8001FBEC *)(self), (u32)(size), (s32)(i), (s32)((s32)resource_decompress_buffer));
+                    bind_bml_model((Lobby_8001FBEC *)(self), size, i, (s32)((s32)resource_decompress_buffer));
                 } else {
                     debug_print__6TLobbyFle(lbl_80434DF4, desc->name);
                 }
@@ -786,7 +786,7 @@ Lobby_80020004 *load_resource_from_descriptor(Lobby_80020004 *self, s32 kind, De
                 ((TGStream *)(&st))->read_data((s32)resource_decompress_buffer, (s32)size);
                 align_gstream_read_offset(&st, blk);
                 disc_read_filename = lbl_805D2B10;
-                bind_bml_model((Lobby_8001FBEC *)(self), (u32)(size), (s32)(i), (s32)((s32)resource_decompress_buffer));
+                bind_bml_model((Lobby_8001FBEC *)(self), size, i, (s32)((s32)resource_decompress_buffer));
                 break;
             }
             if (self->flags & 0x800) {
@@ -853,7 +853,7 @@ Lobby_80020004 *load_resource_from_descriptor(Lobby_80020004 *self, s32 kind, De
         self->f4 = 0;
         self->f10 = 0;
         self->f14 = 0;
-        TLobby::add_named_entry((s32)self, (s32)(desc->name));
+        TLobby::add_named_entry((s32)self, desc->name);
     }
     return self;
 }

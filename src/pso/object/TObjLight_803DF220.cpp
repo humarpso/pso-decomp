@@ -80,11 +80,11 @@ void set_light_ambient_color(f32 r, f32 g, f32 b) {
 
 void submit_light0(s32 arg0, s32 arg1) {
     s32 var_r0;
-    TObjLight::assert_light_id((s32)(arg0));
+    TObjLight::assert_light_id((s32)arg0);
     if (arg1 == 0) {
-        var_r0 = gx_chan_ctrl_light_mask & ~*(s32 *)((s8 *)((u8 *)(light_slot_mask_table) + (arg0 * 4)) + 0);
+        var_r0 = gx_chan_ctrl_light_mask & ~*(s32 *)((s8 *)((u8 *)light_slot_mask_table + (arg0 * 4)) + 0);
     } else {
-        var_r0 = gx_chan_ctrl_light_mask | *(s32 *)((s8 *)((u8 *)(light_slot_mask_table) + (arg0 * 4)) + 0);
+        var_r0 = gx_chan_ctrl_light_mask | *(s32 *)((s8 *)((u8 *)light_slot_mask_table + (arg0 * 4)) + 0);
     }
     gx_chan_ctrl_light_mask = var_r0;
 }
@@ -122,15 +122,15 @@ void init_distant_light(s32 idx, f32 x, f32 y, f32 z) {
 #pragma pop
 
 void load_gx_light_slot(s32 arg0) {
-    TObjLight::assert_light_id((s32)(arg0));
-    GXLoadLightObjImm((void *) ((u8 *)(&TObjLight__gx_light_objects.value) + (arg0 << 6)), (int) (*(s32 *)((s8 *)((u8 *)(light_slot_mask_table) + (arg0 * 4)) + 0)));
+    TObjLight::assert_light_id((s32)arg0);
+    GXLoadLightObjImm((void *) ((u8 *)(&TObjLight__gx_light_objects.value) + (arg0 << 6)), (int) (*(s32 *)((s8 *)((u8 *)light_slot_mask_table + (arg0 * 4)) + 0)));
 }
 
 
 
 void TObjPlayer::draw_trail_strip(void *arg1, s32 arg2) {
     TObjPlayer__sub_803DF768(arg2);
-    draw_untextured_trail_strip((void *)(this), (void *)(arg1));
+    draw_untextured_trail_strip(this, arg1);
     reset_player_transform();
 }
 

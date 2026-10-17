@@ -183,7 +183,7 @@ void TAdSinglePlyChrSelectGC::handle_player_load() {
     case 0:
         switch (TAdPlayerLoadGC__sub_801E1B50(arg0->f24)) {
         case 0:
-            switch (TAdPlayerLoadGC::get_load_result((void *)(arg0->f24))) {
+            switch (TAdPlayerLoadGC::get_load_result((void *)arg0->f24)) {
             case 0:
                 arg0->f2C = 0xE;
                 close_window__23TAdSinglePlyChrSelectGCFPv(arg0);
@@ -245,7 +245,7 @@ void TAdSinglePlyChrSelectGC__sub_8033ACF4(O_8033ACF4 *arg0) {
     case 0:
         switch (TAdPlayerLoadGC__sub_801E1B50(arg0->f24)) {
         case 0:
-            switch (TAdPlayerLoadGC::get_load_result((void *)(arg0->f24))) {
+            switch (TAdPlayerLoadGC::get_load_result((void *)arg0->f24)) {
             case 0:
                 arg0->f2C = 6;
                 arg0->f24 = get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
@@ -443,8 +443,8 @@ void close_window__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
         }
     }
 }
-void TAdSinglePlyChrSelectGC::init_warp() { close_window__23TAdSinglePlyChrSelectGCFPv((void *)(this)); *(int*)((char*)this + 0x3c) = check_room_seq_4__16TAdChrSelASlotGCFl(lbl_80477D58, (void*)2); forward_trade_action_default__16TObjCityMainWarpFPviii((void*)(*(int*)((char*)this + 0x3c)), (void*)((int)TQuestVmDownLoadServer__sub_8006EF6C((s32)((void*)14))), (void*)6, (void*)1); ((TWindowSubComCardList *)(*(int*)((char*)this + 0x3c)))->update_layout_height(lbl_805DFA30); }
-void TAdSinglePlyChrSelectGC::init_warps() { close_window__23TAdSinglePlyChrSelectGCFPv((void *)(this)); *(int*)((char*)this + 0x3c) = check_room_seq_4__16TAdChrSelASlotGCFl(lbl_80477D58, (void*)2); forward_trade_action_default__16TObjCityMainWarpFPviii((void*)(*(int*)((char*)this + 0x3c)), (void*)((int)TQuestVmDownLoadServer__sub_8006EF6C((s32)((void*)13))), (void*)6, (void*)0); forward_trade_action_default__16TObjCityMainWarpFPviii((void*)(*(int*)((char*)this + 0x3c)), (void*)((int)TQuestVmDownLoadServer__sub_8006EF6C((s32)((void*)14))), (void*)6, (void*)1); ((TWindowSubComCardList *)(*(int*)((char*)this + 0x3c)))->update_layout_height(lbl_805DFA30); }
+void TAdSinglePlyChrSelectGC::init_warp() { close_window__23TAdSinglePlyChrSelectGCFPv(this); *(int*)((char*)this + 0x3c) = check_room_seq_4__16TAdChrSelASlotGCFl(lbl_80477D58, (void*)2); forward_trade_action_default__16TObjCityMainWarpFPviii((void*)(*(int*)((char*)this + 0x3c)), (void*)((int)TQuestVmDownLoadServer__sub_8006EF6C((s32)((void*)14))), (void*)6, (void*)1); ((TWindowSubComCardList *)(*(int*)((char*)this + 0x3c)))->update_layout_height(lbl_805DFA30); }
+void TAdSinglePlyChrSelectGC::init_warps() { close_window__23TAdSinglePlyChrSelectGCFPv(this); *(int*)((char*)this + 0x3c) = check_room_seq_4__16TAdChrSelASlotGCFl(lbl_80477D58, (void*)2); forward_trade_action_default__16TObjCityMainWarpFPviii((void*)(*(int*)((char*)this + 0x3c)), (void*)((int)TQuestVmDownLoadServer__sub_8006EF6C((s32)((void*)13))), (void*)6, (void*)0); forward_trade_action_default__16TObjCityMainWarpFPviii((void*)(*(int*)((char*)this + 0x3c)), (void*)((int)TQuestVmDownLoadServer__sub_8006EF6C((s32)((void*)14))), (void*)6, (void*)1); ((TWindowSubComCardList *)(*(int*)((char*)this + 0x3c)))->update_layout_height(lbl_805DFA30); }
 
 typedef char RecoveredGlobal_8033B264_lbl_804EF728_size[sizeof(RecoveredGlobal_8033B264_lbl_804EF728) == 0x198 ? 1 : -1];
 typedef char RecoveredGlobal_8033B264_main_task_size[sizeof(RecoveredGlobal_8033B264_main_task) == 0x34 ? 1 : -1];

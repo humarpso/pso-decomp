@@ -35,15 +35,15 @@ u8 *construct_symbol_chat_selection(u8 *arg0) {
         if (is_symbol_chat_preset_in_use((u32 *)symbol_chat_preset) != 0) {
             forward_trade_action_default__16TObjCityMainWarpFPviii(*(u8 **)((s8 *)arg0 + 0x1C), (s32) temp_r30, 0x66, i);
         } else {
-            TWindowSubComCard::draw_text_gray((s32)((void *) (*(u8 **)((s8 *)arg0 + 0x1C))), (s32)((int) (temp_r30)), 0x46, (s32)((int) (i)));
+            TWindowSubComCard::draw_text_gray((s32)((void *) (*(u8 **)((s8 *)arg0 + 0x1C))), (s32)(temp_r30), 0x46, (s32)(i));
         }
         i += 1;
     } while (i < 0xC);
     ((TWindowSubComCardList *)(*(u8 **)((s8 *)arg0 + 0x1C)))->set_flag70_bit10();
-    ((TWindowSubComCardList *)(*(u8 **)((s8 *)arg0 + 0x1C)))->set_scroll_target((f32) (lbl_805DCBA0), (f32) (lbl_805DCBA4));
+    ((TWindowSubComCardList *)(*(u8 **)((s8 *)arg0 + 0x1C)))->set_scroll_target(lbl_805DCBA0, lbl_805DCBA4);
     align_menu_entry_positions((void *) (*(u8 **)((s8 *)arg0 + 0x1C)));
     temp_r3_2 = (u8 *)(__nw__7TObjectFUl(0x68));
-    var_r0 = (u8 *)(temp_r3_2);
+    var_r0 = temp_r3_2;
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(TWindowChatSymbol__ct(temp_r3_2, (s32)lbl_8044EAC8, (s32)lbl_8044EAD0));
     }

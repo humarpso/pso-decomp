@@ -148,7 +148,7 @@ void TQuestListOnline::handle_quest_confirm() {
                     queue_destruction__7TObjectFv(*(void * *)&this->list_window);
                     *(void * *)&this->list_window = NULL;
                 }
-                set_field_20__15TShopWindowBaseFl((void*)(this), 0xC);
+                set_field_20__15TShopWindowBaseFl(this, 0xC);
                 return;
             }
             if (*(VObj_18_802178E4 * *)&this->sequence != NULL) {
@@ -173,7 +173,7 @@ void TQuestListOnline::handle_quest_confirm() {
             if (*(VObj_18_802178E4 * *)&this->sequence != NULL) {
                 (*(VObj_18_802178E4 * *)&this->sequence)->m7(0x19, 1);
             }
-            set_field_20__15TShopWindowBaseFl((void*)(this), 1);
+            set_field_20__15TShopWindowBaseFl(this, 1);
             return;
         }
     }
@@ -193,7 +193,7 @@ void TQuestListOnline::handle_quest_confirm() {
         if (*(VObj_18_802178E4 * *)&this->sequence != NULL) {
             (*(VObj_18_802178E4 * *)&this->sequence)->m7(0x19, 1);
         }
-        set_field_20__15TShopWindowBaseFl((void*)(this), 1);
+        set_field_20__15TShopWindowBaseFl(this, 1);
     }
 }
 extern "C" {
@@ -208,7 +208,7 @@ void TQuestListOnline::decompress_quest_list_buffers() {
     TQuestListOnline__decompression_cursor += quest_bin_decompressed_size;
     online_quest_list_decompressed_size = prs_decompress_buffer(TQuestListOnline__dat_download_state.f38, TQuestListOnline__decompression_cursor);
     online_quest_dat_buffer = TQuestListOnline__decompression_cursor;
-    set_field_20__15TShopWindowBaseFl((void*)(this), (int)((void *)7));
+    set_field_20__15TShopWindowBaseFl(this, (int)((void *)7));
 }
 extern "C" {
 
@@ -218,10 +218,10 @@ extern "C" {
 void TQuestListOnline::request_download_buffer() {
     if (TLobby__sub_8001EEF4() != 0) {
         TQuestListOnline__decompression_cursor = TLobby::tmp_buf_use_req((const char *)lbl_8044BEB0);
-        set_field_20__15TShopWindowBaseFl((void*)(this), 6);
+        set_field_20__15TShopWindowBaseFl(this, 6);
     }
 }
-int TQuestListOnline::begin_buffer_request() { return set_field_20__15TShopWindowBaseFl((void*)(this), 5); }
+int TQuestListOnline::begin_buffer_request() { return set_field_20__15TShopWindowBaseFl(this, 5); }
 extern "C" {
 
 }
@@ -296,17 +296,17 @@ void TQuestListOnline::show_info_window() {
     if ((u32) info_window == 0U) {
         stack.sp8 = *(s32 *)((s8 *)(&lbl_8044BEDC.value) + 0);
         stack.spC = *(s32 *)((s8 *)(&lbl_8044BEDC.value) + 4);
-        temp_r31 = obj_getField1c((int) (window_owner));
+        temp_r31 = obj_getField1c(window_owner);
         info_window = create_message_window__6TLobbyFllUls((int) (get_window_layout_position(0x2E)), (void *) (&stack.sp8), 1, (int) ((s32) temp_r31));
-        ((TLobby *)info_window)->set_field_1c((f32) (lbl_805DC6A4));
+        ((TLobby *)info_window)->set_field_1c(lbl_805DC6A4);
         if (TCameraCtrl::get_camera_id() >= 2) {
-            ((TUnk_804CDFE8 *)info_window)->set_position_xy((f32) (lbl_805DC6A8), (f32) (lbl_805DC6A8));
+            ((TUnk_804CDFE8 *)info_window)->set_position_xy(lbl_805DC6A8, lbl_805DC6A8);
         }
     }
     if ((u32) TQuestListOnline__selected_quest_info != 0U) {
-        send_and_handle__6TLobbyFii((int) (info_window), (void *) (TQuestListOnline__selected_quest_info + 4), 0x80);
+        send_and_handle__6TLobbyFii(info_window, (void *) (TQuestListOnline__selected_quest_info + 4), 0x80);
     }
-    set_field_20__15TShopWindowBaseFl((void*)((void *) (this)), 3);
+    set_field_20__15TShopWindowBaseFl((void*)(this), 3);
 }
 extern "C" {
 

@@ -477,7 +477,7 @@ void TLobby__sub_80070170(void *arg0) {
         v = get_current_floor();
         if (challenge_mode_state[2] != v) {
             challenge_mode_state[2] = v;
-            TLobby::create_time_window((void *)(arg0));
+            TLobby::create_time_window(arg0);
         }
         break;
     }
@@ -523,7 +523,7 @@ void TLobby__sub_80070358(void) {
     temp_r31 = (s32 *)((u8 *)(((u8 *)(&(*(RecoveredGlobal_80070358_lbl_8048C9D8 *)&challenge_mode_state).value) + (local_client_id * 0x104))) + 0x270);
     if (get_character_save_record(0xFFFFU) != 0U) {
         *(s32 *)((s8 *)temp_r31 + 0) = 1;
-        TLobby__sub_800703D0((Info_800703D0 *)((void *)((void *) ((u8 *)(temp_r31) + 4))), (Info_800703D0 *)((void *)((void *) (get_character_save_record(0xFFFFU) + 0x21C4))));
+        TLobby__sub_800703D0((Info_800703D0 *)((void *)((void *) ((u8 *)temp_r31 + 4))), (Info_800703D0 *)((void *)((void *) (get_character_save_record(0xFFFFU) + 0x21C4))));
     }
 }
 
@@ -551,14 +551,14 @@ s32 TLobby::destroy_on_phase_change() {
 }
 
 void TChallenge::render() {  }
-void TChallenge::update_active() { void *p = this; if (((TLobby *)p)->destroy_on_phase_change() == 0) { TLobby__sub_80070170((void *)(p)); ((TLobby *)p)->update_battle_cleanup_flag(); } }
+void TChallenge::update_active() { void *p = this; if (((TLobby *)p)->destroy_on_phase_change() == 0) { TLobby__sub_80070170(p); ((TLobby *)p)->update_battle_cleanup_flag(); } }
 void TChallenge::wait_for_quest() {
     u8 *arg0 = (u8 *)this;
     if (((s32)((TLobby *)arg0)->destroy_on_phase_change()) == 0) {
-        TLobby::update_quest_challenge_state((void *) (arg0));
+        TLobby::update_quest_challenge_state(arg0);
         if (is_quest_active() != 0) {
             ((s32)init__23TAdSinglePlyChrSelectGCFv());
-            ((s32)TLobby__sub_800739BC((void *) (arg0)));
+            ((s32)TLobby__sub_800739BC(arg0));
             ((s32)TLobby__sub_8026A328());
             TObjWarnChime::create((TObject*)arg0);
             this->state = 2;

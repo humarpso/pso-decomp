@@ -24,7 +24,7 @@ void TOBind::sub_8015860C() {
 
 void TOBind::run_task() {
     if (TObjPlayer::check_demo_mode() == 1) {
-        TOBind__sub_80158608((void *)(this));
+        TOBind__sub_80158608(this);
         return;
     }
     if ((s32) *(s32 *)&this->m_b0 != 1) {

@@ -105,7 +105,7 @@ s32 TWindowCtrlMain__sub_8024CD5C(s32 viewport_index) {
 void TWindowCtrlMain::set_value(s32 arg0, s32 arg1) {
     get_window_control_state(arg0)->field04 = arg1;
 }
-s32 TWindowCtrlMain__sub_8024CDB0(void* p) { return TWindowCtrlMain__sub_8024CDD0((s32)(p)); }
+s32 TWindowCtrlMain__sub_8024CDB0(void* p) { return TWindowCtrlMain__sub_8024CDD0((s32)p); }
 
 #define TWindowCtrlMain__viewport_states (*(RecoveredGlobal_8024CDD0_TWindowCtrlMain__data_80518730 *)TWindowCtrlMain__viewport_states)
 typedef char RecoveredGlobal_8024CDD0_TWindowCtrlMain__data_80518730_size[sizeof(RecoveredGlobal_8024CDD0_TWindowCtrlMain__data_80518730) == 0xA8 ? 1 : -1];

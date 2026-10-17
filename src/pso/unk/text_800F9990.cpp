@@ -6,7 +6,7 @@
 extern "C" {
 void load_encrypted_archive_data(s32 name) {
     s32 sp8;
-    TLobby__sub_800F9A60((void *)(name), (void *)(load_encrypted_text_archive((char *)name, &sp8)), (void *)(sp8));
+    TLobby__sub_800F9A60((void *)name, (void *)(load_encrypted_text_archive((char *)name, &sp8)), (void *)sp8);
 }
 
 extern s32 resource_load_task_root[];

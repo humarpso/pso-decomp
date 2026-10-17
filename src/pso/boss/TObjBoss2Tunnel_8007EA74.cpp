@@ -8,7 +8,7 @@
 extern "C" {
 
 void TObjBoss2Tunnel::finalize_and_send_60() {
-    bswap_6xB2_play_sound((void *)(this));
+    bswap_6xB2_play_sound(this);
     TLobby__send_and_handle_60((u8 *)this);
 }
 

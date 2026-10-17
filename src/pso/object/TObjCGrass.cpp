@@ -206,7 +206,7 @@ void TObjCGrass::load_resources() {
         TObjCGrass_bml_resource = (u32) load_enemy_bml_resource_named(&bm_ene_cgrass_resource_descriptor.value, &lbl_8043B638.value);
     } else {
         temp_r3 = (u8 *)(((TAdSinglePlyChrSelectGC *)0x440)->alloc());
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
             var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &bm_ene_cgrass_resource_descriptor.value, 0, 0, 0));
         }
@@ -218,7 +218,7 @@ void TObjCGrass::load_resources() {
     stack.sp14 = *(s32 *)((s8 *)(&cgrass_anim_binding.value) + 0xC);
     stack.sp8 = *(s32 *)((s8 *)TObjCGrass_bml_resource + 0x430);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)TObjCGrass_bml_resource + 0x42C));
-    TLobby::spawn_npc_enemy((s16)(0x36), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 8))), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0xC))), (s32)((void *) (&stack.sp8)), (f32)((f32) (lbl_805D9E68)), (f32)((f32) (TObjCGrass__data_805D9E64)));
+    TLobby::spawn_npc_enemy((s16)(0x36), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 8))), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0xC))), (s32)((void *) (&stack.sp8)), (f32)(lbl_805D9E68), (f32)(TObjCGrass__data_805D9E64));
 }
 
 void *__dt__10TObjCGrassFv(void *arg0, s16 arg1) {
@@ -250,7 +250,7 @@ u8 *TObjCGrass__ct(Grass_800B8EFC *self, u8 *arg1, s32 arg2, s32 arg3) {
     self->f24 = (*(Mgr_800B8EFC * *)&TObjCGrass_bml_resource)->src->fC;
     self->fDC = (*(Mgr_800B8EFC * *)&TObjCGrass_bml_resource)->f430;
     self->fD8 = cgrass_action_desc;
-    ((TObjPlayer *)self)->set_field_d8((s32)(self->fD8));
+    ((TObjPlayer *)self)->set_field_d8((s32)self->fD8);
     set_animation__10TObjPlayerFPvs(self, 0);
     self->f100 = self->fC4 - lbl_805D9E6C;
     self->count = arg2;

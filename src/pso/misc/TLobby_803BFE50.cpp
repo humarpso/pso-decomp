@@ -333,7 +333,7 @@ void TLobby::reset_entry() {
             ((TLobby *)temp_r3)->clear_record();
         }
         TLobby::init_once();
-        memset((void *) (arg0), 0, 0x9C);
+        memset(arg0, 0, 0x9C);
         TLobby::release_ref();
     }
 }
@@ -348,7 +348,7 @@ void TLobby__sub_803C0B3C(u8 *arg0) {
     s16 temp_r0;
     temp_r0 = *(s16 *)((s8 *)arg0 + 0xAA);
     if (temp_r0 == 2) {
-        EXIGetID((Snd_803C0BE8 *)((void *) (arg0)));
+        EXIGetID((Snd_803C0BE8 *)(arg0));
         return;
     }
     if (temp_r0 == 1) {
@@ -356,7 +356,7 @@ void TLobby__sub_803C0B3C(u8 *arg0) {
         return;
     }
     if (temp_r0 == 0) {
-        TLobby__sub_803C133C((void *) (arg0));
+        TLobby__sub_803C133C(arg0);
     }
 }
 s32 TLobby::is_riff_wave() {

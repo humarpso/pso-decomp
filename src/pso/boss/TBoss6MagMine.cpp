@@ -278,7 +278,7 @@ void TBoss6MagMine__sub_80368AB8(u8 *arg0, u8 *arg1) {
     void *boss;
     var_r31 = 0;
     if (((s32) *(s32 *)((s8 *)arg0 + 0x3A4) < (s32) *(s32 *)((s8 *)arg0 + 0x3A0)) && (TBoss6PlotFalz::get_hp() != 0U) && ((boss = ((void *(*)(void))TBoss6PlotFalz__sub_8036964C)()) != NULL)) {
-        temp_r3 = get_field_0x42c__13TBoss6MagMineFPv((void*)(boss));
+        temp_r3 = get_field_0x42c__13TBoss6MagMineFPv(boss);
         switch (temp_r3) {
         case 2:
         case 3:
@@ -320,7 +320,7 @@ void explode__13TBoss6MagMineFPv(Mine_80368C14 *o) {
             subtract_vector(&v, pl + 0x38);
             v.y = 0.0f;
             if (!(vector_length(&v) > 22.5f)) {
-                TBoss6MagMine__sub_80368AB8((u8 *)(o), (u8 *)(pl));
+                TBoss6MagMine__sub_80368AB8((u8 *)o, (u8 *)pl);
             }
         }
     }
@@ -348,21 +348,21 @@ s32 is_player_in_range__13TBoss6MagMineFPv(void *arg0_) {
     return 0;
 }
 
-void vt4__13TBoss6MagMineFv(void* p) { spawn_particle_effect_with_flags(((char*)p + 0x38), (s32)((void*)252), (s32)((void*)64)); queue_destruction__7TObjectFv((void *)(p)); }
+void vt4__13TBoss6MagMineFv(void* p) { spawn_particle_effect_with_flags(((char*)p + 0x38), (s32)((void*)252), (s32)((void*)64)); queue_destruction__7TObjectFv(p); }
 
 void vt3__13TBoss6MagMineFv(s32 arg0) {
     explode__13TBoss6MagMineFPv((Mine_80368C14 *)(arg0));
     spawn_particle_effect_with_flags((void *)(arg0 + 0x38), 0xFB, 0x40);
     spawn_particle_effect_with_flags((void *)(arg0 + 0x38), 0xFC, 0x40);
     TBoss6PlotFalz::apply_radial_effect_to_players((void *)(arg0 + 0x38), (s16)0xC0, (s16)0xF, (f32)100.0f);
-    queue_destruction__7TObjectFv((void *)(arg0));
+    queue_destruction__7TObjectFv((void *)arg0);
 }
 
 #pragma push
 #pragma opt_common_subs off
 void vt2__13TBoss6MagMineFv(u8 *arg0_) {
     f32 temp_f1;
-    if (is_player_in_range__13TBoss6MagMineFPv((void *)((void *) (arg0_))) != 0) {
+    if (is_player_in_range__13TBoss6MagMineFPv((void *)(arg0_)) != 0) {
         *(s32 *)((s8 *)arg0_ + 0x394) = 0x96;
     }
     *(f32 *)((s8 *)arg0_ + 0x398) += 0.33333334f;
@@ -580,7 +580,7 @@ s32 create__13TBoss6MagMineFi(s32 arg0) {
         if (parent != 0) {
             parent = TObjControl__ct(parent, tl_04);
         }
-        var_r31 = TBoss6MagMine__ct((s32)(var_r31), (s32)(parent), (s32)(arg0));
+        var_r31 = TBoss6MagMine__ct(var_r31, parent, arg0);
     }
     return var_r31;
 }

@@ -123,7 +123,7 @@ void TTecSifta::create_instance(void *pos, void *arg2, void *level) {
     void *o;
     o = __nw__7TObjectFUl(0x140);
     if (o != NULL) {
-        TTecSifta__ct((void *)(o), (void *)(this), (void *)(pos), (void *)(arg2), (void *)(level));
+        TTecSifta__ct(o, this, pos, arg2, level);
     }
 }
 
@@ -131,7 +131,7 @@ void TTecSifta::create(void *arg0, void *pos, void *level) {
     void *o;
     o = __nw__7TObjectFUl(0x140);
     if (o != NULL) {
-        TTecSifta__sub_8023B17C((u8 *)(o), (s32)(arg0), (s32)(pos), (s32)(level));
+        TTecSifta__sub_8023B17C((u8 *)o, (s32)arg0, (s32)pos, (s32)level);
     }
 }
 
@@ -216,7 +216,7 @@ void *TTecSifta__ct(void *arg0_, void *owner, void *pos, void *arg3, void *level
         *(s16 *)((s8 *)arg0 + 0xA8) = obj_getField1c((int)t);
     }
     if (*(s32 *)((s8 *)arg0 + 0xAC) != 0) {
-        TTecSifta__sub_8023AC88((void*)(arg0));
+        TTecSifta__sub_8023AC88(arg0);
         ((TTecSifta *)arg0)->play_sifta_cast_sound();
     }
     return arg0_;
@@ -227,7 +227,7 @@ void *TTecSifta__ct(void *arg0_, void *owner, void *pos, void *arg3, void *level
 u8 *TTecSifta__sub_8023B17C(u8 *arg0, s32 owner, s32 pos, s32 level) {
     u32 temp_r3_2;
     u8 *temp_r3;
-    TTecPlayerInfluence__ct((void *) (arg0), (void *) (owner), (void *) (pos), (void *) (level));
+    TTecPlayerInfluence__ct((void *)arg0, (void *)owner, (void *)pos, (void *)level);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8023B17C___vt__9TTecSifta *)&__vt__9TTecSifta).value;
     ((TObjPlayer *)(arg0 + 0xE0))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3820;
@@ -239,9 +239,9 @@ u8 *TTecSifta__sub_8023B17C(u8 *arg0, s32 owner, s32 pos, s32 level) {
     }
     temp_r3_2 = ((TTecSifta *)arg0)->source;
     if (temp_r3_2 != 0U) {
-        *(s16 *)&((TTecSifta *)arg0)->m_a8 = obj_getField1c((int) (temp_r3_2));
+        *(s16 *)&((TTecSifta *)arg0)->m_a8 = obj_getField1c(temp_r3_2);
     }
-    TTecSifta__sub_8023AC88((void*)((void *) (arg0)));
+    TTecSifta__sub_8023AC88((void*)(arg0));
     ((TTecSifta *)arg0)->play_sifta_cast_sound();
     return arg0;
 }

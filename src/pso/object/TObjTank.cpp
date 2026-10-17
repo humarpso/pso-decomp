@@ -103,7 +103,7 @@ u8 *TObjTank__ct(u8 *arg0, s32 arg1, s32 arg2) {
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2 + 0xC));
     ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz((void *) (arg2 + 0x18));
     VecCopy((Vec *)(arg0 + 0x68), (const Vec *)(arg2 + 0x24));
-    init_collision_body_parts((void *) (arg0), (void *) (&tobjtank_collision_body_parts.value), 1);
+    init_collision_body_parts(arg0, (void *) (&tobjtank_collision_body_parts.value), 1);
     *(s32 *)&((TObjTank *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjTank *)arg0)->actorFlags| 0x40000000);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;
@@ -112,7 +112,7 @@ u8 *TObjTank__ct(u8 *arg0, s32 arg1, s32 arg2) {
 void *TObjTank__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xAC);
     if (o != NULL) {
-        o = TObjTank__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TObjTank__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

@@ -75,7 +75,7 @@ void TAdPlyPltAnimGC::render() {
         begin_screen_draw(1);
         TObjFish::set_global_param(player_prate_texture_list_ptr);
         set_draw_texture_and_color(0, (*(u8 *)((s8 *)arg0 + 0x6C) << 0x18) | 0xFF0000 | 0xFFFF);
-        draw_textured_quad_at_depth((f32 *)((u8 *)(arg0) + 0x1C), (lbl_805DFFCC * (f32) *(s32 *)((s8 *)arg0 + 0x70)) + lbl_805DFFC8);
+        draw_textured_quad_at_depth((f32 *)(arg0 + 0x1C), (lbl_805DFFCC * (f32) *(s32 *)((s8 *)arg0 + 0x70)) + lbl_805DFFC8);
         TWindowSubStatusDisp::get_player();
         TObjPlayer::reset_transform_state();
     }
@@ -182,7 +182,7 @@ s32 get_or_create__15TAdPlyPltAnimGCFii(s32 arg0, s32 arg1) {
         temp_r3 = __nw__7TObjectFUl(0x7C);
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = TAdPlyPltAnimGC__ct((int) (temp_r3), (void *) (arg0), (void *) (arg1));
+            var_r0 = TAdPlyPltAnimGC__ct((int)temp_r3, (void *)arg0, (void *)arg1);
         }
         *(s32 *)((s8 *)(&TAdPlyPltAnimGC__instances.value) + temp_r30) = var_r0;
     }

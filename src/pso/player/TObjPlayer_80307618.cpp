@@ -42,7 +42,7 @@ extern f32 lbl_805DF0A8;
 
 void TUnk_804E70A8::update_weapon() {
     if ((s32) *(s32 *)((s8 *)this + 0x1F8) > 0) {
-        if (get_slot_count__14TItemProShieldFv((void *)(this)) == 1) {
+        if (get_slot_count__14TItemProShieldFv(this) == 1) {
             *(s32 *)((s8 *)this + 0x1F8) = (s32) (*(s32 *)((s8 *)this + 0x1F8) - 1);
             if ((s32) *(s32 *)((s8 *)this + 0x1F8) == 0) {
                 set_status_flags__10TObjPlayerFUl(this, 0x800);
@@ -59,7 +59,7 @@ void TObjPlayer__sub_803076F8(u8 *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x1F8) == 0) {
         player_list = TObjPlayer::get_player_list();
         ((TObjPlayer *)arg0)->setup_particle_once();
-        TObjPlayer::load_projection_tex((s32)((void *) (arg0)), (s32)((int) ((s32) (lbl_805DF0AC * (f32) (((TUnk_804E70A8 *)arg0)->m_1fc+ (player_list * 3))))));
+        TObjPlayer::load_projection_tex((s32)(arg0), (s32)((int) ((s32) (lbl_805DF0AC * (f32) (((TUnk_804E70A8 *)arg0)->m_1fc+ (player_list * 3))))));
     }
 }
 
@@ -67,9 +67,9 @@ typedef char RecoveredGlobal_80307784_lbl_804E70A8_size[sizeof(RecoveredGlobal_8
 u8 *TObjPlayer__sub_80307784(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80307784_lbl_804E70A8 *)&lbl_804E70A8).value;
-    set_status_flags__10TObjPlayerFUl((void *)(arg0), 1);
-    if (get_slot_count__14TItemProShieldFv((void *)(arg0)) == 1) {
-        set_status_flags__10TObjPlayerFUl((void *)(arg0), 0x800);
+    set_status_flags__10TObjPlayerFUl(arg0, 1);
+    if (get_slot_count__14TItemProShieldFv(arg0) == 1) {
+        set_status_flags__10TObjPlayerFUl(arg0, 0x800);
     }
     *(s32 *)((s8 *)arg0 + 0x1F8) = 5;
     ((TUnk_804E70A8 *)arg0)->m_1fc = 0;
@@ -82,9 +82,9 @@ u8 *TObjPlayer__sub_80307800(s32 arg0) {
     u8 *var_r0;
     if (arg0 != 0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x204));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(TObjPlayer__sub_80307784((u8 *)(temp_r3), (u8 *)(tl_05), (s32)(arg0)));
+            var_r0 = (u8 *)(TObjPlayer__sub_80307784((u8 *)temp_r3, (u8 *)tl_05, (s32)arg0));
         }
         return var_r0;
     }

@@ -58,18 +58,18 @@ u8 *TItemWeapon__ct(u8 *arg0, void *parent, u8 *item) {
     *(void **)((s8 *)arg0 + 0x1F0) = (void *)create_gun_shot;
     *(s16 *)((s8 *)arg0 + 0x1CE) = (s16) *(u8 *)((s8 *)(*(void * *)&((TItemWeapon *)arg0)->parameters) + 0x1B);
     temp_r6 = (unsigned char *) (*(void * *)&((TItemWeapon *)arg0)->parameters);
-    set_weapon_trail_joints((void *) (arg0), 0, (int) (*(u8 *)((s8 *)temp_r6 + 0x1C)), (int) (*(u8 *)((s8 *)temp_r6 + 0x1D)));
+    set_weapon_trail_joints(arg0, 0, (int) (*(u8 *)((s8 *)temp_r6 + 0x1C)), (int) (*(u8 *)((s8 *)temp_r6 + 0x1D)));
     temp_r6_2 = (unsigned char *) (*(void * *)&((TItemWeapon *)arg0)->parameters);
-    set_weapon_trail_joints((void *) (arg0), 1, (int) (*(u8 *)((s8 *)temp_r6_2 + 0x1E)), (int) (*(u8 *)((s8 *)temp_r6_2 + 0x1F)));
-    set_weapon_trail_joints((void *) (arg0), 2, (int) (-1U), (int) (-1U));
-    set_weapon_trail_joints((void *) (arg0), 3, (int) (-1U), (int) (-1U));
+    set_weapon_trail_joints(arg0, 1, (int) (*(u8 *)((s8 *)temp_r6_2 + 0x1E)), (int) (*(u8 *)((s8 *)temp_r6_2 + 0x1F)));
+    set_weapon_trail_joints(arg0, 2, (int) (-1U), (int) (-1U));
+    set_weapon_trail_joints(arg0, 3, (int) (-1U), (int) (-1U));
     memset((void *) (arg0 + 0x18C), 0, 0x10);
     *(s32 *)((s8 *)arg0 + 0x1B8) = 0;
     *(f32 *)((s8 *)arg0 + 0x1E4) = (f32) lbl_805DACB0;
     ((TItemWeapon *)arg0)->technique_roll = 0;
     ((TItemWeapon *)arg0)->previous_technique_roll = 0;
     ((TItemWeapon *)arg0)->technique_roll_range = 0;
-    u8 ed = ((u32 (*)(void *))get_field_ed__5TItemFv)((void *) (arg0));
+    u8 ed = ((u32 (*)(void *))get_field_ed__5TItemFv)(arg0);
     if (ed < 0xAA) {
         *(s8 *)&((TItemWeapon *)arg0)->special_to_stage = get_weapon_class_motion_type(ed);
         if ((s16) *(s16 *)((s8 *)arg0 + 0x1E8) != -1) {
@@ -83,7 +83,7 @@ u8 *TItemWeapon__ct(u8 *arg0, void *parent, u8 *item) {
     }
     ((TItemWeapon *)arg0)->stage = -1;
     ((TItemWeapon *)arg0)->motion_frame = (f32) lbl_805DAC98;
-    if (get_field_ed__5TItemFv((void *) (arg0)) == 0) {
+    if (get_field_ed__5TItemFv(arg0) == 0) {
         *(s16 *)((s8 *)arg0 + 0x1E8) = -1;
     } else {
         ((TObjPlayer *)(&lbl_805D53EC))->clear_id();

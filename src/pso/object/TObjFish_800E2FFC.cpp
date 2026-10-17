@@ -63,7 +63,7 @@ s32 TObjFish::is_entry_table_valid() {
 }
 
 void TObjFish::init_state_1(void *arg0) {
-    TObjFish__sub_800E3188((s32)(arg0), (s16)(1));
+    TObjFish__sub_800E3188((s32)arg0, (s16)(1));
 }
 
 s32 TObjFish__sub_800E3124(u8 *list, s32 vecs) {

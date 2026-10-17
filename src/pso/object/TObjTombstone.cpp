@@ -76,7 +76,7 @@ void TObjTombstone::render() {
 
 f32 TObjTombstone::get_distance_to_local_player_xz(void * _w1) {
     Obj_8007598C *self = (Obj_8007598C *)this;
-    Ply_8007598C *p = get_player_by_client_id((s32)(local_client_id), (void *)(_w1));
+    Ply_8007598C *p = get_player_by_client_id(local_client_id, _w1);
     if (p == 0) {
         return lbl_805D91A8;
     }
@@ -171,7 +171,7 @@ void TObjTombstone::format_player_name() {
     char *p;
     Ply_80075CB4 *ply;
     char *dst = self->name;
-    ply = ((Ply_80075CB4 *)get_player_by_client_id((s32)(self->fac), (void *)(self)));
+    ply = ((Ply_80075CB4 *)get_player_by_client_id(self->fac, self));
     dst[0] = 0;
     if (ply != NULL) {
         strncpy(buf, ply->name, 0x2F);

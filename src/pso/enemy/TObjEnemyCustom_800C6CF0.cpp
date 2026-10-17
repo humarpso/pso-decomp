@@ -166,7 +166,7 @@ u16 find_nearest_enemy__10TObjPlayerFPvPvf(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out
     bestDist = radius * radius;
     best = 0xFFFF;
     for (i = lbl_805D586C; i < lbl_805D586C + lbl_805D5870; i++) {
-        p = ((Obj_800C6EF8 *)get_player_data__10TObjPlayerFi((int)(i)));
+        p = ((Obj_800C6EF8 *)get_player_data__10TObjPlayerFi(i));
         if (p == NULL) {
             break;
         }

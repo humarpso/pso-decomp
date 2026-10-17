@@ -187,12 +187,12 @@ void run_task__17TOSymbolchatColliFv(Obj_80178890 *self) {
 void *TOSymbolchatColli::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x384);
     if (o != NULL) {
-        o = TOSymbolchatColli__ct((Obj_80178AD4 *)(o), (void *)(tl_05), (s32)(arg0));
+        o = TOSymbolchatColli__ct((Obj_80178AD4 *)(o), (void *)tl_05, (s32)arg0);
     }
     return o;
 }
 
-void TOSymbolchatColli::free_rock() { mem_free((void *)(symbol_chat_colli_entries)); symbol_chat_colli_entries = 0; }
+void TOSymbolchatColli::free_rock() { mem_free((void *)symbol_chat_colli_entries); symbol_chat_colli_entries = 0; }
 
 void TOSymbolchatColli::load_symbol_chat_data() {
     s32 h;

@@ -119,7 +119,7 @@ void TObjContainerBase::vfunc_6(s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             this->vfunc_79();
-            ((TUnk_804B6C24 *)arg0)->spawn_item((s32)((void *) (arg0)));
+            ((TUnk_804B6C24 *)arg0)->spawn_item((s32)(arg0));
             ((TUnk_804AF8A0 *)arg0)->set_flag8();
             queue_destruction__7TObjectFv((arg0));
             this->mode = 1;

@@ -180,7 +180,7 @@ void TWindowSubStatusDisp__sub_802878B8(u8 *arg0, u8 *arg1) {
   }
 }
 
-void TWindowSubStatusDisp::update(void* a1) { draw_entry_tab((void *)(a1)); TWindowSubStatusDisp__sub_802878B8((u8 *)(this), (u8 *)(a1)); }
+void TWindowSubStatusDisp::update(void* a1) { draw_entry_tab((void *)a1); TWindowSubStatusDisp__sub_802878B8((u8 *)this, (u8 *)a1); }
 
 void TWindowSubStatusDisp__sub_802879B0(void *arg0) {
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (*(f32 *)((s8 *)arg0 + 0x1C) + *(f32 *)((s8 *)arg0 + 0x20));
@@ -202,7 +202,7 @@ u8 *init_heading_entry__20TWindowSubStatusDispFPvPvici(u8 *arg0, u8 *arg1, s32 a
     *(s8 *)((s8 *)arg0 + 0x19) = 0;
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (0.0f);
     ((TWindowSubStatusDisp *)arg0)->set_entry_state(arg3);
-    *(f32 *)((s8 *)arg0 + 0x20) = TWindowSubStatusDisp::get_card_window_scale((s32)((void *) (arg4)));
+    *(f32 *)((s8 *)arg0 + 0x20) = TWindowSubStatusDisp::get_card_window_scale((s32)(arg4));
     if (*(f32 *)((s8 *)arg0 + 0x20) <= (0.0f)) {
         *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (1e+05f);
     }

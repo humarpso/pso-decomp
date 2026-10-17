@@ -216,7 +216,7 @@ Save_80202C68 *copy_save_data__23TAdSinglePlyChrSelectGCFPvPv(Save_80202C68 *arg
     d = arg0->slots;
     s = arg1->slots;
     do {
-        TAdSinglePlyChrSelectGC__sub_80202D7C((void *)(d), (void *)(s));
+        TAdSinglePlyChrSelectGC__sub_80202D7C(d, s);
         d++;
         s++;
     } while (d < &arg0->slots[7]);

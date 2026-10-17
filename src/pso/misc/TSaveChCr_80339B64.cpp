@@ -53,7 +53,7 @@ void TSaveChCr::update_save_state() {
     if (!(temp_r4 & 2)) {
         if (temp_r4 & 1) {
             if ((u32) *(u32 *)&this->owned_window == 0U) {
-                close_and_advance__9TSaveChCrFPv((void*)(this), 0);
+                close_and_advance__9TSaveChCrFPv(this, 0);
             }
         } else {
             if (temp_r4 & 4) {
@@ -67,9 +67,9 @@ void TSaveChCr::update_save_state() {
     }
 }
 void fn_80339D78(u8 *arg0) {
-    ((s32)close_window__9TSaveChCrFv((void*)(arg0)));
+    ((s32)close_window__9TSaveChCrFv(arg0));
     if (*(s32 *)((s8 *)arg0 + 0x2C) & 1) {
-        ((s32)close_and_advance__9TSaveChCrFPv((void*)((void *) (arg0)), 0));
+        ((s32)close_and_advance__9TSaveChCrFPv((void*)(arg0), 0));
     }
 }
 s32 TAdSinglePlyChrSelectGC__sub_80339DBC(void) {

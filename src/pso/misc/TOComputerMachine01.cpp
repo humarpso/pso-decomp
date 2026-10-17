@@ -90,8 +90,8 @@ void TOComputerMachine01::render() {
         }
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y(0, (int) (this->rotation_y));
-        TObjFish::set_global_param((int) (this->texture_id));
+        rotate_matrix_y(0, this->rotation_y);
+        TObjFish::set_global_param(this->texture_id);
         temp_r31 = (u8 *)(*(u8 * *)&this->model);
         draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
         TParticleCtrl::begin_effect_render();
@@ -110,7 +110,7 @@ void TOComputerMachine01::render() {
 void *TOComputerMachine01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE8);
     if (o != NULL) {
-        o = TOComputerMachine01__ct((u8 *)(o), (s32)(arg0));
+        o = TOComputerMachine01__ct((u8 *)o, (s32)arg0);
     }
     return o;
 }
@@ -158,7 +158,7 @@ void *__dt__19TOComputerMachine01Fv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8015B644_lbl_804AFFF8_size[sizeof(RecoveredGlobal_8015B644_lbl_804AFFF8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8015B644___vt__19TOComputerMachine01_size[sizeof(RecoveredGlobal_8015B644___vt__19TOComputerMachine01) == 0x44 ? 1 : -1];
 u8 *TOComputerMachine01__ct(u8 *arg0, s32 arg1) {
-    init__13TUnk_804B27D8Fv((void *) (arg0), (int) (tl_05));
+    init__13TUnk_804B27D8Fv(arg0, tl_05);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8015B644___vt__19TOComputerMachine01 *)&__vt__19TOComputerMachine01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2EEC;
     ((TOComputerMachine01 *)(arg0))->apply_object_set_data((void *)arg1);
@@ -167,7 +167,7 @@ u8 *TOComputerMachine01__ct(u8 *arg0, s32 arg1) {
     ((TOComputerMachine01 *)arg0)->m_c0 = (f32) lbl_805DB390;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB394;
     *(s32 *)&((TOComputerMachine01 *)arg0)->actorFlags = (s32) (*(s32 *)&((TOComputerMachine01 *)arg0)->actorFlags| 0x40000000);
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AFFF8.value), 1);
+    init_collision_body_parts(arg0, (void *) (&lbl_804AFFF8.value), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOHealGeneral *)arg0)->update_heal_gauge_state();

@@ -38,7 +38,7 @@ extern void *TItemReverseTechPart1__instance;
 
 u8 *__ct__21TItemReverseTechPart2Fv(u8 *arg0, s32 arg1, s32 arg2) {
     u32 temp_r3;
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__21TItemReverseTechPart2.value;
     TItemReverseTech__sub_8011A54C((arg0 + 0x1C));
     TItemReverseTech__sub_8011A54C((arg0 + 0x48));
@@ -117,7 +117,7 @@ u8 *__ct__21TItemReverseTechPart2Fv(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0x14C) = (f32) lbl_805DAC48;
     temp_r3 = __nw__7TObjectFUl(0x64);
     if (temp_r3 != 0U) {
-        __ct__18TItemReverseTechBGFv((void *)(temp_r3), (void *)(arg0), (void *)(arg0 + 0x124));
+        __ct__18TItemReverseTechBGFv((void *)temp_r3, (void *)arg0, (void *)(arg0 + 0x124));
     }
     *(s32 *)((s8 *)arg0 + 0x150) = 0;
     *(s32 *)((s8 *)arg0 + 0x154) = 0;

@@ -100,7 +100,7 @@ void TObjEneMe1GiGueMissile::create(s32 arg0, s32 from, s32 arg2, f32 farg0, f32
     void *temp_r3;
     temp_r3 = (void *) __nw__7TObjectFUl(0xC4);
     if ((u32) temp_r3 != 0U) {
-        TObjEneMe1GiGueMissile__ct((u8 *)(temp_r3), (s32)(arg0), (u8 *)(from), (u8 *)(arg2), farg0, farg1);
+        TObjEneMe1GiGueMissile__ct((u8 *)temp_r3, (s32)arg0, (u8 *)from, (u8 *)arg2, farg0, farg1);
     }
 }
 
@@ -147,7 +147,7 @@ void TObjEneMe1GiGueMissile::run_task() {
     f32 temp_f1;
     this->m_1c = (u32)find_entity_by_id((this->m_34));
     if ((u32) this->m_1c == 0U) {
-        queue_destruction__7TObjectFv(((void *) (arg0)));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     *(f32 *)&this->unk_BC = (f32) (*(f32 *)&this->unk_BC + lbl_805DE6DC);
@@ -157,7 +157,7 @@ void TObjEneMe1GiGueMissile::run_task() {
     }
     ((TNeedleShoot *)arg0)->update_position();
     ((TObjEneMe1GiGueMissile *)arg0)->update_lifetime();
-    TObjPlayer__sub_802A445C((void *) (arg0), 1);
+    TObjPlayer__sub_802A445C(arg0, 1);
 }
 #pragma pop
 

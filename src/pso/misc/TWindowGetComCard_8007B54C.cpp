@@ -70,8 +70,8 @@ void TWindowGetComCard__sub_8007B60C(s32 _w0) {
   while (var_r29 < 4);
 }
 
-void TWindowGetComCard__sub_8007B65C(void* p) { TWindowGetComCard__sub_8007B60C((s32)(p)); }
-void TWindowGetComCard__sub_8007B67C(void* p) { TWindowGetComCard__sub_8007B60C((s32)(p)); }
+void TWindowGetComCard__sub_8007B65C(void* p) { TWindowGetComCard__sub_8007B60C((s32)p); }
+void TWindowGetComCard__sub_8007B67C(void* p) { TWindowGetComCard__sub_8007B60C((s32)p); }
 void TWindowGetComCard::construct_card_tags() {
     __construct_array(((u8 *)&TWindowGetComCard__received_guild_card_tags), (void *)init_guild_card_tag__17TWindowSubComCardFi, 0, 0x90, 4);
 }

@@ -27,7 +27,7 @@ s32 add_text_entry__19TWindowSubTradeMainFllll(s32, s32, s32, s16, s32);
 s32 draw_text_gray__17TWindowSubComCardFllll(s32, s32, s32, s16);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s16);
 
-int TWindowSubTechnique::get_current_selection(void* _w1) { return get_selection__19TWindowSubTechniqueFPsPll((void*)(this), (void*)(_w1)); }
+int TWindowSubTechnique::get_current_selection(void* _w1) { return get_selection__19TWindowSubTechniqueFPsPll(this, _w1); }
 
 s32 TWindowSubTechnique::is_technique_available(s32 sub, s32 arg1) {
     s32 player;
@@ -55,11 +55,11 @@ void draw_technique_row__19TWindowSubTechniqueFiii(s32 id, s32 arg1, s32 arg2) {
     s32 technique_name;
 
     technique_name = get_technique_name(id);
-    if (TWindowSubTechnique::lookup_technique((s32)(id), (s32)(arg1)) == 0) {
+    if (TWindowSubTechnique::lookup_technique(id, arg1) == 0) {
         draw_text_gray__17TWindowSubComCardFllll(arg2, technique_name, 6, id);
         return;
     }
-    if (TWindowSubTechnique::is_technique_available((s32)((void*)((void*)(id))), (s32)((void*)((void*)(arg1)))) == 0) {
+    if (TWindowSubTechnique::is_technique_available((s32)((void*)(id)), (s32)((void*)(arg1))) == 0) {
         add_text_entry__19TWindowSubTradeMainFllll(arg2, technique_name, 0x16, id, 0xFFFD3901);
         return;
     }

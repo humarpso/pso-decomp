@@ -470,7 +470,7 @@ u8 *__ct__8TObjChipFv(u8 *arg0, u8 *arg1, u8 *arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__8TObjChip;
     *(s32 *)((s8 *)arg0 + 0) = (s32) obj_chip_class_name_ptr;
-    copy_debris_params__8TObjChipFPvPv((u8 *)(arg0 + 0x24), (u8 *)(arg2));
+    copy_debris_params__8TObjChipFPvPv((u8 *)(arg0 + 0x24), arg2);
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (2e+02f);
     *(f32 *)((s8 *)arg0 + 0x20) = 40.0f;
     *(s32 *)((s8 *)arg0 + 0x230) = 1;
@@ -501,7 +501,7 @@ u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__8TObjChip;
     *(s32 *)((s8 *)arg0 + 0) = (s32) obj_chip_class_name_ptr;
-    copy_debris_params__8TObjChipFPvPv((u8 *)(arg0 + 0x24), (u8 *)(arg2));
+    copy_debris_params__8TObjChipFPvPv((u8 *)(arg0 + 0x24), arg2);
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (2e+02f);
     *(f32 *)((s8 *)arg0 + 0x20) = 40.0f;
     *(s32 *)((s8 *)arg0 + 0x230) = 1;

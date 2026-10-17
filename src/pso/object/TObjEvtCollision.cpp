@@ -57,7 +57,7 @@ extern void *tl_05;
 void *TObjEvtCollision__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xB8);
     if (o != NULL) {
-        o = TObjEvtCollision__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TObjEvtCollision__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

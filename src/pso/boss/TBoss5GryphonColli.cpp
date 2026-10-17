@@ -50,7 +50,7 @@ u8 *TBoss5GryphonColli__ct(u8 *arg0, s32 arg1) {
     Stack_800661E4 stack;
     s32 temp_r3;
     s32 var_r0;
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__18TBoss5GryphonColli.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D280C;
     stack.sp8 = lbl_805D8ED0;
@@ -59,7 +59,7 @@ u8 *TBoss5GryphonColli__ct(u8 *arg0, s32 arg1) {
     temp_r3 = __nw__7TObjectFUl(0xB8);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = TBoss5GryphonDemo__sub_800663DC((int) (temp_r3), (void *) (arg0), 1, (void *) (&stack.sp8), (f32) (lbl_805D8ED8));
+        var_r0 = TBoss5GryphonDemo__sub_800663DC(temp_r3, arg0, 1, (void *) (&stack.sp8), lbl_805D8ED8);
     }
     *(s32 *)((s8 *)arg0 + 0x1C) = var_r0;
     return arg0;

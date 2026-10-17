@@ -201,8 +201,8 @@ void TObjPlayer::prepare_heavy_attack_particles_default() { prepare_heavy_attack
 #pragma fp_contract on
 void prepare_heavy_attack_particles(u8 *arg0) {
     if (*(u32 *)((s8 *)arg0 + 4) != 0U) {
-        TObjPlayer::check_hit_by_id((s32)((void*)((void *) (arg0))), (s32)((int)((int) (obj_getField1c((int) *(u32 *)((s8 *)arg0 + 4))))), 0x11);
-        TObjPlayer::check_hit_by_id((s32)((void*)((void *) (arg0))), (s32)((int)((int) (obj_getField1c((int) *(u32 *)((s8 *)arg0 + 4))))), 0x12);
+        TObjPlayer::check_hit_by_id((s32)((void*)(arg0)), (s32)((int)((int) (obj_getField1c((int) *(u32 *)((s8 *)arg0 + 4))))), 0x11);
+        TObjPlayer::check_hit_by_id((s32)((void*)(arg0)), (s32)((int)((int) (obj_getField1c((int) *(u32 *)((s8 *)arg0 + 4))))), 0x12);
     }
 }
 #pragma pop
@@ -223,10 +223,10 @@ void TObjPlayer::emit_jellen_support_effect_default() { emit_jellen_support_effe
 #pragma fp_contract on
 void emit_jellen_support_effect(u8 *arg0) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0) != 0U) {
-        create_attached_oneshot_emitter((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) *(u32 *)((s8 *)arg0 + 0)))), 0x1C);
+        create_attached_oneshot_emitter((void*)(arg0), (int)((int) (obj_getField1c((int) *(u32 *)((s8 *)arg0 + 0)))), 0x1C);
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 4) != 0U) {
-        create_attached_oneshot_emitter((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) *(u32 *)((s8 *)arg0 + 4)))), 0x1C);
+        create_attached_oneshot_emitter((void*)(arg0), (int)((int) (obj_getField1c((int) *(u32 *)((s8 *)arg0 + 4)))), 0x1C);
     }
 }
 #pragma pop
@@ -237,10 +237,10 @@ void TObjPlayer::emit_shifta_support() { emit_shifta_support_effect((u8 *)((char
 #pragma fp_contract on
 void emit_shifta_support_effect(u8 *arg0) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0) != 0U) {
-        TObjPlayer::check_hit_by_id((s32)((void*)((void *) (arg0))), (s32)((int)((int) (obj_getField1c((int) *(u32 *)((s8 *)arg0 + 0))))), 0x1C);
+        TObjPlayer::check_hit_by_id((s32)((void*)(arg0)), (s32)((int)((int) (obj_getField1c((int) *(u32 *)((s8 *)arg0 + 0))))), 0x1C);
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 4) != 0U) {
-        TObjPlayer::check_hit_by_id((s32)((void*)((void *) (arg0))), (s32)((int)((int) (obj_getField1c((int) *(u32 *)((s8 *)arg0 + 4))))), 0x1C);
+        TObjPlayer::check_hit_by_id((s32)((void*)(arg0)), (s32)((int)((int) (obj_getField1c((int) *(u32 *)((s8 *)arg0 + 4))))), 0x1C);
     }
 }
 #pragma pop
@@ -283,9 +283,9 @@ void TObjPlayer::emit_photon_blast_feedback_from_packet() {
 }
 
 void emit_photon_blast_feedback_effects(s32 arg0, s32 arg1) {
-    TObjPlayer::check_hit_by_id((s32)((void*)(arg0)), (s32)((int)(arg1)), 5);
-    TObjPlayer::check_hit_by_id((s32)((void*)(arg0)), (s32)((int)(arg1)), 0x2C);
-    TObjPlayer::check_hit_by_id((s32)((void*)(arg0)), (s32)((int)(arg1)), 0x3B);
+    TObjPlayer::check_hit_by_id((s32)(arg0), (s32)(arg1), 5);
+    TObjPlayer::check_hit_by_id((s32)(arg0), (s32)(arg1), 0x2C);
+    TObjPlayer::check_hit_by_id((s32)(arg0), (s32)(arg1), 0x3B);
 }
 
 int TObjPlayer__sub_801BF3A0(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 0x24); }

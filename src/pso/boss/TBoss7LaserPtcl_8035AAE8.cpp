@@ -153,7 +153,7 @@ void TUnk_804F1C88::run_task() {
     Ptcl_8035AD68 *o = (Ptcl_8035AD68 *)arg0;
     o->x40 += lbl_805E0110;
     reset_global_table();
-    TObjPlayer::apply_status_effect((s32)(o->x1c));
+    TObjPlayer::apply_status_effect((s32)o->x1c);
     for (i = 0; i != TObjOnlineEnding::get_instance(); i++) {
         u8 **e = (u8 **)TObjOnlineEnding::get_attack_entry(i);
         ((TBoss7PhotonBullet *)(o->x10))->emit_hit_effect(*e + 0x38);
@@ -177,7 +177,7 @@ void *__dt__13TUnk_804F1C88Fv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_8035AE54_lbl_804F1C88_size[sizeof(RecoveredGlobal_8035AE54_lbl_804F1C88) == 0x18 ? 1 : -1];
 u8 *TBoss7LaserPtcl__sub_8035AE54(u8 *arg0, s32 arg1, s32 arg2) {
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8035AE54_lbl_804F1C88 *)&lbl_804F1C88).value;
     *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805E0118;
     *(f32 *)((s8 *)arg0 + 0x38) = (f32) lbl_805E0118;

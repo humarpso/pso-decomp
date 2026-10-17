@@ -35,7 +35,7 @@ void *TWindowLoadItemTexture::create(void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x74);
     if (o != NULL) {
-        o = TWindowLoadItemTexture__ct((void *)(o), (void *)(this), (void *)(lbl_8044F280), (void *)(arg1));
+        o = TWindowLoadItemTexture__ct(o, this, lbl_8044F280, arg1);
     }
     get_array_entry__13TUnk_804CE018Fi(o, 0);
     set_sprite_uv_bounds(lbl_805DD0EC, lbl_805DD0EC, lbl_805DD0F4, lbl_805DD0F8);

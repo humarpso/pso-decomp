@@ -51,7 +51,7 @@ u8 *TBoss6CrushPtcl__ct(u8 *arg0, void *arg1, Vec_80359EF0 *arg2) {
 void *TBoss6CrushPtcl::create() {
     void *o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
-        o = TBoss6CrushPtcl__ct((u8 *)(o), (void *)(tl_02), (Vec_80359EF0 *)(this));
+        o = TBoss6CrushPtcl__ct((u8 *)o, (void *)tl_02, (Vec_80359EF0 *)(this));
     }
     return o;
 }

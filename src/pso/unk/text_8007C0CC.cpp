@@ -76,7 +76,7 @@ s32 subtractive_rng_next(s32 *arg0) {
     temp_r4 = *arg0;
     *arg0 = temp_r4 + 1;
     if (temp_r4 + 1 > 0x37) {
-        subtractive_rng_refill((Crypt_8007C438 *)((void *)(arg0)));
+        subtractive_rng_refill((Crypt_8007C438 *)(arg0));
         *arg0 = 1;
     }
     return arg0[*arg0 + 1];

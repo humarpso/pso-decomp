@@ -9,7 +9,7 @@ extern "C" {
 int roll_technique__11TItemWeaponFv(void*);
 s32 get_attack_stage__11TItemWeaponFv();
 
-void TObjPlayer__sub_8012789C(void* p) { roll_technique__11TItemWeaponFv((void*)(p)); roll_technique__11TItemWeaponFv((void*)(p)); }
+void TObjPlayer__sub_8012789C(void* p) { roll_technique__11TItemWeaponFv(p); roll_technique__11TItemWeaponFv(p); }
 
 extern s32 tl_05;
 
@@ -32,7 +32,7 @@ void TObjPlayer::cast_jellen_zalure() {
             temp_r4_2 = temp_r3_2 + 0x38;
             TTecZarua::create_instance(temp_r3_2, temp_r4_2, temp_r4_2, 4);
         }
-        roll_technique__11TItemWeaponFv((void*)(this));
+        roll_technique__11TItemWeaponFv(this);
         return;
     }
     update_active_game_effect();

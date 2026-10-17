@@ -45,8 +45,8 @@ void TWindowQuantity::set_position(s32 arg1) {
 void render__15TWindowQuantityFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)((void *) (arg0 + 0x64)));
-    ((TWindowQuantity *)arg0)->set_position((s32)((int) (temp_r3)));
-    draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
+    ((TWindowQuantity *)arg0)->set_position((s32)(temp_r3));
+    draw_visible_window_entries((void *)arg0, (void *) (arg0 + 0x24), (int)temp_r3);
 }
 
 void TWindowQuantity::run_task() { initialize_subwindow__9TWindowDDFv(this); update_window_entry_list((char*)this + 0x24); }
@@ -94,7 +94,7 @@ void *TWindowQuantity__ct(void *arg0, void *arg1) {
 void *create_window_quantity(void *arg0) {
     void *o = __nw__7TObjectFUl(0x6C);
     if (o != NULL) {
-        o = TWindowQuantity__ct((void *)(o), (void *)(arg0));
+        o = TWindowQuantity__ct(o, arg0);
     }
     return o;
 }

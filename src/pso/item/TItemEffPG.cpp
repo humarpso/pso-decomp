@@ -67,9 +67,9 @@ u8 *TItemEffPG::create() {
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x200));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((TUnk_804F0AF8 *)temp_r3)->init_fields((s32)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_804F0AF8 *)temp_r3)->init_fields(tl_05, arg0)));
         }
         return var_r0;
     }
@@ -145,7 +145,7 @@ void TUnk_804F0BF0::run_task() {
             *(f32 *)((s8 *)arg0 + 0x28) = (f32) (temp_f1_3 - lbl_805DFE0C);
         }
     }
-    play_persistent_sound(0x4001A343, (s32)(arg0), (u32)(arg0 + 0x5C), 0, 0);
+    play_persistent_sound(0x4001A343, (s32)arg0, (u32)(arg0 + 0x5C), 0, 0);
 }
 
 void *__dt__13TUnk_804F0BF0Fv(void *arg0, s16 arg1) {

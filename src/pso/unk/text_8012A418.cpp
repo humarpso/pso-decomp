@@ -130,7 +130,7 @@ u8 *TObjPlayer::create_state_8012a418(s32 arg0) {
     u8 *var_r0;
     if (arg0 != 0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x218));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
             var_r0 = (u8 *)(TObjPlayer__sub_8012A3B4(temp_r3, tl_05, arg0));
         }
@@ -198,7 +198,7 @@ void receive_srank_hit(void *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 f
             case 1:
             case 2:
                 if (arg3 == 2) {
-                    ((TUnk_804A4948 *)arg0)->send_srank_stat_extra((u32)(arg2), (s32)(arg4));
+                    ((TUnk_804A4948 *)arg0)->send_srank_stat_extra(arg2, arg4);
                 } else {
                     ((TItemWeapon *)arg0)->deliver_hit((s32)f, (u8 *)arg2, (s32)arg3, (s32)arg4, (f32)farg0);
                 }

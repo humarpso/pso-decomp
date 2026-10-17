@@ -111,7 +111,7 @@ void *TObjFogCollisionPoison__ct(void *arg0, void *arg1, void *arg2) {
 void *create__22TObjFogCollisionPoisonFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x9C);
     if (o != NULL) {
-        o = TObjFogCollisionPoison__ct((void *)(o), (void *)(tl_05), (void *)(arg0));
+        o = TObjFogCollisionPoison__ct(o, tl_05, arg0);
     }
     return o;
 }

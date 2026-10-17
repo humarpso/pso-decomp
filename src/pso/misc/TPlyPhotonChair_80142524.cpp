@@ -46,13 +46,13 @@ extern const f64 lbl_8043F2A8;
 extern const f32 __float_nan[];
 extern const f32 __float_huge[];
 
-void TPlyPhotonChair::play_sound_with_arg(void* p, void* a1) { set_global_draw_flag_bits((s32)(p), (s32)((void*)2064)); set_chunk_material_override_pair((s32)((void*)-1), (s32)((void*)2048)); set_chunk_material_color((f32 *)a1); }
+void TPlyPhotonChair::play_sound_with_arg(void* p, void* a1) { set_global_draw_flag_bits((s32)p, (s32)((void*)2064)); set_chunk_material_override_pair((s32)((void*)-1), (s32)((void*)2048)); set_chunk_material_color((f32 *)a1); }
 
-void TPlyPhotonChair::play_sound() { set_global_draw_flag_bits((s32)(this), (s32)((void*)2064)); set_chunk_material_override_pair((s32)((void*)-1), (s32)((void*)2048)); set_chunk_material_color((f32 *)this); }
+void TPlyPhotonChair::play_sound() { set_global_draw_flag_bits((s32)this, (s32)((void*)2064)); set_chunk_material_override_pair((s32)((void*)-1), (s32)((void*)2048)); set_chunk_material_color((f32 *)this); }
 
-void TPlyPhotonChair::update_parts(void* p) { TPlyPhotonChair__sub_8014270C((s32)(p)); TPlyPhotonChair::copy_vec4_forward((s32)(p)); TPlyPhotonChair::restore_state((s32)(p)); }
+void TPlyPhotonChair::update_parts(void* p) { TPlyPhotonChair__sub_8014270C((s32)p); TPlyPhotonChair::copy_vec4_forward((s32)p); TPlyPhotonChair::restore_state((s32)p); }
 
-void TPlyPhotonChair::update_parts2(void* p) { TPlyPhotonChair::save_state((s32)(p)); TPlyPhotonChair::copy_vec4_reverse((s32)(p)); TPlyPhotonChair__sub_80142720((s32)(p)); }
+void TPlyPhotonChair::update_parts2(void* p) { TPlyPhotonChair::save_state((s32)p); TPlyPhotonChair::copy_vec4_reverse((s32)p); TPlyPhotonChair__sub_80142720((s32)p); }
 
 #pragma push
 #pragma fp_contract on

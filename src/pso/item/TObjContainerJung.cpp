@@ -89,7 +89,7 @@ u8 *TObjContainerJung::get_model_by_index(s32 arg0) {
 void *TObjContainerJung::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x368);
     if (o != NULL) {
-        o = TObjContainerJung__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TObjContainerJung__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

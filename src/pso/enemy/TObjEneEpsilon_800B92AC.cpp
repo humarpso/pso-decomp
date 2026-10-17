@@ -191,7 +191,7 @@ void TObjEneEpsilon::fire_attack_a(s32 arg1, s32 arg2, f32 farg0) {
     f32 dist;
 
     dist = farg0;
-    update_angle((s32)(arg2));
+    update_angle(arg2);
     temp_f31 = cos_table_lookup(this->rotation_y);
     calc_wall_clamped_destination((void *)this, (void *)arg1, (f32)(sin_table_lookup(this->rotation_y)), (f32)temp_f31, (f32)dist);
 }
@@ -201,7 +201,7 @@ void TObjEneEpsilon::fire_attack_b(s32 arg1, s32 arg2, f32 farg0) {
     f32 dist;
 
     dist = farg0;
-    update_angle((s32)(arg2));
+    update_angle(arg2);
     dz = cos_table_lookup(this->rotation_y);
     calc_wall_slide_destination((void *)this, (void *)arg1, (f32)(sin_table_lookup(this->rotation_y)), (f32)dz, (f32)dist);
 }
@@ -211,7 +211,7 @@ void TObjEneEpsilon::fire_attack_c(s32 arg1, s32 arg2, f32 farg0) {
     f32 temp_f30;
 
     temp_f30 = farg0;
-    update_angle((s32)(arg2));
+    update_angle(arg2);
     temp_f31 = cos_table_lookup(this->rotation_y);
     calc_shot_position__13TBoss5GryphonFPUcfff(this, arg1, sin_table_lookup(this->rotation_y), temp_f31, temp_f30);
 }
@@ -227,12 +227,12 @@ s32 TObjEneEpsilon::update_death_check() {
         enemy_clear_target__12TObjEneDD_STFUs(this);
         return 0;
     }
-    return enemy_validate_retained_target((u8 *)((void *)(this)));
+    return enemy_validate_retained_target((u8 *)(this));
 }
 
 s32 enemy_validate_retained_target(u8 *arg0) {
     if (tick_period_counter((s32)arg0, (s32 *)(arg0 + 0x3B8), (s32)(*(s32 *)((s8 *)arg0 + 0x3BC))) != 0) {
-        if (transform_relative_position__9TObjEneDDFPv((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0x390))) != 0) {
+        if (transform_relative_position__9TObjEneDDFPv(arg0, (int) (*(s32 *)((s8 *)arg0 + 0x390))) != 0) {
             return 1;
         }
         goto block_5;
@@ -241,7 +241,7 @@ s32 enemy_validate_retained_target(u8 *arg0) {
         return 1;
     }
 block_5:
-    enemy_clear_target__12TObjEneDD_STFUs((void *) (arg0));
+    enemy_clear_target__12TObjEneDD_STFUs(arg0);
     return 0;
 }
 
@@ -450,10 +450,10 @@ u16 obj_getField1c(void *);
 
 s32 enemy_bind_or_clear_target(void *self, u16 x) {
     if (x != 0xFFFF) {
-        enemy_set_target_id((Obj_800B9958 *)((void *)(self)), x);
+        enemy_set_target_id((Obj_800B9958 *)(self), x);
         return 1;
     }
-    enemy_clear_target__12TObjEneDD_STFUs((O_800B98C0 *)((void *)(self)), x);
+    enemy_clear_target__12TObjEneDD_STFUs((O_800B98C0 *)(self), x);
     return 0;
 }
 

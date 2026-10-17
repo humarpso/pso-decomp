@@ -155,7 +155,7 @@ void TObjNpcEnemy::set_npc_data(void *arg1) {
         *(s32 *)&this->model = 0;
         this->texture_id = 0;
         this->m_b8 = 0;
-        *(f32 *)((s8 *)(this->m_a4) + 0xC) = (f32) lbl_805DE7D8;
+        *(f32 *)((s8 *)this->m_a4 + 0xC) = (f32) lbl_805DE7D8;
         return;
     }
     *(s32 *)&this->model = (s32) *(s32 *)((s8 *)temp_r5 + 8);
@@ -173,7 +173,7 @@ void TObjNpcEnemy::set_npc_data(void *arg1) {
         init_npc_animation__10TObjPlayerFPvPvPv(this, *(s32 *)((s8 *)temp_r5 + 0x18), *(s32 *)((s8 *)temp_r5 + 0x14), this->m_b8);
         break;
     }
-    *(f32 *)((s8 *)(this->m_a4) + 0xC) = (f32) *(f32 *)((s8 *)(*(void * *)&this->m_3b8) + 0x10);
+    *(f32 *)((s8 *)this->m_a4 + 0xC) = (f32) *(f32 *)((s8 *)(*(void * *)&this->m_3b8) + 0x10);
 }
 
 void TObjNpcEnemy::draw_debug_info() {
@@ -251,16 +251,16 @@ void TObjNpcEnemy::render() {
     u8 *temp_r4;
 
     if (((void *) *(void * *)&this->m_3b8 != NULL) && (((NpcV_802d7748_802D745C *)arg0)->m8(*(f32 *)&this->unk_398, this->m_39c) != 0) && ((s32) *(s32 *)&this->m_390 == 1)) {
-        select_actor_lighting((s32)(arg0));
+        select_actor_lighting((s32)arg0);
         if (((TObjNpcEnemy *)arg0)->sub_802D7444() != 0) {
             model_render_flags |= 1;
         }
-        TObjFish::set_global_param((int) (this->texture_id));
+        TObjFish::set_global_param(this->texture_id);
         push_matrix_from(0);
         translate_matrix_vec3(0, ((u8 *)&this->position));
         temp_r4 = (unsigned char *) (*(void * *)&this->m_3b8);
-        translate_matrix(0, (int) (temp_r4), (f32) (lbl_805DE7D8), (f32) (*(f32 *)((s8 *)temp_r4 + 4)), (f32) (lbl_805DE7D8));
-        rotate_matrix_y(0, (int) (this->rotation_y));
+        translate_matrix(0, (int)temp_r4, (f32)lbl_805DE7D8, (f32) (*(f32 *)((s8 *)temp_r4 + 4)), (f32)lbl_805DE7D8);
+        rotate_matrix_y(0, this->rotation_y);
         update_state();
         pop_matrix();
         if (((TObjNpcEnemy *)arg0)->sub_802D7444() != 0) {
@@ -289,7 +289,7 @@ typedef char RecoveredGlobal_802D78A0_lbl_804A7CDC_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_802D78A0_lbl_804E2680_size[sizeof(RecoveredGlobal_802D78A0_lbl_804E2680) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_802D78A0___vt__12TObjNpcEnemy_size[sizeof(RecoveredGlobal_802D78A0___vt__12TObjNpcEnemy) == 0x17C ? 1 : -1];
 u8 *TObjNpcEnemy__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TObjNpcBase__ct((void *) (arg0));
+    TObjNpcBase__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802D78A0___vt__12TObjNpcEnemy *)&__vt__12TObjNpcEnemy).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcEnemy_class_name;
     ((TObjNpcEnemy *)(arg0))->apply_set_data((void *)arg2);
@@ -297,10 +297,10 @@ u8 *TObjNpcEnemy__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjNpcEnemy *)(arg0))->apply_set_params(0, 1);
     *(s32 * *)&((TObjNpcEnemy *)arg0)->movementParameters = &npc_movement_parameters.value;
     ((TUnk_804806E8 *)arg0)->set_motion_params((void *) (&npc_default_battle_stats.value));
-    init_collision_body_parts((void *) (arg0), (void *) (&TObjNpcEnemy__collision_body_parts.value), 1);
+    init_collision_body_parts(arg0, (void *) (&TObjNpcEnemy__collision_body_parts.value), 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TObjEnemy *)arg0)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFi((s32)(arg0));
+    copy_position__20TBoss3VoloptHiraisinFi((s32)arg0);
     ((TObjNpcEnemy *)arg0)->set_npc_data((void *)((int) (((s32)TObjNpcEnemy::get_entry_by_index((s16)((int) ((s16) *(s32 *)((s8 *)arg0 + 0x5C))))))));
     return arg0;
 }
@@ -314,7 +314,7 @@ void * TObjNpcEnemy__create(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x3BC);
     if (o2 != NULL) {
-        o2 = TObjNpcEnemy__ct((u8 *)(o2), (s32)(o), (s32)(arg0));
+        o2 = TObjNpcEnemy__ct((u8 *)o2, (s32)o, (s32)arg0);
     }
     return o2;
 }

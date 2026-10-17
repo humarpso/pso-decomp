@@ -131,7 +131,7 @@ s32 TObjPlayer__sub_803DA84C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (var_r5 > temp_r6) {
         var_r5 = temp_r6;
     }
-    TObjPlayer__sub_803DA808((void *)((int) (temp_r7 + ((RecoveredFields_803DA84C_arg0 *)arg0)->field_1C)), (s32)((void *) (arg1)), (void *)((int) (var_r5)));
+    TObjPlayer__sub_803DA808((void *)((int) (temp_r7 + ((RecoveredFields_803DA84C_arg0 *)arg0)->field_1C)), (s32)(arg1), (void *)(var_r5));
     return 0;
 }
 #pragma pop
@@ -139,7 +139,7 @@ s32 TObjPlayer__sub_803DA84C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
 #pragma push
 #pragma peephole off
 s32 TObjPlayer__sub_803DA8B4(u8 *arg0, s32 arg1) {
-    TObjPlayer__sub_803DA808((void *)((int) (*(s32 *)((s8 *)arg0 + 0x1C))), (s32)((void *) (arg1)), (void *)((int) (*(s32 *)((s8 *)arg0 + 0x14))));
+    TObjPlayer__sub_803DA808((void *)((int) (*(s32 *)((s8 *)arg0 + 0x1C))), (s32)(arg1), (void *)((int) (*(s32 *)((s8 *)arg0 + 0x14))));
     return 0;
 }
 #pragma pop
@@ -197,7 +197,7 @@ s32 TObjPlayer__sub_803DAA70(u32 arg0, u32 arg1, s32 *arg2) {
         return -1;
     }
     *(s32 **)((s8 *)spC + 0xC) = sp8;
-    if (TObjPlayer__sub_803D9DA8((int) (spC), (void *) (arg2)) != 1) {
+    if (TObjPlayer__sub_803D9DA8((int)spC, (void *)arg2) != 1) {
         *(s32 **)((s8 *)spC + 0xC) = NULL;
         return -1;
     }
@@ -240,7 +240,7 @@ s32 TObjPlayer__sub_803DAB9C(s32 arg0, s32 arg1) {
 #pragma push
 #pragma scheduling off
 void TObjPlayer__sub_803DAC1C(s32 arg0) {
-    TObjPlayer__sub_803DAE98((u8 *)((void *) (record_array_ptr + (arg0 * 0x18))), (s32)((void *) (record_array_ptr)));
+    TObjPlayer__sub_803DAE98((u8 *)((void *) (record_array_ptr + (arg0 * 0x18))), (s32)(record_array_ptr));
 }
 #pragma pop
 
@@ -286,9 +286,9 @@ s32 TObjPlayer__sub_803DAD28(u32 arg0) {
     var_r4 += table_index * 0x18;
     var_r3 = (u8 *)(*(u8 **)((s8 *)var_r4 + 0xC));
     temp_r0 = (long) (var_r3 + 4);
-    var_r3 = (u8 *)(current_render_context);
+    var_r3 = current_render_context;
     *(s32 *)((s8 *)var_r3 + 8) = temp_r0;
-    var_r3 = (u8 *)(current_render_context);
+    var_r3 = current_render_context;
     *(s32 *)((s8 *)var_r3 + 0x18) = (s32) *(s32 *)((s8 *)var_r4 + 8);
     var_r3 = (u8 *)((void *)1);
     return 1;

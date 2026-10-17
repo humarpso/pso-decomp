@@ -12,7 +12,7 @@ int set_state_flags__10TObjPlayerFUl(void*, int);
 
 void TObjPlayer::set_flag_200000() {
     s32 arg0 = (s32)this;
-    TObjPlayer__sub_8011E204((void*)(arg0), 0x200000);
+    TObjPlayer__sub_8011E204((void*)arg0, 0x200000);
 }
 int TObjPlayer::check_flag_4() { return check_flag__10TObjPlayerFl(this, 4); }
 void*TObjPlayer::set_invisible() { TFontSmallLobby__sub_801C0228(this); return this; }

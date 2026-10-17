@@ -137,38 +137,38 @@ void TObjPlayer__sub_8023E034(void **arg0) {
     temp_r5 = (u8 *)(*(u8 **)((s8 *)arg0 + 0));
     temp_r0 = *(s16 *)((s8 *)temp_r5 + 0);
     if ((s32) (u8) temp_r0 == 0xFF) {
-        *(u8 **)((s8 *)arg0 + 0) = (u8 *)(temp_r5) + 2;
+        *(u8 **)((s8 *)arg0 + 0) = temp_r5 + 2;
         return;
     }
     if ((s16) (u8) temp_r0 == 0) {
-        *(u8 **)((s8 *)arg0 + 0) = (u8 *)(temp_r5) + 2;
+        *(u8 **)((s8 *)arg0 + 0) = temp_r5 + 2;
         return;
     }
     if ((s16) (u8) temp_r0 == 1) {
-        *(u8 **)((s8 *)arg0 + 0) = (u8 *)(temp_r5) + 2;
+        *(u8 **)((s8 *)arg0 + 0) = temp_r5 + 2;
         return;
     }
     if ((s16) (u8) temp_r0 == 2) {
-        *(u8 **)((s8 *)arg0 + 0) = (u8 *)(temp_r5) + 2;
+        *(u8 **)((s8 *)arg0 + 0) = temp_r5 + 2;
         return;
     }
     if ((s16) (u8) temp_r0 == 3) {
-        *(u8 **)((s8 *)arg0 + 0) = (u8 *)(temp_r5) + 2;
+        *(u8 **)((s8 *)arg0 + 0) = temp_r5 + 2;
         return;
     }
     if ((s16) (u8) temp_r0 == 5) {
-        *(u8 **)((s8 *)arg0 + 0) = (u8 *)(temp_r5) + 2;
+        *(u8 **)((s8 *)arg0 + 0) = temp_r5 + 2;
         return;
     }
     if ((s16) (u8) temp_r0 == 4) {
-        *(u8 **)((s8 *)arg0 + 0) = (u8 *)(temp_r5) + 2;
+        *(u8 **)((s8 *)arg0 + 0) = temp_r5 + 2;
         return;
     }
     if ((s16) (u8) temp_r0 == 8) {
-        *(u8 **)((s8 *)arg0 + 0) = (u8 *)(temp_r5) + 4;
+        *(u8 **)((s8 *)arg0 + 0) = temp_r5 + 4;
         return;
     }
-    *(u8 **)((s8 *)arg0 + 0) = (u8 *)(temp_r5) + ((*(s16 *)((s8 *)temp_r5 + 2) + 2) * 2);
+    *(u8 **)((s8 *)arg0 + 0) = temp_r5 + ((*(s16 *)((s8 *)temp_r5 + 2) + 2) * 2);
 }
 #pragma push
 #pragma fp_contract on

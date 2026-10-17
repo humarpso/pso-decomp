@@ -108,7 +108,7 @@ u8 *TObjGrassWeb__ct(u8 *arg0, s32 arg1, u32 arg2) {
         *(s16 *)&((TObjGrassWeb *)arg0)->m_a4 = obj_getField1c(arg2);
         ((TObjGrassWeb *)arg0)->m_84 = 0xB4;
     } else {
-        queue_destruction__7TObjectFv((void*)(arg0));
+        queue_destruction__7TObjectFv(arg0);
     }
     return arg0;
 }

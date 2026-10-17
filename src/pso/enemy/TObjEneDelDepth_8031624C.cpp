@@ -57,7 +57,7 @@ int TObjEneDelDepth::find_nearest_enemy_with_flag(s32 arg1, f32 farg0) {
     u8 *arg0 = (u8 *)this;
     u16 temp_r3;
     *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x02000000);
-    temp_r3 = find_nearest_hittable_enemy__10TObjPlayerFiPvf((void *) (arg0), (void *) (arg1), (f32) (farg0));
+    temp_r3 = find_nearest_hittable_enemy__10TObjPlayerFiPvf((void *)arg0, (void *)arg1, (f32)farg0);
     *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFDFFFFFF);
     return temp_r3;
 }

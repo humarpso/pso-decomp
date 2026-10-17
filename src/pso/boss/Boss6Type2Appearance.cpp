@@ -247,7 +247,7 @@ void run_task__25TBoss6Demo20_TYPE2_APPEARFv(O_8033D6DC *self) {
                 ((TNowLoading *)(self->h[i]))->copy_pos(p);
             }
         } else if (self->h[i] != NULL) {
-            TBoss4Type2::request_destroy((u32)(self->h[i]));
+            TBoss4Type2::request_destroy((u32)self->h[i]);
             self->h[i] = NULL;
         }
     }
@@ -274,7 +274,7 @@ O_8033D9E4 *__dt__25TBoss6Demo20_TYPE2_APPEARFv(O_8033D9E4 *arg0, s16 arg1) {
         arg0->f18 = __vt__25TBoss6Demo20_TYPE2_APPEAR;
         for (i = 0; i < 9; i++) {
             if (arg0->h[i] != 0) {
-                TBoss4Type2::request_destroy((u32)(arg0->h[i]));
+                TBoss4Type2::request_destroy((u32)arg0->h[i]);
                 arg0->h[i] = 0;
             }
         }
@@ -371,7 +371,7 @@ u8 *TBoss6Demo20_TYPE2_APPEAR__ct(u8 *arg0, s32 arg1) {
 void *create_boss6_type2_appearance(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF0);
     if (o != NULL) {
-        o = TBoss6Demo20_TYPE2_APPEAR__ct((u8 *)(o), (s32)(arg0));
+        o = TBoss6Demo20_TYPE2_APPEAR__ct((u8 *)o, (s32)arg0);
     }
     return o;
 }

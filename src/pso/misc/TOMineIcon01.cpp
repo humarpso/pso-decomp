@@ -70,7 +70,7 @@ extern void *tl_05;
 void *TOMineIcon01::create() {
     void *o = __nw__7TObjectFUl(0x37C);
     if (o != NULL) {
-        o = TOMineIcon01__ct((void *)(o), (void *)(tl_05), (void *)(this));
+        o = TOMineIcon01__ct(o, tl_05, this);
     }
     return o;
 }

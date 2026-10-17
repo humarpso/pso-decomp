@@ -97,7 +97,7 @@ u8 *__dt__14TBoss4DarkFalzFv(u8 *arg0, s16 arg1) {
             ((TObjEnemy *)arg0)->send_entity_set_flags();
             break;
         }
-        TBoss4DarkFalz::end_player_camera_pans((void *) (arg0));
+        TBoss4DarkFalz::end_player_camera_pans(arg0);
         restore_player_cameras();
         if (is_ending_or_split_screen__14TBoss4DarkFalzFv() == 0) {
             TLobby::stop_audio_streams();
@@ -185,7 +185,7 @@ s32 TBoss4DarkFalz__ct(s32 a0, s32 arg1, s32 a2) {
     if ((temp_r0_2 < 0) || (temp_r0_2 > 0xE)) {
         lbl_805D4D70 = 0;
     }
-    TBoss4DarkFalz::push_players_out_of_zone((s32)((void *) (arg0)), 0);
+    TBoss4DarkFalz::push_players_out_of_zone((s32)(arg0), 0);
     *(s32 *)((s8 *)arg0 + 0x37C) = -1;
     ((TBoss4DarkFalz *)arg0)->change_state(1);
     return (s32)arg0;
@@ -231,7 +231,7 @@ void handle_6x19_dark_falz_actions(Msg_8004BFA4 *arg0) {
     }
 }
 
-void TBoss4DarkFalz::cleanup_global() { TBoss4DarkFalz::free_global_instance(); TBoss4DarkFalz__sub_8030AD38(); TLobby__sub_8001FE7C((void*)(darkfalz_dat_resource), (void*)1); darkfalz_dat_resource = 0; }
+void TBoss4DarkFalz::cleanup_global() { TBoss4DarkFalz::free_global_instance(); TBoss4DarkFalz__sub_8030AD38(); TLobby__sub_8001FE7C((void*)darkfalz_dat_resource, (void*)1); darkfalz_dat_resource = 0; }
 
 extern s32 tl_04;
 
@@ -260,7 +260,7 @@ s32 TBoss4DarkFalz::create(s32 arg0) {
         if (var_r4 != 0) {
             var_r4 = TObjControl__ct(var_r4, tl_04);
         }
-        var_r31 = TBoss4DarkFalz__ct((s32)(var_r31), (s32)(var_r4), (s32)(arg0));
+        var_r31 = TBoss4DarkFalz__ct(var_r31, var_r4, arg0);
     }
     return var_r31;
 }

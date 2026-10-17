@@ -26,8 +26,8 @@ extern const f32 lbl_805DF974;
 void rotate_title_background_quad(s32 arg0, u8 *arg1, u8 *arg2, s32 arg3, f32 farg0) {
     f32 temp_f31;
     f32 temp_f5;
-    temp_f31 = farg0 * sin_table_lookup((void *) (arg3));
-    temp_f5 = farg0 * cos_table_lookup((void *) (arg3));
+    temp_f31 = farg0 * sin_table_lookup((void *)arg3);
+    temp_f5 = farg0 * cos_table_lookup((void *)arg3);
     *(f32 *)((s8 *)arg1 + 0) = (f32) ((lbl_805DF924 * (temp_f31 - temp_f5)) + *(f32 *)((s8 *)arg2 + 0));
     *(f32 *)((s8 *)arg1 + 4) = (f32) -((lbl_805DF924 * (temp_f31 + temp_f5)) - *(f32 *)((s8 *)arg2 + 4));
     *(f32 *)((s8 *)arg1 + 0xC) = temp_f5;

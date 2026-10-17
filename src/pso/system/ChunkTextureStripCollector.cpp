@@ -86,7 +86,7 @@ void collect_plist_strips_by_texture(void *ctx, s16 *p, s32 tex) {
 void count_model_strips_by_texture(void *ctx, Node_800F5A50 *node, void *arg) {
     do {
         if (node->model != 0 && node->model->plist != 0) {
-            count_plist_strips_by_texture((void *)(ctx), (void *)(node->model->plist), (void *)(arg));
+            count_plist_strips_by_texture(ctx, node->model->plist, arg);
         }
         if (node->child != 0) {
             count_model_strips_by_texture(ctx, node->child, arg);

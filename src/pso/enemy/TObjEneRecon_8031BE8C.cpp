@@ -183,7 +183,7 @@ void render__12TObjEneReconFv(u8 *arg0) {
                 lbl_805D5668 = chunk_polygon_flags_or_mask;
                 if (((s16) *(s16 *)((s8 *)arg0 + 0x326) == 5) && (((Recon_8031BE8C *)arg0)->fade.m8() != 0)) {
                     ((Recon_8031BE8C *)arg0)->fade.m6();
-                    if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0)) != 0) {
+                    if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
                         var_r29 = 0;
                     }
                 }
@@ -213,7 +213,7 @@ void render__12TObjEneReconFv(u8 *arg0) {
                     }
                     model_render_flags &= 0xFEFFFFFF;
                     TParticleCtrl::end_effect_render();
-                    TObjEneRe7Berura::set_global_state((s32)((void *) (NULL)));
+                    TObjEneRe7Berura::set_global_state((s32)(NULL));
                     pop_matrix();
                     ((TObjEneDD *)arg0)->update_primary_light();
                 }

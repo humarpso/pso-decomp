@@ -100,7 +100,7 @@ void TOCapsuleLabo::render() {
 
     this->m_e0 = ((VObj802AF370_802af370_802AF2C8 *) arg0)->m8(this->m_c0, *(f32 *)&this->m_c4);
     if ((s32) this->m_e0 == 1) {
-        TObjFish::set_global_param((int) (this->texture_id));
+        TObjFish::set_global_param(this->texture_id);
         if ((s32) this->m_cc == 1) {
             if ((s32 *) capsule_labo_switch_flags_ptr != NULL) {
                 *capsule_labo_switch_flags_ptr &= 0xFFFFFFF7;
@@ -111,7 +111,7 @@ void TOCapsuleLabo::render() {
         temp_r31 = (unsigned char *) (*(void * *)&this->model);
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y(0, (int) (this->rotation_y));
+        rotate_matrix_y(0, this->rotation_y);
         post_translate_matrix((void *) (temp_r31 + 8));
         draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
         temp_r31_2 = (unsigned char *) (*(void **)((s8 *)temp_r31 + 0x2C));
@@ -122,7 +122,7 @@ void TOCapsuleLabo::render() {
         temp_r31_3 = *(s32 *)((s8 *)temp_r31_2 + 0x2C);
         TParticleCtrl::begin_effect_render();
         post_translate_matrix((void *) (temp_r31_3 + 8));
-        draw_ginja_object((void *)(temp_r31_3));
+        draw_ginja_object((void *)temp_r31_3);
         TParticleCtrl::end_effect_render();
         pop_matrix();
         pop_matrix();
@@ -154,8 +154,8 @@ u8 *TOCapsuleLabo__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TOCapsuleLabo *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *)((int) ((*(s32 *)&TOCapsuleLabo__model_resource))), 0);
     ((TOCapsuleLabo *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOCapsuleLabo__model_resource)), 0);
-    init_collision_body_parts((void *) (arg0), (void *) (&TOCapsuleLabo__collision_parts.value), 1);
-    set_indexed_flags((void *) (arg0), 0, 0x1288);
+    init_collision_body_parts(arg0, (void *) (&TOCapsuleLabo__collision_parts.value), 1);
+    set_indexed_flags(arg0, 0, 0x1288);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOHealGeneral *)arg0)->update_heal_gauge_state();
@@ -163,10 +163,10 @@ u8 *TOCapsuleLabo__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DE1EC;
     *(s32 *)&((TOCapsuleLabo *)arg0)->m_e4 = 0;
     if (((s32) enable_v2_features == 1) && (get_game_play_mode() == 1)) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv(arg0);
     }
     if (is_split_screen() == 1) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv(arg0);
     }
     return arg0;
 }

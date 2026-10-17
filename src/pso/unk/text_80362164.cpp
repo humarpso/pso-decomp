@@ -17,10 +17,10 @@ void fn_80362164(u8 *arg0) {
         ((TObjEneEpsilonGuard *)arg0)->update_guard_flag();
         ((TObjEneEpsilonBody *)(arg0))->vfunc_85();
     } else if ((s16) ((TObjEneEpsilonBody *)arg0)->mode == 1) {
-        transition_enemy_state((void *) (arg0), 0);
+        transition_enemy_state(arg0, 0);
     }
     if ((s16) ((TObjEneEpsilonBody *)arg0)->mode != 9) {
-        play_persistent_sound(0x4003AD43, (s32)(arg0), (u32)(arg0 + 0x38), 0, 0);
+        play_persistent_sound(0x4003AD43, (s32)arg0, (u32)(arg0 + 0x38), 0, 0);
     }
     ((TObjEneEpsilonBody *)(arg0))->vfunc_88();
     ((TObjEneEpsilonGuard *)arg0)->update_position();

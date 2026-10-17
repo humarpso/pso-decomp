@@ -193,7 +193,7 @@ void *TObjLazerFenceExtra__ct(void *arg0, void *arg1, void *arg2) {
 void *TObjLazerFenceExtra__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xDC);
     if (o != NULL) {
-        o = TObjLazerFenceExtra__ct((void *)(o), (void *)(tl_05), (void *)(arg0));
+        o = TObjLazerFenceExtra__ct(o, tl_05, arg0);
     }
     return o;
 }

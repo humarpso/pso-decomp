@@ -92,8 +92,8 @@ void TWindowMainMenu::update_submenu() {
         update_trade_submenu();
     }
 }
-void TWindowMainMenu::close_submenu(void* a1) { if (*(unsigned int*)((char*)this + 0x1c) != 0) { ((TWindowMainMenu *)(*(void**)((char*)this + 0x1c)))->pop_level(); ((TWindowMainMenu *)(*(void**)((char*)this + 0x1c)))->clear_menu_flags(); populate_menu__15TWindowMainMenuFPvPv((u8 *)((void*)(this)), (Ent_802646E4 *)((void*)(a1))); } }
-void TWindowMainMenu::refresh_submenu(void* a1) { if (*(unsigned int*)((char*)this + 0x1c) != 0) { park_selection__15TWindowMainMenuFPv(*(void**)((char*)this + 0x1c)); ((TWindowMainMenu *)(*(void**)((char*)this + 0x1c)))->clear_menu_flags(); populate_menu__15TWindowMainMenuFPvPv((u8 *)((void*)(this)), (Ent_802646E4 *)((void*)(a1))); } }
+void TWindowMainMenu::close_submenu(void* a1) { if (*(unsigned int*)((char*)this + 0x1c) != 0) { ((TWindowMainMenu *)(*(void**)((char*)this + 0x1c)))->pop_level(); ((TWindowMainMenu *)(*(void**)((char*)this + 0x1c)))->clear_menu_flags(); populate_menu__15TWindowMainMenuFPvPv((u8 *)(this), (Ent_802646E4 *)(a1)); } }
+void TWindowMainMenu::refresh_submenu(void* a1) { if (*(unsigned int*)((char*)this + 0x1c) != 0) { park_selection__15TWindowMainMenuFPv(*(void**)((char*)this + 0x1c)); ((TWindowMainMenu *)(*(void**)((char*)this + 0x1c)))->clear_menu_flags(); populate_menu__15TWindowMainMenuFPvPv((u8 *)(this), (Ent_802646E4 *)(a1)); } }
 
 void TWindowMainMenu::close() { if (*(unsigned int*)((char*)this + 0x1c) != 0) { TWindow__close((u8 *)(*(void**)((char*)this + 0x1c))); *(int*)((char*)this + 0x1c) = 0; } }
 
@@ -103,8 +103,8 @@ void TWindowMainMenu::open_menu_with_entry(s16 arg1) {
         *(u32 *)((s8 *)((u8 *)this) + 0x1C) = create_menu__15TWindowMainMenuFPvPv((void *)(get_window_layout_position(0x1A)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
     }
     temp_r31 = *(u32 *)((s8 *)((u8 *)this) + 0x1C);
-    append_child_rows__15TWindowMainMenuFPvi((int) (temp_r31), (void *) (arg1));
-    TWindowMainMenu__sub_802ADADC((int) (temp_r31), 0);
+    append_child_rows__15TWindowMainMenuFPvi((int)temp_r31, (void *)arg1);
+    TWindowMainMenu__sub_802ADADC(temp_r31, 0);
     ((TWindowMainMenu *)((u8 *)this))->update_submenu();
 }
 

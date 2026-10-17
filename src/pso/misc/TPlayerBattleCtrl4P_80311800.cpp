@@ -153,7 +153,7 @@ void TPlayerBattleCtrl4P::record_battle_results_after_delay() {
     TPlayerBattleCtrl4P::update_all_players();
     temp_r4 = ready_timer;
     ready_timer = (s32) (temp_r4 - 1);
-    if ((set_state__19TPlayerBattleCtrl4PFv((void *) (((u8 *)this)), (int) (temp_r4)) != 0) || ((s32) ready_timer <= 0)) {
+    if ((set_state__19TPlayerBattleCtrl4PFv((void *) (((u8 *)this)), temp_r4) != 0) || ((s32) ready_timer <= 0)) {
         reset_score_counters();
         calculate_split_screen_battle_rankings((void *) (((u8 *)this)));
         record_split_screen_battle_results((void *) (((u8 *)this)));
@@ -187,7 +187,7 @@ void TPlayerBattleCtrl4P::close_rematch_menu() {
     }
     var_r31 = 0;
     do {
-        if ((((s32)get_player_by_client_id((s32)(var_r31))) != 0U) && (check_player_flag1__6TLobbyFv() != 0)) {
+        if ((((s32)get_player_by_client_id(var_r31)) != 0U) && (check_player_flag1__6TLobbyFv() != 0)) {
             send_code_45_to_window__19TPlayerBattleCtrl4PFPvii((((u8 *)this)), ((u16) var_r31), 1);
         }
         var_r31 += 1;
@@ -251,7 +251,7 @@ void TPlayerBattleCtrl4P::open_result_windows() {
   var_r31 = 0;
   do
   {
-    player = ((s32)get_player_by_client_id((s32)(var_r31)));
+    player = ((s32)get_player_by_client_id(var_r31));
     if (player != 0)
     {
       if (check_player_flag1__6TLobbyFv() == 0)

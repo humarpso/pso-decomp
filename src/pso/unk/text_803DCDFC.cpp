@@ -167,7 +167,7 @@ void init_locked_cache_heap(u8 *arg0) {
     gx_fifo_buffer = *(s32 *)((s8 *)arg0 + 0x10);
     gx_fifo_buffer_size = *(s32 *)((s8 *)arg0 + 0x14);
     start = *(s32 *)((s8 *)arg0 + 0x18);
-    locked_cache_heap_handle = OSCreateHeap((int) (start), (int) (start + *(s32 *)((s8 *)arg0 + 0x1C)));
+    locked_cache_heap_handle = OSCreateHeap(start, (int) (start + *(s32 *)((s8 *)arg0 + 0x1C)));
     display_heap_size = *(s32 *)((s8 *)arg0 + 0x1C);
 }
 

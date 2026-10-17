@@ -211,7 +211,7 @@ u8 *TLoadingCur__ct(u8 *arg0, s32 arg1) {
     typedef char spC_offset[(offsetof(Stack_8001D0A0, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8001D0A0, sp10) == 0x8) ? 1 : -1];
     Stack_8001D0A0 stack;
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8001D0A0___vt__11TLoadingCur *)&__vt__11TLoadingCur).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TLoadingCur__class_name;
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) TLoadingCur__data_805D7E9C;

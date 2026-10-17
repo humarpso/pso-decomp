@@ -55,7 +55,7 @@ void *__dt__14TOAirconCave01Fv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_80157044___vt__14TOAirconCave01_size[sizeof(RecoveredGlobal_80157044___vt__14TOAirconCave01) == 0x38 ? 1 : -1];
 u8 *TOAirconCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    init_map_object_base((void *) (arg0), (void *) (arg1));
+    init_map_object_base((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80157044___vt__14TOAirconCave01 *)&__vt__14TOAirconCave01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2E8C;
     ((TOAirconCave01 *)(arg0))->apply_object_set_data((void *)arg2);

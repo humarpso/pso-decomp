@@ -320,7 +320,7 @@ void *__ct__17TWindowSetLevelUpFv(void *arg0, void *arg1, void *arg2, void *arg3
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__17TWindowSetLevelUp;
     ((TObjPlayer *)(self->f_24))->reset_sub_status_disp();
     *(void * *)&((TWindowSetLevelUp *)arg0)->m_name = lbl_805D39C8;
-    ((TWindowSetLevelUp *)(self->f_24))->copy_stat_block((s32)((void *)(arg2)));
+    ((TWindowSetLevelUp *)(self->f_24))->copy_stat_block((s32)(arg2));
     *(u16 *)((s8 *)arg0 + 0x1E) = 0;
     *(void **)((s8 *)arg0 + 0x20) = arg3;
     *(u8 *)((s8 *)arg0 + 0x1C) = 0;

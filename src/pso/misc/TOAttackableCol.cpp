@@ -109,7 +109,7 @@ void TOAttackableCol::init_params() {
     if (this->target_scale < lbl_805DB2C8) {
         set_indexed_flags(this, 0, 0x08000000);
     } else {
-        clear_player_status_flag__10TObjPlayerFlUl((void*)(this), 0, 0x08000000);
+        clear_player_status_flag__10TObjPlayerFlUl(this, 0, 0x08000000);
     }
     if ((s32) this->m_344 == 0) {
         *(s32 *)&this->unk_348 = (s32) *(f32 *)&this->m_70;
@@ -171,7 +171,7 @@ void TOAttackableCol::vfunc_6(s16 *arg1, s32 arg2) {
     ((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), 0);
 }
 
-int TOAttackableCol::handle_6x91_update_state() { return clear_player_status_flag__10TObjPlayerFlUl((void*)(this), 0, 1); }
+int TOAttackableCol::handle_6x91_update_state() { return clear_player_status_flag__10TObjPlayerFlUl(this, 0, 1); }
 
 f32 TOAttackableCol::apply_hit(s32 arg1) {
     u8 *arg0 = (u8 *)this;
@@ -199,7 +199,7 @@ f32 TOAttackableCol::apply_hit(s32 arg1) {
     {
       *(s32 *)&this->m_33c = 0;
       send_state_change((u16)(1));
-      if (((s32) (this->m_344)) > 0)
+      if ((this->m_344) > 0)
       {
         temp_r0_2 = *((s32 *) (((s8 *) arg0) + 0x340));
         if ((((temp_r0_2 >= 0x64) && (temp_r0_2 < 0x3E8)) && (((u32) quest_mission_manager) != 0U)) && (((TObject *)quest_mission_manager)->all_parents_unqueued_for_destruction() != 0))
@@ -208,7 +208,7 @@ f32 TOAttackableCol::apply_hit(s32 arg1) {
           var_r0 = temp_r3;
           if (var_r0 != 0U)
           {
-            var_r0 = __ct__12TQuestThreadFv((int) temp_r3, (void *) quest_mission_manager, (int) (this->m_344));
+            var_r0 = __ct__12TQuestThreadFv((int) temp_r3, (void *) quest_mission_manager, this->m_344);
           }
           if (var_r0 != 0U)
           {
@@ -222,7 +222,7 @@ f32 TOAttackableCol::apply_hit(s32 arg1) {
           var_r0_2 = temp_r3_2;
           if (var_r0_2 != 0U)
           {
-            var_r0_2 = __ct__12TQuestThreadFv((int) temp_r3_2, (void *) quest_area_manager, (int) (this->m_344));
+            var_r0_2 = __ct__12TQuestThreadFv((int) temp_r3_2, (void *) quest_area_manager, this->m_344);
           }
           if (var_r0_2 != 0U)
           {
@@ -259,7 +259,7 @@ void TOAttackableCol::run_task() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
     if (TObjPlayer::check_demo_mode() == 1) {
-        TOAttackableCol__sub_80157310(((void *) (arg0)));
+        TOAttackableCol__sub_80157310((arg0));
         return;
     }
     temp_r0 = this->mode;
@@ -281,7 +281,7 @@ void *TOAttackableCol::create(void *arg0) {
     void *o;
     o = __nw__7TObjectFUl(0x350);
     if (o != NULL) {
-        o = TOAttackableCol__ct((u8 *)(o), (s32)(arg0));
+        o = TOAttackableCol__ct((u8 *)o, (s32)arg0);
     }
     return o;
 }
@@ -302,14 +302,14 @@ void *__dt__15TOAttackableColFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80157AD8_lbl_804AF9A8_size[sizeof(RecoveredGlobal_80157AD8_lbl_804AF9A8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80157AD8___vt__15TOAttackableCol_size[sizeof(RecoveredGlobal_80157AD8___vt__15TOAttackableCol) == 0x13C ? 1 : -1];
 u8 *TOAttackableCol__ct(u8 *arg0, s32 arg1) {
-    construct_actor_base__10TObjPlayerFPvPv((void *) (arg0), (int) (tl_05));
+    construct_actor_base__10TObjPlayerFPvPv(arg0, tl_05);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80157AD8___vt__15TOAttackableCol *)&__vt__15TOAttackableCol).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2E98;
     ((TOAttackableCol *)(arg0))->apply_object_set_data((void *)arg1);
     ((TUnk_804806E8 *)arg0)->calc_attach_pos();
-    obj_setFlags30((void *) (arg0), 0x60000000);
-    init_collision_body_parts((void *) (arg0), (void *) (&TOAttackableCol__collision_parts.value), 1);
-    set_indexed_flags(((void *) (arg0)), 0, 0x718);
+    obj_setFlags30(arg0, 0x60000000);
+    init_collision_body_parts(arg0, (void *) (&TOAttackableCol__collision_parts.value), 1);
+    set_indexed_flags((arg0), 0, 0x718);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOAttackableCol *)arg0)->mode = 0;
     *(f32 *)((s8 *)arg0 + 0x334) = (f32) lbl_805DB2CC;
@@ -326,11 +326,11 @@ s32 TOAttackableCol::select_melee_contact_body(void *, f32) { return 1; }
 
 int TOAttackableCol::calc_distance_accuracy_penalty(void *, void *, void *, float) { return 1; }
 
-f32 TOAttackableCol::receive_physical_attack(void *_w1, f32) { return ((TOAttackableCol *)this)->apply_hit((s32)(_w1)); }
+f32 TOAttackableCol::receive_physical_attack(void *_w1, f32) { return ((TOAttackableCol *)this)->apply_hit((s32)_w1); }
 
-f32 TOAttackableCol::receive_direct_attack(void *_w1, void *, void *, s32, s32) { return ((TOAttackableCol *)this)->apply_hit((s32)(_w1)); }
+f32 TOAttackableCol::receive_direct_attack(void *_w1, void *, void *, s32, s32) { return ((TOAttackableCol *)this)->apply_hit((s32)_w1); }
 
-f32 TOAttackableCol::receive_weapon_special_attack(void *_w1, void *) { return ((TOAttackableCol *)this)->apply_hit((s32)(_w1)); }
+f32 TOAttackableCol::receive_weapon_special_attack(void *_w1, void *) { return ((TOAttackableCol *)this)->apply_hit((s32)_w1); }
 
 void TOAttackableCol::apply_knockback_from_attacker(u8 *) {  }
 

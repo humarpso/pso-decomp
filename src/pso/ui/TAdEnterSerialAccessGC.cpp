@@ -269,8 +269,8 @@ void TAdEnterSerialAccessGC::draw_serial_chars(s32 arg0) {
 }
 
 void TAdEnterSerialAccessGC::draw_serial_separators() {
-    render_status_line__15TAdSubPlyItemGCFi((void *) (&lbl_805DF4EC), -1, (f32) (lbl_805DF4E8), (f32) (lbl_805DF4E4), (f32) (TAdEnterSerialAccessGC__data_805DF4DC));
-    render_status_line__15TAdSubPlyItemGCFi((void *) (&lbl_805DF4EC), -1, (f32) (lbl_805DF4F0), (f32) (lbl_805DF4E4), (f32) (TAdEnterSerialAccessGC__data_805DF4DC));
+    render_status_line__15TAdSubPlyItemGCFi((void *) (&lbl_805DF4EC), -1, lbl_805DF4E8, lbl_805DF4E4, TAdEnterSerialAccessGC__data_805DF4DC);
+    render_status_line__15TAdSubPlyItemGCFi((void *) (&lbl_805DF4EC), -1, lbl_805DF4F0, lbl_805DF4E4, TAdEnterSerialAccessGC__data_805DF4DC);
 }
 
 typedef char RecoveredGlobal_803216C0_lbl_8047653C_size[sizeof(RecoveredGlobal_803216C0_lbl_8047653C) == 0xC ? 1 : -1];
@@ -409,7 +409,7 @@ typedef char RecoveredGlobal_8032BB34___vt__18TAdEnterPasswordGC_size[sizeof(Rec
 typedef char RecoveredGlobal_8032195C_TAdEnterSerialAccessGC__data_804EC9B8_size[sizeof(RecoveredGlobal_8032195C_TAdEnterSerialAccessGC__data_804EC9B8) == 0xC ? 1 : -1];
 void TAdEnterSerialAccessGC__sub_8032195C(s32 arg0) {
     memset((void *) (&(*(RecoveredGlobal_8032195C_TAdEnterSerialAccessGC__data_804EC9B8 *)&TAdEnterSerialAccessGC__raw_serial_buffer).value), 0, 0xB);
-    strncpy((s32)((void *) (&(*(RecoveredGlobal_8032195C_TAdEnterSerialAccessGC__data_804EC9B8 *)&TAdEnterSerialAccessGC__raw_serial_buffer).value)), (s32)((void *) (arg0)), 0xB);
+    strncpy((s32)((void *) (&(*(RecoveredGlobal_8032195C_TAdEnterSerialAccessGC__data_804EC9B8 *)&TAdEnterSerialAccessGC__raw_serial_buffer).value)), (s32)(arg0), 0xB);
 }
 #pragma pop
 
@@ -628,8 +628,8 @@ void TAdEnterSerialAccessGC__sub_80321B28(u8 *arg0, int arg1) {
   mem_free((void *)temp_r30);
 }
 
-void TAdEnterSerialAccessGC__sub_80321F18(void* p) { TAdEnterSerialAccessGC__sub_80321B28((u8 *)(p), 1); }
-void TAdEnterSerialAccessGC__sub_80321F3C(void* p) { TAdEnterSerialAccessGC__sub_80321B28((u8 *)(p), 0); }
+void TAdEnterSerialAccessGC__sub_80321F18(void* p) { TAdEnterSerialAccessGC__sub_80321B28((u8 *)p, 1); }
+void TAdEnterSerialAccessGC__sub_80321F3C(void* p) { TAdEnterSerialAccessGC__sub_80321B28((u8 *)p, 0); }
 
 struct TAdEnterSerialAccessGC_80321F60 {
     u8 pad0[0x40];

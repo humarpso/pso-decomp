@@ -20,7 +20,7 @@ void setup_alpha_test_render_state(u8 arg0) {
     *(u8 *)((s8 *)(&depth_buffer_settings.value) + 0xD) = arg0;
     GXSetZCompLoc(0);
     GXSetZMode(1U, 3, 1);
-    GXSetAlphaCompare(4, (void *) (arg0), 0, 7, 0);
+    GXSetAlphaCompare(4, (void *)arg0, 0, 7, 0);
 }
 
 }

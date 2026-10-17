@@ -45,11 +45,11 @@ void TBoss6PlotFalz::finish_and_dispatch_next_phase() {
         ((TBoss6Type2 *)TBoss6PlotFalz__type2_instance)->get_phase_values((u16 *)(((u8 *)this) + 0x2D6), (u16 *)(((u8 *)this) + 0x2D4), (u16 *)sp8);
         i = 0;
         do {
-            obj_setArrS16_FC((void *) (((u8 *)this)), (int) (i), (void *) (sp8[i]));
+            obj_setArrS16_FC((void *) (((u8 *)this)), (int)i, (void *)sp8[i]);
             i += 1;
         } while (i < 4);
     }
-    TBoss6PlotFalz::get_target_pos_a((s32)((void *) (((u8 *)this))), (s32)((void *) (sp10)));
+    TBoss6PlotFalz::get_target_pos_a((s32)((void *) (((u8 *)this))), (s32)(sp10));
     destroy_static_instance__14TBoss6PlotFalzFv((void *) (((u8 *)this)));
     TLobby::stop_audio_streams();
     TBoss6PlotFalz::freeze_all_players();

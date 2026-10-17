@@ -106,7 +106,7 @@ void TCameraCtrl::reset_behind_player() {
         stack.spC = lbl_805D8F74;
         stack.sp10 = this->m_70;
         push_matrix_from((void *) (&identity_matrix.value));
-        rotate_matrix_y(0, (int) (this->m_30));
+        rotate_matrix_y(0, this->m_30);
         matrix_mult_vec(0, (void *) (&stack.sp8), (void *) (&stack.sp8));
         pop_matrix();
         this->m_3c = (f32) (*(f32 *)&this->unk_48 + stack.sp8);
@@ -123,7 +123,7 @@ void target_player0__11TCameraCtrlFi(s32 arg0) {
         stack.sp8 = *(f32 *)((s8 *)player + 0x38);
         stack.spC = lbl_805D8F78 + *(f32 *)((s8 *)player + 0x3C);
         stack.sp10 = *(f32 *)((s8 *)player + 0x40);
-        set_target_pos__13TUnk_80488DA0FPv((void *) (arg0), (void *) (&stack.sp8), (f32) (lbl_805D8F78));
+        set_target_pos__13TUnk_80488DA0FPv((void *)arg0, (void *) (&stack.sp8), (f32)lbl_805D8F78);
     }
 }
 

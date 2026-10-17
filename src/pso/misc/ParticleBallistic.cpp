@@ -259,9 +259,9 @@ u8 *create_ballistic_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, 
     u8 *temp_r3;
     u8 *var_r0;
     temp_r3 = (u8 *)(((u8 *)alloc_particle_memory(0xD0)));
-    var_r0 = (u8 *)(temp_r3);
+    var_r0 = temp_r3;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(construct_ballistic_particle((void *)(temp_r3), (void *)(arg0), (void *)(arg1), (void *)(arg2), (s32)(arg3), arg4, arg5));
+        var_r0 = (u8 *)(construct_ballistic_particle(temp_r3, arg0, arg1, arg2, arg3, arg4, arg5));
     }
     return var_r0;
 }

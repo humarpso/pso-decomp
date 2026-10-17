@@ -298,7 +298,7 @@ void *TObjDoorKey__ct(void *arg0, void *arg1, void *arg2) {
 void *TObjDoorKey__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xFC);
     if (o != NULL) {
-        o = TObjDoorKey__ct((void *)(o), (void *)(tl_05), (void *)(arg0));
+        o = TObjDoorKey__ct(o, tl_05, arg0);
     }
     return o;
 }

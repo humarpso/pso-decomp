@@ -61,7 +61,7 @@ void TObjPlayer::concat_matrix(u32 arg0, u32 arg1) {
     if (var_r4 == 0U) {
         var_r4 = current_matrix;
     }
-    PSMTXConcat((int) (elements), (int) (var_r4), (int) (elements));
+    PSMTXConcat(elements, var_r4, elements);
 }
 #pragma pop
 
@@ -80,7 +80,7 @@ void TCameraCtrl::concat_matrix(u32 arg0, u32 arg1) {
     if (var_r4 == 0U) {
         var_r4 = current_matrix;
     }
-    PSMTXConcat((int) (var_r4), (int) (elements), (int) (elements));
+    PSMTXConcat(var_r4, elements, elements);
 }
 #pragma pop
 
@@ -237,7 +237,7 @@ s32 TObjPlayer__sub_803D9E38(s32 *arg0, u32 arg1, s32 *arg2, u32 *arg3) {
             temp_r4 = (s32 *)(*(s32 **)((s8 *)sp8 + 0xC));
             *(s32 *)((s8 *)temp_r4 + 0x24) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x24) + 1);
             *(s32 *)((s8 *)sp8 + 0x14) = (s32) *(s32 *)((s8 *)temp_r29 + 0x14);
-            TObjPlayer__sub_803DAD24((int) (sp8), (int) (temp_r4));
+            TObjPlayer__sub_803DAD24((int)sp8, (int)temp_r4);
             goto block_7;
         }
         temp_r0 = record_array_ptr + (record_index * 0x18);

@@ -85,7 +85,7 @@ void draw_ginja_model_with_motion(void *arg0, void *arg1) {
     model_draw_context->fn = draw_ginja_model_lists;
     prepare_ginja_model(model_draw_context);
     init_model_draw_queue((void *) draw_ginja_model_lists);
-    draw_ginja_motion_node_tree((u8 *)(arg0));
+    draw_ginja_motion_node_tree((u8 *)arg0);
     flush_model_draw_queue();
     if (ginja_draw_end_callback != NULL) {
         ginja_draw_end_callback();
@@ -99,7 +99,7 @@ void draw_ginja_motion_node_tree(u8 *arg0) {
     u32 model;
     u8 *temp_r3_2;
     u8 *child;
-    child = (u8 *)(arg0);
+    child = arg0;
     do {
         push_matrix();
         compose_motion_node_matrix((child));
@@ -108,7 +108,7 @@ void draw_ginja_motion_node_tree(u8 *arg0) {
         }
         model = *(u32 *)((s8 *)child + 4);
         if ((model != 0U) && ((u32) (*(s32 *)((s8 *)child + 0) & 8) == 0)) {
-            queue_model_draw_matrix((int) (model), (void *) (current_matrix));
+            queue_model_draw_matrix((int)model, (void *)current_matrix);
         }
         temp_r3_2 = (u8 *)(*(u8 **)((s8 *)child + 0x2C));
         if (temp_r3_2 != NULL) {

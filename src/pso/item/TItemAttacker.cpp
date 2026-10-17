@@ -38,7 +38,7 @@ u8 *__ct__13TItemAttackerFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     __ct__7TObjectFP7TObject(arg0,arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TItemAttacker;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TItemAttacker__name;
-    ((TItemAttacker *)(arg0 + 0x1C))->copy_from((void *) (arg4));
+    ((TItemAttacker *)(arg0 + 0x1C))->copy_from((void *)arg4);
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
     VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg2));
     entity = (u8 *)(find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x2A)));

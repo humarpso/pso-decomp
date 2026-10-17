@@ -41,7 +41,7 @@ void *__dt__13TUnk_804CC794Fv(void *arg0, s16 arg1) {
 }
 
 u8 *initialize__9TObjLightFPvii(u8 *arg0, s32 arg1, s32 arg2) {
-    __ct__7TObjectFP7TObject(arg0, (void *) (arg2));
+    __ct__7TObjectFP7TObject(arg0, (void *)arg2);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CC794;
     *(s32 *)((s8 *)arg0 + 0x1C) = arg1;
     VecCopy((Vec *)(arg0 + 0x20), (const Vec *)(*(s32 *)((s8 *)arg0 + 0x1C) + 0x2FC));

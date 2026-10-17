@@ -49,7 +49,7 @@ void TWindowSubComCard__sub_8024AB98(s32 arg0) {
     stack.sp8 = *(s32 *)((s8 *)(&TWindowSubComCard__window_ctrl_callback_pmf.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&TWindowSubComCard__window_ctrl_callback_pmf.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&TWindowSubComCard__window_ctrl_callback_pmf.value) + 8);
-    call_window_method__11TWindowCtrlFPvi((void *) (arg0), (void *) (&stack.sp8));
+    call_window_method__11TWindowCtrlFPvi((void *)arg0, (void *) (&stack.sp8));
 }
 typedef char RecoveredGlobal_8024ABDC_lbl_804CEA64_size[sizeof(RecoveredGlobal_8024ABDC_lbl_804CEA64) == 0xC ? 1 : -1];
 void TObjPlayer__sub_8024ABDC(s32 arg0) {
@@ -60,7 +60,7 @@ void TObjPlayer__sub_8024ABDC(s32 arg0) {
     stack.sp8 = *(s32 *)((s8 *)(&lbl_804CEA64.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&lbl_804CEA64.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_804CEA64.value) + 8);
-    call_window_method__11TWindowCtrlFPvi((void *) (arg0), (void *) (&stack.sp8));
+    call_window_method__11TWindowCtrlFPvi((void *)arg0, (void *) (&stack.sp8));
 }
 typedef char RecoveredGlobal_8024AC20_lbl_804CEA58_size[sizeof(RecoveredGlobal_8024AC20_lbl_804CEA58) == 0xC ? 1 : -1];
 void TLobby__sub_8024AC20(s32 arg0) {
@@ -71,7 +71,7 @@ void TLobby__sub_8024AC20(s32 arg0) {
     stack.sp8 = *(s32 *)((s8 *)(&lbl_804CEA58.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&lbl_804CEA58.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_804CEA58.value) + 8);
-    call_window_method__11TWindowCtrlFPvi((void *) (arg0), (void *) (&stack.sp8));
+    call_window_method__11TWindowCtrlFPvi((void *)arg0, (void *) (&stack.sp8));
 }
 
 }

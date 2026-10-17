@@ -29,7 +29,7 @@ u8 *TObjPlayer::create_state(s32 arg0) {
     u8 *var_r0;
     if (arg0 != 0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x204));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
             var_r0 = (u8 *)(init_state__10TObjPlayerFv(temp_r3, tl_05, arg0));
         }
@@ -49,12 +49,12 @@ void sorcerers_cane_node_callback(u8 *arg0) {
     case 1:
         TObjPlayer::play_particle_effect_once();
         temp_r4 = *(s32 *)((s8 *)arg0 + 0x1F8);
-        scale_current_matrix((void *) ((u8 *)&lbl_8043E878.value + (temp_r4 * 0xC)), (int) (temp_r4));
+        scale_current_matrix((void *) ((u8 *)&lbl_8043E878.value + (temp_r4 * 0xC)), temp_r4);
         return;
     case 4:
         TObjPlayer::play_particle_effect_once();
         temp_r4_2 = *(s32 *)((s8 *)arg0 + 0x1F8);
-        scale_current_matrix((void *) ((u8 *)&lbl_8043E8D8.value + (temp_r4_2 * 0xC)), (int) (temp_r4_2));
+        scale_current_matrix((void *) ((u8 *)&lbl_8043E8D8.value + (temp_r4_2 * 0xC)), temp_r4_2);
         return;
     case 7:
         TObjPlayer::play_particle_effect_once();

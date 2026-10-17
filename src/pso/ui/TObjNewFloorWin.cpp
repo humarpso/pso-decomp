@@ -39,7 +39,7 @@ u8 *create_new_floor_windows__6TLobbyFi(s32 arg0) {
     var_r0 = (u8 *) temp_r3;
     if (var_r0 != 0)
     {
-      var_r0 = (u8 *) ((u8 *)__ct__15TObjNewFloorWinFP7TObjectPv((void *)(temp_r3), (void *)(arg0), (void *)(-1)));
+      var_r0 = (u8 *) ((u8 *)__ct__15TObjNewFloorWinFP7TObjectPv((void *)temp_r3, (void *)arg0, (void *)(-1)));
     }
     return var_r0;
   }
@@ -53,7 +53,7 @@ u8 *create_new_floor_windows__6TLobbyFi(s32 arg0) {
       var_r0_2 = (u8 *) temp_r3_2;
       if (var_r0_2 != 0)
       {
-        var_r31 = ((u8 *)__ct__15TObjNewFloorWinFP7TObjectPv((void *)(temp_r3_2), (void *)(arg0), (void *)((s32) var_r30)));
+        var_r31 = ((u8 *)__ct__15TObjNewFloorWinFP7TObjectPv((void *)temp_r3_2, (void *)arg0, (void *)((s32) var_r30)));
         var_r0_2 = (u8 *) var_r31;
       }
       var_r31 = (u8 *) var_r0_2;

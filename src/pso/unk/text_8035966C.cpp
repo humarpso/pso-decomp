@@ -17,7 +17,7 @@ s32 create_boss4_fade(void) {
     temp_r3 = __nw__7TObjectFUl(0x38);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = __ct__10TBoss4FadeFv((int) (temp_r3), (int) (instance));
+        var_r0 = __ct__10TBoss4FadeFv(temp_r3, instance);
     }
     return var_r0;
 }

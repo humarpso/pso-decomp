@@ -150,7 +150,7 @@ void TObjMapWarp::closePlayerWindow(u16 arg1) {
     temp_r31 = (u8 *)(arg0 + ((arg1 * 4) & 0x3FFFC));
     temp_r3 = *(u32 *)((s8 *)temp_r31 + 0xEC);
     if (temp_r3 != 0U) {
-        TWindow__close((u8 *)(temp_r3));
+        TWindow__close((u8 *)temp_r3);
         *(u32 *)((s8 *)temp_r31 + 0xEC) = 0U;
         player = ((u32)get_player_by_client_id((u32)((void *) ((s32) arg1))));
         if (player != 0U) {

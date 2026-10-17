@@ -22,7 +22,7 @@ void fn_800779A0(u8 *src) {
         }
         lbl_805D4E5C = (unsigned char *) ((void *) var_r0);
     }
-    fn_800779FC((u32 *)(lbl_805D4E5C), (u32 *)(src));
+    fn_800779FC((u32 *)lbl_805D4E5C, (u32 *)src);
 }
 u32 *fn_800779FC(u32 *dst, u32 *src) {
     u32 *d = dst;

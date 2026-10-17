@@ -155,7 +155,7 @@ TAdSelectCurGC_802AF0E0 *__ct__14TAdSelectCurGCFv(TAdSelectCurGC_802AF0E0 *o, vo
     o->fB8 = 0;
     o->fB4 = 0;
     o->f700 = 0;
-    TAdSelectCurGC__sub_802AF274((void*)(o), lbl_805DE1E0);
+    TAdSelectCurGC__sub_802AF274(o, lbl_805DE1E0);
     for (i = 0; i < 16; i++) {
         o->tbl[i] = 0;
     }

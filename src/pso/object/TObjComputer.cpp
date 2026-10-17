@@ -208,7 +208,7 @@ void TObjComputer::vfunc_14() {
 void *TObjComputer::create() {
     void *o = __nw__7TObjectFUl(0xC8);
     if (o != NULL) {
-        o = TObjComputer__ct((void *)(o), (void *)(tl_05), (void *)(this));
+        o = TObjComputer__ct(o, tl_05, this);
     }
     return o;
 }

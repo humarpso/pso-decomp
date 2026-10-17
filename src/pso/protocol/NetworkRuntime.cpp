@@ -613,7 +613,7 @@ void NetSuspendCurrentThread(void) {
 void TLobby::cancel_thread_if_running() {
     s32 arg0 = (s32)this;
     if (OSIsThreadTerminated() == 0) {
-        OSCancelThread((void *) (arg0));
+        OSCancelThread((void *)arg0);
     }
 }
 
@@ -734,8 +734,8 @@ s32 NetIPv6CPSetInterfaceIdentifier(u8 *arg0, s32 arg1) {
     s32 sp14;
     s32 sp10;
     NetMemset((void *)((void *) (&sp18)), 0xFF, 8);
-    if (NetMemcmp((void *)((void *) (arg1)), (void *)((void *) (&sp18)), 8) != 0) {
-        NetMemcpy((void *)((void *) (&sp14)), (void *)((void *) (arg1)), 4);
+    if (NetMemcmp((void *)(arg1), (void *)((void *) (&sp18)), 8) != 0) {
+        NetMemcpy((void *)((void *) (&sp14)), (void *)(arg1), 4);
         NetMemcpy((void *)((void *) (&sp10)), (void *)((void *) (arg1 + 4)), 4);
         ((Fields_arg0*)arg0)->field_8 = sp14;
         ((Fields_arg0*)arg0)->field_C = sp10;
@@ -937,10 +937,10 @@ void TLobby__sub_80400ACC(O_80400ACC *o);
 
 typedef char RecoveredGlobal_80401A68_lbl_805C04A8_size[sizeof(RecoveredGlobal_80401A68_lbl_805C04A8) == 0x30 ? 1 : -1];
 
-#define rd16_804012E0(src) (TLobby__sub_80401BCC((void *)(src), lcp_read_value_buffer, 2) != 2 ? -1 : read_network_u16_be(lcp_read_value_buffer))
-#define rd32_804012E0(src) (TLobby__sub_80401BCC((void *)(src), lcp_read_value_buffer, 4) != 4 ? 0 : TLobby__sub_80402AFC(lcp_read_value_buffer))
-#define rd8_804012E0(src) (TLobby__sub_80401BCC((void *)(src), lobby_read_byte_buffer, 1) != 1 ? -1 : (s16)lobby_read_byte_buffer[0])
-#define F(t, o) (*(t *)((s8 *)(arg2) + (o)))
+#define rd16_804012E0(src) (TLobby__sub_80401BCC(src, lcp_read_value_buffer, 2) != 2 ? -1 : read_network_u16_be(lcp_read_value_buffer))
+#define rd32_804012E0(src) (TLobby__sub_80401BCC(src, lcp_read_value_buffer, 4) != 4 ? 0 : TLobby__sub_80402AFC(lcp_read_value_buffer))
+#define rd8_804012E0(src) (TLobby__sub_80401BCC(src, lobby_read_byte_buffer, 1) != 1 ? -1 : (s16)lobby_read_byte_buffer[0])
+#define F(t, o) (*(t *)(arg2 + (o)))
 
 typedef char RecoveredGlobal_80401A90_lbl_805C04A8_size[sizeof(RecoveredGlobal_80401A90_lbl_805C04A8) == 0x30 ? 1 : -1];
 
@@ -970,10 +970,10 @@ typedef char RecoveredGlobal_80402B60_lbl_805C0620_size[sizeof(RecoveredGlobal_8
 #define H_80401FE8(x, y, z) ((x) ^ (y) ^ (z))
 #define I_80401FE8(x, y, z) ((y) ^ ((x) | (~z)))
 #define ROTATE_LEFT_80401FE8(x, n) (((x) << (n)) | ((x) >> (32 - (n))))
-#define FF_80401FE8(a, b, c, d, x, s, ac) { (a) += F_80401FE8((b), (c), (d)) + (x) + (u32)(ac); (a) = ROTATE_LEFT_80401FE8((a), (s)); (a) += (b); }
-#define GG_80401FE8(a, b, c, d, x, s, ac) { (a) += G_80401FE8((b), (c), (d)) + (x) + (u32)(ac); (a) = ROTATE_LEFT_80401FE8((a), (s)); (a) += (b); }
-#define HH_80401FE8(a, b, c, d, x, s, ac) { (a) += H_80401FE8((b), (c), (d)) + (x) + (u32)(ac); (a) = ROTATE_LEFT_80401FE8((a), (s)); (a) += (b); }
-#define II_80401FE8(a, b, c, d, x, s, ac) { (a) += I_80401FE8((b), (c), (d)) + (x) + (u32)(ac); (a) = ROTATE_LEFT_80401FE8((a), (s)); (a) += (b); }
+#define FF_80401FE8(a, b, c, d, x, s, ac) { (a) += F_80401FE8((b), (c), (d)) + (x) + ac; (a) = ROTATE_LEFT_80401FE8((a), (s)); (a) += (b); }
+#define GG_80401FE8(a, b, c, d, x, s, ac) { (a) += G_80401FE8((b), (c), (d)) + (x) + ac; (a) = ROTATE_LEFT_80401FE8((a), (s)); (a) += (b); }
+#define HH_80401FE8(a, b, c, d, x, s, ac) { (a) += H_80401FE8((b), (c), (d)) + (x) + ac; (a) = ROTATE_LEFT_80401FE8((a), (s)); (a) += (b); }
+#define II_80401FE8(a, b, c, d, x, s, ac) { (a) += I_80401FE8((b), (c), (d)) + (x) + ac; (a) = ROTATE_LEFT_80401FE8((a), (s)); (a) += (b); }
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)
@@ -1079,7 +1079,7 @@ struct Self_8040098C;
 #pragma dont_inline off
 #pragma inline_depth(4)
 #define FWD_80405A74()                                                       \
-    (*(s16 *)((s8 *)(G) + 0x13A))++;                                            \
+    (*(s16 *)(G + 0x13A))++;                                            \
     t = (Strm_80405A74 *)((TLobby *)arg0)->alloc_from_buffer(4); \
     p = t->p;                                                                \
     *p++ = 0xFF;                                                             \
@@ -1087,7 +1087,7 @@ struct Self_8040098C;
     write_network_u16_be(p, code);                                           \
     u = t;                                                                   \
     if (u == NULL) {                                                         \
-        (*(s16 *)((s8 *)(G) + 0x142))++;                                        \
+        (*(s16 *)(G + 0x142))++;                                        \
         return;                                                              \
     }                                                                        \
     if (TLobby__sub_80401BCC(&u, &lobby_ppp_read_buf, 2) == 2) {                   \

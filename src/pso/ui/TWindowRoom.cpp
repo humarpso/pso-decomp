@@ -52,7 +52,7 @@ void *TWindowRoom::get_title_entry() {
 
 extern "C" {
 void TWindowSubStatusDisp::set_entry_display_value(s32 arg1) {
-    set_text_entry_string((u8 *)(get_array_entry__13TUnk_804CE018Fi((void*)(this), 0)), arg1, 0x60);
+    set_text_entry_string((u8 *)(get_array_entry__13TUnk_804CE018Fi(this, 0)), arg1, 0x60);
 }
 }
 

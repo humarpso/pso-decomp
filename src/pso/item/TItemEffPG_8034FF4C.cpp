@@ -83,7 +83,7 @@ u8 *TItemEffPG__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     temp_r3 = ((s32)__nw__7TObjectFUl(0x68));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (s32)TItemEffPG__visual_ct((u8 *)(temp_r3), (u8 *)(arg0), (u8 *)(arg2));
+        var_r0 = (s32)TItemEffPG__visual_ct((u8 *)temp_r3, (u8 *)arg0, (u8 *)arg2);
     }
     *(s32 *)&((TItemEffPG *)arg0)->m_d0 = var_r0;
     return arg0;
@@ -93,7 +93,7 @@ void TItemEffPG::create(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0xD4);
     if (o != NULL) {
-        TItemEffPG__ct((u8 *)(o), (s32)(arg0), (u8 *)(arg1));
+        TItemEffPG__ct((u8 *)o, (s32)arg0, (u8 *)arg1);
     }
 }
 

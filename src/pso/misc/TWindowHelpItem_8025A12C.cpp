@@ -111,7 +111,7 @@ void TWindowHelpItem::set_compare_color(s32 arg1) {
         this->m_10 = 0xFFDD8C41;
     }
     *(s32 *)&this->unk_14 = 0x1E;
-    set_flag4_and_field1c((s32)(arg1));
+    set_flag4_and_field1c(arg1);
 }
 
 void TWindowHelpItem::set_flag4_and_field1c(s32 arg1) {
@@ -148,7 +148,7 @@ void render_summary_row__15TWindowHelpItemFv(Item_8025A354 *self, Win_8025A354 *
     draw_window_text((f32 *)&pos, (const char *)((void *)":"), -1, 0, 100000.0f);
     pos.x += 64.0f;
     if (self->flags & 4) {
-        TWindowHelpItem::draw_number_value((void *)(self), (f32 *)(&pos), (s32)(self->cur), (s32)(self->value10), (s32)(TWindowHelpItem__sub_8025A600((void*)(self))));
+        TWindowHelpItem::draw_number_value(self, (f32 *)(&pos), self->cur, self->value10, (s32)(TWindowHelpItem__sub_8025A600(self)));
     }
     if (self->flags & 8) {
         draw_window_text((f32 *)&pos, (const char *)((void *)"\tJ\x81\xA8"), -1, 0, 100000.0f);
@@ -162,7 +162,7 @@ void render_summary_row__15TWindowHelpItemFv(Item_8025A354 *self, Win_8025A354 *
         } else {
             color = 0xFFDD8C41;
         }
-        TWindowHelpItem::draw_number_value((void *)(self), (f32 *)(&pos), (s32)(self->next), (s32)(color), (s32)(TWindowHelpItem__sub_8025A600((void*)(self))));
+        TWindowHelpItem::draw_number_value(self, (f32 *)(&pos), self->next, color, (s32)(TWindowHelpItem__sub_8025A600(self)));
     }
 }
 
@@ -192,7 +192,7 @@ void *destroy__15TWindowHelpItemFPvs(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_8025A594_lbl_804CF9F8_size[sizeof(RecoveredGlobal_8025A594_lbl_804CF9F8) == 0x18 ? 1 : -1];
 u8 *TWindowHelpItem__sub_8025A594(u8 *arg0, s32 arg1, s32 arg2) {
-    sub_80256BDC__13TUnk_804CF930Fs((void *) (arg0), (void *) (arg2));
+    sub_80256BDC__13TUnk_804CF930Fs((void *)arg0, (void *)arg2);
     *(s32 **)((s8 *)arg0 + 4) = &(*(RecoveredGlobal_8025A594_lbl_804CF9F8 *)&lbl_804CF9F8).value;
     ((TWindowSubSymbolChatPartsSet *)(arg0 + 8))->copy_vec2((void *) (arg1 + 4));
     *(s32 *)((s8 *)arg0 + 0x10) = -1;

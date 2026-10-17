@@ -179,7 +179,7 @@ void *TUnk_804999E8::destroy_task_object(s16 arg1) {
 extern void *tl_fade;
 
 void *TUnk_804848A0::init_fade_color(void *arg1, void *arg2) {
-    init_object((void *)(tl_fade));
+    init_object(tl_fade);
     *(s32 **)((s8 *)this + 0x18) = lbl_804848A0;
     *(void * *)&(*(s32 *)((u8 *)this + 0x24)) = arg2;
     *(f32 *)&(*(u16 *)((u8 *)this + 0x1C)) = lbl_805D8858;
@@ -223,7 +223,7 @@ void *__dt__13TUnk_804848B8Fv(void *arg0, s16 arg1) {
 }
 
 void *TUnk_804848B8::init_fade(void *arg1, void *arg2) {
-    init_object((void *)((void *)(tl_fade)));
+    init_object((void *)(tl_fade));
     *(s32 **)((s8 *)this + 0x18) = lbl_804848B8;
     *(void * *)&(*(s32 *)((u8 *)this + 0x24)) = arg2;
     *(f32 *)&(*(u16 *)((u8 *)this + 0x1C)) = lbl_805D8854;

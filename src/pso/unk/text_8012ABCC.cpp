@@ -246,7 +246,7 @@ void TUnk_804A4B80::emit_marker_effects() {
         if (!((TLobby::get_internet_beat() / 100) & 1)) {
             var_r31 = 1;
         }
-        send_6x61_activate_mag_effect__14TItemEquipBaseFl((void *) (((u8 *)this)), (int) (var_r31));
+        send_6x61_activate_mag_effect__14TItemEquipBaseFl((void *) (((u8 *)this)), var_r31);
         return;
     }
     ((TObjPlayer *)((u8 *)this))->draw_status_icon((s32)((void *) (&sp8)));

@@ -276,7 +276,7 @@ void TTecRaZonde::create(void *origin, void *level) {
     void *o;
     o = __nw__7TObjectFUl(0x150);
     if (o != NULL) {
-        TTecRaZonde__ct((void *)(o), (void *)(this), (void *)(origin), (void *)(level));
+        TTecRaZonde__ct(o, this, origin, level);
     }
 }
 

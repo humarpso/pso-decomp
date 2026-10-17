@@ -978,7 +978,7 @@ void TBoss4Type3::update_capture() {
         ((TBoss4Type3 *)arg0)->set_action_from_table(1);
         return;
     }
-    if (id == 0xFFFF || (p = get_player_by_client_id((u16)(id))) == NULL) {
+    if (id == 0xFFFF || (p = get_player_by_client_id(id)) == NULL) {
         v.x = v.y = v.z = TBoss4Type3__data_805D8C40;
     } else {
         VecCopy__FP3VecPC3Vec(&v, (u8 *)p + 0x2FC);
@@ -1055,7 +1055,7 @@ void TBoss4Type3::advance_capture() {
     if (TBoss4Type3__sub_8005254C(this->m_3b8) == 0) {
         this->m_3b8 = 0xFFFFU;
         this->m_3ba = 0xFFFFU;
-        TBoss4Type3__sub_800599F4((void*)(arg0), 0, 2);
+        TBoss4Type3__sub_800599F4(arg0, 0, 2);
         return;
     }
     if ((s32) this->m_398 == 0) {
@@ -1204,11 +1204,11 @@ void TBoss4Type3::update_homing() {
         ((TBoss4Type3 *)o)->set_anim_state(6);
     } else if (o->f398 == 0x75) {
         if (o->f424 != 0) {
-            TBoss4Type2::request_destroy((u32)(o->f424));
+            TBoss4Type2::request_destroy((u32)o->f424);
             o->f424 = 0;
         }
         if (o->f428 != 0) {
-            TBoss4Type2::request_destroy((u32)(o->f428));
+            TBoss4Type2::request_destroy((u32)o->f428);
             o->f428 = 0;
         }
         o->f52c = 0;
@@ -1224,8 +1224,8 @@ void TBoss4Type3::update_homing() {
     v = 0x75;
     for (i = 0; i < n; i++) {
         if (o->f398 == v) {
-            TBoss4Type3::create_horming((void *)o, (void *)a, (void *)(o->f3b8));
-            TBoss4Type3::create_horming((void *)o, (void *)b, (void *)(o->f3b8));
+            TBoss4Type3::create_horming((void *)o, (void *)a, (void *)o->f3b8);
+            TBoss4Type3::create_horming((void *)o, (void *)b, (void *)o->f3b8);
             play_sound_effect(0x4003B229, o->f38, 0, 1);
             break;
         }
@@ -1245,7 +1245,7 @@ void TBoss4Type3::advance_homing() {
     O_80058D70 *self = (O_80058D70 *)this;
     if (self->f398 == 0) {
         self->f3b8 = 0xFFFF;
-        ((int (*)(void*, void*))TBoss4Type3__sub_80059F64)((void*)(self), (void*)(0xc));
+        ((int (*)(void*, void*))TBoss4Type3__sub_80059F64)(self, (void*)(0xc));
     }
 }
 void TBoss4Type3::enter_homing() {
@@ -1322,13 +1322,13 @@ void TBoss4Type3::advance_go_up() {
     s32 id;
     if (self->f398 == 0) {
         if (self->f3ba != 0xFFFF) {
-            ((int (*)(void*, void*))TBoss4Type3__sub_80059F64)((void*)(self), (void*)((void *)0xD));
+            ((int (*)(void*, void*))TBoss4Type3__sub_80059F64)(self, (void*)((void *)0xD));
         } else {
             id = pick_random_target_player__11TBoss4Type3Fv();
             if ((u16)id != 0xFFFF) {
                 ((void (*)(void *, s32, s32))TBoss4Type3__sub_80059EA8)(self, 0xB, id);
             } else {
-                ((int (*)(void*, void*))TBoss4Type3__sub_80059F64)((void*)(self), (void*)((void *)0xC));
+                ((int (*)(void*, void*))TBoss4Type3__sub_80059F64)(self, (void*)((void *)0xC));
             }
         }
     }
@@ -1392,7 +1392,7 @@ void TBoss4Type3::advance_cut() {
             ((TBoss4Type3 *)arg0)->spawn_random_effect();
             return;
         }
-        random_scaled = TBoss4Type3::get_random_scaled((void *)(arg0));
+        random_scaled = TBoss4Type3::get_random_scaled(arg0);
         ((TBoss4Type3 *)arg0)->send_packed_action(this->m_374 - 1, random_scaled, random_scaled);
     }
 }
@@ -1427,11 +1427,11 @@ extern "C" {
 void TBoss4Type3::advance_wait_next() {
     Obj_80059390 *self = (Obj_80059390 *)this;
     if (self->flags & 0x800) {
-        ((int (*)(void*, void*))TBoss4Type3__sub_80059F64)((void*)(self), (void*)((void *)2));
+        ((int (*)(void*, void*))TBoss4Type3__sub_80059F64)(self, (void*)((void *)2));
     } else {
         self->f3b8 = 0xFFFF;
         self->f3ba = 0xFFFF;
-        ((int (*)(void*, void*))TBoss4Type3__sub_80059F64)((void*)(self), (void*)((void *)10));
+        ((int (*)(void*, void*))TBoss4Type3__sub_80059F64)(self, (void*)((void *)10));
     }
 }
 void TBoss4Type3::update_appear() {
@@ -1523,13 +1523,13 @@ void handle_damage_taken__11TBoss4Type3FPv(O_80059618 *o) {
     s32 i;
     u32 e;
     if (o->f3ba == 0xFFFF || o->f374 == 2 || o->f374 == 3 || o->f32c >= o->f3e4 ||
-        (p = (u8 *)get_player_by_client_id((u16)(o->f3ba))) == NULL) {
+        (p = (u8 *)get_player_by_client_id(o->f3ba)) == NULL) {
         o->f3e4 = o->f32c;
         return;
     }
     drain_player_hp(o->f3ba, o->f3e4 - o->f32c);
     o->f3e4 = o->f32c;
-    TBoss4Type3::create_yutai((void *)o, (void *)2, (void *)(o->f3ba));
+    TBoss4Type3::create_yutai((void *)o, (void *)2, (void *)o->f3ba);
     Vec_80059618 pos = *(Vec_80059618 *)(p + 0x2FC);
     Vec_80059618 tgt = o->f480;
     Vec_80059618 dir;
@@ -1645,12 +1645,12 @@ s32 TBoss4Type3::choose_attack_heading_sector() {
     u16 id;
     id = ((u16 (*)(void))pick_random_target_player__11TBoss4Type3Fv)();
     if ((id == 0xFFFFU) || (TBoss4Type3__sub_8005254C(id) == 0)) {
-        return TBoss4Type3::get_random_scaled((void *)((void *) (arg0)));
+        return TBoss4Type3::get_random_scaled((void *)(arg0));
     }
-    VecCopy__FP3VecPC3Vec((void *) (&sp8), (void *) (((s32)get_player_by_client_id((int) (id))) + 0x38));
+    VecCopy__FP3VecPC3Vec((void *) (&sp8), (void *) (((s32)get_player_by_client_id(id)) + 0x38));
     temp_f0 = sp8.f.x - lbl_805D8C7C;
     sp8.f.x = temp_f0;
-    return ((u32) ((s32) ((*(const f64 *)&lbl_80437890) * atan2_float((f32) (-temp_f0), (f32) (sp8.f.z))) + 0x800) >> 0xCU) & 0xF;
+    return ((u32) ((s32) ((*(const f64 *)&lbl_80437890) * atan2_float((f32) (-temp_f0), sp8.f.z)) + 0x800) >> 0xCU) & 0xF;
 }
 
 #pragma push
@@ -1700,7 +1700,7 @@ void TBoss4Type3::spawn_random_effect() {
     s32 temp_r5;
 
     temp_r5 = (s32) (lbl_805D8C8C * ((f32 (*)(void))calc_boss4_scale__10TObjPlayerFi)());
-    send_packed_action(0xF, (s32)(temp_r5), (s32)(temp_r5));
+    send_packed_action(0xF, temp_r5, temp_r5);
 }
 
 void TBoss4Type3__sub_80059EA8(Obj_80059EA8 *self, s32 arg1, s32 arg2) {
@@ -1736,7 +1736,7 @@ void update_scale_sound__11TBoss4Type3FPv(u8 *arg0) {
     s32 var_r6;
     u8 *var_r31;
     u8 *var_r4;
-    var_r31 = (u8 *)(arg0);
+    var_r31 = arg0;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x374);
     temp_f31 = *(f32 *)((s8 *)arg0 + 0x3B0);
     if ((temp_r0 == 2) || (temp_r0 == 3)) {
@@ -1771,19 +1771,19 @@ void update_scale_sound__11TBoss4Type3FPv(u8 *arg0) {
         }
         if (((TBoss4Type3__data_805D8C40 == temp_f31) && (*(f32 *)((s8 *)var_r31 + 0x3B0) > TBoss4Type3__data_805D8C40)) || ((TBoss4Type3__data_805D8C34 == temp_f31) && (*(f32 *)((s8 *)var_r31 + 0x3B0) < TBoss4Type3__data_805D8C34))) {
             var_r3 = 0x40040000;
-            var_r4 = (u8 *)(var_r31) + 0x38;
+            var_r4 = var_r31 + 0x38;
             var_r3 = 0x4003B02F;
             var_r5 = 0;
             var_r6 = 1;
-            ((s32 (*)(s32, s32, s32, s32))play_sound_effect)(0x4003B02F, (s32)((int) (var_r4)), 0, 1);
+            ((s32 (*)(s32, s32, s32, s32))play_sound_effect)(0x4003B02F, (s32)(var_r4), 0, 1);
         }
         if ((temp_f31 > TBoss4Type3__data_805D8C40) && (TBoss4Type3__data_805D8C40 == *(f32 *)((s8 *)var_r31 + 0x3B0))) {
             var_r3 = 0x40040000;
-            var_r4 = (u8 *)(var_r31) + 0x38;
+            var_r4 = var_r31 + 0x38;
             var_r3 = 0x4003AD30;
             var_r5 = 0;
             var_r6 = 1;
-            ((s32 (*)(s32, s32, s32, s32))play_sound_effect)(0x4003AD30, (s32)((int) (var_r4)), 0, 1);
+            ((s32 (*)(s32, s32, s32, s32))play_sound_effect)(0x4003AD30, (s32)(var_r4), 0, 1);
         }
     }
 }
@@ -1813,7 +1813,7 @@ void TBoss4Type3::destroy_parts() {
     s32 i;
     for (i = 0; i < 13; i++) {
         if (self->parts[i] != 0) {
-            TBoss4Type2::request_destroy((u32)(self->parts[i]));
+            TBoss4Type2::request_destroy((u32)self->parts[i]);
             self->parts[i] = 0;
         }
     }
@@ -2339,7 +2339,7 @@ void * create__13TObjBs4CutAtkFPvPvPv(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
-        o = __ct__13TObjBs4CutAtkFv((void *)(o), (s32)(arg0), (s32)(arg1), (s32)(arg2));
+        o = __ct__13TObjBs4CutAtkFv((void *)o, (s32)arg0, (s32)arg1, (s32)arg2);
     }
     return o;
 }

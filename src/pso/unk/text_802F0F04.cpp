@@ -44,7 +44,7 @@ extern void *tl_05;
 void *TObjAreaWarpForest::alloc_and_init() {
     void *o = __nw__7TObjectFUl(0xE0);
     if (o != NULL) {
-        o = ((TObjAreaWarpForest *)o)->init((void *)((void *)(tl_05)), (void *)((void *)(this)));
+        o = ((TObjAreaWarpForest *)o)->init((void *)(tl_05), (void *)(this));
     }
     return o;
 }

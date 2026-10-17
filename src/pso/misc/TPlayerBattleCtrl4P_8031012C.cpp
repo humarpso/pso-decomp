@@ -330,7 +330,7 @@ void TPlayerBattleCtrl4P::reset_ctrl_to_default() {
     void *temp_r3;
     temp_r3 = TPlayerBattleCtrl4P__instance;
     if (temp_r3 != NULL) {
-        TPlayerBattleCtrl4P::init_ctrl_default((void*)(temp_r3));
+        TPlayerBattleCtrl4P::init_ctrl_default(temp_r3);
     }
 }
 
@@ -434,7 +434,7 @@ void TPlayerBattleCtrl4P::start_match() {
     s32 i;
     VObj_80310830 *p;
     reset_score_counters();
-    calculate_split_screen_battle_rankings((void *)(this));
+    calculate_split_screen_battle_rankings(this);
     TWindowCtrl::init_all((void*)lbl_80475B90, (void*)0x200);
     for (i = 0; i < 4; i++) {
         e = &((Ent_80310830 *)&split_screen_battle_rankings)[i];
@@ -515,7 +515,7 @@ void send_code_45_to_window__19TPlayerBattleCtrl4PFPvii(void *arg0, s32 arg1, s3
 
     temp_r31 = (u16)arg1;
     temp_r30 = arg2;
-    if (get_player_by_client_id((s32)((s32)(temp_r31))) != 0U) {
+    if (get_player_by_client_id((s32)(temp_r31)) != 0U) {
         send_code_45_1__10TObjPlayerFl();
     }
     if (temp_r30 != 0) {
@@ -531,7 +531,7 @@ s32 TPlayerBattleCtrl4P::check_all_players_flag() {
 
     var_r31 = 0;
 loop_1:
-    var_r3 = get_player_by_client_id((s32)((s32)(var_r31)));
+    var_r3 = get_player_by_client_id((s32)(var_r31));
     if ((var_r3 != 0U) && (obj_testFlags30(var_r3, 0x02000000) != 0)) {
         return 0;
     }
@@ -614,7 +614,7 @@ void TPlayerBattleCtrl4P::remove_player(void *arg0, u16 arg1, s32 arg2) {
     u32 temp;
 
     id = arg1;
-    temp = get_player_by_client_id((s32)(id));
+    temp = get_player_by_client_id(id);
     if (temp != 0U) {
         play_effect_default__10TObjPlayerFii(temp, -1);
     }
@@ -670,7 +670,7 @@ void TPlayerBattleCtrl4P::apply_rule_configuration(s32 arg1) {
       t = 1;
       for (j = 0; j < 4; j++)
       {
-        p = ((u32)get_player_by_client_id((s32)(j)));
+        p = ((u32)get_player_by_client_id(j));
         if (p != 0)
         {
           t = 1 - t;
@@ -692,7 +692,7 @@ void TPlayerBattleCtrl4P::apply_rule_configuration(s32 arg1) {
     set_field_a__6TLobbyFPvUc(((s32 *)&lobby_rule_settings), (u8) (flag != 0));
     for (j = 0; j < 4; j++)
     {
-      p = ((u32)get_player_by_client_id((s32)(j)));
+      p = ((u32)get_player_by_client_id(j));
       if (p != 0)
       {
         ((TLobby *)(p + 0x78C))->set_scale(lbl_805D3538);
@@ -711,7 +711,7 @@ void TPlayerBattleCtrl4P::apply_rule_configuration(s32 arg1) {
   }
   for (j = 0; j < 4; j++)
   {
-    if (((u32)get_player_by_client_id((s32)(j))) != 0)
+    if (((u32)get_player_by_client_id(j)) != 0)
     {
       TLobby::apply_battle_rules_to_players();
     }
@@ -735,7 +735,7 @@ void TPlayerBattleCtrl4P::update_all_players() {
 
     var_r31 = 0;
     do {
-        if (get_player_by_client_id((s32)(var_r31)) != 0U) {
+        if (get_player_by_client_id(var_r31) != 0U) {
             release_attached_resource__10TObjPlayerFv();
         }
         var_r31 += 1;
@@ -816,7 +816,7 @@ void TPlayerBattleCtrl4P::update() {
     ((s32 (*)())refresh_split_screen_battle_alive_flags)();
     var_r31 = 0;
     do {
-        if (get_player_by_client_id((s32)(var_r31)) != 0U) {
+        if (get_player_by_client_id(var_r31) != 0U) {
             obj_set_flag_20000();
         }
         var_r31 += 1;
@@ -827,7 +827,7 @@ void TPlayerBattleCtrl4P::update() {
     TLobby__sub_8020BB18();
     var_r31_2 = 0;
     do {
-        player = get_player_by_client_id((s32)(var_r31_2));
+        player = get_player_by_client_id(var_r31_2);
         if (player != 0U) {
             clear_trap_counts((s8 *)(player + 0x7C4));
         }

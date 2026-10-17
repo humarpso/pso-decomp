@@ -111,7 +111,7 @@ void update_main_warp_visible_mask(s32 arg0) {
 void TObjCityMainWarp::set_active_bit(s32 _w0) {
     s32 floor_warp_bit;
 
-    floor_warp_bit = TObjCityMainWarp::get_floor_warp_bit((s32)(_w0));
+    floor_warp_bit = TObjCityMainWarp::get_floor_warp_bit(_w0);
     if (floor_warp_bit >= 0) {
         TObjCityMainWarp__enabled_destinations |= 1 << floor_warp_bit;
     }

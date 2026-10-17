@@ -295,7 +295,7 @@ extern s32 TLobby__net_session_mode;
 
 void TLobby::cleanup() {
     if ((s32) TLobby__net_session_mode != 0) {
-        TLobby__sub_801469B8((void*)(this));
+        TLobby__sub_801469B8(this);
     } else {
         TLobby__sub_80147284();
     }
@@ -317,7 +317,7 @@ void TLobby::flush_pending_flags() {
     TLobby::teardown_boss2();
     if (TLobby__sub_80145EE4() != 0) {
         if (TLobby__connect_pending_flags & 0x10) {
-            TLobby__sub_80424CF4((void *) ((s16) lbl_805D2D00), (void *) (lbl_805D56D8), 3);
+            TLobby__sub_80424CF4((void *) ((s16) lbl_805D2D00), (void *)lbl_805D56D8, 3);
             TLobby__connect_pending_flags &= 0xFFFFFFEF;
             TLobby__sub_80424CA8();
         }
@@ -405,7 +405,7 @@ s32 TLobby::run_connect_sequence() {
     return 0xE;
 }
 
-void TLobby::call_146CA0_with_5708() { TLobby__sub_80146CA0((s32)((void*)(lbl_805D5708))); }
+void TLobby::call_146CA0_with_5708() { TLobby__sub_80146CA0((s32)(lbl_805D5708)); }
 
 typedef char RecoveredGlobal_80146CB8_lbl_8050CCE8_size[sizeof(RecoveredGlobal_80146CB8_lbl_8050CCE8) == 0x12C ? 1 : -1];
 
@@ -419,7 +419,7 @@ void TLobby::set_ppp_password(s32 arg0) {
     TLobby__sub_8014618C();
     TLobby::is_state_active();
     temp_r31 = (u8 *)&lbl_8050CCE8.value + 0xFC;
-    memset((int) (temp_r31), 0, 0x20);
+    memset((int)temp_r31, 0, 0x20);
     strncpy((s32) temp_r31, arg0, 0x1F);
 }
 

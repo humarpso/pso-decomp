@@ -29,7 +29,7 @@ extern void *tl_05;
 void *TButterfly__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xBC);
     if (o != NULL) {
-        o = TButterfly__ct((void *)(o), (void *)(tl_05), (void *)(arg0));
+        o = TButterfly__ct(o, tl_05, arg0);
     }
     return o;
 }

@@ -78,7 +78,7 @@ void TUnk_804CCC68::advance_lifetime_or_destroy() {
 
     temp_f1 = this->traveled;
     if (temp_f1 > this->range) {
-        queue_destruction__7TObjectFv((void *)(this));
+        queue_destruction__7TObjectFv(this);
         return;
     }
     this->traveled = (f32) (temp_f1 + *(f32 *)((s8 *)this + 0x64));
@@ -148,7 +148,7 @@ void step_ground_technique_projectile(RecoveredFields_8023A510_arg0 *arg0) {
         stack.sp14 = ((RecoveredFields_8023A510_temp_r6 *)temp_r6)->field_10;
         stack.sp18 = ((RecoveredFields_8023A510_temp_r6 *)temp_r6)->field_14;
         direction_to_rotation_xy((void *) (&stack.sp10), (void *) (&stack.spC), (void *) (&stack.sp8));
-        if (angle_difference_abs(0, (int) (stack.spC)) >= 0x1555) {
+        if (angle_difference_abs(0, stack.spC) >= 0x1555) {
             queue_destruction__7TObjectFv((void *)((void *) (((u8 *)arg0))));
         }
     }
@@ -168,10 +168,10 @@ void move_technique_projectile(u8 *arg0) {
     temp_f2 = *(f32 *)((s8 *)arg0 + 0x50);
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x64);
     *(f32 *)((s8 *)arg0 + 0x28) = (f32) ((temp_f2 * temp_f1) + *(f32 *)((s8 *)arg0 + 0x28));
-    check_technique_projectile_wall_hit((void *) (arg0), (f32) (temp_f1), (f32) (temp_f2));
+    check_technique_projectile_wall_hit(arg0, temp_f1, temp_f2);
 }
 #pragma pop
 
-void TObjPlayer__sub_8023A70C(void* p) { move_technique_projectile((u8 *)((void*)(p))); ((TUnk_804CCC68 *)p)->advance_lifetime_or_destroy(); }
+void TObjPlayer__sub_8023A70C(void* p) { move_technique_projectile((u8 *)(p)); ((TUnk_804CCC68 *)p)->advance_lifetime_or_destroy(); }
 
 }

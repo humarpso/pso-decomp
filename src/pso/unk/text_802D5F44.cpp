@@ -186,7 +186,7 @@ void *TObjPlayer::create_object_by_type() {
 void *__dt__13TUnk_804E1E08Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E1E08;
-        __dt__13TUnk_804E23F0Fv((void *)(arg0), (s16)(0));
+        __dt__13TUnk_804E23F0Fv(arg0, (s16)(0));
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }
@@ -199,7 +199,7 @@ extern s32 lbl_804E1F04[];
 void *__dt__13TUnk_804E1F04Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E1F04;
-        __dt__13TUnk_804E23F0Fv((void *)(arg0), (s16)(0));
+        __dt__13TUnk_804E23F0Fv(arg0, (s16)(0));
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }
@@ -212,7 +212,7 @@ extern s32 lbl_804E2000[];
 void *__dt__13TUnk_804E2000Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E2000;
-        __dt__13TUnk_804E23F0Fv((void *)(arg0), (s16)(0));
+        __dt__13TUnk_804E23F0Fv(arg0, (s16)(0));
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }
@@ -225,7 +225,7 @@ extern s32 lbl_804E20FC[];
 void *__dt__13TUnk_804E20FCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E20FC;
-        __dt__13TUnk_804E23F0Fv((void *)(arg0), (s16)(0));
+        __dt__13TUnk_804E23F0Fv(arg0, (s16)(0));
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }
@@ -238,7 +238,7 @@ extern s32 lbl_804E21F8[];
 void *__dt__13TUnk_804E21F8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E21F8;
-        __dt__13TUnk_804E23F0Fv((void *)(arg0), (s16)(0));
+        __dt__13TUnk_804E23F0Fv(arg0, (s16)(0));
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }
@@ -251,7 +251,7 @@ extern s32 lbl_804E22F4[];
 void *__dt__13TUnk_804E22F4Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E22F4;
-        __dt__13TUnk_804E23F0Fv((void *)(arg0), (s16)(0));
+        __dt__13TUnk_804E23F0Fv(arg0, (s16)(0));
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }

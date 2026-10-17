@@ -205,7 +205,7 @@ void *__dt__9TObjLightFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80194528___vt__9TObjLight_size[sizeof(RecoveredGlobal_80194528___vt__9TObjLight) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_80194528_TObjLight__data_80506320_size[sizeof(RecoveredGlobal_80194528_TObjLight__data_80506320) == 0x50 ? 1 : -1];
 u8 *TObjLight__ct(u8 *arg0, s32 arg1, u8 *arg2) {
-    construct_world_actor_base((void *) (arg0));
+    construct_world_actor_base(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80194528___vt__9TObjLight *)&__vt__9TObjLight).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D33B8;
     ((TObjLight *)(arg0))->apply_object_set_data(arg2);
@@ -235,9 +235,9 @@ u8 *TObjLight__create(u8 *arg0) {
         return NULL;
     }
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x100));
-    var_r0 = (u8 *)(temp_r3);
+    var_r0 = temp_r3;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TObjLight__ct((u8 *)(temp_r3), (s32)(tl_05), (u8 *)(arg0)));
+        var_r0 = (u8 *)(TObjLight__ct(temp_r3, tl_05, arg0));
     }
     return var_r0;
 }

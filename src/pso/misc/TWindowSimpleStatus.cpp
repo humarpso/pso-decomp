@@ -27,7 +27,7 @@ void render__19TWindowSimpleStatusFv(s32 arg0) {
     s32 ctx;
     ctx = draw_default_entry__9TWindowDDFl();
     ((TWindowSimpleStatus *)arg0)->draw_background((u8 *)ctx);
-    draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (ctx));
+    draw_visible_window_entries((void *)arg0, (void *) (arg0 + 0x24), (int)ctx);
 }
 
 void TWindowSimpleStatus::run_task() {
@@ -80,7 +80,7 @@ void *TWindowSimpleStatus::create(void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x78);
     if (o != NULL) {
-        o = TWindowSimpleStatus__ct((SS_80270668 *)(o), (void *)(this), (s32)(arg1), (void *)(lbl_804D0CB0));
+        o = TWindowSimpleStatus__ct((SS_80270668 *)(o), (void *)this, (s32)arg1, (void *)lbl_804D0CB0);
     }
     return o;
 }

@@ -114,7 +114,7 @@ void *__dt__12TObjSinBoardFv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_80198228___vt__12TObjSinBoard_size[sizeof(RecoveredGlobal_80198228___vt__12TObjSinBoard) == 0x38 ? 1 : -1];
 u8 *TObjSinBoard__ct(u8 *arg0, s32 parent, s32 arg2) {
-    construct_world_actor_base((void *) (arg0), (void *) (parent));
+    construct_world_actor_base((void *)arg0, (void *)parent);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80198228___vt__12TObjSinBoard *)&__vt__12TObjSinBoard).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjSinBoard__class_name;
     ((TObjSinBoard *)(arg0))->apply_object_set_data((void *)arg2);
@@ -124,7 +124,7 @@ u8 *TObjSinBoard__ct(u8 *arg0, s32 parent, s32 arg2) {
 void *TObjSinBoard__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x90);
     if (o != NULL) {
-        o = TObjSinBoard__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TObjSinBoard__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -156,7 +156,7 @@ void TUnk_804B8DD0::render() {
         ::draw_ginja_model((*(s32 *)((s8 *)(*(u8 **)((s8 *)bml_model + 0x2C)) + 4)));
         pop_matrix();
         push_matrix();
-        rotate_matrix_z(0, (int) (this->m_38));
+        rotate_matrix_z(0, this->m_38);
         rotate_matrix_y(0, 0x8000);
         ::draw_ginja_model((*(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)bml_model + 0x2C)) + 0x30)) + 4)));
         pop_matrix();

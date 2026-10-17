@@ -105,17 +105,17 @@ void run_task__15TAdPlayerLoadGCFv(u8 *arg0) {
         }
         break;
     case 5:
-        if ((u32)find_card_file__15TAdPlayerLoadGCFiPv(0, (void *) (lbl_804C88C0)) != 0xFFFFFF41U) {
+        if ((u32)find_card_file__15TAdPlayerLoadGCFiPv(0, lbl_804C88C0) != 0xFFFFFF41U) {
             *(u32 *)((s8 *)arg0 + 0x1C) = 6U;
         }
         break;
     case 6:
-        if ((find_card_file__15TAdPlayerLoadGCFiPv(0, (void *) (lbl_804C88C0)) == 0) && (get_instance__15TAdPlayerLoadGCFv() == 0)) {
+        if ((find_card_file__15TAdPlayerLoadGCFiPv(0, lbl_804C88C0) == 0) && (get_instance__15TAdPlayerLoadGCFv() == 0)) {
             *(u32 *)((s8 *)arg0 + 0x1C) = 7U;
         }
         break;
     case 7:
-        if ((u32)find_card_file__15TAdPlayerLoadGCFiPv(0, (void *) (pso_system_card_filename)) != 0xFFFFFF41U) {
+        if ((u32)find_card_file__15TAdPlayerLoadGCFiPv(0, pso_system_card_filename) != 0xFFFFFF41U) {
             *(u32 *)((s8 *)arg0 + 0x1C) = 8U;
         }
         break;
@@ -181,28 +181,28 @@ void run_task__15TAdPlayerLoadGCFv(u8 *arg0) {
     case 18:
         if (probe_card_slot__15TAdPlayerLoadGCFv(1) == 0) {
             *(u32 *)((s8 *)arg0 + 0x1C) = 0xDU;
-        } else if ((u32)find_card_file__15TAdPlayerLoadGCFiPv(1, (void *) (lbl_804C88C0)) != 0xFFFFFF41U) {
+        } else if ((u32)find_card_file__15TAdPlayerLoadGCFiPv(1, lbl_804C88C0) != 0xFFFFFF41U) {
             *(u32 *)((s8 *)arg0 + 0x1C) = 0x13U;
         }
         break;
     case 19:
         if (probe_card_slot__15TAdPlayerLoadGCFv(1) == 0) {
             *(u32 *)((s8 *)arg0 + 0x1C) = 0xDU;
-        } else if ((find_card_file__15TAdPlayerLoadGCFiPv(1, (void *) (lbl_804C88C0)) == 0) && (get_instance__15TAdPlayerLoadGCFv() == 0)) {
+        } else if ((find_card_file__15TAdPlayerLoadGCFiPv(1, lbl_804C88C0) == 0) && (get_instance__15TAdPlayerLoadGCFv() == 0)) {
             *(u32 *)((s8 *)arg0 + 0x1C) = 0x14U;
         }
         break;
     case 20:
         if (probe_card_slot__15TAdPlayerLoadGCFv(1) == 0) {
             *(u32 *)((s8 *)arg0 + 0x1C) = 0xDU;
-        } else if ((u32)find_card_file__15TAdPlayerLoadGCFiPv(1, (void *) (pso_system_card_filename)) != 0xFFFFFF41U) {
+        } else if ((u32)find_card_file__15TAdPlayerLoadGCFiPv(1, pso_system_card_filename) != 0xFFFFFF41U) {
             *(u32 *)((s8 *)arg0 + 0x1C) = 0x15U;
         }
         break;
     case 21:
         if (probe_card_slot__15TAdPlayerLoadGCFv(1) == 0) {
             *(u32 *)((s8 *)arg0 + 0x1C) = 0xDU;
-        } else if ((find_card_file__15TAdPlayerLoadGCFiPv(1, (void *) (lbl_804C88C0)) == 0) && ((u32)check_system_load_result__23TAdSinglePlyChrSelectGCFv() != 0xFFFFFF05U)) {
+        } else if ((find_card_file__15TAdPlayerLoadGCFiPv(1, lbl_804C88C0) == 0) && ((u32)check_system_load_result__23TAdSinglePlyChrSelectGCFv() != 0xFFFFFF05U)) {
             *(u32 *)((s8 *)arg0 + 0x1C) = 0x16U;
         }
         break;

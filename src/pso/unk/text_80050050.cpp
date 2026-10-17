@@ -44,7 +44,7 @@ void TObjDFDemoF::render() {
     }
     else
     {
-      draw_model_motion((void *)(*((int *) (((s8 *) temp_r30) + 0x94))), (void *)temp_r4, (f32) (this->m_b8));
+      draw_model_motion((void *)(*((int *) (((s8 *) temp_r30) + 0x94))), (void *)temp_r4, this->m_b8);
     }
     var_r29 += 1;
     var_r31 += 4;

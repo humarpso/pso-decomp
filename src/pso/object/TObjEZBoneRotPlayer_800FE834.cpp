@@ -56,7 +56,7 @@ void *TObjEZBoneRotPlayer::create(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0xA0);
     if (o != NULL) {
-        o = ((void *)__ct__19TObjEZBoneRotPlayerFv((u8 *)(o), (s32)(arg0), (u8 *)(arg1), (void *)(arg2)));
+        o = ((void *)__ct__19TObjEZBoneRotPlayerFv((u8 *)o, (s32)arg0, (u8 *)arg1, (void *)arg2));
     }
     return o;
 }

@@ -44,7 +44,7 @@ s32 TObjPlayer::draw_icon(s32 arg1, s32 arg2) {
 }
 
 void TObjPlayer::draw_status_icon(s32 arg1) {
-    draw_icon((s32)(this->m_1ce), (s32)(arg1));
+    draw_icon(this->m_1ce, arg1);
 }
 
 }

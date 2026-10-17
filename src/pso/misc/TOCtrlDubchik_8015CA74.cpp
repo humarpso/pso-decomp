@@ -178,10 +178,10 @@ void TOCtrlDubchik::sub_8015CA74() {
 void TOCtrlDubchik::complete_and_destroy() {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
-    if (exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&sp8), 1) != 0) {
+    if (exchange_object_state__9TObjEnemyFls(arg0, (void *) (&sp8), 1) != 0) {
         sp8 = 1;
-        send_6x0A_enemy_state((void *) (arg0), (void *) (&sp8));
-        exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&sp8), 0);
+        send_6x0A_enemy_state(arg0, (void *) (&sp8));
+        exchange_object_state__9TObjEnemyFls(arg0, (void *) (&sp8), 0);
         ((VObj_18_65b835 *)(arg0))->m77(&sp8);
         ((TOCtrlDubchik *)arg0)->sub_8015CA74();
         ((TUnk_804AF8A0 *)arg0)->set_flag8();
@@ -197,7 +197,7 @@ void TOCtrlDubchik::decay_timer_and_clear_flag() {
     if (*(f32 *)&this->unk_384 < TOCtrlDubchik__data_805DB3A8) {
         *(f32 *)&this->unk_384 = (f32) TOCtrlDubchik__data_805DB3A8;
         this->mode = 0;
-        set_indexed_flags((void *)((void *) (arg0)), 0, 0x08000000);
+        set_indexed_flags((void *)(arg0), 0, 0x08000000);
     }
 }
 #pragma pop
@@ -262,7 +262,7 @@ void TOCtrlDubchik::update_bobbing() {
     temp_f1 = (f32) temp_r4;
     *(s32 *)&this->m_380 = (s32) (temp_f1 + TOCtrlDubchik__data_805DB3B4);
     this->m_37c = (f32) (TOCtrlDubchik__data_805DB3B8 + sin_table_lookup((s32)((int) (*(s32 *)&this->m_380))));
-    apply_actor_gravity((u8 *)(((u8 *)this)), (s32 *)(((u8 *)this) + 0x390), (f32) (this->m_37c));
+    apply_actor_gravity((u8 *)(((u8 *)this)), (s32 *)(((u8 *)this) + 0x390), this->m_37c);
     *(f32 *)&this->unk_384 = (f32) (*(f32 *)&this->unk_384 + TOCtrlDubchik__data_805DB3B0);
     if (TOCtrlDubchik__data_805DB3AC < *(f32 *)&this->unk_384) {
         *(f32 *)&this->unk_384 = (f32) TOCtrlDubchik__data_805DB3AC;
@@ -331,7 +331,7 @@ void TOCtrlDubchik::run_task() {
 void *TOCtrlDubchik::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x3A0);
     if (o != NULL) {
-        o = TOCtrlDubchik__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TOCtrlDubchik__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -370,17 +370,17 @@ void *__dt__13TOCtrlDubchikFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8015D3CC_lbl_804B0A20_size[sizeof(RecoveredGlobal_8015D3CC_lbl_804B0A20) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik_size[sizeof(RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik) == 0x14C ? 1 : -1];
 u8 *TOCtrlDubchik__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    initialize__9TObjEnemyFPv((void *) (arg0));
+    initialize__9TObjEnemyFPv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik *)&__vt__13TOCtrlDubchik).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2F1C;
     ((TOCtrlDubchik *)(arg0))->apply_set_data((void *)arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();
     *(u8 **)((s8 *)arg0 + 0x34) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCtrlDubchik__shared_resource) + 0x42C)) + 8));
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCtrlDubchik__shared_resource) + 0x42C)) + 0xC);
-    init_collision_body_parts((void *) (arg0), (void *) (&TOCtrlDubchik__collision_body.value), 1);
+    init_collision_body_parts(arg0, (void *) (&TOCtrlDubchik__collision_body.value), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    set_indexed_flags((void *)((void *) (arg0)), 0, 0x08000000);
+    set_indexed_flags((void *)(arg0), 0, 0x08000000);
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     *(s16 *)((s8 *)arg0 + 0x32C) = 0x12C;
     *(s16 *)((s8 *)arg0 + 0x2B8) = 0x12C;
@@ -413,7 +413,7 @@ f32 TOCtrlDubchik__vt21(Obj_8015D518 *arg0, s32 arg1, Pair_8015D518 arg2, void *
 s32 TOCtrlDubchik::try_start_action(s32 arg1, s32 arg2) {
     u8 *arg0 = (u8 *)this;
     if (this->mode != 0) {
-        return try_start_action__13TUnk_804806E8Fll((void *) (arg0), (void *) (arg1), (void *) (arg2));
+        return try_start_action__13TUnk_804806E8Fll((void *)arg0, (void *)arg1, (void *)arg2);
     }
     return 0;
 }
@@ -421,7 +421,7 @@ s32 TOCtrlDubchik::try_start_action(s32 arg1, s32 arg2) {
 s32 TOCtrlDubchik::roll_physical_accuracy(void *arg1, s32 arg2, f32 farg0) {
     u8 *arg0 = (u8 *)this;
     if (this->mode != 0) {
-        return roll_physical_accuracy__13TUnk_804806E8FPvlf((void *) (arg0), (void *) (arg1), (void *) (arg2), (f32) (farg0));
+        return roll_physical_accuracy__13TUnk_804806E8FPvlf((void *)arg0, (void *)arg1, (void *)arg2, (f32)farg0);
     }
     return 0;
 }

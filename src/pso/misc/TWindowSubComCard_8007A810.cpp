@@ -15,7 +15,7 @@ void TWindowSubComCard::set_card_text(s32 arg1) {
     u8 *temp_r3;
 
     if (arg1 != 0) {
-        temp_r3 = ((u8 * (*)(void *))get_card_entry__17TWindowSubComCardFi)((void *)(arg0));
+        temp_r3 = ((u8 * (*)(void *))get_card_entry__17TWindowSubComCardFi)((void *)arg0);
         if (temp_r3 != NULL) {
             strncpy(temp_r3 + 0x94, arg1, 0x6B);
             *(s8 *)((s8 *)temp_r3 + 0xFF) = 0;
@@ -23,7 +23,7 @@ void TWindowSubComCard::set_card_text(s32 arg1) {
     }
 }
 u8 *TWindowSubComCard::get_card_entry_data() {
-    u8 *p = ((u8 * (*)(void *))get_card_entry__17TWindowSubComCardFi)((void *)(this));
+    u8 *p = ((u8 * (*)(void *))get_card_entry__17TWindowSubComCardFi)(this);
     if (p == 0) {
         return 0;
     }
@@ -80,9 +80,9 @@ void TWindowSubComCard::swap_cards(s32 arg0, s32 arg1) {
     ((s32 (*)(s32 *))reinit__17TWindowSubComCardFi)(sp8);
     first_ptr = ((s32 * (*)(s32))get_card_entry__17TWindowSubComCardFi)(arg0);
     second_ptr = ((s32 * (*)(s32))get_card_entry__17TWindowSubComCardFi)(arg1);
-    copy_card__17TWindowSubComCardFiPv((s32)(sp8), (u8 *)(first_ptr));
-    copy_card__17TWindowSubComCardFiPv((s32)(first_ptr), (u8 *)(second_ptr));
-    copy_card__17TWindowSubComCardFiPv((s32)(second_ptr), (u8 *)(sp8));
+    copy_card__17TWindowSubComCardFiPv((s32)sp8, (u8 *)first_ptr);
+    copy_card__17TWindowSubComCardFiPv((s32)first_ptr, (u8 *)second_ptr);
+    copy_card__17TWindowSubComCardFiPv((s32)second_ptr, (u8 *)sp8);
 }
 s32 copy_card__17TWindowSubComCardFiPv(s32 arg0, u8 *arg1) {
     s32 temp_r5;
@@ -252,7 +252,7 @@ extern RecoveredGlobal_8007AE8C_TWindowGetComCard__data_80500158 TWindowGetComCa
 
 void TWindowSubComCard::start_player_data_load(s32 arg0) {
     u32 temp;
-    if (((s32 (*)(int))TWindowSubComCard__sub_8007B070)((int)(arg0)) == 0) {
+    if (((s32 (*)(int))TWindowSubComCard__sub_8007B070)(arg0) == 0) {
         temp = (u32) ((s32 (*)(s32))get_card_entry__17TWindowSubComCardFi)(0);
         ((s32 (*)(s32, s32, s32))forward_to_matching_card__17TWindowSubComCardFPvPvi)(arg0, (s32) temp, 0xD2);
         load_player_data__23TAdSinglePlyChrSelectGCFv();
@@ -263,10 +263,10 @@ void handle_6x06_send_guild_card(s32 arg0) {
     s32 temp_r31;
     bswap_guild_card__17TWindowSubComCardFv();
     temp_r31 = arg0 + 4;
-    if ((((s32 (*)(int))TWindowSubComCard__sub_8007B070)((int)((int) (temp_r31))) == 0) && (((TWindowSubComCard *)temp_r31)->send_guild_card() == 0)) {
+    if ((((s32 (*)(int))TWindowSubComCard__sub_8007B070)((int)(temp_r31)) == 0) && (((TWindowSubComCard *)temp_r31)->send_guild_card() == 0)) {
         TWindowSubShortMail__sub_8007B824();
-        if (((s32 (*)(int, void *, int))TWindowSubComCard__sub_8007B0D0)((int) (temp_r31), (void *) (&TWindowGetComCard__received_guild_card_tags.value), 4) == 0) {
-            ((s32 (*)(int, void *, int))TWindowSubComCard__sub_8007B1AC)((int) (temp_r31), (void *) (&TWindowGetComCard__received_guild_card_tags.value), 4);
+        if (((s32 (*)(int, void *, int))TWindowSubComCard__sub_8007B0D0)(temp_r31, (void *) (&TWindowGetComCard__received_guild_card_tags.value), 4) == 0) {
+            ((s32 (*)(int, void *, int))TWindowSubComCard__sub_8007B1AC)(temp_r31, (void *) (&TWindowGetComCard__received_guild_card_tags.value), 4);
         }
     }
 }

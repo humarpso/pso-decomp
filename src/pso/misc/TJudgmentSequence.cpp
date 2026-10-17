@@ -171,10 +171,10 @@ u8 *__dt__17TJudgmentSequenceFv(u8 *arg0, s16 arg1) {
             *(u32 *)&((TJudgmentSequence *)arg0)->m_2c = 0U;
         }
         judgment_sequence_instance = 0;
-        *(s32 *)((s8 *)(&TJudgmentSequence__slot_flags.value) + (sub_8022397C__15TShopWindowBaseFv((void *) (arg0)) * 4)) = 0;
+        *(s32 *)((s8 *)(&TJudgmentSequence__slot_flags.value) + (sub_8022397C__15TShopWindowBaseFv(arg0) * 4)) = 0;
         __dt__13TShopSequenceFv((arg0), 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *) (arg0));
+            __dl__7TObjectFPv(arg0);
         }
     }
     return arg0;
@@ -192,7 +192,7 @@ u8 *TJudgmentSequence__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x30) = 0;
     judgment_sequence_instance = (s32) arg0;
     ((TShopWindowBase *)arg0)->set_field_20((s32)((void *) (0)));
-    *(s32 *)((s8 *)(&TJudgmentSequence__slot_flags.value) + (sub_8022397C__15TShopWindowBaseFv((void *) (arg0)) * 4)) = 1;
+    *(s32 *)((s8 *)(&TJudgmentSequence__slot_flags.value) + (sub_8022397C__15TShopWindowBaseFv(arg0) * 4)) = 1;
     return arg0;
 }
 

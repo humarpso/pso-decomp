@@ -111,22 +111,22 @@ u8 *TWindowSubQuestBoard__sub_8027CE74(u8 *arg0, u8 *arg1, s32 arg2) {
 
 void TWindowSubQuestBoard::set_board_flags(s32 arg1) {
     s32 arg0 = (s32)this;
-    set_card_window_flags__19TWindowKeyBoardHardFPvll((void*)(arg0), arg1 << 0xA, -0x1C01);
+    set_card_window_flags__19TWindowKeyBoardHardFPvll((void*)arg0, arg1 << 0xA, -0x1C01);
 }
 void TWindowSubQuestBoard::set_card_window_flags(s32 arg1) {
     s32 arg0 = (s32)this;
-    set_card_window_flags__19TWindowKeyBoardHardFPvll((void*)(arg0), arg1 << 8, -0x301);
+    set_card_window_flags__19TWindowKeyBoardHardFPvll((void*)arg0, arg1 << 8, -0x301);
 }
 void TWindowSubQuestBoard::clear_card_window_flags(s32 arg1) {
     s32 arg0 = (s32)this;
-    set_card_window_flags__19TWindowKeyBoardHardFPvll((void*)(arg0), arg1 * 8, -9);
+    set_card_window_flags__19TWindowKeyBoardHardFPvll((void*)arg0, arg1 * 8, -9);
 }
 void TWindowSubQuestBoard__sub_8027CF50(s32 arg0, s32 arg1) {
-    set_card_window_flags__19TWindowKeyBoardHardFPvll((void*)(arg0), arg1 * 4, -5);
+    set_card_window_flags__19TWindowKeyBoardHardFPvll((void*)arg0, arg1 * 4, -5);
 }
 void TWindowSubQuestBoard::set_card_flags_scaled(s32 arg1) {
     s32 arg0 = (s32)this;
-    set_card_window_flags__19TWindowKeyBoardHardFPvll((void*)(arg0), arg1 * 2, -3);
+    set_card_window_flags__19TWindowKeyBoardHardFPvll((void*)arg0, arg1 * 2, -3);
 }
 int TWindowSubQuestBoard::set_card_flags_direct(int a1) { return set_card_window_flags__19TWindowKeyBoardHardFPvll(this, a1, -2); }
 void TWindowSubQuestBoard::render() {  }

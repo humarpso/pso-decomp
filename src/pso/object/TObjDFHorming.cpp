@@ -509,11 +509,11 @@ void TBoss4DarkFalz::handle_defeat() {
         }
     }
     flags[0] = 0x800;
-    send_6x0A_enemy_state((void *) (arg0), (void *) (flags));
-    ((TObjEnemy *)arg0)->exchange_object_state((s32)((void *) (flags)), (s16)0);
+    send_6x0A_enemy_state(arg0, flags);
+    ((TObjEnemy *)arg0)->exchange_object_state((s32)(flags), (s16)0);
     ((VObj_18_8004B654 *)(arg0))->m77(flags);
     ((TObjEnemy *)arg0)->send_entity_set_flags();
-    queue_destruction__7TObjectFv((void *) (arg0));
+    queue_destruction__7TObjectFv(arg0);
 }
 
 void TBoss4DarkFalz__sub_8004B730(u8 *arg0, s32 arg1, f32 farg0) {

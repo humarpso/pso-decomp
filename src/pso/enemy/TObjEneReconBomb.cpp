@@ -149,18 +149,18 @@ void TObjEneReconBomb::render() {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    bml_model = get_bml_model((void *) (recon_bomb_bml_resource), 2);
-    temp_r30 = TObjFish__sub_8001EDB0((void *) (recon_bomb_bml_resource), 2);
+    bml_model = get_bml_model((void *)recon_bomb_bml_resource, 2);
+    temp_r30 = TObjFish__sub_8001EDB0((void *)recon_bomb_bml_resource, 2);
     push_matrix();
     translate_matrix(0, (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) ((2.0f) + *(f32 *)((s8 *)arg0 + 0x3C)), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));
     rotate_matrix_zyx(0, (*(s32 *)&this->m_5c), (this->rotation_y), (this->rotation_z));
-    TObjFish::set_global_param((int) (temp_r30));
-    draw_chunk_object((void *)(bml_model));
+    TObjFish::set_global_param(temp_r30);
+    draw_chunk_object((void *)bml_model);
     pop_matrix();
     push_matrix();
     translate_matrix(0, (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) ((0.1f) + this->m_348), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));
     direction_to_rotation_xz(((u8 *)&this->m_248), (&spC), (&sp8));
-    rotate_matrix_z(0, (int) (sp8));
+    rotate_matrix_z(0, sp8);
     rotate_matrix_x(0, (void *) (spC + 0x4000));
     var_f1 = *(f32 *)((s8 *)arg0 + 0x3C) - this->m_348;
     if (var_f1 > 40.0f) {
@@ -273,7 +273,7 @@ u8 *TObjEneReconBomb__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)&((TObjEneReconBomb *)arg0)->m_358 = calc_scaled_value__12TObjEneReconFv((int) (*(s32 *)&((TObjEneReconBomb *)arg0)->m_334));
     temp_r5 = (unsigned char *) (*(void * *)&((TObjEneReconBomb *)arg0)->m_up);
     ((TObjEneReconBomb *)arg0)->rotation_y = (s32) *(s32 *)((s8 *)temp_r5 + 0x60);
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg3), (int) (temp_r5));
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *)arg3, (int)temp_r5);
     temp_f31 = sin_table_lookup((int) (((TObjEneReconBomb *)arg0)->rotation_y));
     temp_f1 = cos_table_lookup((int) (((TObjEneReconBomb *)arg0)->rotation_y));
     *(f32 *)((s8 *)arg0 + 0x33C) = (f32) (*(f32 *)((s8 *)arg0 + 0x354) * temp_f31);

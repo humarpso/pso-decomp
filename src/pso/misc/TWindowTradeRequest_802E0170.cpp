@@ -115,9 +115,9 @@ u8 *__dt__19TWindowTradeRequestFv(u8 *arg0, s16 arg1) {
         if ((u32) ((TWindowTradeRequest *)arg0)->m_1c == 2U) {
             fn_8024AADC((local_client_id), 0x1D);
         }
-        __dt__7TObjectFv((void *) (arg0), 0);
+        __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *) (arg0));
+            __dl__7TObjectFPv(arg0);
         }
     }
     return arg0;

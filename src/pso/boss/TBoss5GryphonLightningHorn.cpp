@@ -56,14 +56,14 @@ void TBoss5GryphonLightningHorn::run_task() { rebuild_lightning_segments(); fn_8
 TBoss5GryphonLightningHorn::~TBoss5GryphonLightningHorn() {}
 u8 *__ct__26TBoss5GryphonLightningHornFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     f32 temp_f1;
-    TBoss5GryphonLightning__ct((f32) (lbl_805DF644));
+    TBoss5GryphonLightning__ct(lbl_805DF644);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__26TBoss5GryphonLightningHorn;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D41A0;
     *(s32 *)((s8 *)arg0 + 0xA4) = arg3;
     temp_f1 = lbl_805DF650 * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0xA4)));
     *(f32 *)((s8 *)arg0 + 0x98) = temp_f1;
     *(f32 *)((s8 *)arg0 + 0x9C) = (f32) lbl_805DF630;
-    *(f32 *)((s8 *)arg0 + 0xA0) = (f32) (lbl_805DF650 * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0xA4)), (f32) (temp_f1), (f32) (lbl_805DF650)));
+    *(f32 *)((s8 *)arg0 + 0xA0) = (f32) (lbl_805DF650 * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0xA4)), temp_f1, lbl_805DF650));
     *(f32 *)((s8 *)arg0 + 0x8C) = (f32) lbl_805DF634;
     *(s32 *)((s8 *)arg0 + 0x90) = 4;
     return arg0;

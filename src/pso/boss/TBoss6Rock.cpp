@@ -147,8 +147,8 @@ void TBoss6Rock::set_target(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f3
     u8 *arg0 = (u8 *)this;
     *(s32 *)&this->m_1c = arg1;
     if ((s32) *(s32 *)&this->m_1c != 0) {
-        VecCopy((Vec *)((void *) (arg0 + 0x20)), (const Vec *)((const void *)((void *) (arg2))));
-        ((TObjPlayer *)(arg0 + 0x30))->copy_xyz((void *) (arg3));
+        VecCopy((Vec *)((void *) (arg0 + 0x20)), (const Vec *)((const void *)(arg2)));
+        ((TObjPlayer *)(arg0 + 0x30))->copy_xyz((void *)arg3);
         *(f32 *)&this->m_2c = farg0;
         *(s32 *)((s8 *)arg0 + 0x3C) = arg4;
         *(s32 *)((s8 *)arg0 + 0x40) = arg5;
@@ -160,11 +160,11 @@ void TUnk_804F1280::render() {
     if (((s32) *(s32 *)((s8 *)arg0 + 0x1C) != 0) && (TBoss6PlotFalz__sub_802AB6CC((void *) (arg0 + 0x20), (f32) (this->m_2c - TBoss6Rock__data_805DFF48)) != 0)) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x20));
-        rotate_matrix_y(0, (int) (this->m_34));
+        rotate_matrix_y(0, this->m_34);
         rotate_matrix_x(0, (int) (*(s32 *)&this->unk_30));
         rotate_matrix_z(0, (int) (*(s32 *)&this->unk_38));
-        TObjFish::set_global_param((int) (this->m_3c));
-        TBoss6PlotFalz::set_fade_material_color((f32) (TBoss6Rock__data_805DFF4C));
+        TObjFish::set_global_param(this->m_3c);
+        TBoss6PlotFalz::set_fade_material_color(TBoss6Rock__data_805DFF4C);
         draw_ginja_object((void *)(*(s32 *)&this->unk_40));
         TObjFish::reset_fish_globals();
         pop_matrix();
@@ -198,7 +198,7 @@ extern void *tl_06;
 void *TBoss6Rock::create() {
     void *o = __nw__7TObjectFUl(0x44);
     if (o != NULL) {
-        o = ((TUnk_804F1280 *)o)->init_object((void *)((void *)(tl_06)));
+        o = ((TUnk_804F1280 *)o)->init_object((void *)(tl_06));
     }
     return o;
 }
@@ -306,7 +306,7 @@ s32 TBoss6Rock::get_point(s32 arg0, s32 arg1, f32 *arg2) {
         return 0;
     }
     temp_r5 = arg0 * 0xC;
-    VecCopy((Vec *)((void *) (arg1)), (const Vec *)((const void *)((void *) ((u8 *)(&TBoss6Rock__rock_point_table) + temp_r5))));
+    VecCopy((Vec *)(arg1), (const Vec *)((const void *)((void *) ((u8 *)(&TBoss6Rock__rock_point_table) + temp_r5))));
     *(f32 *)((s8 *)arg2 + 0) = *(f32 *)((s8 *)(TBoss6Rock::get_rock_entry(arg0)) + 4);
     return 1;
 }
@@ -409,7 +409,7 @@ void TBoss6Rock::randomize_motion() {
     this->rotation_y = (s32) (lbl_805DFF70 * (lbl_805DFF6C * (f32) rand()));
     this->rotation_z = (s32) (lbl_805DFF68 * ((lbl_805DFF6C * (f32) rand()) - TBoss6Rock__data_805DFF4C));
     this->m_d0 = (s32) (lbl_805DFF74 * ((lbl_805DFF6C * (f32) rand()) - TBoss6Rock__data_805DFF4C));
-    VecCopy((Vec *)((void *) ((u8 *)(arg0) + 0x38)), (const Vec *)((const void *)((void *) ((u8 *)(arg0) + 0xD4))));
+    VecCopy((Vec *)((void *) (arg0 + 0x38)), (const Vec *)((const void *)((void *) (arg0 + 0xD4))));
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805DFF78;
 }
 #pragma pop
@@ -464,12 +464,12 @@ void TBoss6Rock::update_fall() {
     if (*(f32 *)((s8 *)arg0 + 0x3C) <= TBoss6Rock__data_805DFF50) {
         *(f32 *)((s8 *)arg0 + 0x3C) = (f32) TBoss6Rock__data_805DFF50;
         *(f32 *)&this->unk_CC = (f32) TBoss6Rock__data_805DFF50;
-        TBoss6Rock__sub_803542E8((void *)((void *) (arg0)), 1);
+        TBoss6Rock__sub_803542E8((void *)(arg0), 1);
         ((TBoss6Rock *)arg0)->sub_80353F5C();
         play_sound_effect(0x4006B51E, (u32)((void *) (arg0 + 0x38)), 0, 0);
         spawn_particle_effect(((u8 *)&this->position), 0x220);
         spawn_particle_effect(((u8 *)&this->position), 0x222);
-        TBoss6PlotFalz::apply_radial_effect_to_players((void *) (arg0 + 0x38), 0xC0, 0xF, (f32) (lbl_805DFF54));
+        TBoss6PlotFalz::apply_radial_effect_to_players((void *) (arg0 + 0x38), 0xC0, 0xF, lbl_805DFF54);
         *(s32 *)&this->m_c4 = 2;
     }
 }

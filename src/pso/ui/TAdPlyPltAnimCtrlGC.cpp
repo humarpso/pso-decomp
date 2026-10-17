@@ -49,14 +49,14 @@ void TAdPlyPltAnimCtrlGC__sub_80355168(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x1C) = 0;
     *(s32 *)((s8 *)arg0 + 0x20) = -1;
     do {
-        if (TAdPlyPltAnimCtrlGC::get_table_value((int) (var_r31)) != 0U) {
+        if (TAdPlyPltAnimCtrlGC::get_table_value(var_r31) != 0U) {
             TAdPlyPltAnimCtrlGC__sub_80355D38();
         }
         var_r31 += 1;
     } while (var_r31 < 5);
 }
 
-void TAdPlyPltAnimCtrlGC::init(void* a1) { TAdPlyPltAnimCtrlGC__sub_80355168((u8 *)((void*)(this))); ((TWindowSubSymbolChatPartsSet *)((char*)this + 0x24))->copy_vec2(a1); *(int *)&this->m_1c = 1; }
+void TAdPlyPltAnimCtrlGC::init(void* a1) { TAdPlyPltAnimCtrlGC__sub_80355168((u8 *)(this)); ((TWindowSubSymbolChatPartsSet *)((char*)this + 0x24))->copy_vec2(a1); *(int *)&this->m_1c = 1; }
 
 extern u32 plyplt_anim_ctrl_instance;
 
@@ -136,14 +136,14 @@ void *__dt__19TAdPlyPltAnimCtrlGCFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80355414___vt__19TAdPlyPltAnimCtrlGC_size[sizeof(RecoveredGlobal_80355414___vt__19TAdPlyPltAnimCtrlGC) == 0x18 ? 1 : -1];
 u8 *TAdPlyPltAnimCtrlGC__ct(u8 *arg0, s32 arg1) {
     s32 var_r31;
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80355414___vt__19TAdPlyPltAnimCtrlGC *)&__vt__19TAdPlyPltAnimCtrlGC).value;
     var_r31 = 0;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D4390;
     *(s32 *)&((TAdPlyPltAnimCtrlGC *)arg0)->m_1c = 0;
     *(s32 *)&((TAdPlyPltAnimCtrlGC *)arg0)->m_20 = -1;
     do {
-        get_or_create__15TAdPlyPltAnimGCFii((void *) (arg0), (int) (var_r31));
+        get_or_create__15TAdPlyPltAnimGCFii(arg0, var_r31);
         var_r31 += 1;
     } while (var_r31 < 5);
     return arg0;
@@ -155,7 +155,7 @@ u32 TAdPlyPltAnimCtrlGC::get_instance(s32 arg0) {
     if ((u32) plyplt_anim_ctrl_instance == 0U) {
         var_r0 = __nw__7TObjectFUl(0x2C);
         if (var_r0 != 0U) {
-            var_r0 = ((u32)TAdPlyPltAnimCtrlGC__ct((u8 *)(var_r0), (s32)(arg0)));
+            var_r0 = ((u32)TAdPlyPltAnimCtrlGC__ct((u8 *)var_r0, (s32)arg0));
         }
         plyplt_anim_ctrl_instance = var_r0;
     }

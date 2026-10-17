@@ -163,7 +163,7 @@ void TObjPlayer::update_flag890_state(s32 arg0) {
 }
 
 void TUnk_80480938::render() {  }
-void TUnk_80480938::run_task() { TObjPlayer__sub_8001A77C((void *)(this)); TObjPlayer::publish_light_color((void *)(this)); }
+void TUnk_80480938::run_task() { TObjPlayer__sub_8001A77C(this); TObjPlayer::publish_light_color(this); }
 
 void *TUnk_80480938::destroy_base(s16 arg1) {
     if (this != NULL) {
@@ -185,7 +185,7 @@ u8 *TObjPlayer__sub_8001A8F0(u8 *arg0, s32 arg1) {
     typedef char sp15_offset[(offsetof(Stack_8001A8F0, sp15) == 0xD) ? 1 : -1];
     Stack_8001A8F0 stack;
     s32 temp_r3;
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8001A8F0_lbl_80480938 *)&lbl_80480938).value;
     player_light_index = 0;
     stack.sp8 = *(s32 *)((s8 *)(&lbl_8043455C.value) + 0);
@@ -193,7 +193,7 @@ u8 *TObjPlayer__sub_8001A8F0(u8 *arg0, s32 arg1) {
     stack.sp10 = *(s32 *)((s8 *)(&lbl_8043455C.value) + 8);
     temp_r3 = ((TObjPlayer *)(get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF)))->create_ending_player();
     lbl_805D49E0 = temp_r3;
-    query_darkfalz_state__10TObjPlayerFv((int) (temp_r3), (void *) (&stack.sp8));
+    query_darkfalz_state__10TObjPlayerFv(temp_r3, (void *) (&stack.sp8));
     init__9TItemDataFv((void *) (&stack.sp14));
     stack.sp14 = 2;
     stack.sp15 = 0;

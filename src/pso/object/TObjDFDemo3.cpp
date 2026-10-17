@@ -171,7 +171,7 @@ S_EF94 *__dt__11TObjDFDemo3Fv(S_EF94 *o, s16 flag) {
         }
         for (i = 0; i < 1; i++) {
             if (o->ptr[i] != 0) {
-                TBoss4Type2::request_destroy((u32)(o->ptr[i]));
+                TBoss4Type2::request_destroy((u32)o->ptr[i]);
                 o->ptr[i] = 0;
             }
         }

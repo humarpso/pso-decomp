@@ -48,7 +48,7 @@ extern void *tl_05;
 void *TOMonumentAncient01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE4);
     if (o != NULL) {
-        o = TOMonumentAncient01__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TOMonumentAncient01__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -93,7 +93,7 @@ u8 *TOMonumentAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TOMonumentAncient01 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TOMonumentAncient01__resource_bundle)), 2);
     ((TOMonumentAncient01 *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOMonumentAncient01__resource_bundle)), 2);
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B38F0.value), 1);
+    init_collision_body_parts(arg0, (void *) (&lbl_804B38F0.value), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOHealGeneral *)arg0)->update_heal_gauge_state();
@@ -130,7 +130,7 @@ void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1) {
         player = (s32)get_player_by_client_id((arg1));
         if (player != 0) {
             *(s32 *)&((TOMonumentAncient02 *)arg0)->m_ac = 2;
-            start_camera_pan__10TObjPlayerFs((int) (player), 0xC, (void *) (((TObjPlayer *)(player + 0x38))->calc_angle_to((void *) (arg0 + 0x38))));
+            start_camera_pan__10TObjPlayerFs(player, 0xC, (void *) (((TObjPlayer *)(player + 0x38))->calc_angle_to((void *) (arg0 + 0x38))));
             if (((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), 1) != 0) {
                 sp8 = (s16) *(s32 *)&((TOMonumentAncient02 *)arg0)->m_ac;
                 ((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), 0);

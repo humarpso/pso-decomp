@@ -49,7 +49,7 @@ void create_needle_effect(s32 arg0, void *arg1) {
     var_r31 = __nw__7TObjectFUl(0x64);
     if (var_r31 != NULL) {
         temp_r30 = *(void **)((s8 *)arg1 + 0);
-        var_r31 = __ct__14TItemEffNeedleFv((void *)(var_r31), (s32)(tl_05), (s32)(temp_r29), (s32)(obj_getField1c(temp_r30)), (s32)(*(s32 *)((s8 *)temp_r30 + 0xA8)));
+        var_r31 = __ct__14TItemEffNeedleFv(var_r31, tl_05, temp_r29, (s32)(obj_getField1c(temp_r30)), (s32)(*(s32 *)((s8 *)temp_r30 + 0xA8)));
     }
     if (var_r31 != NULL) {
         *(s32 *)((s8 *)var_r31 + 0x3C) = TObjPlayer__sub_8010A058((void *)temp_r29);

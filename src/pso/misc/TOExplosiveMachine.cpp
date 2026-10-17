@@ -171,7 +171,7 @@ s32 TOExplosiveMachine::update_trigger() {
     case 0:
         break;
     case 1:
-        if (is_any_player_within_radius_xz((f32) (lbl_805DB604)) != 1) {
+        if (is_any_player_within_radius_xz(lbl_805DB604) != 1) {
             ((VObj_80166814 *)(this))->m13();
         }
         break;
@@ -181,7 +181,7 @@ s32 TOExplosiveMachine::update_trigger() {
         }
         break;
     }
-    play_persistent_sound(0x4004C10F, (s32)(this), (u32)((u8 *)this + 0x38), 0, 0);
+    play_persistent_sound(0x4004C10F, (s32)this, (u32)((u8 *)this + 0x38), 0, 0);
 }
 
 void TOExplosiveMachine::update() {

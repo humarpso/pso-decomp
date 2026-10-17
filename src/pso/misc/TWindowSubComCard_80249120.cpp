@@ -40,11 +40,11 @@ void TWindowSubComCard__sub_80249144(void *arg0) {
 s32 create_choice_setting_window__17TWindowSubComCardFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
     s32 var_r0;
-    TWindowSubComCard__sub_80249220((void *)((void *) (arg1)), (void *)((void *) (arg2)));
+    TWindowSubComCard__sub_80249220((void *)(arg1), (void *)(arg2));
     temp_r3 = __nw__7TObjectFUl(0x84);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = TWindowChoiceSetting__ct((int) (temp_r3), (void *) (arg0), (void *) (arg2));
+        var_r0 = TWindowChoiceSetting__ct((int)temp_r3, (void *)arg0, (void *)arg2);
     }
     return var_r0;
 }

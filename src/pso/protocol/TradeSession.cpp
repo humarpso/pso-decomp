@@ -305,7 +305,7 @@ void send_trade_busy_reply(s32 arg0) {
     build_6xA6_modify_trade_proposal((&packet.header));
     packet.what = 6;
     packet.result = 0;
-    ((TLobby *)(&packet.header))->prepare_and_send_trade_packet((void *) (arg0));
+    ((TLobby *)(&packet.header))->prepare_and_send_trade_packet((void *)arg0);
 }
 
 void TLobby::build_trade_item_list() {
@@ -371,13 +371,13 @@ void send_modify_trade_proposal__6TLobbyFi(s32 arg0) {
     u32 player;
     u8 *temp_r3_2;
     build_6xA6_modify_trade_proposal((&packet.header));
-    player = get_player_by_client_id((void *) (local_client_id));
+    player = get_player_by_client_id((void *)local_client_id);
     if ((player != 0U) && (temp_r3_2 = get_quest_id__12TQuestListVMFv(player), ((temp_r3_2 == NULL) == 0))) {
         if ((s32) (*(u8 *)&(*(s8 *)&TLobby__trade_partner_client_id)) != 4) {
             TWindowTradeRequest::close_request_window();
             if ((s8) (*(u8 *)&(*(s8 *)&TLobby__trade_partner_client_id)) == arg0) {
                 TLobby::send_trade_proposal_modify();
-                TLobby__sub_8024AAA0((s32)((void *) (local_client_id)), 0x1D);
+                TLobby__sub_8024AAA0((s32)(local_client_id), 0x1D);
                 return;
             }
             send_trade_busy_reply((s32)((int) ((s32) (s8) (*(u8 *)&(*(s8 *)&TLobby__trade_partner_client_id)))));
@@ -387,7 +387,7 @@ block_6:
         packet.what = 0;
         packet.result = 0;
         packet.amount = *(s32 *)((s8 *)temp_r3_2 + 0x20);
-        ((TLobby *)(&packet.header))->prepare_and_send_trade_packet((void *) (arg0));
+        ((TLobby *)(&packet.header))->prepare_and_send_trade_packet((void *)arg0);
         (*(u8 *)&(*(s8 *)&TLobby__trade_partner_client_id)) = (u8) arg0;
         (*(s8 *)&TLobby__trade_proposal_state) = 1;
     }

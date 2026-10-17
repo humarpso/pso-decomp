@@ -52,7 +52,7 @@ u8 *load_rel_module(u8 *arg0, s32 arg1) {
         if ((void *) *(void **)((s8 *)arg0 + 4) == NULL) {
             return arg0;
         }
-        read_disc_file((void *) (arg1), *(void **)((s8 *)arg0 + 4));
+        read_disc_file((void *)arg1, *(void **)((s8 *)arg0 + 4));
         size2 = *(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 4)) + 0x20);
         if (size2 != 0U) {
             *(void **)((s8 *)arg0 + 0) = xmalloc(size2);

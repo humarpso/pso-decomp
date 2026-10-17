@@ -219,7 +219,7 @@ void fn_800E35C8(Obj_800E35C8 *arg0) {
             fn_800E3374((Obj_800E3374 *)(arg0), (V_800E3374 *)(p));
         }
     }
-    fn_800E322C((void *)(arg0), (void *)(&arg0->pos));
+    fn_800E322C(arg0, (void *)(&arg0->pos));
 }
 
 }
@@ -515,7 +515,7 @@ void *TObjEnePanarmsAtkColli::create(void *arg1, void *arg2, void *arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x390);
     if (o != NULL) {
-        o = TObjEnePanarmsAtkColli__ct((Obj_800E37E4 *)(o), (void *)(this), (void *)(arg1), (void *)(arg2), (void *)(arg3));
+        o = TObjEnePanarmsAtkColli__ct((Obj_800E37E4 *)(o), this, arg1, arg2, arg3);
     }
     return o;
 }

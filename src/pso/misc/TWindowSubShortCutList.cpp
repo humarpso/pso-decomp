@@ -82,7 +82,7 @@ void *TWindowSubShortCutList::create(void *arg1) {
     TShopJudgmentItemWindow__sub_80267F9C(lbl_8044FAA8, 4);
     p = __nw__7TObjectFUl(0x8C);
     if (p != 0) {
-        p = TWindowSubShortCutList__ct((void *)(p), (void *)(this), (void *)(arg1));
+        p = TWindowSubShortCutList__ct(p, this, arg1);
     }
     return p;
 }

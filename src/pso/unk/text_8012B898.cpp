@@ -40,7 +40,7 @@ u8 *TObjPlayer::create_vtable_clear_field1f8(u8 *arg0) {
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1FC));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
             var_r0 = (u8 *)(init_vtable_and_clear_field1f8__13TUnk_804A4E68Fv(temp_r3, tl_05, arg0));
         }
@@ -67,10 +67,10 @@ void TUnk_804A4F60::vfunc_17(s32 arg1) {
             TObjPlayer::create_tec_zonde((void *)(*((u32 *) (((s8 *) arg0) + 0xF0))), (void *)(arg0 + 0x1FC), (void *)(arg0 + 0x208), (void *)(0xA));
             return;
           case 1:
-            TTecFoie::create((void *)(*((u32 *) (((s8 *) arg0) + 0xF0))), (void *)(arg0 + 0x1FC), (void *)(this->m_264), (void *)(0xA));
+            TTecFoie::create((void *)(*((u32 *) (((s8 *) arg0) + 0xF0))), (void *)(arg0 + 0x1FC), (void *)this->m_264, (void *)(0xA));
             return;
           case 2:
-            ((TTecBarta *)(*((u32 *) (((s8 *) arg0) + 0xF0))))->create_ex((void *)(arg0 + 0x268), (void *)(this->m_264), (void *)(0xA));
+            ((TTecBarta *)(*((u32 *) (((s8 *) arg0) + 0xF0))))->create_ex((void *)(arg0 + 0x268), (void *)this->m_264, (void *)(0xA));
             break;
         }
       }

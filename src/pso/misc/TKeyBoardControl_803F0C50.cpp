@@ -231,7 +231,7 @@ void TKeyBoardControl::detect_device_type(s32 chan) {
         return;
     }
     if (p->x3 == 0xFF && TKeyBoardControl__polling_disabled == 0) {
-        TKeyBoardControl::enable_keyboard_polling((s32)(chan));
+        TKeyBoardControl::enable_keyboard_polling(chan);
     }
 }
 

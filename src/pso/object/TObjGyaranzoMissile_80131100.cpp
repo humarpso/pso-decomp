@@ -45,9 +45,9 @@ u8 *create_yasminkov_2000h(s32 arg0) {
     u8 *var_r0;
     if (arg0 != 0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x218));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)yasminkov_2000h_ct((void *)(temp_r3), (s32)(tl_05), (s32)(arg0))));
+            var_r0 = (u8 *)(((u8 *)yasminkov_2000h_ct(temp_r3, tl_05, arg0)));
         }
         return var_r0;
     }
@@ -122,9 +122,9 @@ u8 *create_yasminkov_7000v(u8 *arg0) {
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x208));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)yasminkov_7000v_ct((void*)((void *)(temp_r3)), (s32)((s32)(tl_05)), (void *)((void *)(arg0)))));
+            var_r0 = (u8 *)(((u8 *)yasminkov_7000v_ct((void*)(temp_r3), (s32)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }

@@ -45,7 +45,7 @@ void *__nw__7TObjectFUl(int);
 void *TODragonflyCave01__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x100);
     if (o != NULL) {
-        o = TODragonflyCave01__ct((u8 *)(o), (void *)(arg0));
+        o = TODragonflyCave01__ct((u8 *)o, (void *)arg0);
     }
     return o;
 }
@@ -347,7 +347,7 @@ void *__dt__11TODragonflyFv(void *arg0, s16 arg1) {
 #pragma push
 #pragma fp_contract on
 u8 *TODragonfly__ct(u8 *arg0) {
-    init_map_object_base((void *) (arg0), (int) (tl_05));
+    init_map_object_base(arg0, tl_05);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80164DEC___vt__11TODragonfly *)&__vt__11TODragonfly).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TODragonfly__class_name;
     *(s32 *)&((TODragonfly *)arg0)->m_cc = 0;

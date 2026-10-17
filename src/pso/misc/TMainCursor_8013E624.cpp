@@ -11,7 +11,7 @@ int set_mode__20TWindowActionPaletteFUc(void*);
 s32 TMainCursor::delete_this(s16 arg1) {
     s32 arg0 = (s32)this;
     if ((arg0 != 0) && (arg1 > 0)) {
-        ((s32)__dl__FPv((void*)(arg0)));
+        ((s32)__dl__FPv((void*)arg0));
     }
     return arg0;
 }
@@ -28,7 +28,7 @@ s32 destroy__11TMainCursorFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         free_if_valid__14TPlyDispConfigFis(arg0, -1);
         if (arg1 > 0) {
-            __dl__FPv((void*)(arg0));
+            __dl__FPv((void*)arg0);
         }
     }
     return arg0;

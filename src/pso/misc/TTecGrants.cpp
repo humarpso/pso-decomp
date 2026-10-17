@@ -104,7 +104,7 @@ void TTecGrants::create(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x14C);
     if (o != NULL) {
-        TTecGrants__ct((u8 *)(o), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3));
+        TTecGrants__ct((u8 *)o, (s32)arg0, (s32)arg1, (s32)arg2, (s32)arg3);
     }
 }
 
@@ -149,16 +149,16 @@ void *__dt__10TTecGrantsFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80233350___vt__10TTecGrants_size[sizeof(RecoveredGlobal_80233350___vt__10TTecGrants) == 0x28 ? 1 : -1];
 u8 *TTecGrants__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u32 temp_r3;
-    __ct__13TUnk_804CC148Flll((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg4));
+    __ct__13TUnk_804CC148Flll((void *)arg0, (void *)arg1, (void *)arg2, (void *)arg4);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80233350___vt__10TTecGrants *)&__vt__10TTecGrants).value;
     ((TObjPlayer *)(arg0 + 0xEC))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D37D0;
     ((TTecGrants *)arg0)->init_parameters();
-    copy_technique_target_list((void *) (arg0 + 0xEC), (void *) (arg3));
+    copy_technique_target_list((void *) (arg0 + 0xEC), (void *)arg3);
     *(s32 *)&((TTecGrants *)arg0)->m_148 = 0;
     temp_r3 = ((TTecGrants *)arg0)->source;
     if (temp_r3 != 0U) {
-        *(s16 *)&((TTecGrants *)arg0)->m_b4 = obj_getField1c((int) (temp_r3));
+        *(s16 *)&((TTecGrants *)arg0)->m_b4 = obj_getField1c(temp_r3);
     }
     return arg0;
 }

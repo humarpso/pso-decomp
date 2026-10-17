@@ -252,7 +252,7 @@ void THunterGuildSeqOffline::open_greeting() {
     stack.spC = lbl_805DC654;
     ((TShopSequence *)arg0)->create_message_window((s32)((int) (((u8 *)get_window_layout_position(0x2C)))), (s32)((void *) (&stack.sp8)));
     ((VObj_18_97738d *)(arg0))->m7(1, 1);
-    *(s32 *)((s8 *)arg0 + 0x30) = set_service_counter_camera((void *) (arg0), 1);
+    *(s32 *)((s8 *)arg0 + 0x30) = set_service_counter_camera(arg0, 1);
     ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)(2)));
 }
 
@@ -283,25 +283,25 @@ u8 *__dt__22THunterGuildSeqOfflineFv(u8 *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__22THunterGuildSeqOffline.value;
         temp_r3 = *(u32 *)((s8 *)arg0 + 0x30);
         if (temp_r3 != 0U) {
-            queue_destruction__7TObjectFv((void *)(temp_r3));
+            queue_destruction__7TObjectFv((void *)temp_r3);
             *(u32 *)((s8 *)arg0 + 0x30) = 0U;
         }
         ((TShopSequence *)arg0)->close_message_window();
         temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x2C);
         if (temp_r3_2 != 0U) {
-            TWindow__close((u8 *)(temp_r3_2));
+            TWindow__close((u8 *)temp_r3_2);
             *(u32 *)((s8 *)arg0 + 0x2C) = 0U;
         }
         temp_r3_3 = *(u32 *)&((THunterGuildSeqOffline *)arg0)->m_34;
         if (temp_r3_3 != 0U) {
-            queue_destruction__7TObjectFv((void *)(temp_r3_3));
+            queue_destruction__7TObjectFv((void *)temp_r3_3);
             *(u32 *)&((THunterGuildSeqOffline *)arg0)->m_34 = 0U;
         }
-        *(s32 *)((s8 *)(&THunterGuildSeqOffline__instance_table.value) + (sub_8022397C__15TShopWindowBaseFv((void *) (arg0)) * 4)) = 0;
+        *(s32 *)((s8 *)(&THunterGuildSeqOffline__instance_table.value) + (sub_8022397C__15TShopWindowBaseFv(arg0) * 4)) = 0;
         THunterGuildSeqOffline__active_instance = 0;
         __dt__13TShopSequenceFv((arg0), 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *) (arg0));
+            __dl__7TObjectFPv(arg0);
         }
     }
     return arg0;
@@ -320,7 +320,7 @@ u8 *THunterGuildSeqOffline__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((THunterGuildSeqOffline *)arg0)->m_34 = 0;
     *(s32 *)((s8 *)arg0 + 0x38) = 0;
     (*(u8 * *)&THunterGuildSeqOffline__active_instance) = arg0;
-    *(s32 *)((s8 *)(&(*(RecoveredGlobal_802132F0_THunterGuildSeqOffline__data_80513DD8 *)&THunterGuildSeqOffline__instance_table).value) + (sub_8022397C__15TShopWindowBaseFv((void *) (arg0)) * 4)) = 1;
+    *(s32 *)((s8 *)(&(*(RecoveredGlobal_802132F0_THunterGuildSeqOffline__data_80513DD8 *)&THunterGuildSeqOffline__instance_table).value) + (sub_8022397C__15TShopWindowBaseFv(arg0) * 4)) = 1;
     return arg0;
 }
 
@@ -344,7 +344,7 @@ void THunterGuildSeqOffline::notify_quest_thread() {
     }
 }
 
-void THunterGuildSeqOffline__sub_80213410(void* p) { THunterGuildSeqOffline::reset_quest_result_callbacks((void*)(p)); }
+void THunterGuildSeqOffline__sub_80213410(void* p) { THunterGuildSeqOffline::reset_quest_result_callbacks(p); }
 
 extern void *hunter_guild_seq_online_client_instance;
 

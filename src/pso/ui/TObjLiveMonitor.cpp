@@ -114,7 +114,7 @@ extern s32 TObjLiveCamera__class_name;
 int TLobby__sub_8001FE7C(void*, void*);
 void __dl__7TObjectFPv(void *);
 
-void TObjLiveCamera__sub_8030B630(void) { TLobby__sub_8001FE7C((void*)(live_monitor_shared_resource), (void*)1); }
+void TObjLiveCamera__sub_8030B630(void) { TLobby__sub_8001FE7C((void*)live_monitor_shared_resource, (void*)1); }
 
 void TObjLiveCamera::load_static_resource() {
     s32 temp_r3;
@@ -145,7 +145,7 @@ extern void *tl_05;
 
 typedef char RecoveredGlobal_8030B708___vt__14TObjLiveCamera_size[sizeof(RecoveredGlobal_8030B708___vt__14TObjLiveCamera) == 0x34 ? 1 : -1];
 u8 *TObjLiveCamera__ct(u8 *arg0, s32 parent, s32 arg2) {
-    construct_world_actor_base((void *) (arg0), (void *) (parent));
+    construct_world_actor_base((void *)arg0, (void *)parent);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8030B708___vt__14TObjLiveCamera *)&__vt__14TObjLiveCamera).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjLiveCamera__class_name;
     ((TObjLiveCamera *)(arg0))->apply_object_set_data((void *)arg2);
@@ -155,7 +155,7 @@ u8 *TObjLiveCamera__ct(u8 *arg0, s32 parent, s32 arg2) {
 void *TObjLiveCamera__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x90);
     if (o != NULL) {
-        o = TObjLiveCamera__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TObjLiveCamera__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -214,7 +214,7 @@ void TObjLiveCameraCtrl::sub_8030B818(int _w1) {
   s32 temp_r0;
   s32 var_r3;
   s32 new_var;
-  new_var = angle_diff_s16((int) (this->m_28));
+  new_var = angle_diff_s16(this->m_28);
   temp_r0 = (s32) (((f32) new_var) * lbl_805DF17C);
   if (temp_r0 < (-0x280))
   {
@@ -344,7 +344,7 @@ void TBoss8Dragon::update_live_camera() {
         break;
     case 5:
         temp_r3_4 = TBoss8Dragon__sub_802F3348(0);
-        if ((temp_r3_4 != 0U) && (TBoss8Dragon__sub_802FCCBC((int) (temp_r3_4)) != 0)) {
+        if ((temp_r3_4 != 0U) && (TBoss8Dragon__sub_802FCCBC(temp_r3_4) != 0)) {
             this->m_1e = 0;
         }
         break;

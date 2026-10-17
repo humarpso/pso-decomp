@@ -86,7 +86,7 @@ void TObjPlayer__sub_80100070(u8 *arg0) {
         model_render_flags |= 0x10;
         set_depth_buffer_settings_id(3);
         TParticleCtrl::begin_effect_render();
-        TObjPlayer::notify_fish_if_valid((s32)((int) (sp8)));
+        TObjPlayer::notify_fish_if_valid((s32)(sp8));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y(0, (s32)((int) (*(s32 *)((s8 *)arg0 + 0x60))));

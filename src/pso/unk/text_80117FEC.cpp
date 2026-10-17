@@ -16,11 +16,11 @@ void TItemProShield::sub_80117FEC() {
         *(s32 *)&this->m_19c = (s32) (*(s32 *)&this->m_19c | 1);
         break;
     case 22:
-        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags(0x80);
+        ((TObjPlayer *)(arg0 + 0x178))->set_flags(0x80);
         break;
     case 49:
         ((TItemEquipBase *)arg0)->set_equip_flag(0x3A);
-        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags(2);
+        ((TObjPlayer *)(arg0 + 0x178))->set_flags(2);
         *(s32 *)&this->m_19c = (s32) (*(s32 *)&this->m_19c | 2);
         break;
     case 48:

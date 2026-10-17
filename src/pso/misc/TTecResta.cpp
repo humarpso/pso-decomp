@@ -160,7 +160,7 @@ f32 TTecResta::calc_heal_amount(s32 arg0) {
 void TTecResta::init_parameters() {
     u8 *arg0 = (u8 *)this;
   int new_var;
-  new_var = (int) calc_technique_parameters(0xF, (int) (this->m_a4), 0xFFFF);
+  new_var = (int) calc_technique_parameters(0xF, this->m_a4, 0xFFFF);
   ((TTecAnti *)(arg0 + 0x74))->copy_params((u8 *)new_var);
   this->m_74 = (f32) ((this->m_74) + ((f32) ((this->m_98) * (this->m_a4))));
   if (((s32 (*)(void))is_technique_ready__8TTecCtrlFv)() != 0)
@@ -226,7 +226,7 @@ void create__9TTecRestaFPvPvPvPv(void *owner, void *pos, void *arg2, void *level
     void *o;
     o = __nw__7TObjectFUl(0x140);
     if (o != NULL) {
-        TTecResta__ct((void *)(o), (void *)(owner), (void *)(pos), (void *)(arg2), (void *)(level));
+        TTecResta__ct(o, owner, pos, arg2, level);
     }
 }
 
@@ -234,7 +234,7 @@ void TTecResta::create(void *arg0, void *pos, void *level) {
     void *o;
     o = __nw__7TObjectFUl(0x140);
     if (o != NULL) {
-        TTecResta__sub_80239C48((u8 *)(o), (s32)(arg0), (s32)(pos), (s32)(level));
+        TTecResta__sub_80239C48((u8 *)o, (s32)arg0, (s32)pos, (s32)level);
     }
 }
 
@@ -355,7 +355,7 @@ void *TTecResta__ct(void *arg0, void *owner, void *pos, void *arg3, void *level)
 u8 *TTecResta__sub_80239C48(u8 *arg0, s32 owner, s32 pos, s32 level) {
     u32 temp_r3_2;
     u8 *temp_r3;
-    TTecPlayerInfluence__ct((void *) (arg0), (void *) (owner), (void *) (pos), (void *) (level));
+    TTecPlayerInfluence__ct((void *)arg0, (void *)owner, (void *)pos, (void *)level);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80239C48___vt__9TTecResta *)&__vt__9TTecResta).value;
     ((TObjPlayer *)(arg0 + 0xE0))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3810;
@@ -367,7 +367,7 @@ u8 *TTecResta__sub_80239C48(u8 *arg0, s32 owner, s32 pos, s32 level) {
     }
     temp_r3_2 = ((TTecResta *)arg0)->source;
     if (temp_r3_2 != 0U) {
-        *(s16 *)&((TTecResta *)arg0)->m_a8 = obj_getField1c((int) (temp_r3_2));
+        *(s16 *)&((TTecResta *)arg0)->m_a8 = obj_getField1c(temp_r3_2);
     }
     if ((s32) *(s32 *)&((TTecResta *)arg0)->m_ac != 0) {
         ((TTecResta *)arg0)->init_cast();

@@ -99,11 +99,11 @@ void TObjPlayer::setup_projection_texture(s32 arg0, s32 arg1, s32 arg2) {
             push_matrix();
             temp_f31 = (f32) (lbl_80465E18 * calc_camera_fov_degrees());
             if (TCameraCtrl__sub_800689F4() != 0) {
-                C_MTXLightPerspective((void *) (&sp10), (f32) (temp_f31), (f32) (lbl_805DDDA0), (f32) (lbl_805DDDA4), (f32) (lbl_805DDDA8), (f32) (lbl_805DDDA4 - spC), (f32) (lbl_805DDDA4 - sp8));
+                C_MTXLightPerspective((void *) (&sp10), temp_f31, lbl_805DDDA0, lbl_805DDDA4, lbl_805DDDA8, (f32) (lbl_805DDDA4 - spC), (f32) (lbl_805DDDA4 - sp8));
             } else {
-                C_MTXLightPerspective((void *) (&sp10), (f32) (temp_f31), (f32) (lbl_805DDDA0), (f32) (lbl_805DDDA4), (f32) (lbl_805DDDA8), (f32) (lbl_805DDDA4), (f32) (lbl_805DDDA4));
+                C_MTXLightPerspective((void *) (&sp10), temp_f31, lbl_805DDDA0, lbl_805DDDA4, lbl_805DDDA8, lbl_805DDDA4, lbl_805DDDA4);
             }
-            PSMTXConcat((void *) (&sp10), (void *) (current_matrix), (void *) (current_matrix));
+            PSMTXConcat((void *) (&sp10), (void *)current_matrix, (void *)current_matrix);
             load_current_tex_matrix(2);
             pop_matrix();
             load_current_pos_matrix(2);

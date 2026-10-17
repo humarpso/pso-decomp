@@ -100,18 +100,18 @@ void run_task__13TRaderMapCoreFv(u8 *arg0) {
         if ((TRaderMapCore::is_not_split_screen() == 1) && ((u32) *(u32 *)((s8 *)arg0 + 0x184) != 0U)) {
             ((TRaderMapCore *)arg0)->m_134 = (s32) obj_getField1c(*(void * *)&((TRaderMapCore *)arg0)->m_184);
         }
-        update_follow_projection__13TRaderMapCoreFv((void *) (arg0), (void *) (TRaderMapCore__view_mode));
+        update_follow_projection__13TRaderMapCoreFv((void *)arg0, (void *)TRaderMapCore__view_mode);
         if (TRaderMapCore::is_not_split_screen() == 1) {
             var_r31 = 0;
             do {
-                player = get_player_by_client_id((int) (var_r31));
+                player = get_player_by_client_id(var_r31);
                 if (player != 0) {
-                    update_radar_auto_discovery((void *) (arg0), 0, (void *) (player + 0x38));
+                    update_radar_auto_discovery(arg0, 0, (void *) (player + 0x38));
                 }
                 var_r31 += 1;
             } while (var_r31 < 4);
         } else {
-            update_radar_auto_discovery((void *) (arg0), 0, (void *) (arg0 + ((TRaderMapCore *)arg0)->m_134* 0x28 + 0x94));
+            update_radar_auto_discovery(arg0, 0, (void *) (arg0 + ((TRaderMapCore *)arg0)->m_134* 0x28 + 0x94));
         }
         ((TRaderMapCore *)arg0)->advance_scroll();
     }
@@ -123,7 +123,7 @@ u8 *__dt__13TRaderMapCoreFv(u8 *arg0, s16 arg1) {
         TRaderMapCore__instance = 0;
         TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *) (arg0));
+            __dl__7TObjectFPv(arg0);
         }
     }
     return arg0;

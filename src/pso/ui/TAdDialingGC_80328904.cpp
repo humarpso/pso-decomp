@@ -20,7 +20,7 @@ void TAdDialingGC::handle_state() {
         TAdDialingGC::update_dialing_display(0x13);
         return;
     case 14:
-        refresh_display__12TAdDialingGCFv((void *)(this));
+        refresh_display__12TAdDialingGCFv(this);
         return;
     case 15:
         TAdDialingGC::update_dialing_display(0x16);
@@ -34,7 +34,7 @@ void TAdDialingGC::update_status_display() {
     Obj_80328990 *arg0 = (Obj_80328990 *)this;
     switch (arg0->state) {
     case 1:
-        refresh_display__12TAdDialingGCFv((void *)(arg0));
+        refresh_display__12TAdDialingGCFv(arg0);
         return;
     case 2:
         TAdDialingGC::update_dialing_display(9);

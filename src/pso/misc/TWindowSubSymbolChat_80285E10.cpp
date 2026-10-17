@@ -66,7 +66,7 @@ s32 TWindowSubSymbolChat::select_symbol_chat_record(s8 *arg1, s32 *arg2) {
     *(s8 *)((s8 *)((u8 *)this) + 0x69) = 3;
     var_r29 = *(s16 *)((s8 *)((u8 *)this) + 0x6E) - temp_r3_2;
     for (; var_r31 < 4; var_r31++) {
-        if (TWindowSubSymbolChat__sub_800771C4((int) (instance), (int) (var_r31)) != 0) {
+        if (TWindowSubSymbolChat__sub_800771C4(instance, var_r31) != 0) {
             if (var_r29-- <= 0) {
                 temp_r4 = (u32) var_r31 >> 0x1FU;
                 temp_r8 = temp_r28->vals[var_r31];

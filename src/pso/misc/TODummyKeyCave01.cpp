@@ -171,7 +171,7 @@ void TODummyKeyCave01::run_task() {
 void *TODummyKeyCave01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD4);
     if (o != NULL) {
-        o = TODummyKeyCave01__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TODummyKeyCave01__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -202,7 +202,7 @@ u8 *TODummyKeyCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0xAC) = (f32) (0.0f);
     *(s32 *)&((TODummyKeyCave01 *)arg0)->m_b8 = 1;
-    sub_80165940__16TODummyKeyCave01Fv((void *) (arg0), (f32) (1.0f));
+    sub_80165940__16TODummyKeyCave01Fv(arg0, (f32) (1.0f));
     *(s32 *)&((TODummyKeyCave01 *)arg0)->m_cc = 0;
     return arg0;
 }

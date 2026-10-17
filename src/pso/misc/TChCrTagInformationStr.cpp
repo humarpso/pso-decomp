@@ -20,7 +20,7 @@ void *TChCrTagInformationStr::create(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x38);
     if (o != NULL) {
-        o = __ct__22TChCrTagInformationStrFv((void *)(o), (s32)(arg0), (s32)(arg1));
+        o = __ct__22TChCrTagInformationStrFv((void *)o, (s32)arg0, (s32)arg1);
     }
     return o;
 }

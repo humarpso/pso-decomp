@@ -202,7 +202,7 @@ Obj_800E46D4 *TObjEneMe3ShinowaReal__ct(Obj_800E46D4 *arg0, void *arg1, void *ar
 void *TObjEneMe3ShinowaReal::create() {
     void *o = __nw__7TObjectFUl(0x434);
     if (o != NULL) {
-        o = TObjEneMe3ShinowaReal__ct((Obj_800E46D4 *)(o), (void *)(tl_04), (void *)(this));
+        o = TObjEneMe3ShinowaReal__ct((Obj_800E46D4 *)(o), tl_04, this);
     }
     return o;
 }

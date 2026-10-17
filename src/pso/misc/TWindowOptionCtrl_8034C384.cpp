@@ -50,7 +50,7 @@ void TWindowOptionCtrl::open_confirm_dialog(s32 arg1, s32 arg2) {
 void TWindowOptionCtrl::set_option_and_confirm(s32 arg1, s32 arg2) {
     if (arg1 != (s32) *(s32 *)&this->m_28) {
         *(s32 *)&this->m_28 = arg1;
-        open_confirm_dialog((s32)(get_localized_text_entry(0x24)), (s32)(arg2));
+        open_confirm_dialog((s32)(get_localized_text_entry(0x24)), arg2);
     }
 }
 
@@ -156,7 +156,7 @@ void TWindowOptionCtrl::handle_save_result() {
             *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) & 0xFFFFFFFD);
             *(s32 *)((s8 *)arg0 + 0x1C) = 4;
         case 4:
-            if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)(controller_input_state) + 0x20), 6) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)(controller_input_state) + 0x160), 6) != 0)) {
+            if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)controller_input_state + 0x20), 6) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)controller_input_state + 0x160), 6) != 0)) {
                 play_sound_effect(0x52F16, 0, 0, 0);
                 *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) & 0xFFFFFFFD);
                 *(s32 *)&this->m_24 = 2;
@@ -264,7 +264,7 @@ void TWindowOptionCtrl::handle_save_result() {
             }
             break;
         case 15:
-            if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)(controller_input_state) + 0x20), 6) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)(controller_input_state) + 0x160), 6) != 0)) {
+            if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)controller_input_state + 0x20), 6) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)controller_input_state + 0x160), 6) != 0)) {
                 play_sound_effect(0x52F16, 0, 0, 0);
                 *(s32 *)((s8 *)arg0 + 0x1C) = 3;
             }

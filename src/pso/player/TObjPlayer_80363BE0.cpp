@@ -22,7 +22,7 @@ extern int player_item_id_list;
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
-void TUnk_804F29F8::run_task() { reset_id_array__10TObjPlayerFPv((void*)(player_item_id_list)); }
+void TUnk_804F29F8::run_task() { reset_id_array__10TObjPlayerFPv((void*)player_item_id_list); }
 
 void *__dt__13TUnk_804F29F8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -41,7 +41,7 @@ void *__dt__13TUnk_804F29F8Fv(void *arg0, s16 arg1) {
 #define reset_id_array__10TObjPlayerFPv ((int (*)(void*))reset_id_array__10TObjPlayerFPv)
 int __ct__7TObjectFP7TObject(void);
 
-void* TObjPlayer__sub_80363C5C(void* a0) { __ct__7TObjectFP7TObject(); *(int*)((char*)a0 + 0x18) = (int)lbl_804F29F8; reset_id_array__10TObjPlayerFPv((void*)(player_item_id_list)); return a0; }
+void* TObjPlayer__sub_80363C5C(void* a0) { __ct__7TObjectFP7TObject(); *(int*)((char*)a0 + 0x18) = (int)lbl_804F29F8; reset_id_array__10TObjPlayerFPv((void*)player_item_id_list); return a0; }
 
 #undef lbl_804F29F8
 #undef reset_id_array__10TObjPlayerFPv

@@ -70,8 +70,8 @@ void TOCapsuleAncient01::render() {
     if ((s32) this->m_e0 == 1) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y(0, (int) (this->rotation_y));
-        TObjFish::set_global_param((int) (this->texture_id));
+        rotate_matrix_y(0, this->rotation_y);
+        TObjFish::set_global_param(this->texture_id);
         temp_r31 = (unsigned char *) (*(void * *)&this->model);
         translate_matrix(0, (f32) (*(f32 *)((s8 *)temp_r31 + 8)), (f32) (*(f32 *)((s8 *)temp_r31 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r31 + 0x10)));
         draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
@@ -94,7 +94,7 @@ extern void *tl_05;
 void *TOCapsuleAncient01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE8);
     if (o != NULL) {
-        o = TOCapsuleAncient01__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TOCapsuleAncient01__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -139,8 +139,8 @@ u8 *TOCapsuleAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TOCapsuleAncient01 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCapsuleAncient01__static_model_resource) + 0x42C)) + 8);
     ((TOCapsuleAncient01 *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCapsuleAncient01__static_model_resource) + 0x42C)) + 0xC);
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AFE88.value), 1);
-    set_indexed_flags((void *) (arg0), 0, 0x1288);
+    init_collision_body_parts(arg0, (void *) (&lbl_804AFE88.value), 1);
+    set_indexed_flags(arg0, 0, 0x1288);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOHealGeneral *)arg0)->update_heal_gauge_state();
@@ -148,10 +148,10 @@ u8 *TOCapsuleAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB37C;
     *(s32 *)&((TOCapsuleAncient01 *)arg0)->m_e4 = 0;
     if (((s32) enable_v2_features == 1) && (get_game_play_mode() == 1)) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv(arg0);
     }
     if (is_split_screen() == 1) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv(arg0);
     }
     return arg0;
 }

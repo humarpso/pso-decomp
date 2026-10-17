@@ -35,7 +35,7 @@ extern u32 slime_bml_resource;
 typedef char RecoveredGlobal_800EBC28___vt__12TObjEneSlime_size[sizeof(RecoveredGlobal_800EBC28___vt__12TObjEneSlime) == 0x150 ? 1 : -1];
 u8 *TObjEneSlime__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     s32 temp_r0;
-    initialize__9TObjEnemyFPv((void *) (arg0));
+    initialize__9TObjEnemyFPv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800EBC28___vt__12TObjEneSlime *)&__vt__12TObjEneSlime).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2AD8;
     ((TObjEneSlime *)(arg0))->apply_set_data(arg2);

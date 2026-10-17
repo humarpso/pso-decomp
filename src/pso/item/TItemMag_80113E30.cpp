@@ -127,9 +127,9 @@ void mag_feed_add_mind(u8 *mag, s16 arg1) {
     s16 temp_r3_2;
     s16 var_r30;
     var_r30 = arg1;
-    temp_r31 = TItemData__sub_801146A4((void *) (mag));
+    temp_r31 = TItemData__sub_801146A4(mag);
     if ((var_r30 > 0) || ((var_r30 < 0) && (-var_r30 < temp_r31))) {
-        mag_total_level = get_mag_total_level((void *) (mag));
+        mag_total_level = get_mag_total_level(mag);
         if (mag_total_level < 0xC8) {
             *(s16 *)((s8 *)mag + 0xA) = *(s16 *)((s8 *)mag + 0xA) + var_r30;
             return;
@@ -154,9 +154,9 @@ void TItemMag__sub_80114198(u8 *mag, s16 arg1) {
     s16 temp_r3_2;
     s16 var_r30;
     var_r30 = arg1;
-    temp_r31 = TItemData__sub_801146C0((void *) (mag));
+    temp_r31 = TItemData__sub_801146C0(mag);
     if ((var_r30 > 0) || ((var_r30 < 0) && (-var_r30 < temp_r31))) {
-        mag_total_level = get_mag_total_level((void *) (mag));
+        mag_total_level = get_mag_total_level(mag);
         if (mag_total_level < 0xC8) {
             *(s16 *)((s8 *)mag + 8) = *(s16 *)((s8 *)mag + 8) + var_r30;
             return;
@@ -207,9 +207,9 @@ void mag_feed_add_def(u8 *mag, s16 arg1) {
     s16 temp_r3_2;
     s16 var_r30;
     var_r30 = arg1;
-    temp_r31 = TItemData__sub_801146F8((void *) (mag));
+    temp_r31 = TItemData__sub_801146F8(mag);
     if ((var_r30 > 0) || ((var_r30 < 0) && (-var_r30 < temp_r31))) {
-        mag_total_level = get_mag_total_level((void *) (mag));
+        mag_total_level = get_mag_total_level(mag);
         if (mag_total_level < 0xC8) {
             *(s16 *)((s8 *)mag + 4) = *(s16 *)((s8 *)mag + 4) + var_r30;
             return;
@@ -231,7 +231,7 @@ s32 is_pb_registered__8TItemMagFiUc(s32 arg0, u8 arg1) {
     if (arg1 < 6U) {
         slot = 0;
 loop_2:
-        if ((s32) arg1 == ((TItemMag *)arg0)->get_photon_blast_at_slot((s32)(slot))) {
+        if ((s32) arg1 == ((TItemMag *)arg0)->get_photon_blast_at_slot(slot)) {
             return 1;
         }
         slot += 1;

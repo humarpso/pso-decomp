@@ -233,7 +233,7 @@ __declspec(section ".rodata") vec2f lbl_80466420[1] = {{1.0f, 1.75f}};
 __declspec(section ".rodata") vec2f lbl_80466428[1] = {{1.0f, 3.75f}};
 __declspec(section ".rodata") vec2f lbl_80466430[1] = {{1.0f, 1.0f}};
 
-void render__12TChCrTagNameFv(void* p) { draw_tag_sprite__12TChCrTagNameFPv((TChCrTagName_802A2500 *)(p)); TChCrTagName__sub_802A226C((TChCrTagName_802A226C *)((TChCrTagName_802A226C *)(p))); draw_tag_sprites__12TChCrTagNameFPv((void *)(p)); }
+void render__12TChCrTagNameFv(void* p) { draw_tag_sprite__12TChCrTagNameFPv((TChCrTagName_802A2500 *)(p)); TChCrTagName__sub_802A226C((TChCrTagName_802A226C *)((TChCrTagName_802A226C *)(p))); draw_tag_sprites__12TChCrTagNameFPv(p); }
 
 #pragma fp_contract on
 
@@ -283,7 +283,7 @@ void update_slide_in__12TChCrTagNameFPv(u8 *arg0) {
 
 void run_task__12TChCrTagNameFv(void *arg0) {
     update_fade__8TChCrTagFPv();
-    update_slide_in__12TChCrTagNameFPv((u8 *)(arg0));
+    update_slide_in__12TChCrTagNameFPv((u8 *)arg0);
     *(s32 *)((s8 *)arg0 + 0x44) = (s32) (*(s32 *)((s8 *)arg0 + 0x44) + 1);
 }
 
@@ -321,7 +321,7 @@ u8 *__ct__12TChCrTagNameFv(u8 *arg0, s32 arg1, s32 _w2) {
     *(f32 *)((s8 *)arg0 + 0x38) = (f32) (-0.06666667f);
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0x40) = 0.8f - 0.053333335f * (f32) (0xC - *(s32 *)((s8 *)arg0 + 0x20));
-    update_slide_in__12TChCrTagNameFPv((u8 *)(arg0));
+    update_slide_in__12TChCrTagNameFPv(arg0);
     *(s32 *)((s8 *)arg0 + 0x44) = 0;
     return arg0;
 }
@@ -330,7 +330,7 @@ u8 *__ct__12TChCrTagNameFv(u8 *arg0, s32 arg1, s32 _w2) {
 void *create__12TChCrTagNameFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x50);
     if (o != NULL) {
-        o = __ct__12TChCrTagNameFv((u8 *)(o), (s32)(tl_03), (s32)(arg0));
+        o = __ct__12TChCrTagNameFv((u8 *)o, (s32)tl_03, (s32)arg0);
     }
     return o;
 }

@@ -149,7 +149,7 @@ extern "C" {
 u8 *__ct__9TBoss6DPBFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
     f32 temp_f1;
     f32 temp_f2;
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__9TBoss6DPB.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss6DPB__class_name;
     *(s32 *)((s8 *)arg0 + 0x1C) = arg1;
@@ -177,9 +177,9 @@ u8 *TBoss6Type2::create_dpb(s32 arg0, s32 arg1, f32 farg0) {
     u8 *temp_r3;
     u8 *var_r0;
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x3C));
-    var_r0 = (u8 *)(temp_r3);
+    var_r0 = temp_r3;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(__ct__9TBoss6DPBFv((u8 *)(temp_r3), (s32)(arg0), (s32)(arg1), farg0));
+        var_r0 = (u8 *)(__ct__9TBoss6DPBFv(temp_r3, arg0, arg1, farg0));
     }
     return var_r0;
 }

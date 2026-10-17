@@ -1024,14 +1024,14 @@ u16 TObjPlayer::get_field_2d4() { return this->m_2d4; }
 
 s32 TObjPlayer::is_local_player() {
     s32 arg0 = (s32)this;
-    if (((u16 (*)(void*))obj_getField1c)((void*)(arg0)) < 0x1000U) {
-        return ((s32 (*)(s32))is_locally_controlled__10TObjPlayerFPv)((s32)((void *) (arg0)));
+    if (((u16 (*)(void*))obj_getField1c)((void*)arg0) < 0x1000U) {
+        return ((s32 (*)(s32))is_locally_controlled__10TObjPlayerFPv)((s32)(arg0));
     }
     return 0;
 }
 
 void activate_switch_attacks__10TObjPlayerFii(s32 arg0, s32 arg1) {
-    if (((int (*)(void*, int))obj_testFlags30)((void*)(arg0), 0x02000000) == 0) {
+    if (((int (*)(void*, int))obj_testFlags30)((void*)arg0, 0x02000000) == 0) {
         spawn_particle_effect_with_flags(arg1, 0xB9, 0x40);
         spawn_particle_effect_with_flags(arg1, 0xBA, 0x40);
         ((s32 (*)(s32, s32))trigger_switch_attack__10TObjPlayerFPvi)(arg0, arg1);
@@ -1057,10 +1057,10 @@ void TUnk_804806E8::spawn_freeze_shell_effect(u32 arg1, s32 arg2) {
 
 void play_shock_feedback__10TObjPlayerFii(s32 arg0, s32 arg1) {
     s32 particle_effect_with_flags;
-    if (((s32)((int (*)(void*, int))obj_testFlags30)((void*)(arg0), 0x02000000)) == 0) {
+    if (((s32)((int (*)(void*, int))obj_testFlags30)((void*)arg0, 0x02000000)) == 0) {
         particle_effect_with_flags = spawn_particle_effect_with_flags((s32)(arg0 + 0x2FC), 0x21, 0x50);
         if (particle_effect_with_flags != 0) {
-            set_owner_id__13TParticleCtrlFUs(particle_effect_with_flags, ((s32 (*)(void*))obj_getField1c)((void*)(arg0)));
+            set_owner_id__13TParticleCtrlFUs(particle_effect_with_flags, ((s32 (*)(void*))obj_getField1c)((void*)arg0));
         }
         if (arg1 != 0) {
             play_sound_effect(0xB210, (s32)(arg0 + 0x38), 0, 0);
@@ -1070,10 +1070,10 @@ void play_shock_feedback__10TObjPlayerFii(s32 arg0, s32 arg1) {
 
 void spawn_confusion_feedback_effect(s32 arg0, s32 arg1) {
     s32 particle_effect_with_flags;
-    if (((s32)((int (*)(void*, int))obj_testFlags30)((void*)(arg0), 0x02000000)) == 0) {
+    if (((s32)((int (*)(void*, int))obj_testFlags30)((void*)arg0, 0x02000000)) == 0) {
         particle_effect_with_flags = spawn_particle_effect_with_flags((s32)(arg0 + 0x2FC), 0x24, 0x50);
         if (particle_effect_with_flags != 0) {
-            set_owner_id__13TParticleCtrlFUs(particle_effect_with_flags, ((s32 (*)(void*))obj_getField1c)((void*)(arg0)));
+            set_owner_id__13TParticleCtrlFUs(particle_effect_with_flags, ((s32 (*)(void*))obj_getField1c)((void*)arg0));
         }
         if (arg1 != 0) {
             play_sound_effect(0xB20E, (s32)(arg0 + 0x38), 0, 0);
@@ -1083,10 +1083,10 @@ void spawn_confusion_feedback_effect(s32 arg0, s32 arg1) {
 
 void spawn_slow_effect__10TObjPlayerFii(s32 arg0, s32 arg1) {
     s32 particle_effect_with_flags;
-    if (((s32)((int (*)(void*, int))obj_testFlags30)((void*)(arg0), 0x02000000)) == 0) {
+    if (((s32)((int (*)(void*, int))obj_testFlags30)((void*)arg0, 0x02000000)) == 0) {
         particle_effect_with_flags = spawn_particle_effect_with_flags((s32)(arg0 + 0x2FC), 0x27, 0x50);
         if (particle_effect_with_flags != 0) {
-            set_owner_id__13TParticleCtrlFUs(particle_effect_with_flags, ((s32 (*)(void*))obj_getField1c)((void*)(arg0)));
+            set_owner_id__13TParticleCtrlFUs(particle_effect_with_flags, ((s32 (*)(void*))obj_getField1c)((void*)arg0));
         }
         if (arg1 != 0) {
             play_sound_effect(0xB20D, (s32)(arg0 + 0x38), 0, 0);
@@ -1096,10 +1096,10 @@ void spawn_slow_effect__10TObjPlayerFii(s32 arg0, s32 arg1) {
 
 void spawn_paralysis_feedback_effect(s32 arg0, s32 arg1) {
     s32 particle_effect_with_flags;
-    if (((s32)((int (*)(void*, int))obj_testFlags30)((void*)(arg0), 0x02000000)) == 0) {
+    if (((s32)((int (*)(void*, int))obj_testFlags30)((void*)arg0, 0x02000000)) == 0) {
         particle_effect_with_flags = spawn_particle_effect_with_flags((s32)(arg0 + 0x2FC), 0x26, 0x50);
         if (particle_effect_with_flags != 0) {
-            set_owner_id__13TParticleCtrlFUs(particle_effect_with_flags, ((s32 (*)(void*))obj_getField1c)((void*)(arg0)));
+            set_owner_id__13TParticleCtrlFUs(particle_effect_with_flags, ((s32 (*)(void*))obj_getField1c)((void*)arg0));
         }
         if (arg1 != 0) {
             play_sound_effect(0xB20C, (s32)(arg0 + 0x38), 0, 0);
@@ -1109,10 +1109,10 @@ void spawn_paralysis_feedback_effect(s32 arg0, s32 arg1) {
 
 void spawn_poison_effect__10TObjPlayerFii(s32 arg0, s32 arg1) {
     s32 particle_effect_with_flags;
-    if (((s32)((int (*)(void*, int))obj_testFlags30)((void*)(arg0), 0x02000000)) == 0) {
+    if (((s32)((int (*)(void*, int))obj_testFlags30)((void*)arg0, 0x02000000)) == 0) {
         particle_effect_with_flags = spawn_particle_effect_with_flags((s32)(arg0 + 0x2FC), 0x25, 0x50);
         if (particle_effect_with_flags != 0) {
-            set_owner_id__13TParticleCtrlFUs(particle_effect_with_flags, ((s32 (*)(void*))obj_getField1c)((void*)(arg0)));
+            set_owner_id__13TParticleCtrlFUs(particle_effect_with_flags, ((s32 (*)(void*))obj_getField1c)((void*)arg0));
         }
         if (arg1 != 0) {
             play_sound_effect(0xCD0B, (s32)(arg0 + 0x38), 0, 0);
@@ -1295,7 +1295,7 @@ void TUnk_804806E8::enemy_spawn_zalure_effect() {
     stack.sp10 = -0x8000;
     oneshot_particle_emitter = create_oneshot_particle_emitter((void *) (arg0 + 0x2FC), (void *) (&stack.sp8), 0x1FE, 0x50);
     if (oneshot_particle_emitter != 0) {
-        set_owner_id__13TParticleCtrlFUs((s32)((int) (oneshot_particle_emitter)), (s32)((void *) (((s32 (*)(s32))obj_getField1c)((s32)((void *) (arg0))))));
+        set_owner_id__13TParticleCtrlFUs((s32)(oneshot_particle_emitter), (s32)((void *) (((s32 (*)(s32))obj_getField1c)((s32)(arg0)))));
     }
 }
 
@@ -1317,7 +1317,7 @@ void TUnk_804806E8::enemy_spawn_jellen_effect() {
     stack.sp10 = -0x8000;
     oneshot_particle_emitter = create_oneshot_particle_emitter((void *) (arg0 + 0x2FC), (void *) (&stack.sp8), 0x1FD, 0x50);
     if (oneshot_particle_emitter != 0) {
-        set_owner_id__13TParticleCtrlFUs((s32)((int) (oneshot_particle_emitter)), (s32)((void *) (((s32 (*)(s32))obj_getField1c)((s32)((void *) (arg0))))));
+        set_owner_id__13TParticleCtrlFUs((s32)(oneshot_particle_emitter), (s32)((void *) (((s32 (*)(s32))obj_getField1c)((s32)(arg0)))));
     }
 }
 
@@ -1444,7 +1444,7 @@ void assign_slots_from_list(void *arg0, s32 arg1) {
             return;
         }
         if (*(u16 *)((s8 *)arg0 + 0x2D6) == 0xFFFF) {
-            *(u16 *)((s8 *)arg0 + 0x2D6) = fn_80010F4C((void*)(arg1));
+            *(u16 *)((s8 *)arg0 + 0x2D6) = fn_80010F4C((void*)arg1);
         }
     }
 }
@@ -1466,7 +1466,7 @@ void record_attack_source(Obj_80010F54 *self, s32 id) {
 
 void attach_mine_trap__10TObjPlayerFiUi(s32 arg0, u32 arg1) {
     if (arg1 != 0U) {
-        ((int (*)(void*, void*))record_attack_source)((void*)(arg0), (void*)(((s32 (*)(u32))obj_getField1c)(arg1)));
+        ((int (*)(void*, void*))record_attack_source)((void*)arg0, (void*)(((s32 (*)(u32))obj_getField1c)(arg1)));
     }
 }
 
@@ -1489,14 +1489,14 @@ void TObjEnemy::render_with_position_override(u8 *arg1, s32 arg2) {
     push_matrix();
     direction_to_rotation_xz((void *) (arg0 + 0x248), (void *) (&spC), (void *) (&sp8));
     translate_matrix(0, (f32) (*(f32 *)&(*(void * *)((u8 *)this + 0x38))), (f32) ((0.3f) + *(f32 *)((s8 *)arg0 + 0x3C)), (f32) ((*(f32 *)((u8 *)this + 0x40))));
-    rotate_matrix_z(0, (int) (sp8));
-    rotate_matrix_x(0, (int) (spC));
+    rotate_matrix_z(0, sp8);
+    rotate_matrix_x(0, spC);
     ((s32 (*)(int, int))rotate_matrix_y)(0, (int) ((this->rotation_y)));
     rotate_matrix_x(0, -0x4000);
     if (arg1 != NULL) {
         scale_matrix(0, (f32) (*(f32 *)((s8 *)arg1 + 0)), (f32) (*(f32 *)((s8 *)arg1 + 8)), (f32) ((1.0f)));
     }
-    draw_blob_shadow((void *) (arg2));
+    draw_blob_shadow((void *)arg2);
     pop_matrix();
 }
 
@@ -1554,9 +1554,9 @@ s32 TUnk_804806E8::add_actor_exp(s32 arg1) {
   u8 *temp_r3;
   int new_var;
   u8 *temp_r6;
-  temp_r6 = (u8 *) (this->m_2b0);
+  temp_r6 = this->m_2b0;
   *((s32 *) (((s8 *) temp_r6) + 0x1C)) = (s32) ((*((s32 *) (((s8 *) temp_r6) + 0x1C))) + arg1);
-  temp_r3 = (u8 *) (this->m_2b0);
+  temp_r3 = this->m_2b0;
   new_var = 0x05F5E0FF;
   if (new_var < ((s32) (*((s32 *) (((s8 *) temp_r3) + 0x1C)))))
   {
@@ -1615,7 +1615,7 @@ s32 check_can_act__10TObjPlayerFii(s32 arg0, s32 arg1) {
     if (((s32 (*)(void))obj_isState2_324__13TUnk_804806E8Fv)() != 0) {
         return 0;
     }
-    return ((TUnk_804806E8 *)arg0)->subtract_actor_tp((s32)((void*)(arg1)));
+    return ((TUnk_804806E8 *)arg0)->subtract_actor_tp((s32)(arg1));
 }
 
 int TObjPlayer::get_hp_material_points() {
@@ -1700,7 +1700,7 @@ s32 damage_hp__10TObjPlayerFii(s32 arg0, s32 arg1) {
     if (((s32 (*)(void))obj_isState2_324__13TUnk_804806E8Fv)() != 0) {
         return 0;
     }
-    return ((int (*)(void*, void*))TObjectV8047c128_subtract_hp)((void*)(arg0), (void*)(arg1));
+    return ((int (*)(void*, void*))TObjectV8047c128_subtract_hp)((void*)arg0, (void*)arg1);
 }
 
 u16 find_nearest_hittable_enemy__10TObjPlayerFiPvf(s32 arg0, Vec_800114D8 *arg1, f32 farg0) {
@@ -1774,9 +1774,9 @@ void apply_actor_gravity(u8 *arg0, s32 *arg1, f32 farg0) {
     f32 temp_f1;
     s32 temp_r31;
     ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (&position.x), (void *) (arg0 + 0x38));
-    temp_r31 = ((s32 (*)(void *, void *, void *))project_actor_to_ground)((void *) (arg0), (void *) (&position.x), (void *) (arg0 + 0x248));
+    temp_r31 = ((s32 (*)(void *, void *, void *))project_actor_to_ground)(arg0, (void *) (&position.x), (void *) (arg0 + 0x248));
     if (arg1 != NULL) {
-        ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (arg1), (void *) (&position.x));
+        ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg1, (void *) (&position.x));
     }
     if (temp_r31 != 0) {
         *(f32 *)((s8 *)arg0 + 0x30C) += (-0.10888889f);
@@ -2493,7 +2493,7 @@ f32 receive_direct_attack__10TObjPlayerFv(Actor_8001311C *self, Actor_8001311C *
     } else if (self->id < 0x1000 && get_main_phase() == 15) {
         if (STATE2(att) != 0) {
             if (LOCAL(self) != 0 || STATE3(self) != 0) {
-                if ((u32)(info.type - 6) <= 4 || get_type__10TObjPlayerFPv((void*)(att->f828)) != 0) {
+                if ((u32)(info.type - 6) <= 4 || get_type__10TObjPlayerFPv(att->f828) != 0) {
                     immune = 0;
                 } else {
                     immune = 1;
@@ -2814,7 +2814,7 @@ void TUnk_804806E8::apply_knockback_from_attacker(u8 *arg1) {
         this->m_310 = (0.0f);
         return;
     }
-    scale = 10.0f + (10.0f - *(f32 *)((s8 *)(this->m_2b0) + 0x14));
+    scale = 10.0f + (10.0f - *(f32 *)(this->m_2b0 + 0x14));
     if (scale < 0.0f) {
         scale = 0.0f;
     }
@@ -3323,7 +3323,7 @@ void TUnk_804806E8::apply_shock_status() {
 void TUnk_804806E8::apply_movement_ailment(s32 arg1) {
 
     if ((((s32 (*)(void *, u32))obj_testFlags30)(((u8 *)this), 0x8000U) == 0) && (((s32 (*)(void *, u32))obj_testFlags30)(((u8 *)this), 0x01000000U) == 0) && (((TUnk_804806E8 *)((u8 *)this))->test_immunity_flags(0x20) == 0) && ((((s32 (*)(void *, u32))obj_testFlags30)(((u8 *)this), 0x20U) == 0) || (((s32 (*)(void *, int))TObjPlayer__sub_8001943C)((void *) (((u8 *)this)), 1) <= 0))) {
-        spawn_freeze_shell_effect((u32)((void *) (arg1)), 1);
+        spawn_freeze_shell_effect((u32)(arg1), 1);
         switch (((int (*)(void *, int))obj_getArrWord_254)(((u8 *)this), 1)) {
         case 2:
         case 3:
@@ -3456,7 +3456,7 @@ void trigger_switch_attack__10TObjPlayerFPvi(void *arg0, s32 arg1) {
 void TObjPlayer::set_attribute_entry(s32 i, void *q) {
     O_80015D74 *self = (O_80015D74 *)this;
     if (i < 3) {
-        ((TObjPlayer *)(&self->arr[i]))->copy_entry_bytes((void*)(q));
+        ((TObjPlayer *)(&self->arr[i]))->copy_entry_bytes(q);
     }
 }
 
@@ -3982,7 +3982,7 @@ f32 enemy_move_toward(u8 *arg0, s32 arg1, Vec_800180E8 arg2, s32 arg3, f32 farg0
     }
     enemy_turn_toward_dest((Obj_80018660 *)arg0, arg1);
     enemy_set_heading_velocity(arg0, ((TObjEnemy *)arg0)->rotation_y, farg0);
-    move_with_wall_slide((u8 *)(arg0));
+    move_with_wall_slide(arg0);
     return horizontal_distance_squared(&arg2, arg0 + 0x38);
 }
 
@@ -4021,7 +4021,7 @@ f32 enemy_pursue_point(u8 *arg0, s32 arg1, Vec_800180E8 arg2, f32 farg0, f32 far
     }
     enemy_turn_toward_dest((Obj_80018660 *)arg0, arg1);
     enemy_set_heading_velocity(arg0, ((TObjEnemy *)arg0)->rotation_y, farg0);
-    move_with_wall_slide((u8 *)(arg0));
+    move_with_wall_slide(arg0);
     return horizontal_distance_squared(&arg2, arg0 + 0x2FC);
 }
 
@@ -4029,7 +4029,7 @@ f32 enemy_backstep_from_point(Obj_80017ABC *arg0, Vec_800180E8 arg1, f32 farg0) 
     if (TObjPlayer__sub_800181DC((u8 *)((u8 *) arg0), (Vec_800180E8)(arg1)) != 0) {
         ((s32 (*)(void *, Vec_800180E8)) copy_position_if_valid__10TObjPlayerFii)(arg0, arg0->cur);
         ((void (*)(void *, Vec_800180E8, Vec_800180E8, f32)) calc_velocity_toward_destination)(arg0, arg0->home, arg0->dest, farg0);
-        move_with_wall_slide((u8 *)(arg0));
+        move_with_wall_slide((u8 *)arg0);
         return horizontal_distance_squared(&arg1, &arg0->pos);
     }
     return (0.0f);
@@ -4074,7 +4074,7 @@ f32 update_enemy_wander_move(Obj_80017ABC *arg0, Vec_800180E8 arg1, s32 arg2, f3
         }
     }
     ((void (*)(void *, Vec_800180E8, Vec_800180E8, f32)) calc_velocity_toward_destination)(arg0, arg0->home, arg0->dest, farg0);
-    move_with_wall_slide((u8 *)(arg0));
+    move_with_wall_slide((u8 *)arg0);
     return horizontal_distance_squared(&arg1, &arg0->pos);
 }
 
@@ -4149,7 +4149,7 @@ void enemy_set_heading_velocity(u8 *arg0, s32 arg1, f32 farg0) {
     stack.spC = (0.0f);
     stack.sp8 = (0.0f);
     push_matrix_from((void *) (&identity_matrix.value));
-    rotate_matrix_y(0, (void *) (arg1));
+    rotate_matrix_y(0, (void *)arg1);
     rotate_vector_by_matrix(0, (void *) (&stack.sp8), (void *) (&stack.sp8));
     pop_matrix();
     *(f32 *)((s8 *)arg0 + 0x308) = stack.sp8;
@@ -4317,7 +4317,7 @@ f32 TObjPlayer::calc_distance_to_client(s32 arg0, u16 arg1, u32 arg2) {
       ;
       if (((TObjPlayer *)temp_r3)->get_field_3e4() == get_current_floor())
       {
-        var_f31 = calc_xz_distance_sq__10TObjPlayerFiUiPv((s32)(arg0), (u32)((u32) temp_r3), (void *)(&stack.sp8));
+        var_f31 = calc_xz_distance_sq__10TObjPlayerFiUiPv(arg0, (u32)((u32) temp_r3), (void *)(&stack.sp8));
         if (arg2 != 0U)
         {
           VecCopy__FP3VecPC3Vec((s32)((void *) arg2), (s32)((void *) (&stack.sp8)));
@@ -4438,7 +4438,7 @@ u8 *TUnk_804806E8::vfunc_18(u8 *arg1) {
     u8 *temp_r3;
     u8 *temp_r6;
     stack.sp8 = *(f32 *)((s8 *)arg1 + 0);
-    temp_r6 = (u8 *)(this->m_2b0);
+    temp_r6 = this->m_2b0;
     temp_f1 = *(f32 *)((s8 *)arg1 + 4);
     stack.spC = temp_f1 + *(f32 *)((s8 *)temp_r6 + 0x10);
     stack.sp10 = *(f32 *)((s8 *)arg1 + 8);
@@ -4456,7 +4456,7 @@ u8 *TUnk_804806E8::update_actor_ground_y() {
     u8 *temp_r3;
     u8 *temp_r6;
     stack.sp8 = *(f32 *)((s8 *)((u8 *)this) + 0x38);
-    temp_r6 = (u8 *)(this->m_2b0);
+    temp_r6 = this->m_2b0;
     temp_f1 = *(f32 *)((s8 *)((u8 *)this) + 0x3C);
     stack.spC = temp_f1 + *(f32 *)((s8 *)temp_r6 + 0x10);
     stack.sp10 = *(f32 *)((s8 *)((u8 *)this) + 0x40);

@@ -84,7 +84,7 @@ void TKeyBoardControl::init_pad_slots_and_read() {
     *(u8 **)((s8 *)((s32 *)&keyboard_control_pad_slots) + 0x64) = (unsigned char *) ((void *) ((u8 *)TKeyBoardControl__pad_status_buffer + 0x78));
     *(u8 **)((s8 *)((s32 *)&keyboard_control_pad_slots) + 0x98) = (unsigned char *) ((void *) ((u8 *)TKeyBoardControl__pad_status_buffer + 0xF0));
     *(u8 **)((s8 *)((s32 *)&keyboard_control_pad_slots) + 0xCC) = (unsigned char *) ((void *) ((u8 *)TKeyBoardControl__pad_status_buffer + 0x168));
-    Dolphin_PADRead((void *) (keyboard_pad_status_buffer), (void *) (TKeyBoardControl__pad_status_buffer));
+    Dolphin_PADRead(keyboard_pad_status_buffer, TKeyBoardControl__pad_status_buffer);
 }
 
 typedef struct Out_803DEA18 Out_803DEA18;

@@ -257,14 +257,14 @@ void fn_800C32DC(u8 *owner, s32 arg1) {
         *(u32 *)((s8 *)owner + 0x428) = 0U;
         break;
     case 3:
-        if ((check_hit_flag__16TObjEneRe2FlowerFv((void *) (owner)) == 0) && (((TObjEneDD *)owner)->get_flag_b4() != 0)) {
-            transition_enemy_state((void *) (owner), 3);
+        if ((check_hit_flag__16TObjEneRe2FlowerFv(owner) == 0) && (((TObjEneDD *)owner)->get_flag_b4() != 0)) {
+            transition_enemy_state(owner, 3);
             break;
         }
     case 1:
         break;
     case 0:
-        advance_animation_playback((void *) (owner));
+        advance_animation_playback(owner);
         if ((u32) *(u32 *)((s8 *)owner + 0x428) == 0U) {
             *(u32 *)((s8 *)owner + 0x428) = (u32)create_particle_emitter((owner + 0x3E8), 0xD1);
             temp_r3 = *(u32 *)((s8 *)owner + 0x428);
@@ -280,27 +280,27 @@ void fn_800C32DC(u8 *owner, s32 arg1) {
                 ((TParticleCtrl *)temp_r3_2)->enable();
             }
         }
-        if (objInBand((GameObj *)(owner), (f32) (lbl_805D9FDC)) != 0) {
+        if (objInBand((GameObj *)(owner), lbl_805D9FDC) != 0) {
             VecCopy((Vec *)(&stack.sp8), (const Vec *)(owner + 0x3DC));
             stack.spC = lbl_805D9FDC + *(f32 *)((s8 *)owner + 0x3C);
             if ((((TObjEneRe2Flower *)owner)->get_flag_11() != 0) || (TObjEneDD::check_v2_mode() != 0)) {
-                TTecMegid::create_ex((s32)((void *) (owner)), (s32)((void *) (&stack.sp8)), (s32)((int) (*(s32 *)((s8 *)owner + 0x60))), (s32)((int) (TObjEneDD::clamp_frame_index((int) (*(s32 *)((s8 *)lbl_805D5170 + 0x18))))));
+                TTecMegid::create_ex((s32)(owner), (s32)((void *) (&stack.sp8)), (s32)((int) (*(s32 *)((s8 *)owner + 0x60))), (s32)((int) (TObjEneDD::clamp_frame_index((int) (*(s32 *)((s8 *)lbl_805D5170 + 0x18))))));
             } else {
                 temp_r3_3 = __nw__7TObjectFUl(0x104);
                 if (temp_r3_3 != 0U) {
-                    TObjPlayer__sub_800C4A5C((int) (temp_r3_3), (void *) (owner), (void *) (&stack.sp8), (int) (*(s32 *)((s8 *)owner + 0x60)));
+                    TObjPlayer__sub_800C4A5C(temp_r3_3, owner, (void *) (&stack.sp8), (int) (*(s32 *)((s8 *)owner + 0x60)));
                 }
             }
-            play_sound_effect((void *) (fn_800C3A60((s32)(owner), 0x4003A10E)), (void *) (owner + 0x3DC), 0, 0);
+            play_sound_effect((void *) (fn_800C3A60((s32)owner, 0x4003A10E)), (void *) (owner + 0x3DC), 0, 0);
         }
         ((TObjEneDD *)(owner))->vfunc_102();
         ((TObjEneDD *)(owner))->vfunc_88();
-        noop__9TObjEneDDFv((void *) (owner));
+        noop__9TObjEneDDFv(owner);
         break;
     case 5:
         temp_r3_4 = *(u32 *)((s8 *)owner + 0x428);
         if (temp_r3_4 != 0U) {
-            queue_destruction__7TObjectFv((void *)(temp_r3_4));
+            queue_destruction__7TObjectFv((void *)temp_r3_4);
             *(u32 *)((s8 *)owner + 0x428) = 0U;
         }
         break;

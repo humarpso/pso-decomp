@@ -79,7 +79,7 @@ s32 __ct__16TPlyGuildCardTagFv(s32);
 int bswap_32__FPUl(void* a0 = 0);
 
 void fn_801DF280(void *arg0) {
-    bswap__13packet_headerFv((void*)(arg0));
+    bswap__13packet_headerFv(arg0);
     fn_801E0900(((void *)((char *)arg0 + 68)));
     bswap_32__FPUl((void*)((void *)((char *)arg0 + 76)));
 }
@@ -115,13 +115,13 @@ void* fn_801DF3F0(void* p, void* a1) { __ct__16TPlyGuildCardTagFRC16TPlyGuildCar
 void fn_801DF42C(void* p) { bswap__13packet_headerFv(p); { int i; for (i = 0; i < 32; i++) { fn_801DF47C((void *)((char*)p + 0x4 + i * 212)); } } }
 
 void fn_801DF47C(void *arg0) {
-    bswap_32__FPUl((void*)(arg0));
+    bswap_32__FPUl(arg0);
     fn_801DF4B8((s32)((s32)((void *)((char *)arg0 + 100))));
     bswap__21TPlyMeetUserExtensionFv((s32)((char *)arg0 + 112));
 }
 
 void fn_801DF4B8(s32 arg0) {
-    ((s32)bswap__13packet_headerFv((void*)(arg0)));
+    ((s32)bswap__13packet_headerFv((void*)arg0));
     ((s32)bswap_32__FPUl((void*)(arg0 + 4)));
     bswap_16__FPUs(arg0 + 8);
     bswap_16__FPUs(arg0 + 0xA);
@@ -175,7 +175,7 @@ Obj_801DF61C *fn_801DF61C(Obj_801DF61C *dst, Obj_801DF61C *src) {
 void fn_801DF6BC(void* p) { bswap__13packet_headerFv(p); bswap_choice_search_config((char*)p + 0x4); }
 void bswap_choice_search_config(void* p) { bswap_32__FPUl(p); { int i; for (i = 0; i < 5; i++) { fn_801DF740((void*)((char*)p + 0x4 + i * 4)); } } }
 
-void fn_801DF740(void* p) { bswap_16__FPUs((s32)((void*)(p))); bswap_16__FPUs((s32)((void*)((char*)p + 0x2))); }
+void fn_801DF740(void* p) { bswap_16__FPUs((s32)(p)); bswap_16__FPUs((s32)((void*)((char*)p + 0x2))); }
 
 Blk_801DF774 *TProtocol__sub_801DF774(Blk_801DF774 *d, const Blk_801DF774 *s) {
     d->a = s->a;
@@ -185,17 +185,17 @@ Blk_801DF774 *TProtocol__sub_801DF774(Blk_801DF774 *d, const Blk_801DF774 *s) {
 
 void bswap_c0_lobby_entries(void* p) { bswap__13packet_headerFv(p); { int i; for (i = 0; i < 56; i++) { fn_801DF7F8((void*)((char*)p + 0x4 + i * 32)); } } }
 
-void fn_801DF7F8(void* p) { fn_801DF740((void*)(p)); }
+void fn_801DF7F8(void* p) { fn_801DF740(p); }
 
 int bswap_packet_header_cmd_b1(void* p) { return bswap__13packet_headerFv(p); }
 
 void bswap_save_packet(s32 arg0) {
-    ((s32)bswap__13packet_headerFv((void*)(arg0)));
+    ((s32)bswap__13packet_headerFv((void*)arg0));
     ((s32)bswap_32__FPUl((void*)(arg0 + 4)));
     ((s32)bswap_32__FPUl((void*)(arg0 + 8)));
 }
 
-void fn_801DF874(void* p) { bswap__13packet_headerFv((void*)(p)); ((TPlyGuildCardTag *)((char*)p + 0x4))->bswap(); }
+void fn_801DF874(void* p) { bswap__13packet_headerFv(p); ((TPlyGuildCardTag *)((char*)p + 0x4))->bswap(); }
 
 s32 fn_801DF8A8(s32 arg0) {
     __ct__16TPlyGuildCardTagFv(arg0 + 4);

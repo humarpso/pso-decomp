@@ -73,17 +73,17 @@ void *__dt__15TObjIllGillKageFv(void *arg0, s16 arg1) {
     return arg0;
 }
 u8 *TObjIllGillKage__ct(u8 *arg0, s32 arg1, u32 arg2) {
-    construct_world_actor_base((void *) (arg0));
+    construct_world_actor_base(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_803655F8___vt__15TObjIllGillKage *)&__vt__15TObjIllGillKage).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D44AC;
     if (arg2 != 0U) {
         VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2 + 0x38));
-        ((TObjIllGillKage *)arg0)->m_98 = obj_getField1c((void *) (arg2));
+        ((TObjIllGillKage *)arg0)->m_98 = obj_getField1c((void *)arg2);
         *(s32 *)&((TObjIllGillKage *)arg0)->m_94 = 0xB4;
         *(s32 *)&((TObjIllGillKage *)arg0)->m_90 = 0;
     } else {
         ((TObjIllGillKage *)arg0)->m_98 = 0xFFFFU;
-        queue_destruction__7TObjectFv((void*)((void *) (arg0)));
+        queue_destruction__7TObjectFv((void*)(arg0));
     }
     return arg0;
 }

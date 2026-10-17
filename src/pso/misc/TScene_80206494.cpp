@@ -104,7 +104,7 @@ void *__dt__6TSceneFv(void *arg0, s16 arg1) {
 extern void *tl_02;
 
 u8 *TScene__ct(u8 *arg0, s32 arg1) {
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8020650C___vt__6TScene *)&__vt__6TScene).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3618;
     *(s32 *)&((TScene *)arg0)->m_1c = 0;
@@ -112,9 +112,9 @@ u8 *TScene__ct(u8 *arg0, s32 arg1) {
     *(s32 *)&((TScene *)arg0)->m_34 = 0;
     *(s32 *)&((TScene *)arg0)->m_38 = 0x32;
     *(s32 *)&((TScene *)arg0)->m_3c = 0;
-    TScene__sub_80206410((void *) (arg0));
+    TScene__sub_80206410(arg0);
     if ((TOKeyMachine01::get_global_state() == 1) && ((u32) TScene__texture_wave_resource != 0U) && ((void *) (*(u8 * *)&TScene__data_805D5FCC) != NULL) && ((u32) *(u32 *)((s8 *)(*(u8 * *)&TScene__data_805D5FCC) + 0x14) != 0U)) {
-        TScene::create_texture_wave_tasks((s32)((void *) (arg0)));
+        TScene::create_texture_wave_tasks((s32)(arg0));
     }
     ((TScene *)arg0)->init_material_nodes();
     return arg0;
@@ -124,7 +124,7 @@ void TScene::create() {
     void *o;
     o = __nw__7TObjectFUl(0x40);
     if (o != NULL) {
-        TScene__ct((u8 *)(o), (s32)(tl_02));
+        TScene__ct((u8 *)o, (s32)tl_02);
     }
 }
 
@@ -211,7 +211,7 @@ void load_floor_scene(void) {
     }
     copy_name((s32)((s32 *)TScene__current_floor_name));
     load_scene_map_file(ent);
-    load_scene_collision_file((s32)(ent));
+    load_scene_collision_file(ent);
     if (TScene__data_805D5FCC != NULL && *(u32 *)((s8 *)TScene__data_805D5FCC + 0x14) != 0) {
         found = 0;
         if (TRaderMapCore::is_not_split_screen() == 1) {
@@ -223,8 +223,8 @@ void load_floor_scene(void) {
         }
         bind_gvm_texture_list(path, *(u32 *)((s8 *)TScene__data_805D5FCC + 0x14));
     }
-    TScene::load_floor_rel_file((s32)(ent));
-    TScene::load_tam_file((s32)(ent));
+    TScene::load_floor_rel_file(ent);
+    TScene::load_tam_file(ent);
     ((void (*)(s32))TScene__sub_802065EC)(ent);
     ((void (*)(s32))TScene__sub_802065E8)(ent);
     copy_name((s32)&lbl_805DC604);
@@ -294,14 +294,14 @@ void TScene::load_file_to_buffer(s32 name) {
 
     TScene__material_info_buffer = 0U;
     scene_file_buffer_size = 0;
-    replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)(sp8)), (char *)(name), (char *)((s32 *)(lbl_8044A98C)));
+    replace_file_extension__6TLobbyFPvPvPv((char *)(sp8), (char *)(name), (char *)(lbl_8044A98C));
     temp_r31 = ((TScene *)sp8)->update_lobby_scene();
     if (TOKeyMachine01::get_global_state() == 0xF) {
         if ((temp_r31 > 0) && ((u32) temp_r31 <= 0x100U)) {
             temp_r3 = ((TQuestVmDownLoadServer *)0x100)->alloc();
             TScene__material_info_buffer = temp_r3;
             if (temp_r3 != 0U) {
-                read_disc_file((char *)(sp8), (u32)(temp_r3));
+                read_disc_file((char *)(sp8), temp_r3);
                 scene_file_buffer_size = 0x100;
             }
         }
@@ -309,7 +309,7 @@ void TScene::load_file_to_buffer(s32 name) {
         temp_r3_2 = ((TQuestVmDownLoadServer *)temp_r31)->alloc();
         TScene__material_info_buffer = temp_r3_2;
         if (temp_r3_2 != 0U) {
-            read_disc_file((char *)(sp8), (u32)(temp_r3_2));
+            read_disc_file((char *)(sp8), temp_r3_2);
             scene_file_buffer_size = temp_r31;
         }
     }
@@ -357,11 +357,11 @@ void TScene::load_map_texture_archive(s32 name) {
     var_r30 = 0;
     lbl_805D6018 = 0;
     if (TRaderMapCore::is_not_split_screen() == 1) {
-        replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)(sp8)), (char *)(name), (char *)((s32 *)(lbl_8044A9A4)));
+        replace_file_extension__6TLobbyFPvPvPv((char *)(sp8), (char *)(name), (char *)(lbl_8044A9A4));
         var_r30 = ((TScene *)sp8)->update_lobby_scene();
     }
     if (var_r30 <= 0) {
-        replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)(sp8)), (char *)(name), (char *)((s32 *)(lbl_8044A940)));
+        replace_file_extension__6TLobbyFPvPvPv((char *)(sp8), (char *)(name), (char *)(lbl_8044A940));
         var_r30 = ((TScene *)sp8)->update_lobby_scene();
     }
     if (global_state == 0xF) {
@@ -369,7 +369,7 @@ void TScene::load_map_texture_archive(s32 name) {
             temp_r3 = ((TQuestVmDownLoadServer *)0x100)->alloc();
             TScene__texture_animation_buffer = temp_r3;
             if (temp_r3 != 0U) {
-                read_disc_file((char *)(sp8), (u32)(temp_r3));
+                read_disc_file((char *)(sp8), temp_r3);
                 lbl_805D6018 = 0x100;
             }
         }
@@ -377,7 +377,7 @@ void TScene::load_map_texture_archive(s32 name) {
         temp_r3_2 = ((TQuestVmDownLoadServer *)var_r30)->alloc();
         TScene__texture_animation_buffer = temp_r3_2;
         if (temp_r3_2 != 0U) {
-            read_disc_file((char *)(sp8), (u32)(temp_r3_2));
+            read_disc_file((char *)(sp8), temp_r3_2);
             lbl_805D6018 = var_r30;
         }
     }
@@ -454,7 +454,7 @@ void TScene::load_scene_data(s32 name) {
     scene_collision_data = NULL;
     TScene__collision_file_buffer = 0U;
     lbl_805D6014 = 0;
-    replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)((s32 *)&sp8)), (char *)(name), (char *)((s32 *)(lbl_8044A950)));
+    replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)((s32 *)&sp8)), (char *)(name), (char *)(lbl_8044A950));
     temp_r31 = ((TScene *)((s32 *)&sp8))->update_lobby_scene();
     if (TOKeyMachine01::get_global_state() == 0xF) {
         if ((temp_r31 > 0) && ((u32) temp_r31 <= 0x10000U)) {
@@ -507,7 +507,7 @@ void TScene::load_current_floor() {
         ent = tbl[res.index].idx;
     }
     copy_name((s32)((s32 *)TScene__current_floor_name));
-    TScene::load_scene_rel_file((s32)(ent));
+    TScene::load_scene_rel_file(ent);
     if (TScene__data_805D5FCC != NULL && *(u32 *)((s8 *)TScene__data_805D5FCC + 0x14) != 0) {
         found = 0;
         if (TRaderMapCore::is_not_split_screen() == 1) {
@@ -520,9 +520,9 @@ void TScene::load_current_floor() {
         bind_gvm_texture_list(path, *(u32 *)((s8 *)TScene__data_805D5FCC + 0x14));
     }
     TScene::load_scene_data(ent);
-    TScene::load_supplementary_t_rel((s32)(ent));
+    TScene::load_supplementary_t_rel(ent);
     TScene::load_map_texture_archive(ent);
-    TScene::load_floor_bin_file((s32)(ent));
+    TScene::load_floor_bin_file(ent);
     TScene::load_file_to_buffer(ent);
     TScene__floor_scene_ready_flag = 1;
     TScene__data_805D5FE0 = 0;

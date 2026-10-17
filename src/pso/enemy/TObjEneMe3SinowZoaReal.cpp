@@ -148,7 +148,7 @@ u8 *TObjEneMe3SinowZoaReal__ct(u8 *arg0, s32 arg1, s32 arg2) {
     TObjEneMe3SinowZoa__ct(arg0, (void *) arg1, (void *) arg2);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(SinowZoaRealVTableStorage *)&__vt__22TObjEneMe3SinowZoaReal).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneMe3SinowZoaReal__name;
-    invoke_initialization_hook__9TObjEneDDFv((void *) (arg0), (void *) (arg2));
+    invoke_initialization_hook__9TObjEneDDFv((void *)arg0, (void *)arg2);
     ((TObjEneMe3SinowZoa *)arg0)->setup_move_bounds();
     ((TObjEneMe3SinowZoaReal *)arg0)->init_enemy();
     ((TObjEneMe3SinowZoaReal *)arg0)->mode = 0;
@@ -159,7 +159,7 @@ u8 *TObjEneMe3SinowZoaReal__ct(u8 *arg0, s32 arg1, s32 arg2) {
 void *TObjEneMe3SinowZoaReal::create_instance(void *arg0) {
     void *o = __nw__7TObjectFUl(0x45C);
     if (o != NULL) {
-        o = TObjEneMe3SinowZoaReal__ct((u8 *)(o), (s32)(tl_04), (s32)(arg0));
+        o = TObjEneMe3SinowZoaReal__ct((u8 *)o, (s32)tl_04, (s32)arg0);
     }
     return o;
 }

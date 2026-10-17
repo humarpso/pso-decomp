@@ -108,14 +108,14 @@ void TTecDeband::create(s32 arg0, s32 pos, s32 arg2, s32 level) {
     u32 obj;
     obj = __nw__7TObjectFUl(0x140);
     if (obj != 0U) {
-        TTecDeband__ct((u32)(obj), (s32)(arg0), (s32)(pos), (s32)(arg2), (s32)(level));
+        TTecDeband__ct(obj, arg0, pos, arg2, level);
     }
 }
 void TTecDeband::create(s32 arg0, s32 pos, s32 level) {
     u32 obj;
     obj = __nw__7TObjectFUl(0x140);
     if (obj != 0U) {
-        TTecDeband__sub_8022F948((u8 *)(obj), (s32)(arg0), (s32)(pos), (s32)(level));
+        TTecDeband__sub_8022F948((u8 *)obj, (s32)arg0, (s32)pos, (s32)level);
     }
 }
 void TTecDeband::render() {  }
@@ -171,7 +171,7 @@ s32 TTecDeband__ct(u32 a0, s32 owner, s32 pos, s32 arg3, s32 level) {
 #define arg0 ((u8 *)a0)
     u32 temp_r3_2;
     u8 *temp_r3;
-    TTecPlayerInfluence__ct((void *) (arg0), (void *) (owner), (void *) (pos), (void *) (level));
+    TTecPlayerInfluence__ct((void *)arg0, (void *)owner, (void *)pos, (void *)level);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TTecDeband;
     ((TObjPlayer *)(arg0 + 0xE0))->construct_target_cursor_records();
     s32 g = tec_deband_class_name_ptr;
@@ -185,7 +185,7 @@ s32 TTecDeband__ct(u32 a0, s32 owner, s32 pos, s32 arg3, s32 level) {
     }
     temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x1C);
     if (temp_r3_2 != 0U) {
-        *(s16 *)((s8 *)arg0 + 0xA8) = obj_getField1c((int) (temp_r3_2));
+        *(s16 *)((s8 *)arg0 + 0xA8) = obj_getField1c(temp_r3_2);
     }
     if (*(s32 *)((s8 *)arg0 + 0xAC) != 0) {
         ((TTecDeband *)arg0)->init_params();
@@ -199,7 +199,7 @@ s32 TTecDeband__ct(u32 a0, s32 owner, s32 pos, s32 arg3, s32 level) {
 u8 *TTecDeband__sub_8022F948(u8 *arg0, s32 owner, s32 pos, s32 level) {
     u32 temp_r3_2;
     u8 *temp_r3;
-    TTecPlayerInfluence__ct((void *) (arg0), (void *) (owner), (void *) (pos), (void *) (level));
+    TTecPlayerInfluence__ct((void *)arg0, (void *)owner, (void *)pos, (void *)level);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8022F948___vt__10TTecDeband *)&__vt__10TTecDeband).value;
     ((TObjPlayer *)(arg0 + 0xE0))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) tec_deband_class_name_ptr;
@@ -211,7 +211,7 @@ u8 *TTecDeband__sub_8022F948(u8 *arg0, s32 owner, s32 pos, s32 level) {
     }
     temp_r3_2 = ((TTecDeband *)arg0)->source;
     if (temp_r3_2 != 0U) {
-        *(s16 *)&((TTecDeband *)arg0)->m_a8 = obj_getField1c((int) (temp_r3_2));
+        *(s16 *)&((TTecDeband *)arg0)->m_a8 = obj_getField1c(temp_r3_2);
     }
     ((TTecDeband *)arg0)->init_params();
     ((TTecDeband *)arg0)->play_state_sound();

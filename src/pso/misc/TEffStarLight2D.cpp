@@ -91,7 +91,7 @@ void run_task__15TEffStarLight2DFv(Star_800851B0 *self) {
         }
     }
 }
-void TEffStarLight2D::copy_from_subobject(void* a1) { ((TEffStarLight2D *)((char*)this + 0x38))->copy_from((void*)(a1)); }
+void TEffStarLight2D::copy_from_subobject(void* a1) { ((TEffStarLight2D *)((char*)this + 0x38))->copy_from(a1); }
 void TEffStarLight2D::copy_from(void* q) { *(f32 *)&this->m_name = *(f32*)((char*)q + 0x0); *(f32 *)&this->m_flags = *(f32*)((char*)q + 0x4); *(u8 *)&this->m_prev = *(u8*)((char*)q + 0x8); *(u8*)((char*)this + 0x9) = *(u8*)((char*)q + 0x9); *(u8*)((char*)this + 0xa) = *(u8*)((char*)q + 0xa); *(u8*)((char*)this + 0xb) = *(u8*)((char*)q + 0xb); *(u32 *)&this->m_next = *(u32*)((char*)q + 0xc); *(f32 *)&this->m_up = *(f32*)((char*)q + 0x10); }
 
 }
@@ -106,7 +106,7 @@ extern "C" {
 TEffStarLight2D::TEffStarLight2D(void *arg1, void *arg2, TObject *arg3) : TObject(arg3) {
     P2_80085388 p;
     ((O_80085388 *)this)->f0 = lbl_805D292C;
-    ((TEffStarLight2D *)((u8 *)((O_80085388 *)this) + 0x38))->copy_from((void*)(arg2));
+    ((TEffStarLight2D *)((u8 *)((O_80085388 *)this) + 0x38))->copy_from(arg2);
     VecCopy((Vec *)((u8 *)((O_80085388 *)this) + 0x2C), (const Vec *)arg1);
     project_world_to_screen(0, (u8 *)((O_80085388 *)this) + 0x2C, &p);
     ((O_80085388 *)this)->f24 = p.x;

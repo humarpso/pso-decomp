@@ -556,11 +556,11 @@ void TWindowKeyBoardHard::update_modifier_flags() {
         arg0->field_60 &= 0xFFFFFFDF;
     }
     if (arg0->field_60 & 0x80) {
-        temp_r3_3 = (u8 *)(arg0->field_70);
+        temp_r3_3 = arg0->field_70;
         *(s32 *)((s8 *)temp_r3_3 + 0xB4) = (s32) (*(s32 *)((s8 *)temp_r3_3 + 0xB4) | 0x20);
         return;
     }
-    temp_r3_4 = (u8 *)(arg0->field_70);
+    temp_r3_4 = arg0->field_70;
     *(s32 *)((s8 *)temp_r3_4 + 0xB4) = (s32) (*(s32 *)((s8 *)temp_r3_4 + 0xB4) & 0xFFFFFFDF);
 }
 

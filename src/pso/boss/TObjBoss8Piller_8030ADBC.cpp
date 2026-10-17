@@ -31,8 +31,8 @@ void TObjBoss8Piller::render() {
         TObjFish::set_global_param((s32)((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)TObjBoss8Piller__shared_resource + 0x42C)) + 0xC))));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x1C));
-        scale_matrix(0, (f32) (lbl_805DF150), (f32) (lbl_805DF150), (f32) (lbl_805DF150));
-        draw_model_motion((int) (var_r31), (int) (*(s32 *)((s8 *)arg0 + 0x2C)), (f32) (*(f32 *)((s8 *)arg0 + 0x28)));
+        scale_matrix(0, lbl_805DF150, lbl_805DF150, lbl_805DF150);
+        draw_model_motion(var_r31, (int) (*(s32 *)((s8 *)arg0 + 0x2C)), (f32) (*(f32 *)((s8 *)arg0 + 0x28)));
         pop_matrix();
         TObjPlayer::reset_transform_state();
     }
@@ -44,7 +44,7 @@ void TObjBoss8Piller::run_task() {
     *(f32 *)((s8 *)arg0 + 0x28) = (f32) (*(f32 *)((s8 *)arg0 + 0x28) + lbl_805DF150);
     enemy_entity = (u32)get_enemy_entity((*(u16 *)((s8 *)arg0 + 0x30)));
     if (enemy_entity != 0U) {
-        TBoss8Dragon__sub_802FB1B0((int) (enemy_entity), (f32) (lbl_805DF154), (void *) (arg0 + 0x1C));
+        TBoss8Dragon__sub_802FB1B0(enemy_entity, lbl_805DF154, (void *) (arg0 + 0x1C));
     }
     temp_r3_2 = *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x2C)) + 4) - 1;
     if (*(f32 *)((s8 *)arg0 + 0x28) >= (f32) temp_r3_2) {

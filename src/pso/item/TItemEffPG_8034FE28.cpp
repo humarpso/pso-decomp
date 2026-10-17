@@ -20,7 +20,7 @@ void create__10TItemEffPGFPvPvPv(void *arg0, void *parent, void *item) {
     void *o;
     o = __nw__7TObjectFUl(0xD8);
     if (o != NULL) {
-        ((TUnk_804F0C08 *)o)->initialize((void *)(arg0), (void *)(parent), (void *)(item));
+        ((TUnk_804F0C08 *)o)->initialize(arg0, parent, item);
     }
 }
 

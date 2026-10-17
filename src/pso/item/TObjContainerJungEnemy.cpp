@@ -79,7 +79,7 @@ extern void *tl_05;
 void *TObjContainerJungEnemy::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x378);
     if (o != NULL) {
-        o = TObjContainerJungEnemy__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TObjContainerJungEnemy__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

@@ -37,8 +37,8 @@ void TWindowTimer__sub_80198960(u8 *arg0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x1C));
         rotate_matrix_y(0, (int) (((TUnk_804B8DE8 *)arg0)->m_34));
-        scale_matrix(0, (f32) (lbl_805DBF44), (f32) (lbl_805DBF44), (f32) (lbl_805DBF44));
-        get_bml_model((void *) (gogo_ball_bml_resource), 4);
+        scale_matrix(0, lbl_805DBF44, lbl_805DBF44, lbl_805DBF44);
+        get_bml_model((void *)gogo_ball_bml_resource, 4);
         draw_chunk_object();
         pop_matrix();
     }

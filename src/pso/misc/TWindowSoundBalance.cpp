@@ -59,12 +59,12 @@ typedef char RecoveredGlobal_80270ACC_lbl_8050E208_size[sizeof(RecoveredGlobal_8
 void TWindowSoundBalance::handle_lr_input() {
     u8 *input;
     input = (u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x20;
-    if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (input), 0x30, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x160)), 0x30, 6, 1) != 0)) {
+    if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int)input, 0x30, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x160)), 0x30, 6, 1) != 0)) {
         play_sound_effect(0x54100, (s32)(0U), 0, 0);
-        if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (input), 0x10, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x160)), 0x10, 6, 1) != 0)) {
+        if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int)input, 0x10, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x160)), 0x10, 6, 1) != 0)) {
             this->m_61 = (u8) (this->m_61 - 1);
         }
-        if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (input), 0x20, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x160)), 0x20, 6, 1) != 0)) {
+        if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int)input, 0x20, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x160)), 0x20, 6, 1) != 0)) {
             this->m_61 = (u8) (this->m_61 + 1);
         }
         if ((s8) this->m_61 < 0) {
@@ -97,12 +97,12 @@ void TWindowSoundBalance::run_task() {
     u8 *temp_r31;
     if (is_active__19TWindowSoundBalanceFv() == 0) {
         handle_lr_input();
-        TWindowSoundBalance__sub_8027095C((void *) (arg0));
+        TWindowSoundBalance__sub_8027095C((void *)arg0);
         temp_r31 = (u8 *)&controller_input_state.value + 0x20;
-        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), 4) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 4) != 0)) {
+        if ((TWindowShortListCtrl__check_controller_button((int)temp_r31, 4) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 4) != 0)) {
             play_open_sound();
         }
-        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 2) != 0)) {
+        if ((TWindowShortListCtrl__check_controller_button((int)temp_r31, 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 2) != 0)) {
             ((TWindowSoundBalance *)arg0)->handle_cancel();
         }
     }

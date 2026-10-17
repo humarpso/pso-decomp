@@ -75,11 +75,11 @@ void setup_projection_tex_matrix__10TObjPlayerFv(void) {
         calc_projection_screen_offset((void *) (&spC), (void *) (&sp8));
         temp_f31 = (f32) (lbl_804783B0 * calc_camera_fov_degrees());
         if (TCameraCtrl__sub_800689F4() != 0) {
-            C_MTXLightPerspective((void *) (&sp10), (f32) (temp_f31), (f32) (lbl_805DFAC8), (f32) (lbl_805DFACC), (f32) (lbl_805DFAD0), (f32) (lbl_805DFACC - spC), (f32) (lbl_805DFACC - sp8));
+            C_MTXLightPerspective((void *) (&sp10), temp_f31, lbl_805DFAC8, lbl_805DFACC, lbl_805DFAD0, (f32) (lbl_805DFACC - spC), (f32) (lbl_805DFACC - sp8));
         } else {
-            C_MTXLightPerspective((void *) (&sp10), (f32) (temp_f31), (f32) (lbl_805DFAC8), (f32) (lbl_805DFACC), (f32) (lbl_805DFAD0), (f32) (lbl_805DFACC), (f32) (lbl_805DFACC));
+            C_MTXLightPerspective((void *) (&sp10), temp_f31, lbl_805DFAC8, lbl_805DFACC, lbl_805DFAD0, lbl_805DFACC, lbl_805DFACC);
         }
-        PSMTXConcat((void *) (&sp10), (void *) (current_matrix), (void *) (current_matrix));
+        PSMTXConcat((void *) (&sp10), (void *)current_matrix, (void *)current_matrix);
         load_current_tex_matrix(2);
         pop_matrix();
         load_current_pos_matrix(2);
@@ -98,7 +98,7 @@ void TObjPlayer::free_indexed_entry(s32 _w1) {
 
     temp_r0 = (*(s32 *)&this->m_20);
     if (temp_r0 < 0x10) {
-        ((TObjPlayer *)(*(s32 *)((s8 *)this + 0x1C) + (temp_r0 * 0x24)))->copy_node_record((s32)(_w1));
+        ((TObjPlayer *)(*(s32 *)((s8 *)this + 0x1C) + (temp_r0 * 0x24)))->copy_node_record(_w1);
     }
 }
 void TObjPlayer::copy_node_record(s32 arg1) {

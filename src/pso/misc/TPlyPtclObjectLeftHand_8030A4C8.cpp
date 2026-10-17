@@ -36,7 +36,7 @@ extern s32 __vt__22TPlyPtclObjectLeftHand[];
 extern void *TPlyPtclObjectLeftHand__class_name;
 
 void *TPlyPtclObjectLeftHand__ct(void *arg0, u8 * _w1) {
-    TPlyFollowParticleCtrl__ct((Ctrl_8030A5B8 *)(arg0), (u8 *)(_w1));
+    TPlyFollowParticleCtrl__ct((Ctrl_8030A5B8 *)(arg0), _w1);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TPlyPtclObjectLeftHand;
     *(void * *)&((TPlyPtclObjectLeftHand *)arg0)->m_name = TPlyPtclObjectLeftHand__class_name;
     return arg0;

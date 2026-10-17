@@ -56,7 +56,7 @@ void TWindowCtrl__sub_8024ADAC(s32 arg0) {
     stack.sp8 = *(s32 *)((s8 *)(&lbl_804CEA1C.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&lbl_804CEA1C.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_804CEA1C.value) + 8);
-    call_window_method__11TWindowCtrlFPvi((void *) (arg0), (void *) (&stack.sp8));
+    call_window_method__11TWindowCtrlFPvi((void *)arg0, (void *) (&stack.sp8));
 }
 typedef char RecoveredGlobal_8024ADF0_lbl_804CEA10_size[sizeof(RecoveredGlobal_8024ADF0_lbl_804CEA10) == 0xC ? 1 : -1];
 void TWindowCtrl__sub_8024ADF0(s32 arg0) {
@@ -67,7 +67,7 @@ void TWindowCtrl__sub_8024ADF0(s32 arg0) {
     stack.sp8 = *(s32 *)((s8 *)(&lbl_804CEA10.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&lbl_804CEA10.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_804CEA10.value) + 8);
-    call_window_method__11TWindowCtrlFPvi((void *) (arg0), (void *) (&stack.sp8));
+    call_window_method__11TWindowCtrlFPvi((void *)arg0, (void *) (&stack.sp8));
 }
 
 }

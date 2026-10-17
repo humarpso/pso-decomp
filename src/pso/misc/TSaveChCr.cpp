@@ -65,7 +65,7 @@ s32 TSaveChCr__sub_80339F30(void) {
     return TObjCMProportion__sub_8029916C(4) ? 1 : 0;
 }
 
-void TSaveChCr::close_and_advance(void* a1) { close_window(); set_message_by_index((s32)(a1)); }
+void TSaveChCr::close_and_advance(void* a1) { close_window(); set_message_by_index((s32)a1); }
 typedef char RecoveredGlobal_80339F98_lbl_80477CBC_size[sizeof(RecoveredGlobal_80339F98_lbl_80477CBC) == 0x24 ? 1 : -1];
 void TSaveChCr::set_message_by_index(s32 arg1) {
     s32 arg0 = (s32)this;

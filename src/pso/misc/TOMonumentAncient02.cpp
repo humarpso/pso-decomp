@@ -207,7 +207,7 @@ void TOMonumentAncient02::render() {
 void *TOMonumentAncient02::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF0);
     if (o != NULL) {
-        o = TOMonumentAncient02__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TOMonumentAncient02__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

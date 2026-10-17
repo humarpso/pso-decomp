@@ -288,7 +288,7 @@ u8 *TODoorFourLightSpace__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3B1C;
     ((TODoorFourLightSpace *)(arg0))->apply_object_set_data((void *)arg2);
     ((TODoorFourLightSpace *)(arg0))->init_door_switch_binding();
-    init_collision_body_parts((void *) (arg0), (void *) (TODoorFourLight__collision_body_params), 1);
+    init_collision_body_parts(arg0, TODoorFourLight__collision_body_params, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(s32 *)&((TODoorFourLightSpace *)arg0)->m_d4 = (s32)fn_8028A78C(0);
@@ -488,7 +488,7 @@ void TODoorFourLightRuins::render() {
         case 0:
             cc = this->m_cc;
             if ((cc == 2) || (cc == 3)) {
-                TODoorFourLightRuins::draw_model_and_lights((void *)(arg0));
+                TODoorFourLightRuins::draw_model_and_lights(arg0);
                 return;
             }
             push_matrix();
@@ -539,7 +539,7 @@ u8 *TODoorFourLightRuins__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3B18;
     ((TODoorFourLightRuins *)(arg0))->apply_object_set_data((void *)arg2);
     ((TODoorFourLightRuins *)(arg0))->init_door_switch_binding();
-    init_collision_body_parts((void *) (arg0), (void *) (TODoorFourLight__collision_body_params), 1);
+    init_collision_body_parts(arg0, TODoorFourLight__collision_body_params, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(s32 *)&((TODoorFourLightRuins *)arg0)->m_d4 = (s32)fn_8028A78C(0);

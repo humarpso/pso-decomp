@@ -236,11 +236,11 @@ void TObjEneEpsilonGuard::sub_803626A8(s32 arg1, s32 arg2) {
     stack.sp10 = *(s32 *)((s8 *)(&lbl_80479FBC.value) + 8);
     push_matrix_from((void *) (&identity_matrix.value));
     post_translate_matrix((void *) (((u8 *)this) + 0x38));
-    rotate_matrix_y(0, (int) (this->rotation_y));
-    ((TObjEnemy *)((u8 *)this))->render_anim_model((f32) (this->m_c0));
+    rotate_matrix_y(0, this->rotation_y);
+    ((TObjEnemy *)((u8 *)this))->render_anim_model(this->m_c0);
     pop_matrix();
     push_matrix_from((void *) (anim_model_matrix_array + (arg2 * 0x30)));
-    matrix_mult_vec(0, (void *) (&stack.sp8), (void *) (arg1));
+    matrix_mult_vec(0, (void *) (&stack.sp8), (void *)arg1);
     pop_matrix();
 }
 
@@ -312,7 +312,7 @@ u8 *__dt__14TObjEneEpsilonFv(u8 *arg0, s16 arg1) {
         __destroy_arr((void *) (arg0 + 0x3C0), (void *) (&__dt__13TUnk_804949A8Fv), 0x1C, 4);
         __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *) (arg0));
+            __dl__7TObjectFPv(arg0);
         }
     }
     return arg0;
@@ -330,11 +330,11 @@ void *TObjEneEpsilon__ct(void *arg0) {
 extern s32 lbl_804F26E0[];
 
 void TUnk_804F26E0::vfunc_62() {
-    ((TItemProUnit *)(*(s32 *)&this->player + 0x7CC))->set_evp((f32) (lbl_805E0258));
+    ((TItemProUnit *)(*(s32 *)&this->player + 0x7CC))->set_evp(lbl_805E0258);
 }
 
 void s_rank_knuckle_equip(u8 *arg0) {
-    ((TItemProUnit *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC))->set_evp((f32) (lbl_805E025C));
+    ((TItemProUnit *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC))->set_evp(lbl_805E025C);
 }
 
 typedef struct S_80362C80 S_80362C80;
@@ -358,9 +358,9 @@ u8 *create_s_rank_knuckle(u8 *arg0) {
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1FC));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)init_s_rank_knuckle((void *)(temp_r3), (s32)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)init_s_rank_knuckle(temp_r3, tl_05, arg0)));
         }
         return var_r0;
     }

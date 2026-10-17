@@ -51,7 +51,7 @@ void fn_8007FF28(Obj_8007FF28 *self, s32 arg1) {
         scale = (-1.0f) / get_scale__15TWindowCtrlMainFv(TCameraCtrl::get_camera_no());
         c = (0.5f);
         b = c * ((f32)(self->timer - 5) / (15.0f)) + (1.0f);
-        fn_8007FE78((Obj_8007FF28 *)(self), (s32)(arg1), (void *)(self->x1C), scale, b, self->timer < 10 ? c : c - c * ((f32)(self->timer - 10) / (1e+01f)));
+        fn_8007FE78((Obj_8007FF28 *)(self), arg1, self->x1C, scale, b, self->timer < 10 ? c : c - c * ((f32)(self->timer - 10) / (1e+01f)));
     }
 }
 #pragma pop
@@ -75,7 +75,7 @@ void TDuelEffectNumber::sub_8007FFF4(s32 arg1) {
         b = (1.0f);
         c = b - ((f32) (((Obj_8007FF28 *)this)->timer - 25) / (5.0f));
     }
-    fn_8007FE78((Obj_8007FF28 *)(((Obj_8007FF28 *)this)), (s32)(arg1), (void *)(((Obj_8007FF28 *)this)->x1C), scale, b, c);
+    fn_8007FE78((Obj_8007FF28 *)(((Obj_8007FF28 *)this)), arg1, (void *)(((Obj_8007FF28 *)this)->x1C), scale, b, c);
 }
 #pragma pop
 

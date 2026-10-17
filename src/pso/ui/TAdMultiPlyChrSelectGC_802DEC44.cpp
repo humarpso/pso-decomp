@@ -91,8 +91,8 @@ void TAdMultiPlyChrSelectGC__sub_802DEDA8(u8 *arg0) {
     TAdMultiPlyChrSelectGC__sub_802E006C((int) (*(s32 *)((s8 *)arg0 + 0x5C)), 0, 1);
     var_r30 = 0;
     do {
-        if (is_multiplayer_character_slot_selected((int) (var_r30)) != 0) {
-            TAdMultiPlyChrSelectGC__sub_802C658C((int) (var_r30));
+        if (is_multiplayer_character_slot_selected(var_r30) != 0) {
+            TAdMultiPlyChrSelectGC__sub_802C658C(var_r30);
             if (is_slot_active__23TAdSinglePlyChrSelectGCFUi() == 0) {
                 TAdMultiPlyChrSelectGC::reset_slot_selections();
             }

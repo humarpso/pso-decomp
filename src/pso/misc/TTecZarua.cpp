@@ -176,7 +176,7 @@ void TTecZarua::create_instance(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 obj;
     obj = __nw__7TObjectFUl(0x14C);
     if (obj != 0U) {
-        init_instance__9TTecZaruaFPviiii((Zarua_8023C420 *)(obj), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3));
+        init_instance__9TTecZaruaFPviiii((Zarua_8023C420 *)(obj), arg0, arg1, arg2, arg3);
     }
 }
 void TTecZarua::render() {  }

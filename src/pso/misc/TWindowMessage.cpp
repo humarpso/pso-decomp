@@ -25,8 +25,8 @@ void TWindowMessage::render() {
     s32 temp_r3;
     s32 arg0 = (s32)this;
     temp_r3 = get_draw_context__11TWindowBaseFPv();
-    draw_window_frame((void *) (arg0), (int) (temp_r3));
-    draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
+    draw_window_frame((void *)arg0, (int)temp_r3);
+    draw_visible_window_entries((void *)arg0, (void *) (arg0 + 0x24), (int)temp_r3);
 }
 
 void TWindowMessage::draw() {

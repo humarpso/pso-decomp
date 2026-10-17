@@ -30,7 +30,7 @@ void TBoss6Type2::send_6xAD_grid_positions(u8 arg0, s32 arg1, s32 arg2) {
     if (arg2 < 0 || arg2 > 3) {
         return;
     }
-    TBoss6Type2__sub_803570C8((s8 *)(buf));
+    TBoss6Type2__sub_803570C8((s8 *)buf);
     buf[0] = arg0;
     p = arg1;
     j = 1;

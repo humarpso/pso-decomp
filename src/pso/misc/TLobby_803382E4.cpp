@@ -138,14 +138,14 @@ void TLobby__sub_803382E4(void) {
         TParticleCtrl::begin_effect_render();
         TCameraCtrl::restore_full_screen_view();
         TObjPlayer::reset_transform_state();
-        TObjFish::set_global_param((s32)(lbl_804EF1DC));
+        TObjFish::set_global_param((s32)lbl_804EF1DC);
         set_texture_num(0);
         TLobby__sub_803E2EE4(0);
-        draw_projected_textured_strip((void *)(lbl_804EF2E4), 4);
+        draw_projected_textured_strip(lbl_804EF2E4, 4);
         TLobby::reset_player_state();
         set_texture_num(1);
         TLobby__sub_803E2EE4(0);
-        draw_projected_textured_strip((void *)(lbl_804EF344), 4);
+        draw_projected_textured_strip(lbl_804EF344, 4);
         TLobby::reset_player_state();
         TObjPlayer::init_xyz_limits();
         ((TObjPlayer *)lbl_804EF3E0)->draw_compass_sprite(2, (__cvt_fp2unsigned(lbl_805DF9B4 * alpha) << 24) | 0xFFFFFF, 0x21, lbl_805DF9A0);
@@ -170,11 +170,11 @@ void TLobby::load_now_loading_texture() {
     if (!(lobby_request_flags & 2)) {
         temp_r31 = ((TQuestVmDownLoadServer *)0x11000)->alloc();
         temp_r3 = ((TQuestVmDownLoadServer *)0x2000)->alloc();
-        set_stream_state__6TLobbyFi((void *) (lbl_80477BC4), (int) (temp_r3));
+        set_stream_state__6TLobbyFi(lbl_80477BC4, temp_r3);
         prs_decompress_buffer((temp_r3), (temp_r31));
-        load_gvm_texture_archive((int) (temp_r31), (void *) (lbl_804EF1DC));
-        TAdSinglePlyChrSelectGC::safe_free((int) (temp_r3));
-        TAdSinglePlyChrSelectGC::safe_free((int) (temp_r31));
+        load_gvm_texture_archive(temp_r31, lbl_804EF1DC);
+        TAdSinglePlyChrSelectGC::safe_free(temp_r3);
+        TAdSinglePlyChrSelectGC::safe_free(temp_r31);
         lobby_request_flags |= 2;
     }
 }
@@ -267,7 +267,7 @@ void TLobby::update_pulse_colors(s32 arg0) {
 }
 #pragma pop
 
-void TWindowSubStatusDisp__sub_803386F0(void) { free_if_valid__10TObjPlayerFl((void*)(info_icon_texture)); }
+void TWindowSubStatusDisp__sub_803386F0(void) { free_if_valid__10TObjPlayerFl((void*)info_icon_texture); }
 
     extern unsigned char lbl_80477BD4[];
 void load_info_icon(void) { info_icon_texture = (int)load_gvm_texture_file((s32)lbl_80477BD4); }

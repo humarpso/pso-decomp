@@ -20,12 +20,12 @@ void TObjPlayer::create_dead_spot(s32 arg0, s32 arg1, f32 farg0) {
 
     temp_r3 = __nw__7TObjectFUl(0x38);
     if (temp_r3 != 0) {
-        construct_fire_base__9TDeadSpotFPvPvPvif((u8 *)temp_r3, (u8 *)tl_05, (u8 *)arg0, (s32)(create_timed_particle_emitter((void *)(arg0), 0xF8, 0, (arg1))), (f32)farg0);
+        construct_fire_base__9TDeadSpotFPvPvPvif((u8 *)temp_r3, (u8 *)tl_05, (u8 *)arg0, (s32)(create_timed_particle_emitter((void *)arg0, 0xF8, 0, (arg1))), (f32)farg0);
     }
 }
 
 void TObjPlayer::spawn_effect_f8(s32 arg1, s32 arg2) {
-    create_timed_particle_emitter((void *)(arg1), 0xF8, 0, (arg2));
+    create_timed_particle_emitter((void *)arg1, 0xF8, 0, (arg2));
 }
 
 void TObjPlayer::set_field_e4(s32 arg1, s32 arg2) {
@@ -41,11 +41,11 @@ void create_dead_spot__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0
 
     temp_r3 = __nw__7TObjectFUl(0x38);
     if (temp_r3 != 0) {
-        init__9TDeadSpotFPv((void *)temp_r3, (u8 *)tl_05, (u8 *)arg0, (s32)(create_timed_particle_emitter((void *)(arg0), (arg1), 0, (arg2))), (f32)farg0);
+        init__9TDeadSpotFPv((void *)temp_r3, (u8 *)tl_05, (u8 *)arg0, (s32)(create_timed_particle_emitter((void *)arg0, (arg1), 0, (arg2))), (f32)farg0);
     }
 }
 
-void TObjPlayer::request_two_effects() { create_timed_particle_emitter((void *)(this), (s32)((void*)232), (s32)((void*)10), (s32)((void*)1)); create_timed_particle_emitter((void *)(this), (s32)((void*)236), (s32)((void*)10), (s32)((void*)1)); }
+void TObjPlayer::request_two_effects() { create_timed_particle_emitter(this, (s32)((void*)232), (s32)((void*)10), (s32)((void*)1)); create_timed_particle_emitter(this, (s32)((void*)236), (s32)((void*)10), (s32)((void*)1)); }
 
 void TObjPlayer::trigger_dell_biter_events() { spawn_particle_effect(this, (s32)((void*)251)); spawn_particle_effect(this, (s32)((void*)252)); spawn_particle_effect(this, (s32)((void*)227)); }
 

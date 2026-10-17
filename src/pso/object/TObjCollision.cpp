@@ -28,7 +28,7 @@ extern void *tl_06;
 void *TObjCollision::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD8);
     if (o != NULL) {
-        o = TObjCollision__ct((u8 *)(o), (s32)(tl_06), (s32)(arg0));
+        o = TObjCollision__ct((u8 *)o, (s32)tl_06, (s32)arg0);
     }
     return o;
 }

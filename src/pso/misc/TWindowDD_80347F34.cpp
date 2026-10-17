@@ -38,7 +38,7 @@ void TWindowDD__sub_80347FA0(s32 arg0, s32 arg1) {
     var_r3 = (u8 *)(*(u8 **)((s8 *)var_r3 + 0x64));
     if (var_r3 != NULL) {
         var_r4 = (*(s32 *)&TWindowDD__data_805DFB50);
-        ((TWindowDD *)var_r3)->update_position((int) (var_r4));
+        ((TWindowDD *)var_r3)->update_position(var_r4);
     }
 }
 

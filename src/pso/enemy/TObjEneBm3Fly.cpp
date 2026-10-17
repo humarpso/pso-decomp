@@ -977,19 +977,19 @@ void TObjEneBm3Fly__sub_800B02C8(u8 *arg0, s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x428) = (s32) (*(s32 *)((s8 *)arg0 + 0x428) & 0xFFFFFFFE);
         *(s32 *)((s8 *)arg0 + 0x428) = (s32) (*(s32 *)((s8 *)arg0 + 0x428) | 2);
         *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x01000000);
-        sub_800B1634__13TObjEneBm3FlyFv((void *) (arg0));
+        sub_800B1634__13TObjEneBm3FlyFv(arg0);
         *(f32 *)((s8 *)arg0 + 0x394) = (f32) (((3e+01f) * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x448)))) + *(f32 *)((s8 *)arg0 + 0x41C));
         *(f32 *)((s8 *)arg0 + 0x398) = (f32) *(f32 *)((s8 *)arg0 + 0x444);
         *(f32 *)((s8 *)arg0 + 0x39C) = (f32) (((3e+01f) * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x448)))) + *(f32 *)((s8 *)arg0 + 0x424));
         temp_r4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x350));
-        *(f32 *)((s8 *)arg0 + 0x3E0) = (f32) ((2.0f) + calc_scaled_value__15TObjBoss2TunnelFlf((int) (*(s32 *)((s8 *)temp_r4 + 8)), (int) (temp_r4), (f32) (*(f32 *)((s8 *)temp_r4 + 4)), (f32) ((3e+01f))));
+        *(f32 *)((s8 *)arg0 + 0x3E0) = (f32) ((2.0f) + calc_scaled_value__15TObjBoss2TunnelFlf((int) (*(s32 *)((s8 *)temp_r4 + 8)), (int)temp_r4, (f32) (*(f32 *)((s8 *)temp_r4 + 4)), (f32) ((3e+01f))));
         ((TObjEneDD *)arg0)->update_velocity();
         break;
     case 3:
         if (update_linked_position__12TObjEneDD_STFf((f32) ((2e+02f))) != 0) {
-            transition_enemy_state((void *) (arg0), 2);
+            transition_enemy_state(arg0, 2);
         } else if (*(f32 *)((s8 *)arg0 + 0x3AC) < *(f32 *)((s8 *)arg0 + 0x3E0)) {
-            transition_enemy_state((void *) (arg0), 1);
+            transition_enemy_state(arg0, 1);
         }
         break;
     case 5:
@@ -997,10 +997,10 @@ void TObjEneBm3Fly__sub_800B02C8(u8 *arg0, s32 arg1) {
     case 0:
         advance_animation_playback();
         ((TObjEneDD *)arg0)->update_velocity();
-        *(f32 *)((s8 *)arg0 + 0x42C) = approach_value__13TObjEneBm3FlyFff((void *) (arg0), (f32) (*(f32 *)((s8 *)arg0 + 0x42C)), (f32) (*(f32 *)((s8 *)arg0 + 0x398)));
+        *(f32 *)((s8 *)arg0 + 0x42C) = approach_value__13TObjEneBm3FlyFff(arg0, (f32) (*(f32 *)((s8 *)arg0 + 0x42C)), (f32) (*(f32 *)((s8 *)arg0 + 0x398)));
         update_state_flag__13TObjEneBm3FlyFPv((arg0));
         ((TObjEneBm3Fly *)(arg0))->vfunc_88();
-        clamp_flight_height__13TObjEneBm3FlyFv((void *) (arg0));
+        clamp_flight_height__13TObjEneBm3FlyFv(arg0);
         ((TObjEneDD *)arg0)->transform_part_positions();
         ((TObjEneBm3Fly *)arg0)->play_pitched_cue();
         break;
@@ -1008,9 +1008,9 @@ void TObjEneBm3Fly__sub_800B02C8(u8 *arg0, s32 arg1) {
 }
 #pragma pop
 
-#define I(o) (*(s32 *)((s8 *)(arg0) + (o)))
-#define R(o) (*(f32 *)((s8 *)(arg0) + (o)))
-#define P(o) (*(u8 **)((s8 *)(arg0) + (o)))
+#define I(o) (*(s32 *)(arg0 + (o)))
+#define R(o) (*(f32 *)(arg0 + (o)))
+#define P(o) (*(u8 **)(arg0 + (o)))
 #define V ((VObj_800B044C *)(arg0))
 void state_circle_target__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
     f32 speed;
@@ -1117,7 +1117,7 @@ void execute_action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
         return;
     case 3:
         if (*(f32 *)((s8 *)arg0 + 0x3AC) > (4.5e+02f)) {
-            transition_enemy_state((void *) (arg0), 5);
+            transition_enemy_state(arg0, 5);
             return;
         }
         temp_r0 = *(s32 *)((s8 *)arg0 + 0x3C0);
@@ -1125,19 +1125,19 @@ void execute_action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
         case 0:
         case 1:
             if ((void *) *(void **)((s8 *)arg0 + 0x390) == NULL) {
-                transition_enemy_state((void *) (arg0), 5);
+                transition_enemy_state(arg0, 5);
             }
         case 2:
             return;
         case 3:
-            transition_enemy_state((void *) (arg0), 4);
+            transition_enemy_state(arg0, 4);
             return;
         }
         break;
     case 0:
         advance_animation_playback();
         if (((TObjEneEpsilon *)arg0)->update_death_check() == 0) {
-            enemy_clear_target__12TObjEneDD_STFUs((void *) (arg0));
+            enemy_clear_target__12TObjEneDD_STFUs(arg0);
         }
         temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x3C0);
         switch (temp_r0_2) {
@@ -1149,8 +1149,8 @@ void execute_action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
             *(f32 *)((s8 *)arg0 + 0x430) = sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60)));
             *(f32 *)((s8 *)arg0 + 0x438) = cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60)));
             update_state_flag__13TObjEneBm3FlyFPv((arg0));
-            *(f32 *)((s8 *)arg0 + 0x42C) = approach_value__13TObjEneBm3FlyFff((void *) (arg0), (f32) (*(f32 *)((s8 *)arg0 + 0x42C)), (f32) (*(f32 *)((s8 *)arg0 + 0x398)));
-            clamp_flight_height__13TObjEneBm3FlyFv((void *) (arg0));
+            *(f32 *)((s8 *)arg0 + 0x42C) = approach_value__13TObjEneBm3FlyFff(arg0, (f32) (*(f32 *)((s8 *)arg0 + 0x42C)), (f32) (*(f32 *)((s8 *)arg0 + 0x398)));
+            clamp_flight_height__13TObjEneBm3FlyFv(arg0);
             if (can_attack_target__13TObjEneBm3FlyFPv((arg0)) != 0) {
                 *(s16 *)((s8 *)arg0 + 0xB8) = 0;
                 *(s32 *)((s8 *)arg0 + 0x3C0) = 1;
@@ -1163,7 +1163,7 @@ void execute_action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
                 *(s32 *)((s8 *)arg0 + 0x3C0) = 2;
                 *(s16 *)((s8 *)arg0 + 0xB8) = 2;
             }
-            update_collide_flag__13TObjEneBm3FlyFv((void *) (arg0));
+            update_collide_flag__13TObjEneBm3FlyFv(arg0);
             break;
         case 2:
             if (objInBand((GameObj *)(arg0), (f32) ((9.0f))) != 0) {
@@ -1174,11 +1174,11 @@ void execute_action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
                     ((VObjB0_800b07d0 *)temp_r3_2)->v20(arg0, (1.0f));
                     temp_r3_3 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x390));
                     ((VObjB0_800b07d0 *)temp_r3_3)->v23(arg0, (3.0f));
-                    if ((TObjEneDD::check_v2_mode() != 0) && (calc_boss4_scale__10TObjPlayerFi((s32)(arg0)) < (0.05f))) {
-                        TObjEneDD::inflict_poison((s32)((void *) (arg0)), (u8 *)(*(void **)((s8 *)arg0 + 0x390)));
+                    if ((TObjEneDD::check_v2_mode() != 0) && (calc_boss4_scale__10TObjPlayerFi((s32)arg0) < (0.05f))) {
+                        TObjEneDD::inflict_poison((s32)(arg0), (u8 *)(*(void **)((s8 *)arg0 + 0x390)));
                     }
                 }
-                play_sound_effect(copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), 0x4003A524), (void *) (arg0 + 0x38), 0, 0);
+                play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003A524), (void *) (arg0 + 0x38), 0, 0);
                 TObjPlayer::play_effect_if_v2(-0x400);
             }
             if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
@@ -1190,7 +1190,7 @@ void execute_action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
                     *(s32 *)((s8 *)arg0 + 0x3C0) = 0;
                 }
             }
-            update_collide_flag__13TObjEneBm3FlyFv((void *) (arg0));
+            update_collide_flag__13TObjEneBm3FlyFv(arg0);
             break;
         }
         ((TObjEneBm3Fly *)arg0)->vfunc_89();
@@ -1208,9 +1208,9 @@ void execute_action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
 #undef R
 #undef P
 #undef V
-#define I(o) (*(s32 *)((s8 *)(arg0) + (o)))
-#define R(o) (*(f32 *)((s8 *)(arg0) + (o)))
-#define P(o) (*(u8 **)((s8 *)(arg0) + (o)))
+#define I(o) (*(s32 *)(arg0 + (o)))
+#define R(o) (*(f32 *)(arg0 + (o)))
+#define P(o) (*(u8 **)(arg0 + (o)))
 #define V ((VObj_800B0B20 *)(arg0))
 
 void TObjEneBm3Fly__sub_800B0B20(u8 *arg0, s32 arg1) {
@@ -1339,12 +1339,12 @@ void TObjEneBm3Fly__sub_800B0B20(u8 *arg0, s32 arg1) {
 #pragma push
 #pragma fp_contract on
 #pragma opt_common_subs off
-#define F_800B(off, T) (*(T *)((s8 *)(arg0) + (off)))
+#define F_800B(off, T) (*(T *)(arg0 + (off)))
 
 #pragma push
 #pragma fp_contract on
-#define I(o) (*(s32 *)((s8 *)(arg0) + (o)))
-#define R(o) (*(f32 *)((s8 *)(arg0) + (o)))
+#define I(o) (*(s32 *)(arg0 + (o)))
+#define R(o) (*(f32 *)(arg0 + (o)))
 void TObjEneBm3Fly__sub_800B0F70(u8 *arg0, s32 arg1) {
     Vec_800B0F70 d;
     f32 radius;
@@ -1485,12 +1485,12 @@ void TObjEneBm3Fly__vt102(void *arg0, f32 farg0) {
     spawn_part__14TObjEneEpsilonFi(arg0, farg0);
 }
 void TObjEneBm3Fly__play_orbit_flight_sound(s32 arg0) {
-    play_persistent_sound((((s32)copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), 0x4003AB23))), (arg0), (arg0 + 0x38), 0, 0);
+    play_persistent_sound((((s32)copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003AB23))), (arg0), (arg0 + 0x38), 0, 0);
     TObjPlayer::play_effect_if_v2(-0x400);
 }
 void TObjEneBm3Fly::play_pitched_cue() {
     s32 arg0 = (s32)this;
-    play_persistent_sound((((s32)copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), 0x40039E22))), (arg0), (arg0 + 0x38), 0, 0);
+    play_persistent_sound((((s32)copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x40039E22))), (arg0), (arg0 + 0x38), 0, 0);
     TObjPlayer::play_effect_if_v2(-0x400);
 }
 
@@ -2200,10 +2200,10 @@ void TObjEneBm3Fly::vfunc_63() {
     temp_r0 = this->mode;
     if ((temp_r0 != 8) && (temp_r0 != 9) && (temp_r0 != 7)) {
         if (was_hit_by_ranged__13TObjEneBm3FlyFv() != 0) {
-            ((int (*)(void*, void*))transition_enemy_state)((void*)((void *) (arg0)), (void*)(7));
+            ((int (*)(void*, void*))transition_enemy_state)((void*)(arg0), (void*)(7));
             return;
         }
-        ((int (*)(void*, void*))transition_enemy_state)((void*)((void *) (arg0)), (void*)(8));
+        ((int (*)(void*, void*))transition_enemy_state)((void*)(arg0), (void*)(8));
     }
 }
 
@@ -2212,34 +2212,34 @@ void TObjEneBm3Fly::vfunc_28() {  }
 void TObjEneBm3Fly__vt85(s32 arg0, u32 arg1, s32 arg2) {
     switch (arg1) {
     case 0:
-        TObjEneBm3Fly__sub_800B1214((u8 *)(arg0), (arg2));
+        TObjEneBm3Fly__sub_800B1214((u8 *)arg0, (arg2));
         return;
     case 1:
-        TObjEneBm3Fly__sub_800B0F70((u8 *)(arg0), (arg2));
+        TObjEneBm3Fly__sub_800B0F70((u8 *)arg0, (arg2));
         return;
     case 2:
-        TObjEneBm3Fly__sub_800B0B20((u8 *)(arg0), (arg2));
+        TObjEneBm3Fly__sub_800B0B20((u8 *)arg0, (arg2));
         return;
     case 3:
-        execute_action__13TObjEneBm3FlyFPvi((u8 *)(arg0), (arg2));
+        execute_action__13TObjEneBm3FlyFPvi((u8 *)arg0, (arg2));
         return;
     case 4:
-        state_circle_target__13TObjEneBm3FlyFPvi((u8 *)(arg0), (arg2));
+        state_circle_target__13TObjEneBm3FlyFPvi((u8 *)arg0, (arg2));
         return;
     case 6:
-        update_recoil_state__13TObjEneBm3FlyFv((u8 *)(arg0), (arg2));
+        update_recoil_state__13TObjEneBm3FlyFv((u8 *)arg0, (arg2));
         return;
     case 8:
-        state_death_fall__13TObjEneBm3FlyFPvi((u8 *)(arg0), (arg2));
+        state_death_fall__13TObjEneBm3FlyFPvi((u8 *)arg0, (arg2));
         return;
     case 5:
-        TObjEneBm3Fly__sub_800B02C8((u8 *)(arg0), (arg2));
+        TObjEneBm3Fly__sub_800B02C8((u8 *)arg0, (arg2));
         return;
     case 7:
-        action__13TObjEneBm3FlyFPvi((u8 *)(arg0), (arg2));
+        action__13TObjEneBm3FlyFPvi((u8 *)arg0, (arg2));
         return;
     case 9:
-        handle_message__13TObjEneBm3FlyFPvi((void *)(arg0), (arg2));
+        handle_message__13TObjEneBm3FlyFPvi((void *)arg0, (arg2));
     default:
         return;
     }
@@ -2270,11 +2270,11 @@ void TObjEneBm3Fly::run_task() {
   if ((this->vfunc_83()) != 4)
   {
     (this->vfunc_85());
-    temp_r3_2 = (u8 *) (particle_effect);
+    temp_r3_2 = particle_effect;
     if (temp_r3_2 == 0)
     {
       particle_effect = (u8 *)create_particle_emitter(&this->m_2fc, 0xC7);
-      temp_r3_3 = (u8 *) (particle_effect);
+      temp_r3_3 = particle_effect;
       if (temp_r3_3 != 0)
       {
         ((TParticleCtrl *)temp_r3_3)->enable();
@@ -2289,7 +2289,7 @@ void TObjEneBm3Fly::run_task() {
       }
       else
       {
-        if (((s32) (alternate_phase)) == 0)
+        if ((alternate_phase) == 0)
         {
           var_f30 = (3.0f);
           alternate_phase = 1;
@@ -2303,17 +2303,17 @@ void TObjEneBm3Fly::run_task() {
         {
           var_f30 *= (3.0f);
         }
-        temp_f31 = var_f30 * ((f32 (*)(s32))cos_table_lookup)((s32)((int) (rotation_y)));
-        temp_f2 = var_f30 * (-((f32 (*)(s32))sin_table_lookup)((s32)((int) (rotation_y))));
-        *((f32 *) (((s8 *) (particle_effect)) + 0x60)) = (f32) (((*(Vec *)&this->m_2fc).x) + temp_f31);
-        *((f32 *) (((s8 *) (particle_effect)) + 0x64)) = (f32) ((-1.5f) + ((*(Vec *)&this->m_2fc).y));
-        *((f32 *) (((s8 *) (particle_effect)) + 0x68)) = (f32) (((*(Vec *)&this->m_2fc).z) + temp_f2);
+        temp_f31 = var_f30 * ((f32 (*)(s32))cos_table_lookup)((s32)(rotation_y));
+        temp_f2 = var_f30 * (-((f32 (*)(s32))sin_table_lookup)((s32)(rotation_y)));
+        *((f32 *) ((particle_effect) + 0x60)) = (f32) (((*(Vec *)&this->m_2fc).x) + temp_f31);
+        *((f32 *) ((particle_effect) + 0x64)) = (f32) ((-1.5f) + ((*(Vec *)&this->m_2fc).y));
+        *((f32 *) ((particle_effect) + 0x68)) = (f32) (((*(Vec *)&this->m_2fc).z) + temp_f2);
       }
     }
   }
   else
   {
-    temp_r3_4 = (u8 *) (particle_effect);
+    temp_r3_4 = particle_effect;
     if (temp_r3_4 != 0)
     {
       ((TParticleCtrl *)temp_r3_4)->enable();
@@ -2428,9 +2428,9 @@ u8 *TObjEneBm3Fly__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *arg5
     ((TObjEneDD *)arg0)->init_common_from((u8 *)arg2);
     *(s16 *)&((TObjEneBm3Fly *)arg0)->m_1c = arg3;
     *(s16 *)((s8 *)arg0 + 0x2C) = arg4;
-    VecCopy((Vec *)((void *) (arg0 + 0x38)), (const Vec *)((void *) (arg5)));
+    VecCopy((Vec *)((void *) (arg0 + 0x38)), (const Vec *)(arg5));
     VecCopy((Vec *)((void *) (arg0 + 0x41C)), (const Vec *)((void *) (arg2 + 0x38)));
-    VecCopy((Vec *)((void *) (arg0 + 0x40C)), (const Vec *)((void *) (arg6)));
+    VecCopy((Vec *)((void *) (arg0 + 0x40C)), (const Vec *)(arg6));
     ((TObjEneBm3Fly *)arg0)->init_child_params();
     *(s32 *)((s8 *)arg0 + 0x80) = 0;
     return arg0;
@@ -2450,7 +2450,7 @@ void *TObjEneBm3Fly::create(void *arg1, void *arg2, void *arg3, void *arg4) {
     void *o;
     o = __nw__7TObjectFUl(0x4A8);
     if (o != NULL) {
-        o = TObjEneBm3Fly__ct((u8 *)(o), (s32)(tl_04), (u8 *)(this), (s32)(arg1), (s32)(arg2), (u8 *)(arg3), (u8 *)(arg4));
+        o = TObjEneBm3Fly__ct((u8 *)o, (s32)tl_04, (u8 *)this, (s32)arg1, (s32)arg2, (u8 *)arg3, (u8 *)arg4);
     }
     return o;
 }
@@ -2468,7 +2468,7 @@ void TObjEneBm3Fly::load_resources() {
     temp_r3 = ((TAdSinglePlyChrSelectGC *)0x10)->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = init_from_model__11TBreakUpMdlFl((int) (temp_r3), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)bm3_fly_nest_resources + 0x42C)) + 8)));
+        var_r0 = init_from_model__11TBreakUpMdlFl(temp_r3, (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)bm3_fly_nest_resources + 0x42C)) + 8)));
     }
     (*(s32 *)&(*(void **)&TObjEneBm3Fly__breakup_model)) = var_r0;
     bm3_fly_boss_stat_handle = register_boss__6TLobbyFl(0);

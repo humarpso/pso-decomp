@@ -27,12 +27,12 @@ void TBoss6Demo15_TYPE2_WAIT::run_task() {
         ((TBoss6Demo15_TYPE2_WAIT *)arg0)->advance_offset();
         VecCopy((Vec *)(arg0 + 0x4C), (const Vec *)(arg0 + 0x40));
         ((TBoss6Demo15_TYPE2_WAIT *)arg0)->sub_8033FE30();
-        temp_r3 = (u8 *)(this->m_20);
+        temp_r3 = this->m_20;
         if (temp_r3 != NULL) {
             ((TNowLoading *)temp_r3)->copy_pos((u8 *)&this->m_40);
         }
         ((TBoss6Demo15_TYPE2_WAIT *)arg0)->check_any_player_near();
-        play_persistent_sound(0x4003A126, (s32)(arg0), (u32)(arg0 + 0x40), 0, 0);
+        play_persistent_sound(0x4003A126, (s32)arg0, (u32)(arg0 + 0x40), 0, 0);
         if (((TObjFish *)(*(u8 * *)&this->unk_1C))->get_phase() != 4) {
             queue_destruction__7TObjectFv(arg0);
         }

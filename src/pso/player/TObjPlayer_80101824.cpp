@@ -15,7 +15,7 @@ s32 init__9TItemDataFv(void *);
     extern int model_node_visit_callback;
     extern int model_node_matrix_output_cursor;
 void TObjPlayer::run_with_transform_context(int a1, int a2) {
-    int a0 = (int)this; model_node_visit_callback = a1; model_node_matrix_output_cursor = 0; model_node_draw_callback = (int)::draw_ginja_model; draw_model_node_tree((u8 *)(a0)); model_node_draw_callback = 0; model_node_matrix_output_cursor = 0; model_node_visit_callback = 0; TObjPlayer::reset_transform_state(); }
+    int a0 = (int)this; model_node_visit_callback = a1; model_node_matrix_output_cursor = 0; model_node_draw_callback = (int)::draw_ginja_model; draw_model_node_tree((u8 *)a0); model_node_draw_callback = 0; model_node_matrix_output_cursor = 0; model_node_visit_callback = 0; TObjPlayer::reset_transform_state(); }
 
 int TItemWeapon::check_boss2tunnel_field_f4() { return draw_ginja_object(*(void* *)&(*(void * *)((u8 *)this + 0xF4))); }
 

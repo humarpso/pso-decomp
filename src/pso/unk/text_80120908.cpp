@@ -57,7 +57,7 @@ s32 draw_weapon_model(void *arg0) {
             var_r30 = ((VObj_18_26a62c *)(arg0))->m8(lbl_805DACA8, lbl_805DACAC);
         }
         TObjPlayer::notify_fish_if_valid((int) (*(s32 *)((s8 *)arg0 + 0x24)));
-        ((TObjMotion *)(*(u8 * *)&((TItemWeapon *)arg0)->player))->get_item_ptr((s32)((void *) ((s8)get_attach_joint__11TItemWeaponFv((void *) (arg0)))));
+        ((TObjMotion *)(*(u8 * *)&((TItemWeapon *)arg0)->player))->get_item_ptr((s32)((void *) ((s8)get_attach_joint__11TItemWeaponFv(arg0))));
         push_matrix_from();
         if ((var_r30 != 0) && (((TItemMag *)arg0)->get_flag_40() == 0)) {
             weapon_render_callback_object = (u8 *)arg0;
@@ -67,9 +67,9 @@ s32 draw_weapon_model(void *arg0) {
             TObjPlayer__weapon_node_ids[1] = (s16) *(u8 *)((s8 *)temp_r4 + 0x22);
             TObjPlayer__weapon_node_ids[2] = (s16) *(u8 *)((s8 *)temp_r4 + 0x23);
             if ((u32) *(u32 *)((s8 *)arg0 + 0x17C) == 0U) {
-                ((TItemWeapon *)arg0)->sub_80121208((s32)((void *) (apply_weapon_node_material)));
+                ((TItemWeapon *)arg0)->sub_80121208((s32)(apply_weapon_node_material));
             } else {
-                TObjEneRe7Berura::set_global_state((s32)((void *) (apply_weapon_node_material)));
+                TObjEneRe7Berura::set_global_state((s32)(apply_weapon_node_material));
             }
             TObjPlayer__sub_80364198();
             model_render_flags &= 0xFFFFFFEF;
@@ -111,9 +111,9 @@ s32 draw_weapon_model(void *arg0) {
             TObjPlayer::warn_if_gauge_low();
             TObjPlayer__sub_8036414C();
             if ((u32) *(u32 *)((s8 *)arg0 + 0x17C) == 0U) {
-                ((TItemWeapon *)arg0)->sub_80121208((s32)((void *) (NULL)));
+                ((TItemWeapon *)arg0)->sub_80121208((s32)(NULL));
             } else {
-                TObjEneRe7Berura::set_global_state((s32)((void *) (NULL)));
+                TObjEneRe7Berura::set_global_state((s32)(NULL));
             }
             ((TObjPlayer *)(&lbl_805D53EC))->clear_id();
         } else {
@@ -126,10 +126,10 @@ s32 draw_weapon_model(void *arg0) {
 
 void draw_weapon_at_joint(s32 arg0, s8 arg1) {
     s8 temp_r31;
-    temp_r31 = get_attach_joint__11TItemWeaponFv((void *) (arg0));
-    ((TItemEquipBase *)arg0)->set_equip_flag((s32)((void *) (arg1)));
-    draw_weapon_model((void *)((void *) (arg0)));
-    ((TItemEquipBase *)arg0)->set_equip_flag((s32)((void *) (temp_r31)));
+    temp_r31 = get_attach_joint__11TItemWeaponFv((void *)arg0);
+    ((TItemEquipBase *)arg0)->set_equip_flag((s32)(arg1));
+    draw_weapon_model((void *)(arg0));
+    ((TItemEquipBase *)arg0)->set_equip_flag((s32)(temp_r31));
 }
 
 }

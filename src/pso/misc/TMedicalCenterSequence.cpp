@@ -180,7 +180,7 @@ u8 *TMedicalCenterSequence__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TMedicalCenterSequence *)arg0)->m_2c = 0;
     *(s32 *)&((TMedicalCenterSequence *)arg0)->m_30 = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
-    *(s32 *)((s8 *)(&(*(RecoveredGlobal_80216A70_TMedicalCenterSequence__data_80513E90 *)&TMedicalCenterSequence__data_80513E90).value) + (sub_8022397C__15TShopWindowBaseFv((void *) (arg0)) * 4)) = 1;
+    *(s32 *)((s8 *)(&(*(RecoveredGlobal_80216A70_TMedicalCenterSequence__data_80513E90 *)&TMedicalCenterSequence__data_80513E90).value) + (sub_8022397C__15TShopWindowBaseFv(arg0) * 4)) = 1;
     return arg0;
 }
 
@@ -200,10 +200,10 @@ u8 *__dt__22TMedicalCenterSequenceFv(u8 *arg0, s16 arg1) {
             TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x30)));
             ((TMedicalCenterSequence *)arg0)->m_30 = 0U;
         }
-        *(s32 *)((s8 *)(&TMedicalCenterSequence__data_80513E90.value) + (sub_8022397C__15TShopWindowBaseFv((void *) (arg0)) * 4)) = 0;
+        *(s32 *)((s8 *)(&TMedicalCenterSequence__data_80513E90.value) + (sub_8022397C__15TShopWindowBaseFv(arg0) * 4)) = 0;
         __dt__13TShopSequenceFv((arg0), 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *) (arg0));
+            __dl__7TObjectFPv(arg0);
         }
     }
     return arg0;
@@ -270,7 +270,7 @@ s32 TMedicalCenterSequence::open_greeting_window() {
 
 void TMedicalCenterSequence::handle_confirm() {
     struct VObj_80216784_802163AC *o = (struct VObj_80216784_802163AC *)this;
-    if ((o->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv((void *)(this)) != 0) || (sub_802239EC__13TShopSequenceFv((void *)(this)) != 0))) {
+    if ((o->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
         if ((((TObjPlayer *)(*(s32 *)((s8 *)this + 0x24)))->get_recovery_need_flags() != 0U) || ((((TObjPlayer *)(*(s32 *)((s8 *)this + 0x24)))->is_alive_and_ready() != 0) && (((TObjPlayer *)(*(s32 *)((s8 *)this + 0x24)))->are_traps_full() == 0))) {
             set_field_20((s32)((void*)(7)));
             return;
@@ -347,14 +347,14 @@ void TMedicalCenterSequence::show_fee_prompt() {
 
 s32 TMedicalCenterSequence::handle_window_input() {
     VObj_8021641C_802163AC *o = (VObj_8021641C_802163AC *)this;
-    if (o->m8() != 0 && (sub_80223A48__15TShopWindowBaseFv((void *)((void *)(this))) != 0 || sub_802239EC__13TShopSequenceFv((void *)((void *)(this))) != 0)) {
+    if (o->m8() != 0 && (sub_80223A48__15TShopWindowBaseFv((void *)(this)) != 0 || sub_802239EC__13TShopSequenceFv((void *)(this)) != 0)) {
         o->m4(0x22, 1);
         set_field_20((s32)((void*)(0xa)));
     }
 }
 
 void TMedicalCenterSequence::close_window() {
-    if ((this->vfunc_10() != 0) && ((sub_80223A48__15TShopWindowBaseFv((void *)((void *)(this))) != 0) || (sub_802239EC__13TShopSequenceFv((void *)((void *)(this))) != 0))) {
+    if ((this->vfunc_10() != 0) && ((sub_80223A48__15TShopWindowBaseFv((void *)(this)) != 0) || (sub_802239EC__13TShopSequenceFv((void *)(this)) != 0))) {
         close_window__13TShopSequenceFv(this);
         queue_destruction__7TObjectFv(this);
     }

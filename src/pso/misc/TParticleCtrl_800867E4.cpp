@@ -54,7 +54,7 @@ void TParticleCtrl::generate_child_default(s32 arg1, s32 arg2) {
     stack.sp8 = *(s32 *)((s8 *)(&lbl_804393F0.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&lbl_804393F0.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_804393F0.value) + 8);
-    ((TParticleCtrl *)arg0)->alloc_child_particle((void *) (arg1), (void *) (&stack.sp8), (void *) (arg2));
+    ((TParticleCtrl *)arg0)->alloc_child_particle((void *)arg1, (void *) (&stack.sp8), (void *)arg2);
 }
 
 s32 TParticleCtrl::get_particle_model(s32 arg0) {

@@ -30,12 +30,12 @@ int TObjEneDD::get_target_state_b() { return freeze_all_players__10TObjPlayerFv(
 void project_sound_origin_from_camera(s32 arg0, u8 *arg1, f32 farg0) {
     f32 temp_f1;
     VecCopy((Vec *)(arg1), (const Vec *)(arg0));
-    subtract_vector((void *) (arg1), (void *) (camera_ctrl_instance + 0x178));
+    subtract_vector(arg1, (void *) (camera_ctrl_instance + 0x178));
     { f32 s = ((TObjBoss2Tunnel *)arg1)->update_scale(); temp_f1 = s * farg0; }
     *(f32 *)((s8 *)arg1 + 0) = (f32) (*(f32 *)((s8 *)arg1 + 0) * temp_f1);
     *(f32 *)((s8 *)arg1 + 4) = (f32) (*(f32 *)((s8 *)arg1 + 4) * temp_f1);
     *(f32 *)((s8 *)arg1 + 8) = (f32) (*(f32 *)((s8 *)arg1 + 8) * temp_f1);
-    vec3_add_to((void *) (arg1), (void *) (camera_ctrl_instance + 0x178), (f32) (temp_f1));
+    vec3_add_to(arg1, (void *) (camera_ctrl_instance + 0x178), temp_f1);
 }
 
 int TObjEneDD::query_teammate_state() { return is_any_teammate_in_state__10TObjPlayerFv(this); }

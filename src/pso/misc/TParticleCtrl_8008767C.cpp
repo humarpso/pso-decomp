@@ -567,14 +567,14 @@ void TParticleCtrl::attach_model(s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 far
 
 void set_particle_tint_color(u8 *arg0, void *arg1) {
     *(u16 *)((s8 *)arg0 + 0x24) = (u16) (*(u16 *)((s8 *)arg0 + 0x24) | 0x100);
-    copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0x48), arg1, (void *) (arg0));
+    copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0x48), arg1, arg0);
 }
 
 void set_particle_draw_scale(void* p, f32 a, f32 b) { *(f32*)((char*)p + 0xa4) = a; *(f32*)((char*)p + 0xa8) = b; }
 
-void TParticleCtrl::free_system() { mem_free((void *)(particle_global_entry_table)); particle_global_entry_table = 0; }
+void TParticleCtrl::free_system() { mem_free((void *)particle_global_entry_table); particle_global_entry_table = 0; }
 void TParticleCtrl::free_all() {
-    mem_free((void *)(particle_area_entry_table));
+    mem_free((void *)particle_area_entry_table);
     particle_area_entry_table = 0;
     if ((u32) TParticleCtrl__regular_bml_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TParticleCtrl__regular_bml_resource, 1);

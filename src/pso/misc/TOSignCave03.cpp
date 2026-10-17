@@ -145,7 +145,7 @@ extern "C" {
 void *TOSignCave03::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC8);
     if (o != NULL) {
-        o = TOSignCave03__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TOSignCave03__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -180,7 +180,7 @@ void *__dt__12TOSignCave03Fv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_80176FF8___vt__12TOSignCave03_size[sizeof(RecoveredGlobal_80176FF8___vt__12TOSignCave03) == 0x38 ? 1 : -1];
 u8 *TOSignCave03__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    init_map_object_base((void *) (arg0), (void *) (arg1));
+    init_map_object_base((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80176FF8___vt__12TOSignCave03 *)&__vt__12TOSignCave03).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D316C;
     ((TOSignCave03 *)(arg0))->apply_object_set_data((void *)arg2);

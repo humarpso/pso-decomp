@@ -268,8 +268,8 @@ void TTecLuker__updateRecoveryTechniqueCharge(TechniqueChargeEmitter* state) {
     if(state->age%10==0) {
         for(int i=0;i<2;++i)spawn_particle_effect(state->position,recovery_technique_charge_particle_ids[i]);
     }
-    if(!((TObjPlayer *)(state->actor))->check_flag_0x80())queue_destruction__7TObjectFv((void *)(state));
-    else if(state->age>=180)queue_destruction__7TObjectFv((void *)(state));
+    if(!((TObjPlayer *)(state->actor))->check_flag_0x80())queue_destruction__7TObjectFv(state);
+    else if(state->age>=180)queue_destruction__7TObjectFv(state);
 }
 
 void *TTecLuker::destroy(s16 arg1) {
@@ -278,14 +278,14 @@ void *TTecLuker::destroy(s16 arg1) {
         stop_sound_request((s32)(*(void **)((s8 *)this + 0x30)));
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *)(this));
+            __dl__7TObjectFPv(this);
         }
     }
     return this;
 }
 
 u8 *construct_resta_charge_sound(u8 *arg0, s32 arg1, s32 arg2) {
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg2));
+    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg2);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80233B9C_lbl_804CC990 *)&recovery_technique_charge_vtable).value;
     *(s32 *)((s8 *)arg0 + 0x1C) = arg1;
     VecCopy((Vec *)((void *) (arg0 + 0x20)), (const Vec *)((int) (*(s32 *)((s8 *)arg0 + 0x1C) + 0x2FC)));
@@ -319,7 +319,7 @@ void *__dt__13TUnk_804CC9D4Fv(void *arg0, s16 arg1) {
         *(s32 *)((s8 *)arg0 + 0xB0) = 0;
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *)(arg0));
+            __dl__7TObjectFPv(arg0);
         }
     }
     return arg0;
@@ -328,7 +328,7 @@ void *__dt__13TUnk_804CC9D4Fv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80233D18_lbl_804CC9A8_size[sizeof(RecoveredGlobal_80233D18_lbl_804CC9A8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80233D18_lbl_804CC9D4_size[sizeof(RecoveredGlobal_80233D18_lbl_804CC9D4) == 0x38 ? 1 : -1];
 u8 *TTecLuker::construct_field_collider(s32 arg1, s32 arg2, s32 ac) {
-    construct_collider_proxy__13TUnk_804AF8A0Fv((void *) (((u8 *)this)), (void *) (arg2));
+    construct_collider_proxy__13TUnk_804AF8A0Fv((void *) (((u8 *)this)), (void *)arg2);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80233D18_lbl_804CC9D4 *)&telepipe_field_collider_vtable).value;
     VecCopy((Vec *)(((u8 *)this) + 0x38), (const Vec *)(arg1));
     init_collision_body_parts((void *) (((u8 *)this)), (void *) (&telepipe_field_collision_body_template.value), 1);
@@ -346,7 +346,7 @@ void TTecLuker::apply_all_players() {
 
     var_r31 = 0;
     do {
-        player = get_player_by_client_id((s32)(var_r31));
+        player = get_player_by_client_id(var_r31);
         if (player != 0U) {
             reset_telepipe_record((O_802340A0 *)(player + 0x830));
         }
@@ -357,7 +357,7 @@ void TTecLuker::apply_all_players() {
 void TTecLuker::create_for_player(int arg0, s32 arg1) {
     u32 r = get_player_by_client_id((s32)((u16)arg0));
     if (r != 0U) {
-        ((TTecLuker *)r)->create((void *)(arg1), (void *)(arg1), (void *)(0xA));
+        ((TTecLuker *)r)->create((void *)arg1, (void *)arg1, (void *)(0xA));
     }
 }
 
@@ -548,7 +548,7 @@ void update_telepipe_visual(Obj_802342A4 *self) {
           ((TParticleCtrl *)(self->kids[i]))->enable();
           if (self->f28 != 0)
           {
-            TTecLuker__sub_80235048((void*)(self->f28));
+            TTecLuker__sub_80235048(self->f28);
           }
         }
       }
@@ -561,7 +561,7 @@ void update_telepipe_visual(Obj_802342A4 *self) {
         ((TParticleCtrl *)(self->kids[i]))->clear_active_flag();
         if (self->f28 != 0)
         {
-          TTecLuker__sub_8023503C((void*)(self->f28));
+          TTecLuker__sub_8023503C(self->f28);
         }
       }
     }
@@ -576,7 +576,7 @@ void update_telepipe_visual(Obj_802342A4 *self) {
         ((TParticleCtrl *)(self->kids[i]))->enable();
         if (self->f28 != 0)
         {
-          TTecLuker__sub_80235048((void*)(self->f28));
+          TTecLuker__sub_80235048(self->f28);
         }
       }
     }
@@ -589,7 +589,7 @@ void update_telepipe_visual(Obj_802342A4 *self) {
       ((TParticleCtrl *)(self->kids[i]))->clear_active_flag();
       if (self->f28 != 0)
       {
-        TTecLuker__sub_8023503C((void*)(self->f28));
+        TTecLuker__sub_8023503C(self->f28);
       }
     }
   }
@@ -604,16 +604,16 @@ Obj_8023448C *__dt__13TUnk_804CCA0CFv(Obj_8023448C *arg0, s16 arg1) {
         arg0->vt = lbl_804CCA0C;
         do {
             if (TTecLuker::is_parents_unqueued(arg0->kids[i]) != 0) {
-                queue_destruction__7TObjectFv((void *)(arg0->kids[i]));
+                queue_destruction__7TObjectFv((void *)arg0->kids[i]);
                 arg0->kids[i] = z;
             }
             i++;
         } while (i < 3);
         if (arg0->f28 != 0) {
-            queue_destruction__7TObjectFv((void *)(arg0->f28));
+            queue_destruction__7TObjectFv((void *)arg0->f28);
             arg0->f28 = 0;
         }
-        __dt__7TObjectFv((void *)(arg0), 0);
+        __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -704,7 +704,7 @@ void TTecLuker::create(void *arg1, void *arg2, void *arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x110);
     if (o != NULL) {
-        TTecLuker__ct((void *)(o), (void *)(this), (void *)(arg1), (void *)(arg2), (void *)(arg3));
+        TTecLuker__ct(o, this, arg1, arg2, arg3);
     }
 }
 
@@ -714,7 +714,7 @@ void TTecLuker::setup_telepipe_field() {
     u16 id = obj_getField1c(s->player);
     void *v = __nw__7TObjectFUl(0x44);
     if (v != 0) {
-        v = create_telepipe_visual((void *)(v), (Vec_802347B4 *)(&s->pos), (u32)(id), (s32)(tl_07));
+        v = create_telepipe_visual(v, (Vec_802347B4 *)(&s->pos), id, tl_07);
     }
     s->visual = v;
     s->phase = 1;
@@ -771,7 +771,7 @@ void run_task__9TTecLukerFv(u8 *arg0) {
                 ((TTecLuker *)arg0)->setup_telepipe_field();
                 return;
             }
-            if (TTecLuker__sub_80235054((void*)(tgt)) != 0) {
+            if (TTecLuker__sub_80235054(tgt) != 0) {
                 VecCopy((Vec *)(arg0 + 0xFC), (const Vec *)(*(u8 **)((s8 *)arg0 + 0x1C) + 0x38));
                 if ((telepipe_record_differs((Rec_8023402C *)(*(u8 **)((s8 *)arg0 + 0x1C) + 0x830), ((TTecLuker *)arg0)->m_f4, (Vec_8023402C *)(arg0 + 0xFC), ((TTecLuker *)arg0)->m_f6) == 0) && ((s8) *(TTecLuker__visit_counts + ((TTecLuker *)arg0)->m_b4) >= 1)) {
                     queue_destruction__7TObjectFv(arg0);
@@ -903,7 +903,7 @@ void *__dt__9TTecLukerFv(void *arg0, s16 arg1) {
         ((TTecLuker *)arg0)->m_f0 = 0U;
         ((TUnk_804CC148 *)arg0)->destroy_technique_base(0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *)(arg0));
+            __dl__7TObjectFPv(arg0);
         }
     }
     return arg0;
@@ -985,7 +985,7 @@ void clear_pipe_interaction_latch(void* p) { *(s32*)((char*)p + 0xb0) = 0; }
 
 s32 get_pipe_interaction_latch(void* p) { return *(s32*)((char*)p + 0xb0); }
 
-void TTecLuker::send_swapped_telepipe_packet() { byteswap_telepipe_packet(); TLobby__send_and_handle_60((u8 *)(this)); }
+void TTecLuker::send_swapped_telepipe_packet() { byteswap_telepipe_packet(); TLobby__send_and_handle_60((u8 *)this); }
 
 void TTecLuker::byteswap_telepipe_packet() {
     read_be16_field2__10TObjPlayerFv(this);

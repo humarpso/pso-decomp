@@ -53,11 +53,11 @@ void TOVS2Wall01::spawn_debris(s32 arg1) {
     (*(f32 *)(copy_storage_8017BC10.bytes + 0x10)) = *(f32 *)&this->m_300;
     (*(f32 *)(copy_storage_8017BC10.bytes + 0x14)) = this->m_304;
     (*(f32 *)(copy_storage_8017BC10.bytes + 0x38)) = *(f32 *)((s8 *)arg0 + 0x3C);
-    (*(s32 *)(copy_storage_8017BC10.bytes + 0x40)) = get_bml_model((int) (TOVS2Wall01__bml_resource), (void *) (arg1));
-    (*(s32 *)(copy_storage_8017BC10.bytes + 0x44)) = TObjFish__sub_8001EDB0((int) (TOVS2Wall01__bml_resource), (void *) (arg1));
+    (*(s32 *)(copy_storage_8017BC10.bytes + 0x40)) = get_bml_model((int)TOVS2Wall01__bml_resource, (void *)arg1);
+    (*(s32 *)(copy_storage_8017BC10.bytes + 0x44)) = TObjFish__sub_8001EDB0((int)TOVS2Wall01__bml_resource, (void *)arg1);
     chip = (u8 *) __nw__7TObjectFUl(0x234);
     if (chip != NULL) {
-        construct_debris__8TObjChipFPvPvPv((u8 *)chip, (u8 *)(tl_05), (u8 *)((copy_storage_8017BC10.bytes)));
+        construct_debris__8TObjChipFPvPvPv((u8 *)chip, (u8 *)tl_05, (u8 *)((copy_storage_8017BC10.bytes)));
     }
 }
 

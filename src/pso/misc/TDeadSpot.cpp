@@ -136,10 +136,10 @@ void TUnk_804949D8::vfunc_6() {
     f32 temp_f1;
     s32 temp_r3;
     temp_r3 = TObjPlayer::calc_random_scaled();
-    temp_f1 = this->m_28 * sin_table_lookup((int) (temp_r3));
+    temp_f1 = this->m_28 * sin_table_lookup(temp_r3);
     stack.spC = lbl_805DA380;
     stack.sp8 = temp_f1;
-    stack.sp10 = this->m_28 * cos_table_lookup((int) (temp_r3));
+    stack.sp10 = this->m_28 * cos_table_lookup(temp_r3);
     vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x1C));
     TObjBoss2Tunnel::adjust_to_ground((s32)((void *) (&stack.sp8)), (void *)(&stack.sp8));
     ((TNowLoading *)(this->m_34))->copy_pos((void *) (&stack.sp8));
@@ -149,7 +149,7 @@ void TUnk_804949D8::vfunc_6() {
 void *__dt__13TUnk_804949D8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804949D8;
-        __dt__13TUnk_804949F4Fv((void *)(arg0), (s16)(0));
+        __dt__13TUnk_804949F4Fv(arg0, (s16)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -158,7 +158,7 @@ void *__dt__13TUnk_804949D8Fv(void *arg0, s16 arg1) {
 }
 
 void *init__9TDeadSpotFPv(void *arg0, u8 * _w1, u8 * _w2, s32 _w3, f32 _w4) {
-    construct_fire_base__9TDeadSpotFPvPvPvif((u8 *)(arg0), (u8 *)(_w1), (u8 *)(_w2), (s32)(_w3), _w4);
+    construct_fire_base__9TDeadSpotFPvPvPvif((u8 *)arg0, (u8 *)_w1, (u8 *)_w2, (s32)_w3, _w4);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804949D8;
     ((TUnk_804949D8 *)arg0)->m_30 = 8;
     return arg0;
@@ -264,7 +264,7 @@ Obj_800D80E4 *init_corner_vertices__9TDeadSpotFPv(Obj_800D80E4 *arg0, void * par
     E_800D80E4 *p;
     s32 i;
     f32 bx, by, bz, s;
-    __ct__9TDeadSpotFv((Mark_800D8314 *)(arg0), (void *)(parent), (Vec_800D8314 *)(point), (void *)(texture), (s32)(selector), (s32)(delay), _w6);
+    __ct__9TDeadSpotFv((Mark_800D8314 *)(arg0), parent, (Vec_800D8314 *)(point), texture, selector, delay, _w6);
     arg0->vt = ((u8 *)&lbl_80494A10);
     p = arg0->e;
     arg0->c8 = TDeadSpot__data_805DA38C;

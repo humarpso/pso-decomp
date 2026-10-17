@@ -333,7 +333,7 @@ void TTecGiBarta::create(void *arg1, void *arg2, void *arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x178);
     if (o != NULL) {
-        TTecGiBarta__ct((TTecGiBarta_80230C58 *)(o), (void *)(this), (void *)(arg1), (void *)(arg2), (void *)(arg3));
+        TTecGiBarta__ct((TTecGiBarta_80230C58 *)(o), this, arg1, arg2, arg3);
     }
 }
 
@@ -341,7 +341,7 @@ void TTecGiBarta::create_ex(void *arg1, void *arg2, void *arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x178);
     if (o != NULL) {
-        ((TTecGiBarta *)o)->construct_facing((void *)(this), (void *)(arg1), (void *)(arg2), (void *)(arg3));
+        ((TTecGiBarta *)o)->construct_facing(this, arg1, arg2, arg3);
     }
 }
 

@@ -18,7 +18,7 @@ void TObjLazerFenceExtra::draw_lazer_fence_extra_model() {
     Obj_80192554 *arg0 = (Obj_80192554 *)this;
     s32 i;
     for (i = 0; i < 4; i++) {
-        ((TObjDoorJung *)(arg0->fC8[i]))->free_children((void *)(lbl_80445B7C[arg0->fAC]));
+        ((TObjDoorJung *)(arg0->fC8[i]))->free_children((void *)lbl_80445B7C[arg0->fAC]);
     }
     TObjFish::set_global_param(lazer_fence_norm_texture_list);
     push_matrix();

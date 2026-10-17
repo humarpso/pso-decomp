@@ -41,28 +41,28 @@ void TBoss3Volopt::play_area_variant_sound() {
     case 25:
     case 26:
     case 27:
-        play_sound_effect(0x3AB3C, (void *) (arg0), 0, 0);
+        play_sound_effect(0x3AB3C, (void *)arg0, 0, 0);
         return;
     case 28:
     case 29:
-        play_sound_effect(0x4003AD32, (void *) (arg0), 0, 0);
+        play_sound_effect(0x4003AD32, (void *)arg0, 0, 0);
         return;
     case 34:
-        play_sound_effect(0x4003B22A, (void *) (arg0), 0, 0);
+        play_sound_effect(0x4003B22A, (void *)arg0, 0, 0);
         return;
     case 35:
-        play_sound_effect(0x4003A35A, (void *) (arg0), 0, 0);
+        play_sound_effect(0x4003A35A, (void *)arg0, 0, 0);
         return;
     case 19:
     case 20:
-        play_sound_effect(0x3AD43, (void *) (arg0), 0, 0);
+        play_sound_effect(0x3AD43, (void *)arg0, 0, 0);
         return;
     case 21:
     case 22:
-        play_sound_effect(0x4003AD3F, (void *) (arg0), 0, 0);
+        play_sound_effect(0x4003AD3F, (void *)arg0, 0, 0);
         return;
     default:
-        play_sound_effect((int) (::remap_area_sound_id(0x4003AD06, 0x1E)), (void *) (arg0), 0, 0);
+        play_sound_effect((int) (::remap_area_sound_id(0x4003AD06, 0x1E)), (void *)arg0, 0, 0);
         return;
     }
 }
@@ -164,10 +164,10 @@ void spawn_particles_at__12TBoss3VoloptFi(s32 arg0) {
     Stack_800D8F78 stack;
     f32 temp_f1;
     VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0));
-    create_timed_particle_emitter((void *)(arg0), 0xEA, 0xA, 0x1E);
+    create_timed_particle_emitter((void *)arg0, 0xEA, 0xA, 0x1E);
     temp_f1 = stack.spC;
     stack.spC = temp_f1 + lbl_805DA3C0;
-    spawn_particle_effect((void *) (&stack.sp8), 0xE9, (f32) (temp_f1));
+    spawn_particle_effect((void *) (&stack.sp8), 0xE9, temp_f1);
 }
 
 }

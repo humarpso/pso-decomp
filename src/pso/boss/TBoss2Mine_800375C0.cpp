@@ -294,9 +294,9 @@ void TUnk_80482EC0::vfunc_106(s32 arg1) {
         *(s32 *)((s8 *)((u8 *)this) + 0x5C) = 0x8000;
         *(s32 *)((s8 *)((u8 *)this) + 0x3B0) = 0;
         *(s32 *)((s8 *)((u8 *)this) + 0x3C8) = 0;
-        temp_r7 = (s32) ((3e+01f) * calc_elapsed_scaled__9TObjEneDDFv((void *) (((u8 *)this)), 0x8000, (int) (temp_r5)));
+        temp_r7 = (s32) ((3e+01f) * calc_elapsed_scaled__9TObjEneDDFv((void *) (((u8 *)this)), 0x8000, temp_r5));
         *(s32 *)((s8 *)((u8 *)this) + 0x3CC) = (s32) (temp_r7 + 0xB4);
-        play_sound_effect(0x4003A804, (void *) (((u8 *)this) + 0x2FC), 0, 0, (int) (temp_r7));
+        play_sound_effect(0x4003A804, (void *) (((u8 *)this) + 0x2FC), 0, 0, temp_r7);
         init_params__10TBoss2MineFlf((void *) (((u8 *)this)), 0x1E, (f32) ((0.25f)));
         return;
     case 3:
@@ -657,7 +657,7 @@ void TBoss2Mine::render() {
         Vec_80038200 v = lbl_80435AD0;
         ((TObjEnemy *)self)->render_with_position_override((u8 *)(&v), 0);
     }
-    TObjFish::set_global_param((s32)(self->f24));
+    TObjFish::set_global_param((s32)self->f24);
     lbl_805D5660 = model_render_flags;
     TObjEneDD::clear_global_flag_400();
     TObjPlayer::toggle_particle_effect();
@@ -742,7 +742,7 @@ void TBoss2Mine::vfunc_107(s32 arg1) {
     case 3:
       if (((s32) (*((s32 *) (((s8 *) arg0) + 0x3CC)))) == 2)
     {
-      transition_enemy_state((void *)(arg0), 0);
+      transition_enemy_state(arg0, 0);
     }
     case 5:
       return;

@@ -87,7 +87,7 @@ void TWindowCtrl::suppress_slot() {
     stack.sp8 = *(s32 *)((s8 *)(&TWindowCtrl__suppress_slot_cb.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&TWindowCtrl__suppress_slot_cb.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&TWindowCtrl__suppress_slot_cb.value) + 8);
-    ((void (*)(void *, void *))call_window_method__11TWindowCtrlFPvi)((void *) (arg0), (void *) (&stack.sp8));
+    ((void (*)(void *, void *))call_window_method__11TWindowCtrlFPvi)((void *)arg0, (void *) (&stack.sp8));
 }
 
 void TWindowCtrl::unsuppress_slot() {
@@ -99,7 +99,7 @@ void TWindowCtrl::unsuppress_slot() {
     stack.sp8 = *(s32 *)((s8 *)(&TWindowCtrl__unsuppress_slot_cb.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&TWindowCtrl__unsuppress_slot_cb.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&TWindowCtrl__unsuppress_slot_cb.value) + 8);
-    ((void (*)(void *, void *))call_window_method__11TWindowCtrlFPvi)((void *) (arg0), (void *) (&stack.sp8));
+    ((void (*)(void *, void *))call_window_method__11TWindowCtrlFPvi)((void *)arg0, (void *) (&stack.sp8));
 }
 
 void call_window_method__11TWindowCtrlFPvi(void *self, Pmf_8024AF34 pmf) {
@@ -118,7 +118,7 @@ void TWindowCtrl::has_player_active_menu() {
     stack.sp8 = *(s32 *)((s8 *)(&TWindowCtrl__player_menu_query_cb.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&TWindowCtrl__player_menu_query_cb.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&TWindowCtrl__player_menu_query_cb.value) + 8);
-    TWindowCtrl__sub_8024B098((void *) (arg0), (void *) (&stack.sp8));
+    TWindowCtrl__sub_8024B098((void *)arg0, (void *) (&stack.sp8));
 }
 
 void TWindowCtrl::apply_default_vec(s32 arg0, s32 arg1) {
@@ -129,7 +129,7 @@ void TWindowCtrl::apply_default_vec(s32 arg0, s32 arg1) {
     stack.sp8 = *(s32 *)((s8 *)(&window_ctrl_apply_default_vec_callback_entry.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&window_ctrl_apply_default_vec_callback_entry.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&window_ctrl_apply_default_vec_callback_entry.value) + 8);
-    TWindowCtrl__sub_8024B098((void *) (arg1), (void *) (&stack.sp8));
+    TWindowCtrl__sub_8024B098((void *)arg1, (void *) (&stack.sp8));
 }
 
 void TWindowCtrl__sub_8024B000(s32 arg0, s32 arg1) {
@@ -140,7 +140,7 @@ void TWindowCtrl__sub_8024B000(s32 arg0, s32 arg1) {
     stack.sp8 = *(s32 *)((s8 *)(&lbl_804CE9D4.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&lbl_804CE9D4.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_804CE9D4.value) + 8);
-    TWindowCtrl__sub_8024B098((void *) (arg1), (void *) (&stack.sp8));
+    TWindowCtrl__sub_8024B098((void *)arg1, (void *) (&stack.sp8));
 }
 
 }

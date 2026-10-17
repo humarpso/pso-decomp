@@ -809,7 +809,7 @@ void TObjPlayer::update_topple_state() {
         advance_animation_playback(arg0);
         *(s32 *)&this->unk_390 = (s32) (*(s32 *)&this->unk_390 - TObjPlayer__sub_80040AE4(0));
         this->m_394 = (s32) (this->m_394 - TObjPlayer__sub_80040AE4(0));
-        TObjPlayer__sub_8003FCD0((u8 *)(arg0));
+        TObjPlayer__sub_8003FCD0(arg0);
         *(s32 *)&this->unk_398 = calc_spin_value();
         if ((s32) this->m_394 <= -0x238E) {
             this->vfunc_58();
@@ -906,7 +906,7 @@ void TObjPlayer__sub_8003F81C(u8 *arg0) {
         }
         break;
     }
-    advance_animation_playback((void *) (arg0));
+    advance_animation_playback(arg0);
     if ((s32) vol_opt_active_hit_zone >= 0) {
         minimap_render_dot((void *) (arg0 + 0x38), -0x5DB4, 1, 0);
     }
@@ -941,7 +941,7 @@ void TObjPlayer__sub_8003F9D4(void *arg0_) {
                 if (temp_r0_2 < 0) {
                     *(s32 *)((s8 *)arg0 + 0x3BC) = 5;
                 }
-                if (((s32 (*)(void *))alloc_boss_target_slot__10TObjPlayerFPvi)((void *) (arg0)) == 1) {
+                if (((s32 (*)(void *))alloc_boss_target_slot__10TObjPlayerFPvi)(arg0) == 1) {
                     *(s32 *)((s8 *)arg0 + 0x37C) = 0;
                 }
             } else {
@@ -950,10 +950,10 @@ void TObjPlayer__sub_8003F9D4(void *arg0_) {
         } else {
             if ((s32) *(s32 *)((s8 *)arg0 + 0x394) < -0x1555) {
                 *(s32 *)((s8 *)arg0 + 0x3D0) = (s32) *(s32 *)((s8 *)arg0 + 0x390);
-                update_if_active__15TObjEneMe1GiGueFl((void *) (arg0), 9);
+                update_if_active__15TObjEneMe1GiGueFl(arg0, 9);
             }
 block_14:
-            play_persistent_sound(0x4003BC05, (void *) (arg0), (void *) (arg0 + 0x38), 0, 0);
+            play_persistent_sound(0x4003BC05, arg0, (void *) (arg0 + 0x38), 0, 0);
         }
         break;
     case -1:
@@ -974,7 +974,7 @@ void TObjPlayer::set_boss_target_pos(s32 arg1, s32 arg2, s32 arg3) {
         *(s32 *)&this->unk_3C0 = arg2;
         this->m_3c4 = arg3;
         boss3_volopt_core_active_flag = 0;
-        alloc_boss_target_slot__10TObjPlayerFPvi((Obj_8003F730 *)(this), (s32)(temp_r4));
+        alloc_boss_target_slot__10TObjPlayerFPvi((Obj_8003F730 *)(this), temp_r4);
         *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 & 0xFFFFFFFE);
         this->vfunc_59();
     }
@@ -1031,10 +1031,10 @@ void TObjPlayer__sub_8003FCD0(u8 *arg0) {
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x38C);
     *(f32 *)((s8 *)arg0 + 0x38) = temp_f1;
     *(f32 *)((s8 *)arg0 + 0x40) = (f32) lbl_805D86D0;
-    set_matrix_identity(0, (f32) (temp_f1));
+    set_matrix_identity(0, temp_f1);
     rotate_matrix_y(0, (s32)((int) (*(s32 *)((s8 *)arg0 + 0x390))));
     temp_r4 = (u8 *)(arg0 + 0x38);
-    rotate_vector_by_matrix(0, (int) (temp_r4), (int) (temp_r4));
+    rotate_vector_by_matrix(0, (int)temp_r4, (int)temp_r4);
     pop_matrix();
 }
 
@@ -1057,7 +1057,7 @@ void TObjPlayer::update_state_spin() {
         *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x10000);
         *(s16 *)&this->m_b8 = 0;
         *(s32 *)&this->m_5c = 0;
-        TObjPlayer__sub_8003FCD0((u8 *)(this));
+        TObjPlayer__sub_8003FCD0((u8 *)this);
         *(s32 *)&this->unk_398 = calc_spin_value();
         this->rotation_y = (s32) *(s32 *)&this->unk_398;
         *(s16 *)&this->unk_33C = 0x5A;
@@ -1142,7 +1142,7 @@ void TObjPlayer::update_grabbed_state() {
     temp_r0 = this->m_37c;
     switch (temp_r0) {
     case 0:
-        if (obj_testFlags30((void *)(this), 0x02000000) != 0) {
+        if (obj_testFlags30(this, 0x02000000) != 0) {
             *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x40000);
         }
         obj_clearFlags30(0x02200200);
@@ -1162,7 +1162,7 @@ void TObjPlayer::update_grabbed_state() {
             if (*(s32 *)&this->unk_388 & 0x40000) {
                 TObjPlayer::set_grabbed_state(0xF);
             } else {
-                update_if_active__15TObjEneMe1GiGueFl((void*)(this), (s32)(*(s32 *)&this->unk_380));
+                update_if_active__15TObjEneMe1GiGueFl(this, (s32)(*(s32 *)&this->unk_380));
             }
         }
         return;
@@ -1277,12 +1277,12 @@ void TObjPlayer::dispatch_reaction_state() {
     Obj_8004055C *arg0 = (Obj_8004055C *)this;
     switch (arg0->state) {
     case 0: run_freeze_state(); return;
-    case 1: TObjPlayer__sub_8003F9D4((void *)(arg0)); return;
-    case 2: TObjPlayer__sub_800401CC((u8 *)(arg0)); return;
+    case 1: TObjPlayer__sub_8003F9D4(arg0); return;
+    case 2: TObjPlayer__sub_800401CC((u8 *)arg0); return;
     case 4: update_grabbed_state(); return;
     case 5: update_reaction_animation(); return;
     case 7: update_state_spin(); return;
-    case 9: TObjPlayer__sub_8003F81C((u8 *)(arg0)); return;
+    case 9: TObjPlayer__sub_8003F81C((u8 *)arg0); return;
     case 10: update_topple_state(); break;
     }
 }
@@ -1329,7 +1329,7 @@ void TUnk_80483A10::run_task() {
   }
   else
   {
-    if (((s16) (this->mode)) != ((s32) (*(s32 *)&this->next_action)))
+    if ((this->mode) != ((s32) (*(s32 *)&this->next_action)))
     {
       if (((s32) (*(s32 *)&this->state)) != (-1))
       {
@@ -1365,7 +1365,7 @@ void cache_volopt_resource_ptrs(void) { volopt_resource_table_ptr = boss3_volopt
 void *TBoss3VoloptCore__sub_800407E0(void *arg0) {
     void *o = __nw__7TObjectFUl(0x3D4);
     if (o != NULL) {
-        o = TBoss3VoloptCore__sub_80040A7C((void *)(o), (void *)(tl_04), (void *)(arg0));
+        o = TBoss3VoloptCore__sub_80040A7C(o, tl_04, arg0);
     }
     return o;
 }

@@ -165,7 +165,7 @@ u8 *TLobby__sub_8019118C(u8 *arg0, s32 arg1, s32 arg2) {
     *(s16 *)((s8 *)arg0 + 0xAC) = 3;
     ((TUnk_804B7C1C *)arg0)->m_b0 = (s32) ((TUnk_804B7C1C *)arg0)->m_84;
     *(s32 *)((s8 *)arg0 + 0xB4) = 0;
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B7BD8.value), 1);
+    init_collision_body_parts(arg0, (void *) (&lbl_804B7BD8.value), 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;
 }

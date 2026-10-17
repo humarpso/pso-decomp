@@ -81,7 +81,7 @@ void TSaveChCr::set_state(s32 arg1) {
         member_action.words[1] = *(s32 *)((s8 *)temp_r6 + 4);
         member_action.words[2] = *(s32 *)((s8 *)temp_r6 + 8);
         if (member_action.action != 0) {
-            (((TSaveChCr *)((void *) (arg0)))->*member_action.action)();
+            (((TSaveChCr *)(arg0))->*member_action.action)();
         }
     }
 }
@@ -140,7 +140,7 @@ u8 *TSaveChCr__ct(u8 *arg0, u8 *arg1, s32 arg2) {
 void *TSaveChCr::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x40);
     if (o != NULL) {
-        o = TSaveChCr__ct((u8 *)(o), (u8 *)(tl_03), (s32)(arg0));
+        o = TSaveChCr__ct((u8 *)o, (u8 *)tl_03, (s32)arg0);
     }
     return o;
 }

@@ -225,14 +225,14 @@ void TShopKeepItemWindow::update_number_input() {
             ((TUnk_804CDFE8 *)(this->m_388))->set_position_xy(get_scale__15TShopWindowBaseFv(this), temp_f31);
         }
         *(s32 *)&this->m_378 = ((TShopEquipmentSellWindow *)(this->m_38c))->get_result();
-        TWindow__close((u8 *)(this->m_38c));
+        TWindow__close((u8 *)this->m_38c);
         this->m_38c = 0U;
         set_field_20(2);
         return;
     }
     w = this->m_38c;
     if ((w != 0U) && (((TShopEquipmentSellWindow *)w)->is_confirmed() != 0)) {
-        TWindow__close((u8 *)(this->m_38c));
+        TWindow__close((u8 *)this->m_38c);
         this->m_38c = 0U;
         set_field_20(3);
     }
@@ -301,7 +301,7 @@ void TShopKeepItemWindow::vfunc_11() {
         ((TShopKeepItemWindow *)arg0)->rebuild_item_list();
         return;
     case 1:
-        handle_deposit_list_select__19TShopKeepItemWindowFv((void *) (arg0));
+        handle_deposit_list_select__19TShopKeepItemWindowFv(arg0);
         return;
     case 2:
         ((TShopKeepItemWindow *)arg0)->handle_deposit_confirm();

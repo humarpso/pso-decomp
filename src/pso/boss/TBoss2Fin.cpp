@@ -170,7 +170,7 @@ Obj_80036718 *__ct__9TBoss2FinFv(Obj_80036718 *self, s32 arg1, s32 arg2, s32 arg
     }
     p->a = lbl_805D8454;
     ((TBoss2Fin *)self)->init_link_points();
-    ((TObjEZRopeBase *)self)->sub_800FF8CC((void *)((u8 *)&lbl_804FE590), (void *)(self->f30), (s32)(self->recs));
+    ((TObjEZRopeBase *)self)->sub_800FF8CC((void *)((u8 *)&lbl_804FE590), (void *)self->f30, (s32)self->recs);
     return self;
 }
 

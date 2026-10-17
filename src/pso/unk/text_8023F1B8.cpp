@@ -59,7 +59,7 @@ void TLobby::release_scene_resources() {
     TLobby::refresh_render_state();
     TLobby::stop_audio_streams();
     if ((u32) game_mode_scene_instance != 0U) {
-        queue_destruction__7TObjectFv((void *)(game_mode_scene_instance));
+        queue_destruction__7TObjectFv((void *)game_mode_scene_instance);
         game_mode_scene_instance = 0U;
     }
     delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8023F1B8_main_task *)&main_task).value));

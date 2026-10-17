@@ -82,7 +82,7 @@ extern RecoveredGlobal_8000F7FC_lbl_80515F48 title_texture_list;
     extern unsigned char lbl_804EE458[];
     extern const float lbl_805DF8B4;
     extern const float lbl_805DF8C0;
-void*TUnk_804EE458::init_camera_state(int a1) { __ct__7TObjectFP7TObject((void *)(this)); *(int*)((char*)this + 0x18) = (int)lbl_804EE458; *(int*)((char*)this + 0x1c) = a1; this->m_20 = 0; *(int*)((char*)this + 0x24) = 0; this->m_28 = lbl_805DF8C0; *(float*)((char*)this + 0x2c) = lbl_805DF8B4; this->m_30 = lbl_805DF8B4; *(float*)((char*)this + 0x34) = lbl_805DF8B4; this->m_38 = 0; return this; }
+void*TUnk_804EE458::init_camera_state(int a1) { __ct__7TObjectFP7TObject(this); *(int*)((char*)this + 0x18) = (int)lbl_804EE458; *(int*)((char*)this + 0x1c) = a1; this->m_20 = 0; *(int*)((char*)this + 0x24) = 0; this->m_28 = lbl_805DF8C0; *(float*)((char*)this + 0x2c) = lbl_805DF8B4; this->m_30 = lbl_805DF8B4; *(float*)((char*)this + 0x34) = lbl_805DF8B4; this->m_38 = 0; return this; }
 
 void TLobby__sub_80335E74(void) {  }
 void TLobby__sub_80335E78(void) {  }
@@ -125,7 +125,7 @@ void *TUnk_804EE470::dt(s16 arg1) {
     return this;
 }
 void *TUnk_804EE470::ct_with_parent(void *arg1) {
-    __ct__7TObjectFP7TObject((void *)(this));
+    __ct__7TObjectFP7TObject(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804EE470;
     *(void * *)&this->unk_1C = arg1;
     return this;

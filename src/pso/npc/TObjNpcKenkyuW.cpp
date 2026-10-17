@@ -148,7 +148,7 @@ bool TObjPlayer::is_hit_receivable_target(s32 arg0, u32 arg1) {
     if (arg1 == 0U) {
         return 0;
     }
-    return obj_is_hit_receivable((void *) (arg1)) != 0;
+    return obj_is_hit_receivable((void *)arg1) != 0;
 }
 #define L_802A3DE8 (*(TechniqueContactList *)&technique_contact_list)
 TechniqueContactList *TObjPlayer__sub_802A3DE8(Obj_802A3DE8 *self, void *src) {

@@ -98,7 +98,7 @@ void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void *__dt__19TODoorFourLightBaseFv(void *arg0, s16 arg1);
 
-void TODoorLaboNormal::init_field_d4() { *(int *)&this->m_d4 = get_bml_model((s32)(TODoorLabo__model_archive), 0); }
+void TODoorLaboNormal::init_field_d4() { *(int *)&this->m_d4 = get_bml_model(TODoorLabo__model_archive, 0); }
 
 s32 TODoorLaboNormal__vt20(void) {
     return TODoorLaboNormal__green_texture_list;
@@ -371,20 +371,20 @@ void TLanguage__sub_8029FF0C(void) {
     case 28:
         var_r0 = ((TAdSinglePlyChrSelectGC *)0x440)->alloc();
         if (var_r0 != 0) {
-            var_r0 = load_resource_from_descriptor(var_r0, 5, (void *) (bm_o_door_seabed01_u_resource_descriptor), 0, 0, 0);
+            var_r0 = load_resource_from_descriptor(var_r0, 5, bm_o_door_seabed01_u_resource_descriptor, 0, 0, 0);
         }
         seabed_four_light_door_bml_resource = var_r0;
-        seabed_four_light_door_textures = (s32)load_gvm_texture_file((s32)(lbl_804660AC));
-        TODoorFourLightSeabedU__texture_list = (s32)load_gvm_texture_file((s32)(lbl_804660C8));
+        seabed_four_light_door_textures = (s32)load_gvm_texture_file((s32)lbl_804660AC);
+        TODoorFourLightSeabedU__texture_list = (s32)load_gvm_texture_file((s32)lbl_804660C8);
         return;
     case 29:
         var_r0_2 = ((TAdSinglePlyChrSelectGC *)0x440)->alloc();
         if (var_r0_2 != 0) {
-            var_r0_2 = load_resource_from_descriptor(var_r0_2, 5, (void *) (bm_o_door_seabed01_u_resource_descriptor), 0, 0, 0);
+            var_r0_2 = load_resource_from_descriptor(var_r0_2, 5, bm_o_door_seabed01_u_resource_descriptor, 0, 0, 0);
         }
         seabed_four_light_door_bml_resource = var_r0_2;
-        seabed_four_light_door_textures = (s32)load_gvm_texture_file((s32)(lbl_804660DC));
-        TODoorFourLightSeabedU__texture_list = (s32)load_gvm_texture_file((s32)(lbl_804660FC));
+        seabed_four_light_door_textures = (s32)load_gvm_texture_file((s32)lbl_804660DC);
+        TODoorFourLightSeabedU__texture_list = (s32)load_gvm_texture_file((s32)lbl_804660FC);
         return;
     }
 }

@@ -30,6 +30,6 @@ s32 TItemLoad::decompress_buffer(u32 arg0) {
     return 0;
 }
 
-void TItemLoad::free_boss4_rock() { mem_free((void *)(item_load_compressed_work_buffer)); item_load_compressed_work_buffer = 0; }
+void TItemLoad::free_boss4_rock() { mem_free((void *)item_load_compressed_work_buffer); item_load_compressed_work_buffer = 0; }
 
 }

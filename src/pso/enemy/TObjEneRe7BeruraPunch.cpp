@@ -92,7 +92,7 @@ void TObjEneRe7BeruraPunch::snap_to_ground() {
   else
   {
     *((f32 *) (((s8 *) arg0) + 0x38)) = (f32) (*((f32 *) (((s8 *) arg0) + 0xDC)));
-    *((f32 *) (((s8 *) arg0) + 0x40)) = (f32) (this->m_e4);
+    *((f32 *) (((s8 *) arg0) + 0x40)) = this->m_e4;
   }
   new_var = *((f32 *) (((s8 *) arg0) + 0xE0));
   *((f32 *) (((s8 *) arg0) + 0xCC)) = (f32) (new_var - (*((f32 *) (((s8 *) arg0) + 0x3C))));
@@ -224,7 +224,7 @@ u8 *TObjEneRe7BeruraPunch__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80096750___vt__21TObjEneRe7BeruraPunch *)&__vt__21TObjEneRe7BeruraPunch).value;
     ((TUnk_80490470 *)(arg0 + 0xF8))->init_vtable_and_field18();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2990;
-    ((TObjEneRe7BeruraPunch *)arg0)->m_b0 = obj_getField1c((void *) (arg2));
+    ((TObjEneRe7BeruraPunch *)arg0)->m_b0 = obj_getField1c((void *)arg2);
     ((TObjEneRe7BeruraPunch *)arg0)->init();
     return arg0;
 }

@@ -1067,14 +1067,14 @@ s32 TUnk_80493450::update_target_near_flag() {
     }
 }
 
-int TUnk_80493450::beast_retire_corpse() { return queue_destruction__7TObjectFv((void*)(this)); }
+int TUnk_80493450::beast_retire_corpse() { return queue_destruction__7TObjectFv(this); }
 void TUnk_80493450::beast_update_dead() {
     u8 *arg0 = (u8 *)this;
     advance_animation_playback();
-    if (objInBand((GameObj *)(arg0), (f32) (lbl_805DA034)) != 0) {
+    if (objInBand((GameObj *)(arg0), lbl_805DA034) != 0) {
         ((VObj_18_90ef41 *)(arg0))->m96();
     }
-    if (objInBand((GameObj *)(arg0), (f32) (lbl_805DA038)) != 0) {
+    if (objInBand((GameObj *)(arg0), lbl_805DA038) != 0) {
         spawn_particle_effect(((u8 *)&this->position), 0xF3);
         ((VObj_18_90ef41 *)(arg0))->m92();
     }
@@ -1082,8 +1082,8 @@ void TUnk_80493450::beast_update_dead() {
         move_with_wall_slide((arg0));
         *(f32 *)((s8 *)arg0 + 0x308) = (f32) (*(f32 *)((s8 *)arg0 + 0x308) * lbl_805DA03C);
         this->m_310 = (f32) (this->m_310 * lbl_805DA03C);
-    } else if (obj_testFlags30((void *) (arg0), 0x800000) == 0) {
-        apply_actor_gravity((void *) (arg0), 0, (f32) (lbl_805DA034));
+    } else if (obj_testFlags30(arg0, 0x800000) == 0) {
+        apply_actor_gravity(arg0, 0, lbl_805DA034);
     }
     *(f32 *)((s8 *)arg0 + 0x380) = (f32) (*(f32 *)((s8 *)arg0 + 0x380) - this->m_384);
     if (*(f32 *)((s8 *)arg0 + 0x380) <= *(f32 *)((s8 *)arg0 + 0x388)) {
@@ -1329,7 +1329,7 @@ void TUnk_80493450::beast_update_approach() {
     default:
         if (*(u32 *)&this->target != 0U) {
             if (test_elt_flag__13TUnk_80493450Fll(arg0, 0, 0x300000) != 0) {
-                if ((f32) (this->m_38c)++ < lbl_805DA054) {
+                if (this->m_38c++ < lbl_805DA054) {
                     VecCopy((Vec *)&sp14, (const Vec *)&this->m_50);
                 } else {
                     VecCopy((Vec *)&sp14, (const Vec *)(*(u32 *)&this->target + 0x2FC));

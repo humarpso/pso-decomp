@@ -30,7 +30,7 @@ s32 TLobby__sub_8028D738(s32 i) {
     if ((u32) chr_select_load_buffer_base == 0U) {
         return 0;
     }
-    TLobby__sub_8028D7D0((s32)(i));
+    TLobby__sub_8028D7D0(i);
     if (i < 4) {
         temp_r3_2 = chr_select_load_buffer_base + (i * 0xA000);
         *(s32 *)((s8 *)(&lbl_80518850.value) + (i * 4)) = temp_r3_2;

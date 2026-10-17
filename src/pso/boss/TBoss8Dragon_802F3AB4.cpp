@@ -20,10 +20,10 @@ s32 setup_attack_slot__12TBoss8DragonFiUiiiPv(s32 arg0, u32 arg1, s32 arg2, s32 
     if ((arg3 < 0) || (arg3 > 5)) {
         return 0;
     }
-    TBoss4DarkFalz__sub_8004B4F0((void *) (arg4), (void *) (arg0 + 0x1C));
-    *(s16 *)((s8 *)arg4 + 0) = TBoss8Dragon__sub_802F3C94((void *)((void *) (arg0)), (s32)((void *) (arg3)));
+    TBoss4DarkFalz__sub_8004B4F0(arg4, (void *) (arg0 + 0x1C));
+    *(s16 *)((s8 *)arg4 + 0) = TBoss8Dragon__sub_802F3C94((void *)(arg0), (s32)(arg3));
     *(s16 *)((s8 *)arg4 + 2) = 0;
-    *(s16 *)((s8 *)arg4 + 6) = ((TBoss8Dragon *)arg0)->get_part_count_plus((s32)((void *) (arg3)));
+    *(s16 *)((s8 *)arg4 + 6) = ((TBoss8Dragon *)arg0)->get_part_count_plus((s32)(arg3));
     if (arg1 != 0U) {
         VecCopy((Vec *)(arg4 + 0x10), (const Vec *)(arg1));
     }
@@ -64,7 +64,7 @@ void * TBoss8Dragon__sub_802F3C24(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x5C);
     if (o != NULL) {
-        o = ((TUnk_804E4BF0 *)o)->ct((void *)(arg0), (void *)(arg1));
+        o = ((TUnk_804E4BF0 *)o)->ct(arg0, arg1);
     }
     return o;
 }

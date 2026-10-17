@@ -81,7 +81,7 @@ u8 *TBoss6Rock__ct(u8 *arg0, s32 arg1, s32 arg2) {
 void *TBoss6Rock::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE8);
     if (o != NULL) {
-        o = TBoss6Rock__ct((u8 *)(o), (s32)(tl_02), (s32)(arg0));
+        o = TBoss6Rock__ct((u8 *)o, (s32)tl_02, (s32)arg0);
     }
     return o;
 }

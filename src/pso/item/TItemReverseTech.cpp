@@ -66,7 +66,7 @@ void TItemReverseTech::run_task() {
         temp_r3_2 = (u32)__nw__7TObjectFUl(0x158);
         var_r0 = temp_r3_2;
         if (var_r0 != 0U) {
-            var_r0 = (u32)__ct__21TItemReverseTechPart2Fv((u8 *)(temp_r3_2), (s32)(this), (s32)(TItemReverseTech__texture_archive));
+            var_r0 = (u32)__ct__21TItemReverseTechPart2Fv((u8 *)temp_r3_2, (s32)this, (s32)TItemReverseTech__texture_archive);
         }
         part_two = (TObject *)var_r0;
     }

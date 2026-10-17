@@ -50,7 +50,7 @@ u8 *__ct__16TBoss1DragonDemoFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
     typedef char sp10_offset[(offsetof(Stack_8002B744, sp10) == 0x8) ? 1 : -1];
     Stack_8002B744 stack;
     s32 temp_r3;
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__16TBoss1DragonDemo.value;
     *(s32 *)((s8 *)arg0 + 0) = TBoss1DragonDemo__name;
     *(f32 *)((s8 *)arg0 + 0x1C) = farg0;

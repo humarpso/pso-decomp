@@ -88,7 +88,7 @@ void *TObjBoss5PillarCtrl::create() {
     void *o;
     o = __nw__7TObjectFUl(0x24);
     if (o != NULL) {
-        o = TObjBoss5PillarCtrl__ct((Ctrl_8028B23C *)(o), (void *)(this));
+        o = TObjBoss5PillarCtrl__ct((Ctrl_8028B23C *)(o), this);
     }
     return o;
 }

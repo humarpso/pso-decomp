@@ -48,12 +48,12 @@ u8 *TWindowSubQuestBoardSelect__ct(u8 *arg0) {
     *(s32 *)&((TWindowSubQuestBoardSelect *)arg0)->m_64 = var_r30;
     *(s8 *)&((TWindowSubQuestBoardSelect *)arg0)->m_60 = 0;
     temp_r30 = ((TUnk_804CE018 *)arg0)->get_array_entry(0);
-    set_text_entry_string((u8 *)(temp_r30), (u32)(get_quest_name__12TQuestThreadFv()), 0);
+    set_text_entry_string((u8 *)temp_r30, (u32)(get_quest_name__12TQuestThreadFv()), 0);
     ((TWindowSubComCard *)temp_r30)->get_field_20();
     temp_f2 = (f32) calc_text_width();
     *(f32 *)((s8 *)temp_r30 + 8) = (f32) -((lbl_805DD6BC * temp_f2) - lbl_805DD6B8);
     *(s8 *)&((TWindowSubQuestBoardSelect *)arg0)->m_61 = -1;
-    update_slot_display_flags__26TWindowSubQuestBoardSelectFv((void *) (arg0), (f32) (lbl_805DD6BC), (f32) (temp_f2));
+    update_slot_display_flags__26TWindowSubQuestBoardSelectFv(arg0, lbl_805DD6BC, temp_f2);
     ((TWindowSubQuestBoardSelect *)arg0)->select_next();
     return arg0;
 }

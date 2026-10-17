@@ -161,7 +161,7 @@ u8 *TObjCityMainWarpChallenge__ct(u8 *arg0) {
     temp_r4 = *(s32 *)((s8 *)arg0 + 0xBC);
     city_main_warp_destination_id = temp_r4;
     *(s32 *)((s8 *)arg0 + 0xA4) = 0;
-    register_entity_by_id((void *) (arg0), (int) (temp_r4), (f32) (lbl_805DBCCC));
+    register_entity_by_id(arg0, temp_r4, lbl_805DBCCC);
     *(s32 *)((s8 *)arg0 + 0x164) = 0;
     *(s32 *)((s8 *)arg0 + 0x168) = 0;
     if (TOKeyMachine01::get_global_state() == 0) {

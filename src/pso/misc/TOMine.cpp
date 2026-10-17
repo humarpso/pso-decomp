@@ -120,7 +120,7 @@ void TOMine::run_task() {
                 ((TOMine *)arg0)->follow_target();
                 break;
             }
-            submit_cursor_candidate((void *) (arg0), -1);
+            submit_cursor_candidate(arg0, -1);
             return;
         case 4:
             ((TOMine *)arg0)->detonate();

@@ -37,22 +37,22 @@ void TUnk_804D0948::render() {
     s32 n;
     void *p;
     temp_r3 = get_draw_context__11TWindowBaseFPv();
-    draw_window_frame((void *) (arg0), (int) (temp_r3));
-    draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
+    draw_window_frame(arg0, temp_r3);
+    draw_visible_window_entries(arg0, (void *) (arg0 + 0x24), temp_r3);
     if (!(this->m_70 & 0x80)) {
-        ((TUnk_804D0618 *)arg0)->draw_selected_list_entry((int) (temp_r3));
+        ((TUnk_804D0618 *)arg0)->draw_selected_list_entry(temp_r3);
     }
     n = *(s32 *)&this->unk_88;
     if (n > 0) {
-        draw_item_list_capacity((void *) (arg0), (int) (temp_r3), (int) (this->m_72), n);
+        draw_item_list_capacity(arg0, temp_r3, this->m_72, n);
     }
     p = this->m_80;
     if (p != NULL) {
-        forward_render__20TWindowSubStatusDispFv(p, (int) (temp_r3));
+        forward_render__20TWindowSubStatusDispFv(p, temp_r3);
     }
     p = *(void * *)&this->unk_84;
     if (p != NULL) {
-        draw_window_scrollbar(p, (int) (temp_r3), (void *) (arg0 + 0x68));
+        draw_window_scrollbar(p, temp_r3, (void *) (arg0 + 0x68));
     }
 }
 #pragma pop
@@ -73,14 +73,14 @@ typedef char RecoveredGlobal_8026E110_lbl_804D0948_size[sizeof(RecoveredGlobal_8
 u8 *TWindowSubStatusDisp::ct_helper(s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     fn_80268384(((u8 *)this), arg1, arg3, (s16) local_client_id, arg4);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_8026E110_lbl_804D0948 *)&item_list_window_vtable).value;
-    sub_8026DE94__13TUnk_804D0948Fv((void *) (((u8 *)this)), (void *) (arg2));
+    sub_8026DE94__13TUnk_804D0948Fv((void *) (((u8 *)this)), (void *)arg2);
     return ((u8 *)this);
 }
 typedef char RecoveredGlobal_8026E168_lbl_804D0948_size[sizeof(RecoveredGlobal_8026E168_lbl_804D0948) == 0x20 ? 1 : -1];
 u8 *TWindowSubStatusDisp::construct_item_list(s32 arg1, s32 arg2, s16 arg3) {
     fn_802683F4((((u8 *)this)), (s32)(get_window_layout_position(0x26)), (arg2), (arg3));
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_8026E168_lbl_804D0948 *)&item_list_window_vtable).value;
-    sub_8026DE94__13TUnk_804D0948Fv((void *) (((u8 *)this)), (void *) (arg1));
+    sub_8026DE94__13TUnk_804D0948Fv((void *) (((u8 *)this)), (void *)arg1);
     return ((u8 *)this);
 }
 

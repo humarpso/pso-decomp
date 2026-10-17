@@ -162,7 +162,7 @@ s32 is_valid_state__6TLobbyFPvi(void *unused, s32 arg1) {
 }
 
 void check_valid_state__6TLobbyFi(s32 unused) {
-    is_valid_state__6TLobbyFPvi((void *)((void *)(unused)), (s32)((s32)(is_handle_valid__10TObjPlayerFv())));
+    is_valid_state__6TLobbyFPvi((void *)(unused), (s32)((s32)(is_handle_valid__10TObjPlayerFv())));
 }
 
 int TUnk_804ED7D0::vfunc_76() {
@@ -175,7 +175,7 @@ s32 *TLobby::get_state_table(s32 _w1) {
     s32 unused = (s32)this;
     s32 *var_r3;
     s32 temp_r3;
-    temp_r3 = is_valid_state__6TLobbyFPvi((void *)(unused), (s32)(_w1));
+    temp_r3 = is_valid_state__6TLobbyFPvi((void *)unused, (s32)_w1);
     switch (temp_r3) {
     case 0:
         var_r3 = (s32 *)(&lbl_805430E8.value);
@@ -186,7 +186,7 @@ s32 *TLobby::get_state_table(s32 _w1) {
         var_r3 = (s32 *)(&lbl_805432A8.value);
         return &lbl_805432A8.value;
     default:
-        var_r3 = (s32 *)((u8 *)(NULL));
+        var_r3 = (s32 *)(NULL);
         return NULL;
     }
 }
@@ -197,10 +197,10 @@ int TUnk_804ED7D0::vfunc_9(s32 a, s32 b, s32 c) {
 }
 
 int TUnk_804ED7D0::vfunc_8(s32 arg1, s32 arg2) {
-    if (((s32)TLobby__sub_802A7278((void*)((void *) (arg1)))) == 0) {
+    if (((s32)TLobby__sub_802A7278((void*)(arg1))) == 0) {
         return 0;
     }
-    if (((s32)is_valid_player_motion_variant((void*)((void *) (arg2)))) != 0) {
+    if (((s32)is_valid_player_motion_variant((void*)(arg2))) != 0) {
         return *(s32 *)((s8 *)(*(s32 *)((s8 *)(&town_player_motion_clip_index_tables.value) + (arg1 * 4))) + (arg2 * 4));
     }
     return 0;
@@ -299,11 +299,11 @@ extern "C" {
 #define CVS ((int (*)(void*))check_valid_state__6TLobbyFi)
 
 int TUnk_804ED7D0::vfunc_11() { return (IVS(this)) == 0; }
-int TUnk_804ED7D0::vfunc_10() { return (CVS((void*)(this))) == 0; }
+int TUnk_804ED7D0::vfunc_10() { return (CVS(this)) == 0; }
 
 int TUnk_804ED7D0::vfunc_13() {
     s32 arg0 = (s32)this;
-    return (u8) (((s32)IVS((void*)(arg0))) == 1);
+    return (u8) (((s32)IVS((void*)arg0)) == 1);
 }
 
 int TUnk_804ED7D0::vfunc_12() {

@@ -82,7 +82,7 @@ void TOBind::render() {
 void *TOBind::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD8);
     if (o != NULL) {
-        o = TOBind__ct((u8 *)(o), (s32)(arg0));
+        o = TOBind__ct((u8 *)o, (s32)arg0);
     }
     return o;
 }
@@ -120,7 +120,7 @@ void *__dt__6TOBindFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80158890_lbl_804AFC54_size[sizeof(RecoveredGlobal_80158890_lbl_804AFC54) == 0x58 ? 1 : -1];
 typedef char RecoveredGlobal_80158890___vt__6TOBind_size[sizeof(RecoveredGlobal_80158890___vt__6TOBind) == 0x3C ? 1 : -1];
 u8 *TOBind__ct(u8 *arg0, s32 arg1) {
-    construct_collider_proxy__13TUnk_804AF8A0Fv((void *) (arg0), (int) (tl_05));
+    construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_05);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80158890___vt__6TOBind *)&__vt__6TOBind).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2EA8;
     ((TOBind *)(arg0))->apply_object_set_data((void *)arg1);
@@ -133,7 +133,7 @@ u8 *TOBind__ct(u8 *arg0, s32 arg1) {
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DB300;
     ((TOBind *)arg0)->m_bc = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xCC)) + 4) - lbl_805DB304);
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB304;
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AFC54.value), 2);
+    init_collision_body_parts(arg0, (void *) (&lbl_804AFC54.value), 2);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(s32 *)&((TOBind *)arg0)->actorFlags = (s32) (*(s32 *)&((TOBind *)arg0)->actorFlags| 0x40000000);

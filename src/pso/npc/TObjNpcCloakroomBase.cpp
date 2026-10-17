@@ -48,7 +48,7 @@ void *TObjNpcCloakroomBase::create(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x3B8);
     if (o2 != NULL) {
-        o2 = TObjNpcCloakroomBase__ct((u8 *)(o2), (s32)(o), (s32)(arg0));
+        o2 = TObjNpcCloakroomBase__ct((u8 *)o2, (s32)o, (s32)arg0);
     }
     return o2;
 }

@@ -16,7 +16,7 @@ u8 *TLobby::pop_stack_entry(s16 arg1) {
         async_file_read_current_request = *(s32 *)((s8 *)arg0 + 0x38);
         lobby_list_entry_count -= 1;
         if (arg1 > 0) {
-            TLobby::free_static_buffer((void *) (arg0));
+            TLobby::free_static_buffer(arg0);
         }
     }
     return arg0;

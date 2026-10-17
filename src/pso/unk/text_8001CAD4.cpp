@@ -63,8 +63,8 @@ void TLoadingCur::update_camera_facing_offset() {
         *(f32 *)&this->unk_58 = (f32) -*(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x14);
         direction_to_rotation_xy((arg0 + 0x50), (&stack.sp8), (&stack.spC));
         push_matrix_from((void *) (&identity_matrix.value));
-        rotate_matrix_y(0, (int) (stack.spC));
-        rotate_matrix_x(0, (int) (stack.sp8));
+        rotate_matrix_y(0, stack.spC);
+        rotate_matrix_x(0, stack.sp8);
         rotate_vector_by_matrix(0, (void *) (arg0 + 0x20), (void *) (arg0 + 0x2C));
         pop_matrices(1);
         vec3_add_to((void *) (arg0 + 0x2C), (void *) (arg0 + 0x44));

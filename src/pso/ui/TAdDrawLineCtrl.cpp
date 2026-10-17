@@ -73,9 +73,9 @@ u8 *create_draw_line_ctrl__13TAdMcSelectGCFiif(s32 arg0, s32 arg1, f32 farg0) {
     u8 *var_r0;
     if ((u32) lbl_805D49D8 != 0U) {
         temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x2C)));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)__ct__15TAdDrawLineCtrlFP7TObjectPvf((void *)(temp_r3), (void *)(arg0), (void *)(lbl_805D49D8 + (arg1 * 0xC)), farg0)));
+            var_r0 = (u8 *)(((u8 *)__ct__15TAdDrawLineCtrlFP7TObjectPvf((void *)temp_r3, (void *)arg0, (void *)(lbl_805D49D8 + (arg1 * 0xC)), farg0)));
         }
         return var_r0;
     }

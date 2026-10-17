@@ -78,7 +78,7 @@ void TOVS2Wall01::run_task() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
     if (TObjPlayer::check_demo_mode() == 1) {
-        TOVS2Wall01__sub_8017B9AC((void *) (arg0));
+        TOVS2Wall01__sub_8017B9AC(arg0);
         return;
     }
     temp_r0 = this->mode;
@@ -109,16 +109,16 @@ void TOVS2Wall01::render() {
             lbl_805D5660 = model_render_flags;
             lbl_805D5664 = chunk_polygon_flags_and_mask;
             lbl_805D5668 = chunk_polygon_flags_or_mask;
-            ((VObj_14_1eb8da *)((u8 *)(arg0) + (832)))->m6(chunk_polygon_flags_and_mask, model_render_flags);
+            ((VObj_14_1eb8da *)(arg0 + (832)))->m6(chunk_polygon_flags_and_mask, model_render_flags);
         }
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y(0, (int) (this->rotation_y));
-        TObjFish::set_global_param((int) (this->texture_id));
+        rotate_matrix_y(0, this->rotation_y);
+        TObjFish::set_global_param(this->texture_id);
         draw_ginja_object((void *)(*(s32 *)&this->model));
         pop_matrix();
         if (var_r31 != 0) {
-            ((VObj_14_1eb8da *)((u8 *)(arg0) + (832)))->m7();
+            ((VObj_14_1eb8da *)(arg0 + (832)))->m7();
             chunk_polygon_flags_and_mask = lbl_805D5664;
             chunk_polygon_flags_or_mask = lbl_805D5668;
             model_render_flags = lbl_805D5660;
@@ -129,7 +129,7 @@ void TOVS2Wall01::render() {
 void *TOVS2Wall01::create() {
     void *o = __nw__7TObjectFUl(0x360);
     if (o != NULL) {
-        o = TOVS2Wall01__ct((void *)(o), (void *)(this));
+        o = TOVS2Wall01__ct(o, this);
     }
     return o;
 }

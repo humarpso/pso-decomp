@@ -364,7 +364,7 @@ void TObjNpcFemaleBase::handle_message_event(u16 arg1) {
     }
 }
 
-#define F(T, o) (*(T *)((s8 *)(arg0) + (o)))
+#define F(T, o) (*(T *)(arg0 + (o)))
 
 void TObjNpcBase::debug_draw_talk() {
     if ((sub_8010319C__13TUnk_804AF8A0Fv() != 0) && (((u32 (*)(u16))get_player_by_client_id)(this->m_94) != 0)) {

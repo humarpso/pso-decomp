@@ -45,7 +45,7 @@ s32 all_parents_unqueued_for_destruction__7TObjectFv();
 
 s32 TObjEneDD::is_target_unobstructed(s32 arg1) {
     s32 arg0 = (s32)this;
-    if ((is_alive__9TObjEneDDFv((void *)(arg0)) != 0) && (csnLookAt((arg1), (arg0 + 0x2FC)) == 0U)) {
+    if ((is_alive__9TObjEneDDFv((void *)arg0) != 0) && (csnLookAt((arg1), (arg0 + 0x2FC)) == 0U)) {
         return 1;
     }
     return 0;
@@ -76,10 +76,10 @@ u32 is_player_entity_id(u16 arg0) {
 
 void update_collider_contact_by_height(u8 *arg0, f32 farg0) {
     if (*(f32 *)((s8 *)arg0 + 4) >= farg0) {
-        set_collider_contact_high((u8 *)(arg0));
+        set_collider_contact_high(arg0);
         return;
     }
-    set_collider_contact_low((u8 *)(arg0));
+    set_collider_contact_low(arg0);
 }
 
 void set_collider_contact_low(u8 *arg0) {

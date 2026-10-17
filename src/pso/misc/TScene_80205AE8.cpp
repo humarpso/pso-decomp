@@ -161,7 +161,7 @@ s32 find_uv_animation__6TSceneFPvPv(void *task, Uv_80205DE4 *uv) {
     }
     while (n > 0) {
         if (rec[0] == uv->id) {
-            ((TScene *)uv)->copy_header_and_vec((void*)(rec));
+            ((TScene *)uv)->copy_header_and_vec(rec);
             return 1;
         }
         rec = (u16 *)((u8 *)rec + 0x14);
@@ -199,7 +199,7 @@ void TScene::initialize_fmt2_materials() {
                     uv->u = def.u; uv->v = def.v; uv->du = def.du; uv->dv = def.dv;
                     SceneMaterialNode *node = resolve_indirect_node_record(task, object);
                     void *buffer = alloc__23TAdSinglePlyChrSelectGCFv(20);
-                    if (buffer) buffer = ((TScene *)buffer)->init_buffers((s32)node, (s32)(uv->texture));
+                    if (buffer) buffer = ((TScene *)buffer)->init_buffers((s32)node, uv->texture);
                     uv->buffer = buffer;
                 } else {
                     object->flags &= ~0x20;
@@ -219,7 +219,7 @@ void TScene::initialize_fmt2_materials() {
                     uv2->u = def2.u; uv2->v = def2.v; uv2->du = def2.du; uv2->dv = def2.dv;
                     SceneMaterialNode *node2 = resolve_indirect_object_record(task, anim);
                     void *buffer2 = alloc__23TAdSinglePlyChrSelectGCFv(20);
-                    if (buffer2) buffer2 = ((TScene *)buffer2)->init_buffers((s32)node2, (s32)(uv2->texture));
+                    if (buffer2) buffer2 = ((TScene *)buffer2)->init_buffers((s32)node2, uv2->texture);
                     uv2->buffer = buffer2;
                 } else {
                     anim->flags &= ~0x20;

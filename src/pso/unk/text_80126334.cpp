@@ -43,9 +43,9 @@ u8 *frozen_shooter_create(s32 arg0) {
     u8 *var_r0;
     if (arg0 != 0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x204));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(frozen_shooter_ct((u8 *)(temp_r3), (u8 *)(tl_05), (s32)(arg0)));
+            var_r0 = (u8 *)(frozen_shooter_ct((u8 *)temp_r3, (u8 *)tl_05, (s32)arg0));
         }
         return var_r0;
     }

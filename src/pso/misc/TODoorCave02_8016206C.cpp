@@ -60,7 +60,7 @@ extern void *tl_05;
 void *TODoorCave02::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE4);
     if (o != NULL) {
-        o = TODoorCave02__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TODoorCave02__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -124,7 +124,7 @@ u8 *TODoorCave02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(u8 **)((s8 *)arg0 + 0xBC) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&cave_door02_model_resource) + 0x430)) + 4));
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB4B8);
     ((TODoorCave02 *)arg0)->m_b8 = (f32) lbl_805DB4C8;
-    init_collision_body_parts((void *) (arg0), (void *) (&TODoorCave02__collision_body_parts.value), 1);
+    init_collision_body_parts(arg0, (void *) (&TODoorCave02__collision_body_parts.value), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TODoorCave02 *)(arg0))->init_door_switch_binding();

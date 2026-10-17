@@ -123,7 +123,7 @@ void THunterGuildSeqOffline::handle_cancel_choice() {
     u8 *arg0 = (u8 *)this;
     s32 selected_menu_value;
     u8 *temp_r3;
-    temp_r3 = (u8 *)(this->m_2c);
+    temp_r3 = this->m_2c;
     if (temp_r3 != NULL) {
         if (((TWindowMenu *)temp_r3)->is_visible() != 0) {
             selected_menu_value = get_selected_menu_value(this->m_2c);

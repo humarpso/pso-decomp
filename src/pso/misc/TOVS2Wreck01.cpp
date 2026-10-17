@@ -30,7 +30,7 @@ void *__nw__7TObjectFUl(int);
 void *TOVS2Wreck01__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD0);
     if (o != NULL) {
-        o = TOVS2Wreck01__ct((void *)(o), (void *)(arg0));
+        o = TOVS2Wreck01__ct(o, arg0);
     }
     return o;
 }

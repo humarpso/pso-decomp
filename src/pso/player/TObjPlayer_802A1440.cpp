@@ -18,9 +18,9 @@ void TObjPlayer::init_select_txt() { *(int*)(this) = 0; TAdSelectTxtGC__sub_802A
 void TObjPlayer::copy_lobby_header(s32 arg1) {
     s32 *arg0 = (s32 *)this;
     ((TObjPlayer *)((s8 *)arg0 + 0x428))->set_flags(1);
-    *arg0 = TAdSelectTxtGC__sub_802A16C0((void *) (arg1));
+    *arg0 = TAdSelectTxtGC__sub_802A16C0((void *)arg1);
     ((TLobby *)((s8 *)arg0 + 4))->copy_header_struct((void *) ((s8 *)arg1 + 0xDAC));
-    export_character_data__10TObjPlayerFPvPv((u8 *)(arg1), (u8 *)((s8 *)arg0 + 0xC));
+    export_character_data__10TObjPlayerFPvPv((u8 *)arg1, (u8 *)((s8 *)arg0 + 0xC));
 }
 
 void TObjPlayer::initialize_player_data() { *(unsigned char*)((char*)this + 0x3) = 0; *(unsigned char*)((char*)this + 0x2) = 0; *(unsigned char*)((char*)this + 0x1) = 0; *(unsigned char*)(this) = 0; init_inventory_items__12TPlyCharDataFv(this); ((TAdSelectTxtGC *)((char*)this + 0x34c))->reset_state(); clear_player_data_block((char*)this + 0x370); TObjPlayer__sub_802A1588((void*)((char*)this + 0x3c0)); init_item_counts_max(); }

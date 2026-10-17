@@ -179,7 +179,7 @@ typedef char RecoveredGlobal_800D4668_lbl_8049442C_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_800D4668_lbl_8058D490_size[sizeof(RecoveredGlobal_800D4668_lbl_8058D490) == 0x30 ? 1 : -1];
 u8 *TObjGyaranzoMissile__sub_800D4668(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, s32 arg4) {
     u8 *temp_r4;
-    construct_collider_proxy__13TUnk_804AF8A0Fv((void *) (arg0), (int) (tl_04));
+    construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_04);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800D4668_lbl_8049442C *)&lbl_8049442C).value;
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2));
     VecCopy((Vec *)(arg0 + 0xE0), (const Vec *)(arg0 + 0x38));
@@ -188,7 +188,7 @@ u8 *TObjGyaranzoMissile__sub_800D4668(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, s3
     ((TUnk_8049442C *)arg0)->m_c4 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&gyaranzo_bml_resource) + 0x42C)) + 0x58);
     *(s32 *)((s8 *)arg0 + 0xC8) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&gyaranzo_bml_resource) + 0x42C)) + 0x5C);
     *(s16 *)((s8 *)arg0 + 0x28) = (s16) *(s16 *)((s8 *)arg1 + 0x28);
-    *(u16 *)((s8 *)arg0 + 0xD8) = obj_getField1c((void *) (arg1));
+    *(u16 *)((s8 *)arg0 + 0xD8) = obj_getField1c(arg1);
     ((TUnk_8049442C *)arg0)->m_b8 = 0;
     ((TUnk_8049442C *)arg0)->m_bc = (s32) (arg3 + 0x8000);
     *(s32 *)((s8 *)arg0 + 0xC0) = -0x4000;
@@ -200,10 +200,10 @@ u8 *TObjGyaranzoMissile__sub_800D4668(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, s3
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) lbl_805DA2B4;
     rotate_matrix_y(0, (int) (((TUnk_8049442C *)arg0)->m_bc));
     temp_r4 = (u8 *)(arg0 + 0xAC);
-    rotate_vector_by_matrix(0, (int) (temp_r4), (int) (temp_r4));
+    rotate_vector_by_matrix(0, (int)temp_r4, (int)temp_r4);
     pop_matrix();
     ((TUnk_8049442C *)arg0)->m_d4 = (f32) lbl_805DA2A4;
-    init_collision_body_parts((void *) (arg0), (void *) (&gyaranzo_missile_collision_body.value), 1);
+    init_collision_body_parts(arg0, (void *) (&gyaranzo_missile_collision_body.value), 1);
     *(f32 *)((s8 *)(*(u8 * *)&((TUnk_8049442C *)arg0)->m_a4) + 0xC) = (f32) lbl_805DA2B8;
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TUnk_8049442C *)arg0)->m_ec = 0xF;
@@ -240,15 +240,15 @@ void TObjGyaranzoMissile::sub_800D47B4() {
 
 void TObjGyaranzoMissile::render() {
     u8 *arg0 = (u8 *)this;
-    TObjFish__sub_8001EDB0((void *) (gyaranzo_bml_resource), 6);
+    TObjFish__sub_8001EDB0((void *)gyaranzo_bml_resource, 6);
     set_global_param__8TObjFishFl();
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_x(0, (int) (*(s32 *)&this->m_5c));
-    rotate_matrix_y(0, (int) (this->rotation_y));
-    translate_matrix(0, (f32) (lbl_805DA2C4), (f32) (*(f32 *)&this->_padD4 * sin_table_lookup((int) (*(s32 *)&this->m_cc))), (f32) (lbl_805DA2C4));
+    rotate_matrix_y(0, this->rotation_y);
+    translate_matrix(0, lbl_805DA2C4, (f32) (*(f32 *)&this->_padD4 * sin_table_lookup((int) (*(s32 *)&this->m_cc))), lbl_805DA2C4);
     model_render_flags &= 0xFFFFFBFF;
-    get_bml_model((void *) (gyaranzo_bml_resource), 6);
+    get_bml_model((void *)gyaranzo_bml_resource, 6);
     draw_chunk_object();
     pop_matrix();
 }
@@ -318,10 +318,10 @@ typedef char RecoveredGlobal_800D4BD0___vt__19TObjGyaranzoMissile_size[sizeof(Re
 typedef char RecoveredGlobal_800D4BD0_lbl_8058D490_size[sizeof(RecoveredGlobal_800D4BD0_lbl_8058D490) == 0x30 ? 1 : -1];
 u8 *TObjGyaranzoMissile__ct(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3) {
     u8 *temp_r4;
-    construct_collider_proxy__13TUnk_804AF8A0Fv((void *) (arg0), (int) (tl_04));
+    construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_04);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800D4BD0___vt__19TObjGyaranzoMissile *)&__vt__19TObjGyaranzoMissile).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2A80;
-    init_collision_body_parts((void *) (arg0), (void *) (&gyaranzo_missile_collision_body_b.value), 1);
+    init_collision_body_parts(arg0, (void *) (&gyaranzo_missile_collision_body_b.value), 1);
     *(f32 *)((s8 *)(*(u8 * *)&((TObjGyaranzoMissile *)arg0)->m_a4) + 0xC) = (f32) lbl_805DA2CC;
     VecCopy((Vec *)((void *) (arg0 + 0x38)), (const Vec *)((int) (*(s32 *)((s8 *)arg2 + 0))));
     *(s16 *)&((TObjGyaranzoMissile *)arg0)->m_c4 = arg3;
@@ -331,7 +331,7 @@ u8 *TObjGyaranzoMissile__ct(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3) {
     *(s32 *)&((TObjGyaranzoMissile *)arg0)->m_d0 = (s32) (*(f32 *)((s8 *)arg2 + 0xC) * (lbl_805DA2DC * ((lbl_805DA2D8 * (f32) rand()) + lbl_805DA2E0)));
     *(f32 *)((s8 *)arg0 + 0xD4) = (f32) *(f32 *)((s8 *)arg2 + 0x10);
     *(s16 *)((s8 *)arg0 + 0x28) = (s16) *(s16 *)((s8 *)arg1 + 0x28);
-    ((TObjGyaranzoMissile *)arg0)->m_d8 = obj_getField1c((void *) (arg1));
+    ((TObjGyaranzoMissile *)arg0)->m_d8 = obj_getField1c(arg1);
     *(f32 *)((s8 *)arg0 + 0xAC) = (f32) lbl_805DA2C4;
     *(f32 *)((s8 *)arg0 + 0xB0) = (f32) lbl_805DA2C4;
     ((TObjGyaranzoMissile *)arg0)->m_b4 = (f32) TObjGyaranzoMissile__speed_scale;
@@ -339,7 +339,7 @@ u8 *TObjGyaranzoMissile__ct(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3) {
     rotate_matrix_y(0, (int) (((TObjGyaranzoMissile *)arg0)->rotation_y));
     rotate_matrix_x(0, (int) (*(s32 *)((s8 *)arg0 + 0x5C)));
     temp_r4 = (u8 *)(arg0 + 0xAC);
-    matrix_mult_vec(0, (int) (temp_r4), (int) (temp_r4));
+    matrix_mult_vec(0, (int)temp_r4, (int)temp_r4);
     pop_matrix();
     *(s32 *)&((TObjGyaranzoMissile *)arg0)->m_c8 = 0;
     return arg0;

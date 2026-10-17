@@ -22,8 +22,8 @@ void TObjPlayer::update_control_state() {
 
     TObjEneBalClaw__sub_8008D68C();
     if (TObjPlayer::check_demo_mode() == 1) {
-        TObjEneBalClawClaw__sub_8008DC90((void *) (arg0));
-        TObjEneMe1GiGue__sub_8008FC0C((void *) (arg0));
+        TObjEneBalClawClaw__sub_8008DC90(arg0);
+        TObjEneMe1GiGue__sub_8008FC0C(arg0);
         return;
     }
     if ((*(s32 *)&this->unk_388 & 0x02000000) && (((TObjPlayer *)arg0)->get_flag_0x388_b24() == 0)) {
@@ -48,7 +48,7 @@ void TObjPlayer::update_control_state() {
     temp_f1 = *(f32 *)&this->m_3b4;
     temp_r5 = (unsigned char *) (*(void * *)&this->m_a4);
     *(f32 *)((s8 *)temp_r5 + 4) = (f32) (temp_f1 + *(f32 *)&this->m_3bc);
-    submit_cursor_candidate((void *) (arg0), -1, (int) (temp_r5), (f32) (temp_f1), (f32) (temp_f2));
+    submit_cursor_candidate((void *)arg0, -1, (int)temp_r5, (f32)temp_f1, (f32)temp_f2);
     minimap_render_dot((void *) (arg0 + 0x38), -0x5DB4, 1, 0);
 }
 

@@ -90,9 +90,9 @@ u8 *TItemProArmor::create_instance() {
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x104));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)TItemProArmor__sub_80117650((void *)((void *)(temp_r3)), (void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
+            var_r0 = (u8 *)(((u8 *)TItemProArmor__sub_80117650((void *)(temp_r3), (void *)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }
@@ -132,9 +132,9 @@ u8 *create_item_grinder(u8 *arg0) {
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x104));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((TUnk_8049FF88 *)temp_r3)->init_item_object((void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_8049FF88 *)temp_r3)->init_item_object((void *)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }
@@ -455,7 +455,7 @@ s32 TItemProArmor::create_armor_object() {
   u8 temp_r0;
   if (arg0 != 0)
   {
-    temp_r0 = *((u8 *) (((s8 *) ((u8 *)lookup_item_pmt_record((u8 *)(arg0)))) + 0x1A));
+    temp_r0 = *((u8 *) (((s8 *) ((u8 *)lookup_item_pmt_record((u8 *)arg0))) + 0x1A));
     if (((s32) temp_r0) != 2)
     {
       if (((s32) temp_r0) < 2)

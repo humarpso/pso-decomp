@@ -35,13 +35,13 @@ void draw_creation_sprite_offset(s32 arg0, s32 arg1, s32 alpha, f32 farg0, f32 f
     typedef char sp14_offset[(offsetof(Stack_80290E28, sp14) == 0xC) ? 1 : -1];
     Stack_80290E28 stack;
     u8 *temp_r6;
-    ((TWindowSubSymbolChatPartsSet *)(&stack.sp10))->copy_vec2((void *) (arg1));
+    ((TWindowSubSymbolChatPartsSet *)(&stack.sp10))->copy_vec2((void *)arg1);
     stack.sp8 = arg0;
     TCharaMaking__resolve_creation_sprite_table((u8 * *)(&stack.spC), (s32 *)(&stack.sp8));
     temp_r6 = (u8 *)(stack.spC + (stack.sp8 * 0x14));
     stack.sp10 += (f32) *(s16 *)((s8 *)temp_r6 + 4);
     stack.sp14 += (f32) *(s16 *)((s8 *)temp_r6 + 6);
-    draw_ui_sprite_scaled((f32) (farg0), (f32) (farg1), (void *) (arg0), (void *) (&stack.sp10), (void *) (alpha));
+    draw_ui_sprite_scaled((f32)farg0, (f32)farg1, (void *)arg0, (void *) (&stack.sp10), (void *)alpha);
 }
 #pragma pop
 

@@ -418,7 +418,7 @@ void create__11TTecRaBartaFPvPvPvPv(void *source, void *origin, void *pos, void 
     void *o;
     o = __nw__7TObjectFUl(0x13C);
     if (o != NULL) {
-        TTecRaBarta__ct((void *)(o), (void *)(source), (void *)(origin), (void *)(pos), (void *)(level));
+        TTecRaBarta__ct(o, source, origin, pos, level);
     }
 }
 
@@ -426,7 +426,7 @@ void TTecRaBarta::create(void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x13C);
     if (o != NULL) {
-        ((TTecRaBarta *)o)->construct_area((void *)(this), (void *)(arg1), (void *)(arg2));
+        ((TTecRaBarta *)o)->construct_area(this, arg1, arg2);
     }
 }
 
@@ -446,7 +446,7 @@ struct Self_80237A94 *__dt__11TTecRaBartaFv(struct Self_80237A94 *self, s16 arg1
         mem_free(self->objs);
         ((TUnk_804CC148 *)self)->destroy_technique_base(0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *) (self));
+            __dl__7TObjectFPv(self);
         }
     }
     return self;
@@ -468,7 +468,7 @@ void TTecRaBarta::run_task() {
     }
     temp_r4 = this->age;
     this->age = (s32) (temp_r4 + 1);
-    apply_technique_to_area_targets__13TUnk_804CC148Fv((void *) (arg0), (int) (temp_r4));
+    apply_technique_to_area_targets__13TUnk_804CC148Fv(arg0, temp_r4);
     if ((s32) this->age > (s16) this->m_a8) {
         queue_destruction__7TObjectFv((arg0));
     }

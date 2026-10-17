@@ -305,7 +305,7 @@ S_80050A68 *__dt__13TObjDFHormingFv(S_80050A68 *o, s16 flag) {
         o->vt = __vt__13TObjDFHorming;
         for (i = 0; i < 2; i++) {
             if (o->ptr[i] != 0) {
-                TBoss4Type2::request_destroy((u32)(o->ptr[i]));
+                TBoss4Type2::request_destroy((u32)o->ptr[i]);
                 o->ptr[i] = 0;
             }
         }
@@ -463,7 +463,7 @@ void run_task__16TObjDFBeamCursorFv(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x1C) = temp_r0;
     if (temp_r0 <= 0) {
         spawn_particle_effect((arg0 + 0x20), 0x38);
-        ((s32 (*)(void *))queue_destruction__7TObjectFv)((void *) (arg0));
+        ((s32 (*)(void *))queue_destruction__7TObjectFv)(arg0);
     }
 }
 TObjDFBeamCursor::~TObjDFBeamCursor() {}
@@ -481,7 +481,7 @@ void * create__16TObjDFBeamCursorFPvPv(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x2C);
     if (o != NULL) {
-        o = TObjDFBeamCursor__ct((void *)(o), (void *)(arg0), (void *)(arg1));
+        o = TObjDFBeamCursor__ct(o, arg0, arg1);
     }
     return o;
 }
@@ -559,7 +559,7 @@ void * create__13TObjDFRecBallFPvPvPv(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x4C);
     if (o != NULL) {
-        o = TObjDFRecBall__ct((u8 *)(o), (u8 *)(arg0), (u8 *)(arg1), (u8 *)(arg2));
+        o = TObjDFRecBall__ct((u8 *)o, (u8 *)arg0, (u8 *)arg1, (u8 *)arg2);
     }
     return o;
 }
@@ -916,7 +916,7 @@ void TObjDFTenchuFuru::run_task() {
     temp_r0 = this->m_28 - 1;
     this->m_28 = temp_r0;
     if ((temp_r0 < 0) || ((is_active__14TBoss4DarkFalzFv() == 0) && (is_state_ready__14TBoss4DarkFalzFv() == 0))) {
-        ((s32 (*)(void *))queue_destruction__7TObjectFv)((void *) (arg0));
+        ((s32 (*)(void *))queue_destruction__7TObjectFv)(arg0);
     }
 }
 #pragma pop
@@ -945,7 +945,7 @@ void *TObjDFTenchuFuru::create(void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x30);
     if (o != NULL) {
-        o = TObjDFTenchuFuru__ct((u8 *)(o), (u8 *)(this), (u8 *)(arg1));
+        o = TObjDFTenchuFuru__ct((u8 *)o, (u8 *)this, (u8 *)arg1);
     }
     return o;
 }
@@ -976,7 +976,7 @@ void TObjDFTenchuFuru::transform_node_tree() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     u8 *var_r31;
-    var_r31 = (u8 *)(arg0);
+    var_r31 = arg0;
     do {
         push_matrix();
         post_translate_matrix((void *) (var_r31 + 8));

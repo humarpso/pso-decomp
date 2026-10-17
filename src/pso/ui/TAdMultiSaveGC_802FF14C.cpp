@@ -31,10 +31,10 @@ int queue_destruction__7TObjectFv(void);
 void TAdMultiSaveGC::queue_destruction() { queue_destruction__7TObjectFv(); TAdMultiChgGameModeGC::begin_change_game_mode(); }
 s32 TAdMultiSaveGC__sub_802FF170(void) {
     s32 temp_r31;
-    temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFl((void *) (lbl_80474D90), 2);
-    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)(temp_r31), (int)(TQuestVmDownLoadServer__sub_8006EF6C(0xD)), 6, 0);
-    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)(temp_r31), (int)(TQuestVmDownLoadServer__sub_8006EF6C(0xE)), 6, 1);
-    ((TWindowSubComCardList *)temp_r31)->update_layout_height((f32) (lbl_805DEF28));
+    temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFl(lbl_80474D90, 2);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(TQuestVmDownLoadServer__sub_8006EF6C(0xD)), 6, 0);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(TQuestVmDownLoadServer__sub_8006EF6C(0xE)), 6, 1);
+    ((TWindowSubComCardList *)temp_r31)->update_layout_height(lbl_805DEF28);
     return temp_r31;
 }
 s32 TAdMultiSaveGC__sub_802FF1F4(void) {
@@ -88,7 +88,7 @@ void run_task__14TAdMultiSaveGCFv(u8 *arg0) {
             return;
         }
         if ((u32) ((TAdMultiSaveGC *)arg0)->m_20 == 0U) {
-            ((TAdMultiSaveGC *)arg0)->m_20 = ((s32 (*)(void *))TAdMultiSaveGC__sub_802FF314)((void *) (arg0));
+            ((TAdMultiSaveGC *)arg0)->m_20 = ((s32 (*)(void *))TAdMultiSaveGC__sub_802FF314)(arg0);
         }
         break;
     case 1:
@@ -101,7 +101,7 @@ void run_task__14TAdMultiSaveGCFv(u8 *arg0) {
             return;
         }
         if ((u32) ((TAdMultiSaveGC *)arg0)->m_24 == 0U) {
-            ((TAdMultiSaveGC *)arg0)->m_24 = ((s32 (*)(void *))TAdMultiSaveGC__sub_802FF254)((void *) (arg0));
+            ((TAdMultiSaveGC *)arg0)->m_24 = ((s32 (*)(void *))TAdMultiSaveGC__sub_802FF254)(arg0);
             return;
         }
         break;
@@ -117,8 +117,8 @@ void run_task__14TAdMultiSaveGCFv(u8 *arg0) {
             ((TAdMultiSaveGC *)arg0)->m_1c = 4U;
             return;
         }
-        ((TAdMultiSaveGC *)arg0)->m_2c = ((s32 (*)(void *))TAdMultiSaveGC__sub_802FF2B4)((void *) (arg0));
-        ((TAdMultiSaveGC *)arg0)->m_30 = ((s32 (*)(void *))TAdMultiSaveGC__sub_802FF170)((void *) (arg0));
+        ((TAdMultiSaveGC *)arg0)->m_2c = ((s32 (*)(void *))TAdMultiSaveGC__sub_802FF2B4)(arg0);
+        ((TAdMultiSaveGC *)arg0)->m_30 = ((s32 (*)(void *))TAdMultiSaveGC__sub_802FF170)(arg0);
         ((TAdMultiSaveGC *)arg0)->m_1c = 3U;
         return;
     case 3:
@@ -136,7 +136,7 @@ void run_task__14TAdMultiSaveGCFv(u8 *arg0) {
         break;
     case 4:
         write_encrypted_save__23TAdSinglePlyChrSelectGCFv();
-        ((TAdMultiSaveGC *)arg0)->m_28 = ((s32 (*)(void *))TAdMultiSaveGC__sub_802FF1F4)((void *) (arg0));
+        ((TAdMultiSaveGC *)arg0)->m_28 = ((s32 (*)(void *))TAdMultiSaveGC__sub_802FF1F4)(arg0);
         ((TAdMultiSaveGC *)arg0)->m_1c = 5U;
         return;
     case 5:

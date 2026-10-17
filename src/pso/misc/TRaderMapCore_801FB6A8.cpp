@@ -49,19 +49,19 @@ void TRaderMapCore::create() {
 void TRaderMapCore::unload_floor_map() {
     u32 temp_r3;
     u8 *temp_r31;
-    temp_r31 = (u8 *)(TRaderMapCore__floor_map_resource);
+    temp_r31 = (u8 *)TRaderMapCore__floor_map_resource;
     if (temp_r31 != NULL) {
-        save_floor_discovery__13TRaderMapCoreFiPv((int) (get_current_floor()), (int) (temp_r31));
+        save_floor_discovery__13TRaderMapCoreFiPv((int) (get_current_floor()), (int)temp_r31);
     }
     TRaderMapCore::free_statics();
     if ((void *) TRaderMapCore__floor_map_resource != NULL) {
         temp_r3 = *(u32 *)((s8 *)TRaderMapCore__floor_map_resource + 4);
         if (temp_r3 != 0U) {
-            TLobby__sub_803DA16C((int) (temp_r3));
+            TLobby__sub_803DA16C((int)temp_r3);
         }
     }
     if ((void *) TRaderMapCore__floor_map_resource != NULL) {
-        TLobby::free_nodes_with_id((int) (TRaderMapCore__floor_map_resource));
+        TLobby::free_nodes_with_id((int)TRaderMapCore__floor_map_resource);
         TRaderMapCore__floor_map_resource = NULL;
     }
     TRaderMapCore__render_mode = 0;

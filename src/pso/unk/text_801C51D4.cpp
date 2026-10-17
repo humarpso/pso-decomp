@@ -86,7 +86,7 @@ u8 *__dt__13TUnk_804C3F48Fv(u8 *arg0, s16 arg1) {
 }
 
 u8 *fn_801C5380(u8 *arg0, s32 arg1) {
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804C3F48.value;
     *(s32 *)((s8 *)arg0 + 0x1C) = 0x3DE;
     ((TUnk_804C3F48 *)arg0)->m_20 = 0x1E;

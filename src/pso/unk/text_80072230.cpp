@@ -146,7 +146,7 @@ void TLobby::send_seed_state() {
     typedef char sp10_offset[(offsetof(Stack_80072448, sp10) == 0x8) ? 1 : -1];
     Stack_80072448 stack;
     TLobby__sub_80072880((u8 *)(&stack.sp8));
-    stack.sp10 = mix_seed_checked__6TLobbyFi((void *) (arg0));
+    stack.sp10 = mix_seed_checked__6TLobbyFi((void *)arg0);
     stack.spC = local_client_id;
     ((TLobby *)(&stack.sp8))->send_state();
 }

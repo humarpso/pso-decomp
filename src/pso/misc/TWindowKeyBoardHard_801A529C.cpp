@@ -82,7 +82,7 @@ void buffer_reset(void) {
 
 void mem_free(void *p);
 
-void TLobby__sub_801A5478(void) { mem_free((void *)(deferred_packet_buffer)); deferred_packet_buffer = 0; }
+void TLobby__sub_801A5478(void) { mem_free((void *)deferred_packet_buffer); deferred_packet_buffer = 0; }
 
 void *mem_alloc(u32 size);
 

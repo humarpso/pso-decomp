@@ -330,7 +330,7 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
         TObjFish::set_global_param((int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_24));
         lbl_805D5660 = model_render_flags;
         model_render_flags |= 0x01000000;
-        select_actor_lighting((s32)(arg0));
+        select_actor_lighting((s32)arg0);
         TObjPlayer::toggle_particle_effect();
         push_matrix();
         model_render_flags &= 0xFFFFFBFF;
@@ -353,9 +353,9 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
             push_matrix();
             temp_f31 = (1.0f) - ((0.02202643f) * (((RecoveredFields_800413C8_arg0 *)arg0)->field_3C - (4.6f)));
             translate_matrix(0, (f32) (((RecoveredFields_800413C8_arg0 *)arg0)->field_38), (f32) ((4.5f)), (f32) (((RecoveredFields_800413C8_arg0 *)arg0)->field_40));
-            scale_matrix(0, (f32) (temp_f31), (f32) (temp_f31), (f32) (temp_f31));
-            TObjFish::set_global_param((int) (TObjFish__sub_8001EDB0((s32)((int) (TBoss3VoloptHiraisin__resource_bundle)), 0)));
-            draw_chunk_object((void *)(get_bml_model((int) (TBoss3VoloptHiraisin__resource_bundle), 0)));
+            scale_matrix(0, temp_f31, temp_f31, temp_f31);
+            TObjFish::set_global_param((int) (TObjFish__sub_8001EDB0((s32)(TBoss3VoloptHiraisin__resource_bundle), 0)));
+            draw_chunk_object((void *)(get_bml_model(TBoss3VoloptHiraisin__resource_bundle, 0)));
             pop_matrix();
         }
     }
@@ -687,7 +687,7 @@ extern void *tl_04;
 void *TBoss3VoloptHiraisin::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x390);
     if (o != NULL) {
-        o = TBoss3VoloptHiraisin__sub_80041AA0((u8 *)(o), (s32)(tl_04), (s32)(arg0));
+        o = TBoss3VoloptHiraisin__sub_80041AA0((u8 *)o, (s32)tl_04, (s32)arg0);
     }
     return o;
 }
@@ -758,7 +758,7 @@ u8 *TBoss3VoloptHiraisin__sub_80041AA0(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TBoss3VoloptHiraisin;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2738;
     ((TBoss3VoloptHiraisin *)(arg0))->apply_set_data((void *)arg2);
-    init_params__20TBoss3VoloptHiraisinFv((Hira_800418C8 *)((void *) (arg0)));
+    init_params__20TBoss3VoloptHiraisinFv((Hira_800418C8 *)(arg0));
     return arg0;
 }
 

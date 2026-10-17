@@ -40,7 +40,7 @@ void *TFontSmallLobby__sub_801C01DC(void *arg0, void *arg1) {
     return arg0;
 }
 
-void* TFontSmallLobby__sub_801C0228(void* p, void* _w1) { TFontSmallLobby__sub_801C0258((void*)(p), (void*)(_w1)); return p; }
+void* TFontSmallLobby__sub_801C0228(void* p, void* _w1) { TFontSmallLobby__sub_801C0258(p, _w1); return p; }
 
 void TFontSmallLobby__sub_801C0258(void* p, void* q) { *(u8*)((char*)p + 0x0) = *(u8*)((char*)q + 0x0); *(u8*)((char*)p + 0x1) = *(u8*)((char*)q + 0x1); *(u16*)((char*)p + 0x2) = *(u16*)((char*)q + 0x2); }
 
@@ -54,7 +54,7 @@ void TFontSmallLobby::init_packet_6x9b_level_up() {
     *(s8 *)((s8 *)arg0 + 1) = 2;
 }
 
-void TFontSmallLobby__sub_801C029C(void* p) { TFontSmallLobby__sub_801C01BC((void*)(p)); TLobby__send_and_handle_60((u8 *)p); }
+void TFontSmallLobby__sub_801C029C(void* p) { TFontSmallLobby__sub_801C01BC(p); TLobby__send_and_handle_60((u8 *)p); }
 
 void TFontSmallLobby::bswap_battle_damage_packet() { read_be16_field2__10TObjPlayerFv(this); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); }
 
@@ -70,7 +70,7 @@ void TFontSmallLobby::init_packet_6x8f_battle_damage() {
 
 void TFontSmallLobby__sub_801C0378(void* p) { ((TFontSmallLobby *)p)->bswap_battle_damage_packet(); ((TLobby *)p)->send_60_sized(); }
 
-void TFontSmallLobby::bswap_6x90_set_player_battle_team() { read_be16_field2__10TObjPlayerFv((void*)(this)); bswap_32((u32 *)((char*)this + 0x4)); }
+void TFontSmallLobby::bswap_6x90_set_player_battle_team() { read_be16_field2__10TObjPlayerFv(this); bswap_32((u32 *)((char*)this + 0x4)); }
 
 void *TFontSmallLobby__sub_801C03E0(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228(arg0, arg1);
@@ -86,38 +86,38 @@ void TFontSmallLobby__sub_801C041C(u8 *arg0) {
 
 void TFontSmallLobby__sub_801C0438(void* p) { *(u8*)((char*)p + 0x0) = 130; *(u8*)((char*)p + 0x1) = 1; }
 
-void TFontSmallLobby__sub_801C044C(void* p) { TFontSmallLobby__sub_801C01BC((void*)(p)); TLobby__send_and_handle_60((u8 *)p); }
+void TFontSmallLobby__sub_801C044C(void* p) { TFontSmallLobby__sub_801C01BC(p); TLobby__send_and_handle_60((u8 *)p); }
 
 void TFontSmallLobby__sub_801C0480(void* p) { *(u8*)((char*)p + 0x0) = 129; *(u8*)((char*)p + 0x1) = 1; }
 
-void TFontSmallLobby::send_font_state_msg() { TFontSmallLobby__sub_801C01BC((void*)(this)); TLobby__send_and_handle_60((u8 *)this); }
+void TFontSmallLobby::send_font_state_msg() { TFontSmallLobby__sub_801C01BC(this); TLobby__send_and_handle_60((u8 *)this); }
 
 void TFontSmallLobby__sub_801C04C8(void* p) { *(u8*)((char*)p + 0x0) = 123; *(u8*)((char*)p + 0x1) = 1; }
 
-void fn_801C04DC(void* p) { TFontSmallLobby__sub_801C01BC((void*)(p)); TLobby__send_and_handle_60((u8 *)p); }
+void fn_801C04DC(void* p) { TFontSmallLobby__sub_801C01BC(p); TLobby__send_and_handle_60((u8 *)p); }
 
 void fn_801C0510(void* p) { *(u8*)((char*)p + 0x0) = 122; *(u8*)((char*)p + 0x1) = 1; }
 
-void TLobby::cleanup_small_font() { TFontSmallLobby__sub_801C01BC((void*)(this)); TLobby__send_and_handle_60((u8 *)this); }
+void TLobby::cleanup_small_font() { TFontSmallLobby__sub_801C01BC(this); TLobby__send_and_handle_60((u8 *)this); }
 
 void fn_801C0558(void* p) { *(u8*)((char*)p + 0x0) = 28; *(u8*)((char*)p + 0x1) = 1; }
 
-void fn_801C056C(void* p) { TFontSmallLobby__sub_801C01BC((void*)(p)); TLobby__send_and_handle_60((u8 *)p); }
+void fn_801C056C(void* p) { TFontSmallLobby__sub_801C01BC(p); TLobby__send_and_handle_60((u8 *)p); }
 
 void fn_801C05A0(void* p) { *(u8*)((char*)p + 0x0) = 27; *(u8*)((char*)p + 0x1) = 1; }
 
-void fn_801C05B4(void* p) { TFontSmallLobby__sub_801C01BC((void*)(p)); TLobby__send_and_handle_60((u8 *)p); }
+void fn_801C05B4(void* p) { TFontSmallLobby__sub_801C01BC(p); TLobby__send_and_handle_60((u8 *)p); }
 
 void fn_801C05E8(void* p) { *(u8*)((char*)p + 0x0) = 35; *(u8*)((char*)p + 0x1) = 1; }
 
-void fn_801C05FC(void* p) { TFontSmallLobby__sub_801C01BC((void*)(p)); TLobby__send_and_handle_60((u8 *)p); }
+void fn_801C05FC(void* p) { TFontSmallLobby__sub_801C01BC(p); TLobby__send_and_handle_60((u8 *)p); }
 
 void fn_801C0630(void* p) { *(u8*)((char*)p + 0x0) = 34; *(u8*)((char*)p + 0x1) = 1; }
 
-void fn_801C0644(void* p) { TFontSmallLobby__sub_801C01BC((void*)(p)); TLobby__send_and_handle_60((u8 *)p); }
+void fn_801C0644(void* p) { TFontSmallLobby__sub_801C01BC(p); TLobby__send_and_handle_60((u8 *)p); }
 
 void TObjPlayer::bswap_change_hp_packet() {
-    read_be16_field2__10TObjPlayerFv((void*)(this));
+    read_be16_field2__10TObjPlayerFv(this);
     bswap_32((u32 *)((void *)((char *)this + 4)));
     bswap_16((u16 *)((void *)((char *)this + 8)));
     bswap_16((u16 *)((void *)((char *)this + 10)));
@@ -143,7 +143,7 @@ void TObjPlayer::init_6x2F_packet_header() {
 void TObjPlayer__sub_801C0734(void* p) { ((TObjPlayer *)p)->bswap_change_hp_packet(); TLobby__send_and_handle_60((u8 *)p); }
 
 void TObjPlayer::byteswap_packet_body() {
-    read_be16_field2__10TObjPlayerFv((void*)(this));
+    read_be16_field2__10TObjPlayerFv(this);
     bswap_32((u32 *)((void *)((char *)this + 4)));
     bswap_32((u32 *)((void *)((char *)this + 8)));
     bswap_32((u32 *)((void *)((char *)this + 12)));

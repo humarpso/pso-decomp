@@ -134,8 +134,8 @@ void TOHealGeneral::render() {
     if (((VObj_801695a8_80169520 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y(0, (int) (this->rotation_y));
-        TObjFish::set_global_param((int) (this->texture_id));
+        rotate_matrix_y(0, this->rotation_y);
+        TObjFish::set_global_param(this->texture_id);
         temp_r31 = (unsigned char *) (*(void * *)&this->model);
         post_translate_matrix((void *) (temp_r31 + 8));
         draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
@@ -158,7 +158,7 @@ void TOHealGeneral::render() {
 void *TOHealGeneral::create() {
     void *o = __nw__7TObjectFUl(0xF8);
     if (o != NULL) {
-        o = TOHealGeneral__ct((void *)(o), (void *)(this));
+        o = TOHealGeneral__ct(o, this);
     }
     return o;
 }

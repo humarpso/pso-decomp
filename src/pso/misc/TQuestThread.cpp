@@ -317,7 +317,7 @@ Self_801F4DFC *TObjItemNameSelect__ct(Self_801F4DFC *self, void *parent) {
 }
 
 void fn_801F4F20(s32 arg0) {
-    strncpy((void *) (&lbl_80512B18.value), (void *) (arg0), 8);
+    strncpy((void *) (&lbl_80512B18.value), (void *)arg0, 8);
     *(s8 *)((s8 *)(&lbl_80512B18.value) + 8) = 0;
 }
 
@@ -391,7 +391,7 @@ s32 create_instance__17TQuestThreadBoardFi(s32 arg0) {
     if ((u32) quest_mission_manager != 0U) {
         var_r31 = ((s32 (*)(s32))__nw__7TObjectFUl)(0x194);
         if (var_r31 != 0) {
-            var_r31 = ((s32)TQuestThreadBoard__ct((u8 *)(var_r31), (s32)(quest_mission_manager), (s32)(arg0)));
+            var_r31 = ((s32)TQuestThreadBoard__ct((u8 *)var_r31, (s32)quest_mission_manager, (s32)arg0));
         }
         ((TObject *)var_r31)->set_parent((TObject *)tl_00);
         return var_r31;
@@ -534,10 +534,10 @@ TQuestThreadBoard::~TQuestThreadBoard() {
 extern "C" {
 
 u8 *TQuestThreadBoard__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    ((s32 (*)(void *, int))__ct__7TObjectFP7TObject)((void *) (arg0), 0);
+    ((s32 (*)(void *, int))__ct__7TObjectFP7TObject)(arg0, 0);
     *(void ***)((s8 *)arg0 + 0x18) = __vt__17TQuestThreadBoard;
     *(s32 *)((s8 *)arg0 + 0) = TQuestThreadBoard__class_name;
-    ((s32 (*)(void *, void *))copy_quest_script_context)((void *) ((u8 *)(arg0) + 0x1C), (void *) (arg1 + 0x24));
+    ((s32 (*)(void *, void *))copy_quest_script_context)((void *) (arg0 + 0x1C), (void *) (arg1 + 0x24));
     *(s32 *)((s8 *)arg0 + 0x3C) = *(s32 *)((s8 *)(*(s32 *)((s8 *)arg0 + 0x20) + (arg2 * 4)) + 0);
     *(s32 *)((s8 *)arg0 + 0x190) = 0;
     (*(u8 * *)&quest_thread_board) = arg0;
@@ -553,8 +553,8 @@ void copy_quest_script_context(u8 *arg0, u8 *arg1) {
     s32 var_r7;
     u8 *var_r6;
     var_r5 = *(s32 *)((s8 *)arg1 + 0);
-    var_r6 = (u8 *)(arg1) + 0x30;
-    var_r7 = (long) ((u8 *)(arg0) + 0x30);
+    var_r6 = (u8 *)arg1 + 0x30;
+    var_r7 = (long) ((u8 *)arg0 + 0x30);
     *(s32 *)((s8 *)arg0 + 0) = var_r5;
     var_r5 = *(s32 *)((s8 *)arg1 + 4);
     *(s32 *)((s8 *)arg0 + 4) = var_r5;
@@ -583,8 +583,8 @@ void copy_quest_script_context(u8 *arg0, u8 *arg1) {
     *(ByteBlock_20 *)(var_r7 + 4) = *(const ByteBlock_20 *)((s32) var_r6 + 4);
     var_r7 += 0x20;
     var_r6 += 0x20;
-    var_r7 = (s32) ((u8 *)(arg0) + 0x50);
-    var_r6 = (u8 *)(arg1) + 0x50;
+    var_r7 = (s32) ((u8 *)arg0 + 0x50);
+    var_r6 = (u8 *)arg1 + 0x50;
     *(ByteBlock_100 *)(var_r7 + 4) = *(const ByteBlock_100 *)((s32) var_r6 + 4);
     var_r7 += 0x100;
     var_r6 += 0x100;
@@ -729,9 +729,9 @@ u8 *create_floor_quest_thread(void) {
     temp_r30 = get_current_floor() * 4;
     if (((s32) *(s32 *)((s8 *)(&TQuestThread__floor_handler_ids.value) + temp_r30) != -1) && ((u32) quest_mission_manager != 0U)) {
         temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x194)));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((u32)__ct__12TQuestThreadFv((u8 *)((u32)(temp_r3)), (s32)((u32)((s32) quest_mission_manager)), (s32)((s32)(*(s32 *)((s8 *)(&TQuestThread__floor_handler_ids.value) + temp_r30)))))));
+            var_r0 = (u8 *)(((u8 *)((u32)__ct__12TQuestThreadFv((u8 *)(temp_r3), (s32)((u32)((s32) quest_mission_manager)), (s32)((s32)(*(s32 *)((s8 *)(&TQuestThread__floor_handler_ids.value) + temp_r30)))))));
         }
         return var_r0;
     }
@@ -744,7 +744,7 @@ u32 create__12TQuestThreadFi(s32 arg0) {
     if ((u32) quest_mission_manager != 0U) {
         var_r31 = __nw__7TObjectFUl(0x194);
         if (var_r31 != 0U) {
-            var_r31 = ((u32)__ct__12TQuestThreadFv((u8 *)(var_r31), (s32)(quest_mission_manager), (s32)(arg0)));
+            var_r31 = ((u32)__ct__12TQuestThreadFv((u8 *)var_r31, (s32)quest_mission_manager, (s32)arg0));
         }
         if (var_r31 != 0U) {
             ((TObject *)var_r31)->set_parent((TObject *)tl_00);
@@ -760,9 +760,9 @@ u8 *create_quest_thread(s32 arg0) {
     u8 *var_r0;
     if ((u32) quest_mission_manager != 0U) {
         temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x194)));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((u32)__ct__12TQuestThreadFv((u8 *)((u32)(temp_r3)), (s32)((u32)((s32) quest_mission_manager)), (s32)((s32)(arg0))))));
+            var_r0 = (u8 *)(((u8 *)((u32)__ct__12TQuestThreadFv((u8 *)(temp_r3), (s32)((u32)((s32) quest_mission_manager)), (s32)(arg0)))));
         }
         return var_r0;
     }
@@ -770,14 +770,14 @@ u8 *create_quest_thread(s32 arg0) {
 }
 
 u8 *__ct__12TQuestThreadFv(u8 *arg0, s32 arg1, s32 arg2) {
-    ((s32 (*)(void *, void *))__ct__7TObjectFP7TObject)((void *) (arg0), (void *) (arg1));
+    ((s32 (*)(void *, void *))__ct__7TObjectFP7TObject)((void *)arg0, (void *)arg1);
     *(void ***)((s8 *)arg0 + 0x18) = __vt__12TQuestThread;
     *(s32 *)((s8 *)arg0 + 0) = TQuestThread__class_name;
-    ((s32 (*)(void *, void *))copy_quest_script_context)((void *) ((u8 *)(arg0) + 0x1C), (void *) (arg1 + 0x24));
+    ((s32 (*)(void *, void *))copy_quest_script_context)((void *) (arg0 + 0x1C), (void *) (arg1 + 0x24));
     *(s32 *)((s8 *)arg0 + 0x3C) = *(s32 *)((s8 *)(*(s32 *)((s8 *)arg0 + 0x20) + (arg2 * 4)) + 0);
     *(s32 *)((s8 *)arg0 + 0x190) = 0;
     if (*(s32 *)((s8 *)arg0 + 0x3C) == -1) {
-        ((s32 (*)(void *))queue_destruction__7TObjectFv)((void *) (arg0));
+        ((s32 (*)(void *))queue_destruction__7TObjectFv)(arg0);
     }
     return arg0;
 }
@@ -796,7 +796,7 @@ void set_floor_handler(s32 i, s32 v) {
     ((s32 *)&TQuestThread__floor_handler_ids)[i] = v;
 }
 
-void TQuestThread__sub_801F5D88(void* p) { clear_all_floor_handlers((void*)(p)); }
+void TQuestThread__sub_801F5D88(void* p) { clear_all_floor_handlers(p); }
 
 void clear_all_floor_handlers(void* _w0) {
     s32 i;
@@ -812,7 +812,7 @@ void handle_6x77_sync_quest_register(u8 *arg0) {
     u16 temp_r0;
     u8 *var_r31;
     u8 *var_r3;
-    var_r31 = (u8 *)(arg0);
+    var_r31 = arg0;
     bswap_header__6TLobbyFPv();
     var_r3 = (u8 *)((*(u8 * *)&quest_mission_manager));
     if (var_r3 != NULL) {
@@ -913,21 +913,21 @@ s32 create_by_mode__12TQuestThreadFv(void) {
     case 1:
         temp_r31 = ((s32 (*)(s32))__nw__7TObjectFUl)(0x1A4);
         if (temp_r31 != 0) {
-            temp_r31 = ((s32)construct_load_quest__12TQuestThreadFPvPvPv((QThread_801F6418 *)(temp_r31), (void *)(tl_su), (void *)(TQuestThread__sub_801F6548())));
+            temp_r31 = ((s32)construct_load_quest__12TQuestThreadFPvPvPv((QThread_801F6418 *)(temp_r31), (void *)tl_su, (void *)(TQuestThread__sub_801F6548())));
         }
         return temp_r31;
     case 2:
         var_r30 = ((s32 (*)(s32))__nw__7TObjectFUl)(0x1A4);
         if (var_r30 != 0) {
             temp_r31 = TQuestListOnline::get_quest_count();
-            var_r30 = (s32)init_from_script__12TQuestThreadFPviii((u8 *)(var_r30), (s32)(tl_su), (s32)(TQuestListOnline__sub_801F6540()), (s32)(temp_r31));
+            var_r30 = (s32)init_from_script__12TQuestThreadFPviii((u8 *)var_r30, (s32)tl_su, (s32)(TQuestListOnline__sub_801F6540()), (s32)temp_r31);
         }
         return var_r30;
     case 3:
         var_r30_2 = ((s32 (*)(s32))__nw__7TObjectFUl)(0x1A4);
         if (var_r30_2 != 0) {
             temp_r31_2 = TQuestListVM__sub_801F6530();
-            var_r30_2 = (s32)init_from_script__12TQuestThreadFPviii((u8 *)(var_r30_2), (s32)(tl_su), (s32)(TQuestListVM::get_instance()), (s32)(temp_r31_2));
+            var_r30_2 = (s32)init_from_script__12TQuestThreadFPviii((u8 *)var_r30_2, (s32)tl_su, (s32)(TQuestListVM::get_instance()), (s32)temp_r31_2);
         }
         TQuestListVM::reset();
         return var_r30_2;
@@ -935,13 +935,13 @@ s32 create_by_mode__12TQuestThreadFv(void) {
         var_r30_3 = ((s32 (*)(s32))__nw__7TObjectFUl)(0x1A4);
         if (var_r30_3 != 0) {
             quest_count = TQuestListOnline::get_quest_count();
-            var_r30_3 = (s32)init_from_script__12TQuestThreadFPviii((u8 *)(var_r30_3), (s32)(tl_su), (s32)(TQuestListOnline__sub_801F6540()), (s32)(quest_count));
+            var_r30_3 = (s32)init_from_script__12TQuestThreadFPviii((u8 *)var_r30_3, (s32)tl_su, (s32)(TQuestListOnline__sub_801F6540()), (s32)quest_count);
         }
         return var_r30_3;
     case 5:
         var_r30_4 = ((s32 (*)(s32))__nw__7TObjectFUl)(0x1A4);
         if (var_r30_4 != 0) {
-            var_r30_4 = ((s32)construct_load_quest__12TQuestThreadFPvPvPv((QThread_801F6418 *)(var_r30_4), (void *)(tl_su), (void *)(TQuestThread__sub_801F6548())));
+            var_r30_4 = ((s32)construct_load_quest__12TQuestThreadFPvPvPv((QThread_801F6418 *)(var_r30_4), (void *)tl_su, (void *)(TQuestThread__sub_801F6548())));
         }
         return var_r30_4;
     default:
@@ -956,7 +956,7 @@ u8 *init_from_script__12TQuestThreadFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg
     __ct__7TObjectFP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = TQuestThread__data_804C8678;
     if (arg3 < 0) {
-        queue_destruction__7TObjectFv((void*)(arg0));
+        queue_destruction__7TObjectFv(arg0);
     } else {
         temp_r31 = arg3 + 0x400;
         *(s32 *)((s8 *)arg0 + 0x198) = ((TQuestVmDownLoadServer *)temp_r31)->alloc();
@@ -1023,7 +1023,7 @@ QThread_801F6418 *construct_load_quest__12TQuestThreadFPvPvPv(QThread_801F6418 *
     copy_name((s32)lbl_8044A640);
     r = ((TScene *)scene)->update_lobby_scene();
     if (r < 0) {
-        queue_destruction__7TObjectFv((void*)(self));
+        queue_destruction__7TObjectFv(self);
     } else {
         self->f198 = ((TQuestVmDownLoadServer *)(r + 0x400))->alloc();
         read_disc_file(scene, self->f198);
@@ -1040,9 +1040,9 @@ void set_status_flag_80__12TQuestThreadFPv(void* p) { *(u16*)((char*)p + 0x70) |
 
 void set_item_name_selection_index(int a0) { item_name_selection_index = a0; }
 
-int queue_destruction__12TQuestThreadFPv(void* p) { return queue_destruction__7TObjectFv((void*)(p)); }
+int queue_destruction__12TQuestThreadFPv(void* p) { return queue_destruction__7TObjectFv(p); }
 
-void free_menu_object(void* p) { void* m = *(void**)((char*)p + 0x20); if (m) fn_801F6520((void*)(m)); }
+void free_menu_object(void* p) { void* m = *(void**)((char*)p + 0x20); if (m) fn_801F6520(m); }
 
 void fn_801F6520(void* p) { *(u16*)((char*)p + 0x60) &= 0xfffe; }
 

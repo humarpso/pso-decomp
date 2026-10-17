@@ -232,7 +232,7 @@ void THunterGuildSeqOffline__sub_8021E180(s32 arg0) {
 void *TShopGenerator__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x98);
     if (o != NULL) {
-        o = TShopGenerator__ct((void *)(o), (s32)(arg0));
+        o = TShopGenerator__ct((void *)o, (s32)arg0);
     }
     return o;
 }

@@ -168,7 +168,7 @@ void TOChatSensor::run_task() {
             break;
         }
     } else {
-        if (is_current_floor_switch_set((int) (this->m_94)) == 0) {
+        if (is_current_floor_switch_set(this->m_94) == 0) {
             check_player_proximity();
             return;
         }

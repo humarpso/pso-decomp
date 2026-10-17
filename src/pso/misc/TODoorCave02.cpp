@@ -74,7 +74,7 @@ void TODoorCave02::play_proximity_sound() {
             this->m_d0 = (s32) (this->m_d0 | 0x100000);
         }
     }
-    if ((this->m_d0 & 1) && (is_any_player_within_radius_xz((arg0), (f32) (lbl_805DB4C0)) == 1)) {
+    if ((this->m_d0 & 1) && (is_any_player_within_radius_xz((arg0), lbl_805DB4C0) == 1)) {
         *(s32 *)&this->m_ac = 1;
         set_indexed_flags((arg0), 0, 8);
         play_sound_effect(0x42807, (void *)((void *) (arg0 + 0x38)), 0, 0);

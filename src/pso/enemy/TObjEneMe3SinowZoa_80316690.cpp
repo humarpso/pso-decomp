@@ -62,7 +62,7 @@ s32 TObjEneMe3SinowZoa::check_floor_contact(void *arg1) {
 void TObjEneMe3SinowZoa::check_and_notify() {
     s32 x;
     struct VOff_803167FC_arg0 *self = (struct VOff_803167FC_arg0 *)this;
-    x = check_floor_contact((void *)(self->f_38));
+    x = check_floor_contact(self->f_38);
     if (x == 0) {
         spawn_particle_effect(self->f_38, 243);
     }

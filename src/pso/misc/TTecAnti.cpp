@@ -241,7 +241,7 @@ void TTecAnti::create(void *arg0, void *pos, void *arg2, void *level) {
     void *o;
     o = __nw__7TObjectFUl(0x140);
     if (o != NULL) {
-        TTecAnti__ct((u8 *)(o), (s32)(arg0), (s32)(pos), (s32)(arg2), (s32)(level));
+        TTecAnti__ct((u8 *)o, (s32)arg0, (s32)pos, (s32)arg2, (s32)level);
     }
 }
 
@@ -289,25 +289,25 @@ void run_task__8TTecAntiFv(Anti_8022B150 *self) {
 u8 *TTecAnti__ct(u8 *arg0, s32 owner, s32 pos, s32 arg3, s32 level) {
     u32 temp_r3_2;
     u8 *temp_r3;
-    TTecPlayerInfluence__ct((void *) (arg0), (void *) (owner), (void *) (pos), (void *) (level));
+    TTecPlayerInfluence__ct((void *)arg0, (void *)owner, (void *)pos, (void *)level);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8022B288___vt__8TTecAnti *)&__vt__8TTecAnti).value;
     ((TObjPlayer *)(arg0 + 0xE0))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3790;
     *(s32 *)&((TTecAnti *)arg0)->m_13c = 1;
-    copy_technique_target_list((S_8022B3E8 *)((void *)((void *) (arg0 + 0xE0))), (S_8022B3E8 *)((void *)((void *) (arg3))));
+    copy_technique_target_list((S_8022B3E8 *)((void *)((void *) (arg0 + 0xE0))), (S_8022B3E8 *)((void *)(arg3)));
     ((TTecAnti *)(arg0 + 0x74))->copy_params((u8 *)((void *) ((u8 *)&technique_param_table.value + 0x2C0)));
-    TTecAnti__sub_8022AD94((void *)((void *) (arg0)));
+    TTecAnti__sub_8022AD94((void *)(arg0));
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xDC));
     if (temp_r3 != NULL) {
         *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0xA4)) + 0xC) = (f32) (lbl_805DC798 + ((TTecAnti *)arg0)->m_7c);
     }
     temp_r3_2 = ((TTecAnti *)arg0)->source;
     if (temp_r3_2 != 0U) {
-        *(s16 *)&((TTecAnti *)arg0)->m_a8 = obj_getField1c((int) (temp_r3_2));
+        *(s16 *)&((TTecAnti *)arg0)->m_a8 = obj_getField1c(temp_r3_2);
     }
     if ((s32) *(s32 *)&((TTecAnti *)arg0)->m_ac != 0) {
         ((TTecAnti *)arg0)->play_anti_cast_sound();
-        TTecAnti__sub_8022AD74((void*)((void *) (arg0)));
+        TTecAnti__sub_8022AD74((void*)(arg0));
     }
     return arg0;
 }

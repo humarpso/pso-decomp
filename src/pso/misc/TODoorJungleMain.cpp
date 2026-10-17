@@ -79,7 +79,7 @@ void TLobby__sub_8029B2A4(void* p);
 void *TODoorJungleMain__create(void *arg0);
 void *__nw__7TObjectFUl(int);
 
-void TLobby__sub_8029B2A4(void* p) { TOKeyJungleMain::init_key_slots((void*)(p)); }
+void TLobby__sub_8029B2A4(void* p) { TOKeyJungleMain::init_key_slots(p); }
 
 extern void *tl_05;
 
@@ -403,7 +403,7 @@ u8 *TODoorJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     (*(f32 *)(copy_storage_8029B924.bytes + 0x28)) = lbl_805DDCEC;
     (*(f32 *)(copy_storage_8029B924.bytes + 0x2C)) = lbl_805DDCF0;
     (*(s32 *)(copy_storage_8029B924.bytes + 0x30)) = 2;
-    *(s32 *)&((TODoorJungleMain *)arg0)->m_dc = TObjMapCsn::create((s32) (copy_storage_8029B924.bytes));
+    *(s32 *)&((TODoorJungleMain *)arg0)->m_dc = TObjMapCsn::create((s32)copy_storage_8029B924.bytes);
     return arg0;
 }
 

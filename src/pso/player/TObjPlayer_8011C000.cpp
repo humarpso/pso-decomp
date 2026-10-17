@@ -209,10 +209,10 @@ f32 TObjPlayer::get_drop_random_float(u32 arg0) {
 
 void roll_item_channel_below(u32 count, s32 arg1) {
     if ((u32) (*(u32 *)&item_mgr) != 0U) {
-        roll_channel_below__9TItemDropFPviUi((u8 *)((*(u32 *)&item_mgr)), (s32)(count), (u32)(arg1));
+        roll_channel_below__9TItemDropFPviUi((u8 *)((*(u32 *)&item_mgr)), count, arg1);
         return;
     }
-    __cvt_fp2unsigned((f32) count * TObjPlayer::get_drop_random_float((u32)((void *) (arg1))));
+    __cvt_fp2unsigned((f32) count * TObjPlayer::get_drop_random_float((u32)(arg1)));
 }
 
 void TObjPlayer::drop_item_from_slot(s32 area, s32 arg1, s32 arg2) {

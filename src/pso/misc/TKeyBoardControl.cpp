@@ -167,7 +167,7 @@ f32 calc_key_x__19TWindowKeyBoardSoftFiii(s32 arg0, s32 arg1, s32 arg2) {
   s32 sp8;
   s32 temp_r31;
   s32 temp_r3;
-  temp_r3 = calc_key_index__19TWindowKeyBoardSoftFiii((s32)(arg0), (s32)(arg1), (s32)(arg2));
+  temp_r3 = calc_key_index__19TWindowKeyBoardSoftFiii(arg0, arg1, arg2);
   temp_r31 = arg1 + ((s8) (*((u8 *) (((s8 *) (((u8 *) (&TWindowKeyBoardSoft__data_8044F124.value)) + (*((u8 *) (((s8 *) (((u8 *) (&TWindowKeyBoardSoft__data_804CB7C8.value)) + temp_r3)) + 0))))) + 0))));
   TWindowKeyBoardSoft__sub_80260760((void *) arg0, (int) temp_r3, (void *) (&sp8), 0);
   new_var = TWindowKeyBoardSoft::calc_key_coord(arg0, sp8);
@@ -203,7 +203,7 @@ f32 TWindowKeyBoardSoft::calc_key_coord(s32 arg0, s32 arg1) {
 void TWindowKeyBoardSoft::sub_80260808(s32 arg1) {
     s32 temp_r5;
     temp_r5 = arg1 * 0x50;
-    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + temp_r5 + 0x20), 2, (int) (temp_r5)) != 0) && ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x6C) != 0U)) {
+    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + temp_r5 + 0x20), 2, temp_r5) != 0) && ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x6C) != 0U)) {
         *(s32 *)&this->m_7c = (s32) (*(s32 *)&this->m_7c & 0xFFFFFFEF);
         play_sound_effect(0x52F16, 0, 0, 0);
         ((TWindowKeyBoardSoft *)(*(u32 *)((s8 *)((u8 *)this) + 0x6C)))->handle_backspace();
@@ -262,14 +262,14 @@ void TWindowKeyBoardSoft::handle_page_cycle_input(s32 arg1) {
     s32 sp8;
     u8 *temp_r30;
     temp_r30 = (u8 *)&controller_input_state.value + (arg1 * 0x50) + 0x20;
-    if (((s32 (*)(int, int))TWindowShortListCtrl__check_controller_button)((int) (temp_r30), 0x30000) != 0) {
+    if (((s32 (*)(int, int))TWindowShortListCtrl__check_controller_button)((int)temp_r30, 0x30000) != 0) {
         play_sound_effect(0x54100, 0, 0, 0);
         calc_cursor_step__19TWindowKeyBoardSoftFiPvPv((s32) (((u8 *)this)), &spC, &sp8);
-        if (((s32 (*)(int, int))TWindowShortListCtrl__check_controller_button)((int) (temp_r30), 0x10000) != 0) {
+        if (((s32 (*)(int, int))TWindowShortListCtrl__check_controller_button)((int)temp_r30, 0x10000) != 0) {
             *(f32 *)((s8 *)((u8 *)this) + 0x68) = (f32) TWindowKeyBoardSoft__data_805DD088;
             *(u8 *)((s8 *)((u8 *)this) + 0x64) = (u8) (*(u8 *)((s8 *)((u8 *)this) + 0x64) + 1);
         }
-        if (((s32 (*)(int, int))TWindowShortListCtrl__check_controller_button)((int) (temp_r30), 0x20000) != 0) {
+        if (((s32 (*)(int, int))TWindowShortListCtrl__check_controller_button)((int)temp_r30, 0x20000) != 0) {
             *(f32 *)((s8 *)((u8 *)this) + 0x68) = (f32) lbl_805DD08C;
             *(u8 *)((s8 *)((u8 *)this) + 0x64) = (u8) (*(u8 *)((s8 *)((u8 *)this) + 0x64) - 1);
         }
@@ -440,9 +440,9 @@ void TWindowKeyBoardSoft::draw_key_frame(void *self, f32 *rect, u32 color, s32 i
 void render__19TWindowKeyBoardSoftFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFl();
-    TWindowKeyBoardSoft__sub_8026227C((void *) (arg0), (int) (temp_r3));
-    TWindowKeyBoardSoft__sub_80261DD8((void *) (arg0), (int) (temp_r3));
-    TWindowKeyBoardSoft__sub_802616BC((void *) (arg0), (int) (temp_r3));
+    TWindowKeyBoardSoft__sub_8026227C((void *)arg0, (int)temp_r3);
+    TWindowKeyBoardSoft__sub_80261DD8((void *)arg0, (int)temp_r3);
+    TWindowKeyBoardSoft__sub_802616BC((void *)arg0, (int)temp_r3);
 }
 
 }

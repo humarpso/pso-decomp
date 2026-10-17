@@ -210,7 +210,7 @@ void *TChCrLoadAfs::create(void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x38);
     if (o != NULL) {
-        o = __ct__12TChCrLoadAfsFP7TObjectPvPv((void *)(o), (void *)(this), (void *)(arg1), (void *)(arg2));
+        o = __ct__12TChCrLoadAfsFP7TObjectPvPv(o, this, arg1, arg2);
     }
     return o;
 }
@@ -309,16 +309,16 @@ void TChCrLoadAfsTextureReq::start_read(void *) {
     s32 n;
     u32 t;
     void *buf;
-    t = adxf_open_afs__6TLobbyFii(player_class_texture_archive_table[arg0->f70].id, find_player_texture_name_ordinal((u8 *)(arg0)));
+    t = adxf_open_afs__6TLobbyFii(player_class_texture_archive_table[arg0->f70].id, find_player_texture_name_ordinal((u8 *)arg0));
     arg0->f60 = t;
     if (t != 0) {
         arg0->f20 = 0;
         arg0->f24 = 0;
-        n = TLobby__sub_803CC53C((u8 *)(arg0->f60));
+        n = TLobby__sub_803CC53C((u8 *)arg0->f60);
         buf = ((void *)((TQuestVmDownLoadServer *)(n << 11))->alloc());
         arg0->bufs[arg0->f5c] = buf;
         if (buf != NULL) {
-            TLobby::read_checked_align((u32)(arg0->f60), (s32)(n), (u32)(arg0->bufs[arg0->f5c]));
+            TLobby::read_checked_align((u32)arg0->f60, (s32)n, (u32)arg0->bufs[arg0->f5c]);
             arg0->f2c = 2;
         }
     }

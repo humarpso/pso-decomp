@@ -56,7 +56,7 @@ void TObjPlayer::calc_direction_vector(s32 arg0, void *arg1, f32 farg0) {
 void TObjPlayer::calc_circle_offset_pos(s32 arg0, void *arg1, void *arg2, f32 farg0) {
     *(f32 *)((s8 *)arg2 + 0) = (f32) ((farg0 * sin_table_lookup(arg0)) + *(f32 *)((s8 *)arg1 + 0));
     *(f32 *)((s8 *)arg2 + 4) = (f32) *(f32 *)((s8 *)arg1 + 4);
-    *(f32 *)((s8 *)arg2 + 8) = (f32) ((farg0 * cos_table_lookup((s32)(arg0))) + *(f32 *)((s8 *)arg1 + 8));
+    *(f32 *)((s8 *)arg2 + 8) = (f32) ((farg0 * cos_table_lookup(arg0)) + *(f32 *)((s8 *)arg1 + 8));
 }
 #pragma pop
 

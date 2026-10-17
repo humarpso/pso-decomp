@@ -17,9 +17,9 @@ u8 *TItemEffectWeapon::create_instance() {
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x200));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((TUnk_804F28E0 *)temp_r3)->init((s32)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_804F28E0 *)temp_r3)->init(tl_05, arg0)));
         }
         return var_r0;
     }

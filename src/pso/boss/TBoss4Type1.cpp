@@ -818,15 +818,15 @@ void TBoss4Type2__sub_800525AC(u8 *arg0) {
 void TBoss4Type2__sub_800528B8(void *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x398) == 0) {
         if (((f32 (*)(void))calc_boss4_scale__10TObjPlayerFi)() < lbl_805D8B08) {
-            ((s32 (*)(void *))TBoss4Type2__sub_800535A8)((void *)(arg0));
+            ((s32 (*)(void *))TBoss4Type2__sub_800535A8)(arg0);
             return;
         }
-        ((s32 (*)(void *))TBoss4Type2__sub_80053504)((void *)((void *)(arg0)));
+        ((s32 (*)(void *))TBoss4Type2__sub_80053504)((void *)(arg0));
     }
 }
 
 void init_timer__11TBoss4Type2FPv(u8 *arg0) {
-    TBoss4Type2__sub_80054FC0((void *) (arg0 + 0x38), (f32) (lbl_805D8B0C));
+    TBoss4Type2__sub_80054FC0((void *) (arg0 + 0x38), lbl_805D8B0C);
     *(s32 *)((s8 *)arg0 + 0x398) = 0x96;
 }
 
@@ -872,7 +872,7 @@ void update_scale_state__11TBoss4Type2FPv(void *arg0) {
 
     if ((s32) *(s32 *)((s8 *)arg0 + 0x398) == 0) {
         if (((f32 (*)(void))calc_boss4_scale__10TObjPlayerFi)() < lbl_80437620[0]) {
-            ((s32 (*)(void *))TBoss4Type2__sub_80053504)((void *)((void *)(arg0)));
+            ((s32 (*)(void *))TBoss4Type2__sub_80053504)((void *)(arg0));
             return;
         }
         var_r31 = 8;
@@ -905,10 +905,10 @@ void update_attack_countdown__11TBoss4Type2FPv(u8 *arg0) {
 void update_state__11TBoss4Type2FPv(void *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x398) == 0) {
         if ((s32) *(s32 *)((s8 *)arg0 + 0x3A8) == 1) {
-            ((s32 (*)(void *))TBoss4Type2__sub_800535A8)((void *)(arg0));
+            ((s32 (*)(void *))TBoss4Type2__sub_800535A8)(arg0);
             return;
         }
-        ((s32 (*)(void *))TBoss4Type2__sub_80053504)((void *)((void *)(arg0)));
+        ((s32 (*)(void *))TBoss4Type2__sub_80053504)((void *)(arg0));
     }
 }
 
@@ -1010,7 +1010,7 @@ void update_flag800_state__11TBoss4Type2FPv(void *arg0) {
         ((TBoss4Type2 *)arg0)->send_state_to_target(4);
         return;
     }
-    ((s32 (*)(void *))TBoss4Type2__sub_80053504)((void *)(arg0));
+    ((s32 (*)(void *))TBoss4Type2__sub_80053504)(arg0);
 }
 
 void TBoss4Type2__sub_800530C0(Obj_800530C0 *arg0) {
@@ -1616,7 +1616,7 @@ S_80054938 *__dt__11TBoss4Type1Fv(S_80054938 *o, s16 flag) {
         fn_8004AA04(o->f378);
         for (i = 0; i < 13; i++) {
             if (o->parts[i] != 0) {
-                TBoss4Type2::request_destroy((u32)(o->parts[i]));
+                TBoss4Type2::request_destroy((u32)o->parts[i]);
                 o->parts[i] = 0;
             }
         }

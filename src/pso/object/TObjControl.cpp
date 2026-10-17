@@ -492,7 +492,7 @@ void TObjControl::run_task() {
         if (((EnemyControlDispatch *)(enemy))->m41() == 0) {
             ((EnemyControlDispatch *)(enemy))->m36();
             if ((((EnemyControlDispatch *)(enemy))->m34() != 0) || (((EnemyControlDispatch *)(enemy))->m38() != 0) || (((EnemyControlDispatch *)(enemy))->m37() != 0)) {
-                submit_cursor_candidate((int) (enemy), -1);
+                submit_cursor_candidate((int)enemy, -1);
                 minimap_render_dot((void *) (enemy + 0x38), -0x5DB4, 1, 0);
                 ((EnemyControlDispatch *)(enemy))->m26();
                 set_flag_3__7TObjectFv((enemy));
@@ -635,7 +635,7 @@ void handle_6x0A_update_enemy_state(Msg_800F6464 *arg0) {
         sp.w = arg0->f8;
     }
     apply_by_index__9TObjEnemyFs(idx, &sp);
-    e = ((Ene_800F6464 *)get_enemy_entity((u16)(arg0->f2)));
+    e = ((Ene_800F6464 *)get_enemy_entity(arg0->f2));
     if (e != NULL) {
         e->m78(&sp);
     }
@@ -747,21 +747,21 @@ u8 *get_enemy_entity(u16 arg0) {
         low = lbl_805D586C;
         while (low < high) {
             mid = (low + high) / 2;
-            if (obj_getField1c((void *)(TObjPlayer__data_8050D460[mid])) < arg0) {
+            if (obj_getField1c((void *)TObjPlayer__data_8050D460[mid]) < arg0) {
                 low = mid + 1;
             } else {
                 high = mid;
             }
         }
         u32 e = TObjPlayer__data_8050D460[low];
-        if (e != 0 && arg0 == obj_getField1c((void *)(e))) {
+        if (e != 0 && arg0 == obj_getField1c((void *)e)) {
             return (u8 *)e;
         }
     }
     return 0;
 }
 
-void TObjPlayer::refresh_lobby_state() { distribute_experience__9TObjEnemyFv((TObjPlayer_800F6B68 *)((void*)(this))); query_lobby_state(); }
+void TObjPlayer::refresh_lobby_state() { distribute_experience__9TObjEnemyFv((TObjPlayer_800F6B68 *)(this)); query_lobby_state(); }
 
 int TObjPlayer::query_lobby_state() { return send_6x60_standard_drop_item_request(this); }
 
@@ -885,7 +885,7 @@ void TUnk_80493450::unlink_enemy_group_relations() {
             if (temp_r5_2 != NULL) {
                 temp_r0 = (u8 *)(*(u8 **)((s8 *)temp_r4 + 0x34C));
                 if (temp_r0 != NULL) {
-                    var_r6 = (u8 *)(temp_r0);
+                    var_r6 = temp_r0;
 while (*(u8 **)((s8 *)var_r6 + 0x348) != NULL) {
     var_r6 = *(u8 **)((s8 *)var_r6 + 0x348);
 }
@@ -918,7 +918,7 @@ while (*(u8 **)((s8 *)var_r6 + 0x348) != NULL) {
                 if (temp_r5_4 != NULL) {
                     temp_r0_4 = (u8 *)(*(u8 **)((s8 *)temp_r4_2 + 0x34C));
                     if (temp_r0_4 != NULL) {
-                        var_r6_2 = (u8 *)(temp_r0_4);
+                        var_r6_2 = temp_r0_4;
 while (*(u8 **)((s8 *)var_r6_2 + 0x348) != NULL) {
     var_r6_2 = *(u8 **)((s8 *)var_r6_2 + 0x348);
 }
@@ -937,7 +937,7 @@ while (*(u8 **)((s8 *)var_r6_2 + 0x348) != NULL) {
                 if (temp_r4_3 != NULL) {
                     temp_r0_6 = (u8 *)(*(u8 **)((s8 *)temp_r5_3 + 0x34C));
                     if (temp_r0_6 != NULL) {
-                        var_r5 = (u8 *)(temp_r0_6);
+                        var_r5 = temp_r0_6;
 while (*(u8 **)((s8 *)var_r5 + 0x348) != NULL) {
     var_r5 = *(u8 **)((s8 *)var_r5 + 0x348);
 }
@@ -958,7 +958,7 @@ while (*(u8 **)((s8 *)var_r5 + 0x348) != NULL) {
                 if (temp_r5_5 != NULL) {
                     temp_r0_8 = (u8 *)(*(u8 **)((s8 *)temp_r4_4 + 0x34C));
                     if (temp_r0_8 != NULL) {
-                        var_r6_3 = (u8 *)(temp_r0_8);
+                        var_r6_3 = temp_r0_8;
 while (*(u8 **)((s8 *)var_r6_3 + 0x348) != NULL) {
     var_r6_3 = *(u8 **)((s8 *)var_r6_3 + 0x348);
 }

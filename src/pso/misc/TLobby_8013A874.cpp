@@ -14,7 +14,7 @@ s32 __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag();
 
 void TLobby::bswap_fields() { bswap_16((u16 *)((char*)this + 0x2)); bswap_32((u32 *)((char*)this + 0x4)); }
 
-void TLobby::bswap_header_3words() { bswap_32((u32 *)(this)); bswap_32((u32 *)((char*)this + 0x4)); bswap_32((u32 *)((char*)this + 0x8)); }
+void TLobby::bswap_header_3words() { bswap_32((u32 *)this); bswap_32((u32 *)((char*)this + 0x4)); bswap_32((u32 *)((char*)this + 0x8)); }
 
 void bswap__15disp_data_part2Fv(s32 arg0) {
     s32 off;
@@ -30,13 +30,13 @@ void bswap__15disp_data_part2Fv(s32 arg0) {
     bswap_32((u32 *)(arg0 + 0x4C));
 }
 
-void bswap_telepipe_record(void* p) { bswap_16((u16 *)(p)); bswap_16((u16 *)((char*)p + 0x2)); bswap_32((u32 *)((char*)p + 0x4)); bswap_32((u32 *)((char*)p + 0x8)); bswap_32((u32 *)((char*)p + 0xc)); bswap_32((u32 *)((char*)p + 0x10)); bswap_32((u32 *)((char*)p + 0x14)); bswap_32((u32 *)((char*)p + 0x18)); }
+void bswap_telepipe_record(void* p) { bswap_16((u16 *)p); bswap_16((u16 *)((char*)p + 0x2)); bswap_32((u32 *)((char*)p + 0x4)); bswap_32((u32 *)((char*)p + 0x8)); bswap_32((u32 *)((char*)p + 0xc)); bswap_32((u32 *)((char*)p + 0x10)); bswap_32((u32 *)((char*)p + 0x14)); bswap_32((u32 *)((char*)p + 0x18)); }
 
-void TLobby__sub_8013A9C0(void* p) { bswap_32((u32 *)(p)); bswap_32((u32 *)((char*)p + 0x4)); }
+void TLobby__sub_8013A9C0(void* p) { bswap_32((u32 *)p); bswap_32((u32 *)((char*)p + 0x4)); }
 
-void bswap_object_source_record(void* p) { bswap_16((u16 *)(p)); bswap_16((u16 *)((char*)p + 0x2)); }
+void bswap_object_source_record(void* p) { bswap_16((u16 *)p); bswap_16((u16 *)((char*)p + 0x2)); }
 
-void TLobby::bswap_6x6B() { bswap_32((u32 *)(this)); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); }
+void TLobby::bswap_6x6B() { bswap_32((u32 *)this); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); }
 u8 *TLobby__sub_8013AA64(u8 *arg0, u8 *arg1) {
     __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag();
     *(s32 *)((s8 *)arg0 + 8) = (s32) *(s32 *)((s8 *)arg1 + 8);

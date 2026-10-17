@@ -63,7 +63,7 @@ s32 set_global_param__8TObjFishFl();
 void *TObjContainerJungEx::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x368);
     if (o != NULL) {
-        o = TObjContainerJungEx__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TObjContainerJungEx__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -118,7 +118,7 @@ void TObjContainerJungEx::vfunc_6(s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             this->vfunc_79();
-            ((TUnk_804B6C24 *)arg0)->spawn_item((s32)((void *) (arg0)));
+            ((TUnk_804B6C24 *)arg0)->spawn_item((s32)(arg0));
             ((TUnk_804AF8A0 *)arg0)->set_flag8();
             queue_destruction__7TObjectFv((arg0));
             this->mode = 1;

@@ -44,7 +44,7 @@ void TBoss7Crawfish::update_attack_state() {
             spawn_effect(0x3A80B);
         }
     }
-    if (*(s32 *)((s8 *)(this->m_a4) + 0x18) & 0x02000000) {
+    if (*(s32 *)((s8 *)this->m_a4 + 0x18) & 0x02000000) {
         register_attack_hits();
     }
 }

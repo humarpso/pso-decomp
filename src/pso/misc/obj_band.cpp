@@ -241,13 +241,13 @@ void serialize_node_flags__10TObjPlayerFPv(u8 *arg0) {
     if (test_2c != NULL) {
         *(s32 *)((s8 *)lbl_805D5684 + 4) = (s32) (*(s32 *)((s8 *)lbl_805D5684 + 4) | 0x40);
         lbl_805D5684 = lbl_805D5684 + 8;
-        serialize_node_flags__10TObjPlayerFPv((u8 *)((u8 *)(test_2c)));
+        serialize_node_flags__10TObjPlayerFPv((u8 *)(test_2c));
     }
     test_30 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x30));
     if (test_30 != NULL) {
         *(s32 *)((s8 *)lbl_805D5684 + 4) = (s32) (*(s32 *)((s8 *)lbl_805D5684 + 4) | 0x80);
         lbl_805D5684 = lbl_805D5684 + 8;
-        serialize_node_flags__10TObjPlayerFPv((u8 *)((u8 *)(test_30)));
+        serialize_node_flags__10TObjPlayerFPv((u8 *)(test_30));
     }
 }
 
@@ -326,14 +326,14 @@ void TObjPlayer::draw_model_with_callback() {
     temp_r0 = *(u32 *)&this->motion_buffer;
     if (temp_r0 != 0U) {
         (*(u32 *)&player_joint_matrix_write_ptr) = temp_r0;
-        TObjEneRe7Berura::set_global_state((s32)((s32 *)(save_joint_matrix_callback)));
+        TObjEneRe7Berura::set_global_state((s32)(save_joint_matrix_callback));
         temp_r3 = *(s32 *)&this->animationFlags;
         if ((temp_r3 & 4) && !(temp_r3 & 0x400)) {
             draw_model_blend_motion((void *)(*(s32 *)&this->model), (void *)&this->unk_E4, *(f32 *)&this->m_c0);
         } else {
             draw_model_motion((void *)(*(s32 *)&this->model), (void *)(*(s32 *)&this->unknownF8), *(f32 *)&this->m_c0);
         }
-        TObjEneRe7Berura::set_global_state((s32)((s32 *)(NULL)));
+        TObjEneRe7Berura::set_global_state((s32)(NULL));
         TObjPlayer::reset_transform_state();
     }
 }
@@ -343,7 +343,7 @@ void TObjEnemy::render_world_model() {
     if (*(s32 *)&this->animationFlags & 4) {
         draw_model_blend_motion((void *)(*(s32 *)&this->model), (void *)&this->unk_E4, *(f32 *)&this->m_c0);
     } else {
-        TObjEneRe7Berura::set_global_state((s32)((s32 *)(chunk_model_node_callback)));
+        TObjEneRe7Berura::set_global_state((s32)(chunk_model_node_callback));
         draw_model_motion((void *)(*(s32 *)&this->model), (void *)(*(s32 *)&this->unknownF8), *(f32 *)&this->m_c0);
         TObjEneRe7Berura::set_global_state((s32)((s32 *)(0)));
     }

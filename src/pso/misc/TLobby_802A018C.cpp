@@ -45,20 +45,20 @@ void TLanguage__sub_802A0204(void) {
     case 28:
         var_r0 = ((TAdSinglePlyChrSelectGC *)0x440)->alloc();
         if (var_r0 != 0) {
-            var_r0 = load_resource_from_descriptor(var_r0, 5, (void *) (bm_o_door_seabed01_resource_descriptor), 0, 0, 0);
+            var_r0 = load_resource_from_descriptor(var_r0, 5, bm_o_door_seabed01_resource_descriptor, 0, 0, 0);
         }
         door_labo_bml_resource = var_r0;
-        lbl_805D6604 = (u32)load_gvm_texture_file((s32)(lbl_80466118));
-        lbl_805D6608 = (u32)load_gvm_texture_file((s32)(lbl_80466138));
+        lbl_805D6604 = (u32)load_gvm_texture_file((s32)lbl_80466118);
+        lbl_805D6608 = (u32)load_gvm_texture_file((s32)lbl_80466138);
         return;
     case 29:
         var_r0_2 = ((TAdSinglePlyChrSelectGC *)0x440)->alloc();
         if (var_r0_2 != 0) {
-            var_r0_2 = load_resource_from_descriptor(var_r0_2, 5, (void *) (bm_o_door_seabed01_resource_descriptor), 0, 0, 0);
+            var_r0_2 = load_resource_from_descriptor(var_r0_2, 5, bm_o_door_seabed01_resource_descriptor, 0, 0, 0);
         }
         door_labo_bml_resource = var_r0_2;
-        lbl_805D6604 = (u32)load_gvm_texture_file((s32)(lbl_80466150));
-        lbl_805D6608 = (u32)load_gvm_texture_file((s32)(lbl_80466170));
+        lbl_805D6604 = (u32)load_gvm_texture_file((s32)lbl_80466150);
+        lbl_805D6608 = (u32)load_gvm_texture_file((s32)lbl_80466170);
         return;
     }
 }

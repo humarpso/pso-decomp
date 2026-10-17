@@ -116,7 +116,7 @@ void TOSensorGeneral01::render() {
     Node_801760A8 *n;
     if (((VObj_801760A8 *)(arg0))->m8(this->m_c0, *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
         push_matrix();
-        post_translate_matrix((void *) ((u8 *)(arg0) + 0x38));
+        post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y(0, this->rotation_y);
         n = *(Node_801760A8 * *)&this->model;
         translate_matrix(0, n->x, n->y, n->z);
@@ -150,7 +150,7 @@ void TOSensorGeneral01::render() {
 void *TOSensorGeneral01::create() {
     void *o = __nw__7TObjectFUl(0xF4);
     if (o != NULL) {
-        o = TOSensorGeneral01__ct((void *)(o), (void *)(tl_05), (void *)(this));
+        o = TOSensorGeneral01__ct(o, tl_05, this);
     }
     return o;
 }
@@ -176,7 +176,7 @@ void TOSensorGeneral01::load_assets() {
     u8 *temp_r3;
     u8 *var_r0;
     temp_r3 = (u8 *)(((TAdSinglePlyChrSelectGC *)0x440)->alloc());
-    var_r0 = (u8 *)(temp_r3);
+    var_r0 = temp_r3;
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &TOSensorGeneral01__resource_descriptor, 0, 0, 0));
     }

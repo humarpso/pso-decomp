@@ -117,7 +117,7 @@ void TOSparkMachine01::run_task() {
     if (TOSparkMachine01__data_805DB9EC < this->target_scale) {
         var_r31 = 0;
         do {
-            update_spark_toggle((s32)(var_r31));
+            update_spark_toggle(var_r31);
             var_r31 += 1;
         } while (var_r31 < 4);
         return;
@@ -160,7 +160,7 @@ void TOSparkMachine01::render() {
 void *TOSparkMachine01::create() {
     void *o = __nw__7TObjectFUl(0xB0);
     if (o != NULL) {
-        o = TOSparkMachine01__ct((void *)(o), (void *)(this));
+        o = TOSparkMachine01__ct(o, this);
     }
     return o;
 }

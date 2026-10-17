@@ -70,7 +70,7 @@ void TLobby::merge_adjacent_free_blocks() {
             if (n->next != 0) {
                 n->next->prev = cur;
             }
-            TLobby__sub_8001D9E8((void*)(n));
+            TLobby__sub_8001D9E8(n);
         } else {
             cur = n;
         }
@@ -202,8 +202,8 @@ void TLobby::set_short_mail_text() {
     s32 arg0 = (s32)this;
     u8 *temp_r31;
     temp_r31 = (u8 *)(get_character_save_record((0xFFFFU)) + 0x2050);
-    TWindowSubComCard__sub_80225E80((void *) (arg0), (int) (((s32 (*)(void))get_shared_text_buffer)()));
-    strncpy((int) (temp_r31), (int) (((s32 (*)(void))get_shared_text_buffer)()), 0xAB);
+    TWindowSubComCard__sub_80225E80((void *)arg0, (int) (((s32 (*)(void))get_shared_text_buffer)()));
+    strncpy((int)temp_r31, (int) (((s32 (*)(void))get_shared_text_buffer)()), 0xAB);
     *(s8 *)((s8 *)temp_r31 + 0xAB) = 0;
     auto_reply_flags |= 4;
     if (TLobby::is_active() != 0) {
@@ -249,8 +249,8 @@ void TLobby__sub_8001DBD8(s32 _w0) {
     auto_reply_flags = 0;
 }
 
-void TLobby::forward_8001DBD8(void* p) { TLobby__sub_8001DBD8((s32)(p)); }
-void TLobby__sub_8001DC04(void* p) { TLobby__sub_8001DBD8((s32)(p)); }
+void TLobby::forward_8001DBD8(void* p) { TLobby__sub_8001DBD8((s32)p); }
+void TLobby__sub_8001DC04(void* p) { TLobby__sub_8001DBD8((s32)p); }
 
     extern int TLobby__lobby_instance;
 
@@ -396,13 +396,13 @@ void load_battle_param_entry(void) {
   }
 }
 
-void TLobby::broadcast(void* a0) { ((int (*)(void*, void*))broadcast_to_players__6TLobbyFii)((void*)(TLobby__lobby_instance), a0); }
+void TLobby::broadcast(void* a0) { ((int (*)(void*, void*))broadcast_to_players__6TLobbyFii)((void*)TLobby__lobby_instance, a0); }
 
-void TLobby__sub_8001DE30(void* a0) { ((int (*)(void*, void*))TLobby__sub_8001DF58)((void*)(TLobby__lobby_instance), a0); }
+void TLobby__sub_8001DE30(void* a0) { ((int (*)(void*, void*))TLobby__sub_8001DF58)((void*)TLobby__lobby_instance, a0); }
 
-void TLobby::copy_all_entries(void* a0) { ((int (*)(void*, void*))copy_all_entries__6TLobbyFii)((void*)(TLobby__lobby_instance), a0); }
+void TLobby::copy_all_entries(void* a0) { ((int (*)(void*, void*))copy_all_entries__6TLobbyFii)((void*)TLobby__lobby_instance, a0); }
 
-void TLobby::copy_data(void* a0) { ((int (*)(void*, void*))copy_all_data__6TLobbyFii)((void*)(TLobby__lobby_instance), a0); }
+void TLobby::copy_data(void* a0) { ((int (*)(void*, void*))copy_all_data__6TLobbyFii)((void*)TLobby__lobby_instance, a0); }
 
 }
 
@@ -443,7 +443,7 @@ void TLobby__sub_8001DF58(s32 arg0, s32 ent) {
     if (((s32 (*)(void))is_valid_player_index__6TLobbyFi)() != 0) {
         var_r31 = 0;
         do {
-            ((TLobby *)(((s32 (*)(s32, s32))get_entry__6TLobbyFii)(var_r31, arg0)))->copy_entry((void *)(ent));
+            ((TLobby *)(((s32 (*)(s32, s32))get_entry__6TLobbyFii)(var_r31, arg0)))->copy_entry((void *)ent);
             var_r31 += 1;
         } while (var_r31 < 4);
     }
@@ -469,7 +469,7 @@ void copy_all_entries__6TLobbyFii(s32 arg0, s32 arg1) {
     if (((s32 (*)(void))is_valid_player_index__6TLobbyFi)() != 0) {
         var_r31 = 0;
         do {
-            ((TLobby *)(((s32 (*)(s32, s32))TLobby__sub_8001E270)(var_r31, arg0)))->copy_from((void *)(arg1));
+            ((TLobby *)(((s32 (*)(s32, s32))TLobby__sub_8001E270)(var_r31, arg0)))->copy_from((void *)arg1);
             var_r31 += 1;
         } while (var_r31 < 4);
     }
@@ -500,7 +500,7 @@ void copy_all_data__6TLobbyFii(s32 arg0, s32 arg1) {
     if (((s32 (*)(void))is_valid_player_index__6TLobbyFi)() != 0) {
         var_r31 = 0;
         do {
-            copy_data__6TLobbyFPvPv((void *)(((s32 (*)(s32, s32))TLobby__sub_8001E2A8)(var_r31, arg0)), (void *)(arg1));
+            copy_data__6TLobbyFPvPv((void *)(((s32 (*)(s32, s32))TLobby__sub_8001E2A8)(var_r31, arg0)), (void *)arg1);
             var_r31 += 1;
         } while (var_r31 < 4);
     }
@@ -588,7 +588,7 @@ void TLobby::update_difficulty() {
 
     temp_r31 = battle_parameter_difficulty;
     temp_r30 = battle_param_lab_variant;
-    TLobby::clamp_difficulty((s32)(game_difficulty_selection));
+    TLobby::clamp_difficulty(game_difficulty_selection);
     TLobby::get_instance();
     ((s32 (*)(void))set_difficulty__6TLobbyFi)();
     if (((s32) battle_parameter_difficulty != temp_r31) || ((s32) battle_param_lab_variant != temp_r30)) {
@@ -625,12 +625,12 @@ void alloc_battle_param_tables(void) {
     TLobby__lobby_instance = 0;
 }
 
-void TLobby::swap_endian() { bswap_16((u16 *)(this)); bswap_16((u16 *)((char*)this + 0x2)); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); bswap_16((u16 *)((char*)this + 0x8)); bswap_16((u16 *)((char*)this + 0xa)); bswap_32((u32 *)((char*)this + 0xc)); bswap_32((u32 *)((char*)this + 0x10)); bswap_32((u32 *)((char*)this + 0x14)); bswap_32((u32 *)((char*)this + 0x18)); bswap_32((u32 *)((char*)this + 0x1c)); }
+void TLobby::swap_endian() { bswap_16((u16 *)this); bswap_16((u16 *)((char*)this + 0x2)); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); bswap_16((u16 *)((char*)this + 0x8)); bswap_16((u16 *)((char*)this + 0xa)); bswap_32((u32 *)((char*)this + 0xc)); bswap_32((u32 *)((char*)this + 0x10)); bswap_32((u32 *)((char*)this + 0x14)); bswap_32((u32 *)((char*)this + 0x18)); bswap_32((u32 *)((char*)this + 0x1c)); }
 
-void TLobby::byteswap_packet() { bswap_16((u16 *)(this)); bswap_16((u16 *)((char*)this + 0x2)); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); bswap_32((u32 *)((char*)this + 0x8)); bswap_32((u32 *)((char*)this + 0xc)); bswap_32((u32 *)((char*)this + 0x10)); bswap_16((u16 *)((char*)this + 0x14)); bswap_16((u16 *)((char*)this + 0x16)); bswap_16((u16 *)((char*)this + 0x18)); bswap_16((u16 *)((char*)this + 0x1a)); bswap_32((u32 *)((char*)this + 0x1c)); bswap_32((u32 *)((char*)this + 0x20)); bswap_32((u32 *)((char*)this + 0x24)); bswap_32((u32 *)((char*)this + 0x28)); bswap_32((u32 *)((char*)this + 0x2c)); }
+void TLobby::byteswap_packet() { bswap_16((u16 *)this); bswap_16((u16 *)((char*)this + 0x2)); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); bswap_32((u32 *)((char*)this + 0x8)); bswap_32((u32 *)((char*)this + 0xc)); bswap_32((u32 *)((char*)this + 0x10)); bswap_16((u16 *)((char*)this + 0x14)); bswap_16((u16 *)((char*)this + 0x16)); bswap_16((u16 *)((char*)this + 0x18)); bswap_16((u16 *)((char*)this + 0x1a)); bswap_32((u32 *)((char*)this + 0x1c)); bswap_32((u32 *)((char*)this + 0x20)); bswap_32((u32 *)((char*)this + 0x24)); bswap_32((u32 *)((char*)this + 0x28)); bswap_32((u32 *)((char*)this + 0x2c)); }
 
 void bswap__12player_statsFv(void *arg0) {
-    bswap_16((u16 *)(arg0));
+    bswap_16((u16 *)arg0);
     bswap_16((u16 *)((void *)((char *)arg0 + 2)));
     bswap_16((u16 *)((void *)((char *)arg0 + 4)));
     bswap_16((u16 *)((void *)((char *)arg0 + 6)));

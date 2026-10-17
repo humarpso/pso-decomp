@@ -138,7 +138,7 @@ void TAdMultiOkGC::render() {
     if (TMainTask::get_state_flag() != 1) {
         TObjPlayer::init_xyz_limits();
         for (i = 0; i < o->count; i++) {
-            draw_entry((int)(i));
+            draw_entry(i);
         }
         TObjPlayer::reset_transform_state();
     }
@@ -207,8 +207,8 @@ void TAdMultiOkGC::run_task() {
     Ok_80306F84 *o = (Ok_80306F84 *)this;
     s32 i;
     for (i = 0; i < o->count; i++) {
-        handle_player_buttons((int)(i));
-        update_entry_animation((int)(i));
+        handle_player_buttons(i);
+        update_entry_animation(i);
     }
 }
 }

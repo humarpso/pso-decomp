@@ -66,7 +66,7 @@ u32 TShopSequence::create_message_window(s32 arg1, s32 arg2) {
     if (temp_r0 != NULL) {
         temp_r3 = (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x24));
         if (temp_r3 != NULL) {
-            return create_message_window__24TMessageWindowControllerFlll(*(u8 **)((s8 *)((u8 *)this) + 0x28), arg1, arg2, (s32) ((u16)obj_getField1c((u32)(temp_r3))));
+            return create_message_window__24TMessageWindowControllerFlll(*(u8 **)((s8 *)((u8 *)this) + 0x28), arg1, arg2, (s32) ((u16)obj_getField1c((u32)temp_r3)));
         }
         return create_window__24TMessageWindowControllerFll(temp_r0, arg1, arg2);
     }

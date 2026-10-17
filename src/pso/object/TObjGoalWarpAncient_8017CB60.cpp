@@ -160,7 +160,7 @@ typedef char RecoveredGlobal_8017CDB4___vt__19TObjGoalWarpAncient_size[sizeof(Re
 u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
     s32 var_r0;
-    TObjAreaWarp__ct((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    TObjAreaWarp__ct((void *)arg0, (void *)arg1, (void *)arg2);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8017CDB4___vt__19TObjGoalWarpAncient *)&__vt__19TObjGoalWarpAncient).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjGoalWarpAncient__class_name;
     *(f32 *)((s8 *)arg0 + 0xC8) = (f32) lbl_805DBAC4;
@@ -178,13 +178,13 @@ u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0xE4) = register_warp__19TObjGoalWarpAncientFPv(0);
     *(s32 *)((s8 *)arg0 + 0xE8) = register_warp__19TObjGoalWarpAncientFPv(2);
     if ((get_game_play_mode() == 1) && ((s32) *(s32 *)&((TObjGoalWarpAncient *)arg0)->m_8c >= 0)) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv(arg0);
     }
     if (is_split_screen() == 1) {
         temp_r3 = ((TAdSinglePlyChrSelectGC *)0x88)->alloc();
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = init__13TAdVIConfigGCFf((int) (temp_r3), (void *) (arg0 + 0x38), (f32) (lbl_805DBABC));
+            var_r0 = init__13TAdVIConfigGCFf(temp_r3, (void *) (arg0 + 0x38), lbl_805DBABC);
         }
         *(s32 *)&((TObjGoalWarpAncient *)arg0)->m_dc = var_r0;
     } else {

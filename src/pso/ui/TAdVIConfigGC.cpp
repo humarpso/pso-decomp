@@ -170,13 +170,13 @@ void TAdVIConfigGC::enable_progressive_mode(void * _w0) { OSSetProgressiveMode((
 int TAdVIConfigGC::disable_progressive_mode(void* _w0) { return OSSetProgressiveMode((void*)(0)); }
 void TAdVIConfigGC__vt8(void) { get_localized_text_entry((s32)((void*)29), (s32)((void*)0)); }
 
-void TAdVIConfigGC__vt5(void* p) { TAdVIConfigGC::disable_progressive_mode((void*)((void*)(p))); ((TAdVIConfigGC *)p)->set_field48_clear_global(); }
+void TAdVIConfigGC__vt5(void* p) { TAdVIConfigGC::disable_progressive_mode((void*)(p)); ((TAdVIConfigGC *)p)->set_field48_clear_global(); }
 
 void TAdVIConfigGC__vt4(void *arg0) {
     void *x;
     x = VIGetDTVStatus(arg0);
     if (x != NULL) {
-        TAdVIConfigGC::enable_progressive_mode((void *)(arg0));
+        TAdVIConfigGC::enable_progressive_mode(arg0);
     }
     ((TAdVIConfigGC *)arg0)->set_field48_clear_global();
 }

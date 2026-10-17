@@ -67,7 +67,7 @@ void TAdSelectTxtGC::reset_slots(void *arg1, void *arg2) {
             ((Sel_802A16CC *)this)->slots[i] = 0;
         }
     }
-    ((TAdSelectTxtGC *)((Sel_802A16CC *)this))->init_slot_entries((Src_802A1838 *)(arg1), (void *)(arg2));
+    ((TAdSelectTxtGC *)((Sel_802A16CC *)this))->init_slot_entries((Src_802A1838 *)(arg1), arg2);
 }
 
 extern void *lbl_805D3D88;
@@ -105,7 +105,7 @@ void TAdSelectTxtGC::init_slot_entries(void *arg1_arg, void *arg2) {
 }
 TAdSelectTxtGC::TAdSelectTxtGC(TObject *arg1, void *arg1_arg, void *arg3) : TObject(arg1) {
     *(void * *)&this->m_name = lbl_805D3D88;
-    this->init_slot_entries((Src_802A1838 *)(arg1_arg), (void *)(arg3));
+    this->init_slot_entries((Src_802A1838 *)(arg1_arg), arg3);
 }
 extern "C" {
 

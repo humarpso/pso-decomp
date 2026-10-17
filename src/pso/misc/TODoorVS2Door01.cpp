@@ -211,7 +211,7 @@ void TODoorVS2Door01::render() {
 void *TODoorVS2Door01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD8);
     if (o != NULL) {
-        o = TODoorVS2Door01__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TODoorVS2Door01__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -237,7 +237,7 @@ void TODoorVS2Door01::load_resources() {
     u8 *temp_r3;
     u8 *var_r0;
     temp_r3 = (u8 *)(((TAdSinglePlyChrSelectGC *)0x440)->alloc());
-    var_r0 = (u8 *)(temp_r3);
+    var_r0 = temp_r3;
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &fs_obj_o_vs2door01l_resource_descriptor.value, 0, 0, 0));
     }
@@ -272,7 +272,7 @@ u8 *TODoorVS2Door01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) 30.0f;
     ((TODoorVS2Door01 *)arg0)->m_b8 = (f32) ((19.0f) / *(f32 *)((s8 *)arg0 + 0xB4));
     *(f32 *)((s8 *)arg0 + 0xD4) = (f32) (0.0f);
-    init_collision_body_parts((void *) (arg0), (void *) (&todoor_vs2_door01_collision_parts.value), 1);
+    init_collision_body_parts(arg0, (void *) (&todoor_vs2_door01_collision_parts.value), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TODoorVS2Door01 *)(arg0))->init_door_switch_binding();

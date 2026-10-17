@@ -60,7 +60,7 @@ void TLobby__sub_80351F3C(void) {
     void *o;
     o = __nw__7TObjectFUl(0x24);
     if (o != NULL) {
-        o = TLobby__sub_80351FDC((u8 *)(o));
+        o = TLobby__sub_80351FDC((u8 *)o);
     }
     lobby_event_theme_controller = o;
 }

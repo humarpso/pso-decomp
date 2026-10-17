@@ -75,7 +75,7 @@ void draw_and_scroll_entry__9TWindowDDFi(s32 arg0) {
 
     temp_r3 = draw_default_entry__9TWindowDDFl();
     ((TUnk_804CE018 *)arg0)->calc_inner_rect((u8 *)temp_r3);
-    ((TWindowDD_WS_String *)arg0)->draw_entry_if_visible((void *)(temp_r3));
+    ((TWindowDD_WS_String *)arg0)->draw_entry_if_visible(temp_r3);
     ctx = *(f32 *)((s8 *)temp_r3 + 0x14);
     *(f32 *)((s8 *)temp_r3 + 0x14) = (f32) (ctx + lbl_805DFC90);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3, ctx);

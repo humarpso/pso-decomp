@@ -43,8 +43,8 @@ void TObjEneMorfosArm::render() {
     }
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y(0, (int) (this->rotation_y));
-    TObjFish::set_global_param((int) (this->texture_id));
+    rotate_matrix_y(0, this->rotation_y);
+    TObjFish::set_global_param(this->texture_id);
     TObjPlayer::toggle_particle_effect();
     ((TObjEneRe7Berura *)arg0)->draw();
     TParticleCtrl::end_effect_render();
@@ -89,7 +89,7 @@ u8 *TObjEneMorfosArm__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjEneMorfosArm__parent_morfos_instance) + 0x42C)) + 8);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjEneMorfosArm__parent_morfos_instance) + 0x42C));
     ((TObjEneMorfosArm *)arg0)->texture_id = (s32) *(s32 *)((s8 *)temp_r5 + 0xC);
-    set_field_d8__10TObjPlayerFl((void *) (arg0), (void *) (&morfos_arm_motion_params.value), (int) (temp_r5));
+    set_field_d8__10TObjPlayerFl((void *)arg0, (void *) (&morfos_arm_motion_params.value), (int)temp_r5);
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)(*(u8 * *)&TObjEneMorfosArm__parent_morfos_instance) + 0x430)));
     ((TObjEneMorfosArm *)arg0)->m_b8 = 0;
     set_animation__10TObjPlayerFPvs((arg0), (((TObjEneMorfosArm *)arg0)->m_b8));

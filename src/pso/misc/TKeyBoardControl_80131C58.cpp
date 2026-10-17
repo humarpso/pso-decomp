@@ -84,7 +84,7 @@ void run_task__16TKeyBoardControlFv(u8 *arg0) {
     temp_r3 = is_player_input_active((((TKeyBoardControl *)arg0)->m_1e));
     if (((TKeyBoardControl *)arg0)->m_1c& 1) {
         temp_r5 = temp_r3 * 0x50;
-        if (TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + temp_r5 + 0x20), 0x200, (int) (temp_r5)) != 0) {
+        if (TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + temp_r5 + 0x20), 0x200, temp_r5) != 0) {
             ((TKeyBoardControl *)arg0)->m_1c = (u16) (((TKeyBoardControl *)arg0)->m_1c& 0xFFFE);
             TKeyBoardControl__sub_8025EC04((u8 *)(*(s32 *)&((TKeyBoardControl *)arg0)->m_24));
             if ((u32) ((TKeyBoardControl *)arg0)->m_28 != 0U) {
@@ -145,7 +145,7 @@ void TKeyBoardControl::append_next_char() {
     s32 i = 0;
     ((Obj_8013206C *)this)->f4 = ((Obj_8013206C *)this)->f4 + 1;
     do {
-        if (((s32)append_char((s8)((s8)(i)))) != 0) {
+        if (((s32)append_char((s8)(i))) != 0) {
             return;
         }
         i++;
@@ -169,10 +169,10 @@ void TKeyBoardControl::disable_disconnected_ports() {
     } while (var_r31 < 4);
 }
 s32 TKeyBoardControl::check_input_ready(s32 arg0) {
-    if (TKeyBoardControl__sub_80132310((s32)(arg0)) != 0) {
+    if (TKeyBoardControl__sub_80132310(arg0) != 0) {
         return 0;
     }
-    if (((s32 (*)(s32))is_key_57_pressed__16TKeyBoardControlFi)((s32)(arg0)) != 0) {
+    if (((s32 (*)(s32))is_key_57_pressed__16TKeyBoardControlFi)(arg0) != 0) {
         return 0;
     }
     if (((s32 (*)(s32))TKeyBoardControl__sub_801321B4)(arg0) != 0) {
@@ -181,7 +181,7 @@ s32 TKeyBoardControl::check_input_ready(s32 arg0) {
     return 1;
 }
 bool TKeyBoardControl__sub_801321B4(s32 arg0) {
-    if (TKeyBoardControl__sub_801323C8((K_801323C8 *)((void *)(arg0)), (u8)((int)(0x56U))) != 0) {
+    if (TKeyBoardControl__sub_801323C8((K_801323C8 *)(arg0), (u8)((int)(0x56U))) != 0) {
         return 1;
     }
     if (get_key_state__16TKeyBoardControlFPv((void *)(&TKeyBoardControl__global_key_state.value)) == 0) {
@@ -190,7 +190,7 @@ bool TKeyBoardControl__sub_801321B4(s32 arg0) {
     if ((get_key_state__16TKeyBoardControlFPv((void *)(&TKeyBoardControl__global_key_state.value)) == 2) || (get_key_state__16TKeyBoardControlFPv((void *)(&TKeyBoardControl__global_key_state.value)) == 4) || (get_key_state__16TKeyBoardControlFPv((void *)(&TKeyBoardControl__global_key_state.value)) == 3)) {
         return 0;
     }
-    return TKeyBoardControl__sub_801323C8((K_801323C8 *)((void *)(arg0)), (u8)((int)(0x5BU))) != 0;
+    return TKeyBoardControl__sub_801323C8((K_801323C8 *)(arg0), (u8)((int)(0x5BU))) != 0;
 }
 
 typedef char RecoveredGlobal_80132274_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_80132274_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
@@ -198,14 +198,14 @@ bool TKeyBoardControl__sub_80132274(s32 arg0) {
     if ((get_key_state__16TKeyBoardControlFPv((void*)(&(*(RecoveredGlobal_80132274_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__global_key_state).value)) == 0) || (get_key_state__16TKeyBoardControlFPv((void*)(&(*(RecoveredGlobal_80132274_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__global_key_state).value)) == 1)) {
         return 0;
     }
-    return ((s32)TKeyBoardControl__sub_801323C8((K_801323C8 *)((void *)(arg0)), (u8)((int)(0x5BU)))) != 0;
+    return ((s32)TKeyBoardControl__sub_801323C8((K_801323C8 *)(arg0), (u8)((int)(0x5BU)))) != 0;
 }
 
 bool is_key_57_pressed__16TKeyBoardControlFi(s32 arg0) {
-    return TKeyBoardControl__sub_801323C8((K_801323C8 *)((void *)(arg0)), (u8)((int)(0x57U))) != 0;
+    return TKeyBoardControl__sub_801323C8((K_801323C8 *)(arg0), (u8)((int)(0x57U))) != 0;
 }
 s32 TKeyBoardControl__sub_80132310(s32 arg0) {
-    if ((TKeyBoardControl__sub_801323C8((K_801323C8 *)((void *)(arg0)), (u8)((int)(0x54U))) != 0) || (TKeyBoardControl__sub_801323C8((K_801323C8 *)((void *)(arg0)), (u8)((int)(0x55U))) != 0)) {
+    if ((TKeyBoardControl__sub_801323C8((K_801323C8 *)(arg0), (u8)((int)(0x54U))) != 0) || (TKeyBoardControl__sub_801323C8((K_801323C8 *)(arg0), (u8)((int)(0x55U))) != 0)) {
         return 1;
     }
     return 0;
@@ -255,7 +255,7 @@ void reset_inactive_keys__16TKeyBoardControlFi(s32 arg0) {
     var_r29 = 0;
     var_r28 = (unsigned char *) (arg0 + 0xA0);
     do {
-        if (TKeyBoardControl__sub_801323C8((K_801323C8 *)((void *)((void *) (arg0))), (u8)((int)((int) (*(u8 *)((s8 *)var_r28 + 0))))) == 0) {
+        if (TKeyBoardControl__sub_801323C8((K_801323C8 *)((void *)(arg0)), (u8)((int)((int) (*(u8 *)((s8 *)var_r28 + 0))))) == 0) {
             *(u8 *)((s8 *)var_r28 + 0) = 0U;
             *(s8 *)((s8 *)var_r28 + 1) = 0x23;
         }
@@ -344,8 +344,8 @@ void TKeyBoardControl::clear_key_state() {
 
 void TKeyBoardControl__sub_801327DC(s32 arg0, u8 chan) {
     s32 sp8;
-    if (poll_keyboard_port((s32)((void *) (chan)), (u8 *)((s32 *)((void *) (&sp8)))) == 0) {
-        TKeyBoardControl__sub_803F0E90((s32)((void *) (chan)), (void *)(0));
+    if (poll_keyboard_port((s32)(chan), (u8 *)((s32 *)((void *) (&sp8)))) == 0) {
+        TKeyBoardControl__sub_803F0E90((s32)(chan), (void *)(0));
     }
 }
 
@@ -365,7 +365,7 @@ void reset_state__16TKeyBoardControlFi(s32 arg0) {
 
 void TKeyBoardControl::reset_input(s32 arg0) {
     TKeyBoardControl::init_pad_states();
-    reset_state__16TKeyBoardControlFi((s32)(arg0));
+    reset_state__16TKeyBoardControlFi(arg0);
     fn_803F1864((u32)((s32 *)TKeyBoardControl::append_next_char_global));
 }
 typedef char RecoveredGlobal_801328C4_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_801328C4_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];

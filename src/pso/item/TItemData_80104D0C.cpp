@@ -48,9 +48,9 @@ u8 TItemData::is_item_usable(s32 arg0, u8 *arg1) {
         if (*(s32 *)((s8 *)(lookup_item_pmt_record(arg1)) + 0x10) & 1) {
             return 1U;
         }
-        return (u8) (find_eligible_combination_recipe((s32)(arg0), (u8 *)(arg1)) != 0);
+        return (u8) (find_eligible_combination_recipe(arg0, arg1) != 0);
     }
-    return (u8) (find_eligible_combination_recipe((s32)(arg0), (u8 *)(arg1)) != 0);
+    return (u8) (find_eligible_combination_recipe(arg0, arg1) != 0);
 }
 #define o ((Obj_80104DAC *)arg0)
 s32 find_eligible_combination_recipe(s32 arg0, u8 *item) {

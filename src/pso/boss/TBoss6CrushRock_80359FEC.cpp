@@ -24,7 +24,7 @@ void TBoss6CrushRock::render() { if (is_falz_alive__15TBoss6CrushRockFv(this) !=
 #pragma opt_common_subs off
 void TBoss6CrushRock::run_task() {
     u8 *arg0 = (u8 *)this;
-    if (((s32)is_falz_alive__15TBoss6CrushRockFv((void*)(arg0))) == 0) {
+    if (((s32)is_falz_alive__15TBoss6CrushRockFv(arg0)) == 0) {
         queue_destruction__7TObjectFv((arg0));
         return;
     }

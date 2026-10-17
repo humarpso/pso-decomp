@@ -94,8 +94,8 @@ void TUnk_804A6AD8::update_weapon() {
         break;
     case 3:
         *(s32 *)((s8 *)arg0 + 0x1F8) = 1;
-        ((TUnk_804A6AD8 *)arg0)->yasminkov_9000m_eject_casing((s32)((s32) ((u8 *)(arg0) + 0x220)), 0x4000);
-        ((TUnk_804A6AD8 *)arg0)->yasminkov_9000m_eject_casing((s32)((s32) ((u8 *)(arg0) + 0x22C)), -0x4000);
+        ((TUnk_804A6AD8 *)arg0)->yasminkov_9000m_eject_casing((s32)((s32) (arg0 + 0x220)), 0x4000);
+        ((TUnk_804A6AD8 *)arg0)->yasminkov_9000m_eject_casing((s32)((s32) (arg0 + 0x22C)), -0x4000);
         break;
     }
 }
@@ -122,14 +122,14 @@ void TUnk_804A6AD8::yasminkov_9000m_eject_casing(s32 arg1, s32 arg2) {
     temp_r3 = (u8 *)(*(u8 * *)&this->player);
     if (temp_r3 != NULL) {
         temp_r31 = *(s32 *)((s8 *)temp_r3 + 0x60) - arg2;
-        buffer_14[0] = sin_table_lookup((int) (temp_r31));
+        buffer_14[0] = sin_table_lookup(temp_r31);
         buffer_14[1] = lbl_805DB014;
-        buffer_14[2] = cos_table_lookup((int) (temp_r31));
+        buffer_14[2] = cos_table_lookup(temp_r31);
         buffer_8[0] = 0x4000;
         temp_r8 = *(s32 *)((s8 *)(*(u8 * *)&this->player) + 0x60);
         buffer_8[1] = temp_r8;
         buffer_8[2] = 0;
-        spawn_weapon_casing__10TObjPlayerFlUlUlUlUl((int) (tl_05), (void *) (((u8 *)this)), (void *) (arg1), (void *) (&buffer_14[0]), (void *) (&buffer_8[0]), (int) (temp_r8));
+        spawn_weapon_casing__10TObjPlayerFlUlUlUlUl((int)tl_05, (void *) (((u8 *)this)), (void *)arg1, (void *) (&buffer_14[0]), (void *) (&buffer_8[0]), (int)temp_r8);
     }
 }
 

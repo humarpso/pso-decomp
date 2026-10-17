@@ -128,18 +128,18 @@ void TPhotonLeilla::run_task() {
         ((TUnk_804C3248 *)arg0)->begin_photon_summon_camera(2);
         *(s32 *)&this->m_1ac = 0;
         ((TObjMotion *)arg0)->set_field_b8(0);
-        spawn_photon_blast_attachment_effects((void *) (arg0), 4);
+        spawn_photon_blast_attachment_effects(arg0, 4);
     }
     *(s16 *)&this->m_190 = (s16) this->m_b8;
     ((TUnk_804C3248 *)arg0)->update_state();
-    advance_animation_playback((void *) (arg0));
+    advance_animation_playback(arg0);
     ((TUnk_804C3248 *)arg0)->update_photon_blast_attachments();
     *(s16 *)((s8 *)arg0 + 0x14C) = (s16) (*(s16 *)((s8 *)arg0 + 0x14C) + 0xF);
     *(s16 *)((s8 *)arg0 + 0x14C) = (s16) (u8) *(s16 *)((s8 *)arg0 + 0x14C);
     if (lbl_805DC1CC == (f32) *(s32 *)&this->m_1ac) {
         temp_r3_3 = (u8 *)(find_entity_by_id(this->m_17c));
         if (temp_r3_3 != NULL) {
-            queue_photon_blast_hit((int) (obj_getField1c(temp_r3_3)), 4, 0, (f32) (this->m_150));
+            queue_photon_blast_hit((int) (obj_getField1c(temp_r3_3)), 4, 0, this->m_150);
         }
     }
     if ((f32) *(s32 *)&this->m_1ac > lbl_805DC1D0) {

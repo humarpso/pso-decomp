@@ -69,7 +69,7 @@ s32 TOTrap::is_any_player_matching_stat() {
     s32 i;
     void *p;
     for (i = 0; i < 4; i++) {
-        p = ((void *)get_player_by_client_id((u32)(i)));
+        p = ((void *)get_player_by_client_id(i));
         if (p != 0) {
             if (((s16)((TUnk_804B9870 *)p)->get_stat_by_key_state() == (s16)get_stat_by_key_state()) && (fn_80171314(p) != 0)) {
                 return 1;
@@ -127,7 +127,7 @@ void TOTrap::vfunc_81() {
 
 void TOTrap::submit_cursor_and_notify() {
     u8 *arg0 = (u8 *)this;
-    submit_cursor_candidate((void *)((void *) (arg0)), -1);
+    submit_cursor_candidate((void *)(arg0), -1);
     this->find_target_player();
 }
 
@@ -170,7 +170,7 @@ f32 TOTrap::receive_physical_attack(void *arg1, f32) {
   s16 sp8;
   s32 temp_r3_2;
   u16 temp_r3;
-  if (((((u16) (this->m_1c)) >= 0x4000U) && (((u32) (*((u32 *) (((s8 *) ((u8 *)this)) + 0x80)))) != 0U)) && (access_object_saved_state((void *) (&sp8), 1) != 0))
+  if ((((this->m_1c) >= 0x4000U) && (((u32) (*((u32 *) (((s8 *) ((u8 *)this)) + 0x80)))) != 0U)) && (access_object_saved_state((void *) (&sp8), 1) != 0))
   {
     this->mode = 4;
     sp8 = this->mode;

@@ -59,7 +59,7 @@ extern "C" {
 void TLobby::send_pick_up_item() {
     s32 arg0 = (s32)this;
     ((s32 (*)())bswap_pick_up_item_packet__6TLobbyFi)();
-    TLobby__send_and_handle_60((u8 *)(arg0));
+    TLobby__send_and_handle_60((u8 *)arg0);
 }
 void TLobby::init_6x59_packet() {
     ((O_80103044 *)this)->f4 = 0xFFFF;
@@ -82,7 +82,7 @@ extern "C" {
 void TLobby::send_pick_up_item_request() {
     s32 arg0 = (s32)this;
     ((s32 (*)())bswap_pick_up_item_request__6TLobbyFi)();
-    dispatch_packet__6TLobbyFPv((void *)(arg0));
+    dispatch_packet__6TLobbyFPv((void *)arg0);
 }
 
 }
@@ -227,7 +227,7 @@ void deliver_delayed_weapon_hit(u8 *arg0) {
     if (temp_r3 != NULL) {
         temp_r5 = *(u8 **)((s8 *)temp_r3 + 0xA4);
         temp_r30 = (u8 *)&((Tbl_801031CC *)temp_r5)->r[*(s16 *)((s8 *)arg0 + 0x2C)];
-        if (horizontal_distance_squared((void *) (arg0 + 0x38), (void *) (temp_r30)) < lbl_805DAAA8) {
+        if (horizontal_distance_squared((void *) (arg0 + 0x38), temp_r30) < lbl_805DAAA8) {
             player = (u32)get_player_by_client_id((*(u16 *)((s8 *)arg0 + 0x28)));
             item = (u8 *)(find_item_by_id(*(s32 *)((s8 *)arg0 + 0x24)));
             if ((player != 0U) && (item != NULL)) {
@@ -235,7 +235,7 @@ void deliver_delayed_weapon_hit(u8 *arg0) {
             }
         } else {
             temp_f31 = horizontal_distance_squared((void *) (arg0 + 0x38), (void *) (arg0 + 0x44));
-            if (horizontal_distance_squared((void *) (temp_r30), (void *) (arg0 + 0x44)) < temp_f31) {
+            if (horizontal_distance_squared(temp_r30, (void *) (arg0 + 0x44)) < temp_f31) {
                 ((TObjPlayer *)temp_r3)->show_miss_for_collider((int) (*(s16 *)((s8 *)arg0 + 0x2C)));
             }
         }
@@ -248,9 +248,9 @@ void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3) {
     if ((arg0 != 0) && (arg3 != NULL) && (arg1 != 0U) && ((u16) *(u16 *)((s8 *)arg3 + 0xC) != 65535U) && ((u16) *(u16 *)((s8 *)arg3 + 0xE) != 65535U)) {
         var_r0 = __nw__7TObjectFUl(0x50);
         if (var_r0 != 0) {
-            var_r0 = (s32)__ct__13TItemAttackerFv((u8 *)var_r0, (s32)(arg0), (s32)(arg1), (s32)arg2, (s32)(arg3));
+            var_r0 = (s32)__ct__13TItemAttackerFv((u8 *)var_r0, (s32)arg0, (s32)arg1, (s32)arg2, (s32)arg3);
         }
-        TItemAttacker::spawn_item_timer((s32)((int) (var_r0)), (s32)((void *) (&TItemAttacker__sub_8010349C)), (s32)((void *) (arg2)));
+        TItemAttacker::spawn_item_timer((s32)(var_r0), (s32)((void *) (&TItemAttacker__sub_8010349C)), (s32)(arg2));
     }
 }
 

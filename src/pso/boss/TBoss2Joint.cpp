@@ -328,22 +328,22 @@ void TBoss2Joint__vt102(Obj_80036ACC *self) {
 }
 
 void TBoss2Joint::vfunc_93() {
-    if (*(s32 *)((s8 *)(this->m_a4) + 0x18) & 6) {
-        vfunc_93__9TObjEneDDFv((void *)(this));
+    if (*(s32 *)((s8 *)this->m_a4 + 0x18) & 6) {
+        vfunc_93__9TObjEneDDFv(this);
         return;
     }
-    vfunc_94__9TObjEneDDFv((void *)(this));
+    vfunc_94__9TObjEneDDFv(this);
 }
 
 void TBoss2Joint::vfunc_88() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     if (*(f32 *)((s8 *)arg0 + 0x3C) < (lbl_805D8258 - lbl_805D847C)) {
-        vfunc_94__9TObjEneDDFv((void *)(arg0));
+        vfunc_94__9TObjEneDDFv(arg0);
         temp_r3 = (u8 *)(*(u8 * *)&this->m_a4);
         *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) & 0xFFFFFFF9);
     } else {
-        vfunc_93__9TObjEneDDFv((void *)(arg0));
+        vfunc_93__9TObjEneDDFv(arg0);
         if (*(f32 *)((s8 *)arg0 + 0x3C) >= lbl_805D8480) {
             this->vfunc_97();
         } else {
@@ -396,11 +396,11 @@ void TBoss2Joint::run_task() {
         }
         ((VObj_18 *)(arg0))->m85(this->mode, 0);
         ((TObjEneDD *)arg0)->sub_800BBA0C();
-        TBoss2Joint__sub_80036940((void *) (arg0));
+        TBoss2Joint__sub_80036940(arg0);
         update_position_history();
         this->vfunc_88();
         ((TBoss8Dragon *)arg0)->set_player_state_default();
-        add_radar_scaled_marker((void *) (arg0 + 0x38), -0x5DB4, 1, 1, (f32) (lbl_805D848C));
+        add_radar_scaled_marker((void *) (arg0 + 0x38), -0x5DB4, 1, 1, lbl_805D848C);
     }
 }
 

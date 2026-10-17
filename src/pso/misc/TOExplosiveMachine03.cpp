@@ -13,7 +13,7 @@ void *__nw__7TObjectFUl(int);
 void *TOExplosiveMachine03__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xAC);
     if (o != NULL) {
-        o = TOExplosiveMachine03__ct((void *)(o), (s32)(arg0));
+        o = TOExplosiveMachine03__ct((void *)o, (s32)arg0);
     }
     return o;
 }

@@ -652,7 +652,7 @@ s32 check_flag_or_state__15TObjBoss2TunnelFi(s32 arg0) {
     s32 temp_r31;
     s32 temp_r3;
     temp_r31 = TObjBoss2Tunnel__sub_8003C1C8();
-    temp_r3 = is_flag_set__15TObjBoss2TunnelFv((s32)(arg0));
+    temp_r3 = is_flag_set__15TObjBoss2TunnelFv(arg0);
     return temp_r3 | temp_r31;
 }
 u8 *TObjBoss2Tunnel::sub_8003C21C() {
@@ -889,7 +889,7 @@ extern void *tl_02;
 void *TObjBoss2Tunnel::create() {
     void *o = __nw__7TObjectFUl(0xDC);
     if (o != NULL) {
-        o = TObjBoss2Tunnel__ct((void *)(o), (void *)(tl_02));
+        o = TObjBoss2Tunnel__ct(o, tl_02);
     }
     return o;
 }

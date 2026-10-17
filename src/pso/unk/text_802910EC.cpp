@@ -58,7 +58,7 @@ void TCharaMaking__resolve_creation_sprite_table(u8 **table, s32 *id) {
 
 void fn_80291138(void) {
     if ((u32) cmicon_instance != 0U) {
-        queue_destruction__7TObjectFv((void *)(cmicon_instance));
+        queue_destruction__7TObjectFv((void *)cmicon_instance);
     }
     cmicon_instance = 0U;
     TLobby__sub_803DA16C((void *) (&creation_sprite_table.value));

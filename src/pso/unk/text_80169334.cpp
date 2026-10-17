@@ -111,7 +111,7 @@ void find_heal_target__13TOHealGeneralFPv(Ring_80169334 *self) {
             (((TObjPlayer *)actor)->is_alive_and_ready() != 0 && ((TObjPlayer *)actor)->are_traps_full() == 0)) {
             void *e;
             self->fAC = 1;
-            if (TOHangerMachine01::is_valid_slot((int)self, (u16)(self->fF4)) != 0) {
+            if (TOHangerMachine01::is_valid_slot((int)self, self->fF4) != 0) {
                 send_6x2C_impose_hold(actor, self->pos, 0x3C, 0, r);
                 actor->m48();
             }

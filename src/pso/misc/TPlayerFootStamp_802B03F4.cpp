@@ -17,7 +17,7 @@ int is_ready__14TBoss6PlotFalzFv(void*);
 void TBoss6PlotFalz__sub_802B03F4(void) {  }
 void TBoss6PlotFalz::check_action_7() {
     s32 arg0 = (s32)this;
-    if ((TBoss6PlotFalz::is_boss_active() == 0) || (is_ready__14TBoss6PlotFalzFv((void*)(arg0)) != 0)) {
+    if ((TBoss6PlotFalz::is_boss_active() == 0) || (is_ready__14TBoss6PlotFalzFv((void*)arg0) != 0)) {
         ((TBoss6PlotFalz *)arg0)->send_6xA3_action((s8)((void*)(7)));
     }
 }

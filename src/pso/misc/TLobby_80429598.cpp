@@ -270,7 +270,7 @@ void TLobby::copy_6_byte_config() {
 
 void TLobby::copy_mac_address() {
     s32 arg0 = (s32)this;
-    memcpy((void *) (&exi_mac_address), (void *) (arg0), 6);
+    memcpy((void *) (&exi_mac_address), (void *)arg0, 6);
 }
 
 void TLobby__sub_8042B58C(u32 arg0, s32 arg1) {

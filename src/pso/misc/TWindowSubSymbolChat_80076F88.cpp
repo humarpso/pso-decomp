@@ -180,7 +180,7 @@ void TWindowSubSymbolChat::refresh_parts() { ((TWindowSubSymbolChat *)((Obj_8007
 
 void TWindowSubSymbolChat::update_layout() { ((TWindowSubSymbolChat *)((Obj_800770D0 *)get_instance__20TWindowSubSymbolChatFv(this)))->count_used_slots(); }
 
-void TWindowSubSymbolChat::update_symbol_chat_result() { selected_symbol_chat_preset = ((int)get_symbol_chat_preset((s32)((void *)(this)))); }
+void TWindowSubSymbolChat::update_symbol_chat_result() { selected_symbol_chat_preset = ((int)get_symbol_chat_preset((s32)(this))); }
 
 void TWindowSubSymbolChat::update_selected_symbol() {
     if (is_initialized__20TWindowSubSymbolChatFv() != 0) {
@@ -197,7 +197,7 @@ void TWindowSubSymbolChat::play_symbol_sound(s32 arg0) {
 
 u8 *TWindowSubSymbolChat::get_symbol_chat_data() {
     u8 *arg0 = (u8 *)this;
-    if (is_symbol_chat_preset_in_use((u32 *)(arg0)) == 0) {
+    if (is_symbol_chat_preset_in_use((u32 *)arg0) == 0) {
         return get_message_10__20TWindowSubStatusDispFl(0xCC);
     }
     if ((s8) *(u8 *)&this->m_flags == 0) {

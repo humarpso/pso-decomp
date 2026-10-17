@@ -305,16 +305,16 @@ void explode_damage_players__10TBoss6MineFPv(u8 *arg0) {
     play_sound_effect(0x4003BA1E, arg0 + 0x38, 0, 0);
 }
 
-void TBoss6Mine__vt7(void* p) { spawn_particle_effect_with_flags(((char*)p + 0x38), (s32)((void*)252), (s32)((void*)64)); queue_destruction__7TObjectFv((void *)(p)); }
+void TBoss6Mine__vt7(void* p) { spawn_particle_effect_with_flags(((char*)p + 0x38), (s32)((void*)252), (s32)((void*)64)); queue_destruction__7TObjectFv(p); }
 
 extern f32 lbl_805DF598;
 
 void TBoss6Mine__vt6(s32 arg0) {
-    explode_damage_players__10TBoss6MineFPv((u8 *)(arg0));
+    explode_damage_players__10TBoss6MineFPv((u8 *)arg0);
     spawn_particle_effect_with_flags((void *)(arg0 + 0x38), 0xFB, 0x40);
     spawn_particle_effect_with_flags((void *)(arg0 + 0x38), 0xFC, 0x40);
     TBoss6PlotFalz::apply_radial_effect_to_players((void *)(arg0 + 0x38), (s16)0xC0, (s16)0xF, (f32)lbl_805DF598);
-    queue_destruction__7TObjectFv((void *)(arg0));
+    queue_destruction__7TObjectFv((void *)arg0);
 }
 
 #pragma push
@@ -342,7 +342,7 @@ void TBoss6Mine__vt5(u8 *arg0) {
     VecCopy__FP3VecPC3Vec((s32)((void *) (&stack.sp8)), (s32)((void *) (arg0 + 0x38)));
     temp_f31 = stack.spC - lbl_805DF5A0;
     stack.spC = temp_f31;
-    if ((project_actor_to_ground((void *) (arg0), (void *) (&stack.sp8), 0) != 0) && (temp_f31 < stack.spC)) {
+    if ((project_actor_to_ground(arg0, (void *) (&stack.sp8), 0) != 0) && (temp_f31 < stack.spC)) {
         stack.spC += lbl_805DF5A0;
         VecCopy__FP3VecPC3Vec((s32)((void *) (arg0 + 0x38)), (s32)((void *) (&stack.sp8)));
         *(s32 *)((s8 *)arg0 + 0x38C) = 0;
@@ -531,7 +531,7 @@ s32 TBoss6Mine::create(s32 arg0) {
         if (var_r4 != 0) {
             var_r4 = TObjControl__ct(var_r4, tl_04);
         }
-        var_r31 = TBoss6Mine__ct((s32)(var_r31), (s32)(var_r4), (s32)(arg0));
+        var_r31 = TBoss6Mine__ct(var_r31, var_r4, arg0);
     }
     return var_r31;
 }

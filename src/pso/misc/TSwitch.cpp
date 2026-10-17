@@ -25,11 +25,11 @@ void TSwitch::render() {  }
 void TSwitch::run_task() {  }
 
 void restore_switch_table(s32 arg0, s32 arg1) {
-    memcpy((void *) TSwitch__floor_switch_table, (void *) (arg0), (void *) (arg1));
+    memcpy((void *) TSwitch__floor_switch_table, (void *)arg0, (void *)arg1);
 }
 
 u32 copy_switch_table(void* destination) {
-    memcpy((void *)(destination), (void *)(TSwitch__floor_switch_table), (void *)(0x240));
+    memcpy(destination, TSwitch__floor_switch_table, (void *)(0x240));
     return 0x240;
 }
 
@@ -54,7 +54,7 @@ s32 get_floor_switch_flag(u32 id, s16 floor) {
 }
 
 u8 is_floor_switch_set(u32 id, s16 floor) {
-    return (u8) (get_floor_switch_flag((u32)(id), floor) != 0);
+    return (u8) (get_floor_switch_flag(id, floor) != 0);
 }
 
 extern s32 __vt__7TSwitch[];

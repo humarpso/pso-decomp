@@ -111,9 +111,9 @@ void TOCakeshopCave01::render() {
     s32 i;
     if (((VObj_18_26a62c *)(arg0))->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
-        post_translate_matrix((void *) ((u8 *)(arg0) + 0x38));
-        rotate_matrix_y(0, (int) (this->rotation_y));
-        TObjFish::set_global_param((int) (this->texture_id));
+        post_translate_matrix((void *) (arg0 + 0x38));
+        rotate_matrix_y(0, this->rotation_y);
+        TObjFish::set_global_param(this->texture_id);
         m = *(Model_80159F78 * *)&this->model;
         post_translate_matrix(m->m8);
         draw_ginja_model(m->m4);
@@ -137,7 +137,7 @@ void TOCakeshopCave01::render() {
 void *TOCakeshopCave01::create() {
     void *o = __nw__7TObjectFUl(0xF4);
     if (o != NULL) {
-        o = TOCakeshopCave01__ct((void *)(o), (void *)(this));
+        o = TOCakeshopCave01__ct(o, this);
     }
     return o;
 }

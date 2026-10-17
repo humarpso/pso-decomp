@@ -66,7 +66,7 @@ void send_6x92__14TAdGameStartGCFPv(void* p);
 void TLobby__send_and_handle_60(u8 *arg0);
 
 void bswap_6x92__14TAdGameStartGCFPv(void* p) { ((TObjPlayer *)p)->read_be16_field2(); bswap_32((u32 *)((char*)p + 0x4)); bswap_32((u32 *)((char*)p + 0x8)); }
-void send_6x92__14TAdGameStartGCFPv(void* p) { bswap_6x92__14TAdGameStartGCFPv((void*)(p)); TLobby__send_and_handle_60((u8 *)p); }
+void send_6x92__14TAdGameStartGCFPv(void* p) { bswap_6x92__14TAdGameStartGCFPv(p); TLobby__send_and_handle_60((u8 *)p); }
 void TAdGameStartGC__sub_802E6368(void* p) { *(u8*)((char*)p + 0x0) = 146; *(u8*)((char*)p + 0x1) = 3; }
 
 void render__14TAdGameStartGCFv(void) {  }
@@ -115,46 +115,46 @@ void create_effects__14TAdGameStartGCFPv(u8 *parent) {
     *(s32 *)((s8 *)parent + 0xA0) = 1;
     temp_r3 = *(u32 *)((s8 *)parent + 0xC4);
     if (temp_r3 != 0U) {
-        queue_destruction__7TObjectFv((void *)(temp_r3));
+        queue_destruction__7TObjectFv((void *)temp_r3);
         *(u32 *)((s8 *)parent + 0xC4) = 0U;
     }
     temp_r3_2 = *(u32 *)((s8 *)parent + 0xC8);
     if (temp_r3_2 != 0U) {
-        queue_destruction__7TObjectFv((void *)(temp_r3_2));
+        queue_destruction__7TObjectFv((void *)temp_r3_2);
         *(u32 *)((s8 *)parent + 0xC8) = 0U;
     }
     temp_r3_3 = *(u32 *)((s8 *)parent + 0xCC);
     if (temp_r3_3 != 0U) {
-        queue_destruction__7TObjectFv((void *)(temp_r3_3));
+        queue_destruction__7TObjectFv((void *)temp_r3_3);
         *(u32 *)((s8 *)parent + 0xCC) = 0U;
     }
     temp_r3_4 = *(u32 *)((s8 *)parent + 0xD0);
     if (temp_r3_4 != 0U) {
-        queue_destruction__7TObjectFv((void *)(temp_r3_4));
+        queue_destruction__7TObjectFv((void *)temp_r3_4);
         *(u32 *)((s8 *)parent + 0xD0) = 0U;
     }
     temp_r3_5 = __nw__7TObjectFUl(0xC8);
     var_r0 = temp_r3_5;
     if (var_r0 != 0U) {
-        var_r0 = __ct__20TAdGameStartShadowGCFv((int) (temp_r3_5), (void *) (parent));
+        var_r0 = __ct__20TAdGameStartShadowGCFv(temp_r3_5, parent);
     }
     *(u32 *)((s8 *)parent + 0xC4) = var_r0;
     temp_r3_6 = __nw__7TObjectFUl(0x80);
     var_r0_2 = temp_r3_6;
     if (var_r0_2 != 0U) {
-        var_r0_2 = (u32)__ct__18TAdGameStartBackGCFv((u8 *)(temp_r3_6), (u8 *)(parent));
+        var_r0_2 = (u32)__ct__18TAdGameStartBackGCFv((u8 *)temp_r3_6, (u8 *)parent);
     }
     *(u32 *)((s8 *)parent + 0xC8) = var_r0_2;
     temp_r3_7 = __nw__7TObjectFUl(0x160);
     var_r0_3 = temp_r3_7;
     if (var_r0_3 != 0U) {
-        var_r0_3 = __ct__18TAdGameStartLineGCFv((int) (temp_r3_7), (void *) (parent));
+        var_r0_3 = __ct__18TAdGameStartLineGCFv(temp_r3_7, parent);
     }
     *(u32 *)((s8 *)parent + 0xCC) = var_r0_3;
     temp_r3_8 = __nw__7TObjectFUl(0x80);
     var_r0_4 = temp_r3_8;
     if (var_r0_4 != 0U) {
-        var_r0_4 = __ct__19TAdGameStartShineGCFv((int) (temp_r3_8), (void *) (parent));
+        var_r0_4 = __ct__19TAdGameStartShineGCFv(temp_r3_8, parent);
     }
     *(u32 *)((s8 *)parent + 0xD0) = var_r0_4;
 }
@@ -256,10 +256,10 @@ void draw_background__17TAdGameStartSubGCFPv(u8 *arg0) {
     s32 temp_r4;
 
     begin_screen_draw(1);
-    TObjFish::set_global_param((s32)((void *) (game_start_player_instance)));
+    TObjFish::set_global_param((s32)(game_start_player_instance));
     set_draw_texture_and_color(0, ((*(s32 *)((s8 *)arg0 + 0x80) << 0x18) | 0xFF0000 | 0xFFFF));
     temp_r4 = *(s32 *)((s8 *)arg0 + 0x1C);
-    draw_textured_quad_at_depth((void *) (arg0 + 0x40), (int) (temp_r4), (f32) (((0.01f) * (f32) temp_r4) + (0.8f)));
+    draw_textured_quad_at_depth((void *) (arg0 + 0x40), temp_r4, (f32) (((0.01f) * (f32) temp_r4) + (0.8f)));
     TWindowSubStatusDisp::get_player();
 }
 #pragma pop
@@ -311,8 +311,8 @@ void run_task__17TAdGameStartSubGCFv(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-#define F(o) (*(f32 *)((s8 *)(arg0) + (o)))
-#define I(o) (*(s32 *)((s8 *)(arg0) + (o)))
+#define F(o) (*(f32 *)(arg0 + (o)))
+#define I(o) (*(s32 *)(arg0 + (o)))
 TAdGameStartSubGC::~TAdGameStartSubGC() {}
 u8 *__ct__17TAdGameStartSubGCFv(u8 *arg0, void *arg1, u8 *arg2) {
     s32 t;

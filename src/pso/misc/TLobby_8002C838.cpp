@@ -71,12 +71,12 @@ void render__14TObjBoss1FloorFv(void) {
         temp_r3 = model_render_flags;
         lbl_805D5660 = temp_r3;
         model_render_flags = temp_r3 | 0x400;
-        end_effect_render__13TParticleCtrlFv((int) (temp_r3));
+        end_effect_render__13TParticleCtrlFv(temp_r3);
         push_matrix();
         model_render_flags = 1;
         set_depth_buffer_settings_id(3);
         TObjPlayer::draw_if_all_ready();
-        TObjFish::set_global_param((s32)((void *) (dragon_common_texture_list)));
+        TObjFish::set_global_param((s32)(dragon_common_texture_list));
         temp_r31 = (unsigned char *) (*(void **)((s8 *)(*(void **)((s8 *)lbl_805D4B50 + 0x42C)) + 0x58));
         render_projected_shadow_receiver((u8 *)(temp_r31 + 8), (s32)(temp_r31 + 0x14));
         draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));

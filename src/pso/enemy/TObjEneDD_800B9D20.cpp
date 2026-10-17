@@ -51,15 +51,15 @@ int TObjEneDD::update_player_state() { return render_with_position_override__9TO
 void TObjEneDD::draw_oriented_shadow(s32 arg1, s32 arg2, u32 arg3) {
     s32 arg0 = (s32)this;
     Stack_800B9D94 stack;
-    direction_to_rotation_xz((u8 *)(arg1), (&stack.sp8), (&stack.sp10));
+    direction_to_rotation_xz((u8 *)arg1, (&stack.sp8), (&stack.sp10));
     push_matrix();
-    post_translate_matrix((void *) (arg0));
-    translate_matrix(0, (f32) (TObjEneDD__data_805D9E8C), (f32) (lbl_805D9E90), (f32) (TObjEneDD__data_805D9E8C));
-    rotate_matrix_z(0, (int) (stack.sp10));
-    rotate_matrix_x(0, (int) (stack.sp8));
-    rotate_matrix_y(0, (void *) (arg2));
+    post_translate_matrix((void *)arg0);
+    translate_matrix(0, TObjEneDD__data_805D9E8C, lbl_805D9E90, TObjEneDD__data_805D9E8C);
+    rotate_matrix_z(0, stack.sp10);
+    rotate_matrix_x(0, stack.sp8);
+    rotate_matrix_y(0, (void *)arg2);
     if (arg3 != 0U) {
-        scale_current_matrix((void *) (arg3));
+        scale_current_matrix((void *)arg3);
     }
     rotate_matrix_x(0, -0x4000);
     draw_blob_shadow(0);
@@ -75,7 +75,7 @@ void TObjEneDD::reload_stats_keep_hp_tp() {
     s16 c = self->c;
     s16 b = self->b;
     s16 d = self->d;
-    bind_enemy_combat_stats((void*)(self));
+    bind_enemy_combat_stats(self);
     self->a = a;
     self->c = c;
     self->b = b;

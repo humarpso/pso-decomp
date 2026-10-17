@@ -16,12 +16,12 @@ void TWindowDD::update_dispatch() {
     if (((TWindowDD *)arg0)->test_input_flag_4() != 0) {
         TWindowDD::play_sound();
         TWindowDD__sub_80342B5C(arg0);
-        TWindowDD__sub_803435A0((void *)(arg0));
+        TWindowDD__sub_803435A0((void *)arg0);
         return;
     }
-    if (TWindowDD__sub_803482B0((void *)(arg0)) != 0) {
+    if (TWindowDD__sub_803482B0((void *)arg0) != 0) {
         TWindowDD::play_sound();
-        apply_entry_layout__9TWindowDDFPv((void *)(arg0));
+        apply_entry_layout__9TWindowDDFPv((void *)arg0);
     }
 }
 
@@ -31,12 +31,12 @@ void TWindowDD::update_layout() {
         TWindowDD::play_sound();
         *(s32 *)((s8 *)this + 0xB4) = 0x14;
         *(s32 *)&this->m_a8 = -0x3C;
-        TWindowDD__sub_803435A0((void *)(this));
+        TWindowDD__sub_803435A0(this);
         return;
     }
-    if (TWindowDD__sub_803482B0((void *)(this)) != 0) {
+    if (TWindowDD__sub_803482B0(this) != 0) {
         TWindowDD::play_se();
-        apply_entry_layout__9TWindowDDFPv((void *)(this));
+        apply_entry_layout__9TWindowDDFPv(this);
     }
 }
 

@@ -3,7 +3,7 @@
 
 extern "C" {
 s32 init_gc_tag(s32 arg0) {
-    init__6gc_tagFv((void *)(arg0));
+    init__6gc_tagFv((void *)arg0);
     return arg0;
 }
 void init__6gc_tagFv(void *arg0) {

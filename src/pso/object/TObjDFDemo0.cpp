@@ -246,7 +246,7 @@ S_8004E634 *fn_8004E634(S_8004E634 *o, s16 flag) {
         fn_8004AA04(o->f11c);
         for (i = 0; i < 4; i++) {
             if (o->ptr[i] != 0) {
-                TBoss4Type2::request_destroy((u32)(o->ptr[i]));
+                TBoss4Type2::request_destroy((u32)o->ptr[i]);
                 o->ptr[i] = 0;
             }
         }

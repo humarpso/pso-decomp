@@ -207,9 +207,9 @@ u8 *create_radial_particle(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4) {
     u8 *particle_memory;
     u8 *var_r0;
     particle_memory = (u8 *)(((u8 *)alloc_particle_memory(0xC4)));
-    var_r0 = (u8 *)(particle_memory);
+    var_r0 = particle_memory;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(construct_radial_particle((u8 *)(particle_memory), (u8 *)(arg0), (u8 *)(arg1), (s32)(arg2), arg3, arg4));
+        var_r0 = (u8 *)(construct_radial_particle(particle_memory, arg0, arg1, arg2, arg3, arg4));
     }
     return var_r0;
 }
@@ -217,7 +217,7 @@ void * create_random_particle(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = alloc_particle_memory(0xc4);
     if (o != NULL) {
-        o = ((TParticleCtrl *)o)->init_random_particle((u8 *)(arg0), (u8 *)(arg1), (s32)(arg2));
+        o = ((TParticleCtrl *)o)->init_random_particle((u8 *)arg0, (u8 *)arg1, (s32)arg2);
     }
     return o;
 }
@@ -328,7 +328,7 @@ void TUnk_8048E7A8::render() {
             ((TUnk_8048E728 *)arg0)->draw_particle_refraction_quad();
             return;
         }
-        if (*(u8 *)((s8 *)(this->m_20) + 0x88) & 0x20) {
+        if (*(u8 *)((s8 *)this->m_20 + 0x88) & 0x20) {
             append_node_to_tail__13TParticleCtrlFPvPv(((s32 *)((u8 *)&TParticleCtrl__data_80511F70 + 0xD8))[*(u16 *)((s8 *)arg0 + 0x1C)], arg0 + 0x6C);
             return;
         }

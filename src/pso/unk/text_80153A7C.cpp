@@ -142,7 +142,7 @@ void TObjFogCollision::render() {
     if (((s32)TObjFogCollision__sub_80153F70()) != 0) {
         this->vfunc_14();
     }
-    if (((s32)TObjFogCollision__sub_80153F68((void *)((void *) (arg0)))) != 0) {
+    if (((s32)TObjFogCollision__sub_80153F68((void *)(arg0))) != 0) {
         this->draw_volume();
     }
 }

@@ -74,7 +74,7 @@ void TLobby__sub_802A7848(void* p, s32 _w1);
 int TLobby__sub_802A7868(void* p);
 int match_coordinate_pair(void*);
 
-void TLobby__sub_802A7848(void* p, s32 _w1) { ((TLobby *)p)->set_field_4((s32)(_w1)); }
+void TLobby__sub_802A7848(void* p, s32 _w1) { ((TLobby *)p)->set_field_4(_w1); }
 int TLobby__sub_802A7868(void* p) { return match_coordinate_pair(p); }
 
     extern int player_action_provider_selector;
@@ -104,7 +104,7 @@ s32 TLobby::send_packet(s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     if (temp_r3 == 0) {
         return 0;
     }
-    TLobby::send_type2_event((s32)(arg4), (s32)(temp_r3), (s32)(temp_r31_2));
+    TLobby::send_type2_event(arg4, temp_r3, temp_r31_2);
     temp_r0 = ((_VObj802A78E4_802a78e4_802A7848*)this)->m0(arg1, arg2);
     temp_r31 = ((TLobby *)temp_r3)->write_packet_header(arg3, temp_r0, 0x4000);
     mem_free((void *)temp_r3);
@@ -197,7 +197,7 @@ void TLobby::alloc_snapshot_buffer() {
     max_players = max_players * temp_r31;
     temp_r31 = TWindowSnapShot::get_width();
     temp_r31_3 = (u8 *) (temp_r31 + max_players);
-    temp_r3 = ((int)mem_alloc((u32)(temp_r31_3)));
+    temp_r3 = ((int)mem_alloc((u32)temp_r31_3));
     snapshot_image_buffer = temp_r3;
     if (temp_r3 != 0U)
     {

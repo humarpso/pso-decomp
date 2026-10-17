@@ -227,7 +227,7 @@ u8 *TObjCamera__ct(u8 *arg0, s32 arg1, s32 arg2) {
 void *TObjCamera::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x1AC);
     if (o != NULL) {
-        o = TObjCamera__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TObjCamera__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

@@ -59,7 +59,7 @@ void TObjEneRecobox::sub_8031F6C0(s32 arg1) {
         set_field_378(0);
         return;
     case 3:
-        transition_enemy_state((void *)(this), 1);
+        transition_enemy_state(this, 1);
     case 5:
     case 0:
         return;
@@ -81,7 +81,7 @@ void TObjEneRecon::handle_state(s32 arg1) {
         return;
     case 3:
         if (((V_Sub_8031f748 *) (arg0 + 0x3C0))->m5() != 0) {
-            transition_enemy_state((void *)(arg0), 2);
+            transition_enemy_state(arg0, 2);
         }
     case 5:
         return;

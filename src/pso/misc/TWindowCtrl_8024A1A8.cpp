@@ -111,7 +111,7 @@ void TWindowCtrl::call_window_method_with_default_vec() {
     stack.sp8 = *(s32 *)((s8 *)(&window_ctrl_default_call_args.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&window_ctrl_default_call_args.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&window_ctrl_default_call_args.value) + 8);
-    call_window_method__11TWindowCtrlFPvi((void *) (arg0), (void *) (&stack.sp8));
+    call_window_method__11TWindowCtrlFPvi((void *)arg0, (void *) (&stack.sp8));
 }
 
 void TWindowCtrl::set_field22() {
@@ -129,7 +129,7 @@ void TWindowCtrl__sub_8024A228(s32 arg0) {
     stack.sp8 = *(s32 *)((s8 *)(&window_ctrl_main_callback_desc.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&window_ctrl_main_callback_desc.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&window_ctrl_main_callback_desc.value) + 8);
-    TWindowCtrl__sub_8024B098((void *) (arg0), (void *) (&stack.sp8));
+    TWindowCtrl__sub_8024B098((void *)arg0, (void *) (&stack.sp8));
 }
 
 bool TWindowCtrl::is_submit_cooldown_clear() {
@@ -204,7 +204,7 @@ void TWindowCtrl::set_timer_window_time() {
     if ((void *) (*(u8 * *)&TWindowCtrl__active_window) != NULL) {
         temp_r3 = *(u32 *)((s8 *)(*(u8 * *)&TWindowCtrl__active_window) + 0x30);
         if (temp_r3 != 0U) {
-            ((TWindowTimer *)temp_r3)->set_time((u32)((void *) (secs)));
+            ((TWindowTimer *)temp_r3)->set_time((u32)(secs));
         }
     }
 }
@@ -337,7 +337,7 @@ void *acquire_balloon_slot__11TWindowCtrlFPviiPv(Ctrl_8024A928 *self, s32 player
     s32 n;
     u32 i;
     void *b;
-    get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv((Ctrl_8024A928 *)(self), (s32)(player), (f32 *)(&f), (s32 *)(&n));
+    get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv((Ctrl_8024A928 *)(self), player, (f32 *)(&f), (s32 *)(&n));
     i = 4;
     if (!(flags & 0x10)) {
         for (i = 0; i < 4; i++) {
@@ -385,7 +385,7 @@ void *TWindowCtrl::show_chat_balloon(s32 player, s32 flags, void *text, void *lo
             }
         }
     }
-    return acquire_balloon_slot__11TWindowCtrlFPviiPv((Ctrl_8024A928 *)((*(Ctrl_8024A928 * *)&TWindowCtrl__active_window)), (s32)(player), (s32)(flags), (void *)(local));
+    return acquire_balloon_slot__11TWindowCtrlFPviiPv((Ctrl_8024A928 *)((*(Ctrl_8024A928 * *)&TWindowCtrl__active_window)), player, flags, local);
 }
 
 void TWindowCtrl::handle_chat_message(char *arg1) {

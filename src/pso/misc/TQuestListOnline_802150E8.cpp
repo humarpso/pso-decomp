@@ -230,7 +230,7 @@ void TQuestListOnline::receive_quest_info(void *arg0) {
 void TQuestListOnline::copy_quest_list_data() {
     s32 arg0 = (s32)this;
     if ((u32) TQuestListOnline__quest_list_buffer != 0U) {
-        memcpy((int) (TQuestListOnline__quest_list_buffer), (void *) (arg0), 0x11D4);
+        memcpy((int)TQuestListOnline__quest_list_buffer, (void *)arg0, 0x11D4);
         TQuestListOnline__sub_8013ACF4(1);
     }
 }
@@ -254,7 +254,7 @@ void TQuestListOnline::release_resources() {
         (*(u32 *)&TQuestListOnline__selected_quest_info) = 0U;
     }
     if ((u32) TQuestListOnline__quest_list_buffer != 0U) {
-        TAdSinglePlyChrSelectGC::safe_free((int) (TQuestListOnline__quest_list_buffer));
+        TAdSinglePlyChrSelectGC::safe_free(TQuestListOnline__quest_list_buffer);
         TQuestListOnline__quest_list_buffer = 0U;
     }
     if ((u32) (*(u32 *)&TQuestListOnline__download_window) != 0U) {

@@ -389,7 +389,7 @@ void launch_technique__10TObjPlayerFv(s32 tech, s32 unused, Player_8022D27C *pl)
             AIM_8022D27C()
             TTecFoie::create_ex((void *)pl, (void *)(&hand), (void *)(&aim), (void *)(get_cast_technique_level(td, 0)));
         } else {
-            TTecFoie::create((void *)pl, (void *)(&hand), (void *)(pl->rotY), (void *)(get_cast_technique_level(td, 0)));
+            TTecFoie::create((void *)pl, (void *)(&hand), (void *)pl->rotY, (void *)(get_cast_technique_level(td, 0)));
         }
         break;
     case 1:
@@ -407,7 +407,7 @@ void launch_technique__10TObjPlayerFv(s32 tech, s32 unused, Player_8022D27C *pl)
             AIM_8022D27C()
             ((TTecBarta *)pl)->create((void *)(&pl->pos), (void *)(&aim), (void *)(get_cast_technique_level(td, 3)));
         } else {
-            ((TTecBarta *)pl)->create_ex((void *)(&pl->pos), (void *)(pl->rotY), (void *)(get_cast_technique_level(td, 3)));
+            ((TTecBarta *)pl)->create_ex((void *)(&pl->pos), (void *)pl->rotY, (void *)(get_cast_technique_level(td, 3)));
         }
         break;
     case 4:
@@ -415,7 +415,7 @@ void launch_technique__10TObjPlayerFv(s32 tech, s32 unused, Player_8022D27C *pl)
             AIM_8022D27C()
             ((TTecGiBarta *)pl)->create((void *)(&hand), (void *)(&aim), (void *)(get_cast_technique_level(td, 4)));
         } else {
-            ((TTecGiBarta *)pl)->create_ex((void *)(&hand), (void *)(pl->rotY), (void *)(get_cast_technique_level(td, 4)));
+            ((TTecGiBarta *)pl)->create_ex((void *)(&hand), (void *)pl->rotY, (void *)(get_cast_technique_level(td, 4)));
         }
         break;
     case 5:
@@ -488,7 +488,7 @@ void launch_technique__10TObjPlayerFv(s32 tech, s32 unused, Player_8022D27C *pl)
             AIM_8022D27C()
             TTecMegid::create((s32)pl, (s32)(&hand), (s32)(&aim), (s32)(get_cast_technique_level(td, 18)));
         } else {
-            TTecMegid::create_ex((s32)pl, (s32)(&hand), (s32)(pl->rotY), (s32)(get_cast_technique_level(td, 18)));
+            TTecMegid::create_ex((s32)pl, (s32)(&hand), pl->rotY, (s32)(get_cast_technique_level(td, 18)));
         }
         break;
     }

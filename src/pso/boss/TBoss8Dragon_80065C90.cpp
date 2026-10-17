@@ -75,7 +75,7 @@ void TBoss8Dragon::get_follow_camera_offsets(u8 *arg1) {
         VecCopy((Vec *)arg1, (const Vec *)&lbl_80487CD8.value);
         return;
     }
-    ((TBoss8Dragon *)(*(u8 * *)&boss5_gryphon_instance))->fill_follow_camera_params((u8 *)((u8 *)(((u8 *)this))), (u8 *)((u8 *)(arg1)));
+    ((TBoss8Dragon *)(*(u8 * *)&boss5_gryphon_instance))->fill_follow_camera_params((u8 *)((u8 *)(((u8 *)this))), (u8 *)(arg1));
 }
 
 typedef char RecoveredGlobal_80065F08_lbl_80437938_size[sizeof(RecoveredGlobal_80065F08_lbl_80437938_80065C90) == 0xC ? 1 : -1];
@@ -97,7 +97,7 @@ void TBoss8Dragon::init_color() { *(u8 *)&this->m_0 = 160; *(u8*)((char*)this + 
 void TBoss8Dragon::send_spawn_params_packet() { byteswap_action_packet(); TLobby__send_and_handle_60((u8 *)this); }
 
 void TBoss8Dragon::byteswap_action_packet() {
-    read_be16_field2__10TObjPlayerFv((void *)(this));
+    read_be16_field2__10TObjPlayerFv(this);
     ((TBoss8Dragon *)((char *)this + 20))->byteswap_record();
     bswap_32((u32 *)((void *)((char *)this + 4)));
     bswap_32((u32 *)((void *)((char *)this + 8)));
@@ -119,7 +119,7 @@ void TBoss8Dragon::send_boss_actions() { bswap_boss_actions(); TLobby__send_and_
 
 void TBoss8Dragon::bswap_boss_actions() {
     s32 arg0 = (s32)this;
-    read_be16_field2__10TObjPlayerFv((void *)(arg0));
+    read_be16_field2__10TObjPlayerFv((void *)arg0);
     bswap_32((u32 *)(arg0 + 4));
     bswap_32((u32 *)(arg0 + 8));
     bswap_32((u32 *)(arg0 + 0xC));

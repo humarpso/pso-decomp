@@ -183,18 +183,18 @@ void TItemWeapon::deliver_hit(s32 arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0)
                     break;
                 }
                 if (((s32 (*)(s32, void *, s32, s32)) *(s32 (**)(s32, void *, s32, s32))((s8 *)((u8 *)this) + 0x1F4)) != NULL) {
-                    (*(s32 (**)(s32, void *, s32, s32))((s8 *)((u8 *)this) + 0x1F4))(tl_05, ((u8 *)this), obj_getField1c((void *) (arg2)), arg4);
+                    (*(s32 (**)(s32, void *, s32, s32))((s8 *)((u8 *)this) + 0x1F4))(tl_05, ((u8 *)this), obj_getField1c(arg2), arg4);
                 }
                 temp_r31_2 = (s32) var_f31_2;
-                TObjPlayer::calc_photon_blast_charge((void *) (*(u8 * *)&this->player), (int) (temp_r31_2));
+                TObjPlayer::calc_photon_blast_charge((void *) (*(u8 * *)&this->player), temp_r31_2);
                 temp_r3_2 = (u8 *)(*(u8 * *)&this->player);
                 ((VObj_18_f8c4e0 *)(temp_r3_2))->m73();
-                apply_camera_shake__10TObjPlayerFiii((s32)(*(u8 * *)&this->player), (s32)(arg2), (s32)(temp_r31_2));
+                apply_camera_shake__10TObjPlayerFiii((s32)(*(u8 * *)&this->player), (s32)arg2, (s32)temp_r31_2);
                 ((TObjPlayer *)(&stack.sp8))->reset_status_block();
                 stack.sp8 = ((TItem *)((u8 *)this))->get_field_ed();
                 stack.sp9 = ((TItemProShield *)((u8 *)this))->get_slot_count();
                 stack.spC = (u8 *)(*(u8 * *)&this->player);
-                stack.sp14 = (u8 *)(arg2);
+                stack.sp14 = arg2;
                 stack.sp18 = arg4;
                 play_weapon_hit_sound((void *) (&stack.sp8));
             }
@@ -216,9 +216,9 @@ void TItemWeapon::vfunc_30() {
         packet.player=self->player;
         play_weapon_owner_sounds(&packet);
         if(test_flags_1b8__11TItemWeaponFUl(self,0x40000)) {
-            TBoss4Type3::spawn_effect(0x80, 5, (s16)obj_getField1c((void *)(self->player)));
+            TBoss4Type3::spawn_effect(0x80, 5, (s16)obj_getField1c(self->player));
         } else if(test_flags_1b8__11TItemWeaponFUl(self,0x80000) && ((TObjPlayer *)self)->is_mode_two_and_ready()) {
-            TBoss4Type3::spawn_effect(0x80, 5, (s16)obj_getField1c((void *)(self->player)));
+            TBoss4Type3::spawn_effect(0x80, 5, (s16)obj_getField1c(self->player));
         }
         self->emit_marker_effects();
         ((TObjPlayer *)self)->set_status_flags(0x1000000);

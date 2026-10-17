@@ -68,7 +68,7 @@ void * create_ch_cr_load_gm_nj_req(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x78);
     if (o != NULL) {
-        o = TChCrLoadGmNjReq__ct((void *)(o), (void *)(arg0), (void *)(arg1));
+        o = TChCrLoadGmNjReq__ct(o, arg0, arg1);
     }
     return o;
 }

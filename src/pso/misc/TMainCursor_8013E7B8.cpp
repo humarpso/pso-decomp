@@ -19,7 +19,7 @@ int set_target_index__11TMainCursorFs(void*, void* a1 = 0);
 void TMainCursor::reset_target() {
     s32 arg0 = (s32)this;
     init__6gc_tagFv();
-    set_target_index__11TMainCursorFs((void*)(arg0), (void*)(0xFFFF));
+    set_target_index__11TMainCursorFs((void*)arg0, (void*)(0xFFFF));
     ((TMainCursor *)arg0)->set_target_id(0);
 }
 

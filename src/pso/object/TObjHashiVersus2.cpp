@@ -46,7 +46,7 @@ extern void *tl_05;
 void *TObjHashiVersus2__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD4);
     if (o != NULL) {
-        o = TObjHashiVersus2__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TObjHashiVersus2__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

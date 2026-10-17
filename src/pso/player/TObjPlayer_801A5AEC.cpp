@@ -235,7 +235,7 @@ s32 func_801A5E54__Fv(void) {
 }
 
 void TKeyBoardControl::read_key_checked(u8 arg0) {
-    TKeyBoardControl::check_and_read((s32)((void *) (arg0)));
+    TKeyBoardControl::check_and_read((s32)(arg0));
 }
 typedef char RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 typedef char RecoveredGlobal_801A5EC4_lbl_8050E208_size[sizeof(RecoveredGlobal_801A5EC4_lbl_8050E208) == 0x1B0 ? 1 : -1];
@@ -245,7 +245,7 @@ void TKeyBoardControl::update_input_frame() {
     if (is_split_screen() == 0) {
         temp_r31 = (u8 *)&controller_input_state.value + 0x160;
         ((TKeyBoardControl *)temp_r31)->poll_key_state();
-        update_button_hold_counters((int) (temp_r31));
+        update_button_hold_counters((int)temp_r31);
     }
 }
 #pragma push

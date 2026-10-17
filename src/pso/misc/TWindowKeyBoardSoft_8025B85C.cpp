@@ -91,9 +91,9 @@ void TWindowKeyBoardSoft__sub_8025B92C(u8 *arg0) {
             if (!(*(u16 *)((s8 *)arg0 + 0x60) & 0x10)) {
                 do {
                     *(s32 *)((s8 *)arg0 + 0xAC) = var_r3;
-                    var_r3 = TWindowKeyBoardSoft__sub_803E67D4((void *) (sp8), (void *) (sp108));
+                    var_r3 = TWindowKeyBoardSoft__sub_803E67D4(sp8, sp108);
                 } while (var_r3 != 0);
-                TWindowKeyBoardSoft__sub_8025CFA8((void *) (arg0), (void *) (sp8));
+                TWindowKeyBoardSoft__sub_8025CFA8(arg0, sp8);
                 sp8[0] = 0;
                 ((TWindowKeyBoardSoft *)arg0)->write_name_and_text((char *)sp8, (char *)sp8);
                 goto block_5;
@@ -189,9 +189,9 @@ void TWindowKeyBoardSoft__vt9(u8 *arg0) {
                 if (!(*(u16 *)((s8 *)arg0 + 0x60) & 0x10)) {
                     do {
                         *(s32 *)((s8 *)arg0 + 0xAC) = var_r3;
-                        var_r3 = TWindowKeyBoardSoft__sub_803E67D4((void *) (sp8), (void *) (sp108));
+                        var_r3 = TWindowKeyBoardSoft__sub_803E67D4(sp8, sp108);
                     } while (var_r3 != 0);
-                    TWindowKeyBoardSoft__sub_8025CFA8((void *) (arg0), (void *) (sp8));
+                    TWindowKeyBoardSoft__sub_8025CFA8(arg0, sp8);
                     sp8[0] = 0;
                     ((TWindowKeyBoardSoft *)arg0)->write_name_and_text((char *)sp8, (char *)sp8);
                     goto block_6;
@@ -221,9 +221,9 @@ void TWindowKeyBoardSoft__vt8(u8 *arg0) {
                 if (!(*(u16 *)((s8 *)arg0 + 0x60) & 0x10)) {
                     do {
                         *(s32 *)((s8 *)arg0 + 0xAC) = var_r3;
-                        var_r3 = TWindowKeyBoardSoft__sub_803E67D4((void *) (sp8), (void *) (sp108));
+                        var_r3 = TWindowKeyBoardSoft__sub_803E67D4(sp8, sp108);
                     } while (var_r3 != 0);
-                    TWindowKeyBoardSoft__sub_8025CFA8((void *) (arg0), (void *) (sp8));
+                    TWindowKeyBoardSoft__sub_8025CFA8(arg0, sp8);
                     sp8[0] = 0;
                     ((TWindowKeyBoardSoft *)arg0)->write_name_and_text((char *)sp8, (char *)sp8);
                     goto block_6;
@@ -256,7 +256,7 @@ void TWindowKeyBoardSoft__vt6(u8 *arg0) {
 void TWindowKeyBoardSoft__vt5(u8 *arg0) {
     if (!(*(u16 *)((s8 *)arg0 + 0x62) & 8)) {
         if (*(s32 *)((s8 *)arg0 + 0xB4) & 0x20) {
-            TWindowKeyBoardSoft__sub_8025C51C((u8 *)((void *)(arg0)), 2);
+            TWindowKeyBoardSoft__sub_8025C51C((u8 *)(arg0), 2);
             return;
         }
         if (!(*(u16 *)((s8 *)arg0 + 0x60) & 2) && (is_chat_shortcut_set(0xA) != 0)) {
@@ -269,7 +269,7 @@ void TWindowKeyBoardSoft__vt5(u8 *arg0) {
 void TWindowKeyBoardSoft__vt4(u8 *arg0) {
     if (!(*(u16 *)((s8 *)arg0 + 0x62) & 8)) {
         if (*(s32 *)((s8 *)arg0 + 0xB4) & 0x20) {
-            TWindowKeyBoardSoft__sub_8025C51C((u8 *)((void *)(arg0)), 1);
+            TWindowKeyBoardSoft__sub_8025C51C((u8 *)(arg0), 1);
             return;
         }
         if (!(*(u16 *)((s8 *)arg0 + 0x60) & 2) && (is_chat_shortcut_set(9) != 0)) {
@@ -282,7 +282,7 @@ void TWindowKeyBoardSoft__vt4(u8 *arg0) {
 void TWindowKeyBoardSoft__vt3(u8 *arg0) {
     if (!(*(u16 *)((s8 *)arg0 + 0x62) & 8)) {
         if (*(s32 *)((s8 *)arg0 + 0xB4) & 0x20) {
-            TWindowKeyBoardSoft__sub_8025C51C((u8 *)((void *)(arg0)), 0);
+            TWindowKeyBoardSoft__sub_8025C51C((u8 *)(arg0), 0);
             return;
         }
         if (!(*(u16 *)((s8 *)arg0 + 0x60) & 2) && (is_chat_shortcut_set(8) != 0)) {

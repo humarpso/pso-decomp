@@ -39,7 +39,7 @@ s32 TItemData::update_mag_status_gauges() {
     s32 var_r31;
     ((TItemData *)sp8)->initialize_mag_data();
     var_r31 = 0;
-    deserialize_mag__9TItemDataFPvPv((int) (*(s32 *)((s8 *)((u8 *)this) + 0x68)), (void *) (sp8));
+    deserialize_mag__9TItemDataFPvPv((int) (*(s32 *)((s8 *)((u8 *)this) + 0x68)), sp8);
     a = ((TUnk_804CE018 *)((u8 *)this))->get_array_entry(0);
     b = ((TUnk_804CE018 *)((u8 *)this))->get_array_entry(1);
     c = ((TUnk_804CE018 *)((u8 *)this))->get_array_entry(2);

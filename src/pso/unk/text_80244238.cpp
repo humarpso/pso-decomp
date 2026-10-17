@@ -63,7 +63,7 @@ void TUnk_804CDFE8::sub_802443B4() {
     *(s32 *)&this->m_name = (s32) lbl_805D3878;
     *(f32 *)((s8 *)arg0 + 0x68) = (f32) lbl_805DCAAC;
     *(f32 *)((s8 *)arg0 + 0x6C) = (f32) lbl_805DCAAC;
-    set_position_xy__13TUnk_804CDFE8Fff((f32) (lbl_805DCAB0), (f32) (lbl_805DCAB0));
+    set_position_xy__13TUnk_804CDFE8Fff(lbl_805DCAB0, lbl_805DCAB0);
 }
 
 }

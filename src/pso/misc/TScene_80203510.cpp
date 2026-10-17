@@ -286,7 +286,7 @@ void TScene::tick_material_fmt2() {
             if (object->flags & 0x04000000) {
                 continue;
             }
-            node = ((SceneMaterialNode *)resolve_indirect_node_record((void*)(this), (SceneMaterialStatic*)(object)));
+            node = ((SceneMaterialNode *)resolve_indirect_node_record(this, (SceneMaterialStatic*)(object)));
             if (object->flags & 0x20) {
                 uv = object->uv;
                 uv->u += uv->du;
@@ -303,8 +303,8 @@ void TScene::tick_material_fmt2() {
                 object->cycle->timer--;
                 if (object->cycle->timer < 0) {
                     (*(s16 *)&object->cycle->index)++;
-                    load_texture_sequence_frame((void*)(this), (SceneMaterialCycle*)(object->cycle));
-                    ((TObjDoorJung *)(node->model))->free_children((void *)((u16)(object->cycle->texture)));
+                    load_texture_sequence_frame(this, (SceneMaterialCycle*)(object->cycle));
+                    ((TObjDoorJung *)(node->model))->free_children((void *)(object->cycle->texture));
                     if (object->flags & 0x20) {
                         object->uv->texture = object->cycle->texture;
                     }
@@ -320,7 +320,7 @@ void TScene::tick_material_fmt2() {
             if (anim->flags & 0x04000000) {
                 continue;
             }
-            node = ((SceneMaterialNode *)resolve_indirect_object_record((void*)(this), (SceneMaterialAnimated*)(anim)));
+            node = ((SceneMaterialNode *)resolve_indirect_object_record(this, (SceneMaterialAnimated*)(anim)));
             if (anim->flags & 0x20) {
                 uv = anim->uv;
                 uv->u += uv->du;
@@ -337,8 +337,8 @@ void TScene::tick_material_fmt2() {
                 anim->cycle->timer--;
                 if (anim->cycle->timer < 0) {
                     (*(s16 *)&anim->cycle->index)++;
-                    load_texture_sequence_frame((void*)(this), (SceneMaterialCycle*)(anim->cycle));
-                    ((TObjDoorJung *)(node->model))->free_children((void *)((u16)(anim->cycle->texture)));
+                    load_texture_sequence_frame(this, (SceneMaterialCycle*)(anim->cycle));
+                    ((TObjDoorJung *)(node->model))->free_children((void *)(anim->cycle->texture));
                 }
             }
             anim->flags |= 0x20000;
@@ -385,7 +385,7 @@ void TScene::tick_material_fmt1() {
             if (object->flags & 0x04000000) {
                 continue;
             }
-            node = ((SceneMaterialNode *)resolve_indirect_node_record((void*)(this), (SceneMaterialStatic*)(object)));
+            node = ((SceneMaterialNode *)resolve_indirect_node_record(this, (SceneMaterialStatic*)(object)));
             if (object->flags & 0x20) {
                 uv = object->uv;
                 uv->u += uv->du;
@@ -400,8 +400,8 @@ void TScene::tick_material_fmt1() {
                 object->cycle->timer--;
                 if (object->cycle->timer < 0) {
                     (*(s16 *)&object->cycle->index)++;
-                    load_texture_sequence_frame((void*)(this), (SceneMaterialCycle*)(object->cycle));
-                    ((TObjDoorJung *)(node->model))->free_children((void *)((u16)(object->cycle->texture)));
+                    load_texture_sequence_frame(this, (SceneMaterialCycle*)(object->cycle));
+                    ((TObjDoorJung *)(node->model))->free_children((void *)(object->cycle->texture));
                     if (object->flags & 0x20) {
                         object->uv->texture = object->cycle->texture;
                     }
@@ -417,7 +417,7 @@ void TScene::tick_material_fmt1() {
             if (anim->flags & 0x04000000) {
                 continue;
             }
-            node = ((SceneMaterialNode *)resolve_indirect_object_record((void*)(this), (SceneMaterialAnimated*)(anim)));
+            node = ((SceneMaterialNode *)resolve_indirect_object_record(this, (SceneMaterialAnimated*)(anim)));
             if (anim->flags & 0x20) {
                 uv = anim->uv;
                 uv->u += uv->du;
@@ -432,8 +432,8 @@ void TScene::tick_material_fmt1() {
                 anim->cycle->timer--;
                 if (anim->cycle->timer < 0) {
                     (*(s16 *)&anim->cycle->index)++;
-                    load_texture_sequence_frame((void*)(this), (SceneMaterialCycle*)(anim->cycle));
-                    ((TObjDoorJung *)(node->model))->free_children((void *)((u16)(anim->cycle->texture)));
+                    load_texture_sequence_frame(this, (SceneMaterialCycle*)(anim->cycle));
+                    ((TObjDoorJung *)(node->model))->free_children((void *)(anim->cycle->texture));
                 }
             }
             anim->flags |= 0x20000;
@@ -1016,7 +1016,7 @@ void TScene::update_room_visibility_from_camera() {
             if (s->flags & 0x80000) {
                 update_room_object_visibility(s);
             } else if (s->id < 0) {
-                check_object_in_view_cone__6TSceneFiPvPvPvi((s32)(this), (Obj_80204B78 *)(s), (Vec_80204024 *)(&(*(Cam_802043CC * *)&camera_ctrl_instance)->pos), (void *)(&out2), (s32)((*(Cam_802043CC * *)&camera_ctrl_instance)->f19C));
+                check_object_in_view_cone__6TSceneFiPvPvPvi((s32)this, (Obj_80204B78 *)(s), (Vec_80204024 *)(&(*(Cam_802043CC * *)&camera_ctrl_instance)->pos), (void *)(&out2), (s32)((*(Cam_802043CC * *)&camera_ctrl_instance)->f19C));
             }
         }
     }
@@ -1052,7 +1052,7 @@ void TScene::update_room_object_visibility(SceneMaterialSection *room) {
     room->flags |= 0x10000;
     for (object = room->objects; i < room->count; i++, object++) {
         if (object->node != NULL) {
-            if (TScene__sub_802040D4(this, (Obj_802040D4 *)((SceneMaterialNode *)resolve_indirect_node_record((void*)(this), (SceneMaterialStatic*)(object))), lbl_805DC5DC, lbl_805DC5E0) != 0) {
+            if (TScene__sub_802040D4(this, (Obj_802040D4 *)((SceneMaterialNode *)resolve_indirect_node_record(this, (SceneMaterialStatic*)(object))), lbl_805DC5DC, lbl_805DC5E0) != 0) {
                 object->flags |= 0x10000;
             } else {
                 object->flags &= ~0x10000;
@@ -1061,7 +1061,7 @@ void TScene::update_room_object_visibility(SceneMaterialSection *room) {
     }
     for (anim = room->animated, i = 0; i < room->animatedCount; i++, anim++) {
         if (anim->node != NULL) {
-            if (TScene__sub_802040D4(this, (Obj_802040D4 *)((SceneMaterialNode *)resolve_indirect_object_record((void*)(this), (SceneMaterialAnimated*)(anim))), lbl_805DC5DC, lbl_805DC5E0) != 0) {
+            if (TScene__sub_802040D4(this, (Obj_802040D4 *)((SceneMaterialNode *)resolve_indirect_object_record(this, (SceneMaterialAnimated*)(anim))), lbl_805DC5DC, lbl_805DC5E0) != 0) {
                 anim->flags |= 0x10000;
             } else {
                 anim->flags &= ~0x10000;

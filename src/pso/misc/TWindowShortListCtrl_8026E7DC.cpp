@@ -157,7 +157,7 @@ void TWindowShortListCtrl::assign_item_to_palette(u32 arg0, u32 arg1) {
     u8 parameter;
     var_r31 = arg0;
     var_r3 = arg1;
-    player = get_player_by_client_id((s32)(var_r3));
+    player = get_player_by_client_id(var_r3);
     if (player != 0) {
         var_r29 = *(u32 *)((s8 *)player + 0x424);
         if (var_r29 != 0U) {
@@ -166,7 +166,7 @@ void TWindowShortListCtrl::assign_item_to_palette(u32 arg0, u32 arg1) {
             var_r31 = item;
             if ((var_r31 != 0) && (((TItem *)item)->get_field_ec() == 3)) {
                 var_r3 = var_r31;
-                var_r31 = TItemObject__sub_80115DE8((void *)(var_r3));
+                var_r31 = TItemObject__sub_80115DE8((void *)var_r3);
                 if ((s32) var_r31 != -1) {
                     var_r4 = player;
                     var_r3 = var_r29 + 0x520;
@@ -178,9 +178,9 @@ void TWindowShortListCtrl::assign_item_to_palette(u32 arg0, u32 arg1) {
                         ((TWindowActionPalette *)var_r3)->set_mode(4);
                         var_r3 = var_r29 + 0x520;
                         var_r4 = (s32) (u8) var_r31;
-                        ((TWindowActionPalette *)var_r3)->set_slot((int) (var_r4));
+                        ((TWindowActionPalette *)var_r3)->set_slot(var_r4);
                         var_r3 = var_r29 + 0x520;
-                        TMainCursor__sub_8013DFC4((u8 *)(var_r3));
+                        TMainCursor__sub_8013DFC4((u8 *)var_r3);
                     }
                 }
             }
@@ -289,7 +289,7 @@ void *TWindowShortListCtrl::create_window(s32 arg1, s32 arg2_arg) {
     set_flag70_bit10__21TWindowSubComCardListFv();
     *(s32 *)((s8 *)window_menu + 0x5C) = 0x01000000;
     ((TWindowSubComCardList *)window_menu)->set_flag70_bit100();
-    refresh_technique_rows((s32)((void*)((void*)(window_menu))), (Sc_8026EBB0 *)((void*)((void*)(arg2_arg))));
+    refresh_technique_rows((s32)((void*)(window_menu)), (Sc_8026EBB0 *)((void*)(arg2_arg)));
     return window_menu;
 }
 void TWindowShortListCtrl::render() {  }

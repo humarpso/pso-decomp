@@ -51,9 +51,9 @@ void TBoss7Joint::vfunc_62() {
 
     temp_r4 = *(s16 *)((s8 *)((u8 *)this) + 0x32C);
     temp_r31 = *(s16 *)((s8 *)((u8 *)this) + 0x2B8) - temp_r4;
-    if (is_part_active__11TBoss7JointFv((void *) (((u8 *)this)), (int) (temp_r4)) != 0U) {
-        TObjFish__sub_802EC468((s32)(((u8 *)this) + 0x38), (f32) (lbl_805DEBB0), (f32) (lbl_805DEBB4));
-        apply_damage_and_set_effect__8TObjFishFl((int) (*(s32 *)((s8 *)((u8 *)this) + 0x10)), (int) (temp_r31), (int) (*(u16 *)((s8 *)((u8 *)this) + 0x2D4)));
+    if (is_part_active__11TBoss7JointFv((void *) (((u8 *)this)), temp_r4) != 0U) {
+        TObjFish__sub_802EC468((s32)(((u8 *)this) + 0x38), lbl_805DEBB0, lbl_805DEBB4);
+        apply_damage_and_set_effect__8TObjFishFl((int) (*(s32 *)((s8 *)((u8 *)this) + 0x10)), temp_r31, (int) (*(u16 *)((s8 *)((u8 *)this) + 0x2D4)));
     } else {
         *(s32 *)((s8 *)((u8 *)this) + 0x3C4) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3C4) - temp_r31);
         if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x3C4) <= 0) {
@@ -75,7 +75,7 @@ void TBoss7Joint::run_task() {
         this->vfunc_88();
         if (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0x18) & 1) {
             ((TBoss8Dragon *)arg0)->set_player_state_default();
-            add_radar_scaled_marker((void *) (arg0 + 0x38), -0x5DB4, 1, 1, (f32) (lbl_805DEBB8));
+            add_radar_scaled_marker((void *) (arg0 + 0x38), -0x5DB4, 1, 1, lbl_805DEBB8);
         }
     }
 }

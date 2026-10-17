@@ -38,9 +38,9 @@ u8 *create_material_item(u8 *arg0) {
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x104));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((TUnk_8049FBC0 *)temp_r3)->construct_material((void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_8049FBC0 *)temp_r3)->construct_material((void *)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }
@@ -75,9 +75,9 @@ u8 *create_technique_disk_item(u8 *arg0) {
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x104));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)construct_technique_disk_item((void *)((void *)(temp_r3)), (void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
+            var_r0 = (u8 *)(((u8 *)construct_technique_disk_item((void *)(temp_r3), (void *)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }
@@ -112,9 +112,9 @@ u8 *create_telepipe_item(u8 *arg0) {
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x104));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((TUnk_8049FD48 *)temp_r3)->init((void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_8049FD48 *)temp_r3)->init((void *)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }

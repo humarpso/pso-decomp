@@ -173,7 +173,7 @@ void *TItemList::create_node(void *arg0, void *arg1, void *arg2, s8 arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x58);
     if (o != NULL) {
-        o = TItemList__sub_801D39C8((u8 *)(o), (s32)(tl_07), (s32)(arg0), (u8 *)(arg1), (s32)(arg2), arg3);
+        o = TItemList__sub_801D39C8((u8 *)o, (s32)tl_07, (s32)arg0, (u8 *)arg1, (s32)arg2, arg3);
     }
     return o;
 }
@@ -183,9 +183,9 @@ void *TItemList::destroy(s16 arg1) {
         *(s32 **)((s8 *)this + 0x18) = item_drop_search_task_vtable;
         clear_placement_search_slot((u8 *)this, *(s32 *)((s8 *)this + 0x54));
         decrement_placement_search_pending(this, (void *)(*(s32 *)((s8 *)this + 0x54)));
-        __dt__13TUnk_804C4498Fv((void *)(this), (s16)(0));
+        __dt__13TUnk_804C4498Fv(this, (s16)(0));
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *)(this));
+            __dl__7TObjectFPv(this);
         }
     }
     return this;
@@ -194,7 +194,7 @@ void *TItemList::destroy(s16 arg1) {
 typedef char RecoveredGlobal_801D39C8_lbl_804C4468_size[sizeof(RecoveredGlobal_801D39C8_lbl_804C4468) == 0x18 ? 1 : -1];
 u8 *TItemList__sub_801D39C8(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, s32 arg4, s8 arg5) {
     u8 *temp_r3;
-    construct_placement_search_base((u8 *)(arg0), (u8 *)(arg1), (u8 *)(arg3), (u8 *)(arg4), arg5);
+    construct_placement_search_base((u8 *)arg0, (u8 *)arg1, (u8 *)arg3, (u8 *)arg4, arg5);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801D39C8_lbl_804C4468 *)&item_drop_search_task_vtable).value;
     *(s32 *)((s8 *)arg0 + 0x54) = arg2;
     TItemList__sub_801D5884((arg0), 1);
@@ -204,7 +204,7 @@ u8 *TItemList__sub_801D39C8(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, s32 arg4, s8
         if (fn_801D4270(*(s32 *)((s8 *)temp_r3 + 4)) != 0) {
             remove_list_entry_by_id((*(s32 *)((s8 *)temp_r3 + 4)));
             if (load_character_from_card__23TAdSinglePlyChrSelectGCFv() != 0) {
-                queue_destruction__7TObjectFv((void *) (arg0));
+                queue_destruction__7TObjectFv(arg0);
                 return arg0;
             }
             *(s32 *)((s8 *)arg0 + 0x50) = 1;
@@ -234,7 +234,7 @@ void * TItemList__sub_801D3B00(void *arg0, void *arg1, void *arg2, s8 arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x58);
     if (o != NULL) {
-        o = ((TItemList *)o)->ct_init_placement_ring((u8 *)(tl_07), (s32)(arg0), (u8 *)(arg1), (u8 *)(arg2), arg3);
+        o = ((TItemList *)o)->ct_init_placement_ring((u8 *)tl_07, (s32)arg0, (u8 *)arg1, (u8 *)arg2, arg3);
     }
     return o;
 }
@@ -244,9 +244,9 @@ void *__dt__13TUnk_804C4480Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = placement_search_task_vtable;
         clear_placement_search_slot((u8 *)arg0, *(s32 *)((s8 *)arg0 + 0x54));
         decrement_placement_search_pending(arg0, (void *)(*(s32 *)((s8 *)arg0 + 0x54)));
-        __dt__13TUnk_804C4498Fv((void *)(arg0), (s16)(0));
+        __dt__13TUnk_804C4498Fv(arg0, (s16)(0));
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *)(arg0));
+            __dl__7TObjectFPv(arg0);
         }
     }
     return arg0;
@@ -254,7 +254,7 @@ void *__dt__13TUnk_804C4480Fv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_801D3BD4_lbl_804C4480_size[sizeof(RecoveredGlobal_801D3BD4_lbl_804C4480) == 0x18 ? 1 : -1];
 u8 *TItemList::ct_init_placement_ring(u8 *arg1, s32 arg2, u8 *arg3, u8 *arg4, s8 arg5) {
-    construct_placement_search_base((u8 *)(((u8 *)this)), (u8 *)(arg1), (u8 *)(arg3), (u8 *)(arg4), arg5);
+    construct_placement_search_base((u8 *)(((u8 *)this)), arg1, arg3, arg4, arg5);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_801D3BD4_lbl_804C4480 *)&placement_search_task_vtable).value;
     *(s32 *)((s8 *)((u8 *)this) + 0x54) = arg2;
     TItemList__sub_801D5884((((u8 *)this)), (0U));
@@ -350,7 +350,7 @@ void *__dt__13TUnk_804C4498Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = placement_search_base_vtable;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *)(arg0));
+            __dl__7TObjectFPv(arg0);
         }
     }
     return arg0;

@@ -43,7 +43,7 @@ int TLobby__sub_80184C6C(int a0) {  return lbl_8050DC20[a0]; }
 
 void TLobby__sub_80184C80(void *p) {
     s32 i;
-    TLobby::clear_global_array((void*)(p));
+    TLobby::clear_global_array(p);
     for (i = 0; i < 6; i++) {
         if (TLobby__event_theme_id == lobby_event_theme_id_table[i]) {
             lbl_8050DC20[i] = 1;
@@ -52,7 +52,7 @@ void TLobby__sub_80184C80(void *p) {
     }
 }
 
-void TLobby__sub_80184CE0(void* p) { TLobby::clear_global_array((void*)(p)); }
+void TLobby__sub_80184CE0(void* p) { TLobby::clear_global_array(p); }
 void TLobby::clear_global_array(void* _w0) {
     s32 i;
     for (i = 0; i < 6; i++) {

@@ -198,10 +198,10 @@ void TObjEneRecobox::draw_with_debug_info() {
         debug_printf_at(pack_debug_text_position(0, 5), lbl_80476440);
     }
     if (((VObj_18_26a62c *)(arg0))->m8(TObjEneRecon__data_805DF438, lbl_805DF43C) != 0) {
-        TObjFish::set_global_param((int) (this->texture_id));
+        TObjFish::set_global_param(this->texture_id);
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y(0, (int) (this->rotation_y));
+        rotate_matrix_y(0, this->rotation_y);
         temp_r0_2 = *(s32 *)&this->m_3f8;
         switch (temp_r0_2) {
         case 1:
@@ -219,8 +219,8 @@ void TObjEneRecobox::draw_with_debug_info() {
     }
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y(0, (int) (this->rotation_y));
-    draw_chunk_object((void *)(debug_chunk_object));
+    rotate_matrix_y(0, this->rotation_y);
+    draw_chunk_object((void *)debug_chunk_object);
     pop_matrix();
 }
 void render__12TObjEneReconFPv(u8 *arg0) {
@@ -254,7 +254,7 @@ void render__12TObjEneReconFPv(u8 *arg0) {
                 lbl_805D5668 = chunk_polygon_flags_or_mask;
                 if ((s16) ((TObjEneRecobox *)arg0)->mode == 1) {
                     if (((Fade_8031EA70 *)(arg0 + 0x3C0))->m8() != 0) {
-                        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0)) != 0) {
+                        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
                             model_render_flags = lbl_805D5660;
                             chunk_polygon_flags_and_mask = lbl_805D5664;
                             chunk_polygon_flags_or_mask = lbl_805D5668;
@@ -271,10 +271,10 @@ void render__12TObjEneReconFPv(u8 *arg0) {
                 }
 block_18:
                 temp_r29 = &((Holder_8031EA70 *)arg0)->arr[var_r29];
-                update_obstruction_fade((int) (temp_r29));
+                update_obstruction_fade((int)temp_r29);
                 temp_r30 = ((RenderFadeState *)temp_r29)->updateFromCamera((const f32*)(arg0 + 0x2FC));
                 if ((var_r27 == 0) && (temp_r30 != 0)) {
-                    if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0)) != 0) {
+                    if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
                         model_render_flags = lbl_805D5660;
                         chunk_polygon_flags_and_mask = lbl_805D5664;
                         chunk_polygon_flags_or_mask = lbl_805D5668;

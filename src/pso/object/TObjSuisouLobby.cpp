@@ -79,7 +79,7 @@ void render__15TObjSuisouLobbyFv(u8 *arg0) {
         rotate_matrix_y(0, (int) (((TObjSuisouLobby *)arg0)->rotation_y));
         if ((s32) *(s32 *)&((TObjSuisouLobby *)arg0)->m_c8 != 3) {
             temp_f1 = *(f32 *)((s8 *)arg0 + 0xCC);
-            scale_matrix(0, (f32) (temp_f1), 1.0f, (f32) (temp_f1));
+            scale_matrix(0, temp_f1, 1.0f, temp_f1);
         }
         draw_ginja_object((void *)(*(s32 *)((s8 *)arg0 + 0x34)));
         pop_matrix();
@@ -145,7 +145,7 @@ extern void *tl_05;
 void *TObjSuisouLobby::create() {
     void *o = __nw__7TObjectFUl(0xDC);
     if (o != NULL) {
-        o = TObjSuisouLobby__ct((void *)(o), (void *)(tl_05), (void *)(this));
+        o = TObjSuisouLobby__ct(o, tl_05, this);
     }
     return o;
 }

@@ -705,23 +705,23 @@ void TOTrapAncient02R__vt79(Obj_8017A3C0 *o) {
                         {
                             void *t = __nw__7TObjectFUl(0x260);
                             if (t != NULL) {
-                                ((TTecZonde *)t)->construct_bolt_effect((u8 *)tl_07, (u8 *)lbl_8050BEE0, (u8 *)lbl_8050BF00, 0x14000000, 0x14, (f32)(o->range), (f32)lbl_805DBA98);
+                                ((TTecZonde *)t)->construct_bolt_effect((u8 *)tl_07, (u8 *)lbl_8050BEE0, (u8 *)lbl_8050BF00, 0x14000000, 0x14, o->range, (f32)lbl_805DBA98);
                             }
                         }
                         play_sound_effect(0x4002A408, lbl_8050BEE0, 0, 0);
                         break;
                     }
                     case 0:
-                        TTecFoie::create_ex((void *)o, (void *)lbl_8050BEE0, (void *)(&o->target->f2FC), (void *)(o->level));
+                        TTecFoie::create_ex((void *)o, (void *)lbl_8050BEE0, (void *)(&o->target->f2FC), (void *)o->level);
                         break;
                     case 2:
-                        ((TTecGiBarta *)o)->create_ex((void *)lbl_8050BEE0, (void *)ang, (void *)(o->level));
+                        ((TTecGiBarta *)o)->create_ex((void *)lbl_8050BEE0, (void *)ang, (void *)o->level);
                         break;
                     case 3:
-                        TTecMegid::create((s32)o, (s32)lbl_8050BEE0, (s32)(&o->target->f2FC), (s32)(o->level));
+                        TTecMegid::create((s32)o, (s32)lbl_8050BEE0, (s32)(&o->target->f2FC), o->level);
                         break;
                     case 4:
-                        TTecGiFoie::create((void *)o, (void *)lbl_8050BEE0, (void *)(o->level));
+                        TTecGiFoie::create((void *)o, (void *)lbl_8050BEE0, (void *)o->level);
                         break;
                     }
                 } else {
@@ -1015,7 +1015,7 @@ void TOTrapAncient02::vfunc_81() {
         }
         break;
     case 2:
-        self->player = find_nearest_visible_player((void *)(self), 0, self->range);
+        self->player = find_nearest_visible_player(self, 0, self->range);
         if (self->player != 0xFFFF) {
             p = (void *)get_player_by_client_id((self->player));
             self->target = (u8 *)p;
@@ -1073,11 +1073,11 @@ void TOTrapAncient02::render_particle_chain() {
 
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y(0, (int) (this->rotation_y));
+    rotate_matrix_y(0, this->rotation_y);
     temp_r31 = (unsigned char *) (*(void * *)&this->model);
     translate_matrix(0, (f32) (*(f32 *)((s8 *)temp_r31 + 8)), (f32) (*(f32 *)((s8 *)temp_r31 + 0xC) + this->h344), (f32) (*(f32 *)((s8 *)temp_r31 + 0x10)));
     setup_particle_tev(0);
-    TObjFish::set_global_param((int) (this->texture_id));
+    TObjFish::set_global_param(this->texture_id);
     ((TOTrapAncient02 *)0x38E)->load_projection_tex_matrix();
     draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
     TParticleCtrl::disable_if_single_screen();
@@ -1085,7 +1085,7 @@ void TOTrapAncient02::render_particle_chain() {
     temp_r31_2 = (unsigned char *) (*(void **)((s8 *)temp_r31 + 0x2C));
     translate_matrix(0, (f32) (*(f32 *)((s8 *)temp_r31_2 + 8)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0xC) + this->h348), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0x10)));
     setup_particle_tev(0);
-    TObjFish::set_global_param((int) (this->texture_id));
+    TObjFish::set_global_param(this->texture_id);
     ((TOTrapAncient02 *)0x38E)->load_projection_tex_matrix();
     draw_ginja_model((*(s32 *)((s8 *)temp_r31_2 + 4)));
     TParticleCtrl::disable_if_single_screen();
@@ -1094,7 +1094,7 @@ void TOTrapAncient02::render_particle_chain() {
     temp_r31_3 = (unsigned char *) (*(void **)((s8 *)temp_r31_2 + 0x2C));
     post_translate_matrix((void *) (temp_r31_3 + 8));
     setup_particle_tev(1);
-    TObjFish::set_global_param((int) (this->texture_id));
+    TObjFish::set_global_param(this->texture_id);
     ((TOTrapAncient02 *)0x38E)->load_projection_tex_matrix();
     draw_ginja_model((*(s32 *)((s8 *)temp_r31_3 + 4)));
     TParticleCtrl::disable_if_single_screen();
@@ -1104,7 +1104,7 @@ void TOTrapAncient02::render_particle_chain() {
     post_translate_matrix((void *) (temp_r31_4 + 8));
     rotate_matrix_y(0, (int) (*(s32 *)&this->m_34c));
     setup_particle_tev(0);
-    TObjFish::set_global_param((int) (this->texture_id));
+    TObjFish::set_global_param(this->texture_id);
     ((TOTrapAncient02 *)0x38E)->load_projection_tex_matrix();
     draw_ginja_model((*(s32 *)((s8 *)temp_r31_4 + 4)));
     TParticleCtrl::disable_if_single_screen();
@@ -1122,9 +1122,9 @@ void TOTrapAncient02::draw_effect_chain() {
     u8 *temp_r31_4;
 
     push_matrix();
-    TObjFish::set_global_param((int) (this->texture_id));
+    TObjFish::set_global_param(this->texture_id);
     post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y(0, (int) (this->rotation_y));
+    rotate_matrix_y(0, this->rotation_y);
     temp_r31 = (unsigned char *) (*(void * *)&this->model);
     translate_matrix(0, (f32) (*(f32 *)((s8 *)temp_r31 + 8)), (f32) (*(f32 *)((s8 *)temp_r31 + 0xC) + this->h344), (f32) (*(f32 *)((s8 *)temp_r31 + 0x10)));
     draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));

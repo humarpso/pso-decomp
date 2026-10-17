@@ -75,7 +75,7 @@ typedef char RecoveredGlobal_80291D4C_lbl_80540958_size[sizeof(RecoveredGlobal_8
 s32 *TLobby__sub_80291D4C(void) {
     s32 character_save_record;
     character_save_record = get_character_save_record(0xFFFFU);
-    decode_obfuscated_string__6TLobbyFPvi((void *) (&lbl_80540958.value), (void *) (character_save_record + 0x229C), 0xC, (int) (character_save_record));
+    decode_obfuscated_string__6TLobbyFPvi((void *) (&lbl_80540958.value), (void *) (character_save_record + 0x229C), 0xC, character_save_record);
     return &lbl_80540958.value;
 }
 u32 get_character_creation_selected_entry_id(void) {  return TObjCMMainMenu__selected_entry_id; }
@@ -289,11 +289,11 @@ void CreationCamera::begin_review(){
     f32 temp_f2;
     s32 temp_r7;
     if ((void *) creation_player_character != NULL) {
-        *(f32 *)((s8 *)this + 0x6C) = (f32) (lbl_805DD99C * calc_character_height((void *) (creation_player_character)));
+        *(f32 *)((s8 *)this + 0x6C) = (f32) (lbl_805DD99C * calc_character_height((void *)creation_player_character));
         *(f32 *)((s8 *)this + 0x80) = (f32) *(f32 *)((s8 *)this + 0x6C);
         temp_r7 = (s8) *(u8 *)((s8 *)creation_player_character + 0x31) * 8;
-        temp_f2 = *(f32 *)((s8 *)((u8 *)(creation_camera_height_bounds_table) + temp_r7) + 0);
-        *(f32 *)((s8 *)this + 0x4C) = (f32) (lbl_805DD9A0 * (((lbl_805DD978 - *(f32 *)((s8 *)creation_player_character + 0x4C)) * (*(f32 *)((s8 *)((u8 *)(creation_camera_height_bounds_table) + temp_r7) + 4) - temp_f2)) + temp_f2));
+        temp_f2 = *(f32 *)((s8 *)((u8 *)creation_camera_height_bounds_table + temp_r7) + 0);
+        *(f32 *)((s8 *)this + 0x4C) = (f32) (lbl_805DD9A0 * (((lbl_805DD978 - *(f32 *)((s8 *)creation_player_character + 0x4C)) * (*(f32 *)((s8 *)((u8 *)creation_camera_height_bounds_table + temp_r7) + 4) - temp_f2)) + temp_f2));
         *(s32 *)((s8 *)this + 0x74) = 0;
         *(s32 *)((s8 *)this + 0x70) = 0;
         creation_camera_mode = 2;

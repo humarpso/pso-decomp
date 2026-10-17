@@ -72,11 +72,11 @@ s32 load_floor_enemy_group_entries__6TLobbyFiPvUi(s32 idx, Src_8020B970 *src, u3
         buf = alloc__22TQuestVmDownLoadServerFv(sz);
         memcpy(buf, src, sz);
         if (TLobby__data_80513A40[idx].entry != NULL) {
-            TLobby::send_or_handle_packet((void *)TLobby__data_805D6104, (void *)buf, (void *)(TLobby__data_80513A40[idx].entry), (void *)sz, (u32)0);
+            TLobby::send_or_handle_packet((void *)TLobby__data_805D6104, (void *)buf, TLobby__data_80513A40[idx].entry, (void *)sz, (u32)0);
         }
         TAdSinglePlyChrSelectGC::safe_free((u32)buf);
     } else if (TLobby__data_80513A40[idx].entry != NULL) {
-        TLobby::send_or_handle_packet((void *)TLobby__data_805D6104, (void *)src, (void *)(TLobby__data_80513A40[idx].entry), (void *)sz, (u32)0);
+        TLobby::send_or_handle_packet((void *)TLobby__data_805D6104, (void *)src, TLobby__data_80513A40[idx].entry, (void *)sz, (u32)0);
     }
     return 1;
     }

@@ -42,7 +42,7 @@ void TWindowDD::enter_state_9() {
 void TWindowDD__sub_80342B5C(u8 *arg0) {
     u8 *var_r31;
     u8 *var_r3;
-    var_r31 = (u8 *)(arg0);
+    var_r31 = arg0;
     *(s32 *)((s8 *)arg0 + 0xB4) = 8;
     *(s16 *)((s8 *)arg0 + 0xFC) = 0x37;
     var_r3 = (u8 *)(var_r31 + (*(s32 *)((s8 *)arg0 + 0x20) * 4));

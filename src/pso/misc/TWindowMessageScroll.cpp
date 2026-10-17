@@ -24,7 +24,7 @@ void TWindowMessageScroll::run_task() {
     f32 temp_f1;
     temp_f1 = this->m_6c;
     this->m_6c = (f32) (temp_f1 + *(f32 *)((s8 *)arg0 + 0x94));
-    retire_scrolled_lines__14TWindowMessageFv((f32) (temp_f1));
+    retire_scrolled_lines__14TWindowMessageFv(temp_f1);
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TUnk_804CE018 *)arg0)->update_fade();
     ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (arg0 + 0x24));

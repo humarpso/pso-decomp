@@ -245,7 +245,7 @@ void give_item_to_client(s32 arg0, s32 arg1) {
     player = get_player_by_client_id((void *) (u16)arg0);
     if (player != 0) {
         temp_r3_2 = lookup_inventory_item__10TObjPlayerFv(arg1);
-        if ((temp_r3_2 != NULL) && (pickup_item__10TObjPlayerFv((u8 *)(player), (temp_r3_2)) == 0U)) {
+        if ((temp_r3_2 != NULL) && (pickup_item__10TObjPlayerFv((u8 *)player, (temp_r3_2)) == 0U)) {
             ((VObj_18 *)(temp_r3_2))->m27();
         }
     }
@@ -329,7 +329,7 @@ void replace_item_with_new_code(void *arg0, u32 arg1) {
         TItem__sub_80115D68((u8 *) (&sp8), arg1);
         break;
     }
-    temp_r31 = get_id__13TItemProArmorFv((void *)(arg1));
+    temp_r31 = get_id__13TItemProArmorFv((void *)arg1);
     sp8.value = ((TItem *)arg1)->get_field_d8();
     if (consume_item_by_id(((TItem *)arg1)->get_field_d8()) != 0)
     {

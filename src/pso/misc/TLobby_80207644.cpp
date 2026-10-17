@@ -85,7 +85,7 @@ s32 get_boss_warp_destination(void) {
 s32 TLobby::get_player_floor(s32 idx) {
     struct Buf12_80207718_80207644 buf;
 
-    if (get_floor_map_selection((s32)(idx), (u8 *)(&buf)) == 1) {
+    if (get_floor_map_selection(idx, (u8 *)(&buf)) == 1) {
         return buf.a;
     }
     return -1;

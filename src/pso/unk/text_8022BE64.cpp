@@ -71,7 +71,7 @@ void TUnk_804CC148::count_if_within_range() {
     stack.spC = *(f32 *)((s8 *)arg0 + 0x24) - *(f32 *)((s8 *)arg0 + 0x80);
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x28);
     stack.sp10 = temp_f1 - this->m_84;
-    if (vector_length((void *) (&stack.sp8), (f32) (temp_f1)) <= *(f32 *)((s8 *)arg0 + 0x64)) {
+    if (vector_length((void *) (&stack.sp8), temp_f1) <= *(f32 *)((s8 *)arg0 + 0x64)) {
         *(s32 *)&this->field_6c = (s32) (*(s32 *)&this->field_6c + 1);
     }
 }
@@ -81,7 +81,7 @@ void TUnk_804CC148::sub_8022C008() {
     s32 temp_r3;
 
     temp_r3 = (long) (arg0 + 0x20);
-    approach_vector_fixed_distance((int) (temp_r3), (void *) (arg0 + 0x7C), (int) (temp_r3), (f32) (*(f32 *)((s8 *)arg0 + 0x64)));
+    approach_vector_fixed_distance(temp_r3, (void *) (arg0 + 0x7C), temp_r3, (f32) (*(f32 *)((s8 *)arg0 + 0x64)));
 }
 
 #pragma pop

@@ -29,7 +29,7 @@ S_8004F5F8 *__dt__11TObjDFDemo4Fv(S_8004F5F8 *o, s16 flag) {
         }
         for (i = 0; i < 2; i++) {
             if (o->ptr[i] != 0) {
-                TBoss4Type2::request_destroy((u32)(o->ptr[i]));
+                TBoss4Type2::request_destroy((u32)o->ptr[i]);
                 o->ptr[i] = 0;
             }
         }

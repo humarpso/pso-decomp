@@ -11,7 +11,7 @@ int Dolphin_ARAlloc(void);
     extern int shared_snapshot_capture;
     extern int lbl_805D669C;
     extern int snapshot_aligned_buffer_size;
-void TWindowSnapShot::init_default() { TLobby::aram_transfer_sync((s32)((void*)1), (u32)((void*)((TWindowSnapShot *)shared_snapshot_capture)->get_field_8()), (s32)((void*)(lbl_805D669C)), (s32)((void*)(snapshot_aligned_buffer_size))); }
+void TWindowSnapShot::init_default() { TLobby::aram_transfer_sync((s32)((void*)1), (u32)((void*)((TWindowSnapShot *)shared_snapshot_capture)->get_field_8()), (s32)(lbl_805D669C), (s32)(snapshot_aligned_buffer_size)); }
 
 void TWindowSnapShot__sub_802A7DA0(void) {  }
 

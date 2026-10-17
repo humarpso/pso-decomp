@@ -105,7 +105,7 @@ void TObjContainerNoItem::vfunc_80() {
 void *TObjContainerNoItem::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x368);
     if (o != NULL) {
-        o = TObjContainerNoItem__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TObjContainerNoItem__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -132,7 +132,7 @@ u8 *TObjContainerNoItem__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x34) = get_container_param(1);
     ((TObjContainerNoItem *)arg0)->mode = 0;
     *(s32 *)&((TObjContainerNoItem *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjContainerNoItem *)arg0)->actorFlags| 0x60000000);
-    init_collision_body_parts((void *) (arg0), (void *) (&forest_box_collision_body_parts.value), 1);
+    init_collision_body_parts(arg0, (void *) (&forest_box_collision_body_parts.value), 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38));
     VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));

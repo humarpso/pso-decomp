@@ -50,7 +50,7 @@ s32 TObjPlayer__sub_801C2044(s32 *arg0) {
 
 void* TObjPlayer__sub_801C2058(void* p) { return (char*)p + 0x8; }
 void TObjPlayer::set_field4(s32 v) { *(s32*)((char*)this + 0x4) = v; }
-void*TObjPlayer::init_c2098_return_self() { TObjPlayer__sub_801C2098((void*)(this)); return this; }
+void*TObjPlayer::init_c2098_return_self() { TObjPlayer__sub_801C2098(this); return this; }
 void TObjPlayer__sub_801C2098(void* p) { *(s32*)((char*)p + 0x0) = 0; }
 
 S_801C20A4 *init_player_telepipe_record(S_801C20A4 *arg0) {

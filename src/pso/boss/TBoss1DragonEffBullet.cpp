@@ -86,11 +86,11 @@ void TBoss1DragonEffBullet::run_task() {
         if ((u8 *) arg0->field_44 == NULL) {
             arg0->field_44 = (u8 *)spawn_continuous_particle_effect_with_flags(&arg0->field_1C, *(s32 *)((s8 *)(*(u8 * *)&dragon_fireball_particle_ids) + 0), 0x40);
         }
-        temp_r3 = (u8 *)(arg0->field_44);
+        temp_r3 = arg0->field_44;
         if (temp_r3 != NULL) {
             ((TNowLoading *)temp_r3)->copy_pos(&arg0->field_1C);
         }
-        temp_r3_2 = (u8 *)(arg0->field_48);
+        temp_r3_2 = arg0->field_48;
         if (temp_r3_2 != NULL) {
             ((TNowLoading *)temp_r3_2)->copy_pos(&arg0->field_1C);
         }
@@ -99,12 +99,12 @@ void TBoss1DragonEffBullet::run_task() {
         arg0->field_34 += 1;
         if ((s32) arg0->field_34 == 1) {
             spawn_particle_effect_with_flags(&arg0->field_1C, *(s32 *)((s8 *)(*(u8 * *)&dragon_fireball_particle_ids) + 4), 0x40);
-            temp_r3_3 = (u8 *)(arg0->field_48);
+            temp_r3_3 = arg0->field_48;
             if (temp_r3_3 != NULL) {
                 queue_destruction__7TObjectFv(temp_r3_3);
                 arg0->field_48 = NULL;
             }
-            temp_r3_4 = (u8 *)(arg0->field_44);
+            temp_r3_4 = arg0->field_44;
             if (temp_r3_4 != NULL) {
                 queue_destruction__7TObjectFv(temp_r3_4);
                 arg0->field_44 = NULL;
@@ -145,7 +145,7 @@ typedef char RecoveredGlobal_8002BCE0_lbl_8043541C_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_8002BC30___vt__21TBoss1DragonEffBullet_size[sizeof(RecoveredGlobal_8002BC30___vt__21TBoss1DragonEffBullet) == 0x18 ? 1 : -1];
 u8 *TBoss1DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8002BC30___vt__21TBoss1DragonEffBullet *)&__vt__21TBoss1DragonEffBullet).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss1DragonEffBullet__name;
     VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)(arg2));

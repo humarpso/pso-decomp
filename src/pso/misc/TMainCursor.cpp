@@ -63,7 +63,7 @@ void TMainCursor::refresh_target_marker() {
         return;
     }
     temp_r31 = (u8) ((TMainCursor *)((u8 *)this))->forward_13E338_at_60();
-    temp_r3_2 = check_visible__11TMainCursorFv((void *) (temp_r3 + 0x500), (int) (temp_r3), (void *) (update_sub_60__11TMainCursorFv((void *) (((u8 *)this)))), (int) (temp_r31));
+    temp_r3_2 = check_visible__11TMainCursorFv((void *) (temp_r3 + 0x500), temp_r3, (void *) (update_sub_60__11TMainCursorFv((void *) (((u8 *)this)))), temp_r31);
     if (temp_r3_2 == -1) {
         queue_destruction__7TObjectFv((((u8 *)this)));
         return;
@@ -100,22 +100,22 @@ void *__dt__11TMainCursorFv(void *arg0, s16 arg1) {
 }
 
 u8 *TMainCursor__ct(u8 *arg0, s32 arg1, s32 arg2, u8 arg3, u8 arg4, u8 arg5, s32 arg6, f32 farg0) {
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8013BDCC___vt__11TMainCursor *)&__vt__11TMainCursor).value;
     ((TObjPlayer *)(arg0 + 0x20))->init_forward();
     TMainCursor__sub_8013E800((void *) (arg0 + 0x24));
     TMainCursor__sub_8013F1F0((arg0 + 0x4C));
     ((TMainCursor *)(arg0 + 0x60))->reset();
     *(s32 *)((s8 *)arg0 + 0) = (s32) main_cursor_class_name;
-    ((TMainCursor *)arg0)->set_target_index_at_60((void *) (arg2));
-    set_target_id_at_60__11TMainCursorFUc((void *) (arg0), (void *) (arg3));
-    ((TMainCursor *)arg0)->sub_8013E724((f32) (farg0));
-    TMainCursor__sub_8013E6E0((void *) (arg0), (void *) ((s32) arg4));
-    init_field_60__11TMainCursorFv((void *) (arg0), (void *) ((s32) arg5));
-    set_offset_y__11TMainCursorFs((void *) (arg0), (void *) (arg6));
+    ((TMainCursor *)arg0)->set_target_index_at_60((void *)arg2);
+    set_target_id_at_60__11TMainCursorFUc((void *)arg0, (void *)arg3);
+    ((TMainCursor *)arg0)->sub_8013E724(farg0);
+    TMainCursor__sub_8013E6E0(arg0, (void *) ((s32) arg4));
+    init_field_60__11TMainCursorFv(arg0, (void *) ((s32) arg5));
+    set_offset_y__11TMainCursorFs((void *)arg0, (void *)arg6);
     return arg0;
 }
 
-int TMainCursor::check_type_and_enabled(void* _w1, void* _w2) { return matches_type_and_enabled__11TMainCursorFiUcUc((void*)(this), (void*)(_w1), (void*)(_w2)); }
+int TMainCursor::check_type_and_enabled(void* _w1, void* _w2) { return matches_type_and_enabled__11TMainCursorFiUcUc(this, _w1, _w2); }
 
 }

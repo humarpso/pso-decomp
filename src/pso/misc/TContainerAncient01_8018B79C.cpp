@@ -93,7 +93,7 @@ extern const f32 TContainerAncient01__data_805DBD3C;
 extern const f32 lbl_805DBD4C;
 
 s32 TContainerAncient01__vt18(s32 arg0, s32 arg1) {
-    return xyz_distance_squared((void *) (arg1 + 0x38), (void *) (arg0 + 0x38), (void *) (arg0)) < TContainerAncient01__data_805DBD44;
+    return xyz_distance_squared((void *) (arg1 + 0x38), (void *) (arg0 + 0x38), (void *)arg0) < TContainerAncient01__data_805DBD44;
 }
 
 void TContainerAncient01::render() {
@@ -141,7 +141,7 @@ void TContainerAncient01::run_task() {
             }
             temp_f1 = this->m_2b4;
             this->m_2b4 = (f32) (temp_f1 + (*(const f32 *)&TContainerAncient01__data_805DBD10));
-            submit_cursor_candidate((void *) (arg0), -1, (f32) (temp_f1));
+            submit_cursor_candidate(arg0, -1, temp_f1);
         } else {
             temp_f1_2 = *(f32 *)&this->unk_364;
             if (temp_f1_2 <= lbl_805DBD50) {
@@ -154,13 +154,13 @@ void TContainerAncient01::run_task() {
             }
         }
     }
-    if ((u32) this->unknownF8 == get_bml_motion((int) (TContainerAncient01__bml_resource), 0)) {
-        *(s32 *)&this->model = get_bml_model((int) (TContainerAncient01__bml_resource), 0);
+    if ((u32) this->unknownF8 == get_bml_motion(TContainerAncient01__bml_resource, 0)) {
+        *(s32 *)&this->model = get_bml_model(TContainerAncient01__bml_resource, 0);
     }
-    if ((u32) this->unknownF8 == get_bml_motion((int) (TContainerAncient01__bml_resource), 1)) {
-        *(s32 *)&this->model = get_bml_model((int) (TContainerAncient01__bml_resource), 1);
+    if ((u32) this->unknownF8 == get_bml_motion(TContainerAncient01__bml_resource, 1)) {
+        *(s32 *)&this->model = get_bml_model(TContainerAncient01__bml_resource, 1);
     }
-    run_task__7TObjectFv((void *) (arg0));
+    run_task__7TObjectFv(arg0);
 }
 
 }

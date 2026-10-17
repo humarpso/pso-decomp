@@ -100,7 +100,7 @@ void handle_6xAD_olga_flow_subordinate_boss_actions(Pkt_803570E4 *pkt) {
     if (olga_flow_subordinate_actions_enabled == 0) {
         return;
     }
-    read_be16_field2_forward((void*)(pkt));
+    read_be16_field2_forward(pkt);
     boss = pkt->d[0];
     if (boss >= 0) {
         p = &pkt->d[1];
@@ -144,7 +144,7 @@ void TItemEffOrgaFlowShot__sub_80357204(void) { olga_flow_subordinate_actions_en
 
 void TItemEffOrgaFlowShot__sub_80357210(void) { olga_flow_subordinate_actions_enabled = 1; }
 
-void TItemEffOrgaFlowShot::bswap_6xAD_subordinate_action() { read_be16_field2_forward((void*)(this)); TLobby__send_and_handle_60((u8 *)this); }
+void TItemEffOrgaFlowShot::bswap_6xAD_subordinate_action() { read_be16_field2_forward(this); TLobby__send_and_handle_60((u8 *)this); }
 
 int read_be16_field2_forward(void* p) { return ((TObjPlayer *)p)->read_be16_field2(); }
 void build_6xAD_olga_flow_subordinate_boss_actions(void* p) { *(u8*)((char*)p + 0x0) = 173; *(u8*)((char*)p + 0x1) = 17; }
@@ -221,9 +221,9 @@ void run_task__20TItemEffOrgaFlowShotFv(u8 *arg0) {
         queue_destruction__7TObjectFv((arg0));
         disallow_rendering__7TObjectFv((arg0));
     }
-    TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x190), (f32)((f32) (lbl_805E0030)), (f32)((f32) (*(f32 *)((s8 *)arg0 + 0x18C))));
+    TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x190), (f32)(lbl_805E0030), (f32)((f32) (*(f32 *)((s8 *)arg0 + 0x18C))));
     if (*(f32 *)((s8 *)arg0 + 0x190) == *(f32 *)((s8 *)arg0 + 0x18C)) {
-        TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x194), (f32)((f32) (lbl_805E0034)), (f32)((f32) (*(f32 *)((s8 *)arg0 + 0x198))));
+        TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x194), (f32)(lbl_805E0034), (f32)((f32) (*(f32 *)((s8 *)arg0 + 0x198))));
     }
     for (i = 0; i != 10; i++) {
         TObjBoss2Tunnel::decrement_packed_timer((u32 *)(&((O_8035740C *)arg0)->v[i].w), 2);
@@ -297,7 +297,7 @@ void TItemEffOrgaFlowShot::create(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x1A0);
     if (o != NULL) {
-        TItemEffOrgaFlowShot__ct((u8 *)(o), (s32)(arg0), (u8 *)(arg1));
+        TItemEffOrgaFlowShot__ct((u8 *)o, (s32)arg0, (u8 *)arg1);
     }
 }
 

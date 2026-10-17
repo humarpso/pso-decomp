@@ -67,7 +67,7 @@ void TItemEffNeedleBase::run_task() {
     u8 *arg0 = (u8 *)this;
     if (query_game_join_id__10TObjPlayerFv((int) (*(s32 *)((s8 *)arg0 + 0x2C))) == 0U) {
         queue_destruction__7TObjectFv((arg0));
-        disallow_rendering__7TObjectFv(((void *) (arg0)));
+        disallow_rendering__7TObjectFv((arg0));
         return;
     }
     allow_rendering__7TObjectFv((arg0));

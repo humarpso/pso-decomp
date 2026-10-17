@@ -103,7 +103,7 @@ void TBoss6Thanks::update_particle_emitters() {
             }
         } else {
             if (o->p[i] != NULL) {
-                TBoss4Type2::request_destroy((u32)(o->p[i]));
+                TBoss4Type2::request_destroy((u32)o->p[i]);
                 o->p[i] = NULL;
             }
         }
@@ -115,7 +115,7 @@ void TBoss6Thanks::destroy_effects() {
     s32 i;
     for (i = 0; i < 4; i++) {
         if (arg0->e[i].p != NULL) {
-            TBoss4Type2::request_destroy((u32)(arg0->e[i].p));
+            TBoss4Type2::request_destroy((u32)arg0->e[i].p);
             arg0->e[i].p = NULL;
         }
     }
@@ -199,7 +199,7 @@ void TBoss6Thanks::advance_thanks_state() {
     }
 }
 
-void TBoss6Thanks::mark_done() { if (TBoss6Thanks::is_player_near((void *)(this)) != 0) { *(int *)&this->m_24 = 1; *(int *)&this->m_1c = 1; } }
+void TBoss6Thanks::mark_done() { if (TBoss6Thanks::is_player_near(this) != 0) { *(int *)&this->m_24 = 1; *(int *)&this->m_1c = 1; } }
 
 typedef struct ThanksMotionHeader ThanksMotionHeader;
 typedef struct Thanks_8035CF78 Thanks_8035CF78;

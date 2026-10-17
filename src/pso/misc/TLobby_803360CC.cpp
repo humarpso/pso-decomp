@@ -173,7 +173,7 @@ void update_title_idle_transition(Obj_80336340 *arg0_) {
         if ((((TKeyBoardControl *)(&TKeyBoardControl__global_key_state.value))->has_any_key_pressed() != 0) || (TKeyBoardControl::any_pad_input_active() != 0)) {
             *(s32 *)((s8 *)arg0_ + 0x34) = 0;
         }
-        TLobby__sub_803362A4((void *) (arg0_));
+        TLobby__sub_803362A4(arg0_);
     }
     if ((s32) ((TUnk_804EEF64 *)arg0_)->m_38 == (s32) *(s32 *)((s8 *)arg0_ + 0x34)) {
         ((TObject *)(*(void **)((s8 *)arg0_ + 0x24)))->set_flag_4();

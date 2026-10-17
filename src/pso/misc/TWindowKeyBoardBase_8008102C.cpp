@@ -21,7 +21,7 @@ void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2) {
     u32 temp_r3_2;
     temp_r3 = (s16 *)(*(s16 **)((s8 *)arg0 + 0));
     if (temp_r3 != NULL) {
-        mem_free((void *)((int) (temp_r3)));
+        mem_free((void *)(temp_r3));
     }
     if (arg2 == 0) {
         *(u32 *)((s8 *)arg0 + 0x14) = arg1;
@@ -58,7 +58,7 @@ extern s32 local_client_id;
 s32 *TWindowKeyBoardBase::init_text_buffer_holder() {
     s32 *arg0 = (s32 *)this;
     *arg0 = 0;
-    init_keyboard_text_buffer((u8 *)(arg0), (u32)(0U), (u32)(0U));
+    init_keyboard_text_buffer((u8 *)arg0, (u32)(0U), (u32)(0U));
     return arg0;
 }
 
@@ -79,7 +79,7 @@ u8 *TEF_LensFlare__create(s32 arg0) {
         return NULL;
     }
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x94));
-    var_r0 = (u8 *)(temp_r3);
+    var_r0 = temp_r3;
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(TEF_LensFlare__ct(temp_r3, tl_05, arg0));
     }

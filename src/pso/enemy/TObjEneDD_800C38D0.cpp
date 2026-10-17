@@ -39,7 +39,7 @@ void TObjEneDD::handle_state(s32 arg1) {
         return;
     case 3:
         if (((V_Sub_800c38d0 *) (arg0 + 0x3F4))->m5() != 0) {
-            transition_enemy_state((void *)(arg0), 2);
+            transition_enemy_state(arg0, 2);
         }
     case 1:
         return;
@@ -60,7 +60,7 @@ void TObjEneRe2Flower::dispatch_action(s32 arg1) {
         this->vfunc_95();
         return;
     case 3:
-        transition_enemy_state((void *)(this), 1);
+        transition_enemy_state(this, 1);
     case 5:
     case 0:
         return;

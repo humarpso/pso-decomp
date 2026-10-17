@@ -145,7 +145,7 @@ void TLobby::open_challenge_window(s32 arg0, s32 arg1) {
     if (TCameraCtrl::get_camera_id() >= 2) {
         ((TUnk_804CDFE8 *)((*(Chal_8007369C *)&challenge_mode_state).window))->set_position_xy(lbl_805D9138, lbl_805D9138);
     }
-    TAdSinglePlyChrSelectGC::format_challenge_stage_times((s32)(arg0), (s32)(arg1));
+    TAdSinglePlyChrSelectGC::format_challenge_stage_times(arg0, arg1);
     send_and_handle__6TLobbyFii((*(Chal_8007369C *)&challenge_mode_state).window, challenge_progress_text_buffer, 0);
 }
 
@@ -208,7 +208,7 @@ void TLobby__sub_800738F4(void *arg0, s32 arg1) {
         ((TLobby *)arg0)->open_challenge_progress_window((void *)1);
         break;
     default:
-        TLobby::open_challenge_window((s32)(arg0), (s32)(arg1));
+        TLobby::open_challenge_window((s32)arg0, (s32)arg1);
         break;
     }
 }

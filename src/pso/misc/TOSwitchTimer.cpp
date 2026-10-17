@@ -92,7 +92,7 @@ extern void *tl_05;
 void *TOSwitchTimer::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xB8);
     if (o != NULL) {
-        o = TOSwitchTimer__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TOSwitchTimer__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -114,11 +114,11 @@ u8 *__dt__13TOSwitchTimerFv(u8 *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_80178604___vt__13TOSwitchTimer_size[sizeof(RecoveredGlobal_80178604___vt__13TOSwitchTimer) == 0x38 ? 1 : -1];
 u8 *TOSwitchTimer__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_world_actor_base((void *) (arg0));
+    construct_world_actor_base(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80178604___vt__13TOSwitchTimer *)&__vt__13TOSwitchTimer).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3188;
     ((TOSwitchTimer *)(arg0))->apply_object_set_data((void *)arg2);
-    fn_801782A0((void *) (arg0));
+    fn_801782A0(arg0);
     return arg0;
 }
 

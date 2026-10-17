@@ -57,7 +57,7 @@ u8 *TObjEneDD::vfunc_103(u8 *arg1) {
     Vec position;
     u8 *temp_r3;
     position.x = *(f32 *)((s8 *)arg1 + 0);
-    position.y = *(f32 *)((s8 *)arg1 + 4) + *(f32 *)((s8 *)(this->m_2b0) + 0x10);
+    position.y = *(f32 *)((s8 *)arg1 + 4) + *(f32 *)(this->m_2b0 + 0x10);
     position.z = *(f32 *)((s8 *)arg1 + 8);
     if (csnVectorUnder(&position.x, (u8 *)&this->m_120, 0xE0) != NULL) {
         return NULL;

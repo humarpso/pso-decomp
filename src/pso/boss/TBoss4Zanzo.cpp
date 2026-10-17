@@ -751,7 +751,7 @@ void render__11TBoss4ZanzoFv(u8 *arg0) {
         post_translate_matrix((void *) (arg0 + 0x1C));
         rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x28)));
         TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x2C)));
-        TObjPlayer__sub_80052390((f32) (temp_f31));
+        TObjPlayer__sub_80052390(temp_f31);
         draw_model_motion((int) (*(s32 *)((s8 *)arg0 + 0x30)), (int) (*(s32 *)((s8 *)arg0 + 0x34)), (f32) (*(f32 *)((s8 *)arg0 + 0x38)));
         TObjPlayer::sync_player_globals();
         TObjPlayer::clear_global_state();
@@ -1062,12 +1062,12 @@ void TBoss4Type2__vt21(Obj_80055BC0 *o) {
         }
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x398) > 6) {
-        play_persistent_sound(0x4003AD16, (void *) (arg0), (void *) (arg0 + 0x38), 0, 1);
+        play_persistent_sound(0x4003AD16, arg0, (void *) (arg0 + 0x38), 0, 1);
     }
     temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x398) - 1;
     *(s32 *)((s8 *)arg0 + 0x398) = temp_r0_2;
     if (temp_r0_2 < 0) {
-        TBoss4Type2__sub_80057048((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0x424)));
+        TBoss4Type2__sub_80057048(arg0, (int) (*(s32 *)((s8 *)arg0 + 0x424)));
     }
 }
 
@@ -1207,12 +1207,12 @@ void TBoss4Type2__vt12(u8 *arg0) {
         TBoss4Type2::create_jisin((void *)arg0, (void *)(*(s32 *)((s8 *)arg0 + 0x3A0)));
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x398) <= 0x1E) {
-        play_persistent_sound(0x4003AD16, (void *) (arg0), (void *) (arg0 + 0x38), 0, 1);
+        play_persistent_sound(0x4003AD16, arg0, (void *) (arg0 + 0x38), 0, 1);
     }
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x398) - 1;
     *(s32 *)((s8 *)arg0 + 0x398) = temp_r0;
     if (temp_r0 < 0) {
-        TBoss4Type2__sub_80057048((void *) (arg0), 8);
+        TBoss4Type2__sub_80057048(arg0, 8);
     }
 }
 
@@ -1235,7 +1235,7 @@ void TBoss4Type2__vt9(u8 *arg0) {
     } else {
         *(f32 *)((s8 *)arg0 + 0x39C) = (f32) (*(f32 *)&TBoss4Type2__data_805D8BD8);
     }
-    TBoss4Type2__sub_80057128((void *) (arg0));
+    TBoss4Type2__sub_80057128(arg0);
     if ((s32) game_difficulty_selection == 3) {
         temp_r3 = angle_diff_s16((int) (*(s32 *)((s8 *)arg0 + 0x3A4)), (int) (*(s32 *)((s8 *)arg0 + 0x3A8)));
         if (!(*(s32 *)((s8 *)arg0 + 0x398) & 3)) {
@@ -1248,7 +1248,7 @@ void TBoss4Type2__vt9(u8 *arg0) {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x398) - 1;
     *(s32 *)((s8 *)arg0 + 0x398) = temp_r0;
     if (temp_r0 < 0) {
-        TBoss4Type2__sub_80057048((void *) (arg0), 1);
+        TBoss4Type2__sub_80057048(arg0, 1);
     }
 }
 
@@ -1265,7 +1265,7 @@ void TBoss4Type2__vt6(u8 *arg0) {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x398) - 1;
     *(s32 *)((s8 *)arg0 + 0x398) = temp_r0;
     if (temp_r0 < 0) {
-        TBoss4Type2__sub_80057048((void *)(arg0), 2);
+        TBoss4Type2__sub_80057048(arg0, 2);
     }
 }
 
@@ -1275,10 +1275,10 @@ void TBoss4Type2__vt4(void* p) { *(s32*)((char*)p + 0x398) = 75; }
 
 void TBoss4Type2__vt3(u8 *arg0) {
     if (*(s32 *)((s8 *)arg0 + 0x30) & 0x800) {
-        TBoss4Type2__sub_80056FEC((Obj_80056FEC *)((void *)(arg0)), 2);
+        TBoss4Type2__sub_80056FEC((Obj_80056FEC *)(arg0), 2);
         return;
     }
-    ((s32 (*)(void *, s32))TBoss4Type2__sub_80057048)((void *)((void *)(arg0)), 9);
+    ((s32 (*)(void *, s32))TBoss4Type2__sub_80057048)((void *)(arg0), 9);
 }
 
 void TBoss4Type2__vt2(void *arg0) {
@@ -1292,7 +1292,7 @@ void TBoss4Type2__vt2(void *arg0) {
 
 void TBoss4Type2__vt1(u8 *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x398) == 0) {
-        TBoss4Type2__sub_80056F90((Obj_80056F90 *)((void *) (arg0)), 4, (s32)((int) (TBoss4Type2__sub_80057224((Obj_80057224 *)(arg0)))));
+        TBoss4Type2__sub_80056F90((Obj_80056F90 *)(arg0), 4, (s32)((int) (TBoss4Type2__sub_80057224((Obj_80057224 *)(arg0)))));
     }
 }
 
@@ -1355,11 +1355,11 @@ void TBoss4Type2__sub_80056998(u8 *arg0) {
     s32 temp_r3;
     s32 var_r4;
     s32 var_r5;
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x3E0) < 3) && (calc_boss4_scale__10TObjPlayerFi((void *) (arg0)) < lbl_805D8BE4)) {
-        TBoss4Type2__sub_80056F90((Obj_80056F90 *)((void *)((void *) (arg0))), 4, (s32)((int)((void *) (TBoss4Type2__sub_80057224((Obj_80057224 *)((void *)((void *) (arg0))))))));
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x3E0) < 3) && (calc_boss4_scale__10TObjPlayerFi(arg0) < lbl_805D8BE4)) {
+        TBoss4Type2__sub_80056F90((Obj_80056F90 *)((void *)(arg0)), 4, (s32)((int)((void *) (TBoss4Type2__sub_80057224((Obj_80057224 *)((void *)(arg0)))))));
         return;
     }
-    if (calc_boss4_scale__10TObjPlayerFi((void *) (arg0)) < lbl_805D8BE4) {
+    if (calc_boss4_scale__10TObjPlayerFi(arg0) < lbl_805D8BE4) {
         temp_r3 = *(s32 *)((s8 *)arg0 + 0x424);
         var_r5 = temp_r3 + 1;
         var_r4 = temp_r3;
@@ -1373,7 +1373,7 @@ void TBoss4Type2__sub_80056998(u8 *arg0) {
         if (var_r5 > 0xC) {
             var_r5 = 0xC;
         }
-        ((s32 (*)(void *, int, int))TBoss4Type2__sub_80056B3C)((void *) (arg0), (int) (var_r4), (int) (var_r5));
+        ((s32 (*)(void *, int, int))TBoss4Type2__sub_80056B3C)(arg0, var_r4, var_r5);
         return;
     }
     ((TBoss4Type2 *)arg0)->choose_next_action();
@@ -1538,7 +1538,7 @@ void TBoss4Type2::draw_hanger() {
             TObjEneRe4Sorcerer__sub_801E3F1C(TBoss4Type2__data_805D8BAC, arg0->f3c0);
             ((TObjFish *)(arg0->f44c))->set_draw_callback_list();
             ((s32 (*)(s32, s32, f32))draw_model_motion)(get_bml_model(arg0->f390, boss4_zanzo_bml_index_table[i]),
-                get_bml_motion((s32)(arg0->f390), (s32)(((Row_80057270 *)&TBoss4Type2__attack_pattern_table)[arg0->f3c8].c[i])),
+                get_bml_motion(arg0->f390, (s32)(((Row_80057270 *)&TBoss4Type2__attack_pattern_table)[arg0->f3c8].c[i])),
                 arg0->f3d0);
             clear_render_callback__8TObjFishFv(arg0->f44c);
             model_render_flags &= ~0x20000;
@@ -1546,7 +1546,7 @@ void TBoss4Type2::draw_hanger() {
         default:
             TBoss6PlotFalz__sub_802AC008(arg0->f3f0, arg0->f3f4);
             ((s32 (*)(s32, s32, f32))draw_model_motion)(get_bml_model(arg0->f390, boss4_zanzo_bml_index_table[i]),
-                get_bml_motion((s32)(arg0->f390), (s32)(((Row_80057270 *)&TBoss4Type2__attack_pattern_table)[arg0->f3c8].c[i])),
+                get_bml_motion(arg0->f390, (s32)(((Row_80057270 *)&TBoss4Type2__attack_pattern_table)[arg0->f3c8].c[i])),
                 arg0->f3d0);
             TBoss6PlotFalz::update_camera_target();
             break;
@@ -1708,7 +1708,7 @@ S_800578E8 *__dt__13TUnk_80486924Fv(S_800578E8 *o, s16 flag) {
         fn_8004AA04(o->f378);
         for (i = 0; i < 8; i++) {
             if (o->ptr[i] != 0) {
-                TBoss4Type2::request_destroy((u32)(o->ptr[i]));
+                TBoss4Type2::request_destroy((u32)o->ptr[i]);
                 o->ptr[i] = 0;
             }
         }

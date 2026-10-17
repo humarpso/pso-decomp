@@ -31,7 +31,7 @@ void TObjEneDD__sub_800C2618(void* p) { *(u32*)((char*)p + 0x3c4) |= 0x2; }
 
 extern const f32 lbl_805D9FC0;
 
-#define F(T, off) (*(T *)((s8 *)(arg0) + (off)))
+#define F(T, off) (*(T *)(arg0 + (off)))
 void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1) {
     s32 step;
     Vec_800C2628 v;

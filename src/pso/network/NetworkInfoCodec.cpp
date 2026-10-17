@@ -107,13 +107,13 @@ s32 parse_network_info_config_line(char *s, u32 n, NetworkInfoConfig *q) {
     buf[4] = 0;
     i = atoi(&buf[3]);
     if (strncmp(s, network_info_config_key_iver, 4) == 0) {
-        q->v0 = parse_network_info_config_decimal((char *)(s), (u32)(n));
+        q->v0 = parse_network_info_config_decimal((char *)(s), n);
     } else if (strncmp(s, network_info_config_key_cnum, 4) == 0) {
-        q->v2 = parse_network_info_config_decimal((char *)(s), (u32)(n));
+        q->v2 = parse_network_info_config_decimal((char *)(s), n);
     } else if (strncmp(s, network_info_config_key_mnum, 4) == 0) {
-        q->v4 = parse_network_info_config_decimal((char *)(s), (u32)(n));
+        q->v4 = parse_network_info_config_decimal((char *)(s), n);
     } else if (strncmp(s, network_info_config_key_bnum, 4) == 0) {
-        q->v6 = parse_network_info_config_decimal((char *)(s), (u32)(n));
+        q->v6 = parse_network_info_config_decimal((char *)(s), n);
     }
     if (network_info_config_field_handled == 0 && i < 6) {
         if (strncmp(s, network_info_config_key_nam, 3) == 0) {
@@ -337,9 +337,9 @@ s32 decode_network_info_payload(u8 *src, u8 *arg1, u32 arg2, NetworkInfoConfig *
     u32 i;
     s32 r;
     bind_network_info_cipher_pool((u32 *)&network_info_cipher_workspace, 1);
-    key = allocate_network_info_cipher_key((s32)(src));
+    key = allocate_network_info_cipher_key((s32)src);
     for (i = 0; i < arg2; i += 0x10) {
-        if (decrypt_network_info_cipher_blocks((u32 *)(key), (u8 *)(arg1 + i), 0x10, (u8 *)(arg1 + i)) != 0) {
+        if (decrypt_network_info_cipher_blocks(key, (u8 *)(arg1 + i), 0x10, (u8 *)(arg1 + i)) != 0) {
             return -1;
         }
     }
@@ -430,7 +430,7 @@ s32 decrypt_network_info_cipher_blocks(u32 *key, u8 *src, s32 len, u8 *dst) {
     p = (NetworkInfoCipherBlock *)src;
     q = (NetworkInfoCipherBlock *)dst;
     for (i = 0; i < (len >> 4); i++) {
-        decrypt_network_info_cipher_block((u32 *)(key), (NetworkInfoCipherBlock *)(p++), (NetworkInfoCipherBlock *)(q++));
+        decrypt_network_info_cipher_block(key, (NetworkInfoCipherBlock *)(p++), (NetworkInfoCipherBlock *)(q++));
     }
     return 0;
 }

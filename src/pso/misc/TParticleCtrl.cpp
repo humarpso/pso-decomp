@@ -266,7 +266,7 @@ void *TParticleCtrl__sub_80085878(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_800858D0_lbl_8048E6A8_size[sizeof(RecoveredGlobal_800858D0_lbl_8048E6A8) == 0x34 ? 1 : -1];
 u8 *TParticleCtrl::construct_particle_obj(s32 arg1, s32 arg2) {
-    construct_world_actor_base((void *) (((u8 *)this)), (void *) (arg2));
+    construct_world_actor_base((void *) (((u8 *)this)), (void *)arg2);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_800858D0_lbl_8048E6A8 *)&lbl_8048E6A8).value;
     ((VObj_18_1a504b *)(((u8 *)this)))->m5(arg1);
     return ((u8 *)this);
@@ -279,9 +279,9 @@ u8 *TParticleCtrl::create_particle_obj_90(s32 arg0) {
         return NULL;
     }
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x90));
-    var_r0 = (u8 *)(temp_r3);
+    var_r0 = temp_r3;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(((TParticleCtrl *)temp_r3)->construct_particle_obj((s32)(arg0), (s32)(tl_particle)));
+        var_r0 = (u8 *)(((TParticleCtrl *)temp_r3)->construct_particle_obj(arg0, tl_particle));
     }
     return var_r0;
 }
@@ -293,9 +293,9 @@ u8 *TParticleCtrl::create_particle_obj_ac(s32 arg0) {
         return NULL;
     }
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0xAC));
-    var_r0 = (u8 *)(temp_r3);
+    var_r0 = temp_r3;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(((TParticleCtrl *)temp_r3)->init_particle_obj((s32)(arg0), (s32)(tl_particle)));
+        var_r0 = (u8 *)(((TParticleCtrl *)temp_r3)->init_particle_obj(arg0, tl_particle));
     }
     return var_r0;
 }
@@ -354,7 +354,7 @@ typedef char RecoveredGlobal_800861F4_TParticleCtrl__data_80511F70_size[sizeof(R
 
 typedef char RecoveredGlobal_80085E78_lbl_8048E6DC_size[sizeof(RecoveredGlobal_80085E78_lbl_8048E6DC) == 0x34 ? 1 : -1];
 u8 *TParticleCtrl::init_particle_obj(s32 arg1, s32 arg2) {
-    construct_world_actor_base((void *) (((u8 *)this)), (void *) (arg2));
+    construct_world_actor_base((void *) (((u8 *)this)), (void *)arg2);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80085E78_lbl_8048E6DC *)&lbl_8048E6DC).value;
     ((VObj_18_1a504b *)(((u8 *)this)))->m5(arg1);
     *(f32 *)((s8 *)((u8 *)this) + 0xA4) = (f32) lbl_805D9484;

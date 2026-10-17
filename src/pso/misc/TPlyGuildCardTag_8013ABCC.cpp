@@ -9,7 +9,7 @@ extern "C" {
     extern int area_random_seed;
 extern u8 *TQuestListOnline__instance;
 void *TPlyGuildCardTag::copy_full(void *arg1) {
-    copy((void*)(arg1));
+    copy(arg1);
     ((TPlyGuildCardTag *)((char *)this + 36))->copy((void *)((char *)arg1 + 36));
     return this;
 }

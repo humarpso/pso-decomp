@@ -160,10 +160,10 @@ u32 update_ginja_cached_parameter(s32 i, u32 v) {
 
 void set_ginja_indexed_vtx_desc(s32 arg0) {
     GXClearVtxDesc();
-    Dolphin_GXSetVtxDesc(9, (void *) (get_ginja_vertex_descriptor_type((u32)((void *) (arg0)), 1)));
-    Dolphin_GXSetVtxDesc(0xA, (void *) (get_ginja_vertex_descriptor_type((u32)((void *) (arg0)), 2)));
-    Dolphin_GXSetVtxDesc(0xB, (void *) (get_ginja_vertex_descriptor_type((u32)((void *) (arg0)), 3)));
-    Dolphin_GXSetVtxDesc(0xD, (void *) (get_ginja_vertex_descriptor_type((u32)((void *) (arg0)), 5)));
+    Dolphin_GXSetVtxDesc(9, (void *) (get_ginja_vertex_descriptor_type((u32)(arg0), 1)));
+    Dolphin_GXSetVtxDesc(0xA, (void *) (get_ginja_vertex_descriptor_type((u32)(arg0), 2)));
+    Dolphin_GXSetVtxDesc(0xB, (void *) (get_ginja_vertex_descriptor_type((u32)(arg0), 3)));
+    Dolphin_GXSetVtxDesc(0xD, (void *) (get_ginja_vertex_descriptor_type((u32)(arg0), 5)));
 }
 
 void set_ginja_channel_ctrl(s32 channel,s32 flags) {

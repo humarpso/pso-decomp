@@ -17,8 +17,8 @@ s32 fill_value_array(void *);
 void mem_free(void *p);
 
 s32 attack_target_history_add(s32 object, s32 target) {
-    if ((fn_800BC758((u8 *)(object)) != 0) && (((s32)attack_target_history_contains((void*)((void *)((void *) (object))), (void*)((void *)((void *) (target))))) == 0)) {
-        ((s32)push_attack_target_entry((u8 *)((void *)((void *) (object))), (s32)((void *)((void *) (target)))));
+    if ((fn_800BC758((u8 *)object) != 0) && (((s32)attack_target_history_contains((void*)((void *)((void *)object)), (void*)((void *)((void *)target)))) == 0)) {
+        ((s32)push_attack_target_entry((u8 *)((void *)(object)), (s32)((void *)(target))));
         return 1;
     }
     return 0;
@@ -26,9 +26,9 @@ s32 attack_target_history_add(s32 object, s32 target) {
 
 s32 delete_buffer__12TBoss8DragonFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
-        free_buffer__12TBoss8DragonFPvs((u32 *)(arg0), (s16)(0));
+        free_buffer__12TBoss8DragonFPvs((u32 *)arg0, (s16)(0));
         if (arg1 > 0) {
-            ::operator delete((u32 *)(arg0));
+            ::operator delete((u32 *)arg0);
         }
     }
     return arg0;

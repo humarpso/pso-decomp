@@ -104,7 +104,7 @@ extern void *tl_05;
 
 typedef char RecoveredGlobal_801922C4___vt__9TKomorebi_size[sizeof(RecoveredGlobal_801922C4___vt__9TKomorebi) == 0x38 ? 1 : -1];
 u8 *TKomorebi__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_world_actor_base((void *) (arg0));
+    construct_world_actor_base(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801922C4___vt__9TKomorebi *)&__vt__9TKomorebi).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) komorebi_class_name;
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2 + 0xC));
@@ -118,7 +118,7 @@ u8 *TKomorebi__ct(u8 *arg0, s32 arg1, s32 arg2) {
 void *TKomorebi__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x90);
     if (o != NULL) {
-        o = TKomorebi__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TKomorebi__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

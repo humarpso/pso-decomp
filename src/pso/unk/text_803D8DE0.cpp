@@ -18,7 +18,7 @@ void fn_803D8DE0(u32 arg0) {
         var_r3_2 = (*(u32 *)&current_matrix);
         phi_r3 = var_r3_2;
     }
-    PSMTXMultVecArraySR((int) (phi_r3));
+    PSMTXMultVecArraySR(phi_r3);
 }
 #pragma pop
 #pragma push

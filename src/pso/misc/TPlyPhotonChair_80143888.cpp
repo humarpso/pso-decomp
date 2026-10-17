@@ -12,7 +12,7 @@ extern s32 lbl_804A7478[];
 void *TUnk_804A7478::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 * *)&(*(u16 *)((u8 *)this + 0x4)) = lbl_804A7478;
-        __dt__13TUnk_804A7488Fv((void *)(this), (s16)(0));
+        __dt__13TUnk_804A7488Fv(this, (s16)(0));
         if (arg1 > 0) {
             ::operator delete(this);
         }

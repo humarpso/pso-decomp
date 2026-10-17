@@ -171,7 +171,7 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
         {
             void *p = (void *) __nw__7TObjectFUl(0x3C);
             if (p != NULL) {
-                ((TObjPlayer *)p)->init_breakup_pieces((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0x6D4)));
+                ((TObjPlayer *)p)->init_breakup_pieces(arg0, (int) (*(s32 *)((s8 *)arg0 + 0x6D4)));
             }
         }
     }
@@ -209,7 +209,7 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
         temp_r0_3 = *(s32 *)&((TBoss7DeRolLeC *)arg0)->m_6d4;
         if (temp_r0_3 != 1) {
             if (temp_r0_3 == 2) {
-                if (((s32 (*)(void *))sub_802ECB10__14TBoss7DeRolLeCFv)((void *) (arg0)) != 0) {
+                if (((s32 (*)(void *))sub_802ECB10__14TBoss7DeRolLeCFv)(arg0) != 0) {
                     ((TBoss7DeRolLeC *)arg0)->sub_802ECAA4();
                 } else {
                     ((VObj_18 *)(arg0))->m85(((TBoss7DeRolLeC *)arg0)->mode, 2);
@@ -234,7 +234,7 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
     ((TBoss7DeRolLeC *)(arg0))->vfunc_88();
     ((TObjFish *)arg0)->sync_position_vectors();
     ((TBoss7DeRolLeC *)arg0)->flee_if_disturbed();
-    TParticleCtrl__sub_802EC550((void *) (arg0));
+    TParticleCtrl__sub_802EC550(arg0);
     if (temp_r30 == 0) {
         ((TObject *)(arg0 + 0x690))->run_tasks();
     }
@@ -245,13 +245,13 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
         post_translate_matrix((void *) (arg0 + 0x38));
         post_translate_matrix((void *) (arg0 + 0x6EC));
         rotate_matrix_by_node_angles((void *) (arg0 + 0x5C), 1);
-        scale_current_matrix((void *) (lbl_804E3BF0));
+        scale_current_matrix(lbl_804E3BF0);
         ((TBoss7DeRolLeC *)arg0)->sub_802E8234();
         ((TUnk_804806E8 *)arg0)->get_speed();
         apply_with_callback__10TObjPlayerFlf((int) (*(u32 *)((s8 *)arg0 + 0x7AC)), (int) (*(s32 *)&((TBoss7DeRolLeC *)arg0)->unknownF8));
         pop_matrix();
         TObjPlayer::clear_global_state();
-        fn_802E79B0((void *) (arg0));
+        fn_802E79B0(arg0);
     }
 }
 

@@ -129,7 +129,7 @@ s32 TODoorAncient08::init_door_switch_binding() {
     return *(s32 *)&this->unk_C8;
 }
 
-#define VCALL_m8(obj) (((TODoorVObj_8015FCBC*)(obj))->m8((*(f32 *)((s8 *)(obj) + 0xC0)), (*(f32 *)((s8 *)(obj) + 0xC4))))
+#define VCALL_m8(obj) (((TODoorVObj_8015FCBC*)(obj))->m8((*(f32 *)(obj + 0xC0)), (*(f32 *)(obj + 0xC4))))
 
 void TODoorAncient08::play_open_sound() {
     u8 *arg0 = (u8 *)this;
@@ -173,7 +173,7 @@ void TODoorAncient08::update_door_switch_state() {
         this->m_d0 = (s32) (this->m_d0 | 1);
         return;
     case 2:
-        if ((is_current_floor_switch_set((int) ((u16) *(s32 *)&this->unk_C8)) == 1) && (is_current_floor_switch_set((int) (this->m_d4)) == 1) && (is_current_floor_switch_set((int) (this->m_d6)) == 1) && (is_current_floor_switch_set((int) (this->m_d8)) == 1)) {
+        if ((is_current_floor_switch_set((int) ((u16) *(s32 *)&this->unk_C8)) == 1) && (is_current_floor_switch_set(this->m_d4) == 1) && (is_current_floor_switch_set(this->m_d6) == 1) && (is_current_floor_switch_set(this->m_d8) == 1)) {
             ((TODoorAncient08 *)arg0)->play_open_sound();
             this->m_d0 = (s32) (this->m_d0 | 1);
             *(s32 *)&this->m_dc = 1;
@@ -183,7 +183,7 @@ void TODoorAncient08::update_door_switch_state() {
         *(s32 *)&this->m_dc = 0;
         return;
     case 3:
-        if ((is_current_floor_switch_set((int) ((u16) *(s32 *)&this->unk_C8)) == 1) && (is_current_floor_switch_set((int) (this->m_d4)) == 1) && (is_current_floor_switch_set((int) (this->m_d6)) == 1) && (is_current_floor_switch_set((int) (this->m_d8)) == 1)) {
+        if ((is_current_floor_switch_set((int) ((u16) *(s32 *)&this->unk_C8)) == 1) && (is_current_floor_switch_set(this->m_d4) == 1) && (is_current_floor_switch_set(this->m_d6) == 1) && (is_current_floor_switch_set(this->m_d8) == 1)) {
             ((TODoorAncient08 *)arg0)->play_open_sound();
             this->m_d0 = (s32) (this->m_d0 | 1);
             if (((u32) *(u32 *)&this->m_80 != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), 1) != 0)) {
@@ -241,7 +241,7 @@ void TODoorAncient08::draw_switch_lights() {
     TObjFish::set_global_param(((s32 *)TODoorAncient08__switch_texture_lists)[1]);
     post_translate_matrix(self->pos);
     post_translate_matrix(root->pos);
-    rotate_matrix_y(0, (s32)(self->x60));
+    rotate_matrix_y(0, self->x60);
     draw_ginja_model((s32)root->model);
     draw_ginja_model((s32)root->x2c->model);
     TParticleCtrl::begin_effect_render();
@@ -369,7 +369,7 @@ void TODoorAncient08::play_proximity_sound() {
 void *TODoorAncient08::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xEC);
     if (o != NULL) {
-        o = TODoorAncient08__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TODoorAncient08__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -395,7 +395,7 @@ void TODoorAncient08::load_resources() {
     u8 *temp_r3;
     u8 *var_r0;
     temp_r3 = (u8 *)(((TAdSinglePlyChrSelectGC *)0x440)->alloc());
-    var_r0 = (u8 *)(temp_r3);
+    var_r0 = temp_r3;
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &TODoorAncient08__resource_descriptor.value, 0, 0, 0));
     }
@@ -433,7 +433,7 @@ u8 *TODoorAncient08__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(u8 **)((s8 *)arg0 + 0xBC) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&door_ancient08_bml_resource) + 0x430)) + 4));
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB474);
     ((TODoorAncient08 *)arg0)->m_b8 = (f32) (*(f32 *)((s8 *)arg0 + 0xB4) / lbl_805DB470);
-    init_collision_body_parts((void *) (arg0), (void *) (&TODoorAncient08__collision_body.value), 1);
+    init_collision_body_parts(arg0, (void *) (&TODoorAncient08__collision_body.value), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     temp_r0 = ((TODoorAncient08 *)arg0)->m_84;

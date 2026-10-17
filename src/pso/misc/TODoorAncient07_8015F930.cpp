@@ -62,7 +62,7 @@ void TODoorAncient07::cleanup() {
 #define G5918 (*(u8 **)&TODoorAncient07__bml_resource)
 #define G591C (*(s32 **)&TODoorAncient07__texture_lists)
 #define G5920 (*(u8 **)&TODoorAncient07__render_nodes)
-#define NODE(p, o) (*(u8 **)((u8 *)(p) + (o)))
+#define NODE(p, o) (*(u8 **)(p + (o)))
 void TODoorAncient07::load_resources() {
     u8 *p;
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
@@ -108,7 +108,7 @@ u8 *TODoorAncient07__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(u8 **)((s8 *)arg0 + 0xBC) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODoorAncient07__bml_resource) + 0x430)) + 4));
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB468);
     ((TODoorAncient07 *)arg0)->m_b8 = (f32) (*(f32 *)((s8 *)arg0 + 0xB4) / lbl_805DB458);
-    init_collision_body_parts((void *) (arg0), (void *) (&door_ancient07_collision_parts.value), 1);
+    init_collision_body_parts(arg0, (void *) (&door_ancient07_collision_parts.value), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TODoorAncient07 *)(arg0))->init_door_switch_binding();

@@ -20,7 +20,7 @@ void TObjPlayer::start_photon_blast(s32 arg0, u16 arg1) {
 
     temp_r3 = get_player_by_client_id(arg1);
     if (temp_r3 != 0) {
-        photon_blast_entry = TObjPlayer::get_photon_blast_entry((int)(arg0));
+        photon_blast_entry = TObjPlayer::get_photon_blast_entry(arg0);
         if (is_locally_controlled__10TObjPlayerFPv(temp_r3) != 0) {
             play_effect_default__10TObjPlayerFii(temp_r3, *(s16 *)((s8 *)photon_blast_entry + 0x20));
         }

@@ -113,7 +113,7 @@ s32 TODoorAncient09::init_door_switch_binding() {
 extern const f32 lbl_805DB480;
 extern const f32 lbl_805DB484;
 
-#define VCALL_m8(obj) (((TODoor9VObj_801608B4*)(obj))->m8((*(f32 *)((s8 *)(obj) + 0xC0)), (*(f32 *)((s8 *)(obj) + 0xC4))))
+#define VCALL_m8(obj) (((TODoor9VObj_801608B4*)(obj))->m8((*(f32 *)(obj + 0xC0)), (*(f32 *)(obj + 0xC4))))
 
 void TODoorAncient09::sub_80160968() {
     u8 *arg0 = (u8 *)this;
@@ -159,7 +159,7 @@ void TODoorAncient09::update_door_switch_state() {
         this->m_d0 = (s32) (this->m_d0 | 1);
         return;
     case 2:
-        if ((is_current_floor_switch_set((int) ((u16) *(s32 *)&this->unk_C8)) == 1) && (is_current_floor_switch_set((int) (this->m_d4)) == 1)) {
+        if ((is_current_floor_switch_set((int) ((u16) *(s32 *)&this->unk_C8)) == 1) && (is_current_floor_switch_set(this->m_d4) == 1)) {
             ((TODoorAncient09 *)arg0)->sub_80160968();
             this->m_d0 = (s32) (this->m_d0 | 1);
             *(s32 *)&this->m_d8 = 1;
@@ -169,7 +169,7 @@ void TODoorAncient09::update_door_switch_state() {
         *(s32 *)&this->m_d8 = 0;
         return;
     case 3:
-        if ((is_current_floor_switch_set((int) ((u16) *(s32 *)&this->unk_C8)) == 1) && (is_current_floor_switch_set((int) (this->m_d4)) == 1)) {
+        if ((is_current_floor_switch_set((int) ((u16) *(s32 *)&this->unk_C8)) == 1) && (is_current_floor_switch_set(this->m_d4) == 1)) {
             ((TODoorAncient09 *)arg0)->sub_80160968();
             this->m_d0 = (s32) (this->m_d0 | 1);
             if (((u32) *(u32 *)&this->m_80 != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), 1) != 0)) {
@@ -214,7 +214,7 @@ void TODoorAncient09::draw_model() {
     TObjFish::set_global_param(((s32 *)TODoorAncient09__texture_lists)[0]);
     post_translate_matrix(self->pos);
     post_translate_matrix(root->pos);
-    rotate_matrix_y(0, (s32)(self->x60));
+    rotate_matrix_y(0, self->x60);
     draw_ginja_model((s32)root->model);
     draw_ginja_model((s32)root->x2c->model);
     TParticleCtrl::begin_effect_render();
@@ -370,7 +370,7 @@ void TODoorAncient09::load_resources() {
     u8 *temp_r3;
     u8 *var_r0;
     temp_r3 = (u8 *)(((TAdSinglePlyChrSelectGC *)0x440)->alloc());
-    var_r0 = (u8 *)(temp_r3);
+    var_r0 = temp_r3;
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &ancient_door09_resource_descriptor.value, 0, 0, 0));
     }

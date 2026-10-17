@@ -88,7 +88,7 @@ void add_photon_blast_chain_charge(u8 *arg0, f32 farg0) {
         if (*(f32 *)((s8 *)arg0 + 0x3C) >= lbl_805DC3E4) {
             *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805DC3E4;
             ((TFontSmallLobby *)arg0)->update_ready();
-            TFontSmallLobby__sub_801D677C((void *) (arg0));
+            TFontSmallLobby__sub_801D677C(arg0);
         }
     }
 }
@@ -179,7 +179,7 @@ int set_flags__10TObjPlayerFUl(void*, int);
 
 s32 TFontSmallLobby::construct_pb_controller() {
     s32 arg0 = (s32)this;
-    __construct_array((void *) (arg0 + 0x14), (void *) (fn_80152EF8), 0, 4, 0xA);
+    __construct_array((void *) (arg0 + 0x14), fn_80152EF8, 0, 4, 0xA);
     ((TObjPlayer *)(arg0 + 0x40))->init_forward();
     ((TFontSmallLobby *)(arg0 + 0x4C))->init_reset_fields();
     ((TFontSmallLobby *)arg0)->reset_state();

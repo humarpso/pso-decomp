@@ -16,7 +16,7 @@ u8 *create_item_list_window(s32 arg0, s32 arg1, s32 arg2) {
     camera_id = TCameraCtrl::get_camera_id();
     switch (camera_id) {
     case 1:
-        TShopJudgmentItemWindow__sub_80267F9C((void *) (TShopJudgmentItemWindow__item_list_rect_table), arg1);
+        TShopJudgmentItemWindow__sub_80267F9C(TShopJudgmentItemWindow__item_list_rect_table, arg1);
         break;
     case 2:
         TShopJudgmentItemWindow__sub_80267F9C((void *) ((u8 *)TShopJudgmentItemWindow__item_list_rect_table + 8), arg1);
@@ -34,7 +34,7 @@ u8 *create_item_list_window(s32 arg0, s32 arg1, s32 arg2) {
 }
 
 void TShopJudgmentItemWindow::open_default(s32 a) {
-    create_item_list_window((s32)(a), 0x40, (s32)(local_client_id));
+    create_item_list_window(a, 0x40, local_client_id);
 }
 
 }

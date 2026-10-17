@@ -67,7 +67,7 @@ u8 *__ct__16TBoss8DragonDemoFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
     typedef char spC_offset[(offsetof(Stack_802F2D8C, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_802F2D8C, sp10) == 0x8) ? 1 : -1];
     Stack_802F2D8C stack;
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__16TBoss8DragonDemo.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3FF8;
     *(f32 *)((s8 *)arg0 + 0x1C) = farg0;

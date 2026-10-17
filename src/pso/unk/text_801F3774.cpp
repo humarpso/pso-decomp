@@ -82,7 +82,7 @@ void prepare_offline_quest_filenames(const char* identity) {
 
 void send_and_handle_6x75(void *arg0) {
     ((TLobby *)arg0)->byteswap_6x75_packet();
-    TLobby__send_and_handle_60((u8 *)(arg0));
+    TLobby__send_and_handle_60((u8 *)arg0);
 }
 
 void TLobby::byteswap_6x75_packet() {

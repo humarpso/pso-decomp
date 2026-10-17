@@ -228,9 +228,9 @@ void TTecBarta::create_particle_emitters() {
 void TTecBarta::init_parameters() {
     u8 *arg0 = (u8 *)this;
   int new_var;
-  new_var = (int) calc_technique_parameters(3, (int) (this->level), 0xFFFF);
+  new_var = (int) calc_technique_parameters(3, this->level, 0xFFFF);
   ((TTecAnti *)(arg0 + 0xCC))->copy_params((u8 *)new_var);
-  if ((((s16) (this->level)) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
+  if (((this->level) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
     this->power = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0xC))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0xE))) * (this->level)));
   }
@@ -242,7 +242,7 @@ void TTecBarta::init_parameters() {
       this->power = (f32) ((this->power) * (*((f32 *) (((s8 *) (&lbl_804CC55C.value)) + 0x18))));
     }
   }
-  *((f32 *) (((s8 *) arg0) + 0x64)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xD0))) + ((f32) ((((s16) (this->level)) / 5) * 2)));
+  *((f32 *) (((s8 *) arg0) + 0x64)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xD0))) + ((f32) (((this->level) / 5) * 2)));
   this->range = (f32) (*((f32 *) (((s8 *) arg0) + 0xD4)));
 }
 
@@ -250,7 +250,7 @@ void TTecBarta::create(void *arg1, void *arg2, void *arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x178);
     if (o != NULL) {
-        TTecBarta__ct((TTecBarta_8022BC10 *)(o), (void *)(this), (void *)(arg1), (void *)(arg2), (void *)(arg3));
+        TTecBarta__ct((TTecBarta_8022BC10 *)(o), this, arg1, arg2, arg3);
     }
 }
 
@@ -258,7 +258,7 @@ void TTecBarta::create_ex(void *arg1, void *arg2, void *arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x178);
     if (o != NULL) {
-        construct_tec_barta_facing((u8 *)(o), (void *)(this), (void *)(arg1), (void *)(arg2), (void *)(arg3));
+        construct_tec_barta_facing((u8 *)o, (void *)this, (void *)arg1, (void *)arg2, (void *)arg3);
     }
 }
 

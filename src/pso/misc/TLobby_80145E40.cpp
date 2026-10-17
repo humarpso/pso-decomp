@@ -76,7 +76,7 @@ s32 init_work(s32 arg0, u8 *arg1) {
     u8 sp28[0x40];
     u8 dst[0x20];
 
-    memset((void *)(arg1), 0, 0x270);
+    memset(arg1, 0, 0x270);
     if (!(lbl_805D56CC & 1)) {
         return 0;
     }
@@ -89,8 +89,8 @@ s32 init_work(s32 arg0, u8 *arg1) {
     TLobby__sub_803F5EC8((char *)(arg1 + 0x1CC), 0x40);
     TLobby__sub_803F6000((char *)(arg1 + 0x20C), 0x20);
     TLobby__sub_803F6138((char *)(arg1 + 0x22C), 0x20);
-    memset((void *)(dst), 0, 0x20);
-    memset((void *)(sp28), 0, 0x40);
+    memset(dst, 0, 0x20);
+    memset(sp28, 0, 0x40);
     TLobby__sub_803F524C((char *)((s32 *)dst), 0x20);
     TLobby__sub_803F53A0(0, (char *)(arg1 + 0xA4), 0x40);
     TLobby__sub_803F53A0(1, (char *)(arg1 + 0xE4), 0x40);

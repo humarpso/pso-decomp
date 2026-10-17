@@ -61,17 +61,17 @@ void TWindowMessagePage::set_message(void *msg, s32 flags) {
 u8 *TWindowMessagePage::create(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 *temp_r3;
     u8 *var_r0;
-    TLobby__sub_80269DA4((void *) (arg1), (void *) (arg2));
+    TLobby__sub_80269DA4((void *)arg1, (void *)arg2);
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x98));
-    var_r0 = (u8 *)(temp_r3);
+    var_r0 = temp_r3;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TWindowMessagePage__ct((u8 *)(temp_r3), (s32)(arg0), (s32)(arg2), (s32)(arg3)));
+        var_r0 = (u8 *)(TWindowMessagePage__ct(temp_r3, arg0, arg2, arg3));
     }
     return var_r0;
 }
 
 void TWindowMessagePage::set_text(s32 a, s32 b, s32 c) {
-    TWindowMessagePage::create((s32)(a), (s32)(b), (s32)(c), local_client_id);
+    TWindowMessagePage::create(a, b, c, local_client_id);
 }
 
 void TWindowMessagePage::render() { { (void)(render__14TWindowMessageFv((s32)this)); return; } }
@@ -82,7 +82,7 @@ void TWindowMessagePage::run_task() {
     s32 temp_r5;
     draw__14TWindowMessageFv();
     temp_r5 = is_player_input_active((this->m_20)) * 0x50;
-    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + temp_r5 + 0x20), 4, (int) (temp_r5)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 4) != 0)) {
+    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + temp_r5 + 0x20), 4, temp_r5) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 4) != 0)) {
         if (((TWindowMessagePage *)arg0)->is_message_window_ready() != 0) {
             update_message();
             return;

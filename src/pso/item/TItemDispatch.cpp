@@ -131,7 +131,7 @@ void TItem::render_shadows() {
     u8 *arg0 = (u8 *)this;
     if (((TObject *)arg0)->all_parents_unqueued_for_destruction() != 0) {
         ((TUnk_804AF8A0 *)arg0)->set_shadow_flag();
-        if ((TObjPlayer__sub_80102C30((u8 *)((void *) (arg0))) == 2) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
+        if ((TObjPlayer__sub_80102C30((u8 *)(arg0)) == 2) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
             set_depth_buffer_settings_id__FUl(1);
             lbl_805D5660 = model_render_flags;
             lbl_805D5664 = chunk_polygon_flags_and_mask;
@@ -176,7 +176,7 @@ void TItem::dispatch_state() {
             &TItem::render_following_owner,
             0,
         };
-        fn = tbl[TObjPlayer__sub_80102C30((u8 *)(this))];
+        fn = tbl[TObjPlayer__sub_80102C30((u8 *)this)];
         if (fn) {
             (this->*fn)();
         }
@@ -189,7 +189,7 @@ void TItem::run_task() {
     u8 *arg0 = (u8 *)this;
     s8 temp_r3;
     u32 temp_r4;
-    temp_r3 = TObjPlayer__sub_80102C30((u8 *)(arg0));
+    temp_r3 = TObjPlayer__sub_80102C30(arg0);
     switch (temp_r3) {
     case 0:
         ((TItem *)arg0)->update_timer();
@@ -310,9 +310,9 @@ int heap_alloc__5THeapFUl(void*, void*);
 int heap_free__5THeapFPv(void*, void*);
 
     extern int obj_heap;
-void TObjPlayer::free_obj_heap(void* a0) { heap_free__5THeapFPv((void*)(obj_heap), a0); }
+void TObjPlayer::free_obj_heap(void* a0) { heap_free__5THeapFPv((void*)obj_heap, a0); }
 
-void TObjPlayer::alloc_from_obj_heap(void* a0) { heap_alloc__5THeapFUl((void*)(obj_heap), a0); }
+void TObjPlayer::alloc_from_obj_heap(void* a0) { heap_alloc__5THeapFUl((void*)obj_heap, a0); }
 
     extern int item_system_generation;
 int get_item_system_generation(void) {  return item_system_generation; }

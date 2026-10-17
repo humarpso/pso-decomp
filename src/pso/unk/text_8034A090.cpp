@@ -98,7 +98,7 @@ s32 get_or_create_prt_txt__14TAdLoadQuestGCFii(s32 arg0, s32 arg1) {
         temp_r3 = __nw__7TObjectFUl(0x228);
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = TAdLoadQuestPrtTxtGC__ct((int) (temp_r3), (void *) (arg0), (void *) (arg1));
+            var_r0 = TAdLoadQuestPrtTxtGC__ct((int)temp_r3, (void *)arg0, (void *)arg1);
         }
         *(s32 *)((s8 *)(&quest_load_prt_txt_by_slot.value) + temp_r30) = var_r0;
     }

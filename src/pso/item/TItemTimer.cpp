@@ -172,7 +172,7 @@ u8 *TItemTimer__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     if ((s32) ((TItemTimer *)arg0)->m_1C< 1) {
         ((TItemTimer *)arg0)->m_1C = 1;
     }
-    TItemTimer__sub_8011D598((u8 *)((void *)((void *) (arg0 + 0x20))), (s32)((void *)((void *) (arg1))), (s32)((void *)((void *) (arg2))));
+    TItemTimer__sub_8011D598((u8 *)((void *)((void *) (arg0 + 0x20))), (s32)((void *)(arg1)), (s32)((void *)(arg2)));
     disallow_rendering__7TObjectFv((arg0));
     return arg0;
 }

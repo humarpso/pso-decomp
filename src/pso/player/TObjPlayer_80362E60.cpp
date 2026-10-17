@@ -126,13 +126,13 @@ void TUnk_804F27E0::emit_marker_effects() {
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xF0));
     ((VObj_18_f1aa6a *)(temp_r3))->m63(0x30, &sp8);
     if (get_validated_attack_stage(*(u8 **)((s8 *)arg0 + 0xF0) + 0x7CC) == 2) {
-        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), 0);
-        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), 0x1555);
-        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), -0x1555);
+        fire_shot_at_target__11TItemWeaponFv(arg0, (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), 0);
+        fire_shot_at_target__11TItemWeaponFv(arg0, (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), 0x1555);
+        fire_shot_at_target__11TItemWeaponFv(arg0, (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), -0x1555);
     } else {
-        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), 0);
+        fire_shot_at_target__11TItemWeaponFv(arg0, (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), 0);
     }
-    TObjPlayer::create_cane_if_ready((s32)((void *) (arg0)), (void *)((void *) (&sp8)));
+    TObjPlayer::create_cane_if_ready((s32)(arg0), (void *)((void *) (&sp8)));
 }
 
 typedef char RecoveredGlobal_80362FB4_lbl_80479FC8_size[sizeof(RecoveredGlobal_80362FB4_lbl_80479FC8) == 0x10 ? 1 : -1];
@@ -163,7 +163,7 @@ void TObjPlayer__sub_80362FB4(u8 *arg0) {
 void TUnk_804F27E0::reserved_53() {
     u8 *arg0 = (u8 *)this;
     if (((TItemWeapon *)arg0)->test_flags_1b8(0x01000000U) == 0U) {
-        draw_weapon_model((void *) (arg0));
+        draw_weapon_model(arg0);
     }
 }
 
@@ -179,9 +179,9 @@ u8 *TObjPlayer__sub_803630F0(u8 *arg0) {
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x200));
-        var_r0 = (u8 *)(temp_r3);
+        var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((TUnk_804F27E0 *)temp_r3)->enter_state_804F27E0((s32)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_804F27E0 *)temp_r3)->enter_state_804F27E0(tl_05, arg0)));
         }
         return var_r0;
     }

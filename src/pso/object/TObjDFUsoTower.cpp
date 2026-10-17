@@ -56,7 +56,7 @@ u8 *TObjDFUsoTower__ct(u8 *arg0, s32 _w1) {
 void *TObjDFUsoTower::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x98);
     if (o != NULL) {
-        o = TObjDFUsoTower__ct((u8 *)(o), (s32)(arg0));
+        o = TObjDFUsoTower__ct((u8 *)o, (s32)arg0);
     }
     return o;
 }

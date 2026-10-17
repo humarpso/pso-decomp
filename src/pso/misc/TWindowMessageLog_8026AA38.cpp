@@ -39,9 +39,9 @@ extern const f32 lbl_805DD258;
 void TWindowMessageLog::render() {
     s32 temp_r3;
     temp_r3 = get_draw_context__11TWindowBaseFPv();
-    draw_window_frame((void *) (((u8 *)this)), (int) (temp_r3));
-    draw_visible_window_entries((void *) (((u8 *)this)), (void *) (((u8 *)this) + 0x24), (int) (temp_r3));
-    draw_window_scrollbar((int) (*(s32 *)((s8 *)((u8 *)this) + 0x90)), (int) (temp_r3), (void *) (((u8 *)this) + 0x68));
+    draw_window_frame((void *) (((u8 *)this)), temp_r3);
+    draw_visible_window_entries((void *) (((u8 *)this)), (void *) (((u8 *)this) + 0x24), temp_r3);
+    draw_window_scrollbar((int) (*(s32 *)((s8 *)((u8 *)this) + 0x90)), temp_r3, (void *) (((u8 *)this) + 0x68));
 }
 void TWindowMessageLog::run_task() {
     if (!(*(s32 *)&this->m_2c & 2)) {
@@ -63,7 +63,7 @@ u8 *__dt__17TWindowMessageLogFv(u8 *arg0, s16 arg1) {
         TWindowCtrl__sub_8026AD60();
         __dt__14TWindowMessageFv(arg0, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *) (arg0));
+            __dl__7TObjectFPv(arg0);
         }
     }
     return arg0;
@@ -80,15 +80,15 @@ u8 *TWindowMessageLog__ct(u8 *arg0, s32 arg1, s32 arg2) {
     TWindowMessage__ct((arg0), (arg1), 0x1E, (arg2));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8026ABA8___vt__17TWindowMessageLog *)&__vt__17TWindowMessageLog).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3990;
-    TWindowCtrl__sub_8026AD78((s32)(arg0));
+    TWindowCtrl__sub_8026AD78((s32)arg0);
     temp_f2 = ((TWindowMessageLog *)arg0)->m_38;
     temp_f1 = temp_f2 - lbl_805DD258;
     stack.spC = lbl_805DD240;
     stack.sp8 = temp_f1;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv(0xC, (f32) (temp_f1), (f32) (temp_f2));
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv(0xC, temp_f1, temp_f2);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = reset_selection__20TWindowSubStatusDispFv((int) (temp_r3), (void *) (&stack.sp8));
+        var_r0 = reset_selection__20TWindowSubStatusDispFv(temp_r3, (void *) (&stack.sp8));
     }
     *(s32 *)((s8 *)arg0 + 0x90) = var_r0;
     *(s32 *)&((TWindowMessageLog *)arg0)->m_2c = (s32) (*(s32 *)&((TWindowMessageLog *)arg0)->m_2c| 0x80);

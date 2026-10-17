@@ -57,7 +57,7 @@ void *__dt__19TObjBoss5PillarDemoFv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_8028AC00___vt__19TObjBoss5PillarDemo_size[sizeof(RecoveredGlobal_8028AC00___vt__19TObjBoss5PillarDemo) == 0x18 ? 1 : -1];
 u8 *TObjBoss5PillarDemo__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TObjBoss5Pillar__ct((arg0), (u8 *)(arg1), (u8 *)(arg2));
+    TObjBoss5Pillar__ct((arg0), (u8 *)arg1, (u8 *)arg2);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8028AC00___vt__19TObjBoss5PillarDemo *)&__vt__19TObjBoss5PillarDemo).value;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3B28;
     ((TObjBoss5PillarDemo *)arg0)->m_24 = lbl_805DD908;
@@ -76,7 +76,7 @@ s32 TObjBoss5PillarDemo::create() {
     temp_r3 = __nw__7TObjectFUl(0x4C);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = ((s32)TObjBoss5PillarDemo__ct((u8 *)((int) (temp_r3)), (s32)((int) (tl_02)), (s32)((void *) (temp_r31 + 8))));
+        var_r0 = ((s32)TObjBoss5PillarDemo__ct((u8 *)(temp_r3), (s32)(tl_02), (s32)((void *) (temp_r31 + 8))));
     }
     return var_r0;
 }
@@ -102,7 +102,7 @@ void TObjBoss5PillarDemo__sub_8028ACE8(Pd_8028ACE8 *arg0, void* _w1) {
     }
 }
 
-void TObjBoss5PillarDemo__sub_8028AD88(void* a0) { TObjBoss5PillarDemo__sub_8028ACE8((Pd_8028ACE8 *)((void*)(boss5_pillar_demo_ptr)), (void*)(a0)); }
+void TObjBoss5PillarDemo__sub_8028AD88(void* a0) { TObjBoss5PillarDemo__sub_8028ACE8((Pd_8028ACE8 *)(boss5_pillar_demo_ptr), a0); }
 
 void TObjBoss5PillarDemo__sub_8028ADB0(u32 arg0) {
     if (arg0 != 0U) {

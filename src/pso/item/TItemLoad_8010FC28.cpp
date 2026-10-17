@@ -29,8 +29,8 @@ void TItemLoad::advance_load_state() {
     } else {
 block_3:
         if (((TItemLoad *)arg0)->load_data((int) (*(s32 *)((s8 *)arg0 + 0x20))) != 0U) {
-            TItemLoad__sub_801107DC((void *) (arg0));
-            ((TItemLoad *)arg0)->request_load((s32)((void *) (item_load_compressed_work_buffer)));
+            TItemLoad__sub_801107DC(arg0);
+            ((TItemLoad *)arg0)->request_load((s32)(item_load_compressed_work_buffer));
             *(s32 *)((s8 *)arg0 + 0x18) = 2;
         }
     }

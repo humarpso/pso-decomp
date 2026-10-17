@@ -89,7 +89,7 @@ extern void *camera_ctrl_instance;
 extern int bg_lightning_texture_handle;
 extern void *tl_05;
 
-void TBGLightningCtrl__sub_802A9A08(void) { TObjFish::set_global_param((s32)((void*)(bg_lightning_texture_handle))); }
+void TBGLightningCtrl__sub_802A9A08(void) { TObjFish::set_global_param((s32)(bg_lightning_texture_handle)); }
 
 #pragma push
 #pragma fp_contract on
@@ -138,7 +138,7 @@ void *__dt__16TBGLightningCtrlFv(void *arg0, s16 arg1) {
 }
 
 u8 *TBGLightningCtrl__ct(u8 *arg0, s32 parent, s32 arg2) {
-    construct_world_actor_base((void *) (arg0), (void *) (parent));
+    construct_world_actor_base((void *)arg0, (void *)parent);
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__16TBGLightningCtrl;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBGLightningCtrl__name;
     ((TBGLightningCtrl *)(arg0))->apply_object_set_data((void *)arg2);
@@ -217,7 +217,7 @@ void fn_802A9DF4(Obj_802A9DF4 *self, Vec_802A9DF4 *dir) {
     TBGLightningCtrl__sub_802A9A08();
     set_texture_num(idx + lbl_8046FC8C[self->f1c]);
     TParticleCtrl::setup_particle_draw(1);
-    submit_particle_quad((void *)(self), (f32 *)(&p), (f32 *)(&d), (s32)(__cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF));
+    submit_particle_quad(self, (f32 *)(&p), (f32 *)(&d), (s32)(__cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF));
     TParticleCtrl::reset_particles();
 }
 #pragma pop
@@ -250,7 +250,7 @@ void fn_802A9F48(Obj_802A9F48 *self, Vec_802A9F48 *dir) {
     TBGLightningCtrl__sub_802A9A08();
     set_texture_num(0);
     TParticleCtrl::setup_particle_draw(1);
-    submit_particle_quad((void *)(self), (f32 *)(&p), (f32 *)(&d), (s32)(__cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF));
+    submit_particle_quad(self, (f32 *)(&p), (f32 *)(&d), (s32)(__cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF));
     TParticleCtrl::reset_particles();
 }
 #pragma pop
@@ -286,9 +286,9 @@ u8 *create__12TBGLightningFiif(s32 arg0, s32 arg1, f32 farg0) {
     u8 *temp_r3;
     u8 *var_r0;
     temp_r3 = (u8 *)(((u8 * (*)(s32))__nw__7TObjectFUl)(0x30));
-    var_r0 = (u8 *)(temp_r3);
+    var_r0 = temp_r3;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(__ct__12TBGLightningFv((u8 *)(temp_r3), (void *)(arg0), (s32)(arg1), farg0));
+        var_r0 = (u8 *)(__ct__12TBGLightningFv((u8 *)temp_r3, (void *)arg0, (s32)arg1, farg0));
     }
     return var_r0;
 }

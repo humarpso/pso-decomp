@@ -785,11 +785,11 @@ void TCameraCtrl::calc_axes_from_angles(s32 arg0, s32 arg1, s32 arg2) {
     stack.spC = *(s32 *)((s8 *)(&lbl_804381B0.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_804381B0.value) + 8);
     push_matrix_from((void *) (&identity_matrix.value));
-    rotate_matrix_y(0, (void *) (arg2));
+    rotate_matrix_y(0, (void *)arg2);
     rotate_vector_by_current_matrix((void *) (&stack.sp14), (void *) (&lbl_804FF610.value));
     pop_matrix();
     push_matrix_from((void *) (&identity_matrix.value));
-    rotate_matrix_x(0, (void *) (arg1));
+    rotate_matrix_x(0, (void *)arg1);
     rotate_vector_by_current_matrix((void *) (&stack.sp8), (void *) (&camera_pitch_rotated_up_vector.value));
     pop_matrix();
 }

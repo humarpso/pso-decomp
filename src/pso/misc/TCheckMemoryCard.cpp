@@ -55,7 +55,7 @@ void TCheckMemoryCard::run_task() {
     member_action.words[1] = *(s32 *)((s8 *)temp_r6 + 0x10);
     member_action.words[2] = *(s32 *)((s8 *)temp_r6 + 0x14);
     if (member_action.action != 0) {
-        (((TCheckMemoryCard *)((void *) (arg0)))->*member_action.action)();
+        (((TCheckMemoryCard *)(arg0))->*member_action.action)();
     }
     *(s32 *)&this->m_38 = (s32) (*(s32 *)&this->m_38 - 1);
     if ((s32) *(s32 *)&this->m_38 < 0) {
@@ -103,7 +103,7 @@ void *TCheckMemoryCard::create(void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x250);
     if (o != NULL) {
-        o = __ct__16TCheckMemoryCardFP7TObjectPvPvPv((void *)(o), (void *)(this), (void *)(arg1), (void *)(arg2), (void *)(1));
+        o = __ct__16TCheckMemoryCardFP7TObjectPvPvPv(o, this, arg1, arg2, (void *)(1));
     }
     return o;
 }

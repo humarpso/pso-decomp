@@ -491,7 +491,7 @@ void render__13TObjEneRe4BitFv(Bit_800ECA40 *self) {
     m = *self->x24;
     saved = m->x2C;
     m->x2C = m->ents[self->idx].c;
-    TObjFish::set_global_param((s32)(self->x24));
+    TObjFish::set_global_param((s32)self->x24);
     lbl_805D5660 = model_render_flags;
     TObjEneDD::clear_global_flag_400();
     TObjPlayer::toggle_particle_effect();
@@ -525,14 +525,14 @@ void TObjEneRe4Bit__sub_800ECC14(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         *(s32 *)((s8 *)arg0 + 0x408) = 0;
-        ((s32 (*)(void *))set_hold_flags__18TObjEneRe4SorcererFPv)((void *) (arg0));
+        ((s32 (*)(void *))set_hold_flags__18TObjEneRe4SorcererFPv)(arg0);
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 0x400);
-        play_sound_effect(copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), 0x4003A815), (void *) (arg0 + 0x38), 0, 0);
+        play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003A815), (void *) (arg0 + 0x38), 0, 0);
         break;
     case 3:
         if (*(s32 *)((s8 *)arg0 + 0x3CC) & 8) {
-            play_sound_effect(copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), 0x4003AD16), (void *) (arg0 + 0x38), 0, 0);
-            transition_enemy_state((void *)((void *) (arg0)), 1);
+            play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003AD16), (void *) (arg0 + 0x38), 0, 0);
+            transition_enemy_state((void *)(arg0), 1);
         }
         break;
     case 0:
@@ -541,7 +541,7 @@ void TObjEneRe4Bit__sub_800ECC14(u8 *arg0, s32 arg1) {
             temp_r4 = *(s32 *)((s8 *)arg0 + 0x3CC);
             if (!(temp_r4 & 0x10)) {
                 *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (temp_r4 & 0xFFFFFBFF);
-                ((s32 (*)(void *))set_state_flags__18TObjEneRe4SorcererFPv)((void *) (arg0));
+                ((s32 (*)(void *))set_state_flags__18TObjEneRe4SorcererFPv)(arg0);
                 return;
             }
         }
@@ -596,7 +596,7 @@ void TObjEneRe4Bit__sub_800ECE04(u8 *arg0, s32 arg1) {
         break;
     case 3:
         if (*(f32 *)((s8 *)arg0 + 0x3D8) <= TObjEneRe4Bit__data_805DA770) {
-            transition_enemy_state((void *)(arg0), 1);
+            transition_enemy_state(arg0, 1);
             break;
         }
     case 5:
@@ -694,7 +694,7 @@ void TObjEneRe4Bit::handle_state_message(s32 msg) {
     case 0:
         return;
     case 3:
-        transition_enemy_state((void *)(this), 1);
+        transition_enemy_state(this, 1);
         return;
     }
 }
@@ -702,22 +702,22 @@ void TObjEneRe4Bit::handle_state_message(s32 msg) {
 void TObjEneRe4Bit__vt85(s32 arg0, u32 arg1, s32 msg) {
     switch (arg1) {
     case 0:
-        ((TObjEneRe4Bit *)arg0)->handle_state_message((s32)((void *) (msg)));
+        ((TObjEneRe4Bit *)arg0)->handle_state_message((s32)(msg));
         return;
     case 1:
-        ((TObjEneRe4Bit *)arg0)->handle_event((s32)((void *) (msg)));
+        ((TObjEneRe4Bit *)arg0)->handle_event((s32)(msg));
         return;
     case 2:
-        TObjEneRe4Bit__sub_800ECED0((void *)((void *) (arg0)), (s32)((void *) (msg)));
+        TObjEneRe4Bit__sub_800ECED0((void *)(arg0), (s32)(msg));
         return;
     case 3:
-        TObjEneRe4Bit__sub_800ECE04((u8 *)((void *) (arg0)), (s32)((void *) (msg)));
+        TObjEneRe4Bit__sub_800ECE04((u8 *)(arg0), (s32)(msg));
         return;
     case 5:
-        TObjEneRe4Bit__sub_800ECD28((u8 *)((void *) (arg0)), (s32)((void *) (msg)));
+        TObjEneRe4Bit__sub_800ECD28((u8 *)(arg0), (s32)(msg));
         return;
     case 6:
-        TObjEneRe4Bit__sub_800ECC14((u8 *)((void *) (arg0)), (s32)((void *) (msg)));
+        TObjEneRe4Bit__sub_800ECC14((u8 *)(arg0), (s32)(msg));
     default:
         return;
     }
@@ -728,12 +728,12 @@ void TObjEneRe4Bit::clear_state_flags_when_done() {
     s32 temp_r3;
     temp_r3 = *(s32 *)((s8 *)arg0 + 0x3CC);
     if (temp_r3 & 4) {
-        if (((VObj_14_c143b1 *)((u8 *)(arg0) + (988)))->m4() != 0) {
+        if (((VObj_14_c143b1 *)(arg0 + (988)))->m4() != 0) {
             *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFFFFFFB);
             *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFFFFDFF);
             *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFFFFEFF);
         }
-    } else if ((temp_r3 & 8) && (((VObj_14_c143b1 *)((u8 *)(arg0) + (988)))->m5() != 0)) {
+    } else if ((temp_r3 & 8) && (((VObj_14_c143b1 *)(arg0 + (988)))->m5() != 0)) {
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFFFFFF7);
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFFFFDFF);
     }
@@ -1027,7 +1027,7 @@ void TObjEneRe4Bit::vfunc_62() {
             ((s32 (*)())clear_attack_receipts__9TObjEneDDFv)();
             return;
         }
-        ((s32 (*)(void *, int))transition_enemy_state)((void *)(arg0), 5);
+        ((s32 (*)(void *, int))transition_enemy_state)(arg0, 5);
     }
 }
 
@@ -1037,11 +1037,11 @@ void TObjEneRe4Bit::vfunc_63() {
     temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
     if (temp_r0 != 6) {
         if (temp_r0 == 2) {
-            ((s32 (*)(void *, int))transition_enemy_state)((void *)(arg0), 6);
+            ((s32 (*)(void *, int))transition_enemy_state)(arg0, 6);
             *(s32 *)((s8 *)arg0 + 0x404) = 3;
             return;
         }
-        ((s32 (*)(void *, int))transition_enemy_state)((void *)(arg0), 6);
+        ((s32 (*)(void *, int))transition_enemy_state)(arg0, 6);
     }
 }
 
@@ -1126,12 +1126,12 @@ u8 *TObjEneRe4Bit__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5
     ((TUnk_80490470 *)(arg0 + 0x3DC))->init_vtable_and_field18();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2AE8;
     ((TObjEneDD *)arg0)->init_common_from((u8 *)arg2);
-    *(s16 *)((s8 *)arg0 + 0x3C4) = obj_getField1c((void *) (arg2));
+    *(s16 *)((s8 *)arg0 + 0x3C4) = obj_getField1c((void *)arg2);
     *(s16 *)((s8 *)arg0 + 0x1C) = arg5;
     *(s16 *)((s8 *)arg0 + 0x2C) = arg6;
     *(s32 *)((s8 *)arg0 + 0x3C0) = arg3;
     *(s32 *)((s8 *)arg0 + 0x3C8) = arg4;
-    VecCopy((Vec *)((void *) (arg0 + 0x38)), (const Vec *)((void *) (arg3)));
+    VecCopy((Vec *)((void *) (arg0 + 0x38)), (const Vec *)(arg3));
     init__13TObjEneRe4BitFPv((Bit_800ED7FC *) (arg0));
     return arg0;
 }
@@ -1157,12 +1157,12 @@ void *__nw__7TObjectFUl(int);
 
 void TObjEneRe4Bit::create_enabled(s32 arg1, s32 arg2, s32 kind) {
     s32 arg0 = (s32)this;
-    TObjEneRe4Bit::create((void *)(arg0), (void *)(arg1), (void *)(1), (void *)(arg2), (void *)(kind));
+    TObjEneRe4Bit::create((void *)arg0, (void *)arg1, (void *)(1), (void *)arg2, (void *)kind);
 }
 
 void TObjEneRe4Bit::create_disabled(s32 arg1, s32 arg2, s32 kind) {
     s32 arg0 = (s32)this;
-    TObjEneRe4Bit::create((void *)(arg0), (void *)(arg1), (void *)(0), (void *)(arg2), (void *)(kind));
+    TObjEneRe4Bit::create((void *)arg0, (void *)arg1, (void *)(0), (void *)arg2, (void *)kind);
 }
 
 extern void *tl_04;

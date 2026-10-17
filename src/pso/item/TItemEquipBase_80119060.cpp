@@ -24,7 +24,7 @@ void TItemEquipBase::apply_equip_effect_slot(u16 arg0, u32 arg1) {
     if ((arg0 < 0xCU) && (arg1 < 7U)) {
         temp_r3 = *(s32 *)((s8 *)(&item_effect_object_table.value) + (arg1 * 4));
         if (temp_r3 != 0U) {
-            fn_8011085C((u8 *)(temp_r3), ((s32) arg0));
+            fn_8011085C((u8 *)temp_r3, ((s32) arg0));
         }
     }
 }
@@ -35,7 +35,7 @@ void TItemEquipBase::apply_equip_slot_effect(u16 arg0, u32 arg1) {
     if ((arg0 < 0xCU) && (arg1 < 7U)) {
         temp_r3 = *(s32 *)((s8 *)(&(*(RecoveredGlobal_801190B0_lbl_80506228 *)&item_effect_object_table).value) + (arg1 * 4));
         if (temp_r3 != 0U) {
-            fn_801108C8((u8 *)(temp_r3), ((s32) arg0));
+            fn_801108C8((u8 *)temp_r3, ((s32) arg0));
         }
     }
 }

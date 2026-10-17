@@ -96,7 +96,7 @@ void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2) {
     rotate_matrix_z(0, (int) (*(s32 *)((s8 *)arg2 + 0x18)));
     rotate_matrix_x(0, (int) (*(s32 *)((s8 *)arg2 + 0x10)));
     rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg2 + 0x14)));
-    matrix_mult_vec(0, (void *) (arg0), (void *) (arg0));
+    matrix_mult_vec(0, (void *)arg0, (void *)arg0);
     pop_matrix();
     *(s32 *)((s8 *)arg1 + 0) = (s32) (*(s32 *)((s8 *)arg1 + 0) + *(s32 *)((s8 *)arg2 + 0x10));
     *(s32 *)((s8 *)arg1 + 4) = (s32) (*(s32 *)((s8 *)arg1 + 4) + *(s32 *)((s8 *)arg2 + 0x14));
@@ -207,7 +207,7 @@ void spawn_decorations_in_range(void *arg0) {
     }
 }
 
-void TSetManager::update_decoration_spawning() { spawn_decorations_in_range((void *)(this)); }
+void TSetManager::update_decoration_spawning() { spawn_decorations_in_range(this); }
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
@@ -220,11 +220,11 @@ void TSetManager::apply_floor_set_rows() {
     TLobby__data_805D60FC = current_floor;
     temp_r30 = (u8 *)&TLobby__floor_enemy_group_table.value + (current_floor * 0x18);
     if (!(*(s32 *)((s8 *)temp_r30 + 8) & 2)) {
-        apply_room_transform_to_object_rows((Rec_8020D3F0 *)((int) (TLobby__data_805D610C)), (s32)((int) (*(s32 *)((s8 *)temp_r30 + 0))));
+        apply_room_transform_to_object_rows((Rec_8020D3F0 *)(TLobby__data_805D610C), (s32)((int) (*(s32 *)((s8 *)temp_r30 + 0))));
         *(s32 *)((s8 *)temp_r30 + 8) = (s32) (*(s32 *)((s8 *)temp_r30 + 8) | 2);
     }
     if (!(*(s32 *)((s8 *)temp_r30 + 0xC) & 4)) {
-        apply_room_transform_to_enemy_rows((SpawnRecord_8020D36C *)((int) (TLobby__data_805D6114)), (s32)((int) (*(s32 *)((s8 *)temp_r30 + 4))));
+        apply_room_transform_to_enemy_rows((SpawnRecord_8020D36C *)(TLobby__data_805D6114), (s32)((int) (*(s32 *)((s8 *)temp_r30 + 4))));
         *(s32 *)((s8 *)temp_r30 + 0xC) = (s32) (*(s32 *)((s8 *)temp_r30 + 0xC) | 4);
     }
     if (*(s32 *)((s8 *)temp_r30 + 8) & 2) {
@@ -234,8 +234,8 @@ void TSetManager::apply_floor_set_rows() {
         TLobby::assign_display_objects((u8 *)TLobby__data_805D6114, (s32)((int) (*(s32 *)((s8 *)temp_r30 + 4))));
     }
     if ((s32) TLobby__data_805D6120 > 0) {
-        apply_room_transform_to_object_rows((Rec_8020D3F0 *)((int) (TLobby__data_805D611C)), (s32)((int) (TLobby__data_805D6120)));
-        resolve_set_row_factory_indices((void *)((void *) (arg0)), (int)((int) (TLobby__data_805D611C)), (int)((int) (TLobby__data_805D6120)));
+        apply_room_transform_to_object_rows((Rec_8020D3F0 *)(TLobby__data_805D611C), (s32)(TLobby__data_805D6120));
+        resolve_set_row_factory_indices((void *)(arg0), (int)(TLobby__data_805D611C), (int)(TLobby__data_805D6120));
     }
     *(s32 *)((s8 *)arg0 + 0x1C) = 1;
 }

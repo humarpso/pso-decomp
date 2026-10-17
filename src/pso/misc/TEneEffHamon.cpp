@@ -107,7 +107,7 @@ void run_task__12TEneEffHamonFv(u8 *arg0) {
 void TEneEffHamon__sub_800A380C(void) {  }
 
     extern int player_effect_bml_resource;
-void init_fish_effects__12TEneEffHamonFv(void) { TEneEffHamon__fish_model = get_bml_model((void*)(player_effect_bml_resource), (void*)3); TEneEffHamon__fish_effect_param = TObjFish__sub_8001EDB0((void*)(player_effect_bml_resource), (void*)3); }
+void init_fish_effects__12TEneEffHamonFv(void) { TEneEffHamon__fish_model = get_bml_model((void*)player_effect_bml_resource, (void*)3); TEneEffHamon__fish_effect_param = TObjFish__sub_8001EDB0((void*)player_effect_bml_resource, (void*)3); }
 
 }
 
@@ -117,14 +117,14 @@ extern "C" {
 
 typedef char RecoveredGlobal_800A38A4___vt__12TEneEffHamon_size[sizeof(RecoveredGlobal_800A38A4___vt__12TEneEffHamon) == 0x18 ? 1 : -1];
 u8 *__ct__12TEneEffHamonFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
-    __ct__7TObjectFP7TObject((void *)((void *) (arg0)), (void *)((int) (tl_06)));
+    __ct__7TObjectFP7TObject((void *)(arg0), (void *)(tl_06));
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__12TEneEffHamon.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TEneEffHamon__name;
     *(s32 *)((s8 *)arg0 + 0x30) = 0;
     *(s32 *)((s8 *)arg0 + 0x2C) = 0;
     *(s32 *)((s8 *)arg0 + 0x28) = 0;
     *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805D99E4;
-    VecCopy((Vec *)((u8 *)(arg0) + 0x1C), (const Vec *)(arg1));
+    VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)(arg1));
     *(f32 *)((s8 *)arg0 + 0x40) = farg0;
     *(f32 *)((s8 *)arg0 + 0x50) = (f32) lbl_805D99E8;
     *(f32 *)((s8 *)arg0 + 0x54) = (f32) lbl_805D99E4;

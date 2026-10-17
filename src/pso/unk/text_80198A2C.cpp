@@ -222,10 +222,10 @@ void throw_gogo_ball__12TWindowTimerFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     stack.sp14 = *(f32 *)((s8 *)arg0 + 0);
     stack.sp18 = *(f32 *)((s8 *)arg0 + 8);
     if (is_on_current_screen__11TCameraCtrlFv((void *) ((u8 *)&controller_input_state.value + 0x20), 4) != 0) {
-        play_sound_effect(0x4001A311, (void *) (arg0), 0, 0);
+        play_sound_effect(0x4001A311, arg0, 0, 0);
         stack.sp1C = 1;
     } else {
-        play_sound_effect(0x4002A600, (void *) (arg0), 0, 0);
+        play_sound_effect(0x4002A600, arg0, 0, 0);
         stack.sp1C = 0;
     }
     send_gogo_ball__12TWindowTimerFi((s32)(&stack.sp8));
@@ -779,7 +779,7 @@ extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 
-#define F(t, o) (*(t *)((s8 *)(arg0) + (o)))
+#define F(t, o) (*(t *)(arg0 + (o)))
 extern const f32 lbl_805DBF40;
 void draw_model__8TObjFishFPv(u8 *arg0) {
     Vec_80199A44 dir;
@@ -1006,7 +1006,7 @@ void update_motion__12TWindowTimerFPv(Timer_80199F14 *self) {
         queue_destruction__7TObjectFv(self);
         return;
     }
-    ((TUnk_804B8E18 *)self)->update_goal_checks((u16)(local_client_id));
+    ((TUnk_804B8E18 *)self)->update_goal_checks(local_client_id);
     ((TUnk_804B8E18 *)self)->update_best_time();
     if (self->pos.y <= (-5e+02f)) {
         queue_destruction__7TObjectFv(self);
@@ -1187,8 +1187,8 @@ u8 *TWindowTimer__sub_8019A574(u8 *arg0) {
 }
 
 void send_gogo_ball__12TWindowTimerFi(s32 arg0) {
-    bswap_6x79_gogo_ball__12TWindowTimerFi((s32)(arg0));
-    TLobby__send_and_handle_60((u8 *)(arg0));
+    bswap_6x79_gogo_ball__12TWindowTimerFi(arg0);
+    TLobby__send_and_handle_60((u8 *)arg0);
 }
 void bswap_6x79_gogo_ball__12TWindowTimerFi(s32 arg0) {
     read_be16_field2__10TObjPlayerFv();

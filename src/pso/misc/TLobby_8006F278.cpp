@@ -154,10 +154,10 @@ void TLobby__sub_8006F48C(void) {
         return;
     }
     if (TBL_8006F48C.count > 0) {
-        ((TLobby *)cur)->decode_obfuscated_string((void *)(win->name), 12);
+        ((TLobby *)cur)->decode_obfuscated_string(win->name, 12);
         for (i = 0; i < TBL_8006F48C.count; i++) {
             e = &TBL_8006F48C.entries[i];
-            ((TLobby *)key)->decode_obfuscated_string((void *)(e), 12);
+            ((TLobby *)key)->decode_obfuscated_string(e, 12);
             if (strncmp(key, cur, 12) == 0) {
                 strncpy(win->name, e->name, 11);
                 win->term = 0;
@@ -196,7 +196,7 @@ s32 TLobby__sub_8006F5B0(s32 arg0) {
         goto block_12;
     }
     valid_slot = TLobby::get_valid_slot(temp_r3_3);
-    if (is_id_out_of_range__6TLobbyFi((s32)((int) (valid_slot))) != 0) {
+    if (is_id_out_of_range__6TLobbyFi((s32)(valid_slot)) != 0) {
         *(s32 *)((s8 *)temp_r3_2 + temp_r30) = 0;
         return 0;
     }
@@ -207,13 +207,13 @@ block_12:
     if (var_r28 == 0) {
         return 0;
     }
-    *(s32 *)((s8 *)temp_r3_2 + temp_r30) = ((s32 (*)(void *))mix_seed_checked__6TLobbyFi)((void *) (arg0));
+    *(s32 *)((s8 *)temp_r3_2 + temp_r30) = ((s32 (*)(void *))mix_seed_checked__6TLobbyFi)((void *)arg0);
     return 1;
 }
 typedef char RecoveredGlobal_8006F848_lbl_804FF800_size[sizeof(RecoveredGlobal_8006F848_lbl_804FF800) == 0x20 ? 1 : -1];
 void TLobby::set_name_string() {
     s32 arg0 = (s32)this;
-    strncpy((void *) (&lobby_name_string_buffer.value), (void *) (arg0), 0x1F);
+    strncpy((void *) (&lobby_name_string_buffer.value), (void *)arg0, 0x1F);
     *(s8 *)((s8 *)(&lobby_name_string_buffer.value) + 0x1F) = 0;
 }
 

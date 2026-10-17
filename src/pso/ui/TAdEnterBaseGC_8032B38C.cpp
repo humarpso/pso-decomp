@@ -41,17 +41,17 @@ void TAdEnterBaseGC::create_parts() {
     u32 var_r0_2;
     temp_r3 = __nw__7TObjectFUl(0x24);
     if (temp_r3 != 0U) {
-        __ct__9TAdBackGCFv((int) (temp_r3), (void *) (((u8 *)this)));
+        __ct__9TAdBackGCFv(temp_r3, (void *) (((u8 *)this)));
     }
     temp_r3_2 = __nw__7TObjectFUl(0x28);
     if (temp_r3_2 != 0U) {
-        __ct__12TAdBackTxtGCFv((int) (temp_r3_2), (void *) (((u8 *)this)));
+        __ct__12TAdBackTxtGCFv(temp_r3_2, (void *) (((u8 *)this)));
     }
     if ((s32) (*(s32 *)&TAdEnterBaseGC__entry_mode) == 3) {
         temp_r3_3 = __nw__7TObjectFUl(0x708);
         var_r0 = temp_r3_3;
         if (var_r0 != 0U) {
-            var_r0 = __ct__14TAdSelectCurGCFv((int) (temp_r3_3), (int) (tl_clipout), (void *) ((u8 *)&lbl_80477198.value + 0x10), (void *) ((u8 *)&lbl_804771B8.value + 8));
+            var_r0 = __ct__14TAdSelectCurGCFv(temp_r3_3, tl_clipout, (void *) ((u8 *)&lbl_80477198.value + 0x10), (void *) ((u8 *)&lbl_804771B8.value + 8));
         }
         *(u32 *)&this->unk_2C = var_r0;
         return;
@@ -59,7 +59,7 @@ void TAdEnterBaseGC::create_parts() {
     temp_r3_4 = __nw__7TObjectFUl(0x708);
     var_r0_2 = temp_r3_4;
     if (var_r0_2 != 0U) {
-        var_r0_2 = __ct__14TAdSelectCurGCFv((int) (temp_r3_4), (int) (tl_clipout), (void *) (&lbl_80477198.value), (void *) (&lbl_804771B8.value));
+        var_r0_2 = __ct__14TAdSelectCurGCFv(temp_r3_4, tl_clipout, (void *) (&lbl_80477198.value), (void *) (&lbl_804771B8.value));
     }
     *(u32 *)&this->unk_2C = var_r0_2;
 }

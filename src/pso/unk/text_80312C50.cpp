@@ -30,7 +30,7 @@ void release_photon_blast_requests(void *registry) {
     s32 count;
     s32 i;
     u8 *owner;
-    count = TObjPlayer__sub_803131AC((void*)(registry));
+    count = TObjPlayer__sub_803131AC(registry);
     for (i = 0; i < count; i++) {
         u16 player = ((u16)get_section_id__10TObjPlayerFv(get_element__10TObjPlayerFPvi(registry, i)));
         if (player != 0xFFFF) {
@@ -63,7 +63,7 @@ void TObjPlayer::create_party_effects(s32 id) {
     s32 sec;
     Ply_80312D4C *ent;
     u8 *e;
-    n = TObjPlayer__sub_803131AC((void*)(this));
+    n = TObjPlayer__sub_803131AC(this);
     for (i = 0; i < n; i++) {
         e = (u8 *)get_element__10TObjPlayerFPvi(this, i);
         sec = get_section_id__10TObjPlayerFv(e);
@@ -82,7 +82,7 @@ u16 TObjPlayer::find_first_valid_target_id() {
     s32 i;
     u8 *e;
     u8 *ent;
-    n = TObjPlayer__sub_803131AC((void*)(this));
+    n = TObjPlayer__sub_803131AC(this);
     for (i = 0; i < n; i++) {
         e = (u8 *)get_element__10TObjPlayerFPvi(this, i);
         ent = (u8 *)get_player_by_client_id(((SectionFn_80312E0C)get_section_id__10TObjPlayerFv)(e));
@@ -94,7 +94,7 @@ u16 TObjPlayer::find_first_valid_target_id() {
 }
 
 void TObjPlayer__sub_80312E98(void *o, u16 id) {
-    s32 n = TObjPlayer__sub_803131AC((void*)(o));
+    s32 n = TObjPlayer__sub_803131AC(o);
     s32 i;
     for (i = 0; i < n; i++) {
         if (id == ((u16)get_section_id__10TObjPlayerFv(get_element__10TObjPlayerFPvi(o, i)))) {
@@ -107,7 +107,7 @@ void TObjPlayer::process_all_elements() { { int n = TObjPlayer__sub_803131AC(thi
 
 void append_photon_blast_request(s32 arg0, s16 arg1, s16 arg2) {
     s32 temp_r3;
-    temp_r3 = ((s32)TObjPlayer__sub_80312FB0((u8 *)(arg0)));
+    temp_r3 = ((s32)TObjPlayer__sub_80312FB0((u8 *)arg0));
     if (temp_r3 != 0) {
         ((TObjPlayer *)temp_r3)->check_flag_at_4();
         ((TObjPlayer *)temp_r3)->set_type(arg1);
@@ -121,7 +121,7 @@ u8 *TObjPlayer__sub_80312FB0(u8 *arg0) {
     var_r31 = 0;
 loop_1:
     temp_r3 = (u8 *)(get_element__10TObjPlayerFPvi(arg0, var_r31));
-    if (TObjPlayer__sub_80313218((void*)(temp_r3)) != 0) {
+    if (TObjPlayer__sub_80313218(temp_r3) != 0) {
         return temp_r3;
     }
     var_r31 += 1;
@@ -134,7 +134,7 @@ void TObjPlayer__sub_80313010(void *o, s32 id) {
     s32 n;
     s32 i;
     void *e;
-    n = TObjPlayer::get_max_children((void*)(o));
+    n = TObjPlayer::get_max_children(o);
     for (i = 0; i < n; i++) {
         e = TObjPlayer__sub_803131B4(o, i);
         if ((u16)id == ((TObjPlayer *)e)->get_entity_type()) {
@@ -142,7 +142,7 @@ void TObjPlayer__sub_80313010(void *o, s32 id) {
             return;
         }
         if (((TObjPlayer *)e)->get_entity_type() == 0xFFFF) {
-            set_field_0__10TObjPlayerFs((void*)(e), (int)(id));
+            set_field_0__10TObjPlayerFs(e, id);
             TObjPlayer__sub_80313250(e, 10);
             return;
         }

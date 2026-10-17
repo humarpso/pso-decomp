@@ -78,14 +78,14 @@ void TUnk_804A403C::emit_marker_effects() {
     temp_r3 = *(u32 *)((s8 *)arg0 + 0xF0);
     if (temp_r3 == 0U) return;
     temp_r31 = temp_r3 + 0x7CC;
-    if (get_burst_counter((void *)(temp_r31)) == 0) {
+    if (get_burst_counter((void *)temp_r31) == 0) {
         var_r30 = 0;
         do {
-            increment_burst_counter((u8 *)(temp_r31));
+            increment_burst_counter((u8 *)temp_r31);
             var_r30 += 1;
         } while (var_r30 != 2);
         ((TObjPlayer *)(arg0 + 0x1FC))->set_flags(2);
-        TItemAttacker::spawn_item_timer((s32)((void *) (arg0)), (s32)((void *) (clear_rico_ring_flag__10TObjPlayerFv)), 0x3C);
+        TItemAttacker::spawn_item_timer((s32)(arg0), (s32)(clear_rico_ring_flag__10TObjPlayerFv), 0x3C);
         ((TObjPlayer *)(arg0 + 0x1FC))->set_flags(4);
         if (((VObj_18 *)(arg0))->m49(arg0 + 0x200, 0, 0, 1) == 1) {
             ((TAdRicoRing *)(arg0 + 0x1FC))->clear_flags(4);

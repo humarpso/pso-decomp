@@ -18,7 +18,7 @@ void __dl__7TObjectFPv(void *);
 void render__19TWindowMenuMainMenuFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = setup_content_frame__15TWindowMainMenuFPv();
-    draw_frame__19TWindowMenuMainMenuFv((void *) (arg0), (int) (temp_r3));
+    draw_frame__19TWindowMenuMainMenuFv((void *)arg0, (int)temp_r3);
     ((TWindowMainMenu *)arg0)->draw_entries_reversed((u8 *)temp_r3);
 }
 

@@ -184,12 +184,12 @@ void TObjEneDelDepth::load_assets() {
     {
         Info_80315B10 info = deldepth_anim_binding;
         info.a = TObjEneDelDepth__shared_resource->f430;
-        TLobby::spawn_npc_enemy((s16)0x47, (s32)(TObjEneDelDepth__shared_resource->rec->f8), (s32)(TObjEneDelDepth__shared_resource->rec->fC), (s32)(&info), (f32)(g->fC), (f32)TObjEneDelDepth__data_805DF258);
+        TLobby::spawn_npc_enemy((s16)0x47, TObjEneDelDepth__shared_resource->rec->f8, TObjEneDelDepth__shared_resource->rec->fC, (s32)(&info), g->fC, (f32)TObjEneDelDepth__data_805DF258);
     }
     {
         Info_80315B10 info = deldepth_anim_binding_b;
         info.a = TObjEneDelDepth__shared_resource->f430;
-        TLobby::spawn_npc_enemy((s16)0x48, (s32)(TObjEneDelDepth__shared_resource->rec->f18), (s32)(TObjEneDelDepth__shared_resource->rec->f1C), (s32)(&info), (f32)(g->fC), (f32)TObjEneDelDepth__data_805DF258);
+        TLobby::spawn_npc_enemy((s16)0x48, TObjEneDelDepth__shared_resource->rec->f18, TObjEneDelDepth__shared_resource->rec->f1C, (s32)(&info), g->fC, (f32)TObjEneDelDepth__data_805DF258);
     }
     TObjEneDelDepth__tune_params = dispatch_shared_handler_a__6TLobbyFl(0x30);
 }

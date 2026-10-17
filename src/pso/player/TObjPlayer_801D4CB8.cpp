@@ -75,7 +75,7 @@ void TObjPlayer::find_first_inventory_entry(int a1) { inventory_search_item_data
 void set_mode_and_refresh_object__10TObjPlayerFPvi(void* a0, int a1) { inventory_search_item_data = a1; find_matching_inventory_item_node((void*)(*(int*)((char*)a0 + 0x1c4))); }
 
     extern s32 inventory_walk_progress_count;
-void TObjPlayer::destroy_subobjects(int a1) { item_reduce_target_player = a1; inventory_walk_progress_count = 0; ((TObjPlayer *)(*(int *)&this->unk_1C4))->destroy_subobjects_recursive(); queue_destruction__7TObjectFv((void *)(*(int *)&this->unk_1C4)); ((TObject *)(this->m_1c8))->run_tasks(); ((TObject *)(this->m_1c8))->run_tasks(); queue_destruction__7TObjectFv((void *)(this->m_1c8)); }
+void TObjPlayer::destroy_subobjects(int a1) { item_reduce_target_player = a1; inventory_walk_progress_count = 0; ((TObjPlayer *)(*(int *)&this->unk_1C4))->destroy_subobjects_recursive(); queue_destruction__7TObjectFv((void *)(*(int *)&this->unk_1C4)); ((TObject *)(this->m_1c8))->run_tasks(); ((TObject *)(this->m_1c8))->run_tasks(); queue_destruction__7TObjectFv((void *)this->m_1c8); }
 
     extern s32 inventory_update_field_d8_key;
 

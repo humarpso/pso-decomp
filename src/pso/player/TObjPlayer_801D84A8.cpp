@@ -309,9 +309,9 @@ u8 *TObjPlayer__sub_801D84B0(s32 *arg0);
 
 u8 *TObjPlayer__sub_801D84B0(s32 *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0) == 0) {
-        return (u8 *)(arg0) + 4;
+        return (u8 *)arg0 + 4;
     }
-    return (u8 *)(arg0) + 0x14;
+    return (u8 *)arg0 + 0x14;
 }
 
 u32 advance_item_id_counter(s32 client);

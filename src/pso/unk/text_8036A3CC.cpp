@@ -32,8 +32,8 @@ void fn_8036A450(s32 arg0) {
     s32 temp_r31;
     if ((arg0 >= 0) && (arg0 < 9)) {
         temp_r31 = *(s32 *)((s8 *)(&music_sequencer_flag_ids.value) + (arg0 * 4));
-        if (check_flag_index_set((int) (temp_r31)) != 1) {
-            fn_8036A514((int) (temp_r31));
+        if (check_flag_index_set(temp_r31) != 1) {
+            fn_8036A514(temp_r31);
         }
     }
 }

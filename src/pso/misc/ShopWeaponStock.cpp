@@ -522,7 +522,7 @@ void roll_shop_weapon_grind(Item_80225064 *it) {
 }
 #pragma pop
 
-void TLobby__sub_80225238(int a0, int a1) { shop_weapon_stock_level = a1; generate_shop_weapon_stock((s32)(a0)); }
+void TLobby__sub_80225238(int a0, int a1) { shop_weapon_stock_level = a1; generate_shop_weapon_stock(a0); }
 
 typedef char RecoveredGlobal_8022559C_lbl_80513F50_size[sizeof(RecoveredGlobal_8022559C_lbl_80513F50) == 0x10 ? 1 : -1];
 
@@ -614,12 +614,12 @@ void generate_shop_weapon_stock(s32 tbl) {
       roll_shop_weapon_second_bonus((Obj_80224C68 *)(&item));
       item.b12 = 0;
       item.b13 = 0;
-      if (is_duplicate_shop_weapon((C14_80224B7C *)(&item), (s32)(tbl)) == 1)
+      if (is_duplicate_shop_weapon((C14_80224B7C *)(&item), tbl) == 1)
       {
         ((TLobby *)(buf + ((((s32 *)shop_weapon_stock_counts)[tbl]++) * 0x14)))->copy_item_data(&item);
       }
     }
-    sort_shop_items((s32)(buf), (s32)(((s32 *)shop_weapon_stock_counts)[tbl]), 2);
+    sort_shop_items((s32)buf, (s32)(((s32 *)shop_weapon_stock_counts)[tbl]), 2);
   }
 }
 #pragma pop

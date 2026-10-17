@@ -27,8 +27,8 @@ u8 *TObjNpcNgcBase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcNgcBase__name;
     ((TObjNpcNgcBase *)(arg0))->apply_set_data((void *)arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();
-    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *) (arg3), 0);
-    ((TObjNpcNgcBase *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *) (arg3), 0);
+    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *)arg3, 0);
+    ((TObjNpcNgcBase *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *)arg3, 0);
     ((TObjNpcBase *)arg0)->setup_common();
     return arg0;
 }

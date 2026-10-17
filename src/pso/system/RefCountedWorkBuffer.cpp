@@ -14,13 +14,13 @@ void TLobby::dec_ref_and_clear_buffer() {
     temp_r0 = lobby_buffer_refcount - 1;
     lobby_buffer_refcount = temp_r0;
     if (temp_r0 == 0) {
-        memset((void *) (ref_counted_load_buffer), 0, 0xC00);
+        memset(ref_counted_load_buffer, 0, 0xC00);
     }
 }
 
 void TLobby__sub_803D2ED4(void) {
     if ((s32) lobby_buffer_refcount == 0) {
-        memset((void *) (ref_counted_load_buffer), 0, 0xC00);
+        memset(ref_counted_load_buffer, 0, 0xC00);
     }
     lobby_buffer_refcount += 1;
 }

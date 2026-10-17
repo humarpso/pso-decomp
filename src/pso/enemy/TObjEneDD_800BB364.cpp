@@ -58,7 +58,7 @@ u16 enemy_nearest_visible_enemy_sq(Ent_800BB388 *self, f32 range) {
 }
 typedef char RecoveredGlobal_800BB45C_lbl_80500B98_size[sizeof(RecoveredGlobal_800BB45C_lbl_80500B98) == 0x20 ? 1 : -1];
 void TObjEneDD::collect_target_candidates(s32 arg0, f32 farg0) {
-    collect_enemy_target_candidates((s32)(arg0), (Ent_800BB484 *)(&enemy_target_candidate_table.value), farg0);
+    collect_enemy_target_candidates(arg0, (Ent_800BB484 *)(&enemy_target_candidate_table.value), farg0);
 }
 s32 collect_enemy_target_candidates(s32 arg0, Ent_800BB484 *out, f32 farg0) {
     s32 n;
@@ -74,7 +74,7 @@ s32 collect_enemy_target_candidates(s32 arg0, Ent_800BB484 *out, f32 farg0) {
     cnt = TLobby::get_game_mode();
     if (farg0 > TObjEneDD__data_805D9E8C) {
         for (s32 i = 0; i < cnt; i++) {
-            p = ((u8 *)get_player_data__10TObjPlayerFi((s32)(i)));
+            p = ((u8 *)get_player_data__10TObjPlayerFi(i));
             if (is_alive__9TObjEneDDFv(p) != 0) {
                 d = horizontal_distance_squared((void *)(arg0 + 0x38), p + 0x38);
                 if (d < farg0) {
@@ -86,7 +86,7 @@ s32 collect_enemy_target_candidates(s32 arg0, Ent_800BB484 *out, f32 farg0) {
         }
     } else {
         for (s32 i = 0; i < cnt; i++) {
-            p = ((u8 *)get_player_data__10TObjPlayerFi((s32)(i)));
+            p = ((u8 *)get_player_data__10TObjPlayerFi(i));
             if (is_alive__9TObjEneDDFv(p) != 0) {
                 d = horizontal_distance_squared((void *)(arg0 + 0x38), p + 0x38);
                 out[n].id = obj_getField1c(p);

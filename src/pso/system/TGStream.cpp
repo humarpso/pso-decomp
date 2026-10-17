@@ -193,7 +193,7 @@ s32 TGStream::load_sct_file(s32 name, s32 dst) {
     s32 size;
     s32 sectors;
     s32 buf;
-    ((s32 (*)(s32 *, s32, s32))open__8TGStreamFPvPvi)((s32 *)((s32 *)&st), (s32)(name), 1);
+    ((s32 (*)(s32 *, s32, s32))open__8TGStreamFPvPvi)((s32 *)((s32 *)&st), name, 1);
     size = ((s32 (*)(s32 *))get_gstream_file_size)((s32 *)((s32 *)&st));
     if (size <= 0) {
         ((s32 (*)(s32 *, s32))destroy_gstream)((s32 *)((s32 *)&st), -1);
@@ -205,14 +205,14 @@ s32 TGStream::load_sct_file(s32 name, s32 dst) {
         if (buf == 0) {
             debug_print__6TLobbyFle(lbl_8043DE90);
         }
-        ((TGStream *)((s32 *)&st))->read_sectors_sync((s32)(sectors), (s32)(buf));
+        ((TGStream *)((s32 *)&st))->read_sectors_sync(sectors, buf);
         prs_decompress_buffer(buf, dst);
         TAdSinglePlyChrSelectGC::safe_free(buf);
         size = st.info->size;
         ((s32 (*)(s32 *, s32))destroy_gstream)((s32 *)((s32 *)&st), -1);
         return size;
     }
-    ((TGStream *)((s32 *)&st))->read_sectors_sync((s32)(sectors), (s32)(dst));
+    ((TGStream *)((s32 *)&st))->read_sectors_sync(sectors, dst);
     ((s32 (*)(s32 *, s32))destroy_gstream)((s32 *)((s32 *)&st), -1);
     return size;
 }

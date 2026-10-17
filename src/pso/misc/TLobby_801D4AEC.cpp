@@ -87,7 +87,7 @@ s32 TLobby::use_item(s32 arg1, s32 arg2, s32 arg3) {
     if (temp_r3 == 0) {
         return 0;
     }
-    reduce_item_amount((s32)(arg1), (s32)(temp_r3), (s32)(arg3));
+    reduce_item_amount(arg1, temp_r3, arg3);
     return 1;
 }
 

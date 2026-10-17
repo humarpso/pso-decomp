@@ -215,7 +215,7 @@ extern "C" {
 void *TBoss6Demo10_TYPE1_APPEAR__create(void *parent) {
     void *o = __nw__7TObjectFUl(0x68);
     if (o != NULL) {
-        o = __ct__25TBoss6Demo10_TYPE1_APPEARFP7TObject((Fish_8033CB4C *)(o), (void *)(parent));
+        o = __ct__25TBoss6Demo10_TYPE1_APPEARFP7TObject((Fish_8033CB4C *)(o), parent);
     }
     return o;
 }

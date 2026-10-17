@@ -63,7 +63,7 @@ void *TMainCursor::destroy(s16 arg1) {
 typedef char RecoveredGlobal_8013F1F0_lbl_804A7254_size[sizeof(RecoveredGlobal_8013F1F0_lbl_804A7254) == 0xC ? 1 : -1];
 u8 *TMainCursor__sub_8013F1F0(u8 *arg0) {
     *(s32 **)((s8 *)arg0 + 0x10) = &(*(RecoveredGlobal_8013F1F0_lbl_804A7254 *)&lbl_804A7254).value;
-    TMainCursor__sub_8013F22C((void*)((void *) (arg0)));
+    TMainCursor__sub_8013F22C((void*)(arg0));
     return arg0;
 }
 

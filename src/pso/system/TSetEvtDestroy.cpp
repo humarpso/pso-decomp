@@ -40,7 +40,7 @@ void TSetEvtDestroy::run_task() {
             m_phase = 2;
         }
         if (--m_countdown < 0) {
-            if (TLobby::spawn_matching_objects((s16)(m_event_record->spawn_arg0), (s16)(m_event_record->spawn_arg1), (s32)m_enemy_tasks) != 0) {
+            if (TLobby::spawn_matching_objects(m_event_record->spawn_arg0, m_event_record->spawn_arg1, (s32)m_enemy_tasks) != 0) {
                 m_phase = 1;
             } else {
                 m_phase = 2;
@@ -151,10 +151,10 @@ void init_event_shuffle_table(EventShuffleTable *arg0, s32 arg1) {
         i++;
         off += 4;
     }
-    shuffle_event_entries((void *)(arg0));
-    shuffle_event_entries((void *)(arg0));
-    shuffle_event_entries((void *)(arg0));
-    shuffle_event_entries((void *)(arg0));
+    shuffle_event_entries(arg0);
+    shuffle_event_entries(arg0);
+    shuffle_event_entries(arg0);
+    shuffle_event_entries(arg0);
 }
 
 }

@@ -59,7 +59,7 @@ extern const f32 lbl_805DE1F8;
 
 typedef char RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl_size[sizeof(RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl) == 0x38 ? 1 : -1];
 u8 *TObjMistCtrl__ct(u8 *arg0, s32 parent, u32 arg2) {
-    construct_world_actor_base((void *) (arg0), (void *) (parent));
+    construct_world_actor_base((void *)arg0, (void *)parent);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl *)&__vt__12TObjMistCtrl).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3E80;
     if (arg2 != 0U) {
@@ -74,7 +74,7 @@ void TPlayerFootStamp::render() {
     if (horizontal_distance_squared((void *) (arg0 + 0x7C), (void *) (camera_ctrl_instance + 0x178)) < lbl_805DE1F8) {
         lbl_805D5660 = model_render_flags;
         TObjPlayer::reset_transform_state();
-        TObjFish::set_global_param((s32)((void *) (player_footstamp_texture_gvm_handle)));
+        TObjFish::set_global_param((s32)(player_footstamp_texture_gvm_handle));
         set_texture_num((*(s16 *)((s8 *)arg0 + 0xBE)));
         set_depth_buffer_settings_1();
         draw_particle_strip((arg0 + 0x1C), (void *)(4), (void *)(1));

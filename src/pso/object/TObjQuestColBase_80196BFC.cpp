@@ -140,7 +140,7 @@ u8 *__dt__16TObjQuestColBaseFv(u8 *arg0, s16 arg1) {
         TObjQuestColBase__instance_count -= 1;
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *) (arg0));
+            __dl__7TObjectFPv(arg0);
         }
     }
     return arg0;
@@ -155,7 +155,7 @@ u8 *TObjQuestColBase__ct(u8 *arg0, s32 arg1, s32 arg2) {
   ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
   ((RecoveredFields_80196DB4_arg0 *) arg0)->field_18 = &(*(RecoveredGlobal_80196DB4___vt__16TObjQuestColBase *)&__vt__16TObjQuestColBase).value;
   ((RecoveredFields_80196DB4_arg0 *) arg0)->field_0 = quest_col_base_class_name;
-  (((TObjQuestColBase *)(arg0))->apply_object_set_data((void *)(arg2)));
+  (((TObjQuestColBase *)(arg0))->apply_object_set_data((void *)arg2));
   temp_r6 = -1;
   if (((RecoveredFields_80196DB4_arg0 *) arg0)->field_1C == temp_r6)
   {

@@ -240,7 +240,7 @@ void TWindowActionPalette::draw_frame(int arg1) {
 void TWindowActionPalette::render() {
     s32 context = setup_window_draw_context__13TUnk_804CE018Fl(this, &scale);
     draw_visible_window_entries(this, &children, context);
-    draw_frame((int)(context));
+    draw_frame(context);
 }
 
 void run_task__20TWindowActionPaletteFv(u8 *arg0) {
@@ -279,7 +279,7 @@ void run_task__20TWindowActionPaletteFv(u8 *arg0) {
         ((TWindowActionPalette *)arg0)->update_slot_sprites(0, 7, v);
     }
     if (TObjPlayer__sub_80354D5C((u16)((TWindowActionPalette *)arg0)->m_20) != 0 && ((TWindowActionPalette *)(player + 0x500))->handle_input_forward() != 0) {
-        TWindowActionPalette::update_slot_icon((void *)(arg0), 1, 7, 7);
+        TWindowActionPalette::update_slot_icon(arg0, 1, 7, 7);
     } else {
         v = get_entry_by_index__20TWindowActionPaletteFPll(effect, 2);
         ((TWindowActionPalette *)arg0)->update_slot_sprites(1, get_slot_type_for_index__20TWindowActionPaletteFPll(effect, 2), v);

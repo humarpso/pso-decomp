@@ -90,7 +90,7 @@ void TObjRaderCol::run_task() {
         return;
     case 1:
         if (TRaderMapCore::is_not_split_screen() == 1) {
-            check_any_player_in_range__12TObjRaderColFPv((Col_8019750C *)((void *)(this)));
+            check_any_player_in_range__12TObjRaderColFPv((Col_8019750C *)(this));
             return;
         }
         TObjRaderCol::check_local_player_in_range(this);
@@ -100,7 +100,7 @@ void TObjRaderCol::run_task() {
 
 typedef char RecoveredGlobal_801976F4___vt__12TObjRaderCol_size[sizeof(RecoveredGlobal_801976F4___vt__12TObjRaderCol) == 0x38 ? 1 : -1];
 u8 *TObjRaderCol__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_world_actor_base((void *) (arg0));
+    construct_world_actor_base(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801976F4___vt__12TObjRaderCol *)&__vt__12TObjRaderCol).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3410;
     ((TObjRaderCol *)(arg0))->apply_object_set_data((void *)arg2);

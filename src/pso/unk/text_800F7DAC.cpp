@@ -173,10 +173,10 @@ void TLobby::dispatch_state() {
     temp_r0 = *(s32 *)((s8 *)this + 0x24);
     switch (temp_r0) {
     case 1:
-        step_fade_opacity_decrease__13TUnk_80499970Fv((u8 *)(this));
+        step_fade_opacity_decrease__13TUnk_80499970Fv((u8 *)this);
         return;
     case 2:
-        step_fade_opacity_increase((u8 *)(this));
+        step_fade_opacity_increase((u8 *)this);
         return;
     case 3:
         tick_fade_counter();

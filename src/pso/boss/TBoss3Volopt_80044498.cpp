@@ -741,7 +741,7 @@ void TBoss3Volopt::spawn_sub_objects() {
 
 void TBoss3Volopt::apply_hit_reaction(f32 farg0) {
     if ((obj_testFlags30(this, 0x800) == 0) && !(*(s32 *)&this->m_388 & 0x20000) && ((s16) this->mode != 0xC)) {
-        TBoss3Volopt::check_and_notify((s32)(this));
+        TBoss3Volopt::check_and_notify((s32)this);
         *(f32 *)((s8 *)this + 0x508) = (f32) (lbl_805D87B8 + farg0);
         *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 & 0xFFFFFFFE);
         ((TObjEneMe1GiGue *)this)->update_if_active(0xC);
@@ -1060,9 +1060,9 @@ void TBoss3Volopt::spawn_breakup_models() {
         *(s32 *)&this->m_388 = (s32) (temp_r4 | 0x10000);
         ((TObjEneGyaranzo *)((u8 *)this))->render_anim_model_at_pos();
         this->vfunc_65(2, (s32)&sp8);
-        TBoss3Volopt::create_breakup_mdl((s32)((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__breakup_model_ids).value) + 0))), (s32)((void *) (&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value)), (s32)((int) (this->texture_id)), (s32)((void *) (&sp8)), (s32)((int) (this->rotation_y)));
+        TBoss3Volopt::create_breakup_mdl((s32)((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__breakup_model_ids).value) + 0))), (s32)((void *) (&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value)), (s32)(this->texture_id), (s32)((void *) (&sp8)), (s32)(this->rotation_y));
         this->vfunc_65(0x12, (s32)&sp8);
-        TBoss3Volopt::create_breakup_mdl((s32)((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__breakup_model_ids).value) + 4))), (s32)((void *) (&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value)), (s32)((int) (this->texture_id)), (s32)((void *) (&sp8)), (s32)((int) (this->rotation_y)));
+        TBoss3Volopt::create_breakup_mdl((s32)((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__breakup_model_ids).value) + 4))), (s32)((void *) (&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value)), (s32)(this->texture_id), (s32)((void *) (&sp8)), (s32)(this->rotation_y));
         TBoss3Volopt::set_flag8_list((u32 **)(&TBoss3Volopt__breakup_flag_list.value));
     }
 }
@@ -1335,7 +1335,7 @@ void TBoss3Volopt::update_pillar_heal_state(void *arg0_) {
 #pragma pop
 
 #define arg0 ((u8 *)arg0_)
-#define F(t, o) (*(t *)((s8 *)(arg0) + (o)))
+#define F(t, o) (*(t *)(arg0 + (o)))
 #define VO ((VObj_18_b5cc36 *)(arg0))
 
 void TBoss3Volopt__sub_80046260(void *arg0_) {
@@ -1656,8 +1656,8 @@ void dispatch_state__12TBoss3VoloptFPv(V_80047408 *self) {
 }
 
 void TBoss3Volopt::set_action_wait(u16 arg1) {
-    if ((obj_testFlags30((void*)((void *)(this)), 0x800) == 0) && !(*(s32 *)&this->m_388 & 0x80000) && ((s16) this->mode != 0xA)) {
-        TBoss3Volopt::check_and_notify((s32)(this));
+    if ((obj_testFlags30((void*)(this), 0x800) == 0) && !(*(s32 *)&this->m_388 & 0x80000) && ((s16) this->mode != 0xA)) {
+        TBoss3Volopt::check_and_notify((s32)this);
         if ((u16) arg1 != 0xFFFF) {
             this->targetId = arg1;
             *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 & 0xFFFFFFFE);
@@ -1666,22 +1666,22 @@ void TBoss3Volopt::set_action_wait(u16 arg1) {
     }
 }
 void TBoss3Volopt::set_motion(s16 arg1) {
-    if ((obj_testFlags30((void*)((void *)(this)), 0x800) == 0) && !(*(s32 *)&this->m_388 & 0x10000) && ((s16) this->mode != 9)) {
+    if ((obj_testFlags30((void*)(this), 0x800) == 0) && !(*(s32 *)&this->m_388 & 0x10000) && ((s16) this->mode != 9)) {
         *(s16 *)&this->targetId = arg1;
         *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 & 0xFFFFFFFE);
         ((TObjEneMe1GiGue *)this)->update_if_active(9);
     }
 }
 void TBoss3Volopt::check_and_trigger() {
-    if ((obj_testFlags30((void*)((void *)(this)), 0x800) == 0) && !(*(s32 *)&this->m_388 & 0x40000)) {
-        TBoss3Volopt::check_and_notify((s32)(this));
+    if ((obj_testFlags30((void*)(this), 0x800) == 0) && !(*(s32 *)&this->m_388 & 0x40000)) {
+        TBoss3Volopt::check_and_notify((s32)this);
         *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 & 0xFFFFFFFE);
         ((TObjEneMe1GiGue *)this)->update_if_active(0xB);
     }
 }
 void TBoss3Volopt::set_action(s16 arg1) {
-    if ((obj_testFlags30((void*)((void *)(this)), 0x800) == 0) && !(*(s32 *)&this->m_388 & 0x20000) && ((s16) this->mode != 2)) {
-        TBoss3Volopt::check_and_notify((s32)(this));
+    if ((obj_testFlags30((void*)(this), 0x800) == 0) && !(*(s32 *)&this->m_388 & 0x20000) && ((s16) this->mode != 2)) {
+        TBoss3Volopt::check_and_notify((s32)this);
         *(s16 *)&this->targetId = arg1;
         *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 & 0xFFFFFFFE);
         this->vfunc_60();
@@ -1716,7 +1716,7 @@ void TUnk_80484610::run_state() {
     switch (o->st) {
     case 0: ((TUnk_80484610 *)o)->sub_800472D4(); return;
     case 1: dispatch_state__12TBoss3VoloptFPv((V_80047408 *)(o)); return;
-    case 2: TBoss3Volopt__sub_80046CB8((void *)(o)); return;
+    case 2: TBoss3Volopt__sub_80046CB8(o); return;
     case 4: update_state__12TBoss3VoloptFPv(o); return;
     case 5: ((TBoss3Volopt *)o)->update_death_sequence(); return;
     case 9: TBoss3Volopt__sub_800465B0(o); return;
@@ -1753,7 +1753,7 @@ void TUnk_80484610::run_task() {
                 this->vfunc_62();
             }
         }
-        if (obj_testFlags30((void*)(arg0), 0x4000) != 0) {
+        if (obj_testFlags30(arg0, 0x4000) != 0) {
             if (((TObjPlayer *)arg0)->add_status_effect_timer(4, -1) <= 0) {
                 reset_status_effect_row(((u8 *)&this->unk_284));
                 ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x4000);
@@ -1772,8 +1772,8 @@ void TUnk_80484610::run_task() {
             }
             ((TUnk_80484610 *)arg0)->run_state();
             ((TObjEnemy *)arg0)->update_prev_position();
-            copy_position__20TBoss3VoloptHiraisinFi((s32)(arg0));
-            submit_cursor_candidate((void *) (arg0), -1);
+            copy_position__20TBoss3VoloptHiraisinFi((s32)arg0);
+            submit_cursor_candidate(arg0, -1);
             minimap_render_dot((u8 *)&this->position, -0x5DB4, 1, 0);
             update_obstruction_fade((void *) (arg0 + 0x490));
             this->clear_all_status_effects();
@@ -1795,8 +1795,8 @@ void *TUnk_80484610::destroy(s16 arg1) {
         free_collision_body_parts(this);
         if (*(void **)((s8 *)this + 0x474) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x474)); }
         if (this->m_478 != NULL) { queue_destruction__7TObjectFv(this->m_478); }
-        destroy_children__12TBoss3VoloptFPv((void *)(this));
-        destroy_sub_objects__12TBoss3VoloptFPv((void *)(this));
+        destroy_children__12TBoss3VoloptFPv(this);
+        destroy_sub_objects__12TBoss3VoloptFPv(this);
         __dt__13TUnk_804949A8Fv((s8 *)this + 0x490, -1);
         __dt__15TObjEnemyCustomFv(this, 0);
         if (arg1 > 0) {

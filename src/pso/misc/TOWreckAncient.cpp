@@ -119,11 +119,11 @@ void *__dt__14TOWreckAncientFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_8017DE94___vt__14TOWreckAncient_size[sizeof(RecoveredGlobal_8017DE94___vt__14TOWreckAncient) == 0x3C ? 1 : -1];
 u8 *TOWreckAncient__ct(u8 *arg0, s32 arg1) {
-    construct_collider_proxy__13TUnk_804AF8A0Fv((void *) (arg0), (int) (tl_05));
+    construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_05);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8017DE94___vt__14TOWreckAncient *)&__vt__14TOWreckAncient).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOWreckAncient__name;
-    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *) ((*(s32 *)&wreck_ancient_bml_resource)), (void *) (arg1));
-    ((TOWreckAncient *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&wreck_ancient_bml_resource)), (void *) (arg1));
+    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *) ((*(s32 *)&wreck_ancient_bml_resource)), (void *)arg1);
+    ((TOWreckAncient *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&wreck_ancient_bml_resource)), (void *)arg1);
     *(f32 *)((s8 *)arg0 + 0xAC) = (f32) lbl_805DBAD0;
     ((TOWreckAncient *)arg0)->m_b0 = (f32) lbl_805DBAD4;
     return arg0;

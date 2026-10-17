@@ -135,11 +135,11 @@ typedef char RecoveredFields_8008213C_arg1_A4_offset[offsetof(RecoveredFields_80
 typedef char RecoveredFields_8008213C_temp_r3_10_offset[offsetof(RecoveredFields_8008213C_temp_r3, field_10) == 0x10 ? 1 : -1];
 u8 *TObjPlayer::construct_freeze_shell(u8 *arg1, u8 *arg2) {
     u8 *temp_r3;
-    construct_actor_base__10TObjPlayerFPvPv((void *) (((u8 *)this)), (void *) (tl_05));
+    construct_actor_base__10TObjPlayerFPvPv((void *) (((u8 *)this)), (void *)tl_05);
     ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_18 = lbl_8048E1A4;
     ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_34 = get_bml_model((void *) ((*(s32 *)&freeze_shell_bml_resource)), 1);
     if (arg1 != NULL) {
-        ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_358 = obj_getField1c((void *) (arg1));
+        ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_358 = obj_getField1c(arg1);
         VecCopy((Vec *)(((u8 *)this) + 0x35C), (const Vec *)(arg1 + 0x38));
         if (arg2 != NULL) {
             VecCopy((Vec *)(((u8 *)this) + 0x38), (const Vec *)(arg2 + 0x1C));

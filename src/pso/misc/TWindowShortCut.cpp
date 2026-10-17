@@ -33,9 +33,9 @@ int initialize_subwindow__9TWindowDDFv(void*);
 void render__15TWindowShortCutFv(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFl();
-    draw_window_frame((void *) (arg0), (int) (temp_r3));
-    draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
-    forward_render__20TWindowSubStatusDispFv((int) (*(s32 *)&((TWindowShortCut *)arg0)->m_60), (int) (temp_r3));
+    draw_window_frame(arg0, temp_r3);
+    draw_visible_window_entries(arg0, (void *) (arg0 + 0x24), temp_r3);
+    forward_render__20TWindowSubStatusDispFv((int) (*(s32 *)&((TWindowShortCut *)arg0)->m_60), temp_r3);
 }
 
 void TWindowShortCut::run_task() { ((TWindowSubStatusDisp *)(*(void* *)&this->m_60))->update_subwindow(); initialize_subwindow__9TWindowDDFv(this); update_fade(); update_window_entry_list((char*)this + 0x24); }
@@ -69,7 +69,7 @@ u8 *TWindowShortCut__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)&((TWindowShortCut *)arg0)->m_68 = 0;
     *(s32 *)&((TWindowShortCut *)arg0)->m_6c = arg2;
     *(s32 *)&((TWindowShortCut *)arg0)->m_70 = arg3;
-    TWindowSubStatusDisp__sub_8026E1D4((void *) (arg0), (void *) (arg2), (void *) (arg3));
+    TWindowSubStatusDisp__sub_8026E1D4((void *)arg0, (void *)arg2, (void *)arg3);
     return arg0;
 }
 

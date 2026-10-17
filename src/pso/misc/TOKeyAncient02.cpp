@@ -85,8 +85,8 @@ void TOKeyAncient02::render() {
     if (((VObj18*)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y(0, (int) (this->rotation_y));
-        TObjFish::set_global_param((int) (this->texture_id));
+        rotate_matrix_y(0, this->rotation_y);
+        TObjFish::set_global_param(this->texture_id);
         temp_r31 = *(u8 * *)&this->model;
         push_matrix();
         post_translate_matrix((void *) (temp_r31 + 8));
@@ -114,7 +114,7 @@ void TOKeyAncient02::render() {
         temp_r31_5 = *(u8 **)((s8 *)temp_r31_4 + 0x2C);
         push_matrix();
         post_translate_matrix((void *) (temp_r31_5 + 8));
-        rotate_matrix_y(0, (int) (this->m_ec));
+        rotate_matrix_y(0, this->m_ec);
         draw_ginja_model((*(s32 *)((s8 *)temp_r31_5 + 4)));
         pop_matrix();
         pop_matrix();
@@ -168,7 +168,7 @@ void TOKeyAncient02::vfunc_16() {
 void *TOKeyAncient02::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF0);
     if (o != NULL) {
-        o = TOKeyAncient02__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TOKeyAncient02__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -226,7 +226,7 @@ u8 *TOKeyAncient02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TOKey *)arg0)->init_switch_id();
     *(u8 * *)&((TOKeyAncient02 *)arg0)->model = ((u8 *)get_bml_model((void *)((*(s32 *)&TOKeyAncient02__model_archive)), 1));
     ((TOKeyAncient02 *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *)((void *) ((*(s32 *)&TOKeyAncient02__model_archive))), 1);
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B2A8C.value), 1);
+    init_collision_body_parts(arg0, (void *) (&lbl_804B2A8C.value), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOKeyAncient02 *)arg0)->m_c0 = (f32) lbl_805DB710;

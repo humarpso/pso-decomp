@@ -142,7 +142,7 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
     u8 *temp_r7;
     u8 *temp_r8;
     TObjPlayer::set_global_flag();
-    TObjFish::set_global_param((s32)((void *) (lbl_805D4BD8)));
+    TObjFish::set_global_param((s32)(lbl_805D4BD8));
     push_matrix();
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
     switch (temp_r0) {
@@ -166,8 +166,8 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
         draw_chunk_object((lbl_805D4BD0));
         break;
     case 3:
-        post_translate_matrix((void *) ((u8 *)(arg0) + 0x140));
-        scale_matrix(0, (f32) (lbl_805D8528), (f32) (lbl_805D8528), (f32) (lbl_805D8528));
+        post_translate_matrix((void *) (arg0 + 0x140));
+        scale_matrix(0, lbl_805D8528, lbl_805D8528, lbl_805D8528);
         rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x11C)));
         rotate_matrix_z(0, (int) (*(s32 *)((s8 *)arg0 + 0x120)));
         for (i = 0; i < 14; i++) {
@@ -185,7 +185,7 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
 
 typedef V3_80039DE0 V3_800394DC;
 typedef struct { u8 pad[0x30]; V3_800394DC pts[14]; } Ten_800394DC;
-#define F(t, o) (*(t *)((s8 *)(arg0) + (o)))
+#define F(t, o) (*(t *)(arg0 + (o)))
 void run_task__14TBoss2TentacleFv(u8 *arg0) {
     if (F(s32, 0x20) != F(s32, 0x1C)) {
         switch (F(s32, 0x20)) {
@@ -426,7 +426,7 @@ void TBoss2Tentacle::reset_segment_points() {
 
 void TBoss2Tentacle__sub_80039E54(void* a0) { *(float*)((char*)a0 + 0x118) = lbl_805D8558; *(int*)((char*)a0 + 0x124) = 3038; }
 
-void TBoss2Tentacle__sub_80039E68(void* p) { TBoss2Tentacle__sub_80039D98((void*)(p)); }
+void TBoss2Tentacle__sub_80039E68(void* p) { TBoss2Tentacle__sub_80039D98(p); }
 
 void TBoss2Tentacle::start_attack_at_target(u8 *arg1, s32 arg2) {
     u8 *arg0 = (u8 *)this;
@@ -437,10 +437,10 @@ void TBoss2Tentacle::start_attack_at_target(u8 *arg1, s32 arg2) {
     }
     *(s32 *)((s8 *)arg0 + 0x154) = var_r5;
     VecCopy((Vec *)(arg0 + 0x12C), (const Vec *)arg1);
-    TBoss2Tentacle__sub_80039DB0((void*)(arg0));
+    TBoss2Tentacle__sub_80039DB0(arg0);
 }
 
-void TBoss2Tentacle::forward_80039DC8() { TBoss2Tentacle__sub_80039DC8((void*)(this)); }
+void TBoss2Tentacle::forward_80039DC8() { TBoss2Tentacle__sub_80039DC8(this); }
 
 Obj_80039F50 *__ct__14TBoss2TentacleFP7TObjectii(Obj_80039F50 *self, void *parent, s32 arg2, s32 arg3) {
     s32 i;

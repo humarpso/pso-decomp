@@ -27,7 +27,7 @@ void add_armor_equip_candidates(u8 *arg0, u16 kind, u16 sub) {
             item = find_item_by_id(ids[i]);
             if (item != NULL && kind == ((u8 (*)(void *))get_field_ec__5TItemFv)(item) && sub == ((TItem *)item)->get_field_ed() &&
                 ((TItem *)item)->get_usable_action_flags(8, 0) != 0) {
-                ((TShopJudgmentItemWindow *)arg0)->add_list_entry((s32)item, (s32)(ids[i]));
+                ((TShopJudgmentItemWindow *)arg0)->add_list_entry((s32)item, ids[i]);
             }
         }
         if (*(s16 *)(arg0 + 0x72) <= 0) {
@@ -49,7 +49,7 @@ void build_mag_item_candidates(void *arg0, u16 arg1) {
         for (i = 0; i < n; i++) {
             item = find_item_by_id(ids[i]);
             if ((item != 0) && (arg1 == get_field_ec__5TItemFv()) && (((TItem *)item)->get_usable_action_flags(8, 0) != 0U)) {
-                ((TShopJudgmentItemWindow *)arg0)->add_list_entry((s32)item, (s32)(ids[i]));
+                ((TShopJudgmentItemWindow *)arg0)->add_list_entry((s32)item, ids[i]);
             }
         }
         if (*(s16 *)((s8 *)arg0 + 0x72) <= 0) {
@@ -71,7 +71,7 @@ void populate_judgment_item_list(Wn_80278DA4 *arg0) {
         for (i = 0; i < count; i++) {
             id = find_item_by_id(list[i]);
             if (id != NULL) {
-                ((TShopJudgmentItemWindow *)arg0)->add_list_entry((s32)id, (s32)(list[i]));
+                ((TShopJudgmentItemWindow *)arg0)->add_list_entry((s32)id, list[i]);
             }
         }
         if (arg0->f72 <= 0) {

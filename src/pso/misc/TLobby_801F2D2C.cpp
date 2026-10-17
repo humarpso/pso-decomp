@@ -296,17 +296,17 @@ void TLobby::free_luker_object() {
 
 void TLobby::set_flag_80000() {
     s32 arg0 = (s32)this;
-    test_action_mask__10TObjPlayerFl((void*)(arg0), 0x80000);
+    test_action_mask__10TObjPlayerFl((void*)arg0, 0x80000);
 }
 void TLobby::set_flag_40000() {
     test_action_mask__10TObjPlayerFl(this, 0x40000);
 }
 void TLobby__sub_801F3314(s32 arg0) {
-    test_action_mask__10TObjPlayerFl((void*)(arg0), 0x10000);
+    test_action_mask__10TObjPlayerFl((void*)arg0, 0x10000);
 }
 void TLobby::set_flag_8000() {
     s32 arg0 = (s32)this;
-    test_action_mask__10TObjPlayerFl((void*)(arg0), 0x8000);
+    test_action_mask__10TObjPlayerFl((void*)arg0, 0x8000);
 }
 int TLobby::check_flag_24576() { return test_action_mask__10TObjPlayerFl(this, 24576); }
 int TLobby__sub_801F3384(void* p) { return test_action_mask__10TObjPlayerFl(p, 1024); }
@@ -342,7 +342,7 @@ void TLobby::bswap_4x32() { bswap_32__FPUl(this); bswap_32__FPUl((char*)this + 0
     extern unsigned char camera_capture_flags;
 void TLobby__sub_801F3568(void) { camera_capture_flags = (camera_capture_flags | 0x10); }
 
-void TLobby::sync_quest_register_and_send() { bswap_header__6TLobbyFPv((void*)((void*)((void*)(this)))); TLobby__send_and_handle_60((u8 *)this); }
+void TLobby::sync_quest_register_and_send() { bswap_header__6TLobbyFPv((void*)((void*)(this))); TLobby__send_and_handle_60((u8 *)this); }
 void bswap_header__6TLobbyFPv(void* p) { ((TObjPlayer *)p)->read_be16_field2(); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x8); }
 void build_6x77_sync_quest_register(void* p) { *(u8*)((char*)p + 0x0) = 119; *(u8*)((char*)p + 0x1) = 3; }
 
@@ -366,7 +366,7 @@ void TLobby::bswap_entry_words(s32 arg0) {
     var_r31 = 0;
     do {
         temp_r30 = arg0 + var_r31;
-        bswap_32__FPUl((void*)((void *) (temp_r30)));
+        bswap_32__FPUl((void*)(temp_r30));
         bswap_32__FPUl((void*)((void *) (temp_r30 + 0x18)));
         var_r29 += 1;
         var_r31 += 4;

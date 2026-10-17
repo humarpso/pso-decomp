@@ -841,7 +841,7 @@ void TObjGrass::sub_800BD4D8() {
             d = update_angle__10TObjPlayerFlPv(o, (void *)(s32)((2.0f) * (f32)o->param->turn), &v);
             if (d < ((TObjPlayer *)(o->f318))->get_field_0c()) {
                 s32 ang = (s32)((10430.38043493439) * atan2_float(v.x, v.z));
-                o->f398 = (3e+01f) + (newton_sqrtf(TObjPlayer::calc_distance_to_client((s32)o, (u16)(o->f338), (u32)0)) + get_collision_body_radius(o, 0));
+                o->f398 = (3e+01f) + (newton_sqrtf(TObjPlayer::calc_distance_to_client((s32)o, o->f338, (u32)0)) + get_collision_body_radius(o, 0));
                 if (o->f398 < (1e+02f)) {
                     o->f398 = (1e+02f);
                 }
@@ -1473,7 +1473,7 @@ void TObjGrass::vfunc_28() {
             *(u8 **)((s8 *)arg0 + 0x2A8) = NULL;
             return;
         }
-        if (obj_testFlags30((void *) (arg0), 0x10) != 0) {
+        if (obj_testFlags30(arg0, 0x10) != 0) {
             i = 0;
             best_id = 0xFFFF;
             Vec_800BEF8C v = *(Vec_800BEF8C *)lbl_8043B790;
@@ -1492,7 +1492,7 @@ void TObjGrass::vfunc_28() {
                     xx = v.x * v.x;
                     zz = v.z * v.z;
                     d = xx + zz;
-                    if (d < best && check_path_obstructed((void *) (arg0), p + 0x2FC) != 1) {
+                    if (d < best && check_path_obstructed(arg0, p + 0x2FC) != 1) {
                         best_id = id;
                         best = d;
                     }
@@ -1500,7 +1500,7 @@ void TObjGrass::vfunc_28() {
             }
             *(u16 *)((s8 *)arg0 + 0x338) = best_id;
         } else {
-            *(u16 *)((s8 *)arg0 + 0x338) = find_nearest_visible_player((void *) (arg0), 0, *(f32 *)((s8 *)(*(f32 **)((s8 *)arg0 + 0x350)) + 0));
+            *(u16 *)((s8 *)arg0 + 0x338) = find_nearest_visible_player(arg0, 0, *(f32 *)((s8 *)(*(f32 **)((s8 *)arg0 + 0x350)) + 0));
         }
         tid = *(u16 *)((s8 *)arg0 + 0x338);
         if (tid < 0x1000U) {
@@ -1645,7 +1645,7 @@ void TObjGrass::run_task() {
     u8 *temp_r3_2;
     u8 *temp_r4;
     if (TObjPlayer::check_demo_mode() == 1) {
-        TObjGrass__sub_800BCA2C((void *)((void *) (arg0)));
+        TObjGrass__sub_800BCA2C((void *)(arg0));
         return;
     }
     temp_r3 = this->targetId;
@@ -1669,13 +1669,13 @@ void TObjGrass::run_task() {
     {
         switch (this->mode) {
         case 0:
-            TObjGrass::update_ai((void *)((void *) (arg0)));
+            TObjGrass::update_ai((void *)(arg0));
             break;
         case 1:
             ((TObjGrass *)arg0)->sub_800BE75C();
             break;
         case 2:
-            TObjGrass::update_chase_target((void *)((void *) (arg0)));
+            TObjGrass::update_chase_target((void *)(arg0));
             break;
         case 3:
             ((TObjGrass *)arg0)->sub_800BDD70();
@@ -1693,21 +1693,21 @@ void TObjGrass::run_task() {
             ((TObjGrass *)arg0)->sub_800BCE44();
             break;
         case 8:
-            TObjGrass::update_dying((void *)((void *) (arg0)));
+            TObjGrass::update_dying((void *)(arg0));
             break;
         case 9:
             break;
         }
     }
-    temp_r4 = (u8 *)(this->target);
+    temp_r4 = this->target;
     if ((temp_r4 != NULL) && (*(s32 *)((s8 *)temp_r4 + 0x30) & 0x02000800)) {
         *(s16 *)&this->timer = 0;
         *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFDFFFFF);
         this->target = NULL;
     }
     ((TObjEnemy *)arg0)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0));
-    submit_cursor_candidate((void *) (arg0), -1);
+    copy_position__20TBoss3VoloptHiraisinFi(arg0);
+    submit_cursor_candidate(arg0, -1);
     this->m_2b4 += (1.0f);
 }
 
@@ -1720,7 +1720,7 @@ void *TObjGrass::create(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x404);
     if (o2 != NULL) {
-        o2 = TObjGrass__ct((u8 *)(o2), (s32)(o), (s32)(arg0));
+        o2 = TObjGrass__ct((u8 *)o2, (s32)o, (s32)arg0);
     }
     return o2;
 }

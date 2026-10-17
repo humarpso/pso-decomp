@@ -129,7 +129,7 @@ Self_80108020 *TItemEffArmor__ct(Self_80108020 *self, u8 *obj, f32 a, f32 b) {
     self->vt = __vt__13TItemEffArmor;
     self->f0 = TItemEffArmor__class_name;
     self->f24 = lbl_805DAAF8;
-    TItemLoad::get_item_params((s32 *)(self->f70), (s32 *)(self->f78), (s32 *)(self->f74));
+    TItemLoad::get_item_params((s32 *)self->f70, (s32 *)self->f78, (s32 *)self->f74);
     self->f28 = a;
     self->f58 = b;
     self->f6C = obj;
@@ -164,7 +164,7 @@ void TObjPlayer::spawn_appearance_effect(s32 idx) {
             s = lbl_805DAB04 * (xyz_distance(&a, &b) / lbl_805DAB08);
             o = __nw__7TObjectFUl(0x7C);
             if (o != 0) {
-                TItemEffArmor__ct((Self_80108020 *)(o), (u8 *)(p), s, v);
+                TItemEffArmor__ct((Self_80108020 *)(o), (u8 *)p, s, v);
             }
             play_sound_effect(0x4000B20A, (u8 *)p + 0x38, 0, 0);
         }

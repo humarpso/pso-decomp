@@ -96,7 +96,7 @@ void TWindowDD__sub_803484C4(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0xA8) = 2;
     copy_chat_entry__9TWindowDDFPvPv((int) (*(s32 *)((s8 *)arg0 + 0xC0)), (void *) (arg0 + 0xC4));
     if ((s32) *(s32 *)((s8 *)arg0 + 0xA4) != 0) {
-        reset_selection__9TWindowDDFv((void *) (arg0), (void *) (arg0 + 0xC4));
+        reset_selection__9TWindowDDFv(arg0, (void *) (arg0 + 0xC4));
     }
     ((TWindowDD *)arg0)->close_all_windows();
 }
@@ -158,7 +158,7 @@ void TWindowDD::update_state() {
 void TWindowDD::append_prompt_newline(s32 *arg1) {
     u8 *arg0 = (u8 *)this;
     s32 p = *arg1;
-    if (((s32)TWindowDD::can_append_chars(3, (s32 *)((s32 *)(arg1)))) != 0) {
+    if (((s32)TWindowDD::can_append_chars(3, (s32 *)(arg1))) != 0) {
         arg0[p++] = 0xA;
         arg0[p++] = 0x3E;
         arg0[p++] = 0x20;

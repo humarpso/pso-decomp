@@ -58,7 +58,7 @@ void chat_log_remove_line(s32 arg0) {
     temp_r31 = (u32 *)((u8 *)&chat_log_lines.value + (arg0 * 4));
     temp_r4 = *temp_r31;
     if (temp_r4 != 0U) {
-        ((THeap *)TAdScrollWinGC__chat_log_heap)->heap_free((void *)((int) (temp_r4)));
+        ((THeap *)TAdScrollWinGC__chat_log_heap)->heap_free((void *)(temp_r4));
         *temp_r31 = 0U;
         if (arg0 < 0x1D) {
             ((TLobby *)temp_r31)->move_words((u32 *)((u8 *)&chat_log_lines.value + ((arg0 + 1) * 4)), (s32)((void *) ((0x1D - arg0) & 0x3FFFFFFF)));
@@ -88,8 +88,8 @@ void cache_last_chat_line(u32 text) {
         chat_last_line_buffer = NULL;
     }
     if (text != 0U) {
-        temp_r31 = chat_text_lacks_language_tag((const char *)((void *) (text)));
-        size = measure_string_len__20TWindowSubStatusDispFv((void *) (text)) + 1;
+        temp_r31 = chat_text_lacks_language_tag((const char *)(text));
+        size = measure_string_len__20TWindowSubStatusDispFv((void *)text) + 1;
         if (temp_r31 != 0) {
             size += 2;
         }
@@ -112,7 +112,7 @@ void cache_last_chat_line(u32 text) {
             }
             size -= 2;
         }
-        strncpy((int) (var_r3), (void *) (text), (int) (size));
+        strncpy((int)var_r3, (void *)text, (int)size);
     }
 }
 
@@ -133,7 +133,7 @@ void chat_log_add_line(s32 arg0) {
     }
     temp_r30 = free_chat_log_slot * 4;
     *(s32 *)((s8 *)((u8 *)(&chat_log_lines.value) + temp_r30) + 0) = var_r28;
-    strncpy((int) (*(s32 *)((s8 *)((u8 *)(&chat_log_lines.value) + temp_r30) + 0)), (void *) (arg0), (int) (temp_r29));
+    strncpy((int) (*(s32 *)((s8 *)((u8 *)(&chat_log_lines.value) + temp_r30) + 0)), (void *)arg0, (int)temp_r29);
     *(s8 *)((s8 *)(temp_r29 + *(s32 *)((s8 *)((u8 *)(&chat_log_lines.value) + temp_r30) + 0)) + 0) = 0;
 }
 

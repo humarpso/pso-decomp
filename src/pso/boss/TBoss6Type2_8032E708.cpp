@@ -375,7 +375,7 @@ void TBoss6Type2::destroy_part_object(s32 arg1) {
     temp_r31 = (u8 *)(arg0 + (arg1 * 4));
     temp_r3 = *(u32 *)((s8 *)temp_r31 + 0x43C);
     if (temp_r3 != 0U) {
-        TBoss4Type2::request_destroy((int) (temp_r3));
+        TBoss4Type2::request_destroy(temp_r3);
         *(u32 *)((s8 *)temp_r31 + 0x43C) = 0U;
     }
 }
@@ -597,11 +597,11 @@ void TBoss6Type2::compute_random_dir_vec(s32 arg0, u8 *arg1, s32 arg2, s32 arg3)
     f32 temp_f31;
     f32 temp_f30;
 
-    temp_f31 = -sin_table_lookup((void *) (arg3));
-    temp_f30 = (1.0f) - fabs_float((f32) (temp_f31));
-    *(f32 *)((s8 *)arg1 + 0) = (f32) (temp_f30 * sin_table_lookup((void *) (arg2)));
+    temp_f31 = -sin_table_lookup((void *)arg3);
+    temp_f30 = (1.0f) - fabs_float(temp_f31);
+    *(f32 *)((s8 *)arg1 + 0) = (f32) (temp_f30 * sin_table_lookup((void *)arg2));
     *(f32 *)((s8 *)arg1 + 4) = temp_f31;
-    *(f32 *)((s8 *)arg1 + 8) = (f32) (temp_f30 * cos_table_lookup((void *) (arg2)));
+    *(f32 *)((s8 *)arg1 + 8) = (f32) (temp_f30 * cos_table_lookup((void *)arg2));
 }
 
 typedef struct RecoveredFields_8032F174_arg0 RecoveredFields_8032F174_arg0;
@@ -704,7 +704,7 @@ void TBoss6Mag::update_rotation_ramp() {
 
 void TBoss6Type2::init_with_global_table() {
     T_8032F2C4 *self = (T_8032F2C4 *)this;
-    TBoss6Type2__sub_8032F2F0((void*)(self->v), (void*)(lbl_80477450));
+    TBoss6Type2__sub_8032F2F0((void*)self->v, (void*)lbl_80477450);
 }
 
 void TBoss6Type2__sub_8032F2F0(void* p, void* q) { *(f32*)((char*)p + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); }
@@ -735,7 +735,7 @@ void set_path_points__11TBoss6Type2FPvPvi(O_8032F360 *arg0, V3_8032F360 *arg1, s
 void TBoss6Type2::set_path_points_by_index(s32 i, void *pts, s32 n) {
     void *p = TBoss6Type2__instance_slots[i];
     if (p != 0) {
-        set_path_points__11TBoss6Type2FPvPvi((O_8032F360 *)((void *)(p)), (V3_8032F360 *)((void *)(pts)), (s32)((s32)(n)));
+        set_path_points__11TBoss6Type2FPvPvi((O_8032F360 *)(p), (V3_8032F360 *)(pts), (s32)(n));
     }
 }
 
@@ -1127,7 +1127,7 @@ void TBoss6Mag::set_action(s32 arg1) {
     MemberActionStorage_803301B8 member_action;
     u8 *temp_r31;
     *(s32 *)((s8 *)((u8 *)this) + 0x380) = arg1;
-    temp_r31 = (u8 *)((void *)((u8 *)(boss6_type2_action_table) + (*(s32 *)((s8 *)((u8 *)this) + 0x380) * 0x24)));
+    temp_r31 = (u8 *)((void *)((u8 *)boss6_type2_action_table + (*(s32 *)((s8 *)((u8 *)this) + 0x380) * 0x24)));
     ((TBoss6Mag *)((u8 *)this))->change_motion((s32)((int) (*(s32 *)((s8 *)temp_r31 + 4))));
     *(s32 *)((s8 *)((u8 *)this) + 0x388) = (s32) *(s32 *)((s8 *)temp_r31 + 8);
     member_action.words[0] = *(s32 *)((s8 *)temp_r31 + 0xC);
@@ -1253,7 +1253,7 @@ void TBoss6Mag::run_task() {
     if (TObjPlayer::check_demo_mode() == 0) {
         if (TBoss6PlotFalz::is_boss_active() == 0) {
             *(s32 *)((s8 *)arg0 + 0x378) = 0;
-            queue_destruction__7TObjectFv((void *) (arg0));
+            queue_destruction__7TObjectFv(arg0);
             return;
         }
         VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
@@ -1268,14 +1268,14 @@ void TBoss6Mag::run_task() {
         ((TObjPlayer *)arg0)->save_position();
         if ((s32) *(s32 *)((s8 *)arg0 + 0x388) != 0) {
             ((TObjPlayer *)arg0)->update_collisions();
-            submit_cursor_candidate((void *) (arg0), -1);
+            submit_cursor_candidate(arg0, -1);
         }
         ((TBoss6Rock *)(arg0 + 0x38))->break_rocks_in_radius((f32) (1e+01f));
         var_r4 = 0xFF7F5126;
         if ((s32) *(s32 *)((s8 *)arg0 + 0x388) != 0) {
             var_r4 = -0x5DB4;
         }
-        add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (var_r4), 1, 1, (f32) (2.0f));
+        add_radar_scaled_marker((void *) (arg0 + 0x38), var_r4, 1, 1, (f32) (2.0f));
         ((TBoss6Mag *)arg0)->decay_glow_and_calc_hp_ratio();
         ((TBoss6Mag *)arg0)->sync_hp_apply_damage();
         ((TBoss6Mag *)arg0)->spawn_trap_by_stat();

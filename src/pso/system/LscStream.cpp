@@ -253,7 +253,7 @@ void lsc_destroy(LscStream *arg0) {
             notify_dvd_read__6TLobbyFv((void *) (&sp8));
         }
         arg0->in_use = 0;
-        memset((void *)((void *) (arg0)), 0, (unsigned long)(0x438));
+        memset((void *)(arg0), 0, (unsigned long)(0x438));
         notify_dvd_read__6TLobbyFv((void *) (&spC));
     }
 }
@@ -308,7 +308,7 @@ void lsc_init(void) {
     lbl_805E0DB0;
     ((void (*)(void *))enter_lock__6TLobbyFv)(sp8);
     if (lobby_slot_refcount == 0) {
-        memset((void *)(lsc_slot_table), 0, (unsigned long)(0x4380));
+        memset(lsc_slot_table, 0, (unsigned long)(0x4380));
         TLobby::set_callback(0, 0);
     }
     lobby_slot_refcount++;

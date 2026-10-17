@@ -83,7 +83,7 @@ void TOKeyMachine01::render() {
         TObjFish::set_global_param(TOKeyMachine01__texture_lists[*(s32 *)&this->m_d4]);
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y(0, (int) (this->rotation_y));
+        rotate_matrix_y(0, this->rotation_y);
         temp_r31 = *(u8 * *)&this->model;
         post_translate_matrix((void *) (temp_r31 + 8));
         draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
@@ -117,7 +117,7 @@ void TOKeyMachine01::render() {
 void *TOKeyMachine01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xFC);
     if (o != NULL) {
-        o = TOKeyMachine01__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TOKeyMachine01__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

@@ -46,6 +46,6 @@ void init_buffers__6TLobbyFii(s32 id, s32 arg1) {
 
     extern int item_drop_rng;
     extern int lbl_805D60A4;
-void TLobby::free_boss4rock() { free_boss4rock__6TLobbyFs((void*)(lbl_805D60A4), (void*)1); lbl_805D60A4 = 0; ::operator delete((void *)(item_drop_rng)); item_drop_rng = 0; }
+void TLobby::free_boss4rock() { free_boss4rock__6TLobbyFs((void*)lbl_805D60A4, (void*)1); lbl_805D60A4 = 0; ::operator delete((void *)item_drop_rng); item_drop_rng = 0; }
 
 }

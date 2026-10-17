@@ -91,10 +91,10 @@ void TOKeyAncient01::render() {
     if (((VObj18*)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y(0, (void *) (this->rotation_y));
-        TObjFish::set_global_param((int) (this->texture_id));
+        rotate_matrix_y(0, (void *)this->rotation_y);
+        TObjFish::set_global_param(this->texture_id);
         if ((s32) *(s32 *)&this->m_d4 != 1) {
-            draw_ginja_model_with_motion((void *) (*(u8 * *)&this->model), (int) (*(s32 *)&this->m_bc), (f32) (this->m_b0));
+            draw_ginja_model_with_motion((void *) (*(u8 * *)&this->model), (int) (*(s32 *)&this->m_bc), this->m_b0);
         } else {
             push_matrix();
             post_translate_matrix((void *) (*(u8 * *)&this->model + 8));
@@ -123,7 +123,7 @@ extern void *tl_05;
 void *TOKeyAncient01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE8);
     if (o != NULL) {
-        o = TOKeyAncient01__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TOKeyAncient01__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

@@ -333,12 +333,12 @@ void TObjBoss1MokoHill_SoloM::run_task() {
                 if (self->f3C != 0) {
                     o = __nw__7TObjectFUl(0x50);
                     if (o != NULL) {
-                        TObjBoss1MokoHill_Solo__ct((void *)(o), (void *)(self->f10), 0);
+                        TObjBoss1MokoHill_Solo__ct(o, self->f10, 0);
                     }
                 } else {
                     o = __nw__7TObjectFUl(0x50);
                     if (o != NULL) {
-                        TObjBoss1MokoHill_Solo__ct((void *)(o), (void *)(self->f10), 0x1E);
+                        TObjBoss1MokoHill_Solo__ct(o, self->f10, 0x1E);
                     }
                 }
             }
@@ -405,7 +405,7 @@ void TBoss8Dragon::spawn_child_object() {
     *(f32 *)&this->unk_30 = lbl_805D81A0;
     o = __nw__7TObjectFUl(0x50);
     if (o != NULL) {
-        TObjBoss1MokoHill_Solo__ct((void *)(o), (void *)(*(void * *)&this->m_10), 30);
+        TObjBoss1MokoHill_Solo__ct(o, (void *)(*(void * *)&this->m_10), 30);
     }
     *(u32 *)&this->unk_3C = 0;
 }
@@ -461,7 +461,7 @@ void update_dragon_trail_uvs(Obj_8002D4C0 *self) {
     }
 }
 
-void TBoss8Dragon::free_resources() { mem_free((void *)(lbl_805D4B78)); lbl_805D4B78 = 0; mem_free((void *)(lbl_805D4B6C)); lbl_805D4B6C = 0; ((int (*)(void*, void*))destroy__12TBoss8DragonFPvs)((void*)(lbl_805D4B64), (void*)1); lbl_805D4B64 = 0; ((int (*)(void*, void*))destroy__12TBoss8DragonFPvs)((void*)(lbl_805D4B68), (void*)1); lbl_805D4B68 = 0; ((int (*)(void*, void*))destroy__12TBoss8DragonFPvs)((void*)(lbl_805D4B60), (void*)1); lbl_805D4B60 = 0; }
+void TBoss8Dragon::free_resources() { mem_free((void *)lbl_805D4B78); lbl_805D4B78 = 0; mem_free((void *)lbl_805D4B6C); lbl_805D4B6C = 0; ((int (*)(void*, void*))destroy__12TBoss8DragonFPvs)((void*)lbl_805D4B64, (void*)1); lbl_805D4B64 = 0; ((int (*)(void*, void*))destroy__12TBoss8DragonFPvs)((void*)lbl_805D4B68, (void*)1); lbl_805D4B68 = 0; ((int (*)(void*, void*))destroy__12TBoss8DragonFPvs)((void*)lbl_805D4B60, (void*)1); lbl_805D4B60 = 0; }
 
 s32 TBoss8Dragon__sub_8002DAEC(void *arg0) {
     return *(s32 *)((s8 *)arg0 + 0x14) + ((*(s32 *)((s8 *)arg0 + 0xC) + 3) * 2);

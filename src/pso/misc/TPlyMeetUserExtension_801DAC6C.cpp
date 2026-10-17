@@ -104,15 +104,15 @@ void handle_cmd_9B__9TProtocolFR6packet(u8 *arg0, Regist_801DAD38 *arg1) {
         memset((void *)(&pkt), 0, 0xE0);
         pkt.cmd = 0xDB;
         pkt.size = 0xE0;
-        strncpy((void *)(pkt.a), (s32)((s32)(arg0 + 0x3EB8)), 0x10);
-        strncpy((void *)(pkt.b), (s32)((s32)(arg0 + 0x3EC9)), 0x10);
-        strncpy((void *)(pkt.c), (s32)((s32)(arg0 + 0x3F8A)), 0x10);
-        strncpy((void *)(pkt.d), (s32)((s32)(arg0 + 0x3F9B)), 0x10);
+        strncpy(pkt.a, (s32)((s32)(arg0 + 0x3EB8)), 0x10);
+        strncpy(pkt.b, (s32)((s32)(arg0 + 0x3EC9)), 0x10);
+        strncpy(pkt.c, (s32)((s32)(arg0 + 0x3F8A)), 0x10);
+        strncpy(pkt.d, (s32)((s32)(arg0 + 0x3F9B)), 0x10);
         __as__8TPlySmthFRC8TPlySmth((s32)pkt.smth, (s32)(arg0 + 0x18F8));
         pkt.port = *(u16 *)(arg0 + 0x1908);
-        strncpy((void *)(pkt.e), (s32)((s32)(arg0 + 0x3EDA)), 0x30);
-        strncpy((void *)(pkt.f), (s32)((s32)(arg0 + 0x3F0A)), 0x30);
-        strncpy((void *)(pkt.g), (s32)((s32)(arg0 + 0x3F3A)), 0x30);
+        strncpy(pkt.e, (s32)((s32)(arg0 + 0x3EDA)), 0x30);
+        strncpy(pkt.f, (s32)((s32)(arg0 + 0x3F0A)), 0x30);
+        strncpy(pkt.g, (s32)((s32)(arg0 + 0x3F3A)), 0x30);
         fn_801DF280(&pkt);
         ((VObjDAD38 *)arg0)->m8(&pkt, 0xE0);
     } else {

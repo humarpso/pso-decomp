@@ -117,9 +117,9 @@ void TUnk_8048FE08::sub_8009A11C() { *(s32*)((char*)this + 0xb0) = 0; }
 void TObjEneDf2Bringer::setup_dir_shot(const void *arg1, s32 arg2, f32 farg0) {
     VecCopy((Vec *)(((u8 *)this) + 0x38), (const Vec *)arg1);
     this->rotation_y = arg2;
-    *(f32 *)&this->m_b8 = sin_table_lookup((int) (this->rotation_y));
+    *(f32 *)&this->m_b8 = sin_table_lookup(this->rotation_y);
     *(f32 *)&this->m_bc = (f32) 0.0f;
-    this->m_c0 = cos_table_lookup((int) (this->rotation_y));
+    this->m_c0 = cos_table_lookup(this->rotation_y);
     *(s32 *)&this->animationFlags = 1;
     fill_value_array((int) (*(s32 *)&this->unk_C4));
     this->m_c8 = (f32) 0.0f;
@@ -405,20 +405,20 @@ void update_bringer_rush_effect(u8 *arg0) {
     f32 temp_f1;
     obj_getField1c((void *) (*(u8 **)((s8 *)arg0 + 0x1C)));
     if (is_player_entity_id() != 0) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv(arg0);
         return;
     }
     if (is_alive__9TObjEneDDFv((void *) (*(u8 **)((s8 *)arg0 + 0x1C))) == 0) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv(arg0);
         return;
     }
     if (obj_isState2_324__13TUnk_804806E8Fv((void *) (*(u8 **)((s8 *)arg0 + 0x1C))) != 0) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv(arg0);
         return;
     }
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x2C);
     if (temp_f1 <= 0.02f) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv(arg0);
         return;
     }
     *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x308) = (f32) (((TObjEneDf2Bringer_Eff_Rush *)arg0)->m_20* temp_f1);
@@ -441,7 +441,7 @@ u8 *construct_bringer_rush_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 fa
     typedef char sp8_offset[(offsetof(Stack_8009AA64, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8009AA64, spC) == 0x4) ? 1 : -1];
     Stack_8009AA64 stack;
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8009AA64_lbl_8048FE94 *)&bringer_rush_effect_vtable).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) bringer_rush_effect_name;
     *(s32 *)((s8 *)arg0 + 0x1C) = arg3;

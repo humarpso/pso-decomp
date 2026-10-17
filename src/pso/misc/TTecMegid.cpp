@@ -379,14 +379,14 @@ void TTecMegid::create(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 obj;
     obj = __nw__7TObjectFUl(0x17C);
     if (obj != 0U) {
-        TTecMegid__ct((u8 *)(obj), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3));
+        TTecMegid__ct((u8 *)obj, (s32)arg0, (s32)arg1, (s32)arg2, (s32)arg3);
     }
 }
 void TTecMegid::create_ex(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 obj;
     obj = __nw__7TObjectFUl(0x17C);
     if (obj != 0U) {
-        ((TTecMegid *)obj)->construct_facing((s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3));
+        ((TTecMegid *)obj)->construct_facing(arg0, arg1, arg2, arg3);
     }
 }
 void TTecMegid::render() {  }
@@ -481,7 +481,7 @@ u8 *TTecMegid::construct_facing(s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
 void TUnk_804CCA78::run_task() {
     this->m_1e = (s16) (this->m_1e + 1);
     if ((s16) this->m_1e > (s16) *(s16 *)&this->unk_1C) {
-        queue_destruction__7TObjectFv(((void *)(this)));
+        queue_destruction__7TObjectFv((this));
     }
 }
 

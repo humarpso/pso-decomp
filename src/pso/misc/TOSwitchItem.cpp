@@ -104,7 +104,7 @@ void TOSwitchItem::render() {
         stack.spC = lbl_805DBA10;
         stack.sp10 = lbl_805DBA10;
         stack.sp14 = lbl_805DBA14;
-        newton_sqrtf((f32) (this->m_e8));
+        newton_sqrtf(this->m_e8);
         TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&stack.sp8));
     }
 }
@@ -148,7 +148,7 @@ void run_task__12TOSwitchItemFv(u8 *arg0) {
                 }
                 break;
             case 4:
-                if (is_state_ec1_ed3__10TObjPlayerFv((int) (sorted_item_registry_entry)) == 1) {
+                if (is_state_ec1_ed3__10TObjPlayerFv((int)sorted_item_registry_entry) == 1) {
                     var_r30 += 1;
                 }
                 break;
@@ -164,7 +164,7 @@ void run_task__12TOSwitchItemFv(u8 *arg0) {
                 break;
             case 7:
                 if (((TItem *)sorted_item_registry_entry)->get_field_ec() == 4) {
-                    var_r30 += copy_item_data_and_process__5TItemFv((int) (sorted_item_registry_entry));
+                    var_r30 += copy_item_data_and_process__5TItemFv((int)sorted_item_registry_entry);
                 }
                 break;
             }
@@ -185,7 +185,7 @@ void run_task__12TOSwitchItemFv(u8 *arg0) {
 void *TOSwitchItem::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF8);
     if (o != NULL) {
-        o = TOSwitchItem__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TOSwitchItem__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

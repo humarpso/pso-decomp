@@ -20,7 +20,7 @@ void TObjPlayer::copy_all_technique_entries(void *arg1) {
     s32 i;
     s32 n = TObjPlayer__sub_801D9E08();
     for (i = 0; i < n; i++) {
-        TObjPlayer__sub_801D9C34((u8 *)(this), (s16)(i), (void *)(arg1));
+        TObjPlayer__sub_801D9C34((u8 *)this, (s16)i, (void *)arg1);
     }
 }
 

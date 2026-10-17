@@ -95,7 +95,7 @@ void TObjVoloptCage::update_state() {
 void TObjVoloptCage::run_task() {
     u8 *arg0 = (u8 *)this;
     if (TObjPlayer::check_demo_mode() == 1) {
-        TObjVoloptCage__sub_800C76F0((void *) (arg0));
+        TObjVoloptCage__sub_800C76F0(arg0);
         return;
     }
     if ((s16) this->mode != 7) {
@@ -115,8 +115,8 @@ void TObjVoloptCage::run_task() {
     }
     update_state();
     ((TObjEnemy *)arg0)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFi((s32)(arg0));
-    submit_cursor_candidate((void *) (arg0), -1);
+    copy_position__20TBoss3VoloptHiraisinFi((s32)arg0);
+    submit_cursor_candidate(arg0, -1);
 }
 
 u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1) {
@@ -126,15 +126,15 @@ u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1) {
         player = (s32)get_player_by_client_id((((TObjVoloptCage *)arg0)->targetId));
         if ((player != 0) && (is_locally_controlled__10TObjPlayerFPv() != 0)) {
             if (((TLobby *)player)->check_player_flag1() != 0) {
-                TObjPlayer::send_code_45_1((int) (player));
+                TObjPlayer::send_code_45_1(player);
             }
-            obj_clear_flag30_20000((void *)((int) (player)));
+            obj_clear_flag30_20000((void *)(player));
         }
         clear_volopt_cage_flag();
-        free_collision_body_parts((void *) (arg0));
+        free_collision_body_parts(arg0);
         __dt__15TObjEnemyCustomFv((arg0), 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *) (arg0));
+            __dl__7TObjectFPv(arg0);
         }
     }
     return arg0;

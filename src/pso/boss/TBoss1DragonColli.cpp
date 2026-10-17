@@ -111,7 +111,7 @@ u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1) {
     s32 var_r0;
     s32 var_r0_2;
     s32 var_r0_3;
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__17TBoss1DragonColli;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss1DragonColli__name;
     stack.sp8 = lbl_805D8108;
@@ -120,7 +120,7 @@ u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1) {
     temp_r3 = __nw__7TObjectFUl(0xB8);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = TBoss1DragonColli_C__ct((int)((int) (temp_r3)), (void *)((void *) (arg0)), 1, (void *)((void *) (&stack.sp8)), (f32) (lbl_805D810C));
+        var_r0 = TBoss1DragonColli_C__ct((int)(temp_r3), (void *)(arg0), 1, (void *)((void *) (&stack.sp8)), lbl_805D810C);
     }
     *(s32 *)((s8 *)arg0 + 0x1C) = var_r0;
     stack.sp8 = lbl_805D8110;
@@ -129,7 +129,7 @@ u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1) {
     temp_r3_2 = __nw__7TObjectFUl(0xB8);
     var_r0_2 = temp_r3_2;
     if (var_r0_2 != 0) {
-        var_r0_2 = TBoss1DragonColli_C__ct((int)((int) (temp_r3_2)), (void *)((void *) (arg0)), 3, (void *)((void *) (&stack.sp8)), (f32) (lbl_805D8118));
+        var_r0_2 = TBoss1DragonColli_C__ct((int)(temp_r3_2), (void *)(arg0), 3, (void *)((void *) (&stack.sp8)), lbl_805D8118);
     }
     *(s32 *)((s8 *)arg0 + 0x20) = var_r0_2;
     stack.sp8 = lbl_805D8110;
@@ -138,7 +138,7 @@ u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1) {
     temp_r3_3 = __nw__7TObjectFUl(0xB8);
     var_r0_3 = temp_r3_3;
     if (var_r0_3 != 0) {
-        var_r0_3 = TBoss1DragonColli_C__ct((int)((int) (temp_r3_3)), (void *)((void *) (arg0)), 5, (void *)((void *) (&stack.sp8)), (f32) (lbl_805D8118));
+        var_r0_3 = TBoss1DragonColli_C__ct((int)(temp_r3_3), (void *)(arg0), 5, (void *)((void *) (&stack.sp8)), lbl_805D8118);
     }
     *(s32 *)((s8 *)arg0 + 0x24) = var_r0_3;
     return arg0;
@@ -148,7 +148,7 @@ void TBoss1DragonColli_C::render() {  }
 
 void TBoss1DragonColli__sub_8002B35C(void* p) { ((TBoss1DragonColli_C *)p)->clear_segment_flags(); }
 
-void draw__17TBoss1DragonColliFPvPvPv(void* p, void* a1, void* a2) { push_matrix(p); set_matrix_identity((void*)0); post_translate_matrix(a1); rotate_matrix_y((void*)0, a2); matrix_mult_vec((void*)0, (char*)p + 0xac, (char*)p + 0x38); pop_matrix(); *(void**)((char*)p + 0x60) = a2; ((TUnk_804AF8A0 *)p)->refresh_collision_body_centers(); set_elem_flags__17TBoss1DragonColliFPv((O_8002B42C *)((void*)(p))); }
+void draw__17TBoss1DragonColliFPvPvPv(void* p, void* a1, void* a2) { push_matrix(p); set_matrix_identity((void*)0); post_translate_matrix(a1); rotate_matrix_y((void*)0, a2); matrix_mult_vec((void*)0, (char*)p + 0xac, (char*)p + 0x38); pop_matrix(); *(void**)((char*)p + 0x60) = a2; ((TUnk_804AF8A0 *)p)->refresh_collision_body_centers(); set_elem_flags__17TBoss1DragonColliFPv((O_8002B42C *)(p)); }
 
 void TBoss1DragonColli_C::clear_segment_flags() {
     O_8002B3F4 *self = (O_8002B3F4 *)this;

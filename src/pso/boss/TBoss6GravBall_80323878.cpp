@@ -61,25 +61,25 @@ void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0) {
     s32 temp_r3;
 
     TBoss6GravBall__sub_803233AC();
-    play_persistent_sound(0x4003C418, (void *) (arg0), (void *) (arg0 + 0xC8), 0, 0);
+    play_persistent_sound(0x4003C418, arg0, (void *) (arg0 + 0xC8), 0, 0);
     temp_r0 = *(s32 *)((s8 *)arg0 + 0xB8);
     if (temp_r0 >= 0x96) {
         if (temp_r0 == 0x96) {
-            create_emitter__14TBoss6GravBallFl((void *) (arg0), 3);
+            create_emitter__14TBoss6GravBallFl(arg0, 3);
         }
     } else if (temp_r0 > 0x4B) {
         temp_r0_2 = temp_r0 & 0xF;
         if (temp_r0_2 == 0) {
-            create_emitter__14TBoss6GravBallFl((void *) (arg0), 3);
+            create_emitter__14TBoss6GravBallFl(arg0, 3);
         } else if (temp_r0_2 == 0xE) {
-            destroy_part__14TBoss6GravBallFl((void *) (arg0), 3);
+            destroy_part__14TBoss6GravBallFl(arg0, 3);
         }
     } else {
         temp_r0_3 = temp_r0 & 0xF;
         if (temp_r0_3 == 0) {
-            create_emitter__14TBoss6GravBallFl((void *) (arg0), 3);
+            create_emitter__14TBoss6GravBallFl(arg0, 3);
         } else if (temp_r0_3 == 0xA) {
-            destroy_part__14TBoss6GravBallFl((void *) (arg0), 3);
+            destroy_part__14TBoss6GravBallFl(arg0, 3);
         }
     }
     *(s32 *)((s8 *)arg0 + 0xB8) = (s32) (*(s32 *)((s8 *)arg0 + 0xB8) + 1);
@@ -96,20 +96,20 @@ void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0) {
             spawn_particle_effect((arg0 + 0xC8), 0x21D);
             *(s32 *)((s8 *)arg0 + 0xC4) = 1;
         }
-        destroy_part__14TBoss6GravBallFl((void *) (arg0), 5);
-        destroy_part__14TBoss6GravBallFl((void *) (arg0), 6);
-        destroy_part__14TBoss6GravBallFl((void *) (arg0), 7);
-        destroy_part__14TBoss6GravBallFl((void *) (arg0), 8);
+        destroy_part__14TBoss6GravBallFl(arg0, 5);
+        destroy_part__14TBoss6GravBallFl(arg0, 6);
+        destroy_part__14TBoss6GravBallFl(arg0, 7);
+        destroy_part__14TBoss6GravBallFl(arg0, 8);
         return;
     case 32:
-        destroy_part__14TBoss6GravBallFl((void *) (arg0), 4);
-        destroy_part__14TBoss6GravBallFl((void *) (arg0), 3);
-        destroy_part__14TBoss6GravBallFl((void *) (arg0), 5);
-        destroy_part__14TBoss6GravBallFl((void *) (arg0), 6);
-        destroy_part__14TBoss6GravBallFl((void *) (arg0), 7);
-        destroy_part__14TBoss6GravBallFl((void *) (arg0), 8);
+        destroy_part__14TBoss6GravBallFl(arg0, 4);
+        destroy_part__14TBoss6GravBallFl(arg0, 3);
+        destroy_part__14TBoss6GravBallFl(arg0, 5);
+        destroy_part__14TBoss6GravBallFl(arg0, 6);
+        destroy_part__14TBoss6GravBallFl(arg0, 7);
+        destroy_part__14TBoss6GravBallFl(arg0, 8);
         *(s32 *)((s8 *)arg0 + 0xB4) = 0;
-        clear_player_grav_flags__14TBoss6GravBallFv((void *)((void *) (arg0)));
+        clear_player_grav_flags__14TBoss6GravBallFv((void *)(arg0));
         *(s32 *)((s8 *)arg0 + 0xB0) = 2;
         play_sound_effect(0x4003C417, (void *) (arg0 + 0xC8), 0, 0);
         return;
@@ -125,11 +125,11 @@ void update_state__14TBoss6GravBallFPv(u8 *arg0) {
     s32 temp_r3_2;
     temp_r3 = clamp_to_ground__14TBoss6GravBallFv();
     if (temp_r3 != 0) {
-        TBoss6GravBall__sub_803236F8((void *) (arg0));
+        TBoss6GravBall__sub_803236F8(arg0);
     }
-    fn_80323134((void *) (arg0));
+    fn_80323134(arg0);
     if (temp_r3 != 0) {
-        create_emitter__14TBoss6GravBallFl((void *) (arg0), 2);
+        create_emitter__14TBoss6GravBallFl(arg0, 2);
         temp_f2 = *(f32 *)((s8 *)arg0 + 0xBC);
         if (temp_f2 < lbl_805DF568) {
             *(f32 *)((s8 *)arg0 + 0xBC) = (f32) (temp_f2 + lbl_805DF578);
@@ -138,7 +138,7 @@ void update_state__14TBoss6GravBallFPv(u8 *arg0) {
             }
         }
         TBoss6GravBall__sub_80323544((arg0));
-        play_persistent_sound(0x4003B51A, (void *) (arg0), (void *) (arg0 + 0xC8), 0, 0);
+        play_persistent_sound(0x4003B51A, arg0, (void *) (arg0 + 0xC8), 0, 0);
         switch (get_state__14TBoss6GravBallFv((int) (*(s32 *)((s8 *)arg0 + 0xAC)))) {
         case 0x27:
             return;
@@ -146,10 +146,10 @@ void update_state__14TBoss6GravBallFPv(u8 *arg0) {
             break;
         case 0x1E:
         case 0x1F:
-            destroy_part__14TBoss6GravBallFl((void *) (arg0), 0);
-            destroy_part__14TBoss6GravBallFl((void *) (arg0), 1);
-            destroy_part__14TBoss6GravBallFl((void *) (arg0), 2);
-            TBoss6GravBall__sub_80323214((void *) (arg0), 4);
+            destroy_part__14TBoss6GravBallFl(arg0, 0);
+            destroy_part__14TBoss6GravBallFl(arg0, 1);
+            destroy_part__14TBoss6GravBallFl(arg0, 2);
+            TBoss6GravBall__sub_80323214(arg0, 4);
             *(s32 *)((s8 *)arg0 + 0xB8) = 0;
             *(s32 *)((s8 *)arg0 + 0xB4) = 0;
             *(s32 *)((s8 *)arg0 + 0xB0) = 1;
@@ -184,7 +184,7 @@ void *__dt__14TBoss6GravBallFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TBoss6GravBall;
         init_parts__14TBoss6GravBallFv(arg0);
-        clear_player_grav_flags__14TBoss6GravBallFv((void *)(arg0));
+        clear_player_grav_flags__14TBoss6GravBallFv(arg0);
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -206,7 +206,7 @@ Obj_80323D20 *TBoss6GravBall__ct(Obj_80323D20 *arg0, s32 arg1, void *arg2) {
     arg0->fC4 = 0;
     TBoss6GravBall__sub_80323320(arg0);
     for (i = 0; i < 2; i++) {
-        create_emitter__14TBoss6GravBallFl((void *)(arg0), (int)(lbl_8047667C[i]));
+        create_emitter__14TBoss6GravBallFl(arg0, lbl_8047667C[i]);
     }
     return arg0;
 }

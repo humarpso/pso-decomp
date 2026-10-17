@@ -139,7 +139,7 @@ void TBoss6Tube::update_wobble() {
 
 void TBoss6Tube::spawn_trap() {
     s32 arg0 = (s32)this;
-    TBoss6Tube__sub_802B129C((u8 *)(arg0));
+    TBoss6Tube__sub_802B129C((u8 *)arg0);
     play_persistent_sound(0x40033520, arg0, 0, 0, 0);
 }
 

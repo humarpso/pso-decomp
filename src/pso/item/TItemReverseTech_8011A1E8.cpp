@@ -92,7 +92,7 @@ void TItemReverseTech::create() {
     }
 }
 
-void free__16TItemReverseTechFv(void) { free_texture_if_valid((u32)(TItemReverseTech__texture_archive)); mem_free((void *)(TItemReverseTech__name_buffer)); TItemReverseTech__name_buffer = 0; mem_free((void *)(TItemReverseTech__entry_table)); TItemReverseTech__entry_table = 0; ::operator delete((void *)(TItemReverseTech__texture_archive)); TItemReverseTech__texture_archive = 0; }
+void free__16TItemReverseTechFv(void) { free_texture_if_valid((u32)TItemReverseTech__texture_archive); mem_free((void *)TItemReverseTech__name_buffer); TItemReverseTech__name_buffer = 0; mem_free((void *)TItemReverseTech__entry_table); TItemReverseTech__entry_table = 0; ::operator delete((void *)TItemReverseTech__texture_archive); TItemReverseTech__texture_archive = 0; }
 
 typedef char RecoveredGlobal_8011A350_main_task_size[sizeof(RecoveredGlobal_8011A350_main_task) == 0x34 ? 1 : -1];
 
@@ -152,7 +152,7 @@ void TItemReverseTech::run_frame() {
         TKeyBoardControl__sub_8000F92C();
     }
     if (TQuestVmDownLoadServer::is_ready() != 0) {
-        var_r3 = (s32 *)((u8 *)(NULL));
+        var_r3 = (s32 *)(NULL);
         TKeyBoardControl__sub_8000F9CC(0);
     }
     render_tick();

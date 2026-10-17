@@ -440,7 +440,7 @@ s32 TBoss4Zako::create(s32 arg0) {
         if (parent != 0) {
             parent = TObjControl__ct(parent, tl_04);
         }
-        var_r31 = TBoss4Zako__ct((s32)(var_r31), (s32)(parent), (s32)(arg0));
+        var_r31 = TBoss4Zako__ct(var_r31, parent, arg0);
     }
     return var_r31;
 }
@@ -781,7 +781,7 @@ s32 create__9TBoss4UroFi(s32 arg0) {
         if (var_r4 != 0) {
             var_r4 = TObjControl__ct(var_r4, tl_04);
         }
-        var_r31 = TBoss4Uro__ct((s32)(var_r31), (s32)(var_r4), (s32)(arg0));
+        var_r31 = TBoss4Uro__ct(var_r31, var_r4, arg0);
     }
     return var_r31;
 }
@@ -904,9 +904,9 @@ V2_8005BF68 TBoss4Bishi_spawn_offsets[4] = {
 #pragma push
 void vt4__9TBoss4UroFv(void *actor) {
     struct VOff_8005C450_arg0_8005BABC *self = (struct VOff_8005C450_arg0_8005BABC *)actor;
-    update_target_position__10TBoss4ZakoFPv((u8 *)(actor));
+    update_target_position__10TBoss4ZakoFPv((u8 *)actor);
     ((TBoss4Zako *)actor)->update_orbit_velocity();
-    VecCopy__FP3VecPC3Vec((void *)((void *)((char *)actor + 68)), (void *)(self->f_38));
+    VecCopy__FP3VecPC3Vec((void *)((void *)((char *)actor + 68)), self->f_38);
     vec3_add_to(self->f_38, (void *)((char *)actor + 908));
 }
 #pragma pop
@@ -1013,7 +1013,7 @@ s32 create__11TBoss4BishiFi(s32 arg0) {
         if (parent != 0) {
             parent = TObjControl__ct(parent, tl_04);
         }
-        var_r31 = TBoss4Bishi__ct((s32)(var_r31), (s32)(parent), (s32)(arg0));
+        var_r31 = TBoss4Bishi__ct(var_r31, parent, arg0);
     }
     return var_r31;
 }
@@ -1068,7 +1068,7 @@ void *__dt_deleting__11TBoss4BishiFPvs(void *arg0, s16 arg1) {
 }
 #pragma pop
 #pragma push
-void try_enter_state_3__11TBoss4BishiFPv(void* p) { if (*(int*)((char*)p + 0x374) != 3) { ((TObjEnemy *)p)->distribute_experience(); enter_state_3__11TBoss4BishiFPv((void*)(p)); } }
+void try_enter_state_3__11TBoss4BishiFPv(void* p) { if (*(int*)((char*)p + 0x374) != 3) { ((TObjEnemy *)p)->distribute_experience(); enter_state_3__11TBoss4BishiFPv(p); } }
 #pragma pop
 #pragma push
 void enter_state_3__11TBoss4BishiFPv(void* p) { if (*(int*)((char*)p + 0x374) != 3) { TBoss4Uro__sub_8005D6D4(*(void**)((char*)p + 0x378)); *(int*)((char*)p + 0x374) = 3; } }
@@ -1136,7 +1136,7 @@ void vt1__11TBoss4BishiFv(Obj_8005BB5C *self) {
     V_8005BB5C v = self->pos;
     v.y = lbl_805D8CBC;
     if (--self->f37c < 0 || vector_length(&v) > lbl_805D8CC4) {
-        enter_state_3__11TBoss4BishiFPv((void*)(self));
+        enter_state_3__11TBoss4BishiFPv(self);
     }
 }
 #pragma pop

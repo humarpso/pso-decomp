@@ -66,7 +66,7 @@ u16 TUnk_804806E8::get_or_assign_actor_id(s32 arg1) {
             break;
         default:
         case 0x40000000:
-            this->m_1c = TLobby::alloc_actor_ids((s32)(arg1));
+            this->m_1c = TLobby::alloc_actor_ids(arg1);
             break;
         }
     }

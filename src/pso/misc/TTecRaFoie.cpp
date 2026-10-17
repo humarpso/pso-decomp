@@ -389,7 +389,7 @@ void TUnk_804CCB28::render() {
     pop_matrix();
     model_render_flags = lbl_805D5660;
     if (o->tev != 0) {
-        TScene::set_indirect_tev((s32)(o->tev), 0);
+        TScene::set_indirect_tev((s32)o->tev, 0);
     }
     TParticleCtrl::end_effect_render();
 }
@@ -578,7 +578,7 @@ u8 *create_rafoie_explosion(u8 *arg0, s32 *arg1, s16 arg2, s16 arg3, s32 arg4, f
     Stack_802384E0 stack;
     s32 temp_r3;
     s32 var_r0;
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg4));
+    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg4);
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804CCB28.value;
     ((TUnk_804CCB28 *)arg0)->m_20 = arg2;
     *(s16 *)((s8 *)arg0 + 0x22) = arg3;
@@ -597,11 +597,11 @@ u8 *create_rafoie_explosion(u8 *arg0, s32 *arg1, s16 arg2, s16 arg3, s32 arg4, f
     VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x28));
     stack.spC += (5.0f);
     VecCopy((Vec *)(arg0 + 0x28), (const Vec *)(&stack.sp8));
-    spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv((void *) (arg0));
+    spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv(arg0);
     temp_r3 = ((s32)__nw__7TObjectFUl(0x20));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (s32)fn_802A8210((u8 *)(temp_r3), 0x11, (arg0));
+        var_r0 = (s32)fn_802A8210((u8 *)temp_r3, 0x11, (arg0));
     }
     ((TUnk_804CCB28 *)arg0)->m_24 = var_r0;
     ((TUnk_804CCB28 *)arg0)->m_40 = (f32) (1.9f);
@@ -614,7 +614,7 @@ u8 *create_fire_explosion_effect(u8 *arg0, s32 *arg1, s16 arg2, s32 arg3, f32 fa
     Stack_802385EC stack;
     s32 temp_r3;
     s32 var_r0;
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg3));
+    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg3);
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804CCB28.value;
     ((TUnk_804CCB28 *)arg0)->m_20 = arg2;
     *(s16 *)((s8 *)arg0 + 0x22) = 0;
@@ -633,11 +633,11 @@ u8 *create_fire_explosion_effect(u8 *arg0, s32 *arg1, s16 arg2, s32 arg3, f32 fa
     VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x28));
     stack.spC += (5.0f);
     VecCopy((Vec *)(arg0 + 0x28), (const Vec *)(&stack.sp8));
-    spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv((void *) (arg0));
+    spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv(arg0);
     temp_r3 = ((s32)__nw__7TObjectFUl(0x20));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (s32)fn_802A8210((u8 *)(temp_r3), 0x11, (arg0));
+        var_r0 = (s32)fn_802A8210((u8 *)temp_r3, 0x11, (arg0));
     }
     ((TUnk_804CCB28 *)arg0)->m_24 = var_r0;
     ((TUnk_804CCB28 *)arg0)->m_40 = (f32) (1.9f);
@@ -675,7 +675,7 @@ void run_task__10TTecRaFoieFv(u8 *arg0) {
         return;
     }
     temp_r31 = find_entity_by_id((int) (((TTecRaFoie *)arg0)->m_f0));
-    if ((is_parents_unqueued__9TTecLukerFUl() != 0) && (is_valid_and_active__10TObjPlayerFUl((int) (temp_r31)) != 0)) {
+    if ((is_parents_unqueued__9TTecLukerFUl() != 0) && (is_valid_and_active__10TObjPlayerFUl(temp_r31) != 0)) {
         ((TTecRaFoie *)arg0)->update_detonation((void *) (temp_r31 + 0x2FC));
     }
 }
@@ -732,7 +732,7 @@ void TTecRaFoie::create(void *arg1, void *arg2, void *arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x14C);
     if (o != NULL) {
-        TTecRaFoie__ct((Obj_80238AE8 *)(o), (void *)(this), (void *)(arg1), (void *)(arg2), (int)(arg3));
+        TTecRaFoie__ct((Obj_80238AE8 *)(o), (void *)this, (void *)arg1, (void *)arg2, (int)arg3);
     }
 }
 
@@ -740,7 +740,7 @@ void TTecRaFoie::create_ex(void *origin, void *targets, void *level) {
     void *o;
     o = __nw__7TObjectFUl(0x14C);
     if (o != NULL) {
-        construct_targeted__10TTecRaFoieFPvPvPvPvi((u8 *)(o), (void *)(this), (void *)(origin), (void *)(targets), (int)(level));
+        construct_targeted__10TTecRaFoieFPvPvPvPvi((u8 *)o, (void *)this, (void *)origin, (void *)targets, (int)level);
     }
 }
 
@@ -764,7 +764,7 @@ typedef char RecoveredGlobal_80238D10_lbl_804CC55C_size[((sizeof(RecoveredGlobal
 #pragma opt_common_subs off
 Obj_80238AE8 *TTecRaFoie__ct(Obj_80238AE8 *arg0, void * _w1, void * _w2, void * _w3, int _w4) {
     Sub_80238AE8 *t;
-    construct_area_technique_base((void *)(arg0), (void *)(_w1), (void *)(_w2), (void *)(_w3), (int)(_w4));
+    construct_area_technique_base(arg0, _w1, _w2, _w3, _w4);
     *(void **)((s8 *)arg0 + 0x18) = ((void * *)&__vt__10TTecRaFoie);
     ((TObjPlayer *)((u8 *)arg0 + 0xEC))->construct_target_cursor_records();
     *(u32 *)((s8 *)arg0 + 0) = (u32)TTecRaFoie_class_name;

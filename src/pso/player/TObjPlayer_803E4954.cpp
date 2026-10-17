@@ -48,7 +48,7 @@ void TObjPlayer::set_global_state(s32 arg0) {
 extern s32 motion_packed_rotation_mode;
 
 void draw_blend_motion_tree__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
-    bind_motion_blend_channels((void *) (arg1));
+    bind_motion_blend_channels((void *)arg1);
     if ((s32) motion_packed_rotation_mode != 0) {
         select_motion_context(1);
         *(s32 *)((s8 *)current_motion_context + 0x28) = (s32) *(s32 *)((s8 *)motion_angle_sampler_table + 0xC);
@@ -56,7 +56,7 @@ void draw_blend_motion_tree__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
         *(s32 *)((s8 *)current_motion_context + 0x28) = (s32) *(s32 *)((s8 *)motion_angle_sampler_table + 0xC);
     }
     *(s32 *)((s8 *)model_draw_context + 0xC) = arg2;
-    draw_object_tree_recursive((void *)((void *) (arg0)));
+    draw_object_tree_recursive((void *)(arg0));
 }
 
 s32 draw_object_tree_recursive(void *arg) {
@@ -111,7 +111,7 @@ void draw_motion_tree__10TObjPlayerFPvPvi(void *arg0, void *arg1, s32 arg2) {
     if (motion_packed_rotation_mode != 0) {
         current_motion_context->f28 = motion_angle_sampler_table[3];
     }
-    traverse_animated_node_tree((void *)(arg0));
+    traverse_animated_node_tree(arg0);
 }
 void traverse_animated_node_tree(void *arg) {
     struct Node_803E49FC *arg0 = (struct Node_803E49FC *)arg;

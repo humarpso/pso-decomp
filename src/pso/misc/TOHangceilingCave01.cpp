@@ -271,12 +271,12 @@ void TOHangceilingCave01KeyQuick::vfunc_80() {
     switch (temp_r0) {
     case 3:
         if ((is_current_floor_switch_set((int) ((u16) *(s32 *)&this->unk_35C)) == 1) && (this->m_c0 <= *(f32 *)&this->unk_C4)) {
-            ((s32 (*)(void *, int))sub_801682E4__13TUnk_804B2578Fl)((void *) (arg0), 2);
+            ((s32 (*)(void *, int))sub_801682E4__13TUnk_804B2578Fl)(arg0, 2);
         }
-        ((s32 (*)(void *))advance_wrap_offset__13TUnk_804B2578Fv)((void *) (arg0));
+        ((s32 (*)(void *))advance_wrap_offset__13TUnk_804B2578Fv)(arg0);
         return;
     case 1:
-        ((s32 (*)(void *))advance_wrap_offset__13TUnk_804B2578Fv)((void *) (arg0));
+        ((s32 (*)(void *))advance_wrap_offset__13TUnk_804B2578Fv)(arg0);
         ((TUnk_804B2578 *)arg0)->sub_80168488();
         if (lbl_805DB65C < this->m_c0) {
             temp_r3 = (u8 *)(*(u8 * *)&this->m_a4);
@@ -289,7 +289,7 @@ void TOHangceilingCave01KeyQuick::vfunc_80() {
     case 2:
         if (is_current_floor_switch_set((int) ((u16) *(s32 *)&this->unk_35C)) == 1) {
             if (lbl_805DB650 != this->m_c0) {
-                ((s32 (*)(void *))advance_wrap_offset__13TUnk_804B2578Fv)((void *) (arg0));
+                ((s32 (*)(void *))advance_wrap_offset__13TUnk_804B2578Fv)(arg0);
             }
             if (lbl_805DB664 == this->m_c0) {
                 temp_r4 = (u8 *)(*(u8 * *)&this->m_a4);
@@ -310,7 +310,7 @@ void TOHangceilingCave01KeyQuick::vfunc_80() {
             } else {
                 this->m_c0 = (f32) lbl_805DB684;
             }
-            ((s32 (*)(void *, int))sub_801682E4__13TUnk_804B2578Fl)((void *) (arg0), 1);
+            ((s32 (*)(void *, int))sub_801682E4__13TUnk_804B2578Fl)(arg0, 1);
         }
         break;
     }
@@ -687,7 +687,7 @@ void TUnk_804B2578::render() {
     if ((((s32 (*)(u8 *))TOHangceilingCave01__sub_801688C0)(arg0) != 0) || (TObjPlayer::check_demo_mode() == 1)) {
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
-        rotate_matrix_y(0, (int) (this->rotation_y));
+        rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(*(s32 *)((s8 *)turiten_singo_texture_lists + 8));
         if (*(void * *)&this->model != NULL && *(void * *)&this->unknownF8 != NULL) {
             draw_ginja_model_with_motion(*(void * *)&this->model, *(void * *)&this->unknownF8, this->m_c0);

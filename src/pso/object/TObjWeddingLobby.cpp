@@ -66,17 +66,17 @@ void TObjWeddingLobby::render() {
     s32 temp_r3;
     if (((s32) *(s32 *)&this->m_c8 != 0) && ((u32) wedding_lobby_type != 0U)) {
         TParticleCtrl::begin_effect_render();
-        TObjFish::set_global_param((s32)((void *) (wedding_lobby_type)));
+        TObjFish::set_global_param((s32)(wedding_lobby_type));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y(0, (int) (this->rotation_y));
+        rotate_matrix_y(0, this->rotation_y);
         if ((s32) *(s32 *)&this->m_c8 != 3) {
             temp_f1 = *(f32 *)((s8 *)arg0 + 0xCC);
-            scale_matrix(0, (f32) (temp_f1), (f32) (1.0f), (f32) (temp_f1));
+            scale_matrix(0, temp_f1, (f32) (1.0f), temp_f1);
         }
         get_bml_model((void *) ((*(s32 *)&TObjWeddingLobby__resource_bundle)), 0);
         draw_ginja_object();
-        draw_ginja_model_with_motion((int) get_bml_model((void *) ((*(s32 *)&TObjWeddingLobby__resource_bundle)), 1), (int) get_bml_motion((void *) ((*(s32 *)&TObjWeddingLobby__resource_bundle)), 0), (f32) (this->m_b0));
+        draw_ginja_model_with_motion((int) get_bml_model((void *) ((*(s32 *)&TObjWeddingLobby__resource_bundle)), 1), (int) get_bml_motion((void *) ((*(s32 *)&TObjWeddingLobby__resource_bundle)), 0), this->m_b0);
         pop_matrix();
         TParticleCtrl::end_effect_render();
     }
@@ -127,7 +127,7 @@ void TObjWeddingLobby::run_task() {
 void *TObjWeddingLobby::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD4);
     if (o != NULL) {
-        o = TObjWeddingLobby__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TObjWeddingLobby__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -163,7 +163,7 @@ void *__dt__16TObjWeddingLobbyFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_8035BF68___vt__16TObjWeddingLobby_size[sizeof(RecoveredGlobal_8035BF68___vt__16TObjWeddingLobby) == 0x3C ? 1 : -1];
 u8 *TObjWeddingLobby__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    init_map_object_base((void *) (arg0), (void *) (arg1));
+    init_map_object_base((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8035BF68___vt__16TObjWeddingLobby *)&__vt__16TObjWeddingLobby).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjWeddingLobby__class_name;
     ((TObjWeddingLobby *)(arg0))->apply_object_set_data((void *)arg2);

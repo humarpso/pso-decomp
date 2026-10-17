@@ -136,7 +136,7 @@ void TUnk_804C3248::begin_photon_summon_camera(s8 arg1) {
     }
     ((TCameraCtrl *)(&stack.sp8))->cache_target_and_forward(0x4222);
     temp_r3 = (long) (arg0 + 0x38);
-    set_scripted_camera_pose((int) (temp_r3), (int) (temp_r3), (void *) (arg0 + 0x5C));
+    set_scripted_camera_pose(temp_r3, temp_r3, (void *) (arg0 + 0x5C));
     *(s32 *)((s8 *)arg0 + 0xFC) = 1;
 }
 
@@ -369,7 +369,7 @@ extern void *tl_05;
 void TUnk_804C3248::update_if_active() {
     if (!(*(s32 *)&this->unk_154 & 1)) {
         TCameraCtrl::update();
-        TSceneSora::update((s32)(this));
+        TSceneSora::update((s32)this);
         ((s32 (*)(void *))update_all_default__8TFogCtrlFv)(this);
         TObjPlayer__sub_800D8A6C();
     }
@@ -381,7 +381,7 @@ void TUnk_804C3248::update_if_active() {
 void TUnk_804C3248::enter_scene() {
     s32 arg0 = (s32)this;
     ((s32 (*)(void))setup_photon_blast_camera__13TUnk_804C3248Fv)();
-    reset_state__10TSceneSoraFv((s32)(arg0));
+    reset_state__10TSceneSoraFv(arg0);
     ((s32 (*)(s32))apply_all_default__8TFogCtrlFv)(arg0);
     TObjPlayer__sub_800D8A60();
     if (tl_05 != NULL) {

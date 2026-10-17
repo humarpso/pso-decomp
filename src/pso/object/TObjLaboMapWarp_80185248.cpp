@@ -599,7 +599,7 @@ s32 TObjCityMainWarp__vt15(u8 *arg0) {
     u8 *var_r31;
     u8 *var_r3;
     u8 *var_r5;
-    var_r31 = (u8 *)(arg0);
+    var_r31 = arg0;
     if (TLobby::get_instance() == 0) {
         var_r3 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0xB0));
         if ((var_r3 != NULL) && (((TWindowMenu *)var_r3)->is_visible() != 0)) {
@@ -611,7 +611,7 @@ s32 TObjCityMainWarp__vt15(u8 *arg0) {
             *(s32 *)((s8 *)var_r31 + 0xBC) = (s32) *(s32 *)((s8 *)(&city_warp_floor_destination_table.value) + (*(s32 *)((s8 *)var_r5 + 0xC8) * 4));
             return 1;
         }
-        var_r3 = (u8 *)(NULL);
+        var_r3 = NULL;
         return 0;
     }
     var_r3 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0xB0));
@@ -624,7 +624,7 @@ s32 TObjCityMainWarp__vt15(u8 *arg0) {
         *(s32 *)((s8 *)var_r31 + 0xBC) = (s32) *(s32 *)((s8 *)(&lbl_80444834.value) + (*(s32 *)((s8 *)var_r5 + 0x10C) * 4));
         return 1;
     }
-    var_r3 = (u8 *)(NULL);
+    var_r3 = NULL;
     return 0;
 }
 
@@ -712,7 +712,7 @@ void TObjCityMainWarp__vt13(Warp_8018615C *w, s16 arg1) {
 void *TObjCityMainWarp::create() {
     void *o = __nw__7TObjectFUl(0x154);
     if (o != NULL) {
-        o = TObjCityMainWarp__ct((void *)(o), (void *)(tl_05), (void *)(this));
+        o = TObjCityMainWarp__ct(o, tl_05, this);
     }
     return o;
 }

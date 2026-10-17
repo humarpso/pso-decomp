@@ -129,7 +129,7 @@ void record_fog_collision_hit(s32 arg0, s32 arg1, s32 arg2) {
     if ((arg0 >= 0) && (arg0 < 0xC)) {
         temp_r3 = *(s32 *)((s8 *)(&(*(RecoveredGlobal_801531EC_TObjFogCollisionPoison__data_8050D430 *)&TObjFogCollisionPoison__instances).value) + (arg0 * 4));
         if (temp_r3 != 0U) {
-            ((TObjFogCollisionPoison *)temp_r3)->record_hit((s32)((void *) (arg1)), (s32)((void *) (arg2)));
+            ((TObjFogCollisionPoison *)temp_r3)->record_hit((s32)(arg1), (s32)(arg2));
         }
     }
 }
@@ -154,7 +154,7 @@ u8 *__dt__24TObjFogCollision_ManagerFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80153258_lbl_804AF7C8 *)&lbl_804AF7C8).value;
         *(s32 *)((s8 *)(&(*(RecoveredGlobal_80153258_TObjFogCollisionPoison__data_8050D430 *)&TObjFogCollisionPoison__instances).value) + (*(s32 *)((s8 *)arg0 + 0x28) * 4)) = 0;
-        __dt__7TObjectFv((void *)(arg0), 0);
+        __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)((s32) arg0));
         }
@@ -182,14 +182,14 @@ void TObjFogCollisionPoison::create() {
     if (is_split_screen() == 0) {
         obj = __nw__7TObjectFUl(0x30);
         if (obj != NULL) {
-            ((TObjFogCollisionPoison *)obj)->construct_with_index((u8 *)(tl_05), (s32)(local_client_id));
+            ((TObjFogCollisionPoison *)obj)->construct_with_index((u8 *)tl_05, (s32)local_client_id);
         }
     } else {
         var_r31 = 0;
         do {
             obj = __nw__7TObjectFUl(0x30);
             if (obj != NULL) {
-                ((TObjFogCollisionPoison *)obj)->construct_with_index((u8 *)(tl_05), (s32)(var_r31));
+                ((TObjFogCollisionPoison *)obj)->construct_with_index((u8 *)tl_05, (s32)var_r31);
             }
             var_r31 += 1;
         } while (var_r31 != 4);
@@ -231,7 +231,7 @@ void TObjFogCollisionPoison::apply_poison_damage(s32 arg1) {
 }
 
 void TObjFogCollisionPoison::record_poison_hit(u16 arg1) {
-    record_fog_collision_hit((s32)((void *) (arg1)), (s32)((int) (this->m_84)), (s32)((int) ((u8) (*(s32 *)&this->m_88 == 0))));
+    record_fog_collision_hit((s32)(arg1), (s32)(this->m_84), (s32)((int) ((u8) (*(s32 *)&this->m_88 == 0))));
 }
 void TObjFogCollisionPoison__sub_80153520(s32 arg0) {
     switch (TOKeyMachine01::get_global_state()) {

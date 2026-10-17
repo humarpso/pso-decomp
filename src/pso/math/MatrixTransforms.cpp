@@ -96,7 +96,7 @@ void translate_matrix(u32 arg0, f32 x, f32 y, f32 z) {
         var_r3_2 = current_matrix;
         phi_r3 = var_r3_2;
     }
-    matrix_apply_translation((int) (phi_r3), x, y, z);
+    matrix_apply_translation(phi_r3, x, y, z);
 }
 #pragma pop
 

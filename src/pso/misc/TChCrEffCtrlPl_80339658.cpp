@@ -29,7 +29,7 @@ void TChCrEffCtrlPl::render() {
     if (var_f2 > (1.0f)) {
         var_f2 = (1.0f);
     }
-    draw_ui_sprite((int) (*(s32 *)((s8 *)arg0 + 0x1C)), (void *) (arg0 + 0x24), (f32) ((-1.8125f)), (f32) (var_f2));
+    draw_ui_sprite((int) (*(s32 *)((s8 *)arg0 + 0x1C)), (void *) (arg0 + 0x24), (f32) ((-1.8125f)), var_f2);
     draw_ui_sprite((int) (*(s32 *)((s8 *)arg0 + 0x20)), (void *) (arg0 + 0x24), (f32) ((-1.8125f)), (f32) (*(f32 *)((s8 *)arg0 + 0x30)));
     restore_saved_depth_alpha_state();
 }
@@ -78,7 +78,7 @@ extern "C" {
 void *TChCrEffCtrlPl::create() {
     void *o = __nw__7TObjectFUl(0x38);
     if (o != NULL) {
-        o = __ct__14TChCrEffCtrlPlFP7TObject((O_80339808 *)(o), (void *)(this));
+        o = __ct__14TChCrEffCtrlPlFP7TObject((O_80339808 *)(o), this);
     }
     return o;
 }

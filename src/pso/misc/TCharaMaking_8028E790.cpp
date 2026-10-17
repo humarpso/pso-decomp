@@ -78,7 +78,7 @@ s32 TCharaMaking::update_main_menu(s32 arg0) {
 
 void TCharaMaking::run_task() {
     if (!is_active__23TAdSinglePlyChrSelectGCFv(this)) return;
-    if (TCharaMaking::update_main_menu((s32)(this))) return;
+    if (TCharaMaking::update_main_menu((s32)this)) return;
 }
 
 void *TCharaMaking::create(void *arg0, void *arg1) {
@@ -86,7 +86,7 @@ void *TCharaMaking::create(void *arg0, void *arg1) {
     creation_player_character = arg1;
     o = __nw__7TObjectFUl(0x24);
     if (o != NULL) {
-        o = TCharaMaking__ct((u8 *)(o), (s32)(arg0));
+        o = TCharaMaking__ct((u8 *)o, (s32)arg0);
     }
     return o;
 }
@@ -107,14 +107,14 @@ u8 *__dt__12TCharaMakingFv(u8 *arg0, s16 arg1) {
 
 u8 *TCharaMaking__ct(u8 *arg0, s32 arg1) {
     u32 temp_r3;
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__12TCharaMaking.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3B6C;
     temp_r3 = ((u32)__nw__7TObjectFUl(0x10C));
     if (temp_r3 != 0U) {
-        TCMCharacter__ct((void *)(temp_r3), (arg0));
+        TCMCharacter__ct((void *)temp_r3, (arg0));
     }
-    creation_main_menu_obj = create__14TObjCMMainMenuFv((void *) (arg0));
+    creation_main_menu_obj = create__14TObjCMMainMenuFv(arg0);
     *(s32 *)((s8 *)arg0 + 0x1C) = 0x1555;
     *(s32 *)&((TCharaMaking *)arg0)->m_20 = 0x9000;
     ((TCharaMaking *)arg0)->update_light_direction();

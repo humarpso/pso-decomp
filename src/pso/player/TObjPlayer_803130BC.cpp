@@ -12,7 +12,7 @@ int test_flags_any(void*, int);
 int TObjPlayer__sub_801AA64C(void* a0 = 0);
 int set_flags__10TObjPlayerFUl(void*, int);
 
-void TObjPlayer::update_children() { { int n = TObjPlayer::get_max_children((void*)(this)); int i; for (i = 0; i < n; i++) { TObjPlayer__sub_801AA64C((char*)this + 0x8 + i * 4); } } }
+void TObjPlayer::update_children() { { int n = TObjPlayer::get_max_children(this); int i; for (i = 0; i < n; i++) { TObjPlayer__sub_801AA64C((char*)this + 0x8 + i * 4); } } }
 
 s16 TObjPlayer__sub_80313114(u8 *arg0) {
     s16 temp_r3;

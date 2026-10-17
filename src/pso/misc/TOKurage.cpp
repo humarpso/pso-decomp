@@ -366,7 +366,7 @@ extern void *tl_05;
 void *TOKurage::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x114);
     if (o != NULL) {
-        o = TOKurage__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
+        o = TOKurage__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

@@ -218,7 +218,7 @@ void TWindowCtrl::update_target_info_window() {
     if ((*(void **)((s8 *)arg0 + 0x38) != NULL) && ((((TObject *)(*(void **)((s8 *)arg0 + 0x38)))->all_parents_unqueued_for_destruction() == 0) || (((TUnk_804CE018 *)(*(u32 *)((s8 *)arg0 + 0x38)))->sub_80244994() == 0))) {
         *(u32 *)((s8 *)arg0 + 0x38) = 0U;
     }
-    if ((TWindowCtrl__sub_8024C7E0((void *) (arg0)) != 0) || (get_active_menu() != 0) || (((TWindowCtrl *)arg0)->is_visible() != 0) || (TWindowCtrl__sub_8024C7C4((void *) (arg0)) != 0) || (TWindowCtrl__sub_8024A314() != 0)) {
+    if ((TWindowCtrl__sub_8024C7E0(arg0) != 0) || (get_active_menu() != 0) || (((TWindowCtrl *)arg0)->is_visible() != 0) || (TWindowCtrl__sub_8024C7C4(arg0) != 0) || (TWindowCtrl__sub_8024A314() != 0)) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0x38) != 0U) {
             TWindow__close(*(void **)((s8 *)arg0 + 0x38));
             *(u32 *)((s8 *)arg0 + 0x38) = 0U;
@@ -253,7 +253,7 @@ void TWindowCtrl::update_child_window_visibility() {
 void TWindowCtrl::update_trade_window_visibility() {
     u8 *arg0 = (u8 *)this;
     if (((u32) *(u32 *)((s8 *)arg0 + 0x30) != 0U) && (((TWindowCtrl *)((void *) *(u32 *)((s8 *)arg0 + 0x30)))->is_flag_2_set() == 0)) {
-        if ((get_player_by_client_id((int) (*(s32 *)((s8 *)arg0 + 0x24))) == 0U) || (((TWindowCtrl *)arg0)->is_visible() != 0) || (TWindowCtrl__sub_8024C7F8((void *) (arg0)) != 0) || ((is_split_screen() != 0) && (get_active_menu() != 0))) {
+        if ((get_player_by_client_id((int) (*(s32 *)((s8 *)arg0 + 0x24))) == 0U) || (((TWindowCtrl *)arg0)->is_visible() != 0) || (TWindowCtrl__sub_8024C7F8(arg0) != 0) || ((is_split_screen() != 0) && (get_active_menu() != 0))) {
             ((TWindowLockOn *)(*(u32 *)((s8 *)arg0 + 0x30)))->request_close();
             return;
         }
@@ -261,7 +261,7 @@ void TWindowCtrl::update_trade_window_visibility() {
     }
 }
 
-void TWindowCtrl::run_all_updates() { update_trade_window_visibility(); update_child_window_visibility(); update_target_info_window(); update_main_menu_request(); show_active_window(); update_short_list_request(); TWindowCtrl__sub_8024DAAC((void *)(this)); }
+void TWindowCtrl::run_all_updates() { update_trade_window_visibility(); update_child_window_visibility(); update_target_info_window(); update_main_menu_request(); show_active_window(); update_short_list_request(); TWindowCtrl__sub_8024DAAC(this); }
 #pragma push
 #pragma scheduling off
 void TWindowCtrlPlayer::sub_8024E0F0() {
