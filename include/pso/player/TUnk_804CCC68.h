@@ -9,14 +9,14 @@ struct TechniqueContactBody;
 class TUnk_804CCC68 : public TEffect {
 public:
     virtual ~TUnk_804CCC68();
+    virtual void vfunc_6();
+    virtual void debug_print_tech_params();
+    virtual void vfunc_8();
     void advance_lifetime_or_destroy();
     void dispatch_all_technique_contacts();
     void dispatch_technique_contact();
     u8 *query_technique_player_contacts(s32);
     u8 *query_technique_enemy_contacts(s32);
-    virtual void vfunc_6();
-    virtual void debug_print_tech_params();
-    virtual void vfunc_8();
     f32 range;
     f32 traveled;
     f32 previous[3];

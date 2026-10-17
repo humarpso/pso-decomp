@@ -6,8 +6,8 @@
 
 struct TItemAttackCol : public TUnk_804E355C {
     virtual ~TItemAttackCol();
-    void check_object_hits();
     virtual void vfunc_7();
+    void check_object_hits();
     virtual void vfunc_6(s32 *);
     void* m_c4;
     u8 _padC8[0x8];

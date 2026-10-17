@@ -6,6 +6,10 @@
 
 struct TWindowMainMenu : public TObject {
     virtual ~TWindowMainMenu();
+    virtual void vfunc_6();
+    virtual void vfunc_7();
+    virtual void vfunc_8();
+    virtual void vfunc_9();
     void handle_menu_selection();
     void create_submenu(u32);
     void destroy_submenu();
@@ -18,10 +22,6 @@ struct TWindowMainMenu : public TObject {
     void open(s32);
     void close_and_clear_flags();
     s32 close_active_submenu();
-    virtual void vfunc_6();
-    virtual void vfunc_7();
-    virtual void vfunc_8();
-    virtual void vfunc_9();
     void set_scale_f();
     u8 unk_1C[0x4];
     s32 m_20;

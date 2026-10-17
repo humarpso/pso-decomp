@@ -7,8 +7,6 @@ public:
     u8 unk_0[0x4];
     u32 m_4;
     virtual ~TUnk_804DDD28();
-    void copy_motion_pair(void*);
-    s32 load_action_motion_pairs(s32, s32, s32);
     virtual u8 *vfunc_3(s16);
     virtual int vfunc_4();
     virtual int vfunc_5();
@@ -84,6 +82,8 @@ public:
     virtual int vfunc_75();
     virtual int vfunc_76();
     virtual int vfunc_77();
+    void copy_motion_pair(void*);
+    s32 load_action_motion_pairs(s32, s32, s32);
     void sub_802A7318();
 };
 

@@ -6,12 +6,12 @@
 class TUnk_804CC148 : public TEffect {
 public:
     virtual ~TUnk_804CC148();
-    void find_area_contact(s32);
-    void apply_technique_to_area_targets();
     virtual void vfunc_6(void *);
     virtual void tick_lifetime();
     virtual void vfunc_8(void *);
     virtual void vfunc_9();
+    void find_area_contact(s32);
+    void apply_technique_to_area_targets();
     void *destroy_technique_base(s16);
     void sub_8022C008();
     void count_if_within_range();

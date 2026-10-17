@@ -6,6 +6,7 @@
 class TUnk_804D0618 : public TUnk_804CDFE8 {
 public:
     virtual ~TUnk_804D0618();
+    virtual void vfunc_6(u32, s32);
     void draw_selected_list_entry(s32);
     void update_scroll_offset();
     void clamp_item_list_scroll();
@@ -16,7 +17,6 @@ public:
     void move_cursor_next();
     void handle_open();
     void set_flag4();
-    virtual void vfunc_6(u32, s32);
     int get_flag();
     int get_status_flag();
     u8 unk_1C[0x4];

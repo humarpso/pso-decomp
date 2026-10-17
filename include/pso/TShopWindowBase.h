@@ -6,13 +6,13 @@
 class TShopWindowBase : public TObject {
 public:
     virtual ~TShopWindowBase();
-    void set_field_20(s32);
     virtual void vfunc_6();
     virtual void vfunc_7();
     virtual void vfunc_8();
     virtual void vfunc_9();
     virtual int vfunc_10();
     virtual void vfunc_11();
+    void set_field_20(s32);
     bool sub_80223A48();
     u16 sub_8022397C();
     virtual void run_task();
