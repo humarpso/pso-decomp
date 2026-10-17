@@ -73,10 +73,10 @@ void apply_movement_ailment__13TUnk_804806E8Fl();
 void apply_shock_status__13TUnk_804806E8Fv();
 void clear_harmful_statuses__13TUnk_804806E8Fv();
 void apply_attack_stat_status__13TUnk_804806E8FPv();
-void cure_poison_ailment();
+void cure_poison_ailment__13TUnk_804806E8Fv();
 void cure_paralysis__13TUnk_804806E8Fv();
-void clear_all_status_effects();
-void apply_action_hold_status();
+void clear_all_status_effects__13TUnk_804806E8Fv();
+void apply_action_hold_status__13TUnk_804806E8Ff();
 void apply_anti_technique__13TUnk_804806E8Fl();
 void vfunc_58__13TUnk_804806E8Fv();
 void vfunc_59__13TUnk_804806E8Fv();
@@ -157,10 +157,10 @@ void *__vt__21TObjContainerAbeEnemy[83] = {
     (void *)clear_harmful_statuses__13TUnk_804806E8Fv,
     (void *)apply_attack_stat_status__13TUnk_804806E8FPv,
     (void *)TObjPlayer::apply_defense_stat_status,
-    (void *)cure_poison_ailment,
+    (void *)cure_poison_ailment__13TUnk_804806E8Fv,
     (void *)cure_paralysis__13TUnk_804806E8Fv,
-    (void *)clear_all_status_effects,
-    (void *)apply_action_hold_status,
+    (void *)clear_all_status_effects__13TUnk_804806E8Fv,
+    (void *)apply_action_hold_status__13TUnk_804806E8Ff,
     (void *)apply_anti_technique__13TUnk_804806E8Fl,
     (void *)vfunc_58__13TUnk_804806E8Fv,
     (void *)vfunc_59__13TUnk_804806E8Fv,

@@ -6,6 +6,7 @@
 class TUnk_80493450 : public TObjEnemy {
 public:
     virtual ~TUnk_80493450();
+    virtual void vfunc_62();
     u8 test_elt_flag(s32, s32);
     s32 countChildren();
     void link_into_group_chain();

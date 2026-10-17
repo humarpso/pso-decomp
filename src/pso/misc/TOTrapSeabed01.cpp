@@ -833,7 +833,7 @@ void TObjPlayer__sub_80018E6C();
 void vfunc_13__13TUnk_804AF8A0Fl();
 void vfunc_12__13TUnk_804B9870Fv();
 void add_actor_exp();
-void apply_action_hold_status();
+void apply_action_hold_status__13TUnk_804806E8Ff();
 void apply_anti_technique__13TUnk_804806E8Fl();
 void apply_attack_stat_status__13TUnk_804806E8FPv();
 void apply_confusion_status__13TUnk_804806E8Fv();
@@ -846,11 +846,11 @@ void apply_slow_status__13TUnk_804806E8Fv();
 void apply_switch_attack__10TObjPlayerFi();
 void check_trigger_range__6TOTrapFUl();
 void classify_actor_view_detail();
-void clear_all_status_effects();
+void clear_all_status_effects__13TUnk_804806E8Fv();
 void clear_harmful_statuses__13TUnk_804806E8Fv();
 void consume_timer_field__10TObjPlayerFPvi();
 void cure_paralysis__13TUnk_804806E8Fv();
-void cure_poison_ailment();
+void cure_poison_ailment__13TUnk_804806E8Fv();
 void enemy_spawn_jellen_effect();
 void enemy_spawn_zalure_effect();
 void find_target_player__6TOTrapFv();
@@ -952,10 +952,10 @@ void *__vt__14TOTrapSeabed01[91] = {
     (void *)&clear_harmful_statuses__13TUnk_804806E8Fv,
     (void *)&apply_attack_stat_status__13TUnk_804806E8FPv,
     (void *)&TObjPlayer::apply_defense_stat_status,
-    (void *)&cure_poison_ailment,
+    (void *)&cure_poison_ailment__13TUnk_804806E8Fv,
     (void *)&cure_paralysis__13TUnk_804806E8Fv,
-    (void *)&clear_all_status_effects,
-    (void *)&apply_action_hold_status,
+    (void *)&clear_all_status_effects__13TUnk_804806E8Fv,
+    (void *)&apply_action_hold_status__13TUnk_804806E8Ff,
     (void *)&apply_anti_technique__13TUnk_804806E8Fl,
     (void *)&vfunc_58__13TUnk_804806E8Fv,
     (void *)&vfunc_59__13TUnk_804806E8Fv,

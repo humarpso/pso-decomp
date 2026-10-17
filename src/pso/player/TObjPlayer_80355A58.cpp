@@ -23,7 +23,7 @@ s32 spawn_pg_effect__10TObjPlayerFPvPvif(void *, s32, s32, f32);
 void __dt__11TItemWeaponFv(void *, int);
 s32 reset_key_machine_state__10TObjPlayerFv();
 
-void TUnk_804F1320::set_technique_roll(s32 arg1) {
+void TUnk_804F1320::vfunc_17(s32 arg1) {
     s32 temp_r31;
 
     if (((u32) *(u32 *)&this->player != 0U) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {

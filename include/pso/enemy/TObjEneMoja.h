@@ -13,12 +13,17 @@ struct MojaCollisionState {
 };
 struct TObjEneMoja : public TObjEnemy {
     virtual ~TObjEneMoja();
+    virtual s32 update_action_hold_status();
+    virtual s32 update_movement_status();
+    virtual void vfunc_58();
+    virtual void vfunc_59();
+    virtual s32 is_target_in_attack_range();
+    virtual void vfunc_60();
+    virtual void vfunc_61();
+    virtual void vfunc_62();
+    virtual void vfunc_63();
     void render();
     void bindModel(int index);
-    void enter_idle_state();
-    void enter_approach_state();
-    void enter_down_state();
-    void enter_hurt_state();
     s32 appearance;
     f32 jumpSpeed;
     s32 unused_37C;
@@ -34,16 +39,11 @@ struct TObjEneMoja : public TObjEnemy {
     s32 calc_technique_level();
     void select_rare_variant();
     void update_death_state();
-    void handle_death();
     static s32 update_technique_state(void *self_800AD3D8);
     static s32 update_punch_attack(void *self_800ADAAC);
-    void begin_attack();
     s32 update_approach_state();
     void update_idle_state();
-    s32 update_freeze_timer();
-    s32 update_action_hold();
     void run_task();
-    s32 select_attack();
 };
 typedef char MojaSize[(sizeof(TObjEneMoja)==0x40C)?1:-1];
 #include <stddef.h>

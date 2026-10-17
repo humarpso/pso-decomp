@@ -6,6 +6,7 @@
 
 struct TOMine : public TUnk_804806E8 {
     virtual ~TOMine();
+    virtual f32 receive_weapon_special_attack(void *, void *);
     void detonate();
     void update_float_height();
     void sub_80170BEC();

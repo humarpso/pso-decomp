@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A1A48.h"
 #include "pso/player/TObjPlayer.h"
 
 struct Sp8Type_80123524 { s32 a; s32 b; s32 c; s32 d; };
@@ -78,7 +79,7 @@ void TObjPlayer::try_spawn_cane_effect(s32 arg0) {
     }
 }
 
-void TObjPlayer::update_pulse() {
+void TUnk_804A1A48::update_weapon() {
     if ((s32) this->m_1fc != 0) {
         *(s32 *)&this->unk_1F8 = (s32) (*(s32 *)&this->unk_1F8 + 0x38E);
         if ((s32) *(s32 *)&this->unk_1F8 >= 0x1555) {

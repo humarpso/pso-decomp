@@ -29,36 +29,31 @@ void TObjPlayer::init_local_pad_binding() {
 void TObjPlayer::stop_force_if_alive() { if (is_locally_controlled__10TObjPlayerFPv(this) != 0) { TObjPlayer__sub_801BEF60((char*)this + 0x550, (void*)0); } }
 void TObjPlayer::update_battle_control_if_unlocked() { if (test_flag_2000000__10TObjPlayerFPv(this) == 0) { ((TObjPlayer *)((char*)this + 0x384))->prepare_heavy_attack_particles_default(); } }
 
-void TObjPlayer__vt70(u8 *arg0);
-void TObjPlayer__vt69(u8 *arg0);
-void TObjPlayer__vt68(u8 *arg0);
-void TObjPlayer__vt67(u8 *arg0);
-
-void TObjPlayer__vt70(u8 *arg0) {
-    if (test_flag_2000000__10TObjPlayerFPv((void*)(arg0)) != 0 || check_flag_800000__10TObjPlayerFPv((s32)arg0) != 0) {
+void TObjPlayer::enemy_spawn_zalure_effect() {
+    if (test_flag_2000000__10TObjPlayerFPv((void*)(((u8 *)this))) != 0 || check_flag_800000__10TObjPlayerFPv((s32)((u8 *)this)) != 0) {
         return;
     }
-    ((TObjPlayer *)(arg0 + 0x384))->emit_zalure_support_effect_at();
+    ((TObjPlayer *)(((u8 *)this) + 0x384))->emit_zalure_support_effect_at();
 }
 
-void TObjPlayer__vt69(u8 *arg0) {
-    if (test_flag_2000000__10TObjPlayerFPv((void*)(arg0)) != 0 || check_flag_800000__10TObjPlayerFPv((s32)arg0) != 0) {
+void TObjPlayer::trigger_switch_attack() {
+    if (test_flag_2000000__10TObjPlayerFPv((void*)(((u8 *)this))) != 0 || check_flag_800000__10TObjPlayerFPv((s32)((u8 *)this)) != 0) {
         return;
     }
-    ((TObjPlayer *)(arg0 + 0x384))->emit_deband_support_effect_at();
+    ((TObjPlayer *)(((u8 *)this) + 0x384))->emit_deband_support_effect_at();
 }
 
-void TObjPlayer__vt68(u8 *arg0) {
-    if (test_flag_2000000__10TObjPlayerFPv((void*)(arg0)) != 0 || check_flag_800000__10TObjPlayerFPv((s32)arg0) != 0) {
+void TObjPlayer::enemy_spawn_jellen_effect() {
+    if (test_flag_2000000__10TObjPlayerFPv((void*)(((u8 *)this))) != 0 || check_flag_800000__10TObjPlayerFPv((s32)((u8 *)this)) != 0) {
         return;
     }
-    ((TObjPlayer *)(arg0 + 0x384))->emit_jellen_support_effect_default();
+    ((TObjPlayer *)(((u8 *)this) + 0x384))->emit_jellen_support_effect_default();
 }
-void TObjPlayer__vt67(u8 *arg0) {
-    if (test_flag_2000000__10TObjPlayerFPv((void*)(arg0)) != 0 || check_flag_800000__10TObjPlayerFPv((s32)arg0) != 0) {
+void TObjPlayer::apply_switch_attack() {
+    if (test_flag_2000000__10TObjPlayerFPv((void*)(((u8 *)this))) != 0 || check_flag_800000__10TObjPlayerFPv((s32)((u8 *)this)) != 0) {
         return;
     }
-    ((TObjPlayer *)(arg0 + 0x384))->emit_shifta_support();
+    ((TObjPlayer *)(((u8 *)this) + 0x384))->emit_shifta_support();
 }
 
 }

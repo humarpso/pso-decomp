@@ -102,7 +102,7 @@ void TObjEneMoja::update_death_state() {
     }
 }
 
-void TObjEneMoja::handle_death() {
+void TObjEneMoja::vfunc_63() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r6;
     if ((s16) this->mode != 9) {
@@ -620,7 +620,7 @@ void enemy_wander_home(void *, s32, f32, f32, f32);
 extern const f32 lbl_805D9C4C;
 }
 
-void TObjEneMoja::enter_hurt_state() {
+void TObjEneMoja::vfunc_62() {
     s16 temp_r0;
     MojaCollisionState *temp_r5;
 
@@ -669,7 +669,7 @@ void TObjPlayer::update_invincibility() {
 
 }
 
-void TObjEneMoja::enter_down_state() {
+void TObjEneMoja::vfunc_61() {
     s16 temp_r0;
     s32 gbits;
     MojaCollisionState *temp_r6;
@@ -1039,7 +1039,7 @@ s32 TObjEneMoja::update_punch_attack(void *self_800ADAAC) {
 }
 #undef arg0
 
-void TObjEneMoja::begin_attack() {
+void TObjEneMoja::vfunc_60() {
     Moja_800ADE48 *self = (Moja_800ADE48 *)this;
     switch (self->attack_kind) {
     case 2:
@@ -1063,7 +1063,7 @@ void TObjEneMoja::begin_attack() {
     self->f374 = 0;
 }
 
-s32 TObjEneMoja::select_attack() {
+s32 TObjEneMoja::is_target_in_attack_range() {
     s32 angd;
     s32 lim;
     s32 i;
@@ -1189,7 +1189,7 @@ s32 TObjEneMoja::update_approach_state() {
 
 }
 
-void TObjEneMoja::enter_approach_state() {
+void TObjEneMoja::vfunc_59() {
     MojaCollisionState *temp_r5;
 
     if ((s16) mode != 3) {
@@ -1412,7 +1412,7 @@ void TObjEneMoja::update_idle_state() {
 
 }
 
-void TObjEneMoja::enter_idle_state() {
+void TObjEneMoja::vfunc_58() {
     s32 temp_r0;
     s32 temp_r0_2;
 
@@ -1440,7 +1440,7 @@ void TObjEneMoja::enter_idle_state() {
 }
 
 extern "C" {
-s32 TObjEneMoja::update_freeze_timer() {
+s32 TObjEneMoja::update_movement_status() {
     void *temp_r3;
     if (update_movement_status__10TObjPlayerFv() != 0) {
         switch (this->mode) {
@@ -1462,7 +1462,7 @@ s32 TObjEneMoja::update_freeze_timer() {
     }
     return 0;
 }
-s32 TObjEneMoja::update_action_hold() {
+s32 TObjEneMoja::update_action_hold_status() {
     void *temp_r3;
     if (update_action_hold_status__10TObjPlayerFv() != 0) {
         switch (this->mode) {

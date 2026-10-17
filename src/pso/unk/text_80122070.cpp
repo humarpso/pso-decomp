@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A0DB0.h"
 #include "pso/player/TObjPlayer.h"
 
 extern const f32 lbl_805DACD8;
@@ -6,7 +7,7 @@ extern const f32 lbl_805DACDC;
 
 extern "C" {
 
-void TObjPlayer::ramp_up_field_1fc() {
+void TUnk_804A0DB0::update_weapon() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f2;
     temp_f2 = *(f32 *)&this->m_1fc;

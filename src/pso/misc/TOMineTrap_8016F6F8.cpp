@@ -412,7 +412,7 @@ f32 TOMine::receive_physical_attack(void *, f32) {
     }
     return lbl_805DB85C;
 }
-f32 TOMineTrap::calc_trigger_range(s32 arg1) {
+f32 TOMine::receive_weapon_special_attack(void *arg1, void *) {
     if (is_target_in_list((void *)(arg1)) == 1) {
         return lbl_805DB85C;
     }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TObjNpcBringer.h"
 #include "pso/npc/TObjNpcBase.h"
 
 extern "C" {
@@ -6,7 +7,6 @@ s32 read_be16_field2__10TObjPlayerFv();
 s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
     extern const float lbl_805DB1C4;
-void TNpcPlayer__sub_80149448(void *arg0);
 s32 TLobby__send_and_handle_60(void *);
 
 #include "pso/misc/TNpcPlayer.h"
@@ -30,12 +30,12 @@ void TNpcPlayer::bswap_6x3E() {
     bswap_32__FPUl(arg0 + 0x14);
 }
 void TNpcPlayer::init_6x3E_packet() { *(short *)&this->m_flags = 0; *(short *)&this->m_id = 0; *(short *)&this->m_prev = -1; *(short*)((char*)this + 0xa) = -1; *(float *)&this->m_down = lbl_805DB1C4; *(float *)&this->m_up = lbl_805DB1C4; *(float *)&this->m_next = lbl_805DB1C4; *(unsigned char *)&this->m_name = 62; *(unsigned char*)((char*)this + 0x1) = 6; }
-void TNpcPlayer__sub_80149448(void *arg0) {
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 2) {
-        *(s16 *)((s8 *)arg0 + 0xB8) = 0;
+void TObjNpcBringer::vfunc_88() {
+    if ((s16) *(s16 *)((s8 *)this + 0x326) != 2) {
+        *(s16 *)((s8 *)this + 0xB8) = 0;
         return;
     }
-    *(s16 *)((s8 *)arg0 + 0xB8) = 1;
+    *(s16 *)((s8 *)this + 0xB8) = 1;
 }
 
 }

@@ -38,7 +38,7 @@ void TObjPlayer__sub_801305E8(void *arg0) {
     }
 }
 
-void TObjPlayer::tick_meseta_counter() {
+void TUnk_804A69DC::update_attack() {
     s32 temp_r4;
 
     *(s32 *)&this->unk_200 = (s32) (*(s32 *)&this->unk_200 + 1);

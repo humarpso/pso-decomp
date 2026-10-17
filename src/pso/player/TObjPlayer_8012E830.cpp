@@ -1,8 +1,9 @@
 #include "types.h"
+#include "pso/player/TUnk_804A5D28.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void TObjPlayer::start_weapon_recoil() { this->m_1fc = 1; }
+void TUnk_804A5D28::emit_marker_effects() { this->m_1fc = 1; }
 
 }

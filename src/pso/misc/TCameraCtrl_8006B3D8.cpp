@@ -252,7 +252,7 @@ void *TCameraCtrl__vt9(void) {
 
 extern const f32 lbl_805D9000;
 
-void TCameraCtrl::copy_camera_params() {
+void TUnk_80488B08::vfunc_6() {
     void *temp_r3;
 
     if ((u32) camera_ctrl_instance != 0U) {

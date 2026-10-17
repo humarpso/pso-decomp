@@ -6,6 +6,7 @@
 class TObjNpcBringer : public TObjNpcBase {
 public:
     virtual ~TObjNpcBringer();
+    virtual void vfunc_88();
 };
 typedef char TObjNpcBringer_size[sizeof(TObjNpcBringer) == 0x3B8 ? 1 : -1];
 

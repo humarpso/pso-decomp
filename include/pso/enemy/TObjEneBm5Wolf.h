@@ -7,6 +7,7 @@
 
 struct TObjEneBm5Wolf : public TObjEneDD_ST {
     virtual ~TObjEneBm5Wolf();
+    virtual void vfunc_88();
     void update_collision_center();
     void select_subtype();
     void vfunc_63();

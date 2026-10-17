@@ -94,7 +94,7 @@ s32 create_shoot_model__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg
     return var_r3;
 }
 
-void TUnk_804A69DC::set_technique_roll(s32) {
+void TUnk_804A69DC::vfunc_17(s32) {
     u8 *arg0 = (u8 *)this;
   s32 temp_r31;
   if ((((u32) (*((u32 *) (((s8 *) arg0) + 0xF0)))) != 0U) && (reset_key_machine_state__10TObjPlayerFv() != 0))

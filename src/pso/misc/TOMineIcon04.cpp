@@ -107,7 +107,7 @@ void vfunc_43__13TUnk_804806E8Fv();
 void TObjPlayer__sub_80018E6C();
 void vfunc_13__13TUnk_804AF8A0Fl();
 void add_actor_exp();
-void apply_action_hold_status();
+void apply_action_hold_status__13TUnk_804806E8Ff();
 void apply_anti_technique__13TUnk_804806E8Fl();
 void apply_attack_stat_status__13TUnk_804806E8FPv();
 void apply_confusion_status__13TUnk_804806E8Fv();
@@ -116,14 +116,14 @@ void apply_paralysis__13TUnk_804806E8Fv();
 void apply_poison_status__13TUnk_804806E8Fv();
 void apply_shock_status__13TUnk_804806E8Fv();
 void apply_switch_attack__10TObjPlayerFi();
-void calc_trigger_range__10TOMineTrapFl();
+void receive_weapon_special_attack__6TOMineFPvPv();
 void can_trigger__10TOMineTrapFUl();
 void check_trigger__10TOMineTrapFUl();
 void classify_actor_view_detail();
-void clear_all_status_effects();
+void clear_all_status_effects__13TUnk_804806E8Fv();
 void clear_harmful_statuses__13TUnk_804806E8Fv();
 void cure_paralysis__13TUnk_804806E8Fv();
-void cure_poison_ailment();
+void cure_poison_ailment__13TUnk_804806E8Fv();
 void enemy_spawn_jellen_effect();
 void enemy_spawn_zalure_effect();
 void vfunc_78__13TUnk_804806E8Fl();
@@ -177,7 +177,7 @@ void *__vt__12TOMineIcon04[87] = {
     (void *)check_trigger__10TOMineTrapFUl,
     (void *)receive_physical_attack__6TOMineFPvf,
     (void *)receive_direct_attack__6TOMineFPvPvPvll,
-    (void *)calc_trigger_range__10TOMineTrapFl,
+    (void *)receive_weapon_special_attack__6TOMineFPvPv,
     (void *)apply_knockback_from_attacker__6TOMineFPUc,
     (void *)try_start_action__6TOMineFll,
     (void *)roll_physical_accuracy__6TOMineFPvlf,
@@ -206,10 +206,10 @@ void *__vt__12TOMineIcon04[87] = {
     (void *)clear_harmful_statuses__13TUnk_804806E8Fv,
     (void *)apply_attack_stat_status__13TUnk_804806E8FPv,
     (void *)TObjPlayer::apply_defense_stat_status,
-    (void *)cure_poison_ailment,
+    (void *)cure_poison_ailment__13TUnk_804806E8Fv,
     (void *)cure_paralysis__13TUnk_804806E8Fv,
-    (void *)clear_all_status_effects,
-    (void *)apply_action_hold_status,
+    (void *)clear_all_status_effects__13TUnk_804806E8Fv,
+    (void *)apply_action_hold_status__13TUnk_804806E8Ff,
     (void *)apply_anti_technique__13TUnk_804806E8Fl,
     (void *)vfunc_58__13TUnk_804806E8Fv,
     (void *)vfunc_59__13TUnk_804806E8Fv,

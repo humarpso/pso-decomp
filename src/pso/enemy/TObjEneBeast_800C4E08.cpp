@@ -1135,7 +1135,7 @@ void TUnk_80493450::beast_update_hurt() {
     }
     minimap_render_dot(&o->f38, -0x5DB4, 1, 0);
 }
-void TObjPlayer::enter_state7() {
+void TUnk_80493450::vfunc_62() {
     if ((s16) this->mode != 7) {
         this->mode = 7;
         *(s16 *)&this->m_b8 = 6;

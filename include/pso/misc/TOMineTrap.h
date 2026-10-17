@@ -33,7 +33,6 @@ struct TOMineTrap : public TOMine {
     void spawn_effect();
     void attach_to_keymachine();
     void detonate_if_triggered();
-    f32 calc_trigger_range(s32 arg1);
     void sync_position();
     void send_state_packet(u16 idx);
     int update_trap_sub();

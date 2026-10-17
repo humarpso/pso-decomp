@@ -14,6 +14,11 @@ struct TechniqueContactList;
 
 struct TObjPlayer : public TUnk_804806E8 {
     virtual ~TObjPlayer();
+    virtual void get_pos(s32);
+    virtual void apply_switch_attack();
+    virtual void enemy_spawn_jellen_effect();
+    virtual void trigger_switch_attack();
+    virtual void enemy_spawn_zalure_effect();
     void set_floor(s32);
     void set_input_mode(s32);
     void set_move_mode(s32);
@@ -47,7 +52,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void vfunc_77();
     void vfunc_76();
     void vfunc_75(f32);
-    void vfunc_68(s32);
     int vfunc_67();
     void render_shadows();
     void render();
@@ -231,7 +235,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     static void step_cutscene_frame();
     static void free_resources();
     void enter_state_8();
-    void enter_state7();
     void tick_freeze_state();
     void update_death_breakup();
     void dispatch_state_update();
@@ -558,13 +561,11 @@ struct TObjPlayer : public TUnk_804806E8 {
     void cast_foie();
     static void spawn_cane(s32 arg0);
     void update_effect_if_state1();
-    void approach_field200_max();
     void update_from_owner();
     void update_linked_object();
     static void spawn_cane_effect_active(s32 arg0);
     void draw_mag();
     static void try_spawn_cane_effect(s32 arg0);
-    void update_pulse();
     void update_1f8_if_ready();
     void*init_state();
     void refresh_inventory_slot();
@@ -614,7 +615,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void apply_frame_camera_shake();
     void update_approach_value();
     void apply_scale_effect();
-    void start_weapon_recoil();
     void cast_shifta_deband();
     void *init_variant_a();
     void update_boss2tunnel_move();
@@ -625,7 +625,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void *initialize_effect_object();
     void handle_container_state_3();
     void set_temp_flag10_and_update();
-    void tick_meseta_counter();
     static void setup_tev_swap();
     static void set_tev_swap_mode(u8 arg0);
     s32 check_camera_distance();
@@ -1288,8 +1287,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     static u8 *create_vtable_804A08B8(u8 *arg0);
     static u8 *create_substate(u8 *arg0);
     static u8 *create_enter_state_804A0BC0(u8 *arg0);
-    void ramp_up_field_1fc();
-    void update_fade_state();
     static u8 *create_vtable_804a1288(u8 *arg0);
     static u8 *create_obj_80122C2C(u8 *arg0);
     void decay_shared_gauge_to_floor();

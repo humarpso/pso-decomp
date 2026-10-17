@@ -104,7 +104,7 @@ u8 * __dt__14TObjEneBm5WolfFv(u8 *arg0, s16 arg1);
 void run_task__14TObjEneBm5WolfFPv(u8 *arg0);
 void vfunc_62__14TObjEneBm5WolfFv(void* p);
 void vfunc_63__14TObjEneBm5WolfFv(void *arg0);
-void update_colliders__14TObjEneBm5WolfFPv(void *arg0);
+void vfunc_88__14TObjEneBm5WolfFv(void *arg0);
 void update__14TObjEneBm5WolfFPvPv(void* p, void* a1);
 void apply_to_position__14TObjEneBm5WolfFPvPv(void* p, void* a1);
 s32 destroy__14TObjEneBm5WolfFis(s32 arg0, s16 arg1);
@@ -209,7 +209,7 @@ __declspec(section ".data") s32 lbl_80500B58[2];
 #define run_task__14TObjEneBm5WolfFPv ((void (*)(void))run_task__14TObjEneBm5WolfFPv)
 #define vfunc_62__14TObjEneBm5WolfFv ((void (*)(void))vfunc_62__14TObjEneBm5WolfFv)
 #define vfunc_63__14TObjEneBm5WolfFv ((void (*)(void))vfunc_63__14TObjEneBm5WolfFv)
-#define update_colliders__14TObjEneBm5WolfFPv ((void (*)(void))update_colliders__14TObjEneBm5WolfFPv)
+#define vfunc_88__14TObjEneBm5WolfFv ((void (*)(void))vfunc_88__14TObjEneBm5WolfFv)
 #define TObjEneBm5Wolf__instance_list (*(List_800B6B50 *)&TObjEneBm5Wolf__instance_list)
 #define TObjEneBm5Wolf__pack_member_list (*(List_800B4D88 *)&TObjEneBm5Wolf__pack_member_list)
 struct Ang_800B4AD4;
@@ -301,8 +301,6 @@ void play_footsteps__14TObjEneBm5WolfFPv(u8 *arg0);
 f32 calc_circle_offset__14TObjEneBm5WolfFPvPvPv(Obj_800B79E0 *self, Vec_800B79E0 *target, Vec_800B79E0 *out);
 void set_state_by_timer__14TObjEneBm5WolfFi(s32 arg0);
 f32 rand_range__9TObjEneDDFff(void *actor, f32 low, f32 high);
-int has_move_failures__9TObjEneDDFl(void *, s32);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 s32 advance_animation_playback(void *);
 extern const f32 TObjEneBm5Wolf__data_805D9D78;
 extern const f32 TObjEneBm5Wolf__data_805D9D80;
@@ -1494,7 +1492,7 @@ void TObjEneBm5Wolf::action(s32 arg1) {
     switch (arg1) {
     case 4:
         ((VEne_800B4820 *)arg0)->m94();
-        set_field_378__9TObjEneDDFl(arg0, 7);
+        ((TObjEneDD *)arg0)->set_field_378(7);
         this->m_b8 = 0xB;
         this->roamingSubstate = 0;
         find_pack_leader__14TObjEneBm5WolfFi((s32)(*(s32 *)&this->_pad3DC));
@@ -1528,7 +1526,7 @@ void TObjEneBm5Wolf::repositioning_state(s32 arg1) {
     switch (arg1) {
     case 4:
         this->m_b8 = 0;
-        set_field_378__9TObjEneDDFl(arg0, 0xD);
+        ((TObjEneDD *)arg0)->set_field_378(0xD);
         ((VObj_800B53F0 *)arg0)->m94();
         this->roamingSubstate = 0;
         *(s32 *)&this->m_42c = 0;
@@ -1612,7 +1610,7 @@ void returning_state__14TObjEneBm5WolfFPvi(u8 *actor, s32 arg1) {
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)actor + 0xB8) = 1;
-        set_field_378__9TObjEneDDFl((void *) actor, 0xC);
+        ((TObjEneDD *)actor)->set_field_378(0xC);
         ((VObj_18_4225ac *)(actor))->m94();
         *(f32 *)((s8 *)actor + 0x400) = lbl_805D9DC4;
         *(s32 *)((s8 *)actor + 0x41C) = 0;
@@ -1733,7 +1731,7 @@ void TObjEneBm5Wolf::update_lunge(s32 arg1) {
     switch (arg1) {
     case 4:
         this->m_b8 = 0xC;
-        set_field_378__9TObjEneDDFl(arg0, 0xD);
+        ((TObjEneDD *)arg0)->set_field_378(0xD);
         ((VObj_18_a3e1a1 *)(arg0))->m94();
         *(s32 *)&this->m_408 = (s32) (*(s32 *)&this->m_408 & 0xFFFFFFFD);
         temp_r4 = *(s32 *)&this->m_408 | 4;
@@ -1854,7 +1852,7 @@ void TObjEneBm5Wolf::circling_state(s32 arg1) {
     switch (arg1) {
     case 4:
         self->fB8 = 1;
-        set_field_378__9TObjEneDDFl(self, 10);
+        ((TObjEneDD *)self)->set_field_378(10);
         ((VObj_18_4225ac *)self)->m94();
         self->f400 = lbl_805D9DF8;
         self->f41C = 0;
@@ -1956,13 +1954,13 @@ void TObjEneBm5Wolf::circling_state(s32 arg1) {
                     vz = b->x;
                     vx = -b->z;
                 }
-                if (has_move_failures__9TObjEneDDFl(self, 1) != 0) {
+                if (((TObjEneDD *)self)->has_move_failures(1) != 0) {
                     ((TObjEneDD_ST *)self)->set_active();
                 } else {
                     ((TObjEneDD *)self)->clear_field_388();
                 }
                 ((TObjEneDD *)self)->move_with_wall_slide_on_ground(vx, vz, self->f404);
-                if (has_move_failures__9TObjEneDDFl(self, 10) != 0) {
+                if (((TObjEneDD *)self)->has_move_failures(10) != 0) {
                     self->f420 = 0;
                     self->f424 = 2;
                 }
@@ -1982,7 +1980,7 @@ void TObjEneBm5Wolf::circling_state(s32 arg1) {
                 }
                 sx = sin_table_lookup(ang);
                 cz = cos_table_lookup(ang);
-                if (has_move_failures__9TObjEneDDFl(self, 2) != 0) {
+                if (((TObjEneDD *)self)->has_move_failures(2) != 0) {
                     self->f420 = 0;
                     ((TObjEneDD_ST *)self)->set_active();
                 } else {
@@ -2021,7 +2019,7 @@ void TObjEneBm5Wolf::flanking_state(s32 arg1) {
     switch (arg1) {
     case 4:
         this->m_b8 = 3;
-        set_field_378__9TObjEneDDFl(((u8 *)this), 9);
+        set_field_378(9);
         ((VObj_18_4225ac *)(((u8 *)this)))->m94();
         this->desiredSpeed = TObjEneBm5Wolf__data_805D9DBC;
         this->roamingSubstate = 0;
@@ -2087,7 +2085,7 @@ void TObjEneBm5Wolf::chasing_state(s32 arg1) {
     switch (arg1) {
     case 4:
         this->m_b8 = 2;
-        set_field_378__9TObjEneDDFl((void *)(arg0), (s32)(8));
+        ((TObjEneDD *)arg0)->set_field_378((s32)(8));
         ((VObj_18_4225ac *)(arg0))->m94();
         this->desiredSpeed = (f32) lbl_805D9DC4;
         this->roamingSubstate = 0;
@@ -2097,7 +2095,7 @@ void TObjEneBm5Wolf::chasing_state(s32 arg1) {
             transition_enemy_state((void *)(arg0), (s32)(7));
             break;
         }
-        if (has_move_failures__9TObjEneDDFl(arg0, 0xA) != 0) {
+        if (((TObjEneDD *)arg0)->has_move_failures(0xA) != 0) {
             transition_enemy_state((void *)(arg0), (s32)(9));
             break;
         }
@@ -2152,7 +2150,7 @@ void TObjEneBm5Wolf::roaming_state(int event) {
     switch (event) {
     case 4:
         this->m_b8 = 1;
-        set_field_378__9TObjEneDDFl((void *)(this), (s32)(7));
+        set_field_378((s32)(7));
         ((VObj_18_8bca97 *)(this))->m94();
         this->roamingTimer = 0;
         this->roamingSubstate = 0;
@@ -2198,7 +2196,7 @@ void TObjEneBm5Wolf::roaming_state(int event) {
             if ((this->destinationDistance < this->stoppingDistance) || ((s32) this->roamingTimer > 0x64)) {
                 this->roamingSubstate = 1;
                 this->desiredSpeed = (f32) TObjEneBm5Wolf__data_805D9D78;
-            } else if (((s32)has_move_failures__9TObjEneDDFl(this, 0x14)) != 0) {
+            } else if (((s32)has_move_failures(0x14)) != 0) {
                 this->roamingTimer = 0;
                 choose_roaming_destination();
                 this->desiredSpeed = rand_range__9TObjEneDDFff(this, TObjEneBm5Wolf__data_805D9D84, TObjEneBm5Wolf__data_805D9D8C);
@@ -2257,7 +2255,7 @@ void TObjEneBm5Wolf::howling_state(s32 arg1) {
     switch (arg1) {
     case 4:
         this->m_b8 = 0x10;
-        set_field_378__9TObjEneDDFl((void *) ((u8 *)this), 7);
+        set_field_378(7);
         ((VObj_18_7b3d65 *)(((u8 *)this)))->m93();
         this->roamingSubstate = 0;
         break;
@@ -2306,7 +2304,7 @@ void TObjEneBm5Wolf::standing_state(s32 arg1) {
   {
     case 4:
       *((s16 *) (((s8 *) arg0) + 0xB8)) = 5;
-      set_field_378__9TObjEneDDFl((void *)(arg0), (s32)(7));
+      ((TObjEneDD *)arg0)->set_field_378((s32)(7));
       PSO_VCALL_VObj_18_7b3d65_m93(arg0);
       *((s32 *) (((s8 *) arg0) + 0x41C)) = 0;
       return;
@@ -2348,7 +2346,7 @@ void TObjEneBm5Wolf::alerted_state(s32 arg1) {
   {
     case 4:
       *((s16 *) (((s8 *) arg0) + 0xB8)) = 4;
-      set_field_378__9TObjEneDDFl((void *)(arg0), (s32)(4));
+      ((TObjEneDD *)arg0)->set_field_378((s32)(4));
       PSO_VCALL_VObj_18_7b3d65_m93(arg0);
       new_var = (s32) (((s32) (lbl_805D9E38 * calc_boss4_scale__10TObjPlayerFi((s32) arg0))) + 0xA);
       *((s32 *) (((s8 *) arg0) + 0x41C)) = new_var;
@@ -2381,7 +2379,7 @@ void TObjEneBm5Wolf::sleeping_state(s32 arg1) {
   {
     case 4:
       *((s16 *) (((s8 *) arg0) + 0xB8)) = 4;
-      set_field_378__9TObjEneDDFl((void *)(arg0), (s32)(2));
+      ((TObjEneDD *)arg0)->set_field_378((s32)(2));
       PSO_VCALL_VObj_18_7b3d65_m93(arg0);
       enemy_clear_target__12TObjEneDD_STFUs(arg0);
       *((s32 *) (((s8 *) arg0) + 0x3E4)) = 0;
@@ -2428,7 +2426,7 @@ void appearing_state__14TObjEneBm5WolfFPvi(Obj_800B7018 *o, s32 arg1) {
     switch (arg1) {
     case 4:
         o->fB8 = 0x11;
-        set_field_378__9TObjEneDDFl(o, 7);
+        ((TObjEneDD *)o)->set_field_378(7);
         ((VObj_18_7b3d65 *)o)->m93();
         o->f408 &= ~3;
         o->f408 |= 4;
@@ -2489,7 +2487,7 @@ void anchor_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         *(s32 *)((s8 *)arg0 + 0x420) = 0;
-        set_field_378__9TObjEneDDFl(arg0, 0);
+        ((TObjEneDD *)arg0)->set_field_378(0);
         VTABLE_ENE->m93();
         *(s32 *)((s8 *)arg0 + 0x408) = (s32) (*(s32 *)((s8 *)arg0 + 0x408) | 2);
         return;
@@ -2535,7 +2533,7 @@ void calc_distance_accuracy_penalty__10TObjPlayerFv(void);
 void receive_physical_attack__10TObjPlayerFv(void);
 void receive_direct_attack__10TObjPlayerFv(void);
 void receive_weapon_special_attack__10TObjPlayerFv(void);
-void apply_knockback_from_attacker(void);
+void apply_knockback_from_attacker__13TUnk_804806E8FPUc(void);
 void try_start_action__13TUnk_804806E8Fll(void);
 void roll_physical_accuracy__13TUnk_804806E8FPvlf(void);
 void vfunc_28__14TObjEneBm5WolfFv(void);
@@ -2558,10 +2556,10 @@ void apply_movement_ailment__13TUnk_804806E8Fl(void);
 void apply_shock_status__13TUnk_804806E8Fv(void);
 void clear_harmful_statuses__13TUnk_804806E8Fv(void);
 void apply_attack_stat_status__13TUnk_804806E8FPv(void);
-void cure_poison_ailment(void);
+void cure_poison_ailment__13TUnk_804806E8Fv(void);
 void cure_paralysis__13TUnk_804806E8Fv(void);
-void clear_all_status_effects(void);
-void apply_action_hold_status(void);
+void clear_all_status_effects__13TUnk_804806E8Fv(void);
+void apply_action_hold_status__13TUnk_804806E8Ff(void);
 void apply_anti_technique__13TUnk_804806E8Fl(void);
 void vfunc_58__13TUnk_804806E8Fv(void);
 void vfunc_59__13TUnk_804806E8Fv(void);
@@ -2632,7 +2630,7 @@ void *lbl_804922F8[107] = {
     (void *)receive_physical_attack__10TObjPlayerFv,
     (void *)receive_direct_attack__10TObjPlayerFv,
     (void *)receive_weapon_special_attack__10TObjPlayerFv,
-    (void *)apply_knockback_from_attacker,
+    (void *)apply_knockback_from_attacker__13TUnk_804806E8FPUc,
     (void *)try_start_action__13TUnk_804806E8Fll,
     (void *)roll_physical_accuracy__13TUnk_804806E8FPvlf,
     (void *)vfunc_28__14TObjEneBm5WolfFv,
@@ -2660,10 +2658,10 @@ void *lbl_804922F8[107] = {
     (void *)clear_harmful_statuses__13TUnk_804806E8Fv,
     (void *)apply_attack_stat_status__13TUnk_804806E8FPv,
     (void *)TObjPlayer::apply_defense_stat_status,
-    (void *)cure_poison_ailment,
+    (void *)cure_poison_ailment__13TUnk_804806E8Fv,
     (void *)cure_paralysis__13TUnk_804806E8Fv,
-    (void *)clear_all_status_effects,
-    (void *)apply_action_hold_status,
+    (void *)clear_all_status_effects__13TUnk_804806E8Fv,
+    (void *)apply_action_hold_status__13TUnk_804806E8Ff,
     (void *)apply_anti_technique__13TUnk_804806E8Fl,
     (void *)vfunc_58__13TUnk_804806E8Fv,
     (void *)vfunc_59__13TUnk_804806E8Fv,
@@ -2695,7 +2693,7 @@ void *lbl_804922F8[107] = {
     (void *)vfunc_85__9TObjEneDDFv,
     (void *)vfunc_86__9TObjEneDDFv,
     (void *)dispatch_state__14TObjEneBm5WolfFPvUii,
-    (void *)update_colliders__14TObjEneBm5WolfFPv,
+    (void *)vfunc_88__14TObjEneBm5WolfFv,
     (void *)vfunc_89__9TObjEneDDFv,
     (void *)vfunc_90__9TObjEneDDFv,
     (void *)vfunc_91__9TObjEneDDFv,
@@ -3094,7 +3092,7 @@ __declspec(section ".sdata2") extern const f32 lbl_805D9E58 = 25.0f;
 #undef run_task__14TObjEneBm5WolfFPv
 #undef vfunc_62__14TObjEneBm5WolfFv
 #undef vfunc_63__14TObjEneBm5WolfFv
-#undef update_colliders__14TObjEneBm5WolfFPv
+#undef vfunc_88__14TObjEneBm5WolfFv
 #undef TObjEneBm5Wolf__instance_list
 #undef TObjEneBm5Wolf__pack_member_list
 
@@ -3256,8 +3254,8 @@ void TObjEneBm5Wolf::select_subtype() {
     this->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjEneBm5Wolf__bml_resource + 0x42C)) + 0xC);
 }
 
-void update_colliders__14TObjEneBm5WolfFPv(void *arg0) {
-    *(f32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xA4)) + 4) = (f32) (TObjEneBm5Wolf__data_805D9DB4 + *(f32 *)((s8 *)arg0 + 0x40C));
+void TObjEneBm5Wolf::vfunc_88() {
+    *(f32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 4) = (f32) (TObjEneBm5Wolf__data_805D9DB4 + *(f32 *)((s8 *)this + 0x40C));
 }
 
 }

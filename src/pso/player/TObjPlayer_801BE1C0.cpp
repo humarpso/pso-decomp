@@ -93,7 +93,7 @@ s32 destroy_char_data__10TObjPlayerFis(s32 arg0, s16 arg1) {
     return arg0;
 }
 
-void TObjPlayer::vfunc_68(s32 arg1) {
+void TObjPlayer::get_pos(s32 arg1) {
     ((VObj_801BE210_801BE1C0*)this)->m63(0x3A, arg1);
 }
 
