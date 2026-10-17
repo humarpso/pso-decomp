@@ -491,8 +491,8 @@ s32 TUnk_804B2578::sub_80168244(u32 v) {
 
 void TUnk_804B2578::sub_80168280(u32 v) {
     Obj_80168280 *self = (Obj_80168280 *)this;
-    if (self->count < 4) {
-        self->arr[self->count++] = v;
+    if (this->m_34c < 4) {
+        self->arr[this->m_34c++] = v;
     }
 }
 

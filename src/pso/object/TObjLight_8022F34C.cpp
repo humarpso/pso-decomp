@@ -41,7 +41,7 @@ u8 *init_from_source__9TObjLightFPvii(u8 *arg0, s32 arg1, s32 arg2) {
 void TTecDeband::play_state_sound() {
     Obj_8022F42C *arg0 = (Obj_8022F42C *)this;
     s32 r;
-    switch (arg0->state) {
+    switch (*(s16 *)&this->m_a6) {
     case 0:
     case 1:
         r = play_sound_effect(0x4002AA16, (u8 *)arg0 + 0x20, 0, 0);

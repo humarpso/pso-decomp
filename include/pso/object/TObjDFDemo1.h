@@ -10,7 +10,11 @@ public:
     void draw_fading_model();
     void sub_8004E068();
     virtual void render();
-    u8 unk_90[0xA0];
+    u8 unk_90[0x7C];
+    s32 m_10c;
+    u8 unk_110[0x4];
+    f32 m_114;
+    u8 unk_118[0x18];
 };
 typedef char TObjDFDemo1_size[sizeof(TObjDFDemo1) == 0x130 ? 1 : -1];
 

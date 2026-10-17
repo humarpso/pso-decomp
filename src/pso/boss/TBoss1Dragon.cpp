@@ -5877,12 +5877,12 @@ s32 TBoss1Dragon::advance_air_turn() {
     self->f678 += 1.0f;
     t = self->f678;
     if (t <= 35.0f) {
-        self->f60 = self->f660 + (s32)(t * ((0.5f * self->f664) * t + self->f66C));
+        this->rotation_y = self->f660 + (s32)(t * ((0.5f * self->f664) * t + self->f66C));
         return 0;
     }
     if (t <= 60.0f) {
         t -= 35.0f;
-        self->f60 = self->f660 + (s32)(t * ((0.5f * self->f668) * t + self->f670) + self->f674);
+        this->rotation_y = self->f660 + (s32)(t * ((0.5f * self->f668) * t + self->f670) + self->f674);
         return 0;
     }
     return 1;

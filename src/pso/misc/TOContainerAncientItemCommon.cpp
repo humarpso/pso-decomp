@@ -143,7 +143,7 @@ void *TOContainerAncientItemCommon__ct(void *arg0, void * _w1) {
 void TUnk_804B08BC::vfunc_79() {
     Obj_8015C234 *self = (Obj_8015C234 *)this;
     extern const u32 ancient_container_resource_bundle;
-    if (self->f326 == 1) {
+    if (this->mode == 1) {
         return;
     }
     Desc_8015C234 a = fish_break_debris_desc;
@@ -217,9 +217,9 @@ void TUnk_804B08BC::vfunc_81() {
 }
 void TUnk_804B08BC::vfunc_80() {
     Obj_8015C48C *self = (Obj_8015C48C *)this;
-    switch (self->a326) {
+    switch (this->mode) {
     case 0:
-        if (self->a364 != 0) {
+        if (this->m_364 != 0) {
             submit_cursor_candidate(self, -1);
         }
         break;

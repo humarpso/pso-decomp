@@ -8,7 +8,9 @@ public:
     virtual ~TeneFakeTecThunderEff();
     virtual void render();
     virtual void run_task();
-    u8 unk_1C[0x30C];
+    u8 unk_1C[0x1C];
+    s32 m_38;
+    u8 unk_3C[0x2EC];
     s32 m_328;
     u8 unk_32C[0x4];
     s32 m_330;

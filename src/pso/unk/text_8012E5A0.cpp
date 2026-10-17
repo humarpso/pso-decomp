@@ -28,10 +28,10 @@ void TObjPlayer::update_casing_eject() {
     Vec_8012E5A0 v;
     Ang_8012E5A0 a;
     Self_8012E5A0 *self = (Self_8012E5A0 *)this;
-    if (self->state == 1) {
+    if (this->m_1fc == 1) {
         TItemEffOrgaFlowShot::approach_value(&self->f1FC, lbl_805DAF84, lbl_805DAF88);
         if (lbl_805DAF88 == self->f1FC) {
-            self->state = 2;
+            this->m_1fc = 2;
             ang = self->owner->f60 + 0x4000;
             v.x = sin_table_lookup(ang);
             v.y = lbl_805DAF7C;
@@ -41,10 +41,10 @@ void TObjPlayer::update_casing_eject() {
             a.z = 0;
             TObjPlayer::launch_weapon_casing((s32)tl_05, (u32)self, 3, (u32)&v, (u32)&a);
         }
-    } else if (self->state == 2) {
+    } else if (this->m_1fc == 2) {
         TItemEffOrgaFlowShot::approach_value(&self->f1FC, lbl_805DAF8C, lbl_805DAF7C);
         if (lbl_805DAF7C == self->f1FC) {
-            self->state = 0;
+            this->m_1fc = 0;
         }
     }
 }

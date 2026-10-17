@@ -135,7 +135,7 @@ extern "C" {
 void TUnk_804E4B3C::spawn(s32 arg1, s32 arg2) {
     void *new_obj = (void *) __nw__7TObjectFUl(0x78);
     if ((u32) new_obj != 0U) {
-        fn_802F1FB0(new_obj, *(s32 *)((s8 *)this + 0x8C), arg1, *(f32 *)((s8 *)this + 0x84), arg2);
+        fn_802F1FB0(new_obj, *(s32 *)((s8 *)this + 0x8C), arg1, this->m_84, arg2);
     }
 }
 void TObjBoss2Tunnel__sub_802F2278(void) { (*(int *)&boss2_tunnel_state_flags) = ((*(int *)&boss2_tunnel_state_flags) | 0x8); }
@@ -173,13 +173,13 @@ void TUnk_804E4B3C::render() {
         for (n = (*(Li_802F2348 **)((s8 *)arg0 + 0x90))->head; n != 0; n = n->next) {
             draw_particle_effect(n);
         }
-        for (n = (*(Li_802F2348 **)((s8 *)arg0 + 0x8C))->head; n != 0; n = n->next) {
+        for (n = (*(Li_802F2348 * *)&this->m_8c)->head; n != 0; n = n->next) {
             fn_802F1E54((u8 *)n);
         }
-        for (n = (*(Li_802F2348 **)((s8 *)arg0 + 0x8C))->head; n != 0; n = n->next) {
+        for (n = (*(Li_802F2348 * *)&this->m_8c)->head; n != 0; n = n->next) {
             fn_802F1DAC((u8 *)n);
         }
-        for (n = (*(Li_802F2348 **)((s8 *)arg0 + 0x8C))->head; n != 0; n = n->next) {
+        for (n = (*(Li_802F2348 * *)&this->m_8c)->head; n != 0; n = n->next) {
             draw_tunnel_segment((u8 *)n);
         }
     }
@@ -191,15 +191,15 @@ void TObjBoss2Tunnel__sub_802F2400(u8 *arg0) {
     u32 temp_r3;
     ((TObjBoss2Tunnel *)arg0)->update_spawn_timer((s32)&boss2_tunnel_spawn_timer_table_b.value, 0xA, 1);
     if ((*(s32 *)&boss2_tunnel_state_flags) & 8) {
-        temp_f1 = *(f32 *)((s8 *)arg0 + 0x80);
+        temp_f1 = ((TObjBoss2Tunnel *)arg0)->m_80;
         if (temp_f1 < lbl_805DEC98) {
             *(s32 *)((s8 *)arg0 + 0x1C) = 2;
             *(f32 *)((s8 *)arg0 + 0x5C) = (f32) lbl_805DEC9C;
-            *(f32 *)((s8 *)arg0 + 0x54) = (f32) lbl_805DECB8;
-            temp_r3 = *(u32 *)((s8 *)arg0 + 0x88);
+            ((TObjBoss2Tunnel *)arg0)->m_54 = (f32) lbl_805DECB8;
+            temp_r3 = ((TObjBoss2Tunnel *)arg0)->m_88;
             if (temp_r3 != 0U) {
                 queue_destruction__7TObjectFv((void *)temp_r3);
-                *(u32 *)((s8 *)arg0 + 0x88) = 0U;
+                ((TObjBoss2Tunnel *)arg0)->m_88 = 0U;
             }
             (*(s32 *)&boss2_tunnel_state_flags) |= 0x8000;
             return;
@@ -226,7 +226,7 @@ void TObjBoss2Tunnel::init_effect() {
     if ((*(s32 *)&boss2_tunnel_state_flags) & 0x200) {
         (*(s32 *)&boss2_tunnel_state_flags) &= 0xFFFFFDFF;
         *(s32 *)((s8 *)this + 0x1C) = 1;
-        *(s32 *)((s8 *)this + 0x70) = 0;
+        this->m_70 = 0;
     }
     update_dust_spawn();
 }

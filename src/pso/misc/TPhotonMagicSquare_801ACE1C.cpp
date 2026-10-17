@@ -50,11 +50,11 @@ void TPhotonMagicSquare::render() {
     TParticleCtrl::begin_effect_render();
     push_matrix();
     post_translate_matrix(&self->vB8);
-    rotate_matrix_y(0, self->f60);
-    TObjFish::set_global_param(self->f24);
+    rotate_matrix_y(0, this->rotation_y);
+    TObjFish::set_global_param(this->texture_id);
     scale_current_matrix(&self->v68);
     Color_801ACE1C saved = self->color;
-    if ((self->fB0 % self->fCC) == 0) {
+    if ((this->m_b0 % this->m_cc) == 0) {
         self->color.r = (0.5f);
         self->color.g = (0.5f);
         self->color.b = (0.5f);
@@ -66,7 +66,7 @@ void TPhotonMagicSquare::render() {
     }
     ((TUnk_80494AE0 *)((f32 *)&self->color))->set_chunk_material_color();
     TObjPlayer::set_global_flag();
-    draw_model_motion((void *)self->f34, (void *)self->f90, self->f9C);
+    draw_model_motion((void *)self->f34, (void *)*(s32 *)&this->m_90, self->f9C);
     TObjPlayer::clear_global_state();
     ((TUnk_80494AE0 *)((f32 *)&chunk_material_color_half_alpha_f32))->set_chunk_material_color();
     model_render_flags = lbl_805D5660;
@@ -97,16 +97,16 @@ struct Self_801ACF24 {
 #pragma fp_contract on
 void TPhotonMagicSquare::run_task() {
     Self_801ACF24 *self = (Self_801ACF24 *)this;
-    if (self->fB0 > self->fC4) {
-        self->fB4 = 1;
+    if (this->m_b0 > this->m_c4) {
+        *(s32 *)&this->m_b4 = 1;
     }
-    switch (self->fB4) {
+    switch (*(s32 *)&this->m_b4) {
     case 0:
         if (self->fA0 < (1.0f)) {
             self->fA0 = (2.0f) * self->fC8 + self->fA0;
         }
-        if (self->f68 < (1.0f)) {
-            self->f68 = (2.0f) * self->fC8 + self->f68;
+        if (this->scale < (1.0f)) {
+            this->scale = (2.0f) * self->fC8 + this->scale;
             self->f70 = (2.0f) * self->fC8 + self->f70;
         }
         break;
@@ -114,19 +114,19 @@ void TPhotonMagicSquare::run_task() {
         if (self->fA0 > (0.0f)) {
             self->fA0 = self->fA0 - self->fC8;
         }
-        if (self->f68 > (0.0f)) {
-            self->f68 = self->f68 - self->fC8;
+        if (this->scale > (0.0f)) {
+            this->scale = this->scale - self->fC8;
             self->f70 = self->f70 - self->fC8;
         }
-        if ((f32)self->fB0 > (f32)self->fC4 + (1.0f) / self->fC8) {
+        if ((f32)this->m_b0 > (f32)this->m_c4 + (1.0f) / self->fC8) {
             queue_destruction__7TObjectFv(self);
             return;
         }
         break;
     }
-    self->fB0++;
+    this->m_b0++;
     if (self->f9C < self->f94) {
-        self->f9C = self->f9C + self->f98;
+        self->f9C = self->f9C + this->m_98;
     } else {
         self->f9C = (0.0f);
     }

@@ -1248,19 +1248,19 @@ void TObjPlayer__sub_800D2E8C(Ene_800D2E8C *arg0) {
 
 void TObjPlayer::update_death_breakup() {
     Ene_800D2F6C *arg0 = (Ene_800D2F6C *)this;
-    switch (arg0->state) {
+    switch (this->m_37c) {
     case 0:
-        arg0->fB8 = 4;
+        this->m_b8 = 4;
         ((TObjPlayer *)arg0)->refresh_lobby_state();
         arg0->timer = 0x5A;
         create_dead_spot__10TObjPlayerFllf(arg0->v2FC, 0x5A, lbl_805DA27C);
         create_dead_spot__10TObjPlayerFllf(arg0->v2FC, 0x5A, lbl_805DA27C);
-        arg0->state = 1;
+        this->m_37c = 1;
     case 1:
         advance_animation_playback(arg0);
         arg0->timer--;
         if (arg0->timer < 0) {
-            TBoss3Volopt::create_breakup_mdl((s32)gyaranzo_breakup_model_obj, (s32)gyaranzo_death_breakup_params, (s32)arg0->f24, (s32)arg0->v2FC, (s32)arg0->f60);
+            TBoss3Volopt::create_breakup_mdl((s32)gyaranzo_breakup_model_obj, (s32)gyaranzo_death_breakup_params, (s32)this->texture_id, (s32)arg0->v2FC, (s32)this->rotation_y);
             ((TObjEnemy *)arg0)->send_entity_set_flags();
             ((TObjPlayer *)(arg0->v2FC))->trigger_dell_biter_events();
             play_sound_effect((void *)copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003AD10), arg0->pos, 0, 0);

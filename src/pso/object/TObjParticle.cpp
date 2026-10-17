@@ -60,7 +60,7 @@ extern const f32 lbl_805DBEE8;
 void TObjParticle::render() {
     P_8019527C *arg0 = (P_8019527C *)this;
     if (((TObject *)arg0)->all_parents_unqueued_for_destruction() != 0) {
-        if (arg0->f90 == 0) {
+        if (this->m_90 == 0) {
             return;
         }
     }

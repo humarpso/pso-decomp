@@ -279,7 +279,7 @@ s32 TUnk_80491460::try_hit_target(int arg1) {
     Obj_800AB0EC *o = (Obj_800AB0EC *)this;
     if (e != NULL && !(*(s32 *)(e + 0x30) & 0xA00) && !(xz_distance_squared(o->pos, e + 0x2FC) > lbl_805D9B58)) {
         Pair_800AB0EC tmp = lbl_8043ACEC[0];
-        tmp.b = (f32)o->f68;
+        tmp.b = (f32)this->m_68;
         Pair_800AB0EC arg = tmp;
         ((VObj_800AB0EC *)e)->m21(o->f64, &arg, 0, -1, -1);
         spawn_particle_effect(e + 0x2FC, 0xFB);

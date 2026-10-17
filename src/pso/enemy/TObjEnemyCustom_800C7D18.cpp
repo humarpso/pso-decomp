@@ -206,7 +206,7 @@ void TObjEnemyCustom::vfunc_28() {  }
 
 void TObjEnemyCustom::dispatch_state() {
     Obj_800C7DF8 *arg0 = (Obj_800C7DF8 *)this;
-    switch (arg0->state) {
+    switch (this->mode) {
     case 0: update_state(); return;
     case 1: ((TObjEnemyCustom *)arg0)->update_wander_state(); return;
     case 2: ((TObjEnemyCustom *)arg0)->update(); return;

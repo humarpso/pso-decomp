@@ -40,7 +40,9 @@ struct TObjEneRe4Bit : public TObjEneDD_ST {
     u32 m_3f0;
     u8 _pad3F4[0x10];
     u32 m_404;
-    u8 unk_3EC[0x24];
+    u8 unk_3EC[0x1C];
+    s32 m_408;
+    u8 unk_40C[0x4];
     s32 handle_event(s32 arg1);
     void handle_state_message(s32 msg);
     void reset_transform();

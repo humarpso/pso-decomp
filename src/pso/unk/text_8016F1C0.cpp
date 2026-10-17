@@ -222,12 +222,12 @@ void handle_6x80_trigger_trap(Pkt_8016F418 *arg0) {
 }
 
 void TOMineTrap::send_state_packet(u16 idx) {
-    Self_8016F558 *self = (Self_8016F558 *)this;
+    TOMineTrap *self = this;
     if (idx < 3) {
         Pkt_8016F558 pkt;
         TOMineTrap__sub_8017141C(&pkt);
-        pkt.object = self->id;
-        pkt.sub = self->sub;
+        pkt.object = self->m_1c;
+        pkt.sub = self->m_37e;
         pkt.idx = idx;
         ((TOMineTrap *)(&pkt))->send_and_handle_60();
     }
@@ -254,7 +254,7 @@ f32 TOMineTrap__vt20(Obj_8016F5B4 *arg0, u32 arg1) {
 void TOMineTrap::vfunc_82() {
     Obj_8016F64C *arg0 = (Obj_8016F64C *)this;
     u32 r;
-    switch (arg0->state) {
+    switch (*(s32 *)&this->m_354) {
     default:
         r = (u32)spawn_particle_effect(arg0->sub, 0x45);
         if (r != 0U) {

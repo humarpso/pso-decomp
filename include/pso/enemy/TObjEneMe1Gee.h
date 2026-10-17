@@ -43,7 +43,10 @@ struct TObjEneMe1Gee : public TObjEneDD_ST {
     void state_attack_loop(s32);
     void render();
     void run_task();
-    u8 unk_374[0x30];
+    u8 unk_374[0x1C];
+    u32 m_390;
+    u8 unk_394[0xC];
+    f32 m_3a0;
     u32 m_3c0;
     u32 m_3c4;
     u32 m_3c8;

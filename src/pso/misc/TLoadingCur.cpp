@@ -120,7 +120,7 @@ int TLoadingCur::sub_8001CCD4() {
         t[1] *= lbl_805D7EAC;
         t[2] *= lbl_805D7EA8;
         self->f38 += t[0];
-        self->f3c += t[1];
+        this->m_3c += t[1];
         self->f40 += t[2];
     }
 }
@@ -170,13 +170,13 @@ void TLoadingCur::run_task() {
         x -= lbl_805D7EB4;
     }
     self->f38 += lbl_805D7EB8 * x;
-    self->f3C += lbl_805D7EB8 * y;
+    this->m_3c += lbl_805D7EB8 * y;
     self->f40 += TLoadingCur__data_805D7E9C;
-    self->f20 += self->f38;
-    self->f24 += self->f3C;
+    this->m_20 += self->f38;
+    self->f24 += this->m_3c;
     self->f28 += self->f40;
     self->f38 *= lbl_805D7EBC;
-    self->f3C *= lbl_805D7EBC;
+    this->m_3c *= lbl_805D7EBC;
     self->f40 *= lbl_805D7EBC;
     calc_loading_cursor_pos(sp8, this);
     VecCopy((Vec *)self->f44, (const Vec *)sp8);

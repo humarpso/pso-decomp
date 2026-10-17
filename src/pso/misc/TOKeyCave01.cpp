@@ -298,12 +298,12 @@ s32 TOKeyCol::is_confirm_pressed() {
     return var_r31;
 }
 void TOKeyCol::send_switch_changed(s32 flags) {
-    Self_8016C79C *self = (Self_8016C79C *)this;
+    TOKeyCol *self = this;
     Pkt_8016C79C pkt;
     ((TLobby *)(&pkt))->init_6x05_switch_changed();
-    pkt.object = self->id;
+    pkt.object = self->m_1c;
     pkt.zero = local_client_id;
-    pkt.switchId = self->switchId;
+    pkt.switchId = *(s32 *)&self->m_e4;
     pkt.area = get_current_floor();
     pkt.flags = flags;
     ((TLobby *)(&pkt))->finalize_and_send_60();

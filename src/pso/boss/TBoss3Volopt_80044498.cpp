@@ -790,7 +790,7 @@ f32 TUnk_80484610::receive_physical_attack(void *a1, f32 x) {
     s32 i;
     for (i = 0; i < 4; i++) {
         if (self->parts[i].flags & 0x04000000) {
-            self->mask |= m;
+            this->m_388 |= m;
         }
         m <<= 1;
     }
@@ -1601,12 +1601,12 @@ void TBoss3Volopt__sub_80046CB8(void *arg0_) {
 
 void TUnk_80484610::sub_800472D4() {
     Obj_800472D4 *self = (Obj_800472D4 *)this;
-    switch (self->state) {
+    switch (*(s32 *)&this->state) {
     case 0:
-        self->flags &= ~0x40000;
-        self->anim = 0;
+        this->actorFlags &= ~0x40000;
+        this->m_b8 = 0;
         ((TUnk_80484610 *)self)->reset_visual_state();
-        self->state = 1;
+        *(s32 *)&this->state = 1;
     case 1:
         advance_animation_playback(self);
         break;
@@ -1711,7 +1711,7 @@ void TUnk_80484610::render() {
 
 void TUnk_80484610::run_state() {
     S_80047714 *o = (S_80047714 *)this;
-    switch (o->st) {
+    switch (this->mode) {
     case 0: ((TUnk_80484610 *)o)->sub_800472D4(); return;
     case 1: dispatch_state__12TBoss3VoloptFPv((V_80047408 *)(o)); return;
     case 2: TBoss3Volopt__sub_80046CB8(o); return;

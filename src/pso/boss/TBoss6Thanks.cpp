@@ -94,7 +94,7 @@ void TBoss6Thanks::update_particle_emitters() {
     s32 i;
     for (i = 0; i < 4; i++) {
         Ent_8035CB88 *e = &boss6_thanks_particle_emitter_table[i];
-        if (o->x30 >= e->lo && o->x30 <= e->hi) {
+        if (*(s32 *)&this->m_34 >= e->lo && *(s32 *)&this->m_34 <= e->hi) {
             if (o->p[i] == NULL) {
                 o->p[i] = create_particle_emitter(TBoss6Thanks__data_80479BA8, e->id);
                 if (o->p[i] != NULL) {

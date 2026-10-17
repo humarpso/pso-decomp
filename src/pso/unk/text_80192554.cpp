@@ -23,10 +23,10 @@ void TObjLazerFenceExtra::draw_lazer_fence_extra_model() {
     TObjFish::set_global_param(lazer_fence_norm_texture_list);
     push_matrix();
     post_translate_matrix(arg0->f38);
-    rotate_matrix_y(0, arg0->f60);
-    draw_ginja_object((void *)arg0->fBC);
+    rotate_matrix_y(0, this->rotation_y);
+    draw_ginja_object((void *)*(s32 *)&this->m_d8);
     TParticleCtrl::begin_effect_render();
-    draw_ginja_model_with_motion(arg0->fC0, arg0->fC4, arg0->fB8);
+    draw_ginja_model_with_motion(arg0->fC0, this->m_c4, arg0->fB8);
     TParticleCtrl::end_effect_render();
     pop_matrix();
 }

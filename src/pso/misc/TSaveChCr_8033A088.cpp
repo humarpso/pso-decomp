@@ -38,9 +38,9 @@ int begin_action_from_char_select__10TObjPlayerFv(void*);
 
 void TSaveChCr::close_window() {
     if ((u32) *(u32 *)((s8 *)this + 0x3C) != 0U) {
-        TWindow__close((u8 *)(*(void **)((s8 *)this + 0x3C)));
+        TWindow__close((u8 *)(*(void * *)&this->owned_window));
         *(u32 *)((s8 *)this + 0x3C) = 0U;
-        *(s32 *)((s8 *)this + 0x38) = 7;
+        this->timer = 7;
     }
 }
 
@@ -56,7 +56,7 @@ void TSaveChCr::create_backgrounds() {
     if (o2 != NULL) {
         o2 = __ct__12TAdBackTxtGCFv(o2, this);
     }
-    *(void **)((s8 *)this + 0x34) = o2;
+    this->m_34 = o2;
 }
 
 int TSaveChCr__sub_8033A138(void) { return load_character_from_card__23TAdSinglePlyChrSelectGCFi(0); }
@@ -127,11 +127,11 @@ u8 *TSaveChCr__ct(TSaveChCr *arg0, u8 *arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__9TSaveChCr.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TSaveChCr__name;
     *(s32 *)((s8 *)arg0 + 0x20) = arg2;
-    *(s32 *)((s8 *)arg0 + 0x24) = 0;
-    *(s32 *)((s8 *)arg0 + 0x28) = 0;
-    *(s32 *)((s8 *)arg0 + 0x2C) = arg0->poll_memcard_status();
+    ((TSaveChCr *)arg0)->m_24 = 0;
+    ((TSaveChCr *)arg0)->m_28 = 0;
+    ((TSaveChCr *)arg0)->card_status = arg0->poll_memcard_status();
     *(s32 *)((s8 *)arg0 + 0x3C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x38) = 0;
+    ((TSaveChCr *)arg0)->timer = 0;
     arg0->create_backgrounds();
     arg0->set_state(0);
     return (u8 *)arg0;

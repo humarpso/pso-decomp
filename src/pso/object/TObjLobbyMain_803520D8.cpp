@@ -243,15 +243,15 @@ void update_computer_machines__13TObjLobbyMainFv(void) {
 }
 
 void TObjLobbyMain::advance_motion_frame() {
-    Obj_8035255C *o = (Obj_8035255C *)this;
+    TObjLobbyMain *o = this;
     f32 a, b;
-    s32 v = lbl_80479078[o->idx];
+    s32 v = lbl_80479078[o->m_d0];
     if (v != 5) {
         a = (f32)((Fish_8035255C *)get_bml_motion(TObjLobbyMain__bml_resource, v))->cnt;
         b = a - 1.0f;
-        o->f_b0 += 1.0f;
-        if (b < o->f_b0) {
-            o->f_b0 -= b;
+        o->m_b0 += 1.0f;
+        if (b < o->m_b0) {
+            o->m_b0 -= b;
         }
     }
 }

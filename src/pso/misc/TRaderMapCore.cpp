@@ -946,14 +946,14 @@ void begin_map_view__13TRaderMapCoreFii(s32 arg0, s32 arg1) {
 
 #define MAP_801FAAEC ((Map_801FAAEC *)TRaderMapCore__floor_map_resource)
 void TRaderMapCore::render_region_records(void * _w1) {
-    Self_801FAAEC *arg0 = (Self_801FAAEC *)this;
+    TRaderMapCore *arg0 = this;
     Rec_801FAAEC *r;
     s32 i;
     lbl_805D5660 = model_render_flags;
     ((TRaderMapCore *)saved_model_draw_color)->copy_vec4(model_material_color);
     lbl_805D5664 = chunk_polygon_flags_and_mask;
     lbl_805D5668 = chunk_polygon_flags_or_mask;
-    model_render_flags |= arg0->flags;
+    model_render_flags |= *(s32 *)&arg0->m_194;
     set_chunk_material_override_pair(-0xFF01, 0x900);
     if (MAP_801FAAEC->tex != 0) {
         TObjFish::set_global_param(MAP_801FAAEC->tex);
@@ -965,8 +965,8 @@ void TRaderMapCore::render_region_records(void * _w1) {
     for (; i < MAP_801FAAEC->count; i++, r++) {
         if (!(r->flags & 1)) {
             r->alpha += lbl_805DC590;
-            if (r->alpha > arg0->maxAlpha) {
-                r->alpha = arg0->maxAlpha;
+            if (r->alpha > arg0->m_1a0) {
+                r->alpha = arg0->m_1a0;
             }
             c.r = r->alpha;
             ((TUnk_80494AE0 *)((f32 *)&c))->set_chunk_material_color();

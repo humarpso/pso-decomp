@@ -150,10 +150,10 @@ typedef struct Vec_8003A1B4 Vec_8003A1B4;
 void TObjBoss2CeilJunk::render() {
     Obj_8003A1B4 *self = (Obj_8003A1B4 *)this;
   float new_var;
-  if (self->fA8 == 2)
+  if (*(s32 *)&this->m_a8 == 2)
   {
     Vec_8003A1B4 s;
-    f32 t = TObjBoss2CeilJunk__radius_table[self->fAC];
+    f32 t = TObjBoss2CeilJunk__radius_table[*(s32 *)&this->m_ac];
     new_var = (0.2f) * t;
     s.y = (1.0f);
     s.x = (s.z = new_var);
@@ -174,9 +174,9 @@ void TObjBoss2CeilJunk::render() {
   push_matrix();
   TObjFish::set_global_param(lbl_805D4BEC);
   post_translate_matrix(self->pos);
-  rotate_matrix_y(0, self->f60);
+  rotate_matrix_y(0, this->rotation_y);
   rotate_matrix_x(0, self->f5C);
-  draw_ginja_object((void *)(boss2_tunnel_instance->mdls[boss2_ceil_junk_model_index_table[self->fAC]].f8));
+  draw_ginja_object((void *)(boss2_tunnel_instance->mdls[boss2_ceil_junk_model_index_table[*(s32 *)&this->m_ac]].f8));
   pop_matrix();
   model_render_flags = lbl_805D5660;
   set_chunk_material_override_pair(0xFF00, 0);

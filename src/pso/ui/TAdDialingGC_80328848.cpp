@@ -17,7 +17,7 @@ void TAdDialingGC::update_dialing_display(int _w0) {
 }
 void TAdDialingGC::update_status_message() {
     Obj_80328874 *arg0 = (Obj_80328874 *)this;
-    switch (arg0->state) {
+    switch (this->m_9c) {
     case 11:
         TAdDialingGC::update_dialing_display(0x11);
         return;

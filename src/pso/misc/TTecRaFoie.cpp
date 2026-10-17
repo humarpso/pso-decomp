@@ -130,8 +130,8 @@ void TUnk_804CCB28::spawn_rafoie_explosion_bursts() {
     u32 i;
     VecCopy((Vec *)&higher, (const Vec *)&self->position);
     higher.y = (8.0f) + self->position.y;
-    for (i = 0; i < rafoie_burst_table[self->band].count; i++) {
-        RafoieBurst_80237DAC *row = &rafoie_burst_table[self->band].entries[i];
+    for (i = 0; i < rafoie_burst_table[*(u16 *)&this->m_20].count; i++) {
+        RafoieBurst_80237DAC *row = &rafoie_burst_table[*(u16 *)&this->m_20].entries[i];
         s32 mode = 0;
         void *p;
         if (row->flags & 0x1000) {
@@ -143,7 +143,7 @@ void TUnk_804CCB28::spawn_rafoie_explosion_bursts() {
             p = spawn_particle_effect_with_flags(&higher, row->entry, mode);
         }
         if (p != NULL) {
-            ((TObjPlayer *)p)->set_position_xy(rafoie_burst_table[self->band].entries[i].scale, rafoie_burst_table[self->band].entries[i].scale);
+            ((TObjPlayer *)p)->set_position_xy(rafoie_burst_table[*(u16 *)&this->m_20].entries[i].scale, rafoie_burst_table[*(u16 *)&this->m_20].entries[i].scale);
         }
     }
 }

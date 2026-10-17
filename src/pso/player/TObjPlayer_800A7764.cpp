@@ -151,11 +151,11 @@ s16 TObjPlayer__sub_800A776C(void* p) { return *(s16*)((char*)p + 0x2ca); }
 int TObjPlayer__sub_800A7774(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 0x38); }
 
 void TObjEnemy::sub_800A7798(f32 farg0) {
-    *(f32 *)((s8 *)((u8 *)this) + 0xD0) = farg0;
+    this->m_d0 = farg0;
     this->set_flags_B0((u32)(0x100U));
 }
 
-void TObjEnemy::set_flags_B0(u32 v) { *(u32*)((char*)this + 0xb0) |= v; }
+void TObjEnemy::set_flags_B0(u32 v) { this->animationFlags |= v; }
 void TObjEneDimedian::vfunc_101() {  }
 
 void TObjEneDimedian::vfunc_99() {
@@ -217,16 +217,16 @@ void TObjEneDimedian::vfunc_93() {
     u32 e;
     s32 idx;
     VObj_800A7A14 *eff;
-    if (!(o->fC0 < lbl_805D9AA4)) {
+    if (!(this->m_c0 < lbl_805D9AA4)) {
         return;
     }
-    switch (o->fB8) {
+    switch (this->m_b8) {
     case 3:
-        e = TObjPlayer::lookup_entry_by_value((void *)dimedian_type3_object, o->fC0);
+        e = TObjPlayer::lookup_entry_by_value((void *)dimedian_type3_object, this->m_c0);
         idx = 0;
         break;
     case 4:
-        e = TObjPlayer::lookup_entry_by_value((void *)lbl_805D5088, o->fC0);
+        e = TObjPlayer::lookup_entry_by_value((void *)lbl_805D5088, this->m_c0);
         idx = 1;
         break;
     default:
@@ -239,7 +239,7 @@ void TObjEneDimedian::vfunc_93() {
     push_matrix();
     set_matrix_identity(0);
     post_translate_matrix(&o->pos);
-    rotate_matrix_y(0, o->f60);
+    rotate_matrix_y(0, this->rotation_y);
     mult_vec_array__10TObjPlayerFUll(0, e, &a, 2);
     pop_matrix();
     eff = o->effs[idx];
@@ -282,25 +282,25 @@ void TObjEneDimedian::sub_800A7B54() {
 void TObjEneDimedian::vfunc_83() {
     Obj_800A7BEC *arg0 = (Obj_800A7BEC *)this;
     advance_animation_playback();
-    switch (arg0->state) {
+    switch (this->phase) {
     case 0:
     default:
-        if (arg0->f390 == 1) {
-            arg0->state = 1;
+        if (this->m_390 == 1) {
+            this->phase = 1;
             ((TBoss3Volopt *)(arg0->sub38))->play_area_se_with_particle();
             TObjPlayer__sub_800A0554((u8 *)arg0 + 0x3A8);
         } else {
-            arg0->state = 2;
+            this->phase = 2;
         }
         break;
     case 1:
         if (((VObj_14_800A7BEC *)((u8 *)arg0 + 0x3A8))->m5() == 1) {
-            arg0->state = 2;
-            arg0->f390 = 0;
+            this->phase = 2;
+            this->m_390 = 0;
         }
         break;
     case 2:
-        arg0->f326 = 1;
+        this->mode = 1;
         break;
     }
 }

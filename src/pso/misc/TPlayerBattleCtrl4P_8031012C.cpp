@@ -810,13 +810,13 @@ void TPlayerBattleCtrl4P::shuffle_order() {
     for (i = 0; i < 4; i++) {
         o->order[i] = order[i];
     }
-    if (o->w0 != NULL) {
-        TWindow__close((u8 *)o->w0);
-        o->w0 = NULL;
+    if (*(void * *)&this->intro_window != NULL) {
+        TWindow__close((u8 *)*(void * *)&this->intro_window);
+        *(void * *)&this->intro_window = NULL;
     }
-    if (o->w1 != NULL) {
-        TWindow__close((u8 *)o->w1);
-        o->w1 = NULL;
+    if (*(void * *)&this->menu_window != NULL) {
+        TWindow__close((u8 *)*(void * *)&this->menu_window);
+        *(void * *)&this->menu_window = NULL;
     }
     close_player_windows();
     set_split_screen_battle_phase__19TPlayerBattleCtrl4PFl((u8 *)o, 5);

@@ -59,7 +59,7 @@ void TBoss6Type1::set_effect_points(f32 *a, u32 *b) {
 }
 
 void TBoss6Zanzo::copy_trail_buffer(void *arg1_arg, void *arg2_arg) {
-    Obj_80320534 *arg0 = (Obj_80320534 *)this;
+    TBoss6Zanzo *arg0 = this;
     Src_80320534 *arg1 = (Src_80320534 *)arg1_arg;
     Src_80320534 *arg2 = (Src_80320534 *)arg2_arg;
     u8 *src;
@@ -69,7 +69,7 @@ void TBoss6Zanzo::copy_trail_buffer(void *arg1_arg, void *arg2_arg) {
     if (arg1->a != 0) {
         dst = arg1->p;
         src = arg2->p;
-        end = dst + (arg0->n << 4);
+        end = dst + (*(s32 *)&arg0->m_24 << 4);
         for (; dst < end; dst += 0x10, src += 0x10) {
             TBoss6Zanzo__sub_803205A0((s32 *)dst, (s32 *)src);
         }

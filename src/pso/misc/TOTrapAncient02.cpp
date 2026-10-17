@@ -765,20 +765,20 @@ void TOTrapAncient02R::find_target_player() {
     Obj_8017A8B0 *self = (Obj_8017A8B0 *)this;
     ((TUnk_804AF8A0 *)self)->clear_player_status_flag(0, 1);
     ((TUnk_804806E8 *)self)->calc_attach_pos();
-    if (self->switchId == -1 || is_current_floor_switch_set(self->switchId) == 1) {
-        self->idx = find_nearest_visible_player(self, 0, self->range);
-        if (self->idx != 0xFFFF) {
-            self->target = (u8 *)get_player_by_client_id(self->idx);
-            if (self->target != NULL) {
-                if (horizontal_distance_squared(self->target + 0x38, self->pos) < self->range * self->range) {
-                    self->state = 2;
+    if (*(s32 *)&this->m_364 == -1 || is_current_floor_switch_set(*(s32 *)&this->m_364) == 1) {
+        this->player = find_nearest_visible_player(self, 0, this->range);
+        if (this->player != 0xFFFF) {
+            this->target = (u8 *)get_player_by_client_id(this->player);
+            if (this->target != NULL) {
+                if (horizontal_distance_squared(this->target + 0x38, self->pos) < this->range * this->range) {
+                    this->mode = 2;
                 }
             } else {
-                self->idx = 0xFFFF;
-                self->target = NULL;
+                this->player = 0xFFFF;
+                this->target = NULL;
             }
         } else {
-            self->target = NULL;
+            this->target = NULL;
         }
     }
 }
@@ -883,8 +883,8 @@ void TOTrapAncient02::vfunc_84() {
         lbl_805D5ADC = actor_frame_tick;
         scroll_ginja_mesh_uvs(lbl_805D5AE0, 0, 0xE, lbl_805D5AE4, 1);
     }
-    self->angle += 0x888;
-    switch (self->state) {
+    *(s32 *)&this->m_34c += 0x888;
+    switch (this->mode) {
     case 1:
     case 2:
     case 3:

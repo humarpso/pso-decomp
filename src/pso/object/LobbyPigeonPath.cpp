@@ -1109,18 +1109,18 @@ s32 TUnk_804E094C::update_path_follow_rotation(void *, f32) {
     Vec_802C22A4 b;
     s32 tmp;
     s32 tmp2;
-    e = &jungle_ebi_path_profiles[self->fC8];
+    e = &jungle_ebi_path_profiles[this->m_c8];
     if (!(e->f & 1)) {
         return 1;
     }
     ((s32 (*)(void *, s32, s32, Vec_802C22A4 *,
               f32))sample_clamped_path_position)(self, self->f98, self->fA0, &a,
-                                                 self->fA4);
+                                                 this->m_a4);
     VecCopy((Vec *)((Vec_802C1660 *)&self->vAC), (const Vec *)((Vec_802C1660 *)&a));
     r = ((s32 (*)(void *, s32, s32, Vec_802C22A4 *,
                   f32))sample_clamped_path_position)(self, self->f98, self->fA0,
-                                                     &b, self->fA4 + e->d);
-    if (self->f1E != 0) {
+                                                     &b, this->m_a4 + e->d);
+    if (this->m_1e != 0) {
         Vec_802C22A4 p = self->vAC;
         Hit_802C22A4 *hit;
         vec3_add_to(&p, &self->pos);
@@ -1137,10 +1137,10 @@ s32 TUnk_804E094C::update_path_follow_rotation(void *, f32) {
     direction_to_rotation_xz((u8 *)((Vec_802C1660 *)&d), &tmp, &tmp2);
     }
     self->fBC = approach_angle_limited(self->fBC, tmp, e->e);
-    old = self->fB8;
+    old = this->m_b8;
     tmp = (s32)(lbl_80471960[0] * atan2_float(b.x - a.x, b.z - a.z));
     if (!(e->f & 2)) {
-        self->fB8 = approach_angle_limited(old, tmp, e->e);
+        this->m_b8 = approach_angle_limited(old, tmp, e->e);
     }
     if (!(e->f & 4)) {
         diff = angle_diff_s16(old, tmp);
@@ -1152,9 +1152,9 @@ s32 TUnk_804E094C::update_path_follow_rotation(void *, f32) {
             if (self->fC4 < -0x200) {
                 self->fC4 = -0x200;
             }
-            self->fC0 += self->fC4;
-            if (self->fC0 < -0x2000) {
-                self->fC0 = -0x2000;
+            this->m_c0 += self->fC4;
+            if (this->m_c0 < -0x2000) {
+                this->m_c0 = -0x2000;
             }
         } else if (diff < -0x30) {
             if (self->fC4 < 0) {
@@ -1164,18 +1164,18 @@ s32 TUnk_804E094C::update_path_follow_rotation(void *, f32) {
             if (self->fC4 > 0x200) {
                 self->fC4 = 0x200;
             }
-            self->fC0 += self->fC4;
-            if (self->fC0 > 0x2000) {
-                self->fC0 = 0x2000;
+            this->m_c0 += self->fC4;
+            if (this->m_c0 > 0x2000) {
+                this->m_c0 = 0x2000;
             }
         } else {
             self->fC4 = 0;
-            if (self->fC0 > 0x100) {
-                self->fC0 -= 0x100;
-            } else if (self->fC0 < -0x100) {
-                self->fC0 += 0x100;
+            if (this->m_c0 > 0x100) {
+                this->m_c0 -= 0x100;
+            } else if (this->m_c0 < -0x100) {
+                this->m_c0 += 0x100;
             } else {
-                self->fC0 = 0;
+                this->m_c0 = 0;
             }
         }
     }

@@ -15,7 +15,7 @@ extern "C" {
 
 void TQuestListOnline::vfunc_11() {
     Obj_802181B0 *arg0 = (Obj_802181B0 *)this;
-    switch (arg0->state) {
+    switch (this->state) {
     case 0: ((TQuestListOnline*)arg0)->request_menu(); break;
     case 1: ((TQuestListOnline*)arg0)->build_list_window(); break;
     case 2: ((TQuestListOnline*)arg0)->show_info_window(); break;

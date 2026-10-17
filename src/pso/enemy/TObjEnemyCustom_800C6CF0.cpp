@@ -203,15 +203,15 @@ BOOL TObjEnemyCustom::select_nearest_target(f32 radius) {
     a = find_nearest_visible_player(arg0, NULL, radius);
     b = ((s32 (*)(void *, void *, f32))find_nearest_enemy__10TObjPlayerFPvPvf)(arg0, NULL, radius);
     if ((u16)a == 0xFFFF) {
-        arg0->targetIdx = 0xFFFF;
+        this->targetId = 0xFFFF;
     } else if ((u16)b == 0xFFFF) {
-        arg0->targetIdx = a;
+        this->targetId = a;
     } else {
         da = xz_distance_squared(arg0->pos, find_entity_by_id(a)->pos);
-        arg0->targetIdx = da < xz_distance_squared(arg0->pos, find_entity_by_id(b)->pos) ? a : b;
+        this->targetId = da < xz_distance_squared(arg0->pos, find_entity_by_id(b)->pos) ? a : b;
     }
-    arg0->target = find_active_entity_by_id(arg0->targetIdx);
-    if (arg0->target != NULL) {
+    *(void * *)&this->target = find_active_entity_by_id(this->targetId);
+    if (*(void * *)&this->target != NULL) {
         return 1;
     }
     return 0;

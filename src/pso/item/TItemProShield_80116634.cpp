@@ -46,11 +46,11 @@ void TUnk_8049F770::vfunc_44() {
     t = ((TItemObject *)arg0)->get_tool_pmt_amount_byte();
     new_var = game_difficulty_selection;
     new_var = t + (new_var * (t / 2));
-    add_actor_hp((u8 *)arg0->f0, new_var);
+    add_actor_hp((u8 *)*(s32 *)&this->m_f0, new_var);
   }
   else
   {
-    add_actor_hp((u8 *)arg0->f0, ((TItemProShield *)(arg0->f0))->get_field_2b8());
+    add_actor_hp((u8 *)*(s32 *)&this->m_f0, ((TItemProShield *)(*(s32 *)&this->m_f0))->get_field_2b8());
   }
 }
 

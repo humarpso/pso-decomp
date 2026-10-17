@@ -171,26 +171,26 @@ void TOSensor::update_armed_switch() {
 s32 TOSensor::is_confirm_pressed() {
     Obj_801756C4 *self = (Obj_801756C4 *)this;
     Player_801756C4 *pl;
-    if (self->state != 1) {
+    if (*(s32 *)&this->m_d4 != 1) {
         pl = (Player_801756C4 *)get_player_by_client_id(local_client_id);
-        switch (self->mode) {
+        switch (*(s32 *)&this->m_d0) {
         case 1:
             if (pl != NULL && obj_testFlags30__13TUnk_804AF8A0FUl(pl, 0x400000) != 0) {
                 if (horizontal_distance_squared(pl->pos, self->pos) < self->range * self->range) {
-                    self->state = 1;
+                    *(s32 *)&this->m_d4 = 1;
                 }
             }
             break;
         case 2:
             if (local_client_id == TWindowCtrl::get_window_id() && pl != NULL) {
                 if (horizontal_distance_squared(pl->pos, self->pos) < self->range * self->range) {
-                    self->state = 1;
+                    *(s32 *)&this->m_d4 = 1;
                 }
             }
             break;
         }
     }
-    return self->state;
+    return *(s32 *)&this->m_d4;
 }
 
 void *__dt__8TOSensorFv(void *arg0, s16 arg1) {

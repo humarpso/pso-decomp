@@ -13,8 +13,8 @@ extern s32 lbl_804767B0[];
 
 void TAdDialingGC__sub_80328B20(void) {  }
 void TAdDialingGC::draw_if_flag_set() {
-    T_80328C10 *self = (T_80328C10 *)this;
-    if (self->flags & 1) {
+    TAdDialingGC *self = this;
+    if (self->m_a4 & 1) {
         TAdDialingGC__sub_80328B24(lbl_804767B8, lbl_804767C0);
     }
 }

@@ -96,10 +96,10 @@ void TUnk_80488B38::run_task() {
         arg0->dist = 300.0f;
     }
     arg0->pitch += sx * 3;
-    arg0->yaw += sy * 3;
-    r = arg0->dist * cos_table_lookup(arg0->yaw);
+    this->m_2c += sy * 3;
+    r = arg0->dist * cos_table_lookup(this->m_2c);
     arg0->eye.x = r * sin_table_lookup(arg0->pitch) + arg0->at.x;
-    arg0->eye.y = arg0->at.y - arg0->dist * sin_table_lookup(arg0->yaw);
+    arg0->eye.y = arg0->at.y - arg0->dist * sin_table_lookup(this->m_2c);
     arg0->eye.z = r * cos_table_lookup(arg0->pitch) + arg0->at.z;
 }
 #pragma pop

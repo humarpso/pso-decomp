@@ -283,10 +283,10 @@ void TObjOnlineEnding::render() {
     push_matrix();
     post_translate_matrix(lbl_804E3A38);
     scale_matrix(0, online_ending_scene_scale, lbl_805DE934, lbl_805DE934);
-    TObjFish::set_global_param(arg0->f94);
-    draw_model_motion((void *)arg0->f90, (void *)arg0->f98, arg0->f150);
+    TObjFish::set_global_param(*(s32 *)&this->m_94);
+    draw_model_motion((void *)*(s32 *)&this->m_90, (void *)*(s32 *)&this->m_98, arg0->f150);
     pop_matrix();
-    for (i = 0; i < arg0->count; i++) {
+    for (i = 0; i < *(s32 *)&this->m_148; i++) {
         e = &arg0->ent[i];
         if (e->active != 0) {
             if (online_ending_quad_vertices_initialized == 0) {

@@ -68,14 +68,14 @@ extern const f32 lbl_805DCE54;
 void TWindowInputNumber::create(s32 arg1) {
     u32 var_r0;
 
-    if ((u32) *(u32 *)((s8 *)this + 0x70) == 0U) {
+    if ((u32) *(u32 *)&this->unknown70 == 0U) {
         var_r0 = ((TAdSinglePlyChrSelectGC *)0x24)->alloc();
         if (var_r0 != 0U) {
             u32 saved = var_r0;
-            var_r0 = construct_type1_heading__20TWindowSubStatusDispFll(saved, arg1, *(s16 *)((s8 *)this + 0x20));
+            var_r0 = construct_type1_heading__20TWindowSubStatusDispFll(saved, arg1, this->clientIndex);
         }
-        *(u32 *)((s8 *)this + 0x70) = var_r0;
-        *(s32 *)((s8 *)this + 0x2C) = (s32) (*(s32 *)((s8 *)this + 0x2C) | 0x40);
+        *(u32 *)&this->unknown70 = var_r0;
+        this->m_2c = (s32) (this->m_2c | 0x40);
         *(f32 *)((s8 *)this + 0x3C) = (f32) (*(f32 *)((s8 *)this + 0x3C) + lbl_805DCE18);
     }
 }
@@ -109,7 +109,7 @@ void TWindowInputNumber::refresh_digit_entries() {
   u8 *temp_r3;
   s32 var_r29;
   var_r30 = 0;
-  var_r29 = *((s32 *) (((s8 *) ((u8 *)this)) + 0x6C));
+  var_r29 = this->value;
   do
   {
     temp_r3 = (u8 *) ((TUnk_804CE018 *)((u8 *)this))->get_array_entry(var_r30);
@@ -141,9 +141,9 @@ void render__18TWindowInputNumberFv(u8 *arg0) {
     temp_r3 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)(arg0 + 0x74));
     draw_window_frame(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
-    draw_arrows__18TWindowInputNumberFv(arg0, temp_r3, (int) (((TUnk_804CE018 *)arg0)->get_array_entry((int) *(s8 *)((s8 *)arg0 + 0x63))), ((TWindowInputNumber *)arg0)->is_confirmed());
+    draw_arrows__18TWindowInputNumberFv(arg0, temp_r3, (int) (((TUnk_804CE018 *)arg0)->get_array_entry((int) ((TWindowInputNumber *)arg0)->selectedDigit)), ((TWindowInputNumber *)arg0)->is_confirmed());
     {
-        void *temp_ptr = (void *) *(u32 *)((s8 *)arg0 + 0x70);
+        void *temp_ptr = (void *) *(u32 *)&((TWindowInputNumber *)arg0)->unknown70;
         if (temp_ptr != NULL) {
             forward_render__20TWindowSubStatusDispFv(temp_ptr, temp_r3);
         }
@@ -211,7 +211,7 @@ void TWindowInputNumber::run_task() {
 
 void *__dt__18TWindowInputNumberFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TWindowInputNumber;
+        *(s32 * *)&((TWindowInputNumber *)arg0)->objectVtable = __vt__18TWindowInputNumber;
         if (*(void **)((s8 *)arg0 + 0x70) != NULL) { TWindowSubStatusDisp::destroy_status_display((s32)(*(void **)((s8 *)arg0 + 0x70)), (s16)1); }
         ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
@@ -248,14 +248,14 @@ extern "C" {
 
 typedef char RecoveredGlobal_80256B0C_lbl_8050E208_size[sizeof(RecoveredGlobal_80256B0C_lbl_8050E208) == 0x1B0 ? 1 : -1];
 u8 TWindowInputNumber::test_input_flag() {
-    if (*(u16 *)((s8 *)((u8 *)this) + 0x60) & 0x20) {
+    if (this->inputFlags & 0x20) {
         return 0U;
     }
     return ((TAdSinglePlyChrSelectGC *)((u8 *)&(*(RecoveredGlobal_80256B0C_lbl_8050E208 *)&controller_input_state).value + 0x160))->test_flag_4c();
 }
 
 s32 TWindowInputNumber::is_locked(s32 arg1) {
-    if (*(u16 *)((s8 *)this + 0x60) & 0x20) {
+    if (this->inputFlags & 0x20) {
         return 0;
     }
     return TWindowChoiceSetting::apply_choice((s32)(controller_input_state + 0x160), (s32)arg1, 6, 1);

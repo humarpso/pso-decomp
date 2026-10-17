@@ -59,7 +59,7 @@ void *TUnk_804F0AF8::init_fields(s32 _w1, void *_w2) {
     *(s32 **)((s8 *)this + 0x18) = lbl_804F0AF8;
     set_status_flags__10TObjPlayerFUl(this, 1);
     *(u32 *)((s8 *)this + 0x1F8) = -30947;
-    *(u32 *)((s8 *)this + 0x1FC) = -7281;
+    this->m_1fc = -7281;
     return this;
 }
 
@@ -86,7 +86,7 @@ void TUnk_804F0BF0::render() {
         return;
     }
     {
-        if (((void *) *(u8 **)((s8 *)arg0 + 0x20) != NULL) && (get_state_flag__9TMainTaskFv() == 1)) {
+        if (((void *) this->m_20 != NULL) && (get_state_flag__9TMainTaskFv() == 1)) {
             set_depth_buffer_settings_id(3);
             lbl_805D5660 = model_render_flags;
             lbl_805D5664 = chunk_polygon_flags_and_mask;
@@ -97,16 +97,16 @@ void TUnk_804F0BF0::render() {
             TParticleCtrl::begin_effect_render();
             TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
             push_matrix();
-            post_translate_matrix(arg0 + 0x5C);
+            post_translate_matrix((u8 *)&this->unk_5C);
             push_matrix();
             rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x3C)));
-            scale_current_matrix(arg0 + 0x48);
-            draw_ginja_model((*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x20)) + 4)));
+            scale_current_matrix((u8 *)&this->m_48);
+            draw_ginja_model((*(s32 *)((s8 *)(this->m_20) + 4)));
             pop_matrix();
             push_matrix();
-            rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x40)));
-            scale_current_matrix(arg0 + 0x48);
-            draw_ginja_model((*(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x20)) + 0x2C)) + 4)));
+            rotate_matrix_y(0, (int) (this->m_40));
+            scale_current_matrix((u8 *)&this->m_48);
+            draw_ginja_model((*(s32 *)((s8 *)(*(void **)((s8 *)(this->m_20) + 0x2C)) + 4)));
             pop_matrix();
             pop_matrix();
             TParticleCtrl::end_effect_render();
@@ -153,7 +153,7 @@ void TUnk_804F0BF0::run_task() {
 void *__dt__13TUnk_804F0BF0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F0BF0;
-        if (*(void **)((s8 *)arg0 + 0x38) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x38)); *(s32 *)((s8 *)arg0 + 0x38) = 0; }
+        if (((TUnk_804F0BF0 *)arg0)->m_38 != NULL) { queue_destruction__7TObjectFv(((TUnk_804F0BF0 *)arg0)->m_38); *(s32 *)((s8 *)arg0 + 0x38) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -174,17 +174,17 @@ u8 *TItemEffPG__visual_ct(u8 *arg0, u8 *arg1, u8 *arg2) {
     *(f32 *)((s8 *)arg0 + 0x44) = (f32) *(f32 *)((s8 *)arg2 + 0x28);
     VecCopy((Vec *)(arg0 + 0x5C), (const Vec *)arg2);
     temp_f1 = *(f32 *)((s8 *)arg2 + 0xC);
-    *(f32 *)((s8 *)arg0 + 0x50) = temp_f1;
+    ((TUnk_804F0BF0 *)arg0)->m_50 = temp_f1;
     *(f32 *)((s8 *)arg0 + 0x4C) = temp_f1;
-    *(f32 *)((s8 *)arg0 + 0x48) = temp_f1;
+    ((TUnk_804F0BF0 *)arg0)->m_48 = temp_f1;
     *(s32 *)((s8 *)arg0 + 0x3C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x40) = 0;
-    *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805DFE10;
+    ((TUnk_804F0BF0 *)arg0)->m_40 = 0;
+    ((TUnk_804F0BF0 *)arg0)->m_28 = (f32) lbl_805DFE10;
     *(f32 *)((s8 *)arg0 + 0x2C) = (f32) lbl_805DFE10;
-    *(f32 *)((s8 *)arg0 + 0x30) = (f32) lbl_805DFE10;
+    ((TUnk_804F0BF0 *)arg0)->m_30 = (f32) lbl_805DFE10;
     *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805DFE10;
     *(s32 *)((s8 *)arg0 + 0x38) = (s32)create_particle_emitter((arg0 + 0x5C), 0x83);
-    *(s32 *)((s8 *)arg0 + 0x58) = 0;
+    ((TUnk_804F0BF0 *)arg0)->m_58 = 0;
     return arg0;
 }
 

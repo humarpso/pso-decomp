@@ -29,8 +29,8 @@ s32 TAdMultiPlyChrSelectGC::get_mode() { return this->m_1c; }
     extern int lbl_805D6E78;
 
 s32 TAdMultiPlyChrSelectGC::is_state_closing() {
-    O_802E00CC *self = (O_802E00CC *)this;
-    switch (self->v) {
+    TAdMultiPlyChrSelectGC *self = this;
+    switch (*(s32 *)&self->m_1c) {
     case 6:
     case 8:
     case 9:

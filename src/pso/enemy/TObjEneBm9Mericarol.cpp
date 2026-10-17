@@ -523,7 +523,7 @@ s32 TObjEneBm9Mericarol::find_nearby_target() {
 }
 
 s32 TObjEneBm9Mericarol::try_set_mode8_if_flag2() {
-    if (*(s32 *)((s8 *)this + 0x438) & 2) {
+    if (*(s32 *)&this->m_454 & 2) {
         transition_enemy_state(this, 8);
         return 1;
     }
@@ -532,20 +532,20 @@ s32 TObjEneBm9Mericarol::try_set_mode8_if_flag2() {
 void TObjEneBm9Mericarol__sub_802D093C(void) {  }
 void TObjEneBm9Mericarol__sub_802D0940(void) {  }
 void TObjEneBm9Mericarol::vfunc_88() {
-    *(f32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 4) = (f32) (*(f32 *)((s8 *)this + 0x300) - *(f32 *)((s8 *)this + 0x3C));
+    *(f32 *)((s8 *)(this->m_a4) + 4) = (f32) (this->m_300 - *(f32 *)((s8 *)this + 0x3C));
 }
 
 void TObjEneBm9Mericarol::sync_center_position() {
     u8 *arg0 = (u8 *)this;
     VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
-    *(f32 *)((s8 *)arg0 + 0x300) = (f32) (*(f32 *)((s8 *)arg0 + 0x300) + lbl_805DE704);
+    this->m_300 = (f32) (this->m_300 + lbl_805DE704);
     VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x2FC));
 }
 
 void TObjEneBm9Mericarol::vfunc_61() {  }
 void TObjEneBm9Mericarol::vfunc_62() {
-    if ((s16) *(s16 *)((s8 *)this + 0x326) != 0xA) {
-        if (*(s32 *)((s8 *)this + 0x438) & 0x20) {
+    if ((s16) this->mode != 0xA) {
+        if (*(s32 *)&this->m_454 & 0x20) {
             clear_attack_receipts__9TObjEneDDFv();
             return;
         }
@@ -555,7 +555,7 @@ void TObjEneBm9Mericarol::vfunc_62() {
 void TObjEneBm9Mericarol::vfunc_63() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)this + 0x326);
+    temp_r0 = this->mode;
     if ((temp_r0 != 0xB) && (temp_r0 != 0xC)) {
         transition_enemy_state(this, 0xB);
     }
@@ -620,18 +620,18 @@ void TObjEneBm9Mericarol::run_task() {
         this->vfunc_105();
         return;
     }
-    temp_r3 = *(s32 *)((s8 *)((u8 *)this) + 0x438);
+    temp_r3 = *(s32 *)&this->m_454;
     if (temp_r3 & 0x10) {
-        if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x390) == 0U) {
-            *(s32 *)((s8 *)((u8 *)this) + 0x438) = (s32) (temp_r3 & 0xFFFFFFEF);
+        if ((u32) *(u32 *)&this->m_390 == 0U) {
+            *(s32 *)&this->m_454 = (s32) (temp_r3 & 0xFFFFFFEF);
         }
-    } else if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x390) != 0U) {
-        *(s32 *)((s8 *)((u8 *)this) + 0x438) = (s32) (temp_r3 | 0x10);
+    } else if ((u32) *(u32 *)&this->m_390 != 0U) {
+        *(s32 *)&this->m_454 = (s32) (temp_r3 | 0x10);
     }
     if (this->vfunc_83() != 4) {
         this->vfunc_85();
     } else {
-        temp_r3_2 = *(s16 *)((s8 *)((u8 *)this) + 0x326);
+        temp_r3_2 = this->mode;
         if ((temp_r3_2 == 0) || (temp_r3_2 == 1)) {
             ((VSub *)(((u8 *)this) + 0x46C))->m2();
             transition_enemy_state(this, 2);
@@ -794,7 +794,7 @@ s32 TObjPlayer::apply_area_attack_hits(u8 *arg1, s32 arg2, u32 object, f32 range
     s32 ok;
     hit = 0;
     mask = 0;
-    if (*(u32 *)((s8 *)((u8 *)this) + 0xAC) == 0) {
+    if (this->unknownAC == 0) {
         return 0;
     }
     TObjPlayer::init_all_slots();
@@ -806,13 +806,13 @@ s32 TObjPlayer::apply_area_attack_hits(u8 *arg1, s32 arg2, u32 object, f32 range
         this->mark_enemy_body_contacts();
         mask |= 0x100000;
     }
-    if (*(u32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0xA4)) + 0x18) & mask) {
+    if (*(u32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0x18) & mask) {
         for (i = 0; i < 0x10; i++) {
             obj = TObjPlayer::get_battle_param(i);
             if (obj == 0) {
                 break;
             }
-            if (obj_is_hit_receivable(obj) != 0 && (u32)obj != *(u32 *)((s8 *)((u8 *)this) + 0xAC) &&
+            if (obj_is_hit_receivable(obj) != 0 && (u32)obj != this->unknownAC &&
                 is_area_attack_target_eligible(this, *(u32 *)((s8 *)obj + 0x30)) != 0 &&
                 !(fabs_float(*(f32 *)((s8 *)((u8 *)this) + 0xB8) - *(f32 *)((s8 *)obj + 0x300)) > lbl_805DE758)) {
                 ok = 1;

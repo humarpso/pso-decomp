@@ -101,11 +101,11 @@ void TODoorCave01::send_state(void *src_arg) {
     } else {
         ((TUnk_804AF8A0 *)self)->access_object_saved_state((void *)((s32)&st), (s16)1);
     }
-    obj = self->obj;
+    obj = *(Obj_80161320 * *)&this->m_80;
     if (obj != 0) {
         Pkt_80161320 pkt;
         ((TOBarrierEnergy01 *)(&pkt))->init();
-        pkt.id = self->id;
+        pkt.id = this->m_1c;
         pkt.state = st.a;
         pkt.kind = obj->kind;
         update_and_send_60__6TLobbyFPv(&pkt);

@@ -748,7 +748,7 @@ void TObjEneRe7Berura::state_attack(s32 arg1) {
 
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xB8) = 0;
+        this->m_b8 = 0;
         this->vfunc_95();
         temp_r5 = *(s32 *)((s8 *)arg0 + 0x3C0);
         *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (temp_r5 & ~5);
@@ -881,9 +881,9 @@ u8 TObjEneRe7Berura::is_over_limit() {
     s32 temp_r5;
     s32 temp_r0;
 
-    temp_r5 = *(s32 *)((s8 *)this + 0x4BC);
+    temp_r5 = this->m_4bc;
     var_r4 = 0;
-    temp_r0 = *(s32 *)((s8 *)this + 0x4B8);
+    temp_r0 = this->m_4b8;
     if ((temp_r5 >= temp_r0) || (temp_r5 <= (s32) -temp_r0)) {
         var_r4 = 1;
     }
@@ -897,33 +897,33 @@ s32 TObjEneRe7Berura::step_toward_target(s32 arg1, s32 arg2) {
     s32 var_r31;
 
     var_r31 = 0;
-    temp_r3 = angle_diff_s16(*(s32 *)((s8 *)this + 0x60));
+    temp_r3 = angle_diff_s16(this->rotation_y);
     if (temp_r3 > arg2) {
-        *(s32 *)((s8 *)this + 0x60) = (s32) (*(s32 *)((s8 *)this + 0x60) + arg2);
-        temp_r0 = *(s32 *)((s8 *)this + 0x4BC);
+        this->rotation_y = (s32) (this->rotation_y + arg2);
+        temp_r0 = this->m_4bc;
         if (temp_r0 < 0) {
-            *(s32 *)((s8 *)this + 0x4BC) = 0;
+            this->m_4bc = 0;
         } else {
-            *(s32 *)((s8 *)this + 0x4BC) = (s32) (temp_r0 + arg2);
+            this->m_4bc = (s32) (temp_r0 + arg2);
         }
     } else if (temp_r3 < (s32) -arg2) {
-        *(s32 *)((s8 *)this + 0x60) = (s32) (*(s32 *)((s8 *)this + 0x60) - arg2);
-        temp_r0_2 = *(s32 *)((s8 *)this + 0x4BC);
+        this->rotation_y = (s32) (this->rotation_y - arg2);
+        temp_r0_2 = this->m_4bc;
         if (temp_r0_2 > 0) {
-            *(s32 *)((s8 *)this + 0x4BC) = 0;
+            this->m_4bc = 0;
         } else {
-            *(s32 *)((s8 *)this + 0x4BC) = (s32) (temp_r0_2 - arg2);
+            this->m_4bc = (s32) (temp_r0_2 - arg2);
         }
     } else {
-        *(s32 *)((s8 *)this + 0x60) = arg1;
+        this->rotation_y = arg1;
         var_r31 = 1;
     }
     return var_r31;
 }
 
 void TObjEneRe7Berura::init_fields4B8() {
-    *(s32 *)((s8 *)this + 0x4B8) = ((s32 (*)(void))get_field_3D4_shifted__16TObjEneRe7BeruraFPv)();
-    *(s32 *)((s8 *)this + 0x4BC) = 0;
+    this->m_4b8 = ((s32 (*)(void))get_field_3D4_shifted__16TObjEneRe7BeruraFPv)();
+    this->m_4bc = 0;
 }
 
 s32 get_field_3D4_shifted__16TObjEneRe7BeruraFPv(void *arg0) {
@@ -1071,7 +1071,7 @@ s32 TObjEneRe7Berura::acquire_target_in_view() {
 void TObjEneRe7Berura__sub_80095328(void) {  }
 
 void TObjEneRe7Berura::vfunc_88() {
-    *(f32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 4) = (f32) (*(f32 *)((s8 *)this + 0x300) - *(f32 *)((s8 *)this + 0x3C));
+    *(f32 *)((s8 *)(this->m_a4) + 4) = (f32) (this->m_300 - *(f32 *)((s8 *)this + 0x3C));
 }
 
 void TObjEneRe7Berura::update_collision_center() {
@@ -1086,16 +1086,16 @@ void TObjEneRe7Berura::vfunc_61() {  }
 
 void TObjEneRe7Berura::vfunc_62() {
     u8 *arg0 = (u8 *)this;
-    if ((*(s32 *)((s8 *)arg0 + 0x3C0) & 4) || ((s32) (*(s16 *)((s8 *)arg0 + 0x33E) - *(s16 *)((s8 *)arg0 + 0x32C)) < (s32) ((s16) *(s16 *)((s8 *)arg0 + 0x2B8) / 5))) {
+    if ((*(s32 *)((s8 *)arg0 + 0x3C0) & 4) || ((s32) (this->referenceHp - this->hp) < (s32) ((s16) this->hpmax / 5))) {
         clear_attack_receipts__9TObjEneDDFv();
         return;
     }
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 0xA) {
+    if ((s16) this->mode != 0xA) {
         transition_enemy_state(arg0, (void*)(0xA));
     }
 }
 
-void TObjEneRe7Berura::vfunc_63() { if (*(short*)((char*)this + 0x326) != 11) { transition_enemy_state(this, (void*)11); } }
+void TObjEneRe7Berura::vfunc_63() { if (*(short *)&this->mode != 11) { transition_enemy_state(this, (void*)11); } }
 
 void TObjEneRe7Berura::vfunc_28() {  }
 
@@ -1106,8 +1106,8 @@ void run_task__16TObjEneRe7BeruraFv(u8 *arg0) {
     }
     if (((VObj_18 *)(arg0))->m81() != 4) {
         ((TObjEneRe7Berura *)(arg0))->vfunc_85();
-        *(s32 *)((s8 *)arg0 + 0x3D0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3D0) + *(s32 *)((s8 *)arg0 + 0x3CC));
-        *(s32 *)((s8 *)arg0 + 0x3D0) = (s32) (u8) *(s32 *)((s8 *)arg0 + 0x3D0);
+        *(s32 *)&((TObjEneRe7Berura *)arg0)->m_3ec = (s32) (*(s32 *)&((TObjEneRe7Berura *)arg0)->m_3ec + *(s32 *)((s8 *)arg0 + 0x3CC));
+        *(s32 *)&((TObjEneRe7Berura *)arg0)->m_3ec = (s32) (u8) *(s32 *)&((TObjEneRe7Berura *)arg0)->m_3ec;
     }
     ((TObjEneRe7Berura *)arg0)->update_collision_center();
     ((TBoss8Dragon *)arg0)->set_player_state_default();
@@ -1209,7 +1209,7 @@ void *TObjEneRe7Berura__ct(void *arg0, void *arg1, void *arg2) {
     ((TUnk_80490470 *)((char *)arg0 + 984))->init_vtable_and_field18();
     ((TUnk_80490470 *)((char *)arg0 + 1020))->init_vtable_and_field18();
     __construct_array((void *)((char *)arg0 + 1096), init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 28, 4);
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D2988;
+    *(void * *)&((TObjEneRe7Berura *)arg0)->m_name = lbl_805D2988;
     invoke_initialization_hook__9TObjEneDDFv(arg0, arg2);
     ((void (*)(void *))TObjEneRe7Berura__sub_80095328)(arg0);
     ((TObjEneRe7Berura *)arg0)->init_enemy();

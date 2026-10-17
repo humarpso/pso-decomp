@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon.h"
+#include "pso/enemy/TObjEneDD.h"
 #include "pso/boss/TBoss5Gryphon.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
@@ -2787,11 +2789,11 @@ void trigger_effect__12TBoss8DragonFPvi(void *arg0, s32 arg1) {
 void TBoss8Dragon::flush_pending_effect() {
     O_8005F740 *self = (O_8005F740 *)this;
     P_8005F740 p;
-    if ((self->flags & 2) && self->cur >= self->buf) {
+    if ((this->m_4c0 & 2) && this->m_4bc >= self->buf) {
         ((TBoss8Dragon *)(&p))->init_color();
         ((void (*)(void *, void *))trigger_effect__12TBoss8DragonFPvi)(self, &p);
         ((void (*)(void *, void *))TBoss8Dragon__sub_8005F684)(self, &p);
-        self->flags &= ~2;
+        this->m_4c0 &= ~2;
         copy_spawn_params(&p);
     }
 }
@@ -3151,7 +3153,7 @@ void handle_descend_state__13TBoss5GryphonFPvi(TBoss5Gryphon *arg0, s32 arg1) {
 
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xB8) = 0x16;
+        arg0->m_b8 = 0x16;
         ((VObj_80061434 *)arg0)->m94();
         set_flag_4e4__12TBoss8DragonFPv(arg0);
         arg0->reset_float_3c();
@@ -3163,7 +3165,7 @@ void handle_descend_state__13TBoss5GryphonFPvi(TBoss5Gryphon *arg0, s32 arg1) {
         advance_animation_playback(arg0);
         switch (*(s32 *)((s8 *)arg0 + 0x6DC)) {
         case 0:
-            ((void (*)(f32, void *, s32))move_along_angle__13TBoss5GryphonFPvif)(lbl_805D8E38, arg0, *(s32 *)((s8 *)arg0 + 0x60));
+            ((void (*)(f32, void *, s32))move_along_angle__13TBoss5GryphonFPvif)(lbl_805D8E38, arg0, arg0->rotation_y);
             eval_bezier_curve__12TBoss8DragonFPviiPvf(boss5_gryphon_descend_bezier_points, 4, 0, &out, ((TObjEneDD_ST *)arg0)->get_speed_or_default() / lbl_805D8DE4);
             *(f32 *)((s8 *)arg0 + 0x3C) = out.y;
             if (objInBand((GameObj *)arg0, (f32)lbl_805D8DE4) != 0) {
@@ -5207,9 +5209,9 @@ void TBoss5Gryphon::run_task() {
     ((TBoss5Gryphon *)(arg0))->vfunc_42();
     if (temp_r31_2 == 0) {
         if (((s32 (*)(void *))get_flag_bit6__12TBoss8DragonFv)(arg0) != 0) {
-            *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x800);
+            *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x800);
         } else {
-            *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFFF7FF);
+            *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFFF7FF);
         }
         if ((s32) *(s32 *)((s8 *)arg0 + 0x4E0) != 1) {
             if (((TBoss5Gryphon *)(arg0))->test_flag30_512() != 0) {
@@ -5217,13 +5219,13 @@ void TBoss5Gryphon::run_task() {
             }
             ((TBoss8Dragon *)arg0)->update_animation_by_state();
             ((TBoss8Dragon *)arg0)->flush_pending_effect();
-            ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 8);
-            ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
+            ((VObj_18 *)(arg0))->m85(this->mode, 8);
+            ((VObj_18 *)(arg0))->m85(this->mode, 0);
         } else {
             if (((TBoss5Gryphon *)(arg0))->test_flag30_512() != 0) {
                 ((TObjEneDD *)arg0)->clear_attack_receipts();
             }
-            ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
+            ((VObj_18 *)(arg0))->m85(this->mode, 0);
         }
     }
     ((TObjEneDD *)arg0)->sub_800BBA0C();

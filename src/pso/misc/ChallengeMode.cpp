@@ -569,7 +569,7 @@ void TChallenge::wait_for_quest() {
     }
 }
 void TChallenge::initialize_windows() {
-    O_80070600 *self = (O_80070600 *)this;
+    TChallenge *self = this;
     s32 flag = 0;
     switch (get_main_phase()) {
     case 0xf:
@@ -584,7 +584,7 @@ void TChallenge::initialize_windows() {
     if (flag != 0) {
         create_obj_tag_challenge((void *)tl_07);
         TObjBagWarnWin::create((void *)tl_07);
-        self->x1c = 1;
+        self->state = 1;
     }
 }
 s32 TAdPlayerLoadGC__sub_801E1510(void *);

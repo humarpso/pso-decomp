@@ -68,7 +68,7 @@ void TAdRicoRingCtrl::start_fade_all(f32 x) {
         }
     }
     if (lbl_805D7E4C != x) {
-        self->f28 = lbl_805D7E54 / x;
+        this->m_28 = lbl_805D7E54 / x;
     }
 }
 

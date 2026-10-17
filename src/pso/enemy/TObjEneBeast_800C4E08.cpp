@@ -674,33 +674,33 @@ void TUnk_80493450::beast_update_hurt() {
     lbl_8050BEE0.x = lbl_8050BEE0.y = lbl_805DA034;
     lbl_8050BEE0.z = get_collision_body_radius(o, 0);
     ((void (*)(void *, void *))push_matrix_from)(identity_matrix, &lbl_8050BEE0);
-    rotate_matrix_y(0, -o->f60);
+    rotate_matrix_y(0, -((TObjPlayer *)o)->rotation_y);
     rotate_vector_by_matrix(0, &lbl_8050BEE0, &lbl_8050BEE0);
     pop_matrix();
     vec3_add_to(&v, &lbl_8050BEE0);
     v.x += o->f308;
-    v.z += o->f310;
+    v.z += ((TObjPlayer *)o)->m_310;
     if (check_path_obstructed(o, &v) == 0) {
         move_with_wall_slide((u8 *)o);
         o->f308 *= lbl_805DA03C;
-        o->f310 *= lbl_805DA03C;
+        ((TObjPlayer *)o)->m_310 *= lbl_805DA03C;
     } else {
-        o->f308 = o->f310 = lbl_805DA034;
+        o->f308 = ((TObjPlayer *)o)->m_310 = lbl_805DA034;
     }
     ((TObjPlayer *)o)->update_collisions();
     if (objInBand((GameObj *)o, (f32)lbl_805DA034) != 0) {
         this->vfunc_97();
     }
-    if (o->fB4 != 8) {
+    if (((TObjPlayer *)o)->m_b4 != 8) {
         ((TUnk_804B9870 *)o)->obj_clearFlags30(0x600);
         ((TUnk_804AF8A0 *)o)->clear_player_status_flag((s32)((void *)0), (u32)((void *)0x04000000));
-        if (o->f334 == 0) {
-            if ((f32)o->f32C < (f32)o->f2B8 * o->f354) {
+        if (*(s32 *)&((TObjPlayer *)o)->m_334 == 0) {
+            if ((f32)((TObjPlayer *)o)->hp < (f32)((TObjPlayer *)o)->hpmax * ((TObjPlayer *)o)->m_354) {
                 ((TUnk_804B9870 *)o)->obj_clearFlags30(0x1000);
-                o->f374 = (s16)(lbl_805DA044 * (lbl_805DA048 + o->f354));
+                o->f374 = (s16)(lbl_805DA044 * (lbl_805DA048 + ((TObjPlayer *)o)->m_354));
             }
         }
-        o->f33E = o->f32C;
+        ((TObjPlayer *)o)->m_33e = ((TObjPlayer *)o)->hp;
     }
     minimap_render_dot(&o->f38, -0x5DB4, 1, 0);
 }
@@ -764,17 +764,17 @@ void beast_update_attack(Self_800C53DC *arg0) {
 
 void TUnk_80493450::vfunc_60() {
     Obj_800C55E0 *o = (Obj_800C55E0 *)this;
-    switch (o->state) {
+    switch (this->mode) {
     case 0:
         break;
     case 1:
-        o->f328 = 0;
-        if (o->f34C == NULL) {
-            o->state = 3;
-            o->fB8 = 7;
+        this->phase = 0;
+        if (*(void * *)&this->children == NULL) {
+            this->mode = 3;
+            this->m_b8 = 7;
         } else {
-            o->state = 2;
-            o->fB8 = 10;
+            this->mode = 2;
+            this->m_b8 = 10;
         }
         ((TUnk_804B9870 *)o)->obj_clearFlags30(0x04040000);
         ((TUnk_804AF8A0 *)o)->clear_player_status_flag((s32)((void *)0), (u32)((void *)0x0A000000));
@@ -782,12 +782,12 @@ void TUnk_80493450::vfunc_60() {
     case 2:
         break;
     default:
-        o->state = 5;
-        o->f328 = 1;
+        this->mode = 5;
+        this->phase = 1;
         if (lbl_805DA03C < calc_boss4_scale__10TObjPlayerFi((s32)o)) {
-            o->fB8 = 3;
+            this->m_b8 = 3;
         } else {
-            o->fB8 = 4;
+            this->m_b8 = 4;
         }
         obj_setFlags30(o, 0x200000);
         ((TUnk_804B9870 *)o)->obj_clearFlags30(0x04040000);

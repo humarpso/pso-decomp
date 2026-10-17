@@ -266,7 +266,7 @@ void TUnk_8048FE7C::sub_8009A598() {
     s32 n;
     Ent_8009A598 *p;
     u32 c;
-    get_random_float__21TObjEneMe3ShinowaRealFv(255.0f * arg0->f2c);
+    get_random_float__21TObjEneMe3ShinowaRealFv(255.0f * this->m_2c);
     c = __cvt_fp2unsigned() << 24;
     n = arg0->n;
     p = arg0->ents;

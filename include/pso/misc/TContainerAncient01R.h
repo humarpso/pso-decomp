@@ -24,11 +24,16 @@ struct TContainerAncient01R : public TUnk_804806E8 {
     static void init_table_entries();
     u8 unk_334[0x4];
     s16 m_338;
-    u8 unk_33A[0x26];
+    u8 unk_33A[0x2];
+    f32 m_33c;
+    u8 unk_340[0x4];
+    f32 m_344;
+    u8 unk_348[0x18];
     s32 m_360;
     u8 unk_364[0x4];
     f32 m_368;
-    u8 unk_36C[0x8];
+    u8 unk_36C[0x4];
+    u32 m_370;
 };
 
 typedef char TContainerAncient01R_size[sizeof(TContainerAncient01R) == 0x374 ? 1 : -1];

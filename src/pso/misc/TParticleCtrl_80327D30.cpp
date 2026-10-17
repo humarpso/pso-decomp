@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804ED5B0.h"
 #include "pso/unk/text_803281B8.h"
 #include "pso/misc/TParticleCtrl_80327D30.h"
 #include "pso/object/TObject_80019A50.h"
@@ -48,25 +49,25 @@ void TUnk_804ED598::render() {
     Vtx_80327D30 v[4];
     if (o->f40 != NULL && o->f38 != 0) {
         v[0].x = 10.0f * o->w;
-        v[0].y = 10.0f * o->h;
+        v[0].y = 10.0f * this->m_20;
         v[0].z = 0.0f;
         v[0].u = 0.0f;
         v[0].v = 0.0f;
         v[0].color = 0xFFFF0000;
         v[1].x = 10.0f * o->w;
-        v[1].y = -10.0f * o->h;
+        v[1].y = -10.0f * this->m_20;
         v[1].z = 0.0f;
         v[1].u = 0.0f;
         v[1].v = 1.0f;
         v[1].color = 0xFFFF0000;
         v[2].x = -10.0f * o->w;
-        v[2].y = 10.0f * o->h;
+        v[2].y = 10.0f * this->m_20;
         v[2].z = 0.0f;
         v[2].u = 1.0f;
         v[2].v = 0.0f;
         v[2].color = 0xFFFF0000;
         v[3].x = -10.0f * o->w;
-        v[3].y = -10.0f * o->h;
+        v[3].y = -10.0f * this->m_20;
         v[3].z = 0.0f;
         v[3].u = 1.0f;
         v[3].v = 1.0f;
@@ -84,11 +85,11 @@ void TUnk_804ED598::render() {
         GXSetNumTexGens(2);
         ((TParticleCtrl *)(o->f40))->play_particle(0, (s16)(-1));
         setup_particle_tev(0);
-        if (o->f34 != 0) {
+        if (this->m_34 != 0) {
             set_depth_buffer_settings_2();
         }
         TParticleCtrl__sub_803E2A1C(v, 4);
-        if (o->f34 != 0) {
+        if (this->m_34 != 0) {
             restore_saved_depth_alpha_state();
         }
         TParticleCtrl::reset_particles();

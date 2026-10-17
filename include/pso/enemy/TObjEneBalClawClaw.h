@@ -17,7 +17,9 @@ struct TObjEneBalClawClaw : public TObjEneBalClaw {
     void *create(void *arg1, void *arg2, void *arg3, void *arg4, void *arg5);
     void *create();
     static void spawn_child_enemy();
-    u8 unk_3C0[0x68];
+    u8 unk_3C0[0x6];
+    s16 m_3c6;
+    u8 unk_3C8[0x60];
     void set_claw_flags();
     void clear_flag();
     void enter_hit_state(s16 arg1);

@@ -59,7 +59,7 @@ s32 TWindowMakeTeam::create_menu() {
 void TWindowMakeTeam::render() {  }
 void TWindowMakeTeam::run_task() {
     Self_80264EB8 *self = (Self_80264EB8 *)this;
-    switch (self->state) {
+    switch (this->m_1c) {
     case 0:
     case 1:
         if (self->keyboard != NULL) {
@@ -72,11 +72,11 @@ void TWindowMakeTeam::run_task() {
         }
         ((TWindowSubComCard *)(self->menu))->clear_flag_and_release2();
         ((TWindowMakeTeam *)self)->update_ok_button();
-        self->state = 2;
+        this->m_1c = 2;
     case 2:
         if (((TWindowSubComCard *)(self->menu))->get_flag() != 0) {
-            self->flags |= 2;
-            self->state = 11;
+            this->m_1d |= 2;
+            this->m_1c = 11;
         } else if (((TUnk_804D0658 *)(self->menu))->is_open() != 0) {
             ((TWindowMakeTeam *)self)->set_state(update_selected_entry__17TWindowSubComCardFv(self->menu));
         }
@@ -92,12 +92,12 @@ void TWindowMakeTeam::run_task() {
         update_chat_window(self->keyboard);
         get_keyboard_field_6c__15TWindowMakeTeamFv(self->keyboard, self->name);
         ((TWindowMakeTeam *)(self->menu))->set_entry_string_by_id(NULL, 0);
-        self->state = 4;
+        this->m_1c = 4;
     }
     case 4:
         if (((TWindowSubComCard *)(self->keyboard))->is_keyboard_active() != 0) {
             ((TWindowMakeTeam *)(self->menu))->set_entry_string_by_id(self->name, 0);
-            self->state = 1;
+            this->m_1c = 1;
         }
         if (((TWindowSubComCard *)(self->keyboard))->update_keyboard() != 0) {
             s32 n;
@@ -107,7 +107,7 @@ void TWindowMakeTeam::run_task() {
             n = measure_string_len__20TWindowSubStatusDispFv(self->name);
             strncpy(self->name, get_shared_text_buffer(), n);
             ((TWindowMakeTeam *)(self->menu))->set_entry_string_by_id(self->name, 0);
-            self->state = 1;
+            this->m_1c = 1;
         }
         break;
     case 5: {
@@ -120,12 +120,12 @@ void TWindowMakeTeam::run_task() {
         get_lobby_field_20__15TWindowMakeTeamFv(self->keyboard, lbl_805DD144);
         get_keyboard_field_6c__15TWindowMakeTeamFv(self->keyboard, self->comment);
         ((TWindowMakeTeam *)(self->menu))->set_entry_string_by_id(NULL, 1);
-        self->state = 6;
+        this->m_1c = 6;
     }
     case 6:
         if (((TWindowSubComCard *)(self->keyboard))->is_keyboard_active() != 0) {
             ((TWindowMakeTeam *)(self->menu))->set_entry_string_by_id(self->comment, 1);
-            self->state = 1;
+            this->m_1c = 1;
         }
         if (((TWindowSubComCard *)(self->keyboard))->update_keyboard() != 0) {
             s32 n;
@@ -135,32 +135,32 @@ void TWindowMakeTeam::run_task() {
             n = measure_string_len__20TWindowSubStatusDispFv(self->comment);
             strncpy(self->comment, get_shared_text_buffer(), n);
             ((TWindowMakeTeam *)(self->menu))->set_entry_string_by_id(self->comment, 1);
-            self->state = 1;
+            this->m_1c = 1;
         }
         break;
     case 7:
         self->window = create_entry_menu_window__15TWindowMakeTeamFv(self);
-        self->state = 8;
+        this->m_1c = 8;
     case 8:
         if (((TWindowSubComCard *)(self->window))->get_status_flag() != 0) {
-            self->state = 1;
+            this->m_1c = 1;
         } else if (((TWindowMenu *)(self->window))->is_visible() != 0) {
-            self->sel1E = get_selected_menu_value(self->window);
-            ((TWindowMakeTeam *)(self->menu))->set_entry_string_by_id(draw_entry_0x110__15TWindowMakeTeamFSc(self->sel1E), 2);
+            this->m_1e = get_selected_menu_value(self->window);
+            ((TWindowMakeTeam *)(self->menu))->set_entry_string_by_id(draw_entry_0x110__15TWindowMakeTeamFSc(this->m_1e), 2);
             ((TWindowMakeTeam *)self)->send_state();
-            self->state = 1;
+            this->m_1c = 1;
         }
         break;
     case 9:
         self->window = create_status_menu_window__15TWindowMakeTeamFv(self);
-        self->state = 10;
+        this->m_1c = 10;
     case 10:
         if (((TWindowSubComCard *)(self->window))->get_status_flag() != 0) {
-            self->state = 1;
+            this->m_1c = 1;
         } else if (((TWindowMenu *)(self->window))->is_visible() != 0) {
-            self->sel1F = get_selected_menu_value(self->window);
-            ((TWindowMakeTeam *)(self->menu))->set_entry_string_by_id(init_status_disp__15TWindowMakeTeamFc(self->sel1F), 3);
-            self->state = 1;
+            this->m_1f = get_selected_menu_value(self->window);
+            ((TWindowMakeTeam *)(self->menu))->set_entry_string_by_id(init_status_disp__15TWindowMakeTeamFc(this->m_1f), 3);
+            this->m_1c = 1;
         }
         break;
     case 11:

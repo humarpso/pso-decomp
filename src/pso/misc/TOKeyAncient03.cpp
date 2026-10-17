@@ -129,9 +129,9 @@ void TOKeyAncient03::vfunc_17() {
 }
 
 void TOKeyAncient03::vfunc_16() {
-    Obj_8016B9A4 *self = (Obj_8016B9A4 *)this;
-    if (lbl_805DB728 < self->f) {
-        self->f += lbl_805DB724;
+    TOKeyAncient03 *self = this;
+    if (lbl_805DB728 < self->target_scale) {
+        self->target_scale += lbl_805DB724;
     }
 }
 
@@ -314,12 +314,12 @@ s32 TOKeyCave01::is_confirm_pressed() {
 typedef char RecoveredGlobal_8016BF68_lbl_80441B4C_size[sizeof(RecoveredGlobal_8016BF68_lbl_80441B4C) == 0x90 ? 1 : -1];
 
 void TOKeyCave01::send_switch_changed(s32 flags) {
-    Self_8016BF08 *self = (Self_8016BF08 *)this;
+    TOKeyCave01 *self = this;
     Pkt_8016BF08 pkt;
     ((TLobby *)(&pkt))->init_6x05_switch_changed();
-    pkt.object = self->id;
+    pkt.object = self->m_1c;
     pkt.zero = local_client_id;
-    pkt.switchId = self->switchId;
+    pkt.switchId = *(s32 *)&self->m_e4;
     pkt.area = get_current_floor();
     pkt.flags = flags;
     ((TLobby *)(&pkt))->finalize_and_send_60();

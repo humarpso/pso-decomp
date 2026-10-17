@@ -142,7 +142,7 @@ void TObjContainerItem::vfunc_6(s16 *arg1, s32 arg2) {
 void TObjContainerItem::vfunc_79() {
     Obj_8018990C *self = (Obj_8018990C *)this;
     void *o;
-    if (self->f326 != 1) {
+    if (this->mode != 1) {
         Spawn_8018990C a = *lbl_805D5B80;
         Spawn_8018990C b = *lbl_805D5B84;
         VecCopy((Vec *)a.pos, (const Vec *)&self->x);

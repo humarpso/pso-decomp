@@ -102,7 +102,8 @@ struct TBoss8Dragon
     f32 m_47c;
     u8 unk_480[0x10];
     s32 m_490;
-    u8 unk_494[0x2C];
+    u8 unk_494[0x28];
+    u8 * m_4bc;
     u32 m_4c0;
     u8 unk_4C4[0x20];
     s32 m_4e4;

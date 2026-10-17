@@ -22,12 +22,12 @@ extern const f32 lbl_805DBCF4;
 void TUnk_804B6C24::debug_print_item_box_info() {
     Obj_80189E3C *self = (Obj_80189E3C *)this;
     Item_80189E3C item;
-    if (self->x68 > lbl_805DBCF4) {
-        self->x360 = 1;
+    if (this->scale > lbl_805DBCF4) {
+        this->m_360 = 1;
     } else {
-        self->x360 = 0;
+        this->m_360 = 0;
     }
-    if (self->x360 != 0) {
+    if (this->m_360 != 0) {
         TObjNpcEnemy::set_global_count(0xFFFFFF);
         debug_printf_at(0x13001C, lbl_80444F00);
     } else {

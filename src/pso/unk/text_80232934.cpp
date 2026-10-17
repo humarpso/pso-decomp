@@ -52,7 +52,7 @@ void TUnk_804CC870::render() {
         TOKeyMachine01::get_global_state() == 0xF) {
         return;
     }
-    init_texture_copy_rect(&ctx, lbl_804CC868, technique_ringwave_texture_list, 0, arg0->f48 + 1);
+    init_texture_copy_rect(&ctx, lbl_804CC868, technique_ringwave_texture_list, 0, this->m_48 + 1);
     Vec_80232934 v = lbl_8044D5A8;
     Quad_80232934 q = grants_flash_quad_vertices;
     approach_alpha_clamped(arg0->f38, &q, lbl_805DC840);

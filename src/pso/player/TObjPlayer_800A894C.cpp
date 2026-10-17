@@ -1034,7 +1034,7 @@ void TObjPlayer__sub_800AA334(u8 *arg0) {
 
 void TObjPlayer::run_synced_state_handler() {
     Obj_800AA528 *arg0 = (Obj_800AA528 *)this;
-    switch (arg0->state) {
+    switch (this->mode) {
     case 0: update_timed_state(); return;
     case 1: TObjPlayer__sub_800A9E9C(arg0); return;
     case 2: TObjPlayer__sub_800A93E4(arg0); return;

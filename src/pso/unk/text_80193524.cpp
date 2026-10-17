@@ -286,7 +286,7 @@ void TLazerFenceSw::render() {
         if (get_state_flag__9TMainTaskFv() != 1) {
             set_depth_buffer_settings_id(3);
             set_material_alpha_compare_reference(0x80);
-            if (fn_80156BBC(arg0 + 0xF0, arg0 + 0x38) != 0) {
+            if (fn_80156BBC(arg0 + 0xF0, (u8 *)&this->position) != 0) {
                 if (fn_80156C38((f32 *)(arg0 + 0xF0)) != 0) {
                     ((VObj_14_aa9368 *)(arg0 + (240)))->m6();
                     draw_laser_beam();
@@ -316,13 +316,13 @@ void TLazerFenceSw__vt24(Sw_80193978 *arg0) {
 
 void TLazerFenceSw__vt16(void *arg0) {
     ((TOKey *)arg0)->TOKey::trigger_activate_sound();
-    *(f32 *)((s8 *)arg0 + 0xB0) = TLazerFenceSw__data_805DBE84;
+    ((TLazerFenceSw *)arg0)->m_b0 = TLazerFenceSw__data_805DBE84;
     *(f32 *)((s8 *)arg0 + 0xEC) = TLazerFenceSw__data_805DBE84;
 }
 
 void TLazerFenceSw__vt17(void *arg0) {
     ((TBoss3Volopt *)arg0)->call_vt21();
-    *(f32 *)((s8 *)arg0 + 0xB0) = TLazerFenceSw__data_805DBE84;
+    ((TLazerFenceSw *)arg0)->m_b0 = TLazerFenceSw__data_805DBE84;
     *(f32 *)((s8 *)arg0 + 0xEC) = TLazerFenceSw__data_805DBE84;
 }
 
@@ -332,12 +332,12 @@ typedef char RecoveredGlobal_80193A84_lbl_8050DCF0_size[sizeof(RecoveredGlobal_8
 void TLazerFenceSw::vfunc_16() {
     u32 temp_r4;
     u32 temp_r4_2;
-    *(f32 *)((s8 *)((u8 *)this) + 0xB0) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0xB0) + *(f32 *)((s8 *)((u8 *)this) + 0xB8));
+    this->m_b0 = (f32) (this->m_b0 + this->m_b8);
     temp_r4 = *(s32 *)((s8 *)(*(u8 **)((s8 *)&lazer_fence_beam_motions.value + 0)) + 4) - 1;
-    if (*(f32 *)((s8 *)((u8 *)this) + 0xB0) > (f32) temp_r4) {
-        *(f32 *)((s8 *)((u8 *)this) + 0xB0) = (f32) temp_r4;
+    if (this->m_b0 > (f32) temp_r4) {
+        this->m_b0 = (f32) temp_r4;
     }
-    *(f32 *)((s8 *)((u8 *)this) + 0xEC) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0xEC) + *(f32 *)((s8 *)((u8 *)this) + 0xB8));
+    *(f32 *)((s8 *)((u8 *)this) + 0xEC) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0xEC) + this->m_b8);
     temp_r4_2 = *(s32 *)((s8 *)(*(u8 **)((s8 *)&lazer_fence_beam_motions.value + 4)) + 4) - 1;
     if (*(f32 *)((s8 *)((u8 *)this) + 0xEC) > (f32) temp_r4_2) {
         *(f32 *)((s8 *)((u8 *)this) + 0xEC) = (f32) temp_r4_2;
@@ -346,9 +346,9 @@ void TLazerFenceSw::vfunc_16() {
 
 typedef char RecoveredGlobal_80193B4C_lbl_8050DCF0_size[sizeof(RecoveredGlobal_80193B4C_lbl_8050DCF0) == 0x18 ? 1 : -1];
 void TLazerFenceSw::vfunc_17() {
-    *(f32 *)((s8 *)((u8 *)this) + 0xB0) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0xB0) + *(f32 *)((s8 *)((u8 *)this) + 0xB8));
-    if (*(f32 *)((s8 *)((u8 *)this) + 0xB0) > (f32) (u32) (*(s32 *)((s8 *)((*(RecoveredGlobal_80193B4C_lbl_8050DCF0 *)&lazer_fence_beam_motions).value) + 4) - 1)) {
-        *(f32 *)((s8 *)((u8 *)this) + 0xB0) = (f32) TLazerFenceSw__data_805DBE84;
+    this->m_b0 = (f32) (this->m_b0 + this->m_b8);
+    if (this->m_b0 > (f32) (u32) (*(s32 *)((s8 *)((*(RecoveredGlobal_80193B4C_lbl_8050DCF0 *)&lazer_fence_beam_motions).value) + 4) - 1)) {
+        this->m_b0 = (f32) TLazerFenceSw__data_805DBE84;
     }
     this->submit_cursor_target();
 }

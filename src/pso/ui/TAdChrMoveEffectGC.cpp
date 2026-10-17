@@ -131,7 +131,7 @@ void TAdChrMoveEffectGC::reset_effect_entries() {
 void TAdChrMoveEffectGC::clear_entries() {
     O_803490AC *self = (O_803490AC *)this;
     s32 i;
-    self->n = 0;
+    *(s32 *)&this->m_20 = 0;
     for (i = 0; i < 16; i++) {
         self->e[i].flags &= ~1;
     }

@@ -152,7 +152,7 @@ void TObjEneDD::vfunc_93() {
 void TObjEneDD::vfunc_92() {
     Obj_800BA200 *self = (Obj_800BA200 *)this;
     s32 i;
-    self->flags &= ~0x04000000;
+    this->actorFlags &= ~0x04000000;
     for (i = 0; i < self->count; i++) {
         self->parts[i].flags &= ~0x02000000;
     }
@@ -161,7 +161,7 @@ void TObjEneDD::vfunc_92() {
 void TObjEneDD::vfunc_91() {
     Obj_800BA244 *self = (Obj_800BA244 *)this;
     s32 i;
-    self->flags |= 0x04000000;
+    this->actorFlags |= 0x04000000;
     for (i = 0; i < self->count; i++) {
         self->parts[i].flags |= 0x02000000;
     }

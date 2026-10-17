@@ -163,7 +163,7 @@ typedef char RecoveredGlobal_801897A4___vt__18TObjContainerEnemy_size[sizeof(Rec
 void TObjContainerEnemy::vfunc_79() {
     Obj_8018990C *self = (Obj_8018990C *)this;
     void *o;
-    if (self->f326 != 1) {
+    if (this->mode != 1) {
         Spawn_8018990C a = *lbl_805D5B80;
         Spawn_8018990C b = *lbl_805D5B84;
         VecCopy((Vec *)a.pos, (const Vec *)&self->x);
@@ -192,14 +192,14 @@ f32 TObjContainerEnemy::receive_physical_attack(void *, f32) {
     Obj_801894F8 *arg0 = (Obj_801894F8 *)this;
     s16 sp8;
     Pkt_801894F8 pkt;
-    if ((arg0->f1C >= 0x1000U) && (arg0->f80 != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 1) != 0)) {
+    if ((this->m_1c >= 0x1000U) && (arg0->f80 != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 1) != 0)) {
         sp8 = 1;
         ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 0);
         ((TUnk_804AF8A0 *)arg0)->send_object_state_update(&sp8);
         ((TLobby *)(&pkt))->init_packet_67_04();
-        pkt.b = arg0->f1C;
+        pkt.b = this->m_1c;
         pkt.c = get_current_floor();
-        pkt.d = arg0->f84;
+        pkt.d = this->m_84;
         pkt.e = local_client_id;
         ((TLobby *)(&pkt))->byteswap_and_send();
     }
@@ -209,7 +209,7 @@ f32 TObjContainerEnemy::receive_physical_attack(void *, f32) {
 void TObjContainerEnemy::debug_print_item_box_info() {
     Obj_801895A4 *self = (Obj_801895A4 *)this;
     TObjNpcEnemy::set_global_count(0xFF00FF);
-    debug_printf_at(0x130020, lbl_80444EF4, self->id);
+    debug_printf_at(0x130020, lbl_80444EF4, this->m_84);
     TObjNpcEnemy::set_global_count(0xF0F0F0FF);
     TObjRoomId__sub_80141CF4(self->pos, lbl_804A7448, lbl_805DBCF8);
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TPhotonMylla.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/object/TObjMotion.h"
@@ -180,12 +181,12 @@ typedef char RecoveredFields_801AD5D8_arg0_1A4_offset[offsetof(RecoveredFields_8
 
 void TPhotonMylla::render() {
     Self_801AD4C0 *self = (Self_801AD4C0 *)this;
-    if (self->started != 0) {
+    if (*(s32 *)&this->m_1a0 != 0) {
         TParticleCtrl::begin_effect_render();
-        TObjFish::set_global_param(self->f24);
+        TObjFish::set_global_param(this->texture_id);
         push_matrix();
         translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
-        rotate_matrix_y(0, self->f60);
+        rotate_matrix_y(0, this->rotation_y);
         lbl_805D5660 = model_render_flags;
         ((TRaderMapCore *)(&saved_model_draw_color))->copy_vec4(&model_material_color);
         lbl_805D5664 = chunk_polygon_flags_and_mask;

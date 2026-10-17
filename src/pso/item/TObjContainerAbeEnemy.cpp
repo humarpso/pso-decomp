@@ -177,12 +177,12 @@ void TObjContainerBase__vt77(const Obj_80188B3C *self) {
 void TObjContainerBase::vfunc_81() {
     Obj_80188C8C *self = (Obj_80188C8C *)this;
     if (container_breakup_model_archive != 0) {
-        switch (self->state) {
+        switch (this->mode) {
         case 0:
             TObjFish::set_global_param(lbl_805D5B8C);
             push_matrix();
             post_translate_matrix(self->pos);
-            rotate_matrix_y(0, self->id);
+            rotate_matrix_y(0, this->rotation_y);
             dispatch_fish_event__6TLobbyFPv((void *)2);
             draw_ginja_box_tree();
             pop_matrix();

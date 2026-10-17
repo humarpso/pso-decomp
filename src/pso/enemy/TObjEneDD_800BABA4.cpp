@@ -251,7 +251,7 @@ u8 *TBoss5Gryphon::try_move_actor_xz_on_ground(u8 *arg1) {
 void calc_wall_clamped_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist) {
     Ene_800BAF1C *e = (Ene_800BAF1C *)arg0;
     Vec_800BAF1C *out = (Vec_800BAF1C *)arg1;
-    Node_800BAF1C *n = (Node_800BAF1C *)((TBoss5Gryphon *)e)->enemy_probe_wall_ahead(dx, dz, dist + e->reach);
+    Node_800BAF1C *n = (Node_800BAF1C *)((TBoss5Gryphon *)e)->enemy_probe_wall_ahead(dx, dz, dist + ((TBoss5Gryphon *)e)->m_37c);
     if (n == NULL) {
         e->count = 0;
     } else {
@@ -264,7 +264,7 @@ void calc_wall_clamped_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 d
         px = p->x;
         ddz = p->z - e->pos.z;
         ddx = px - e->pos.x;
-        dist = ((f32 (*)(f32, f32, f32))newton_sqrtf)(ddx * ddx + ddz * ddz, px, ddz) - e->reach;
+        dist = ((f32 (*)(f32, f32, f32))newton_sqrtf)(ddx * ddx + ddz * ddz, px, ddz) - ((TBoss5Gryphon *)e)->m_37c;
     }
     out->x = dx * dist + e->pos.x;
     out->y = e->pos.y;

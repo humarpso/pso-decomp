@@ -47,10 +47,10 @@ void TObjParticleLobby::run_task() {
         ((void (*)(void *))TObjParticleLobby__sub_80369698)(o);
         return;
     }
-    switch (o->state) {
+    switch (*(s32 *)&this->m_c8) {
     case 0:
-        if (o->target == ((s32 (*)(void *))get_event_theme_index__17TObjParticleLobbyFv)(o)) {
-            o->state = 2;
+        if (*(s32 *)&this->m_d0 == ((s32 (*)(void *))get_event_theme_index__17TObjParticleLobbyFv)(o)) {
+            *(s32 *)&this->m_c8 = 2;
         }
         if (o->ctrl != NULL) {
             ((TParticleCtrl *)(o->ctrl))->enable();
@@ -60,7 +60,7 @@ void TObjParticleLobby::run_task() {
         o->t += 0.1f;
         if (o->t >= 1.0f) {
             o->t = 1.0f;
-            o->state = 3;
+            *(s32 *)&this->m_c8 = 3;
         }
         if (o->ctrl != NULL) {
             ((TObjPlayer *)(o->ctrl))->set_position_xy(o->t, 1.0f);
@@ -70,7 +70,7 @@ void TObjParticleLobby::run_task() {
         o->t -= 0.1f;
         if (o->t <= 0.0f) {
             o->t = 0.0f;
-            o->state = 0;
+            *(s32 *)&this->m_c8 = 0;
             break;
         }
         if (o->ctrl != NULL) {
@@ -79,8 +79,8 @@ void TObjParticleLobby::run_task() {
         break;
     case 3:
     default:
-        if (o->target != ((s32 (*)(void *))get_event_theme_index__17TObjParticleLobbyFv)(o)) {
-            o->state = 1;
+        if (*(s32 *)&this->m_d0 != ((s32 (*)(void *))get_event_theme_index__17TObjParticleLobbyFv)(o)) {
+            *(s32 *)&this->m_c8 = 1;
         }
         break;
     }

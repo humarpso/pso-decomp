@@ -11,7 +11,13 @@ public:
     void *destroy(s16);
     u8 sub_80342268();
     u8 sub_80342254();
-    u8 unk_1C[0x64];
+    u8 unk_1C[0x44];
+    s32 m_60;
+    u8 unk_64[0x4];
+    s32 m_68;
+    u8 unk_6C[0x8];
+    s32 m_74;
+    u8 unk_78[0x8];
     void * m_80;
     u8 unk_84[0xC];
 };

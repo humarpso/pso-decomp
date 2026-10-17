@@ -201,7 +201,7 @@ void TUnk_80482090::render() {
             rotate_matrix_z(0, p->f20);
             rotate_matrix_x(0, p->f18);
             translate_matrix(0, -self->f4F4.x, -self->f4F4.y, -self->f4F4.z);
-            TObjPlayer::concat_matrix(0, self->f4F0);
+            TObjPlayer::concat_matrix(0, this->m_4f0);
             switch (p->f28) {
             case 0:
             case 1:

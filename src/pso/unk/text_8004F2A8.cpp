@@ -66,11 +66,11 @@ void TObjDFDemo4::sub_8004F2A8() {
     f32 alpha;
     s32 i;
     alpha = 1.0f;
-    if (arg0->ff8 > 0x4C) {
+    if (*(s32 *)&this->m_f8 > 0x4C) {
         return;
     }
-    if (arg0->ff8 > 0x44) {
-        alpha = (f32)(0x4C - arg0->ff8) * lbl_805D89F4;
+    if (*(s32 *)&this->m_f8 > 0x44) {
+        alpha = (f32)(0x4C - *(s32 *)&this->m_f8) * lbl_805D89F4;
     }
     if (alpha < 1.0f) {
         TObjPlayer__sub_80052390(alpha);
@@ -78,7 +78,7 @@ void TObjDFDemo4::sub_8004F2A8() {
     push_matrix();
     TObjPlayer::set_global_flag();
     post_translate_matrix(arg0->fe8);
-    rotate_matrix_y(0, arg0->ff4);
+    rotate_matrix_y(0, *(s32 *)&this->m_f4);
     for (i = 0; i < 2; i++) {
         TObjFish::set_global_param(arg0->recs[i].b);
         draw_model_motion((void *)arg0->recs[i].a, (void *)arg0->recs[i].c, lbl_805D89F8);

@@ -55,7 +55,16 @@ struct TObjEneBm5Wolf : public TObjEneDD_ST {
     f32 stoppingDistance;
     u8 unk_438[0x4];
     f32 m_43c;
-    u8 unk_440[0x28];
+    u8 unk_440[0x4];
+    f32 m_444;
+    u8 unk_448[0x4];
+    f32 m_44c;
+    u8 unk_450[0x4];
+    f32 m_454;
+    u8 unk_458[0x4];
+    f32 m_45c;
+    u8 unk_460[0x4];
+    f32 m_464;
     s32 nearTarget;
     static void advance_spawn_timer();
     void despawn_state(s32 msg);

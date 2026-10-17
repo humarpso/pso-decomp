@@ -15,7 +15,10 @@ struct TObjEneBm9Mericarol : public TObjEneDD_ST {
     void vfunc_62();
     void vfunc_61();
     void vfunc_28();
-    u8 unk_374[0x30];
+    u8 unk_374[0x1C];
+    s32 m_390;
+    u8 unk_394[0xC];
+    f32 m_3a0;
     u32 m_3c0;
     u32 m_3c4;
     void* m_3c8;

@@ -149,9 +149,9 @@ void TUnk_804EFA88::run_task() {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    for (i = 0; i < arg0->n; i++) {
+    for (i = 0; i < this->m_20; i++) {
         TLobby__sub_8033EE38(&arg0->items[i]);
     }
-    arg0->n = 0;
+    this->m_20 = 0;
 }
 }

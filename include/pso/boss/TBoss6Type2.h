@@ -48,7 +48,9 @@ struct TBoss6Type2
     s16 m_2fa;
     u8 unk_2FC[0x4];
     f32 m_300;
-    u8 unk_304[0x28];
+    u8 unk_304[0x18];
+    void * m_31c;
+    u8 unk_320[0xC];
     s16 m_32c;
     u8 _pad32E[0x10];
     u16 m_33e;

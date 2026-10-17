@@ -34,7 +34,9 @@ struct TObjEnePanarms : public TObjEnemy {
     s32 m_3bc;
     u8 unk_3C0[0x4];
     s32 m_3c4;
-    u8 unk_3C8[0xC];
+    u8 unk_3C8[0x4];
+    s32 m_3cc;
+    u8 unk_3D0[0x4];
     s32 m_3d4;
     u8 unk_3D8[0x4];
     void* m_3dc;
@@ -47,7 +49,9 @@ struct TObjEnePanarms : public TObjEnemy {
     u32 m_3f8;
     u32 m_3fc;
     void* m_400;
-    u8 unk_404[0x58];
+    u8 unk_404[0x4];
+    s32 m_408;
+    u8 unk_40C[0x50];
     s32 m_45c;
     u8 unk_460[0x4];
     f32 m_464;

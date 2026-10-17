@@ -9,7 +9,8 @@ public:
     virtual ~TUnk_80488838();
     void update_orbit_camera();
     virtual void run_task();
-    u8 unk_6C[0x8];
+    u8 unk_6C[0x4];
+    f32 m_70;
 };
 typedef char TUnk_80488838_size[sizeof(TUnk_80488838) == 0x74 ? 1 : -1];
 

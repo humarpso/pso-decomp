@@ -14,7 +14,8 @@ public:
     s32 m_24;
     s32 m_28;
     s32 card_status;
-    u8 unknown_30[8];
+    u8 unk_30[0x4];
+    void * m_34;
     s32 timer;
     TObject *owned_window;
 

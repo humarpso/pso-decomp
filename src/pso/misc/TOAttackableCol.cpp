@@ -126,17 +126,17 @@ int TOAttackableCol::send_state_change(u16 state) {
     Msg_801575AC msg;
     s16 id;
     u8 *parent;
-    id = self->id;
+    id = this->mode;
     ((TUnk_804AF8A0 *)self)->access_object_saved_state(&id, 0);
-    parent = self->parent;
+    parent = *(u8 * *)&this->m_80;
     if (parent != NULL) {
         fn_80157CA8(&msg);
-        msg.room = self->room;
+        msg.room = this->m_1c;
         msg.id = id;
         msg.type = *(s16 *)(parent + 4);
         msg.state = state;
-        msg.f0E = self->f33C;
-        if (self->f344 == 0 && self->f348 >= 0 && state == 1) {
+        msg.f0E = *(s32 *)&this->m_33c;
+        if (this->m_344 == 0 && self->f348 >= 0 && state == 1) {
             msg.f10 = self->f348;
             msg.flag = 1;
         } else {

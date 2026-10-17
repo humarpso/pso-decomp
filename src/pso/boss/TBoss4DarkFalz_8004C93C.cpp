@@ -349,7 +349,7 @@ void TBoss4DarkFalz::enter_demo2_phase() {
     TBoss4DarkFalz::create_demo2((void *)arg0, &arg0->pos, (void *)arg0->f3a8, (void *)flag);
     TBoss4DarkFalz::dispatch_by_main_phase(0x35);
     if ((u32)TBoss4DarkFalz__type2_instance != 0) {
-        ((TBoss4DarkFalz *)TBoss4DarkFalz__type2_instance)->get_demo2_params(&arg0->f2d6, &arg0->f2d4, arr);
+        ((TBoss4DarkFalz *)TBoss4DarkFalz__type2_instance)->get_demo2_params(&arg0->f2d6, &this->m_2d4, arr);
         queue_destruction__7TObjectFv((void *)TBoss4DarkFalz__type2_instance);
         TBoss4DarkFalz__type2_instance = 0;
         for (i = 0; i < 4; i++) {
@@ -378,7 +378,7 @@ void TBoss4DarkFalz::update_spawn_type2_countdown() {
         TBoss4DarkFalz__sub_8004B4F0(&a.d, &TBoss4DarkFalz__data_804FF1E8);
         a.d.a8 = 1;
         a.d.a0 = o->f2c + 0x1FF;
-        a.d.a6 = o->f1c + 0x1FF;
+        a.d.a6 = this->m_1c + 0x1FF;
         (*(void * *)&TBoss4DarkFalz__type2_instance) = create__11TBoss4Type2Fl(&a);
         TBoss4DarkFalz::dispatch_by_main_phase(0x34);
         ((TBoss4DarkFalz *)o)->change_state(8);
@@ -423,7 +423,7 @@ void TBoss4DarkFalz::spawn_type1() {
     TBoss4DarkFalz__sub_8004B4F0(&params.sub, &TBoss4DarkFalz__data_804FF1E8);
     params.sub.f8 = 1;
     params.sub.x = self->f2c + 0x200;
-    params.sub.id = self->id + 0x200;
+    params.sub.id = this->m_1c + 0x200;
     TBoss4DarkFalz__type1_instance = TBoss4Type1::create((s32)&params);
     self->f380 = 0;
     TBoss4DarkFalz::end_player_camera_pans(self);

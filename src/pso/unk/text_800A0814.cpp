@@ -8,14 +8,14 @@ extern "C" {
 void TObjEneDarkGunCenter::hide_linked_enemies() {
     Obj_800A0814 *self = (Obj_800A0814 *)this;
     s32 i;
-    for (i = 0; i < self->count; i++) {
+    for (i = 0; i < *(s32 *)&this->m_37c; i++) {
         void *e = get_enemy_entity(self->ids[i]);
         if (e != 0) {
             ((TObjPlayer *)e)->set_hidden_flag();
         }
     }
-    self->timer = 0x78;
-    self->mode = 4;
+    *(s32 *)&this->m_378 = 0x78;
+    *(s32 *)&this->m_374 = 4;
 }
 
 }

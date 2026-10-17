@@ -1,6 +1,9 @@
 struct Obj_800ED4BC;
 
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/enemy/TObjEnePanarms.h"
+#include "pso/enemy/TObjEneRe4Bit.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -524,31 +527,31 @@ void TObjEneRe4Bit__sub_800ECC14(u8 *arg0, s32 arg1) {
     s32 temp_r4;
     switch (arg1) {
     case 4:
-        *(s32 *)((s8 *)arg0 + 0x408) = 0;
+        ((TObjEnePanarms *)arg0)->m_408 = 0;
         ((s32 (*)(void *))set_hold_flags__18TObjEneRe4SorcererFPv)(arg0);
-        *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 0x400);
+        ((TObjEnePanarms *)arg0)->m_3cc = (s32) (((TObjEnePanarms *)arg0)->m_3cc | 0x400);
         play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003A815), arg0 + 0x38, 0, 0);
         break;
     case 3:
-        if (*(s32 *)((s8 *)arg0 + 0x3CC) & 8) {
+        if (((TObjEnePanarms *)arg0)->m_3cc & 8) {
             play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003AD16), arg0 + 0x38, 0, 0);
             transition_enemy_state(arg0, 1);
         }
         break;
     case 0:
-        *(s32 *)((s8 *)arg0 + 0x408) = (s32) (*(s32 *)((s8 *)arg0 + 0x408) + 1);
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x408) >= 0x384) {
-            temp_r4 = *(s32 *)((s8 *)arg0 + 0x3CC);
+        ((TObjEnePanarms *)arg0)->m_408 = (s32) (((TObjEnePanarms *)arg0)->m_408 + 1);
+        if ((s32) ((TObjEnePanarms *)arg0)->m_408 >= 0x384) {
+            temp_r4 = ((TObjEnePanarms *)arg0)->m_3cc;
             if (!(temp_r4 & 0x10)) {
-                *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (temp_r4 & 0xFFFFFBFF);
+                ((TObjEnePanarms *)arg0)->m_3cc = (s32) (temp_r4 & 0xFFFFFBFF);
                 ((s32 (*)(void *))set_state_flags__18TObjEneRe4SorcererFPv)(arg0);
                 return;
             }
         }
         break;
     case 5:
-        *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFFF7FF);
-        *(s16 *)((s8 *)arg0 + 0x32C) = (s16) *(s16 *)((s8 *)arg0 + 0x2B8);
+        *(s32 *)&((TObjEnePanarms *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjEnePanarms *)arg0)->actorFlags & 0xFFFFF7FF);
+        ((TObjEnePanarms *)arg0)->hp = (s16) ((TObjEnePanarms *)arg0)->hpmax;
         ((s32 (*)())TObjEneRe4Sorcerer__sub_800ED47C)();
         *(f32 *)((s8 *)arg0 + 0x3D8) = (f32) TObjEneRe4Bit__data_805DA770;
         break;
@@ -573,9 +576,9 @@ void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1) {
     case 0:
       *((s32 *) (((s8 *) arg0) + 0x408)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x408))) + 1);
       VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)((int) (*((s32 *) (((s8 *) arg0) + 0x3C0)))));
-      *((f32 *) (((s8 *) arg0) + 0x300)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x300))) + (*((f32 *) (((s8 *) arg0) + 0x3D8))));
-      *((f32 *) (((s8 *) arg0) + 0x2FC)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x2FC))) + calc_elapsed_scaled__9TObjEneDDFv((void *) arg0));
-      *((f32 *) (((s8 *) arg0) + 0x304)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x304))) + calc_elapsed_scaled__9TObjEneDDFv((void *) arg0));
+      ((TObjEneDD *)arg0)->m_300 = (f32) ((((TObjEneDD *)arg0)->m_300) + (*((f32 *) (((s8 *) arg0) + 0x3D8))));
+      ((TObjEneDD *)arg0)->m_2fc = (f32) ((((TObjEneDD *)arg0)->m_2fc) + calc_elapsed_scaled__9TObjEneDDFv((void *) arg0));
+      ((TObjEneDD *)arg0)->m_304 = (f32) ((((TObjEneDD *)arg0)->m_304) + calc_elapsed_scaled__9TObjEneDDFv((void *) arg0));
       (((TObjEneDD *)(arg0))->vfunc_102());
       return;
     case 5:
@@ -606,7 +609,7 @@ void TObjEneRe4Bit__sub_800ECE04(TObjEneRe4Bit *arg0, s32 arg1) {
         if (*(f32 *)((s8 *)arg0 + 0x3D8) < TObjEneRe4Bit__data_805DA770) {
             *(f32 *)((s8 *)arg0 + 0x3D8) = (f32) TObjEneRe4Bit__data_805DA770;
         }
-        *(s32 *)((s8 *)arg0 + 0x60) = (s32) (*(s32 *)((s8 *)arg0 + 0x60) - 0x1800);
+        arg0->rotation_y = (s32) (arg0->rotation_y - 0x1800);
         arg0->update_homing_velocity();
         arg0->update_position_flag();
         break;
@@ -623,9 +626,9 @@ void TObjEneRe4Bit__sub_800ECED0(TObjEneRe4Bit *arg0, s32 arg1) {
     case 4:
         ((TObjEneDD *)arg0)->set_field_378(3);
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 0x1000);
-        *(s32 *)((s8 *)arg0 + 0x408) = 0;
+        arg0->m_408 = 0;
         *(s32 *)((s8 *)arg0 + 0x404) = 1;
-        *(s32 *)((s8 *)arg0 + 0x3D0) = (s32) *(s32 *)((s8 *)arg0 + 0x3D4);
+        *(s32 *)((s8 *)arg0 + 0x3D0) = (s32) *(s32 *)&arg0->m_3f0;
         return;
     case 3:
         temp_r4 = *(s32 *)((s8 *)arg0 + 0x3CC);
@@ -635,17 +638,17 @@ void TObjEneRe4Bit__sub_800ECED0(TObjEneRe4Bit *arg0, s32 arg1) {
         }
         return;
     case 0:
-        switch (*(s32 *)((s8 *)arg0 + 0x408)) {
+        switch (arg0->m_408) {
         case 1:
             break;
         case 0:
             *(f32 *)((s8 *)arg0 + 0x3D8) = *(f32 *)((s8 *)arg0 + 0x3D8) + lbl_805DA778;
             if (*(f32 *)((s8 *)arg0 + 0x3D8) > lbl_805DA76C) {
                 *(f32 *)((s8 *)arg0 + 0x3D8) = lbl_805DA76C;
-                *(s32 *)((s8 *)arg0 + 0x408) = 1;
+                arg0->m_408 = 1;
                 *(s32 *)((s8 *)arg0 + 0x404) = 2;
             }
-            *(s32 *)((s8 *)arg0 + 0x60) = (s32) (*(s32 *)((s8 *)arg0 + 0x60) + 0x1800);
+            arg0->rotation_y = (s32) (arg0->rotation_y + 0x1800);
             break;
         }
         arg0->update_homing_velocity();
@@ -757,7 +760,6 @@ struct ED300Obj_800ed300_800ED258 : ED300Base_800ed300_800ED258 {
 void TObjEneRe4Sorcerer::set_flag3cc_bit2000() { *(u32*)((char*)this + 0x3cc) |= 0x2000; }
 
 void TObjEneRe4Bit::call_vt_90_91() {
-    u8 *arg0 = (u8 *)this;
     this->vfunc_92();
     this->vfunc_93();
 }
@@ -988,7 +990,7 @@ void TObjEneRe4Bit::update_homing_velocity() {
     Obj_800ED4BC *arg0 = (Obj_800ED4BC *)this;
     Vec_800ED4BC sp;
     f32 s;
-    VecCopy((Vec *)(&sp), (const Vec *)(arg0->f3C0));
+    VecCopy((Vec *)(&sp), (const Vec *)(*(Vec_800ED4BC * *)&this->m_3dc));
     sp.y = sp.y + arg0->f3D8;
     subtract_vector(&sp, &arg0->v2FC);
     s = lbl_805DA77C * ((TObjBoss2Tunnel *)(&sp))->update_scale();
@@ -1013,14 +1015,14 @@ void TObjEneRe4Bit::update_position_flag() {
 }
 
 void TObjEneRe4Bit::vfunc_88() {
-    *(f32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 4) = (f32) (*(f32 *)((s8 *)this + 0x300) - *(f32 *)((s8 *)this + 0x3C));
+    *(f32 *)((s8 *)(this->m_a4) + 4) = (f32) (this->m_300 - *(f32 *)((s8 *)this + 0x3C));
 }
 void TObjEneRe4Bit::copy_pos() { VecCopy((Vec *)((char*)this + 0x74), (const Vec *)((char*)this + 0x2fc)); }
 void TObjEneRe4Bit::vfunc_61() {  }
 
 void TObjEneRe4Bit::vfunc_62() {
     u8 *arg0 = (u8 *)this;
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 5) {
+    if ((s16) this->mode != 5) {
         if (*(s32 *)((s8 *)arg0 + 0x3CC) & 0x1000) {
             ((s32 (*)())clear_attack_receipts__9TObjEneDDFv)();
             return;
@@ -1032,7 +1034,7 @@ void TObjEneRe4Bit::vfunc_62() {
 void TObjEneRe4Bit::vfunc_63() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r0 = this->mode;
     if (temp_r0 != 6) {
         if (temp_r0 == 2) {
             ((s32 (*)(void *, int))transition_enemy_state)(arg0, 6);
@@ -1125,7 +1127,7 @@ u8 *TObjEneRe4Bit__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2AE8;
     ((TObjEneDD *)arg0)->init_common_from((u8 *)arg2);
     *(s16 *)((s8 *)arg0 + 0x3C4) = obj_getField1c((void *)arg2);
-    *(s16 *)((s8 *)arg0 + 0x1C) = arg5;
+    *(s16 *)&((TObjEneRe4Bit *)arg0)->m_1c = arg5;
     *(s16 *)((s8 *)arg0 + 0x2C) = arg6;
     *(s32 *)((s8 *)arg0 + 0x3C0) = arg3;
     *(s32 *)((s8 *)arg0 + 0x3C8) = arg4;

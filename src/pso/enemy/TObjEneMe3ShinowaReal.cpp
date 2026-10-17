@@ -143,7 +143,7 @@ s32 TObjEneMe3ShinowaReal::get_or_create_mirage(s32 arg1) {
     Obj_800E4554 *arg0 = (Obj_800E4554 *)this;
     s32 r;
     if (arg0->slots[arg1] == 0xFFFF) {
-        u16 t = arg0->f1C;
+        u16 t = this->m_1c;
         s32 n = arg1 + 1;
         r = create__23TObjEneMe3ShinowaMirageFPvPv(arg0, (u16)(t + n), arg0->f2C + n, t);
         if (r != 0) {

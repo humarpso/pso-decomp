@@ -12,7 +12,8 @@ public:
     f32 m_58;
     u8 unk_5C[0x4];
     s32 m_60;
-    u8 unk_64[0x8];
+    u8 unk_64[0x4];
+    s32 m_68;
 };
 typedef char TUnk_80491460_size[sizeof(TUnk_80491460) == 0x6C ? 1 : -1];
 

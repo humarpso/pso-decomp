@@ -1002,7 +1002,7 @@ void TUnk_80493450::link_into_group_chain() {
     Ply_800F7118 *q;
     Ply_800F7118 *r;
     u16 id;
-    if (self->f36C > 0 && self->f340 == NULL && self->f344 == NULL) {
+    if (*(s32 *)&this->state36C > 0 && *(Ply_800F7118 * *)&this->group == NULL && *(Ply_800F7118 * *)&this->previous == NULL) {
         head = NULL;
         tail = NULL;
         for (i = lbl_805D586C; i < lbl_805D586C + lbl_805D5870; i++) {
@@ -1017,10 +1017,10 @@ void TUnk_80493450::link_into_group_chain() {
             if (p->f30 & 0x800) {
                 continue;
             }
-            if (p->f36C != self->f36C || p->f28 != self->f28) {
+            if (p->f36C != *(s32 *)&this->state36C || p->f28 != self->f28) {
                 continue;
             }
-            switch (self->f334) {
+            switch (*(s32 *)&this->subtype) {
             case 2:
                 switch (p->f334) {
                 case 2:
@@ -1072,10 +1072,10 @@ void TUnk_80493450::link_into_group_chain() {
             }
         }
         if (head != NULL) {
-            self->f340 = head;
+            *(Ply_800F7118 * *)&this->group = head;
             head->prev = self;
         } else if (tail != NULL) {
-            self->f344 = tail;
+            *(Ply_800F7118 * *)&this->previous = tail;
             tail->next = self;
         }
     }

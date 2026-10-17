@@ -69,13 +69,13 @@ void TObjPlayer::update_homing_shot() {
         return;
     }
     obj = find_active_entity_by_id(arg0->owner);
-    switch (arg0->state) {
+    switch (*(s32 *)&this->m_fc) {
     case 0:
-        arg0->timer--;
-        if (arg0->timer <= 0) {
-            arg0->timer = 0;
+        this->m_ec--;
+        if (this->m_ec <= 0) {
+            this->m_ec = 0;
             VecCopy((Vec *)&arg0->pos, (const Vec *)arg0->target);
-            arg0->state = 1;
+            *(s32 *)&this->m_fc = 1;
             play_sound_effect(0x4003A328, &arg0->pos, 0, 0);
             return;
         }
@@ -84,8 +84,8 @@ void TObjPlayer::update_homing_shot() {
         }
         return;
     case 1:
-        arg0->timer++;
-        if (arg0->timer >= 0x5A) {
+        this->m_ec++;
+        if (this->m_ec >= 0x5A) {
             queue_destruction__7TObjectFv(arg0);
             return;
         }

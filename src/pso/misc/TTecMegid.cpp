@@ -286,11 +286,11 @@ void TTecMegid::spawn_particle_emitters() {
   sp8.a = self->f54;
   sp8.b = 0;
   sp8.c = self->f5c;
-  self->emitters = mem_alloc(TTecMegid__emitter_bands[self->band].count * 4, self->f54);
-  for (i = 0; i < ((Data_802351B4 *) TTecMegid__emitter_bands)[self->band].count; i++)
+  self->emitters = mem_alloc(TTecMegid__emitter_bands[this->band].count * 4, self->f54);
+  for (i = 0; i < ((Data_802351B4 *) TTecMegid__emitter_bands)[this->band].count; i++)
   {
     mode = 0;
-    row = &((Data_802351B4 *) TTecMegid__emitter_bands)[self->band].rows[i];
+    row = &((Data_802351B4 *) TTecMegid__emitter_bands)[this->band].rows[i];
     flags = row->flags;
     if (flags & 0x1000)
     {
@@ -306,14 +306,14 @@ void TTecMegid::spawn_particle_emitters() {
     }
     if (self->emitters[i] != 0)
     {
-      row = &((Data_802351B4 *) TTecMegid__emitter_bands)[self->band].rows[i];
+      row = &((Data_802351B4 *) TTecMegid__emitter_bands)[this->band].rows[i];
       if (row->flags & 0x40)
       {
         ((TObjPlayer *)(self->emitters[i]))->set_position_xy(row->scale, row->scale);
       }
-      if (((Data_802351B4 *) TTecMegid__emitter_bands)[self->band].rows[i].flags & 0x20)
+      if (((Data_802351B4 *) TTecMegid__emitter_bands)[this->band].rows[i].flags & 0x20)
       {
-        new_var = ((Data_802351B4 *) TTecMegid__emitter_bands)[self->band].rows[i].flags >> 16;
+        new_var = ((Data_802351B4 *) TTecMegid__emitter_bands)[this->band].rows[i].flags >> 16;
         attach_particle_model(self->emitters[i], get_bml_model(technique_effect_bml, new_var), lbl_805D63B0, 0, 1, lbl_805DC880);
       }
     }

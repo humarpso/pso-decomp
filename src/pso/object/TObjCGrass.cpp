@@ -131,13 +131,13 @@ void* fn_800B8B00(void* p) { return (char*)p + 0x3e8; }
 void TObjCGrass::render() {
     Obj_800B8B08 *arg0 = (Obj_800B8B08 *)this;
     s32 i;
-    TObjFish::set_global_param(arg0->f24);
-    for (i = 0; i < arg0->count; i++) {
+    TObjFish::set_global_param(this->texture_id);
+    for (i = 0; i < *(s32 *)&this->m_104; i++) {
         if (!(arg0->recs[i].flags & 1)) {
             push_matrix_from(0);
             translate_matrix_vec3((u8 *)(0), (u8 *)&arg0->recs[i]);
             rotate_matrix_y(0, arg0->recs[i].f18);
-            draw_model_motion((void *)arg0->f34, (void *)arg0->ff8, arg0->fc0);
+            draw_model_motion((void *)arg0->f34, (void *)*(s32 *)&this->unknownF8, this->m_c0);
             TObjPlayer::reset_transform_state();
             pop_matrices(1);
         }

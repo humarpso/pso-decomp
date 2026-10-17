@@ -148,7 +148,7 @@ void TObjPlayer::trigger_targets_action() {
     s32 i;
     self->timer = 0x78;
     self->mode = 6;
-    for (i = 0; i < self->count; i++) {
+    for (i = 0; i < this->m_37c; i++) {
         void *e = get_enemy_entity(self->ids[i]);
         if (e != 0) {
             ((TObjPlayer *)e)->trigger_action_if_not_flagged();

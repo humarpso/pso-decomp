@@ -57,13 +57,13 @@ void *lbl_804EFC90[6] = {
 #define lbl_804EFC90 ((s32 *)lbl_804EFC90)
 
 u8 TWindowDD_WS_Word::sub_80342254() {
-    O_80342254 *self = (O_80342254 *)this;
-    return !(self->f & 1);
+    TWindowDD_WS_Word *self = this;
+    return !(self->m_60 & 1);
 }
 
 u8 TWindowDD_WS_Word::sub_80342268() {
-    O_80342268 *self = (O_80342268 *)this;
-    return !(self->f & 1);
+    TWindowDD_WS_Word *self = this;
+    return !(self->m_60 & 1);
 }
 
 void *TWindowDD_WS_Word::destroy(s16 arg1) {

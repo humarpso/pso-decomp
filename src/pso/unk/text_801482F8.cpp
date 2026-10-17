@@ -559,8 +559,8 @@ void TObjNpcBase::update_wandering() {
         pop_matrix();
         v.x = v.x * *(f32 *)((s8 *)arg0 + 0x354);
         v.z = v.z * *(f32 *)((s8 *)arg0 + 0x354);
-        vec3_add_to(&v, arg0 + 0x50);
-        if (lbl_805DB1D4 < horizontal_distance_squared(&v, arg0 + 0x38)) {
+        vec3_add_to(&v, (u8 *)&this->m_50);
+        if (lbl_805DB1D4 < horizontal_distance_squared(&v, (u8 *)&this->position)) {
             Vec_801489B8 d = v;
             select_enemy_destination(arg0, &d, 0);
             *(f32 *)((s8 *)arg0 + 0x308) = this->m_310 = lbl_805DB1C4;
@@ -579,7 +579,7 @@ void TObjNpcBase::update_wandering() {
             this->play_voice();
         }
         {
-            f32 dist = horizontal_distance_squared(arg0 + 0x29C, arg0 + 0x2FC);
+            f32 dist = horizontal_distance_squared((u8 *)&this->m_29c, (u8 *)&this->m_2fc);
             r = *(f32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 4) + *(f32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0xC);
             if (dist < r * r || (*(u32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0x18) & 0x380000)) {
                 this->phase = 3;

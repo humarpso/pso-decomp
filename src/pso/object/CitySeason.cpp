@@ -1467,9 +1467,9 @@ s32 TUnk_804B5E48::advance_anim_time(s32 arg1, f32 farg0) {
     a = (Anim_80184A08 *)((u32 (*)(void *))get_anim_frame__13TUnk_804B5E48Fv)(arg0);
     if (a != NULL) {
         lim = (a->ents[arg1].info->n - 1);
-        arg0->t += farg0;
-        if (arg0->t >= lim) {
-            arg0->t -= lim;
+        this->m_b0 += farg0;
+        if (this->m_b0 >= lim) {
+            this->m_b0 -= lim;
         }
         return 1;
     }

@@ -16,7 +16,8 @@ struct TOCtrlDubchik : public TObjEnemy {
     virtual s32 try_start_action(s32, s32);
     virtual s32 select_melee_contact_body(void *, f32);
     virtual void render();
-    u8 unk_374[0x8];
+    u8 unk_374[0x4];
+    f32 m_378;
     f32 m_37c;
     u32 m_380;
     u8 unk_384[0x4];

@@ -105,23 +105,23 @@ void TOTrap::vfunc_81() {
     u8 *pl;
     Obj_80178CF8 *self = (Obj_80178CF8 *)this;
     calc_attach_pos__13TUnk_804806E8Fv();
-    self->idx = find_nearest_visible_player(self, 0, self->x334);
-    if (self->idx != 0xFFFF) {
-        pl = (u8 *)get_player_by_client_id(self->idx);
-        self->target = pl;
-        if (self->target != 0) {
-            if (horizontal_distance_squared(self->target + 0x38, self->pos) < self->range * self->range) {
-                self->state = 3;
+    this->player = find_nearest_visible_player(self, 0, this->range);
+    if (this->player != 0xFFFF) {
+        pl = (u8 *)get_player_by_client_id(this->player);
+        this->target = pl;
+        if (this->target != 0) {
+            if (horizontal_distance_squared(this->target + 0x38, self->pos) < this->dist * this->dist) {
+                this->mode = 3;
                 if (is_locally_controlled__10TObjPlayerFPv((int)pl) != 0) {
-                    ((void (*)(f32, void *, void *, s32, int))send_6x2C_impose_hold)(self->range, pl, self->pos, self->x84, 0);
+                    ((void (*)(f32, void *, void *, s32, int))send_6x2C_impose_hold)(this->dist, pl, self->pos, this->m_84, 0);
                 }
             } else {
-                self->idx = 0xFFFF;
-                self->target = 0;
+                this->player = 0xFFFF;
+                this->target = 0;
             }
         }
     } else {
-        self->target = 0;
+        this->target = 0;
     }
 }
 
@@ -134,19 +134,19 @@ void TOTrap::submit_cursor_and_notify() {
 void TOTrap::find_target_player() {
     Obj_80178E10 *arg0 = (Obj_80178E10 *)this;
     calc_attach_pos();
-    arg0->idx = find_nearest_visible_player(arg0, 0, arg0->range);
-    if (arg0->idx != (u16)0xFFFF) {
-        arg0->target = (u8 *)get_player_by_client_id(arg0->idx);
-        if (arg0->target != 0) {
-            if (horizontal_distance_squared(arg0->target + 0x38, (u8 *)arg0 + 0x38) < arg0->range * arg0->range) {
-                arg0->state = 2;
+    this->player = find_nearest_visible_player(arg0, 0, this->range);
+    if (this->player != (u16)0xFFFF) {
+        this->target = (u8 *)get_player_by_client_id(this->player);
+        if (this->target != 0) {
+            if (horizontal_distance_squared(this->target + 0x38, (u8 *)arg0 + 0x38) < this->range * this->range) {
+                this->mode = 2;
             }
         } else {
-            arg0->idx = 0xFFFF;
-            arg0->target = 0;
+            this->player = 0xFFFF;
+            this->target = 0;
         }
     } else {
-        arg0->target = 0;
+        this->target = 0;
     }
 }
 

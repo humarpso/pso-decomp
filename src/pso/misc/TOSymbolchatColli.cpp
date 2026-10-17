@@ -108,9 +108,9 @@ typedef struct Obj_8017873C Obj_8017873C;
 void TOSymbolchatColli::init_collision_params() {
   Obj_8017873C *self = (Obj_8017873C *) this;
   s32 i;
-  self->radiusSq = self->radius * self->radius;
+  self->radiusSq = this->scale * this->scale;
   memset(self->coll, 0, 0x24);
-  self->y358 = self->y3c / lbl_805DBA28;
+  this->m_358 = self->y3c / lbl_805DBA28;
   ((TUnk_804806E8 *)self)->set_motion_params(self->coll);
   for (i = 0; i < 3; i++)
   {

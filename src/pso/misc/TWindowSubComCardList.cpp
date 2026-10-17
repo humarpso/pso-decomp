@@ -259,22 +259,22 @@ void TUnk_804D1160::run_task() {
             TWindow__close((u8 *)self->f2c);
             self->f2c = NULL;
         }
-        ((TWindowSubCustomEquip *)(self->f28))->clear_flag_and_set_entry_state();
+        ((TWindowSubCustomEquip *)(*(s32 *)&this->m_28))->clear_flag_and_set_entry_state();
         self->state = 2;
     case 2:
-        ((TWindowSubCustomEquip *)(self->f28))->get_cursor_pos(&ev);
+        ((TWindowSubCustomEquip *)(*(s32 *)&this->m_28))->get_cursor_pos(&ev);
         ((TUnk_804D1160 *)self)->update_customize_help_text(&ev);
-        if (TWindowSubCustomEquip__sub_80275DA8((void *)self->f28) != 0) {
+        if (TWindowSubCustomEquip__sub_80275DA8((void *)*(s32 *)&this->m_28) != 0) {
             self->f24->v7();
             self->state = 5;
-        } else if (((TWindowSubCustomEquip *)(self->f28))->is_selected() != 0) {
+        } else if (((TWindowSubCustomEquip *)(*(s32 *)&this->m_28))->is_selected() != 0) {
             self->state = 3;
         }
         break;
     case 3:
         p = __nw__7TObjectFUl(0x84);
         if (p != NULL) {
-            p = TWindowSubCustomSelect__ct((TWindowSubCustomSelect *)((u8 *)p), self->f20);
+            p = TWindowSubCustomSelect__ct((TWindowSubCustomSelect *)((u8 *)p), this->m_20);
         }
         self->f2c = p;
         TWindowSubEquip__sub_80263AF8((u8 *)self->f24, 1);
@@ -287,7 +287,7 @@ void TUnk_804D1160::run_task() {
         }
         if (((TWindowSubCustomSelect *)(self->f2c))->is_active() != 0) {
             Ev_802758C8 *e = calc_equip_index__21TWindowSubCustomEquipFv(self->f2c);
-            ((TWindowSubCustomEquip *)(self->f28))->toggle_action_binding(e);
+            ((TWindowSubCustomEquip *)(*(s32 *)&this->m_28))->toggle_action_binding(e);
             self->state = 1;
         }
         break;

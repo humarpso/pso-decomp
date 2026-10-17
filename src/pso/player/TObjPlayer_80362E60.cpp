@@ -121,8 +121,8 @@ extern s32 lbl_804F27E0[];
 void TUnk_804F27E0::emit_marker_effects() {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
-    ((VObj_18_f1aa6a *)((u8 *)(*(u8 **)((s8 *)arg0 + 0xF0))))->m63(0x30, &sp8);
-    if (get_validated_attack_stage(*(u8 **)((s8 *)arg0 + 0xF0) + 0x7CC) == 2) {
+    ((VObj_18_f1aa6a *)((u8 *)(*(u8 * *)&this->player)))->m63(0x30, &sp8);
+    if (get_validated_attack_stage(*(u8 * *)&this->player + 0x7CC) == 2) {
         fire_shot_at_target__11TItemWeaponFv(arg0, &sp8, (int) (*(s32 *)((s8 *)arg0 + 0xF4)), 0);
         fire_shot_at_target__11TItemWeaponFv(arg0, &sp8, (int) (*(s32 *)((s8 *)arg0 + 0xF4)), 0x1555);
         fire_shot_at_target__11TItemWeaponFv(arg0, &sp8, (int) (*(s32 *)((s8 *)arg0 + 0xF4)), -0x1555);

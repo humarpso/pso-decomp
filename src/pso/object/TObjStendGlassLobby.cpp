@@ -68,10 +68,10 @@ void TObjStendGlassLobby::run_task() {
     if (TObjPlayer::check_demo_mode() == 1) {
         ((void (*)(void *))TObjStendGlassLobby__sub_803596C0)(self);
     }
-    switch (self->state) {
+    switch (*(s32 *)&this->m_c8) {
     case 0:
-        if (self->flag == TLobby::get_filtered_event_theme()) {
-            self->state = 2;
+        if (*(s32 *)&this->m_d0 == TLobby::get_filtered_event_theme()) {
+            *(s32 *)&this->m_c8 = 2;
         }
         break;
     case 2:
@@ -80,7 +80,7 @@ void TObjStendGlassLobby::run_task() {
         self->val += 0.1f;
         if (self->val >= lim) {
             self->val = lim;
-            self->state = 3;
+            *(s32 *)&this->m_c8 = 3;
         }
         }
         break;
@@ -90,14 +90,14 @@ void TObjStendGlassLobby::run_task() {
         self->val -= 0.1f;
         if (self->val <= lim) {
             self->val = lim;
-            self->state = 0;
+            *(s32 *)&this->m_c8 = 0;
         }
         }
         break;
     case 3:
     default:
-        if (self->flag != TLobby::get_filtered_event_theme()) {
-            self->state = 1;
+        if (*(s32 *)&this->m_d0 != TLobby::get_filtered_event_theme()) {
+            *(s32 *)&this->m_c8 = 1;
         }
         break;
     }

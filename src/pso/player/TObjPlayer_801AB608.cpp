@@ -309,13 +309,13 @@ void TPhotonGolla::collect_hit_targets(void *arg0) {
 
 void TPhotonGolla::render() {
     Self_801ABAA0 *self = (Self_801ABAA0 *)this;
-    if (self->started != 0) {
+    if (this->m_1c4 != 0) {
         scroll_strip_uvs(golla_photon_blast_buffer_pair, self->f14C, 0);
         TParticleCtrl::begin_effect_render();
-        TObjFish::set_global_param(self->f24);
+        TObjFish::set_global_param(this->texture_id);
         push_matrix();
         post_translate_matrix(&self->pos);
-        rotate_matrix_y(0, self->f60);
+        rotate_matrix_y(0, this->rotation_y);
         ((TUnk_804C3248 *)self)->set_photon_blast_joint_callback();
         lbl_805D5660 = model_render_flags;
         ((TRaderMapCore *)(&saved_model_draw_color))->copy_vec4(&model_material_color);

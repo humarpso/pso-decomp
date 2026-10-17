@@ -187,8 +187,8 @@ void TAdDialingGC::update_selection() {
 
 void TAdDialingGC::update_state_display() {
     Obj_803285C0 *arg0 = (Obj_803285C0 *)this;
-    if (arg0->mode == 2) {
-        switch (arg0->state) {
+    if (*(s32 *)&this->m_20 == 2) {
+        switch (*(s16 *)&this->m_30) {
         case 0:
             ((TAdDialingGC *)arg0)->update_status_display();
             break;
@@ -205,8 +205,8 @@ void TAdDialingGC::update_state_display() {
             break;
         }
     }
-    if (arg0->mode == 1) {
-        switch (arg0->state) {
+    if (*(s32 *)&this->m_20 == 1) {
+        switch (*(s16 *)&this->m_30) {
         case 0:
             TAdDialingGC::update_dialing_display(0x17);
             break;

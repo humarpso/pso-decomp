@@ -90,10 +90,10 @@ void TBoss6Type2::send_state_action() {
 void TBoss6Type2::reset_timers_and_spawn_particle() {
     S_802BF6CC *arg0 = (S_802BF6CC *)this;
     arg0->f45C = 0x4B;
-    arg0->f460 = 0x4B;
+    this->m_460 = 0x4B;
     arg0->f504 = 0;
     TBoss6Type2__sub_802BB7C0(arg0);
-    switch (arg0->f374) {
+    switch (*(s32 *)&this->m_374) {
     case 9:
     case 10:
     case 11:

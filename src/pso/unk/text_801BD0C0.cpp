@@ -144,18 +144,18 @@ void TObjPlayer::apply_motion_entry() {
     Player_801BD0C0 *self = (Player_801BD0C0 *)this;
     Anim_801BD0C0 *a;
     ((TObjMotion *)self)->set_field_d8(self->ctrl->m5(((TObjPlayer *)self)->has_valid_handle(), get_handle_value__10TObjPlayerFv(self)));
-    ((TObjMotion *)self)->update_animation_frame(self->anim);
-    a = get_anim_entry__10TObjMotionFi(self, self->anim);
-    self->speed = a->speed;
+    ((TObjMotion *)self)->update_animation_frame(this->m_b8);
+    a = get_anim_entry__10TObjMotionFi(self, this->m_b8);
+    this->m_c8 = a->speed;
     self->fid = a->id;
     self->end = self->motion->frames;
-    self->fb0 &= ~4;
-    self->fb4 = a->flags;
-    if (self->fb4 & 0x20000000) {
+    this->animationFlags &= ~4;
+    this->m_b4 = a->flags;
+    if (this->m_b4 & 0x20000000) {
         ((TObjMotion *)self)->set_motion_interpolation_flag();
     }
-    if (self->frame >= self->end) {
-        self->frame = TObjPlayer__data_805DC278;
+    if (this->m_c0 >= self->end) {
+        this->m_c0 = TObjPlayer__data_805DC278;
     }
 }
 

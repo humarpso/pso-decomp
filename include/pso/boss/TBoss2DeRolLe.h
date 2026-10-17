@@ -20,7 +20,9 @@ struct TBoss2DeRolLe : public TObjEneDD_ST {
     virtual void vfunc_63();
     virtual void vfunc_61();
     void clear_play_flags();
-    u8 unk_374[0x30];
+    u8 unk_374[0x8];
+    f32 m_37c;
+    u8 unk_380[0x24];
     u32 m_3c0;
     u32 m_3c4;
     u32 m_3c8;

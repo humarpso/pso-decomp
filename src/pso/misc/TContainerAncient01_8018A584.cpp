@@ -417,7 +417,7 @@ s32 TContainerAncient01R::sub_8018A688() {
     u32 rem;
 
     advance_animation_playback(self);
-    if (TContainerAncient01__data_805DBD20 == self->x2b4) {
+    if (TContainerAncient01__data_805DBD20 == this->m_2b4) {
         switch (TOKeyMachine01::get_global_state()) {
         case 0x17:
         case 0x18:
@@ -437,23 +437,23 @@ s32 TContainerAncient01R::sub_8018A688() {
             break;
         }
     }
-    if (TContainerAncient01__data_805DBD20 == self->x2b4 || lbl_805DBD24 == self->x2b4 || lbl_805DBD28 == self->x2b4) {
+    if (TContainerAncient01__data_805DBD20 == this->m_2b4 || lbl_805DBD24 == this->m_2b4 || lbl_805DBD28 == this->m_2b4) {
         TContainerAncient01::trigger_spawn(self, self->x354, (void *)0x7D);
     }
-    if (lbl_805DBD2C == self->x2b4) {
+    if (lbl_805DBD2C == this->m_2b4) {
         TContainerAncient01::trigger_spawn(self, self->x348, (void *)0x7E);
     }
-    period = __cvt_fp2unsigned(lbl_805DBD30 / self->x370);
-    t = self->x2b4;
+    period = __cvt_fp2unsigned(lbl_805DBD30 / this->m_370);
+    t = this->m_2b4;
     rem = (u32)t % period;
     if (lbl_805DBD28 < t && t < TContainerAncient01__data_805DBD34 && rem == 0) {
         TContainerAncient01::trigger_spawn(self, self->x354, (void *)0x7E);
     }
-    if (TContainerAncient01__data_805DBD34 < self->x2b4 && rem == 0) {
+    if (TContainerAncient01__data_805DBD34 < this->m_2b4 && rem == 0) {
         TContainerAncient01::trigger_spawn(self, self->x348, (void *)0x7E);
     }
-    TContainerAncient01__sub_8018A584((Obj_8018A584 *)self, self->x344);
-    if (self->x340 <= self->x2b4) {
+    TContainerAncient01__sub_8018A584((Obj_8018A584 *)self, this->m_344);
+    if (self->x340 <= this->m_2b4) {
         ((TContainerAncient01R *)self)->reset_hp();
     }
 }
@@ -463,7 +463,7 @@ void TContainerAncient01R::update_spawning() {
   advance_animation_playback(arg0);
   if ((__cvt_fp2unsigned(this->m_2b4) % 15) == 0)
   {
-    TContainerAncient01::trigger_spawn(arg0, arg0 + 0x348, (void *) 0x7D);
+    TContainerAncient01::trigger_spawn(arg0, (u8 *)&this->unk_348, (void *) 0x7D);
   }
   if (TContainerAncient01__data_805DBD34 <= (this->m_2b4))
   {
@@ -482,7 +482,7 @@ void TContainerAncient01R::check_open_trigger() {
 
     advance_animation_playback(self);
     hit = 0;
-    if (self->x33c <= self->x2b4) {
+    if (this->m_33c <= this->m_2b4) {
         hit = 1;
     } else {
         range = lbl_805DBD38;
@@ -494,9 +494,9 @@ void TContainerAncient01R::check_open_trigger() {
         }
     }
     if (hit != 0) {
-        self->state = 1;
-        self->xb8 = self->state;
-        self->x2b4 = TContainerAncient01__data_805DBD1C;
+        this->mode = 1;
+        this->m_b8 = this->mode;
+        this->m_2b4 = TContainerAncient01__data_805DBD1C;
     }
 }
 
@@ -740,7 +740,7 @@ void TContainerAncient01::sub_8018B284() {
     u32 phase;
     f32 t;
     advance_animation_playback(self);
-    if (TContainerAncient01__data_805DBD20 == self->f2B4) {
+    if (TContainerAncient01__data_805DBD20 == this->m_2b4) {
         switch (TOKeyMachine01::get_global_state()) {
         case 0x17:
         case 0x18:
@@ -760,22 +760,22 @@ void TContainerAncient01::sub_8018B284() {
             break;
         }
     }
-    if (TContainerAncient01__data_805DBD20 == self->f2B4 || lbl_805DBD24 == self->f2B4 || lbl_805DBD28 == self->f2B4) {
+    if (TContainerAncient01__data_805DBD20 == this->m_2b4 || lbl_805DBD24 == this->m_2b4 || lbl_805DBD28 == this->m_2b4) {
         TContainerAncient01::spawn_effect(self, self->f350, (void *)0x7D);
     }
-    if (lbl_805DBD2C == self->f2B4) {
+    if (lbl_805DBD2C == this->m_2b4) {
         TContainerAncient01::spawn_effect(self, self->f344, (void *)0x7E);
     }
     period = (u32)(lbl_805DBD30 / (f32)self->f36C);
-    phase = (u32)(t = self->f2B4) % period;
+    phase = (u32)(t = this->m_2b4) % period;
     if (lbl_805DBD28 < t && t < TContainerAncient01__data_805DBD34 && phase == 0) {
         TContainerAncient01::spawn_effect(self, self->f350, (void *)0x7E);
     }
-    if (TContainerAncient01__data_805DBD34 < self->f2B4 && phase == 0) {
+    if (TContainerAncient01__data_805DBD34 < this->m_2b4 && phase == 0) {
         TContainerAncient01::spawn_effect(self, self->f344, (void *)0x7E);
     }
     TContainerAncient01__sub_8018B180((Obj_8018B180 *)self, self->f340);
-    if (self->f33C <= self->f2B4) {
+    if (this->m_33c <= this->m_2b4) {
         ((TContainerAncient01 *)self)->reset_state();
     }
 }
@@ -807,7 +807,7 @@ void TContainerAncient01::update_wait_for_player() {
     f32 c;
     advance_animation_playback(arg0);
     flag = 0;
-    if (arg0->f338 <= arg0->f2B4) {
+    if (arg0->f338 <= this->m_2b4) {
         flag = 1;
     } else {
         c = lbl_805DBD38;
@@ -819,9 +819,9 @@ void TContainerAncient01::update_wait_for_player() {
         }
     }
     if (flag != 0) {
-        arg0->state = 1;
-        arg0->fB4[2] = arg0->state;
-        arg0->f2B4 = (*(const f32 *)&TContainerAncient01__data_805DBD1C);
+        this->mode = 1;
+        arg0->fB4[2] = this->mode;
+        this->m_2b4 = (*(const f32 *)&TContainerAncient01__data_805DBD1C);
     }
 }
 

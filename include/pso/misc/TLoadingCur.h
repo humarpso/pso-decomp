@@ -8,7 +8,9 @@ struct TLoadingCur : public TObject {
     virtual ~TLoadingCur();
     int sub_8001CCD4();
     void update_camera_facing_offset();
-    u8 unk_1C[0xC];
+    u8 unk_1C[0x4];
+    f32 m_20;
+    u8 unk_24[0x4];
     void* m_44;
     u8 _pad48[0x8];
     void* m_50;
@@ -16,7 +18,9 @@ struct TLoadingCur : public TObject {
     void render();
     void run_task();
     u8 is_flag_set();
-    u8 unk_38[0x1C];
+    u8 unk_38[0x4];
+    f32 m_3c;
+    u8 unk_40[0x14];
     f32 m_54;
     u8 unk_58[0x4];
 };

@@ -61,9 +61,9 @@ void TAdMultiConfirmGC::run_task() {
     Obj_802FF87C *arg0 = (Obj_802FF87C *)this;
     u32 j;
     u32 i;
-    switch (arg0->state) {
+    switch (*(s32 *)&this->m_1c) {
     case 0:
-        arg0->state = 1;
+        *(s32 *)&this->m_1c = 1;
         break;
     case 1:
         for (i = 0; i < 4; i++) {
@@ -71,30 +71,30 @@ void TAdMultiConfirmGC::run_task() {
                 ((TAdMultiPlyChrSelectGC *)(arg0->players[i]))->set_field_100(2);
             }
         }
-        arg0->state = 2;
+        *(s32 *)&this->m_1c = 2;
         break;
     case 2:
         i = 1;
-        for (j = 0; j < arg0->count; j++) {
+        for (j = 0; j < this->m_20; j++) {
             if (arg0->players[j] != NULL && fn_802E0454(arg0->players[j]) == 0) {
                 i = 0;
                 break;
             }
         }
         if ((s32)i == 1) {
-            for (i = 0; i < arg0->count; i++) {
+            for (i = 0; i < this->m_20; i++) {
                 if (arg0->players[i] != NULL) {
                     TAdMultiConfirmGC__sub_802E0448(arg0->players[i]);
                     TAdMultiConfirmGC__sub_802E03D0(arg0->players[i]);
                 }
             }
-            arg0->state = 3;
+            *(s32 *)&this->m_1c = 3;
         }
         break;
     case 3:
-        if (multi_confirm_cancel_requested((void *)arg0->x48) != 0) {
+        if (multi_confirm_cancel_requested((void *)*(s32 *)&this->m_48) != 0) {
             TAdMultiChgGameModeGC::set_change_game_mode();
-        } else if (are_all_entries_finished(arg0->x48) != 0) {
+        } else if (are_all_entries_finished(*(s32 *)&this->m_48) != 0) {
             TAdMultiChgGameModeGC::set_state_0xc();
         }
         break;

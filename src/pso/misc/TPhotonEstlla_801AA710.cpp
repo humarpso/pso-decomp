@@ -99,7 +99,7 @@ void TPhotonEstlla::spawn_line() {
     Vec_801AA710 forward;
     Vec_801AA710 direction;
     u32 line;
-    owner = (Owner_801AA710 *)find_entity_by_id(self->id);
+    owner = (Owner_801AA710 *)find_entity_by_id(this->m_17c);
     forward.x = lbl_805DC138;
     forward.y = lbl_805DC138;
     forward.z = lbl_805DC13C;
@@ -113,23 +113,23 @@ void TPhotonEstlla::spawn_line() {
         Packet_801AA710 packet = photon_estlla_line_packet_init;
         *(Vec_801AA710 *)&packet.w[0] = self->pos;
         *(Vec_801AA710 *)&packet.w[3] = direction;
-        *(f32 *)&packet.w[7] = self->f150;
+        *(f32 *)&packet.w[7] = this->m_150;
         line = __nw__7TObjectFUl(0x378);
         if (line) {
-            TPhotonLine__ct((void *)line, &packet, self, self->id);
+            TPhotonLine__ct((void *)line, &packet, self, this->m_17c);
         }
     }
 }
 
 void TPhotonEstlla::render() {
     Self_801AA818 *self = (Self_801AA818 *)this;
-    if (self->started != 0) {
+    if (*(s32 *)&this->m_19c != 0) {
         scroll_strip_uvs(estlla_photon_blast_model, self->f14C, 0);
         TParticleCtrl::begin_effect_render();
-        TObjFish::set_global_param(self->f24);
+        TObjFish::set_global_param(this->texture_id);
         push_matrix();
         translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
-        rotate_matrix_y(0, self->f60);
+        rotate_matrix_y(0, this->rotation_y);
         ((TUnk_804C3248 *)self)->set_photon_blast_joint_callback();
         lbl_805D5660 = model_render_flags;
         ((TRaderMapCore *)(&saved_model_draw_color))->copy_vec4(&model_material_color);

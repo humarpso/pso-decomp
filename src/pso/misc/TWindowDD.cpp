@@ -1,4 +1,5 @@
 #include "pso/misc/TWindowDD.h"
+#include "pso/misc/TUnk_804EFBAC.h"
 
 #include "types.h"
 
@@ -114,7 +115,6 @@ extern "C" {
 void update_draw__9TWindowDDFPv(void* p) { ((TWindowDD *)p)->initialize_subwindow(); update_fade__13TUnk_804CE018Fv(p); }
 
 void TWindowDD::set_clamped_page(s32 arg1) {
-    u8 *arg0 = (u8 *)this;
     if (arg1 < 0) {
         this->m_80 = 0;
         return;
@@ -178,7 +178,6 @@ void *lbl_804EFBAC[7] = {
 #define lbl_804EFBAC ((s32 *)lbl_804EFBAC)
 
 void TWindowDD::set_clamped_selection(s32 arg1) {
-    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 var_r4;
     var_r4 = arg1;
@@ -238,7 +237,6 @@ void TWindowDD::init() { initialize_subwindow(); update_fade__13TUnk_804CE018Fv(
 extern const f32 lbl_805DFC6C;
 
 void TWindowDD::set_value_f32(s32 arg1) {
-    u8 *arg0 = (u8 *)this;
     *(f32 *)&this->m_88 = (f32) arg1;
 }
 

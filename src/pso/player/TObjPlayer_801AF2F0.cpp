@@ -4028,18 +4028,18 @@ void TObjPlayer__sub_801B2014(s32 arg0) {
 }
 
 void TObjPlayer::sync_status_effect_flags() {
-    Player_801B21AC *self = (Player_801B21AC *)this;
+    TObjPlayer *self = this;
     Item_801B21AC item;
     u32 diff;
     item.val = TObjPlayer__data_805DC278;
-    diff = (self->prev ^ self->flags) & 0x3F;
+    diff = (self->m_3cc ^ self->actorFlags) & 0x3F;
     if (diff != 0) {
         if (diff & 3) {
-            if (self->flags & 3) {
-                if (self->flags & 1) {
+            if (self->actorFlags & 3) {
+                if (self->actorFlags & 1) {
                     item.id = 0xF;
                 }
-                if (self->flags & 2) {
+                if (self->actorFlags & 2) {
                     item.id = 0x10;
                 }
                 ((VObj_801B21AC *)this)->m76(item);
@@ -4049,17 +4049,17 @@ void TObjPlayer::sync_status_effect_flags() {
             }
         }
         if (diff & 0x3C) {
-            if (self->flags & 0x3C) {
-                if (self->flags & 8) {
+            if (self->actorFlags & 0x3C) {
+                if (self->actorFlags & 8) {
                     item.id = 0x11;
                 }
-                if (self->flags & 0x10) {
+                if (self->actorFlags & 0x10) {
                     item.id = 0x12;
                 }
-                if (self->flags & 0x20) {
+                if (self->actorFlags & 0x20) {
                     item.id = 2;
                 }
-                if (self->flags & 4) {
+                if (self->actorFlags & 4) {
                     item.id = 3;
                 }
                 ((VObj_801B21AC *)this)->m76(item);
@@ -4072,7 +4072,7 @@ void TObjPlayer::sync_status_effect_flags() {
             item.id = 7;
             ((VObj_801B21AC *)this)->m76(item);
         }
-        self->prev = self->flags;
+        self->m_3cc = self->actorFlags;
     }
 }
 
@@ -7907,7 +7907,7 @@ void TObjPlayer::init_collision_body() {
     self->body.radius = lbl_805DC2B0;
     self->body.radius2 = lbl_805DC2B0;
     self->body.kind = 0;
-    switch (self->control) {
+    switch (this->m_324) {
     case 1:
     case 2:
         if (get_type__10TObjPlayerFPv(self->f828) == 0) {

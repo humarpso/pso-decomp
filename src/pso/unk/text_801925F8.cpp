@@ -196,14 +196,14 @@ void TObjLazerFenceNorm::select_models() {
     s32 i;
     Node_80192A3C *node;
     s32 j;
-    if (arg0->f8C % 2 == 0) {
-        arg0->fBC = get_bml_model(lazer_fence_norm_bml_resource, 1);
+    if (*(s32 *)&this->m_8c % 2 == 0) {
+        *(Node_80192A3C * *)&this->m_bc = get_bml_model(lazer_fence_norm_bml_resource, 1);
         arg0->fC0 = get_bml_model(lazer_fence_norm_bml_resource, 0);
-        arg0->fC4 = get_bml_motion(lazer_fence_norm_bml_resource, 0);
+        this->m_c4 = get_bml_motion(lazer_fence_norm_bml_resource, 0);
     } else {
-        arg0->fBC = get_bml_model(lazer_fence_norm_bml_resource, 3);
+        *(Node_80192A3C * *)&this->m_bc = get_bml_model(lazer_fence_norm_bml_resource, 3);
         arg0->fC0 = get_bml_model(lazer_fence_norm_bml_resource, 2);
-        arg0->fC4 = get_bml_motion(lazer_fence_norm_bml_resource, 1);
+        this->m_c4 = get_bml_motion(lazer_fence_norm_bml_resource, 1);
     }
     for (j = 0; j < 4; j++) {
         arg0->fC8[j] = 0;

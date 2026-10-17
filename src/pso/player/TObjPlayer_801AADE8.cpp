@@ -96,13 +96,13 @@ void TPhotonFarlla::update_all_slots() {
 }
 void TPhotonFarlla::render() {
     Self_801AAF00 *self = (Self_801AAF00 *)this;
-    if (self->started != 0) {
+    if (this->m_1a0 != 0) {
         scroll_strip_uvs(farlla_photon_blast_model_buffers, self->f14C, 0);
         TParticleCtrl::begin_effect_render();
-        TObjFish::set_global_param(self->f24);
+        TObjFish::set_global_param(this->texture_id);
         push_matrix();
         translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
-        rotate_matrix_y(0, self->f60);
+        rotate_matrix_y(0, this->rotation_y);
         ((TUnk_804C3248 *)self)->set_photon_blast_joint_callback();
         lbl_805D5660 = model_render_flags;
         ((TRaderMapCore *)(&saved_model_draw_color))->copy_vec4(&model_material_color);

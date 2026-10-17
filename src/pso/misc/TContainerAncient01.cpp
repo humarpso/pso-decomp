@@ -639,14 +639,14 @@ f32 TObjContainerJungEnemy::receive_physical_attack(void *, f32) {
     Obj_8018CB44 *arg0 = (Obj_8018CB44 *)this;
     s16 sp8;
     Pkt_8018CB44 pkt;
-    if ((arg0->f1C >= 0x1000U) && (arg0->f80 != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 1) != 0)) {
+    if ((this->m_1c >= 0x1000U) && (arg0->f80 != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 1) != 0)) {
         sp8 = 1;
         ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 0);
         ((TUnk_804AF8A0 *)arg0)->send_object_state_update(&sp8);
         ((TLobby *)(&pkt))->init_packet_67_04();
-        pkt.b = arg0->f1C;
+        pkt.b = this->m_1c;
         pkt.c = get_current_floor();
-        pkt.d = arg0->f84;
+        pkt.d = this->m_84;
         pkt.e = local_client_id;
         ((TLobby *)(&pkt))->byteswap_and_send();
     }
@@ -657,7 +657,7 @@ void TObjContainerJungEnemy::debug_print_item_box_info() {
     Obj_8018CBF0 *self = (Obj_8018CBF0 *)this;
     ((TObjContainerJungEnemy *)self)->load_models();
     TObjNpcEnemy::set_global_count(0xFF00FF);
-    debug_printf_at(0x130020, lbl_80445430, self->id);
+    debug_printf_at(0x130020, lbl_80445430, this->m_84);
     debug_printf_at(0x130021, lbl_8044543C);
     TObjNpcEnemy::set_global_count(0xF0F0F0FF);
 }

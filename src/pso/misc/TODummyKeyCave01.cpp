@@ -114,24 +114,24 @@ void TODummyKeyCave01::run_task() {
     if (TObjPlayer::check_demo_mode() == 1) {
         ((TUnk_804B9870 *)self)->obj_clearFlags30(0x08000000);
     }
-    if (self->f98 < 0x100) {
-        st = is_current_floor_switch_set(self->f98);
-        if (st != self->f9A) {
-            self->f9A = st;
+    if (this->m_98 < 0x100) {
+        st = is_current_floor_switch_set(this->m_98);
+        if (st != this->m_9a) {
+            this->m_9a = st;
             skip = 0;
-            if (self->fC4 == 1 && st == 0) {
+            if (*(s32 *)&this->m_c4 == 1 && st == 0) {
                 skip = 1;
             }
             if (skip == 0) {
                 o = __nw__7TObjectFUl(0x24);
                 if (o != NULL) {
-                    TODummyKeyCave01Sound__ct((void *)o, (s32)self, (s32)self->fC0, (s32)self->fC8);
+                    TODummyKeyCave01Sound__ct((void *)o, (s32)self, (s32)*(s32 *)&this->m_c0, (s32)*(s32 *)&this->m_c8);
                 }
             }
         }
     }
-    if (self->f9A == 1) {
-        self->f24 = self->f94;
+    if (this->m_9a == 1) {
+        this->texture_id = *(s32 *)&this->m_94;
         f32 lo = (-0.7f);
         if (lo < self->fB0) {
             self->fB0 += (-0.023333333f);
@@ -139,32 +139,32 @@ void TODummyKeyCave01::run_task() {
                 self->fB0 = lo;
             }
         }
-        if (self->fCC < 0x2000) {
-            self->fCC = self->fCC + 0x333;
+        if (*(s32 *)&this->m_cc < 0x2000) {
+            *(s32 *)&this->m_cc = *(s32 *)&this->m_cc + 0x333;
         }
     } else {
-        self->f24 = self->f90;
+        this->texture_id = *(s32 *)&this->m_90;
         if (self->fB0 < (0.0f)) {
             self->fB0 = self->fB0 - (-0.023333333f);
             if ((0.0f) < self->fB0) {
                 self->fB0 = (0.0f);
             }
         }
-        if (self->fB8 == 1) {
+        if (*(s32 *)&this->m_b8 == 1) {
             self->fA0 += 0.1f;
             if (1.0f <= self->fA0) {
                 self->fA0 = 1.0f;
-                self->fB8 = 0;
+                *(s32 *)&this->m_b8 = 0;
             }
         } else {
             self->fA0 -= 0.1f;
             if (self->fA0 <= 0.0f) {
                 self->fA0 = 0.0f;
-                self->fB8 = 1;
+                *(s32 *)&this->m_b8 = 1;
             }
         }
-        if (self->fCC > 0) {
-            self->fCC = self->fCC - 0x333;
+        if (*(s32 *)&this->m_cc > 0) {
+            *(s32 *)&this->m_cc = *(s32 *)&this->m_cc - 0x333;
         }
     }
 }

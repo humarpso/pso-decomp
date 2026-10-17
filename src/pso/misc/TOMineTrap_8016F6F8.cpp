@@ -252,12 +252,12 @@ void *__dt__10TOMineTrapFv(void *arg0, s16 arg1) {
 }
 
 s32 TOMine::is_target_in_list(void *obj) {
-    Self_801702C8 *self = (Self_801702C8 *)this;
+    TOMine *self = this;
     if (obj != 0) {
         u32 id = obj_getField1c(obj);
         if (id < 4) {
             Node_801702C8 *n;
-            for (n = self->head; n != 0; n = n->next) {
+            for (n = *(Node_801702C8 * *)&self->m_down; n != 0; n = n->next) {
                 if (((TOMineTrap *)n)->matches_id(id) != 0) {
                     return 1;
                 }

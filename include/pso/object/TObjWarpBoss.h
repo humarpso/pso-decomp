@@ -20,7 +20,8 @@ struct TObjWarpBoss : public TObjAreaWarp {
     s32 are_all_players_in_range();
     s32 sub_8019E418();
     void update_warp_boss_visibility();
-    u8 unk_AC[0x8];
+    u8 unk_AC[0x4];
+    u32 m_b0;
     u32 m_d0;
     u32 m_d4;
     u8 _padD8[0x4];

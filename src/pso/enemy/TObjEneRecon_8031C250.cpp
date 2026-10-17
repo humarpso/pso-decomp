@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneEpsilon.h"
 #include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneGibbles.h"
@@ -404,11 +405,11 @@ void run_task__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
 
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xB8) = 1;
+        ((TObjEneRecon *)arg0)->m_b8 = 1;
         ((VObj_8031c7bc *) arg0)->m94();
         *(s32 *)((s8 *)arg0 + 0x444) = (s32) (*(s32 *)((s8 *)arg0 + 0x444) & 0xFFFFFFFE);
         *(s32 *)((s8 *)arg0 + 0x444) = (s32) (*(s32 *)((s8 *)arg0 + 0x444) | 2);
-        *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x01000000);
+        *(s32 *)&((TObjEneRecon *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjEneRecon *)arg0)->actorFlags | 0x01000000);
         ((WObj_8031c7bc *) (arg0 + 0x480))->w2();
         create_timed_particle_emitter((arg0 + 0x38), 0x79, 0, 0xF);
         return;
@@ -781,11 +782,11 @@ void TObjEneRecon__sub_8031C920(u8 *arg0, s32 arg1) {
 void TObjEneRecon__sub_8031CCFC(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xB8) = 1;
+        ((TObjEneEpsilon *)arg0)->m_b8 = 1;
         ((TObjEneDD_ST *)arg0)->vfunc_96();
         *(u32 *)((s8 *)arg0 + 0x444) &= ~1;
         *(u32 *)((s8 *)arg0 + 0x444) |= 2;
-        *(u32 *)((s8 *)arg0 + 0x30) |= 0x01000000;
+        ((TObjEneEpsilon *)arg0)->actorFlags |= 0x01000000;
         *(s32 *)((s8 *)arg0 + 0x474) = 1;
         *(s32 *)((s8 *)arg0 + 0x3C4) = 0;
         *(s32 *)((s8 *)arg0 + 0x3C0) = 0;
@@ -797,7 +798,7 @@ void TObjEneRecon__sub_8031CCFC(u8 *arg0, s32 arg1) {
         }
         switch (*(s32 *)((s8 *)arg0 + 0x3C0)) {
         case 0:
-            if (*(u32 *)((s8 *)arg0 + 0x390) == 0) {
+            if (((TObjEneEpsilon *)arg0)->m_390 == 0) {
                 ((void (*)(void *, s16)) transition_enemy_state)(arg0, 1);
             }
             break;
@@ -817,13 +818,13 @@ void TObjEneRecon__sub_8031CCFC(u8 *arg0, s32 arg1) {
         case 0:
             ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
             ((TObjEneDD *)arg0)->update_velocity();
-            *(s32 *)((s8 *)arg0 + 0x60) = approach_angle_limited(*(s32 *)((s8 *)arg0 + 0x60),
-                (s32)(TObjEneRecon__data_80476110 * atan2_float(*(f32 *)((s8 *)arg0 + 0x3A0), *(f32 *)((s8 *)arg0 + 0x3A8))),
+            ((TObjEneEpsilon *)arg0)->rotation_y = approach_angle_limited(((TObjEneEpsilon *)arg0)->rotation_y,
+                (s32)(TObjEneRecon__data_80476110 * atan2_float(((TObjEneEpsilon *)arg0)->m_3a0, *(f32 *)((s8 *)arg0 + 0x3A8))),
                 0x400);
             (*(s32 *)((s8 *)arg0 + 0x3C4))++;
             if (*(s32 *)((s8 *)arg0 + 0x3C4) > 0xF) {
                 *(s32 *)((s8 *)arg0 + 0x3C0) = 1;
-                *(s16 *)((s8 *)arg0 + 0xB8) = 3;
+                ((TObjEneEpsilon *)arg0)->m_b8 = 3;
                 play_sound_effect(TObjEneRecobox::remap_area_sound_id(0x4003A808), arg0 + 0x38, 0, 0);
             }
             break;

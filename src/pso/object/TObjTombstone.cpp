@@ -159,7 +159,7 @@ void TObjTombstone::build_name_text() {
 
 void TObjTombstone::format_label() {
     Obj_80075C60 *self = (Obj_80075C60 *)this;
-    sprintf(self->buf, lbl_80438808, TQuestVmDownLoadServer__sub_8006EF6C(0x4D), self->val);
+    sprintf(self->buf, lbl_80438808, TQuestVmDownLoadServer__sub_8006EF6C(0x4D), this->m_c4);
     self->buf[0x2F] = 0;
 }
 

@@ -49,11 +49,11 @@ void TBoss7Joint::vfunc_62() {
     s16 temp_r4;
     s32 temp_r31;
 
-    temp_r4 = *(s16 *)((s8 *)((u8 *)this) + 0x32C);
-    temp_r31 = *(s16 *)((s8 *)((u8 *)this) + 0x2B8) - temp_r4;
+    temp_r4 = this->hp;
+    temp_r31 = this->hpmax - temp_r4;
     if (is_part_active__11TBoss7JointFv(this, temp_r4) != 0U) {
         TObjFish__sub_802EC468((s32)(((u8 *)this) + 0x38), lbl_805DEBB0, lbl_805DEBB4);
-        apply_damage_and_set_effect__8TObjFishFl((int) (*(s32 *)((s8 *)((u8 *)this) + 0x10)), temp_r31, (int) (*(u16 *)((s8 *)((u8 *)this) + 0x2D4)));
+        apply_damage_and_set_effect__8TObjFishFl((int) (*(s32 *)((s8 *)((u8 *)this) + 0x10)), temp_r31, (int) (this->m_2d4));
     } else {
         *(s32 *)((s8 *)((u8 *)this) + 0x3C4) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3C4) - temp_r31);
         if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x3C4) <= 0) {
@@ -61,7 +61,7 @@ void TBoss7Joint::vfunc_62() {
             init_boss_stats();
         }
     }
-    *(s16 *)((s8 *)((u8 *)this) + 0x32C) = (s16) *(s16 *)((s8 *)((u8 *)this) + 0x2B8);
+    this->hp = (s16) this->hpmax;
     ((TBoss7DeRolLeC *)(*(s32 *)((s8 *)((u8 *)this) + 0x10)))->set_flag_800();
     clear_attack_receipts();
 }
@@ -73,9 +73,9 @@ void TBoss7Joint::run_task() {
         this->vfunc_83();
         store_position();
         this->vfunc_88();
-        if (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0x18) & 1) {
+        if (*(s32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0x18) & 1) {
             ((TBoss8Dragon *)arg0)->set_player_state_default();
-            add_radar_scaled_marker(arg0 + 0x38, -0x5DB4, 1, 1, lbl_805DEBB8);
+            add_radar_scaled_marker((u8 *)&this->position, -0x5DB4, 1, 1, lbl_805DEBB8);
         }
     }
 }
@@ -117,7 +117,7 @@ u8 *TBoss7Joint__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32 arg5) 
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802EEC60___vt__11TBoss7Joint *)&__vt__11TBoss7Joint).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3FC0;
     ((TObjEneDD *)arg0)->init_common_from(arg1);
-    *(s16 *)((s8 *)arg0 + 0x1C) = arg2;
+    *(s16 *)&((TBoss7Joint *)arg0)->m_1c = arg2;
     *(s16 *)((s8 *)arg0 + 0x2C) = arg3;
     *(s32 *)((s8 *)arg0 + 0x3C0) = arg4;
     *(s32 *)((s8 *)arg0 + 0x3B8) = arg5;
@@ -129,7 +129,7 @@ u8 *TBoss7Joint__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32 arg5) 
 void TBoss7Joint__vt85(void) {  }
 void TBoss7Joint::vfunc_28() {  }
 
-void TBoss7Joint::vfunc_63() { *(u32*)((char*)this + 0x30) &= 0xfffff7ff; }
+void TBoss7Joint::vfunc_63() { this->actorFlags &= 0xfffff7ff; }
 
 void TBoss7Joint::vfunc_61() {  }
 void TBoss7Joint::apply_poison_status() {  }

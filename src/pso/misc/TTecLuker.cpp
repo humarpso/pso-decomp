@@ -563,9 +563,9 @@ void TUnk_804CCA0C::run_task() {
         if (TTecLuker::is_parents_unqueued(self->kids[i]) != 0)
         {
           ((TParticleCtrl *)(self->kids[i]))->enable();
-          if (self->f28 != 0)
+          if (this->m_28 != 0)
           {
-            TTecLuker__sub_80235048(self->f28);
+            TTecLuker__sub_80235048(this->m_28);
           }
         }
       }
@@ -576,9 +576,9 @@ void TUnk_804CCA0C::run_task() {
       if (TTecLuker::is_parents_unqueued(self->kids[i]) != 0)
       {
         ((TParticleCtrl *)(self->kids[i]))->clear_active_flag();
-        if (self->f28 != 0)
+        if (this->m_28 != 0)
         {
-          TTecLuker__sub_8023503C(self->f28);
+          TTecLuker__sub_8023503C(this->m_28);
         }
       }
     }
@@ -591,9 +591,9 @@ void TUnk_804CCA0C::run_task() {
       if (TTecLuker::is_parents_unqueued(self->kids[i]) != 0)
       {
         ((TParticleCtrl *)(self->kids[i]))->enable();
-        if (self->f28 != 0)
+        if (this->m_28 != 0)
         {
-          TTecLuker__sub_80235048(self->f28);
+          TTecLuker__sub_80235048(this->m_28);
         }
       }
     }
@@ -604,9 +604,9 @@ void TUnk_804CCA0C::run_task() {
     if (TTecLuker::is_parents_unqueued(self->kids[i]) != 0)
     {
       ((TParticleCtrl *)(self->kids[i]))->clear_active_flag();
-      if (self->f28 != 0)
+      if (this->m_28 != 0)
       {
-        TTecLuker__sub_8023503C(self->f28);
+        TTecLuker__sub_8023503C(this->m_28);
       }
     }
   }
@@ -709,12 +709,12 @@ void *create_telepipe_visual(void *self, Vec_802347B4 *pos, u32 id, s32 res) {
 #pragma pop
 
 void TTecLuker::vfunc_6(void *o_arg) {
-    G_802346F8 *self = (G_802346F8 *)this;
+    TTecLuker *self = this;
     VObj_802346F8 *o = (VObj_802346F8 *)o_arg;
     P_802346F8 d;
     d.t = 0xE;
     d.v = lbl_805DC858;
-    o->m21(self->f1c, d, 0, -1, -1);
+    o->m21(*(s32 *)&self->source, d, 0, -1, -1);
 }
 
 void TTecLuker::create(void *arg1, void *arg2, void *arg3) {

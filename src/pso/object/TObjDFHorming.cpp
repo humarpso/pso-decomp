@@ -311,20 +311,20 @@ void TBoss4DarkFalz::sub_8004B0F8() {
 }
 
 void TBoss4DarkFalz::send_code_25_4(s32 arg) {
-    Obj_8004B16C *self = (Obj_8004B16C *)this;
+    TBoss4DarkFalz *self = this;
     Msg_8004B16C msg;
     ((TBoss4DarkFalz *)(&msg))->set_code_25_4();
-    msg.id = self->id;
+    msg.id = self->m_1c;
     msg.a = -1;
     msg.b = arg;
     ((TBoss4DarkFalz *)(&msg))->swap_and_send();
 }
 
 void TBoss4DarkFalz::send_action_packet(s32 arg) {
-    Obj_8004B1BC *self = (Obj_8004B1BC *)this;
+    TBoss4DarkFalz *self = this;
     Msg_8004B1BC msg;
     ((TBoss4DarkFalz *)(&msg))->set_code_25_4();
-    msg.id = self->id;
+    msg.id = self->m_1c;
     msg.a = arg;
     msg.b = -1;
     ((TBoss4DarkFalz *)(&msg))->swap_and_send();
@@ -335,17 +335,17 @@ void TBoss4DarkFalz::change_state(s32 arg1) {
     if (arg1 < 0 || arg1 >= 16) {
         return;
     }
-    if (arg0->state != -1) {
+    if (*(s32 *)&this->m_37c != -1) {
         u8 *t = (u8 *)&TBoss4DarkFalz__data_80485108.value;
-        t = t + arg0->state * 0x34;
+        t = t + *(s32 *)&this->m_37c * 0x34;
         Act_8004B20C f = ((Entry_8004B20C *)t)->leave;
         if (f) {
             (arg0->*f)();
         }
     }
-    arg0->state = arg1;
+    *(s32 *)&this->m_37c = arg1;
     u8 *t2 = (u8 *)&TBoss4DarkFalz__data_80485108.value;
-    t2 = t2 + arg0->state * 0x34;
+    t2 = t2 + *(s32 *)&this->m_37c * 0x34;
     Act_8004B20C g = ((Entry_8004B20C *)t2)->enter;
     if (g) {
         (arg0->*g)();

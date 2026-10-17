@@ -12,7 +12,8 @@ struct TChCrTagInformation : public TChCrTag {
     void run_task();
     static void *create(void *arg0);
     static void *create_default();
-    u8 unk_1C[0xC];
+    u8 unk_1C[0x8];
+    f32 m_24;
     f32 m_28;
     u8 unk_2C[0x8];
     f32 m_34;

@@ -73,13 +73,13 @@ extern s32 model_render_flags;
 
 void TPhotonLeilla::render() {
     Self_801AC45C *self = (Self_801AC45C *)this;
-    if (self->started != 0) {
+    if (*(s32 *)&this->m_19c != 0) {
         scroll_strip_uvs(leilla_photon_buffer_pair, self->f14C, 0);
         TParticleCtrl::begin_effect_render();
-        TObjFish::set_global_param(self->f24);
+        TObjFish::set_global_param(this->texture_id);
         push_matrix();
         translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
-        rotate_matrix_y(0, self->f60);
+        rotate_matrix_y(0, this->rotation_y);
         lbl_805D5660 = model_render_flags;
         ((TRaderMapCore *)(&saved_model_draw_color))->copy_vec4(&model_material_color);
         lbl_805D5664 = chunk_polygon_flags_and_mask;

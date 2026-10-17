@@ -10,7 +10,8 @@ public:
     virtual void reserved_53();
     virtual void update_attack();
     void *init_fields(s32, void *);
-    u8 unk_1F8[0x8];
+    u8 unk_1F8[0x4];
+    u32 m_1fc;
 };
 
 #endif

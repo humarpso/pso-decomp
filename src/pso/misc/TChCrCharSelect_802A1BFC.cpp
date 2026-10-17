@@ -31,12 +31,12 @@ extern const f32 lbl_805DDE18;
     extern int TChCrCharSelect__input_mode;
 int TChCrCharSelect::get_selected_index() {  return TChCrCharSelect__input_mode; }
 void TChCrTagInformation::draw_char_info_sprites() {
-    Self_802A1C04 *self = (Self_802A1C04 *)this;
+    TChCrTagInformation *self = this;
     f32 alpha;
     s32 c;
     alpha = lbl_805DDE10;
-    if (self->t >= lbl_805DDE14) {
-        alpha = (self->t - lbl_805DDE14) / lbl_805DDE14;
+    if (self->m_24 >= lbl_805DDE14) {
+        alpha = (self->m_24 - lbl_805DDE14) / lbl_805DDE14;
     }
     V2_802A1C04 a = lbl_8046638C[0];
     c = TChCrCharSelect::get_selected_char();

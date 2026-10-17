@@ -29,7 +29,7 @@ extern f32 *TObjEneRecon__data_805D6AFC;
 void TObjEneRecon::update_collide_flag() {
     void *temp_r5;
 
-    temp_r5 = *(void **)((s8 *)this + 0x350);
+    temp_r5 = *(void * *)&this->movementParameters;
     if (TObjEneEpsilon__sub_800B92F8(this, *(s32 *)((s8 *)temp_r5 + 8), temp_r5, *TObjEneRecon__data_805D6AFC) != 0U) {
         *(s32 *)((s8 *)this + 0x444) = (s32) (*(s32 *)((s8 *)this + 0x444) | 2);
         return;
@@ -77,12 +77,12 @@ void TObjEneRecon::sync_height() {
     *(f32 *)((s8 *)this + 0x398) = (f32) *(f32 *)((s8 *)this + 0x460);
 }
 void TObjEneRecon::vfunc_61() {  }
-void TObjEneRecon::vfunc_62() { if (*(short*)((char*)this + 0x326) != 6) { transition_enemy_state(this, (void*)6); } }
+void TObjEneRecon::vfunc_62() { if (*(short *)&this->mode != 6) { transition_enemy_state(this, (void*)6); } }
 
 void TObjEneRecon::vfunc_63() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r0 = this->mode;
     if ((temp_r0 != 7) && (temp_r0 != 8)) {
         transition_enemy_state(arg0, (void*)(7));
     }

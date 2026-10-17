@@ -777,7 +777,7 @@ s32 TObjEnePanarms::sub_800DE390() {
     case 11:
         return 0;
     default:
-        if (TObjEnePanarms__sub_800DFB44(arg0->f3E4) != 0 || TObjEnePanarms__sub_800DFB44(arg0->f3E8) != 0) {
+        if (TObjEnePanarms__sub_800DFB44(*(s32 *)&this->m_3e4) != 0 || TObjEnePanarms__sub_800DFB44(*(s32 *)&this->m_3e8) != 0) {
             ((TObjEnePanarms *)arg0)->set_state((s32)((void*)((void *)10)));
             return 1;
         }

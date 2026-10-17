@@ -19,7 +19,9 @@ struct TObjLazerFenceNorm : public TUnk_804AF8A0 {
     void reset_by_door();
     u8 unk_B8[0x4];
     void * m_bc;
-    u8 unk_C0[0x18];
+    u8 unk_C0[0x4];
+    s32 m_c4;
+    u8 unk_C8[0x10];
     void select_models();
 };
 

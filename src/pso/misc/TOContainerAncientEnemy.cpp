@@ -96,7 +96,7 @@ void TOContainerAncientEnemy::vfunc_79() {
     Obj_8015B94C *self = (Obj_8015B94C *)this;
     extern const u32 ancient_container_resource_bundle;
     void *o;
-    if (self->f326 != 1) {
+    if (this->mode != 1) {
         Spawn_8015B94C a = ancient_enemy_break_debris_desc;
         a.x = self->x;
         a.y = self->y;
@@ -134,14 +134,14 @@ f32 TOContainerAncientEnemy::receive_physical_attack(void *, f32) {
     s16 sp8;
     s32 r4;
     Pk_8015BAE0 pk;
-    if (arg0->id >= 0x1000U && arg0->f80 != 0U && ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 1) != 0) {
+    if (this->m_1c >= 0x1000U && arg0->f80 != 0U && ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 1) != 0) {
         sp8 = 1;
         ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 0);
         ((TUnk_804AF8A0 *)arg0)->send_object_state_update(&sp8);
         ((TLobby *)(&pk))->init_packet_67_04();
-        pk.id = arg0->id;
+        pk.id = this->m_1c;
         pk.a = get_current_floor();
-        r4 = arg0->f84;
+        r4 = this->m_84;
         pk.b = r4;
         pk.c = local_client_id;
         byteswap_and_send__6TLobbyFv(&pk, r4);
@@ -152,7 +152,7 @@ f32 TOContainerAncientEnemy::receive_physical_attack(void *, f32) {
 void TOContainerAncientEnemy::debug_print_item_box_info() {
     Obj_80188814 *self = (Obj_80188814 *)this;
     TObjNpcEnemy::set_global_count(0xFF00FF);
-    debug_printf_at(0x130020, lbl_80440830, self->id);
+    debug_printf_at(0x130020, lbl_80440830, this->m_84);
     TObjNpcEnemy::set_global_count(0xF0F0F0FF);
     TObjRoomId__sub_80141CF4(self->pos, lbl_804A7448, lbl_805DB3A0);
 }
@@ -194,9 +194,9 @@ void TOContainerAncientEnemy::vfunc_81() {
 
 void TOContainerAncientEnemy::vfunc_80() {
     Obj_8015BCC0 *self = (Obj_8015BCC0 *)this;
-    switch (self->a326) {
+    switch (this->mode) {
     case 0:
-        if (self->a364 != 0) {
+        if (this->m_364 != 0) {
             submit_cursor_candidate(self, -1);
         }
         break;

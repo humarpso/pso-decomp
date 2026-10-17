@@ -25,7 +25,9 @@ struct TObjWarpBossMulti : public TObjAreaWarp {
     static s32 is_lobby_active();
     static s32 get_boss_warp_flag();
     static void notify_player(void *arg0, s32 arg1);
-    u8 unk_DC[0x24];
+    u8 unk_DC[0x1C];
+    f32 m_f8;
+    u8 unk_FC[0x4];
     static int is_flag_clear(void* p);
 };
 

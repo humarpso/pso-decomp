@@ -274,7 +274,7 @@ void TeneFakeTecThunderEff::render() {
     Vtx_800A3D1C *p;
     s32 i;
     s32 j;
-    if (o->active == 0) {
+    if (this->m_340 == 0) {
         return;
     }
     lbl_805D5660 = model_render_flags;
@@ -284,7 +284,7 @@ void TeneFakeTecThunderEff::render() {
     cy = lbl_8058D4F8.cy;
     sh = sw * (lbl_805D9A00 / (lbl_805D9A00 * lbl_8058D4F8.aspect));
     color = o->color | 0xFFFFFF;
-    for (i = 0; i < o->count; i++) {
+    for (i = 0; i < this->m_38; i++) {
         matrix_mult_vec(0, &o->pts[i], &v);
         if (v.z >= lbl_805D99F0) {
             v.z = lbl_805D99F0;
@@ -307,7 +307,7 @@ void TeneFakeTecThunderEff::render() {
     prevY = out[0].y;
     prevZ = out[0].z;
     one = lbl_805D99F0;
-    for (j = 0; j < o->count - 1; j++) {
+    for (j = 0; j < this->m_38 - 1; j++) {
         curY = q->y;
         curX = q->x;
         dy = curY - prevY;
@@ -336,8 +336,8 @@ void TeneFakeTecThunderEff::render() {
         prevX = curX;
         prevY = curY;
     }
-    nx = lbl_805D99F0 * (dy * sa[o->count - 1]);
-    ny = lbl_805D99F0 * (-dx * sb[o->count - 1]);
+    nx = lbl_805D99F0 * (dy * sa[this->m_38 - 1]);
+    ny = lbl_805D99F0 * (-dx * sb[this->m_38 - 1]);
     p[0].x = prevX + nx;
     p[0].y = prevY + ny;
     p[0].z = prevZ;
@@ -351,7 +351,7 @@ void TeneFakeTecThunderEff::render() {
     p[1].v = vv;
     p[1].color = color;
     TObjPlayer::init_xyz_limits();
-    ((TWindowDD *)verts)->draw_transformed_primitive((void*)(o->count * 2), (void*)TObjPlayer__effect_count, (void*)1);
+    ((TWindowDD *)verts)->draw_transformed_primitive((void*)(this->m_38 * 2), (void*)TObjPlayer__effect_count, (void*)1);
     ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
     model_render_flags = lbl_805D5660;
 }
@@ -362,19 +362,19 @@ void TeneFakeTecThunderEff::render() {
 void TeneFakeTecThunderEff::run_task() {
     Obj_800A4064 *self = (Obj_800A4064 *)this;
     s32 i;
-    if (self->active != 0) {
+    if (this->m_340 != 0) {
         build_beam_points__12TTecZondeEffFPv((Obj_800A39A8 *)self);
-        TObjPlayer__effect_count = *player_effect_task_list[0][self->type].inner->p;
-        for (i = 0; i < self->count; i++) {
-            self->scale[i] = lbl_805D99F8 * (lbl_805D9A08 * sin_table_lookup(self->timer * 0x1800) + lbl_805D9A04);
+        TObjPlayer__effect_count = *player_effect_task_list[0][this->m_330].inner->p;
+        for (i = 0; i < this->m_38; i++) {
+            self->scale[i] = lbl_805D99F8 * (lbl_805D9A08 * sin_table_lookup(this->m_328 * 0x1800) + lbl_805D9A04);
         }
-        for (i = 0; i < self->count; i++) {
+        for (i = 0; i < this->m_38; i++) {
             f32 s = self->scale[i];
             self->out[i].x = self->dir[i].x * s + self->base[i].x;
             self->out[i].y = self->dir[i].y * s + self->base[i].y;
             self->out[i].z = self->dir[i].z * s + self->base[i].z;
         }
-        self->timer++;
+        this->m_328++;
     }
 }
 #pragma pop

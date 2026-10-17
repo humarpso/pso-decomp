@@ -159,16 +159,16 @@ void TObjLuker::show_part(s32 arg1) {
 
 void TObjLuker::update_floor_name_windows() {
     Obj_801A0CE8 *self = (Obj_801A0CE8 *)this;
-    s32 target = ((Ctrl_801A0CE8 *)get_player_by_client_id(self->id))->target;
+    s32 target = ((Ctrl_801A0CE8 *)get_player_by_client_id(this->m_a8))->target;
     s32 i;
     for (i = 0; i < 4; i++) {
         if (self->wins[i] != 0 && target > 0) {
-            if (self->cur != target) {
+            if (*(s32 *)&this->m_a0 != target) {
                 s32 j;
                 for (j = 0; j < 4; j++) {
                     ((TWindowSubComCardList *)(self->wins[j]))->reset_entries();
                 }
-                self->cur = target;
+                *(s32 *)&this->m_a0 = target;
             }
             ((TWindowSubTradeMain *)(self->wins[i]))->add_text_entry(get_floor_destination_name(TLobby::get_player_floor(target)), 2, 0, -1);
             ((TWindowSubComCard *)(self->wins[i]))->calc_window_size();
@@ -192,7 +192,7 @@ void close_windows__9TObjLukerFPv(Obj_801A0DB4 *self) {
 
 void TObjLuker::open_destination_windows() {
     Obj_801A0E38 *self = (Obj_801A0E38 *)this;
-    s32 target = get_player_by_client_id(self->id)->target;
+    s32 target = get_player_by_client_id(this->m_a8)->target;
     s32 i;
     for (i = 0; i < 4; i++) {
         if (self->wins[i] == 0 && target > 0) {
@@ -202,7 +202,7 @@ void TObjLuker::open_destination_windows() {
                 self->wins[i] = check_room_seq_4__16TAdChrSelASlotGCFl(get_window_layout_position(0x33), 1);
             }
             if (self->wins[i] != 0) {
-                self->cur = target;
+                *(s32 *)&this->m_a0 = target;
                 ((TWindowSubTradeMain *)(self->wins[i]))->add_text_entry(get_floor_destination_name(TLobby::get_player_floor(target)), 2, 0, -1);
                 ((TAdChrSelASlotGC *)(self->wins[i]))->set_flag_40();
                 ((TWindowSubComCard *)(self->wins[i]))->calc_window_size();

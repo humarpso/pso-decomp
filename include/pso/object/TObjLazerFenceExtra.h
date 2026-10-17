@@ -16,7 +16,9 @@ struct TObjLazerFenceExtra : public TUnk_804AF8A0 {
     s32 m_b4;
     u8 unk_B8[0x4];
     u32 m_d8;
-    u8 unk_C0[0x1C];
+    u8 unk_C0[0x4];
+    s32 m_c4;
+    u8 unk_C8[0x14];
 };
 
 typedef char TObjLazerFenceExtra_size[sizeof(TObjLazerFenceExtra) == 0xDC ? 1 : -1];

@@ -71,7 +71,7 @@ void TBoss6Type2::tick_attack_timer() {
 
 void TBoss6Type2::start_mag_mines_state() {
     O_80337054 *arg0 = (O_80337054 *)this;
-    arg0->f3cc = 0x25;
+    this->m_3cc = 0x25;
     switch (arg0->f410) {
     case 0:
         spawn_mag_mines__11TBoss6Type2Fv();

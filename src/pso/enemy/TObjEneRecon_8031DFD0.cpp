@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecon.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
@@ -353,9 +354,9 @@ void run_task__12TObjEneReconFv(u8 *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r0 = ((TObjEneRecon *)arg0)->mode;
     if ((temp_r0 != 8) && (temp_r0 != 7) && (is_anim_6__12TObjEneReconFv(entity) == 1)) {
-        *(s32 *)((s8 *)arg0 + 0x2DC) = (s32) (*(s32 *)((s8 *)arg0 + 0x2DC) | 4);
+        *(s32 *)&((TObjEneRecon *)arg0)->m_2dc = (s32) (*(s32 *)&((TObjEneRecon *)arg0)->m_2dc | 4);
         ((TObjPlayer *)arg0)->set_hp_clamped(0);
         obj_setFlags30(arg0, 0xA00U);
         ((TObjEneRecon *)(arg0))->vfunc_74(0);
@@ -370,7 +371,7 @@ void run_task__12TObjEneReconFv(u8 *arg0) {
                 ((TParticleCtrl *)temp_r3_3)->enable();
             }
         } else {
-            temp_r0_2 = *(s16 *)((s8 *)arg0 + 0x326);
+            temp_r0_2 = ((TObjEneRecon *)arg0)->mode;
             if ((temp_r0_2 == 8) || (temp_r0_2 == 7)) {
                 ((TParticleCtrl *)temp_r3_2)->enable();
             } else {
@@ -384,11 +385,11 @@ void run_task__12TObjEneReconFv(u8 *arg0) {
                 if (TObjEneDD::check_v2_mode() != 0) {
                     var_f30 *= lbl_805DF400;
                 }
-                temp_f31 = var_f30 * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60)));
-                temp_f2 = var_f30 * -sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60)));
-                *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x478)) + 0x60) = (f32) (*(f32 *)((s8 *)arg0 + 0x2FC) + temp_f31);
-                *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x478)) + 0x64) = (f32) (lbl_805DF424 + *(f32 *)((s8 *)arg0 + 0x300));
-                *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x478)) + 0x68) = (f32) (*(f32 *)((s8 *)arg0 + 0x304) + temp_f2);
+                temp_f31 = var_f30 * cos_table_lookup((int) (((TObjEneRecon *)arg0)->rotation_y));
+                temp_f2 = var_f30 * -sin_table_lookup((int) (((TObjEneRecon *)arg0)->rotation_y));
+                *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x478)) + 0x60) = (f32) (((TObjEneRecon *)arg0)->m_2fc + temp_f31);
+                *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x478)) + 0x64) = (f32) (lbl_805DF424 + ((TObjEneRecon *)arg0)->m_300);
+                *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x478)) + 0x68) = (f32) (((TObjEneRecon *)arg0)->m_304 + temp_f2);
             }
         }
     } else {
@@ -408,7 +409,7 @@ void *__dt__12TObjEneReconFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjEneRecon;
         ((TObjEnemy *)arg0)->send_entity_set_flags();
         free_collision_body_parts(arg0);
-        if (*(void **)((s8 *)arg0 + 0x478) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x478)); *(s32 *)((s8 *)arg0 + 0x478) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x478) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x478)); *(s32 *)&((TObjEneRecon *)arg0)->m_494 = 0; }
         __dt__13TUnk_80494938Fv((s8 *)arg0 + 0x480, -1);
         __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {

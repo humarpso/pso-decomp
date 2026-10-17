@@ -491,7 +491,7 @@ void TUnk_80488E00::sub_8006CF38() {
 #pragma pop
 
 void TCameraCtrl::rotate_heading_by_stick() {
-    Obj_8006D1A4 *arg0 = (Obj_8006D1A4 *)this;
+    TCameraCtrl *arg0 = this;
     Pad_8006D1A4 *p;
     f32 mag;
     s16 sx;
@@ -508,11 +508,11 @@ void TCameraCtrl::rotate_heading_by_stick() {
     if (mag > (0.2f)) {
         amt = (s16)((2.5f) * mag);
         if (sx > 0) {
-            arg0->f30 += (s32)((182.04445f) * (f32)amt);
+            arg0->m_30 += (s32)((182.04445f) * (f32)amt);
         } else {
-            arg0->f30 -= (s32)((182.04445f) * (f32)amt);
+            arg0->m_30 -= (s32)((182.04445f) * (f32)amt);
         }
-        arg0->f30 = (u16)arg0->f30;
+        arg0->m_30 = (u16)arg0->m_30;
     }
 }
 

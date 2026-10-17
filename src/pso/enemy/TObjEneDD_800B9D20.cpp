@@ -70,15 +70,15 @@ int TObjEneDD::update_secondary_light() { return select_actor_lighting(this); }
 
 void TObjEneDD::reload_stats_keep_hp_tp() {
     Obj_800B9E84 *self = (Obj_800B9E84 *)this;
-    s16 a = self->a;
-    s16 c = self->c;
-    s16 b = self->b;
-    s16 d = self->d;
+    s16 a = this->hpmax;
+    s16 c = this->hp;
+    s16 b = this->m_2ba;
+    s16 d = *(s16 *)&this->m_32e;
     bind_enemy_combat_stats(self);
-    self->a = a;
-    self->c = c;
-    self->b = b;
-    self->d = d;
+    this->hpmax = a;
+    this->hp = c;
+    this->m_2ba = b;
+    *(s16 *)&this->m_32e = d;
 }
 
 void TObjEneDD::reset_hp() { bind_enemy_combat_stats(this); this->referenceHp = this->hp; }

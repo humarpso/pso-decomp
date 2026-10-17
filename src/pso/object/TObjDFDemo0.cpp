@@ -159,11 +159,11 @@ void TObjDFDemo1::sub_8004E068() {
   push_matrix();
   TObjPlayer::set_global_flag();
   post_translate_matrix(self->f100);
-  rotate_matrix_y(0, self->f10C);
+  rotate_matrix_y(0, this->m_10c);
   for (j = 0; j < 2; j++)
   {
     TObjFish::set_global_param(self->recs[j].b);
-    draw_model_motion((void *)((*(&self->recs[j])).a), (void *)self->recs[j].c, self->f114);
+    draw_model_motion((void *)((*(&self->recs[j])).a), (void *)self->recs[j].c, this->m_114);
   }
   TObjPlayer::clear_global_state();
   pop_matrix();
@@ -193,11 +193,11 @@ void TObjDFDemo1::draw_fading_model() {
     push_matrix();
     TObjPlayer::set_global_flag();
     post_translate_matrix(arg0->f100);
-    rotate_matrix_y(0, arg0->f10c);
+    rotate_matrix_y(0, this->m_10c);
     max = lbl_805D89A0;
     for (i = 0; i < 6; i++) {
         TObjFish::set_global_param(arg0->recs[i].b);
-        f = arg0->f114;
+        f = this->m_114;
         switch (i) {
         case 0:
         case 1:

@@ -14,7 +14,7 @@ s32 play_sound_effect(int, void *, int, int);
 void TTecAnti::play_anti_cast_sound() {
     Obj_8022ACB4 *arg0 = (Obj_8022ACB4 *)this;
     s32 r;
-    switch (arg0->state) {
+    switch (*(s16 *)&this->m_a6) {
     case 0:
     case 1:
         r = play_sound_effect(0x4002AB10, (u8 *)arg0 + 0x20, 0, 0);

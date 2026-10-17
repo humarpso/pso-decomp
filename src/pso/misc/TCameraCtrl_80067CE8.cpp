@@ -64,7 +64,7 @@ void * TCameraCtrl__vt7(void) {
 void TUnk_80488838::update_orbit_camera() {
     Obj_80067D20 *arg0 = (Obj_80067D20 *)this;
     Pad_80067D20 *pad = arg0->pad;
-    f32 d = arg0->dist;
+    f32 d = this->m_70;
     u32 btn = pad->buttons;
     s16 sx = pad->sx;
     s16 sy = pad->sy;
@@ -75,20 +75,20 @@ void TUnk_80488838::update_orbit_camera() {
             if (d > 1000.0f) {
                 d = 1000.0f;
             }
-            arg0->dist = d;
+            this->m_70 = d;
         } else if (btn & 0x10000) {
             d = d - 2.0f;
             if (d < 15.0f) {
                 d = 15.0f;
             }
-            arg0->dist = d;
+            this->m_70 = d;
         }
         arg0->pitch += sx * 3;
-        arg0->yaw += sy * 3;
+        this->m_2c += sy * 3;
     }
-    r = arg0->dist * cos_table_lookup(arg0->yaw);
+    r = this->m_70 * cos_table_lookup(this->m_2c);
     arg0->eye.x = r * sin_table_lookup(arg0->pitch) + arg0->at.x;
-    arg0->eye.y = arg0->at.y - arg0->dist * sin_table_lookup(arg0->yaw);
+    arg0->eye.y = arg0->at.y - this->m_70 * sin_table_lookup(this->m_2c);
     arg0->eye.z = r * cos_table_lookup(arg0->pitch) + arg0->at.z;
 }
 #pragma pop

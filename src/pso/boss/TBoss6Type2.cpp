@@ -740,7 +740,7 @@ void TBoss6Type2::spawn_hit_effects() {
     s32 found = 0;
     Ent_802B9B20 *e;
     s32 i;
-    Ent_802B9B20 *t = o->list;
+    Ent_802B9B20 *t = *(Ent_802B9B20 * *)&this->m_a4;
     if (t != NULL) {
         e = t;
         for (i = 0; i < 3; i++, e++) {
@@ -936,7 +936,7 @@ void TBoss6Type2::aim_toward_point(void *arg1_arg) {
     } else {
         VecCopy((Vec *)&v, (const Vec *)arg1);
         subtract_vector(&v, &arg0->pos);
-        ang = (s16)((s32)(TBoss6Type2__data_804713C0 * atan2_float(v.x, v.z)) - arg0->f60);
+        ang = (s16)((s32)(TBoss6Type2__data_804713C0 * atan2_float(v.x, v.z)) - *(s32 *)&this->m_60);
     }
     if (ang < -0x2800 || ang > 0x2800) {
         ang = 0;
@@ -1739,7 +1739,7 @@ void TBoss6Type2::update_segments() {
 
 void TBoss6Type2::init_segment_range() {
     Obj_802BC050 *o = (Obj_802BC050 *)this;
-    Ent_802BC050 *e = o->ent;
+    Ent_802BC050 *e = *(Ent_802BC050 * *)&this->m_31c;
     s32 min;
     s32 max;
     max = e->v[0];
@@ -1749,9 +1749,9 @@ void TBoss6Type2::init_segment_range() {
     if (min > e->v[3]) { min = e->v[3]; } else if (max < e->v[3]) { max = e->v[3]; }
     if (min > e->v[4]) { min = e->v[4]; } else if (max < e->v[4]) { max = e->v[4]; }
     o->min = min;
-    o->max = max;
-    ((TLobby *)(&o->local))->copy_entry(o->ent);
-    o->ent = &o->local;
+    this->m_454 = max;
+    ((TLobby *)(&o->local))->copy_entry(*(Ent_802BC050 * *)&this->m_31c);
+    *(Ent_802BC050 * *)&this->m_31c = &o->local;
     update_segments();
 }
 
@@ -2211,7 +2211,7 @@ void TBoss6Type2::init_motion_entries() {
         Ent_802BCEF4 *e = &o->ents[i];
         s32 r;
         ((TBoss6Type2 *)e)->copy_transform(boss6_type2_motion_entry_transform);
-        r = get_bml_motion(o->model, ((Tb_802BCEF4 *)TBoss6Type2__motion_table)->v[i]);
+        r = get_bml_motion(*(s32 *)&this->m_3fc, ((Tb_802BCEF4 *)TBoss6Type2__motion_table)->v[i]);
         e->f14 = r;
         e->f0 = r;
         e->f8 = *(f32 *)((u8 *)TBoss6Type2__motion_table + 0xC);
@@ -2570,8 +2570,8 @@ s32 TBoss6Type2::choose_next_index() {
 #pragma dont_inline off
 
 s32 TBoss6Type2::pick_random_other_index() {
-    Boss_802BD7EC *o = (Boss_802BD7EC *)this;
-    s32 t = TBoss6Type2::find_index_in_table(o->f2E4);
+    TBoss6Type2 *o = this;
+    s32 t = TBoss6Type2::find_index_in_table(*(s32 *)&o->m_2e4);
     s32 r = t + (s32)(lbl_805DE4C4 * (TBoss6Type2__data_805DE468 * (f32)rand())) + 1;
     if (r >= 4) {
         r -= 4;

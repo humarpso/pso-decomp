@@ -65,12 +65,12 @@ extern const f32 lbl_805DC274;
 
 void TPhotonYoulla::render() {
     Self_801AE744 *self = (Self_801AE744 *)this;
-    if (self->started != 0) {
+    if (*(s32 *)&this->m_1a0 != 0) {
         TParticleCtrl::begin_effect_render();
-        TObjFish::set_global_param(self->f24);
+        TObjFish::set_global_param(this->texture_id);
         push_matrix();
         post_translate_matrix(&self->pos);
-        rotate_matrix_y(0, self->f60);
+        rotate_matrix_y(0, this->rotation_y);
         lbl_805D5660 = model_render_flags;
         ((TRaderMapCore *)(&saved_model_draw_color))->copy_vec4(&model_material_color);
         lbl_805D5664 = chunk_polygon_flags_and_mask;
