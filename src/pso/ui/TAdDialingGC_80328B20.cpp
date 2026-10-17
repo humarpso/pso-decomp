@@ -2,8 +2,6 @@
 #include "pso/ui/TAdDialingGC_80328B20.h"
 #include "pso/ui/TAdDialingGC.h"
 
-struct T_80328C10 { u8 pad[0xA4]; u32 flags; };
-
 extern "C" {
 void TAdDialingGC__sub_80328B24(void *, void *);
 extern char lbl_804767B8[];

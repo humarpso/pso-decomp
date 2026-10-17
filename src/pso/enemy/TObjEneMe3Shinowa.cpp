@@ -1412,8 +1412,6 @@ struct Vec_800E75AC { f32 x; f32 y; f32 z; };
 
 struct Node_800E75AC { u8 pad[0x2c]; void *child; };
 
-struct Obj_800E75AC { u8 pad[0x34]; Node_800E75AC *node; u8 pad2[0xc0 - 0x38]; f32 fc0; u8 pad3[0xf8 - 0xc4]; s32 ff8; };
-
 struct Sub_800E750C { f32 f0; u8 pad4[4]; f32 f8; f32 fC; f32 f10; s32 f14; s32 f18; };
 
 struct Obj_800E750C { u8 pad0[0x60]; s32 f60; u8 pad1[0xA4 - 0x64]; Sub_800E750C *fA4; };

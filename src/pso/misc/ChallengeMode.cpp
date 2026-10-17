@@ -30,8 +30,6 @@ struct G_8007032C { u8 pad[0x270]; E_8007032C e[4]; };
 
 struct G_80070024 { u8 pad[0x48]; s32 x48; };
 
-struct O_80070600 { u8 pad[0x1c]; s32 x1c; };
-
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off

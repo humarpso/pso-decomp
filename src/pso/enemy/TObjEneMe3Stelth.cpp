@@ -433,8 +433,6 @@ struct VObj_18_18102d : VBase_18_18102d {
 
 struct Col_800F1CD4 { s32 a, b, c, d; };
 
-extern "C" {
-}
 void setup_particle_tev(s32 arg0);
 extern "C" {
 s32 is_main_phase_15__9TObjEneDDFv();

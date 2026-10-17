@@ -67,8 +67,6 @@ struct Stack_80170AC8
 
 struct Node_801702C8 { u8 pad[0xC]; Node_801702C8 *next; };
 
-struct Self_801702C8 { u8 pad[0x14]; Node_801702C8 *head; };
-
 struct VBase_18_1da615 { char pad[0x18]; };
 
 struct VObj_18_1da615 : VBase_18_1da615 {

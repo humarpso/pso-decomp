@@ -21,8 +21,6 @@ struct VObj_18 : VBase_18 {
 
 struct T_8032C118 { s32 a; s32 b; };
 
-struct O_8032C118 { u8 pad[0x2C]; s32 sel; };
-
 extern "C" {
 s32 send_and_handle__6TLobbyFii(int, void *, int);
 s32 update_window_mode_from_progress__6TLobbyFPv(void *, void *);

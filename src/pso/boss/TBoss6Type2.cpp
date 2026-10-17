@@ -167,8 +167,6 @@ struct Ents_802BE0D4 { u8 pad[0x400]; Ent_802BE0D4 ents[2]; };
 
 struct Arr_802BE0D4 { u8 pad[0x378]; s32 arr[32]; };
 
-struct Boss_802BD7EC { u8 pad[0x2E4]; s32 f2E4; };
-
 union TypedVector_802BA6DC {
     struct { f32 x, y, z; } f;
     struct { s32 x, y, z; } bits;

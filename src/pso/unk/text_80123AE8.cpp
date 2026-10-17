@@ -1,7 +1,6 @@
 #include "types.h"
 #include "pso/item/TUnk_804A1D30.h"
 #include "pso/player/TObjPlayer.h"
-struct Obj_80123AE8 { u8 pad[0x200]; f32 c; };
 
 extern const f32 lbl_805DAD10;
 extern const f32 lbl_805DAD14;

@@ -2,8 +2,6 @@
 #include "pso/ui/TAdMultiPlyChrSelectGC_802E0064.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 
-struct O_802E00CC { u8 pad[0x1c]; s32 v; };
-
 extern "C" {
 s32 TAdMultiPlyChrSelectGC__sub_802DFFE8();
 

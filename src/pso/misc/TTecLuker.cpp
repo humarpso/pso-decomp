@@ -157,8 +157,6 @@ struct VObj_802346F8 : VBase_802346F8 {
     virtual s32 m21(s32, P_802346F8, s32, s32, s32);
 };
 
-struct G_802346F8 { u8 pad[0x1c]; s32 f1c; };
-
 void clear_pipe_interaction_latch(void* p);
 s32 get_pipe_interaction_latch(void* p);
 extern "C" {

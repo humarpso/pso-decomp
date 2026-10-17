@@ -29,8 +29,6 @@ struct RecoveredGlobal_8016B6A4___vt__14TOKeyAncient02 { s32 value; u8 remaining
 
 struct Pkt_8016B84C { u8 code, words; u16 object, zero, reserved, switchId; u8 area, flags; };
 
-struct Self_8016B84C { u8 pad[0x1C]; u16 id; u8 pad1e[0xC8 - 0x1E]; s32 switchId; };
-
 extern "C" {
 s32 is_split_screen();
 void scale_matrix_vec3(u8 *arg0, u8 *arg1);

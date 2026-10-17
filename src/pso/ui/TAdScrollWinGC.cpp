@@ -3,8 +3,6 @@
 #include "pso/unk/text_80145A94.h"
 #include "pso/ui/TAdScrollWinGC.h"
 
-struct O_8032745C { u8 pad[0x44]; s32 mode; };
-
 extern "C" {
 int get_state_flag__9TMainTaskFv(void*);
 

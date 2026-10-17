@@ -242,8 +242,6 @@ struct RecoveredGlobal_801C5B68_lbl_8058D4C0 {
 
 struct Obj_801C5C38 { u8 pad[4]; s32 n; };
 
-extern "C" {
-}
 extern RecoveredGlobal_801C5B68_lbl_8058D4C0 model_material_color;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;

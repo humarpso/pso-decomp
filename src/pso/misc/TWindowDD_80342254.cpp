@@ -6,10 +6,6 @@
 struct RecoveredGlobal_80342384_TWindowDD__data_804EFC50 { s32 value; u8 remaining[0x3C]; };
 typedef char RecoveredGlobal_80342384_TWindowDD__data_804EFC50_size[sizeof(RecoveredGlobal_80342384_TWindowDD__data_804EFC50) == 0x40 ? 1 : -1];
 
-struct O_80342268 { u8 pad[0x60]; s32 f; };
-
-struct O_80342254 { u8 pad[0x60]; s32 f; };
-
 struct O_803422F0 { s32 f0; u8 pad[0x14]; void *f18; u8 pad2[0x5C - 0x1C]; s32 f5c; s32 f60; s32 f64; u8 pad3[0x70 - 0x68]; s32 f70; u8 pad4[4]; s32 f78; u8 pad5[0x84 - 0x7C]; f32 f84; f32 f88; };
 
 extern "C" {

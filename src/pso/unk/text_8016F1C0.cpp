@@ -106,8 +106,6 @@ s32 TOMineTrap::show_owner_message(s32 arg0, u32 arg1) {
 
 struct Pkt_8016F558 { u8 code, words; u16 object, sub, idx; };
 
-struct Self_8016F558 { u8 pad[0x1C]; u16 id; u8 pad1e[0x37E - 0x1E]; u16 sub; };
-
 struct Obj_8016F5B4 { u8 pad0[0x88]; s32 cnt; u8 pad1[0x29A]; s16 state; };
 
 struct Obj_8016F64C { u8 pad0[0x2FC]; u8 sub[0x58]; s32 state; };

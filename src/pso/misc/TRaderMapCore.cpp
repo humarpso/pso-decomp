@@ -160,8 +160,6 @@ struct Rec_801FAAEC {
 
 struct Map_801FAAEC { Rec_801FAAEC *recs; u32 tex; s32 count; };
 
-struct Self_801FAAEC { u8 pad[0x194]; s32 flags; u8 pad198[8]; f32 maxAlpha; };
-
 struct RecoveredGlobal_801FA1E0_lbl_8050BEC0 {
     s32 value;
     u8 remaining[0x1C];

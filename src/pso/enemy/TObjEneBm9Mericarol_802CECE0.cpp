@@ -347,8 +347,6 @@ struct VObj_18_3b55b6 : VBase_18_3b55b6 {
 
 struct Sub_800ACA10 { u8 pad[0x18]; s32 level; };
 
-struct Obj_800ACA10 { u8 pad[0x2B0]; Sub_800ACA10 *sub; };
-
 struct VBase_18 { char pad[0x18]; };
 
 struct VObj_18 : VBase_18 {

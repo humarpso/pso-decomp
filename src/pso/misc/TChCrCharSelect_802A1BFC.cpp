@@ -7,8 +7,6 @@
 
 struct V2_802A1C04 { f32 x; f32 y; };
 
-struct Self_802A1C04 { u8 pad[0x24]; f32 t; };
-
 extern "C" {
 void draw_ui_sprite_scaled(s32, V2_802A1C04 *, V2_802A1C04 *, f32, f32);
 void draw_ui_sprite(s32, V2_802A1C04 *, f32, f32);

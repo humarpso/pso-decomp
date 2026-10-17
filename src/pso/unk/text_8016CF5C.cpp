@@ -16,11 +16,7 @@ struct RecoveredGlobal_8016D2A4_lbl_80441D84 {
     u8 remaining[0x8C];
 };
 
-struct Obj_8016D428 { u8 pad[0x6c]; f32 f; };
-
 struct Pkt_8016D148 { u8 code, words; u16 object, zero, reserved, switchId; u8 area, flags; };
-
-struct Self_8016D148 { u8 pad[0x1C]; u16 id; u8 pad1e[0xC8 - 0x1E]; s32 switchId; };
 
 extern "C" {
 s32 is_split_screen();

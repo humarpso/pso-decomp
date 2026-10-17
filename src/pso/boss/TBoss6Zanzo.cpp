@@ -14,8 +14,6 @@ struct ByteBlock_C { u8 bytes[0xc]; };
 
 struct Src_80320534 { s32 a; u8 *p; };
 
-struct Obj_80320534 { u8 pad[0x24]; s32 n; };
-
 struct Ent_803204B8 { u8 pad[4]; f32 v[3]; };
 
 struct Blk_803204B8 { s32 flag; Ent_803204B8 *ents; };

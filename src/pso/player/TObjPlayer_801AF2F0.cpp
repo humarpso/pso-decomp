@@ -612,13 +612,6 @@ struct VObj_801B21AC : VBase_801B21AC {
     virtual void m76(Item_801B21AC);
 };
 
-struct Player_801B21AC {
-    u8 pad0[0x30];
-    u32 flags;
-    u8 pad34[0x3CC - 0x34];
-    u32 prev;
-};
-
 struct Eff_801B2D88 { u16 f0; u16 f2; u32 f4; u32 f8; };
 
 struct Pair_801B2D88 { u32 a; u32 b; };

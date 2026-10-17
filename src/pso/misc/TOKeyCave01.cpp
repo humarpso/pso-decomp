@@ -28,8 +28,6 @@ struct RecoveredGlobal_8016C5F8___vt__11TOKeyCave01 { s32 value; u8 remaining[0x
 
 struct Pkt_8016C79C { u8 code, words; u16 object, zero, reserved, switchId; u8 area, flags; };
 
-struct Self_8016C79C { u8 pad[0x1C]; u16 id; u8 pad1e[0xC8 - 0x1E]; s32 switchId; };
-
 struct VBase_8016C280 { char pad[0x18]; };
 
 struct VObj_8016C280 : VBase_8016C280 {

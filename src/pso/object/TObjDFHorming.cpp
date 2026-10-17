@@ -124,11 +124,7 @@ struct RecoveredGlobal_8004B0F8_TBoss4DarkFalz__data_80485108 {
     u8 remaining[0x33C];
 };
 
-struct Obj_8004B16C { u8 pad[0x1C]; u16 id; };
-
 struct Msg_8004B16C { u8 code; u8 size; u16 id; s16 a; u8 pad6[2]; s32 b; u8 padc[4]; };
-
-struct Obj_8004B1BC { u8 pad[0x1C]; u16 id; };
 
 struct Msg_8004B1BC { u8 code; u8 size; u16 id; s16 a; u8 pad6[2]; s32 b; u8 padc[4]; };
 
