@@ -49,7 +49,8 @@ struct TWindowMenu : public TUnk_804CDFE8 {
     void move_cursor_prev();
     virtual void run_task();
     void copy_position(void* q);
-    s32 is_locked(s32 arg1);};
+    s32 is_locked(s32 arg1);
+};
 
 typedef char TWindowMenu_size[sizeof(TWindowMenu) == 0x8C ? 1 : -1];
 #endif

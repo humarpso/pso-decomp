@@ -11,6 +11,7 @@ struct TObjMapWarpForest : public TObjMapWarp {
     ForestWarpMotion* motion;
     void* textures;
     virtual void run_task();
-    virtual void render();};
+    virtual void render();
+};
 typedef char ForestWarpSize[sizeof(TObjMapWarpForest)==0x110?1:-1];
 #endif

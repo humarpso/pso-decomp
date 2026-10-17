@@ -22,7 +22,8 @@ struct TBoss6Tube : public TObject {
     void update_timer();
     static void *create(void *arg0);
     static void free_resources();
-    static void load_resources();};
+    static void load_resources();
+};
 
 typedef char TBoss6Tube_size[sizeof(TBoss6Tube) == 0x30 ? 1 : -1];
 #endif

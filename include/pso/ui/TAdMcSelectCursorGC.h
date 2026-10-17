@@ -22,7 +22,8 @@ struct TAdMcSelectCursorGC : public TObject {
     static u32 get_instance(s32 arg0);
     static void release_cursor_entry();
     static void init_resource();
-    static int get_cursor_type(int a0);};
+    static int get_cursor_type(int a0);
+};
 
 typedef char TAdMcSelectCursorGC_size[sizeof(TAdMcSelectCursorGC) == 0x140 ? 1 : -1];
 #endif

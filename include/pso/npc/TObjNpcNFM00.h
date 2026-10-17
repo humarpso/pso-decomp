@@ -7,7 +7,8 @@
 struct TObjNpcNFM00 : public TUnk_804A9F50 {
     virtual ~TObjNpcNFM00();
     static void free_resources();
-    static void load_assets();};
+    static void load_assets();
+};
 
 typedef char TObjNpcNFM00_size[sizeof(TObjNpcNFM00) == 0x3B8 ? 1 : -1];
 #endif

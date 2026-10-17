@@ -15,7 +15,8 @@ struct TObjComputer : public TObjMesBase {
     s32 draw_model();
     virtual void render();
     void *create();
-    static void free_resources();};
+    static void free_resources();
+};
 
 typedef char TObjComputer_size[sizeof(TObjComputer) == 0xC8 ? 1 : -1];
 #endif

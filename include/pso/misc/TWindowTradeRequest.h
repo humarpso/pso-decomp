@@ -11,7 +11,8 @@ struct TWindowTradeRequest : public TObject {
     static void close_request_window();
     static void reset_trade();
     virtual void render();
-    virtual void run_task();};
+    virtual void run_task();
+};
 
 typedef char TWindowTradeRequest_size[sizeof(TWindowTradeRequest) == 0x24 ? 1 : -1];
 #endif

@@ -22,6 +22,7 @@ struct TObjDoor : public TUnk_804AF8A0 {
     void update_state();
     static void free_resources();
     static void load_resources();
-    static void set_main_warp_id(int a0);};
+    static void set_main_warp_id(int a0);
+};
 typedef char TObjDoor_size[sizeof(TObjDoor)==0xD4?1:-1];
 #endif

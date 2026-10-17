@@ -5,7 +5,8 @@
 #include "pso/misc/TODoorFourLightBase.h"
 
 struct TODoorFourLightSeabed : public TODoorFourLightBase {
-    virtual ~TODoorFourLightSeabed();};
+    virtual ~TODoorFourLightSeabed();
+};
 
 typedef char TODoorFourLightSeabed_size[sizeof(TODoorFourLightSeabed) == 0xFC ? 1 : -1];
 #endif

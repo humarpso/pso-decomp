@@ -16,7 +16,8 @@ struct TObjEneDarkGunCenter : public TObjEnemy {
     u8 _pad384[0x20];
     u32 m_3a4;
     static void *create(void *arg0);
-    void hide_linked_enemies();};
+    void hide_linked_enemies();
+};
 
 typedef char TObjEneDarkGunCenter_size[sizeof(TObjEneDarkGunCenter) == 0x3A8 ? 1 : -1];
 #endif

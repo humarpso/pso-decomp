@@ -6,7 +6,8 @@
 
 struct TWindowCtrlScreen : public TObject {
     virtual ~TWindowCtrlScreen();
-    virtual void render();};
+    virtual void render();
+};
 
 typedef char TWindowCtrlScreen_size[sizeof(TWindowCtrlScreen) == 0x1C ? 1 : -1];
 #endif

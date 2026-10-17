@@ -14,7 +14,8 @@ struct TObjBoss8PillerCtrl : public TObject {
     u8 _pad2E[0x2];
     u32 m_30;
     u32 m_34;
-    virtual void render();};
+    virtual void render();
+};
 
 typedef char TObjBoss8PillerCtrl_size[sizeof(TObjBoss8PillerCtrl) == 0x38 ? 1 : -1];
 #endif

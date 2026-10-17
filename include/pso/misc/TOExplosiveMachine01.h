@@ -5,7 +5,8 @@
 #include "pso/misc/TOExplosiveMachine.h"
 
 struct TOExplosiveMachine01 : public TOExplosiveMachine {
-    virtual ~TOExplosiveMachine01();};
+    virtual ~TOExplosiveMachine01();
+};
 
 typedef char TOExplosiveMachine01_size[sizeof(TOExplosiveMachine01) == 0xAC ? 1 : -1];
 #endif

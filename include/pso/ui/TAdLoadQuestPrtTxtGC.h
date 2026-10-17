@@ -13,7 +13,8 @@ struct TAdLoadQuestPrtTxtGC : public TObject {
     u32 m_224;
     virtual void render();
     static void *create_particle(void *arg0, s32 arg1, s32 arg2);
-    virtual void run_task();};
+    virtual void run_task();
+};
 
 typedef char TAdLoadQuestPrtTxtGC_size[sizeof(TAdLoadQuestPrtTxtGC) == 0x228 ? 1 : -1];
 #endif

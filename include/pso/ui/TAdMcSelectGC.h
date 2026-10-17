@@ -31,7 +31,8 @@ struct TAdMcSelectGC : public TObject {
     void set_field_24(s32 v);
     void set_field20(f32 v);
     void set_field_20(s32 v);
-    void set_float_1c(f32 v);};
+    void set_float_1c(f32 v);
+};
 
 typedef char TAdMcSelectGC_size[sizeof(TAdMcSelectGC) == 0x34 ? 1 : -1];
 #endif

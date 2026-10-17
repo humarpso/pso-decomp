@@ -24,7 +24,8 @@ struct TAdYesNoBaseGC : public TObject {
     u32 m_40;
     u32 m_44;
     s32 create_menu_window();
-    void init_parts(void *arg1, void *arg2);};
+    void init_parts(void *arg1, void *arg2);
+};
 
 typedef char TAdYesNoBaseGC_size[sizeof(TAdYesNoBaseGC) == 0x48 ? 1 : -1];
 #endif

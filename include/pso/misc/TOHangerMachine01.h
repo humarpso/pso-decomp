@@ -12,7 +12,8 @@ struct TOHangerMachine01 : public TUnk_804AFBF8 {
     static void *create(void *arg0);
     static void free_static_model();
     static void load_shared_resource();
-    static s32 is_valid_slot(int arg0, u16 arg1);};
+    static s32 is_valid_slot(int arg0, u16 arg1);
+};
 
 typedef char TOHangerMachine01_size[sizeof(TOHangerMachine01) == 0xCC ? 1 : -1];
 #endif

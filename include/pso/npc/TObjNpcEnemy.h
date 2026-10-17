@@ -18,7 +18,8 @@ struct TObjNpcEnemy : public TObjNpcBase {
     void update_state();
     virtual void render();
     void reset_anim_fields();
-    static void set_global_count(s32 arg0);};
+    static void set_global_count(s32 arg0);
+};
 
 typedef char TObjNpcEnemy_size[sizeof(TObjNpcEnemy) == 0x3BC ? 1 : -1];
 #endif

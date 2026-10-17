@@ -39,6 +39,7 @@ struct TBoss2Mine : public TObjEneDD {
     void set_state_by_distance(s32 arg1);
     void update_move_flag();
     void save_position();
-    void run_task();};
+    void run_task();
+};
 
 #endif

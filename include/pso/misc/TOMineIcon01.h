@@ -9,7 +9,8 @@ struct TOMineIcon01 : public TOMine {
     virtual void vfunc_84();
     u32 m_374;
     u32 m_378;
-    void *create();};
+    void *create();
+};
 
 typedef char TOMineIcon01_size[sizeof(TOMineIcon01) == 0x37C ? 1 : -1];
 #endif

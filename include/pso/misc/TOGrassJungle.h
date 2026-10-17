@@ -9,7 +9,8 @@ struct TOGrassJungle : public TUnk_804B9870 {
     u32 m_90;
     static void release_static_instance();
     static void load_resources();
-    virtual void render();};
+    virtual void render();
+};
 
 typedef char TOGrassJungle_size[sizeof(TOGrassJungle) == 0x94 ? 1 : -1];
 #endif

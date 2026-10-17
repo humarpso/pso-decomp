@@ -22,7 +22,8 @@ struct TItemObject : public TItem {
     void copy_and_register_item_data();
     int set_flag_1024();
     u8 *create();
-    static s32 call_dispatch(s32 arg0);};
+    static s32 call_dispatch(s32 arg0);
+};
 
 typedef char ItemObjectDataOffset[(offsetof(TItemObject, m_f8) == 0xF8) ? 1 : -1];
 typedef char ItemObjectEncodedValueOffset[(offsetof(TItemObject, encoded_value) == 0xFC) ? 1 : -1];

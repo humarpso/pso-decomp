@@ -17,7 +17,8 @@ struct TTecRaBarta : public TUnk_804CC148 {
     void create(void *arg1, void *arg2);
     virtual void render();
     virtual void run_task();
-    void *construct_area(void *source, void *origin, void *level);};
+    void *construct_area(void *source, void *origin, void *level);
+};
 
 typedef char TTecRaBarta_size[sizeof(TTecRaBarta) == 0x13C ? 1 : -1];
 #endif

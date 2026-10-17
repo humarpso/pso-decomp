@@ -12,7 +12,8 @@ struct TTecGiFoie : public TUnk_804CC148 {
     u32 m_138;
     void calc_params();
     static void create(void *arg0, void *arg1, void *arg2);
-    virtual void render();};
+    virtual void render();
+};
 
 typedef char TTecGiFoie_size[sizeof(TTecGiFoie) == 0x13C ? 1 : -1];
 #endif

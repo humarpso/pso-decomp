@@ -19,7 +19,8 @@ struct TObjBoss5Pillar : public TObject {
     u32 m_48;
     virtual void render();
     static void *create_smoke(void *arg0, void *arg1);
-    static void *create(void *arg0);};
+    static void *create(void *arg0);
+};
 
 typedef char TObjBoss5Pillar_size[sizeof(TObjBoss5Pillar) == 0x4C ? 1 : -1];
 #endif

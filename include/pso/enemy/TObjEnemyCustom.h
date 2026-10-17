@@ -36,7 +36,8 @@ struct TObjEnemyCustom : public TObjEnemy {
     void update_state();
     void dispatch_state();
     static void init_globals();
-    static void reset_instance();};
+    static void reset_instance();
+};
 
 typedef char TObjEnemyCustom_size[sizeof(TObjEnemyCustom) == 0x38C ? 1 : -1];
 #endif

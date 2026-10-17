@@ -6,6 +6,7 @@
 
 struct TObjEneSlimeTailAttack : public TObjEnemy {
     virtual ~TObjEneSlimeTailAttack();
-    int find_nearest_enemy_with_flag(f32);};
+    int find_nearest_enemy_with_flag(f32);
+};
 
 #endif

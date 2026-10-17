@@ -7,7 +7,8 @@
 struct TObjNpcKenkyu : public TUnk_804A9F50 {
     virtual ~TObjNpcKenkyu();
     static void free_static_model();
-    static void load_shared_resource();};
+    static void load_shared_resource();
+};
 
 typedef char TObjNpcKenkyu_size[sizeof(TObjNpcKenkyu) == 0x3B8 ? 1 : -1];
 #endif

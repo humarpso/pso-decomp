@@ -8,7 +8,8 @@ struct TObjQuestColALock : public TObjQuestColBase {
     virtual ~TObjQuestColALock();
     virtual int vfunc_15();
     virtual int vfunc_16();
-    virtual void update_room_id_check();};
+    virtual void update_room_id_check();
+};
 
 typedef char TObjQuestColALock_size[sizeof(TObjQuestColALock) == 0xBC ? 1 : -1];
 #endif

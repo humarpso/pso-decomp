@@ -24,7 +24,8 @@ struct TItemEffArmor : public TObject {
     u32 m_74;
     u32 m_78;
     virtual void render();
-    virtual void run_task();};
+    virtual void run_task();
+};
 
 typedef char TItemEffArmor_size[sizeof(TItemEffArmor) == 0x7C ? 1 : -1];
 #endif

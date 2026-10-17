@@ -7,7 +7,8 @@
 struct TObjNpcSecretaryBase : public TUnk_804A8640 {
     virtual ~TObjNpcSecretaryBase();
     static void free_static_data();
-    static void load_static_data();};
+    static void load_static_data();
+};
 
 typedef char TObjNpcSecretaryBase_size[sizeof(TObjNpcSecretaryBase) == 0x3B8 ? 1 : -1];
 #endif

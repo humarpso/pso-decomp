@@ -26,7 +26,8 @@ struct TWindowSubSymbolChatFaceType : public TUnk_804CE018 {
     u32 m_64;
     u32 m_68;
     void close_when_chat_closed();
-    void confirm_selection();};
+    void confirm_selection();
+};
 
 typedef char TWindowSubSymbolChatFaceType_size[sizeof(TWindowSubSymbolChatFaceType) == 0x6C ? 1 : -1];
 #endif

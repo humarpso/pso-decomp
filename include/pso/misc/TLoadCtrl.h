@@ -14,7 +14,8 @@ struct TLoadCtrl : public TObject {
     static void start_loading(u32 arg0);
     static void poll_default();
     static void step();
-    static void set_field1C(s32 arg0);};
+    static void set_field1C(s32 arg0);
+};
 
 typedef char TLoadCtrl_size[sizeof(TLoadCtrl) == 0x24 ? 1 : -1];
 #endif

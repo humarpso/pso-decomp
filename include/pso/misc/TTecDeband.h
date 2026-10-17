@@ -16,7 +16,8 @@ struct TTecDeband : public TTecPlayerInfluence {
     static void create(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
     static void create(s32 arg0, s32 arg1, s32 arg2);
     virtual void render();
-    void play_state_sound();};
+    void play_state_sound();
+};
 
 typedef char TTecDeband_size[sizeof(TTecDeband) == 0x140 ? 1 : -1];
 #endif

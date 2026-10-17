@@ -5,6 +5,7 @@
 #include "pso/item/TItem.h"
 
 struct TItemMoney : public TItem {
-    virtual ~TItemMoney();};
+    virtual ~TItemMoney();
+};
 
 #endif

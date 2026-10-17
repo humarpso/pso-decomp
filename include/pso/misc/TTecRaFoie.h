@@ -19,7 +19,8 @@ struct TTecRaFoie : public TUnk_804CC148 {
     virtual void render();
     void update_detonation(void *arg1);
     void create(void *arg1, void *arg2, void *arg3);
-    void create_ex(void *arg1, void *arg2, void *arg3);};
+    void create_ex(void *arg1, void *arg2, void *arg3);
+};
 
 typedef char TTecRaFoie_size[sizeof(TTecRaFoie) == 0x14C ? 1 : -1];
 #endif

@@ -23,7 +23,8 @@ struct TObjSeabedSuisoBrakable : public TORockCaveBrakable {
     static void notify_break(u32 arg0);
     static void *create(void *arg0);
     static u8 *get_bml_motion_by_index(s32 arg0);
-    static void load_shared_models();};
+    static void load_shared_models();
+};
 
 typedef char TObjSeabedSuisoBrakable_size[sizeof(TObjSeabedSuisoBrakable) == 0xC0 ? 1 : -1];
 #endif

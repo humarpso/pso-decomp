@@ -17,7 +17,8 @@ struct TObjMapWarpAncient : public TObjMapWarp {
     u32 m_118;
     virtual void render();
     virtual void run_task();
-    static void free_globals();};
+    static void free_globals();
+};
 
 typedef char TObjMapWarpAncient_size[sizeof(TObjMapWarpAncient) == 0x11C ? 1 : -1];
 #endif

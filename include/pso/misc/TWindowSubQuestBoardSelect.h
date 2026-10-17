@@ -25,7 +25,8 @@ struct TWindowSubQuestBoardSelect : public TUnk_804CE018 {
     void handle_decide();
     void select_next();
     s32 handle_page_input();
-    virtual void run_task();};
+    virtual void run_task();
+};
 
 typedef char TWindowSubQuestBoardSelect_size[sizeof(TWindowSubQuestBoardSelect) == 0x68 ? 1 : -1];
 #endif

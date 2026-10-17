@@ -13,7 +13,8 @@ struct TObjVoloptPillar : public TUnk_804AF8A0 {
     u8 _padB8[0x4];
     u32 m_bc;
     virtual void render();
-    static void cache_target_values();};
+    static void cache_target_values();
+};
 
 typedef char TObjVoloptPillar_size[sizeof(TObjVoloptPillar) == 0xC0 ? 1 : -1];
 #endif

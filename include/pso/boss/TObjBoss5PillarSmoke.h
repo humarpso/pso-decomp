@@ -10,7 +10,8 @@ struct TObjBoss5PillarSmoke : public TObject {
     u32 m_20;
     u32 m_24;
     virtual void render();
-    virtual void run_task();};
+    virtual void run_task();
+};
 
 typedef char TObjBoss5PillarSmoke_size[sizeof(TObjBoss5PillarSmoke) == 0x28 ? 1 : -1];
 #endif

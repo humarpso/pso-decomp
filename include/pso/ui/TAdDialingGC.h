@@ -40,7 +40,8 @@ struct TAdDialingGC : public TObject {
     void render_if_flag_set();
     static void create();
     static void close();
-    static void open();};
+    static void open();
+};
 
 typedef char TAdDialingGC_size[sizeof(TAdDialingGC) == 0xA8 ? 1 : -1];
 #endif

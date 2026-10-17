@@ -17,7 +17,8 @@ struct TORockJungleM01 : public TORockCaveBrakable {
     u32 m_d8;
     u32 m_dc;
     virtual void run_task();
-    static void *create(void *arg0);};
+    static void *create(void *arg0);
+};
 
 typedef char TORockJungleM01_size[sizeof(TORockJungleM01) == 0xE0 ? 1 : -1];
 #endif

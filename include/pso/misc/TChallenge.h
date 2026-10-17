@@ -17,7 +17,8 @@ struct TChallenge : public TObject {
     void update_active();
     void wait_for_quest();
     void initialize_windows();
-    static void *create();};
+    static void *create();
+};
 
 typedef char TChallenge_size[sizeof(TChallenge) == 0x30 ? 1 : -1];
 #endif

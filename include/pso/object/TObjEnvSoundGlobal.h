@@ -11,7 +11,8 @@ struct TObjEnvSoundGlobal : public TUnk_804B9870 {
     u32 m_98;
     s32 setup_sound();
     virtual void render();
-    virtual void run_task();};
+    virtual void run_task();
+};
 
 typedef char TObjEnvSoundGlobal_size[sizeof(TObjEnvSoundGlobal) == 0x9C ? 1 : -1];
 #endif

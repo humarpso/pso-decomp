@@ -7,7 +7,8 @@
 struct TObjNpcMaleDwarf : public TUnk_804A9F50 {
     virtual ~TObjNpcMaleDwarf();
     static void unload_static_data();
-    static void load_shared_resource();};
+    static void load_shared_resource();
+};
 
 typedef char TObjNpcMaleDwarf_size[sizeof(TObjNpcMaleDwarf) == 0x3B8 ? 1 : -1];
 #endif

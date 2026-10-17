@@ -27,7 +27,8 @@ struct TObjButterflyLobby : public TUnk_804B9870 {
     virtual void render();
     void update_fade();
     virtual void run_task();
-    static void destroy_instance();};
+    static void destroy_instance();
+};
 
 typedef char TObjButterflyLobby_size[sizeof(TObjButterflyLobby) == 0xCC ? 1 : -1];
 #endif

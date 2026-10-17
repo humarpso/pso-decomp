@@ -9,7 +9,8 @@ struct TObjTank : public TUnk_804AF8A0 {
     virtual void render();
     virtual void run_task();
     static void free_globals();
-    static void load_globals();};
+    static void load_globals();
+};
 
 typedef char TObjTank_size[sizeof(TObjTank) == 0xAC ? 1 : -1];
 #endif

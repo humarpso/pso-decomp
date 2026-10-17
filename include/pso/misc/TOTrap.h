@@ -30,7 +30,8 @@ struct TOTrap : public TUnk_804806E8 {
     static f32 scale_by_table_value(f32 farg0);
     virtual void render();
     f32 check_trigger_range(u32 arg1);
-    f32 get_scale(u32 arg1);};
+    f32 get_scale(u32 arg1);
+};
 
 typedef char TOTrap_size[sizeof(TOTrap) == 0x344 ? 1 : -1];
 #endif

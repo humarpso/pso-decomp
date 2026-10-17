@@ -15,7 +15,8 @@ struct TTecSifta : public TTecPlayerInfluence {
     void update_effect_params();
     void create_instance(void *arg1, void *arg2, void *arg3);
     static void create(void *arg0, void *arg1, void *arg2);
-    virtual void render();};
+    virtual void render();
+};
 
 typedef char TTecSifta_size[sizeof(TTecSifta) == 0x140 ? 1 : -1];
 #endif

@@ -6,7 +6,8 @@
 
 struct TWindowCtrlClipOut : public TObject {
     virtual ~TWindowCtrlClipOut();
-    virtual void render();};
+    virtual void render();
+};
 
 typedef char TWindowCtrlClipOut_size[sizeof(TWindowCtrlClipOut) == 0x1C ? 1 : -1];
 #endif

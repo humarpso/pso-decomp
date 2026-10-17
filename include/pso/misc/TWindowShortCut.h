@@ -17,7 +17,8 @@ struct TWindowShortCut : public TUnk_804CE018 {
     u32 m_68;
     u32 m_6c;
     u32 m_70;
-    virtual void run_task();};
+    virtual void run_task();
+};
 
 typedef char TWindowShortCut_size[sizeof(TWindowShortCut) == 0x74 ? 1 : -1];
 #endif

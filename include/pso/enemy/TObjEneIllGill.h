@@ -51,7 +51,8 @@ struct TObjEneIllGill : public TObjEnemy {
     void run_task();
     void *create();
     static void free_effect();
-    static void load_shared_resources();};
+    static void load_shared_resources();
+};
 
 typedef char TObjEneIllGill_size[sizeof(TObjEneIllGill) == 0x420 ? 1 : -1];
 #endif

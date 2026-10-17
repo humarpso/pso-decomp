@@ -18,7 +18,8 @@ struct TWindowLoadItemTexture : public TUnk_804CE018 {
     u32 m_6c;
     u32 m_70;
     void *create(void *arg1);
-    virtual void run_task();};
+    virtual void run_task();
+};
 
 typedef char TWindowLoadItemTexture_size[sizeof(TWindowLoadItemTexture) == 0x74 ? 1 : -1];
 #endif

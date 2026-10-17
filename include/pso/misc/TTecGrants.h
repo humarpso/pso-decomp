@@ -14,7 +14,8 @@ struct TTecGrants : public TUnk_804CC148 {
     u32 m_148;
     virtual void render();
     static void create(void *arg0, void *arg1, void *arg2, void *arg3);
-    void init_parameters();};
+    void init_parameters();
+};
 
 typedef char TTecGrants_size[sizeof(TTecGrants) == 0x14C ? 1 : -1];
 #endif

@@ -40,7 +40,8 @@ struct TObjEneDolmOlm : public TUnk_80493450 {
     static void toggle_effect_render();
     void advance_position();
     void init_body_sub();
-    static void reset_count();};
+    static void reset_count();
+};
 
 typedef char TObjEneDolmOlm_size[sizeof(TObjEneDolmOlm) == 0x3E8 ? 1 : -1];
 #endif

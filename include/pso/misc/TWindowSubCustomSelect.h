@@ -35,7 +35,8 @@ struct TWindowSubCustomSelect : public TUnk_804CDFE8 {
     void draw_cursor(u8 *arg1);
     void draw_palette_cells(int arg1);
     virtual void run_task();
-    int is_active();};
+    int is_active();
+};
 
 typedef char TWindowSubCustomSelect_size[sizeof(TWindowSubCustomSelect) == 0x84 ? 1 : -1];
 #endif

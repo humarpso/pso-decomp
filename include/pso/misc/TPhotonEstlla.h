@@ -22,7 +22,8 @@ struct TPhotonEstlla : public TUnk_804C3248 {
     u32 m_1a0;
     void spawn_line();
     virtual void render();
-    virtual void run_task();};
+    virtual void run_task();
+};
 
 typedef char TPhotonEstlla_size[sizeof(TPhotonEstlla) == 0x1A4 ? 1 : -1];
 #endif

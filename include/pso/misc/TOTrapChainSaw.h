@@ -38,7 +38,8 @@ struct TOTrapChainSaw : public TUnk_804AFBF8 {
     u8 _padF0[0x4];
     u32 m_f4;
     static f32 scale_by_level(f32 farg0);
-    void update_demo();};
+    void update_demo();
+};
 
 typedef char TOTrapChainSaw_size[sizeof(TOTrapChainSaw) == 0xF8 ? 1 : -1];
 #endif

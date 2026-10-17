@@ -12,7 +12,8 @@ struct TORevlightCave01 : public TUnk_804AFBF8 {
     static void release_static_instance();
     static void load_shared_resource();
     virtual void run_task();
-    virtual void render();};
+    virtual void render();
+};
 
 typedef char TORevlightCave01_size[sizeof(TORevlightCave01) == 0xD0 ? 1 : -1];
 #endif

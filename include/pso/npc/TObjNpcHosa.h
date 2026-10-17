@@ -7,7 +7,8 @@
 struct TObjNpcHosa : public TUnk_804A9F50 {
     virtual ~TObjNpcHosa();
     static void destroy_static_instance();
-    static void load_static_resource();};
+    static void load_static_resource();
+};
 
 typedef char TObjNpcHosa_size[sizeof(TObjNpcHosa) == 0x3B8 ? 1 : -1];
 #endif

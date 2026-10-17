@@ -13,7 +13,8 @@ struct TShopGenerator : public TUnk_804B9870 {
     static s32 is_no_service_active(void *self, s32 player);
     static void clear_slot_active(s32 arg0);
     static void run_fn_table_reverse();
-    static void run_fn_table_forward();};
+    static void run_fn_table_forward();
+};
 
 typedef char TShopGenerator_size[sizeof(TShopGenerator) == 0x98 ? 1 : -1];
 #endif

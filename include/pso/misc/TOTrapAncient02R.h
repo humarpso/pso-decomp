@@ -27,7 +27,8 @@ struct TOTrapAncient02R : public TOTrapAncient02 {
     u32 m_364;
     u32 m_368;
     void calc_trap_count();
-    static void *create(void *arg0);};
+    static void *create(void *arg0);
+};
 
 typedef char TOTrapAncient02R_size[sizeof(TOTrapAncient02R) == 0x36C ? 1 : -1];
 #endif

@@ -35,7 +35,8 @@ struct TWindowSubSymbolChatParts : public TUnk_804CDFE8 {
     u32 m_8c;
     void handle_cancel();
     void add_part();
-    void handle_add();};
+    void handle_add();
+};
 
 typedef char TWindowSubSymbolChatParts_size[sizeof(TWindowSubSymbolChatParts) == 0x90 ? 1 : -1];
 #endif

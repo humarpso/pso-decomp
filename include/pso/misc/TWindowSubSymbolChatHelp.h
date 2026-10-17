@@ -17,7 +17,8 @@ struct TWindowSubSymbolChatHelp : public TUnk_804CE018 {
     void handle_toggle_input();
     void handle_page_input();
     virtual void render();
-    virtual void run_task();};
+    virtual void run_task();
+};
 
 typedef char TWindowSubSymbolChatHelp_size[sizeof(TWindowSubSymbolChatHelp) == 0x74 ? 1 : -1];
 #endif

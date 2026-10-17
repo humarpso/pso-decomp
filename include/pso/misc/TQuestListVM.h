@@ -69,7 +69,8 @@ struct TQuestListVM : public TShopWindowBase {
     u32 decrypt_quest_data(s32 arg1, s32 arg2, u32 arg3);
     static int get_data();
     void set_selected_entry(void* a1);
-    static void poll_download();};
+    static void poll_download();
+};
 
 typedef char TQuestListVM_size[sizeof(TQuestListVM) == 0x23C4 ? 1 : -1];
 #endif

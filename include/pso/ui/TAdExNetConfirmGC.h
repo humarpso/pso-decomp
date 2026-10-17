@@ -10,7 +10,8 @@ struct TAdExNetConfirmGC : public TAdWarningBaseGC {
     virtual int vfunc_6();
     static s32 is_confirmed();
     virtual void render();
-    virtual void run_task();};
+    virtual void run_task();
+};
 
 typedef char TAdExNetConfirmGC_size[sizeof(TAdExNetConfirmGC) == 0x30 ? 1 : -1];
 #endif

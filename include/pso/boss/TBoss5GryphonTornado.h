@@ -18,7 +18,8 @@ struct TBoss5GryphonTornado : public TObject {
     u32 m_54;
     u32 m_58;
     virtual void render();
-    virtual void run_task();};
+    virtual void run_task();
+};
 
 typedef char TBoss5GryphonTornado_size[sizeof(TBoss5GryphonTornado) == 0x5C ? 1 : -1];
 #endif

@@ -6,7 +6,8 @@
 
 struct TWindowMessageInfomation : public TWindowMessage {
     virtual ~TWindowMessageInfomation();
-    void render();};
+    void render();
+};
 
 typedef char TWindowMessageInfomation_size[sizeof(TWindowMessageInfomation) == 0x90 ? 1 : -1];
 #endif

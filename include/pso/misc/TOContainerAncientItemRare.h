@@ -6,7 +6,8 @@
 
 struct TOContainerAncientItemRare : public TUnk_804B08BC {
     virtual ~TOContainerAncientItemRare();
-    virtual void vfunc_6(s16 *, s32);};
+    virtual void vfunc_6(s16 *, s32);
+};
 
 typedef char TOContainerAncientItemRare_size[sizeof(TOContainerAncientItemRare) == 0x368 ? 1 : -1];
 #endif

@@ -10,7 +10,8 @@ struct TObjNpcCloakroomBase : public TUnk_804A8640 {
     virtual f32 receive_direct_attack(void *, void *, void *, s32, s32);
     static void *create(void *arg0);
     static void destroy_static_instance();
-    static void load_shared_resource();};
+    static void load_shared_resource();
+};
 
 typedef char TObjNpcCloakroomBase_size[sizeof(TObjNpcCloakroomBase) == 0x3B8 ? 1 : -1];
 #endif

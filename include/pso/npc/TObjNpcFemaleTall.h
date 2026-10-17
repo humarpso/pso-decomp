@@ -7,7 +7,8 @@
 struct TObjNpcFemaleTall : public TUnk_804A8640 {
     virtual ~TObjNpcFemaleTall();
     static void destroy_instance();
-    static void load_resource_instance();};
+    static void load_resource_instance();
+};
 
 typedef char TObjNpcFemaleTall_size[sizeof(TObjNpcFemaleTall) == 0x3B8 ? 1 : -1];
 #endif

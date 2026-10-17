@@ -24,7 +24,8 @@ struct TODummyKeyCave01 : public TUnk_804B9870 {
     u32 m_d0;
     virtual void render();
     virtual void run_task();
-    static void *create(void *arg0);};
+    static void *create(void *arg0);
+};
 
 typedef char TODummyKeyCave01_size[sizeof(TODummyKeyCave01) == 0xD4 ? 1 : -1];
 #endif

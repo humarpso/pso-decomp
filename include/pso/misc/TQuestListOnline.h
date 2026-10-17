@@ -50,7 +50,8 @@ struct TQuestListOnline : public TShopWindowBase {
     static void ensure_online_quests_loaded();
     static int get_quest_list_flag();
     static void close_windows_and_reset();
-    static void handle_quest_ready();};
+    static void handle_quest_ready();
+};
 #include <stddef.h>
 typedef char QuestListOnlineSize[(sizeof(TQuestListOnline)==0x70)?1:-1];
 typedef char QuestListOnline_state[(offsetof(TQuestListOnline,state)==0x20)?1:-1];

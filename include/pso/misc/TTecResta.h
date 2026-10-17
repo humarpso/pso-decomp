@@ -16,7 +16,8 @@ struct TTecResta : public TTecPlayerInfluence {
     static f32 calc_heal_amount(s32 arg0);
     void init_parameters();
     static void create(void *arg0, void *arg1, void *arg2);
-    virtual void render();};
+    virtual void render();
+};
 
 typedef char TTecResta_size[sizeof(TTecResta) == 0x140 ? 1 : -1];
 #endif

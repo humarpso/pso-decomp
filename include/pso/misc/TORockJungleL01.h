@@ -13,7 +13,8 @@ struct TORockJungleL01 : public TORockCave {
     u8 unk_B8[0x18];
     s32 m_d0;
     u32 m_d4;
-    void *destroy(s16 arg1);};
+    void *destroy(s16 arg1);
+};
 
 typedef char TORockJungleL01_size[sizeof(TORockJungleL01) == 0xD8 ? 1 : -1];
 #endif

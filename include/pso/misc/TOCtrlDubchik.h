@@ -32,7 +32,8 @@ struct TOCtrlDubchik : public TObjEnemy {
     static void *create(void *arg0);
     static void destroy_instance();
     static void load_shared_resource();
-    static s32 create_font(s32 arg0, s32 arg1, s32 arg2, s32 arg3);};
+    static s32 create_font(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+};
 
 typedef char TOCtrlDubchik_size[sizeof(TOCtrlDubchik) == 0x3A0 ? 1 : -1];
 #endif

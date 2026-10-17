@@ -14,7 +14,8 @@ struct TTecAnti : public TTecPlayerInfluence {
     u32 m_13c;
     static void create(void *arg0, void *arg1, void *arg2, void *arg3);
     void copy_params(u8 *arg1);
-    virtual void render();};
+    virtual void render();
+};
 
 typedef char TTecAnti_size[sizeof(TTecAnti) == 0x140 ? 1 : -1];
 #endif

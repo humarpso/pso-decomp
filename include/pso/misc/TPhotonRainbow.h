@@ -13,7 +13,8 @@ struct TPhotonRainbow : public TUnk_804B9870 {
     u8 _padA0[0x8];
     u32 m_a8;
     virtual void render();
-    virtual void run_task();};
+    virtual void run_task();
+};
 
 typedef char TPhotonRainbow_size[sizeof(TPhotonRainbow) == 0xAC ? 1 : -1];
 #endif

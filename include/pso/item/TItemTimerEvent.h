@@ -18,7 +18,8 @@ struct TItemTimerEvent : public TItemHeapObject {
     static void start_event_by_index(u16 arg0);
     static void check_battle_ctrl(int arg0);
     static void notify_if_active(int arg0);
-    static void clear_active();};
+    static void clear_active();
+};
 
 typedef char TItemTimerEvent_size[sizeof(TItemTimerEvent) == 0x2C ? 1 : -1];
 #endif

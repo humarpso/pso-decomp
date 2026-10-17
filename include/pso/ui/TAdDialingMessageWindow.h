@@ -12,7 +12,8 @@ struct TAdDialingMessageWindow : public TObject {
     u32 m_28;
     void set_flag_and_notify();
     void run_child_tasks();
-    virtual void render();};
+    virtual void render();
+};
 
 typedef char TAdDialingMessageWindow_size[sizeof(TAdDialingMessageWindow) == 0x2C ? 1 : -1];
 #endif

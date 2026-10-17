@@ -6,7 +6,8 @@
 
 struct TQuadSpriteNormal : public TUnk_804C57F0 {
     virtual ~TQuadSpriteNormal();
-    virtual void render();};
+    virtual void render();
+};
 
 typedef char TQuadSpriteNormal_size[sizeof(TQuadSpriteNormal) == 0x2C ? 1 : -1];
 #endif

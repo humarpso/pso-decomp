@@ -13,7 +13,8 @@ struct TObjRaderIcon : public TUnk_804B9870 {
     u32 m_a0;
     virtual void render();
     virtual void run_task();
-    void initialize_from_placement();};
+    void initialize_from_placement();
+};
 
 typedef char TObjRaderIcon_size[sizeof(TObjRaderIcon) == 0xA4 ? 1 : -1];
 #endif

@@ -16,7 +16,8 @@ struct TObjEneHoldEffect : public TUnk_804B9870 {
     u8 is_in_view();
     virtual void render();
     static void create(void *arg0, void *arg1, void *arg2);
-    s32 validate_6x49_packet();};
+    s32 validate_6x49_packet();
+};
 
 typedef char TObjEneHoldEffect_size[sizeof(TObjEneHoldEffect) == 0xA0 ? 1 : -1];
 #endif

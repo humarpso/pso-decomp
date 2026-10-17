@@ -78,12 +78,12 @@ void TOSignCave03::render() {
     CaveSignModel *node7;
     CaveSignModel *node8;
     CaveSignModel *node9;
-    if (((VObj_18_26a62c *)(this))->m8(field_c0, field_c4) != 0) {
-        TObjFish::set_global_param(render_parameter);
+    if (((VObj_18_26a62c *)(this))->m8(m_c0, (*(f32 *)&this->m_c4)) != 0) {
+        TObjFish::set_global_param(texture_id);
         push_matrix();
-        post_translate_matrix(transform);
-        rotate_matrix_y(0, angle);
-        node1 = model;
+        post_translate_matrix(position);
+        rotate_matrix_y(0, rotation_y);
+        node1 = (*(CaveSignModel * *)&this->model);
         translate_matrix(0, node1->x, node1->y, node1->z);
         draw_ginja_model(node1->model);
         push_matrix();
@@ -104,7 +104,7 @@ void TOSignCave03::render() {
         TParticleCtrl::end_effect_render();
         pop_matrix();
         push_matrix();
-        node5 = model->child->sibling;
+        node5 = (*(CaveSignModel * *)&this->model)->child->sibling;
         translate_matrix(0, node5->x, node5->y, node5->z);
         draw_ginja_model(node5->model);
         TParticleCtrl::begin_effect_render();
@@ -121,7 +121,7 @@ void TOSignCave03::render() {
         TParticleCtrl::end_effect_render();
         pop_matrix();
         push_matrix();
-        node8 = model->child->sibling->sibling;
+        node8 = (*(CaveSignModel * *)&this->model)->child->sibling->sibling;
         translate_matrix(0, node8->x, node8->y, node8->z);
         draw_ginja_model(node8->model);
         TParticleCtrl::begin_effect_render();
@@ -133,7 +133,7 @@ void TOSignCave03::render() {
         TParticleCtrl::end_effect_render();
         pop_matrix();
         push_matrix();
-        node10 = model->child->sibling->sibling->sibling;
+        node10 = (*(CaveSignModel * *)&this->model)->child->sibling->sibling->sibling;
         translate_matrix(0, node10->x, node10->y, node10->z);
         draw_ginja_model(node10->model);
         TParticleCtrl::begin_effect_render();

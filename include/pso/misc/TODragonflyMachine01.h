@@ -14,7 +14,8 @@ struct TODragonflyMachine01 : public TODragonfly {
     virtual void run_task();
     static void *create(void *arg0);
     static void unload_static_data();
-    static void create_attack_effect();};
+    static void create_attack_effect();
+};
 
 typedef char TODragonflyMachine01_size[sizeof(TODragonflyMachine01) == 0x108 ? 1 : -1];
 #endif

@@ -25,7 +25,8 @@ struct TODragonfly : public TUnk_804AFBF8 {
     u32 m_fc;
     s32 pick_random_destination(f32 farg0);
     void move_toward_target();
-    void update_idle();};
+    void update_idle();
+};
 
 typedef char TODragonfly_size[sizeof(TODragonfly) == 0x100 ? 1 : -1];
 #endif

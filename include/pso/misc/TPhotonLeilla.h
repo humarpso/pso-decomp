@@ -22,7 +22,8 @@ struct TPhotonLeilla : public TUnk_804C3248 {
     u8 _pad1A0[0xC];
     u32 m_1ac;
     virtual void render();
-    virtual void run_task();};
+    virtual void run_task();
+};
 
 typedef char TPhotonLeilla_size[sizeof(TPhotonLeilla) == 0x1B0 ? 1 : -1];
 #endif

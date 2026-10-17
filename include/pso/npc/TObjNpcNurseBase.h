@@ -7,7 +7,8 @@
 struct TObjNpcNurseBase : public TUnk_804A8640 {
     virtual ~TObjNpcNurseBase();
     static void free_shared_data();
-    static void load_shared_data();};
+    static void load_shared_data();
+};
 
 typedef char TObjNpcNurseBase_size[sizeof(TObjNpcNurseBase) == 0x3B8 ? 1 : -1];
 #endif

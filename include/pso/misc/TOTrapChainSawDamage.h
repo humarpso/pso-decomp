@@ -18,7 +18,8 @@ struct TOTrapChainSawDamage : public TOTrapChainSaw {
     u32 m_104;
     u32 m_108;
     void set_damage(s32 v);
-    void *create();};
+    void *create();
+};
 
 typedef char TOTrapChainSawDamage_size[sizeof(TOTrapChainSawDamage) == 0x10C ? 1 : -1];
 #endif

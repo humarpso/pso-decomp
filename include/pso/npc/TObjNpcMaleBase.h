@@ -8,7 +8,8 @@ struct TObjNpcMaleBase : public TUnk_804A9F50 {
     virtual ~TObjNpcMaleBase();
     void request_action(s32 arg1);
     static void free_static_data();
-    static void load_shared_resource();};
+    static void load_shared_resource();
+};
 
 typedef char TObjNpcMaleBase_size[sizeof(TObjNpcMaleBase) == 0x3B8 ? 1 : -1];
 #endif

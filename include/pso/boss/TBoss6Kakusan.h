@@ -21,7 +21,8 @@ struct TBoss6Kakusan : public TObject {
     void check_beam_player_hits();
     s32 is_out_of_range();
     virtual void render();
-    virtual void run_task();};
+    virtual void run_task();
+};
 
 typedef char TBoss6Kakusan_size[sizeof(TBoss6Kakusan) == 0x58 ? 1 : -1];
 #endif

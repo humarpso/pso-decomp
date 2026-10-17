@@ -12,7 +12,8 @@ struct TORockJungleS01 : public TORockCaveBrakable {
     static void *create(void *arg0);
     static u8 *get_model(s32 arg0);
     static void free_globals();
-    static void load_resources();};
+    static void load_resources();
+};
 
 typedef char TORockJungleS01_size[sizeof(TORockJungleS01) == 0xC0 ? 1 : -1];
 #endif

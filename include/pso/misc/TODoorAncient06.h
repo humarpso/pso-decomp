@@ -11,7 +11,8 @@ struct TODoorAncient06 : public TUnk_804B0BB8 {
     virtual void render();
     static void *create(void *arg0);
     static void destroy();
-    static void load_resources();};
+    static void load_resources();
+};
 
 typedef char TODoorAncient06_size[sizeof(TODoorAncient06) == 0xD4 ? 1 : -1];
 #endif

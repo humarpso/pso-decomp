@@ -84,7 +84,8 @@ struct TObjEneBm5Wolf : public TObjEneDD_ST {
     void unlink_list_node(void ***arg1, void **arg2);
     static void register_global_objects();
     void flanking_state(s32 arg1);
-    void howling_state(s32 arg1);};
+    void howling_state(s32 arg1);
+};
 
 typedef char WolfOffset_target[offsetof(TObjEneBm5Wolf, target) == 0x390 ? 1 : -1];
 typedef char WolfOffset_destination[offsetof(TObjEneBm5Wolf, destination) == 0x394 ? 1 : -1];

@@ -18,7 +18,8 @@ struct TOExplosiveMachine : public TUnk_804B9870 {
     static void load_shared_resource();
     s32 check_trigger();
     s32 update_trigger();
-    void update();};
+    void update();
+};
 
 typedef char TOExplosiveMachine_size[sizeof(TOExplosiveMachine) == 0xAC ? 1 : -1];
 #endif

@@ -43,6 +43,7 @@ struct TObjEneMe3Shinowa : public TObjEneDD_ST {
     void* m_3cc;
     u8 unk_3D0[0x18];
     void* m_3e8;
-    void copy_position_vector();};
+    void copy_position_vector();
+};
 
 #endif

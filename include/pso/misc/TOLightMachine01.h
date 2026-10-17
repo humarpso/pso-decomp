@@ -18,7 +18,8 @@ struct TOLightMachine01 : public TUnk_804B9870 {
     virtual void render();
     static void *create(void *arg0);
     static void destroy_instance();
-    static void load_assets();};
+    static void load_assets();
+};
 
 typedef char TOLightMachine01_size[sizeof(TOLightMachine01) == 0xB0 ? 1 : -1];
 #endif

@@ -11,7 +11,8 @@ struct TObjMapForceWarp : public TObjMapWarp {
     u32 m_fc;
     virtual void render();
     static int run_task(void* p);
-    static void register_warp(void* a0);};
+    static void register_warp(void* a0);
+};
 
 typedef char TObjMapForceWarp_size[sizeof(TObjMapForceWarp) == 0x100 ? 1 : -1];
 #endif

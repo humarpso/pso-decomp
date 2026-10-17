@@ -20,7 +20,8 @@ struct TWindowSubQuestBoard : public TObject {
     int set_card_flags_direct(int a1);
     virtual void render();
     virtual void run_task();
-    u8 get_page_index();};
+    u8 get_page_index();
+};
 
 typedef char TWindowSubQuestBoard_size[sizeof(TWindowSubQuestBoard) == 0x30 ? 1 : -1];
 #endif

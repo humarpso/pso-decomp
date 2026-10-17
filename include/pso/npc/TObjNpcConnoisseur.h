@@ -7,7 +7,8 @@
 struct TObjNpcConnoisseur : public TUnk_804A9F50 {
     virtual ~TObjNpcConnoisseur();
     static void destroy_instance();
-    static void load_section_motion();};
+    static void load_section_motion();
+};
 
 typedef char TObjNpcConnoisseur_size[sizeof(TObjNpcConnoisseur) == 0x3B8 ? 1 : -1];
 #endif

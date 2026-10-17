@@ -19,7 +19,8 @@ struct TOMonumentAncient02 : public TUnk_804AFBF8 {
     virtual void render();
     static void *create(void *arg0);
     static void free_shared_data();
-    static void load_resources();};
+    static void load_resources();
+};
 
 typedef char TOMonumentAncient02_size[sizeof(TOMonumentAncient02) == 0xF0 ? 1 : -1];
 #endif

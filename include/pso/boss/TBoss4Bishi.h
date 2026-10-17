@@ -5,6 +5,7 @@
 #include "pso/boss/TBoss4Zako.h"
 
 struct TBoss4Bishi : public TBoss4Zako {
-    virtual ~TBoss4Bishi();};
+    virtual ~TBoss4Bishi();
+};
 
 #endif

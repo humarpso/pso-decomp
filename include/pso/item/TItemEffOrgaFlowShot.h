@@ -39,7 +39,8 @@ struct TItemEffOrgaFlowShot : public TUnk_804E355C {
     void update_segments();
     void update_position_from_velocity();
     virtual void render();
-    static void create(void *arg0, void *arg1);};
+    static void create(void *arg0, void *arg1);
+};
 
 typedef char TItemEffOrgaFlowShot_size[sizeof(TItemEffOrgaFlowShot) == 0x1A0 ? 1 : -1];
 #endif

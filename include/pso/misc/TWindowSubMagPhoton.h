@@ -29,7 +29,8 @@ struct TWindowSubMagPhoton : public TUnk_804CE018 {
     void update_selection_input();
     s32 draw_cursor(int arg1);
     virtual void run_task();
-    void get_cursor_origin(void *xy);};
+    void get_cursor_origin(void *xy);
+};
 
 typedef char TWindowSubMagPhoton_size[sizeof(TWindowSubMagPhoton) == 0x74 ? 1 : -1];
 #endif

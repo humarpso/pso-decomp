@@ -6,7 +6,8 @@
 
 struct TQuadSpriteSclColRot : public TUnk_804C57F0 {
     virtual ~TQuadSpriteSclColRot();
-    virtual void render();};
+    virtual void render();
+};
 
 typedef char TQuadSpriteSclColRot_size[sizeof(TQuadSpriteSclColRot) == 0x2C ? 1 : -1];
 #endif

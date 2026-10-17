@@ -17,7 +17,8 @@ struct TAdMcCheckGC : public TObject {
     u32 m_38;
     virtual void render();
     s32 create(s32 arg1);
-    virtual void run_task();};
+    virtual void run_task();
+};
 
 typedef char TAdMcCheckGC_size[sizeof(TAdMcCheckGC) == 0x3C ? 1 : -1];
 #endif

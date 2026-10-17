@@ -6,7 +6,8 @@
 
 struct TORockCaveSimple : public TORockCave {
     virtual ~TORockCaveSimple();
-    void play_trigger_effect();};
+    void play_trigger_effect();
+};
 
 typedef char TORockCaveSimple_size[sizeof(TORockCaveSimple) == 0xB4 ? 1 : -1];
 #endif

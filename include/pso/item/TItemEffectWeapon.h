@@ -25,7 +25,8 @@ public:
     s32 field_28;
 public:
     int decrement_timer();
-    u8 *create_instance();};
+    u8 *create_instance();
+};
 
 #include <stddef.h>
 typedef char WeaponTrailVertexSize[(sizeof(TItemEffectWeapon::TrailVertex) == 0x10) ? 1 : -1];

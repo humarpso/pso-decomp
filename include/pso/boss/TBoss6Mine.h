@@ -36,7 +36,8 @@ struct TBoss6Mine : public TObjEnemy {
     void update_facing_angles();
     s32 is_far_from_origin();
     static s32 create(s32 arg0);
-    static f32 next_random_float(s32 *arg0);};
+    static f32 next_random_float(s32 *arg0);
+};
 
 typedef char TBoss6Mine_size[sizeof(TBoss6Mine) == 0x3D0 ? 1 : -1];
 #endif

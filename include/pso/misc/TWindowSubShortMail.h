@@ -37,7 +37,8 @@ struct TWindowSubShortMail : public TObject {
     virtual void render();
     virtual void run_task();
     void notify_warp_flag70();
-    void advance_line(s32 arg1);};
+    void advance_line(s32 arg1);
+};
 
 typedef char TWindowSubShortMail_size[sizeof(TWindowSubShortMail) == 0x60 ? 1 : -1];
 #endif

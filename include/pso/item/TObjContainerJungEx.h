@@ -12,7 +12,8 @@ struct TObjContainerJungEx : public TUnk_804B6C24 {
     static void *create(void *arg0);
     static u8 *get_model(s32 arg0);
     static void free_data();
-    static void load_resource_instance();};
+    static void load_resource_instance();
+};
 
 typedef char TObjContainerJungEx_size[sizeof(TObjContainerJungEx) == 0x368 ? 1 : -1];
 #endif

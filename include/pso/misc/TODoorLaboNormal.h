@@ -6,7 +6,8 @@
 
 struct TODoorLaboNormal : public TODoorFourLightBase {
     virtual ~TODoorLaboNormal();
-    void init_field_d4();};
+    void init_field_d4();
+};
 
 typedef char TODoorLaboNormal_size[sizeof(TODoorLaboNormal) == 0xFC ? 1 : -1];
 #endif

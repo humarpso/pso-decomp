@@ -13,7 +13,8 @@ struct TObjParticleLobby : public TUnk_804AFBF8 {
     virtual void render();
     virtual void run_task();
     void setup_emitter();
-    static void *create(void *arg0);};
+    static void *create(void *arg0);
+};
 
 typedef char TObjParticleLobby_size[sizeof(TObjParticleLobby) == 0xD8 ? 1 : -1];
 #endif

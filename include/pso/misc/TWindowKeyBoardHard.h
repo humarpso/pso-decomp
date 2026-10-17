@@ -36,7 +36,8 @@ struct TWindowKeyBoardHard : public TUnk_804CE018 {
     static void update_card_window_page_flags(s32 arg0, s32 arg1);
     static void clear_card_window_flag(s32 arg0, s32 arg1);
     static void set_card_window_flag(s32 arg0, s32 arg1);
-    int is_key_active();};
+    int is_key_active();
+};
 
 typedef char TWindowKeyBoardHard_size[sizeof(TWindowKeyBoardHard) == 0x74 ? 1 : -1];
 #endif

@@ -7,7 +7,8 @@
 struct TObjNpcFemaleChild : public TUnk_804A8640 {
     virtual ~TObjNpcFemaleChild();
     static void release_static_instance();
-    static void load_shared_resource();};
+    static void load_shared_resource();
+};
 
 typedef char TObjNpcFemaleChild_size[sizeof(TObjNpcFemaleChild) == 0x3B8 ? 1 : -1];
 #endif

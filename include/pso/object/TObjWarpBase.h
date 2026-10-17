@@ -11,6 +11,7 @@ struct TObjWarpBase : public TUnk_804AF8A0 {
     virtual u8 vfunc_16();
     virtual void vfunc_17();
     virtual void vfunc_18(s32);
-    static void free_globals();};
+    static void free_globals();
+};
 
 #endif

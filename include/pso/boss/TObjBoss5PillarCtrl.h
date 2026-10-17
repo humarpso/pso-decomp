@@ -13,7 +13,8 @@ struct TObjBoss5PillarCtrl : public TObject {
     void *create();
     int update_pillar();
     int forward_pillar_2B710();
-    void play_sound_once();};
+    void play_sound_once();
+};
 
 typedef char TObjBoss5PillarCtrl_size[sizeof(TObjBoss5PillarCtrl) == 0x24 ? 1 : -1];
 #endif

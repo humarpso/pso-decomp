@@ -9,7 +9,8 @@ struct TObjGbAdvance : public TObjMesBase {
     virtual void vfunc_14();
     static void free_shared_data();
     static void load_resource_instance();
-    virtual void render();};
+    virtual void render();
+};
 
 typedef char TObjGbAdvance_size[sizeof(TObjGbAdvance) == 0xBC ? 1 : -1];
 #endif

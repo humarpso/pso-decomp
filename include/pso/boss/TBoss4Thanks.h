@@ -29,7 +29,8 @@ struct TBoss4Thanks : public TObject {
     void run_task();
     static void *create();
     s32 is_door_open_and_ready();
-    static s32 check_ready();};
+    static s32 check_ready();
+};
 
 #include <stddef.h>
 typedef char TBoss4Thanks_state_offset[(offsetof(TBoss4Thanks, state) == 0x1C) ? 1 : -1];

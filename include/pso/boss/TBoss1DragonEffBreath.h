@@ -12,7 +12,8 @@ struct TBoss1DragonEffBreath : public TObject {
     u8 _pad2C[0x8];
     u32 m_34;
     virtual void render();
-    virtual void run_task();};
+    virtual void run_task();
+};
 
 typedef char TBoss1DragonEffBreath_size[sizeof(TBoss1DragonEffBreath) == 0x38 ? 1 : -1];
 #endif

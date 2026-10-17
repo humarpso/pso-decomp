@@ -47,7 +47,8 @@ struct TOMine : public TUnk_804806E8 {
     void free_parts();
     virtual void render();
     static void free_instance();
-    static void load_static_resource();};
+    static void load_static_resource();
+};
 
 typedef char TOMine_size[sizeof(TOMine) == 0x374 ? 1 : -1];
 #endif

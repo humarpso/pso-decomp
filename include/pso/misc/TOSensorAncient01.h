@@ -19,7 +19,8 @@ struct TOSensorAncient01 : public TOSensor {
     s32 m_e8;
     u8 unk_EC[0x4];
     f32 m_f0;
-    u8 unk_F4[0x4];};
+    u8 unk_F4[0x4];
+};
 
 typedef char TOSensorAncient01_size[sizeof(TOSensorAncient01) == 0xF8 ? 1 : -1];
 #endif

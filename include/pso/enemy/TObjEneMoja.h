@@ -43,7 +43,8 @@ struct TObjEneMoja : public TObjEnemy {
     s32 update_freeze_timer();
     s32 update_action_hold();
     void run_task();
-    s32 select_attack();};
+    s32 select_attack();
+};
 typedef char MojaSize[(sizeof(TObjEneMoja)==0x40C)?1:-1];
 #include <stddef.h>
 #define MOJA_OFFSET(field, offset) typedef char MojaOffset_##field[(offsetof(TObjEneMoja, field)==offset)?1:-1]

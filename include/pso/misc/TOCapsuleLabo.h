@@ -10,7 +10,8 @@ struct TOCapsuleLabo : public TUnk_804B27D8 {
     u32 m_e4;
     static void unload_static_data();
     static void load_resources();
-    virtual void render();};
+    virtual void render();
+};
 
 typedef char TOCapsuleLabo_size[sizeof(TOCapsuleLabo) == 0xE8 ? 1 : -1];
 #endif

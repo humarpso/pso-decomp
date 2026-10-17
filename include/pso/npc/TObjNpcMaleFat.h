@@ -7,7 +7,8 @@
 struct TObjNpcMaleFat : public TUnk_804A9F50 {
     virtual ~TObjNpcMaleFat();
     static void free_static_model();
-    static void load_static_resource();};
+    static void load_static_resource();
+};
 
 typedef char TObjNpcMaleFat_size[sizeof(TObjNpcMaleFat) == 0x3B8 ? 1 : -1];
 #endif

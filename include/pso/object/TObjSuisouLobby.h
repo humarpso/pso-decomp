@@ -15,7 +15,8 @@ struct TObjSuisouLobby : public TUnk_804AFBF8 {
     void update_particle();
     void *create();
     static void destroy_instance();
-    static void load_resources();};
+    static void load_resources();
+};
 
 typedef char TObjSuisouLobby_size[sizeof(TObjSuisouLobby) == 0xDC ? 1 : -1];
 #endif

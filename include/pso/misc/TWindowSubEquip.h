@@ -22,7 +22,8 @@ struct TWindowSubEquip : public TObject {
     virtual void render();
     virtual void run_task();
     void update_window();
-    void apply_slot_selection();};
+    void apply_slot_selection();
+};
 
 typedef char TWindowSubEquip_size[sizeof(TWindowSubEquip) == 0x3C ? 1 : -1];
 #endif

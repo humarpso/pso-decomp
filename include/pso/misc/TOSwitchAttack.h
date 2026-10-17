@@ -20,7 +20,8 @@ struct TOSwitchAttack : public TUnk_804B9870 {
     void init_params();
     virtual void render();
     virtual void run_task();
-    static void *create(void *arg0);};
+    static void *create(void *arg0);
+};
 
 typedef char TOSwitchAttack_size[sizeof(TOSwitchAttack) == 0xAC ? 1 : -1];
 #endif

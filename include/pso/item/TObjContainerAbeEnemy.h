@@ -10,7 +10,8 @@ struct TObjContainerAbeEnemy : public TUnk_804B6C24 {
     virtual void debug_print_item_box_info();
     virtual void vfunc_80();
     virtual void vfunc_6(s16 *, s32);
-    virtual f32 receive_physical_attack(void *, f32);};
+    virtual f32 receive_physical_attack(void *, f32);
+};
 
 typedef char TObjContainerAbeEnemy_size[sizeof(TObjContainerAbeEnemy) == 0x368 ? 1 : -1];
 #endif

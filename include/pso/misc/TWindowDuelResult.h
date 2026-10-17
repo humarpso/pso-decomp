@@ -13,7 +13,8 @@ struct TWindowDuelResult : public TUnk_804CE018 {
     u8 _pad28[0x40];
     u32 m_68;
     void *init(void *arg1, void *arg2, void *arg3);
-    static int set_default_status(void* p, int a1);};
+    static int set_default_status(void* p, int a1);
+};
 
 typedef char TWindowDuelResult_size[sizeof(TWindowDuelResult) == 0x6C ? 1 : -1];
 #endif

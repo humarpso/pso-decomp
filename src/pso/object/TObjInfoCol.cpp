@@ -50,7 +50,7 @@ void TObjInfoCol::bswap_6x78() { read_be16_field2__10TObjPlayerFv(this); bswap_1
 s32 TObjInfoCol::is_target_in_range(f32 radius_squared) {
     u32 player = get_player_by_client_id(local_client_id);
     if (player != 0 &&
-        xyz_distance_squared((const Vec *) (player + 0x38), &position) < radius_squared) {
+        xyz_distance_squared((const Vec *) (player + 0x38), (const Vec *)&position) < radius_squared) {
         return 1;
     }
     return 0;

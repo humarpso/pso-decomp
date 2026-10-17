@@ -24,7 +24,8 @@ struct TObjLobbyMain : public TUnk_804AFBF8 {
     virtual void run_task();
     static void *create(void *arg0);
     static void release_static_instance();
-    static void load_resources();};
+    static void load_resources();
+};
 
 typedef char TObjLobbyMain_size[sizeof(TObjLobbyMain) == 0xE0 ? 1 : -1];
 #endif

@@ -23,7 +23,8 @@ struct TObjLuker : public TUnk_804B9870 {
     void transfer_to_town();
     virtual void render();
     virtual void run_task();
-    static int get_stat_table_entry(int a0);};
+    static int get_stat_table_entry(int a0);
+};
 
 typedef char TObjLuker_size[sizeof(TObjLuker) == 0xBC ? 1 : -1];
 #endif

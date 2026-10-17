@@ -10,7 +10,8 @@ struct TOCapsuleMachine01 : public TUnk_804AFBF8 {
     virtual void render();
     static void *create(void *arg0);
     static void reset_static_state();
-    static void alloc_and_load_resource();};
+    static void alloc_and_load_resource();
+};
 
 typedef char TOCapsuleMachine01_size[sizeof(TOCapsuleMachine01) == 0xC8 ? 1 : -1];
 #endif

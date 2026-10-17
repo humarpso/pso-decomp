@@ -11,7 +11,8 @@ struct TOCapsuleAncient01 : public TUnk_804B27D8 {
     virtual void render();
     static void *create(void *arg0);
     static void destroy_static_instance();
-    static void load_resource_instance();};
+    static void load_resource_instance();
+};
 
 typedef char TOCapsuleAncient01_size[sizeof(TOCapsuleAncient01) == 0xE8 ? 1 : -1];
 #endif

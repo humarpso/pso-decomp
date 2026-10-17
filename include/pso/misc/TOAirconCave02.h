@@ -9,7 +9,8 @@ struct TOAirconCave02 : public TUnk_804AFBF8 {
     virtual void render();
     static void *create(void *arg0);
     static void release_static_resource();
-    static void load_shared_resource();};
+    static void load_shared_resource();
+};
 
 typedef char TOAirconCave02_size[sizeof(TOAirconCave02) == 0xC8 ? 1 : -1];
 #endif

@@ -21,7 +21,8 @@ struct TObjEneBeast : public TUnk_80493450 {
     void select_subtype();
     static void *create(void *arg0);
     static void load_resources();
-    void select_model_record(s32 i);};
+    void select_model_record(s32 i);
+};
 
 #include <stddef.h>
 typedef char BeastSize[(sizeof(TObjEneBeast) == 0x420) ? 1 : -1];

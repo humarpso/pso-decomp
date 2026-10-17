@@ -5,7 +5,8 @@
 #include "pso/misc/TORockCaveSimple.h"
 
 struct TORockCaveSL02 : public TORockCaveSimple {
-    virtual ~TORockCaveSL02();};
+    virtual ~TORockCaveSL02();
+};
 
 typedef char TORockCaveSL02_size[sizeof(TORockCaveSL02) == 0xB4 ? 1 : -1];
 #endif

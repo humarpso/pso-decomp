@@ -16,7 +16,8 @@ struct TObjContainerJungEnemy : public TUnk_804B6C24 {
     u32 m_370;
     u32 m_374;
     void load_models();
-    static void *create(void *arg0);};
+    static void *create(void *arg0);
+};
 
 typedef char TObjContainerJungEnemy_size[sizeof(TObjContainerJungEnemy) == 0x378 ? 1 : -1];
 #endif
