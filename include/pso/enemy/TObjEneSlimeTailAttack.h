@@ -49,7 +49,7 @@ void reset_display_state__15TObjEneSlimeOneFPv(void *a0);
 void set_display_mode__15TObjEneSlimeOneFPvi(void *arg0, s32 arg1);
 void set_random_timer__15TObjEneSlimeOneFPvii(void *arg0, s32 arg1, s32 arg2);
 void tick_timer__15TObjEneSlimeOneFPv(void *arg0);
-s32 try_spawn_child__15TObjEneSlimeOneFiPv(int arg0, void *arg1);
+s32 try_spawn_child__15TObjEneSlimeOneFiPv(int origin, void *arg1);
 void update_dive_timer__10TObjPlayerFPv(u8 *arg0);
 void update_effect_fade_lifetime(u8 *arg0);
 void update_slime_timer__10TObjPlayerFPv(u8 *arg0);

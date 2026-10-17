@@ -5,7 +5,7 @@
 
 extern "C" {
 void *construct_shot_weapon(void *arg0, s32 parent, void *item);
-u8 *create_shot_weapon(u8 *arg0);
+u8 *create_shot_weapon(u8 *item);
 }
 
 #endif
