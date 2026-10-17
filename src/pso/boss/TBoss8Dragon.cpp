@@ -19,7 +19,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss8DragonEffTail.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
-#include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneMe3ShinowaReal.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
@@ -27,7 +26,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/misc/TWindowCtrl.h"
-#include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct VBase_18 { char pad[0x18]; };

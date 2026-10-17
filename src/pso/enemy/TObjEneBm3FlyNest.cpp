@@ -16,7 +16,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
-#include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/misc/RenderFadeState.h"

@@ -15,7 +15,6 @@ typedef char palette_size[sizeof(TWindowActionPalette) == 0x78 ? 1 : -1];
 #include "types.h"
 #include "pso/item/TItemMag.h"
 #include "pso/misc/TMainCursor.h"
-#include "pso/misc/TWindowHelpItem.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFish.h"

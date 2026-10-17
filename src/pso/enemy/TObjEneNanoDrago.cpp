@@ -12,7 +12,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
 #include "pso/misc/TCameraCtrl.h"
-#include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TUnk_80494938.h"
 

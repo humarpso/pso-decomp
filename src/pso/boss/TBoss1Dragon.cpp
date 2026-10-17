@@ -20,7 +20,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/boss/TObjBoss1Rock.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
-#include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/misc/RenderFadeState.h"
@@ -29,7 +28,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/misc/TNowLoading.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804928CC.h"
 extern "C" void apply_paralysis__12TBoss1DragonFv();
 extern "C" void apply_confusion_status__12TBoss1DragonFv();

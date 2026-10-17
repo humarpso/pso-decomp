@@ -14,11 +14,8 @@ void enemy_clear_target__12TObjEneDD_STFUs(O_800B98C0 *self, u16 _w1);
 s32 enemy_tick_target_acquisition__12TObjEneDD_STFPllf(u8 *arg0, s32 *counter, s32 limit, f32 scale);
 void spawn_part__14TObjEneEpsilonFi(s32 arg0);
 u16 enemy_find_nearest_player_in_range(void *, f32);
-}
 #define enemy_clear_target__12TObjEneDD_STFUs ((s32 (*)(void *))enemy_clear_target__12TObjEneDD_STFUs)
 #define enemy_tick_target_acquisition__12TObjEneDD_STFPllf ((int (*)(void *, void *, void *))enemy_tick_target_acquisition__12TObjEneDD_STFPllf)
-
-extern "C" {
 s32 transform_relative_position__9TObjEneDDFPv(void *, int);
 struct Base_800B9578_800B92AC { char pad[0x18]; };
 struct VObj_800B9578_800B92AC : Base_800B9578_800B92AC {

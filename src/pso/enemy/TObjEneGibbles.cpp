@@ -20,7 +20,6 @@ extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
 
 struct Vec_802D9EB4 { f32 x, y, z; };
 
