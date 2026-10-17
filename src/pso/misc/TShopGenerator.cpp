@@ -101,18 +101,18 @@ bool TShopGenerator::is_player_in_service_range(u8 *arg1, f32 farg0) {
     if (xyz_distance_squared((arg1 + 0x38), ((u8 *)&this->position)) > (farg0 * farg0)) {
         return 0;
     }
-    stack.sp8 = *(s32 *)((s8 *)(&shop_service_facing_vec.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&shop_service_facing_vec.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&shop_service_facing_vec.value) + 8);
-    push_matrix_from((void *) (&identity_matrix.value));
+    stack.sp8 = *(s32 *)((s8 *)&shop_service_facing_vec.value + 0);
+    stack.spC = *(s32 *)((s8 *)&shop_service_facing_vec.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&shop_service_facing_vec.value + 8);
+    push_matrix_from((void *)&identity_matrix.value);
     rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg1 + 0x60)));
-    rotate_vector_by_matrix(0, (void *) (&stack.sp8), (void *) (&stack.sp8));
+    rotate_vector_by_matrix(0, (void *)&stack.sp8, (void *)&stack.sp8);
     pop_matrix();
     stack.sp14 = *(f32 *)((s8 *)arg0 + 0x38) - *(f32 *)((s8 *)arg1 + 0x38);
     stack.sp18 = *(f32 *)((s8 *)arg0 + 0x3C) - *(f32 *)((s8 *)arg1 + 0x3C);
     stack.sp1C = *(f32 *)((s8 *)arg0 + 0x40) - *(f32 *)((s8 *)arg1 + 0x40);
-    normalize_vector((void *) (&stack.sp14));
-    return (vec3_dot((void *) (&stack.sp8), (void *) (&stack.sp14)) > lbl_805DC6E8) == 0;
+    normalize_vector((void *)&stack.sp14);
+    return (vec3_dot((void *)&stack.sp8, (void *)&stack.sp14) > lbl_805DC6E8) == 0;
 }
 #pragma pop
 
@@ -120,7 +120,7 @@ s32 TShopGenerator::is_no_service_active(void *self, s32 player) {
     s32 i;
     s32 (*fn)(u16);
     for (i = 0; i < 7; i++) {
-        fn = *(s32 (**)(u16))((s8 *)(&TShopGenerator__service_dispatch_table.e[i]) + 0x10);
+        fn = *(s32 (**)(u16))((s8 *)&TShopGenerator__service_dispatch_table.e[i] + 0x10);
         if (fn(TShopGenerator__sub_80222DAC(obj_getField1c(player))) == 1) {
             return 0;
         }
@@ -216,7 +216,7 @@ void *TShopGenerator__ct(void *arg0, s32 arg1) {
 
 typedef char RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0_size[sizeof(RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0) == 0x10 ? 1 : -1];
 u8 is_slot_active__14TShopGeneratorFi(s32 arg0) {
-    return (u8) (*(s32 *)((s8 *)(&TShopGenerator__slot_active_table.value) + ((TShopGenerator__sub_80222DAC(arg0) * 4) & 0x3FFFC)) == 1);
+    return (u8) (*(s32 *)((s8 *)&TShopGenerator__slot_active_table.value + ((TShopGenerator__sub_80222DAC(arg0) * 4) & 0x3FFFC)) == 1);
 }
 
 void TShopGenerator::clear_slot_active(s32 arg0) {

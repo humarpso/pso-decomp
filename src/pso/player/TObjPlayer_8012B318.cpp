@@ -24,13 +24,13 @@ void TObjPlayer::update_area_effect_objects() {
         player_list = TObjPlayer::get_player_list();
         switch (player_list) {
         case 1:
-            post_translate_matrix((void *) (arg0 + 0x208));
+            post_translate_matrix(arg0 + 0x208);
             return;
         case 2:
-            post_translate_matrix((void *) (arg0 + 0x214));
+            post_translate_matrix(arg0 + 0x214);
             return;
         case 3:
-            scale_current_matrix((void *) (arg0 + 0x1FC));
+            scale_current_matrix(arg0 + 0x1FC);
             break;
         }
         break;

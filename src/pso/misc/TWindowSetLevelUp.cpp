@@ -287,7 +287,7 @@ void render__17TWindowSetLevelUpFv(void) {  }
 void run_task__17TWindowSetLevelUpFv(u8 *arg0) {
     s16 temp_r5;
     temp_r5 = *(s16 *)((s8 *)arg0 + 0x1E);
-    *(s16 *)((s8 *)arg0 + 0x1E) = (s16) (temp_r5 - 1);
+    *(s16 *)((s8 *)arg0 + 0x1E) = (temp_r5 - 1);
     if (temp_r5 <= 0) {
         ((s32 (*)(void))update_stat_messages__17TWindowSetLevelUpFv)();
     }
@@ -320,7 +320,7 @@ void *__ct__17TWindowSetLevelUpFv(void *arg0, void *arg1, void *arg2, void *arg3
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__17TWindowSetLevelUp;
     ((TObjPlayer *)(self->f_24))->reset_sub_status_disp();
     *(void * *)&((TWindowSetLevelUp *)arg0)->m_name = lbl_805D39C8;
-    ((TWindowSetLevelUp *)(self->f_24))->copy_stat_block((s32)(arg2));
+    ((TWindowSetLevelUp *)(self->f_24))->copy_stat_block((s32)arg2);
     *(u16 *)((s8 *)arg0 + 0x1E) = 0;
     *(void **)((s8 *)arg0 + 0x20) = arg3;
     *(u8 *)((s8 *)arg0 + 0x1C) = 0;

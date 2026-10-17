@@ -222,7 +222,7 @@ void sj_ring_buffer_shutdown(void) {
     temp_r0 = sj_ring_buffer_init_count - 1;
     sj_ring_buffer_init_count = temp_r0;
     if (temp_r0 == 0) {
-        memset((void *) (&sj_ring_buffer_pool), 0, 0x3000);
+        memset(&sj_ring_buffer_pool, 0, 0x3000);
     }
 }
 

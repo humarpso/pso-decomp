@@ -49,7 +49,7 @@ void TOJungleDesign::render() {
     if (((JDVObj_802feeb4 *)arg0)->m8(lbl_805DEF20, lbl_805DEF24) == 1) {
         TObjFish::set_global_param(this->texture_id);
         push_matrix();
-        post_translate_matrix((void *) (arg0 + 0x38));
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_yxz(0, (*(s32 *)&this->m_5c), (this->rotation_y), (this->rotation_z));
         draw_ginja_object((void *)(*(s32 *)&this->m_ac));
         pop_matrix();

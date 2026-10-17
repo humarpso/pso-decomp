@@ -320,7 +320,7 @@ void complete_speech_balloon(u8 *arg0) {
 }
 
 s32 is_speech_balloon_ready(u8 *arg0) {
-    s32 t = *(u8 *)(arg0 + 0x72);
+    s32 t = *(arg0 + 0x72);
     switch (t) {
     case 0:
         get_array_entry__13TUnk_804CE018Fi(arg0, 0);
@@ -436,7 +436,7 @@ void TWindowFukidasi::place_rect_at_head_or_slot() {
         if ((s8)b->slot != -1) {
             ((TUnk_804CF0B8 *)b)->clear_visible_flag();
             ((TUnk_804CF0B8 *)b)->clear_flag2c_bit200();
-            TWindowCtrl::release_slot((s8 *)(&b->slot));
+            TWindowCtrl::release_slot((s8 *)&b->slot);
         }
         project_anchor((f32 *)(0), p);
         b->rect[0] = p[0] - TWindowFukidasi__data_805DCD0C * b->anchor[0];
@@ -614,7 +614,7 @@ void refresh_rect_placement__15TWindowFukidasiFPv(Fuki_80251028 *b) {
         if ((s8)b->slot != -1) {
             ((TUnk_804CF0B8 *)b)->clear_visible_flag();
             ((TUnk_804CF0B8 *)b)->clear_flag2c_bit200();
-            TWindowCtrl::release_slot((s8 *)(&b->slot));
+            TWindowCtrl::release_slot((s8 *)&b->slot);
         }
         res = NULL;
         if (((TWindowFukidasi *)b)->is_bit10_set() == 0) {
@@ -910,7 +910,7 @@ void set_text__15TWindowFukidasiFPvii(u8 *arg0, s32 str, s32 arg2) {
   {
     *((u8 *) (((s8 *) arg0) + 0x72)) = 0U;
     ((TWindowSubStatusDisp *)(arg0 + 0x24))->destroy_all_items();
-    init_window_layout_entries((void *) (arg0 + 0x24), (void *) (&window_fukidasi_layout_entries.value), (int) (*((s16 *) (((s8 *) arg0) + 0x20))));
+    init_window_layout_entries(arg0 + 0x24, &window_fukidasi_layout_entries.value, (int) (*((s16 *) (((s8 *) arg0) + 0x20))));
   }
   temp_r3 = (u8 *) ((u8 * (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(arg0, 0);
   if (arg2 & 1)

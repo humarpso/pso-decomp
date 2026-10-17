@@ -40,7 +40,7 @@ void TWindowSubStatusDisp::set_count_ratio_text(s32 arg1, s32 arg2) {
     text_builder_append((u8 *)(TQuestVmDownLoadServer__sub_8006EF6C(0x67)));
     append_text_space();
     append_padded_number((arg1), (2U));
-    text_builder_append((u8 *)(&lbl_805DCAB8));
+    text_builder_append((u8 *)&lbl_805DCAB8);
     append_padded_number((arg2), (2U));
     ((TWindowSubStatusDisp *)arg0)->set_entry_display_value((int) (get_shared_text_buffer()));
     TWindowSubStatusDisp__count_ratio_value = arg1;

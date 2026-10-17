@@ -219,7 +219,7 @@ void fn_800E35C8(Obj_800E35C8 *arg0) {
             fn_800E3374((Obj_800E3374 *)(arg0), (V_800E3374 *)(p));
         }
     }
-    fn_800E322C(arg0, (void *)(&arg0->pos));
+    fn_800E322C(arg0, &arg0->pos);
 }
 
 }

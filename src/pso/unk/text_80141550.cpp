@@ -33,7 +33,7 @@ void set_shadow_material_state(void) {
     stack.sp10 = lbl_805DB150;
     stack.sp14 = lbl_805DB150;
     stack.sp8 = lbl_805DB154;
-    set_chunk_material_color((void *) (&stack.sp8), lbl_805DB150);
+    set_chunk_material_color(&stack.sp8, lbl_805DB150);
     model_render_flags |= 0x400;
 }
 u32 saved_model_draw_color[8];
@@ -135,7 +135,7 @@ typedef char RecoveredGlobal_8014175C_lbl_8050C000_size[sizeof(RecoveredGlobal_8
 }
 void set_depth_buffer_settings_id(u32 arg0) {
     *(s32 *)((s8 *)(&(*(RecoveredGlobal_8014175C_lbl_8050C000 *)&(*(RecoveredGlobal_80141860_lbl_8050C000 *)&depth_buffer_settings)).value) + 0x10) = arg0;
-    set_ginja_draw_list_mask((s32)(arg0));
+    set_ginja_draw_list_mask(arg0);
 }
 void restore_depth_buffer_settings(void) {
     ((TObjPlayer *)(&(*(RecoveredGlobal_80141788_lbl_8050C000 *)&(*(RecoveredGlobal_80141860_lbl_8050C000 *)&depth_buffer_settings)).value))->copy_config((void*)((void *) (&(*(RecoveredGlobal_80141788_lbl_8050C028 *)&(*(RecoveredGlobal_80141730_lbl_8050C028 *)&saved_depth_alpha_scene_state)).value)));

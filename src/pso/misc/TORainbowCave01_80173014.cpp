@@ -185,7 +185,7 @@ u8 *TORainbowCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TORainbowCave01 *)arg0)->m_c0 = (f32) 400.0f;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (4e+04f);
     ((TORainbowCave01 *)arg0)->m_cc = (f32) (0.0f);
-    ((TORainbowCave01 *)arg0)->init_light_params((int)(temp_r4), (f32) ((4e+04f)), (f32) (400.0f));
+    ((TORainbowCave01 *)arg0)->init_light_params((int)temp_r4, (f32) ((4e+04f)), (f32) (400.0f));
     return arg0;
 }
 

@@ -24,7 +24,7 @@ u8 *TObjPlayer::create_twin_chakram(u8 *arg0) {
 }
 void TObjPlayer::spawn_particle_at_icon() {
     Vec_8012327C v;
-    draw_icon(2, (s32)(&v));
+    draw_icon(2, (s32)&v);
     v.y -= lbl_805DAD08;
     spawn_particle_effect(&v, 0x1d2);
 }

@@ -38,7 +38,7 @@ typedef char RecoveredGlobal_8034CC68_lbl_80478C3C_size[sizeof(RecoveredGlobal_8
 void TWindowSubInformationBoard::set_message_index(s32 arg1) {
     if ((s32) *(s32 *)&this->m_24 != arg1) {
         *(s32 *)&this->m_24 = arg1;
-        ((TLobby *)(*(u8 * *)&this->m_34))->send_and_handle((s32)(TWindowSubStatusDisp::get_message_10((int) (*(s32 *)((s8 *)(&lbl_80478C3C.value) + (arg1 * 4))))), 0x80);
+        ((TLobby *)(*(u8 * *)&this->m_34))->send_and_handle((s32)(TWindowSubStatusDisp::get_message_10((int) (*(s32 *)((s8 *)&lbl_80478C3C.value + (arg1 * 4))))), 0x80);
     }
 }
 

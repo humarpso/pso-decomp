@@ -165,21 +165,21 @@ void TOContainerAncientEnemy::vfunc_81() {
         switch (this->mode) {
         case 0:
             push_matrix();
-            post_translate_matrix((void *) (arg0 + 0x38));
+            post_translate_matrix(arg0 + 0x38);
             rotate_matrix_y(0, this->rotation_y);
             TObjFish::set_global_param(this->texture_id);
             temp_r31 = (unsigned char *) (*(void * *)&this->model);
             push_matrix();
-            post_translate_matrix((void *) (temp_r31 + 8));
+            post_translate_matrix(temp_r31 + 8);
             draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
             temp_r31_2 = (unsigned char *) (*(void **)((s8 *)temp_r31 + 0x2C));
             push_matrix();
-            post_translate_matrix((void *) (temp_r31_2 + 8));
+            post_translate_matrix(temp_r31_2 + 8);
             draw_ginja_model((*(s32 *)((s8 *)temp_r31_2 + 4)));
             pop_matrix();
             temp_r31_3 = (unsigned char *) (*(void **)((s8 *)temp_r31_2 + 0x30));
             push_matrix();
-            post_translate_matrix((void *) (temp_r31_3 + 8));
+            post_translate_matrix(temp_r31_3 + 8);
             TParticleCtrl::begin_effect_render();
             draw_ginja_model((*(s32 *)((s8 *)temp_r31_3 + 4)));
             TParticleCtrl::end_effect_render();
@@ -223,11 +223,11 @@ u8 *TOContainerAncientEnemy__ct(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2F08;
     ((TOContainerAncientEnemy *)arg0)->mode = 0;
     *(s32 *)&((TOContainerAncientEnemy *)arg0)->actorFlags = (s32) (*(s32 *)&((TOContainerAncientEnemy *)arg0)->actorFlags| 0x60000000);
-    init_collision_body_parts(arg0, (void *) (&TOContainerAncientEnemy__collision_body_params.value), 1);
+    init_collision_body_parts(arg0, (void *)&TOContainerAncientEnemy__collision_body_params.value, 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38));
     VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
-    *(f32 *)((s8 *)arg0 + 0x78) = (f32) (*(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)(&TOContainerAncientEnemy__collision_body_params.value) + 4));
+    *(f32 *)((s8 *)arg0 + 0x78) = (f32) (*(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)&TOContainerAncientEnemy__collision_body_params.value + 4));
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *) ((*(s32 *)&ancient_container_resource_bundle)), 0);
     ((TOContainerAncientEnemy *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&ancient_container_resource_bundle)), 0);
     return arg0;

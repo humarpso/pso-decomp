@@ -183,12 +183,12 @@ s16 open_socket__10TUdpSocketFPv(Sock_800782B8 *arg0) {
 s32 TUdpSocket::handle_socket_event(s16 arg0, u8 *arg1) {
     s32 (*temp_r12)(void *);
     u8 *temp_r5;
-    temp_r5 = (u8 *)(*(s32 *)((s8 *)(&udp_socket_slots.value) + ((*(s16 *)((s8 *)arg1 + 0) - 0x400) * 4)));
+    temp_r5 = (u8 *)(*(s32 *)((s8 *)&udp_socket_slots.value + ((*(s16 *)((s8 *)arg1 + 0) - 0x400) * 4)));
     if (temp_r5 == NULL) {
         return 1;
     }
     if (arg0 == 0) {
-        *(s32 *)((s8 *)arg1 + 4) = (s32) (temp_r5 + 0x74);
+        *(s32 *)((s8 *)arg1 + 4) = (s32)(temp_r5 + 0x74);
         ((void (*)(void *, void *))copy_udp_socket_event_record)(temp_r5 + 0x884, arg1);
         *(s16 *)((s8 *)arg1 + 2) = 0x800;
     } else {

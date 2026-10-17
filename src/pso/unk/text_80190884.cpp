@@ -20,7 +20,7 @@ s32 TObjEnvSound::is_sound_enabled(void *self, s32 cue) {
 }
 
 s32 fn_801908F8(s32 arg0, f32 farg0) {
-    return xyz_distance_squared((void *) (camera_ctrl_instance + 0x178), (void *) (arg0 + 0x38), (void *)arg0) < farg0;
+    return xyz_distance_squared((void *)(camera_ctrl_instance + 0x178), (void *)(arg0 + 0x38), (void *)arg0) < farg0;
 }
 
 }

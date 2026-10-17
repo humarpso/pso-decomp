@@ -52,7 +52,7 @@ u8 *TItemWeapon__ct(u8 *arg0, void *parent, u8 *item) {
     if (temp_r3 == 0) {
         ((TItemWeapon *)arg0)->special_selector = (u8) (((TItemWeapon *)arg0)->special_selector| lbl_805DACA4);
     }
-    memcpy((void *) (arg0 + 0x1A4), (void *) (item + 6), 6);
+    memcpy(arg0 + 0x1A4, item + 6, 6);
     *(s32 *)((s8 *)arg0 + 0x1EC) = 0;
     *(s32 *)((s8 *)arg0 + 0x1F4) = 0;
     *(void **)((s8 *)arg0 + 0x1F0) = (void *)create_gun_shot;
@@ -63,7 +63,7 @@ u8 *TItemWeapon__ct(u8 *arg0, void *parent, u8 *item) {
     set_weapon_trail_joints(arg0, 1, (int) (*(u8 *)((s8 *)temp_r6_2 + 0x1E)), (int) (*(u8 *)((s8 *)temp_r6_2 + 0x1F)));
     set_weapon_trail_joints(arg0, 2, (int) (-1U), (int) (-1U));
     set_weapon_trail_joints(arg0, 3, (int) (-1U), (int) (-1U));
-    memset((void *) (arg0 + 0x18C), 0, 0x10);
+    memset(arg0 + 0x18C, 0, 0x10);
     *(s32 *)((s8 *)arg0 + 0x1B8) = 0;
     *(f32 *)((s8 *)arg0 + 0x1E4) = (f32) lbl_805DACB0;
     ((TItemWeapon *)arg0)->technique_roll = 0;

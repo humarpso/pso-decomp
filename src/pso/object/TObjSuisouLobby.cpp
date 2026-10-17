@@ -75,7 +75,7 @@ void render__15TObjSuisouLobbyFv(u8 *arg0) {
         TParticleCtrl::begin_effect_render();
         TObjFish::set_global_param((int) (*(u32 *)&((TObjSuisouLobby *)arg0)->texture_id));
         push_matrix();
-        post_translate_matrix((void *) (arg0 + 0x38));
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, (int) (((TObjSuisouLobby *)arg0)->rotation_y));
         if ((s32) *(s32 *)&((TObjSuisouLobby *)arg0)->m_c8 != 3) {
             temp_f1 = *(f32 *)((s8 *)arg0 + 0xCC);

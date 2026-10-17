@@ -43,7 +43,7 @@ s16 TItemMag::get_sync() { return *(s16*)((char*)this + 0x2); }
 int TItemMag::is_active() { return (*(u32*)((char*)this + 0x334) >> 9) & 0x1; }
 s32 TItemMag::get_sub_value() {
     s32 arg0 = (s32)this;
-    return (s32) TItemMag__sub_80113EEC((void*)((void*)(arg0 + 0x4AC)));
+    return (s32) TItemMag__sub_80113EEC((void*)(arg0 + 0x4AC));
 }
 
 u8 obj_isState7_324(u8 *arg0) {

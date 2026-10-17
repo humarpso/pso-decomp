@@ -59,7 +59,7 @@ u8 *TBoss5GryphonColli__ct(u8 *arg0, s32 arg1) {
     temp_r3 = __nw__7TObjectFUl(0xB8);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = TBoss5GryphonDemo__sub_800663DC(temp_r3, arg0, 1, (void *) (&stack.sp8), lbl_805D8ED8);
+        var_r0 = TBoss5GryphonDemo__sub_800663DC(temp_r3, arg0, 1, &stack.sp8, lbl_805D8ED8);
     }
     *(s32 *)((s8 *)arg0 + 0x1C) = var_r0;
     return arg0;

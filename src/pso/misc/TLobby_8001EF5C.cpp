@@ -285,7 +285,7 @@ s32 TLobby::load_bml_exec(u8 *arg0, u8 *arg1) {
         lbl_805D4AE0 = (u8 *) bml_load_buffer;
         bml_header_record_ptr = (Rec_8001F128 *) (bml_load_buffer + 0x40);
         TLobby::read_checked_align((s32)lobby_bml_file_handle, (s32)n, (s32)((void *) bml_load_buffer));
-        TLobby::set_read_params((int)(&lobby_bml_file_handle), (int)n, (int)lbl_805D4AE0);
+        TLobby::set_read_params((int)&lobby_bml_file_handle, (int)n, (int)lbl_805D4AE0);
         self->state = 1;
     case 1:
         if (self->flags & 0x200) {
@@ -316,7 +316,7 @@ s32 TLobby::load_bml_exec(u8 *arg0, u8 *arg1) {
             case 0:
             case 1:
                 TLobby::read_checked_align((s32)lobby_bml_file_handle, (s32)n, (s32)lobby_bml_read_buffer);
-                TLobby::set_read_params((int)(&lobby_bml_file_handle), (int)n, (int)lobby_bml_read_buffer);
+                TLobby::set_read_params((int)&lobby_bml_file_handle, (int)n, (int)lobby_bml_read_buffer);
                 break;
             default:
                 debug_print__6TLobbyFle(lbl_80434B90);
@@ -365,7 +365,7 @@ s32 TLobby::load_bml_exec(u8 *arg0, u8 *arg1) {
             case 0:
             case 1:
                 TLobby::read_checked_align((s32)lobby_bml_file_handle, (s32)n, (s32)lobby_bml_read_buffer);
-                TLobby::set_read_params((int)(&lobby_bml_file_handle), (int)n, (int)lobby_bml_read_buffer);
+                TLobby::set_read_params((int)&lobby_bml_file_handle, (int)n, (int)lobby_bml_read_buffer);
                 break;
             default:
                 debug_print__6TLobbyFle(lbl_80434B90);
@@ -425,7 +425,7 @@ s32 TLobby::load_bml_exec(u8 *arg0, u8 *arg1) {
                     bml_header_record_ptr++;
                 } else {
                     TLobby::read_checked_align((s32)lobby_bml_file_handle, (s32)n, (s32)lobby_bml_read_buffer);
-                    TLobby::set_read_params((int)(&lobby_bml_file_handle), (int)n, (int)lobby_bml_read_buffer);
+                    TLobby::set_read_params((int)&lobby_bml_file_handle, (int)n, (int)lobby_bml_read_buffer);
                 }
             } else {
                 self->entries[bml_load_entry_index].flags |= 2;
@@ -513,7 +513,7 @@ void load_bin_motion_callback(void *arg0) {
     void *temp_r4;
     **(s32 **)((s8 *)arg0 + 0) = 0;
     spC = 0;
-    temp_r3 = alloc_load_data__6TLobbyFPviii((void *)(*(void **)((s8 *)arg0 + 4)), lobby_download_buffer, (s32)(&spC), (s32)(&sp8));
+    temp_r3 = alloc_load_data__6TLobbyFPviii((void *)(*(void **)((s8 *)arg0 + 4)), lobby_download_buffer, (s32)&spC, (s32)&sp8);
     if (temp_r3 == 0) {
         debug_print__6TLobbyFle(lbl_80434C48);
     }
@@ -619,7 +619,7 @@ s32 TLobby::load_bin_motion(s32 arg1, s32 arg2) {
         debug_print__6TLobbyFle(lbl_80434D30, size - 0x40000);
     }
     offset = 0;
-    data = alloc_load_data__6TLobbyFPviii(arg0, lobby_download_buffer, (s32)(&offset), (s32)(&tag));
+    data = alloc_load_data__6TLobbyFPviii(arg0, lobby_download_buffer, (s32)&offset, (s32)&tag);
     if (data == 0) {
         debug_print__6TLobbyFle(lbl_80434D54);
     }

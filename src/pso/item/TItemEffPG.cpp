@@ -95,15 +95,15 @@ void TUnk_804F0BF0::render() {
             TParticleCtrl::begin_effect_render();
             TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
             push_matrix();
-            post_translate_matrix((void *) (arg0 + 0x5C));
+            post_translate_matrix(arg0 + 0x5C);
             push_matrix();
             rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x3C)));
-            scale_current_matrix((void *) (arg0 + 0x48));
+            scale_current_matrix(arg0 + 0x48);
             draw_ginja_model((*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x20)) + 4)));
             pop_matrix();
             push_matrix();
             rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x40)));
-            scale_current_matrix((void *) (arg0 + 0x48));
+            scale_current_matrix(arg0 + 0x48);
             draw_ginja_model((*(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x20)) + 0x2C)) + 4)));
             pop_matrix();
             pop_matrix();
@@ -191,7 +191,7 @@ s32 TUnk_804F0C08::vfunc_7() {
 
     temp_r4 = *(s32 *)((s8 *)this + 0xD4);
     if (temp_r4 > 0) {
-        *(s32 *)((s8 *)this + 0xD4) = (s32) (temp_r4 - 1);
+        *(s32 *)((s8 *)this + 0xD4) = (temp_r4 - 1);
         return 1;
     }
     return 0;

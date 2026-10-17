@@ -174,7 +174,7 @@ void TLobby::parse_dhcp_lease_times() {
         NetMemcpy(&v, p, 4);
         w = v;
         TLobby__sub_80425288(7, 4, &w);
-        TLobby::get_time_seconds((s32 *)(&lbl_805D7B78));
+        TLobby::get_time_seconds((s32 *)&lbl_805D7B78);
         lbl_805D7B7C = lbl_805D7B78 + lbl_805D7B64;
         if (find_dhcp_option__6TLobbyFPvUcPv(arg0, 0x3A, &p) == 4) {
             NetMemcpy(&v, p, 4);

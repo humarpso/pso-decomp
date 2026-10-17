@@ -283,7 +283,7 @@ extern s32 lbl_805D7530;
 
 typedef char RecoveredGlobal_803C5850_lbl_80572020_size[sizeof(RecoveredGlobal_803C5850_lbl_80572020) == 0x100 ? 1 : -1];
 void TLobby::clear_error_callback() {
-    memset((void *) (&adx_error_message_buffer.value), 0, 0x100);
+    memset(&adx_error_message_buffer.value, 0, 0x100);
     lobby_error_callback = 0;
     tlobby_error_callback_arg = 0;
 }
@@ -324,7 +324,7 @@ void TLobby::dec_ref_and_shutdown() {
         TLobby::init_once();
         TLobby::SVM_DelCbSvr(2, (s32)((void *) (1)));
         TLobby::SVM_DelCbSvr(2, (s32)((void *) (3)));
-        TLobby::SVM_DelCbSvr(4, (s32)(TLobby__svm_cb_svr_handle));
+        TLobby::SVM_DelCbSvr(4, TLobby__svm_cb_svr_handle);
         TLobby__sub_803D3194();
         TLobby::release_ref();
         TLobby::init_once();

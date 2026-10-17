@@ -16,7 +16,7 @@ void TUnk_804A08B8::emit_marker_effects() {
     s32 sp8;
 
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
-        ((TObjPlayer *)arg0)->draw_icon(2, (s32)(&sp8));
+        ((TObjPlayer *)arg0)->draw_icon(2, (s32)&sp8);
         spawn_particle_effect(&sp8, 0x1BE);
     }
 }

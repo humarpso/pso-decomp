@@ -1225,7 +1225,7 @@ void TItemMag::cast_support_technique(s32 technique) {
         targets.count = 1;
         targets.ids[0] = obj_getField1c(*(u8 * *)&this->m_f0);
         targets.ids[1] = 0;
-        TTecReverser::create((void *)(*(u8 * *)&this->m_f0), (void *)(*(u8 * *)&this->m_f0 + 0x38), (void *)(&targets), (void *)level);
+        TTecReverser::create((void *)(*(u8 * *)&this->m_f0), (void *)(*(u8 * *)&this->m_f0 + 0x38), &targets, (void *)level);
         break;
     case 11:
         return;
@@ -1247,7 +1247,7 @@ s32 TItemMag::apply_feed_stats(u8 *arg1) {
         TItemMag__sub_80114198((arg0 + 0x198), (*(s16 *)((s8 *)arg1 + 8)));
         TItemMag::add_stat_clamped((s16 *)(arg0 + 0x198), (s32)((int) (*(s16 *)((s8 *)arg1 + 0))));
         ((TItemMag *)(arg0 + 0x198))->add_clamped_stat((int) (*(s16 *)((s8 *)arg1 + 2)));
-        ((TItemMag *)arg0)->set_field_EE((u8)((void *) (((u8 (*)(void *))get_mag_total_level)((void *) (arg0 + 0x198)))));
+        ((TItemMag *)arg0)->set_field_EE((u8)((void *) (((u8 (*)(void *))get_mag_total_level)(arg0 + 0x198))));
         if (TObjPlayer__sub_80102C30((arg0)) == 2) {
             ((TItem *)arg0)->refresh_owner_stats();
             if (obj_isState2_324__13TUnk_804806E8Fv((int) (*(s32 *)&this->m_f0)) == 0) {
@@ -1598,7 +1598,7 @@ void TItemMag__vt14(Self_80113310 *self) {
 int TItemMag__vt13(void* p) { return ((int (*)(void*))tick_fullness_timer__8TItemMagFPv)(p); }
 
 void TItemMag__vt12(s32 arg0) {
-    if ((get_mag_total_level((void *) (arg0 + 0x198)) > 0xC8) || (((s16)((TItemData *)(arg0 + 0x198))->get_stat_percent()) < 0) || (((s16)((TItemData *)(arg0 + 0x198))->get_percent()) < 0) || (((s16)((TItemData *)(arg0 + 0x198))->get_level()) < 0) || (((s16)((TItemData *)(arg0 + 0x198))->get_mag_mind_level()) < 0)) {
+    if ((get_mag_total_level((void *)(arg0 + 0x198)) > 0xC8) || (((s16)((TItemData *)(arg0 + 0x198))->get_stat_percent()) < 0) || (((s16)((TItemData *)(arg0 + 0x198))->get_percent()) < 0) || (((s16)((TItemData *)(arg0 + 0x198))->get_level()) < 0) || (((s16)((TItemData *)(arg0 + 0x198))->get_mag_mind_level()) < 0)) {
         ((TItem *)arg0)->refresh_if_current_player();
     }
 }
@@ -1677,7 +1677,7 @@ void TItemMag__vt43(u8 *arg0) {
       {
         new_var = arg0;
         temp_r6 = (u8 *) (*((u8 **) (((s8 *) new_var) + 0xF0)));
-        ((s32 (*)(void *, int, int, int))TItemMag__sub_80113EDC)((void *) (temp_r6 + 0x4AC), (int) ((s16) temp_r3), -1, (int) temp_r6);
+        ((s32 (*)(void *, int, int, int))TItemMag__sub_80113EDC)(temp_r6 + 0x4AC, (int) ((s16) temp_r3), -1, (int) temp_r6);
       }
       slot += 1;
     }
@@ -1706,7 +1706,7 @@ void TItemMag__vt42(u8 *arg0) {
     }
     *(s16 *)((s8 *)arg0 + 0x1DC) = ((s16 (*)(void *))obj_getS16_32C)((void *) (*(u8 **)((s8 *)arg0 + 0xF0)));
     *(s16 *)((s8 *)arg0 + 0x1DE) = obj_getS16_32E((void *) (*(u8 **)((s8 *)arg0 + 0xF0)));
-    if (test_flags_any((void *) (arg0 + 0x178), 1) != 0) {
+    if (test_flags_any(arg0 + 0x178, 1) != 0) {
         *(s32 *)((s8 *)arg0 + 0x18C) = (s32) (*(s32 *)((s8 *)arg0 + 0x18C) & 0xFFFFFFDF);
     } else {
         *(s32 *)((s8 *)arg0 + 0x18C) = (s32) (*(s32 *)((s8 *)arg0 + 0x18C) | 0x20);

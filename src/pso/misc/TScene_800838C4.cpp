@@ -66,12 +66,12 @@ void render_projected_shadow_receiver(u8 *arg0, s32 arg1) {
         push_identity_matrix_ps();
         translate_current_matrix_ps(lbl_805D93D0, lbl_805D93D0, lbl_805D9418);
         rotate_current_matrix_x_ps(0x3800);
-        translate_current_matrix_ps(-*(f32 *)((s8 *)(&shadow_light_position.value) + 0), -*(f32 *)((s8 *)(&shadow_light_position.value) + 4), -*(f32 *)((s8 *)(&shadow_light_position.value) + 8));
+        translate_current_matrix_ps(-*(f32 *)((s8 *)&shadow_light_position.value + 0), -*(f32 *)((s8 *)&shadow_light_position.value + 4), -*(f32 *)((s8 *)&shadow_light_position.value + 8));
         translate_current_matrix_ps(*(f32 *)((s8 *)arg0 + 0), *(f32 *)((s8 *)arg0 + 4), *(f32 *)((s8 *)arg0 + 8));
         rotate_matrix_by_node_angles((void *)arg1, 1);
         stack.sp8 = lbl_805D93DC;
-        C_MTXLightFrustum((void *) (&stack.sp10), (f32) (-lbl_805D941C), lbl_805D941C, lbl_805D9420, (f32) (-lbl_805D9420), lbl_805D9424, lbl_805D93DC, lbl_805D93DC, lbl_805D93DC);
-        PSMTXConcat((void *) (&stack.sp10), (void *)current_matrix, (void *)current_matrix);
+        C_MTXLightFrustum((void *)&stack.sp10, (f32) (-lbl_805D941C), lbl_805D941C, lbl_805D9420, (f32) (-lbl_805D9420), lbl_805D9424, lbl_805D93DC, lbl_805D93DC, lbl_805D93DC);
+        PSMTXConcat((void *)&stack.sp10, (void *)current_matrix, (void *)current_matrix);
         load_current_tex_matrix(0);
         pop_matrix();
         load_current_pos_matrix(0);

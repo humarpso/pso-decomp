@@ -177,8 +177,8 @@ void TObjEneDD::send_damage_message(s32 arg0, u8 *arg1) {
     typedef char sp8_offset[(offsetof(Stack_800BA318, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800BA318, spC) == 0x4) ? 1 : -1];
     Stack_800BA318 stack;
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_8043B68C.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_8043B68C.value) + 4);
+    stack.sp8 = *(s32 *)((s8 *)&lbl_8043B68C.value + 0);
+    stack.spC = *(s32 *)((s8 *)&lbl_8043B68C.value + 4);
     ((VObj_18_0c879f *)(arg1))->m21(arg0, &stack.sp8, 0, -1, -1);
 }
 
@@ -186,8 +186,8 @@ void TObjEneDD__sub_800BA378(s32 arg0, u8 *arg1) {
     typedef char sp8_offset[(offsetof(Stack_800BA318, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800BA318, spC) == 0x4) ? 1 : -1];
     Stack_800BA318 stack;
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_8043B684.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_8043B684.value) + 4);
+    stack.sp8 = *(s32 *)((s8 *)&lbl_8043B684.value + 0);
+    stack.spC = *(s32 *)((s8 *)&lbl_8043B684.value + 4);
     ((VObj_18_0c879f *)(arg1))->m21(arg0, &stack.sp8, 0, -1, -1);
 }
 
@@ -195,8 +195,8 @@ void TObjEneDD::inflict_poison(s32 arg0, u8 *arg1) {
     typedef char sp8_offset[(offsetof(Stack_800BA318, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800BA318, spC) == 0x4) ? 1 : -1];
     Stack_800BA318 stack;
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_8043B67C.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_8043B67C.value) + 4);
+    stack.sp8 = *(s32 *)((s8 *)&lbl_8043B67C.value + 0);
+    stack.spC = *(s32 *)((s8 *)&lbl_8043B67C.value + 4);
     ((VObj_18_0c879f *)(arg1))->m21(arg0, &stack.sp8, 0, -1, -1);
 }
 
@@ -204,8 +204,8 @@ void TObjEneDD__sub_800BA438(s32 arg0, u8 *arg1) {
     typedef char sp8_offset[(offsetof(Stack_800BA318, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800BA318, spC) == 0x4) ? 1 : -1];
     Stack_800BA318 stack;
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_8043B674.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_8043B674.value) + 4);
+    stack.sp8 = *(s32 *)((s8 *)&lbl_8043B674.value + 0);
+    stack.spC = *(s32 *)((s8 *)&lbl_8043B674.value + 4);
     ((VObj_18_0c879f *)(arg1))->m21(arg0, &stack.sp8, 0, -1, -1);
 }
 
@@ -222,10 +222,10 @@ void TObjEneDD::emit_enemy_effect(s32 arg0, s32 arg1, u8 *arg2, s32 arg3) {
     *(f32 *)((s8 *)(*(void **)((s8 *)obj_ene_dd_instance + 0xA4)) + 0xC) = (f32) *(f32 *)((s8 *)arg2 + 8);
     *(s32 *)((s8 *)(*(void **)((s8 *)obj_ene_dd_instance + 0xA4)) + 0x18) = 0x9D03;
     if (*(f32 *)((s8 *)arg2 + 8) > lbl_805D9EA0) {
-        ((EneDDObj2_800BA138*)obj_ene_dd_instance)->m16((void*)(arg2 + 0xC), (void*)arg3);
+        ((EneDDObj2_800BA138*)obj_ene_dd_instance)->m16(arg2 + 0xC, (void*)arg3);
         return;
     }
-    ((EneDDObj2_800BA138*)obj_ene_dd_instance)->m15((void*)(arg2 + 0xC), (void*)arg3);
+    ((EneDDObj2_800BA138*)obj_ene_dd_instance)->m15(arg2 + 0xC, (void*)arg3);
 }
 
 void TObjEneDD__sub_800BA5A4(void* p, void* a1) { TObjEneDD::setup_instance((s32)p, (s32)((char*)p + 0x38), (u8 *)a1, (s32)((void*)0)); }
@@ -238,10 +238,10 @@ void TObjEneDD::setup_instance(s32 arg0, s32 arg1, u8 *arg2, s32 arg3) {
     *(f32 *)((s8 *)(*(void **)((s8 *)obj_ene_dd_instance + 0xA4)) + 0xC) = (f32) *(f32 *)((s8 *)arg2 + 8);
     *(s32 *)((s8 *)(*(void **)((s8 *)obj_ene_dd_instance + 0xA4)) + 0x18) = 0x9D03;
     if (*(f32 *)((s8 *)arg2 + 8) > lbl_805D9EA0) {
-        ((EneDDObj_800BA138*)obj_ene_dd_instance)->m13((void*)(arg2 + 0xC), (void*)arg2, (void*)arg3);
+        ((EneDDObj_800BA138*)obj_ene_dd_instance)->m13(arg2 + 0xC, (void*)arg2, (void*)arg3);
         return;
     }
-    ((EneDDObj_800BA138*)obj_ene_dd_instance)->m12((void*)(arg2 + 0xC), (void*)arg2, (void*)arg3);
+    ((EneDDObj_800BA138*)obj_ene_dd_instance)->m12(arg2 + 0xC, (void*)arg2, (void*)arg3);
 }
 
 int TObjEneDD__sub_800BA6B8(void* p) { return (*(u32*)((char*)p + 0x890) >> 4) & 0x1; }

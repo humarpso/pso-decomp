@@ -48,7 +48,7 @@ s16 TUnk_804B9870::classify_actor_view_detail(f32 farg0, f32 farg1, f32 farg2) {
     if (TMainTask::get_state_flag() == 1) {
         return this->m_1e;
     }
-    transform_point_by_current_matrix((void *) (((u8 *)this) + 0x38), (void *) (&stack.sp10));
+    transform_point_by_current_matrix((void *) (((u8 *)this) + 0x38), (void *)&stack.sp10);
     z = stack.sp18;
     if (z > lbl_805DC098) {
         this->m_1e = 0;
@@ -59,19 +59,19 @@ s16 TUnk_804B9870::classify_actor_view_detail(f32 farg0, f32 farg1, f32 farg2) {
         return 0;
     }
     if (stack.sp10 < lbl_805DC098) {
-        stack.sp10 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 0) * farg2) + *(f32 *)((s8 *)((u8 *)this) + 0x38);
-        stack.sp14 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 4) * farg2) + *(f32 *)((s8 *)((u8 *)this) + 0x3C);
-        stack.sp18 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 8) * farg2) + *(f32 *)((s8 *)((u8 *)this) + 0x40);
-        project_world_to_screen(0, (void *) (&stack.sp10), (void *) (&stack.sp8));
+        stack.sp10 = (*(f32 *)((s8 *)&lbl_804FF610.value + 0) * farg2) + *(f32 *)((s8 *)((u8 *)this) + 0x38);
+        stack.sp14 = (*(f32 *)((s8 *)&lbl_804FF610.value + 4) * farg2) + *(f32 *)((s8 *)((u8 *)this) + 0x3C);
+        stack.sp18 = (*(f32 *)((s8 *)&lbl_804FF610.value + 8) * farg2) + *(f32 *)((s8 *)((u8 *)this) + 0x40);
+        project_world_to_screen(0, (void *)&stack.sp10, (void *)&stack.sp8);
         if (stack.sp8 < lbl_805DC098) {
             this->m_1e = 0;
             return 0;
         }
     } else {
-        stack.sp10 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 0) * farg2) - *(f32 *)((s8 *)((u8 *)this) + 0x38));
-        stack.sp14 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 4) * farg2) - *(f32 *)((s8 *)((u8 *)this) + 0x3C));
-        stack.sp18 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 8) * farg2) - *(f32 *)((s8 *)((u8 *)this) + 0x40));
-        project_world_to_screen(0, (void *) (&stack.sp10), (void *) (&stack.sp8));
+        stack.sp10 = -((*(f32 *)((s8 *)&lbl_804FF610.value + 0) * farg2) - *(f32 *)((s8 *)((u8 *)this) + 0x38));
+        stack.sp14 = -((*(f32 *)((s8 *)&lbl_804FF610.value + 4) * farg2) - *(f32 *)((s8 *)((u8 *)this) + 0x3C));
+        stack.sp18 = -((*(f32 *)((s8 *)&lbl_804FF610.value + 8) * farg2) - *(f32 *)((s8 *)((u8 *)this) + 0x40));
+        project_world_to_screen(0, (void *)&stack.sp10, (void *)&stack.sp8);
         if (stack.sp8 > lbl_805DC09C) {
             this->m_1e = 0;
             return 0;
@@ -94,7 +94,7 @@ s16 TUnk_804B9870::update_object_view_visibility(f32 farg0, f32 farg1) {
     typedef char sp18_offset[(offsetof(Stack_801A2340, sp18) == 0x10) ? 1 : -1];
     Stack_801A2340 stack;
     if (this->m_flags & 0x400) {
-        if (is_in_shadow_range(farg1, (void *) (arg0 + 0x38)) != 0) {
+        if (is_in_shadow_range(farg1, (void *)(arg0 + 0x38)) != 0) {
             this->m_1e = 1;
             return 1;
         }
@@ -104,7 +104,7 @@ s16 TUnk_804B9870::update_object_view_visibility(f32 farg0, f32 farg1) {
     if (TMainTask::get_state_flag() == 1) {
         return this->m_1e;
     }
-    transform_point_by_current_matrix((void *) (arg0 + 0x38), (void *) (&stack.sp10));
+    transform_point_by_current_matrix((void *)(arg0 + 0x38), (void *)&stack.sp10);
     if (stack.sp18 > lbl_805DC098) {
         this->m_1e = 0;
         return 0;
@@ -114,20 +114,20 @@ s16 TUnk_804B9870::update_object_view_visibility(f32 farg0, f32 farg1) {
         return 0;
     }
     if (stack.sp10 < lbl_805DC098) {
-        stack.sp10 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 0) * farg1) + *(f32 *)((s8 *)arg0 + 0x38);
-        stack.sp14 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 4) * farg1) + *(f32 *)((s8 *)arg0 + 0x3C);
-        stack.sp18 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 8) * farg1) + *(f32 *)((s8 *)arg0 + 0x40);
-        project_world_to_screen(0, (void *) (&stack.sp10), (void *) (&stack.sp8));
+        stack.sp10 = (*(f32 *)((s8 *)&lbl_804FF610.value + 0) * farg1) + *(f32 *)((s8 *)arg0 + 0x38);
+        stack.sp14 = (*(f32 *)((s8 *)&lbl_804FF610.value + 4) * farg1) + *(f32 *)((s8 *)arg0 + 0x3C);
+        stack.sp18 = (*(f32 *)((s8 *)&lbl_804FF610.value + 8) * farg1) + *(f32 *)((s8 *)arg0 + 0x40);
+        project_world_to_screen(0, (void *)&stack.sp10, (void *)&stack.sp8);
         if (stack.sp8 < lbl_805DC098) {
             this->m_1e = 0;
             return 0;
         }
         goto block_15;
     }
-    stack.sp10 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 0) * farg1) - *(f32 *)((s8 *)arg0 + 0x38));
-    stack.sp14 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 4) * farg1) - *(f32 *)((s8 *)arg0 + 0x3C));
-    stack.sp18 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 8) * farg1) - *(f32 *)((s8 *)arg0 + 0x40));
-    project_world_to_screen(0, (void *) (&stack.sp10), (void *) (&stack.sp8));
+    stack.sp10 = -((*(f32 *)((s8 *)&lbl_804FF610.value + 0) * farg1) - *(f32 *)((s8 *)arg0 + 0x38));
+    stack.sp14 = -((*(f32 *)((s8 *)&lbl_804FF610.value + 4) * farg1) - *(f32 *)((s8 *)arg0 + 0x3C));
+    stack.sp18 = -((*(f32 *)((s8 *)&lbl_804FF610.value + 8) * farg1) - *(f32 *)((s8 *)arg0 + 0x40));
+    project_world_to_screen(0, (void *)&stack.sp10, (void *)&stack.sp8);
     if (stack.sp8 > lbl_805DC09C) {
         this->m_1e = 0;
         return 0;

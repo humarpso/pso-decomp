@@ -69,7 +69,7 @@ void TSaveChCr::update_save_state() {
 void fn_80339D78(u8 *arg0) {
     ((s32)close_window__9TSaveChCrFv(arg0));
     if (*(s32 *)((s8 *)arg0 + 0x2C) & 1) {
-        ((s32)close_and_advance__9TSaveChCrFPv((void*)(arg0), 0));
+        ((s32)close_and_advance__9TSaveChCrFPv(arg0, 0));
     }
 }
 s32 TAdSinglePlyChrSelectGC__sub_80339DBC(void) {

@@ -148,7 +148,7 @@ void render_summary_row__15TWindowHelpItemFv(Item_8025A354 *self, Win_8025A354 *
     draw_window_text((f32 *)&pos, (const char *)((void *)":"), -1, 0, 100000.0f);
     pos.x += 64.0f;
     if (self->flags & 4) {
-        TWindowHelpItem::draw_number_value(self, (f32 *)(&pos), self->cur, self->value10, (s32)(TWindowHelpItem__sub_8025A600(self)));
+        TWindowHelpItem::draw_number_value(self, (f32 *)&pos, self->cur, self->value10, (s32)(TWindowHelpItem__sub_8025A600(self)));
     }
     if (self->flags & 8) {
         draw_window_text((f32 *)&pos, (const char *)((void *)"\tJ\x81\xA8"), -1, 0, 100000.0f);
@@ -162,7 +162,7 @@ void render_summary_row__15TWindowHelpItemFv(Item_8025A354 *self, Win_8025A354 *
         } else {
             color = 0xFFDD8C41;
         }
-        TWindowHelpItem::draw_number_value(self, (f32 *)(&pos), self->next, color, (s32)(TWindowHelpItem__sub_8025A600(self)));
+        TWindowHelpItem::draw_number_value(self, (f32 *)&pos, self->next, color, (s32)(TWindowHelpItem__sub_8025A600(self)));
     }
 }
 
@@ -171,7 +171,7 @@ void tick_display_timer__15TWindowHelpItemFPv(void *arg0) {
 
     temp_r4 = *(s32 *)((s8 *)arg0 + 0x14);
     if (temp_r4 > 0) {
-        *(s32 *)((s8 *)arg0 + 0x14) = (s32) (temp_r4 - 1);
+        *(s32 *)((s8 *)arg0 + 0x14) = (temp_r4 - 1);
         if ((s32) *(s32 *)((s8 *)arg0 + 0x14) <= 0) {
             *(s32 *)((s8 *)arg0 + 0x10) = -1;
         }
@@ -194,7 +194,7 @@ typedef char RecoveredGlobal_8025A594_lbl_804CF9F8_size[sizeof(RecoveredGlobal_8
 u8 *TWindowHelpItem__sub_8025A594(u8 *arg0, s32 arg1, s32 arg2) {
     sub_80256BDC__13TUnk_804CF930Fs((void *)arg0, (void *)arg2);
     *(s32 **)((s8 *)arg0 + 4) = &(*(RecoveredGlobal_8025A594_lbl_804CF9F8 *)&lbl_804CF9F8).value;
-    ((TWindowSubSymbolChatPartsSet *)(arg0 + 8))->copy_vec2((void *) (arg1 + 4));
+    ((TWindowSubSymbolChatPartsSet *)(arg0 + 8))->copy_vec2((void *)(arg1 + 4));
     *(s32 *)((s8 *)arg0 + 0x10) = -1;
     *(s32 *)((s8 *)arg0 + 0x14) = 0;
     *(s32 *)((s8 *)arg0 + 0x18) = 0;

@@ -249,7 +249,7 @@ void TUnk_804A4B80::emit_marker_effects() {
         send_6x61_activate_mag_effect__14TItemEquipBaseFl((void *) (((u8 *)this)), var_r31);
         return;
     }
-    ((TObjPlayer *)((u8 *)this))->draw_status_icon((s32)((void *) (&sp8)));
+    ((TObjPlayer *)((u8 *)this))->draw_status_icon((s32)(&sp8));
     ((VObj_18 *)(((u8 *)this)))->m49(&sp8, 0, 0, 1);
 }
 u32 *copy_attack_targets(u32 *dst, u32 *src) {

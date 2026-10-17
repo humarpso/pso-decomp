@@ -169,7 +169,7 @@ u8 *TKeyBoardControl__sub_803DEB74(u32 arg0) {
         var_r5 = 3;
         break;
     }
-    return (u8 *)(&keyboard_control_pad_slots.value) + (var_r5 * 0x34);
+    return (u8 *)&keyboard_control_pad_slots.value + (var_r5 * 0x34);
 }
 #pragma pop
 

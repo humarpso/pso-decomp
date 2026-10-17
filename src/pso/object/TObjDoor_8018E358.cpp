@@ -361,7 +361,7 @@ void TObjDoor__sub_8018E8BC(void) {  }
 
 void draw_closed_glow__8TObjDoorFPv(TObjDoor* door) {
     door->frame+=(1.5f);
-    if(door->frame>(f32)(TObjDoor__motion_table[0]->frameCount-1))door->frame=(0.0f);
+    if(door->frame>(TObjDoor__motion_table[0]->frameCount-1))door->frame=(0.0f);
     door->glow+=0.05f;
     if(door->glow>0.5f)door->glow=0.5f;
 }
@@ -374,7 +374,7 @@ void update_anim__8TObjDoorFPv(void *arg0) {
 }
 void update_locked_pulse__8TObjDoorFPv(TObjDoor* door) {
     door->accentFrame+=(2.0f);
-    if(door->accentFrame>(f32)(TObjDoor__motion_table[1]->frameCount-1))door->accentFrame=(0.0f);
+    if(door->accentFrame>(TObjDoor__motion_table[1]->frameCount-1))door->accentFrame=(0.0f);
     door->phase+=0x300;
     door->glow=(0.2f)*sin_table_lookup(door->phase)+(0.4f);
 }
@@ -392,7 +392,7 @@ s32 TObjDoor::is_visible(f32 farg0, f32 farg1) {
     if (temp_f1 < (farg1 * farg1)) {
         return 1;
     }
-    project_world_to_screen(0, (void *) (arg0 + 0x38), (void *) (&sp8));
+    project_world_to_screen(0, (void *)(arg0 + 0x38), (void *)&sp8);
     if ((-farg1 <= sp8) && (sp8 <= ((6.4e+02f) + farg1))) {
         return 1;
     }
@@ -469,7 +469,7 @@ void TObjDoor::update_state() {
         }
         if(this->cameraTicks>60) {
             this->accentFrame+=(2.0f);
-            if(this->accentFrame>(f32)(TObjDoor__motion_table[1]->frameCount-1))this->accentFrame=(0.0f);
+            if(this->accentFrame>(TObjDoor__motion_table[1]->frameCount-1))this->accentFrame=(0.0f);
         }
         return;
     case 2:
@@ -481,8 +481,8 @@ void TObjDoor::update_state() {
     case 4:
         play_persistent_sound(0x49e08, (s32)this, (u32)this->position, 0, 0);
         this->frame+=(1.8f);
-        if(this->frame>(f32)(TObjDoor__motion_table[0]->frameCount-1)) {
-            this->frame=(f32)(TObjDoor__motion_table[0]->frameCount-1);this->state=5;
+        if(this->frame>(TObjDoor__motion_table[0]->frameCount-1)) {
+            this->frame=(TObjDoor__motion_table[0]->frameCount-1);this->state=5;
         }
         break;
     case 3:

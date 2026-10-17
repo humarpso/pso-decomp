@@ -66,9 +66,9 @@ void TObjWeddingLobby::render() {
     s32 temp_r3;
     if (((s32) *(s32 *)&this->m_c8 != 0) && ((u32) wedding_lobby_type != 0U)) {
         TParticleCtrl::begin_effect_render();
-        TObjFish::set_global_param((s32)(wedding_lobby_type));
+        TObjFish::set_global_param(wedding_lobby_type);
         push_matrix();
-        post_translate_matrix((void *) (arg0 + 0x38));
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
         if ((s32) *(s32 *)&this->m_c8 != 3) {
             temp_f1 = *(f32 *)((s8 *)arg0 + 0xCC);

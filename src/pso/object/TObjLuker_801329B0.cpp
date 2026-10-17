@@ -21,7 +21,7 @@ void get_floor_destination_name(u32 arg0) {
     if ((var_r3 == 0xB) && ((s32) game_difficulty_selection >= 3)) {
         var_r3 = 0xE;
     }
-    get_localized_text_entry(9, *(s32 *)((s8 *)(&floor_destination_text_id_table.value) + (var_r3 * 4)));
+    get_localized_text_entry(9, *(s32 *)((s8 *)&floor_destination_text_id_table.value + (var_r3 * 4)));
 }
 
 int TObjLuker::get_stat_table_entry(int a0) {  return luker_stat_entry_ptr_table[a0]; }

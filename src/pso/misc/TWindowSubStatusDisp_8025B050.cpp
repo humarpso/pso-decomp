@@ -134,10 +134,10 @@ void *TWindowSubStatusDisp__sub_8025B2DC(void *arg0, s16 arg1) {
 }
 
 u8 *TWindowSubStatusDisp::init_part_direct(u8 *arg1, s32 arg2) {
-    sub_80256BDC__13TUnk_804CF930Fs((void *)((void *) (((u8 *)this))), (void *)(arg2));
+    sub_80256BDC__13TUnk_804CF930Fs((void *)((void *) (((u8 *)this))), (void *)arg2);
     *(void ***)((s8 *)((u8 *)this) + 4) = window_uv_sprite_part_vtable;
-    ((TWindowSubSymbolChatPartsSet *)(((u8 *)this) + 8))->copy_vec2((void *) (arg1 + 4));
-    ((TWindowSubSymbolChatPartsSet *)(((u8 *)this) + 0x10))->copy_vec2((void *) (arg1 + 0xC));
+    ((TWindowSubSymbolChatPartsSet *)(((u8 *)this) + 8))->copy_vec2(arg1 + 4);
+    ((TWindowSubSymbolChatPartsSet *)(((u8 *)this) + 0x10))->copy_vec2(arg1 + 0xC);
     *(f32 *)((s8 *)((u8 *)this) + 0x1C) = (f32) *(f32 *)((s8 *)arg1 + 0x14);
     *(f32 *)((s8 *)((u8 *)this) + 0x20) = (f32) *(f32 *)((s8 *)arg1 + 0x18);
     *(f32 *)((s8 *)((u8 *)this) + 0x24) = (f32) *(f32 *)((s8 *)arg1 + 0x1C);
@@ -151,10 +151,10 @@ u8 *TWindowSubStatusDisp::init_part_direct(u8 *arg1, s32 arg2) {
 }
 
 u8 *init_part_scaled__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
-    sub_80256BDC__13TUnk_804CF930Fs(arg0, (void *)(arg2));
+    sub_80256BDC__13TUnk_804CF930Fs(arg0, (void *)arg2);
     *(void ***)((s8 *)arg0 + 4) = window_uv_sprite_part_vtable;
-    ((TWindowSubSymbolChatPartsSet *)(arg0 + 8))->copy_vec2((void *) (arg1 + 4));
-    ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x10))->copy_vec2((void *) (arg1 + 0xC));
+    ((TWindowSubSymbolChatPartsSet *)(arg0 + 8))->copy_vec2(arg1 + 4);
+    ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x10))->copy_vec2(arg1 + 0xC);
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (*(f32 *)((s8 *)arg1 + 0x14) / 256.0f);
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) (*(f32 *)((s8 *)arg1 + 0x18) / 256.0f);
     {

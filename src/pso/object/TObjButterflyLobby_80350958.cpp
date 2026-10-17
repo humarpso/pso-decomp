@@ -58,7 +58,7 @@ void render__18TObjButterflyLobbyFPv(u8 *arg0) {
     f32 temp_f1;
 
     push_matrix();
-    post_translate_matrix((void *) (arg0 + 0x38));
+    post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, (int) (((TObjButterflyLobby *)arg0)->rotation_y));
     rotate_matrix_x(0, -0x2000);
     if ((s32) *(s32 *)&((TObjButterflyLobby *)arg0)->m_90 != 3) {
@@ -307,7 +307,7 @@ u8 *TObjButterflyLobby__ct(u8 *arg0, int arg1, u8 *arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjButterflyLobby;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4360;
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2 + 0xC));
-    ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz((void *) (arg2 + 0x18));
+    ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz(arg2 + 0x18);
     VecCopy((Vec *)(arg0 + 0x68), (const Vec *)(arg2 + 0x24));
     if (is_lobby_event_active() != 0) {
         *(s32 *)&((TObjButterflyLobby *)arg0)->m_90 = 0;

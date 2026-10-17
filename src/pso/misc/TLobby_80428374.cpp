@@ -147,7 +147,7 @@ typedef char RecoveredGlobal_80428374_lbl_805D0A40_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80428360_lbl_805CFC20_size[sizeof(RecoveredGlobal_80428360_lbl_805CFC20) == 0xE20 ? 1 : -1];
 
 void TLobby::reset_boot_state() {
-    TLobby__sub_803F77E0((void *) (&lobby_net_session_state.value));
+    TLobby__sub_803F77E0(&lobby_net_session_state.value);
 }
 
 typedef char RecoveredGlobal_8042839C_lbl_805D0A40_size[sizeof(RecoveredGlobal_8042839C_lbl_805D0A40) == 0x60 ? 1 : -1];
@@ -165,7 +165,7 @@ s32 TLobby::wait_timeout_loop() {
     s32 ret;
     ret = 0;
     TLobby::get_time_ms(&start);
-    p = **(s16 ***)((s8 *)(&lobby_net_session_state.value) + 0x10);
+    p = **(s16 ***)((s8 *)&lobby_net_session_state.value + 0x10);
     if (p == NULL) {
         limit = *(s16 *)(arg0 + 4) * 1000;
     } else {
@@ -197,7 +197,7 @@ s32 TLobby::init_buffer_pool() {
     lbl_805D7BF4 = lobby_buffer_pool_base;
     lbl_805D7BF8 = lobby_buffer_pool_base + lobby_buffer_pool_size;
     lbl_805D7BFC = lobby_buffer_pool_size;
-    if (TLobby__sub_803F96AC((void *) (&lobby_buffer_pool_alarm_handle), (void *)lobby_buffer_pool_base, (void *)lobby_buffer_pool_size) < 0) {
+    if (TLobby__sub_803F96AC(&lobby_buffer_pool_alarm_handle, (void *)lobby_buffer_pool_base, (void *)lobby_buffer_pool_size) < 0) {
         return -1;
     }
     TLobby::reset_buffer_pool();

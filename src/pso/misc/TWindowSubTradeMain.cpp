@@ -92,7 +92,7 @@ void TObjEneMorfos::vfunc_106() {
         frame = arg0->frame;
         if (frame < TObjEneMorfos__data_805DF874) {
             frame = TObjEneMorfos__data_805DF874;
-        } else if (frame > (f32)(anim->count - 1)) {
+        } else if (frame > (anim->count - 1)) {
             frame = (f32)anim->count;
         }
         TObjPlayer::set_global_flag();

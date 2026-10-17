@@ -9,7 +9,7 @@ void TBoss7LaserPtcl::destroy_particles() {
   void **var_r30;
   s32 var_r29;
   u8 *temp_r3;
-  var_r30 = (void **) ((u8 *) (arg0 + 0x44));
+  var_r30 = (void **) (arg0 + 0x44);
   var_r29 = 2;
   do
   {

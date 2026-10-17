@@ -288,9 +288,9 @@ u8 *construct_resta_charge_sound(u8 *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject((void *)arg0, (void *)arg2);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80233B9C_lbl_804CC990 *)&recovery_technique_charge_vtable).value;
     *(s32 *)((s8 *)arg0 + 0x1C) = arg1;
-    VecCopy((Vec *)((void *) (arg0 + 0x20)), (const Vec *)((int) (*(s32 *)((s8 *)arg0 + 0x1C) + 0x2FC)));
+    VecCopy((Vec *)(arg0 + 0x20), (const Vec *)((int) (*(s32 *)((s8 *)arg0 + 0x1C) + 0x2FC)));
     ((TUnk_804CC990 *)arg0)->m_2c = 0;
-    *(s32 *)((s8 *)arg0 + 0x30) = play_sound_effect(0x4002BC20, (void *) (arg0 + 0x20), 0, 0);
+    *(s32 *)((s8 *)arg0 + 0x30) = play_sound_effect(0x4002BC20, arg0 + 0x20, 0, 0);
     return arg0;
 }
 
@@ -331,7 +331,7 @@ u8 *TTecLuker::construct_field_collider(s32 arg1, s32 arg2, s32 ac) {
     construct_collider_proxy__13TUnk_804AF8A0Fv((void *) (((u8 *)this)), (void *)arg2);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80233D18_lbl_804CC9D4 *)&telepipe_field_collider_vtable).value;
     VecCopy((Vec *)(((u8 *)this) + 0x38), (const Vec *)(arg1));
-    init_collision_body_parts((void *) (((u8 *)this)), (void *) (&telepipe_field_collision_body_template.value), 1);
+    init_collision_body_parts((void *) (((u8 *)this)), &telepipe_field_collision_body_template.value, 1);
     obj_setFlags30((void *) (((u8 *)this)), 0x40000000);
     ((TObjPlayer *)((u8 *)this))->reset_photon_effect();
     TTecLuker__sub_80234F68((void*)((void *) (((u8 *)this) + 0x98)));
@@ -453,7 +453,7 @@ void TTecLuker::init_fields(s16 name) {
 void TTecLuker::send_telepipe_packet() {
     u8 *arg0 = (u8 *)this;
     Stack_802340E4 stack;
-    init_telepipe_packet_header((void*)((void *) (&stack.sp8)));
+    init_telepipe_packet_header((void*)(&stack.sp8));
     stack.spC = *(u16 *)&this->m_name;
     stack.sp10 = *(s32 *)&this->m_flags;
     stack.spE = *(s16 *)((s8 *)arg0 + 2);
@@ -532,7 +532,7 @@ void update_telepipe_visual(Obj_802342A4 *self) {
       pl = get_player_by_client_id(j);
       if (pl != 0)
       {
-        d = horizontal_distance_squared(&self->pos, (void *) (pl + 0x38));
+        d = horizontal_distance_squared(&self->pos, (void *)(pl + 0x38));
         if (d <= best)
         {
           best = d;
@@ -567,7 +567,7 @@ void update_telepipe_visual(Obj_802342A4 *self) {
     }
     return;
   }
-  if (horizontal_distance_squared(&self->pos, (void *) (camera_ctrl_instance + 0x178)) >= lbl_805DC868)
+  if (horizontal_distance_squared(&self->pos, (void *)(camera_ctrl_instance + 0x178)) >= lbl_805DC868)
   {
     for (i = 0; i < 3; i++)
     {

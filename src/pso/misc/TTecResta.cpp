@@ -152,7 +152,7 @@ f32 TTecResta::calc_heal_amount(s32 arg0) {
   var_f31 = var_f31 + ((f32) (arg0 * 5));
   if (is_technique_ready__8TTecCtrlFv((int) temp_r3) != 0)
   {
-    var_f31 *= *((f32 *) (((s8 *) (&lbl_804CC55C.value)) + 0x78));
+    var_f31 *= *((f32 *) (((s8 *)&lbl_804CC55C.value) + 0x78));
   }
   return var_f31;
 }
@@ -165,7 +165,7 @@ void TTecResta::init_parameters() {
   this->m_74 = (f32) ((this->m_74) + ((f32) ((this->m_98) * (this->m_a4))));
   if (((s32 (*)(void))is_technique_ready__8TTecCtrlFv)() != 0)
   {
-    this->m_74 = (f32) ((this->m_74) * (*((f32 *) (((s8 *) (&lbl_804CC55C.value)) + 0x78))));
+    this->m_74 = (f32) ((this->m_74) * (*((f32 *) (((s8 *)&lbl_804CC55C.value) + 0x78))));
   }
 }
 
@@ -173,7 +173,7 @@ void TUnk_804CCBC0::run_task() {
     s32 temp_r4;
 
     temp_r4 = this->m_2c;
-    this->m_2c = (s32) (temp_r4 + 1);
+    this->m_2c = (temp_r4 + 1);
     if (temp_r4 > 0xB4) {
         queue_destruction__7TObjectFv();
     }

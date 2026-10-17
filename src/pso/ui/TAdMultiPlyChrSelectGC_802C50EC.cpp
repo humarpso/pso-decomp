@@ -533,7 +533,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802C658C(s32 arg0) {
     if ((var_r3 > 3) || (var_r3 < 0)) {
         var_r3 = 3;
     }
-    temp_r3 = *(s32 *)((s8 *)((u8 *)(&TAdMultiPlyChrSelectGC__data_804E0A48.value) + (var_r3 * 4)) + 0);
+    temp_r3 = *(s32 *)((s8 *)((u8 *)&TAdMultiPlyChrSelectGC__data_804E0A48.value + (var_r3 * 4)) + 0);
     if (temp_r3 == -1) {
         return 0;
     }
@@ -558,7 +558,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802C6848(s32 arg0) {
     if ((arg0 < 0) || (arg0 > 3)) {
         return 0;
     }
-    return *(s32 *)((s8 *)(*(s32 **)((s8 *)(TKeyBoardControl__sub_803DEB74(*(u32 *)((s8 *)((u8 *)(&multiplayer_controller_device_codes.value) + (arg0 * 4)) + 0))) + 0x30)) + 0) & 1;
+    return *(s32 *)((s8 *)(*(s32 **)((s8 *)(TKeyBoardControl__sub_803DEB74(*(u32 *)((s8 *)((u8 *)&multiplayer_controller_device_codes.value + (arg0 * 4)) + 0))) + 0x30)) + 0) & 1;
 }
 
 void TAdMultiPlyChrSelectGC::remove_selected_slot(s32 arg0) {

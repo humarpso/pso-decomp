@@ -39,8 +39,8 @@ void TUnk_804A6BD0::emit_marker_effects() {
     ang.x = 0x4000;
     ang.y = ((struct Pl_80130C2C *)this)->f0->angle;
     ang.z = 0;
-    TObjPlayer::launch_weapon_casing((s32)tl_05, (u32)((struct Pl_80130C2C *)this), 3, (u32)(&pos), (u32)(&ang));
-    ((TObjPlayer *)((struct Pl_80130C2C *)this))->draw_icon(2, (s32)(&sp8));
+    TObjPlayer::launch_weapon_casing((s32)tl_05, (u32)((struct Pl_80130C2C *)this), 3, (u32)&pos, (u32)&ang);
+    ((TObjPlayer *)((struct Pl_80130C2C *)this))->draw_icon(2, (s32)&sp8);
     spawn_particle_effect(&sp8, 9);
 }
 

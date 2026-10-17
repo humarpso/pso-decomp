@@ -1008,7 +1008,7 @@ void TObjEneRecon__sub_8031D380(u8 *arg0, s32 arg1) {
       ((TObjEneRecon *)arg0)->sync_height();
       ((TObjEneDD *)arg0)->update_velocity();
       temp_r4 = *((s32 *) (((s8 *) arg0) + 0x60));
-      *((s32 *) (((s8 *) arg0) + 0x60)) = (s32) ((u16) (temp_r4 + 0x400));
+      *((s32 *) (((s8 *) arg0) + 0x60)) = (s32) ((u16)(temp_r4 + 0x400));
       (((VObj_18_83f71d *)(arg0))->m87((temp_r4)));
       ((TObjEneRecon *)arg0)->spawn_trap_b();
       break;

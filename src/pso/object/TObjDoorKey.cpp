@@ -238,7 +238,7 @@ void TObjDoorKey__vt16(u8 *arg0) {
 void TObjDoorKey::vfunc_16() {
     u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0xF4) = (s32) (*(s32 *)((s8 *)arg0 + 0xF4) + 0x14);
-    this->m_f0 = (s32) (this->m_f0 + 0x200);
+    this->m_f0 = (this->m_f0 + 0x200);
 }
 
 void TObjDoorKey::vfunc_17() { submit_cursor_candidate(this, -1); }

@@ -77,7 +77,7 @@ void TODoorCave02::play_proximity_sound() {
     if ((this->m_d0 & 1) && (is_any_player_within_radius_xz((arg0), lbl_805DB4C0) == 1)) {
         *(s32 *)&this->m_ac = 1;
         set_indexed_flags((arg0), 0, 8);
-        play_sound_effect(0x42807, (void *)((void *) (arg0 + 0x38)), 0, 0);
+        play_sound_effect(0x42807, (void *)(arg0 + 0x38), 0, 0);
     }
 }
 
@@ -88,7 +88,7 @@ s32 TODoorCave02::draw_parts(void *arg1_) {
     u8 *temp_r31;
     u8 *temp_r31_2;
     push_matrix();
-    post_translate_matrix((void *) (arg1 + 8));
+    post_translate_matrix(arg1 + 8);
     draw_ginja_model((*(s32 *)((s8 *)arg1 + 4)));
     TParticleCtrl::begin_effect_render();
     temp_r4 = model_render_flags;
@@ -97,12 +97,12 @@ s32 TODoorCave02::draw_parts(void *arg1_) {
     set_chunk_material_color((f32 *)(arg0 + 0xD4));
     push_matrix();
     temp_r31 = *(u8 **)((s8 *)arg1 + 0x2C);
-    post_translate_matrix((void *) (temp_r31 + 8));
+    post_translate_matrix(temp_r31 + 8);
     draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
     pop_matrix();
     push_matrix();
     temp_r31_2 = *(u8 **)((s8 *)temp_r31 + 0x30);
-    post_translate_matrix((void *) (temp_r31_2 + 8));
+    post_translate_matrix(temp_r31_2 + 8);
     draw_ginja_model((*(s32 *)((s8 *)temp_r31_2 + 4)));
     pop_matrix();
     set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);

@@ -69,7 +69,7 @@ void return_to_city_after_defeat(void) {
         if (((s32)get_player_by_client_id((s32)((u32) (*(s32 *)&TWindowReturnCity__client_scan_index)))) != 0U) {
             prepare_hospital_return__10TObjPlayerFv();
         }
-        set_area__6TLobbyFl((void *) (&lbl_80515BA0.value), 0, (int) (get_floor_map_terrain(0)));
+        set_area__6TLobbyFl(&lbl_80515BA0.value, 0, (int) (get_floor_map_terrain(0)));
         mark_area_change_pending();
         ((TObjAreaWarpQuest *)(&lbl_80515BA0.value))->get_dest_area();
         send_inter_level_warp_all__10TNpcPlayerFl();

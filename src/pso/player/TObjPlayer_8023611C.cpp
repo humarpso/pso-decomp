@@ -177,8 +177,8 @@ s32 *TObjPlayer::gather_player_contacts(u32 actor, s32 _w2, s32 _w3) {
     var_r29 = 0;
 loop_3:
     temp_r3 = (s32)get_player_by_client_id((var_r29));
-    if ((temp_r3 != 0) && (temp_r3_2 = (u32)find_actor_body_contact((u8 *)actor, (u8 *)temp_r3, (f32)lbl_805DC89C), ((temp_r3_2 == 0U) == 0)) && (*(u32 *)((s8 *)((u8 *)&technique_contact_query_results.value + (*(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) * 4)) + 0x40) = temp_r3_2, *(s32 *)((s8 *)(&technique_contact_query_results.value) + (*(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) * 4)) = temp_r3, temp_r0 = *(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) + 1, *(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) = temp_r0, ((temp_r0 < 0x10) == 0))) {
-        *(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) = 0xF;
+    if ((temp_r3 != 0) && (temp_r3_2 = (u32)find_actor_body_contact((u8 *)actor, (u8 *)temp_r3, (f32)lbl_805DC89C), ((temp_r3_2 == 0U) == 0)) && (*(u32 *)((s8 *)((u8 *)&technique_contact_query_results.value + (*(s32 *)((s8 *)&technique_contact_query_results.value + 0x80) * 4)) + 0x40) = temp_r3_2, *(s32 *)((s8 *)&technique_contact_query_results.value + (*(s32 *)((s8 *)&technique_contact_query_results.value + 0x80) * 4)) = temp_r3, temp_r0 = *(s32 *)((s8 *)&technique_contact_query_results.value + 0x80) + 1, *(s32 *)((s8 *)&technique_contact_query_results.value + 0x80) = temp_r0, ((temp_r0 < 0x10) == 0))) {
+        *(s32 *)((s8 *)&technique_contact_query_results.value + 0x80) = 0xF;
     } else {
         var_r29 += 1;
         if (var_r29 < 4) {
@@ -284,22 +284,22 @@ s32 TObjPlayer::collect_body_contacts(int target, void *_w2, void *arg3) {
 
 void TUnk_804CC148::find_area_contact(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    find_area_technique_contact((void *)(arg0), (int)((int) (*(s32 *)&this->m_e8)), (void *)((void *) (arg0 + 0xBC)), (void *)(arg1));
+    find_area_technique_contact((void *)arg0, (int)((int) (*(s32 *)&this->m_e8)), (void *)((void *)(arg0 + 0xBC)), (void *)arg1);
 }
 
 void TObjPlayer::collect_body_contacts_for_target(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    collect_body_contacts((int)((int) (*(s32 *)&this->unk_E8)), (void *)((void *) (arg0 + 0xBC)), (void *)(arg1));
+    collect_body_contacts((int)((int) (*(s32 *)&this->unk_E8)), (void *)((void *)(arg0 + 0xBC)), (void *)arg1);
 }
 
 void TObjPlayer::find_support_technique_contact_for_target(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    find_support_technique_contact((void *)(arg0), (int)((int) (*(s32 *)&this->motion_list)), (void *)((void *) (arg0 + 0xb0)), (void *)(arg1));
+    find_support_technique_contact((void *)arg0, (int)((int) (*(s32 *)&this->motion_list)), (void *)((void *)(arg0 + 0xb0)), (void *)arg1);
 }
 
 void TObjPlayer::gather_contacts_for_self(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    gather_player_contacts((u32)((int) (*(s32 *)&this->motion_list)), (s32)((void *) (arg0 + 0xb0)), (s32)(arg1));
+    gather_player_contacts((u32)((int) (*(s32 *)&this->motion_list)), (s32)(arg0 + 0xb0), arg1);
 }
 
 u8 *TUnk_804CCC68::query_technique_enemy_contacts(s32 arg) {

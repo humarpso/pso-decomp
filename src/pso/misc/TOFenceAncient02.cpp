@@ -130,7 +130,7 @@ u8 *TOFenceAncient02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     temp_r6 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xBC));
     temp_f1 = (f32) *(u32 *)((s8 *)temp_r6 + 4);
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) (temp_f1 - lbl_805DB620);
-    init_collision_body_parts((void *)arg0, (void *) (&lbl_804B1CD0.value), 3, (int)temp_r6, (f32)temp_f1);
+    init_collision_body_parts((void *)arg0, &lbl_804B1CD0.value, 3, (int)temp_r6, (f32)temp_f1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TUnk_804B1B80 *)arg0)->sub_80166E64();

@@ -644,10 +644,10 @@ s32 get_contact_surface_type(s32 arg0) {
     if (has_water_ground_flag((void *)arg0) != 0) {
         return 2;
     }
-    if (((s32)test_flag_8__10TObjPlayerFPv((void*)(arg0))) != 0) {
+    if (((s32)test_flag_8__10TObjPlayerFPv((void*)arg0)) != 0) {
         return 3;
     }
-    return (((s32)set_action_flag16__10TObjPlayerFPv((void*)(arg0))) != 0) ? 4 : 0;
+    return (((s32)set_action_flag16__10TObjPlayerFPv((void*)arg0)) != 0) ? 4 : 0;
 }
 
 }
@@ -768,7 +768,7 @@ void handle_6x87_shrink_player(const PlayerShrinkPacket* input) {
     if (validate_6x87_shrink_player(&packet)) {
         TObjPlayer* player = get_player_by_client_id(packet.actor_id);
         if (player && check_camera_mode__10TObjPlayerFv())
-            handle_6x87_shrink__10TObjPlayerFPvf((u8 *)(&player->scale_state), packet.scalar);
+            handle_6x87_shrink__10TObjPlayerFPvf((u8 *)&player->scale_state, packet.scalar);
     }
 }
 
@@ -807,7 +807,7 @@ void handle_6x88_restore_shrunken_player(const PlayerRestoreSizePacket* input) {
     if (validate_6x88_restore_shrunken_player(&packet)) {
         TObjPlayer* player = get_player_by_client_id(packet.actor_id);
         if (player && check_camera_mode__10TObjPlayerFv())
-            clear_shrink_flag__10TObjPlayerFPv((void*)(&player->scale_state));
+            clear_shrink_flag__10TObjPlayerFPv(&player->scale_state);
     }
 }
 

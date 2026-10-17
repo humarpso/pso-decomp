@@ -294,7 +294,7 @@ void TObjEneBm9Mericarol_EffCurse3::run_task() {
     Vec_800C4B78 b;
     o->timer++;
     if (o->timer > 0xa) {
-        queue_destruction__7TObjectFv((void *)(o));
+        queue_destruction__7TObjectFv(o);
         return;
     }
     if (is_alive__9TObjEneDDFv((s32)o->target) != 0) {

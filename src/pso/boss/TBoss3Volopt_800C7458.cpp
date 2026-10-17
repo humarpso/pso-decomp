@@ -116,16 +116,16 @@ void TObjEnemyCustom::vfunc_65(s32 arg1, s32 arg2) {
     typedef char spC_offset[(offsetof(Stack_800C762C, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_800C762C, sp10) == 0x8) ? 1 : -1];
     Stack_800C762C stack;
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_8043BCA0.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_8043BCA0.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&lbl_8043BCA0.value) + 8);
+    stack.sp8 = *(s32 *)((s8 *)&lbl_8043BCA0.value + 0);
+    stack.spC = *(s32 *)((s8 *)&lbl_8043BCA0.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&lbl_8043BCA0.value + 8);
     push_matrix_from((void *) (anim_model_matrix_array + (arg1 * 0x30)));
-    matrix_mult_vec(0, (void *) (&stack.sp8), (void *)arg2);
+    matrix_mult_vec(0, (void *)&stack.sp8, (void *)arg2);
     pop_matrix();
 }
 
 void TObjEneGyaranzo::render_anim_model_at_pos() {
-    push_matrix_from((void *) (&identity_matrix.value));
+    push_matrix_from(&identity_matrix.value);
     post_translate_matrix((void *) (((u8 *)this) + 0x38));
     rotate_matrix_y(0, this->rotation_y);
     ((TObjEnemy *)((u8 *)this))->render_anim_model(this->m_c0);

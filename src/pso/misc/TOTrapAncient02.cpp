@@ -618,7 +618,7 @@ void TOTrapAncient02R::vfunc_82() {
     case 1:
         this->phase = 2;
     case 2:
-        this->timer = (s32) (this->timer - 1);
+        this->timer = (this->timer - 1);
         if ((s32) this->timer < 0) {
             this->phase = 3;
             this->timer = (s32) this->reset;
@@ -712,13 +712,13 @@ void TOTrapAncient02R__vt79(Obj_8017A3C0 *o) {
                         break;
                     }
                     case 0:
-                        TTecFoie::create_ex((void *)o, (void *)lbl_8050BEE0, (void *)(&o->target->f2FC), (void *)o->level);
+                        TTecFoie::create_ex((void *)o, (void *)lbl_8050BEE0, &o->target->f2FC, (void *)o->level);
                         break;
                     case 2:
                         ((TTecGiBarta *)o)->create_ex((void *)lbl_8050BEE0, (void *)ang, (void *)o->level);
                         break;
                     case 3:
-                        TTecMegid::create((s32)o, (s32)lbl_8050BEE0, (s32)(&o->target->f2FC), o->level);
+                        TTecMegid::create((s32)o, (s32)lbl_8050BEE0, (s32)&o->target->f2FC, o->level);
                         break;
                     case 4:
                         TTecGiFoie::create((void *)o, (void *)lbl_8050BEE0, (void *)o->level);
@@ -1072,7 +1072,7 @@ void TOTrapAncient02::render_particle_chain() {
     u8 *temp_r31_4;
 
     push_matrix();
-    post_translate_matrix((void *) (arg0 + 0x38));
+    post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, this->rotation_y);
     temp_r31 = (unsigned char *) (*(void * *)&this->model);
     translate_matrix(0, (f32) (*(f32 *)((s8 *)temp_r31 + 8)), (f32) (*(f32 *)((s8 *)temp_r31 + 0xC) + this->h344), (f32) (*(f32 *)((s8 *)temp_r31 + 0x10)));
@@ -1092,7 +1092,7 @@ void TOTrapAncient02::render_particle_chain() {
     TParticleCtrl::begin_effect_render();
     push_matrix();
     temp_r31_3 = (unsigned char *) (*(void **)((s8 *)temp_r31_2 + 0x2C));
-    post_translate_matrix((void *) (temp_r31_3 + 8));
+    post_translate_matrix(temp_r31_3 + 8);
     setup_particle_tev(1);
     TObjFish::set_global_param(this->texture_id);
     ((TOTrapAncient02 *)0x38E)->load_projection_tex_matrix();
@@ -1101,7 +1101,7 @@ void TOTrapAncient02::render_particle_chain() {
     pop_matrix();
     push_matrix();
     temp_r31_4 = (unsigned char *) (*(void **)((s8 *)temp_r31_3 + 0x30));
-    post_translate_matrix((void *) (temp_r31_4 + 8));
+    post_translate_matrix(temp_r31_4 + 8);
     rotate_matrix_y(0, (int) (*(s32 *)&this->m_34c));
     setup_particle_tev(0);
     TObjFish::set_global_param(this->texture_id);
@@ -1123,7 +1123,7 @@ void TOTrapAncient02::draw_effect_chain() {
 
     push_matrix();
     TObjFish::set_global_param(this->texture_id);
-    post_translate_matrix((void *) (arg0 + 0x38));
+    post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, this->rotation_y);
     temp_r31 = (unsigned char *) (*(void * *)&this->model);
     translate_matrix(0, (f32) (*(f32 *)((s8 *)temp_r31 + 8)), (f32) (*(f32 *)((s8 *)temp_r31 + 0xC) + this->h344), (f32) (*(f32 *)((s8 *)temp_r31 + 0x10)));
@@ -1135,12 +1135,12 @@ void TOTrapAncient02::draw_effect_chain() {
     TParticleCtrl::begin_effect_render();
     push_matrix();
     temp_r31_3 = (unsigned char *) (*(void **)((s8 *)temp_r31_2 + 0x2C));
-    post_translate_matrix((void *) (temp_r31_3 + 8));
+    post_translate_matrix(temp_r31_3 + 8);
     draw_ginja_model((*(s32 *)((s8 *)temp_r31_3 + 4)));
     pop_matrix();
     push_matrix();
     temp_r31_4 = (unsigned char *) (*(void **)((s8 *)temp_r31_3 + 0x30));
-    post_translate_matrix((void *) (temp_r31_4 + 8));
+    post_translate_matrix(temp_r31_4 + 8);
     rotate_matrix_y(0, (int) (*(s32 *)&this->m_34c));
     draw_ginja_model((*(s32 *)((s8 *)temp_r31_4 + 4)));
     pop_matrix();

@@ -119,7 +119,7 @@ void TAdDialingGC::update_dial_state(s32 arg1) {
         temp_r4 = *(s32 *)&this->m_a0;
         *(s32 *)&this->m_a0 = temp_r4 + 1;
         if ((s32) *(s32 *)&this->m_a0 > 0x5A) {
-            spawn_title_screen__12TAdDialingGCFl((void *)(this), (s32)(temp_r4));
+            spawn_title_screen__12TAdDialingGCFl(this, temp_r4);
             show_guide_button();
             *(s32 *)&this->m_a0 = 0;
             *(s32 *)&this->m_20 = 1;
@@ -242,14 +242,14 @@ void TAdDialingGC::show_guide_button() {
     u8 *arg0 = (u8 *)this;
     Stack_803286AC stack;
     if (!(*(s32 *)&this->m_a4 & 2)) {
-        init_guide_button_params((void *) (&stack.sp8));
+        init_guide_button_params(&stack.sp8);
         stack.sp8 = 1;
         stack.sp28 = get_localized_text_entry(0xF, 0x13);
         stack.spC = lbl_805DF6E4;
         stack.sp14 = lbl_805DF6E4;
         stack.sp10 = lbl_805DF6E8;
         stack.sp18 = lbl_805DF6E8;
-        create_guide_button(arg0, (void *) (&stack.sp8), lbl_805DF6E4);
+        create_guide_button(arg0, &stack.sp8, lbl_805DF6E4);
         *(s32 *)&this->m_a4 = (s32) (*(s32 *)&this->m_a4 | 2);
     }
 }

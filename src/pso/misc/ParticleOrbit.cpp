@@ -395,7 +395,7 @@ u8 *init_orbit_sprite_particle(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4,
     o->f2C = o->f28;
     temp_r0 = (s32)((f32)d->f4C * (lbl_805D9548 * (f32)rand()) + (f32)d->f48);
     if (d->f88 & 1) {
-        o->f5C = TParticleCtrl__data_805D9528 / (f32)*(s32 *)((s8 *)(*(void **)((s8 *)(*(s32 *)((s8 *)(&TParticleCtrl__data_80511F70.value) + (o->f1C * 4))) + 0x28)) + 0xC);
+        o->f5C = TParticleCtrl__data_805D9528 / (f32)*(s32 *)((s8 *)(*(void **)((s8 *)(*(s32 *)((s8 *)&TParticleCtrl__data_80511F70.value + (o->f1C * 4))) + 0x28)) + 0xC);
     } else {
         o->f5C = TParticleCtrl__data_805D9528 / (f32)temp_r0;
     }

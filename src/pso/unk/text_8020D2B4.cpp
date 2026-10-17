@@ -234,8 +234,8 @@ void TSetManager::apply_floor_set_rows() {
         TLobby::assign_display_objects((u8 *)TLobby__data_805D6114, (s32)((int) (*(s32 *)((s8 *)temp_r30 + 4))));
     }
     if ((s32) TLobby__data_805D6120 > 0) {
-        apply_room_transform_to_object_rows((Rec_8020D3F0 *)(TLobby__data_805D611C), (s32)(TLobby__data_805D6120));
-        resolve_set_row_factory_indices((void *)(arg0), (int)(TLobby__data_805D611C), (int)(TLobby__data_805D6120));
+        apply_room_transform_to_object_rows((Rec_8020D3F0 *)(TLobby__data_805D611C), TLobby__data_805D6120);
+        resolve_set_row_factory_indices(arg0, TLobby__data_805D611C, TLobby__data_805D6120);
     }
     *(s32 *)((s8 *)arg0 + 0x1C) = 1;
 }

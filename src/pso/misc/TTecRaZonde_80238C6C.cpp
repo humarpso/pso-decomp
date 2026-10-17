@@ -232,13 +232,13 @@ void TTecRaZonde::calc_damage() {
   ((TTecAnti *)(arg0 + 0x88))->copy_params((u8 *)new_var);
   if ((((s16) ((RecoveredFields_80238D10_arg0 *) arg0)->field_78) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
-    ((RecoveredFields_80238D10_arg0 *) arg0)->field_88 = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0x20))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0x22))) * ((RecoveredFields_80238D10_arg0 *) arg0)->field_78));
+    ((RecoveredFields_80238D10_arg0 *) arg0)->field_88 = (f32) ((*((s16 *) (((s8 *)&tech_high_level_linear_power_table.value) + 0x20))) + ((*((s16 *) (((s8 *)&tech_high_level_linear_power_table.value) + 0x22))) * ((RecoveredFields_80238D10_arg0 *) arg0)->field_78));
     return;
   }
   ((RecoveredFields_80238D10_arg0 *) arg0)->field_88 = (f32) (((RecoveredFields_80238D10_arg0 *) arg0)->field_88 + ((f32) (((RecoveredFields_80238D10_arg0 *) arg0)->field_AC * ((RecoveredFields_80238D10_arg0 *) arg0)->field_78)));
   if (is_technique_ready__8TTecCtrlFv() != 0)
   {
-    ((RecoveredFields_80238D10_arg0 *) arg0)->field_88 = (f32) (((RecoveredFields_80238D10_arg0 *) arg0)->field_88 * (*((f32 *) (((s8 *) (&lbl_804CC55C.value)) + 0x40))));
+    ((RecoveredFields_80238D10_arg0 *) arg0)->field_88 = (f32) (((RecoveredFields_80238D10_arg0 *) arg0)->field_88 * (*((f32 *) (((s8 *)&lbl_804CC55C.value) + 0x40))));
   }
 }
 void TTecRaZonde::vfunc_6(void *arg1_arg) {

@@ -206,8 +206,8 @@ void TCharaMaking::free_loaded_buffers() {
 
 void TCharaMaking::update_body_parts() {
     u8 *arg0 = (u8 *)this;
-    validate_player_visual_record((void *)(arg0 + 0x85C));
-    *(f32 *)((s8 *)arg0 + 0xD48) = calc_character_height((void *)(arg0 + 0x85C));
+    validate_player_visual_record(arg0 + 0x85C);
+    *(f32 *)((s8 *)arg0 + 0xD48) = calc_character_height(arg0 + 0x85C);
     ((s32 (*)(void *, void *, void *, void *))TCharaMaking__bind_appearance_texture_lists)(arg0 + 0x8B8, arg0 + 0xA24, arg0 + 0xB90, arg0 + 0x85C);
     TChCrLoadReq::create(arg0);
 }

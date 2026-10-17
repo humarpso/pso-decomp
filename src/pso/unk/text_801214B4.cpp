@@ -80,7 +80,7 @@ void TUnk_804A09B0::emit_marker_effects() {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
-        ((TObjPlayer *)arg0)->draw_status_icon((s32)((void *) (&sp8)));
+        ((TObjPlayer *)arg0)->draw_status_icon((s32)(&sp8));
         ((VObj_18 *)(arg0))->m49(&sp8, 0, 0, 1);
         return;
     }

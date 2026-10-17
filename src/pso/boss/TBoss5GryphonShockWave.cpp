@@ -57,7 +57,7 @@ void TBoss5GryphonShockWave::run_task() {
             ((TNowLoading *)(this->m_3c))->copy_pos((u8 *)&this->m_2c);
         }
         temp_r3 = *(s32 *)&this->m_20;
-        *(s32 *)&this->m_20 = (s32) (temp_r3 + 1);
+        *(s32 *)&this->m_20 = (temp_r3 + 1);
         if (temp_r3 > (s32) *(s32 *)&this->m_24) {
             *(s32 *)&this->m_20 = 0;
             *(s32 *)&this->m_1c = 2;

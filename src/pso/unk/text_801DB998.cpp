@@ -37,15 +37,15 @@ s32 memset(void *, int, int);
 void send_register_9c(u8 *arg0) {
     Stack_801DB998 stack;
     fn_801DF954((&stack.sp8));
-    memset((void *) (&stack.sp8), 0, 0xA4);
+    memset(&stack.sp8, 0, 0xA4);
     stack.sp8 = 0x9C;
     stack.spA = 0xA4;
-    __as__8TPlySmthFRC8TPlySmth((s32)(&stack.spC), (s32)(arg0 + 0x18F8));
+    __as__8TPlySmthFRC8TPlySmth((s32)&stack.spC, (s32)(arg0 + 0x18F8));
     stack.sp14 = (s32) *(u16 *)((s8 *)arg0 + 0x1908);
     stack.sp19 = (s8) *(s32 *)((s8 *)arg0 + 0x1934);
-    strncpy((void *) (&stack.sp1C), (void *) (arg0 + 0x3EDA), 0x30);
-    strncpy((void *) (&stack.sp4C), (void *) (arg0 + 0x3F0A), 0x30);
-    strncpy((void *) (&stack.sp7C), (void *) (arg0 + 0x3F3A), 0x30);
+    strncpy(&stack.sp1C, arg0 + 0x3EDA, 0x30);
+    strncpy(&stack.sp4C, arg0 + 0x3F0A, 0x30);
+    strncpy(&stack.sp7C, arg0 + 0x3F3A, 0x30);
     fn_801DF918((&stack.sp8));
     ((VObj_18_44382c *)(arg0))->m8(&stack.sp8, 0xA4);
 }

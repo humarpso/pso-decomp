@@ -99,7 +99,7 @@ void TLobby::send_challenge_retry_cmd(s32 arg0) {
     typedef char sp10_offset[(offsetof(Stack_80072308, sp10) == 0x8) ? 1 : -1];
     Stack_80072308 stack;
     if (is_flag_set__6TLobbyFv() != 0) {
-        TLobby__sub_800727EC((void *) (&stack.sp8));
+        TLobby__sub_800727EC(&stack.sp8);
         stack.sp10 = arg0;
         stack.spC = local_client_id;
         ((TLobby *)(&stack.sp8))->send_and_handle_60_wrapper();
@@ -115,7 +115,7 @@ void handle_6x97_select_challenge_mode_failure_option(void *arg0) {
         if ((var_r0 < 0) || (var_r0 > 1)) {
             var_r0 = 0;
         }
-        *(s32 *)((s8 *)(&challenge_mode_state) + 0x24) = var_r0;
+        *(s32 *)((s8 *)&challenge_mode_state + 0x24) = var_r0;
     }
 }
 
@@ -145,7 +145,7 @@ void TLobby::send_seed_state() {
     typedef char spC_offset[(offsetof(Stack_80072448, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80072448, sp10) == 0x8) ? 1 : -1];
     Stack_80072448 stack;
-    TLobby__sub_80072880((u8 *)(&stack.sp8));
+    TLobby__sub_80072880((u8 *)&stack.sp8);
     stack.sp10 = mix_seed_checked__6TLobbyFi((void *)arg0);
     stack.spC = local_client_id;
     ((TLobby *)(&stack.sp8))->send_state();
@@ -166,7 +166,7 @@ void TLobby::send_challenge_with_value(s32 arg0, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_800724F0, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800724F0, spC) == 0x4) ? 1 : -1];
     Stack_800724F0 stack;
-    TLobby__sub_800728FC((u8 *)(&stack.sp8));
+    TLobby__sub_800728FC((u8 *)&stack.sp8);
     stack.spC = arg1;
     ((TLobby *)(&stack.sp8))->send_challenge_packet();
 }
@@ -221,7 +221,7 @@ void TLobby::send_challenge_records(u32 _w0) {
     G_SetChallengeRecords_V3_6x7C packet;
     ((TLobby *)(&packet.__base_G_SetChallengeRecordsBase_6x7C.header))->init_pkt_cmd_7C();
     packet.__base_G_SetChallengeRecordsBase_6x7C.client_id = (s16) local_client_id;
-    TLobby__sub_800703D0((void *) (&packet.records[0]), (void *) (get_character_save_record(0xFFFF) + 0x21C4));
+    TLobby__sub_800703D0(&packet.records[0], (void *) (get_character_save_record(0xFFFF) + 0x21C4));
     ((TLobby *)(&packet.__base_G_SetChallengeRecordsBase_6x7C.header))->send_6x7C_packet();
 }
 

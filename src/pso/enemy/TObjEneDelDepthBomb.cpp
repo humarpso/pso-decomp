@@ -443,7 +443,7 @@ void render__19TObjEneDelDepthBombFv(u8 *arg0) {
     bml_model = get_bml_model(data, 2);
     temp_r30 = ((s32 (*)(int, int))TObjFish__sub_8001EDB0)(data, 2);
     push_matrix();
-    post_translate_matrix((void *) (arg0 + 0x38));
+    post_translate_matrix(arg0 + 0x38);
     rotate_matrix_zyx(0, (*(s32 *)((s8 *)arg0 + 0x5C)), (*(s32 *)((s8 *)arg0 + 0x60)), (*(s32 *)((s8 *)arg0 + 0x64)));
     TObjFish::set_global_param(temp_r30);
     draw_chunk_object((void *)bml_model);
@@ -452,7 +452,7 @@ void render__19TObjEneDelDepthBombFv(u8 *arg0) {
     translate_matrix(0, (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) (lbl_805DF250 + *(f32 *)((s8 *)arg0 + 0x340)), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));
     direction_to_rotation_xz((arg0 + 0x248), (&spC), (&sp8));
     rotate_matrix_z(0, sp8);
-    rotate_matrix_x(0, (void *) (spC + 0x4000));
+    rotate_matrix_x(0, (void *)(spC + 0x4000));
     var_f1 = *(f32 *)((s8 *)arg0 + 0x3C) - *(f32 *)((s8 *)arg0 + 0x340);
     if (var_f1 > 40.0f) {
         var_f1 = 40.0f;
@@ -462,7 +462,7 @@ void render__19TObjEneDelDepthBombFv(u8 *arg0) {
     temp_f1 = 1.0f - (var_f1 / 40.0f);
     v.z = 1.0f;
     v.x = v.y = 0.65f * temp_f1 + 0.1f;
-    scale_current_matrix((void *) (&v), temp_f1, 1.0f, 0.65f);
+    scale_current_matrix(&v, temp_f1, 1.0f, 0.65f);
     draw_blob_shadow(0);
     pop_matrix();
 }
@@ -634,7 +634,7 @@ void TObjEneDelDepth__sub_80313954(u8 *arg0) {
         *(s32 *)((s8 *)arg0 + 0x384) = temp_r0_2;
         if (temp_r0_2 <= 0) {
             *(s32 *)((s8 *)arg0 + 0x378) = 1;
-            play_sound_effect(0x4003A321, (void *) (arg0 + 0x38), 0, 0);
+            play_sound_effect(0x4003A321, arg0 + 0x38, 0, 0);
             *(s32 *)((s8 *)arg0 + 0x384) = 5;
         }
         break;
@@ -653,11 +653,11 @@ void TObjEneDelDepth__sub_80313954(u8 *arg0) {
     case 2:
     default:
         sp8 = 0x800;
-        send_6x0A_enemy_state(arg0, (void *) (&sp8));
-        ((TObjEnemy *)arg0)->exchange_object_state((s32)((void *) (&sp8)), (s16)(0));
+        send_6x0A_enemy_state(arg0, &sp8);
+        ((TObjEnemy *)arg0)->exchange_object_state((s32)(&sp8), (s16)(0));
         ((VObj_18_65b835 *)(arg0))->m77(&sp8);
         ((TObjEnemy *)arg0)->send_entity_set_flags();
-        TObjPlayer::apply_effect_variant_a((s32)((void *) (arg0 + 0x38)), 0);
+        TObjPlayer::apply_effect_variant_a((s32)(arg0 + 0x38), 0);
         ((s32 (*)(void *))queue_destruction__7TObjectFv)(arg0);
         break;
     }
@@ -693,13 +693,13 @@ void TObjEneDelDepth::update_ai_state() {
         temp_r0 = *(s32 *)((s8 *)arg0 + 0x384) - 1;
         *(s32 *)((s8 *)arg0 + 0x384) = temp_r0;
         if (temp_r0 <= 0) {
-            temp_r3 = ((u16 (*)(void *, void *, f32))find_nearest_visible_player)(arg0, (void *) (&sp8), TObjEneDelDepth__data_805DF280);
-            if ((temp_r3 != 0xFFFF) && (vector_length((void *) (&sp8)) > TObjEneDelDepth__data_805DF270)) {
+            temp_r3 = ((u16 (*)(void *, void *, f32))find_nearest_visible_player)(arg0, &sp8, TObjEneDelDepth__data_805DF280);
+            if ((temp_r3 != 0xFFFF) && (vector_length(&sp8) > TObjEneDelDepth__data_805DF270)) {
                 ((TObjEneDelDepth *)arg0)->set_action_state(4);
                 return;
             }
             ((TObjEneDelDepth *)arg0)->set_action_state(3);
-            play_sound_effect(0x4003A822, (void *) (arg0 + 0x38), 0, 0);
+            play_sound_effect(0x4003A822, arg0 + 0x38, 0, 0);
         }
     }
 }
@@ -748,9 +748,9 @@ void TObjEneDelDepth::update_attack_cast() {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x388);
     if ((temp_r0 <= 0) && (temp_r0 == 0)) {
         if ((s32) game_difficulty_selection == 3) {
-            TTecMegid::create_ex((s32)(arg0), (s32)((void *) (arg0 + 0x38)), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x60))), (s32)((int) (*(s32 *)((s8 *)TObjEneDelDepth__tune_params + 0x18))));
+            TTecMegid::create_ex((s32)arg0, (s32)((void *)(arg0 + 0x38)), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x60))), (s32)((int) (*(s32 *)((s8 *)TObjEneDelDepth__tune_params + 0x18))));
         } else {
-            ((TTecBarta *)arg0)->create_ex((void *)(arg0 + 0x38), (void *)(*(s32 *)((s8 *)arg0 + 0x60)), (void *)(*(s32 *)((s8 *)TObjEneDelDepth__tune_params + 0x18)));
+            ((TTecBarta *)arg0)->create_ex(arg0 + 0x38, (void *)(*(s32 *)((s8 *)arg0 + 0x60)), (void *)(*(s32 *)((s8 *)TObjEneDelDepth__tune_params + 0x18)));
         }
     }
     temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x384) - 1;
@@ -776,19 +776,19 @@ void TObjEneDelDepth::update_bomb_drop() {
     if ((temp_r0 <= 0) && (temp_r0 == 0)) {
         TObjPlayer::set_global_flag();
         push_matrix_from(identity_matrix);
-        post_translate_matrix((void *) (arg0 + 0x38));
+        post_translate_matrix(arg0 + 0x38);
         ((s32 (*)(int, int))rotate_matrix_y)(0, (int) (*(s32 *)((s8 *)arg0 + 0x60)));
         ((TObjEnemy *)arg0)->render_anim_model(lbl_805DF284);
         pop_matrix();
-        push_matrix_from((void *) (anim_model_matrix_array + 0x450));
+        push_matrix_from((void *)(anim_model_matrix_array + 0x450));
         {
         V3_80313E34 v = lbl_80475DB0;
         matrix_mult_vec(0, &v, &out);
         }
         pop_matrix();
         TObjPlayer::clear_global_state();
-        play_sound_effect(0x4003A81D, (void *) (arg0 + 0x38), 0, 0);
-        ((s32 (*)(void *, void *, void *, int))create__19TObjEneDelDepthBombFPvPvPvPv)(arg0, arg0, (void *) (&out), (int) (*(s32 *)((s8 *)TObjEneDelDepth__tune_params + 0x18)));
+        play_sound_effect(0x4003A81D, arg0 + 0x38, 0, 0);
+        ((s32 (*)(void *, void *, void *, int))create__19TObjEneDelDepthBombFPvPvPvPv)(arg0, arg0, &out, (int) (*(s32 *)((s8 *)TObjEneDelDepth__tune_params + 0x18)));
     }
     temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x384) - 1;
     *(s32 *)((s8 *)arg0 + 0x384) = temp_r0_2;
@@ -812,7 +812,7 @@ void move_toward_target__15TObjEneDelDepthFPv(u8 *arg0) {
     v.z = 0.0f;
     id = *(s32 *)((s8 *)arg0 + 0x3C4);
     if (id != 0xFFFF) {
-        TObjPlayer::calc_distance_to_client((s32)arg0, (u16)((u16)id), (u32)(&v));
+        TObjPlayer::calc_distance_to_client((s32)arg0, (u16)((u16)id), (u32)&v);
     }
     ang = (s32)(TObjEneDelDepth__data_80475DD0 * atan2_float(v.x, v.z));
     *(s32 *)((s8 *)arg0 + 0x60) = approach_angle_limited(*(s32 *)((s8 *)arg0 + 0x60), ang, 0x200);
@@ -902,7 +902,7 @@ void TObjEneDelDepth__sub_803142DC(u8 *arg0) {
             w.x = 1.0f;
             w.y = 0.0f;
             w.z = 0.0f;
-            TObjPlayer::calc_distance_to_client((s32)arg0, (u16)((u16)*(s32 *)((s8 *)arg0 + 0x3C4)), (u32)(&w));
+            TObjPlayer::calc_distance_to_client((s32)arg0, (u16)((u16)*(s32 *)((s8 *)arg0 + 0x3C4)), (u32)&w);
             *(s32 *)((s8 *)arg0 + 0x60) = approach_angle_limited(*(s32 *)((s8 *)arg0 + 0x60), (s32)(TObjEneDelDepth__data_80475DD0 * atan2_float(w.x, w.z)), 0x280);
         }
         if (*(s32 *)((s8 *)arg0 + 0x384) > lim) {
@@ -937,7 +937,7 @@ void TObjEneDelDepth::try_enter_appear() {
     if (((TObjEneDelDepth *)(*(s32 *)((s8 *)arg0 + 0x37C)))->is_state_complete() == 1) {
         *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x04000000);
         ((TObjEneDelDepth *)arg0)->set_action_state(3);
-        play_sound_effect(0x4003A822, (void *) (arg0 + 0x38), 0, 0);
+        play_sound_effect(0x4003A822, arg0 + 0x38, 0, 0);
     }
 }
 
@@ -965,8 +965,8 @@ void TObjEneDelDepth::enter_state8() {
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x04000000);
     *(s32 *)((s8 *)arg0 + 0x388) = 8;
     set_motion__15TObjEneDelDepthFl((void*)((int) (*(s32 *)((s8 *)arg0 + 0x37C))), (void*)(0xA));
-    play_sound_effect(0x4003A820, (void *) (arg0 + 0x38), 0, 0);
-    ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)((void*)(arg0), (void*)(1));
+    play_sound_effect(0x4003A820, arg0 + 0x38, 0, 0);
+    ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)(arg0, (void*)(1));
 }
 
 #pragma push
@@ -1120,9 +1120,9 @@ void TObjEneDelDepth::update_scale_pulse() {
     f32 var_f31;
     var_f31 = (*(const f32 *)&TObjEneDelDepth__data_805DF260);
     *(f32 *)((s8 *)((u8 *)this) + 0x39C) = (f32) (TObjEneDelDepth__data_805DF278 * ((*(const f32 *)&TObjEneDelDepth__data_805DF260) - *(f32 *)((s8 *)((u8 *)this) + 0x38C)));
-    *(f32 *)((s8 *)((u8 *)this) + 0x3A0) = (f32) ((*(f32 *)((s8 *)((u8 *)this) + 0x38C) * (*(f32 *)((s8 *)(&lbl_80475D78.value) + 0) - *(f32 *)((s8 *)(&lbl_80475D6C.value) + 0))) + *(f32 *)((s8 *)(&lbl_80475D6C.value) + 0));
-    *(f32 *)((s8 *)((u8 *)this) + 0x3A4) = (f32) ((*(f32 *)((s8 *)((u8 *)this) + 0x38C) * (*(f32 *)((s8 *)(&lbl_80475D78.value) + 4) - *(f32 *)((s8 *)(&lbl_80475D6C.value) + 4))) + *(f32 *)((s8 *)(&lbl_80475D6C.value) + 4));
-    *(f32 *)((s8 *)((u8 *)this) + 0x3A8) = (f32) ((*(f32 *)((s8 *)((u8 *)this) + 0x38C) * (*(f32 *)((s8 *)(&lbl_80475D78.value) + 8) - *(f32 *)((s8 *)(&lbl_80475D6C.value) + 8))) + *(f32 *)((s8 *)(&lbl_80475D6C.value) + 8));
+    *(f32 *)((s8 *)((u8 *)this) + 0x3A0) = (f32) ((*(f32 *)((s8 *)((u8 *)this) + 0x38C) * (*(f32 *)((s8 *)&lbl_80475D78.value + 0) - *(f32 *)((s8 *)&lbl_80475D6C.value + 0))) + *(f32 *)((s8 *)&lbl_80475D6C.value + 0));
+    *(f32 *)((s8 *)((u8 *)this) + 0x3A4) = (f32) ((*(f32 *)((s8 *)((u8 *)this) + 0x38C) * (*(f32 *)((s8 *)&lbl_80475D78.value + 4) - *(f32 *)((s8 *)&lbl_80475D6C.value + 4))) + *(f32 *)((s8 *)&lbl_80475D6C.value + 4));
+    *(f32 *)((s8 *)((u8 *)this) + 0x3A8) = (f32) ((*(f32 *)((s8 *)((u8 *)this) + 0x38C) * (*(f32 *)((s8 *)&lbl_80475D78.value + 8) - *(f32 *)((s8 *)&lbl_80475D6C.value + 8))) + *(f32 *)((s8 *)&lbl_80475D6C.value + 8));
     temp_f1 = *(f32 *)((s8 *)((u8 *)this) + 0x38C);
     if (temp_f1 > lbl_805DF2C0) {
         var_f31 = ((*(const f32 *)&TObjEneDelDepth__data_805DF260) - temp_f1) / lbl_805DF2BC;
@@ -1145,7 +1145,7 @@ void TObjEneDelDepth::update_scale_pulse() {
 }
 #pragma pop
 
-void TObjEneDelDepth::init_draw_mode_and_motion() { *(float*)((char*)this + 0x38c) = TObjEneDelDepth__data_805DF260; *(float*)((char*)this + 0x39c) = TObjEneDelDepth__data_805DF258; ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)((void*)(this), (void*)(0)); set_motion__15TObjEneDelDepthFl((void*)((void*)(*(int*)((char*)this + 0x37c))), (void*)((void*)0x6)); }
+void TObjEneDelDepth::init_draw_mode_and_motion() { *(float*)((char*)this + 0x38c) = TObjEneDelDepth__data_805DF260; *(float*)((char*)this + 0x39c) = TObjEneDelDepth__data_805DF258; ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)(this, (void*)(0)); set_motion__15TObjEneDelDepthFl((void*)((void*)(*(int*)((char*)this + 0x37c))), (void*)((void*)0x6)); }
 
 #pragma push
 #pragma fp_contract on
@@ -1179,7 +1179,7 @@ void TObjEneDelDepth__sub_80314EC4(u8 *arg0) {
     if (temp_f1_4 > (*(const f32 *)&TObjEneDelDepth__data_805DF260)) {
         if (find_nearest_visible_player(arg0, 0, TObjEneDelDepth__data_805DF26C) != 0xFFFF) {
             ((TObjEneDelDepth *)arg0)->set_action_state(3);
-            play_sound_effect(0x4003A822, (void *) (arg0 + 0x38), 0, 0);
+            play_sound_effect(0x4003A822, arg0 + 0x38, 0, 0);
         } else {
             ((TObjEneDelDepth *)arg0)->set_action_state(2);
         }
@@ -1367,7 +1367,7 @@ void TObjEneDelDepth::render() {
     }
     if (!(o->flags & 0x4000)) {
         Vec_803155D4 s = lbl_80475DA4[0];
-        ((TObjEnemy *)o)->render_with_position_override((u8 *)(&s), 0);
+        ((TObjEnemy *)o)->render_with_position_override((u8 *)&s, 0);
     }
 }
 
@@ -1431,7 +1431,7 @@ void TObjEneDelDepth::init() {
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int)TObjEneDelDepth__shared_resource, 0);
     VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(VecCopy((Vec *)(arg0 + 0x50), (const Vec *)(VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38))))));
     *(s32 *)((s8 *)arg0 + 0x380) = init_collision_body_parts(arg0, TObjEneDelDepth_collision_body_parts, 1);
-    ((TObjPlayer *)arg0)->set_field_d8((s32)(lbl_804E8194));
+    ((TObjPlayer *)arg0)->set_field_d8((s32)lbl_804E8194);
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)TObjEneDelDepth__shared_resource + 0x430)));
     set_animation__10TObjPlayerFPvs((arg0), 0);
     ((TObjMotion *)arg0)->set_field_b8(0);
@@ -1464,7 +1464,7 @@ u8 *TObjEneDelDepth__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjEneDelDepth *)(arg0))->apply_set_data((void *)arg2);
     ((TObjEneDelDepth *)arg0)->update_target_depth();
     ((TObjEneDelDepth *)arg0)->init();
-    ((s32 (*)(void *, void *, int))project_actor_to_ground)(arg0, (void *) (arg0 + 0x38), 0);
+    ((s32 (*)(void *, void *, int))project_actor_to_ground)(arg0, arg0 + 0x38, 0);
     ((TObjEneDelDepth *)arg0)->set_action_state(0);
     return arg0;
 }

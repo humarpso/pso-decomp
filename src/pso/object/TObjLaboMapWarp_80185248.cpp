@@ -302,7 +302,7 @@ void TObjLaboMapWarp__vt13(u8 *arg0, s32 arg1) {
     if ((u32) *(u32 *)((s8 *)temp_r31 + 0xEC) == 0U) {
         *(u32 *)((s8 *)temp_r31 + 0xEC) = create_window_menu(get_window_layout_position(0x33), 1, arg1);
         ((TObjLaboMapWarp *)arg0)->clamp_index();
-        ((TWindowSubTradeMain *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->add_text_entry(get_localized_text_entry(9, *(s32 *)((s8 *)(&lbl_80444878.value) + (*(s32 *)&((TObjLaboMapWarp *)arg0)->m_8c* 4))), 0xA, 0, -1);
+        ((TWindowSubTradeMain *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->add_text_entry(get_localized_text_entry(9, *(s32 *)((s8 *)&lbl_80444878.value + (*(s32 *)&((TObjLaboMapWarp *)arg0)->m_8c* 4))), 0xA, 0, -1);
         ((TWindowSubComCardList *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag70_bit10();
         ((TAdChrSelASlotGC *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag_40();
         ((TWindowSubComCard *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->calc_window_size();
@@ -395,7 +395,7 @@ void TObjCityMapWarp::render() {
 void TObjCityMapWarp::run_task() {
     Obj_80185824 *arg0 = (Obj_80185824 *)this;
     u32 n = *(u32 *)(*(u8 **)(*(u8 **)(city_common_model_archive + 0x430) + 0x3C) + 4);
-    f32 lim = (f32)(n - 1);
+    f32 lim = (n - 1);
     arg0->fFC += lbl_805DBC88;
     if (arg0->fFC >= lim) {
         arg0->fFC -= lim;
@@ -427,7 +427,7 @@ void TObjCityMapWarp__vt13(u8 *arg0, s32 arg1) {
     if ((u32) *(u32 *)((s8 *)temp_r31 + 0xEC) == 0U) {
         *(u32 *)((s8 *)temp_r31 + 0xEC) = create_window_menu(get_window_layout_position(0x33), 1, arg1);
         ((TObjCityMapWarp *)arg0)->clamp_destination_index();
-        ((TWindowSubTradeMain *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->add_text_entry(get_localized_text_entry(9, *(s32 *)((s8 *)(&lbl_80444878.value) + (*(s32 *)&((TObjCityMapWarp *)arg0)->m_8c* 4))), 0xA, 0, -1);
+        ((TWindowSubTradeMain *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->add_text_entry(get_localized_text_entry(9, *(s32 *)((s8 *)&lbl_80444878.value + (*(s32 *)&((TObjCityMapWarp *)arg0)->m_8c* 4))), 0xA, 0, -1);
         ((TWindowSubComCardList *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag70_bit10();
         ((TAdChrSelASlotGC *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag_40();
         ((TWindowSubComCard *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->calc_window_size();
@@ -604,11 +604,11 @@ s32 TObjCityMainWarp__vt15(u8 *arg0) {
         var_r3 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0xB0));
         if ((var_r3 != NULL) && (((TWindowMenu *)var_r3)->is_visible() != 0)) {
             var_r3 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0xB0));
-            var_r4 = (s32 *)(&city_warp_floor_destination_table.value);
+            var_r4 = (s32 *)&city_warp_floor_destination_table.value;
             var_r5 = (u8 *)(var_r31 + (get_selected_menu_value(var_r3) * 4));
             var_r3 = (u8 *)((void *)1U);
-            var_r4 = (s32 *)(&city_warp_floor_destination_table.value);
-            *(s32 *)((s8 *)var_r31 + 0xBC) = (s32) *(s32 *)((s8 *)(&city_warp_floor_destination_table.value) + (*(s32 *)((s8 *)var_r5 + 0xC8) * 4));
+            var_r4 = (s32 *)&city_warp_floor_destination_table.value;
+            *(s32 *)((s8 *)var_r31 + 0xBC) = (s32) *(s32 *)((s8 *)&city_warp_floor_destination_table.value + (*(s32 *)((s8 *)var_r5 + 0xC8) * 4));
             return 1;
         }
         var_r3 = NULL;
@@ -617,11 +617,11 @@ s32 TObjCityMainWarp__vt15(u8 *arg0) {
     var_r3 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0xB0));
     if ((var_r3 != NULL) && (((TWindowMenu *)var_r3)->is_visible() != 0)) {
         var_r3 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0xB0));
-        var_r4 = (s32 *)(&lbl_80444834.value);
+        var_r4 = (s32 *)&lbl_80444834.value;
         var_r5 = (u8 *)(var_r31 + (get_selected_menu_value(var_r3) * 4));
         var_r3 = (u8 *)((void *)1U);
-        var_r4 = (s32 *)(&lbl_80444834.value);
-        *(s32 *)((s8 *)var_r31 + 0xBC) = (s32) *(s32 *)((s8 *)(&lbl_80444834.value) + (*(s32 *)((s8 *)var_r5 + 0x10C) * 4));
+        var_r4 = (s32 *)&lbl_80444834.value;
+        *(s32 *)((s8 *)var_r31 + 0xBC) = (s32) *(s32 *)((s8 *)&lbl_80444834.value + (*(s32 *)((s8 *)var_r5 + 0x10C) * 4));
         return 1;
     }
     var_r3 = NULL;

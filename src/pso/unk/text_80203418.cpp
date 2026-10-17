@@ -25,7 +25,7 @@ s32 is_boss_area(void) {
 void set_current_floor_area(s32 arg0) {
     Stack_80203470 stack;
     current_floor_index = arg0;
-    if (get_floor_map_selection((arg0), (u8 *)(&stack.sp8)) == 1) {
+    if (get_floor_map_selection((arg0), (u8 *)&stack.sp8) == 1) {
         current_floor_area_type = stack.sp8;
     }
 }

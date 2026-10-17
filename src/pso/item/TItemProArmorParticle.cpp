@@ -88,7 +88,7 @@ u8 *TItemProArmorParticle__ct(u8 *arg0, u8 *arg1) {
     *(s32 *)&((TItemProArmorParticle *)arg0)->m_198 = -1;
     temp_r0 = ((TItemProShield *)arg0)->get_slot_count() - 0x29;
     if (temp_r0 < 0xCU) {
-        *(s32 *)&((TItemProArmorParticle *)arg0)->m_19c = (s32) *(s32 *)((s8 *)(&TItemProArmorParticle__particle_id_table.value) + ((temp_r0 * 4) & 0x3FC));
+        *(s32 *)&((TItemProArmorParticle *)arg0)->m_19c = (s32) *(s32 *)((s8 *)&TItemProArmorParticle__particle_id_table.value + ((temp_r0 * 4) & 0x3FC));
         if (temp_r0 < 5U) {
             *(s32 *)&((TItemProArmorParticle *)arg0)->m_1a0 = 1;
         } else {

@@ -34,7 +34,7 @@ void render__15TWindowShortCutFv(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFl();
     draw_window_frame(arg0, temp_r3);
-    draw_visible_window_entries(arg0, (void *) (arg0 + 0x24), temp_r3);
+    draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     forward_render__20TWindowSubStatusDispFv((int) (*(s32 *)&((TWindowShortCut *)arg0)->m_60), temp_r3);
 }
 

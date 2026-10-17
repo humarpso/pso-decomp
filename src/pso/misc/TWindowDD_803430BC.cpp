@@ -469,7 +469,7 @@ void TWindowDD__sub_803434F4(u8 *arg0) {
     var_r4 = (u8 *)(var_r31 + (*(s32 *)((s8 *)var_r31 + 0x20) * 4));
     *(u8 **)((s8 *)var_r4 + 0x44) = var_r5;
     var_r4 = (u8 *)((void *) *(s32 *)((s8 *)var_r31 + 0x20));
-    *(s32 *)((s8 *)var_r31 + 0x20) = (s32) (var_r4 + 1);
+    *(s32 *)((s8 *)var_r31 + 0x20) = (s32)(var_r4 + 1);
     var_r4 = (u8 *)(var_r31 + (*(s32 *)((s8 *)var_r31 + 0x20) * 4));
     var_r4 = (u8 *)(*(u8 **)((s8 *)var_r4 + 0x24));
     update__9TWindowDDFl((int)var_r3, (int)var_r4, (int)var_r5);
@@ -499,7 +499,7 @@ void TWindowDD__sub_803435A0(u8 *arg0) {
     }
     *(s32 *)((s8 *)arg0 + 0xB8) = 0;
     if (*(s32 *)((s8 *)arg0 + 0xB4) == 1 || *(s32 *)((s8 *)arg0 + 0xB4) == 2 || *(s32 *)((s8 *)arg0 + 0xB4) == 8 || *(s32 *)((s8 *)arg0 + 0xB4) == 0xF || *(s32 *)((s8 *)arg0 + 0xB4) == 0x11) {
-        reset_index__9TWindowDDFv((void *) (arg0 + 0xC4));
+        reset_index__9TWindowDDFv(arg0 + 0xC4);
     }
     temp_r29 = get_entry__9TWindowDDFii(arg0, *(s32 *)((s8 *)arg0 + 0xB0));
     temp_r31 = get_entry__9TWindowDDFii(arg0, *(s32 *)((s8 *)arg0 + 0xB4));
@@ -511,7 +511,7 @@ void TWindowDD__sub_803435A0(u8 *arg0) {
         *(s32 *)((s8 *)temp_r3 + 0x50) = (s32) TWindowDD__data_805DFB50;
         if (*temp_r29 & 4) {
             temp_r4 = *(s32 *)((s8 *)arg0 + 0xBC);
-            *(s32 *)((s8 *)arg0 + 0xBC) = (s32) (temp_r4 + 1);
+            *(s32 *)((s8 *)arg0 + 0xBC) = (temp_r4 + 1);
             TWindowDD__sub_80347E04(arg0, temp_r4);
         }
     }

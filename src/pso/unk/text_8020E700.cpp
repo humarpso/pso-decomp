@@ -131,12 +131,12 @@ void TLobby::clear_shop_entry_value(s32 i, s32 j) {
 }
 
 void clear_shop_armor_flags(void) {
-    memset((void *) (&shop_armor_stock_generated_flags.value), 0, 0x10);
+    memset(&shop_armor_stock_generated_flags.value, 0, 0x10);
 }
 
 void TLobby::copy_armor_shop_entry(s32 arg1, s32 arg2) {
     s32 arg0 = (s32)this;
-    *(ByteBlock_14 *)(arg0) = *(const ByteBlock_14 *)(*(s32 *)((s8 *)(&lbl_80513D78.value) + (arg2 * 4)) + (arg1 * 0x14));
+    *(ByteBlock_14 *)(arg0) = *(const ByteBlock_14 *)(*(s32 *)((s8 *)&lbl_80513D78.value + (arg2 * 4)) + (arg1 * 0x14));
 }
 
 }

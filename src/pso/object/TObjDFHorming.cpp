@@ -280,7 +280,7 @@ void TBoss4DarkFalz::sub_8004B084() {
   MemberActionStorage_8004B084 member_action;
   Stack_8004B084 stack;
   u8 *temp_r6;
-  temp_r6 = (u8 *) (&TBoss4DarkFalz__data_80485108.value);
+  temp_r6 = (u8 *)&TBoss4DarkFalz__data_80485108.value;
   temp_r6 = temp_r6 + ((*(s32 *)&this->m_37c) * 0x34);
   member_action.words[0] = *((s32 *) (((s8 *) temp_r6) + 0x28));
   member_action.words[1] = *((s32 *) (((s8 *) temp_r6) + 0x2C));
@@ -510,7 +510,7 @@ void TBoss4DarkFalz::handle_defeat() {
     }
     flags[0] = 0x800;
     send_6x0A_enemy_state(arg0, flags);
-    ((TObjEnemy *)arg0)->exchange_object_state((s32)(flags), (s16)0);
+    ((TObjEnemy *)arg0)->exchange_object_state((s32)flags, (s16)0);
     ((VObj_18_8004B654 *)(arg0))->m77(flags);
     ((TObjEnemy *)arg0)->send_entity_set_flags();
     queue_destruction__7TObjectFv(arg0);

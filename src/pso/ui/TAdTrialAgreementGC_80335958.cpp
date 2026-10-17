@@ -133,16 +133,16 @@ void TAdTrialAgreementGC::render_screen() {
             } while (var_r31 != 0xF);
             bind_title_texture_list();
             TObjPlayer::init_xyz_limits();
-            temp_r31 = TAdTrialAgreementGC__sub_8033596C((void*)(arg0));
+            temp_r31 = TAdTrialAgreementGC__sub_8033596C(arg0);
             if ((s32) *(s32 *)&this->m_24 == 1) {
-                draw_record_with_camera__19TAdTrialAgreementGCFlll(arg0, (void *) (temp_r31 + 0xF), 0xF);
-                draw_record_with_camera__19TAdTrialAgreementGCFlll(arg0, (void *) (temp_r31 + 0x13), 0x13);
-                draw_record_with_camera__19TAdTrialAgreementGCFlll(arg0, (void *) (temp_r31 + 0x17), 0x17);
+                draw_record_with_camera__19TAdTrialAgreementGCFlll(arg0, (void *)(temp_r31 + 0xF), 0xF);
+                draw_record_with_camera__19TAdTrialAgreementGCFlll(arg0, (void *)(temp_r31 + 0x13), 0x13);
+                draw_record_with_camera__19TAdTrialAgreementGCFlll(arg0, (void *)(temp_r31 + 0x17), 0x17);
             }
             if ((s32) *(s32 *)&this->m_24 == 2) {
-                draw_record_with_camera__19TAdTrialAgreementGCFlll(arg0, (void *) (temp_r31 + 0x1B), 0x1B);
-                draw_record_with_camera__19TAdTrialAgreementGCFlll(arg0, (void *) (temp_r31 + 0x1F), 0x1F);
-                draw_record_with_camera__19TAdTrialAgreementGCFlll(arg0, (void *) (temp_r31 + 0x23), 0x23);
+                draw_record_with_camera__19TAdTrialAgreementGCFlll(arg0, (void *)(temp_r31 + 0x1B), 0x1B);
+                draw_record_with_camera__19TAdTrialAgreementGCFlll(arg0, (void *)(temp_r31 + 0x1F), 0x1F);
+                draw_record_with_camera__19TAdTrialAgreementGCFlll(arg0, (void *)(temp_r31 + 0x23), 0x23);
             }
             TObjPlayer::reset_transform_state();
         }

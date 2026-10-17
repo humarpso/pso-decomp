@@ -241,7 +241,7 @@ u8 *TTecSifta__sub_8023B17C(u8 *arg0, s32 owner, s32 pos, s32 level) {
     if (temp_r3_2 != 0U) {
         *(s16 *)&((TTecSifta *)arg0)->m_a8 = obj_getField1c(temp_r3_2);
     }
-    TTecSifta__sub_8023AC88((void*)(arg0));
+    TTecSifta__sub_8023AC88(arg0);
     ((TTecSifta *)arg0)->play_sifta_cast_sound();
     return arg0;
 }

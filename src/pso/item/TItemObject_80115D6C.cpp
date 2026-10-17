@@ -365,7 +365,7 @@ void *TItemObject__ct(void *arg0, void *arg1, void *item) {
     }
     temp_r3 = *(s16 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF8)) + 4);
     if (temp_r3 != 0) {
-        ((TItem *)arg0)->sub_8010043C((u8) (temp_r3 + 4));
+        ((TItem *)arg0)->sub_8010043C(temp_r3 + 4);
     }
     return arg0;
 }

@@ -113,7 +113,7 @@ void TBoss5GryphonTornado::run_task() {
             o->timer = 0;
         }
         TBoss8Dragon__sub_800640A4(TBoss8Dragon::get_instance_count(), &o->pos);
-        ((TBoss5GryphonTornado *)o)->sub_803554F0((u8 *)(&v));
+        ((TBoss5GryphonTornado *)o)->sub_803554F0((u8 *)&v);
         o->f34 = lbl_805DFFB0 * v.x + o->f34;
         o->f3C = lbl_805DFFB0 * v.z + o->f3C;
         o->f34 *= lbl_805DFFB4;

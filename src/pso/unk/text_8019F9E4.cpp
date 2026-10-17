@@ -30,7 +30,7 @@ typedef char RecoveredGlobal_8019F9E4_lbl_804A7438_size[sizeof(RecoveredGlobal_8
 void TObjWarpBoss03::sub_8019F9E4() {
     u8 *arg0 = (u8 *)this;
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DC030, lbl_805DC034) != 0) {
-        TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&lbl_804A7438.value), (f32) (lbl_805DC038 * *(f32 *)((s8 *)arg0 + 0xAC)));
+        TObjRoomId__sub_80141CF4(arg0 + 0x38, &lbl_804A7438.value, (f32) (lbl_805DC038 * *(f32 *)((s8 *)arg0 + 0xAC)));
     }
 }
 

@@ -58,7 +58,7 @@ void TUnk_804A3640::emit_marker_effects() {
                     tec.kind = 1;
                     tec.a = item->a;
                     tec.b = item->b;
-                    ((TTecGiZonde *)(((Self_80127BE0 *)this)->fF0))->create((void *)buf, (void *)(&tec), (void *)kind);
+                    ((TTecGiZonde *)(((Self_80127BE0 *)this)->fF0))->create((void *)buf, &tec, (void *)kind);
                 }
             }
         }

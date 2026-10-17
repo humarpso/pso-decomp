@@ -7,9 +7,9 @@ s32 draw_visible_window_entries(void *, void *, int);
 void draw_window_frame(void *arg0, s32 arg1);
 void fn_80246CE8(s32 arg0) {
     s32 temp_r3;
-    temp_r3 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)((void *) (arg0 + 0x60)));
-    draw_window_frame((void *)(arg0), (s32)(temp_r3));
-    draw_visible_window_entries((void *)arg0, (void *) (arg0 + 0x24), (int)temp_r3);
+    temp_r3 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)(arg0 + 0x60));
+    draw_window_frame((void *)arg0, (s32)temp_r3);
+    draw_visible_window_entries((void *)arg0, (void *)(arg0 + 0x24), (int)temp_r3);
 }
 
 }

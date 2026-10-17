@@ -184,7 +184,7 @@ u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2) {
         temp_r3 = ((TAdSinglePlyChrSelectGC *)0x88)->alloc();
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = init__13TAdVIConfigGCFf(temp_r3, (void *) (arg0 + 0x38), lbl_805DBABC);
+            var_r0 = init__13TAdVIConfigGCFf(temp_r3, arg0 + 0x38, lbl_805DBABC);
         }
         *(s32 *)&((TObjGoalWarpAncient *)arg0)->m_dc = var_r0;
     } else {

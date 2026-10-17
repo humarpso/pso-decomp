@@ -159,7 +159,7 @@ void TOSymbolchatColli::render() {
         stack.sp10 = lbl_805DBA2C;
         stack.sp14 = lbl_805DBA2C;
         newton_sqrtf((f32) (*(f32 *)((s8 *)arg0 + 0x334)));
-        TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&stack.sp8));
+        TObjRoomId__sub_80141CF4(arg0 + 0x38, &stack.sp8);
     }
 }
 

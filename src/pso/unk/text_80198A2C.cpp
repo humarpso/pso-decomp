@@ -228,7 +228,7 @@ void throw_gogo_ball__12TWindowTimerFPvii(u8 *arg0, s32 arg1, s32 arg2) {
         play_sound_effect(0x4002A600, arg0, 0, 0);
         stack.sp1C = 0;
     }
-    send_gogo_ball__12TWindowTimerFi((s32)(&stack.sp8));
+    send_gogo_ball__12TWindowTimerFi((s32)&stack.sp8);
 }
 
 }
@@ -1177,7 +1177,7 @@ u8 *TWindowTimer__sub_8019A574(u8 *arg0) {
     ((TUnk_804B8E18 *)arg0)->m_374 = (f32) (1.0f);
     *(s32 *)((s8 *)arg0 + 0x378) = 1;
     ((TUnk_804B8E18 *)arg0)->m_37c = 0x40107;
-    ((TUnk_804AF8A0 *)arg0)->initialize_linked_object_reference((void*)(arg0 + 0x364));
+    ((TUnk_804AF8A0 *)arg0)->initialize_linked_object_reference(arg0 + 0x364);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TUnk_804B8E18 *)arg0)->m_35c = 0;
     *(s16 *)((s8 *)(&(*(RecoveredGlobal_8019A574_lbl_8050DDAC *)&gogo_ball_sync_state).value) + 0x10) = 0;

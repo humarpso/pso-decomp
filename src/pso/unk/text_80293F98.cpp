@@ -41,10 +41,10 @@ void TChCrEffFade::draw_fade_strip(f32 farg0) {
     stack.sp20 = temp_r9;
     stack.sp1C = temp_r9;
     stack.sp18 = temp_r9;
-    stack.spC = (s32 *)(&stack.sp18);
+    stack.spC = &stack.sp18;
     stack.sp10 = 0;
     stack.sp14 = 4;
-    stack.sp8 = (s32 *)(&lbl_804DB900.value);
+    stack.sp8 = &lbl_804DB900.value;
     ((TWindowCtrlMain *)(&stack.sp8))->draw_strip_swap_color(4, 6, lbl_805DD9E4);
 }
 

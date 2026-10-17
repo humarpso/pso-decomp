@@ -11,7 +11,7 @@ s32 spawn_flow_soul__11TBoss6Type2Fiii(s32 arg0, s32 arg1, s32 arg2) {
     temp_r3 = ((s32)__nw__7TObjectFUl(0x3C));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = ((s32)TBoss6EffFlowSoul__ct((void *)(temp_r3), (void *)(arg0), (void *)(arg1), (void *)(0xFFFF), (void *)(arg2)));
+        var_r0 = ((s32)TBoss6EffFlowSoul__ct((void *)temp_r3, (void *)arg0, (void *)arg1, (void *)(0xFFFF), (void *)arg2));
     }
     return var_r0;
 }

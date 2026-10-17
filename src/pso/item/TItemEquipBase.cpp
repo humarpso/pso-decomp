@@ -315,7 +315,7 @@ void play_target_impact_effect(s32 arg0, s32 arg1, s32 arg2, s16 arg3) {
         VecCopy((Vec *)(&stack.sp8), (const Vec *)(temp_r3 + 0x38));
         stack.spC = *(f32 *)((s8 *)temp_r3 + 0x300);
     }
-    spawn_particle_effect((void *) (&stack.sp8), 0x45);
+    spawn_particle_effect(&stack.sp8, 0x45);
 }
 
 void*TItemEquipBase::get_stat_bonus_ptr() { return (char*)this + 0x16c; }
@@ -358,7 +358,7 @@ void TItemEquipBase__sub_8010A82C(s32 arg0) {
     TItemEquipBase__sub_8010B73C((&sp8));
     var_r30 = 0;
     do {
-        TItemEquipBase__sub_8022C680((void *) (&sp8), (void *) (((s32)get_id__13TItemProArmorFv((void *)arg0))), (void *) (temp_r31 + var_r30));
+        TItemEquipBase__sub_8022C680(&sp8, (void *) (((s32)get_id__13TItemProArmorFv((void *)arg0))), (void *) (temp_r31 + var_r30));
         var_r30 += 1;
     } while (var_r30 != 3);
 }
@@ -468,8 +468,8 @@ void TItemEquipBase::remove_equip_effects() {
 }
 
 s32 TItemEquipBase__sub_8010AC60(s32 arg0, s32 arg1, s32 arg2) {
-    if ((test_flags_any((void *)((void *) (arg0 + 0x178)), (void *)(arg1)) != 0) && (test_flags_any((void *)((void *) (arg0 + 0x178)), (void *)(arg2)) == 0)) {
-        ((TObjPlayer *)(arg0 + 0x178))->set_flags((u32)(arg2));
+    if ((test_flags_any((void *)((void *)(arg0 + 0x178)), (void *)arg1) != 0) && (test_flags_any((void *)((void *)(arg0 + 0x178)), (void *)arg2) == 0)) {
+        ((TObjPlayer *)(arg0 + 0x178))->set_flags(arg2);
         return 1;
     }
     return 0;
@@ -489,7 +489,7 @@ typedef char RecoveredGlobal_8010AD24_lbl_804C3BA8_size[sizeof(RecoveredGlobal_8
 void TItemEquipBase::set_attach_slot(s8 arg1) {
     u8 *arg0 = (u8 *)this;
     *(s8 *)&this->m_170 = arg1;
-    set_equip_flag((s32)((int) ((s8) *(s16 *)((s8 *)((u8 *)(&lbl_804C3BA8.value) + (((VObj_18_b34251 *)(arg0))->m31() * 2)) + 0))));
+    set_equip_flag((s32)((int) ((s8) *(s16 *)((s8 *)((u8 *)&lbl_804C3BA8.value + (((VObj_18_b34251 *)(arg0))->m31() * 2)) + 0))));
 }
 
 void TItemEquipBase::deduct_cap_excess(s32 unused, s16 *arg1, s16 arg2) {
@@ -501,9 +501,9 @@ void TItemEquipBase::deduct_cap_excess(s32 unused, s16 *arg1, s16 arg2) {
 void TItemEquipBase::subtract_equip_stats(s32 arg1, u8 *arg2, u8 *arg3) {
     u8 *arg0 = (u8 *)this;
     if (arg1 != 0) {
-        subtract_s16_stat((void *)arg1, (void *) (get_attack_params_atp_min((void *) (arg0 + 0x11C))));
-        fn_8010B7E8((void *)arg1, (void *) (get_attack_params_atp_max((void *) (arg0 + 0x11C))));
-        fn_8010B7D8((void *)arg1, (void *) (TObjPlayer__sub_800194E8((void *) (arg0 + 0x11C))));
+        subtract_s16_stat((void *)arg1, (void *) (get_attack_params_atp_min(arg0 + 0x11C)));
+        fn_8010B7E8((void *)arg1, (void *) (get_attack_params_atp_max(arg0 + 0x11C)));
+        fn_8010B7D8((void *)arg1, (void *) (TObjPlayer__sub_800194E8(arg0 + 0x11C)));
     }
     if (arg2 != NULL) {
         *(s16 *)((s8 *)arg2 + 0) = (s16) (*(s16 *)((s8 *)arg2 + 0) - this->m_14c);
@@ -533,7 +533,7 @@ void TItemEquipBase::subtract_item_stat_bonus(s32 arg1, s32 arg2, s16 *out) {
     ((TItem *)self)->copy_to_item_data(&item);
     memset(&st, (void *)0, (void *)0x24);
     memset(&extra, (void *)0, (void *)4);
-    ((TItemData *)(&item))->apply_equip_effects(self->m_f0, (s32)arg1, (s32)arg2, (s32)(&st), (s32)(&extra));
+    ((TItemData *)(&item))->apply_equip_effects(self->m_f0, (s32)arg1, (s32)arg2, (s32)&st, (s32)&extra);
     if (out != NULL) {
         out[0] -= st.v[0];
         out[1] -= st.v[1];
@@ -648,7 +648,7 @@ void TItemEquipBase::equip() {
         ((TItem *)arg0)->set_mode(2);
         ((TObjPlayer *)arg0)->add_item_flags(8);
         this->vfunc_22(1);
-        if ((TOKeyMachine01::get_global_state() != 0xF) && (test_flags_any((void *)((void *) (arg0 + 0x178)), (void *)(1)) == 0)) {
+        if ((TOKeyMachine01::get_global_state() != 0xF) && (test_flags_any((void *)(arg0 + 0x178), (void *)(1)) == 0)) {
             ((TObjPlayer *)(arg0 + 0x178))->set_flags((u32)((void *)(1)));
             this->vfunc_46();
         }
@@ -673,7 +673,7 @@ void TItemEquipBase::release() {
 
 void TItemEquipBase::request_model_load(s32 arg1) {
     TItemData item_data;
-    init__9TItemDataFv((void *) (&item_data.data1.data_u8[0]));
+    init__9TItemDataFv(&item_data.data1.data_u8[0]);
     item_data.data1.data_u8[0] = ((TItem *)((u8 *)this))->get_field_ec();
     item_data.data1.data_u8[1] = arg1;
     item_data.data1.data_u8[2] = ((TItemProShield *)((u8 *)this))->get_slot_count();

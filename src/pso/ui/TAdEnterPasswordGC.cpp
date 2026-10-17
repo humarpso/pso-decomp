@@ -210,7 +210,7 @@ void update_password_input__18TAdEnterPasswordGCFPv(Pw_8032B6A0 *self) {
       if (self->serial != 0)
       {
         ((TAdEnterSerialAccessGC *)((void *) self->serial))->reset_input_state();
-        ((TLevelSelect *)(self->serial))->add_item_rect(((u8 *) (&enter_password_item_rect_table.value)) + 8);
+        ((TLevelSelect *)(self->serial))->add_item_rect(((u8 *)&enter_password_item_rect_table.value) + 8);
       }
     }
     else
@@ -222,7 +222,7 @@ void update_password_input__18TAdEnterPasswordGCFPv(Pw_8032B6A0 *self) {
   }
   if ((((TAdSinglePlyChrSelectGC *)(self->serial))->get_selected_slot() == 1) && (((TWindowSubComCard *)password_entry_keyboard_control)->update_keyboard() != 0))
   {
-    strncpy((s32) (&TAdEnterPasswordGC__input_buffer.value), buf, 9);
+    strncpy((s32)&TAdEnterPasswordGC__input_buffer.value, buf, 9);
     TAdEnterSerialAccessGC__sub_80322418(get_field_118__22TAdEnterSerialAccessGCFv(), 2);
     self->f20 = 3;
     password_entry_dispatch_state = 4;
@@ -236,7 +236,7 @@ void open_keyboard_window__18TAdEnterPasswordGCFPv(s32 arg0) {
     *(s32 *)((s8 *)arg0 + 0x34) = create_default_callback__22TAdEnterSerialAccessGCFv((void *)arg0);
     if ((u32) *(u32 *)((s8 *)arg0 + 0x2C) != 0U) {
         ((TAdEnterSerialAccessGC *)(*(void **)((s8 *)arg0 + 0x2C)))->reset_input_state();
-        ((TLevelSelect *)(*(u32 *)((s8 *)arg0 + 0x2C)))->add_item_rect((void *) (&enter_password_item_rect_table.value));
+        ((TLevelSelect *)(*(u32 *)((s8 *)arg0 + 0x2C)))->add_item_rect(&enter_password_item_rect_table.value);
         ((TAdEnterSerialAccessGC *)(*(u32 *)((s8 *)arg0 + 0x2C)))->set_active();
     }
     (*(u32 *)&password_entry_keyboard_control) = TAdEnterSerialAccessGC::create_keyboard_control(arg0, 2);
@@ -260,7 +260,7 @@ void run_task__18TAdEnterPasswordGCFv(TAdEnterPasswordGC_8032B984 *self) {
 }
 
 void set_password__18TAdEnterPasswordGCFi(s32 arg0) {
-    memset((void *) (&TAdEnterPasswordGC__input_buffer.value), 0, 9);
+    memset(&TAdEnterPasswordGC__input_buffer.value, 0, 9);
     strncpy((s32) &TAdEnterPasswordGC__input_buffer.value, arg0, 9);
 }
 

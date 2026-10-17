@@ -353,7 +353,7 @@ s32 TLobby__sub_80420BD0(void *arg0, S_80420BD0 *s, s32 arg2) {
 }
 
 s32 TLobby::reset_stack_module() {
-    TLobby__sub_803F87C4((void *) (&lbl_805C1DF0.value));
+    TLobby__sub_803F87C4(&lbl_805C1DF0.value);
     lbl_805C1DF0.value = 0;
     return 0;
 }

@@ -79,7 +79,7 @@ int TItem__sub_801005E4(void) { return 0; }
 s32 feed_item_to_mag(u8 *arg0, u32 arg1) {
     TItemData item_data;
     if (arg1 != 0U) {
-        ((TItem *)arg1)->copy_to_item_data((void *) (&item_data.data1.data_u8[0]));
+        ((TItem *)arg1)->copy_to_item_data(&item_data.data1.data_u8[0]);
         return ((VObj_18_72f473 *)(arg0))->m39(&item_data);
     }
     return 0;

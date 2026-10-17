@@ -90,7 +90,7 @@ void TOKeyAncient01::render() {
     u8 *arg0 = (u8 *)this;
     if (((VObj18*)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
-        post_translate_matrix((void *) (arg0 + 0x38));
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, (void *)this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
         if ((s32) *(s32 *)&this->m_d4 != 1) {

@@ -187,7 +187,7 @@ void TUnk_80488AF0::run_task() {
     Cam_8006B6A8 *arg0 = (Cam_8006B6A8 *)this;
     approach_vector_fixed_distance(&arg0->v34, &arg0->v28, &arg0->v34, arg0->f1C);
     if (TCameraCtrl__sub_8006BADC() == 1) {
-        TCameraCtrl::set_fixed_position_and_target((u8 *)(camera_ctrl_instance + 0x178), (u8 *)(&arg0->v34));
+        TCameraCtrl::set_fixed_position_and_target((u8 *)(camera_ctrl_instance + 0x178), (u8 *)&arg0->v34);
     }
     arg0->f20++;
     if (arg0->f20 == arg0->f22 + arg0->f24 || TCameraCtrl__sub_8006BADC() == 0) {
@@ -236,7 +236,7 @@ s32 TCameraCtrl__sub_8006B798(void *p, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     arg0->pos.z = d.z * dist + VIEW_8006B798->pos.z;
     arg0->f1c = xyz_distance(&arg0->pos, &VIEW_8006B798->tgt) / (f32)arg0->f22;
     arg0->f20 = 0;
-    TCameraCtrl::set_fixed_position_and_target((u8 *)(&VIEW_8006B798->pos), (u8 *)(&VIEW_8006B798->tgt));
+    TCameraCtrl::set_fixed_position_and_target((u8 *)&VIEW_8006B798->pos, (u8 *)&VIEW_8006B798->tgt);
     return (s32)arg0;
 #undef arg0
 }

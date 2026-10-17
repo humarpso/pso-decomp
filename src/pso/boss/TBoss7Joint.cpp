@@ -69,13 +69,13 @@ void TBoss7Joint::vfunc_62() {
 void TBoss7Joint::run_task() {
     u8 *arg0 = (u8 *)this;
     if (TObjPlayer::check_demo_mode() == 0) {
-        VecCopy((Vec *)((void *) (arg0 + 0x38)), (const Vec *)((int) (*(s32 *)((s8 *)arg0 + 0x3C0))));
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)((int) (*(s32 *)((s8 *)arg0 + 0x3C0))));
         this->vfunc_83();
         store_position();
         this->vfunc_88();
         if (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0x18) & 1) {
             ((TBoss8Dragon *)arg0)->set_player_state_default();
-            add_radar_scaled_marker((void *) (arg0 + 0x38), -0x5DB4, 1, 1, lbl_805DEBB8);
+            add_radar_scaled_marker(arg0 + 0x38, -0x5DB4, 1, 1, lbl_805DEBB8);
         }
     }
 }

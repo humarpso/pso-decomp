@@ -69,16 +69,16 @@ typedef char RecoveredGlobal_8012E83C_lbl_8043E9C0_size[sizeof(RecoveredGlobal_8
 void TUnk_804A5E20::emit_marker_effects() {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
-    draw_icon__10TObjPlayerFll(arg0, 1, (void *) (&sp8));
-    ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 0, *(s32 *)((s8 *)(&five_joint_shot_angle_table.value) + 0), 1);
-    draw_icon__10TObjPlayerFll(arg0, 1, (void *) (&sp8));
-    ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 1, *(s32 *)((s8 *)(&five_joint_shot_angle_table.value) + 4), 1);
-    draw_icon__10TObjPlayerFll(arg0, 1, (void *) (&sp8));
-    ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 2, *(s32 *)((s8 *)(&five_joint_shot_angle_table.value) + 8), 1);
-    draw_icon__10TObjPlayerFll(arg0, 1, (void *) (&sp8));
-    ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 3, *(s32 *)((s8 *)(&five_joint_shot_angle_table.value) + 0xC), 1);
-    draw_icon__10TObjPlayerFll(arg0, 1, (void *) (&sp8));
-    ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 4, *(s32 *)((s8 *)(&five_joint_shot_angle_table.value) + 0x10), 1);
+    draw_icon__10TObjPlayerFll(arg0, 1, (void *)&sp8);
+    ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 0, *(s32 *)((s8 *)&five_joint_shot_angle_table.value + 0), 1);
+    draw_icon__10TObjPlayerFll(arg0, 1, (void *)&sp8);
+    ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 1, *(s32 *)((s8 *)&five_joint_shot_angle_table.value + 4), 1);
+    draw_icon__10TObjPlayerFll(arg0, 1, (void *)&sp8);
+    ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 2, *(s32 *)((s8 *)&five_joint_shot_angle_table.value + 8), 1);
+    draw_icon__10TObjPlayerFll(arg0, 1, (void *)&sp8);
+    ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 3, *(s32 *)((s8 *)&five_joint_shot_angle_table.value + 0xC), 1);
+    draw_icon__10TObjPlayerFll(arg0, 1, (void *)&sp8);
+    ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 4, *(s32 *)((s8 *)&five_joint_shot_angle_table.value + 0x10), 1);
 }
 
 }

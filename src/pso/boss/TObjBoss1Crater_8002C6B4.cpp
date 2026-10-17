@@ -83,7 +83,7 @@ void attack_target_list_remove(u8 *arg0, s32 arg1) {
     if (arg1 >= 0) {
         temp_r5 = *(s32 *)((s8 *)arg0 + 8);
         if (arg1 < temp_r5) {
-            *(s32 *)((s8 *)arg0 + 8) = (s32) (temp_r5 - 1);
+            *(s32 *)((s8 *)arg0 + 8) = (temp_r5 - 1);
             temp_r5_2 = *(s32 *)((s8 *)arg0 + 0);
             *(s32 *)((s8 *)temp_r5_2 + (arg1 * 4)) = *(s32 *)((s8 *)temp_r5_2 + (*(s32 *)((s8 *)arg0 + 8) * 4));
             *(s32 *)((s8 *)(*(s32 *)((s8 *)arg0 + 0)) + (*(s32 *)((s8 *)arg0 + 8) * 4)) = *(s32 *)((s8 *)arg0 + 4);

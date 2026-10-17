@@ -311,7 +311,7 @@ void TObjPlayer__sub_80326D54(Obj_80326D54 *arg0) {
     case 2: {
         Rec_80326D54 r = lbl_80476760;
         r.a = arg0->x1FC;
-        TObjPlayer::enable_flag20((s32)(&r));
+        TObjPlayer::enable_flag20((s32)&r);
         break;
     }
     case 3:
@@ -332,16 +332,16 @@ extern const f32 lbl_805DF670;
 
 void TObjPlayer::update_orga_flow_params() {
     s32 arg0 = (s32)this;
-    TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1F8), (f32)(lbl_805DF664), (f32)(lbl_805DF668));
-    TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1FC), (f32)(lbl_805DF66C), (f32)(lbl_805DF670));
+    TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1F8), (f32)lbl_805DF664, (f32)lbl_805DF668);
+    TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1FC), (f32)lbl_805DF66C, (f32)lbl_805DF670);
 }
 
 extern const f32 lbl_805DF674;
 
 void TUnk_804ED298::update_attack() {
     s32 arg0 = (s32)this;
-    TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1F8), (f32)(lbl_805DF670), (f32)(lbl_805DF660));
-    TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1FC), (f32)(lbl_805DF674), (f32)(lbl_805DF660));
+    TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1F8), (f32)lbl_805DF670, (f32)lbl_805DF660);
+    TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1FC), (f32)lbl_805DF674, (f32)lbl_805DF660);
 }
 
 extern s32 lbl_804ED298[];

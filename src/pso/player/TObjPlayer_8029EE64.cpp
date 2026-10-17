@@ -94,16 +94,16 @@ void TObjPlayer::setup_projection_texture(s32 arg0, s32 arg1, s32 arg2) {
     f32 sp8;
     f32 temp_f31;
     if (((u32) camera_ctrl_instance != 0U) && ((u32) lbl_805D65F0 != 0U)) {
-        calc_projection_screen_offset((void *) (&spC), (void *) (&sp8));
+        calc_projection_screen_offset(&spC, &sp8);
         if (arg2 & 0x80) {
             push_matrix();
             temp_f31 = (f32) (lbl_80465E18 * calc_camera_fov_degrees());
             if (TCameraCtrl__sub_800689F4() != 0) {
-                C_MTXLightPerspective((void *) (&sp10), temp_f31, lbl_805DDDA0, lbl_805DDDA4, lbl_805DDDA8, (f32) (lbl_805DDDA4 - spC), (f32) (lbl_805DDDA4 - sp8));
+                C_MTXLightPerspective(&sp10, temp_f31, lbl_805DDDA0, lbl_805DDDA4, lbl_805DDDA8, (f32) (lbl_805DDDA4 - spC), (f32) (lbl_805DDDA4 - sp8));
             } else {
-                C_MTXLightPerspective((void *) (&sp10), temp_f31, lbl_805DDDA0, lbl_805DDDA4, lbl_805DDDA8, lbl_805DDDA4, lbl_805DDDA4);
+                C_MTXLightPerspective(&sp10, temp_f31, lbl_805DDDA0, lbl_805DDDA4, lbl_805DDDA8, lbl_805DDDA4, lbl_805DDDA4);
             }
-            PSMTXConcat((void *) (&sp10), (void *)current_matrix, (void *)current_matrix);
+            PSMTXConcat(&sp10, (void *)current_matrix, (void *)current_matrix);
             load_current_tex_matrix(2);
             pop_matrix();
             load_current_pos_matrix(2);
@@ -142,7 +142,7 @@ void TUnk_804DC7C4::render_shadows() {
     if (TSceneSora__instance != 0) {
         TSceneSora__sky_active_flag = 0;
     }
-    TSceneSora::copy_reflection_vec((u8 *)(&v));
+    TSceneSora::copy_reflection_vec((u8 *)&v);
     scene_sora_reflect_active = 1;
     {
         Vec_8029EFFC off = p->pos2FC;
@@ -222,7 +222,7 @@ void TUnk_804DC7C4::render_shadows() {
         if (k != vec_squared_length((u8 *)&v)) {
             Vec_8029EFFC tmp;
             normalize_vector(&v);
-            TSceneSora::copy_reflection_vec((u8 *)(&v));
+            TSceneSora::copy_reflection_vec((u8 *)&v);
             push_matrix();
             push_matrix();
             VecCopy__FP3VecPC3Vec(&tmp, &p->pos2FC);

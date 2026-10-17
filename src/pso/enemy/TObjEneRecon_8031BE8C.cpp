@@ -213,7 +213,7 @@ void render__12TObjEneReconFv(u8 *arg0) {
                     }
                     model_render_flags &= 0xFEFFFFFF;
                     TParticleCtrl::end_effect_render();
-                    TObjEneRe7Berura::set_global_state((s32)(NULL));
+                    TObjEneRe7Berura::set_global_state(NULL);
                     pop_matrix();
                     ((TObjEneDD *)arg0)->update_primary_light();
                 }

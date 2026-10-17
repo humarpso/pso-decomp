@@ -362,7 +362,7 @@ void vt3__13TBoss6MagMineFv(s32 arg0) {
 #pragma opt_common_subs off
 void vt2__13TBoss6MagMineFv(u8 *arg0_) {
     f32 temp_f1;
-    if (is_player_in_range__13TBoss6MagMineFPv((void *)(arg0_)) != 0) {
+    if (is_player_in_range__13TBoss6MagMineFPv(arg0_) != 0) {
         *(s32 *)((s8 *)arg0_ + 0x394) = 0x96;
     }
     *(f32 *)((s8 *)arg0_ + 0x398) += 0.33333334f;
@@ -521,10 +521,10 @@ s32 TBoss6MagMine__ct(s32 arg0, s32 parent, s32 arg2) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x384, arg2 + 0x4C);
     ((TUnk_804806E8 *)self)->add_flags_2e4(8);
     ((VObj_18_aa4667 *)(self))->m79(arg2);
-    if (((TObjEnemy *)self)->exchange_object_state((s32)(&key), (s16)1) != 0) {
+    if (((TObjEnemy *)self)->exchange_object_state((s32)&key, (s16)1) != 0) {
         key.a = 0;
         key.c = 0;
-        ((TObjEnemy *)self)->exchange_object_state((s32)(&key), (s16)0);
+        ((TObjEnemy *)self)->exchange_object_state((s32)&key, (s16)0);
     }
     *(s32 *)((s8 *)self + 0x374) = TObjFish::get_fish_count();
     *(s32 *)((s8 *)self + 0x24) = 0;
@@ -597,7 +597,7 @@ void spawn_mag_mine_at__13TBoss6MagMineFPvPv(void *arg0, void *arg1) {
     ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&p.b, arg1);
     p.f8 = 1;
     ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&p.pos, &p.a);
-    if (((TBoss6PlotFalz *)boss)->get_next_point((s16 *)(&p), (s16 *)(&p.f6)) != 0) {
+    if (((TBoss6PlotFalz *)boss)->get_next_point((s16 *)&p, (s16 *)&p.f6) != 0) {
         create__13TBoss6MagMineFi((s32)&p);
     }
 }

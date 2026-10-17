@@ -38,14 +38,14 @@ void TItem::update_timer() {
     s32 temp_r4;
 
     temp_r4 = this->rotation_y;
-    this->rotation_y = (s32) (temp_r4 + 0x200);
+    this->rotation_y = (temp_r4 + 0x200);
     if (sub_8010319C__13TUnk_804AF8A0Fv((s32) this) != 0) {
         temp_r3 = *(s16 *)&this->m_e6;
         if (temp_r3 == 0x384) {
             this->m_94 = 0xFFFF;
             *(s16 *)&this->m_e6 = 0;
         } else {
-            *(s16 *)&this->m_e6 = (s16) (temp_r3 + 1);
+            *(s16 *)&this->m_e6 = (temp_r3 + 1);
         }
     }
     submit_cursor_candidate(this, -1);

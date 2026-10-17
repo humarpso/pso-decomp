@@ -20,7 +20,7 @@ s32 TLobby__sub_8042EE4C(s32 *arg0) {
         *arg0 = 5;
         goto block_18;
     }
-    if (EXIGetType(0, 2, (void *) (&sp8)) != 0) {
+    if (EXIGetType(0, 2, &sp8) != 0) {
         switch (sp8) {
         case -1:
             *arg0 = 0;

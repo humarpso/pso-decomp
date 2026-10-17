@@ -185,7 +185,7 @@ s32 TBoss4DarkFalz__ct(s32 a0, s32 arg1, s32 a2) {
     if ((temp_r0_2 < 0) || (temp_r0_2 > 0xE)) {
         lbl_805D4D70 = 0;
     }
-    TBoss4DarkFalz::push_players_out_of_zone((s32)(arg0), 0);
+    TBoss4DarkFalz::push_players_out_of_zone((s32)arg0, 0);
     *(s32 *)((s8 *)arg0 + 0x37C) = -1;
     ((TBoss4DarkFalz *)arg0)->change_state(1);
     return (s32)arg0;

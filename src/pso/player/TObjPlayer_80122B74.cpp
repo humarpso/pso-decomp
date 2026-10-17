@@ -12,11 +12,11 @@ void TObjPlayer::cast_foie() {
     s32 sp8;
     void *temp_r3;
 
-    draw_icon(2, (s32)(&sp8));
+    draw_icon(2, (s32)&sp8);
     spawn_particle_effect(&sp8, 0x1BF);
     if (is_mode_two_and_ready() != 0) {
         temp_r3 = *(void * *)&this->unk_F0;
-        TTecFoie::create((void *)temp_r3, (void *)(&sp8), (void *)(*(s32 *)((s8 *)temp_r3 + 0x60)), (void *)3);
+        TTecFoie::create((void *)temp_r3, &sp8, (void *)(*(s32 *)((s8 *)temp_r3 + 0x60)), (void *)3);
         return;
     }
     update_active_game_effect();

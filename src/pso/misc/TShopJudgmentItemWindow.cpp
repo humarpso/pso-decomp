@@ -428,7 +428,7 @@ void update_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
                     *(u32 *)((s8 *)arg0 + 0x15C) = 0U;
                 }
                 try_spend_actor_meseta((u8 *)(*(s32 *)((s8 *)arg0 + 0x24)), 0x64);
-                if (check_equip_requirements((s32) (*(s32 *)((s8 *)arg0 + 0x24)), (void *) (arg0 + 0x28), 0) != 0) {
+                if (check_equip_requirements((s32) (*(s32 *)((s8 *)arg0 + 0x24)), arg0 + 0x28, 0) != 0) {
                     ((VObj_18 *)(arg0))->m6(0xC, 1);
                     TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x158)));
                     *(u32 *)((s8 *)arg0 + 0x158) = 0U;
@@ -501,7 +501,7 @@ void TShopJudgmentItemWindow::create_result_windows() {
         if ((u32) this->m_160 == 0U) {
             temp_r30 = ((s32 (*)(s32))obj_getField1c)(*(s32 *)&this->m_24);
             this->m_160 = create__22TWindowLoadItemTextureFPv(get_window_layout_position(0x30), temp_r30);
-            ((TWindowSubMag *)(this->m_160))->set_mag_slot_state((s32)((void *) (arg0 + 0x28)));
+            ((TWindowSubMag *)(this->m_160))->set_mag_slot_state((s32)(arg0 + 0x28));
         }
         if ((u32) this->m_15c == 0U) {
             var_r29 = __nw__7TObjectFUl(0xBC);
@@ -513,7 +513,7 @@ void TShopJudgmentItemWindow::create_result_windows() {
             if (((u32) this->m_15c != 0U) && (TLobby::is_camera_ctrl_active() > 2)) {
                 ((TLobby *)(this->m_15c))->set_position(lbl_805DC708, lbl_805DC708);
             }
-            ((TWindowHelpItem *)(this->m_15c))->set_displayed_item_colored((u32)((void *) (arg0 + 0x28)));
+            ((TWindowHelpItem *)(this->m_15c))->set_displayed_item_colored((u32)(arg0 + 0x28));
         }
         ((VObj_18 *)(arg0))->m6(8, 1);
         ((TShopWindowBase *)arg0)->set_field_20(4);
@@ -537,9 +537,9 @@ void handle_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
                     return;
                 }
                 temp_r31 = arg0 + (select_cursor_entry__22TWindowSubShortCutListFv((int) (*(u32 *)((s8 *)arg0 + 0x154))) * 8);
-                if (((TItem *)(*(s32 *)((s8 *)temp_r31 + 0x54)))->copy_to_item_data((void *) (arg0 + 0x3C)) != 0) {
+                if (((TItem *)(*(s32 *)((s8 *)temp_r31 + 0x54)))->copy_to_item_data(arg0 + 0x3C) != 0) {
                     *(s32 *)((s8 *)arg0 + 0x168) = ((TObjPlayer *)(*(s32 *)((s8 *)temp_r31 + 0x54)))->has_flag_128();
-                    ((TLobby *)(arg0 + 0x28))->copy_item_data((void *) (arg0 + 0x3C));
+                    ((TLobby *)(arg0 + 0x28))->copy_item_data(arg0 + 0x3C);
                     update_all__6TLobbyFi((s32)(arg0 + 0x28));
                     *(s32 *)((s8 *)arg0 + 0x14C) = 0x5F;
                     if (*(void **)((s8 *)arg0 + 0x154) != NULL) {
@@ -648,7 +648,7 @@ void TShopJudgmentItemWindow::vfunc_11() {
     switch (temp_r0) {
     case 0:
         ((TShopJudgmentItemWindow *)arg0)->close();
-        TShopJudgmentItemWindow::build_item_list((void *)(arg0));
+        TShopJudgmentItemWindow::build_item_list(arg0);
         return;
     case 1:
         ((TShopJudgmentItemWindow *)arg0)->handle_input();

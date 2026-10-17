@@ -51,7 +51,7 @@ u8 *TOHangceilingCave01KeyQuick::init_base(s32 arg1, s32 arg2) {
     this->apply_object_set_data((void *)arg2);
     *(s32 *)&this->model = get_bml_model((void *)TOHangceilingCave01__model_archive, (void *)turiten_singo_key_model_index);
     *(s32 *)&this->unknownF8 = get_bml_motion((void *)TOHangceilingCave01__model_archive, (void *)hanging_ceiling_motion_index);
-    init_collision_body_parts((void *) (((u8 *)this)), (void *) (&lbl_804B2174.value), 1);
+    init_collision_body_parts((void *) (((u8 *)this)), &lbl_804B2174.value, 1);
     ((TUnk_804AF8A0 *)((u8 *)this))->refresh_collision_body_centers();
     ((TObjPlayer *)((u8 *)this))->reset_photon_effect();
     reset_state((((u8 *)this)));

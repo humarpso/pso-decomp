@@ -154,7 +154,7 @@ u8 *TTecGrants__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     ((TObjPlayer *)(arg0 + 0xEC))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D37D0;
     ((TTecGrants *)arg0)->init_parameters();
-    copy_technique_target_list((void *) (arg0 + 0xEC), (void *)arg3);
+    copy_technique_target_list(arg0 + 0xEC, (void *)arg3);
     *(s32 *)&((TTecGrants *)arg0)->m_148 = 0;
     temp_r3 = ((TTecGrants *)arg0)->source;
     if (temp_r3 != 0U) {

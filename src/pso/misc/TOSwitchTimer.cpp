@@ -78,7 +78,7 @@ void TOSwitchTimer::run_task() {
             }
         }
         temp_r3_2 = *(s32 *)&this->m_94;
-        *(s32 *)&this->m_94 = (s32) (temp_r3_2 + 1);
+        *(s32 *)&this->m_94 = (temp_r3_2 + 1);
         if (temp_r3_2 == (s32) *(s32 *)&this->m_a0) {
             send_switch_states();
             *(s32 *)&this->m_90 = 0;

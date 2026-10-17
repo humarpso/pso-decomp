@@ -409,7 +409,7 @@ void TLobby::seek_gvrt_chunk() {
     s32 sp8;
     do {
         spC = *(s32 *)((s8 *)((s32 *)TLobby__sub_803DDD2C(4)) + 0);
-        TLobby::bswap32_in_place((u32 *)((void *) (&spC)));
+        TLobby::bswap32_in_place((u32 *)(&spC));
         switch (spC) {
         case 0x4D4D4F43:
         case 0x564E4F43:
@@ -418,19 +418,19 @@ void TLobby::seek_gvrt_chunk() {
         case 0x4C505647:
         case 0x43474D49:
             sp8 = *(s32 *)((s8 *)((s32 *)TLobby__sub_803DDD2C(4)) + 0);
-            TLobby::bswap32_in_place((u32 *)((void *) (&sp8)));
-            TLobby__sub_803DDD40((s32)(sp8), 1);
+            TLobby::bswap32_in_place((u32 *)(&sp8));
+            TLobby__sub_803DDD40(sp8, 1);
             break;
         case 0x54525647:
             TLobby__sub_803DDD40(-4, 1);
             break;
         default:
             sp8 = *(s32 *)((s8 *)((s32 *)TLobby__sub_803DDD2C(4)) + 0);
-            TLobby::bswap32_in_place((u32 *)((void *) (&sp8)));
-            TLobby__sub_803DDD40((s32)(sp8), 1);
+            TLobby::bswap32_in_place((u32 *)(&sp8));
+            TLobby__sub_803DDD40(sp8, 1);
             break;
         }
-    } while ((u32) (spC + 0xABAE0000) != 0x5647U);
+    } while ((spC + 0xABAE0000) != 0x5647U);
 }
 
 #pragma push

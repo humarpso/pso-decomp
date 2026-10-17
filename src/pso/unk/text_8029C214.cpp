@@ -86,7 +86,7 @@ u8 *TORockJungleL01__ct(u8 *arg0, s32 arg1) {
     {
         Copy_8029C214 c = *(Copy_8029C214 *)arg1;
         VecCopy((Vec *)((u8 *)&c + 0x24), (const Vec *)rock_jungle_vec3_table);
-        *(s32 *)&((TORockJungleL01 *)arg0)->m_d4 = TObjMapCsn::create((s32)(&c));
+        *(s32 *)&((TORockJungleL01 *)arg0)->m_d4 = TObjMapCsn::create((s32)&c);
     }
     ((TObjPlayer *)(arg0 + 0xB4))->activate_and_dispatch();
     return arg0;

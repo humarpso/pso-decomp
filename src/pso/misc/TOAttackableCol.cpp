@@ -86,7 +86,7 @@ void TOAttackableCol::init_params() {
     s32 temp_r0_2;
     s32 temp_r0_3;
 
-    *(s32 *)&this->m_33c = (s32) (this->m_84 + 1);
+    *(s32 *)&this->m_33c = (this->m_84 + 1);
     temp_r0 = *(s32 *)&this->m_33c;
     if (temp_r0 < 1) {
         *(s32 *)&this->m_33c = 1;
@@ -168,7 +168,7 @@ void TOAttackableCol::vfunc_6(s16 *arg1, s32 arg2) {
         }
     }
     sp8 = this->mode;
-    ((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), 0);
+    ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 0);
 }
 
 int TOAttackableCol::handle_6x91_update_state() { return clear_player_status_flag__10TObjPlayerFlUl(this, 0, 1); }
@@ -308,7 +308,7 @@ u8 *TOAttackableCol__ct(u8 *arg0, s32 arg1) {
     ((TOAttackableCol *)(arg0))->apply_object_set_data((void *)arg1);
     ((TUnk_804806E8 *)arg0)->calc_attach_pos();
     obj_setFlags30(arg0, 0x60000000);
-    init_collision_body_parts(arg0, (void *) (&TOAttackableCol__collision_parts.value), 1);
+    init_collision_body_parts(arg0, &TOAttackableCol__collision_parts.value, 1);
     set_indexed_flags((arg0), 0, 0x718);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOAttackableCol *)arg0)->mode = 0;

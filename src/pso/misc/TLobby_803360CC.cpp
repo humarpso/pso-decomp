@@ -276,7 +276,7 @@ u8 *TUnk_804EEF64::construct_title_scene() {
 typedef char RecoveredGlobal_8033670C_lbl_804EE58C_size[sizeof(RecoveredGlobal_8033670C_lbl_804EE58C) == 0x50 ? 1 : -1];
 void TLobby::destroy_global_object() {
     u32 temp_r4;
-    temp_r4 = (u32) call_funcs_reverse__6TLobbyFPvUi((void *) (&lobby_load_callback_table.value), 0x20);
+    temp_r4 = (u32) call_funcs_reverse__6TLobbyFPvUi(&lobby_load_callback_table.value, 0x20);
     if ((void *) lobby_title_texture_list != NULL) {
         TLobby__sub_803DA16C(lobby_title_texture_list, (s32) temp_r4);
         lobby_title_texture_list = NULL;

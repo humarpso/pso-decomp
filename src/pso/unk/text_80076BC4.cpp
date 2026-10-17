@@ -62,7 +62,7 @@ s32 chat_accept_submission(s32 arg0) {
         return 0;
     }
     TWindowCtrl::set_field22();
-    chat_dispatch_accepted_result((s32 *)(arg0));
+    chat_dispatch_accepted_result((s32 *)arg0);
     return 1;
 }
 
@@ -88,7 +88,7 @@ void clear_chat_shortcut(s32 i) {
     *p = 0;
 }
 
-s32 store_chat_shortcut(s32 arg0, s32 arg1) { return TAdSinglePlyChrSelectGC__sub_80076D9C(((s32)get_chat_shortcut((s32)(arg0))), arg1); }
+s32 store_chat_shortcut(s32 arg0, s32 arg1) { return TAdSinglePlyChrSelectGC__sub_80076D9C(((s32)get_chat_shortcut(arg0)), arg1); }
 
 s32 TAdSinglePlyChrSelectGC__sub_80076D9C(s32 arg0, s32 arg1) {
     TAdSinglePlyChrSelectGC__sub_80076DF4((void*)arg0, (void*)arg1);

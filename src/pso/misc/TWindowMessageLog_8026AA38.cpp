@@ -88,7 +88,7 @@ u8 *TWindowMessageLog__ct(u8 *arg0, s32 arg1, s32 arg2) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv(0xC, temp_f1, temp_f2);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = reset_selection__20TWindowSubStatusDispFv(temp_r3, (void *) (&stack.sp8));
+        var_r0 = reset_selection__20TWindowSubStatusDispFv(temp_r3, &stack.sp8);
     }
     *(s32 *)((s8 *)arg0 + 0x90) = var_r0;
     *(s32 *)&((TWindowMessageLog *)arg0)->m_2c = (s32) (*(s32 *)&((TWindowMessageLog *)arg0)->m_2c| 0x80);

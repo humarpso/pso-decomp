@@ -328,7 +328,7 @@ void TAdMultiPlyChrSelectGC__sub_802DE7D0(void *arg0) {
         if (TAdMultiPlyChrSelectGC__sub_802C6558() > 0) {
             TAdMultiPlyChrSelectGC::split_slot_index(TAdMultiPlyChrSelectGC__sub_802C6920(), &stack.spC, &stack.sp8);
             TAdMultiPlyChrSelectGC::init();
-            ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x5C)))->set_field_4ec((s32)(stack.spC));
+            ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x5C)))->set_field_4ec(stack.spC);
             TAdMultiPlyChrSelectGC__sub_802E0024(*(s32 *)((s8 *)arg0 + 0x5C), stack.sp8);
             return;
         }

@@ -798,10 +798,10 @@ void TObjEneBm9Mericarol::handle_motion_event(s32 arg1) {
         this->vfunc_88();
         return;
     case 0:
-        advance_animation_playback((void *)(arg0));
+        advance_animation_playback(arg0);
         temp_r4 = *(s32 *)&this->m_4ac;
-        *(s32 *)&this->m_4ac = (s32) (temp_r4 + 1);
-        TObjEneBm9Mericarol__sub_802D073C((void *)(arg0));
+        *(s32 *)&this->m_4ac = (temp_r4 + 1);
+        TObjEneBm9Mericarol__sub_802D073C(arg0);
         return;
     case 5:
         *(s32 *)&this->m_454 = (s32) (*(s32 *)&this->m_454 & 0xFFFFFFFD);
@@ -839,7 +839,7 @@ void TObjEneBm9Mericarol::state_burrow(s32 arg1) {
       TBoss8Dragon__sub_800BB7D4((void *) arg0, 0xF2);
       *((s32 *) (((s8 *) arg0) + 0x490)) = 0;
       *((f32 *) (((s8 *) arg0) + 0x4A4)) = (f32) lbl_805DE70C;
-      play_sound_effect((s32)((void *) ((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) arg0), 0x3AA0B))), (void *)((void *) (arg0 + 0x38)), 0, 0);
+      play_sound_effect((s32)((void *) ((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) arg0), 0x3AA0B))), (void *)(arg0 + 0x38), 0, 0);
       return;
       return;
     case 3:
@@ -862,8 +862,8 @@ void TObjEneBm9Mericarol::state_burrow(s32 arg1) {
         stack.spC = lbl_805DE70C;
         stack.sp8 = temp_f1;
         stack.sp10 = lbl_805DE710 * cos_table_lookup((int) (*((s32 *) (((s8 *) arg0) + 0x60))));
-        vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x38));
-        TObjPlayer::spawn_dead_spot_here((s32)((void *) (&stack.sp8)), 0x32);
+        vec3_add_to(&stack.sp8, arg0 + 0x38);
+        TObjPlayer::spawn_dead_spot_here((s32)(&stack.sp8), 0x32);
         ((TObjPlayer *)(&stack.sp8))->spawn_ground_effect(0x46);
       }
         (this->vfunc_102());
@@ -895,7 +895,7 @@ void TObjEneBm9Mericarol__sub_802CF368(u8 *actor, s32 arg1) {
       temp_r5 = *((s32 *) (((s8 *) actor) + 0x438));
       *((s32 *) (((s8 *) actor) + 0x438)) = (s32) (temp_r5 & (~0x28));
       TBoss8Dragon__sub_800BB7D4((void *)((void *) actor), 0xF2);
-      play_sound_effect((s32)(((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) actor), 0x3AA0C))), (void *)((u32) (actor + 0x38)), 0, 0);
+      play_sound_effect((s32)(((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) actor), 0x3AA0C))), (void *)(actor + 0x38), 0, 0);
       return;
     case 3:
       if (((TObjEneDD *)actor)->get_flag_b4() != 0)
@@ -970,7 +970,7 @@ void TObjEneBm9Mericarol__sub_802CF4F8(u8 *arg0, s32 arg1) {
         }
         *((s32 *) (((s8 *) arg0) + 0x390)) = temp_r3;
         *((s32 *) (((s8 *) arg0) + 0x494)) = 1;
-        play_sound_effect((s32)((void *) ((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) arg0), 0x3A808))), (void *)((void *) (arg0 + 0x38)), 0, 0);
+        play_sound_effect((s32)((void *) ((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) arg0), 0x3A808))), (void *)(arg0 + 0x38), 0, 0);
       }
     }
     else
@@ -979,7 +979,7 @@ void TObjEneBm9Mericarol__sub_802CF4F8(u8 *arg0, s32 arg1) {
       ((TObjPlayer *)(*((s32 *) (((s8 *) arg0) + 0x390))))->set_facing(0);
     }
       temp_r4 = *((s32 *) (((s8 *) arg0) + 0x490));
-      *((s32 *) (((s8 *) arg0) + 0x490)) = (s32) (temp_r4 + 1);
+      *((s32 *) (((s8 *) arg0) + 0x490)) = (temp_r4 + 1);
       (((VObj_18_3b55b6 *)(arg0))->m100((temp_r4)));
       (((VObj_18_3b55b6 *)(arg0))->m86());
       TObjEneBm9Mericarol__sub_802D073C((void *)((void *) arg0));
@@ -1291,7 +1291,7 @@ void TObjEneBm9Mericarol__sub_802D01D8(u8 *actor, s32 arg1) {
     case 4:
         if ((s16) *(s16 *)((s8 *)actor + 0x326) == 2) {
             *(s16 *)((s8 *)actor + 0xB8) = 4;
-            play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(actor, 0x3AD0E), (void *) (actor + 0x38), 0, 0);
+            play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(actor, 0x3AD0E), actor + 0x38, 0, 0);
         } else {
             *(s16 *)((s8 *)actor + 0xB8) = 3;
         }
@@ -1329,7 +1329,7 @@ void TObjEneBm9Mericarol__sub_802D01D8(u8 *actor, s32 arg1) {
     case 0:
         advance_animation_playback(actor);
         var_r30 = 0xFFFF;
-        if (tick_period_counter(actor, (void *) (actor + 0x450), 0x14) != 0) {
+        if (tick_period_counter(actor, actor + 0x450, 0x14) != 0) {
             if (*(f32 *)((s8 *)actor + 0x3AC) > lbl_805DE718) {
                 if (((VObj_18_9aa5d1 *)(actor))->m97() != 0) {
                     var_r30 = set_squared_value__9TObjEneDDFf(actor, *(f32 *)((s8 *)actor + 0x3AC) - lbl_805DE718);

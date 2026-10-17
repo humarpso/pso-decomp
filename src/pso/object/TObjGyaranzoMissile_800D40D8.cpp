@@ -117,7 +117,7 @@ void TUnk_8049442C::update_ground_fall(s32 *arg1, f32 farg0) {
     f32 temp_f1;
     s32 temp_r31;
     VecCopy((Vec *)(&position.x), (const Vec *)(((u8 *)this) + 0x38));
-    temp_r31 = project_actor_to_ground((void *) (((u8 *)this)), (void *) (&position.x), 0);
+    temp_r31 = project_actor_to_ground((void *) (((u8 *)this)), &position.x, 0);
     if (arg1 != NULL) {
         VecCopy((Vec *)(arg1), (const Vec *)(&position.x));
     }

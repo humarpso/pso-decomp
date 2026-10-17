@@ -73,7 +73,7 @@ void TUnk_804CCAA8::run_task() {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    TObjLight::find_light_params((f32 *)(&baseDir), (f32 *)(&baseColor), arg0->actor);
+    TObjLight::find_light_params((f32 *)&baseDir, (f32 *)&baseColor, arg0->actor);
     mid = lbl_805DC890 * (f32) arg0->duration;
     if (arg0->age < (s32) mid) {
         f32 amb1;
@@ -128,7 +128,7 @@ u8 *TObjLight::construct_actor_light(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32
     *(f32 *)&this->m_58 = farg1;
     *(f32 *)&this->m_5c = farg2;
     *(u16 *)&this->rotation_y = obj_getField1c((int) (*(s32 *)&this->m_54));
-    TObjLight::find_light_params((f32 *)(((u8 *)this) + 0x40), (f32 *)(&stack.sp8), (u32)((int) ((s32) *(u16 *)&this->rotation_y)));
+    TObjLight::find_light_params((f32 *)(((u8 *)this) + 0x40), (f32 *)&stack.sp8, (u32)((int) ((s32) *(u16 *)&this->rotation_y)));
     return ((u8 *)this);
 }
 typedef char RecoveredGlobal_80235F60_lbl_804CCAA8_size[sizeof(RecoveredGlobal_80235F60_lbl_804CCAA8) == 0x18 ? 1 : -1];

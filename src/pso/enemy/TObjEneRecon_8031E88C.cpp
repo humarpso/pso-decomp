@@ -200,7 +200,7 @@ void TObjEneRecobox::draw_with_debug_info() {
     if (((VObj_18_26a62c *)(arg0))->m8(TObjEneRecon__data_805DF438, lbl_805DF43C) != 0) {
         TObjFish::set_global_param(this->texture_id);
         push_matrix();
-        post_translate_matrix((void *) (arg0 + 0x38));
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
         temp_r0_2 = *(s32 *)&this->m_3f8;
         switch (temp_r0_2) {
@@ -218,7 +218,7 @@ void TObjEneRecobox::draw_with_debug_info() {
         pop_matrix();
     }
     push_matrix();
-    post_translate_matrix((void *) (arg0 + 0x38));
+    post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, this->rotation_y);
     draw_chunk_object((void *)debug_chunk_object);
     pop_matrix();
@@ -287,7 +287,7 @@ block_23:
                 ((TObjEneDD *)arg0)->update_secondary_light();
                 TObjFish::set_global_param((int) (((TObjEneRecobox *)arg0)->texture_id));
                 push_matrix();
-                post_translate_matrix((void *) (arg0 + 0x38));
+                post_translate_matrix(arg0 + 0x38);
                 rotate_matrix_y(0, (int) (((TObjEneRecobox *)arg0)->rotation_y));
                 temp_r0 = *(s32 *)&((TObjEneRecobox *)arg0)->m_3f8;
                 switch (temp_r0) {

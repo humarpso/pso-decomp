@@ -107,7 +107,7 @@ void TWindowSubTechnique::update_selected_help(s32 arg1) {
   player = (s32)get_player_by_client_id((this->playerIndex));
   if (player != 0)
   {
-    if (validate_and_clear_slot__10TObjPlayerFv((void *) (player + 0x428), (int) tech) != 0)
+    if (validate_and_clear_slot__10TObjPlayerFv((void *)(player + 0x428), (int) tech) != 0)
     {
       tech = 0x13;
       cast_technique_level = saved_reg_r30;
@@ -117,13 +117,13 @@ void TWindowSubTechnique::update_selected_help(s32 arg1) {
       *(s16 *)&this->m_1e = (s16) tech;
       if (((s16) tech) == 0x13)
       {
-        send_and_handle__6TLobbyFii((int) (*(s32 *)&this->m_3c), (void *) (&lbl_805DD83C), 0x82);
+        send_and_handle__6TLobbyFii((int) (*(s32 *)&this->m_3c), &lbl_805DD83C, 0x82);
         return;
       }
       text_builder_reset();
       if ((((s16) tech) != 0x11) && (((s16) tech) != 0xE))
       {
-        cast_technique_level = get_cast_technique_level((void *) (player + 0x428), (int) tech);
+        cast_technique_level = get_cast_technique_level((void *)(player + 0x428), (int) tech);
         text_builder_append((u8 *)((int) TWindowSubTechnique__sub_8028753C(0x13)));
         TWindowSubStatusDisp__sub_80228F5C((((u8) cast_technique_level) + 1));
       }

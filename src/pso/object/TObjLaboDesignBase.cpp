@@ -250,13 +250,13 @@ void draw_node_tree__18TObjLaboDesignBaseFiPv(s32 arg0, u8 *arg1) {
         }
         push_matrix();
         if (!(temp_r31 & 1)) {
-            post_translate_matrix((void *) (var_r30 + 8));
+            post_translate_matrix(var_r30 + 8);
         }
         if (!(temp_r31 & 2)) {
-            rotate_matrix_by_node_angles((void *) (var_r30 + 0x14), (void *) (temp_r31 & 0x20));
+            rotate_matrix_by_node_angles(var_r30 + 0x14, (void *) (temp_r31 & 0x20));
         }
         if (!(temp_r31 & 4)) {
-            scale_current_matrix((void *) (var_r30 + 0x20));
+            scale_current_matrix(var_r30 + 0x20);
         }
         if (!(temp_r31 & 8)) {
             draw_ginja_model((*(s32 *)((s8 *)var_r30 + 4)));
@@ -276,9 +276,9 @@ void render__18TObjLaboDesignBaseFPv(u8 *arg0) {
     TObjFish__sub_8001EDB0((int) (*(s32 *)((s8 *)arg0 + 0xAC)), 0);
     set_global_param__8TObjFishFl();
     push_matrix();
-    post_translate_matrix((void *) (arg0 + 0x38));
+    post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-    draw_node_tree__18TObjLaboDesignBaseFiPv((s32)(arg0), (u8 *)((int) (get_bml_model((int) (*(s32 *)((s8 *)arg0 + 0xAC)), 0))));
+    draw_node_tree__18TObjLaboDesignBaseFiPv((s32)arg0, (u8 *)((int) (get_bml_model((int) (*(s32 *)((s8 *)arg0 + 0xAC)), 0))));
     pop_matrix();
     TParticleCtrl::end_effect_render();
 }

@@ -332,7 +332,7 @@ TAdChrSelSlotGC::TAdChrSelSlotGC(TObject*_w1) : TObject((TObject*)(_w1)) {
         ((S_802C7758 *)this)->e2[k].x = 0.0f;
         ((S_802C7758 *)this)->e2[k].y = (24.0f * (f32)k + 64.0f) / 256.0f;
         ((S_802C7758 *)this)->e2[k].z = 174.0f / 256.0f;
-        ((S_802C7758 *)this)->e2[k].w = (24.0f * (f32)(k + 1) + 64.0f) / 256.0f;
+        ((S_802C7758 *)this)->e2[k].w = (24.0f * (k + 1) + 64.0f) / 256.0f;
     }
 }
 extern "C" {

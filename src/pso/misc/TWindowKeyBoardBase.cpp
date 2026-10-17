@@ -64,7 +64,7 @@ void *__dt__19TWindowKeyBoardBaseFv(void *arg0, s16 arg1) {
 }
 u8 *TWindowKeyBoardBase__ct(u8 *arg0) {
     s32 temp_r31;
-    ((TWindowDD *)arg0)->construct_base((u8 *)(&TWindowKeyBoardBase__window_descriptor.value), (s16)(4), (u8 *)(get_window_layout_position(0xB7)));
+    ((TWindowDD *)arg0)->construct_base((u8 *)&TWindowKeyBoardBase__window_descriptor.value, (s16)(4), (u8 *)(get_window_layout_position(0xB7)));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8025E9E4___vt__19TWindowKeyBoardBase *)&__vt__19TWindowKeyBoardBase).value;
     ((TWindowKeyBoardBase *)(arg0 + 0x6C))->init_text_buffer_holder();
     ((TWindowKeyBoardBase *)(arg0 + 0x84))->init_text_buffer_holder();
@@ -72,7 +72,7 @@ u8 *TWindowKeyBoardBase__ct(u8 *arg0) {
     temp_r31 = current_language;
     init_keyboard_text_field((arg0), 0, 0);
     init_keyboard_text_buffer((arg0 + 0x84), 0, 0);
-    *(u8 **)((s8 *)arg0 + 0x68) = (unsigned char *) ((void *) (arg0 + 0x6C));
+    *(u8 **)((s8 *)arg0 + 0x68) = (unsigned char *) (arg0 + 0x6C);
     *(s32 *)&((TWindowKeyBoardBase *)arg0)->m_b4 = 0;
     *(s16 *)&((TWindowKeyBoardBase *)arg0)->m_62 = 0;
     *(s8 *)&((TWindowKeyBoardBase *)arg0)->m_65 = -1;

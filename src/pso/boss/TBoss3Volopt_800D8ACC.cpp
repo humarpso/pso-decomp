@@ -167,7 +167,7 @@ void spawn_particles_at__12TBoss3VoloptFi(s32 arg0) {
     create_timed_particle_emitter((void *)arg0, 0xEA, 0xA, 0x1E);
     temp_f1 = stack.spC;
     stack.spC = temp_f1 + lbl_805DA3C0;
-    spawn_particle_effect((void *) (&stack.sp8), 0xE9, temp_f1);
+    spawn_particle_effect(&stack.sp8, 0xE9, temp_f1);
 }
 
 }

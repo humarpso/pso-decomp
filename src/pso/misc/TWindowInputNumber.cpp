@@ -73,7 +73,7 @@ void TWindowInputNumber::move_cursor_next() {
     *(u8 *)&this->selectedDigit = (u8) (*(u8 *)&this->selectedDigit + 1);
     if ((s8) *(u8 *)&this->selectedDigit >= (s8) (temp_r4 = *(u8 *)&this->digitCount)) {
         if (this->inputFlags & 1) {
-            *(u8 *)&this->selectedDigit = (u8) (temp_r4 - 1);
+            *(u8 *)&this->selectedDigit = (temp_r4 - 1);
             return;
         }
         *(u8 *)&this->selectedDigit = 0U;

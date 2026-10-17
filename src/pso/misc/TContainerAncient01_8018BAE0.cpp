@@ -60,7 +60,7 @@ void TContainerAncient01::load_resources() {
     }
     Param_8018BB64 prm = container_ancient_anim_binding[0];
     prm.a = ((Res_8018BB64 *)TContainerAncient01__bml_resource)->x430;
-    TObjEneMe3Stelth::spawn_attack((s16)0x3B, (s32)(get_bml_model(TContainerAncient01__bml_resource, 0)), (s32)(TObjFish__sub_8001EDB0(TContainerAncient01__bml_resource, 0)), (s32)(&prm), (f32)TContainerAncient01__data_805DBD20, (f32)TContainerAncient01__data_805DBD14);
+    TObjEneMe3Stelth::spawn_attack((s16)0x3B, (s32)(get_bml_model(TContainerAncient01__bml_resource, 0)), (s32)(TObjFish__sub_8001EDB0(TContainerAncient01__bml_resource, 0)), (s32)&prm, (f32)TContainerAncient01__data_805DBD20, (f32)TContainerAncient01__data_805DBD14);
 }
 
 }

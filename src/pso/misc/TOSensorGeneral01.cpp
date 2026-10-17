@@ -71,8 +71,8 @@ void *__nw__7TObjectFUl(int);
 void mem_free(void *p);
 
 void TOSensorGeneral01::vfunc_17() {
-    this->rotation_y = (s32) (this->rotation_y+ 0x147);
-    this->m_e8 = (s32) (this->m_e8+ 0x28F);
+    this->rotation_y = (this->rotation_y+ 0x147);
+    this->m_e8 = (this->m_e8+ 0x28F);
 }
 
 extern const f32 lbl_805DB9B0;
@@ -83,29 +83,29 @@ extern const f32 lbl_805DB9BC;
 void TOSensorGeneral01::vfunc_16() {
     s32 temp_r0;
 
-    this->m_e8 = (s32) (this->m_e8+ 0x28F);
-    this->m_f0 = (s32) (this->m_f0- 1);
+    this->m_e8 = (this->m_e8+ 0x28F);
+    this->m_f0 = (this->m_f0- 1);
     temp_r0 = this->m_f0;
     if (temp_r0 < 0) {
         this->m_f0 = 0;
         *(s32 *)((s8 *)this + 0xEC) = 0;
-        this->rotation_y = (s32) (this->rotation_y+ 0xCCC);
+        this->rotation_y = (this->rotation_y+ 0xCCC);
         *(f32 *)((s8 *)this + 0x3C) = (f32) (*(f32 *)((s8 *)this + 0x3C) + lbl_805DB9B0);
         return;
     }
     if ((f32) temp_r0 < lbl_805DB9B4) {
         *(s32 *)((s8 *)this + 0xEC) = 1;
-        this->rotation_y = (s32) (this->rotation_y+ 0x147);
+        this->rotation_y = (this->rotation_y+ 0x147);
         return;
     }
     if ((f32) temp_r0 < lbl_805DB9B8) {
         *(s32 *)((s8 *)this + 0xEC) = 2;
-        this->rotation_y = (s32) (this->rotation_y+ 0x147);
+        this->rotation_y = (this->rotation_y+ 0x147);
         return;
     }
     if ((f32) temp_r0 < lbl_805DB9BC) {
         *(s32 *)((s8 *)this + 0xEC) = 3;
-        this->rotation_y = (s32) (this->rotation_y+ 0x147);
+        this->rotation_y = (this->rotation_y+ 0x147);
     }
 }
 
@@ -116,7 +116,7 @@ void TOSensorGeneral01::render() {
     Node_801760A8 *n;
     if (((VObj_801760A8 *)(arg0))->m8(this->m_c0, *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
         push_matrix();
-        post_translate_matrix((void *) (arg0 + 0x38));
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
         n = *(Node_801760A8 * *)&this->model;
         translate_matrix(0, n->x, n->y, n->z);
@@ -184,7 +184,7 @@ void TOSensorGeneral01::load_assets() {
     temp_r3_2 = (s32 *)(mem_alloc(8));
     TOSensorGeneral01__texture_lists = temp_r3_2;
     *(s32 *)((s8 *)temp_r3_2 + 4) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&sensor_general_shared_bml_archive) + 0x42C)) + 0xC);
-    *TOSensorGeneral01__texture_lists = (s32)load_gvm_texture_file((s32)(&lbl_80442A80.value));
+    *TOSensorGeneral01__texture_lists = (s32)load_gvm_texture_file((s32)&lbl_80442A80.value);
 }
 
 void *__dt__17TOSensorGeneral01Fv(void *arg0, s16 arg1) {

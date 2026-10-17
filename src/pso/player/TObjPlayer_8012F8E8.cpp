@@ -20,7 +20,7 @@ void TUnk_804A65E0::emit_marker_effects() {
     u8 *arg0 = (u8 *)this;
 
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
-        ((TObjPlayer *)arg0)->draw_icon(0, (s32)((void *) (arg0 + 0x1F8)));
+        ((TObjPlayer *)arg0)->draw_icon(0, (s32)(arg0 + 0x1F8));
         temp_r3 = get_extended_state__10TObjPlayerFv((int) (*(s32 *)((s8 *)arg0 + 0xF0)));
         if (temp_r3 != 0) {
             ((TUnk_804A65E0 *)arg0)->m_204 = get_captured_target_count();
@@ -36,7 +36,7 @@ void TUnk_804A65E0::emit_marker_effects() {
                 i += 1;
             } while (i != 0xA);
             if ((s32) ((TUnk_804A65E0 *)arg0)->m_204 != 0) {
-                ((TTecGiZonde *)(*(s32 *)((s8 *)arg0 + 0xF0)))->create((void *) (arg0 + 0x1F8), (void *) (arg0 + 0x204), (void *) (((TObjPlayer *)arg0)->get_tp()));
+                ((TTecGiZonde *)(*(s32 *)((s8 *)arg0 + 0xF0)))->create(arg0 + 0x1F8, arg0 + 0x204, (void *) (((TObjPlayer *)arg0)->get_tp()));
             }
             ((TItemWeapon *)arg0)->roll_technique();
         }

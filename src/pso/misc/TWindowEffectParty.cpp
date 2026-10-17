@@ -30,7 +30,7 @@ void TWindowEffectParty::run_task() {
     u8 temp_r3;
 
     temp_r3 = this->m_1e;
-    if (((s8) temp_r3 > 0) && ((((u32)TWindowCtrl__sub_8024FB80((s8)((s8) (temp_r3 - 1)))) == 0U) || (sub_80244994__13TUnk_804CE018Fv() == 0))) {
+    if (((s8) temp_r3 > 0) && ((((u32)TWindowCtrl__sub_8024FB80((s8)(temp_r3 - 1))) == 0U) || (sub_80244994__13TUnk_804CE018Fv() == 0))) {
         queue_destruction__7TObjectFv(this);
         return;
     }
@@ -83,7 +83,7 @@ TWindowEffectParty::TWindowEffectParty(TObject *arg1, s8 arg2, s8 arg3, void *ar
     TWindowEffectParty::set_slot_position((s32)((u8 *)this), (s32)(*(s8 *)&this->m_1d), (void *)(((u8 *)this) + 0x20));
     *(s8 *)&this->m_1e = arg3;
     TWindowEffectParty::set_slot_position((s32)((u8 *)this), (s32)(*(s8 *)&this->m_1e), (void *)(((u8 *)this) + 0x28));
-    this->calc_effect_position((s32 *)(&p));
+    this->calc_effect_position(&p);
     *(s32 *)&this->m_30 = (s32)spawn_continuous_particle_effect_with_flags((void *)&p, (s32)arg4, 0xC0);
     *(s8 *)&this->m_1c = 0;
 }

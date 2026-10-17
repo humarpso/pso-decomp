@@ -61,7 +61,7 @@ void fn_80291138(void) {
         queue_destruction__7TObjectFv((void *)cmicon_instance);
     }
     cmicon_instance = 0U;
-    TLobby__sub_803DA16C((void *) (&creation_sprite_table.value));
+    TLobby__sub_803DA16C(&creation_sprite_table.value);
 }
 #pragma push
 #pragma fp_contract on
@@ -81,7 +81,7 @@ void fn_80291178(void) {
 void set_creation_projection_center(f32 farg0) {
     struct CopyStack_802911E8 { u8 bytes[0x48]; };
     CopyStack_802911E8 copy_storage_802911E8;
-    *(ByteBlock_48 *)(copy_storage_802911E8.bytes) = *(const ByteBlock_48 *)((s32) ((u8 *)(&creation_view_parameters.value) + -4) + 4);
+    *(ByteBlock_48 *)(copy_storage_802911E8.bytes) = *(const ByteBlock_48 *)((s32) ((u8 *)&creation_view_parameters.value + -4) + 4);
     (*(f32 *)(copy_storage_802911E8.bytes + 0x8)) = lbl_805DD968 * ((lbl_805DD970 * farg0) + lbl_805DD96C);
     ((TCameraCtrl *)(copy_storage_802911E8.bytes))->apply_view_params_if_flagged();
     lbl_805D3CA0 = farg0;

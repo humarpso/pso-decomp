@@ -158,7 +158,7 @@ O_80337824 *TObjEneMorfos__sub_80337824(O_80337824 *arg0, Vec_80337824 *arg1, s3
     arg0->vel.z = morfos_projectile_speed * cos_table_lookup(arg2);
     arg0->fE0 = (s32)spawn_particle_effect_with_rotation(arg1, &a, 0x213, 2);
     VecCopy((Vec *)(&arg0->pos2), (const Vec *)(&arg0->pos));
-    TObjEneMorfos::snap_to_ground((s32)arg0, (s32)(&arg0->pos2));
+    TObjEneMorfos::snap_to_ground((s32)arg0, (s32)&arg0->pos2);
     arg0->fF4 = 0;
     return arg0;
 }

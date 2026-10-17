@@ -39,7 +39,7 @@ void TPhotonRainbow::render() {
 }
 
 void TPhotonRainbow::run_task() {
-    this->rotation_y = (s32) (this->rotation_y + 0xB6);
+    this->rotation_y = (this->rotation_y + 0xB6);
 }
 
 extern s32 __vt__14TPhotonRainbow[];

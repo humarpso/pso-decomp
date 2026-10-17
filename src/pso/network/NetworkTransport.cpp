@@ -260,14 +260,14 @@ typedef char RecoveredGlobal_803F76F4_lbl_805A9008_size[sizeof(RecoveredGlobal_8
 void TLobby::init_net_buffer_table() {
     u8 *arg0 = (u8 *)this;
     struct Fields_arg0 { u8 * field_0; u8 * field_4; u8 * field_8; u8 * field_C; u8 * field_10; u8 * field_14; u8 * field_18; u8 * field_1C; s32 * field_20; s16 field_24; s16 field_26; s16 field_28; s16 field_2A; s16 field_2C; s16 field_2E; s16 field_30; s16 field_32; s16 field_34; s8 field_36; s8 field_37; s16 field_38; };
-    ((Fields_arg0*)arg0)->field_0 = (u8 *)(&lbl_805A9008.value) + 0x808;
-    ((Fields_arg0*)arg0)->field_4 = (u8 *)(&lbl_805A9008.value) + 0x788;
-    ((Fields_arg0*)arg0)->field_8 = (u8 *)(&lbl_805A9008.value) + 0x708;
-    ((Fields_arg0*)arg0)->field_C = (u8 *)(&lbl_805A9008.value) + 0x608;
-    ((Fields_arg0*)arg0)->field_10 = (u8 *)(&lbl_805A9008.value) + 0x508;
-    ((Fields_arg0*)arg0)->field_14 = (u8 *)(&lbl_805A9008.value) + 0x384;
-    ((Fields_arg0*)arg0)->field_18 = (u8 *)(&lbl_805A9008.value) + 0x200;
-    ((Fields_arg0*)arg0)->field_1C = (u8 *)(&lbl_805A9008.value) + 0x100;
+    ((Fields_arg0*)arg0)->field_0 = (u8 *)&lbl_805A9008.value + 0x808;
+    ((Fields_arg0*)arg0)->field_4 = (u8 *)&lbl_805A9008.value + 0x788;
+    ((Fields_arg0*)arg0)->field_8 = (u8 *)&lbl_805A9008.value + 0x708;
+    ((Fields_arg0*)arg0)->field_C = (u8 *)&lbl_805A9008.value + 0x608;
+    ((Fields_arg0*)arg0)->field_10 = (u8 *)&lbl_805A9008.value + 0x508;
+    ((Fields_arg0*)arg0)->field_14 = (u8 *)&lbl_805A9008.value + 0x384;
+    ((Fields_arg0*)arg0)->field_18 = (u8 *)&lbl_805A9008.value + 0x200;
+    ((Fields_arg0*)arg0)->field_1C = (u8 *)&lbl_805A9008.value + 0x100;
     ((Fields_arg0*)arg0)->field_20 = &lbl_805A9008.value;
     ((Fields_arg0*)arg0)->field_24 = 0x80;
     ((Fields_arg0*)arg0)->field_26 = 0x80;
@@ -402,11 +402,11 @@ void TLobby::init_net_buffer_desc() {
 
 typedef char RecoveredGlobal_803F7A30_lbl_805C18A0_size[sizeof(RecoveredGlobal_803F7A30_lbl_805C18A0) == 0x10 ? 1 : -1];
 void TLobby::stop_network_thread() {
-    TLobby::lock_mutex((int) (*(s32 *)((s8 *)(&lbl_805C18A0.value) + 0)));
-    ((TLobby *)(*(s32 *)((s8 *)(&lbl_805C18A0.value) + 4)))->cancel_thread_if_running();
-    TLobby::deactivate_entry_by_key((u32)((int) (*(s32 *)((s8 *)(&lbl_805C18A0.value) + 4))));
-    TUdpSocket::unlock_mutex((int) (*(s32 *)((s8 *)(&lbl_805C18A0.value) + 0)));
-    TLobby__sub_803F95E4((u32)((int) (*(s32 *)((s8 *)(&lbl_805C18A0.value) + 0))));
+    TLobby::lock_mutex((int) (*(s32 *)((s8 *)&lbl_805C18A0.value + 0)));
+    ((TLobby *)(*(s32 *)((s8 *)&lbl_805C18A0.value + 4)))->cancel_thread_if_running();
+    TLobby::deactivate_entry_by_key((u32)((int) (*(s32 *)((s8 *)&lbl_805C18A0.value + 4))));
+    TUdpSocket::unlock_mutex((int) (*(s32 *)((s8 *)&lbl_805C18A0.value + 0)));
+    TLobby__sub_803F95E4((u32)((int) (*(s32 *)((s8 *)&lbl_805C18A0.value + 0))));
 }
 
 void TLobby__sub_803F7A90(void) {

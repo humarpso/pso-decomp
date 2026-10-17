@@ -556,11 +556,11 @@ u32 roll_channel_below__9TItemDropFPviUi(u8 *arg0, s32 count, u32 arg2) {
     if (arg2 < 0x10U) {
         var_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x20));
         var_r3 = (u8 *)(*(s32 *)((s8 *)var_r3 + (arg2 * 4)));
-        return (u32)item_drop_rng_below((s32)(var_r3), count);
+        return (u32)item_drop_rng_below((s32)var_r3, count);
     }
     var_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x20));
     var_r3 = (u8 *)(*(u8 **)((s8 *)var_r3 + 0x40));
-    return (u32)item_drop_rng_below((s32)(var_r3), count);
+    return (u32)item_drop_rng_below((s32)var_r3, count);
 }
 
 void select_enemy_drop__9TItemDropFPviiPv(u8 *self, s32 area, s32 idx, Item_8010663C *item) {
@@ -731,13 +731,13 @@ void calc_drop_rarity__9TItemDropFiiPv(s32 rng, s32 arg1, void *item_) {
     u8 call_res;
 
     roll_armor_bonuses__9TItemDropFv(rng, item_);
-    call_res = (u8) select_weighted_byte__9TItemDropFiiiii((s32)(rng), (s32)((s32)(*(s32 *)((s8 *)TItemDrop__common_probability_table + 0x10))), 0, 5, 1);
+    call_res = (u8) select_weighted_byte__9TItemDropFiiiii(rng, (s32)((s32)(*(s32 *)((s8 *)TItemDrop__common_probability_table + 0x10))), 0, 5, 1);
     *(u8 *)((s8 *)item_ + 2) = (u8) (arg1 + call_res + *(u8 *)((s8 *)TItemDrop__common_probability_table + 0x48));
     temp_r3 = *(u8 *)((s8 *)item_ + 2);
     if (temp_r3 < 3U) {
         *(u8 *)((s8 *)item_ + 2) = 0U;
     } else {
-        *(u8 *)((s8 *)item_ + 2) = (u8) (temp_r3 - 3);
+        *(u8 *)((s8 *)item_ + 2) = (temp_r3 - 3);
     }
 }
 
@@ -882,7 +882,7 @@ void build_weapon_type_weights__9TItemDropFiPvi(s32 rng, Obj_80106F4C *item, s32
 
 void calc_drop_item__9TItemDropFiPvi(s32 rng, void *arg1, s32 arg2) {
     if ((u8) *(u8 *)((s8 *)arg1 + 0) == 0) {
-        *(s8 *)((s8 *)arg1 + 3) = select_weighted_byte__9TItemDropFiiiii((s32)(rng), (s32)((s32)(*(s32 *)((s8 *)TItemDrop__common_probability_table + 0xC))), (s32)((s32)(TObjPlayer::clamp_s32(arg2, 0, 3))), 9, 4);
+        *(s8 *)((s8 *)arg1 + 3) = select_weighted_byte__9TItemDropFiiiii(rng, (s32)((s32)(*(s32 *)((s8 *)TItemDrop__common_probability_table + 0xC))), (s32)((s32)(TObjPlayer::clamp_s32(arg2, 0, 3))), 9, 4);
     }
 }
 
@@ -963,7 +963,7 @@ s32 try_generate_rare_item__9TItemDropFiPvPv(s32 arg0, u8 *arg1, u8 *arg2) {
     if ((arg1 != NULL) && (arg2 != NULL)) {
         temp_r31 = *(u8 *)((s8 *)arg1 + 0);
         if (temp_r31 != 0) {
-            temp_r3 = roll_channel_below__9TItemDropFPviUi((u8 *)(arg0), -1, 6);
+            temp_r3 = roll_channel_below__9TItemDropFPviUi((u8 *)arg0, -1, 6);
             var_r5 = ((temp_r31 >> 3U) & 0x1F) - 4;
             if (var_r5 < 0) {
                 var_r5 = 0;
@@ -975,19 +975,19 @@ s32 try_generate_rare_item__9TItemDropFiPvPv(s32 arg0, u8 *arg1, u8 *arg2) {
                 temp_r0 = *(u8 *)((s8 *)arg2 + 0);
                 switch ((s32) temp_r0) {
                 case 0:
-                    tmp = roll_channel_below__9TItemDropFPviUi((u8 *)(arg0), 0xA, 7);
-                    roll_rare_weapon_attributes__9TItemDropFiPvi((s32)(arg0), (Obj_80106F4C *)(arg2), (s32)(tmp));
+                    tmp = roll_channel_below__9TItemDropFPviUi((u8 *)arg0, 0xA, 7);
+                    roll_rare_weapon_attributes__9TItemDropFiPvi(arg0, (Obj_80106F4C *)(arg2), tmp);
                     set_flag__9TItemDropFPvPv((void *)arg0, (void *)arg2);
                     break;
                 case 1:
-                    roll_armor_bonuses__9TItemDropFv((s32)(arg0), (void *)(arg2));
+                    roll_armor_bonuses__9TItemDropFv(arg0, arg2);
                     break;
                 case 2:
                     apply_item_data__9TItemDropFPvPv((void *)arg0, (void *)arg2);
                     break;
                 case 3:
                     init_rare_item_data__9TItemDropFPvPv((void *)arg0, (void *)arg2);
-                    handle_type3__9TItemDropFPvPv((void*)(arg0), (void*)(arg2));
+                    handle_type3__9TItemDropFPvPv((void*)arg0, (void*)arg2);
                     break;
                 }
                 apply_drop_restrictions((void *)arg0, (void *)arg2);

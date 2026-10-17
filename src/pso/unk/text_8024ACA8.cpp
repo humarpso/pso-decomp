@@ -22,10 +22,10 @@ void TWindowReturnCity__sub_8024ACA8(s32 arg0) {
     typedef char spC_offset[(offsetof(Stack_8024ACA8, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024ACA8, sp10) == 0x8) ? 1 : -1];
     Stack_8024ACA8 stack;
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_804CEA40.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_804CEA40.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&lbl_804CEA40.value) + 8);
-    call_window_method__11TWindowCtrlFPvi((void *)arg0, (void *) (&stack.sp8));
+    stack.sp8 = *(s32 *)((s8 *)&lbl_804CEA40.value + 0);
+    stack.spC = *(s32 *)((s8 *)&lbl_804CEA40.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&lbl_804CEA40.value + 8);
+    call_window_method__11TWindowCtrlFPvi((void *)arg0, (void *)&stack.sp8);
 }
 
 }

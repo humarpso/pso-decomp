@@ -56,7 +56,7 @@ void draw_blend_motion_tree__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
         *(s32 *)((s8 *)current_motion_context + 0x28) = (s32) *(s32 *)((s8 *)motion_angle_sampler_table + 0xC);
     }
     *(s32 *)((s8 *)model_draw_context + 0xC) = arg2;
-    draw_object_tree_recursive((void *)(arg0));
+    draw_object_tree_recursive((void *)arg0);
 }
 
 s32 draw_object_tree_recursive(void *arg) {

@@ -69,17 +69,17 @@ void TLobby::sort_records(s32 arg1, s32 arg2) {
             switch (arg2) {
             case 0:
                 if (((s32 (*)(u8 *, u8 *))TAdSinglePlyChrSelectGC__sub_8022338C)(arg0[i].b, arg0[j].b) != 0) {
-                    ((TAdSinglePlyChrSelectGC *)(&arg0[i]))->swap_item_data((s32 *)(&arg0[j]));
+                    ((TAdSinglePlyChrSelectGC *)(&arg0[i]))->swap_item_data((s32 *)&arg0[j]);
                 }
                 break;
             case 1:
                 if (TAdSinglePlyChrSelectGC__sub_80223350(&arg0[i], &arg0[j]) != 0) {
-                    ((TAdSinglePlyChrSelectGC *)(&arg0[i]))->swap_item_data((s32 *)(&arg0[j]));
+                    ((TAdSinglePlyChrSelectGC *)(&arg0[i]))->swap_item_data((s32 *)&arg0[j]);
                 }
                 break;
             case 2:
                 if (TLobby__sub_802232F8(&arg0[i], &arg0[j]) != 0) {
-                    ((TAdSinglePlyChrSelectGC *)(&arg0[i]))->swap_item_data((s32 *)(&arg0[j]));
+                    ((TAdSinglePlyChrSelectGC *)(&arg0[i]))->swap_item_data((s32 *)&arg0[j]);
                 }
                 break;
             }

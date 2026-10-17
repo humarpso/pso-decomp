@@ -27,7 +27,7 @@ u32 TAdEndText__sub_80399904(s32 arg0) {
     if (arg0 == -1) {
         return -1U;
     }
-    return *(u8 *)((s8 *)((u8 *)(&lbl_804F5A00.value) + (u8) arg0) + 0);
+    return *(u8 *)((s8 *)((u8 *)&lbl_804F5A00.value + (u8) arg0) + 0);
 }
 
 typedef char RecoveredGlobal_80399928_lbl_804F5900_size[sizeof(RecoveredGlobal_80399928_lbl_804F5900) == 0x100 ? 1 : -1];
@@ -35,11 +35,11 @@ u32 TAdEndText__sub_80399928(s32 arg0) {
     if (arg0 == -1) {
         return -1U;
     }
-    return *(u8 *)((s8 *)((u8 *)(&lbl_804F5900.value) + (u8) arg0) + 0);
+    return *(u8 *)((s8 *)((u8 *)&lbl_804F5900.value + (u8) arg0) + 0);
 }
 
 s32 TAdEndText__sub_8039994C(u8 arg0) {
-    return *(u8 *)((s8 *)((u8 *)(&lbl_804F5800.value) + arg0) + 0) & 0x40;
+    return *(u8 *)((s8 *)((u8 *)&lbl_804F5800.value + arg0) + 0) & 0x40;
 }
 
 }

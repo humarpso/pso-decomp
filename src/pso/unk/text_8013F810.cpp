@@ -254,7 +254,7 @@ void TLobby::init_lookup_tables() {
 void TLobby__sub_8013FF64(u8 *arg0, s8 arg1) {
     s8 *temp_r5;
     temp_r5 = *(s8 **)((s8 *)arg0 + 0x7224);
-    *(s8 **)((s8 *)arg0 + 0x7224) = (s8 *) (temp_r5 + 1);
+    *(s8 **)((s8 *)arg0 + 0x7224) = (temp_r5 + 1);
     *temp_r5 = arg1;
 }
 
@@ -265,7 +265,7 @@ u8 lzss_input_exhausted(u8 *arg0) {
 u8 lzss_read_byte(u8 *arg0) {
     u8 *temp_r4;
     temp_r4 = *(u8 **)((s8 *)arg0 + 0x7220);
-    *(u8 **)((s8 *)arg0 + 0x7220) = (u8 *) (temp_r4 + 1);
+    *(u8 **)((s8 *)arg0 + 0x7220) = (temp_r4 + 1);
     return *temp_r4;
 }
 

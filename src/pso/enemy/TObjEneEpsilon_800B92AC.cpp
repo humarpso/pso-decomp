@@ -177,13 +177,13 @@ void TObjEneEpsilon__sub_800B92F8(u8 *arg0, s32 arg1, f32 farg0) {
 void enemy_turn_and_move_on_ground(u8 *arg0, s32 arg1, f32 farg0) {
     s32 sp8;
     ((TObjEneEpsilon *)arg0)->fire_attack_b((s32) &sp8, arg1, farg0);
-    ((TBoss5Gryphon *)arg0)->try_move_actor_xz_on_ground((u8 *)(&sp8));
+    ((TBoss5Gryphon *)arg0)->try_move_actor_xz_on_ground((u8 *)&sp8);
 }
 
 void TObjEneEpsilon__sub_800B9384(u8 *arg0, s32 arg1, f32 farg0) {
     s32 sp8;
     ((TObjEneEpsilon *)arg0)->fire_attack_c((s32) &sp8, arg1, farg0);
-    ((TBoss5Gryphon *)arg0)->try_move_actor_xz_on_ground((u8 *)(&sp8));
+    ((TBoss5Gryphon *)arg0)->try_move_actor_xz_on_ground((u8 *)&sp8);
 }
 
 void TObjEneEpsilon::fire_attack_a(s32 arg1, s32 arg2, f32 farg0) {
@@ -227,7 +227,7 @@ s32 TObjEneEpsilon::update_death_check() {
         enemy_clear_target__12TObjEneDD_STFUs(this);
         return 0;
     }
-    return enemy_validate_retained_target((u8 *)(this));
+    return enemy_validate_retained_target((u8 *)this);
 }
 
 s32 enemy_validate_retained_target(u8 *arg0) {
@@ -255,7 +255,7 @@ void TObjEneDD_ST::enemy_copy_target_destination() {
     u32 temp_r4;
     temp_r4 = *(u32 *)((s8 *)((u8 *)this) + 0x390);
     if (temp_r4 != 0U) {
-        copy_position__14TObjEneEpsilonFPv(((void *)(((u8 *)this))), ((void *) (temp_r4 + 0x38)));
+        copy_position__14TObjEneEpsilonFPv(((void *)(((u8 *)this))), ((void *)(temp_r4 + 0x38)));
     }
 }
 

@@ -720,7 +720,7 @@ void TBoss4Zako::update_sink_state() {
     if ((temp_f1 < lbl_805D8CBC) && (temp_f1 >= lbl_805D8CB8)) {
         spawn_particle_effect((&m_38), 0xF3);
     }
-    m_5c = (s32) (m_5c + 0x111);
+    m_5c = (m_5c + 0x111);
     if (m_38.y < lbl_805D8CC0) {
         queue_destruction__7TObjectFv(this);
     }
@@ -925,7 +925,7 @@ void update_target_position__10TBoss4ZakoFPv(u8 *actor) {
             temp_r3 = get_instance__14TBoss4DarkFalzFv();
             if (temp_r3 != 0) {
                 temp_r31 = (s32) (lbl_805D8CF8 * calc_boss4_scale__10TObjPlayerFi((s32)actor));
-                VecCopy__FP3VecPC3Vec((void *)(actor + 0x3C4), (void *)(get_position_ptr__10TObjPlayerFv(temp_r3)));
+                VecCopy__FP3VecPC3Vec(actor + 0x3C4, (void *)(get_position_ptr__10TObjPlayerFv(temp_r3)));
                 *(f32 *)((s8 *)actor + 0x3C8) = (f32) lbl_805D8CBC;
                 *(f32 *)((s8 *)actor + 0x3C4) = (f32) ((lbl_805D8CFC * sin_table_lookup(temp_r31)) + *(f32 *)((s8 *)actor + 0x3C4));
                 *(f32 *)((s8 *)actor + 0x3CC) = (f32) ((lbl_805D8CFC * cos_table_lookup(temp_r31)) + *(f32 *)((s8 *)actor + 0x3CC));
@@ -993,8 +993,8 @@ void vt6__9TBoss4UroFv(u8 *arg0) {
     f32 temp_f1;
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x390);
     *(f32 *)((s8 *)arg0 + 0x390) = (f32) (temp_f1 + lbl_805D8CE4);
-    VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x44)), (void *)((void *) (arg0 + 0x38)));
-    vec3_add_to((void *) (arg0 + 0x38), (void *) (arg0 + 0x38C));
+    VecCopy__FP3VecPC3Vec((void *)(arg0 + 0x44), (void *)(arg0 + 0x38));
+    vec3_add_to(arg0 + 0x38, arg0 + 0x38C);
     if (*(f32 *)((s8 *)arg0 + 0x3C) < lbl_805D8CC8) {
         *(f32 *)((s8 *)arg0 + 0x390) = (f32) lbl_805D8CBC;
         *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805D8CC8;
@@ -1117,7 +1117,7 @@ void vt0__11TBoss4BishiFv(u8 *arg0) {
     f32 temp_f0;
     f32 temp_f2;
 
-    VecCopy__FP3VecPC3Vec((void *)(arg0 + 0x44), (void *)(arg0 + 0x38));
+    VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
     temp_f2 = *(f32 *)((s8 *)arg0 + 0x3C);
     if (temp_f2 < lbl_805D8CC8) {
         temp_f0 = temp_f2 + lbl_805D8CCC;

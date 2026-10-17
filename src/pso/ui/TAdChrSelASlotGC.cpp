@@ -179,8 +179,8 @@ s32 TAdChrSelASlotGC::create_format_message_window(s32 arg0, s32 arg1, s32 arg2)
 s32 TAdChrSelASlotGC__sub_8030C978(void *arg0, s32 arg1, s32 arg2) {
     s32 temp_r31;
     temp_r31 = create__19TWindowMessageYesNoFPvPvPvPv((s32)arg0, (s32)((void *)arg2), 0, 0);
-    forward_slot_selection__16TAdChrSelASlotGCFPvPv((s32)(temp_r31), (s32)((int) (get_localized_text_entry(0x16, 0x1D))), (s32)(arg1), lbl_805DF20C);
-    free_member__17TWindowSubComCardFv((s32)(temp_r31), 1);
+    forward_slot_selection__16TAdChrSelASlotGCFPvPv(temp_r31, (s32)((int) (get_localized_text_entry(0x16, 0x1D))), arg1, lbl_805DF20C);
+    free_member__17TWindowSubComCardFv(temp_r31, 1);
     return temp_r31;
 }
 #pragma pop
@@ -198,9 +198,9 @@ s32 TAdChrSelASlotGC::open_yes_no_window(s32 arg0, s32 arg1, s32 arg2) {
 
 s32 TAdChrSelASlotGC__sub_8030CA84(s32 arg0, s32 arg1) {
     s32 temp_r31;
-    temp_r31 = create__19TWindowMessageYesNoFPvPvPvPv((s32)(arg0), (s32)((int) (TAdMultiPlyChrSelectGC::get_clamped_cursor())), 0, 0);
-    forward_slot_selection__16TAdChrSelASlotGCFPvPv((s32)(temp_r31), (s32)((int) (get_localized_text_entry(0x16, 0x1A))), (s32)(arg1), lbl_805DF214);
-    free_member__17TWindowSubComCardFv((s32)(temp_r31), 1);
+    temp_r31 = create__19TWindowMessageYesNoFPvPvPvPv(arg0, (s32)((int) (TAdMultiPlyChrSelectGC::get_clamped_cursor())), 0, 0);
+    forward_slot_selection__16TAdChrSelASlotGCFPvPv(temp_r31, (s32)((int) (get_localized_text_entry(0x16, 0x1A))), arg1, lbl_805DF214);
+    free_member__17TWindowSubComCardFv(temp_r31, 1);
     ((TWindowSubComCard *)temp_r31)->free_windows();
     return temp_r31;
 }
@@ -242,24 +242,24 @@ void TAdChrSelASlotGC__sub_8030CEEC(u8 *arg0) {
         temp_r0 = *(s32 *)((s8 *)arg0 + 0x20);
         switch (temp_r0) {
         case 0:
-            push_plate_position__19TAdPlyChrSelPlateGCFv((int) (*(s32 *)((s8 *)arg0 + 0x34)), (void *) (&lbl_80475818.value));
+            push_plate_position__19TAdPlyChrSelPlateGCFv((int) (*(s32 *)((s8 *)arg0 + 0x34)), &lbl_80475818.value);
             push_plate_position__19TAdPlyChrSelPlateGCFv((int) (*(s32 *)((s8 *)arg0 + 0x34)), (void *) ((u8 *)&lbl_80475818.value + 8));
             push_plate_position__19TAdPlyChrSelPlateGCFv((int) (*(s32 *)((s8 *)arg0 + 0x34)), (void *) ((u8 *)&lbl_80475818.value + 0x10));
             push_plate_position__19TAdPlyChrSelPlateGCFv((int) (*(s32 *)((s8 *)arg0 + 0x34)), (void *) ((u8 *)&lbl_80475818.value + 0x18));
             break;
         case 1:
-            push_plate_position__19TAdPlyChrSelPlateGCFv((int) (*(s32 *)((s8 *)arg0 + 0x34)), (void *) (&lbl_80475858.value));
+            push_plate_position__19TAdPlyChrSelPlateGCFv((int) (*(s32 *)((s8 *)arg0 + 0x34)), &lbl_80475858.value);
             push_plate_position__19TAdPlyChrSelPlateGCFv((int) (*(s32 *)((s8 *)arg0 + 0x34)), (void *) ((u8 *)&lbl_80475858.value + 8));
             push_plate_position__19TAdPlyChrSelPlateGCFv((int) (*(s32 *)((s8 *)arg0 + 0x34)), (void *) ((u8 *)&lbl_80475858.value + 0x10));
             push_plate_position__19TAdPlyChrSelPlateGCFv((int) (*(s32 *)((s8 *)arg0 + 0x34)), (void *) ((u8 *)&lbl_80475858.value + 0x18));
-            push_plate_position__19TAdPlyChrSelPlateGCFv((int) (*(s32 *)((s8 *)arg0 + 0x38)), (void *) (&lbl_80475878.value));
+            push_plate_position__19TAdPlyChrSelPlateGCFv((int) (*(s32 *)((s8 *)arg0 + 0x38)), &lbl_80475878.value);
             push_plate_position__19TAdPlyChrSelPlateGCFv((int) (*(s32 *)((s8 *)arg0 + 0x38)), (void *) ((u8 *)&lbl_80475878.value + 8));
             push_plate_position__19TAdPlyChrSelPlateGCFv((int) (*(s32 *)((s8 *)arg0 + 0x38)), (void *) ((u8 *)&lbl_80475878.value + 0x10));
-            *(s32 *)((s8 *)arg0 + 0x4C) = ((s32)create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)(arg0), 0x12, lbl_805DF218));
-            *(s32 *)((s8 *)arg0 + 0x50) = ((s32)create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)(arg0), 0x13, lbl_805DF218));
+            *(s32 *)((s8 *)arg0 + 0x4C) = ((s32)create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)arg0, 0x12, lbl_805DF218));
+            *(s32 *)((s8 *)arg0 + 0x50) = ((s32)create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)arg0, 0x13, lbl_805DF218));
             break;
         case 2:
-            push_plate_position__19TAdPlyChrSelPlateGCFv((int) (*(s32 *)((s8 *)arg0 + 0x38)), (void *) (&lbl_80475858.value));
+            push_plate_position__19TAdPlyChrSelPlateGCFv((int) (*(s32 *)((s8 *)arg0 + 0x38)), &lbl_80475858.value);
             push_plate_position__19TAdPlyChrSelPlateGCFv((int) (*(s32 *)((s8 *)arg0 + 0x38)), (void *) ((u8 *)&lbl_80475858.value + 8));
             push_plate_position__19TAdPlyChrSelPlateGCFv((int) (*(s32 *)((s8 *)arg0 + 0x38)), (void *) ((u8 *)&lbl_80475858.value + 0x10));
             break;
@@ -642,7 +642,7 @@ void TAdChrSelASlotGC::create_children(s32 arg1) {
         temp_r3_3 = ((s32)__nw__7TObjectFUl(0x3B4));
         var_r0_3 = temp_r3_3;
         if (var_r0_3 != 0) {
-            var_r0_3 = __ct__19TAdPlyChrSelPlateGCFv(temp_r3_3, arg0, (void *) (&chr_sel_a_slot_plate_layout.value));
+            var_r0_3 = __ct__19TAdPlyChrSelPlateGCFv(temp_r3_3, arg0, &chr_sel_a_slot_plate_layout.value);
         }
         *(s32 *)&this->unk_34 = var_r0_3;
         temp_r3_4 = ((s32)__nw__7TObjectFUl(0x48C));
@@ -668,13 +668,13 @@ void TAdChrSelASlotGC::create_children(s32 arg1) {
         temp_r3_7 = ((s32)__nw__7TObjectFUl(0x3B4));
         var_r0_7 = temp_r3_7;
         if (var_r0_7 != 0) {
-            var_r0_7 = __ct__19TAdPlyChrSelPlateGCFv(temp_r3_7, arg0, (void *) (&chr_sel_a_slot_plate_layout.value));
+            var_r0_7 = __ct__19TAdPlyChrSelPlateGCFv(temp_r3_7, arg0, &chr_sel_a_slot_plate_layout.value);
         }
         *(s32 *)&this->unk_34 = var_r0_7;
         temp_r3_8 = ((s32)__nw__7TObjectFUl(0x3B4));
         var_r0_8 = temp_r3_8;
         if (var_r0_8 != 0) {
-            var_r0_8 = __ct__19TAdPlyChrSelPlateGCFv(temp_r3_8, arg0, (void *) (&chr_sel_a_slot_plate_layout_b.value));
+            var_r0_8 = __ct__19TAdPlyChrSelPlateGCFv(temp_r3_8, arg0, &chr_sel_a_slot_plate_layout_b.value);
         }
         this->m_38 = var_r0_8;
         temp_r3_9 = ((s32)__nw__7TObjectFUl(0x48C));
@@ -706,7 +706,7 @@ void TAdChrSelASlotGC::create_children(s32 arg1) {
         temp_r3_13 = ((s32)__nw__7TObjectFUl(0x3B4));
         var_r0_13 = temp_r3_13;
         if (var_r0_13 != 0) {
-            var_r0_13 = __ct__19TAdPlyChrSelPlateGCFv(temp_r3_13, arg0, (void *) (&chr_sel_a_slot_plate_layout_b.value));
+            var_r0_13 = __ct__19TAdPlyChrSelPlateGCFv(temp_r3_13, arg0, &chr_sel_a_slot_plate_layout_b.value);
         }
         this->m_38 = var_r0_13;
         temp_r3_14 = ((s32)__nw__7TObjectFUl(0x48C));

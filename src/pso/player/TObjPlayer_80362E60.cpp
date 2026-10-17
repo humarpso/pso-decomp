@@ -126,13 +126,13 @@ void TUnk_804F27E0::emit_marker_effects() {
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xF0));
     ((VObj_18_f1aa6a *)(temp_r3))->m63(0x30, &sp8);
     if (get_validated_attack_stage(*(u8 **)((s8 *)arg0 + 0xF0) + 0x7CC) == 2) {
-        fire_shot_at_target__11TItemWeaponFv(arg0, (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), 0);
-        fire_shot_at_target__11TItemWeaponFv(arg0, (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), 0x1555);
-        fire_shot_at_target__11TItemWeaponFv(arg0, (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), -0x1555);
+        fire_shot_at_target__11TItemWeaponFv(arg0, &sp8, (int) (*(s32 *)((s8 *)arg0 + 0xF4)), 0);
+        fire_shot_at_target__11TItemWeaponFv(arg0, &sp8, (int) (*(s32 *)((s8 *)arg0 + 0xF4)), 0x1555);
+        fire_shot_at_target__11TItemWeaponFv(arg0, &sp8, (int) (*(s32 *)((s8 *)arg0 + 0xF4)), -0x1555);
     } else {
-        fire_shot_at_target__11TItemWeaponFv(arg0, (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), 0);
+        fire_shot_at_target__11TItemWeaponFv(arg0, &sp8, (int) (*(s32 *)((s8 *)arg0 + 0xF4)), 0);
     }
-    TObjPlayer::create_cane_if_ready((s32)(arg0), (void *)((void *) (&sp8)));
+    TObjPlayer::create_cane_if_ready((s32)arg0, (void *)((void *)&sp8));
 }
 
 typedef char RecoveredGlobal_80362FB4_lbl_80479FC8_size[sizeof(RecoveredGlobal_80362FB4_lbl_80479FC8) == 0x10 ? 1 : -1];
@@ -142,10 +142,10 @@ void TObjPlayer__sub_80362FB4(u8 *arg0) {
     typedef char sp10_offset[(offsetof(Stack_80362FB4, sp10) == 0x8) ? 1 : -1];
     Stack_80362FB4 stack;
     if (TObjPlayer::get_player_list() == 0) {
-        stack.sp8 = *(s32 *)((s8 *)(&lbl_80479FC8.value) + 0);
-        stack.spC = *(s32 *)((s8 *)(&lbl_80479FC8.value) + 4);
-        stack.sp10 = *(s32 *)((s8 *)(&lbl_80479FC8.value) + 8);
-        post_translate_matrix((void *) (&stack.sp8));
+        stack.sp8 = *(s32 *)((s8 *)&lbl_80479FC8.value + 0);
+        stack.spC = *(s32 *)((s8 *)&lbl_80479FC8.value + 4);
+        stack.sp10 = *(s32 *)((s8 *)&lbl_80479FC8.value + 8);
+        post_translate_matrix((void *)&stack.sp8);
         rotate_matrix_x(0, 0x18E3);
         if (*(s32 *)((s8 *)arg0 + 0x1FC) & 1) {
             push_matrix();

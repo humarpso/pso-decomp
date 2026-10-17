@@ -59,7 +59,7 @@ s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 s32 TAdYesNoBaseGC::sub_8032C0B4() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r31;
-    temp_r31 = update_window_mode_from_progress__6TLobbyFPv((void *) (arg0 + 0x30), (void *) (arg0 + 0x38));
+    temp_r31 = update_window_mode_from_progress__6TLobbyFPv(arg0 + 0x30, arg0 + 0x38);
     send_and_handle__6TLobbyFii(temp_r31, (void *) (((VObj_18 *)(arg0))->m8()), 1);
     return temp_r31;
 }

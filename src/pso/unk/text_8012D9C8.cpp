@@ -58,7 +58,7 @@ void launch_slicer_shot(u8 *weapon) {
     launch.facing = *(s32 *)((s8 *)(*(u8 * *)&((TUnk_804A5B20 *)weapon)->player) + 0x60);
     ((TObjPlayer *)weapon)->draw_icon(1, (s32)launch.first);
     ((TObjPlayer *)weapon)->draw_icon(2, (s32)launch.second);
-    TTecSlicer::create((u16*)(&launch));
+    TTecSlicer::create((u16*)&launch);
 }
 
 void TObjPlayer::update_slicer_hinge_idle() {

@@ -269,8 +269,8 @@ void TAdEnterSerialAccessGC::draw_serial_chars(s32 arg0) {
 }
 
 void TAdEnterSerialAccessGC::draw_serial_separators() {
-    render_status_line__15TAdSubPlyItemGCFi((void *) (&lbl_805DF4EC), -1, lbl_805DF4E8, lbl_805DF4E4, TAdEnterSerialAccessGC__data_805DF4DC);
-    render_status_line__15TAdSubPlyItemGCFi((void *) (&lbl_805DF4EC), -1, lbl_805DF4F0, lbl_805DF4E4, TAdEnterSerialAccessGC__data_805DF4DC);
+    render_status_line__15TAdSubPlyItemGCFi(&lbl_805DF4EC, -1, lbl_805DF4E8, lbl_805DF4E4, TAdEnterSerialAccessGC__data_805DF4DC);
+    render_status_line__15TAdSubPlyItemGCFi(&lbl_805DF4EC, -1, lbl_805DF4F0, lbl_805DF4E4, TAdEnterSerialAccessGC__data_805DF4DC);
 }
 
 typedef char RecoveredGlobal_803216C0_lbl_8047653C_size[sizeof(RecoveredGlobal_803216C0_lbl_8047653C) == 0xC ? 1 : -1];
@@ -335,11 +335,11 @@ s32 *TAdEnterSerialAccessGC::get_formatted_serial() {
     typedef char spC_offset[(offsetof(Stack_803216C0, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_803216C0, sp10) == 0x8) ? 1 : -1];
     Stack_803216C0 stack;
-    memset((void *) (&enter_serial_formatted_buffer.value), 0, 0x18);
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_8047653C.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_8047653C.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&lbl_8047653C.value) + 8);
-    ((TAdEnterSerialAccessGC *)(&enter_serial_formatted_buffer.value))->format_dashed_serial((u8 *)((void *) (TAdSinglePlyChrSelectGC::get_instance() + 0x1153C)), (u32)(3), (u32 *)((void *) (&stack.sp8)));
+    memset((void *)&enter_serial_formatted_buffer.value, 0, 0x18);
+    stack.sp8 = *(s32 *)((s8 *)&lbl_8047653C.value + 0);
+    stack.spC = *(s32 *)((s8 *)&lbl_8047653C.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&lbl_8047653C.value + 8);
+    ((TAdEnterSerialAccessGC *)(&enter_serial_formatted_buffer.value))->format_dashed_serial((u8 *)((void *) (TAdSinglePlyChrSelectGC::get_instance() + 0x1153C)), (u32)(3), (u32 *)((void *)&stack.sp8));
     return &enter_serial_formatted_buffer.value;
 }
 
@@ -350,7 +350,7 @@ typedef char RecoveredGlobal_803217B8_lbl_805430A4_size[sizeof(RecoveredGlobal_8
 u8 *TAdEnterSerialAccessGC__sub_80321738(void) {
     memset(lbl_805430BC, 0, 0x14);
     T_80321738 t = lbl_80476530;
-    ((TAdEnterSerialAccessGC *)lbl_805430BC)->format_dashed_serial((u8 *)((void *)((u32)TAdEnterSerialAccessGC::convert_serial_hex_to_decimal(TAdSinglePlyChrSelectGC::get_instance() + 0x1152C))), (u32)(3), (u32 *)(&t));
+    ((TAdEnterSerialAccessGC *)lbl_805430BC)->format_dashed_serial((u8 *)((void *)((u32)TAdEnterSerialAccessGC::convert_serial_hex_to_decimal(TAdSinglePlyChrSelectGC::get_instance() + 0x1152C))), (u32)(3), (u32 *)&t);
     return lbl_805430BC;
 }
 
@@ -359,11 +359,11 @@ s32 *TAdEnterSerialAccessGC__sub_803217B8(void) {
     typedef char spC_offset[(offsetof(Stack_803217B8, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_803217B8, sp10) == 0x8) ? 1 : -1];
     Stack_803217B8 stack;
-    memset((void *) (&lbl_805430A4.value), 0, 0x18);
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_80476524.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_80476524.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&lbl_80476524.value) + 8);
-    ((TAdEnterSerialAccessGC *)(&lbl_805430A4.value))->format_dashed_serial((u8 *)((void *) (&(*(RecoveredGlobal_803217B8_TAdEnterSerialAccessGC__data_804EC9C4 *)&TAdEnterSerialAccessGC__access_key_input_buffer).value)), (u32)(3), (u32 *)((void *) (&stack.sp8)));
+    memset((void *)&lbl_805430A4.value, 0, 0x18);
+    stack.sp8 = *(s32 *)((s8 *)&lbl_80476524.value + 0);
+    stack.spC = *(s32 *)((s8 *)&lbl_80476524.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&lbl_80476524.value + 8);
+    ((TAdEnterSerialAccessGC *)(&lbl_805430A4.value))->format_dashed_serial((u8 *)((void *) (&(*(RecoveredGlobal_803217B8_TAdEnterSerialAccessGC__data_804EC9C4 *)&TAdEnterSerialAccessGC__access_key_input_buffer).value)), (u32)(3), (u32 *)((void *)&stack.sp8));
     return &lbl_805430A4.value;
 }
 
@@ -383,11 +383,11 @@ s32 *TAdEnterSerialAccessGC__sub_80321874(void) {
     typedef char spC_offset[(offsetof(Stack_80321874, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80321874, sp10) == 0x8) ? 1 : -1];
     Stack_80321874 stack;
-    memset((void *) (&TAdEnterSerialAccessGC_serial_buffer.value), 0, 0x14);
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_80476518.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_80476518.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&lbl_80476518.value) + 8);
-    ((TAdEnterSerialAccessGC *)(&TAdEnterSerialAccessGC_serial_buffer.value))->format_dashed_serial((u8 *)((void *) (&TAdEnterSerialAccessGC__raw_serial_buffer.value)), (u32)(3), (u32 *)((void *) (&stack.sp8)));
+    memset((void *)&TAdEnterSerialAccessGC_serial_buffer.value, 0, 0x14);
+    stack.sp8 = *(s32 *)((s8 *)&lbl_80476518.value + 0);
+    stack.spC = *(s32 *)((s8 *)&lbl_80476518.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&lbl_80476518.value + 8);
+    ((TAdEnterSerialAccessGC *)(&TAdEnterSerialAccessGC_serial_buffer.value))->format_dashed_serial((u8 *)((void *)&TAdEnterSerialAccessGC__raw_serial_buffer.value), (u32)(3), (u32 *)((void *)&stack.sp8));
     return &TAdEnterSerialAccessGC_serial_buffer.value;
 }
 
@@ -399,7 +399,7 @@ void init__22TAdEnterSerialAccessGCFv(void) {
 }
 
 void TAdEnterSerialAccessGC__sub_8032190C(s32 arg0) {
-    memset((void *) (&TAdEnterSerialAccessGC__access_key_input_buffer.value), 0, 0xd);
+    memset(&TAdEnterSerialAccessGC__access_key_input_buffer.value, 0, 0xd);
     strncpy((s32) &TAdEnterSerialAccessGC__access_key_input_buffer.value, arg0, 0xd);
 }
 typedef char RecoveredGlobal_8032BB34___vt__18TAdEnterPasswordGC_size[sizeof(RecoveredGlobal_8032BB34___vt__18TAdEnterPasswordGC) == 0x1C ? 1 : -1];
@@ -409,7 +409,7 @@ typedef char RecoveredGlobal_8032BB34___vt__18TAdEnterPasswordGC_size[sizeof(Rec
 typedef char RecoveredGlobal_8032195C_TAdEnterSerialAccessGC__data_804EC9B8_size[sizeof(RecoveredGlobal_8032195C_TAdEnterSerialAccessGC__data_804EC9B8) == 0xC ? 1 : -1];
 void TAdEnterSerialAccessGC__sub_8032195C(s32 arg0) {
     memset((void *) (&(*(RecoveredGlobal_8032195C_TAdEnterSerialAccessGC__data_804EC9B8 *)&TAdEnterSerialAccessGC__raw_serial_buffer).value), 0, 0xB);
-    strncpy((s32)((void *) (&(*(RecoveredGlobal_8032195C_TAdEnterSerialAccessGC__data_804EC9B8 *)&TAdEnterSerialAccessGC__raw_serial_buffer).value)), (s32)(arg0), 0xB);
+    strncpy((s32)((void *) (&(*(RecoveredGlobal_8032195C_TAdEnterSerialAccessGC__data_804EC9B8 *)&TAdEnterSerialAccessGC__raw_serial_buffer).value)), arg0, 0xB);
 }
 #pragma pop
 
@@ -468,7 +468,7 @@ void TAdEnterSerialAccessGC__sub_80321B28(u8 *arg0, int arg1) {
   unsigned int temp_r3_7;
   unsigned int temp_r3_9;
   temp_r30 = ((TWindowSubComCard *)TAdEnterSerialAccessGC__keyboard_control)->realloc_buffer();
-  if (((((int) (*((int *) (((s8 *) arg0) + 0x4C)))) == 0) && (TWindowShortListCtrl__check_controller_button((void *) (((u8 *) (&controller_physical_port_bank.value)) + 0x20), 2) != 0)) || ((((int) (*((int *) (((s8 *) arg0) + 0x4C)))) == 0) && (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) (((u8 *) (&controller_input_state.value)) + 0x160), 2) != 0)))
+  if (((((int) (*((int *) (((s8 *) arg0) + 0x4C)))) == 0) && (TWindowShortListCtrl__check_controller_button((void *) (((u8 *)&controller_physical_port_bank.value) + 0x20), 2) != 0)) || ((((int) (*((int *) (((s8 *) arg0) + 0x4C)))) == 0) && (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) (((u8 *)&controller_input_state.value) + 0x160), 2) != 0)))
   {
     switch ((int) TAdEnterSerialAccessGC__input_state)
     {
@@ -565,7 +565,7 @@ void TAdEnterSerialAccessGC__sub_80321B28(u8 *arg0, int arg1) {
       if (temp_r3_9 != 0U)
       {
         ((TAdEnterSerialAccessGC *)temp_r3_9)->reset_input_state();
-        ((TLevelSelect *)(*((unsigned int *) (((s8 *) arg0) + 0x54))))->add_item_rect((void *) (((u8 *) (&TAdEnterSerialAccessGC__selection_positions.value)) + 8));
+        ((TLevelSelect *)(*((unsigned int *) (((s8 *) arg0) + 0x54))))->add_item_rect((void *) (((u8 *)&TAdEnterSerialAccessGC__selection_positions.value) + 8));
       }
     }
     else
@@ -574,7 +574,7 @@ void TAdEnterSerialAccessGC__sub_80321B28(u8 *arg0, int arg1) {
       if (temp_r3_10 != 0U)
       {
         ((TAdEnterSerialAccessGC *)temp_r3_10)->reset_input_state();
-        ((TLevelSelect *)(*((unsigned int *) (((s8 *) arg0) + 0x54))))->add_item_rect((void *) (&TAdEnterSerialAccessGC__selection_positions.value));
+        ((TLevelSelect *)(*((unsigned int *) (((s8 *) arg0) + 0x54))))->add_item_rect((void *)&TAdEnterSerialAccessGC__selection_positions.value);
       }
     }
   }
@@ -791,7 +791,7 @@ s32 TAdEnterSerialAccessGC::get_field20_state() {
 
 typedef char RecoveredGlobal_80322418_lbl_804ED9F8_size[sizeof(RecoveredGlobal_80322418_lbl_804ED9F8) == 0x10 ? 1 : -1];
 void TAdEnterSerialAccessGC__sub_80322418(s32 arg0, s32 arg1) {
-    *(s32 *)((s8 *)((u8 *)(&serial_access_entered_value_table.value) + (arg1 * 4)) + 0) = arg0;
+    *(s32 *)((s8 *)((u8 *)&serial_access_entered_value_table.value + (arg1 * 4)) + 0) = arg0;
 }
 
 void TAdEnterSerialAccessGC::set_state_3() { *(s32*)((char*)this + 0x700) = 3; }

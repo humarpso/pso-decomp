@@ -657,9 +657,9 @@ s32 TLobby::calc_time_from_hms() {
   int new_var2;
   s32 temp_r31_2;
   s32 temp_r31;
-  temp_r31_2 = TLobby__sub_8001E75C((void *)((void *) (arg0 + 0xC)));
+  temp_r31_2 = TLobby__sub_8001E75C((void *)(arg0 + 0xC));
   new_var = &arg0;
-  temp_r31 = (temp_r31_2 * 0x3C) + TLobby__sub_8001E75C((void *)((void *) (arg0 + 0xF)));
+  temp_r31 = (temp_r31_2 * 0x3C) + TLobby__sub_8001E75C((void *)(arg0 + 0xF));
   new_var2 = (temp_r31 * 0x3C) + TLobby__sub_8001E75C((void *)((void *) ((*new_var) + 0x12)));
   return (s32) (TLobby__data_805D7EC8 * ((f32) new_var2));
 }
@@ -760,7 +760,7 @@ s32 TLobby::get_clock_frames() {
   }
   else
   {
-    base = *((s32 *) (g + 8));
+    base = *((s32 *)(g + 8));
   }
   getDateStamp((DateStamp *)&d);
   s32 secs = (*new_var) * 60;

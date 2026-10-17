@@ -33,7 +33,7 @@ s32 create_named_object(s32 arg0) {
         }
         memset(var_r30 + 0x28, 0, 0x11);
         strncpy(var_r30 + 0x28, arg0, 0x10);
-        *(void **)((s8 *)var_r30 + 0) = (void *) (var_r30 + 0x28);
+        *(void **)((s8 *)var_r30 + 0) = (var_r30 + 0x28);
         *(s32 *)((s8 *)var_r30 + 0x1C) = set_stream_and_load_file__6TLobbyFi(arg0);
         *(s32 *)((s8 *)var_r30 + 0x20) = temp_r3;
         return apply_rel_relocations(var_r30);

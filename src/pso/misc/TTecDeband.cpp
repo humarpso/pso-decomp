@@ -177,7 +177,7 @@ s32 TTecDeband__ct(u32 a0, s32 owner, s32 pos, s32 arg3, s32 level) {
     s32 g = tec_deband_class_name_ptr;
     *(s32 *)((s8 *)arg0 + 0) = g;
     *(s32 *)((s8 *)arg0 + 0x13C) = 1;
-    copy_technique_target_list((void *) (arg0 + 0xE0), (void *) arg3, g);
+    copy_technique_target_list(arg0 + 0xE0, (void *) arg3, g);
     ((TTecDeband *)arg0)->update_effect_params();
     temp_r3 = *(u8 **)((s8 *)arg0 + 0xDC);
     if (temp_r3 != NULL) {

@@ -85,7 +85,7 @@ s32 get_boss_warp_destination(void) {
 s32 TLobby::get_player_floor(s32 idx) {
     struct Buf12_80207718_80207644 buf;
 
-    if (get_floor_map_selection(idx, (u8 *)(&buf)) == 1) {
+    if (get_floor_map_selection(idx, (u8 *)&buf) == 1) {
         return buf.a;
     }
     return -1;
@@ -119,8 +119,8 @@ s32 set_floor_map_selection(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
         return 0;
     }
     temp_r0 = arg0 * 0xC;
-    *(s32 *)((s8 *)((u8 *)(&floor_map_registry.value) + temp_r0) + 0) = arg1;
-    temp_r4 = (u8 *)(&floor_map_registry.value) + temp_r0;
+    *(s32 *)((s8 *)((u8 *)&floor_map_registry.value + temp_r0) + 0) = arg1;
+    temp_r4 = (u8 *)&floor_map_registry.value + temp_r0;
     *(s32 *)((s8 *)temp_r4 + 4) = arg2;
     *(s32 *)((s8 *)temp_r4 + 8) = arg3;
     return 1;
@@ -194,16 +194,16 @@ void randomize_adventure_maps(void) {
       switch (main_phase)
       {
         case 14:
-          *((s32 *) (((s8 *) var_r31) + 4)) = (s32) (((f32) (*((s32 *) (((s8 *) (&adventure_map_variation_count_table.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))))) * (lbl_805DC610 * ((f32) rand())));
-          *((s32 *) (((s8 *) var_r31) + 8)) = (s32) (((f32) (*((s32 *) (((s8 *) (((u8 *) (&adventure_map_variation_count_table.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))) + 4)))) * (lbl_805DC610 * ((f32) rand())));
+          *((s32 *) (((s8 *) var_r31) + 4)) = (s32) (((f32) (*((s32 *) (((s8 *)&adventure_map_variation_count_table.value) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))))) * (lbl_805DC610 * ((f32) rand())));
+          *((s32 *) (((s8 *) var_r31) + 8)) = (s32) (((f32) (*((s32 *) (((s8 *) (((u8 *)&adventure_map_variation_count_table.value) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))) + 4)))) * (lbl_805DC610 * ((f32) rand())));
           break;
         case 15:
-          *((s32 *) (((s8 *) var_r31) + 4)) = (s32) (((f32) (*((s32 *) (((s8 *) (&online_floor_map_variation_dimension_table.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))))) * (lbl_805DC610 * ((f32) rand())));
-          *((s32 *) (((s8 *) var_r31) + 8)) = (s32) (((f32) (*((s32 *) (((s8 *) (((u8 *) (&online_floor_map_variation_dimension_table.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))) + 4)))) * (lbl_805DC610 * ((f32) rand())));
+          *((s32 *) (((s8 *) var_r31) + 4)) = (s32) (((f32) (*((s32 *) (((s8 *)&online_floor_map_variation_dimension_table.value) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))))) * (lbl_805DC610 * ((f32) rand())));
+          *((s32 *) (((s8 *) var_r31) + 8)) = (s32) (((f32) (*((s32 *) (((s8 *) (((u8 *)&online_floor_map_variation_dimension_table.value) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))) + 4)))) * (lbl_805DC610 * ((f32) rand())));
           break;
         default:
-          *((s32 *) (((s8 *) var_r31) + 4)) = (s32) (((f32) (*((s32 *) (((s8 *) (&adventure_map_variation_count_table.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))))) * (lbl_805DC610 * ((f32) rand())));
-          *((s32 *) (((s8 *) var_r31) + 8)) = (s32) (((f32) (*((s32 *) (((s8 *) (((u8 *) (&adventure_map_variation_count_table.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))) + 4)))) * (lbl_805DC610 * ((f32) rand())));
+          *((s32 *) (((s8 *) var_r31) + 4)) = (s32) (((f32) (*((s32 *) (((s8 *)&adventure_map_variation_count_table.value) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))))) * (lbl_805DC610 * ((f32) rand())));
+          *((s32 *) (((s8 *) var_r31) + 8)) = (s32) (((f32) (*((s32 *) (((s8 *) (((u8 *)&adventure_map_variation_count_table.value) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))) + 4)))) * (lbl_805DC610 * ((f32) rand())));
           break;
       }
     }

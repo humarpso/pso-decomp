@@ -95,8 +95,8 @@ void TObjEneDf2Bringer::vfunc_105() {
         frame = self->frame;
         if (frame < TObjEneDf2Bringer__data_805D97E0) {
             frame = TObjEneDf2Bringer__data_805D97E0;
-        } else if (frame > (f32)(mot->count - 1)) {
-            frame = (f32)(mot->count - 1);
+        } else if (frame > (mot->count - 1)) {
+            frame = (mot->count - 1);
         }
         TObjPlayer::set_global_flag();
         draw_model_motion((void *)self->f34, mot, frame);

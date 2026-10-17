@@ -911,7 +911,7 @@ void TObjDFTenchuFuru::run_task() {
     s32 temp_r0;
     this->m_20 = (f32) (this->m_20 + lbl_805D8AC0);
     if ((u32) *(u32 *)&this->m_2c != 0U) {
-        ((TNowLoading *)(*(void * *)&this->m_2c))->copy_pos((void *) (arg0 + 0x1C));
+        ((TNowLoading *)(*(void * *)&this->m_2c))->copy_pos(arg0 + 0x1C);
     }
     temp_r0 = this->m_28 - 1;
     this->m_28 = temp_r0;
@@ -979,15 +979,15 @@ void TObjDFTenchuFuru::transform_node_tree() {
     var_r31 = arg0;
     do {
         push_matrix();
-        post_translate_matrix((void *) (var_r31 + 8));
-        rotate_matrix_by_node_angles((void *) (var_r31 + 0x14), (int) (((RecoveredFields_80051AD0_var_r31 *)var_r31)->field_0 & 0x20));
-        scale_current_matrix((void *) (var_r31 + 0x20));
+        post_translate_matrix(var_r31 + 8);
+        rotate_matrix_by_node_angles(var_r31 + 0x14, (int) (((RecoveredFields_80051AD0_var_r31 *)var_r31)->field_0 & 0x20));
+        scale_current_matrix(var_r31 + 0x20);
         switch ((s32) (*(s32 *)&TObjDFTenchuFuru__matrix_node_index)) {
         case 0x3B:
-            matrix_mult_vec(0, (void *) (&dark_falz_jisin_zero_vec.value), (void *) (&lbl_804FF228.value));
+            matrix_mult_vec(0, &dark_falz_jisin_zero_vec.value, &lbl_804FF228.value);
             break;
         case 0x3A:
-            matrix_mult_vec(0, (void *) (&dark_falz_jisin_zero_vec.value), (void *) (&lbl_804FF234.value));
+            matrix_mult_vec(0, &dark_falz_jisin_zero_vec.value, &lbl_804FF234.value);
             break;
         }
         (*(s32 *)&TObjDFTenchuFuru__matrix_node_index) += 1;

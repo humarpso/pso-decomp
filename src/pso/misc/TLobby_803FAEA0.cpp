@@ -573,7 +573,7 @@ void TLobby__sub_803FB184(u8 *arg0) {
 
 s32 NetApplyConnectionConfig(u8 *arg0) {
   u8 *g = (u8 *) &lbl_805BFF68;
-  NetStoreTick((s32 *)((void *) (arg0 + 0x38)));
+  NetStoreTick((s32 *)(arg0 + 0x38));
   TLobby::lock_mutex((int)((void *) ((s32 *)&lbl_805C18A0)[0]));
   if (((s16) lbl_805D7A84) == 0)
   {
@@ -585,9 +585,9 @@ s32 NetApplyConnectionConfig(u8 *arg0) {
     *((s32 *) (((s8 *) g) + 0x10)) = (s32) (*((s32 *) (((s8 *) arg0) + 0xC)));
     *((s32 *) (((s8 *) g) + 0x14)) = (s32) (*((s32 *) (((s8 *) arg0) + 0x10)));
     *((s32 *) (((s8 *) g) + 0x18)) = (s32) (*((s32 *) (((s8 *) arg0) + 0x14)));
-    NetMemcpy((void *) (g + 0x7C), (void *) (arg0 + 0x18), 0xA);
-    NetMemcpy((void *) (g + 0x88), (void *) (arg0 + 0x24), 0x10);
-    NetMemcpy((void *) (g + 0x98), (void *) (arg0 + 0x34), 0x10);
+    NetMemcpy(g + 0x7C, arg0 + 0x18, 0xA);
+    NetMemcpy(g + 0x88, arg0 + 0x24, 0x10);
+    NetMemcpy(g + 0x98, arg0 + 0x34, 0x10);
     if (((s16) (*((s16 *) (((s8 *) g) + 0x9A)))) == 0)
     {
       *((s16 *) (((s8 *) g) + 0x9A)) = (s16) (*((s16 *) (((s8 *) ((s32 *)&lobby_net_buffer_desc_b)) + 0x14)));
@@ -598,8 +598,8 @@ s32 NetApplyConnectionConfig(u8 *arg0) {
     *((s32 *) (((s8 *) g) + 0xB4)) = (s32) (*((s32 *) (((s8 *) arg0) + 0x50)));
     *((s32 *) (((s8 *) g) + 0xB8)) = (s32) (*((s32 *) (((s8 *) arg0) + 0x54)));
     *((s32 *) (((s8 *) g) + 0xBC)) = (s32) (*((s32 *) (((s8 *) arg0) + 0x58)));
-    NetMemcpy((void *) (g + 0xC0), (void *) (arg0 + 0x5C), 8);
-    NetMemcpy((void *) (g + 0xC8), (void *) (arg0 + 0x64), 8);
+    NetMemcpy(g + 0xC0, arg0 + 0x5C, 8);
+    NetMemcpy(g + 0xC8, arg0 + 0x64, 8);
     lbl_805D7A82 = 0;
     lbl_805D7A8A = 1;
     lbl_805D7A88 = 1;
@@ -890,7 +890,7 @@ struct Self_8040098C;
 #pragma dont_inline off
 #pragma inline_depth(4)
 #define FWD_80405A74()                                                       \
-    (*(s16 *)(G + 0x13A))++;                                            \
+    (*(G + 0x13A))++;                                            \
     t = (Strm_80405A74 *)((TLobby *)arg0)->alloc_from_buffer(4); \
     p = t->p;                                                                \
     *p++ = 0xFF;                                                             \
@@ -898,7 +898,7 @@ struct Self_8040098C;
     write_network_u16_be(p, code);                                           \
     u = t;                                                                   \
     if (u == NULL) {                                                         \
-        (*(s16 *)(G + 0x142))++;                                        \
+        (*(G + 0x142))++;                                        \
         return;                                                              \
     }                                                                        \
     if (TLobby__sub_80401BCC(&u, &lobby_ppp_read_buf, 2) == 2) {                   \

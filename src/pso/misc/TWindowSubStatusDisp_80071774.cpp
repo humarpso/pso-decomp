@@ -52,7 +52,7 @@ s32 *TWindowSubStatusDisp::get_status_window(int arg0) {
     if (character_save_record == 0U) {
         return &lbl_805D285C;
     }
-    return TWindowSubStatusDisp__sub_80071820((u32)(character_save_record + 0x21C4));
+    return TWindowSubStatusDisp__sub_80071820(character_save_record + 0x21C4);
 }
 
 typedef char RecoveredGlobal_80071820_lbl_804FF820_size[sizeof(RecoveredGlobal_80071820_lbl_804FF820) == 0xC ? 1 : -1];
@@ -60,7 +60,7 @@ s32 *TWindowSubStatusDisp__sub_80071820(u32 arg0) {
     if (arg0 == 0U) {
         return &lbl_805D2858;
     }
-    ((TLobby *)(&lbl_804FF820.value))->decode_obfuscated_string((void *) (arg0 + 0xD8), 0xC);
+    ((TLobby *)(&lbl_804FF820.value))->decode_obfuscated_string((void *)(arg0 + 0xD8), 0xC);
     return &lbl_804FF820.value;
 }
 
@@ -135,7 +135,7 @@ s32 TWindowSubStatusDisp__sub_80071A24(s32 arg0, u16 arg1, s32 slot) {
     if ((arg0 < 0) || (arg0 >= temp_r3) || (character_save_record == 0U)) {
         return 0;
     }
-    return TLobby::get_valid_slot((int) (*(s32 *)((s8 *)(TWindowSubStatusDisp__sub_8006F0D8((void *) (character_save_record + 0x21C4), (void *)slot)) + (arg0 * 4))));
+    return TLobby::get_valid_slot((int) (*(s32 *)((s8 *)(TWindowSubStatusDisp__sub_8006F0D8((void *)(character_save_record + 0x21C4), (void *)slot)) + (arg0 * 4))));
 }
 
 }

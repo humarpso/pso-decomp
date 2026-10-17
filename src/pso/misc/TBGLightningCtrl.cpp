@@ -89,7 +89,7 @@ extern void *camera_ctrl_instance;
 extern int bg_lightning_texture_handle;
 extern void *tl_05;
 
-void TBGLightningCtrl__sub_802A9A08(void) { TObjFish::set_global_param((s32)(bg_lightning_texture_handle)); }
+void TBGLightningCtrl__sub_802A9A08(void) { TObjFish::set_global_param(bg_lightning_texture_handle); }
 
 #pragma push
 #pragma fp_contract on
@@ -116,7 +116,7 @@ void TBGLightningCtrl::run_task() {
     s32 temp_r3;
 
     temp_r3 = *(s32 *)&((TBGLightningCtrl *)this)->m_90;
-    *(s32 *)&((TBGLightningCtrl *)this)->m_90 = (s32) (temp_r3 - 1);
+    *(s32 *)&((TBGLightningCtrl *)this)->m_90 = (temp_r3 - 1);
     if (temp_r3 <= 0) {
         temp_f2 = (f32) ((int (*)(void))rand)();
         temp_f1 = (3.0517578e-05f) * temp_f2;
@@ -205,7 +205,7 @@ void fn_802A9DF4(Obj_802A9DF4 *self, Vec_802A9DF4 *dir) {
         break;
     default:
         idx = 3;
-        scale = 0.5f - 0.5f * (f32)(self->f1d - 5) / 7.0f;
+        scale = 0.5f - 0.5f * (self->f1d - 5) / 7.0f;
         break;
     }
     d.x = dir->x * (64.0f * self->f2c);
@@ -217,7 +217,7 @@ void fn_802A9DF4(Obj_802A9DF4 *self, Vec_802A9DF4 *dir) {
     TBGLightningCtrl__sub_802A9A08();
     set_texture_num(idx + lbl_8046FC8C[self->f1c]);
     TParticleCtrl::setup_particle_draw(1);
-    submit_particle_quad(self, (f32 *)(&p), (f32 *)(&d), (s32)(__cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF));
+    submit_particle_quad(self, (f32 *)&p, (f32 *)&d, (s32)(__cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF));
     TParticleCtrl::reset_particles();
 }
 #pragma pop
@@ -238,7 +238,7 @@ void fn_802A9F48(Obj_802A9F48 *self, Vec_802A9F48 *dir) {
         scale = 1.0f;
         break;
     default:
-        scale = 0.5f - 0.5f * (f32)(self->f1d - 4) / 8.0f;
+        scale = 0.5f - 0.5f * (self->f1d - 4) / 8.0f;
         break;
     }
     d.x = dir->x * (64.0f * self->f2c);
@@ -250,7 +250,7 @@ void fn_802A9F48(Obj_802A9F48 *self, Vec_802A9F48 *dir) {
     TBGLightningCtrl__sub_802A9A08();
     set_texture_num(0);
     TParticleCtrl::setup_particle_draw(1);
-    submit_particle_quad(self, (f32 *)(&p), (f32 *)(&d), (s32)(__cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF));
+    submit_particle_quad(self, (f32 *)&p, (f32 *)&d, (s32)(__cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF));
     TParticleCtrl::reset_particles();
 }
 #pragma pop

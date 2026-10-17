@@ -331,7 +331,7 @@ void run_task__19TBoss3VoloptMonitorFv(u8 *arg0) {
     if (obj_testFlags30(arg0, 0x800) == 0) {
         copy_position__20TBoss3VoloptHiraisinFi((s32)arg0);
         submit_cursor_candidate(arg0, -1);
-        minimap_render_dot((void *) (arg0 + 0x38), -0x5DB4, 1, 0);
+        minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
     }
     if (!(*(s32 *)&((TBoss3VoloptMonitor *)arg0)->actorFlags& 0x800)) {
         if ((((TBoss3VoloptMonitor *)arg0)->m_390 -= 1) <= 0) {
@@ -358,7 +358,7 @@ void run_task__19TBoss3VoloptMonitorFv(u8 *arg0) {
     if ((s32) vol_opt_active_hit_zone >= 0) {
         temp_r3_4 = ((TBoss3VoloptMonitor *)arg0)->m_38c;
         temp_r5 = ((s32) vol_opt_active_hit_zone / 4) * 4;
-        if ((temp_r3_4 >= temp_r5) && (temp_r3_4 < (s32) (temp_r5 + 4))) {
+        if ((temp_r3_4 >= temp_r5) && (temp_r3_4 < (temp_r5 + 4))) {
             var_r4 = 1;
         }
     }
@@ -530,7 +530,7 @@ u8 *TBoss3VoloptMonitor__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)&((TBoss3VoloptMonitor *)arg0)->variant = 0;
     *(s16 *)&((TBoss3VoloptMonitor *)arg0)->timer = 0;
     ((TBoss3VoloptMonitor *)arg0)->sub_80042510();
-    init_collision_body_parts(arg0, (void *) (&TBoss3VoloptMonitor__collision_body_part_table.value), 1);
+    init_collision_body_parts(arg0, &TBoss3VoloptMonitor__collision_body_part_table.value, 1);
     ((TBoss3VoloptMonitor *)arg0)->sub_80042944(1);
     return arg0;
 }

@@ -189,7 +189,7 @@ void sj_memory_buffer_shutdown(void) {
     temp_r0 = sj_memory_buffer_init_count - 1;
     sj_memory_buffer_init_count = temp_r0;
     if (temp_r0 == 0) {
-        memset((void *) (&sj_memory_buffer_pool), 0, 0x480);
+        memset(&sj_memory_buffer_pool, 0, 0x480);
     }
 }
 

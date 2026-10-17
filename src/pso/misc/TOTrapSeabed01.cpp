@@ -268,14 +268,14 @@ void check_hold_player__14TOTrapSeabed01FPv(u8 *arg0) {
     *(u16 *)((s8 *)arg0 + 0x33C) = find_nearest_visible_player(arg0, 0, (f32) (*(f32 *)((s8 *)arg0 + 0x334)));
     id = *(u16 *)((s8 *)arg0 + 0x33C);
     if ((id != 0xFFFF) && (temp_r3 = (u32)get_player_by_client_id(id), *(u32 *)((s8 *)arg0 + 0x2A8) = temp_r3, temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x2A8), ((temp_r3_2 == 0U) == 0))) {
-        temp_f31 = horizontal_distance_squared((void *) (temp_r3_2 + 0x38), (void *) (arg0 + 0x38));
+        temp_f31 = horizontal_distance_squared((void *)(temp_r3_2 + 0x38), (void *)(arg0 + 0x38));
         *(f32 *)((s8 *)arg0 + 0x338) = (f32) (*(f32 *)((s8 *)arg0 + 0x338) - TObjPlayer__sub_8017A1A4(temp_r3, 0));
         temp_f0 = *(f32 *)((s8 *)arg0 + 0x338);
         if (temp_f31 < (temp_f0 * temp_f0)) {
             if (TRaderMapCore::is_not_split_screen() == 1) {
-                send_6x2C_impose_hold(temp_r3, (void *) (arg0 + 0x38), -1, 0, (f32) (*(f32 *)((s8 *)arg0 + 0x338)));
+                send_6x2C_impose_hold(temp_r3, arg0 + 0x38, -1, 0, (f32) (*(f32 *)((s8 *)arg0 + 0x338)));
             } else if ((s32) *(u16 *)((s8 *)arg0 + 0x33C) == (s32) local_client_id) {
-                send_6x2C_impose_hold(temp_r3, (void *) (arg0 + 0x38), -1, 0, (f32) (*(f32 *)((s8 *)arg0 + 0x338)));
+                send_6x2C_impose_hold(temp_r3, arg0 + 0x38, -1, 0, (f32) (*(f32 *)((s8 *)arg0 + 0x338)));
             }
             ((TOTrapSeabed01 *)arg0)->sub_802C9C18(0);
             return;
@@ -314,7 +314,7 @@ void TOTrapSeabed01::vfunc_81() {
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 0x08001F04U);
         set_indexed_flags(arg0, 0, 0x8003);
         ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x40000U);
-        check_hold_player__14TOTrapSeabed01FPv((u8 *)(arg0));
+        check_hold_player__14TOTrapSeabed01FPv(arg0);
     }
 }
 
@@ -371,7 +371,7 @@ extern s32 lbl_805D681C;
 extern s32 seabed01_ginja_mesh_index;
 
 void TOTrapSeabed01::render_effect_layers() {
-    TObjFish::set_global_param((s32)((void *)(TOTrapSeabed01__texture_file)));
+    TObjFish::set_global_param((s32)(TOTrapSeabed01__texture_file));
     if ((s32) actor_frame_tick != (s32) lbl_805D681C) {
         if (((void *) (*(u8 **)&TOTrapSeabed01__ginja_model) != NULL) && ((s32) seabed01_ginja_mesh_index != -1)) {
             scroll_ginja_mesh_uvs((int) (*(s32 *)((s8 *)(*(u8 **)&TOTrapSeabed01__ginja_model) + 4)), 0, -0x14, (void *) ((u16) seabed01_ginja_mesh_index), 1);
@@ -408,18 +408,18 @@ void TOTrapSeabed01::draw_object_tree(u8 *arg1) {
         temp_r31 = *(s32 *)((s8 *)var_r30 + 0);
         push_matrix();
         if (!(temp_r31 & 1)) {
-            post_translate_matrix((void *) (var_r30 + 8));
+            post_translate_matrix(var_r30 + 8);
         }
         if (!(temp_r31 & 2)) {
-            rotate_matrix_by_node_angles((void *) (var_r30 + 0x14), (void *) (temp_r31 & 0x20));
+            rotate_matrix_by_node_angles(var_r30 + 0x14, (void *) (temp_r31 & 0x20));
         }
         if (!(temp_r31 & 4)) {
-            scale_current_matrix((void *) (var_r30 + 0x20));
+            scale_current_matrix(var_r30 + 0x20);
         }
         if (!(temp_r31 & 8)) {
             if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x34C) != 0) {
                 setup_particle_tev(0);
-                TObjFish::set_global_param((s32)((void *)(TOTrapSeabed01__texture_file)));
+                TObjFish::set_global_param((s32)(TOTrapSeabed01__texture_file));
                 ((TOTrapAncient02 *)0x38E)->load_projection_tex_matrix();
                 draw_ginja_model((*(s32 *)((s8 *)var_r30 + 4)));
                 TParticleCtrl::disable_if_single_screen();
@@ -443,7 +443,7 @@ void TOTrapSeabed01::draw() {
         set_depth_buffer_settings_3();
         set_depth_buffer_settings_id(1);
         TParticleCtrl::begin_effect_render();
-        TObjFish::set_global_param((s32)(TOTrapSeabed01__texture_file));
+        TObjFish::set_global_param(TOTrapSeabed01__texture_file);
         push_matrix();
         post_translate_matrix(((u8 *)this) + 0x38);
         ((s32 (*)(int, int))rotate_matrix_y)(0, (int)(*(s32 *)((s8 *)((u8 *)this) + 0x60)));
@@ -684,7 +684,7 @@ u8 *TOTrapSeabed01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xC8) = (f32) lbl_805DE640;
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) TOTrapSeabed01__data_805DE644[0];
     ((TOTrapSeabed01 *)arg0)->clamp_params_and_init();
-    init_collision_body_parts(arg0, (void *) (&seabed_trap_collision_body), 1);
+    init_collision_body_parts(arg0, &seabed_trap_collision_body, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x60040000);

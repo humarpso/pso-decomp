@@ -317,16 +317,16 @@ void TObjEneRe2Flower::vfunc_28() {  }
 void dispatch_action__16TObjEneRe2FlowerFiUii(s32 arg0, u32 arg1, s32 arg2) {
     switch (arg1) {
     case 0:
-        ((TObjEneRe2Flower *)arg0)->dispatch_action((s32)(arg2));
+        ((TObjEneRe2Flower *)arg0)->dispatch_action(arg2);
         return;
     case 1:
-        ((TObjEneDD *)arg0)->handle_state((s32)(arg2));
+        ((TObjEneDD *)arg0)->handle_state(arg2);
         return;
     case 2:
         handle_flower_state_change((void *)arg0, (arg2));
         return;
     case 3:
-        ((TObjEneDD *)arg0)->state_chase_target((s32)(arg2));
+        ((TObjEneDD *)arg0)->state_chase_target(arg2);
         return;
     case 4:
         fn_800C32DC((u8 *)arg0, (arg2));
@@ -335,7 +335,7 @@ void dispatch_action__16TObjEneRe2FlowerFiUii(s32 arg0, u32 arg1, s32 arg2) {
         fn_800C3088((u8 *)arg0, (arg2));
         return;
     case 9:
-        ((TObjEneDD *)arg0)->state_damaged((s32)(arg2));
+        ((TObjEneDD *)arg0)->state_damaged(arg2);
         return;
     case 10:
         fn_800C2AC4((u8 *)arg0, (arg2));
@@ -344,7 +344,7 @@ void dispatch_action__16TObjEneRe2FlowerFiUii(s32 arg0, u32 arg1, s32 arg2) {
         TObjEneRe2Flower__sub_800C2E64((void *)arg0, (void *)arg2);
         return;
     case 7:
-        ((TObjEneRe2Flower *)arg0)->handle_event((s32)(arg2));
+        ((TObjEneRe2Flower *)arg0)->handle_event(arg2);
         return;
     case 8:
         TObjEneDD__sub_800C2628((u8 *)arg0, (arg2));
@@ -368,7 +368,7 @@ void TObjEneRe2Flower__sub_800C3F70(u8 *arg0) {
         temp_r3 = ((TObjEneRe2Flower *)arg0)->mode;
         if ((temp_r3 == 0) || (temp_r3 == 1)) {
             ((VObj_14_2f517b *)(arg0 + (1012)))->m2();
-            transition_enemy_state((void *)(arg0), 2);
+            transition_enemy_state(arg0, 2);
         }
     }
     ((TObjEneRe2Flower *)arg0)->sub_800C3DC4();
@@ -427,13 +427,13 @@ void TObjPlayer__sub_800C44C4(void) {
     lbl_805D5180 = 0;
     TObjPlayer::create_render_texture();
     TObjPlayer__sub_800F0928();
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_8043BB90.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_8043BB90.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&lbl_8043BB90.value) + 8);
-    stack.sp14 = *(s32 *)((s8 *)(&lbl_8043BB90.value) + 0xC);
+    stack.sp8 = *(s32 *)((s8 *)&lbl_8043BB90.value + 0);
+    stack.spC = *(s32 *)((s8 *)&lbl_8043BB90.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&lbl_8043BB90.value + 8);
+    stack.sp14 = *(s32 *)((s8 *)&lbl_8043BB90.value + 0xC);
     stack.sp8 = *(s32 *)((s8 *)lbl_805D5174 + 0x430);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)lbl_805D5174 + 0x42C));
-    TLobby::spawn_npc_enemy((s16)(0x37), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 8))), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0xC))), (s32)((void *) (&stack.sp8)), (f32)(lbl_805D9FBC), (f32)(lbl_805D9FAC));
+    TLobby::spawn_npc_enemy((s16)(0x37), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 8))), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0xC))), (s32)((void *)&stack.sp8), (f32)lbl_805D9FBC, (f32)lbl_805D9FAC);
 }
 s32 TObjPlayer::hit_area_targets(u8 *arg1, s32 arg2, u32 object, f32 range) {
     s32 result;

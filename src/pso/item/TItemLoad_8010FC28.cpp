@@ -20,7 +20,7 @@ extern s32 item_load_compressed_work_buffer;
 
 void TItemLoad::advance_load_state() {
     u8 *arg0 = (u8 *)this;
-    if (test_flags_any((void *) (arg0 + 0x1C), 4) == 0) {
+    if (test_flags_any(arg0 + 0x1C, 4) == 0) {
         if ((s32) item_load_work_buffer_busy != 1) {
             item_load_work_buffer_busy = 1;
             ((TObjPlayer *)(arg0 + 0x1C))->set_flags(4);
@@ -30,7 +30,7 @@ void TItemLoad::advance_load_state() {
 block_3:
         if (((TItemLoad *)arg0)->load_data((int) (*(s32 *)((s8 *)arg0 + 0x20))) != 0U) {
             TItemLoad__sub_801107DC(arg0);
-            ((TItemLoad *)arg0)->request_load((s32)(item_load_compressed_work_buffer));
+            ((TItemLoad *)arg0)->request_load(item_load_compressed_work_buffer);
             *(s32 *)((s8 *)arg0 + 0x18) = 2;
         }
     }
@@ -39,7 +39,7 @@ typedef char RecoveredGlobal_8010FCB4_lbl_8049F42C_size[sizeof(RecoveredGlobal_8
 u8 *__dt__13TUnk_8049F42CFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x14) = &lbl_8049F42C.value;
-        if (test_flags_any((void *) (arg0 + 0x1C), 4) != 0) {
+        if (test_flags_any(arg0 + 0x1C, 4) != 0) {
             item_load_work_buffer_busy = 0;
         }
         ((TUnk_8049F42C *)arg0)->sub_80110010(0);

@@ -142,8 +142,8 @@ void TObjPlayer::play_particle_effect_once() {
     }
 }
 void TObjPlayer__sub_80101088(void) {
-    if (test_flags_any((s32 *)((void *) (&lbl_805D53EC)), 1) != 0) {
-        copy_vec4__13TRaderMapCoreFPvPv((void *) (&model_material_color.value), (void *) (&saved_model_draw_color.value));
+    if (test_flags_any((s32 *)(&lbl_805D53EC), 1) != 0) {
+        copy_vec4__13TRaderMapCoreFPvPv(&model_material_color.value, &saved_model_draw_color.value);
         model_render_flags = lbl_805D5660;
         ((TAdRicoRing *)(&lbl_805D53EC))->clear_flags(1);
     }
@@ -211,7 +211,7 @@ s16 TObjPlayer::calc_equip_bonus(u16 arg0) {
 void TItemEquipBase::send_6x61_activate_mag_effect(s32 arg1) {
     Stack_801012DC stack;
     if (((u32) this->m_f0 != 0U) && (TOKeyMachine01::get_global_state() != 0xF) && (obj_isState2_324__13TUnk_804806E8Fv(this->m_f0) == 0)) {
-        TObjPlayer__sub_80102D84((u8 *)(&stack.sp8));
+        TObjPlayer__sub_80102D84((u8 *)&stack.sp8);
         stack.spC = ((TItem *)((u8 *)this))->get_field_d8();
         stack.sp10 = arg1;
         ((TObjPlayer *)(&stack.sp8))->bswap_and_send_6x61();

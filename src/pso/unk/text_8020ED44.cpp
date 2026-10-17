@@ -24,9 +24,9 @@ void generate_armor_shop_stock(s32 arg0) {
     s32 temp_r7;
     if ((u32) lbl_805D6158 != 0U) {
         temp_r7 = arg0 * 4;
-        if ((s32) *(s32 *)((s8 *)(&shop_armor_stock_generated_flags.value) + temp_r7) == 0) {
-            *(s32 *)((s8 *)(&shop_armor_stock_generated_flags.value) + temp_r7) = 1;
-            *(s32 *)((s8 *)(&lbl_80513D68.value) + temp_r7) = 0;
+        if ((s32) *(s32 *)((s8 *)&shop_armor_stock_generated_flags.value + temp_r7) == 0) {
+            *(s32 *)((s8 *)&shop_armor_stock_generated_flags.value + temp_r7) = 1;
+            *(s32 *)((s8 *)&lbl_80513D68.value + temp_r7) = 0;
             generate_shop_armor_pool(arg0);
             generate_shop_shield_pool(arg0);
             generate_shop_unit_pool(arg0);

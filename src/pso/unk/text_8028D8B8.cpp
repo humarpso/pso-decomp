@@ -41,11 +41,11 @@ void fn_8028D8F4(void) {
 }
 
 void fn_8028D940(void) {
-    *(s32 *)((s8 *)(&lbl_8051C070.value) + 0) = (s32)fn_8029AE88((void *)tl_03);
-    *(s32 *)((s8 *)(&lbl_8051C070.value) + 4) = (s32)create_TChCrEffTag((void *)tl_03);
-    *(s32 *)((s8 *)(&lbl_8051C070.value) + 8) = 0;
+    *(s32 *)((s8 *)&lbl_8051C070.value + 0) = (s32)fn_8029AE88((void *)tl_03);
+    *(s32 *)((s8 *)&lbl_8051C070.value + 4) = (s32)create_TChCrEffTag((void *)tl_03);
+    *(s32 *)((s8 *)&lbl_8051C070.value + 8) = 0;
     if (TChCrEffCtrlPl__sub_80298F6C() != 0) {
-        *(s32 *)((s8 *)(&lbl_8051C070.value) + 8) = create__14TChCrEffCtrlPlFv(tl_03);
+        *(s32 *)((s8 *)&lbl_8051C070.value + 8) = create__14TChCrEffCtrlPlFv(tl_03);
     }
 }
 

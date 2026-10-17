@@ -212,7 +212,7 @@ void roll_item_channel_below(u32 count, s32 arg1) {
         roll_channel_below__9TItemDropFPviUi((u8 *)((*(u32 *)&item_mgr)), count, arg1);
         return;
     }
-    __cvt_fp2unsigned((f32) count * TObjPlayer::get_drop_random_float((u32)(arg1)));
+    __cvt_fp2unsigned((f32) count * TObjPlayer::get_drop_random_float(arg1));
 }
 
 void TObjPlayer::drop_item_from_slot(s32 area, s32 arg1, s32 arg2) {
@@ -280,7 +280,7 @@ s32 get_item_stat_boost_record(s32 arg0, s32 type, s32 id) {
 
 s32 get_unit_attribute_index__10TObjPlayerFUc(u8 arg0) {
     if ((arg0 & 0x3F) && !(arg0 & 0x80)) {
-        return get_item_star_count((s32)(arg0 + 0x1CB));
+        return get_item_star_count(arg0 + 0x1CB);
     }
     return 0;
 }

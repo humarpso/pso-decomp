@@ -43,7 +43,7 @@ void subtractive_rng_make_shuffle(s32* stream) {
  s32 i; u16 index; u8 value;
  for(i=0;i<256;i++) save_block_shuffle_permutation[i]=(u8)i;
  for(i=255;i>=0;i--) {
-  index=TAdSinglePlyChrSelectGC__sub_8007C584(stream,(u16)(i+1));
+  index=TAdSinglePlyChrSelectGC__sub_8007C584(stream,i+1);
   value=save_block_shuffle_permutation[index];
   save_block_shuffle_permutation[index]=save_block_shuffle_permutation[i];
   save_block_unshuffle_permutation[value]=(u8)i;

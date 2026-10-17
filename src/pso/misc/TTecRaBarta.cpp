@@ -467,7 +467,7 @@ void TTecRaBarta::run_task() {
         return;
     }
     temp_r4 = this->age;
-    this->age = (s32) (temp_r4 + 1);
+    this->age = (temp_r4 + 1);
     apply_technique_to_area_targets__13TUnk_804CC148Fv(arg0, temp_r4);
     if ((s32) this->age > (s16) this->m_a8) {
         queue_destruction__7TObjectFv((arg0));

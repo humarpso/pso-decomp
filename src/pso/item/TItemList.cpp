@@ -27,7 +27,7 @@ void* reset_position__9TItemListFPv(void* a0);
 s32 check_value_equals__13TQuestColCtrlFPll(s32, s32);
 
 void TItemList__sub_801D59DC(void* p) { *(s32*)((char*)p + 0x0) = 2; }
-void decrement_placement_search_pending(void* p, void* a1) { TItemList__sub_801D5A0C((s32 *)(a1)); }
+void decrement_placement_search_pending(void* p, void* a1) { TItemList__sub_801D5A0C((s32 *)a1); }
 
 void TItemList__sub_801D5A0C(s32 *arg0) {
     s32 temp_r0;
@@ -66,7 +66,7 @@ extern s32 lbl_804C445C[];
 void *TItemList__sub_801D5B10(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x24) = lbl_804C445C;
-        __dt__9TItemListFPvs((void *)(arg0), (s16)((s16)(0)));
+        __dt__9TItemListFPvs(arg0, (s16)((s16)(0)));
         if (arg1 > 0) {
             ::operator delete(arg0);
         }

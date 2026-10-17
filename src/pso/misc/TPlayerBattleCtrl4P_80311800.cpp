@@ -152,7 +152,7 @@ void TPlayerBattleCtrl4P::record_battle_results_after_delay() {
     s32 temp_r4;
     TPlayerBattleCtrl4P::update_all_players();
     temp_r4 = ready_timer;
-    ready_timer = (s32) (temp_r4 - 1);
+    ready_timer = (temp_r4 - 1);
     if ((set_state__19TPlayerBattleCtrl4PFv((void *) (((u8 *)this)), temp_r4) != 0) || ((s32) ready_timer <= 0)) {
         reset_score_counters();
         calculate_split_screen_battle_rankings((void *) (((u8 *)this)));

@@ -56,7 +56,7 @@ void TAdPlyPltAnimCtrlGC__sub_80355168(u8 *arg0) {
     } while (var_r31 < 5);
 }
 
-void TAdPlyPltAnimCtrlGC::init(void* a1) { TAdPlyPltAnimCtrlGC__sub_80355168((u8 *)(this)); ((TWindowSubSymbolChatPartsSet *)((char*)this + 0x24))->copy_vec2(a1); *(int *)&this->m_1c = 1; }
+void TAdPlyPltAnimCtrlGC::init(void* a1) { TAdPlyPltAnimCtrlGC__sub_80355168((u8 *)this); ((TWindowSubSymbolChatPartsSet *)((char*)this + 0x24))->copy_vec2(a1); *(int *)&this->m_1c = 1; }
 
 extern u32 plyplt_anim_ctrl_instance;
 

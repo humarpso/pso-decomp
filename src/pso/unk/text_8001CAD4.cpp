@@ -55,20 +55,20 @@ void TLoadingCur::update_camera_facing_offset() {
     Stack_8001CAD4 stack;
     if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) != 0U) {
         VecCopy((Vec *)(arg0 + 0x2C), (const Vec *)(arg0 + 0x20));
-        stack.sp8 = *(s32 *)((s8 *)(&lbl_804349FC.value) + 0);
-        stack.spC = *(s32 *)((s8 *)(&lbl_804349FC.value) + 4);
-        stack.sp10 = *(s32 *)((s8 *)(&lbl_804349FC.value) + 8);
-        *(f32 *)((s8 *)arg0 + 0x50) = (f32) -*(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0xC);
-        this->m_54 = (f32) -*(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x10);
-        *(f32 *)&this->unk_58 = (f32) -*(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x14);
+        stack.sp8 = *(s32 *)((s8 *)&lbl_804349FC.value + 0);
+        stack.spC = *(s32 *)((s8 *)&lbl_804349FC.value + 4);
+        stack.sp10 = *(s32 *)((s8 *)&lbl_804349FC.value + 8);
+        *(f32 *)((s8 *)arg0 + 0x50) = (f32) -*(f32 *)((s8 *)&lbl_804FF5E8.value + 0xC);
+        this->m_54 = (f32) -*(f32 *)((s8 *)&lbl_804FF5E8.value + 0x10);
+        *(f32 *)&this->unk_58 = (f32) -*(f32 *)((s8 *)&lbl_804FF5E8.value + 0x14);
         direction_to_rotation_xy((arg0 + 0x50), (&stack.sp8), (&stack.spC));
-        push_matrix_from((void *) (&identity_matrix.value));
+        push_matrix_from((void *)&identity_matrix.value);
         rotate_matrix_y(0, stack.spC);
         rotate_matrix_x(0, stack.sp8);
-        rotate_vector_by_matrix(0, (void *) (arg0 + 0x20), (void *) (arg0 + 0x2C));
+        rotate_vector_by_matrix(0, (void *)(arg0 + 0x20), (void *)(arg0 + 0x2C));
         pop_matrices(1);
-        vec3_add_to((void *) (arg0 + 0x2C), (void *) (arg0 + 0x44));
-        ((TNowLoading *)(*(u32 *)((s8 *)arg0 + 0x1C)))->copy_pos((void *) (arg0 + 0x2C));
+        vec3_add_to((void *)(arg0 + 0x2C), (void *)(arg0 + 0x44));
+        ((TNowLoading *)(*(u32 *)((s8 *)arg0 + 0x1C)))->copy_pos((void *)(arg0 + 0x2C));
     }
 }
 #pragma push

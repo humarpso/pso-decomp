@@ -27,7 +27,7 @@ u8 *fn_80350440(u8 *arg0, u8 *arg1, s32 arg2) {
         queue_destruction__7TObjectFv(pending_destroy_object);
     }
     pending_destroy_object = arg0;
-    play_area_music((char *)(*(s32 *)((s8 *)(&lbl_804F0D00.value) + (arg2 * 4))));
+    play_area_music((char *)(*(s32 *)((s8 *)&lbl_804F0D00.value + (arg2 * 4))));
     return arg0;
 }
 

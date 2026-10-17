@@ -34,7 +34,7 @@ s32 create_area_window(s32 arg0) {
     if (var_r30 != 0) {
         var_r30 = TWindowArea__ct();
     }
-    ((TWindowSubStatusDisp *)var_r30)->set_entry_display_value((s32)(arg0));
+    ((TWindowSubStatusDisp *)var_r30)->set_entry_display_value(arg0);
     fn_802449E0((u8 *)var_r30);
     temp_r31 = (u8 *)(get_title_entry__11TWindowRoomFv(var_r30));
     *(f32 *)((s8 *)temp_r31 + 8) = (f32) -((lbl_805DCAC0 * (f32) calc_text_width((char *)(arg0))) - lbl_805DCABC);

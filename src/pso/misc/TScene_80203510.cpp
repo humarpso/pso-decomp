@@ -304,7 +304,7 @@ void TScene::tick_material_fmt2() {
                 if (object->cycle->timer < 0) {
                     (*(s16 *)&object->cycle->index)++;
                     load_texture_sequence_frame(this, (SceneMaterialCycle*)(object->cycle));
-                    ((TObjDoorJung *)(node->model))->free_children((void *)(object->cycle->texture));
+                    ((TObjDoorJung *)(node->model))->free_children((void *)object->cycle->texture);
                     if (object->flags & 0x20) {
                         object->uv->texture = object->cycle->texture;
                     }
@@ -338,7 +338,7 @@ void TScene::tick_material_fmt2() {
                 if (anim->cycle->timer < 0) {
                     (*(s16 *)&anim->cycle->index)++;
                     load_texture_sequence_frame(this, (SceneMaterialCycle*)(anim->cycle));
-                    ((TObjDoorJung *)(node->model))->free_children((void *)(anim->cycle->texture));
+                    ((TObjDoorJung *)(node->model))->free_children((void *)anim->cycle->texture);
                 }
             }
             anim->flags |= 0x20000;
@@ -401,7 +401,7 @@ void TScene::tick_material_fmt1() {
                 if (object->cycle->timer < 0) {
                     (*(s16 *)&object->cycle->index)++;
                     load_texture_sequence_frame(this, (SceneMaterialCycle*)(object->cycle));
-                    ((TObjDoorJung *)(node->model))->free_children((void *)(object->cycle->texture));
+                    ((TObjDoorJung *)(node->model))->free_children((void *)object->cycle->texture);
                     if (object->flags & 0x20) {
                         object->uv->texture = object->cycle->texture;
                     }
@@ -433,7 +433,7 @@ void TScene::tick_material_fmt1() {
                 if (anim->cycle->timer < 0) {
                     (*(s16 *)&anim->cycle->index)++;
                     load_texture_sequence_frame(this, (SceneMaterialCycle*)(anim->cycle));
-                    ((TObjDoorJung *)(node->model))->free_children((void *)(anim->cycle->texture));
+                    ((TObjDoorJung *)(node->model))->free_children((void *)anim->cycle->texture);
                 }
             }
             anim->flags |= 0x20000;
@@ -988,7 +988,7 @@ void TScene::update_room_visibility_from_camera() {
                 fwd.z = lbl_805DC5E4;
                 push_matrix_from(identity_matrix);
                 rotate_matrix_y(0, (*(Cam_802043CC * *)&camera_ctrl_instance)->angY);
-                rotate_vector_by_matrix(0, (void *)(&fwd), (Vec_80204024 *)(&out));
+                rotate_vector_by_matrix(0, &fwd, (Vec_80204024 *)(&out));
                 pop_matrix();
                 normalize_vector((Vec_80204024 *)(&out));
                 if (vec3_dot(&dir, &out) < TScene__data_805DC5D8) {
@@ -1008,7 +1008,7 @@ void TScene::update_room_visibility_from_camera() {
         s32 k;
         push_matrix_from(identity_matrix);
         rotate_matrix_y(0, (*(Cam_802043CC * *)&camera_ctrl_instance)->angY);
-        rotate_vector_by_matrix(0, (void *)(&w), (Vec_80204024 *)(&out2));
+        rotate_vector_by_matrix(0, &w, (Vec_80204024 *)(&out2));
         normalize_vector((Vec_80204024 *)(&out2));
         pop_matrix();
         s = (*(SceneMaterialRoot * *)&TScene__data_805D5FCC)->sections;
@@ -1016,7 +1016,7 @@ void TScene::update_room_visibility_from_camera() {
             if (s->flags & 0x80000) {
                 update_room_object_visibility(s);
             } else if (s->id < 0) {
-                check_object_in_view_cone__6TSceneFiPvPvPvi((s32)this, (Obj_80204B78 *)(s), (Vec_80204024 *)(&(*(Cam_802043CC * *)&camera_ctrl_instance)->pos), (void *)(&out2), (s32)((*(Cam_802043CC * *)&camera_ctrl_instance)->f19C));
+                check_object_in_view_cone__6TSceneFiPvPvPvi((s32)this, (Obj_80204B78 *)(s), (Vec_80204024 *)(&(*(Cam_802043CC * *)&camera_ctrl_instance)->pos), &out2, (s32)((*(Cam_802043CC * *)&camera_ctrl_instance)->f19C));
             }
         }
     }
@@ -1123,7 +1123,7 @@ void advance_scene_object_animations(void) {
         for (j = 0; j < g->count; j++, a++) {
             if (!(a->flags & 0x40000)) {
                 a->frame += a->speed;
-                if (a->motion != NULL && a->frame > (f32)(a->motion->frames - 1)) {
+                if (a->motion != NULL && a->frame > (a->motion->frames - 1)) {
                     a->frame = TScene__data_805DC5D8;
                 }
                 a->flags |= 0x40000;

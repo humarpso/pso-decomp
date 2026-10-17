@@ -48,13 +48,13 @@ RecoveredGlobal_803D31A4_lbl_8058B6D4 svm_callback_counts;
 
 void TLobby::init_callback_tables() {
     if ((s32) lobby_callback_tables_refcount == 0) {
-        memset((void *) (&worker_callback_flag_table.value), 0, 0x1C);
-        memset((void *) (&lbl_805D766C), 0, 8);
-        memset((void *) (&lbl_805D7664), 0, 8);
-        *(s32 *)((s8 *)(&svm_callback_counts.value) + 0) = 0;
-        *(s32 *)((s8 *)(&svm_callback_counts.value) + 4) = 0;
-        *(s32 *)((s8 *)(&svm_callback_counts.value) + 8) = 0;
-        *(s32 *)((s8 *)(&svm_callback_counts.value) + 0xC) = 0;
+        memset((void *)&worker_callback_flag_table.value, 0, 0x1C);
+        memset((void *)&lbl_805D766C, 0, 8);
+        memset((void *)&lbl_805D7664, 0, 8);
+        *(s32 *)((s8 *)&svm_callback_counts.value + 0) = 0;
+        *(s32 *)((s8 *)&svm_callback_counts.value + 4) = 0;
+        *(s32 *)((s8 *)&svm_callback_counts.value + 8) = 0;
+        *(s32 *)((s8 *)&svm_callback_counts.value + 0xC) = 0;
     }
     lobby_callback_tables_refcount += 1;
 }
@@ -100,13 +100,13 @@ void TLobby__sub_803D33E4(s32 arg0, s32 arg1) {
     lbl_805D766C.b = arg1;
 }
 void TLobby::set_callback_params(s32 arg0, s32 arg1) {
-    if (((s32 (*)(s32)) *(s32 (**)(s32))((s8 *)(&lbl_805D766C) + 0)) != NULL) {
-        (*(s32 (**)(s32))((s8 *)(&lbl_805D766C) + 0))(*(s32 *)((s8 *)(&lbl_805D766C) + 4));
+    if (((s32 (*)(s32)) *(s32 (**)(s32))((s8 *)&lbl_805D766C + 0)) != NULL) {
+        (*(s32 (**)(s32))((s8 *)&lbl_805D766C + 0))(*(s32 *)((s8 *)&lbl_805D766C + 4));
     }
-    *(s32 *)((s8 *)(&lbl_805D765C) + 0) = arg0;
-    *(s32 *)((s8 *)(&lbl_805D765C) + 4) = arg1;
-    if (((s32 (*)(s32)) *(s32 (**)(s32))((s8 *)(&lbl_805D7664) + 0)) != NULL) {
-        (*(s32 (**)(s32))((s8 *)(&lbl_805D7664) + 0))(*(s32 *)((s8 *)(&lbl_805D7664) + 4));
+    *(s32 *)((s8 *)&lbl_805D765C + 0) = arg0;
+    *(s32 *)((s8 *)&lbl_805D765C + 4) = arg1;
+    if (((s32 (*)(s32)) *(s32 (**)(s32))((s8 *)&lbl_805D7664 + 0)) != NULL) {
+        (*(s32 (**)(s32))((s8 *)&lbl_805D7664 + 0))(*(s32 *)((s8 *)&lbl_805D7664 + 4));
     }
 }
 void TLobby__sub_803D346C(s32 arg0) {

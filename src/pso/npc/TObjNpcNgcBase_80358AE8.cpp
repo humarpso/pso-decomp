@@ -211,7 +211,7 @@ s32 TObjNpcNgcBase__sub_80358D08(s32 arg0) {
   s32 var_r0;
   s32 var_r30;
   new_var = (s8 *) (&(*(RecoveredGlobal_80358D08_TObjNpcNgcBase__data_805439A8 *)&TObjNpcNgcBase__data_805439A8).value);
-  if (((u32) (*((u32 *) (new_var + 0x24)))) != 0U)
+  if (((u32) (*((u32 *)(new_var + 0x24)))) != 0U)
   {
     temp_r3 = (var_r30 = __nw__7TObjectFUl(0x20));
     if (var_r30)
@@ -222,7 +222,7 @@ s32 TObjNpcNgcBase__sub_80358D08(s32 arg0) {
     var_r0 = temp_r3_2;
     if (var_r0 != 0)
     {
-      var_r0 = (s32)TObjNpcNgcBase__ct((u8 *)temp_r3_2, var_r30, arg0, (*((u32 *) (new_var + 0x24))));
+      var_r0 = (s32)TObjNpcNgcBase__ct((u8 *)temp_r3_2, var_r30, arg0, (*((u32 *)(new_var + 0x24))));
     }
     return var_r0;
   }
@@ -262,7 +262,7 @@ s32 create_variant_7__14TObjNpcNgcBaseFi(s32 arg0) {
   s32 var_r30;
   s8 *new_var;
   new_var = (s8 *) (&(*(RecoveredGlobal_80358E18_TObjNpcNgcBase__data_805439A8 *)&TObjNpcNgcBase__data_805439A8).value);
-  if (((u32) (*((u32 *) (new_var + 0x1C)))) != 0U)
+  if (((u32) (*((u32 *)(new_var + 0x1C)))) != 0U)
   {
     temp_r3 = (var_r30 = __nw__7TObjectFUl(0x20));
     if (var_r30 != 0)

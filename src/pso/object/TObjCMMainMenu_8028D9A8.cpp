@@ -52,8 +52,8 @@ void TObjCMMainMenu__sub_8028D9F8(void) {
 
 void TObjCMMainMenu::copy_char_name() {
     s32 arg0 = (s32)this;
-    strncpy((void *) (&character_creation_name_buffer.value), (void *)arg0, 0xC);
-    *(s8 *)((s8 *)(&character_creation_name_buffer.value) + 0xC) = 0;
+    strncpy((void *)&character_creation_name_buffer.value, (void *)arg0, 0xC);
+    *(s8 *)((s8 *)&character_creation_name_buffer.value + 0xC) = 0;
 }
 
 void TObjCMMainMenu::select_char_menu() {
@@ -109,10 +109,10 @@ s32 TObjCMMainMenu::get_current_char_flag() {
 void fn_8028DBC4(s32 _w0) {
     u8 *temp_r31;
     temp_r31 = (u8 *)(((s32)((void *)get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF))) + 0x370);
-    copy_player_visual_record((void *)(temp_r31), (void *)((int) (get_class_appearance_preset(0))));
+    copy_player_visual_record(temp_r31, (void *)((int) (get_class_appearance_preset(0))));
     *(s8 *)((s8 *)temp_r31 + 0x30) = -1;
 }
 int TAdSinglePlyChrSelectGC__sub_8028DC14(void) { return 1; }
-int TAdSinglePlyChrSelectGC__sub_8028DC1C(void* p) { fn_8028DBC4((s32)(p)); return 1; }
+int TAdSinglePlyChrSelectGC__sub_8028DC1C(void* p) { fn_8028DBC4((s32)p); return 1; }
 
 }

@@ -181,7 +181,7 @@ s32 TLobby::write_name_field(s32 *arg0, u8 *arg1) {
     sp12 = 0x102;
     NetMemcpy((void *)(*arg0), (&sp12), 2);
     *arg0 += 2;
-    temp_r3 = TLobby::str_length((s32)((void *) (arg1 + 0x3A)));
+    temp_r3 = TLobby::str_length((s32)(arg1 + 0x3A));
     sp10 = temp_r3;
     NetMemcpy((void *)(*arg0), (&sp10), 2);
     *arg0 += 2;
@@ -242,7 +242,7 @@ s16 TLobby::get_slot_id(s16 arg0) {
     if ((arg0 < 0) || (arg0 >= 1)) {
         return -1;
     }
-    return *(s16 *)((s8 *)((u8 *)(&lobby_pppoe_slot_table.value) + (arg0 * 0xE14)) + 0);
+    return *(s16 *)((s8 *)((u8 *)&lobby_pppoe_slot_table.value + (arg0 * 0xE14)) + 0);
 }
 
 #define TBL_80427D40 ((Ent_80427D40 *)&lobby_pppoe_slot_table)

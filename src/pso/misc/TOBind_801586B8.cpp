@@ -133,7 +133,7 @@ u8 *TOBind__ct(u8 *arg0, s32 arg1) {
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DB300;
     ((TOBind *)arg0)->m_bc = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xCC)) + 4) - lbl_805DB304);
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB304;
-    init_collision_body_parts(arg0, (void *) (&lbl_804AFC54.value), 2);
+    init_collision_body_parts(arg0, &lbl_804AFC54.value, 2);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(s32 *)&((TOBind *)arg0)->actorFlags = (s32) (*(s32 *)&((TOBind *)arg0)->actorFlags| 0x40000000);

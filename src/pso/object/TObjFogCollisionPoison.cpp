@@ -129,7 +129,7 @@ void record_fog_collision_hit(s32 arg0, s32 arg1, s32 arg2) {
     if ((arg0 >= 0) && (arg0 < 0xC)) {
         temp_r3 = *(s32 *)((s8 *)(&(*(RecoveredGlobal_801531EC_TObjFogCollisionPoison__data_8050D430 *)&TObjFogCollisionPoison__instances).value) + (arg0 * 4));
         if (temp_r3 != 0U) {
-            ((TObjFogCollisionPoison *)temp_r3)->record_hit((s32)(arg1), (s32)(arg2));
+            ((TObjFogCollisionPoison *)temp_r3)->record_hit(arg1, arg2);
         }
     }
 }
@@ -167,7 +167,7 @@ u8 *TObjFogCollisionPoison::construct_with_index(u8 *arg1, s32 arg2) {
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &lbl_804AF7C8.value;
     *(s32 *)&this->m_name = (s32) lbl_805D2E84;
     *(s32 *)&this->m_28 = arg2;
-    *(s32 *)((s8 *)(&TObjFogCollisionPoison__instances.value) + (*(s32 *)&this->m_28 * 4)) = (long) (((u8 *)this));
+    *(s32 *)((s8 *)&TObjFogCollisionPoison__instances.value + (*(s32 *)&this->m_28 * 4)) = (long) (((u8 *)this));
     *(s32 *)&this->m_1c = 0;
     *(s32 *)((s8 *)((u8 *)this) + 0x20) = 0;
     this->texture_id = 1;
@@ -231,7 +231,7 @@ void TObjFogCollisionPoison::apply_poison_damage(s32 arg1) {
 }
 
 void TObjFogCollisionPoison::record_poison_hit(u16 arg1) {
-    record_fog_collision_hit((s32)(arg1), (s32)(this->m_84), (s32)((int) ((u8) (*(s32 *)&this->m_88 == 0))));
+    record_fog_collision_hit(arg1, this->m_84, (s32)((int) ((u8) (*(s32 *)&this->m_88 == 0))));
 }
 void TObjFogCollisionPoison__sub_80153520(s32 arg0) {
     switch (TOKeyMachine01::get_global_state()) {

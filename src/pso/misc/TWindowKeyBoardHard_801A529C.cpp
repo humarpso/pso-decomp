@@ -120,7 +120,7 @@ void TLobby__sub_801A54E8(u8 *arg0) {
     temp_r4 = *(s32 *)((s8 *)arg0 + 0x8B8);
     if (temp_r4 > 0) {
         if (temp_r4 & 3) {
-            *(s32 *)((s8 *)arg0 + 0x8B8) = (s32) (temp_r4 + 3);
+            *(s32 *)((s8 *)arg0 + 0x8B8) = (temp_r4 + 3);
             *(s32 *)((s8 *)arg0 + 0x8B8) = (s32) (*(s32 *)((s8 *)arg0 + 0x8B8) & 0xFFFFFFFC);
         }
         ((VObj_801a54e8_801A529C *) arg0)->m8(arg0 + 0x8BC, *(s32 *)((s8 *)arg0 + 0x8B8));

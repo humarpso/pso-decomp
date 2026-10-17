@@ -43,7 +43,7 @@ void TChCrEffTag::refresh_label() {
     if (temp_r0 >= 0) {
         stack.sp8 = lbl_805DDC90;
         stack.spC = lbl_805DDC94;
-        *(u32 *)&this->label = create_str__11TChCrEffTagFPvPvPv(arg0, (int) (*(s32 *)((s8 *)(&lbl_804652A4.value) + (temp_r0 * 4))), (void *) (&stack.sp8));
+        *(u32 *)&this->label = create_str__11TChCrEffTagFPvPvPv(arg0, (int) (*(s32 *)((s8 *)&lbl_804652A4.value + (temp_r0 * 4))), (void *)&stack.sp8);
     }
 }
 

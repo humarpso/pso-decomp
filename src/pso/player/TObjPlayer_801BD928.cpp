@@ -79,8 +79,8 @@ u8 *TObjPlayer::construct_player_instance(s32 arg1, s16 arg2, s32 role, u8 *arg4
     *(s32 *)((s8 *)((u8 *)this) + 0) = (s32) lbl_805D3530;
     ((TObjPlayer *)((u8 *)this))->init_action_provider();
     *(s16 *)&this->m_1c = arg2;
-    ((TObjPlayer *)((u8 *)this))->setup_control_role((s32)(role));
-    update_body_parts__10TObjPlayerFv((void *) (((u8 *)this)), (void *) (arg4 + 0x370));
+    ((TObjPlayer *)((u8 *)this))->setup_control_role(role);
+    update_body_parts__10TObjPlayerFv((void *) (((u8 *)this)), arg4 + 0x370);
     sub_801BEE2C__10TObjPlayerFs((void *) (((u8 *)this)), (int) (*(u8 *)((s8 *)arg4 + 1)));
     sub_801BEE24__10TObjPlayerFs((void *) (((u8 *)this)), (int) (*(u8 *)((s8 *)arg4 + 2)));
     get_field_0x374__10TObjPlayerFv((void *) (((u8 *)this)), (void *) (TObjPlayer__sub_801C223C(arg4)));
@@ -88,12 +88,12 @@ u8 *TObjPlayer::construct_player_instance(s32 arg1, s16 arg2, s32 role, u8 *arg4
     query_flags_374__10TObjPlayerFv((void *) (((u8 *)this)), (void *) (TObjPlayer__sub_801C222C(arg4)));
     query_field374__10TObjPlayerFv((void *) (((u8 *)this)), (void *) (TObjPlayer__sub_801C2224(arg4)));
     TObjPlayer__sub_801BEB68((void *) (((u8 *)this)), (void *) (TObjPlayer__sub_801C221C(arg4)));
-    init_player_data__10TObjPlayerFv((void *) (((u8 *)this)), (void *) (arg4 + 0x34C));
+    init_player_data__10TObjPlayerFv((void *) (((u8 *)this)), arg4 + 0x34C);
     ((TObjPlayer *)((u8 *)this))->create_lockon_cursor();
     ((TObjPlayer *)((u8 *)this))->sub_801BD318();
-    ((TObjPlayer *)((u8 *)this))->init_control_mode((s32)(role));
+    ((TObjPlayer *)((u8 *)this))->init_control_mode(role);
     TObjPlayer__sub_801BCA14((void *) (((u8 *)this)), arg4);
-    init_player_substructs__10TObjPlayerFv((void *) (((u8 *)this)), (void *) (arg4 + 0x3C0));
+    init_player_substructs__10TObjPlayerFv((void *) (((u8 *)this)), arg4 + 0x3C0);
     ((TObjPlayer *)((u8 *)this))->load_character_state((u8 *)arg4);
     ((TObjPlayer *)((u8 *)this))->update_if_active();
     TObjPlayer__sub_801BC8F0((void *) (((u8 *)this)));

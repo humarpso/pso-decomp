@@ -55,7 +55,7 @@ void set_status_flags__10TObjPlayerFUl(void *, int);
 void TObjPlayer::launch_guardianna_colliders() {
     s32 sp8;
 
-    draw_icon(4, (s32)(&sp8));
+    draw_icon(4, (s32)&sp8);
     if (get_validated_attack_stage((u8 *)(*(s32 *)&this->unk_F0 + 0x7CC)) == 2) {
         fire_shot_at_target__11TItemWeaponFv(this, &sp8, *(s32 *)&this->m_f4, 0);
         fire_shot_at_target__11TItemWeaponFv(this, &sp8, *(s32 *)&this->m_f4, 0x1555);
@@ -140,33 +140,33 @@ void TObjPlayer__sub_8032DC94(u8 *arg0) {
       var_r30 = new_var;
       if (var_r30 != 0)
       {
-        var_r3 = (s32 *) (&saved_model_draw_color.value);
-        var_r4 = (s32 *) (&model_material_color.value);
+        var_r3 = &saved_model_draw_color.value;
+        var_r4 = &model_material_color.value;
         lbl_805D5660 = model_render_flags;
-        var_r3 = (s32 *) (&saved_model_draw_color.value);
-        var_r4 = (s32 *) (&model_material_color.value);
+        var_r3 = &saved_model_draw_color.value;
+        var_r4 = &model_material_color.value;
         copy_vec4__13TRaderMapCoreFPvPv((&saved_model_draw_color.value), (&model_material_color.value));
-        var_r3 = (s32 *) (var_r29 + 0x80);
+        var_r3 = (s32 *)(var_r29 + 0x80);
         model_render_flags |= 0x20;
         set_chunk_material_color((f32 *)var_r3);
         var_r3 = (s32 *) var_r31;
         ((TObjPlayer *)var_r3)->get_entity_id();
         notify_fish_if_valid__10TObjPlayerFUl();
         push_matrix();
-        var_r3 = (s32 *) (var_r29 + 0x64);
+        var_r3 = (s32 *)(var_r29 + 0x64);
         post_translate_matrix((int) var_r3);
         var_r4 = (s32 *) (*((s32 **) (((s8 *) var_r29) + 0x58)));
         var_r3 = (s32 *) ((u8 *) 0);
         rotate_matrix_y(0, (int) var_r4);
-        var_r3 = (s32 *) (var_r29 + 0x74);
+        var_r3 = (s32 *)(var_r29 + 0x74);
         scale_current_matrix((int) var_r3);
         var_r3 = (s32 *) var_r30;
         draw_ginja_object(var_r3);
         pop_matrix();
-        var_r3 = (s32 *) (&model_material_color.value);
-        var_r4 = (s32 *) (&saved_model_draw_color.value);
-        var_r3 = (s32 *) (&model_material_color.value);
-        var_r4 = (s32 *) (&saved_model_draw_color.value);
+        var_r3 = &model_material_color.value;
+        var_r4 = &saved_model_draw_color.value;
+        var_r3 = &model_material_color.value;
+        var_r4 = &saved_model_draw_color.value;
         copy_vec4__13TRaderMapCoreFPvPv((&model_material_color.value), (&saved_model_draw_color.value));
         model_render_flags = lbl_805D5660;
       }

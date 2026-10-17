@@ -163,7 +163,7 @@ u8 *TBoss8DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, 
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss8DragonEffBullet__name;
     VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)(arg2));
     VecCopy((Vec *)(arg0 + 0x28), (const Vec *)(arg3));
-    subtract_vector((void *) (arg0 + 0x28), (void *) (arg0 + 0x1C));
+    subtract_vector(arg0 + 0x28, arg0 + 0x1C);
     ((TBoss8DragonEffBullet *)arg0)->m_40 = ((TObjBoss2Tunnel *)(arg0 + 0x28))->update_scale();
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805DEF04;
     *(s32 *)&((TBoss8DragonEffBullet *)arg0)->m_34 = 0;
@@ -172,7 +172,7 @@ u8 *TBoss8DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, 
     *(s16 *)&((TBoss8DragonEffBullet *)arg0)->m_48 = arg5;
     *(s32 *)&((TBoss8DragonEffBullet *)arg0)->m_4c = 0;
     *(s32 *)&((TBoss8DragonEffBullet *)arg0)->m_50 = 0;
-    play_sound_effect(0x4003B20B, (void *) (arg0 + 0x1C), 0, 0);
+    play_sound_effect(0x4003B20B, arg0 + 0x1C, 0, 0);
     temp_r0 = *(s32 *)&((TBoss8DragonEffBullet *)arg0)->m_44;
     switch (temp_r0) {
     case 1:

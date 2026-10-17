@@ -77,7 +77,7 @@ typedef char RecoveredGlobal_80100070_lbl_8058D4C0_size[sizeof(RecoveredGlobal_8
 void TObjPlayer__sub_80100070(u8 *arg0) {
     u8 *spC;
     s32 sp8;
-    TItemLoad::get_model_ids((u8)((int)((int) (6U))), (s32 *)(&spC), (s32 *)(&sp8));
+    TItemLoad::get_model_ids((u8)((int)((int) (6U))), (s32 *)&spC, (s32 *)&sp8);
     if (spC != NULL) {
         lbl_805D5660 = model_render_flags;
         lbl_805D5664 = chunk_polygon_flags_and_mask;
@@ -86,9 +86,9 @@ void TObjPlayer__sub_80100070(u8 *arg0) {
         model_render_flags |= 0x10;
         set_depth_buffer_settings_id(3);
         TParticleCtrl::begin_effect_render();
-        TObjPlayer::notify_fish_if_valid((s32)(sp8));
+        TObjPlayer::notify_fish_if_valid(sp8);
         push_matrix();
-        post_translate_matrix((void *) (arg0 + 0x38));
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, (s32)((int) (*(s32 *)((s8 *)arg0 + 0x60))));
         set_chunk_material_color((f32 *)((u8 *)&item_box_primary_colors.value + ((s8) *(u8 *)((s8 *)arg0 + 0xEA) * 0x10)));
         draw_ginja_model((*(s32 *)((s8 *)spC + 4)));
@@ -110,7 +110,7 @@ void TObjPlayer::draw_item_model() {
     u32 spC;
     s32 sp8;
 
-    TItemLoad::get_model_ids((u8)(*(u8 *)((s8 *)arg0 + 0xEF)), (s32 *)(&spC), (s32 *)(&sp8));
+    TItemLoad::get_model_ids((u8)(*(u8 *)((s8 *)arg0 + 0xEF)), (s32 *)&spC, (s32 *)&sp8);
     if (spC != 0U) {
         set_depth_buffer_settings_id(3);
         TParticleCtrl::begin_effect_render();

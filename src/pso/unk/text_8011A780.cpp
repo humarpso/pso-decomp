@@ -125,7 +125,7 @@ void handle_6x5A_pick_up_item_request(Msg_8011A9D8 *msg) {
 }
 
 void TLobby__sub_8011AA44(s16 arg0, s32 _w1) {
-    TLobby::remove_item_condition((s32)(arg0), _w1);
+    TLobby::remove_item_condition(arg0, _w1);
 }
 
 void TLobby::drop_item_from_source(s16 source, int client, s16 room, int slot, f32 x, f32 z) {

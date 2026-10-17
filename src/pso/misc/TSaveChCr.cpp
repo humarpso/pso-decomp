@@ -38,7 +38,7 @@ s32 TSaveChCr::poll_memcard_status() {
         return 4;
     }
     if (TAdPlayerLoadGC__sub_801E1B50(0) != 0) {
-        this->m_24 = (s32) (this->m_24 + 1);
+        this->m_24 = (this->m_24 + 1);
         this->m_28 = 0;
         return 2;
     }
@@ -71,8 +71,8 @@ void TSaveChCr::set_message_by_index(s32 arg1) {
     s32 arg0 = (s32)this;
     ByteBlock_20 sp8;
     u8 *temp_r4;
-    sp8 = *(const ByteBlock_20 *)((s32) ((u8 *)(&TSaveChCr__message_text_ids.value) + -4) + 4);
-    temp_r4 = (u8 *)(&sp8) + (arg1 * 8);
+    sp8 = *(const ByteBlock_20 *)((s32) ((u8 *)&TSaveChCr__message_text_ids.value + -4) + 4);
+    temp_r4 = (u8 *)&sp8 + (arg1 * 8);
     open_message_window((u32)((int) (get_localized_text_entry(*(s32 *)((s8 *)temp_r4 + 0), *(s32 *)((s8 *)temp_r4 + 4)))));
 }
 void TSaveChCr::open_message_window(u32 arg1) {

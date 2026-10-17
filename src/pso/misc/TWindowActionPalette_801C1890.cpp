@@ -136,7 +136,7 @@ int TWindowActionPalette::handle_input_forward() { return TWindowActionPalette__
 int TWindowActionPalette__sub_801C1C20(void* p) { return *(u32*)((char*)p + 0x0) == 0; }
 
 void TWindowActionPalette::is_channel_active_at(s32 arg0, s32 i, s32 arg2) {
-    s32 *p = (s32 *)((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)(arg0), (s32)(i)));
+    s32 *p = (s32 *)((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)(arg0), i));
     ((TMainCursor *)(p + arg2))->is_channel_active();
 }
 
@@ -152,19 +152,19 @@ void is_action_channel_active(s32 *arg0, s32 arg1) {
 }
 
 void TWindowActionPalette::set_palette_entry(s32 arg0, s32 i, s32 arg2, s32 arg3, s32 arg4) {
-    s32 *p = (s32 *)((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)(arg0), (s32)(i)));
+    s32 *p = (s32 *)((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)(arg0), i));
     s32 temp_r31 = (s32)(p + arg2);
     ((TWindowActionPalette *)temp_r31)->set_mode((u8)arg3);
     ((TWindowActionPalette *)temp_r31)->set_slot((u8)arg4);
 }
 
 void TWindowActionPalette::set_slot_by_index(s32 arg0, s32 i, s32 arg2, s32 arg3) {
-    s32 *p = (s32 *)((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)(arg0), (s32)(i)));
+    s32 *p = (s32 *)((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)(arg0), i));
     ((TWindowActionPalette *)(p + arg2))->set_slot((u8)arg3);
 }
 
 void TWindowActionPalette::set_slot_mode(s32 arg0, s32 i, s32 arg2, s32 arg3) {
-    s32 *p = (s32 *)((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)(arg0), (s32)(i)));
+    s32 *p = (s32 *)((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)(arg0), i));
     ((TWindowActionPalette *)(p + arg2))->set_mode((u8)arg3);
 }
 
@@ -187,7 +187,7 @@ u8 *TWindowActionPalette::get_slot_type(s32 arg0, s32 i, s32 arg2) {
   s32 var_r31;
   s32 new_var;
   u8 *var_r3;
-  new_var = ((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)(arg0), (s32)(i)));
+  new_var = ((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)(arg0), i));
   var_r31 = arg2;
   var_r3 = (u8 *) (new_var + (var_r31 * 4));
   var_r3 = (u8 *) ((void *) ((TMainCursor *)var_r3)->get_type());

@@ -166,7 +166,7 @@ void TBoss6RockChase::run_task() {
     if (query_teammate_state__9TObjEneDDFv() == 0) {
         temp_r3 = *(s32 *)&this->m_b4;
         if (temp_r3 > 0) {
-            *(s32 *)&this->m_b4 = (s32) (temp_r3 - 1);
+            *(s32 *)&this->m_b4 = (temp_r3 - 1);
             return;
         }
         this->rotation_y = (s32) (this->rotation_y + *(s32 *)&this->m_bc);
@@ -179,12 +179,12 @@ void TBoss6RockChase::run_task() {
             *(f32 *)((s8 *)arg0 + 0x3C) = (f32) TBoss6RockChase__data_805E03B8;
             *(f32 *)&this->_padB8 = (f32) TBoss6RockChase__data_805E03B8;
             damage_players_in_range();
-            play_sound_effect(0x4006B51E, (void *) (arg0 + 0x38), 0, 0);
+            play_sound_effect(0x4006B51E, arg0 + 0x38, 0, 0);
             spawn_particle_effect(((u8 *)&this->position), 0x220);
             spawn_particle_effect(((u8 *)&this->position), 0x222);
-            TBoss6PlotFalz::apply_radial_effect_to_players((void *) (arg0 + 0x38), 0xC0, 0xF, lbl_805E03C8);
+            TBoss6PlotFalz::apply_radial_effect_to_players(arg0 + 0x38, 0xC0, 0xF, lbl_805E03C8);
             ((TBoss6Rock *)(arg0 + 0x38))->spawn_crush_rocks((int) (*(s32 *)&this->m_b0));
-            play_sound_effect(0x4006AB1F, (void *) (arg0 + 0x38), 0, 0);
+            play_sound_effect(0x4006AB1F, arg0 + 0x38, 0, 0);
             queue_destruction__7TObjectFv(arg0);
         }
     }
@@ -219,7 +219,7 @@ u8 *TBoss6RockChase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)&((TBoss6RockChase *)arg0)->m_bc = (s32) (lbl_805E03E0 * ((lbl_805E03D0 * (f32) rand()) - lbl_805E03D8));
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) TBoss6RockChase__data_805E03B8;
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2));
-    *(s32 *)&((TBoss6RockChase *)arg0)->m_c0 = get_bml_model((int) (TBoss6Rock__sub_80353A0C()), (int) (*(s32 *)((s8 *)(&boss6_rock_chase_model_radius_table.value) + (arg3 * 8))));
+    *(s32 *)&((TBoss6RockChase *)arg0)->m_c0 = get_bml_model((int) (TBoss6Rock__sub_80353A0C()), (int) (*(s32 *)((s8 *)&boss6_rock_chase_model_radius_table.value + (arg3 * 8))));
     *(s32 *)&((TBoss6RockChase *)arg0)->m_c4 = TBoss6Rock__sub_80353A04();
     return arg0;
 }
@@ -241,7 +241,7 @@ s32 spawn__15TBoss6RockChaseFii(s32 arg0, s32 arg1) {
     temp_r3 = __nw__7TObjectFUl(0xC8);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = ((s32)TBoss6RockChase__ct((u8 *)(temp_r3), (s32)(arg0), (s32)((void *) (&stack.sp8)), (s32)(var_r31)));
+        var_r0 = ((s32)TBoss6RockChase__ct((u8 *)temp_r3, (s32)arg0, (s32)((void *)&stack.sp8), (s32)var_r31));
     }
     return var_r0;
 }

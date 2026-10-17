@@ -43,7 +43,7 @@ void TBoss6EffFlowSoul::run_task() {
         return;
     }
     if (self->player == 0xFFFF) {
-        ((TBoss6Type2 *)(self->f1c))->copy_pos_620((s32)(&target));
+        ((TBoss6Type2 *)(self->f1c))->copy_pos_620((s32)&target);
     } else {
         p = (u8 *)get_player_by_client_id(self->player);
         if (p != NULL && is_state_1f__14TBoss6PlotFalzFUi((u32)p) != 0) {

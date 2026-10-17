@@ -71,9 +71,9 @@ void TCameraCtrl::update_target_follow() {
         temp_f1 = temp_f2 - *(f32 *)((s8 *)temp_r3 + 8);
         stack.spC = lbl_805D8F38;
         stack.sp10 = temp_f1;
-        temp_f1_2 = vector_length((void *) (&stack.sp8));
+        temp_f1_2 = vector_length(&stack.sp8);
         if (lbl_805D8F38 != temp_f1_2) {
-            normalize_vector((void *) (&stack.sp8));
+            normalize_vector(&stack.sp8);
         } else {
             return;
         }
@@ -128,7 +128,7 @@ void TUnk_804887F8::update_follow_flags() {
     stack.sp8 = *(f32 *)((s8 *)camera_ctrl_instance + 0x184) - *(f32 *)&this->unk_48;
     stack.spC = *(f32 *)((s8 *)camera_ctrl_instance + 0x188) - this->m_4c;
     stack.sp10 = *(f32 *)((s8 *)camera_ctrl_instance + 0x18C) - *(f32 *)((s8 *)arg0 + 0x50);
-    *(f32 *)((s8 *)arg0 + 0x5C) = (f32) ((lbl_805D8F54 * vector_length((void *) (&stack.sp8))) / lbl_805D8F4C);
+    *(f32 *)((s8 *)arg0 + 0x5C) = (f32) ((lbl_805D8F54 * vector_length(&stack.sp8)) / lbl_805D8F4C);
     if (((TUnk_80488E00 *)arg0)->predict_obstruction() != 0) {
         this->m_fc = (s32) (this->m_fc | 1);
     } else {

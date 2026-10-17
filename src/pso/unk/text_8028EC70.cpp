@@ -78,12 +78,12 @@ void TAdSinglePlyChrSelectGC__sub_8028ED54(s32 arg1_) {
     if (TAdSinglePlyChrSelectGC::count_remaining_slots() > 0) {
         buf = *(const ByteBlock_50 *)creation_player_character;
         if ((arg1_ < 0) || (arg1_ >= 5)) {
-            if (TAdSinglePlyChrSelectGC::has_matching_entry((void *) (&buf)) != 0) {
+            if (TAdSinglePlyChrSelectGC::has_matching_entry(&buf) != 0) {
                 return;
             }
             goto block_7;
         }
-        if ((TAdSinglePlyChrSelectGC::has_matching_entry((void *) (&buf)) == 0) || (TAdSinglePlyChrSelectGC__sub_8028EE20((void *)((void *) (&buf)), (void *)(arg1_)) != 0)) {
+        if ((TAdSinglePlyChrSelectGC::has_matching_entry((void *)&buf) == 0) || (TAdSinglePlyChrSelectGC__sub_8028EE20((void *)((void *)&buf), (void *)arg1_) != 0)) {
 block_7:
             h = find_free_slot__23TAdSinglePlyChrSelectGCFv();
             if (h == 0U) {
@@ -92,7 +92,7 @@ block_7:
                 }
                 h = find_free_slot__23TAdSinglePlyChrSelectGCFv();
             }
-            TAdSinglePlyChrSelectGC__sub_8028F084(h, (void *) (&buf));
+            TAdSinglePlyChrSelectGC__sub_8028F084(h, &buf);
         }
     }
 }

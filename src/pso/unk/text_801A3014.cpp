@@ -412,8 +412,8 @@ void TLobby::teardown_scene() {
     delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A3540_main_task *)&main_task).value));
     clear_flag3_all_tasks__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A3540_main_task *)&main_task).value));
     ((TObject *)tl_su)->delete_children();
-    run_area_scene_cleanup((void *) (&lbl_80515BA0.value));
-    call_funcs_reverse__6TLobbyFPvUi((void *) (&offline_game_scene_callbacks.value), 0x180);
+    run_area_scene_cleanup(&lbl_80515BA0.value);
+    call_funcs_reverse__6TLobbyFPvUi(&offline_game_scene_callbacks.value, 0x180);
     clear_resource_load_tasks();
     TKeyBoardControl::update();
     render_tick();

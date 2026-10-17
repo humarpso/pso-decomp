@@ -20,7 +20,7 @@ void TObjPlayer::init_player_data() {
     temp_f31 = this->m_d48;
     copy_data__6TLobbyFPvPv(arg0 + 0xD38);
     this->m_d48 = temp_f31;
-    *(void * *)&this->m_2b0 = (void *) (arg0 + 0xD38);
+    *(void * *)&this->m_2b0 = (arg0 + 0xD38);
     ((TObjPlayer *)arg0)->apply_input_mode();
     set_move_mode__10TObjPlayerFi((s32)arg0);
     ((TObjPlayer *)arg0)->init_trait_flags();

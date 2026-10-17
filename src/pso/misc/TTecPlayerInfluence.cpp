@@ -113,16 +113,16 @@ void TTecPlayerInfluence::render() {
     typedef char spC_offset[(offsetof(Stack_80237194, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80237194, sp10) == 0x8) ? 1 : -1];
     Stack_80237194 stack;
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_8044D8EC.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_8044D8EC.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&lbl_8044D8EC.value) + 8);
-    approach_vector_in_place((void *) (arg0 + 0x3C), (void *) (&stack.sp8), (f32) ((2.7f)));
-    TObjRoomId__sub_80141CF4((void *) (arg0 + 0x20), (void *) (arg0 + 0x2C), (f32) (*(f32 *)((s8 *)arg0 + 0x3C)));
+    stack.sp8 = *(s32 *)((s8 *)&lbl_8044D8EC.value + 0);
+    stack.spC = *(s32 *)((s8 *)&lbl_8044D8EC.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&lbl_8044D8EC.value + 8);
+    approach_vector_in_place((void *)(arg0 + 0x3C), (void *)&stack.sp8, (f32) ((2.7f)));
+    TObjRoomId__sub_80141CF4((void *)(arg0 + 0x20), (void *)(arg0 + 0x2C), (f32) (*(f32 *)((s8 *)arg0 + 0x3C)));
 }
 
 void TTecPlayerInfluence::tick_lifetime() {
     u8 *arg0 = (u8 *)this;
-    this->age = (s32) (this->age + 1);
+    this->age = (this->age + 1);
     if ((f32) this->age > *(f32 *)&this->unk_70) {
         queue_destruction__7TObjectFv(arg0);
     }

@@ -140,9 +140,9 @@ void TUnk_804949D8::vfunc_6() {
     stack.spC = lbl_805DA380;
     stack.sp8 = temp_f1;
     stack.sp10 = this->m_28 * cos_table_lookup(temp_r3);
-    vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x1C));
-    TObjBoss2Tunnel::adjust_to_ground((s32)((void *) (&stack.sp8)), (void *)(&stack.sp8));
-    ((TNowLoading *)(this->m_34))->copy_pos((void *) (&stack.sp8));
+    vec3_add_to(&stack.sp8, arg0 + 0x1C);
+    TObjBoss2Tunnel::adjust_to_ground((s32)(&stack.sp8), &stack.sp8);
+    ((TNowLoading *)(this->m_34))->copy_pos(&stack.sp8);
 }
 #pragma pop
 
@@ -188,8 +188,8 @@ void TUnk_804949F4::vfunc_6() {
   stack.spC = lbl_805DA380;
   stack.sp8 = temp_f1;
   stack.sp10 = (this->m_28) * cos_table_lookup((int) temp_r3);
-  vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x1C));
-  ((TNowLoading *)(this->m_34))->copy_pos((void *) (&stack.sp8));
+  vec3_add_to(&stack.sp8, arg0 + 0x1C);
+  ((TNowLoading *)(this->m_34))->copy_pos(&stack.sp8);
 }
 
 void *__dt__13TUnk_804949F4Fv(void *arg0, s16 arg1) {

@@ -120,7 +120,7 @@ void run_task__18TPhotonConcentrateFv(PC_801A7E7C *self) {
       owner = self->owner;
       if (owner != 0)
       {
-        rotate_matrix_y(0, lbl_805DC108 * ((f32) ((s32) (owner->angle - 0x5A))));
+        rotate_matrix_y(0, lbl_805DC108 * ((f32) ((s32)(owner->angle - 0x5A))));
         rotate_vector_by_matrix(0, &off, &xf);
       }
       pop_matrices(1);

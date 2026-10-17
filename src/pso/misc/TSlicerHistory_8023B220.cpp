@@ -42,14 +42,14 @@ void TSlicerHistory::render() {
             TObjPlayer::notify_fish_if_valid(*(u32 *)((s8 *)arg0 + 0x38));
             TParticleCtrl::begin_effect_render();
             push_matrix();
-            post_translate_matrix((void *) (arg0 + 0x28));
+            post_translate_matrix(arg0 + 0x28);
             rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x20)));
             rotate_matrix_z(0, (int) (*(s32 *)((s8 *)arg0 + 0x24)));
             rotate_matrix_x(0, (int) (*(s32 *)((s8 *)arg0 + 0x1C)));
-            scale_current_matrix((void *) (arg0 + 0x4C));
-            set_chunk_material_color((f32 *)(&col));
+            scale_current_matrix(arg0 + 0x4C);
+            set_chunk_material_color((f32 *)&col);
             draw_ginja_object((void *)(*(u32 *)((s8 *)arg0 + 0x34)));
-            set_chunk_material_color((f32 *)(&chunk_material_color_half_alpha_f32));
+            set_chunk_material_color((f32 *)&chunk_material_color_half_alpha_f32);
             TParticleCtrl::end_effect_render();
         }
         pop_matrix();

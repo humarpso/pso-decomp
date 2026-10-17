@@ -71,10 +71,10 @@ u8 *TObjMistCtrl__ct(u8 *arg0, s32 parent, u32 arg2) {
 
 void TPlayerFootStamp::render() {
     u8 *arg0 = (u8 *)this;
-    if (horizontal_distance_squared((void *) (arg0 + 0x7C), (void *) (camera_ctrl_instance + 0x178)) < lbl_805DE1F8) {
+    if (horizontal_distance_squared((void *)(arg0 + 0x7C), (void *)(camera_ctrl_instance + 0x178)) < lbl_805DE1F8) {
         lbl_805D5660 = model_render_flags;
         TObjPlayer::reset_transform_state();
-        TObjFish::set_global_param((s32)(player_footstamp_texture_gvm_handle));
+        TObjFish::set_global_param(player_footstamp_texture_gvm_handle);
         set_texture_num((*(s16 *)((s8 *)arg0 + 0xBE)));
         set_depth_buffer_settings_1();
         draw_particle_strip((arg0 + 0x1C), (void *)(4), (void *)(1));

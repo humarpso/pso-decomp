@@ -49,7 +49,7 @@ void TObjPlayer::update_control_state() {
     temp_r5 = (unsigned char *) (*(void * *)&this->m_a4);
     *(f32 *)((s8 *)temp_r5 + 4) = (f32) (temp_f1 + *(f32 *)&this->m_3bc);
     submit_cursor_candidate((void *)arg0, -1, (int)temp_r5, (f32)temp_f1, (f32)temp_f2);
-    minimap_render_dot((void *) (arg0 + 0x38), -0x5DB4, 1, 0);
+    minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
 }
 
 }

@@ -94,7 +94,7 @@ void init_creation_menu_scene(void) {
 }
 
 s32 TObjCMMainMenu__sub_8028EBCC(u8 *arg0) {
-    return *(s32 *)((s8 *)((u8 *)(&TObjCMMainMenu__data_804DB9C8.value) + (*(s32 *)((s8 *)(*(s32 *)((s8 *)arg0 + 0x24) + (*(s32 *)((s8 *)arg0 + 0x2C) * 4)) + 0) * 0x10)) + 0);
+    return *(s32 *)((s8 *)((u8 *)&TObjCMMainMenu__data_804DB9C8.value + (*(s32 *)((s8 *)(*(s32 *)((s8 *)arg0 + 0x24) + (*(s32 *)((s8 *)arg0 + 0x2C) * 4)) + 0) * 0x10)) + 0);
 }
 
 u8 TObjCMMainMenu::is_state_4() {

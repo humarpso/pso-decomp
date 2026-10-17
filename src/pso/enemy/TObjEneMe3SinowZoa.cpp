@@ -1552,7 +1552,7 @@ void TObjEneMe3SinowZoa__sub_80317F90(u8 *arg0, s32 arg1) {
                 v.y = TObjEneMe3SinowZoa__data_805DF314;
                 v.z = TObjEneMe3SinowZoa__data_805DF320;
                 ((TObjBoss2Tunnel *)(&v))->init_zako(arg0 + 0x38, *(s32 *)((s8 *)arg0 + 0x60));
-                TObjPlayer::spawn_effect_f8((s32)(&v), 0x14);
+                TObjPlayer::spawn_effect_f8((s32)&v, 0x14);
             }
             break;
         case 1:
@@ -1875,7 +1875,7 @@ void TObjEneMe3SinowZoa__sub_80318564(u8 *arg0, s32 arg1) {
         case 3:
             F(s32, 0x438)++;
             if (F(s32, 0x438) == 5) {
-                TTecSifta::create((void *)arg0, (void *)(arg0 + 0x38), (void *)(TObjEneDD::clamp_frame_index(TBL(0x18))));
+                TTecSifta::create((void *)arg0, arg0 + 0x38, (void *)(TObjEneDD::clamp_frame_index(TBL(0x18))));
             } else if (F(s32, 0x438) == 0xA) {
                 create__10TTecDebandFlll(arg0, arg0 + 0x38, TObjEneDD::clamp_frame_index(TBL(0x18)));
                 if (F(s32, 0x3CC) & 0x100000) {
@@ -2072,7 +2072,7 @@ void TObjEneMe3SinowZoa__sub_8031884C(void *arg0_, s32 arg1) {
             if ((*(f32 *)((s8 *)arg0 + 0xC0) + *(f32 *)((s8 *)arg0 + 0xC8)) >= TObjEneMe3SinowZoa__data_805DF2F0) {
                 *(s32 *)((s8 *)arg0 + 0x434) = 1;
                 ((VObj_18_347dfc *)(arg0))->m89();
-                play_sound_effect(0x4003A829, (void *) (arg0 + 0x38), 0, 0);
+                play_sound_effect(0x4003A829, arg0 + 0x38, 0, 0);
             }
             ((VObj_18_347dfc *)(arg0))->m100();
             ((VObj_18_347dfc *)(arg0))->m87();
@@ -2081,7 +2081,7 @@ void TObjEneMe3SinowZoa__sub_8031884C(void *arg0_, s32 arg1) {
             if ((*(f32 *)((s8 *)arg0 + 0xC0) + *(f32 *)((s8 *)arg0 + 0xC8)) >= lbl_805DF344) {
                 *(s32 *)((s8 *)arg0 + 0x434) = 2;
                 ((VObj_18_347dfc *)(arg0))->m90();
-                play_sound_effect(0x4003A82A, (void *) (arg0 + 0x38), 0, 0);
+                play_sound_effect(0x4003A82A, arg0 + 0x38, 0, 0);
                 ((TObjEneMe3SinowZoa *)arg0)->check_and_notify();
             }
             ((TObjEneDD *)arg0)->move_clamped_on_ground((f32) (*(f32 *)((s8 *)arg0 + 0x3A0)), (f32) (*(f32 *)((s8 *)arg0 + 0x3A8)), (f32) (*(f32 *)((s8 *)arg0 + 0x440)));
@@ -2881,11 +2881,11 @@ void TObjEneMe3SinowZoa__sub_80319B8C(u8 *arg0, s32 arg1) {
         ((TObjEneDD *)arg0)->set_field_378(0);
         ((TObjEneDD *)(arg0))->vfunc_95();
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 7);
-        TObjEneMe3SinowZoa__sub_800D758C((void *) (arg0 + 0x414));
+        TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x414);
         VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x38));
         temp_f1 = *(f32 *)((s8 *)arg0 + 0x3E0);
         stack.spC = temp_f1 - TObjEneMe3SinowZoa__data_805DF314;
-        TBoss3Volopt__sub_800D8D88((void *) (&stack.sp8), temp_f1);
+        TBoss3Volopt__sub_800D8D88(&stack.sp8, temp_f1);
         break;
     case 3:
         if (((VObj_14_948132 *)(arg0 + (1044)))->m5() != 0) {
@@ -3120,14 +3120,14 @@ void cast_technique__18TObjEneMe3SinowZoaFPv(u8 *arg0) {
     lv = TObjEneDD::clamp_frame_index(((Param_8031A2A0 * *)TObjEneMe3SinowZoa__kind_param_tbls)[*(s32 *)((s8 *)arg0 + 0x3C8)]->level);
     if (((s32 (*)(void *))sub_8031A454__18TObjEneMe3SinowZoaFv)(arg0) != 0) {
         if (game_difficulty_selection == 3) {
-            TTecSifta::create((void *)arg0, (void *)(arg0 + 0x38), (void *)(TObjEneDD::clamp_frame_index(((Param_8031A2A0 * *)TObjEneMe3SinowZoa__kind_param_tbls)[*(s32 *)((s8 *)arg0 + 0x3C8)]->level)));
+            TTecSifta::create((void *)arg0, arg0 + 0x38, (void *)(TObjEneDD::clamp_frame_index(((Param_8031A2A0 * *)TObjEneMe3SinowZoa__kind_param_tbls)[*(s32 *)((s8 *)arg0 + 0x3C8)]->level)));
             create__10TTecDebandFlll(arg0, arg0 + 0x38, TObjEneDD::clamp_frame_index(((Param_8031A2A0 * *)TObjEneMe3SinowZoa__kind_param_tbls)[*(s32 *)((s8 *)arg0 + 0x3C8)]->level));
         } else {
             create_instance__9TTecZaruaFllll(arg0, arg0 + 0x38, arg0 + 0x38, TObjEneDD::clamp_frame_index(((Param_8031A2A0 * *)TObjEneMe3SinowZoa__kind_param_tbls)[*(s32 *)((s8 *)arg0 + 0x3C8)]->level));
             create__9TTecJelinFllll(arg0, arg0 + 0x38, arg0 + 0x38, TObjEneDD::clamp_frame_index(((Param_8031A2A0 * *)TObjEneMe3SinowZoa__kind_param_tbls)[*(s32 *)((s8 *)arg0 + 0x3C8)]->level));
         }
     } else {
-        TTecResta::create((void *)arg0, (void *)(arg0 + 0x38), (void *)lv);
+        TTecResta::create((void *)arg0, arg0 + 0x38, (void *)lv);
     }
 }
 
@@ -3390,7 +3390,7 @@ void TObjEneMe3SinowZoa__sub_8031AC74(u8 *arg0) {
         }
     } else {
         temp_r3_2 = *(s32 *)((s8 *)arg0 + 0x3CC);
-        if (!(temp_r3_2 & 0x100000) && !(temp_r3_2 & 4) && (TObjEneMe3SinowZoa__sub_800D72A4((void *) (arg0 + 0x414)) != 0)) {
+        if (!(temp_r3_2 & 0x100000) && !(temp_r3_2 & 4) && (TObjEneMe3SinowZoa__sub_800D72A4(arg0 + 0x414) != 0)) {
             if ((s32) *(s32 *)((s8 *)arg0 + 0x3C0) != 0) {
                 if (((VObj_14_c143b1 *)(arg0 + (1044)))->m4() != 0) {
                     *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 0x40000);
@@ -3413,7 +3413,7 @@ void TObjEneMe3SinowZoa__sub_8031ADE8(u8 *arg0) {
     if (((TObjEneMe3SinowZoa *)(arg0))->vfunc_83() != 4) {
         ((TObjEneMe3SinowZoa *)(arg0))->vfunc_85();
     }
-    TObjEneMe3SinowZoa__sub_8031AC74((u8 *)(arg0));
+    TObjEneMe3SinowZoa__sub_8031AC74(arg0);
     ((TObjEneMe3SinowZoa *)arg0)->copy_pos_with_height_offset();
     ((TObjEneMe3SinowZoa *)(arg0))->vfunc_88();
     temp_r3 = *(s32 *)((s8 *)arg0 + 0x3CC);
@@ -3422,7 +3422,7 @@ void TObjEneMe3SinowZoa__sub_8031ADE8(u8 *arg0) {
     } else {
         ((TBoss8Dragon *)arg0)->set_player_state_default();
     }
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x3C0) == 0) || (TObjEneMe3SinowZoa__sub_800D72A4((void *) (arg0 + 0x414)) != 0)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x3C0) == 0) || (TObjEneMe3SinowZoa__sub_800D72A4(arg0 + 0x414) != 0)) {
         ((TObjEneMe3SinowZoa *)(arg0))->vfunc_100();
     }
     if (*(s32 *)((s8 *)arg0 + 0x3D0) & 0x4000) {

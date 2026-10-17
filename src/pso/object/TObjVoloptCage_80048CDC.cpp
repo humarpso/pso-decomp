@@ -210,7 +210,7 @@ void TObjVoloptCage::update_collision_state() {
         *(s32 *)&this->state = 1;
     case 1:
         temp_r4 = *(s32 *)&this->unk_38C;
-        *(s32 *)&this->unk_38C = (s32) (temp_r4 - 1);
+        *(s32 *)&this->unk_38C = (temp_r4 - 1);
         check_object_collisions__10TObjPlayerFv(arg0, temp_r4);
         if ((s16) (*(s16 *)&this->timer -= 1) <= 0) {
             *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFFFDFF);
@@ -264,7 +264,7 @@ void TObjVoloptCage::sub_80049000() {
     case 0:
         *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x40000);
         *(s32 *)&this->state = 1;
-        play_sound_effect(0x4003A80A, (u32) (arg0 + 0x38), 0xA, 0);
+        play_sound_effect(0x4003A80A, (u32)(arg0 + 0x38), 0xA, 0);
         break;
     case 1:
         *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) + lbl_805D8874);

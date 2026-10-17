@@ -13,7 +13,7 @@ void TUnk_804CC870::run_task() {
     if (entity != 0) {
         VecCopy((Vec *)(arg0 + 0x20), (const Vec *)(entity + 0x38));
     }
-    this->m_48 = (s32) (this->m_48 + 1);
+    this->m_48 = (this->m_48 + 1);
     if ((s32) this->m_48 >= 7) {
         this->m_48 = 0;
     }

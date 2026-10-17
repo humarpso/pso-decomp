@@ -76,7 +76,7 @@ void TBoss6GravBall__sub_80323214(s32 arg0, s32 arg1) {
     temp_r5 = arg1 * 4;
     temp_r31 = (u8 *)(arg0 + temp_r5);
     if ((void *) *(u8 **)((s8 *)temp_r31 + 0xD4) == NULL) {
-        *(u8 **)((s8 *)temp_r31 + 0xD4) = (unsigned char *) (create_particle_emitter((void *)(arg0 + 0xC8), *(s32 *)((s8 *)(&TBoss6GravBall__emitter_id_table.value) + temp_r5)));
+        *(u8 **)((s8 *)temp_r31 + 0xD4) = (unsigned char *) (create_particle_emitter((void *)(arg0 + 0xC8), *(s32 *)((s8 *)&TBoss6GravBall__emitter_id_table.value + temp_r5)));
         temp_r3 = (u8 *)(*(u8 **)((s8 *)temp_r31 + 0xD4));
         if (temp_r3 != NULL) {
             ((TBoss4Type2 *)temp_r3)->set_flags(0x2040);

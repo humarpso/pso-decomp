@@ -94,7 +94,7 @@ void run_task__12TEneEffHamonFv(u8 *arg0) {
     s32 temp_r4;
     temp_r4 = *(s32 *)((s8 *)arg0 + 0x4C);
     if (temp_r4 > 0) {
-        *(s32 *)((s8 *)arg0 + 0x4C) = (s32) (temp_r4 - 1);
+        *(s32 *)((s8 *)arg0 + 0x4C) = (temp_r4 - 1);
         return;
     }
     *(f32 *)((s8 *)arg0 + 0x34) = (f32) (*(f32 *)((s8 *)arg0 + 0x34) + *(f32 *)((s8 *)arg0 + 0x44));
@@ -117,7 +117,7 @@ extern "C" {
 
 typedef char RecoveredGlobal_800A38A4___vt__12TEneEffHamon_size[sizeof(RecoveredGlobal_800A38A4___vt__12TEneEffHamon) == 0x18 ? 1 : -1];
 u8 *__ct__12TEneEffHamonFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
-    __ct__7TObjectFP7TObject((void *)(arg0), (void *)(tl_06));
+    __ct__7TObjectFP7TObject((void *)arg0, (void *)tl_06);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__12TEneEffHamon.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TEneEffHamon__name;
     *(s32 *)((s8 *)arg0 + 0x30) = 0;

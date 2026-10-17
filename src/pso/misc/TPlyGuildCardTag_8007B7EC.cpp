@@ -24,7 +24,7 @@ void* fn_8007B83C(void* p) { return (char*)p + 0x8; }
 s8 TPlyPhotonChair::get_actor_section_id() {
     u8 *arg0 = (u8 *)this;
   u8 *new_var;
-  new_var = &(*((u8 *) (arg0 + 0x88C)));
+  new_var = &(*(arg0 + 0x88C));
   return ((s8) ((*new_var) & 0xFFFFFFFFFFFFFFFFu)) & 0xFFFF;
 }
 

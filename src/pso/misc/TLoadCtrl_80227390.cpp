@@ -168,7 +168,7 @@ void update_music_fade(void) {
 }
 
 void TLobby::set_pre_retrace_callback() {
-    VISetPreRetraceCallback((s32 *)(&TLobby__sub_80227A6C.value));
+    VISetPreRetraceCallback(&TLobby__sub_80227A6C.value);
 }
 void TLobby::shutdown_buffers() {
     s32 i;

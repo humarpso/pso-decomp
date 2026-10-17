@@ -504,7 +504,7 @@ f32 calc_clock_bonus__9TItemDataFPv(u8 *arg0) {
     internet_beat = TLobby::get_internet_beat();
     var_r3 = internet_beat >> 2;
     var_r3 = internet_beat / 4;
-    var_r4 = (s32 *)(&lbl_8043E348);
+    var_r4 = &lbl_8043E348;
     temp_r3_2 = var_r3;
     var_r3 ^= 0x80000000;
     var_f1 = (f32) temp_r3_2;
@@ -680,12 +680,12 @@ void TItemData__sub_8010CA08(void *arg0, u32 arg1, u8 arg2) {
         memset(sp8, 0, 0xA);
         sp8[0] = 0x41;
         strncpy(&sp8[1], arg1, 8);
-        ((TItemData *)arg0)->pack_three_colors((u8 *)(sp8));
+        ((TItemData *)arg0)->pack_three_colors((u8 *)sp8);
     }
 }
 
 s32 TItemData__sub_8010CAB0(s32 arg0, s8 arg1) {
-    return (arg1 != 0) ? (s8) (arg1 + 0x40) : 0;
+    return (arg1 != 0) ? (s8)(arg1 + 0x40) : 0;
 }
 
 s8 TItemData::char_to_letter_index(void *self, s8 c) {
@@ -875,42 +875,42 @@ s16 get_field6_bswap__9TItemDataFPv(void *arg0) {
     s16 sp8;
 
     sp8 = *(s16 *)((s8 *)arg0 + 6);
-    bswap_16((u16 *)(&sp8));
+    bswap_16((u16 *)&sp8);
     return sp8;
 }
 
 void TItemData::set_unit_modifier(s16 arg1) {
     u8 *arg0 = (u8 *)this;
     *(s16 *)((s8 *)arg0 + 6) = arg1;
-    bswap_16((u16 *)((void *) (arg0 + 6)));
+    bswap_16((u16 *)(arg0 + 6));
 }
 
 s16 get_bswap16_field8__9TItemDataFPv(void *arg0) {
     s16 sp8;
 
     sp8 = *(s16 *)((s8 *)arg0 + 8);
-    bswap_16((u16 *)(&sp8));
+    bswap_16((u16 *)&sp8);
     return sp8;
 }
 
 void TItemData::set_bswapped_field_8(s16 arg1) {
     u8 *arg0 = (u8 *)this;
     *(s16 *)((s8 *)arg0 + 8) = arg1;
-    bswap_16((u16 *)((void *) (arg0 + 8)));
+    bswap_16((u16 *)(arg0 + 8));
 }
 
 s16 getS16_06__9TItemDataFPv(void *arg0) {
     s16 sp8;
 
     sp8 = *(s16 *)((s8 *)arg0 + 6);
-    bswap_16((u16 *)(&sp8));
+    bswap_16((u16 *)&sp8);
     return sp8;
 }
 
 void TItemData::set_dfp_bonus(s16 arg1) {
     u8 *arg0 = (u8 *)this;
     *(s16 *)((s8 *)arg0 + 6) = arg1;
-    bswap_16((u16 *)((void *) (arg0 + 6)));
+    bswap_16((u16 *)(arg0 + 6));
 }
 
 s16 TItemData::get_technique_level() {
@@ -1015,7 +1015,7 @@ s32 TItemData::calc_action_flags(s32 mask, u8 *player) {
     perm = check_class_equip_permission(player, 0xD7);
     if (rec != 0)
     {
-      flags = *((s32 *) (rec + 0x10));
+      flags = *((s32 *)(rec + 0x10));
       if (!(flags & 2))
       {
         result |= 0x10;
@@ -1075,7 +1075,7 @@ s32 TItemData::calc_action_flags(s32 mask, u8 *player) {
         tech = (u8 *) calc_technique_parameters(((u8 *)this)[4], lvl, 0xFFFF);
         if (tech != 0)
         {
-          if ((*((s16 *) (get_quest_id__12TQuestListVMFv(player) + 2))) < (*((s16 *) (tech + 0x14))))
+          if ((*((s16 *) (get_quest_id__12TQuestListVMFv(player) + 2))) < (*((s16 *)(tech + 0x14))))
           {
             result |= 0x10001;
           }
@@ -1601,8 +1601,8 @@ s32 TItemData::calc_price() {
         atp = (f32) (((pmt->dfp + pmt->evp) + a) + get_bswap16_field8__9TItemDataFPv(((u8 *)this)));
         {
           s32 dv = (s32) ((atp * atp) / coef);
-          f32 sl = lbl_805DAB88 * ((f32) (item->slots + 1));
-          f32 lv = (f32) (pmt->level + 1);
+          f32 sl = lbl_805DAB88 * ((f32)(item->slots + 1));
+          f32 lv = (f32)(pmt->level + 1);
           price = (s32) ((sl * lv) + ((f32) dv));
         }
       }
@@ -1629,13 +1629,13 @@ s32 TItemData::calc_price() {
       }
       else
       {
-        price = (*((s32 *) (((u8 *) pmt) + 0xC))) * ((u8) (item->b2 + 1));
+        price = (*((s32 *) (((u8 *) pmt) + 0xC))) * ((u8)(item->b2 + 1));
       }
     }
       break;
 
     case 2:
-      price = (s32) (((f32) (item->b2 + 1)) * get_item_price_coefficient(item->type, item->sub));
+      price = (s32) (((f32)(item->b2 + 1)) * get_item_price_coefficient(item->type, item->sub));
       break;
 
   }

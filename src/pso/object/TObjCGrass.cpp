@@ -212,13 +212,13 @@ void TObjCGrass::load_resources() {
         }
         TObjCGrass_bml_resource = (u32) var_r0;
     }
-    stack.sp8 = *(s32 *)((s8 *)(&cgrass_anim_binding.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&cgrass_anim_binding.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&cgrass_anim_binding.value) + 8);
-    stack.sp14 = *(s32 *)((s8 *)(&cgrass_anim_binding.value) + 0xC);
+    stack.sp8 = *(s32 *)((s8 *)&cgrass_anim_binding.value + 0);
+    stack.spC = *(s32 *)((s8 *)&cgrass_anim_binding.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&cgrass_anim_binding.value + 8);
+    stack.sp14 = *(s32 *)((s8 *)&cgrass_anim_binding.value + 0xC);
     stack.sp8 = *(s32 *)((s8 *)TObjCGrass_bml_resource + 0x430);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)TObjCGrass_bml_resource + 0x42C));
-    TLobby::spawn_npc_enemy((s16)(0x36), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 8))), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0xC))), (s32)((void *) (&stack.sp8)), (f32)(lbl_805D9E68), (f32)(TObjCGrass__data_805D9E64));
+    TLobby::spawn_npc_enemy((s16)(0x36), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 8))), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0xC))), (s32)((void *)&stack.sp8), (f32)lbl_805D9E68, (f32)TObjCGrass__data_805D9E64);
 }
 
 void *__dt__10TObjCGrassFv(void *arg0, s16 arg1) {

@@ -9,7 +9,7 @@ extern "C" {
 s32 strncpy(void *, void *, s32);
 extern const f32 lbl_805DA9C0;
 void TWindowSubStatusDisp::render_forward(void* p) { TWindowSubStatusDisp::begin_render((s32)p); }
-void TWindowSubStatusDisp::begin_render(s32 _w0) { TObjFish::set_global_param((s32)(localized_alphabet_list)); }
+void TWindowSubStatusDisp::begin_render(s32 _w0) { TObjFish::set_global_param(localized_alphabet_list); }
 }
 
 void TFontSmallHelp::set_color(u32 text_color) {

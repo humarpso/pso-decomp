@@ -33,7 +33,7 @@ void TUnk_804A68C8::update_attack() {
         this->m_1fc = 1;
     }
     if (((TItemProShield *)arg0)->get_slot_count() == 5) {
-        TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1F8), (f32)(lbl_805DAFF8), (f32)(lbl_805DAFFC));
+        TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1F8), (f32)lbl_805DAFF8, (f32)lbl_805DAFFC);
     }
 }
 

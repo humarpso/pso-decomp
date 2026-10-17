@@ -183,7 +183,7 @@ void TBoss4Thanks::update_fade_out() {
             queue_destruction__7TObjectFv(this);
             return;
         }
-        this->fade_frame = (s32) (temp_r3 + 1);
+        this->fade_frame = (temp_r3 + 1);
     }
 }
 

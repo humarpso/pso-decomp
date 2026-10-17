@@ -235,29 +235,29 @@ void TTecMegid::update_by_state() {
     temp_r0 = this->band;
     switch (temp_r0) {
     case 0:
-        handle = play_sound_effect(0x4002A60B, (int) (arg0 + 0x20), 0, 0);
+        handle = play_sound_effect(0x4002A60B, (int)(arg0 + 0x20), 0, 0);
         if (handle >= 0) {
             update_technique_slot__10TTecRaFoieFl(handle, 0x100, 0);
         }
         return;
     case 1:
-        play_sound_effect(0x4002A60B, (int) (arg0 + 0x20), 0, 0);
+        play_sound_effect(0x4002A60B, (int)(arg0 + 0x20), 0, 0);
         return;
     case 2:
     case 3:
-        handle = play_sound_effect(0x4002A60B, (int) (arg0 + 0x20), 0, 0);
+        handle = play_sound_effect(0x4002A60B, (int)(arg0 + 0x20), 0, 0);
         if (handle >= 0) {
             update_technique_slot__10TTecRaFoieFl(handle, -0x180, 0);
         }
         break;
     case 4:
-        handle = play_sound_effect(0x4002A60B, (int) (arg0 + 0x20), 0, 0);
+        handle = play_sound_effect(0x4002A60B, (int)(arg0 + 0x20), 0, 0);
         if (handle >= 0) {
             update_technique_slot__10TTecRaFoieFl(handle, -0x250, 0);
         }
         break;
     case 5:
-        handle = play_sound_effect(0x4002A60B, (int) (arg0 + 0x20), 0, 0);
+        handle = play_sound_effect(0x4002A60B, (int)(arg0 + 0x20), 0, 0);
         if (handle >= 0) {
             update_technique_slot__10TTecRaFoieFl(handle, -0x100, 0);
         }
@@ -330,14 +330,14 @@ void TTecMegid::init_parameters() {
   ((TTecAnti *)(arg0 + 0xCC))->copy_params((u8 *)new_var);
   if ((((s16) ((RecoveredFields_80235348_arg0 *) arg0)->field_C4) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
-    ((RecoveredFields_80235348_arg0 *) arg0)->field_CC = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0x48))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0x4A))) * ((RecoveredFields_80235348_arg0 *) arg0)->field_C4));
+    ((RecoveredFields_80235348_arg0 *) arg0)->field_CC = (f32) ((*((s16 *) (((s8 *)&tech_high_level_linear_power_table.value) + 0x48))) + ((*((s16 *) (((s8 *)&tech_high_level_linear_power_table.value) + 0x4A))) * ((RecoveredFields_80235348_arg0 *) arg0)->field_C4));
   }
   else
   {
     ((RecoveredFields_80235348_arg0 *) arg0)->field_CC = (f32) (((RecoveredFields_80235348_arg0 *) arg0)->field_CC + ((f32) (((RecoveredFields_80235348_arg0 *) arg0)->field_F0 * ((RecoveredFields_80235348_arg0 *) arg0)->field_C4)));
     if (is_technique_ready__8TTecCtrlFv() != 0)
     {
-      ((RecoveredFields_80235348_arg0 *) arg0)->field_CC = (f32) (((RecoveredFields_80235348_arg0 *) arg0)->field_CC * (*((f32 *) (((s8 *) (&lbl_804CC55C.value)) + 0x90))));
+      ((RecoveredFields_80235348_arg0 *) arg0)->field_CC = (f32) (((RecoveredFields_80235348_arg0 *) arg0)->field_CC * (*((f32 *) (((s8 *)&lbl_804CC55C.value) + 0x90))));
     }
   }
   ((RecoveredFields_80235348_arg0 *) arg0)->field_64 = (f32) (((RecoveredFields_80235348_arg0 *) arg0)->field_D0 + ((f32) ((((s16) ((RecoveredFields_80235348_arg0 *) arg0)->field_C4) / 5) * 2)));
@@ -479,7 +479,7 @@ u8 *TTecMegid::construct_facing(s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
 }
 
 void TUnk_804CCA78::run_task() {
-    this->m_1e = (s16) (this->m_1e + 1);
+    this->m_1e = (this->m_1e + 1);
     if ((s16) this->m_1e > (s16) *(s16 *)&this->unk_1C) {
         queue_destruction__7TObjectFv((this));
     }

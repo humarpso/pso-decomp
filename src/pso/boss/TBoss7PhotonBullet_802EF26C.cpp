@@ -133,8 +133,8 @@ u8 *TBoss7PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32
     construct_collision_body((arg0), (arg1), (arg2));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802EF514___vt__18TBoss7PhotonBullet *)&__vt__18TBoss7PhotonBullet).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3FD4;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xC0), (void *)arg3)));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xB4), (void *)arg4);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x38, (void *) (VecCopy__FP3VecPC3Vec(arg0 + 0xC0, (void *)arg3)));
+    VecCopy__FP3VecPC3Vec(arg0 + 0xB4, (void *)arg4);
     *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0xC) = (f32) (3.0f);
     *(f32 *)((s8 *)arg0 + 0xCC) = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0xD0) = (f32) (0.0f);

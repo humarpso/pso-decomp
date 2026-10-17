@@ -999,7 +999,7 @@ void TBoss3Volopt::trigger_breakup() {
         *(s32 *)((s8 *)temp_r5 + 0x9C) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x9C) & 0xEFFFFFFE);
         ((TObjEneGyaranzo *)((u8 *)this))->render_anim_model_at_pos();
         this->vfunc_65(0x29, (s32)&sp8);
-        TBoss3Volopt::create_breakup_mdl(*(s32 *)((s8 *)(&TBoss3Volopt__breakup_model_ids.value) + 0x10), (s32) &TBoss3Volopt__data_804845E8.value, this->texture_id, (s32) (((u8 *)this) + 0x2FC), this->rotation_y);
+        TBoss3Volopt::create_breakup_mdl(*(s32 *)((s8 *)&TBoss3Volopt__breakup_model_ids.value + 0x10), (s32) &TBoss3Volopt__data_804845E8.value, this->texture_id, (s32) (((u8 *)this) + 0x2FC), this->rotation_y);
         TBoss3Volopt::set_flag8_list((u32 **)(&volopt_breakup_flag_list.value));
         play_sound_effect(0x4003A80F, (u32) (((u8 *)this) + 0x38), 0, 1);
     }
@@ -1021,7 +1021,7 @@ void TBoss3Volopt__sub_800456E4(u8 *arg0) {
         ((VObj_18_f1aa6a *)(arg0))->m63(0x22, &sp8);
         TBoss3Volopt::create_breakup_mdl(*(s32 *)((s8 *)(&(*(RecoveredGlobal_800456E4_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__breakup_model_ids).value) + 0xC), (s32) &(*(RecoveredGlobal_800456E4_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value, *(s32 *)((s8 *)arg0 + 0x24), (s32) &sp8, *(s32 *)((s8 *)arg0 + 0x60));
         TBoss3Volopt::set_flag8_list((u32 **)(&lbl_804FF10C.value));
-        play_sound_effect(0x4003A80F, (u32) (arg0 + 0x38), 0, 1);
+        play_sound_effect(0x4003A80F, (u32)(arg0 + 0x38), 0, 1);
     }
 }
 
@@ -1041,7 +1041,7 @@ void TBoss3Volopt__sub_800457A0(u8 *arg0) {
         ((VObj_18_f1aa6a *)(arg0))->m63(0x32, &sp8);
         TBoss3Volopt::create_breakup_mdl(*(s32 *)((s8 *)(&(*(RecoveredGlobal_800457A0_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__breakup_model_ids).value) + 8), (s32) &(*(RecoveredGlobal_800457A0_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value, *(s32 *)((s8 *)arg0 + 0x24), (s32) &sp8, *(s32 *)((s8 *)arg0 + 0x60));
         TBoss3Volopt::set_flag8_list((u32 **)(&lbl_804FF0CC.value));
-        play_sound_effect(0x4003A80F, (u32) (arg0 + 0x38), 0, 1);
+        play_sound_effect(0x4003A80F, (u32)(arg0 + 0x38), 0, 1);
     }
 }
 
@@ -1060,9 +1060,9 @@ void TBoss3Volopt::spawn_breakup_models() {
         *(s32 *)&this->m_388 = (s32) (temp_r4 | 0x10000);
         ((TObjEneGyaranzo *)((u8 *)this))->render_anim_model_at_pos();
         this->vfunc_65(2, (s32)&sp8);
-        TBoss3Volopt::create_breakup_mdl((s32)((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__breakup_model_ids).value) + 0))), (s32)((void *) (&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value)), (s32)(this->texture_id), (s32)((void *) (&sp8)), (s32)(this->rotation_y));
+        TBoss3Volopt::create_breakup_mdl((s32)((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__breakup_model_ids).value) + 0))), (s32)((void *) (&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value)), this->texture_id, (s32)(&sp8), this->rotation_y);
         this->vfunc_65(0x12, (s32)&sp8);
-        TBoss3Volopt::create_breakup_mdl((s32)((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__breakup_model_ids).value) + 4))), (s32)((void *) (&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value)), (s32)(this->texture_id), (s32)((void *) (&sp8)), (s32)(this->rotation_y));
+        TBoss3Volopt::create_breakup_mdl((s32)((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__breakup_model_ids).value) + 4))), (s32)((void *) (&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value)), this->texture_id, (s32)(&sp8), this->rotation_y);
         TBoss3Volopt::set_flag8_list((u32 **)(&TBoss3Volopt__breakup_flag_list.value));
     }
 }
@@ -1248,14 +1248,14 @@ void TBoss3Volopt::update_pillar_heal_state(void *arg0_) {
         *(s16 *)((s8 *)arg0 + 0xB8) = 5;
         *(s32 *)((s8 *)arg0 + 0x37C) = 1;
         ((TBoss3Volopt *)arg0)->push_players_out_of_radius();
-        play_sound_effect(0x4003A817, (u32) (arg0 + 0x38), 0, 0);
+        play_sound_effect(0x4003A817, (u32)(arg0 + 0x38), 0, 0);
         break;
     case 1: {
         f32 f;
         f32 t;
         advance_animation_playback(arg0);
         if (objInBand((GameObj *)arg0, (f32)TBoss3Volopt__data_805D87D8) != 0) {
-            play_sound_effect(0x4003A80B, (u32) (arg0 + 0x38), 0, 0);
+            play_sound_effect(0x4003A80B, (u32)(arg0 + 0x38), 0, 0);
         }
         t = lbl_805D8800 * (*(f32 *)((s8 *)arg0 + 0xC0) - lbl_805D8804);
         f = min_80045EEC(max_80045EEC(t, TBoss3Volopt__data_805D87E4), TBoss3Volopt__data_805D87E8);
@@ -1275,7 +1275,7 @@ void TBoss3Volopt::update_pillar_heal_state(void *arg0_) {
         break;
     }
     case 2: {
-        play_sound_effect(0x4003A819, (u32) (arg0 + 0x38), 0, 0);
+        play_sound_effect(0x4003A819, (u32)(arg0 + 0x38), 0, 0);
         if (--*(s16 *)((s8 *)arg0 + 0x33C) <= 0) {
             s32 n;
             if (*(u32 *)((s8 *)arg0 + 0x474) != 0U) {
@@ -1302,7 +1302,7 @@ void TBoss3Volopt::update_pillar_heal_state(void *arg0_) {
             *(s16 *)((s8 *)arg0 + 0x32C) = imin_80045EEC(*(s16 *)((s8 *)arg0 + 0x32C) + 0xA, *(s16 *)((s8 *)arg0 + 0x2B8));
             *(void **)((s8 *)arg0 + 0x474) = create_particle_emitter(arg0 + 0x38, 0x1A2);
             *(s32 *)((s8 *)arg0 + 0x37C) = 3;
-            play_sound_effect(0x4002AB0E, (u32) (arg0 + 0x38), 0, 0);
+            play_sound_effect(0x4002AB0E, (u32)(arg0 + 0x38), 0, 0);
         }
         break;
     }
@@ -1313,7 +1313,7 @@ void TBoss3Volopt::update_pillar_heal_state(void *arg0_) {
                 *(u32 *)((s8 *)arg0 + 0x474) = 0U;
             }
             *(s32 *)((s8 *)arg0 + 0x37C) = 4;
-            play_sound_effect(0x4003A817, (u32) (arg0 + 0x38), 0, 0);
+            play_sound_effect(0x4003A817, (u32)(arg0 + 0x38), 0, 0);
         }
         break;
     }
@@ -1656,7 +1656,7 @@ void dispatch_state__12TBoss3VoloptFPv(V_80047408 *self) {
 }
 
 void TBoss3Volopt::set_action_wait(u16 arg1) {
-    if ((obj_testFlags30((void*)(this), 0x800) == 0) && !(*(s32 *)&this->m_388 & 0x80000) && ((s16) this->mode != 0xA)) {
+    if ((obj_testFlags30(this, 0x800) == 0) && !(*(s32 *)&this->m_388 & 0x80000) && ((s16) this->mode != 0xA)) {
         TBoss3Volopt::check_and_notify((s32)this);
         if ((u16) arg1 != 0xFFFF) {
             this->targetId = arg1;
@@ -1666,21 +1666,21 @@ void TBoss3Volopt::set_action_wait(u16 arg1) {
     }
 }
 void TBoss3Volopt::set_motion(s16 arg1) {
-    if ((obj_testFlags30((void*)(this), 0x800) == 0) && !(*(s32 *)&this->m_388 & 0x10000) && ((s16) this->mode != 9)) {
+    if ((obj_testFlags30(this, 0x800) == 0) && !(*(s32 *)&this->m_388 & 0x10000) && ((s16) this->mode != 9)) {
         *(s16 *)&this->targetId = arg1;
         *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 & 0xFFFFFFFE);
         ((TObjEneMe1GiGue *)this)->update_if_active(9);
     }
 }
 void TBoss3Volopt::check_and_trigger() {
-    if ((obj_testFlags30((void*)(this), 0x800) == 0) && !(*(s32 *)&this->m_388 & 0x40000)) {
+    if ((obj_testFlags30(this, 0x800) == 0) && !(*(s32 *)&this->m_388 & 0x40000)) {
         TBoss3Volopt::check_and_notify((s32)this);
         *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 & 0xFFFFFFFE);
         ((TObjEneMe1GiGue *)this)->update_if_active(0xB);
     }
 }
 void TBoss3Volopt::set_action(s16 arg1) {
-    if ((obj_testFlags30((void*)(this), 0x800) == 0) && !(*(s32 *)&this->m_388 & 0x20000) && ((s16) this->mode != 2)) {
+    if ((obj_testFlags30(this, 0x800) == 0) && !(*(s32 *)&this->m_388 & 0x20000) && ((s16) this->mode != 2)) {
         TBoss3Volopt::check_and_notify((s32)this);
         *(s16 *)&this->targetId = arg1;
         *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 & 0xFFFFFFFE);
@@ -1775,7 +1775,7 @@ void TUnk_80484610::run_task() {
             copy_position__20TBoss3VoloptHiraisinFi((s32)arg0);
             submit_cursor_candidate(arg0, -1);
             minimap_render_dot((u8 *)&this->position, -0x5DB4, 1, 0);
-            update_obstruction_fade((void *) (arg0 + 0x490));
+            update_obstruction_fade(arg0 + 0x490);
             this->clear_all_status_effects();
         }
     }

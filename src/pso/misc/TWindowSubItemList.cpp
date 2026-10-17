@@ -41,7 +41,7 @@ void TWindowSubItemList::render() {
     s32 temp_r3;
     temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame(arg0, temp_r3);
-    draw_visible_window_entries(arg0, (void *) (arg0 + 0x24), temp_r3);
+    draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     ((TUnk_804D0618 *)arg0)->draw_selected_list_entry(temp_r3);
     ((TWindowSubItemList *)arg0)->sub_8027ACF8((u8 *)temp_r3);
     draw_item_list_capacity(arg0, temp_r3, this->m_8c, 0x1E);
@@ -49,7 +49,7 @@ void TWindowSubItemList::render() {
         forward_render__20TWindowSubStatusDispFv(this->m_80, temp_r3);
     }
     if ((u32) *(u32 *)&this->unk_84 != 0U) {
-        draw_window_scrollbar(*(void * *)&this->unk_84, temp_r3, (void *) (arg0 + 0x68));
+        draw_window_scrollbar(*(void * *)&this->unk_84, temp_r3, arg0 + 0x68);
     }
 }
 #pragma pop

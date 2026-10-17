@@ -214,8 +214,8 @@ void TLobby__sub_800738F4(void *arg0, s32 arg1) {
 }
 
 void TLobby__sub_800739BC(void) {
-    *(s32 *)((s8 *)(&challenge_mode_state.value) + 0x48) = 0;
-    *(s32 *)((s8 *)(&challenge_mode_state.value) + 0x4C) = 0;
+    *(s32 *)((s8 *)&challenge_mode_state.value + 0x48) = 0;
+    *(s32 *)((s8 *)&challenge_mode_state.value + 0x4C) = 0;
 }
 
 }

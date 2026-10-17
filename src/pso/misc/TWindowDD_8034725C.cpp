@@ -271,8 +271,8 @@ void TWindowDD__sub_80347A4C(u8 *arg0, s32 arg1) {
     s32 temp_r3;
     temp_r3 = TWindowDD__sub_80342158((void *)arg1);
     if (TWindowDD::is_state_zero_unless_0x2C8(temp_r3) != 0) {
-        TWindowDD__sub_80348DD8((void *) (arg0 + 0xC4), temp_r3);
-        TWindowDD__sub_80347CC8((W_80347CC8 *)(arg0), (void *)((void *) (arg0 + 0xC4)));
+        TWindowDD__sub_80348DD8(arg0 + 0xC4, temp_r3);
+        TWindowDD__sub_80347CC8((W_80347CC8 *)(arg0), (void *)(arg0 + 0xC4));
         *(s32 *)((s8 *)arg0 + 0x98) = 1;
         *(s32 *)((s8 *)arg0 + 0x9C) = (s32) (s16) temp_r3;
         return;
@@ -364,7 +364,7 @@ void TWindowDD__sub_80347E04(W_80347E04 *arg0, s32 arg1) {
     V2_80347E04 b;
     u32 r;
     u8 *o;
-    ((TWindowDD *)(arg0->pages[arg0->cur]))->get_cursor_pos((u8 *)(&v));
+    ((TWindowDD *)(arg0->pages[arg0->cur]))->get_cursor_pos((u8 *)&v);
     r = ((TWindowDD *)(arg0->pages[arg0->cur]))->update_if_field28_set();
     if (r != 0) {
         if (arg1 == 0) {

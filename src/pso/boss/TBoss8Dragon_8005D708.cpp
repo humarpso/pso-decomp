@@ -78,7 +78,7 @@ int TBoss5Gryphon::vfunc_105() {
             f = lbl_805D8D5C;
         } else {
             u32 n = c->count;
-            if (f > (f32)(n - 1)) {
+            if (f > (n - 1)) {
                 f = (f32)n;
             }
         }

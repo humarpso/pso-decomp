@@ -127,7 +127,7 @@ void TOTrap::vfunc_81() {
 
 void TOTrap::submit_cursor_and_notify() {
     u8 *arg0 = (u8 *)this;
-    submit_cursor_candidate((void *)(arg0), -1);
+    submit_cursor_candidate(arg0, -1);
     this->find_target_player();
 }
 
@@ -170,12 +170,12 @@ f32 TOTrap::receive_physical_attack(void *arg1, f32) {
   s16 sp8;
   s32 temp_r3_2;
   u16 temp_r3;
-  if ((((this->m_1c) >= 0x4000U) && (((u32) (*((u32 *) (((s8 *) ((u8 *)this)) + 0x80)))) != 0U)) && (access_object_saved_state((void *) (&sp8), 1) != 0))
+  if ((((this->m_1c) >= 0x4000U) && (((u32) (*((u32 *) (((s8 *) ((u8 *)this)) + 0x80)))) != 0U)) && (access_object_saved_state(&sp8, 1) != 0))
   {
     this->mode = 4;
     sp8 = this->mode;
-    access_object_saved_state((void *) (&sp8), 0);
-    send_object_state_update((void *) (&sp8));
+    access_object_saved_state(&sp8, 0);
+    send_object_state_update(&sp8);
     if (arg1 != 0U)
     {
       temp_r3 = obj_getField1c((u32)((void *) arg1));

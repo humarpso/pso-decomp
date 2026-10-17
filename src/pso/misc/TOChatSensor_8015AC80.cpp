@@ -45,7 +45,7 @@ void TOChatSensor::check_player_proximity() {
 
     player = (u32)get_player_by_client_id((local_client_id));
     if (player != 0U) {
-        if (horizontal_distance_squared((void *) (player + 0x38), (void *) (arg0 + 0x38)) < *(f32 *)&this->unk_9C) {
+        if (horizontal_distance_squared((void *)(player + 0x38), (void *)(arg0 + 0x38)) < *(f32 *)&this->unk_9C) {
             *(s32 *)&this->m_a0 = 1;
             return;
         }
@@ -147,7 +147,7 @@ void TOChatSensor::render() {
     stack.spC = lbl_805DB388;
     stack.sp14 = (stack.sp10 = lbl_805DB38C);
     newton_sqrtf(*((f32 *) (((s8 *) arg0) + 0x9C)));
-    TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&stack.sp8));
+    TObjRoomId__sub_80141CF4(arg0 + 0x38, &stack.sp8);
   }
 }
 

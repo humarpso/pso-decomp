@@ -83,7 +83,7 @@ void TUnk_804A0CB8::emit_marker_effects() {
         self->fn1f0 = (void *)belra_cannon_create_shot;
         self->f1f8 = 0;
         TItemAttacker::spawn_item_timer((s32)self, (s32)((void *)belra_cannon_return_timer), 0x1E);
-        ((TObjPlayer *)self)->draw_icon(1, (s32)(&v));
+        ((TObjPlayer *)self)->draw_icon(1, (s32)&v);
         self->m49(&v, 0, 0, 1);
     }
 }

@@ -344,13 +344,13 @@ s32 calc_rotated_hex_point__23TObjOnlineEndingHexLineFPvPv(V2_802E55B8 *arg0, P2
     }
     f32 y = (f32) (*(s16 *)((s8 *)arg1 + 2) * 0x19);
     V2_802E5B0C ctr = lbl_80472C00[0];
-    ang = *(s32 *)((s8 *)(&TObjOnlineEndingHexLine__hex_line_params) + 8);
+    ang = *(s32 *)((s8 *)&TObjOnlineEndingHexLine__hex_line_params + 8);
     p.x = p.x - ctr.x;
     p.y = y;
     p.y = p.y - ctr.y;
     s = sin_table_lookup(ang);
-    c = cos_table_lookup(*(s32 *)((s8 *)(&TObjOnlineEndingHexLine__hex_line_params) + 8));
-    sc = *(f32 *)((s8 *)(&TObjOnlineEndingHexLine__hex_line_params) + 4);
+    c = cos_table_lookup(*(s32 *)((s8 *)&TObjOnlineEndingHexLine__hex_line_params + 8));
+    sc = *(f32 *)((s8 *)&TObjOnlineEndingHexLine__hex_line_params + 4);
     V2_802E5B0C q = p;
     p.x = c * q.x - s * q.y;
     p.y = s * q.x + c * q.y;
@@ -511,7 +511,7 @@ u8 *TObjOnlineEndingHexMove__ct(u8 *arg0, void *origin) {
     for (i = 0; i < 4; i++) {
         TObjOnlineEndingHexLine::create(origin, &TObjOnlineEndingHexLine_corner_offsets[i]);
     }
-    copy_move_params__23TObjOnlineEndingHexMoveFPvPv((void*)(&online_ending_hex_line_state), TObjOnlineEndingHexMove__default_move_params);
+    copy_move_params__23TObjOnlineEndingHexMoveFPvPv(&online_ending_hex_line_state, TObjOnlineEndingHexMove__default_move_params);
     *(s32 *)((s8 *)arg0 + 0x1C) = 0x1E;
     return arg0;
 }

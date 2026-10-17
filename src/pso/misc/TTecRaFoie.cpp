@@ -157,29 +157,29 @@ void TTecRaFoie::vfunc_9() {
     temp_r0 = *(s16 *)&this->unk_7A;
     switch (temp_r0) {
     case 0:
-        handle = play_sound_effect(0x4002A602, (int) (arg0 + 0x7C), 0, 0);
+        handle = play_sound_effect(0x4002A602, (int)(arg0 + 0x7C), 0, 0);
         if (handle >= 0) {
             update_technique_slot__10TTecRaFoieFl(handle, 0x100, 0);
         }
         return;
     case 1:
-        play_sound_effect(0x4002A602, (int) (arg0 + 0x7C), 0, 0);
+        play_sound_effect(0x4002A602, (int)(arg0 + 0x7C), 0, 0);
         return;
     case 2:
     case 3:
-        handle = play_sound_effect(0x4002A602, (int) (arg0 + 0x7C), 0, 0);
+        handle = play_sound_effect(0x4002A602, (int)(arg0 + 0x7C), 0, 0);
         if (handle >= 0) {
             update_technique_slot__10TTecRaFoieFl(handle, -0x180, 0);
         }
         break;
     case 4:
-        handle = play_sound_effect(0x4002A602, (int) (arg0 + 0x7C), 0, 0);
+        handle = play_sound_effect(0x4002A602, (int)(arg0 + 0x7C), 0, 0);
         if (handle >= 0) {
             update_technique_slot__10TTecRaFoieFl(handle, -0x250, 0);
         }
         break;
     case 5:
-        handle = play_sound_effect(0x4002A602, (int) (arg0 + 0x7C), 0, 0);
+        handle = play_sound_effect(0x4002A602, (int)(arg0 + 0x7C), 0, 0);
         if (handle >= 0) {
             update_technique_slot__10TTecRaFoieFl(handle, -0x100, 0);
         }
@@ -335,11 +335,11 @@ typedef char RecoveredGlobal_80230D9C_lbl_804CC55C_size[((sizeof(RecoveredGlobal
 void TTecRaFoie::calc_area_parameters() {
     u8 *arg0 = (u8 *)this;
   int new_var;
- new_var = (int) calc_technique_parameters(0x2, (int) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78, 0xFFFF); do { ((TTecAnti *)(arg0 + ((0, 0x88))))->copy_params((u8 *)new_var); if ((((s16) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0)) { ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0x8))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0xa))) * ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78)); return; } } while (0);
+ new_var = (int) calc_technique_parameters(0x2, (int) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78, 0xFFFF); do { ((TTecAnti *)(arg0 + ((0, 0x88))))->copy_params((u8 *)new_var); if ((((s16) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0)) { ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) ((*((s16 *) (((s8 *)&tech_high_level_linear_power_table.value) + 0x8))) + ((*((s16 *) (((s8 *)&tech_high_level_linear_power_table.value) + 0xa))) * ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78)); return; } } while (0);
   ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) (((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 + ((f32) (((RecoveredFields_80230D9C_arg0 *) arg0)->field_AC * ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78)));
   if (is_technique_ready__8TTecCtrlFv())
   {
-    ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) (((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 * (*((f32 *) (((s8 *) (&lbl_804CC55C.value)) + 0x10))));
+    ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) (((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 * (*((f32 *) (((s8 *)&lbl_804CC55C.value) + 0x10))));
   }
 }
 
@@ -405,7 +405,7 @@ void TUnk_804CCB28::run_task() {
     typedef char sp20_offset[(offsetof(Stack_80238388, sp20) == 0x18) ? 1 : -1];
     Stack_80238388 stack;
     f32 temp_f1;
-    this->m_58 = (s32) (this->m_58 + 1);
+    this->m_58 = (s32)(this->m_58 + 1);
     *(s32 *)&this->unk_5C = (s32) (*(s32 *)&this->unk_5C + 1);
     if ((s32) *(s32 *)&this->unk_5C >= 0x10) {
         *(s32 *)&this->unk_5C = 0;
@@ -413,10 +413,10 @@ void TUnk_804CCB28::run_task() {
     if ((s32) this->m_58 > 0x6E) {
         queue_destruction__7TObjectFv((arg0));
     }
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_8044DAF0.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_8044DAF0.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&lbl_8044DAF0.value) + 8);
-    stack.sp14 = *(s32 *)((s8 *)(&lbl_8044DAF0.value) + 0xC);
+    stack.sp8 = *(s32 *)((s8 *)&lbl_8044DAF0.value + 0);
+    stack.spC = *(s32 *)((s8 *)&lbl_8044DAF0.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&lbl_8044DAF0.value + 8);
+    stack.sp14 = *(s32 *)((s8 *)&lbl_8044DAF0.value + 0xC);
     temp_f1 = this->m_40;
     stack.sp18 = temp_f1;
     stack.sp1C = temp_f1;
@@ -425,11 +425,11 @@ void TUnk_804CCB28::run_task() {
         if ((s32) this->m_60 != 0) {
             this->m_60 = 0;
         }
-        approach_position_if_far(((u8 *)&this->m_34), (u8 *)(&stack.sp18), (f32) ((0.05f)));
+        approach_position_if_far(((u8 *)&this->m_34), (u8 *)&stack.sp18, (f32) ((0.05f)));
     } else {
-        approach_position_if_far(((u8 *)&this->m_34), (u8 *)(&stack.sp18), (f32) ((0.15f)));
+        approach_position_if_far(((u8 *)&this->m_34), (u8 *)&stack.sp18, (f32) ((0.15f)));
     }
-    approach_alpha_clamped((void *) (arg0 + 0x48), (void *) (&stack.sp8), (f32) ((0.035f)));
+    approach_alpha_clamped((void *)(arg0 + 0x48), (void *)&stack.sp8, (f32) ((0.035f)));
 }
 #pragma pop
 
@@ -667,7 +667,7 @@ void run_task__10TTecRaFoieFv(u8 *arg0) {
         return;
     }
     if ((s32) *(s32 *)&((TTecRaFoie *)arg0)->m_148 == 1) {
-        ((TTecRaFoie *)arg0)->update_detonation((void *) (arg0 + 0x7C));
+        ((TTecRaFoie *)arg0)->update_detonation(arg0 + 0x7C);
         return;
     }
     if ((s32) *(s32 *)&((TTecRaFoie *)arg0)->m_ec == 0) {
@@ -676,7 +676,7 @@ void run_task__10TTecRaFoieFv(u8 *arg0) {
     }
     temp_r31 = find_entity_by_id((int) (((TTecRaFoie *)arg0)->m_f0));
     if ((is_parents_unqueued__9TTecLukerFUl() != 0) && (is_valid_and_active__10TObjPlayerFUl(temp_r31) != 0)) {
-        ((TTecRaFoie *)arg0)->update_detonation((void *) (temp_r31 + 0x2FC));
+        ((TTecRaFoie *)arg0)->update_detonation((void *)(temp_r31 + 0x2FC));
     }
 }
 

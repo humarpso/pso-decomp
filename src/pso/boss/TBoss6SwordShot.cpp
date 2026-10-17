@@ -451,7 +451,7 @@ u8 test_rock_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1) {
     typedef char sp8_offset[(offsetof(Stack_80356C80, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80356C80, spC) == 0x4) ? 1 : -1];
     Stack_80356C80 stack;
-    TBoss6SwordWave::split_bit_index(arg0, arg1, (void *)(&stack.spC), (void *)(&stack.sp8));
+    TBoss6SwordWave::split_bit_index(arg0, arg1, &stack.spC, &stack.sp8);
     return (u8) (((1 << stack.sp8) & *(s32 *)((s8 *)arg0 + (stack.spC * 4))) != 0);
 }
 
@@ -490,7 +490,7 @@ void set_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1) {
   s32 sp8;
   s32 temp_r5;
   s8 *new_var;
-  TBoss6SwordWave::split_bit_index(arg0, arg1, (void *)(&spC), (void *)(&sp8));
+  TBoss6SwordWave::split_bit_index(arg0, arg1, &spC, &sp8);
   temp_r5 = spC * 4;
   new_var = ((s8 *) arg0) + temp_r5;
   *((s32 *) (((s8 *) arg0) + temp_r5)) = (*((s32 *) new_var)) | (1 << sp8);

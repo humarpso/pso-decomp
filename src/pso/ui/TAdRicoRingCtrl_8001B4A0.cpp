@@ -123,10 +123,10 @@ u8 *TAdRicoRingCtrl__ct(u8 *arg0, s32 arg1) {
     }
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) TAdRicoRingCtrl__data_805D7E50;
     ((TAdRicoRingCtrl *)arg0)->m_28 = (f32) lbl_805D7E4C;
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_8043481C.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_8043481C.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&lbl_8043481C.value) + 8);
-    ((TAdRicoRingCtrl *)arg0)->sub_8001B424((s32)((void *) (&stack.sp8)));
+    stack.sp8 = *(s32 *)((s8 *)&lbl_8043481C.value + 0);
+    stack.spC = *(s32 *)((s8 *)&lbl_8043481C.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&lbl_8043481C.value + 8);
+    ((TAdRicoRingCtrl *)arg0)->sub_8001B424((s32)((void *)&stack.sp8));
     return arg0;
 }
 

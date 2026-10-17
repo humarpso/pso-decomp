@@ -654,14 +654,14 @@ void render__19TObjEneEpsilonGuardFv(u8 *arg0) {
         if (var_r31 != 0) {
             update_player_state__9TObjEneDDFv(arg0, 0, 0);
             ((TObject *)arg0)->toggle_flag_9_if_flag_10_is_clear();
-            render_with_fade__19TObjEneEpsilonGuardFPvi((u8 *)(arg0), (s32)(var_r31));
+            render_with_fade__19TObjEneEpsilonGuardFPvi(arg0, var_r31);
             ((TObjEneEpsilonGuard *)arg0)->render_guard_effect();
             return;
         }
         *(f32 *)((s8 *)arg0 + 0x460) = (f32) TObjEneEpsilonGuard__data_805E01D8;
         *(f32 *)((s8 *)arg0 + 0x464) = (f32) TObjEneEpsilonGuard__data_805E01D8;
         *(f32 *)((s8 *)arg0 + 0x468) = (f32) TObjEneEpsilonGuard__data_805E01D8;
-        ((TObjEneEpsilonGuard *)arg0)->sub_803626A8((s32)((void *) (arg0 + 0x460)), 0);
+        ((TObjEneEpsilonGuard *)arg0)->sub_803626A8((s32)(arg0 + 0x460), 0);
     }
 }
 #pragma pop
@@ -1021,7 +1021,7 @@ void TObjEneEpsilonGuard::update_center_position() {
     *(f32 *)((s8 *)arg0 + 0x2FC) = (f32) *(f32 *)((s8 *)arg0 + 0x38);
     *(f32 *)((s8 *)arg0 + 0x300) = (f32) (TObjEneEpsilonGuard__data_805E01DC + *(f32 *)((s8 *)arg0 + 0x3C));
     *(f32 *)((s8 *)arg0 + 0x304) = (f32) *(f32 *)((s8 *)arg0 + 0x40);
-    ((s32 (*)(void *, void *, void *, f32))VecCopy__FP3VecPC3Vec)((void *) (arg0 + 0x74), (void *) (arg0 + 0x2FC), arg0, TObjEneEpsilonGuard__data_805E01DC);
+    ((s32 (*)(void *, void *, void *, f32))VecCopy__FP3VecPC3Vec)(arg0 + 0x74, arg0 + 0x2FC, arg0, TObjEneEpsilonGuard__data_805E01DC);
 }
 void TObjEneEpsilonGuard::vfunc_88() { set_part_local_pos__9TObjEneDDFPvPvi(this, (char*)this + 0x2fc, (void*)0); }
 
@@ -1298,7 +1298,7 @@ void run_task__19TObjEneEpsilonGuardFv(u8 *arg0) {
         }
         entity = (s32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0x470)));
         if (entity != 0) {
-            ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (arg0 + 0x38), (void *) (entity + 0x38));
+            ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *)(arg0 + 0x38), (void *)(entity + 0x38));
             ((TObjEneEpsilonGuard *)arg0)->update_center_position();
         }
     } else if (*(s16 *)((s8 *)arg0 + 0x326) == 0) {

@@ -35,14 +35,14 @@ void queue_destruction__7TObjectFv(void *arg0);
 void TItem::update_item_data() {
     s32 sp8[4];
 
-    copy_to_item_data((void *)(&sp8));
+    copy_to_item_data(&sp8);
     is_custom_name_srank__9TItemDataFPv((u8 *)&sp8);
 }
 
 void TItem__sub_801013E8(void *arg0) {
     s32 sp8[4];
 
-    ((TItem *)arg0)->copy_to_item_data((void *)(&sp8));
+    ((TItem *)arg0)->copy_to_item_data(&sp8);
     is_rare_item__9TItemDataFPv((u8 *)&sp8);
 }
 
@@ -51,7 +51,7 @@ void TItem::destroy() { unregister_item(); disallow_rendering__7TObjectFv(this);
 void TItem::copy_item_data_and_process() {
     s32 sp8[4];
 
-    copy_to_item_data((void *)(&sp8));
+    copy_to_item_data(&sp8);
     ((TShopEquipmentSellWindow *)(&sp8))->get_item_price_if_valid();
 }
 
@@ -124,7 +124,7 @@ s32 TItem::register_attack() {
 void TItem::calc_display_grade() {
     s32 sp8[4];
 
-    copy_to_item_data((void *)(&sp8));
+    copy_to_item_data(&sp8);
     ((TItemData *)(&sp8))->calc_display_grade();
 }
 void draw_model_node_tree(u8 *arg0) {
@@ -152,13 +152,13 @@ void draw_model_node_tree(u8 *arg0) {
         } else {
             push_matrix();
             if (!(temp_r30 & 1)) {
-                post_translate_matrix((void *) (var_r31 + 8));
+                post_translate_matrix(var_r31 + 8);
             }
             if (!(temp_r30 & 2)) {
-                rotate_matrix_by_node_angles((void *) (var_r31 + 0x14), (void *) (temp_r30 & 0x20));
+                rotate_matrix_by_node_angles(var_r31 + 0x14, (void *) (temp_r30 & 0x20));
             }
             if (!(temp_r30 & 4)) {
-                scale_current_matrix((void *) (var_r31 + 0x20));
+                scale_current_matrix(var_r31 + 0x20);
             }
             if (((s32 (*)(void *)) model_node_visit_callback) != NULL) {
                 model_node_visit_callback(var_r31);

@@ -64,10 +64,10 @@ void render__18TBoss2PhotonBulletFv(u8 *arg0) {
     typedef char sp10_offset[(offsetof(Stack_80038DCC, sp10) == 0x8) ? 1 : -1];
     Stack_80038DCC stack;
     if (*(s32 *)((s8 *)arg0 + 0xDC) & 1) {
-        stack.sp8 = *(s32 *)((s8 *)(&lbl_80435B6C.value) + 0);
-        stack.spC = *(s32 *)((s8 *)(&lbl_80435B6C.value) + 4);
-        stack.sp10 = *(s32 *)((s8 *)(&lbl_80435B6C.value) + 8);
-        ((TObjEneDD *)(arg0 + 0x38))->draw_oriented_shadow((s32)((void *) (arg0 + 0xCC)), 0, (u32)((void *) (&stack.sp8)));
+        stack.sp8 = *(s32 *)((s8 *)&lbl_80435B6C.value + 0);
+        stack.spC = *(s32 *)((s8 *)&lbl_80435B6C.value + 4);
+        stack.sp10 = *(s32 *)((s8 *)&lbl_80435B6C.value + 8);
+        ((TObjEneDD *)(arg0 + 0x38))->draw_oriented_shadow((s32)((void *)(arg0 + 0xCC)), 0, (u32)((void *)&stack.sp8));
     }
 }
 #pragma push

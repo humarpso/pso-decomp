@@ -72,7 +72,7 @@ u32 TOChatSensor__create(s32 arg0) {
         temp_r3_2 = __nw__7TObjectFUl(0xD0);
         var_r0 = temp_r3_2;
         if (var_r0 != 0U) {
-            var_r0 = TOChatSensor__ct((int)(temp_r3_2), (void *)(TOChatSensorFolder__instance), (void *)(arg0));
+            var_r0 = TOChatSensor__ct((int)temp_r3_2, (void *)TOChatSensorFolder__instance, (void *)arg0);
         }
         return var_r0;
     }

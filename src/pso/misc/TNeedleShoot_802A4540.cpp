@@ -64,11 +64,11 @@ void TNeedleShoot::render() {
     typedef char sp10_offset[(offsetof(Stack_802A45D4, sp10) == 0x8) ? 1 : -1];
     typedef char sp14_offset[(offsetof(Stack_802A45D4, sp14) == 0xC) ? 1 : -1];
     Stack_802A45D4 stack;
-    stack.sp8 = *(s32 *)((s8 *)(&needle_shoot_color_white.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&needle_shoot_color_white.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&needle_shoot_color_white.value) + 8);
-    stack.sp14 = *(s32 *)((s8 *)(&needle_shoot_color_white.value) + 0xC);
-    TObjRoomId__sub_80141CF4((void *) (arg0 + 0x6C), (void *) (&stack.sp8), (int) (*(s32 *)((s8 *)(&needle_shoot_color_white.value) + 8)), (int) (*(s32 *)((s8 *)(&needle_shoot_color_white.value) + 4)), (int) (*(s32 *)((s8 *)(&needle_shoot_color_white.value) + 0)), (void *) (&needle_shoot_color_white.value), lbl_805DDF68);
+    stack.sp8 = *(s32 *)((s8 *)&needle_shoot_color_white.value + 0);
+    stack.spC = *(s32 *)((s8 *)&needle_shoot_color_white.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&needle_shoot_color_white.value + 8);
+    stack.sp14 = *(s32 *)((s8 *)&needle_shoot_color_white.value + 0xC);
+    TObjRoomId__sub_80141CF4((void *)(arg0 + 0x6C), (void *)&stack.sp8, (int) (*(s32 *)((s8 *)&needle_shoot_color_white.value + 8)), (int) (*(s32 *)((s8 *)&needle_shoot_color_white.value + 4)), (int) (*(s32 *)((s8 *)&needle_shoot_color_white.value + 0)), (void *)&needle_shoot_color_white.value, lbl_805DDF68);
 }
 
 }

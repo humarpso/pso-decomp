@@ -563,8 +563,8 @@ void *TUnk_804EF8C0::construct() {
 
 typedef char RecoveredGlobal_8033B9C4_lbl_80513910_size[sizeof(RecoveredGlobal_8033B9C4_lbl_80513910) == 0x10 ? 1 : -1];
 void seed_character_select_serial_rng(s32 arg0) {
-    *(s32 *)((s8 *)(&chr_select_serial_seeds.value) + 4) = arg0;
-    *(s32 *)((s8 *)(&chr_select_serial_seeds.value) + 0) = arg0;
+    *(s32 *)((s8 *)&chr_select_serial_seeds.value + 4) = arg0;
+    *(s32 *)((s8 *)&chr_select_serial_seeds.value + 0) = arg0;
 }
 
 s32 TAdSinglePlyChrSelectGC::get_field_44() { return *(s32*)((char*)this + 0x44); }

@@ -284,7 +284,7 @@ void update_drop__20TBoss3VoloptHiraisinFPv(Hira_800411F0 *self) {
             self->state = 2;
             self->sub->flags &= ~4;
             self->sub->flags |= 2;
-            play_sound_effect(0x4003A808, (void *)(&self->x), 0, 0);
+            play_sound_effect(0x4003A808, &self->x, 0, 0);
         }
         break;
     case 2:
@@ -334,7 +334,7 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
         TObjPlayer::toggle_particle_effect();
         push_matrix();
         model_render_flags &= 0xFFFFFBFF;
-        post_translate_matrix((void *) (arg0 + 0x38));
+        post_translate_matrix(arg0 + 0x38);
         if ((u32) ((RecoveredFields_800413C8_arg0 *)arg0)->field_B4 == 8U) {
             translate_matrix(0, (f32) ((0.0f)), (f32) ((2e+01f)), (f32) ((0.0f)));
         }
@@ -354,7 +354,7 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
             temp_f31 = (1.0f) - ((0.02202643f) * (((RecoveredFields_800413C8_arg0 *)arg0)->field_3C - (4.6f)));
             translate_matrix(0, (f32) (((RecoveredFields_800413C8_arg0 *)arg0)->field_38), (f32) ((4.5f)), (f32) (((RecoveredFields_800413C8_arg0 *)arg0)->field_40));
             scale_matrix(0, temp_f31, temp_f31, temp_f31);
-            TObjFish::set_global_param((int) (TObjFish__sub_8001EDB0((s32)(TBoss3VoloptHiraisin__resource_bundle), 0)));
+            TObjFish::set_global_param((int) (TObjFish__sub_8001EDB0(TBoss3VoloptHiraisin__resource_bundle, 0)));
             draw_chunk_object((void *)(get_bml_model(TBoss3VoloptHiraisin__resource_bundle, 0)));
             pop_matrix();
         }
@@ -511,10 +511,10 @@ void run_task__20TBoss3VoloptHiraisinFv(u8 *arg0) {
     }
     copy_position__20TBoss3VoloptHiraisinFi((s32)arg0);
     submit_cursor_candidate((void *) arg0, -1);
-    minimap_render_dot((void *) (arg0 + 0x38), -0x5DB4, 1, 0);
+    minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
     temp_r4 = *((s32 *) (((s8 *) volopt_hiraisin_model_data) + 0x18));
     new_var = volopt_hiraisin_model_data;
-    *((s32 *) (((s8 *) new_var) + 0x18)) = (s32) (temp_r4 + 0x4000);
+    *((s32 *) (((s8 *) new_var) + 0x18)) = (temp_r4 + 0x4000);
     (((VObj_18_6fcf4f *)(arg0))->m53((temp_r4), (new_var)));
   }
 }

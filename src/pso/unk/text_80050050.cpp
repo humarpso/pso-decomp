@@ -30,7 +30,7 @@ void TObjDFDemoF::render() {
   int var_r29;
   push_matrix();
   TObjPlayer::set_global_flag();
-  post_translate_matrix((void *) (&three_part_model_translate_offset.value));
+  post_translate_matrix(&three_part_model_translate_offset.value);
   var_r29 = 0;
   var_r31 = 0;
   do

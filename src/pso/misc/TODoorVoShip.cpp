@@ -102,7 +102,7 @@ void TODoorVoShip::render() {
     u8 *temp_r31_4;
     if ((((VObj_801639B4 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) && (*(s32 *)&this->m_cc & 0xE)) {
         push_matrix();
-        post_translate_matrix((void *) (arg0 + 0x38));
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
         TObjEneSlimeOne__sub_803E4B54((void *)(*(s32 *)&this->model), (void *)(*(s32 *)&this->m_bc), (void *)(*(s32 *)&this->m_d0), this->m_b0);
@@ -114,25 +114,25 @@ void TODoorVoShip::render() {
         TParticleCtrl::begin_effect_render();
         temp_r31 = *(u8 * *)&this->m_d4;
         push_matrix();
-        post_translate_matrix((void *) (temp_r31 + 8));
+        post_translate_matrix(temp_r31 + 8);
         temp_r31_2 = *(u8 **)((s8 *)temp_r31 + 0x2C);
         if (*(s32 *)&this->m_cc & 4) {
             push_matrix();
-            post_translate_matrix((void *) (temp_r31_2 + 8));
+            post_translate_matrix(temp_r31_2 + 8);
             draw_chunk_model((void *)(*(s32 *)((s8 *)temp_r31_2 + 4)));
             pop_matrix();
         }
         temp_r31_3 = *(u8 **)((s8 *)temp_r31_2 + 0x30);
         if (*(s32 *)&this->m_cc & 2) {
             push_matrix();
-            post_translate_matrix((void *) (temp_r31_3 + 8));
+            post_translate_matrix(temp_r31_3 + 8);
             draw_chunk_model((void *)(*(s32 *)((s8 *)temp_r31_3 + 4)));
             pop_matrix();
         }
         temp_r31_4 = *(u8 **)((s8 *)temp_r31_3 + 0x30);
         if (*(s32 *)&this->m_cc & 8) {
             push_matrix();
-            post_translate_matrix((void *) (temp_r31_4 + 8));
+            post_translate_matrix(temp_r31_4 + 8);
             draw_chunk_model((void *)(*(s32 *)((s8 *)temp_r31_4 + 4)));
             pop_matrix();
         }

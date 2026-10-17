@@ -71,7 +71,7 @@ void run_task__13TObjCMHexTileFv(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x50) = temp_r6;
     temp_r5_2 = *(s32 *)((s8 *)arg0 + 0x1C);
     if (temp_r6 >= ((s32 *)(arg0 + 0x20))[temp_r5_2]) {
-        *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (temp_r5_2 + 1);
+        *(s32 *)((s8 *)arg0 + 0x1C) = (s32)(temp_r5_2 + 1);
         if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) == 3) {
             queue_destruction__7TObjectFv(arg0);
         }

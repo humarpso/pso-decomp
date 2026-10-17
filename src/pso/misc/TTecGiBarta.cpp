@@ -170,29 +170,29 @@ void TTecGiBarta::update_technique_by_phase() {
     temp_r0 = this->band;
     switch (temp_r0) {
     case 0:
-        handle = play_sound_effect(0x4002A605, (int) (arg0 + 0x20), 0, 0);
+        handle = play_sound_effect(0x4002A605, (int)(arg0 + 0x20), 0, 0);
         if (handle >= 0) {
             update_technique_slot__10TTecRaFoieFl(handle, 0x100, 0);
         }
         return;
     case 1:
-        play_sound_effect(0x4002A605, (int) (arg0 + 0x20), 0, 0);
+        play_sound_effect(0x4002A605, (int)(arg0 + 0x20), 0, 0);
         return;
     case 2:
     case 3:
-        handle = play_sound_effect(0x4002A605, (int) (arg0 + 0x20), 0, 0);
+        handle = play_sound_effect(0x4002A605, (int)(arg0 + 0x20), 0, 0);
         if (handle >= 0) {
             update_technique_slot__10TTecRaFoieFl(handle, -0x180, 0);
         }
         break;
     case 4:
-        handle = play_sound_effect(0x4002A605, (int) (arg0 + 0x20), 0, 0);
+        handle = play_sound_effect(0x4002A605, (int)(arg0 + 0x20), 0, 0);
         if (handle >= 0) {
             update_technique_slot__10TTecRaFoieFl(handle, -0x250, 0);
         }
         break;
     case 5:
-        handle = play_sound_effect(0x4002A605, (int) (arg0 + 0x20), 0, 0);
+        handle = play_sound_effect(0x4002A605, (int)(arg0 + 0x20), 0, 0);
         if (handle >= 0) {
             update_technique_slot__10TTecRaFoieFl(handle, -0x100, 0);
         }
@@ -294,14 +294,14 @@ void TTecGiBarta::calc_params() {
   ((TTecAnti *)(arg0 + 0xCC))->copy_params((u8 *)new_var);
   if ((((s16) ((RecoveredFields_802308A0_arg0 *) arg0)->field_C4) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
-    ((RecoveredFields_802308A0_arg0 *) arg0)->field_CC = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0x10))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0x12))) * ((RecoveredFields_802308A0_arg0 *) arg0)->field_C4));
+    ((RecoveredFields_802308A0_arg0 *) arg0)->field_CC = (f32) ((*((s16 *) (((s8 *)&tech_high_level_linear_power_table.value) + 0x10))) + ((*((s16 *) (((s8 *)&tech_high_level_linear_power_table.value) + 0x12))) * ((RecoveredFields_802308A0_arg0 *) arg0)->field_C4));
   }
   else
   {
     ((RecoveredFields_802308A0_arg0 *) arg0)->field_CC = (f32) (((RecoveredFields_802308A0_arg0 *) arg0)->field_CC + ((f32) (((RecoveredFields_802308A0_arg0 *) arg0)->field_F0 * ((RecoveredFields_802308A0_arg0 *) arg0)->field_C4)));
     if (is_technique_ready__8TTecCtrlFv() != 0)
     {
-      ((RecoveredFields_802308A0_arg0 *) arg0)->field_CC = (f32) (((RecoveredFields_802308A0_arg0 *) arg0)->field_CC * (*((f32 *) (((s8 *) (&lbl_804CC55C.value)) + 0x20))));
+      ((RecoveredFields_802308A0_arg0 *) arg0)->field_CC = (f32) (((RecoveredFields_802308A0_arg0 *) arg0)->field_CC * (*((f32 *) (((s8 *)&lbl_804CC55C.value) + 0x20))));
     }
   }
   ((RecoveredFields_802308A0_arg0 *) arg0)->field_70 = (f32) ((RecoveredFields_802308A0_arg0 *) arg0)->field_D4;

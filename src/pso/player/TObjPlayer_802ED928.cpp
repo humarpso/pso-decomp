@@ -242,9 +242,9 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
         TObjPlayer::set_global_flag();
         push_matrix();
         set_matrix_identity(0);
-        post_translate_matrix((void *) (arg0 + 0x38));
-        post_translate_matrix((void *) (arg0 + 0x6EC));
-        rotate_matrix_by_node_angles((void *) (arg0 + 0x5C), 1);
+        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix(arg0 + 0x6EC);
+        rotate_matrix_by_node_angles(arg0 + 0x5C, 1);
         scale_current_matrix(lbl_804E3BF0);
         ((TBoss7DeRolLeC *)arg0)->sub_802E8234();
         ((TUnk_804806E8 *)arg0)->get_speed();

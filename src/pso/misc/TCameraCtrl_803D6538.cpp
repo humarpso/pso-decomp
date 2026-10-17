@@ -219,8 +219,8 @@ void TCameraCtrl::set_clamped_offsets(f32 farg0, f32 farg1) {
     if (var_f2 < lbl_805E0E04) {
         var_f2 = lbl_805E0E04;
     }
-    *(f32 *)((s8 *)(&camera_clip_parameters.value) + 4) = (f32) -var_f1;
-    *(f32 *)((s8 *)(&camera_clip_parameters.value) + 0) = (f32) -var_f2;
+    *(f32 *)((s8 *)&camera_clip_parameters.value + 4) = (f32) -var_f1;
+    *(f32 *)((s8 *)&camera_clip_parameters.value + 0) = (f32) -var_f2;
 }
 #pragma pop
 
@@ -294,8 +294,8 @@ void set_perspective_projection_from_fov(s32 arg0, f32 farg0, f32 farg1, f32 far
     lbl_8058D4F8.f4 = b;
     lbl_8058D4F8.f10 = one / a;
     lbl_8058D4F8.f14 = one / (f32)(f64)b;
-    *(f32 *)((s8 *)(&camera_clip_parameters.value) + 0) = farg2;
-    *(f32 *)((s8 *)(&camera_clip_parameters.value) + 4) = farg1;
+    *(f32 *)((s8 *)&camera_clip_parameters.value + 0) = farg2;
+    *(f32 *)((s8 *)&camera_clip_parameters.value + 4) = farg1;
 }
 
 void sample_camera_motion(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
@@ -420,7 +420,7 @@ void interpolate_motion_quaternion_keys(u32 keys, u32 count, s32 output,
   MotionQuaternionKey *second;
   find_motion_key_interval(
       (void *)((void *)keys), (s32)(sizeof(MotionQuaternionKey)), count,
-      frame, (void *)(&first), (void *)(&second), (void *)(&fraction));
+      frame, &first, &second, &fraction);
   ((void (*)(void *, void *, f32, void *))blend_quaternions_nlerp)(
       first->rotation, second->rotation, fraction, (void *)output);
 }
@@ -681,7 +681,7 @@ void select_motion_sampler(s32 *arg0, f32 farg0) {
     s32 temp_r4;
     var_r3 = arg0;
     if (var_r3 == NULL) {
-        var_r3 = (s32 *)(&lbl_8047E3C8.value);
+        var_r3 = (s32 *)&lbl_8047E3C8.value;
     }
     temp_r31 = (s32) (*(u16 *)((s8 *)var_r3 + 0xA) & 0xC0) >> 6;
     *(s32 *)((s8 *)current_motion_context + 0) = (s32) *(s32 *)((s8 *)var_r3 + 0);
@@ -691,11 +691,11 @@ void select_motion_sampler(s32 *arg0, f32 farg0) {
     *(s32 *)((s8 *)current_motion_context + 0x1C) = 0;
     set_motion_row_stride((s32)((int) (*(u16 *)((s8 *)var_r3 + 0xA) & 0xFFFFFF3F)));
     temp_r4 = temp_r31 * 4;
-    *(s32 *)((s8 *)current_motion_context + 0x24) = (s32) *(s32 *)((s8 *)(&lbl_804FA500.value) + temp_r4);
+    *(s32 *)((s8 *)current_motion_context + 0x24) = (s32) *(s32 *)((s8 *)&lbl_804FA500.value + temp_r4);
     if ((s32) motion_packed_rotation_mode != 0) {
-        *(s32 *)((s8 *)current_motion_context + 0x28) = (s32) *(s32 *)((s8 *)(&motion_angle_sampler_table.value) + 0xC);
+        *(s32 *)((s8 *)current_motion_context + 0x28) = (s32) *(s32 *)((s8 *)&motion_angle_sampler_table.value + 0xC);
     } else {
-        *(s32 *)((s8 *)current_motion_context + 0x28) = (s32) *(s32 *)((s8 *)(&motion_angle_sampler_table.value) + temp_r4);
+        *(s32 *)((s8 *)current_motion_context + 0x28) = (s32) *(s32 *)((s8 *)&motion_angle_sampler_table.value + temp_r4);
     }
     *(s32 *)((s8 *)current_motion_context + 0x2C) = (s32) lbl_804FA51C.value;
 }
@@ -705,7 +705,7 @@ void select_motion_sampler(s32 *arg0, f32 farg0) {
 #pragma scheduling off
 typedef char RecoveredGlobal_803D78A8_lbl_8058CAB8_size[sizeof(RecoveredGlobal_803D78A8_lbl_8058CAB8) == 0x80 ? 1 : -1];
 void select_motion_context(s32 arg0) {
-    current_motion_context = (u8 *)(&lbl_8058CAB8.value) + (arg0 << 6);
+    current_motion_context = (u8 *)&lbl_8058CAB8.value + (arg0 << 6);
 }
 #pragma pop
 
@@ -772,7 +772,7 @@ void find_motion_key_interval(void *keys, s32 stride, s32 count, f32 t, void *k0
 
     i = find_motion_key_partition_u32((u8 *) keys, stride, count, (u32) t);
     a = (u32 *) ((u8 *) keys + i * stride);
-    if (i < (u32) (count - 1)) {
+    if (i < (count - 1)) {
         b = (u32 *) ((u8 *) keys + (i + 1) * stride);
     } else {
         b = (u32 *) keys;
@@ -792,7 +792,7 @@ void find_motion_key_interval(void *keys, s32 stride, s32 count, f32 t, void *k0
 #pragma scheduling off
 void bind_motion_context(s32 arg0, f32 farg0) {
     select_motion_context(0);
-    bind_motion_channel_samplers((int)((int)(arg0)), farg0);
+    bind_motion_channel_samplers((int)(arg0), farg0);
 }
 #pragma pop
 
@@ -828,7 +828,7 @@ void compose_motion_node_matrix(void *arg0) {
     struct Angles_803D7CA4 rot;
     struct Quat_803D7CA4 quat;
     s32 kind;
-    kind = sample_motion_node_transform(arg0, (void *)(&trans), (void *)(&rot), (void *)(&scale), (void *)(&quat));
+    kind = sample_motion_node_transform(arg0, &trans, &rot, &scale, &quat);
     post_translate_matrix(&trans);
     switch (kind) {
     case 0:

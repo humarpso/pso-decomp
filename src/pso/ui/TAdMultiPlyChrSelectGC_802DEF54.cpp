@@ -85,8 +85,8 @@ void update_state_serial__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x60)))->set_field_100(1);
     *(s32 *)((s8 *)arg0 + 0x30) = -1;
     temp_r5 = *(s32 *)((s8 *)arg0 + 0x1C);
-    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (temp_r5 + 1);
-    if ((TWindowShortListCtrl__check_controller_button((void *)(controller_physical_port_bank + 0x20), 2, temp_r5) != 0) && (TAdMultiPlyChrSelectGC::get_chr_select_state() == 0)) {
+    *(s32 *)((s8 *)arg0 + 0x1C) = (temp_r5 + 1);
+    if ((TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2, temp_r5) != 0) && (TAdMultiPlyChrSelectGC::get_chr_select_state() == 0)) {
         if ((((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x68)))->get_player_index() != 0xE) && ((s32) *(s32 *)((s8 *)arg0 + 0x1C) > 0xA)) {
             play_sound_effect(0x52F16, 0, 0, 0);
             *(s32 *)((s8 *)arg0 + 0x20) = 0x1B;

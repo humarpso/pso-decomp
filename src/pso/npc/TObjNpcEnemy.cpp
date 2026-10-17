@@ -85,7 +85,7 @@ s16 *TObjNpcEnemy::get_entry_by_index(s16 arg0) {
     if (arg0 >= 0x10) {
         return NULL;
     }
-    temp_r3 = (s16 *)((u8 *)(&TObjNpcEnemy__entry_table.value) + (arg0 * 0x24));
+    temp_r3 = (s16 *)((u8 *)&TObjNpcEnemy__entry_table.value + (arg0 * 0x24));
     if (*(s16 *)((s8 *)temp_r3 + 0) == 0) {
         return NULL;
     }
@@ -296,8 +296,8 @@ u8 *TObjNpcEnemy__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjPlayer *)arg0)->init_position_vectors();
     ((TObjNpcEnemy *)(arg0))->apply_set_params(0, 1);
     *(s32 * *)&((TObjNpcEnemy *)arg0)->movementParameters = &npc_movement_parameters.value;
-    ((TUnk_804806E8 *)arg0)->set_motion_params((void *) (&npc_default_battle_stats.value));
-    init_collision_body_parts(arg0, (void *) (&TObjNpcEnemy__collision_body_parts.value), 1);
+    ((TUnk_804806E8 *)arg0)->set_motion_params(&npc_default_battle_stats.value);
+    init_collision_body_parts(arg0, &TObjNpcEnemy__collision_body_parts.value, 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TObjEnemy *)arg0)->update_prev_position();
     copy_position__20TBoss3VoloptHiraisinFi((s32)arg0);

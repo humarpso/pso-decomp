@@ -38,7 +38,7 @@ void TUnk_804D0948::render() {
     void *p;
     temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame(arg0, temp_r3);
-    draw_visible_window_entries(arg0, (void *) (arg0 + 0x24), temp_r3);
+    draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     if (!(this->m_70 & 0x80)) {
         ((TUnk_804D0618 *)arg0)->draw_selected_list_entry(temp_r3);
     }
@@ -52,7 +52,7 @@ void TUnk_804D0948::render() {
     }
     p = *(void * *)&this->unk_84;
     if (p != NULL) {
-        draw_window_scrollbar(p, temp_r3, (void *) (arg0 + 0x68));
+        draw_window_scrollbar(p, temp_r3, arg0 + 0x68);
     }
 }
 #pragma pop

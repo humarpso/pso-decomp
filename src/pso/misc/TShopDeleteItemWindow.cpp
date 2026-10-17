@@ -134,7 +134,7 @@ void handle_confirm_dialog__21TShopDeleteItemWindowFPv(u8 *arg0) {
         selected_menu_value = get_selected_menu_value((int) (*(u32 *)((s8 *)arg0 + 0x34)));
         if (selected_menu_value == 0) {
             idx = select_cursor_entry__22TWindowSubShortCutListFv((int) (*(s32 *)((s8 *)arg0 + 0x30)));
-            if (copy_item_record__18TCheckRoomSequenceFiPvi(idx, (void *) (&stack.sp8), slot) != 0) {
+            if (copy_item_record__18TCheckRoomSequenceFiPvi(idx, &stack.sp8, slot) != 0) {
                 remove_bank_item_amount__18TCheckRoomSequenceFiii(idx, (int) (*(s32 *)((s8 *)arg0 + 0x5C)), slot);
                 compact_items__18TCheckRoomSequenceFi(slot);
                 copy_bank_to_card_window(slot);
@@ -245,13 +245,13 @@ void TShopDeleteItemWindow::vfunc_11() {
         TShopDeleteItemWindow__sub_80337E2C(arg0);
         return;
     case 1:
-        TShopDeleteItemWindow::update_item_select((void *)(arg0));
+        TShopDeleteItemWindow::update_item_select(arg0);
         return;
     case 2:
         ((TShopDeleteItemWindow *)arg0)->handle_number_input();
         return;
     case 3:
-        handle_confirm_dialog__21TShopDeleteItemWindowFPv((u8 *)(arg0));
+        handle_confirm_dialog__21TShopDeleteItemWindowFPv(arg0);
         return;
     case 4:
         ((TShopDeleteItemWindow *)arg0)->destroy();

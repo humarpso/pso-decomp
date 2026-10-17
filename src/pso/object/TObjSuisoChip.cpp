@@ -218,11 +218,11 @@ void TObjSeabedSuisoBrakable::sub_802A6438() {
     f32 var_f0;
     u8 *var_r31;
     var_r31 = arg0;
-    var_r3 = (s32 *)(&TObjSeabedSuisoBrakable__chip_record_set_table.value);
-    var_r3 = (s32 *)(&TObjSeabedSuisoBrakable__chip_record_set_table.value);
-    var_r3 = (s32 *)(*(s32 *)((s8 *)(&TObjSeabedSuisoBrakable__chip_record_set_table.value) + (*(s32 *)((s8 *)var_r31 + 0xBC) * 0x120)));
+    var_r3 = (s32 *)&TObjSeabedSuisoBrakable__chip_record_set_table.value;
+    var_r3 = (s32 *)&TObjSeabedSuisoBrakable__chip_record_set_table.value;
+    var_r3 = (s32 *)(*(s32 *)((s8 *)&TObjSeabedSuisoBrakable__chip_record_set_table.value + (*(s32 *)((s8 *)var_r31 + 0xBC) * 0x120)));
     *(s32 *)((s8 *)var_r31 + 0x34) = ((s32 (*)(int))get_model__23TObjSeabedSuisoBrakableFi)((int)var_r3);
-    var_r3 = (s32 *)(NULL);
+    var_r3 = (s32 *)NULL;
     *(s32 *)((s8 *)var_r31 + 0x24) = ((s32 (*)(int))get_instance__23TObjSeabedSuisoBrakableFv)(0);
     var_f0 = lbl_805DDFFC;
     *(f32 *)((s8 *)var_r31 + 0xB0) = var_f0;

@@ -113,10 +113,10 @@ void TUnk_804A69DC::vfunc_17(s32) {
 void TUnk_804A69DC::emit_marker_effects() {
     u8 *arg0 = (u8 *)this;
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
-        ((TObjPlayer *)arg0)->draw_status_icon((s32)((void *) (arg0 + 0x208)));
+        ((TObjPlayer *)arg0)->draw_status_icon((s32)(arg0 + 0x208));
         if ((s32) this->m_1fc > 0x1999) {
             ((TItemEquipBase *)arg0)->send_6x61_activate_mag_effect(0);
-            TItemAttacker::spawn_item_timer((s32)(arg0), (s32)(TObjPlayer__sub_801307D0), 0x1E);
+            TItemAttacker::spawn_item_timer((s32)arg0, (s32)TObjPlayer__sub_801307D0, 0x1E);
             this->m_204 = 0;
             return;
         }

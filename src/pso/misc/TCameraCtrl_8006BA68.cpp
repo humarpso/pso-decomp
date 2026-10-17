@@ -339,17 +339,17 @@ void TCameraCtrl::apply_look_at_from_target() {
     stack.sp14 = ((RecoveredFields_8006C03C_arg0 *)arg0)->field_48 - ((RecoveredFields_8006C03C_arg0 *)arg0)->field_3C;
     stack.sp18 = ((RecoveredFields_8006C03C_arg0 *)arg0)->field_4C - ((RecoveredFields_8006C03C_arg0 *)arg0)->field_40;
     stack.sp1C = ((RecoveredFields_8006C03C_arg0 *)arg0)->field_50 - ((RecoveredFields_8006C03C_arg0 *)arg0)->field_44;
-    direction_to_pitch_yaw((u8 *)((void *) (&stack.sp14)), (s32 *)((void *) ((*(u8 * *)&camera_ctrl_instance) + 0x190)), (s32 *)((void *) ((*(u8 * *)&camera_ctrl_instance) + 0x194)));
+    direction_to_pitch_yaw((u8 *)((void *)&stack.sp14), (s32 *)((void *) ((*(u8 * *)&camera_ctrl_instance) + 0x190)), (s32 *)((void *) ((*(u8 * *)&camera_ctrl_instance) + 0x194)));
     stack.sp20 = ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_184;
     stack.sp24 = ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_188;
     stack.sp28 = ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_18C;
-    stack.sp8 = *(s32 *)((s8 *)(&camera_look_at_up_vec.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&camera_look_at_up_vec.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&camera_look_at_up_vec.value) + 8);
-    set_camera_look_at(((*(u8 * *)&camera_ctrl_instance) + 0x178), (u8 *)(&stack.sp20), (u8 *)(&stack.sp8));
-    *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0) = (f32) ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_178;
-    *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 4) = (f32) ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_17C;
-    *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 8) = (f32) ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_180;
+    stack.sp8 = *(s32 *)((s8 *)&camera_look_at_up_vec.value + 0);
+    stack.spC = *(s32 *)((s8 *)&camera_look_at_up_vec.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&camera_look_at_up_vec.value + 8);
+    set_camera_look_at(((*(u8 * *)&camera_ctrl_instance) + 0x178), (u8 *)&stack.sp20, (u8 *)&stack.sp8);
+    *(f32 *)((s8 *)&lbl_804FF5E8.value + 0) = (f32) ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_178;
+    *(f32 *)((s8 *)&lbl_804FF5E8.value + 4) = (f32) ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_17C;
+    *(f32 *)((s8 *)&lbl_804FF5E8.value + 8) = (f32) ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_180;
 }
 #pragma pop
 
@@ -510,12 +510,12 @@ void TUnk_80488B68::run_task() {
         s->target.z = v2.z + s->position.z;
     }
     s->frame += s->step;
-    if (s->frame > (f32)(s->motion->frames - 1) || s->frame >= lbl_805D9030) {
+    if (s->frame > (s->motion->frames - 1) || s->frame >= lbl_805D9030) {
         if (s->mode->flags & 0x20) {
             s->frame = lbl_805D9028;
             return;
         }
-        s->frame = (f32)(s->motion->frames - 1);
+        s->frame = (s->motion->frames - 1);
         s->flags |= 1;
     }
 }

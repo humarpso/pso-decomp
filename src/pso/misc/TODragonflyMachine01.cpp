@@ -114,7 +114,7 @@ void TODragonflyMachine01::create_attack_effect() {
     sp8.v[2] = dragonfly_machine_attack_effect_params[2];
     sp8.v[3] = dragonfly_machine_attack_effect_params[3];
     sp8.v[0] = o->f430;
-    TObjEneMe3Stelth::spawn_attack((s16)0x38, o->sub->a, o->sub->b, (s32)(&sp8), (f32)lbl_805DB5B0, (f32)lbl_805DB5B4);
+    TObjEneMe3Stelth::spawn_attack((s16)0x38, o->sub->a, o->sub->b, (s32)&sp8, (f32)lbl_805DB5B0, (f32)lbl_805DB5B4);
 }
 
 void *__dt__20TODragonflyMachine01Fv(void *arg0, s16 arg1) {

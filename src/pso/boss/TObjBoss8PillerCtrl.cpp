@@ -98,7 +98,7 @@ u8 *TObjBoss8PillerCtrl__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8035C22C___vt__19TObjBoss8PillerCtrl *)&__vt__19TObjBoss8PillerCtrl).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjBoss8PillerCtrl__class_name;
     VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)(arg2));
-    TObjBoss8PillerCtrl__sub_8035C034((void *)(arg0), (void *)((void *) (arg0 + 0x1C)));
+    TObjBoss8PillerCtrl__sub_8035C034(arg0, (void *)(arg0 + 0x1C));
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) lbl_805E017C;
     *(s32 *)&((TObjBoss8PillerCtrl *)arg0)->m_28 = 0;
     *(s16 *)&((TObjBoss8PillerCtrl *)arg0)->m_2c = arg3;

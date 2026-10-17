@@ -51,7 +51,7 @@ u8 *__dt__10TBoss6RockFv(u8 *arg0, s16 arg1) {
             ((TBoss6Rock *)(arg0 + 0xD4))->spawn_crush_rocks(*(s32 *)&((TBoss6Rock *)arg0)->m_b4);
         }
         ((TBoss6Rock *)arg0)->release_object();
-        *(s32 *)((s8 *)(&TBoss6Rock__instance_table.value) + (*(s32 *)&((TBoss6Rock *)arg0)->m_ac* 4)) = 0;
+        *(s32 *)((s8 *)&TBoss6Rock__instance_table.value + (*(s32 *)&((TBoss6Rock *)arg0)->m_ac* 4)) = 0;
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);

@@ -50,8 +50,8 @@ void fn_8007FF28(Obj_8007FF28 *self, s32 arg1) {
     if (self->timer >= 5 && self->timer < 20) {
         scale = (-1.0f) / get_scale__15TWindowCtrlMainFv(TCameraCtrl::get_camera_no());
         c = (0.5f);
-        b = c * ((f32)(self->timer - 5) / (15.0f)) + (1.0f);
-        fn_8007FE78((Obj_8007FF28 *)(self), arg1, self->x1C, scale, b, self->timer < 10 ? c : c - c * ((f32)(self->timer - 10) / (1e+01f)));
+        b = c * ((self->timer - 5) / (15.0f)) + (1.0f);
+        fn_8007FE78((Obj_8007FF28 *)(self), arg1, self->x1C, scale, b, self->timer < 10 ? c : c - c * ((self->timer - 10) / (1e+01f)));
     }
 }
 #pragma pop
@@ -85,8 +85,8 @@ typedef char RecoveredGlobal_800800EC_lbl_80438D7C_size[sizeof(RecoveredGlobal_8
 void calc_duel_number_uv(s32 arg0, u8 *arg1, s32 arg2) {
     s32 temp_r0;
     temp_r0 = arg2 * 8;
-    *(f32 *)((s8 *)arg1 + 0x10) = (f32) *(f32 *)((s8 *)((u8 *)(&duel_number_uv_table.value) + temp_r0) + 0);
-    *(f32 *)((s8 *)arg1 + 0x14) = (f32) *(f32 *)((s8 *)((u8 *)(&duel_number_uv_table.value) + temp_r0) + 4);
+    *(f32 *)((s8 *)arg1 + 0x10) = (f32) *(f32 *)((s8 *)((u8 *)&duel_number_uv_table.value + temp_r0) + 0);
+    *(f32 *)((s8 *)arg1 + 0x14) = (f32) *(f32 *)((s8 *)((u8 *)&duel_number_uv_table.value + temp_r0) + 4);
     *(f32 *)((s8 *)arg1 + 0x18) = (f32) ((64.0f) + *(f32 *)((s8 *)arg1 + 0x10));
     *(f32 *)((s8 *)arg1 + 0x1C) = (f32) ((85.0f) + *(f32 *)((s8 *)arg1 + 0x14));
     *(f32 *)((s8 *)arg1 + 0x10) *= (0.00390625f);

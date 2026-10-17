@@ -94,7 +94,7 @@ void TOKeyCave01::vfunc_16() {
     }
     temp_r4 = *(s32 *)&this->unk_FC;
     if (temp_r4 < 0x2000) {
-        *(s32 *)&this->unk_FC = (s32) (temp_r4 + 0x333);
+        *(s32 *)&this->unk_FC = (temp_r4 + 0x333);
     }
 }
 
@@ -129,10 +129,10 @@ void TOKeyCave01::render() {
     if (((VObj_8016C280 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         TObjFish::set_global_param((int) TOKeyCave01__texture_lists[*(s32 *)&this->m_d4]);
         push_matrix();
-        post_translate_matrix((void *) (arg0 + 0x38));
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
         temp_r31 = *(u8 * *)&this->model;
-        post_translate_matrix((void *) (temp_r31 + 8));
+        post_translate_matrix(temp_r31 + 8);
         draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
         if ((s32) *(s32 *)&this->m_d4 != 1) {
             temp_r4 = model_render_flags;
@@ -145,17 +145,17 @@ void TOKeyCave01::render() {
         push_matrix();
         switch ((s32) key_cave_render_state) {
         case 0:
-            post_translate_matrix((void *) (arg0 + 0x68));
+            post_translate_matrix(arg0 + 0x68);
             break;
         case 1:
             rotate_matrix_y(0, (int) (*(s32 *)&this->unk_FC));
             break;
         }
-        post_translate_matrix((void *) (temp_r31_2 + 8));
+        post_translate_matrix(temp_r31_2 + 8);
         draw_ginja_model((*(s32 *)((s8 *)temp_r31_2 + 4)));
         temp_r31_3 = *(u8 **)((s8 *)temp_r31_2 + 0x2C);
         push_matrix();
-        post_translate_matrix((void *) (temp_r31_3 + 8));
+        post_translate_matrix(temp_r31_3 + 8);
         draw_ginja_model((*(s32 *)((s8 *)temp_r31_3 + 4)));
         pop_matrix();
         pop_matrix();
@@ -205,7 +205,7 @@ void TOKeyCave01::load_resources() {
         }
         (*(u8 * *)&TOKeyCave01__resource_bundle) = var_r0;
         (*(u8 * *)&TOKeyCave01__texture_lists) = (u8 *)mem_alloc(8);
-        *(s32 *)((s8 *)(*(u8 * *)&TOKeyCave01__texture_lists) + 0) = (s32)load_gvm_texture_file((s32)(&lbl_80441BE8.value));
+        *(s32 *)((s8 *)(*(u8 * *)&TOKeyCave01__texture_lists) + 0) = (s32)load_gvm_texture_file((s32)&lbl_80441BE8.value);
         *(s32 *)((s8 *)(*(u8 * *)&TOKeyCave01__texture_lists) + 4) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOKeyCave01__resource_bundle) + 0x42C)) + 0xC);
         key_cave_render_state = 1;
         return;
@@ -217,7 +217,7 @@ void TOKeyCave01::load_resources() {
     }
     (*(u8 * *)&TOKeyCave01__resource_bundle) = var_r0_2;
     (*(u8 * *)&TOKeyCave01__texture_lists) = (u8 *)mem_alloc(8);
-    *(s32 *)((s8 *)(*(u8 * *)&TOKeyCave01__texture_lists) + 0) = (s32)load_gvm_texture_file((s32)(&lbl_80441C04.value));
+    *(s32 *)((s8 *)(*(u8 * *)&TOKeyCave01__texture_lists) + 0) = (s32)load_gvm_texture_file((s32)&lbl_80441C04.value);
     *(s32 *)((s8 *)(*(u8 * *)&TOKeyCave01__texture_lists) + 4) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOKeyCave01__resource_bundle) + 0x42C)) + 0xC);
     key_cave_render_state = 0;
 }

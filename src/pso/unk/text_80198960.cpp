@@ -28,14 +28,14 @@ extern const f32 lbl_805DBF44;
 typedef char RecoveredGlobal_80198960_lbl_804B8DAC_size[sizeof(RecoveredGlobal_80198960_lbl_804B8DAC) == 0x24 ? 1 : -1];
 typedef char RecoveredGlobal_80198960_lbl_8050DD58_size[sizeof(RecoveredGlobal_80198960_lbl_8050DD58) == 0x54 ? 1 : -1];
 void TWindowTimer__sub_80198960(u8 *arg0) {
-    if ((((u32) gogo_ball_bml_resource != 0U) || ((u32) *(u32 *)((s8 *)(&lobby_gvm_texture_handles.value) + 0x10) != 0U)) && ((u16) *(u16 *)((s8 *)(&gogo_ball_configuration.value) + 0x48) != 6)) {
+    if ((((u32) gogo_ball_bml_resource != 0U) || ((u32) *(u32 *)((s8 *)&lobby_gvm_texture_handles.value + 0x10) != 0U)) && ((u16) *(u16 *)((s8 *)&gogo_ball_configuration.value + 0x48) != 6)) {
         if ((s32) *(s32 *)((s8 *)arg0 + 0x50) == 1) {
-            TObjFish::set_global_param((int) (*(u32 *)((s8 *)(&lobby_gvm_texture_handles.value) + 0x10)));
+            TObjFish::set_global_param((int) (*(u32 *)((s8 *)&lobby_gvm_texture_handles.value + 0x10)));
         } else {
-            TObjFish::set_global_param((int) (*(u32 *)((s8 *)(&lobby_gvm_texture_handles.value) + 0x14)));
+            TObjFish::set_global_param((int) (*(u32 *)((s8 *)&lobby_gvm_texture_handles.value + 0x14)));
         }
         push_matrix();
-        post_translate_matrix((void *) (arg0 + 0x1C));
+        post_translate_matrix((void *)(arg0 + 0x1C));
         rotate_matrix_y(0, (int) (((TUnk_804B8DE8 *)arg0)->m_34));
         scale_matrix(0, lbl_805DBF44, lbl_805DBF44, lbl_805DBF44);
         get_bml_model((void *)gogo_ball_bml_resource, 4);

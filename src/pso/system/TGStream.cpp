@@ -153,7 +153,7 @@ s32 TGStream::load_file(s32 arg0) {
         ((s32 (*)(s32 *, s32))destroy_gstream)(sp8, -1);
         return 0;
     }
-    temp_r31 = (s32) (temp_r3_2 + 0x7FF) / 2048;
+    temp_r31 = (temp_r3_2 + 0x7FF) / 2048;
     temp_r3 = ((TQuestVmDownLoadServer *)(temp_r31 << 0xB))->alloc();
     if (temp_r3 == 0) {
         ((s32 (*)(s32 *, s32))destroy_gstream)(sp8, -1);
@@ -220,7 +220,7 @@ s32 TGStream::load_sct_file(s32 name, s32 dst) {
 void TGStream::read_sectors_sync(s32 arg1, s32 arg2) {
     TGStreamPrefix *arg0 = (TGStreamPrefix *)this;
     read_checked_align__6TLobbyFlll(arg0->adxf_handle);
-    TLobby::set_read_params((int)(&arg0->adxf_handle), (int)arg1, (int)arg2);
+    TLobby::set_read_params((int)&arg0->adxf_handle, (int)arg1, (int)arg2);
 loop_1:
     if (TLobby__sub_803CC4C0(arg0->adxf_handle) != 3) {
         TLobby::run_frame();
@@ -282,7 +282,7 @@ void open_gsl_archive(char *name) {
         if (TItemDrop__gsl_adxf_handle != 0) {
             TGStream::reset();
             ((s32 (*)(u32, s32, GslArchiveEntry *))read_checked_align__6TLobbyFlll)(TItemDrop__gsl_adxf_handle, 6, gsl_archive_entries);
-            TLobby::set_read_params((int)(&TItemDrop__gsl_adxf_handle), 6, (int)gsl_archive_entries);
+            TLobby::set_read_params((int)&TItemDrop__gsl_adxf_handle, 6, (int)gsl_archive_entries);
             for (;;) {
                 if (((s32 (*)(u32))TLobby__sub_803CC4C0)(TItemDrop__gsl_adxf_handle) == 3) {
                     break;
@@ -311,7 +311,7 @@ void TLobby::read_data_sync(s32 arg0, s32 arg1, s32 arg2) {
 
     sp8 = arg0;
     ((s32 (*)())read_checked_align__6TLobbyFlll)();
-    TLobby::set_read_params((int)(&sp8), (int)arg1, (int)arg2);
+    TLobby::set_read_params((int)&sp8, (int)arg1, (int)arg2);
 loop_1:
     if (TLobby__sub_803CC4C0(sp8) != 3) {
         TLobby::run_frame();
@@ -372,7 +372,7 @@ s32 refill_gstream_buffer(s32 arg0) {
         if (var_r5 > 0) {
             gstream_buffer_valid_size = var_r5;
             gstream_buffer_read_offset = 0;
-            TLobby::read_data_sync(arg0, (s32) (var_r5 + 0x7FF) / 2048, gstream_tmp_buffer);
+            TLobby::read_data_sync(arg0, (var_r5 + 0x7FF) / 2048, gstream_tmp_buffer);
         }
     }
     return get_gstream_buffered_bytes();

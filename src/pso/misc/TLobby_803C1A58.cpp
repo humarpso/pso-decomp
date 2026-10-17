@@ -498,7 +498,7 @@ s32 TLobby__sub_803C30E8(u8 *arg0, s32 arg1, s32 arg2) {
         var_r31 = 0;
         var_r5 = -1;
     } else {
-        temp_r3 = GXSetCopyFilter((void *)arg1, (void *)arg2, (void *) (&sp8), (void *) (&spC), (void *) (&sp10), (void *) (&sp14), (void *) (&sp18));
+        temp_r3 = GXSetCopyFilter((void *)arg1, (void *)arg2, &sp8, &spC, &sp10, &sp14, &sp18);
         if (temp_r3 == 0U) {
             var_r5 = -1;
         } else {
@@ -520,7 +520,7 @@ s32 TLobby__sub_803C30E8(u8 *arg0, s32 arg1, s32 arg2) {
     if (var_r5 < 0) {
         return 0;
     }
-    temp_r3_2 = (u8 *)(arg0 + 0x4C);
+    temp_r3_2 = (arg0 + 0x4C);
     *(s16 *)((s8 *)arg0 + 0x1C) = 0;
     *(s16 *)((s8 *)arg0 + 0x4A) = 0;
     *(s16 *)((s8 *)arg0 + 0x48) = 0;
@@ -717,16 +717,16 @@ s32 TLobby__sub_803C3B68(s32 arg0, u16 *hdr, s32 size) {
         return TRK__write_aram((void *)((void *)arg0), hdr, (void *)((void *)size));
     }
     if (((TLobby *)hdr)->is_spsd_header() != 0) {
-        return TLobby__sub_803C43A8((void *)(arg0), (void *)(hdr), (void *)(size));
+        return TLobby__sub_803C43A8((void *)arg0, (void *)hdr, (void *)size);
     }
     if (((TLobby *)hdr)->is_riff_wave() != 0) {
         return DVDReadPrio((void *)arg0, (void *)hdr, (void *)size);
     }
     if (((TLobby *)hdr)->is_aiff_header() != 0) {
-        return ((TLobby *)arg0)->parse_stream_header((void *)(hdr), (void *)(size));
+        return ((TLobby *)arg0)->parse_stream_header((void *)hdr, (void *)size);
     }
     if (((TLobby *)hdr)->is_snd_header() != 0) {
-        return TLobby__sub_803C30E8((u8 *)(arg0), (s32)(hdr), (s32)(size));
+        return TLobby__sub_803C30E8((u8 *)arg0, (s32)hdr, (s32)size);
     }
     return 0;
 }
@@ -739,12 +739,12 @@ s32 TRK__write_aram(void *arg0p, void *hdr, void *size) {
     s16 temp_r6;
     u8 *temp_r3;
     *(s16 *)((s8 *)arg0 + 2) = 1;
-    if (ARStartDMA((u8 *)hdr, (s32)size, (s16 *)(&sp10), (u8 *)(arg0 + 0xC), (s8 *)(arg0 + 0xD), (s8 *)(arg0 + 0xF), (u8 *)(arg0 + 0xE), (s32 *)(arg0 + 0x14), (s32 *)(arg0 + 0x18), (s32 *)(arg0 + 0x10)) < 0) {
+    if (ARStartDMA((u8 *)hdr, (s32)size, (s16 *)&sp10, (u8 *)(arg0 + 0xC), (s8 *)(arg0 + 0xD), (s8 *)(arg0 + 0xF), (u8 *)(arg0 + 0xE), (s32 *)(arg0 + 0x14), (s32 *)(arg0 + 0x18), (s32 *)(arg0 + 0x10)) < 0) {
         return 0;
     }
     if ((s8) *(u8 *)((s8 *)arg0 + 0xC) > 4) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0xAC) == 0U) {
-            TLobby::report_adx_error((const char *)lbl_8047C520, (s32)(lbl_8047C540));
+            TLobby::report_adx_error((const char *)lbl_8047C520, (s32)lbl_8047C540);
             return 0;
         }
         *(s8 *)((s8 *)arg0 + 0xD) = 8;
@@ -756,15 +756,15 @@ s32 TRK__write_aram(void *arg0p, void *hdr, void *size) {
     if (TLobby__sub_803C48C8((u8 *)hdr, (s32)size, (u16 *)(arg0 + 0x1C)) < 0) {
         return 0;
     }
-    if (((TLobby *)hdr)->parse_header_loop_points((s32)(size), (u16 *)(&sp18), (u16 *)(&sp14)) < 0) {
+    if (((TLobby *)hdr)->parse_header_loop_points((s32)size, (u16 *)&sp18, (u16 *)&sp14) < 0) {
         return 0;
     }
     ((TLobby *)(*(s32 *)((s8 *)arg0 + 8)))->calc_adx_coeffs_at_offset((void *)(*(s32 *)((s8 *)arg0 + 0x14)), (s32)((int) (*(s16 *)((s8 *)arg0 + 0x1C))));
-    TLobby__sub_803CB570((u8 *)(*(s32 *)((s8 *)arg0 + 8)), (u8 *)(&sp18), (s16 *)(&sp14));
+    TLobby__sub_803CB570((u8 *)(*(s32 *)((s8 *)arg0 + 8)), (u8 *)&sp18, (s16 *)&sp14);
     __DVDPrepareResetAsync((u8 *)hdr, (s32)size, (s32 *)(arg0 + 0x20), (s16 *)(arg0 + 0x24), (s16 *)(arg0 + 0x26), (s32 *)(arg0 + 0x28), (s32 *)(arg0 + 0x2C), (s32 *)(arg0 + 0x30), (s32 *)(arg0 + 0x34));
     *(s16 *)((s8 *)arg0 + 0xA8) = 0;
 block_11:
-    temp_r3 = (u8 *)(arg0 + 0x4C);
+    temp_r3 = (arg0 + 0x4C);
     *(s32 *)((s8 *)arg0 + 0x58) = (s32) (s8) *(u8 *)((s8 *)arg0 + 0xE);
     *(s32 *)((s8 *)arg0 + 0x5C) = (s32) (s8) *(u8 *)((s8 *)arg0 + 0xF);
     *(s32 *)((s8 *)arg0 + 0x60) = (s32) *(s32 *)((s8 *)arg0 + 0x10);
@@ -845,7 +845,7 @@ typedef char RecoveredGlobal_803C0B08_lbl_80570AC0_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_803C0AD8_lbl_80570AC0_size[sizeof(RecoveredGlobal_803C0AD8_lbl_80570AC0) == 0x9C0 ? 1 : -1];
 void TLobby__sub_803C406C(void) {
     TLobby::clear_buffer_340();
-    memset((void *) (&adx_channel_record_pool.value), 0, 0xb80);
+    memset(&adx_channel_record_pool.value, 0, 0xb80);
 }
 s32 TLobby::is_spsd_header() {
     if (memcmp(this, lbl_805E0CE0, 4) == 0) {
@@ -858,7 +858,7 @@ s32 TLobby__sub_803C43A8(void *arg0, void *hdr, void *arg2) {
     Hdl_803C43A8 *h = (Hdl_803C43A8 *)arg0;
     s16 n;
     h->f2 = 1;
-    if (TLobby__sub_803C44C0((Hdr_803C44C0 *)((Hdr_803C44C0 *)hdr), (s32)((s32)arg2), (s16 *)(&n), (s8 *)(&h->fc), (s8 *)(&h->fd), (s8 *)(&h->ff), (s8 *)(&h->fe), (s32 *)(&h->f14), (s32 *)(&h->f18), (s32 *)(&h->f10), (s16 *)(&h->faa)) < 0) {
+    if (TLobby__sub_803C44C0((Hdr_803C44C0 *)((Hdr_803C44C0 *)hdr), (s32)((s32)arg2), &n, &h->fc, &h->fd, &h->ff, &h->fe, &h->f14, &h->f18, &h->f10, &h->faa) < 0) {
         return 0;
     }
     h->f1c = 0;

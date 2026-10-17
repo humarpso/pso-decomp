@@ -84,16 +84,16 @@ void TOKeyAncient02::render() {
     u8 *temp_r31_5;
     if (((VObj18*)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
-        post_translate_matrix((void *) (arg0 + 0x38));
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
         temp_r31 = *(u8 * *)&this->model;
         push_matrix();
-        post_translate_matrix((void *) (temp_r31 + 8));
+        post_translate_matrix(temp_r31 + 8);
         draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
         temp_r31_2 = *(u8 **)((s8 *)temp_r31 + 0x2C);
         push_matrix();
-        post_translate_matrix((void *) (temp_r31_2 + 8));
+        post_translate_matrix(temp_r31_2 + 8);
         scale_matrix_vec3(0, ((u8 *)&this->scale));
         TParticleCtrl::begin_effect_render();
         draw_ginja_model((*(s32 *)((s8 *)temp_r31_2 + 4)));
@@ -101,7 +101,7 @@ void TOKeyAncient02::render() {
         pop_matrix();
         temp_r31_3 = *(u8 **)((s8 *)temp_r31_2 + 0x30);
         push_matrix();
-        post_translate_matrix((void *) (temp_r31_3 + 8));
+        post_translate_matrix(temp_r31_3 + 8);
         draw_ginja_model((*(s32 *)((s8 *)temp_r31_3 + 4)));
         pop_matrix();
         pop_matrix();
@@ -109,11 +109,11 @@ void TOKeyAncient02::render() {
         TParticleCtrl::begin_effect_render();
         temp_r31_4 = (u8 *)((*(u8 * *)&TOKeyAncient02__model_root));
         push_matrix();
-        post_translate_matrix((void *) (temp_r31_4 + 8));
+        post_translate_matrix(temp_r31_4 + 8);
         draw_ginja_model((*(s32 *)((s8 *)temp_r31_4 + 4)));
         temp_r31_5 = *(u8 **)((s8 *)temp_r31_4 + 0x2C);
         push_matrix();
-        post_translate_matrix((void *) (temp_r31_5 + 8));
+        post_translate_matrix(temp_r31_5 + 8);
         rotate_matrix_y(0, this->m_ec);
         draw_ginja_model((*(s32 *)((s8 *)temp_r31_5 + 4)));
         pop_matrix();
@@ -226,7 +226,7 @@ u8 *TOKeyAncient02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TOKey *)arg0)->init_switch_id();
     *(u8 * *)&((TOKeyAncient02 *)arg0)->model = ((u8 *)get_bml_model((void *)((*(s32 *)&TOKeyAncient02__model_archive)), 1));
     ((TOKeyAncient02 *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *)((void *) ((*(s32 *)&TOKeyAncient02__model_archive))), 1);
-    init_collision_body_parts(arg0, (void *) (&lbl_804B2A8C.value), 1);
+    init_collision_body_parts(arg0, &lbl_804B2A8C.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOKeyAncient02 *)arg0)->m_c0 = (f32) lbl_805DB710;

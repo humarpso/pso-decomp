@@ -59,7 +59,7 @@ void TWindowEffectParty::set_slot_position(s32 arg0, s32 arg1, void *arg2) {
         *(f32 *)((s8 *)arg2 + 4) = (f32) (*(f32 *)((s8 *)arg2 + 4) + lbl_805DCCC8);
         return;
     }
-    temp_r3 = TWindowCtrl__sub_8024FB80((s8) (arg1 - 1));
+    temp_r3 = TWindowCtrl__sub_8024FB80(arg1 - 1);
     if (temp_r3 != NULL) {
         *(f32 *)((s8 *)arg2 + 0) = (f32) (lbl_805DCCCC + *(f32 *)((s8 *)temp_r3 + 0x30));
         *(f32 *)((s8 *)arg2 + 4) = (f32) (lbl_805DCCD0 + *(f32 *)((s8 *)temp_r3 + 0x34));

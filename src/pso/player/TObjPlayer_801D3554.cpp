@@ -59,9 +59,9 @@ void create_drop_nodes__9TItemListFPvPvPvPvi(void *arg0, void *arg1, void *arg2,
 u8 *copy_drop_node(u8 *arg0, u8 *arg1) {
     u8 *temp_r4;
     u8 *temp_r5;
-    fn_801D371C((void*)(arg0), (void*)(arg1));
-    temp_r5 = (u8 *)(arg0 + 4);
-    temp_r4 = (u8 *)(arg1 + 4);
+    fn_801D371C(arg0, arg1);
+    temp_r5 = (arg0 + 4);
+    temp_r4 = (arg1 + 4);
     *(s32 *)((s8 *)arg0 + 4) = (s32) *(s32 *)((s8 *)arg1 + 4);
     *(ByteBlock_14 *)((s32) temp_r5 + 4) = *(const ByteBlock_14 *)((s32) temp_r4 + 4);
     return arg0;
@@ -71,7 +71,7 @@ void fn_801D371C(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q 
 void start_placement_search(s32 arg0, s32 arg1, s32 arg2) {
     TItemList__sub_801D5838(((void *)((s32)TItemList__sub_801D5868((void*)arg0, (void*)(0)))));
     TItemList__sub_801D3B00((void *)arg0, (void *)arg2, (void *)arg1, 0);
-    TItemList__sub_801D5804((s32 *)(arg0));
+    TItemList__sub_801D5804((s32 *)arg0);
 }
 
 }

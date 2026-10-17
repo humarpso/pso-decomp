@@ -42,13 +42,13 @@ void draw_ginja_box_tree(u8 *arg0) {
         temp_r31 = *(s32 *)((s8 *)var_r30 + 0);
         push_matrix();
         if (!(temp_r31 & 1)) {
-            post_translate_matrix((void *) (var_r30 + 8));
+            post_translate_matrix(var_r30 + 8);
         }
         if (!(temp_r31 & 2)) {
-            rotate_matrix_by_node_angles((void *) (var_r30 + 0x14), (void *) (temp_r31 & 0x20));
+            rotate_matrix_by_node_angles(var_r30 + 0x14, (void *) (temp_r31 & 0x20));
         }
         if (!(temp_r31 & 4)) {
-            scale_current_matrix((void *) (var_r30 + 0x20));
+            scale_current_matrix(var_r30 + 0x20);
         }
         if (!(temp_r31 & 0x100000)) {
             TParticleCtrl::end_effect_render();

@@ -42,15 +42,15 @@ void TChCrTagPlGraphic::draw_class_illustration() {
     f32 scale;
     s32 depth;
     if (!(((RecoveredFields_802A3138_arg0 *)arg0)->field_3C <= lbl_805DDF18)) {
-        ((TWindowSubSymbolChatPartsSet *)(&stack.sp10))->copy_vec2((void *) (arg0 + 0x48));
+        ((TWindowSubSymbolChatPartsSet *)(&stack.sp10))->copy_vec2(arg0 + 0x48);
         temp_f0 = ((RecoveredFields_802A3138_arg0 *)arg0)->field_44;
         stack.spC = temp_f0;
         stack.sp8 = temp_f0;
         scale = ((RecoveredFields_802A3138_arg0 *)arg0)->field_3C;
         depth = (((RecoveredFields_802A3138_arg0 *)arg0)->field_20 * 2) + 0x66;
-        draw_ui_sprite_shaded((f32) (((RecoveredFields_802A3138_arg0 *)arg0)->field_40), (f32)scale, (f32)scale, (void *)depth, (void *) (&stack.sp10), (void *) (&stack.sp8));
+        draw_ui_sprite_shaded((f32) (((RecoveredFields_802A3138_arg0 *)arg0)->field_40), (f32)scale, (f32)scale, (void *)depth, &stack.sp10, &stack.sp8);
         stack.sp14 += lbl_805DDF1C * ((RecoveredFields_802A3138_arg0 *)arg0)->field_44;
-        draw_ui_sprite_shaded((f32) (((RecoveredFields_802A3138_arg0 *)arg0)->field_40), scale, scale, (void *) (depth + 1), (void *) (&stack.sp10), (void *) (&stack.sp8));
+        draw_ui_sprite_shaded((f32) (((RecoveredFields_802A3138_arg0 *)arg0)->field_40), scale, scale, (void *)(depth + 1), (void *)&stack.sp10, (void *)&stack.sp8);
     }
 }
 #pragma pop

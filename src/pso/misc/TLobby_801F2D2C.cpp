@@ -185,8 +185,8 @@ void TLobby::save_quest_state_to_record() {
     *(s32 *)((s8 *)((u8 *)this) + 0x28) = (s32) lbl_805D5E9C;
     *(s32 *)((s8 *)((u8 *)this) + 0x2C) = (s32) quest_message_speaker_id;
     *(s32 *)((s8 *)((u8 *)this) + 0x30) = (s32) TLobby__quest_arg_stack_count;
-    memcpy((void *) (((u8 *)this) + 0x34), (void *) (&TLobby__quest_argument_stack.value), 0x20);
-    memcpy((void *) (((u8 *)this) + 0x54), (void *) (&TLobby__script_value_stack.value), 0x100);
+    memcpy((void *) (((u8 *)this) + 0x34), &TLobby__quest_argument_stack.value, 0x20);
+    memcpy((void *) (((u8 *)this) + 0x54), &TLobby__script_value_stack.value, 0x100);
     (*(s32 *)&TLobby__quest_message_window) = 0;
     (*(s32 *)&TLobby__quest_choice_window) = 0;
     *(u8 *)((s8 *)((u8 *)this) + 0x154) = (u8) TLobby__data_805D5EA8;
@@ -220,8 +220,8 @@ void TLobby::load_quest_globals() {
     lbl_805D5E9C = *(s32 *)((s8 *)((u8 *)this) + 0x28);
     quest_message_speaker_id = *(s32 *)((s8 *)((u8 *)this) + 0x2C);
     TLobby__quest_arg_stack_count = *(s32 *)((s8 *)((u8 *)this) + 0x30);
-    memcpy((void *) (&TLobby__quest_argument_stack.value), (void *) (((u8 *)this) + 0x34), 0x20);
-    memcpy((void *) (&TLobby__script_value_stack.value), (void *) (((u8 *)this) + 0x54), 0x100);
+    memcpy(&TLobby__quest_argument_stack.value, (void *) (((u8 *)this) + 0x34), 0x20);
+    memcpy(&TLobby__script_value_stack.value, (void *) (((u8 *)this) + 0x54), 0x100);
     TLobby__data_805D5EA8 = *(u8 *)((s8 *)((u8 *)this) + 0x154);
     TLobby__data_805D5EA9 = *(u8 *)((s8 *)((u8 *)this) + 0x155);
     TLobby__data_805D5EAA = *(u16 *)((s8 *)((u8 *)this) + 0x156);
@@ -240,11 +240,11 @@ typedef char RecoveredGlobal_801F3268_lbl_80512B18_size[sizeof(RecoveredGlobal_8
 void init_quest_script_context(Hdr_801F3124 *h, Ctx_801F3124 *c) {
     u32 n;
     u32 i;
-    bswap_32__FPUl((void*)(&h->off0));
-    bswap_32__FPUl((void*)(&h->off4));
-    bswap_32__FPUl((void*)(&h->off8));
-    bswap_16__FPUs((void*)(&h->hC));
-    bswap_16__FPUs((void*)(&h->hE));
+    bswap_32__FPUl(&h->off0);
+    bswap_32__FPUl(&h->off4);
+    bswap_32__FPUl(&h->off8);
+    bswap_16__FPUs(&h->hC);
+    bswap_16__FPUs(&h->hE);
     bswap_16__FPUs((void*)((u8 *)h + 0x12));
     TLobby__data_805D5ECC = h->b12;
     c->p0 = (u8 *)h + h->off0;
@@ -263,7 +263,7 @@ void init_quest_script_context(Hdr_801F3124 *h, Ctx_801F3124 *c) {
     memset(c->x54, 0, 0x100);
     n = (h->off8 - h->off4) / 4;
     for (i = 0; i < n; i++) {
-        bswap_32__FPUl((void*)(&c->p4[i]));
+        bswap_32__FPUl(&c->p4[i]);
     }
     (*(s8 *)&TLobby__data_805D5EA8) = 0;
     (*(s8 *)&TLobby__data_805D5EA9) = 0;
@@ -342,7 +342,7 @@ void TLobby::bswap_4x32() { bswap_32__FPUl(this); bswap_32__FPUl((char*)this + 0
     extern unsigned char camera_capture_flags;
 void TLobby__sub_801F3568(void) { camera_capture_flags = (camera_capture_flags | 0x10); }
 
-void TLobby::sync_quest_register_and_send() { bswap_header__6TLobbyFPv((void*)((void*)(this))); TLobby__send_and_handle_60((u8 *)this); }
+void TLobby::sync_quest_register_and_send() { bswap_header__6TLobbyFPv((void*)(this)); TLobby__send_and_handle_60((u8 *)this); }
 void bswap_header__6TLobbyFPv(void* p) { ((TObjPlayer *)p)->read_be16_field2(); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x8); }
 void build_6x77_sync_quest_register(void* p) { *(u8*)((char*)p + 0x0) = 119; *(u8*)((char*)p + 0x1) = 3; }
 
@@ -366,8 +366,8 @@ void TLobby::bswap_entry_words(s32 arg0) {
     var_r31 = 0;
     do {
         temp_r30 = arg0 + var_r31;
-        bswap_32__FPUl((void*)(temp_r30));
-        bswap_32__FPUl((void*)((void *) (temp_r30 + 0x18)));
+        bswap_32__FPUl((void*)temp_r30);
+        bswap_32__FPUl((void*)(temp_r30 + 0x18));
         var_r29 += 1;
         var_r31 += 4;
     } while (var_r29 < 6);

@@ -190,7 +190,7 @@ void TObjPlayer__sub_80079110(void);
 
 typedef char RecoveredGlobal_800790F0_lbl_804F5800_size[sizeof(RecoveredGlobal_800790F0_lbl_804F5800) == 0x100 ? 1 : -1];
 s32 get_csn_group_flags(u8 arg0) {
-    return *(u8 *)((s8 *)((u8 *)(&lbl_804F5800.value) + arg0) + 0) & 0xC0;
+    return *(u8 *)((s8 *)((u8 *)&lbl_804F5800.value + arg0) + 0) & 0xC0;
 }
 
 void TObjPlayer__sub_80079108(void) {  }
@@ -665,13 +665,13 @@ s32 *csnLookAt(s32 arg0, s32 arg1) {
     s32 *var_r31;
     TObjPlayer__sub_8007911C();
     var_r31 = lbl_80500140;
-    TObjPlayer__sub_80079124((void *)(arg0), (void *)(arg1));
+    TObjPlayer__sub_80079124((void *)arg0, (void *)arg1);
     if (TObjPlayer__sub_80079DE0((void *)arg0, (void *)arg1) == 0U) {
-        var_r31 = (s32 *)(NULL);
-    } else if (check_line_hits_walls__10TObjPlayerFPvPviPv((void *)(arg0), (void *)(arg1), 0x8000, (Node_800797DC **)((void *) (((s32 *)&lbl_804FFD40)))) == 0) {
-        var_r31 = (s32 *)(NULL);
+        var_r31 = NULL;
+    } else if (check_line_hits_walls__10TObjPlayerFPvPviPv((void *)arg0, (void *)arg1, 0x8000, (Node_800797DC **)((void *) (((s32 *)&lbl_804FFD40)))) == 0) {
+        var_r31 = NULL;
     }
-    TObjPlayer__sub_80079118((s32 *)(lbl_804389C0));
+    TObjPlayer__sub_80079118(lbl_804389C0);
     return var_r31;
 }
 

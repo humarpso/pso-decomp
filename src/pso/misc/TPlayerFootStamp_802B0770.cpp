@@ -10,13 +10,13 @@ void TBoss6PlotFalz::set_state4_if_ready() { if (is_ready__14TBoss6PlotFalzFv(th
 void TBoss6PlotFalz::reset_and_recreate() {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
-    TBoss6PlotFalz::get_target_pos_b((s32)(arg0), (s32)((void *) (&sp8)));
+    TBoss6PlotFalz::get_target_pos_b((s32)arg0, (s32)((void *)&sp8));
     queue_instance_destruction__14TBoss6PlotFalzFv(arg0);
     TLobby::stop_audio_streams();
     TBoss6PlotFalz::freeze_all_players();
     *(s32 *)((s8 *)arg0 + 0x3D0) = 0;
     *(s32 *)((s8 *)arg0 + 0x3CC) = 0;
-    TBoss6PlotFalz::create(arg0, (void *) (&sp8));
+    TBoss6PlotFalz::create(arg0, &sp8);
 }
 
 }

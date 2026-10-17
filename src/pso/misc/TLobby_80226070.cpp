@@ -20,11 +20,11 @@ extern int lobby_layout_offset_c;
 extern s32 lbl_805D6290;
 extern s32 lobby_layout_start_position;
 
-void TLobby::set_and_notify(int a0) { lbl_805D6284 = a0; update_music_stream_gain((s32)(lbl_805D6280)); }
+void TLobby::set_and_notify(int a0) { lbl_805D6284 = a0; update_music_stream_gain(lbl_805D6280); }
 
 void TLobby::reset_global() { lobby_layout_offset_c = 0; TLobby__sub_8022614C(lbl_805D6294); }
 
-void TLobby::close_option_window() { lbl_805D6284 = 0; update_music_stream_gain((s32)(lbl_805D6280)); }
+void TLobby::close_option_window() { lbl_805D6284 = 0; update_music_stream_gain(lbl_805D6280); }
 
 void TLobby::init_layout_positions() {
     lbl_805D627C = -0x50;

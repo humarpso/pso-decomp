@@ -1175,10 +1175,10 @@ void execute_action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
                     temp_r3_3 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x390));
                     ((VObjB0_800b07d0 *)temp_r3_3)->v23(arg0, (3.0f));
                     if ((TObjEneDD::check_v2_mode() != 0) && (calc_boss4_scale__10TObjPlayerFi((s32)arg0) < (0.05f))) {
-                        TObjEneDD::inflict_poison((s32)(arg0), (u8 *)(*(void **)((s8 *)arg0 + 0x390)));
+                        TObjEneDD::inflict_poison((s32)arg0, (u8 *)(*(void **)((s8 *)arg0 + 0x390)));
                     }
                 }
-                play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003A524), (void *) (arg0 + 0x38), 0, 0);
+                play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003A524), arg0 + 0x38, 0, 0);
                 TObjPlayer::play_effect_if_v2(-0x400);
             }
             if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
@@ -1584,7 +1584,7 @@ void choose_attack__13TObjEneBm3FlyFPv(Fly_800B1684 *s) {
 s32 can_attack_target__13TObjEneBm3FlyFPv(u8 *arg0) {
     f32 temp_f31;
     if ((*(f32 *)((s8 *)arg0 + 0x3AC) < ((5.0f) + ((TObjPlayer *)TObjEneBm3Fly__attack_params)->get_pos_x())) && (fabs_float((f32) (*(f32 *)((s8 *)arg0 + 0x42C) - *(f32 *)((s8 *)arg0 + 0x398))) < (1.0f))) {
-        temp_f31 = vec3_dot((void *) (arg0 + 0x430), (void *) (arg0 + 0x3A0));
+        temp_f31 = vec3_dot(arg0 + 0x430, arg0 + 0x3A0);
         ((TObjPlayer *)(*(s32 *)((s8 *)arg0 + 0x318)))->get_field_0c();
         if (temp_f31 >= cos_table_lookup()) {
             return 1;
@@ -2200,10 +2200,10 @@ void TObjEneBm3Fly::vfunc_63() {
     temp_r0 = this->mode;
     if ((temp_r0 != 8) && (temp_r0 != 9) && (temp_r0 != 7)) {
         if (was_hit_by_ranged__13TObjEneBm3FlyFv() != 0) {
-            ((int (*)(void*, void*))transition_enemy_state)((void*)(arg0), (void*)(7));
+            ((int (*)(void*, void*))transition_enemy_state)(arg0, (void*)(7));
             return;
         }
-        ((int (*)(void*, void*))transition_enemy_state)((void*)(arg0), (void*)(8));
+        ((int (*)(void*, void*))transition_enemy_state)(arg0, (void*)(8));
     }
 }
 
@@ -2303,8 +2303,8 @@ void TObjEneBm3Fly::run_task() {
         {
           var_f30 *= (3.0f);
         }
-        temp_f31 = var_f30 * ((f32 (*)(s32))cos_table_lookup)((s32)(rotation_y));
-        temp_f2 = var_f30 * (-((f32 (*)(s32))sin_table_lookup)((s32)(rotation_y)));
+        temp_f31 = var_f30 * ((f32 (*)(s32))cos_table_lookup)(rotation_y);
+        temp_f2 = var_f30 * (-((f32 (*)(s32))sin_table_lookup)(rotation_y));
         *((f32 *) ((particle_effect) + 0x60)) = (f32) (((*(Vec *)&this->m_2fc).x) + temp_f31);
         *((f32 *) ((particle_effect) + 0x64)) = (f32) ((-1.5f) + ((*(Vec *)&this->m_2fc).y));
         *((f32 *) ((particle_effect) + 0x68)) = (f32) (((*(Vec *)&this->m_2fc).z) + temp_f2);
@@ -2428,9 +2428,9 @@ u8 *TObjEneBm3Fly__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *arg5
     ((TObjEneDD *)arg0)->init_common_from((u8 *)arg2);
     *(s16 *)&((TObjEneBm3Fly *)arg0)->m_1c = arg3;
     *(s16 *)((s8 *)arg0 + 0x2C) = arg4;
-    VecCopy((Vec *)((void *) (arg0 + 0x38)), (const Vec *)(arg5));
-    VecCopy((Vec *)((void *) (arg0 + 0x41C)), (const Vec *)((void *) (arg2 + 0x38)));
-    VecCopy((Vec *)((void *) (arg0 + 0x40C)), (const Vec *)(arg6));
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg5));
+    VecCopy((Vec *)(arg0 + 0x41C), (const Vec *)(arg2 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x40C), (const Vec *)(arg6));
     ((TObjEneBm3Fly *)arg0)->init_child_params();
     *(s32 *)((s8 *)arg0 + 0x80) = 0;
     return arg0;
@@ -2475,13 +2475,13 @@ void TObjEneBm3Fly::load_resources() {
     TObjEneBm3Fly__attack_params = dispatch_shared_handler_b__6TLobbyFl(0);
     lbl_805D50E8 = register_object__6TLobbyFl(0);
     (*(s32 *)&(*(f32 **)&lbl_805D50EC)) = dispatch_shared_handler_a__6TLobbyFl(0);
-    stack.sp8 = *(s32 *)((s8 *)(&bm3_fly_resource_binding_desc.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&bm3_fly_resource_binding_desc.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&bm3_fly_resource_binding_desc.value) + 8);
-    stack.sp14 = *(s32 *)((s8 *)(&bm3_fly_resource_binding_desc.value) + 0xC);
+    stack.sp8 = *(s32 *)((s8 *)&bm3_fly_resource_binding_desc.value + 0);
+    stack.spC = *(s32 *)((s8 *)&bm3_fly_resource_binding_desc.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&bm3_fly_resource_binding_desc.value + 8);
+    stack.sp14 = *(s32 *)((s8 *)&bm3_fly_resource_binding_desc.value + 0xC);
     stack.sp8 = *(s32 *)((s8 *)bm3_fly_nest_resources + 0x430);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)bm3_fly_nest_resources + 0x42C));
-    TLobby::spawn_npc_enemy((s16)(7), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 8))), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0xC))), (s32)((void *) (&stack.sp8)), (f32)((f32) (*(f32 *)((s8 *)(&bm3_fly_collider_params.value) + 0xC))), (f32)((f32) ((15.0f))));
+    TLobby::spawn_npc_enemy((s16)(7), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 8))), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0xC))), (s32)((void *)&stack.sp8), (f32)((f32) (*(f32 *)((s8 *)&bm3_fly_collider_params.value + 0xC))), (f32)((f32) ((15.0f))));
 }
 
 }

@@ -29,7 +29,7 @@ s16 TUnk_804B9870::get_stat_by_key_state() {
     }
     if ((u16) this->m_1c < 0x1000U) {
         global_state = TOKeyMachine01::get_global_state();
-        if (((u32) (global_state - 1) <= 1U) || (TContainerAncient01::is_global_state_in_table() != 0) || (global_state == 0xC) || (global_state == 0x20)) {
+        if (((global_state - 1) <= 1U) || (TContainerAncient01::is_global_state_in_table() != 0) || (global_state == 0xC) || (global_state == 0x20)) {
             return *(s16 *)&(*(short *)((u8 *)this + 0x2E));
         }
         return *(s16 *)&this->m_28;

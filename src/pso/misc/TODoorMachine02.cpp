@@ -133,7 +133,7 @@ void TODoorMachine02::play_proximity_sound() {
     if ((this->m_d0 & 1) && (is_any_player_within_radius_xz(lbl_805DB514) == 1)) {
         *(s32 *)&this->m_ac = 1;
         set_indexed_flags((arg0), 0, 8);
-        play_sound_effect(0x4004BC01, (void *)((void *) (arg0 + 0x38)), 0, 0);
+        play_sound_effect(0x4004BC01, (void *)(arg0 + 0x38), 0, 0);
     }
     if (this->m_d0 & 0x10000) {
         *(f32 *)((s8 *)arg0 + 0xD8) = (f32) (*(f32 *)((s8 *)arg0 + 0xD8) + lbl_805DB518);
@@ -259,7 +259,7 @@ u8 *TODoorMachine02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(u8 **)((s8 *)arg0 + 0xBC) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&door_machine02_model_resource) + 0x430)) + 4));
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB51C);
     ((TODoorMachine02 *)arg0)->m_b8 = (f32) lbl_805DB528;
-    init_collision_body_parts(arg0, (void *) (&lbl_804B16C8.value), 1);
+    init_collision_body_parts(arg0, &lbl_804B16C8.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TODoorMachine02 *)(arg0))->init_door_switch_binding();

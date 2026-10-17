@@ -111,7 +111,7 @@ void TScene::create_texture_wave_tasks(s32 arg0) {
     {
       construct_pvr_wave__6TSceneFPvPvPvii(temp_r3, arg0, *((s32 *) (((s8 *) var_r31) + 4)), *((s32 *) (((s8 *) var_r31) + 8)), (s32) (*((s16 *) (((s8 *) var_r31) + 0))));
     }
-    temp_r0 = *((s16 *) (new_var + 0xC));
+    temp_r0 = *((s16 *)(new_var + 0xC));
     var_r31 += 0xC;
   }
   while (temp_r0 >= 0);

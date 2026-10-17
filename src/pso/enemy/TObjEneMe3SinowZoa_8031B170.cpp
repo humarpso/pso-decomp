@@ -33,7 +33,7 @@ void TObjEneMe3SinowZoa::set_entry_value_clamped(s32 arg0, f32 farg0) {
   {
     var_f1 = lbl_805DF38C;
   }
-  new_var = (u8 *) (&lbl_804E8880.value);
+  new_var = (u8 *)&lbl_804E8880.value;
   new_var = new_var + (arg0 * 0x10);
   *((f32 *) (((s8 *) new_var) + 8)) = var_f1;
 }

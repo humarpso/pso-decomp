@@ -46,10 +46,10 @@ void fn_8008C4F4(void) {
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8008C4F4_main_task *)&(*(RecoveredGlobal_8008C534_main_task *)&main_task)).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8008C4F4_main_task *)&(*(RecoveredGlobal_8008C534_main_task *)&main_task)).value);
     delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8008C4F4_main_task *)&(*(RecoveredGlobal_8008C534_main_task *)&main_task)).value));
-    var_r3 = (s32 *)(&ending_scene_callbacks.value);
+    var_r3 = &ending_scene_callbacks.value;
     var_r4 = 0x68;
-    var_r3 = (s32 *)(&ending_scene_callbacks.value);
-    call_funcs_reverse__6TLobbyFPvUi((void *) (&ending_scene_callbacks.value), 0x68);
+    var_r3 = &ending_scene_callbacks.value;
+    call_funcs_reverse__6TLobbyFPvUi(&ending_scene_callbacks.value, 0x68);
     render_tick();
 }
 
@@ -77,7 +77,7 @@ void run_game_frame(void) {
         TKeyBoardControl__sub_8000F92C();
     }
     if (TQuestVmDownLoadServer::is_ready() != 0) {
-        var_r3 = (s32 *)(NULL);
+        var_r3 = NULL;
         TKeyBoardControl__sub_8000F9CC(0);
     }
     render_tick();

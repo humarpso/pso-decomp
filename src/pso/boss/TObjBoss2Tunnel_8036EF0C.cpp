@@ -15,7 +15,7 @@ extern u8 *active_gx_render_mode;
 
 void set_display_copy_filter(int sample_pattern) {
     display_copy_filter_enabled = (s32) sample_pattern;
-    Dolphin_GXSetCopyFilter((int) (*(u8 *)((s8 *)active_gx_render_mode + 0x19)), (void *) (active_gx_render_mode + 0x1A), (void *) ((u8) sample_pattern), (void *) (active_gx_render_mode + 0x32), active_gx_render_mode);
+    Dolphin_GXSetCopyFilter((int) (*(u8 *)((s8 *)active_gx_render_mode + 0x19)), active_gx_render_mode + 0x1A, (void *) ((u8) sample_pattern), active_gx_render_mode + 0x32, active_gx_render_mode);
 }
 
 s32 TObjBoss2Tunnel__sub_8036EF44(void) {  return display_copy_filter_enabled; }

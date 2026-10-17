@@ -1393,7 +1393,7 @@ void apply_game_settings__6TLobbyFii(s32 arg0, s32 arg1) {
                         v = 1;
                     }
                     battle_intro_value_table[i] = v;
-                    fn_801C19D8((void *) (p + 0x828), battle_intro_value_table[i]);
+                    fn_801C19D8((void *)(p + 0x828), battle_intro_value_table[i]);
                 } else {
                     battle_intro_value_table[i] = -1;
                 }
@@ -1838,7 +1838,7 @@ void update_player_battle_ctrl_state(void *arg0) {
     temp_r0 = *(u32 *)((s8 *)arg0 + 0x1C);
     switch (temp_r0) {
     case 0:
-        fn_801C4CE0((void *)(arg0));
+        fn_801C4CE0(arg0);
         return;
     case 1:
         update_battle_intro__6TLobbyFPv(arg0);

@@ -106,7 +106,7 @@ void TSceneSora::run_task() {
     TSceneSora_80207238 *sky = (TSceneSora_80207238 *)this;
     if (sky->motion != NULL) {
         sky->frame += sky->rate;
-        if (sky->frame > (f32)(sky->motion->frame_count - 1)) {
+        if (sky->frame > (sky->motion->frame_count - 1)) {
             sky->frame = lbl_805DC608;
         }
     } else {

@@ -79,14 +79,14 @@ void TWindowTimer::set_time(u32 secs) {
     hours = secs / 3600;
     secs %= 3600;
     if (hours > 9) {
-        text_builder_append((u8 *)(lbl_8044FCE8));
+        text_builder_append((u8 *)lbl_8044FCE8);
     } else {
         append_padded_number((hours), 1);
-        text_builder_append((u8 *)((s32 *)(&lbl_805DD888)));
+        text_builder_append((u8 *)(&lbl_805DD888));
         mins = secs / 60;
         secs %= 60;
         append_padded_number((mins), 2);
-        text_builder_append((u8 *)((s32 *)(&lbl_805DD88C)));
+        text_builder_append((u8 *)(&lbl_805DD88C));
         append_padded_number((secs), 2);
     }
     set_text_entry_string((u8 *)entry, (u32)(get_shared_text_buffer()), 0x20);
@@ -94,7 +94,7 @@ void TWindowTimer::set_time(u32 secs) {
 }
 
 void TWindowTimer::draw_tab(s32 arg0, s32 arg1) {
-    draw_window_tab((void *)arg1, (void *) (arg1 + 0x10), 3, (f32)lbl_805DD890);
+    draw_window_tab((void *)arg1, (void *)(arg1 + 0x10), 3, (f32)lbl_805DD890);
 }
 
 s32 TWindowTimer::create() {
@@ -122,8 +122,8 @@ s32 TWindowTimer::create_alt() {
 void render__12TWindowTimerFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFl();
-    TWindowTimer::draw_tab((s32)(arg0), (s32)(temp_r3));
-    draw_visible_window_entries((void *)arg0, (void *) (arg0 + 0x24), (int)temp_r3);
+    TWindowTimer::draw_tab(arg0, temp_r3);
+    draw_visible_window_entries((void *)arg0, (void *)(arg0 + 0x24), (int)temp_r3);
 }
 
 void run_task__12TWindowTimerFv(u8 *arg0) {
@@ -133,7 +133,7 @@ void run_task__12TWindowTimerFv(u8 *arg0) {
     temp_r31 = get_timer_value__12TWindowTimerFi(1);
     ((TWindowTimer *)arg0)->draw((s32)((int) get_timer_value__12TWindowTimerFi(0)), (s32)((int) temp_r31));
   }
- do { ((TWindowDD *)arg0)->initialize_subwindow(); ((TWindowTimer *)arg0)->update_chat_parts(); ((TWindowTimer *)arg0)->ease_window_timer_position(); ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (arg0 + 0x24)); } while (0);
+ do { ((TWindowDD *)arg0)->initialize_subwindow(); ((TWindowTimer *)arg0)->update_chat_parts(); ((TWindowTimer *)arg0)->ease_window_timer_position(); ((TUnk_804CE018 *)arg0)->update_window_entry_list(arg0 + 0x24); } while (0);
 }
 
 void *__dt__12TWindowTimerFv(void *arg0, s16 arg1) {
@@ -149,7 +149,7 @@ void *__dt__12TWindowTimerFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80287FBC_lbl_804D2E74_size[sizeof(RecoveredGlobal_80287FBC_lbl_804D2E74) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80287FBC___vt__12TWindowTimer_size[sizeof(RecoveredGlobal_80287FBC___vt__12TWindowTimer) == 0x18 ? 1 : -1];
 u8 *TWindowTimer__ct(u8 *arg0) {
-    ((TWindowDD *)arg0)->construct_base((u8 *)(&lbl_804D2E74.value), (s16)4, (u8 *)(get_zero_vec2()));
+    ((TWindowDD *)arg0)->construct_base((u8 *)&lbl_804D2E74.value, (s16)4, (u8 *)(get_zero_vec2()));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80287FBC___vt__12TWindowTimer *)&__vt__12TWindowTimer).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowTimer__name;
     *(s32 *)&((TWindowTimer *)arg0)->m_60 = 0;

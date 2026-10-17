@@ -889,7 +889,7 @@ void TObjPlayer__sub_8003F81C(u8 *arg0) {
             Vec_8003F81C v = *(Vec_8003F81C *)(arg0 + 0x38);
             v.y -= lbl_805D86B8;
             *(u32 *)((s8 *)arg0 + 0x3CC) = create_particle_emitter(&v, 0x31);
-            play_sound_effect(0x4003AD1E, (s32) (arg0 + 0x38), 0, 0);
+            play_sound_effect(0x4003AD1E, (s32)(arg0 + 0x38), 0, 0);
             *(s32 *)((s8 *)arg0 + 0x37C) = 3;
         }
         break;
@@ -908,7 +908,7 @@ void TObjPlayer__sub_8003F81C(u8 *arg0) {
     }
     advance_animation_playback(arg0);
     if ((s32) vol_opt_active_hit_zone >= 0) {
-        minimap_render_dot((void *) (arg0 + 0x38), -0x5DB4, 1, 0);
+        minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
     }
 }
 
@@ -935,7 +935,7 @@ void TObjPlayer__sub_8003F9D4(void *arg0_) {
         temp_r3 = *(s32 *)((s8 *)arg0 + 0x3C0);
         if (temp_r3 > 1) {
             if ((s32) *(s32 *)((s8 *)arg0 + 0x394) <= -0x238E) {
-                *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (temp_r3 - 1);
+                *(s32 *)((s8 *)arg0 + 0x3C0) = (temp_r3 - 1);
                 temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x3BC) - 1;
                 *(s32 *)((s8 *)arg0 + 0x3BC) = temp_r0_2;
                 if (temp_r0_2 < 0) {
@@ -953,14 +953,14 @@ void TObjPlayer__sub_8003F9D4(void *arg0_) {
                 update_if_active__15TObjEneMe1GiGueFl(arg0, 9);
             }
 block_14:
-            play_persistent_sound(0x4003BC05, arg0, (void *) (arg0 + 0x38), 0, 0);
+            play_persistent_sound(0x4003BC05, arg0, arg0 + 0x38, 0, 0);
         }
         break;
     case -1:
         break;
     }
     if ((s32) vol_opt_active_hit_zone >= 0) {
-        minimap_render_dot((void *) (arg0 + 0x38), -0x5DB4, 1, 0);
+        minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
     }
 }
 
@@ -1033,7 +1033,7 @@ void TObjPlayer__sub_8003FCD0(u8 *arg0) {
     *(f32 *)((s8 *)arg0 + 0x40) = (f32) lbl_805D86D0;
     set_matrix_identity(0, temp_f1);
     rotate_matrix_y(0, (s32)((int) (*(s32 *)((s8 *)arg0 + 0x390))));
-    temp_r4 = (u8 *)(arg0 + 0x38);
+    temp_r4 = (arg0 + 0x38);
     rotate_vector_by_matrix(0, (int)temp_r4, (int)temp_r4);
     pop_matrix();
 }
@@ -1244,7 +1244,7 @@ void TObjPlayer__sub_800401CC(u8 *arg0) {
         break;
     }
     advance_animation_playback(arg0);
-    minimap_render_dot((void *)(arg0 + 0x38), -0x5DB4, 1, 0);
+    minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
 }
 
 void TUnk_80483A10::render() {
@@ -1301,7 +1301,7 @@ void TUnk_80483A10::run_task() {
   temp_r3 = this->m_3c8;
   if (temp_r3 > 0)
   {
-    this->m_3c8 = (s32) (temp_r3 - 1);
+    this->m_3c8 = (temp_r3 - 1);
   }
   if ((this->has_flag_0x800()) != 0)
   {

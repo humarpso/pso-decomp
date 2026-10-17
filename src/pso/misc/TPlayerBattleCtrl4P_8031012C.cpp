@@ -515,7 +515,7 @@ void send_code_45_to_window__19TPlayerBattleCtrl4PFPvii(void *arg0, s32 arg1, s3
 
     temp_r31 = (u16)arg1;
     temp_r30 = arg2;
-    if (get_player_by_client_id((s32)(temp_r31)) != 0U) {
+    if (get_player_by_client_id(temp_r31) != 0U) {
         send_code_45_1__10TObjPlayerFl();
     }
     if (temp_r30 != 0) {
@@ -531,7 +531,7 @@ s32 TPlayerBattleCtrl4P::check_all_players_flag() {
 
     var_r31 = 0;
 loop_1:
-    var_r3 = get_player_by_client_id((s32)(var_r31));
+    var_r3 = get_player_by_client_id(var_r31);
     if ((var_r3 != 0U) && (obj_testFlags30(var_r3, 0x02000000) != 0)) {
         return 0;
     }
@@ -680,7 +680,7 @@ void TPlayerBattleCtrl4P::apply_rule_configuration(s32 arg1) {
             w = 1;
           }
           o->team[j] = w;
-          fn_801C19D8((void *) (p + 0x828), o->team[(((((((((((j & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu]);
+          fn_801C19D8((void *)(p + 0x828), o->team[(((((((((((j & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu]);
         }
         else
         {

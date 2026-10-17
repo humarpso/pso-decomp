@@ -403,7 +403,7 @@ void call_state_action__14TBoss6PlotFalzFPv(u8 *arg0) {
   u8 *temp_r6;
   if (1)
   {
-    temp_r6 = (u8 *) (&TBoss6PlotFalz__data_804DE66C.value);
+    temp_r6 = (u8 *)&TBoss6PlotFalz__data_804DE66C.value;
     temp_r6 = temp_r6 + ((((TBoss6PlotFalz *)arg0)->m_378) * 0x34);
     member_action.words[0] = *((s32 *) (((s8 *) temp_r6) + 0x1C));
   }
@@ -628,7 +628,7 @@ void TBoss6PlotFalz::award_exp_and_destroy() {
     Msg_802AB490 m;
     m.a = 0x800;
     send_6x0A_enemy_state(arg0, &m);
-    ((TObjEnemy *)arg0)->exchange_object_state((s32)(&m), (s16)0);
+    ((TObjEnemy *)arg0)->exchange_object_state((s32)&m, (s16)0);
     ((VObj_802AB490 *)arg0)->m77(&m);
     ((TObjEnemy *)arg0)->send_entity_set_flags();
     queue_destruction__7TObjectFv(arg0);
@@ -662,9 +662,9 @@ void TBoss6PlotFalz__sub_802AB684(s32 arg0) {
     typedef char spC_offset[(offsetof(Stack_802AB684, spC) == 0x4) ? 1 : -1];
     Stack_802AB684 stack;
     VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0));
-    subtract_vector((void *) (&stack.sp8), (void *) (&lbl_8047059C.value));
+    subtract_vector(&stack.sp8, &lbl_8047059C.value);
     stack.spC = 0.0f;
-    vector_length((void *) (&stack.sp8));
+    vector_length(&stack.sp8);
 }
 extern "C" {
 __declspec(section ".sdata2") const f32 lbl_805DE0A4[1] = { 1e-05f };
@@ -876,7 +876,7 @@ void TBoss6PlotFalz::spawn_type2() {
         stack.spC = *(s16 *)&this->m_2c + 0x1FF;
         temp_r4 = this->m_1c;
         stack.sp12 = temp_r4 + 0x1FF;
-        TBoss6PlotFalz__type2_instance = create__11TBoss6Type2Fl((void *) (&sp8), temp_r4);
+        TBoss6PlotFalz__type2_instance = create__11TBoss6Type2Fl(&sp8, temp_r4);
     }
 }
 
@@ -892,7 +892,7 @@ void TBoss6PlotFalz::spawn_type1() {
         stack.spC = *(s16 *)&this->m_2c + 0x200;
         temp_r4 = this->m_1c;
         stack.sp12 = temp_r4 + 0x200;
-        TBoss6PlotFalz__type1_instance = create__11TBoss6Type1Fl((void *) (&sp8), temp_r4);
+        TBoss6PlotFalz__type1_instance = create__11TBoss6Type1Fl(&sp8, temp_r4);
     }
 }
 
@@ -1026,7 +1026,7 @@ void TBoss6PlotFalz::apply_fade_material_color(f32 farg0, f32 farg1, f32 farg2, 
         stack.spC = temp_f2;
         stack.sp10 = temp_f1;
         stack.sp14 = -((TBoss6PlotFalz__fade_amount * (1.0f - farg3)) - 1.0f);
-        set_chunk_material_color((void *) (&stack.sp8), temp_f1, temp_f2, (f32) (1.0f), TBoss6PlotFalz__fade_amount);
+        set_chunk_material_color(&stack.sp8, temp_f1, temp_f2, (f32) (1.0f), TBoss6PlotFalz__fade_amount);
     }
 }
 #pragma pop
@@ -1568,10 +1568,10 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     TBoss4DarkFalz__sub_8004B4F0((arg0 + 0x388), (void *)arg2);
     *(s16 *)((s8 *)arg0 + 0x38A) = 0;
-    if (((TObjEnemy *)arg0)->exchange_object_state((s32)((void *) (&sp8)), (s16)(1)) != 0) {
+    if (((TObjEnemy *)arg0)->exchange_object_state((s32)(&sp8), (s16)(1)) != 0) {
         sp8.a = 0;
         sp8.c = 0;
-        ((TObjEnemy *)arg0)->exchange_object_state((s32)((void *) (&sp8)), (s16)(0));
+        ((TObjEnemy *)arg0)->exchange_object_state((s32)(&sp8), (s16)(0));
     }
     VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(VecCopy((Vec *)(arg0 + 0x50), (const Vec *)(VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38))))));
     VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));

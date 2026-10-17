@@ -25,7 +25,7 @@ void show_duel_result_window(s32 arg0, s32 arg1) {
     if ((void *) duel_result_window != NULL) {
         *(s32 *)((s8 *)duel_result_window + 0x1C) = arg1;
         *(s32 *)((s8 *)duel_result_window + 0x20) = arg0;
-        TLobby::set_and_notify((int)(arg0));
+        TLobby::set_and_notify(arg0);
         return;
     }
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x24));

@@ -165,10 +165,10 @@ void TOKeyAncient03::render() {
     if (((VObj_18_8016BABC *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         TObjFish::set_global_param((int) (*(s32 *)((s8 *)TOKeyAncient03__texture_variants + (*(s32 *)&this->m_d4 * 4))));
         push_matrix();
-        post_translate_matrix((void *) (arg0 + 0x38));
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
         temp_r31 = *(u8 * *)&this->model;
-        post_translate_matrix((void *) (temp_r31 + 8));
+        post_translate_matrix(temp_r31 + 8);
         draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
         if ((s32) *(s32 *)&this->m_d4 != 1) {
             temp_r4 = model_render_flags;
@@ -178,12 +178,12 @@ void TOKeyAncient03::render() {
         }
         temp_r31_2 = *(u8 **)((s8 *)temp_r31 + 0x2C);
         push_matrix();
-        post_translate_matrix((void *) (arg0 + 0x68));
-        post_translate_matrix((void *) (temp_r31_2 + 8));
+        post_translate_matrix(arg0 + 0x68);
+        post_translate_matrix(temp_r31_2 + 8);
         draw_ginja_model((*(s32 *)((s8 *)temp_r31_2 + 4)));
         temp_r31_3 = *(u8 **)((s8 *)temp_r31_2 + 0x2C);
         push_matrix();
-        post_translate_matrix((void *) (temp_r31_3 + 8));
+        post_translate_matrix(temp_r31_3 + 8);
         TParticleCtrl::begin_effect_render();
         draw_ginja_model((*(s32 *)((s8 *)temp_r31_3 + 4)));
         TParticleCtrl::end_effect_render();
@@ -234,7 +234,7 @@ void TOKeyAncient03::load_resources() {
     temp_r3_2 = (s32 *)(mem_alloc(8));
     (*(s32 * *)&TOKeyAncient03__texture_variants) = temp_r3_2;
     *temp_r3_2 = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOKeyAncient03__model_archive) + 0x42C)) + 0xC);
-    *(s32 *)((s8 *)(*(s32 * *)&TOKeyAncient03__texture_variants) + 4) = (s32)load_gvm_texture_file((s32)(&lbl_80441ACC.value));
+    *(s32 *)((s8 *)(*(s32 * *)&TOKeyAncient03__texture_variants) + 4) = (s32)load_gvm_texture_file((s32)&lbl_80441ACC.value);
 }
 
 void *__dt__14TOKeyAncient03Fv(void *arg0, s16 arg1) {
@@ -331,12 +331,12 @@ void TOKeyCave01::vfunc_19() {
     s32 temp_r3;
     s32 temp_r3_2;
     if (((s32) enable_v2_features == 1) && ((TOKeyMachine01::get_global_state() == 0x10) || (TOKeyMachine01::get_global_state() == 0x11))) {
-        temp_r3 = *(s32 *)((s8 *)(&lbl_80441B4C.value) + (TOKeyMachine01::get_global_state() * 4));
+        temp_r3 = *(s32 *)((s8 *)&lbl_80441B4C.value + (TOKeyMachine01::get_global_state() * 4));
         if (temp_r3 >= 0) {
             play_sound_effect(temp_r3, (s32)(arg0 + 0x38), 0, 0);
         }
     } else {
-        temp_r3_2 = *(s32 *)((s8 *)(&lbl_80441B4C.value) + (TOKeyMachine01::get_global_state() * 4));
+        temp_r3_2 = *(s32 *)((s8 *)&lbl_80441B4C.value + (TOKeyMachine01::get_global_state() * 4));
         if (temp_r3_2 >= 0) {
             play_sound_effect(temp_r3_2, (s32)(arg0 + 0x38), 0, 0);
         }
@@ -350,12 +350,12 @@ void TOKeyCave01__vt16(s32 arg0) {
     if (((s32) enable_v2_features == 1) && ((TOKeyMachine01::get_global_state() == 0x10) || (TOKeyMachine01::get_global_state() == 0x11))) {
         temp_r3 = *(s32 *)((s8 *)(&(*(RecoveredGlobal_8016C010_lbl_80441B4C *)&lbl_80441B4C).value) + (TOKeyMachine01::get_global_state() * 4));
         if (temp_r3 >= 0) {
-            play_sound_effect(temp_r3, (s32)(arg0 + 0x38), 0, 0);
+            play_sound_effect(temp_r3, arg0 + 0x38, 0, 0);
         }
     } else {
         temp_r3_2 = *(s32 *)((s8 *)(&(*(RecoveredGlobal_8016C010_lbl_80441B4C *)&lbl_80441B4C).value) + (TOKeyMachine01::get_global_state() * 4));
         if (temp_r3_2 >= 0) {
-            play_sound_effect(temp_r3_2, (s32)(arg0 + 0x38), 0, 0);
+            play_sound_effect(temp_r3_2, arg0 + 0x38, 0, 0);
         }
     }
 }
@@ -380,7 +380,7 @@ void TOKeyCave01::vfunc_17() {
     }
     temp_r4 = *(s32 *)&this->unk_FC;
     if (temp_r4 > 0) {
-        *(s32 *)&this->unk_FC = (s32) (temp_r4 - 0x333);
+        *(s32 *)&this->unk_FC = (temp_r4 - 0x333);
     }
 }
 

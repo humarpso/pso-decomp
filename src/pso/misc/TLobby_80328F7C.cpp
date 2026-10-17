@@ -162,7 +162,7 @@ s32 is_valid_state__6TLobbyFPvi(void *unused, s32 arg1) {
 }
 
 void check_valid_state__6TLobbyFi(s32 unused) {
-    is_valid_state__6TLobbyFPvi((void *)(unused), (s32)((s32)(is_handle_valid__10TObjPlayerFv())));
+    is_valid_state__6TLobbyFPvi((void *)unused, (s32)((s32)(is_handle_valid__10TObjPlayerFv())));
 }
 
 int TUnk_804ED7D0::vfunc_76() {
@@ -178,15 +178,15 @@ s32 *TLobby::get_state_table(s32 _w1) {
     temp_r3 = is_valid_state__6TLobbyFPvi((void *)unused, (s32)_w1);
     switch (temp_r3) {
     case 0:
-        var_r3 = (s32 *)(&lbl_805430E8.value);
-        var_r3 = (s32 *)(&lbl_805430E8.value);
+        var_r3 = &lbl_805430E8.value;
+        var_r3 = &lbl_805430E8.value;
         return &lbl_805430E8.value;
     case 1:
-        var_r3 = (s32 *)(&lbl_805432A8.value);
-        var_r3 = (s32 *)(&lbl_805432A8.value);
+        var_r3 = &lbl_805432A8.value;
+        var_r3 = &lbl_805432A8.value;
         return &lbl_805432A8.value;
     default:
-        var_r3 = (s32 *)(NULL);
+        var_r3 = NULL;
         return NULL;
     }
 }
@@ -197,11 +197,11 @@ int TUnk_804ED7D0::vfunc_9(s32 a, s32 b, s32 c) {
 }
 
 int TUnk_804ED7D0::vfunc_8(s32 arg1, s32 arg2) {
-    if (((s32)TLobby__sub_802A7278((void*)(arg1))) == 0) {
+    if (((s32)TLobby__sub_802A7278((void*)arg1)) == 0) {
         return 0;
     }
-    if (((s32)is_valid_player_motion_variant((void*)(arg2))) != 0) {
-        return *(s32 *)((s8 *)(*(s32 *)((s8 *)(&town_player_motion_clip_index_tables.value) + (arg1 * 4))) + (arg2 * 4));
+    if (((s32)is_valid_player_motion_variant((void*)arg2)) != 0) {
+        return *(s32 *)((s8 *)(*(s32 *)((s8 *)&town_player_motion_clip_index_tables.value + (arg1 * 4))) + (arg2 * 4));
     }
     return 0;
 }

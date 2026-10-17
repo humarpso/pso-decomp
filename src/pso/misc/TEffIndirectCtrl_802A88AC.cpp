@@ -310,7 +310,7 @@ s32 get_indirect_source_pixels(u8 arg0) {
     if (var_r3 >= 8U) {
         var_r3 = 0;
     }
-    return *(s32 *)((s8 *)(&TEffIndirectCtrl__source_buffers.value) + ((var_r3 * 4) & 0x3FC)) + 0x20;
+    return *(s32 *)((s8 *)&TEffIndirectCtrl__source_buffers.value + ((var_r3 * 4) & 0x3FC)) + 0x20;
 }
 typedef char RecoveredGlobal_802A925C_TEffIndirectCtrl__data_80540AF0_size[sizeof(RecoveredGlobal_802A925C_TEffIndirectCtrl__data_80540AF0) == 0x20 ? 1 : -1];
 s32 get_indirect_source_id(u8 arg0) {

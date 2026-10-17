@@ -45,7 +45,7 @@ void TObjPlayer__sub_8033FDB0(s32 arg0) {
   s32 var_r29;
   push_matrix();
   TObjPlayer::set_global_flag();
-  post_translate_matrix((void *) (&lbl_80478430.value));
+  post_translate_matrix(&lbl_80478430.value);
   var_r29 = 0;
   var_r31 = 0;
   do

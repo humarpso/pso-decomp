@@ -43,7 +43,7 @@ s32 *TWindowGetComCard__sub_8007B594(void) {
 void TWindowGetComCard::remove_entry(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
 
-    if (arg0 < (s32) (arg2 - 1)) {
+    if (arg0 < (arg2 - 1)) {
         temp_r3 = arg1 + (arg0 * 0x90);
         ((TLobby *)temp_r3)->move_words((u32 *)(temp_r3 + 0x90), (s32)((u32) (((arg2 - arg0) - 1) * 0x90) >> 2U));
     }

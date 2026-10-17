@@ -23,7 +23,7 @@ void TWindowCtrl::update_window_visibility() {
     if ((u32) this->m_38 != 0U) {
         temp_r3 = *(s16 *)&this->m_22;
         if (temp_r3 > 0) {
-            *(s16 *)&this->m_22 = (s16) (temp_r3 - 1);
+            *(s16 *)&this->m_22 = (temp_r3 - 1);
         }
         if (get_player_by_client_id(local_client_id) == 0U) {
             ((TWindowChat *)(this->m_38))->update();

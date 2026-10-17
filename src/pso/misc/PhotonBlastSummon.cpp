@@ -131,12 +131,12 @@ void TUnk_804C3248::begin_photon_summon_camera(s8 arg1) {
     stack.spA = 0;
     stack.spC = 0.0f;
     stack.sp10 = 1.0f;
-    if ((*(s32 *)((s8 *)(&TCameraCtrl__view_state.value) + 8) & 4) || (*(s32 *)((s8 *)(&TCameraCtrl__view_state.value) + 8) & 8)) {
+    if ((*(s32 *)((s8 *)&TCameraCtrl__view_state.value + 8) & 4) || (*(s32 *)((s8 *)&TCameraCtrl__view_state.value + 8) & 8)) {
         TCameraCtrl::select_active_controller(5);
     }
     ((TCameraCtrl *)(&stack.sp8))->cache_target_and_forward(0x4222);
     temp_r3 = (long) (arg0 + 0x38);
-    set_scripted_camera_pose(temp_r3, temp_r3, (void *) (arg0 + 0x5C));
+    set_scripted_camera_pose(temp_r3, temp_r3, (void *)(arg0 + 0x5C));
     *(s32 *)((s8 *)arg0 + 0xFC) = 1;
 }
 
@@ -449,7 +449,7 @@ void TUnk_804C3248::setup_photon_blast_camera() {
   Vec_801A7B14 c = lbl_80446A20;
   Vec_801A7B14 d = lbl_80446A2C;
   u8 *p;
-  if ((*((s32 *) (arg0 + 0x138))) == 0)
+  if ((*((s32 *)(arg0 + 0x138))) == 0)
   {
     b.x = -8.75f;
     b.y = 43.92f;
@@ -462,24 +462,24 @@ void TUnk_804C3248::setup_photon_blast_camera() {
   if (p != 0)
   {
     push_matrix_from(identity_matrix);
-    rotate_matrix_y(0, *((s32 *) (p + 0x60)));
+    rotate_matrix_y(0, *((s32 *)(p + 0x60)));
     ((void (*)(s32, void *, void *))matrix_mult_vec)(0, &a, &a);
     ((void (*)(s32, void *, void *))matrix_mult_vec)(0, &b, &b);
     ((void (*)(s32, void *, void *))matrix_mult_vec)(0, &c, &c);
     ((void (*)(s32, void *, void *))matrix_mult_vec)(0, &d, &d);
     pop_matrices(1);
-    a.x += *((f32 *) (p + 0x38));
-    a.y += *((f32 *) (p + 0x3C));
-    a.z += *((f32 *) (p + 0x40));
-    b.x += *((f32 *) (p + 0x38));
-    b.y += *((f32 *) (p + 0x3C));
-    b.z += *((f32 *) (p + 0x40));
-    c.x += *((f32 *) (p + 0x38));
-    c.y += *((f32 *) (p + 0x3C));
-    c.z += *((f32 *) (p + 0x40));
+    a.x += *((f32 *)(p + 0x38));
+    a.y += *((f32 *)(p + 0x3C));
+    a.z += *((f32 *)(p + 0x40));
+    b.x += *((f32 *)(p + 0x38));
+    b.y += *((f32 *)(p + 0x3C));
+    b.z += *((f32 *)(p + 0x40));
+    c.x += *((f32 *)(p + 0x38));
+    c.y += *((f32 *)(p + 0x3C));
+    c.z += *((f32 *)(p + 0x40));
     d.x += *((f32 *) (p - -0x38));
-    d.y += *((f32 *) (p + 0x3C));
-    d.z += *((f32 *) (p + 0x40));
+    d.y += *((f32 *)(p + 0x3C));
+    d.z += *((f32 *)(p + 0x40));
     VecCopy((Vec *)(arg0 + 0x110), (const Vec *)&a);
     VecCopy((Vec *)(arg0 + 0x128), (const Vec *)&b);
     VecCopy((Vec *)(arg0 + 0x104), (const Vec *)&c);

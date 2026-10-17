@@ -68,7 +68,7 @@ u8 *TTecKafun__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s1
     if (temp_r3 != NULL) {
         *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0xA4)) + 0xC) = farg1;
     }
-    play_sound_effect(0x4002A50A, (u32) (arg0 + 0x20), 0, 0);
+    play_sound_effect(0x4002A50A, (u32)(arg0 + 0x20), 0, 0);
     temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x1C));
     if (temp_r3_2 != NULL) {
         ((TTecKafun *)arg0)->m_b4 = obj_getField1c(temp_r3_2);
@@ -90,7 +90,7 @@ u8 *TTecKafun__sub_802A9948(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s1
     if (temp_r3 != NULL) {
         *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0xA4)) + 0xC) = farg1;
     }
-    play_sound_effect(0x4002A50A, (u32) (arg0 + 0x20), 0, 0);
+    play_sound_effect(0x4002A50A, (u32)(arg0 + 0x20), 0, 0);
     temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x1C));
     if (temp_r3_2 != NULL) {
         ((TTecKafun *)arg0)->m_b4 = obj_getField1c(temp_r3_2);

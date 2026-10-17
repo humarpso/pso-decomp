@@ -147,7 +147,7 @@ void step_ground_technique_projectile(RecoveredFields_8023A510_arg0 *arg0) {
         stack.sp10 = ((RecoveredFields_8023A510_temp_r6 *)temp_r6)->field_C;
         stack.sp14 = ((RecoveredFields_8023A510_temp_r6 *)temp_r6)->field_10;
         stack.sp18 = ((RecoveredFields_8023A510_temp_r6 *)temp_r6)->field_14;
-        direction_to_rotation_xy((void *) (&stack.sp10), (void *) (&stack.spC), (void *) (&stack.sp8));
+        direction_to_rotation_xy(&stack.sp10, &stack.spC, &stack.sp8);
         if (angle_difference_abs(0, stack.spC) >= 0x1555) {
             queue_destruction__7TObjectFv((void *)((void *) (((u8 *)arg0))));
         }
@@ -172,6 +172,6 @@ void move_technique_projectile(u8 *arg0) {
 }
 #pragma pop
 
-void TObjPlayer__sub_8023A70C(void* p) { move_technique_projectile((u8 *)(p)); ((TUnk_804CCC68 *)p)->advance_lifetime_or_destroy(); }
+void TObjPlayer__sub_8023A70C(void* p) { move_technique_projectile((u8 *)p); ((TUnk_804CCC68 *)p)->advance_lifetime_or_destroy(); }
 
 }

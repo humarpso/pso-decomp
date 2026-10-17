@@ -62,7 +62,7 @@ void TWindowDD::init_ws_data_tables() {
 }
 
 s32 TWindowDD__sub_8034B008(s32 arg0, s32 arg1) {
-    return *(s32 *)((s8 *)((u8 *)(((u8 *)(&word_select_type_state_table.value) + (TWindowDD::lookup_item_category((s32)(arg1)) * 8))) + (arg0 * 4)) + 0);
+    return *(s32 *)((s8 *)((u8 *)(((u8 *)&word_select_type_state_table.value + (TWindowDD::lookup_item_category((s32)arg1) * 8))) + (arg0 * 4)) + 0);
 }
 s32 TWindowDD::lookup_item_category(s32 arg0) {
     s32 r;

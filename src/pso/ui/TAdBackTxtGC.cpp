@@ -41,7 +41,7 @@ void run_task__12TAdBackTxtGCFv(void *arg0) {
         *(s32 *)((s8 *)arg0 + 0x1C) = 0;
         return;
     }
-    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (temp_r4 + 1);
+    *(s32 *)((s8 *)arg0 + 0x1C) = (temp_r4 + 1);
 }
 
 extern void *__vt__12TAdBackTxtGC[];

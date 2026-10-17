@@ -83,7 +83,7 @@ void TObjEneRe7Berura::vfunc_105() {
         frame = self->f358;
         if (frame < TObjEneRe7Berura__data_805D972C) {
             frame = TObjEneRe7Berura__data_805D972C;
-        } else if (frame > (f32)(mot->count - 1)) {
+        } else if (frame > (mot->count - 1)) {
             frame = (f32)mot->count;
         }
         TObjPlayer::set_global_flag();

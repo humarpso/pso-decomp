@@ -38,7 +38,7 @@ void TObjPlayer::on_zone_exit() {
 
     if (((VObj18_80166970 *) arg0)->m8(*(f32 *)&this->m_c0, *(f32 *)&this->unk_C4) != 0) {
         push_matrix();
-        post_translate_matrix((void *) (arg0 + 0x38));
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param((int) (*(s32 *)&this->texture_id));
         if ((s32) (*(s32 *)&this->m_d0) == 0) {
@@ -46,11 +46,11 @@ void TObjPlayer::on_zone_exit() {
         } else {
             temp_r31 = (unsigned char *) (*(void * *)&this->model);
             push_matrix();
-            post_translate_matrix((void *) (temp_r31 + 8));
+            post_translate_matrix(temp_r31 + 8);
             rotate_matrix_z(0, (int) (*(s32 *)((s8 *)temp_r31 + 0x1C)));
             rotate_matrix_x(0, (int) (*(s32 *)((s8 *)temp_r31 + 0x14)));
             rotate_matrix_y(0, (int) (*(s32 *)((s8 *)temp_r31 + 0x18)));
-            scale_current_matrix((void *) (temp_r31 + 0x20));
+            scale_current_matrix(temp_r31 + 0x20);
             ::draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
             pop_matrix();
         }

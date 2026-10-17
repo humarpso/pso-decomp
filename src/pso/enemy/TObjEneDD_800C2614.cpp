@@ -149,7 +149,7 @@ void TObjEneRe2Flower::handle_event(s32 arg1) {
     case 0:
         advance_animation_playback();
         temp_r4 = *(s32 *)((s8 *)arg0 + 0x410);
-        *(s32 *)((s8 *)arg0 + 0x410) = (s32) (temp_r4 + 1);
+        *(s32 *)((s8 *)arg0 + 0x410) = (temp_r4 + 1);
         noop__9TObjEneDDFv(arg0, temp_r4);
         return;
     case 5:

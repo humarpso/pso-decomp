@@ -61,7 +61,7 @@ void spawn_action_palette_slot_light(Win_802437C4 *arg0, s32 arg1) {
         pt.x = lbl_805DCA2C * e->w + (arg0->x + e->x);
         pt.y = lbl_805DCA2C * e->h + (arg0->y + e->y);
     }
-    TWindowEffectLight::create((void *)(&pt), (void *)kind, (void *)arg0->id);
+    TWindowEffectLight::create(&pt, (void *)kind, (void *)arg0->id);
 }
 #pragma pop
 

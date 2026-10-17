@@ -133,15 +133,15 @@ void TOHealGeneral::render() {
 
     if (((VObj_801695a8_80169520 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
-        post_translate_matrix((void *) (arg0 + 0x38));
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
         temp_r31 = (unsigned char *) (*(void * *)&this->model);
-        post_translate_matrix((void *) (temp_r31 + 8));
+        post_translate_matrix(temp_r31 + 8);
         draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
         push_matrix();
         temp_r31_2 = (unsigned char *) (*(void **)((s8 *)temp_r31 + 0x2C));
-        post_translate_matrix((void *) (temp_r31_2 + 8));
+        post_translate_matrix(temp_r31_2 + 8);
         rotate_matrix_y(0, (int) (*(s32 *)&this->m_cc));
         draw_ginja_model((*(s32 *)((s8 *)temp_r31_2 + 4)));
         pop_matrix();

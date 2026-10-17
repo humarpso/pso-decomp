@@ -138,9 +138,9 @@ s32 TLobby__sub_8023F880(s32 arg0) {
   s8 *new_var2;
   if ((arg0 >= 0) && (arg0 < 0x28))
   {
-    new_var = (u8 *) (&lbl_805162EC.value);
+    new_var = (u8 *)&lbl_805162EC.value;
     new_var2 = (s8 *) (new_var + (arg0 * 0xA0));
-    return *((s32 *) (new_var2 + 4));
+    return *((s32 *)(new_var2 + 4));
   }
   return -9;
 }
@@ -1232,10 +1232,10 @@ char *build_text_from_comma_list__6TLobbyFPv(char *list) {
 
 void TLobby__sub_8024259C(s32 arg0) {
     if ((u32) TLobby__protocol_instance != 0U) {
-        memset((void *) (&TLobby__data_8050AAAC.value), 0, 0x11);
-        strncpy((void *) (&TLobby__data_8050AAAC.value), (void *) (arg0 + 0x19), 0x10);
-        *(s8 *)((s8 *)(&TLobby__data_8050AAAC.value) + 0x10) = 0;
-        seq_jump__9TProtocolFPUcR21TPlyMeetUserExtension(TLobby__protocol_instance, (void *) (arg0 + 0x4C), (void *) (arg0 + 0x58));
+        memset((void *)&TLobby__data_8050AAAC.value, 0, 0x11);
+        strncpy((void *)&TLobby__data_8050AAAC.value, (void *)(arg0 + 0x19), 0x10);
+        *(s8 *)((s8 *)&TLobby__data_8050AAAC.value + 0x10) = 0;
+        seq_jump__9TProtocolFPUcR21TPlyMeetUserExtension(TLobby__protocol_instance, (void *)(arg0 + 0x4C), (void *)(arg0 + 0x58));
     }
 }
 
@@ -1285,20 +1285,20 @@ void init_player_entry__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
     temp_r5 = lbl_805D63D8;
     lbl_805D63D8 = temp_r5 + 1;
     *(s32 *)((s8 *)arg0 + 4) = temp_r5;
-    ((s32 (*)(void*, void*, int))TLobby__sub_802422EC)((void *) (arg0 + 0x4C), (void *) (arg1 + 0x10), temp_r5);
-    __as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension((void *) (arg0 + 0x58), (void *) (arg1 + 0x60));
+    ((s32 (*)(void*, void*, int))TLobby__sub_802422EC)(arg0 + 0x4C, arg1 + 0x10, temp_r5);
+    __as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(arg0 + 0x58, arg1 + 0x60);
     ((TLobby *)arg0)->get_id();
     if (find_card_by_id__17TWindowSubComCardFUl() == 0U) {
-        strncpy((void *) (arg0 + 8), (void *) (((TWindowSubStatusDisp *)arg0)->get_sub_disp_ptr()), 0x10);
+        strncpy(arg0 + 8, (void *) (((TWindowSubStatusDisp *)arg0)->get_sub_disp_ptr()), 0x10);
     } else {
-        strncpy((void *) (arg0 + 8), (void *) (get_com_card_list__6TLobbyFPv()), 0x10);
+        strncpy(arg0 + 8, (void *) (get_com_card_list__6TLobbyFPv()), 0x10);
     }
     *(s8 *)((s8 *)arg0 + 0x18) = 0;
-    p = ((void* (*)(void*))build_text_from_comma_list__6TLobbyFPv)((void *) (arg1 + 0x1C));
-    p = ((void* (*)(void*, void*))parse_csv_token__6TLobbyFPvPv)(p, (void *) (arg0 + 0x19));
-    p = ((void* (*)(void*, void*))parse_csv_token__6TLobbyFPvPv)(p, (void *) (arg0 + 0x2A));
-    p = ((void* (*)(void*, void*))parse_csv_token__6TLobbyFPvPv)(p, (void *) (arg0 + 0x2A));
-    ((void* (*)(void*, void*))parse_csv_token__6TLobbyFPvPv)(p, (void *) (arg0 + 0x3B));
+    p = ((void* (*)(void*))build_text_from_comma_list__6TLobbyFPv)(arg1 + 0x1C);
+    p = ((void* (*)(void*, void*))parse_csv_token__6TLobbyFPvPv)(p, arg0 + 0x19);
+    p = ((void* (*)(void*, void*))parse_csv_token__6TLobbyFPvPv)(p, arg0 + 0x2A);
+    p = ((void* (*)(void*, void*))parse_csv_token__6TLobbyFPvPv)(p, arg0 + 0x2A);
+    ((void* (*)(void*, void*))parse_csv_token__6TLobbyFPvPv)(p, arg0 + 0x3B);
 }
 
 typedef char RecoveredGlobal_802426E8_lbl_80517F9C_size[sizeof(RecoveredGlobal_802426E8_lbl_80517F9C) == 0x5E4 ? 1 : -1];
@@ -1330,8 +1330,8 @@ s32 remove_com_card_by_id__6TLobbyFUi(u32 arg0) {
 
 void reset_state_805D63DC__6TLobbyFv(void*) { com_card_entry_count = 0; TLobby::clear_flag_bit2(); }
 
-void reset_state__6TLobbyFPv(void* p) { reset_state_805D63DC__6TLobbyFv((void*)(p)); }
-void TLobby__sub_8024285C(void* p) { reset_state_805D63DC__6TLobbyFv((void*)(p)); }
+void reset_state__6TLobbyFPv(void* p) { reset_state_805D63DC__6TLobbyFv(p); }
+void TLobby__sub_8024285C(void* p) { reset_state_805D63DC__6TLobbyFv(p); }
 
 typedef char RecoveredGlobal_8024287C_lbl_80517EE0_size[sizeof(RecoveredGlobal_8024287C_lbl_80517EE0) == 0xBC ? 1 : -1];
 typedef char RecoveredGlobal_8024287C_lbl_80517F9C_size[sizeof(RecoveredGlobal_8024287C_lbl_80517F9C) == 0x5E4 ? 1 : -1];

@@ -109,7 +109,7 @@ void TBoss5GryphonLightningHorn::rebuild_lightning_segments() {
     copy_position__12TBoss8DragonFl(self, &q);
     VecCopy((Vec *)&d, (const Vec *)&p);
     subtract_vector(&d, &q);
-    len = ((TObjBoss2Tunnel *)(&d))->update_scale() / (f32)(self->n - 1);
+    len = ((TObjBoss2Tunnel *)(&d))->update_scale() / (self->n - 1);
     d.x *= len;
     d.y *= len;
     d.z *= len;

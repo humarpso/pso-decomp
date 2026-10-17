@@ -62,10 +62,10 @@ void TWindowSoundBalance::handle_lr_input() {
     if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int)input, 0x30, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x160)), 0x30, 6, 1) != 0)) {
         play_sound_effect(0x54100, (s32)(0U), 0, 0);
         if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int)input, 0x10, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x160)), 0x10, 6, 1) != 0)) {
-            this->m_61 = (u8) (this->m_61 - 1);
+            this->m_61 = (this->m_61 - 1);
         }
         if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int)input, 0x20, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x160)), 0x20, 6, 1) != 0)) {
-            this->m_61 = (u8) (this->m_61 + 1);
+            this->m_61 = (this->m_61 + 1);
         }
         if ((s8) this->m_61 < 0) {
             this->m_61 = 0U;
@@ -108,7 +108,7 @@ void TWindowSoundBalance::run_task() {
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TUnk_804CE018 *)arg0)->update_fade();
-    ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (arg0 + 0x24));
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *)(arg0 + 0x24));
 }
 
 void *__dt__19TWindowSoundBalanceFv(void *arg0, s16 arg1) {

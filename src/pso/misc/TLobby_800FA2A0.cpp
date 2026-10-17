@@ -25,7 +25,7 @@ s32 create_named_entry__6TLobbyFiiUiiPv(s32 name, s32 arg1, u32 arg2, s32 src, v
     if (var_r31 != NULL) {
         var_r31 = link_into_list__6TLobbyFv();
     }
-    strncpy((void *) (var_r31 + 8), (void *)name, 0x20);
+    strncpy(var_r31 + 8, (void *)name, 0x20);
     *(s32 *)((s8 *)var_r31 + 0) = 1;
     *(s32 *)((s8 *)var_r31 + 0x28) = arg1;
     *(s32 *)((s8 *)var_r31 + 0x2C) = ((TLobby *)temp_r3)->adxf_get_fsize_byte();

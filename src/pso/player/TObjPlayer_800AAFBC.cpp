@@ -270,7 +270,7 @@ s32 TObjEneDubchik::sub_800AB068() {
   ;
   if ((fabs_float((*((f32 *) (((s8 *) arg0) + 0x38))) - (*((f32 *) (((s8 *) arg0) + 0x44)))) + fabs_float((*((f32 *) (((s8 *) arg0) + 0x40))) - (*((f32 *) (((s8 *) arg0) + 0x4C))))) > lbl_805D9B10)
   {
-    VecCopy__FP3VecPC3Vec((void *) ((new_var = arg0) + 0x38), (void *) (arg0 + 0x44));
+    VecCopy__FP3VecPC3Vec((void *) ((new_var = arg0) + 0x38), arg0 + 0x44);
     return 1;
   }
   return 0;
@@ -293,16 +293,16 @@ void TObjPlayer__sub_800AB1C8(u8 *arg0) {
   s32 var_r31;
   u8 *temp_r3;
   s32 new_var;
-  vec3_add_to((void *) (arg0 + 0x1C), (void *) (arg0 + 0x34));
+  vec3_add_to(arg0 + 0x1C, arg0 + 0x34);
   ((TUnk_80491460 *)arg0)->m_60 = (s32) ((((TUnk_80491460 *)arg0)->m_60) + 1);
   if (!((((TUnk_80491460 *)arg0)->m_60) & 3))
   {
-    if (csnVector((void *) (arg0 + 0x28), (void *) (arg0 + 0x1C), -1) != 0U)
+    if (csnVector(arg0 + 0x28, arg0 + 0x1C, -1) != 0U)
     {
       queue_destruction__7TObjectFv(arg0);
       return;
     }
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (arg0 + 0x1C));
+    VecCopy__FP3VecPC3Vec(arg0 + 0x28, arg0 + 0x1C);
     goto block_4;
   }
   block_4:
@@ -411,7 +411,7 @@ void TObjPlayer__sub_800AB4F4(u8 *arg0) {
                 ((TUnk_80491478 *)arg0)->m_e8 = v.y;
             }
         }
-        if (xz_distance_squared((void *) (arg0 + 0xF0), (void *) (arg0 + 0xDC)) >= *(f32 *)((s8 *)arg0 + 0xEC) * *(f32 *)((s8 *)arg0 + 0xEC)) {
+        if (xz_distance_squared(arg0 + 0xF0, arg0 + 0xDC) >= *(f32 *)((s8 *)arg0 + 0xEC) * *(f32 *)((s8 *)arg0 + 0xEC)) {
             ((TUnk_80491478 *)arg0)->m_ae = 1;
         }
     }
@@ -424,8 +424,8 @@ void TObjPlayer__sub_800AB4F4(u8 *arg0) {
         }
         break;
     case 2:
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xB0), *(void **)((s8 *)arg0 + 0xCC));
-        subtract_vector((void *) (arg0 + 0xB0), (void *) (arg0 + 0xF0));
+        VecCopy__FP3VecPC3Vec(arg0 + 0xB0, *(void **)((s8 *)arg0 + 0xCC));
+        subtract_vector(arg0 + 0xB0, arg0 + 0xF0);
         if (*(f32 *)((s8 *)arg0 + 0xB0) * *(f32 *)((s8 *)arg0 + 0xB0) + *(f32 *)((s8 *)arg0 + 0xB8) * *(f32 *)((s8 *)arg0 + 0xB8) > 25.0f) {
             t = 0.8f / newton_sqrtf();
             ((TUnk_80491478 *)arg0)->m_f0 = *(f32 *)((s8 *)arg0 + 0xB0) * t + ((TUnk_80491478 *)arg0)->m_f0;
@@ -442,7 +442,7 @@ void TObjPlayer__sub_800AB4F4(u8 *arg0) {
         }
         break;
     case 3:
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xF0), *(void **)((s8 *)arg0 + 0xCC));
+        VecCopy__FP3VecPC3Vec(arg0 + 0xF0, *(void **)((s8 *)arg0 + 0xCC));
         break;
     }
 }
@@ -475,7 +475,7 @@ u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4) {
     ((TUnk_80491478 *)arg0)->m_d8 = arg3;
     ((TUnk_80491478 *)arg0)->m_c8 = TBoss3Volopt::collect_and_count((u32)((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D5090 + 0x42C)) + 0x18))), (s32)t);
     *(Vec_800AB7A0 **)((s8 *)arg0 + 0xCC) = &((Arr_800AB7A0 *)arg2)->arr[arg1];
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xF0), (void *) VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xDC), (void *)arg4));
+    VecCopy__FP3VecPC3Vec(arg0 + 0xF0, (void *) VecCopy__FP3VecPC3Vec(arg0 + 0xDC, (void *)arg4));
     ((TUnk_80491478 *)arg0)->m_e8 = 3.0f + *(f32 *)((s8 *)arg2 + 0x3C);
     ((s32 (*)(void *, f32)) push_matrix_from)((void *) &identity_matrix, 3.0f);
     v.x = v.y = 0.0f;

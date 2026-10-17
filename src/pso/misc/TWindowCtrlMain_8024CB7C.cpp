@@ -111,7 +111,7 @@ s32 TWindowCtrlMain__sub_8024CDB0(void* p) { return TWindowCtrlMain__sub_8024CDD
 typedef char RecoveredGlobal_8024CDD0_TWindowCtrlMain__data_80518730_size[sizeof(RecoveredGlobal_8024CDD0_TWindowCtrlMain__data_80518730) == 0xA8 ? 1 : -1];
 s32 TWindowCtrlMain__sub_8024CDD0(s32 arg0) {
     if (is_split_screen() != 0) {
-        return *(s32 *)((s8 *)(&TWindowCtrlMain__viewport_states.value) + (arg0 * 0x1C));
+        return *(s32 *)((s8 *)&TWindowCtrlMain__viewport_states.value + (arg0 * 0x1C));
     }
     return TWindowCtrlMain__viewport_states.value;
 }

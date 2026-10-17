@@ -315,10 +315,10 @@ void replace_item_with_new_code(void *arg0, u32 arg1) {
           TItemProArmor__sub_801178A8((&sp8), (void *)arg1);
           break;
         case 2:
-          TItemProShield::set_params((s32)((u8 *) (&sp8)), (void *)arg1);
+          TItemProShield::set_params((s32)(&sp8), (void *)arg1);
           break;
         case 3:
-          TItem__sub_8011892C((u8 *) (&sp8), arg1);
+          TItem__sub_8011892C((u8 *)&sp8, arg1);
           break;
       }
         break;
@@ -326,14 +326,14 @@ void replace_item_with_new_code(void *arg0, u32 arg1) {
         ((TItemMag *)(&sp8))->call_preserve_flag(arg1);
         break;
       case 3:
-        TItem__sub_80115D68((u8 *) (&sp8), arg1);
+        TItem__sub_80115D68((u8 *)&sp8, arg1);
         break;
     }
     temp_r31 = get_id__13TItemProArmorFv((void *)arg1);
     sp8.value = ((TItem *)arg1)->get_field_d8();
     if (consume_item_by_id(((TItem *)arg1)->get_field_d8()) != 0)
     {
-      give_item_to_client(temp_r31, (s32)(&sp8));
+      give_item_to_client(temp_r31, (s32)&sp8);
     }
   }
 }

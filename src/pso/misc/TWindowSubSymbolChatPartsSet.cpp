@@ -266,8 +266,8 @@ void render__28TWindowSubSymbolChatPartsSetFv(u8 *arg0) {
     u8 *c_arg;
 
     c_arg = draw_default_entry__9TWindowDDFl();
-    ((TWindowSubSymbolChatPartsSet *)(&sp10))->copy_vec2((void *) (c_arg + 0x10));
-    ((TWindowSubSymbolChatPartsSet *)(&sp8))->copy_vec2((void *) (c_arg + 0x28));
+    ((TWindowSubSymbolChatPartsSet *)(&sp10))->copy_vec2(c_arg + 0x10);
+    ((TWindowSubSymbolChatPartsSet *)(&sp8))->copy_vec2(c_arg + 0x28);
     if ((s32) *(s32 *)((s8 *)c_arg + 0x30) < 0) {
         *(f32 *)((s8 *)c_arg + 0x28) = (f32) ((f32) *(s32 *)&((TWindowSubSymbolChatPartsSet *)arg0)->m_5c/ lbl_805DD820);
         *(f32 *)((s8 *)c_arg + 0x2C) = (f32) *(f32 *)((s8 *)c_arg + 0x28);
@@ -278,10 +278,10 @@ void render__28TWindowSubSymbolChatPartsSetFv(u8 *arg0) {
     *(f32 *)((s8 *)c_arg + 0x28) = (f32) (*(f32 *)((s8 *)c_arg + 0x28) * *(f32 *)((s8 *)arg0 + 0x94));
     ctx = *(f32 *)((s8 *)c_arg + 0x2C);
     *(f32 *)((s8 *)c_arg + 0x2C) = (f32) (ctx * *(f32 *)((s8 *)arg0 + 0x94));
-    draw_visible_window_entries((void *)arg0, (void *) (arg0 + 0x24), (int)c_arg, (f32)ctx);
-    ((TWindowSubSymbolChatPartsSet *)arg0)->draw_selected_part_cursor((int)(c_arg));
-    ((TWindowSubSymbolChatPartsSet *)(c_arg + 0x10))->copy_vec2((void *) (&sp10));
-    ((TWindowSubSymbolChatPartsSet *)(c_arg + 0x28))->copy_vec2((void *) (&sp8));
+    draw_visible_window_entries((void *)arg0, arg0 + 0x24, (int)c_arg, (f32)ctx);
+    ((TWindowSubSymbolChatPartsSet *)arg0)->draw_selected_part_cursor((int)c_arg);
+    ((TWindowSubSymbolChatPartsSet *)(c_arg + 0x10))->copy_vec2(&sp10);
+    ((TWindowSubSymbolChatPartsSet *)(c_arg + 0x28))->copy_vec2(&sp8);
     forward_render__20TWindowSubStatusDispFv((int) (*(s32 *)&((TWindowSubSymbolChatPartsSet *)arg0)->m_88), (int)c_arg);
 }
 
@@ -308,7 +308,7 @@ void TWindowSubSymbolChatPartsSet::run_task() {
         ((TWindowSubStatusDisp *)(*(s32 *)&this->m_88))->update_subwindow();
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
-    ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (arg0 + 0x24));
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list(arg0 + 0x24);
 }
 
 void *__dt__28TWindowSubSymbolChatPartsSetFv(void *arg0, s16 arg1) {

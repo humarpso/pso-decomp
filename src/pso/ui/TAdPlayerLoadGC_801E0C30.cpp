@@ -160,7 +160,7 @@ s32 TAdPlayerLoadGC::probe_and_check_card() {
     if (sp8 == 0x2000) {
         if (!(TAdPlayerLoadGC__card_slot_state_flags & (4 << arg0))) {
             TAdPlayerLoadGC__sub_801E101C(arg0);
-            if ((u32) TAdPlayerLoadGC::get_load_result((void *)(arg0)) == -0x7FU) {
+            if ((u32) TAdPlayerLoadGC::get_load_result((void *)arg0) == -0x7FU) {
                 TAdPlayerLoadGC__card_result_code = -0x7F;
                 return 0;
             }
@@ -273,7 +273,7 @@ typedef char RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0_size[sizeof
 void TAdPlayerLoadGC__sub_801E14E8(u8 *arg0, s32 arg1) {
     if (arg1 < 6) {
         *(s32 *)((s8 *)arg0 + 0x44) = (s32) TAdPlayerLoadGC__banner_file_buf;
-        *(s32 *)((s8 *)arg0 + 0x48) = (s32) *(s32 *)((s8 *)((u8 *)(&TAdPlayerLoadGC__banner_buffers.value) + (arg1 * 4)) + 0);
+        *(s32 *)((s8 *)arg0 + 0x48) = (s32) *(s32 *)((s8 *)((u8 *)&TAdPlayerLoadGC__banner_buffers.value + (arg1 * 4)) + 0);
     }
 }
 

@@ -183,7 +183,7 @@ void TWindowSubStatusDisp::clamp_scroll_offset() {
         if ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) {
             stack.spC = temp_f1 - (*(const f32 *)&lbl_805DD190);
         }
-        clamp_list_scroll_offset((int) (*(u32 *)((s8 *)arg0 + 0x84)), (void *) (arg0 + 0x68), (void *) (&stack.sp8));
+        clamp_list_scroll_offset((int) (*(u32 *)((s8 *)arg0 + 0x84)), arg0 + 0x68, &stack.sp8);
     }
 }
 
@@ -221,7 +221,7 @@ void TWindowSubShortCutList::draw_entry(s32 arg1, u8 arg2, s32 arg3, s32 arg4) {
     if ((s16) this->m_72 < (s16) this->m_76) {
         fn_80266BD0(arg1, &sp9, &sp8, this->m_20);
         init_entry__20TWindowSubStatusDispFScScUcUll(get_array_entry__13TUnk_804CE018Fi(this, this->m_72), sp9, sp8, arg2, arg3, arg4);
-        this->m_72 = (s16) (this->m_72 + 1);
+        this->m_72 = (this->m_72 + 1);
     }
 }
 
@@ -353,7 +353,7 @@ void TShopEquipmentSellWindow::add_item(s32 arg1, s32 arg2, s32 arg3) {
         temp_r4 = (s16) this->m_72;
         if (temp_r4 < (s16) this->m_76) {
             ((TWindowSubStatusDisp *)(get_array_entry__13TUnk_804CE018Fi(this, temp_r4)))->update_from_player((void *)arg1, (s32)arg2, (s32)arg3);
-            this->m_72 = (s16) (this->m_72 + 1);
+            this->m_72 = (this->m_72 + 1);
         }
     }
 }
@@ -364,7 +364,7 @@ void TShopJudgmentItemWindow::add_list_entry(s32 arg1, s32 arg2) {
         temp_r4 = (s16) this->m_72;
         if (temp_r4 < (s16) this->m_76) {
             ((TWindowSubStatusDisp *)(get_array_entry__13TUnk_804CE018Fi(this, temp_r4)))->init_item_row((void *)arg1, (s32)arg2);
-            this->m_72 = (s16) (this->m_72 + 1);
+            this->m_72 = (this->m_72 + 1);
         }
     }
 }
@@ -400,7 +400,7 @@ void TLobby::add_status_disp_entry(s32 arg1, s32 arg2) {
 
 typedef char RecoveredGlobal_80267704_lbl_804D0604_size[sizeof(RecoveredGlobal_80267704_lbl_804D0604) == 0x14 ? 1 : -1];
 void TAdVIConfigGC__sub_80267704(s32 arg0) {
-    *(s32 *)((s8 *)(&lbl_804D0604.value) + 0x10) = arg0;
+    *(s32 *)((s8 *)&lbl_804D0604.value + 0x10) = arg0;
 }
 
 typedef struct Pt_80267714 Pt_80267714;
@@ -533,7 +533,7 @@ void TUnk_804D0618::create_menu_scroll_bar() {
         temp_r3 = ((TAdSinglePlyChrSelectGC *)0xC)->alloc();
         var_r0 = temp_r3;
         if (var_r0 != 0U) {
-            var_r0 = reset_selection__20TWindowSubStatusDispFv(temp_r3, (void *) (&stack.sp8));
+            var_r0 = reset_selection__20TWindowSubStatusDispFv(temp_r3, &stack.sp8);
         }
         *(u32 *)&this->unk_84 = var_r0;
         this->m_2c = (s32) (this->m_2c | 0x80);
@@ -604,7 +604,7 @@ void TUnk_804D0618::clamp_item_list_scroll() {
         if ((u32) *(u32 *)&this->m_80 != 0U) {
             stack.spC = temp_f1 - (*(const f32 *)&(*(const f32 *)&lbl_805DD190));
         }
-        clamp_list_scroll_offset((int) (*(u32 *)&this->unk_84), (void *) (((u8 *)this) + 0x68), (void *) (&stack.sp8));
+        clamp_list_scroll_offset((int) (*(u32 *)&this->unk_84), (void *) (((u8 *)this) + 0x68), &stack.sp8);
     }
 }
 
@@ -709,10 +709,10 @@ void update_item_list_window(u8 *arg0) {
     if ((((TUnk_804D0618 *)arg0)->get_flag() == 0) && (get_status_flag__13TUnk_804D0618Fv(arg0) == 0) && (((TUnk_804CE018 *)arg0)->sub_80244994() != 0)) {
         if (((TUnk_804D0618 *)arg0)->m_70& 0x10) {
             input = (u8 *)&controller_input_state.value + (temp_r31 * 0x50) + 0x20;
-            if ((TWindowChoiceSetting::apply_choice((s32)(input), 0x10, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), 0x10, 6, 1) != 0)) {
+            if ((TWindowChoiceSetting::apply_choice((s32)input, 0x10, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), 0x10, 6, 1) != 0)) {
                 ((TUnk_804D0618 *)arg0)->move_cursor();
             }
-            if ((TWindowChoiceSetting::apply_choice((s32)(input), 0x20, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), 0x20, 6, 1) != 0)) {
+            if ((TWindowChoiceSetting::apply_choice((s32)input, 0x20, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), 0x20, 6, 1) != 0)) {
                 ((TUnk_804D0618 *)arg0)->move_cursor_next();
             }
         } else {
@@ -747,7 +747,7 @@ void update_item_list_window(u8 *arg0) {
     ((TUnk_804CDFE8 *)arg0)->step_window_tween();
     ((TUnk_804D0618 *)arg0)->center_list_selection();
     ((TUnk_804D0618 *)arg0)->clamp_item_list_scroll();
-    ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (arg0 + 0x24));
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list(arg0 + 0x24);
 }
 
 void *TWindowSubStatusDisp::destroy_item_list_resources(s16 arg1) {

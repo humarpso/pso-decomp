@@ -22,7 +22,7 @@ void TObjBoss2RaftSplash::run_task() {
         *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (temp_f0 - temp_f1);
         VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x28));
         stack.spC += **(f32 **)((s8 *)arg0 + 0x24) - lbl_805D85B0;
-        TObjBoss2RaftSplash::spawn_splash((s32) &stack.sp8, 0x170, (s32) (arg0 + 0x34));
+        TObjBoss2RaftSplash::spawn_splash((s32) &stack.sp8, 0x170, (s32)(arg0 + 0x34));
     }
 }
 TObjBoss2RaftSplash::~TObjBoss2RaftSplash() {}

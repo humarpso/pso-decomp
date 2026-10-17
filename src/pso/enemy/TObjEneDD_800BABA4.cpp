@@ -154,43 +154,43 @@ int TObjEneDD::has_move_failures(s32 arg1) {
 void TObjEneDD::move_to_wall_clamped_destination(f32 farg0, f32 farg1, f32 dist) {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
-    calc_wall_clamped_destination(arg0, (void *)(&sp8), farg0, farg1, dist);
+    calc_wall_clamped_destination(arg0, &sp8, farg0, farg1, dist);
     this->vfunc_101((u8 *)&sp8);
 }
 
 void TObjEneDD::move_with_wall_slide_commit(f32 dx, f32 dz, f32 dist) {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
-    calc_wall_slide_destination(arg0, (void *)(&sp8), dx, dz, dist);
+    calc_wall_slide_destination(arg0, &sp8, dx, dz, dist);
     this->vfunc_101((u8 *)&sp8);
 }
 
 void TObjEneDD::move_with_wall_stop(f32 farg0, f32 farg1, f32 farg2) {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
-    ((TBoss5Gryphon *)arg0)->calc_shot_position((u8 *)(&sp8), (f32)farg0, (f32)farg1, (f32)farg2);
+    ((TBoss5Gryphon *)arg0)->calc_shot_position((u8 *)&sp8, (f32)farg0, (f32)farg1, (f32)farg2);
     this->vfunc_101((u8 *)&sp8);
 }
 
 void TObjEneDD::move_clamped_on_ground(f32 farg0, f32 farg1, f32 dist) {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
-    calc_wall_clamped_destination(arg0, (void *)(&sp8), farg0, farg1, dist);
-    ((TBoss5Gryphon *)arg0)->try_move_actor_xz_on_ground((u8 *)(&sp8));
+    calc_wall_clamped_destination(arg0, &sp8, farg0, farg1, dist);
+    ((TBoss5Gryphon *)arg0)->try_move_actor_xz_on_ground((u8 *)&sp8);
 }
 
 void TObjEneDD::move_with_wall_slide_on_ground(f32 dx, f32 dz, f32 dist) {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
-    calc_wall_slide_destination(arg0, (void *)(&sp8), dx, dz, dist);
-    ((TBoss5Gryphon *)arg0)->try_move_actor_xz_on_ground((u8 *)(&sp8));
+    calc_wall_slide_destination(arg0, &sp8, dx, dz, dist);
+    ((TBoss5Gryphon *)arg0)->try_move_actor_xz_on_ground((u8 *)&sp8);
 }
 
 void TObjEneDD::move_to_shot_position(f32 farg0, f32 farg1, f32 farg2) {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
-    ((TBoss5Gryphon *)arg0)->calc_shot_position((u8 *)(&sp8), (f32)farg0, (f32)farg1, (f32)farg2);
-    ((TBoss5Gryphon *)arg0)->try_move_actor_xz_on_ground((u8 *)(&sp8));
+    ((TBoss5Gryphon *)arg0)->calc_shot_position((u8 *)&sp8, (f32)farg0, (f32)farg1, (f32)farg2);
+    ((TBoss5Gryphon *)arg0)->try_move_actor_xz_on_ground((u8 *)&sp8);
 }
 
 u8 *TObjEneDD::vfunc_102() {
@@ -239,7 +239,7 @@ u8 *TBoss5Gryphon::try_move_actor_xz_on_ground(u8 *arg1) {
         VecCopy((Vec *)(((u8 *)this) + 0x248), (const Vec *)(*(s32 *)((s8 *)temp_r3 + 4) + 0xC));
         this->m_384 = 0;
     } else {
-        this->m_384 = (s32) (this->m_384 + 1);
+        this->m_384 = (this->m_384 + 1);
     }
     return temp_r3;
 }

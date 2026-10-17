@@ -16,7 +16,7 @@ s32 TLobby::calc_challenge_time_limit() {
     if (is_flag_set__6TLobbyFv() == 0) {
         return 0x12C;
     }
-    valid_slot = TLobby::get_valid_slot(*(s32 *)((s8 *)(&challenge_mode_state) + 0x10));
+    valid_slot = TLobby::get_valid_slot(*(s32 *)((s8 *)&challenge_mode_state + 0x10));
     if ((valid_slot < 0x3C) || (valid_slot > 0xE10)) {
         valid_slot = 0x12C;
     }
@@ -184,7 +184,7 @@ s32 TLobby__sub_8006F5B0(s32 arg0) {
     if ((character_save_record == 0U) || ((s32) challenge_mode_state.value < 0) || ((s32) challenge_mode_state.value >= temp_r3)) {
         return 0;
     }
-    temp_r3_2 = TWindowSubStatusDisp__sub_8006F0D8((void *) (character_save_record + 0x21C4), -1);
+    temp_r3_2 = TWindowSubStatusDisp__sub_8006F0D8((void *)(character_save_record + 0x21C4), -1);
     var_r28 = 0;
     temp_r30 = challenge_mode_state.value * 4;
     temp_r3_3 = *(s32 *)((s8 *)temp_r3_2 + temp_r30);
@@ -196,7 +196,7 @@ s32 TLobby__sub_8006F5B0(s32 arg0) {
         goto block_12;
     }
     valid_slot = TLobby::get_valid_slot(temp_r3_3);
-    if (is_id_out_of_range__6TLobbyFi((s32)(valid_slot)) != 0) {
+    if (is_id_out_of_range__6TLobbyFi(valid_slot) != 0) {
         *(s32 *)((s8 *)temp_r3_2 + temp_r30) = 0;
         return 0;
     }
@@ -213,8 +213,8 @@ block_12:
 typedef char RecoveredGlobal_8006F848_lbl_804FF800_size[sizeof(RecoveredGlobal_8006F848_lbl_804FF800) == 0x20 ? 1 : -1];
 void TLobby::set_name_string() {
     s32 arg0 = (s32)this;
-    strncpy((void *) (&lobby_name_string_buffer.value), (void *)arg0, 0x1F);
-    *(s8 *)((s8 *)(&lobby_name_string_buffer.value) + 0x1F) = 0;
+    strncpy((void *)&lobby_name_string_buffer.value, (void *)arg0, 0x1F);
+    *(s8 *)((s8 *)&lobby_name_string_buffer.value + 0x1F) = 0;
 }
 
 void TLobby::decode_obfuscated_string(void *arg1, int arg2) {
@@ -347,7 +347,7 @@ loop_1:
 }
 void TLobby::mark_solo_win_closing() {
     if (is_flag_set__6TLobbyFv() != 0) {
-        *(s32 *)((s8 *)(&challenge_mode_state.value) + 0x30) = 1;
+        *(s32 *)((s8 *)&challenge_mode_state.value + 0x30) = 1;
     }
 }
 

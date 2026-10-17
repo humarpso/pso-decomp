@@ -49,10 +49,10 @@ void TORockCaveBrakable::vfunc_16() {
     void *p;
     offs = rock_cave_debris_offset_table;
     init = rock_cave_debris_init_params;
-    *(f32 *)((s8 *)(&init) + 0xC) = *(f32 *)(arg0 + 0x38);
-    *(f32 *)((s8 *)(&init) + 0x10) = *(f32 *)(arg0 + 0x3C);
-    *(f32 *)((s8 *)(&init) + 0x14) = *(f32 *)(arg0 + 0x40);
-    *(f32 *)((s8 *)(&init) + 0x38) = *(f32 *)((s8 *)(&init) + 0x10);
+    *(f32 *)((s8 *)&init + 0xC) = *(f32 *)(arg0 + 0x38);
+    *(f32 *)((s8 *)&init + 0x10) = *(f32 *)(arg0 + 0x3C);
+    *(f32 *)((s8 *)&init + 0x14) = *(f32 *)(arg0 + 0x40);
+    *(f32 *)((s8 *)&init + 0x38) = *(f32 *)((s8 *)&init + 0x10);
     for (i = 0; i < 6; i++) {
         VecCopy((Vec *)&v, (const Vec *)&offs.v[i]);
         push_matrix_from(identity_matrix);
@@ -61,8 +61,8 @@ void TORockCaveBrakable::vfunc_16() {
         pop_matrix();
         VecCopy((Vec *)&init.b[0xC], (const Vec *)&this->position);
         vec3_add_to(&init.b[0xC], &v);
-        *(s32 *)((s8 *)(&init) + 0x40) = get_bml_model(rock_cave_model_resource, i);
-        *(s32 *)((s8 *)(&init) + 0x44) = TObjFish__sub_8001EDB0(rock_cave_model_resource, i);
+        *(s32 *)((s8 *)&init + 0x40) = get_bml_model(rock_cave_model_resource, i);
+        *(s32 *)((s8 *)&init + 0x44) = TObjFish__sub_8001EDB0(rock_cave_model_resource, i);
         p = __nw__7TObjectFUl(0x234);
         if (p != NULL) {
             construct_debris__8TObjChipFPvPvPv((u8 *)p, (u8 *)tl_05, (u8 *)&init);

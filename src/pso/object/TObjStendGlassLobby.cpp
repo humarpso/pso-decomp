@@ -52,7 +52,7 @@ void TObjStendGlassLobby::render() {
         TParticleCtrl::begin_effect_render();
         TObjFish::set_global_param((int) (*(u32 *)&this->texture_id));
         push_matrix();
-        post_translate_matrix((void *) (arg0 + 0x38));
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
         if ((s32) *(s32 *)&this->m_c8 != 3) {
             temp_f1 = *(f32 *)&this->_padCC;

@@ -48,7 +48,7 @@ void TObjEneRe2Flower::set_child_flags() {
 void TObjEneRe2Flower::vfunc_88() {
     u8 *arg0 = (u8 *)this;
     *(f32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0x30) = (f32) (this->m_300 - *(f32 *)((s8 *)arg0 + 0x3C));
-    set_part_local_pos__9TObjEneDDFPvPvi(arg0, (void *) (arg0 + 0x3DC), 0);
+    set_part_local_pos__9TObjEneDDFPvPvi(arg0, arg0 + 0x3DC, 0);
 }
 
 void TObjEneRe2Flower::sub_800C3DC4() {

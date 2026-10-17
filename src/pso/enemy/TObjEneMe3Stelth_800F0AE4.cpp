@@ -54,14 +54,14 @@ s32 TObjEneMe3Stelth::try_spawn_ground_effect(s32 arg1) {
       attach_particle_model((u8 *)particle_effect, (int) TParticleCtrl::get_particle_model(2), (int) TParticleCtrl::get_instance(), 0, 1, (f32) TObjEneMe3Stelth__data_805DA80C);
     }
     spawn_particle_effect((void *)((int) ((*((s32 *) (((s8 *) temp_r3) + 4))) + 0x38)), 0xA4);
-    TObjEneGibbles__sub_800D8988((void *) (arg0 + 0x38));
+    TObjEneGibbles__sub_800D8988((void *)(arg0 + 0x38));
     return 1;
   }
   return 0;
 }
 void TObjEneMe3Stelth::play_hit_effect() {
     s32 arg0 = (s32)this;
-    if (try_spawn_ground_effect((s32)(arg0 + 0x38)) != 0) {
+    if (try_spawn_ground_effect(arg0 + 0x38) != 0) {
         play_sound_effect(0x3A836, arg0 + 0x38, 0, 0);
         return;
     }
@@ -70,7 +70,7 @@ void TObjEneMe3Stelth::play_hit_effect() {
 }
 void TObjEneMe3Stelth__sub_800F0C90(u8 *arg0) {
     if ((objInBand((GameObj *)arg0, (f32)lbl_805DA814) != 0) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805DA818)) != 0)) {
-        ((TObjEneMe3Stelth *)arg0)->try_spawn_ground_effect((s32)((s32)((void *) (arg0 + 0x38))));
+        ((TObjEneMe3Stelth *)arg0)->try_spawn_ground_effect((s32)((s32)(arg0 + 0x38)));
     }
 }
 

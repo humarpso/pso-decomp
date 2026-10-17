@@ -20,7 +20,7 @@ u32 mem_alloc();
 s32 memset(void *, int, int);
 
 void fn_802A5B2C(s32 arg0) {
-    fn_802A5B74(arg0, (s32)(arg0 + 4));
+    fn_802A5B74(arg0, arg0 + 4);
 }
 
 int fn_802A5B50(s32 arg0) { return fn_802A5B74(arg0, (s32)((void *) arg0)); }
@@ -30,7 +30,7 @@ int fn_802A5B74(s32 _w0, s32 _w1) { return 0; }
 int rlc_get_directory_offset(void *arg0) { return fn_802A5BFC((s32)arg0, (s32)((s8 *)arg0 + 0x14)); }
 
 s32 rlc_get_chunk_count(s32 arg0) {
-    fn_802A5BFC(arg0, (s32)(arg0 + 0x10));
+    fn_802A5BFC(arg0, arg0 + 0x10);
 }
 
 int fn_802A5BFC(s32 _w0, s32 _w1) { return 0; }
@@ -42,7 +42,7 @@ s32 fn_802A5C3C(u32 *arg0) {
         ((TWindowSnapShot *)arg0)->set_mode(7);
         return -1;
     }
-    return rlc_get_chunk_count((s32)(temp_r0));
+    return rlc_get_chunk_count(temp_r0);
 }
 
 void fn_802A5C7C(void *arg0) {
@@ -52,11 +52,11 @@ void fn_802A5CB8(void* p) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)p + 0x8); }
 
 void fn_802A5CC4(u8 *arg0, s32 arg1) {
     if (strlen((void *)arg1) > 0x1F) {
-        strncpy((void *) (arg0 + 0x1C), (void *)arg1, 0x1F);
+        strncpy(arg0 + 0x1C, (void *)arg1, 0x1F);
         *(s8 *)((s8 *)arg0 + 0x3B) = 0;
         return;
     }
-    strcpy((void *) (arg0 + 0x1C), (void *)arg1);
+    strcpy(arg0 + 0x1C, (void *)arg1);
 }
 
 void TWindowSnapShot::free_buffer() {
@@ -99,7 +99,7 @@ void TWindowSnapShot::reset() {
     u8 *arg0 = (u8 *)this;
     *(s32 *)&this->m_name = 0;
     *(s32 *)&this->m_flags = 0;
-    memset((void *) (arg0 + 0x1C), 0, 0x20);
+    memset(arg0 + 0x1C, 0, 0x20);
     *(s32 *)&this->m_prev = 0;
     *(s32 *)&this->m_next = 0;
     *(s32 *)&this->m_down = 0;

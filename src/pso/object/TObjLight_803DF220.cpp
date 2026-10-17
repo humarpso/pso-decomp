@@ -123,7 +123,7 @@ void init_distant_light(s32 idx, f32 x, f32 y, f32 z) {
 
 void load_gx_light_slot(s32 arg0) {
     TObjLight::assert_light_id((s32)arg0);
-    GXLoadLightObjImm((void *) ((u8 *)(&TObjLight__gx_light_objects.value) + (arg0 << 6)), (int) (*(s32 *)((s8 *)((u8 *)light_slot_mask_table + (arg0 * 4)) + 0)));
+    GXLoadLightObjImm((void *) ((u8 *)&TObjLight__gx_light_objects.value + (arg0 << 6)), (int) (*(s32 *)((s8 *)((u8 *)light_slot_mask_table + (arg0 * 4)) + 0)));
 }
 
 

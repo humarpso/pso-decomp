@@ -49,8 +49,8 @@ void TObjBoss5Pillar::render() {
     u8 *arg0 = (u8 *)this;
     if (TObjPlayer::is_any_teammate_in_state() == 0) {
         push_matrix();
-        TObjFish::set_global_param((s32)(boss5_common_texture_list));
-        post_translate_matrix((void *) (arg0 + 0x2C));
+        TObjFish::set_global_param(boss5_common_texture_list);
+        post_translate_matrix(arg0 + 0x2C);
         if ((s32) *(s32 *)&this->m_1c != 3) {
             fn_8028ADDC((void *)(*(s32 *)&this->m_48));
             draw_ginja_model_with_motion((int) (*(s32 *)&this->m_38), (int) (*(s32 *)&this->m_40), (f32) (*(f32 *)((s8 *)arg0 + 0x20)));

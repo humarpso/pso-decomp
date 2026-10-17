@@ -163,7 +163,7 @@ void func_80083a00__Fv(void) {
         GXCopyTex((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)(((u8 **)lbl_8048E5C8)[0]) + 8)) + 0xC)) + 0x20)), 1);
         GXPixModeSync();
         temp_r31 = active_gx_render_mode;
-        Dolphin_GXSetCopyFilter((int) (*(u8 *)((s8 *)temp_r31 + 0x19)), (void *) (temp_r31 + 0x1A), (int) (TObjBoss2Tunnel__sub_8036EF44()), (void *) (temp_r31 + 0x32));
+        Dolphin_GXSetCopyFilter((int) (*(u8 *)((s8 *)temp_r31 + 0x19)), temp_r31 + 0x1A, (int) (TObjBoss2Tunnel__sub_8036EF44()), temp_r31 + 0x32);
         GXSetViewport(lbl_805D93D0, lbl_805D93D0, lbl_805D9404, lbl_805D9408, lbl_805D93D0, lbl_805D93D8);
         GXSetScissor(0, 0, 0x280, 0x1E0);
         GXSetProjection(scene_projection_state, 0);

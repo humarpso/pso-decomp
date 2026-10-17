@@ -60,7 +60,7 @@ s32 is_any_player_near(s32 arg0) {
   {
     temp_r31 = ((TObjPlayer *)player)->get_field_3e4();
     new_var = get_current_floor();
-    if ((new_var == temp_r31) && (((f32 (*)(void *, void *))xz_distance_squared)((void *) (player + 0x38), (void *) (arg0 + 0x38)) < temp_f31))
+    if ((new_var == temp_r31) && (((f32 (*)(void *, void *))xz_distance_squared)((void *)(player + 0x38), (void *)(arg0 + 0x38)) < temp_f31))
     {
       return 1;
     }

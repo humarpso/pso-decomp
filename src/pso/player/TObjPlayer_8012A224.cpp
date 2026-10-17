@@ -33,7 +33,7 @@ void s_rank_windmill_slow_down(void *arg0) {
 
     temp_r4 = *(s32 *)((s8 *)arg0 + 0x200);
     if (temp_r4 > 0xCCC) {
-        *(s32 *)((s8 *)arg0 + 0x200) = (s32) (temp_r4 - 0xB6);
+        *(s32 *)((s8 *)arg0 + 0x200) = (temp_r4 - 0xB6);
     }
 }
 
@@ -44,7 +44,7 @@ void TUnk_804A4848::update_attack() {
     if (!(*(s32 *)((s8 *)this + 0x204) & 3)) {
         temp_r4 = *(s32 *)((s8 *)this + 0x200);
         if (temp_r4 < 0x3333) {
-            *(s32 *)((s8 *)this + 0x200) = (s32) (temp_r4 + 0xB6);
+            *(s32 *)((s8 *)this + 0x200) = (temp_r4 + 0xB6);
         }
     }
 }

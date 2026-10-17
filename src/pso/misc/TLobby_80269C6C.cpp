@@ -39,7 +39,7 @@ void TLobby__sub_80269C90(void) {
 }
 
 void TLobby__sub_80269CA4(s32 arg0) {
-    *(s32 *)((s8 *)(&message_window_settings.value) + 0x10) = arg0;
+    *(s32 *)((s8 *)&message_window_settings.value + 0x10) = arg0;
 }
 
 typedef char RecoveredGlobal_80269CB4_lbl_804D071C_size[sizeof(RecoveredGlobal_80269CB4_lbl_804D071C) == 0x14 ? 1 : -1];
@@ -67,7 +67,7 @@ extern const f32 lbl_805DD238;
 
 void TLobby::update_window_mode_from_progress(void *arg1) {
     s32 arg0 = (s32)this;
-    TLobby::set_window_mode_4((void *)(arg0), (s32)(arg1), (s32)((s32)((s32) TWindowSubStatusDisp::round_away_from_zero((*(f32 *)((s8 *)arg1 + 4) - lbl_805DD238) / lbl_805DD238) + 2)));
+    TLobby::set_window_mode_4((void *)arg0, (s32)arg1, (s32)((s32)((s32) TWindowSubStatusDisp::round_away_from_zero((*(f32 *)((s8 *)arg1 + 4) - lbl_805DD238) / lbl_805DD238) + 2)));
 }
 
 s32 TLobby__sub_80269DA4(V2_80269DA4 size, void *arg1) {

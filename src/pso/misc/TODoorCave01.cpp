@@ -74,13 +74,13 @@ void render__12TODoorCave01Fv(u8 *arg0) {
 
     if ((((VObj_801618fc *) arg0)->m8(((TODoorCave01 *)arg0)->m_c0, *(f32 *)((s8 *)arg0 + 0xC4)) != 0) && (((TUnk_804AFBF8 *)arg0)->is_in_view_depth(lbl_805DB4A4) != 0)) {
         push_matrix();
-        post_translate_matrix((void *) (arg0 + 0x38));
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, (int) (((TODoorCave01 *)arg0)->rotation_y));
         if ((s32) *(s32 *)&((TODoorCave01 *)arg0)->m_ac == 0) {
             var_r29 = 0;
             var_r30 = (unsigned char *) (*(void **)((s8 *)(*(void * *)&((TODoorCave01 *)arg0)->model) + 0x2C));
             do {
-                TODoorCave01::draw_door_model((void *)(arg0), (int)(var_r30), (int)(((TODoorCave01 *)arg0)->m_d0& (1 << (var_r29 + 0x10)) ? 1 : 0));
+                TODoorCave01::draw_door_model((void *)arg0, (int)var_r30, (int)(((TODoorCave01 *)arg0)->m_d0& (1 << (var_r29 + 0x10)) ? 1 : 0));
                 var_r29 += 1;
                 var_r30 = (unsigned char *) (*(void **)((s8 *)var_r30 + 0x30));
             } while (var_r29 < 4);

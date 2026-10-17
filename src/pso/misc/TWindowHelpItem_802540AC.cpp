@@ -547,8 +547,8 @@ void TWindowHelpItem__vt7(s32 arg0) {
     s32 temp_r31;
     s32 temp_r31_2;
     TWindowHelpItem::update_resistance_rows((void *)arg0);
-    temp_r31 = get_array_entry__13TUnk_804CE018Fi((void *)(arg0), 5);
-    temp_r31_2 = get_array_entry__13TUnk_804CE018Fi((void *)(arg0), 6);
+    temp_r31 = get_array_entry__13TUnk_804CE018Fi((void *)arg0, 5);
+    temp_r31_2 = get_array_entry__13TUnk_804CE018Fi((void *)arg0, 6);
     ((TWindowHelpItem *)temp_r31)->set_flag0_bit2();
     ((TWindowHelpItem *)temp_r31_2)->set_flag0_bit2();
 }
@@ -612,7 +612,7 @@ void update_stat_disp2__15TWindowHelpItemFPv(void *arg0) {
     u32 temp_r4;
     player = (s32)get_player_by_client_id(*(s16 *)((s8 *)arg0 + 0x20));
     if ((player != 0) && (temp_r31 = get_array_entry__13TUnk_804CE018Fi(arg0, 0), temp_r30 = get_array_entry__13TUnk_804CE018Fi(arg0, 1), temp_r29 = get_array_entry__13TUnk_804CE018Fi(arg0, 2), temp_r28 = get_array_entry__13TUnk_804CE018Fi(arg0, 3), temp_r27 = get_array_entry__13TUnk_804CE018Fi(arg0, 4), (temp_r4 = *(u32 *)((s8 *)arg0 + 0x70), (temp_r4 == 0U) == 0))) {
-        if (check_equip_requirements(player, temp_r4, (s32 *)(&sp8)) != 0) {
+        if (check_equip_requirements(player, temp_r4, &sp8) != 0) {
             TWindowHelpItem::set_flag_0x10((u16 *)temp_r31, 1);
             TWindowHelpItem::set_flag_0x10((u16 *)temp_r30, 1);
             TWindowHelpItem::set_flag_0x10((u16 *)temp_r29, 1);
@@ -734,7 +734,7 @@ void update_stat_comparison__15TWindowHelpItemFv(Help_802549B0 *self) {
     set_flag8_and_field20__15TWindowHelpItemFl(e4, st.evp);
     set_flag8_and_field20__15TWindowHelpItemFl(e2, st.hp);
     set_flag8_and_field20__15TWindowHelpItemFl(e5, st.lck);
-    if (check_equip_requirements(pl, self->item, (s32 *)(&flags)) != 0) {
+    if (check_equip_requirements(pl, self->item, &flags) != 0) {
         TWindowHelpItem::set_flag_0x10((u16 *)e0, 1);
         TWindowHelpItem::set_flag_0x10((u16 *)e3, 1);
         TWindowHelpItem::set_flag_0x10((u16 *)e1, 1);
@@ -762,7 +762,7 @@ void update_level_requirement__15TWindowHelpItemFPv(u8 *arg0) {
             update_stat_comparison__15TWindowHelpItemFv((Help_802549B0 *)(arg0));
             temp_r30 = (u8 *)(((u8 *)get_array_entry__13TUnk_804CE018Fi(arg0, 0xA)));
             item_pmt_record = (u8 *)(lookup_item_pmt_record((u8 *)(*(s32 *)((s8 *)arg0 + 0x68))));
-            if (check_equip_requirements((s32)((s32)(player)), (s32)((s32)((int) (*(s32 *)((s8 *)arg0 + 0x68)))), (s32 *)((s32 *)((void *) (&sp8)))) == 0) {
+            if (check_equip_requirements((s32)(player), (s32)((s32)((int) (*(s32 *)((s8 *)arg0 + 0x68)))), (s32 *)((s32 *)(&sp8))) == 0) {
                 if (!(sp8 & 1)) {
                     goto block_4;
                 }
@@ -791,7 +791,7 @@ void update_requirements__15TWindowHelpItemFv(Help_80254CE4 *self) {
     update_stat_comparison__15TWindowHelpItemFv((Help_802549B0 *)(self));
     entry = (u8 *)get_array_entry__13TUnk_804CE018Fi(self, 10);
     pmt = (Pmt_80254CE4 *)lookup_item_pmt_record((u8 *)self->item);
-    if (check_equip_requirements(pl, self->item, (s32 *)(&flags)) == 0 && (flags & 1)) {
+    if (check_equip_requirements(pl, self->item, (s32 *)&flags) == 0 && (flags & 1)) {
         return;
     }
     if (pmt->req_atp != 0) {
@@ -1102,30 +1102,30 @@ void TWindowHelpItem::dispatch_item_help() {
 void TWindowHelpItem__set_displayed_item_by_id(u8 *arg0, s32 arg1) {
     u8 *item;
     if (arg1 == -1) {
-        ((TWindowHelpItem *)arg0)->set_displayed_item_data((void*)(NULL), (void*)((void*)((void *)-1)));
+        ((TWindowHelpItem *)arg0)->set_displayed_item_data(NULL, (void*)((void*)((void *)-1)));
         return;
     }
     item = (u8 *)(find_item_by_id(arg1));
     if (item == NULL) {
-        ((TWindowHelpItem *)arg0)->set_displayed_item_data((void*)(NULL), (void*)((void*)((void *) arg1)));
+        ((TWindowHelpItem *)arg0)->set_displayed_item_data(NULL, (void*)((void*)((void *) arg1)));
         return;
     }
     ((TItem *)item)->copy_to_item_data(arg0 + 0x88);
-    ((TWindowHelpItem *)arg0)->set_displayed_item_data((void*)((void*)(arg0 + 0x88)), (void*)((void*)((void *) arg1)));
+    ((TWindowHelpItem *)arg0)->set_displayed_item_data((void*)(arg0 + 0x88), (void*)((void*)((void *) arg1)));
 }
 void show_item_by_id__15TWindowHelpItemFPvi(u8 *arg0, s32 arg1) {
     u8 *item;
     if (arg1 == -1) {
-        ((TWindowHelpItem *)arg0)->set_items_and_refresh((void*)(NULL), (void*)((void*)((void *)-1)));
+        ((TWindowHelpItem *)arg0)->set_items_and_refresh(NULL, (void*)((void*)((void *)-1)));
         return;
     }
     item = (u8 *)(find_item_by_id(arg1));
     if (item == NULL) {
-        ((TWindowHelpItem *)arg0)->set_items_and_refresh((void*)(NULL), (void*)((void*)((void *) arg1)));
+        ((TWindowHelpItem *)arg0)->set_items_and_refresh(NULL, (void*)((void*)((void *) arg1)));
         return;
     }
     ((TItem *)item)->copy_to_item_data(arg0 + 0x74);
-    ((TWindowHelpItem *)arg0)->set_items_and_refresh((void*)((void*)(arg0 + 0x74)), (void*)((void*)((void *) arg1)));
+    ((TWindowHelpItem *)arg0)->set_items_and_refresh((void*)(arg0 + 0x74), (void*)((void*)((void *) arg1)));
 }
 void TWindowHelpItem::set_displayed_item_colored(u32 arg1) {
     s32 var_r5;
@@ -1133,7 +1133,7 @@ void TWindowHelpItem::set_displayed_item_colored(u32 arg1) {
     if (arg1 == 0U) {
         var_r5 = -1;
     }
-    set_displayed_item_data((void*)((void*)(arg1)), (void*)((void*)(var_r5)));
+    set_displayed_item_data((void*)(arg1), (void*)(var_r5));
 }
 void TWindowHelpItem::set_displayed_item_data(void* a1, void* a2) { *(void* *)&this->m_a4 = a2; *(void* *)&this->m_70 = a1; update_cursor_selection(); dispatch_item_help(); }
 void TWindowHelpItem::set_items_and_refresh(void* a1, void* a2) { *(void* *)&this->m_a0 = a2; *(void* *)&this->m_6c = a1; update_cursor_selection(); dispatch_item_help(); }

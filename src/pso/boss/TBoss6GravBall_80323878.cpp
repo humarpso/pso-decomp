@@ -61,7 +61,7 @@ void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0) {
     s32 temp_r3;
 
     TBoss6GravBall__sub_803233AC();
-    play_persistent_sound(0x4003C418, arg0, (void *) (arg0 + 0xC8), 0, 0);
+    play_persistent_sound(0x4003C418, arg0, arg0 + 0xC8, 0, 0);
     temp_r0 = *(s32 *)((s8 *)arg0 + 0xB8);
     if (temp_r0 >= 0x96) {
         if (temp_r0 == 0x96) {
@@ -109,9 +109,9 @@ void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0) {
         destroy_part__14TBoss6GravBallFl(arg0, 7);
         destroy_part__14TBoss6GravBallFl(arg0, 8);
         *(s32 *)((s8 *)arg0 + 0xB4) = 0;
-        clear_player_grav_flags__14TBoss6GravBallFv((void *)(arg0));
+        clear_player_grav_flags__14TBoss6GravBallFv(arg0);
         *(s32 *)((s8 *)arg0 + 0xB0) = 2;
-        play_sound_effect(0x4003C417, (void *) (arg0 + 0xC8), 0, 0);
+        play_sound_effect(0x4003C417, arg0 + 0xC8, 0, 0);
         return;
     default:
         queue_destruction__7TObjectFv((arg0));
@@ -138,7 +138,7 @@ void update_state__14TBoss6GravBallFPv(u8 *arg0) {
             }
         }
         TBoss6GravBall__sub_80323544((arg0));
-        play_persistent_sound(0x4003B51A, arg0, (void *) (arg0 + 0xC8), 0, 0);
+        play_persistent_sound(0x4003B51A, arg0, arg0 + 0xC8, 0, 0);
         switch (get_state__14TBoss6GravBallFv((int) (*(s32 *)((s8 *)arg0 + 0xAC)))) {
         case 0x27:
             return;
@@ -153,7 +153,7 @@ void update_state__14TBoss6GravBallFPv(u8 *arg0) {
             *(s32 *)((s8 *)arg0 + 0xB8) = 0;
             *(s32 *)((s8 *)arg0 + 0xB4) = 0;
             *(s32 *)((s8 *)arg0 + 0xB0) = 1;
-            play_sound_effect(0x4003B516, (void *) (arg0 + 0xC8), 0, 0);
+            play_sound_effect(0x4003B516, arg0 + 0xC8, 0, 0);
             break;
         case 0x20:
         default:

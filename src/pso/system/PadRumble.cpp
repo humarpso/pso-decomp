@@ -106,7 +106,7 @@ void update_pad_rumble(void) {
         } else {
             TAdSinglePlyChrSelectGC__sub_80242B24(&sp);
             accumulate_rumble_strength__23TAdSinglePlyChrSelectGCFPsl(&sp, t, i);
-            if (((TAdSinglePlyChrSelectGC *)q)->update_rumble_pattern((s16 *)(&sp)) != 0) {
+            if (((TAdSinglePlyChrSelectGC *)q)->update_rumble_pattern((s16 *)&sp) != 0) {
                 PADControlMotor(i, 1);
             } else {
                 PADControlMotor(i, 0);

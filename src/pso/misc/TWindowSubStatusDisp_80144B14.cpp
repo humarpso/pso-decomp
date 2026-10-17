@@ -273,7 +273,7 @@ u32 get_font_char_advance(u16 arg0) {
     return 0x12U;
   }
   new_var = arg0 - 0x21;
-  return (u8) (*((s32 *) (0 + ((s8 *) (((u8 *) (&menu_font_char_advance_table.value)) + ((new_var * 4) & 0x3FFFC))))));
+  return (u8) (*((s32 *) (0 + ((s8 *) (((u8 *)&menu_font_char_advance_table.value) + ((new_var * 4) & 0x3FFFC))))));
 }
 
 s32 TWindowSubStatusDisp::is_alpha_char(u16 arg0) {
@@ -374,7 +374,7 @@ s32 TWindowSubStatusDisp::upload_glyph_if_needed(u16 arg0, u8 *arg1, void **arg2
     if (temp_r7 == (u8) lbl_805D56C0) {
         return 0;
     }
-    if (temp_r7 != (u8) (lbl_805D56C0 - 1)) {
+    if (temp_r7 != (u8)(lbl_805D56C0 - 1)) {
         upload_font_glyph(arg0, arg1);
         return 1;
     }
@@ -447,7 +447,7 @@ u8 calc_gauge_scale__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 ar
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
 void TWindowSubStatusDisp::set_gauge_param(s32 _w0) {
-    TObjFish::set_global_param((s32)((s32 *)(&menu_font_texture_list.value)));
+    TObjFish::set_global_param((s32)(&menu_font_texture_list.value));
 }
 typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8000F8FC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8FC_lbl_804FE120) == 0x18 ? 1 : -1];
@@ -522,7 +522,7 @@ void draw_menu_font_string(const char *s, s32 arg1, u32 flags, f32 x, f32 y, f32
       code = (hi << 8) & 0xFF00;
       code = code | lo;
       w = ((u8 (*)(u16, void *, s32)) calc_gauge_scale__20TWindowSubStatusDispFPvPvi)(((u16 (*)(u32)) map_char_to_font_code)(code), &pos, arg1);
-      set_glyph_quad_extents(w, (u8 *) (&pos));
+      set_glyph_quad_extents(w, (u8 *)&pos);
       draw_textured_quad_at_depth((f32 *)&pos, scale);
       pos.x += (f32) w;
     }

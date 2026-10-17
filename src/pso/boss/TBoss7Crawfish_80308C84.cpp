@@ -37,10 +37,10 @@ void TBoss7Crawfish::update_motion_and_release() {
     {
         void *temp_ptr = (void *) this->m_3cc;
         if (temp_ptr != NULL) {
-            ((TNowLoading *)temp_ptr)->copy_pos((void *) (arg0 + 0x38));
+            ((TNowLoading *)temp_ptr)->copy_pos(arg0 + 0x38);
         }
     }
-    if (TBoss7Crawfish__sub_80308ED8(arg0, (void *) (arg0 + 0x308)) == 0) {
+    if (TBoss7Crawfish__sub_80308ED8(arg0, arg0 + 0x308) == 0) {
         ((TBoss7Crawfish *)arg0)->free_child();
         ((TBoss7Crawfish *)arg0)->change_state(3);
         return;

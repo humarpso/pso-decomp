@@ -100,10 +100,10 @@ void TBoss2Fin::run_task() {
     typedef char sp10_offset[(offsetof(Stack_800365C8, sp10) == 0x8) ? 1 : -1];
     Stack_800365C8 stack;
     ((TBoss2Fin *)arg0)->init_link_points();
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_80435A44.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_80435A44.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&lbl_80435A44.value) + 8);
-    ((TObjEZRopeBase *)arg0)->sub_800FF788((void *) (&stack.sp8));
+    stack.sp8 = *(s32 *)((s8 *)&lbl_80435A44.value + 0);
+    stack.spC = *(s32 *)((s8 *)&lbl_80435A44.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&lbl_80435A44.value + 8);
+    ((TObjEZRopeBase *)arg0)->sub_800FF788((void *)&stack.sp8);
 }
 
 extern "C" {

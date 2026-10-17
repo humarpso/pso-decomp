@@ -40,14 +40,14 @@ void handle_6x5D_drop_stacked_item(u8 *arg0) {
         drop.pos.x = *(f32 *)((s8 *)arg0 + 8);
         drop.pos.z = *(f32 *)((s8 *)arg0 + 0xC);
         drop.room_id = *(s16 *)((s8 *)arg0 + 6);
-        ((TLobby *)(&drop.item))->copy_item_data((void *) (arg0 + 0x10));
+        ((TLobby *)(&drop.item))->copy_item_data(arg0 + 0x10);
         if ((u32) (*(u8 *)((s8 *)arg0 + 1) * 4) == 0x24) {
-            TItemData__sub_8010C740((void *) (arg0 + 0x10), 0);
+            TItemData__sub_8010C740(arg0 + 0x10, 0);
         } else {
-            TItemData__sub_8010C740((void *) (arg0 + 0x10), 2);
+            TItemData__sub_8010C740(arg0 + 0x10, 2);
         }
-        TItemData__sub_8010CCB0((void *) (&drop.item));
-        spawn_dropped_item_from_msg((void *) (&drop.floor), 0);
+        TItemData__sub_8010CCB0(&drop.item);
+        spawn_dropped_item_from_msg(&drop.floor, 0);
     }
 }
 void send_drop_item_6x5D__5TItemFPviPv(void *item, s32 id, Pos_80101FEC *pos) {

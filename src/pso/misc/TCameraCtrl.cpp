@@ -380,7 +380,7 @@ void TCameraCtrl::update_shake() {
 void select_camera_controller(s32 arg0) {
   u8 *temp_r0;
   (*(RecoveredGlobal_8006A788_TCameraCtrl__data_804FF628 *)&TCameraCtrl__view_state).value = arg0;
-  temp_r0 = (u8 *) (*((s32 *) (((s8 *) (&camera_controller_registry.value)) + ((arg0 * 4) & 0x3FC))));
+  temp_r0 = (u8 *) (*((s32 *) (((s8 *)&camera_controller_registry.value) + ((arg0 * 4) & 0x3FC))));
   if (temp_r0 != 0)
   {
     PSO_VCALL_VObj_18_f8ef8c_m5(temp_r0);
@@ -778,19 +778,19 @@ void TCameraCtrl::calc_axes_from_angles(s32 arg0, s32 arg1, s32 arg2) {
     typedef char sp18_offset[(offsetof(Stack_8006ABAC, sp18) == 0x10) ? 1 : -1];
     typedef char sp1C_offset[(offsetof(Stack_8006ABAC, sp1C) == 0x14) ? 1 : -1];
     Stack_8006ABAC stack;
-    stack.sp14 = *(s32 *)((s8 *)(&lbl_804381A4.value) + 0);
-    stack.sp18 = *(s32 *)((s8 *)(&lbl_804381A4.value) + 4);
-    stack.sp1C = *(s32 *)((s8 *)(&lbl_804381A4.value) + 8);
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_804381B0.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_804381B0.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&lbl_804381B0.value) + 8);
-    push_matrix_from((void *) (&identity_matrix.value));
+    stack.sp14 = *(s32 *)((s8 *)&lbl_804381A4.value + 0);
+    stack.sp18 = *(s32 *)((s8 *)&lbl_804381A4.value + 4);
+    stack.sp1C = *(s32 *)((s8 *)&lbl_804381A4.value + 8);
+    stack.sp8 = *(s32 *)((s8 *)&lbl_804381B0.value + 0);
+    stack.spC = *(s32 *)((s8 *)&lbl_804381B0.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&lbl_804381B0.value + 8);
+    push_matrix_from((void *)&identity_matrix.value);
     rotate_matrix_y(0, (void *)arg2);
-    rotate_vector_by_current_matrix((void *) (&stack.sp14), (void *) (&lbl_804FF610.value));
+    rotate_vector_by_current_matrix((void *)&stack.sp14, (void *)&lbl_804FF610.value);
     pop_matrix();
-    push_matrix_from((void *) (&identity_matrix.value));
+    push_matrix_from((void *)&identity_matrix.value);
     rotate_matrix_x(0, (void *)arg1);
-    rotate_vector_by_current_matrix((void *) (&stack.sp8), (void *) (&camera_pitch_rotated_up_vector.value));
+    rotate_vector_by_current_matrix((void *)&stack.sp8, (void *)&camera_pitch_rotated_up_vector.value);
     pop_matrix();
 }
 #pragma pop
@@ -810,19 +810,19 @@ void TCameraCtrl::calc_rotated_axes() {
     typedef char sp18_offset[(offsetof(Stack_8006AC70, sp18) == 0x10) ? 1 : -1];
     typedef char sp1C_offset[(offsetof(Stack_8006AC70, sp1C) == 0x14) ? 1 : -1];
     Stack_8006AC70 stack;
-    stack.sp14 = *(s32 *)((s8 *)(&lbl_8043818C.value) + 0);
-    stack.sp18 = *(s32 *)((s8 *)(&lbl_8043818C.value) + 4);
-    stack.sp1C = *(s32 *)((s8 *)(&lbl_8043818C.value) + 8);
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_80438198.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_80438198.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&lbl_80438198.value) + 8);
+    stack.sp14 = *(s32 *)((s8 *)&lbl_8043818C.value + 0);
+    stack.sp18 = *(s32 *)((s8 *)&lbl_8043818C.value + 4);
+    stack.sp1C = *(s32 *)((s8 *)&lbl_8043818C.value + 8);
+    stack.sp8 = *(s32 *)((s8 *)&lbl_80438198.value + 0);
+    stack.spC = *(s32 *)((s8 *)&lbl_80438198.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&lbl_80438198.value + 8);
     push_matrix_from((void *) (&(*(RecoveredGlobal_8006AC70_lbl_8058D490 *)&identity_matrix).value));
     rotate_matrix_y(0, (void *)((int) (*(s32 *)&this->m_194)));
-    rotate_vector_by_current_matrix((void *) (&stack.sp14), (void *) (&(*(RecoveredGlobal_8006AC70_lbl_804FF610 *)&lbl_804FF610).value));
+    rotate_vector_by_current_matrix((void *)&stack.sp14, (void *) (&(*(RecoveredGlobal_8006AC70_lbl_804FF610 *)&lbl_804FF610).value));
     pop_matrix();
     push_matrix_from((void *) (&(*(RecoveredGlobal_8006AC70_lbl_8058D490 *)&identity_matrix).value));
     rotate_matrix_x(0, (void *)((int) (*(s32 *)&this->m_190)));
-    rotate_vector_by_current_matrix((void *) (&stack.sp8), (void *) (&(*(RecoveredGlobal_8006AC70_lbl_804FF61C *)&camera_pitch_rotated_up_vector).value));
+    rotate_vector_by_current_matrix((void *)&stack.sp8, (void *) (&(*(RecoveredGlobal_8006AC70_lbl_804FF61C *)&camera_pitch_rotated_up_vector).value));
     pop_matrix();
 }
 #pragma pop

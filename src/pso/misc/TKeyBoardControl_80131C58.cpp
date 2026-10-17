@@ -145,7 +145,7 @@ void TKeyBoardControl::append_next_char() {
     s32 i = 0;
     ((Obj_8013206C *)this)->f4 = ((Obj_8013206C *)this)->f4 + 1;
     do {
-        if (((s32)append_char((s8)(i))) != 0) {
+        if (((s32)append_char(i)) != 0) {
             return;
         }
         i++;
@@ -184,10 +184,10 @@ bool TKeyBoardControl__sub_801321B4(s32 arg0) {
     if (TKeyBoardControl__sub_801323C8((K_801323C8 *)(arg0), (u8)((int)(0x56U))) != 0) {
         return 1;
     }
-    if (get_key_state__16TKeyBoardControlFPv((void *)(&TKeyBoardControl__global_key_state.value)) == 0) {
+    if (get_key_state__16TKeyBoardControlFPv(&TKeyBoardControl__global_key_state.value) == 0) {
         return 0;
     }
-    if ((get_key_state__16TKeyBoardControlFPv((void *)(&TKeyBoardControl__global_key_state.value)) == 2) || (get_key_state__16TKeyBoardControlFPv((void *)(&TKeyBoardControl__global_key_state.value)) == 4) || (get_key_state__16TKeyBoardControlFPv((void *)(&TKeyBoardControl__global_key_state.value)) == 3)) {
+    if ((get_key_state__16TKeyBoardControlFPv(&TKeyBoardControl__global_key_state.value) == 2) || (get_key_state__16TKeyBoardControlFPv(&TKeyBoardControl__global_key_state.value) == 4) || (get_key_state__16TKeyBoardControlFPv(&TKeyBoardControl__global_key_state.value) == 3)) {
         return 0;
     }
     return TKeyBoardControl__sub_801323C8((K_801323C8 *)(arg0), (u8)((int)(0x5BU))) != 0;
@@ -255,7 +255,7 @@ void reset_inactive_keys__16TKeyBoardControlFi(s32 arg0) {
     var_r29 = 0;
     var_r28 = (unsigned char *) (arg0 + 0xA0);
     do {
-        if (TKeyBoardControl__sub_801323C8((K_801323C8 *)((void *)(arg0)), (u8)((int)((int) (*(u8 *)((s8 *)var_r28 + 0))))) == 0) {
+        if (TKeyBoardControl__sub_801323C8((K_801323C8 *)(arg0), (u8)((int)((int) (*(u8 *)((s8 *)var_r28 + 0))))) == 0) {
             *(u8 *)((s8 *)var_r28 + 0) = 0U;
             *(s8 *)((s8 *)var_r28 + 1) = 0x23;
         }
@@ -344,8 +344,8 @@ void TKeyBoardControl::clear_key_state() {
 
 void TKeyBoardControl__sub_801327DC(s32 arg0, u8 chan) {
     s32 sp8;
-    if (poll_keyboard_port((s32)(chan), (u8 *)((s32 *)((void *) (&sp8)))) == 0) {
-        TKeyBoardControl__sub_803F0E90((s32)(chan), (void *)(0));
+    if (poll_keyboard_port(chan, (u8 *)((s32 *)(&sp8))) == 0) {
+        TKeyBoardControl__sub_803F0E90(chan, (void *)(0));
     }
 }
 

@@ -67,7 +67,7 @@ void TOVS2Wall01::load_resources() {
   var_r0 = temp_r3;
   if (var_r0 != 0)
   {
-    var_r0 = load_resource_from_descriptor((int) temp_r3, 1, (void *) (&bm_o_vs2_resource_descriptor.value), 0, 0, 0);
+    var_r0 = load_resource_from_descriptor((int) temp_r3, 1, &bm_o_vs2_resource_descriptor.value, 0, 0, 0);
   }
   (*(s32 *)&TOVS2Wall01__bml_resource) = var_r0;
   ;
@@ -100,7 +100,7 @@ u8 *TOVS2Wall01::init_wreck_object(s32 arg1, s32 arg2) {
     this->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOVS2Wall01__bml_resource)), (void *)arg2);
     init_collision_body_parts((void *) (((u8 *)this)), (void *) ((u8 *)&ovs2wall01_collision_parts.value + (arg2 * 0x2C)), 1);
     ((TObjPlayer *)((u8 *)this))->reset_photon_effect();
-    *(s32 *)&this->m_c8 = TObjMapCsn::create((s32)(arg1));
+    *(s32 *)&this->m_c8 = TObjMapCsn::create(arg1);
     *(s32 *)&this->unk_CC = 1;
     return ((u8 *)this);
 }

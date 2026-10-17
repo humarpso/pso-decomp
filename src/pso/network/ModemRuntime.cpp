@@ -144,7 +144,7 @@ typedef char RecoveredGlobal_80428360_lbl_805CFC20_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8042839C_lbl_805D0A40_size[sizeof(RecoveredGlobal_8042839C_lbl_805D0A40) == 0x60 ? 1 : -1];
 
 void TAdSinglePlyChrSelectGC::wake_load_thread() {
-    OSWakeupThread((void *) (&lbl_805D7CA0));
+    OSWakeupThread(&lbl_805D7CA0);
 }
 
 #pragma push

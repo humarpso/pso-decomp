@@ -185,10 +185,10 @@ s32 TShopItemListWindow::handle_tool_list_select(void *p) {
     if (W->list != NULL) {
         i = select_cursor_entry__22TWindowSubShortCutListFv(W->list);
         if (W->help != NULL && i != W->cur) {
-            ((TWindowHelpItem *)(W->help))->set_displayed_item_colored((u32)(&W->recs[i]));
+            ((TWindowHelpItem *)(W->help))->set_displayed_item_colored((u32)&W->recs[i]);
         }
         if (W->status != NULL && i != W->cur) {
-            n = ((TObjPlayer *)(*(s32 *)(W->player + 0xD00)))->count_items_by_id((s32)(&W->recs[i]));
+            n = ((TObjPlayer *)(*(s32 *)(W->player + 0xD00)))->count_items_by_id((s32)&W->recs[i]);
             ((TWindowSubStatusDisp *)(W->status))->set_entry1_field20(n);
         }
         if (W->sell != NULL && i != W->cur && (e = (u8 *)W + i * 0x14, *(s32 *)(e + 0x68) > 0)) {
@@ -234,7 +234,7 @@ s32 TShopItemListWindow::check_purchase_eligibility() {
     if (self->recs[sel].qty > meseta) {
         return 0;
     }
-    if (((TObjPlayer *)(self->player))->can_inventory_accept_item((u8 *)(&self->recs[sel])) == 0) {
+    if (((TObjPlayer *)(self->player))->can_inventory_accept_item((u8 *)&self->recs[sel]) == 0) {
         return 1;
     }
     return 3;
@@ -313,11 +313,11 @@ void TShopItemListWindow::vfunc_11() {
     temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);
     switch (temp_r0) {
     case 0:
-        TShopItemListWindow::build_item_list((void *)(arg0));
+        TShopItemListWindow::build_item_list(arg0);
         ((TShopWindowBase *)arg0)->set_field_20(1);
         return;
     case 1:
-        TShopItemListWindow::handle_tool_list_select((void *)(arg0));
+        TShopItemListWindow::handle_tool_list_select(arg0);
         return;
     case 2:
         handle_amount_confirm__19TShopItemListWindowFv(arg0);
@@ -379,8 +379,8 @@ u8 *TShopItemListWindow__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)((s8 *)arg0 + 0x1C0) = 0;
     *(s32 *)((s8 *)arg0 + 0x4C) = 0;
     *(s32 *)((s8 *)arg0 + 0x54) = 0;
-    ((TShopGetItemWindow *)(*(s32 *)((s8 *)arg0 + 0x24)))->calc_item_count((s32 *)(&sp8));
-    TLobby::set_6264_and_call_2244B0((int)((void *) (sub_8022397C__15TShopWindowBaseFv(arg0))), (int)(sp8));
+    ((TShopGetItemWindow *)(*(s32 *)((s8 *)arg0 + 0x24)))->calc_item_count(&sp8);
+    TLobby::set_6264_and_call_2244B0((int)((void *) (sub_8022397C__15TShopWindowBaseFv(arg0))), sp8);
     return arg0;
 }
 

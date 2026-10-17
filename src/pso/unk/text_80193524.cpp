@@ -286,7 +286,7 @@ void TLazerFenceSw::render() {
         if (get_state_flag__9TMainTaskFv() != 1) {
             set_depth_buffer_settings_id(3);
             set_material_alpha_compare_reference(0x80);
-            if (fn_80156BBC((void *) (arg0 + 0xF0), (void *) (arg0 + 0x38)) != 0) {
+            if (fn_80156BBC(arg0 + 0xF0, arg0 + 0x38) != 0) {
                 if (fn_80156C38((f32 *)(arg0 + 0xF0)) != 0) {
                     ((VObj_14_aa9368 *)(arg0 + (240)))->m6();
                     draw_laser_beam();
@@ -333,12 +333,12 @@ void TLazerFenceSw__vt14(u8 *arg0) {
     u32 temp_r4;
     u32 temp_r4_2;
     *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (*(f32 *)((s8 *)arg0 + 0xB0) + *(f32 *)((s8 *)arg0 + 0xB8));
-    temp_r4 = *(s32 *)((s8 *)(*(u8 **)((s8 *)(&lazer_fence_beam_motions.value) + 0)) + 4) - 1;
+    temp_r4 = *(s32 *)((s8 *)(*(u8 **)((s8 *)&lazer_fence_beam_motions.value + 0)) + 4) - 1;
     if (*(f32 *)((s8 *)arg0 + 0xB0) > (f32) temp_r4) {
         *(f32 *)((s8 *)arg0 + 0xB0) = (f32) temp_r4;
     }
     *(f32 *)((s8 *)arg0 + 0xEC) = (f32) (*(f32 *)((s8 *)arg0 + 0xEC) + *(f32 *)((s8 *)arg0 + 0xB8));
-    temp_r4_2 = *(s32 *)((s8 *)(*(u8 **)((s8 *)(&lazer_fence_beam_motions.value) + 4)) + 4) - 1;
+    temp_r4_2 = *(s32 *)((s8 *)(*(u8 **)((s8 *)&lazer_fence_beam_motions.value + 4)) + 4) - 1;
     if (*(f32 *)((s8 *)arg0 + 0xEC) > (f32) temp_r4_2) {
         *(f32 *)((s8 *)arg0 + 0xEC) = (f32) temp_r4_2;
     }

@@ -97,7 +97,7 @@ void TOVS2Wall01::run_task() {
 void TOVS2Wall01::render() {
     u8 *arg0 = (u8 *)this;
     s32 var_r31;
-    update_obstruction_fade((void *) (arg0 + 0x340));
+    update_obstruction_fade(arg0 + 0x340);
     *(s32 *)&this->m_35c = ((VObj_18_26a62c *)(arg0))->m8(*(f32 *)&this->unk_334, this->m_338);
     if ((s32) *(s32 *)&this->m_35c == 1) {
         if (TRaderMapCore::is_not_split_screen() == 1) {
@@ -112,7 +112,7 @@ void TOVS2Wall01::render() {
             ((VObj_14_1eb8da *)(arg0 + (832)))->m6(chunk_polygon_flags_and_mask, model_render_flags);
         }
         push_matrix();
-        post_translate_matrix((void *) (arg0 + 0x38));
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
         draw_ginja_object((void *)(*(s32 *)&this->model));

@@ -82,7 +82,7 @@ block_5:
         draw_title_layer((s32)(*(s32 *)((s8 *)arg0 + 0x1C)), 0x1FFFFFFF);
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 6);
-        fn_802A0A30((s32)arg0, (u8 *)(arg0 + 0x120), (s32)(*(s32 *)((s8 *)arg0 + 0x1C)), (s32)((*(s32 *)((s8 *)arg0 + 0x12C) << 0x18) | 0xFF0000 | 0xFFFF), (s32)(get_localized_text_entry(0x13, *(s32 *)((s8 *)arg0 + 0x1C))));
+        fn_802A0A30((s32)arg0, arg0 + 0x120, (s32)(*(s32 *)((s8 *)arg0 + 0x1C)), (s32)((*(s32 *)((s8 *)arg0 + 0x12C) << 0x18) | 0xFF0000 | 0xFFFF), (s32)(get_localized_text_entry(0x13, *(s32 *)((s8 *)arg0 + 0x1C))));
         if ((s32) *(s32 *)((s8 *)arg0 + 0x134) == 0) {
             restore_saved_depth_alpha_state();
         }
@@ -114,14 +114,14 @@ void run_task__10TAdTitleGCFv(u8 *arg0) {
 
     temp_r3 = *(s32 *)((s8 *)arg0 + 0x128);
     if (temp_r3 < 0xA) {
-        *(s32 *)((s8 *)arg0 + 0x128) = (s32) (temp_r3 + 1);
+        *(s32 *)((s8 *)arg0 + 0x128) = (temp_r3 + 1);
     }
     *(s32 *)((s8 *)arg0 + 0x12C) = (s32) (*(s32 *)((s8 *)arg0 + 0x12C) + 0xC);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x12C) > 0xFF) {
         *(s32 *)((s8 *)arg0 + 0x12C) = 0xFF;
     }
     ((TAdTitleGC *)arg0)->update_title_rects();
-    TAdTitleGC::calc_text_pos((s32)arg0, (u8 *)(arg0 + 0x120), (s32)(get_localized_text_entry(0x13, *(s32 *)((s8 *)arg0 + 0x1C))));
+    TAdTitleGC::calc_text_pos((s32)arg0, arg0 + 0x120, (s32)(get_localized_text_entry(0x13, *(s32 *)((s8 *)arg0 + 0x1C))));
 }
 #pragma push
 #pragma opt_common_subs off

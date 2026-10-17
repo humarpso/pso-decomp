@@ -342,7 +342,7 @@ void TLobby::clear_session_buffer() {
 }
 void TLobby::reset_sound_buffers() {
     TLobby__sub_803C406C();
-    memset((void *) (&lbl_80570AC0.value), 0, 0x9C0);
+    memset(&lbl_80570AC0.value, 0, 0x9C0);
 }
 void TLobby__sub_803C0B3C(u8 *arg0) {
     s16 temp_r0;

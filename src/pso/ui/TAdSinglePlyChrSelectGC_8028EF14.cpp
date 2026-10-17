@@ -1140,11 +1140,11 @@ void update_pair__23TAdSinglePlyChrSelectGCFPv(void* p) { TAdSinglePlyChrSelectG
 void TAdSinglePlyChrSelectGC__sub_80290884(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
 void TAdSinglePlyChrSelectGC::init_entry_tables(void* _w0) {
     for (s32 i = 0; i < 10; i++) {
-        TAdSinglePlyChrSelectGC__sub_80290884((void*)(&lbl_80540888[i]), lbl_80451CD0);
-        TAdSinglePlyChrSelectGC__sub_80290884((void*)(&lbl_805408D8[i]), lbl_80451CD0);
+        TAdSinglePlyChrSelectGC__sub_80290884(&lbl_80540888[i], lbl_80451CD0);
+        TAdSinglePlyChrSelectGC__sub_80290884(&lbl_805408D8[i], lbl_80451CD0);
     }
     for (s32 i = 0; i < 5; i++) {
-        TAdSinglePlyChrSelectGC__sub_80290884((void*)(&lbl_80540928[i]), lbl_80451CD0);
+        TAdSinglePlyChrSelectGC__sub_80290884(&lbl_80540928[i], lbl_80451CD0);
     }
 }
 u8 TAdSinglePlyChrSelectGC::is_active() {
@@ -1153,7 +1153,7 @@ u8 TAdSinglePlyChrSelectGC::is_active() {
 int TAdSinglePlyChrSelectGC__sub_802905B8(void) {  return char_creation_figure_draw_flag; }
 void TAdSinglePlyChrSelectGC__sub_802905A4(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
 void reset_creation_shape_set(s32 arg0) {
-    TAdSinglePlyChrSelectGC__sub_802905A4((void*)(arg0), (void*)((void *) (&creation_empty_model_node)));
+    TAdSinglePlyChrSelectGC__sub_802905A4((void*)arg0, (void*)((void *)&creation_empty_model_node));
 }
 #pragma push
 #pragma fp_contract on
@@ -1220,17 +1220,17 @@ void reset_creation_body_shapes() {
 #pragma pop
 void TCharaMaking__bind_body_shape_nodes(CharacterAppearanceFields *appearance, void *model) {
     reset_creation_body_shapes();
-    TObjPlayer::clear_next_entry((s32)model, (u8 *)(&creation_body_shape_destination));
+    TObjPlayer::clear_next_entry((s32)model, (u8 *)&creation_body_shape_destination);
     for (s32 i = 0; i < 7; ++i) {
-        TObjPlayer::clear_next_entry((s32)char_creation_data_block[0][i], (u8 *)(&creation_body_shape_samples[i]));
+        TObjPlayer::clear_next_entry((s32)char_creation_data_block[0][i], (u8 *)&creation_body_shape_samples[i]);
     }
 }
 void TCharaMaking__bind_head_shape_nodes(CharacterAppearanceFields *appearance, void *model) {
     reset_creation_head_shapes();
-    TObjPlayer::clear_next_entry((s32)model, (u8 *)(&creation_head_shape_destination));
+    TObjPlayer::clear_next_entry((s32)model, (u8 *)&creation_head_shape_destination);
     s32 head = appearance->head + 1;
     for (s32 i = 0; i < 7; ++i) {
-        TObjPlayer::clear_next_entry((s32)char_creation_data_block[head][i], (u8 *)(&creation_head_shape_samples[i]));
+        TObjPlayer::clear_next_entry((s32)char_creation_data_block[head][i], (u8 *)&creation_head_shape_samples[i]);
     }
 }
 void TAdSinglePlyChrSelectGC::reset_creation_parts() {

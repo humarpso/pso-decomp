@@ -63,8 +63,8 @@ void TLobby::release_scene_resources() {
         game_mode_scene_instance = 0U;
     }
     delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8023F1B8_main_task *)&main_task).value));
-    call_funcs_reverse__6TLobbyFPvUi((void *) (&lobby_scene_release_callback_table.value), 0x38);
-    call_funcs_reverse__6TLobbyFPvUi((void *) (&lbl_804CCDA8.value), 0xB8);
+    call_funcs_reverse__6TLobbyFPvUi(&lobby_scene_release_callback_table.value, 0x38);
+    call_funcs_reverse__6TLobbyFPvUi(&lbl_804CCDA8.value, 0xB8);
     TParticleCtrl::free_heap();
     clear_resource_load_tasks();
     render_tick();

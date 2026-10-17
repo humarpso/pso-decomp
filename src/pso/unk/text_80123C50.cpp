@@ -73,7 +73,7 @@ void TUnk_804A1E28::update_weapon() {
         if (temp_r3 == 7) {
             *(s16 *)&this->unk_1FE = 0;
         } else {
-            *(s32 *)((s8 *)arg0 + 0x1F8) = (s32) (temp_r3 + 1);
+            *(s32 *)((s8 *)arg0 + 0x1F8) = (temp_r3 + 1);
         }
     }
     if ((s16) *(s16 *)&this->unk_1FE == 2) {
@@ -81,7 +81,7 @@ void TUnk_804A1E28::update_weapon() {
         if (temp_r3_2 == 0) {
             *(s16 *)&this->unk_1FE = 3;
         } else {
-            *(s32 *)((s8 *)arg0 + 0x1F8) = (s32) (temp_r3_2 - 1);
+            *(s32 *)((s8 *)arg0 + 0x1F8) = (temp_r3_2 - 1);
         }
     }
     temp_r3_3 = obj_getS16_32E(*(u8 * *)&this->player);

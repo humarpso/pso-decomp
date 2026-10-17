@@ -1345,7 +1345,7 @@ void render__18TObjEneRe4SorcererFv(u8 *arg0) {
         }
         if (var_r27 != 0) {
             push_matrix();
-            post_translate_matrix((void *) (arg0 + 0x38));
+            post_translate_matrix(arg0 + 0x38);
             translate_matrix(0, (f32) ((*(f32 *)&TObjEneRe4Sorcerer__data_805DA790)), (f32) ((*(f32 *)&TObjEneRe4Sorcerer__data_805DA794)), (f32) ((*(f32 *)&TObjEneRe4Sorcerer__data_805DA790)));
             rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x60)));
             TObjEneRe4Sorcerer__render_node_index = 0;
@@ -1410,14 +1410,14 @@ void TObjEneRe4Sorcerer::handle_death_state(s32 arg1) {
         ((TBoss8Dragon *)arg0)->refresh_and_send_entity_flags();
         *(s32 *)((s8 *)arg0 + 0x4E4) = 0;
         ((TObjPlayer *)(arg0 + 0x2FC))->request_two_effects();
-        TObjPlayer__sub_800A04F0((void *) (arg0 + 0x3FC));
+        TObjPlayer__sub_800A04F0(arg0 + 0x3FC);
         *(f32 *)((s8 *)arg0 + 0x3F8) = (f32) TObjEneRe4Sorcerer__data_805DA790;
-        play_sound_effect((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((void *)(arg0), 0x4003AD19))), (void *) (arg0 + 0x38), 0, 0);
+        play_sound_effect((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003AD19))), arg0 + 0x38, 0, 0);
         return;
     case 0:
         advance_animation_playback(arg0);
         if (((VObj_14_c1c33b *)(arg0 + (1020)))->m4() != 0) {
-            TObjPlayer::apply_effect_variant_b((s32)((void *) (arg0 + 0x38)), 0);
+            TObjPlayer::apply_effect_variant_b((s32)(arg0 + 0x38), 0);
             queue_destruction__7TObjectFv((arg0));
         }
     case 3:
@@ -1691,7 +1691,7 @@ void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-        set_field_378__9TObjEneDDFl((void *)(arg0), 3);
+        set_field_378__9TObjEneDDFl(arg0, 3);
         *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C8) | 0xA);
         *(s32 *)((s8 *)arg0 + 0x4E4) = 0;
         *(s32 *)((s8 *)arg0 + 0x4E8) = 0;
@@ -1700,7 +1700,7 @@ void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1) {
         if ((s32) *(s32 *)((s8 *)arg0 + 0x4E8) == 5) {
             ((TObjEneRe4Sorcerer *)arg0)->advance_anim_frame();
             temp_r5 = *(s32 *)((s8 *)arg0 + 0x3EC);
-            *(s32 *)((s8 *)arg0 + 0x3EC) = (s32) (temp_r5 + 1);
+            *(s32 *)((s8 *)arg0 + 0x3EC) = (temp_r5 + 1);
             transition_enemy_state(arg0, 3);
         }
         return;
@@ -1976,9 +1976,9 @@ void TObjEneRe4Sorcerer__sub_800EEFE4(u8 *arg0, s32 arg1) {
   {
     case 4:
       ((s32)set_field_378__9TObjEneDDFl((void *)((void *) arg0), 1));
-      VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg0 + 0x50));
-      VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg0 + 0x50));
-      VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x50));
+      VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0x50);
+      VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x50);
+      VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x50);
       (((VObj_18_aab587 *)(arg0))->m93());
       return;
       return;
@@ -2020,41 +2020,41 @@ s32 TObjEneRe4Sorcerer::handle_state(s32 arg1) {
 void TObjEneRe4Sorcerer__vt85(s32 arg0p, u32 arg1, s32 arg1p) {
     switch (arg1) {
     case 0:
-        ((TObjEneRe4Sorcerer *)arg0p)->handle_state((s32)(arg1p));
+        ((TObjEneRe4Sorcerer *)arg0p)->handle_state(arg1p);
         return;
     case 1:
-        TObjEneRe4Sorcerer__sub_800EEFE4((u8 *)(arg0p), (s32)(arg1p));
+        TObjEneRe4Sorcerer__sub_800EEFE4((u8 *)arg0p, (s32)arg1p);
         return;
     case 2:
         TObjEneRe4Sorcerer__sub_800EEDE4((void *)arg0p, (void *)arg1p);
         return;
     case 3:
-        TObjEneRe4Sorcerer__sub_800EEC00((void *)(arg0p), (void *)(arg1p));
+        TObjEneRe4Sorcerer__sub_800EEC00((void *)arg0p, (void *)arg1p);
         return;
     case 4:
-        ((TObjEneRe4Sorcerer *)arg0p)->state_wait((s32)(arg1p));
+        ((TObjEneRe4Sorcerer *)arg0p)->state_wait(arg1p);
         return;
     case 5:
-        TObjEneRe4Sorcerer__sub_800EE7DC((u8 *)(arg0p), (s32)(arg1p));
+        TObjEneRe4Sorcerer__sub_800EE7DC((u8 *)arg0p, (s32)arg1p);
         return;
     case 6:
         ((TObjEneRe4Sorcerer *)arg0p)->update_state_machine((void *)arg1p);
         return;
     case 7:
-        TObjEneRe4Sorcerer__sub_800EE1CC((u8 *)(arg0p), (s32)(arg1p));
+        TObjEneRe4Sorcerer__sub_800EE1CC((u8 *)arg0p, (s32)arg1p);
         return;
     case 8:
-        TObjEneRe4Sorcerer__sub_800EE0F8((u8 *)(arg0p), (s32)(arg1p));
+        TObjEneRe4Sorcerer__sub_800EE0F8((u8 *)arg0p, (s32)arg1p);
         return;
     case 9:
-        ((TObjEneRe4Sorcerer *)arg0p)->handle_death_state((s32)(arg1p));
+        ((TObjEneRe4Sorcerer *)arg0p)->handle_death_state(arg1p);
     default:
         return;
     }
 }
 
 void TObjEneRe4Sorcerer__sub_800EF214(s32 arg0) {
-    play_persistent_sound((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((void *)(arg0), 0x4003A81D)))), (s32)(arg0), (u32)((void *) (arg0 + 0x38)), 0, 0);
+    play_persistent_sound((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003A81D)))), (s32)arg0, (u32)((void *)(arg0 + 0x38)), 0, 0);
 }
 
 void TObjEneRe4Sorcerer::create_effect() {
@@ -2099,11 +2099,11 @@ s32 TObjEneRe4Sorcerer::cast_technique() {
             *(s16 *)((s8 *)arg0 + 0x41C) = obj_getField1c(*(void **)((s8 *)arg0 + 0x390));
             *(s16 *)((s8 *)arg0 + 0x41E) = 0;
             if (TObjEneDD::check_v2_mode() != 0) {
-                TTecGrants::create((void *)arg0, (void *)src, (void *)(arg0 + 0x418), (void *)(TObjEneDD::clamp_frame_index(*(s32 *)((s8 *)sorcerer_behavior_params + 0x18))));
+                TTecGrants::create((void *)arg0, (void *)src, arg0 + 0x418, (void *)(TObjEneDD::clamp_frame_index(*(s32 *)((s8 *)sorcerer_behavior_params + 0x18))));
             } else if (TLobby::get_instance() == 1) {
-                ((TTecGiZonde *)arg0)->create((void *)src, (void *)(arg0 + 0x418), (void *)(TObjEneDD::clamp_frame_index(*(s32 *)((s8 *)sorcerer_behavior_params + 0x18))));
+                ((TTecGiZonde *)arg0)->create((void *)src, arg0 + 0x418, (void *)(TObjEneDD::clamp_frame_index(*(s32 *)((s8 *)sorcerer_behavior_params + 0x18))));
             } else {
-                ((TTecRaFoie *)arg0)->create_ex((void *)src, (void *)(arg0 + 0x418), (void *)(TObjEneDD::clamp_frame_index(*(s32 *)((s8 *)sorcerer_behavior_params + 0x18))));
+                ((TTecRaFoie *)arg0)->create_ex((void *)src, arg0 + 0x418, (void *)(TObjEneDD::clamp_frame_index(*(s32 *)((s8 *)sorcerer_behavior_params + 0x18))));
             }
         } else if (TObjEneDD::check_v2_mode() != 0) {
             TTecMegid::create((s32)arg0, (s32)src, (s32)(*(u8 **)((s8 *)arg0 + 0x390) + 0x38), (s32)(TObjEneDD::clamp_frame_index(*(s32 *)((s8 *)sorcerer_behavior_params + 0x1C))));
@@ -2164,7 +2164,7 @@ void TObjEneRe4Sorcerer::set_photon_state() {
 s32 TObjEneRe4Sorcerer::update_farthest_target(s32 arg1, f32 *arg2) {
     f32 temp_f1;
     if ((((s32 (*)(void *))is_alive__9TObjEneDDFv)((void *)arg1) != 0) && (TObjEneRe4Sorcerer::check_shield((s32)((void *) (((u8 *)this))), (void *)((void *)arg1)) != 0)) {
-        temp_f1 = horizontal_distance_squared((void *) (((u8 *)this) + 0x38), (void *) (arg1 + 0x38));
+        temp_f1 = horizontal_distance_squared((void *) (((u8 *)this) + 0x38), (void *)(arg1 + 0x38));
         if ((temp_f1 <= lbl_805DA7E4) && (temp_f1 > *arg2)) {
             *arg2 = temp_f1;
             *(s16 *)((s8 *)((u8 *)this) + 0x38C) = obj_getField1c((void *)arg1);
@@ -2371,7 +2371,7 @@ void TObjEneRe4Sorcerer::update_collision_center() {
     *(f32 *)((s8 *)arg0 + 0x2FC) = (f32) *(f32 *)((s8 *)arg0 + 0x38);
     *(f32 *)((s8 *)arg0 + 0x300) = (f32) (TObjEneRe4Sorcerer__data_805DA794 + *(f32 *)((s8 *)arg0 + 0x3C));
     *(f32 *)((s8 *)arg0 + 0x304) = (f32) *(f32 *)((s8 *)arg0 + 0x40);
-    ((s32 (*)(void *, void *, void *, f32))VecCopy__FP3VecPC3Vec)((void *) (arg0 + 0x74), (void *) (arg0 + 0x2FC), arg0, TObjEneRe4Sorcerer__data_805DA794);
+    ((s32 (*)(void *, void *, void *, f32))VecCopy__FP3VecPC3Vec)(arg0 + 0x74, arg0 + 0x2FC, arg0, TObjEneRe4Sorcerer__data_805DA794);
 }
 
 void TObjEneRe4Sorcerer::vfunc_61() {  }
@@ -2380,7 +2380,7 @@ void TObjEneRe4Sorcerer::vfunc_62() {
     u8 *arg0 = (u8 *)this;
     if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 8) {
         if (!(*(s32 *)((s8 *)arg0 + 0x3C8) & 8)) {
-            ((int (*)(void*, void*))transition_enemy_state)((void*)(arg0), (void*)(8));
+            ((int (*)(void*, void*))transition_enemy_state)(arg0, (void*)(8));
             return;
         }
         ((s32 (*)(void))clear_attack_receipts__9TObjEneDDFv)();
@@ -2485,7 +2485,7 @@ void TObjEneRe4Sorcerer::init_enemy() {
     id = self->f1C + 1;
     n = self->f2C + 1;
     self->f3E4 = id;
-    ((TObjEneRe4Bit *)arg0)->create_disabled((s32)(&self->v3CC[0]), (s32)(id++), (s32)(n++));
+    ((TObjEneRe4Bit *)arg0)->create_disabled((s32)&self->v3CC[0], (s32)(id++), (s32)(n++));
     self->f3E6 = id;
     ((void (*)(void *, void *, u16, s32)) create_enabled__13TObjEneRe4BitFlll)(arg0, &self->v3CC[1], id, n);
     *(s32 *)((s8 *)arg0 + 0x3E8) = 0;
@@ -2494,7 +2494,7 @@ void TObjEneRe4Sorcerer::init_enemy() {
     *(s32 *)((s8 *)arg0 + 0x3F4) = *(s16 *)((s8 *)arg0 + 0x2CC);
     *(f32 *)((s8 *)arg0 + 0x3F8) = 1.0f;
     ((VObj_14_fa0828 *)(arg0 + (1020)))->m3();
-    ((s32 (*)(void *))fn_80044330)((void *) (arg0 + 0x418));
+    ((s32 (*)(void *))fn_80044330)(arg0 + 0x418);
     for (i = 0; i < 4; i++) {
         ((TObjPlayer *)(&self->e474[i]))->activate_and_dispatch();
     }
@@ -2561,7 +2561,7 @@ void TObjEneRe4Sorcerer::load_resources() {
     TObjEneRe4Sorcerer__uv_scroll_buffer = r;
     Params_800F0464 p = re4_sorcerer_spawn_descriptor;
     p.a = *(s32 *)((s8 *)sorcerer_bml_resource + 0x430);
-    TLobby::spawn_npc_enemy((s16)0x2A, (s32)(*(s32 *)((s8 *)(*(u8 **)((s8 *)sorcerer_bml_resource + 0x42C)) + 8)), (s32)(*(s32 *)((s8 *)(*(u8 **)((s8 *)sorcerer_bml_resource + 0x42C)) + 0xC)), (s32)(&p), re4_sorcerer_collision_body_part_table[3], (f32)TObjEneRe4Sorcerer__data_805DA78C);
+    TLobby::spawn_npc_enemy((s16)0x2A, (s32)(*(s32 *)((s8 *)(*(u8 **)((s8 *)sorcerer_bml_resource + 0x42C)) + 8)), (s32)(*(s32 *)((s8 *)(*(u8 **)((s8 *)sorcerer_bml_resource + 0x42C)) + 0xC)), (s32)&p, re4_sorcerer_collision_body_part_table[3], (f32)TObjEneRe4Sorcerer__data_805DA78C);
 }
 
 void TBoss3Volopt__sub_800F059C(void) {  }

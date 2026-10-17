@@ -557,14 +557,14 @@ typedef char RecoveredGlobal_803F94A0_lbl_805BF770_size[sizeof(RecoveredGlobal_8
 void TLobby::clear_slot_for_handle(u32 arg0) {
     s32 var_r5;
     var_r5 = 0;
-    if (arg0 != (u32) *(u32 *)((s8 *)(&network_message_queue_slot_table.value) + 4)) {
+    if (arg0 != (u32) *(u32 *)((s8 *)&network_message_queue_slot_table.value + 4)) {
         var_r5 = 1;
-        if (arg0 != (u32) *(u32 *)((s8 *)(&network_message_queue_slot_table.value) + 0x3AC)) {
+        if (arg0 != (u32) *(u32 *)((s8 *)&network_message_queue_slot_table.value + 0x3AC)) {
             var_r5 = 2;
         }
     }
     if (var_r5 < 2) {
-        *(s32 *)((s8 *)((u8 *)(&network_message_queue_slot_table.value) + (var_r5 * 0x3A8)) + 0) = 0;
+        *(s32 *)((s8 *)((u8 *)&network_message_queue_slot_table.value + (var_r5 * 0x3A8)) + 0) = 0;
     }
 }
 
@@ -733,10 +733,10 @@ s32 NetIPv6CPSetInterfaceIdentifier(u8 *arg0, s32 arg1) {
     s32 sp18;
     s32 sp14;
     s32 sp10;
-    NetMemset((void *)((void *) (&sp18)), 0xFF, 8);
-    if (NetMemcmp((void *)(arg1), (void *)((void *) (&sp18)), 8) != 0) {
-        NetMemcpy((void *)((void *) (&sp14)), (void *)(arg1), 4);
-        NetMemcpy((void *)((void *) (&sp10)), (void *)((void *) (arg1 + 4)), 4);
+    NetMemset((void *)(&sp18), 0xFF, 8);
+    if (NetMemcmp((void *)arg1, (void *)((void *)&sp18), 8) != 0) {
+        NetMemcpy((void *)((void *)&sp14), (void *)arg1, 4);
+        NetMemcpy((void *)(&sp10), (void *)(arg1 + 4), 4);
         ((Fields_arg0*)arg0)->field_8 = sp14;
         ((Fields_arg0*)arg0)->field_C = sp10;
         ((Fields_arg0*)arg0)->field_4 = (s16) (((Fields_arg0*)arg0)->field_4 | 2);
@@ -772,7 +772,7 @@ void TLobby__sub_803FA280(void) {
 typedef char RecoveredGlobal_803FB110_lbl_805BFF68_size[sizeof(RecoveredGlobal_803FB110_lbl_805BFF68) == 0xD0 ? 1 : -1];
 
 void NetIPv6CPCancelTimer(s32 arg0) {
-    TLobby__sub_80405304((void *)((void *) (arg0 + 0x10)));
+    TLobby__sub_80405304((void *)(arg0 + 0x10));
 }
 
 void TLobby__sub_803FA2A8(P_803FA2A8 *o) {
@@ -1079,7 +1079,7 @@ struct Self_8040098C;
 #pragma dont_inline off
 #pragma inline_depth(4)
 #define FWD_80405A74()                                                       \
-    (*(s16 *)(G + 0x13A))++;                                            \
+    (*(G + 0x13A))++;                                            \
     t = (Strm_80405A74 *)((TLobby *)arg0)->alloc_from_buffer(4); \
     p = t->p;                                                                \
     *p++ = 0xFF;                                                             \
@@ -1087,7 +1087,7 @@ struct Self_8040098C;
     write_network_u16_be(p, code);                                           \
     u = t;                                                                   \
     if (u == NULL) {                                                         \
-        (*(s16 *)(G + 0x142))++;                                        \
+        (*(G + 0x142))++;                                        \
         return;                                                              \
     }                                                                        \
     if (TLobby__sub_80401BCC(&u, &lobby_ppp_read_buf, 2) == 2) {                   \

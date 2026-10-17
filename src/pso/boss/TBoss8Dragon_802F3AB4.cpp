@@ -20,10 +20,10 @@ s32 setup_attack_slot__12TBoss8DragonFiUiiiPv(s32 arg0, u32 arg1, s32 arg2, s32 
     if ((arg3 < 0) || (arg3 > 5)) {
         return 0;
     }
-    TBoss4DarkFalz__sub_8004B4F0(arg4, (void *) (arg0 + 0x1C));
-    *(s16 *)((s8 *)arg4 + 0) = TBoss8Dragon__sub_802F3C94((void *)(arg0), (s32)(arg3));
+    TBoss4DarkFalz__sub_8004B4F0(arg4, (void *)(arg0 + 0x1C));
+    *(s16 *)((s8 *)arg4 + 0) = TBoss8Dragon__sub_802F3C94((void *)arg0, (s32)arg3);
     *(s16 *)((s8 *)arg4 + 2) = 0;
-    *(s16 *)((s8 *)arg4 + 6) = ((TBoss8Dragon *)arg0)->get_part_count_plus((s32)(arg3));
+    *(s16 *)((s8 *)arg4 + 6) = ((TBoss8Dragon *)arg0)->get_part_count_plus(arg3);
     if (arg1 != 0U) {
         VecCopy((Vec *)(arg4 + 0x10), (const Vec *)(arg1));
     }

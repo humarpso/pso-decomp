@@ -67,7 +67,7 @@ void TObjCMIcon::reset_icon_flags() {
 }
 
 void TObjCMIcon__sub_802994B0(s32 arg0) {
-    *(s32 *)((s8 *)((u8 *)(&TObjCMIcon__icon_entries.value) + (arg0 * 0xC)) + 0) = 0;
+    *(s32 *)((s8 *)((u8 *)&TObjCMIcon__icon_entries.value + (arg0 * 0xC)) + 0) = 0;
 }
 
 typedef char RecoveredGlobal_8029951C_lbl_8046518C_size[sizeof(RecoveredGlobal_8029951C_lbl_8046518C) == 0xC ? 1 : -1];
@@ -87,7 +87,7 @@ void TObjCMIcon::init_icon_table() {
     var_r29 = 0;
     var_r30 = (s32 *)(&(*(RecoveredGlobal_8029951C_TObjCMIcon__data_805409E0 *)&TObjCMIcon__icon_entries).value);
     do {
-        TObjCMIcon__sub_8029957C((void*)((int)var_r30), (void*)((void *) (&lbl_8046518C.value)));
+        TObjCMIcon__sub_8029957C((void*)((int)var_r30), (void*)(&lbl_8046518C.value));
         var_r29 += 1;
         var_r30 = (s32 *)((u8 *)((s32 *)((u8 *)var_r30 + 0xC)));
     } while (var_r29 < 7);

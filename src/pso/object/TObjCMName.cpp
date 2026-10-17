@@ -795,9 +795,9 @@ void TObjCMAutoMkData::run_task() {
         *sel = v;
       }
     }
-      self->color[0] = (u8) ((s32) ((lbl_805DDAF8 * (lbl_805DDAF4 * ((f32) ((int)rand())))) + ((f32) (self->color[0] + 0x40))));
-      self->color[1] = (u8) ((s32) ((lbl_805DDAF8 * (lbl_805DDAF4 * ((f32) ((int)rand())))) + ((f32) (self->color[1] + 0x40))));
-      self->color[2] = (u8) ((s32) ((lbl_805DDAF8 * (lbl_805DDAF4 * ((f32) ((int)rand())))) + ((f32) (self->color[2] + 0x40))));
+      self->color[0] = (u8) ((s32) ((lbl_805DDAF8 * (lbl_805DDAF4 * ((f32) ((int)rand())))) + (self->color[0] + 0x40)));
+      self->color[1] = (u8) ((s32) ((lbl_805DDAF8 * (lbl_805DDAF4 * ((f32) ((int)rand())))) + (self->color[1] + 0x40)));
+      self->color[2] = (u8) ((s32) ((lbl_805DDAF8 * (lbl_805DDAF4 * ((f32) ((int)rand())))) + (self->color[2] + 0x40)));
       if ((self->shape[0] += (lbl_805DDAC8 * (lbl_805DDAF4 * ((f32) ((int)rand())))) + lbl_805DDAFC) >= 1.0f)
     {
       self->shape[0] -= 1.0f;
@@ -1451,7 +1451,7 @@ s32 TObjCMMainMenu::try_pay_fee() {
         play_sound_effect(0xB20C, 0, 0, 0);
         return 0;
     }
-    *(s32 *)((s8 *)temp_r3 + 0x36C) = (s32) (temp_r4 - 0x2710);
+    *(s32 *)((s8 *)temp_r3 + 0x36C) = (temp_r4 - 0x2710);
     play_sound_effect(0x44E03, 0, 0, 0);
     return 1;
 }
@@ -1500,7 +1500,7 @@ void open_hair_menu__14TObjCMMainMenuFPv(void *arg0) {
 void open_assign_menu__14TObjCMMainMenuFPv(u8 *arg0) {
     play_sound_effect(0x52D01, (s32)(0U), 0, 0);
     TObjCMMainMenu__data_805D659C = 1;
-    ((s32 (*)(s32, s32))create__16TObjCMAssignMenuFPvPv)(*(s32 *)((s8 *)arg0 + 0x50), *(s32 *)((s8 *)(&TObjCMMainMenu__data_804DB9C8.value) + (*(s32 *)((s8 *)(*(s32 *)((s8 *)arg0 + 0x24)) + (*(s32 *)((s8 *)arg0 + 0x2C) * 4)) * 0x10)));
+    ((s32 (*)(s32, s32))create__16TObjCMAssignMenuFPvPv)(*(s32 *)((s8 *)arg0 + 0x50), *(s32 *)((s8 *)&TObjCMMainMenu__data_804DB9C8.value + (*(s32 *)((s8 *)(*(s32 *)((s8 *)arg0 + 0x24)) + (*(s32 *)((s8 *)arg0 + 0x2C) * 4)) * 0x10)));
 }
 
 #pragma push
@@ -1821,7 +1821,7 @@ void TObjCMMainMenu::handle_creation_input() {
             temp_r0 = this->selected_entry - 1;
             this->selected_entry = temp_r0;
             if (temp_r0 < 0) {
-                this->selected_entry = (s32) (this->entry_count - 1);
+                this->selected_entry = (this->entry_count - 1);
             }
             play_sound_effect(0x54100, 0, 0, 0);
         }
@@ -2123,7 +2123,7 @@ s32 *TObjCMMainMenu__sub_80298DD4(void) {
 }
 
 s32 get_creation_pad(void) {
-    return *(s32 *)((s8 *)(&controller_physical_port_bank.value) + (TChCrEffCtrlPl::get_clamped_player_index() * 4));
+    return *(s32 *)((s8 *)&controller_physical_port_bank.value + (TChCrEffCtrlPl::get_clamped_player_index() * 4));
 }
 
 }

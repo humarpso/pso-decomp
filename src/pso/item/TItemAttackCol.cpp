@@ -221,7 +221,7 @@ void TItemAttackCol__vt5(s32 arg0) {
 
     VecCopy((Vec *)&sp8, (const Vec *)(arg0 + 0xD0));
     vec3_add_to(&sp8, arg0 + 0x24);
-    ((TItemAttackCol *)arg0)->move_with_collision((void *)(&sp8));
+    ((TItemAttackCol *)arg0)->move_with_collision(&sp8);
 }
 
 extern s32 __vt__14TItemAttackCol[];
@@ -234,13 +234,13 @@ void TItemAttackCol::move_with_collision(void *arg1) {
     hit = csnVector((u8 *)&this->m_24, arg1, 0x8100);
     if (hit != NULL) {
         ((TObjPlayer *)(arg0 + 0xE0))->set_flags(1);
-        VecCopy((Vec *)((s32 *)(arg0 + 0x24)), (const Vec *)(hit->pos));
+        VecCopy((Vec *)(arg0 + 0x24), (const Vec *)(hit->pos));
         cb = *(Cb_802E3D8C *)((s8 *)arg0 + 0x138);
         if (cb != NULL) {
             cb(this->m_ac, (u8 *)&this->m_24, (u8 *)&this->m_d0);
         }
     } else {
-        VecCopy((Vec *)((s32 *)(arg0 + 0x24)), (const Vec *)(arg1));
+        VecCopy((Vec *)(arg0 + 0x24), (const Vec *)(arg1));
     }
 }
 
@@ -258,10 +258,10 @@ void TItemAttackCol::render() {
             attack_collider_render_owner = (int)arg0;
             attack_collider_active_count = 0;
             push_matrix();
-            post_translate_matrix((void *) (arg0 + 0x24));
-            rotate_matrix_by_node_angles((void *) (arg0 + 0xF0), 1);
-            rotate_matrix_by_node_angles((void *) (arg0 + 0xFC), 1);
-            scale_current_matrix((void *) (arg0 + 0x108));
+            post_translate_matrix(arg0 + 0x24);
+            rotate_matrix_by_node_angles(arg0 + 0xF0, 1);
+            rotate_matrix_by_node_angles(arg0 + 0xFC, 1);
+            scale_current_matrix(arg0 + 0x108);
             run_with_transform_context__10TObjPlayerFii(this->m_e8, (void *) TItemAttackCol::add_to_active_list);
             pop_matrix();
             attack_collider_render_owner = 0;
@@ -290,22 +290,22 @@ void TItemAttackCol::run_task() {
     this->vfunc_7();
     temp_r3 = this->m_12c;
     if (temp_r3 != 0U) {
-        copy_position__15TEffStarLight2DFPv(temp_r3, (void *) (arg0 + 0x24));
+        copy_position__15TEffStarLight2DFPv(temp_r3, arg0 + 0x24);
     }
     temp_r3_2 = this->m_130;
     if (temp_r3_2 != 0U) {
-        ((TNowLoading *)temp_r3_2)->copy_pos((void *) (arg0 + 0x24));
+        ((TNowLoading *)temp_r3_2)->copy_pos(arg0 + 0x24);
     }
     temp_r3_3 = this->m_134;
     if (temp_r3_3 != 0U) {
-        ((TNowLoading *)temp_r3_3)->copy_pos((void *) (arg0 + 0x24));
+        ((TNowLoading *)temp_r3_3)->copy_pos(arg0 + 0x24);
     }
     temp_r3_4 = this->m_140;
     if (temp_r3_4 != 0U) {
-        ((TNowLoading *)temp_r3_4)->copy_pos((void *) (arg0 + 0x24));
+        ((TNowLoading *)temp_r3_4)->copy_pos(arg0 + 0x24);
     }
     check_hits__14TItemAttackColFPv(arg0);
-    if ((this->m_dc <= vec_distance_squared((void *) (arg0 + 0x24), (void *) (arg0 + 0xC4))) || (test_flags_any((void *) (arg0 + 0xE0), 1) != 0)) {
+    if ((this->m_dc <= vec_distance_squared(arg0 + 0x24, arg0 + 0xC4)) || (test_flags_any(arg0 + 0xE0, 1) != 0)) {
         queue_destruction__7TObjectFv(arg0);
     }
 }
@@ -385,7 +385,7 @@ s32 TUnk_804E355C::resolve_attack_col_hit(u8 *arg1) {
             break;
         }
         temp_r31_2 = (s32) var_f31;
-        TObjPlayer::calc_photon_blast_charge((void *)temp_r29, (s32)(temp_r31_2));
+        TObjPlayer::calc_photon_blast_charge((void *)temp_r29, temp_r31_2);
         ((VObj_18_f2ea1e *)(temp_r29))->m73();
         apply_camera_shake__10TObjPlayerFiii((s32)temp_r29, (s32)temp_r30, (s32)temp_r31_2);
         ((TObjPlayer *)(&stack.sp8))->reset_status_block();
@@ -394,7 +394,7 @@ s32 TUnk_804E355C::resolve_attack_col_hit(u8 *arg1) {
         stack.spC = temp_r29;
         stack.sp14 = temp_r30;
         stack.sp18 = *(s32 *)((s8 *)arg1 + 4);
-        play_weapon_hit_sound((void *) (&stack.sp8));
+        play_weapon_hit_sound(&stack.sp8);
         return 1;
     }
     return 0;

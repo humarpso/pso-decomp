@@ -53,7 +53,7 @@ s32 TAdTrialAgreementGC::check_card_file(s32 arg0) {
     }
     wait_for_load__19TAdTrialAgreementGCFv(arg0);
     temp_r3 = find_card_file__15TAdPlayerLoadGCFiPv(0, (const char *)pso_system_card_filename);
-    if ((temp_r3 == 0) || ((u32) (temp_r3 + 0x10000) == 0xFF41U)) {
+    if ((temp_r3 == 0) || ((temp_r3 + 0x10000) == 0xFF41U)) {
         return 1;
     }
     return 0;
@@ -83,7 +83,7 @@ u8 *TAdTrialAgreementGC__ct(u8 *arg0) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80335870___vt__19TAdTrialAgreementGC *)&__vt__19TAdTrialAgreementGC).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TAdTrialAgreementGC__name;
     *(s32 *)&((TAdTrialAgreementGC *)arg0)->m_38 = 0;
-    if (TAdTrialAgreementGC::check_card_file((s32)(arg0)) != 0) {
+    if (TAdTrialAgreementGC::check_card_file((s32)arg0) != 0) {
         ((TAdTrialAgreementGC *)(arg0))->vfunc_7();
         queue_destruction__7TObjectFv((arg0));
         return arg0;
@@ -98,7 +98,7 @@ u8 *TAdTrialAgreementGC__ct(u8 *arg0) {
 }
 
 void TAdTrialAgreementGC::draw_record_with_camera(s32 arg0, s32 arg1, s32 arg2) {
-    TLobby::draw_with_camera((s32)((void *) (TLobby::get_record((int)(arg1)))), (s32)(arg2), 0x20, (f32)(lbl_805DF8B0));
+    TLobby::draw_with_camera((s32)((void *) (TLobby::get_record(arg1))), arg2, 0x20, lbl_805DF8B0);
 }
 
 }

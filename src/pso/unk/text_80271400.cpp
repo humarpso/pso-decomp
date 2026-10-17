@@ -22,7 +22,7 @@ s32 create_status_window(s32 arg0) {
     temp_r3 = __nw__7TObjectFUl(0x78);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = TWindowStatus__ct((int)temp_r3, (int)window_layout_position, (void *)arg0, (void *) (&lbl_804D0F78.value));
+        var_r0 = TWindowStatus__ct((int)temp_r3, (int)window_layout_position, (void *)arg0, &lbl_804D0F78.value);
     }
     return var_r0;
 }

@@ -365,7 +365,7 @@ s16 TLobby__sub_804262CC(void *argp) {
         }
         ((TLobby *)arg0)->copy_6_byte_config();
         var_r29 = 0;
-        var_r30 = (s16 *)((u8 *)(arg0 + 6));
+        var_r30 = (s16 *)(arg0 + 6);
         do {
             if ((s16) *(s16 *)((s8 *)var_r30 + 0) > 0) {
                 enable_network_multicast_address(((u8 *)var_r30 + 2));
@@ -382,7 +382,7 @@ s16 TLobby__sub_804262CC(void *argp) {
     OSInitMessageQueue(lbl_805CF240, lbl_805CF240 + 0x20, 0x20);
     OSInitMessageQueue(TLobby__pppoe_message_queue, TLobby__pppoe_message_queue + 0x20, 0x20);
     OSInitMessageQueue(lbl_805CF380, lbl_805CF380 + 0x20, 0xA);
-    if (TLobby__sub_803F9B94((void *) (&TLobby::message_thread_loop), (void *) (&lobby_message_thread_handle)) < 0) {
+    if (TLobby__sub_803F9B94((void *) (&TLobby::message_thread_loop), &lobby_message_thread_handle) < 0) {
         return -1;
     }
     NetResumeThread((void *)lobby_message_thread_handle);

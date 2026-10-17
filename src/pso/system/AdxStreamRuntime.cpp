@@ -460,7 +460,7 @@ void TLobby::clear_net_buffer_1680() {
 }
 
 void TLobby::clear_buffer_1680() {
-    memset((void *) (&adx_encoder_context_pool.value), 0, 0x1680);
+    memset(&adx_encoder_context_pool.value, 0, 0x1680);
 }
 
 u32 strlen(const char *);
@@ -1176,7 +1176,7 @@ void TLobby::si_get_type_async() {
 
 typedef char RecoveredGlobal_803C90B0_lbl_80575140_size[sizeof(RecoveredGlobal_803C90B0_lbl_80575140) == 0xA00 ? 1 : -1];
 s32 TLobby::clear_buffer_a00() {
-    memset((void *) (&adx_stream_read_requests.value), 0, 0xA00);
+    memset(&adx_stream_read_requests.value, 0, 0xA00);
     return 1;
 }
 
@@ -2322,14 +2322,14 @@ void TLobby__sub_803CAEB4(Conn_803CAEB4 *o) {
       return;
     }
     n = hlen;
-    r1 = TLobby::find_terminator_index((s16 *)(a.p + n), (s32)(a.len - n), (s16 *)(&hlen));
+    r1 = TLobby::find_terminator_index((s16 *)(a.p + n), (s32)(a.len - n), &hlen);
     if (r1 == 0)
     {
       r2 = -1;
     }
     else
     {
-      r2 = TLobby::find_terminator_index((s16 *)b.p, (s32)b.len, (s16 *)(&tlen));
+      r2 = TLobby::find_terminator_index((s16 *)b.p, (s32)b.len, &tlen);
     }
     n += hlen;
     m = tlen & 0xFFFFFFFFFFFFFFFFu;
@@ -2431,9 +2431,9 @@ void TLobby::update_receive_check() {
     }
     if ((s32) *(s32 *)&this->m_next == 2) {
         if ((s32) *(s32 *)&this->m_down == 1) {
-            *(u32 *)&this->m_up = decode_adx_mono_blocks((int) (*(s32 *)((s8 *)arg0 + 0x18)), (int) (*(s32 *)((s8 *)arg0 + 0x1C)), (int) (*(s32 *)((s8 *)arg0 + 0x20)), (void *) (arg0 + 0x28), (int) (*(s16 *)((s8 *)arg0 + 0x30)), (int) (*(s16 *)((s8 *)arg0 + 0x32)));
+            *(u32 *)&this->m_up = decode_adx_mono_blocks((int) (*(s32 *)((s8 *)arg0 + 0x18)), (int) (*(s32 *)((s8 *)arg0 + 0x1C)), (int) (*(s32 *)((s8 *)arg0 + 0x20)), arg0 + 0x28, (int) (*(s16 *)((s8 *)arg0 + 0x30)), (int) (*(s16 *)((s8 *)arg0 + 0x32)));
         } else {
-            *(u32 *)&this->m_up = dispatch_receive_update__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 0x18)), (int) (*(s32 *)((s8 *)arg0 + 0x1C)), (int) (*(s32 *)((s8 *)arg0 + 0x20)), (void *) (arg0 + 0x28), (int) (*(s32 *)((s8 *)arg0 + 0x24)), (void *) (arg0 + 0x2C), (int) (*(s16 *)((s8 *)arg0 + 0x30)), (int) (*(s16 *)((s8 *)arg0 + 0x32)));
+            *(u32 *)&this->m_up = dispatch_receive_update__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 0x18)), (int) (*(s32 *)((s8 *)arg0 + 0x1C)), (int) (*(s32 *)((s8 *)arg0 + 0x20)), arg0 + 0x28, (int) (*(s32 *)((s8 *)arg0 + 0x24)), arg0 + 0x2C, (int) (*(s16 *)((s8 *)arg0 + 0x30)), (int) (*(s16 *)((s8 *)arg0 + 0x32)));
             temp_r0 = *(u32 *)&this->m_up;
             temp_r3 = temp_r0 >> 0x1FU;
             if ((s32) (((temp_r0 & 1) ^ temp_r3) - temp_r3) == 1) {
@@ -2457,7 +2457,7 @@ void TLobby::reset_field_0C() {
 void TLobby::reset_client_state() {
     u8 *arg0 = (u8 *)this;
     *(s32 *)&this->m_next = 0;
-    memset((void *) (arg0 + 0x28), 0, 8);
+    memset(arg0 + 0x28, 0, 8);
 }
 
 void TLobby__sub_803CB4A4(u8 *arg0) {
@@ -2516,7 +2516,7 @@ void TLobby__sub_803CB570(u8 *arg0, u8 *arg1, s16 *arg2) {
 #pragma fp_contract on
 void TLobby::calc_adx_coeffs_at_offset(void *arg1, s32 arg2) {
     s32 arg0 = (s32)this;
-    calc_adx_predictor_coeffs((void *)arg2, arg1, (void *) (arg0 + 0x30), (void *) (arg0 + 0x32));
+    calc_adx_predictor_coeffs((void *)arg2, arg1, (void *)(arg0 + 0x30), (void *)(arg0 + 0x32));
 }
 #pragma pop
 

@@ -69,9 +69,9 @@ void TWindowDD__sub_80342800(u8 *arg0) {
     var_r31 = arg0;
     TWindowDD__sub_80347C50();
     var_r3 = var_r31;
-    update_selection_state__9TWindowDDFPv((void *)(var_r3));
+    update_selection_state__9TWindowDDFPv(var_r3);
     var_r3 = var_r31;
-    if (test_input_flag_4__9TWindowDDFv((void *)(var_r3)) != 0) {
+    if (test_input_flag_4__9TWindowDDFv(var_r3) != 0) {
         play_sound__9TWindowDDFv();
         var_r3 = (u8 *)(var_r31 + (*(s32 *)((s8 *)var_r31 + 0x20) * 4));
         var_r3 = (u8 *)(*(u8 **)((s8 *)var_r3 + 0x24));
@@ -87,14 +87,14 @@ void TWindowDD__sub_80342800(u8 *arg0) {
             *(s16 *)((s8 *)var_r31 + 0xC4) = 1;
         }
         var_r3 = var_r31;
-        TWindowDD__sub_803435A0((void *)(var_r3));
+        TWindowDD__sub_803435A0(var_r3);
         return;
     }
     var_r3 = var_r31;
-    if (TWindowDD__sub_803482B0((void *)(var_r3)) != 0) {
+    if (TWindowDD__sub_803482B0(var_r3) != 0) {
         play_se__9TWindowDDFv();
         var_r3 = var_r31;
-        apply_entry_layout__9TWindowDDFPv((void *)(var_r3));
+        apply_entry_layout__9TWindowDDFPv(var_r3);
     }
 }
 

@@ -52,7 +52,7 @@ void TUnk_804EEF80::render() {
 }
 
 void TUnk_804EEF80::run_task() {
-    this->m_20 = (s32) (this->m_20 + 1);
+    this->m_20 = (this->m_20 + 1);
 }
 
 }

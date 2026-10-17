@@ -289,7 +289,7 @@ void TObjPlayer::update_move_to_target() {
         self->fB8 = ((TObjPlayer *)self)->get_flag_0x388_b24() != 0 ? 1 : 6;
         Vec_8008DD14 d = self->pos;
         subtract_vector(&d, &self->target->pos);
-        ((TObjPlayer *)self)->pick_open_direction((f32 *)(&d), (f32)lbl_805D9624, (f32)lbl_805D9628);
+        ((TObjPlayer *)self)->pick_open_direction((f32 *)&d, (f32)lbl_805D9624, (f32)lbl_805D9628);
         self->state = 1;
         break;
     }
@@ -301,7 +301,7 @@ void TObjPlayer::update_move_to_target() {
         if (this->is_actor_cadence_frame(0x5A) != 0) {
             Vec_8008DD14 d2 = self->pos;
             subtract_vector(&d2, &self->target->pos);
-            ((TObjPlayer *)self)->pick_open_direction((f32 *)(&d2), (f32)lbl_805D9624, (f32)lbl_805D9628);
+            ((TObjPlayer *)self)->pick_open_direction((f32 *)&d2, (f32)lbl_805D9624, (f32)lbl_805D9628);
         }
         VecCopy((Vec *)&self->f290, (const Vec *)&self->pos);
         calc_velocity_toward_destination(self, self->f290, self->f29C, self->info, self->info->f4);

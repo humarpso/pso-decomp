@@ -111,7 +111,7 @@ void TObjEneMoja::vfunc_63() {
         this->m_b8 = 7;
         temp_r6 = (u8 *)(*(u8 * *)&this->m_a4);
         *(s32 *)((s8 *)temp_r6 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r6 + 0x18) & 0xFFFF7FFE);
-        spawn_particle_effect((s32) (arg0 + 0x2FC), 0xF1);
+        spawn_particle_effect((s32)(arg0 + 0x2FC), 0xF1);
         ((TObjPlayer *)arg0)->refresh_lobby_state();
         ((TObjEnemy *)arg0)->send_entity_set_flags();
         this->appearance = 0;
@@ -633,7 +633,7 @@ void TObjPlayer::update_invincibility() {
     }
     update_collisions();
     temp_r4 = *(s16 *)&this->unk_33C;
-    *(s16 *)&this->unk_33C = (s16) (temp_r4 - 1);
+    *(s16 *)&this->unk_33C = (temp_r4 - 1);
     if (temp_r4 < 0) {
         *(s32 *)&this->actorFlags &= 0xFFFFFEFF;
         temp_r4_2 = *(void * *)&this->m_a4;
@@ -814,7 +814,7 @@ s32 TObjEneMoja::update_technique_state(void *self_800AD3D8) {
             pos.z = lbl_805D9C18;
             ((s32 (*)(void *))push_matrix_from)(identity_matrix);
             rotate_matrix_y(0, self->rot_y);
-            ((s32 (*)(int, void *, void *))rotate_vector_by_matrix)(0, (void *)(&pos), (void *)(&pos));
+            ((s32 (*)(int, void *, void *))rotate_vector_by_matrix)(0, &pos, &pos);
             pop_matrices(1);
             ((void (*)(void *, void *))vec3_add_to)(&pos, &self->pos);
             if (self->target != NULL) {
@@ -828,9 +828,9 @@ s32 TObjEneMoja::update_technique_state(void *self_800AD3D8) {
                 switch (self->kind) {
                 case 1:
                     if (ang2 < ((TObjPlayer *)(self->f318))->get_field_0c() / 2 && self->target != NULL) {
-                        TTecMegid::create((s32)self, (s32)(&pos), (s32)(&self->target->pos), (s32)(((TObjEneMoja *)self)->calc_technique_level()));
+                        TTecMegid::create((s32)self, (s32)&pos, (s32)&self->target->pos, (s32)(((TObjEneMoja *)self)->calc_technique_level()));
                     } else {
-                        TTecMegid::create_ex((s32)self, (s32)(&pos), self->rot_y, (s32)(((TObjEneMoja *)self)->calc_technique_level()));
+                        TTecMegid::create_ex((s32)self, (s32)&pos, self->rot_y, (s32)(((TObjEneMoja *)self)->calc_technique_level()));
                     }
                     ((s32 (*)(void *, void *, int, int))play_sound_effect)((void *) 0x4002A60B, &pos, 0, 0);
                     break;
@@ -843,7 +843,7 @@ s32 TObjEneMoja::update_technique_state(void *self_800AD3D8) {
                             dir.z = lbl_805D9BDC;
                             ((s32 (*)(void *))push_matrix_from)(identity_matrix);
                             rotate_matrix_y(0, self->rot_y);
-                            ((s32 (*)(int, void *, void *))rotate_vector_by_matrix)(0, (void *)(&dir), (void *)(&dir));
+                            ((s32 (*)(int, void *, void *))rotate_vector_by_matrix)(0, &dir, &dir);
                             ((s32 (*)())pop_matrix)();
                         }
                         if (self->target != NULL) {
@@ -857,12 +857,12 @@ s32 TObjEneMoja::update_technique_state(void *self_800AD3D8) {
                         dir.z = lbl_805D9BDC;
                         ((s32 (*)(void *))push_matrix_from)(identity_matrix);
                         rotate_matrix_y(0, self->rot_y);
-                        ((s32 (*)(int, void *, void *))rotate_vector_by_matrix)(0, (void *)(&dir), (void *)(&dir));
+                        ((s32 (*)(int, void *, void *))rotate_vector_by_matrix)(0, &dir, &dir);
                         ((s32 (*)())pop_matrix)();
                     }
                     obj = __nw__7TObjectFUl(0x260);
                     if (obj != NULL) {
-                        ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&pos), (u8 *)(&dir), 0x14000000, 20, (f32)(((TObjPlayer *)(self->f318))->get_pos_x()), (f32)lbl_805D9C24);
+                        ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)&pos, (u8 *)&dir, 0x14000000, 20, (f32)(((TObjPlayer *)(self->f318))->get_pos_x()), (f32)lbl_805D9C24);
                     }
                     ((s32 (*)(void *, void *, int, int))play_sound_effect)((void *) 0x4002A408, &pos, 0, 0);
                     break;
@@ -870,13 +870,13 @@ s32 TObjEneMoja::update_technique_state(void *self_800AD3D8) {
             } else {
                 switch (self->kind) {
                 case 1:
-                    ((TTecGiBarta *)self)->create_ex((void *)(&pos), (void *)self->rot_y, (void *)(((TObjEneMoja *)self)->calc_technique_level()));
+                    ((TTecGiBarta *)self)->create_ex(&pos, (void *)self->rot_y, (void *)(((TObjEneMoja *)self)->calc_technique_level()));
                     break;
                 default:
                     if (ang2 < ((TObjPlayer *)(self->f318))->get_field_0c() / 2 && self->target != NULL) {
-                        TTecFoie::create_ex((void *)self, (void *)(&pos), (void *)(&self->target->pos), (void *)(((TObjEneMoja *)self)->calc_technique_level()));
+                        TTecFoie::create_ex((void *)self, &pos, &self->target->pos, (void *)(((TObjEneMoja *)self)->calc_technique_level()));
                     } else {
-                        TTecFoie::create((void *)self, (void *)(&pos), (void *)self->rot_y, (void *)(((TObjEneMoja *)self)->calc_technique_level()));
+                        TTecFoie::create((void *)self, &pos, (void *)self->rot_y, (void *)(((TObjEneMoja *)self)->calc_technique_level()));
                     }
                     break;
                 }
@@ -884,7 +884,7 @@ s32 TObjEneMoja::update_technique_state(void *self_800AD3D8) {
                 dir.z = lbl_805D9BDC;
                 ((s32 (*)(void *))push_matrix_from)(identity_matrix);
                 rotate_matrix_y(0, self->rot_y);
-                ((s32 (*)(int, void *, void *))rotate_vector_by_matrix)(0, (void *)(&dir), (void *)(&dir));
+                ((s32 (*)(int, void *, void *))rotate_vector_by_matrix)(0, &dir, &dir);
                 pop_matrices(1);
                 {
                     f32 xx = dir.x * dir.x;
@@ -1148,7 +1148,7 @@ s32 TObjEneMoja::update_approach_state() {
             if (*(f32 *)((s8 *)((*(u8 * *)&this->movementParameters)) + 0) * *(f32 *)((s8 *)((*(u8 * *)&this->movementParameters)) + 0) < enemy_pursue_point(arg0, *(s32 *)((s8 *)((*(u8 * *)&this->movementParameters)) + 8), &v3, temp_r4, *(f32 *)((s8 *)temp_r4 + 8), lbl_805D9BF0)) {
                 this->target = NULL;
             }
-            if (horizontal_distance_squared((int) (arg0 + 0x29C), (void *) (arg0 + 0x38)) < (*(f32 *)((s8 *)((*(u8 * *)&this->movementParameters)) + 4) + *(f32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0xC)) * (*(f32 *)((s8 *)((*(u8 * *)&this->movementParameters)) + 4) + *(f32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0xC))
+            if (horizontal_distance_squared((int)(arg0 + 0x29C), (void *)(arg0 + 0x38)) < (*(f32 *)((s8 *)((*(u8 * *)&this->movementParameters)) + 4) + *(f32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0xC)) * (*(f32 *)((s8 *)((*(u8 * *)&this->movementParameters)) + 4) + *(f32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0xC))
                 || --(*(s16 *)&this->timer) < 0) {
                 this->attackSequence = 0;
             }
@@ -1639,10 +1639,10 @@ void TObjEneMoja::run_task() {
             update_approach_state();
             break;
         case 4:
-            TObjEneMoja::update_punch_attack((void *)(arg0));
+            TObjEneMoja::update_punch_attack(arg0);
             break;
         case 5:
-            TObjEneMoja::update_technique_state((void *)(arg0));
+            TObjEneMoja::update_technique_state(arg0);
             break;
         case 6:
             update_attack_jump__11TObjEneMojaFv((Obj_800ACFE8 *) (arg0));
@@ -1670,7 +1670,7 @@ void TObjEneMoja::run_task() {
     }
     temp_f1 = this->m_2b4;
     this->m_2b4 = (f32) (temp_f1 + lbl_805D9BDC);
-    minimap_render_dot((void *) (arg0 + 0x38), -0x5DB4, 1, 0, temp_f1);
+    minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0, temp_f1);
 }
 
 }

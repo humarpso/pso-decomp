@@ -122,17 +122,17 @@ void TOKeyMachine01::vfunc_19() {
     s32 temp_r3_2;
     s32 temp_r3_3;
     if (((s32) enable_v2_features == 1) && ((TOKeyMachine01::get_global_state() == 0x10) || (TOKeyMachine01::get_global_state() == 0x11))) {
-        temp_r3 = *(s32 *)((s8 *)(&key_machine01_state_table.value) + (TOKeyMachine01::get_global_state() * 4));
+        temp_r3 = *(s32 *)((s8 *)&key_machine01_state_table.value + (TOKeyMachine01::get_global_state() * 4));
         if (temp_r3 >= 0) {
             play_sound_effect(temp_r3, arg0 + 0x38, 0, 0);
         }
     } else if (((s32) enable_v2_features == 1) && ((TOKeyMachine01::get_global_state() == 1) || (TOKeyMachine01::get_global_state() == 2))) {
-        temp_r3_2 = *(s32 *)((s8 *)(&key_machine01_state_table.value) + (TOKeyMachine01::get_global_state() * 4));
+        temp_r3_2 = *(s32 *)((s8 *)&key_machine01_state_table.value + (TOKeyMachine01::get_global_state() * 4));
         if (temp_r3_2 >= 0) {
             play_sound_effect(temp_r3_2, arg0 + 0x38, 0, 0);
         }
     } else {
-        temp_r3_3 = *(s32 *)((s8 *)(&key_machine01_state_table.value) + (TOKeyMachine01::get_global_state() * 4));
+        temp_r3_3 = *(s32 *)((s8 *)&key_machine01_state_table.value + (TOKeyMachine01::get_global_state() * 4));
         if (temp_r3_3 >= 0) {
             play_sound_effect(temp_r3_3, arg0 + 0x38, 0, 0);
         }

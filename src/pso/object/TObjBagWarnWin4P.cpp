@@ -58,7 +58,7 @@ void TObjBagWarnWin4P::run_task() {
     s32 temp_r0;
     if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) == 0U) {
         if (TWindowCtrlMain__sub_8024CE58() != 0) {
-            if (TObjBagWarnWin4P::check_can_open((void *)(arg0)) != 0) {
+            if (TObjBagWarnWin4P::check_can_open(arg0) != 0) {
                 temp_r0 = *(s32 *)((s8 *)arg0 + 0xA0) - 1;
                 *(s32 *)((s8 *)arg0 + 0xA0) = temp_r0;
                 if (temp_r0 < 0) {
@@ -71,7 +71,7 @@ void TObjBagWarnWin4P::run_task() {
                 create_window();
             }
         }
-    } else if (TObjBagWarnWin4P::check_can_open((void *)(arg0)) == 0) {
+    } else if (TObjBagWarnWin4P::check_can_open(arg0) == 0) {
         TWindow__close((int) (*(u32 *)((s8 *)arg0 + 0x1C)));
         *(u32 *)((s8 *)arg0 + 0x1C) = 0U;
         *(s32 *)((s8 *)arg0 + 0xA0) = 0x1E;

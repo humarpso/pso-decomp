@@ -110,7 +110,7 @@ u32 TLobby__sub_80070AD8(s32 arg0) {
     if (arg0 == -1) {
         return -1U;
     }
-    return *(u8 *)((s8 *)((u8 *)(&lbl_804F5A00.value) + (u8) arg0) + 0);
+    return *(u8 *)((s8 *)((u8 *)&lbl_804F5A00.value + (u8) arg0) + 0);
 }
 void set_split_screen_flag__6TLobbyFv(void) {
     if (((s32 (*)(void))is_flag_set__6TLobbyFv)() != 0) {
@@ -453,7 +453,7 @@ s32 TLobby__sub_8007119C(s32 arg0) {
         return -4;
     }
     fabs_float((f32) (var_r31 - *(s32 *)((s8 *)(&(*(RecoveredGlobal_8007119C_lbl_8048C9D8 *)&challenge_mode_state).value) + 0xC)));
-    if (TLobby::check_challenge_time_range((s32)(var_r31)) != 0) {
+    if (TLobby::check_challenge_time_range(var_r31) != 0) {
         var_r31 = 0x8C9F;
     }
     temp_r3 = TLobby__sub_8006F6B0(var_r31);
@@ -508,7 +508,7 @@ s32 TLobby__sub_800712D8(s32 idx, s32 value, s32 arg) {
 s32 *TLobby__sub_800713C8(void) {
     s32 character_save_record;
     character_save_record = get_character_save_record(0xFFFFU);
-    decode_obfuscated_string__6TLobbyFPvi((void *) (&lbl_804FF82C.value), (void *) (character_save_record + 0x229C), 0xC, character_save_record);
+    decode_obfuscated_string__6TLobbyFPvi((void *)&lbl_804FF82C.value, (void *)(character_save_record + 0x229C), 0xC, character_save_record);
     return &lbl_804FF82C.value;
 }
 
@@ -551,7 +551,7 @@ s32 add_entry__6TLobbyFiii(s32 src, s32 arg1, s32 arg2) {
     }
     dst = (unsigned char *) (challenge_mode_state + (*(s32 *)((s8 *)challenge_mode_state + 0x1C) * 0x1C) + 0x5C);
     TLobby::encode_name_xor((u8 *)dst, (u8 *)src, 0xC);
-    TLobby::encode_name_xor((u8 *)(dst + 0xC), (u8 *)arg1, 0xC);
+    TLobby::encode_name_xor(dst + 0xC, (u8 *)arg1, 0xC);
     *(s32 *)((s8 *)dst + 0x18) = arg2;
     *(s32 *)((s8 *)challenge_mode_state + 0x1C) = (s32) (*(s32 *)((s8 *)challenge_mode_state + 0x1C) + 1);
     return 1;
@@ -615,7 +615,7 @@ s32 TLobby::try_set_value(f32 farg0) {
     if ((farg0 < lbl_805D9108) || (farg0 > lbl_805D910C)) {
         return 0;
     }
-    *(f32 *)((s8 *)(&challenge_mode_state) + 4) = farg0;
+    *(f32 *)((s8 *)&challenge_mode_state + 4) = farg0;
     return 1;
 }
 

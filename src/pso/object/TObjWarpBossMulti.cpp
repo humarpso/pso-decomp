@@ -582,13 +582,13 @@ void run_task__17TObjWarpBossMultiFv(Obj_8019DFE8 *self) {
     switch (self->fF0) {
     case 0:
         self->fF8 += self->fFC;
-        if (self->fF8 > (f32)(self->fE0->count - 1)) {
+        if (self->fF8 > (self->fE0->count - 1)) {
             self->fF8 = lbl_805DC000;
         }
         break;
     case 1:
         self->fF8 += self->fFC;
-        if (self->fF8 > (f32)(self->fE4->count - 1)) {
+        if (self->fF8 > (self->fE4->count - 1)) {
             self->fF8 = lbl_805DC000;
         }
         ((TObjAreaWarp *)self)->handle_area_selection();
@@ -681,7 +681,7 @@ s32 TObjWarpBoss::sub_8019E418() {
     if (TObjWarpBossMulti::is_lobby_active() == 0) {
         return 0;
     }
-    if ((*(f32 *)((s8 *)(&controller_input_state.value) + 0x44) > lbl_805DC01C) || (TObjWarpBossMulti__sub_8019E570((s32) arg0, *(f32 *)((s8 *)arg0 + 0xAC)) == 0U)) {
+    if ((*(f32 *)((s8 *)&controller_input_state.value + 0x44) > lbl_805DC01C) || (TObjWarpBossMulti__sub_8019E570((s32) arg0, *(f32 *)((s8 *)arg0 + 0xAC)) == 0U)) {
         return 1;
     }
     return 0;
@@ -1292,7 +1292,7 @@ s32 TObjWarpBossMulti__create(s32 arg0) {
     temp_r3 = ((s32)__nw__7TObjectFUl(0x184));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = ((s32)TObjWarpBoss__ct((Obj_8019F578 *)(temp_r3), (int)((int) ((*(s32 *)&tl_05))), (void *)(arg0)));
+        var_r0 = ((s32)TObjWarpBoss__ct((Obj_8019F578 *)(temp_r3), (int)((int) ((*(s32 *)&tl_05))), (void *)arg0));
     }
     return var_r0;
 }

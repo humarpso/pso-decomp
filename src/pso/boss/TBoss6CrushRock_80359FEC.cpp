@@ -32,13 +32,13 @@ void TBoss6CrushRock::run_task() {
     *(s32 *)((s8 *)arg0 + 0x40) = (s32) (*(s32 *)((s8 *)arg0 + 0x40) + *(s32 *)((s8 *)arg0 + 0x4C));
     *(s32 *)((s8 *)arg0 + 0x44) = (s32) (*(s32 *)((s8 *)arg0 + 0x44) + *(s32 *)((s8 *)arg0 + 0x50));
     *(f32 *)((s8 *)arg0 + 0x34) = (f32) (*(f32 *)((s8 *)arg0 + 0x34) + lbl_805E00B8);
-    vec3_add_to((void *) (arg0 + 0x24), (void *) (arg0 + 0x30));
+    vec3_add_to(arg0 + 0x24, arg0 + 0x30);
     if (*(f32 *)((s8 *)arg0 + 0x28) < lbl_805E00BC) {
         *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805E00BC;
         *(f32 *)((s8 *)arg0 + 0x30) = (f32) (*(f32 *)((s8 *)arg0 + 0x30) * lbl_805E00C0);
         *(f32 *)((s8 *)arg0 + 0x34) = (f32) (*(f32 *)((s8 *)arg0 + 0x34) * lbl_805E00B8);
         *(f32 *)((s8 *)arg0 + 0x38) = (f32) (*(f32 *)((s8 *)arg0 + 0x38) * lbl_805E00C0);
-        if (vector_length((void *) (arg0 + 0x30)) < lbl_805E00C4) {
+        if (vector_length(arg0 + 0x30) < lbl_805E00C4) {
             queue_destruction__7TObjectFv((arg0));
         }
     }

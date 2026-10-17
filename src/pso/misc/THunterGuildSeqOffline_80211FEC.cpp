@@ -55,7 +55,7 @@ s32 THunterGuildSeqOffline__sub_80212074(void) {
     if ((s32) TLobby__designated_client_id == (s32) local_client_id) {
         return 0;
     }
-    player = get_player_by_client_id((int)(local_client_id));
+    player = get_player_by_client_id(local_client_id);
     if (player == 0) {
         return 0;
     }
@@ -63,11 +63,11 @@ s32 THunterGuildSeqOffline__sub_80212074(void) {
     if ((temp_r3_3 != 0x12) && ((temp_r3_3 >= 0x12) || (temp_r3_3 != 0))) {
         return 0;
     }
-    temp_r3_2 = get_player_by_client_id((int)(TLobby__designated_client_id));
+    temp_r3_2 = get_player_by_client_id(TLobby__designated_client_id);
     if (temp_r3_2 == 0) {
         return 0;
     }
-    return (u32)__cntlzw((u32)((xz_distance_squared((void *) (player + 0x38), (void *) (temp_r3_2 + 0x38)) > (*(const f32 *)&THunterGuildSeqOffline__data_805DC648)))) >> 5;
+    return (u32)__cntlzw((u32)((xz_distance_squared((void *)(player + 0x38), (void *)(temp_r3_2 + 0x38)) > (*(const f32 *)&THunterGuildSeqOffline__data_805DC648)))) >> 5;
 }
 
 s32 THunterGuildSeqOffline::check_party_gathered() {
@@ -120,7 +120,7 @@ void TMemberCheck::update_member_proximity() {
             if (var_r30 != (s32) TLobby__designated_client_id) {
                 player = get_player_by_client_id(var_r30);
                 if (player != 0) {
-                    if (xz_distance_squared((void *) (temp_r31 + 0x38), (void *) (player + 0x38)) <= THunterGuildSeqOffline__data_805DC648) {
+                    if (xz_distance_squared((void *)(temp_r31 + 0x38), (void *)(player + 0x38)) <= THunterGuildSeqOffline__data_805DC648) {
                         ((THunterGuildSeqOffline *)(this->m_1C))->advance_matching_entries(1, var_r30);
                     } else {
                         ((THunterGuildSeqOffline *)(this->m_1C))->advance_matching_entries(0, var_r30);

@@ -83,21 +83,21 @@ void TEffClitical::render() {
     s32 sp8;
     s32 temp_r3;
     set_depth_buffer_settings_1();
-    init_texture_copy_rect((void *)((void *) (&sp8)), (s32)(lbl_8048E2E0), (s32)(technique_ringwave_texture_list), 0, (s32)((int) (*(s32 *)((s8 *)arg0 + 0x70) + 1)));
+    init_texture_copy_rect((void *)((void *)&sp8), (s32)lbl_8048E2E0, (s32)technique_ringwave_texture_list, 0, (s32)((int) (*(s32 *)((s8 *)arg0 + 0x70) + 1)));
     temp_r3 = model_render_flags;
     lbl_805D5660 = temp_r3;
     model_render_flags = temp_r3 | 0x10;
     begin_effect_render__13TParticleCtrlFv(temp_r3);
     set_chunk_material_color((f32 *)(arg0 + 0x2C));
-    fn_800829E0((void *) (&sp8));
+    fn_800829E0(&sp8);
     push_matrix();
-    TObjFish::set_global_param((s32)(lbl_8048E2E0));
-    post_translate_matrix((void *) (arg0 + 0x20));
+    TObjFish::set_global_param((s32)lbl_8048E2E0);
+    post_translate_matrix(arg0 + 0x20);
     rotate_matrix_y(0, (int) (*(s32 *)((s8 *)camera_ctrl_instance + 0x194)));
     scale_matrix(0, (f32) (*(f32 *)((s8 *)arg0 + 0x3C)), (f32) (*(f32 *)((s8 *)arg0 + 0x40)), (f32) (*(f32 *)((s8 *)arg0 + 0x44)));
     draw_chunk_object((void *)(*(s32 *)((s8 *)lbl_805D4ED8 + 0)));
     pop_matrix();
-    copy_slot_to_anim_frame((void *) (&sp8));
+    copy_slot_to_anim_frame(&sp8);
     model_render_flags = lbl_805D5660;
     TParticleCtrl::end_effect_render();
     restore_saved_depth_alpha_state();
@@ -118,13 +118,13 @@ void TEffClitical::run_task() {
     Stack_800823E0 stack;
     s32 temp_r0;
     s32 var_r30;
-    stack.sp20 = *(s32 *)((s8 *)(&clitical_vec_a.value) + 0);
-    stack.sp24 = *(s32 *)((s8 *)(&clitical_vec_a.value) + 4);
-    stack.sp28 = *(s32 *)((s8 *)(&clitical_vec_a.value) + 8);
-    stack.sp2C = *(s32 *)((s8 *)(&clitical_vec_a.value) + 0xC);
-    stack.sp14 = *(s32 *)((s8 *)(&clitical_vec_b.value) + 0);
-    stack.sp18 = *(s32 *)((s8 *)(&clitical_vec_b.value) + 4);
-    stack.sp1C = *(s32 *)((s8 *)(&clitical_vec_b.value) + 8);
+    stack.sp20 = *(s32 *)((s8 *)&clitical_vec_a.value + 0);
+    stack.sp24 = *(s32 *)((s8 *)&clitical_vec_a.value + 4);
+    stack.sp28 = *(s32 *)((s8 *)&clitical_vec_a.value + 8);
+    stack.sp2C = *(s32 *)((s8 *)&clitical_vec_a.value + 0xC);
+    stack.sp14 = *(s32 *)((s8 *)&clitical_vec_b.value + 0);
+    stack.sp18 = *(s32 *)((s8 *)&clitical_vec_b.value + 4);
+    stack.sp1C = *(s32 *)((s8 *)&clitical_vec_b.value + 8);
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x74);
     switch (temp_r0) {
     case 1:
@@ -154,11 +154,11 @@ void TEffClitical::run_task() {
         *(s32 *)((s8 *)arg0 + 0x74) = 1;
         break;
     }
-    if (approach_alpha_clamped((void *) (arg0 + 0x2C), (void *) (&stack.sp20), TEffClitical__alpha_approach_step) != 0) {
+    if (approach_alpha_clamped((void *)(arg0 + 0x2C), (void *)&stack.sp20, TEffClitical__alpha_approach_step) != 0) {
         queue_destruction__7TObjectFv((arg0));
         return;
     }
-    approach_vector_in_place((void *) (arg0 + 0x3C), (void *) (&stack.sp14), lbl_805D93AC);
+    approach_vector_in_place((void *)(arg0 + 0x3C), (void *)&stack.sp14, lbl_805D93AC);
     *(s32 *)((s8 *)arg0 + 0x70) = (s32) (*(s32 *)((s8 *)arg0 + 0x70) + 1);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x70) >= 7) {
         *(s32 *)((s8 *)arg0 + 0x70) = 0;

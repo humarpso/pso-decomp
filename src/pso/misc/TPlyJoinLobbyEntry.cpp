@@ -649,7 +649,7 @@ void TLobby::send_6x71_to_player() {
     stack.sp9 = 1;
     stack.spA = 0;
     bswap_packet_header__6TLobbyFv(&stack.sp8);
-    ((TLobby *)(&stack.sp8))->send_subcommand_to_client((u32)(arg0));
+    ((TLobby *)(&stack.sp8))->send_subcommand_to_client(arg0);
 }
 
 void handle_6x70_sync_player_disp_and_inventory(Pkt_801354AC *arg0) {
@@ -675,10 +675,10 @@ void handle_6x70_sync_player_disp_and_inventory(Pkt_801354AC *arg0) {
 void send_6x70_player_data__6TLobbyFi(s32 arg0) {
     Stack_80135598 stack;
     u8 *temp_r3;
-    init_player_join_record((void *) (&stack.sp8));
+    init_player_join_record(&stack.sp8);
     temp_r3 = (u8 *)(mem_alloc(0x494));
     if (temp_r3 != NULL) {
-        fill_player_record__10TObjPlayerFPvPv((void *) (get_player_by_client_id((void *)local_client_id)), (void *) (temp_r3 + 8));
+        fill_player_record__10TObjPlayerFPvPv((void *) (get_player_by_client_id((void *)local_client_id)), temp_r3 + 8);
         *(s8 *)((s8 *)temp_r3 + 0) = 0x70;
         *(s8 *)((s8 *)temp_r3 + 1) = 0;
         *(s16 *)((s8 *)temp_r3 + 2) = (s16) local_client_id;
@@ -692,7 +692,7 @@ void send_6x70_player_data__6TLobbyFi(s32 arg0) {
 #pragma peephole off
 void handle_6x6F_set_quest_flags_v2(s32 arg0) {
     if (((s16) TLobby__data_805D5CE8 == 0) && (((s32) TLobby__data_805D5594 == 0xE) || ((s32) TLobby__data_805D5594 == 0xF))) {
-        memcpy((void *) (&(*(RecoveredGlobal_8013561C_lbl_805127F8 *)&quest_story_flags_by_difficulty).value), (void *) (arg0 + 4), 0x200);
+        memcpy((void *) (&(*(RecoveredGlobal_8013561C_lbl_805127F8 *)&quest_story_flags_by_difficulty).value), (void *)(arg0 + 4), 0x200);
     }
 }
 #pragma pop
@@ -802,9 +802,9 @@ void send_6x6F_quest_flags(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_80135974, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80135974, spC) == 0x4) ? 1 : -1];
     Stack_80135974 stack;
-    TLobby__sub_8013A578((void *) (&stack.sp8));
-    memcpy((void *) (&stack.spC), (void *) (&quest_story_flags_by_difficulty.value), 0x200);
-    bswap_and_handle_packet__6TLobbyFii((void *) (&stack.sp8), (void *)arg0);
+    TLobby__sub_8013A578(&stack.sp8);
+    memcpy(&stack.spC, &quest_story_flags_by_difficulty.value, 0x200);
+    bswap_and_handle_packet__6TLobbyFii(&stack.sp8, (void *)arg0);
 }
 
 void send_6x6E_sync_game_state__6TLobbyFi(s32 arg0) {
@@ -821,7 +821,7 @@ void send_6x6E_sync_game_state__6TLobbyFi(s32 arg0) {
             memset(hdr, 0, 0x4008);
             hdr->f2 = serialize_area_set_flags(hdr->data);
             n = hdr->f2;
-            hdr->f4 = TLobby::export_sync_records((s16 *)(&hdr->data[n]));
+            hdr->f4 = TLobby::export_sync_records((s16 *)&hdr->data[n]);
             n += hdr->f4;
             hdr->f6 = copy_switch_table(&hdr->data[n]);
             n += hdr->f6;
@@ -3684,33 +3684,33 @@ void open_hard_keyboard__6TLobbyFPv(void* p) { TWindowKeyBoardHard::test_card_fl
 
 void bswap_player_data__6TLobbyFi(s32 arg0) {
     s32 i;
-    bswap_16((u16 *)(arg0));
-    bswap_16((u16 *)((void *) (arg0 + 2)));
-    bswap_32((u32 *)((void *) (arg0 + 4)));
-    bswap_32((u32 *)((void *) (arg0 + 8)));
-    bswap_32((u32 *)((void *) (arg0 + 0xC)));
-    bswap_32((u32 *)((void *) (arg0 + 0x10)));
-    bswap_32((u32 *)((void *) (arg0 + 0x14)));
-    bswap_32((u32 *)((void *) (arg0 + 0x18)));
-    bswap_32((u32 *)((void *) (arg0 + 0x1C)));
-    bswap_16((u16 *)((void *) (arg0 + 0x20)));
-    bswap_16((u16 *)((void *) (arg0 + 0x22)));
-    bswap_16((u16 *)((void *) (arg0 + 0x24)));
-    bswap_16((u16 *)((void *) (arg0 + 0x26)));
+    bswap_16((u16 *)arg0);
+    bswap_16((u16 *)(arg0 + 2));
+    bswap_32((u32 *)(arg0 + 4));
+    bswap_32((u32 *)(arg0 + 8));
+    bswap_32((u32 *)(arg0 + 0xC));
+    bswap_32((u32 *)(arg0 + 0x10));
+    bswap_32((u32 *)(arg0 + 0x14));
+    bswap_32((u32 *)(arg0 + 0x18));
+    bswap_32((u32 *)(arg0 + 0x1C));
+    bswap_16((u16 *)(arg0 + 0x20));
+    bswap_16((u16 *)(arg0 + 0x22));
+    bswap_16((u16 *)(arg0 + 0x24));
+    bswap_16((u16 *)(arg0 + 0x26));
     for (i = 0; i < 5; i++) {
         ((TLobby *)(&((struct S_8013A348 *)arg0)->h[i]))->bswap_header_3words();
     }
-    bswap_32((u32 *)((void *) (arg0 + 0x64)));
+    bswap_32((u32 *)(arg0 + 0x64));
     ((TLobby *)(arg0 + 0x68))->bswap_fields();
-    TLobby__sub_8013A9C0((void *) (arg0 + 0x70));
-    bswap_telepipe_record((void *) (arg0 + 0x78));
-    bswap_32((u32 *)((void *) (arg0 + 0x94)));
-    bswap_32((u32 *)((void *) (arg0 + 0xAC)));
-    bswap_32((u32 *)((void *) (arg0 + 0x488)));
-    bswap_32((u32 *)((void *) (arg0 + 0xB0)));
-    bswap__15disp_data_part2Fv((void *) (arg0 + 0xC8));
-    bswap__12player_statsFv((void *) (arg0 + 0x118));
-    bswap_inventory__6TLobbyFPv((void*)((void *) (arg0 + 0x13C)));
+    TLobby__sub_8013A9C0((void *)(arg0 + 0x70));
+    bswap_telepipe_record((void *)(arg0 + 0x78));
+    bswap_32((u32 *)(arg0 + 0x94));
+    bswap_32((u32 *)(arg0 + 0xAC));
+    bswap_32((u32 *)(arg0 + 0x488));
+    bswap_32((u32 *)(arg0 + 0xB0));
+    bswap__15disp_data_part2Fv((void *)(arg0 + 0xC8));
+    bswap__12player_statsFv((void *)(arg0 + 0x118));
+    bswap_inventory__6TLobbyFPv((void*)(arg0 + 0x13C));
 }
 
 void bswap_inventory__6TLobbyFPv(void* p) { bswap_32((u32 *)p); { int i; for (i = 0; i < 30; i++) { bswap__17TPlyInventoryItemFv((char*)p + 0x4 + i * 28); } } }
@@ -3808,13 +3808,13 @@ u8 *copy_player_data__9TProtocolFPvPv(u8 *arg0, u8 *arg1) {
     *(u8 *)((s8 *)arg0 + 2) = (u8) *(u8 *)((s8 *)arg1 + 2);
     *(u8 *)((s8 *)arg0 + 3) = (u8) *(u8 *)((s8 *)arg1 + 3);
     *(ByteBlock_348 *)((s32) arg0 + 4) = *(const ByteBlock_348 *)((s32) arg1 + 4);
-    temp_r6 = (u8 *)(arg0 + 0x348);
-    temp_r4 = (u8 *)(arg1 + 0x348);
+    temp_r6 = (arg0 + 0x348);
+    temp_r4 = (arg1 + 0x348);
     *(ByteBlock_24 *)((s32) temp_r6 + 4) = *(const ByteBlock_24 *)((s32) temp_r4 + 4);
-    *(ByteBlock_50 *)((s32) (arg0 + 0x36C) + 4) = *(const ByteBlock_50 *)((s32) (arg1 + 0x36C) + 4);
-    TObjPlayer__sub_8013A748((void *)((s32) (arg0 + 0x3C0)), (void *)((s32) (arg1 + 0x3C0)));
-    temp_r5 = (u8 *)(arg0 + 0x404);
-    temp_r4_2 = (u8 *)(arg1 + 0x404);
+    *(ByteBlock_50 *)((arg0 + 0x36C) + 4) = *(const ByteBlock_50 *)((arg1 + 0x36C) + 4);
+    TObjPlayer__sub_8013A748((void *)(arg0 + 0x3C0), (void *)(arg1 + 0x3C0));
+    temp_r5 = (arg0 + 0x404);
+    temp_r4_2 = (arg1 + 0x404);
     *(ByteBlock_14 *)((s32) temp_r5 + 4) = *(const ByteBlock_14 *)((s32) temp_r4_2 + 4);
     return arg0;
 }

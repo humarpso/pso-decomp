@@ -295,7 +295,7 @@ void TUnk_80482EC0::vfunc_106(s32 arg1) {
         *(s32 *)((s8 *)((u8 *)this) + 0x3B0) = 0;
         *(s32 *)((s8 *)((u8 *)this) + 0x3C8) = 0;
         temp_r7 = (s32) ((3e+01f) * calc_elapsed_scaled__9TObjEneDDFv((void *) (((u8 *)this)), 0x8000, temp_r5));
-        *(s32 *)((s8 *)((u8 *)this) + 0x3CC) = (s32) (temp_r7 + 0xB4);
+        *(s32 *)((s8 *)((u8 *)this) + 0x3CC) = (temp_r7 + 0xB4);
         play_sound_effect(0x4003A804, (void *) (((u8 *)this) + 0x2FC), 0, 0, temp_r7);
         init_params__10TBoss2MineFlf((void *) (((u8 *)this)), 0x1E, (f32) ((0.25f)));
         return;
@@ -655,7 +655,7 @@ void TBoss2Mine::render() {
     }
     if (self->flags & 2) {
         Vec_80038200 v = lbl_80435AD0;
-        ((TObjEnemy *)self)->render_with_position_override((u8 *)(&v), 0);
+        ((TObjEnemy *)self)->render_with_position_override((u8 *)&v, 0);
     }
     TObjFish::set_global_param((s32)self->f24);
     lbl_805D5660 = model_render_flags;
@@ -751,13 +751,13 @@ void TBoss2Mine::vfunc_107(s32 arg1) {
       *((s32 *) (((s8 *) arg0) + 0x3C8)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x3C8))) + 1);
       if (((s32) (*((s32 *) (((s8 *) arg0) + 0x3C8)))) > 0x1E)
     {
-      temp_r4 = ((u8 *) (&boss2_mine_collision_desc.value)) - 4;
-      *((ByteBlock_14 *) (((s32) (copy_storage_800384C8.bytes - 0x4)) + 4)) = *((const ByteBlock_14 *) (((s32) temp_r4) + 4));
-      *((f32 *) (copy_storage_800384C8.bytes + 0x4)) = TBoss2DeRolLe__sub_80034CEC();
+      temp_r4 = ((u8 *)&boss2_mine_collision_desc.value) - 4;
+      *((ByteBlock_14 *) (((s32)(copy_storage_800384C8.bytes - 0x4)) + 4)) = *((const ByteBlock_14 *) (((s32) temp_r4) + 4));
+      *((f32 *)(copy_storage_800384C8.bytes + 0x4)) = TBoss2DeRolLe__sub_80034CEC();
       TObjEneDD__sub_800BA5A4(arg0, copy_storage_800384C8.bytes);
       spawn_particle_effect_with_flags((void *)((*((s32 *) (((s8 *) arg0) + 0xA4))) + 0x1C), 0x16B, 0x40);
       *((s32 *) (((s8 *) arg0) + 0x3CC)) = 2;
-      play_sound_effect(0x4003AD05, (u32) (arg0 + 0x2FC), 0, 0);
+      play_sound_effect(0x4003AD05, (u32)(arg0 + 0x2FC), 0, 0);
     }
       break;
   }

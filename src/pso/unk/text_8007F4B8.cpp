@@ -14,7 +14,7 @@ s32 fn_8007F4B8(O_8007F4B8 *arg0, s32 arg1, f32 farg0) {
         return 0;
     }
     for (i = 3; i > 0; i--) {
-        fn_8007F560((void*)(&arg0->e[i]), (void*)(&arg0->e[i - 1]));
+        fn_8007F560(&arg0->e[i], &arg0->e[i - 1]);
     }
     arg0->e[0].a = arg1;
     arg0->e[0].f = farg0;

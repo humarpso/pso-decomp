@@ -58,7 +58,7 @@ void TItemEffArmor::render() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     push_matrix();
-    post_translate_matrix((void *) (arg0 + 0x2C));
+    post_translate_matrix(arg0 + 0x2C);
     rotate_matrix_y(0, (int) (*(s32 *)&this->m_68));
     temp_f1 = *(f32 *)&this->unk_28;
     scale_matrix(0, temp_f1, TItemEffArmor__data_805DAAEC, temp_f1);

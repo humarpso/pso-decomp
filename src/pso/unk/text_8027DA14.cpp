@@ -38,7 +38,7 @@ u8 *TWindowSubQuestBoardSelect__ct(u8 *arg0) {
     f32 temp_f2;
     s32 temp_r30;
     s32 var_r30;
-    ((TWindowDD *)arg0)->construct_base((u8 *)(&TWindowSubQuestBoardSelect__window_parameters.value), (s16)(4), (u8 *)(get_window_layout_position(0x70)));
+    ((TWindowDD *)arg0)->construct_base((u8 *)&TWindowSubQuestBoardSelect__window_parameters.value, (s16)(4), (u8 *)(get_window_layout_position(0x70)));
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__26TWindowSubQuestBoardSelect.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubQuestBoardSelect__class_name;
     var_r30 = ((TAdSinglePlyChrSelectGC *)((void *)0x24))->alloc();

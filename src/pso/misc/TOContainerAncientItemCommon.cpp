@@ -107,14 +107,14 @@ s32 TOContainerAncientItemCommon::create() {
         temp_r3 = __nw__7TObjectFUl(0x368);
         var_r0_2 = temp_r3;
         if (var_r0_2 != 0) {
-            var_r0_2 = ((s32)TOContainerAncientItemCommon__ct((void *)(temp_r3), (void *)(arg0)));
+            var_r0_2 = ((s32)TOContainerAncientItemCommon__ct((void *)temp_r3, (void *)arg0));
         }
         return var_r0_2;
     }
     temp_r3_2 = __nw__7TObjectFUl(0x368);
     var_r0 = temp_r3_2;
     if (var_r0 != 0) {
-        var_r0 = ((s32)TOContainerAncientItemCommon__ct((void *)(temp_r3_2), (void *)(arg0)));
+        var_r0 = ((s32)TOContainerAncientItemCommon__ct((void *)temp_r3_2, (void *)arg0));
     }
     return var_r0;
 }
@@ -189,21 +189,21 @@ void TUnk_804B08BC::vfunc_81() {
         switch (this->mode) {
         case 0:
             push_matrix();
-            post_translate_matrix((void *) (arg0 + 0x38));
+            post_translate_matrix(arg0 + 0x38);
             rotate_matrix_y(0, this->rotation_y);
             TObjFish::set_global_param(this->texture_id);
             temp_r31 = (unsigned char *) (*(void * *)&this->model);
             push_matrix();
-            post_translate_matrix((void *) (temp_r31 + 8));
+            post_translate_matrix(temp_r31 + 8);
             draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
             temp_r31_2 = (unsigned char *) (*(void **)((s8 *)temp_r31 + 0x2C));
             push_matrix();
-            post_translate_matrix((void *) (temp_r31_2 + 8));
+            post_translate_matrix(temp_r31_2 + 8);
             draw_ginja_model((*(s32 *)((s8 *)temp_r31_2 + 4)));
             pop_matrix();
             temp_r31_3 = (unsigned char *) (*(void **)((s8 *)temp_r31_2 + 0x30));
             push_matrix();
-            post_translate_matrix((void *) (temp_r31_3 + 8));
+            post_translate_matrix(temp_r31_3 + 8);
             TParticleCtrl::begin_effect_render();
             draw_ginja_model((*(s32 *)((s8 *)temp_r31_3 + 4)));
             TParticleCtrl::end_effect_render();

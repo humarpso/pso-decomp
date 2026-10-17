@@ -164,7 +164,7 @@ void TUnk_804B6C24::render() {
 
 void TUnk_804B6C24::run_task() {
     u8 *arg0 = (u8 *)this;
-    step_laser_fence_fade((void *) (arg0 + 0x340));
+    step_laser_fence_fade(arg0 + 0x340);
     this->vfunc_80();
     this->m_364 = 0;
 }
@@ -172,10 +172,10 @@ void TUnk_804B6C24::run_task() {
 f32 TUnk_804B6C24::receive_physical_attack(void *, f32) {
     u8 *arg0 = (u8 *)this;
     s16 sp8;
-    if (((u16) this->m_1c >= 0x1000U) && ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), 1) != 0)) {
+    if (((u16) this->m_1c >= 0x1000U) && ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 1) != 0)) {
         sp8 = 1;
-        ((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), 0);
-        ((TUnk_804AF8A0 *)arg0)->send_object_state_update((void *) (&sp8));
+        ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 0);
+        ((TUnk_804AF8A0 *)arg0)->send_object_state_update(&sp8);
     }
     return (*(const f32 *)&lbl_805DBCF4);
 }
@@ -186,7 +186,7 @@ f32 TUnk_804B6C24::receive_direct_attack(void *arg1, void *arg2_arg, void *, s32
     struct VObj_8018A0B4 *o = (struct VObj_8018A0B4 *)this;
 
     temp_r4 = *arg2;
-    if ((temp_r4 == 0) || ((u32) (temp_r4 - 1) <= 3U) || (temp_r4 == 0x13)) {
+    if ((temp_r4 == 0) || ((temp_r4 - 1) <= 3U) || (temp_r4 == 0x13)) {
         o->m20(0, lbl_805DBCF0);
     }
     return lbl_805DBCF4;

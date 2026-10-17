@@ -585,7 +585,7 @@ void cleanup_online_lobby_scene(void) {
     var_r3 = (s32 *)(&(*(RecoveredGlobal_801A4610_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_801A4610_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value);
     clear_flag3_all_tasks__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4610_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value));
-    var_r3 = (s32 *)(tl_su);
+    var_r3 = tl_su;
     ((TObject *)var_r3)->delete_children();
     PPCSync();
     var_r31 = 0;
@@ -601,14 +601,14 @@ void cleanup_online_lobby_scene(void) {
     }
     TLobby::free_single_player_chr_select();
     TLobby::update_photon_chairs();
-    var_r3 = (s32 *)(&lobby_area_reload_callbacks.value);
+    var_r3 = &lobby_area_reload_callbacks.value;
     var_r4 = 0x48;
-    var_r3 = (s32 *)(&lobby_area_reload_callbacks.value);
-    call_funcs_reverse__6TLobbyFPvUi((void *) (&lobby_area_reload_callbacks.value), 0x48);
-    var_r3 = (s32 *)(&online_lobby_scene_callback_table.value);
+    var_r3 = &lobby_area_reload_callbacks.value;
+    call_funcs_reverse__6TLobbyFPvUi(&lobby_area_reload_callbacks.value, 0x48);
+    var_r3 = &online_lobby_scene_callback_table.value;
     var_r4 = 0x158;
-    var_r3 = (s32 *)(&online_lobby_scene_callback_table.value);
-    call_funcs_reverse__6TLobbyFPvUi((void *) (&online_lobby_scene_callback_table.value), 0x158);
+    var_r3 = &online_lobby_scene_callback_table.value;
+    call_funcs_reverse__6TLobbyFPvUi(&online_lobby_scene_callback_table.value, 0x158);
     local_client_id = 0;
     TLobby__lobby_state_flags = 0;
     clear_resource_load_tasks();
@@ -744,7 +744,7 @@ void run_online_lobby_scene(void) {
     TLoadCtrl::poll_default();
     TLobby::reset_keyboard_state();
     apply_phase_keyboard_mode();
-    run_load_callback_table((void *)(&online_lobby_scene_callback_table.value), 0x158);
+    run_load_callback_table(&online_lobby_scene_callback_table.value, 0x158);
     if (is_area_transfer_pending() != 0) {
         TLobby::reset_keyboard_state();
         TLobby::invoke_callback();

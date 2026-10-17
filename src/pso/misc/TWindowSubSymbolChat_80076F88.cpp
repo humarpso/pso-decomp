@@ -54,7 +54,7 @@ void TWindowSubSymbolChat::send_selected_symbol_chat(s32 *arg0) {
     TWindowSubSymbolChat__sub_80077704((&packet.header));
     symbol_chat_preset = ((s32)((int)get_symbol_chat_preset((s32)((void *)((void *) (*arg0))))));
     packet.client_id = local_client_id;
-    copy_symbol_chat_entry__6TLobbyFPvPv((void *)(&packet.data[0]), (void *)(symbol_chat_preset + 0x1C));
+    copy_symbol_chat_entry__6TLobbyFPvPv((void *)&packet.data[0], (void *)(symbol_chat_preset + 0x1C));
     ((TWindowSubSymbolChat *)(&packet.header))->send_symbol_chat();
 }
 
@@ -62,7 +62,7 @@ int TWindowSubSymbolChat__sub_80076FE0(void* p) { return (*(u32*)((char*)p + 0x1
 
 void TWindowSubSymbolChat::set_entry_name(void *arg1) {
     u8 *arg0 = (u8 *)this;
-    strncpy((void *) (arg0 + 4), arg1, 0x16);
+    strncpy(arg0 + 4, arg1, 0x16);
     *(s8 *)((s8 *)arg0 + 0x1A) = 0;
     *(s32 *)&this->m_name = (s32) (*(s32 *)&this->m_name | 1);
 }
@@ -180,7 +180,7 @@ void TWindowSubSymbolChat::refresh_parts() { ((TWindowSubSymbolChat *)((Obj_8007
 
 void TWindowSubSymbolChat::update_layout() { ((TWindowSubSymbolChat *)((Obj_800770D0 *)get_instance__20TWindowSubSymbolChatFv(this)))->count_used_slots(); }
 
-void TWindowSubSymbolChat::update_symbol_chat_result() { selected_symbol_chat_preset = ((int)get_symbol_chat_preset((s32)(this))); }
+void TWindowSubSymbolChat::update_symbol_chat_result() { selected_symbol_chat_preset = ((int)get_symbol_chat_preset((s32)this)); }
 
 void TWindowSubSymbolChat::update_selected_symbol() {
     if (is_initialized__20TWindowSubSymbolChatFv() != 0) {
@@ -191,7 +191,7 @@ void TWindowSubSymbolChat::update_selected_symbol() {
 typedef char RecoveredGlobal_800773BC_lbl_80438830_size[sizeof(RecoveredGlobal_800773BC_lbl_80438830) == 0x24 ? 1 : -1];
 void TWindowSubSymbolChat::play_symbol_sound(s32 arg0) {
     if ((arg0 >= 0) && (arg0 < 9)) {
-        play_sound_effect(*(s32 *)((s8 *)(&symbol_chat_sound_ids.value) + (arg0 * 4)), 0U, 0, 0);
+        play_sound_effect(*(s32 *)((s8 *)&symbol_chat_sound_ids.value + (arg0 * 4)), 0U, 0, 0);
     }
 }
 

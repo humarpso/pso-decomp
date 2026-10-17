@@ -110,18 +110,18 @@ void TOCapsuleLabo::render() {
         }
         temp_r31 = (unsigned char *) (*(void * *)&this->model);
         push_matrix();
-        post_translate_matrix((void *) (arg0 + 0x38));
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
-        post_translate_matrix((void *) (temp_r31 + 8));
+        post_translate_matrix(temp_r31 + 8);
         draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
         temp_r31_2 = (unsigned char *) (*(void **)((s8 *)temp_r31 + 0x2C));
         push_matrix();
-        post_translate_matrix((void *) (temp_r31_2 + 8));
+        post_translate_matrix(temp_r31_2 + 8);
         rotate_matrix_y(0, (int) (*(s32 *)&this->m_e4));
         draw_ginja_model((*(s32 *)((s8 *)temp_r31_2 + 4)));
         temp_r31_3 = *(s32 *)((s8 *)temp_r31_2 + 0x2C);
         TParticleCtrl::begin_effect_render();
-        post_translate_matrix((void *) (temp_r31_3 + 8));
+        post_translate_matrix((void *)(temp_r31_3 + 8));
         draw_ginja_object((void *)temp_r31_3);
         TParticleCtrl::end_effect_render();
         pop_matrix();
@@ -154,7 +154,7 @@ u8 *TOCapsuleLabo__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TOCapsuleLabo *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *)((int) ((*(s32 *)&TOCapsuleLabo__model_resource))), 0);
     ((TOCapsuleLabo *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOCapsuleLabo__model_resource)), 0);
-    init_collision_body_parts(arg0, (void *) (&TOCapsuleLabo__collision_parts.value), 1);
+    init_collision_body_parts(arg0, &TOCapsuleLabo__collision_parts.value, 1);
     set_indexed_flags(arg0, 0, 0x1288);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();

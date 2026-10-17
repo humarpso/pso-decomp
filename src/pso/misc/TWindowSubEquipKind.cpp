@@ -45,7 +45,7 @@ void TWindowSubEquipKind::run_task() {
     update_item_list_window();
     temp_r3 = this->m_8a;
     if (temp_r3 != 0) {
-        this->m_8a = (s16) (temp_r3 - 1);
+        this->m_8a = (temp_r3 - 1);
     }
 }
 

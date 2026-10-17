@@ -68,7 +68,7 @@ void fn_8017F52C(O_8017F52C *self) {
 void fn_8017F550(Obj_8017F550 *arg0) {
     s32 i;
     for (i = 0; i < 8; i++) {
-        fn_8017F5F0((u8 *)(&arg0->recs[i]), (u8 *)(&lbl_804439D8[i]));
+        fn_8017F5F0((u8 *)&arg0->recs[i], (u8 *)&lbl_804439D8[i]);
         push_matrix_from(identity_matrix);
         rotate_matrix_y(0, arg0->f60);
         matrix_mult_vec(0, &arg0->recs[i], &arg0->recs[i]);

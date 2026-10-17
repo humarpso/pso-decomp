@@ -110,7 +110,7 @@ void TBoss1DragonEffBullet::run_task() {
                 arg0->field_44 = NULL;
             }
             play_sound_effect(0x4003AD0C, &arg0->field_1C, 0, 0);
-            ((TBoss1Dragon *)(TBoss1Dragon::get_instance()))->apply_fireball_impact_damage((s32)(&arg0->field_1C));
+            ((TBoss1Dragon *)(TBoss1Dragon::get_instance()))->apply_fireball_impact_damage((s32)&arg0->field_1C);
         }
         if ((s32) arg0->field_34 <= 2) {
             spawn_particle_effect_with_flags(&arg0->field_1C, *(s32 *)((s8 *)(*(u8 * *)&dragon_fireball_particle_ids) + 8), 0x40);
@@ -150,14 +150,14 @@ u8 *TBoss1DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss1DragonEffBullet__name;
     VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)(arg2));
     VecCopy((Vec *)(arg0 + 0x28), (const Vec *)(arg3));
-    subtract_vector((void *) (arg0 + 0x28), (void *) (arg0 + 0x1C));
+    subtract_vector(arg0 + 0x28, arg0 + 0x1C);
     ((TBoss1DragonEffBullet *)arg0)->m_40 = ((TObjBoss2Tunnel *)(arg0 + 0x28))->update_scale();
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805D8144;
     *(s32 *)&((TBoss1DragonEffBullet *)arg0)->m_34 = 0;
     *(s32 *)&((TBoss1DragonEffBullet *)arg0)->m_38 = 0;
     *(s32 *)&((TBoss1DragonEffBullet *)arg0)->m_44 = 0;
     *(s32 *)&((TBoss1DragonEffBullet *)arg0)->m_48 = 0;
-    play_sound_effect(0x4003B20B, (void *) (arg0 + 0x1C), 0, 0);
+    play_sound_effect(0x4003B20B, arg0 + 0x1C, 0, 0);
     return arg0;
 }
 

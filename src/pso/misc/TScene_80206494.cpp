@@ -114,7 +114,7 @@ u8 *TScene__ct(u8 *arg0, s32 arg1) {
     *(s32 *)&((TScene *)arg0)->m_3c = 0;
     TScene__sub_80206410(arg0);
     if ((TOKeyMachine01::get_global_state() == 1) && ((u32) TScene__texture_wave_resource != 0U) && ((void *) (*(u8 * *)&TScene__data_805D5FCC) != NULL) && ((u32) *(u32 *)((s8 *)(*(u8 * *)&TScene__data_805D5FCC) + 0x14) != 0U)) {
-        TScene::create_texture_wave_tasks((s32)(arg0));
+        TScene::create_texture_wave_tasks((s32)arg0);
     }
     ((TScene *)arg0)->init_material_nodes();
     return arg0;

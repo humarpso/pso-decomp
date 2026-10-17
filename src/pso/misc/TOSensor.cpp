@@ -243,7 +243,7 @@ void TOSensorAncient01::vfunc_17() {
     s32 temp_r4;
 
     temp_r4 = *(s32 *)((s8 *)this + 0xEC);
-    *(s32 *)((s8 *)this + 0xEC) = (s32) (temp_r4 + 0x28F);
+    *(s32 *)((s8 *)this + 0xEC) = (temp_r4 + 0x28F);
     update_pulse_value();
 }
 void TOSensorAncient01::vfunc_16() {
@@ -253,7 +253,7 @@ void TOSensorAncient01::vfunc_16() {
     ((TOSensorAncient01 *)arg0)->update_pulse_value();
     temp_r3 = this->m_e8;
     if (temp_r3 > 0) {
-        this->m_e8 = (s32) (temp_r3 - 1);
+        this->m_e8 = (temp_r3 - 1);
         return;
     }
     this->m_e8 = 0;
@@ -329,11 +329,11 @@ void TOSensorAncient01::render() {
 
     if (((VObj_80175994 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
-        post_translate_matrix((void *) (arg0 + 0x38));
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(*(s32 *)((s8 *)ancient_sensor_resource_pair_table + (*(s32 *)&this->m_8c * 8)));
         temp_r30 = (u8 *)(*(u8 * *)&this->model);
-        post_translate_matrix((void *) (temp_r30 + 8));
+        post_translate_matrix(temp_r30 + 8);
         draw_ginja_model(*(s32 *)((s8 *)temp_r30 + 4));
         TParticleCtrl::begin_effect_render();
         push_matrix();
@@ -342,7 +342,7 @@ void TOSensorAncient01::render() {
             Pair_80175994 *tbl = (Pair_80175994 *)ancient_sensor_resource_pair_table;
             TObjFish::set_global_param(tbl[sensor_texture_table_index].b);
         }
-        post_translate_matrix((void *) (temp_r30_2 + 8));
+        post_translate_matrix(temp_r30_2 + 8);
         draw_ginja_model(*(s32 *)((s8 *)temp_r30_2 + 4));
         pop_matrix();
         push_matrix();
@@ -351,7 +351,7 @@ void TOSensorAncient01::render() {
             Pair_80175994 *tbl = (Pair_80175994 *)ancient_sensor_resource_pair_table;
             TObjFish::set_global_param(tbl[sensor_texture_table_index].b);
         }
-        post_translate_matrix((void *) (temp_r30_3 + 8));
+        post_translate_matrix(temp_r30_3 + 8);
         draw_ginja_model(*(s32 *)((s8 *)temp_r30_3 + 4));
         pop_matrix();
         push_matrix();
@@ -360,13 +360,13 @@ void TOSensorAncient01::render() {
             Pair_80175994 *tbl = (Pair_80175994 *)ancient_sensor_resource_pair_table;
             TObjFish::set_global_param(tbl[sensor_texture_table_index].b);
         }
-        post_translate_matrix((void *) (temp_r30_4 + 8));
+        post_translate_matrix(temp_r30_4 + 8);
         draw_ginja_model(*(s32 *)((s8 *)temp_r30_4 + 4));
         pop_matrix();
         TParticleCtrl::end_effect_render();
         push_matrix();
         temp_r30_5 = (u8 *)(*(u8 **)((s8 *)temp_r30_4 + 0x30));
-        post_translate_matrix((void *) (temp_r30_5 + 8));
+        post_translate_matrix(temp_r30_5 + 8);
         rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0xEC)));
         TParticleCtrl::begin_effect_render();
         draw_ginja_model(*(s32 *)((s8 *)temp_r30_5 + 4));

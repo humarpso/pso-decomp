@@ -59,7 +59,7 @@ void TAdEnterBaseGC::create_parts() {
     temp_r3_4 = __nw__7TObjectFUl(0x708);
     var_r0_2 = temp_r3_4;
     if (var_r0_2 != 0U) {
-        var_r0_2 = __ct__14TAdSelectCurGCFv(temp_r3_4, tl_clipout, (void *) (&lbl_80477198.value), (void *) (&lbl_804771B8.value));
+        var_r0_2 = __ct__14TAdSelectCurGCFv(temp_r3_4, tl_clipout, &lbl_80477198.value, &lbl_804771B8.value);
     }
     *(u32 *)&this->unk_2C = var_r0_2;
 }

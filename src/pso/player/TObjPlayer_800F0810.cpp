@@ -60,8 +60,8 @@ void TObjPlayer::clear_alt_model_flag() {
 }
 void TObjPlayer::set_alt_model_flag() { (*(int *)&model_render_flags) = ((*(int *)&model_render_flags) | 0x800); set_chunk_material_override_pair((s32)((void*)-513), (s32)((void*)0)); }
 s32 *TObjPlayer__sub_800F08AC(s32 arg0, s32 arg1) {
-    *(s32 *)((s8 *)(&lbl_805010D0.value) + 4) = arg1;
-    *(s32 *)((s8 *)(&lbl_80501080.value) + 0x30) = arg0;
+    *(s32 *)((s8 *)&lbl_805010D0.value + 4) = arg1;
+    *(s32 *)((s8 *)&lbl_80501080.value + 0x30) = arg0;
     return &lbl_80501080.value;
 }
 void TObjEneDD_ST::draw_with_alt_model(s32 arg1) {
@@ -104,7 +104,7 @@ block_2:
         stack.sp18 = lbl_805DA800;
         stack.sp1C = 0;
         stack.sp20 = blob_shadow_texture_list;
-        stack.sp24 = (s32 *)(&blob_shadow_rect_desc.value);
+        stack.sp24 = &blob_shadow_rect_desc.value;
         set_depth_buffer_settings_1();
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 6);

@@ -23,10 +23,10 @@ void TProtocol::handle_cmd_92(packet &pkt) {
     s32 (*temp_r12)(u8);
     sp8 = *(s32 *)((s8 *)arg1 + 0);
     ((packet_header *)(&sp8))->bswap();
-    *(s32 *)&this->m_regist_state = (s32) *(u8 *)((s8 *)(&sp8) + 0x1);
+    *(s32 *)&this->m_regist_state = (s32) *(u8 *)((s8 *)&sp8 + 0x1);
     temp_r12 = *(s32 (**)(u8))((s8 *)arg0 + 0xBC2C);
     if (temp_r12 != NULL) {
-        temp_r12(*(u8 *)((s8 *)(&sp8) + 0x1));
+        temp_r12(*(u8 *)((s8 *)&sp8 + 0x1));
     }
 }
 

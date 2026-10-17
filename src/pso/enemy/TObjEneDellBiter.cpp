@@ -1204,15 +1204,15 @@ u8 *TObjEneDellBiter_Eff_Rush__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 fa
     *(f32 *)((s8 *)arg0 + 0x2C) = farg0;
     *(s32 *)((s8 *)arg0 + 0x30) = 0;
     VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg3 + 0x38));
-    subtract_vector((void *) (&stack.sp8), (void *) (arg2 + 0x38));
+    subtract_vector(&stack.sp8, arg2 + 0x38);
     stack.spC = lbl_805DEFAC;
     *(f32 *)((s8 *)arg0 + 0x20) = sin_table_lookup((int) (*(s32 *)((s8 *)arg2 + 0x60)));
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805DEFAC;
     *(f32 *)((s8 *)arg0 + 0x28) = cos_table_lookup((int) (*(s32 *)((s8 *)arg2 + 0x60)));
-    if (is_vec_xz_cross_negative((void *) (arg0 + 0x20), (void *) (&stack.sp8)) != 0) {
-        rotate_xz_pair_by_angle((void *) (arg0 + 0x20), (void *) (arg0 + 0x28), -0x1800);
+    if (is_vec_xz_cross_negative(arg0 + 0x20, &stack.sp8) != 0) {
+        rotate_xz_pair_by_angle(arg0 + 0x20, arg0 + 0x28, -0x1800);
     } else {
-        rotate_xz_pair_by_angle((void *) (arg0 + 0x20), (void *) (arg0 + 0x28), 0x1800);
+        rotate_xz_pair_by_angle(arg0 + 0x20, arg0 + 0x28, 0x1800);
     }
     return arg0;
 }
@@ -1254,7 +1254,7 @@ void TObjEneDellBiter::vfunc_106() {
         TObjPlayer::toggle_particle_effect();
         TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         push_matrix();
-        post_translate_matrix((void *) (arg0 + 0x38));
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x60)));
         scale_matrix(0, TObjEneDellBiter__data_805DEFB8, TObjEneDellBiter__data_805DEFB8, TObjEneDellBiter__data_805DEFB8);
         TObjPlayer::set_global_flag();
@@ -1393,7 +1393,7 @@ void TObjEneDellBiter::step_demo_script() {
     case 32:
         pos = TObjEneDellBiter__demo_script_cursor;
         TObjEneDellBiter__demo_script_cursor = pos + 0xC;
-        get_camera_ctrl__9TObjEneDDFv((void *) (&dellbiter_demo_camera_vec.value), pos);
+        get_camera_ctrl__9TObjEneDDFv(&dellbiter_demo_camera_vec.value, pos);
         break;
     }
     TObjEneDellBiter__demo_script_step += 1;
@@ -1408,11 +1408,11 @@ void state_death__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
         ((RecoveredFields_8030390C_arg0 *)arg0)->field_3C0 = (s32) (((RecoveredFields_8030390C_arg0 *)arg0)->field_3C0 | 2);
         ((TObjEneDellBiter *)(arg0))->vfunc_94();
         ((TBoss8Dragon *)arg0)->refresh_and_send_entity_flags();
-        TObjPlayer__sub_800A04F0((void *) (arg0 + 0x3D4));
+        TObjPlayer__sub_800A04F0(arg0 + 0x3D4);
         if (TOKeyMachine01::get_global_state() == 0x23) {
-            play_sound_effect(0x4003A358, (void *)((u32) (arg0 + 0x38)), 0, 0);
+            play_sound_effect(0x4003A358, (void *)(arg0 + 0x38), 0, 0);
         } else {
-            play_sound_effect((int)(copy_target_state__14TObjEnePanarmsFPv((void *)(arg0), (void *)(0x4003A31A))), (void *)((u32) (arg0 + 0x38)), 0, 0);
+            play_sound_effect((int)(copy_target_state__14TObjEnePanarmsFPv(arg0, (void *)(0x4003A31A))), (void *)(arg0 + 0x38), 0, 0);
         }
         ((RecoveredFields_8030390C_arg0 *)arg0)->field_4CC = 0;
         return;
@@ -1428,14 +1428,14 @@ void state_death__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
         case 0:
             if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
                 ((TObjPlayer *)(arg0 + 0x2FC))->request_two_effects();
-                play_sound_effect(0x4003A830, (void *)((u32) (arg0 + 0x2FC)), 0, 0);
+                play_sound_effect(0x4003A830, (void *)(arg0 + 0x2FC), 0, 0);
                 ((RecoveredFields_8030390C_arg0 *)arg0)->field_4CC = 1;
                 return;
             }
             break;
         case 1:
             if (((VObj_14_c1c33b *)(arg0 + (980)))->m4() != 0) {
-                TObjPlayer::apply_effect_variant_b((s32)((void *) (arg0 + 0x38)), 0);
+                TObjPlayer::apply_effect_variant_b((s32)(arg0 + 0x38), 0);
                 ((RecoveredFields_8030390C_arg0 *)arg0)->field_4CC = 2;
                 return;
             }
@@ -1562,7 +1562,7 @@ void TObjEneDellBiter__sub_80303BC0(u8 *arg0, s32 arg1) {
                 play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, (void *)0x40039F17), arg0 + 0x38, 0, 0);
             }
             if (objInBand((GameObj *)(arg0), TObjEneDellBiter__data_805DEFD8) != 0) {
-                spawn_particle_effect((void *) (arg0 + 0x460), 0x21F);
+                spawn_particle_effect(arg0 + 0x460, 0x21F);
             }
             break;
         }
@@ -1598,11 +1598,11 @@ void TObjEneDellBiter__sub_80303F04(u8 *arg0, s32 arg1) {
             VecCopy((Vec *)(&sp8), (const Vec *)(arg0 + 0x38));
             sp8.y += TObjEneDellBiter__data_805DEFE0;
             if ((s32) game_difficulty_selection == 3) {
-                spawn_particle_effect((void *) (&sp8), 0x21D);
-                spawn_particle_effect((void *) (&sp8), 0x21E);
+                spawn_particle_effect(&sp8, 0x21D);
+                spawn_particle_effect(&sp8, 0x21E);
             } else {
-                spawn_particle_effect((void *) (&sp8), 0x21B);
-                spawn_particle_effect((void *) (&sp8), 0x21C);
+                spawn_particle_effect(&sp8, 0x21B);
+                spawn_particle_effect(&sp8, 0x21C);
             }
         }
         if (objInBand((GameObj *)(arg0), TObjEneDellBiter__data_805DEFE4) != 0) {
@@ -1639,7 +1639,7 @@ void TObjEneDellBiter__sub_803040D0(u8 *arg0, s32 arg1) {
         }
         return;
     case 0:
-        ((s32)advance_animation_playback((void *)((void *)(arg0))));
+        ((s32)advance_animation_playback((void *)(arg0)));
         if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
             *(s32 *)((s8 *)arg0 + 0x4CC) = 1;
         } else {
@@ -1652,7 +1652,7 @@ void TObjEneDellBiter__sub_803040D0(u8 *arg0, s32 arg1) {
                     if ((temp_f1 >= TObjEneDellBiter__data_805DEFD8) && (temp_f1 <= lbl_805DEFEC)) {
                         VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x38));
                         stack.spC += TObjEneDellBiter__data_805DEFE0;
-                        ((TNowLoading *)(*(u32 *)((s8 *)arg0 + 0x4C0)))->copy_pos((void *) (&stack.sp8));
+                        ((TNowLoading *)(*(u32 *)((s8 *)arg0 + 0x4C0)))->copy_pos(&stack.sp8);
                     }
                 }
             } else if (objInBand((GameObj *)(arg0), TObjEneDellBiter__data_805DEFD8) != 0) {
@@ -1660,7 +1660,7 @@ void TObjEneDellBiter__sub_803040D0(u8 *arg0, s32 arg1) {
             }
             if (objInBand((GameObj *)(arg0), TObjEneDellBiter__data_805DEFE4) != 0) {
                 TObjEneDellBiter__sub_80305688(arg0);
-                play_sound_effect((int)((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)(arg0), (void *)(0x40039E15)))), (void *)((void *) (arg0 + 0x38)), 0, 0);
+                play_sound_effect((int)((void *) (copy_target_state__14TObjEnePanarmsFPv(arg0, (void *)(0x40039E15)))), (void *)(arg0 + 0x38), 0, 0);
             }
         }
         ((TObjEneDD *)(arg0))->vfunc_102();
@@ -1669,7 +1669,7 @@ void TObjEneDellBiter__sub_803040D0(u8 *arg0, s32 arg1) {
     case 5:
         temp_r3 = *(u32 *)((s8 *)arg0 + 0x4C0);
         if (temp_r3 != 0U) {
-            queue_destruction__7TObjectFv(((void *)(temp_r3)));
+            queue_destruction__7TObjectFv(((void *)temp_r3));
             *(u32 *)((s8 *)arg0 + 0x4C0) = 0U;
         }
         break;
@@ -1705,7 +1705,7 @@ void handle_attack_event__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
         }
         break;
     case 0:
-        advance_animation_playback((void *)(arg0));
+        advance_animation_playback(arg0);
         temp_r3 = *(s32 *)((s8 *)arg0 + 0x60);
         *(s32 *)((s8 *)arg0 + 0x484) = turn_toward_angle_limited__15TObjBoss2TunnelFlllll(temp_r3, (int) (*(s32 *)((s8 *)arg0 + 0x484)), temp_r3, 0x200, 0x2000);
         temp_r0 = *(s32 *)((s8 *)arg0 + 0x4D0);
@@ -1716,7 +1716,7 @@ void handle_attack_event__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
             }
             ((s32 (*)(void *))TObjEneDellBiter__sub_80305E1C)(arg0);
             if (objInBand((GameObj *)(arg0), lbl_805DEFF0) != 0) {
-                play_sound_effect((int) (copy_target_state__14TObjEnePanarmsFPv(arg0, (void *) (0x40039E16))), (void *) (arg0 + 0x38), 0, 0);
+                play_sound_effect((int) (copy_target_state__14TObjEnePanarmsFPv(arg0, (void *) (0x40039E16))), arg0 + 0x38, 0, 0);
             }
             if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
                 *(s16 *)((s8 *)arg0 + 0xB8) = 0;
@@ -2053,7 +2053,7 @@ void run_task__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
         VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
         *(s32 *)((s8 *)arg0 + 0x488) = 0;
         *(s32 *)((s8 *)arg0 + 0x48C) = 0;
-        ((s32 (*)(void *, void *, int, int))play_sound_effect)(((void * (*)(void *, int))copy_target_state__14TObjEnePanarmsFPv)(arg0, 0x40039E12), (void *) (arg0 + 0x38), 0, 0);
+        ((s32 (*)(void *, void *, int, int))play_sound_effect)(((void * (*)(void *, int))copy_target_state__14TObjEnePanarmsFPv)(arg0, 0x40039E12), arg0 + 0x38, 0, 0);
         return;
     case 3:
         if ((s32) *(s32 *)((s8 *)arg0 + 0x4D0) == 2) {
@@ -2070,7 +2070,7 @@ void run_task__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
             if ((s32) *(s32 *)((s8 *)arg0 + 0x4CC) > 0x14) {
                 *(s32 *)((s8 *)arg0 + 0x4D0) = 1;
                 *(s16 *)((s8 *)arg0 + 0xB8) = 3;
-                ((s32 (*)(void *, void *, int, int))play_sound_effect)(((void * (*)(void *, int))copy_target_state__14TObjEnePanarmsFPv)(arg0, 0x40039B14), (void *) (arg0 + 0x38), 0, 0);
+                ((s32 (*)(void *, void *, int, int))play_sound_effect)(((void * (*)(void *, int))copy_target_state__14TObjEnePanarmsFPv)(arg0, 0x40039B14), arg0 + 0x38, 0, 0);
             }
             ((s32 (*)(void *))TObjEneDellBiter__sub_8030591C)(arg0);
             ((TObjEneDD *)arg0)->move_with_wall_slide_on_ground((f32) (*(f32 *)((s8 *)arg0 + 0x3A0)), (f32) (*(f32 *)((s8 *)arg0 + 0x3A8)), lbl_805DF014);
@@ -2142,7 +2142,7 @@ void TObjEneDellBiter::update_state(s32 arg1) {
 void TObjEneDellBiter__vt85(s32 arg0, u32 arg1, s32 arg2) {
     switch (arg1) {
     case 0:
-        ((TObjEneDellBiter *)arg0)->update_state((s32)(arg2));
+        ((TObjEneDellBiter *)arg0)->update_state(arg2);
         return;
     case 1:
         ((s32 (*)(void *, void *))handle_movement_event__16TObjEneDellBiterFPvi)((void *)arg0, (void *)arg2);
@@ -2151,16 +2151,16 @@ void TObjEneDellBiter__vt85(s32 arg0, u32 arg1, s32 arg2) {
         ((s32 (*)(void *, void *))run_task__16TObjEneDellBiterFPvi)((void *)arg0, (void *)arg2);
         return;
     case 3:
-        TObjEneDellBiter__sub_80304D10((u8 *)(arg0), (s32)(arg2));
+        TObjEneDellBiter__sub_80304D10((u8 *)arg0, (s32)arg2);
         return;
     case 4:
-        TObjEneDellBiter__sub_80304B88((u8 *)(arg0), (s32)(arg2));
+        TObjEneDellBiter__sub_80304B88((u8 *)arg0, (s32)arg2);
         return;
     case 5:
-        TObjEneDellBiter__sub_8030492C((u8 *)(arg0), (s32)(arg2));
+        TObjEneDellBiter__sub_8030492C((u8 *)arg0, (s32)arg2);
         return;
     case 6:
-        TObjEneDellBiter__sub_803044AC((u8 *)(arg0), (s32)(arg2));
+        TObjEneDellBiter__sub_803044AC((u8 *)arg0, (s32)arg2);
         return;
     case 7:
         ((s32 (*)(void *, void *))handle_attack_event__16TObjEneDellBiterFPvi)((void *)arg0, (void *)arg2);
@@ -2169,7 +2169,7 @@ void TObjEneDellBiter__vt85(s32 arg0, u32 arg1, s32 arg2) {
         ((s32 (*)(void *, void *))TObjEneDellBiter__sub_803040D0)((void *)arg0, (void *)arg2);
         return;
     case 9:
-        TObjEneDellBiter__sub_80303BC0((u8 *)(arg0), (s32)(arg2));
+        TObjEneDellBiter__sub_80303BC0((u8 *)arg0, (s32)arg2);
         return;
     case 12:
         ((s32 (*)(void *, void *))TObjEneDellBiter__sub_80303F04)((void *)arg0, (void *)arg2);
@@ -2186,7 +2186,7 @@ void TObjEneDellBiter__vt85(s32 arg0, u32 arg1, s32 arg2) {
 
 s32 TObjEneDellBiter__sub_803054A8(u8 *actor) {
     if (calc_boss4_scale__10TObjPlayerFi((s32)actor) <= *(f32 *)((s8 *)actor + 0x4A8)) {
-        ((s32 (*)(void *, s32))transition_enemy_state)((void *)(actor), 8);
+        ((s32 (*)(void *, s32))transition_enemy_state)(actor, 8);
         return 1;
     }
     return 0;
@@ -2194,7 +2194,7 @@ s32 TObjEneDellBiter__sub_803054A8(u8 *actor) {
 
 s32 TObjEneDellBiter__sub_803054FC(u8 *actor) {
     if (calc_boss4_scale__10TObjPlayerFi((s32)actor) <= *(f32 *)((s8 *)actor + 0x4B4)) {
-        ((s32 (*)(void *, s32))transition_enemy_state)((void *)(actor), 9);
+        ((s32 (*)(void *, s32))transition_enemy_state)(actor, 9);
         return 1;
     }
     return 0;
@@ -2203,7 +2203,7 @@ s32 TObjEneDellBiter__sub_803054FC(u8 *actor) {
 s32 TObjEneDellBiter::check_low_hp_transition() {
     u8 *arg0 = (u8 *)this;
     if (!(*(s32 *)((s8 *)arg0 + 0x3C0) & 0x10) && ((s16) *(s16 *)((s8 *)arg0 + 0x32C) <= (s32) ((s16) *(s16 *)((s8 *)arg0 + 0x2B8) / 2)) && (calc_boss4_scale__10TObjPlayerFi((s32)((s32) arg0)) <= *(f32 *)((s8 *)arg0 + 0x4B8))) {
-        ((s32 (*)(void *, s32))transition_enemy_state)((void *)(arg0), 0xC);
+        ((s32 (*)(void *, s32))transition_enemy_state)(arg0, 0xC);
         return 1;
     }
     return 0;
@@ -2279,12 +2279,12 @@ void TObjEneDellBiter__sub_803058DC(s32 arg0) {
 
 void TObjEneDellBiter__sub_8030591C(s32 arg0) {
     if ((objInBand((GameObj *)(arg0), TObjEneDellBiter__data_805DEFF4) != 0) || (objInBand((GameObj *)(arg0), lbl_805DF01C) != 0)) {
-        if (TObjEneDellBiter__sub_803059BC((void *)(arg0), (void *)((void *) (arg0 + 0x38))) != 0) {
-            fn_800D8830((void *)arg0, (void *) (arg0 + 0x38));
+        if (TObjEneDellBiter__sub_803059BC((void *)arg0, (void *)((void *)(arg0 + 0x38))) != 0) {
+            fn_800D8830((void *)arg0, (void *)(arg0 + 0x38));
             return;
         }
         play_persistent_sound((((s32 (*)(void *, int))copy_target_state__14TObjEnePanarmsFPv)((void *)arg0, 0x40039E13)), (arg0), (arg0 + 0x38), 0, 0);
-        spawn_particle_effect((void *) (arg0 + 0x38), 0xF0);
+        spawn_particle_effect((void *)(arg0 + 0x38), 0xF0);
     }
 }
 
@@ -2336,10 +2336,10 @@ void TObjEneDellBiter::spawn_front_particle() {
     stack.sp8 = lbl_805DF024;
     stack.spC = TObjEneDellBiter__data_805DEFF4;
     stack.sp10 = lbl_805DF004;
-    ((s32 (*)(void *, void *, int, f32, f32))rotate_xz_pair_by_angle)((void *) (&stack.sp8), (void *) (&stack.sp10), (int) (*(s32 *)((s8 *)arg0 + 0x60)), TObjEneDellBiter__data_805DEFF4, lbl_805DF024);
-    vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x38));
-    if (TObjEneDellBiter__sub_803059BC((void *)(arg0), (void *)((void *) (&stack.sp8))) == 0) {
-        spawn_particle_effect((void *) (&stack.sp8), 0xF3);
+    ((s32 (*)(void *, void *, int, f32, f32))rotate_xz_pair_by_angle)(&stack.sp8, &stack.sp10, (int) (*(s32 *)((s8 *)arg0 + 0x60)), TObjEneDellBiter__data_805DEFF4, lbl_805DF024);
+    vec3_add_to(&stack.sp8, arg0 + 0x38);
+    if (TObjEneDellBiter__sub_803059BC(arg0, (void *)(&stack.sp8)) == 0) {
+        spawn_particle_effect(&stack.sp8, 0xF3);
     }
 }
 
@@ -2508,7 +2508,7 @@ void TObjEneDellBiter::vfunc_62() {
             ((TObjEneDD *)arg0)->clear_attack_receipts();
             return;
         }
-        ((int (*)(void*, void*))transition_enemy_state)((void*)(arg0), (void*)(0xA));
+        ((int (*)(void*, void*))transition_enemy_state)(arg0, (void*)(0xA));
     }
 }
 
@@ -2597,7 +2597,7 @@ void TObjEneDellBiter::init_params() {
     self->f24 = ((Glob_80306468 *)TObjEneDellBiter__shared_model_resource)->cfg->fC;
     init_model__9TObjEneDDFv(self, (Part_80306468 *)lbl_804E6B8C, 1);
     *(u32 *)(self->fA4 + 0x18) |= 0x400000;
-    ((TObjPlayer *)self)->set_field_d8((s32)(&dell_biter_param_table));
+    ((TObjPlayer *)self)->set_field_d8((s32)&dell_biter_param_table);
     ((TObjPlayer *)self)->set_field_dc(((Glob_80306468 *)TObjEneDellBiter__shared_model_resource)->f430);
     self->fB8 = 0;
     set_animation__10TObjPlayerFPvs(self, self->fB8);
@@ -2678,7 +2678,7 @@ void TObjEneDellBiter::set_min_clamped_entry_value(s32 arg0, f32 farg0) {
   {
     var_f1 = lbl_805DF03C;
   }
-  new_var = (u8 *) (&dell_biter_param_table.value);
+  new_var = (u8 *)&dell_biter_param_table.value;
   new_var = new_var + (arg0 * 0x10);
   *((f32 *) (((s8 *) new_var) + 8)) = var_f1;
 }
@@ -2724,7 +2724,7 @@ void TObjEneDellBiter::load_resources() {
         TObjEneDellBiter__last_uv_scroll_tick = 0;
         S16_80306858 sp = ene_dell_biter_attack_def;
         sp.a = o->v;
-        TLobby::spawn_npc_enemy((s16)0x46, (s32)((int)o->p->p), o->p->c, (s32)(&sp), ent->f, (f32)TObjEneDellBiter__data_805DEFF4);
+        TLobby::spawn_npc_enemy((s16)0x46, (s32)((int)o->p->p), o->p->c, (s32)&sp, ent->f, (f32)TObjEneDellBiter__data_805DEFF4);
     }
 }
 #undef G_80306858

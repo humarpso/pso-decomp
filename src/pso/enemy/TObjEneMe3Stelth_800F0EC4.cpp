@@ -400,9 +400,9 @@ void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1) {
                 }
                 if (r < F(s32 *, 0x318)[3] / 2 && F(u32, 0x390) != 0) {
                     if (game_difficulty_selection == 3) {
-                        ((TTecRaFoie *)arg0)->create((void *)(&out), (void *)(arg0 + 0x394), (void *)(TObjEneDD::clamp_frame_index(TObjEneMe3Stelth__behavior_params_by_variant[F(s32, 0x3C8)]->lvl)));
+                        ((TTecRaFoie *)arg0)->create(&out, arg0 + 0x394, (void *)(TObjEneDD::clamp_frame_index(TObjEneMe3Stelth__behavior_params_by_variant[F(s32, 0x3C8)]->lvl)));
                     } else {
-                        TTecGiFoie::create((void *)arg0, (void *)(&out), (void *)(TObjEneDD::clamp_frame_index(TObjEneMe3Stelth__behavior_params_by_variant[F(s32, 0x3C8)]->lvl)));
+                        TTecGiFoie::create((void *)arg0, &out, (void *)(TObjEneDD::clamp_frame_index(TObjEneMe3Stelth__behavior_params_by_variant[F(s32, 0x3C8)]->lvl)));
                     }
                 } else {
                     F(s32, 0x424) = 3;

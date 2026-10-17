@@ -131,7 +131,7 @@ s32 TObjPlayer__sub_803DA84C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (var_r5 > temp_r6) {
         var_r5 = temp_r6;
     }
-    TObjPlayer__sub_803DA808((void *)((int) (temp_r7 + ((RecoveredFields_803DA84C_arg0 *)arg0)->field_1C)), (s32)(arg1), (void *)(var_r5));
+    TObjPlayer__sub_803DA808((void *)((int) (temp_r7 + ((RecoveredFields_803DA84C_arg0 *)arg0)->field_1C)), (s32)arg1, (void *)var_r5);
     return 0;
 }
 #pragma pop
@@ -139,7 +139,7 @@ s32 TObjPlayer__sub_803DA84C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
 #pragma push
 #pragma peephole off
 s32 TObjPlayer__sub_803DA8B4(u8 *arg0, s32 arg1) {
-    TObjPlayer__sub_803DA808((void *)((int) (*(s32 *)((s8 *)arg0 + 0x1C))), (s32)(arg1), (void *)((int) (*(s32 *)((s8 *)arg0 + 0x14))));
+    TObjPlayer__sub_803DA808((void *)((int) (*(s32 *)((s8 *)arg0 + 0x1C))), arg1, (void *)((int) (*(s32 *)((s8 *)arg0 + 0x14))));
     return 0;
 }
 #pragma pop
@@ -192,7 +192,7 @@ s32 TObjPlayer__sub_803DAA70(u32 arg0, u32 arg1, s32 *arg2) {
     u8 *spC;
     s32 *sp8;
     s32 temp_r3;
-    temp_r3 = find_free_slot__10TObjPlayerFPvPv((void *) (&spC), (void *) (&sp8));
+    temp_r3 = find_free_slot__10TObjPlayerFPvPv(&spC, &sp8);
     if (temp_r3 < 0) {
         return -1;
     }
@@ -240,7 +240,7 @@ s32 TObjPlayer__sub_803DAB9C(s32 arg0, s32 arg1) {
 #pragma push
 #pragma scheduling off
 void TObjPlayer__sub_803DAC1C(s32 arg0) {
-    TObjPlayer__sub_803DAE98((u8 *)((void *) (record_array_ptr + (arg0 * 0x18))), (s32)(record_array_ptr));
+    TObjPlayer__sub_803DAE98((u8 *)((void *) (record_array_ptr + (arg0 * 0x18))), record_array_ptr);
 }
 #pragma pop
 
@@ -338,12 +338,12 @@ s32 TObjPlayer__sub_803DAE98(u8 *arg0, s32 _w1) {
     }
     temp_r3 = *(s32 *)((s8 *)arg0 + 0x10);
     if (temp_r3 > 0) {
-        *(s32 *)((s8 *)arg0 + 0x10) = (s32) (temp_r3 - 1);
+        *(s32 *)((s8 *)arg0 + 0x10) = (temp_r3 - 1);
     }
     temp_r4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xC));
     temp_r3_2 = *(s32 *)((s8 *)temp_r4 + 0x24);
     if (temp_r3_2 > 0) {
-        *(s32 *)((s8 *)temp_r4 + 0x24) = (s32) (temp_r3_2 - 1);
+        *(s32 *)((s8 *)temp_r4 + 0x24) = (temp_r3_2 - 1);
         temp_r3_3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xC));
         if ((s32) *(s32 *)((s8 *)temp_r3_3 + 0x24) == 0) {
             fn_803DB20C(temp_r3_3 + 4);

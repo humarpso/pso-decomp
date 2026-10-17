@@ -96,7 +96,7 @@ void TAdFloorLoadCamGC::run_task() {
     } else {
         normalize_vector(&up);
     }
-    TCameraCtrl::copy_vec_to_default((u8 *)(&up));
+    TCameraCtrl::copy_vec_to_default((u8 *)&up);
     set_active_camera_pose((u8 *)&s->pos, (u8 *)&s->target);
 }
 #pragma pop

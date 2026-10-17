@@ -188,7 +188,7 @@ void TBoss6Thanks::update_fade_out() {
             queue_destruction__7TObjectFv(this);
             return;
         }
-        *(s32 *)&this->m_34 = (s32) (temp_r3 + 1);
+        *(s32 *)&this->m_34 = (temp_r3 + 1);
     }
 }
 

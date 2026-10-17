@@ -252,8 +252,8 @@ void TObjEneMe3Stelth::draw_with_debug_info() {
             frame = arg0->f360;
             if (frame < TObjEneMe3Stelth__data_805DA840) {
                 frame = TObjEneMe3Stelth__data_805DA840;
-            } else if (frame > (f32)(motion->nframes - 1)) {
-                frame = (f32)(motion->nframes - 1);
+            } else if (frame > (motion->nframes - 1)) {
+                frame = (motion->nframes - 1);
             }
             set_ginja_draw_list_mask(3);
             TObjPlayer::set_global_flag();
@@ -1008,7 +1008,7 @@ void handle_breakup_state__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
                 ofs.y = TObjEneMe3Stelth__data_805DA824;
                 ofs.z = TObjEneMe3Stelth__data_805DA844;
                 ((TObjBoss2Tunnel *)(&ofs))->init_zako(arg0 + 0x38, F(s32, 0x60));
-                TObjPlayer::spawn_effect_f8((s32)(&ofs), 0x14);
+                TObjPlayer::spawn_effect_f8((s32)&ofs, 0x14);
             } else if (objInBand((GameObj *)arg0, (f32)TObjEneMe3Stelth__data_805DA850) != 0) {
                 F(s32, 0x3CC) |= 8;
             } else if (objInBand((GameObj *)arg0, (f32)lbl_805DA82C) != 0) {
@@ -1269,7 +1269,7 @@ extern "C" void handle_message__16TObjEneMe3StelthFPvi(void *arg0, s32 arg1) {
         break;
     case 0:
         temp_r4 = *(s32 *)((s8 *)arg0 + 0x424);
-        *(s32 *)((s8 *)arg0 + 0x424) = (s32) (temp_r4 + 1);
+        *(s32 *)((s8 *)arg0 + 0x424) = (temp_r4 + 1);
         advance_animation_playback(arg0, temp_r4);
         ((V_A *) arg0)->m100();
         ((V_A *) arg0)->m87();
@@ -1959,7 +1959,7 @@ void update_state_resta_cast__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
         case 2:
             *(s32 *)((s8 *)arg0 + 0x428) = (s32) (*(s32 *)((s8 *)arg0 + 0x428) + 1);
             if (*(s32 *)((s8 *)arg0 + 0x428) == 5) {
-                TTecSifta::create((void *)arg0, (void *)(arg0 + 0x38), (void *)(TObjEneDD::clamp_frame_index(*(s32 *)&TObjEneMe3Stelth__behavior_params_by_variant[*(s32 *)((s8 *)arg0 + 0x3C8)][6])));
+                TTecSifta::create((void *)arg0, arg0 + 0x38, (void *)(TObjEneDD::clamp_frame_index(*(s32 *)&TObjEneMe3Stelth__behavior_params_by_variant[*(s32 *)((s8 *)arg0 + 0x3C8)][6])));
             } else if (*(s32 *)((s8 *)arg0 + 0x428) == 0xA) {
                 create__10TTecDebandFlll(arg0, arg0 + 0x38, TObjEneDD::clamp_frame_index(*(s32 *)&TObjEneMe3Stelth__behavior_params_by_variant[*(s32 *)((s8 *)arg0 + 0x3C8)][6]));
                 *(s32 *)((s8 *)arg0 + 0x424) = 1;
@@ -2030,7 +2030,7 @@ void run_walk_state__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
             if ((*(f32 *)((s8 *)arg0 + 0xC0) + *(f32 *)((s8 *)arg0 + 0xC8)) >= TObjEneMe3Stelth__data_805DA808) {
                 *(s32 *)((s8 *)arg0 + 0x424) = 1;
                 ((TObjEneMe3Stelth *)(arg0))->vfunc_91();
-                play_sound_effect(0x3A835, (void *) (arg0 + 0x38), 0, 0);
+                play_sound_effect(0x3A835, arg0 + 0x38, 0, 0);
             }
             ((TObjEneMe3Stelth *)(arg0))->vfunc_102();
             ((TObjEneMe3Stelth *)(arg0))->vfunc_89();
@@ -2449,11 +2449,11 @@ void TObjEneMe3Stelth__sub_800F3FE4(u8 *arg0, s32 arg1) {
         set_field_378__9TObjEneDDFl(arg0, 0);
         ((TObjEneDD *)(arg0))->vfunc_95();
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 7);
-        TObjEneMe3SinowZoa__sub_800D758C((void *) (arg0 + 0x404));
+        TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x404);
         VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x38));
         temp_f1 = *(f32 *)((s8 *)arg0 + 0x3D0);
         stack.spC = temp_f1 - TObjEneMe3Stelth__data_805DA824;
-        TBoss3Volopt__sub_800D8D88((void *) (&stack.sp8), temp_f1);
+        TBoss3Volopt__sub_800D8D88(&stack.sp8, temp_f1);
         break;
     case 3:
         if (((VObj_14_948132 *)(arg0 + (1028)))->m5() != 0) {

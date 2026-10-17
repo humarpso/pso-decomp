@@ -43,13 +43,13 @@ void spawn_lobby_npc_enemy(void) {
     typedef char sp14_offset[(offsetof(Stack_8009048C, sp14) == 0xC) ? 1 : -1];
     Stack_8009048C stack;
     u8 *temp_r5;
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_80439B8C.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_80439B8C.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&lbl_80439B8C.value) + 8);
-    stack.sp14 = *(s32 *)((s8 *)(&lbl_80439B8C.value) + 0xC);
+    stack.sp8 = *(s32 *)((s8 *)&lbl_80439B8C.value + 0);
+    stack.spC = *(s32 *)((s8 *)&lbl_80439B8C.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&lbl_80439B8C.value + 8);
+    stack.sp14 = *(s32 *)((s8 *)&lbl_80439B8C.value + 0xC);
     stack.sp8 = *(s32 *)((s8 *)lbl_805D4F20 + 0x430);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)lbl_805D4F20 + 0x42C));
-    TLobby::spawn_npc_enemy((s16)(0x14), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0x28))), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0x2C))), (s32)((void *) (&stack.sp8)), (f32)((f32) (*(f32 *)((s8 *)((s32 *)TObjEneBalClawClaw__collision_body_template) + 0xC))), (f32)((f32) ((15.0f))));
+    TLobby::spawn_npc_enemy((s16)(0x14), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0x28))), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0x2C))), (s32)((void *)&stack.sp8), (f32)((f32) (*(f32 *)((s8 *)((s32 *)TObjEneBalClawClaw__collision_body_template) + 0xC))), (f32)((f32) ((15.0f))));
 }
 
 }
@@ -1247,7 +1247,7 @@ void TObjEneBalClawClaw::update_attack_distance_state() {
     case 1:
         temp_r3 = *(u32 *)((s8 *)((u8 *)this) + 0x2A8);
         if (temp_r3 != 0U) {
-            temp_f1 = xz_distance_squared((void *) (temp_r3 + 0x38), (void *) (((u8 *)this) + 0x38));
+            temp_f1 = xz_distance_squared((void *)(temp_r3 + 0x38), (void *) (((u8 *)this) + 0x38));
             temp_r31 = *(s32 *)((s8 *)((u8 *)this) + 0x38C);
             switch (temp_r31) {
             case 0:
@@ -1390,7 +1390,7 @@ void TObjEneBalClawClaw__sub_8009173C(u8 *arg0) {
         temp_r5 = (unsigned char *) (*(void **)((s8 *)arg0 + 0xA4));
         *(f32 *)((s8 *)temp_r5 + 4) = (f32) (temp_f1 + *(f32 *)((s8 *)arg0 + 0x3BC));
         submit_cursor_candidate((void *)arg0, -1, (int)temp_r5, (f32)temp_f1, (f32)temp_f2);
-        minimap_render_dot((void *) (arg0 + 0x38), -0x5DB4, 1, 0);
+        minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
         return;
     }
     entity = (s32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0x3C6)));
@@ -1542,13 +1542,13 @@ void TObjEneBeast::vfunc_94() {
     stack.sp8 = lbl_805D96D8;
     stack.spC = lbl_805D96DC;
     stack.sp10 = lbl_805D96E0 * *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x2B0)) + 0x10);
-    push_matrix_from((void *) (&identity_matrix.value));
+    push_matrix_from(&identity_matrix.value);
     rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-    rotate_vector_by_matrix(0, (void *) (&stack.sp8), (void *) (&stack.sp8));
+    rotate_vector_by_matrix(0, &stack.sp8, &stack.sp8);
     pop_matrix();
-    vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+    vec3_add_to(&stack.sp8, arg0 + 0x38);
     ((TObjPlayer *)(&stack.sp8))->spawn_effect_at_ground(0x23);
-    TObjPlayer::spawn_dead_spot_type2((s32)((void *) (&stack.sp8)), 0xF);
+    TObjPlayer::spawn_dead_spot_type2((s32)(&stack.sp8), 0xF);
 }
 
 void TObjEneBeast::vfunc_93() {
@@ -1627,7 +1627,7 @@ void TObjEneBeast::vfunc_83() {
             *(s16 *)((s8 *)arg0 + 0xB8) = 0xB;
             set_indexed_flags((arg0), 0, 0x0A000000);
             obj_setFlags30(arg0, 0x04000000);
-            play_sound_effect(0x4003AB32, (s32) (arg0 + 0x38), 0, 0);
+            play_sound_effect(0x4003AB32, (s32)(arg0 + 0x38), 0, 0);
         }
         break;
     case 1:
@@ -1702,7 +1702,7 @@ void render__12TObjEneBeastFPv(Obj_8009211C *o) {
         v.x = lbl_805D96F4;
         v.y = lbl_805D96F8;
         v.z = lbl_805D96FC;
-        ((TObjEnemy *)o)->render_with_position_override((u8 *)(&v), 0);
+        ((TObjEnemy *)o)->render_with_position_override((u8 *)&v, 0);
     }
 }
 

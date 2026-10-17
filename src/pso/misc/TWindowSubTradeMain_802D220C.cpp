@@ -22,7 +22,7 @@ s32 TWindowSubTradeMain::get_state() {
 void TLobby::remove_trade_entry(u32 arg1) {
     E_802D2240 *p;
     s32 i;
-    if ((u32)(arg1 + 0x10000) == 0xFF01) {
+    if ((arg1 + 0x10000) == 0xFF01) {
         T_802D2240 *t = (T_802D2240 *)((void *)((TLobby *)((E_802D2240 *)this))->get_trade_obj_ptr());
         t->b = 0;
         return;
@@ -37,10 +37,10 @@ void TLobby::remove_trade_entry(u32 arg1) {
     i++;
     p++;
     while (i < 0x1F) {
-        if ((u32)(p->id + 0x10000) == 0xFF01) {
+        if ((p->id + 0x10000) == 0xFF01) {
             break;
         }
-        TLobby__sub_802D22F0((void*)(p - 1), p);
+        TLobby__sub_802D22F0(p - 1, p);
         p->id = -1;
         i++;
         p->cnt = 0;

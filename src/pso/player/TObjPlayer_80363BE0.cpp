@@ -162,7 +162,7 @@ void TUnk_804F2A10::run_task() {
     void *spC;
     s32 sp8;
 
-    TItemLoad::get_model_ids((u8)5, (s32 *)(&spC), (s32 *)(&sp8));
+    TItemLoad::get_model_ids((u8)5, (s32 *)&spC, (s32 *)&sp8);
     if (spC != NULL) {
         submit_computer_command__10TObjPlayerFv(*(s32 *)((s8 *)spC + 0x2C), 2, 2, 0xB);
     }

@@ -314,7 +314,7 @@ void TAdEndText::load_ending_font() {
 }
 
 s32 TAdEndText__sub_8001B3BC(u8 arg0) {
-    return *(u8 *)((s8 *)((u8 *)(&lbl_804F5800.value) + arg0) + 0) & 0x10;
+    return *(u8 *)((s8 *)((u8 *)&lbl_804F5800.value + arg0) + 0) & 0x10;
 }
 
 typedef char RecoveredGlobal_8001B3EC_lbl_804F5800_size[sizeof(RecoveredGlobal_8001B3EC_lbl_804F5800) == 0x100 ? 1 : -1];

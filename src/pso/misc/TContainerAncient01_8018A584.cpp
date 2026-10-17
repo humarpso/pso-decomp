@@ -510,9 +510,9 @@ void TContainerAncient01::init_positions() {
     this->m_344 = (f32) (TContainerAncient01__data_805DBD44 + (*(f32 *)&this->m_70 - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
     *(s32 *)((s8 *)arg0 + 0x370) = (s32) (*(s32 *)&this->m_8c + 4);
     VecCopy((Vec *)&this->unk_348, (const Vec *)&this->position);
-    this->m_34c = (f32) (this->m_34c + *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4));
+    this->m_34c = (f32) (this->m_34c + *(f32 *)((s8 *)&TContainerAncient01__collision_body_parts.value + 4));
     VecCopy((Vec *)&this->m_354, (const Vec *)&this->unk_348);
-    *(f32 *)&this->unk_358 = (f32) ((lbl_805DBD48 * *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4)) + *(f32 *)&this->unk_358);
+    *(f32 *)&this->unk_358 = (f32) ((lbl_805DBD48 * *(f32 *)((s8 *)&TContainerAncient01__collision_body_parts.value + 4)) + *(f32 *)&this->unk_358);
     *(s32 *)&this->m_360 = 0;
     *(f32 *)&this->unk_364 = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD10);
     this->m_368 = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD10);
@@ -558,11 +558,11 @@ f32 TContainerAncient01R::receive_physical_attack(void *, f32) {
     u8 *arg0 = (u8 *)this;
     s16 sp8;
     if ((u16) this->m_1c >= 0x1000U) {
-        this->m_338 = (s16) (this->m_338 + 1);
-        if (((u32) *(u32 *)&this->m_80 != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), 1) != 0)) {
+        this->m_338 = (this->m_338 + 1);
+        if (((u32) *(u32 *)&this->m_80 != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 1) != 0)) {
             sp8 = this->m_338;
-            ((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), 0);
-            ((TUnk_804AF8A0 *)arg0)->send_object_state_update((void *) (&sp8));
+            ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 0);
+            ((TUnk_804AF8A0 *)arg0)->send_object_state_update(&sp8);
         }
     }
     return (*(const f32 *)&TContainerAncient01__data_805DBD14);
@@ -574,7 +574,7 @@ f32 TContainerAncient01R::receive_direct_attack(void *arg1, void *arg2_arg, void
     struct VObj_8018AC68_8018A584 *o = (struct VObj_8018AC68_8018A584 *)this;
 
     temp_r4 = *arg2;
-    if ((temp_r4 == 0) || ((u32) (temp_r4 - 1) <= 3U) || (temp_r4 == 0x13)) {
+    if ((temp_r4 == 0) || ((temp_r4 - 1) <= 3U) || (temp_r4 == 0x13)) {
         o->m20(0, TContainerAncient01__data_805DBD10);
     }
     return TContainerAncient01__data_805DBD14;
@@ -585,7 +585,7 @@ int TContainerAncient01R::calc_distance_accuracy_penalty(void *, void *, void *,
 extern const f32 lbl_805DBD4C;
 
 s32 is_within_range__19TContainerAncient01Fii(s32 arg0, s32 arg1) {
-    return xyz_distance_squared((void *) (arg1 + 0x38), (void *) (arg0 + 0x38), (void *)arg0) < TContainerAncient01__data_805DBD44;
+    return xyz_distance_squared((void *)(arg1 + 0x38), (void *)(arg0 + 0x38), (void *)arg0) < TContainerAncient01__data_805DBD44;
 }
 
 void TContainerAncient01R::render() {
@@ -790,7 +790,7 @@ void TContainerAncient01::sub_8018B48C() {
   advance_animation_playback(arg0);
   if (((__cvt_fp2unsigned(this->m_2b4) & 0xFFFFFFFF) % 15) == 0)
   {
-    TContainerAncient01::spawn_effect(arg0, (void*)(arg0 + 0x344), (void*)((void *) 0x7D));
+    TContainerAncient01::spawn_effect(arg0, arg0 + 0x344, (void*)((void *) 0x7D));
   }
   if (TContainerAncient01__data_805DBD34 <= (this->m_2b4))
   {
@@ -836,9 +836,9 @@ void TContainerAncient01::init_state_vectors() {
     *(f32 *)&this->unk_340 = (f32) (TContainerAncient01__data_805DBD44 + (*(f32 *)&this->m_70 - TContainerAncient01__data_805DBD10));
     *(s32 *)&this->unk_36C = (s32) (*(s32 *)&this->m_8c + 4);
     VecCopy((Vec *)&this->m_344, (const Vec *)&this->position);
-    *(f32 *)&this->unk_348 = (f32) (*(f32 *)&this->unk_348 + *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4));
+    *(f32 *)&this->unk_348 = (f32) (*(f32 *)&this->unk_348 + *(f32 *)((s8 *)&TContainerAncient01__collision_body_parts.value + 4));
     VecCopy((Vec *)&this->unk_350, (const Vec *)&this->m_344);
-    this->m_354 = (f32) ((lbl_805DBD48 * *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4)) + this->m_354);
+    this->m_354 = (f32) ((lbl_805DBD48 * *(f32 *)((s8 *)&TContainerAncient01__collision_body_parts.value + 4)) + this->m_354);
     *(s32 *)&this->m_35c = 0;
     *(f32 *)&this->m_360 = (f32) TContainerAncient01__data_805DBD10;
     *(f32 *)&this->unk_364 = (f32) TContainerAncient01__data_805DBD10;

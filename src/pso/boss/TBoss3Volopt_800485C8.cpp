@@ -75,8 +75,8 @@ void update_particle_emitter__12TBoss3VoloptFPv(u8 *arg0) {
         ang = lbl_805D8838 * (lbl_805D883C * (lbl_805D8840 * (f32)rand()));
         v = *(Raw_80048674 *)(arg0 + 0x2C);
         d = *(f32 *)((s8 *)arg0 + 0x44) * (lbl_805D8840 * (f32)rand());
-        *(f32 *)((s8 *)(&v) + 0) += d * cos_table_lookup(ang);
-        *(f32 *)((s8 *)(&v) + 8) += d * sin_table_lookup(ang);
+        *(f32 *)((s8 *)&v + 0) += d * cos_table_lookup(ang);
+        *(f32 *)((s8 *)&v + 8) += d * sin_table_lookup(ang);
         spawn_directional_particle(&v, arg0 + 0x38, *(s32 *)((s8 *)arg0 + 0x1C));
         *(f32 *)((s8 *)arg0 + 0x28) -= lbl_805D8844;
     }
@@ -223,7 +223,7 @@ void *__dt__13TUnk_804848B8Fv(void *arg0, s16 arg1) {
 }
 
 void *TUnk_804848B8::init_fade(void *arg1, void *arg2) {
-    init_object((void *)(tl_fade));
+    init_object(tl_fade);
     *(s32 **)((s8 *)this + 0x18) = lbl_804848B8;
     *(void * *)&(*(s32 *)((u8 *)this + 0x24)) = arg2;
     *(f32 *)&(*(u16 *)((u8 *)this + 0x1C)) = lbl_805D8854;

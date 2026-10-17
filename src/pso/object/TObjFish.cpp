@@ -217,7 +217,7 @@ void TOKeyJungleMain::update_lock_state() {
     s32 temp_r31;
     if ((s32) *(s32 *)&this->m_d0 != 2) {
         temp_r31 = *(s32 *)&this->m_d4;
-        if (TLevelSelect::get_difficulty_flag_bit(game_difficulty_selection, *(s32 *)((s8 *)(&TOKeyJungleMain__data_804653C8.value) + (*(s32 *)&this->m_e4 * 4))) != 0) {
+        if (TLevelSelect::get_difficulty_flag_bit(game_difficulty_selection, *(s32 *)((s8 *)&TOKeyJungleMain__data_804653C8.value + (*(s32 *)&this->m_e4 * 4))) != 0) {
             *(s32 *)&this->m_d4 = 1;
         } else {
             *(s32 *)&this->m_d4 = 0;
@@ -276,7 +276,7 @@ u8 *TOKeyJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3D50;
     ((TOKeyJungleMain *)(arg0))->apply_object_set_data((void *)arg2);
     ((TOKey *)arg0)->init_switch_id();
-    init_collision_body_parts(arg0, (void *) (&TOKeyJungleMain_collision_body_parts.value), 1);
+    init_collision_body_parts(arg0, &TOKeyJungleMain_collision_body_parts.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(s32 *)&((TOKeyJungleMain *)arg0)->m_d0 = 0;
@@ -304,7 +304,7 @@ u8 TObjFish::update_state() {
             }
             goto Lend;
         case 2:
-            this->m_92 = (s16) (this->m_92 - 1);
+            this->m_92 = (this->m_92 - 1);
             if (this->m_92 <= 0) {
                 *(s16 *)((s8 *)this + 0x90) = 3;
             }
@@ -629,7 +629,7 @@ u8 *TObjFish__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3D58;
     *(s32 *)&((TObjFish *)arg0)->m_a0 = 0;
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2 + 0xC));
-    ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz((void *) (arg2 + 0x18));
+    ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz(arg2 + 0x18);
     VecCopy((Vec *)(arg0 + 0x68), (const Vec *)(arg2 + 0x24));
     var_f1 = ((TObjFish *)arg0)->scale;
     temp_f0 = ((TObjFish *)arg0)->target_scale;
@@ -645,7 +645,7 @@ u8 *TObjFish__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     if ((s32) *(s32 *)&((TObjFish *)arg0)->m_94< 1) {
         *(s32 *)&((TObjFish *)arg0)->m_94 = 1;
     }
-    if (init_fish_school__8TObjFishFPvll(arg0, (void *) (arg0 + 0x68), (int) (*(s32 *)((s8 *)arg2 + 0x30)), (int) (*(s32 *)((s8 *)arg2 + 0x34))) == 0) {
+    if (init_fish_school__8TObjFishFPvll(arg0, arg0 + 0x68, (int) (*(s32 *)((s8 *)arg2 + 0x30)), (int) (*(s32 *)((s8 *)arg2 + 0x34))) == 0) {
         queue_destruction__7TObjectFv((arg0));
     }
     return arg0;

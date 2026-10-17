@@ -345,25 +345,25 @@ void *TObjEneRecobox__vtable[107] = {
 void dispatch_state__12TObjEneReconFiUii(s32 arg0, u32 arg1, s32 arg2) {
     switch (arg1) {
     case 0:
-        ((TObjEneRecobox *)arg0)->sub_8031F6C0((s32)(arg2));
+        ((TObjEneRecobox *)arg0)->sub_8031F6C0(arg2);
         return;
     case 1:
-        ((TObjEneRecon *)arg0)->handle_state((s32)(arg2));
+        ((TObjEneRecon *)arg0)->handle_state(arg2);
         return;
     case 2:
         TObjEneRecon__sub_8031F600((void *)arg0, (arg2));
         return;
     case 3:
-        ((TObjEneRecon *)arg0)->update_state((s32)(arg2));
+        ((TObjEneRecon *)arg0)->update_state(arg2);
         return;
     case 4:
-        ((TObjEneRecon *)arg0)->handle_action_state((s32)(arg2));
+        ((TObjEneRecon *)arg0)->handle_action_state(arg2);
         return;
     case 5:
         TObjEneRecon__sub_8031F408((void *)arg0, (arg2));
         return;
     case 6:
-        ((TObjEneRecon *)arg0)->handle_death_state((s32)(arg2));
+        ((TObjEneRecon *)arg0)->handle_death_state(arg2);
     default:
         return;
     }
@@ -580,7 +580,7 @@ void TObjEneRecobox::load_resources() {
         Spawn_80320260 s = recobox_resource_binding_desc;
         box = (Box_80320260 *)(*(u32 *)&TObjEneRecobox__static_instance);
         s.a = box->f430;
-        TLobby::spawn_npc_enemy((s16)0xD, box->f42C->f18, box->f42C->f1C, (s32)(&s), (f32)(getf_80320260(sp)), (f32)lbl_805DF46C);
+        TLobby::spawn_npc_enemy((s16)0xD, box->f42C->f18, box->f42C->f1C, (s32)&s, (f32)(getf_80320260(sp)), (f32)lbl_805DF46C);
     }
 }
 

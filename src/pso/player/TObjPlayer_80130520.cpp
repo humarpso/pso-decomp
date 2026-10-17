@@ -34,7 +34,7 @@ void TObjPlayer__sub_801305E8(void *arg0) {
 
     temp_r4 = ((TUnk_804A69DC *)arg0)->m_1fc;
     if (temp_r4 > 0xCCC) {
-        ((TUnk_804A69DC *)arg0)->m_1fc = (s32) (temp_r4 - 0xB6);
+        ((TUnk_804A69DC *)arg0)->m_1fc = (temp_r4 - 0xB6);
     }
 }
 
@@ -45,7 +45,7 @@ void TUnk_804A69DC::update_attack() {
     if (!(*(s32 *)&this->unk_200 & 3)) {
         temp_r4 = this->m_1fc;
         if (temp_r4 < 0x3333) {
-            this->m_1fc = (s32) (temp_r4 + 0xB6);
+            this->m_1fc = (temp_r4 + 0xB6);
         }
     }
 }

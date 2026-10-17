@@ -128,7 +128,7 @@ u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1) {
             if (((TLobby *)player)->check_player_flag1() != 0) {
                 TObjPlayer::send_code_45_1(player);
             }
-            obj_clear_flag30_20000((void *)(player));
+            obj_clear_flag30_20000((void *)player);
         }
         clear_volopt_cage_flag();
         free_collision_body_parts(arg0);

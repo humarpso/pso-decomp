@@ -176,7 +176,7 @@ void TWindowSubShortCut::run_task() {
             this->m_2c = 0U;
         }
         if ((u32) this->m_38 == 0U) {
-            void *chat = new TWindowChat((TObject *)arg0, (void *)(void *) (arg0 + 0x40));
+            void *chat = new TWindowChat((TObject *)arg0, (void *)(arg0 + 0x40));
             *(void * *)&this->m_38 = chat;
             ((TWindowSubShortCut *)(this->m_38))->free_icon();
             ((TWindowSubShortCut *)(this->m_38))->close_and_clear_flag();

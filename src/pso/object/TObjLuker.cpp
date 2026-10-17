@@ -278,7 +278,7 @@ s32 is_player_in_range__9TObjLukerFv(s32 arg0, f32 farg0) {
         for (s32 i = 0; i < 4; i++) {
             p = PBC_801A10A0((void *)i);
             if (p != 0U) {
-                if (horizontal_distance_squared((void *) (arg0 + 0x38), (void *) (p + 0x38)) < (farg0 * farg0)) {
+                if (horizontal_distance_squared((void *)(arg0 + 0x38), (void *)(p + 0x38)) < (farg0 * farg0)) {
                     found = 1;
                     if ((p != 0U) && (check_flag_100__10TObjPlayerFPv((void *)p) == 0)) {
                         ((TObjLuker *)arg0)->show_part((int) (obj_getField1c(p)));
@@ -296,7 +296,7 @@ s32 is_player_in_range__9TObjLukerFv(s32 arg0, f32 farg0) {
         }
     } else {
         p = PBC_801A10A0((void *)local_client_id);
-        if ((p != 0U) && (horizontal_distance_squared((void *) (p + 0x38), (void *) (arg0 + 0x38)) < (farg0 * farg0))) {
+        if ((p != 0U) && (horizontal_distance_squared((void *)(p + 0x38), (void *)(arg0 + 0x38)) < (farg0 * farg0))) {
             found = 1;
         }
         if (found != 0) {
@@ -449,7 +449,7 @@ void TObjLuker::run_task() {
                         p = PBC_801A1418(local_client_id);
                         if (p != NULL) {
                             play_effect_default__10TObjPlayerFii(p, 0xA);
-                            play_sound_effect(0x40022D1A, (u32) (arg0 + 0x38), 0, 0);
+                            play_sound_effect(0x40022D1A, (u32)(arg0 + 0x38), 0, 0);
                         }
                         TWindowCtrl::init_all_slots();
                         *(s32 *)&this->m_b8 = 1;

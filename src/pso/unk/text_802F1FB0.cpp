@@ -32,7 +32,7 @@ u8 *fn_802F1FB0(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, f32 farg0) {
     temp_r6 = *(s32 *)((s8 *)arg1 + 0x10);
     temp_r31 = (u8 *)&boss2_tunnel_effect_name_table.value + temp_r5;
     ((TUnk_804E4B24 *)arg0)->m_34 = temp_r6;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1C), (void *)arg3, (int)temp_r5, (int)temp_r6);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x1C, (void *)arg3, (int)temp_r5, (int)temp_r6);
     *(s32 *)((s8 *)arg0 + 0x28) = 0;
     *(s32 *)((s8 *)arg0 + 0x2C) = 0;
     *(s32 *)((s8 *)arg0 + 0x30) = 0;
@@ -41,7 +41,7 @@ u8 *fn_802F1FB0(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, f32 farg0) {
     ((TUnk_804E4B24 *)arg0)->m_40 = arg2;
     *(f32 *)((s8 *)arg0 + 0x44) = farg0;
     if (arg2 == 4) {
-        copy_position__16TBoss8DragonDemoFv((int) (((TUnk_804E4B24 *)arg0)->m_34), (void *) (arg0 + 0x1C));
+        copy_position__16TBoss8DragonDemoFv((int) (((TUnk_804E4B24 *)arg0)->m_34), arg0 + 0x1C);
         TObjBoss2Tunnel__sub_802F2278();
     }
     ((TUnk_804E4B24 *)arg0)->update_collision();

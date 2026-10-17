@@ -281,7 +281,7 @@ void run_task__30TObjEneMe1Canadin_EffDischargeFv(u8 *arg0) {
     temp_f31 = ((TObjBoss2Tunnel *)(&sp8))->update_scale();
     s32 nw_ret = __nw__7TObjectFUl(0x260);
     if (nw_ret != 0U) {
-        ((TTecZondeEff *)nw_ret)->construct((u8 *)tl_05, (u8 *)(arg0 + 0x38), (u8 *)(&sp8), (f32)temp_f31);
+        ((TTecZondeEff *)nw_ret)->construct((u8 *)tl_05, (u8 *)(arg0 + 0x38), (u8 *)&sp8, (f32)temp_f31);
     }
     VC_B(arg0 + 0x38, arg0 + 0x50);
     if (var_r31 != 0) {
@@ -370,7 +370,7 @@ void render__25TObjEneMe1Canadin_EffLineFv(s32 arg0) {
     stack.sp10 = 0;
     stack.sp14 = 2;
     TObjPlayer::init_xyz_limits();
-    draw_line_list((void *) (&stack.sp8), 1, 5);
+    draw_line_list(&stack.sp8, 1, 5);
 }
 
 void *__dt__25TObjEneMe1Canadin_EffLineFv(void *arg0, s16 arg1);
@@ -384,7 +384,7 @@ void run_task__25TObjEneMe1Canadin_EffLineFv(u8 *arg0) {
         *(s32 *)((s8 *)arg0 + 0x1C) = 0;
         u32 newp = __nw__7TObjectFUl(0x3C);
         if (newp != 0U) {
-            fn_800A02AC((u8 *)newp, (u8 *)(*(s32 *)((s8 *)arg0 + 0x10)), (u8 *)(arg0 + 0x28), (u8 *)(arg0 + 0x34));
+            fn_800A02AC((u8 *)newp, (u8 *)(*(s32 *)((s8 *)arg0 + 0x10)), arg0 + 0x28, arg0 + 0x34);
         }
     }
 }

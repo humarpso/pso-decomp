@@ -1057,7 +1057,7 @@ struct Self_8040098C;
 #pragma dont_inline off
 #pragma inline_depth(4)
 #define FWD_80405A74()                                                       \
-    (*(s16 *)(G + 0x13A))++;                                            \
+    (*(G + 0x13A))++;                                            \
     t = (Strm_80405A74 *)((TLobby *)arg0)->alloc_from_buffer(4); \
     p = t->p;                                                                \
     *p++ = 0xFF;                                                             \
@@ -1065,7 +1065,7 @@ struct Self_8040098C;
     write_network_u16_be(p, code);                                           \
     u = t;                                                                   \
     if (u == NULL) {                                                         \
-        (*(s16 *)(G + 0x142))++;                                        \
+        (*(G + 0x142))++;                                        \
         return;                                                              \
     }                                                                        \
     if (TLobby__sub_80401BCC(&u, &lobby_ppp_read_buf, 2) == 2) {                   \

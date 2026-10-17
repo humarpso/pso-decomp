@@ -381,7 +381,7 @@ s32 TShopArmorListWindow::open_menu_window() {
         temp_f31 = get_scale__15TShopWindowBaseFv(this);
         ((TUnk_804CDFE8 *)(*(u32 *)((s8 *)this + 0x30)))->set_position_xy(get_scale__15TShopWindowBaseFv(this), temp_f31);
     }
-    set_field_20__15TShopWindowBaseFl((void*)(this), 2);
+    set_field_20__15TShopWindowBaseFl(this, 2);
 }
 int TShopArmorListWindow::advance_to_preparation_phase() { return set_field_20__15TShopWindowBaseFl(this, 8); }
 
@@ -408,7 +408,7 @@ void TShopArmorListWindow::handle_selection() {
     if (w->list != NULL) {
         i = select_cursor_entry__22TWindowSubShortCutListFv(w->list);
         if (w->help != NULL && i != w->sel) {
-            ((TWindowHelpItem *)((int)w->help))->set_displayed_item_colored((u32)(&w->recs[i]));
+            ((TWindowHelpItem *)((int)w->help))->set_displayed_item_colored((u32)&w->recs[i]);
         }
         if (i != w->sel) {
             update_selection(&w->recs[i]);
@@ -546,8 +546,8 @@ void TShopArmorListWindow::vfunc_11() {
     temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);
     switch (temp_r0) {
     case 0:
-        TShopArmorListWindow::refresh_item_list((void *)(arg0));
-        set_field_20__15TShopWindowBaseFl((void*)(arg0), 1);
+        TShopArmorListWindow::refresh_item_list(arg0);
+        set_field_20__15TShopWindowBaseFl(arg0, 1);
         return;
     case 1:
         ((TShopArmorListWindow *)arg0)->handle_selection();
@@ -615,8 +615,8 @@ u8 *TShopArmorListWindow__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)((s8 *)arg0 + 0x48) = 0;
     *(s32 *)((s8 *)arg0 + 0x1F4) = 0;
     *(s32 *)((s8 *)arg0 + 0x1F0) = 0;
-    ((TShopGetItemWindow *)(*(s32 *)((s8 *)arg0 + 0x24)))->calc_item_count((s32 *)(&sp8));
-    TLobby::set_shop_armor_list_flag((int)((void *) (sub_8022397C__15TShopWindowBaseFv(arg0))), (int)(sp8));
+    ((TShopGetItemWindow *)(*(s32 *)((s8 *)arg0 + 0x24)))->calc_item_count(&sp8);
+    TLobby::set_shop_armor_list_flag((int)((void *) (sub_8022397C__15TShopWindowBaseFv(arg0))), sp8);
     return arg0;
 }
 

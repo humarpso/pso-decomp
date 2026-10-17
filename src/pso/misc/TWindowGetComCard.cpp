@@ -191,7 +191,7 @@ u8 *TWindowGetComCard__ct(u8 *arg0) {
         ((TLobby *)(*(s32 *)&((TWindowGetComCard *)arg0)->m_1c))->send_and_handle((int) (TWindowSubStatusDisp::get_message_10(0x37)), 0);
         *(s32 *)&((TWindowGetComCard *)arg0)->m_28 = 0x384;
     }
-    if (get_player_by_client_id((s32)(local_client_id)) != 0U) {
+    if (get_player_by_client_id(local_client_id) != 0U) {
         reset_equip_slots__10TObjPlayerFv();
     }
     TObjPlayer__sub_8024ABDC((local_client_id));

@@ -352,7 +352,7 @@ void TPhotonGolla::run_task() {
         stack.spC += lbl_805DC1A0;
         temp_r3_2 = __nw__7TObjectFUl(0xD0);
         if (temp_r3_2 != 0U) {
-            TPhotonMagicSquare__ct((u8 *)temp_r3_2, (s32)arg0, 3, (s32)(&stack.sp8), 0xFA, (f32)lbl_805DC1A4);
+            TPhotonMagicSquare__ct((u8 *)temp_r3_2, (s32)arg0, 3, (s32)&stack.sp8, 0xFA, (f32)lbl_805DC1A4);
         }
     }
     if ((lbl_805DC1A8 == (f32) *(s32 *)&this->unk_1C8) && ((s16) this->m_b8 == 1)) {
@@ -370,11 +370,11 @@ void TPhotonGolla::run_task() {
     if ((s32) *(s32 *)&this->unk_1C8 == 0x50) {
         VecCopy((Vec *)(arg0 + 0x1AC), (const Vec *)(this->m_148 + 0x44));
         spawn_particle_effect((arg0 + 0x1AC), 0x133);
-        spawn_concentrate__12TPhotonGollaFPv((void *)(arg0));
+        spawn_concentrate__12TPhotonGollaFPv(arg0);
     }
     temp_r0 = *(s32 *)&this->unk_1C8;
     if ((temp_r0 == 0x56) || (temp_r0 == 0x5C) || (temp_r0 == 0x62) || (temp_r0 == 0x68) || (temp_r0 == 0x6E) || (temp_r0 == 0x74)) {
-        spawn_concentrate__12TPhotonGollaFPv((void *)(arg0));
+        spawn_concentrate__12TPhotonGollaFPv(arg0);
     }
     if ((s32) this->m_1c4 != 0) {
         play_persistent_sound(0x4002462F, (s32)arg0, 0, 0, 0);

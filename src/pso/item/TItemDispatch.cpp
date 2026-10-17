@@ -131,7 +131,7 @@ void TItem::render_shadows() {
     u8 *arg0 = (u8 *)this;
     if (((TObject *)arg0)->all_parents_unqueued_for_destruction() != 0) {
         ((TUnk_804AF8A0 *)arg0)->set_shadow_flag();
-        if ((TObjPlayer__sub_80102C30((u8 *)(arg0)) == 2) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
+        if ((TObjPlayer__sub_80102C30(arg0) == 2) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
             set_depth_buffer_settings_id__FUl(1);
             lbl_805D5660 = model_render_flags;
             lbl_805D5664 = chunk_polygon_flags_and_mask;
@@ -206,7 +206,7 @@ void TItem::run_task() {
         this->m_f0 = (u32)get_player_by_client_id((((TItemProArmor *)arg0)->get_id()));
         temp_r4 = this->m_f0;
         if (temp_r4 != 0U) {
-            VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (temp_r4 + 0x38));
+            VecCopy__FP3VecPC3Vec((void *)(arg0 + 0x38), (void *)(temp_r4 + 0x38));
             ((TItem *)arg0)->update_owner_visibility();
             this->vfunc_14();
             this->vfunc_16();

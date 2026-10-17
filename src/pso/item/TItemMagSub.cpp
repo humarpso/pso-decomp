@@ -68,7 +68,7 @@ void TItemMagSub::set_motion_type(s32 arg1) {
             VecCopy((Vec *)(arg0 + 0xA0), (const Vec *)(temp_r5 + 0x2FC));
             return;
         }
-        ((VObj_80114950 *)temp_r5)->m63(elem, (void *)(arg0 + 0xA0));
+        ((VObj_80114950 *)temp_r5)->m63(elem, arg0 + 0xA0);
     }
 }
 void TItemMagSub::transition_motion_type(s32 type) {
@@ -408,12 +408,12 @@ s32 TItemMagSub::get_world_position(void* output) {
     typedef char sp10_offset[(offsetof(Stack_80114DB8, sp10) == 0x8) ? 1 : -1];
     Stack_80114DB8 stack;
     if ((mag_owner_freezes_follow((int)item) == 0) && (output != 0)) {
-        push_matrix_from((void *) (&identity_matrix.value));
+        push_matrix_from((void *)&identity_matrix.value);
         apply_placement_matrix();
-        stack.sp8 = *(s32 *)((s8 *)(&mag_sub_local_origin.value) + 0);
-        stack.spC = *(s32 *)((s8 *)(&mag_sub_local_origin.value) + 4);
-        stack.sp10 = *(s32 *)((s8 *)(&mag_sub_local_origin.value) + 8);
-        transform_point_by_current_matrix((void *) (&stack.sp8), output);
+        stack.sp8 = *(s32 *)((s8 *)&mag_sub_local_origin.value + 0);
+        stack.spC = *(s32 *)((s8 *)&mag_sub_local_origin.value + 4);
+        stack.sp10 = *(s32 *)((s8 *)&mag_sub_local_origin.value + 8);
+        transform_point_by_current_matrix((void *)&stack.sp8, output);
         pop_matrix();
         return 1;
     }
@@ -428,7 +428,7 @@ void TItemMagSub::apply_placement_matrix() {
   s32 a2;
   s32 a3;
   s32 a4;
-  post_translate_matrix((void *) (arg0 + 0xA0));
+  post_translate_matrix(arg0 + 0xA0);
   if (obj_isState7_324((void *) (*(void * *)&this->owner)) != 0)
   {
     feed = (void *) ((TItemMagSub *)arg0)->resolve_owner_heading();
@@ -438,7 +438,7 @@ void TItemMagSub::apply_placement_matrix() {
   {
     rotate_matrix_y(0, (void *) (*((s32 *) (((s8 *) (*(void * *)&this->owner)) + 0x60))));
   }
-  post_translate_matrix((void *) (arg0 + 0xAC));
+  post_translate_matrix(arg0 + 0xAC);
   temp_r6 = (unsigned char *) (*(void * *)&this->motion);
   if (temp_r6 != 0)
   {

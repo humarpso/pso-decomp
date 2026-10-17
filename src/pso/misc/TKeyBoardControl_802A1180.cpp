@@ -66,7 +66,7 @@ void update_movie_phase(void) {
         TKeyBoardControl__sub_8000F92C();
     }
     if (TQuestVmDownLoadServer::is_ready() != 0) {
-        var_r3 = (s32 *)(NULL);
+        var_r3 = NULL;
         TKeyBoardControl__sub_8000F9CC(0);
     }
     render_tick();

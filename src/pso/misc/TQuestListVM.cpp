@@ -837,7 +837,7 @@ void TQuestListVM::vfunc_11() {
         ((TQuestListVM *)arg0)->load_quest_vm();
         return;
     case 2:
-        TQuestListVM::scan_memcard_quest_files((void *)(arg0));
+        TQuestListVM::scan_memcard_quest_files(arg0);
         return;
     case 3:
         ((TQuestListVM *)arg0)->load_selected_player_slot();
@@ -846,7 +846,7 @@ void TQuestListVM::vfunc_11() {
         ((TQuestListVM *)arg0)->process_download_entry();
         return;
     case 5:
-        TQuestListVM::build_download_list((void *)(arg0));
+        TQuestListVM::build_download_list(arg0);
         return;
     case 6:
         TQuestListVM::update_lobby_selection(arg0);
@@ -858,7 +858,7 @@ void TQuestListVM::vfunc_11() {
         ((TQuestListVM *)arg0)->sub_80219064();
         return;
     case 9:
-        TQuestListVM::poll_quest_download((void *)(arg0));
+        TQuestListVM::poll_quest_download(arg0);
         return;
     case 15:
         ((TQuestListVM *)arg0)->open_confirm_window();
@@ -876,7 +876,7 @@ void TQuestListVM::vfunc_11() {
         ((TQuestListVM *)arg0)->update_close();
         return;
     case 14:
-        TQuestListVM__sub_8021884C((void *)(arg0));
+        TQuestListVM__sub_8021884C(arg0);
         return;
     case 16:
         ((TQuestListVM *)arg0)->close();
@@ -966,8 +966,8 @@ u8 *TQuestListVM__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
 void TQuestVmDownLoadServer__sub_80219EC4(void* p) { *(u16*)((char*)p + 0x70) |= 0x8; }
 typedef char RecoveredGlobal_8033B9C4_lbl_80513910_size[sizeof(RecoveredGlobal_8033B9C4_lbl_80513910) == 0x10 ? 1 : -1];
 void seed_download_rng(s32 arg0) {
-    *(s32 *)((s8 *)(&download_rng_seed_pair.value) + 4) = arg0;
-    *(s32 *)((s8 *)(&download_rng_seed_pair.value) + 0) = arg0;
+    *(s32 *)((s8 *)&download_rng_seed_pair.value + 4) = arg0;
+    *(s32 *)((s8 *)&download_rng_seed_pair.value + 0) = arg0;
 }
 
 }

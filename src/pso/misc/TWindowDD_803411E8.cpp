@@ -18,7 +18,7 @@ extern const f32 lbl_805DFC94;
 
 void TWindowDD::update_position(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x30))->copy_vec2((void *)(arg0 + 0x6C));
+    ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x30))->copy_vec2(arg0 + 0x6C);
     *(s32 *)((s8 *)arg0 + 0x50) = arg1;
     if (*(f32 *)((s8 *)arg0 + 0x6C) < lbl_805DFC94) {
         *(f32 *)((s8 *)arg0 + 0x30) = (f32) (*(f32 *)((s8 *)arg0 + 0x30) - *(f32 *)((s8 *)arg0 + 0x38));

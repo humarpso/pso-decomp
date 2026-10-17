@@ -388,7 +388,7 @@ void TLobby::update_battle_cleanup_flag() {
         return;
     }
     if (check_player_state_flag_2__6TLobbyFv() != 0) {
-        if (((s32) *(s32 *)((s8 *)this + 0x28) != 0) && ((s32) *(s32 *)((s8 *)(&challenge_mode_state) + 0x34) == 0)) {
+        if (((s32) *(s32 *)((s8 *)this + 0x28) != 0) && ((s32) *(s32 *)((s8 *)&challenge_mode_state + 0x34) == 0)) {
             update_card_save_info__6TLobbyFv(this);
             TLobby__sub_800722AC(local_client_id);
             TLobby__sub_80072618();
@@ -665,10 +665,10 @@ void TLobby::copy_challenge_settings(u8 *arg1) {
         ByteBlock_1C4 *dst = (ByteBlock_1C4 *)(arg0 + 0x58);
         *dst = *src;
     }
-    temp_r8 = (u8 *)(arg0 + 0x218);
-    temp_r6 = (u8 *)(arg1 + 0x218);
+    temp_r8 = (arg0 + 0x218);
+    temp_r6 = (arg1 + 0x218);
     *(ByteBlock_54 *)((s32) temp_r8 + 4) = *(const ByteBlock_54 *)((s32) temp_r6 + 4);
-    *(ByteBlock_410 *)((s32) (arg0 + 0x26C) + 4) = *(const ByteBlock_410 *)((s32) (arg1 + 0x26C) + 4);
+    *(ByteBlock_410 *)((arg0 + 0x26C) + 4) = *(const ByteBlock_410 *)((arg1 + 0x26C) + 4);
     *(ByteBlock_10 *)((s32) arg0 + 0x680) = *(const ByteBlock_10 *)((s32) arg1 + 0x680);
 }
 

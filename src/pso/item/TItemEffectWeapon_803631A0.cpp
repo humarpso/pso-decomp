@@ -42,7 +42,7 @@ void TUnk_804F28E0::emit_marker_effects() {
     s32 arg0 = (s32)this;
     s32 sp8;
 
-    ((TObjPlayer *)arg0)->draw_status_icon((s32)(&sp8));
+    ((TObjPlayer *)arg0)->draw_status_icon((s32)&sp8);
     spawn_particle_effect(&sp8, 9);
     ((TItemWeapon *)arg0)->spawn_light_task();
     fire_shot_at_target__11TItemWeaponFv(arg0, &sp8, 0, 0);

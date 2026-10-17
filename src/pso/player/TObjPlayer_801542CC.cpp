@@ -486,7 +486,7 @@ loop_1:
         return var_r31;
     }
     if (battle_param == 0U) {
-        return TObjPlayer__sub_80154E28((int)(var_r31), (int)(arg0));
+        return TObjPlayer__sub_80154E28(var_r31, arg0);
     }
     var_r31 += 1;
     if (var_r31 >= 0x10) {
@@ -582,11 +582,11 @@ s32 test_collider_sphere_overlap_xz(s32 arg0, u8 *arg1, u32 arg2) {
     typedef char spC_offset[(offsetof(Stack_80155050, spC) == 0x4) ? 1 : -1];
     typedef char sp14_offset[(offsetof(Stack_80155050, sp14) == 0xC) ? 1 : -1];
     Stack_80155050 stack;
-    VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg1 + 0x1C));
+    VecCopy__FP3VecPC3Vec(&stack.sp8, arg1 + 0x1C);
     stack.spC = TObjPlayer__data_805DB270;
     stack.sp14 = *(f32 *)((s8 *)arg1 + 0xC);
     if (arg2 != 0U) {
-        TObjPlayer__sub_801550B8((u8 *)(arg2), (u8 *)((void *) (&stack.sp8)));
+        TObjPlayer__sub_801550B8((u8 *)arg2, (u8 *)((void *)&stack.sp8));
         return 1;
     }
     return 0;
@@ -603,11 +603,11 @@ s32 resolve_actor_sphere_contact(u8 *arg0, s32 arg1, s32 arg2) {
     s32 var_r31;
     f32 temp_f1;
     u16 temp_r3;
-    if (horizontal_distance_squared((void *) (arg0 + 0x38), (void *) (arg0 + 0x44)) < lbl_805DB27C) {
+    if (horizontal_distance_squared(arg0 + 0x38, arg0 + 0x44) < lbl_805DB27C) {
         return 0;
     }
-    VecCopy__FP3VecPC3Vec((void *) (&displacement), (void *) (arg2 + 0x1C));
-    subtract_vector((void *) (&displacement), (void *) (arg0 + 0x44));
+    VecCopy__FP3VecPC3Vec((void *)&displacement, (void *)(arg2 + 0x1C));
+    subtract_vector(&displacement, arg0 + 0x44);
     temp_r3 = angle_diff_s16((lbl_804400F0 * atan2_float(displacement.x, displacement.z)), (*(s32 *)((s8 *)arg0 + 0x60)));
     if ((s32) temp_r3 < 0x4000) {
         tangentScale = lbl_805DB280;
@@ -621,25 +621,25 @@ s32 resolve_actor_sphere_contact(u8 *arg0, s32 arg1, s32 arg2) {
     tangentScale = lbl_805DB280;
 block_7:
     if ((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x1000U) {
-        push_matrix_from((void *) (&identity_matrix));
+        push_matrix_from(&identity_matrix);
         rotate_matrix_y(0, var_r31);
-        rotate_vector_by_current_matrix((void *) (&displacement), (void *) (&displacement));
+        rotate_vector_by_current_matrix(&displacement, &displacement);
         pop_matrix();
         if (lbl_805DB284 < ((displacement.x * displacement.x) + (displacement.z * displacement.z))) {
             displacement.y = TObjPlayer__data_805DB270;
-            normalize_vector((void *) (&displacement));
+            normalize_vector(&displacement);
             temp_f1 = displacement.x * tangentScale;
             displacement.x = temp_f1;
             displacement.z *= tangentScale;
-            vec3_add_to((void *) (&displacement), (void *) (arg0 + 0x44));
-            if (project_actor_to_ground((Obj_80156844 *)(arg0), (Vec_80156844 *)((void *) (&displacement)), (Vec_80156844 *)(0)) != 0) {
-                VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (&displacement));
+            vec3_add_to(&displacement, arg0 + 0x44);
+            if (project_actor_to_ground((Obj_80156844 *)(arg0), (Vec_80156844 *)(&displacement), (Vec_80156844 *)(0)) != 0) {
+                VecCopy__FP3VecPC3Vec(arg0 + 0x38, &displacement);
                 return 1;
             }
         }
     }
-    if (project_actor_to_ground((Obj_80156844 *)(arg0), (Vec_80156844 *)((void *) (arg0 + 0x44)), (Vec_80156844 *)(0)) != 0) {
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg0 + 0x44));
+    if (project_actor_to_ground((Obj_80156844 *)(arg0), (Vec_80156844 *)(arg0 + 0x44), (Vec_80156844 *)(0)) != 0) {
+        VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0x44);
         return 1;
     }
     return 0;
@@ -945,11 +945,11 @@ void* find_actor_body_contact(u8* arg0, u8* arg1, f32 limit) {
         if (data && *(void**)(arg1+0xA4)) {
             source.colliders=data;
             source.count=*(s32*)(arg0+0xA8);
-            VecCopy__FP3VecPC3Vec((void *)(&source.position), (void *)(arg0+0x38));
+            VecCopy__FP3VecPC3Vec((void *)&source.position, (void *)(arg0+0x38));
             source.facing=*(s32*)(arg0+0x60);
             destination.colliders=*(void**)(arg1+0xA4);
             destination.count=*(s32*)(arg1+0xA8);
-            VecCopy__FP3VecPC3Vec((void *)(&destination.position), (void *)(arg1+0x38));
+            VecCopy__FP3VecPC3Vec((void *)&destination.position, (void *)(arg1+0x38));
             destination.facing=*(s32*)(arg1+0x60);
             result=refresh_actor_body_spheres(source,destination);
             if (result) {find_or_alloc_slot__10TObjPlayerFUi((u32)arg1);return result;}
@@ -1081,11 +1081,11 @@ void TObjPlayer::check_object_collisions() {
         for (j = 0; j < (s32) lbl_805D586C; j++) {
             temp_r3 = ((void *)get_player_data__10TObjPlayerFi(j));
             if ((temp_r3 != NULL) && ((u16) *(u16 *)((s8 *)temp_r3 + 0x1C) < 0x1000U)) {
-                actor_body_contact = find_actor_body_contact((u8*)(this), (u8*)(temp_r3), TObjPlayer__data_805DB298);
+                actor_body_contact = find_actor_body_contact((u8*)this, (u8*)temp_r3, TObjPlayer__data_805DB298);
                 if (actor_body_contact != NULL) {
                     temp_r3_3 = *(void **)((s8 *)this + 0xA4);
                     *(s32 *)((s8 *)temp_r3_3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3_3 + 0x18) | 0x80000);
-                    if ((TObjPlayer::check_flag_pair(*(s32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 0x18), *(s32 *)((s8 *)actor_body_contact + 0x18)) == 0) && (respond_to_body_contact((u8 *)(this), (u32)(temp_r3), (u8 *)(actor_body_contact)) != 0)) {
+                    if ((TObjPlayer::check_flag_pair(*(s32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 0x18), *(s32 *)((s8 *)actor_body_contact + 0x18)) == 0) && (respond_to_body_contact((u8 *)this, (u32)temp_r3, (u8 *)actor_body_contact) != 0)) {
                         temp_r3_4 = *(void **)((s8 *)this + 0xA4);
                         *(s32 *)((s8 *)temp_r3_4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3_4 + 0x18) | 0x400000);
                     }
@@ -1185,11 +1185,11 @@ u8 *TUnk_804AF8A0::construct_collider_proxy() {
     s->vtable = ((void * *)&lbl_804AF8A0);
     TObjPlayer__sub_80156A74((void*)(arg0 + 0x98));
     init_forward__10TObjPlayerFv(arg0 + 0xA0);
-    *(s32 *) (arg0 + 0x90) = 0;
-    *(s32 *) (arg0 + 0xA8) = 0;
-    *(s32 *) (arg0 + 0xA4) = 0;
-    *(u16 *) (arg0 + 0x94) = 0xFFFF;
-    *(s32 *) (arg0 + 0x9C) = 0;
+    *(s32 *)(arg0 + 0x90) = 0;
+    *(s32 *)(arg0 + 0xA8) = 0;
+    *(s32 *)(arg0 + 0xA4) = 0;
+    *(u16 *)(arg0 + 0x94) = 0xFFFF;
+    *(s32 *)(arg0 + 0x9C) = 0;
     ((TUnk_804AF8A0 *)arg0)->sub_80156A68();
     return arg0;
 }

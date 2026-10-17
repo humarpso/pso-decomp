@@ -59,11 +59,11 @@ void TAdTitleTexGC::run_task() {
 
     temp_r4 = *(s32 *)((s8 *)this + 0x80);
     if (temp_r4 < 0x14) {
-        *(s32 *)((s8 *)this + 0x80) = (s32) (temp_r4 + 1);
+        *(s32 *)((s8 *)this + 0x80) = (temp_r4 + 1);
     }
     temp_r4_2 = *(u32 *)((s8 *)this + 0x7C);
     if (temp_r4_2 < 0xFFU) {
-        *(u32 *)((s8 *)this + 0x7C) = (u32) (temp_r4_2 + 0xC);
+        *(u32 *)((s8 *)this + 0x7C) = (temp_r4_2 + 0xC);
     }
     temp_r4_3 = *(u32 *)((s8 *)this + 0x7C);
     *(u32 *)((s8 *)this + 0x7C) = (temp_r4_3 <= 0xFFU) ? temp_r4_3 : 0xFFU;

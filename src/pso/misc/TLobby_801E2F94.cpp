@@ -575,7 +575,7 @@ loop_2:
             TKeyBoardControl::flush_input();
             update_global_sound_frame();
             TKeyBoardControl::read_pads();
-            disable_disconnected_ports__16TKeyBoardControlFv((void *) (&TKeyBoardControl__global_key_state.value));
+            disable_disconnected_ports__16TKeyBoardControlFv(&TKeyBoardControl__global_key_state.value);
             TLobby::reset_state_byte();
             goto loop_2;
         }

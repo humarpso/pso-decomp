@@ -102,7 +102,7 @@ s32 TLobby::get_flagged_table_entry(s32 arg0) {
 
 s32 TLobby::get_flag_value_if_set() {
     if (is_flag_set__6TLobbyFv() != 0) {
-        return *(s32 *)((s8 *)(&challenge_mode_state.value) + 0x34);
+        return *(s32 *)((s8 *)&challenge_mode_state.value + 0x34);
     }
     return 0;
 }

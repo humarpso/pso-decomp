@@ -305,7 +305,7 @@ void *__vt__12TObjEneRecon[107] = {
 void TObjEneRecon__vt85(s32 arg0, u32 arg1, s32 msg) {
     switch (arg1) {
     case 0:
-        ((TObjEneRecon *)arg0)->sub_8031D4B0((s32)(msg));
+        ((TObjEneRecon *)arg0)->sub_8031D4B0(msg);
         return;
     case 1:
         TObjEneRecon__sub_8031D380((u8 *)arg0, (msg));
@@ -329,7 +329,7 @@ void TObjEneRecon__vt85(s32 arg0, u32 arg1, s32 msg) {
         run_task__12TObjEneReconFPvi((u8 *)arg0, (msg));
         return;
     case 8:
-        ((TObjEneRecon *)arg0)->handle_message((s32)(msg));
+        ((TObjEneRecon *)arg0)->handle_message(msg);
     default:
         return;
     }

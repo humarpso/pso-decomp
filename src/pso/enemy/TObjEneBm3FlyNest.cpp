@@ -1289,19 +1289,19 @@ void render__17TObjEneBm3FlyNestFPv(u8 *arg0) {
 
 void handle_attachment_sample__17TObjEneBm3FlyNestFi(s32 arg0) {
     s32 pos;
-    if ((s32) lbl_805D510C == (s32) *(s32 *)((s8 *)(&bm3_fly_nest_attachment_sample_table.value) + (bm3_fly_nest_attachment_index * 4))) {
+    if ((s32) lbl_805D510C == (s32) *(s32 *)((s8 *)&bm3_fly_nest_attachment_sample_table.value + (bm3_fly_nest_attachment_index * 4))) {
         pos = lbl_805D5114;
         bm3_fly_nest_attachment_index += 1;
         lbl_805D5114 = pos + 0xC;
         get_camera_ctrl__9TObjEneDDFv((s32) &TObjEneBm3FlyNest__attachment_sample_origin.value, pos);
     }
-    TObjEneBm3FlyNest::capture_attachment((void *)(arg0));
+    TObjEneBm3FlyNest::capture_attachment((void *)arg0);
 }
 
 void TObjEneBm3FlyNest::capture_attachment(void * _w0) {
     switch (lbl_805D510C) {
     case 36: case 45:
-        get_camera_ctrl__9TObjEneDDFv((s32)(&TObjEneBm3FlyNest__attachment_sample_origin), (s32)(TObjEneBm3FlyNest_attachment_point_ptr++));
+        get_camera_ctrl__9TObjEneDDFv((s32)&TObjEneBm3FlyNest__attachment_sample_origin, (s32)(TObjEneBm3FlyNest_attachment_point_ptr++));
         break;
     }
     ++lbl_805D510C;
@@ -1540,14 +1540,14 @@ void TObjEneBm3FlyNest__sub_800B318C(u8 *arg0, s32 arg1) {
         break;
     case 3:
         if (*(s32 *)((s8 *)arg0 + 0xB0) & 0x10) {
-            transition_enemy_state((void *)(arg0), 5);
+            transition_enemy_state(arg0, 5);
             break;
         }
         break;
     case 0:
-        ((s32)advance_animation_playback((void *)(arg0)));
+        ((s32)advance_animation_playback(arg0));
         if ((objInBand__FP7GameObjf(arg0, lbl_805D9D10) != 0) || (objInBand__FP7GameObjf(arg0, lbl_805D9D34) != 0)) {
-            play_sound_effect((void *) (((s32 (*)(void *, int))copy_target_state__14TObjEnePanarmsFPv)(arg0, 0x4003B72A)), (void *) (arg0 + 0x38), 0, 0);
+            play_sound_effect((void *) (((s32 (*)(void *, int))copy_target_state__14TObjEnePanarmsFPv)(arg0, 0x4003B72A)), arg0 + 0x38, 0, 0);
         }
         if (objInBand__FP7GameObjf(arg0, lbl_805D9D38) != 0) {
             spawn_particle_effect((arg0 + 0x38), 0xF0);
@@ -1792,7 +1792,7 @@ void TObjEneBm3FlyNest::spawn_child() {
     if (s->count <= 6) {
         n = (s->f2C + 1) + s->spawned;
         VecCopy((Vec *)(&position), (const Vec *)(((Vec_800B39CC * (*)(void *))TObjEneBm3FlyNest__sub_800B2A54)(s)));
-        if (((TObjEneBm3Fly *)s)->create((void *)s->nextId, (void *)n, (void *)(&position), (void *)(&velocity)) != 0) {
+        if (((TObjEneBm3Fly *)s)->create((void *)s->nextId, (void *)n, &position, &velocity) != 0) {
             s->ids[s->count++] = s->nextId;
             s->nextId++;
             s->spawned++;
@@ -1884,7 +1884,7 @@ void TObjEneBm3FlyNest::vfunc_28() {  }
 void dispatch_state__17TObjEneBm3FlyNestFiUii(s32 arg0, u32 arg1, s32 arg2) {
     switch (arg1) {
     case 1:
-        ((TObjEneBm3FlyNest *)arg0)->state_initial_emit((s32)(arg2));
+        ((TObjEneBm3FlyNest *)arg0)->state_initial_emit(arg2);
         return;
     case 0:
         ((s32 (*)(void *, void *))handle_appear__17TObjEneBm3FlyNestFPvi)((void *)arg0, (void *)arg2);
@@ -1927,7 +1927,7 @@ void run_task__17TObjEneBm3FlyNestFPv(u8 *arg0) {
     if (((TObjEneBm3FlyNest *)(arg0))->vfunc_83() != 4) {
         ((TObjEneBm3FlyNest *)(arg0))->vfunc_85();
     } else if (((TObjEneBm3FlyNest *)arg0)->mode == 0) {
-        transition_enemy_state((void *)(arg0), 1);
+        transition_enemy_state(arg0, 1);
     }
     ((TObjEneBm3FlyNest *)(arg0))->vfunc_88();
     ((TObjEneBm3FlyNest *)arg0)->copy_pos();
@@ -2113,7 +2113,7 @@ void TObjEneBm3FlyNest::load_resources() {
         Anim_800B41E8 anim = bm3_flynest_anim_binding;
         anim.motions = ((Res_800B41E8 *)lbl_805D5108)->motions;
         bodies = (Bodies_800B41E8 *)((Res_800B41E8 *)lbl_805D5108)->bodies;
-        TLobby::spawn_npc_enemy((s16)8, bodies->model, bodies->textures, (s32)(&anim), (f32)bm3_flynest_collider_params.radius, (f32)0.0f);
+        TLobby::spawn_npc_enemy((s16)8, bodies->model, bodies->textures, (s32)&anim, (f32)bm3_flynest_collider_params.radius, (f32)0.0f);
     }
 }
 

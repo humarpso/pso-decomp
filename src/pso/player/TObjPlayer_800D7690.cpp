@@ -37,9 +37,9 @@ void TUnk_80494968::run_task() {
         return;
     }
     ta = arg0->e[0].ta;
-    r = TObjBoss2Tunnel::decrement_packed_timer((u32 *)(&ta), 0x20);
+    r = TObjBoss2Tunnel::decrement_packed_timer((u32 *)&ta, 0x20);
     tb = arg0->e[0].tb;
-    if (r & TObjBoss2Tunnel::decrement_packed_timer((u32 *)(&tb), 0x20)) {
+    if (r & TObjBoss2Tunnel::decrement_packed_timer((u32 *)&tb, 0x20)) {
         Ent_800D76E8 *dst = &arg0->e[0];
         Ent_800D76E8 *src = &arg0->e[1];
         s32 i;

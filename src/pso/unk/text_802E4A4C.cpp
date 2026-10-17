@@ -28,10 +28,10 @@ u8 *construct_attack_collision(u8 *arg0, s32 arg1, u8 *arg2) {
     *(f32 *)((s8 *)arg0 + 0x54) = (f32) lbl_805DE914;
     ((TUnk_804E355C *)arg0)->m_58 = (f32) lbl_805DE914;
     *(f32 *)((s8 *)arg0 + 0x5C) = (f32) lbl_805DE914;
-    *(u8 **)((s8 *)arg0 + 0x1C) = (unsigned char *) ((void *) (arg0 + 0x34));
+    *(u8 **)((s8 *)arg0 + 0x1C) = (unsigned char *) (arg0 + 0x34);
     ((TUnk_804E355C *)arg0)->m_20 = 1;
     VecCopy((Vec *)(arg0 + 0x24), (const Vec *)(arg2));
-    memset((void *) (arg0 + 0x60), 0, 0x40);
+    memset(arg0 + 0x60, 0, 0x40);
     ((TUnk_804E355C *)arg0)->m_a0 = 0;
     ((TUnk_804E355C *)arg0)->m_a4 = (s32) *(s32 *)((s8 *)arg2 + 0x10);
     ((TUnk_804E355C *)arg0)->m_a8 = (u16) *(u16 *)((s8 *)arg2 + 0x14);
@@ -43,7 +43,7 @@ u8 *construct_attack_collision(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s32 *)((s8 *)arg0 + 0xC0) = 1;
     player = (u32)get_player_by_client_id(((s32) *(u16 *)((s8 *)arg2 + 0x14)));
     if (player != 0U) {
-        if (get_type__10TObjPlayerFPv((void *) (player + 0x828)) != 0) {
+        if (get_type__10TObjPlayerFPv((void *)(player + 0x828)) != 0) {
             ((TUnk_804E355C *)arg0)->m_bc = 1;
         } else {
             ((TUnk_804E355C *)arg0)->m_bc = 0;

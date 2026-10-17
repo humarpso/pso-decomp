@@ -12,7 +12,7 @@ void TUnk_804A1098::update_weapon() {
     if (temp_r0 == 2) {
         temp_r4 = *(s32 *)&this->unk_1F8;
         if (temp_r4 < 0x2AAA) {
-            *(s32 *)&this->unk_1F8 = (s32) (temp_r4 + 0x888);
+            *(s32 *)&this->unk_1F8 = (temp_r4 + 0x888);
             if ((s32) *(s32 *)&this->unk_1F8 >= 0x2AAA) {
                 *(s32 *)&this->unk_1F8 = 0x2AAA;
                 this->m_1fc = 3;
@@ -21,7 +21,7 @@ void TUnk_804A1098::update_weapon() {
     } else if (temp_r0 == 1) {
         temp_r4_2 = *(s32 *)&this->unk_1F8;
         if (temp_r4_2 > 0) {
-            *(s32 *)&this->unk_1F8 = (s32) (temp_r4_2 - 0x444);
+            *(s32 *)&this->unk_1F8 = (temp_r4_2 - 0x444);
             if ((s32) *(s32 *)&this->unk_1F8 <= 0) {
                 *(s32 *)&this->unk_1F8 = 0;
                 this->m_1fc = 0;

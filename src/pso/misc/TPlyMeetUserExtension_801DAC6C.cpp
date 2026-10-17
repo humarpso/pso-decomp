@@ -85,10 +85,10 @@ void handle_cmd_9A__9TProtocolFR6packet(u8 *arg0, s32 *arg1) {
     s32 (*temp_r12)(u8);
     sp8 = *(s32 *)((s8 *)arg1 + 0);
     ((packet_header *)(&sp8))->bswap();
-    *(s32 *)((s8 *)arg0 + 0x190C) = (s32) *(u8 *)((s8 *)(&sp8) + 0x1);
+    *(s32 *)((s8 *)arg0 + 0x190C) = (s32) *(u8 *)((s8 *)&sp8 + 0x1);
     temp_r12 = *(s32 (**)(u8))((s8 *)arg0 + 0xBC28);
     if (temp_r12 != NULL) {
-        temp_r12(*(u8 *)((s8 *)(&sp8) + 0x1));
+        temp_r12(*(u8 *)((s8 *)&sp8 + 0x1));
     }
 }
 
@@ -101,7 +101,7 @@ void handle_cmd_9B__9TProtocolFR6packet(u8 *arg0, Regist_801DAD38 *arg1) {
         reset__18PSOV3EncryptionTCPFUl(arg0 + 0x884, r.key1);
         *(s32 *)(arg0 + 0x18F4) = 1;
         fn_801DF2BC((s32)&pkt);
-        memset((void *)(&pkt), 0, 0xE0);
+        memset((void *)&pkt, 0, 0xE0);
         pkt.cmd = 0xDB;
         pkt.size = 0xE0;
         strncpy(pkt.a, (s32)((s32)(arg0 + 0x3EB8)), 0x10);

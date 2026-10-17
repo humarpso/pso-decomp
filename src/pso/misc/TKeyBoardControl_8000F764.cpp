@@ -195,7 +195,7 @@ extern s32 lbl_805D62B0;
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 void TKeyBoardControl__sub_8000F764(void) {
     TKeyBoardControl::read_pads();
-    disable_disconnected_ports__16TKeyBoardControlFv((void *) (&TKeyBoardControl__global_key_state.value));
+    disable_disconnected_ports__16TKeyBoardControlFv(&TKeyBoardControl__global_key_state.value);
     TKeyBoardControl::flush_input();
     update_pad_rumble();
     TLobby::reset_state_byte();
@@ -299,10 +299,10 @@ void TKeyBoardControl__sub_8000F9CC(s32 arg0) {
 }
 
 void TKeyBoardControl__sub_8000F9E4(void) {
-    *(s32 *)((s8 *)(&main_phase_state.value) + 0) = 1;
-    *(s32 *)((s8 *)(&main_phase_state.value) + 8) = 1;
-    *(s32 *)((s8 *)(&main_phase_state.value) + 0xC) = 1;
-    *(s32 *)((s8 *)(&main_phase_state.value) + 0x14) = 1;
+    *(s32 *)((s8 *)&main_phase_state.value + 0) = 1;
+    *(s32 *)((s8 *)&main_phase_state.value + 8) = 1;
+    *(s32 *)((s8 *)&main_phase_state.value + 0xC) = 1;
+    *(s32 *)((s8 *)&main_phase_state.value + 0x14) = 1;
 }
 void init_gx_lighting_defaults(void) {
     GXColor_8000FA00 c0 = lbl_805D7D00;
@@ -374,7 +374,7 @@ void init_game_systems(void) {
     TObjPlayer__sub_801416AC();
     TKeyBoardControl::alloc_buffer();
     TKeyBoardControl__sub_8000F9E4();
-    TKeyBoardControl::reset_input((s32)(&TKeyBoardControl__global_key_state));
+    TKeyBoardControl::reset_input((s32)&TKeyBoardControl__global_key_state);
     init_buffers();
     ((TMainTask *)((u8 *)&main_task))->init_main_task();
     TLobby__sub_8007EB70();

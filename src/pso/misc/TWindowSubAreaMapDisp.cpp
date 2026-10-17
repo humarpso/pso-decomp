@@ -229,7 +229,7 @@ u8 *TWindowSubAreaMapDisp__ct(u8 *arg0) {
     s32 temp_r3_2;
     s32 var_r0;
     u8 *var_r30;
-    ((TWindowDD *)arg0)->construct_base((u8 *)(&TWindowSubAreaMapDisp__window_parameters.value), (s16)((void *) ((s16) local_client_id)), (u8 *)(get_window_layout_position(0x59)));
+    ((TWindowDD *)arg0)->construct_base((u8 *)&TWindowSubAreaMapDisp__window_parameters.value, (s16)((void *) ((s16) local_client_id)), (u8 *)(get_window_layout_position(0x59)));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80271D00___vt__21TWindowSubAreaMapDisp *)&__vt__21TWindowSubAreaMapDisp).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubAreaMapDisp__name;
     if (get_game_play_mode() == 1) {
@@ -243,7 +243,7 @@ u8 *TWindowSubAreaMapDisp__ct(u8 *arg0) {
     }
     temp_r3 = measure_string_len__20TWindowSubStatusDispFv((int)var_r30);
     *(s32 *)&((TWindowSubAreaMapDisp *)arg0)->m_74 = (s32)mem_alloc((temp_r3 + 1));
-    strncpy((int) (*(s32 *)&((TWindowSubAreaMapDisp *)arg0)->m_74), (int)var_r30, (void *) (temp_r3 + 1));
+    strncpy((int) (*(s32 *)&((TWindowSubAreaMapDisp *)arg0)->m_74), (int)var_r30, (void *)(temp_r3 + 1));
     temp_r3_2 = ((TAdSinglePlyChrSelectGC *)((void *)0x24))->alloc();
     var_r0 = temp_r3_2;
     if (var_r0 != 0) {

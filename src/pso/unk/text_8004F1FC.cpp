@@ -18,7 +18,7 @@ void TObjDFDemo4::sub_8004F1FC() {
     if ((s32) *(s32 *)&this->m_f8 >= 0x44) {
         push_matrix();
         TObjPlayer::set_global_flag();
-        post_translate_matrix((void *) (arg0 + 0xE8));
+        post_translate_matrix(arg0 + 0xE8);
         rotate_matrix_y(0, (int) (*(s32 *)&this->m_f4));
         var_r29 = 0;
         var_r31 = 0;

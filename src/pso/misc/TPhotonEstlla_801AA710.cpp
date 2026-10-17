@@ -169,7 +169,7 @@ void TPhotonEstlla::run_task() {
         }
         temp_r3_2 = __nw__7TObjectFUl(0xD0);
         if (temp_r3_2 != 0U) {
-            construct_photon_magic_square_normal((u8 *)temp_r3_2, (s32)arg0, 1, (s32)(&stack.sp8), 0x78);
+            construct_photon_magic_square_normal((u8 *)temp_r3_2, (s32)arg0, 1, (s32)&stack.sp8, 0x78);
         }
     }
     if (((s32) *(s32 *)&this->m_1a0 == 0x64) && ((s16) this->m_b8 == 1)) {

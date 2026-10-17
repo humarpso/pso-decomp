@@ -224,19 +224,19 @@ bool is_lockable_target__13TWindowLockOnFi(s32 arg0) {
     if (arg0 == 0) {
         return 0;
     }
-    if (obj_testFlags30((s32)(arg0), 0x10000000) != 0) {
+    if (obj_testFlags30(arg0, 0x10000000) != 0) {
         if ((obj_isState3_324__13TUnk_804806E8Fv((void *)arg0) != 0) || (is_script_controlled__10TObjPlayerFv((void *)arg0) != 0)) {
             return 0;
         }
         return 1;
     }
-    if (obj_testFlags30((s32)(arg0), 0x20000000) != 0) {
-        if (obj_testFlags30((s32)(arg0), 0x40000000) != 0) {
+    if (obj_testFlags30(arg0, 0x20000000) != 0) {
+        if (obj_testFlags30(arg0, 0x40000000) != 0) {
             return 0;
         }
         return ((TWindowLockOn *)arg0)->get_target_id() != 0;
     }
-    return obj_testFlags30((s32)(arg0), (s32)((int) (0x80000000))) != 0;
+    return obj_testFlags30(arg0, (s32)((int) (0x80000000))) != 0;
 }
 
 void TWindowLockOn::refresh_enemy_statuses() {

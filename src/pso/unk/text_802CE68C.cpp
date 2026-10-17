@@ -137,18 +137,18 @@ void TObjPlayer__sub_802CE68C(u8 *arg0, s32 arg1, s32 arg2) {
     typedef char sp10_offset[(offsetof(Stack_802CE68C, sp10) == 0x8) ? 1 : -1];
     Stack_802CE68C stack;
     TObjPlayer::set_global_flag();
-    push_matrix_from((void *) (&identity_matrix.value));
-    post_translate_matrix((void *) (arg0 + 0x38));
+    push_matrix_from((void *)&identity_matrix.value);
+    post_translate_matrix((void *)(arg0 + 0x38));
     rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x60)));
     TObjPlayer::set_global_flag();
     ((TObjEnemy *)arg0)->render_anim_model((f32) (*(f32 *)((s8 *)arg0 + 0xC0)));
     TObjPlayer::clear_global_state();
     pop_matrix();
     push_matrix_from((void *) (anim_model_matrix_array + (arg2 * 0x30)));
-    stack.sp8 = *(s32 *)((s8 *)(&player_sub_802ce68c_zero_vec.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&player_sub_802ce68c_zero_vec.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&player_sub_802ce68c_zero_vec.value) + 8);
-    matrix_mult_vec(0, (void *) (&stack.sp8), (void *)arg1);
+    stack.sp8 = *(s32 *)((s8 *)&player_sub_802ce68c_zero_vec.value + 0);
+    stack.spC = *(s32 *)((s8 *)&player_sub_802ce68c_zero_vec.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&player_sub_802ce68c_zero_vec.value + 8);
+    matrix_mult_vec(0, (void *)&stack.sp8, (void *)arg1);
     pop_matrix();
     TObjPlayer::clear_global_state();
 }

@@ -188,13 +188,13 @@ u8 *TObjPlayer__sub_8001A8F0(u8 *arg0, s32 arg1) {
     __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8001A8F0_lbl_80480938 *)&lbl_80480938).value;
     player_light_index = 0;
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_8043455C.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_8043455C.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&lbl_8043455C.value) + 8);
+    stack.sp8 = *(s32 *)((s8 *)&lbl_8043455C.value + 0);
+    stack.spC = *(s32 *)((s8 *)&lbl_8043455C.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&lbl_8043455C.value + 8);
     temp_r3 = ((TObjPlayer *)(get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF)))->create_ending_player();
     lbl_805D49E0 = temp_r3;
-    query_darkfalz_state__10TObjPlayerFv(temp_r3, (void *) (&stack.sp8));
-    init__9TItemDataFv((void *) (&stack.sp14));
+    query_darkfalz_state__10TObjPlayerFv(temp_r3, (void *)&stack.sp8);
+    init__9TItemDataFv((void *)&stack.sp14);
     stack.sp14 = 2;
     stack.sp15 = 0;
     return arg0;

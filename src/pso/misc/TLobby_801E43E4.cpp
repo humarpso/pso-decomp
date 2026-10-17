@@ -101,7 +101,7 @@ void TLobby__send_and_handle_60(u8 *arg0) {
     }
     var_r3 = var_r31;
     lbl_805D5E50 = 1;
-    dispatch_6x_subcommand((void *)(var_r3));
+    dispatch_6x_subcommand(var_r3);
     lbl_805D5E50 = 0;
 }
 

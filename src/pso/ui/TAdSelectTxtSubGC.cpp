@@ -62,7 +62,7 @@ void TAdSelectTxtSubGC::run_task() {
     s32 temp_r4;
     temp_r4 = *(s32 *)((s8 *)arg0 + 0x84);
     if (temp_r4 < 5) {
-        *(s32 *)((s8 *)arg0 + 0x84) = (s32) (temp_r4 + 1);
+        *(s32 *)((s8 *)arg0 + 0x84) = (temp_r4 + 1);
     }
     *(f32 *)((s8 *)arg0 + 0x74) = (f32) -((lbl_805DDF40 * (f32) *(s32 *)((s8 *)arg0 + 0x84)) - lbl_805DDF3C);
     *(f32 *)((s8 *)arg0 + 0x78) = (f32) -((lbl_805DDF40 * (f32) *(s32 *)((s8 *)arg0 + 0x84)) - lbl_805DDF3C);
@@ -96,14 +96,14 @@ Txt_802A37A0 *__ct__17TAdSelectTxtSubGCFv(Txt_802A37A0 *arg0, void *parent, Src_
     arg0->f7c -= (arg0->f7c > 8) ? 9 : 0;
     arg0->f24 = lbl_805DDF44 * (f32) arg0->f1c + arg0->f64;
     arg0->f28 = arg0->f68;
-    arg0->f2c = lbl_805DDF44 * (f32) (arg0->f1c + 1) + arg0->f64;
+    arg0->f2c = lbl_805DDF44 * (arg0->f1c + 1) + arg0->f64;
     arg0->f30 = lbl_805DDF48 + arg0->f68;
     arg0->f6c = lbl_805DDF4C * (arg0->f2c - arg0->f24) + arg0->f24;
     arg0->f70 = lbl_805DDF4C * (arg0->f30 - arg0->f28) + arg0->f28;
     arg0->f54 = (lbl_805DDF44 * (f32) arg0->f1c) / 256.0f;
     arg0->f58 = (lbl_805DDF54 * (f32) arg0->f7c) / 256.0f;
-    arg0->f5c = (lbl_805DDF44 * (f32) (arg0->f1c + 1) - lbl_805DDF58) / 256.0f;
-    arg0->f60 = (lbl_805DDF54 * (f32) (arg0->f7c + 1) - lbl_805DDF58) / 256.0f;
+    arg0->f5c = (lbl_805DDF44 * (arg0->f1c + 1) - lbl_805DDF58) / 256.0f;
+    arg0->f60 = (lbl_805DDF54 * (arg0->f7c + 1) - lbl_805DDF58) / 256.0f;
     return arg0;
 }
 #pragma pop

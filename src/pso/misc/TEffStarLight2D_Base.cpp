@@ -82,11 +82,11 @@ void TUnk_8048E640::render() {
     typedef char sp10_offset[(offsetof(Stack_80084C10, sp10) == 0x8) ? 1 : -1];
     typedef char sp14_offset[(offsetof(Stack_80084C10, sp14) == 0xC) ? 1 : -1];
     Stack_80084C10 stack;
-    stack.sp8 = *(s32 *)((s8 *)(&star_light_2d_base_color.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&star_light_2d_base_color.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&star_light_2d_base_color.value) + 8);
-    stack.sp14 = *(s32 *)((s8 *)(&star_light_2d_base_color.value) + 0xC);
-    TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&stack.sp8), (int) (*(s32 *)((s8 *)(&star_light_2d_base_color.value) + 8)), (int) (*(s32 *)((s8 *)(&star_light_2d_base_color.value) + 4)), (int) (*(s32 *)((s8 *)(&star_light_2d_base_color.value) + 0)), (void *) (&star_light_2d_base_color.value), lbl_805D9450);
+    stack.sp8 = *(s32 *)((s8 *)&star_light_2d_base_color.value + 0);
+    stack.spC = *(s32 *)((s8 *)&star_light_2d_base_color.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&star_light_2d_base_color.value + 8);
+    stack.sp14 = *(s32 *)((s8 *)&star_light_2d_base_color.value + 0xC);
+    TObjRoomId__sub_80141CF4((void *)(arg0 + 0x38), (void *)&stack.sp8, (int) (*(s32 *)((s8 *)&star_light_2d_base_color.value + 8)), (int) (*(s32 *)((s8 *)&star_light_2d_base_color.value + 4)), (int) (*(s32 *)((s8 *)&star_light_2d_base_color.value + 0)), (void *)&star_light_2d_base_color.value, lbl_805D9450);
 }
 
 void TUnk_8048E640::run_task() {
@@ -143,7 +143,7 @@ u8 *TEffStarLight2D_Base__ct(u8 *arg0, s32 arg1, s32 arg2) {
     temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x4C, temp_r4)));
     var_r0 = temp_r3;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(__ct__15TEffStarLight2DFPvPvP7TObject(temp_r3, (s32) (arg0 + 0x38), (s32) &stack.sp8, (*(s32 *)&tl_particle)));
+        var_r0 = (u8 *)(__ct__15TEffStarLight2DFPvPvP7TObject(temp_r3, (s32)(arg0 + 0x38), (s32) &stack.sp8, (*(s32 *)&tl_particle)));
     }
     *(u8 **)((s8 *)arg0 + 0x90) = var_r0;
     return arg0;

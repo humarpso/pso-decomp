@@ -44,9 +44,9 @@ void TWindowDeposit::render_status(s32 arg1) {
 
 void render__14TWindowDepositFv(s32 arg0) {
     s32 temp_r3;
-    temp_r3 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)((void *) (arg0 + 0x64)));
-    ((TWindowDeposit *)arg0)->render_status((s32)(temp_r3));
-    draw_visible_window_entries((void *)arg0, (void *) (arg0 + 0x24), (int)temp_r3);
+    temp_r3 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)(arg0 + 0x64));
+    ((TWindowDeposit *)arg0)->render_status(temp_r3);
+    draw_visible_window_entries((void *)arg0, (void *)(arg0 + 0x24), (int)temp_r3);
 }
 
 void TWindowDeposit::run_task() { initialize_subwindow__9TWindowDDFv(this); update_window_entry_list((char*)this + 0x24); }
@@ -74,7 +74,7 @@ u8 *TWindowDeposit__ct(u8 *arg0, s32 arg1) {
   s32 temp_r3;
   u32 temp_r3_2;
   u8 *temp_r31;
-  construct_base__9TWindowDDFPUcsPUc((void *) arg0, (void *) (&window_deposit_layout.value), (void *) arg1, (int) get_window_layout_position(0x29));
+  construct_base__9TWindowDDFPUcsPUc((void *) arg0, &window_deposit_layout.value, (void *) arg1, (int) get_window_layout_position(0x29));
   *((s32 **) (((s8 *) arg0) + (((((0x18 & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu))) = &(*(RecoveredGlobal_8024E548___vt__14TWindowDeposit *)&__vt__14TWindowDeposit).value;
   *((s32 *) (((s8 *) arg0) + 0)) = (s32) TWindowDeposit__name;
   temp_r3 = TQuestVmDownLoadServer__sub_8006EF6C(2);

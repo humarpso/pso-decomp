@@ -152,7 +152,7 @@ void TItemReverseTech::run_frame() {
         TKeyBoardControl__sub_8000F92C();
     }
     if (TQuestVmDownLoadServer::is_ready() != 0) {
-        var_r3 = (s32 *)(NULL);
+        var_r3 = NULL;
         TKeyBoardControl__sub_8000F9CC(0);
     }
     render_tick();
@@ -168,7 +168,7 @@ void TItemReverseTech::run_cleanup_callbacks() {
   s32 var_r30;
   delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8011A3D8_main_task *)&(*(RecoveredGlobal_8011A350_main_task *)&main_task)).value));
   var_r30 = 6;
-  var_r31 = ((u8 *) (&TItemReverseTech__cleanup_callback_table.value)) + 0x30;
+  var_r31 = ((u8 *)&TItemReverseTech__cleanup_callback_table.value) + 0x30;
   do
   {
     temp_r12 = *((s32 (**)()) (((s8 *) var_r31) + 4));

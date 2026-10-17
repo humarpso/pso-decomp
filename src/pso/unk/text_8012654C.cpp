@@ -62,15 +62,15 @@ void TUnk_804A2A58::emit_marker_effects() {
     s32 sp8;
     s32 temp_r4;
     temp_r4 = this->m_1fc;
-    this->m_1fc = (s32) (temp_r4 + 0x2AAA);
+    this->m_1fc = (temp_r4 + 0x2AAA);
     if (item_model_is_shown(arg0, temp_r4) != 0) {
-        draw_icon__10TObjPlayerFll(arg0, 2, (void *) (&sp8));
+        draw_icon__10TObjPlayerFll(arg0, 2, &sp8);
         ((VObj_18 *)(arg0))->m49(&sp8, 0, 0x4FA, 1);
-        draw_icon__10TObjPlayerFll(arg0, 3, (void *) (&sp8));
+        draw_icon__10TObjPlayerFll(arg0, 3, &sp8);
         ((VObj_18 *)(arg0))->m49(&sp8, 1, 0xE38, 1);
-        draw_icon__10TObjPlayerFll(arg0, 4, (void *) (&sp8));
+        draw_icon__10TObjPlayerFll(arg0, 4, &sp8);
         ((VObj_18 *)(arg0))->m49(&sp8, 2, -0x4FA, 1);
-        draw_icon__10TObjPlayerFll(arg0, 5, (void *) (&sp8));
+        draw_icon__10TObjPlayerFll(arg0, 5, &sp8);
         ((VObj_18 *)(arg0))->m49(&sp8, 3, -0xE38, 1);
     }
 }

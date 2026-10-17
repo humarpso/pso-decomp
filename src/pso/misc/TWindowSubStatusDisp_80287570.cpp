@@ -202,7 +202,7 @@ u8 *init_heading_entry__20TWindowSubStatusDispFPvPvici(u8 *arg0, u8 *arg1, s32 a
     *(s8 *)((s8 *)arg0 + 0x19) = 0;
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (0.0f);
     ((TWindowSubStatusDisp *)arg0)->set_entry_state(arg3);
-    *(f32 *)((s8 *)arg0 + 0x20) = TWindowSubStatusDisp::get_card_window_scale((s32)(arg4));
+    *(f32 *)((s8 *)arg0 + 0x20) = TWindowSubStatusDisp::get_card_window_scale(arg4);
     if (*(f32 *)((s8 *)arg0 + 0x20) <= (0.0f)) {
         *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (1e+05f);
     }

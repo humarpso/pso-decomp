@@ -148,7 +148,7 @@ void TPlayerBattleCtrl4P::wait_for_start_countdown() {
     }
 }
 void TPlayerBattleCtrl4P::update_ready_wait() {
-    ready_timer = (s32) (ready_timer - 1);
+    ready_timer = (ready_timer - 1);
     if ((check_all_players_flag__19TPlayerBattleCtrl4PFv(((void *)this)) != 0) || ((s32) ready_timer >= 0)) {
         if (*(void * *)&this->intro_window != (void *) 0) {
         TWindow__close((u8 *)(*(void * *)&this->intro_window));

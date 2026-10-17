@@ -76,7 +76,7 @@ s32 TBoss5GryphonLightningEff::calc_segment_uvs(void *p_) {
     f32 v1;
     flags = arg0->flags;
     u = 0.0f;
-    step = arg0->len / (f32)(arg0->n - 1);
+    step = arg0->len / (arg0->n - 1);
     base = 64.0f * (f32)(flags & 7);
     v0 = base / 512.0f;
     v1 = (64.0f + base) / 512.0f;
@@ -154,7 +154,7 @@ Self_8032537C *__ct__25TBoss5GryphonLightningEffFv(Self_8032537C *self, void *pa
     if (self->n > 13) {
         self->n = 13;
     }
-    denom = (f32)(self->n - 1);
+    denom = (self->n - 1);
     x1 -= x0;
     for (i = 0; i < self->n; i++) {
         eval_bezier_curve__12TBoss8DragonFPviiPvf(a, b, 0, &self->pts[i], x0 + x1 * ((f32)i / denom));

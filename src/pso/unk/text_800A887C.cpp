@@ -28,13 +28,13 @@ void TObjPlayer__sub_800A887C(u8 *arg0) {
   {
     if (TLobby::get_instance() != 0)
     {
-      play_sound_effect(0x4003AD10, (u32) (arg0 + 0x38), 0, 0);
+      play_sound_effect(0x4003AD10, (u32)(arg0 + 0x38), 0, 0);
     }
     else
     {
-      play_sound_effect(copy_target_state__14TObjEnePanarmsFPv((void *) arg0, 0x4003AD16), (u32) (arg0 + 0x38), 0, 0);
+      play_sound_effect(copy_target_state__14TObjEnePanarmsFPv((void *) arg0, 0x4003AD16), (u32)(arg0 + 0x38), 0, 0);
     }
-    TBoss3Volopt::create_breakup_mdl((s32)((void *) breakup_model_ptr), (s32)((void *) (&lbl_80491260.value)), (s32)((int) (*((s32 *) (((s8 *) arg0) + 0x24)))), (s32)((void *) (arg0 + 0x2FC)), (s32)((int) (*((s32 *) (((s8 *) arg0) + 0x60)))));
+    TBoss3Volopt::create_breakup_mdl((s32)((void *) breakup_model_ptr), (s32)(&lbl_80491260.value), (s32)((int) (*((s32 *) (((s8 *) arg0) + 0x24)))), (s32)(arg0 + 0x2FC), (s32)((int) (*((s32 *) (((s8 *) arg0) + 0x60)))));
     ((TObjPlayer *)arg0)->refresh_lobby_state();
     ((TObjEnemy *)arg0)->send_entity_set_flags();
     ((TObjPlayer *)(arg0 + 0x2FC))->trigger_dell_biter_events();

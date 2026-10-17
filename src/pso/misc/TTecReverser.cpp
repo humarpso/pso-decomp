@@ -88,7 +88,7 @@ void *__dt__13TUnk_804CCC28Fv(void *arg0, s16 arg1) {
 
 void TUnk_804CCC28::run_task() {
     u8 *arg0 = (u8 *)this;
-    this->m_28 = (s32) (this->m_28 + 1);
+    this->m_28 = (this->m_28 + 1);
     if ((s32) this->m_28 == 0xA) {
         spawn_particle_effect(arg0 + 0x2C, 0x38);
     }
@@ -161,9 +161,9 @@ u8 *TTecReverser__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     ((TObjPlayer *)(arg0 + 0xEC))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3818;
     ((TTecAnti *)(arg0 + 0x88))->copy_params((u8 *)((u8 *)&technique_param_table.value + 0x2EC));
-    ((TTecReverser *)arg0)->sub_8022BE64((u8 *)(arg0 + 0x88), (s32)(arg4));
-    copy_technique_target_list((void *) (arg0 + 0xEC), (void *)arg3);
-    play_sound_effect(0x4002A812, (void *) (arg0 + 0x20), 0, 0);
+    ((TTecReverser *)arg0)->sub_8022BE64(arg0 + 0x88, arg4);
+    copy_technique_target_list(arg0 + 0xEC, (void *)arg3);
+    play_sound_effect(0x4002A812, arg0 + 0x20, 0, 0);
     temp_r3 = *(u32 *)((s8 *)arg0 + 0x1C);
     if (temp_r3 != 0U) {
         *(s16 *)((s8 *)arg0 + 0xB4) = obj_getField1c(temp_r3);

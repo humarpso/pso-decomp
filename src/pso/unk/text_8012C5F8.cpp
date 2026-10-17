@@ -83,7 +83,7 @@ void TUnk_804A535C::emit_marker_effects() {
             var_r30 += 1;
         } while (var_r30 != 2);
         ((TObjPlayer *)(arg0 + 0x1F8))->set_flags(2);
-        TItemAttacker::spawn_item_timer((s32)(arg0), (s32)(rocket_punch_return_timer), 0x3C);
+        TItemAttacker::spawn_item_timer((s32)arg0, (s32)rocket_punch_return_timer, 0x3C);
         ((TObjPlayer *)(arg0 + 0x1F8))->set_flags(4);
         if (((VObj_18 *)(arg0))->m49(arg0 + 0x1FC, 0, 0, 1) == 1) {
             ((TAdRicoRing *)(arg0 + 0x1F8))->clear_flags(4);

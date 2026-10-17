@@ -142,7 +142,7 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
     u8 *temp_r7;
     u8 *temp_r8;
     TObjPlayer::set_global_flag();
-    TObjFish::set_global_param((s32)(lbl_805D4BD8));
+    TObjFish::set_global_param(lbl_805D4BD8);
     push_matrix();
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
     switch (temp_r0) {
@@ -166,7 +166,7 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
         draw_chunk_object((lbl_805D4BD0));
         break;
     case 3:
-        post_translate_matrix((void *) (arg0 + 0x140));
+        post_translate_matrix(arg0 + 0x140);
         scale_matrix(0, lbl_805D8528, lbl_805D8528, lbl_805D8528);
         rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x11C)));
         rotate_matrix_z(0, (int) (*(s32 *)((s8 *)arg0 + 0x120)));
@@ -383,7 +383,7 @@ void TBoss2Tentacle__sub_80039994(Obj_80039994 *o, f32 len) {
 
 void TBoss2Tentacle::advance_motion_position() {
     Obj_80039C44 *self = (Obj_80039C44 *)this;
-    f32 n = (f32)(TBoss2Tentacle__motion_data->count - 1);
+    f32 n = (TBoss2Tentacle__motion_data->count - 1);
     self->pos += self->speed;
     if (self->pos >= n) {
         self->pos -= n;
@@ -456,7 +456,7 @@ Obj_80039F50 *__ct__14TBoss2TentacleFP7TObjectii(Obj_80039F50 *self, void *paren
         VecCopy((Vec *)&self->pts[i], (const Vec *)&TBoss2Tentacle__segment_points[i]);
         self->vals[i] = TBoss2Tentacle__segment_point_defaults[i];
     }
-    self->f114 = (f32)(TBoss2Tentacle__motion_data->count - 1) * (lbl_805D855C * (f32)rand());
+    self->f114 = (TBoss2Tentacle__motion_data->count - 1) * (lbl_805D855C * (f32)rand());
     self->f118 = lbl_805D8560;
     self->f11C = 0;
     self->f120 = 0;

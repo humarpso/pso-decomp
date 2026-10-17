@@ -231,16 +231,16 @@ void TObjEneEpsilonGuard::sub_803626A8(s32 arg1, s32 arg2) {
     typedef char spC_offset[(offsetof(Stack_803626A8, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_803626A8, sp10) == 0x8) ? 1 : -1];
     Stack_803626A8 stack;
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_80479FBC.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_80479FBC.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&lbl_80479FBC.value) + 8);
-    push_matrix_from((void *) (&identity_matrix.value));
+    stack.sp8 = *(s32 *)((s8 *)&lbl_80479FBC.value + 0);
+    stack.spC = *(s32 *)((s8 *)&lbl_80479FBC.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&lbl_80479FBC.value + 8);
+    push_matrix_from((void *)&identity_matrix.value);
     post_translate_matrix((void *) (((u8 *)this) + 0x38));
     rotate_matrix_y(0, this->rotation_y);
     ((TObjEnemy *)((u8 *)this))->render_anim_model(this->m_c0);
     pop_matrix();
     push_matrix_from((void *) (anim_model_matrix_array + (arg2 * 0x30)));
-    matrix_mult_vec(0, (void *) (&stack.sp8), (void *)arg1);
+    matrix_mult_vec(0, (void *)&stack.sp8, (void *)arg1);
     pop_matrix();
 }
 
@@ -302,14 +302,14 @@ void TObjEneEpsilonGuard::load_assets() {
     {
         Quad_803627DC q = lbl_80479FAC;
         q.a = ((Res_803627DC *)lbl_805D6FA0)->f430;
-        TLobby::spawn_npc_enemy((s16)0x4E, (s32)(((Res_803627DC *)lbl_805D6FA0)->f42c->f8), (s32)(((Res_803627DC *)lbl_805D6FA0)->f42c->fC), (s32)(&q), (f32)lbl_805E024C, (f32)lbl_805E0250);
+        TLobby::spawn_npc_enemy((s16)0x4E, (s32)(((Res_803627DC *)lbl_805D6FA0)->f42c->f8), (s32)(((Res_803627DC *)lbl_805D6FA0)->f42c->fC), (s32)&q, (f32)lbl_805E024C, (f32)lbl_805E0250);
     }
 }
 
 u8 *__dt__14TObjEneEpsilonFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80362B48___vt__14TObjEneEpsilon *)&__vt__14TObjEneEpsilon).value;
-        __destroy_arr((void *) (arg0 + 0x3C0), (void *) (&__dt__13TUnk_804949A8Fv), 0x1C, 4);
+        __destroy_arr(arg0 + 0x3C0, &__dt__13TUnk_804949A8Fv, 0x1C, 4);
         __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

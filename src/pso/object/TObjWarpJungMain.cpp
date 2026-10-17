@@ -179,7 +179,7 @@ s32 TObjWarpJungMain__vt16(u8 *arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xB0));
     if ((temp_r3 != NULL) && (((TWindowMenu *)temp_r3)->is_visible() != 0)) {
-        ((TObjWarpJungMain *)arg0)->m_bc = (s32) *(s32 *)((s8 *)(&jungle_warp_destination_ids.value) + (get_selected_menu_value(*(u8 **)((s8 *)arg0 + 0xB0)) * 4));
+        ((TObjWarpJungMain *)arg0)->m_bc = (s32) *(s32 *)((s8 *)&jungle_warp_destination_ids.value + (get_selected_menu_value(*(u8 **)((s8 *)arg0 + 0xB0)) * 4));
         return 1;
     }
     return 0;
@@ -336,7 +336,7 @@ f32 TObjWarpJung::get_static_field4_as_float() {
     return (f32) *(u32 *)((s8 *)warp_jung_beam_motion + 4);
 }
 
-void TObjWarpJung::set_global_render_param() { TObjFish::set_global_param((s32)(warp_jung_model_handle)); }
+void TObjWarpJung::set_global_render_param() { TObjFish::set_global_param(warp_jung_model_handle); }
 
 void TObjWarpJung::render_warp_effect(s32 arg0, s32 arg1) {
     s32 bml_model;

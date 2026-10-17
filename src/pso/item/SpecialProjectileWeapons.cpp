@@ -130,7 +130,7 @@ void TUnk_804A2018::run_task() {
     }
     if ((u32) *(u32 *)&this->unk_24 != 0U) {
         item = ((s32)find_item_by_id(*(s32 *)&this->unk_1C));
-        if ((item != 0) && (TObjPlayer__sub_80102C30() == 2) && (((TObjPlayer *)item)->draw_icon((s32)(this->m_20), (s32)((s32 *)(&sp8))) != 0)) {
+        if ((item != 0) && (TObjPlayer__sub_80102C30() == 2) && (((TObjPlayer *)item)->draw_icon(this->m_20, (s32)(&sp8)) != 0)) {
             if (((TItemMag *)item)->get_flag_40() == 0) {
                 copy_position__15TEffStarLight2DFPv(*(u32 *)&this->unk_24, &sp8);
                 return;
@@ -163,7 +163,7 @@ StarLightFollowerView *TObjPlayer__sub_801241D4(StarLightFollowerView *self, voi
     self->f24 = 0;
     self->f28 = get_item_system_generation();
     p = find_item_by_id(self->f1c);
-    if (p != NULL && ((TObjPlayer *)p)->draw_icon((s32)(self->f20), (s32)((s32 *)(&v))) != 0) {
+    if (p != NULL && ((TObjPlayer *)p)->draw_icon((s32)self->f20, (s32)((s32 *)&v)) != 0) {
         StarLightParameters blk = weapon_star_light_parameters[0];
         self->f24 = (s32)spawn_star_light_2d((s32)&v, (s32)&blk, (s32)self);
     }
@@ -184,7 +184,7 @@ void TUnk_804A204C::emit_marker_effects() {
     s32 sp8;
     void *temp_r31;
     if (((TObjPlayer *)this)->is_mode_two_and_ready() != 0) {
-        if (((TObjPlayer *)this)->draw_icon(5, (s32)(&sp8)) != 0) {
+        if (((TObjPlayer *)this)->draw_icon(5, (s32)&sp8) != 0) {
             temp_r31 = *(void * *)&this->player;
             create_ex__9TTecMegidFllll(temp_r31, &sp8, *(s32 *)((s8 *)temp_r31 + 0x60), ((TObjPlayer *)this)->get_tp());
             ((TItemWeapon *)this)->roll_technique();
@@ -213,7 +213,7 @@ void TUnk_804A204C::update_weapon() {
     if (((s32) this->m_204 != temp_r3) && ((u32) *(u32 *)((s8 *)this + 0xF4) != 0U)) {
         this->m_204 = temp_r3;
         if (is_item_area_enabled() != 0) {
-            create_icon__10TObjPlayerFiii((s32)(tl_05), (s32)((s32)(((TItem *)this)->get_field_d8())), 5);
+            create_icon__10TObjPlayerFiii(tl_05, (s32)((s32)(((TItem *)this)->get_field_d8())), 5);
         }
     }
 }
@@ -252,13 +252,13 @@ void TUnk_804A204C::reserved_53() {
         *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) | 0x18);
         draw_weapon_at_joint(this, 0x30, temp_r5);
         *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) & 0xFFFFFFE7);
-        if (((TObjPlayer *)this)->draw_icon(5, (s32)(&sp8)) != 0) {
+        if (((TObjPlayer *)this)->draw_icon(5, (s32)&sp8) != 0) {
             push_matrix();
             TObjPlayer__sub_80364198();
             model_render_flags &= 0xFFFFFFEF;
             ((TObjPlayer *)this)->get_mag_scale();
             set_model_fade_alpha__10TObjPlayerFf();
-            post_translate_matrix((void *)(&sp8));
+            post_translate_matrix(&sp8);
             rotate_matrix_y(0, (int)(*(s32 *)((s8 *)(*(void * *)&this->player) + 0x60)));
             *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) | 0x11);
             draw_ginja_object(temp_r31);
@@ -439,9 +439,9 @@ void TUnk_804A2148::render() {
             *(f32 *)((s8 *)temp_r31 + 0x20) = (f32) 10.0f;
             push_matrix();
             TObjPlayer::notify_fish_if_valid((int) (*(u32 *)&this->m_5C));
-            post_translate_matrix((void *) (arg0 + 0x1C));
+            post_translate_matrix(arg0 + 0x1C);
             rotate_matrix_y(0, this->m_count);
-            rotate_matrix_x(0, (int) (this->m_28 - 0x4000));
+            rotate_matrix_x(0, this->m_28 - 0x4000);
             draw_ginja_object((*(void * *)&this->m_58));
             pop_matrix();
             *(f32 *)((s8 *)temp_r31 + 0x20) = (f32) 1.0f;
@@ -487,16 +487,16 @@ void TUnk_804A2164::emit_marker_effects() {
     }
     ((RecoilWeaponView *)this)->recoilPhase = 2;
     temp_r31 = (s32)((RecoilWeaponView *)this)->player + 0x7CC;
-    if (get_burst_counter((void*)(temp_r31)) == 0) {
+    if (get_burst_counter((void*)temp_r31) == 0) {
         var_r30 = 0;
         do {
-            increment_burst_counter((u8 *)(temp_r31));
+            increment_burst_counter((u8 *)temp_r31);
             var_r30 += 1;
         } while (var_r30 != 2);
     }
-    ((TObjPlayer *)((RecoilWeaponView *)this))->draw_status_icon((s32)((void *) (&sp8)));
+    ((TObjPlayer *)((RecoilWeaponView *)this))->draw_status_icon((s32)(&sp8));
     if (((TObjPlayer *)((RecoilWeaponView *)this))->is_mode_two_and_ready() != 0) {
-        launch_rare_weapon_special__10TObjPlayerFPvlf((void *) (((RecoilWeaponView *)this)), (void *) (&sp8), 1, (f32) (1.0f));
+        launch_rare_weapon_special__10TObjPlayerFPvlf((void *) (((RecoilWeaponView *)this)), &sp8, 1, (f32) (1.0f));
         return;
     }
     ((RecoilWeaponView *)this)->deliver_projectile(&sp8, 0, 0, 1);
@@ -520,7 +520,7 @@ void TUnk_804A2164::update_weapon() {
     s32 temp_r0;
     void *temp_r4;
     void *temp_r4_2;
-    this->m_1fc = (s32) (this->m_1fc + 0x1999);
+    this->m_1fc = (this->m_1fc + 0x1999);
     temp_r4 = *(void * *)&this->projectile;
     if (temp_r4 != NULL) {
         temp_r4_2 = *(void **)((s8 *)temp_r4 + 0x2C);

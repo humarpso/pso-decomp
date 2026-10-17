@@ -37,7 +37,7 @@ void load_and_spawn_chao_npc(void) {
     stack.sp14 = *(s32 *)((s8 *)chao_npc_spawn_descriptor + 0xC);
     stack.sp8 = *(s32 *)((s8 *)var_r9 + 0x430);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)var_r9 + 0x42C));
-    spawn_npc_enemy__6TLobbyFslllff(0xB, (int) (*(s32 *)((s8 *)temp_r5 + 8)), (int) (*(s32 *)((s8 *)temp_r5 + 0xC)), (void *) (&stack.sp8), (int) (*(s32 *)((s8 *)chao_npc_spawn_descriptor + 0)), chao_npc_spawn_descriptor, lbl_805E0138, lbl_805E013C);
+    spawn_npc_enemy__6TLobbyFslllff(0xB, (int) (*(s32 *)((s8 *)temp_r5 + 8)), (int) (*(s32 *)((s8 *)temp_r5 + 0xC)), &stack.sp8, (int) (*(s32 *)((s8 *)chao_npc_spawn_descriptor + 0)), chao_npc_spawn_descriptor, lbl_805E0138, lbl_805E013C);
 }
 
 }

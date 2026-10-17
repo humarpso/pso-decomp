@@ -13,7 +13,7 @@ s32 TAdTrialModemChkGC::init_modem_check_params() {
     if ((s32) lbl_805D7CA8 == 0) {
         return -1;
     }
-    memset((void *) (lbl_805D7CC0 + 0x7020), 0, 0x800);
+    memset(lbl_805D7CC0 + 0x7020, 0, 0x800);
     *(s32 *)((s8 *)lbl_805D7CC0 + 0x1C) = 0x674;
     sprintf((char *) (lbl_805D7CC4 + 4), lbl_80480270);
     TAdPlayerLoadGC__sub_8042F108(0);

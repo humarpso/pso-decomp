@@ -237,7 +237,7 @@ s32 TShopItemTecSequence::open_greeting() {
   Stack_802202BC stack;
   stack.sp8 = lbl_805DC700;
   stack.spC = lbl_805DC704;
-  ((TShopSequence *)((u8 *)this))->create_message_window(get_window_layout_position(0x2C, (f32) lbl_805DC700), (s32) (&stack.sp8));
+  ((TShopSequence *)((u8 *)this))->create_message_window(get_window_layout_position(0x2C, (f32) lbl_805DC700), (s32)&stack.sp8);
   (((VObj_18_a93f07 *)(((u8 *)this)))->m4(0x2E, 1));
   this->m_2c = create_meseta_window((s32) ((((((TShopSequence *)((u8 *)this))->get_child_field1c() & 0xFFFF) & 0xFFFF) & 0xFFFF) & 0xFFFF));
   ((TShopWindowBase *)((u8 *)this))->set_field_20(2);
@@ -295,7 +295,7 @@ u8 *__dt__20TShopItemTecSequenceFv(u8 *arg0, s16 arg1) {
             *(u32 *)((s8 *)arg0 + 0x30) = 0U;
         }
         lbl_805D6250 = 0;
-        *(s32 *)((s8 *)(&TShopItemTecSequence__slot_table.value) + (sub_8022397C__15TShopWindowBaseFv(arg0) * 4)) = 0;
+        *(s32 *)((s8 *)&TShopItemTecSequence__slot_table.value + (sub_8022397C__15TShopWindowBaseFv(arg0) * 4)) = 0;
         __dt__13TShopSequenceFv((arg0), 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

@@ -51,7 +51,7 @@ u8 *TObjCollision__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8006754C___vt__13TObjCollision *)&__vt__13TObjCollision).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2830;
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2 + 0xC));
-    ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz((void *) (arg2 + 0x18));
+    ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz((void *)(arg2 + 0x18));
     VecCopy((Vec *)(arg0 + 0x68), (const Vec *)(arg2 + 0x24));
     *(s32 *)&((TObjCollision *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjCollision *)arg0)->actorFlags| 0x02000000);
     *(f32 *)((s8 *)arg0 + 0xAC) = (f32) lbl_805D8F20;
@@ -71,7 +71,7 @@ u8 *TObjCollision__ct(u8 *arg0, s32 arg1, s32 arg2) {
     } else {
         *(s32 *)&((TObjCollision *)arg0)->m_c4 = (s32) (*(s32 *)&((TObjCollision *)arg0)->m_c4| 0x100);
     }
-    init_collision_body_parts(arg0, (s32) (arg0 + 0xAC), 1);
+    init_collision_body_parts(arg0, (s32)(arg0 + 0xAC), 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;
 }

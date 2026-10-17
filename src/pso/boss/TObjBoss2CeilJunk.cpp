@@ -156,7 +156,7 @@ void TObjBoss2CeilJunk::render() {
     new_var = (0.2f) * t;
     s.y = (1.0f);
     s.x = (s.z = new_var);
-    ((TObjEneDD *)(self->f44))->draw_oriented_shadow((s32)self->f9C, 0, (u32)(&s));
+    ((TObjEneDD *)(self->f44))->draw_oriented_shadow((s32)self->f9C, 0, (u32)&s);
   }
   lbl_805D5660 = model_render_flags;
   if (self->fB4 < (1.0f))
@@ -314,7 +314,7 @@ u8 *TObjBoss2CeilJunk__ct(struct RecoveredFields_8003A6F4_arg0 *arg0, s32 arg1, 
         arg0->field_A8 = 0;
     } else {
         arg0->field_A8 = 2;
-        arg0->field_54 = arg0->field_48 + *(f32 *)((s8 *)((u8 *)(&TObjBoss2CeilJunk__height_offset_table.value) + (arg0->field_AC * 4)) + 0);
+        arg0->field_54 = arg0->field_48 + *(f32 *)((s8 *)((u8 *)&TObjBoss2CeilJunk__height_offset_table.value + (arg0->field_AC * 4)) + 0);
     }
     arg0->field_60 = TObjPlayer::calc_random_scaled();
     arg0->field_5C = (s32) ((4096.0f) * rand_signed_unit());

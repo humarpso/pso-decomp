@@ -407,7 +407,7 @@ void TTecZondeEff::init_bolt_points() {
     f32 dz = o->d.z;
     s32 i;
     for (i = 0; i < o->count; i++) {
-        f32 t = (o->len * (f32)i) / (f32)(o->count - 1);
+        f32 t = (o->len * (f32)i) / (o->count - 1);
         o->pts[i].x = dx * t + x0;
         o->pts[i].y = dy * t + y0;
         o->pts[i].z = dz * t + z0;

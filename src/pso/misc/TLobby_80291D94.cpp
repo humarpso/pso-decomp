@@ -463,7 +463,7 @@ void TLobby::store_challenge_seeds(s32 arg0) {
 void TLobby__sub_80292200(s32 arg0) {
     TLobby::is_value_out_of_range(arg0);
     fabs_float((f32) (arg0 - *(s32 *)((s8 *)(&(*(RecoveredGlobal_80292200_lbl_804DB1F0 *)&lbl_804DB1F0).value) + 0xC)));
-    TLobby::store_challenge_seeds((s32)(arg0));
+    TLobby::store_challenge_seeds(arg0);
 }
 
 int TLobby__sub_80292268(void) { return 1; }
@@ -575,8 +575,8 @@ void TLobby::set_encoded_name_and_color(u8 *arg0, s32 arg1) {
 }
 typedef char RecoveredGlobal_802925C4_lbl_80540968_size[sizeof(RecoveredGlobal_802925C4_lbl_80540968) == 0x20 ? 1 : -1];
 void set_split_screen_name__6TLobbyFi(s32 arg0) {
-    strncpy((void *) (&split_screen_player_name.value), (void *)arg0, 0x20);
-    *(s8 *)((s8 *)(&split_screen_player_name.value) + 0x1F) = 0;
+    strncpy((void *)&split_screen_player_name.value, (void *)arg0, 0x20);
+    *(s8 *)((s8 *)&split_screen_player_name.value + 0x1F) = 0;
 }
 typedef char RecoveredGlobal_80292604_lbl_804DB1F0_size[sizeof(RecoveredGlobal_80292604_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
 void TLobby::update_challenge_timer(s32 arg0) {
@@ -641,7 +641,7 @@ s32 TLobby::set_camera_height_if_valid(f32 farg0) {
     if ((farg0 < lbl_805DD9D0) || (farg0 > lbl_805DD9D4)) {
         return 0;
     }
-    *(f32 *)((s8 *)(&lbl_804DB1F0) + 4) = farg0;
+    *(f32 *)((s8 *)&lbl_804DB1F0 + 4) = farg0;
     return 1;
 }
 
@@ -804,7 +804,7 @@ loop_3:
     }
     var_r31 += 1;
     if (var_r31 >= 4) {
-        *(s32 *)((s8 *)(&lbl_804DB1F0) + 0x20) = 1;
+        *(s32 *)((s8 *)&lbl_804DB1F0 + 0x20) = 1;
         return 1;
     }
     goto loop_3;
@@ -1336,7 +1336,7 @@ void TLobby__sub_802933FC(void *arg0) {
         v = get_current_floor();
         if (lbl_804DB1F0[2] != v) {
             lbl_804DB1F0[2] = v;
-            TLobby::create_time_window2((void *)(arg0));
+            TLobby::create_time_window2(arg0);
         }
         break;
     }
@@ -1388,7 +1388,7 @@ s32 __dl__7TObjectFPv(void *);
 void *TLobby__sub_802936AC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void **)((u8 *)arg0 + 0x18) = (void *)lbl_804DB888;
-        ((TLobby *)lbl_804DB1F0)->copy_challenge_settings((u8 *)(&challenge_default_settings));
+        ((TLobby *)lbl_804DB1F0)->copy_challenge_settings((u8 *)&challenge_default_settings);
         challenge_retry_object = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -1405,7 +1405,7 @@ C_80293720 *TChallenge4P__ct(C_80293720 *arg0, void *parent) {
     __ct__7TObjectFP7TObject(arg0, parent);
     arg0->f18 = lbl_804DB888;
     arg0->f0 = lbl_805D3CA8;
-    ((TLobby *)lbl_804DB1F0)->copy_challenge_settings((u8 *)(&challenge_default_settings));
+    ((TLobby *)lbl_804DB1F0)->copy_challenge_settings((u8 *)&challenge_default_settings);
     ((void (*)(void *))snapshot_player_card_status__6TLobbyFv)(arg0);
     arg0->f1c = 0;
     arg0->f20 = 0;

@@ -229,7 +229,7 @@ s32 TWindowSubStatusDisp::update_hp_entry() {
         var_r4 = 0xFFF2FF19;
         var_r30 = 0xFFF2FF19;
     }
-    start_text_color_transition((void *)(temp_r31), (s32)(var_r4), lbl_805DD394);
+    start_text_color_transition(temp_r31, var_r4, lbl_805DD394);
     return var_r30;
 }
 

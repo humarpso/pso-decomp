@@ -259,7 +259,7 @@ s32 TObjPlayer__sub_8002EDCC(u8 *arg0) {
     switch (temp_r0) {
     case 0:
         *(f32 *)((s8 *)arg0 + 0x10) = (f32) (*(f32 *)((s8 *)arg0 + 0x10) - lbl_805D8250);
-        vec3_add_to(arg0, (void *) (arg0 + 0xC));
+        vec3_add_to(arg0, arg0 + 0xC);
         temp_f1 = *(f32 *)((s8 *)arg0 + 0x10);
         if (temp_f1 < lbl_805D822C) {
             temp_f2 = *(f32 *)((s8 *)arg0 + 4);
@@ -280,7 +280,7 @@ s32 TObjPlayer__sub_8002EDCC(u8 *arg0) {
         break;
     case 2:
         *(f32 *)((s8 *)arg0 + 0x10) = (f32) (*(f32 *)((s8 *)arg0 + 0x10) - lbl_805D8250);
-        vec3_add_to(arg0, (void *) (arg0 + 0xC));
+        vec3_add_to(arg0, arg0 + 0xC);
         *(f32 *)((s8 *)arg0 + 0x24) = (f32) (*(f32 *)((s8 *)arg0 + 0x24) - lbl_805D8254);
         if (*(f32 *)((s8 *)arg0 + 0x24) < lbl_805D822C) {
             *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805D822C;

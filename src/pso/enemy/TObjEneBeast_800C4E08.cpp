@@ -1041,7 +1041,7 @@ s32 TUnk_80493450::update_target_near_flag() {
     }
     if ((obj_getField1c(temp_r0) < 0x1000U) && (((VObj_18 *)(this))->m17(0x1E) != 0)) {
         temp_r31 = this->target;
-        temp_f31 = horizontal_distance_squared((void *) (temp_r31 + 0x38), (void *) ((u8 *)this + 0x38));
+        temp_f31 = horizontal_distance_squared(temp_r31 + 0x38, (void *) ((u8 *)this + 0x38));
         switch (*(s32 *)((s8 *)temp_r31 + 0x890) & 0xE0) {
         case 0x20:
             if (obj_testFlags30(this, 0x100000) != 0) {

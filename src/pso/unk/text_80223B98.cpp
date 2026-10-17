@@ -323,12 +323,12 @@ void generate_shop_common_tool_pool(s32 arg0) {
 }
 
 void clear_shop_tool_flags(void) {
-    memset((void *) (&shop_tool_flags.value), 0, 0x10);
+    memset(&shop_tool_flags.value, 0, 0x10);
 }
 
 void TLobby::copy_shop_item_entry(s32 arg1, s32 arg2) {
     s32 arg0 = (s32)this;
-    *(ByteBlock_14 *)(arg0) = *(const ByteBlock_14 *)(*(s32 *)((s8 *)(&shop_tool_stock_buffers.value) + (arg2 * 4)) + (arg1 * 0x14));
+    *(ByteBlock_14 *)(arg0) = *(const ByteBlock_14 *)(*(s32 *)((s8 *)&shop_tool_stock_buffers.value + (arg2 * 4)) + (arg1 * 0x14));
 }
 void mark_shop_tool_sold_out(s32 a, s32 b) {
     E_8022444C *arr = ((E_8022444C * *)&shop_tool_stock_buffers)[b];

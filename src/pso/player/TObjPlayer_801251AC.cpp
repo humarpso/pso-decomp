@@ -16,9 +16,9 @@ void TUnk_804A2358::emit_marker_effects() {
     void *owner;
 
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
-        if (((TObjPlayer *)this)->draw_icon(0, (s32)(&sp8)) != 0) {
+        if (((TObjPlayer *)this)->draw_icon(0, (s32)&sp8) != 0) {
             owner = *(void * *)&this->player;
-            TTecFoie::create((void *)owner, (void *)(&sp8), (void *)(*(s32 *)((s8 *)owner + 0x60)), (void *)(((TObjPlayer *)this)->get_tp() + 2));
+            TTecFoie::create((void *)owner, &sp8, (void *)(*(s32 *)((s8 *)owner + 0x60)), (void *)(((TObjPlayer *)this)->get_tp() + 2));
             roll_technique__11TItemWeaponFv(this);
         }
     } else {

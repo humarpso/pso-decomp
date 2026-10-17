@@ -33,7 +33,7 @@ void TBoss5Gryphon::calc_shot_position(u8 *arg1, f32 farg0, f32 farg1, f32 farg2
         return;
     }
     temp_r5 = *(s32 *)((s8 *)arg0 + 0x380);
-    *(s32 *)((s8 *)arg0 + 0x380) = (s32) (temp_r5 + 1);
+    *(s32 *)((s8 *)arg0 + 0x380) = (temp_r5 + 1);
     VecCopy__FP3VecPC3Vec(arg1, (u8 *)&this->position, temp_r5);
 }
 typedef struct Stack_800BB218 Stack_800BB218;
@@ -50,7 +50,7 @@ s32 TBoss5Gryphon::enemy_probe_wall_ahead(f32 farg0, f32 farg1, f32 farg2) {
   stack.sp8 = (*((f32 *) (((s8 *) ((u8 *)this)) + 0x38))) + temp_f30;
   stack.spC = this->m_300;
   stack.sp10 = (*((f32 *) (((s8 *) ((u8 *)this)) + 0x40))) + temp_f31;
-  return csnVector((void *) (((u8 *)this) + 0x2FC), (void *) (&stack.sp8), 0x88E0);
+  return csnVector((void *) (((u8 *)this) + 0x2FC), &stack.sp8, 0x88E0);
 }
 u8 *TObjEneDD::vfunc_103(u8 *arg1) {
     u8 *arg0 = (u8 *)this;

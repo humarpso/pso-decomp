@@ -69,7 +69,7 @@ void TLobby::reduce_item_amount(s32 arg1, s32 arg2, s32 arg3) {
             unequip_item__10TObjPlayerFiPv(arg1, temp_r3);
         }
         temp_r4 = *(s16 *)((s8 *)this + 0x1C);
-        *(s16 *)((s8 *)this + 0x1C) = (s16) (temp_r4 - 1);
+        *(s16 *)((s8 *)this + 0x1C) = (temp_r4 - 1);
         temp_r3->m27(temp_r4);
         queue_destruction__7TObjectFv(arg2);
     }

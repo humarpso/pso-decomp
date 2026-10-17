@@ -84,7 +84,7 @@ void TObjEneRecon::vfunc_63() {
     s16 temp_r0;
     temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
     if ((temp_r0 != 7) && (temp_r0 != 8)) {
-        transition_enemy_state((void*)(arg0), (void*)(7));
+        transition_enemy_state(arg0, (void*)(7));
     }
 }
 

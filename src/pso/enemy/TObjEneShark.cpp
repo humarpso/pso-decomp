@@ -222,24 +222,24 @@ void TObjEneShark::vfunc_101() {  }
 
 void TObjEneShark::vfunc_98() {
     s32 arg0 = (s32)this;
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003A60C)), (void *) (arg0 + 0x38), 0, 0);
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003A60C)), (void *)(arg0 + 0x38), 0, 0);
     TObjPlayer::play_effect_if_v2(-0x300);
 }
 
 void TObjEneShark::vfunc_97() {
     s32 arg0 = (s32)this;
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003A60B)), (void *) (arg0 + 0x38), 0, 0);
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003A60B)), (void *)(arg0 + 0x38), 0, 0);
     TObjPlayer::play_effect_if_v2(-0x300);
 }
 
 void TObjEneShark::vfunc_96() {
     s32 arg0 = (s32)this;
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003A60D)), (void *) (arg0 + 0x38), 0, 0);
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003A60D)), (void *)(arg0 + 0x38), 0, 0);
 }
 
 void TObjEneShark::vfunc_95() {
     s32 arg0 = (s32)this;
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003A60B)), (void *) (arg0 + 0x38), 0, 0);
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003A60B)), (void *)(arg0 + 0x38), 0, 0);
     TObjPlayer::play_effect_if_v2(-0x300);
 }
 
@@ -252,13 +252,13 @@ void TObjEneShark::vfunc_94() {
     stack.sp8 = lbl_805D9BA0;
     stack.spC = lbl_805D9BA4;
     stack.sp10 = lbl_805D9BA8 * *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x2B0)) + 0x10);
-    push_matrix_from((void *) (&identity_matrix.value));
-    rotate_matrix_y(0, (s32)(this->rotation_y));
-    rotate_vector_by_matrix(0, (void *) (&stack.sp8), (void *) (&stack.sp8));
+    push_matrix_from(&identity_matrix.value);
+    rotate_matrix_y(0, this->rotation_y);
+    rotate_vector_by_matrix(0, &stack.sp8, &stack.sp8);
     pop_matrix();
-    vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+    vec3_add_to(&stack.sp8, arg0 + 0x38);
     ((TObjPlayer *)(&stack.sp8))->spawn_ground_effect(0x23);
-    TObjPlayer__sub_800D92BC((void *) (&stack.sp8), 0xF);
+    TObjPlayer__sub_800D92BC(&stack.sp8, 0xF);
 }
 
 void TObjEneShark::vfunc_93() {
@@ -534,7 +534,7 @@ void TObjEneShark::render() {
       v.x = lbl_805D9BBC;
       v.y = lbl_805D9BC0;
       v.z = lbl_805D9BC4;
-      ((TObjEnemy *)arg0)->render_with_position_override((u8 *)(&v), 0);
+      ((TObjEnemy *)arg0)->render_with_position_override((u8 *)&v, 0);
     }
   }
 }

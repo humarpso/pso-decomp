@@ -360,7 +360,7 @@ void TWindowSubStatusDisp__sub_80281644(u8 *arg0) {
     if (((s16) (((TWindowSubStatusDisp *)arg0)->m_60)) != temp_r3)
     {
       ((TWindowSubStatusDisp *)arg0)->m_60 = *(s16 *)&((TWindowSubStatusDisp *)arg0)->m_62;
-      fn_8026C7AC((void *)(*(s32 *)&((TWindowSubStatusDisp *)arg0)->m_68), ((s8) (*((u8 *) (((s8 *) (((u8 *) (&lbl_805DD6F4)) + (((TWindowSubStatusDisp *)arg0)->m_60))) + 0)))));
+      fn_8026C7AC((void *)(*(s32 *)&((TWindowSubStatusDisp *)arg0)->m_68), ((s8) (*((u8 *) (((s8 *) (((u8 *)&lbl_805DD6F4) + (((TWindowSubStatusDisp *)arg0)->m_60))) + 0)))));
     }
     ((TWindowSubStatusDisp *)(((u8 *) arg0) + 0x24))->destroy_all_items();
     ((TWindowSubStatusDisp *)arg0)->dispatch_page_init();

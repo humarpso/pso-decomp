@@ -298,7 +298,7 @@ u8 *__dt__28THunterGuildSeqOnline_ClientFv(u8 *arg0, s16 arg1) {
             TWindow__close((u8 *)temp_r3_2);
             *(u32 *)((s8 *)arg0 + 0x3C) = 0U;
         }
-        *(s32 *)((s8 *)(&lbl_80513E70.value) + (sub_8022397C__15TShopWindowBaseFv(arg0) * 4)) = 0;
+        *(s32 *)((s8 *)&lbl_80513E70.value + (sub_8022397C__15TShopWindowBaseFv(arg0) * 4)) = 0;
         hunter_guild_seq_online_client_instance = 0;
         __dt__13TShopSequenceFv((arg0), 0);
         if (arg1 > 0) {
@@ -617,8 +617,8 @@ void fn_80214254(u8 *arg0) {
             *(u8 **)((s8 *)arg0 + 0x38) = NULL;
             ((VObj_18_97738d *)(arg0))->m7(9, 1);
             *(s32 *)((s8 *)arg0 + 0x34) = 1;
-            if ((s32) *(s32 *)((s8 *)(&THunterGuildSeqOffline__quest_result_callbacks.value) + 8) != -1) {
-                *(s32 *)((s8 *)arg0 + 0x3C) = (s32)create_quest_thread(*(s32 *)((s8 *)(&THunterGuildSeqOffline__quest_result_callbacks.value) + 8));
+            if ((s32) *(s32 *)((s8 *)&THunterGuildSeqOffline__quest_result_callbacks.value + 8) != -1) {
+                *(s32 *)((s8 *)arg0 + 0x3C) = (s32)create_quest_thread(*(s32 *)((s8 *)&THunterGuildSeqOffline__quest_result_callbacks.value + 8));
             }
             ((TShopWindowBase *)arg0)->set_field_20(0xC);
             break;
@@ -861,7 +861,7 @@ void init_window__22THunterGuildSeqOfflineFPv(u8 *arg0) {
     u32 temp_r3;
     stack.sp8 = lbl_805DC658;
     stack.spC = lbl_805DC65C;
-    ((TShopSequence *)arg0)->create_message_window((s32)((int) (get_window_layout_position(0x2C))), (s32)((void *) (&stack.sp8)));
+    ((TShopSequence *)arg0)->create_message_window((s32)((int) (get_window_layout_position(0x2C))), (s32)(&stack.sp8));
     if (is_quest_active() == 0) {
         temp_r3 = __nw__7TObjectFUl(0x80);
         if (temp_r3 != 0U) {
@@ -985,7 +985,7 @@ u8 *__dt__28THunterGuildSeqOnline_ServerFv(u8 *arg0, s16 arg1) {
             TWindow__close((u8 *)temp_r3_2);
             *(u32 *)((s8 *)arg0 + 0x38) = 0U;
         }
-        *(s32 *)((s8 *)(&lbl_80513E60.value) + (sub_8022397C__15TShopWindowBaseFv(arg0) * 4)) = 0;
+        *(s32 *)((s8 *)&lbl_80513E60.value + (sub_8022397C__15TShopWindowBaseFv(arg0) * 4)) = 0;
         offline_quest_list_vm = 0;
         __dt__13TShopSequenceFv((arg0), 0);
         if (arg1 > 0) {

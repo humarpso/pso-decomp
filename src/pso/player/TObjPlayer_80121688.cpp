@@ -28,7 +28,7 @@ void TUnk_804A0AA8::render() {
 }
 
 void TUnk_804A0AA8::hook() {
-    this->m_30 = (s32) (this->m_30 + 0x3333);
+    this->m_30 = (this->m_30 + 0x3333);
 }
 
 extern s32 lbl_804A0AA8[];

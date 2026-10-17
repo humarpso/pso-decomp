@@ -228,7 +228,7 @@ void TObjLight__sub_801336DC(void) {  }
 
 typedef char RecoveredGlobal_801336E0_TObjLight__data_80506320_size[sizeof(RecoveredGlobal_801336E0_TObjLight__data_80506320) == 0x50 ? 1 : -1];
 void submit_scene_ambient_color(void) {
-    set_light_ambient_color(*(f32 *)((s8 *)(&TObjLight__scene_light_state.value) + 0x38), *(f32 *)((s8 *)(&TObjLight__scene_light_state.value) + 0x3C), *(f32 *)((s8 *)(&TObjLight__scene_light_state.value) + 0x40));
+    set_light_ambient_color(*(f32 *)((s8 *)&TObjLight__scene_light_state.value + 0x38), *(f32 *)((s8 *)&TObjLight__scene_light_state.value + 0x3C), *(f32 *)((s8 *)&TObjLight__scene_light_state.value + 0x40));
 }
 
 void TObjLight__sub_80133714(void) {  }
@@ -306,9 +306,9 @@ u8 *TObjLight__sub_80133980(u8 *arg0, int _w1) {
     ((TObjLight *)arg0)->init_object();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80133980_lbl_804A6F90 *)&lbl_804A6F90).value;
     rotate_vector_by_matrix(0, (void *) (&(*(RecoveredGlobal_80133980_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value), (void *) ((u8 *)&(*(RecoveredGlobal_80133980_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value + 0xC));
-    TObjLight__sub_8013397C((void *)(arg0));
-    submit_scene_light_direction((void *)(arg0));
-    set_scene_light_diffuse((void *)(arg0));
+    TObjLight__sub_8013397C(arg0);
+    submit_scene_light_direction(arg0);
+    set_scene_light_diffuse(arg0);
     lbl_805D5558 = arg0;
     return arg0;
 }
@@ -331,8 +331,8 @@ void init_menu_scene_lights(u8 *arg0) {
     stack.sp8 = *(f32 *)((s8 *)arg0 + 0);
     stack.spC = *(f32 *)((s8 *)arg0 + 4);
     stack.sp10 = *(f32 *)((s8 *)arg0 + 8);
-    if ((*(const f32 *)&TObjLight__data_805DB088) != vector_length((void *) (&stack.sp8))) {
-        normalize_vector((void *) (&stack.sp8));
+    if ((*(const f32 *)&TObjLight__data_805DB088) != vector_length(&stack.sp8)) {
+        normalize_vector(&stack.sp8);
     }
     *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0) = stack.sp8;
     *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 4) = stack.spC;
@@ -351,11 +351,11 @@ void init_menu_scene_lights(u8 *arg0) {
     *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x14) = (f32) *(f32 *)((s8 *)arg0 + 0x14);
     temp_r3 = __nw__7TObjectFUl(0x1C);
     if (temp_r3 != 0U) {
-        TObjLight__sub_80133980((u8 *)(temp_r3), (int)(tl_02));
+        TObjLight__sub_80133980((u8 *)temp_r3, (int)tl_02);
     }
     temp_r3_2 = __nw__7TObjectFUl(0x1C);
     if (temp_r3_2 != 0U) {
-        ((TObjLight *)temp_r3_2)->init((int)(tl_02));
+        ((TObjLight *)temp_r3_2)->init(tl_02);
     }
 }
 
@@ -370,8 +370,8 @@ void init_map_lights(u8 *arg0) {
     stack.sp8 = *(f32 *)((s8 *)arg0 + 0);
     stack.spC = *(f32 *)((s8 *)arg0 + 4);
     stack.sp10 = *(f32 *)((s8 *)arg0 + 8);
-    if ((*(const f32 *)&TObjLight__data_805DB088) != vector_length((void *) (&stack.sp8))) {
-        normalize_vector((void *) (&stack.sp8));
+    if ((*(const f32 *)&TObjLight__data_805DB088) != vector_length(&stack.sp8)) {
+        normalize_vector(&stack.sp8);
     }
     *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133B10_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0) = stack.sp8;
     *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133B10_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 4) = stack.spC;
@@ -388,15 +388,15 @@ void init_map_lights(u8 *arg0) {
     TObjLight::init_light_tables();
     temp_r3 = __nw__7TObjectFUl(0x1C);
     if (temp_r3 != 0U) {
-        TObjLight__sub_80133980((u8 *)(temp_r3), (int)(tl_02));
+        TObjLight__sub_80133980((u8 *)temp_r3, (int)tl_02);
     }
     temp_r3_2 = __nw__7TObjectFUl(0x1C);
     if (temp_r3_2 != 0U) {
-        ((TObjLight *)temp_r3_2)->init((int)(tl_02));
+        ((TObjLight *)temp_r3_2)->init(tl_02);
     }
     temp_r3_3 = __nw__7TObjectFUl(0x1C);
     if (temp_r3_3 != 0U) {
-        ((TObjLight *)temp_r3_3)->init_map_light((int)(tl_02));
+        ((TObjLight *)temp_r3_3)->init_map_light(tl_02);
     }
 }
 
@@ -467,7 +467,7 @@ void init_area_lights(void) {
         init_map_lights((u8 *)((void *) ((copy_storage_80133D78.bytes))));
         return;
     }
-    init_map_lights((u8 *)((void *) (&default_scene_light_config.value)));
+    init_map_lights((u8 *)(&default_scene_light_config.value));
 }
 
 void TObjLight::free_shared_data() {

@@ -68,7 +68,7 @@ void TBoss6Demo20_TYPE2_APPEAR::draw_fading_model_1_pair() {
     } else if (temp_r3 >= 0x190) {
         var_f31 = lbl_805DFA74;
     } else {
-        var_f31 = (f32) (temp_r3 - 0x181) / lbl_805DFA78;
+        var_f31 = (temp_r3 - 0x181) / lbl_805DFA78;
     }
     if (lbl_805DFA70 != var_f31) {
         if (var_f31 < lbl_805DFA74) {
@@ -102,7 +102,7 @@ void TBoss6Demo20_TYPE2_APPEAR::draw_fading_model_4() {
     } else if (temp_r3 >= 0x8E) {
         var_f31 = lbl_805DFA74;
     } else {
-        var_f31 = (f32)(temp_r3 - 0x72) / lbl_805DFA7C;
+        var_f31 = (temp_r3 - 0x72) / lbl_805DFA7C;
     }
     if ((lbl_805DFA70 != var_f31) && ((u32) this->m_7c != 0U)) {
         if (var_f31 < lbl_805DFA74) {
@@ -379,9 +379,9 @@ void *create_boss6_type2_appearance(void *arg0) {
 typedef char RecoveredGlobal_8033DCA8_lbl_80477F2C_size[sizeof(RecoveredGlobal_8033DCA8_lbl_80477F2C) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_8033DCA8_lbl_804EFA08_size[sizeof(RecoveredGlobal_8033DCA8_lbl_804EFA08) == 0xC ? 1 : -1];
 void initialize_boss6_type2_appear_particle_origin(void) {
-    *(f32 *)((s8 *)(&boss6_type2_appear_offset_particle_origin.value) + 0) = (f32) *(f32 *)((s8 *)(&boss6_type2_appear_origin.value) + 0);
-    *(f32 *)((s8 *)(&boss6_type2_appear_offset_particle_origin.value) + 4) = (f32) (lbl_805DFA90 + *(f32 *)((s8 *)(&boss6_type2_appear_origin.value) + 4));
-    *(f32 *)((s8 *)(&boss6_type2_appear_offset_particle_origin.value) + 8) = (f32) *(f32 *)((s8 *)(&boss6_type2_appear_origin.value) + 8);
+    *(f32 *)((s8 *)&boss6_type2_appear_offset_particle_origin.value + 0) = (f32) *(f32 *)((s8 *)&boss6_type2_appear_origin.value + 0);
+    *(f32 *)((s8 *)&boss6_type2_appear_offset_particle_origin.value + 4) = (f32) (lbl_805DFA90 + *(f32 *)((s8 *)&boss6_type2_appear_origin.value + 4));
+    *(f32 *)((s8 *)&boss6_type2_appear_offset_particle_origin.value + 8) = (f32) *(f32 *)((s8 *)&boss6_type2_appear_origin.value + 8);
 }
 __declspec(section ".ctors") static void *const __sinit_text_8033DA94_cpp_ref = (void *)initialize_boss6_type2_appear_particle_origin;
 

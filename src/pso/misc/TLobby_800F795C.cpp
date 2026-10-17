@@ -150,12 +150,12 @@ int get_attack_credit_slot_count(void) { return 4; }
 
 typedef char RecoveredGlobal_800F7A6C_lbl_804DB1F0_size[sizeof(RecoveredGlobal_800F7A6C_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
 f32 TLobby__sub_800F7A6C(void) {
-    return *(f32 *)((s8 *)(&lbl_804DB1F0.value) + 4);
+    return *(f32 *)((s8 *)&lbl_804DB1F0.value + 4);
 }
 
 typedef char RecoveredGlobal_800F7A7C_lbl_8048C9D8_size[sizeof(RecoveredGlobal_800F7A7C_lbl_8048C9D8) == 0x748 ? 1 : -1];
 f32 TLobby__sub_800F7A7C(void) {
-    return *(f32 *)((s8 *)(&challenge_mode_state.value) + 4);
+    return *(f32 *)((s8 *)&challenge_mode_state.value + 4);
 }
 
 void unload_floor_resources(s32 arg0) {

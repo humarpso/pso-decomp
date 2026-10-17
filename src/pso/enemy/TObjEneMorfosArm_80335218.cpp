@@ -42,7 +42,7 @@ void TObjEneMorfosArm::render() {
         return;
     }
     push_matrix();
-    post_translate_matrix((void *) (arg0 + 0x38));
+    post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, this->rotation_y);
     TObjFish::set_global_param(this->texture_id);
     TObjPlayer::toggle_particle_effect();
@@ -84,12 +84,12 @@ u8 *TObjEneMorfosArm__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneMorfosArm__name;
     *(u8 **)((s8 *)arg0 + 0xFC) = arg2;
     ((TObjEneMorfosArm *)arg0)->m_100 = obj_getField1c(*(u8 **)((s8 *)arg0 + 0xFC));
-    VecCopy((Vec *)((void *) (arg0 + 0x38)), (const Vec *)((void *) (((s32)TObjEneMorfosArm__sub_803326B4((void *)((s32) *(u8 **)((s8 *)arg0 + 0xFC)))))));
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)((void *) (((s32)TObjEneMorfosArm__sub_803326B4((void *)((s32) *(u8 **)((s8 *)arg0 + 0xFC)))))));
     ((TObjEneMorfosArm *)arg0)->rotation_y = TObjEneMorfosArm__sub_803326BC(*(u8 **)((s8 *)arg0 + 0xFC));
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjEneMorfosArm__parent_morfos_instance) + 0x42C)) + 8);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjEneMorfosArm__parent_morfos_instance) + 0x42C));
     ((TObjEneMorfosArm *)arg0)->texture_id = (s32) *(s32 *)((s8 *)temp_r5 + 0xC);
-    set_field_d8__10TObjPlayerFl((void *)arg0, (void *) (&morfos_arm_motion_params.value), (int)temp_r5);
+    set_field_d8__10TObjPlayerFl((void *)arg0, &morfos_arm_motion_params.value, (int)temp_r5);
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)(*(u8 * *)&TObjEneMorfosArm__parent_morfos_instance) + 0x430)));
     ((TObjEneMorfosArm *)arg0)->m_b8 = 0;
     set_animation__10TObjPlayerFPvs((arg0), (((TObjEneMorfosArm *)arg0)->m_b8));

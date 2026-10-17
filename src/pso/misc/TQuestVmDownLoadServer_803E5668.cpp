@@ -365,7 +365,7 @@ s32 TQuestVmDownLoadServer::poll_download_status() {
     if ((s32) quest_download_initialized == 0) {
         return -1;
     }
-    if (TQuestVmDownLoadServer__sub_803F08E4((s8 *)(&lbl_8058DD88.value)) == -7) {
+    if (TQuestVmDownLoadServer__sub_803F08E4((s8 *)&lbl_8058DD88.value) == -7) {
         return 1;
     }
     TQuestVmDownLoadServer__sub_803E6ACC(0);

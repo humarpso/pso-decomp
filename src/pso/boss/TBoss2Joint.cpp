@@ -389,7 +389,7 @@ void TBoss2Joint::vfunc_28() {  }
 void TBoss2Joint::run_task() {
     u8 *arg0 = (u8 *)this;
     if (TObjPlayer::check_demo_mode() == 0) {
-        VecCopy((Vec *)((void *) (arg0 + 0x38)), (const Vec *)((int) (*(s32 *)((s8 *)arg0 + 0x390))));
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)((int) (*(s32 *)((s8 *)arg0 + 0x390))));
         this->vfunc_83();
         if (((VObj_18 *)(arg0))->m84() == 0) {
             ((VObj_18 *)(arg0))->m85(this->mode, 3);
@@ -400,7 +400,7 @@ void TBoss2Joint::run_task() {
         update_position_history();
         this->vfunc_88();
         ((TBoss8Dragon *)arg0)->set_player_state_default();
-        add_radar_scaled_marker((void *) (arg0 + 0x38), -0x5DB4, 1, 1, lbl_805D848C);
+        add_radar_scaled_marker(arg0 + 0x38, -0x5DB4, 1, 1, lbl_805D848C);
     }
 }
 

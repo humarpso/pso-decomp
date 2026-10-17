@@ -1259,7 +1259,7 @@ void render_body__14TObjEneDolmOlmFPv(Ene_803021AC *arg0) {
             v.x = lbl_805DEF8C;
             v.y = TObjEneDolmOlm__data_805DEF50;
             v.z = TObjEneDolmOlm__data_805DEF68;
-            ((TObjEnemy *)arg0)->render_with_position_override((u8 *)(&v), 0);
+            ((TObjEnemy *)arg0)->render_with_position_override((u8 *)&v, 0);
         }
         break;
     }
@@ -1615,7 +1615,7 @@ void TObjEneDolmOlm::vfunc_60() {
         if (id < 0x1000U) {
             player = get_player_by_client_id(id);
             if (player != NULL) {
-                temp_f31 = horizontal_distance_squared((void *) (player + 0x38), (void *) (((u8 *)this) + 0x38));
+                temp_f31 = horizontal_distance_squared(player + 0x38, (void *) (((u8 *)this) + 0x38));
                 var_f30 = fabs_float(*(f32 *)((s8 *)player + 0x3C) - *(f32 *)((s8 *)((u8 *)this) + 0x3C));
                 if (((TObjPlayer *)player)->get_field_3e4() == get_current_floor()) {
                     if ((temp_f31 < (*(f32 *)((s8 *)(*(s32 *)((s8 *)TObjEneDolmOlm__behavior_params_by_variant + (*(s32 *)&this->variant * 4))) + 0x10) * *(f32 *)((s8 *)(*(s32 *)((s8 *)TObjEneDolmOlm__behavior_params_by_variant + (*(s32 *)&this->variant * 4))) + 0x10))) && (((f32 (*)(void *)) calc_boss4_scale__10TObjPlayerFi)(((u8 *)this)) < this->m_3d0)) {
@@ -1668,11 +1668,11 @@ void TObjEneDolmOlm::check_path_ahead(s32 arg1, f32 farg0) {
     stack.sp8 = TObjEneDolmOlm__data_805DEF54;
     stack.sp10 = (TObjEneDolmOlm__data_805DEF68 * farg0) + *(f32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0xC);
     push_matrix_from((void *) (&(*(RecoveredGlobal_80301264_lbl_8058D490 *)&identity_matrix).value));
-    rotate_matrix_y(0, (int)(arg1));
-    rotate_vector_by_matrix(0, (void *) (&stack.sp8), (void *) (&stack.sp8));
+    rotate_matrix_y(0, arg1);
+    rotate_vector_by_matrix(0, &stack.sp8, &stack.sp8);
     pop_matrices(1);
-    vec3_add_to((void *) (&stack.sp8), (void *) (((u8 *)this) + 0x2FC));
-    check_path_obstructed((void *) (((u8 *)this)), (void *) (&stack.sp8));
+    vec3_add_to(&stack.sp8, (void *) (((u8 *)this) + 0x2FC));
+    check_path_obstructed((void *) (((u8 *)this)), &stack.sp8);
 }
 #pragma pop
 void TObjEneDolmOlm::sub_80301148() {
@@ -1743,29 +1743,29 @@ void TObjEneDolmOlm::vfunc_94() {
     stack.sp8 = TObjEneDolmOlm__data_805DEF54;
     stack.spC = lbl_805DEF58;
     stack.sp10 = TObjEneDolmOlm__data_805DEF5C * *(f32 *)(this->m_2b0 + 0x10);
-    push_matrix_from((void *) (&identity_matrix.value));
+    push_matrix_from((void *)&identity_matrix.value);
     rotate_matrix_y(0, this->rotation_y);
-    rotate_vector_by_matrix(0, (void *) (&stack.sp8), (void *) (&stack.sp8));
+    rotate_vector_by_matrix(0, (void *)&stack.sp8, (void *)&stack.sp8);
     pop_matrix();
-    vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+    vec3_add_to((void *)&stack.sp8, (void *)(arg0 + 0x38));
     ((TObjPlayer *)(&stack.sp8))->spawn_ground_effect(0x23);
-    TObjPlayer__sub_800D92BC((void *) (&stack.sp8), 0xF);
+    TObjPlayer__sub_800D92BC((void *)&stack.sp8, 0xF);
 }
 void TObjEneDolmOlm::vfunc_95() {
     s32 arg0 = (s32)this;
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003AD00)), (void *) (arg0 + 0x38), 0, 0);
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003AD00)), (void *)(arg0 + 0x38), 0, 0);
 }
 void TObjEneDolmOlm::vfunc_96() {
     s32 arg0 = (s32)this;
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003B203)), (void *) (arg0 + 0x38), 0, 0);
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003B203)), (void *)(arg0 + 0x38), 0, 0);
 }
 void TObjEneDolmOlm::vfunc_97() {
     s32 arg0 = (s32)this;
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003A802)), (void *) (arg0 + 0x38), 0, 0);
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003A802)), (void *)(arg0 + 0x38), 0, 0);
 }
 void TObjEneDolmOlm::vfunc_98() {
     s32 arg0 = (s32)this;
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003A801)), (void *) (arg0 + 0x38), 0, 0);
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003A801)), (void *)(arg0 + 0x38), 0, 0);
 }
 void TObjEneDolmOlm::init_body_sub() {
     spawn_ground_effects__14TObjEneDolmOlmFPvPv((u8 *)this, (Vec_80300D00 *)((s8 *)this + 0x38));

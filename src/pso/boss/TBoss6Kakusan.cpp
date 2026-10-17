@@ -167,7 +167,7 @@ void TBoss6Kakusan::check_beam_player_hits() {
       s32 z = 0;
       h.a = z;
       h.c = z;
-      h.b = *((s32 *) (&h.f));
+      h.b = *((s32 *)&h.f);
       PSO_VCALL_VObj_80322438_m21(pl, *((s32 *) (((s8 *) arg0) + 0x10)), &h, 0, -1, -1);
     }
   }
@@ -277,7 +277,7 @@ u8 *TBoss6Kakusan__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4, f32 farg
         ((TBoss6Kakusan *)arg0)->m_24 = (f32) lbl_805DF53C;
     }
     VecCopy((Vec *)(arg0 + 0x3C), (const Vec *)(arg3));
-    if (vector_length((void *) (arg0 + 0x3C)) <= TBoss6Kakusan__data_805DF51C) {
+    if (vector_length(arg0 + 0x3C) <= TBoss6Kakusan__data_805DF51C) {
         *(f32 *)((s8 *)arg0 + 0x40) = (f32) lbl_805DF53C;
     }
     VecCopy((Vec *)(arg0 + 0x30), (const Vec *)(arg2));

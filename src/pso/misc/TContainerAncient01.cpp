@@ -111,10 +111,10 @@ u8 *TContainerAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     set_animation__10TObjPlayerFPvs((arg0), (((TContainerAncient01 *)arg0)->m_b8));
     ((TObjMotion *)arg0)->set_field_b8((int) (((TContainerAncient01 *)arg0)->m_b8));
     *(s32 *)&((TContainerAncient01 *)arg0)->actorFlags = (s32) (*(s32 *)&((TContainerAncient01 *)arg0)->actorFlags| 0x60000000);
-    init_collision_body_parts(arg0, (void *) (&TContainerAncient01__collision_body_parts.value), 1);
+    init_collision_body_parts(arg0, (void *)&TContainerAncient01__collision_body_parts.value, 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38));
-    *(f32 *)((s8 *)arg0 + 0x78) = (f32) ((*(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4) * lbl_805DBD5C) + *(f32 *)((s8 *)arg0 + 0x78));
+    *(f32 *)((s8 *)arg0 + 0x78) = (f32) ((*(f32 *)((s8 *)&TContainerAncient01__collision_body_parts.value + 4) * lbl_805DBD5C) + *(f32 *)((s8 *)arg0 + 0x78));
     VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x74));
     ((TContainerAncient01 *)arg0)->mode = 0;
     ((TContainerAncient01 *)arg0)->init_state_vectors();

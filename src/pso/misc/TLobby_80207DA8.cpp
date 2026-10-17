@@ -57,9 +57,9 @@ s32 get_floor_scene_table(s32 arg0) {
         return 0;
     }
     if (TLobby::is_online_ready() != 0) {
-        return *(s32 *)((s8 *)((u8 *)(&floor_scene_table.value) + (arg0 * 8)) + 0);
+        return *(s32 *)((s8 *)((u8 *)&floor_scene_table.value + (arg0 * 8)) + 0);
     }
-    return *(s32 *)((s8 *)((u8 *)(&lbl_804C8FC0.value) + (arg0 * 8)) + 0);
+    return *(s32 *)((s8 *)((u8 *)&lbl_804C8FC0.value + (arg0 * 8)) + 0);
 }
 
 int TLobby__sub_80207F10(void* p);
@@ -720,12 +720,12 @@ u8 *TLobby::alloc_heap_slot(s32 arg0, s32 arg1) {
         return NULL;
     }
     temp_r30 = arg0 * 4;
-    if ((u32) *(s32 *)((s8 *)(&lobby_slot_ptr_table.value) + temp_r30) != 0U) {
+    if ((u32) *(s32 *)((s8 *)&lobby_slot_ptr_table.value + temp_r30) != 0U) {
         return NULL;
     }
     temp_r3 = (u8 *)(heap_alloc__5THeapFUl(area_event_set_heap, arg1));
     if (temp_r3 != NULL) {
-        *(s32 *)((s8 *)(&lobby_slot_ptr_table.value) + temp_r30) = (long) (temp_r3);
+        *(s32 *)((s8 *)&lobby_slot_ptr_table.value + temp_r30) = (long) (temp_r3);
         return temp_r3;
     }
     return NULL;
@@ -837,7 +837,7 @@ s32 TLobby::load_all_floor_event_sets() {
     s32 var_r31;
     var_r31 = 0;
 loop_1:
-    if ((get_floor_map_selection(var_r31, (void *) (&stack.sp8)) == 1) && (stack.sp8 >= 0)) {
+    if ((get_floor_map_selection(var_r31, &stack.sp8) == 1) && (stack.sp8 >= 0)) {
         if (is_area_transfer_pending() != 0) {
             return 0;
         }

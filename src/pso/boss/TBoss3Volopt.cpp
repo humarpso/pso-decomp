@@ -302,8 +302,8 @@ f32 lbl_804FEEA0[3];
 #define boss3_volopt_spawn_pos (*(RecoveredGlobal_8003DC34_lbl_804FEE68 *)boss3_volopt_spawn_pos)
 
 void fn_8003C7EC(void) {
-    *(f32 *)((s8 *)(&lbl_80483578.value) + 4) = (f32) lbl_805D825C;
-    *(f32 *)((s8 *)(&lbl_80483578.value) + 0x10) = (f32) lbl_805D825C;
+    *(f32 *)((s8 *)&lbl_80483578.value + 4) = (f32) lbl_805D825C;
+    *(f32 *)((s8 *)&lbl_80483578.value + 0x10) = (f32) lbl_805D825C;
 }
 
 u16 fn_8003C8B4(void) {
@@ -311,7 +311,7 @@ u16 fn_8003C8B4(void) {
     if (TObjPlayer__sub_8003C964() == 0) {
         return 0xFFFFU;
     }
-    temp_r3 = (u8 *)(*(s32 *)((s8 *)(&lbl_804FEEAC.value) + ((s32) ((f32) lbl_805D4C48 * (lbl_805D8658 * (f32) rand())) * 4)));
+    temp_r3 = (u8 *)(*(s32 *)((s8 *)&lbl_804FEEAC.value + ((s32) ((f32) lbl_805D4C48 * (lbl_805D8658 * (f32) rand())) * 4)));
     if (temp_r3 != NULL) {
         return obj_getField1c(temp_r3);
     }
@@ -676,10 +676,10 @@ void TCameraCtrl::run_intro_camera_sequence() {
     case 0:
         ((TBoss3Volopt *)arg0)->start_phase2();
         activate_camera_mode(9);
-        set_active_camera_pose((u8 *)(&boss3_volopt_intro_camera_poses.value), ((u8 *)&boss3_volopt_intro_camera_poses.value + 0xC));
+        set_active_camera_pose((u8 *)&boss3_volopt_intro_camera_poses.value, ((u8 *)&boss3_volopt_intro_camera_poses.value + 0xC));
         TObjPlayer::freeze_all_players();
         TWindowCtrl::init_all_slots();
-        if (((u32)find_entity_by_id((u16)(lbl_805D2718))) != 0U) {
+        if (((u32)find_entity_by_id(lbl_805D2718)) != 0U) {
             set_flag_08000000__11TCameraCtrlFl();
         }
         *(s32 *)((s8 *)arg0 + 0x37C) = 1;
@@ -707,8 +707,8 @@ void TCameraCtrl::run_intro_camera_sequence() {
         stack.sp10 = lbl_805D8678;
         activate_camera_mode(5);
         ((TCameraCtrl *)(&stack.sp8))->cache_target_and_forward(0x160A);
-        temp_r3 = (u8 *)(arg0 + 0x38);
-        set_scripted_camera_pose((int)temp_r3, (int)temp_r3, (void *) (arg0 + 0x5C));
+        temp_r3 = (arg0 + 0x38);
+        set_scripted_camera_pose((int)temp_r3, (int)temp_r3, arg0 + 0x5C);
         *(s32 *)((s8 *)arg0 + 0x37C) = 4;
         return;
     case 4:
@@ -719,7 +719,7 @@ void TCameraCtrl::run_intro_camera_sequence() {
         }
         break;
     case -1:
-        if (((u32)find_entity_by_id((u16)(lbl_805D2718))) != 0U) {
+        if (((u32)find_entity_by_id(lbl_805D2718)) != 0U) {
             set_player_view_flag__11TCameraCtrlFl();
         }
         TWindowCtrl::init_all_slots2();
@@ -876,7 +876,7 @@ void TBoss3Volopt::start_phase2() {
     this->m_3f0 = 0;
     *(s16 *)((s8 *)arg0 + 0x3F2) = 0;
     clear_volopt_cage_flag();
-    play_area_music((char *)((void *) (&lbl_80436318.value)));
+    play_area_music((char *)(&lbl_80436318.value));
     this->m_404 = 0;
 }
 

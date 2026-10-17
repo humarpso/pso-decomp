@@ -29,7 +29,7 @@ void TAdTrialModemChkGC__sub_8007FA24(s32 arg0) {
   {
     TAdTrialModemChkGC::init_modem_check_params();
   }
-  launch_switcher_dol((const char *)(*((s32 *) (((s8 *) (((u8 *) (&lbl_8048DF88.value)) + (temp_r31 * 4))) + 0))));
+  launch_switcher_dol((const char *)(*((s32 *) (((s8 *) (((u8 *)&lbl_8048DF88.value) + (temp_r31 * 4))) + 0))));
 }
 
 }

@@ -340,7 +340,7 @@ extern s8 scene_fog_enable_flag;
 #pragma scheduling off
 typedef char RecoveredGlobal_803E1D1C_lbl_804FC780_size[sizeof(RecoveredGlobal_803E1D1C_lbl_804FC780) == 0x28 ? 1 : -1];
 void load_current_pos_matrix(s32 arg0) {
-    GXLoadPosMtxImm((void *)current_matrix, (int) (*(s32 *)((s8 *)((u8 *)(&gx_pos_mtx_index_table.value) + (arg0 * 4)) + 0)));
+    GXLoadPosMtxImm((void *)current_matrix, (int) (*(s32 *)((s8 *)((u8 *)&gx_pos_mtx_index_table.value + (arg0 * 4)) + 0)));
 }
 #pragma pop
 

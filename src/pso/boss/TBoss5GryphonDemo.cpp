@@ -124,7 +124,7 @@ Obj_800663DC *TBoss5GryphonDemo__sub_800663DC(Obj_800663DC *arg0, s32 arg1, s32 
     s = arg0->segs;
     zero = lbl_805D8ED0;
     i = 0;
-    z = len * (f32)(arg0->count - 1);
+    z = len * (arg0->count - 1);
     for (; i < arg0->count; i++) {
         fn_8002B630((u8 *)s, (u8 *)gryphon_demo_collision_body_desc);
         s->f0 = zero;

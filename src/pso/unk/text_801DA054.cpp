@@ -43,7 +43,7 @@ void handle_cmd_DA__9TProtocolFR6packet(u8 *arg0, s32 *arg1) {
     ((packet_header *)(&sp8))->bswap();
     temp_r12 = *(s32 (**)(u8))((s8 *)arg0 + 0xBC90);
     if (temp_r12 != NULL) {
-        temp_r12(*(u8 *)((s8 *)(&sp8) + 0x1));
+        temp_r12(*(u8 *)((s8 *)&sp8 + 0x1));
     }
 }
 

@@ -154,7 +154,7 @@ void TChallenge4PResult::show_message(s32 text_handle) {
     if (message_window == NULL) {
         stack.sp8 = *(s32 *)((s8 *)lbl_80478BCC + 0);
         stack.spC = *(s32 *)((s8 *)lbl_80478BCC + 4);
-        message_window = (TWindowMessagePage *)TWindowMessagePage::create(get_window_layout_position(0x40, (int) (*(s32 *)((s8 *)lbl_80478BCC + 0)), lbl_80478BCC), (s32)(&stack.sp8), 1, slot_index);
+        message_window = (TWindowMessagePage *)TWindowMessagePage::create(get_window_layout_position(0x40, (int) (*(s32 *)((s8 *)lbl_80478BCC + 0)), lbl_80478BCC), (s32)&stack.sp8, 1, slot_index);
     }
     if (message_window != NULL) {
         ((TWindowMessagePage *)message_window)->set_message((void *)text_handle, 0x81);
@@ -230,7 +230,7 @@ void TChallenge4PResult::update_wait_input() {
     s32 temp_r5;
     if (get_player_by_client_id(this->slot_index) != 0U) {
         temp_r5 = get_map_id__13TRaderMapCoreFv() * 0x50;
-        if (TWindowShortListCtrl__check_controller_button((void *)((void *) ((u8 *)&(*(RecoveredGlobal_8034BA68_lbl_8050E208 *)&controller_input_state).value + temp_r5 + 0x20)), 4, (s32)(temp_r5)) != 0) {
+        if (TWindowShortListCtrl__check_controller_button((void *)((void *) ((u8 *)&(*(RecoveredGlobal_8034BA68_lbl_8050E208 *)&controller_input_state).value + temp_r5 + 0x20)), 4, temp_r5) != 0) {
             this->state_1c = 3;
         }
     } else {
@@ -283,7 +283,7 @@ void TChallenge4PResult::update_input() {
     if ((p != 0U) && (((TWindowMessagePage *)p)->is_message_window_ready() != 0)) {
         temp_r3 = this->wait_frames;
         if (temp_r3 > 0) {
-            this->wait_frames = (s32) (temp_r3 - 1);
+            this->wait_frames = (temp_r3 - 1);
             return;
         }
         if (get_player_by_client_id(this->slot_index) != 0U) {

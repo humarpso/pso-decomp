@@ -349,7 +349,7 @@ void TObjEneMe3SinowZoa__sub_80316C3C(Obj_80316C3C *arg0, s32 arg1) {
                         create__11TTecRaBartaFPvPvPvPv(arg0, &out, &arg0->pos,
                             TObjEneDD::clamp_frame_index(TObjEneMe3SinowZoa__kind_param_tbls[arg0->kind]->frame));
                     } else {
-                        ((TTecGiBarta *)arg0)->create_ex((void *)(&out), (void *)arg0->rotY, (void *)(TObjEneDD::clamp_frame_index(TObjEneMe3SinowZoa__kind_param_tbls[arg0->kind]->frame)));
+                        ((TTecGiBarta *)arg0)->create_ex(&out, (void *)arg0->rotY, (void *)(TObjEneDD::clamp_frame_index(TObjEneMe3SinowZoa__kind_param_tbls[arg0->kind]->frame)));
                     }
                 } else if (arg0->flags & 0x100000) {
                     arg0->state = 4;
@@ -423,7 +423,7 @@ void TObjEneMe3SinowZoa__sub_80317254(u8 *arg0, s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFEFFFFD);
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 5);
         ((VObj_14_c5778e *)(arg0 + (1044)))->m1(0x1E);
-        play_sound_effect(0x4003AD2F, (u32) (arg0 + 0x38), 0, 0);
+        play_sound_effect(0x4003AD2F, (u32)(arg0 + 0x38), 0, 0);
         *(s32 *)((s8 *)arg0 + 0x434) = 0;
         break;
     case 3:
@@ -511,8 +511,8 @@ void TObjEneMe3SinowZoa::vfunc_115() {
             frame = arg0->f360;
             if (frame < TObjEneMe3SinowZoa__data_805DF31C) {
                 frame = TObjEneMe3SinowZoa__data_805DF31C;
-            } else if (frame > (f32)(motion->nframes - 1)) {
-                frame = (f32)(motion->nframes - 1);
+            } else if (frame > (motion->nframes - 1)) {
+                frame = (motion->nframes - 1);
             }
             TObjPlayer::set_global_flag();
             draw_model_motion(arg0->f34, motion, frame);

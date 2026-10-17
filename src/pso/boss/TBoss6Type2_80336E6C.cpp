@@ -26,14 +26,14 @@ void TBoss6Type2::update_recover_timer() {
     if (*(f32 *)((s8 *)arg0 + 0x400) < lbl_805DF97C) {
         *(f32 *)((s8 *)arg0 + 0x400) = (f32) lbl_805DF97C;
     }
-    this->m_3cc = (s32) (this->m_3cc + 1);
+    this->m_3cc = (this->m_3cc + 1);
     if ((s32) this->m_3cc >= 0x5A) {
         TBoss6Type2__sub_8032F5C4(arg0);
         if ((s32) this->m_40c != 0) {
-            set_action__9TBoss6MagFl((void *)(arg0), 1);
+            set_action__9TBoss6MagFl(arg0, 1);
             return;
         }
-        set_action__9TBoss6MagFl((void *)(arg0), 2);
+        set_action__9TBoss6MagFl(arg0, 2);
     }
 }
 #pragma pop
@@ -49,7 +49,7 @@ void TBoss6Type2::update_ramp_timer() {
     if (*(f32 *)((s8 *)arg0 + 0x400) > lbl_805DF984) {
         *(f32 *)((s8 *)arg0 + 0x400) = (f32) lbl_805DF984;
     }
-    this->m_3cc = (s32) (this->m_3cc + 1);
+    this->m_3cc = (this->m_3cc + 1);
     if ((s32) this->m_3cc >= (s32) this->m_3c0) {
         set_action__9TBoss6MagFl(arg0, 5);
     }
@@ -58,7 +58,7 @@ void TBoss6Type2::update_ramp_timer() {
 
 void TBoss6Type2__sub_80336FB8(void* p) { *(int*)((char*)p + 0x3cc) = 0; ((TBoss6Type2 *)p)->ensure_particle_emitter((s32)((void*)0)); }
 void TBoss6Type2::tick_attack_timer() {
-    this->m_3cc = (s32) (this->m_3cc - 1);
+    this->m_3cc = (this->m_3cc - 1);
     if ((s32) this->m_3cc < 0) {
         destroy_part_object((s32)((void*)(3)));
         if ((s32) this->m_40c != 0) {
@@ -104,7 +104,7 @@ void TBoss6Type2::update_attack_state() {
 void TBoss6Type2__sub_80337160(void) {  }
 void TBoss6Type2::advance_phase_counter() {
     TBoss6Type2__sub_8032FB84();
-    this->m_3cc = (s32) (this->m_3cc + 1);
+    this->m_3cc = (this->m_3cc + 1);
     if ((s32) this->m_3cc >= 4) {
         set_action__9TBoss6MagFl(this, 1);
     }

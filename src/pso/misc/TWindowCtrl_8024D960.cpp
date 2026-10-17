@@ -105,7 +105,7 @@ void TWindowCtrl__sub_8024DAAC(void *arg0) {
 
     temp_r4 = *(s16 *)((s8 *)arg0 + 0x20);
     if (temp_r4 > 0) {
-        *(s16 *)((s8 *)arg0 + 0x20) = (s16) (temp_r4 - 1);
+        *(s16 *)((s8 *)arg0 + 0x20) = (temp_r4 - 1);
     }
 }
 
@@ -289,7 +289,7 @@ void TWindowCtrlPlayer::sub_8024E0F0() {
     }
     temp_r3_3 = *(s16 *)((s8 *)arg0 + 0x1E);
     if (temp_r3_3 > 0x7530) {
-        *(s16 *)((s8 *)arg0 + 0x1E) = (s16) (temp_r3_3 - 0x2710);
+        *(s16 *)((s8 *)arg0 + 0x1E) = (temp_r3_3 - 0x2710);
     }
     *(s16 *)((s8 *)arg0 + 0x1E) = (s16) (*(s16 *)((s8 *)arg0 + 0x1E) + 1);
 }

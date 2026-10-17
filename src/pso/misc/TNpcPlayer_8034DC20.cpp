@@ -127,7 +127,7 @@ u8 *TNpcPlayer::construct_party_area(void *parent) {
 }
 
 s32 get_party_yaw(void) {
-    return *(s32 *)((s8 *)(&lbl_80478C88.value) + (TLobby::get_instance() * 4));
+    return *(s32 *)((s8 *)&lbl_80478C88.value + (TLobby::get_instance() * 4));
 }
 
 u8 *get_party_position(void) {
@@ -136,7 +136,7 @@ u8 *get_party_position(void) {
 typedef char RecoveredGlobal_8034DE70_lbl_80478C50_size[sizeof(RecoveredGlobal_8034DE70_lbl_80478C50) == 0x18 ? 1 : -1];
 
 s32 TNpcPlayer__sub_8034DE40(void) {
-    return *(s32 *)((s8 *)(&lbl_80478C68.value) + (TLobby::get_instance() * 4));
+    return *(s32 *)((s8 *)&lbl_80478C68.value + (TLobby::get_instance() * 4));
 }
 
 u8 *TNpcPlayer::get_lobby_entry_ptr() {

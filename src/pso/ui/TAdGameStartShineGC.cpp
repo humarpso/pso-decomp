@@ -65,7 +65,7 @@ void TAdGameStartShineGC::run_task() {
     s32 temp_r4;
     s32 var_r0;
     temp_r4 = *(s32 *)((s8 *)arg0 + 0x78);
-    *(s32 *)((s8 *)arg0 + 0x78) = (s32) (temp_r4 + 1);
+    *(s32 *)((s8 *)arg0 + 0x78) = (temp_r4 + 1);
     if (temp_r4 >= 0xA) {
         *(s32 *)((s8 *)arg0 + 0x7C) = 1;
         *(s32 *)((s8 *)arg0 + 0x74) = (s32) (*(s32 *)((s8 *)arg0 + 0x74) - 0xE);

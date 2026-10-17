@@ -11,7 +11,7 @@ s32 TWindowSubTechnique::update_selection(s16 *arg0, s32 *arg1) {
     s32 spC;
     s16 sp8;
 
-    get_selection__19TWindowSubTechniqueFPsPll((void*)(&sp8), (void*)(&spC));
+    get_selection__19TWindowSubTechniqueFPsPll(&sp8, &spC);
     if ((sp8 == (s16) *arg0) && (spC == (s32) *arg1)) {
         return 0;
     }

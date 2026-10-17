@@ -68,7 +68,7 @@ void TOSwitchTimer::send_switch_states() {
             clear_floor_switch_flag((this->m_a8), (this->m_b4));
         }
     } else {
-        var_r30 = (u16 *)((u8 *)(arg0 + 0xAA));
+        var_r30 = (u16 *)(arg0 + 0xAA);
         var_r29 = 0;
         do {
             if ((u16) *var_r30 < 0x100U) {

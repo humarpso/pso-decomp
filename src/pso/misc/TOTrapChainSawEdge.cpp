@@ -337,7 +337,7 @@ void TOTrapChainSawEdge::update_sweep() {
     case 0:
         temp_r4 = *(s32 *)((s8 *)this + 0x100);
         if (temp_r4 > 0) {
-            *(s32 *)((s8 *)this + 0x100) = (s32) (temp_r4 - 1);
+            *(s32 *)((s8 *)this + 0x100) = (temp_r4 - 1);
             *(s32 *)((s8 *)this + 0xF8) = (s32) *(s32 *)((s8 *)this + 0xCC);
             *(s32 *)((s8 *)this + 0x104) = 1;
         }
@@ -359,7 +359,7 @@ void TOTrapChainSawEdge::update_extension() {
     case 0:
         temp_r4 = *(s32 *)((s8 *)this + 0x100);
         if (temp_r4 > 0) {
-            *(s32 *)((s8 *)this + 0x100) = (s32) (temp_r4 - 1);
+            *(s32 *)((s8 *)this + 0x100) = (temp_r4 - 1);
             *(s32 *)((s8 *)this + 0xF8) = (s32) *(s32 *)((s8 *)this + 0xCC);
             *(s32 *)((s8 *)this + 0x104) = 1;
         }
@@ -455,9 +455,9 @@ void TOTrapChainSawKey__vt22(u8 *arg0) {
     if (*(f32 *)((s8 *)arg0 + 0x104) > (f32) (u32) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x100)) + 4) - 1)) {
         *(f32 *)((s8 *)arg0 + 0x104) = (f32) (0.0f);
     }
-    play_persistent_sound((void *) (((s32 (*)(void *, int))get_area_table_value__17TOTrapChainSawKeyFii)(arg0, 2)), arg0, (void *) (arg0 + 0x38), 0, 0);
+    play_persistent_sound((void *) (((s32 (*)(void *, int))get_area_table_value__17TOTrapChainSawKeyFii)(arg0, 2)), arg0, arg0 + 0x38, 0, 0);
     if ((s32) *(s32 *)((s8 *)arg0 + 0xF0) == 1) {
-        play_persistent_sound((void *) (((s32 (*)(void *, int))get_area_table_value__17TOTrapChainSawKeyFii)(arg0, 1)), arg0, (void *) (arg0 + 0x38), 0, 0);
+        play_persistent_sound((void *) (((s32 (*)(void *, int))get_area_table_value__17TOTrapChainSawKeyFii)(arg0, 1)), arg0, arg0 + 0x38, 0, 0);
     }
 }
 

@@ -196,7 +196,7 @@ void TItemWeapon::deliver_hit(s32 arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0)
                 stack.spC = (u8 *)(*(u8 * *)&this->player);
                 stack.sp14 = arg2;
                 stack.sp18 = arg4;
-                play_weapon_hit_sound((void *) (&stack.sp8));
+                play_weapon_hit_sound(&stack.sp8);
             }
         }
     }
@@ -224,7 +224,7 @@ void TItemWeapon::vfunc_30() {
         ((TObjPlayer *)self)->set_status_flags(0x1000000);
         if(!test_flags_1b8__11TItemWeaponFUl(self,2)) {
             if(test_flags_1b8__11TItemWeaponFUl(self,0x8000)) {
-                ((TObjPlayer *)self)->draw_status_icon((s32)(&gun_point));
+                ((TObjPlayer *)self)->draw_status_icon((s32)&gun_point);
                 fire_shot_at_target__11TItemWeaponFv(self,&gun_point,self->projectile,0);
                 return;
             }
@@ -232,7 +232,7 @@ void TItemWeapon::vfunc_30() {
                 ((TObjPlayer *)self)->update_active_game_effect();
                 return;
             }
-            ((TObjPlayer *)self)->draw_status_icon((s32)(&fallback_point));
+            ((TObjPlayer *)self)->draw_status_icon((s32)&fallback_point);
             self->deliver_projectile(&fallback_point,0,0,1);
         }
     }

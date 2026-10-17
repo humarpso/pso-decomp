@@ -114,7 +114,7 @@ void TObjDFDemo1::sub_8004E068() {
   }
   if (t < 0x88)
   {
-    alpha = ((f32) (t - 0x7C)) / lbl_805D898C;
+    alpha = (t - 0x7C) / lbl_805D898C;
   }
   col = collect_and_count__12TBoss3VoloptFUll(self->recs[1].a, 0x6A)->in->col;
   t = self->f110;
@@ -126,7 +126,7 @@ void TObjDFDemo1::sub_8004E068() {
   else
     if (t > 0xE6)
   {
-    f = ((f32) (t - 0xE6)) / lbl_805D8994;
+    f = (t - 0xE6) / lbl_805D8994;
   }
   col[3] = ((((s32) (lbl_805D8998 * f)) << 1) << 7) | (col[3] & 0xFF);
   t = self->f110;
@@ -138,7 +138,7 @@ void TObjDFDemo1::sub_8004E068() {
   else
     if (t > 0xF0)
   {
-    f = ((f32) (t - 0xF0)) / lbl_805D899C;
+    f = (t - 0xF0) / lbl_805D899C;
   }
   hi = ((s32) (lbl_805D8998 * f)) << 8;
   for (i = 0; i < 3; i++)

@@ -108,7 +108,7 @@ s32 sample_aircar_path_position(s32 arg0, void *arg1, f32 farg0) {
     Info_80181698 *m = ((Info_80181698 * (*)(s32))get_city_common_motion)(city_traffic_path_motion_index_table[arg0]);
     u32 n = m->n;
     r = 1;
-    lim = (f32)(n - 1);
+    lim = (n - 1);
     if (farg0 > lim) {
         farg0 = lim;
         r = 0;
@@ -169,15 +169,15 @@ void measure_traffic_path_lengths(void) {
   {
     m = (Motion_801817AC *) get_city_common_motion(city_traffic_path_motion_index_table[i]);
     f32 frame;
-    f32 end = (f32) (m->count - 1);
+    f32 end = (m->count - 1);
     frame = lbl_805DBBC8;
     f32 total = frame;
     ((void (*)(Motion_801817AC *, f32))bind_motion_context)(m, frame);
-    sample_motion_node_transform((void *)(get_city_common_model(city_aircar_model_indices[i])), (void *)(&prev), (void *)(&a), (void *)(&b), (void *)(&q));
+    sample_motion_node_transform((void *)(get_city_common_model(city_aircar_model_indices[i])), &prev, &a, &b, &q);
     for (frame += lbl_805DBBC4; frame < end; frame += lbl_805DBBC4)
     {
       ((void (*)(Motion_801817AC *, f32))bind_motion_context)(m, frame);
-      sample_motion_node_transform((void *)(get_city_common_model(city_aircar_model_indices[i])), (void *)(&cur), (void *)(&a2), (void *)(&b2), (void *)(&q2));
+      sample_motion_node_transform((void *)(get_city_common_model(city_aircar_model_indices[i])), &cur, &a2, &b2, &q2);
       subtract_vector(&prev, &cur);
       total += ((TObjBoss2Tunnel *)(&prev))->update_scale();
       VecCopy((Vec *)&prev, (const Vec *)&cur);

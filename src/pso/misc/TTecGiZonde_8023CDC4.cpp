@@ -18,7 +18,7 @@ void __dt__7TObjectFv(void *, int);
 s32 queue_destruction__7TObjectFv();
 
 void TUnk_804CCD78::run_task() {
-    this->m_38 = (s32) (this->m_38 + 1);
+    this->m_38 = (this->m_38 + 1);
     if ((s32) this->m_38 >= 0x46) {
         queue_destruction__7TObjectFv();
     }

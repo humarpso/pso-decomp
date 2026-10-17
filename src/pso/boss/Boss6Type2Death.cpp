@@ -140,7 +140,7 @@ void TBoss6Demo21_TYPE2_DEAD::draw_fading_model_8(void *p) {
         if (t >= 0x12C && t <= 0x1AC) {
             f = 1.0f;
         } else if (t > 0x11D && t < 0x12C) {
-            f = (f32) (t - 0x11D) / 15.0f;
+            f = (f32)(t - 0x11D) / 15.0f;
         }
     }
     if (0.0f != f) {
@@ -173,7 +173,7 @@ void TBoss6Demo21_TYPE2_DEAD::draw_fading_model_5(void *p) {
         if (t >= 0x10F && t <= 0x11D) {
             f = 1.0f;
         } else if (t > 0x101 && t < 0x10F) {
-            f = (f32) (t - 0x101) / 14.0f;
+            f = (f32)(t - 0x101) / 14.0f;
         } else if (t > 0x11D && t < 0x12C) {
             f = (f32) (0x12C - t) / 15.0f;
         }
@@ -315,7 +315,7 @@ void run_task__23TBoss6Demo21_TYPE2_DEADFv(Fish_8033E0F0 *arg0) {
         mid.x *= (0.5f);
         mid.y *= (0.5f);
         mid.z *= (0.5f);
-        ((TBoss6Type1 *)(arg0->fb0))->set_effect_points((f32 *)(&a), (u32 *)lbl_8047817C);
+        ((TBoss6Type1 *)(arg0->fb0))->set_effect_points((f32 *)&a, (u32 *)lbl_8047817C);
     }
     if (arg0->timer == 0x23A) {
         s32 n = TLobby::get_game_mode();

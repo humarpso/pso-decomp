@@ -245,7 +245,7 @@ void TODoorVS2Door01::load_resources() {
     temp_r3_2 = (s32 *)(mem_alloc(8));
     TODoorVS2Door01__texture_lists = temp_r3_2;
     *(s32 *)((s8 *)temp_r3_2 + 4) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&door_vs2_shared_bml_archive) + 0x42C)) + 0xC);
-    *TODoorVS2Door01__texture_lists = (s32)load_gvm_texture_file((s32)(&lbl_804410E0.value));
+    *TODoorVS2Door01__texture_lists = (s32)load_gvm_texture_file((s32)&lbl_804410E0.value);
 }
 
 void *__dt__15TODoorVS2Door01Fv(void *arg0, s16 arg1) {
@@ -272,7 +272,7 @@ u8 *TODoorVS2Door01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) 30.0f;
     ((TODoorVS2Door01 *)arg0)->m_b8 = (f32) ((19.0f) / *(f32 *)((s8 *)arg0 + 0xB4));
     *(f32 *)((s8 *)arg0 + 0xD4) = (f32) (0.0f);
-    init_collision_body_parts(arg0, (void *) (&todoor_vs2_door01_collision_parts.value), 1);
+    init_collision_body_parts(arg0, &todoor_vs2_door01_collision_parts.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TODoorVS2Door01 *)(arg0))->init_door_switch_binding();

@@ -21,7 +21,7 @@ void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2) {
     u32 temp_r3_2;
     temp_r3 = (s16 *)(*(s16 **)((s8 *)arg0 + 0));
     if (temp_r3 != NULL) {
-        mem_free((void *)(temp_r3));
+        mem_free(temp_r3);
     }
     if (arg2 == 0) {
         *(u32 *)((s8 *)arg0 + 0x14) = arg1;

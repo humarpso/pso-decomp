@@ -81,7 +81,7 @@ void TAdMultiPlyChrSelectGC__sub_802DC5CC(void *arg0) {
         ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x94)))->close();
         *(u32 *)((s8 *)arg0 + 0x94) = 0U;
     }
-    if (TWindowShortListCtrl__check_controller_button((void *)(controller_physical_port_bank + 0x20), 2) != 0) {
+    if (TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0) {
         play_sound_effect(0x52F16, 0, 0, 0);
         *(s32 *)((s8 *)arg0 + 0x28) = 0x1B;
         *(s32 *)((s8 *)arg0 + 0x20) = 0x1A;

@@ -179,10 +179,10 @@ u8 *TObjMapCsn__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjMapCsn *)arg0)->update_state();
     ((TObjMapCsn *)arg0)->build_box_triangles();
     *(s32 *)&((TObjMapCsn *)arg0)->m_c4 = 8;
-    *(u8 **)((s8 *)arg0 + 0xC8) = (unsigned char *) ((void *) (arg0 + 0x1F4));
+    *(u8 **)((s8 *)arg0 + 0xC8) = (unsigned char *) (arg0 + 0x1F4);
     *(s32 *)&((TObjMapCsn *)arg0)->m_cc = 8;
-    *(u8 **)((s8 *)arg0 + 0xD0) = (unsigned char *) ((void *) (arg0 + 0xD4));
-    *(u8 **)((s8 *)arg0 + 0xAC) = (unsigned char *) ((void *) (arg0 + 0xC4));
+    *(u8 **)((s8 *)arg0 + 0xD0) = (unsigned char *) (arg0 + 0xD4);
+    *(u8 **)((s8 *)arg0 + 0xAC) = (unsigned char *) (arg0 + 0xC4);
     VecCopy((Vec *)(arg0 + 0xB0), (const Vec *)(arg0 + 0x38));
     temp_f1 = (0.5f) * ((TObjMapCsn *)arg0)->scale;
     temp_f0 = (0.5f) * *(f32 *)((s8 *)arg0 + 0x70);

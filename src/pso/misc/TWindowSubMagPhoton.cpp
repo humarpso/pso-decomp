@@ -95,24 +95,24 @@ void TWindowSubMagPhoton::update_selection_input() {
     if ((apply_choice__20TWindowChoiceSettingFllll(temp_r30, 0xF0, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&(*(RecoveredGlobal_8027C2D0_lbl_8050E208 *)&controller_input_state).value + 0x160), 0xF0, 6, 1) != 0)) {
         play_sound_effect(0x54100, (s32)(0U), 0, 0);
         if ((apply_choice__20TWindowChoiceSettingFllll(temp_r30, 0x10, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&(*(RecoveredGlobal_8027C2D0_lbl_8050E208 *)&controller_input_state).value + 0x160), 0x10, 6, 1) != 0)) {
-            this->m_61 = (u8) (this->m_61 + 1);
+            this->m_61 = (this->m_61 + 1);
         }
         if ((apply_choice__20TWindowChoiceSettingFllll(temp_r30, 0x20, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&(*(RecoveredGlobal_8027C2D0_lbl_8050E208 *)&controller_input_state).value + 0x160), 0x20, 6, 1) != 0)) {
-            this->m_61 = (u8) (this->m_61 - 1);
+            this->m_61 = (this->m_61 - 1);
         }
         if ((apply_choice__20TWindowChoiceSettingFllll(temp_r30, 0x80, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&(*(RecoveredGlobal_8027C2D0_lbl_8050E208 *)&controller_input_state).value + 0x160), 0x80, 6, 1) != 0)) {
-            this->m_61 = (u8) (this->m_61 + 1);
+            this->m_61 = (this->m_61 + 1);
         }
         if ((apply_choice__20TWindowChoiceSettingFllll(temp_r30, 0x40, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&(*(RecoveredGlobal_8027C2D0_lbl_8050E208 *)&controller_input_state).value + 0x160), 0x40, 6, 1) != 0)) {
-            this->m_61 = (u8) (this->m_61 - 1);
+            this->m_61 = (this->m_61 - 1);
         }
         temp_r3 = this->m_61;
         if ((s8) temp_r3 < 0) {
-            this->m_61 = (u8) (temp_r3 + 3);
+            this->m_61 = (temp_r3 + 3);
         }
         temp_r3_2 = this->m_61;
         if ((s8) temp_r3_2 >= 3) {
-            this->m_61 = (u8) (temp_r3_2 - 3);
+            this->m_61 = (temp_r3_2 - 3);
         }
     }
 }
@@ -127,8 +127,8 @@ void render__19TWindowSubMagPhotonFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFl();
     draw_window_frame((void *)arg0, (int)temp_r3);
-    draw_visible_window_entries((void *)arg0, (void *) (arg0 + 0x24), (int)temp_r3);
-    ((TWindowSubMagPhoton *)arg0)->draw_cursor((int)(temp_r3));
+    draw_visible_window_entries((void *)arg0, (void *)(arg0 + 0x24), (int)temp_r3);
+    ((TWindowSubMagPhoton *)arg0)->draw_cursor(temp_r3);
 }
 
 typedef char RecoveredGlobal_8027C56C_lbl_8050E208_size[sizeof(RecoveredGlobal_8027C56C_lbl_8050E208) == 0x1B0 ? 1 : -1];
@@ -148,8 +148,8 @@ void TWindowSubMagPhoton::run_task() {
         }
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
-    ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (arg0 + 0x24));
-    this->m_62 = (s16) (this->m_62 + 1);
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list(arg0 + 0x24);
+    this->m_62 = (this->m_62 + 1);
 }
 
 void *__dt__19TWindowSubMagPhotonFv(void *arg0, s16 arg1) {
@@ -167,7 +167,7 @@ typedef char RecoveredGlobal_8027C6B4_lbl_804D17E8_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8027C6B4___vt__19TWindowSubMagPhoton_size[sizeof(RecoveredGlobal_8027C6B4___vt__19TWindowSubMagPhoton) == 0x1C ? 1 : -1];
 u8 *TWindowSubMagPhoton__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3) {
     s16 temp_r4;
-    construct_base__9TWindowDDFPUcsPUc((void *)arg0, (void *) (&TWindowSubMagPhoton__layout_descriptor.value), (void *)arg3, (void *)arg1);
+    construct_base__9TWindowDDFPUcsPUc((void *)arg0, &TWindowSubMagPhoton__layout_descriptor.value, (void *)arg3, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8027C6B4___vt__19TWindowSubMagPhoton *)&__vt__19TWindowSubMagPhoton).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubMagPhoton__class_name;
     ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x30))->copy_vec2((void *)arg1);
@@ -177,7 +177,7 @@ u8 *TWindowSubMagPhoton__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3) {
     *(s8 *)&((TWindowSubMagPhoton *)arg0)->m_60 = 0;
     *(s8 *)&((TWindowSubMagPhoton *)arg0)->m_61 = 1;
     temp_r4 = ((TWindowSubMagPhoton *)arg0)->m_62;
-    ((TWindowSubMagPhoton *)arg0)->m_62 = (s16) (temp_r4 + 1);
+    ((TWindowSubMagPhoton *)arg0)->m_62 = (temp_r4 + 1);
     init_photon_blast_entries__19TWindowSubMagPhotonFv(arg0, temp_r4);
     return arg0;
 }

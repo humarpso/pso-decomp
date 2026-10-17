@@ -14,7 +14,7 @@ typedef char RecoveredGlobal_80074BD0_lbl_8048D208_size[sizeof(RecoveredGlobal_8
 void fn_80074BD0(s32 arg0) {
     fn_80074C70();
     strncpy((s32) &lbl_8048D208.value, arg0, 0x10);
-    *(s8 *)((s8 *)(&lbl_8048D208.value) + 0x10) = 0;
+    *(s8 *)((s8 *)&lbl_8048D208.value + 0x10) = 0;
 }
 
 }

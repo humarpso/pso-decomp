@@ -94,7 +94,7 @@ void TUnk_8048E1A4::freeze_shell_grow() {
     typedef char sp10_offset[(offsetof(Stack_80081CD0, sp10) == 0x8) ? 1 : -1];
     Stack_80081CD0 stack;
     f32 temp_f0;
-    this->rotation_y = (s32) (this->rotation_y + 0x1000);
+    this->rotation_y = (this->rotation_y + 0x1000);
     *(f32 *)&this->m_70 = (f32) (*(f32 *)&this->m_70 + lbl_805D9388);
     temp_f0 = *(f32 *)&this->m_70;
     this->target_scale = temp_f0;
@@ -107,11 +107,11 @@ void TUnk_8048E1A4::freeze_shell_grow() {
         stack.sp8 = lbl_805D9378;
         stack.spC = lbl_805D9378;
         stack.sp10 = lbl_805D938C * this->scale;
-        push_matrix_from((void *) (&identity_matrix.value));
+        push_matrix_from(&identity_matrix.value);
         rotate_matrix_y(0, (int) (this->rotation_y * 2));
-        rotate_vector_by_matrix(0, (void *) (&stack.sp8), (void *) (&stack.sp8));
+        rotate_vector_by_matrix(0, &stack.sp8, &stack.sp8);
         pop_matrix();
-        vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+        vec3_add_to(&stack.sp8, arg0 + 0x38);
         create_timed_particle_emitter((&stack.sp8), 0x12D, 0, 0xA);
     }
 }

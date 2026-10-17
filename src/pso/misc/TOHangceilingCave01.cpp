@@ -748,14 +748,14 @@ void TUnk_804B2578::run_task() {
 bool TOHangceilingCave01__sub_801688C0(u8 *arg0) {
     f32 sp8[3];
 
-    if (xz_distance_squared((void *) (arg0 + 0x38), (void *) (camera_ctrl_instance + 0x178)) < lbl_805DB698) {
+    if (xz_distance_squared((void *)(arg0 + 0x38), (void *)(camera_ctrl_instance + 0x178)) < lbl_805DB698) {
         ((TUnk_804B2578 *)arg0)->m_1e = 1;
         return 1;
     }
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DB69C, lbl_805DB664) == 0) {
         return 0;
     }
-    transform_point_by_current_matrix((void *) (arg0 + 0x38), (void *) sp8);
+    transform_point_by_current_matrix(arg0 + 0x38, (void *) sp8);
     return (sp8[2] > lbl_805DB6A0) == 0;
 }
 

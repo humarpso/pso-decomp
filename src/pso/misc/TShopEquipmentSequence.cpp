@@ -230,7 +230,7 @@ s32 TShopEquipmentSequence::open_greeting() {
   Stack_8021D948 stack;
   stack.sp8 = lbl_805DC6E0;
   stack.spC = lbl_805DC6E4;
-  ((TShopSequence *)arg0)->create_message_window(get_window_layout_position(0x2C, (f32) lbl_805DC6E0), (s32) (&stack.sp8));
+  ((TShopSequence *)arg0)->create_message_window(get_window_layout_position(0x2C, (f32) lbl_805DC6E0), (s32)&stack.sp8);
   (((VObj_18_a93f07 *)(arg0))->m4(0x27, 1));
   this->m_30 = create_meseta_window((s32) get_child_field1c__13TShopSequenceFv(arg0));
   set_field_20__15TShopWindowBaseFl(arg0, 2);
@@ -246,7 +246,7 @@ void TShopEquipmentSequence::vfunc_11() {
     switch (temp_r0) {
     case 0:
         restore_player_state__13TShopSequenceFv(arg0);
-        set_field_20__15TShopWindowBaseFl((void *)(arg0), 1);
+        set_field_20__15TShopWindowBaseFl(arg0, 1);
         return;
     case 1:
         ((TShopEquipmentSequence *)arg0)->open_greeting();
@@ -261,10 +261,10 @@ void TShopEquipmentSequence::vfunc_11() {
         ((TShopEquipmentSequence *)arg0)->open_sell_window();
         return;
     case 5:
-        ((s32)set_field_20__15TShopWindowBaseFl((void *)(arg0), 9));
+        ((s32)set_field_20__15TShopWindowBaseFl(arg0, 9));
         return;
     case 6:
-        ((s32)set_field_20__15TShopWindowBaseFl((void *)(arg0), 9));
+        ((s32)set_field_20__15TShopWindowBaseFl(arg0, 9));
         return;
     case 7:
         TShopEquipmentSequence__sub_8021D65C();
@@ -295,7 +295,7 @@ u8 *__dt__22TShopEquipmentSequenceFv(u8 *arg0, s16 arg1) {
             TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x30)));
             *(u32 *)&((TShopEquipmentSequence *)arg0)->m_30 = 0U;
         }
-        *(s32 *)((s8 *)(&TShopEquipmentSequence__slot_active_flags.value) + (sub_8022397C__15TShopWindowBaseFv(arg0) * 4)) = 0;
+        *(s32 *)((s8 *)&TShopEquipmentSequence__slot_active_flags.value + (sub_8022397C__15TShopWindowBaseFv(arg0) * 4)) = 0;
         __dt__13TShopSequenceFv((arg0), 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

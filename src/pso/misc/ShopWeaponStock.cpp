@@ -389,7 +389,7 @@ void roll_shop_weapon_second_bonus(Obj_80224C68 *obj) {
         obj->b9 = 0;
         break;
     default:
-        x = (s32)((f32)(hi + 1) * ((1.0f / 32768.0f) * (f32)rand()));
+        x = (s32)((hi + 1) * ((1.0f / 32768.0f) * (f32)rand()));
         if (x < lo) {
             x = lo;
         }
@@ -443,7 +443,7 @@ void roll_shop_weapon_first_bonus(Obj_80224DF0 *obj) {
         obj->b7 = 0;
         break;
     default:
-        x = (s32)((f32)(hi + 1) * ((1.0f / 32768.0f) * (f32)rand()));
+        x = (s32)((hi + 1) * ((1.0f / 32768.0f) * (f32)rand()));
         if (x < lo) {
             x = lo;
         }
@@ -503,12 +503,12 @@ void roll_shop_weapon_grind(Item_80225064 *it) {
     b = TLobby::classify_level_bracket_narrow(shop_weapon_stock_level);
     if (b != -1) {
         if (section_id_favored_grind_table[lbl_805D6238] != -1 && it->f1 == section_id_favored_grind_table[lbl_805D6238]) {
-            v = (f32)(hi[b].max + 1) * ((1.0f / 32768.0f) * (f32)rand());
+            v = (hi[b].max + 1) * ((1.0f / 32768.0f) * (f32)rand());
             if (v < hi[b].min) {
                 v = hi[b].min;
             }
         } else {
-            v = (f32)(lo[b].max + 1) * ((1.0f / 32768.0f) * (f32)rand());
+            v = (lo[b].max + 1) * ((1.0f / 32768.0f) * (f32)rand());
             if (v < lo[b].min) {
                 v = lo[b].min;
             }
@@ -633,7 +633,7 @@ void get_shop_weapon_stock_item(C14_80225550 *dst, s32 idx, s32 tbl) {
 #pragma pop
 
 void clear_shop_weapon_flags(void) {
-    memset((void *) (&shop_weapon_stock_generated_flags.value), 0, 0x10);
+    memset(&shop_weapon_stock_generated_flags.value, 0, 0x10);
 }
 
 #pragma push

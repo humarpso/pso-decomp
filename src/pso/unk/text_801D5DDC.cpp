@@ -66,9 +66,9 @@ void handle_6x3B_clear_temporary_photon_blast_state_flags(s32 arg0) {
     struct { s16 a; u16 b; } sp8;
     s32 temp_r3;
     ((TFontSmallLobby *)(&sp8))->init_pkt_cmd_3B();
-    TFontSmallLobby__sub_801D6804((void *) (&sp8), (void *)arg0);
+    TFontSmallLobby__sub_801D6804(&sp8, (void *)arg0);
     TFontSmallLobby__sub_801C01BC((&sp8));
-    if (validate_6x3B_clear_temporary_photon_blast_state_flags((void *) (&sp8)) != 0) {
+    if (validate_6x3B_clear_temporary_photon_blast_state_flags(&sp8) != 0) {
         temp_r3 = get_player_by_client_id(sp8.b);
         if (temp_r3 != 0) {
             ((TObjPlayer *)(temp_r3 + 0x4AC))->clear_photon_blast_state();
@@ -92,9 +92,9 @@ void handle_6x3A_clear_photon_blast_ready_flag(s32 arg0) {
     struct { s16 a; u16 b; } sp8;
     u8 *player;
     ((TFontSmallLobby *)(&sp8))->init_6x3A_packet();
-    clear_photon_blast_ready_flag__15TFontSmallLobbyFv((void *) (&sp8), (void *)arg0);
+    clear_photon_blast_ready_flag__15TFontSmallLobbyFv(&sp8, (void *)arg0);
     TFontSmallLobby__sub_801C01BC((&sp8));
-    if (validate_6x3A_clear_photon_blast_ready_flag((void *) (&sp8)) != 0) {
+    if (validate_6x3A_clear_photon_blast_ready_flag(&sp8) != 0) {
         player = (u8 *)get_player_by_client_id(sp8.b);
         if (player != 0) {
             ((TFontSmallLobby *)(player + 0x4AC))->set_bit1_at_40();
@@ -117,16 +117,16 @@ void handle_6x39_set_photon_blast_ready_flag(s32 arg0) {
     s32 player;
     s32 v;
     ((TFontSmallLobby *)(&sp8))->init_6x39_packet();
-    handle_photon_blast_ready__15TFontSmallLobbyFv((void *) (&sp8), (void *)arg0);
+    handle_photon_blast_ready__15TFontSmallLobbyFv(&sp8, (void *)arg0);
     TFontSmallLobby__sub_801C01BC((&sp8));
-    if (validate_6x39_set_photon_blast_ready_flag((void *) (&sp8)) != 0) {
+    if (validate_6x39_set_photon_blast_ready_flag(&sp8) != 0) {
         player = get_player_by_client_id(sp8.b);
         if ((player != 0) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
             temp_r31 = ((TObjPlayer *)player)->get_field_3e4();
             v = get_current_floor();
             if (v == temp_r31) {
                 ((TFontSmallLobby *)(player + 0x4AC))->update_ready();
-                send_photon_blast_ready__15TFontSmallLobbyFv((void *) (player + 0x4AC));
+                send_photon_blast_ready__15TFontSmallLobbyFv((void *)(player + 0x4AC));
             }
         }
     }
@@ -166,10 +166,10 @@ void TFontSmallLobby::reset_targets() {
 void handle_6x38_donate_to_photon_blast(s32 arg0) {
     Cmd_801D61A0 cmd;
     s32 player;
-    TFontSmallLobby__sub_801D698C((void *) (&cmd));
+    TFontSmallLobby__sub_801D698C(&cmd);
     ((TFontSmallLobby *)(&cmd))->copy_packet_header_6x38((void *)arg0);
     ((TFontSmallLobby *)(&cmd))->bswap_fields();
-    if (validate_6x38_donate_to_photon_blast((void *) (&cmd)) != 0) {
+    if (validate_6x38_donate_to_photon_blast(&cmd) != 0) {
         player = get_player_by_client_id(cmd.client);
         if ((player != 0) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
             if (get_current_floor() == ((TObjPlayer *)player)->get_field_3e4()) {

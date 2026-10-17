@@ -317,8 +317,8 @@ Self_801F4DFC *TObjItemNameSelect__ct(Self_801F4DFC *self, void *parent) {
 }
 
 void fn_801F4F20(s32 arg0) {
-    strncpy((void *) (&lbl_80512B18.value), (void *)arg0, 8);
-    *(s8 *)((s8 *)(&lbl_80512B18.value) + 8) = 0;
+    strncpy((void *)&lbl_80512B18.value, (void *)arg0, 8);
+    *(s8 *)((s8 *)&lbl_80512B18.value + 8) = 0;
 }
 
 s32 TWindowSubComCard::process_keyboard_input() {
@@ -537,7 +537,7 @@ u8 *TQuestThreadBoard__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((s32 (*)(void *, int))__ct__7TObjectFP7TObject)(arg0, 0);
     *(void ***)((s8 *)arg0 + 0x18) = __vt__17TQuestThreadBoard;
     *(s32 *)((s8 *)arg0 + 0) = TQuestThreadBoard__class_name;
-    ((s32 (*)(void *, void *))copy_quest_script_context)((void *) (arg0 + 0x1C), (void *) (arg1 + 0x24));
+    ((s32 (*)(void *, void *))copy_quest_script_context)((void *)(arg0 + 0x1C), (void *)(arg1 + 0x24));
     *(s32 *)((s8 *)arg0 + 0x3C) = *(s32 *)((s8 *)(*(s32 *)((s8 *)arg0 + 0x20) + (arg2 * 4)) + 0);
     *(s32 *)((s8 *)arg0 + 0x190) = 0;
     (*(u8 * *)&quest_thread_board) = arg0;
@@ -727,11 +727,11 @@ u8 *create_floor_quest_thread(void) {
     u8 *temp_r3;
     u8 *var_r0;
     temp_r30 = get_current_floor() * 4;
-    if (((s32) *(s32 *)((s8 *)(&TQuestThread__floor_handler_ids.value) + temp_r30) != -1) && ((u32) quest_mission_manager != 0U)) {
+    if (((s32) *(s32 *)((s8 *)&TQuestThread__floor_handler_ids.value + temp_r30) != -1) && ((u32) quest_mission_manager != 0U)) {
         temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x194)));
         var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((u32)__ct__12TQuestThreadFv((u8 *)(temp_r3), (s32)((u32)((s32) quest_mission_manager)), (s32)((s32)(*(s32 *)((s8 *)(&TQuestThread__floor_handler_ids.value) + temp_r30)))))));
+            var_r0 = (u8 *)(((u8 *)((u32)__ct__12TQuestThreadFv((u8 *)temp_r3, (s32)((u32)((s32) quest_mission_manager)), (s32)((s32)(*(s32 *)((s8 *)&TQuestThread__floor_handler_ids.value + temp_r30)))))));
         }
         return var_r0;
     }
@@ -762,7 +762,7 @@ u8 *create_quest_thread(s32 arg0) {
         temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x194)));
         var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((u32)__ct__12TQuestThreadFv((u8 *)(temp_r3), (s32)((u32)((s32) quest_mission_manager)), (s32)(arg0)))));
+            var_r0 = (u8 *)(((u8 *)((u32)__ct__12TQuestThreadFv(temp_r3, (s32)((u32)((s32) quest_mission_manager)), arg0))));
         }
         return var_r0;
     }
@@ -773,7 +773,7 @@ u8 *__ct__12TQuestThreadFv(u8 *arg0, s32 arg1, s32 arg2) {
     ((s32 (*)(void *, void *))__ct__7TObjectFP7TObject)((void *)arg0, (void *)arg1);
     *(void ***)((s8 *)arg0 + 0x18) = __vt__12TQuestThread;
     *(s32 *)((s8 *)arg0 + 0) = TQuestThread__class_name;
-    ((s32 (*)(void *, void *))copy_quest_script_context)((void *) (arg0 + 0x1C), (void *) (arg1 + 0x24));
+    ((s32 (*)(void *, void *))copy_quest_script_context)((void *)(arg0 + 0x1C), (void *)(arg1 + 0x24));
     *(s32 *)((s8 *)arg0 + 0x3C) = *(s32 *)((s8 *)(*(s32 *)((s8 *)arg0 + 0x20) + (arg2 * 4)) + 0);
     *(s32 *)((s8 *)arg0 + 0x190) = 0;
     if (*(s32 *)((s8 *)arg0 + 0x3C) == -1) {
@@ -833,7 +833,7 @@ char *get_quest_name__12TQuestThreadFv(void) {
 }
 
 void clear_thread_state__12TQuestThreadFv(void) {
-    memset((void*)((void *) (&quest_board_handlers.value)), (void*)(0), (void*)(0xD8));
+    memset((void*)(&quest_board_handlers.value), (void*)(0), (void*)(0xD8));
 }
 
 s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1) {

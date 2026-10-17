@@ -108,10 +108,10 @@ void TWindowCtrl::call_window_method_with_default_vec() {
     typedef char spC_offset[(offsetof(Stack_8024A1CC, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024A1CC, sp10) == 0x8) ? 1 : -1];
     Stack_8024A1CC stack;
-    stack.sp8 = *(s32 *)((s8 *)(&window_ctrl_default_call_args.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&window_ctrl_default_call_args.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&window_ctrl_default_call_args.value) + 8);
-    call_window_method__11TWindowCtrlFPvi((void *)arg0, (void *) (&stack.sp8));
+    stack.sp8 = *(s32 *)((s8 *)&window_ctrl_default_call_args.value + 0);
+    stack.spC = *(s32 *)((s8 *)&window_ctrl_default_call_args.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&window_ctrl_default_call_args.value + 8);
+    call_window_method__11TWindowCtrlFPvi((void *)arg0, (void *)&stack.sp8);
 }
 
 void TWindowCtrl::set_field22() {
@@ -126,10 +126,10 @@ void TWindowCtrl__sub_8024A228(s32 arg0) {
     typedef char spC_offset[(offsetof(Stack_8024A228, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024A228, sp10) == 0x8) ? 1 : -1];
     Stack_8024A228 stack;
-    stack.sp8 = *(s32 *)((s8 *)(&window_ctrl_main_callback_desc.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&window_ctrl_main_callback_desc.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&window_ctrl_main_callback_desc.value) + 8);
-    TWindowCtrl__sub_8024B098((void *)arg0, (void *) (&stack.sp8));
+    stack.sp8 = *(s32 *)((s8 *)&window_ctrl_main_callback_desc.value + 0);
+    stack.spC = *(s32 *)((s8 *)&window_ctrl_main_callback_desc.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&window_ctrl_main_callback_desc.value + 8);
+    TWindowCtrl__sub_8024B098((void *)arg0, (void *)&stack.sp8);
 }
 
 bool TWindowCtrl::is_submit_cooldown_clear() {
@@ -204,7 +204,7 @@ void TWindowCtrl::set_timer_window_time() {
     if ((void *) (*(u8 * *)&TWindowCtrl__active_window) != NULL) {
         temp_r3 = *(u32 *)((s8 *)(*(u8 * *)&TWindowCtrl__active_window) + 0x30);
         if (temp_r3 != 0U) {
-            ((TWindowTimer *)temp_r3)->set_time((u32)(secs));
+            ((TWindowTimer *)temp_r3)->set_time(secs);
         }
     }
 }
@@ -337,7 +337,7 @@ void *acquire_balloon_slot__11TWindowCtrlFPviiPv(Ctrl_8024A928 *self, s32 player
     s32 n;
     u32 i;
     void *b;
-    get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv((Ctrl_8024A928 *)(self), player, (f32 *)(&f), (s32 *)(&n));
+    get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv((Ctrl_8024A928 *)(self), player, &f, &n);
     i = 4;
     if (!(flags & 0x10)) {
         for (i = 0; i < 4; i++) {

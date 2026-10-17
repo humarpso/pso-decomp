@@ -61,7 +61,7 @@ void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0) {
 
     instance_count = TBoss8Dragon::get_instance_count();
     if (instance_count != 0) {
-        ((TBoss5GryphonLightningWing *)arg0)->get_wing_position((s32)(&sp8));
+        ((TBoss5GryphonLightningWing *)arg0)->get_wing_position((s32)&sp8);
         TBoss8Dragon__sub_80063FB8(instance_count, &sp8, lbl_805DFED0);
     }
 }
@@ -81,10 +81,10 @@ void run_task__26TBoss5GryphonLightningWingFv(u8 *arg0) {
         *(f32 *)((s8 *)arg0 + 0x8C) = (f32) lbl_805DFED4;
     }
     ((TBoss5GryphonLightningWing *)arg0)->update_wing_segments();
-    apply_lightning_effect__26TBoss5GryphonLightningWingFi((s32)(arg0));
+    apply_lightning_effect__26TBoss5GryphonLightningWingFi((s32)arg0);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x94) == (s32) *(s32 *)((s8 *)arg0 + 0x98)) {
-        ((TBoss5GryphonLightningWing *)arg0)->get_wing_position((s32)((s32 *)((void *) (&stack.sp8))));
-        play_sound_effect(0x40032516, (void *) (&stack.sp8), 0, 0);
+        ((TBoss5GryphonLightningWing *)arg0)->get_wing_position((s32)((s32 *)(&stack.sp8)));
+        play_sound_effect(0x40032516, &stack.sp8, 0, 0);
     }
     ((TBoss5GryphonLightning *)arg0)->spawn_gryphon_lightning();
     if ((s32) *(s32 *)((s8 *)arg0 + 0x94) >= (s32) *(s32 *)((s8 *)arg0 + 0x9C)) {
@@ -133,7 +133,7 @@ s32 spawn_lightning_wing__12TBoss8DragonFiiiiii(s32 arg0, s32 arg1, s32 mid, s32
     allocation = __nw__7TObjectFUl(0xA0);
     effect = allocation;
     if (effect != 0) {
-        effect = __ct__26TBoss5GryphonLightningWingFv(allocation, (void *)((void*)arg0), (void *)((void*)arg1), (void *)((void*)mid), (void *)(&position), (void *)((void*)arg4), (void *)((void*)arg5));
+        effect = __ct__26TBoss5GryphonLightningWingFv(allocation, (void *)((void*)arg0), (void *)((void*)arg1), (void *)((void*)mid), &position, (void *)((void*)arg4), (void *)((void*)arg5));
     }
     return effect;
 }

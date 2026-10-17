@@ -87,19 +87,19 @@ void TWindowSubStatusDisp__sub_80338740(u8 *arg0, s32 arg1, s32 arg2, s8 arg3, s
 }
 
 void TWindowSubStatusDisp__sub_803387F8(void *arg0, s8 arg1) {
-    get_message_10__20TWindowSubStatusDispFl((s32)(arg1 + 0x113));
+    get_message_10__20TWindowSubStatusDispFl(arg1 + 0x113);
 }
 s32 TWindowSubStatusDisp::query_status_field(void *arg0, s8 arg1) {
     if (arg1 == 0) {
         return 0;
     }
-    return get_message_10__20TWindowSubStatusDispFl((s32)(arg1 + 0x110));
+    return get_message_10__20TWindowSubStatusDispFl(arg1 + 0x110);
 }
 s32 TWindowSubStatusDisp::get_flag_or_zero(void *arg0, s8 arg1) {
     if (arg1 == 0) {
         return 0;
     }
-    return get_message_10__20TWindowSubStatusDispFl((s32)(arg1 + 0x10D));
+    return get_message_10__20TWindowSubStatusDispFl(arg1 + 0x10D);
 }
 
 void draw_item_row__20TWindowSubStatusDispFPvPv(Item_80338890 *arg0, Win_80338890 *arg1) {

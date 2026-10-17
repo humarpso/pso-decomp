@@ -81,7 +81,7 @@ f32 TContainerAncient01::receive_direct_attack(void *arg1, void *arg2_arg, void 
     struct VObj_8018B820_8018B79C *o = (struct VObj_8018B820_8018B79C *)this;
 
     temp_r4 = *arg2;
-    if ((temp_r4 == 0) || ((u32) (temp_r4 - 1) <= 3U) || (temp_r4 == 0x13)) {
+    if ((temp_r4 == 0) || ((temp_r4 - 1) <= 3U) || (temp_r4 == 0x13)) {
         o->m20(0, TContainerAncient01__data_805DBD10);
     }
     return TContainerAncient01__data_805DBD14;
@@ -93,7 +93,7 @@ extern const f32 TContainerAncient01__data_805DBD3C;
 extern const f32 lbl_805DBD4C;
 
 s32 TContainerAncient01__vt18(s32 arg0, s32 arg1) {
-    return xyz_distance_squared((void *) (arg1 + 0x38), (void *) (arg0 + 0x38), (void *)arg0) < TContainerAncient01__data_805DBD44;
+    return xyz_distance_squared((void *)(arg1 + 0x38), (void *)(arg0 + 0x38), (void *)arg0) < TContainerAncient01__data_805DBD44;
 }
 
 void TContainerAncient01::render() {

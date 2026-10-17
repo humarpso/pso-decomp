@@ -306,7 +306,7 @@ void TNpcPlayer::enable_all_battle_ctrl() {
 }
 void quest_remove_npc_player(u16 arg0) {
     s32 player;
-    player = ((s32)((void *)get_player_by_client_id((s32)(arg0))));
+    player = ((s32)((void *)get_player_by_client_id(arg0)));
     if (player != 0) {
         TObjPlayer::send_item_pickup_request(player);
         if ((u32) player != 0U) {
@@ -472,14 +472,14 @@ void handle_6x69_npc_control(Pkt_8034E814 *pkt) {
 
 void TNpcPlayer::send_npc_control_6x69(s16 arg0) {
     Stack_8034EA80 stack;
-    build_6x69_npc_control((void*)(&stack.sp8));
+    build_6x69_npc_control(&stack.sp8);
     stack.spC = arg0;
     stack.sp10 = 2;
     ((TNpcPlayer *)(&stack.sp8))->send_state_60();
 }
 void TNpcPlayer::send_npc_stop_6x69(s16 arg0) {
     Stack_8034EAC4 stack;
-    build_6x69_npc_control((void*)(&stack.sp8));
+    build_6x69_npc_control(&stack.sp8);
     stack.spC = arg0;
     stack.sp10 = 1;
     ((TNpcPlayer *)(&stack.sp8))->send_state_60();
@@ -487,14 +487,14 @@ void TNpcPlayer::send_npc_stop_6x69(s16 arg0) {
 void TNpcPlayer::send_npc_control_create(s16 arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4) {
     Stack_8034EB08 stack;
     s32 var_r31;
-    build_6x69_npc_control((void*)((void *) (&stack.sp8)));
+    build_6x69_npc_control((void*)(&stack.sp8));
     stack.spC = arg0;
     var_r31 = 0;
     stack.spE = 0xFFFF;
     stack.sp10 = 3;
     stack.sp12 = arg2;
 loop_1:
-    if (((u32)get_player_by_client_id((s32)(var_r31))) != 0U) {
+    if (((u32)get_player_by_client_id(var_r31)) != 0U) {
         notify_field1c__10TObjPlayerFl();
     } else {
         var_r31 += 1;
@@ -503,13 +503,13 @@ loop_1:
         }
     }
     stack.spE = arg1;
-    set_arrival_override_coords((s32)(arg1), (s32)(arg4), (f32) (*(f32 *)((s8 *)arg3 + 0)), (f32) (*(f32 *)((s8 *)arg3 + 4)), (f32) (*(f32 *)((s8 *)arg3 + 8)));
+    set_arrival_override_coords(arg1, arg4, (f32) (*(f32 *)((s8 *)arg3 + 0)), (f32) (*(f32 *)((s8 *)arg3 + 4)), (f32) (*(f32 *)((s8 *)arg3 + 8)));
     ((TNpcPlayer *)(&stack.sp8))->send_state_60();
 }
 
 void TNpcPlayer::create_companion(u16 leader, u16 slot, s32 appearance, f32 *p, s32 heading) {
     NpcCreatePacket_8034EBB0 pkt;
-    build_6x69_npc_control((void*)(&pkt));
+    build_6x69_npc_control(&pkt);
     pkt.leader = leader;
     pkt.slot = 0xFFFF;
     pkt.zero = 0;
@@ -522,7 +522,7 @@ void TNpcPlayer::create_companion(u16 leader, u16 slot, s32 appearance, f32 *p, 
 
 void TNpcPlayer::create_default_companion(s16 arg0, s16 arg1, u8 *arg2, s32 arg3) {
     Stack_8034EC40 stack;
-    build_6x69_npc_control((void*)(&stack.sp8));
+    build_6x69_npc_control(&stack.sp8);
     stack.spE = 0xFFFF;
     stack.spC = arg0;
     stack.sp10 = 0;
@@ -536,7 +536,7 @@ void TNpcPlayer::create_default_companion(s16 arg0, s16 arg1, u8 *arg2, s32 arg3
 void TNpcPlayer::send_npc_control_notify_players(s16 arg0, u16 arg1, s16 arg2) {
     Stack_8034ECD0 stack;
     s32 var_r31;
-    build_6x69_npc_control((void*)(&stack.sp8));
+    build_6x69_npc_control(&stack.sp8);
     stack.spC = arg0;
     var_r31 = 0;
     stack.spE = 0xFFFF;
@@ -557,7 +557,7 @@ loop_1:
 
 void TNpcPlayer::send_npc_create(s16 arg0, s16 arg1) {
     Stack_8034ED58 stack;
-    build_6x69_npc_control((void*)(&stack.sp8));
+    build_6x69_npc_control(&stack.sp8);
     stack.spE = 0xFFFF;
     stack.spC = arg0;
     stack.sp10 = 0;
@@ -584,7 +584,7 @@ void init_partner_dialogue(void) {
 
 void TNpcPlayer::reset_player_lobby_model(u16 arg0) {
     u32 player;
-    player = ((u32)get_player_by_client_id((s32)((u32)(arg0))));
+    player = ((u32)get_player_by_client_id((s32)(arg0)));
     if (player != 0U) {
         ((TObjPlayer *)(player + 0x644))->reset_lobby_model();
     }
@@ -597,7 +597,7 @@ void TNpcPlayer::update_player_field(u16 arg0, s32 arg1) {
     }
 }
 void TNpcPlayer::end_camera_pan_for_client(u16 arg0) {
-    if (((u32)get_player_by_client_id((s32)((u32)(arg0)))) != 0U) {
+    if (((u32)get_player_by_client_id((s32)(arg0))) != 0U) {
         end_camera_pan__10TObjPlayerFv();
     }
 }

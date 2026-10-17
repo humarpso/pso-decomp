@@ -143,7 +143,7 @@ void lsc_stop(LscStream *arg0) {
         return;
     }
     if ((s8) arg0->state != 0) {
-        enter_lock__6TLobbyFv((void *)((void *) (&sp8)));
+        enter_lock__6TLobbyFv((void *)(&sp8));
         arg0->state = 0U;
         if ((u32) (u32)arg0->file_handle != 0U) {
             if ((s32) arg0->read_started == 1) {
@@ -162,7 +162,7 @@ void lsc_stop(LscStream *arg0) {
             arg0->queued_count = 0;
         }
         arg0->field_34 = 0;
-        notify_dvd_read__6TLobbyFv((void *)((void *) (&sp8)));
+        notify_dvd_read__6TLobbyFv((void *)(&sp8));
     }
 }
 
@@ -227,11 +227,11 @@ void lsc_destroy(LscStream *arg0) {
     s32 spC;
     s32 sp8;
     if (arg0 != NULL) {
-        enter_lock__6TLobbyFv((void *) (&spC));
+        enter_lock__6TLobbyFv(&spC);
         if (arg0 == NULL) {
             TLobby::log_printf((const char *) (((s32 *)&lbl_8047DCF0)));
         } else if ((s8) arg0->state != 0) {
-            enter_lock__6TLobbyFv((void *) (&sp8));
+            enter_lock__6TLobbyFv(&sp8);
             arg0->state = 0U;
             if ((u32) (u32)arg0->file_handle != 0U) {
                 if ((s32) arg0->read_started == 1) {
@@ -250,11 +250,11 @@ void lsc_destroy(LscStream *arg0) {
                 arg0->queued_count = 0;
             }
             arg0->field_34 = 0;
-            notify_dvd_read__6TLobbyFv((void *) (&sp8));
+            notify_dvd_read__6TLobbyFv(&sp8);
         }
         arg0->in_use = 0;
-        memset((void *)(arg0), 0, (unsigned long)(0x438));
-        notify_dvd_read__6TLobbyFv((void *) (&spC));
+        memset(arg0, 0, (unsigned long)(0x438));
+        notify_dvd_read__6TLobbyFv(&spC);
     }
 }
 

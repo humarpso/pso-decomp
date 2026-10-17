@@ -199,24 +199,24 @@ typedef char RecoveredGlobal_80164764_lbl_8050BFA0_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80164764_lbl_8058D490_size[sizeof(RecoveredGlobal_80164764_lbl_8058D490) == 0x30 ? 1 : -1];
 s32 TODragonfly::pick_random_destination(f32 farg0) {
     u8 *arg0 = (u8 *)this;
-    *(f32 *)((s8 *)(&lbl_8050BEE0.value) + 0) = (f32) lbl_805DB580;
-    *(f32 *)((s8 *)(&lbl_8050BEE0.value) + 4) = farg0;
-    *(f32 *)((s8 *)(&lbl_8050BEE0.value) + 8) = (f32) (*(f32 *)&this->_padD0 * (lbl_805DB57C * (f32) rand()));
-    *(s32 *)((s8 *)(&lbl_8050BFA0.value) + 4) = (s32) (lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32) rand())));
-    push_matrix_from((void *) (&identity_matrix.value));
-    rotate_matrix_y(0, (s32)((int) (*(s32 *)((s8 *)(&lbl_8050BFA0.value) + 4))));
-    rotate_vector_by_matrix(0, (void *) (&lbl_8050BEE0.value), (void *) (&lbl_8050BEE0.value));
+    *(f32 *)((s8 *)&lbl_8050BEE0.value + 0) = (f32) lbl_805DB580;
+    *(f32 *)((s8 *)&lbl_8050BEE0.value + 4) = farg0;
+    *(f32 *)((s8 *)&lbl_8050BEE0.value + 8) = (f32) (*(f32 *)&this->_padD0 * (lbl_805DB57C * (f32) rand()));
+    *(s32 *)((s8 *)&lbl_8050BFA0.value + 4) = (s32) (lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32) rand())));
+    push_matrix_from((void *)&identity_matrix.value);
+    rotate_matrix_y(0, (s32)((int) (*(s32 *)((s8 *)&lbl_8050BFA0.value + 4))));
+    rotate_vector_by_matrix(0, (void *)&lbl_8050BEE0.value, (void *)&lbl_8050BEE0.value);
     pop_matrix();
-    vec3_add_to((void *) (&lbl_8050BEE0.value), (void *) (arg0 + 0x50));
+    vec3_add_to((void *)&lbl_8050BEE0.value, (void *)(arg0 + 0x50));
     VecCopy((Vec *)(arg0 + 0xD4), (const Vec *)(&lbl_8050BEE0.value));
-    subtract_vector((void *) (&lbl_8050BEE0.value), (void *) (arg0 + 0x38));
+    subtract_vector((void *)&lbl_8050BEE0.value, (void *)(arg0 + 0x38));
     if (((TObjPlayer *)(&lbl_8050BEE0.value))->check_camera_distance() == 1) {
         *(s32 *)&this->m_ac = 1;
         *(s32 *)&this->m_cc = 0;
-        this->rotation_y = (s32) (lbl_804411B0 * atan2_float((f64) *(f32 *)((s8 *)(&lbl_8050BEE0.value) + 0), (f64) *(f32 *)((s8 *)(&lbl_8050BEE0.value) + 8)));
-        this->m_e0 = (f32) (*(f32 *)((s8 *)(&lbl_8050BEE0.value) + 0) * *(f32 *)&this->m_70);
-        *(f32 *)&this->unk_E4 = (f32) (*(f32 *)((s8 *)(&lbl_8050BEE0.value) + 4) * *(f32 *)&this->m_70);
-        this->m_e8 = (f32) (*(f32 *)((s8 *)(&lbl_8050BEE0.value) + 8) * *(f32 *)&this->m_70);
+        this->rotation_y = (s32) (lbl_804411B0 * atan2_float((f64) *(f32 *)((s8 *)&lbl_8050BEE0.value + 0), (f64) *(f32 *)((s8 *)&lbl_8050BEE0.value + 8)));
+        this->m_e0 = (f32) (*(f32 *)((s8 *)&lbl_8050BEE0.value + 0) * *(f32 *)&this->m_70);
+        *(f32 *)&this->unk_E4 = (f32) (*(f32 *)((s8 *)&lbl_8050BEE0.value + 4) * *(f32 *)&this->m_70);
+        this->m_e8 = (f32) (*(f32 *)((s8 *)&lbl_8050BEE0.value + 8) * *(f32 *)&this->m_70);
         return 1;
     }
     return 0;
@@ -238,7 +238,7 @@ void TODragonfly::sub_80164990() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r5;
     temp_r5 = *(s32 *)&this->m_cc;
-    *(s32 *)&this->m_cc = (s32) (temp_r5 + 1);
+    *(s32 *)&this->m_cc = (temp_r5 + 1);
     if (lbl_805DB578 < (f32) temp_r5) {
         if (is_any_player_within_radius_xz(arg0, lbl_805DB588) == 1) {
             if (((TODragonfly *)arg0)->pick_random_destination(lbl_805DB578 + this->target_scale) == 1) {
@@ -285,7 +285,7 @@ void TODragonfly::update_idle() {
         }
     } else {
         temp_r4 = *(s32 *)((s8 *)arg0 + 0xCC);
-        *(s32 *)((s8 *)arg0 + 0xCC) = (s32) (temp_r4 + 1);
+        *(s32 *)((s8 *)arg0 + 0xCC) = (temp_r4 + 1);
         if ((lbl_805DB578 < (f32) temp_r4) && (pick_random_destination(*(f32 *)((s8 *)arg0 + 0x6C) * ((lbl_805DB58C * (lbl_805DB57C * (f32) rand())) - lbl_805DB560)) == 1)) {
             *(s32 *)((s8 *)arg0 + 0xAC) = 1;
             *(s32 *)((s8 *)arg0 + 0xCC) = 0;

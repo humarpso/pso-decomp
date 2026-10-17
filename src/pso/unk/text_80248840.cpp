@@ -35,7 +35,7 @@ u8 *construct_symbol_chat_selection(u8 *arg0) {
         if (is_symbol_chat_preset_in_use((u32 *)symbol_chat_preset) != 0) {
             forward_trade_action_default__16TObjCityMainWarpFPviii(*(u8 **)((s8 *)arg0 + 0x1C), (s32) temp_r30, 0x66, i);
         } else {
-            TWindowSubComCard::draw_text_gray((s32)((void *) (*(u8 **)((s8 *)arg0 + 0x1C))), (s32)(temp_r30), 0x46, (s32)(i));
+            TWindowSubComCard::draw_text_gray((s32)((void *) (*(u8 **)((s8 *)arg0 + 0x1C))), (s32)temp_r30, 0x46, (s32)i);
         }
         i += 1;
     } while (i < 0xC);

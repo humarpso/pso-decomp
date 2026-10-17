@@ -25,13 +25,13 @@ void TDuelEffectNumber::calc_digit_transform(s32 arg0, f32 *arg1, f32 *arg2, s32
     if (arg3 < 0xA) {
         *arg1 = -(lbl_805D9314 * ((f32) arg3 / lbl_805D9318) - lbl_805D9310);
     } else {
-        *arg1 = lbl_805D9320 * ((f32) (arg3 - 0xA) / lbl_805D9324) + lbl_805D931C;
+        *arg1 = lbl_805D9320 * ((arg3 - 0xA) / lbl_805D9324) + lbl_805D931C;
     }
     if (arg3 < 5) {
         *arg2 = (f32) (arg3 / 5);
         return;
     }
-    *arg2 = lbl_805D931C - ((f32) (arg3 - 5) / lbl_805D9328);
+    *arg2 = lbl_805D931C - ((arg3 - 5) / lbl_805D9328);
 }
 
 }
@@ -58,7 +58,7 @@ void render__17TDuelEffectStringFv(u8 *arg0) {
     f32 sp8;
     s32 temp_r0;
     s32 temp_r31;
-    TDuelEffectNumber::calc_digit_transform((s32)((s32) arg0), (f32 *)(&spC), (f32 *)(&sp8), (s32)(*(s32 *)((s8 *)arg0 + 0x28)));
+    TDuelEffectNumber::calc_digit_transform((s32)((s32) arg0), &spC, &sp8, (s32)(*(s32 *)((s8 *)arg0 + 0x28)));
     temp_r31 = __cvt_fp2unsigned(lbl_805D932C * sp8) | 0xFF0000 | 0xFFFF;
     TObjPlayer::init_xyz_limits();
     begin_screen_draw(1);

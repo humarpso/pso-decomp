@@ -49,22 +49,22 @@ void TBoss8Dragon::fill_follow_camera_params(u8 *arg1, u8 *arg2) {
     default:
     case 2:
     case 0:
-        *(f32 *)((s8 *)arg1 + 4) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)(&boss5_gryphon_behavior_params.value) + 0)) + 0);
-        *(f32 *)((s8 *)arg1 + 8) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)(&boss5_gryphon_behavior_params.value) + 0)) + 4);
-        *(f32 *)((s8 *)arg2 + 4) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)(&boss5_gryphon_behavior_params.value) + 0)) + 8);
-        *(f32 *)((s8 *)arg2 + 8) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)(&boss5_gryphon_behavior_params.value) + 0)) + 0xC);
+        *(f32 *)((s8 *)arg1 + 4) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)&boss5_gryphon_behavior_params.value + 0)) + 0);
+        *(f32 *)((s8 *)arg1 + 8) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)&boss5_gryphon_behavior_params.value + 0)) + 4);
+        *(f32 *)((s8 *)arg2 + 4) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)&boss5_gryphon_behavior_params.value + 0)) + 8);
+        *(f32 *)((s8 *)arg2 + 8) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)&boss5_gryphon_behavior_params.value + 0)) + 0xC);
         return;
     case 1:
-        *(f32 *)((s8 *)arg1 + 4) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)(&boss5_gryphon_behavior_params.value) + 0)) + 0x10);
-        *(f32 *)((s8 *)arg1 + 8) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)(&boss5_gryphon_behavior_params.value) + 0)) + 0x14);
-        *(f32 *)((s8 *)arg2 + 4) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)(&boss5_gryphon_behavior_params.value) + 4)) + 0);
-        *(f32 *)((s8 *)arg2 + 8) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)(&boss5_gryphon_behavior_params.value) + 4)) + 4);
+        *(f32 *)((s8 *)arg1 + 4) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)&boss5_gryphon_behavior_params.value + 0)) + 0x10);
+        *(f32 *)((s8 *)arg1 + 8) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)&boss5_gryphon_behavior_params.value + 0)) + 0x14);
+        *(f32 *)((s8 *)arg2 + 4) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)&boss5_gryphon_behavior_params.value + 4)) + 0);
+        *(f32 *)((s8 *)arg2 + 8) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)&boss5_gryphon_behavior_params.value + 4)) + 4);
         return;
     case 3:
-        *(f32 *)((s8 *)arg1 + 4) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)(&boss5_gryphon_behavior_params.value) + 4)) + 8);
-        *(f32 *)((s8 *)arg1 + 8) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)(&boss5_gryphon_behavior_params.value) + 4)) + 0xC);
-        *(f32 *)((s8 *)arg2 + 4) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)(&boss5_gryphon_behavior_params.value) + 4)) + 0x10);
-        *(f32 *)((s8 *)arg2 + 8) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)(&boss5_gryphon_behavior_params.value) + 4)) + 0x14);
+        *(f32 *)((s8 *)arg1 + 4) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)&boss5_gryphon_behavior_params.value + 4)) + 8);
+        *(f32 *)((s8 *)arg1 + 8) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)&boss5_gryphon_behavior_params.value + 4)) + 0xC);
+        *(f32 *)((s8 *)arg2 + 4) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)&boss5_gryphon_behavior_params.value + 4)) + 0x10);
+        *(f32 *)((s8 *)arg2 + 8) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)&boss5_gryphon_behavior_params.value + 4)) + 0x14);
         return;
     }
 }
@@ -75,7 +75,7 @@ void TBoss8Dragon::get_follow_camera_offsets(u8 *arg1) {
         VecCopy((Vec *)arg1, (const Vec *)&lbl_80487CD8.value);
         return;
     }
-    ((TBoss8Dragon *)(*(u8 * *)&boss5_gryphon_instance))->fill_follow_camera_params((u8 *)((u8 *)(((u8 *)this))), (u8 *)(arg1));
+    ((TBoss8Dragon *)(*(u8 * *)&boss5_gryphon_instance))->fill_follow_camera_params((u8 *)((u8 *)(((u8 *)this))), arg1);
 }
 
 typedef char RecoveredGlobal_80065F08_lbl_80437938_size[sizeof(RecoveredGlobal_80065F08_lbl_80437938_80065C90) == 0xC ? 1 : -1];

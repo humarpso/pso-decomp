@@ -275,7 +275,7 @@ void TObjLobbyMain::update_fade() {
         *(s32 *)&this->m_c8 = 1;
         this->m_d4 = (f32) (0.0f);
         resolve_theme_index__13TObjLobbyMainFv(arg0);
-        update_emitter_positions__13TObjLobbyMainFv((u8 *)(arg0));
+        update_emitter_positions__13TObjLobbyMainFv(arg0);
         this->m_b0 = (f32) (0.0f);
     }
 }
@@ -422,7 +422,7 @@ u8 *TObjLobbyMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)&((TObjLobbyMain *)arg0)->m_c8 = 2;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (1.2e+02f);
     ((TObjLobbyMain *)arg0)->m_b0 = (f32) (0.0f);
-    init_collision_body_parts(arg0, (void *) (&lbl_804F0F34.value), 1);
+    init_collision_body_parts(arg0, &lbl_804F0F34.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;

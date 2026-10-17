@@ -153,29 +153,29 @@ void TTecBarta::update_technique_by_state() {
     temp_r0 = this->band;
     switch (temp_r0) {
     case 0:
-        handle = play_sound_effect(0x4002A604, (int) (arg0 + 0x20), 0, 0);
+        handle = play_sound_effect(0x4002A604, (int)(arg0 + 0x20), 0, 0);
         if (handle >= 0) {
             update_technique_slot__10TTecRaFoieFl(handle, 0x100, 0);
         }
         return;
     case 1:
-        play_sound_effect(0x4002A604, (int) (arg0 + 0x20), 0, 0);
+        play_sound_effect(0x4002A604, (int)(arg0 + 0x20), 0, 0);
         return;
     case 2:
     case 3:
-        handle = play_sound_effect(0x4002A604, (int) (arg0 + 0x20), 0, 0);
+        handle = play_sound_effect(0x4002A604, (int)(arg0 + 0x20), 0, 0);
         if (handle >= 0) {
             update_technique_slot__10TTecRaFoieFl(handle, -0x180, 0);
         }
         break;
     case 4:
-        handle = play_sound_effect(0x4002A604, (int) (arg0 + 0x20), 0, 0);
+        handle = play_sound_effect(0x4002A604, (int)(arg0 + 0x20), 0, 0);
         if (handle >= 0) {
             update_technique_slot__10TTecRaFoieFl(handle, -0x250, 0);
         }
         break;
     case 5:
-        handle = play_sound_effect(0x4002A604, (int) (arg0 + 0x20), 0, 0);
+        handle = play_sound_effect(0x4002A604, (int)(arg0 + 0x20), 0, 0);
         if (handle >= 0) {
             update_technique_slot__10TTecRaFoieFl(handle, -0x100, 0);
         }
@@ -232,14 +232,14 @@ void TTecBarta::init_parameters() {
   ((TTecAnti *)(arg0 + 0xCC))->copy_params((u8 *)new_var);
   if (((this->level) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
-    this->power = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0xC))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0xE))) * (this->level)));
+    this->power = (f32) ((*((s16 *) (((s8 *)&tech_high_level_linear_power_table.value) + 0xC))) + ((*((s16 *) (((s8 *)&tech_high_level_linear_power_table.value) + 0xE))) * (this->level)));
   }
   else
   {
     this->power = (f32) ((this->power) + ((f32) ((*((s16 *) (((s8 *) arg0) + 0xF0))) * (this->level))));
     if (is_technique_ready__8TTecCtrlFv() != 0)
     {
-      this->power = (f32) ((this->power) * (*((f32 *) (((s8 *) (&lbl_804CC55C.value)) + 0x18))));
+      this->power = (f32) ((this->power) * (*((f32 *) (((s8 *)&lbl_804CC55C.value) + 0x18))));
     }
   }
   *((f32 *) (((s8 *) arg0) + 0x64)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xD0))) + ((f32) (((this->level) / 5) * 2)));
@@ -286,7 +286,7 @@ void TTecBarta__vt6(Obj_8022B8F4 *self, VObj_8022B8F4 *target) {
 
 TTecBarta* __dt__9TTecBartaFv(TTecBarta* self,s16 deleting) {
     if(self) {
-        *(void **)((u8 *)self + 0x18) = (void *)(&__vt__9TTecBarta);
+        *(void **)((u8 *)self + 0x18) = &__vt__9TTecBarta;
         for(u32 i=0;i<TTecBarta__emitter_bands[self->band].count;++i) {
             if(self->emitters[i]) {
                 queue_destruction__7TObjectFv(self->emitters[i]);

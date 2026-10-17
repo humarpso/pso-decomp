@@ -72,7 +72,7 @@ void send_6xAD_olga_flow_subordinate_boss_actions(u8 *arg0) {
     B_80357058 b;
     s32 i;
     if (is_local_client_floor_leader() != 0) {
-        build_6xAD_olga_flow_subordinate_boss_actions((void*)(&b));
+        build_6xAD_olga_flow_subordinate_boss_actions(&b);
         for (i = 0; i < 0x40; i++) {
             b.d[i] = arg0[i];
         }
@@ -221,16 +221,16 @@ void run_task__20TItemEffOrgaFlowShotFv(u8 *arg0) {
         queue_destruction__7TObjectFv((arg0));
         disallow_rendering__7TObjectFv((arg0));
     }
-    TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x190), (f32)(lbl_805E0030), (f32)((f32) (*(f32 *)((s8 *)arg0 + 0x18C))));
+    TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x190), (f32)lbl_805E0030, (f32)((f32) (*(f32 *)((s8 *)arg0 + 0x18C))));
     if (*(f32 *)((s8 *)arg0 + 0x190) == *(f32 *)((s8 *)arg0 + 0x18C)) {
-        TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x194), (f32)(lbl_805E0034), (f32)((f32) (*(f32 *)((s8 *)arg0 + 0x198))));
+        TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x194), (f32)lbl_805E0034, (f32)((f32) (*(f32 *)((s8 *)arg0 + 0x198))));
     }
     for (i = 0; i != 10; i++) {
         TObjBoss2Tunnel::decrement_packed_timer((u32 *)(&((O_8035740C *)arg0)->v[i].w), 2);
     }
     if (*(f32 *)((s8 *)arg0 + 0x194) == *(f32 *)((s8 *)arg0 + 0x198)) {
         temp_r3 = *(s32 *)&((TItemEffOrgaFlowShot *)arg0)->m_19c;
-        *(s32 *)&((TItemEffOrgaFlowShot *)arg0)->m_19c = (s32) (temp_r3 - 1);
+        *(s32 *)&((TItemEffOrgaFlowShot *)arg0)->m_19c = (temp_r3 - 1);
         if (temp_r3 == 0) {
             queue_destruction__7TObjectFv((arg0));
         }

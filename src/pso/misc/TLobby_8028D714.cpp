@@ -33,12 +33,12 @@ s32 TLobby__sub_8028D738(s32 i) {
     TLobby__sub_8028D7D0(i);
     if (i < 4) {
         temp_r3_2 = chr_select_load_buffer_base + (i * 0xA000);
-        *(s32 *)((s8 *)(&lbl_80518850.value) + (i * 4)) = temp_r3_2;
+        *(s32 *)((s8 *)&lbl_80518850.value + (i * 4)) = temp_r3_2;
         return temp_r3_2;
     }
     temp_r4 = i - 4;
     temp_r3 = (*(s32 *)&chr_select_load_buffer) + (temp_r4 * 0xA000);
-    *(s32 *)((s8 *)(&chr_select_load_buffer_table.value) + (temp_r4 * 4)) = temp_r3;
+    *(s32 *)((s8 *)&chr_select_load_buffer_table.value + (temp_r4 * 4)) = temp_r3;
     return temp_r3;
 }
 

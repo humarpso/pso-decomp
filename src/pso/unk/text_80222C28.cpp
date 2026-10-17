@@ -34,7 +34,7 @@ s32 get_guild_text(s32 arg0) {
   s32 new_var;
   if (((s32 *) (*(s32 * *)&lbl_805D6258)) != 0)
   {
-    new_var = *((s32 *) (((s8 *) (((u8 *) (&guild_text_play_mode_table.value)) + (get_game_play_mode() * 4))) + 0));
+    new_var = *((s32 *) (((s8 *) (((u8 *)&guild_text_play_mode_table.value) + (get_game_play_mode() * 4))) + 0));
     return *((s32 *) (((s8 *) ((*((s32 *) (((s8 *) ((*((s32 *) (((s8 *) (*(s32 * *)&lbl_805D6258)) + 0))) + (new_var * 4))) + 0))) + (arg0 * 4))) + 0));
   }
   return quest_and_shop_error_text;
@@ -45,7 +45,7 @@ typedef char RecoveredGlobal_80222CBC_lbl_8044C308_size[((sizeof(RecoveredGlobal
 s32 get_appraisal_text(s32 arg0) {
   if (((s32 *) (*(s32 * *)&lbl_805D6258)) != 0)
   {
-    return *((s32 *) (((s8 *) ((*((s32 *) (((s8 *) ((*((s32 *) (((s8 *) (*(s32 * *)&lbl_805D6258)) + 0))) + ((*((s32 *) (((s8 *) (((u8 *) (&appraisal_text_group_table.value)) + (lbl_805D6238 * 4))) + 0))) * 4))) + 0))) + (2 * (2 * arg0)))) + 0));
+    return *((s32 *) (((s8 *) ((*((s32 *) (((s8 *) ((*((s32 *) (((s8 *) (*(s32 * *)&lbl_805D6258)) + 0))) + ((*((s32 *) (((s8 *) (((u8 *)&appraisal_text_group_table.value) + (lbl_805D6238 * 4))) + 0))) * 4))) + 0))) + (2 * (2 * arg0)))) + 0));
   }
   return quest_and_shop_error_text;
 }

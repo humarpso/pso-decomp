@@ -171,7 +171,7 @@ void set_quest_floor_designation(s16 mode, s32 floor, s32 terrain, s32 unused) {
 }
 
 void clear_quest_floor_designations(void) {
-    memset((void *) (&quest_floor_designations), 0, 0x24);
+    memset(&quest_floor_designations, 0, 0x24);
 }
 
 void populate_quest_floor_sets(void) {
@@ -221,12 +221,12 @@ loop_1:
         sp10 = *(s32 *)((s8 *)var_r31 + 4);
         spC = *(s32 *)((s8 *)var_r31 + 8);
         sp8 = *(s32 *)((s8 *)var_r31 + 0xC);
-        bswap_32((u32 *)(&sp14));
-        bswap_32((u32 *)(&sp10));
-        bswap_32((u32 *)(&spC));
-        bswap_32((u32 *)(&sp8));
+        bswap_32((u32 *)&sp14);
+        bswap_32((u32 *)&sp10);
+        bswap_32((u32 *)&spC);
+        bswap_32((u32 *)&sp8);
         if ((sp14 == 3) && (spC == arg0)) {
-            return TLobby::add_player(spC, (s32) (var_r31 + 0x10), sp8) != 0;
+            return TLobby::add_player(spC, (s32)(var_r31 + 0x10), sp8) != 0;
         }
         if (sp14 != 0) {
             var_r31 += sp10;

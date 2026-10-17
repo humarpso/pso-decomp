@@ -25,7 +25,7 @@ void TAdBackTxtGC::draw_character_background_frame(s32 arg1, s32 arg2) {
   buffer_8[4] = lbl_805DDCF8;
   buffer_8[5] = lbl_805DDCF8;
   buffer_8[7] = (buffer_8[6] = lbl_805DDD04);
-  draw_textured_quad_at_depth((void *) (&buffer_8[0]), (f32) (*((f32 *) (((s8 *) arg0) + 0x20))), (f32) lbl_805DDCFC, (f32) lbl_805DDCF8);
+  draw_textured_quad_at_depth(&buffer_8[0], (f32) (*((f32 *) (((s8 *) arg0) + 0x20))), (f32) lbl_805DDCFC, (f32) lbl_805DDCF8);
   TWindowSubStatusDisp::get_player();
 }
 

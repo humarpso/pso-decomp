@@ -51,10 +51,10 @@ void TParticleCtrl::generate_child_default(s32 arg1, s32 arg2) {
     typedef char spC_offset[(offsetof(Stack_8008683C, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8008683C, sp10) == 0x8) ? 1 : -1];
     Stack_8008683C stack;
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_804393F0.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_804393F0.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&lbl_804393F0.value) + 8);
-    ((TParticleCtrl *)arg0)->alloc_child_particle((void *)arg1, (void *) (&stack.sp8), (void *)arg2);
+    stack.sp8 = *(s32 *)((s8 *)&lbl_804393F0.value + 0);
+    stack.spC = *(s32 *)((s8 *)&lbl_804393F0.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&lbl_804393F0.value + 8);
+    ((TParticleCtrl *)arg0)->alloc_child_particle((void *)arg1, (void *)&stack.sp8, (void *)arg2);
 }
 
 s32 TParticleCtrl::get_particle_model(s32 arg0) {
@@ -97,7 +97,7 @@ void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c) {
     if (particle_pool_limit > idx) {
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {
-            p = ((TParticleCtrl *)p)->initialize((const void *)owner, (s32)(&particle_global_entry_table[idx]), 0, (s32)b, (s32)c, 0);
+            p = ((TParticleCtrl *)p)->initialize((const void *)owner, (s32)&particle_global_entry_table[idx], 0, (s32)b, (s32)c, 0);
         }
         return p;
     }
@@ -105,7 +105,7 @@ void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c) {
         idx -= 0x200;
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {
-            p = ((TParticleCtrl *)p)->initialize((const void *)owner, (s32)(&particle_area_entry_table[idx]), 0, (s32)b, (s32)c, 0);
+            p = ((TParticleCtrl *)p)->initialize((const void *)owner, (s32)&particle_area_entry_table[idx], 0, (s32)b, (s32)c, 0);
         }
         return p;
     }

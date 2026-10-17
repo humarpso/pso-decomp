@@ -210,8 +210,8 @@ void TAdPlayerLoadGC::reset_slot_entry(s32 arg0) {
     u8 *temp_r30;
     temp_r30 = (u8 *)TAdPlayerLoadGC__load_request_slots + (arg0 * 0x68);
     *(s32 *)((s8 *)temp_r30 + 0) = 0;
-    memset((void *) (temp_r30 + 4), 0, 0x20);
-    memset((void *) (temp_r30 + 0x24), 0, 0x20);
+    memset(temp_r30 + 4, 0, 0x20);
+    memset(temp_r30 + 0x24, 0, 0x20);
     *(s32 *)((s8 *)temp_r30 + 0x44) = 0;
     *(s32 *)((s8 *)temp_r30 + 0x48) = 0;
     *(s32 *)((s8 *)temp_r30 + 0x4C) = 0;

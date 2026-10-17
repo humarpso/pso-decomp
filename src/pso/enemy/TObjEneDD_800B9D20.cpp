@@ -40,7 +40,7 @@ int set_param__12TObjEneLappyFl(void*);
 void TObjEneDD::vfunc_100() {
     u8 *arg0 = (u8 *)this;
     if (!(*(s32 *)&this->actorFlags & 0x40800)) {
-        minimap_render_dot((void *) (arg0 + 0x38), -0x5DB4, 1, 0);
+        minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
     }
 }
 

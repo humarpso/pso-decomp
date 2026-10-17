@@ -294,19 +294,19 @@ void TQuestListOnline::show_info_window() {
     Stack_80217EC4 stack;
     u16 temp_r31;
     if ((u32) info_window == 0U) {
-        stack.sp8 = *(s32 *)((s8 *)(&lbl_8044BEDC.value) + 0);
-        stack.spC = *(s32 *)((s8 *)(&lbl_8044BEDC.value) + 4);
+        stack.sp8 = *(s32 *)((s8 *)&lbl_8044BEDC.value + 0);
+        stack.spC = *(s32 *)((s8 *)&lbl_8044BEDC.value + 4);
         temp_r31 = obj_getField1c(window_owner);
-        info_window = create_message_window__6TLobbyFllUls((int) (get_window_layout_position(0x2E)), (void *) (&stack.sp8), 1, (int) ((s32) temp_r31));
+        info_window = create_message_window__6TLobbyFllUls((int) (get_window_layout_position(0x2E)), (void *)&stack.sp8, 1, (int) ((s32) temp_r31));
         ((TLobby *)info_window)->set_field_1c(lbl_805DC6A4);
         if (TCameraCtrl::get_camera_id() >= 2) {
             ((TUnk_804CDFE8 *)info_window)->set_position_xy(lbl_805DC6A8, lbl_805DC6A8);
         }
     }
     if ((u32) TQuestListOnline__selected_quest_info != 0U) {
-        send_and_handle__6TLobbyFii(info_window, (void *) (TQuestListOnline__selected_quest_info + 4), 0x80);
+        send_and_handle__6TLobbyFii(info_window, (void *)(TQuestListOnline__selected_quest_info + 4), 0x80);
     }
-    set_field_20__15TShopWindowBaseFl((void*)(this), 3);
+    set_field_20__15TShopWindowBaseFl((void*)this, 3);
 }
 extern "C" {
 

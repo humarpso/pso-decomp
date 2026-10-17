@@ -65,8 +65,8 @@ void TUnk_804887C8::run_task() {
             temp_f1 = temp_f2 - *(f32 *)((s8 *)temp_r3 + 8);
             stack.spC = lbl_805D8F2C;
             stack.sp10 = temp_f1;
-            if (lbl_805D8F2C != vector_length((void *) (&stack.sp8), (int)temp_r4, (f32)temp_f1, (f32)temp_f2)) {
-                normalize_vector((void *) (&stack.sp8));
+            if (lbl_805D8F2C != vector_length(&stack.sp8, (int)temp_r4, (f32)temp_f1, (f32)temp_f2)) {
+                normalize_vector(&stack.sp8);
                 this->m_3c = (f32) ((lbl_805D8F30 * stack.sp8) + *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x38));
                 *(f32 *)&this->unk_40 = (f32) (lbl_805D8F34 + *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x3C));
                 this->m_44 = (f32) ((lbl_805D8F30 * stack.sp10) + *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x40));

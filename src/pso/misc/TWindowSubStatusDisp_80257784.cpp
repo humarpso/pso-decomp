@@ -380,7 +380,7 @@ void TWindowSubStatusDisp__sub_80258A28(u8 *arg0, s32 arg1, s32 arg2) {
     text_builder_reset();
     TWindowSubStatusDisp__sub_80228F5C(arg1);
     text_builder_append((u8 *)((s32 *) (TWindowSubStatusDisp::get_download_server())));
-    *(s32 *)((s8 *)arg0 + 0x24) = replace_owned_string__20TWindowSubStatusDispFPviiii((void *)(arg0), (s32)((int) (get_shared_text_buffer())), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x24))), 0x10, 1);
+    *(s32 *)((s8 *)arg0 + 0x24) = replace_owned_string__20TWindowSubStatusDispFPviiii(arg0, (s32)((int) (get_shared_text_buffer())), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x24))), 0x10, 1);
     *(s32 *)((s8 *)arg0 + 0x34) = -1;
     *(s32 *)((s8 *)arg0 + 0x18) = arg2;
     *(u16 *)((s8 *)arg0 + 0) = (u16) (*(u16 *)((s8 *)arg0 + 0) | 0x45);
@@ -718,11 +718,11 @@ void draw_item_list_row(ItemListRow *row, ItemListWindowView *win) {
       depth = lbl_805DCF20 / (lbl_805DCF24 + win->depth);
       if (row->flags & 0x200)
       {
-        draw_item_list_icon((s32) win, (u8 *) (&pos), row->status_icon, -1, depth);
+        draw_item_list_icon((s32) win, (u8 *)&pos, row->status_icon, -1, depth);
         pos.x += lbl_805DCF14;
-        draw_item_list_icon((s32) win, (u8 *) (&pos), row->category_icon, -1, depth);
+        draw_item_list_icon((s32) win, (u8 *)&pos, row->category_icon, -1, depth);
         pos.x += lbl_805DCF14;
-        draw_item_list_icon((s32) win, (u8 *) (&pos), (u8) row->status_style, -1, depth);
+        draw_item_list_icon((s32) win, (u8 *)&pos, (u8) row->status_style, -1, depth);
         pos.x += lbl_805DCF14;
       }
       else
@@ -731,15 +731,15 @@ void draw_item_list_row(ItemListRow *row, ItemListWindowView *win) {
         if (row->flags & 0x100)
         {
           pos.x += lbl_805DCF14;
-          draw_item_list_icon((s32) win, (u8 *) (&pos), row->status_icon, row->status_style, depth);
+          draw_item_list_icon((s32) win, (u8 *)&pos, row->status_icon, row->status_style, depth);
         }
         else
         {
-          draw_item_list_icon((s32) win, (u8 *) (&pos), row->status_icon, row->status_style, depth);
+          draw_item_list_icon((s32) win, (u8 *)&pos, row->status_icon, row->status_style, depth);
           pos.x += lbl_805DCF14;
         }
         TObjPlayer::reset_transform_state();
-        draw_item_list_icon((s32) win, (u8 *) (&pos), row->category_icon, row->category_style, depth);
+        draw_item_list_icon((s32) win, (u8 *)&pos, row->category_icon, row->category_style, depth);
         pos.x += lbl_805DCF14;
       }
       new_var = row;

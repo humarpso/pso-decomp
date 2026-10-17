@@ -68,7 +68,7 @@ void TBoss7Crawfish::run_task() {
         ((TBoss7Crawfish *)arg0)->update_motion_and_release();
         break;
     case 3:
-        TBoss7Crawfish::update((s32)(arg0));
+        TBoss7Crawfish::update((s32)arg0);
         break;
     case 4:
         TBoss7Crawfish__sub_80308BEC((arg0));
@@ -81,7 +81,7 @@ void TBoss7Crawfish::run_task() {
     if (!(*(s32 *)((s8 *)this->m_a4 + 0x18) & 0x02000000)) {
         submit_cursor_candidate(arg0, -1);
     }
-    add_radar_scaled_marker((void *) (arg0 + 0x38), -0x5DB4, 1, 1, lbl_805DF0FC);
+    add_radar_scaled_marker(arg0 + 0x38, -0x5DB4, 1, 1, lbl_805DF0FC);
     advance_animation_playback(arg0);
 }
 
@@ -106,8 +106,8 @@ u8 *TBoss7Crawfish__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss7Crawfish__class_name;
     ((TBoss7Crawfish *)arg0)->texture_id = TObjFish__sub_8001EDB0(TBoss7Crawfish__shared_resource, 0);
     fn_8002B630((arg0 + 0x374), (u8 *)crawfish_collision_body_desc);
-    ((TUnk_804AF8A0 *)arg0)->initialize_linked_object_reference((void *) (arg0 + 0x374));
-    ((TObjPlayer *)arg0)->set_field_d8((s32)(lbl_804E7380));
+    ((TUnk_804AF8A0 *)arg0)->initialize_linked_object_reference(arg0 + 0x374);
+    ((TObjPlayer *)arg0)->set_field_d8((s32)lbl_804E7380);
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)((u8 *)TBoss7Crawfish__shared_resource) + 0x430)));
     ((TBoss7Crawfish *)arg0)->set_anim_timer(2);
     set_animation__10TObjPlayerFPvs((arg0), (((TBoss7Crawfish *)arg0)->m_b8));
@@ -132,7 +132,7 @@ u8 *TBoss7Crawfish__ct(u8 *arg0, s32 arg1, s32 arg2) {
     v.z = TBoss7Crawfish__data_805DF0D8;
     v.y = TBoss7Crawfish__data_805DF0D8;
     v.x = TBoss7Crawfish__data_805DF0D8;
-    TBoss7Crawfish__sub_80308ED8(arg0, (void *) (&v));
+    TBoss7Crawfish__sub_80308ED8(arg0, &v);
     if (((TBoss7Crawfish *)arg0)->sub_80308AA8() != 0) {
         *(f32 *)((s8 *)arg0 + 0x70) = (f32) lbl_805DF100;
         ((TBoss7Crawfish *)arg0)->target_scale = (f32) lbl_805DF100;

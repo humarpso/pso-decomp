@@ -615,7 +615,7 @@ void run_area_scene_cleanup(u8 *arg0) {
     s32 *var_r4;
     s32 var_r3;
     u8 *var_r31;
-    var_r4 = (s32 *)(&sp8);
+    var_r4 = &sp8;
     var_r31 = arg0;
     var_r3 = *(s32 *)((s8 *)arg0 + 4);
     if (lookup_scene_object__6TLobbyFPv(var_r3, var_r4) != 0) {
@@ -651,7 +651,7 @@ void load_area_scene_and_init(u8 *arg0) {
     var_r3 = *(s32 *)((s8 *)var_r31 + 0x10);
     TScene::set_scene(var_r3);
     var_r3 = *(s32 *)((s8 *)var_r31 + 4);
-    var_r4 = (s32 *)(&sp8);
+    var_r4 = &sp8;
     if (lookup_scene_object__6TLobbyFPv(var_r3, var_r4) != 0) {
         var_r3 = (s32) &(*(RecoveredGlobal_802286C4_lbl_804CBE98 *)&area_initializer_dispatch_table).value;
         var_r3 = (s32) &(*(RecoveredGlobal_802286C4_lbl_804CBE98 *)&area_initializer_dispatch_table).value;
@@ -673,7 +673,7 @@ void promote_area_floor(u8 *arg0) {
     s32 *var_r4;
     s32 var_r3;
     u8 *var_r31;
-    var_r4 = (s32 *)(&sp8);
+    var_r4 = &sp8;
     var_r31 = arg0;
     var_r3 = *(s32 *)((s8 *)arg0 + 4);
     if (lookup_scene_object__6TLobbyFPv(var_r3, var_r4) != 0) {
@@ -810,7 +810,7 @@ void TLobby::add_token(const char *src) {
 }
 
 void clear_work_buffer(u8 *arg0) {
-    memset((void *)(arg0 + 0x1C), 0, 0x1000);
+    memset(arg0 + 0x1C, 0, 0x1000);
     *(s32 *)((s8 *)arg0 + 0x109C) = 0;
 }
 

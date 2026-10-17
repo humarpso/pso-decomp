@@ -36,7 +36,7 @@ void TObjEneMe3ShinowaMirage::set_slot_min_clamped_value(s32 arg0, f32 farg0) {
   {
     var_f1 = TObjEneMe3ShinowaMirage__data_805DA5C4;
   }
-  new_var = (u8 *) (&shinowa_mirage_motion_param_table.value);
+  new_var = (u8 *)&shinowa_mirage_motion_param_table.value;
   new_var = new_var + (arg0 * 0x10);
   *((f32 *) (((s8 *) new_var) + 8)) = var_f1;
 }

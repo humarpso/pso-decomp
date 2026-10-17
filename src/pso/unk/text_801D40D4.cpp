@@ -120,7 +120,7 @@ s32 fn_801D4270(s32 arg0) {
 int reset(void* p) { return memset(p, 0, 28); }
 
 s32 export_inventory_entry__10TObjPlayerFiPv(s32 arg0, u8 *arg1) {
-    if (((TItem *)arg0)->copy_to_item_data((void *) (arg1 + 8)) != 0) {
+    if (((TItem *)arg0)->copy_to_item_data(arg1 + 8) != 0) {
         *(s8 *)((s8 *)arg1 + 0) = TObjPlayer__sub_80102C30((u8 *)arg0);
         *(s32 *)((s8 *)arg1 + 4) = ((TItem *)arg0)->get_item_flags();
         return 1;
@@ -179,16 +179,16 @@ void TObjPlayer::sort_by_key() {
     s32 j;
     Ent_801D4744 *p;
     Ent_801D4744 *q;
-    TObjPlayer__sub_801D4730((void*)(&t));
+    TObjPlayer__sub_801D4730(&t);
     n = arg0->count;
     while (--n > 0) {
         p = arg0->items;
         for (j = 0; j < n; p++, j++) {
             q = p + 1;
             if (p->key > q->key) {
-                TObjPlayer__sub_801D47D8((void*)(&t), p);
+                TObjPlayer__sub_801D47D8(&t, p);
                 TObjPlayer__sub_801D47D8(p, q);
-                TObjPlayer__sub_801D47D8(q, (void*)(&t));
+                TObjPlayer__sub_801D47D8(q, &t);
             }
         }
     }

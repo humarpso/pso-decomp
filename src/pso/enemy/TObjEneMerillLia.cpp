@@ -762,37 +762,37 @@ void spawn_ground_effect__16TObjEneMerillLiaFPv(u8 *arg0) {
             spawn_particle_effect(*(s32 *)((s8 *)temp_r3 + 4) + 0x38, 0xA4);
         }
         if ((objInBand((GameObj *)arg0, (f32)lbl_805DA2F8) != 0) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805DA2FC)) != 0)) {
-            fn_800D88E4((s32) (arg0 + 0x38));
+            fn_800D88E4((s32)(arg0 + 0x38));
         }
     }
 }
 
 void TObjEneMerillLia__sub_800D4EC8(s32 arg0) {
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x3AD04)), (void *) (arg0 + 0x38), 0, 0);
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x3AD04)), (void *)(arg0 + 0x38), 0, 0);
 }
 
 void TObjEneMerillLia::vfunc_99() {
     s32 arg0 = (s32)this;
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x3B205)), (void *) (arg0 + 0x38), 0, 0);
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x3B205)), (void *)(arg0 + 0x38), 0, 0);
 }
 
 void TObjEneMerillLia::vfunc_98() {
     s32 arg0 = (s32)this;
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x3AD00)), (void *) (arg0 + 0x38), 0, 0);
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x3AD00)), (void *)(arg0 + 0x38), 0, 0);
 }
 
 void TObjEneMerillLia::vfunc_97() {
     s32 arg0 = (s32)this;
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x3B201)), (void *) (arg0 + 0x38), 0, 0);
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x3B201)), (void *)(arg0 + 0x38), 0, 0);
 }
 
 void TObjEneMerillLia::vfunc_96() {
     s32 arg0 = (s32)this;
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x3AB02)), (void *) (arg0 + 0x38), 0, 0);
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x3AB02)), (void *)(arg0 + 0x38), 0, 0);
 }
 
 void TObjEneMerillLia__sub_800D501C(s32 arg0) {
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x3B206)), (void *) (arg0 + 0x38), 0, 0);
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x3B206)), (void *)(arg0 + 0x38), 0, 0);
 }
 
 void TObjEneMerillLia::vfunc_94() {
@@ -804,13 +804,13 @@ void TObjEneMerillLia::vfunc_94() {
     stack.sp8 = TObjEneMerillLia__data_805DA300;
     stack.spC = lbl_805DA304;
     stack.sp10 = TObjEneMerillLia__data_805DA308 * *(f32 *)(this->m_2b0 + 0x10);
-    push_matrix_from((void *) (&identity_matrix.value));
+    push_matrix_from((void *)&identity_matrix.value);
     rotate_matrix_y(0, this->rotation_y);
-    rotate_vector_by_matrix(0, (void *) (&stack.sp8), (void *) (&stack.sp8));
+    rotate_vector_by_matrix(0, (void *)&stack.sp8, (void *)&stack.sp8);
     pop_matrix();
-    vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+    vec3_add_to((void *)&stack.sp8, (void *)(arg0 + 0x38));
     ((TObjPlayer *)(&stack.sp8))->spawn_ground_effect(0x23);
-    TObjPlayer__sub_800D92BC((void *) (&stack.sp8), 0xF);
+    TObjPlayer__sub_800D92BC((void *)&stack.sp8, 0xF);
 }
 
 void TObjEneMerillLia::vfunc_93() {  }
@@ -1099,12 +1099,12 @@ s32 TObjEneMerillLia::update_kafun_attack(void *p) {
     case 1:
         if (objInBand((GameObj *)(arg0), (f32)lbl_805DA30C) != 0) {
             advance_animation_playback(arg0);
-            push_matrix_from((void *) (&identity_matrix));
-            post_translate_matrix((void *) (arg0 + 0x38));
+            push_matrix_from(&identity_matrix);
+            post_translate_matrix(arg0 + 0x38);
             rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
             ((TObjEnemy *)arg0)->render_anim_model(lbl_805DA30C);
             pop_matrix();
-            push_matrix_from((void *) (anim_model_matrix_array + 0x450));
+            push_matrix_from((void *)(anim_model_matrix_array + 0x450));
             {
                 Vec_800D57C8 sp8 = lbl_8043C6D0;
                 matrix_mult_vec(0, &sp8, &sp14);
@@ -1137,7 +1137,7 @@ s32 TObjEneMerillLia::update_kafun_attack(void *p) {
     }
     ((TObjPlayer *)arg0)->update_collisions();
     ((TObjPlayer *)arg0)->update_enemy_collision_flags();
-    minimap_render_dot((void *) (arg0 + 0x38), -0x5DB4, 1, 0);
+    minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
 }
 #undef arg0
 
@@ -1455,7 +1455,7 @@ void render__16TObjEneMerillLiaFPv(u8 *arg0) {
     TObjFish::set_global_param((int) ((RecoveredFields_800D6810_arg0 *) arg0)->field_24);
     push_matrix();
     translate_matrix(0, (f32) TObjEneMerillLia__data_805DA300, (f32) ((RecoveredFields_800D6810_arg0 *) arg0)->field_380, (f32) TObjEneMerillLia__data_805DA300);
-    post_translate_matrix((void *) (arg0 + 0x38));
+    post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, (int) ((RecoveredFields_800D6810_arg0 *) arg0)->field_60);
     if (TObjPlayer::check_demo_mode() == 1)
     {
@@ -1508,7 +1508,7 @@ void render__16TObjEneMerillLiaFPv(u8 *arg0) {
       stack.sp8 = lbl_805DA32C;
       stack.spC = TObjEneMerillLia__data_805DA2F4;
       stack.sp10 = lbl_805DA330;
-      ((TObjEnemy *)arg0)->render_with_position_override((u8 *)(&stack.sp8), 0);
+      ((TObjEnemy *)arg0)->render_with_position_override((u8 *)&stack.sp8, 0);
     }
   }
 }

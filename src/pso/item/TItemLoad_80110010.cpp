@@ -105,7 +105,7 @@ void TItemLoad::get_item_params(s32 *bml_model, s32 *arg1, s32 *bml_motion) {
 
 void TItemLoad::get_model_ids(u8 arg0, s32 *bml_model, s32 *arg2) {
     if ((bml_model != NULL) && (arg2 != NULL)) {
-        *bml_model = get_bml_model(TItemLoad__bml_resource, (s32)(arg0 + 2));
+        *bml_model = get_bml_model(TItemLoad__bml_resource, arg0 + 2);
         *arg2 = TObjFish__sub_8001EDB0(TItemLoad__bml_resource, 0);
     }
 }

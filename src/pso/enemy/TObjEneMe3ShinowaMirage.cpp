@@ -354,7 +354,7 @@ void TObjEneMe3ShinowaMirage::activate_mirage(s32 arg1) {
         VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(entity + 0x38));
         VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
         VecCopy((Vec *)(*(s32 *)&this->m_a4 + 0x1C), (const Vec *)(arg0 + 0x38));
-        ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz((void *) (entity + 0x5C));
+        ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz((void *)(entity + 0x5C));
         temp_r4 = *(s32 *)&this->actorFlags & 0xFFFFF7FF;
         *(s32 *)&this->actorFlags = temp_r4;
         *(s32 *)&this->actorFlags = 0x20000000;
@@ -365,9 +365,9 @@ void TObjEneMe3ShinowaMirage::activate_mirage(s32 arg1) {
         temp_r4_2 = *(s32 *)((s8 *)arg0 + 0x3C4) & 0xFFFFFDFF;
         *(s32 *)((s8 *)arg0 + 0x3C4) = temp_r4_2;
         this->m_b8 = 0xA;
-        advance_animation_playback((void *)(arg0), (int)(temp_r4_2));
+        advance_animation_playback(arg0, temp_r4_2);
         this->m_c0 = (f32) (u32) (*(s32 *)((s8 *)(*(void * *)&this->unknownF8) + 4) - 1);
-        transition_enemy_state((void*)(arg0), 8);
+        transition_enemy_state(arg0, 8);
         clear_mirage();
     }
 }
@@ -389,7 +389,7 @@ extern s32 __vt__23TObjEneMe3ShinowaMirage[];
 void TObjEneMe3ShinowaMirage::vfunc_63() {
     u8 *arg0 = (u8 *)this;
     if ((s16) this->mode != 0xF) {
-        transition_enemy_state((void*)(arg0), 0xF);
+        transition_enemy_state(arg0, 0xF);
     }
 }
 

@@ -20,9 +20,9 @@ void TUnk_804A5340::render() {
     if ((is_owner_alive__15TItemShootModelFv() != 0) && ((u32) *(u32 *)&this->m_58 != 0U) && ((u32) *(u32 *)&this->m_5C != 0U)) {
         push_matrix();
         TObjPlayer::notify_fish_if_valid((int) (*(u32 *)&this->m_5C));
-        post_translate_matrix((void *) (arg0 + 0x1C));
+        post_translate_matrix(arg0 + 0x1C);
         rotate_matrix_y(0, this->m_count);
-        rotate_matrix_x(0, (int) (this->m_28 - 0x4000));
+        rotate_matrix_x(0, this->m_28 - 0x4000);
         draw_ginja_object((void *)(*(u32 *)&this->m_58));
         pop_matrix();
     }

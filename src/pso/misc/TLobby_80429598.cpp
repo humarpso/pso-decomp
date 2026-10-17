@@ -180,7 +180,7 @@ typedef char RecoveredGlobal_80428360_lbl_805CFC20_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8042839C_lbl_805D0A40_size[sizeof(RecoveredGlobal_8042839C_lbl_805D0A40) == 0x60 ? 1 : -1];
 
 void TLobby::wake_network_thread() {
-    OSWakeupThread((void *) (&network_thread_queue));
+    OSWakeupThread(&network_thread_queue);
 }
 
 void TLobby::exi_write(s32 arg0, s32 arg1, s32 arg2) {
@@ -270,7 +270,7 @@ void TLobby::copy_6_byte_config() {
 
 void TLobby::copy_mac_address() {
     s32 arg0 = (s32)this;
-    memcpy((void *) (&exi_mac_address), (void *)arg0, 6);
+    memcpy(&exi_mac_address, (void *)arg0, 6);
 }
 
 void TLobby__sub_8042B58C(u32 arg0, s32 arg1) {
@@ -443,14 +443,14 @@ void enable_network_multicast_address(void *arg0) {
     EXISelect(0, 2, 5);
     EXIImm(0, &cmd0, 4, 1, 0);
     EXISync(0);
-    EXIImmEx(0, (s32) (&val0), 1, 0);
+    EXIImmEx(0, (s32)&val0, 1, 0);
     EXIDeselect(0);
     val1 = val0 | 4;
     cmd1 = 0xC0000100;
     EXISelect(0, 2, 5);
     EXIImm(0, &cmd1, 4, 1, 0);
     EXISync(0);
-    EXIImmEx(0, (s32) (&val1), 1, 1);
+    EXIImmEx(0, (s32)&val1, 1, 1);
     EXIDeselect(0);
   }
   else
@@ -462,7 +462,7 @@ void enable_network_multicast_address(void *arg0) {
     EXISelect(0, 2, 5);
     EXIImm(0, &cmd2, 4, 1, 0);
     EXISync(0);
-    EXIImmEx(0, (s32) (&val2), 1, 0);
+    EXIImmEx(0, (s32)&val2, 1, 0);
     EXIDeselect(0);
     filter_bits = val2;
     filter_bits = filter_bits | (1 << ((u8) (bit % 8)));
@@ -471,7 +471,7 @@ void enable_network_multicast_address(void *arg0) {
     EXISelect(0, 2, 5);
     EXIImm(0, &cmd3, 4, 1, 0);
     EXISync(0);
-    EXIImmEx(0, (s32) (&val3), 1, 1);
+    EXIImmEx(0, (s32)&val3, 1, 1);
     EXIDeselect(0);
   }
   EXIUnlock(0);

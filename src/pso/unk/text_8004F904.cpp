@@ -56,7 +56,7 @@ void TObjDFDemo5::update_particle_emitters() {
             ((TNowLoading *)temp_r3_4)->copy_pos((u8 *)&this->m_10c);
         }
     }
-    particle_emitter = (u32 *)((u8 *)(arg0 + 0x9C));
+    particle_emitter = (u32 *)(arg0 + 0x9C);
     for (i = 0; i < 2; i++) {
         if ((s32) *(s32 *)&this->m_e4 >= 0x2D) {
             temp_r3_6 = *particle_emitter;
@@ -77,7 +77,7 @@ void TObjDFDemo5::update_particle_emitters() {
                 ((TNowLoading *)temp_r3_7)->copy_pos(temp_r4);
             }
         }
-        particle_emitter = (u32 *)((u8 *)(arg0 + 0xA0));
+        particle_emitter = (u32 *)(arg0 + 0xA0);
     }
 }
 

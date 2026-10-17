@@ -305,9 +305,9 @@ s32 TBreakUpMdl::build_node_records(u8 *arg1, s32 arg2) {
     var_r29 = arg2;
     do {
         push_matrix();
-        post_translate_matrix((void *) (var_r28 + 8));
-        rotate_matrix_by_node_angles((void *) (var_r28 + 0x14), 0);
-        scale_current_matrix((void *) (var_r28 + 0x20));
+        post_translate_matrix(var_r28 + 8);
+        rotate_matrix_by_node_angles(var_r28 + 0x14, 0);
+        scale_current_matrix(var_r28 + 0x20);
         temp_r30 = *(s32 *)((s8 *)var_r28 + 0);
         if (!(temp_r30 & 8)) {
             temp_r31 = (u8 *)(*(s32 *)&this->m_flags + (var_r29 * 0x1C));

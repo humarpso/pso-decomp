@@ -70,7 +70,7 @@ void render__26TWindowSubQuestBoardSelectFv(u8 *arg0) {
     draw_window_frame(arg0, temp_r3);
     forward_render__20TWindowSubStatusDispFv((int) (*(s32 *)&((TWindowSubQuestBoardSelect *)arg0)->m_64), temp_r3);
     TWindowSubQuestBoardSelect__sub_8027D444(arg0, temp_r3);
-    draw_visible_window_entries(arg0, (void *) (arg0 + 0x24), temp_r3);
+    draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
 }
 typedef char RecoveredGlobal_8027D888_lbl_8050E208_size[sizeof(RecoveredGlobal_8027D888_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void TWindowSubQuestBoardSelect::run_task() {
@@ -93,7 +93,7 @@ void TWindowSubQuestBoardSelect::run_task() {
         ((TWindowSubStatusDisp *)(*(s32 *)&this->m_64))->update_subwindow();
     }
     ((TUnk_804CE018 *)arg0)->update_fade();
-    ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (arg0 + 0x24));
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list(arg0 + 0x24);
 }
 
 }

@@ -75,7 +75,7 @@ typedef char RecoveredGlobal_80291D4C_lbl_80540958_size[sizeof(RecoveredGlobal_8
 s32 *TLobby__sub_80291D4C(void) {
     s32 character_save_record;
     character_save_record = get_character_save_record(0xFFFFU);
-    decode_obfuscated_string__6TLobbyFPvi((void *) (&lbl_80540958.value), (void *) (character_save_record + 0x229C), 0xC, character_save_record);
+    decode_obfuscated_string__6TLobbyFPvi((void *)&lbl_80540958.value, (void *)(character_save_record + 0x229C), 0xC, character_save_record);
     return &lbl_80540958.value;
 }
 u32 get_character_creation_selected_entry_id(void) {  return TObjCMMainMenu__selected_entry_id; }
@@ -205,12 +205,12 @@ void CreationCamera::advance_manual(){
   else
     if (TObjCMProportion__sub_8029914C(0x80) != 0)
   {
-    this->yaw = (s32) (this->yaw + 0x444);
+    this->yaw = (this->yaw + 0x444);
   }
   else
     if (TObjCMProportion__sub_8029914C(0x40) != 0)
   {
-    this->yaw = (s32) (this->yaw - 0x444);
+    this->yaw = (this->yaw - 0x444);
   }
   this->distance = (f32) (this->distance + TObjCMProportion::get_right_trigger_ratio());
   this->distance = (f32) (this->distance - TObjCMProportion::get_ratio());

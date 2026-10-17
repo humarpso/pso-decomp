@@ -104,7 +104,7 @@ void TOMine::run_task() {
             return;
         case 3:
             temp_r3 = *(s32 *)&this->m_8c;
-            *(s32 *)&this->m_8c = (s32) (temp_r3 - 1);
+            *(s32 *)&this->m_8c = (temp_r3 - 1);
             if (temp_r3 < 0) {
                 this->mode = 4;
             }

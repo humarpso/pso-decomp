@@ -125,7 +125,7 @@ void TObjPlayer__sub_8030A9B0() {
     rot = (TBoss4ZakoDraw__rotation_phase << 16) / 16;
     VecCopy((Vec *)&pos, (const Vec *)(camera_ctrl_instance + 0x178));
     i = 0;
-    *(f32 *)((s8 *)(&pos) + 4) = lbl_805DF13C;
+    *(f32 *)((s8 *)&pos + 4) = lbl_805DF13C;
     for (; i < tbl->count; i++, e++) {
         if (e->f0c != 0 || e->y < lbl_805DF140) {
             continue;
@@ -138,7 +138,7 @@ void TObjPlayer__sub_8030A9B0() {
         k = lbl_805DF148 - t * (t * t);
         push_matrix();
         v = *(Raw_8030A9B0 *)e;
-        *(f32 *)((s8 *)(&v) + 4) = lbl_805DF13C;
+        *(f32 *)((s8 *)&v + 4) = lbl_805DF13C;
         post_translate_matrix(&v);
         rotate_matrix_y(0, e->f10 + rot);
         col.a = lbl_805DF14C;
@@ -179,12 +179,12 @@ void TCameraCtrl__sub_8030ABF4(void) {
     s32 *var_r3;
     u8 *var_r31;
     u8 *var_r4;
-    var_r3 = (s32 *)(&boss4_zako_draw_buffers.value);
-    var_r3 = (s32 *)(&boss4_zako_draw_buffers.value);
-    if ((s32) *(s32 *)((s8 *)((u8 *)(&boss4_zako_draw_buffers.value) + (TBoss4ZakoDraw__draw_buffer_index * 0x784)) + 0) != 0) {
-        var_r3 = (s32 *)(&TCameraCtrl__data_804FF634.value);
-        var_r3 = (s32 *)(&TCameraCtrl__data_804FF634.value);
-        var_r31 = (u8 *)(&TCameraCtrl__data_804FF634.value) + 0x30;
+    var_r3 = (s32 *)&boss4_zako_draw_buffers.value;
+    var_r3 = (s32 *)&boss4_zako_draw_buffers.value;
+    if ((s32) *(s32 *)((s8 *)((u8 *)&boss4_zako_draw_buffers.value + (TBoss4ZakoDraw__draw_buffer_index * 0x784)) + 0) != 0) {
+        var_r3 = (s32 *)&TCameraCtrl__data_804FF634.value;
+        var_r3 = (s32 *)&TCameraCtrl__data_804FF634.value;
+        var_r31 = (u8 *)&TCameraCtrl__data_804FF634.value + 0x30;
         if (is_split_screen() == 0) {
             var_r4 = var_r31;
             var_r3 = (s32 *)((u8 *)((s32 *)2));

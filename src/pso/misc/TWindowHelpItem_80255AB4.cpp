@@ -55,9 +55,9 @@ void TWindowHelpItem__sub_80255B20(u8 *arg0) {
     s32 temp_r3;
     u8 temp_r3_2;
 
-    temp_r3 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)((void *) (arg0 + 0xA8)));
+    temp_r3 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)(arg0 + 0xA8));
     draw_window_frame(arg0, temp_r3);
-    draw_visible_window_entries(arg0, (void *) (arg0 + 0x24), temp_r3);
+    draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     temp_r3_2 = ((TWindowHelpItem *)arg0)->m_60;
     if ((temp_r3_2 & 1) && (temp_r3_2 & 2)) {
         draw_list_page_indicator((int) (*(s32 *)&((TWindowHelpItem *)arg0)->m_64), temp_r3);

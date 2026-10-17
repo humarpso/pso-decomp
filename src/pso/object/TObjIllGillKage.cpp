@@ -28,7 +28,7 @@ void TObjIllGillKage::tick_persistent_sound() {
     s32 temp_r3;
     play_persistent_sound(0x4003A357, (s32)(((u8 *)this)), (u32)(((u8 *)this) + 0x38), 0, 0);
     temp_r3 = *(s32 *)&this->m_94;
-    *(s32 *)&this->m_94 = (s32) (temp_r3 - 1);
+    *(s32 *)&this->m_94 = (temp_r3 - 1);
     if (temp_r3 < 0) {
         *(s32 *)&this->m_90 = 2;
     }
@@ -83,7 +83,7 @@ u8 *TObjIllGillKage__ct(u8 *arg0, s32 arg1, u32 arg2) {
         *(s32 *)&((TObjIllGillKage *)arg0)->m_90 = 0;
     } else {
         ((TObjIllGillKage *)arg0)->m_98 = 0xFFFFU;
-        queue_destruction__7TObjectFv((void*)(arg0));
+        queue_destruction__7TObjectFv(arg0);
     }
     return arg0;
 }

@@ -229,7 +229,7 @@ s32 TFogCtrl::select_fog_for_viewport(s32 arg0, s32 arg1, s32 arg2) {
         arg0 = 0;
     }
     if ((arg0 >= 0) && (arg0 < 4) && ((u32) TFogCtrl__fog_instance_table[arg0] != 0U)) {
-        return ((s32)((TFogCtrl *)(TFogCtrl__fog_instance_table[arg0]))->select_fog((s32)(arg1), (s32)(arg2)));
+        return ((s32)((TFogCtrl *)(TFogCtrl__fog_instance_table[arg0]))->select_fog(arg1, arg2));
     }
     return 0;
 }
@@ -775,7 +775,7 @@ void create_area_fog_ctrl(void) {
             var_r3 = (s32 *)((u8 *)((s32 *)0x1C8));
             temp_r3 = __nw__7TObjectFUl(0x1C8);
             if (temp_r3 != 0U) {
-                var_r4 = (s32 *)(tl_02);
+                var_r4 = (s32 *)tl_02;
                 var_r5 = var_r31;
                 ((s32 (*)(int, int, int))TFogCtrl__ct)((int)temp_r3, (int)var_r4, (int)var_r5);
             }
@@ -785,15 +785,15 @@ void create_area_fog_ctrl(void) {
         var_r3 = (s32 *)((u8 *)((s32 *)0x1C8));
         temp_r3_2 = __nw__7TObjectFUl(0x1C8);
         if (temp_r3_2 != 0U) {
-            var_r4 = (s32 *)(tl_02);
+            var_r4 = (s32 *)tl_02;
             var_r5 = 0;
             ((s32 (*)(int, int, int))TFogCtrl__ct)((int)temp_r3_2, (int)var_r4, 0);
         }
     }
     TObjFogCollisionPoison::create();
-    var_r4 = (s32 *)(&area_fog_row_table.value);
-    var_r3 = (s32 *)(&area_fog_row_table.value);
-    var_r3 = (s32 *)(*(s32 *)((s8 *)(&area_fog_row_table.value) + (TOKeyMachine01::get_global_state() * 4)));
+    var_r4 = (s32 *)&area_fog_row_table.value;
+    var_r3 = (s32 *)&area_fog_row_table.value;
+    var_r3 = (s32 *)(*(s32 *)((s8 *)&area_fog_row_table.value + (TOKeyMachine01::get_global_state() * 4)));
     var_r4 = (s32 *)((u8 *)((s32 *)1));
     TFogCtrl::update_all((int)var_r3, 1);
 }

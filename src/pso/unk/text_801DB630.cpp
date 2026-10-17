@@ -12,7 +12,7 @@ void TProtocol::handle_cmd_97(packet &pkt) {
 
     sp8 = *arg1;
     ((packet_header *)(&sp8))->bswap();
-    temp_r3 = *(u8 *)((s8 *)(&sp8) + 1);
+    temp_r3 = *(u8 *)((s8 *)&sp8 + 1);
     temp_r12 = *(s32 (**)(u8))((s8 *)this + 0xBC44);
     if (temp_r12 != NULL) {
         temp_r12(temp_r3);

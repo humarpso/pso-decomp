@@ -117,7 +117,7 @@ s32 memcard_check_snapshot(s32 arg0, s32 *arg1) {
         }
         return 1;
     }
-    if ((u32) (temp_r3 + 0x10000) == 0xff41U) {
+    if ((temp_r3 + 0x10000) == 0xff41U) {
         if (arg1 != NULL) {
             *arg1 = -9;
         }

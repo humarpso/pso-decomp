@@ -930,7 +930,7 @@ void TBoss4Type3::enter_libera() {
 void TBoss4Type3::update_bura() {
     S_80058380 *o = (S_80058380 *)this;
     if (o->f398 > 0x48) {
-        o->f39c = TBoss4Type3__data_805D8C34 - (f32)(o->f398 - 0x48) / lbl_805D8C38;
+        o->f39c = TBoss4Type3__data_805D8C34 - (o->f398 - 0x48) / lbl_805D8C38;
     } else {
         o->f39c = TBoss4Type3__data_805D8C34;
     }
@@ -1155,7 +1155,7 @@ void TBoss4Type3::update_light_magic() {
                 g.f0 = 1;
                 g.f4 = i;
                 g.f6 = 0;
-                TTecGrants::create((void *)arg0, (void *)sub, (void *)(&g), (void *)r29);
+                TTecGrants::create((void *)arg0, (void *)sub, &g, (void *)r29);
             }
         }
         TBoss3Volopt::queue_event_1D(0xC0, 0xF);
@@ -1293,7 +1293,7 @@ void TBoss4Type3::enter_go_down() {
     *(s32 *)&this->m_3a4 = 0x11;
     this->m_3a0 = 0x10;
     *(s32 *)&this->m_3ac = (s32) *(s32 *)&this->m_3a8;
-    play_sound_effect(0x4003B032, (void *)(arg0 + 0x38), 0, 1);
+    play_sound_effect(0x4003B032, arg0 + 0x38, 0, 1);
     if ((u16) this->m_3ba == (u16)-1) {
         play_sound_effect(0x4003C62D, (void *)(0), 0, 0);
     }
@@ -1338,7 +1338,7 @@ void TBoss4Type3::enter_go_up() {
     *(s32 *)&this->m_3a4 = (s32) this->m_3a0;
     this->m_3a0 = 0x11;
     *(s32 *)&this->m_3ac = (s32) *(s32 *)&this->m_3a8;
-    play_sound_effect(0x4003B031, (void *)(arg0 + 0x38), 0, 1);
+    play_sound_effect(0x4003B031, arg0 + 0x38, 0, 1);
     *(s32 *)&this->m_52c = 1;
     this->m_398 = 0x31;
 }
@@ -1349,7 +1349,7 @@ void TBoss4Type3::update_cut() {
   Vec_800590F4 a;
   if (o->f398 > 0x2A)
   {
-    o->f39c = TBoss4Type3__data_805D8C34 - (((f32) (o->f398 - 0x2A)) / lbl_805D8C54);
+    o->f39c = TBoss4Type3__data_805D8C34 - ((o->f398 - 0x2A) / lbl_805D8C54);
   }
   else
   {
@@ -1372,7 +1372,7 @@ void TBoss4Type3::update_cut() {
       ((s32 (*)(void *))post_translate_matrix)(o->f38);
       rotate_matrix_y(0, o->f60);
       matrix_mult_vec(0, e, &a);
-      pb = (0, (s32) (&b));
+      pb = (0, (s32)&b);
       matrix_mult_vec(0, e + 0xC, (void *) pb);
       pop_matrix();
       o->f524[idx]->m4(&a, (Vec_800590F4 *) pb);
@@ -1466,21 +1466,21 @@ void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0) {
     typedef char sp34_offset[(offsetof(Stack_80059450, sp34) == 0x2C) ? 1 : -1];
     Stack_80059450 stack;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x52C) == 1) {
-        stack.sp2C = *(s32 *)((s8 *)(&lbl_80437854.value) + 0);
-        stack.sp30 = *(s32 *)((s8 *)(&lbl_80437854.value) + 4);
-        stack.sp34 = *(s32 *)((s8 *)(&lbl_80437854.value) + 8);
-        stack.sp20 = *(s32 *)((s8 *)(&lbl_80437860.value) + 0);
-        stack.sp24 = *(s32 *)((s8 *)(&lbl_80437860.value) + 4);
-        stack.sp28 = *(s32 *)((s8 *)(&lbl_80437860.value) + 8);
+        stack.sp2C = *(s32 *)((s8 *)&lbl_80437854.value + 0);
+        stack.sp30 = *(s32 *)((s8 *)&lbl_80437854.value + 4);
+        stack.sp34 = *(s32 *)((s8 *)&lbl_80437854.value + 8);
+        stack.sp20 = *(s32 *)((s8 *)&lbl_80437860.value + 0);
+        stack.sp24 = *(s32 *)((s8 *)&lbl_80437860.value + 4);
+        stack.sp28 = *(s32 *)((s8 *)&lbl_80437860.value + 8);
         request_follow_camera_offsets((&stack.sp20), (&stack.sp2C), (0xFFFFU));
         return;
     }
-    stack.sp14 = *(s32 *)((s8 *)(&lbl_8043786C.value) + 0);
-    stack.sp18 = *(s32 *)((s8 *)(&lbl_8043786C.value) + 4);
-    stack.sp1C = *(s32 *)((s8 *)(&lbl_8043786C.value) + 8);
-    stack.sp8 = *(s32 *)((s8 *)(&boss4_type3_follow_camera_offsets.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&boss4_type3_follow_camera_offsets.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&boss4_type3_follow_camera_offsets.value) + 8);
+    stack.sp14 = *(s32 *)((s8 *)&lbl_8043786C.value + 0);
+    stack.sp18 = *(s32 *)((s8 *)&lbl_8043786C.value + 4);
+    stack.sp1C = *(s32 *)((s8 *)&lbl_8043786C.value + 8);
+    stack.sp8 = *(s32 *)((s8 *)&boss4_type3_follow_camera_offsets.value + 0);
+    stack.spC = *(s32 *)((s8 *)&boss4_type3_follow_camera_offsets.value + 4);
+    stack.sp10 = *(s32 *)((s8 *)&boss4_type3_follow_camera_offsets.value + 8);
     request_follow_camera_offsets((&stack.sp8), (&stack.sp14), (0xFFFFU));
 }
 #pragma pop
@@ -1645,9 +1645,9 @@ s32 TBoss4Type3::choose_attack_heading_sector() {
     u16 id;
     id = ((u16 (*)(void))pick_random_target_player__11TBoss4Type3Fv)();
     if ((id == 0xFFFFU) || (TBoss4Type3__sub_8005254C(id) == 0)) {
-        return TBoss4Type3::get_random_scaled((void *)(arg0));
+        return TBoss4Type3::get_random_scaled((void *)arg0);
     }
-    VecCopy__FP3VecPC3Vec((void *) (&sp8), (void *) (((s32)get_player_by_client_id(id)) + 0x38));
+    VecCopy__FP3VecPC3Vec(&sp8, (void *) (((s32)get_player_by_client_id(id)) + 0x38));
     temp_f0 = sp8.f.x - lbl_805D8C7C;
     sp8.f.x = temp_f0;
     return ((u32) ((s32) ((*(const f64 *)&lbl_80437890) * atan2_float((f32) (-temp_f0), sp8.f.z)) + 0x800) >> 0xCU) & 0xF;
@@ -1747,7 +1747,7 @@ void update_scale_sound__11TBoss4Type3FPv(u8 *arg0) {
         }
     } else {
         var_r3 = *(s32 *)((s8 *)var_r31 + 0x3B4);
-        *(s32 *)((s8 *)var_r31 + 0x3B4) = (s32) (var_r3 + 1);
+        *(s32 *)((s8 *)var_r31 + 0x3B4) = (var_r3 + 1);
         temp_r0_2 = *(s32 *)((s8 *)var_r31 + 0x3B4);
         if (temp_r0_2 < 0x78) {
             *(f32 *)((s8 *)var_r31 + 0x3B0) = (f32) TBoss4Type3__data_805D8C34;
@@ -1775,7 +1775,7 @@ void update_scale_sound__11TBoss4Type3FPv(u8 *arg0) {
             var_r3 = 0x4003B02F;
             var_r5 = 0;
             var_r6 = 1;
-            ((s32 (*)(s32, s32, s32, s32))play_sound_effect)(0x4003B02F, (s32)(var_r4), 0, 1);
+            ((s32 (*)(s32, s32, s32, s32))play_sound_effect)(0x4003B02F, (s32)var_r4, 0, 1);
         }
         if ((temp_f31 > TBoss4Type3__data_805D8C40) && (TBoss4Type3__data_805D8C40 == *(f32 *)((s8 *)var_r31 + 0x3B0))) {
             var_r3 = 0x40040000;
@@ -1783,7 +1783,7 @@ void update_scale_sound__11TBoss4Type3FPv(u8 *arg0) {
             var_r3 = 0x4003AD30;
             var_r5 = 0;
             var_r6 = 1;
-            ((s32 (*)(s32, s32, s32, s32))play_sound_effect)(0x4003AD30, (s32)(var_r4), 0, 1);
+            ((s32 (*)(s32, s32, s32, s32))play_sound_effect)(0x4003AD30, (s32)var_r4, 0, 1);
         }
     }
 }
@@ -1919,7 +1919,7 @@ void TBoss4Type3::set_anim_state(s32 arg1) {
     if (arg1 != -1) {
         this->m_3f0 = arg1;
         this->m_3f4 = (f32) TBoss4Type3__data_805D8C40;
-        *(s32 *)&this->_pad400 = (s32) *(s32 *)((s8 *)((u8 *)(&TBoss4Type3__anim_state_table.value) + (arg1 * 0x14)) + 0);
+        *(s32 *)&this->_pad400 = (s32) *(s32 *)((s8 *)((u8 *)&TBoss4Type3__anim_state_table.value + (arg1 * 0x14)) + 0);
     }
 }
 

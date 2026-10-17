@@ -75,11 +75,11 @@ s16 TObjHashiBase::update_object_view_visibility(f32 farg0, f32 farg1) {
     if (TMainTask::get_state_flag() == 1) {
         return this->m_1e;
     }
-    if (xz_distance_squared((void *) (camera_ctrl_instance + 0x178), (void *) (arg0 + 0x38)) < (farg1 * farg1)) {
+    if (xz_distance_squared((void *)(camera_ctrl_instance + 0x178), (void *)(arg0 + 0x38)) < (farg1 * farg1)) {
         this->m_1e = 1;
         return 1;
     }
-    matrix_mult_vec(0, (void *) (arg0 + 0x38), (void *) (&stack.sp10));
+    matrix_mult_vec(0, (void *)(arg0 + 0x38), (void *)&stack.sp10);
     if (stack.sp18 > lbl_805DBE2C) {
         this->m_1e = 0;
         return 0;
@@ -89,20 +89,20 @@ s16 TObjHashiBase::update_object_view_visibility(f32 farg0, f32 farg1) {
         return 0;
     }
     if (stack.sp10 < lbl_805DBE2C) {
-        stack.sp10 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 0) * farg1) + *(f32 *)((s8 *)arg0 + 0x38);
-        stack.sp14 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 4) * farg1) + *(f32 *)((s8 *)arg0 + 0x3C);
-        stack.sp18 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 8) * farg1) + *(f32 *)((s8 *)arg0 + 0x40);
-        project_world_to_screen(0, (void *) (&stack.sp10), (void *) (&stack.sp8));
+        stack.sp10 = (*(f32 *)((s8 *)&lbl_804FF610.value + 0) * farg1) + *(f32 *)((s8 *)arg0 + 0x38);
+        stack.sp14 = (*(f32 *)((s8 *)&lbl_804FF610.value + 4) * farg1) + *(f32 *)((s8 *)arg0 + 0x3C);
+        stack.sp18 = (*(f32 *)((s8 *)&lbl_804FF610.value + 8) * farg1) + *(f32 *)((s8 *)arg0 + 0x40);
+        project_world_to_screen(0, (void *)&stack.sp10, (void *)&stack.sp8);
         if (stack.sp8 < lbl_805DBE2C) {
             this->m_1e = 0;
             return 0;
         }
         goto block_13;
     }
-    stack.sp10 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 0) * farg1) - *(f32 *)((s8 *)arg0 + 0x38));
-    stack.sp14 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 4) * farg1) - *(f32 *)((s8 *)arg0 + 0x3C));
-    stack.sp18 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 8) * farg1) - *(f32 *)((s8 *)arg0 + 0x40));
-    project_world_to_screen(0, (void *) (&stack.sp10), (void *) (&stack.sp8));
+    stack.sp10 = -((*(f32 *)((s8 *)&lbl_804FF610.value + 0) * farg1) - *(f32 *)((s8 *)arg0 + 0x38));
+    stack.sp14 = -((*(f32 *)((s8 *)&lbl_804FF610.value + 4) * farg1) - *(f32 *)((s8 *)arg0 + 0x3C));
+    stack.sp18 = -((*(f32 *)((s8 *)&lbl_804FF610.value + 8) * farg1) - *(f32 *)((s8 *)arg0 + 0x40));
+    project_world_to_screen(0, (void *)&stack.sp10, (void *)&stack.sp8);
     if (stack.sp8 > lbl_805DBE30) {
         this->m_1e = 0;
         return 0;

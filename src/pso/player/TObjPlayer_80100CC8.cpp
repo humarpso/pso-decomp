@@ -42,7 +42,7 @@ void TWindowSubStatusDisp::lookup_item_data() {
     s32 sp8[4];
 
     copy_to_item_data__5TItemFPv(this, &sp8);
-    TLobby::get_item_data((u32)(&sp8));
+    TLobby::get_item_data((u32)&sp8);
 }
 
 }

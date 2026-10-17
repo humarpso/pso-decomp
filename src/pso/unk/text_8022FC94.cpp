@@ -172,7 +172,7 @@ void TTecFoie::init_projectile_params() {
   ((TTecAnti *)(arg0 + 0xCC))->copy_params((u8 *)new_var);
   if ((((s16) ((RecoveredFields_8022FE84_arg0 *) arg0)->field_C4) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
-    ((RecoveredFields_8022FE84_arg0 *) arg0)->field_CC = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 2))) * ((RecoveredFields_8022FE84_arg0 *) arg0)->field_C4));
+    ((RecoveredFields_8022FE84_arg0 *) arg0)->field_CC = (f32) ((*((s16 *) (((s8 *)&tech_high_level_linear_power_table.value) + 0))) + ((*((s16 *) (((s8 *)&tech_high_level_linear_power_table.value) + 2))) * ((RecoveredFields_8022FE84_arg0 *) arg0)->field_C4));
   }
   else
   {

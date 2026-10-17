@@ -42,7 +42,7 @@ u16 TShopWindowBase::sub_8022397C() {
     u32 temp_r3;
     temp_r3 = *(u32 *)((s8 *)arg0 + 0x24);
     if (temp_r3 != 0U) {
-        return TShopGenerator__sub_80222DAC((obj_getField1c((void *)(temp_r3))));
+        return TShopGenerator__sub_80222DAC((obj_getField1c((void *)temp_r3)));
     }
     return 0U;
 }

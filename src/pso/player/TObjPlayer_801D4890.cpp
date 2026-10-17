@@ -87,7 +87,7 @@ s32 TObjPlayer::update_inventory_item(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s3
     *(s16 *)((s8 *)temp_r3_2 + 0x28) = ((TUnk_804B9870 *)arg1)->get_stat_by_key_state();
     place_on_ground__5TItemFPvsPvi(temp_r3_2, client, arg3, 0);
     temp_r4 = *(s16 *)&this->m_1c;
-    *(s16 *)&this->m_1c = (s16) (temp_r4 - 1);
+    *(s16 *)&this->m_1c = (temp_r4 - 1);
     queue_destruction__7TObjectFv(temp_r3, temp_r4);
     return 1;
 }
@@ -150,7 +150,7 @@ void remove_equipped_item__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
             unequip_item__10TObjPlayerFiPv(arg1, temp_r3);
         }
         temp_r4 = *(s16 *)((s8 *)arg0 + 0x1C);
-        *(s16 *)((s8 *)arg0 + 0x1C) = (s16) (temp_r4 - 1);
+        *(s16 *)((s8 *)arg0 + 0x1C) = (temp_r4 - 1);
         ((VObj_801D4A6C *)temp_r3)->m27(temp_r4);
         ((s32 (*)(s32)) queue_destruction__7TObjectFv)(arg2);
     }

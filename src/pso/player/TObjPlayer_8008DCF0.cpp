@@ -298,7 +298,7 @@ void TObjPlayer__sub_8008EDE8(P_8008EDE8 *arg0) {
                     move_with_wall_slide((u8 *)arg0);
                 }
             }
-            ((TObjPlayer *)arg0)->update_angle((s32)arg0->f350->f8, (void *)(&arg0->vel));
+            ((TObjPlayer *)arg0)->update_angle((s32)arg0->f350->f8, &arg0->vel);
             arg0->f3C0 = xz_distance_squared(&arg0->pos, &arg0->target->pos);
             if (arg0->f3C0 <= ((TObjPlayer *)(arg0->f318))->get_pos_x() * ((TObjPlayer *)(arg0->f318))->get_pos_x()) {
                 arg0->fB8 = 2;
@@ -389,7 +389,7 @@ void TObjPlayer__sub_8008F1DC(void *arg0) {
                     move_with_wall_slide((u8 *)o);
                 }
             }
-            ((TObjPlayer *)o)->update_angle((s32)o->f350->f8, (void *)(&o->vel));
+            ((TObjPlayer *)o)->update_angle((s32)o->f350->f8, &o->vel);
             o->f3C0 = xz_distance_squared(&o->pos, &FLD(T_8008F1DC *, 0x2A8)->pos);
             if (o->f3C0 <= ((TObjPlayer *)(o->f318))->get_pos_x() * ((TObjPlayer *)(o->f318))->get_pos_x()) {
                 FLD(s16, 0xB8) = 7;
@@ -433,7 +433,7 @@ void TObjPlayer__sub_8008F1DC(void *arg0) {
                 move_with_wall_slide((u8 *)o);
             }
         }
-        ((TObjPlayer *)o)->update_angle((s32)o->f350->f8, (void *)(&o->vel));
+        ((TObjPlayer *)o)->update_angle((s32)o->f350->f8, &o->vel);
         if (objInBand((GameObj *)o, (f32)lbl_805D964C) != 0) {
             play_sound_effect(0x4003B034, (u8 *)o + 0x38, 0, 0);
             if (FLD(T_8008F1DC *, 0x2A8)->m18(o, lbl_805D9650) != 0) {
@@ -601,7 +601,7 @@ void TObjPlayer__sub_8008FAD0(u8 *arg0) {
             Vec_8008FAD0 pos = *(Vec_8008FAD0 *)(*(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC);
             update_enemy_wander_move(arg0, &pos, 1, *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 4));
         }
-        ((TObjPlayer *)arg0)->update_angle((s32)((void *)*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x350)) + 8)), (void *)(arg0 + 0x308));
+        ((TObjPlayer *)arg0)->update_angle((s32)((void *)*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x350)) + 8)), arg0 + 0x308);
         advance_animation_playback(arg0);
         apply_actor_gravity(arg0, 0, lbl_805D9620);
         ((TObjPlayer *)arg0)->update_collisions();

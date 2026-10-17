@@ -662,7 +662,7 @@ u8 *__ct__14TObjWarpStringFv(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TObjWarpString.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjWarpString__name;
-    strncpy((s32) (arg0 + 0x1C), arg2, 0x20);
+    strncpy((s32)(arg0 + 0x1C), arg2, 0x20);
     *(s8 *)((s8 *)arg0 + 0x3B) = 0;
     *(s16 *)((s8 *)arg0 + 0x48) = arg3;
     *(s32 *)((s8 *)arg0 + 0x3C) = -1;
@@ -842,7 +842,7 @@ void TObjAreaWarpEnding::run_task() {
   unsigned int new_var;
   *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xC4))) + lbl_805DBFDC);
   new_var = *((s32 *) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0xD4)))) + 4));
-  if (((f32) (new_var - 1)) < (*((f32 *) (((s8 *) arg0) + 0xC4))))
+  if ((new_var - 1) < (*((f32 *) (((s8 *) arg0) + 0xC4))))
   {
     *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) lbl_805DBFE4;
   }
@@ -882,7 +882,7 @@ u8 *TObjAreaWarpEnding__ct(u8 *arg0, s32 arg1, s32 arg2) {
         temp_r3 = ((TAdSinglePlyChrSelectGC *)0x88)->alloc();
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = init__13TAdVIConfigGCFf(temp_r3, (void *) (arg0 + 0x38), lbl_805DBFD8);
+            var_r0 = init__13TAdVIConfigGCFf(temp_r3, arg0 + 0x38, lbl_805DBFD8);
         }
         *(s32 *)((s8 *)arg0 + 0xC0) = var_r0;
     } else {
@@ -1019,7 +1019,7 @@ u8 *TObjAreaWarpQuest__ct(u8 *arg0, s32 arg1, s32 arg2) {
         temp_r3 = ((TAdSinglePlyChrSelectGC *)0x88)->alloc();
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = init__13TAdVIConfigGCFf(temp_r3, (void *) (arg0 + 0x38), lbl_805DBFD8);
+            var_r0 = init__13TAdVIConfigGCFf(temp_r3, arg0 + 0x38, lbl_805DBFD8);
         }
         *(s32 *)((s8 *)arg0 + 0xC0) = var_r0;
     } else {
@@ -1135,7 +1135,7 @@ u8 *TObjAreaWarpForest__ct(u8 *arg0, s32 arg1, s32 arg2) {
         temp_r3_2 = ((TAdSinglePlyChrSelectGC *)0x88)->alloc();
         var_r0 = temp_r3_2;
         if (var_r0 != 0) {
-            var_r0 = init__13TAdVIConfigGCFf(temp_r3_2, (void *) (arg0 + 0x38), lbl_805DBFD8);
+            var_r0 = init__13TAdVIConfigGCFf(temp_r3_2, arg0 + 0x38, lbl_805DBFD8);
         }
         *(s32 *)((s8 *)arg0 + 0xC0) = var_r0;
     } else {
@@ -1168,7 +1168,7 @@ void handle_6x94_inter_level_warp(Pkt_8019C988 *arg0) {
 }
 
 void confirm_area_transfer__12TObjAreaWarpFPvi(u8 *arg0, s32 arg1) {
-    ((s32 (*)(void *, int, int))set_area__6TLobbyFl)((void *) (&lbl_80515BA0.value), (int) (*(s32 *)((s8 *)arg0 + 0xBC)), (int) (get_floor_map_terrain(*(s32 *)((s8 *)arg0 + 0xBC))));
+    ((s32 (*)(void *, int, int))set_area__6TLobbyFl)(&lbl_80515BA0.value, (int) (*(s32 *)((s8 *)arg0 + 0xBC)), (int) (get_floor_map_terrain(*(s32 *)((s8 *)arg0 + 0xBC))));
     ((s32 (*)(void))mark_area_change_pending)();
     ((s32 (*)(void *))get_dest_area__17TObjAreaWarpQuestFv)(&lbl_80515BA0.value);
     ((s32 (*)(void))send_inter_level_warp_all__10TNpcPlayerFl)();

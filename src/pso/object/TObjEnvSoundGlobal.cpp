@@ -51,9 +51,9 @@ s32 TObjEnvSoundGlobal::setup_sound() {
     s32 var_r31;
     u32 temp_r4;
     var_r31 = 1;
-    temp_r4 = *(s32 *)((s8 *)(&environment_sound_tables_by_area.value) + (TOKeyMachine01::get_global_state() * 4));
+    temp_r4 = *(s32 *)((s8 *)&environment_sound_tables_by_area.value + (TOKeyMachine01::get_global_state() * 4));
     if (temp_r4 != 0U) {
-        copy_pair__18TObjEnvSoundGlobalFPvPv((void*)((void *) (arg0 + 0x94)), (void*)((int) (temp_r4 + (this->m_84 * 8))));
+        copy_pair__18TObjEnvSoundGlobalFPvPv((void*)((void *)(arg0 + 0x94)), (void*)((int) (temp_r4 + (this->m_84 * 8))));
     } else {
         var_r31 = 0;
         *(s32 *)&this->m_94 = -1;
@@ -137,9 +137,9 @@ s32 TObjEnvSoundEx::init_sound_params() {
     s32 var_r31;
     u32 temp_r4;
     var_r31 = 1;
-    temp_r4 = *(s32 *)((s8 *)(&environment_sound_tables_by_area.value) + (TOKeyMachine01::get_global_state() * 4));
+    temp_r4 = *(s32 *)((s8 *)&environment_sound_tables_by_area.value + (TOKeyMachine01::get_global_state() * 4));
     if (temp_r4 != 0U) {
-        ((s32 (*)(void *, int))copy_pair__18TObjEnvSoundGlobalFPvPv)((void *) (arg0 + 0x9C), (int) (temp_r4 + (this->m_84 * 8)));
+        ((s32 (*)(void *, int))copy_pair__18TObjEnvSoundGlobalFPvPv)((void *)(arg0 + 0x9C), (int) (temp_r4 + (this->m_84 * 8)));
     } else {
         var_r31 = 0;
         *(s32 *)&this->m_9c = -1;

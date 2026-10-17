@@ -59,7 +59,7 @@ void TObjEneBalClaw::render_scaled(s32 arg1) {
         v.x = t;
         v.y = t;
         v.z = t;
-        ((TObjEnemy *)arg0)->render_with_position_override((u8 *)(&v), 0);
+        ((TObjEnemy *)arg0)->render_with_position_override((u8 *)&v, 0);
     }
 }
 

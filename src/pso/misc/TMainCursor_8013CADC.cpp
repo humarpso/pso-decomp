@@ -464,25 +464,25 @@ void TLockOnCursor::renderSecondaryCursor(u8 *arg1, s32 arg2, s32 arg3) {
     if (is_inactive() != 0) {
         player = (u32)get_player_by_client_id((get_target_id()));
         if (player != 0U) {
-            temp_r3_2 = check_visible__11TMainCursorFv((void *) (player + 0x500), (int)player, (void *)arg2, (void *)arg3);
+            temp_r3_2 = check_visible__11TMainCursorFv((void *)(player + 0x500), (int)player, (void *)arg2, (void *)arg3);
             if (temp_r3_2 != -1) {
-                TObjFish::set_global_param((s32)((void *) (&shared_effect_texture_list)));
+                TObjFish::set_global_param((s32)(&shared_effect_texture_list));
                 temp_f31 = *(f32 *)((s8 *)arg1 + 0xC);
                 push_matrix();
-                offset_point_toward_camera((u8 *)(arg1 + 0x1C), (u8 *)(&sp8), temp_f31);
-                translate_matrix_vec3((u8 *)(0), (u8 *)(&sp8));
+                offset_point_toward_camera((u8 *)(arg1 + 0x1C), (u8 *)&sp8, temp_f31);
+                translate_matrix_vec3((u8 *)(0), (u8 *)&sp8);
                 rotate_matrix_y(0, (int) (*(s32 *)((s8 *)camera_ctrl_instance + 0x194)));
                 TParticleCtrl::begin_effect_render();
                 push_matrix();
                 translate_matrix(0, TMainCursor__data_805DB0C0, temp_f31, TMainCursor__data_805DB0C0);
-                TPlyPhotonChair::update_parts2((void *) (arg0 + 0x48));
-                TPlyPhotonChair::play_sound_with_arg((void *) (arg0 + 0x48), (void *) ((u8 *)&target_cursor_color_table.value + 0x50));
+                TPlyPhotonChair::update_parts2((void *)(arg0 + 0x48));
+                TPlyPhotonChair::play_sound_with_arg((void *)(arg0 + 0x48), (void *) ((u8 *)&target_cursor_color_table.value + 0x50));
                 TMainCursor::get_cursor_state();
                 draw_chunk_object();
-                TPlyPhotonChair::play_sound_with_arg((void *) (arg0 + 0x48), (void *) ((u8 *)&target_cursor_color_table.value + (temp_r3_2 * 0x10)));
+                TPlyPhotonChair::play_sound_with_arg((void *)(arg0 + 0x48), (void *) ((u8 *)&target_cursor_color_table.value + (temp_r3_2 * 0x10)));
                 TLockOnCursor__sub_8013EB34();
                 draw_chunk_object();
-                TPlyPhotonChair::update_parts((void *) (arg0 + 0x48));
+                TPlyPhotonChair::update_parts((void *)(arg0 + 0x48));
                 pop_matrix();
                 TParticleCtrl::end_effect_render();
                 pop_matrix();

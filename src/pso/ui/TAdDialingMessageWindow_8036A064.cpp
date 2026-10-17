@@ -16,7 +16,7 @@ void TUnk_804F3428::run_task() {
     if ((u32) this->m_20 != 0U) {
         temp_r3 = *(u32 *)&this->unk_1C;
         if (temp_r3 != 0U) {
-            *(u32 *)&this->unk_1C = (u32) (temp_r3 - 1);
+            *(u32 *)&this->unk_1C = (temp_r3 - 1);
             if ((u32) *(u32 *)&this->unk_1C == 0U) {
                 temp2_r3 = *(void * *)&this->m_20;
                 if ((u32) temp2_r3 != 0U) {

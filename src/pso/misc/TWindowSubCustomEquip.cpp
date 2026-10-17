@@ -192,7 +192,7 @@ void TWindowSubCustomEquip::update_rotate_anim() {
         if ((s32) (u16) (var_r4 - temp_r3) < 0xC00) {
             *(s32 *)&this->m_68 = var_r4;
         } else {
-            *(s32 *)&this->m_68 = (s32) (temp_r3 + 0xC00);
+            *(s32 *)&this->m_68 = (temp_r3 + 0xC00);
         }
     }
     if (*(s32 *)&this->m_68 & 0x8000) {
@@ -237,7 +237,7 @@ void TWindowSubCustomEquip::handle_cursor_input() {
     array_entry = (u8 *)(((u8 *)get_array_entry(7)));
     temp_r4 = this->m_63;
     if ((s8) temp_r4 > 0) {
-        this->m_63 = (u8) (temp_r4 - 1);
+        this->m_63 = (temp_r4 - 1);
         *(s32 *)((s8 *)temp_r31 + 0x2C) = -1;
         *(s32 *)((s8 *)array_entry + 0x2C) = -1;
     } else {
@@ -252,24 +252,24 @@ void TWindowSubCustomEquip::handle_cursor_input() {
             this->m_63 = 3U;
         }
         if ((apply_choice__20TWindowChoiceSettingFllll(temp_r31_2, 0x10, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x10, 6, 1) != 0)) {
-            this->m_61 = (u8) (this->m_61 - 1);
+            this->m_61 = (this->m_61 - 1);
         }
         if ((apply_choice__20TWindowChoiceSettingFllll(temp_r31_2, 0x20, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x20, 6, 1) != 0)) {
-            this->m_61 = (u8) (this->m_61 + 1);
+            this->m_61 = (this->m_61 + 1);
         }
         if ((apply_choice__20TWindowChoiceSettingFllll(temp_r31_2, 0x80, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x80, 6, 1) != 0)) {
-            this->m_61 = (u8) (this->m_61 - 1);
+            this->m_61 = (this->m_61 - 1);
         }
         if ((apply_choice__20TWindowChoiceSettingFllll(temp_r31_2, 0x40, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x40, 6, 1) != 0)) {
-            this->m_61 = (u8) (this->m_61 + 1);
+            this->m_61 = (this->m_61 + 1);
         }
         temp_r3_2 = this->m_61;
         if ((s8) temp_r3_2 < 0) {
-            this->m_61 = (u8) (temp_r3_2 + 3);
+            this->m_61 = (temp_r3_2 + 3);
         }
         temp_r3_3 = this->m_61;
         if ((s8) temp_r3_3 >= 3) {
-            this->m_61 = (u8) (temp_r3_3 - 3);
+            this->m_61 = (temp_r3_3 - 3);
         }
     }
 }
@@ -278,7 +278,7 @@ void render__21TWindowSubCustomEquipFv(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFl();
     draw_window_frame(arg0, temp_r3);
-    draw_visible_window_entries(arg0, (void *) (arg0 + 0x24), temp_r3);
+    draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     ((TWindowSubCustomEquip *)arg0)->draw_cursor((u8 *)temp_r3);
     forward_render__20TWindowSubStatusDispFv((int) (*(s32 *)&((TWindowSubCustomEquip *)arg0)->m_6c), temp_r3);
 }
@@ -306,8 +306,8 @@ void TWindowSubCustomEquip::run_task() {
         ((TWindowSubStatusDisp *)(*(s32 *)&this->m_6c))->update_subwindow();
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
-    ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (arg0 + 0x24));
-    this->m_66 = (s16) (this->m_66 + 1);
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list(arg0 + 0x24);
+    this->m_66 = (this->m_66 + 1);
 }
 
 void *__dt__21TWindowSubCustomEquipFv(void *arg0, s16 arg1) {

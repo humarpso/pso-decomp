@@ -133,7 +133,7 @@ u8 *TWindowComCard::create_for_card(s32 arg0, s32 arg1, s32 arg2) {
     if (var_r0 != NULL) {
         var_r4 = var_r30;
         var_r5 = var_r31;
-        var_r0 = (u8 *)(((u8 *)TWindowComCard__ct((u8 *)(temp_r3), (s32)(var_r4), (s32)(var_r5))));
+        var_r0 = (u8 *)(((u8 *)TWindowComCard__ct(temp_r3, var_r4, var_r5)));
     }
     var_r3 = var_r0;
     return var_r3;
@@ -167,7 +167,7 @@ s32 create_com_card_window__17TWindowSubComCardFi(s32 arg0) {
     temp_r3_2 = ((s32)__nw__7TObjectFUl(0x60));
     var_r0 = temp_r3_2;
     if (var_r0 != 0) {
-        var_r0 = ((s32)TWindowComCard__ct((u8 *)(temp_r3_2), (s32)(arg0), (s32)(keyboard_mode)));
+        var_r0 = ((s32)TWindowComCard__ct((u8 *)temp_r3_2, (s32)arg0, (s32)keyboard_mode));
     }
     return var_r0;
 }
@@ -176,7 +176,7 @@ void render__14TWindowComCardFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFl();
     draw_window_frame((void *)arg0, (int)temp_r3);
-    draw_visible_window_entries((void *)arg0, (void *) (arg0 + 0x24), (int)temp_r3);
+    draw_visible_window_entries((void *)arg0, (void *)(arg0 + 0x24), (int)temp_r3);
 }
 
 void run_task__14TWindowComCardFv(void* p) { initialize_subwindow__9TWindowDDFv(p); ((TUnk_804CE018 *)p)->update_fade(); ((TUnk_804CE018 *)p)->update_window_entry_list((char*)p + 0x24); }
@@ -334,7 +334,7 @@ void TUnk_804CE964::run_task() {
     this->m_44 = (f32) this->m_34;
     ((s32 (*)(void *, int, f32))initialize_subwindow__9TWindowDDFv)((void *)arg0, (int)temp_r4, (f32)temp_f1);
     ((TUnk_804CE018 *)arg0)->update_fade();
-    ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (arg0 + 0x24));
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list(arg0 + 0x24);
 }
 
 void *TWindowComCard__sub_80249E80(void *arg0, s16 arg1) {

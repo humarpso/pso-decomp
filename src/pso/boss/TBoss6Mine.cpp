@@ -253,7 +253,7 @@ void TBoss6Mine::update_facing_angles() {
     switch (*(s32 *)&this->m_380) {
     case 5:
     case 6:
-        VecCopy__FP3VecPC3Vec((s32) &v, (s32) (arg0 + 0x38));
+        VecCopy__FP3VecPC3Vec((s32) &v, (s32)(arg0 + 0x38));
         subtract_vector(&v, (u8 *)&this->m_44);
         if (vector_length(&v) <= lbl_805DF588) {
             a = 0;
@@ -277,7 +277,7 @@ void TBoss6Mine::update_facing_angles() {
 
 s32 TBoss6Mine::is_far_from_origin() {
     s32 arg0 = (s32)this;
-    return vector_length((void *) (arg0 + 0x38)) > lbl_805DF58C;
+    return vector_length((void *)(arg0 + 0x38)) > lbl_805DF58C;
 }
 
 void explode_damage_players__10TBoss6MineFPv(u8 *arg0) {
@@ -327,24 +327,24 @@ void TBoss6Mine__vt5(u8 *arg0) {
     typedef char sp1C_offset[(offsetof(Stack_803242C0, sp1C) == 0x14) ? 1 : -1];
     Stack_803242C0 stack;
     f32 temp_f31;
-    VecCopy__FP3VecPC3Vec((s32)((void *) (&stack.sp14)), (s32)((void *) (arg0 + 0x3BC)));
-    subtract_vector((void *) (&stack.sp14), (void *) (arg0 + 0x38));
-    if (vector_length((void *) (&stack.sp14)) <= lbl_805DF59C) {
+    VecCopy__FP3VecPC3Vec((s32)(&stack.sp14), (s32)(arg0 + 0x3BC));
+    subtract_vector(&stack.sp14, arg0 + 0x38);
+    if (vector_length(&stack.sp14) <= lbl_805DF59C) {
         *(s32 *)((s8 *)arg0 + 0x38C) = 0;
         *(s32 *)((s8 *)arg0 + 0x380) = 6;
         return;
     }
-    normalize_vector((void *) (&stack.sp14));
+    normalize_vector(&stack.sp14);
     stack.sp14 *= lbl_805DF59C;
     stack.sp18 *= lbl_805DF59C;
     stack.sp1C *= lbl_805DF59C;
-    vec3_add_to((void *) (arg0 + 0x38), (void *) (&stack.sp14));
-    VecCopy__FP3VecPC3Vec((s32)((void *) (&stack.sp8)), (s32)((void *) (arg0 + 0x38)));
+    vec3_add_to(arg0 + 0x38, &stack.sp14);
+    VecCopy__FP3VecPC3Vec((s32)(&stack.sp8), (s32)(arg0 + 0x38));
     temp_f31 = stack.spC - lbl_805DF5A0;
     stack.spC = temp_f31;
-    if ((project_actor_to_ground(arg0, (void *) (&stack.sp8), 0) != 0) && (temp_f31 < stack.spC)) {
+    if ((project_actor_to_ground(arg0, &stack.sp8, 0) != 0) && (temp_f31 < stack.spC)) {
         stack.spC += lbl_805DF5A0;
-        VecCopy__FP3VecPC3Vec((s32)((void *) (arg0 + 0x38)), (s32)((void *) (&stack.sp8)));
+        VecCopy__FP3VecPC3Vec((s32)(arg0 + 0x38), (s32)(&stack.sp8));
         *(s32 *)((s8 *)arg0 + 0x38C) = 0;
         *(s32 *)((s8 *)arg0 + 0x380) = 6;
     }
@@ -369,7 +369,7 @@ void TBoss6Mine__vt3(u8 *arg0) {
     f32 cnt;
     f32 k;
     cnt = (f32) (*(s32 *)((s8 *)arg0 + 0x3A4) - *(s32 *)((s8 *)arg0 + 0x38C) + 1);
-    VecCopy__FP3VecPC3Vec((s32) &v, (s32) (arg0 + 0x38));
+    VecCopy__FP3VecPC3Vec((s32) &v, (s32)(arg0 + 0x38));
     v.y = TBoss6Mine__data_805DF580;
     len = vector_length(&v);
     if (len > lbl_805DF588) {

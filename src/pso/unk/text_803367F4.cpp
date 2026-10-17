@@ -29,7 +29,7 @@ void draw_title_background_pulse(s32 arg0, s32 arg1, f32 farg0) {
     s32 n;
     n = arg1 % 300;
     if (n >= 150 && n <= 170) {
-        t = (f32)(n - 150) / lbl_805DF910;
+        t = (n - 150) / lbl_805DF910;
         TObjPlayer::init_xyz_limits();
         begin_screen_draw(1);
         bind_title_texture_list();
