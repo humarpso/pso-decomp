@@ -223,7 +223,6 @@ s32 spheres_overlap(u8 *arg0, u8 *arg1);
 void TOTrapAncient02R__sub_80154D78(void);
 void TObjPlayer__sub_801542F4(s32 a);
 void reset_global_table(void);
-void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 u8 test_elt_flag__13TUnk_80493450Fll(void *arg0, s32 arg1, s32 arg2);
 s32 obj_is_hit_receivable(void *);
 s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, u32);

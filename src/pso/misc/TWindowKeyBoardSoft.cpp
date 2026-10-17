@@ -96,7 +96,6 @@ struct Quad_8025E350 {
 
 u8 calc_gauge_scale__20TWindowSubStatusDispFPvPvi(s32, void *, s32);
 s32 end_render_forward__20TWindowSubStatusDispFPv();
-void init_keyboard_text_field__19TWindowKeyBoardBaseFUlUl(u8 *arg0, u32 arg1, u32 arg2);
 s32 fn_8025CE00(void *, u8 *);
 s32 TWindowKeyBoardSoft__sub_8025CF50(void *, int, int);
 void TWindowKeyBoardSoft__sub_8025CFA8(void *, s32 *);

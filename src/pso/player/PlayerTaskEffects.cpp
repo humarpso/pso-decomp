@@ -310,9 +310,6 @@ extern s32 __vt__18TPlayerLobbyMarker[];
 
 #undef TObjPlayer__sub_801C6FCC
 
-extern "C" {
-}
-
 namespace accessors {
 extern "C" {
 s32 get_slot_value__10TObjPlayerFPvi(s32 *arg0, s32 arg1);
