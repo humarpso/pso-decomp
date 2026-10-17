@@ -1797,10 +1797,6 @@ void TWindowSubComCard::destroy_keyboard() { void* m = *(void* *)&this->m_28; if
 s16 TWindowSubComCardList::get_field_72() { return *(s16 *)&this->m_72; }
 void TWindowSubComCard::set_page(s16 v) { *(s16*)((char*)this + 0x7a) = v; }
 void TWindowSubComCard::set_flag_10() { *(u16*)((char*)this + 0x70) |= 0x10; }
-}
-
-extern "C" {
-
 void TWindowSubComCard::set_display_page() {
     s32 arg0 = (s32)this;
     set_page((s16)((int) (((s16 (*)(void))get_selected_menu_value)())));

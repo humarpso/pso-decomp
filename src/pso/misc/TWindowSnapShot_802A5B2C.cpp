@@ -94,10 +94,6 @@ s32 init__15TWindowSnapShotFPvi(TWindowSnapShot *arg0, s32 arg1) {
     }
     return 1;
 }
-}
-
-extern "C" {
-
 void TWindowSnapShot::reset() {
     u8 *arg0 = (u8 *)this;
     *(s32 *)&this->m_name = 0;

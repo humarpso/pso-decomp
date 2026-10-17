@@ -99,9 +99,6 @@ void clear_floor_switch_flag(u32 id, s16 floor) {
 void clear_current_floor_switch(s32 id) {
     clear_floor_switch_flag((u32)((u32)id), (s16)((s16)((int) (get_current_floor()))));
 }
-}
-
-extern "C" {
 
 void set_floor_switch_flag(u32 id, s16 floor) {
     u8 *row;
