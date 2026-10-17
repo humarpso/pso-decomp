@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -1414,7 +1415,6 @@ void __dl__7TObjectFPv(void *);
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 
 s32 add_flags_2e4__13TUnk_804806E8FUl(void *, int, f32, f32);
-s32 bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(void *, int, int, int);
 s32 initialize__9TObjEnemyFPv(void *, s32, void *);
 s32 init_collision_body_parts(void *, void *, int);
 
@@ -1914,7 +1914,7 @@ u8 *TObjEneLappy__ct(u8 *self, s32 arg1, Set_800C1C4C *set) {
         *(u32 *)(self + 0x30) &= ~0x800000;
         *(u32 *)(*(u8 **)(self + 0xA4) + 0x18) &= ~1;
     }
-    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(self, lappy_boss_stats_handles[*(s32 *)(self + 0x368)], lappy_boss_stats_ptrs_b[*(s32 *)(self + 0x368)], lappy_object_handles[*(s32 *)(self + 0x368)]);
+    ((TObjEnemy *)self)->bind_enemy_combat_stats((u8 *)(lappy_boss_stats_handles[*(s32 *)(self + 0x368)]), (u8 *)(lappy_boss_stats_ptrs_b[*(s32 *)(self + 0x368)]), (u8 *)(lappy_object_handles[*(s32 *)(self + 0x368)]));
     apply_variant_speeds__12TObjEneLappyFv(self);
     *(s16 *)(self + 0x32C) = *(s16 *)(self + 0x2B8);
     *(s16 *)(self + 0x32E) = *(s16 *)(self + 0x2BA);

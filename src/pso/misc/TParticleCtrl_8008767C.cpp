@@ -1,4 +1,5 @@
 #include "pso/TParticleCtrl.h"
+#include "pso/TObject.h"
 #include "pso/misc/TUnk_8048E728.h"
 #include "pso/misc/TUnk_8048E778.h"
 #include "pso/misc/TUnk_8048E790.h"

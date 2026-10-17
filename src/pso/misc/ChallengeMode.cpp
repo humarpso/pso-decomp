@@ -1,4 +1,5 @@
 #include "pso/object/TObjWarnChime.h"
+#include "pso/TObject.h"
 #include "pso/object/TObjSoloPlayWin.h"
 
 #include "types.h"

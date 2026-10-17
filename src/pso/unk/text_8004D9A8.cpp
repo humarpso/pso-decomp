@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/boss/TBoss4Type2_800874F4.h"
 #include "pso/misc/TCameraCtrl_800687BC.h"
 #include "pso/object/TObject_80019A50.h"

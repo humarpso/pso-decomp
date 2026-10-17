@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include "pso/misc/TWindowDD_80342254.h"
 #include "pso/misc/TWindowDD_WS_Word.h"
 #include "pso/misc/TWindowDD.h"

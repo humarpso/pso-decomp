@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/misc/TUnk_804AFBF8.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/unk/TUnk_804B0BB8.h"
 #include "pso/misc/TOKeyMachine01.h"
 

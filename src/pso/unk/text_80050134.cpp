@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/object/TObjDFDemoF.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TCameraCtrl_800687BC.h"
 #include "pso/unk/text_80050134.h"
 #include "pso/TParticleCtrl.h"

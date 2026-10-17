@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/boss/TBoss4Type1.h"
@@ -1716,7 +1718,6 @@ struct Self_80054A1C {
 
 void init_model_node_tables(void *, void *, int);
 s32 TObjFish__sub_800E3124(u8 *list, s32 vecs);
-s32 bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 s32 init_collision_body_parts(void *, void *, int);
 extern s32 boss4_type1_emitter_id_table[];
 extern u8 boss4_type1_model_node_table[];
@@ -1748,7 +1749,7 @@ Self_80054A1C *TBoss4Type1__ct(Self_80054A1C *self, s32 parent, s32 *arg2) {
     VecCopy__FP3VecPC3Vec(self->v2FC, self->v38);
     self->f308 = self->f30C = self->f310 = lbl_805D8B20;
     self->f2A8 = 0;
-    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc((u8 *)self, (u8 *)(TLobby::register_boss(0x36)), (u8 *)(TLobby::dispatch_shared_handler_b(0x36)), (u8 *)(TLobby::register_object(0x36)));
+    ((TObjEnemy *)self)->bind_enemy_combat_stats((u8 *)(TLobby::register_boss(0x36)), (u8 *)(TLobby::dispatch_shared_handler_b(0x36)), (u8 *)(TLobby::register_object(0x36)));
     self->f33E = self->f32C;
     ((TBoss3Volopt *)self)->reset_photon_effect();
     ((TObjEnemy *)self)->set_param(0x2F);

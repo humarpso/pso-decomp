@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include "pso/unk/text_800A02AC.h"
 #include "pso/enemy/CanadinEffects.h"
 #include "pso/enemy/TObjEneMe1Canadin.h"

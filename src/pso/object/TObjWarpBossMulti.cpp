@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjWarpBase.h"
 #include "pso/misc/THunterGuildSeqOffline.h"
 #include "pso/misc/TLobby.h"
 #include "pso/object/TObjAreaWarp.h"

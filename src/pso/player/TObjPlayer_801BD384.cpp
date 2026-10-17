@@ -25,7 +25,7 @@ int free_loaded_buffers__12TCharaMakingFv(void*);
 int apply_pending_effect__11TBoss6Type2Fv(void*);
 typedef void (*Fn_vpvp_801BD570)(void *, void *);
 
-void TObjPlayer__sub_801BD384(void* p) { update_body_parts__10TObjPlayerFv(p); }
+void TObjPlayer__sub_801BD384(void* p) { ((TObjPlayer *)p)->update_body_parts(); }
 void TObjPlayer__sub_801BD3A4(void) {  }
 void TObjPlayer::free_chara_making() { apply_pending_effect__11TBoss6Type2Fv(this); free_loaded_buffers__12TCharaMakingFv(this); }
 void TObjPlayer::update_body_parts() { copy_player_visual_record((char*)this + 0x85c); this->m_cfc = 255; ((TCharaMaking *)this)->update_body_parts(); TObjWaitEntryHairMoveSim__sub_800FE73C((s32)this); }

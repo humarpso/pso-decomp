@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 #include "pso/TAdPlyChrSelPlateGC.h"
 struct O_802C4D5C { u8 pad[0x2a8]; f32 v[1]; };
 
@@ -71,7 +72,7 @@ void TAdPlyChrSelPlateGC::push_plate_position() {
     S_802C4DD0 *arg0 = (S_802C4DD0 *)this;
     if (arg0->f224 < 0x20) {
         ((Fn1_802C4DD0)copy_vec2__28TWindowSubSymbolChatPartsSetFPv)(&arg0->v11C[arg0->f224]);
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&arg0->v1C[arg0->f224], &arg0->v11C[0]);
+        ((TWindowSubSymbolChatPartsSet *)(&arg0->v1C[arg0->f224]))->copy_vec2(&arg0->v11C[0]);
         arg0->f224 = arg0->f224 + 1;
     }
 }

@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/enemy/TObjEneDD_ST.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneRecobox.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
@@ -122,7 +127,6 @@ void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 void initialize_enemy_state__9TObjEneDDFv(void *, int);
 void init_model__9TObjEneDDFv(void *, void *, int);
 void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
-s32 transition_enemy_state__9TObjEneDDFs(void *, int);
 void TObjEneMe3SinowZoa__sub_800D758C(void *);
 void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
@@ -375,7 +379,7 @@ void TObjEneRecobox::run_task() {
     if (this->vfunc_83() != 4) {
         this->vfunc_85();
     } else if ((s16) this->mode == 1) {
-        transition_enemy_state__9TObjEneDDFs(this, 0);
+        transition_enemy_state(0);
     }
     this->vfunc_88();
     ((TObjEneRecon *)((u8 *)this))->restore_position();

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemObject.h"
 #include "pso/system/byteswap.h"
 #include "pso/protocol/subcmd_6x.h"
 #include <stddef.h>

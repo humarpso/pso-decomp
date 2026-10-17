@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/enemy/TObjEneDD_ST.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/object/TObjMotion.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
@@ -483,7 +488,6 @@ void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 Res_800959F8 * load_enemy_bml_resource_named(void *, void *);
 s32 load_enemy_bml_resource(u8 *arg0);
 s32 set_field_378__9TObjEneDDFl(void *, s32, s32);
-int transition_enemy_state__9TObjEneDDFs(void*, void*);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
 s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1);
 void * init_trail_buffer__11TBoss4Type3FPvifff(void *arg0, s32 segs, f32 start, f32 end, f32 step);
@@ -756,7 +760,7 @@ void TObjEneRe7Berura::state_attack(s32 arg1) {
         return;
     case 3:
         if (((V_Sub_80094994 *) (arg0 + 0x3D8))->m5() != 0) {
-            ((s32 (*)(void *, s32))transition_enemy_state__9TObjEneDDFs)(arg0, 3);
+            ((TObjEneDD *)arg0)->transition_enemy_state((s16)3);
         }
         return;
     case 0:
@@ -774,7 +778,7 @@ void TObjEneRe7Berura::handle_message_transition(s32 msg) {
     case 0:
         return;
     case 3:
-        ((s32 (*)(void *, s32))transition_enemy_state__9TObjEneDDFs)(this, 1);
+        transition_enemy_state((s16)1);
         break;
     }
 }
@@ -824,7 +828,7 @@ void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 mode) {
 s32 TObjEneRe7Berura::check_death_trigger() {
     struct VObj_80094BA4_80094994 *o = (struct VObj_80094BA4_80094994 *)this;
     if (o->m97() != 0) {
-        ((s32 (*)(void *, s32))transition_enemy_state__9TObjEneDDFs)(this, 9);
+        transition_enemy_state((s16)9);
         return 1;
     }
     return 0;
@@ -1087,11 +1091,11 @@ void TObjEneRe7Berura::vfunc_62() {
         return;
     }
     if ((s16) this->mode != 0xA) {
-        transition_enemy_state__9TObjEneDDFs(arg0, (void*)(0xA));
+        ((TObjEneDD *)arg0)->transition_enemy_state((s16)((void*)(0xA)));
     }
 }
 
-void TObjEneRe7Berura::vfunc_63() { if (this->mode != 11) { transition_enemy_state__9TObjEneDDFs(this, (void*)11); } }
+void TObjEneRe7Berura::vfunc_63() { if (this->mode != 11) { transition_enemy_state((s16)((void*)11)); } }
 
 void TObjEneRe7Berura::vfunc_28() {  }
 

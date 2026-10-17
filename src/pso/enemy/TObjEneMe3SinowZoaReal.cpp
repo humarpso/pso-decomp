@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneMe3SinowZoaReal.h"
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
 
@@ -103,7 +104,6 @@ s32 invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 void *TObjEneMe3SinowZoa__ct(void *, void *, void *);
 extern s32 __vt__22TObjEneMe3SinowZoaReal[];
 extern s32 TObjEneMe3SinowZoaReal__name;
-s32 transition_enemy_state__9TObjEneDDFs(void *, s32);
 int vfunc_62__18TObjEneMe3SinowZoaFv(void*);
 int vfunc_63__18TObjEneMe3SinowZoaFv(void*);
 void __dl__7TObjectFPv(void *);
@@ -121,10 +121,10 @@ void TObjEneMe3SinowZoaReal::vfunc_107() {
     struct Ene_80316898 *self = (struct Ene_80316898 *) this;
     *(s32 *)((s8 *)this + 0x3FC) = *(s32 *)((s8 *)this + 0x3FC) + 1;
     if ((*(s32 *)((s8 *)this + 0x3FC) >= 2) || (calc_boss4_scale__10TObjPlayerFi() < lbl_805DF304)) {
-        transition_enemy_state__9TObjEneDDFs(self, 9);
+        ((TObjEneDD *)self)->transition_enemy_state(9);
         return;
     }
-    transition_enemy_state__9TObjEneDDFs(self, 6);
+    ((TObjEneDD *)self)->transition_enemy_state(6);
 }
 
 void TObjEneMe3SinowZoaReal::vfunc_62() { vfunc_62__18TObjEneMe3SinowZoaFv(this); }

@@ -1,4 +1,9 @@
 #include "pso/TItemShoot.h"
+#include "pso/TItemShootGun.h"
+#include "pso/TItemShootModel.h"
+#include "pso/TItemShootModelRotZ.h"
+#include "pso/TObject.h"
+#include "pso/item/TItemShootParticle.h"
 #include "pso/system/vector.h"
 
 extern "C" void disallow_rendering__7TObjectFv(TObject *arg0);

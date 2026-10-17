@@ -348,7 +348,6 @@ struct Obj_800BB88C {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-void transition_enemy_state__9TObjEneDDFs(V_800BBA18 *self, s16 state);
 s32 TObjEneDD__vt82(V_800BBB18 *self);
 extern const f32 TObjEneDD__data_805D9E8C;
 s32 subtractive_rng_seed(void *, int);

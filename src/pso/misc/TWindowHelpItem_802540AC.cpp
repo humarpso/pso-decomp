@@ -524,22 +524,22 @@ void TWindowHelpItem::update_resistance_rows(void *arg0) {
         set_help_text__15TWindowHelpItemFUl((void *)c, get_message_10__20TWindowSubStatusDispFl(0x8B));
         set_help_text__15TWindowHelpItemFUl((void *)d, get_message_10__20TWindowSubStatusDispFl(0x8C));
         set_help_text__15TWindowHelpItemFUl((void *)e, get_message_10__20TWindowSubStatusDispFl(0x8D));
-        set_flag4_and_field1c__15TWindowHelpItemFl(a, ((TWindowSubStatusDisp *)pl)->get_stat());
-        set_flag4_and_field1c__15TWindowHelpItemFl(b, ((TObjPlayer *)pl)->get_class_id());
-        set_flag4_and_field1c__15TWindowHelpItemFl(c, ((TObjPlayer *)pl)->get_item_index());
-        set_flag4_and_field1c__15TWindowHelpItemFl(d, ((TWindowSubStatusDisp *)pl)->get_field_2F8());
-        set_flag4_and_field1c__15TWindowHelpItemFl(e, ((TWindowSubStatusDisp *)pl)->get_item_type());
+        ((TWindowHelpItem *)a)->set_flag4_and_field1c(((TWindowSubStatusDisp *)pl)->get_stat());
+        ((TWindowHelpItem *)b)->set_flag4_and_field1c(((TObjPlayer *)pl)->get_class_id());
+        ((TWindowHelpItem *)c)->set_flag4_and_field1c(((TObjPlayer *)pl)->get_item_index());
+        ((TWindowHelpItem *)d)->set_flag4_and_field1c(((TWindowSubStatusDisp *)pl)->get_field_2F8());
+        ((TWindowHelpItem *)e)->set_flag4_and_field1c(((TWindowSubStatusDisp *)pl)->get_item_type());
         if (self->item != 0) {
             if (((TWindowHelpItem *)self)->is_item_already_equipped() != 0) {
                 preview_unequip_stats__10TObjPlayerFv(pl, &st, self->itemId);
             } else {
                 preview_equip_stats__10TObjPlayerFv((u8 *)pl, (s16 *)&st, (u8 *)self->item);
             }
-            set_flag8_and_field20__15TWindowHelpItemFl(a, st.atp);
-            set_flag8_and_field20__15TWindowHelpItemFl(b, st.dfp);
-            set_flag8_and_field20__15TWindowHelpItemFl(c, st.mst);
-            set_flag8_and_field20__15TWindowHelpItemFl(d, st.evp);
-            set_flag8_and_field20__15TWindowHelpItemFl(e, st.ata);
+            ((TWindowHelpItem *)a)->set_flag8_and_field20(st.atp);
+            ((TWindowHelpItem *)b)->set_flag8_and_field20(st.dfp);
+            ((TWindowHelpItem *)c)->set_flag8_and_field20(st.mst);
+            ((TWindowHelpItem *)d)->set_flag8_and_field20(st.evp);
+            ((TWindowHelpItem *)e)->set_flag8_and_field20(st.ata);
         }
     }
 }
@@ -716,12 +716,12 @@ void update_stat_comparison__15TWindowHelpItemFv(Help_802549B0 *self) {
     e4 = get_array_entry__13TUnk_804CE018Fi(self, 4);
     e2 = get_array_entry__13TUnk_804CE018Fi(self, 2);
     e5 = get_array_entry__13TUnk_804CE018Fi(self, 5);
-    set_flag4_and_field1c__15TWindowHelpItemFl(e0, ((TObjPlayer *)pl)->get_field_2c8() + ((TUnk_804806E8 *)pl)->get_actor_attack_params_atp_min() + TObjPlayer__sub_800A776C((void *)pl));
-    set_flag4_and_field1c__15TWindowHelpItemFl(e3, ((TObjPlayer *)pl)->get_ata());
-    set_flag4_and_field1c__15TWindowHelpItemFl(e1, ((TWindowSubStatusDisp *)pl)->get_value());
-    set_flag4_and_field1c__15TWindowHelpItemFl(e4, ((TObjPlayer *)pl)->get_hp());
-    set_flag4_and_field1c__15TWindowHelpItemFl(e2, q->f2);
-    set_flag4_and_field1c__15TWindowHelpItemFl(e5, q->fc);
+    ((TWindowHelpItem *)e0)->set_flag4_and_field1c(((TObjPlayer *)pl)->get_field_2c8() + ((TUnk_804806E8 *)pl)->get_actor_attack_params_atp_min() + TObjPlayer__sub_800A776C((void *)pl));
+    ((TWindowHelpItem *)e3)->set_flag4_and_field1c(((TObjPlayer *)pl)->get_ata());
+    ((TWindowHelpItem *)e1)->set_flag4_and_field1c(((TWindowSubStatusDisp *)pl)->get_value());
+    ((TWindowHelpItem *)e4)->set_flag4_and_field1c(((TObjPlayer *)pl)->get_hp());
+    ((TWindowHelpItem *)e2)->set_flag4_and_field1c(q->f2);
+    ((TWindowHelpItem *)e5)->set_flag4_and_field1c(q->fc);
     if (self->item == 0) {
         return;
     }
@@ -730,12 +730,12 @@ void update_stat_comparison__15TWindowHelpItemFv(Help_802549B0 *self) {
     } else {
         preview_equip_stats__10TObjPlayerFv((u8 *)pl, (s16 *)((Stats_802541E0 *)((struct Stats_802541E0 *)&st)), (u8 *)self->item);
     }
-    set_flag8_and_field20__15TWindowHelpItemFl(e0, st.atp);
-    set_flag8_and_field20__15TWindowHelpItemFl(e3, st.dfp);
-    set_flag8_and_field20__15TWindowHelpItemFl(e1, st.ata);
-    set_flag8_and_field20__15TWindowHelpItemFl(e4, st.evp);
-    set_flag8_and_field20__15TWindowHelpItemFl(e2, st.hp);
-    set_flag8_and_field20__15TWindowHelpItemFl(e5, st.lck);
+    ((TWindowHelpItem *)e0)->set_flag8_and_field20(st.atp);
+    ((TWindowHelpItem *)e3)->set_flag8_and_field20(st.dfp);
+    ((TWindowHelpItem *)e1)->set_flag8_and_field20(st.ata);
+    ((TWindowHelpItem *)e4)->set_flag8_and_field20(st.evp);
+    ((TWindowHelpItem *)e2)->set_flag8_and_field20(st.hp);
+    ((TWindowHelpItem *)e5)->set_flag8_and_field20(st.lck);
     if (check_equip_requirements(pl, self->item, &flags) != 0) {
         TWindowHelpItem::set_flag_0x10((u16 *)e0, 1);
         TWindowHelpItem::set_flag_0x10((u16 *)e3, 1);
@@ -1055,7 +1055,7 @@ void TWindowHelpItem::dispatch_item_help() {
             if (sub == 3) {
                 self->flags &= ~2;
                 ((TWindowHelpItem *)self)->set_flag60_bit4();
-                sub_802534B0__15TWindowHelpItemFv(self);
+                ((TWindowHelpItem *)self)->sub_802534B0();
             } else if (sub == 2) {
                 (self->*lbl_804CF7A8.e[type])();
             } else {

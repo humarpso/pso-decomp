@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/TBoss2PhotonPad.h"
+#include "pso/TObject.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/boss/TObjBoss2Tunnel_8007E418.h"
 #include "pso/boss/TBoss2PhotonBullet_80038DCC.h"
 #include "pso/unk/text_800BC4C8.h"

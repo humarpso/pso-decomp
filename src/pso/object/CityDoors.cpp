@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TLobby.h"
 #include "pso/TParticleCtrl.h"

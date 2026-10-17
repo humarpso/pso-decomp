@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/enemy/TObjEneDD_ST.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneBm9Mericarol.h"
@@ -156,7 +160,6 @@ struct VObj18_802D0D3C : VBase18_802D0D3C {
 
 extern "C" {
 extern const f32 lbl_805DE704;
-s32 transition_enemy_state__9TObjEneDDFs(void * a0, s32 a1);
 void run_task__19TObjEneBm9MericarolFv(u8 *arg0);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
@@ -206,7 +209,6 @@ s32 clear_attack_receipts__9TObjEneDDFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 struct Obj_802D0D3C;
 Obj_802D0D3C *TObjEneBm9Mericarol__ct(Obj_802D0D3C *, void *, s32);
-s32 transition_enemy_state__9TObjEneDDFs(void * a0 = 0, s32 a1 = 0);
 s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 void fn_802D1C84(void);
@@ -524,7 +526,7 @@ s32 TObjEneBm9Mericarol::find_nearby_target() {
 
 s32 TObjEneBm9Mericarol::try_set_mode8_if_flag2() {
     if (this->m_454 & 2) {
-        transition_enemy_state__9TObjEneDDFs(this, 8);
+        transition_enemy_state(8);
         return 1;
     }
     return 0;
@@ -549,7 +551,7 @@ void TObjEneBm9Mericarol::vfunc_62() {
             clear_attack_receipts__9TObjEneDDFv();
             return;
         }
-        transition_enemy_state__9TObjEneDDFs(this, 0xA);
+        transition_enemy_state(0xA);
     }
 }
 void TObjEneBm9Mericarol::vfunc_63() {
@@ -557,7 +559,7 @@ void TObjEneBm9Mericarol::vfunc_63() {
 
     temp_r0 = this->mode;
     if ((temp_r0 != 0xB) && (temp_r0 != 0xC)) {
-        transition_enemy_state__9TObjEneDDFs(this, 0xB);
+        transition_enemy_state(0xB);
     }
 }
 void TObjEneBm9Mericarol::vfunc_28() {  }
@@ -634,7 +636,7 @@ void TObjEneBm9Mericarol::run_task() {
         temp_r3_2 = this->mode;
         if ((temp_r3_2 == 0) || (temp_r3_2 == 1)) {
             ((VSub *)(((u8 *)this) + 0x46C))->m2();
-            transition_enemy_state__9TObjEneDDFs(this, 2);
+            transition_enemy_state(2);
         }
     }
     this->sync_center_position();

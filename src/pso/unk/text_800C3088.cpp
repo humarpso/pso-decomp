@@ -148,7 +148,6 @@ struct RecoveredFields_800C3088_arg0
 extern "C" {
 void queue_destruction__7TObjectFv(void *arg0);
 void *create_particle_emitter(void *pos, s32 id);
-s32 transition_enemy_state__9TObjEneDDFs(void *, int);
 s32 noop__9TObjEneDDFv(void *);
 s32 check_hit_flag__16TObjEneRe2FlowerFv(void *);
 s32 TObjPlayer__sub_800C4A5C(int, void *, void *, int);
@@ -182,7 +181,7 @@ void fn_800C3088(u8 *arg0, int arg1) {
     case 3:
       if (((int) ((RecoveredFields_800C3088_arg0 *) arg0)->field_410) >= 0x14)
     {
-      transition_enemy_state__9TObjEneDDFs((void *) arg0, 3);
+      ((TObjEneDD *)arg0)->transition_enemy_state(3);
     }
     case 1:
       return;
@@ -250,7 +249,7 @@ void fn_800C32DC(u8 *owner, s32 arg1) {
         break;
     case 3:
         if ((check_hit_flag__16TObjEneRe2FlowerFv(owner) == 0) && (((TObjEneDD *)owner)->get_flag_b4() != 0)) {
-            transition_enemy_state__9TObjEneDDFs(owner, 3);
+            ((TObjEneDD *)owner)->transition_enemy_state(3);
             break;
         }
     case 1:
@@ -457,14 +456,14 @@ void TObjEneDD::state_chase_target(s32 arg1) {
         if (((s32 (*)())check_hit_flag__16TObjEneRe2FlowerFv)() == 0) {
             d = *(f32 *)((s8 *)arg0 + 0x3AC);
             if (d > lbl_805D9FE0 || *(void **)((s8 *)arg0 + 0x390) == NULL) {
-                transition_enemy_state__9TObjEneDDFs(arg0, 2);
+                ((TObjEneDD *)arg0)->transition_enemy_state(2);
             } else if (d < lbl_805D9FE4) {
                 t = angle_difference_abs(this->rotation_y, *(s32 *)((s8 *)arg0 + 0x420));
                 if (t < ((TObjPlayer *)(this->m_318))->get_field_0c()) {
-                    transition_enemy_state__9TObjEneDDFs(arg0, 5);
+                    ((TObjEneDD *)arg0)->transition_enemy_state(5);
                 }
             } else if ((f32)*(s32 *)((s8 *)arg0 + 0x414) > lbl_805D9FE8) {
-                transition_enemy_state__9TObjEneDDFs(arg0, 4);
+                ((TObjEneDD *)arg0)->transition_enemy_state(4);
             }
         }
         break;
@@ -511,7 +510,7 @@ void handle_flower_state_change(TObjEneDD *ene_dd, s32 arg1) {
         return;
     case 3:
         if ((((s32 (*)())check_hit_flag__16TObjEneRe2FlowerFv)() == 0) && (((TObjEneDD_ST *)ene_dd)->update_linked_position(lbl_805D9FF0) != 0)) {
-            transition_enemy_state__9TObjEneDDFs(ene_dd, 3);
+            ((TObjEneDD *)ene_dd)->transition_enemy_state(3);
         }
     case 5:
     case 1:

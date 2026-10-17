@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/object/TObjIllGillKage.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/object/obj_band.h"
@@ -136,7 +138,6 @@ struct VSub_8036858C : VSubB_8036858C {
 
 extern "C" {
 f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(void *, void *, Vec_80367270 *);
-s32 bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(void *, int, int, int);
 extern const f64 lbl_8047A358[];
 extern int enable_v2_features;
 s32 apply_actor_gravity(void *, int, f32);
@@ -1215,7 +1216,7 @@ s32 TObjEneIllGill::is_target_in_attack_range() {
     if (F(u8 *, 0x2A8) != NULL && F(u32, 0x318) != 0 && !(*(s32 *)((s8 *)(F(u8 *, 0x2A8)) + 0x30) & 0x02000800)) {
         if (obj_testFlags30__13TUnk_804AF8A0FUl(this, 0x2000) != 0) {
             F(s32, 0x394) = 3;
-            bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(this, 0, ill_gill_combat_parameter_variants[F(s32, 0x394)], 0);
+            bind_enemy_combat_stats((u8 *)0, (u8 *)(ill_gill_combat_parameter_variants[F(s32, 0x394)]), (u8 *)0);
             return 1;
         }
         dist = calc_xz_distance_sq__10TObjPlayerFiUiPv(this, F(u8 *, 0x2A8), &v);
@@ -1235,7 +1236,7 @@ s32 TObjEneIllGill::is_target_in_attack_range() {
                 if (dist <= (rad + ((TObjPlayer *)(F(s32, 0x318)))->get_pos_x()) * (rad + ((TObjPlayer *)(F(s32, 0x318)))->get_pos_x()) &&
                     ang <= ((TObjPlayer *)(F(s32, 0x318)))->get_field_0c()) {
                     F(s32, 0x394) = 0;
-                    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(this, 0, ill_gill_combat_parameter_variants[F(s32, 0x394)], 0);
+                    bind_enemy_combat_stats((u8 *)0, (u8 *)(ill_gill_combat_parameter_variants[F(s32, 0x394)]), (u8 *)0);
                     return 1;
                 }
                 return 0;
@@ -1248,7 +1249,7 @@ s32 TObjEneIllGill::is_target_in_attack_range() {
                 m = ((TObjPlayer *)(F(s32, 0x318)))->get_field_0c();
                 if (dist <= r2 && ang <= m) {
                     F(s32, 0x394) = i;
-                    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(this, 0, ill_gill_combat_parameter_variants[F(s32, 0x394)], 0);
+                    bind_enemy_combat_stats((u8 *)0, (u8 *)(ill_gill_combat_parameter_variants[F(s32, 0x394)]), (u8 *)0);
                     return 1;
                 }
             }
@@ -1257,7 +1258,7 @@ s32 TObjEneIllGill::is_target_in_attack_range() {
             if (dist <= (rad + ((TObjPlayer *)(F(s32, 0x318)))->get_pos_x()) * (rad + ((TObjPlayer *)(F(s32, 0x318)))->get_pos_x()) &&
                 ang <= ((TObjPlayer *)(F(s32, 0x318)))->get_field_0c()) {
                 F(s32, 0x394) = 0;
-                bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(this, 0, ill_gill_combat_parameter_variants[F(s32, 0x394)], 0);
+                bind_enemy_combat_stats((u8 *)0, (u8 *)(ill_gill_combat_parameter_variants[F(s32, 0x394)]), (u8 *)0);
                 return 1;
             }
         }
@@ -1771,7 +1772,7 @@ u8 *TObjEneIllGill__ct(u8 *self, s32 arg1, u8 *arg2) {
     ((TObjPlayer *)self)->reset_photon_effect();
     FIG_8036858C(void *, 0x350) = lbl_804F2F24;
     FIG_8036858C(s32, 0x394) = 0;
-    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(self, TObjEneIllGill__boss_registration_id, (int)(((s32 *)ill_gill_combat_parameter_variants)[FIG_8036858C(s32, 0x394)]), lbl_805D6FD8);
+    ((TObjEnemy *)self)->bind_enemy_combat_stats((u8 *)TObjEneIllGill__boss_registration_id, (u8 *)(((s32 *)ill_gill_combat_parameter_variants)[FIG_8036858C(s32, 0x394)]), (u8 *)lbl_805D6FD8);
     FIG_8036858C(s32, 0x3A0) = 0;
     FIG_8036858C(s16, 0x326) = 0;
     FIG_8036858C(s16, 0x328) = 0;

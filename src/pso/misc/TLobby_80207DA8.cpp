@@ -753,7 +753,7 @@ u8 *TLobby::alloc_heap_slot(s32 arg0, s32 arg1) {
     if ((u32) *(s32 *)((s8 *)&lobby_slot_ptr_table.value + temp_r30) != 0U) {
         return NULL;
     }
-    temp_r3 = (u8 *)(heap_alloc__5THeapFUl(area_event_set_heap, arg1));
+    temp_r3 = (u8 *)(((THeap *)area_event_set_heap)->heap_alloc(arg1));
     if (temp_r3 != NULL) {
         *(s32 *)((s8 *)&lobby_slot_ptr_table.value + temp_r30) = (long) (temp_r3);
         return temp_r3;

@@ -176,7 +176,6 @@ s32 initialize_boss_scene(void) {
 }
 extern "C" {
 
-void close_window__20TObjChallenge4PRetryFv(void* p);
 void send_giveup_to_all_players__6TLobbyFv(void);
 void close_giveup_window__6TLobbyFPv(void* a0);
 void play_all_players_effect__6TLobbyFPv(void* a0);
@@ -293,7 +292,7 @@ void TObjChallenge4PRetry::countdown_and_destroy() {
     if (temp_r0 <= 0) {
         TLobby::start_challenge_countdown();
         ((s32 (*)(void *))send_giveup_to_all_players__6TLobbyFv)(this);
-        close_window__20TObjChallenge4PRetryFv(this);
+        close_window();
         close_window_field30();
         queue_destruction__7TObjectFv(this);
     }
@@ -315,7 +314,7 @@ void giveup_window_handle_select(void *arg0) {
     case 0:
         play_cue_stream_file((s32)lbl_804651E8);
         ((s32 (*)(void *))send_giveup_to_all_players__6TLobbyFv)(arg0);
-        close_window__20TObjChallenge4PRetryFv(arg0);
+        ((TObjChallenge4PRetry *)arg0)->close_window();
         ((TObjChallenge4PRetry *)arg0)->close_window_field30();
         queue_destruction__7TObjectFv(arg0);
         if (is_quest_active() == 1) {
@@ -329,7 +328,7 @@ void giveup_window_handle_select(void *arg0) {
         ((s32 (*)(void *))send_giveup_to_all_players__6TLobbyFv)(arg0);
         play_all_players_effect__6TLobbyFPv(arg0);
         ((TObjChallenge4PRetry *)arg0)->close_window_field30();
-        close_window__20TObjChallenge4PRetryFv(arg0);
+        ((TObjChallenge4PRetry *)arg0)->close_window();
         *(s32 *)((s8 *)arg0 + 0x28) = 0x1E;
         *(s32 *)((s8 *)arg0 + 0x1C) = 4;
         return;
@@ -447,7 +446,7 @@ void TObjChallenge4PRetry::run_task() {
     }
     if (TLobby::is_multi_ready() == 0) {
         ((s32 (*)(void *))send_giveup_to_all_players__6TLobbyFv)(arg0);
-        close_window__20TObjChallenge4PRetryFv(arg0);
+        ((TObjChallenge4PRetry *)arg0)->close_window();
         ((TObjChallenge4PRetry *)arg0)->close_window_field30();
         queue_destruction__7TObjectFv((arg0));
     }

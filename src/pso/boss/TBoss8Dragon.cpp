@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -1426,7 +1428,6 @@ int emit_enemy_effect__9TObjEneDDFllPUcl(void*);
 int setup_instance__9TObjEneDDFllPUcl(void*);
 s32 is_alive__9TObjEneDDFv(void);
 s32 update_local_colliders_from_world(void *, void *);
-s32 transition_enemy_state__9TObjEneDDFs(void *, s32);
 s32 delete_buffer__12TBoss8DragonFis(s32 arg0, s16 arg1);
 void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
 u8 *get_enemy_entity(u16 arg0);
@@ -2418,7 +2419,7 @@ void action__12TBoss8DragonFPvi(void *arg0, s32 arg1) {
         return;
     case 3:
         if ((s32) *(s32 *)((s8 *)arg0 + 0x84C) > 0x96) {
-            transition_enemy_state__9TObjEneDDFs(arg0, 8);
+            ((TObjEneDD *)arg0)->transition_enemy_state(8);
         }
         break;
     case 0:
@@ -6108,7 +6109,7 @@ void apply_6xA8_action__12TBoss8DragonFPvPv(u8 *boss8_dragon, u8 *arg1) {
   temp_r4 = *((s16 *) (((s8 *) arg1) + 4));
   if (((s16) (((TBoss8Dragon *)boss8_dragon)->m_326)) != temp_r4)
   {
-    ((void (*)(void *, s16))transition_enemy_state__9TObjEneDDFs)(boss8_dragon, temp_r4);
+    ((TObjEneDD *)boss8_dragon)->transition_enemy_state(temp_r4);
   }
 }
 }

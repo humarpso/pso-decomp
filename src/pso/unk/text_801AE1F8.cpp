@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include "pso/misc/PhotonBlastSummon.h"
 #include "pso/misc/TLobby_802268F4.h"
 #include "pso/misc/obj_band.h"

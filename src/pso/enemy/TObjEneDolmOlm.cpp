@@ -1,6 +1,8 @@
 #pragma defer_codegen on
 
 #include "types.h"
+#include "pso/enemy/TUnk_80493450.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
@@ -519,7 +521,6 @@ s32 create__12TObjEneSaverFPvPv(u32, u32);
 void restore_render_scissor(s32 arg0);
 int initialize_enemy_photon_effect(void *p);
 extern "C" {
-s32 bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(void *, int, int, int);
 s32 init_collision_body_parts(void *, void *, int);
 extern s32 obj_ene_dolm_olm_class_name;
 extern const f32 lbl_805DEF94;
@@ -955,8 +956,7 @@ u8 *TObjEneDolmOlm__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjMotion *)arg0)->set_animation(((TObjEneDolmOlm *)arg0)->m_b8);
     ((TObjMotion *)arg0)->set_field_b8(((TObjEneDolmOlm *)arg0)->m_b8);
     init_collision_body_parts(arg0, (u8 *) lbl_804E68D0 + *(s32 *)&((TObjEneDolmOlm *)arg0)->variant * 0x2C, 1);
-    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(arg0, ((s32 *) dolm_olm_combat_stat_id_pair)[*(s32 *)&((TObjEneDolmOlm *)arg0)->variant],
-        ((s32 *) TObjEneDolmOlm__shared_handler_ids)[*(s32 *)&((TObjEneDolmOlm *)arg0)->variant], ((s32 *) TObjEneDolmOlm__registered_object_ids)[*(s32 *)&((TObjEneDolmOlm *)arg0)->variant]);
+    ((TObjEnemy *)arg0)->bind_enemy_combat_stats((u8 *)(((s32 *) dolm_olm_combat_stat_id_pair)[*(s32 *)&((TObjEneDolmOlm *)arg0)->variant]), (u8 *)(((s32 *) TObjEneDolmOlm__shared_handler_ids)[*(s32 *)&((TObjEneDolmOlm *)arg0)->variant]), (u8 *)(((s32 *) TObjEneDolmOlm__registered_object_ids)[*(s32 *)&((TObjEneDolmOlm *)arg0)->variant]));
     *(u8 * *)&((TObjEneDolmOlm *)arg0)->movementParameters = (u8 *) lbl_804E6898 + *(s32 *)&((TObjEneDolmOlm *)arg0)->variant * 0x1C;
     ((TObjEneDolmOlm *)arg0)->referenceHp = ((TObjEneDolmOlm *)arg0)->hp;
     ((TObjEneDolmOlm *)arg0)->advance_position();

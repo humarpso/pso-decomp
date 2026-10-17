@@ -1,4 +1,11 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/npc/TObjNpcBase.h"
+#include "pso/npc/TObjNpcFemaleBase.h"
+#include "pso/npc/TObjNpcMoja.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/boss/TBoss3VoloptHiraisin.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();

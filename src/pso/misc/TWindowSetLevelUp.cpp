@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include "pso/TWindowSetLevelUp.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TWindowCtrl.h"

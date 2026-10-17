@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/enemy/TObjEnemy.h"

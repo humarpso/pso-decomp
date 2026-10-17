@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TItemEquipBase.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/item/TItemEquipVariant_8012A82C.h"
 #include "pso/item/TItem_80100508.h"
 #include "pso/item/TItem_80100674.h"

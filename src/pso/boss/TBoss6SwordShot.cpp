@@ -1,4 +1,5 @@
 #include "pso/TBoss6SwordShot.h"
+#include "pso/TObject.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/misc/TLobby.h"

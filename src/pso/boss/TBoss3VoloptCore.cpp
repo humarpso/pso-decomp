@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemyCustom.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEnemy.h"

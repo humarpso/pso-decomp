@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBm5GibonU.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
@@ -736,7 +739,6 @@ s32 set_param__9TObjEnemyFl(void *, int, int, int);
 int initialize_enemy_photon_effect(void *p);
 extern "C" {
 void * TObjControl__ct(void *, void *);
-s32 bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(void *, void *, void *, void *);
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
 s32 free_collision_body_parts(void *);
@@ -1703,7 +1705,7 @@ u8 *TObjEneGyaranzo__ct(TObjEneGyaranzo *arg0, s32 arg1, u8 *arg2) {
     init_collision_body_parts(arg0, (void *) lbl_804941F8, 1);
     arg0->variant = 0;
     arg0->movementParameters = (u8 *) lbl_804941DC;
-    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc((void *)arg0, (void *)gyaranzo_boss_stats_handle, (void *)gyaranzo_boss_stats_ptr_b, (void *)gyaranzo_object_handle);
+    ((TObjEnemy *)arg0)->bind_enemy_combat_stats((u8 *)gyaranzo_boss_stats_handle, (u8 *)gyaranzo_boss_stats_ptr_b, (u8 *)gyaranzo_object_handle);
     init_params_from_table__15TObjEneGyaranzoFv(arg0);
     arg0->m_b8 = 0;
     ((TObjMotion *)arg0)->set_animation(arg0->m_b8);

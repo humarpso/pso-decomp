@@ -1185,7 +1185,7 @@ u8 *TUnk_804AF8A0::construct_collider_proxy() {
     construct_world_actor_base();
     s->vtable = ((void * *)&lbl_804AF8A0);
     TObjPlayer__sub_80156A74((void*)(arg0 + 0x98));
-    init_forward__10TObjPlayerFv((u8 *)&this->m_a0);
+    ((TObjPlayer *)((u8 *)&this->m_a0))->init_forward();
     *(s32 *)(arg0 + 0x90) = 0;
     *(s32 *)(arg0 + 0xA8) = 0;
     *(s32 *)(arg0 + 0xA4) = 0;

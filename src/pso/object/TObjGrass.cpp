@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/object/TObjGrassWeb.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/object/obj_band.h"
@@ -362,7 +364,6 @@ s32 is_split_screen();
 extern s32 local_client_id;
 s32 create__12TObjEneSaverFPvPv(int, int);
 s32 set_param__9TObjEnemyFl(void *, int, int);
-s32 bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(void *, int, int, int);
 s32 initialize__9TObjEnemyFPv(void *, s32, s32);
 s32 init_collision_body_parts(void *, void *, int);
 extern "C" u8 lbl_8043B6A0[];
@@ -1112,7 +1113,7 @@ f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(void *, void *, Vec_800BE1CC *);
 #define TBL ((u32 *)TObjGrass__bml_resource)
 #define T318 (*(u32 *)((s8 *)(((u8 *)this)) + 0x318))
 #define IN_RANGE() (dist <= (r + ((TObjPlayer *)T318)->get_pos_x()) * (r + ((TObjPlayer *)T318)->get_pos_x()) && ang <= ((TObjPlayer *)T318)->get_field_0c())
-#define BIND(n) (*(s16 *)((s8 *)(((u8 *)this)) + 0x39E)) = (n); bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(((u8 *)this), 0, TBL[(*(s16 *)((s8 *)(((u8 *)this)) + 0x39E))], 0); return 1;
+#define BIND(n) (*(s16 *)((s8 *)(((u8 *)this)) + 0x39E)) = (n); bind_enemy_combat_stats((u8 *)0, (u8 *)(TBL[(*(s16 *)((s8 *)(((u8 *)this)) + 0x39E))]), (u8 *)0); return 1;
 
 s32 TObjGrass::is_target_in_attack_range() {
     f32 dist;
@@ -1828,7 +1829,7 @@ u8 *TObjGrass__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjMotion *)arg0)->set_field_b8(((TObjGrass *)arg0)->m_b8);
     init_collision_body_parts(arg0, &((E2C_800BF924 *)lbl_80492A00)[*(s32 *)&((TObjGrass *)arg0)->variant], 1);
     ((TObjGrass *)arg0)->m_39e = 0;
-    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(arg0, lbl_805D5140, ((u32 *)TObjGrass__bml_resource)[((TObjGrass *)arg0)->m_39e], grass_combat_stats_handle);
+    ((TObjEnemy *)arg0)->bind_enemy_combat_stats((u8 *)lbl_805D5140, (u8 *)(((u32 *)TObjGrass__bml_resource)[((TObjGrass *)arg0)->m_39e]), (u8 *)grass_combat_stats_handle);
     *(u8 * *)&((TObjGrass *)arg0)->movementParameters = (u8 *)&((E1C_800BF924 *)lbl_804929E4)[*(s32 *)&((TObjGrass *)arg0)->variant];
     ((TObjGrass *)arg0)->referenceHp = ((TObjGrass *)arg0)->hp;
     ((TObjEnemy *)arg0)->update_prev_position();

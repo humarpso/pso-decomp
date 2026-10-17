@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include "pso/misc/TWindowSubComCardList_8026CB08.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_804CE018.h"

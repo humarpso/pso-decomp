@@ -1,4 +1,6 @@
 #include <dolphin/mtx.h>
+#include "pso/player/TObjPlayer.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
@@ -2122,7 +2124,6 @@ s32 TObjEnemyCustom__ct(void *, s32);
 }
 int initialize_enemy_photon_effect(void *p);
 extern "C" {
-s32 bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 s32 init_collision_body_parts(void *, void *, int);
 extern s32 lbl_805D3F18;
 
@@ -2160,7 +2161,7 @@ u8 *TObjEneMe1GiGue__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     init_collision_body_parts(arg0, lbl_804E1304, 2);
     *(u32 *)((s8 *)(((TObjEneMe1GiGue *)arg0)->m_a4) + 0x44) &= ~1;
     ((TObjEneMe1GiGue *)arg0)->movementParameters = lbl_804E12E8;
-    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(arg0, (u8 *)ene_me1_gigue_boss_id, (u8 *)lbl_805D682C, (u8 *)lbl_805D6830);
+    ((TObjEnemy *)arg0)->bind_enemy_combat_stats((u8 *)ene_me1_gigue_boss_id, (u8 *)lbl_805D682C, (u8 *)lbl_805D6830);
     ((TObjEneMe1GiGue *)arg0)->update_direction();
     ((void (*)(void *))load_params__15TObjEneMe1GiGueFv)(arg0);
     ((TObjEneMe1GiGue *)arg0)->m_b8 = 0;

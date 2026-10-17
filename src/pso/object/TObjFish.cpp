@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include "pso/math/MatrixVector.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_80141550.h"

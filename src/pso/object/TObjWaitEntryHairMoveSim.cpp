@@ -1,4 +1,5 @@
 #include "pso/object/T_OWEHMS_Exp.h"
+#include "pso/TObject.h"
 #include "pso/object/TObjWaitEntryHairMoveSim.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/TObjEZBoneRotPlayer.h"

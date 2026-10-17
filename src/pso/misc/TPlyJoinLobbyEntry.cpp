@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/misc/TUnk_804A7008.h"
 #include "pso/system/date.h"
 #include "pso/system/memory.h"

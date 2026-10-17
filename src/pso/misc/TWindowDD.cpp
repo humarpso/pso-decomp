@@ -1,4 +1,5 @@
 #include "pso/misc/TWindowDD.h"
+#include "pso/TObject.h"
 #include "pso/misc/TUnk_804EFBAC.h"
 
 #include "types.h"

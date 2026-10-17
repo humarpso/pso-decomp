@@ -1,4 +1,5 @@
 #include "pso/object/TObjWarnChime.h"
+#include "pso/TObject.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/misc/TWindowSubStatusDisp.h"

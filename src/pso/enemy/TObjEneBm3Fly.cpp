@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/enemy/TObjEneDD_ST.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneBm3Fly.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();

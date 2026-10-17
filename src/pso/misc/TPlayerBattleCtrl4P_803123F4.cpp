@@ -1,4 +1,5 @@
 #include "pso/misc/TPlayerBattleCtrl4P.h"
+#include "pso/TObject.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
 
 #include "types.h"

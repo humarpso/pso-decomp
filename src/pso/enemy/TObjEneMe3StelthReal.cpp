@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneMe3Stelth.h"
 #include "pso/enemy/TObjEneMe3StelthReal.h"
 
@@ -107,7 +108,6 @@ u8 *TObjEneMe3StelthReal__ct(TObjEneMe3StelthReal *arg0, s32 arg1, s32 arg2);
 typedef struct EneStelth_800F0CE8 EneStelth_800F0CE8;
 
 void *__dt__20TObjEneMe3StelthRealFv(void *arg0, s16 arg1);
-s32 transition_enemy_state__9TObjEneDDFs(void *, s32);
 int vfunc_62__16TObjEneMe3StelthFv(void*);
 int vfunc_63__16TObjEneMe3StelthFv(void*);
 void __dl__7TObjectFPv(void *);
@@ -123,10 +123,10 @@ void TObjEneMe3StelthReal::vfunc_107() {
     EneStelth_800F0CE8 *self = (EneStelth_800F0CE8 *)this;
     *(s32 *)((s8 *)this + 0x3EC) = *(s32 *)((s8 *)this + 0x3EC) + 1;
     if ((*(s32 *)((s8 *)this + 0x3EC) >= 2) || (calc_boss4_scale__10TObjPlayerFi() < lbl_805DA81C)) {
-        transition_enemy_state__9TObjEneDDFs(self, 9);
+        ((TObjEneDD *)self)->transition_enemy_state(9);
         return;
     }
-    transition_enemy_state__9TObjEneDDFs(self, 6);
+    ((TObjEneDD *)self)->transition_enemy_state(6);
 }
 
 void TObjEneMe3StelthReal::vfunc_62() { vfunc_62__16TObjEneMe3StelthFv(this); }

@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/unk/TUnk_804B0BB8.h"
 #include "pso/misc/TLobby_80156B18.h"
 #include "pso/misc/TOBarrierEnergy01_80158014.h"
 #include "pso/misc/TOTrapAncient01_80226534.h"

@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/item/TObjContainerAbeEnemy.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/player/TUnk_804806E8.h"
+#include "pso/player/TUnk_804B6C24.h"
 #include "pso/item/TObjContainerItem.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();

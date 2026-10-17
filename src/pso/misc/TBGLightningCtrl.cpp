@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/misc/TBGLightningCtrl.h"
+#include "pso/object/TObjMotion.h"
 extern "C" void render__16TBGLightningCtrlFv();
 #include "pso/unk/text_803DA798.h"
 #include "pso/misc/TBGLightningCtrl.h"

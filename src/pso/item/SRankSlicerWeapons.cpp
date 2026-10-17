@@ -1,4 +1,11 @@
 #include "types.h"
+#include "pso/item/TItem.h"
+#include "pso/item/TItemEquipBase.h"
+#include "pso/item/TUnk_804A4238.h"
+#include "pso/item/TUnk_804A4338.h"
+#include "pso/items/TItemWeapon.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/player/TObjPlayer.h"
 struct TItemEquipBase;
 #include "pso/item/TItem.h"
 #include "pso/misc/TTecSlicer.h"

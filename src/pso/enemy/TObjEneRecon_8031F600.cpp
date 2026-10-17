@@ -35,7 +35,6 @@ struct VObj_8031F600 : Base_8031F600 {
 
 extern "C" {
 
-s32 transition_enemy_state__9TObjEneDDFs(void *, s32);
 s32 advance_animation_playback();
 s32 TObjEneRecon__sub_8031FACC(void *);
 
@@ -54,7 +53,7 @@ void TObjEneRecon__sub_8031F600(void *ene_dd, s32 arg1) {
         return;
     case 3:
         if ((((VObj_8031F600 *)ene_dd)->m102(TObjEneRecon__data_805DF438) != 0) && (TObjEneRecon__sub_8031FACC(ene_dd) != 0)) {
-            transition_enemy_state__9TObjEneDDFs(ene_dd, 3);
+            ((TObjEneDD *)ene_dd)->transition_enemy_state(3);
         }
         break;
     case 5:

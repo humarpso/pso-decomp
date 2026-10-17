@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CF930.h"
 #include "pso/misc/TWindowSubStatusDisp_80256B94.h"
 #include "pso/misc/TWindowSubStatusDisp_80257BC0.h"
 #include "pso/system/memory.h"

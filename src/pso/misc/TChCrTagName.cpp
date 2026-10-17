@@ -1,4 +1,5 @@
 #include "pso/TChCrTag.h"
+#include "pso/TObject.h"
 #include "pso/misc/TChCrTagName.h"
 class TChCrTagName : public TChCrTag {
 public:

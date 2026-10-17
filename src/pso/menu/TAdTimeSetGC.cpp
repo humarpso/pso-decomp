@@ -1,4 +1,6 @@
 #include "pso/TAdTimeSetGC.h"
+#include "pso/TObject.h"
+#include "pso/menu/T_ATS_DrawCalendar.h"
 #include "pso/menu/TAdTimeSetGC.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/object/TObject_80019A50.h"

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/misc/TUnk_80488A28.h"
 #include "pso/camera/CreationCamera.h"
 #include "pso/misc/TCameraCtrl_80067654.h"
 #include "pso/misc/TCameraCtrl_80067FC0.h"

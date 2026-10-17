@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include "pso/misc/TChCrTag.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/TChCrTag.h"

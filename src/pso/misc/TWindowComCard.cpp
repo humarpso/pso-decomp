@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_8026CB5C.h"
 #include "pso/misc/TWindowCtrl.h"

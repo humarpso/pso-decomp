@@ -16,7 +16,6 @@ struct Vec_800C2628 { f32 x, y, z; };
 struct Prm_800C2628 { f32 a, b, c, d, e; };
 
 extern "C" {
-s32 transition_enemy_state__9TObjEneDDFs(void *, s32);
 s32 noop__9TObjEneDDFv(void *, s32);
 s32 advance_animation_playback();
 s32 play_sound_effect(s32, void *, s32, s32);
@@ -57,7 +56,7 @@ void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1) {
     case 3:
         if (F(s32, 0x410) > 0x1C2) {
             F(u32, 0x30) |= 0x800;
-            transition_enemy_state__9TObjEneDDFs(arg0, 0xA);
+            ((TObjEneDD *)arg0)->transition_enemy_state(0xA);
             VecCopy((Vec *)&v, (const Vec *)(arg0 + 0x38));
             v.y += lbl_805D9FBC;
             spawn_particle_effect_with_flags(&v, 0xD3, 0x40);
@@ -141,7 +140,7 @@ void TObjEneRe2Flower::handle_event(s32 arg1) {
         return;
     case 3:
         if (objInBand__FP7GameObjf(*(f32 *)((s8 *)arg0 + 0xC4) - lbl_805D9FC0) != 0) {
-            transition_enemy_state__9TObjEneDDFs(arg0, 3);
+            ((TObjEneDD *)arg0)->transition_enemy_state(3);
         }
         this->vfunc_102();
         this->vfunc_88();

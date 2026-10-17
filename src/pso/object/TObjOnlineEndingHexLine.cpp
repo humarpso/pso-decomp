@@ -1,4 +1,5 @@
 #include "pso/TObjOnlineEndingHexLine.h"
+#include "pso/TObject.h"
 #include "pso/TObjOnlineEndingHexMove.h"
 #include "types.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"

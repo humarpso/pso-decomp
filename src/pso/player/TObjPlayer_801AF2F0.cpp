@@ -2069,7 +2069,6 @@ void set_flags_a00__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_801AF904(s32 arg0);
 void clamp_stats__10TObjPlayerFiPv(s32 arg0, void *arg1);
 f32 TObjPlayer__vt20(s32 arg0, s32 arg1, f32 farg0);
-void set_action_provider_variant__10TObjPlayerFs(Player_801AFCF4 *arg0, s16 arg1);
 s32 TObjPlayer__sub_801AFD8C(u8 *arg0);
 s8 get_class_index__10TObjPlayerFv(u8 *arg0);
 s8 TObjPlayer__sub_801AFDBC(s8 arg0);
@@ -6256,13 +6255,13 @@ void equip_saved_item_if_slot_empty__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
 void bind_saved_inventory_equipment__10TObjPlayerFPvPvi(u8 *p, u8 *records, s32 count) {
     s32 i;
     if (records != NULL) {
-        ((void (*)(u8 *, s32))set_action_provider_variant__10TObjPlayerFs)(p, TObjPlayer__sub_801C2114());
+        ((TObjPlayer *)p)->set_action_provider_variant((s16)(TObjPlayer__sub_801C2114()));
         for (i = 0; i < count; i++) {
             equip_saved_item_if_slot_empty__10TObjPlayerFPvPv(p, records);
             records += 0x1C;
         }
         if (reset_key_machine_state__10TObjPlayerFv() == 0) {
-            ((void (*)(u8 *, s32))set_action_provider_variant__10TObjPlayerFs)(p, TObjPlayer__sub_801C2114());
+            ((TObjPlayer *)p)->set_action_provider_variant((s16)(TObjPlayer__sub_801C2114()));
         }
     }
 }
@@ -7753,7 +7752,7 @@ void TObjPlayer::sub_801BB950() {
     temp_r3 = (u8 *) ((u8 * (*)(void *))get_item_field_6__10TObjPlayerFPv)(arg0);
     if (temp_r3 != 0)
     {
-      ((s32 (*)(void *, void *))set_action_provider_variant__10TObjPlayerFs)((void *) arg0, (void *) ((s16) (((VObj_18_9c7036 *)(temp_r3))->m41())));
+      ((TObjPlayer *)arg0)->set_action_provider_variant((s16)((void *) ((s16) (((VObj_18_9c7036 *)(temp_r3))->m41()))));
     }
   }
   if ((is_locally_controlled__10TObjPlayerFPv((void *) arg0) != 0) && (((s32 (*)(void))is_lobby_floor_15__15TFontSmallLobbyFv)() == 0))

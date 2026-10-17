@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC_80336054.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/misc/THunterGuildSeqOffline.h"

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss4DarkFalz.h"
 #include "pso/object/TObjOnlineEnding.h"

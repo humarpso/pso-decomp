@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/misc/TORockCave.h"
 #include "pso/unk/text_8029C214.h"
 #include "pso/misc/TORockJungleL01.h"
 #include "pso/system/vector.h"

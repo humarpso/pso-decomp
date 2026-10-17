@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TItemEffNeedle.h"
+#include "pso/TObject.h"
 #include "pso/item/TItemEffNeedle.h"
 #include "pso/TItemEffNeedleBase.h"
 

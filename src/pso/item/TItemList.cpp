@@ -1,4 +1,5 @@
 #include "pso/TItemList.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/system/memory.h"
 #include "pso/item/TUnk_804C4480.h"
 

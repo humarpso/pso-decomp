@@ -1,4 +1,11 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/misc/TOMine.h"
+#include "pso/misc/TOMineIcon04.h"
+#include "pso/misc/TOMineTrap.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/player/TUnk_804806E8.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();

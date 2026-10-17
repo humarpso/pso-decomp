@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TUnk_80493450.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneMerillLia.h"
@@ -1657,7 +1660,6 @@ void *__dt__16TObjEneMerillLiaFPvs(void *arg0, s16 arg1) {
 struct O_800D7274;
 struct Obj_800D5150;
 s32 init_enemy_base__13TUnk_80493450Fv(void *, s32);
-s32 bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(void *, int, int, int);
 s32 init_collision_body_parts(void *, void *, int);
 extern s32 lbl_805D2A88;
 extern const f32 lbl_805DA340;
@@ -1685,8 +1687,7 @@ void *TObjEneMerillLia__ct(void *arg0v, void *arg1, void *arg2) {
     ((TObjMotion *)arg0)->set_animation(*(s16 *)((s8 *)arg0 + 0xB8));
     ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
     init_collision_body_parts(arg0, (u8 *) lbl_804946A4 + *(s32 *)((s8 *)arg0 + 0x334) * 0x2C, 1);
-    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(arg0, ((s32 *) TObjEneMerillLia__rock_stats_table)[*(s32 *)((s8 *)arg0 + 0x334)],
-        ((s32 *) merill_lia_rock_buffer)[*(s32 *)((s8 *)arg0 + 0x334)], ((s32 *) merill_lia_rock_aux_buffer)[*(s32 *)((s8 *)arg0 + 0x334)]);
+    ((TObjEnemy *)arg0)->bind_enemy_combat_stats((u8 *)(((s32 *) TObjEneMerillLia__rock_stats_table)[*(s32 *)((s8 *)arg0 + 0x334)]), (u8 *)(((s32 *) merill_lia_rock_buffer)[*(s32 *)((s8 *)arg0 + 0x334)]), (u8 *)(((s32 *) merill_lia_rock_aux_buffer)[*(s32 *)((s8 *)arg0 + 0x334)]));
     *(u8 **)((s8 *)arg0 + 0x350) = (u8 *) lbl_80494650 + *(s32 *)((s8 *)arg0 + 0x334) * 0x1C;
     *(s16 *)((s8 *)arg0 + 0x33E) = *(s16 *)((s8 *)arg0 + 0x32C);
     ((TObjEnemy *)arg0)->update_prev_position();

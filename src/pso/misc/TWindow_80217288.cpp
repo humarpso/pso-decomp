@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include "pso/misc/TWindow.h"
 #include "pso/TShopWindowBase.h"
 #include "pso/misc/TQuestListOffline.h"

@@ -1,4 +1,5 @@
 #include "pso/TObject.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/boss/TBoss1DragonColli_C.h"

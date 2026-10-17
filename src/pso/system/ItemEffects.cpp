@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include "pso/items/TItemWeapon.h"
 #include "pso/item/TItemEquipBase.h"
 #include "pso/player/TObjPlayer_80100CC8.h"

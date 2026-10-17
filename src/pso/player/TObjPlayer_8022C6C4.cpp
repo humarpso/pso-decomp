@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/TTecCtrl.h"
+#include "pso/object/TObjLight.h"
 #include "pso/player/TObjPlayer_8022C6C4.h"
 #include "pso/player/TObjPlayer.h"
 extern "C" void render__8TTecCtrlFv();

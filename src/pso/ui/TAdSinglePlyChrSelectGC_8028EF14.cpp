@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include "pso/misc/TLobby.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TCMCharacter.h"

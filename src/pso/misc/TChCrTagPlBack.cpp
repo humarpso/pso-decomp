@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include "pso/TChCrTagPlBack.h"
 
 extern "C" {

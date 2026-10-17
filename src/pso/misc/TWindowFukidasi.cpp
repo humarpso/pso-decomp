@@ -426,7 +426,7 @@ void TUnk_804CF0B8::place_rect_at_head_or_slot() {
         m = get_message_by_type__11TWindowCtrlFScl(b->slot, b->viewport);
         b->rect[0] = m[0] - TWindowFukidasi__data_805DCD0C * b->anchor[0];
         b->rect[1] = m[1] - TWindowFukidasi__data_805DCD0C * b->anchor[1];
-        ((void (*)(Fuki_80250F70 *, f32 *, f32))clamp_position__13TUnk_804CF0B8FPvf)((Fuki_80250F70 *)(b), b->rect, TWindowFukidasi__data_805DCCE8);
+        ((TUnk_804CF0B8 *)b)->clamp_position(b->rect, TWindowFukidasi__data_805DCCE8);
     } else {
         f32 p[2];
         if ((s8)b->slot != -1) {
@@ -580,7 +580,7 @@ s32 shift_rect_with_head__15TWindowFukidasiFPvPvPv(Fuki_80250F70 *b, f32 *rect, 
     ((TUnk_804CF0B8 *)b)->project_anchor(0, b->head);
     out[0] = rect[0] + (b->head[0] - x);
     out[1] = rect[1] + (b->head[1] - y);
-    ((void (*)(Fuki_80250F70 *, f32 *, f32))clamp_position__13TUnk_804CF0B8FPvf)(b, out, TWindowFukidasi__data_805DCCE8);
+    ((TUnk_804CF0B8 *)b)->clamp_position(out, TWindowFukidasi__data_805DCCE8);
     if (draw_resolved_window__15TWindowFukidasiFllll(b, out, b->anchor, 4) == 0) {
         return 1;
     }
@@ -600,7 +600,7 @@ void refresh_rect_placement__15TWindowFukidasiFPv(Fuki_80251028 *b) {
         m = get_message_by_type__11TWindowCtrlFScl(b->slot, b->viewport);
         b->rect[0] = m[0] - TWindowFukidasi__data_805DCD0C * b->anchor[0];
         b->rect[1] = m[1] - TWindowFukidasi__data_805DCD0C * b->anchor[1];
-        ((void (*)(Fuki_80250F70 *, f32 *, f32))clamp_position__13TUnk_804CF0B8FPvf)((Fuki_80250F70 *)(b), b->rect, TWindowFukidasi__data_805DCCE8);
+        ((TUnk_804CF0B8 *)b)->clamp_position(b->rect, TWindowFukidasi__data_805DCCE8);
     } else {
         f32 a[2];
         f32 c[2];
@@ -776,7 +776,7 @@ void TUnk_804CF0B8::follow_anchor() {
     }
     b->pos[0] = b->center[0] - TWindowFukidasi__data_805DCD0C * b->size[0];
     b->pos[1] = b->center[1] - TWindowFukidasi__data_805DCD0C * b->size[1];
-    ((void (*)(Fuki_80250F70 *, f32 *, f32))clamp_position__13TUnk_804CF0B8FPvf)((Fuki_80250F70 *)b, b->pos, b->margin);
+    ((TUnk_804CF0B8 *)b)->clamp_position(b->pos, b->margin);
     b->center[0] = TWindowFukidasi__data_805DCD0C * b->size[0] + b->pos[0];
     b->center[1] = TWindowFukidasi__data_805DCD0C * b->size[1] + b->pos[1];
     project_anchor(NULL, b->head);

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/math/MatrixTransforms.h"
 #include "pso/object/CityVerticalModel.h"
 #include "pso/system/CityTraffic.h"

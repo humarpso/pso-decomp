@@ -1,4 +1,6 @@
 #include "pso/TItemEffEquip.h"
+#include "pso/TObject.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss1DragonColli.h"
 #include "pso/item/TItemEffEquip.h"
 #include "pso/object/TObject_80019A50.h"

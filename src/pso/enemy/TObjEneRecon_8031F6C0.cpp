@@ -44,7 +44,6 @@ struct V_Sub_8031f748 : Base_Sub_8031f748 {
 extern "C" {
 
 s32 advance_animation_playback();
-s32 transition_enemy_state__9TObjEneDDFs(void *, int);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 
 void TObjEneRecobox::sub_8031F6C0(s32 arg1) {
@@ -59,7 +58,7 @@ void TObjEneRecobox::sub_8031F6C0(s32 arg1) {
         set_field_378(0);
         return;
     case 3:
-        transition_enemy_state__9TObjEneDDFs(this, 1);
+        transition_enemy_state(1);
     case 5:
     case 0:
         return;
@@ -79,7 +78,7 @@ void TObjEneRecon::handle_state(s32 arg1) {
         return;
     case 3:
         if (((V_Sub_8031f748 *) (arg0 + 0x3C0))->m5() != 0) {
-            transition_enemy_state__9TObjEneDDFs(arg0, 2);
+            ((TObjEneDD *)arg0)->transition_enemy_state(2);
         }
     case 5:
         return;

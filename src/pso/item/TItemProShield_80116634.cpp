@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TItem.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/item/TItemObject.h"
 #include "pso/item/TUnk_8049FB08.h"
 #include "pso/item/TUnk_8049FA50.h"

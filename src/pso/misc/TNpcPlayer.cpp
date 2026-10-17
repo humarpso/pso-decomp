@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include "pso/object/TUnk_804AF7B0.h"
 #include "pso/system/memory.h"
 #include "pso/player/TObjPlayer.h"

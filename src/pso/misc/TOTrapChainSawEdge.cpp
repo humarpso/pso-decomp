@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/misc/TOTrapChainSawEdge.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/misc/TOTrapChainSawDamage.h"
 #include "pso/misc/TOTrapChainSawKey.h"
 #include "pso/misc/TOTrapChainSaw.h"

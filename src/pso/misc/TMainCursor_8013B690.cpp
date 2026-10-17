@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/misc/TLOC_ListClear.h"
 #include "pso/misc/TMainCursor_8013AE18.h"
 #include "pso/misc/TMainCursor_8013B690.h"
 #include "pso/object/TObject_80019A50.h"

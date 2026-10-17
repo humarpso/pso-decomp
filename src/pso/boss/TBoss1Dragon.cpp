@@ -1,4 +1,6 @@
 #include "pso/boss/TBoss1Dragon.h"
+#include "pso/enemy/TObjEneDD_ST.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/player/TObjPlayer.h"
@@ -1376,7 +1378,6 @@ f32 calc_burrow_speed__12TBoss1DragonFPv(void *arg0);
 extern const f32 lbl_805D80B0;
 void TBoss1Dragon__sub_80027A80(u8 *arg0, u8 *arg1);
 s32 enemy_set_target_id(void *, u16);
-s32 transition_enemy_state__9TObjEneDDFs(void *, s16);
 u8 *TBoss1Dragon__ct(u8 *, void *, void *);
 extern s32 tl_04;
 extern s32 tl_02;
@@ -2084,7 +2085,7 @@ void TBoss1Dragon::action(s32 arg1) {
         return;
     case 3:
         if ((s32) this->stateStep > 0x96) {
-            transition_enemy_state__9TObjEneDDFs(this, (s16)(8));
+            transition_enemy_state((s16)(8));
         }
     case 5:
     case 1:
@@ -5779,7 +5780,7 @@ void TBoss1Dragon::receive_state_request(u8 *arg1) {
     ((VObj_18_be4a70 *)(this))->m85(*(s16 *)((s8 *)arg1 + 4), 7);
     temp_r4 = *(s16 *)((s8 *)arg1 + 4);
     if ((s16) this->mode != temp_r4) {
-        transition_enemy_state__9TObjEneDDFs(this, temp_r4);
+        transition_enemy_state(temp_r4);
     }
 }
 }
@@ -5798,7 +5799,7 @@ void TBoss1Dragon::set_params(void *arg1) {
     enemy_set_target_id(this, (u16) *(s32 *)((s8 *)arg1 + 8));
     this->hpPhaseValue = (s32) *(s16 *)((s8 *)arg1 + 6);
     if ((s16) this->mode != (s16) *(s16 *)((s8 *)arg1 + 4)) {
-        transition_enemy_state__9TObjEneDDFs(this, (s16)((s16) *(s16 *)((s8 *)arg1 + 4)));
+        transition_enemy_state((s16)((s16) *(s16 *)((s8 *)arg1 + 4)));
     }
 }
 }
@@ -5816,7 +5817,7 @@ extern "C" {
 void TBoss1Dragon::copy_params(void *arg1) {
     enemy_set_target_id(this, (u16) *(s32 *)((s8 *)arg1 + 8));
     this->hpPhaseValue = (s32) *(s16 *)((s8 *)arg1 + 6);
-    transition_enemy_state__9TObjEneDDFs(this, *(s16 *)((s8 *)arg1 + 4));
+    transition_enemy_state(*(s16 *)((s8 *)arg1 + 4));
 }
 }
 
@@ -6245,7 +6246,7 @@ void TBoss1Dragon::choose_next_action() {
                     request_state_change__12TBoss1DragonFPvs(this, 0xC);
                     return;
                 }
-                transition_enemy_state__9TObjEneDDFs(this, 0xC);
+                transition_enemy_state(0xC);
                 return;
             }
             request_state_change__12TBoss1DragonFPvs(this, 0x15);

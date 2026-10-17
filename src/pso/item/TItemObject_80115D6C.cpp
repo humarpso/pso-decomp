@@ -1,4 +1,5 @@
 #include "pso/item/TItemObject.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/TItemList.h"
 #include "pso/misc/TShopEquipmentListWindow.h"
 

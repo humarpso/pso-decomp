@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/boss/TBoss4DarkFalz.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss4Type3.h"
@@ -165,7 +167,6 @@ extern const f32 TBoss4Type3__data_805D8C40;
 extern const f32 lbl_805D8C68;
 extern const f32 lbl_805D8C70;
 extern const f32 lbl_805D8C74;
-void update_radar_markers__11TBoss4Type3Fv(u8 *arg0);
 void *spawn_particle_effect(void *pos, s32 id);
 void *create_particle_emitter(void *pos, s32 id);
 s32 play_sound_effect(int, void *, int, int);
@@ -451,16 +452,11 @@ void TObjPlayer__sub_80052390(f32 x);
 u32 drain_player_hp(s32 id, u32 arg1);
 extern "C" {
 f32 TBoss4Type3__sub_800524E8(f32);
-void request_follow_camera_default_offsets__11TBoss4Type3Fv(u8 *arg0);
-void update_target_effect_timer__11TBoss4Type3Fv(void *arg0);
-void handle_damage_taken__11TBoss4Type3Fv(O_80059618 *o);
 void TBoss4Type3__sub_800599F4(void*, int, int);
 void TBoss4Type3__sub_80059EA8(Obj_80059EA8 *self, s32 arg1, s32 arg2);
 void TBoss4Type3__sub_80059F64(Obj_80059F64 *self, s32 arg1);
-void update_scale_sound__11TBoss4Type3Fv(u8 *arg0);
 
 void TBoss4Type3__sub_8005A150(void);
-void sub_8005A438__11TBoss4Type3Fv(Obj_8005A438 *self);
 void TBoss4Type3__sub_8005A86C(void* p);
 void reset_action_to_3__11TBoss4Type3FPv(Obj_8005ACBC *self);
 void init_effect__11TBoss4Type3FPv(u8 *arg0);
@@ -507,7 +503,6 @@ extern s32 local_client_id;
 
 void init_model_node_tables(void *, void *, int);
 s32 TObjFish__sub_800E3124(u8 *list, s32 vecs);
-s32 bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 s32 init_collision_body_parts(void *, void *, int);
 extern const f32 lbl_805D8C38;
 extern const f32 lbl_805D8C3C;
@@ -1962,7 +1957,7 @@ void TBoss4Type3::draw() {
     ((void (*)(void))push_matrix)();
     ((void (*)(void *))post_translate_matrix)((void *)((char *)this + 56));
     ((void (*)(int, void *))rotate_matrix_y)(0, *(void * *)&this->rotation_y);
-    ((void (*)(void *))sub_8005A438__11TBoss4Type3Fv)(this);
+    sub_8005A438();
     ((void (*)(void))pop_matrix)();
     ((void (*)(void))push_matrix)();
     ((void (*)(void *))post_translate_matrix)((void *)((char *)this + 1152));
@@ -2030,10 +2025,10 @@ void TBoss4Type3::run_task() {
     } else {
         this->m_394->flags &= ~1;
     }
-    update_radar_markers__11TBoss4Type3Fv((u8 *)this);
-    update_scale_sound__11TBoss4Type3Fv((u8 *)this);
+    update_radar_markers();
+    update_scale_sound();
     this->m_394->radius = this->m_3b0 * (f32)(this->m_3cc - this->m_3d0) + (f32)this->m_3d0;
-    handle_damage_taken__11TBoss4Type3Fv((O_80059618 *)this);
+    handle_damage_taken();
     if (this->m_374 != 2) {
         copy_positions_to_parts();
         ((TBoss4Type2 *)(&this->m_378))->scroll_strips();
@@ -2050,9 +2045,9 @@ void TBoss4Type3::run_task() {
             this->m_3c8 = 0.0f;
         }
     }
-    update_target_effect_timer__11TBoss4Type3Fv(this);
+    update_target_effect_timer();
     this->m_3d4 = this->hp;
-    request_follow_camera_default_offsets__11TBoss4Type3Fv((u8 *)this);
+    request_follow_camera_default_offsets();
     if ((this->m_3dc += 0.022222223f) >= 1.0f) {
         this->m_3dc -= 1.0f;
     }
@@ -2170,7 +2165,7 @@ Self_8005AE60 *TBoss4Type3__ct(Self_8005AE60 *self, s32 parent, s32 *arg2) {
     VecCopy__FP3VecPC3Vec(self->v2FC, self->v38);
     self->f308 = self->f30C = self->f310 = TBoss4Type3__data_805D8C40;
     self->f2A8 = 0;
-    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc((u8 *)self, (u8 *)((int)register_boss__6TLobbyFl(0x38)), (u8 *)(TLobby::dispatch_shared_handler_b(0x38)), (u8 *)(TLobby::register_object(0x38)));
+    ((TObjEnemy *)self)->bind_enemy_combat_stats((u8 *)((int)register_boss__6TLobbyFl(0x38)), (u8 *)(TLobby::dispatch_shared_handler_b(0x38)), (u8 *)(TLobby::register_object(0x38)));
     self->f33E = self->f3E4 = self->f32C;
     ((TBoss3Volopt *)self)->reset_photon_effect();
     ((TObjEnemy *)self)->set_param(0x2F);

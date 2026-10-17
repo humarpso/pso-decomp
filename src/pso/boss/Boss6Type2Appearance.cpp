@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/object/TObjFish_800E2FFC.h"
 #include "pso/boss/Boss6Type2Appearance.h"
