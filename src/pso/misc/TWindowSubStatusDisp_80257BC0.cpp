@@ -113,6 +113,7 @@ void * init_part_scaled__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
 #define lbl_804CF930 (*(unsigned char (*)[1])&lbl_804CF930)
 extern s32 lbl_804CF998[];
 extern const float lbl_805DCE58;
+__declspec(section ".sdata2") f32 lbl_805DCEF0 = 7.5f;
 
 void draw_visible_window_entries(void *self, List_80257BC0 *list, void *ctx) {
     Item_80257BC0 **p;
@@ -128,7 +129,7 @@ void TUnk_804CE018::update_window_entry_list(void *list_arg) {
     List_80257C28 *list = (List_80257C28 *)list_arg;
     Ent_80257C28 **p;
     u32 n;
-    if (!(((Win_80257C28 *)this)->flags & 0x2000) && (f32)((Win_80257C28 *)this)->counter < 7.5f) return;
+    if (!(((Win_80257C28 *)this)->flags & 0x2000) && (f32)((Win_80257C28 *)this)->counter < lbl_805DCEF0) return;
     n = list->count;
     p = list->items;
     while (n-- != 0) {
