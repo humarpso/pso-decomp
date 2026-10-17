@@ -21,24 +21,24 @@ void TObjCMMainMenu__sub_8028EC24(void);
 extern RecoveredGlobal_8028EBCC_TObjCMMainMenu__data_804DB9C8 TObjCMMainMenu__data_804DB9C8;
 s32 TObjCMMainMenu__sub_8028EBCC(u8 *arg0);
 void *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
-s32 TCameraCtrl__ct(void *, s32);
+u8 *TCameraCtrl__ct(u8 *arg0, void *parent);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-s32 TKeyBoardControl__sub_80131F60();
+void TKeyBoardControl__sub_80131F60(void);
 s32 init_menu_scene_lights(s32 *, s32);
-s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(s32);
-s32 play_area_music(s32 *);
-s32 load_floor_sound_bank(s32);
+s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
+void play_area_music(char *name);
+void load_floor_sound_bank(s32 arg0);
 void *__nw__7TObjectFUl(s32);
 s32 TWindowCtrlMain__ct(void *);
-s32 fn_8028D940();
-s32 TObjCMMainMenu__sub_8028D9F8();
+void fn_8028D940(void);
+void TObjCMMainMenu__sub_8028D9F8(void);
 void TObjCMMainMenu__sub_8028EC18(void);
 void TObjCMMainMenu__sub_8028EC34(void);
-s32 fn_80291178();
-s32 fn_80291290();
+void fn_80291178(void);
+void fn_80291290(void);
 s32 init_and_create__15TChCrCharSelectFv(s32);
-s32 register_texture_f256_ad_pic_2();
-s32 register_texture_f256_backtext();
+void register_texture_f256_ad_pic_2(void);
+void register_texture_f256_backtext(void);
 extern s32 lbl_80451290[];
 extern s32 default_scene_light_config[];
 extern s32 creation_menu_resource_descriptor[];
@@ -57,7 +57,7 @@ void init_creation_menu_scene(void) {
     TCameraCtrl::init_default_view();
     p = __nw__7TObjectFUl(0x1D4);
     if (p != NULL) {
-        TCameraCtrl__ct(p, tl_camera);
+        TCameraCtrl__ct((u8 *)p, (void *)tl_camera);
     }
     TCameraCtrl::select_active_controller(8);
     fn_80291290();
@@ -80,7 +80,7 @@ void init_creation_menu_scene(void) {
         fn_80291178();
         fn_8028D940();
         load_floor_sound_bank(0);
-        play_area_music(lbl_80451290);
+        play_area_music((char *)lbl_80451290);
         if (TObjCMMainMenu::get_current_char_flag() != 0) {
             TObjCMMainMenu__sub_8028EC34();
             TObjCMMainMenu__sub_8028EC24();

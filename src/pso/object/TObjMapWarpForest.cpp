@@ -4,7 +4,7 @@ extern "C" {
 
 void *__dt__17TObjMapWarpForestFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void __dt__11TObjMapWarpFv(void *, int);
+void *__dt__11TObjMapWarpFv(void *arg0, s16 arg1);
 
 extern s32 __vt__17TObjMapWarpForest[];
 

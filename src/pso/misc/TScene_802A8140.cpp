@@ -7,7 +7,7 @@ extern "C" {
 void *__dt__13TUnk_804DDF04Fv(void *arg0, s16 arg1);
 s32 GXSetNumIndStages(s32);
 s32 GXSetTevDirect(s32);
-s32 set_ginja_post_texgen_count(s32);
+void set_ginja_post_texgen_count(s32 x);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 

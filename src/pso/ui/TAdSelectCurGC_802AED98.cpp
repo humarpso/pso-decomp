@@ -47,7 +47,7 @@ struct TAdSelectCurGC_802AF0E0 {
 };
 
 extern "C" {
-void TLobby__sub_8023E4B4(s32, s32);
+s32 TLobby__sub_8023E4B4(s32 arg0, s32 arg1);
 extern const s32 lbl_80470764[];
 extern const s32 lbl_80470778[];
 extern const s32 current_language;
@@ -69,7 +69,7 @@ TAdSelectCurGC_802AF0E0 *__ct__14TAdSelectCurGCFv(TAdSelectCurGC_802AF0E0 *o, vo
 void TLobby__sub_802AF198(void);
 void *TOCapsuleLabo__create(void *arg0);
 void TLobby__sub_803DA16C(void*);
-void *TOCapsuleLabo__ct(void *, void *, void *);
+u8 *TOCapsuleLabo__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);
 
 void run_task__14TAdSelectCurGCFv(TAdSelectCurGC_802AED98 *o) {
@@ -187,7 +187,7 @@ extern void *tl_05;
 void *TOCapsuleLabo__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE8);
     if (o != NULL) {
-        o = TOCapsuleLabo__ct(o, tl_05, arg0);
+        o = TOCapsuleLabo__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

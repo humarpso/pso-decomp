@@ -213,7 +213,7 @@ extern const f32 lbl_805E006C;
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u16 obj_getField1c(void *);
-s32 get_item_field_6__10TObjPlayerFPv(void *);
+int get_item_field_6__10TObjPlayerFPv(void *p);
 u8 get_field_ec__5TItemFv();
 s32 reset_key_machine_state__10TObjPlayerFv();
 extern RecoveredGlobal_803589F8_lbl_804F15C8 weapon_special_effect_callbacks;
@@ -229,7 +229,7 @@ extern const f32 lbl_805E0070;
 u8 *create_inward_orbit_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3);
 s32 rotate_matrix_z(int, int);
 void TObjPlayer__sub_80357954(u8 *arg0);
-s32 spawn_particle_effect(s32 *, s32);
+void *spawn_particle_effect(void *pos, s32 id);
 u32 __nw__7TObjectFUl(s32);
 extern Trip_8035862C lbl_804793D8;
 extern s32 tl_07;
@@ -254,7 +254,7 @@ extern const f32 lbl_805E0060;
 extern const f32 lbl_805E0064;
 void spawn_scattered_lightning_strikes(u8 *arg0, s32 arg1);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
-s32 remap_extra_attack_type(void *);
+void remap_extra_attack_type(u8 *arg0);
 s32 draw_icon__10TObjPlayerFll(void *, int, void *);
 s32 create__20TItemEffOrgaFlowShotFPvPv(int, void *, int);
 struct Base_80358984_80357734 { char pad[0x18]; };
@@ -297,7 +297,7 @@ void TItemWeapon__ct(void *);
 s32 TObjPlayer__sub_802E451C();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void __dt__11TItemWeaponFv(void *, int);
+void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
 s32 set_position_xy__10TObjPlayerFff(f32, f32);
 void set_status_flags__10TObjPlayerFUl(void *, int);
 s32 update_battle_control_if_unlocked__10TObjPlayerFv();
@@ -319,7 +319,7 @@ void TUnk_804F14A8::emit_marker_effects() {
     V_80357784 sp8;
     s32 temp_r5;
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
-        remap_extra_attack_type((void *) (arg0));
+        remap_extra_attack_type((arg0));
         ((TObjPlayer *)(&info))->reset_field28();
         ((TObjPlayer *)arg0)->fill_status_info((void *) (&info));
         draw_icon__10TObjPlayerFll((void *) (arg0), (int) (4), (void *) (&info.v[0]));
@@ -577,7 +577,7 @@ void TObjPlayer::handle_exp_steal_effect(s32 arg1, s32 arg2, s32 arg3) {
         update_battle_control_if_unlocked__10TObjPlayerFv();
     }
     if (arg3 == 1) {
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (s32)(0xA8));
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0xA8));
     }
 }
 
@@ -589,7 +589,7 @@ void TObjPlayer::handle_action(s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         update_battle_control_if_unlocked__10TObjPlayerFv();
     }
-    if ((arg3 == 1) && (spawn_particle_effect((s32 *)(arg0 + 0x2FC), (s32)(0xA8)) != 0U)) {
+    if ((arg3 == 1) && (spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0xA8)) != 0U)) {
         set_position_xy__10TObjPlayerFff(lbl_805E0074, lbl_805E0078);
     }
 }
@@ -600,7 +600,7 @@ void TObjPlayer::dispatch_effect_by_type(s32 arg1, s32 arg2, s32 arg3) {
         update_battle_control_if_unlocked__10TObjPlayerFv();
     }
     if (arg3 == 1) {
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (s32)(0x10A));
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0x10A));
     }
 }
 
@@ -609,7 +609,7 @@ void weapon_fractional_hp_effect(void *arg0, void *arg1, s32 arg2, s32 arg3) {
         update_battle_control_if_unlocked__10TObjPlayerFv();
     }
     if (arg3 == 1) {
-        spawn_particle_effect((s32 *)(arg2), (s32)(0x1AC));
+        spawn_particle_effect((s32 *)(arg2), (0x1AC));
     }
 }
 
@@ -618,7 +618,7 @@ void TObjPlayer::handle_symbol_chat_action(s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         update_battle_control_if_unlocked__10TObjPlayerFv();
     }
-    if ((arg3 == 1) && (spawn_particle_effect((s32 *)(arg0 + 0x2FC), (s32)(0x67)) != 0U)) {
+    if ((arg3 == 1) && (spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0x67)) != 0U)) {
         set_position_xy__10TObjPlayerFff(lbl_805E0074, lbl_805E0078);
     }
 }
@@ -629,7 +629,7 @@ void TObjPlayer::handle_action_by_type(s32 arg1, s32 arg2, s32 arg3) {
         update_battle_control_if_unlocked__10TObjPlayerFv();
     }
     if (arg3 == 1) {
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (s32)(0x67));
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0x67));
     }
 }
 
@@ -639,7 +639,7 @@ void TObjPlayer::handle_stage_event(s32 arg1, s32 arg2, s32 arg3) {
         update_battle_control_if_unlocked__10TObjPlayerFv();
     }
     if (arg3 == 1) {
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (s32)(0x66));
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0x66));
     }
 }
 
@@ -649,7 +649,7 @@ void TObjPlayer::trigger_biter_effect(s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         struct VObj_8035836C_80357734 *o = (struct VObj_8035836C_80357734 *)this;
         o->m63(0x30, &sp8);
-        spawn_particle_effect((s32 *)((s32 *) &sp8), (s32)(0x1AB));
+        spawn_particle_effect((s32 *)((s32 *) &sp8), (0x1AB));
     }
 }
 
@@ -659,7 +659,7 @@ void prepare_shock_special_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         struct VObj_803583B4_80357734 *o = (struct VObj_803583B4_80357734 *)arg0;
         o->m63(0x30, &sp8);
-        spawn_particle_effect((s32 *)((s32 *) &sp8), (s32)(0x1AA));
+        spawn_particle_effect((s32 *)((s32 *) &sp8), (0x1AA));
     }
 }
 
@@ -667,14 +667,14 @@ extern f32 lbl_805E007C;
 
 void weapon_hell_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (s32)(0xC6));
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (s32)(0xC9));
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0xC6));
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0xC9));
     }
     if (arg3 == 1) {
-        if (spawn_particle_effect((s32 *)(arg2), (s32)(0x1C5)) != 0U) {
+        if (spawn_particle_effect((s32 *)(arg2), (0x1C5)) != 0U) {
             set_position_xy__10TObjPlayerFff(lbl_805E007C, lbl_805E007C);
         }
-        if (spawn_particle_effect((s32 *)(arg2), (s32)(0x1C8)) != 0U) {
+        if (spawn_particle_effect((s32 *)(arg2), (0x1C8)) != 0U) {
             set_position_xy__10TObjPlayerFff(lbl_805E007C, lbl_805E007C);
         }
     }
@@ -682,12 +682,12 @@ void weapon_hell_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 
 void weapon_dark_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (s32)(0xC6));
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (s32)(0xC9));
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0xC6));
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0xC9));
     }
     if (arg3 == 1) {
-        spawn_particle_effect((s32 *)(arg2), (s32)(0x1C5));
-        spawn_particle_effect((s32 *)(arg2), (s32)(0x1C8));
+        spawn_particle_effect((s32 *)(arg2), (0x1C5));
+        spawn_particle_effect((s32 *)(arg2), (0x1C8));
     }
 }
 
@@ -696,8 +696,8 @@ void weapon_dim_shadow_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
 
     if (arg3 == 0) {
         ((VObj_803584FC_80357734 *)arg0)->m63(0x30, &sp8);
-        spawn_particle_effect((s32 *)(&sp8), (s32)(0x1A8));
-        spawn_particle_effect((s32 *)(&sp8), (s32)(0x1A9));
+        spawn_particle_effect((s32 *)(&sp8), (0x1A8));
+        spawn_particle_effect((s32 *)(&sp8), (0x1A9));
     }
     if (arg3 == 1) {
         spawn_particle_effect_with_flags(arg2, 0xC8, 0x40);
@@ -708,7 +708,7 @@ void weapon_dim_shadow_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
 void TObjPlayer::dispatch_attack_event(void *arg1, s32 arg2, s32 arg3) {
     s32 arg0 = (s32)this;
     if (arg3 == 0) {
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (s32)(0xA0));
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0xA0));
     }
     if (arg3 == 1) {
         spawn_scattered_lightning_strikes((u8 *)(arg2), (s32)(4));
@@ -718,7 +718,7 @@ void TObjPlayer::dispatch_attack_event(void *arg1, s32 arg2, s32 arg3) {
 void TObjPlayer::dispatch_by_type(void *arg1, s32 arg2, s32 arg3) {
     s32 arg0 = (s32)this;
     if (arg3 == 0) {
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (s32)(0xA0));
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0xA0));
     }
     if (arg3 == 1) {
         spawn_scattered_lightning_strikes((u8 *)(arg2), (s32)(4));
@@ -755,7 +755,7 @@ void TObjPlayer::spawn_effect_by_type(s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_a;
 
     if (arg3 == 0) {
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (s32)(0xBD));
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0xBD));
     }
     if (arg3 == 1) {
         temp_a = create_timed_particle_emitter(arg2, 0xBF, 0, 0xF);
@@ -770,7 +770,7 @@ void TObjPlayer::spawn_hit_effect(s32 arg1, s32 arg2, s32 arg3) {
     s32 timed_particle_emitter;
 
     if (arg3 == 0) {
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (s32)(0xBD));
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0xBD));
     }
     if (arg3 == 1) {
         timed_particle_emitter = create_timed_particle_emitter(arg2, 0x9A, 0, 0xF);
@@ -786,7 +786,7 @@ void prepare_freeze_special_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         struct VObj_80358824_80357734 *o = (struct VObj_80358824_80357734 *)arg0;
         o->m63(0x30, &sp8);
-        spawn_particle_effect((s32 *)((s32 *) &sp8), (s32)(0x6A));
+        spawn_particle_effect((s32 *)((s32 *) &sp8), (0x6A));
     }
 }
 
@@ -813,7 +813,7 @@ void TObjPlayer::spawn_mirror_pair(void *arg1, s32 arg2, s32 arg3) {
     s32 arg0 = (s32)this;
     u32 obj;
     if (arg3 == 0) {
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (s32)(0x69));
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0x69));
     }
     if (arg3 == 1) {
         obj = __nw__7TObjectFUl(0x50);
@@ -832,7 +832,7 @@ void TObjPlayer::handle_hit_effect(s32 arg1, s32 arg2, s32 arg3) {
 
     if (arg3 == 0) {
         ((VObj_80358984_80357734 *)this)->m63(0x30, &sp8);
-        spawn_particle_effect((s32 *)(&sp8), (s32)(0x68));
+        spawn_particle_effect((s32 *)(&sp8), (0x68));
     }
     if (arg3 == 1) {
         create_timed_particle_emitter_with_flags(arg2, 0x18, 0, 5, 0x40);
@@ -842,7 +842,7 @@ void dispatch_weapon_special_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
     s32 (*temp_r12)(s32, u32, s32, s32);
     s32 temp_r3;
     u8 temp_r3_2;
-    if (((arg0 != 0) || (arg1 != 0U)) && ((s32) obj_getField1c((void *) (arg0)) < 0xC) && (reset_key_machine_state__10TObjPlayerFv() != 0) && (temp_r3 = get_item_field_6__10TObjPlayerFPv((void *) (arg0)), ((temp_r3 == 0) == 0)) && (get_field_ec__5TItemFv() == 0)) {
+    if (((arg0 != 0) || (arg1 != 0U)) && ((s32) obj_getField1c((void *) (arg0)) < 0xC) && (reset_key_machine_state__10TObjPlayerFv() != 0) && (temp_r3 = get_item_field_6__10TObjPlayerFPv((void *)(arg0)), ((temp_r3 == 0) == 0)) && (get_field_ec__5TItemFv() == 0)) {
         if (((TItemWeapon *)temp_r3)->test_flags_1b8((int) (0x400020)) != 0U) {
             TObjPlayer::update_battle_control_on_unlock((void *)((void *) (arg0)), (void *)((void *) (arg1)), (void *)((void *) (arg2)), (s32)((void *) (arg3)));
             return;

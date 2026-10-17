@@ -2,7 +2,7 @@
 #include "pso/misc/TLobby.h"
 
 extern "C" {
-    int create_named_object(void*);
+    s32 create_named_object(s32 arg0);
     extern unsigned char lbl_8044BD3C[];
 extern u32 item_appraisal_rules;
 void load_judge_item(void);
@@ -30,6 +30,6 @@ void TLobby::free_window() {
         item_appraisal_rules = 0U;
     }
 }
-void load_judge_item(void) { (*(int *)&item_appraisal_rules) = create_named_object(lbl_8044BD3C); }
+void load_judge_item(void) { (*(int *)&item_appraisal_rules) = create_named_object((s32)lbl_8044BD3C); }
 
 }

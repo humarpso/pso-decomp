@@ -87,7 +87,7 @@ s32 TKeyBoardControl__sub_801A58B0(void);
 s32 TKeyBoardControl__sub_8025CBC0(u32);
 s32 TKeyBoardControl__sub_8025CBCC(u32);
 s32 TKeyBoardControl__sub_8025CC04(u32);
-s32 fn_8025FF8C(void *);
+void fn_8025FF8C(void *arg0);
 s32 set_input_mode__20TWindowSubStatusDispFUc(s32, s32);
 
 void TKeyBoardControl__sub_8025EC04(u8 *arg0) {

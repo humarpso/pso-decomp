@@ -30,7 +30,7 @@ struct Rec_80104DAC { u8 pad0[6]; u8 b6; u8 b7; u8 b8; u8 b9; u8 bA; u8 bB; u8 b
 
 extern "C" {
 s32 get_actor_section_id__15TPlyPhotonChairFv(void *);
-void *find_unique_combination_target(void *, u8 *);
+void *find_unique_combination_target(void *player, void *item);
 s32 check_equip_requirements(void *, void *, int);
 void deserialize_mag__9TItemDataFPvPv(void *, void *);
 void init__9TItemDataFv(void *);

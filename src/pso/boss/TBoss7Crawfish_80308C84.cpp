@@ -13,7 +13,7 @@ struct Craw_80308D1C {
 
 extern "C" {
 u16 find_nearest_visible_player(void *, void *, f32);
-f64 atan2_float(f32, f32);
+f32 atan2_float(f32 y, f32 x);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void normalize_vector(void *);

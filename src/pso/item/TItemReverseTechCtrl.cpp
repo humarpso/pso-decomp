@@ -31,8 +31,8 @@ extern "C" {
 
 void *__nw__7TObjectFUl(int);
 
-extern "C" void TItemReverseTech__sub_8011A55C();
-extern "C" void TItemReverseTech__sub_8011A580();
+extern "C" int TItemReverseTech__sub_8011A55C(void);
+extern "C" int TItemReverseTech__sub_8011A580(void);
 extern "C" void TItemReverseTech__sub_8011A5A4();
 extern void *lbl_804A0440[3];
 extern void *lbl_804A044C[3];

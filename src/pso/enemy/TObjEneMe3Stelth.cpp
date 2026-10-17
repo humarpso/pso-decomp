@@ -56,7 +56,7 @@ s32 advance_animation_playback();
 s32 play_sound_effect(s32, void *, s32, s32, s32);
 
 s32 is_split_screen();
-s32 set_indexed_flags(void *, s32, s32);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
 extern const f32 lbl_805DA828;
 
 extern const f32 lbl_805DA838;
@@ -161,7 +161,7 @@ s32 pack_debug_text_position(s32, s32);
 #define is_angle_in_range__16TObjEneMe3StelthFv ((s32 (*)(void *))is_angle_in_range__16TObjEneMe3StelthFv)
 #define sub_800F4850__16TObjEneMe3StelthFv ((s32 (*)(void *))sub_800F4850__16TObjEneMe3StelthFv)
 #define get_node_world_y__16TObjEneMe3StelthFv ((f32 (*)(void *))get_node_world_y__16TObjEneMe3StelthFv)
-s32 print_float_padded(s32, s32, f32);
+void print_float_padded(s32 arg0, s32 prec, f32 val);
 void debug_printf_at(s32 id, const char *fmt, ...);
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
@@ -169,7 +169,7 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFl(void *);
-s32 set_ginja_draw_list_mask(int);
+void set_ginja_draw_list_mask(s32 arg0);
 s32 draw_ginja_model_with_motion(s32, void *, f32);
 extern char lbl_8043D68C[];
 extern char lbl_8043D69C[];
@@ -431,22 +431,20 @@ struct VObj_18_18102d : VBase_18_18102d {
 struct Col_800F1CD4 { s32 a, b, c, d; };
 
 extern "C" {
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 setup_particle_tev(s32);
+void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
+void setup_particle_tev(s32 arg0);
 s32 is_main_phase_15__9TObjEneDDFv();
 #define sub_800F47D4__16TObjEneMe3StelthFv ((s32 (*)(void *))sub_800F47D4__16TObjEneMe3StelthFv)
-#define draw_model__16TObjEneMe3StelthFPv ((s32 (*)(void *))draw_model__16TObjEneMe3StelthFPv)
 s32 draw_model__12TObjNpcEnemyFv(void *);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 dispatch_input_to_instance__18TAdEnterPasswordGCFi(void *);
 #define rotate_matrix_y ((s32 (*)(s32, s32))rotate_matrix_y)
-s32 translate_matrix(s32, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 #define set_global_param__8TObjFishFl ((s32 (*)(s32))set_global_param__8TObjFishFl)
-#define set_ginja_draw_list_mask ((s32 (*)(s32))set_ginja_draw_list_mask)
-s32 set_color_blend_mode(s32, s32, s32, s32);
-s32 set_model_node_callback(void *);
-s32 set_chunk_material_override_pair(s32, s32);
-s32 set_chunk_material_color(void *);
+void set_color_blend_mode(s32 a, s32 b, s32 c, s32 d);
+void set_model_node_callback(s32 arg0);
+void set_chunk_material_override_pair(s32 arg0, s32 arg1);
+void set_chunk_material_color(f32 *arg);
 extern const Col_800F1CD4 stelth_render_color_a;
 extern const Col_800F1CD4 stelth_render_color_b;
 extern const Col_800F1CD4 me3_stelth_render_color;
@@ -511,7 +509,7 @@ void TObjEneMe3Stelth::render() {
                 } else {
                     model_render_flags |= 0x820;
                     Col_800F1CD4 c = stelth_render_color_a;
-                    set_chunk_material_color(&c);
+                    set_chunk_material_color((f32 *)&c);
                     set_chunk_material_override_pair(0xFF00, 0x800);
                 }
                 if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
@@ -524,7 +522,7 @@ void TObjEneMe3Stelth::render() {
             } else {
                 model_render_flags |= 0x820;
                 Col_800F1CD4 c = stelth_render_color_b;
-                set_chunk_material_color(&c);
+                set_chunk_material_color((f32 *)&c);
                 set_chunk_material_override_pair(0xFF00, 0x800);
             }
             if (draw != 0) {
@@ -556,7 +554,7 @@ void TObjEneMe3Stelth::render() {
                     TObjPlayer::setup_tev_stage();
                     model_render_flags |= 0x8021;
                     Col_800F1CD4 c = me3_stelth_render_color;
-                    set_chunk_material_color(&c);
+                    set_chunk_material_color((f32 *)&c);
                     set_color_blend_mode(1, 4, 5, 0);
                 } else {
                     setup_particle_tev(0);
@@ -564,7 +562,7 @@ void TObjEneMe3Stelth::render() {
             } else {
                 model_render_flags |= 0x8021;
                 Col_800F1CD4 c = me3_stelth_secondary_render_color;
-                set_chunk_material_color(&c);
+                set_chunk_material_color((f32 *)&c);
                 set_color_blend_mode(1, 4, 5, 0);
             }
             set_global_param__8TObjFishFl(F(s32, 0x24));
@@ -581,7 +579,7 @@ void TObjEneMe3Stelth::render() {
             TObjEneMe3Stelth__render_node_index = 0;
             F(s32, 0x420) += 0x222;
             stelth_projection_texture_handle = F(s32, 0x420);
-            set_model_node_callback((void *)TObjEneMe3Stelth::add_instance);
+            set_model_node_callback((s32)((void *)TObjEneMe3Stelth::add_instance));
             if (F(s32, 0x3C0) != 0) {
                 set_ginja_draw_list_mask(3);
             }
@@ -612,10 +610,8 @@ void TObjEneMe3Stelth::render() {
 
 #undef rotate_matrix_y
 #undef set_global_param__8TObjFishFl
-#undef set_ginja_draw_list_mask
 #undef TObjEneMe3Stelth__material_color_pointers
 #undef sub_800F47D4__16TObjEneMe3StelthFv
-#undef draw_model__16TObjEneMe3StelthFPv
 void TObjEneMe3Stelth::add_instance() { ((TOTrapAncient02 *)(*(int *)&stelth_projection_texture_handle))->load_projection_tex_matrix(); (*(int *)&TObjEneMe3Stelth__render_node_index) = ((*(int *)&TObjEneMe3Stelth__render_node_index) + 0x1); }
 
 }
@@ -854,7 +850,7 @@ s32 clear_attack_receipts__9TObjEneDDFv(void *);
 #define play_sound_effect ((s32 (*)(s32, void *, s32, s32))play_sound_effect)
 extern const f32 lbl_805DA858;
 void TObjEneMe3Stelth__sub_800F290C(u8 *arg0, s32 arg1);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 extern u8 me3_stelth_breakup_params[];
@@ -872,7 +868,6 @@ s32 update_linked_position__12TObjEneDD_STFf(void *, f32);
 #define set_field_378__9TObjEneDDFl ((s32 (*)(void *, int))set_field_378__9TObjEneDDFl)
 s32 TObjEneMe3Stelth__sub_800F0F84(void *, void *);
 #define sub_800F47D4__16TObjEneMe3StelthFv ((s32 (*)(void *))sub_800F47D4__16TObjEneMe3StelthFv)
-#define set_indexed_flags ((s32 (*)(void *, int, int))set_indexed_flags)
 extern u8 *TObjEneMe3Stelth__behavior_params_by_variant[];
 extern const f32 TObjEneMe3Stelth__data_805DA820;
 extern const f32 TObjEneMe3Stelth__data_805DA848;
@@ -1085,7 +1080,6 @@ void TObjEneMe3Stelth__sub_800F290C(u8 *arg0, s32 arg1) {
 #undef advance_animation_playback
 #undef play_sound_effect
 #undef set_field_378__9TObjEneDDFl
-#undef set_indexed_flags
 #undef sub_800F47D4__16TObjEneMe3StelthFv
 void action__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1);
 
@@ -1885,11 +1879,11 @@ void state_chase__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 s32 TBoss3Volopt__sub_800D8D88(void *, f32);
 void TObjEneMe3Stelth__sub_800F3FE4(u8 *arg0, s32 arg1);
-void create_timed_particle_emitter(void *, s32, s32, s32);
+void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
 f32 *TBoss3Volopt__sub_800F059C(void *);
 extern const f32 lbl_805DA890;
 void sub_800F42B8__16TObjEneMe3StelthFl(u8 *arg0, s32 arg1);
-s32 enemy_turn_and_move_on_ground(void *, int, f32);
+void enemy_turn_and_move_on_ground(u8 *arg0, s32 arg1, f32 farg0);
 s32 TObjEneMe3Stelth__sub_800F0C90(void *);
 #define TObjEneMe3Stelth__sub_800F4C10 ((s32 (*)(f32))TObjEneMe3Stelth__sub_800F4C10)
 #define TObjEneMe3Stelth__behavior_params_by_variant ((f32 * *)&TObjEneMe3Stelth__behavior_params_by_variant)
@@ -2303,7 +2297,7 @@ void state_chase_target__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
                 ((TObjEneEpsilon *)arg0)->update_angle((int) (0x500));
                 ((TObjEneDD *)(arg0))->vfunc_102();
             } else {
-                enemy_turn_and_move_on_ground((void *) (arg0), (int) (0x500), (f32) (*(f32 *)((s8 *)arg0 + 0x430)));
+                enemy_turn_and_move_on_ground((arg0), (0x500), (f32) (*(f32 *)((s8 *)arg0 + 0x430)));
             }
             ((TObjEneDD *)(arg0))->vfunc_89();
         }
@@ -3088,12 +3082,11 @@ typedef struct Tbl_800F5124 { u8 pad[0xC]; s32 t[3][2]; } Tbl_800F5124;
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 u32 get_item_field_6__10TObjPlayerFPv(void *);
 f32 fabs_float(f32);
-#define queue_destruction__7TObjectFv ((void (*)(void *))queue_destruction__7TObjectFv)
 void fn_8002B630(void *, void *, s32);
-void spawn_particle_effect(void *, s32);
+void *spawn_particle_effect(void *pos, s32 id);
 s32 get_field_d8__5TItemFv(void);
 int select_and_apply_target__12TObjEneDD_STFf(void*);
-void __dt__12TObjEneDD_STFv(void *, int);
+void *__dt__12TObjEneDD_STFv(void *arg0, s16 arg1);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
 s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
 int vfunc_96__9TObjEneDDFv(void*);
@@ -3102,7 +3095,7 @@ void TObjEneDD__sub_800BA438(void *, void *);
 s32 init_model__9TObjEneDDFv(void *, void *, int, int);
 #define clear_attack_receipts__9TObjEneDDFv ((void (*)(void *))clear_attack_receipts__9TObjEneDDFv)
 #define transition_enemy_state ((int (*)(void*, void*))transition_enemy_state)
-void __dt__13TUnk_80494938Fv(void *, int);
+void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
 void TObjEneMe3Stelth__sub_800F1098(void *, s32);
 void TObjEneMe3Stelth__sub_800F1440(void *, s32);
 #define exec__16TObjEneMe3StelthFPvi ((void (*)(void *, s32))exec__16TObjEneMe3StelthFPvi)
@@ -3139,8 +3132,7 @@ void run_task__16TObjEneMe3StelthFv(u8 *arg0);
 void * __dt__16TObjEneMe3StelthFv(void *arg0, s16 arg1);
 #define sub_800F5864__12TObjEneDD_STFl ((int (*)(void*, void*))sub_800F5864__12TObjEneDD_STFl)
 #define sub_800F5874__12TObjEneDD_STFl ((int (*)(void*, void*))sub_800F5874__12TObjEneDD_STFl)
-s32 set_animation__10TObjPlayerFPvs(void *, int);
-#define set_indexed_flags ((s32 (*)(void *, int, int))set_indexed_flags)
+void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 s32 update_enemy_collision_flags__10TObjPlayerFv(void *);
 s32 check_enemy_body_collisions(void *);
 s32 check_object_collisions__10TObjPlayerFv(void *);
@@ -3151,7 +3143,7 @@ void __dl__7TObjectFPv(void *);
 #define sin_table_lookup ((f32 (*)(s32))sin_table_lookup)
 #define cos_table_lookup ((f32 (*)(s32))cos_table_lookup)
 void bind_motion_context(s32, f32);
-s32 compose_motion_node_matrix(void *);
+void compose_motion_node_matrix(void *arg0);
 s32 matrix_mult_vec(int, void *, void *);
 s32 push_matrix_from(void *);
 
@@ -3208,7 +3200,7 @@ extern "C" void vfunc_18__13TUnk_804806E8FPUc();
 extern "C" void vfunc_13__13TUnk_804AF8A0Fl();
 extern "C" void vfunc_74__9TObjEnemyFl();
 extern "C" void apply_hit_message_flags__9TObjEnemyFPv();
-extern "C" void __dt__20TObjEneMe3StelthRealFv();
+extern "C" void *__dt__20TObjEneMe3StelthRealFv(void *arg0, s16 arg1);
 extern "C" void add_actor_exp__13TUnk_804806E8Fl();
 extern "C" void apply_action_hold_status__13TUnk_804806E8Ff();
 extern "C" void apply_anti_technique__13TUnk_804806E8Fl();
@@ -3258,18 +3250,18 @@ extern "C" u8 lbl_8043D5C8[];
 extern "C" u8 lbl_8043D5D8[];
 extern "C" void receive_physical_attack__10TObjPlayerFv();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
-extern "C" void render_actor_shadows_default();
+extern "C" void render_actor_shadows_default(u8 *arg0);
 extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__13TUnk_804806E8Fv();
 extern "C" void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
-extern "C" void trigger_switch_attack__10TObjPlayerFi();
+extern "C" void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 extern "C" void try_start_action__13TUnk_804806E8Fll();
 extern "C" void update_action_hold_status__13TUnk_804806E8Fv();
-extern "C" void update_action_timer__10TObjPlayerFPv();
+extern "C" s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
 extern "C" void update_actor_ground_y__13TUnk_804806E8Fv();
-extern "C" void update_attack_stat_status();
-extern "C" void update_defense_stat_status();
+extern "C" s32 update_attack_stat_status(u8 *arg0);
+extern "C" s32 update_defense_stat_status(u8 *arg0);
 extern "C" void update_flag30_timer__13TUnk_804806E8Fv();
 extern "C" void update_movement_status__13TUnk_804806E8Fv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
@@ -3700,7 +3692,7 @@ void TObjEneMe3StelthReal::init_common() {
     *(s32 *)((s8 *)arg0 + 0xB0) = 0;
     ((TObjPlayer *)arg0)->set_field_d8((s32)TObjEneMe3Stelth__animation_descriptors);
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)TObjEneMe3Stelth__bml_resource + 0x430)));
-    set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (*(s16 *)((s8 *)arg0 + 0xB8)));
+    set_animation__10TObjPlayerFPvs((arg0), (*(s16 *)((s8 *)arg0 + 0xB8)));
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x3C8);
     reset_hp__9TObjEneDDFv((void *) (arg0), TObjEneMe3Stelth__base_params_by_variant[temp_r0], TObjEneMe3Stelth__attack_params_by_variant[temp_r0], TObjEneMe3Stelth__resistance_params_by_variant[temp_r0]);
     ((TObjEneDD *)arg0)->check_state_flag_4();
@@ -3728,7 +3720,7 @@ void TObjEneMe3StelthReal::init_common() {
     *(s32 *)((s8 *)arg0 + 0x448) = 0;
     *(s32 *)((s8 *)arg0 + 0x420) = 0;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x3C0) == 1) {
-        set_indexed_flags((void *) (arg0), (int) (0), (int) (0x08000000));
+        set_indexed_flags((arg0), (0), (0x08000000));
         return;
     }
     ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (0x08000000));
@@ -3737,7 +3729,6 @@ void TObjEneMe3StelthReal::init_common() {
 
 #undef VBase_18
 #undef VObj_18
-#undef queue_destruction__7TObjectFv
 #undef clear_attack_receipts__9TObjEneDDFv
 #undef transition_enemy_state
 #undef exec__16TObjEneMe3StelthFPvi
@@ -3755,7 +3746,6 @@ void TObjEneMe3StelthReal::init_common() {
 #undef TObjEneMe3Stelth__sub_800F3FE4
 #undef state_chase__16TObjEneMe3StelthFPvi
 #undef sub_800F42B8__16TObjEneMe3StelthFl
-#undef set_indexed_flags
 #undef play_sound_effect
 #undef sin_table_lookup
 #undef cos_table_lookup
@@ -3788,8 +3778,8 @@ struct VO_800F5324 : VB_800F5324 { virtual ~VO_800F5324(); };
 
 extern "C" {
 s32 TLobby__sub_8001FE7C(void *, s32);
-s32 __dt__11TBoss4Type3FPvs(void *, s32);
-s32 mem_free(void *);
+s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1);
+void mem_free(void *p);
 #define TObjEneMe3Stelth__alternate_texture_list ((void * *)&TObjEneMe3Stelth__alternate_texture_list)
 typedef struct RecoveredGlobal_8031B170_lbl_804E8880 RecoveredGlobal_8031B170_lbl_804E8880;
 typedef char RecoveredGlobal_8031B170_lbl_804E8880_size[((sizeof(RecoveredGlobal_8031B170_lbl_804E8880)) == 0xD0) ? (1) : (-1)];
@@ -3807,7 +3797,7 @@ void TObjEneMe3Stelth::set_slot_min_clamped_value(s32 arg0, f32 farg0) {
 }
 void TObjEneMe3Stelth::free_shared_resources() {
     if ((*(void **)&TObjEneMe3Stelth__trail_buffer) != 0) {
-        __dt__11TBoss4Type3FPvs((*(void **)&TObjEneMe3Stelth__trail_buffer), 1);
+        __dt__11TBoss4Type3FPvs((s32 *)(*(void **)&TObjEneMe3Stelth__trail_buffer), 1);
         (*(void **)&TObjEneMe3Stelth__trail_buffer) = 0;
     }
     if ((*(VO_800F5324 **)&TObjEneMe3Stelth__breakup_model) != 0) {
@@ -3838,7 +3828,7 @@ struct Tbl_800F53E8 { u8 pad[0x54]; s32 f54; u8 pad58[0xC]; s32 f64; };
 struct Atk_800F53E8 { s32 w[4]; };
 struct V3_800F53E8 { f32 x, y, z; };
 
-Res_800F53E8 *load_enemy_bml_resource(void *);
+s32 load_enemy_bml_resource(u8 *arg0);
 s32 register_object__6TLobbyFl(s32);
 s32 dispatch_shared_handler_b__6TLobbyFl(s32);
 s32 register_boss__6TLobbyFl(s32);
@@ -3846,7 +3836,7 @@ void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 void *init__11TBreakUpMdlFPviif(void *, s32, s32, f32);
 void TObjEneMe3ShinowaMirage__sub_800D98D8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, u8 *arg4, u8 *arg5);
 void *init_trail_buffer__11TBoss4Type3FPvifff(void *arg0, s32 segs, f32 start, f32 end, f32 step);
-void *mem_alloc(s32);
+void *mem_alloc(u32 size);
 extern s32 lbl_8043D47C[];
 extern s32 lbl_8043D484[];
 extern s32 lbl_8043D48C[];
@@ -3886,9 +3876,9 @@ void TObjEneMe3Stelth::load_shared_resources() {
     lbl_805010E0[1] = TObjEneMe3Stelth__data_805DA840;
     lbl_805010E0[2] = TObjEneMe3Stelth__data_805DA840;
     if (is_split_screen() != 0) {
-        TObjEneMe3Stelth__bml_resource = (u8 *)load_enemy_bml_resource(me3_stelth_bml_resource_desc);
+        TObjEneMe3Stelth__bml_resource = (u8 *)load_enemy_bml_resource((u8 *)me3_stelth_bml_resource_desc);
     } else {
-        TObjEneMe3Stelth__bml_resource = (u8 *)load_enemy_bml_resource(stelth_bml_resource_desc);
+        TObjEneMe3Stelth__bml_resource = (u8 *)load_enemy_bml_resource((u8 *)stelth_bml_resource_desc);
     }
     src = *(Arr_800F53E8 **)(((Res_800F53E8 *)TObjEneMe3Stelth__bml_resource)->f42C + 0xC);
     n = src->n;

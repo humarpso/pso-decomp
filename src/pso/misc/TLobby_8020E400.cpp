@@ -5,11 +5,11 @@
 
 extern "C" {
 
-int TLobby__send_and_handle_60(void*);
+void TLobby__send_and_handle_60(u8 *arg0);
 void build_6x76_set_entity_set_flags(void* p);
 
 void TLobby::bswap_player_fields() { ((TObjPlayer *)this)->read_be16_field2(); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); }
-void TLobby::send_player_update() { bswap_player_fields(); TLobby__send_and_handle_60(this); }
+void TLobby::send_player_update() { bswap_player_fields(); TLobby__send_and_handle_60((u8 *)this); }
 
 }
 

@@ -68,7 +68,7 @@ void TWindowDD__sub_80348D90(void *, int);
 void update_selection_state__9TWindowDDFPv(W_80347B70 *arg0);
 extern const f32 TWindowDD__data_805DFB6C;
 extern const f32 TWindowDD__data_805DFB74;
-void *get_player_by_client_id(u16);
+void *get_player_by_client_id(s32 i);
 s32 is_id_in_special_range__9TWindowDDFs(s16);
 s32 TWindowDD__sub_80347238();
 u8 TWindowDD__sub_80347858(s16 arg0);

@@ -59,7 +59,7 @@ void *TOKey__ct(void *arg0);
 void *__dt__5TOKeyFv(void *arg0, s16 arg1);
 u8 is_current_floor_switch_set(u16);
 void __dl__7TObjectFPv(void *);
-void init_map_object_base(void *);
+void *init_map_object_base(void *a0);
 int read_be16_field2__10TObjPlayerFv(void*);
 
 void TOKey::trigger_activate_sound() {

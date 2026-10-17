@@ -5,7 +5,7 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-void TORevlightCave01__sub_80173478(void * = 0);
+void TORevlightCave01__sub_80173478(void *_w0);
 struct TORevlightCave01Base_80173478 { char pad[0x18]; };
 struct TORevlightCave01_80173478 : TORevlightCave01Base_80173478 {
     virtual void m0();
@@ -20,7 +20,7 @@ struct TORevlightCave01_80173478 : TORevlightCave01Base_80173478 {
 };
 
 s32 post_translate_matrix(void *);
-s32 draw_ginja_model(s32);
+void draw_ginja_model(s32 model);
 s32 rotate_matrix_z(s32, s32);
 s32 rotate_matrix_x(s32, s32);
 s32 rotate_matrix_y(s32, s32);
@@ -32,7 +32,7 @@ void TORevlightCave01__sub_80173478(void * _w0) {  }
 void TORevlightCave01::run_task() {
     u8 *arg0 = (u8 *)this;
     if (TObjPlayer::check_demo_mode() == 1) {
-        TORevlightCave01__sub_80173478((void *)((void *) (arg0)));
+        TORevlightCave01__sub_80173478(((void *) (arg0)));
     }
     *(s32 *)&this->m_c8 = (s32) (*(s32 *)&this->m_c8 + *(s32 *)&this->m_cc);
 }

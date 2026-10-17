@@ -27,15 +27,15 @@ struct Self_801AE744 {
 };
 
 extern "C" {
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 s32 clear_render_context__10TObjPlayerFv(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_material_alpha_compare_reference(int);
-s32 set_chunk_material_override_pair(int, int);
-s32 set_chunk_material_color(void *);
+void set_material_alpha_compare_reference(s32 reference);
+void set_chunk_material_override_pair(s32 arg0, s32 arg1);
+void set_chunk_material_color(f32 *arg);
 extern Color_801AE744 saved_model_draw_color;
 extern Color_801AE744 model_material_color;
 extern s32 lbl_805D5660;
@@ -46,9 +46,9 @@ extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 * find_entity_by_id(u16);
-u8 * photon_base_ct(void *);
+void *photon_base_ct(void *arg0);
 void sub_801AE72C__13TPhotonYoullaFv(void *, u8);
-s32 spawn_photon_blast_opening_effects(int, int);
+void spawn_photon_blast_opening_effects(s32 arg0, s32 arg1);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
 extern u8 lbl_804C3B48[];
 extern s32 __vt__13TPhotonYoulla[];
@@ -60,8 +60,8 @@ void TObjPlayer__sub_801AEB80(void);
 void *__dt__13TPhotonYoullaFv(void *arg0, s16 arg1);
 s32 advance_animation_playback(void *);
 void __dl__7TObjectFPv(void *);
-void destroy_photon_motion_object(void *, int);
-s32 queue_destruction__7TObjectFv(void *);
+void *destroy_photon_motion_object(void *arg0, s16 arg1);
+void queue_destruction__7TObjectFv(void *arg0);
 
 extern const f32 lbl_805DC264;
 extern const f32 lbl_805DC268;
@@ -85,7 +85,7 @@ void TPhotonYoulla::render() {
         TObjPlayer::set_global_flag();
         set_material_alpha_compare_reference(0);
         set_chunk_material_override_pair(-1, 0x800);
-        set_chunk_material_color(&self->color);
+        set_chunk_material_color((f32 *)&self->color);
         ((TUnk_804C3248 *)self)->set_photon_blast_joint_callback();
         ((TObjEneRe7Berura *)self)->draw();
         TObjPlayer::clear_global_state();
@@ -175,7 +175,7 @@ u8 *TPhotonYoulla__ct(u8 *arg0, u8 *arg1) {
         *(s32 *)&((TPhotonYoulla *)arg0)->m_1a0 = 1;
         spawn_photon_blast_attachment_effects(arg0, 6);
     } else {
-        spawn_photon_blast_opening_effects((int) (6), (int) (((TPhotonYoulla *)arg0)->m_17c));
+        spawn_photon_blast_opening_effects((6), (((TPhotonYoulla *)arg0)->m_17c));
     }
     return arg0;
 }

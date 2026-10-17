@@ -4,7 +4,7 @@
 extern "C" {
 
 void mem_free(void*);
-void fn_801C2308(void*, int);
+void *fn_801C2308(void *arg0, s16 arg1);
 
 extern u32 TObjPlayer__shared_photon_blast_state;
 extern u32 TObjPlayer__shared_model_buffer;
@@ -12,7 +12,7 @@ extern u32 player_shared_buffer_base;
 
 void TObjPlayer::free_shared_data() {
     if ((u32) TObjPlayer__shared_photon_blast_state != 0U) {
-        fn_801C2308((void*)TObjPlayer__shared_photon_blast_state, 1);
+        fn_801C2308((void *)TObjPlayer__shared_photon_blast_state, 1);
         TObjPlayer__shared_photon_blast_state = 0U;
     }
     if ((u32) player_shared_buffer_base != 0U) {

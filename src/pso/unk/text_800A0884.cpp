@@ -7,9 +7,9 @@ typedef struct Obj_800A0884 {
 } Obj_800A0884;
 
 extern "C" {
-void clear_lappy_flag_set_param(void *);
-void fn_800A0FDC(void *);
-void *get_enemy_entity(int);
+void clear_lappy_flag_set_param(u8 *arg0);
+void fn_800A0FDC(u8 *arg0);
+u8 *get_enemy_entity(u16 arg0);
 s32 fn_800A0884(Obj_800A0884 *o);
 s32 fn_800A0884(Obj_800A0884 *o) {
     void *ents[16];
@@ -35,9 +35,9 @@ s32 fn_800A0884(Obj_800A0884 *o) {
     for (j = 0; j < o->count; j++) {
         if (ents[j] != NULL) {
             if (j == o->sel) {
-                fn_800A0FDC(ents[j]);
+                fn_800A0FDC((u8 *)ents[j]);
             } else {
-                clear_lappy_flag_set_param(ents[j]);
+                clear_lappy_flag_set_param((u8 *)ents[j]);
             }
         }
     }

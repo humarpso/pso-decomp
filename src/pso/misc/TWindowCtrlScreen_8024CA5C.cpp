@@ -13,9 +13,9 @@ struct RecoveredGlobal_8024CAD0___vt__17TWindowCtrlScreen {
 extern "C" {
 s32 get_nth_view_player_id__11TCameraCtrlFl(int);
 s32 TCameraCtrl__sub_80068EF0();
-s32 TWindowCtrlMain__sub_8024CDD0(int);
+s32 TWindowCtrlMain__sub_8024CDD0(s32 arg0);
 s32 is_window_display_enabled();
-s32 draw_menu_backdrop_gradients(int);
+void draw_menu_backdrop_gradients(s32 viewport_index);
 s32 TWindowCtrlMain__sub_8024D2A4(int);
 extern s32 TWindowCtrlMain__instance;
 u8 * __dt__7TObjectFv(void *, s16);
@@ -32,8 +32,8 @@ void TWindowCtrlScreen::render() {
         ((TObject *)TWindowCtrlMain__instance)->render_nodes();
         TWindowCtrlMain__sub_8024D2A4((int) ((s32) temp_r31));
         TCameraCtrl::restore_full_screen_view();
-        draw_menu_backdrop_gradients((int) ((s32) temp_r31));
-        ((TObject *)(TWindowCtrlMain__sub_8024CDD0((int) ((s32) temp_r31))))->render_nodes();
+        draw_menu_backdrop_gradients(((s32) temp_r31));
+        ((TObject *)(TWindowCtrlMain__sub_8024CDD0(((s32) temp_r31))))->render_nodes();
         TCameraCtrl__sub_80068EF0();
         TParticleCtrl::end_effect_render();
     }

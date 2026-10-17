@@ -7,10 +7,10 @@ extern "C" {
 void *TObjWarpBoss03__ct(void *arg0);
 void *TObjWarpJungMain__create(void *arg0);
 void *__dt__14TObjWarpBoss03Fv(void *arg0, s16 arg1);
-void TObjAreaWarp__ct(void *);
+void *TObjAreaWarp__ct(void *arg0);
 void *TObjWarpJungMain__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
-void __dt__12TObjAreaWarpFv(void *, int);
+u8 *__dt__12TObjAreaWarpFv(u8 *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 
 void TObjWarpBoss03::debug_print_area_num() { ((TObjAreaWarp *)this)->TObjAreaWarp::debug_print_area_num(); sub_8019F9E4(); }
@@ -21,7 +21,7 @@ extern s32 __vt__14TObjWarpBoss03[];
 void *__dt__14TObjWarpBoss03Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjWarpBoss03;
-        __dt__12TObjAreaWarpFv(arg0, 0);
+        __dt__12TObjAreaWarpFv((u8 *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

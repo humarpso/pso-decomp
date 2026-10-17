@@ -19,7 +19,7 @@ struct RecoveredFields_802CE510_temp_r3
 
 extern "C" {
 s32 attach_particle_model(int, int, int, int, int, f32);
-u8 *csnVectorUnder(s32 *, s32, s32);
+s32 *csnVectorUnder(s32 arg0, u32 *arg1, s32 arg2);
 u32 spawn_particle_effect(void *, int);
 s32 fn_800D8830(void *, void *);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
@@ -44,7 +44,7 @@ void fn_802CE510(int arg0) {
   u8 *temp_r3;
   VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x38));
   stack.spC += lbl_805DE6E8;
-  temp_r3 = (u8 *) csnVectorUnder(&stack.sp8, arg0 + 0x120, 0x15);
+  temp_r3 = (u8 *) csnVectorUnder((s32)&stack.sp8, (u32 *)(arg0 + 0x120), 0x15);
   if (temp_r3 != 0)
   {
     temp_r31 = ((RecoveredFields_802CE510_temp_r3 *) temp_r3)->field_0 & 4;

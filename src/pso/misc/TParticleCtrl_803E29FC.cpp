@@ -11,12 +11,12 @@ struct Particle_803E2A1C {
 };
 
 extern "C" {
-s32 load_camera_view_matrix();
-s32 setup_blended_textured_draw();
-s32 load_context_texture_obj();
+void load_camera_view_matrix(void);
+void setup_blended_textured_draw(void);
+void load_context_texture_obj(void);
 s32 GXBegin(int, int, u16);
 void TParticleCtrl__sub_803E2A1C(Particle_803E2A1C *p, s32 n);
-s32 TObjPlayer__sub_803E2248();
+void TObjPlayer__sub_803E2248(void);
 
 void TParticleCtrl::reset_particles() {
     TObjPlayer__sub_803E2248();

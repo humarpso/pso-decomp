@@ -85,8 +85,8 @@ typedef union WGPipe_803E352C {
 
 typedef f32 Mtx_803E4354[3][4];
 extern "C" {
-s32 setup_blended_textured_draw();
-s32 load_context_texture_obj();
+void setup_blended_textured_draw(void);
+void load_context_texture_obj(void);
 void TLobby__sub_803E2EE4(s32 arg0);
 s32 draw_chunk_vertices_cached__10TObjPlayerFPv(void *);
 void draw_chunk_model(void *arg0);
@@ -101,10 +101,10 @@ void setup_chunk_tev_stages(void);
 s32 GXSetZMode(int, int, int);
 s32 GXSetZCompLoc(int);
 s32 pop_matrix();
-s32 apply_scene_fog();
+void apply_scene_fog(void);
 extern s32 ginja_draw_flags;
 extern s32 (*player_chunk_draw_end_callback)();
-s32 load_list_texture(int, int, int, int);
+void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map);
 extern s32 chunk_texture_record_index;
 void apply_chunk_texture_command(s32 arg0, s32 arg1);
 void GXSetChanMatColor(s32, ByteColor);
@@ -480,7 +480,7 @@ void apply_chunk_texture_command(s32 arg0, s32 arg1) {
     idx = var_r31;
     var_r4 = var_r6;
     var_r6 = 0;
-    load_list_texture((int) (idx), (int) (var_r4), (int) (var_r5), (int) (0));
+    load_list_texture((idx), (var_r4), (var_r5), (0));
     chunk_texture_record_index = var_r31;
 }
 #pragma pop

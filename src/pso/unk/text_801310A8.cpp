@@ -3,7 +3,7 @@
 
 extern "C" {
 
-void __dt__11TItemWeaponFv(void *, int);
+void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
 extern s32 lbl_804A6CC8[];
 
 void *__dt__13TUnk_804A6CC8Fv(void *arg0, s16 arg1) {

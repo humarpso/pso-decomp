@@ -13,7 +13,7 @@ s32 draw_default_entry__9TWindowDDFl();
 s32 draw_visible_window_entries(void *, void *, int);
 void render__19TWindowSimpleStatusFv(s32 arg0);
 void __dl__7TObjectFPv(void *);
-void TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 extern u8 __vt__19TWindowSimpleStatus[];
 u8 *__dt__19TWindowSimpleStatusFv(SS_802705D8 *arg0, s16 arg1);
 extern s32 TWindowSimpleStatus__name;
@@ -22,8 +22,8 @@ SS_80270668 *TWindowSimpleStatus__ct(SS_80270668 *arg0, void *arg1, s32 arg2, vo
 s32 get_window_layout_position(s32);
 void *__nw__7TObjectFUl(int);
 s32 update_hp_tp_level__20TWindowSubStatusDispFv();
-s32 update_lockon_window(s32);
-s32 update_status_help_item(s32);
+void update_lockon_window(u8 *arg0);
+void update_status_help_item(s32 arg0);
 
 void render__19TWindowSimpleStatusFv(s32 arg0) {
     s32 ctx;
@@ -35,7 +35,7 @@ void render__19TWindowSimpleStatusFv(s32 arg0) {
 void TWindowSimpleStatus::run_task() {
     s32 arg0 = (s32)this;
     update_hp_tp_level__20TWindowSubStatusDispFv();
-    update_lockon_window(arg0);
+    update_lockon_window((u8 *)arg0);
     update_status_help_item(arg0);
     ((TWindowSimpleStatus *)arg0)->update_status_icons((void *)(get_window_layout_position(0x1D)));
     ((TWindowDD *)arg0)->initialize_subwindow();
@@ -52,7 +52,7 @@ u8 *__dt__19TWindowSimpleStatusFv(SS_802705D8 *arg0, s16 arg1) {
         arg0->vt = __vt__19TWindowSimpleStatus;
         for (i = 0; i < 4; i++) {
             if (arg0->w[i] != NULL) {
-                TWindow__close(arg0->w[i]);
+                TWindow__close((u8 *)arg0->w[i]);
                 arg0->w[i] = NULL;
             }
         }

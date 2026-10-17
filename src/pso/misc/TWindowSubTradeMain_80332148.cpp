@@ -7,22 +7,22 @@
 extern "C" {
 
 void *__dt__19TWindowSubTradeMainFv(void *arg0, s16 arg1);
-u32 get_player_by_client_id(s32);
-s32 TWindowCtrl__sub_8024ADF0(s32);
-s32 TWindowSubComCard__sub_8024AB98(s32);
-s32 TWindow__close(void *);
+void *get_player_by_client_id(s32 i);
+void TWindowCtrl__sub_8024ADF0(s32 arg0);
+void TWindowSubComCard__sub_8024AB98(s32 arg0);
+void TWindow__close(u8 *arg0);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 s32 end_camera_pan__10TObjPlayerFv();
-s32 TLobby__sub_802D29E8(void *);
-s32 queue_destruction__7TObjectFv(void *);
+s32 TLobby__sub_802D29E8(u32 arg0);
+void queue_destruction__7TObjectFv(void *arg0);
 
 extern void* __vt__19TWindowSubTradeMain[];
 
 void *__dt__19TWindowSubTradeMainFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void **)((s8 *)arg0 + 0x18) = (void *) __vt__19TWindowSubTradeMain;
-        TLobby__sub_802D29E8(arg0);
+        TLobby__sub_802D29E8((u32)arg0);
         TLobby::check_flags_and_proceed();
         if (get_player_by_client_id(*(s32 *)&((TWindowSubTradeMain *)arg0)->m_28) != 0U) {
             end_camera_pan__10TObjPlayerFv();
@@ -32,23 +32,23 @@ void *__dt__19TWindowSubTradeMainFv(void *arg0, s16 arg1) {
             ((TWindowSubTradeMain *)arg0)->m_50 = 0U;
         }
         if ((u32) ((TWindowSubTradeMain *)arg0)->m_4c != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x4C));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x4C)));
             ((TWindowSubTradeMain *)arg0)->m_4c = 0U;
         }
         if ((u32) ((TWindowSubTradeMain *)arg0)->m_48 != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x48));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x48)));
             ((TWindowSubTradeMain *)arg0)->m_48 = 0U;
         }
         if ((u32) ((TWindowSubTradeMain *)arg0)->m_44 != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x44));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x44)));
             ((TWindowSubTradeMain *)arg0)->m_44 = 0U;
         }
         if ((u32) ((TWindowSubTradeMain *)arg0)->m_40 != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x40));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x40)));
             ((TWindowSubTradeMain *)arg0)->m_40 = 0U;
         }
         if ((u32) ((TWindowSubTradeMain *)arg0)->m_3c != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x3C));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x3C)));
             ((TWindowSubTradeMain *)arg0)->m_3c = 0U;
         }
         if ((u32) ((TWindowSubTradeMain *)arg0)->m_38 != 0U) {
@@ -56,11 +56,11 @@ void *__dt__19TWindowSubTradeMainFv(void *arg0, s16 arg1) {
             ((TWindowSubTradeMain *)arg0)->m_38 = 0U;
         }
         if ((u32) ((TWindowSubTradeMain *)arg0)->m_34 != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x34));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x34)));
             ((TWindowSubTradeMain *)arg0)->m_34 = 0U;
         }
         if ((u32) ((TWindowSubTradeMain *)arg0)->m_30 != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x30));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x30)));
             ((TWindowSubTradeMain *)arg0)->m_30 = 0U;
         }
         if ((u32) ((TWindowSubTradeMain *)arg0)->m_2c != 0U) {

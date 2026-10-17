@@ -11,7 +11,7 @@ void TObjPlayer__sub_80129124(void* p);
 int rotate_matrix_z(void*, void*);
 s32 test_flags_any(void *, int);
 void __dl__7TObjectFPv(void *);
-void __dt__15TItemShootModelFv(void *, int);
+void *__dt__15TItemShootModelFv(void *self, s16 flag);
 int get_player_list__10TObjPlayerFv(void*);
 
 extern s32 lbl_804A4020[];

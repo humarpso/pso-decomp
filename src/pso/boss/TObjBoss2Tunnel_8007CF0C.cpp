@@ -37,7 +37,7 @@ s32 memcard_check_snapshot(s32 arg0, s32 *arg1);
 s32 TAdPlayerLoadGC__sub_801E0FA4(s32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32 *);
-s32 init_capture_texture(s32);
+void init_capture_texture(s32 wide);
 s32 memmove(void *, void *, s32);
 s32 memset(void *, s32, s32);
 s32 query_memcard_capacity__15TAdPlayerLoadGCFl(s32, s32);

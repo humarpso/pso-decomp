@@ -7,7 +7,7 @@ extern "C" {
 void *TBoss2Mine__ct(void *arg0, s32 arg1, s16 arg2, s16 arg3, s32 arg4);
 void TBoss2Mine__sub_80038D84(void);
 int TBoss2Mine__sub_80038D88(void* p);
-s32 init__10TBoss2MineFPvi(void *, s32);
+void init__10TBoss2MineFPvi(u8 *arg0, s32 arg1);
 s32 TObjEneDD__ct(void *, s32);
 int TObjPlayer__sub_800F0928(void*);
 s32 get_instance__13TBoss2DeRolLeFv(void);
@@ -27,7 +27,7 @@ void *TBoss2Mine__ct(void *arg0, s32 arg1, s16 arg2, s16 arg3, s32 arg4) {
     }
     *(s16 *)&((TBoss2Mine *)arg0)->m_1c = arg2;
     *(s16 *)((s8 *)arg0 + 0x2C) = arg3;
-    init__10TBoss2MineFPvi(arg0, arg4);
+    init__10TBoss2MineFPvi((u8 *)arg0, arg4);
     return arg0;
 }
 

@@ -3,8 +3,8 @@
 
 extern "C" {
 
-s32 TWindowMainMenu__sub_8024E3CC();
-s32 fn_8026AC50();
+void TWindowMainMenu__sub_8024E3CC(void);
+void fn_8026AC50(void);
 void queue_destruction__7TObjectFv(void*);
 
 extern u32 TWindowCtrl__active_window;

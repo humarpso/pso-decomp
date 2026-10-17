@@ -45,7 +45,7 @@ void *TAdYesNoBaseGC__ct(void *arg0);
 void *__dt__14TAdYesNoBaseGCFv(void *arg0, s16 arg1);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 get_selected_menu_value(u32);
-s32 TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 void *__ct__9TAdBackGCFv(void *, void *);
@@ -118,11 +118,11 @@ void TAdYesNoBaseGC::vfunc_11() {
         break;
     case 2:
         if ((u32) this->m_40 != 0U) {
-            TWindow__close(*(void * *)&this->m_40);
+            TWindow__close((u8 *)(*(void * *)&this->m_40));
             this->m_40 = 0U;
         }
         if ((u32) this->m_44 != 0U) {
-            TWindow__close(*(void * *)&this->m_44);
+            TWindow__close((u8 *)(*(void * *)&this->m_44));
             this->m_44 = 0U;
         }
         temp_r4 = *(s32 *)&this->m_28 + 1;

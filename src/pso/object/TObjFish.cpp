@@ -124,7 +124,7 @@ extern u32 TOKeyJungleMain__static_model_resource;
 void render__15TOKeyJungleMainFv(u8 *arg0);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
-void __dt__5TOKeyFv(void *, int);
+void *__dt__5TOKeyFv(void *arg0, s16 arg1);
 extern s32 __vt__15TOKeyJungleMain[];
 void *__dt__15TOKeyJungleMainFv(void *arg0, s16 arg1);
 s32 is_lobby_event_active();
@@ -138,7 +138,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8029CFEC_lbl_804DC590 bm_obj_jungle_mkey_resource_descriptor;
 s32 dispatch_by_phase__15TOKeyJungleMainFlUs(void *, int);
 s32 init_collision_body_parts(void *, void *, int);
-s32 TOKey__ct(void *);
+void *TOKey__ct(void *arg0);
 extern RecoveredGlobal_8029D438_lbl_804DC5A0 TOKeyJungleMain_collision_body_parts;
 extern s32 lbl_805D3D50;
 u8 *TOKeyJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -277,7 +277,7 @@ void *__dt__15TOKeyJungleMainFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8029D438_lbl_804DC5A0_size[sizeof(RecoveredGlobal_8029D438_lbl_804DC5A0) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8029D438___vt__15TOKeyJungleMain_size[sizeof(RecoveredGlobal_8029D438___vt__15TOKeyJungleMain) == 0x74 ? 1 : -1];
 u8 *TOKeyJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TOKey__ct((void *) (arg0));
+    TOKey__ct((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8029D438___vt__15TOKeyJungleMain *)&__vt__15TOKeyJungleMain).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3D50;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
@@ -401,8 +401,8 @@ struct Fish_8029D5C8 {
 extern "C" {
 
 s32 get_state_flag__9TMainTaskFv();
-s32 func_80141618__Fv();
-s32 translate_matrix_vec3(int, void *);
+void func_80141618__Fv(void);
+void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DDD40;
 extern const f32 TObjFish__data_805DDD44;
@@ -606,13 +606,12 @@ s32 TObjFish::init_fish_school(void *arg1_arg, s32 arg2, s32 arg3) {
 #define alloc__23TAdSinglePlyChrSelectGCFv ((u8 * (*)(s32))alloc__23TAdSinglePlyChrSelectGCFv)
 #define __nw__7TObjectFUl ((u8 * (*)(s32))__nw__7TObjectFUl)
 #define get_global_state__14TOKeyMachine01Fv ((s32 (*)(void))get_global_state__14TOKeyMachine01Fv)
-#define render__8TObjFishFv ((void (*)())render__8TObjFishFv)
 #define init_fish_school__8TObjFishFPvll ((s32 (*)(void *, void *, int, int))init_fish_school__8TObjFishFPvll)
 
 extern "C" {
 s32 is_split_screen(void);
 u8 *TObjFish__create(u8 *arg0);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 construct_world_actor_base();
 extern s32 lbl_805D3D58;
 u8 *TObjFish__ct(u8 *arg0, s32 arg1, u8 *arg2);
@@ -656,7 +655,7 @@ u8 *TObjFish__ct(u8 *arg0, s32 arg1, u8 *arg2) {
         *(s32 *)&((TObjFish *)arg0)->m_94 = 1;
     }
     if (init_fish_school__8TObjFishFPvll((void *) (arg0), (void *) (arg0 + 0x68), (int) (*(s32 *)((s8 *)arg2 + 0x30)), (int) (*(s32 *)((s8 *)arg2 + 0x34))) == 0) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
     }
     return arg0;
 }
@@ -824,5 +823,4 @@ void TObjFish::load_area_resource() {
 #undef alloc__23TAdSinglePlyChrSelectGCFv
 #undef __nw__7TObjectFUl
 #undef get_global_state__14TOKeyMachine01Fv
-#undef render__8TObjFishFv
 #undef init_fish_school__8TObjFishFPvll

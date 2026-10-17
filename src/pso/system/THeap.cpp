@@ -11,7 +11,7 @@ struct V3_801412D0 { f32 x, y, z; };
 
 extern "C" {
 u32 calc_gx_tile_index(u32 x, u32 y, s16 w);
-f64 TPlyPhotonChair__sub_80142624(f32);
+f64 TPlyPhotonChair__sub_80142624(f64 x);
 s32 calc_triangle_normal__10TObjPlayerFPvPv(V3_801412D0 *v, V3_801412D0 *out);
 }
 

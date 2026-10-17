@@ -112,7 +112,7 @@ s32 update_player_state__9TObjEneDDFv(void *, Vec_802CE740 *, int);
 s32 restore_default_scene();
 s32 set_scene_override(int);
 s32 push_matrix();
-s32 draw_chunk_object(s32);
+void draw_chunk_object(void *child);
 extern Vec_802CE740 lbl_8047249C;
 extern const f32 lbl_805DE700;
 extern const f32 lbl_805DE704;
@@ -186,7 +186,7 @@ void TObjEneBm9Mericarol::draw_color_variant() {
         TObjEneDD::clear_global_flag_400();
         TObjPlayer::toggle_particle_effect();
         set_scene_override(0);
-        draw_chunk_object(*(s32 *)&this->model);
+        draw_chunk_object((void *)(*(s32 *)&this->model));
         restore_default_scene();
         TParticleCtrl::end_effect_render();
         pop_matrix();

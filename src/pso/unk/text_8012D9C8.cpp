@@ -33,13 +33,13 @@ extern const f32 lbl_805DAF4C;
 u8 * TItemWeapon__ct(void *, void *);
 extern RecoveredGlobal_8012DBF4_lbl_804A5B20 lbl_804A5B20;
 u8 *construct_slicer_weapon(u8 *arg0, u8 *arg1, u8 *arg2);
-void init_slicer_launch_state(SlicerLaunchData_8012D9C8 *);
+void init_slicer_launch_state(void *arg0);
 u16 obj_getField1c(void *);
-s16 TObjPlayer__sub_801D2F4C(void *);
-s16 get_validated_attack_stage(void *);
+s16 TObjPlayer__sub_801D2F4C(s16 *arg0);
+s16 get_validated_attack_stage(u8 *arg0);
 f32 query_extended_state__10TObjPlayerFv(void *);
 void get_weapon_color__11TItemWeaponFPv(f32 *, void *);
-void copy_vec4__13TRaderMapCoreFPvPv(f32 *, f32 *);
+void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 void launch_slicer_shot(u8 *weapon);
 
 void launch_slicer_shot(u8 *weapon) {
@@ -50,7 +50,7 @@ void launch_slicer_shot(u8 *weapon) {
     launch.weapon = ((TItem *)weapon)->get_field_d8();
     launch.textures = *(void **)((s8 *)weapon + 0x24);
     launch.model = *(void **)((s8 *)weapon + 0x188);
-    launch.kind = TObjPlayer__sub_801D2F4C(*(u8 * *)&((TUnk_804A5B20 *)weapon)->player+ 0x7CC);
+    launch.kind = TObjPlayer__sub_801D2F4C((s16 *)(*(u8 * *)&((TUnk_804A5B20 *)weapon)->player+ 0x7CC));
     launch.stage = get_validated_attack_stage(*(u8 * *)&((TUnk_804A5B20 *)weapon)->player+ 0x7CC);
     launch.multiplier = query_extended_state__10TObjPlayerFv(*(u8 * *)&((TUnk_804A5B20 *)weapon)->player);
     get_weapon_color__11TItemWeaponFPv(tmp, weapon);

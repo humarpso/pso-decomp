@@ -6,7 +6,7 @@ extern void *chat_log_lines[];
 extern void *TAdScrollWinGC__chat_log_heap;
 extern void *chat_last_line_buffer;
 void fn_8026A14C(void);
-char *parse_text_control_codes(char *, s32 *, s32);
+char *parse_text_control_codes(char *p, s32 *a, s32 *b);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
 extern s32 current_language;

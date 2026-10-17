@@ -48,7 +48,7 @@ s32 fn_8002AE08(int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 apply_choice__20TWindowChoiceSettingFllll(void *, int, int, int);
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 is_player_input_active(int);
+s32 is_player_input_active(s32 param_1);
 extern RecoveredGlobal_80276D14_lbl_8050E208 controller_input_state;
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 extern const f32 lbl_805DD5A4;
@@ -234,7 +234,7 @@ void TWindowSubCustomEquip::handle_cursor_input() {
     u8 *temp_r31;
     u8 *temp_r31_2;
     u8 *array_entry;
-    temp_r29 = is_player_input_active((int) (this->m_20));
+    temp_r29 = is_player_input_active((this->m_20));
     temp_r31 = (u8 *)(((u8 *)get_array_entry((s32)(0x10))));
     array_entry = (u8 *)(((u8 *)get_array_entry((s32)(7))));
     temp_r4 = this->m_63;
@@ -290,7 +290,7 @@ void TWindowSubCustomEquip::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r30;
     u8 *temp_r30_2;
-    temp_r30 = is_player_input_active((int) ((s32) this->m_20));
+    temp_r30 = is_player_input_active(((s32) this->m_20));
     if (((TWindowSubCustomEquip *)arg0)->is_selected() == 0) {
         ((TWindowSubCustomEquip *)arg0)->handle_cursor_input();
         temp_r30_2 = (u8 *)&(*(RecoveredGlobal_80277014_lbl_8050E208 *)&controller_input_state).value + (temp_r30 * 0x50) + 0x20;

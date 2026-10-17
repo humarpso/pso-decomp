@@ -4,7 +4,7 @@
 
 extern "C" {
 
-s32 fn_801424DC(s32, f32, f32, f32, f32);
+void fn_801424DC(s32 arg0, f32 farg0, f32 farg1, f32 farg2, f32 farg3);
 s32 draw_chunk_object();
 
 extern f32 TMainCursor__data_805DB0C0;

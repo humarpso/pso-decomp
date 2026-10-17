@@ -70,8 +70,8 @@ void init__15PSOV3EncryptionFUl(PSOV3Encryption_layout *self, u32 seed) {
 	self->m_buffer_start = &self->m_buffer[size-1];
 }
 
-void TBoss8Dragon__sub_8036AEF8();
-void __dt__15PSOV3EncryptionFv();
+s32 * *TBoss8Dragon__sub_8036AEF8(s32 * *arg0, s16 arg1);
+u8 *__dt__15PSOV3EncryptionFv(u8 *arg0, s16 arg1);
 
 void *lbl_804F3610[6] = {
 	0,

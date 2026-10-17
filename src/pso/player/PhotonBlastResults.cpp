@@ -67,7 +67,7 @@ void set_type__10TObjPlayerFs(void *, s16);
 s32 TObjPlayer__sub_801AA528(void *, int);
 void *TObjPlayer__sub_801AA66C(void *, void *);
 void *__nw__7TObjectFUl(int);
-s16 TObjPlayer__sub_80313114(void *);
+s16 TObjPlayer__sub_80313114(u8 *arg0);
 extern Counts_801A8868 photon_blast_result_counts_init;
 extern Rec_801A8868 photon_blast_sequence_table[];
 void admit_photon_blast_sequence(u8 *players, void *self);
@@ -234,8 +234,8 @@ void admit_photon_blast_sequence(u8 *players, void *self) {
     }
     for (m = 0; m < 4; m++) {
         if (m != 0) {
-            if (TObjPlayer__sub_80313114(&a[m]) != -1) {
-                if (TObjPlayer__sub_80313114(&b[k]) == TObjPlayer__sub_80313114(&a[m])) {
+            if (TObjPlayer__sub_80313114((u8 *)&a[m]) != -1) {
+                if (TObjPlayer__sub_80313114((u8 *)&b[k]) == TObjPlayer__sub_80313114((u8 *)((u8 *)&a[m]))) {
                     counts.v[k]++;
                 } else {
                     k++;
@@ -275,7 +275,7 @@ void admit_photon_blast_sequence(u8 *players, void *self) {
     } else {
         idx = 0;
         for (i = 0; i < 4; i++) {
-            if (TObjPlayer__sub_80313114(&b[i]) == -1) {
+            if (TObjPlayer__sub_80313114((u8 *)&b[i]) == -1) {
                 idx = i;
                 break;
             }

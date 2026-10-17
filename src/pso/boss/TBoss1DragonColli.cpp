@@ -59,7 +59,7 @@ u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1);
 void set_elem_flags__17TBoss1DragonColliFPv(O_8002B42C *self);
 void fn_8002B630(u8 *arg0, u8 *arg1);
 E_8002B4CC *mem_alloc(s32);
-s32 register_entity_by_id(void *);
+u16 register_entity_by_id(void *ov);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern u8 TBoss1DragonColli_sphere_chain_desc[];
 extern s32 __vt__19TBoss1DragonColli_C[];

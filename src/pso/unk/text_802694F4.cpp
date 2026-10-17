@@ -181,8 +181,8 @@ void TWindowMessage::update_scroll() {
 
 #pragma fp_contract on
 s32 get_shared_text_buffer(void);
-u32 calc_text_width(const char *);
-void text_builder_append(const char *);
+u32 calc_text_width(char *s);
+void text_builder_append(u8 *str);
 void text_builder_reset(void);
 s32 append_message_window_line(void *, s32, u32, s32);
 extern const f32 lbl_805DD234;
@@ -196,15 +196,15 @@ s32 TWindowOptionCtrl::add_label_value_line(const char *arg1, const char *arg2, 
 
     sep = " : ";
     text_builder_reset();
-    text_builder_append(arg1);
-    text_builder_append(sep);
-    text_builder_append(arg2);
+    text_builder_append((u8 *)arg1);
+    text_builder_append((u8 *)sep);
+    text_builder_append((u8 *)arg2);
     e = get_array_entry__13TUnk_804CE018Fi(((u8 *)this), *(s32 *)(((u8 *)this) + 0x88));
     r = append_message_window_line(((u8 *)this), get_shared_text_buffer(), arg3 | 2, -1);
     if (r != 0) {
         x = (0.5f) * (*(f32 *)(((u8 *)this) + 0x38) - lbl_805DD234);
-        x -= (f32)calc_text_width(arg1);
-        x -= (0.5f) * (f32)calc_text_width(sep);
+        x -= (f32)calc_text_width((char *)arg1);
+        x -= (0.5f) * (f32)calc_text_width((char *)sep);
         *(f32 *)(e + 8) = x;
     }
     return r;

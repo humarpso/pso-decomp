@@ -8,7 +8,7 @@
 struct DS_80142108 { u16 y; u8 b2; u8 b3; u8 b4; u8 b5; u8 b6; u8 b7; };
 
 extern "C" {
-f64 atan2_float(f32, f32);
+f32 atan2_float(f32 y, f32 x);
 f32 newton_sqrtf(f32);
 void direction_to_rotation_yx(u8 *arg0, s32 *arg1, s32 *arg2);
 void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
@@ -25,15 +25,15 @@ u16 approach_angle_limited(s32 arg0, s32 arg1, s32 arg2);
 void fn_80141EB4(void);
 void setSpriteInverseColorBlend(void);
 void vsub(void *arg0, void *arg1, void *arg2);
-f32 vec_squared_length(void *);
+f32 vec_squared_length(u8 *arg0);
 void normalize_vector(void *);
-int set_cached_blend_factor(int, int);
+void set_cached_blend_factor(s32 arg0, s32 arg1);
 
 extern f32 lbl_805DB158;
 
 s32 TObjPlayer::check_camera_distance() {
     s32 arg0 = (s32)this;
-    if (vec_squared_length((void *)arg0) < lbl_805DB158) {
+    if (vec_squared_length((u8 *)arg0) < lbl_805DB158) {
         return 0;
     }
     normalize_vector((void *)arg0);

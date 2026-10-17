@@ -84,7 +84,7 @@ extern const f32 lbl_805DC834;
 extern const f32 lbl_805DC838;
 void *__dt__11TTecGiZondeFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 #define UNQ(e) ((s32 (*)(u32)) is_parents_unqueued__9TTecLukerFUl)(e)
 s32 TTecGiZonde::find_chain_targets() {

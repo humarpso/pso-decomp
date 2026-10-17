@@ -66,9 +66,9 @@ Player_801756C4 *get_player_by_client_id(s32);
 void *TOSensor__ct(void *arg0);
 void *__dt__8TOSensorFv(void *arg0, s16 arg1);
 void render__8TOSensorFv(void);
-void TOKey__ct(void *);
+void *TOKey__ct(void *arg0);
 void __dl__7TObjectFPv(void *);
-void __dt__5TOKeyFv(void *, int);
+void *__dt__5TOKeyFv(void *arg0, s16 arg1);
 
 void TOSensor::vfunc_25() {  }
 
@@ -306,7 +306,7 @@ extern u32 sensor_ancient01_model_resource;
 u8 *TOSensorAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-void *mem_alloc(s32);
+void *mem_alloc(u32 size);
 s32 load_gvm_texture_file(const void *);
 extern void *ancient_sensor_resource_pair_table;
 extern s32 lbl_805D5A90;
@@ -316,11 +316,11 @@ extern s32 sensor_texture_table_index;
 void *__dt__17TOSensorAncient01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void *__nw__7TObjectFUl(int);
-s32 mem_free(void*);
+void mem_free(void *p);
 
 void draw_ginja_model(s32);
 s32 rotate_matrix_y(int, int);
-s32 translate_matrix(int, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
@@ -384,22 +384,22 @@ void TOSensorAncient01::render() {
         TParticleCtrl::end_effect_render();
         push_matrix();
         temp_r30_6 = (u8 *)(*(u8 **)((s8 *)temp_r30_5 + 0x2C));
-        translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r30_6 + 8) + this->m_f0), (f32) (*(f32 *)((s8 *)temp_r30_6 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_6 + 0x10)));
+        translate_matrix((0), (f32) (*(f32 *)((s8 *)temp_r30_6 + 8) + this->m_f0), (f32) (*(f32 *)((s8 *)temp_r30_6 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_6 + 0x10)));
         draw_ginja_model(*(s32 *)((s8 *)temp_r30_6 + 4));
         pop_matrix();
         push_matrix();
         temp_r30_7 = (u8 *)(*(u8 **)((s8 *)temp_r30_6 + 0x30));
-        translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r30_7 + 8)), (f32) (*(f32 *)((s8 *)temp_r30_7 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_7 + 0x10) - this->m_f0));
+        translate_matrix((0), (f32) (*(f32 *)((s8 *)temp_r30_7 + 8)), (f32) (*(f32 *)((s8 *)temp_r30_7 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_7 + 0x10) - this->m_f0));
         draw_ginja_model(*(s32 *)((s8 *)temp_r30_7 + 4));
         pop_matrix();
         push_matrix();
         temp_r30_8 = (u8 *)(*(u8 **)((s8 *)temp_r30_7 + 0x30));
-        translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r30_8 + 8) - this->m_f0), (f32) (*(f32 *)((s8 *)temp_r30_8 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_8 + 0x10)));
+        translate_matrix((0), (f32) (*(f32 *)((s8 *)temp_r30_8 + 8) - this->m_f0), (f32) (*(f32 *)((s8 *)temp_r30_8 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_8 + 0x10)));
         draw_ginja_model(*(s32 *)((s8 *)temp_r30_8 + 4));
         pop_matrix();
         push_matrix();
         temp_r30_9 = (u8 *)(*(u8 **)((s8 *)temp_r30_8 + 0x30));
-        translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r30_9 + 8)), (f32) (*(f32 *)((s8 *)temp_r30_9 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_9 + 0x10) + this->m_f0));
+        translate_matrix((0), (f32) (*(f32 *)((s8 *)temp_r30_9 + 8)), (f32) (*(f32 *)((s8 *)temp_r30_9 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_9 + 0x10) + this->m_f0));
         draw_ginja_model(*(s32 *)((s8 *)temp_r30_9 + 4));
         pop_matrix();
         pop_matrix();
@@ -423,7 +423,7 @@ void TOSensorAncient01::destroy() {
         TObjPlayer::free_if_valid(*(s32 *)((s8 *)ancient_sensor_resource_pair_table + 0xC));
         TObjPlayer::free_if_valid(*(s32 *)((s8 *)ancient_sensor_resource_pair_table + 8));
         if ((void *) ancient_sensor_resource_pair_table != NULL) {
-            mem_free((void*)ancient_sensor_resource_pair_table);
+            mem_free(ancient_sensor_resource_pair_table);
             ancient_sensor_resource_pair_table = NULL;
         }
     }

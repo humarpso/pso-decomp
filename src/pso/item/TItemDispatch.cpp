@@ -74,9 +74,9 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 get_player_by_client_id(void *);
 s32 push_to_player_list__5TItemFPv();
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 s8 TObjPlayer__sub_80102C30(u8 *);
-s32 func_80141618__Fv();
+void func_80141618__Fv(void);
 s32 set_depth_buffer_settings_id__FUl(int);
 s32 reset_key_machine_state__10TObjPlayerFv();
 extern RecoveredGlobal_8010255C_lbl_8050BEC0 saved_model_draw_color;
@@ -88,7 +88,7 @@ extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 s32 get_current_floor(void);
-void spawn_particle_effect(void *, s32);
+void *spawn_particle_effect(void *pos, s32 id);
 void snap_to_ground__5TItemFv(void *, f32);
 void TLobby__sub_8011AED8(s16, s16, void *, f32, f32);
 s32 rand(void);
@@ -136,9 +136,9 @@ void TItem::render_shadows() {
             lbl_805D5660 = model_render_flags;
             lbl_805D5664 = chunk_polygon_flags_and_mask;
             lbl_805D5668 = chunk_polygon_flags_or_mask;
-            copy_vec4__13TRaderMapCoreFPvPv((void *) (&saved_model_draw_color.value), (void *) (&model_material_color.value));
+            copy_vec4__13TRaderMapCoreFPvPv((&saved_model_draw_color.value), (&model_material_color.value));
             this->vfunc_27();
-            copy_vec4__13TRaderMapCoreFPvPv((void *) (&model_material_color.value), (void *) (&saved_model_draw_color.value));
+            copy_vec4__13TRaderMapCoreFPvPv((&model_material_color.value), (&saved_model_draw_color.value));
             chunk_polygon_flags_and_mask = lbl_805D5664;
             chunk_polygon_flags_or_mask = lbl_805D5668;
             model_render_flags = lbl_805D5660;
@@ -251,12 +251,12 @@ struct TItem_801028D8 : VBase_18_801028D8 {
 
 extern "C" {
 void obj_setFlags30(void *, u32);
-void fn_8002B630(void *, void *);
+void fn_8002B630(u8 *arg0, u8 *arg1);
 void sub_8010043C__5TItemFUc(void *, s32);
 void set_item_count__13TUnk_804B9870Fs(void *, s32);
 void TItem__sub_801031C0(void *);
 s8 get_type_nibble__9TItemDataFv(void *);
-s32 is_rare_item__9TItemDataFPv(void *);
+s32 is_rare_item__9TItemDataFPv(u8 *item);
 void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern u8 item_collider_body[];
 extern u8 lbl_8043DF94[];

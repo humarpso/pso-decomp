@@ -2,7 +2,7 @@
 #include "pso/misc/TLobby.h"
 
 extern "C" {
-void TWindow__close(s32);
+void TWindow__close(u8 *arg0);
 void* memset(void*, int, unsigned long);
 extern const char* member_check_name_ptr;
 extern s32 TMemberCheck__previous_member_count;
@@ -19,7 +19,7 @@ void TMemberCheck::run_task() {
 
 TMemberCheck::~TMemberCheck() {
     if (m_1C != 0) {
-        TWindow__close(m_1C);
+        TWindow__close((u8 *)m_1C);
         m_1C = 0;
     }
 }

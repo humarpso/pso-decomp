@@ -35,8 +35,8 @@ void post_translate_matrix(void *);
 void draw_ginja_object(void *);
 void rotate_matrix_y(int, void *);
 void push_matrix(void);
-void pop_matrix(void);
-s32 set_indexed_flags(void *, s32, s32);
+s32 pop_matrix(void);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
 
 extern void *lazer_fence_norm_texture_list;
 

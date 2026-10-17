@@ -151,23 +151,23 @@ struct NpcV_802d7748_802D745C : NpcBase_802d7748_802D745C {
 
 void * TObjNpcEnemy__create(void *arg0);
 void *__dt__12TObjNpcEnemyFv(void *arg0, s16 arg1);
-s32 draw_ginja_object(s32);
+void draw_ginja_object(void *child);
 void *TObjControl__ct(void *, void *);
-s32 draw_chunk_object(s32);
-s32 restore_scene_lighting();
-s32 select_actor_lighting(void *);
+void draw_chunk_object(void *child);
+void restore_scene_lighting(void);
+void select_actor_lighting(s32 obj);
 s32 rotate_matrix_y(int, int);
 s32 translate_matrix(int, int, f32, f32, f32);
-s32 push_matrix_from(int);
+s32 push_matrix_from(void *src);
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-void __dt__11TObjNpcBaseFv(void *, int);
+void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 s32 draw__16TObjEneRe7BeruraFv();
 s32 draw_model__12TObjNpcEnemyFv();
 s32 init_npc_animation__10TObjPlayerFPvPvPv(void *, s32, s32, s16);
 s32 set_global_flag__10TObjPlayerFv(void *);
-s32 translate_matrix_vec3(int, void *);
+void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 
 typedef char RecoveredGlobal_802D72E4_TObjNpcEnemy__data_80540FF0_size[sizeof(RecoveredGlobal_802D72E4_TObjNpcEnemy__data_80540FF0) == 0x240 ? 1 : -1];
 s16 *TObjNpcEnemy::get_entry_by_index(s16 arg0) {
@@ -317,7 +317,7 @@ void TObjNpcEnemy::update_state() {
     switch ((s32) temp_r0) {
     case 0:
         set_global_flag__10TObjPlayerFv(this);
-        draw_chunk_object(*(s32 *)&this->model);
+        draw_chunk_object((void *)(*(s32 *)&this->model));
         TObjPlayer::reset_transform_state();
         TObjPlayer::clear_global_state();
         return;
@@ -326,7 +326,7 @@ void TObjNpcEnemy::update_state() {
         return;
     case 2:
         set_global_flag__10TObjPlayerFv(this);
-        draw_ginja_object(*(s32 *)&this->model);
+        draw_ginja_object((void *)(*(s32 *)&this->model));
         TObjPlayer::reset_transform_state();
         TObjPlayer::clear_global_state();
         return;
@@ -344,13 +344,13 @@ void TObjNpcEnemy::render() {
     u8 *temp_r4;
 
     if (((void *) *(void * *)&this->m_3b8 != NULL) && (((NpcV_802d7748_802D745C *)arg0)->m8(*(f32 *)&this->unk_398, this->m_39c) != 0) && ((s32) *(s32 *)&this->m_390 == 1)) {
-        select_actor_lighting((void *) (arg0));
+        select_actor_lighting((s32)(arg0));
         if (((TObjNpcEnemy *)arg0)->sub_802D7444() != 0) {
             model_render_flags |= 1;
         }
         TObjFish::set_global_param((int) (this->texture_id));
-        push_matrix_from((int) (0));
-        translate_matrix_vec3((int) (0), (void *) (arg0 + 0x38));
+        push_matrix_from((0));
+        translate_matrix_vec3((0), (arg0 + 0x38));
         temp_r4 = (unsigned char *) (*(void * *)&this->m_3b8);
         translate_matrix((int) (0), (int) (temp_r4), (f32) (lbl_805DE7D8), (f32) (*(f32 *)((s8 *)temp_r4 + 4)), (f32) (lbl_805DE7D8));
         rotate_matrix_y((int) (0), (int) (this->rotation_y));

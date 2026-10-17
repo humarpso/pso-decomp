@@ -98,21 +98,21 @@ struct RecoveredGlobal_8014B3C8___vt__12TObjNpcHRM00 {
 };
 
 extern "C" {
-s32 construct_male_npc_base(void *);
+u8 *construct_male_npc_base(u8 *arg0);
 extern s32 __vt__12TObjNpcHRM00[];
 extern s32 TObjNpcHRM00__name;
 extern u32 TObjNpcHRM00__named_object_resource;
 extern u32 TObjNpcHRM00__body_texture_gvm;
 u8 *TObjNpcHRM00__ct(u8 *arg0, s32 arg1, s32 arg2);
-void *create_named_object(const char *name);
-void *load_gvm_texture_file(const char *name);
+s32 create_named_object(s32 arg0);
+u8 *load_gvm_texture_file(s32 arg0);
 extern char TObjNpcHRM00__data_filename[];
 extern char TObjNpcHRM00__body_texture_filename[];
 void * TObjNpcHRM01__create(void *arg0);
 void *__dt__12TObjNpcHRM00Fv(void *arg0, s16 arg1);
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);
-void *TObjNpcHRM01__ct(void *, void *, void *);
+u8 *TObjNpcHRM01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -129,8 +129,8 @@ void TObjNpcHRM00::destroy_resources() {
 }
 
 void TObjNpcHRM00::load_resources() {
-    TObjNpcHRM00__named_object_resource = (u32)create_named_object(TObjNpcHRM00__data_filename);
-    TObjNpcHRM00__body_texture_gvm = (u32)load_gvm_texture_file(TObjNpcHRM00__body_texture_filename);
+    TObjNpcHRM00__named_object_resource = (u32)create_named_object((s32)TObjNpcHRM00__data_filename);
+    TObjNpcHRM00__body_texture_gvm = (u32)load_gvm_texture_file((s32)TObjNpcHRM00__body_texture_filename);
 }
 
 void *__dt__12TObjNpcHRM00Fv(void *arg0, s16 arg1) {
@@ -148,7 +148,7 @@ extern void *tl_04;
 
 typedef char RecoveredGlobal_8014B3C8___vt__12TObjNpcHRM00_size[sizeof(RecoveredGlobal_8014B3C8___vt__12TObjNpcHRM00) == 0x178 ? 1 : -1];
 u8 *TObjNpcHRM00__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_male_npc_base((void *) (arg0));
+    construct_male_npc_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8014B3C8___vt__12TObjNpcHRM00 *)&__vt__12TObjNpcHRM00).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcHRM00__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
@@ -168,7 +168,7 @@ void * TObjNpcHRM01__create(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x3B8);
     if (o2 != NULL) {
-        o2 = TObjNpcHRM01__ct(o2, o, arg0);
+        o2 = TObjNpcHRM01__ct((u8 *)o2, (s32)o, (s32)arg0);
     }
     return o2;
 }

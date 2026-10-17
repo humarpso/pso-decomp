@@ -4,7 +4,7 @@
 extern "C" {
 
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object(int);
+void draw_ginja_object(void *child);
 s32 rotate_matrix_x(int, int);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
@@ -23,7 +23,7 @@ void TUnk_804A5340::render() {
         post_translate_matrix((void *) (arg0 + 0x1C));
         rotate_matrix_y((int) (0), (int) (this->m_count));
         rotate_matrix_x((int) (0), (int) (this->m_28 - 0x4000));
-        draw_ginja_object((int) (*(u32 *)&this->m_58));
+        draw_ginja_object((void *)(*(u32 *)&this->m_58));
         pop_matrix();
     }
 }

@@ -35,7 +35,7 @@ void *__dt__16TObjHashiVersus1Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
-s32 __dt__13TObjHashiBaseFv(void *, s32);
+void *__dt__13TObjHashiBaseFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;

@@ -7,11 +7,11 @@ void TAdMcSelectGC__sub_8032A180(void* p, s32 v);
 void TAdMcSelectGC__sub_8032A140(void* p);
 void TAdMcSelectGC__sub_8032A15C(void* p);
 void *TAdMcSelectGC__ct(void *, void *);
-int release_selected_entry__15TAdMcSelectMcGCFv(void);
-int TLobby__sub_802C78EC(void);
-int TLobby__sub_802C7920(void);
+void release_selected_entry__15TAdMcSelectMcGCFv(void);
+void TLobby__sub_802C78EC(void);
+void TLobby__sub_802C7920(void);
 void *__nw__7TObjectFUl(int);
-int init_memorycard__15TAdMcSelectMcGCFv(void);
+void init_memorycard__15TAdMcSelectMcGCFv(void);
 
 extern void *TAdMcSelectGC__instance;
 

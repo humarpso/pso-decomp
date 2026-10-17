@@ -32,7 +32,7 @@ extern u8 lbl_80476684[];
 extern const f32 TBoss6GravBall__data_805DF550;
 extern const f32 lbl_805DF570;
 void TBoss6GravBall__sub_803236F8(Obj_803236F8 *arg0);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 project_actor_to_ground(void *, void *, int);
 extern const f32 TBoss6GravBall__data_805DF558;
 extern const f32 lbl_805DF574;
@@ -183,7 +183,7 @@ s32 TBoss6GravBall::clamp_to_ground() {
     Obj_803237A0 *arg0 = (Obj_803237A0 *)this;
     Vec_803237A0 v = arg0->pos;
     if (project_actor_to_ground(arg0, &v, 0) == 0) {
-        queue_destruction__7TObjectFv((void *)(arg0));
+        queue_destruction__7TObjectFv((arg0));
         return 1;
     }
     v.y = v.y + TBoss6GravBall__data_805DF558;
@@ -201,7 +201,7 @@ void TBoss6GravBall::update_lifetime(void *) {
     temp_r0 = *(s32 *)&this->m_b4 + 1;
     *(s32 *)&this->m_b4 = temp_r0;
     if (temp_r0 > 0x1E) {
-        queue_destruction__7TObjectFv((void *)(this));
+        queue_destruction__7TObjectFv((this));
     }
 }
 

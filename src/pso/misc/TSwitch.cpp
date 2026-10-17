@@ -4,7 +4,7 @@
 
 extern "C" {
 void clear_current_floor_switch(s32 arg0);
-s16 get_current_floor();
+s32 get_current_floor(void);
 void set_current_floor_switch(s32 arg0);
 void is_current_floor_switch_set(s32 arg0);
 u8 is_floor_switch_set(u32 id, s16 floor);

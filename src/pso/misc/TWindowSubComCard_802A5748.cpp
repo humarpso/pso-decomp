@@ -12,8 +12,8 @@ extern "C" {
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 u8 * create_yes_no_window(s32, s32, void *, u32);
 s32 create_window_menu(s32, s32, s32);
-u8 * create_titled_window_menu(s32, s32, s32, s32);
-s32 set_status_flag_80__12TQuestThreadFPv(s32);
+s32 create_titled_window_menu(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void set_status_flag_80__12TQuestThreadFPv(void *p);
 void open_yes_no_prompt(u8 *arg0, u32 arg1, s32 arg2, s32 arg3, f32 farg0);
 void initialize_option_dialog(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 get_selected_menu_value(s32);
@@ -48,7 +48,7 @@ void initialize_option_dialog(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
     *(s32 *)((s8 *)arg0 + 0x28) = create_window_menu(arg2, 1, *(s32 *)((s8 *)arg0 + 0x24));
     forward_trade_action_default__16TObjCityMainWarpFPviii(*(s32 *)((s8 *)arg0 + 0x28), arg1, 0x21, 0);
     ((TAdChrSelASlotGC *)(*(s32 *)((s8 *)arg0 + 0x28)))->set_flag_40();
-    set_status_flag_80__12TQuestThreadFPv(*(s32 *)((s8 *)arg0 + 0x28));
+    set_status_flag_80__12TQuestThreadFPv((void *)(*(s32 *)((s8 *)arg0 + 0x28)));
     ((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x28)))->calc_layout_height(farg0);
 }
 void open_yes_no_prompt(u8 *arg0, u32 arg1, s32 arg2, s32 arg3, f32 farg0) {
@@ -56,11 +56,11 @@ void open_yes_no_prompt(u8 *arg0, u32 arg1, s32 arg2, s32 arg3, f32 farg0) {
     if (arg1 == 0U) {
         *(s32 *)((s8 *)arg0 + 0x28) = create_window_menu(arg3, 1, *(s32 *)((s8 *)arg0 + 0x24));
     } else {
-        *(s32 *)((s8 *)arg0 + 0x28) = (long) (create_titled_window_menu(arg3, 1, (s32) arg1, *(s32 *)((s8 *)arg0 + 0x24)));
+        *(s32 *)((s8 *)arg0 + 0x28) = (long) (create_titled_window_menu(arg3, 1, arg1, *(s32 *)((s8 *)arg0 + 0x24)));
     }
     forward_trade_action_default__16TObjCityMainWarpFPviii((s32)((void *) *(s32 *)((s8 *)arg0 + 0x28)), (s32)(arg2), (s32)(0x21), (s32)(0));
     ((TAdChrSelASlotGC *)(*(s32 *)((s8 *)arg0 + 0x28)))->set_flag_40();
-    set_status_flag_80__12TQuestThreadFPv((s32)((int) (*(s32 *)((s8 *)arg0 + 0x28))));
+    set_status_flag_80__12TQuestThreadFPv((void *)((int) (*(s32 *)((s8 *)arg0 + 0x28))));
     ((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x28)))->calc_layout_height((f32) (farg0));
     ((TChCrTagPlBack *)arg0)->get_position_offset((void *) (&sp8));
     *(u8 **)((s8 *)arg0 + 0x2C) = create_yes_no_window((s32) &sp8, *(s32 *)((s8 *)arg0 + 0x24), *(u8 **)((s8 *)arg0 + 0x20), *(u32 *)((s8 *)arg0 + 0x1C));

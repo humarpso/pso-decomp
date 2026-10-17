@@ -96,7 +96,7 @@ struct RecoveredGlobal_8014B020___vt__12TObjNpcHFW01 {
 };
 
 extern "C" {
-s32 fn_8014AAC4(void *);
+u8 *fn_8014AAC4(u8 *arg0);
 extern s32 __vt__12TObjNpcHFW01[];
 extern s32 TObjNpcHFW01__name;
 extern s32 *TObjNpcHFW01__resource_node;
@@ -105,7 +105,7 @@ u8 *TObjNpcHFW01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void * TObjNpcHHM00__create(void *arg0);
 void *__dt__12TObjNpcHFW01Fv(void *arg0, s16 arg1);
 void *TObjControl__ct(void *, void *);
-void *TObjNpcHHM00__ct(void *, void *, void *);
+u8 *TObjNpcHHM00__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -124,7 +124,7 @@ extern void *tl_04;
 
 typedef char RecoveredGlobal_8014B020___vt__12TObjNpcHFW01_size[sizeof(RecoveredGlobal_8014B020___vt__12TObjNpcHFW01) == 0x178 ? 1 : -1];
 u8 *TObjNpcHFW01__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    fn_8014AAC4((void *) (arg0));
+    fn_8014AAC4((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8014B020___vt__12TObjNpcHFW01 *)&__vt__12TObjNpcHFW01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcHFW01__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
@@ -144,7 +144,7 @@ void * TObjNpcHHM00__create(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x3B8);
     if (o2 != NULL) {
-        o2 = TObjNpcHHM00__ct(o2, o, arg0);
+        o2 = TObjNpcHHM00__ct((u8 *)o2, (s32)o, (s32)arg0);
     }
     return o2;
 }

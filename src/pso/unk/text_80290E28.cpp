@@ -19,8 +19,8 @@ extern "C" {
 s32 draw_ui_sprite_scaled(f32, f32, void *, void *, void *);
 s32 TCharaMaking__resolve_creation_sprite_table(void *, void *);
 void draw_creation_sprite_offset(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 set_chunk_material_color(void *);
+void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
+void set_chunk_material_color(f32 *arg);
 extern s32 creation_sprite_table[];
 extern s32 saved_model_draw_color[];
 extern s32 model_material_color[];

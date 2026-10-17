@@ -5,12 +5,12 @@
 extern "C" {
 void* get_entity_id__10TObjPlayerFv(void*);
 f32   newton_sqrtf(f32);
-f64   atan2_float(f32, f32);
+f32 atan2_float(f32 y, f32 x);
 void  push_matrix(void);
 void  post_translate_matrix(Vec*);
 void  rotate_matrix_by_node_angles(void*, s32);
 void  draw_ginja_object(void*);
-void  pop_matrix(void);
+s32 pop_matrix(void);
 extern const char* TItemShootModel__class_name;
 extern const f32   lbl_805DAC60;
 extern const f64   lbl_8043E7A0[];

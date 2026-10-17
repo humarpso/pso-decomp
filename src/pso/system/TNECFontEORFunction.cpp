@@ -4,7 +4,7 @@
 
 extern "C" {
 s32 DCFlushRange(void *, int);
-s32 init_and_load_tlut(int, int, int, void *);
+void init_and_load_tlut(s32 arg0, s32 arg1, u16 arg2, void *arg3);
 extern s32 lbl_805D56B4;
 extern s32 menu_font_upload_flags;
 extern u8 lbl_805D56C0;
@@ -29,7 +29,7 @@ s32 menu_font_char_advance_table[191] = {
 void TNECFontEORFunction::run_task() {
     if (menu_font_upload_flags & 2) {
         DCFlushRange((void *) (lbl_805D56B4), (int) (0x80));
-        init_and_load_tlut((int) (0), (int) (2), (int) (0x80), (void *) (lbl_805D56B4));
+        init_and_load_tlut((0), (2), (0x80), (void *)(lbl_805D56B4));
         menu_font_upload_flags &= 0xFFFFFFFD;
     }
     if (menu_font_upload_flags & 1) {

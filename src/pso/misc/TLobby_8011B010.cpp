@@ -9,16 +9,16 @@ int mem_alloc(void*);
     extern int build_item_id_mode;
 extern s32 item_sync_counter_table;
 extern s32 item_id_counter_table;
-int TLobby__send_and_handle_60(void*);
+void TLobby__send_and_handle_60(u8 *arg0);
 int read_be16_field2__10TObjPlayerFv(void*);
 extern s32 TLobby__data_805D6140;
-s32 mem_free(s32);
+void mem_free(void *p);
 
 s32 TLobby::free_rock_objects(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
-        mem_free(item_sync_counter_table);
+        mem_free((void *)item_sync_counter_table);
         item_sync_counter_table = 0;
-        mem_free(item_id_counter_table);
+        mem_free((void *)item_id_counter_table);
         item_id_counter_table = 0;
         if (arg1 > 0) {
             ::operator delete((void *)arg0);
@@ -27,7 +27,7 @@ s32 TLobby::free_rock_objects(s32 arg0, s16 arg1) {
     return arg0;
 }
 void*TLobby::init_bosses(void* a0) { (*(int *)&item_id_counter_table) = mem_alloc((void*)48); (*(int *)&item_sync_counter_table) = mem_alloc((void*)48); TLobby::reset_item_id_counters(); lbl_805D54E0 = 0; build_item_id_mode = 0; return a0; }
-void TLobby::send_item_packet() { bswap_item_packet(); TLobby__send_and_handle_60(this); }
+void TLobby::send_item_packet() { bswap_item_packet(); TLobby__send_and_handle_60((u8 *)this); }
 void TLobby::bswap_item_packet() { read_be16_field2__10TObjPlayerFv(this); ((TLobby *)((char*)this + 0x4))->bswap_item(); }
 void *TLobby::init_header_packet() {
     init_header();

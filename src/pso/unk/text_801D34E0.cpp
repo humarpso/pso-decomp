@@ -1,7 +1,7 @@
 #include "types.h"
 extern "C" {
 void *TObjMapWarp__sub_80141CA4(void *);
-void TObjMapWarp__sub_80141C68(void *, s32);
+s32 TObjMapWarp__sub_80141C68(s32 arg0, s16 arg1);
 void *__register_global_object(void *, void *, void *);
 extern u8 lbl_805D5DD8[8];
 extern u8 lbl_80511DD8[];

@@ -6,7 +6,7 @@ extern "C" {
 
 void TObjNpcLappy__sub_8014B840(void);
 void __dl__7TObjectFPv(void *);
-void __dt__11TObjNpcBaseFv(void *, int);
+void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1);
 
     extern int npc_lappy_cached_object;
     extern int lbl_805D5D78;

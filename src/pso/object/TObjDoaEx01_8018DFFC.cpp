@@ -58,7 +58,7 @@ extern u8 *TObjDoaEx01__alpha_model_node;
 extern s32 TObjDoaEx01__alpha_model_sibling;
 u8 *get_bml_motion(s32, s32);
 s32 init_collision_body_parts(void *, void *, int);
-s32 init_door_base(void *);
+void *init_door_base(void *a0);
 extern RecoveredGlobal_8018E064_lbl_804B7598 TObjDoaEx01__collision_body_parts;
 extern s32 __vt__11TObjDoaEx01[];
 extern s32 TObjDoaEx01__name;
@@ -91,7 +91,7 @@ extern void *tl_05;
 typedef char RecoveredGlobal_8018E064_lbl_804B7598_size[sizeof(RecoveredGlobal_8018E064_lbl_804B7598) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8018E064___vt__11TObjDoaEx01_size[sizeof(RecoveredGlobal_8018E064___vt__11TObjDoaEx01) == 0x54 ? 1 : -1];
 u8 *TObjDoaEx01__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    init_door_base((void *) (arg0));
+    init_door_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8018E064___vt__11TObjDoaEx01 *)&__vt__11TObjDoaEx01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjDoaEx01__name;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);

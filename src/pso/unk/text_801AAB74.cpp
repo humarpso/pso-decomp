@@ -10,15 +10,15 @@
 struct Stack_801AAB74 { f32 x, y, z; };
 
 extern "C" {
-u8 *photon_base_ct(void *);
+void *photon_base_ct(void *arg0);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
-s32 spawn_photon_blast_opening_effects(int, int);
+void spawn_photon_blast_opening_effects(s32 arg0, s32 arg1);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
 s32 sub_801AA6F8__13TPhotonEstllaFv(void *, int);
 s32 construct_photon_magic_square_normal(void *, void *, int, void *, int);
 u8 *TPhotonRainbow__ct(u8 *arg0, s32 arg1_unused, s32 arg2);
-s32 play_cue_stream_file(void *);
+void play_cue_stream_file(s32 name);
 void *__nw__7TObjectFUl(int);
 extern u8 lbl_80446D10[];
 extern u8 lbl_80446D1C[];
@@ -93,10 +93,10 @@ u8 *TPhotonEstlla__ct(u8 *arg0, u8 *arg1) {
             construct_photon_magic_square_normal(p, arg0, 1, &pos, 0x78);
         }
         spawn_photon_blast_attachment_effects(arg0, 1);
-        play_cue_stream_file(lbl_80446D10);
+        play_cue_stream_file((s32)lbl_80446D10);
     } else {
         spawn_photon_blast_opening_effects(1, ((TPhotonEstlla *)arg0)->m_17c);
-        play_cue_stream_file(lbl_80446D1C);
+        play_cue_stream_file((s32)lbl_80446D1C);
     }
     return arg0;
 }

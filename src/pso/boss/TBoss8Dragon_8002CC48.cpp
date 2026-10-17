@@ -172,15 +172,15 @@ extern const f32 lbl_805D81F4;
 extern const f32 lbl_805D81F8;
 extern const f32 lbl_805D8200;
 
-void translate_matrix(s32, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 void push_matrix(void);
-void pop_matrix(void);
+s32 pop_matrix(void);
 void post_translate_matrix(void *);
 void set_chunk_material_override_pair(s32, s32, s32, s32);
 void draw_chunk_object(void *);
 void queue_destruction__7TObjectFv();
 void *__nw__7TObjectFUl(int);
-s32 mem_free(s32);
+void mem_free(void *p);
 void *mem_alloc(u32);
 f32 newton_sqrtf(f32);
 f32 calc_nearest_crater_distance(void *);
@@ -190,7 +190,7 @@ f32 cos_table_lookup(s32, f32);
 s32 update_scale__15TObjBoss2TunnelFv(void *, f32);
 void rotate_matrix_y(int, int);
 void rotate_matrix_x(int, int);
-void set_chunk_material_color(void *);
+void set_chunk_material_color(f32 *arg);
 
 s32 is_dragon_trail_damaging(u8 *arg0);
 u8 *TObjBoss1MokoHill_SoloM__ct(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3);
@@ -461,7 +461,7 @@ void update_dragon_trail_uvs(Obj_8002D4C0 *self) {
     }
 }
 
-void TBoss8Dragon::free_resources() { ((int (*)(void*))mem_free)((void*)(lbl_805D4B78)); lbl_805D4B78 = 0; ((int (*)(void*))mem_free)((void*)(lbl_805D4B6C)); lbl_805D4B6C = 0; ((int (*)(void*, void*))destroy__12TBoss8DragonFPvs)((void*)(lbl_805D4B64), (void*)1); lbl_805D4B64 = 0; ((int (*)(void*, void*))destroy__12TBoss8DragonFPvs)((void*)(lbl_805D4B68), (void*)1); lbl_805D4B68 = 0; ((int (*)(void*, void*))destroy__12TBoss8DragonFPvs)((void*)(lbl_805D4B60), (void*)1); lbl_805D4B60 = 0; }
+void TBoss8Dragon::free_resources() { mem_free((void *)(lbl_805D4B78)); lbl_805D4B78 = 0; mem_free((void *)(lbl_805D4B6C)); lbl_805D4B6C = 0; ((int (*)(void*, void*))destroy__12TBoss8DragonFPvs)((void*)(lbl_805D4B64), (void*)1); lbl_805D4B64 = 0; ((int (*)(void*, void*))destroy__12TBoss8DragonFPvs)((void*)(lbl_805D4B68), (void*)1); lbl_805D4B68 = 0; ((int (*)(void*, void*))destroy__12TBoss8DragonFPvs)((void*)(lbl_805D4B60), (void*)1); lbl_805D4B60 = 0; }
 
 s32 TBoss8Dragon__sub_8002DAEC(void *arg0) {
     return *(s32 *)((s8 *)arg0 + 0x14) + ((*(s32 *)((s8 *)arg0 + 0xC) + 3) * 2);
@@ -473,9 +473,9 @@ s32 TBoss8Dragon__sub_8002DB04(void *arg0) {
 
 void *destroy__12TBoss8DragonFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        mem_free(*(s32 *)((s8 *)arg0 + 0x10));
+        mem_free((void *)(*(s32 *)((s8 *)arg0 + 0x10)));
         *(s32 *)((s8 *)arg0 + 0x10) = 0;
-        mem_free(*(s32 *)((s8 *)arg0 + 0x14));
+        mem_free((void *)(*(s32 *)((s8 *)arg0 + 0x14)));
         *(s32 *)((s8 *)arg0 + 0x14) = 0;
         *(s32 *)((s8 *)arg0 + 0x18) = 0;
         *(s32 *)((s8 *)arg0 + 0x1C) = 0;

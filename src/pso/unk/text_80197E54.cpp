@@ -11,11 +11,11 @@ extern "C" {
 extern s32 TObjSinBoard__texture_buffer;
 bool is_signboard_texture_buffer_missing(void);
 void *alloc__22TQuestVmDownLoadServerFv(s32);
-void fn_80197FD0(s32, s32);
+void fn_80197FD0(void *arg0, void *arg1);
 s32 TAdPlayerLoadGC__sub_801E1538(Hdr_80197E64 *, void *);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 get_card_file_info__15TAdPlayerLoadGCFiPvPv(s32, s32, Stat_80197E64 *);
-s32 fn_802432F0(s32);
+s32 fn_802432F0(void *name);
 void memset(void *, int, int);
 extern s32 memcard_file_099_name;
 void load_memcard_file(void);
@@ -35,7 +35,7 @@ void load_memcard_file(void) {
         return;
     }
     while (1) {
-        slot = fn_802432F0(memcard_file_099_name);
+        slot = fn_802432F0((void *)memcard_file_099_name);
         if (slot != -2) {
             break;
         }
@@ -63,7 +63,7 @@ void load_memcard_file(void) {
         TAdSinglePlyChrSelectGC::safe_free((u32)buf);
         return;
     }
-    fn_80197FD0(hdr.f58, hdr.f5C);
+    fn_80197FD0((void *)hdr.f58, (void *)hdr.f5C);
     TAdSinglePlyChrSelectGC::safe_free((u32)buf);
 }
 

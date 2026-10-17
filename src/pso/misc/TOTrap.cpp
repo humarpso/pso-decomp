@@ -61,8 +61,8 @@ struct VObj_80178EF8_80178BC0 : Base_80178EF8_80178BC0 {
 #undef VM
 };
 
-s32 spawn_particle_effect(s32, s32);
-s32 queue_destruction__7TObjectFv(void *);
+void *spawn_particle_effect(void *pos, s32 id);
+void queue_destruction__7TObjectFv(void *arg0);
 
 f32 TOTrap::scale_by_table_value(f32 farg0) {
     u32 v[4];
@@ -163,8 +163,8 @@ void TOTrap::find_target_player() {
 
 void TOTrap::play_sounds() {
     s32 arg0 = (s32)this;
-    spawn_particle_effect(arg0 + 0x2FC, 0x45);
-    spawn_particle_effect(arg0 + 0x2FC, 0x46);
+    spawn_particle_effect((void *)(arg0 + 0x2FC), 0x45);
+    spawn_particle_effect((void *)(arg0 + 0x2FC), 0x46);
 }
 
 void TOTrap::vfunc_6(s16 *arg1, s32 arg2) {

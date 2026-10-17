@@ -69,7 +69,7 @@ void *__nw__7TObjectFUl(int);
 extern s32 local_client_id;
 extern s32 tl_07;
 u8 *create_conversation_camera(s32 arg0);
-u8 * __dt__13TUnk_80488A28Fv(void *, s16);
+void *__dt__13TUnk_80488A28Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8006BA08_lbl_80488B08 lbl_80488B08;
 extern s32 TCameraCtrl__fixed_npc_camera_active;
@@ -99,7 +99,7 @@ s32 restore_player_cameras();
 void *TCameraCtrl__sub_8006BA68(void *);
 s32 activate_body_collision__10TObjPlayerFv();
 s32 deactivate_body_collision__10TObjPlayerFv();
-u32 get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 void __dt__7TObjectFv(void *, int);
 
 void TCameraCtrl::update_active_player() {

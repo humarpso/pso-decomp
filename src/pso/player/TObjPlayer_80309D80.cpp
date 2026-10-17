@@ -41,8 +41,8 @@ extern "C" {
 int spawn_particle_effect(void*, void*);
 void *__nw__7TObjectFUl(int);
 void *TPlyPtclObjectRightHand__ct(void *, void *);
-void *TPlyPtclObjectLeftHand__ct(void *, void *);
-void *get_player_by_client_id(u16);
+void *TPlyPtclObjectLeftHand__ct(void *arg0, u8 *_w1);
+void *get_player_by_client_id(s32 i);
 u16 get_lifetime__22TPlyFollowParticleCtrlFv();
 s32 get_position_ptr__10TObjPlayerFv(s32);
 s32 TPlyPtclObjectRightHand__vt7(s32 arg0);
@@ -65,7 +65,7 @@ struct VOff_80309DD0_arg0_80309dd0_80309D80 { char pad_0[0x4]; char f_4[1]; };
 
 s32 TObjPlayer__sub_80309E4C(s32 arg0, s16 arg1);
 int TPlyFollowParticleCtrl__sub_8030A694(void*);
-s32 __dt__22TPlyFollowParticleCtrlFis(s32 a0 = 0, s32 a1 = 0);
+s32 __dt__22TPlyFollowParticleCtrlFis(s32 arg0, s16 arg1);
 s32 obj_getField1c(void *);
 s32 set_type__22TPlyFollowParticleCtrlFs(void *, void *);
 
@@ -145,7 +145,7 @@ void TObjPlayer::create_left_hand_ptcl(void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0xB0);
     if (o != NULL) {
-        o = TPlyPtclObjectLeftHand__ct(o, arg1);
+        o = TPlyPtclObjectLeftHand__ct(o, (u8 *)arg1);
     }
     *(void * *)&this->m_name = o;
 }

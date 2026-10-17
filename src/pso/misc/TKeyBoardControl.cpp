@@ -72,9 +72,9 @@ struct Vec2_802615B8 {
 
 s32 play_sound_effect(int, int, int, int);
 s32 draw_default_entry__9TWindowDDFl();
-s32 TKeyBoardControl__sub_8025CBC0(void *);
-s32 TKeyBoardControl__sub_8025CBCC(void *);
-s32 TKeyBoardControl__sub_8025CC04(void *);
+void TKeyBoardControl__sub_8025CBC0(void *p);
+void TKeyBoardControl__sub_8025CBCC(u8 *arg0);
+void TKeyBoardControl__sub_8025CC04(u8 *arg0);
 s32 TKeyBoardControl__sub_8025CC3C(u32);
 int update_keyboard_close_mode(void*);
 void calc_cursor_step__19TWindowKeyBoardSoftFiPvPv(s32 arg0, s32 *arg1, s32 *arg2);
@@ -89,7 +89,7 @@ s32 TWindowKeyBoardSoft__sub_802616BC(void *, int);
 s32 TWindowKeyBoardSoft__sub_80261DD8(void *, int);
 s32 TWindowKeyBoardSoft__sub_8026227C(void *, int);
 void render__19TWindowKeyBoardSoftFv(s32 arg0);
-s32 TWindowSubMag__sub_802627D8(s32);
+int TWindowSubMag__sub_802627D8(void *p);
 s32 get_flag_bit5__19TWindowKeyBoardSoftFv();
 
 extern RecoveredGlobal_8026062C_TWindowKeyBoardSoft__data_8044F124 TWindowKeyBoardSoft__data_8044F124;
@@ -120,7 +120,7 @@ void calc_cursor_step__19TWindowKeyBoardSoftFiPvPv(s32 arg0, s32 *arg1, s32 *arg
             *arg2 = 4;
             return;
         }
-        if (TWindowSubMag__sub_802627D8(arg0) != 0) {
+        if (TWindowSubMag__sub_802627D8((void *)arg0) != 0) {
             *arg1 = 4;
             *arg2 = 5;
             return;
@@ -145,7 +145,7 @@ void calc_cursor_step__19TWindowKeyBoardSoftFiPvPv(s32 arg0, s32 *arg1, s32 *arg
             *arg2 = 0;
             return;
         }
-        if (TWindowSubMag__sub_802627D8(arg0) != 0) {
+        if (TWindowSubMag__sub_802627D8((void *)arg0) != 0) {
             *arg1 = 0;
             *arg2 = 1;
             return;
@@ -303,7 +303,7 @@ void TKeyBoardControl::release_input() {
     *(s32 *)((s8 *)this + 0x60) = (s32) (*(s32 *)((s8 *)this + 0x60) | 0x40);
     temp_r3 = *(void **)((s8 *)this + 0x6C);
     if (temp_r3 != NULL) {
-        TKeyBoardControl__sub_8025CBCC(temp_r3);
+        TKeyBoardControl__sub_8025CBCC((u8 *)temp_r3);
         release();
     }
 }
@@ -311,7 +311,7 @@ void TKeyBoardControl::release_input() {
 void TKeyBoardControl__sub_802613A4(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0x60) = (s32) (*(s32 *)((s8 *)arg0 + 0x60) | 0x20);
     if (*(void **)((s8 *)arg0 + 0x6C) != NULL) {
-        TKeyBoardControl__sub_8025CC04(*(void **)((s8 *)arg0 + 0x6C));
+        TKeyBoardControl__sub_8025CC04((u8 *)(*(void **)((s8 *)arg0 + 0x6C)));
         ((TKeyBoardControl *)arg0)->release();
     }
 }

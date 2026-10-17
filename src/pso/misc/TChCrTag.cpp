@@ -15,7 +15,7 @@ struct VObj_18_c1c33b : VBase_18_c1c33b {
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 extern const f32 lbl_805DDE00;
 extern const f32 lbl_805DDE04;
 void update_fade__8TChCrTagFPv(u8 *arg0);
@@ -78,7 +78,7 @@ void update_fade__8TChCrTagFPv(u8 *arg0) {
         *(f32 *)((s8 *)arg0 + 0x24) = (f32) (*(f32 *)((s8 *)arg0 + 0x24) + *(f32 *)((s8 *)arg0 + 0x2C));
         if (*(f32 *)((s8 *)arg0 + 0x24) <= lbl_805DDE04) {
             *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805DDE04;
-            queue_destruction__7TObjectFv((void *) (arg0));
+            queue_destruction__7TObjectFv((arg0));
         }
         break;
     }

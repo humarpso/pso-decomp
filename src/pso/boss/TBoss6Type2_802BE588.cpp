@@ -32,7 +32,7 @@ extern const f32 lbl_805DE4F0;
 s32 play_persistent_sound(int, void *, void *, int, int);
 extern const f32 lbl_805DE4E0;
 extern const f32 lbl_805DE4E4;
-s32 spawn_particle_effect(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
 u32 get_player_by_client_id(int);
 s32 play_sound_effect(int, void *, int, int);
 void TBoss6Type2__sub_802BEC28(u8 *arg0);
@@ -46,14 +46,14 @@ extern const f32 lbl_805DE400;
 void TBoss6Type2__sub_802BEB78(u8 *arg0);
 extern s32 lbl_805D6778;
 extern u8 lbl_805D677C;
-s32 spawn_particle_effect_with_flags(void *, int, int);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 s32 TBoss6Type2__sub_802BA598(void *, s32, s32);
 void update_death_sequence__11TBoss6Type2FPv(u8 *arg0);
 void TBoss6Type2__sub_802BF3F4(void* p);
 void update_attack_timer__11TBoss6Type2FPv(u8 *arg0);
 s32 TBoss6Type2__sub_802BA944(void *);
 s32 TBoss6Type2__sub_802BA9E4(void *);
-s32 TBoss6Type2__sub_802BAD04(void *);
+void TBoss6Type2__sub_802BAD04(s32 arg0);
 s32 TBoss6Type2__sub_802BB7C0(void *);
 s32 get_phase__11TBoss6Type2Fv();
 u16 is_falz_ready__11TBoss6Type2Fv(void *);
@@ -232,7 +232,7 @@ void update_attack_timer__11TBoss6Type2FPv(u8 *arg0) {
             }
             player = get_player_by_client_id((int) (*(u16 *)((s8 *)arg0 + 0x55C)));
             if (player != 0U) {
-                spawn_particle_effect((void *) (player + 0x38), (int) (0x36));
+                spawn_particle_effect((void *)(player + 0x38), (0x36));
             }
         }
         ((TBoss6Type2 *)arg0)->set_action_state((void *)0x1B);
@@ -282,7 +282,7 @@ void TBoss6Type2__sub_802BEC28(u8 *arg0) {
             }
             player = get_player_by_client_id((int) ((s32) *(u16 *)((s8 *)arg0 + 0x55C)));
             if (player != 0U) {
-                spawn_particle_effect((void *) (player + 0x38), (int) (0x36));
+                spawn_particle_effect((void *)(player + 0x38), (0x36));
             }
         }
         ((TBoss6Type2 *)arg0)->copy_anim_state();
@@ -339,7 +339,7 @@ void TBoss6Type2::update_attack_sequence() {
         play_sound_effect((int)(0x69C0F), (void *)(arg0 + 0x38), (int)(0), (int)(1));
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x460) == (s32) (*(s32 *)((s8 *)arg0 + 0x45C) - 0x78)) {
-        TBoss6Type2__sub_802BAD04(arg0);
+        TBoss6Type2__sub_802BAD04((s32)arg0);
     }
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x460);
     switch (temp_r0) {

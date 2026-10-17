@@ -6,7 +6,7 @@
 extern "C" {
 
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object(u32);
+void draw_ginja_object(void *child);
 s32 is_owner_alive__15TItemShootModelFv();
 s32 rotate_matrix_by_node_angles(void *, s32);
 s32 push_matrix();
@@ -21,7 +21,7 @@ void TUnk_804A0AA8::render() {
         TObjPlayer::notify_fish_if_valid(*(u32 *)&this->m_5C);
         post_translate_matrix(arg0 + 0x1C);
         rotate_matrix_by_node_angles((u8 *)&this->m_28, 1);
-        draw_ginja_object(*(u32 *)&this->m_58);
+        draw_ginja_object((void *)(*(u32 *)&this->m_58));
         TParticleCtrl::end_effect_render();
         pop_matrix();
     }

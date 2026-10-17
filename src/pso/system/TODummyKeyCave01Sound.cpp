@@ -3,7 +3,7 @@
 #include "types.h"
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 void *TODummyKeyCave01Sound__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 __ct__7TObjectFP7TObject();
 
@@ -15,7 +15,7 @@ void TODummyKeyCave01Sound::run_task() {
     *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) - 1);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x20) == 0) {
         ((TODummyKeyCave01Sound *)arg0)->play_cave01_key_sound();
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
     }
 }
 

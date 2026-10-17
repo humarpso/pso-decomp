@@ -5,7 +5,7 @@ extern "C" {
 
 s32 TObjEneRecobox__sub_8031F1A8(void *);
 s32 refresh_lobby_state__10TObjPlayerFv();
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 send_entity_set_flags__9TObjEnemyFv();
 
 void TObjEneRecon::handle_death_state(s32 arg1) {

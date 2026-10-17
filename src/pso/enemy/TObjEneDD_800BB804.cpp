@@ -498,7 +498,7 @@ void *TObjEneDD__ct(void *arg0);
 void *__dt__9TObjEneDDFv(void *arg0, s16 arg1);
 void initialize__9TObjEnemyFPv(void *);
 void __dl__7TObjectFPv(void *);
-void __dt__9TObjEnemyFv(void *, int);
+void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 
 extern s32 __vt__9TObjEneDD[];
 
@@ -547,13 +547,13 @@ void TObjEneDD::release_resource() {
 
 s32 tick_period_counter(s32 arg0, s32 *arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);
-void *construct_collision_body(void *, int, int);
+u8 *construct_collision_body(u8 *arg0, s32 arg1, u32 arg2);
 
 void TObjEneDD::create_instance() {
     void *o;
     o = __nw__7TObjectFUl(0xB0);
     if (o != NULL) {
-        o = construct_collision_body(o, 0, 0);
+        o = construct_collision_body((u8 *)o, 0, 0);
     }
     obj_ene_dd_instance = (struct VObj_800BBDD4 *)o;
 }

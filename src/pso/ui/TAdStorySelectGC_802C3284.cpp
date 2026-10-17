@@ -23,8 +23,8 @@ struct Self_802C3400 { s32 f0; u8 pad4[0x14]; void *vt; void *f1C; void *f20; };
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 s32 get_localized_text_entry(s32, s32);
-s32 TAdSinglePlyChrSelectGC__sub_801334DC(s32);
-s32 TAdStorySelectGC__sub_8019DC14(void);
+s32 TAdSinglePlyChrSelectGC__sub_801334DC(void *p);
+int TAdStorySelectGC__sub_8019DC14(void);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 void play_sound_effect(s32, s32, s32, s32);
@@ -33,7 +33,7 @@ extern s32 lbl_805D67C0;
 void create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);
-s32 TAdMultiPlyChrSelectGC__sub_80299454(void);
+int TAdMultiPlyChrSelectGC__sub_80299454(void);
 void __ct__9TAdBackGCFv(void *, void *);
 void __ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__8TAdRayGCFv(void *, void *);
@@ -54,10 +54,10 @@ void TAdStorySelectGC::render() {  }
 void TAdStorySelectGC::run_task() {
     Obj_802C3288 *self = (Obj_802C3288 *)this;
     TAdMultiChgGameModeGC::set_default_camera();
-    if (lbl_805D67C0 != TAdSinglePlyChrSelectGC__sub_801334DC(self->f1C)) {
-        ((TAdMultiPlyChrSelectGC *)(self->f20))->set_entry_value(1, get_localized_text_entry(0x14, TAdSinglePlyChrSelectGC__sub_801334DC(self->f1C) + 1));
+    if (lbl_805D67C0 != TAdSinglePlyChrSelectGC__sub_801334DC((void *)self->f1C)) {
+        ((TAdMultiPlyChrSelectGC *)(self->f20))->set_entry_value(1, get_localized_text_entry(0x14, TAdSinglePlyChrSelectGC__sub_801334DC((void *)self->f1C) + 1));
     }
-    lbl_805D67C0 = TAdSinglePlyChrSelectGC__sub_801334DC(self->f1C);
+    lbl_805D67C0 = TAdSinglePlyChrSelectGC__sub_801334DC((void *)self->f1C);
     switch (((TAdSinglePlyChrSelectGC *)(self->f1C))->get_selected_slot()) {
     case 1:
         switch (TAdStorySelectGC__sub_8019DC14()) {

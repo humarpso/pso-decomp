@@ -20,7 +20,7 @@ struct E_801BDC98 { u8 b[0x42C]; };
 
 extern "C" {
 s32 is_locally_controlled__10TObjPlayerFPv();
-u8 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 extern RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70 TObjPlayer__char_data_array;
 void create__10TObjPlayerFUll(u16, void *);
 typedef struct RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70 RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70;

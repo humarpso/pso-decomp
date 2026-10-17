@@ -49,7 +49,7 @@ s32 rotate_matrix_x(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_ginja_model(int);
+void draw_ginja_model(s32 model);
 extern const f32 lbl_805DB6A8;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_80168F94_lbl_804B26C8 bm_fs_obj_hanger_moto_resource_descriptor;
@@ -86,18 +86,18 @@ void TOHangerMachine01::render() {
         TObjFish::set_global_param((int) (this->texture_id));
         p = (u8 *)(*(u8 * *)&this->model);
         post_translate_matrix((void *) (p + 8));
-        draw_ginja_model((int) (*(s32 *)((s8 *)p + 4)));
+        draw_ginja_model((*(s32 *)((s8 *)p + 4)));
         p = (u8 *)(*(u8 **)((s8 *)p + 0x2C));
         if (lbl_805DB6A8 < this->target_scale) {
             post_translate_matrix((void *) (p + 8));
-            draw_ginja_model((int) (*(s32 *)((s8 *)p + 4)));
+            draw_ginja_model((*(s32 *)((s8 *)p + 4)));
         }
         p = (u8 *)(*(u8 **)((s8 *)p + 0x30));
         post_translate_matrix((void *) (p + 8));
-        draw_ginja_model((int) (*(s32 *)((s8 *)p + 4)));
+        draw_ginja_model((*(s32 *)((s8 *)p + 4)));
         p = (u8 *)(*(u8 **)((s8 *)p + 0x30));
         post_translate_matrix((void *) (p + 8));
-        draw_ginja_model((int) (*(s32 *)((s8 *)p + 4)));
+        draw_ginja_model((*(s32 *)((s8 *)p + 4)));
         p = (u8 *)(*(u8 **)((s8 *)p + 0x2C));
         push_matrix();
         post_translate_matrix((void *) (p + 8));
@@ -105,12 +105,12 @@ void TOHangerMachine01::render() {
         rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)p + 0x14)));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)p + 0x18) + *(s32 *)&this->m_c8));
         TParticleCtrl::begin_effect_render();
-        draw_ginja_model((int) (*(s32 *)((s8 *)p + 4)));
+        draw_ginja_model((*(s32 *)((s8 *)p + 4)));
         TParticleCtrl::end_effect_render();
         pop_matrix();
         p = (u8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(u8 * *)&this->model) + 0x2C)) + 0x30)) + 0x30)) + 0x30));
         post_translate_matrix((void *) (p + 8));
-        draw_ginja_model((int) (*(s32 *)((s8 *)p + 4)));
+        draw_ginja_model((*(s32 *)((s8 *)p + 4)));
         p = (u8 *)(*(u8 **)((s8 *)p + 0x2C));
         push_matrix();
         post_translate_matrix((void *) (p + 8));
@@ -118,13 +118,13 @@ void TOHangerMachine01::render() {
         rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)p + 0x14)));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)p + 0x18) + *(s32 *)&this->m_c8));
         TParticleCtrl::begin_effect_render();
-        draw_ginja_model((int) (*(s32 *)((s8 *)p + 4)));
+        draw_ginja_model((*(s32 *)((s8 *)p + 4)));
         TParticleCtrl::end_effect_render();
         pop_matrix();
         p = (u8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(u8 * *)&this->model) + 0x2C)) + 0x30)) + 0x30)) + 0x30)) + 0x30));
         if (lbl_805DB6A8 < this->scale) {
             post_translate_matrix((void *) (p + 8));
-            draw_ginja_model((int) (*(s32 *)((s8 *)p + 4)));
+            draw_ginja_model((*(s32 *)((s8 *)p + 4)));
         }
         pop_matrix();
     }

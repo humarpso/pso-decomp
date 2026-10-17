@@ -72,7 +72,7 @@ void TObjBoss2Tunnel__sub_8007CAE8(u32 arg0);
 extern s32 TObjBoss2Tunnel__data_80438A08[];
 void poll_load_status__15TAdPlayerLoadGCFl(s32 a, void *b);
 s32 TAdSinglePlyChrSelectGC__sub_80201204(s32 *, s32);
-s32 memcard_check_snapshot(s32, s32);
+s32 memcard_check_snapshot(s32 arg0, s32 *arg1);
 void TAdPlayerLoadGC__sub_801E14E4(void *);
 void TAdPlayerLoadGC__sub_801E14E8(void *, s32);
 void build_save_file_image__15TAdPlayerLoadGCFPvPv(s32, void *, void *);

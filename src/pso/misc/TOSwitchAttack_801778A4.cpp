@@ -75,7 +75,7 @@ extern s32 lbl_805D3178;
 u8 *TOSwitchAttack__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_current_floor();
 u16 obj_getField1c(void *);
-void spawn_particle_effect_with_flags(void *, s32, s32);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 f32 horizontal_distance_squared(void *, void *);
 VObj_801778A8 *resolve_hittable_target(u16, s16);
 Mylla_801778A8 *find_entity_by_id(u16);

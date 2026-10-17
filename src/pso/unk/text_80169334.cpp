@@ -68,13 +68,13 @@ typedef struct Ring_80169334 {
 } Ring_80169334;
 
 extern "C" {
-void *get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 s32 obj_getField1c(void *obj);
 f32 get_collision_body_radius(void *, s32);
 f32 horizontal_distance_squared(void *, void *);
-s16 obj_getS16_32C(void *);
-s16 obj_getS16_2BA(void *);
-s16 obj_getS16_32E(void *);
+s16 obj_getS16_32C(u8 *p);
+s16 obj_getS16_2BA(u8 *p);
+s16 obj_getS16_32E(u8 *p);
 u32 get_recovery_need_flags__10TObjPlayerFv(void *);
 void send_6x2C_impose_hold(void *, void *, s32, s32, f32);
 void *spawn_particle_effect_with_flags(void *, s32, s32);
@@ -105,8 +105,8 @@ void find_heal_target__13TOHealGeneralFPv(Ring_80169334 *self) {
             continue;
         }
         self->fF4 = id;
-        if (obj_getS16_32C(actor) < ((TItemProShield *)actor)->get_field_2b8() ||
-            obj_getS16_32E(actor) < obj_getS16_2BA(actor) ||
+        if (obj_getS16_32C((u8 *)actor) < ((TItemProShield *)actor)->get_field_2b8() ||
+            obj_getS16_32E((u8 *)actor) < obj_getS16_2BA((u8 *)actor) ||
             get_recovery_need_flags__10TObjPlayerFv(actor) != 0 ||
             (((TObjPlayer *)actor)->is_alive_and_ready() != 0 && ((TObjPlayer *)actor)->are_traps_full() == 0)) {
             void *e;

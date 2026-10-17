@@ -23,7 +23,7 @@ struct MCFmt_801F68FC {
 struct Pair_801F68FC { s32 a; s32 b; };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 is_message_window_ready__18TWindowMessagePageFv();
 extern s8 controller_input_state[];
@@ -39,14 +39,14 @@ extern Pair_801F68FC lbl_8044A684[];
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdPlayerLoadGC__sub_801E24F8(s32, s32, s32, s32, s32);
 s32 get_selected_menu_value(u32);
-int TWindow__close(void*);
+void TWindow__close(u8 *arg0);
 
 typedef char RecoveredGlobal_801F6548_lbl_80512790_size[sizeof(RecoveredGlobal_801F6548_lbl_80512790) == 0x20 ? 1 : -1];
 s32 *TQuestThread__sub_801F6548(void) {
     return &offline_quest_filename_buffer_a.value;
 }
 
-void TMCFormatSequence::close_window() { if (this->m_34 != 0) { TWindow__close((void*)(*(void* *)&this->m_34)); *(int *)&this->m_34 = 0; } }
+void TMCFormatSequence::close_window() { if (this->m_34 != 0) { TWindow__close((u8 *)(*(void* *)&this->m_34)); *(int *)&this->m_34 = 0; } }
 
 void TMCFormatSequence::show_message(s32 arg1, s32 arg2) {
     u32 v = *(u32 *)&this->m_34;
@@ -125,12 +125,12 @@ void TMCFormatSequence::process_format_result() {
             close_window();
             this->m_24 = 4;
         }
-        TWindow__close((void*)(*(u32 *)&this->m_38));
+        TWindow__close((u8 *)(*(u32 *)&this->m_38));
         *(u32 *)&this->m_38 = 0U;
     }
     if (((u32) *(u32 *)&this->m_38 != 0U) && (((TWindowSubComCard *)(*(u32 *)&this->m_38))->get_status_flag() != 0)) {
         this->m_24 = 4;
-        TWindow__close((void*)(*(u32 *)&this->m_38));
+        TWindow__close((u8 *)(*(u32 *)&this->m_38));
         *(u32 *)&this->m_38 = 0U;
         close_window();
     }

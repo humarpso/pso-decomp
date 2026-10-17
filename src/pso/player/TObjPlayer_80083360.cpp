@@ -11,12 +11,12 @@ extern "C" {
 s32 init_render_target__10TObjPlayerFv();
 extern u32 camera_render_target_singleton;
 s32 TCameraCtrl__sub_80068EF0();
-s32 capture_viewport_texture();
-s32 TObjPlayer__sub_80084764();
-s32 TObjPlayer__sub_80084780();
-s32 disable_camera_capture_overlay();
+void capture_viewport_texture(void);
+void TObjPlayer__sub_80084764(void);
+void TObjPlayer__sub_80084780(void);
+void disable_camera_capture_overlay(void);
 s32 TObjPlayer__sub_800847A8();
-s32 TObjPlayer__sub_800847CC();
+unsigned char TObjPlayer__sub_800847CC(void);
 extern u8 camera_capture_overlay_alpha;
 extern f32 lbl_805D93D0;
 void *__dt__13TUnk_8048E5F4Fv(void *arg0, s16 arg1);

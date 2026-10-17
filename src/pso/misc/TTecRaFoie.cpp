@@ -65,11 +65,11 @@ struct Self_80237BD8 {
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 u32 find_entity_by_id(int);
 void apply_technique_to_area_targets__13TUnk_804CC148Fv(void *);
 #define apply_technique_to_area_targets__13TUnk_804CC148Fv ((s32 (*)(void *, int))apply_technique_to_area_targets__13TUnk_804CC148Fv)
-void *spawn_particle_effect_with_flags(Vec_80237DAC *, s32, s32);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 void spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv(Obj_80237DAC *self);
 
 u16 obj_getField1c(void *);
@@ -88,7 +88,6 @@ extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
 
 void mem_free(void *);
-#define mem_free ((s32 (*)(void *))mem_free)
 void __dl__7TObjectFPv(void *);
 #define __dl__7TObjectFPv ((s32 (*)(void *))__dl__7TObjectFPv)
 void destroy_technique_base__13TUnk_804CC148Fs(void *, int);
@@ -227,7 +226,6 @@ void TTecRaFoie::vfunc_8(void *) {
 
 #undef destroy_technique_base__13TUnk_804CC148Fs
 #undef spawn_particle_effect
-#undef mem_free
 #define spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv ((s32 (*)(void *))spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv)
 
 #include <stddef.h>
@@ -317,7 +315,7 @@ void func_80141618__Fv(void);
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
 void push_matrix(void);
-void pop_matrix(void);
+s32 pop_matrix(void);
 void post_translate_matrix(void *);
 void draw_ginja_object(void);
 void set_chunk_material_color(void *, s32);
@@ -412,7 +410,7 @@ void TUnk_804CCB28::run_task() {
         *(s32 *)&this->unk_5C = 0;
     }
     if ((s32) this->m_58 > 0x6E) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
     }
     stack.sp8 = *(s32 *)((s8 *)(&lbl_8044DAF0.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&lbl_8044DAF0.value) + 4);
@@ -660,12 +658,12 @@ void TTecRaFoie::render() {  }
 void run_task__10TTecRaFoieFv(u8 *arg0) {
     u32 temp_r31;
     if ((u32) ((TTecRaFoie *)arg0)->m_e8 == 0U) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     ((TTecRaFoie *)arg0)->source = find_entity_by_id((int) (((TTecRaFoie *)arg0)->m_b4));
     if ((u32) ((TTecRaFoie *)arg0)->source == 0U) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     if ((s32) *(s32 *)&((TTecRaFoie *)arg0)->m_148 == 1) {
@@ -673,7 +671,7 @@ void run_task__10TTecRaFoieFv(u8 *arg0) {
         return;
     }
     if ((s32) *(s32 *)&((TTecRaFoie *)arg0)->m_ec == 0) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     temp_r31 = find_entity_by_id((int) (((TTecRaFoie *)arg0)->m_f0));

@@ -98,14 +98,14 @@ struct RecoveredGlobal_80147E2C___vt__12TObjNpcARM00 {
 };
 
 extern "C" {
-s32 construct_male_npc_base(void *);
+u8 *construct_male_npc_base(u8 *arg0);
 extern s32 __vt__12TObjNpcARM00[];
 extern s32 TObjNpcARM00__name;
 extern u32 TObjNpcARM00__model_resource;
 extern u32 TObjNpcARM00__texture_list;
 u8 *TObjNpcARM00__ct(u8 *arg0, s32 arg1, s32 arg2);
-void *create_named_object(const char *name);
-void *load_gvm_texture_file(const char *name);
+s32 create_named_object(s32 arg0);
+u8 *load_gvm_texture_file(s32 arg0);
 extern char lbl_8043F470[];
 extern char lbl_8043F484[];
 void * TObjNpcARW00__create(void *arg0);
@@ -113,7 +113,7 @@ void *__dt__12TObjNpcARM00Fv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);
-void *TObjNpcARW00__ct(void *, void *, void *);
+u8 *TObjNpcARW00__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -130,8 +130,8 @@ void TObjNpcARM00::free_resources() {
 }
 
 void TObjNpcARM00::load_resources() {
-    TObjNpcARM00__model_resource = (u32)create_named_object(lbl_8043F470);
-    TObjNpcARM00__texture_list = (u32)load_gvm_texture_file(lbl_8043F484);
+    TObjNpcARM00__model_resource = (u32)create_named_object((s32)lbl_8043F470);
+    TObjNpcARM00__texture_list = (u32)load_gvm_texture_file((s32)lbl_8043F484);
 }
 
 void *__dt__12TObjNpcARM00Fv(void *arg0, s16 arg1) {
@@ -147,7 +147,7 @@ void *__dt__12TObjNpcARM00Fv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_80147E2C___vt__12TObjNpcARM00_size[sizeof(RecoveredGlobal_80147E2C___vt__12TObjNpcARM00) == 0x178 ? 1 : -1];
 u8 *TObjNpcARM00__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_male_npc_base((void *) (arg0));
+    construct_male_npc_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80147E2C___vt__12TObjNpcARM00 *)&__vt__12TObjNpcARM00).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcARM00__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
@@ -174,7 +174,7 @@ void * TObjNpcARW00__create(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x3B8);
     if (o2 != NULL) {
-        o2 = TObjNpcARW00__ct(o2, o, arg0);
+        o2 = TObjNpcARW00__ct((u8 *)o2, (s32)o, (s32)arg0);
     }
     return o2;
 }

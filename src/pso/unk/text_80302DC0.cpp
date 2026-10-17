@@ -27,7 +27,7 @@ typedef struct Vec_80302DC0 { f32 x; f32 y; f32 z; } Vec_80302DC0;
 typedef struct Arg_80302DC0 { s32 id; f32 val; } Arg_80302DC0;
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 u32 csnVector(void *, void *, int);
 extern u8 lbl_8047511C[];
 extern s32 lbl_80475124[];

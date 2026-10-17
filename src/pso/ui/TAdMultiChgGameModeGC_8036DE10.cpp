@@ -61,17 +61,17 @@ struct Self_8036E2AC {
 };
 
 extern "C" {
-s32 TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 void close_window__21TAdMultiChgGameModeGCFPv(void* p);
 s32 get_selected_menu_value(void *);
 void *__nw__7TObjectFUl(int);
 void *__ct__9TAdBackGCFv(void *, void *);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
 void TAdMultiChgGameModeGC__sub_8036E51C(u8 *arg0);
-int load_system_file(void* a0 = 0);
+s32 load_system_file(s32 arg0);
 void TAdMultiChgGameModeGC__sub_8036E6A0(s32 arg0);
 void TAdMultiChgGameModeGC__sub_8036E6EC(void);
-s32 refresh_char_slots__23TAdSinglePlyChrSelectGCFv();
+void refresh_char_slots__23TAdSinglePlyChrSelectGCFv(void);
 s32 encrypt_save_and_write__23TAdSinglePlyChrSelectGCFv();
 void TAdMultiChgGameModeGC__sub_8036E750(void);
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
@@ -82,7 +82,7 @@ void TAdMultiChgGameModeGC__sub_8036E854(void);
 void TAdMultiChgGameModeGC__sub_8036E9EC(void* p);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 extern s32 __vt__13TUnk_804F3A20[];
 void *__dt__13TUnk_804F3A20Fv(void *arg0, s16 arg1);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
@@ -91,7 +91,7 @@ extern RecoveredGlobal_8036E8DC_lbl_804C88C0 lbl_804C88C0;
 extern RecoveredGlobal_8036E8DC_lbl_804C8914 pso_system_card_filename;
 extern RecoveredGlobal_8036E8DC_lbl_804C89BC lbl_804C89BC;
 s32 check_system_file_status__23TAdSinglePlyChrSelectGCFv(void);
-s32 TQuestVmDownLoadServer__sub_8006EF6C(void *);
+s32 TQuestVmDownLoadServer__sub_8006EF6C(s32 arg0);
 extern RecoveredGlobal_8036DE10_lbl_804F37A8 multi_chg_game_mode_text_table_a;
 extern RecoveredGlobal_8036DE10_lbl_804F37D4 multi_chg_game_mode_text_table_b;
 s32 TAdMultiChgGameModeGC__sub_8036DE10(s32 arg0, s32 arg1, s32 arg2);
@@ -110,7 +110,7 @@ extern u8 lbl_804F3A18[];
 extern const f32 lbl_805D7020;
 s32 all_players_loaded__23TAdSinglePlyChrSelectGCFv();
 s32 TAdPlayerLoadGC__sub_801FD770();
-s32 TKeyBoardControl__sub_8000F90C(s32);
+void TKeyBoardControl__sub_8000F90C(s32 arg0);
 extern s32 current_language;
 void close_windows_and_cleanup(void *arg0);
 
@@ -118,7 +118,7 @@ typedef char RecoveredGlobal_8036DE10_lbl_804F37A8_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8036DE10_lbl_804F37D4_size[sizeof(RecoveredGlobal_8036DE10_lbl_804F37D4) == 0x134 ? 1 : -1];
 s32 TAdMultiChgGameModeGC__sub_8036DE10(s32 arg0, s32 arg1, s32 arg2) {
     if (arg2 == -1) {
-        return TQuestVmDownLoadServer__sub_8006EF6C((void *) (arg1));
+        return TQuestVmDownLoadServer__sub_8006EF6C((arg1));
     }
     if (arg2 == 0) {
         return *(s32 *)((s8 *)((u8 *)(&multi_chg_game_mode_text_table_b.value) + (arg1 * 4)) + 0);
@@ -178,11 +178,11 @@ void TAdMultiChgGameModeGC::update_confirm_selection() {
 
 void close_windows_and_cleanup(void *arg0) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0x34) != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0x34));
+        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x34)));
         *(u32 *)((s8 *)arg0 + 0x34) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 0x30) != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0x30));
+        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x30)));
         *(u32 *)((s8 *)arg0 + 0x30) = 0U;
     }
     TAdMultiChgGameModeGC::setup_mode_menu((void *)(arg0), (s32)(0));
@@ -219,11 +219,11 @@ void TAdMultiChgGameModeGC::update_card_confirm_selection() {
 
 void TAdMultiChgGameModeGC::close_windows_and_reopen() {
     if ((u32) *(u32 *)((s8 *)this + 0x34) != 0U) {
-        TWindow__close(*(void **)((s8 *)this + 0x34));
+        TWindow__close((u8 *)(*(void **)((s8 *)this + 0x34)));
         *(u32 *)((s8 *)this + 0x34) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x30) != 0U) {
-        TWindow__close(*(void **)((s8 *)this + 0x30));
+        TWindow__close((u8 *)(*(void **)((s8 *)this + 0x30)));
         *(u32 *)((s8 *)this + 0x30) = 0U;
     }
     TAdMultiChgGameModeGC::setup_mode_menu((void *)(this), (s32)(0));
@@ -235,7 +235,7 @@ void TAdMultiChgGameModeGC::close_windows_and_reopen() {
 
 void TAdMultiChgGameModeGC__sub_8036E19C(u8 *arg0, s32 arg1) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0x30) != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0x30));
+        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x30)));
         *(u32 *)((s8 *)arg0 + 0x30) = 0U;
     }
     *(u32 *)((s8 *)arg0 + 0x30) = update_window_mode_from_progress__6TLobbyFPv((void *) (multi_chg_game_mode_window_extent), (void *) (lbl_8047B8A0));
@@ -247,12 +247,12 @@ void TAdMultiChgGameModeGC__sub_8036E19C(u8 *arg0, s32 arg1) {
 void TAdMultiChgGameModeGC::close_window_30() {
     void *temp_r3 = *(void **)((s8 *)this + 0x30);
     if ((u32) temp_r3 != 0U) {
-        TWindow__close((void *)((void*)(temp_r3)));
+        TWindow__close((u8 *)((void*)(temp_r3)));
         *(u32 *)((s8 *)this + 0x30) = 0U;
     }
     close_window__21TAdMultiChgGameModeGCFPv((void*)((void *)((void*)((void*)(this)))));
 }
-void close_window__21TAdMultiChgGameModeGCFPv(void* p) { if (*(unsigned int*)((char*)p + 0x34) != 0) { TWindow__close((void *)((void*)(*(void**)((char*)p + 0x34)))); *(int*)((char*)p + 0x34) = 0; } }
+void close_window__21TAdMultiChgGameModeGCFPv(void* p) { if (*(unsigned int*)((char*)p + 0x34) != 0) { TWindow__close((u8 *)((void*)(*(void**)((char*)p + 0x34)))); *(int*)((char*)p + 0x34) = 0; } }
 
 #define self ((Self_8036E2AC *)arg0)
 s32 TAdMultiChgGameModeGC::setup_mode_menu(void *arg0, s32 arg1) {
@@ -330,7 +330,7 @@ void TAdMultiChgGameModeGC::create_back_objects() {
 }
 void TAdMultiChgGameModeGC__sub_8036E51C(u8 *arg0) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0x34) != 0U) {
-        TWindow__close((void *)((void*)(*(void **)((s8 *)arg0 + 0x34))));
+        TWindow__close((u8 *)((void*)(*(void **)((s8 *)arg0 + 0x34))));
         *(u32 *)((s8 *)arg0 + 0x34) = 0U;
     }
     TAdMultiChgGameModeGC::setup_mode_menu((void *)((void *)((void *) (arg0))), (s32)((s32)((int) (1))));
@@ -346,7 +346,7 @@ void TAdMultiChgGameModeGC::update_mode_selection() {
         set_state((s32)((s32)((s32)((int) (2)))));
     }
 }
-void TAdMultiChgGameModeGC::load_system_on_mode_default() { if (handle_mode_selection() == 0) { load_system_file((void*)0); } }
+void TAdMultiChgGameModeGC::load_system_on_mode_default() { if (handle_mode_selection() == 0) { load_system_file((s32)((void*)0)); } }
 s32 TAdMultiChgGameModeGC::handle_mode_selection() {
     s32 temp_r4;
     temp_r4 = *(s32 *)((s8 *)this + 0x20);

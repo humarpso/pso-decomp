@@ -102,8 +102,8 @@ struct VObj_8014C780 : VBase_8014C780 {
 };
 
 extern "C" {
-void *create_named_object(const char *name);
-void *load_gvm_texture_file(const char *name);
+s32 create_named_object(s32 arg0);
+u8 *load_gvm_texture_file(s32 arg0);
 extern u32 TObjNpcNFM00__shared_named_model_object;
 extern u32 TObjNpcNFM00__texture_gvm_handle;
 extern char lbl_8043FD20[];
@@ -113,9 +113,9 @@ void *dt__11TObjNpcMojaFPvs(void *arg0, s16 arg1);
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcMoja__ct(void *, void *, void *);
-void *TObjNpcNFM00__ct(void *, void *, void *);
+u8 *TObjNpcNFM00__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
-void __dt__11TObjNpcBaseFv(void *, int);
+void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 
 s32 TObjFish__sub_8001EDB0(void *, s32);
@@ -190,21 +190,21 @@ extern "C" void play_voice__11TObjNpcBaseFv();
 extern "C" void receive_direct_attack__10TObjPlayerFv();
 extern "C" void receive_physical_attack__10TObjPlayerFv();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
-extern "C" void render_actor_shadows_default();
+extern "C" void render_actor_shadows_default(u8 *arg0);
 extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__13TUnk_804806E8Fv();
 extern "C" void roll_physical_accuracy__13TUnk_804806E8FPvlf();
-extern "C" void run_task__11TObjNpcBaseFPv();
+extern "C" void run_task__11TObjNpcBaseFPv(u8 *arg0);
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
-extern "C" void trigger_switch_attack__10TObjPlayerFi();
+extern "C" void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 extern "C" void try_start_action__13TUnk_804806E8Fll();
 extern "C" void update_action_hold_status__13TUnk_804806E8Fv();
-extern "C" void update_action_timer__10TObjPlayerFPv();
+extern "C" s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
 extern "C" void update_actor_ground_y__13TUnk_804806E8Fv();
-extern "C" void update_attack_stat_status();
+extern "C" s32 update_attack_stat_status(u8 *arg0);
 extern "C" void vfunc_28__11TObjNpcBaseFv();
 extern "C" void update_conversation__11TObjNpcBaseFv();
-extern "C" void update_defense_stat_status();
+extern "C" s32 update_defense_stat_status(u8 *arg0);
 extern "C" void update_flag30_timer__13TUnk_804806E8Fv();
 extern "C" void update_movement_status__13TUnk_804806E8Fv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
@@ -309,7 +309,7 @@ void * TObjNpcNFM00__create(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x3B8);
     if (o2 != NULL) {
-        o2 = TObjNpcNFM00__ct(o2, o, arg0);
+        o2 = TObjNpcNFM00__ct((u8 *)o2, (s32)o, (s32)arg0);
     }
     return o2;
 }
@@ -326,8 +326,8 @@ void TObjNpcNFM00::free_resources() {
     }
 }
 void TObjNpcNFM00::load_assets() {
-    TObjNpcNFM00__shared_named_model_object = (u32)create_named_object(lbl_8043FD20);
-    TObjNpcNFM00__texture_gvm_handle = (u32)load_gvm_texture_file(lbl_8043FD34);
+    TObjNpcNFM00__shared_named_model_object = (u32)create_named_object((s32)lbl_8043FD20);
+    TObjNpcNFM00__texture_gvm_handle = (u32)load_gvm_texture_file((s32)lbl_8043FD34);
 }
 
 }

@@ -4,11 +4,11 @@
 
 extern "C" {
 
-s32 mem_free(s32);
+void mem_free(void *p);
 
 void *TLobby::free_boss4rock(s16 arg1) {
     if (this != NULL) {
-        mem_free(*(s32 *)&this->m_flags);
+        mem_free((void *)(*(s32 *)&this->m_flags));
         ::operator delete(*(void * *)&this->m_name);
         *(s32 *)&this->m_prev = 0;
         *(s32 *)&this->m_next = 0;

@@ -10,9 +10,9 @@ union Pipe_803DEECC { u8 u8v; u16 u16v; u32 u32v; s32 s32v; f32 f32v; };
 union Pipe_803DF00C { u8 u8v; u16 u16v; u32 u32v; s32 s32v; f32 f32v; };
 
 extern "C" {
-s32 setup_blended_textured_draw();
+void setup_blended_textured_draw(void);
 void begin_screen_draw(s32 arg0);
-s32 load_list_texture(void *, int, int, int);
+void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map);
 extern s32 constant_material_color;
 void set_draw_texture_and_color(s32 arg0, s32 arg1);
 void GXBegin(u32, u32, u16);
@@ -22,7 +22,7 @@ s64 OSGetTime(void);
 u32 TLobby__sub_803DF1CC(void);
 void set_constant_material_color(u32 x);
 void DVDConvertEntrynumToPath(f32 *q);
-s32 TObjPlayer__sub_803E2248();
+void TObjPlayer__sub_803E2248(void);
 
 void begin_screen_draw(s32 arg0) {
     TObjPlayer::load_screen_space_matrix();
@@ -126,7 +126,7 @@ void DVDConvertEntrynumToPath(f32 *q) {
 #pragma scheduling off
 #pragma peephole off
 void set_draw_texture_and_color(s32 idx, s32 arg1) {
-    load_list_texture((void *) (idx), (int) (0), (int) (0), (int) (0));
+    load_list_texture((idx), (0), (0), (0));
     constant_material_color = ((arg1 & 0xFFFFFF) << 8) | ((u32) (arg1 & 0xFF000000) >> 0x18U);
 }
 #pragma pop

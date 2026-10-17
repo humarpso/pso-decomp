@@ -9,7 +9,7 @@ struct RecoveredGlobal_80278FE0___vt__19TWindowSubEquipKind {
 };
 
 extern "C" {
-s32 fn_802683F4(void *, void *, int, void *);
+u8 *fn_802683F4(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 extern s32 __vt__19TWindowSubEquipKind[];
 extern s32 TWindowSubEquipKind__class_name;
 u8 *TWindowSubEquipKind__ct(u8 *arg0, s32 arg1, s16 arg2);
@@ -64,7 +64,7 @@ void *__dt__19TWindowSubEquipKindFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_80278FE0___vt__19TWindowSubEquipKind_size[sizeof(RecoveredGlobal_80278FE0___vt__19TWindowSubEquipKind) == 0x20 ? 1 : -1];
 u8 *TWindowSubEquipKind__ct(u8 *arg0, s32 arg1, s16 arg2) {
-    fn_802683F4((void *) (arg0), (void *) (arg1), (int) (0x1F), (void *) (arg2));
+    fn_802683F4((arg0), (arg1), (0x1F), (arg2));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80278FE0___vt__19TWindowSubEquipKind *)&__vt__19TWindowSubEquipKind).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubEquipKind__class_name;
     ((TUnk_804D0618 *)arg0)->create_menu_scroll_bar();

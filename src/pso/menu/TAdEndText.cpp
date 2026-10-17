@@ -102,13 +102,13 @@ extern u32 TAdEndText__loaded_font_texture_list;
 extern u32 TAdEndText__credit_script_lines;
 extern s32 TAdEndText__font_loaded_flag;
 void bind_gvm_texture_list(const char *name, void *data);
-void *create_named_object(const char *name);
+s32 create_named_object(s32 arg0);
 s32 TAdEndText__sub_8001A998(s32, f32, f32, f32);
 s32 draw_small_font_text(s32, f32, f32, f32);
 u32 __cvt_fp2unsigned(f32);
-s32 begin_screen_draw(int);
+void begin_screen_draw(s32 arg0);
 s32 draw_textured_quad_at_depth(void *, f32);
-s32 set_draw_texture_and_color(int, int);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern const f32 lbl_805D7E04;
 extern const f32 lbl_805D7E08;
 extern const f32 lbl_805D7E0C;
@@ -128,7 +128,7 @@ extern const f32 lbl_805D7E34;
 extern const f32 lbl_805D7E38;
 extern const f32 lbl_805D7E3C;
 void run_task__10TAdEndTextFv(u8 *arg0);
-s32 TKeyBoardControl__sub_8000F828();
+int TKeyBoardControl__sub_8000F828(void);
 s32 TAdEndText__sub_8001B41C(void);
 s32 __ct__7TObjectFP7TObject(void *);
 extern u8 __vt__10TAdEndText[];
@@ -320,7 +320,7 @@ typedef char RecoveredGlobal_8001B3BC_lbl_804F5800_size[sizeof(RecoveredGlobal_8
 void TAdEndText::load_ending_font() {
     TAdEndText__loaded_font_texture_list = (u32)TAdEndText__ending_font_texture_list;
     bind_gvm_texture_list(lbl_804347B0, TAdEndText__ending_font_texture_list);
-    TAdEndText__credit_script_lines = (u32)create_named_object(lbl_804347C0);
+    TAdEndText__credit_script_lines = (u32)create_named_object((s32)lbl_804347C0);
     TAdEndText__font_loaded_flag = 0;
 }
 

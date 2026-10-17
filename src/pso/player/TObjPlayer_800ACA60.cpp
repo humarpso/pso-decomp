@@ -16,7 +16,7 @@ s32 spawn_particle_effect(s32, s32);
 struct Vec_800ACB58 { f32 x, y, z; };
 s32 apply_actor_gravity(void *, int, f32);
 s32 move_with_wall_slide(void *);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 spawn_dead_spot_scale15(void *, int);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 s32 advance_animation_playback(void *);
@@ -526,7 +526,7 @@ s32 obj_is_hit_receivable();
 s32 lookup_entry_by_value__10TObjPlayerFPvf(void *);
 
 s32 mult_vec_array__10TObjPlayerFUll(int, int, void *, int);
-s32 set_matrix_identity(int);
+void set_matrix_identity(u8 *arg0);
 s32 push_matrix();
 
 s32 post_translate_matrix(void *);
@@ -582,7 +582,7 @@ void enemy_set_heading_velocity(void *, s32, f32);
 s32 update_angle__10TObjPlayerFlPv(void *, s32, void *);
 
 void *__nw__7TObjectFUl(u32);
-void spawn_directional_particle(void *, void *, s32);
+void *spawn_directional_particle(void *pos, void *dir, s32 id);
 
 extern s32 game_difficulty_selection;
 extern s32 tl_07;

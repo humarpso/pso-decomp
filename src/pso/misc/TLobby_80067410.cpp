@@ -3,15 +3,15 @@
 #include "pso/boss/TObjBoss5PillarDemo.h"
 
 extern "C" {
-int load_boss5_common_assets(void);
-int fn_802898EC(void);
-int TObjBoss5PillarDemo__sub_8028ACE4(void);
+void load_boss5_common_assets(void);
+void fn_802898EC(void);
+void TObjBoss5PillarDemo__sub_8028ACE4(void);
 int forward_pillar_2B710__19TObjBoss5PillarCtrlFv(void);
 extern u32 boss5_ctrl_instance;
-s32 TLobby__sub_80066EC0();
-s32 fn_802898E8();
-s32 TObjBoss5PillarDemo__sub_8028AB38();
-s32 TObjBoss5PillarDemo__sub_8028ACE0();
+void TLobby__sub_80066EC0(void);
+void fn_802898E8(void);
+void TObjBoss5PillarDemo__sub_8028AB38(void);
+void TObjBoss5PillarDemo__sub_8028ACE0(void);
 s32 update_pillar__19TObjBoss5PillarCtrlFv();
 void queue_destruction__7TObjectFv(void*);
 

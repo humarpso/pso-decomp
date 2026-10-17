@@ -28,7 +28,7 @@ s32 vfunc_45__14TItemEquipBaseFv();
 s32 vfunc_44__13TItemProArmorFv();
 void TItemTimerEvent__ct(void *);
 s32 is_item_area_enabled();
-void __dt__13TItemProArmorFv(void *, int);
+void *__dt__13TItemProArmorFv(void *arg0, s16 arg1);
 u32 __nw__7TObjectFUl(s32);
 s32 __nw__15TItemHeapObjectFUl(s32);
 s32 get_id__13TItemProArmorFv(void *);

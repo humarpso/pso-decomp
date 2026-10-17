@@ -133,7 +133,7 @@ struct Ctx_8001F128 {
 };
 
 extern "C" {
-s32 reset_gstream_globals();
+void reset_gstream_globals(void);
 s32 xmalloc__FUl(s32);
 extern s8 TLobby__tmp_buf_name[];
 extern s32 lobby_download_buffer;
@@ -164,9 +164,9 @@ s32 TLobby__sub_8001EDD8(void *, s32);
 s32 create_file_load_entry__6TLobbyFllUllPPv(void *, s32, void *, void *, void *);
 extern s32 lbl_80434C70[];
 extern s32 lbl_80434C98[];
-s32 TLobby__sub_8001EDF4(void *);
+void TLobby__sub_8001EDF4(u8 *arg0);
 s32 TLobby__sub_800F9FF4(s32);
-s32 mem_free(void *);
+void mem_free(void *p);
 s32 TLobby__sub_803DA16C(void *);
 Lobby_8001FE7C *TLobby__sub_8001FE7C(Lobby_8001FE7C *self, s16 del);
 void open__8TGStreamFPvPvi(void *, s32, s32);
@@ -175,7 +175,7 @@ void destroy_gstream(void *, s32);
 void align_gstream_read_offset(void *, s32);
 void prs_decompress_buffer(s32, void *);
 void debug_printf_nop(void *, ...);
-void *mem_alloc(s32);
+void *mem_alloc(u32 size);
 char *strncpy(char *dest, const char *src, unsigned long num);
 extern u8 *resource_decompress_buffer;
 extern u8 bml_load_state;
@@ -206,7 +206,7 @@ extern u8 *lbl_805D4AE0;
 extern Rec_8001F128 *bml_header_record_ptr;
 extern s32 bml_load_entry_index;
 extern u8 *lobby_bml_read_buffer;
-s32 TItemDrop__sub_800FE2D8();
+void TItemDrop__sub_800FE2D8(void);
 s32 TLobby__sub_801E38A0(s32, s32, s32, s32, u32 *);
 s32 load_nj_chunk_model_resource(s32, s32, s32);
 int xfree__FPv(void*);
@@ -657,7 +657,7 @@ Lobby_8001FE7C *TLobby__sub_8001FE7C(Lobby_8001FE7C *self, s16 del) {
                 for (i = 0; i < self->nHandles; i++) {
                     TLobby__sub_800F9FF4(self->handles[i]);
                 }
-                TLobby__sub_8001EDF4(lbl_80434C38);
+                TLobby__sub_8001EDF4((u8 *)lbl_80434C38);
             }
         }
         for (i = 0; i < self->nEnts16; i++) {

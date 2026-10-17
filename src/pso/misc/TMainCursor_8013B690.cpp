@@ -38,9 +38,9 @@ s32 play_sound_effect(s32, void *, s32, s32);
 s32 TMainCursor__sub_8013F180(void *);
 s32 find_entity_by_id();
 s32 can_pickup_item_by_id__10TObjPlayerFii(u32, s32);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
-extern "C" void __dt__14TLOC_ListClearFv();
+extern "C" u8 *__dt__14TLOC_ListClearFv(u8 *arg0, s16 arg1);
 extern "C" u8 lbl_8043F090[];
 extern "C" u8 lbl_8043F0A4[];
 extern "C" u8 lbl_8043F0B8[];

@@ -40,17 +40,17 @@ void *mem_alloc(u32);
 void TLobby__sub_801E3E9C(s32, s32, void *, s32);
 extern s32 lbl_8049F43C[];
 Load_8011006C *init_buffer__9TItemLoadFPviii(Load_8011006C *self, s32 arg1, s32 arg2, s32 count);
-s32 TItemLoad__sub_801107F4(void *);
+int TItemLoad__sub_801107F4(void *p);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
-s32 mem_free(s32);
+void mem_free(void *p);
 
 void *TUnk_8049F42C::sub_80110010(s16 arg1) {
     if (this != NULL) {
         *(s32 *)((s8 *)this + 0x14) = (s32)lbl_8049F43C;
         ((TItemLoad *)this)->free_texture();
-        mem_free(*(s32 *)((s8 *)this + 0));
+        mem_free((void *)(*(s32 *)((s8 *)this + 0)));
         if (arg1 > 0) {
             ::operator delete(this);
         }

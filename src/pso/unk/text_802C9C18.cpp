@@ -8,7 +8,7 @@ struct Sounds_802C9C18 { s32 a[2]; s32 b[2]; s32 c[2]; s32 d[2]; };
 
 extern "C" {
 u16 obj_getField1c(void *);
-s32 obj_clear_flag30_20000(int);
+void obj_clear_flag30_20000(void *arg0);
 s32 check_player_flag1__6TLobbyFv();
 s32 get_player_by_client_id(void *);
 extern s32 local_client_id;
@@ -52,7 +52,7 @@ void TOTrapSeabed01::sub_802C9D38() {
                 if (check_player_flag1__6TLobbyFv() != 0) {
                     TObjPlayer::send_code_45_1((int) (temp_r3));
                 }
-                obj_clear_flag30_20000((int) (temp_r3));
+                obj_clear_flag30_20000((void *)(temp_r3));
             }
         }
     } else {

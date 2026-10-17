@@ -16,8 +16,8 @@ extern "C" {
 s32 TODoorJungleMain__vt8(s32 arg0, f32 farg0, f32 farg1);
 f32 xz_distance_squared(s32, s32);
 s32 update_object_view_visibility__13TUnk_804B9870Fff(s32, f32, f32);
-s32 queue_destruction__7TObjectFv(void *);
-s32 set_indexed_flags(s32, s32, s32);
+void queue_destruction__7TObjectFv(void *arg0);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
 
 extern s32 camera_ctrl_instance;
 
@@ -33,7 +33,7 @@ void TODoorJungleMain::vfunc_6(s16 *arg1, s32 arg2) {
         this->m_d0 = (s32) (this->m_d0 | 1);
         if (arg2 == 0) {
             *(f32 *)&this->m_b4 = (f32) (*(u32 *)((s8 *)(*(void * *)&this->m_bc) + 4) - 1);
-            set_indexed_flags((s32)this, 0, 8);
+            set_indexed_flags(this, 0, 8);
             if ((u32) this->m_dc != 0U) {
                 queue_destruction__7TObjectFv(*(void * *)&this->m_dc);
                 this->m_dc = 0U;
@@ -43,7 +43,7 @@ void TODoorJungleMain::vfunc_6(s16 *arg1, s32 arg2) {
 }
 
 s32 get_current_floor(void);
-u8 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 extern const f32 lbl_805DDCD0;
 s32 is_any_player_near(s32 arg0);
 s32 is_any_player_near(s32 arg0) {
@@ -73,7 +73,7 @@ s32 is_any_player_near(s32 arg0) {
   goto loop_1;
 }
 
-void clear_story_flag_in_bank(int, int);
+void clear_story_flag_in_bank(s32 n, s32 flag);
 extern s32 TOKeyJungleMain__data_804653C8[];
 void TLobby__sub_8029B2A4(void* p);
 void *TODoorJungleMain__create(void *arg0);
@@ -191,7 +191,7 @@ extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80465418;
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 bm_o_jungle_doormain_resource_descriptor;
 s32 get_bml_motion(void *, s32);
 u32 init_collision_body_parts(void *, s32, s32);
-u8 * init_door_base(void *);
+void *init_door_base(void *a0);
 extern RecoveredGlobal_8029B924_lbl_804DC014 TODoorJungleMain_collision_body_parts;
 extern s32 __vt__16TODoorJungleMain[];
 extern s32 TODoorJungleMain__name;
@@ -206,10 +206,10 @@ u8 *TODoorJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *get_bml_model(u32, int);
 s32 rotate_matrix_y(int, int);
 int push_matrix(void *);
-int pop_matrix(void);
+s32 pop_matrix(void);
 int post_translate_matrix(void *);
 void *set_global_param__8TObjFishFl(void *);
-int draw_ginja_object(void *);
+void draw_ginja_object(void *child);
 s32 draw_ginja_model_with_motion(void *, int, f32);
 extern Ids_8029B428 door_jungle_main_ids;
 }
@@ -231,12 +231,12 @@ extern "C" {
 s32 play_sound_effect(int, void *, int, int);
 extern s32 TOKeyJungleMain__data_804653C8[3];
 extern s32 game_difficulty_selection;
-s32 spawn_particle_effect_with_flags(void *, int, int);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 s32 minimap_render_gate(void *, u32, u16, s32, s32);
 s32 play_persistent_sound(int, void *, void *, int, int);
 s32 matrix_mult_vec(void *, void *, void *);
 s32 translate_matrix_vec3(void *, void *);
-s32 set_matrix_identity(void *);
+void set_matrix_identity(u8 *arg0);
 extern Vec_8029B640 lbl_804653E8;
 extern Vec_8029B640 lbl_804653F4;
 extern const f32 lbl_805DDCD4;
@@ -342,7 +342,7 @@ void TODoorJungleMain::run_task() {
         t = *(f32 *)&this->m_b4;
         if ((f32)(u32)(*(s32 *)((s8 *)(*(u8 * *)&this->m_bc) + 4) - 1) - lbl_805DDCD4 < t &&
             t < (f32)(u32)(*(s32 *)((s8 *)(*(u8 * *)&this->m_bc) + 4) - 1)) {
-            set_indexed_flags((s32)arg0, 0, 8);
+            set_indexed_flags(arg0, 0, 8);
             if (*(void * *)&this->m_dc != NULL) {
                 queue_destruction__7TObjectFv(*(void * *)&this->m_dc);
                 *(void * *)&this->m_dc = NULL;
@@ -360,7 +360,7 @@ void TODoorJungleMain::run_task() {
             if (++*(s32 *)&this->m_d8 % 30 == 0) {
                 a = lbl_804653E8;
                 b = lbl_804653F4;
-                set_matrix_identity(&mtx);
+                set_matrix_identity((u8 *)&mtx);
                 translate_matrix_vec3(&mtx, (u8 *)&this->position);
                 rotate_matrix_y((int)&mtx, this->rotation_y);
                 matrix_mult_vec(&mtx, &a, &a);
@@ -378,7 +378,7 @@ void TODoorJungleMain::run_task() {
 void *__dt__16TODoorJungleMainFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TODoorJungleMain;
-        if (*(void **)((s8 *)arg0 + 0xDC) != NULL) { ((void (*)(void *))queue_destruction__7TObjectFv)(*(void **)((s8 *)arg0 + 0xDC)); *(s32 *)&((TODoorJungleMain *)arg0)->m_dc = 0; }
+        if (*(void **)((s8 *)arg0 + 0xDC) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xDC)); *(s32 *)&((TODoorJungleMain *)arg0)->m_dc = 0; }
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804B0BB8 *)arg0)->destroy_ancient_door_base(0);

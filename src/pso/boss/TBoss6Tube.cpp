@@ -4,7 +4,7 @@
 extern "C" {
 
 s32 query_teammate_state__9TObjEneDDFv();
-s32 TBoss6EmptyWarp__sub_802B1018();
+int TBoss6EmptyWarp__sub_802B1018(void);
 
 void TBoss6Tube::run_task() {
     s32 temp_r0;

@@ -158,7 +158,7 @@ struct RecoveredGlobal_8008CE80___vt__9TEndingAB { s32 value; u8 remaining[0x14]
 typedef char RecoveredGlobal_8008CE80___vt__9TEndingAB_size[sizeof(RecoveredGlobal_8008CE80___vt__9TEndingAB) == 0x18 ? 1 : -1];
 
 extern "C" {
-s32 TKeyBoardControl__sub_8000F828(void);
+int TKeyBoardControl__sub_8000F828(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8008CE80___vt__9TEndingAB __vt__9TEndingAB;
 

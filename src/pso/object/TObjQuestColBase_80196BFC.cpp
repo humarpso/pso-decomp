@@ -100,7 +100,7 @@ extern s32 quest_col_base_class_name;
 extern u16 quest_collision_next_id;
 u8 *TObjQuestColBase__ct(u8 *arg0, s32 arg1, s32 arg2);
 u32 get_player_by_client_id(s32);
-f32 xyz_distance_squared(s32, s32);
+f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
 
 extern s32 local_client_id;
 
@@ -109,7 +109,7 @@ s32 TObjQuestColBase::is_within_range(f32 farg0) {
     u32 player;
 
     player = get_player_by_client_id(local_client_id);
-    if ((player != 0U) && (xyz_distance_squared(player + 0x38, arg0 + 0x38) < farg0)) {
+    if ((player != 0U) && (xyz_distance_squared((u8 *)(player + 0x38), (u8 *)(arg0 + 0x38)) < farg0)) {
         return 1;
     }
     return 0;

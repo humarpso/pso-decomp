@@ -77,8 +77,8 @@ typedef struct Self_80183134 {
 } Self_80183134;
 
 void queue_destruction__7TObjectFv(void *);
-void create_oneshot_particle_emitter(void *, void *, s32, s32);
-void spawn_particle_effect_with_flags(void *, s32, s32);
+void *create_oneshot_particle_emitter(void *pos, void *dir, s32 id, s32 flags);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 void *spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 s32 rand(void);
 extern const f32 lbl_805DBC18[1];
@@ -445,7 +445,7 @@ struct Fn801838D4VObj_801838d4 : Fn801838D4Base_801838d4 {
 extern "C" {
 
 s32 post_translate_matrix(void *);
-s32 draw_chunk_object(s32);
+void draw_chunk_object(void *child);
 s32 scroll_strip_uvs(s32, s16, s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
@@ -467,8 +467,8 @@ void TObjCity_Season_Board::render() {
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
-        draw_chunk_object(lbl_805D5B3C);
-        draw_chunk_object(lbl_805D5B40);
+        draw_chunk_object((void *)lbl_805D5B3C);
+        draw_chunk_object((void *)lbl_805D5B40);
         pop_matrix();
     }
 }
@@ -609,7 +609,7 @@ extern const char lbl_80444250[];
 
 int get_anim_frame__13TUnk_804B5E48Fv(void* a0);
 
-void draw_model_motion(s32, s32, f32);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern s32 city_season_xmas_model_table[];
 }
 
@@ -647,7 +647,7 @@ void TObjCity_Season_SonicAdv2::render() {
         ((void (*)())push_matrix)();
         ((void (*)(void *))post_translate_matrix)(&self->pos);
         ((void (*)(int, s32))rotate_matrix_y)(0, self->x60);
-        draw_model_motion(res->a[idx].v, res->b[idx].v, self->xb0);
+        draw_model_motion((void *)res->a[idx].v, (void *)res->b[idx].v, self->xb0);
         ((void (*)())pop_matrix)();
         VecCopy((Vec *)&pos, (const Vec *)&self->pos);
         pos.y += lbl_805DBC50[0];
@@ -785,8 +785,8 @@ void TObjCity_Season_21_21::render() {
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));
             ((s32 (*)(int, int))rotate_matrix_y)((int) (0), (int) (this->rotation_y));
-            ((s32 (*)(void *))draw_chunk_object)((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0x42C)) + 0x18)));
-            ((s32 (*)(void *, void *, f32))draw_model_motion)((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0x42C)) + 8)), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0x430)) + 4)), (f32) (this->m_b0));
+            draw_chunk_object((void *)(*(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0x42C)) + 0x18)));
+            draw_model_motion((void *)(*(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0x42C)) + 8)), (void *)(*(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0x430)) + 4)), (f32) (this->m_b0));
             pop_matrix();
         }
     }
@@ -940,7 +940,7 @@ void TObjCity_Season_HalloweenPumpkin::render() {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         ((s32 (*)(int, int))rotate_matrix_y)((int) (0), (int) (this->rotation_y));
-        ((s32 (*)(void *))draw_chunk_object)((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r31 + 0x42C)) + 8)));
+        draw_chunk_object((void *)(*(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r31 + 0x42C)) + 8)));
         pop_matrix();
     }
 }
@@ -1075,7 +1075,7 @@ void TObjCity_Season_XmasWreath::render() {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         ((s32 (*)(int, int))rotate_matrix_y)((int) (0), (int) (this->rotation_y));
-        ((s32 (*)(void *))draw_chunk_object)((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r31 + 0x42C)) + 0x58)));
+        draw_chunk_object((void *)(*(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r31 + 0x42C)) + 0x58)));
         pop_matrix();
     }
 }
@@ -1125,7 +1125,7 @@ extern "C" {
 void *TObjCity_Season_XmasWreath__create(void *arg0);
 s32 post_translate_matrix(void *);
 
-s32 draw_chunk_object(s32);
+void draw_chunk_object(void *child);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -1177,10 +1177,10 @@ void TObjCity_Season_XmasTree::render() {
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
-        ((s32 (*)(s32, s32, f32))draw_model_motion)(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x78), *(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x430)) + 0xC), this->m_b0);
-        ((s32 (*)(s32, s32, f32))draw_model_motion)(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x68), *(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x430)) + 4), this->m_b0);
-        draw_chunk_object(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x88));
-        draw_chunk_object(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x98));
+        draw_model_motion((void *)(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x78)), (void *)(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x430)) + 0xC)), this->m_b0);
+        draw_model_motion((void *)(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x68)), (void *)(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x430)) + 4)), this->m_b0);
+        draw_chunk_object((void *)(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x88)));
+        draw_chunk_object((void *)(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x98)));
         pop_matrix();
     }
 }
@@ -1291,7 +1291,7 @@ void TObjCity_Season_ValentineHeart::render() {
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
-        ((s32 (*)(s32, s32, f32))draw_model_motion)(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x28), *(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x430)) + 0x14), this->m_b0);
+        draw_model_motion((void *)(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x28)), (void *)(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x430)) + 0x14)), this->m_b0);
         pop_matrix();
     }
 }
@@ -1340,7 +1340,7 @@ struct VObj_8018455c_80184620 : VBase_8018455c_80184620 {
 void *TObjCity_Season_ValentineHeart__create(void *arg0);
 void *__dt__30TObjCity_Season_ValentineHeartFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
-s32 draw_chunk_object(s32);
+void draw_chunk_object(void *child);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -1401,8 +1401,8 @@ void TObjCity_Season_EasterEgg::render() {
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
-        draw_chunk_object(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x18));
-        draw_chunk_object(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x8));
+        draw_chunk_object((void *)(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x18)));
+        draw_chunk_object((void *)(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x8)));
         pop_matrix();
     }
 }

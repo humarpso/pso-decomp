@@ -4,7 +4,7 @@
 
 extern "C" {
 
-s32 reset__6TLobbyFv();
+void reset__6TLobbyFv(void);
 
 extern u8 TLobby__trade_proposal_state;
 

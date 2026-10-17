@@ -974,9 +974,9 @@ extern Vec_800C5164 lbl_8050BF00;
 extern u8 identity_matrix[];
 
 s32 apply_actor_gravity(void *, int, f32);
-s32 move_with_wall_slide(void *);
+void move_with_wall_slide(u8 *arg0);
 s32 obj_testFlags30(void *, int);
-s32 spawn_particle_effect(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
 s32 advance_animation_playback();
 extern const f32 lbl_805DA034;
 extern const f32 lbl_805DA038;
@@ -985,9 +985,9 @@ extern const f32 lbl_805DA040;
 int unlink_enemy_group_relations__13TUnk_80493450Fv(void*);
 int send_entity_set_flags__9TObjEnemyFv(void*);
 s32 obj_setFlags30(void *, s32);
-s32 set_indexed_flags(void *, s32, s32);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
 void __dl__7TObjectFPv(void *);
-void __dt__9TObjEnemyFv(void *, int);
+void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 extern s32 lbl_80493450[];
 void *__dt__13TUnk_80493450Fv(void *arg0, s16 arg1);
 int initialize__9TObjEnemyFPv(void);
@@ -1075,11 +1075,11 @@ void TUnk_80493450::beast_update_dead() {
         ((VObj_18_90ef41 *)(arg0))->m96();
     }
     if (objInBand((GameObj *)(arg0), (f32) (lbl_805DA038)) != 0) {
-        spawn_particle_effect((void *) (arg0 + 0x38), (int) (0xF3));
+        spawn_particle_effect((arg0 + 0x38), (0xF3));
         ((VObj_18_90ef41 *)(arg0))->m92();
     }
     if (this->m_c0 < (lbl_805DA03C * (lbl_805DA040 * this->m_c8))) {
-        move_with_wall_slide((void *) (arg0));
+        move_with_wall_slide((arg0));
         *(f32 *)((s8 *)arg0 + 0x308) = (f32) (*(f32 *)((s8 *)arg0 + 0x308) * lbl_805DA03C);
         this->m_310 = (f32) (this->m_310 * lbl_805DA03C);
     } else if (obj_testFlags30((void *) (arg0), (int) (0x800000)) == 0) {
@@ -1108,7 +1108,7 @@ void TUnk_80493450::beast_update_hurt() {
     v.x += o->f308;
     v.z += o->f310;
     if (check_path_obstructed(o, &v) == 0) {
-        move_with_wall_slide(o);
+        move_with_wall_slide((u8 *)o);
         o->f308 *= lbl_805DA03C;
         o->f310 *= lbl_805DA03C;
     } else {

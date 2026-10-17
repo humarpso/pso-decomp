@@ -26,9 +26,9 @@ extern "C" {
 void rotate_matrix_yxz(s32, s32, s32, s32);
 void rotate_matrix_y(s32, s32);
 void push_matrix();
-void pop_matrix();
+s32 pop_matrix(void);
 void post_translate_matrix(void *);
-void draw_ginja_object(s32);
+void draw_ginja_object(void *child);
 s32 TObjChip__vt6();
 int TObjChip__vt8(void*, void*);
 
@@ -52,7 +52,7 @@ void TObjSuisoChip::vfunc_12() {
             push_matrix();
             post_translate_matrix(p);
             rotate_matrix_yxz(0, p->f18, p->f1c, p->f20);
-            draw_ginja_object(arg0->f64);
+            draw_ginja_object((void *)arg0->f64);
             pop_matrix();
         }
         pop_matrix();

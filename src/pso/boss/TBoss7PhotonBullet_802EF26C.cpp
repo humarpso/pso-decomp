@@ -51,7 +51,7 @@ struct Bullet_802EF2AC {
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
-s32 construct_collision_body(void *, void *, void *);
+u8 *construct_collision_body(u8 *arg0, s32 arg1, u32 arg2);
 extern void *__vt__18TBoss7PhotonBullet[];
 extern s32 lbl_805D3FD4;
 u8 *TBoss7PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
@@ -131,7 +131,7 @@ void *__dt__18TBoss7PhotonBulletFv(void *arg0, s16 arg1) {
     return arg0;
 }
 u8 *TBoss7PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0) {
-    construct_collision_body((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    construct_collision_body((arg0), (arg1), (arg2));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802EF514___vt__18TBoss7PhotonBullet *)&__vt__18TBoss7PhotonBullet).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3FD4;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xC0), (void *) (arg3))));

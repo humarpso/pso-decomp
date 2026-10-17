@@ -51,7 +51,7 @@ extern "C" {
 extern const f32 lbl_805DBA78;
 s32 check_value_equals__13TQuestColCtrlFPll(void *, int);
 VObj_8017B9B0 *find_entity_by_id();
-void init__11TOVS2Wall01Fi(void *);
+void init__11TOVS2Wall01Fi(s32 arg0);
 void TOVS2Wall01__sub_8017CA48(void *, s32);
 s32 TOVS2Wall01__sub_8017CA50(void *);
 extern s32 TOVS2Wall01__class_name;
@@ -143,7 +143,7 @@ void handle_6x86_hit_destructible_object(Pkt_8017B9B0 *arg0) {
             break;
         case 1:
             o->state = 1;
-            init__11TOVS2Wall01Fi(o);
+            init__11TOVS2Wall01Fi((s32)o);
             break;
         }
         ((TUnk_804AF8A0 *)o)->access_object_saved_state(&spC, 1);

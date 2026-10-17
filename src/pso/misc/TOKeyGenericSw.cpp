@@ -66,7 +66,7 @@ extern "C" {
 s32 push_matrix();
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_y(s32, s32);
-s32 draw_ginja_object(s32);
+void draw_ginja_object(void *child);
 s32 pop_matrix();
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 extern s32 *TOKeyGenericSw__texture_lists;
@@ -83,7 +83,7 @@ void *__dt__14TOKeyGenericSwFv(void *arg0, s16 arg1);
 void *TOKeyGenericSw__ct(void *, void *, void *);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
-void __dt__5TOKeyFv(void *, int);
+void *__dt__5TOKeyFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 s32 update_anim_phase__13TUnk_804AFBF8Fv();
 
@@ -98,7 +98,7 @@ void TOKeyGenericSw::render() {
     post_translate_matrix(self->x38);
     rotate_matrix_y(0, self->x60);
     TObjFish::set_global_param(self->x24);
-    draw_ginja_object(self->x34);
+    draw_ginja_object((void *)self->x34);
     pop_matrix();
     TParticleCtrl::begin_effect_render();
     push_matrix();

@@ -45,7 +45,7 @@ void *__dt__15TObjSuisouLobbyFv(void *arg0, s16 arg1);
 void render__15TObjSuisouLobbyFv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 s32 scale_matrix(int, f32, f32, f32);
-s32 draw_ginja_object(int);
+void draw_ginja_object(void *child);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void queue_destruction__7TObjectFv(void *);
@@ -86,7 +86,7 @@ void render__15TObjSuisouLobbyFv(u8 *arg0) {
             temp_f1 = *(f32 *)((s8 *)arg0 + 0xCC);
             scale_matrix((int) (0), (f32) (temp_f1), 1.0f, (f32) (temp_f1));
         }
-        draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x34)));
+        draw_ginja_object((void *)(*(s32 *)((s8 *)arg0 + 0x34)));
         pop_matrix();
         TParticleCtrl::end_effect_render();
     }

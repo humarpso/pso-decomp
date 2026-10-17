@@ -41,7 +41,7 @@ void TFontSmallLobby__sub_801D67C8(void* p);
 void reset_photon_blast_gauge(struct Lobby_801D6498 *s);
 extern const f32 lbl_805DC3E8;
 s32 TFontSmallLobby__sub_801D67AC(u8 *arg0);
-u32 get_player_by_client_id(int);
+void *get_player_by_client_id(s32 i);
 u16 get_type__15TFontSmallLobbyFPv(void* p);
 s32 send_field_state__10TObjPlayerFPv();
 

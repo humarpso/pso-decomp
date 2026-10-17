@@ -19,7 +19,7 @@ struct Ent_800A0798 : EBase_800A0798 {
 };
 
 extern "C" {
-void *get_enemy_entity(int);
+u8 *get_enemy_entity(u16 arg0);
 void fn_800A0798(Obj_800A0798 *self);
 void fn_800A0798(Obj_800A0798 *self) {
     s32 i;

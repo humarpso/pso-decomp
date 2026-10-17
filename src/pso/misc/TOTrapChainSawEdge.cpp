@@ -211,7 +211,7 @@ u16 obj_getField1c(void *);
 s32 obj_setFlags30(void *, int);
 s8 get_current_floor(int);
 f32 fabs_float(f32);
-s32 set_indexed_flags(void *, s32, s32);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
 s32 TOTrapAncient02R__sub_80154D78(void *);
 void free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, int, int);
@@ -262,9 +262,9 @@ s32 TOTrapChainSawDamage__sub_802C9C00(void *, int);
 void debug_printf_at(s32, const char *, ...);
 void rotate_matrix_y(int, void *);
 void push_matrix(void);
-void pop_matrix(void);
+s32 pop_matrix(void);
 void post_translate_matrix(void *);
-void set_model_node_callback(void *);
+void set_model_node_callback(s32 arg0);
 void draw_ginja_model_with_motion(void *, void *, f32);
 
 extern s32 __vt__14TOTrapChainSaw[];
@@ -453,9 +453,9 @@ void TOTrapChainSawKey::vfunc_25() {
     push_matrix();
     rotate_matrix_y(0, *(void **)((s8 *)this + 0x60));
     rotate_matrix_y(0, *(void **)((s8 *)this + 0xD4));
-    set_model_node_callback(((s32 *)TParticleCtrl__sub_802C8464));
+    set_model_node_callback((s32)((s32 *)TParticleCtrl__sub_802C8464));
     draw_ginja_model__10TObjPlayerFl(*(void **)((s8 *)this + 0xC8), *(void **)((s8 *)this + 0xBC), *(f32 *)((s8 *)this + 0xB4));
-    ((void (*)(int))set_model_node_callback)(0);
+    set_model_node_callback(0);
     if (*(s32 *)((s8 *)this + 0xF0) == 1) {
         TParticleCtrl::begin_effect_render();
         draw_ginja_model_with_motion(*(void **)((s8 *)this + 0xFC), *(void **)((s8 *)this + 0x100), *(f32 *)((s8 *)this + 0x104));

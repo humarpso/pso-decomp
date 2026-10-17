@@ -4,12 +4,12 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-s32 prs_decompress_buffer(s32, s32);
+u32 prs_decompress_buffer(s32 arg0, s32 arg1);
 extern int item_load_compressed_work_buffer;
 struct VOff_8010FD2C_arg0_8010fd2c { char pad_0[0x1C]; char f_1C[1]; };
 
 void init_buffer__9TItemLoadFPviii(void *);
-int mem_free(void*);
+void mem_free(void *p);
 
 extern s32 lbl_8049F42C[];
 
@@ -25,11 +25,11 @@ void *TUnk_8049F42C::init() {
 
 s32 TItemLoad::decompress_buffer(u32 arg0) {
     if (((u32) (*(u32 *)&item_load_compressed_work_buffer) != 0U) && (arg0 != 0U)) {
-        return prs_decompress_buffer((s32) (*(u32 *)&item_load_compressed_work_buffer), (s32) arg0);
+        return prs_decompress_buffer((*(u32 *)&item_load_compressed_work_buffer), arg0);
     }
     return 0;
 }
 
-void TItemLoad::free_boss4_rock() { mem_free((void*)(item_load_compressed_work_buffer)); item_load_compressed_work_buffer = 0; }
+void TItemLoad::free_boss4_rock() { mem_free((void *)(item_load_compressed_work_buffer)); item_load_compressed_work_buffer = 0; }
 
 }

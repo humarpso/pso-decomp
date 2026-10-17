@@ -25,7 +25,7 @@ struct VO_801A0894 : VB_801A0894 {
 };
 
 extern "C" {
-s32 request_active_window_close();
+void request_active_window_close(void);
 s32 align_menu_entry_positions(s32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(f32 *, s32, f32);
@@ -33,10 +33,10 @@ extern s32 warp_lobby_directory_label_table[];
 extern const f32 lbl_805DC058;
 extern const f32 lbl_805DC05C;
 s32 queue_destruction__7TObjectFv(u32);
-s32 send_room_change__6TLobbyFi(s32);
+void send_room_change__6TLobbyFi(s32 arg0);
 s32 is_idle__6TLobbyFv();
 u32 find_warp_player_in_range(void *, u16, f32);
-s32 TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 s32 get_selected_menu_value(u32);
 extern s32 local_client_id;
 extern const f32 lbl_805DC068;
@@ -50,7 +50,7 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-void __dt__12TObjAreaWarpFv(void *, int);
+u8 *__dt__12TObjAreaWarpFv(u8 *arg0, s16 arg1);
 
 extern u8 *TObjWarpLobby__instance;
 extern s32 lbl_805D5CCC;
@@ -109,7 +109,7 @@ void run_task__13TObjWarpLobbyFv(VO_801A0894 *arg0) {
             send_room_change__6TLobbyFi(selected_menu_value);
         }
     } else if ((u32) ((TObjWarpLobby *)arg0)->m_cc != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0xB0));
+        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0xB0)));
         ((TObjWarpLobby *)arg0)->m_cc = 0U;
         TWindowCtrl::clear_flag();
     }
@@ -118,7 +118,7 @@ void run_task__13TObjWarpLobbyFv(VO_801A0894 *arg0) {
 void *__dt__13TObjWarpLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjWarpLobby;
-        __dt__12TObjAreaWarpFv(arg0, 0);
+        __dt__12TObjAreaWarpFv((u8 *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

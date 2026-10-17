@@ -28,7 +28,7 @@ extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 u32 init_collision_body_parts(void *, s32, s32);
-u8 * TORockCaveSimple__ct(void *);
+void *TORockCaveSimple__ct(void *arg0);
 extern RecoveredGlobal_8017427C_lbl_804B3BA8 cave_rock_collision_body_templates;
 extern RecoveredGlobal_8017427C___vt__14TORockCaveSM02 __vt__14TORockCaveSM02;
 extern s32 TORockCaveSM02__class_name;

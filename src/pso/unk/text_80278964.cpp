@@ -3,10 +3,10 @@
 extern "C" {
 
 s32 calc_list_content_extent(void *);
-s32 advance_status_disp_entry(void *, s32);
-s32 add_battle_stat_entry(void *, u32, s32, s32);
-s32 TWindowSubEquip__sub_80279044(void *);
-s32 TWindowSubItem__sub_8027AA78(u32);
+void advance_status_disp_entry(void *arg0, s32 arg1);
+void add_battle_stat_entry(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+void TWindowSubEquip__sub_80279044(void *p);
+s32 TWindowSubItem__sub_8027AA78(s32 arg0);
 
 void refresh_battle_stat_list(void *arg0) {
     u32 var_r31;

@@ -129,7 +129,7 @@ struct Chair_8035B058 {
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 u32 get_player_by_client_id(int);
 s32 is_mounted__15TPlyPhotonChairFv();
 void TPlyPhotonChair__sub_8035B56C(void* p, f32 v);
@@ -143,7 +143,7 @@ s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
 s32 get_actor_section_id__15TPlyPhotonChairFv(int);
 s32 get_rader_map__11TMainCursorFv(void *, void *);
-s32 TMainCursor__sub_8013F1F0(void *);
+u8 *TMainCursor__sub_8013F1F0(u8 *arg0);
 s32 construct_world_actor_base(void *, void *);
 extern RecoveredGlobal_8035B3C0_lbl_8047975C TPlyPhotonChair__section_id_color_table;
 extern s32 __vt__15TPlyPhotonChair[];
@@ -152,7 +152,7 @@ extern const f32 lbl_805E0130;
 u8 *TPlyPhotonChair__ct(u8 *arg0, s32 arg1, s32 arg2);
 int rotate_matrix_y(int, int);
 int push_matrix();
-int pop_matrix();
+s32 pop_matrix(void);
 int scale_current_matrix(void *);
 int post_translate_matrix(void *);
 extern const f32 lbl_805E0124;
@@ -160,7 +160,7 @@ int TPlyPhotonChair__sub_8035B520(void* p);
 void *__dt__15TPlyPhotonChairFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
-int copy_vec4__13TRaderMapCoreFPvPv(void*, void*);
+void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 
 void TPlyPhotonChair::render() {
     Chair_8035B058 *self = (Chair_8035B058 *)this;
@@ -206,7 +206,7 @@ void TPlyPhotonChair::run_task() {
     u8 *arg0 = (u8 *)this;
     u32 temp_r0;
     if (get_player_by_client_id((int) (((TPlyPhotonChair *)arg0)->sub_8035B530())) == 0U) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     if (((u32) this->m_94 == 0U) && (is_mounted__15TPlyPhotonChairFv() == 0)) {
@@ -226,7 +226,7 @@ void TPlyPhotonChair::run_task() {
         ((TPlyPhotonChair *)(arg0 + 0x98))->update_scale_state();
         ((TPlyPhotonChair *)(arg0 + 0xB4))->update_scale_state();
         if (((TPlyPhotonChair *)(arg0 + 0x98))->get_float_c() <= (*(const f32 *)&lbl_805E012C)) {
-            queue_destruction__7TObjectFv((void *) (arg0));
+            queue_destruction__7TObjectFv((arg0));
         }
         return;
     }
@@ -274,14 +274,14 @@ u8 *TPlyPhotonChair__ct(u8 *arg0, s32 arg1, s32 parent) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8035B3C0___vt__15TPlyPhotonChair *)&__vt__15TPlyPhotonChair).value;
     ((TUnk_804A7478 *)(arg0 + 0x98))->init();
     ((TUnk_804A7478 *)(arg0 + 0xB4))->init();
-    TMainCursor__sub_8013F1F0((void *) (arg0 + 0xD0));
+    TMainCursor__sub_8013F1F0((arg0 + 0xD0));
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4418;
     ((TPlyPhotonChair *)arg0)->set_field90((s32)((void *) (arg1)));
     *(s16 *)&((TPlyPhotonChair *)arg0)->m_92 = 0;
     *(s32 *)&((TPlyPhotonChair *)arg0)->m_94 = 0;
     player = get_player_by_client_id((int)((void *) ((s32) (u16) arg1)));
     if (player == 0U) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         return arg0;
     }
     get_rader_map__11TMainCursorFv((void *) (arg0 + 0xD0), (void *) ((u8 *)&TPlyPhotonChair__section_id_color_table.value + (get_actor_section_id__15TPlyPhotonChairFv((int) (player)) * 0x10)));

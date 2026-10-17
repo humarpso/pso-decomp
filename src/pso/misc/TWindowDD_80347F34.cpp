@@ -6,9 +6,9 @@ extern const s32 TWindowDD__data_805DFB50;
 extern const f32 TWindowDD__data_805DFC10;
 void TWindowDD__sub_80347F48(u8 *arg0);
 void TWindowDD__sub_80347FA0(s32 arg0, s32 arg1);
-int TWindowDD__sub_80341AE0(void*);
-s32 TWindowDD__sub_80341AF8(s32);
-s32 TWindowDD__sub_8034217C(s32);
+void TWindowDD__sub_80341AE0(u8 *arg0);
+void TWindowDD__sub_80341AF8(u8 *arg0);
+s32 TWindowDD__sub_8034217C(u8 *arg0);
 
     extern unsigned char lbl_804EFCA8[];
 void*TWindowDD::get_entry(int a0, int a1) {  return (char*)lbl_804EFCA8 + a1 * 8; }
@@ -45,20 +45,20 @@ void TWindowDD__sub_80347FA0(s32 arg0, s32 arg1) {
     }
 }
 
-void TWindowDD::refresh_sub(void* p, void* a1) { TWindowDD__sub_80341AE0(a1); ((TWindowDD *)a1)->set_mode_2(); }
+void TWindowDD::refresh_sub(void* p, void* a1) { TWindowDD__sub_80341AE0((u8 *)a1); ((TWindowDD *)a1)->set_mode_2(); }
 
-void TWindowDD::apply_input(void* p, void* a1) { TWindowDD__sub_80341AE0(a1); ((TWindowDD *)a1)->reset_cursor(); }
+void TWindowDD::apply_input(void* p, void* a1) { TWindowDD__sub_80341AE0((u8 *)a1); ((TWindowDD *)a1)->reset_cursor(); }
 
-void TWindowDD::update(void* p, void* a1) { TWindowDD__sub_80341AE0(a1); ((TWindowDD *)a1)->set_mode_2(); }
+void TWindowDD::update(void* p, void* a1) { TWindowDD__sub_80341AE0((u8 *)a1); ((TWindowDD *)a1)->set_mode_2(); }
 
 extern f32 lbl_805DFB54;
 
 void TWindowDD::update(s32 arg1) {
-    TWindowDD__sub_80341AF8(arg1);
+    TWindowDD__sub_80341AF8((u8 *)arg1);
     ((TWindowDD *)arg1)->reset_cursor();
     if ((u32) this->m_98 != 0U) {
         ((TWindowDD *)(this->m_98))->set_scale(((TWindowDD *)arg1)->get_field_0x74(), (s32) lbl_805DFB54);
-        ((TWindowDD *)(this->m_98))->set_value_f32(TWindowDD__sub_8034217C(arg1));
+        ((TWindowDD *)(this->m_98))->set_value_f32(TWindowDD__sub_8034217C((u8 *)arg1));
     }
 }
 

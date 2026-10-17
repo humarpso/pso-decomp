@@ -19,7 +19,7 @@ extern const f32 TOCtrlDubchik__data_805DB3A8;
 extern const f32 TOCtrlDubchik__data_805DB3AC;
 f32 TOCtrlDubchik__vt22(O_8015C9D4 *arg0, void *arg1, A_8015C9D4 *arg2);
 
-s32 TLobby__send_and_handle_60(void *);
+void TLobby__send_and_handle_60(u8 *arg0);
 void TOCtrlDubchik__sub_8015C9D0(void);
 void byteswap_event_packet__6TLobbyFi(s32 arg0);
 s32 read_be16_field2__10TObjPlayerFv();
@@ -27,7 +27,7 @@ s32 read_be16_field2__10TObjPlayerFv();
 void TLobby::byteswap_and_send() {
     s32 arg0 = (s32)this;
     ((s32 (*)())byteswap_event_packet__6TLobbyFi)();
-    TLobby__send_and_handle_60((void *) (arg0));
+    TLobby__send_and_handle_60((u8 *)(arg0));
 }
 
 void byteswap_event_packet__6TLobbyFi(s32 arg0) {

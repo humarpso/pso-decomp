@@ -30,7 +30,7 @@ void bind_gvm_texture_list(void *, void *);
 void load_technique_resources(void);
 void* get_technique_base_params(int a0);
 void *__ct__8TTecCtrlFv(void *arg0);
-s32 reset_telepipe_visit_counts();
+void reset_telepipe_visit_counts(void);
 void __ct__7TObjectFP7TObject(void *);
 
 void TTecCtrl::render() {  }

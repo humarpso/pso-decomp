@@ -33,8 +33,8 @@ __declspec(section ".ctors") static void *const __sinit_TObjPlayer_80354EC8_8035
 
 extern "C" {
 
-int __dl__FPv();
-int fn_8035510C(void* a0 = 0, void* a1 = 0);
+void __dl__FPv(void);
+u8 fn_8035510C(s32 *arg0, s32 arg1);
 void TObjPlayer__sub_80354F8C(void* p);
 int TObjPlayer__sub_80354FB0(void* p);
 int TObjPlayer__sub_8035501C(void* p);
@@ -44,7 +44,7 @@ int test_flags_any(void*, int);
 
 s32 get_quest_thread_id__10TObjPlayerFPv(void* p) { return *(s32*)((char*)p + 0x4); }
 void TObjPlayer::set_player_index(s32 v) { *(s32*)((char*)this + 0x4) = v; }
-void TObjPlayer__sub_80354F8C(void* p) { fn_8035510C(p, (void*)3); }
+void TObjPlayer__sub_80354F8C(void* p) { fn_8035510C((s32 *)p, (s32)((void*)3)); }
 int TObjPlayer__sub_80354FB0(void* p) { return clear_flags__11TAdRicoRingFUl(p, 2); }
 int TObjPlayer::set_flag0_bits01() { return set_flags__10TObjPlayerFUl(this, 3); }
 int TObjPlayer::clear_lock_flag() { return test_flags_any(this, 1); }

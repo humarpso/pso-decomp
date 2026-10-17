@@ -63,9 +63,9 @@ extern "C" {
 s32 test_flags_any(void *p, s32 n);
 void draw_ginja_object(void *p);
 void srank_punch_node_callback(Obj_80128E08 *self);
-s32 increment_burst_counter(int);
-s32 get_burst_counter(int);
-s32 TObjPlayer__sub_80128A70();
+void increment_burst_counter(u8 *arg0);
+s32 get_burst_counter(void *p);
+void TObjPlayer__sub_80128A70(void);
 void clear_rico_ring_flag__10TObjPlayerFv(u32);
 void srank_punch_marker(u8 *arg0);
 
@@ -77,10 +77,10 @@ void srank_punch_marker(u8 *arg0) {
     temp_r3 = *(u32 *)((s8 *)arg0 + 0xF0);
     if (temp_r3 == 0U) return;
     temp_r31 = temp_r3 + 0x7CC;
-    if (get_burst_counter((int) (temp_r31)) == 0) {
+    if (get_burst_counter((void *)(temp_r31)) == 0) {
         var_r30 = 0;
         do {
-            increment_burst_counter((int) (temp_r31));
+            increment_burst_counter((u8 *)(temp_r31));
             var_r30 += 1;
         } while (var_r30 != 2);
         ((TObjPlayer *)(arg0 + 0x1FC))->set_flags((int) (2));

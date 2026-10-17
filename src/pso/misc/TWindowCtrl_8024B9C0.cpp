@@ -15,7 +15,7 @@ s32 is_slot_visible__11TWindowCtrlFv(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32, s32 *);
 s32 is_split_screen();
 s32 fn_8002AE08(s32);
-s32 window_request_show(u32);
+void window_request_show(void *arg0);
 
 extern s32 local_client_id;
 
@@ -25,7 +25,7 @@ void TWindowCtrl__sub_8024B9C0(void *arg0) {
             ((TWindowLockOn *)(*(u32 *)((s8 *)arg0 + 0x30)))->request_close();
             return;
         }
-        window_request_show(*(u32 *)((s8 *)arg0 + 0x30));
+        window_request_show((void *)(*(u32 *)((s8 *)arg0 + 0x30)));
     }
 }
 
@@ -35,7 +35,7 @@ void TWindowCtrl::update_trade_window() {
             ((TWindowLockOn *)(this->m_34))->request_close();
             return;
         }
-        window_request_show(this->m_34);
+        window_request_show((void *)this->m_34);
     }
 }
 

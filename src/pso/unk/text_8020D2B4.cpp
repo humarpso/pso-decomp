@@ -62,12 +62,12 @@ struct Rec_8020D5AC {
 };
 
 extern "C" {
-s32 push_matrix_from(u32);
+s32 push_matrix_from(void *src);
 s32 pop_matrix(void);
 s32 matrix_mult_vec(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_z(int, int);
-s32 translate_matrix(int, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 rotate_matrix_x(int, int);
 extern RecoveredGlobal_8020D2B4_lbl_8058D490 identity_matrix;
 void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2);
@@ -91,8 +91,8 @@ s32 TLobby__sub_801C2614();
 u8 *call_area_set_factory(void *, void *);
 void spawn_decorations_in_range(void *arg0);
 void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2) {
-    push_matrix_from((u32) &identity_matrix.value);
-    translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)arg2 + 4)), (f32) (*(f32 *)((s8 *)arg2 + 8)), (f32) (*(f32 *)((s8 *)arg2 + 0xC)));
+    push_matrix_from(&identity_matrix.value);
+    translate_matrix((0), (f32) (*(f32 *)((s8 *)arg2 + 4)), (f32) (*(f32 *)((s8 *)arg2 + 8)), (f32) (*(f32 *)((s8 *)arg2 + 0xC)));
     rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)arg2 + 0x18)));
     rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg2 + 0x10)));
     rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg2 + 0x14)));

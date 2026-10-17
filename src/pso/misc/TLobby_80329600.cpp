@@ -4,7 +4,7 @@
 
 extern "C" {
 
-s32 test_flags_any(s32 *, s32);
+u8 test_flags_any(s32 *arg0, s32 arg1);
 
 extern s32 lbl_805D6C84;
 

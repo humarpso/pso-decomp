@@ -44,13 +44,13 @@ struct O_803323D8 {
 };
 
 extern "C" {
-u8 * csnVectorUnder(s32, void *, s32);
+s32 *csnVectorUnder(s32 arg0, u32 *arg1, s32 arg2);
 extern s32 actor_frame_tick;
 extern const f32 TObjEneMorfos__data_805DF870;
 void update_player_state__9TObjEneDDFv(void *, V3_803323D8 *, int);
 s32 rotate_matrix_y(int, int);
 void push_matrix(void);
-void pop_matrix(void);
+s32 pop_matrix(void);
 int post_translate_matrix(void *);
 s32 draw_model_motion(int, Anim_803323D8 *, f32);
 extern const V3_803323D8 lbl_804775F0;
@@ -112,7 +112,7 @@ void TObjEneMorfos::update_ground_probe() {
     if ((actor_frame_tick % 5) == 0) {
         VecCopy((Vec *)&stack.sp8, (const Vec *)&this->position);
         stack.spC += TObjEneMorfos__data_805DF870;
-        temp_r3 = (u8 *)(csnVectorUnder((s32) &stack.sp8, (u8 *)&this->m_120, 0x4000));
+        temp_r3 = (u8 *)(csnVectorUnder((s32)&stack.sp8, (u32 *)&this->m_120, 0x4000));
         if (temp_r3 != NULL) {
             *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) *(s32 *)((s8 *)temp_r3 + 0);
             VecCopy((Vec *)(arg0 + 0x3C8), (const Vec *)(*(u8 **)((s8 *)temp_r3 + 4)));

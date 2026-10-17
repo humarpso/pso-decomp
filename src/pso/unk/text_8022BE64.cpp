@@ -33,7 +33,7 @@ struct Stack_8022BF8C_more_8022be64_1 {
 extern "C" {
 f32 vector_length(void *, f32);
 s32 approach_vector_fixed_distance(int, void *, int, f32);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 void TTecReverser::sub_8022BE64(u8 *arg1, s32 arg2) {
     u8 *arg0 = (u8 *)this;
@@ -132,7 +132,7 @@ void *TUnk_804CC148::destroy_technique_base(s16 arg1) {
 
 extern "C" {
 u16 obj_getField1c(s32);
-s32 get_type__10TObjPlayerFPv(s32);
+s32 get_type__10TObjPlayerFPv(void *p);
 void *__ct__7TEffectFv(void *);
 s32 init_collision_body_parts(u32, void *, s32);
 u32 construct_collider_proxy__13TUnk_804AF8A0Fv(u32, void *);
@@ -181,7 +181,7 @@ TUnk_804CC148::TUnk_804CC148(s32 arg1, s32 arg2, s32 arg4) : TEffect() {
     *(f32 *)((s8 *)this + 0xCC) = lbl_805DC7B8;
     this->m_d0 = 0;
     if (obj_getField1c(*(s32 *)&this->source) < 4U) {
-        if (get_type__10TObjPlayerFPv(*(s32 *)&this->source+ 0x828) != 0) {
+        if (get_type__10TObjPlayerFPv((void *)(*(s32 *)&this->source+ 0x828)) != 0) {
             *(s32 *)((s8 *)this + 0xD4) = 0x40007;
         } else {
             *(s32 *)((s8 *)this + 0xD4) = 0x40107;
@@ -234,7 +234,7 @@ u8 *construct_area_technique_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 ar
     *(f32 *)((s8 *)arg0 + 0xCC) = lbl_805DC7B8;
     ((TUnk_804CC148 *)arg0)->m_d0 = 0;
     if (obj_getField1c(*(s32 *)&((TUnk_804CC148 *)arg0)->source) < 4U) {
-        if (get_type__10TObjPlayerFPv(*(s32 *)&((TUnk_804CC148 *)arg0)->source+ 0x828) != 0) {
+        if (get_type__10TObjPlayerFPv((void *)(*(s32 *)&((TUnk_804CC148 *)arg0)->source+ 0x828)) != 0) {
             *(s32 *)((s8 *)arg0 + 0xD4) = 0x40007;
         } else {
             *(s32 *)((s8 *)arg0 + 0xD4) = 0x40107;

@@ -103,7 +103,7 @@ struct Door_80162D7C : VObj_80162D7C {
 };
 
 extern "C" {
-s32 set_indexed_flags(void *, int, int);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
 s32 is_any_player_within_radius_xz(f32);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805DB4F4;
@@ -111,7 +111,7 @@ extern const f32 lbl_805DB4F8;
 extern const f32 lbl_805DB4FC;
 extern const f32 lbl_805DB500;
 s32 init_collision_body_parts(void *, void *, int);
-s32 init_door_base(void *);
+void *init_door_base(void *a0);
 extern RecoveredGlobal_80163158_lbl_804B1608 TODoorMachine01__collision_body_parts;
 extern s32 __vt__15TODoorMachine01[];
 extern s32 TODoorMachine01__class_name;
@@ -121,11 +121,11 @@ u8 *TODoorMachine01__ct(u8 *arg0, s32 arg1, s32 arg2);
 u8 is_current_floor_switch_set(u16);
 int rotate_matrix_y(int, int);
 int push_matrix();
-int pop_matrix();
+s32 pop_matrix(void);
 int post_translate_matrix(void *);
-int draw_ginja_model(int);
+void draw_ginja_model(s32 model);
 int draw_ginja_model_with_motion(void *, int, f32);
-void translate_matrix(s32, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 extern s32 *TODoorMachine01__global_param_id_array;
 extern const f32 lbl_805DB504;
 s32 set_chunk_material_color(void *, int);
@@ -134,7 +134,7 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 u32 load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-void *mem_alloc(s32);
+void *mem_alloc(u32 size);
 s32 load_gvm_texture_file(void *);
 extern u8 lbl_80440F38[];
 extern u8 lbl_80440F50[];
@@ -145,7 +145,7 @@ void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 mem_free(void*);
+void mem_free(void *p);
 
 void TODoorMachine01::vfunc_20() {  }
 
@@ -166,7 +166,7 @@ void TODoorMachine01::play_proximity_sound() {
     u8 *arg0 = (u8 *)this;
     if ((this->m_d0 & 1) && (is_any_player_within_radius_xz((f32) (lbl_805DB4F4)) == 1)) {
         *(s32 *)&this->m_ac = 1;
-        set_indexed_flags((void *) (arg0), (int) (0), (int) (8));
+        set_indexed_flags((arg0), (0), (8));
         play_sound_effect((s32)((int) (0x4004BC01)), (void *)((void *) (arg0 + 0x38)), (s32)((int) (0)), (s32)((int) (0)));
     }
     if (this->m_d0 & 0x100000) {
@@ -260,12 +260,12 @@ void TODoorMachine01::draw_part_models(u8 *arg1, s32 arg2) {
     }
     TParticleCtrl::begin_effect_render();
     push_matrix();
-    translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)p + 8)), (f32) (*(f32 *)((s8 *)p + 0xC)), (f32) (*(f32 *)((s8 *)p + 0x10)));
-    draw_ginja_model((int) (*(s32 *)((s8 *)p + 4)));
+    translate_matrix((0), (f32) (*(f32 *)((s8 *)p + 8)), (f32) (*(f32 *)((s8 *)p + 0xC)), (f32) (*(f32 *)((s8 *)p + 0x10)));
+    draw_ginja_model((*(s32 *)((s8 *)p + 4)));
     p = *(u8 **)((s8 *)p + 0x2C);
     push_matrix();
-    translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)p + 8)), (f32) (*(f32 *)((s8 *)p + 0xC)), (f32) (*(f32 *)((s8 *)p + 0x10)));
-    draw_ginja_model((int) (*(s32 *)((s8 *)p + 4)));
+    translate_matrix((0), (f32) (*(f32 *)((s8 *)p + 8)), (f32) (*(f32 *)((s8 *)p + 0xC)), (f32) (*(f32 *)((s8 *)p + 0x10)));
+    draw_ginja_model((*(s32 *)((s8 *)p + 4)));
     pop_matrix();
     pop_matrix();
     TParticleCtrl::end_effect_render();
@@ -335,7 +335,7 @@ void TODoorMachine01::free_resources() {
     if ((s32 *) TODoorMachine01__global_param_id_array != NULL) {
         TObjPlayer::free_if_valid(*TODoorMachine01__global_param_id_array);
         if ((s32 *) TODoorMachine01__global_param_id_array != NULL) {
-            mem_free((void*)TODoorMachine01__global_param_id_array);
+            mem_free(TODoorMachine01__global_param_id_array);
             TODoorMachine01__global_param_id_array = NULL;
         }
     }
@@ -382,7 +382,7 @@ typedef char RecoveredGlobal_80163158_lbl_804B1608_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80163158___vt__15TODoorMachine01_size[sizeof(RecoveredGlobal_80163158___vt__15TODoorMachine01) == 0x54 ? 1 : -1];
 u8 *TODoorMachine01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     s32 temp_r0;
-    init_door_base((void *) (arg0));
+    init_door_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80163158___vt__15TODoorMachine01 *)&__vt__15TODoorMachine01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TODoorMachine01__class_name;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);

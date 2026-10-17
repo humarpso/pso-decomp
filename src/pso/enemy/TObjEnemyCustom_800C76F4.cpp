@@ -7,7 +7,7 @@
 
 extern "C" {
 s32 apply_actor_gravity(void *, s32, f32, f32);
-s32 move_with_wall_slide(void *);
+void move_with_wall_slide(u8 *arg0);
 s32 advance_animation_playback(void *);
 s32 update_collisions__10TObjPlayerFv(void *);
 extern const f32 lbl_805DA070;
@@ -28,7 +28,7 @@ struct VObj_800c76f4 : Base_800c76f4 {
 };
 
 s32 post_translate_matrix(void *);
-s32 draw_chunk_object(s32);
+void draw_chunk_object(void *child);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -46,7 +46,7 @@ void TObjEnemyCustom::render() {
         rotate_matrix_y(0, this->rotation_y);
         model_render_flags &= 0xFFFFFBFF;
         if (TObjPlayer::check_demo_mode() == 1) {
-            draw_chunk_object(*(s32 *)&this->model);
+            draw_chunk_object((void *)(*(s32 *)&this->model));
         } else {
             ((TObjEneRe7Berura *)arg0)->draw();
         }
@@ -72,7 +72,7 @@ void TObjEnemyCustom__sub_800C77A4(u8 *arg0) {
         ((s32 (*)(void *, s32, f32))apply_actor_gravity)(arg0, 0, lbl_805DA070);
         update_collisions__10TObjPlayerFv((void *) (arg0));
         if (*(f32 *)((s8 *)arg0 + 0xC0) < (K_800C77A4 * (lbl_805DA08C * *(f32 *)((s8 *)arg0 + 0xC8)))) {
-            move_with_wall_slide((void *) (arg0));
+            move_with_wall_slide((arg0));
             f32 k;
             *(f32 *)((s8 *)arg0 + 0x308) = (f32) (*(f32 *)((s8 *)arg0 + 0x308) * (k = lbl_805DA07C));
             *(f32 *)((s8 *)arg0 + 0x310) = (f32) (*(f32 *)((s8 *)arg0 + 0x310) * k);
@@ -106,7 +106,7 @@ void TObjEnemyCustom::update_knockback_state() {
         *(s32 *)&this->state = 1;
     case 1:
         advance_animation_playback(this);
-        move_with_wall_slide(this);
+        move_with_wall_slide((u8 *)this);
         {
             f32 t = *(volatile f32 *)((s8 *)this + 0x308);
             f32 k = lbl_805DA07C;

@@ -13,7 +13,7 @@ struct Stack_8023A434 {
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 u8 *csnVector(f32 *, f32 *, s32);
 void check_technique_projectile_wall_hit(u8 *arg0);
 #pragma push
@@ -37,7 +37,7 @@ void check_technique_projectile_wall_hit(u8 *arg0) {
     if (temp_r3 != NULL) {
         VecCopy((Vec *)(arg0 + 0x20), (const Vec *)(*(s32 *)((s8 *)temp_r3 + 4)));
         ((TUnk_804CCC68 *)(arg0))->vfunc_6();
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
     }
 }
 #pragma pop

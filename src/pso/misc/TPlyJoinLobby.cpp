@@ -5,7 +5,7 @@ extern "C" {
 
 u8 *__ct__13TPlyJoinLobbyFRC13TPlyJoinLobby(u8 *arg0, u8 *arg1);
 s32 __dt__13TPlyJoinLobbyFv(s32 arg0, s16 arg1);
-s32 TLobby__sub_8013AA64(int, int);
+u8 *TLobby__sub_8013AA64(u8 *arg0, u8 *arg1);
 s32 __destroy_arr(s32, s32 *, s32, s32);
 
 u8 *__ct__13TPlyJoinLobbyFRC13TPlyJoinLobby(u8 *arg0, u8 *arg1) {
@@ -28,7 +28,7 @@ u8 *__ct__13TPlyJoinLobbyFRC13TPlyJoinLobby(u8 *arg0, u8 *arg1) {
     *(u8 *)((s8 *)arg0 + 0xE) = (u8) *(u8 *)((s8 *)arg1 + 0xE);
     *(u8 *)((s8 *)arg0 + 0xF) = (u8) *(u8 *)((s8 *)arg1 + 0xF);
     do {
-        TLobby__sub_8013AA64((int) (var_r30), (int) (var_r29));
+        TLobby__sub_8013AA64((u8 *)(var_r30), (u8 *)(var_r29));
         var_r30 += 0x43C;
         var_r29 += 0x43C;
     } while (var_r30 < (u32) (arg0 + 0x32E0));

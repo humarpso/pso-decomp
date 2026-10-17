@@ -4,7 +4,7 @@ extern "C" {
 
 void *__dt__13TUnk_80488B68Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void __dt__13TUnk_80488A28Fv(void *, int);
+void *__dt__13TUnk_80488A28Fv(void *arg0, s16 arg1);
 
 extern s32 lbl_80488B68[];
 

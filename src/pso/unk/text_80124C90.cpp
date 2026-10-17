@@ -26,11 +26,11 @@ f32 *get_weapon_range_record(void *, s32);
 f32 query_extended_state__10TObjPlayerFv(void *);
 s16 get_captured_target_collider_index(void *);
 void *get_captured_target_entry(void *, s32);
-s32 get_captured_target_count(void *);
+s32 get_captured_target_count(s32 *arg0);
 Tgt_80124C90 *resolve_hittable_target(u16, s16);
 void vec3_add_to(void *, void *);
 s32 rotate_matrix_y(int, int);
-void push_matrix_from(void *);
+s32 push_matrix_from(void *src);
 s32 transform_point_by_current_matrix(void *, void *);
 s32 pop_matrix();
 f32 xyz_distance(void *, void *);
@@ -54,8 +54,8 @@ void TObjPlayer__sub_80124C90(u8 *owner) {
     found = 0;
     pos = &me->pl->pos;
     Vec_80124C90 dst = *pos;
-    if (get_captured_target_count(ext) != 0) {
-        e = get_captured_target_entry(ext, get_captured_target_count(ext) - 1);
+    if (get_captured_target_count((s32 *)ext) != 0) {
+        e = get_captured_target_entry(ext, get_captured_target_count((s32 *)ext) - 1);
         t = resolve_hittable_target(((TObjPlayer *)e)->get_uid(), get_captured_target_collider_index(e));
         if (t != NULL) {
             Part_80124C90 *pp = &t->parts[get_captured_target_collider_index(e)];
@@ -80,7 +80,7 @@ void TObjPlayer__sub_80124C90(u8 *owner) {
     } else {
         xyz_distance(pos, &dst);
     }
-    for (i = 0; i != get_captured_target_count(ext); i++) {
+    for (i = 0; i != get_captured_target_count((s32 *)ext); i++) {
         e = get_captured_target_entry(ext, i);
         t = resolve_hittable_target(((TObjPlayer *)e)->get_uid(), get_captured_target_collider_index(e));
         if (t != NULL) {

@@ -100,14 +100,14 @@ struct O_803594B4 { u8 pad[0x1c]; s32 idx; E_803594B4 e[2]; };
 extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
-s32 construct_male_npc_base(void *);
+u8 *construct_male_npc_base(u8 *arg0);
 extern RecoveredGlobal_80359420___vt__14TObjNpcNgcBase __vt__14TObjNpcNgcBase;
 extern s32 TObjNpcNgcBase__name;
 u8 *TObjNpcNgcBase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void fn_803594B4(O_803594B4 *self, s32 v, f32 f);
 typedef char RecoveredGlobal_80359420___vt__14TObjNpcNgcBase_size[sizeof(RecoveredGlobal_80359420___vt__14TObjNpcNgcBase) == 0x178 ? 1 : -1];
 u8 *TObjNpcNgcBase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
-    construct_male_npc_base((void *) (arg0));
+    construct_male_npc_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TObjNpcNgcBase.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcNgcBase__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);

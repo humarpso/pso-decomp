@@ -69,7 +69,7 @@ SceneMaterialSection *find_scene_room_by_id(s32 id);
 void matrix_mult_vec(int, void *, void *);
 extern const f32 TScene__data_805DC5D8;
 bool is_in_view_depth__6TSceneFf(f32 farg0);
-f32 xyz_distance_squared(void *, void *);
+f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
 extern const f32 lbl_805DC5D0;
 f32 vec3_dot(void *, void *);
 f32 project_point_onto_line(void *, void *, void *);
@@ -119,7 +119,7 @@ void draw_field_1c__6TSceneFlll(void *, s32, s32, s32);
 void release_indexed_entry__6TLobbyFl(Lobby_8020533C *);
 void vec3_add_to(void *, void *);
 void draw_ginja_object(void *);
-void set_material_alpha_compare_reference(u32);
+void set_material_alpha_compare_reference(s32 reference);
 extern s32 TScene__data_805D5FE0;
 extern void (*TScene__map_section_render_callback)(Vec_8020533C *, Ang_8020533C *, u32);
 extern void (*TScene__active_scene_callback)(u32);
@@ -156,7 +156,7 @@ extern const char lbl_8044A7F0[];
 extern const char lbl_8044A7F8[];
 void initialize_fmt1_materials__6TSceneFv(void *);
 void initialize_fmt2_materials__6TSceneFv();
-void TScene__sub_80205FD0(void *);
+void TScene__sub_80205FD0(void);
 void TScene__sub_80205ECC(void *);
 
 extern s32 TScene__data_805D5FE8;
@@ -218,7 +218,7 @@ s32 TScene::find_section_at_position() {
     r = (*(Root_80203510 * *)&TScene__data_805D5FCC)->recs;
     for (i = 0; i < (*(Root_80203510 * *)&TScene__data_805D5FCC)->count; i++, r++) {
         if (r->id >= 0) {
-            f32 d = xyz_distance_squared(this, r->pos);
+            f32 d = xyz_distance_squared((u8 *)this, (u8 *)r->pos);
             if (!(d > r->radius * r->radius) && d < bestd) {
                 bestd = d;
                 best = r->id;

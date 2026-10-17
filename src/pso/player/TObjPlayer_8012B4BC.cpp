@@ -6,13 +6,13 @@ extern "C" {
 
 u8 get_slot_count__14TItemProShieldFv();
 s32 advance_angle_wrap(void *, s32);
-s32 obj_getPtr2B0_20(s32);
+int obj_getPtr2B0_20(u8 *p);
 
 void TUnk_804A4D70::update_weapon() {
     s32 var_r4;
 
     if (get_slot_count__14TItemProShieldFv() == 6) {
-        var_r4 = obj_getPtr2B0_20(*(s32 *)&this->player) / 100000;
+        var_r4 = obj_getPtr2B0_20((u8 *)(*(s32 *)&this->player)) / 100000;
         var_r4 = var_r4 * 0x222;
         if (var_r4 > 0x1555) {
             var_r4 = 0x1555;

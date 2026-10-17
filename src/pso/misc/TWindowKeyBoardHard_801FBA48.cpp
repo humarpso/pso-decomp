@@ -12,7 +12,7 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
 f32 post_translate_matrix(void *);
-s32 draw_ginja_model(int);
+void draw_ginja_model(s32 model);
 void draw_ginja_box_tree(u8 *arg0);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 void render_frame__23TAdSinglePlyChrSelectGCFv();
@@ -27,9 +27,9 @@ void copy_save_data__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
 extern u8 chr_select_rng_state[];
 extern s32 chr_select_serial_seeds[];
 void TAdSinglePlyChrSelectGC__sub_801FBC3C(void *arg0);
-s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, char *);
+s32 find_card_file__15TAdPlayerLoadGCFiPv(s32 chan, const char *name);
 s32 load_system_file__23TAdSinglePlyChrSelectGCFiPv(s32, s32 *);
-s32 TAdSinglePlyChrSelectGC__sub_80201204(void *, s32);
+u32 TAdSinglePlyChrSelectGC__sub_80201204(u8 *arg0, u32 arg1);
 char *strncpy(char *, const char *, u32);
 void *memcpy(void *, const void *, u32);
 extern char lbl_804C8954[];
@@ -64,7 +64,7 @@ void draw_ginja_box_tree(u8 *arg0) {
             TParticleCtrl::begin_effect_render();
         }
         if (!(temp_r31 & 8)) {
-            draw_ginja_model((int) (*(s32 *)((s8 *)var_r30 + 4)));
+            draw_ginja_model((*(s32 *)((s8 *)var_r30 + 4)));
         }
         if (!(temp_r31 & 0x10)) {
             temp_r3 = (u8 *)(*(u8 **)((s8 *)var_r30 + 0x2C));

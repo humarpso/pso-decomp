@@ -112,20 +112,20 @@ struct Obj_8002E62C {
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
-s32 TObjPlayer__sub_8002EDCC(void *);
+void queue_destruction__7TObjectFv(void *arg0);
+s32 TObjPlayer__sub_8002EDCC(u8 *arg0);
 s32 create_particle__17TObjBoss2CeilJunkFv(void *, s32);
 s32 TObjLight__sub_801337F8(s32);
 s32 rotate_matrix_z(int, int);
-s32 translate_matrix(int, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 rotate_matrix_x(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_chunk_material_override_pair(int, int);
-s32 set_chunk_material_color(void *);
-s32 set_chunk_blend(int);
-s32 draw_chunk_model(s32);
+void set_chunk_material_override_pair(s32 arg0, s32 arg1);
+void set_chunk_material_color(f32 *arg);
+void set_chunk_blend(u32 x);
+void draw_chunk_model(void *arg0);
 extern Color_8002E3D4 player_part_model_white_color;
 extern Holder_8002E3D4 *lbl_805D4BA4;
 extern s32 current_scene_light;
@@ -134,7 +134,7 @@ extern s32 model_render_flags;
 f32 lerp__9TDeadSpotFff(f32, f32);
 f32 rand_signed_unit();
 s32 matrix_mult_vec(int, void *, void *);
-s32 set_matrix_identity(int);
+void set_matrix_identity(u8 *arg0);
 s32 rotate_vector_by_matrix(int, void *, void *);
 extern s32 lbl_80482090[];
 extern Model_8002E62C *lbl_805D4B8C;
@@ -204,16 +204,16 @@ void TUnk_80482090::render() {
             switch (p->f28) {
             case 0:
             case 1:
-                draw_chunk_model(n->f4);
+                draw_chunk_model((void *)n->f4);
                 break;
             case 2:
                 lbl_805D5660 = model_render_flags;
                 model_render_flags = lbl_805D5660 | 0x8810;
                 c.a = p->f24;
-                set_chunk_material_color(&c);
+                set_chunk_material_color((f32 *)&c);
                 set_chunk_material_override_pair(0xFF00, 0x800);
                 set_chunk_blend(0x2500);
-                draw_chunk_model(n->f4);
+                draw_chunk_model((void *)n->f4);
                 set_chunk_material_override_pair(0xFF00, 0);
                 model_render_flags = lbl_805D5660;
                 break;
@@ -235,7 +235,7 @@ void TUnk_80482090::run_task() {
         s32 *ctr = (s32 *)(arg0 + 0x1C);
         *ctr += 1;
         if (*ctr >= 0xA0) {
-            queue_destruction__7TObjectFv((void *)(arg0));
+            queue_destruction__7TObjectFv((arg0));
             return;
         }
     }

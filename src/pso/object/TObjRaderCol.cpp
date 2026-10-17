@@ -24,7 +24,7 @@ struct Col_8019750C { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x4C]; f32 f90; s32 f9
 struct Ply_8019750C { u8 pad0[0x38]; f32 pos[3]; };
 
 extern "C" {
-s32 disallow_rendering__7TObjectFv(void *);
+void disallow_rendering__7TObjectFv(void *arg0);
 s32 construct_world_actor_base(void *);
 extern s32 __vt__12TObjRaderCol[];
 extern s32 lbl_805D3410;
@@ -121,7 +121,7 @@ u8 *TObjRaderCol__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)&((TObjRaderCol *)arg0)->m_94 = (s32) ((TObjRaderCol *)arg0)->m_84;
     *(s32 *)&((TObjRaderCol *)arg0)->m_98 = 0;
     *(s32 *)&((TObjRaderCol *)arg0)->m_9c = 3;
-    disallow_rendering__7TObjectFv((void *) (arg0));
+    disallow_rendering__7TObjectFv((arg0));
     return arg0;
 }
 

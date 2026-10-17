@@ -18,8 +18,8 @@ struct Arg_8032AC24 { f32 x, y; u8 pad[8]; };
 
 extern "C" {
 char *realloc_buffer__17TWindowSubComCardFv(void *);
-s32 calc_text_width(void *);
-void mem_free(char *);
+u32 calc_text_width(char *s);
+void mem_free(void *p);
 void fn_8025DE10(s32, Pos_8032AACC *);
 void TAdEnterSerialAccessGC__sub_802C4B64(void *, void *, void *, int);
 void __dt__19TAdPlyChrSelPlateGCFv(void *, int);

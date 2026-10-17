@@ -15,21 +15,21 @@ struct Page_8026AE20 { u8 pad[0x90]; s32 flags; void *msg; };
 extern "C" {
 u8 *__nw__7TObjectFUl(s32);
 s32 TLobby__sub_80269DA4(void *, void *);
-s32 TWindowMessage__ct(void *, void *, void *, void *);
+u8 *TWindowMessage__ct(u8 *arg0, s32 arg1, u32 arg2, s32 arg3);
 extern s32 __vt__18TWindowMessagePage[];
 extern s32 lbl_805D3998;
 u8 *TWindowMessagePage__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
-s32 is_player_input_active(int);
+s32 is_player_input_active(s32 param_1);
 s32 draw__14TWindowMessageFv();
 extern RecoveredGlobal_8026AF24_lbl_8050E208 controller_input_state;
 void *__dt__18TWindowMessagePageFv(void *arg0, s16 arg1);
 s32 get_shared_text_buffer();
 u32 copy_message_page_text__20TWindowSubStatusDispFv(u32);
-s32 text_builder_reset();
+void text_builder_reset(void);
 void __dl__7TObjectFPv(void *);
-void __dt__14TWindowMessageFv(void *, int);
+void *__dt__14TWindowMessageFv(void *arg0, s16 arg1);
 int render__14TWindowMessageFv(void*);
 s32 send_and_handle__6TLobbyFii(void *, s32, s32);
 
@@ -83,7 +83,7 @@ void TWindowMessagePage::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r5;
     draw__14TWindowMessageFv();
-    temp_r5 = is_player_input_active((int) (this->m_20)) * 0x50;
+    temp_r5 = is_player_input_active((this->m_20)) * 0x50;
     if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + temp_r5 + 0x20), (int) (4), (int) (temp_r5)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (4)) != 0)) {
         if (((TWindowMessagePage *)arg0)->is_message_window_ready() != 0) {
             update_message();
@@ -104,7 +104,7 @@ void *__dt__18TWindowMessagePageFv(void *arg0, s16 arg1) {
     return arg0;
 }
 u8 *TWindowMessagePage__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
-    TWindowMessage__ct((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg3));
+    TWindowMessage__ct((arg0), (arg1), (arg2), (arg3));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8026B014___vt__18TWindowMessagePage *)&__vt__18TWindowMessagePage).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3998;
     *(s32 *)((s8 *)arg0 + 0x90) = 0;

@@ -9,7 +9,7 @@ s32 is_flag_set__6TLobbyFv();
 s32 is_challenge_mode_active();
 s32 get_game_play_mode(void);
 s32 TLobby__sub_8030A770(void);
-s32 is_quest_active();
+int is_quest_active(void);
 
 extern s32 game_difficulty_selection;
 

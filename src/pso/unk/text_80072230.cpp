@@ -44,12 +44,12 @@ struct Pkt_80072230 { u32 hdr; s32 idx; s32 val; };
 struct Pkt7C_80072230 { u32 hdr; u16 id; u8 pad6[2]; u8 recs[0x100]; };
 
 extern "C" {
-s32 TLobby__sub_800728FC(void *);
+void TLobby__sub_800728FC(u8 *arg0);
 s32 TLobby__sub_800703D0(void *, void *);
 s32 get_character_save_record(int);
 extern s32 local_client_id;
 s32 mix_seed_checked__6TLobbyFi(void *);
-s32 TLobby__sub_80072880(void *);
+void TLobby__sub_80072880(u8 *arg0);
 s32 is_flag_set__6TLobbyFv();
 s32 TLobby__sub_800727EC(void *);
 extern void *challenge_task;
@@ -145,7 +145,7 @@ void TLobby::send_seed_state() {
     typedef char spC_offset[(offsetof(Stack_80072448, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80072448, sp10) == 0x8) ? 1 : -1];
     Stack_80072448 stack;
-    TLobby__sub_80072880((void *) (&stack.sp8));
+    TLobby__sub_80072880((u8 *)(&stack.sp8));
     stack.sp10 = mix_seed_checked__6TLobbyFi((void *) (arg0));
     stack.spC = local_client_id;
     ((TLobby *)(&stack.sp8))->send_state();
@@ -166,7 +166,7 @@ void TLobby::send_challenge_with_value(s32 arg0, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_800724F0, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800724F0, spC) == 0x4) ? 1 : -1];
     Stack_800724F0 stack;
-    TLobby__sub_800728FC((void *) (&stack.sp8));
+    TLobby__sub_800728FC((u8 *)(&stack.sp8));
     stack.spC = arg1;
     ((TLobby *)(&stack.sp8))->send_challenge_packet();
 }

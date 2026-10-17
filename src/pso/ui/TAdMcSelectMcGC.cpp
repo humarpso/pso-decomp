@@ -27,9 +27,9 @@ extern const f32 lbl_805DF750;
 extern const f32 lbl_805DF754;
 extern const f32 lbl_805DF758;
 s32 draw_textured_quad_at_depth(void *, f32);
-s32 begin_screen_draw(int);
-s32 set_draw_texture_and_color(int, int);
-s32 restore_saved_depth_alpha_state();
+void begin_screen_draw(s32 arg0);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
+void restore_saved_depth_alpha_state(void);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 extern s32 TAdMcSelectMcGC__texture_list_ptr;
@@ -37,9 +37,9 @@ extern const f32 lbl_805DF748;
 
 void TAdMcSelectMcGC::draw_status_window() {
     u8 *arg0 = (u8 *)this;
-    begin_screen_draw((int) (1));
+    begin_screen_draw((1));
     TObjFish::set_global_param((s32)((void *) (TAdMcSelectMcGC__texture_list_ptr)));
-    set_draw_texture_and_color((int) (0), (int) ((*(s32 *)((s8 *)arg0 + 0x120) << 0x18) | 0xFF0000 | 0xFFFF));
+    set_draw_texture_and_color((0), ((*(s32 *)((s8 *)arg0 + 0x120) << 0x18) | 0xFF0000 | 0xFFFF));
     draw_textured_quad_at_depth((void *) (arg0 + 0x20), (f32) (lbl_805DF748));
     TWindowSubStatusDisp::get_player();
 }

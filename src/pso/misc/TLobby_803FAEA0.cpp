@@ -506,7 +506,7 @@ s32 TLobby__sub_803FAFDC(void) {
     return 0;
 }
 
-void TLobby__sub_803F767C(void);
+s32 TLobby__sub_803F767C(void);
 void TLobby__sub_803F7A90(void);
 s16 TLobby__sub_803FD10C(void);
 void TLobby__sub_804061FC(int);

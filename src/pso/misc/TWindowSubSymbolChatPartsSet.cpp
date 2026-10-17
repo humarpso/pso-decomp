@@ -109,7 +109,7 @@ void render__28TWindowSubSymbolChatPartsSetFv(u8 *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 draw_visible_window_entries(void *, void *, int, f32);
 void __dl__7TObjectFPv(void *);
-void __dt__17TWindowChatSymbolFv(void *, int);
+void *__dt__17TWindowChatSymbolFv(void *arg0, s16 arg1);
 u8 *draw_default_entry__9TWindowDDFl();
 s32 forward_render__20TWindowSubStatusDispFv(int, int);
 

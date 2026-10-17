@@ -28,7 +28,7 @@ extern s32 lbl_80484888[];
 extern u8 *tl_07;
 extern const f32 lbl_805D8848;
 u8 *TBoss3Volopt__sub_8004885C(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4, f32 farg0, f32 farg1);
-void spawn_directional_particle(void *, void *, s32);
+void *spawn_directional_particle(void *pos, void *dir, s32 id);
 s32 rand();
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);

@@ -6,9 +6,9 @@
 extern "C" {
 
 s32 get_main_phase();
-s32 THunterGuildWarning__sub_80211700();
-s32 clear_slots__22THunterGuildSeqOfflineFv();
-s32 clear_slot_flags__22THunterGuildSeqOfflineFv();
+void THunterGuildWarning__sub_80211700(void);
+void clear_slots__22THunterGuildSeqOfflineFv(void);
+void clear_slot_flags__22THunterGuildSeqOfflineFv(void);
 
 void update_hunter_guild_phase(void) {
     if (get_main_phase() == 0xE) {
@@ -22,10 +22,10 @@ void update_hunter_guild_phase(void) {
     }
 }
 
-s32 THunterGuildSeqOffline__sub_8021339C();
-s32 THunterGuildWarning__sub_8021170C();
-s32 THunterGuildSeqOffline__sub_80213CA4();
-s32 zero_four_slots__22THunterGuildSeqOfflineFv();
+void THunterGuildSeqOffline__sub_8021339C(void);
+void THunterGuildWarning__sub_8021170C(void);
+void THunterGuildSeqOffline__sub_80213CA4(void);
+void zero_four_slots__22THunterGuildSeqOfflineFv(void);
 
 void TLobby::update_guild_or_quest_phase() {
     if (get_main_phase() == 0xE) {

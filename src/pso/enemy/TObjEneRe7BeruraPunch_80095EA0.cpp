@@ -65,7 +65,7 @@ f32 cos_table_lookup(s32);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(s32, f32, f32, f32);
 s32 rotate_matrix_y(s32, s32);
-s32 translate_matrix(s32, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
 s32 pop_matrix();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);

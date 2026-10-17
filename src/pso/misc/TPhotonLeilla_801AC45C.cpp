@@ -37,7 +37,7 @@ struct Self_801AC45C {
 
 extern "C" {
 u16 obj_getField1c(void *);
-u8 * find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 u8 * construct_photon_magic_square_normal(void *, s32, s32, s32, s32);
 s32 play_persistent_sound(s32, s32, u32, s16, s32);
 s32 advance_animation_playback(void *);
@@ -50,15 +50,15 @@ extern const f32 lbl_805DC1C8;
 extern const f32 lbl_805DC1CC;
 extern const f32 lbl_805DC1D0;
 extern const f32 lbl_805DC1D4;
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 s32 scroll_strip_uvs(void *, s16, int);
 s32 clear_render_context__10TObjPlayerFv(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
-s32 translate_matrix(int, f32, f32, f32);
-s32 set_chunk_material_override_pair(int, int);
-s32 set_chunk_material_color(void *);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
+void set_chunk_material_override_pair(s32 arg0, s32 arg1);
+void set_chunk_material_color(f32 *arg);
 extern Color_801AC45C saved_model_draw_color;
 extern Color_801AC45C model_material_color;
 extern s32 lbl_805D5660;
@@ -85,7 +85,7 @@ void TPhotonLeilla::render() {
         model_render_flags |= 0x200820;
         TObjPlayer::set_global_flag();
         set_chunk_material_override_pair(-1, 0x800);
-        set_chunk_material_color(&self->color);
+        set_chunk_material_color((f32 *)&self->color);
         ((TUnk_804C3248 *)self)->set_photon_blast_joint_callback();
         ((TObjEneRe7Berura *)self)->draw();
         TObjPlayer::clear_global_state();

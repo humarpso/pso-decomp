@@ -63,9 +63,9 @@ extern "C" {
 void TObjPlayer__sub_80052390(f32);
 void rotate_matrix_y(s32, s32);
 void push_matrix();
-void pop_matrix();
+s32 pop_matrix(void);
 void post_translate_matrix(void *);
-void draw_model_motion(s32, s32, f32);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern const f32 lbl_805D8988;
 extern const f32 lbl_805D898C;
 extern const f32 lbl_805D89A0;
@@ -162,7 +162,7 @@ void TObjDFDemo1::sub_8004E068() {
   for (j = 0; j < 2; j++)
   {
     TObjFish::set_global_param(self->recs[j].b);
-    draw_model_motion((*(&self->recs[j])).a, self->recs[j].c, self->f114);
+    draw_model_motion((void *)((*(&self->recs[j])).a), (void *)self->recs[j].c, self->f114);
   }
   TObjPlayer::clear_global_state();
   pop_matrix();
@@ -205,7 +205,7 @@ void TObjDFDemo1::draw_fading_model() {
             }
             break;
         }
-        draw_model_motion(arg0->recs[i].a, arg0->recs[i].c, f);
+        draw_model_motion((void *)arg0->recs[i].a, (void *)arg0->recs[i].c, f);
     }
     TObjPlayer::clear_global_state();
     pop_matrix();
@@ -235,7 +235,7 @@ struct S_8004E634 {
 
 extern "C" {
 void fn_8004AA04(void *);
-void restore_player_cameras();
+s32 restore_player_cameras(void);
 void __dl__7TObjectFPv(void *);
 extern u8 lbl_80485640[];
 S_8004E634 *fn_8004E634(S_8004E634 *o, s16 flag);

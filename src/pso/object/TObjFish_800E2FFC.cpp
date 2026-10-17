@@ -25,7 +25,7 @@ s32 TObjFish__sub_800E3124(u8 *arg0, s32 arg1);
 extern State_800E2FFC TObjFish_draw_callback_state;
 int transform_to_view__11TCameraCtrlFii(void *, void *);
 s32 TObjFish__sub_800E3188(s32 arg0, s16 arg1);
-s32 __dl__FPv();
+void __dl__FPv(void);
 
 void TObjFish::draw_callback_transform_to_view() {
     Entry_800E2FFC *p = TObjFish_draw_callback_state.list;

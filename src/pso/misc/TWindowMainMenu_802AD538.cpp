@@ -114,7 +114,7 @@ s32 apply_choice__20TWindowChoiceSettingFllll(void *, int, int, int);
 f32 TWindowSubComCard__sub_80244784(void *);
 s32 is_window_reveal_complete__13TUnk_804CE018Fv();
 s32 sub_80246948__13TUnk_804CE018Fv();
-s32 is_player_input_active(int);
+s32 is_player_input_active(s32 param_1);
 s32 try_open__19TWindowKeyBoardSoftFii(void *, Rect_802AD538 *);
 Rect_802AE2B0 * open_singleton__19TWindowKeyBoardSoftFiiii(void *, void *, s32, f32, s32);
 s32 fn_8026CB68();
@@ -132,9 +132,9 @@ void get_row_position__15TWindowMainMenuFiPvi(s32 arg0, void *arg1, s32 arg2);
 s32 is_not_split_screen__15TWindowMainMenuFv(void);
 s32 append_child_rows__15TWindowMainMenuFPvi(Menu_802ADD38 *arg0, s32 arg1);
 Rect_802AE2B0 * setup_content_frame__15TWindowMainMenuFPv(u8 *arg0);
-void begin_screen_draw(int);
+void begin_screen_draw(s32 arg0);
 void draw_textured_quad_at_depth(Rect_802AD538 *, f32);
-void set_draw_texture_and_color(int, u32);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 
 extern UV_802AD538 main_menu_label_uv_table[];
 extern RecoveredGlobal_802AE59C_lbl_8050E208 controller_input_state;
@@ -604,7 +604,7 @@ void play_cursor_sound__15TWindowMainMenuFv(Menu_802AE4DC *m, int d) {
 void TWindowMenuMainMenu::handle_navigation_input() {
     u8 *temp_r31;
     if ((is_window_reveal_complete__13TUnk_804CE018Fv() != 0) && (((TWindowMenuMainMenu *)((u8 *)this))->get_menu_flag() == 0) && (((TWindowMenuMainMenu *)((u8 *)this))->is_flag_set() == 0) && !(this->m_60 & 4)) {
-        temp_r31 = (u8 *)&controller_input_state.value + (is_player_input_active((int) (*(s16 *)&this->m_20)) * 0x50) + 0x20;
+        temp_r31 = (u8 *)&controller_input_state.value + (is_player_input_active((*(s16 *)&this->m_20)) * 0x50) + 0x20;
         if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r31), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
             play_cursor_sound__15TWindowMainMenuFv((Menu_802AE4DC *)((void *) (((u8 *)this))), (int)((int) (-1)));
         }

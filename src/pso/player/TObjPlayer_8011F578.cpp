@@ -20,7 +20,7 @@ VV(61)VV(62)VV(63)VV(64)
 extern "C" {
 
 s32 restore_action_type__11TItemWeaponFv(void *);
-s32 remap_extra_attack_type(void *);
+void remap_extra_attack_type(u8 *arg0);
 s32 is_active_in_game__11TItemWeaponFv();
 
 struct Base_8011F578 { char pad[0x18]; };
@@ -48,7 +48,7 @@ void TUnk_804A4D70::apply_scale_if_active(f32 farg0) {
     void *temp_r3;
 
     if (is_active_in_game__11TItemWeaponFv() != 0) {
-        remap_extra_attack_type(this);
+        remap_extra_attack_type((u8 *)this);
         temp_r3 = *(void * *)&this->player;
         ((VObj_8011F578 *)temp_r3)->m65(farg0);
         restore_action_type__11TItemWeaponFv(this);
@@ -61,7 +61,7 @@ void TObjPlayer::update_active_game_effect() {
     void *temp_r3;
 
     if (is_active_in_game__11TItemWeaponFv() != 0) {
-        remap_extra_attack_type(this);
+        remap_extra_attack_type((u8 *)this);
         temp_r3 = *(void * *)&this->unk_F0;
         ((VObj_8011F5E0 *)temp_r3)->v67(lbl_805DAC9C);
         restore_action_type__11TItemWeaponFv(this);

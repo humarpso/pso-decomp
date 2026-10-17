@@ -69,7 +69,7 @@ extern "C" {
 u8 * get_bml_model(void *, int);
 extern u32 TORockJungleS01__bml_resource;
 s32 init_collision_body_parts(void *, void *, int);
-s32 TORockCaveBrakable__ct(void *);
+void *TORockCaveBrakable__ct(void *arg0);
 extern RecoveredGlobal_8029C9C8_lbl_804DC3A0 rock_jungle_collision_body_parts;
 extern RecoveredGlobal_8029C9C8_lbl_804DC424 rock_jungle_vec3_table;
 extern s32 __vt__15TORockJungleS01[];
@@ -104,7 +104,7 @@ void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
-void __dt__18TORockCaveBrakableFv(void *, int);
+void *__dt__18TORockCaveBrakableFv(void *arg0, s16 arg1);
 void queue_destruction__7TObjectFv(void *);
 
 void TORockJungleS01::vfunc_18() {
@@ -170,7 +170,7 @@ u8 *TORockJungleS01__ct(u8 *arg0, s32 arg1) {
     CopyStack_8029C9C8 copy_storage_8029C9C8;
     s32 temp_r0;
     s32 temp_r4;
-    TORockCaveBrakable__ct((void *) (arg0));
+    TORockCaveBrakable__ct((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8029C9C8___vt__15TORockJungleS01 *)&__vt__15TORockJungleS01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TORockJungleS01__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);

@@ -5,7 +5,7 @@
 #include "pso/object/TObjFish.h"
 extern "C" {
 s32 render_status_disp__23TAdSinglePlyChrSelectGCFff(const char *, f32, f32, f32);
-u32 TAdMultiPlyChrSelectGC__sub_802C6FA8();
+int TAdMultiPlyChrSelectGC__sub_802C6FA8(void);
 void begin_screen_draw(s32);
 void set_draw_texture_and_color(s32, s32);
 void draw_textured_quad_at_depth(void *, f32);

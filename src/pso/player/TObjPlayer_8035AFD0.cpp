@@ -3,7 +3,7 @@
 
 extern "C" {
 
-s32 __dl__FPv();
+void __dl__FPv(void);
 
 s32 TObjPlayer::conditional_delete_ex(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {

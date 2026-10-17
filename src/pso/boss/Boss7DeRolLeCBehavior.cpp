@@ -441,7 +441,7 @@ struct RecoveredGlobal_802E80F4_lbl_8058D4C0 {
 
 extern "C" {
 s32 mult_vec_array__10TObjPlayerFUll(int, void *, void *, int);
-s32 get_current_matrix(void *);
+void get_current_matrix(void *m);
 f32 subtract_vector(void *, void *);
 s32 transform_point_by_current_matrix(void *, void *);
 s32 push_matrix();
@@ -457,7 +457,7 @@ extern s32 lbl_805D6930;
 extern s32 lbl_805D6934;
 extern s32 lbl_805D6944;
 void TObjPlayer__sub_802E8274(void);
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 s32 get_mode__11TCameraCtrlFPv(void *);
 s32 TObjPlayer__sub_802E7FC0(void *);
 extern RecoveredGlobal_802E80F4_lbl_8050BEC0 saved_model_draw_color;
@@ -507,7 +507,7 @@ void TObjPlayer__sub_802E80F4(u8 *unused) {
         lbl_805D5660 = model_render_flags;
         lbl_805D5664 = chunk_polygon_flags_and_mask;
         lbl_805D5668 = chunk_polygon_flags_or_mask;
-        copy_vec4__13TRaderMapCoreFPvPv((void *) (&saved_model_draw_color.value), (void *) (&model_material_color.value));
+        copy_vec4__13TRaderMapCoreFPvPv((&saved_model_draw_color.value), (&model_material_color.value));
         TObjEneDD::clear_global_flag_400();
         TParticleCtrl::begin_effect_render();
         push_matrix();
@@ -522,7 +522,7 @@ void TObjPlayer__sub_802E80F4(u8 *unused) {
         }
         pop_matrix();
         TParticleCtrl::end_effect_render();
-        copy_vec4__13TRaderMapCoreFPvPv((void *) (&model_material_color.value), (void *) (&saved_model_draw_color.value));
+        copy_vec4__13TRaderMapCoreFPvPv((&model_material_color.value), (&saved_model_draw_color.value));
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;
         model_render_flags = lbl_805D5660;
@@ -580,13 +580,13 @@ void TObjPlayer__sub_802E8274(void) {
     }
     if ((lbl_805D6924 & 0x80) && ((s32) boss7_derolle_c_motion_id >= 0x4D) && ((s32) boss7_derolle_c_motion_id <= 0x58)) {
         push_matrix();
-        get_current_matrix((void *) (lbl_805D6934));
+        get_current_matrix((void *)(lbl_805D6934));
         pop_matrix();
         lbl_805D6934 += 0x30;
     }
     if (((s32) boss7_derolle_c_motion_id >= 0x1D) && ((s32) boss7_derolle_c_motion_id <= 0x20)) {
         push_matrix();
-        get_current_matrix((void *) (lbl_805D6930));
+        get_current_matrix((void *)(lbl_805D6930));
         pop_matrix();
         lbl_805D6930 += 0x30;
     }
@@ -609,11 +609,8 @@ void TObjFish__sub_802ED4AC(u8 *arg0, s32 arg1);
 f32 TObjFish__sub_802ED3E4(u8 *arg0);
 void set_swim_direction__8TObjFishFPv(void *arg0);
 }
-#define TBoss7LaserPtcl__sub_802ECE28 ((s32 (*)(void *))TBoss7LaserPtcl__sub_802ECE28)
-#define free_laser_light__15TBoss7LaserPtclFPv ((s32 (*)(void *))free_laser_light__15TBoss7LaserPtclFPv)
 #define release_laser_light__15TBoss7LaserPtclFPv ((s32 (*)(void *, int))release_laser_light__15TBoss7LaserPtclFPv)
 #define TObjFish__sub_802ED4AC ((s32 (*)(void *, int))TObjFish__sub_802ED4AC)
-#define TObjFish__sub_802ED3E4 ((f32 (*)(void *))TObjFish__sub_802ED3E4)
 #define set_swim_direction__8TObjFishFPv ((void (*)(void *, s32))set_swim_direction__8TObjFishFPv)
 
 struct ByteBlock_14 { u8 bytes[0x14]; };
@@ -849,7 +846,7 @@ struct Fish_802EB90C {
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 fill_value_array(int);
 u8 *csnVector(s32 *, void *, s32);
 u32 __nw__7TObjectFUl(int);
@@ -866,9 +863,9 @@ s32 TObjFish__sub_802ECE90(void *, int, int);
 
 void TObjFish__sub_802E95F8(u8 *arg0, u32 arg1, s32 arg2);
 s32 restore_player_cameras();
-s32 activate_camera_mode(int);
+s32 activate_camera_mode(s32 arg0);
 u8 *get_scripted_camera_playback();
-s32 spawn_particle_effect_with_flags(void *, int, int);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
 s32 query_teammate_state__9TObjEneDDFv();
 int play_sound_effect(void*, void*, void*, void*);
@@ -898,28 +895,28 @@ void TObjFish__sub_802EBE50(void* o, u32 k);
 void TBoss7DeRolLeC__dispatch_state(u8 *arg0, u32 arg1, u32 arg2);
 f32 fabs_float(f32);
 s32 advance_scalar_motion_profile(void *);
-void set_move_params__13TBoss2DeRolLeFPvffff(void *, f32, f32, f32, f32);
+void set_move_params__13TBoss2DeRolLeFPvffff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2, f32 farg3);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 void spawn_particle_201__8TObjFishFii(s32 arg1, s32 arg2);
 
 void TObjFish__sub_802EAAC8(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
-void *create_particle_controller_with_angles(void *, void *, s32, s32, s32);
+void *create_particle_controller_with_angles(void *arg0, void *arg1, s32 arg2, s32 arg3, u16 arg4);
 void fn_802EC52C(s32 arg0, s32 arg1);
 extern s32 lbl_804E3E3C[];
 extern f32 lbl_804E3E48[];
 void TParticleCtrl__sub_802EC550(PCtrl_802EC550 *o);
 s32 assign_slots_from_list(void *, void *);
-s32 create_timed_particle_emitter_with_flags(void *, int, int, int, int);
+void *create_timed_particle_emitter_with_flags(void *pos, s32 id, s32 a, s32 b, s32 c);
 
-s32 TBoss7Tentacle__sub_802F0AD0(void *);
+void TBoss7Tentacle__sub_802F0AD0(void *a0);
 extern Vec_802E8B50 lbl_80473F90[];
 
 void handle_tentacle_attack_state__8TObjFishFPvUii(Fish_802E9ADC *o, u32 arg1, s32 arg2);
 
 void TObjFish__sub_802E979C(Fish_802E979C *o, u32 k, s32 dir);
-void *create_particle_emitter(void *, int);
+void *create_particle_emitter(void *pos, s32 id);
 
-void TBoss7Tentacle__sub_802F0B58(s32);
+void TBoss7Tentacle__sub_802F0B58(u8 *arg0);
 void TObjBoss2Tunnel__sub_802F22C4(void);
 void TObjBoss2Tunnel__sub_802F22DC(void);
 void TBoss7LaserPtcl__sub_8035AE54(u32, void *, void *);
@@ -1170,8 +1167,8 @@ s32 enemy_set_target_id(void * a0 = 0, u16 a1 = 0);
 s32 project_sound_origin_from_camera(void *, void *, f32);
 s32 is_alive__9TObjEneDDFv();
 s32 transition_enemy_state(void * a0 = 0, s16 a1 = 0);
-void * get_enemy_entity(int);
-s32 play_persistent_sound(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0, s32 a4 = 0);
+u8 *get_enemy_entity(u16 arg0);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 #define TObjFish__sub_802E7B40 ((s32 (*)(void *))TObjFish__sub_802E7B40)
 #define TObjFish__sub_802E7B94 ((s32 (*)(void *))TObjFish__sub_802E7B94)
 void TObjFish__sub_802E8AD4(Fish_802E8AD4* o, u32 k);
@@ -1701,8 +1698,8 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
                     var_r0 = TBoss7LaserPtcl__ct(var_r0, (void *) (arg0), (void *) ((u8 *)(arg0) + 0x4DC), (int) (temp_r30));
                 }
                 *(u32 *)((s8 *)arg0 + 0x7A8) = var_r0;
-                TBoss7LaserPtcl__sub_802ECE28((void *) (arg0));
-                free_laser_light__15TBoss7LaserPtclFPv((void *) (arg0));
+                TBoss7LaserPtcl__sub_802ECE28((arg0));
+                free_laser_light__15TBoss7LaserPtclFPv((arg0));
                 TObjFish::set_effect_target_position((void *) (arg0), (void *) (0x39E0F), (void *) ((u8 *)(arg0) + 0x50C));
                 return;
             }
@@ -1714,7 +1711,7 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
             if ((lbl_805DEA38 < *(f32 *)((s8 *)arg0 + 0xC0)) && ((u32) *(u32 *)((s8 *)arg0 + 0x7A8) != 0U)) {
                 ((TBoss7LaserPtcl *)(*(void **)((s8 *)arg0 + 0x7A8)))->destroy_particles();
             }
-            TBoss7LaserPtcl__sub_802ECE28((void *) (arg0));
+            TBoss7LaserPtcl__sub_802ECE28((arg0));
             if (lbl_805DEA4C <= *(f32 *)((s8 *)arg0 + 0xC0)) {
                 *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DEA4C;
                 *(s32 *)((s8 *)arg0 + 0x728) = 2;
@@ -2225,7 +2222,7 @@ void TObjFish__sub_802E9DBC(u8 *arg0, u32 arg1, s32 arg2) {
                 }
                 self->flags |= 0x200;
                 for (i = 0; i < 4; i++) {
-                    TBoss7Tentacle__sub_802F0B58(self->tent[i]);
+                    TBoss7Tentacle__sub_802F0B58((u8 *)self->tent[i]);
                 }
             }
             break;
@@ -2576,7 +2573,7 @@ void TObjFish__sub_802EAAC8(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
             case 2:
                 if (self->frame >= lbl_805DEACC) {
                     self->step = 3;
-                    self->f748 = (TObjFish__sub_802ED3E4(self) - self->f748) / lbl_805DEB24;
+                    self->f748 = (TObjFish__sub_802ED3E4((u8 *)self) - self->f748) / lbl_805DEB24;
                     self->f74C = (lbl_805DEA44 * self->f748) / lbl_805DEB28;
                     self->vx = lbl_805DEB2C * self->dir;
                     self->tick = 0;
@@ -2655,7 +2652,7 @@ void TObjFish__sub_802EAAC8(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
                 self->x = self->x + self->vx;
                 self->vy = self->vy + self->ay;
                 self->z = self->z + self->vy;
-                self->f748 = TObjFish__sub_802ED3E4(self);
+                self->f748 = TObjFish__sub_802ED3E4((u8 *)self);
                 break;
             case 3:
                 self->x = self->x + self->vx;
@@ -3133,7 +3130,7 @@ void TObjFish__sub_802EC468(s32 arg0, f32 farg0, f32 farg1) {
     stack.sp8 = -((*(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0xC) * farg1) - stack.sp8);
     stack.spC -= (*(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x10) * farg1) - farg0;
     stack.sp10 = -((*(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x14) * farg1) - stack.sp10);
-    spawn_particle_effect_with_flags((void *) (&stack.sp8), (int) (0x127), (int) (0x40));
+    spawn_particle_effect_with_flags((&stack.sp8), (0x127), (0x40));
 }
 #pragma pop
 
@@ -3406,17 +3403,14 @@ void TObjFish::pick_random_target() {
     }
 }
 
-#undef TBoss7LaserPtcl__sub_802ECE28
-#undef free_laser_light__15TBoss7LaserPtclFPv
 #undef release_laser_light__15TBoss7LaserPtclFPv
 #undef TObjFish__sub_802ED4AC
-#undef TObjFish__sub_802ED3E4
 #undef set_swim_direction__8TObjFishFPv
 
 #define VecCopy__FP3VecPC3Vec ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)
 
-s32 TBoss7LaserLight__sub_802EF120(void *);
-s32 TBoss7LaserLight__sub_802EF12C(void *);
+void TBoss7LaserLight__sub_802EF120(void *p);
+void TBoss7LaserLight__sub_802EF12C(void *p);
 
 void release_laser_light__15TBoss7LaserPtclFPv(void *arg0) {
     void *temp_r3 = *(void **)((s8 *)arg0 + 0x708);
@@ -3457,8 +3451,8 @@ struct Vec_802ED3E4 { f32 x, y, z; };
 
 extern "C" {
 extern RecoveredGlobal_802ED4AC_lbl_80472D04 lbl_80472D04;
-s32 bind_motion_context(int, f32);
-s32 compose_motion_node_matrix(int);
+void bind_motion_context(s32 arg0, f32 farg0);
+void compose_motion_node_matrix(void *arg0);
 s32 scale_matrix(int, f32, f32, f32);
 s32 push_matrix_from(void *);
 extern u8 identity_matrix[];
@@ -3650,7 +3644,7 @@ f32 TObjFish__sub_802ED3E4(u8 *arg0) {
     push_matrix_from(identity_matrix);
     scale_matrix(0, lbl_805DEB24, lbl_805DEB24, lbl_805DEB24);
     bind_motion_context(*(s32 *)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0));
-    compose_motion_node_matrix(*(s32 *)((s8 *)arg0 + 0x34));
+    compose_motion_node_matrix((void *)(*(s32 *)((s8 *)arg0 + 0x34)));
     transform_point_by_current_matrix(&v, &v);
     pop_matrix();
     return v.y;

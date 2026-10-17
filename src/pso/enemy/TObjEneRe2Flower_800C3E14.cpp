@@ -72,7 +72,7 @@ struct VObj_18_0ab400 : VBase_18_0ab400 {
 
 extern "C" {
 u8 *load_enemy_bml_resource_named(s32 *, s32 *);
-u8 *load_enemy_bml_resource(s32 *);
+s32 load_enemy_bml_resource(u8 *arg0);
 s32 TObjPlayer__sub_800F0928();
 extern RecoveredGlobal_800C44C4_lbl_8043BB90 lbl_8043BB90;
 extern RecoveredGlobal_800C44C4_lbl_8043BBE0 lbl_8043BBE0;
@@ -85,13 +85,13 @@ extern const f32 lbl_805D9FBC;
 void TObjPlayer__sub_800C44C4(void);
 s32 transition_enemy_state(void * a0, s32 a1);
 void TObjEneRe2Flower__sub_800C3F70(u8 *arg0);
-s32 TObjEneDD__sub_800C2628(void *, void *);
-s32 fn_800C2A88(void *, void *);
-s32 fn_800C2AC4(void *, void *);
+void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1);
+void fn_800C2A88(void *self, s32 msg);
+void fn_800C2AC4(u8 *arg0, int arg1);
 s32 TObjEneRe2Flower__sub_800C2E64(void *, void *);
-s32 fn_800C3088(void *, void *);
-s32 fn_800C32DC(void *, void *);
-s32 handle_flower_state_change(void *, void *);
+void fn_800C3088(u8 *arg0, int arg1);
+void fn_800C32DC(u8 *owner, s32 arg1);
+void handle_flower_state_change(void *arg0, s32 arg1);
 void dispatch_action__16TObjEneRe2FlowerFiUii(s32 arg0, u32 arg1, s32 arg2);
 s32 obj_is_hit_receivable(void *);
 f32 fabs_float(f32);
@@ -107,10 +107,10 @@ void TLobby__sub_8001FE7C(void*, int);
 s32 transition_enemy_state(void * a0 = 0, s32 a1 = 0);
 void free_collision_body_parts(void *);
 void *TObjEneRe2Flower__ct(void *, void *, void *);
-s32 TObjPlayer__sub_800C4D44();
+void TObjPlayer__sub_800C4D44(void);
 void __dl__7TObjectFPv(void *);
-void __dt__13TUnk_80494938Fv(void *, int);
-void __dt__12TObjEneDD_STFv(void *, int);
+void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
+void *__dt__12TObjEneDD_STFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 s32 begin_state_242__16TObjEneRe2FlowerFv(void);
 void queue_destruction__7TObjectFv(void *);
@@ -136,7 +136,7 @@ extern "C" void vfunc_99__9TObjEneDDFv();
 extern "C" void vfunc_100__9TObjEneDDFv();
 extern "C" void vfunc_101__9TObjEneDDFPUc();
 extern "C" void vfunc_102__9TObjEneDDFv();
-extern "C" void TObjEneEpsilon__vt101();
+extern "C" int TObjEneEpsilon__vt101(void *p);
 extern "C" void vfunc_83__12TObjEneDD_STFv();
 extern "C" void vfunc_88__16TObjEneRe2FlowerFv();
 extern "C" void vfunc_61__16TObjEneRe2FlowerFv();
@@ -202,18 +202,18 @@ extern "C" char lbl_8043BB64[];
 extern "C" void receive_direct_attack__10TObjPlayerFv();
 extern "C" void receive_physical_attack__10TObjPlayerFv();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
-extern "C" void render_actor_shadows_default();
+extern "C" void render_actor_shadows_default(u8 *arg0);
 extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__13TUnk_804806E8Fv();
 extern "C" void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
-extern "C" void trigger_switch_attack__10TObjPlayerFi();
+extern "C" void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 extern "C" void try_start_action__13TUnk_804806E8Fll();
 extern "C" void update_action_hold_status__13TUnk_804806E8Fv();
-extern "C" void update_action_timer__10TObjPlayerFPv();
+extern "C" s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
 extern "C" void update_actor_ground_y__13TUnk_804806E8Fv();
-extern "C" void update_attack_stat_status();
-extern "C" void update_defense_stat_status();
+extern "C" s32 update_attack_stat_status(u8 *arg0);
+extern "C" s32 update_defense_stat_status(u8 *arg0);
 extern "C" void update_flag30_timer__13TUnk_804806E8Fv();
 extern "C" void update_movement_status__13TUnk_804806E8Fv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
@@ -323,22 +323,22 @@ void dispatch_action__16TObjEneRe2FlowerFiUii(s32 arg0, u32 arg1, s32 arg2) {
         ((TObjEneDD *)arg0)->handle_state((s32)((void *) (arg2)));
         return;
     case 2:
-        handle_flower_state_change((void *) (arg0), (void *) (arg2));
+        handle_flower_state_change((void *)(arg0), (arg2));
         return;
     case 3:
         ((TObjEneDD *)arg0)->state_chase_target((s32)((void *) (arg2)));
         return;
     case 4:
-        fn_800C32DC((void *) (arg0), (void *) (arg2));
+        fn_800C32DC((u8 *)(arg0), (arg2));
         return;
     case 5:
-        fn_800C3088((void *) (arg0), (void *) (arg2));
+        fn_800C3088((u8 *)(arg0), (arg2));
         return;
     case 9:
         ((TObjEneDD *)arg0)->state_damaged((s32)((void *) (arg2)));
         return;
     case 10:
-        fn_800C2AC4((void *) (arg0), (void *) (arg2));
+        fn_800C2AC4((u8 *)(arg0), (arg2));
         return;
     case 6:
         TObjEneRe2Flower__sub_800C2E64((void *) (arg0), (void *) (arg2));
@@ -347,10 +347,10 @@ void dispatch_action__16TObjEneRe2FlowerFiUii(s32 arg0, u32 arg1, s32 arg2) {
         ((TObjEneRe2Flower *)arg0)->handle_event((s32)((void *) (arg2)));
         return;
     case 8:
-        TObjEneDD__sub_800C2628((void *) (arg0), (void *) (arg2));
+        TObjEneDD__sub_800C2628((u8 *)(arg0), (arg2));
         return;
     case 11:
-        fn_800C2A88((void *) (arg0), (void *) (arg2));
+        fn_800C2A88((void *)(arg0), (arg2));
     default:
         return;
     }
@@ -420,7 +420,7 @@ void TObjPlayer__sub_800C44C4(void) {
     } else if (TObjEneDD::check_v2_mode() != 0) {
         lbl_805D5174 = (u32) load_enemy_bml_resource_named((s32 *)&TObjEneRe2Flower__resource_descriptor, &lbl_8043BBF4.value);
     } else {
-        lbl_805D5174 = (u32) load_enemy_bml_resource((s32 *)&TObjEneRe2Flower__resource_descriptor);
+        lbl_805D5174 = (u32) load_enemy_bml_resource((u8 *)((s32 *)&TObjEneRe2Flower__resource_descriptor));
     }
     lbl_805D5178 = 0;
     lbl_805D517C = 0;

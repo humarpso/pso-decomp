@@ -4,8 +4,8 @@
 extern "C" {
 void prs_decompress_alloc(void*, s32, s32);
 void load_gvm_texture_archive(s32, void*);
-s32 free_texture_if_valid(void*);
-s32 TLobby__sub_803CC53C(int);
+s32 free_texture_if_valid(u32 arg0);
+s32 TLobby__sub_803CC53C(u8 *arg0);
 u32 adxf_open_afs__6TLobbyFii(int, int);
 s32* lookup_item_pmt_record(void*);
 s32 TLobby__sub_8001EEF4();
@@ -36,7 +36,7 @@ void TItemTexLoad::load_texture_archive() {
 }
 
 void TItemTexLoad::unload_texture() {
-    if (m_state == 2) free_texture_if_valid(&m_texture_list);
+    if (m_state == 2) free_texture_if_valid((u32)&m_texture_list);
     if (m_state == 1) ((TLobby *)m_archive_handle)->close_adxf_handle();
     m_state = 0;
     m_texture_index = -1;
@@ -54,7 +54,7 @@ s32 TItemTexLoad::load_texture(s32 index) {
         }
         m_state = 1;
         {
-            s32 r = TLobby__sub_803CC53C(m_archive_handle);
+            s32 r = TLobby__sub_803CC53C((u8 *)m_archive_handle);
             if (r < 0) {
                 unload_texture();
                 return 0;

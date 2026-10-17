@@ -9,7 +9,7 @@ struct RecoveredGlobal_800EBC28___vt__12TObjEneSlime {
 };
 
 extern "C" {
-s32 TBoss4DarkFalz__sub_8004B4F0(void *, void *);
+void TBoss4DarkFalz__sub_8004B4F0(void *arg0p, void *arg1p);
 s32 initialize__9TObjEnemyFPv(void *);
 extern s32 __vt__12TObjEneSlime[];
 extern s32 lbl_805D2AD8;
@@ -17,7 +17,7 @@ u8 *TObjEneSlime__ct(u8 *arg0, s32 arg1, u8 *arg2);
 void *__dt__12TObjEneSlimeFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
-void __dt__9TObjEnemyFv(void *, int);
+void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 
 void *__dt__12TObjEneSlimeFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -42,7 +42,7 @@ u8 *TObjEneSlime__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     ((TObjEneSlime *)(arg0))->apply_set_data(arg2);
     ((TObjEneSlime *)(arg0))->clear_lobby_object_state();
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
-    TBoss4DarkFalz__sub_8004B4F0((void *) (arg0 + 0x374), (void *) (arg2));
+    TBoss4DarkFalz__sub_8004B4F0((arg0 + 0x374), (arg2));
     *(s32 *)&((TObjEneSlime *)arg0)->m_3b4 = (s32) *(s16 *)((s8 *)arg2 + 2);
     temp_r0 = *(s32 *)&((TObjEneSlime *)arg0)->m_3b4;
     if (temp_r0 < 1) {

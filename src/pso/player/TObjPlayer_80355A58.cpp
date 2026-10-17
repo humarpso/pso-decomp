@@ -18,9 +18,9 @@ extern const f32 lbl_805DFFC4;
 u8 *photon_field_weapon_ct(u8 *arg0, u8 *arg1);
 void *__dt__13TUnk_804F1320Fv(void *arg0, s16 arg1);
 s32 get_current_floor();
-s8 TObjPlayer__sub_80102C30(void *);
+s8 TObjPlayer__sub_80102C30(u8 *arg0);
 s32 spawn_pg_effect__10TObjPlayerFPvPvif(void *, s32, s32, f32);
-void __dt__11TItemWeaponFv(void *, int);
+void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
 s32 reset_key_machine_state__10TObjPlayerFv();
 
 void TUnk_804F1320::vfunc_17(s32 arg1) {
@@ -30,7 +30,7 @@ void TUnk_804F1320::vfunc_17(s32 arg1) {
         temp_r31 = ((TObjPlayer *)(*(u32 *)&this->player))->get_field_3e4();
         {
         s32 t = get_current_floor();
-        if ((t == temp_r31) && (TObjPlayer__sub_80102C30(this) == 2)) {
+        if ((t == temp_r31) && (TObjPlayer__sub_80102C30((u8 *)this) == 2)) {
             spawn_pg_effect__10TObjPlayerFPvPvif(this, *(u32 *)&this->player + 0x2FC, arg1, *(f32 *)&this->unk_1F8);
         }
         }

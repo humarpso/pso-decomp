@@ -67,7 +67,7 @@ extern const f32 lbl_805DB014;
 extern const f32 lbl_805DB008;
 extern const f32 lbl_805DB00C;
 extern const f32 lbl_805DB010;
-void spawn_particle_effect(void *, s32);
+void *spawn_particle_effect(void *pos, s32 id);
 
 #pragma push
 #pragma opt_common_subs off

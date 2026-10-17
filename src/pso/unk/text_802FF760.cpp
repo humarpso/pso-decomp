@@ -10,7 +10,7 @@ struct Cam_802FF7EC { u8 pad[0x14]; s32 v; u8 pad2[4]; Vec_802FF7EC c; Vec_802FF
 
 extern "C" {
 void set_active_camera_pose_from_params(void *);
-void activate_camera_mode(int);
+s32 activate_camera_mode(s32 arg0);
 extern Vec_802FF760 lbl_80474DC4[];
 extern Vec_802FF760 lbl_80474DD0[];
 void fn_802FF760(void);

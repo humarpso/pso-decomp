@@ -53,22 +53,22 @@ struct Door_80160BA8 {
 extern "C" {
 u8 is_current_floor_switch_set(int);
 u8 *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
-s32 *mem_alloc(s32);
+void *mem_alloc(u32 size);
 s32 load_gvm_texture_file(void *);
 extern RecoveredGlobal_8016BC84_lbl_80441ACC lbl_80440CEC;
 extern RecoveredGlobal_8016BC84_lbl_804B2B30 ancient_door09_resource_descriptor;
 extern u32 door_ancient09_bml_resource;
 extern void *TODoorAncient09__texture_lists;
 s32 play_sound_effect(s32, void *, s32, s32);
-s32 is_any_player_within_radius_xz(void *, f32);
+s32 is_any_player_within_radius_xz(u8 *self, f32 radius);
 extern const f32 lbl_805DB488;
-s32 set_indexed_flags(void *, s32, s32);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
 extern const f32 lbl_805DB48C;
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-int draw_ginja_model(void *);
+void draw_ginja_model(s32 model);
 struct TODoor9Base_801608B4 { char pad[0x14]; void **vtbl; };
 struct TODoor9VObj_801608B4 : TODoor9Base_801608B4 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -78,12 +78,12 @@ struct TODoor9VObj_801608B4 : TODoor9Base_801608B4 {
 
 void *__dt__15TODoorAncient09Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
-void *TODoorAncient09__ct(void *, void *, void *);
+u8 *TODoorAncient09__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 mem_free(void*);
+void mem_free(void *p);
 s32 get_main_phase();
 s32 is_split_screen();
 
@@ -215,8 +215,8 @@ void TODoorAncient09::draw_model() {
     post_translate_matrix(self->pos);
     post_translate_matrix(root->pos);
     rotate_matrix_y((s32)(0), (s32)(self->x60));
-    draw_ginja_model(root->model);
-    draw_ginja_model(root->x2c->model);
+    draw_ginja_model((s32)root->model);
+    draw_ginja_model((s32)root->x2c->model);
     TParticleCtrl::begin_effect_render();
     for (i = 0; i < 2; i++) {
         if (on[i] != 0) {
@@ -227,11 +227,11 @@ void TODoorAncient09::draw_model() {
         push_matrix();
         pp = pairs[i];
         post_translate_matrix(pp[0]->pos);
-        draw_ginja_model(pp[0]->model);
+        draw_ginja_model((s32)pp[0]->model);
         pop_matrix();
         push_matrix();
         post_translate_matrix(pp[1]->pos);
-        draw_ginja_model(pp[1]->model);
+        draw_ginja_model((s32)pp[1]->model);
         pop_matrix();
     }
     TParticleCtrl::end_effect_render();
@@ -342,7 +342,7 @@ void TODoorAncient09::play_proximity_sound() {
 void *TODoorAncient09::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE8);
     if (o != NULL) {
-        o = TODoorAncient09__ct(o, tl_05, arg0);
+        o = TODoorAncient09__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -351,7 +351,7 @@ void TODoorAncient09::free_rocks() {
     if ((void *) TODoorAncient09__texture_lists != NULL) {
         TObjPlayer::free_if_valid(*(s32 *)((s8 *)TODoorAncient09__texture_lists + 4));
         if ((void *) TODoorAncient09__texture_lists != NULL) {
-            mem_free((void*)TODoorAncient09__texture_lists);
+            mem_free(TODoorAncient09__texture_lists);
             TODoorAncient09__texture_lists = NULL;
         }
     }

@@ -78,7 +78,7 @@ extern s32 adx_afs_partition_id_range_error[];
 extern s32 afs_file_id_out_of_range_error[];
 extern Ent_803CC294 *afs_archive_toc_table[];
 s32 memcmp(void *, void *, int);
-s32 TLobby__sub_803CD804();
+void TLobby__sub_803CD804(void);
 extern s32 lbl_8047C818[];
 extern s32 lobby_adxf_current_file_id;
 extern Strm_803CD5C4 *lobby_adxf_open_file_handle;
@@ -96,15 +96,15 @@ u32 TLobby__sub_803C8CDC(u32, s32, s32);
 extern s32 lbl_8047CBA4[];
 extern s32 lbl_8047CBD8[];
 Slot_803CD16C *adxf_open__6TLobbyFUii(u32 arg0, s32 arg1);
-s32 TLobby__sub_803C85AC(u32, s32 *);
-s32 TLobby__sub_803C89C4(u32);
+s32 TLobby__sub_803C85AC(u8 *arg0, s32 *arg1);
+void TLobby__sub_803C89C4(u8 *arg0);
 s32 invalidate_cache__6TLobbyFv(s32, s32);
 extern s32 lbl_8047C9B0[];
 extern s32 lbl_8047C9D4[];
 extern s32 lbl_805D75E4;
-s8 TLobby__sub_803C8B2C(u32);
+short TLobby__sub_803C8B2C(u8 *arg0);
 void TLobby__sub_803CC884(void);
-s32 TLobby__sub_803C8B38(u32);
+void TLobby__sub_803C8B38(u8 *arg0);
 void *memset(void *, int, unsigned long);
 typedef char RecoveredGlobal_803CC500_lbl_8047C910_size[sizeof(RecoveredGlobal_803CC500_lbl_8047C910) == 0x2C ? 1 : -1];
 
@@ -205,8 +205,8 @@ void TLobby__sub_803CC884(void) {
     for (i = 0; i < 0x10; i++) {
         p = (Ent_803CC884 *)&adxf_file_handle_pool[i];
         if (p->used == 1 && p->state == 2) {
-            p->state = TLobby__sub_803C8B2C(p->f4);
-            TLobby__sub_803C85AC(p->f4, &sp8);
+            p->state = TLobby__sub_803C8B2C((u8 *)p->f4);
+            TLobby__sub_803C85AC((u8 *)p->f4, &sp8);
             p->f20 = sp8;
             if (p->state == 3 || p->state == 4) {
                 p->f14 += p->f20;
@@ -257,8 +257,8 @@ s32 TLobby::adxf_stop() {
         return -1;
     }
     TLobby::init_once();
-    TLobby__sub_803C89C4(arg0->f4);
-    TLobby__sub_803C85AC(arg0->f4, &sp8);
+    TLobby__sub_803C89C4((u8 *)arg0->f4);
+    TLobby__sub_803C85AC((u8 *)arg0->f4, &sp8);
     arg0->f20 = sp8;
     if (arg0->f8 != NULL && arg0->f2 == 0) {
         if (lbl_805D75E4 == 1) {
@@ -405,8 +405,8 @@ inline s32 close_803CCE9C(Snd_803CC980 *arg0) {
         return -1;
     }
     TLobby::init_once();
-    TLobby__sub_803C89C4(arg0->f4);
-    TLobby__sub_803C85AC(arg0->f4, &sp8);
+    TLobby__sub_803C89C4((u8 *)arg0->f4);
+    TLobby__sub_803C85AC((u8 *)arg0->f4, &sp8);
     arg0->f20 = sp8;
     if (arg0->f8 != NULL && arg0->f2 == 0) {
         if (lbl_805D75E4 == 1) {
@@ -452,7 +452,7 @@ void TLobby::close_adxf_handle() {
             close_803CCE9C((Snd_803CC980 *)((Slot_803CD16C *)this));
         }
         if (((Slot_803CD16C *)this)->f4 != 0) {
-            TLobby__sub_803C8B38(((Slot_803CD16C *)this)->f4);
+            TLobby__sub_803C8B38((u8 *)(((Slot_803CD16C *)this)->f4));
         }
         memset(((Slot_803CD16C *)this), 0, 0x138);
         TLobby::release_ref();

@@ -7,7 +7,7 @@ void TLobby__sub_803CC114(void);
 s32 GCRNA_Create();
 s32 gcrna_shutdown();
 s32 gcrna_initialize();
-s32 gcrna_set_error_callback();
+void gcrna_set_error_callback(void);
 
 void TLobby::run_step_5210() {
     GCRNA_Create();

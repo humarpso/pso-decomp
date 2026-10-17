@@ -85,20 +85,20 @@ struct Scr_8008BAF8 { f32 x, y; };
 
 extern "C" {
 void *alloc_particle_memory(int);
-int queue_destruction__7TObjectFv(void *);
-f32 vec_squared_length(void *);
-void __dt__13TUnk_8048E728Fv(void *, int);
+void queue_destruction__7TObjectFv(void *arg0);
+f32 vec_squared_length(u8 *arg0);
+u8 *__dt__13TUnk_8048E728Fv(u8 *arg0, s16 arg1);
 u8 *create_radial_particle(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4);
 void * create_random_particle(void *arg0, void *arg1, void *arg2);
 extern const f32 TParticleCtrl__data_805D9558;
 extern const f32 TParticleCtrl__data_805D955C;
 extern s32 TParticleCtrl__data_8048E7A8[];
 void *__dt__13TUnk_8048E7A8Fv(void *arg0, s16 arg1);
-int TKeyBoardControl__sub_8000F91C(int);
-int TKeyBoardControl__sub_8000F9CC(int);
-int stop_cue_stream(void);
+void TKeyBoardControl__sub_8000F91C(s32 arg0);
+void TKeyBoardControl__sub_8000F9CC(s32 arg0);
+void stop_cue_stream(void);
 void destroy_keyboard_objects(void * _w0);
-u8 * init_particle_base(void *, void *, s32);
+void *init_particle_base(void *arg0, void *arg1, s32 arg2);
 s32 rand(void);
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
 extern const f32 lbl_805D9568;
@@ -223,8 +223,8 @@ void * create_random_particle(void *arg0, void *arg1, void *arg2) {
 }
 void TUnk_8048E7A8::check_radial_particle_retire() {
     u8 *arg0 = (u8 *)this;
-    if ((this->m_58 >= TParticleCtrl__data_805D9558) || (TParticleCtrl__data_805D955C == vec_squared_length((void *) (arg0 + 0x3C)))) {
-        queue_destruction__7TObjectFv((void *)(arg0));
+    if ((this->m_58 >= TParticleCtrl__data_805D9558) || (TParticleCtrl__data_805D955C == vec_squared_length((arg0 + 0x3C)))) {
+        queue_destruction__7TObjectFv((arg0));
     }
 }
 
@@ -339,7 +339,7 @@ void TUnk_8048E7A8::render() {
 void *__dt__13TUnk_8048E7A8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = TParticleCtrl__data_8048E7A8;
-        __dt__13TUnk_8048E728Fv(arg0, 0);
+        __dt__13TUnk_8048E728Fv((u8 *)arg0, 0);
         if (arg1 > 0) {
             ((TUnk_8048E728 *)arg0)->free_from_heap();
         }
@@ -425,6 +425,6 @@ u8 *TParticleCtrl::init_random_particle(u8 *arg1, u8 *arg2, s32 arg3) {
 }
 #pragma pop
 
-void destroy_keyboard_objects(void * _w0) { queue_destruction__7TObjectFv((void *)(_w0)); TKeyBoardControl__sub_8000F91C(2); TKeyBoardControl__sub_8000F9CC(18); TLobby::stop_audio_streams(); stop_cue_stream(); }
+void destroy_keyboard_objects(void * _w0) { queue_destruction__7TObjectFv((_w0)); TKeyBoardControl__sub_8000F91C(2); TKeyBoardControl__sub_8000F9CC(18); TLobby::stop_audio_streams(); stop_cue_stream(); }
 
 }

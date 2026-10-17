@@ -11,7 +11,7 @@ struct E_803501BC { u8 a, b, c; u8 w; };
 struct T_803501BC { s32 n; E_803501BC *e; };
 
 extern "C" {
-void consume_item_by_id(s32);
+s32 consume_item_by_id(s32 arg0);
 s32 replace_item_with_new_code(void *, void *);
 T_803501BC *get_item_pmt_entry__10TObjPlayerFUc(u8);
 s32 rand(void);

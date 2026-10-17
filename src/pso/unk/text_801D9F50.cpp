@@ -3,7 +3,7 @@
 
 extern "C" {
 
-s32 bswap_cmd_AB__9TProtocolFPv(void *);
+void bswap_cmd_AB__9TProtocolFPv(void *p);
 
 void TProtocol::handle_cmd_AB(packet &pkt) {
     void *arg1 = &pkt;

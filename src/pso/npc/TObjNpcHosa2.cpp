@@ -114,7 +114,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern u32 TObjNpcHosa2__shared_model_resource;
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-s32 construct_male_npc_base(void *);
+u8 *construct_male_npc_base(u8 *arg0);
 extern s32 __vt__12TObjNpcHosa2[];
 extern s32 TObjNpcHosa2__name;
 u8 *TObjNpcHosa2__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -152,7 +152,7 @@ void *__dt__12TObjNpcHosa2Fv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_802FED58___vt__12TObjNpcHosa2_size[sizeof(RecoveredGlobal_802FED58___vt__12TObjNpcHosa2) == 0x178 ? 1 : -1];
 u8 *TObjNpcHosa2__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_male_npc_base((void *) (arg0));
+    construct_male_npc_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802FED58___vt__12TObjNpcHosa2 *)&__vt__12TObjNpcHosa2).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcHosa2__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);

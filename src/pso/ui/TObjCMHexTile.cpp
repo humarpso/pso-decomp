@@ -148,7 +148,7 @@ struct V2_802947A8 {
     f32 y;
 };
 
-void create_TObjCMHexTile(V2_802947A8 *);
+void *create_TObjCMHexTile(void *pos);
 extern const f32 lbl_805DDA38;
 extern const f32 lbl_805DDA3C;
 extern const f32 lbl_805DDA40;

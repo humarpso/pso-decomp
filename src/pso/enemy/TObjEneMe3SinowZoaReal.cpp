@@ -109,7 +109,7 @@ s32 transition_enemy_state(void *, s32);
 int vfunc_62__18TObjEneMe3SinowZoaFv(void*);
 int vfunc_63__18TObjEneMe3SinowZoaFv(void*);
 void __dl__7TObjectFPv(void *);
-void __dt__18TObjEneMe3SinowZoaFv(void *, int);
+void *__dt__18TObjEneMe3SinowZoaFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 f32 calc_boss4_scale__10TObjPlayerFi();
 

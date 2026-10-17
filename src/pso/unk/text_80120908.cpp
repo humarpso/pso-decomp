@@ -23,16 +23,16 @@ struct VObj_18_26a62c : VBase_18_26a62c {
 extern "C" {
 s32 get_attach_joint__11TItemWeaponFv(void *);
 void draw_weapon_at_joint(s32 arg0, s8 arg1);
-s32 TObjPlayer__sub_80101088();
-s32 reset_model_node_counter();
-s32 set_shadow_material_state();
+void TObjPlayer__sub_80101088(void);
+void reset_model_node_counter(void);
+void set_shadow_material_state(void);
 s32 set_model_fade_alpha__10TObjPlayerFf();
-s32 TObjPlayer__sub_8036414C();
-s32 TObjPlayer__sub_80364198();
+void TObjPlayer__sub_8036414C(void);
+void TObjPlayer__sub_80364198(void);
 s32 push_matrix_from();
 s32 pop_matrix();
-s32 set_color_blend_mode(int, int, int, int);
-s32 draw_chunk_object(int);
+void set_color_blend_mode(s32 a, s32 b, s32 c, s32 d);
+void draw_chunk_object(void *child);
 s32 draw_model_motion(int, int, f32);
 void apply_weapon_node_material();
 extern s16 TObjPlayer__weapon_node_ids[];
@@ -78,11 +78,11 @@ s32 draw_weapon_model(void *arg0) {
             set_model_fade_alpha__10TObjPlayerFf();
             if (((TItemWeapon *)arg0)->is_flag_400() != 0) {
                 model_render_flags |= 0x8011;
-                set_color_blend_mode((int) (1), (int) (4), (int) (5), (int) (0));
+                set_color_blend_mode((1), (4), (5), (0));
                 set_shadow_material_state();
                 if ((u32) *(u32 *)((s8 *)arg0 + 0x17C) == 0U) {
                     if (((TItemWeapon *)arg0)->test_flags_1b8((int) (0x800000)) != 0U) {
-                        draw_chunk_object((int) (*(u32 *)((s8 *)arg0 + 0xF4)));
+                        draw_chunk_object((void *)(*(u32 *)((s8 *)arg0 + 0xF4)));
                     } else {
                         ((TItemWeapon *)arg0)->run_with_callback((int)((void *) (0)));
                     }
@@ -96,7 +96,7 @@ s32 draw_weapon_model(void *arg0) {
                 if (((TItemWeapon *)arg0)->test_flags_1b8((int) (0x40)) != 0U) {
                     ((TItemWeapon *)arg0)->apply_sign_effect((int)((void *) (*(s32 *)((s8 *)(*(u8 * *)&((TItemWeapon *)arg0)->player) + 0xDB4))));
                 } else if (((TItemWeapon *)arg0)->test_flags_1b8((int) (0x800000)) != 0U) {
-                    draw_chunk_object((int) (*(u32 *)((s8 *)arg0 + 0xF4)));
+                    draw_chunk_object((void *)(*(u32 *)((s8 *)arg0 + 0xF4)));
                 } else {
                     ((TItemWeapon *)arg0)->run_with_callback((int)((void *) (*(s32 *)((s8 *)(*(u8 * *)&((TItemWeapon *)arg0)->player) + 0xDB4))));
                 }

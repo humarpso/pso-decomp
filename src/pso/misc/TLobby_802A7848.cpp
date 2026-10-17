@@ -48,25 +48,25 @@ struct Pair_802A7994 { s32 a; s32 b; };
 
 extern "C" {
 s32 mem_alloc(s32);
-s32 mem_free(s32);
+void mem_free(void *p);
 int TLobby__sub_802A7B8C(void);
 void TLobby__sub_802A7BC8(void* p);
 extern u32 snapshot_image_buffer;
 void TLobby__sub_802A7BD8(void);
-s32 fn_802A5C3C(s32);
+s32 fn_802A5C3C(u32 *arg0);
 s32 memcpy(s32, s32, s32);
 extern s32 shared_snapshot_capture;
 extern s32 snapshot_buffer_size;
 s32 copy_if_space(void);
 s32 fn_802A5B2C(s32);
 s32 fn_802A5B50(s32, s32);
-s32 rlc_get_directory_offset(s32);
+int rlc_get_directory_offset(void *arg0);
 s32 fn_802A6070(s32, s32);
 s32 fn_802A6078(s32, s32);
 extern s32 lbl_805D669C;
 void set_slot_position__6TLobbyFii(s32 arg0, s32 arg1);
 s32 aram_dma_blocking__6TLobbyFllll(s32, s32, s32, s32, s32);
-s32 free__10TObjPlayerFPv(void *);
+void free__10TObjPlayerFPv(void *a0);
 extern RecoveredGlobal_802A7AF8_lbl_804DDD28 lbl_804DDD28;
 u8 *TLobby__sub_802A7B50(u8 *arg0);
 s32 *TItemDrop__sub_800F9448(s32, s32);
@@ -107,7 +107,7 @@ s32 TLobby::send_packet(s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     TLobby::send_type2_event((s32)(arg4), (s32)(temp_r3), (s32)(temp_r31_2));
     temp_r0 = ((_VObj802A78E4_802a78e4_802A7848*)this)->m0(arg1, arg2);
     temp_r31 = ((TLobby *)temp_r3)->write_packet_header(arg3, temp_r0, 0x4000);
-    mem_free(temp_r3);
+    mem_free((void *)temp_r3);
     return temp_r31;
 }
 
@@ -149,7 +149,7 @@ u8 *TUnk_804DDD28::vfunc_3(s16 arg1) {
         *(s32 **)((s8 *)((u8 *)this) + 8) = &lbl_804DDD28.value;
         TLobby::free_if_positive((s32) ((u8 *)this), -1);
         if (arg1 > 0) {
-            free__10TObjPlayerFPv((void *) (((u8 *)this)));
+            free__10TObjPlayerFPv((((u8 *)this)));
         }
     }
     return ((u8 *)this);
@@ -173,12 +173,12 @@ s32 TLobby::get_field_04() { return *(s32 *)&this->m_flags; }
 void TLobby__sub_802A7BC8(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 void TLobby__sub_802A7BD8(void) {
     if ((u32) snapshot_image_buffer != 0U) {
-        mem_free((s32)((void*)snapshot_image_buffer));
+        mem_free(((void*)snapshot_image_buffer));
         snapshot_image_buffer = 0U;
     }
 }
 s32 copy_if_space(void) {
-    if (fn_802A5C3C(shared_snapshot_capture) >= 0x258) {
+    if (fn_802A5C3C((u32 *)shared_snapshot_capture) >= 0x258) {
         return 0;
     }
     memcpy((*(s32 *)&snapshot_image_buffer), ((TWindowSnapShot *)shared_snapshot_capture)->get_size(), snapshot_buffer_size);
@@ -208,7 +208,7 @@ void TLobby::alloc_snapshot_buffer() {
 
 void set_slot_position__6TLobbyFii(s32 arg0, s32 arg1) {
     s32 temp_r31;
-    temp_r31 = rlc_get_directory_offset((*(s32 *)&snapshot_image_buffer));
+    temp_r31 = rlc_get_directory_offset((void *)(*(s32 *)&snapshot_image_buffer));
     temp_r31 = (*(s32 *)&snapshot_image_buffer) + temp_r31;
     temp_r31 = temp_r31 + arg0 * 8;
     fn_802A6078(arg1, lbl_805D669C + fn_802A5B50(temp_r31, (*(s32 *)&snapshot_image_buffer)));

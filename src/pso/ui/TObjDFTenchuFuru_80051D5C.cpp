@@ -7,12 +7,12 @@
 
 extern "C" {
 
-s32 TObjPlayer__sub_80052390(f32);
+void TObjPlayer__sub_80052390(f32 x);
 u8 *get_player_by_client_id(s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(s32 *);
-s32 draw_chunk_object(u32);
+void draw_chunk_object(void *child);
 extern s32 lbl_804FF228[];
 extern s32 lbl_804FF234[];
 extern const f32 lbl_805D8A30;
@@ -25,12 +25,12 @@ void boss6type2_draw_models(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u3
             TObjPlayer__sub_80052390(alpha);
         }
         TObjFish::set_global_param(arg0);
-        draw_chunk_object(arg3);
+        draw_chunk_object((void *)arg3);
         if (arg6 != 0U) {
             push_matrix();
             post_translate_matrix(lbl_804FF234);
             TObjFish::set_global_param(arg2);
-            draw_chunk_object(arg6);
+            draw_chunk_object((void *)arg6);
             pop_matrix();
         }
         if (arg4 != 0U) {
@@ -38,7 +38,7 @@ void boss6type2_draw_models(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u3
             push_matrix();
             post_translate_matrix(lbl_804FF228);
             TObjFish::set_global_param(arg1);
-            draw_chunk_object(arg4);
+            draw_chunk_object((void *)arg4);
             pop_matrix();
             TCharaMaking::clear_flag_bit0();
         }
@@ -89,12 +89,12 @@ void TObjPlayer::draw_player_model_by_id(s32 arg0, f32 alpha) {
         TObjPlayer__sub_80052390(alpha);
     }
     TObjFish::set_global_param(cf4);
-    draw_chunk_object(m34);
+    draw_chunk_object((void *)m34);
     if (m8b4 != 0U) {
         push_matrix();
         post_translate_matrix(lbl_804FF234);
         TObjFish::set_global_param(b88);
-        draw_chunk_object(m8b4);
+        draw_chunk_object((void *)m8b4);
         pop_matrix();
     }
     if (m8b0 != 0U) {
@@ -102,7 +102,7 @@ void TObjPlayer::draw_player_model_by_id(s32 arg0, f32 alpha) {
         push_matrix();
         post_translate_matrix(lbl_804FF228);
         TObjFish::set_global_param(a1c);
-        draw_chunk_object(m8b0);
+        draw_chunk_object((void *)m8b0);
         pop_matrix();
         TCharaMaking::clear_flag_bit0();
     }

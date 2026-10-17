@@ -24,13 +24,13 @@ char *get_shared_capture_texture_list(void);
 void *__dt__13TUnk_804E70A8Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804E71A0Fv(void *arg0, s16 arg1);
 f32 sin_table_lookup(s32);
-s32 TKeyBoardControl__sub_8000F91C(s32);
-s32 TKeyBoardControl__sub_8000F9CC(s32);
+void TKeyBoardControl__sub_8000F91C(s32 arg0);
+void TKeyBoardControl__sub_8000F9CC(s32 arg0);
 s32 draw_weapon_model();
-s32 draw_weapon_at_joint(void *, int);
+void draw_weapon_at_joint(s32 arg0, s8 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void __dt__11TItemWeaponFv(void *, int);
+void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
 s32 queue_destruction__7TObjectFv();
 
 void TUnk_804E70A8::reserved_53() {
@@ -39,7 +39,7 @@ void TUnk_804E70A8::reserved_53() {
     temp_r31 = *(s32 *)((s8 *)((u8 *)this) + 0xF4);
     draw_weapon_model();
     *(s32 *)((s8 *)((u8 *)this) + 0xF4) = (s32) this->projectile;
-    draw_weapon_at_joint(((u8 *)this), 0x23);
+    draw_weapon_at_joint((s32)((u8 *)this), 0x23);
     *(s32 *)((s8 *)((u8 *)this) + 0xF4) = temp_r31;
 }
 

@@ -293,9 +293,9 @@ f32 transform_point_by_current_matrix(void *, void *);
 void push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object(void *);
+void draw_ginja_object(void *child);
 void set_color_blend_mode(s32, s32, s32, s32);
-s32 set_chunk_material_color(void *);
+void set_chunk_material_color(f32 *arg);
 void draw_model_motion(void *, void *, f32);
 
 extern void *TItemMagSub__oscillating_instance;

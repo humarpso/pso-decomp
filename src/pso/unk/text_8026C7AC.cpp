@@ -12,9 +12,9 @@ extern "C" {
 s32 get_shared_text_buffer(void);
 u32 calc_text_width(void);
 u8 get_font_char_advance(void);
-void map_char_to_font_code(s32);
+u16 map_char_to_font_code(u16 c);
 void TWindowSubStatusDisp__sub_80228F5C(s32);
-void text_builder_append(void *);
+void text_builder_append(u8 *str);
 void text_builder_reset(void);
 void draw_window_text(void *, s32, s32, s32, f32);
 void set_text_draw_params(void *, s32, s32, f32, f32);
@@ -82,7 +82,7 @@ void draw_list_page_indicator(Self_8026C800 *self, Rect_8026C800 *r) {
     pos.x -= (f32)calc_text_width();
     map_char_to_font_code(0x2F);
     { u32 adv = get_font_char_advance(); pos.x -= lbl_805DD2BC * (f32)adv; }
-    text_builder_append(lbl_805DD2C0);
+    text_builder_append((u8 *)lbl_805DD2C0);
     TWindowSubStatusDisp__sub_80228F5C(self->count);
     draw_window_text(&pos, get_shared_text_buffer(), -1, 0, lbl_805DD2B8);
 }

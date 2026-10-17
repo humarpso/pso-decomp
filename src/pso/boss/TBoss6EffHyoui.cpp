@@ -21,7 +21,7 @@ void *TBoss6EffHyoui__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *a
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_02;
@@ -37,7 +37,7 @@ void TBoss6EffHyoui::run_task() {
     }
     *(s32 *)((s8 *)arg0 + 0x28) = (s32) (*(s32 *)((s8 *)arg0 + 0x28) + 1);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x28) > (s32) *(s32 *)((s8 *)arg0 + 0x24)) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
     }
 }
 

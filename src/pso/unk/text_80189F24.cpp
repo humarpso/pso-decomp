@@ -138,10 +138,10 @@ struct Obj_80189F24 : VBase_80189F24 {
 
 extern "C" {
 s32 step_laser_fence_fade(void *);
-f32 xyz_distance_squared(void *, void *);
+f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
 extern f32 lbl_805DBCF4;
 s32 fn_80156BBC(void *, void *);
-s32 fn_80156C38(void *);
+s32 fn_80156C38(f32 *arg0);
 extern f32 lbl_805DBCF0;
 
 void TUnk_804B6C24::render() {
@@ -153,7 +153,7 @@ void TUnk_804B6C24::render() {
     if (fn_80156BBC(&self->sub, self->pos) != 1) {
         return;
     }
-    if (fn_80156C38(&self->sub) == 1) {
+    if (fn_80156C38((f32 *)&self->sub) == 1) {
         self->sub.m6();
         self->m79();
         self->sub.m7();
@@ -193,7 +193,7 @@ f32 TUnk_804B6C24::receive_direct_attack(void *arg1, void *arg2_arg, void *, s32
 }
 s32 TObjPlayer::is_within_range(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    return xyz_distance_squared((void *) (arg1 + 0x38), (void *) (arg0 + 0x38)) < *(f32 *)((s8 *)arg0 + 0x33C);
+    return xyz_distance_squared((u8 *)(arg1 + 0x38), (arg0 + 0x38)) < *(f32 *)((s8 *)arg0 + 0x33C);
 }
 
 }

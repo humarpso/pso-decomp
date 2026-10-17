@@ -3,7 +3,7 @@
 
 extern "C" {
 
-u32 get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 s32 notify_field1c__10TObjPlayerFl();
 s32 send_item_pickup_request__10TObjPlayerFl();
 

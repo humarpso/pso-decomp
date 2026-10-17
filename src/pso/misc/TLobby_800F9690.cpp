@@ -13,7 +13,7 @@ extern char lbl_8043DA04[];
 s32 load_text_resource_pair(s32 arg0);
 s32 subtractive_rng_xor_buffer(s32 *, void *, s32);
 s32 subtractive_rng_seed(s32 *, s32);
-s32 __ct__14SubtractiveRngFv(s32 *);
+s32 __ct__14SubtractiveRngFv(void *arg0);
 s32 prs_decompress_buffer(void *, s32);
 
 struct Sp8_800f9690 { s8 data[240]; };

@@ -23,7 +23,7 @@ struct VObj_18_204a81 : VBase_18_204a81 {
 
 extern "C" {
 void __dl__7TObjectFPv(s32);
-void TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 s32 TLobby__sub_802D2A2C(u32);
 s32 __dt__7TObjectFv(void *, int);
 extern s32 __vt__15TWindowSubTrade[];
@@ -31,12 +31,12 @@ u8 *__dt__15TWindowSubTradeFv(u8 *arg0, s16 arg1);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
 s32 play_sound_effect(int, int, int, int);
-s32 is_player_input_active(int);
+s32 is_player_input_active(s32 param_1);
 s32 get_selected_menu_value(int);
 u32 TWindowSubComCard__sub_802B1C1C(void *);
-s32 send_modify_trade_proposal__6TLobbyFi(int);
+void send_modify_trade_proposal__6TLobbyFi(s32 arg0);
 extern s32 controller_input_state[];
-void TLobby__sub_802D2A50(void *);
+s32 TLobby__sub_802D2A50(u32 arg0);
 
 void TWindowSubTrade::render() {  }
 
@@ -46,7 +46,7 @@ void TWindowSubTrade::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r30;
     s32 temp_r5;
-    temp_r30 = is_player_input_active((int) (*(s32 *)&this->m_20));
+    temp_r30 = is_player_input_active((*(s32 *)&this->m_20));
     switch (this->m_1c) {
     case 0:
     case 1:
@@ -55,7 +55,7 @@ void TWindowSubTrade::run_task() {
             this->m_34 = 0U;
         }
         if ((u32) this->m_30 != 0U) {
-            TWindow__close(*(void * *)&this->m_30);
+            TWindow__close((u8 *)(*(void * *)&this->m_30));
             this->m_30 = 0U;
         }
         if ((u32) this->m_2c == 0U) {
@@ -98,7 +98,7 @@ void TWindowSubTrade::run_task() {
         if ((u32) this->m_30 == 0U) {
             this->m_30 = ((TWindowSubTrade *)arg0)->open_player_message_window((int) (*(s32 *)&this->m_24), (int) (TWindowSubStatusDisp::get_message_10((int) (0xD7))));
         }
-        send_modify_trade_proposal__6TLobbyFi((int) (*(s32 *)&this->m_24));
+        send_modify_trade_proposal__6TLobbyFi((*(s32 *)&this->m_24));
         this->m_1c = 6U;
     case 6:
         temp_r5 = temp_r30 * 0x50;
@@ -153,6 +153,6 @@ TWindowSubTrade::TWindowSubTrade(TObject *arg1, void *arg2) : TObject(arg1) {
     this->m_2c = 0;
     this->m_30 = 0;
     this->m_34 = 0;
-    TLobby__sub_802D2A50(this);
+    TLobby__sub_802D2A50((u32)this);
     this->m_1c = 0;
 }

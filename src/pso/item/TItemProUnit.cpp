@@ -4,7 +4,7 @@
 #include "pso/item/TItemProUnit.h"
 
 extern "C" {
-u8 * TItemProUnit__ct(void *, s32, void *);
+u8 *TItemProUnit__ct(u8 *arg0, s32 arg1, u8 *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 void TItemProUnit__sub_80118FB4(void);
@@ -12,7 +12,7 @@ void TItemProUnit__sub_80118FB8(void);
 f32 TItemProUnit__sub_8011901C(void* p);
 void *__dt__12TItemProUnitFv(void *arg0, s16 arg1);
 void TItemTimerEvent__ct(void *);
-void __dt__14TItemEquipBaseFv(void *, int);
+void *__dt__14TItemEquipBaseFv(void *arg0, s16 arg1);
 
 u8 *TItemProUnit::create(u8 *arg0) {
     u8 *temp_r3;

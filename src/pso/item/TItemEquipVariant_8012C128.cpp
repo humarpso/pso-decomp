@@ -4,7 +4,7 @@
 extern "C" {
 
 void *__dt__13TUnk_804A5150Fv(void *arg0, s16 arg1);
-void __dt__11TItemWeaponFv(void *, int);
+void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
 
 extern s32 holy_ray_weapon_vtable[];
 

@@ -16,7 +16,7 @@ struct TItemEffNeedlePos_801097F0 {
 };
 
 extern "C" {
-f64 atan2_float(f32, f32);
+f32 atan2_float(f32 y, f32 x);
 f32 newton_sqrtf(f32);
 void __ct__18TItemEffNeedleBaseFv(void *, void *, void *);
 s32 rand();

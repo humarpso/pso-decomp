@@ -1205,14 +1205,14 @@ s32 queue_destruction__7TObjectFv(void *);
 void TLobby__sub_80293218(s32 arg0);
 void TLobby__sub_800703D0(void *, void *);
 void snapshot_player_card_status__6TLobbyFv(void);
-void create_obj_tag_challenge(s32);
+void *create_obj_tag_challenge(void *arg0);
 extern s32 tl_07;
 s32 get_current_floor(void);
-s32 create_ch_time_win(s32);
+void *create_ch_time_win(void *arg0);
 void TLobby__sub_802933FC(void *arg0);
 void setup_split_screen(void);
-s32 TAdPlayerLoadGC__sub_801E1510();
-s32 create_new_floor_windows__6TLobbyFi(s32);
+int TAdPlayerLoadGC__sub_801E1510(void);
+u8 *create_new_floor_windows__6TLobbyFi(s32 arg0);
 #define set_split_screen_name__6TLobbyFi ((s32 (*)(void *))set_split_screen_name__6TLobbyFi)
 s32 export_character_data__10TObjPlayerFPvPv(u32, u32);
 #define create_challenge4p__6TLobbyFv ((u32 (*)())create_challenge4p__6TLobbyFv)
@@ -1302,7 +1302,7 @@ void TLobby::spawn_player_tombstones2() {
 
 void TLobby::create_time_window2(void * _w0) {
     TLobby::spawn_player_tombstones2();
-    create_ch_time_win(tl_07);
+    create_ch_time_win((void *)tl_07);
     create_new_floor_windows__6TLobbyFi(tl_07);
     if ((s32) *(s32 *)((s8 *)lbl_804DB1F0 + 0x30) == 0) {
         TObjSoloPlayWin::create((TObject*)tl_07);
@@ -1319,9 +1319,9 @@ void TLobby__sub_802933FC(void *arg0) {
         old = lbl_804DB1F0[2];
         lbl_804DB1F0[2] = -1;
         if (old != -1) {
-            create_obj_tag_challenge(tl_07);
+            create_obj_tag_challenge((void *)tl_07);
             if (lbl_804DB1F0[8] == 0) {
-                create_ch_time_win(tl_07);
+                create_ch_time_win((void *)tl_07);
             }
         }
         break;

@@ -81,18 +81,18 @@ void vt1__20TWindowSubStatusDispFv(u8 *arg0);
 s32 get_class_name_text(s32);
 extern s32 TWindowSubStatusDisp__summary_page_layout[];
 void vt0__20TWindowSubStatusDispFv(u8 *arg0);
-s16 TObjPlayer__sub_800A776C(int);
+s16 TObjPlayer__sub_800A776C(void *p);
 s32 build_player_class_stat_template(int, void *);
 s32 build_player_equipment_requirement_stats(int, void *);
 void vt12__20TWindowSubStatusDispFv(u8 *arg0);
-u16 TAdSinglePlyChrSelectGC__sub_801FC36C(u16);
+u16 TAdSinglePlyChrSelectGC__sub_801FC36C(int arg0);
 void vt7__20TWindowSubStatusDispFv(u8 *arg0);
 s32 get_shared_text_buffer();
 s32 get_layout_id__20TWindowSubStatusDispFv(s32);
 s32 TWindowSubStatusDisp__sub_80071A24(s32, u16, s32);
-s32 append_padded_number(s32, s32);
-s32 text_builder_append(char *);
-s32 text_builder_reset();
+void append_padded_number(s32 v, u8 n);
+void text_builder_append(u8 *str);
+void text_builder_reset(void);
 extern s32 status_disp_vt5_message_ids[];
 extern s32 TWindowSubStatusDisp__numbered_times_layout[];
 extern char lbl_805DD6E4[2];
@@ -157,7 +157,7 @@ void vt5__20TWindowSubStatusDispFv(u8 *arg0) {
         *e &= ~2;
         text_builder_reset();
         append_padded_number(i + 1, 2);
-        text_builder_append(lbl_805DD6E4);
+        text_builder_append((u8 *)lbl_805DD6E4);
         TWindowSubStatusDisp::append_play_time(r);
         set_text_entry_string(e, get_shared_text_buffer(), 0x20);
       }
@@ -288,7 +288,7 @@ void vt12__20TWindowSubStatusDispFv(u8 *arg0) {
     pl = get_player_by_client_id(*(s16 *)(arg0 + 0x20));
     if (pl != 0) {
         e2 = (Entry_80280B1C *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(2));
-        e2->value = TObjPlayer__sub_800A776C(pl) + (((TObjPlayer *)pl)->get_field_2c8() + ((TUnk_804806E8 *)pl)->get_actor_attack_params_atp_min());
+        e2->value = TObjPlayer__sub_800A776C((void *)pl) + (((TObjPlayer *)pl)->get_field_2c8() + ((TUnk_804806E8 *)pl)->get_actor_attack_params_atp_min());
         e = (Entry_80280B1C *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(8));
         e->value = ((TWindowSubStatusDisp *)pl)->get_value();
         e = (Entry_80280B1C *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(0x14));

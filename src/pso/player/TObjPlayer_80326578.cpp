@@ -33,7 +33,7 @@ u8 *TObjPlayer__sub_803268D8(u8 *arg0, u8 *arg1, s32 _w2);
 u8 *TItemTimerEvent__ct(void *, u32, s32, s32);
 extern void *lbl_804A0568[8];
 u8 *paralysis_curse_timer_ct(u8 *self, u32 base_arg, s32 tag, s32 timer, f32 value);
-void translate_matrix(s32, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 extern Rec_80326D54 lbl_80476760;
 extern const f32 lbl_805DF660;
 void TObjPlayer__sub_80326D54(Obj_80326D54 *arg0);
@@ -44,18 +44,18 @@ void *__dt__13TUnk_804ED1A0Fv(void *arg0, s16 arg1);
 void TObjPlayer__sub_80326794(void* p);
 void dark_bridge_start_timers(void *arg0);
 s32 rotate_matrix_x(s32, s32);
-s32 add_actor_tp(s32, s16);
+s32 add_actor_tp(u8 *arg0, s32 arg1);
 int refresh_owner_stats__5TItemFv(void*);
 int update_trail_slot__11TItemWeaponFPvi(void*, void*);
 int draw_weapon_at_joint(void*, void*);
 void set_weapon_trail_joints(void *, int, int, int);
 s32 freeze_curse_timer_ct(s32, u32, s32, s32, f32);
 s32 confusion_curse_timer_ct(s32, u32, s32, s32, f32);
-s32 TObjectV8047c128_subtract_hp(s32, s16);
+s32 TObjectV8047c128_subtract_hp(u8 *arg0, s16 arg1);
 s32 __nw__15TItemHeapObjectFUl(s32);
 s32 get_id__13TItemProArmorFv(void *);
-void __dt__11TItemWeaponFv(void *, int);
-s16 obj_getS16_32E(s32);
+void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
+s16 obj_getS16_32E(u8 *p);
 s32 reset_key_machine_state__10TObjPlayerFv();
 void set_status_flags__10TObjPlayerFUl(void *, int);
 
@@ -123,15 +123,15 @@ void TUnk_804ECFB0::update_weapon() {
     s32 temp_r31;
 
     if (reset_key_machine_state__10TObjPlayerFv() != 0) {
-        temp_r3 = obj_getS16_32E(*(s32 *)&this->player);
+        temp_r3 = obj_getS16_32E((u8 *)(*(s32 *)&this->player));
         temp_r0 = this->m_1fc - temp_r3;
         if (temp_r0 != 0) {
             this->m_1fc = temp_r3;
         }
         if (temp_r0 > 0) {
             temp_r31 = temp_r0 / 2;
-            TObjectV8047c128_subtract_hp(*(s32 *)&this->player, (s16) temp_r31);
-            add_actor_tp(*(s32 *)&this->player, (s16) temp_r31);
+            TObjectV8047c128_subtract_hp((u8 *)(*(s32 *)&this->player), (s16) temp_r31);
+            add_actor_tp((u8 *)(*(s32 *)&this->player), (s16) temp_r31);
         }
     }
     *(s32 *)((s8 *)this + 0x1F8) = (s32) (*(s32 *)((s8 *)this + 0x1F8) + 1);
@@ -145,7 +145,7 @@ void dark_bridge_start_timers(void *arg0) {
     s32 temp_r3_2;
     s32 temp_r3_3;
 
-    ((TUnk_804ECFB0 *)arg0)->m_1fc = obj_getS16_32E(*(s32 *)((s8 *)arg0 + 0xF0));
+    ((TUnk_804ECFB0 *)arg0)->m_1fc = obj_getS16_32E((u8 *)(*(s32 *)((s8 *)arg0 + 0xF0)));
     *(s32 *)((s8 *)arg0 + 0x1F8) = 0;
     if ((u32) *(u32 *)((s8 *)arg0 + 0x174) != 0U) {
         temp_r3 = __nw__15TItemHeapObjectFUl(0x30);
@@ -432,7 +432,7 @@ s32 play_sound_effect(s32, s32, s32, s32);
 s32 fire_shot_at_target__11TItemWeaponFv(void *, s32, s32, s32);
 
 s32 is_mode_two_and_ready__10TObjPlayerFv();
-s16 obj_getS16_32C(s32);
+s16 obj_getS16_32C(u8 *p);
 s32 update_active_game_effect__10TObjPlayerFv(void *);
 
 #define lbl_804ED390 ((unsigned char *)lbl_804ED390)
@@ -461,7 +461,7 @@ void TUnk_804ED488::emit_marker_effects() {
 
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
         temp_r31 = (s16) ((TItemProShield *)(*(s32 *)&this->player))->get_field_2b8();
-        if ((s32) ((s16) obj_getS16_32C(*(s32 *)&this->player) * 8) < temp_r31) {
+        if ((s32) ((s16) obj_getS16_32C((u8 *)(*(s32 *)&this->player)) * 8) < temp_r31) {
             fire_shot_at_target__11TItemWeaponFv(this, *(s32 *)&this->player + 0x38, 0, -0x238E);
             fire_shot_at_target__11TItemWeaponFv(this, *(s32 *)&this->player + 0x38, 0, -0x11C7);
             fire_shot_at_target__11TItemWeaponFv(this, *(s32 *)&this->player + 0x38, 0, 0);

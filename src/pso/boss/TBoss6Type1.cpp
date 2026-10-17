@@ -365,7 +365,7 @@ s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 void clear_render_callback__8TObjFishFv(u32);
 void draw_model_blend_motion(s32, Blend_802B81A4 *, f32);
-void draw_model_motion(s32, s32, f32);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern s32 lbl_804DF614[];
 extern const s32 lbl_805DE3C8;
 extern s32 lbl_80470FAC[];
@@ -428,7 +428,7 @@ u8 *get_player_by_client_id(s32);
 extern const f32 TBoss6Type1__data_805DE32C;
 extern const f32 TBoss6Type1__data_805DE360;
 s32 matrix_mult_vec(int, void *, void *);
-s32 set_matrix_identity(int);
+void set_matrix_identity(u8 *arg0);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -458,7 +458,7 @@ extern const f32 lbl_805DE3B8;
 int TBoss6Type1__sub_802B4A70(void* p);
 void TBoss6Type1__sub_802B4A90(void* p);
 int TBoss6Type1__sub_802B4B14(void* p);
-s32 TBoss6PlotFalz__sub_802AAC74(s32);
+s32 TBoss6PlotFalz__sub_802AAC74(u8 *arg0);
 int TBoss6Type1__sub_802B4A9C(void*);
 struct Boss_802B5AD4;
 void fire_at_all_players__11TBoss6Type1FPvf(Boss_802B5AD4 *, f32);
@@ -987,7 +987,7 @@ void TBoss6Type1__sub_802B5DD4(Obj_802B5DD4 *self) {
 
 void TBoss6Type1::reset_fields_4e0() { this->m_4e0 = 0; *(s32*)((char*)this + 0x4e4) = 0; }
 s32 TBoss6Type1::is_field3F8_over_0x20() {
-    return TBoss6PlotFalz__sub_802AAC74(this->m_3f8) > 0x20;
+    return TBoss6PlotFalz__sub_802AAC74((u8 *)this->m_3f8) > 0x20;
 }
 
 int TBoss6Type1::is_field4b0_delta_reached() {
@@ -1119,7 +1119,7 @@ s32 angle_difference_abs(int, int);
 s32 approach_angle_limited(int, int, int);
 void build_6xA4_olga_flow_boss_actions(void* p);
 s32 TBoss6Type1__ct(s32, s32, s32);
-int TLobby__send_and_handle_60(void*);
+void TLobby__send_and_handle_60(u8 *arg0);
 s32 TObjControl__ct(s32, s32);
 s32 __nw__7TObjectFUl(s32);
 int read_be16_field2__10TObjPlayerFv(void*);
@@ -1430,7 +1430,7 @@ struct Boss_802B7530 {
 };
 
 f32 vec3_dot(void *, void *);
-s32 spawn_particle_effect_with_flags(void *, int, int);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 extern const f32 lbl_805DE398;
 extern const f32 lbl_805DE39C;
 extern const f32 lbl_805DE3A0;
@@ -1806,7 +1806,7 @@ void TBoss6Type1::draw_part_motions() {
             TObjFish::set_global_param(p);
             if (TBoss6Type1__data_805DE2D0 == a->blend) {
                 ((TObjFish *)cb)->set_draw_callback_list();
-                draw_model_motion(id, a->id, a->t);
+                draw_model_motion((void *)id, (void *)a->id, a->t);
                 clear_render_callback__8TObjFishFv(cb);
             } else {
                 b.ids[0] = a->prevId;
@@ -2335,7 +2335,7 @@ void TBoss6Type1::clear_harmful_statuses() {  }
 void*TBoss6Type1::get_mag_mine_ptr() { return (char*)this + 0x388; }
 int TBoss6Type1::is_idle() { return this->m_374 == 0; }
 int TBoss6Type1::read_be16_field2() { return read_be16_field2__10TObjPlayerFv(this); }
-void TBoss6Type1::step_and_send_60() { read_be16_field2(); TLobby__send_and_handle_60(this); }
+void TBoss6Type1::step_and_send_60() { read_be16_field2(); TLobby__send_and_handle_60((u8 *)this); }
 void build_6xA4_olga_flow_boss_actions(void* p) { *(u8*)((char*)p + 0x0) = 164; *(u8*)((char*)p + 0x1) = 5; }
 
 }

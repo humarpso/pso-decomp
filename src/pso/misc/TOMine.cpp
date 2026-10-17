@@ -45,7 +45,7 @@ u16 find_nearest_visible_player(void *, int, f32);
 s32 get_player_by_client_id(int);
 void rotate_matrix_y(int, int);
 void push_matrix();
-void pop_matrix();
+s32 pop_matrix(void);
 void post_translate_matrix(void *);
 void set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
@@ -61,8 +61,8 @@ extern const f32 lbl_805DB85C;
 Obj_80171278 *TOMine__ct(Obj_80171278 *arg0);
 void *__dt__6TOMineFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
-s32 TOMineTrap__sub_80170CD4(void *);
-int draw_ginja_object(void*);
+void TOMineTrap__sub_80170CD4(void *p);
+void draw_ginja_object(void *child);
 s32 submit_cursor_candidate(void *, int);
 int submit_target_to_player_cursor(void*);
 void __dl__7TObjectFPv(void *);
@@ -111,7 +111,7 @@ void TOMine::run_task() {
             temp_r0_2 = *(s32 *)&this->m_344;
             switch (temp_r0_2) {
             default:
-                TOMineTrap__sub_80170CD4((void *) (arg0));
+                TOMineTrap__sub_80170CD4((arg0));
                 break;
             case 1:
                 ((TOMine *)arg0)->sub_80170BEC();

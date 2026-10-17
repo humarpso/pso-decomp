@@ -276,11 +276,11 @@ struct Text_801DC1E4 { u8 command; u8 flags; u16 size; char text[0x200]; };
 struct Proto_801DC1E4 { u8 pad[0x1910]; s32 connected; u8 pad1914[0x74]; u8 char_data[0x41C]; };
 
 void TItem__sub_80101CF8(void *);
-void copy_player_data__9TProtocolFPvPv(void *, void *);
+u8 *copy_player_data__9TProtocolFPvPv(u8 *arg0, u8 *arg1);
 void TProtocol__sub_801DF774(void *, void *);
-void bswap_player_record_upload(void *);
+void bswap_player_record_upload(u8 *arg0);
 void destroy__9TProtocolFis(void *, int);
-void validate_player_visual_record(void *);
+s32 validate_player_visual_record(void *arg0);
 
 void send_player_data_98__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC1E4 *self, u8 *char_data, void *challenge, void *choice_search_config,
                                List_801DC1E4 *blocked_senders, Text_801DC1E4 *auto_reply, char *info_board) {
@@ -305,7 +305,7 @@ void send_player_data_98__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC1E4 *self, u8 *ch
         const int packet_size = strlen(tmp.auto_reply) + 0x680;
         tmp.size = packet_size & ~3;
         TItem__sub_80101CF8(tmp.char_data);
-        bswap_player_record_upload(&tmp);
+        bswap_player_record_upload((u8 *)&tmp);
         ((VObj_801DC1E4 *)self)->send(&tmp, packet_size & ~3);
         destroy__9TProtocolFis(&tmp, -1);
     }
@@ -367,7 +367,7 @@ void send_player_data_61__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC34C *self, u8 *ch
         const int packet_size = strlen(tmp.auto_reply) + 0x680;
         tmp.size = packet_size & ~3;
         TItem__sub_80101CF8(tmp.char_data);
-        bswap_player_record_upload(&tmp);
+        bswap_player_record_upload((u8 *)&tmp);
         ((VObj_801DC34C *)self)->send(&tmp, packet_size & ~3);
         destroy__9TProtocolFis(&tmp, -1);
     }

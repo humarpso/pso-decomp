@@ -9,7 +9,7 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_model_motion(int, int, f32);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 void TObjDFDemo4::sub_8004F1FC() {
     u8 *arg0 = (u8 *)this;
     s32 var_r31;
@@ -28,7 +28,7 @@ void TObjDFDemo4::sub_8004F1FC() {
             if (var_r29 == 0) {
                 ((TObjFish *)(*(s32 *)&this->m_100))->set_draw_callback_list();
             }
-            draw_model_motion((int) (*(s32 *)((s8 *)temp_r30 + 0xC4)), (int) (*(s32 *)((s8 *)temp_r30 + 0xCC)), (f32) (*(f32 *)&this->_padFC));
+            draw_model_motion((void *)(*(s32 *)((s8 *)temp_r30 + 0xC4)), (void *)(*(s32 *)((s8 *)temp_r30 + 0xCC)), (f32) (*(f32 *)&this->_padFC));
             if (var_r29 == 0) {
                 clear_render_callback__8TObjFishFv((int) (*(s32 *)&this->m_100));
             }

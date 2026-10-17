@@ -124,9 +124,9 @@ int fn_801F34A0(void* p);
 s32 fn_get_field_3ac(void* p);
 s32 get_field_d4(void* p);
 int set_flag_4__6TLobbyFPv(void* p);
-int TLobby__send_and_handle_60(void*);
+void TLobby__send_and_handle_60(u8 *arg0);
 int test_action_mask__10TObjPlayerFl(void*, int);
-s32 TWindow__close(s32);
+void TWindow__close(u8 *arg0);
 int VecCopy__FP3VecPC3Vec(void*);
 s32 queue_destruction__7TObjectFv(s32);
 int set_flags__10TObjPlayerFUl(void*, int);
@@ -147,15 +147,15 @@ extern u32 TLobby__quest_secondary_window;
 
 void TLobby::close_windows() {
     if ((u32) TLobby__quest_message_window != 0U) {
-        TWindow__close(TLobby__quest_message_window);
+        TWindow__close((u8 *)TLobby__quest_message_window);
         TLobby__quest_message_window = 0U;
     }
     if ((u32) TLobby__quest_secondary_window != 0U) {
-        TWindow__close(TLobby__quest_secondary_window);
+        TWindow__close((u8 *)TLobby__quest_secondary_window);
         TLobby__quest_secondary_window = 0U;
     }
     if ((u32) TLobby__quest_choice_window != 0U) {
-        TWindow__close(TLobby__quest_choice_window);
+        TWindow__close((u8 *)TLobby__quest_choice_window);
         TLobby__quest_choice_window = 0U;
     }
     if ((u32) TLobby__data_805D5EB0 != 0U) {
@@ -370,7 +370,7 @@ void TLobby::bswap_4x32() { bswap_32__FPUl(this); bswap_32__FPUl((char*)this + 0
     extern unsigned char camera_capture_flags;
 void TLobby__sub_801F3568(void) { camera_capture_flags = (camera_capture_flags | 0x10); }
 
-void TLobby::sync_quest_register_and_send() { bswap_header__6TLobbyFPv((void*)((void*)((void*)(this)))); TLobby__send_and_handle_60(this); }
+void TLobby::sync_quest_register_and_send() { bswap_header__6TLobbyFPv((void*)((void*)((void*)(this)))); TLobby__send_and_handle_60((u8 *)this); }
 void bswap_header__6TLobbyFPv(void* p) { ((TObjPlayer *)p)->read_be16_field2(); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x8); }
 void build_6x77_sync_quest_register(void* p) { *(u8*)((char*)p + 0x0) = 119; *(u8*)((char*)p + 0x1) = 3; }
 

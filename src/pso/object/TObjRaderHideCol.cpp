@@ -24,12 +24,12 @@ struct Pl_801973B0 { u8 pad0[0x38]; f32 pos[3]; };
 struct Hide_801973B0 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x4C]; f32 f90; s32 f94; };
 
 extern "C" {
-s32 disallow_rendering__7TObjectFv(void *);
+void disallow_rendering__7TObjectFv(void *arg0);
 s32 construct_world_actor_base(void *);
 extern s32 __vt__16TObjRaderHideCol[];
 extern s32 lbl_805D3414;
 u8 *TObjRaderHideCol__ct(u8 *arg0, s32 arg1, s32 arg2);
-f32 xyz_distance_squared(void *, void *);
+f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
 Pl_801973B0 *get_player_by_client_id(s32);
 extern s32 local_client_id;
 void *__dt__16TObjRaderHideColFv(void *arg0, s16 arg1);
@@ -41,7 +41,7 @@ void TObjRaderHideCol::run_task() {
     Hide_801973B0 *arg0 = (Hide_801973B0 *)this;
     Pl_801973B0 *p = get_player_by_client_id(local_client_id);
     if (p != 0) {
-        if (xyz_distance_squared(arg0->pos, p->pos) < arg0->f90 * arg0->f90) {
+        if (xyz_distance_squared((u8 *)arg0->pos, (u8 *)p->pos) < arg0->f90 * arg0->f90) {
             if (!(arg0->f94 & 1)) {
                 TRaderMapCore::hide_radar();
                 arg0->f94 = 1;
@@ -71,7 +71,7 @@ u8 *TObjRaderHideCol__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     *(f32 *)((s8 *)arg0 + 0x90) = (f32) ((TObjRaderHideCol *)arg0)->scale;
     *(s32 *)&((TObjRaderHideCol *)arg0)->m_94 = 0;
-    disallow_rendering__7TObjectFv((void *) (arg0));
+    disallow_rendering__7TObjectFv((arg0));
     return arg0;
 }
 

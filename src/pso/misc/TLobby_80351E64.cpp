@@ -11,7 +11,7 @@ struct L_80351EAC { u8 pad[0x1C]; u32 flags; s32 mode; };
 extern "C" {
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 extern const s32 lbl_804F0EA8[];
 extern void *lobby_event_theme_controller;
 s32 TLobby__sub_803DA16C(void*);

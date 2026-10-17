@@ -20,7 +20,7 @@ struct Body_80090178 {
 extern "C" {
 extern G_80090418 *lbl_805D4F20;
 void queue_destruction__7TObjectFv(void *);
-void __dt__14TObjEneBalClawFv(void *, int);
+void *__dt__14TObjEneBalClawFv(void *arg0, s16 arg1);
 void *find_entity_by_id(u16);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);

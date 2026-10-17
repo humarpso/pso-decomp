@@ -252,7 +252,7 @@ void alloc_work_buffer__6TLobbyFv(void) {
 void *TLobby__sub_80329310(void *arg0, s16 arg1);
 s32 vfunc_3__13TUnk_804DDD28Fs(void *, s32);
 
-s32 free__10TObjPlayerFPv(void *);
+void free__10TObjPlayerFPv(void *a0);
 
 void TLobby::update_photon_chairs() { TPlyPhotonChair::free_static_model(); TLobby::free_singleton_805D6C80(); TLobby::set_photon_chair_flag(0); TLobby::clear_flag_at_6c84(); }
 void TLobby::update_photon_chair() {
@@ -277,10 +277,10 @@ void *TLobby__sub_80329310(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void TLobby__sub_802A7B50(void *);
+u8 *TLobby__sub_802A7B50(u8 *arg0);
 
 void *TUnk_804ED7D0::init_vtable8() {
-    TLobby__sub_802A7B50(this);
+    TLobby__sub_802A7B50((u8 *)this);
     *(s32 **)((s8 *)this + 0x8) = lbl_804ED7D0;
     return this;
 }

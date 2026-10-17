@@ -655,12 +655,12 @@ u32 get_item_field_6__10TObjPlayerFPv(void *);
 f32 fabs_float(f32);
 void queue_destruction__7TObjectFv(void *);
 void fn_8002B630(void *, void *, s32);
-void create_timed_particle_emitter(void *, int, int, int);
-void spawn_particle_effect(void *, int);
+void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
+void *spawn_particle_effect(void *pos, s32 id);
 s32 get_field_d8__5TItemFv();
-s32 enemy_turn_and_move_on_ground(void *, int, f32);
+void enemy_turn_and_move_on_ground(u8 *arg0, s32 arg1, f32 farg0);
 int select_and_apply_target__12TObjEneDD_STFf(void*);
-void __dt__12TObjEneDD_STFv(void *, int);
+void *__dt__12TObjEneDD_STFv(void *arg0, s16 arg1);
 s32 check_v2_mode__9TObjEneDDFv(s32, s32);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
 s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
@@ -670,10 +670,10 @@ void TObjEneDD__sub_800BA438(void *, void *);
 s32 init_model__9TObjEneDDFv(void *, void *, int, int);
 s32 TObjEneMe3SinowZoa__sub_800D72A4(void *);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
-void __dt__13TUnk_80494938Fv(void *, int);
+void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
 s32 TBoss3Volopt__sub_800D8D88(void *, f32);
 f32 * TBoss3Volopt__sub_800F059C(void *);
-s32 set_animation__10TObjPlayerFPvs(void *, int);
+void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 s32 set_indexed_flags(void *, int, int);
 s32 check_enemy_body_collisions(void *);
 void free_collision_body_parts(void *);
@@ -684,8 +684,8 @@ void create__9TTecJelinFllll(void *, void *, void *, int);
 void create_instance__9TTecZaruaFllll(void *, void *, void *, int);
 s32 TObjEneMe3SinowZoa__sub_80316840(void *);
 s32 TObjEneMe3SinowZoa__sub_80316C3C(void *, s32);
-s32 TObjEneMe3SinowZoa__sub_803170F0(void *, s32);
-s32 TObjEneMe3SinowZoa__sub_80317254(void *, s32);
+void TObjEneMe3SinowZoa__sub_803170F0(u8 *arg0, s32 arg1);
+void TObjEneMe3SinowZoa__sub_80317254(u8 *arg0, s32 arg1);
 void TObjEneMe3SinowZoa__sub_80317B50(void *, s32);
 void TObjEneMe3SinowZoa__sub_80317F90(u8 *arg0, s32 arg1);
 void TObjEneMe3SinowZoa__sub_803182F8(u8 *, s32);
@@ -724,7 +724,7 @@ void * __dt__18TObjEneMe3SinowZoaFv(void *arg0, s16 arg1);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void bind_motion_context(s32, f32);
-s32 compose_motion_node_matrix(void *);
+void compose_motion_node_matrix(void *arg0);
 s32 matrix_mult_vec(int, void *, void *);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
@@ -886,7 +886,7 @@ extern "C" {
 void apply_hit_message_flags__9TObjEnemyFPv();
 }
 extern "C" {
-void __dt__22TObjEneMe3SinowZoaRealFv();
+void *__dt__22TObjEneMe3SinowZoaRealFv(void *arg0, s16 arg1);
 }
 extern "C" {
 void add_actor_exp__13TUnk_804806E8Fl();
@@ -1036,7 +1036,7 @@ extern "C" {
 void receive_weapon_special_attack__10TObjPlayerFv();
 }
 extern "C" {
-void render_actor_shadows_default();
+void render_actor_shadows_default(u8 *arg0);
 }
 extern "C" {
 void reset_motion_fields__13TUnk_804806E8Fv();
@@ -1051,7 +1051,7 @@ extern "C" {
 void select_melee_contact_body__10TObjPlayerFv();
 }
 extern "C" {
-void trigger_switch_attack__10TObjPlayerFi();
+void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 }
 extern "C" {
 void try_start_action__13TUnk_804806E8Fll();
@@ -1060,16 +1060,16 @@ extern "C" {
 void update_action_hold_status__13TUnk_804806E8Fv();
 }
 extern "C" {
-void update_action_timer__10TObjPlayerFPv();
+s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
 }
 extern "C" {
 void update_actor_ground_y__13TUnk_804806E8Fv();
 }
 extern "C" {
-void update_attack_stat_status();
+s32 update_attack_stat_status(u8 *arg0);
 }
 extern "C" {
-void update_defense_stat_status();
+s32 update_defense_stat_status(u8 *arg0);
 }
 extern "C" {
 void update_flag30_timer__13TUnk_804806E8Fv();
@@ -1306,11 +1306,11 @@ struct Zoa_8031786C {
     VObj_14_aa9368 sub;
 };
 
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 rotate_matrix_y(int, int);
-s32 translate_matrix(int, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
 s32 post_translate_matrix(void *);
 extern u8 saved_model_draw_color[];
@@ -2612,7 +2612,7 @@ void TObjEneMe3SinowZoa::state_chase_target(s32 arg1) {
                 ((TObjEneEpsilon *)arg0)->update_angle((int) (0x500));
                 this->vfunc_102();
             } else {
-                enemy_turn_and_move_on_ground((void *) (arg0), (int) (0x500), (f32) (*(f32 *)((s8 *)arg0 + 0x440)));
+                enemy_turn_and_move_on_ground((arg0), (0x500), (f32) (*(f32 *)((s8 *)arg0 + 0x440)));
             }
             this->vfunc_89();
         }
@@ -3461,7 +3461,7 @@ void TObjEneMe3SinowZoaReal::init_enemy() {
     *(s32 *)((s8 *)((u8 *)this) + 0xB0) = 0;
     ((TObjPlayer *)((u8 *)this))->set_field_d8((s32)lbl_804E8880);
     ((TObjPlayer *)((u8 *)this))->set_field_dc((int) (*(s32 *)((s8 *)TObjEneMe3SinowZoa__data_805D6AD8 + 0x430)));
-    set_animation__10TObjPlayerFPvs((void *) (((u8 *)this)), (int) (*(s16 *)((s8 *)((u8 *)this) + 0xB8)));
+    set_animation__10TObjPlayerFPvs((((u8 *)this)), (*(s16 *)((s8 *)((u8 *)this) + 0xB8)));
     temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x3C8);
     {
         s32 *a = tbl->t[0];

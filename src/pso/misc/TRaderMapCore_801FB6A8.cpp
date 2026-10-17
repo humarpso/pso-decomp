@@ -14,7 +14,7 @@ s32 save_floor_discovery__13TRaderMapCoreFiPv(int, int);
 s32 TLobby__sub_803DA16C(int);
 extern u8 *TRaderMapCore__floor_map_resource;
 extern s32 TRaderMapCore__render_mode;
-void copy_name(const char *);
+void copy_name(s32 arg0);
 u8 *create_named_object(char *);
 void replace_file_extension__6TLobbyFPvPvPv(char *, char *, const char *);
 void init_radar_floor_flags(s32, u8 *);
@@ -81,7 +81,7 @@ void TRaderMapCore::load_map_resources() {
         replace_file_extension__6TLobbyFPvPvPv(buf, e[status].name, lbl_805DC5AC);
         bind_gvm_texture_list(buf, *(u8 **)(TRaderMapCore__floor_map_resource + 4));
     }
-    copy_name(lbl_805DC5B0);
+    copy_name((s32)lbl_805DC5B0);
     lbl_805D49B4 = 0;
     TRaderMapCore::load_frame_texture();
     e = (Ent_801FB798 *)TRaderMapCore__floor_map_resource;

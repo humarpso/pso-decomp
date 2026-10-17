@@ -13,7 +13,7 @@ extern "C" {
 s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
-s32 draw_model_motion(int, int, f32);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern RecoveredGlobal_8033FDB0_lbl_80478430 lbl_80478430;
 extern const f32 lbl_805DFAF8;
 void TObjPlayer__sub_8033FDB0(s32 arg0);
@@ -52,7 +52,7 @@ void TObjPlayer__sub_8033FDB0(s32 arg0) {
   {
     temp_r30 = (u8 *) (arg0 + (var_r31 & 0xFFFFFFFFFFFFFFFF));
     TObjFish::set_global_param((int) (*((s32 *) (((s8 *) temp_r30) + 0x2C))));
-    draw_model_motion((int) (*((s32 *) (((s8 *) temp_r30) + 0x28))), (int) (*((s32 *) (((s8 *) temp_r30) + 0x30))), (f32) lbl_805DFAF8);
+    draw_model_motion((void *)(*((s32 *) (((s8 *) temp_r30) + 0x28))), (void *)(*((s32 *) (((s8 *) temp_r30) + 0x30))), (f32) lbl_805DFAF8);
     var_r29 += 1;
     var_r31 += 0xC;
   }

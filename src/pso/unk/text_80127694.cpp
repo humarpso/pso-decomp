@@ -49,12 +49,12 @@ struct Rec_80127694 {
 };
 
 extern "C" {
-void spawn_particle_effect(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
 void draw_icon__10TObjPlayerFll(void *, int, void *);
 s16 is_status_subsystem_ready__10TObjPlayerFv(void *);
 s16 get_captured_target_collider_index(void *);
 void *get_captured_target_entry(void *, int);
-s32 get_captured_target_count(void *);
+s32 get_captured_target_count(s32 *arg0);
 void TUnk_804A3358::emit_marker_effects() {
     u8 pos[12];
     Rec_80127694 rec;
@@ -67,7 +67,7 @@ void TUnk_804A3358::emit_marker_effects() {
     if (is_status_subsystem_ready__10TObjPlayerFv(*(void * *)&this->player) == 2) {
         if (((VObj_18 *)((u8 *)this))->m33() == 1) {
             st = ((TObjPlayer *)(*(void * *)&this->player))->get_extended_state();
-            if (get_captured_target_count(st) != 0) {
+            if (get_captured_target_count((s32 *)st) != 0) {
                 void *e = get_captured_target_entry(st, 0);
                 ((TObjPlayer *)(&rec))->construct_target_cursor_records();
                 rec.kind = 1;

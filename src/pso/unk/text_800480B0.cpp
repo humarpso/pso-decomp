@@ -93,12 +93,12 @@ struct RecoveredGlobal_800480B0_lbl_80484610 {
 
 extern "C" {
 s32 TBoss3VoloptP02__ct(void *);
-s32 TObjEnemyCustom__ct(void *);
+u8 *TObjEnemyCustom__ct(u8 *arg0);
 extern RecoveredGlobal_800480B0_lbl_80484610 volopt_boss_dispatch_table;
 u8 *fn_800480B0(u8 *arg0, s32 arg1, s32 arg2);
 typedef char RecoveredGlobal_800480B0_lbl_80484610_size[sizeof(RecoveredGlobal_800480B0_lbl_80484610) == 0x14C ? 1 : -1];
 u8 *fn_800480B0(u8 *arg0, s32 arg1, s32 arg2) {
-    TObjEnemyCustom__ct((void *) (arg0));
+    TObjEnemyCustom__ct((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &volopt_boss_dispatch_table.value;
     ((TObjPlayer *)(arg0 + 0x490))->init_and_activate();
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);

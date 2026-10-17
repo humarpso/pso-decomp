@@ -5,13 +5,13 @@
 
 extern "C" {
 
-u32 get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 s32 has_player_active_menu__11TWindowCtrlFv(s32);
 s32 apply_default_vec__11TWindowCtrlFll(void *, s32);
 s32 is_slot_visible__11TWindowCtrlFv(s32);
-s32 chat_accept_submission(void *);
-s32 TWindowChat__sub_80247DFC(u32);
-s32 TWindowChat__sub_80247E50(u32);
+s32 chat_accept_submission(s32 arg0);
+void TWindowChat__sub_80247DFC(u8 *arg0);
+void TWindowChat__sub_80247E50(u8 *arg0);
 
 extern s32 local_client_id;
 
@@ -35,11 +35,11 @@ void TWindowCtrl::update_window_visibility() {
             return;
         }
         ((TWindowChat *)(this->m_38))->open_input();
-        if ((((TWindowChat *)(this->m_38))->is_mode_bit4() != 0) && (chat_accept_submission((u8 *)&this->m_94) != 0)) {
-            TWindowChat__sub_80247E50(this->m_38);
+        if ((((TWindowChat *)(this->m_38))->is_mode_bit4() != 0) && (chat_accept_submission((s32)&this->m_94) != 0)) {
+            TWindowChat__sub_80247E50((u8 *)this->m_38);
         }
         if (((TWindowChat *)(this->m_38))->is_visible() != 0) {
-            TWindowChat__sub_80247DFC(this->m_38);
+            TWindowChat__sub_80247DFC((u8 *)this->m_38);
         }
     }
 }

@@ -27,7 +27,7 @@ extern "C" {
 s32 draw_default_entry__9TWindowDDFl();
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
-s32 get_player_by_client_id(u32);
+void *get_player_by_client_id(s32 i);
 extern RecoveredGlobal_80288490_lbl_804D0460 lbl_804D0460;
 extern RecoveredGlobal_80288490_lbl_804D04A0 lbl_804D04A0;
 extern RecoveredGlobal_80288380_lbl_804D304C lbl_804D304C;
@@ -35,7 +35,7 @@ extern s32 __vt__15TWindowUserSort[];
 extern s32 TWindowUserSort__name;
 u8 *TWindowUserSort__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__dt__15TWindowUserSortFv(void *arg0, s16 arg1);
-s32 TCameraCtrl__sub_800695A0(void *);
+s32 TCameraCtrl__sub_800695A0(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 s32 close_and_clear_flags__15TWindowMainMenuFv();
 int initialize_subwindow__9TWindowDDFv(void*);

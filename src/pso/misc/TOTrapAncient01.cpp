@@ -212,7 +212,7 @@ struct Trap_80179B8C : VObj_80179B8C {
 extern "C" {
 void receive_physical_attack__6TOTrapFPvf(void *, void *, f32);
 u16 obj_getField1c(void *);
-s32 obj_clear_flag30_20000(int);
+void obj_clear_flag30_20000(void *arg0);
 s32 check_player_flag1__6TLobbyFv();
 s32 get_player_by_client_id(void *);
 extern s32 local_client_id;
@@ -226,7 +226,7 @@ extern const f32 lbl_805DBA5C;
 f32 TObjPlayer__sub_8017A1A4(Obj_8017A1A4 *self, s32 i);
 s32 free_collision_body_parts(void *);
 s32 __destroy_arr(void *, void *, int, int);
-void __dt__13TUnk_804949A8Fv(void);
+void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
 void *__dt__6TOTrapFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 extern s32 __vt__15TOTrapAncient01[];
@@ -276,7 +276,7 @@ void TOTrapAncient02R__sub_80141CF0(void *, void *, void *);
 void TOTrapAncient02R__sub_80154D78(void *);
 void *__nw__7TObjectFUl(int);
 s32 is_current_room(void *);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 void TOTrap::apply_knockback_from_attacker(u8 *) {  }
 void TOTrapAncient01::vfunc_86() {  }
@@ -303,7 +303,7 @@ void TOTrapAncient01::release_trapped_player() {
                 if (check_player_flag1__6TLobbyFv() != 0) {
                     TObjPlayer::send_code_45_1((int) (temp_r3));
                 }
-                obj_clear_flag30_20000((int) (temp_r3));
+                obj_clear_flag30_20000((void *)(temp_r3));
             }
         }
     } else if ((*(void * *)&this->target != NULL) && ((s32) local_client_id == (s32) obj_getField1c(*(void * *)&this->target))) {
@@ -312,7 +312,7 @@ void TOTrapAncient01::release_trapped_player() {
             if (check_player_flag1__6TLobbyFv() != 0) {
                 TObjPlayer::send_code_45_1((int) (temp_r3_2));
             }
-            obj_clear_flag30_20000((int) (temp_r3_2));
+            obj_clear_flag30_20000((void *)(temp_r3_2));
         }
     }
 }

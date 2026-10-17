@@ -83,20 +83,20 @@ struct Sel_8028CD18 {
 extern "C" {
 s32 is_selection_done__23TAdSinglePlyChrSelectGCFPv(void *);
 void start_preview_loads__23TAdSinglePlyChrSelectGCFPv(Gc_8028CB6C *arg0);
-u32 create__22TChCrLoadAfsTextureReqFPvPv(void *, Req_8028CC28 *);
+void *create__22TChCrLoadAfsTextureReqFPvPv(void *arg0, void *arg1);
 u32 TLobby__sub_801E38A0(void *, s32 *, s32 *, s32, s32);
 s32 is_node_tree_valid(u32, s32);
 void *get_result__23TAdSinglePlyChrSelectGCFv(void *);
 void blend_creation_proportion_shapes(void *);
-u32 create_ch_cr_load_gm_nj_req(void *, Req_8028CD18 *);
-void TLobby__sub_8028D738(s32);
+void *create_ch_cr_load_gm_nj_req(void *arg0, void *arg1);
+s32 TLobby__sub_8028D738(s32 i);
 extern s32 chr_select_preview_stride_table[];
 extern s32 chr_select_preview_base_offset_table[];
 
 s32 TAdSinglePlyChrSelectGC__sub_8028C998(void *arg0);
 s32 TAdSinglePlyChrSelectGC__sub_8028CF6C(void);
 void close_and_destroy__12TChCrLoadReqFv(void *arg0);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 extern s32 chr_select_slot_state;
 

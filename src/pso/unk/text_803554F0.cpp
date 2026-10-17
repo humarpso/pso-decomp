@@ -2,7 +2,7 @@
 #include "pso/boss/TBoss5GryphonTornado.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 extern "C" {
-s32 get_player_by_client_id(u32);
+void *get_player_by_client_id(s32 i);
 extern const f32 lbl_805DFFA8;
 void TBoss5GryphonTornado::sub_803554F0(u8 *arg1) {
     u8 *arg0 = (u8 *)this;
@@ -16,7 +16,7 @@ void TBoss5GryphonTornado::sub_803554F0(u8 *arg1) {
   new_var = -1U;
   if (temp_r3 != new_var)
   {
-    player = (u8 *) get_player_by_client_id((u32) temp_r3);
+    player = (u8 *) get_player_by_client_id(temp_r3);
     if (player != 0)
     {
       *((f32 *) (((s8 *) arg1) + 0)) = (f32) ((*((f32 *) (((s8 *) player) + 0x38))) - (*((f32 *) (((s8 *) arg0) + 0x28))));

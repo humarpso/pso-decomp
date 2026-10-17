@@ -5,8 +5,8 @@
 
 extern "C" {
 
-s32 get_class_attack_template(void *);
-s32 get_class_defense_template(void *);
+u8 *get_class_attack_template(u8 *arg0);
+u8 *get_class_defense_template(u8 *arg0);
 s32 copy_data__6TLobbyFPvPv(void *);
 s32 set_move_mode__10TObjPlayerFi(void *);
 

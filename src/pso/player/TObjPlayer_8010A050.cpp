@@ -86,7 +86,7 @@ struct VObj_8010A26C : Base_8010A26C {
 };
 
 extern "C" {
-u32 get_item_system_generation();
+int get_item_system_generation(void);
 extern const s32 lbl_8043E280[];
 extern const s32 lbl_8043E2A0[];
 extern s32 __vt__13TUnk_8049F130[];
@@ -94,18 +94,18 @@ s32 TObjPlayer__sub_8010A058(void* p);
 void *__dt__13TUnk_8049F130Fv(void *arg0, s16 arg1);
 s32 get_field_3e0__12TBoss3VoloptFv();
 s32 create_timed_particle_emitter(s32, s32, s32, s32);
-s32 spawn_particle_effect(s32, s32);
+void *spawn_particle_effect(void *pos, s32 id);
 s32 is_item_area_enabled();
 VObj_8010A26C *get_player_by_client_id(u16);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s16 count_nearby_players_with_shield__10TObjPlayerFUsPUc(u16, s8 *);
 s32 init__9TItemDataFv(s8 *);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 u32 create_particle_emitter(s32 *, s32);
 s32 get_current_floor();
-u32 get_item_field_6__10TObjPlayerFPv(void *);
+int get_item_field_6__10TObjPlayerFPv(void *p);
 u8 get_field_ed__5TItemFv();
 s32 reset_key_machine_state__10TObjPlayerFv();
 
@@ -137,7 +137,7 @@ void TUnk_8049F130::run_task() {
                     if ((s32) *(s32 *)&this->unk_24 == 0) {
                         create_timed_particle_emitter(player + 0x2FC, this->m_20, 0, 0xA);
                     } else {
-                        spawn_particle_effect(player + 0x2FC, this->m_20);
+                        spawn_particle_effect((void *)(player + 0x2FC), this->m_20);
                     }
                 }
             }

@@ -5,12 +5,12 @@
 #include "pso/misc/TWindowHelpItem.h"
 
 extern "C" {
-s32 get_shared_text_buffer();
-s32 text_builder_append(void *);
-s32 text_builder_reset();
-s32 set_text_entry_string(int, int, int);
+s32 *get_shared_text_buffer(void);
+void text_builder_append(u8 *str);
+void text_builder_reset(void);
+void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 u8 *get_card_data_ptr__17TWindowSubComCardFv(s32);
-u8 *TWindowSubComCard__sub_8027523C(s32);
+void *TWindowSubComCard__sub_8027523C(void *p);
 s32 strcmp(void *, int);
 extern u8 lbl_805DD898;
 u8 *init_heading_entry__20TWindowSubStatusDispFPvPvici(u8 *arg0, u8 *arg1, s32 arg2, s8 arg3, s32 arg4);
@@ -54,22 +54,22 @@ void TWindowSubStatusDisp::fill_card_text_entries(s32 arg1) {
     temp_r27 = *(s32 *)((s8 *)temp_r3 + 0x18);
     temp_r26 = *(s32 *)((s8 *)temp_r3 + 0x20);
     text_builder_reset();
-    text_builder_append((void *) (&lbl_805DD898));
-    text_builder_append((void *) (((TWindowSubStatusDisp *)arg1)->get_sub_disp_ptr()));
-    set_text_entry_string((int) (temp_r31), (int) (get_shared_text_buffer()), (int) (0x60));
+    text_builder_append((&lbl_805DD898));
+    text_builder_append((u8 *)(((TWindowSubStatusDisp *)arg1)->get_sub_disp_ptr()));
+    set_text_entry_string((u8 *)(temp_r31), (u32)(get_shared_text_buffer()), (0x60));
     text_builder_reset();
-    text_builder_append((void *) (&lbl_805DD898));
-    text_builder_append((void *) (((TWindowSubComCard *)arg1)->get_name()));
-    set_text_entry_string((int) (temp_r30), (int) (get_shared_text_buffer()), (int) (0x60));
+    text_builder_append((&lbl_805DD898));
+    text_builder_append((u8 *)(((TWindowSubComCard *)arg1)->get_name()));
+    set_text_entry_string((u8 *)(temp_r30), (u32)(get_shared_text_buffer()), (0x60));
     text_builder_reset();
-    text_builder_append((void *) (&lbl_805DD898));
-    text_builder_append((void *) (TWindowSubComCard__sub_8027523C(arg1)));
-    set_text_entry_string((int) (temp_r29), (int) (get_shared_text_buffer()), (int) (0x60));
+    text_builder_append((&lbl_805DD898));
+    text_builder_append((u8 *)(TWindowSubComCard__sub_8027523C((void *)arg1)));
+    set_text_entry_string((u8 *)(temp_r29), (u32)(get_shared_text_buffer()), (0x60));
     if ((s8) *get_card_data_ptr__17TWindowSubComCardFv(arg1) != 0) {
         text_builder_reset();
-        text_builder_append((void *) (&lbl_805DD898));
-        text_builder_append((void *) (get_card_data_ptr__17TWindowSubComCardFv(arg1)));
-        set_text_entry_string((int) (temp_r28), (int) (get_shared_text_buffer()), (int) (0x60));
+        text_builder_append((&lbl_805DD898));
+        text_builder_append((get_card_data_ptr__17TWindowSubComCardFv(arg1)));
+        set_text_entry_string((u8 *)(temp_r28), (u32)(get_shared_text_buffer()), (0x60));
         ((TWindowSubStatusDisp *)temp_r27)->clear_visible_flag();
         ((TWindowSubStatusDisp *)temp_r28)->clear_visible_flag();
     } else {
@@ -79,9 +79,9 @@ void TWindowSubStatusDisp::fill_card_text_entries(s32 arg1) {
     temp_r31_2 = (u8 *)(((TWindowSubStatusDisp *)arg1)->get_sub_disp_ptr());
     if (strcmp((void *) (((TWindowSubComCard *)arg1)->get_sub_obj()), (int) (temp_r31_2)) != 0) {
         text_builder_reset();
-        text_builder_append((void *) (((TWindowSubComCard *)arg1)->get_sub_obj()));
-        text_builder_append((void *) (TWindowSubStatusDisp::get_message_10(0x45)));
-        set_text_entry_string((int) (temp_r26), (int) (get_shared_text_buffer()), (int) (0x60));
+        text_builder_append((u8 *)(((TWindowSubComCard *)arg1)->get_sub_obj()));
+        text_builder_append((u8 *)(TWindowSubStatusDisp::get_message_10(0x45)));
+        set_text_entry_string((u8 *)(temp_r26), (u32)(get_shared_text_buffer()), (0x60));
         ((TWindowSubStatusDisp *)temp_r26)->clear_visible_flag();
         return;
     }

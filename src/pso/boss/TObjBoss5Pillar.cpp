@@ -37,13 +37,13 @@ void queue_destruction__7TObjectFv(void *);
 void fn_8028AE1C(void *);
 void *__dt__15TObjBoss5PillarFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
-s32 TObjBoss5PillarDemo__sub_8028ADB0(int);
+void TObjBoss5PillarDemo__sub_8028ADB0(u32 arg0);
 s32 draw_ginja_model_with_motion(int, int, f32);
 s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-s32 fn_8028ADDC(int);
+void fn_8028ADDC(void *p);
 
 extern s32 boss5_common_texture_list;
 
@@ -54,9 +54,9 @@ void TObjBoss5Pillar::render() {
         TObjFish::set_global_param((s32)((void *) (boss5_common_texture_list)));
         post_translate_matrix((void *) (arg0 + 0x2C));
         if ((s32) *(s32 *)&this->m_1c != 3) {
-            fn_8028ADDC((int) (*(s32 *)&this->m_48));
+            fn_8028ADDC((void *)(*(s32 *)&this->m_48));
             draw_ginja_model_with_motion((int) (*(s32 *)&this->m_38), (int) (*(s32 *)&this->m_40), (f32) (*(f32 *)((s8 *)arg0 + 0x20)));
-            TObjBoss5PillarDemo__sub_8028ADB0((int) (*(s32 *)&this->m_48));
+            TObjBoss5PillarDemo__sub_8028ADB0((*(s32 *)&this->m_48));
         }
         draw_ginja_model_with_motion((int) (*(s32 *)&this->m_3c), (int) (*(s32 *)&this->m_44), (f32) (*(f32 *)((s8 *)arg0 + 0x20)));
         pop_matrix();

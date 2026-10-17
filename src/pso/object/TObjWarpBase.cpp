@@ -43,20 +43,20 @@ struct VObj_8019DA54_8019D964 : Base_8019DA54_8019D964 {
 void *__dt__12TObjWarpBaseFv(void *arg0, s16 arg1);
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 TLobby__sub_803DA16C(void*);
-s32 TWindow__close(u32);
+void TWindow__close(u8 *arg0);
 s32 __dl__7TObjectFPv(void *);
-s32 fn_8019DD24(s32, s32);
+void fn_8019DD24(void *p, u32 v);
 
 void TObjWarpBase::vfunc_14() {
     u32 player;
 
     player = (u32) *(u32 *)((s8 *)this + 0xB0);
     if (player != 0U) {
-        TWindow__close(player);
+        TWindow__close((u8 *)player);
         *(u32 *)((s8 *)this + 0xB0) = 0U;
         player = get_player_by_client_id(*(u16 *)((s8 *)this + 0xB8));
         if (player != 0U) {
-            fn_8019DD24(player + 0x550, 4);
+            fn_8019DD24((void *)(player + 0x550), 4);
         }
         *(u16 *)((s8 *)this + 0xB8) = 0xFFFFU;
     }

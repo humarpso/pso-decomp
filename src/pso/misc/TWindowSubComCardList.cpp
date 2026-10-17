@@ -44,7 +44,7 @@ struct Self_80275A8C {
 extern "C" {
 u32 get_item_field_6__10TObjPlayerFPv(void *);
 s32 get_shared_text_buffer();
-void get_technique_name(u16);
+s32 get_technique_name(s32 arg0);
 s32 weapon_has_extra_attack();
 u8 *get_player_by_client_id(s32);
 u8 get_cast_technique_level(void *, s16);
@@ -55,8 +55,8 @@ void text_builder_append();
 void text_builder_reset();
 u8 *calc_technique_parameters(u16, u8, s32);
 s32 get_palette_consumable_count(u16, s32);
-void get_help_text_string(s32);
-void toggle_help_window_on_button(s32, s32);
+s32 get_help_text_string(s32 arg0);
+void toggle_help_window_on_button(u32 arg0, s32 arg1);
 extern s32 current_language;
 s32 get_card_entry__17TWindowSubComCardFi(s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
@@ -73,13 +73,13 @@ u8 *TWindowSubComCardList__ct(u8 *arg0, void *arg1);
 s32 count_leading_active__17TWindowSubComCardFPvi(s32, s32);
 u8 *TWindowSubComCardList__sub_802757AC(u8 *arg0, void *arg1, s32 arg2, s32 arg3, s8 arg4);
 void *__nw__7TObjectFUl(u32);
-s32 TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 s32 set_field_1c__6TLobbyFf(void *);
 s32 TWindowSubEquip__sub_80263AF8(void *, s32);
-s32 fn_80275D90(void *);
-s32 TWindowSubCustomEquip__sub_80275DA8(s32);
+int fn_80275D90(void *p);
+int TWindowSubCustomEquip__sub_80275DA8(void *p);
 Ev_802758C8 *calc_equip_index__21TWindowSubCustomEquipFv(void *);
-void *TWindowSubCustomSelect__ct(void *, s32);
+u8 *TWindowSubCustomSelect__ct(u8 *arg0, s32 arg1);
 void *__dt__21TWindowSubComCardListFv(void *arg0, s16 arg1);
 void render__21TWindowSubComCardListFv(u8 *arg0);
 s32 handle_list_page_flip_input(s32);
@@ -88,8 +88,8 @@ s32 get_draw_context__11TWindowBaseFPv();
 s32 draw_visible_window_entries(void *, void *, s32);
 s32 draw_list_page_indicator(s32, s32);
 void __dl__7TObjectFPv(void *);
-void __dt__11TWindowMenuFv(void *, int);
-void delete_if_allocated(void *, int);
+void *__dt__11TWindowMenuFv(void *arg0, s16 arg1);
+s32 delete_if_allocated(s32 arg0, s16 arg1);
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
 s32 run_task__11TWindowMenuFv();
 
@@ -120,7 +120,7 @@ void TWindowSubComCardList::run_task() {
 void *__dt__21TWindowSubComCardListFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TWindowSubComCardList;
-        delete_if_allocated(*(void **)((s8 *)arg0 + 0x8C), 1);
+        delete_if_allocated((s32)(*(void **)((s8 *)arg0 + 0x8C)), 1);
         __dt__11TWindowMenuFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -255,7 +255,7 @@ void TUnk_804D1160::run_task() {
     case 0:
     case 1:
         if (self->f2c != NULL) {
-            TWindow__close(self->f2c);
+            TWindow__close((u8 *)self->f2c);
             self->f2c = NULL;
         }
         ((TWindowSubCustomEquip *)(self->f28))->clear_flag_and_set_entry_state();
@@ -263,7 +263,7 @@ void TUnk_804D1160::run_task() {
     case 2:
         ((TWindowSubCustomEquip *)(self->f28))->get_cursor_pos(&ev);
         ((TUnk_804D1160 *)self)->update_customize_help_text(&ev);
-        if (TWindowSubCustomEquip__sub_80275DA8(self->f28) != 0) {
+        if (TWindowSubCustomEquip__sub_80275DA8((void *)self->f28) != 0) {
             self->f24->v7();
             self->state = 5;
         } else if (((TWindowSubCustomEquip *)(self->f28))->is_selected() != 0) {
@@ -273,7 +273,7 @@ void TUnk_804D1160::run_task() {
     case 3:
         p = __nw__7TObjectFUl(0x84);
         if (p != NULL) {
-            p = TWindowSubCustomSelect__ct(p, self->f20);
+            p = TWindowSubCustomSelect__ct((u8 *)p, self->f20);
         }
         self->f2c = p;
         TWindowSubEquip__sub_80263AF8(self->f24, 1);

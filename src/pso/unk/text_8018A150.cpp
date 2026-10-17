@@ -18,7 +18,7 @@ struct RecoveredGlobal_8018A150_lbl_804B6C24 { s32 value; u8 remaining[0x148]; }
 
 extern "C" {
 u8 * construct_actor_base__10TObjPlayerFPvPv(void *);
-s32 TLazerFenceSw__sub_8018A554(void *, f32);
+void TLazerFenceSw__sub_8018A554(void *p, f32 v);
 extern RecoveredGlobal_8018A150_lbl_804B6C24 lbl_804B6C24;
 extern s32 lbl_805D32E8;
 extern const f32 lbl_805DBCF4;
@@ -43,7 +43,7 @@ u8 *init_container_base(u8 *arg0, s32 arg1, s32 arg2) {
         ((TUnk_804B6C24 *)arg0)->m_360 = 0;
     }
     ((TUnk_804AF8D8 *)(arg0 + 0x340))->sub_80156CEC();
-    TLazerFenceSw__sub_8018A554((void *) (arg0 + 0x340), (f32) (lbl_805DBD08));
+    TLazerFenceSw__sub_8018A554((arg0 + 0x340), (f32) (lbl_805DBD08));
     ((TUnk_804B6C24 *)arg0)->m_364 = 0;
     return arg0;
 }

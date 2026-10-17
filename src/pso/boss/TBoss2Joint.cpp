@@ -226,16 +226,16 @@ extern const f32 lbl_805D847C;
 extern const f32 lbl_805D8480;
 void TBoss2Joint__sub_8003688C(u8 *arg0);
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
-u8 * TObjEneDD__ct(void *);
+void *TObjEneDD__ct(void *arg0);
 extern s32 __vt__11TBoss2Joint[];
 extern s32 TBoss2Joint__name;
 u8 *TBoss2Joint__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32 arg5, s32 arg6);
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 extern RecoveredGlobal_80036A90_lbl_80435A68 TBoss2Joint__joint_offset_vec4_table;
 extern const f32 TBoss2Joint__data_805D8474;
 extern const f32 lbl_805D8498;
 void push_trail_position__13TBoss2DeRolLeFPvPv(Obj_80037178 *self, V3_80037178 *src);
-void *spawn_continuous_particle_effect_with_flags(Vec_80037074 *, s32, s32);
+void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
 s32 register_object__6TLobbyFl(s32);
 s32 dispatch_shared_handler_b__6TLobbyFl(s32);
 s32 register_boss__6TLobbyFl(s32);
@@ -247,7 +247,7 @@ extern const f32 lbl_805D8490;
 void *__dt__11TBoss2JointFv(void *arg0, s16 arg1);
 s32 spawn_offset_particle__13TBoss2DeRolLeFiff(void *, f32, f32);
 s32 apply_hp_damage_with_sound__13TBoss2DeRolLeFPvi(s32, s32, u16);
-void __dt__9TObjEneDDFv(void *, int);
+void *__dt__9TObjEneDDFv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 
@@ -301,7 +301,7 @@ typedef char RecoveredGlobal_80036A90_lbl_80435A68_size[sizeof(RecoveredGlobal_8
 void TBoss2Joint::init_joint_offset(s32 arg1) {
     u8 *arg0 = (u8 *)this;
     this->m_3a8 = (f32) TBoss2Joint__data_805D8474;
-    copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0x3AC), (void *) ((u8 *)&TBoss2Joint__joint_offset_vec4_table.value + (arg1 * 0x10)));
+    copy_vec4__13TRaderMapCoreFPvPv((arg0 + 0x3AC), ((u8 *)&TBoss2Joint__joint_offset_vec4_table.value + (arg1 * 0x10)));
 }
 
 struct Ent_80036ACC { s32 a; s32 b; };

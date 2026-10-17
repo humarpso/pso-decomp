@@ -16,7 +16,7 @@ extern s32 tl_05;
 s16 is_status_subsystem_ready__10TObjPlayerFv(s32);
 s32 get_extended_state__10TObjPlayerFv(s32);
 Item_80127BE0 *get_captured_target_entry(s32, s32);
-s32 get_captured_target_count(s32);
+s32 get_captured_target_count(s32 *arg0);
 u8 *TObjPlayer::create_vtable_804A3548(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
@@ -51,7 +51,7 @@ void TUnk_804A3640::emit_marker_effects() {
     if (((TObjPlayer *)((Self_80127BE0 *)this))->draw_icon((s32)1, (s32)buf) != 0) {
         ext = get_extended_state__10TObjPlayerFv(((Self_80127BE0 *)this)->fF0);
         if (ext != 0) {
-            for (i = 0; i != get_captured_target_count(ext); i++) {
+            for (i = 0; i != get_captured_target_count((s32 *)ext); i++) {
                 item = get_captured_target_entry(ext, i);
                 if (item != NULL) {
                     ((TObjPlayer *)(&tec))->construct_target_cursor_records();

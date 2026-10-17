@@ -174,8 +174,8 @@ extern const f32 lbl_805D9484;
 extern Col_80085798 demo_mode_particle_color;
 extern const f32 lbl_805D9478;
 void TObjRoomId__sub_80141CF4(void *dst, Col_80085798 *src, f32 t);
-s32 set_color_blend_mode(int, int, int, int);
-s32 set_chunk_material_color(void *);
+void set_color_blend_mode(s32 a, s32 b, s32 c, s32 d);
+void set_chunk_material_color(f32 *arg);
 s32 find_particle_texture_index(s32 id);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern const f32 TParticleCtrl__data_805D94C4;
@@ -196,22 +196,22 @@ s32 TParticleCtrl__sub_803E2A1C(void *, int);
 extern Tex_80086248 lbl_804C5820[];
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805D94D8;
-s32 fn_80141EB4();
-s32 setSpriteInverseColorBlend();
+void fn_80141EB4(void);
+void setSpriteInverseColorBlend(void);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 s32 matrix_mult_vec(int, void *, void *);
-s32 begin_screen_draw(int);
-s32 DVDConvertEntrynumToPath(void *);
-s32 set_draw_texture_and_color(int, int);
-s32 set_constant_material_color(int);
+void begin_screen_draw(s32 arg0);
+void DVDConvertEntrynumToPath(f32 *q);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
+void set_constant_material_color(u32 x);
 extern Cam_80085EE4 lbl_8058D4F8;
 extern const f32 lbl_805D94C0;
 extern const f32 lbl_805D94C8;
 f32 fabs_float(f32);
 u32 csnVector(void *, void *, int);
 f32 vec3_dot(void *, void *);
-f32 vec_squared_length(void *);
+f32 vec_squared_length(u8 *arg0);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 normalize_vector(void *);
 s32 push_matrix_from(void *);
@@ -311,7 +311,7 @@ void TUnk_8048E6DC::run_task() {
         d.x = self->pos.x - (*(Player_80085CB0 * *)&camera_ctrl_instance)->pos.x;
         d.y = lbl_805D9480;
         d.z = self->pos.z - (*(Player_80085CB0 * *)&camera_ctrl_instance)->pos.z;
-        if (lbl_805D9480 != vec_squared_length(&d)) {
+        if (lbl_805D9480 != vec_squared_length((u8 *)&d)) {
             normalize_vector(&d);
         }
         push_matrix_from(identity_matrix);
@@ -449,7 +449,7 @@ void TUnk_8048E778::draw_sprite_quad(s32 kind) {
         quad.ay = -sx * s;
         quad.bx = sy * s;
         quad.by = sy * c;
-        DVDConvertEntrynumToPath(&quad);
+        DVDConvertEntrynumToPath((f32 *)&quad);
     }
     TWindowSubStatusDisp::get_player();
     TParticleCtrl::end_effect_render();
@@ -526,7 +526,7 @@ void TUnk_8048E728::apply_particle_model_fade_color(s32 mode) {
         f.g = 0.0f;
         f.b = 0.0f;
     }
-    set_chunk_material_color(&f);
+    set_chunk_material_color((f32 *)&f);
 }
 
 u8 *__dt__13TUnk_8048E728Fv(u8 *arg0, s16 arg1) {

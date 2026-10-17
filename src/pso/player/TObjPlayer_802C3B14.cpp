@@ -32,7 +32,7 @@ s32 begin_action_state__10TObjPlayerFPv(u8 *arg0) {
 }
 
 u8 get_mag_level__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_801BFFA0(s32);
+s32 TObjPlayer__sub_801BFFA0(void *p);
 s32 TObjPlayer__sub_802C4668(s32, s32);
 int get_char_index__23TAdSinglePlyChrSelectGCFUi(void*);
 
@@ -55,7 +55,7 @@ void TObjPlayer::copy_mag_level_to_record(u8 *arg1) {
 
 void TObjPlayer::apply_pending_action(s32 arg1) {
     s32 arg0 = (s32)this;
-    s32 temp = TObjPlayer__sub_801BFFA0(arg0 + 0x41C);
+    s32 temp = TObjPlayer__sub_801BFFA0((void *)(arg0 + 0x41C));
     if (temp != 0) {
         TObjPlayer__sub_802C4668(arg1, temp);
         ((TObjPlayer *)arg1)->set_current_time();

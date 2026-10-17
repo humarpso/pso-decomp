@@ -3,8 +3,8 @@
 
 extern "C" {
 
-s32 TWindowMainMenu__sub_8024E3D0();
-s32 TLobby__sub_8026ACDC();
+void TWindowMainMenu__sub_8024E3D0(void);
+void TLobby__sub_8026ACDC(void);
 
 extern s32 TWindowCtrl__active_window;
 

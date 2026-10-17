@@ -24,11 +24,11 @@ extern RecoveredGlobal_802D298C_TLobby__data_80540BD0 TLobby__trade_window_state
 u8 *TLobby__sub_802D298C(void);
 u8 *TLobby__sub_802D299C(void);
 s32 *get_trade_window_state(void);
-s32 try_spend_actor_meseta(s32, s32);
+s32 try_spend_actor_meseta(u8 *arg0, s32 arg1);
 s32 send_6x29_delete_item__10TObjPlayerFPvii(s32, s32, s32);
 s32 get_player_by_client_id(s32);
 s32 check_player_action_allowed();
-s32 remove_list_entry_by_id(s32);
+void remove_list_entry_by_id(s32 arg0);
 s32 fn_801D4270(s32);
 s32 load_character_from_card__23TAdSinglePlyChrSelectGCFv();
 extern s32 local_client_id;
@@ -118,7 +118,7 @@ void TLobby::apply_trade_items() {
                     id = p->id;
                     if (count > 0) {
                         if (id == 0xFFFFFF01) {
-                            try_spend_actor_meseta(player, count);
+                            try_spend_actor_meseta((u8 *)player, count);
                         } else {
                             if ((allowed != 0) && (fn_801D4270(id) != 0)) {
                                 remove_list_entry_by_id(id);

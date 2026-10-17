@@ -27,7 +27,7 @@ extern const f32 lbl_805DF604;
 extern const f32 lbl_805DF608;
 void add_plate_rect__20TAdChrSelMovePlateGCFPvPv(Obj_80325764 *arg0, V2_80325764 *arg1);
 void __ct__7TObjectFP7TObject(void *);
-s32 TAdMultiPlyChrSelectGC__sub_802C6FA8();
+int TAdMultiPlyChrSelectGC__sub_802C6FA8(void);
 extern u8 __vt__20TAdChrSelMovePlateGC[];
 extern s32 lbl_805D4190;
 extern s32 chr_sel_move_plate_texture;

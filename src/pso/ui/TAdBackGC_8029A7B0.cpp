@@ -6,10 +6,10 @@
 
 extern "C" {
 s32 draw_title_background_layer(void *, int, int, f32);
-s32 restore_saved_depth_alpha_state();
+void restore_saved_depth_alpha_state(void);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 s32 fn_8029A6EC(void *);
-s32 set_cached_blend_factor(int, int);
+void set_cached_blend_factor(s32 arg0, s32 arg1);
 extern s32 chr_select_ad_pic_2_texture_descriptor[];
 void *__ct__9TAdBackGCFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
@@ -24,11 +24,11 @@ void TAdBackGC::render() {
     } else if (TMainTask::get_state_flag() != 1) {
 block_4:
         fn_8029A6EC((void *) (arg0));
-        set_cached_blend_factor((int) (0), (int) (8));
-        set_cached_blend_factor((int) (1), (int) (0xA));
+        set_cached_blend_factor((0), (8));
+        set_cached_blend_factor((1), (0xA));
         draw_title_background_layer((void *) (chr_select_ad_pic_2_texture_descriptor), (int) (0), (int) (-1), (f32) (*(f32 *)((s8 *)arg0 + 0x1C)));
-        set_cached_blend_factor((int) (0), (int) (8));
-        set_cached_blend_factor((int) (1), (int) (6));
+        set_cached_blend_factor((0), (8));
+        set_cached_blend_factor((1), (6));
         if ((s32) *(s32 *)((s8 *)arg0 + 0x20) == 0) {
             restore_saved_depth_alpha_state();
         }

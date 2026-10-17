@@ -202,7 +202,7 @@ extern const f32 TBoss6Type2__data_805DE430;
 extern const f32 TBoss6Type2__data_805DE434;
 s32 clear_render_callback__8TObjFishFv(u32);
 s32 draw_model_blend_motion(s32, Prm_802BCAB8 *, f32);
-s32 draw_model_motion(s32, s32, f32);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern const f32 TBoss6Type2__data_805DE410;
 u8 * get_player_data__10TObjPlayerFi(s32);
 s32 play_sound_effect(s32, void *, s32, s32);
@@ -564,9 +564,9 @@ u8 * get_attribute_entry__10TObjPlayerFl(u32, s32);
 u16 obj_getArrU16_FC(void *obj, s32 i);
 u16 obj_getField1c(void *);
 s32 is_split_screen();
-void request_follow_camera_offsets(s32, s32, u16);
-s32 spawn_particle_effect_with_flags(s32, s32, s32);
-s32 spawn_particle_effect(s32, s32);
+void request_follow_camera_offsets(void *arg0, void *arg1, u16 arg2);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
+void *spawn_particle_effect(void *pos, s32 id);
 u32 create_particle_emitter(void *, int);
 s32 TObjControl__ct(s32, s32);
 s32 angle_diff_s16(s32, s32);
@@ -746,13 +746,13 @@ void TBoss6Type2::spawn_hit_effects() {
         e = t;
         for (i = 0; i < 3; i++, e++) {
             if (e->flags & 0x04000000) {
-                spawn_particle_effect((s32)((u8 *)o + boss6_type2_hit_effect_node_table[i] * 0xC + 0x59C), 0x223);
+                spawn_particle_effect(((u8 *)o + boss6_type2_hit_effect_node_table[i] * 0xC + 0x59C), 0x223);
                 found = 1;
             }
         }
     }
     if (found == 0) {
-        spawn_particle_effect((s32)((u8 *)o + 0x2FC), 0x223);
+        spawn_particle_effect(((u8 *)o + 0x2FC), 0x223);
     }
 }
 
@@ -861,14 +861,14 @@ void TBoss6Type2::update_footstep_effects() {
       {
         *((s32 *) (((s8 *) (((u8 *) arg0) + temp_r4)) + 0)) = 1;
         ((s32 (*)(s32, u32, s16, s32))play_sound_effect)(0x4006A300, (u32) temp_r29, 0, 0);
-        spawn_particle_effect_with_flags((s32) temp_r29, 0x220, 0x40);
+        spawn_particle_effect_with_flags(temp_r29, 0x220, 0x40);
         if (((s32) (*(s32 *)&this->m_418)) == 0)
         {
-          spawn_particle_effect((s32) temp_r29, 0x222);
+          spawn_particle_effect(temp_r29, 0x222);
         }
         else
         {
-          spawn_particle_effect_with_flags((s32) temp_r29, 0x229, 0x2000);
+          spawn_particle_effect_with_flags(temp_r29, 0x229, 0x2000);
         }
         TBoss6PlotFalz::apply_radial_effect_to_players((void *)temp_r29, (s16)0xC0, (s16)0xF, (f32)lbl_805DE42C);
       }
@@ -978,11 +978,11 @@ void TBoss6Type2::sub_802BA078() {
             s32 r = TBoss6PlotFalz::rand_vary_count(((Boss_802BA078 *)this)->f4B8, TBoss6Type2__data_805DE430);
             TBoss6PlotFalz::damage_player_hp(((Boss_802BA078 *)this)->f55C, r);
             p->f30 |= 0x200;
-            spawn_particle_effect_with_flags((s32)&p->pos, 0x212, 0x40);
+            spawn_particle_effect_with_flags(&p->pos, 0x212, 0x40);
             {
                 V3_802BA078 v = p->pos;
                 v.y = v.y + TBoss6Type2__data_805DE434;
-                spawn_particle_effect_with_flags((s32)&v, 0x223, 0x40);
+                spawn_particle_effect_with_flags(&v, 0x223, 0x40);
             }
             if (((TBoss6Type2 *)((Boss_802BA078 *)this))->is_target_valid() == 0) {
                 ((s32 (*)(s32, u32, s16, s32))play_sound_effect)(0x4000AD13, 0, 0, 0);
@@ -1097,7 +1097,7 @@ void TBoss6Type2::update_possess_target() {
             if (((TBoss6Type2 *)((u8 *)this))->is_target_valid() == 0) {
                 play_sound_effect(0x40069E13, ((u8 *)this) + 0x38, 0, 1);
             }
-            ((s32 (*)(void *, s32))spawn_particle_effect)(pl + 0x38, 0x36);
+            spawn_particle_effect(pl + 0x38, 0x36);
             done = 1;
         }
         if (done != 0) {
@@ -1413,7 +1413,7 @@ void TBoss6Type2::drop_random_rocks(s32 arg0, s32 arg1) {
 }
 
 void TBoss6Type2::request_default_follow_camera() {
-    request_follow_camera_offsets((s32) &lbl_804DFAC4.value, (s32) &lbl_804DFAD0.value, 0xFFFFU);
+    request_follow_camera_offsets(&lbl_804DFAC4.value, &lbl_804DFAD0.value, 0xFFFFU);
 }
 
 void TBoss6Type2::init_range() {
@@ -1489,7 +1489,7 @@ s32 request_player_camera_offsets__11TBoss6Type2FPvff(Obj_802BB1E0 *self, f32 a,
                     }
                 }
             }
-            ((void (*)(void *, void *, u16))request_follow_camera_offsets)(&off, &cam, obj_getField1c(p));
+            request_follow_camera_offsets(&off, &cam, obj_getField1c(p));
             if (flag == 0) {
                 break;
             }
@@ -1838,7 +1838,7 @@ s32 TBoss6Type2::is_target_valid() {
 void TBoss6Type2::update_attack_switch() {
     u8 *arg0 = (u8 *)this;
     if ((*(s32 *)((s8 *)arg0 + 0x518) % 24) == 0) {
-        ((s32 (*)(void *, s32, s32))spawn_particle_effect_with_flags)(arg0 + 0x38, 0x224, 0x2040);
+        spawn_particle_effect_with_flags(arg0 + 0x38, 0x224, 0x2040);
     }
 }
 
@@ -2120,10 +2120,10 @@ void TBoss6Type2::draw_body_models() {
                 TObjFish::set_global_param(p0);
                 if (TBoss6Type2__data_805DE410 == *(f32 *)((s8 *)arg0 + 0x4A4)) {
                     if (done != 0) {
-                        draw_model_motion(p1, *(s32 *)((s8 *)arg0 + 0x498), *(f32 *)((s8 *)arg0 + 0x49C));
+                        draw_model_motion((void *)p1, (void *)(*(s32 *)((s8 *)arg0 + 0x498)), *(f32 *)((s8 *)arg0 + 0x49C));
                     } else {
                         ((TObjFish *)obj)->set_draw_callback_list();
-                        draw_model_motion(p1, *(s32 *)((s8 *)arg0 + 0x498), *(f32 *)((s8 *)arg0 + 0x49C));
+                        draw_model_motion((void *)p1, (void *)(*(s32 *)((s8 *)arg0 + 0x498)), *(f32 *)((s8 *)arg0 + 0x49C));
                         clear_render_callback__8TObjFishFv(obj);
                         done = 1;
                     }

@@ -3,7 +3,7 @@
 #include "pso/unk/TUnk_804CC870.h"
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 find_entity_by_id(int);
 extern const f32 lbl_805DC844;
 void TUnk_804CC870::run_task() {
@@ -18,7 +18,7 @@ void TUnk_804CC870::run_task() {
         this->m_48 = 0;
     }
     if (this->m_38 <= lbl_805DC844) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
     }
 }
 

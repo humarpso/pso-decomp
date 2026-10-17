@@ -36,7 +36,7 @@ struct T_8033954C { s32 f0; u8 pad[0x14]; void *vt; u8 pad2[0x40 - 0x1C]; s32 f4
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-void TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 extern u8 *password_entry_keyboard_control;
 extern s32 password_entry_dispatch_state;
 extern const f32 lbl_805DF9E8;
@@ -77,7 +77,7 @@ void *__dt__17TAdEnterPPPPassGCFv(void *arg0, s16 arg1);
 int forward_chg_game_mode__17TAdEnterPPPPassGCFPv(void* p);
 int request_transition__17TAdEnterPPPPassGCFPv(void* p);
 void __dl__7TObjectFPv(void *);
-void __dt__14TAdEnterBaseGCFv(void *, int);
+void *__dt__14TAdEnterBaseGCFv(void *arg0, s16 arg1);
 int request_transition__21TAdMultiChgGameModeGCFv(void*);
 
 void render__17TAdEnterPPPPassGCFv(void *self) {

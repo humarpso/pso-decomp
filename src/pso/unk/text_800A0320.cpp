@@ -7,7 +7,7 @@ extern const f32 lbl_805D9958;
 s32 calc_recoil_offsets__13TUnk_80490470Fv(f32);
 extern const f32 lbl_805D995C;
 void TObjPlayer__sub_800A0338(void);
-int set_chunk_blend(int);
+void set_chunk_blend(u32 x);
 
 s32 TUnk_80490470::vfunc_10() {
     return *(f32 *)&this->unk_18 > lbl_805D9958;

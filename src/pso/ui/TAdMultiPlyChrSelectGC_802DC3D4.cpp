@@ -6,9 +6,9 @@
 
 extern "C" {
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
-s32 TWindow__close(void *);
-s32 load_tables(s32);
-s32 swap_characters__23TAdSinglePlyChrSelectGCFii(u32, s32);
+void TWindow__close(u8 *arg0);
+void load_tables(int a0);
+s32 swap_characters__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 i);
 s32 play_sound_effect(s32, s32, s32, s32);
 u32 TAdMultiPlyChrSelectGC__sub_802DBE4C(void *, s32 *);
 s32 TAdMultiPlyChrSelectGC__sub_802DBEC4(void *, s32 *);
@@ -18,7 +18,7 @@ extern s8 controller_physical_port_bank[];
 void TAdMultiPlyChrSelectGC__sub_802DC5CC(void *arg0);
 void TAdMultiPlyChrSelectGC__sub_802DC440(void *arg0);
 s32 clear_entries__18TAdChrMoveEffectGCFv();
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 void TAdMultiPlyChrSelectGC::check_cancel_input() {
     if ((((TAdMultiPlyChrSelectGC *)(this->m_6c))->get_mode() < 0x14) || (TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0)) {
@@ -100,7 +100,7 @@ void TAdMultiPlyChrSelectGC__sub_802DC5CC(void *arg0) {
 loop_9:
     if (swap_characters__23TAdSinglePlyChrSelectGCFii(var_r30, *(s32 *)((s8 *)arg0 + 0x38)) != 0) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0x84) != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x84));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x84)));
             *(u32 *)((s8 *)arg0 + 0x84) = 0U;
         }
         gs = TAdMultiPlyChrSelectGC::get_global_state();

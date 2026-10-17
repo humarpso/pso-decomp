@@ -171,13 +171,13 @@ s32 get_current_floor(void);
 int queue_destruction__7TObjectFv(void*);
 s32 check_value_equals__13TQuestColCtrlFPll(void*, s32);
 void * TQuestVmDownLoadServer__sub_8006EF6C(s32);
-void copy_name(void *);
+void copy_name(s32 arg0);
 void read_disc_file(void *, s32);
 void * get_text_collection(s32);
-s32 fn_80131ADC(u32, s32);
-s32 fn_80131B18(u32, s32);
+void fn_80131ADC(u8 *arg0, u8 *arg1);
+void fn_80131B18(u8 *arg0, u8 *arg1);
 u32 TKeyBoardControl__ct(void *, void *, s32, s32, s32, s32);
-s32 mem_free(s32);
+void mem_free(void *p);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 check_flag_100__10TObjPlayerFPv(void *);
 void * get_player_by_client_id(s32);
@@ -217,9 +217,9 @@ void set_item_name_selection_index(int a0);
 int queue_destruction__12TQuestThreadFPv(void* p);
 void free_menu_object(void* p);
 void fn_801F6520(void* p);
-s32 TQuestListVM__sub_801F6530();
-s32 TQuestListOnline__sub_801F6540();
-s32 TQuestThread__sub_801F6548();
+int TQuestListVM__sub_801F6530(void);
+int TQuestListOnline__sub_801F6540(void);
+s32 *TQuestThread__sub_801F6548(void);
 s32 submit_card_password__17TWindowSubComCardFl(s32);
 s32 __dl__7TObjectFPv(void *);
 u32 __nw__7TObjectFUl(s32);
@@ -232,7 +232,7 @@ s32 get_window_id__11TWindowCtrlFv(void);
 void complete_actor_speech_balloons(s32);
 s32 is_actor_speech_balloon_done(s32);
 void TWindowHelpItem__set_displayed_item_by_id(void *, s32);
-void TWindowSubComCard__sub_80265500(void *);
+void TWindowSubComCard__sub_80265500(u8 *arg0);
 s32 get_selected_menu_value(void *);
 s32 align_menu_entry_positions(u32);
 void forward_trade_action_default__16TObjCityMainWarpFPviii(void *, void *, s32, s32);
@@ -240,7 +240,7 @@ void * check_room_seq_4__16TAdChrSelASlotGCFl(void *, s32);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(void *);
 void send_and_handle__6TLobbyFii(void *, void *, s32);
 void * update_window_mode_from_progress__6TLobbyFPv(void *, Pos_801F4DFC *);
-s32 fn_8026CB5C();
+char *fn_8026CB5C(void);
 void * get_window_layout_position(s32);
 s32 strcmp(s32, s32 *);
 s32 strncpy(void *, void *, int);
@@ -305,7 +305,7 @@ Self_801F4DFC *TObjItemNameSelect__ct(Self_801F4DFC *self, void *parent) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(self->m_1c, get_text_collection(item_name_selection_table[i].id), 6, i);
     }
     ((TWindowSubComCardList *)(self->m_1c))->set_scroll_target(lbl_805DC500, lbl_805DC504);
-    TWindowSubComCard__sub_80265500(self->m_1c);
+    TWindowSubComCard__sub_80265500((u8 *)self->m_1c);
     ((TLobby *)(self->m_1c))->set_field_1c(lbl_805DC508);
     pos.x = lbl_805DC4F4;
     pos.y = lbl_805DC4F8;
@@ -329,17 +329,17 @@ s32 TWindowSubComCard::process_keyboard_input() {
     if ((temp_field != 0U) && (((TWindowSubComCard *)temp_field)->update_keyboard() != 0)) {
         temp_r31 = ((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x1C)))->realloc_buffer();
         if (strcmp(temp_r31, &lbl_805DC4FC) == 0) {
-            mem_free(temp_r31);
+            mem_free((void *)temp_r31);
             ((s32 (*)(u32))free_menu_object)(*(u32 *)((s8 *)this + 0x1C));
             return 0;
         }
         if (submit_card_password__17TWindowSubComCardFl(temp_r31) != 0) {
             ((s32 (*)(u32))free_menu_object)(*(u32 *)((s8 *)this + 0x1C));
-            mem_free(temp_r31);
+            mem_free((void *)temp_r31);
             return 0;
         }
         ((s32 (*)(s32))fn_801F4F20)(temp_r31);
-        mem_free(temp_r31);
+        mem_free((void *)temp_r31);
         return 1;
     }
     return 0;
@@ -372,8 +372,8 @@ void *TObjItemNameEntry__ct(void *arg0) {
     *(u32 *)((s8 *)arg0 + 0x1C) = var_r0;
     if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) != 0U) {
         ((TWindowMakeTeam *)(*(u32 *)((s8 *)arg0 + 0x1C)))->set_sub_position((u8 *)(((s32 (*)(s32))get_window_layout_position)(0xBF)));
-        fn_80131ADC(*(u32 *)((s8 *)arg0 + 0x1C), ((s32 (*)(s32))get_window_layout_position)(0xC0));
-        fn_80131B18(*(u32 *)((s8 *)arg0 + 0x1C), fn_8026CB5C());
+        fn_80131ADC((u8 *)(*(u32 *)((s8 *)arg0 + 0x1C)), (u8 *)(((s32 (*)(s32))get_window_layout_position)(0xC0)));
+        fn_80131B18((u8 *)(*(u32 *)((s8 *)arg0 + 0x1C)), (u8 *)(fn_8026CB5C()));
     }
     *(u32 *)((s8 *)arg0 + 0x20) = ((u32 (*)(s32, s32))check_room_seq_4__16TAdChrSelASlotGCFl)(((s32 (*)(s32))get_window_layout_position)(0x56), 1);
     if ((u32) *(u32 *)((s8 *)arg0 + 0x20) != 0U) {
@@ -981,14 +981,14 @@ u8 *load_quest_root_script(u8 *arg0, void *parent, void *arg2, s32 arg3) {
     obj = (TObj_801F62E0 *)arg0;
     switch (*(s32 *)((s8 *)arg0 + 0x1A0)) {
     case 0:
-        copy_name(lbl_8044A640);
+        copy_name((s32)lbl_8044A640);
         size = ((TScene *)arg2)->update_lobby_scene();
         if (size < 0) {
             queue_destruction__7TObjectFv(arg0);
         } else {
             *(s32 *)((s8 *)arg0 + 0x198) = ((TQuestVmDownLoadServer *)(size + 0x400))->alloc();
             read_disc_file(arg2, *(s32 *)((s8 *)arg0 + 0x198));
-            copy_name(&lbl_805DC50C);
+            copy_name((s32)&lbl_805DC50C);
             (*(u8 * *)&quest_mission_manager) = arg0;
             init_quest_script_context(*(s32 *)((s8 *)arg0 + 0x198), arg0 + 0x24);
             mem = (void *)((s32 (*)(s32))__nw__7TObjectFUl)(0x194);
@@ -1020,14 +1020,14 @@ QThread_801F6418 *construct_load_quest__12TQuestThreadFPvPvPv(QThread_801F6418 *
     s32 r;
     __ct__7TObjectFP7TObject();
     self->vt = ((u8 *)&TQuestThread__data_804C8678);
-    copy_name(lbl_8044A640);
+    copy_name((s32)lbl_8044A640);
     r = ((TScene *)scene)->update_lobby_scene();
     if (r < 0) {
         queue_destruction__7TObjectFv((void*)(self));
     } else {
         self->f198 = ((TQuestVmDownLoadServer *)(r + 0x400))->alloc();
         read_disc_file(scene, self->f198);
-        copy_name(&lbl_805DC50C);
+        copy_name((s32)&lbl_805DC50C);
         (*(QThread_801F6418 * *)&quest_mission_manager) = self;
         init_quest_script_context(self->f198, (u8 *)self + 0x24);
         self->f1A0 = 0;

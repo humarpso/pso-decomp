@@ -29,7 +29,7 @@ s32 push_matrix();
 extern const f32 lbl_805DDD90;
 s32 pop_matrix();
 u32 get_player_by_client_id(u32);
-s32 fn_8029E7BC(s32, s32 *);
+s32 fn_8029E7BC(s32 arg0, u8 *arg1);
 s32 reset_ind_tev_stages__13TParticleCtrlFPv();
 
 s32 TObjEneRecon::render_player_marker(u16 arg0, s32 arg1) {
@@ -47,7 +47,7 @@ s32 TObjEneRecon::render_player_marker(u16 arg0, s32 arg1) {
     if (player == 0U) {
         return 0;
     }
-    if (fn_8029E7BC(player + 0x2FC, sp8) == 0) {
+    if (fn_8029E7BC(player + 0x2FC, (u8 *)sp8) == 0) {
         return 0;
     }
     if (arg1 != 0) {

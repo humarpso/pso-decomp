@@ -12,10 +12,10 @@ void TBoss6PlotFalz__sub_802B06D0(void *arg0);
 void TBoss6PlotFalz__sub_802B03F4(void);
 void TBoss6PlotFalz__sub_802B0448(void* p);
 void stop_adx_audio(void *arg0);
-s32 play_area_music(s32 *);
-s32 create_boss6_type2_appearance(void *);
+void play_area_music(char *name);
+void *create_boss6_type2_appearance(void *arg0);
 int is_ready__14TBoss6PlotFalzFv(void*);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 void TBoss6PlotFalz__sub_802B03F4(void) {  }
 void TBoss6PlotFalz::check_action_7() {
@@ -46,7 +46,7 @@ void stop_adx_audio(void *arg0) {
     *(u32 *)((s8 *)arg0 + 0x3DC) = 0U;
     TBoss6PlotFalz::freeze_all_players();
     TLobby::stop_audio_streams();
-    play_area_music(lbl_80470990);
+    play_area_music((char *)lbl_80470990);
     *(s32 *)((s8 *)arg0 + 0x3CC) = 0;
     create_boss6_type2_appearance(arg0);
 }
@@ -85,7 +85,7 @@ extern s32 lbl_804709A8[];
 void init_hall_boss_scene(void *arg0) {
     TBoss6EmptyWarp::init_warp();
     ((TBoss6PlotFalz *)arg0)->release_object();
-    play_area_music(lbl_804709A8);
+    play_area_music((char *)lbl_804709A8);
     refresh_players_equipment__14TBoss6PlotFalzFPv();
     *(s32 *)((s8 *)arg0 + 0x3CC) = 0;
     *(s32 *)((s8 *)arg0 + 0x3DC) = alloc__8TObjFishFPv(arg0);

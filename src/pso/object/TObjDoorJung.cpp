@@ -52,12 +52,12 @@ struct Jung_8018F808 { u8 pad0[0xC8]; s32 fC8; u8 padCC[4]; u32 fD0; s32 fD4; };
 
 extern "C" {
 s32 init_collision_body_parts(void *, void *, int);
-s32 init_door_base(void *);
+void *init_door_base(void *a0);
 extern RecoveredGlobal_8018F9CC_lbl_804B788C TObjDoorJung__collision_desc;
 extern s32 __vt__12TObjDoorJung[];
 extern s32 TObjDoorJung__class_name;
 u8 *TObjDoorJung__ct(u8 *arg0, s32 arg1, s32 arg2);
-void set_indexed_flags(void *, int, int);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
 u8 is_current_floor_switch_set(int);
 struct Node_8018F4AC;
 Node_8018F4AC *get_bml_model(void *, int);
@@ -67,7 +67,7 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object(void *);
+void draw_ginja_object(void *child);
 extern s32 TObjDoorJung__child_table[];
 extern s32 actor_frame_tick;
 extern void *TObjDoorJung__resource_handle;
@@ -204,7 +204,7 @@ void *__dt__12TObjDoorJungFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8018F9CC_lbl_804B788C_size[sizeof(RecoveredGlobal_8018F9CC_lbl_804B788C) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8018F9CC___vt__12TObjDoorJung_size[sizeof(RecoveredGlobal_8018F9CC___vt__12TObjDoorJung) == 0x58 ? 1 : -1];
 u8 *TObjDoorJung__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    init_door_base((void *) (arg0));
+    init_door_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8018F9CC___vt__12TObjDoorJung *)&__vt__12TObjDoorJung).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjDoorJung__class_name;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);

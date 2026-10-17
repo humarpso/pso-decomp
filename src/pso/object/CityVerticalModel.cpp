@@ -49,9 +49,9 @@ struct RecoveredGlobal_801830BC_lbl_804B5C08 {
 
 extern "C" {
 void vfunc_13__13TUnk_804B5C08Fl(void* a0);
-s32 get_city_common_model(int);
+s32 get_city_common_model(s32 i);
 s32 rotate_matrix_y(int, int);
-s32 translate_matrix(int, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);

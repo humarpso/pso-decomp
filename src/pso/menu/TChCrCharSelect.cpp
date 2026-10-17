@@ -7,8 +7,8 @@ extern "C" {
 
 s32 __ct__7TObjectFP7TObject(void *);
 void init_widgets__15TChCrCharSelectFv(void);
-s32 fn_802993F0();
-s32 fn_8029945C(void *);
+void fn_802993F0(void);
+void fn_8029945C(u8 *arg0);
 extern u8 lbl_80464E88[];
 extern void *__vt__15TChCrCharSelect[];
 extern s32 lbl_805D3CB0;

@@ -25,7 +25,7 @@ struct RecoveredGlobal_80189BE0___vt__17TObjContainerItem {
 
 extern "C" {
 s32 init_collision_body_parts(void *, void *, int);
-s32 init_container_base(void *, void *, void *);
+u8 *init_container_base(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_container_param(int);
 extern RecoveredGlobal_80189BE0_lbl_804B63BC forest_box_collision_body_parts;
 extern s32 __vt__17TObjContainerItem[];
@@ -33,7 +33,7 @@ extern s32 TObjContainerItem__name;
 u8 *TObjContainerItem__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 play_sound_effect(int, void *, int, int);
 void play_container_break_sound(s32 arg0);
-void __dt__21TObjContainerAbeEnemyFv();
+void *__dt__21TObjContainerAbeEnemyFv(void *arg0, s16 arg1);
 void run_task__13TUnk_804B6C24Fv();
 void render__13TUnk_804B6C24Fv();
 void render_shadows__7TObjectFv();
@@ -63,12 +63,12 @@ void vfunc_29__13TUnk_804806E8Fv();
 void is_target_in_attack_range__10TObjPlayerFv();
 void update_poison_status__13TUnk_804806E8Fv();
 void update_action_hold_status__13TUnk_804806E8Fv();
-void update_action_timer__10TObjPlayerFPv();
+s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
 void update_flag30_timer__13TUnk_804806E8Fv();
 void update_movement_status__13TUnk_804806E8Fv();
 void update_shock_clock__13TUnk_804806E8Fv();
-void update_attack_stat_status();
-void update_defense_stat_status();
+s32 update_attack_stat_status(u8 *arg0);
+s32 update_defense_stat_status(u8 *arg0);
 void vfunc_43__13TUnk_804806E8Fv();
 void apply_poison_status__13TUnk_804806E8Fv();
 void apply_paralysis__13TUnk_804806E8Fv();
@@ -96,7 +96,7 @@ void vfunc_67__13TUnk_804806E8Fv();
 void get_pos__13TUnk_804806E8Fl();
 void apply_switch_attack__13TUnk_804806E8Fv();
 void enemy_spawn_jellen_effect__13TUnk_804806E8Fv();
-void trigger_switch_attack__10TObjPlayerFi();
+void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 void enemy_spawn_zalure_effect__13TUnk_804806E8Fv();
 void vfunc_73__13TUnk_804806E8Fv();
 void vfunc_74__13TUnk_804806E8Fl();
@@ -240,7 +240,7 @@ void *__dt__17TObjContainerItemFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80189BE0_lbl_804B63BC_size[sizeof(RecoveredGlobal_80189BE0_lbl_804B63BC) == 0x15C ? 1 : -1];
 typedef char RecoveredGlobal_80189BE0___vt__17TObjContainerItem_size[sizeof(RecoveredGlobal_80189BE0___vt__17TObjContainerItem) == 0x14C ? 1 : -1];
 u8 *TObjContainerItem__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    init_container_base((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    init_container_base((arg0), (arg1), (arg2));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80189BE0___vt__17TObjContainerItem *)&__vt__17TObjContainerItem).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjContainerItem__name;
     *(s32 *)((s8 *)arg0 + 0x34) = get_container_param((int) (1));

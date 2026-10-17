@@ -22,7 +22,7 @@ struct RecoveredGlobal_80302FD8_lbl_804E6AF8 {
 
 extern "C" {
 s32 create_particle_controller_with_angles(void *, void *, int, int, int);
-s32 construct_collision_body(void *, void *, void *);
+u8 *construct_collision_body(u8 *arg0, s32 arg1, u32 arg2);
 f32 sin_table_lookup(void *);
 f32 cos_table_lookup(void *);
 extern RecoveredGlobal_80302FD8_lbl_8047512C lbl_8047512C;
@@ -37,7 +37,7 @@ u8 *fn_80302FD8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 
     typedef char spC_offset[(offsetof(Stack_80302FD8, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80302FD8, sp10) == 0x8) ? 1 : -1];
     Stack_80302FD8 stack;
-    construct_collision_body((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    construct_collision_body((arg0), (arg1), (arg2));
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804E6AF8.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneDellBiter_Eff_TpAbsorb1__class_name;
     *(f32 *)((s8 *)arg0 + 0xC8) = farg0;

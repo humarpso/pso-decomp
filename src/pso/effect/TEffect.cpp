@@ -29,9 +29,9 @@ struct B_80082CDC { u8 pad[0xC]; C_80082CDC *c; };
 struct A_80082CDC { u8 pad[0x8]; B_80082CDC *b; };
 
 extern "C" {
-s32 begin_screen_draw(int);
-s32 draw_textured_quad_at_depth(void *, f32);
-s32 set_draw_texture_and_color(int, int);
+void begin_screen_draw(s32 arg0);
+void draw_textured_quad_at_depth(f32 *q, f32 depth);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805D93C0;
 extern const f32 lbl_805D93C4;
@@ -105,8 +105,8 @@ void TObjPlayer__sub_80082C30(void) {
     typedef char sp24_offset[(offsetof(Stack_80082C30, sp24) == 0x1C) ? 1 : -1];
     Stack_80082C30 stack;
     TObjFish::set_global_param((s32)((void *) (lbl_805D63F0)));
-    set_draw_texture_and_color((int) (0), (int) (-1));
-    begin_screen_draw((int) (1));
+    set_draw_texture_and_color((0), (-1));
+    begin_screen_draw((1));
     stack.sp8 = lbl_805D93C0;
     stack.spC = lbl_805D93C4;
     stack.sp10 = lbl_805D93C8 + lbl_805D93C0;
@@ -115,7 +115,7 @@ void TObjPlayer__sub_80082C30(void) {
     stack.sp1C = lbl_805D93D4;
     stack.sp20 = lbl_805D93D8;
     stack.sp24 = lbl_805D93D8;
-    draw_textured_quad_at_depth((void *) (&stack.sp8), (f32) (lbl_805D93DC));
+    draw_textured_quad_at_depth((&stack.sp8), (f32) (lbl_805D93DC));
     TWindowSubStatusDisp::get_player();
 }
 #pragma pop

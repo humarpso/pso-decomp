@@ -5,8 +5,8 @@
 extern "C" {
 extern s32 text_language_group_table;
 s32 get_localized_text_entry(s32 arg0, s32 arg1);
-int TLanguage__ct(void*);
-int select_language_text_resources(void*);
+void TLanguage__ct(s32 arg0);
+void select_language_text_resources(s32 arg0);
 extern s32 current_language;
 void *get_global_state__23TAdSinglePlyChrSelectGCFv();
 s8 TLobby__sub_80132EC8();
@@ -28,6 +28,6 @@ s32 get_localized_text_entry(s32 arg0, s32 arg1) {
     return *(s32 *)((s8 *)(*(s32 *)((s8 *)(text_language_group_table + (arg0 * 4)) + 0) + (arg1 * 4)) + 0);
 }
 void TLobby::free_keyboard_soft_resources() { TWindowKeyBoardSoft::free_instance(); TWindowKeyBoardSoft::free_resources(); }
-void TLobby::update_keyboard_menu() { TLobby::update_menu_cursor(); select_language_text_resources((void*)((*(int *)&current_language))); TLanguage__ct((void*)((*(int *)&current_language))); }
+void TLobby::update_keyboard_menu() { TLobby::update_menu_cursor(); select_language_text_resources(((*(int *)&current_language))); TLanguage__ct(((*(int *)&current_language))); }
 
 }

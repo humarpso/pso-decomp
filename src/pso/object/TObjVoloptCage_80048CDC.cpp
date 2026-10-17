@@ -117,7 +117,7 @@ struct Vec_80048CDC { f32 x, y, z; };
 
 void queue_destruction__7TObjectFv(void *);
 void disallow_rendering__7TObjectFv(void *);
-s32 spawn_particle_effect(Vec_80048CDC *, s32);
+void *spawn_particle_effect(void *pos, s32 id);
 void create_breakup_mdl__12TBoss3VoloptFlllll(void *, void *, s32, void *, s32);
 s32 rand(void);
 f32 sin_table_lookup(s32);
@@ -136,12 +136,12 @@ s32 play_sound_effect(s32, u32, s16, s32);
 extern const f32 lbl_805D8874;
 extern const f32 lbl_805D8878;
 s32 check_object_collisions__10TObjPlayerFv(void *, int);
-s32 TLobby__sub_80049568();
+void TLobby__sub_80049568(void);
 s32 is_locally_controlled__10TObjPlayerFPv();
 s32 send_6x2C_impose_hold(s32, void *, s32, s32, f32);
 s32 get_player_by_client_id(u16);
 s32 obj_setFlags30(void *, s32);
-s32 obj_set_flag_20000(s32);
+void obj_set_flag_20000(void *arg0);
 
 extern const f32 lbl_805D8870;
 
@@ -238,7 +238,7 @@ void TObjVoloptCage::update_capture() {
         if (player != 0) {
             if (is_locally_controlled__10TObjPlayerFPv() != 0) {
                 send_6x2C_impose_hold(player, ((u8 *)this) + 0x38, -1, 0, lbl_805D8870);
-                obj_set_flag_20000(player);
+                obj_set_flag_20000((void *)player);
             }
             TLobby__sub_80049568();
         }

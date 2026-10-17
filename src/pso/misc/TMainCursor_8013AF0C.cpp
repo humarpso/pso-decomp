@@ -20,7 +20,7 @@ struct State_8013AF50 {
 extern "C" {
 s32 publish_target_list__11TMainCursorFPvi(Cur_8013AF50 *, s32);
 State_8013AF50 *get_state__11TMainCursorFv(s32);
-s32 TObjPlayer__sub_801C6DAC(s32);
+s32 TObjPlayer__sub_801C6DAC(u8 *arg0);
 int init__13TUnk_804A7260FPvPv(void);
 
     extern unsigned char lbl_804A71C4[];
@@ -29,7 +29,7 @@ void*TLOC_ListClear::init_lockon() { init__13TUnk_804A7260FPvPv(); *(int*)((char
 void TLOC_End::run_task() {
     s32 arg0 = (s32)this;
     s32 i;
-    if (TObjPlayer__sub_801C6DAC(arg0 + 0x1C) == 0) {
+    if (TObjPlayer__sub_801C6DAC((u8 *)(arg0 + 0x1C)) == 0) {
         return;
     }
     if (get_state__11TMainCursorFv(arg0 + 0x1C)->cur == NULL) {

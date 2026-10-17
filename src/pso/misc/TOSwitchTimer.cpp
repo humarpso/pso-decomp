@@ -35,7 +35,7 @@ extern const f32 lbl_805DBA18;
 extern const f32 lbl_805DBA1C;
 extern const f32 lbl_805DBA20;
 extern const f32 lbl_805DBA24;
-void clear_floor_switch_flag(u16, s16);
+void clear_floor_switch_flag(u32 id, s16 floor);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8017858C___vt__13TOSwitchTimer __vt__13TOSwitchTimer;
 u8 *__dt__13TOSwitchTimerFv(u8 *arg0, s16 arg1);

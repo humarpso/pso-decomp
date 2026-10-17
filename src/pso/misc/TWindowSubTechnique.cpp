@@ -41,11 +41,11 @@ s32 *get_shared_text_buffer();
 s32 get_player_by_client_id(int);
 s32 get_cast_technique_level(void *, int);
 s32 validate_and_clear_slot__10TObjPlayerFv(void *, int);
-s32 TWindowSubStatusDisp__sub_80228F5C(void *);
-s32 text_builder_append(int);
-s32 text_builder_reset();
-s32 get_help_text_string(int);
-s32 toggle_help_window_on_button(int, int);
+void TWindowSubStatusDisp__sub_80228F5C(s32 arg0);
+void text_builder_append(u8 *str);
+void text_builder_reset(void);
+s32 get_help_text_string(s32 arg0);
+void toggle_help_window_on_button(u32 arg0, s32 arg1);
 s32 send_and_handle__6TLobbyFii(int, void *, int);
 extern s32 lbl_805DD83C;
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
@@ -53,7 +53,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 try_equip_item__10TObjPlayerFii(s32, s32);
 void set_status_flag_80__12TQuestThreadFPv(void *);
 void play_sound_effect(s32, s32, s32, s32);
-void TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 s32 set_field_1c__6TLobbyFf(s32);
 s32 is_player_input_active(s32);
 void call_if_split_screen(void *, s32);
@@ -103,7 +103,7 @@ void TWindowSubTechnique::update_selected_help(s32 arg1) {
   s32 tech;
   s32 cast_technique_level;
   tech = arg1;
-  toggle_help_window_on_button((int) (*(s32 *)&this->m_3c), (int) (this->playerIndex));
+  toggle_help_window_on_button((*(s32 *)&this->m_3c), (this->playerIndex));
   player = get_player_by_client_id((int) (this->playerIndex));
   if (player != 0)
   {
@@ -124,12 +124,12 @@ void TWindowSubTechnique::update_selected_help(s32 arg1) {
       if ((((s16) tech) != 0x11) && (((s16) tech) != 0xE))
       {
         cast_technique_level = get_cast_technique_level((void *) (player + 0x428), (int) tech);
-        text_builder_append((int) TWindowSubTechnique__sub_8028753C((s32)((int) 0x13)));
-        TWindowSubStatusDisp__sub_80228F5C((void *) (((u8) cast_technique_level) + 1));
+        text_builder_append((u8 *)((int) TWindowSubTechnique__sub_8028753C((s32)((int) 0x13))));
+        TWindowSubStatusDisp__sub_80228F5C((((u8) cast_technique_level) + 1));
       }
-      text_builder_append((int) get_help_text_string((int) 0x2E));
-      TWindowSubStatusDisp__sub_80228F5C((void *) ((s32) (*((s16 *) (((s8 *) calc_technique_parameters((s16) tech, (u8) cast_technique_level, 0xFFFF)) + 0x10)))));
-      text_builder_append((int) TWindowSubTechnique__sub_8028753C((s32)((int) ((s32) ((s16) tech)))));
+      text_builder_append((u8 *)((int) get_help_text_string((s32)((int) 0x2E))));
+      TWindowSubStatusDisp__sub_80228F5C(((s32) (*((s16 *) (((s8 *) calc_technique_parameters((s16) tech, (u8) cast_technique_level, 0xFFFF)) + 0x10)))));
+      text_builder_append((u8 *)((int) TWindowSubTechnique__sub_8028753C((s32)((int) ((s32) ((s16) tech))))));
       send_and_handle__6TLobbyFii((int) (*(s32 *)&this->m_3c), (void *) get_shared_text_buffer(), (int) 0x82);
     }
   }
@@ -147,7 +147,7 @@ void TWindowSubTechnique::run_task() {
     case 0:
     case 1:
         if (self->help != 0) {
-            TWindow__close(self->help);
+            TWindow__close((u8 *)self->help);
             self->help = 0;
             self->f1E = 0x13;
         }
@@ -218,9 +218,9 @@ void TWindowSubTechnique::run_task() {
 void *__dt__19TWindowSubTechniqueFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowSubTechnique;
-        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x3C)); *(s32 *)&((TWindowSubTechnique *)arg0)->m_3c = 0; }
-        if (*(void **)((s8 *)arg0 + 0x38) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x38)); *(s32 *)&((TWindowSubTechnique *)arg0)->m_38 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x34) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x34)); *(s32 *)&((TWindowSubTechnique *)arg0)->m_34 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x3C))); *(s32 *)&((TWindowSubTechnique *)arg0)->m_3c = 0; }
+        if (*(void **)((s8 *)arg0 + 0x38) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x38))); *(s32 *)&((TWindowSubTechnique *)arg0)->m_38 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x34) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x34))); *(s32 *)&((TWindowSubTechnique *)arg0)->m_34 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

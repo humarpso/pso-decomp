@@ -9,7 +9,7 @@ struct Stack_80355970 {
 };
 
 extern "C" {
-u8 *csnVecterUnder(s32 *, s32);
+s32 *csnVecterUnder(s32 origin, s32 mask);
 s32 __nw__7TObjectFUl(int);
 s32 TBoss5GryphonTornado__ct(int, void *, void *, void *, void *);
 extern const f32 lbl_805D8D48;
@@ -24,7 +24,7 @@ s32 spawn_gryphon_tornado(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 *temp_r3;
     VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg2));
     stack.spC = lbl_805D8D48;
-    temp_r3 = (u8 *)(csnVecterUnder(&stack.sp8, 0x16EF));
+    temp_r3 = (u8 *)(csnVecterUnder((s32)&stack.sp8, 0x16EF));
     if (temp_r3 == NULL) {
         return 0;
     }

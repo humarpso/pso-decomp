@@ -153,7 +153,7 @@ void *__nw__7TObjectFUl(int);
 extern RecoveredGlobal_802A6438_lbl_804DD388 TObjSeabedSuisoBrakable__chip_record_set_table;
 extern const f32 lbl_805DDFFC;
 f32 fabs_float(f32);
-u8 * TORockCaveBrakable__ct(void *);
+void *TORockCaveBrakable__ct(void *arg0);
 s32 init_collision_body_parts(void *, int, int);
 RecoveredGlobal_802A6668_lbl_804DD6E8 lbl_804DD6E8 = { 0, { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x41, 0x20, 0x00, 0x00, 0x41, 0xA0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x41, 0x20, 0x00, 0x00, 0x41, 0x20, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x40, 0xA0, 0x00, 0x00, 0x41, 0x40, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 } };
 extern void *__vt__23TObjSeabedSuisoBrakable[];
@@ -177,7 +177,7 @@ s32 scroll_ginja_mesh_uvs(s32, s32, s32, u16, s32);
 u8 is_current_floor_switch_set(u16);
 void free_collision_body_parts(void *);
 struct Obj_802A6DA8; Obj_802A6DA8 *TObjSeabedSuiso_CH__ct(Obj_802A6DA8 *, s32, s32);
-void __dt__18TORockCaveBrakableFv(void *, int);
+void *__dt__18TORockCaveBrakableFv(void *arg0, s16 arg1);
 void *count_linked_switches__23TObjSeabedSuisoBrakableFl(s32, s32);
 s32 *get_table1_entry__23TObjSeabedSuisoBrakableFi(s32);
 
@@ -402,7 +402,7 @@ void update_switch_lock__23TObjSeabedSuisoBrakableFPv(void *arg0) {
 }
 
 void notify_break__23TObjSeabedSuisoBrakableFPv(void *arg0);
-s32 set_model_node_callback(s32 *);
+void set_model_node_callback(s32 arg0);
 
 void notify_break__23TObjSeabedSuisoBrakableFPv(void *arg0) {
     s32 break_data;
@@ -418,7 +418,7 @@ void notify_break__23TObjSeabedSuisoBrakableFPv(void *arg0) {
         }
         suiso_brakable_last_frame_tick = actor_frame_tick;
     }
-    set_model_node_callback((s32 *)TObjSeabedSuisoBrakable::notify_break);
+    set_model_node_callback((s32)((s32 *)TObjSeabedSuisoBrakable::notify_break));
 }
 
 }
@@ -428,7 +428,7 @@ struct Base18 { char pad[0x18]; };
 struct VObj : Base18 { virtual s32 m0(); virtual s32 m1(); virtual s32 m2(); virtual s32 m3(); virtual s32 m4(); virtual s32 m5(); virtual s32 m6(); virtual s32 m7(); virtual s32 m8(f32, f32); };
 
 extern "C" {
-s32 draw_ginja_box_tree(s32);
+void draw_ginja_box_tree(u8 *arg0);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -465,10 +465,10 @@ void draw_model__23TObjSeabedSuisoBrakableFPv(u8 *arg0) {
         if (p != NULL) {
             draw_ginja_model_with_motion(((TObjSeabedSuiso_CH *)arg0)->m_d4, p, ((TObjSeabedSuiso_CH *)arg0)->m_b0);
         } else {
-            draw_ginja_box_tree(((TObjSeabedSuiso_CH *)arg0)->m_d4);
+            draw_ginja_box_tree((u8 *)(((TObjSeabedSuiso_CH *)arg0)->m_d4));
         }
         pop_matrix();
-        ((s32 (*)(s32))set_model_node_callback)(0);
+        set_model_node_callback(0);
     }
 }
 
@@ -627,15 +627,15 @@ u8 *get_model__23TObjSeabedSuisoBrakableFi(s32 arg0) {
     return NULL;
 }
 
-void update__8TObjChipFPv();
-void dispatch_vt9__8TObjChipFPv();
+void update__8TObjChipFPv(void *arg0);
+void dispatch_vt9__8TObjChipFPv(void *arg0);
 void render_shadows__7TObjectFv();
-void init_chips__8TObjChipFPv();
-void spawn_chips__8TObjChipFPvPv();
+s32 init_chips__8TObjChipFPv(u8 *arg0);
+s32 spawn_chips__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
 void vfunc_8__13TObjSuisoChipFv();
-void tick_chips__8TObjChipFPv();
+void tick_chips__8TObjChipFPv(u8 *arg0);
 void vfunc_10__13TObjSuisoChipFv();
-void render__8TObjChipFPv();
+void render__8TObjChipFPv(u8 *arg0);
 void vfunc_12__13TObjSuisoChipFv();
 void draw_chips__8TObjChipFPv();
 void update_break_state__18TORockCaveBrakableFv();

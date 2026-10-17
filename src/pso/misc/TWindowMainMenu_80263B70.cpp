@@ -118,15 +118,15 @@ extern s32 local_client_id;
 u32 create_message_window__6TLobbyFllUls(u32, s32 *, s32, s32);
 
 u32 get_window_layout_position(s32);
-int TWindow__close(void*);
+void TWindow__close(u8 *arg0);
 s32 call_if_split_screen(u32, s32);
-s32 toggle_help_window_on_button(s32, s32);
-int queue_destruction__7TObjectFv(void*);
+void toggle_help_window_on_button(u32 arg0, s32 arg1);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 select_main_menu_item_10(s32);
-s32 test_keyboard_card_flag4(s32);
+int test_keyboard_card_flag4(void *p);
 
 void TWindowMainMenu::update_keyboard_card_state() {
-    if (test_keyboard_card_flag4(*(s32 *)((s8 *)this + 0x54)) != 0) {
+    if (test_keyboard_card_flag4((void *)(*(s32 *)((s8 *)this + 0x54))) != 0) {
         *(s16 *)((s8 *)this + 0x52) = 0;
         return;
     }
@@ -202,7 +202,7 @@ void TWindowMainMenu::sub_80263FE0() {
     toggle_help_window_on_button(*(s32 *)((s8 *)this + 0x24), *(s32 *)((s8 *)this + 0x54));
 }
 
-void TWindowMainMenu::close_child_window() { if (*(unsigned int*)((char*)this + 0x24) != 0) { TWindow__close(*(void**)((char*)this + 0x24)); *(int*)((char*)this + 0x24) = 0; } }
+void TWindowMainMenu::close_child_window() { if (*(unsigned int*)((char*)this + 0x24) != 0) { TWindow__close((u8 *)(*(void**)((char*)this + 0x24))); *(int*)((char*)this + 0x24) = 0; } }
 
 extern s32 lbl_8044F2E0[];
 extern const f32 lbl_805DD13C;

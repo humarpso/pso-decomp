@@ -206,16 +206,16 @@ typedef struct Hira_800411F0 {
 extern "C" {
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(int, int);
-s32 restore_scene_lighting();
-s32 select_actor_lighting(void *);
+void restore_scene_lighting(void);
+void select_actor_lighting(s32 obj);
 f32 sin_table_lookup(int);
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
-s32 translate_matrix(int, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
-s32 draw_chunk_object(int);
+void draw_chunk_object(void *child);
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 void render__20TBoss3VoloptHiraisinFv(u8 *arg0);
@@ -330,18 +330,18 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
         TObjFish::set_global_param((int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_24));
         lbl_805D5660 = model_render_flags;
         model_render_flags |= 0x01000000;
-        select_actor_lighting((void *) (arg0));
+        select_actor_lighting((s32)(arg0));
         TObjPlayer::toggle_particle_effect();
         push_matrix();
         model_render_flags &= 0xFFFFFBFF;
         post_translate_matrix((void *) (arg0 + 0x38));
         if ((u32) ((RecoveredFields_800413C8_arg0 *)arg0)->field_B4 == 8U) {
-            translate_matrix((int) (0), (f32) ((0.0f)), (f32) ((2e+01f)), (f32) ((0.0f)));
+            translate_matrix((0), (f32) ((0.0f)), (f32) ((2e+01f)), (f32) ((0.0f)));
         }
-        translate_matrix((int) (0), (f32) ((0.0f)), (f32) (sin_table_lookup((int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_38C))), (f32) ((0.0f)));
+        translate_matrix((0), (f32) ((0.0f)), (f32) (sin_table_lookup((int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_38C))), (f32) ((0.0f)));
         rotate_matrix_y((int) (0), (int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_60));
         if (TObjPlayer::check_demo_mode() == 1) {
-            draw_chunk_object((int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_34));
+            draw_chunk_object((void *)(((RecoveredFields_800413C8_arg0 *)arg0)->field_34));
         } else {
             ((TObjEneRe7Berura *)arg0)->draw();
         }
@@ -352,10 +352,10 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
         if (((RecoveredFields_800413C8_arg0 *)arg0)->field_3C < (5e+01f)) {
             push_matrix();
             temp_f31 = (1.0f) - ((0.02202643f) * (((RecoveredFields_800413C8_arg0 *)arg0)->field_3C - (4.6f)));
-            translate_matrix((int) (0), (f32) (((RecoveredFields_800413C8_arg0 *)arg0)->field_38), (f32) ((4.5f)), (f32) (((RecoveredFields_800413C8_arg0 *)arg0)->field_40));
+            translate_matrix((0), (f32) (((RecoveredFields_800413C8_arg0 *)arg0)->field_38), (f32) ((4.5f)), (f32) (((RecoveredFields_800413C8_arg0 *)arg0)->field_40));
             scale_matrix((int) (0), (f32) (temp_f31), (f32) (temp_f31), (f32) (temp_f31));
             TObjFish::set_global_param((int) (TObjFish__sub_8001EDB0((s32)((int) (TBoss3VoloptHiraisin__resource_bundle)), (s32)((int) (0)))));
-            draw_chunk_object((int) (get_bml_model((int) (TBoss3VoloptHiraisin__resource_bundle), (int) (0))));
+            draw_chunk_object((void *)(get_bml_model((int) (TBoss3VoloptHiraisin__resource_bundle), (int) (0))));
             pop_matrix();
         }
     }
@@ -721,9 +721,9 @@ struct Hira_80041D3C {
 extern "C" {
 extern f32 boss3_volopt_spawn_pos[];
 void obj_setFlags30(void *, u32);
-s32 spawn_directional_particle(void *, void *, int);
-s32 spawn_particle_effect(void *, int);
-s32 TObjEnemyCustom__ct(void *);
+void *spawn_directional_particle(void *pos, void *dir, s32 id);
+void *spawn_particle_effect(void *pos, s32 id);
+u8 *TObjEnemyCustom__ct(u8 *arg0);
 extern s32 lbl_805D2738;
 u8 *TBoss3VoloptHiraisin__sub_80041AA0(u8 *arg0, s32 arg1, s32 arg2);
 void TBoss3VoloptHiraisin__sub_80041D0C(O_80041D0C *self);
@@ -739,7 +739,7 @@ s32 init_from_model__11TBreakUpMdlFl(s32, s32);
 void free_collision_body_parts(void *);
 #define get_bml_model ((s32 (*)(s32, s32))get_bml_model)
 void __dl__7TObjectFPv(void *);
-void __dt__15TObjEnemyCustomFv(void *, int);
+void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 s32 *collect_and_count__12TBoss3VoloptFUll(s32, s32);
 s32 dispatch_shared_handler_a__6TLobbyFl(s32);
@@ -823,7 +823,7 @@ void TBoss3VoloptHiraisin::init_params() {
 
 S_80041A08 *TBoss3VoloptHiraisin__ct(S_80041A08 *o, S_80041A08 *src, s16 a, s16 b) {
     s32 g;
-    TObjEnemyCustom__ct(o);
+    TObjEnemyCustom__ct((u8 *)o);
     o->vt = __vt__20TBoss3VoloptHiraisin;
     g = lbl_805D2738;
     o->f0 = g;
@@ -841,7 +841,7 @@ S_80041A08 *TBoss3VoloptHiraisin__ct(S_80041A08 *o, S_80041A08 *src, s16 a, s16 
 
 typedef char RecoveredGlobal_80041AA0___vt__20TBoss3VoloptHiraisin_size[sizeof(RecoveredGlobal_80041AA0___vt__20TBoss3VoloptHiraisin) == 0x14C ? 1 : -1];
 u8 *TBoss3VoloptHiraisin__sub_80041AA0(u8 *arg0, s32 arg1, s32 arg2) {
-    TObjEnemyCustom__ct((void *) (arg0));
+    TObjEnemyCustom__ct((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TBoss3VoloptHiraisin;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2738;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
@@ -877,8 +877,8 @@ void TBoss3VoloptHiraisin::spawn_effects() {
     stack.sp8 = 0;
     stack.spC = this->rotation_y;
     stack.sp10 = 0;
-    spawn_directional_particle((void *) (arg0 + 0x2FC), (void *) (&stack.sp8), (int) (((u32)__cntlzw(*(s16 *)((s8 *)arg0 + 0x38C) & 3) >> 5) + 0x61));
-    spawn_particle_effect((void *) (arg0 + 0x2FC), (int) (0x45));
+    spawn_directional_particle((arg0 + 0x2FC), (&stack.sp8), (((u32)__cntlzw(*(s16 *)((s8 *)arg0 + 0x38C) & 3) >> 5) + 0x61));
+    spawn_particle_effect((arg0 + 0x2FC), (0x45));
 }
 
 void TBoss3VoloptHiraisin::damage_player_if_aligned() {
@@ -1027,18 +1027,18 @@ extern "C" void is_target_in_attack_range__10TObjPlayerFv();
 extern "C" void receive_direct_attack__10TObjPlayerFv();
 extern "C" void receive_physical_attack__10TObjPlayerFv();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
-extern "C" void render_actor_shadows_default();
+extern "C" void render_actor_shadows_default(u8 *arg0);
 extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__13TUnk_804806E8Fv();
 extern "C" void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
-extern "C" void trigger_switch_attack__10TObjPlayerFi();
+extern "C" void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 extern "C" void try_start_action__13TUnk_804806E8Fll();
 extern "C" void update_action_hold_status__13TUnk_804806E8Fv();
-extern "C" void update_action_timer__10TObjPlayerFPv();
+extern "C" s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
 extern "C" void update_actor_ground_y__13TUnk_804806E8Fv();
-extern "C" void update_attack_stat_status();
-extern "C" void update_defense_stat_status();
+extern "C" s32 update_attack_stat_status(u8 *arg0);
+extern "C" s32 update_defense_stat_status(u8 *arg0);
 extern "C" void update_flag30_timer__13TUnk_804806E8Fv();
 extern "C" void vfunc_60__15TObjEnemyCustomFv();
 extern "C" void vfunc_59__15TObjEnemyCustomFv();

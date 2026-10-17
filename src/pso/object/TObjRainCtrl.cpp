@@ -4,7 +4,7 @@
 #include "pso/misc/TOKeyMachine01.h"
 
 extern "C" {
-s32 __ct__8TObjRainFv(void *, void *, int);
+u8 *__ct__8TObjRainFv(u8 *arg0, s32 arg1, u32 arg2);
 u32 __nw__7TObjectFUl(int);
 extern s32 tl_particle;
 void *TObjRainCtrl__ct(void *arg0);
@@ -25,12 +25,12 @@ void TObjRainCtrl::run_task() {
         if (TOKeyMachine01::get_global_state() == 0x1E) {
             p = (void *) __nw__7TObjectFUl((int) (0x220));
             if (p != NULL) {
-                __ct__8TObjRainFv(p, (void *) (tl_particle), (int) (0x24));
+                __ct__8TObjRainFv((u8 *)p, (tl_particle), (0x24));
             }
         } else {
             p = (void *) __nw__7TObjectFUl((int) (0x220));
             if (p != NULL) {
-                __ct__8TObjRainFv(p, (void *) (tl_particle), (int) (9));
+                __ct__8TObjRainFv((u8 *)p, (tl_particle), (9));
             }
         }
         *(s32 *)((s8 *)arg0 + 0x1C) = 2;

@@ -61,7 +61,7 @@ struct Door_801615C4 {
 };
 
 extern "C" {
-s32 set_indexed_flags(void *, int, int);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
 s32 is_any_player_within_radius_xz(f32);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805DB494;
@@ -69,7 +69,7 @@ extern const f32 lbl_805DB498;
 extern const f32 lbl_805DB49C;
 extern const f32 lbl_805DB4A0;
 s32 init_collision_body_parts(void *, void *, int);
-s32 init_door_base(void *);
+void *init_door_base(void *a0);
 extern RecoveredGlobal_801611CC_lbl_804B1248 TODoorAncient09__collision_body_template;
 extern RecoveredGlobal_801611CC___vt__15TODoorAncient09 __vt__15TODoorAncient09;
 extern s32 lbl_805D2F58;
@@ -86,7 +86,7 @@ typedef char RecoveredGlobal_801611CC_lbl_804B1248_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_801611CC___vt__15TODoorAncient09_size[sizeof(RecoveredGlobal_801611CC___vt__15TODoorAncient09) == 0x54 ? 1 : -1];
 u8 *TODoorAncient09__ct(u8 *arg0, s32 arg1, s32 arg2) {
     s32 temp_r0;
-    init_door_base((void *) (arg0));
+    init_door_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__15TODoorAncient09.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2F58;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
@@ -177,7 +177,7 @@ void TODoorCave01::play_proximity_sound() {
     u8 *arg0 = (u8 *)this;
     if ((this->m_d0 & 1) && (is_any_player_within_radius_xz((f32) (lbl_805DB494)) == 1)) {
         *(s32 *)&this->m_ac = 1;
-        set_indexed_flags((void *) (arg0), (int) (0), (int) (8));
+        set_indexed_flags((arg0), (0), (8));
         play_sound_effect((s32)((int) (0x42807)), (void *)((void *) (arg0 + 0x38)), (s32)((int) (0)), (s32)((int) (0)));
     }
     if (this->m_d0 & 0x100000) {

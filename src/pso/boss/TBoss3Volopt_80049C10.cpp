@@ -51,7 +51,7 @@ struct Self_80049C10 {
 };
 
 extern "C" {
-f32 TBoss3Volopt__sub_8004812C(int);
+f32 TBoss3Volopt__sub_8004812C(s32 arg0);
 s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 s32 init_collision_body_parts(void *, void *, int);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
@@ -82,7 +82,7 @@ extern const f32 lbl_805D88A8;
 void *__dt__13TUnk_80484AFCFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 void TUnk_80484AFC::run_task() {
     Self_80049C10 *self = (Self_80049C10 *)this;
@@ -163,7 +163,7 @@ u8 *TBoss3Volopt__sub_80049E9C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4)
     ((TUnk_80484AFC *)arg0)->rotation_y = arg3;
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) lbl_805D88B0;
     ((TUnk_80484AFC *)arg0)->m_b8 = (f32) lbl_805D88B0;
-    *(f32 *)((s8 *)arg0 + 0xBC) = TBoss3Volopt__sub_8004812C((int) (0));
+    *(f32 *)((s8 *)arg0 + 0xBC) = TBoss3Volopt__sub_8004812C((0));
     push_matrix_from((void *) (&identity_matrix.value));
     rotate_matrix_y((int) (0), (int) (((TUnk_80484AFC *)arg0)->rotation_y));
     rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x5C)));
@@ -177,7 +177,7 @@ u8 *TBoss3Volopt__sub_80049E9C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4)
     ((TUnk_80484AFC *)arg0)->m_e8 = 0;
     *(s32 *)((s8 *)arg0 + 0xE4) = 0;
     ((TUnk_80484AFC *)arg0)->m_e0 = spawn_particle_effect_with_rotation((void *) (arg0 + 0x38), (void *) (arg0 + 0xE4), (int) (0x112), (int) (2));
-    volopt_homing_projectile_expire_tick = (s32) TBoss3Volopt__sub_8004812C((int) (3)) + 0xF0;
+    volopt_homing_projectile_expire_tick = (s32) TBoss3Volopt__sub_8004812C((3)) + 0xF0;
     return arg0;
 }
 

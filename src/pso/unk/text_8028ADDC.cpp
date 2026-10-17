@@ -6,8 +6,8 @@ struct O_8028AE1C { u8 pad[0x1c]; s32 count; void **a; void **b; };
 extern "C" {
 extern s32 boss5_pillar_demo_index;
 extern void *boss5_pillar_demo_ptr;
-void TObjBoss5PillarDemo__sub_8028AD88(void);
-void set_model_node_callback(void *fn);
+void TObjBoss5PillarDemo__sub_8028AD88(void *a0);
+void set_model_node_callback(s32 arg0);
 void fn_8028ADDC(void *p);
 extern u8 lbl_80450CD0[];
 void fn_8028AE1C(O_8028AE1C *arg0);
@@ -15,7 +15,7 @@ void fn_8028ADDC(void *p) {
     if (p) {
         boss5_pillar_demo_index = 0;
         boss5_pillar_demo_ptr = p;
-        set_model_node_callback((void *)TObjBoss5PillarDemo__sub_8028AD88);
+        set_model_node_callback((s32)TObjBoss5PillarDemo__sub_8028AD88);
     }
 }
 void fn_8028AE1C(O_8028AE1C *arg0) {

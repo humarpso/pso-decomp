@@ -6,7 +6,7 @@ extern "C" {
 
 s32 vec3_add_to(void *, void *);
 u32 query_game_join_id__10TObjPlayerFv(s32);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 extern const f32 lbl_805DAF70;
 

@@ -21,7 +21,7 @@ const char lbl_804728D0[] = "TAdChrSelPlayerGC";
 
 void set_cursor_index__17TAdMultiConfirmGCFPvi(void *arg0, s32 arg1);
 void *get_index__14TAdPlyStatusGCFv();
-s32 free_chcr_resources(void *, int);
+u8 *free_chcr_resources(u8 *arg0, s16 arg1);
 void fn_802E0784(u8 *arg0);
 void fn_802E0CB0(Obj_802E0CB0 *o);
 }
@@ -37,7 +37,7 @@ struct Stack_802E0468
 extern "C" {
 void play_phase_transition_sound__10TObjPlayerFl(s32);
 void set_chunk_material_override_pair(s32, s32);
-void set_chunk_material_color(void *);
+void set_chunk_material_color(f32 *arg);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -68,7 +68,7 @@ struct RecoveredGlobal_802E0784_lbl_804E2F78 {
 };
 
 extern "C" {
-s32 set_animation__10TObjPlayerFPvs(void *, int);
+void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 extern RecoveredGlobal_802E0784_lbl_804E2F78 lbl_804E2F78;
 extern u8 *TAdMultiPlyChrSelectGC__resource_bundle;
 typedef char RecoveredGlobal_802E0784_lbl_804E2F78_size[sizeof(RecoveredGlobal_802E0784_lbl_804E2F78) == 0x90 ? 1 : -1];
@@ -96,8 +96,8 @@ struct RecoveredGlobal_802E0B60_lbl_804E3008 {
 };
 
 extern "C" {
-s32 __dt__10TObjMotionFv(void *, int);
-s32 mem_free(int);
+void *__dt__10TObjMotionFv(void *arg0, s16 arg1);
+void mem_free(void *p);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_802E0B60_lbl_804E2F68 multi_chr_select_player_slot_table;
 extern RecoveredGlobal_802E0B60_lbl_804E3008 multi_chr_select_player_actor_ops;
@@ -247,19 +247,19 @@ u8 *__dt__13TUnk_804E3008Fv(u8 *arg0, s16 arg1) {
         }
         temp_r3 = *(u32 *)((s8 *)arg0 + 0xE0);
         if (temp_r3 != 0U) {
-            mem_free((int) (temp_r3));
+            mem_free((void *)(temp_r3));
             *(u32 *)((s8 *)arg0 + 0xE0) = 0U;
         }
         temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x170);
         if (temp_r3_2 != 0U) {
-            free_chcr_resources((void *) (temp_r3_2), (int) (1));
+            free_chcr_resources((u8 *)(temp_r3_2), (1));
             *(u32 *)((s8 *)arg0 + 0x170) = 0U;
             temp_r3_3 = (u32) get_index__14TAdPlyStatusGCFv();
             if (temp_r3_3 != 0U) {
                 TAdPlyStatusGC::set_status_param((int)((void *) (temp_r3_3)), (int)((void *) (*(u32 *)((s8 *)arg0 + 0x170))));
             }
         }
-        __dt__10TObjMotionFv((void *) (arg0), (int) (0));
+        __dt__10TObjMotionFv((arg0), (0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
         }
@@ -275,7 +275,7 @@ void TNpcPlayer::update_model_load() {
     switch (F(0xFC, s32)) {
     case 0:
         if (F(0x170, void *) != NULL) {
-            free_chcr_resources(F(0x170, void *), 1);
+            free_chcr_resources((u8 *)(F(0x170, void *)), 1);
             F(0x170, void *) = NULL;
         }
         if (F(0x100, s32) != 0) {
@@ -285,7 +285,7 @@ void TNpcPlayer::update_model_load() {
         break;
     case 1:
         if (F(0x170, void *) != NULL) {
-            free_chcr_resources(F(0x170, void *), 1);
+            free_chcr_resources((u8 *)(F(0x170, void *)), 1);
             F(0x170, void *) = NULL;
         }
         if (F(0x100, s32) != 0) {
@@ -338,7 +338,7 @@ void TNpcPlayer::update_model_load() {
     case 2:
         if (F(0x100, s32) != 0) {
             if (F(0x170, void *) != NULL) {
-                free_chcr_resources(F(0x170, void *), 1);
+                free_chcr_resources((u8 *)(F(0x170, void *)), 1);
                 F(0x170, void *) = NULL;
             }
             F(0xFC, s32) = F(0x100, s32) - 1;
@@ -351,7 +351,7 @@ void TNpcPlayer::update_model_load() {
     case 3:
         if (F(0x100, s32) != 0) {
             if (F(0x170, void *) != NULL) {
-                free_chcr_resources(F(0x170, void *), 1);
+                free_chcr_resources((u8 *)(F(0x170, void *)), 1);
                 F(0x170, void *) = NULL;
             }
             F(0xFC, s32) = F(0x100, s32) - 1;
@@ -386,7 +386,7 @@ void fn_802E0784(u8 *arg0) {
     ((TObjPlayer *)arg0)->set_field_d8((s32)((void *) (&lbl_804E2F78.value)));
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)TAdMultiPlyChrSelectGC__resource_bundle + 0x430)));
     set_cursor_index__17TAdMultiConfirmGCFPvi((void *) (arg0), (int) (0));
-    set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (((TUnk_804E3008 *)arg0)->m_b8));
+    set_animation__10TObjPlayerFPvs((arg0), (((TUnk_804E3008 *)arg0)->m_b8));
 }
 
 void set_cursor_index__17TAdMultiConfirmGCFPvi(void *arg0, s32 arg1) {

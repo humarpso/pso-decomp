@@ -42,7 +42,7 @@ extern s32 lbl_805D3EA0;
 extern s32 lbl_805DE290;
 extern const f32 lbl_805DE294;
 TAdGuideTxtGC_802B19E8 *__ct__13TAdGuideTxtGCFv(TAdGuideTxtGC_802B19E8 *o);
-u32 calc_text_width(int);
+u32 calc_text_width(char *s);
 extern const f32 lbl_805DE280;
 extern const f32 lbl_805DE284;
 extern const f32 lbl_805DE288;
@@ -60,7 +60,7 @@ void run_task__13TAdGuideTxtGCFv(TAdGuideTxtGC_802B1878 *o) {
         if (o->alpha[i] > 255) {
             o->alpha[i] = 255;
         }
-        t = lbl_805DE280 - (f32)calc_text_width(o->txt[i]);
+        t = lbl_805DE280 - (f32)calc_text_width((char *)o->txt[i]);
         o->pos[i].x = t * lbl_805DE284;
         o->pos[i].y = lbl_805DE28C * (f32)i + lbl_805DE288;
     }

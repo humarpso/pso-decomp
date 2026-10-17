@@ -45,13 +45,13 @@ struct Sock_80078264 { u8 pad[0x28]; s16 x28; };
 extern "C" {
 struct Rec_8007841C *copy_udp_socket_event_record(struct Rec_8007841C *dst, struct Rec_8007841C *src);
 extern RecoveredGlobal_80078378_lbl_8048D3B8 udp_socket_slots;
-void TLobby__sub_8014672C(void *);
+void TLobby__sub_8014672C(s32 *arg0);
 void TUdpSocket__sub_80421BAC(int, void *, void *, int, void *, int, void *);
 void TUdpSocket__sub_80078110(Sock_80078110 *arg0, s32 arg1, s16 arg2);
 void TUdpSocket__sub_800781B8(Sock_800781B8 *arg0, s32 arg1);
 s16 TUdpSocket__sub_80421DEC(void *, int, void *, int, int, s32 (*)(s16, u8 *));
 s16 open_socket__10TUdpSocketFPv(Sock_800782B8 *arg0);
-void TLobby__sub_80421B3C(s32);
+s32 TLobby__sub_80421B3C(s32 a);
 void free_socket_slot__10TUdpSocketFPv(Sock_80078264 *arg0);
 struct Base_80078064 { char pad[0x18]; };
 struct VObj_80078064 : Base_80078064 {

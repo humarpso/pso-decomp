@@ -5,7 +5,7 @@
 struct Names_8017E1E4 { const char *name[2]; };
 
 extern "C" {
-void play_area_music(const char *);
+void play_area_music(char *name);
 extern Names_8017E1E4 lbl_80443898[];
 extern char lbl_804438A0[];
 extern char lbl_804438B0[];
@@ -55,7 +55,7 @@ void TObjBgmColCtrl::play_lobby_theme_music() {
         play_area_music(lbl_80443904);
         break;
     default:
-        play_area_music(name);
+        play_area_music((char *)name);
         break;
     }
 }

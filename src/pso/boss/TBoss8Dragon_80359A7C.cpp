@@ -119,12 +119,12 @@ struct RecoveredGlobal_80359DC4_lbl_804F1A78 {
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 project_sound_origin_from_camera(void *, void *, f32);
 s32 query_teammate_state__9TObjEneDDFv();
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
-s32 release_grabbed_player__12TBoss8DragonFPv(void *);
+void release_grabbed_player__12TBoss8DragonFPv(u8 *arg0);
 extern s32 local_client_id;
 extern s32 TBoss8Dragon__data_805D69B8;
 extern const f32 lbl_805E00B0;
@@ -133,7 +133,7 @@ void TBoss8Dragon__sub_80359A7C(u8 *arg0);
 u8 * TBoss8Dragon__ct(void *, s32, s32);
 extern s32 boss8_dragon_attack_object_vtable[];
 void *__dt__13TUnk_804F1A78Fv(void *arg0, s16 arg1);
-void __dt__12TBoss8DragonFv(void *, int);
+u8 *__dt__12TBoss8DragonFv(u8 *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 void TBoss8Dragon__sub_80359A7C(u8 *arg0) {
@@ -147,7 +147,7 @@ void TBoss8Dragon__sub_80359A7C(u8 *arg0) {
     }
     if (*(s32 *)((s8 *)arg0 + 0x3C0) & 8) {
         ((TObjEnemy *)arg0)->send_entity_set_flags();
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x74C) != 0) {
@@ -177,7 +177,7 @@ void TBoss8Dragon__sub_80359A7C(u8 *arg0) {
         if ((s32) *(s32 *)((s8 *)arg0 + 0x74C) != 0) {
             if ((s32) *(u16 *)((s8 *)arg0 + 0x750) == (s32) local_client_id) {
                 if ((s32) TBoss8Dragon__data_805D69B8 == 0) {
-                    release_grabbed_player__12TBoss8DragonFPv((void *) (arg0));
+                    release_grabbed_player__12TBoss8DragonFPv((arg0));
                 } else {
                     ((TBoss8Dragon *)arg0)->check_death();
                 }
@@ -185,7 +185,7 @@ void TBoss8Dragon__sub_80359A7C(u8 *arg0) {
                 ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
             } else {
                 if ((s32) TBoss8Dragon__data_805D69B8 == 0) {
-                    release_grabbed_player__12TBoss8DragonFPv((void *) (arg0));
+                    release_grabbed_player__12TBoss8DragonFPv((arg0));
                 }
                 ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
             }
@@ -218,7 +218,7 @@ void TBoss8Dragon__sub_80359A7C(u8 *arg0) {
 void *__dt__13TUnk_804F1A78Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = boss8_dragon_attack_object_vtable;
-        __dt__12TBoss8DragonFv(arg0, 0);
+        __dt__12TBoss8DragonFv((u8 *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

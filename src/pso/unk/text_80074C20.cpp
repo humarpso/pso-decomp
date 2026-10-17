@@ -5,7 +5,7 @@ struct Lobby_80074C20 { u8 pad[0xBC88]; void *cb; };
 
 extern "C" {
 void fn_80074C70(void);
-void fn_80074BD0(void);
+void fn_80074BD0(s32 arg0);
 extern Lobby_80074C20 *TLobby__protocol_instance;
 s32 TLobby::start_lobby_name_request() {
     fn_80074C70();

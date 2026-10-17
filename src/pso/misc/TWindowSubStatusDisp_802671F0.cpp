@@ -64,9 +64,9 @@ extern "C" {
 s32 get_shared_text_buffer();
 u32 calc_text_width();
 u8 get_font_char_advance();
-void map_char_to_font_code(s32);
+u16 map_char_to_font_code(u16 c);
 void TWindowSubStatusDisp__sub_80228F5C(s32);
-void text_builder_append(char *);
+void text_builder_append(u8 *str);
 void text_builder_reset();
 s32 draw_window_text(void *, s32, s32, s32, f32);
 void set_text_draw_params(void *, u8, s32, f32, f32);
@@ -106,7 +106,7 @@ s32 fn_80266BD0(s32, u8 *, u8 *, s16);
 s32 TWindowSubStatusDisp__sub_80258A28(s32, s32, s32);
 s32 get_localized_text_entry(s32, s32);
 u32 get_player_by_client_id(s16);
-s32 fn_801C5404(s32);
+s32 fn_801C5404(s32 *arg0);
 s8 clamp_char_at__10TObjPlayerFl(s32, s32);
 s32 is_boss_area();
 s32 reset_key_machine_state__10TObjPlayerFv();
@@ -124,7 +124,7 @@ u8 *fn_802683F4(void *, s32, s32, s16);
 u8 *__nw__7TObjectFUl(s32);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
-s32 is_player_input_active(int);
+s32 is_player_input_active(s32 param_1);
 s32 draw_window_frame(void *, s32);
 s32 get_draw_context__11TWindowBaseFPv();
 s32 draw_visible_window_entries(void *, void *, s32);
@@ -247,7 +247,7 @@ void add_battle_stat_entry(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
         player = get_player_by_client_id(*(s16 *)((s8 *)arg0 + 0x20));
         if (player != 0U) {
             if (arg1 == 4) {
-                var_r31 = fn_801C5404(player + 0x7C8);
+                var_r31 = fn_801C5404((s32 *)(player + 0x7C8));
             } else {
                 var_r31 = clamp_char_at__10TObjPlayerFl(player + 0x7C4, arg1);
             }
@@ -430,7 +430,7 @@ void draw_item_list_capacity(void *arg0, Win_80267714 *arg1, s32 arg2, s32 arg3)
     map_char_to_font_code(0x2F);
     new_var = get_font_char_advance();
     pt.x -= (*(const f32 *)&lbl_805DD1BC) * new_var;
-    text_builder_append(lbl_805DD1C0);
+    text_builder_append((u8 *)lbl_805DD1C0);
     TWindowSubStatusDisp__sub_80228F5C(arg3);
     draw_window_text(&pt, get_shared_text_buffer(), -1, 0, (*(const f32 *)&lbl_805DD1B8));
   }
@@ -711,7 +711,7 @@ void update_item_list_window(u8 *arg0) {
     u8 *temp_r29;
     u8 *temp_r29_2;
     u8 *temp_r29_3;
-    temp_r31 = is_player_input_active((int) ((s32) ((TUnk_804D0618 *)arg0)->m_20));
+    temp_r31 = is_player_input_active(((s32) ((TUnk_804D0618 *)arg0)->m_20));
     if ((((TUnk_804D0618 *)arg0)->get_flag() == 0) && (get_status_flag__13TUnk_804D0618Fv((void *) (arg0)) == 0) && (((TUnk_804CE018 *)arg0)->sub_80244994() != 0)) {
         if (((TUnk_804D0618 *)arg0)->m_70& 0x10) {
             temp_r29 = (u8 *)&controller_input_state.value + (temp_r31 * 0x50) + 0x20;

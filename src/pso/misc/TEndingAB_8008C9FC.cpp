@@ -6,10 +6,10 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-s32 restore_saved_depth_alpha_state();
-s32 begin_screen_draw(s32);
+void restore_saved_depth_alpha_state(void);
+void begin_screen_draw(s32 arg0);
 s32 draw_textured_quad_at_depth(void *, f32);
-s32 set_draw_texture_and_color(s32, s32);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern s32 TEndingAB__fade_sequence_state;
 extern const f32 lbl_805D9580;
 extern s32 game_difficulty_selection;

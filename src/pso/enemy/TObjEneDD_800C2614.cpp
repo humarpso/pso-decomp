@@ -12,11 +12,11 @@ struct Vec_800C2628 { f32 x, y, z; };
 struct Prm_800C2628 { f32 a, b, c, d, e; };
 
 extern "C" {
-void spawn_particle_effect_with_flags(Vec_800C2628 *, s32, s32);
-void TObjEneDD__sub_800BA5A4(void *, Prm_800C2628 *);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
+void TObjEneDD__sub_800BA5A4(void *p, void *a1);
 s32 transition_enemy_state(void *, s32);
 s32 noop__9TObjEneDDFv(void *, s32);
-s32 fn_800C3A60(void *, s32);
+s32 fn_800C3A60(s32 arg0, s32 arg1);
 s32 advance_animation_playback();
 s32 play_sound_effect(s32, void *, s32, s32);
 extern Prm_800C2628 enemy_dd_attack_param_block;
@@ -71,7 +71,7 @@ void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1) {
                     TObjEneDD__sub_800BA5A4(arg0, &enemy_dd_attack_param_block);
                 }
             }
-            play_sound_effect(fn_800C3A60(arg0, 0x4003A311), arg0 + 0x38, 0, 0);
+            play_sound_effect(fn_800C3A60((s32)arg0, 0x4003A311), arg0 + 0x38, 0, 0);
         }
         break;
     case 0:
@@ -105,7 +105,7 @@ void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1) {
                 if (F(s32, 0x3D8) > 0xFF) {
                     F(s32, 0x3D8) = 0xFF - (F(s32, 0x3D8) - 0xFF);
                     F(s32, 0x414) = 1;
-                    play_sound_effect(fn_800C3A60(arg0, 0x4003AD10), arg0 + 0x38, 0, 0);
+                    play_sound_effect(fn_800C3A60((s32)arg0, 0x4003AD10), arg0 + 0x38, 0, 0);
                 }
             } else {
                 F(s32, 0x3D8) -= step;
@@ -137,7 +137,7 @@ void TObjEneRe2Flower::handle_event(s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) & 0xFFFFFFF7);
         ((TObjEneDD *)arg0)->set_field_378(3);
         *(s32 *)((s8 *)arg0 + 0x410) = 0;
-        play_sound_effect(fn_800C3A60(arg0, 0x4003A315), (u8 *)&this->position, 0, 0);
+        play_sound_effect(fn_800C3A60((s32)arg0, 0x4003A315), (u8 *)&this->position, 0, 0);
         TObjPlayer::play_effect_if_v2(-0x200);
         return;
     case 3:

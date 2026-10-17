@@ -40,7 +40,7 @@ struct RecoveredGlobal_8015FB38___vt__15TODoorAncient07 {
 
 extern "C" {
 s32 init_collision_body_parts(void *, void *, int);
-s32 init_door_base(void *);
+void *init_door_base(void *a0);
 extern RecoveredGlobal_8015FB38_lbl_804B1048 door_ancient07_collision_parts;
 extern s32 __vt__15TODoorAncient07[];
 extern s32 lbl_805D2F48;
@@ -50,7 +50,7 @@ extern const f32 lbl_805DB458;
 extern const f32 lbl_805DB468;
 u8 *TODoorAncient07__ct(u8 *arg0, s32 arg1, s32 arg2);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-void copy_model_node(void *, void *);
+void copy_model_node(u8 *arg0, u8 *arg1);
 u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 *mem_alloc(s32);
 s32 load_gvm_texture_file(void *);
@@ -62,7 +62,7 @@ void *__dt__15TODoorAncient07Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
-s32 mem_free(void*);
+void mem_free(void *p);
 
 void TODoorAncient07::cleanup() {
     if (TODoorAncient07__render_nodes != NULL) {
@@ -123,7 +123,7 @@ void *__dt__15TODoorAncient07Fv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8015FB38_lbl_804B1048_size[sizeof(RecoveredGlobal_8015FB38_lbl_804B1048) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8015FB38___vt__15TODoorAncient07_size[sizeof(RecoveredGlobal_8015FB38___vt__15TODoorAncient07) == 0x54 ? 1 : -1];
 u8 *TODoorAncient07__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    init_door_base((void *) (arg0));
+    init_door_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8015FB38___vt__15TODoorAncient07 *)&__vt__15TODoorAncient07).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2F48;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);

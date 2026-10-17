@@ -64,7 +64,7 @@ struct RecoveredGlobal_80129DD4_lbl_8043E968 {
 
 extern "C" {
 s32 draw_icon__10TObjPlayerFll(void *, int, void *);
-s32 TObjPlayer__sub_80128A70();
+void TObjPlayer__sub_80128A70(void);
 extern RecoveredGlobal_80129DD4_lbl_8043E968 lbl_8043E968;
 typedef char RecoveredGlobal_80129DD4_lbl_8043E968_size[sizeof(RecoveredGlobal_80129DD4_lbl_8043E968) == 0x18 ? 1 : -1];
 void TUnk_804A4648::emit_marker_effects() {

@@ -32,7 +32,7 @@ void *__dt__11TOBiwaMushiFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void *TOBiwaMushi__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
-void __dt__11TODragonflyFv(void *, int);
+void *__dt__11TODragonflyFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 
 void *TOBiwaMushi__create(void *arg0) {
@@ -268,19 +268,16 @@ void *TOMekaFish01__ct(void *arg0, void *arg1) {
 #undef get_bml_model
 void *TOMekaFish00__create(void *arg0);
 u8 *TOMekaFish00__ct(u8 *arg0, s32 arg1);
-#define TOMekaFish00__ct ((void * (*)(void *, void *))TOMekaFish00__ct)
 
 void *TOMekaFish00__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x100);
     if (o != NULL) {
-        o = TOMekaFish00__ct(o, arg0);
+        o = TOMekaFish00__ct((u8 *)o, (s32)arg0);
     }
     return o;
 }
 
 }
-
-#undef TOMekaFish00__ct
 
 struct RecoveredGlobal_802AA934_lbl_804DDFC0 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_802AA934_lbl_804DDFC0_size[sizeof(RecoveredGlobal_802AA934_lbl_804DDFC0) == 0x10 ? 1 : -1];

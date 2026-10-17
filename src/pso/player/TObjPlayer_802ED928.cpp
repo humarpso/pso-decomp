@@ -127,7 +127,7 @@ struct VObj_18 : VBase_18 {
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 query_teammate_state__9TObjEneDDFv();
 s32 is_main_phase_15__9TObjEneDDFv();
 u32 __nw__7TObjectFUl(int);
@@ -136,7 +136,7 @@ s32 TParticleCtrl__sub_802EC550(void *);
 s32 sub_802ECB10__14TBoss7DeRolLeCFv();
 void TObjPlayer__sub_802ED984(void);
 s32 apply_with_callback__10TObjPlayerFlf(int, int);
-s32 set_matrix_identity(int);
+void set_matrix_identity(u8 *arg0);
 s32 rotate_matrix_by_node_angles(void *, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -163,7 +163,7 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
     temp_r3 = *(s32 *)((s8 *)arg0 + 0x628);
     if (temp_r3 & 0x8000) {
         ((TObjEnemy *)arg0)->send_entity_set_flags();
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     if (temp_r3 & 0x80) {
@@ -242,7 +242,7 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0x7AC) != 0U) {
         TObjPlayer::set_global_flag();
         push_matrix();
-        set_matrix_identity((int) (0));
+        set_matrix_identity((0));
         post_translate_matrix((void *) (arg0 + 0x38));
         post_translate_matrix((void *) (arg0 + 0x6EC));
         rotate_matrix_by_node_angles((void *) (arg0 + 0x5C), (int) (1));

@@ -60,8 +60,8 @@ s32 is_split_screen(void);
 u8 *__nw__7TObjectFUl(s32);
 extern s32 tl_05;
 u8 *TObjLight__create(u8 *arg0);
-s32 disallow_rendering__7TObjectFv(void *);
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+void disallow_rendering__7TObjectFv(void *arg0);
+void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 s32 construct_world_actor_base(void *);
 extern s32 __vt__9TObjLight[];
 extern RecoveredGlobal_80194528_TObjLight__data_80506320 TObjLight__scene_light_state;
@@ -80,8 +80,8 @@ f32 vector_length(void *);
 void rotate_matrix_y(void *, s32);
 void rotate_matrix_z(void *, s32);
 void normalize_vector(void *);
-void push_matrix_from(void *);
-void pop_matrices(s32);
+s32 push_matrix_from(void *src);
+s32 pop_matrices(s32 arg0);
 extern const Vec_80193FE8 lbl_80445D44;
 extern u8 identity_matrix[];
 extern u8 *camera_ctrl_instance;
@@ -222,13 +222,13 @@ u8 *TObjLight__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(f32 *)((s8 *)arg0 + 0xE8) = (f32) (0.0f);
     ((TObjLight *)arg0)->m_ec = (f32) (0.0f);
     *(s32 *)&((TObjLight *)arg0)->m_9c = 0;
-    copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xBC), (void *) ((u8 *)&TObjLight__scene_light_state.value + 0x24));
+    copy_vec4__13TRaderMapCoreFPvPv((arg0 + 0xBC), ((u8 *)&TObjLight__scene_light_state.value + 0x24));
     VecCopy((Vec *)(arg0 + 0xD8), (const Vec *)((u8 *)&TObjLight__scene_light_state.value + 0xC));
     *(f32 *)((s8 *)arg0 + 0xF0) = (f32) 0.5f;
     ((TObjLight *)arg0)->m_f4 = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0xF8) = (f32) (0.0f);
     ((TObjLight *)arg0)->m_fc = (f32) (0.0f);
-    disallow_rendering__7TObjectFv((void *) (arg0));
+    disallow_rendering__7TObjectFv((arg0));
     return arg0;
 }
 

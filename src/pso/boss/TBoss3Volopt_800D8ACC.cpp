@@ -17,7 +17,7 @@ s32 create_timed_particle_emitter(void *, int, int, int);
 s32 spawn_particle_effect(void *, int, f32);
 extern const f32 lbl_805DA3C0;
 void spawn_particles_at__12TBoss3VoloptFi(s32 arg0);
-s32 remap_area_sound_id(int, int);
+s32 remap_area_sound_id(s32 arg0, s32 arg1);
 s32 play_sound_effect(int, void *, int, int);
 void TBoss3Volopt__sub_800D8D88(s32 arg0);
 s32 TBreakUpMdl__ct(void*, s32, s32, s32, s32, s32, s32);
@@ -63,7 +63,7 @@ void TBoss3Volopt::play_area_variant_sound() {
         play_sound_effect((int) (0x4003AD3F), (void *) (arg0), (int) (0), (int) (0));
         return;
     default:
-        play_sound_effect((int) (::remap_area_sound_id((int) (0x4003AD06), (int) (0x1E))), (void *) (arg0), (int) (0), (int) (0));
+        play_sound_effect((int) (::remap_area_sound_id((0x4003AD06), (0x1E))), (void *) (arg0), (int) (0), (int) (0));
         return;
     }
 }

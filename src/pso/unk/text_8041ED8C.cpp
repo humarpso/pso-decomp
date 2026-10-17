@@ -105,11 +105,11 @@ struct O_80420DE4 { u8 pad0[8]; s32 f8; u8 padC[0xC]; s16 f18; u8 pad1A[2]; u8 f
 struct E_80420C9C { u8 c0; u8 c1; u8 c2; u8 c3; s16 f4; u8 pad6[0x3E]; };
 struct G_80420C9C { s16 count; s16 f2; s16 f4; s16 f6; E_80420C9C *ents; };
 extern "C" {
-void TLobby__sub_803F87C8(void *);
+void TLobby__sub_803F87C8(u8 *arg0);
 s32 TLobby__sub_803F87C4(void *);
 extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
 void TLobby__sub_8041FDA0(O_8041FDA0 *o, s16 idx, s32 a, s32 b);
-s32 NetMemcpy(void *, void *, int);
+void NetMemcpy(void *_w0, void *_w1, int _w2);
 s32 TLobby__sub_80420BD0(void *arg0, S_80420BD0 *s, s32 arg2);
 void TLobby__sub_80422E30(s16, s32, s32, s16);
 s32 TLobby__sub_80420D38(u16 arg0, u8 arg1);
@@ -362,7 +362,7 @@ s32 TLobby::init_ucb_entries() {
     s16 i;
     E_80420C9C *e;
 
-    TLobby__sub_803F87C8(&G_);
+    TLobby__sub_803F87C8((u8 *)&G_);
     e = G_.ents;
     i = 0;
     while (i < G_.count) {

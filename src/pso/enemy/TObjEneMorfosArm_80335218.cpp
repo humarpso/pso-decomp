@@ -15,14 +15,14 @@ struct RecoveredGlobal_80335354___vt__16TObjEneMorfosArm { s32 value; u8 remaini
 typedef char RecoveredGlobal_80335354___vt__16TObjEneMorfosArm_size[sizeof(RecoveredGlobal_80335354___vt__16TObjEneMorfosArm) == 0x38 ? 1 : -1];
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
-u8 * TObjEneMorfosArm__sub_803326B4(void *);
+void queue_destruction__7TObjectFv(void *arg0);
+void *TObjEneMorfosArm__sub_803326B4(void *p);
 s32 TObjEneMorfosArm__sub_803326BC(void *);
 s32 advance_animation_playback();
 u16 obj_getField1c(void *);
-u8 * TObjMotion__ct(void *);
+u8 *TObjMotion__ct(u8 *arg0);
 s32 set_field_d8__10TObjPlayerFl(void *, void *, int);
-s32 set_animation__10TObjPlayerFPvs(void *, int);
+void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 extern RecoveredGlobal_80335354_lbl_804EE3B0 morfos_arm_motion_params;
 extern s32 __vt__16TObjEneMorfosArm[];
 extern s32 TObjEneMorfosArm__name;
@@ -34,12 +34,12 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-void __dt__10TObjMotionFv(void *, int);
+void *__dt__10TObjMotionFv(void *arg0, s16 arg1);
 
 void TObjEneMorfosArm::render() {
     u8 *arg0 = (u8 *)this;
     if ((u32) TObjEneMorfosArm__parent_morfos_instance == 0U) {
-        queue_destruction__7TObjectFv((void *)(arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     push_matrix();
@@ -58,13 +58,13 @@ void TObjEneMorfosArm::run_task() {
     advance_animation_playback();
     temp_r3 = (u8 *)(*(u8 * *)&this->m_fc);
     if (temp_r3 == NULL) {
-        queue_destruction__7TObjectFv((void *)(arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(TObjEneMorfosArm__sub_803326B4(temp_r3)));
     this->rotation_y = TObjEneMorfosArm__sub_803326BC(*(u8 * *)&this->m_fc);
     if (*(s32 *)&this->animationFlags & 0x10) {
-        queue_destruction__7TObjectFv((void *)(arg0));
+        queue_destruction__7TObjectFv((arg0));
     }
 }
 
@@ -93,7 +93,7 @@ u8 *TObjEneMorfosArm__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     set_field_d8__10TObjPlayerFl((void *) (arg0), (void *) (&morfos_arm_motion_params.value), (int) (temp_r5));
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)(*(u8 * *)&TObjEneMorfosArm__parent_morfos_instance) + 0x430)));
     ((TObjEneMorfosArm *)arg0)->m_b8 = 0;
-    set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (((TObjEneMorfosArm *)arg0)->m_b8));
+    set_animation__10TObjPlayerFPvs((arg0), (((TObjEneMorfosArm *)arg0)->m_b8));
     ((TObjMotion *)arg0)->set_field_b8((int) (((TObjEneMorfosArm *)arg0)->m_b8));
     return arg0;
 }

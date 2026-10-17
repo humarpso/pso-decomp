@@ -270,7 +270,7 @@ extern "C" {
 int transition_enemy_state(void*, int);
 s32 draw_model__23TObjEneMe3ShinowaMirageFv();
 s32 queue_destruction__7TObjectFv(void *);
-s32 TObjEneMe3Shinowa__sub_800E7724(void *);
+void TObjEneMe3Shinowa__sub_800E7724(u8 *arg0);
 s32 find_entity_by_id(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 create_particle_emitter(s32, s32);
@@ -298,11 +298,11 @@ s32 TObjEneMe3Shinowa__ct(void *, void *);
 extern s32 lbl_805D2AD0;
 extern const f32 lbl_805DA5C0;
 s32 TObjEneMe3ShinowaReal__sub_800E45CC(int, int);
-s32 set_chunk_material_color(s32);
+void set_chunk_material_color(f32 *arg);
 void __dl__7TObjectFPv(void *);
-void __dt__17TObjEneMe3ShinowaFv(void *, int);
+void *__dt__17TObjEneMe3ShinowaFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
-s32 set_chunk_material_override_pair(s32, s32);
+void set_chunk_material_override_pair(s32 arg0, s32 arg1);
 
 void TObjEneMe3ShinowaMirage::render() {
     u8 *arg0 = (u8 *)this;
@@ -326,7 +326,7 @@ extern s32 model_render_flags;
 s32 TObjEneMe3ShinowaMirage::update_effect() {
     s32 arg0 = (s32)this;
     model_render_flags |= 0x820;
-    set_chunk_material_color(arg0 + 0x430);
+    set_chunk_material_color((f32 *)(arg0 + 0x430));
     set_chunk_material_override_pair(0xFF00, 0x800);
     return 0;
 }
@@ -403,7 +403,7 @@ void TObjEneMe3ShinowaMirage::run_task() {
         return;
     }
     if (!(*(s32 *)((s8 *)arg0 + 0x3C4) & 0x100)) {
-        TObjEneMe3Shinowa__sub_800E7724((void *) (arg0));
+        TObjEneMe3Shinowa__sub_800E7724((arg0));
     }
 }
 

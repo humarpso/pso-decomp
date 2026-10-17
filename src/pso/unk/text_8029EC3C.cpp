@@ -17,7 +17,7 @@ struct Hit_8029EC3C {
 
 extern "C" {
 void *get_player_by_client_id(s32);
-f32 vec_squared_length(void *);
+f32 vec_squared_length(u8 *arg0);
 void reflect_matrix_in_plane(s32, void *);
 Hit_8029EC3C *csnVecterUnder(void *, s32);
 Hit_8029EC3C *csnVector(void *, void *, s32);
@@ -56,7 +56,7 @@ s32 fn_8029EC3C(Vec_8029EC3C *pos, s32 arg1) {
     d.x = b.x - pos->x;
     d.z = b.z - pos->z;
     d.y = b.y - pos->y;
-    if (lbl_805DDD8C == vec_squared_length(&d)) {
+    if (lbl_805DDD8C == vec_squared_length((u8 *)&d)) {
         ray.o.x = pos->x;
         ray.o.y = pos->y;
         ray.o.z = pos->z;

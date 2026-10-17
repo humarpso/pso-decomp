@@ -9,8 +9,8 @@ struct Player_801022FC { u8 pad[0xE6]; s16 fE6; };
 
 extern "C" {
 void vfunc_13__13TUnk_804AF8A0Fl(void *, s32);
-s16 get_current_floor();
-void TLobby__sub_801030EC(void *);
+s32 get_current_floor(void);
+void TLobby__sub_801030EC(u8 *arg0);
 s32 sub_8010319C__13TUnk_804AF8A0Fv(s32);
 s32 can_pickup_item_by_id__10TObjPlayerFii(s32, void *);
 s32 get_player_by_client_id(u16);
@@ -21,7 +21,7 @@ void TItem::try_pick_up_item(s32 id) {
     if ((u16)id != 0xFFFF) {
         if (can_pickup_item_by_id__10TObjPlayerFii(get_player_by_client_id(id), ((Player_801022FC *)this)) != 0 && sub_8010319C__13TUnk_804AF8A0Fv((s32)(((Player_801022FC *)this))) == 0) {
             vfunc_13__13TUnk_804AF8A0Fl(((Player_801022FC *)this), id);
-            TLobby__sub_801030EC(&m);
+            TLobby__sub_801030EC((u8 *)&m);
             m.id = id;
             m.v = ((TItem *)((Player_801022FC *)this))->get_field_d8();
             m.w = get_current_floor();

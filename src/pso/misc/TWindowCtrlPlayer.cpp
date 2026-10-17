@@ -21,7 +21,7 @@ struct Ctl_8024E2A8 {
 extern "C" {
 
 void *__dt__17TWindowCtrlPlayerFv(void *arg0, s16 arg1);
-void TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
@@ -47,10 +47,10 @@ void *__dt__17TWindowCtrlPlayerFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TWindowCtrlPlayer;
         if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x3C)); *(s32 *)&((TWindowCtrlPlayer *)arg0)->m_3c = 0; }
-        if (*(void **)((s8 *)arg0 + 0x38) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x38)); *(s32 *)&((TWindowCtrlPlayer *)arg0)->m_38 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x34) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x34)); *(s32 *)&((TWindowCtrlPlayer *)arg0)->m_34 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x30)); *(s32 *)&((TWindowCtrlPlayer *)arg0)->m_30 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x2C) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x2C)); *(s32 *)&((TWindowCtrlPlayer *)arg0)->m_2c = 0; }
+        if (*(void **)((s8 *)arg0 + 0x38) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x38))); *(s32 *)&((TWindowCtrlPlayer *)arg0)->m_38 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x34) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x34))); *(s32 *)&((TWindowCtrlPlayer *)arg0)->m_34 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x30))); *(s32 *)&((TWindowCtrlPlayer *)arg0)->m_30 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x2C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x2C))); *(s32 *)&((TWindowCtrlPlayer *)arg0)->m_2c = 0; }
         if (*(void **)((s8 *)arg0 + 0x28) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x28)); *(s32 *)&((TWindowCtrlPlayer *)arg0)->m_28 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

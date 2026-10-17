@@ -15,7 +15,7 @@ extern "C" {
 s32 GXSetAlphaCompare(int, int, int, int, int);
 s32 GXSetZMode(int, int, int);
 s32 GXSetZCompLoc(int);
-s32 set_material_alpha_compare_reference(int);
+void set_material_alpha_compare_reference(s32 reference);
 extern RecoveredGlobal_80141A30_lbl_8050C000 depth_buffer_settings;
 extern RecoveredGlobal_80141A30_lbl_8050C028 saved_depth_alpha_scene_state;
 void restore_saved_depth_alpha_state(void);
@@ -27,7 +27,7 @@ void restore_saved_depth_alpha_state(void) {
     GXSetAlphaCompare((int) (*(s32 *)((s8 *)(&depth_buffer_settings.value) + 0)), (int) (0), (int) (0), (int) (7), (int) (0));
     GXSetZCompLoc((int) (*(u8 *)((s8 *)(&depth_buffer_settings.value) + 4)));
     GXSetZMode((int) (*(u8 *)((s8 *)(&depth_buffer_settings.value) + 5)), (int) (*(s32 *)((s8 *)(&depth_buffer_settings.value) + 8)), (int) (*(u8 *)((s8 *)(&depth_buffer_settings.value) + 0xC)));
-    set_material_alpha_compare_reference((int) (*(u8 *)((s8 *)(&depth_buffer_settings.value) + 0xD)));
+    set_material_alpha_compare_reference((*(u8 *)((s8 *)(&depth_buffer_settings.value) + 0xD)));
 }
 #pragma fp_contract on
 u32 calc_pulse_flash_color(u8 r, u8 g, u8 b, s32 frame, s32 period, s32 start, s32 peak, s32 end) {

@@ -5,18 +5,18 @@
 extern "C" {
 
 void *TORockJungleL01__create(void *arg0);
-void *TORockJungleL01__ct(void *, void *);
+u8 *TORockJungleL01__ct(u8 *arg0, s32 arg1);
 void __dl__7TObjectFPv(void *);
-void __dt__10TORockCaveFv(void *, int);
+void *__dt__10TORockCaveFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
-void __dt__13TUnk_804949A8Fv(void *, int);
+void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void queue_destruction__7TObjectFv(void *);
 
 void *TORockJungleL01__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD8);
     if (o != NULL) {
-        o = TORockJungleL01__ct(o, arg0);
+        o = TORockJungleL01__ct((u8 *)o, (s32)arg0);
     }
     return o;
 }

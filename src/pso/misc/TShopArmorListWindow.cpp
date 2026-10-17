@@ -192,13 +192,13 @@ struct Win_8021AE18 {
 
 extern "C" {
 s32 sub_8022397C__15TShopWindowBaseFv(void *);
-s32 __ct__15TShopWindowBaseFv(void *);
+void *__ct__15TShopWindowBaseFv(void *arg0);
 extern s32 __vt__20TShopArmorListWindow[];
 extern s32 TShopArmorListWindow__class_name;
 u8 *TShopArmorListWindow__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 int set_field_20__15TShopWindowBaseFl(void*, int);
-s32 obj_getPtr2B0_20(void *);
+int obj_getPtr2B0_20(u8 *p);
 s32 check_equip_requirements(void *, Rec_8021AD24 *, u32 *);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(void *);
 s32 obj_getField1c(s32);
@@ -224,15 +224,15 @@ s32 get_shop_text(s32);
 void *__nw__7TObjectFUl(u32);
 void *__ct__15TWindowHelpItemFPvUs(void *, s32, u16);
 s32 calc_list_content_extent(void *);
-void *create_item_list_window(s32, s32, u16);
+u8 *create_item_list_window(s32 arg0, s32 arg1, s32 arg2);
 s32 get_item_count__24TShopEquipmentSellWindowFv(void *a, s32 b);
 void *create_cost_window(u16);
 extern const f32 lbl_805DC6C0;
 void *__dt__20TShopArmorListWindowFv(void *arg0, s16 arg1);
-u32 create_window_menu(s32, s32, u16);
+s32 create_window_menu(s32 arg0, s32 arg1, s32 arg2);
 s32 align_menu_entry_positions(u32);
 void __dl__7TObjectFPv(void *);
-void __dt__15TShopWindowBaseFv(void *, int);
+void *__dt__15TShopWindowBaseFv(void *self, s16 m);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, s32, s32);
 
 void TShopArmorListWindow::vfunc_7() {
@@ -456,7 +456,7 @@ s32 TShopArmorListWindow::check_purchase_eligibility() {
         return 0;
     }
     i = select_cursor_entry__22TWindowSubShortCutListFv(w->list);
-    if (w->recs[i].price > obj_getPtr2B0_20(w->player)) {
+    if (w->recs[i].price > obj_getPtr2B0_20((u8 *)w->player)) {
         return 0;
     }
     r = &w->recs[i];
@@ -561,7 +561,7 @@ void TShopArmorListWindow::vfunc_11() {
         if (temp_r12 != NULL) {
             temp_r12(*(s32 *)((s8 *)arg0 + 0x28));
         }
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     case 5:
         ((TShopArmorListWindow *)arg0)->handle_select();
@@ -600,7 +600,7 @@ void *__dt__20TShopArmorListWindowFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8021B1CC___vt__20TShopArmorListWindow_size[sizeof(RecoveredGlobal_8021B1CC___vt__20TShopArmorListWindow) == 0x30 ? 1 : -1];
 u8 *TShopArmorListWindow__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 sp8;
-    __ct__15TShopWindowBaseFv((void *) (arg0));
+    __ct__15TShopWindowBaseFv((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8021B1CC___vt__20TShopArmorListWindow *)&__vt__20TShopArmorListWindow).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TShopArmorListWindow__class_name;
     *(s32 *)((s8 *)arg0 + 0x24) = arg3;

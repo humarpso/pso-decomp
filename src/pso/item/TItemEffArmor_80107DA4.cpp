@@ -23,7 +23,7 @@ struct RecoveredGlobal_80107DF0_lbl_8058D4C0 {
 extern "C" {
 u16 obj_getField1c(void *);
 void queue_destruction__7TObjectFv(void *);
-s32 publish_actor_light_scalars(int, f32, f32);
+void publish_actor_light_scalars(u32 arg0, f32 farg0, f32 farg1);
 extern const f32 TItemEffArmor__data_805DAAEC;
 extern const f32 lbl_805DAAF0;
 extern const f32 lbl_805DAAF4;
@@ -37,7 +37,7 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model_with_motion(int, int, f32);
-s32 set_chunk_material_color(void *);
+void set_chunk_material_color(f32 *arg);
 extern RecoveredGlobal_80107DF0_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_80107DF0_lbl_8058D4C0 model_material_color;
 extern s32 lbl_805D5660;
@@ -65,7 +65,7 @@ void TItemEffArmor::render() {
     lbl_805D5660 = model_render_flags;
     model_render_flags |= 0x10;
     copy_vec4__13TRaderMapCoreFPvPv(&saved_model_draw_color.value, &model_material_color.value);
-    set_chunk_material_color((void *) ((u8 *)(arg0) + 0x38));
+    set_chunk_material_color((f32 *)((u8 *)(arg0) + 0x38));
     TObjPlayer::notify_fish_if_valid(this->m_78);
     draw_ginja_model_with_motion((int) (*(s32 *)&this->m_70), (int) (*(s32 *)&this->m_74), (f32) (this->m_24));
     copy_vec4__13TRaderMapCoreFPvPv(&model_material_color.value, &saved_model_draw_color.value);
@@ -91,7 +91,7 @@ void TItemEffArmor::run_task() {
     *(f32 *)&this->m_38 = (f32) (TItemEffArmor__data_805DAAEC - (this->m_24 / lbl_805DAAF0));
     temp_r3_2 = (u8 *)(*(u8 * *)&this->m_6c);
     if (temp_r3_2 != NULL) {
-        publish_actor_light_scalars((int) (obj_getField1c(temp_r3_2)), (f32) (this->m_60), (f32) (*(f32 *)&this->unk_5C));
+        publish_actor_light_scalars((obj_getField1c(temp_r3_2)), (f32) (this->m_60), (f32) (*(f32 *)&this->unk_5C));
     }
     if (*(f32 *)&this->unk_5C >= TItemEffArmor__data_805DAAEC) {
         *(f32 *)&this->unk_64 = (f32) (lbl_805DAAF4 * *(f32 *)&this->unk_64);

@@ -189,9 +189,9 @@ void TFogCtrl__sub_800FBA58(void);
 void TFogCtrl__sub_800FBAAC(void);
 void create_area_fog_ctrl(void);
 void init_scene_fog_system(void);
-s32 mem_free(void*);
-FogParam_800FBC5C * mem_alloc(s32);
-s32 TObjFogCollisionPoison__sub_801533BC();
+void mem_free(void *p);
+void *mem_alloc(u32 size);
+void TObjFogCollisionPoison__sub_801533BC(void);
 void __dl__7TObjectFPv(s32);
 u32 __nw__7TObjectFUl(int);
 u8 * __dt__7TObjectFv(void *, s16);
@@ -804,7 +804,7 @@ void TFogCtrl::reset() {
     TObjFogCollisionPoison__sub_801533BC();
     TQuestVmDownLoadServer::destroy_instance();
     if ((u32) fog_entry_array != 0U) {
-        mem_free((void*)fog_entry_array);
+        mem_free((void *)fog_entry_array);
     }
     fog_entry_array = 0U;
     ((s32 (*)(s32))fn_803E1FC8)(-1);

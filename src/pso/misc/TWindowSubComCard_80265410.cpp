@@ -112,12 +112,12 @@ void * get_field_20__17TWindowSubComCardFv(void *e);
 s32 draw_selection_bar(s32, u16 *, s32);
 s32 draw_window_frame(void *, s32);
 void refresh_status_display__9TWindowDDFv(void *);
-int TWindowChat__sub_80247D2C(void*);
-s32 is_player_input_active(int);
+void TWindowChat__sub_80247D2C(void *p);
+s32 is_player_input_active(s32 param_1);
 s32 is_window_display_enabled();
 s32 draw_visible_window_entries(void *, void *, s32);
 void measure_message_text_width(Ent_80265C30 *e, f32 x);
-s32 set_text_entry_string(void *, void *, int);
+void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 void update_chat_window(void* p);
 void TWindowSubComCard__sub_80265500(u8 *arg0);
 s32 TWindowSubComCard__sub_80265660(Obj_80265660 *o, s16 i);
@@ -621,9 +621,9 @@ s32 TWindowSubTradeMain::add_text_entry(s32 arg1, s32 arg2, s32 arg3, s32 arg4) 
     *(f32 *)((s8 *)temp_r3 + 0xC) = (f32) (temp_r7 * 0x14);
     *(s32 *)((s8 *)temp_r3 + 0x24) = arg4;
     if (arg2 & 1) {
-        set_text_entry_string(temp_r3, (void *) (arg1), (int) (0x20));
+        set_text_entry_string(temp_r3, (arg1), (0x20));
     } else {
-        set_text_entry_string(temp_r3, (void *) (arg1), (int) (0));
+        set_text_entry_string(temp_r3, (arg1), (0));
     }
     if (arg2 & 4) {
         *(u16 *)((s8 *)temp_r3 + 0) = (u16) (*(u16 *)((s8 *)temp_r3 + 0) | 1);
@@ -781,7 +781,7 @@ void TWindowMenu::run_task() {
         *(s32 *)&this->m_5c = 0x01000000;
     }
     if ((((TWindowMenu *)arg0)->sub_80266BB8() == 0) && (((TWindowMenu *)arg0)->is_visible() == 0) && ((s32) *(s32 *)&this->m_5c > 2) && (is_window_display_enabled() != 0) && (((TUnk_804CE018 *)arg0)->sub_80244994() != 0)) {
-        temp_r30 = is_player_input_active((int) (this->m_20));
+        temp_r30 = is_player_input_active((this->m_20));
         if (this->m_70 & 0x10) {
             temp_r29 = (u8 *)controller_input_state + (temp_r30 * 0x50) + 0x20;
             if ((TWindowChoiceSetting::apply_choice((s32)((void *) (temp_r29)), (s32)((int) (0x10)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (is_locked((int) (0x10)) != 0)) {

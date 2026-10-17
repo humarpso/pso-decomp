@@ -19,7 +19,7 @@ public:
 
 extern "C" {
 s32 set_field_1c__6TLobbyFf(int);
-s32 TWindowSubEquip__sub_80263AF8(int, int);
+f32 TWindowSubEquip__sub_80263AF8(u8 *arg0, u32 arg1);
 void *get_window_layout_position(int);
 s32 mark_unequippable_items(int);
 s32 create_equip_kind_window(void *, void *, int);
@@ -27,9 +27,9 @@ extern s32 lbl_8044F920[];
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32, s32);
 s32 is_usable__14TWindowSubItemFl();
-u32 get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 s32 play_sound_effect(s32, s32, s32, s32);
-void TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 s32 is_player_input_active(s32);
 s32 fn_80255A38(s32);
 s32 TWindowSubEquip__sub_80263AF4(void *, s32);
@@ -51,7 +51,7 @@ void __dt__7TObjectFv(void *, int);
 s32 TWindowSubEquip::open_equip_kind_list(u32 arg1) {
     s32 equip_kind_window;
     equip_kind_window = create_equip_kind_window(get_window_layout_position(1), (void *) (lbl_8044F920), (int) (*(s32 *)&this->m_28));
-    TWindowSubEquip__sub_80263AF8((int) (*(s32 *)&this->m_2c), (int) (1));
+    TWindowSubEquip__sub_80263AF8((u8 *)(*(s32 *)&this->m_2c), (1));
     set_field_1c__6TLobbyFf((int) (equip_kind_window));
     ((TUnk_804D0618 *)equip_kind_window)->ensure_status_display((int) (TWindowSubStatusDisp::get_message_10((int) (0x24))));
     ((TWindowSubShortCutList *)equip_kind_window)->set_flag70_bit10();
@@ -93,7 +93,7 @@ void TWindowSubEquip::run_task() {
     case 1:
         if ((u32) this->m_38 != 0U) {
             TWindowSubEquip__sub_80263AF4(*(void * *)&this->m_2c, 1);
-            TWindow__close(*(void * *)&this->m_38);
+            TWindow__close((u8 *)(*(void * *)&this->m_38));
             this->m_38 = 0U;
         }
         fn_80255A38(*(s32 *)&this->m_30);
@@ -153,9 +153,9 @@ void TWindowSubEquip::run_task() {
 void *__dt__15TWindowSubEquipFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TWindowSubEquip;
-        if (*(void **)((s8 *)arg0 + 0x38) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x38)); *(s32 *)&((TWindowSubEquip *)arg0)->m_38 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x34) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x34)); *(s32 *)&((TWindowSubEquip *)arg0)->m_34 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x30)); *(s32 *)&((TWindowSubEquip *)arg0)->m_30 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x38) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x38))); *(s32 *)&((TWindowSubEquip *)arg0)->m_38 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x34) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x34))); *(s32 *)&((TWindowSubEquip *)arg0)->m_34 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x30))); *(s32 *)&((TWindowSubEquip *)arg0)->m_30 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -171,7 +171,7 @@ u8 *TWindowSubEquip__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)&((TWindowSubEquip *)arg0)->m_2c = arg1;
     *(s32 *)&((TWindowSubEquip *)arg0)->m_28 = arg2;
     *(s32 *)&((TWindowSubEquip *)arg0)->m_34 = create_equip_list_window(get_window_layout_position(0), lbl_8044F918, *(s32 *)&((TWindowSubEquip *)arg0)->m_28);
-    TWindowSubEquip__sub_80263AF8(*(s32 *)&((TWindowSubEquip *)arg0)->m_2c, 0);
+    TWindowSubEquip__sub_80263AF8((u8 *)(*(s32 *)&((TWindowSubEquip *)arg0)->m_2c), 0);
     set_field_1c__6TLobbyFf(*(s32 *)&((TWindowSubEquip *)arg0)->m_34);
     ((TWindowSubShortCutList *)(*(s32 *)&((TWindowSubEquip *)arg0)->m_34))->set_flag70_bit10();
     p = __nw__7TObjectFUl(0xBC);
@@ -179,7 +179,7 @@ u8 *TWindowSubEquip__ct(u8 *arg0, s32 arg1, s32 arg2) {
         p = (void *)__ct__15TWindowHelpItemFPvUs(p, get_window_layout_position(2), *(s32 *)&((TWindowSubEquip *)arg0)->m_28);
     }
     *(void **)((s8 *)arg0 + 0x30) = p;
-    TWindowSubEquip__sub_80263AF8(*(s32 *)&((TWindowSubEquip *)arg0)->m_2c, 2);
+    TWindowSubEquip__sub_80263AF8((u8 *)(*(s32 *)&((TWindowSubEquip *)arg0)->m_2c), 2);
     set_field_1c__6TLobbyFf(*(s32 *)&((TWindowSubEquip *)arg0)->m_30);
     *(s32 *)&((TWindowSubEquip *)arg0)->m_38 = 0;
     *(s32 *)&((TWindowSubEquip *)arg0)->m_20 = -1;

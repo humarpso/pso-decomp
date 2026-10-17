@@ -8,7 +8,7 @@ extern "C" {
 void TLogo__sub_8001C360(void);
 void TLogo__sub_8001C364(void);
 void *__ct__12TAdSoniclogoFv(void *arg0);
-int get_logo_texture_e_handle(void);
+s32 get_logo_texture_e_handle(void);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 

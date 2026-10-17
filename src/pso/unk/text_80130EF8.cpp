@@ -14,7 +14,7 @@ extern s32 tl_05;
 extern const f32 lbl_805DB040;
 extern const f32 lbl_805DB044;
 extern const f32 lbl_805DB048;
-void spawn_particle_effect(void *buf, s32 n);
+void *spawn_particle_effect(void *pos, s32 id);
 void yasminkov_2000h_idle(u8 *arg0) {
     s32 temp_r0;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x1F8);

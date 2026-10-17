@@ -8,9 +8,9 @@ s32 __nw__7TObjectFUl(int);
 void *__ct__18TAdLoadQuestCellGCFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 __declspec(section ".data") TAdLoadQuestCellGC *ad_load_quest_cell_table[3] = { 0, 0, 0 };
 s32 get_or_create_cell__14TAdLoadQuestGCFii(s32 arg0, s32 arg1);
-s32 draw_quest_load_panel_overlays();
-s32 draw_quest_load_letterbox_bars();
-s32 fn_80349844();
+void draw_quest_load_panel_overlays(void);
+void draw_quest_load_letterbox_bars(void);
+void fn_80349844(void);
 
 void TAdLoadQuestCellGC::render_state() {
     s32 temp_r0;

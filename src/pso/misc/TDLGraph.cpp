@@ -23,8 +23,8 @@ extern u8 lbl_80438AAC[];
 extern const f32 lbl_805D92CC;
 extern const f32 lbl_805D92D0;
 extern const f32 lbl_805D92D4;
-void queue_destruction__7TObjectFv(s32);
-void fn_8007ECF0(s32, s32, s32);
+void queue_destruction__7TObjectFv(void *arg0);
+void fn_8007ECF0(u8 *arg0, s32 arg1, s32 arg2);
 void TDLGraph::sub_8007F644() {
     this->m_3c = 0;
     sub_8007F5A4();
@@ -53,7 +53,7 @@ void TDLGraph::update_graph(s32 arg0, s32 arg1) {
     }
     if (arg0 == 0) {
         if (G != 0) {
-            queue_destruction__7TObjectFv(TDLGraph__graph_object);
+            queue_destruction__7TObjectFv((void *)TDLGraph__graph_object);
             return;
         }
         TDLGraph::create();
@@ -61,7 +61,7 @@ void TDLGraph::update_graph(s32 arg0, s32 arg1) {
         return;
     }
     if (G != 0) {
-        fn_8007ECF0(TDLGraph__graph_object, arg0, arg1);
+        fn_8007ECF0((u8 *)TDLGraph__graph_object, arg0, arg1);
     }
 }
 #undef G

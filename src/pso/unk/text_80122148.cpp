@@ -70,9 +70,9 @@ extern "C" {
 u8 * init_state_vector__13TUnk_804A0DB0Fv(void *, s32, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-void spawn_weapon_impact_effect();
-void create_shoot_model_rot_z();
-void create_gun_shot();
+void spawn_weapon_impact_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 create_shoot_model_rot_z(u32 arg0, s32 arg1, s32 arg2, f32 farg0);
+s32 create_gun_shot(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
 u8 *TObjPlayer::create_state_vector_state(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;

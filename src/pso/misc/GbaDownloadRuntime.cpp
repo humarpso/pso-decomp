@@ -13,13 +13,13 @@ int queue_destruction__7TObjectFv(void*);
 void xfree__FPv(void*);
 s32 xmalloc__FUl(s32);
 int TLobby__sub_8032C91C(void* p);
-s32 load_from_aram_sync__16TAdWarningBaseGCFi(void*);
-u32 TAdWarningBaseGC__sub_8032D020();
+s32 load_from_aram_sync__16TAdWarningBaseGCFi(s32 arg0);
+int TAdWarningBaseGC__sub_8032D020(void);
 s32 read_disc_file(s32, u32);
-s32 TLobby__sub_801F34F8();
+int TLobby__sub_801F34F8(void);
 int GBAInit(void*);
 s32 GBAGetProcessStatus(s32, u8 *);
-u32 get_alloc_size__16TAdWarningBaseGCFv();
+int get_alloc_size__16TAdWarningBaseGCFv(void);
 u32 update_lobby_scene__6TSceneFv();
 
 extern u32 gba_download_data_buffer;
@@ -109,7 +109,7 @@ void TLobby::update_alloc_size() {
         return;
     }
     if ((u32) gba_download_data_buffer != 0U) {
-        load_from_aram_sync__16TAdWarningBaseGCFi((void*)gba_download_data_buffer);
+        load_from_aram_sync__16TAdWarningBaseGCFi(gba_download_data_buffer);
         gba_download_data_size = get_alloc_size__16TAdWarningBaseGCFv();
         return;
     }
@@ -143,7 +143,7 @@ struct DateStamp_8032C9A8 { s32 days; s32 mins; s32 ticks; };
 struct Rec_8032C9A8 { u32 a; u32 b; u32 c; };
 
 extern "C" {
-s32 TLobby__sub_801F34F8(void);
+int TLobby__sub_801F34F8(void);
 void *memmove(void *, const void *, u32);
 s32 rand();
 void *memset(void *, int, u32);

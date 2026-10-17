@@ -638,9 +638,9 @@ s32 get_item_icon_index(const u8 *q) {
 s32 strncpy(s8 *, u32, s32);
 void TItemData__sub_8010CA08(void *arg0, u32 arg1, u8 arg2);
 s32 TItemData__sub_8010CAB0(s32 arg0, s8 arg1);
-u32 find_item_by_id(u32);
+u8 *find_item_by_id(s32 id);
 void TItemData__sub_8010CCB0(void);
-s32 is_item_stackable(u8, u8);
+s32 is_item_stackable(s32 arg0, s32 arg1);
 int register_item_drop__10TObjPlayerFv(void*);
 
 }
@@ -801,10 +801,8 @@ s32 TItemData::get_item_use_result() {
 #define add_shield_stat_contribution__9TItemDataFPviiPv ((s32 (*)(void *, s32, s32, s32, s32, s32))add_shield_stat_contribution__9TItemDataFPviiPv)
 #define apply_unit_stat_bonus__9TItemDataFPviiPvPvPv ((s32 (*)(void *, s32, s32, s32, s32, s32))apply_unit_stat_bonus__9TItemDataFPviiPvPvPv)
 #define apply_bonuses ((s32 (*)(void *, s32, s32, s32, s32, s32))apply_bonuses)
-#define get_packed_value__9TItemDataFPv ((u16 (*)(void *))get_packed_value__9TItemDataFPv)
 #define is_custom_name_srank__9TItemDataFPv ((s32 (*)(void *))is_custom_name_srank__9TItemDataFPv)
 #define memset ((void * (*)(void *, int, int))memset)
-#define decode_packed_name_chars__9TItemDataFPvPv ((void (*)(void *, s8 *))decode_packed_name_chars__9TItemDataFPvPv)
 
 struct Raw_8010D614 { u8 b[4]; u16 s[4]; u32 id; u8 c[4]; };
 
@@ -843,7 +841,7 @@ extern const f32 lbl_805DAB74;
 extern f32 TItemData__data_805DAB78;
 void deserialize_mag__9TItemDataFPvPv(Raw_8010D614 *src, Mag_8010D614 *dst);
 void *get_armor_pmt_record(int type, int id);
-u8 get_mag_total_level(const void *);
+s16 get_mag_total_level(void *mag);
 s32 get_item_star_count(s32);
 s32 is_rare_item__9TItemDataFPv(u8 *item);
 char *get_item_chunk_buffer(s32);
@@ -853,7 +851,7 @@ extern s32 lbl_805D2B10;
 s32 format_item_description(u8 *item);
 s32 TObjPlayer__sub_80117E50(s32);
 extern const f32 lbl_805DAB7C;
-char *get_technique_name();
+s32 get_technique_name(s32 arg0);
 char *get_text_collection(s32);
 s8 *get_item_by_slot_flag__10TObjPlayerFUc(u8);
 extern char lbl_8043E358[];
@@ -1205,7 +1203,7 @@ void serialize_mag__9TItemDataFPvPv(Item_8010D510 *item, const Mag_8010D510 *mag
     Item_8010D510 copy;
     copy.b0 = item->b0;
     copy.b1 = item->b1;
-    copy.level = get_mag_total_level(mag);
+    copy.level = get_mag_total_level((void *)mag);
     copy.b3 = mag->b0d;
     copy.stat[0] = mag->stat[0] & 0x7FFE;
     copy.stat[1] = mag->stat[1] & 0x7FFE;
@@ -1803,16 +1801,16 @@ void TItemData::format_item_name(char *buf) {
             case 0xE:
             case 0x11:
                 if (current_language == 0) {
-                    sprintf(buf, lbl_8043E37C, ((char *(*)(s32))get_technique_name)(f), name);
+                    sprintf(buf, lbl_8043E37C, get_technique_name(f), name);
                 } else {
-                    sprintf(buf, lbl_8043E37C, name, ((char *(*)(s32))get_technique_name)(f));
+                    sprintf(buf, lbl_8043E37C, name, get_technique_name(f));
                 }
                 break;
             default:
                 if (current_language == 0) {
-                    sprintf(buf, lbl_8043E384, ((char *(*)(s32))get_technique_name)(f), item->b2 + 1, name);
+                    sprintf(buf, lbl_8043E384, get_technique_name(f), item->b2 + 1, name);
                 } else {
-                    sprintf(buf, lbl_8043E390, name, ((char *(*)(s32))get_technique_name)(f), item->b2 + 1);
+                    sprintf(buf, lbl_8043E390, name, get_technique_name(f), item->b2 + 1);
                 }
                 break;
             }
@@ -1958,7 +1956,5 @@ s32 TItemData::check_item_flags() {
 #undef add_shield_stat_contribution__9TItemDataFPviiPv
 #undef apply_unit_stat_bonus__9TItemDataFPviiPvPvPv
 #undef apply_bonuses
-#undef get_packed_value__9TItemDataFPv
 #undef is_custom_name_srank__9TItemDataFPv
 #undef memset
-#undef decode_packed_name_chars__9TItemDataFPvPv

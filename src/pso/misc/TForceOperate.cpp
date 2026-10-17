@@ -121,28 +121,28 @@ struct VOff_801C5870_arg0_801C57D0 { char pad_0[0x1C]; char f_1C[1]; };
 void *TForceOperate__ct(void *arg0, void *arg1, void *arg2);
 void calc_death_sink_offset(void *arg0);
 void run_task__13TForceOperateFv(s32 arg0);
-s32 TObjPlayer__sub_801C6DAC(s32);
+s32 TObjPlayer__sub_801C6DAC(u8 *arg0);
 void *find_entity_by_id();
 void __ct__7TObjectFP7TObject(void *);
 void fn_8013E020(void *);
 void *get_state__11TMainCursorFv(s32);
 s32 is_target_valid__10TObjPlayerFv();
 s32 obj_getField1c(void *);
-s32 queue_destruction__7TObjectFv(s32);
+void queue_destruction__7TObjectFv(void *arg0);
 void set_field_0__13TForceOperateFs(void *, void *);
 
 void run_task__13TForceOperateFv(s32 arg0) {
     void *temp_r31;
     void *entity;
 
-    if (TObjPlayer__sub_801C6DAC(arg0 + 0x1C) != 0) {
+    if (TObjPlayer__sub_801C6DAC((u8 *)(arg0 + 0x1C)) != 0) {
         temp_r31 = get_state__11TMainCursorFv(arg0 + 0x1C);
         if ((is_target_valid__10TObjPlayerFv() != 0) && (((TObjPlayer *)temp_r31)->has_action_palette_entry() != 0)) {
             ((TMainCursor *)(*(s32 *)((s8 *)temp_r31 + 0x424) + 0x4F8))->get_id();
             entity = find_entity_by_id();
             if (entity != NULL) {
                 ((VObj_801C57D0 *)entity)->m11(obj_getField1c(temp_r31));
-                queue_destruction__7TObjectFv(arg0);
+                queue_destruction__7TObjectFv((void *)arg0);
             }
         }
     }
@@ -240,7 +240,7 @@ struct RecoveredGlobal_801C5B68_lbl_8058D4C0 {
 struct Obj_801C5C38 { u8 pad[4]; s32 n; };
 
 extern "C" {
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 extern RecoveredGlobal_801C5B68_lbl_8058D4C0 model_material_color;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
@@ -251,16 +251,16 @@ void reset_player_appearance_opacity(void* a0);
 void update_target_lock__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 get_current_floor();
 s32 TObjPlayer__sub_801C6F90();
-int set_chunk_material_color(void*);
+void set_chunk_material_color(f32 *arg);
 int clear_flags__11TAdRicoRingFUl(void*, void*);
 s32 clear_target_lock_flag__10TObjPlayerFPv(s32);
 s32 fn_801C6F2C(void *);
 s32 is_room_free_of_active_enemies(s32, s32);
 s32 get_stat_by_key_state__13TUnk_804B9870Fv(s32);
-int set_chunk_material_override_pair(void*, void*);
+void set_chunk_material_override_pair(s32 arg0, s32 arg1);
 s32 set_lock_flag__10TObjPlayerFPv(s32);
 int set_lock_timer__10TObjPlayerFPvi(void*, void*);
-int set_some_id__FUl(void*);
+void set_some_id__FUl(s32 arg0);
 
 void TObjPlayer::enter_battle_state() {
     s32 temp_r3;
@@ -275,14 +275,14 @@ void TObjPlayer::enter_battle_state() {
 
 void reset_player_appearance_opacity(void* a0) { *(float*)((char*)a0 + 0x1c) = lbl_805DC320[0]; }
 
-void TObjPlayer::write_ids() { set_some_id__FUl(*(void* *)&this->m_name); set_chunk_material_override_pair(*(void**)((char*)this + 0x4), *(void* *)&this->m_prev); set_chunk_material_color((char*)this + 0xc); }
+void TObjPlayer::write_ids() { set_some_id__FUl((s32)(*(void* *)&this->m_name)); set_chunk_material_override_pair((s32)(*(void**)((char*)this + 0x4)), (s32)(*(void* *)&this->m_prev)); set_chunk_material_color((f32 *)((char*)this + 0xc)); }
 
 typedef char RecoveredGlobal_801C5B68_lbl_8058D4C0_size[sizeof(RecoveredGlobal_801C5B68_lbl_8058D4C0) == 0x10 ? 1 : -1];
 void save_render_material_state(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) model_render_flags;
     *(s32 *)((s8 *)arg0 + 4) = (s32) chunk_polygon_flags_and_mask;
     *(s32 *)((s8 *)arg0 + 8) = (s32) chunk_polygon_flags_or_mask;
-    copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xC), (void *) (&model_material_color.value));
+    copy_vec4__13TRaderMapCoreFPvPv((arg0 + 0xC), (&model_material_color.value));
 }
 
 void TObjPlayer::set_vec4_const() { *(float*)((char*)this + 0x1c) = lbl_805DC320[0]; *(float *)&this->m_20 = lbl_805DC320[0]; *(float *)&this->texture_id = lbl_805DC320[0]; *(float *)&this->m_28 = lbl_805DC320[0]; }

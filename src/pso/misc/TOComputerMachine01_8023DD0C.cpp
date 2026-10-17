@@ -34,7 +34,7 @@ void TObjPlayer__sub_8023DEE0(s16 *p, s16 a, s16 b, u16 id);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void begin_screen_draw(s32);
-void DVDConvertEntrynumToPath(void *);
+void DVDConvertEntrynumToPath(f32 *q);
 void set_draw_texture_and_color(s32, s32);
 
 s32 has_texture_scroll_entry(Tbl_8023DD0C *t, u16 id) {
@@ -256,7 +256,7 @@ void TObjPlayer::draw_compass_sprite(s32 idx, s32 color, s32 flags, f32 z) {
         begin_screen_draw(0);
     }
     set_draw_texture_and_color(idx, color);
-    DVDConvertEntrynumToPath(&info);
+    DVDConvertEntrynumToPath((f32 *)&info);
     TWindowSubStatusDisp::get_player();
 }
 #pragma pop

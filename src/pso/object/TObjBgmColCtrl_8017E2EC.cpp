@@ -10,7 +10,7 @@ struct V_8017E410 : B_8017E410 { virtual ~V_8017E410(); };
 
 extern "C" {
 s32 TObjBgmColCtrl__ct(int, int);
-s32 create_bgm_col_zones();
+void create_bgm_col_zones(void);
 u32 __nw__7TObjectFUl(int);
 u32 __ct__7TObjectFP7TObject(int, int);
 extern u32 TObjBgmColCtrl__instance;
@@ -20,8 +20,8 @@ s32 __dl__7TObjectFPv(void *);
 extern void *__vt__14TObjBgmColCtrl[];
 void *__dt__14TObjBgmColCtrlFv(void *arg0, s16 arg1);
 s32 is_active__14TObjBgmColCtrlFv();
-u32 get_player_by_client_id(s32);
-s32 get_quest_bgm_issued_flag();
+void *get_player_by_client_id(s32 i);
+int get_quest_bgm_issued_flag(void);
 
 extern s32 local_client_id;
 extern s32 TLobby__event_theme_id;

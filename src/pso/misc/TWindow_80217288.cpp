@@ -42,10 +42,10 @@ void queue_destruction__7TObjectFv(void *);
 void handle_confirm_dialog(void *arg0);
 void vfunc_11__17TQuestListOfflineFv(QuestList_802171BC *self);
 void * close_shop_subwindows__17TQuestListOfflineFs(void *arg0, s16 arg1);
-void __dt__15TShopWindowBaseFv(void *, int);
+void *__dt__15TShopWindowBaseFv(void *self, s16 m);
 void __ct__15TShopWindowBaseFv(void *, s32);
 void __dl__7TObjectFPv(void *);
-void TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 
 extern s32 TQuestListOffline__class_name;
 
@@ -194,10 +194,10 @@ void TQuestListOffline::vfunc_11() {
 void *TQuestListOffline::close_shop_subwindows(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804C9C9C;
-        if (*(void **)((s8 *)this + 0x3C) != NULL) { TWindow__close(*(void **)((s8 *)this + 0x3C)); *(s32 *)((s8 *)this + 0x3C) = 0; }
-        if (this->m_38 != NULL) { TWindow__close(this->m_38); *(s32 *)((s8 *)this + 0x3C) = 0; }
-        if (this->m_40 != NULL) { TWindow__close(this->m_40); *(s32 *)&this->m_40 = 0; }
-        if (*(void **)((s8 *)this + 0x44) != NULL) { TWindow__close(*(void **)((s8 *)this + 0x44)); *(s32 *)((s8 *)this + 0x44) = 0; }
+        if (*(void **)((s8 *)this + 0x3C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)this + 0x3C))); *(s32 *)((s8 *)this + 0x3C) = 0; }
+        if (this->m_38 != NULL) { TWindow__close((u8 *)this->m_38); *(s32 *)((s8 *)this + 0x3C) = 0; }
+        if (this->m_40 != NULL) { TWindow__close((u8 *)this->m_40); *(s32 *)&this->m_40 = 0; }
+        if (*(void **)((s8 *)this + 0x44) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)this + 0x44))); *(s32 *)((s8 *)this + 0x44) = 0; }
         __dt__15TShopWindowBaseFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

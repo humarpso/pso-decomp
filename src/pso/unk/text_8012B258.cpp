@@ -19,17 +19,17 @@ typedef char PartisanSize[(sizeof(TItemWeaponPartisan)==0x220)?1:-1];
 extern "C" {
 u8 get_slot_count__14TItemProShieldFv(TItemWeapon*);
 s32 is_mode_two_and_ready__10TObjPlayerFv(TItemWeapon*);
-s32 obj_getPtr2B0_20(WeaponPlayerPrefix*);
+int obj_getPtr2B0_20(u8 *p);
 void try_spend_actor_meseta(WeaponPlayerPrefix*, s32);
 void show_meseta_label(WeaponPlayerPrefix*, WeaponVector*, s32, s32);
 void update_active_game_effect__10TObjPlayerFv(TItemWeapon*);
-void spawn_particle_effect(WeaponVector*, s32);
+void *spawn_particle_effect(void *pos, s32 id);
 extern const f32 lbl_805DAE80 = 3.0f;
 }
 void TUnk_804A4D70::emit_marker_effects() {
     switch (get_slot_count__14TItemProShieldFv(this)) {
     case 6:
-        if (is_mode_two_and_ready__10TObjPlayerFv(this) && obj_getPtr2B0_20(player) >= 10000) {
+        if (is_mode_two_and_ready__10TObjPlayerFv(this) && obj_getPtr2B0_20((u8 *)player) >= 10000) {
             try_spend_actor_meseta(player, 10000);
             show_meseta_label(player, (WeaponVector*)((u8*)player + 0x2FC), 0, -10000);
             apply_scale_if_active(*(const volatile f32 *)&lbl_805DAE80);

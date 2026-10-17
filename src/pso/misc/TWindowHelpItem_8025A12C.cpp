@@ -37,7 +37,7 @@ typedef struct Vec2_8025A354 { f32 x, y; } Vec2_8025A354;
 extern "C" {
 s32 sub_80256BDC__13TUnk_804CF930Fs(void *, void *);
 u8 *TWindowHelpItem__sub_8025A594(u8 *arg0, s32 arg1, s32 arg2);
-s32 mem_free(s32);
+void mem_free(void *p);
 s32 mem_alloc(s32);
 s32 strncpy(s32, u32, s32);
 void set_text_draw_params(void *, s32, s32, f32, f32);
@@ -45,10 +45,10 @@ int TWindowHelpItem__sub_8025A600(void* p);
 void draw_window_text(void *, void *, s32, s32, f32);
 void render_summary_row__15TWindowHelpItemFv(Item_8025A354 *self, Win_8025A354 *w);
 s32 get_shared_text_buffer();
-u32 calc_text_width(void *);
+u32 calc_text_width(char *s);
 void text_builder_reset();
 void TWindowSubStatusDisp__sub_80228F5C(s32);
-void text_builder_append(void *);
+void text_builder_append(u8 *str);
 void *destroy__15TWindowHelpItemFPvs(void *arg0, s16 arg1);
 void tick_display_timer__15TWindowHelpItemFPv(void *arg0);
 s32 measure_string_len__20TWindowSubStatusDispFv(u32);
@@ -83,9 +83,9 @@ void TWindowHelpItem::draw_number_value(void *entry, f32 *pos, s32 value, s32 co
     text_builder_reset();
     TWindowSubStatusDisp__sub_80228F5C(value);
     if (percent) {
-        text_builder_append((void *)"%");
+        text_builder_append((u8 *)((void *)"%"));
     }
-    xy[0] = pos[0] - (f32)calc_text_width((void *)get_shared_text_buffer());
+    xy[0] = pos[0] - (f32)calc_text_width((char *)((void *)get_shared_text_buffer()));
     xy[1] = pos[1];
     draw_window_text(xy, (void *)get_shared_text_buffer(), color, 0, 1000000.0f);
 }
@@ -128,7 +128,7 @@ void TWindowHelpItem::set_flag4_and_field1c(s32 arg1) {
 void TWindowHelpItem::set_help_text(u32 arg1) {
     s32 temp_r3;
 
-    mem_free(*(s32 *)&this->m_vtable18);
+    mem_free((void *)(*(s32 *)&this->m_vtable18));
     *(s32 *)&this->m_vtable18 = 0;
     if (arg1 != 0U) {
         temp_r3 = measure_string_len__20TWindowSubStatusDispFv(arg1);
@@ -187,7 +187,7 @@ void tick_display_timer__15TWindowHelpItemFPv(void *arg0) {
 void *destroy__15TWindowHelpItemFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void ***)((s8 *)arg0 + 4) = lbl_804CF9F8;
-        mem_free(*(s32 *)((s8 *)arg0 + 0x18));
+        mem_free((void *)(*(s32 *)((s8 *)arg0 + 0x18)));
         ((TUnk_804CF930 *)arg0)->destroy((s16)(0));
         if (arg1 > 0) {
             ::operator delete(arg0);

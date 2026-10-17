@@ -3,7 +3,7 @@
 
 extern "C" {
 
-s32 TCameraCtrl__sub_8006B370(f32);
+int TCameraCtrl__sub_8006B370(f32 farg0);
 
 u8 TObjEneHoldEffect::is_in_view() {
     s32 var_r31;

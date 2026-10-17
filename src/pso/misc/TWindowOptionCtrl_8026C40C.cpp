@@ -5,7 +5,7 @@
 extern "C" {
 
 void *__dt__17TWindowOptionCtrlFv(void *arg0, s16 arg1);
-s32 TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 
@@ -16,7 +16,7 @@ void *__dt__17TWindowOptionCtrlFv(void *arg0, s16 arg1) {
         *(void **)((s8 *)arg0 + 0x18) = (void *) __vt__17TWindowOptionCtrl;
         ((TWindowOptionCtrl *)arg0)->apply_selection_change();
         if ((u32) ((TWindowOptionCtrl *)arg0)->m_44 != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x44));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x44)));
             ((TWindowOptionCtrl *)arg0)->m_44 = 0U;
         }
         if ((u32) ((TWindowOptionCtrl *)arg0)->m_40 != 0U) {
@@ -24,27 +24,27 @@ void *__dt__17TWindowOptionCtrlFv(void *arg0, s16 arg1) {
             ((TWindowOptionCtrl *)arg0)->m_40 = 0U;
         }
         if ((u32) ((TWindowOptionCtrl *)arg0)->m_3c != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x3C));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x3C)));
             ((TWindowOptionCtrl *)arg0)->m_3c = 0U;
         }
         if ((u32) ((TWindowOptionCtrl *)arg0)->m_38 != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x38));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x38)));
             ((TWindowOptionCtrl *)arg0)->m_38 = 0U;
         }
         if ((u32) ((TWindowOptionCtrl *)arg0)->m_34 != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x34));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x34)));
             ((TWindowOptionCtrl *)arg0)->m_34 = 0U;
         }
         if ((u32) ((TWindowOptionCtrl *)arg0)->m_30 != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x30));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x30)));
             ((TWindowOptionCtrl *)arg0)->m_30 = 0U;
         }
         if ((u32) ((TWindowOptionCtrl *)arg0)->m_2c != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x2C));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x2C)));
             ((TWindowOptionCtrl *)arg0)->m_2c = 0U;
         }
         if ((u32) ((TWindowOptionCtrl *)arg0)->m_28 != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x28));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x28)));
             ((TWindowOptionCtrl *)arg0)->m_28 = 0U;
         }
         __dt__7TObjectFv(arg0, 0);

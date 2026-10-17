@@ -18,7 +18,7 @@ extern s32 controller_input_state[];
 int TLobby__sub_8034C384(void* p);
 int TLobby__sub_8034C3A4(void* p);
 void TWindowOptionCtrl__sub_8034C4C4(void* p);
-int TLobby__sub_80338534(void);
+void TLobby__sub_80338534(void);
 u32 create__19TWindowMessageYesNoFPvPvPvPv(s32, s32, s32, s32);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);

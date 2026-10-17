@@ -21,8 +21,8 @@ void TAdDrawLineTask__sub_80019A8C(void* p, void* q);
 s32 get_logo_texture_e_handle(void);
 void func_80019A68__Fv(void);
 void queue_destruction__7TObjectFv(void *arg0);
-s32 TBoss8Dragon__sub_8036B088();
-s32 fn_8036B18C();
+void TBoss8Dragon__sub_8036B088(void);
+void fn_8036B18C(void);
 
 void queue_destruction__7TObjectFv(void *arg0) {
     ((TObject *)arg0)->m_flags = (u16) (((TObject *)arg0)->m_flags| 1);

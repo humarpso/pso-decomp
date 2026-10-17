@@ -9,7 +9,7 @@ struct RecoveredGlobal_803518E0_lbl_8050E208 {
 struct P_80351974 { u16 a; s16 b; s32 c; s32 d; s32 e; u8 sub[1]; };
 
 extern "C" {
-int __dl__FPv();
+void __dl__FPv(void);
 s32 TObjPlayer__sub_803519D8(u8 *arg0, s32 arg1);
 s32 fn_803519FC(s32 *arg0, s32 arg1);
 int fn_80351A14(u8 *arg0, s32 arg1);

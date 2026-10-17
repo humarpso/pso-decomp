@@ -7,7 +7,7 @@
 struct ByteBlock_14 { s32 v[5]; };
 
 extern "C" {
-void TLobby__sub_8023E4B4(s32, s32);
+s32 TLobby__sub_8023E4B4(s32 arg0, s32 arg1);
 extern const s32 lbl_804661E4[];
 extern const s32 lbl_804661F8[];
 extern const s32 current_language;

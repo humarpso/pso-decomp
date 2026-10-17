@@ -42,7 +42,7 @@ int get_instance__20TWindowSubSymbolChatFv(void*);
 int TWindowSubSymbolChat__sub_80076FE0(void* p);
 s32 strncpy(void *, void *, int);
 s32 copy_symbol_chat_entry__6TLobbyFPvPv(void *, void *);
-s32 TWindowSubSymbolChat__sub_80077704(void *);
+void TWindowSubSymbolChat__sub_80077704(void *p);
 extern s32 local_client_id;
 s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_800773BC_lbl_80438830 symbol_chat_sound_ids;
@@ -53,7 +53,7 @@ s32 is_symbol_chat_preset_in_use(u32 *arg0);
 void TWindowSubSymbolChat::send_selected_symbol_chat(s32 *arg0) {
     G_SymbolChat_6x07 packet;
     s32 symbol_chat_preset;
-    TWindowSubSymbolChat__sub_80077704((void *) (&packet.header));
+    TWindowSubSymbolChat__sub_80077704((&packet.header));
     symbol_chat_preset = ((s32)((int)get_symbol_chat_preset((s32)((void *)((void *) (*arg0))))));
     packet.client_id = local_client_id;
     copy_symbol_chat_entry__6TLobbyFPvPv((void *) (&packet.data[0]), (void *) (symbol_chat_preset + 0x1C));

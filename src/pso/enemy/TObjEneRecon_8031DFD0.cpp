@@ -118,24 +118,24 @@ struct VObj_18_be4a70 : VBase_18_be4a70 {
 void obj_setFlags30(void *, u32);
 void queue_destruction__7TObjectFv(void *);
 u8 * create_particle_emitter(void *, s32);
-void __dt__12TObjEneDD_STFv(void *, int);
+void *__dt__12TObjEneDD_STFv(void *arg0, s16 arg1);
 s32 reset_hp__9TObjEneDDFv(void *, void *, int, void *);
 s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 s32 init_model__9TObjEneDDFv(void *, void *, int, int);
-void __dt__13TUnk_80494938Fv(void *, int);
-s32 set_animation__10TObjPlayerFPvs(void *, int);
+void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
+void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 s32 find_entity_by_id(int);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-s32 TObjEneRecon__sub_8031C364(void *, void *);
-s32 TObjEneRecon__sub_8031C624(void *, void *);
-s32 run_task__12TObjEneReconFPvi(void *, void *);
-s32 TObjEneRecon__sub_8031C920(void *, void *);
-s32 TObjEneRecon__sub_8031CCFC(void *, void *);
-s32 TObjEneRecon__sub_8031CF30(void *, void *);
-s32 TObjEneRecon__sub_8031D380(void *, void *);
+void TObjEneRecon__sub_8031C364(u8 *arg0, s32 arg1);
+void TObjEneRecon__sub_8031C624(u8 *arg0, s32 arg1);
+void run_task__12TObjEneReconFPvi(u8 *arg0, s32 arg1);
+void TObjEneRecon__sub_8031C920(u8 *arg0, s32 arg1);
+void TObjEneRecon__sub_8031CCFC(u8 *arg0, s32 arg1);
+void TObjEneRecon__sub_8031CF30(u8 *arg0, s32 arg1);
+void TObjEneRecon__sub_8031D380(u8 *arg0, s32 arg1);
 void TObjEneRecon__vt85(s32 arg0, u32 arg1, s32 arg2);
 void run_task__12TObjEneReconFv(u8 *arg0);
 void * __dt__12TObjEneReconFv(void *arg0, s16 arg1);
@@ -177,7 +177,7 @@ extern "C" void vfunc_100__9TObjEneDDFv();
 extern "C" void vfunc_101__9TObjEneDDFPUc();
 extern "C" void vfunc_102__9TObjEneDDFv();
 extern "C" void vfunc_83__12TObjEneDD_STFv();
-extern "C" void TObjEneRecon__vt102();
+extern "C" void TObjEneRecon__vt102(void *arg0, f32 farg0);
 extern "C" void vfunc_83__12TObjEneReconFv();
 extern "C" void vfunc_106__12TObjEneReconFv();
 extern "C" void vfunc_28__12TObjEneReconFv();
@@ -237,19 +237,19 @@ extern "C" void is_target_in_attack_range__10TObjPlayerFv();
 extern "C" void receive_direct_attack__10TObjPlayerFv();
 extern "C" void receive_physical_attack__10TObjPlayerFv();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
-extern "C" void render__12TObjEneReconFv();
+extern "C" void render__12TObjEneReconFv(u8 *arg0);
 extern "C" void render_shadows__12TObjEneReconFv();
 extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__13TUnk_804806E8Fv();
 extern "C" void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
-extern "C" void trigger_switch_attack__10TObjPlayerFi();
+extern "C" void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 extern "C" void try_start_action__13TUnk_804806E8Fll();
 extern "C" void update_action_hold_status__13TUnk_804806E8Fv();
-extern "C" void update_action_timer__10TObjPlayerFPv();
+extern "C" s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
 extern "C" void update_actor_ground_y__13TUnk_804806E8Fv();
-extern "C" void update_attack_stat_status();
-extern "C" void update_defense_stat_status();
+extern "C" s32 update_attack_stat_status(u8 *arg0);
+extern "C" s32 update_defense_stat_status(u8 *arg0);
 extern "C" void update_flag30_timer__13TUnk_804806E8Fv();
 extern "C" void update_movement_status__13TUnk_804806E8Fv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
@@ -308,25 +308,25 @@ void TObjEneRecon__vt85(s32 arg0, u32 arg1, s32 msg) {
         ((TObjEneRecon *)arg0)->sub_8031D4B0((s32)((void *) (msg)));
         return;
     case 1:
-        TObjEneRecon__sub_8031D380((void *) (arg0), (void *) (msg));
+        TObjEneRecon__sub_8031D380((u8 *)(arg0), (msg));
         return;
     case 2:
-        TObjEneRecon__sub_8031CF30((void *) (arg0), (void *) (msg));
+        TObjEneRecon__sub_8031CF30((u8 *)(arg0), (msg));
         return;
     case 3:
-        TObjEneRecon__sub_8031CCFC((void *) (arg0), (void *) (msg));
+        TObjEneRecon__sub_8031CCFC((u8 *)(arg0), (msg));
         return;
     case 4:
-        TObjEneRecon__sub_8031C920((void *) (arg0), (void *) (msg));
+        TObjEneRecon__sub_8031C920((u8 *)(arg0), (msg));
         return;
     case 6:
-        TObjEneRecon__sub_8031C624((void *) (arg0), (void *) (msg));
+        TObjEneRecon__sub_8031C624((u8 *)(arg0), (msg));
         return;
     case 7:
-        TObjEneRecon__sub_8031C364((void *) (arg0), (void *) (msg));
+        TObjEneRecon__sub_8031C364((u8 *)(arg0), (msg));
         return;
     case 5:
-        run_task__12TObjEneReconFPvi((void *) (arg0), (void *) (msg));
+        run_task__12TObjEneReconFPvi((u8 *)(arg0), (msg));
         return;
     case 8:
         ((TObjEneRecon *)arg0)->handle_message((s32)((void *) (msg)));
@@ -435,7 +435,7 @@ void TObjEneRecon::init_state() {
     ((TObjPlayer *)arg0)->set_field_d8((s32)((void *) TObjEneRecon__animation_entries));
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)TObjEneRecon__recobox_static_instance + 0x430)));
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-    set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (*(s16 *)((s8 *)arg0 + 0xB8)));
+    set_animation__10TObjPlayerFPvs((arg0), (*(s16 *)((s8 *)arg0 + 0xB8)));
     ((TObjMotion *)arg0)->set_field_b8((int) (*(s16 *)((s8 *)arg0 + 0xB8)));
     reset_hp__9TObjEneDDFv((void *) (arg0), (void *) (lbl_805D6AF0), (int) (TObjEneRecon__attack_params), (void *) (TObjEneRecon__resistance_params));
     ((TObjEneDD *)arg0)->check_state_flag_4();

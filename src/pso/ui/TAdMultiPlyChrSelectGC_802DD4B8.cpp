@@ -10,7 +10,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802C6848();
 s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(s32);
 s32 clear_slot_entry__23TAdSinglePlyChrSelectGCFi();
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 void TAdMultiPlyChrSelectGC::update_state() {
     if ((u32) *(u32 *)&this->unk_88 != 0U) {

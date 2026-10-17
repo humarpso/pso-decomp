@@ -42,7 +42,7 @@ struct Obj_80067D20 {
 
 extern "C" {
 s32 set_target_pos__13TUnk_80488DA0FPv(void *, void *, f32);
-u8 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 extern const f32 lbl_805D8F78;
 void target_player0__11TCameraCtrlFi(s32 arg0);
 s32 matrix_mult_vec(int, void *, void *);
@@ -99,7 +99,7 @@ void TCameraCtrl::reset_behind_player() {
     typedef char sp10_offset[(offsetof(Stack_80067E30, sp10) == 0x8) ? 1 : -1];
     Stack_80067E30 stack;
     u8 *player;
-    player = (u8 *)(get_player_by_client_id((s32)(0)));
+    player = (u8 *)(get_player_by_client_id((0)));
     if (player != NULL) {
         this->m_30 = (s32) *(s32 *)((s8 *)player + 0x60);
         stack.sp8 = lbl_805D8F74;

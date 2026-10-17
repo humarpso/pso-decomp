@@ -8,10 +8,10 @@ extern "C" {
 
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
 u32 find_local_player_in_range__16TObjCityMainWarpFf(f32);
-s32 TWindow__close(void *);
-s32 request_active_window_close();
-s32 begin_player_keyboard_hold(s32);
-s32 end_player_keyboard_hold(s32);
+void TWindow__close(u8 *arg0);
+void request_active_window_close(void);
+void begin_player_keyboard_hold(s32 arg0);
+void end_player_keyboard_hold(s32 arg0);
 s32 align_menu_entry_positions(u32);
 u32 check_room_seq_4__16TAdChrSelASlotGCFl(s32, s32);
 s32 get_window_layout_position(s32);
@@ -42,7 +42,7 @@ void update_challenge_warp_window(void *arg0) {
             }
         } else {
             if ((u32) *(u32 *)((s8 *)arg0 + 0xB0) != 0U) {
-                TWindow__close(*(void **)((s8 *)arg0 + 0xB0));
+                TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0xB0)));
                 *(u32 *)((s8 *)arg0 + 0xB0) = 0U;
             }
             end_player_keyboard_hold(local_client_id);
@@ -55,7 +55,7 @@ void update_challenge_warp_window(void *arg0) {
         return;
     case -1:
         if ((u32) *(u32 *)((s8 *)arg0 + 0xB0) != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0xB0));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0xB0)));
             *(u32 *)((s8 *)arg0 + 0xB0) = 0U;
         }
         end_player_keyboard_hold(local_client_id);

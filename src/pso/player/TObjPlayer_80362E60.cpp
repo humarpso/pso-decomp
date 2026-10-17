@@ -86,7 +86,7 @@ struct RecoveredGlobal_80362FB4_lbl_80479FC8 {
 
 extern "C" {
 s32 draw_weapon_model(void *);
-s16 get_validated_attack_stage(void *);
+s16 get_validated_attack_stage(u8 *arg0);
 s32 fire_shot_at_target__11TItemWeaponFv(void *, void *, int, int);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
@@ -100,7 +100,7 @@ void TObjPlayer__sub_80362FB4(u8 *arg0);
 void *__dt__13TUnk_804F27E0Fv(void *arg0, s16 arg1);
 s32 get_attack_stage__11TItemWeaponFv();
 void construct_srank_weapon(void *);
-void __dt__13TUnk_804A4948Fv(void *, int);
+void *__dt__13TUnk_804A4948Fv(void *arg0, s16 arg1);
 void set_status_flags__10TObjPlayerFUl(void *, int);
 
 void TObjPlayer::set_pause_flag_from_state() {

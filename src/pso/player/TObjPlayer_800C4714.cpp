@@ -84,7 +84,7 @@ u8 *construct_collision_body(u8 *arg0, s32 arg1, u32 arg2);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 Obj_800C4A5C *TObjPlayer__sub_800C4A5C(Obj_800C4A5C *o, void *owner, Vec_800C4A5C *start, s32 angle);
-int queue_destruction__7TObjectFv(void*);
+void queue_destruction__7TObjectFv(void *arg0);
 void *destroy_and_free__21TObjEneRe2Flower_BombFs(void *arg0, s16 arg1);
 void render__21TObjEneRe2Flower_BombFv(u8 *arg0);
 
@@ -150,12 +150,12 @@ struct Obj_800C4754 : VBase_800C4754 {
 
 extern "C" {
 
-int queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 Hit_800C4754 *csnVecterUnder(void *, int);
 u32 csnVector(void *, void *, int);
-void *spawn_particle_effect_with_rotation(void *, void *, int, int);
-s32 TObjEneDD__sub_800C2618(void *);
-void *find_entity_by_id(int);
+void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
+void TObjEneDD__sub_800C2618(void *p);
+void *find_entity_by_id(u16 id);
 
 void vfunc_6__13TUnk_804B9870FPsl();
 void vfunc_13__13TUnk_804AF8A0Fl();
@@ -268,7 +268,7 @@ void TObjEneRe2Flower_Bomb::run_task() {
 void *TObjEneRe2Flower_Bomb::destroy_and_free(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804933D8;
-        if (this->m_fc != NULL) { queue_destruction__7TObjectFv((void*)(this->m_fc)); *(s32 *)&this->m_fc = 0; }
+        if (this->m_fc != NULL) { queue_destruction__7TObjectFv((this->m_fc)); *(s32 *)&this->m_fc = 0; }
         ((TUnk_804928CC *)this)->destroy_enemy_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

@@ -45,7 +45,7 @@ s32 draw_visible_window_entries(void *, void *, int);
 void render__19TWindowSubMagPhotonFv(s32 arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
-s32 is_player_input_active(int);
+s32 is_player_input_active(s32 param_1);
 extern RecoveredGlobal_8027C56C_lbl_8050E208 controller_input_state;
 s32 init_photon_blast_entries__19TWindowSubMagPhotonFv(void *, int);
 s32 construct_base__9TWindowDDFPUcsPUc(void *, void *, void *, void *);
@@ -62,13 +62,13 @@ s32 fn_801A51F0(int);
 s32 set_field_1c__6TLobbyFf(s32);
 s32 TWindowSubStatusDisp__sub_80248BE8(s32, void *, int);
 s32 TWindowSubEquip__sub_80263AF8(s32, s32);
-s32 test_keyboard_card_flag4(int);
+int test_keyboard_card_flag4(void *p);
 s32 get_window_layout_position(s32);
 extern u8 lbl_8044FA28[];
 void *__dt__19TWindowSubMagPhotonFv(void *arg0, s16 arg1);
 s32 get_selected_menu_value(s32);
 s32 align_menu_entry_positions(s32);
-s32 TWindowSubQuestBoard__sub_8027CF50(s32, s32);
+void TWindowSubQuestBoard__sub_8027CF50(s32 arg0, s32 arg1);
 void __dl__7TObjectFPv(void *);
 s32 create_titled_window_menu(s32, s32, s32, s32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
@@ -92,7 +92,7 @@ void TWindowSubMagPhoton::update_selection_input() {
     u8 temp_r3;
     u8 temp_r3_2;
     u8 *temp_r30;
-    temp_r30 = (u8 *)&(*(RecoveredGlobal_8027C2D0_lbl_8050E208 *)&controller_input_state).value + (is_player_input_active((int)((s32) this->m_20)) * 0x50) + 0x20;
+    temp_r30 = (u8 *)&(*(RecoveredGlobal_8027C2D0_lbl_8050E208 *)&controller_input_state).value + (is_player_input_active(((s32) this->m_20)) * 0x50) + 0x20;
     if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r30), (int) (0xF0), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&(*(RecoveredGlobal_8027C2D0_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0xF0), (int) (6), (int) (1)) != 0)) {
         play_sound_effect((s32)(0x54100), (s32)(0U), (s32)(0), (s32)(0));
         if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r30), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&(*(RecoveredGlobal_8027C2D0_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
@@ -137,7 +137,7 @@ void TWindowSubMagPhoton::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r31;
     u8 *temp_r31_2;
-    temp_r31 = is_player_input_active((int) ((s32) this->m_20));
+    temp_r31 = is_player_input_active(((s32) this->m_20));
     if (((TWindowSubMagPhoton *)arg0)->get_active_flag() == 0) {
         update_selection_input();
         temp_r31_2 = (u8 *)&controller_input_state.value + (temp_r31 * 0x50) + 0x20;
@@ -249,7 +249,7 @@ s32 TUnk_804D1818::sub_8027C884(s32 arg1) {
         ((TUnk_804D0618 *)temp_r31)->ensure_status_display((int) (get_message_10__20TWindowSubStatusDispFl((int) (0x68))));
         TWindowSubStatusDisp::dispatch_without_flags((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFl((int) (0x73))), (int) (0));
         TWindowSubStatusDisp::dispatch_without_flags((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFl((int) (0x74))), (int) (1));
-        var_r29 = test_keyboard_card_flag4((int) (this->m_20));
+        var_r29 = test_keyboard_card_flag4((void *)(this->m_20));
         break;
     case 4:
         ((TUnk_804D0618 *)temp_r31)->ensure_status_display((int) (get_message_10__20TWindowSubStatusDispFl((int) (0x6A))));

@@ -33,7 +33,7 @@ extern char __vt__14TObjBoss1Floor[];
 extern s32 TObjBoss1Floor__name;
 extern const f32 lbl_805D8174;
 void queue_destruction__7TObjectFv(void *);
-void *create_particle_emitter(Vec_8002C968 *, s32);
+void *create_particle_emitter(void *pos, s32 id);
 Player_8002C968 *get_player_by_client_id(s32);
 extern const f32 lbl_805D8170;
 void run_task__14TObjBoss1FloorFv(Floor_8002C968 *self);
@@ -42,20 +42,20 @@ void __dl__7TObjectFPv(void *);
 u8 *__dt__14TObjBoss1FloorFv(u8 *self, s16 flag);
 void render__14TObjBoss1FloorFv(void);
 int TBoss8Dragon__sub_8002D5F8(void);
-s32 draw_ginja_model(int);
-int TObjBoss1Crater__sub_8002C7B4(void);
-int TObjBoss1Crater__sub_8002C7B8(void);
-int TObjBoss1Floor__sub_8002CB40(void);
-int TObjBoss1Floor__sub_8002CB78(void);
-int TObjBoss1Rock__sub_8002E3CC(void);
-int TObjBoss1Rock__sub_8002E3D0(void);
+void draw_ginja_model(s32 model);
+void TObjBoss1Crater__sub_8002C7B4(void);
+void TObjBoss1Crater__sub_8002C7B8(void);
+void TObjBoss1Floor__sub_8002CB40(void);
+void TObjBoss1Floor__sub_8002CB78(void);
+void TObjBoss1Rock__sub_8002E3CC(void);
+void TObjBoss1Rock__sub_8002E3D0(void);
 s32 render_projected_shadow_receiver(void *, void *);
 s32 push_matrix();
 s32 pop_matrix();
 int create_instance__14TObjBoss1FloorFv(void*);
 s32 end_effect_render__13TParticleCtrlFv(int);
-int load_dragon_ground_assets(void);
-s32 func_80141618__Fv();
+void load_dragon_ground_assets(void);
+void func_80141618__Fv(void);
 
 void TLobby::update_boss1_objects() { TBoss8Dragon::free_resources(); TObjBoss1Rock__sub_8002E3CC(); TObjBoss1Crater__sub_8002C7B4(); TObjBoss1Floor__sub_8002CB40(); TLobby::free_char_select(); }
 int TLobby::forward_floor_2CB44() { return create_instance__14TObjBoss1FloorFv(this); }
@@ -82,7 +82,7 @@ void render__14TObjBoss1FloorFv(void) {
         TObjFish::set_global_param((s32)((void *) (dragon_common_texture_list)));
         temp_r31 = (unsigned char *) (*(void **)((s8 *)(*(void **)((s8 *)lbl_805D4B50 + 0x42C)) + 0x58));
         render_projected_shadow_receiver((void *) (temp_r31 + 8), (void *) (temp_r31 + 0x14));
-        draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
+        draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
         TScene::apply_single_screen_state();
         func_80141618__Fv();
         pop_matrix();

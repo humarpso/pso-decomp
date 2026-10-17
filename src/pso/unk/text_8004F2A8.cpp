@@ -47,9 +47,9 @@ extern "C" {
 void TObjPlayer__sub_80052390(f32);
 void rotate_matrix_y(s32, s32);
 void push_matrix();
-void pop_matrix();
+s32 pop_matrix(void);
 void post_translate_matrix(void *);
-void draw_model_motion(s32, s32, f32);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern const f32 lbl_805D89F4;
 extern const f32 lbl_805D89F8;
 void queue_destruction__7TObjectFv(void *);
@@ -81,7 +81,7 @@ void TObjDFDemo4::sub_8004F2A8() {
     rotate_matrix_y(0, arg0->ff4);
     for (i = 0; i < 2; i++) {
         TObjFish::set_global_param(arg0->recs[i].b);
-        draw_model_motion(arg0->recs[i].a, arg0->recs[i].c, lbl_805D89F8);
+        draw_model_motion((void *)arg0->recs[i].a, (void *)arg0->recs[i].c, lbl_805D89F8);
     }
     TObjPlayer::clear_global_state();
     pop_matrix();

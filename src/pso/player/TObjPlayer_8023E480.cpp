@@ -17,7 +17,7 @@ typedef struct List_8023E638 {
 } List_8023E638;
 
 extern "C" {
-void prs_decompress_buffer(s32, s32);
+u32 prs_decompress_buffer(s32 arg0, s32 arg1);
 s32 set_stream_and_load_file__6TLobbyFi(void *);
 s32 sprintf(char *, const char *, ...);
 void load_gvm_texture_archive(s32, s32);

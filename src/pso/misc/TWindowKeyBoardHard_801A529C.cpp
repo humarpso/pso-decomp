@@ -82,9 +82,9 @@ void buffer_reset(void) {
 }
 
 void TLobby__sub_801A5478(void);
-int mem_free(void*);
+void mem_free(void *p);
 
-void TLobby__sub_801A5478(void) { mem_free((void*)(deferred_packet_buffer)); deferred_packet_buffer = 0; }
+void TLobby__sub_801A5478(void) { mem_free((void *)(deferred_packet_buffer)); deferred_packet_buffer = 0; }
 
 s32 mem_alloc(s32);
 

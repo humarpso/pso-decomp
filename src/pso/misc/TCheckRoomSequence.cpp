@@ -200,17 +200,17 @@ void handle_error_ack__18TCheckRoomSequenceFPv(u8 *arg0);
 s32 get_room_data__18TCheckRoomSequenceFi(int);
 int sub_8022397C__15TShopWindowBaseFv(void*);
 void accept_meseta_withdrawal__18TCheckRoomSequenceFPv(u8 *arg0);
-s32 try_spend_actor_meseta(int, int);
+s32 try_spend_actor_meseta(u8 *arg0, s32 arg1);
 void accept_meseta_deposit__18TCheckRoomSequenceFPv(u8 *arg0);
 void copy_item_to_bank_entry__18TCheckRoomSequenceFPvPv(u8 *arg0, u8 *arg1);
 void compact_items__18TCheckRoomSequenceFi(s32 slot);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
 s32 TAdPlayerLoadGC__sub_801E1B50(int);
 s32 close_if_single_screen__13TShopSequenceFv(void *);
 s32 close_window__13TShopSequenceFv(void *);
 void TCheckRoomSequence__vt11(u8 *arg0);
-s32 obj_getPtr2B0_20(s32);
+int obj_getPtr2B0_20(u8 *p);
 void set_position__18TCheckRoomSequenceFff(void* p, f32 a, f32 b);
 s16 get_child_field1c__13TShopSequenceFv(void *);
 void *__ct__18TWindowInputNumberFPvllls(void *, s32, s32, s32, s32, s16);
@@ -250,7 +250,7 @@ extern u8 __vt__18TCheckRoomSequence[];
 extern s32 lbl_805D3640;
 void *TCheckRoomSequence__ct(void *arg0, s32 arg1, s32 arg2_);
 void remove_bank_item_amount__18TCheckRoomSequenceFiii(s32 idx, s32 amount, s32 slot);
-s32 __dt__13TShopSequenceFv(void *, int);
+void *__dt__13TShopSequenceFv(void *arg0, s16 arg1);
 s32 __dl__7TObjectFPv(void *);
 u8 *__dt__18TCheckRoomSequenceFv(u8 *arg0, s16 arg1);
 Card_8021118C *get_character_save_record(s32);
@@ -407,7 +407,7 @@ void begin_meseta_withdrawal__18TCheckRoomSequenceFPv(Seq_8020F478 *self) {
     s32 n;
     count = get_room_data__18TCheckRoomSequenceFi(sub_8022397C__15TShopWindowBaseFv(self));
     if (count > 0) {
-        n = 999999 - obj_getPtr2B0_20(self->f24);
+        n = 999999 - obj_getPtr2B0_20((u8 *)self->f24);
         n = (n < count) ? n : count;
         if (n > 0) {
             if (self->f34 == NULL) {
@@ -448,7 +448,7 @@ void accept_meseta_deposit__18TCheckRoomSequenceFPv(u8 *arg0) {
         temp_r31 = ((TShopEquipmentSellWindow *)(*(u32 *)((s8 *)arg0 + 0x34)))->get_result();
         temp_r3 = ((s32)sub_8022397C__15TShopWindowBaseFv((void*)((void *) (arg0))));
         bank_credit_meseta((s32)((int) (temp_r31)), (s32)((int) (temp_r3)));
-        try_spend_actor_meseta((int) (*(s32 *)((s8 *)arg0 + 0x24)), (int) (temp_r31));
+        try_spend_actor_meseta((u8 *)(*(s32 *)((s8 *)arg0 + 0x24)), (temp_r31));
         copy_bank_to_card_window((s32)((int) (temp_r3)));
         if ((u32) *(u32 *)((s8 *)arg0 + 0x40) != 0U) {
             TWindowMainMenu::set_entry_field_20((int) (*(u32 *)((s8 *)arg0 + 0x40)), (int) (get_room_data__18TCheckRoomSequenceFi((int) (temp_r3))));
@@ -477,7 +477,7 @@ void begin_meseta_deposit__18TCheckRoomSequenceFPv(Seq_8020F730 *self) {
     s32 n;
     slot = sub_8022397C__15TShopWindowBaseFv(self);
     if (get_bank_meseta_capacity(slot) > 0) {
-        meseta = obj_getPtr2B0_20(self->f24);
+        meseta = obj_getPtr2B0_20((u8 *)self->f24);
         if (meseta > 0) {
             n = get_bank_meseta_capacity(slot);
             n = (n < meseta) ? n : meseta;
@@ -736,7 +736,7 @@ void TCheckRoomSequence__vt11(u8 *arg0) {
         copy_bank_to_card_window((s32)(sub_8022397C__15TShopWindowBaseFv((void*)((void *) (arg0)))));
         close_if_single_screen__13TShopSequenceFv((void *) (arg0));
         close_window__13TShopSequenceFv((void *) (arg0));
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
     }
 }
 #pragma pop

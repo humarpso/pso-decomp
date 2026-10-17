@@ -180,7 +180,7 @@ extern "C" {
 void obj_setFlags30(void *, u32);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(s32, f32, f32, f32);
-s32 draw_chunk_object(s32);
+void draw_chunk_object(void *child);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -209,7 +209,7 @@ extern s32 lbl_80491460[];
 extern void *tl_06;
 extern const f32 lbl_805D9B64;
 Obj_800AB31C *TObjPlayer__sub_800AB31C(Obj_800AB31C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4);
-s32 spawn_particle_effect(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
 f32 xz_distance_squared(void *, void *);
 extern Pair_800AB0EC lbl_8043ACEC[];
 extern const f32 lbl_805D9B58;
@@ -383,7 +383,7 @@ void TObjPlayer::draw_model_no_fog() {
     rotate_matrix_y(0, (*(s32 *)&this->m_c0));
     scale_matrix(0, 1.3f, 1.3f, 1.3f);
     model_render_flags &= 0xFFFFFBFF;
-    draw_chunk_object((*(s32 *)&this->m_c8));
+    draw_chunk_object((void *)(*(s32 *)&this->m_c8));
     pop_matrix();
 }
 

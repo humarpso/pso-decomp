@@ -40,7 +40,7 @@ struct Pool_8001D6E0 { u8 pad[0x2C]; Node_8001D6E0 *head; };
 extern "C" {
 extern s32 aram_dma_pending;
 void TLobby__sub_8001D9DC(void);
-s32 get_character_save_record(s32);
+s32 get_character_save_record(u32 arg0);
 
 s32 TWindowSubComCard__sub_80225E80(void *, int);
 s32 strncpy(int, int, int);
@@ -209,7 +209,7 @@ s32 get_card_window_area__6TLobbyFv(void) {
 void TLobby::set_short_mail_text() {
     s32 arg0 = (s32)this;
     u8 *temp_r31;
-    temp_r31 = (u8 *)(get_character_save_record((s32)(0xFFFFU)) + 0x2050);
+    temp_r31 = (u8 *)(get_character_save_record((0xFFFFU)) + 0x2050);
     TWindowSubComCard__sub_80225E80((void *) (arg0), (int) (((s32 (*)(void))get_shared_text_buffer)()));
     strncpy((int) (temp_r31), (int) (((s32 (*)(void))get_shared_text_buffer)()), (int) (0xAB));
     *(s8 *)((s8 *)temp_r31 + 0xAB) = 0;
@@ -698,11 +698,11 @@ s32 TLobby::calc_alpha_shifted(f32 farg0) {
     return __cvt_fp2unsigned(lbl_805D7ED4 * farg0) << 0x18;
 }
 
-s32 append_padded_number(s32, s32);
-s32 text_builder_reset();
+void append_padded_number(s32 v, u8 n);
+void text_builder_reset(void);
 
 u32 get_name_text_width();
-s32 text_builder_append(s32 *);
+void text_builder_append(u8 *str);
 
 extern s32 TLobby__data_8050AAAC[];
 extern s32 TLobby__data_805D55AC;
@@ -712,10 +712,10 @@ extern s32 lbl_805D7EDC;
 
 void TLobby::close_result_windows() {
     text_builder_reset();
-    text_builder_append(TLobby__data_8050AAAC);
-    text_builder_append(&lbl_805D7ED8);
+    text_builder_append((u8 *)TLobby__data_8050AAAC);
+    text_builder_append((u8 *)&lbl_805D7ED8);
     append_padded_number(TLobby__data_805D55AC, 2);
-    text_builder_append(&lbl_805D7EDC);
+    text_builder_append((u8 *)&lbl_805D7EDC);
     append_padded_number(TLobby__lobby_number + 1, 2);
 }
 

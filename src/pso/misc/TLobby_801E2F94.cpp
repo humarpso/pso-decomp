@@ -30,7 +30,7 @@ typedef struct Vtx_801E2FEC { f32 x, y, z; f32 u, v; u32 color; } Vtx_801E2FEC;
 typedef struct Rect_801E2FEC { s16 x, y, w, h; u8 pad8[8]; s16 tex; } Rect_801E2FEC;
 typedef struct Self_801E2FEC { f32 x, y, z; u8 padC[0xC]; s32 param; Rect_801E2FEC *rect; } Self_801E2FEC;
 
-void set_texture_num(s32);
+s32 set_texture_num(s32 i);
 void draw_particle_strip(void *, int, int);
 
 void TObjPlayer::draw_shadow_quad(s32 arg1, s32 flags) {
@@ -96,7 +96,7 @@ void TCameraCtrl__sub_801E32D8(f32 farg0, f32 farg1);
 void GXSetScissor(u32, u32, u32, u32);
 void set_viewport_scissor__11TCameraCtrlFiPv(s32 mode, Rect_801E317C *r);
 void camera_renderer_setup_nop(void);
-int TObjPlayer__sub_803DAD28(void*);
+s32 TObjPlayer__sub_803DAD28(u32 arg0);
 int draw_textured_vertices__10TObjPlayerFPvii(void*, void*, void*);
 
 void set_viewport_scissor__11TCameraCtrlFiPv(s32 mode, Rect_801E317C *r) {
@@ -137,7 +137,7 @@ void TCameraCtrl__sub_801E32D8(f32 farg0, f32 farg1) {
 
 void camera_renderer_setup_nop(void) {  }
 
-void TWindowDD::draw_transformed_primitive(void* a1, void* a2, void* a3) { TObjPlayer__sub_803DAD28(a2); draw_textured_vertices__10TObjPlayerFPvii(this, a1, a3); }
+void TWindowDD::draw_transformed_primitive(void* a1, void* a2, void* a3) { TObjPlayer__sub_803DAD28((u32)a2); draw_textured_vertices__10TObjPlayerFPvii(this, a1, a3); }
 
 }
 
@@ -179,7 +179,7 @@ struct Tris_801E3784 {
 
 extern "C" {
 void TObjEneRe4Sorcerer__sub_801E3F20(void);
-void TObjPlayer__sub_801E3F24(u32);
+void TObjPlayer__sub_801E3F24(s32 arg0);
 void TObjPlayer__sub_801E3F30(f32, f32, f32);
 void GXBegin(s32, s32, u16);
 void GXSetLineWidth(s32, s32);
@@ -508,24 +508,24 @@ struct RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270 { s32 value; u8 
 typedef char RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 
 extern "C" {
-s32 TLobby__sub_803382E4();
+void TLobby__sub_803382E4(void);
 s32 read_afs_toc__6TLobbyFl(void *);
 s32 adxf_open_file__6TLobbyFiPviPv(void *, void *, int, void *);
 s32 TLobby__sub_801E3E9C(s32 arg0, s32 arg1, s32 arg2);
 s32 disable_disconnected_ports__16TKeyBoardControlFv(void *);
-s32 update_global_sound_frame();
+void update_global_sound_frame(void);
 extern RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
 s32 TKeyBoardControl__sub_801E3E24(s32 arg0, s32 arg1, s32 arg2);
 s32 GXSetViewport(f32, f32, f32, f32, f32, f32);
 s32 GXSetZMode(s32, s32, s32);
 extern s32 (*chunk_model_node_callback)(void *);
-s32 TKeyBoardControl__sub_8000F7FC();
-s32 compose_motion_node_matrix(void *);
+void TKeyBoardControl__sub_8000F7FC(void);
+void compose_motion_node_matrix(void *arg0);
 
 s32 push_matrix();
 s32 pop_matrix();
-s32 fn_803DCEC8();
-s32 fn_803DCF0C();
+void fn_803DCEC8(void);
+void fn_803DCF0C(void);
 
 void TObjPlayer::render_tree(void *arg0) {
     void *var_r31;

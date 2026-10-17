@@ -22,7 +22,7 @@ extern "C" {
 
 void *TOContainerAncientItemNone__ct(void *arg0);
 void TOContainerAncientItemRare__ct(void *);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 extern s32 __vt__26TOContainerAncientItemNone[];
 extern void *lbl_805D2F04;

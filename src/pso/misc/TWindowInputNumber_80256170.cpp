@@ -63,7 +63,7 @@ u32 construct_type1_heading__20TWindowSubStatusDispFll(u32, s32, s16);
 void __dl__7TObjectFPv(void *);
 s32 forward_render__20TWindowSubStatusDispFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
-s32 is_player_input_active(int);
+s32 is_player_input_active(s32 param_1);
 extern const f32 lbl_805DCE54;
 
 void TWindowInputNumber::create(s32 arg1) {
@@ -161,7 +161,7 @@ void TWindowInputNumber::run_task() {
     u8 *temp_r29_2;
     u8 *temp_r29_3;
 
-    temp_r30 = is_player_input_active((int) ((s32) *(s16 *)((s8 *)arg0 + 0x20)));
+    temp_r30 = is_player_input_active(((s32) *(s16 *)((s8 *)arg0 + 0x20)));
     if (!(*(s32 *)((s8 *)arg0 + 0x2C) & 2)) {
         *(s32 *)((s8 *)arg0 + 0x5C) = 0x01000000;
     }

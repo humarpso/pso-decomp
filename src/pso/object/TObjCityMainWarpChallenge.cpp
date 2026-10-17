@@ -21,7 +21,7 @@ extern "C" {
 extern const f32 lbl_805DBCC4;
 extern const f32 lbl_805DBCC8;
 extern const f32 lbl_805DBCCC;
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 register_entity_by_id(void *, int, f32);
 s32 TObjAreaWarp__ct();
 extern s32 __vt__25TObjCityMainWarpChallenge[];
@@ -35,7 +35,7 @@ extern char lbl_80444A44[];
 extern char lbl_80444A58[];
 void *__dt__25TObjCityMainWarpChallengeFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object(s32);
+void draw_ginja_object(void *child);
 s32 update_floor_switch_state__16TObjCityMainWarpFv();
 s32 update_warp_sequence__16TObjCityMainWarpFv();
 s32 update_challenge_state__25TObjCityMainWarpChallengeFv();
@@ -44,7 +44,7 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 __dl__7TObjectFPv(void *);
-s32 __dt__12TObjAreaWarpFv(void *, s32);
+u8 *__dt__12TObjAreaWarpFv(u8 *arg0, s16 arg1);
 f32 xz_distance_squared(s32, void *);
 s32 update_challenge_warp_window();
 s32 update_state__16TObjCityMainWarpFv();
@@ -106,7 +106,7 @@ block_4:
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        draw_ginja_object(*(s32 *)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x42C)) + 0xC8));
+        draw_ginja_object((void *)(*(s32 *)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x42C)) + 0xC8)));
         TParticleCtrl::begin_effect_render();
         draw_ginja_model_with_motion(*(s32 *)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x42C)) + 8), *(s32 *)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x430)) + 0x2C), *(f32 *)((s8 *)arg0 + 0xC4));
         TParticleCtrl::end_effect_render();
@@ -141,7 +141,7 @@ void *__dt__25TObjCityMainWarpChallengeFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__25TObjCityMainWarpChallenge;
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         ((TObjCityMainWarp *)arg0)->close_windows();
-        __dt__12TObjAreaWarpFv(arg0, 0);
+        __dt__12TObjAreaWarpFv((u8 *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

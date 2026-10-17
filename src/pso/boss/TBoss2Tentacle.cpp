@@ -79,8 +79,8 @@ s32 rotate_matrix_x(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_chunk_object(void *);
-s32 draw_model_motion(void *, int, f32);
+void draw_chunk_object(void *child);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern Node_8003933C lbl_804FE5D8[];
 extern s32 *lbl_805D4BD0;
 extern s32 lbl_805D4BD8;
@@ -149,7 +149,7 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
     case 0:
         TObjPlayer::concat_matrix((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x110)));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x11C)));
-        draw_model_motion((void *) (lbl_805D4BD0), (int) (TBoss2Tentacle__motion_data), (f32) (*(f32 *)((s8 *)arg0 + 0x114)));
+        draw_model_motion((lbl_805D4BD0), (TBoss2Tentacle__motion_data), (f32) (*(f32 *)((s8 *)arg0 + 0x114)));
         break;
     case 1:
     case 4:
@@ -157,13 +157,13 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
         TObjPlayer::concat_matrix((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x110)));
         rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x120)));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x11C)));
-        draw_model_motion((void *) (lbl_805D4BD0), (int) (TBoss2Tentacle__motion_data), (f32) (*(f32 *)((s8 *)arg0 + 0x114)));
+        draw_model_motion((lbl_805D4BD0), (TBoss2Tentacle__motion_data), (f32) (*(f32 *)((s8 *)arg0 + 0x114)));
         break;
     case 2:
         TObjPlayer::concat_matrix((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x110)));
         rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x120)));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x11C)));
-        draw_chunk_object((void *) (lbl_805D4BD0));
+        draw_chunk_object((lbl_805D4BD0));
         break;
     case 3:
         post_translate_matrix((void *) ((u8 *)(arg0) + 0x140));
@@ -176,7 +176,7 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
             lbl_804FE5D8[i].z = ((Ten_8003933C *)arg0)->pos[i].z;
             lbl_804FE5D8[i].v = ((Ten_8003933C *)arg0)->vals[i];
         }
-        draw_chunk_object((void *) (lbl_804FE5D8));
+        draw_chunk_object((lbl_804FE5D8));
         break;
     }
     pop_matrix();

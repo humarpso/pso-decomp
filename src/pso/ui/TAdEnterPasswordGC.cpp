@@ -73,7 +73,7 @@ RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterPasswordGC__i
 #pragma explicit_zero_data off
 void TAdEnterPasswordGC__sub_8032BC94(u8 *arg0, s32 arg1);
 void queue_destruction__7TObjectFv(void *);
-void TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 extern u8 *password_entry_keyboard_control;
 extern const f32 lbl_805DF780;
 void close_window_and_destroy__18TAdEnterPasswordGCFPv(u8 *arg0);
@@ -84,23 +84,23 @@ void strncpy(s32, s32, s32);
 s32 memset(void *, int, int);
 extern RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterPasswordGC__input_buffer;
 void set_password__18TAdEnterPasswordGCFi(s32 arg0);
-s32 TKeyBoardControl__sub_8000F9CC(int);
+void TKeyBoardControl__sub_8000F9CC(s32 arg0);
 u32 __nw__7TObjectFUl(int);
 s32 __ct__10TAdTitleGCFP7TObjectl(int, void *, int);
-s32 TAdEnterBaseGC__ct(void *);
+void *TAdEnterBaseGC__ct(void *arg0);
 extern s32 __vt__18TAdEnterPasswordGC[];
 extern s32 TAdEnterPasswordGC__class_name;
 u8 *TAdEnterPasswordGC__ct(u8 *arg0);
 void render__18TAdEnterPasswordGCFv(void *self);
 void clear_password__18TAdEnterPasswordGCFPv(T_8032BBF0 *self);
 void update_children__18TAdEnterPasswordGCFPv(O_8032BC1C *arg0);
-void mem_free(s32);
+void mem_free(void *p);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 void free_menu_object(void *);
 s32 get_field_118__22TAdEnterSerialAccessGCFv(void);
 s32 play_sound_effect(int, int, int, int);
-void TAdEnterSerialAccessGC__sub_80322418(s32, int);
+void TAdEnterSerialAccessGC__sub_80322418(s32 arg0, s32 arg1);
 s32 forward_input__22TAdEnterSerialAccessGCFPv(void *, int, s32);
 s32 strlen(s32);
 extern u8 controller_input_state[];
@@ -111,7 +111,7 @@ s32 dispatch_input_to_instance__18TAdEnterPasswordGCFi(s32 arg0);
 int request_transition__18TAdEnterPasswordGCFPv(void* p);
 int set_multi_chg_game_mode_0x14__18TAdEnterPasswordGCFPv(void* p);
 void __dl__7TObjectFPv(void *);
-void __dt__14TAdEnterBaseGCFv(void *, int);
+void *__dt__14TAdEnterBaseGCFv(void *arg0, s16 arg1);
 int request_transition__21TAdMultiChgGameModeGCFv(void*);
 int set_mode_0x14__21TAdMultiChgGameModeGCFv(void*);
 
@@ -157,7 +157,7 @@ void update_password_input__18TAdEnterPasswordGCFPv(Pw_8032B6A0 *self) {
   int cur;
   if (((self->len == 0) && (TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0)) || ((self->len == 0) && (test_flag_4c__23TAdSinglePlyChrSelectGCFv(controller_input_state + 0x160, 2) != 0)))
   {
-    mem_free(buf);
+    mem_free((void *)buf);
     memset(&TAdEnterPasswordGC__input_buffer.value, 0, 9);
     self->f20 = 2;
     password_entry_dispatch_state = 4;
@@ -228,7 +228,7 @@ void update_password_input__18TAdEnterPasswordGCFPv(Pw_8032B6A0 *self) {
     password_entry_dispatch_state = 4;
   }
   self->len = strlen(buf);
-  mem_free(buf);
+  mem_free((void *)buf);
 }
 
 void open_keyboard_window__18TAdEnterPasswordGCFPv(s32 arg0) {
@@ -280,7 +280,7 @@ extern u32 lbl_805D6CB8;
 typedef char RecoveredGlobal_8032BB34___vt__18TAdEnterPasswordGC_size[sizeof(RecoveredGlobal_8032BB34___vt__18TAdEnterPasswordGC) == 0x1C ? 1 : -1];
 u8 *TAdEnterPasswordGC__ct(u8 *parent) {
     u32 temp_r3;
-    TAdEnterBaseGC__ct((void *) (parent));
+    TAdEnterBaseGC__ct((parent));
     *(s32 **)((s8 *)parent + 0x18) = &(*(RecoveredGlobal_8032BB34___vt__18TAdEnterPasswordGC *)&__vt__18TAdEnterPasswordGC).value;
     *(s32 *)((s8 *)parent + 0) = (s32) TAdEnterPasswordGC__class_name;
     ((TAdEnterBaseGC *)parent)->sub_8032B460((int) (2));
@@ -288,7 +288,7 @@ u8 *TAdEnterPasswordGC__ct(u8 *parent) {
     *(s32 *)((s8 *)parent + 0x40) = 0;
     if ((s8) *(u8 *)((s8 *)(TAdSinglePlyChrSelectGC::get_instance()) + 0x1154C) != 0) {
         set_password__18TAdEnterPasswordGCFi((s32)((void *) (TAdSinglePlyChrSelectGC::get_instance() + 0x1154C)));
-        TKeyBoardControl__sub_8000F9CC((int) (0xF));
+        TKeyBoardControl__sub_8000F9CC((0xF));
         queue_destruction__7TObjectFv((void *) (parent));
         return parent;
     }

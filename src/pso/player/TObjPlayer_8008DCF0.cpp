@@ -150,7 +150,7 @@ struct En0VObj : En0Base {
 extern "C" {
 extern Row_8008ED48 lbl_805006F8[];
 s32 apply_actor_gravity(void *, s32, f32);
-s32 move_with_wall_slide(void *);
+void move_with_wall_slide(u8 *arg0);
 s32 check_path_obstructed(void *, Vec_8008F910 *);
 s32 fn_80090464(void *, int);
 s32 advance_animation_playback(void *);
@@ -184,10 +184,10 @@ s16 obj_getS16_32C();
 s32 obj_setFlags30(void *, int);
 u32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 T_8008F1DC *find_active_entity_by_id(u16);
-s32 check_enemy_body_collisions(void *);
-void send_6x2F_change_player_hp(u16, u16, int);
+void check_enemy_body_collisions(void *arg0);
+void send_6x2F_change_player_hp(s32 arg0, s32 arg1, s32 arg2);
 s32 rotate_matrix_y(int, int);
-void push_matrix_from(void *);
+s32 push_matrix_from(void *src);
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 extern u8 identity_matrix[];
@@ -295,7 +295,7 @@ void TObjPlayer__sub_8008EDE8(P_8008EDE8 *arg0) {
                 n1.x += arg0->vel.x;
                 n1.z += arg0->vel.z;
                 if (check_path_obstructed(arg0, &n1) == 0) {
-                    move_with_wall_slide(arg0);
+                    move_with_wall_slide((u8 *)arg0);
                 }
             }
             ((TObjPlayer *)arg0)->update_angle((s32)(arg0->f350->f8), (void *)(&arg0->vel));
@@ -313,13 +313,13 @@ void TObjPlayer__sub_8008EDE8(P_8008EDE8 *arg0) {
         } else {
             arg0->vel.y = lbl_805D9620;
             calc_velocity_toward_destination(arg0, arg0->pos, arg0->target->pos, lbl_805D9648);
-            move_with_wall_slide(arg0);
+            move_with_wall_slide((u8 *)arg0);
             {
                 Vec_8008F910 n2 = arg0->pos;
                 n2.x += arg0->vel.x;
                 n2.z += arg0->vel.z;
                 if (check_path_obstructed(arg0, &n2) == 0) {
-                    move_with_wall_slide(arg0);
+                    move_with_wall_slide((u8 *)arg0);
                 }
             }
             if (objInBand((GameObj *)arg0, (f32)lbl_805D964C) != 0) {
@@ -386,7 +386,7 @@ void TObjPlayer__sub_8008F1DC(void *arg0) {
                 n1.x += o->vel.x;
                 n1.z += o->vel.z;
                 if (check_path_obstructed(o, &n1) == 0) {
-                    move_with_wall_slide(o);
+                    move_with_wall_slide((u8 *)o);
                 }
             }
             ((TObjPlayer *)o)->update_angle((s32)(o->f350->f8), (void *)(&o->vel));
@@ -430,7 +430,7 @@ void TObjPlayer__sub_8008F1DC(void *arg0) {
             n2.x += o->vel.x;
             n2.z += o->vel.z;
             if (check_path_obstructed(o, &n2) == 0) {
-                move_with_wall_slide(o);
+                move_with_wall_slide((u8 *)o);
             }
         }
         ((TObjPlayer *)o)->update_angle((s32)(o->f350->f8), (void *)(&o->vel));

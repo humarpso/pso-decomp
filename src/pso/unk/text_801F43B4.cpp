@@ -6,8 +6,8 @@
 extern "C" {
 
 s32 get_main_phase();
-s32 is_quest_active();
-u32 get_character_save_record(s32);
+int is_quest_active(void);
+s32 get_character_save_record(u32 arg0);
 s32 memcpy(s32, s32 *, s32);
 extern u8 quest_story_flags_by_difficulty[4][128];
 extern s32 game_difficulty_selection;

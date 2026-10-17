@@ -84,7 +84,7 @@ typedef struct Node_801D56D0 {
 } Node_801D56D0;
 
 extern "C" {
-s32 item_identity_matches(s32 *, s32);
+s32 item_identity_matches(u8 *arg0, u8 *arg1);
 s32 is_item_valid__9TItemListFl(void *);
 extern s32 inventory_search_item_data;
 void *find_matching_inventory_item_node(ItemNode_801D563C *root);
@@ -95,10 +95,10 @@ s32 is_item_equipped();
 extern u8 *player_item_collect_cursor;
 void TObjPlayer__sub_801D52A8(Node_801D52A8 *arg0);
 s32 is_state_ec1_ed3__10TObjPlayerFv(void *);
-s32 unequip_item__10TObjPlayerFiPv(s32, void *);
+void unequip_item__10TObjPlayerFiPv(s32 arg0, void *arg1);
 u32 get_slot_value__10TObjPlayerFPvi(s32, s32);
 extern s32 item_reduce_target_player;
-s32 compare_item_data_masked(s32 *, s32, s32);
+s32 compare_item_data_masked(void *arg0, void *arg1, s32 arg2);
 extern s32 inventory_update_field_d8_key;
 extern s32 inventory_walk_progress_count;
 s32 export_inventory_entry__10TObjPlayerFiPv(u32, s32);
@@ -199,7 +199,7 @@ void TObjPlayer::count_items_recursive() {
     while (var_r31 != NULL) {
         if ((is_item_valid__9TItemListFl((void *)(var_r31)) != 0) && ((temp = ((TObjPlayer *)var_r31)->get_owner_if_alive()) != 0U)) {
             ((TItem *)temp)->copy_to_item_data(&sp8[0]);
-            if (item_identity_matches(&sp8[0], inventory_search_item_data) != 0) {
+            if (item_identity_matches((u8 *)&sp8[0], (u8 *)inventory_search_item_data) != 0) {
                 inventory_walk_visit_count += 1;
             }
         }
@@ -219,7 +219,7 @@ void *TObjPlayer::find_inventory_item_matching_data() {
             owner = ((TObjPlayer *)node)->get_owner_if_alive();
             if (owner != 0) {
                 ((TItem *)owner)->copy_to_item_data((s32 *)(data));
-                if (compare_item_data_masked((s32 *)(data), inventory_search_item_data, 0) != 0) {
+                if (compare_item_data_masked((s32 *)(data), (void *)inventory_search_item_data, 0) != 0) {
                     return node;
                 }
             }
@@ -242,7 +242,7 @@ void *find_matching_inventory_item_node(ItemNode_801D563C *root) {
             owner = ((TObjPlayer *)node)->get_owner_if_alive();
             if (owner != 0) {
                 ((TItem *)owner)->copy_to_item_data((s32 *)(data));
-                if (item_identity_matches((s32 *)(data), (s32)(inventory_search_item_data)) != 0) {
+                if (item_identity_matches((u8 *)((s32 *)(data)), (u8 *)(inventory_search_item_data)) != 0) {
                     return node;
                 }
             }

@@ -31,9 +31,9 @@ typedef union WGPipe_803DF5E4 {
 } WGPipe_803DF5E4;
 
 extern "C" {
-s32 load_camera_view_matrix();
-s32 setup_opaque_color_draw();
-s32 TObjPlayer__sub_803E21DC();
+void load_camera_view_matrix(void);
+void setup_opaque_color_draw(void);
+void TObjPlayer__sub_803E21DC(void);
 void TObjPlayer__sub_803DF768(s32 arg0);
 extern s32 light_slot_mask_table[];
 extern s32 gx_chan_ctrl_light_mask;
@@ -55,7 +55,7 @@ extern const f32 light_position_distance;
 void init_distant_light(s32 idx, f32 x, f32 y, f32 z);
 void GXBegin(int, int, u16);
 void draw_untextured_trail_strip(void *arg0, void *arg1);
-s32 TObjPlayer__sub_803E2248();
+void TObjPlayer__sub_803E2248(void);
 
 
 

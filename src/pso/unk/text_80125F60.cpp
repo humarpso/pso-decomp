@@ -20,7 +20,7 @@ u8 * TItemWeapon__ct(void *, void *);
 extern RecoveredGlobal_80125FD8_lbl_804A2868 lbl_804A2868;
 extern const f32 lbl_805DAD68;
 u8 *TObjPlayer__sub_80125FD8(u8 *arg0, u8 *arg1, s32 _w2);
-void spawn_flame_effect();
+void spawn_flame_effect(void *self, void *target);
 void TObjPlayer__sub_80125FB8(Obj_80125FB8 *self, Out_80125FB8 *o);
 u8 *TObjPlayer::create_obj_80125F60(u8 *arg0) {
     u8 *temp_r3;

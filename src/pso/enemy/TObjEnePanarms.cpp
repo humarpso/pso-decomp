@@ -302,11 +302,11 @@ u8 TObjEnePanarms__sub_800E2E68(void *arg0);
 u8 is_below_half_hp__14TObjEnePanarmsFPv(void *arg0);
 s32 TObjEnePanarms__sub_800E2FB4(O_800E2FB4 *self);
 int clear_render_callback__8TObjFishFv(void);
-s32 draw_blob_shadow(int);
+void draw_blob_shadow(s32 arg0);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 TObjControl__ct(s32, s32);
 void refresh_lobby_state__10TObjPlayerFv();
-void __dt__9TObjEnemyFv(void *, s32);
+void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 f32 horizontal_distance_squared(void *, void *);
 s32 angle_difference_abs(s32, s32);
 s32 direction_to_rotation_xz(void *, void *, void *);
@@ -1422,7 +1422,7 @@ void TObjEnePanarms::update_linked_effect() {
         scale_matrix((int) (0), (f32) (lbl_805DA590), (f32) (lbl_805DA590), (f32) (TObjEnePanarms__data_805DA530));
         temp_r0 = this->m_378;
         if ((temp_r0 != 7) && (temp_r0 != 8)) {
-            draw_blob_shadow((int) (0));
+            draw_blob_shadow((0));
         }
         pop_matrix();
     }

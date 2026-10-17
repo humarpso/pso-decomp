@@ -23,9 +23,9 @@ extern const f32 lbl_805DF6AC;
 extern const f32 lbl_805DF6B0;
 s32 get_localized_text_entry(s32, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
-void TAdScrollWinGC__sub_8026A5F8(s32);
+void TAdScrollWinGC__sub_8026A5F8(void *a0);
 s32 create_message_log_window(void *, void *, s32);
-s32 TAdMultiPlyChrSelectGC__sub_802C6FA8(void);
+int TAdMultiPlyChrSelectGC__sub_802C6FA8(void);
 extern u8 lbl_80476770[];
 extern u8 lbl_80476778[];
 extern s32 TAdScrollWinGC__class_name;
@@ -35,9 +35,9 @@ extern const f32 lbl_805DF6B8;
 extern const f32 lbl_805DF6BC;
 extern const f32 lbl_805DF6C0;
 void *TAdScrollWinGC__ct(void *arg0, void *arg1, s32 arg2, s32 arg3);
-int TWindow__close(void*);
+void TWindow__close(u8 *arg0);
 
-void TAdScrollWinGC::close_window() { if (*(unsigned int *)&this->m_40 != 0) { TWindow__close(*(void* *)&this->m_40); *(int *)&this->m_40 = 0; } }
+void TAdScrollWinGC::close_window() { if (*(unsigned int *)&this->m_40 != 0) { TWindow__close((u8 *)(*(void* *)&this->m_40)); *(int *)&this->m_40 = 0; } }
 
 void TAdScrollWinGC::run_task() {
     u8 *arg0 = (u8 *)this;
@@ -117,7 +117,7 @@ void *TAdScrollWinGC__ct(void *arg0, void *arg1, s32 arg2, s32 arg3) {
     }
     ((TWindowMessage *)(*(s32 *)&((TAdScrollWinGC *)arg0)->m_40))->complete_reveal();
     ((TWindowMessageLog *)(*(s32 *)&((TAdScrollWinGC *)arg0)->m_40))->update_scroll_position();
-    TAdScrollWinGC__sub_8026A5F8(*(s32 *)&((TAdScrollWinGC *)arg0)->m_40);
+    TAdScrollWinGC__sub_8026A5F8((void *)(*(s32 *)&((TAdScrollWinGC *)arg0)->m_40));
     *(f32 *)((s8 *)arg0 + 0x2C) = lbl_805DF6B4;
     ((TAdScrollWinGC *)arg0)->m_30 = lbl_805DF6B8;
     *(f32 *)((s8 *)arg0 + 0x34) = lbl_805DF6BC;

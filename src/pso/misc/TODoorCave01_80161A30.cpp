@@ -55,7 +55,7 @@ struct RecoveredGlobal_80161BE4___vt__12TODoorCave01 {
 
 extern "C" {
 s32 init_collision_body_parts(void *, void *, int);
-s32 init_door_base(void *);
+void *init_door_base(void *a0);
 extern RecoveredGlobal_80161BE4_lbl_804B13C8 TODoorCave01__collision_body_template;
 extern s32 __vt__12TODoorCave01[];
 extern s32 lbl_805D2F60;
@@ -76,13 +76,13 @@ void *__dt__12TODoorCave01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
-s32 mem_free(void*);
+void mem_free(void *p);
 
 void TODoorCave01::free_resources() {
     if ((s32 *) TODoorCave01__texture_lists != NULL) {
         TObjPlayer::free_if_valid(*TODoorCave01__texture_lists);
         if ((s32 *) TODoorCave01__texture_lists != NULL) {
-            mem_free((void*)TODoorCave01__texture_lists);
+            mem_free(TODoorCave01__texture_lists);
             TODoorCave01__texture_lists = NULL;
         }
     }
@@ -129,7 +129,7 @@ typedef char RecoveredGlobal_80161BE4_lbl_804B13C8_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80161BE4___vt__12TODoorCave01_size[sizeof(RecoveredGlobal_80161BE4___vt__12TODoorCave01) == 0x54 ? 1 : -1];
 u8 *TODoorCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     s32 temp_r0;
-    init_door_base((void *) (arg0));
+    init_door_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80161BE4___vt__12TODoorCave01 *)&__vt__12TODoorCave01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2F60;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);

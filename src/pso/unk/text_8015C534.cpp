@@ -15,14 +15,14 @@ struct RecoveredGlobal_8015C534_lbl_804B08BC {
 
 extern "C" {
 s32 TLobby__sub_8001FE7C(u32, int);
-s32 mem_free(u32);
+void mem_free(void *p);
 extern u32 ancient_container_resource_bundle;
 extern u32 ancient_container_fragment_texture_lists;
 void fn_8015C5F8(void);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
 s32 init_collision_body_parts(void *, void *, int);
-s32 init_container_base(void *, int, void *);
+u8 *init_container_base(u8 *arg0, s32 arg1, s32 arg2);
 extern RecoveredGlobal_8015C534_lbl_804B00C8 TOContainerAncientEnemy__collision_body_params;
 extern RecoveredGlobal_8015C534_lbl_804B08BC lbl_804B08BC;
 extern s32 tl_05;
@@ -31,7 +31,7 @@ u8 *init_ancient_container(u8 *arg0, s32 arg1);
 typedef char RecoveredGlobal_8015C534_lbl_804B00C8_size[sizeof(RecoveredGlobal_8015C534_lbl_804B00C8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8015C534_lbl_804B08BC_size[sizeof(RecoveredGlobal_8015C534_lbl_804B08BC) == 0x14C ? 1 : -1];
 u8 *init_ancient_container(u8 *arg0, s32 arg1) {
-    init_container_base((void *) (arg0), (int) (tl_05), (void *) (arg1));
+    init_container_base((arg0), (tl_05), (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804B08BC.value;
     ((TUnk_804B08BC *)arg0)->mode = 0;
     *(s32 *)&((TUnk_804B08BC *)arg0)->actorFlags = (s32) (*(s32 *)&((TUnk_804B08BC *)arg0)->actorFlags| 0x60000000);
@@ -61,7 +61,7 @@ void fn_8015C5F8(void) {
         } while (var_r30 < 3);
         p = ancient_container_fragment_texture_lists;
         if (p != 0U) {
-            mem_free(p);
+            mem_free((void *)p);
             ancient_container_fragment_texture_lists = 0U;
         }
     }

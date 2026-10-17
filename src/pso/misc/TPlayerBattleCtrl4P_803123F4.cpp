@@ -18,7 +18,7 @@ extern const BattleIntroWindowSize lbl_80475B60;
 s32 lbl_805D6AB0;
 void send_and_handle__6TLobbyFii(void *, void *, int);
 void *destroy__19TPlayerBattleCtrl4PFs(void *arg0, s16 arg1);
-s32 TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 void run_task__19TPlayerBattleCtrl4PFv(TPlayerBattleCtrl4P *self);
@@ -134,11 +134,11 @@ TPlayerBattleCtrl4P* TPlayerBattleCtrl4P::destroy(s16 should_free) {
     if (((void *)this) != NULL) {
         *(s32 **)((s8 *)((void *)this) + 0x18) = __vt__19TPlayerBattleCtrl4P;
         if ((u32) *(u32 *)&this->intro_window != 0U) {
-            TWindow__close(*(void * *)&this->intro_window);
+            TWindow__close((u8 *)(*(void * *)&this->intro_window));
             *(u32 *)&this->intro_window = 0U;
         }
         if ((u32) *(u32 *)&this->menu_window != 0U) {
-            TWindow__close(*(void * *)&this->menu_window);
+            TWindow__close((u8 *)(*(void * *)&this->menu_window));
             *(u32 *)&this->menu_window = 0U;
         }
         close_player_windows();

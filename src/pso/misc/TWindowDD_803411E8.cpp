@@ -5,7 +5,7 @@
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 
 extern "C" {
-void set_text_entry_string(void *, u32, s32);
+void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 extern const f32 TWindowDD__data_805DFB58;
 extern const f32 lbl_805DFC98;
 void TWindowDD__sub_803412A0(u8 *arg0);

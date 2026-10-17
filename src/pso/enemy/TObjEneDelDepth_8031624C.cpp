@@ -38,7 +38,7 @@ typedef struct {
 
 extern "C" {
 s32 TObjFish__sub_8001EDB0(s32, int);
-s32 draw_model_motion(int, int, f32);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 s32 find_nearest_hittable_enemy__10TObjPlayerFiPvf(void *, void *, f32);
 s32 get_bml_model(s32, s32);
 u8 *get_bml_motion(s32, s32);
@@ -49,7 +49,7 @@ void advance_animation_playback(void *);
 extern f32 TObjEneDelDepth__animation_end_frame;
 extern u8 TObjEneDelDepth__animation_end_frame_initialized;
 void fn_80316680(void *arg0, s32 arg1);
-s32 __dl__FPv();
+void __dl__FPv(void);
 
 int TObjEneDelDepth::get_flag_bit4() { return (this->actorFlags >> 4) & 0x1; }
 
@@ -83,15 +83,15 @@ void TObjEneDelDepth::draw_model_part() {
         if (temp_r0 < 0xA) {
             TObjFish::set_global_param((int) (*(s32 *)&this->m_next));
             TObjPlayer::set_global_flag();
-            draw_model_motion((int) (*(s32 *)&this->m_prev), (int) (*(s32 *)&this->m_up), (f32) (*(f32 *)&this->m_28));
+            draw_model_motion((void *)(*(s32 *)&this->m_prev), (void *)(*(s32 *)&this->m_up), (f32) (*(f32 *)&this->m_28));
             TObjPlayer::clear_global_state();
             return;
         }
         TObjPlayer::set_global_flag();
         TObjFish::set_global_param((int) (*(s32 *)&this->m_next));
-        draw_model_motion((int) (*(s32 *)&this->m_prev), (int) (*(s32 *)&this->m_up), (f32) (*(f32 *)&this->m_28));
+        draw_model_motion((void *)(*(s32 *)&this->m_prev), (void *)(*(s32 *)&this->m_up), (f32) (*(f32 *)&this->m_28));
         TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x18)));
-        draw_model_motion((int) (*(s32 *)&this->m_down), (int) (*(s32 *)&this->m_1c), (f32) (*(f32 *)&this->m_28));
+        draw_model_motion((void *)(*(s32 *)&this->m_down), (void *)(*(s32 *)&this->m_1c), (f32) (*(f32 *)&this->m_28));
         TObjPlayer::clear_global_state();
     }
 }

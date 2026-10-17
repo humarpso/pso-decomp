@@ -464,7 +464,7 @@ s32 OSDisableInterrupts(void);
 s32 OSRestoreInterrupts(s32);
 void OSCancelAlarm(void *);
 s32 OSSendMessage(void *, void *, s32);
-void TLobby__sub_80428358(void);
+s32 TLobby__sub_80428358(void);
 extern Slot_803F8E08 lobby_alarm_slot_table[0x40];
 void NetMemcpy(void * _w0, void * _w1, int _w2);
 s32 TLobby__sub_803FC684(u8 *, u8 *, u8 *);

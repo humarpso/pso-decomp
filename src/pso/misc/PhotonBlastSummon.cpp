@@ -217,12 +217,12 @@ extern Vec_801A7578 lbl_80446A44;
 extern struct Reg_801A7578 photon_blast_joint_origins[];
 extern s32 photon_blast_joint_index;
 void publish_photon_blast_joint_origins(void);
-void create_timed_particle_emitter(Vec_801A7428 *, s32, s32, s32);
+void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
 Obj_801A7428 *find_entity_by_id(u16);
 void matrix_mult_vec(s32, Vec_801A7428 *, Vec_801A7428 *);
 void rotate_matrix_y(s32, s32);
-void push_matrix_from(void *);
-void pop_matrices(s32);
+s32 push_matrix_from(void *src);
+s32 pop_matrices(s32 arg0);
 extern Group_801A7428 photon_blast_attachment_table[];
 extern u8 identity_matrix[];
 void spawn_photon_blast_opening_effects(s32 arg0, s32 arg1);
@@ -324,7 +324,7 @@ void publish_photon_blast_joint_origins();
 int set_global_state__16TObjEneRe7BeruraFl(void*);
 void apply_all_default__8TFogCtrlFv(void);
 int update_all_default__8TFogCtrlFv(void);
-int mem_free(void*);
+void mem_free(void *p);
 int update_all__8TFogCtrlFl(void*);
 
 int TObjPlayer::clear_render_context() { return set_global_state__16TObjEneRe7BeruraFl((void*)(0)); }
@@ -371,11 +371,11 @@ u16 TCameraCtrl__sub_8006A5DC();
 void *get_scripted_camera_playback();
 
 s32 queue_destruction__7TObjectFv(void *);
-s32 TObjPlayer__sub_800D8A60();
-s32 TObjPlayer__sub_800D8A6C();
-s32 allow_rendering__7TObjectFv(void *);
+void TObjPlayer__sub_800D8A60(void);
+void TObjPlayer__sub_800D8A6C(void);
+void allow_rendering__7TObjectFv(void *arg0);
 
-s32 disallow_rendering__7TObjectFv(void *);
+void disallow_rendering__7TObjectFv(void *arg0);
 
 extern void *tl_05;
 
@@ -433,10 +433,10 @@ void TUnk_804C3248::update_state() {
 #pragma push
 void *destroy_photon_motion_object(void *arg0, s16 arg1);
 void *photon_base_ct(void *arg0);
-int restore_player_cameras(void);
+s32 restore_player_cameras(void);
 void TObjMotion__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
-void __dt__10TObjMotionFv(void *, int);
+void *__dt__10TObjMotionFv(void *arg0, s16 arg1);
 
 void TCameraCtrl::update() { restore_player_cameras(); TCameraCtrl::release_photon_blast_camera(); }
 
@@ -449,7 +449,7 @@ struct Vec_801A7B14
   f32 z;
 };
 
-s32 activate_camera_mode(int);
+s32 activate_camera_mode(s32 arg0);
 u8 *get_player_by_client_id(s32);
 
 extern Vec_801A7B14 lbl_80446A08;

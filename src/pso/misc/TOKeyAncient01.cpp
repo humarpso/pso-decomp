@@ -63,14 +63,14 @@ s32 rotate_matrix_x(int, void *);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_ginja_model(void *);
+void draw_ginja_model(s32 model);
 s32 draw_ginja_model_with_motion(void *, int, f32);
 u8 *TLobby__sub_8001FE7C(void *, s16);
-void mem_free(u32);
+void mem_free(void *p);
 extern u8 *TOKeyAncient01__shared_resource_object;
 extern u32 TOKeyAncient01__texture_lists;
 u32 init_collision_body_parts(void *, s32, s32);
-u8 * TOKey__ct(void *);
+void *TOKey__ct(void *arg0);
 extern RecoveredGlobal_8016B0A0_lbl_804B29D0 lbl_804B29D0;
 extern s32 __vt__14TOKeyAncient01[];
 extern s32 TOKeyAncient01__class_name;
@@ -90,7 +90,7 @@ extern u8 bm_fd_obj_n_switch_resource_descriptor[];
 void *__dt__14TOKeyAncient01Fv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
-void __dt__5TOKeyFv(void *, int);
+void *__dt__5TOKeyFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 
 void TOKeyAncient01::set_type() { *(s32 *)&this->m_name = 3; }
@@ -112,7 +112,7 @@ void TOKeyAncient01::render() {
             rotate_matrix_z((int) (0), (void *) (*(s32 *)((s8 *)(*(u8 * *)&this->model) + 0x1C)));
             rotate_matrix_x((int) (0), (void *) (*(s32 *)((s8 *)(*(u8 * *)&this->model) + 0x14)));
             rotate_matrix_y((int) (0), (void *) (*(s32 *)((s8 *)(*(u8 * *)&this->model) + 0x18)));
-            draw_ginja_model((void *) (*(s32 *)((s8 *)(*(u8 * *)&this->model) + 4)));
+            draw_ginja_model((*(s32 *)((s8 *)(*(u8 * *)&this->model) + 4)));
             pop_matrix();
         }
         pop_matrix();
@@ -155,7 +155,7 @@ void TOKeyAncient01::free_shared_resources() {
     while (var_r30 < 4);
     if (((u32) TOKeyAncient01__texture_lists) != 0)
     {
-      mem_free(TOKeyAncient01__texture_lists);
+      mem_free((void *)TOKeyAncient01__texture_lists);
       TOKeyAncient01__texture_lists = 0;
     }
   }

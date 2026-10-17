@@ -8,7 +8,7 @@
 struct Player_8010147C { u8 pad[0xF0]; u32 f_F0; };
 
 extern "C" {
-s32 get_current_matrix(void *);
+void get_current_matrix(void *m);
 s32 rotate_matrix_by_node_angles(void *, void *);
 s32 push_matrix();
 s32 pop_matrix();
@@ -21,16 +21,16 @@ void draw_model_node_tree(u8 *arg0);
 u16 obj_getField1c(void *);
 s32 set_item_count__13TUnk_804B9870Fs(s32, s32);
 s32 TLobby__sub_80103B04();
-s32 set_indexed_flags(void *, int, int);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
 u32 test_item_flags__10TObjPlayerFUl(void *, int);
 void TItem__sub_801013E8(void *arg0);
 void claim_ownership__5TItemFii(s32 arg0, s32 arg1);
-s32 get_item_chunk_buffer(s32);
+int get_item_chunk_buffer(int a0);
 void is_custom_name_srank__9TItemDataFPv(void *);
-void is_rare_item__9TItemDataFPv(void *);
+s32 is_rare_item__9TItemDataFPv(u8 *item);
 s32 pop_free_id__6TLobbyFv();
-int disallow_rendering__7TObjectFv(void*);
-int queue_destruction__7TObjectFv(void*);
+void disallow_rendering__7TObjectFv(void *arg0);
+void queue_destruction__7TObjectFv(void *arg0);
 
 void TItem::update_item_data() {
     s32 sp8[4];
@@ -43,7 +43,7 @@ void TItem__sub_801013E8(void *arg0) {
     s32 sp8[4];
 
     ((TItem *)arg0)->copy_to_item_data((void *)(&sp8));
-    is_rare_item__9TItemDataFPv(&sp8);
+    is_rare_item__9TItemDataFPv((u8 *)&sp8);
 }
 
 void TItem::destroy() { unregister_item(); disallow_rendering__7TObjectFv(this); queue_destruction__7TObjectFv(this); }
@@ -84,7 +84,7 @@ void TItem::unregister_from_world() {
     obj_getField1c((void *)((void *) arg0));
     TLobby__sub_80103B04();
     set_item_count__13TUnk_804B9870Fs((s32)((void *) arg0), (s32)((int) 0xFFFF));
-    set_indexed_flags((void *) arg0, (int) 0, (int) 1);
+    set_indexed_flags((void *)arg0, (int) 0, (int) 1);
   }
 }
 

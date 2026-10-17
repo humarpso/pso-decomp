@@ -18,12 +18,12 @@ s32 init_field_60__11TMainCursorFv(void *, void *);
 s32 TMainCursor__sub_8013E6E0(void *, void *);
 s32 set_target_id_at_60__11TMainCursorFUc(void *, void *);
 s32 TMainCursor__sub_8013E800(void *);
-s32 TMainCursor__sub_8013F1F0(void *);
+u8 *TMainCursor__sub_8013F1F0(u8 *arg0);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__11TMainCursor[];
 extern s32 main_cursor_class_name;
 u8 *TMainCursor__ct(u8 *arg0, s32 arg1, s32 arg2, u8 arg3, u8 arg4, u8 arg5, s32 arg6, f32 farg0);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 check_can_pickup__11TMainCursorFi(void *);
 s32 check_visible__11TMainCursorFv(void *, int, void *, int);
 s32 check_field_24__11TMainCursorFv();
@@ -59,13 +59,13 @@ void TMainCursor::refresh_target_marker() {
     s32 temp_r3_2;
     temp_r3 = check_field_24__11TMainCursorFv();
     if (temp_r3 == 0) {
-        queue_destruction__7TObjectFv((void *) (((u8 *)this)));
+        queue_destruction__7TObjectFv((((u8 *)this)));
         return;
     }
     temp_r31 = (u8) ((TMainCursor *)((u8 *)this))->forward_13E338_at_60();
     temp_r3_2 = check_visible__11TMainCursorFv((void *) (temp_r3 + 0x500), (int) (temp_r3), (void *) (update_sub_60__11TMainCursorFv((void *) (((u8 *)this)))), (int) (temp_r31));
     if (temp_r3_2 == -1) {
-        queue_destruction__7TObjectFv((void *) (((u8 *)this)));
+        queue_destruction__7TObjectFv((((u8 *)this)));
         return;
     }
     *(s32 *)&this->m_1c = 0;
@@ -104,7 +104,7 @@ u8 *TMainCursor__ct(u8 *arg0, s32 arg1, s32 arg2, u8 arg3, u8 arg4, u8 arg5, s32
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8013BDCC___vt__11TMainCursor *)&__vt__11TMainCursor).value;
     ((TObjPlayer *)(arg0 + 0x20))->init_forward();
     TMainCursor__sub_8013E800((void *) (arg0 + 0x24));
-    TMainCursor__sub_8013F1F0((void *) (arg0 + 0x4C));
+    TMainCursor__sub_8013F1F0((arg0 + 0x4C));
     ((TMainCursor *)(arg0 + 0x60))->reset();
     *(s32 *)((s8 *)arg0 + 0) = (s32) main_cursor_class_name;
     ((TMainCursor *)arg0)->set_target_index_at_60((void *) (arg2));

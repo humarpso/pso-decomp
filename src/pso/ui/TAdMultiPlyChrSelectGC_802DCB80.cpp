@@ -8,14 +8,14 @@ struct Obj_802DCCA4 { u8 pad[0x2C]; s32 f2C; };
 extern "C" {
 void TKeyBoardControl__sub_8000F9CC(s32);
 s32 get_field_118__22TAdEnterSerialAccessGCFv();
-void set_opening_movie_purpose(s32);
+void set_opening_movie_purpose(int a0);
 void collect_player_slots__22TAdMultiPlyChrSelectGCFv(void *);
 extern s32 multi_chr_select_serial_access_state;
 void TAdMultiPlyChrSelectGC__sub_802DCCA4(Obj_802DCCA4 *arg0);
 s32 set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s32, s32, s32 *);
 s32 TWindowShortListCtrl__check_controller_button(char *, s32);
-s32 TWindow__close(void *);
-s32 disallow_rendering__7TObjectFv(void *);
+void TWindow__close(u8 *arg0);
+void disallow_rendering__7TObjectFv(void *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 
 extern char controller_physical_port_bank[];
@@ -23,7 +23,7 @@ extern s32 TAdMultiPlyChrSelectGC__data_805DE898;
 
 void TAdMultiPlyChrSelectGC::close_and_reset() {
     if ((u32) *(u32 *)&this->unk_80 != 0U) {
-        TWindow__close(*(void * *)&this->unk_80);
+        TWindow__close((u8 *)(*(void * *)&this->unk_80));
         *(u32 *)&this->unk_80 = 0U;
     }
     if ((u32) this->m_94 != 0U) {

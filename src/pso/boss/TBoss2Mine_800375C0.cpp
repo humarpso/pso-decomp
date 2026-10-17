@@ -275,7 +275,7 @@ V(80)V(81)V(82)V(83)V(84)V(85)V(86)V(87)V(88)V(89)V(90)V(91)V(92)V(93)V(94)V(95)
 
 extern "C" {
 void TBoss2Mine__sub_80037D4C(u8 *arg0, s32 arg1);
-f64 atan2_float(f32, f32);
+f32 atan2_float(f32 y, f32 x);
 f32 newton_sqrtf(s32, f32, f32, f32);
 void TBoss2Mine__sub_80037EE0(u8 *arg0, s32 arg1);
 void*TUnk_80482D04::create(int a1, int a2, int a3) { TBoss2Mine__ct(this, a1, a2, a3, 1); *(int*)((char*)this + 0x18) = (int)lbl_80482D04; *(int*)((char*)this + 0x3f0) = 0; *(int*)((char*)this + 0x3f4) = 0; *(float*)((char*)this + 0x3f8) = (0.0f); *(float*)((char*)this + 0x3fc) = (0.0f); *(float*)((char*)this + 0x400) = (0.0f); *(float*)((char*)this + 0x404) = (0.0f); *(float*)((char*)this + 0x408) = (0.0f); *(float*)((char*)this + 0x40c) = (0.0f); return this; }
@@ -597,16 +597,16 @@ extern "C" {
 f32 TBoss2DeRolLe__sub_80034CEC(void);
 s32 create_timed_particle_emitter(s32, s32, s32, s32);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
-void TObjEneDD__sub_800BA5A4(s32, s32);
+void TObjEneDD__sub_800BA5A4(void *p, void *a1);
 extern RecoveredGlobal_800384C8_lbl_80435AB0 boss2_mine_collision_desc;
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
-void translate_matrix(s32, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 void rotate_matrix_x(s32, s32);
 void push_matrix(void);
-void pop_matrix(void);
+s32 pop_matrix(void);
 void post_translate_matrix(void *);
-void set_chunk_material_color(void *);
+void set_chunk_material_color(f32 *arg);
 void draw_chunk_object(void *);
 extern Vec_80038200 lbl_80435AD0;
 extern Col_80038200 boss2_mine_render_color;
@@ -676,7 +676,7 @@ void TBoss2Mine::render() {
         c.b = f;
         c.g = f;
         c.r = -f;
-        set_chunk_material_color(&c);
+        set_chunk_material_color((f32 *)&c);
         draw_chunk_object(self->model);
     } else {
         draw_chunk_object(self->model);
@@ -754,7 +754,7 @@ void TBoss2Mine::vfunc_107(s32 arg1) {
       temp_r4 = ((u8 *) (&boss2_mine_collision_desc.value)) - 4;
       *((ByteBlock_14 *) (((s32) (copy_storage_800384C8.bytes - 0x4)) + 4)) = *((const ByteBlock_14 *) (((s32) temp_r4) + 4));
       *((f32 *) (copy_storage_800384C8.bytes + 0x4)) = TBoss2DeRolLe__sub_80034CEC();
-      TObjEneDD__sub_800BA5A4((s32) arg0, (s32) copy_storage_800384C8.bytes);
+      TObjEneDD__sub_800BA5A4(arg0, copy_storage_800384C8.bytes);
       spawn_particle_effect_with_flags((*((s32 *) (((s8 *) arg0) + 0xA4))) + 0x1C, 0x16B, 0x40);
       *((s32 *) (((s8 *) arg0) + 0x3CC)) = 2;
       play_sound_effect(0x4003AD05, (u32) (arg0 + 0x2FC), 0, 0);
@@ -1323,7 +1323,7 @@ s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
 s32 init_model__9TObjEneDDFv(void *, void *, int, int);
 extern u8 *lbl_805D4BA4;
 void init__10TBoss2MineFPvi(u8 *arg0, s32 arg1);
-void __dt__9TObjEneDDFv(void *, int);
+void *__dt__9TObjEneDDFv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 
 extern s32 __vt__10TBoss2Mine[];

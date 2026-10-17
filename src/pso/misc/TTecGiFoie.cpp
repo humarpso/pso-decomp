@@ -156,7 +156,7 @@ struct Vec_802312E4;
 
 u16 obj_getField1c(void *);
 f32 newton_sqrtf(f32);
-s32 queue_destruction__7TObjectFv(int);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 spawn_particle_effect_with_rotation(void *, void *, s32, s32);
 s32 spawn_continuous_particle_with_direction(void *, void *, s32);
 f32 horizontal_distance_squared(void *, void *);
@@ -180,8 +180,8 @@ void run_task__10TTecGiFoieFv(u8 *self);
 void * TTecGiFoie__ct(void *self_, void *source, void *origin, void *level);
 void matrix_mult_vec(void *, void *, void *);
 void rotate_matrix_y(void *, s32);
-void push_matrix_from(void *);
-void pop_matrices(s32);
+s32 push_matrix_from(void *src);
+s32 pop_matrices(s32 arg0);
 
 extern const f32 TTecGiFoie__data_805DC81C;
 extern RecoveredGlobal_80231638___vt__10TTecGiFoie __vt__10TTecGiFoie;
@@ -215,10 +215,10 @@ u8 *__dt__13TUnk_804CC800Fv(Task_80231224 *task, s16 flag) {
     if (task != NULL) {
         task->vt = lbl_804CC800;
         if (task->single != 0) {
-            ((void (*)(void *))queue_destruction__7TObjectFv)(task->emitters[0]);
+            queue_destruction__7TObjectFv(task->emitters[0]);
         } else {
             for (i = 0; i < ((Profile_80231224 *)&TTecGiFoie__emitter_profile_table)[task->band].count; i++) {
-                ((void (*)(void *))queue_destruction__7TObjectFv)(task->emitters[i]);
+                queue_destruction__7TObjectFv(task->emitters[i]);
             }
         }
         mem_free(task->emitters);
@@ -333,7 +333,7 @@ u8 *__dt__10TTecGiFoieFv(u8 *arg0, s16 arg1) {
       temp_r30 = var_r31 + 0xEC;
       if (TTecLuker::is_parents_unqueued(*((s32 *) (((s8 *) arg0) + temp_r30))) != 0)
       {
-        queue_destruction__7TObjectFv((int) (*((s32 *) (((s8 *) arg0) + temp_r30))));
+        queue_destruction__7TObjectFv((void *)(*((s32 *) (((s8 *) arg0) + temp_r30))));
       }
       var_r29 += 1;
       var_r31 += 4;
@@ -356,12 +356,12 @@ u8 *__dt__10TTecGiFoieFv(u8 *arg0, s16 arg1) {
 void run_task__10TTecGiFoieFv(u8 *self) {
     f32 distance;
     if (*(void **)((s8 *)self + 0xE8) == NULL) {
-        queue_destruction__7TObjectFv((int) self);
+        queue_destruction__7TObjectFv(self);
         return;
     }
     *(void **)((s8 *)self + 0x1C) = find_entity_by_id(((TTecGiFoie *)self)->m_b4);
     if (*(void **)((s8 *)self + 0x1C) == NULL) {
-        queue_destruction__7TObjectFv((int) self);
+        queue_destruction__7TObjectFv(self);
         return;
     }
     if (TTecLuker::is_parents_unqueued(((TTecGiFoie *)self)->m_ec) != 0) {
@@ -371,7 +371,7 @@ void run_task__10TTecGiFoieFv(u8 *self) {
         }
         ((TUnk_804CC148 *)self)->apply_technique_to_area_targets();
         if (distance >= ((TTecGiFoie *)self)->m_90) {
-            queue_destruction__7TObjectFv((int) self);
+            queue_destruction__7TObjectFv(self);
         }
     }
 }

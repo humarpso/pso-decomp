@@ -98,7 +98,7 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object(int);
+void draw_ginja_object(void *child);
 u32 load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 extern u32 cave_rock_resource_bundle;
@@ -117,7 +117,7 @@ void TORockCave::draw_model() {
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (this->rotation_y));
         TObjFish::set_global_param((int) (this->texture_id));
-        draw_ginja_object((int) (*(s32 *)&this->model));
+        draw_ginja_object((void *)(*(s32 *)&this->model));
         pop_matrix();
         this->vfunc_15();
     }

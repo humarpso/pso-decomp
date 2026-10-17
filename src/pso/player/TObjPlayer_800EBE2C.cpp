@@ -14,7 +14,7 @@ extern "C" {
 extern const f32 lbl_805DA6B4;
 void TObjPlayer__sub_800EBE48(f32 farg0);
 void set_chunk_material_override_pair(s32, s32);
-s32 set_chunk_material_color(void *);
+void set_chunk_material_color(f32 *arg);
 extern int lbl_805D5660;
 extern int lbl_805D5664;
 extern int lbl_805D5668;
@@ -40,7 +40,7 @@ void TObjPlayer::push_material_color_override(f32 farg0, f32 farg1, f32 farg2, f
     stack.sp10 = farg2;
     stack.sp8 = lbl_805DA6F8 + farg0;
     stack.sp14 = farg3;
-    set_chunk_material_color((void *) (&stack.sp8));
+    set_chunk_material_color((&stack.sp8));
 }
 int TObjEneSlimeTailAttack::find_nearest_enemy_with_flag(f32 farg0) {
     u8 *arg0 = (u8 *)this;

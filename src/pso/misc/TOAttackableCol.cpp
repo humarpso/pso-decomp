@@ -57,11 +57,11 @@ struct Obj_801575AC {
 extern "C" {
 void *__nw__7TObjectFUl(int);
 void *fn_80157CA8(void *arg0);
-void TOAttackableCol__sub_80157310(void * = 0);
+void TOAttackableCol__sub_80157310(void *_w0);
 u8 is_current_floor_switch_set(int);
 volatile int is_locally_controlled__10TObjPlayerFPv(void *);
 u16 obj_getField1c(void *);
-s32 spawn_particle_effect(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
 u32 __ct__12TQuestThreadFv(int, void *, int);
 extern u32 quest_mission_manager;
 extern u32 quest_area_manager;
@@ -69,7 +69,7 @@ extern s32 tl_00;
 extern const f32 lbl_805DB2C8;
 s32 construct_actor_base__10TObjPlayerFPvPv(void *, int);
 s32 obj_setFlags30(void *, int);
-s32 set_indexed_flags(void *, s32, s32);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
 s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_80157AD8_lbl_804AF9A8 TOAttackableCol__collision_parts;
 extern s32 __vt__15TOAttackableCol[];
@@ -78,7 +78,7 @@ extern s32 tl_05;
 extern const f32 lbl_805DB2CC;
 extern const f32 lbl_805DB2D0;
 u8 *TOAttackableCol__ct(u8 *arg0, s32 arg1);
-s8 get_current_floor();
+s32 get_current_floor(void);
 void TOAttackableCol__sub_80157C20(void* p, s32 v);
 s32 TOAttackableCol__sub_80157C28(void* p);
 void *__dt__15TOAttackableColFv(void *arg0, s16 arg1);
@@ -88,7 +88,7 @@ s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 int bswap_header__6TLobbyFv(void*);
 int clear_player_status_flag__10TObjPlayerFlUl(void*, int, int);
-int queue_destruction__7TObjectFv(void*);
+void queue_destruction__7TObjectFv(void *arg0);
 
 void TOAttackableCol__sub_80157310(void * _w0) {  }
 
@@ -249,8 +249,8 @@ f32 TOAttackableCol::apply_hit(s32 arg1) {
     goto block_26;
   }
   block_26:
-  spawn_particle_effect((void *) (arg0 + 0x38), (int) 0x1D0);
-  spawn_particle_effect((void *) (arg0 + 0x38), (int) 1);
+  spawn_particle_effect((arg0 + 0x38), (int) 0x1D0);
+  spawn_particle_effect((arg0 + 0x38), (int) 1);
   return lbl_805DB2C8;
 }
 
@@ -270,7 +270,7 @@ void TOAttackableCol::run_task() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
     if (TObjPlayer::check_demo_mode() == 1) {
-        TOAttackableCol__sub_80157310((void *)((void *) (arg0)));
+        TOAttackableCol__sub_80157310(((void *) (arg0)));
         return;
     }
     temp_r0 = this->mode;
@@ -320,7 +320,7 @@ u8 *TOAttackableCol__ct(u8 *arg0, s32 arg1) {
     ((TUnk_804806E8 *)arg0)->calc_attach_pos();
     obj_setFlags30((void *) (arg0), (int) (0x60000000));
     init_collision_body_parts((void *) (arg0), (void *) (&TOAttackableCol__collision_parts.value), (int) (1));
-    set_indexed_flags((void *)((void *) (arg0)), (s32)((int) (0)), (s32)((int) (0x718)));
+    set_indexed_flags(((void *) (arg0)), ((int) (0)), ((int) (0x718)));
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOAttackableCol *)arg0)->mode = 0;
     *(f32 *)((s8 *)arg0 + 0x334) = (f32) lbl_805DB2CC;

@@ -27,10 +27,10 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern void *__vt__18TAdMultiPlayerNoGC[];
 extern s32 TAdMultiPlayerNoGC__name;
 Self_8033A668 *__ct__18TAdMultiPlayerNoGCFv(Self_8033A668 *self, void *parent, s32 n, u32 idx, u32 arg);
-s32 draw_textured_quad_at_depth(s32, f32);
-s32 begin_screen_draw(s32);
-s32 set_draw_texture_and_color(s32, s32);
-int set_cached_blend_factor(void*, void*);
+void draw_textured_quad_at_depth(f32 *q, f32 depth);
+void begin_screen_draw(s32 arg0);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
+void set_cached_blend_factor(s32 arg0, s32 arg1);
 int get_state_flag__9TMainTaskFv(void*);
 
 extern s32 lbl_805D6D78;
@@ -40,11 +40,11 @@ void TAdMultiPlayerNoGC::render_status() {
     begin_screen_draw(1);
     TObjFish::set_global_param(lbl_805D6D78);
     set_draw_texture_and_color(0, -1);
-    draw_textured_quad_at_depth(arg0 + 0x20, (0.25f));
+    draw_textured_quad_at_depth((f32 *)(arg0 + 0x20), (0.25f));
     TWindowSubStatusDisp::get_player();
 }
 
-void TAdMultiPlayerNoGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)10); render_status(); set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)6); } }
+void TAdMultiPlayerNoGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)10)); render_status(); set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)6)); } }
 void TAdMultiPlayerNoGC::run_task() {  }
 #pragma fp_contract on
 TAdMultiPlayerNoGC::~TAdMultiPlayerNoGC() {}

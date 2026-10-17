@@ -131,7 +131,6 @@ extern const f32 lbl_805DC340;
 #undef set_stat_scale__10TObjPlayerFPvf
 
 #define TObjPlayer__sub_801C6FDC ((f32* (*)(f32*))TObjPlayer__sub_801C6FDC)
-#define TObjPlayer__sub_801C6FE0 ((void (*)(f32*, f32, f32, f32))TObjPlayer__sub_801C6FE0)
 #define apply_stat_multipliers__10TObjPlayerFiif ((s32 (*)(f32))apply_stat_multipliers__10TObjPlayerFiif)
 #define get_obj_type__10TObjPlayerFPv ((u16 (*)(PlayerScaleState*))get_obj_type__10TObjPlayerFPv)
 #define get_stat_f32__8TItemMagFv ((f32 (*)(PlayerScaleState*))get_stat_f32__8TItemMagFv)
@@ -155,7 +154,7 @@ void handle_6x87_shrink_player(const PlayerShrinkPacket* input);
 TObjPlayer* get_player_by_client_id(int);
 int check_camera_mode__10TObjPlayerFv();
 void restore_shrunken_font__10TObjPlayerFv(PlayerRestoreSizePacket*, const PlayerRestoreSizePacket*);
-void TFontSmallLobby__sub_801C01BC(PlayerRestoreSizePacket*);
+int TFontSmallLobby__sub_801C01BC(void *p);
 int validate_6x88_restore_shrunken_player(PlayerRestoreSizePacket*);
 int clear_shrink_flag__10TObjPlayerFPv(void* p);
 void handle_6x88_restore_shrunken_player(const PlayerRestoreSizePacket* input);
@@ -178,7 +177,6 @@ extern const f32 lbl_805DC320;
 
 }
 #undef TObjPlayer__sub_801C6FDC
-#undef TObjPlayer__sub_801C6FE0
 #undef apply_stat_multipliers__10TObjPlayerFiif
 #undef get_obj_type__10TObjPlayerFPv
 #undef get_stat_f32__8TItemMagFv
@@ -195,7 +193,7 @@ struct RecoveredGlobal_801C6FF8_lbl_804C4008 {
 
 extern "C" {
 u8 fn_801C6F2C(u8 *arg0);
-s32 has_water_ground_flag(void *);
+int has_water_ground_flag(void *p);
 int set_action_flag16__10TObjPlayerFPv(void* p);
 int test_flag_8__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801C7098(void* p);
@@ -203,7 +201,7 @@ s32 get_contact_surface_type(s32 arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_801C6FF8_lbl_804C4008 __vt__18TPlayerLobbyMarker;
 u8 *__ct__18TPlayerLobbyMarkerFP7TObjectsSc(u8 *arg0, u8 *arg1, s16 arg2, s8 arg3);
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 s32 test_flag_2000000__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_801BF914(s32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
@@ -212,7 +210,7 @@ s32 translate_matrix_vec3(s32, s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
-s32 set_chunk_material_color(void *);
+void set_chunk_material_color(f32 *arg);
 s32 draw_chunk_object();
 extern u8 player_lobby_marker_color_table[];
 extern u8 shared_effect_texture_list[];
@@ -647,7 +645,7 @@ s32 get_contact_surface_type(s32 arg0) {
     if (((s32)TObjPlayer__sub_801C7098((void*)(arg0))) != 0) {
         return 1;
     }
-    if (has_water_ground_flag((void *) (arg0)) != 0) {
+    if (has_water_ground_flag((void *)(arg0)) != 0) {
         return 2;
     }
     if (((s32)test_flag_8__10TObjPlayerFPv((void*)((void *) (arg0)))) != 0) {
@@ -721,7 +719,7 @@ void TPlayerLobbyMarker::render() {
         translate_matrix_vec3(0, TObjPlayer__sub_801BF914(temp_r3 + 0x84C));
         rotate_matrix_y(0, *(s32 *)((s8 *)camera_ctrl_instance + 0x194) + rotation);
         scale_matrix(0, lbl_805DC358, lbl_805DC358, lbl_805DC358);
-        set_chunk_material_color(player_lobby_marker_color_table + get_material_index() * 0x10);
+        set_chunk_material_color((f32 *)(player_lobby_marker_color_table + get_material_index() * 0x10));
         TMainCursor::get_cursor_state();
         draw_chunk_object();
         copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
@@ -824,8 +822,8 @@ namespace accessors {
 extern "C" {
 void update_player_scale_camera(PlayerScaleState *state) {
   f32 z = lbl_805DC34C * ((f32 (*)(PlayerScaleState*))get_stat_f32__8TItemMagFv)(state);
-  ((void (*)(f32*, f32, f32, f32))TObjPlayer__sub_801C6FE0)(state->camera_position, lbl_805DC32C, lbl_805DC344 * (lbl_805DC348 * ((f32 (*)(PlayerScaleState*))get_stat_f32__8TItemMagFv)(state)), z);
-  ((void (*)(f32*, f32, f32, f32))TObjPlayer__sub_801C6FE0)(state->camera_target, lbl_805DC32C, lbl_805DC350 * ((f32 (*)(PlayerScaleState*))get_stat_f32__8TItemMagFv)(state), lbl_805DC354);
+  TObjPlayer__sub_801C6FE0(state->camera_position, lbl_805DC32C, lbl_805DC344 * (lbl_805DC348 * ((f32 (*)(PlayerScaleState*))get_stat_f32__8TItemMagFv)(state)), z);
+  TObjPlayer__sub_801C6FE0(state->camera_target, lbl_805DC32C, lbl_805DC350 * ((f32 (*)(PlayerScaleState*))get_stat_f32__8TItemMagFv)(state), lbl_805DC354);
   request_follow_camera_offsets(((f32* (*)(f32*))TObjPlayer__sub_801C6FDC)(state->camera_target), ((f32* (*)(f32*))TObjPlayer__sub_801C6FDC)(state->camera_position), 0xFFFF);
 }
 

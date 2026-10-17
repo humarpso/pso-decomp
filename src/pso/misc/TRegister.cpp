@@ -15,19 +15,19 @@ s32 __ct__14QuestListEntryFRC14QuestListEntry(s32 arg0, s32 arg1);
 s32 __ct__9TRegisterFv(s32 arg0);
 void bswap__9TRegisterFv(s32 arg0);
 int fn_801E0018(void* p);
-s32 __ct__8TPlySmthFv(s32);
+void __ct__8TPlySmthFv(void *);
 s32 bswap__13packet_headerFv();
 int bswap__16TPlyGuildCardTagFv(void*);
-s32 fn_801E0900(s32);
+void fn_801E0900(void *p);
 
 void bswap__9TRegisterFv(s32 arg0) {
     bswap__13packet_headerFv();
-    fn_801E0900(arg0 + 4);
+    fn_801E0900((void *)(arg0 + 4));
     bswap_32((u32 *)(arg0 + 0xC));
 }
 
 s32 __ct__9TRegisterFv(s32 arg0) {
-    __ct__8TPlySmthFv(arg0 + 4);
+    __ct__8TPlySmthFv((void *)(arg0 + 4));
     return arg0;
 }
 

@@ -21,7 +21,7 @@ s32 TShopJudgmentItemWindow__sub_80267F9C(void *, int);
 u8 *TWindowSubStatusDisp__sub_80248BE8(s32 arg0, s32 arg1, s32 arg2);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
-s32 is_player_input_active(int);
+s32 is_player_input_active(s32 param_1);
 extern RecoveredGlobal_80248CF4_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DCBA8;
 void *__dt__13TUnk_804CE7E8Fv(void *arg0, s16 arg1);
@@ -76,7 +76,7 @@ void TWindowSubStatusDisp::handle_input() {
     u8 *temp_r29;
     u8 *temp_r29_2;
     u8 *temp_r29_3;
-    temp_r31 = is_player_input_active((int) ((s32) this->m_20));
+    temp_r31 = is_player_input_active(((s32) this->m_20));
     if ((((TUnk_804D0618 *)arg0)->get_flag() == 0) && (((TUnk_804D0618 *)arg0)->get_status_flag() == 0) && (((TUnk_804CE018 *)arg0)->sub_80244994() != 0)) {
         if (*(u16 *)((s8 *)arg0 + 0x70) & 0x10) {
             temp_r29 = (u8 *)&controller_input_state.value + (temp_r31 * 0x50) + 0x20;

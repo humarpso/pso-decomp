@@ -3,15 +3,15 @@
 
 extern "C" {
 s32 read_disc_file(s32, u8 *);
-s32 TObjPlayer__sub_802A841C();
-s32 load_indirect_info();
+void TObjPlayer__sub_802A841C(void);
+void load_indirect_info(void);
 u8 *xmalloc__FUl(u32);
 s32 xfree__FPv(s32);
 void *memcpy(void *, const void *, u32);
 extern s32 TEffIndirectCtrl__source_buffers[];
 extern s32 lbl_805D3E20;
 void load_indirect_dat(void);
-s32 TObjPlayer__sub_802A83F4();
+void TObjPlayer__sub_802A83F4(void);
 
 void TEffIndirectCtrl::free_all() {
     s32 var_r28;

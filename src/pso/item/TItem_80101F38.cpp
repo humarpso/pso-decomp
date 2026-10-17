@@ -26,7 +26,7 @@ s32 spawn_dropped_item_from_msg(void *, int);
 s32 TItemData__sub_8010C740(void *, int);
 s32 TItemData__sub_8010CCB0(void *);
 void handle_6x5D_drop_stacked_item(u8 *arg0);
-s16 get_current_floor();
+s32 get_current_floor(void);
 void normalize__9TItemDataFv(void *);
 s32 get_player_by_client_id(u16);
 extern s32 lbl_805D5450;

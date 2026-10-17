@@ -23,12 +23,12 @@ struct Stack_801F3778 {
 
 extern "C" {
 void read_be16_field2__10TObjPlayerFv(void *);
-s32 TLobby__send_and_handle_60(s32);
+void TLobby__send_and_handle_60(u8 *arg0);
 void build_6x75_update_quest_flag_dc(void* p);
 extern s32 game_difficulty_selection;
 void send_and_handle_6x75(void *arg0);
-s32 clear_story_flag_in_bank(int, int);
-s32 set_story_flag_in_bank(int, int);
+void clear_story_flag_in_bank(s32 n, s32 flag);
+void set_story_flag_in_bank(s32 n, s32 flag);
 void handle_6x75_update_quest_flag_dc(u8 *arg0);
 extern s32 current_language;
 extern char offline_quest_filename_buffer_a[],offline_quest_filename_buffer_b[];
@@ -64,11 +64,11 @@ void handle_6x75_update_quest_flag_dc(u8 *arg0) {
     ((TLobby *)arg0)->byteswap_6x75_packet();
     temp_r0 = *(u16 *)((s8 *)arg0 + 6);
     if (temp_r0 == 0) {
-        set_story_flag_in_bank((int) ((s32) *(s16 *)((s8 *)arg0 + 8)), (int) ((s32) *(u16 *)((s8 *)arg0 + 4)));
+        set_story_flag_in_bank(((s32) *(s16 *)((s8 *)arg0 + 8)), ((s32) *(u16 *)((s8 *)arg0 + 4)));
         return;
     }
     if (temp_r0 == 1) {
-        clear_story_flag_in_bank((int) ((s32) *(s16 *)((s8 *)arg0 + 8)), (int) ((s32) *(u16 *)((s8 *)arg0 + 4)));
+        clear_story_flag_in_bank(((s32) *(s16 *)((s8 *)arg0 + 8)), ((s32) *(u16 *)((s8 *)arg0 + 4)));
     }
 }
 
@@ -86,7 +86,7 @@ void prepare_offline_quest_filenames(const char* identity) {
 
 void send_and_handle_6x75(void *arg0) {
     ((TLobby *)arg0)->byteswap_6x75_packet();
-    TLobby__send_and_handle_60((s32)(arg0));
+    TLobby__send_and_handle_60((u8 *)(arg0));
 }
 
 void TLobby::byteswap_6x75_packet() {

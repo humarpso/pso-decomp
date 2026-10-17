@@ -392,9 +392,7 @@ __declspec(section ".sdata2") const f32 TObjEneBm5GibonU__data_805DA158[1] = { 0
 #define TObjEneBm5GibonU__data_805DA158 (TObjEneBm5GibonU__data_805DA158[0])
 #pragma push
 #define TObjEneBm5GibonU__sub_800CD204 ((void (*)())TObjEneBm5GibonU__sub_800CD204)
-#define TObjEneBm5GibonU__sub_800D0738 ((void (*)())TObjEneBm5GibonU__sub_800D0738)
 #define vfunc_88__16TObjEneBm5GibonUFv ((void (*)())vfunc_88__16TObjEneBm5GibonUFv)
-#define TObjEneBm5GibonU__sub_800D1268 ((void (*)())TObjEneBm5GibonU__sub_800D1268)
 #define TObjEneBm5GibonU__sub_800D13B8 ((void (*)())TObjEneBm5GibonU__sub_800D13B8)
 #define vfunc_63__16TObjEneBm5GibonUFv ((void (*)())vfunc_63__16TObjEneBm5GibonUFv)
 #define vfunc_62__16TObjEneBm5GibonUFv ((void (*)())vfunc_62__16TObjEneBm5GibonUFv)
@@ -466,7 +464,7 @@ extern "C" {
 void vfunc_102__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneEpsilon__vt101();
+int TObjEneEpsilon__vt101(void *p);
 }
 extern "C" {
 void vfunc_83__12TObjEneDD_STFv();
@@ -667,7 +665,7 @@ extern "C" {
 void receive_weapon_special_attack__10TObjPlayerFv();
 }
 extern "C" {
-void render_actor_shadows_default();
+void render_actor_shadows_default(u8 *arg0);
 }
 extern "C" {
 void reset_motion_fields__13TUnk_804806E8Fv();
@@ -682,7 +680,7 @@ extern "C" {
 void select_melee_contact_body__10TObjPlayerFv();
 }
 extern "C" {
-void trigger_switch_attack__10TObjPlayerFi();
+void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 }
 extern "C" {
 void try_start_action__13TUnk_804806E8Fll();
@@ -691,16 +689,16 @@ extern "C" {
 void update_action_hold_status__13TUnk_804806E8Fv();
 }
 extern "C" {
-void update_action_timer__10TObjPlayerFPv();
+s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
 }
 extern "C" {
 void update_actor_ground_y__13TUnk_804806E8Fv();
 }
 extern "C" {
-void update_attack_stat_status();
+s32 update_attack_stat_status(u8 *arg0);
 }
 extern "C" {
-void update_defense_stat_status();
+s32 update_defense_stat_status(u8 *arg0);
 }
 extern "C" {
 void update_flag30_timer__13TUnk_804806E8Fv();
@@ -809,9 +807,7 @@ __declspec(section ".data") u32 TObjEneBm5GibonU__enemy_list[3];
 }
 
 #undef TObjEneBm5GibonU__sub_800CD204
-#undef TObjEneBm5GibonU__sub_800D0738
 #undef vfunc_88__16TObjEneBm5GibonUFv
-#undef TObjEneBm5GibonU__sub_800D1268
 #undef TObjEneBm5GibonU__sub_800D13B8
 #undef vfunc_63__16TObjEneBm5GibonUFv
 #undef vfunc_62__16TObjEneBm5GibonUFv
@@ -2079,18 +2075,18 @@ void TObjEneBm5GibonU__sub_800CF4BC(u8 *arg0, s32 arg1);
 Pl_800CDB98 *get_battle_param__10TObjPlayerFi(s32);
 s32 obj_is_hit_receivable(void *);
 void TObjEneBm5GibonU__sub_800CDB98(Obj_800CDB98 *arg0, s32 arg1);
-void move_with_wall_slide(void *);
-void enemy_set_heading_velocity(void *, s32, f32);
+void move_with_wall_slide(u8 *arg0);
+void enemy_set_heading_velocity(u8 *arg0, s32 arg1, f32 farg0);
 s32 select_enemy_destination(void *, Vec_800CD5F4, s32);
 void copy_position_if_valid__10TObjPlayerFii(void *, Vec_800CD5F4);
 s32 enemy_turn_toward_dest(void *, s32);
 f32 newton_sqrtf(f32);
 void fn_80044330(void *);
-void spawn_directional_particle(void *, void *, s32);
+void *spawn_directional_particle(void *pos, void *dir, s32 id);
 void rotate_vector_by_matrix(s32, void *, void *);
 void subtract_vector(void *, void *);
-void push_matrix_from(void *);
-void pop_matrices(s32);
+s32 push_matrix_from(void *src);
+s32 pop_matrices(s32 arg0);
 extern u8 identity_matrix[];
 extern s32 tl_07;
 void TObjEneBm5GibonU__sub_800CF7CC(u8 *arg0, s32 arg1);
@@ -4828,12 +4824,12 @@ s32 all_parents_unqueued_for_destruction__7TObjectFv();
 void TObjEneBm5GibonU__sub_800D1CF8(O_800D1CF8 *self);
 s32 __dt__16TObjEneBm5GibonUFis(s32 arg0, s16 arg1);
 void __register_global_object(void *obj, void *dtor, void *chain);
-void __dt__12TObjEneDD_STFv(void *, s32);
-void __dt__13TUnk_80494938Fv(void *, s16);
+void *__dt__12TObjEneDD_STFv(void *arg0, s16 arg1);
+void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, u32, u32);
-void __dt__13TUnk_804949A8Fv(void);
+void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
 void init_object__12TObjEneDD_STFv(void *, s32, s32);
 void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
@@ -4849,7 +4845,7 @@ u8 *TObjEneBm5GibonU__ct(u8 *arg0, s32 arg1, s32 arg2);
 void vfunc_61__16TObjEneBm5GibonUFv(void);
 void vfunc_28__16TObjEneBm5GibonUFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-int __dl__FPv();
+void __dl__FPv(void);
 
 void TObjEneBm5GibonU::vfunc_88() {
     u8 *arg0 = (u8 *)this;

@@ -41,11 +41,11 @@ s32 OSSetSoundMode(int);
 extern Ent_80226294 lbl_805145F0[];
 extern u32 lbl_805DC748;
 extern s32 lbl_805D62B0;
-void release_sound_with_fade(s32 idx);
+int release_sound_with_fade(void *p);
 void stop_sound_request(s32 idx);
 u32 OSGetSoundMode();
 extern s8 lbl_805D3708;
-s32 TLobby__sub_80227D38();
+int TLobby__sub_80227D38(void);
 void TLobby__sub_8022644C(void);
 void set_cue_stream_gain(s32, s32);
 void set_menu_index_main__6TLobbyFPUc(void);
@@ -95,7 +95,7 @@ void TTecRaFoie::update_technique_slot(s32 arg0) {
 
 void stop_sound_request(s32 idx) {
     if (lbl_805D62B0 != 0 && idx >= 0 && idx < 0x28) {
-        release_sound_with_fade(idx);
+        release_sound_with_fade((void *)idx);
         lbl_805145F0[idx].flags &= lbl_805DC748;
         lbl_805145F0[idx].f18 = 0;
         lbl_805145F0[idx].f8 = 0;

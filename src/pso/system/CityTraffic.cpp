@@ -54,7 +54,7 @@ typedef struct
 } Tbl_801817AC;
 
 extern "C" {
-s32 destroy_buffer_pair(void *, s32);
+void *destroy_buffer_pair(void *arg0, s16 arg1);
 extern void *air_car_buffer_pair_table[];
 void free_buffer_pair_table(void);
 void __ct__7TObjectFP7TObject(void *);
@@ -70,7 +70,7 @@ extern s32 city_traffic_path_motion_index_table[];
 extern s32 city_aircar_model_indices[];
 s32 sample_aircar_path_position(s32 arg0, void *arg1, f32 farg0);
 s32 alloc_tables__6TLobbyFll(s32, s32, s32, Ent_801817AC *);
-s32 TLobby__sub_80184C2C(int);
+int TLobby__sub_80184C2C(int a0);
 Lob_801817AC *get_season_model_resource(int);
 void subtract_vector(Vec_801817AC *, Vec_801817AC *);
 extern s32 city_traffic_car_chunk_index_table[];

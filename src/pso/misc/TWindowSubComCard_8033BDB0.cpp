@@ -30,12 +30,12 @@ struct O_8033C1CC { u8 pad[0x34]; void *p; u8 pad2[0x44 - 0x38]; s32 f44; };
 
 extern "C" {
 s32 sub_8033BB14__16TCheckMemoryCardFv(void *);
-void TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 extern RecoveredGlobal_8033C024_lbl_804EF940 lbl_804EF940;
 u32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 align_menu_entry_positions(u32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, u32, s32, s32);
-u32 create_window_menu(s32 *, s32, s32);
+s32 create_window_menu(s32 arg0, s32 arg1, s32 arg2);
 u32 check_room_seq_4__16TAdChrSelASlotGCFl(s32 *, s32);
 u32 create_message_window__6TLobbyFllUls(s32 *, s32 *, s32, s32);
 u32 update_window_mode_from_progress__6TLobbyFPv(s32 *, s32 *);
@@ -73,7 +73,7 @@ void TWindowSubComCard::create_message_and_menu(u32 arg1, s32 sel, u32 arg3, u32
         return;
     }
     if (*(s32 *)((s8 *)this + 0x4C) != 0) {
-        *(u32 *)((s8 *)this + 0x34) = create_window_menu(lbl_804EF8D8, 2, 4);
+        *(u32 *)((s8 *)this + 0x34) = create_window_menu((s32)lbl_804EF8D8, 2, 4);
     } else {
         *(u32 *)((s8 *)this + 0x34) = check_room_seq_4__16TAdChrSelASlotGCFl(lbl_804EF8D8, 2);
     }

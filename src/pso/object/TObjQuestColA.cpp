@@ -7,15 +7,15 @@
 extern "C" {
 
 void *TObjQuestColA__ct(void *arg0);
-s32 enable_action_input__10TObjPlayerFPv(s32);
+void enable_action_input__10TObjPlayerFPv(void *p);
 void TObjQuestColBase__ct(void *);
 s32 get_player_by_client_id(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 check_flag_100__10TObjPlayerFPv();
-int create__12TQuestThreadFi(void*);
+u32 create__12TQuestThreadFi(s32 arg0);
 int destroy_board__17TQuestThreadBoardFv(void*);
 
-int TObjQuestColA::vfunc_16() { destroy_board__17TQuestThreadBoardFv(this); create__12TQuestThreadFi(*(void* *)&this->m_b0); }
+int TObjQuestColA::vfunc_16() { destroy_board__17TQuestThreadBoardFv(this); create__12TQuestThreadFi((s32)(*(void* *)&this->m_b0)); }
 
 extern s8 controller_input_state[];
 extern s32 local_client_id;
@@ -27,11 +27,11 @@ int TObjQuestColA::vfunc_15() {
     temp_r3 = get_player_by_client_id(local_client_id);
     if (temp_r3 != 0) {
         if (check_flag_100__10TObjPlayerFPv() != 0) {
-            enable_action_input__10TObjPlayerFPv(temp_r3);
+            enable_action_input__10TObjPlayerFPv((void *)temp_r3);
             return 0;
         }
         if (((TObjPlayer *)temp_r3)->is_quest_interaction_blocked() != 0) {
-            enable_action_input__10TObjPlayerFPv(temp_r3);
+            enable_action_input__10TObjPlayerFPv((void *)temp_r3);
             return 0;
         }
         temp_r3_2 = ((TObjQuestColBase *)this)->update_trigger_state(*(f32 *)&this->unk_AC);
@@ -39,7 +39,7 @@ int TObjQuestColA::vfunc_15() {
             ((TObjPlayer *)temp_r3)->disable_primary_action_input();
         }
         if (temp_r3_2 == 3) {
-            enable_action_input__10TObjPlayerFPv(temp_r3);
+            enable_action_input__10TObjPlayerFPv((void *)temp_r3);
         }
         if (temp_r3_2 == 0) {
             ((TObjPlayer *)temp_r3)->disable_primary_action_input();

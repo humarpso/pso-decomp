@@ -75,7 +75,7 @@ typedef struct Pmt_8011C234 { u8 pad[0xC]; PmtRow_8011C234 *rows; } Pmt_8011C234
 
 extern "C" {
 s32 select_enemy_drop__9TItemDropFPviiPv(u32, s32, s32, s32);
-s32 normalize_drop_area(s32 *);
+void normalize_drop_area(s32 *p);
 extern void *item_mgr;
 s32 select_box_item__9TItemDropFiiPv(u32, s32, s32);
 s32 generate_drop_item__9TItemDropFPviPv(u32, s32, s32);

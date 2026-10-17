@@ -73,8 +73,8 @@ extern "C" {
 s32 TWindowSubStatusDisp__sub_80256C40(void *, void *, void *, f32);
 #define draw_status_gauge_bar__13TUnk_804CF930FPvPvff ((s32 (*)(void *, void *, void *, f32, f32))draw_status_gauge_bar__13TUnk_804CF930FPvPvff)
 s32 begin_screen_draw(s32, f32, f32, f32);
-s32 set_draw_texture_and_color(s32, s32);
-s32 set_constant_material_color(s32);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
+void set_constant_material_color(u32 x);
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DCED8;
 extern const f32 lbl_805DCEDC;
@@ -126,7 +126,6 @@ s32 play_sound_effect(u32, s32, s32, s32);
 #define sub_80256BDC__13TUnk_804CF930Fs ((int (*)(void*, int))sub_80256BDC__13TUnk_804CF930Fs)
 #define calc_bar_width__20TWindowSubStatusDispFPv ((s32 (*)())calc_bar_width__20TWindowSubStatusDispFPv)
 #define step_gauge_bar_width ((void (*)(void *))step_gauge_bar_width)
-#define TWindowSubStatusDisp__sub_80257298 ((s32 (*)(void *, s16))TWindowSubStatusDisp__sub_80257298)
 void* init_from__13TUnk_804CF930FPvi(void* a0, void* a1, int a2);
 u32 update_text_color_transition(void);
 void start_text_color_transition(Fade_802575C0 *arg0, u32 rgb, f32 time);
@@ -288,5 +287,4 @@ u8 *TWindowSubStatusDisp::init_layout_entry_copy(u8 *arg1) {
 #undef sub_80256BDC__13TUnk_804CF930Fs
 #undef calc_bar_width__20TWindowSubStatusDispFPv
 #undef step_gauge_bar_width
-#undef TWindowSubStatusDisp__sub_80257298
 #undef lbl_804CF930

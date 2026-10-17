@@ -6,8 +6,8 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-s32 set_indexed_flags(void *, int, int);
-s32 is_any_player_within_radius_xz(void *, f32);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
+s32 is_any_player_within_radius_xz(u8 *self, f32 radius);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805DB4B4;
 extern const f32 lbl_805DB4B8;
@@ -16,8 +16,8 @@ extern const f32 lbl_805DB4C0;
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_ginja_model(int);
-s32 set_chunk_material_color(void *);
+void draw_ginja_model(s32 model);
+void set_chunk_material_color(f32 *arg);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
@@ -74,9 +74,9 @@ void TODoorCave02::play_proximity_sound() {
             this->m_d0 = (s32) (this->m_d0 | 0x100000);
         }
     }
-    if ((this->m_d0 & 1) && (is_any_player_within_radius_xz((void *) (arg0), (f32) (lbl_805DB4C0)) == 1)) {
+    if ((this->m_d0 & 1) && (is_any_player_within_radius_xz((arg0), (f32) (lbl_805DB4C0)) == 1)) {
         *(s32 *)&this->m_ac = 1;
-        set_indexed_flags((void *) (arg0), (int) (0), (int) (8));
+        set_indexed_flags((arg0), (0), (8));
         play_sound_effect((s32)((int) (0x42807)), (void *)((void *) (arg0 + 0x38)), (s32)((int) (0)), (s32)((int) (0)));
     }
 }
@@ -89,23 +89,23 @@ s32 TODoorCave02::draw_parts(void *arg1_) {
     u8 *temp_r31_2;
     push_matrix();
     post_translate_matrix((void *) (arg1 + 8));
-    draw_ginja_model((int) (*(s32 *)((s8 *)arg1 + 4)));
+    draw_ginja_model((*(s32 *)((s8 *)arg1 + 4)));
     TParticleCtrl::begin_effect_render();
     temp_r4 = model_render_flags;
     lbl_805D5660 = temp_r4;
     model_render_flags = temp_r4 | 0x10;
-    set_chunk_material_color((void *) (arg0 + 0xD4));
+    set_chunk_material_color((f32 *)(arg0 + 0xD4));
     push_matrix();
     temp_r31 = *(u8 **)((s8 *)arg1 + 0x2C);
     post_translate_matrix((void *) (temp_r31 + 8));
-    draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
+    draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
     pop_matrix();
     push_matrix();
     temp_r31_2 = *(u8 **)((s8 *)temp_r31 + 0x30);
     post_translate_matrix((void *) (temp_r31_2 + 8));
-    draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_2 + 4)));
+    draw_ginja_model((*(s32 *)((s8 *)temp_r31_2 + 4)));
     pop_matrix();
-    set_chunk_material_color(chunk_material_color_half_alpha_f32);
+    set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
     model_render_flags = lbl_805D5660;
     TParticleCtrl::end_effect_render();
     pop_matrix();

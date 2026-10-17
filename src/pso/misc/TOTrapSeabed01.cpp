@@ -179,13 +179,13 @@ void check_hold_player__14TOTrapSeabed01FPv(u8 *arg0);
 void vfunc_81__14TOTrapSeabed01Fv(u8 *arg0);
 s32 get_bml_model(int, int);
 s32 set_position_xy__10TObjPlayerFff(f32, f32);
-u32 spawn_particle_effect(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
 s32 copy_transform__8TObjChipFPvPv(void *, void *);
 void *__nw__7TObjectFUl(int);
 s32 __ct__13TObjSuisoChipFv(void *, void *, void *);
 s32 matrix_mult_vec(void *, void *, void *);
 s32 translate_matrix_vec3(void *, void *);
-s32 set_matrix_identity(void *);
+void set_matrix_identity(u8 *arg0);
 s32 rotate_matrix_y(void *, int);
 extern u8 TOTrapSeabed01__transform_params[];
 extern SeabedTrapFragmentSpawn seabed_trap_fragment_spawns[];
@@ -229,7 +229,7 @@ void TOTrapSeabed01__vt83(Trap_802C9E3C *self) {
         }
         Vec_802C9E3C v = p.pos;
         v.y = y;
-        set_matrix_identity(&m);
+        set_matrix_identity((u8 *)&m);
         translate_matrix_vec3(&m, &self->pos);
         rotate_matrix_y(&m, self->rotY);
         matrix_mult_vec(&m, &v, &v);
@@ -346,13 +346,13 @@ struct S_802CA550 {
 };
 
 extern "C" {
-s32 setup_particle_tev(int);
+void setup_particle_tev(s32 arg0);
 f32 rotate_matrix_by_node_angles(void *, void *);
 s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-s32 draw_ginja_model(int);
+void draw_ginja_model(s32 model);
 s32 is_split_screen();
 s32 get_state_flag__9TMainTaskFv();
 s32 dispatch_input_to_instance__18TAdEnterPasswordGCFi(void *);
@@ -362,11 +362,10 @@ s32 scroll_ginja_mesh_uvs(int, int, int, void *, int);
 void vfunc_84__14TOTrapSeabed01Fv(void);
 s32 draw_ginja_model_with_motion(int, int, f32);
 
-s32 restore_saved_depth_alpha_state();
-s32 func_80141618__Fv();
+void restore_saved_depth_alpha_state(void);
+void func_80141618__Fv(void);
 s32 set_model_node_callback(void *);
 
-#define trigger_by_id__14TOTrapSeabed01FUi (*(s32 (*)[1])&trigger_by_id__14TOTrapSeabed01FUi)
 extern s32 actor_frame_tick;
 extern s32 lbl_805D681C;
 extern s32 seabed01_ginja_mesh_index;
@@ -419,13 +418,13 @@ void TOTrapSeabed01::draw_object_tree(u8 *arg1) {
         }
         if (!(temp_r31 & 8)) {
             if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x34C) != 0) {
-                setup_particle_tev((int) (0));
+                setup_particle_tev((0));
                 TObjFish::set_global_param((s32)((void *)((int) (TOTrapSeabed01__texture_file))));
                 ((TOTrapAncient02 *)0x38E)->load_projection_tex_matrix();
-                draw_ginja_model((int) (*(s32 *)((s8 *)var_r30 + 4)));
+                draw_ginja_model((*(s32 *)((s8 *)var_r30 + 4)));
                 TParticleCtrl::disable_if_single_screen();
             } else {
-                draw_ginja_model((int) (*(s32 *)((s8 *)var_r30 + 4)));
+                draw_ginja_model((*(s32 *)((s8 *)var_r30 + 4)));
             }
         }
         if (!(temp_r31 & 0x10)) {
@@ -474,7 +473,6 @@ void render__14TOTrapSeabed01Fv(S_802CA550 *arg0) {
 
 #pragma pop
 
-#undef trigger_by_id__14TOTrapSeabed01FUi
 #define lbl_805DE640 (lbl_805DE640[0])
 #define lbl_805DE658 (lbl_805DE658[0])
 #pragma push
@@ -643,13 +641,13 @@ extern s32 trap_seabed01_param_index_table[];
 void vfunc_6__14TOTrapSeabed01FPsl(void *arg0, s16 *arg1, s32 arg2);
 void *__dt__14TOTrapSeabed01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
-s32 stop_sound_request(s32);
+void stop_sound_request(s32 idx);
 s32 TLobby__sub_803DA16C(void*);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
-void __dt__6TOTrapFv(void *, int);
+void *__dt__6TOTrapFv(void *arg0, s16 arg1);
 
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 void TOTrapSeabed01::vfunc_84() {  }
 
@@ -806,9 +804,9 @@ void vfunc_89__6TOTrapFv();
 void vfunc_86__6TOTrapFv();
 void vfunc_88__6TOTrapFv();
 void try_start_action__6TOTrapFll();
-void TOTrap__sub_801792CC();
-void TOTrap__sub_801792E4();
-void TOTrap__sub_801792FC();
+u8 TOTrap__sub_801792CC(u8 *arg0, s32 arg1);
+u8 TOTrap__sub_801792E4(u8 *arg0, s32 arg1);
+u8 TOTrap__sub_801792FC(u8 *arg0, s32 arg1);
 void apply_knockback_from_attacker__6TOTrapFPUc();
 void vfunc_29__13TUnk_804806E8Fv();
 void vfunc_74__13TUnk_804806E8Fl();
@@ -863,12 +861,12 @@ void render_shadows__7TObjectFv();
 void reset_motion_fields__13TUnk_804806E8Fv();
 void reset_pose__13TUnk_804806E8Fv();
 void submit_cursor_and_notify__6TOTrapFv();
-void trigger_switch_attack__10TObjPlayerFi();
+void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 void update_action_hold_status__13TUnk_804806E8Fv();
-void update_action_timer__10TObjPlayerFPv();
+s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
 void update_actor_ground_y__13TUnk_804806E8Fv();
-void update_attack_stat_status();
-void update_defense_stat_status();
+s32 update_attack_stat_status(u8 *arg0);
+s32 update_defense_stat_status(u8 *arg0);
 void update_flag30_timer__13TUnk_804806E8Fv();
 void update_movement_status__13TUnk_804806E8Fv();
 void update_object_view_visibility__13TUnk_804B9870Fff();

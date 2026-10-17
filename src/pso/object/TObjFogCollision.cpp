@@ -19,7 +19,7 @@ struct RecoveredGlobal_80153FD0___vt__16TObjFogCollision {
 };
 
 extern "C" {
-s32 disallow_rendering__7TObjectFv(void *);
+void disallow_rendering__7TObjectFv(void *arg0);
 s32 construct_world_actor_base(void *);
 extern s32 __vt__16TObjFogCollision[];
 extern s32 lbl_805D2E78;
@@ -50,7 +50,7 @@ u8 *TObjFogCollision__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     *(s32 *)&((TObjFogCollision *)arg0)->m_90 = 0;
     *(s32 *)&((TObjFogCollision *)arg0)->m_94 = 0;
-    disallow_rendering__7TObjectFv((void *) (arg0));
+    disallow_rendering__7TObjectFv((arg0));
     return arg0;
 }
 

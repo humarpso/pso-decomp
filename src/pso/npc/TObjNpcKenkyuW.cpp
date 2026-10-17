@@ -161,7 +161,7 @@ extern RecoveredGlobal_802A3C30_lbl_804DCE48 bm_npc_kenkyu_w_resource_descriptor
 extern u32 TObjNpcKenkyuW__model_resource;
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-s32 construct_male_npc_base(void *);
+u8 *construct_male_npc_base(u8 *arg0);
 extern s32 __vt__14TObjNpcKenkyuW[];
 extern s32 TObjNpcKenkyuW__name;
 u8 *TObjNpcKenkyuW__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -212,7 +212,7 @@ void *__dt__14TObjNpcKenkyuWFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_802A3CD8___vt__14TObjNpcKenkyuW_size[sizeof(RecoveredGlobal_802A3CD8___vt__14TObjNpcKenkyuW) == 0x178 ? 1 : -1];
 u8 *TObjNpcKenkyuW__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_male_npc_base((void *) (arg0));
+    construct_male_npc_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802A3CD8___vt__14TObjNpcKenkyuW *)&__vt__14TObjNpcKenkyuW).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcKenkyuW__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);

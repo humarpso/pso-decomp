@@ -283,13 +283,13 @@ extern "C" {
 s32 remap_area_sound_id(s32, s32);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 apply_actor_gravity(void *, s32, f32);
-s32 move_with_wall_slide(void *);
+void move_with_wall_slide(u8 *arg0);
 void sub_800C20B0__12TObjEneLappyFv(void *arg0);
 #define sub_800C20B0__12TObjEneLappyFv (*(s32 (*)())&sub_800C20B0__12TObjEneLappyFv)
 s32 play_sound_effect(s32, u32, s32, s32);
 void handle_death__10TObjPlayerFPv(u8 *arg0);
 s32 get_player_by_client_id(u16);
-f32 xyz_distance_squared(void *, s32);
+f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
 void enter_state_4__10TObjPlayerFPv(u8 *arg0);
 void set_action_state_3__10TObjPlayerFPv(void *arg0);
 s32 obj_testFlags30(void *, s32);
@@ -548,7 +548,7 @@ s32 TObjEneLappy::apply_move_friction() {
     }
     refresh_collision_body_centers();
     if (*(f32 *)((s8 *)this + 0xC0) < (lbl_805D9F24 * (lbl_805D9F2C * *(f32 *)((s8 *)this + 0xC8)))) {
-        move_with_wall_slide(this);
+        move_with_wall_slide((u8 *)this);
         *(f32 *)((s8 *)this + 0x308) = (f32) (*(f32 *)((s8 *)this + 0x308) * lbl_805D9F24);
         *(f32 *)((s8 *)this + 0x310) = (f32) (*(f32 *)((s8 *)this + 0x310) * lbl_805D9F24);
     }
@@ -613,7 +613,7 @@ void enter_state_4__10TObjPlayerFPv(u8 *arg0) {
         *(s16 *)((s8 *)arg0 + 0x326) = 4;
         *(s16 *)((s8 *)arg0 + 0xB8) = 6;
         temp_r3 = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x2D4));
-        if ((temp_r3 != 0) && !(xyz_distance_squared(arg0 + 0x38, temp_r3 + 0x38) < lbl_805D9F50)) {
+        if ((temp_r3 != 0) && !(xyz_distance_squared(arg0 + 0x38, (u8 *)(temp_r3 + 0x38)) < lbl_805D9F50)) {
             *(s16 *)((s8 *)arg0 + 0x374) = (s16) (*(s16 *)((s8 *)arg0 + 0x374) | 2);
             ((TObjPlayer *)arg0)->set_flag_and_notify();
         }
@@ -1160,17 +1160,7 @@ void *TObjEneLappy::create(void *arg0) {
 
 #undef TObjEneLappy__ct
 
-#define update_action_hold__12TObjEneLappyFi (*(void (*)())&update_action_hold__12TObjEneLappyFi)
-#define try_clear_flags_60__10TObjPlayerFi (*(void (*)())&try_clear_flags_60__10TObjPlayerFi)
-#define set_action_state_3__10TObjPlayerFPv (*(void (*)())&set_action_state_3__10TObjPlayerFPv)
-#define select_target__12TObjEneLappyFPv (*(void (*)())&select_target__12TObjEneLappyFPv)
-#define run_task__12TObjEneLappyFPv (*(void (*)())&run_task__12TObjEneLappyFPv)
 #define render__12TObjEneLappyFPv (*(void (*)())&render__12TObjEneLappyFPv)
-#define handle_death__10TObjPlayerFPv (*(void (*)())&handle_death__10TObjPlayerFPv)
-#define enter_state_4__10TObjPlayerFPv (*(void (*)())&enter_state_4__10TObjPlayerFPv)
-#define enter_moving_state__12TObjEneLappyFPv (*(void (*)())&enter_moving_state__12TObjEneLappyFPv)
-#define enter_idle_state__12TObjEneLappyFPv (*(void (*)())&enter_idle_state__12TObjEneLappyFPv)
-#define enter_down_state__10TObjPlayerFPv (*(void (*)())&enter_down_state__10TObjPlayerFPv)
 #define apply_variant_speeds__12TObjEneLappyFv (*(s32 (*)(void *))&apply_variant_speeds__12TObjEneLappyFv)
 #define render_world_model__9TObjEnemyFv (*(void (*)(void *))&render_world_model__9TObjEnemyFv)
 #define draw__16TObjEneRe7BeruraFv (*(void (*)(void *))&draw__16TObjEneRe7BeruraFv)
@@ -1407,12 +1397,12 @@ struct Obj_800C220C : VObj_800C220C {
 extern "C" {
 s32 update_player_state__9TObjEneDDFv(void *, void *, int);
 s32 sub_800C3B8C__16TObjEneRe2FlowerFv(void *);
-s32 restore_default_scene();
-s32 set_scene_override(int);
+void restore_default_scene(void);
+void set_scene_override(u8 scene);
 extern Vec_800C20D0 lbl_8043BBC0[];
 void TObjPlayer__sub_800C20D0(Obj_800C20D0 *o);
 s32 is_main_phase_15__9TObjEneDDFv(void);
-void translate_matrix(int, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 extern Vec_800C220C lbl_8043BBB4[];
 extern s32 lbl_805D5660;
@@ -1429,13 +1419,13 @@ void TObjPlayer__sub_800C220C(Obj_800C220C *o);
 void *__dt__12TObjEneLappyFv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
-void __dt__9TObjEnemyFv(void *, int);
+void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 
 s32 add_flags_2e4__13TUnk_804806E8FUl(void *, int, f32, f32);
 s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
 s32 bind_enemy_combat_stats(void *, int, int, int);
 s32 initialize__9TObjEnemyFPv(void *, s32, void *);
-s32 set_animation__10TObjPlayerFPvs(void *, s16);
+void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 s32 init_collision_body_parts(void *, void *, int);
 
 extern s32 lbl_805D2A40;
@@ -1518,17 +1508,17 @@ extern "C" const u8 rappy_variant_na_name[3] = "NA";
 extern "C" void receive_direct_attack__10TObjPlayerFv();
 extern "C" void receive_physical_attack__10TObjPlayerFv();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
-extern "C" void render_actor_shadows_default();
+extern "C" void render_actor_shadows_default(u8 *arg0);
 extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__13TUnk_804806E8Fv();
 extern "C" void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
-extern "C" void trigger_switch_attack__10TObjPlayerFi();
+extern "C" void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 extern "C" void try_start_action__13TUnk_804806E8Fll();
-extern "C" void update_action_timer__10TObjPlayerFPv();
+extern "C" s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
 extern "C" void update_actor_ground_y__13TUnk_804806E8Fv();
-extern "C" void update_attack_stat_status();
-extern "C" void update_defense_stat_status();
+extern "C" s32 update_attack_stat_status(u8 *arg0);
+extern "C" s32 update_defense_stat_status(u8 *arg0);
 extern "C" void update_flag30_timer__13TUnk_804806E8Fv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 extern "C" void update_poison_status__13TUnk_804806E8Fv();
@@ -2163,14 +2153,4 @@ void TObjPlayer__sub_800C220C(Obj_800C220C *o) {
 #undef draw__16TObjEneRe7BeruraFv
 #undef render_world_model__9TObjEnemyFv
 #undef apply_variant_speeds__12TObjEneLappyFv
-#undef enter_down_state__10TObjPlayerFPv
-#undef enter_idle_state__12TObjEneLappyFPv
-#undef enter_moving_state__12TObjEneLappyFPv
-#undef enter_state_4__10TObjPlayerFPv
-#undef handle_death__10TObjPlayerFPv
 #undef render__12TObjEneLappyFPv
-#undef run_task__12TObjEneLappyFPv
-#undef select_target__12TObjEneLappyFPv
-#undef set_action_state_3__10TObjPlayerFPv
-#undef try_clear_flags_60__10TObjPlayerFi
-#undef update_action_hold__12TObjEneLappyFi

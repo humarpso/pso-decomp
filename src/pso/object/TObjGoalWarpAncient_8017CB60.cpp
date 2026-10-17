@@ -63,13 +63,13 @@ extern char lbl_804432E8[];
 void *__dt__19TObjGoalWarpAncientFv(void *arg0, s16 arg1);
 void render__19TObjGoalWarpAncientFv(u8 *arg0);
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object(s32);
+void draw_ginja_object(void *child);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-void __dt__12TObjAreaWarpFv(void *, int);
+u8 *__dt__12TObjAreaWarpFv(u8 *arg0, s16 arg1);
 
 extern const f32 lbl_805DBAB8;
 
@@ -85,7 +85,7 @@ void render__19TObjGoalWarpAncientFv(u8 *arg0) {
         draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0xD4), *(s32 *)((s8 *)arg0 + 0xE8), *(f32 *)((s8 *)arg0 + 0xC8));
         TParticleCtrl::end_effect_render();
         TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xDC));
-        draw_ginja_object(*(s32 *)((s8 *)arg0 + 0xD0));
+        draw_ginja_object((void *)(*(s32 *)((s8 *)arg0 + 0xD0)));
         pop_matrix();
     }
 }
@@ -123,7 +123,7 @@ void run_task__19TObjGoalWarpAncientFv(u8 *arg0) {
 void *__dt__19TObjGoalWarpAncientFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TObjGoalWarpAncient;
-        __dt__12TObjAreaWarpFv(arg0, 0);
+        __dt__12TObjAreaWarpFv((u8 *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -217,10 +217,10 @@ void TObjMapWarpAncient::render() {
             draw_ginja_model_with_motion(*(s32 *)&this->m_100, *(s32 *)&this->m_118, *(f32 *)&this->unk_FC);
         }
         TObjFish::set_global_param(*(s32 *)&this->m_110);
-        draw_ginja_object(*(s32 *)&this->m_104);
+        draw_ginja_object((void *)(*(s32 *)&this->m_104));
         TParticleCtrl::end_effect_render();
         TObjFish::set_global_param(*(s32 *)&this->m_114);
-        draw_ginja_object(*(s32 *)&this->m_108);
+        draw_ginja_object((void *)(*(s32 *)&this->m_108));
         pop_matrix();
     }
 }

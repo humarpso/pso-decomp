@@ -144,7 +144,7 @@ void push_history_entry__17TObjEneMe1CanadinFPvfPvi(Obj_8009FADC *self, f32 f, c
 extern const f32 canadin_effect_zero;
 extern const f32 canadin_light_width_cutoff;
 s32 fade_alpha_step__17TObjEneMe1CanadinFPvif(Obj_8009FB54 *self, s32 dec, f32 scale);
-void *mem_alloc(s32);
+void *mem_alloc(u32 size);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__26TObjEneMe1Canadin_EffLight[];
 extern s32 TObjEneMe1Canadin_EffLight__name;
@@ -245,8 +245,8 @@ void render__30TObjEneMe1Canadin_EffDischargeFv(void) {  }
 
 #pragma fp_contract on
 #define VC_B ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)
-s32 queue_destruction__7TObjectFv(void *);
-s32 fn_8009E1D4(s32, void *);
+void queue_destruction__7TObjectFv(void *arg0);
+void fn_8009E1D4(u8 *arg0, s32 arg1);
 u32 __nw__7TObjectFUl(s32);
 void subtract_vector(void *, void *);
 extern s32 tl_05;
@@ -286,7 +286,7 @@ void run_task__30TObjEneMe1Canadin_EffDischargeFv(u8 *arg0) {
     }
     VC_B(arg0 + 0x38, arg0 + 0x50);
     if (var_r31 != 0) {
-        fn_8009E1D4(*(s32 *)((s8 *)arg0 + 0x1C), arg0 + 0x44);
+        fn_8009E1D4((u8 *)(*(s32 *)((s8 *)arg0 + 0x1C)), (s32)(arg0 + 0x44));
         queue_destruction__7TObjectFv(arg0);
     }
 }

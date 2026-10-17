@@ -8,7 +8,7 @@ void *__dt__13TUnk_804A5340Fv(void *arg0, s16 arg1);
 void rocket_punch_return_timer(u32 arg0);
 s32 test_flags_any(void *, int);
 void __dl__7TObjectFPv(void *);
-void __dt__15TItemShootModelFv(void *, int);
+void *__dt__15TItemShootModelFv(void *self, s16 flag);
 
 extern s32 lbl_804A5340[];
 

@@ -38,7 +38,7 @@ void TObjPlayer::set_field_e4(s32 arg1, s32 arg2) {
 
 #define create_timed_particle_emitter ((int (*)(void*, void*, void*, void*))create_timed_particle_emitter)
 void create_dead_spot__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
-int spawn_particle_effect(void*, void*);
+void *spawn_particle_effect(void *pos, s32 id);
 s32 init__9TDeadSpotFPv(s32, s32, s32, s32, f32);
 
 void create_dead_spot__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
@@ -52,7 +52,7 @@ void create_dead_spot__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0
 
 void TObjPlayer::request_two_effects() { create_timed_particle_emitter((void*)(this), (void*)((void*)232), (void*)((void*)10), (void*)((void*)1)); create_timed_particle_emitter((void*)(this), (void*)((void*)236), (void*)((void*)10), (void*)((void*)1)); }
 
-void TObjPlayer::trigger_dell_biter_events() { spawn_particle_effect(this, (void*)251); spawn_particle_effect(this, (void*)252); spawn_particle_effect(this, (void*)227); }
+void TObjPlayer::trigger_dell_biter_events() { spawn_particle_effect(this, (s32)((void*)251)); spawn_particle_effect(this, (s32)((void*)252)); spawn_particle_effect(this, (s32)((void*)227)); }
 
 void TObjPlayer::spawn_ground_effect(s32 arg1) {
     s32 sp8;
@@ -63,9 +63,7 @@ void TObjPlayer::spawn_ground_effect(s32 arg1) {
 
 #undef create_timed_particle_emitter
 
-#define TObjPlayer__sub_800D93F0 ((s32 (*)(s32, s32, s32, f32))TObjPlayer__sub_800D93F0)
 #define create_timed_particle_emitter ((s32 (*)(s32 *, s32, s32, s32))create_timed_particle_emitter)
-#define spawn_dead_spot__10TObjPlayerFiiif ((s32 (*)(s32, s32, s32, f32))spawn_dead_spot__10TObjPlayerFiiif)
 void TObjPlayer__sub_800D9290(s32 arg0, s32 arg1);
 void TObjPlayer__sub_800D92BC(s32 arg0, s32 arg1);
 void spawn_landing_dead_spot(s32 arg0, s32 arg1);
@@ -113,11 +111,8 @@ void spawn_landing_dead_spot(s32 point, s32 delay) {
     spawn_dead_spot__10TObjPlayerFiiif(point, 2, delay, lbl_805DA3C4);
 }
 
-#undef TObjPlayer__sub_800D93F0
 #undef create_timed_particle_emitter
-#undef spawn_dead_spot__10TObjPlayerFiiif
 
-#define spawn_dead_spot__10TObjPlayerFiiif ((s32 (*)(s32, s32, s32, f32))spawn_dead_spot__10TObjPlayerFiiif)
 void spawn_dead_spot_scale15(s32 arg0, s32 arg1);
 void TObjPlayer__sub_800D93C4(s32 arg0, s32 arg1);
 
@@ -132,8 +127,6 @@ void spawn_dead_spot_scale15(s32 point, s32 delay) {
 void TObjPlayer__sub_800D93C4(s32 point, s32 delay) {
     spawn_dead_spot__10TObjPlayerFiiif(point, 2, delay, lbl_805DA3D0);
 }
-
-#undef spawn_dead_spot__10TObjPlayerFiiif
 
 #define __nw__7TObjectFUl ((void * (*)(s32))__nw__7TObjectFUl)
 void TObjPlayer__sub_800D93F0(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
@@ -165,8 +158,8 @@ extern u8 corpse_mark_resource_descriptor[];
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void load_corpse_mark_resource(void);
 void TLobby__sub_8001FE7C(void*, int);
-s32 set_chunk_blend(s32);
-s32 set_chunk_material_override_pair(s32, s32);
+void set_chunk_blend(u32 x);
+void set_chunk_material_override_pair(s32 arg0, s32 arg1);
 
 void TObjPlayer::destroy_static_lobby() {
     if ((u32) (*(u32 *)&player_corpse_mark_resource) != 0U) {

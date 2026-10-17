@@ -65,11 +65,11 @@ struct Obj_801DF61C {
 };
 
 extern "C" {
-s32 fn_801E0900(s32);
+void fn_801E0900(void *p);
 int bswap_32__FPUl(void* a0);
 void fn_801DF280(void *arg0);
 void bswap_cmd_88_marker_record(void* p);
-void bswap__21TPlyMeetUserExtensionFv(void *);
+void bswap__21TPlyMeetUserExtensionFv(s32 arg0);
 void fn_801DF47C(void *arg0);
 void fn_801DF7F8(void* p);
 void fn_801DF874(void* p);
@@ -85,7 +85,7 @@ Blk_801DF774 *TProtocol__sub_801DF774(Blk_801DF774 *d, const Blk_801DF774 *s);
 int fn_801DF558(int arg0, int arg1);
 int __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void*);
 Obj_801DF61C *fn_801DF61C(Obj_801DF61C *dst, Obj_801DF61C *src);
-s32 __ct__8TPlySmthFv(s32);
+void __ct__8TPlySmthFv(void *);
 s32 __ct__16TPlyGuildCardTagFv(s32);
 int bswap_32__FPUl(void* a0 = 0);
 void bswap_cmd_88_body(void* p);
@@ -98,12 +98,12 @@ int bswap_packet_header_cmd_b1(void* p);
 
 void fn_801DF280(void *arg0) {
     bswap__13packet_headerFv((void*)(arg0));
-    fn_801E0900((s32)((void *)((char *)arg0 + 68)));
+    fn_801E0900(((void *)((char *)arg0 + 68)));
     bswap_32__FPUl((void*)((void *)((char *)arg0 + 76)));
 }
 
 s32 fn_801DF2BC(s32 arg0) {
-    __ct__8TPlySmthFv(arg0 + 0x44);
+    __ct__8TPlySmthFv((void *)(arg0 + 0x44));
     return arg0;
 }
 int bswap_cmd_8a_header(void* p) { return bswap__13packet_headerFv(p); }
@@ -135,7 +135,7 @@ void fn_801DF42C(void* p) { bswap__13packet_headerFv(p); { int i; for (i = 0; i 
 void fn_801DF47C(void *arg0) {
     bswap_32__FPUl((void*)(arg0));
     fn_801DF4B8((s32)((s32)((void *)((char *)arg0 + 100))));
-    bswap__21TPlyMeetUserExtensionFv((void *)((char *)arg0 + 112));
+    bswap__21TPlyMeetUserExtensionFv((s32)((char *)arg0 + 112));
 }
 
 void fn_801DF4B8(s32 arg0) {

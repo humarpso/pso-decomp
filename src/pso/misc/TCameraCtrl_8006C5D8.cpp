@@ -22,11 +22,11 @@ struct Bank_8006C6CC {
 
 extern "C" {
 extern G_8006C668 TCameraCtrl__camera_banks;
-s32 load_relocatable_file(s32, void *);
+s32 load_relocatable_file(s32 arg0, s32 arg1);
 extern Bank_8006C6CC camera_path_bank_table[];
 void *TCameraCtrl__vt10(void);
 void *__dt__13TUnk_80488D70Fv(void *arg0, s16 arg1);
-void __dt__13TUnk_80488A28Fv(void *, int);
+void *__dt__13TUnk_80488A28Fv(void *arg0, s16 arg1);
 int __ct__13TUnk_80488A28Fv(void);
 void *get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
@@ -74,7 +74,7 @@ void TCameraCtrl::load_camera_banks() {
         TCameraCtrl__camera_banks.e[j].p = xmalloc(sz);
     }
     for (k = 0; k < n; k++) {
-        TCameraCtrl__camera_banks.e[k].a = load_relocatable_file(b->entries[k].id, TCameraCtrl__camera_banks.e[k].p);
+        TCameraCtrl__camera_banks.e[k].a = load_relocatable_file(b->entries[k].id, (s32)TCameraCtrl__camera_banks.e[k].p);
     }
 }
 

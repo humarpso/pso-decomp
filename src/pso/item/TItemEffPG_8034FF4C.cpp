@@ -8,7 +8,7 @@ typedef char RecoveredGlobal_8035007C___vt__10TItemEffPG_size[sizeof(RecoveredGl
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
-s32 construct_attack_collision(void *, void *, void *);
+u8 *construct_attack_collision(u8 *arg0, s32 arg1, u8 *arg2);
 s32 TItemEffPG__visual_ct(int, void *, void *);
 extern s32 __vt__10TItemEffPG[];
 extern s32 lbl_805D4350;
@@ -17,12 +17,12 @@ extern const f32 lbl_805DFE18;
 u8 *TItemEffPG__ct(u8 *arg0, s32 arg1, u8 *arg2);
 void *__dt__10TItemEffPGFv(void *arg0, s16 arg1);
 s32 check_hits__14TItemAttackColFPv(void *);
-s32 TItemEffPG__begin_visual_fade(void *);
+void TItemEffPG__begin_visual_fade(void *p);
 int TObjPlayer__sub_802E451C(void);
 void __dl__7TObjectFPv(void *);
-s32 disallow_rendering__7TObjectFv(void *);
+void disallow_rendering__7TObjectFv(void *arg0);
 s32 has_game_join_id__13TUnk_804E355CFv();
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 void TItemEffPG::run_task() {
     f32 temp_f1;
@@ -73,7 +73,7 @@ void *__dt__10TItemEffPGFv(void *arg0, s16 arg1) {
 u8 *TItemEffPG__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     s32 temp_r3;
     s32 var_r0;
-    construct_attack_collision((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    construct_attack_collision((arg0), (arg1), (arg2));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8035007C___vt__10TItemEffPG *)&__vt__10TItemEffPG).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4350;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) *(f32 *)((s8 *)arg2 + 0x28);

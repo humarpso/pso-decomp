@@ -12,14 +12,14 @@ struct RecoveredGlobal_8035D694___vt__20TWindowMessageScroll {
 
 extern "C" {
 s32 retire_scrolled_lines__14TWindowMessageFv(f32);
-s32 TWindowMessageQuest__ct(void *, void *);
+u8 *TWindowMessageQuest__ct(u8 *arg0, s32 arg1);
 extern s32 __vt__20TWindowMessageScroll[];
 extern s32 TWindowMessageScroll__class_name;
 extern const f32 lbl_805E01B8;
 u8 *TWindowMessageScroll__ct(u8 *arg0, s32 arg1, s32 *arg2);
 void *__dt__20TWindowMessageScrollFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void __dt__19TWindowMessageQuestFv(void *, int);
+void *__dt__19TWindowMessageQuestFv(void *arg0, s16 arg1);
 
 void TWindowMessageScroll::run_task() {
     u8 *arg0 = (u8 *)this;
@@ -47,7 +47,7 @@ void *__dt__20TWindowMessageScrollFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_8035D694___vt__20TWindowMessageScroll_size[sizeof(RecoveredGlobal_8035D694___vt__20TWindowMessageScroll) == 0x18 ? 1 : -1];
 u8 *TWindowMessageScroll__ct(u8 *arg0, s32 arg1, s32 *arg2) {
-    TWindowMessageQuest__ct((void *) (arg0), (void *) (arg1));
+    TWindowMessageQuest__ct((arg0), (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8035D694___vt__20TWindowMessageScroll *)&__vt__20TWindowMessageScroll).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowMessageScroll__class_name;
     *(f32 *)((s8 *)arg0 + 0x94) = (f32) lbl_805E01B8;

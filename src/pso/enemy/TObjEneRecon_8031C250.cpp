@@ -55,16 +55,16 @@ f32 TObjEneRecon__sub_8031C2C8(void);
 f32 TObjEneRecon__sub_8031C2D4(void);
 extern const f32 lbl_805DF3C8;
 u8 TObjEneRecon__sub_8031C250(T_8031C250 *self);
-s16 get_attack_params_atp_min(s32);
+s16 get_attack_params_atp_min(void *p);
 u8 *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
-void spawn_particle_effect(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
 void enemy_clear_target__12TObjEneDD_STFUs(void *);
 f32 horizontal_distance_squared(void *, void *);
 void advance_animation_playback(void *);
 void play_sound_effect(s32, void *, s32, s32);
 s32 is_valid_and_active__10TObjPlayerFUl();
-s32 TObjEneRecon__sub_8031DA90(void *);
+s32 TObjEneRecon__sub_8031DA90(u8 *arg0);
 f32 approach_value__12TObjEneReconFff(void *, f32, f32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -238,7 +238,7 @@ void set_flag2__12TObjEneReconFv(void *, f32, f32, f32);
 extern const f32 TObjEneRecon__data_805DF3E0;
 extern const f32 TObjEneRecon__data_805DF3E4;
 void TObjEneRecon__sub_8031C624(u8 *arg0, s32 arg1);
-void spawn_particle_effect_with_flags(void *, int, int);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 void TBoss8Dragon__sub_800BB7D8(void *, int, f32);
 void TBoss8Dragon__sub_800BB7DC(void *);
 s32 project_actor_to_ground(void *, void *, void *);
@@ -395,7 +395,7 @@ struct WObj_8031c7bc : WBase_8031c7bc {
 extern "C" {
 
 void run_task__12TObjEneReconFPvi(u8 *arg0, s32 arg1);
-s32 create_timed_particle_emitter(void *, int, int, int);
+void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
 s32 remove_tracked_target__12TObjEneReconFPvPv(int, void *);
 s32 is_anim_6__12TObjEneReconFv();
 
@@ -410,7 +410,7 @@ void run_task__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x444) = (s32) (*(s32 *)((s8 *)arg0 + 0x444) | 2);
         *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x01000000);
         ((WObj_8031c7bc *) (arg0 + 0x480))->w2();
-        create_timed_particle_emitter((void *) (arg0 + 0x38), (int) (0x79), (int) (0), (int) (0xF));
+        create_timed_particle_emitter((arg0 + 0x38), (0x79), (0), (0xF));
         return;
     case 3:
         temp_r3 = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0x434)));
@@ -952,7 +952,7 @@ void TObjEneRecon__sub_8031CF30(u8 *arg0, s32 arg1) {
                         if (d <= ((TObjEneGibbles *)(F(s32, 0x318)))->get_pos_x() * ((TObjEneGibbles *)(F(s32, 0x318)))->get_pos_x()) {
                             Pair_8031CF30 t;
                             t.a = 0;
-                            t.b = (f32)get_attack_params_atp_min(F(s32, 0x318));
+                            t.b = (f32)get_attack_params_atp_min((void *)(F(s32, 0x318)));
                             {
                                 Pair_8031CF30 dmg = t;
                                 ((VB_8031CF30 *)p)->m21(arg0, &dmg, 0, -1, -1);

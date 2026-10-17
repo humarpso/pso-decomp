@@ -6,18 +6,18 @@
 struct Vec_8008C5E8 { s32 x, y, z; };
 
 extern "C" {
-void TKeyBoardControl__sub_8000F90C(int);
-void TKeyBoardControl__sub_8000F91C(int);
+void TKeyBoardControl__sub_8000F90C(s32 arg0);
+void TKeyBoardControl__sub_8000F91C(s32 arg0);
 void set_active_camera_pose(void *, void *);
-void TCameraCtrl__ct(void *, void *);
+u8 *TCameraCtrl__ct(u8 *arg0, void *parent);
 void __ct__7TEndingFv(void *);
 void clear_resource_load_tasks(void);
 void run_load_callback_table(void *, int);
-void init_map_lights(void *);
+void init_map_lights(u8 *arg0);
 void reset_controller_input_state(void);
 void set_copy_clear_color_argb(int, int, int);
 int render_tick__Fv(void);
-void play_area_music(void *);
+void play_area_music(char *name);
 void *__nw__7TObjectFUl(int);
 void set_screen_size(f32 farg0, f32 farg1);
 extern Vec_8008C5E8 lbl_80439570;
@@ -43,7 +43,7 @@ int TEnding::start_ending_scene() {
     init_map_lights(default_scene_light_config);
     p = __nw__7TObjectFUl(0x1D4);
     if (p != 0) {
-        TCameraCtrl__ct(p, tl_camera);
+        TCameraCtrl__ct((u8 *)p, tl_camera);
     }
     Vec_8008C5E8 a = lbl_80439570;
     Vec_8008C5E8 b = lbl_8043957C;
@@ -53,7 +53,7 @@ int TEnding::start_ending_scene() {
     run_load_callback_table(ending_scene_callbacks, 0x68);
     TKeyBoardControl__sub_8000F90C(2);
     TKeyBoardControl__sub_8000F91C(2);
-    play_area_music(lbl_80439588);
+    play_area_music((char *)lbl_80439588);
     TParticleCtrl::create_quad_sprites();
     p = __nw__7TObjectFUl(0x710);
     if (p != 0) {

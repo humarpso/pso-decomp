@@ -6,7 +6,7 @@
 extern "C" {
 s32 read_be16_field2__10TObjPlayerFv();
     extern const float lbl_805DB1C4;
-s32 TLobby__send_and_handle_60(void *);
+void TLobby__send_and_handle_60(u8 *arg0);
 
 #include "pso/misc/TNpcPlayer.h"
 
@@ -15,7 +15,7 @@ extern "C" {
 void TNpcPlayer::send_6x3E() {
     s32 arg0 = (s32)this;
     bswap_6x3E();
-    TLobby__send_and_handle_60((void *) (arg0));
+    TLobby__send_and_handle_60((u8 *)(arg0));
 }
 void TNpcPlayer::bswap_6x3E() {
     s32 arg0 = (s32)this;

@@ -25,17 +25,17 @@ extern s32 obj_quest_col_alock_class_name;
 u8 *TObjQuestColALock__ct(u8 *arg0, s32 arg1);
 void *__dt__17TObjQuestColALockFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
-s32 enable_action_input__10TObjPlayerFPv(s32);
+void enable_action_input__10TObjPlayerFPv(void *p);
 s32 submit_cursor_candidate(void *, s32);
 s32 get_player_by_client_id(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 __dl__7TObjectFPv(void *);
-s32 __dt__16TObjQuestColBaseFv(void *, s32);
+u8 *__dt__16TObjQuestColBaseFv(u8 *arg0, s16 arg1);
 s32 check_flag_100__10TObjPlayerFPv();
-int create__12TQuestThreadFi(void*);
+u32 create__12TQuestThreadFi(s32 arg0);
 int destroy_board__17TQuestThreadBoardFv(void*);
 
-int TObjQuestColALock::vfunc_16() { destroy_board__17TQuestThreadBoardFv(this); create__12TQuestThreadFi(*(void* *)&this->m_b0); }
+int TObjQuestColALock::vfunc_16() { destroy_board__17TQuestThreadBoardFv(this); create__12TQuestThreadFi((s32)(*(void* *)&this->m_b0)); }
 
 extern s32 controller_input_state[];
 extern s32 local_client_id;
@@ -47,11 +47,11 @@ int TObjQuestColALock::vfunc_15() {
     temp_r3 = get_player_by_client_id(local_client_id);
     if (temp_r3 != 0) {
         if (check_flag_100__10TObjPlayerFPv() != 0) {
-            enable_action_input__10TObjPlayerFPv(temp_r3);
+            enable_action_input__10TObjPlayerFPv((void *)temp_r3);
             return 0;
         }
         if (((TObjPlayer *)temp_r3)->is_quest_interaction_blocked() != 0) {
-            enable_action_input__10TObjPlayerFPv(temp_r3);
+            enable_action_input__10TObjPlayerFPv((void *)temp_r3);
             return 0;
         }
         submit_cursor_candidate(this, -1);
@@ -60,7 +60,7 @@ int TObjQuestColALock::vfunc_15() {
             ((TObjPlayer *)temp_r3)->disable_primary_action_input();
         }
         if (temp_r3_2 == 3) {
-            enable_action_input__10TObjPlayerFPv(temp_r3);
+            enable_action_input__10TObjPlayerFPv((void *)temp_r3);
         }
         if (temp_r3_2 == 0) {
             ((TObjPlayer *)temp_r3)->disable_primary_action_input();
@@ -79,7 +79,7 @@ void *__dt__17TObjQuestColALockFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjQuestColALock;
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
-        __dt__16TObjQuestColBaseFv(arg0, 0);
+        __dt__16TObjQuestColBaseFv((u8 *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

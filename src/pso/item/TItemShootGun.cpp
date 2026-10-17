@@ -9,7 +9,7 @@ void  push_matrix(void);
 void  post_translate_matrix(Vec*);
 void  rotate_matrix_by_node_angles(void*, s32);
 void  draw_ginja_object(void*);
-void  pop_matrix(void);
+s32 pop_matrix(void);
 }
 
 void TItemShootGun::render() {
@@ -37,14 +37,14 @@ void TItemShootGun::hook() {
 
 extern "C" {
 
-s32 spawn_particle_effect(s32, s32);
+void *spawn_particle_effect(void *pos, s32 id);
 u32 __ct__13TItemShootGunFPvPC3VecPC3Vecf(void *, s32, s32, s32, f32);
 u32 __nw__7TObjectFUl(s32);
 
 u32 TItemShootGun::create(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
     u32 var_r31;
 
-    spawn_particle_effect(arg1, 0x1BF);
+    spawn_particle_effect((void *)arg1, 0x1BF);
     var_r31 = __nw__7TObjectFUl(0x74);
     if (var_r31 != 0U) {
         var_r31 = (u32) __ct__13TItemShootGunFPvPC3VecPC3Vecf((void *) var_r31, arg0, arg1, arg2, farg0);

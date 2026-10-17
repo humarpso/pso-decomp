@@ -105,7 +105,7 @@ s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *, void *);
 void set_particle_tint_color(u8 *arg0, void *arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
-int mem_free(void*);
+void mem_free(void *p);
 extern s32 particle_area_entry_table;
 extern u32 TParticleCtrl__regular_bml_resource;
 extern u32 TParticleCtrl__texture_list;
@@ -572,9 +572,9 @@ void set_particle_tint_color(u8 *arg0, void *arg1) {
 
 void set_particle_draw_scale(void* p, f32 a, f32 b) { *(f32*)((char*)p + 0xa4) = a; *(f32*)((char*)p + 0xa8) = b; }
 
-void TParticleCtrl::free_system() { mem_free((void*)(particle_global_entry_table)); particle_global_entry_table = 0; }
+void TParticleCtrl::free_system() { mem_free((void *)(particle_global_entry_table)); particle_global_entry_table = 0; }
 void TParticleCtrl::free_all() {
-    mem_free((void*)(particle_area_entry_table));
+    mem_free((void *)(particle_area_entry_table));
     particle_area_entry_table = 0;
     if ((u32) TParticleCtrl__regular_bml_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TParticleCtrl__regular_bml_resource, 1);

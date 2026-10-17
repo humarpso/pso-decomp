@@ -14,7 +14,7 @@ struct Stack_8026C708
 
 extern "C" {
 void apply_context_transform_to_rect(void *, void *);
-void draw_textured_quad_at_depth(void *, f32);
+void draw_textured_quad_at_depth(f32 *q, f32 depth);
 extern const f32 lbl_805DD270;
 extern const f32 lbl_805DD274;
 extern const f32 lbl_805DD278;

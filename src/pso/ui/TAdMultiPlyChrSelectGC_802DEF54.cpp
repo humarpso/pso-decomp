@@ -35,12 +35,12 @@ extern s32 tl_02;
 extern s32 tl_clipout;
 extern s32 TAdMultiPlyChrSelectGC__data_805DE898;
 void update_state_serial__22TAdMultiPlyChrSelectGCFPv(void *arg0);
-u32 get_field_118__22TAdEnterSerialAccessGCFv();
+s32 get_field_118__22TAdEnterSerialAccessGCFv(void);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32, s32);
-s32 TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 extern s8 controller_physical_port_bank[];
 extern u32 multi_chr_select_serial_access_state;
@@ -53,7 +53,7 @@ void update_state_serial__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         *(u32 *)((s8 *)arg0 + 0x90) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0x80));
+        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x80)));
         *(u32 *)((s8 *)arg0 + 0x80) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 0x8C) != 0U) {
@@ -65,7 +65,7 @@ void update_state_serial__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         *(u32 *)((s8 *)arg0 + 0x98) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 0x7C) != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0x7C));
+        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x7C)));
         *(u32 *)((s8 *)arg0 + 0x7C) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 0x74) != 0U) {
@@ -122,23 +122,23 @@ s32 get_localized_text_entry(s32 arg0, s32 arg1);
 void set_default_camera__21TAdMultiChgGameModeGCFv(void *);
 s32 TAdMultiPlyChrSelectGC__sub_802C6848(s32 arg0);
 s32 TAdMultiPlyChrSelectGC__sub_802C6920();
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DC310();
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DC440();
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DC5CC();
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DC8A0();
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DCA20();
+extern "C" void TAdMultiPlyChrSelectGC__sub_802DC310(void *arg0);
+extern "C" void TAdMultiPlyChrSelectGC__sub_802DC440(void *arg0);
+extern "C" void TAdMultiPlyChrSelectGC__sub_802DC5CC(void *arg0);
+extern "C" void TAdMultiPlyChrSelectGC__sub_802DC8A0(void *arg0);
+extern "C" void TAdMultiPlyChrSelectGC__sub_802DCA20(u8 *arg0);
 extern "C" void TAdMultiPlyChrSelectGC__sub_802DCCA4();
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DCD14();
+extern "C" void TAdMultiPlyChrSelectGC__sub_802DCD14(void *arg0);
 extern "C" void update_idle_timer__22TAdMultiPlyChrSelectGCFv();
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DCF68();
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DD010();
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DD2B0();
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DD400();
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DDBA8();
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DDD08();
+extern "C" void TAdMultiPlyChrSelectGC__sub_802DCF68(void *arg0);
+extern "C" void TAdMultiPlyChrSelectGC__sub_802DD010(void *arg0);
+extern "C" void TAdMultiPlyChrSelectGC__sub_802DD2B0(void *arg0);
+extern "C" void TAdMultiPlyChrSelectGC__sub_802DD400(u8 *arg0);
+extern "C" void TAdMultiPlyChrSelectGC__sub_802DDBA8(u8 *arg0);
+extern "C" void TAdMultiPlyChrSelectGC__sub_802DDD08(u8 *arg0);
 extern "C" void reset_to_select__22TAdMultiPlyChrSelectGCFv();
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DE7D0();
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DEDA8();
+extern "C" void TAdMultiPlyChrSelectGC__sub_802DE7D0(void *arg0);
+extern "C" void TAdMultiPlyChrSelectGC__sub_802DEDA8(u8 *arg0);
 extern "C" void check_cancel_input__22TAdMultiPlyChrSelectGCFv();
 extern "C" void close_and_reset__22TAdMultiPlyChrSelectGCFv();
 extern "C" void close_windows__22TAdMultiPlyChrSelectGCFv();
@@ -148,7 +148,7 @@ extern "C" void handle_input__22TAdMultiPlyChrSelectGCFv();
 extern "C" void init_windows__22TAdMultiPlyChrSelectGCFv();
 extern "C" void open_char_select__22TAdMultiPlyChrSelectGCFv();
 extern "C" void request_scene_change__22TAdMultiPlyChrSelectGCFv();
-extern "C" void update__22TAdMultiPlyChrSelectGCFPv();
+extern "C" void update__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 extern "C" void update_button_input__22TAdMultiPlyChrSelectGCFv();
 extern "C" void update_card_confirm__22TAdMultiPlyChrSelectGCFv();
 extern "C" void update_card_select__22TAdMultiPlyChrSelectGCFv();

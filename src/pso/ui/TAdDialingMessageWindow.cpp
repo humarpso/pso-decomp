@@ -15,15 +15,15 @@ extern const f32 lbl_805E0364;
 extern const f32 lbl_805E0368;
 void *TAdDialingMessageWindow__ct(void *arg0, void *arg1, void *arg2);
 void *__dt__23TAdDialingMessageWindowFv(void *arg0, s16 arg1);
-int create_draw_line_ctrl__13TAdMcSelectGCFiif(void*, int, float);
+u8 *create_draw_line_ctrl__13TAdMcSelectGCFiif(s32 arg0, s32 arg1, f32 farg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 void *__nw__7TObjectFUl(int);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
     extern const float lbl_805E0360;
-void TAdDialingMessageWindow::set_flag_and_notify() { *(int *)&this->m_1c = (*(int *)&this->m_1c | 0x1); create_draw_line_ctrl__13TAdMcSelectGCFiif((void*)(*(int *)&this->m_28), 17, lbl_805E0360); }
+void TAdDialingMessageWindow::set_flag_and_notify() { *(int *)&this->m_1c = (*(int *)&this->m_1c | 0x1); create_draw_line_ctrl__13TAdMcSelectGCFiif((*(int *)&this->m_28), 17, lbl_805E0360); }
 
 void TAdDialingMessageWindow::run_child_tasks() { void* m = *(void* *)&this->m_28; if (m) ((TObject *)m)->run_tasks(); }
 

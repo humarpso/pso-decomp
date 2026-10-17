@@ -57,7 +57,7 @@ extern "C" {
 s32 TShopGenerator__sub_80222DAC(s32);
 extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__slot_active_table;
 u8 is_slot_active__14TShopGeneratorFi(s32 arg0);
-f32 xyz_distance_squared(void *, void *);
+f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
 f32 vec3_dot(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
@@ -73,8 +73,8 @@ extern Tbl_8021E1FC TShopGenerator__service_dispatch_table;
 s32 obj_getField1c(s32);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv(void);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-s32 is_flag_400_set__10TObjPlayerFPv(s32);
-s32 check_flag_100__10TObjPlayerFPv(s32);
+int is_flag_400_set__10TObjPlayerFPv(void *p);
+int check_flag_100__10TObjPlayerFPv(void *p);
 s32 get_player_by_client_id(s32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 extern u8 controller_input_state[];
@@ -89,7 +89,7 @@ void *__dt__14TShopGeneratorFv(void *arg0, s16 arg1);
 s32 construct_world_actor_base(void *, s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 extern s32 __vt__14TShopGenerator[];
 
@@ -108,7 +108,7 @@ bool TShopGenerator::is_player_in_service_range(u8 *arg1, f32 farg0) {
     typedef char sp18_offset[(offsetof(Stack_8021DC30, sp18) == 0x10) ? 1 : -1];
     typedef char sp1C_offset[(offsetof(Stack_8021DC30, sp1C) == 0x14) ? 1 : -1];
     Stack_8021DC30 stack;
-    if (xyz_distance_squared((void *) (arg1 + 0x38), (void *) (arg0 + 0x38)) > (farg0 * farg0)) {
+    if (xyz_distance_squared((arg1 + 0x38), (arg0 + 0x38)) > (farg0 * farg0)) {
         return 0;
     }
     stack.sp8 = *(s32 *)((s8 *)(&shop_service_facing_vec.value) + 0);
@@ -164,8 +164,8 @@ void run_task__14TShopGeneratorFv(u8 *self) {
             if (((s32 (*)(u8 *, u8 *, f32))is_player_in_service_range__14TShopGeneratorFPUcf)(self, (u8 *)p, lbl_805DC6EC) == 0) continue;
             if (((s32 (*)(s32))is_slot_active__14TShopGeneratorFi)(obj_getField1c(p)) == 1) continue;
             if (TMedicalCenterMes::get_slot_flag(obj_getField1c(p)) == 1) continue;
-            if (is_flag_400_set__10TObjPlayerFPv(p) == 1) continue;
-            if (check_flag_100__10TObjPlayerFPv(p) == 1) continue;
+            if (is_flag_400_set__10TObjPlayerFPv((void *)p) == 1) continue;
+            if (check_flag_100__10TObjPlayerFPv((void *)p) == 1) continue;
             fn = e->f10;
             if (fn(TShopGenerator__sub_80222DAC(obj_getField1c(p))) == 1) continue;
             if (TWindowShortListCtrl__check_controller_button(controller_input_state + ((TRaderMapCore *)p)->get_map_id() * 0x50 + 0x20, 4) == 0) continue;
@@ -178,8 +178,8 @@ void run_task__14TShopGeneratorFv(u8 *self) {
         if (q == 0) return;
         if (((s32 (*)(s32))is_slot_active__14TShopGeneratorFi)(obj_getField1c(q)) == 1) return;
         if (TMedicalCenterMes::get_slot_flag(obj_getField1c(q)) == 1) return;
-        if (is_flag_400_set__10TObjPlayerFPv(q) == 1) return;
-        if (check_flag_100__10TObjPlayerFPv(q) == 1) return;
+        if (is_flag_400_set__10TObjPlayerFPv((void *)q) == 1) return;
+        if (check_flag_100__10TObjPlayerFPv((void *)q) == 1) return;
         if (TShopGenerator::is_no_service_active(self, q) == 0) return;
         fn2 = e->f10;
         if (fn2(TShopGenerator__sub_80222DAC(obj_getField1c(q))) == 1) return;

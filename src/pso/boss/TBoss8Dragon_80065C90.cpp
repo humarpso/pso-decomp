@@ -30,7 +30,7 @@ void TBoss8Dragon__sub_800660A4(void* p);
 void TBoss8Dragon__sub_80066108(void);
 void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 void fn_800660B8(u8 *arg0);
-int TLobby__send_and_handle_60(void*);
+void TLobby__send_and_handle_60(u8 *arg0);
 s32 read_be16_field2__10TObjPlayerFv(void *);
 
 extern RecoveredGlobal_80065EA0_lbl_80487CCC_80065C90 boss8_dragon_follow_camera_offsets;
@@ -98,7 +98,7 @@ void TBoss5Gryphon::apply_shock_status() {  }
 void TBoss5Gryphon::clear_harmful_statuses() {  }
 void TBoss8Dragon::init_color() { *(u8 *)&this->m_0 = 160; *(u8*)((char*)this + 0x1) = 10; }
 
-void TBoss8Dragon::send_spawn_params_packet() { byteswap_action_packet(); TLobby__send_and_handle_60(this); }
+void TBoss8Dragon::send_spawn_params_packet() { byteswap_action_packet(); TLobby__send_and_handle_60((u8 *)this); }
 
 void TBoss8Dragon::byteswap_action_packet() {
     read_be16_field2__10TObjPlayerFv((void *)(this));
@@ -119,7 +119,7 @@ void TBoss8Dragon::byteswap_record() {
     }
 }
 
-void TBoss8Dragon::send_boss_actions() { bswap_boss_actions(); TLobby__send_and_handle_60(this); }
+void TBoss8Dragon::send_boss_actions() { bswap_boss_actions(); TLobby__send_and_handle_60((u8 *)this); }
 
 void TBoss8Dragon::bswap_boss_actions() {
     s32 arg0 = (s32)this;

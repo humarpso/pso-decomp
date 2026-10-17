@@ -4,7 +4,7 @@
 #include "pso/TAdPlayerLoadGC.h"
 
 extern "C" {
-s32 TObjPlayer__sub_80084694();
+void * *TObjPlayer__sub_80084694(void);
 extern u8 *boss2_tunnel_snapshot_buffer;
 extern u8 *TObjBoss2Tunnel__snapshot_buffer;
 extern s32 TObjBoss2Tunnel__snapshot_saved_flag;

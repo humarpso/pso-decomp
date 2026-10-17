@@ -111,7 +111,7 @@ s32 transition_enemy_state(void *, s32);
 int vfunc_62__16TObjEneMe3StelthFv(void*);
 int vfunc_63__16TObjEneMe3StelthFv(void*);
 void __dl__7TObjectFPv(void *);
-void __dt__16TObjEneMe3StelthFv(void *, int);
+void *__dt__16TObjEneMe3StelthFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 f32 calc_boss4_scale__10TObjPlayerFi();
 

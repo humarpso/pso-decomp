@@ -34,7 +34,7 @@ struct Spawn_80188B3C {
 struct Obj_80188B3C { u8 pad[0x38]; f32 x, y, z; };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_container_base(void *, s32);
 extern RecoveredGlobal_801889B8_lbl_804B63BC forest_box_collision_body_parts;
@@ -121,12 +121,12 @@ void TObjContainerBase::vfunc_6(s16 *arg1, s32 arg2) {
             this->vfunc_79();
             ((TUnk_804B6C24 *)arg0)->spawn_item((s32)((void *) (arg0)));
             ((TUnk_804AF8A0 *)arg0)->set_flag8();
-            queue_destruction__7TObjectFv((void *) (arg0));
+            queue_destruction__7TObjectFv((arg0));
             this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
         ((TUnk_804AF8A0 *)arg0)->set_flag8();
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         this->mode = 1;
     }
 }

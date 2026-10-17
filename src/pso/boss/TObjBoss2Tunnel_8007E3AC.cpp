@@ -3,7 +3,7 @@
 
 extern "C" {
 
-int __dl__FPv();
+void __dl__FPv(void);
 
 s32 TObjBoss2Tunnel::maybe_delete(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {

@@ -35,7 +35,7 @@ extern "C" {
 void set_all_flags__17TBoss8DragonColliFPv(O_802F3144 *self);
 void fn_8002B630(u8 *arg0, u8 *arg1);
 E_802F31E4 *mem_alloc(s32);
-s32 register_entity_by_id(void *);
+u16 register_entity_by_id(void *ov);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern u8 boss8_collision_segment_desc[];
 extern s32 lbl_804E4BB4[];

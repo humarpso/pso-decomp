@@ -9,12 +9,12 @@ u8 *TItemDrop__sub_8010F1B8(u8 *arg0, s32 arg1, s32 arg2);
 s32 mem_alloc(void *);
 s32 fn_8010F018();
 s32 fn_8010F0C0(void *);
-s32 mem_free(s32);
+void mem_free(void *p);
 
 void *TItemDrop__sub_8010F168(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         fn_8010F018();
-        mem_free(*(s32 *)((s8 *)arg0 + 8));
+        mem_free((void *)(*(s32 *)((s8 *)arg0 + 8)));
         if (arg1 > 0) {
             ::operator delete(arg0);
         }

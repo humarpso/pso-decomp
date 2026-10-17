@@ -9,7 +9,7 @@ s32 TWindowCtrlMain__sub_8024CE58();
 char* strncpy(char*, const char*, int);
 char* strcat(char*, const char*);
 void* get_window_layout_position(s32);
-void TWindow__close(void*);
+void TWindow__close(u8 *arg0);
 void send_and_handle__6TLobbyFii(u32, void*, s32);
 u32 set_window_mode_4__6TLobbyFPvll(void*, void*, s32);
 extern s32 local_client_id;
@@ -52,7 +52,7 @@ void TObjDeadListWin::update_countdown() {
     m_countdown = temp_r0;
     if (temp_r0 < 0) {
         if (m_window_handle != 0U) {
-            TWindow__close((void*)m_window_handle);
+            TWindow__close((u8 *)m_window_handle);
             m_window_handle = 0U;
         }
         queue_destruction__7TObjectFv(this);

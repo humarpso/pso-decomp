@@ -32,11 +32,11 @@ struct VObj_18_174c10 : VBase_18_174c10 {
 struct Pair_802A4AEC { s32 a; f32 b; };
 
 extern "C" {
-int queue_destruction__7TObjectFv(void*);
+void queue_destruction__7TObjectFv(void *arg0);
 void *__dt__20TObjEneMe1Gee_NEEDLEFv(void *arg0, s16 arg1);
 s32 play_sound_effect(int, void *, int, int);
 void __dl__7TObjectFPv(void *);
-void __dt__12TNeedleShootFv(void *, int);
+void *__dt__12TNeedleShootFv(void *arg0, s16 arg1);
 
 void*TNeedleShoot::get_shoot_data() { return (char*)this + 0x28; }
 
@@ -54,7 +54,7 @@ int TObjEneMe1Gee_NEEDLE::queue_destruction() {
     temp_r0 = this->m_c0 - 1;
     this->m_c0 = temp_r0;
     if (temp_r0 <= 0) {
-        queue_destruction__7TObjectFv((void*)arg0);
+        queue_destruction__7TObjectFv(arg0);
     }
 }
 
@@ -80,7 +80,7 @@ void TObjEneMe1Gee_NEEDLE::vfunc_9(void *arg1_arg) {
     t.b = *(f32 *)(arg0 + 0xBC);
     Pair_802A4AEC u = t;
     arg1->m21(*(s32 *)(arg0 + 0x1C), &u, *(s32 *)(arg0 + 0x38), -1, -1);
-    queue_destruction__7TObjectFv((void*)(arg0));
+    queue_destruction__7TObjectFv((arg0));
 }
 
 void *__dt__20TObjEneMe1Gee_NEEDLEFv(void *arg0, s16 arg1) {

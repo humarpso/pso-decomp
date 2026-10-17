@@ -45,7 +45,7 @@ struct Icon_801714E8 {
 };
 
 extern "C" {
-s32 spawn_particle_effect(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 void init_collision_body_parts(void *, void *, s32);
@@ -64,7 +64,7 @@ void *TOMineIcon01__ct(void *arg0, void *arg1, void *arg2);
 void *__dt__12TOMineIcon01Fv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
-s32 __dt__6TOMineFv(void *, s32);
+void *__dt__6TOMineFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
@@ -138,8 +138,8 @@ void TOMineIcon02::vfunc_84() {  }
 
 void TOMineIcon02::vfunc_82() {
     s32 arg0 = (s32)this;
-    spawn_particle_effect((void *) (arg0 + 0x2FC), (int) (0x8E));
-    spawn_particle_effect((void *) (arg0 + 0x2FC), (int) (0x8E));
+    spawn_particle_effect((void *)(arg0 + 0x2FC), (0x8E));
+    spawn_particle_effect((void *)(arg0 + 0x2FC), (0x8E));
 }
 
 }

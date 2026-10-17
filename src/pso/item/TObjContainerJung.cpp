@@ -43,7 +43,7 @@ struct Obj_8018D4DC {
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 u8 * get_bml_model(void *, int);
 extern s32 TObjContainerJung__bml_model_resource;
 s32 TObjFish__sub_8001EDB0(void *, s32);
@@ -169,13 +169,13 @@ void TObjContainerJung::vfunc_6(s16 *arg1, s32 arg2) {
             ((TUnk_804806E8 *)arg0)->request_box_item_drop((void *) (arg0 + 0x38), (int) (1));
             ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
             ((TUnk_804AF8A0 *)arg0)->set_flag8();
-            queue_destruction__7TObjectFv((void *) (arg0));
+            queue_destruction__7TObjectFv((arg0));
             this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
         ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
         ((TUnk_804AF8A0 *)arg0)->set_flag8();
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         this->mode = 1;
     }
 }

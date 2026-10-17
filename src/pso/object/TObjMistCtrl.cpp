@@ -45,9 +45,9 @@ u8 *TObjMistCtrl__ct(u8 *arg0, s32 arg1, u32 arg2);
 void queue_destruction__7TObjectFv(void *);
 void *__dt__12TObjMistCtrlFv(void *arg0, s16 arg1);
 f32 horizontal_distance_squared(void *, void *);
-s32 set_texture_num(int);
+s32 set_texture_num(s32 i);
 void __dl__7TObjectFPv(void *);
-s32 restore_saved_depth_alpha_state();
+void restore_saved_depth_alpha_state(void);
 s32 draw_particle_strip(void *, int, int);
 
 void TObjMistCtrl::run_task() { { (void)(sub_802AF64C()); return; } }
@@ -88,7 +88,7 @@ void TPlayerFootStamp::render() {
         lbl_805D5660 = model_render_flags;
         TObjPlayer::reset_transform_state();
         TObjFish::set_global_param((s32)((void *) (player_footstamp_texture_gvm_handle)));
-        set_texture_num((int) (*(s16 *)((s8 *)arg0 + 0xBE)));
+        set_texture_num((*(s16 *)((s8 *)arg0 + 0xBE)));
         set_depth_buffer_settings_1();
         draw_particle_strip((void *) (arg0 + 0x1C), (int) (4), (int) (1));
         restore_saved_depth_alpha_state();

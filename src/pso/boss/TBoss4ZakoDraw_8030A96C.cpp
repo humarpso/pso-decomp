@@ -58,9 +58,9 @@ struct Tbl_8030A9B0 { s32 count; Ent_8030A9B0 ents[1]; };
 struct Col_8030A9B0 { f32 r, g, b, a; };
 
 void set_chunk_material_override_pair(int, int);
-void set_chunk_material_color(void *);
+void set_chunk_material_color(f32 *arg);
 f32 xyz_distance(void *, void *);
-void draw_chunk_model(s32);
+void draw_chunk_model(void *arg0);
 extern u8 *camera_ctrl_instance;
 extern u32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -145,8 +145,8 @@ void TObjPlayer__sub_8030A9B0() {
         col.b = lbl_805DF14C;
         col.r = lbl_805DF13C * k + lbl_805DF14C;
         col.g = lbl_805DF14C;
-        set_chunk_material_color(&col);
-        draw_chunk_model(falz_zako_chunk_model);
+        set_chunk_material_color((f32 *)&col);
+        draw_chunk_model((void *)falz_zako_chunk_model);
         pop_matrix();
     }
     chunk_polygon_flags_and_mask = lbl_805D5664;

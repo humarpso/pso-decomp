@@ -44,7 +44,7 @@ s32 get_bml_model(s32, s32);
 void TBoss8Dragon__sub_800640A4(s32, Vec_80355570 *);
 void attach_particle_model(void *, s32, s32, s32, s32, f32);
 Res_80355570 *csnVecterUnder(Vec_80355570 *, s32);
-void *spawn_continuous_particle_effect_with_flags(Vec_80355570 *, s32, s32);
+void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
 void add_radar_scaled_marker(Vec_80355570 *, s32, s32, s32, f32);
 void play_persistent_sound(s32, void *, Vec_80355570 *, s32, s32);
 extern s32 boss5_gryphon_bml_resource;

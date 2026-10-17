@@ -6,7 +6,7 @@ extern "C" {
 
 void *__dt__22TObjFogCollisionSwitchFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void __dt__16TObjFogCollisionFv(void *, int);
+void *__dt__16TObjFogCollisionFv(void *arg0, s16 arg1);
 
 extern s32 __vt__22TObjFogCollisionSwitch[];
 
@@ -61,9 +61,9 @@ s32 scale_matrix(int, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_chunk_material_override_pair(int, int);
-void set_chunk_material_color(void *);
-s32 draw_chunk_object(s32);
+void set_chunk_material_override_pair(s32 arg0, s32 arg1);
+void set_chunk_material_color(f32 *arg);
+void draw_chunk_object(void *child);
 extern Color_80153B64 lbl_8044002C;
 extern Color_80153B64 fog_collision_color_a;
 extern Color_80153B64 fog_collision_color_b;
@@ -84,7 +84,7 @@ extern char lbl_804400C8[];
 extern char lbl_804400D4[];
 extern char lbl_804400E0[];
 extern char lbl_805DB268;
-s32 record_fog_collision_hit(s32, s32, u8);
+void record_fog_collision_hit(s32 arg0, s32 arg1, s32 arg2);
 int TObjFogCollision__sub_80153F68(void * _w0);
 void *TObjFogCollisionSwitch__create(void *arg0);
 f32 horizontal_distance_squared(void *, s32);
@@ -118,23 +118,23 @@ void TObjFogCollision::draw_volume() {
         set_chunk_material_override_pair(0xFF00, 0x800);
         switch (*(s32 *)&this->m_90) {
         case 0:
-            set_chunk_material_color(&c0);
+            set_chunk_material_color((f32 *)&c0);
             break;
         case 1:
         case 2:
         case 4:
         case 5:
-            set_chunk_material_color(&cd);
+            set_chunk_material_color((f32 *)&cd);
             break;
         case 3:
-            set_chunk_material_color(&c3);
+            set_chunk_material_color((f32 *)&c3);
             break;
         }
         push_matrix();
         s = lbl_805DB264 * this->scale;
         post_translate_matrix((u8 *)&this->position);
         scale_matrix(0, s, lbl_805DB258, s);
-        draw_chunk_object(lbl_805D28BC);
+        draw_chunk_object((void *)lbl_805D28BC);
         pop_matrix();
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;

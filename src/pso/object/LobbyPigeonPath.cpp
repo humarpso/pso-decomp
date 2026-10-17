@@ -209,7 +209,7 @@ s32 post_translate_matrix(void *);
 s32 rotate_matrix_y(s32, s32);
 s32 rotate_matrix_z(s32, s32);
 void scale_matrix(void *, f32, f32, f32);
-s32 draw_model_motion(s32, s32, f32);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern void *lobby_pigeon_lobby_type;
 struct RecoveredGlobal_8019A9B8_lbl_80446184 {
     s32 value;
@@ -516,11 +516,11 @@ s32 TObjPlayer__sub_802C2C48(Obj_802C2C48 *self);
 void * __dt__13TUnk_804E0988Fv(void *arg0, s16 arg1);
 u8 *TObjPlayer__sub_802C2F04(u8 *arg0, s32 arg1, const void* _w2);
 void *__dt__11TObjPathObjFv(void *arg0, s16 arg1);
-f32 bind_motion_context(void *, f32);
+void bind_motion_context(s32 arg0, f32 farg0);
 s32 sample_motion_node_transform(s32, s32, s32 *, s32 *, s32 *);
 void matrix_mult_vec(void *, void *, void *);
 void translate_matrix_vec3(void *, void *);
-void set_matrix_identity(void *);
+void set_matrix_identity(u8 *arg0);
 
 s32 TLobby__sub_803DA16C(void*);
 
@@ -577,8 +577,7 @@ void TUnk_804E0898::vfunc_14() {
   rotate_matrix_z((s32)(0), (s32)(self->pathRoll));
   if (self->phase != 3)
     scale_matrix(0, self->scale, self->scale, self->scale);
-  draw_model_motion((s32)(self->model), (s32)(self->animation),
-                    self->animationFrame);
+  draw_model_motion((self->model), (self->animation), self->animationFrame);
   pop_matrix();
 }
 
@@ -596,7 +595,7 @@ void TUnk_804E0898::vfunc_13(s32) {
   if (--self->dc < 0) {
     Mtx_802C0F3C m;
     Vec_802C0F3C v = lobby_pigeon_zero_vec;
-    set_matrix_identity(&m);
+    set_matrix_identity((u8 *)&m);
     translate_matrix_vec3(&m, &self->pos);
     ((void (*)(void *, s32))rotate_matrix_y)(&m, self->f60);
     translate_matrix_vec3(&m, &self->bc);
@@ -808,7 +807,7 @@ void TUnk_804E08D4::vfunc_14() {
     post_translate_matrix((u8 *)&this->unk_AC);
     rotate_matrix_y(0, this->m_b8);
     rotate_matrix_z(0, this->m_c0);
-    draw_model_motion(*(s32 *)&this->unk_98, this->m_9c, this->m_a8);
+    draw_model_motion((void *)(*(s32 *)&this->unk_98), (void *)this->m_9c, this->m_a8);
     pop_matrix();
 }
 
@@ -831,7 +830,7 @@ void TUnk_804E08D4::vfunc_13(s32) {
     *(s32 *)&this->unk_CC = temp_r0;
     if (temp_r0 < 0) {
         Vec_802C17FC v = lbl_80471908;
-        ((s32 (*)(void *))set_matrix_identity)(&m);
+        set_matrix_identity((u8 *)&m);
         ((s32 (*)(void *, void *))translate_matrix_vec3)(&m, (u8 *)&this->position);
         ((s32 (*)(void *, int))rotate_matrix_y)(&m, this->rotation_y);
         ((s32 (*)(void *, void *))translate_matrix_vec3)(&m, (u8 *)&this->unk_AC);
@@ -1005,7 +1004,7 @@ void TUnk_804E0910::vfunc_14() {
     post_translate_matrix((u8 *)&this->unk_AC);
     rotate_matrix_y(0, this->m_b8);
     rotate_matrix_z(0, this->m_c0);
-    draw_model_motion(*(s32 *)&this->unk_98, this->m_9c, this->m_a8);
+    draw_model_motion((void *)(*(s32 *)&this->unk_98), (void *)this->m_9c, this->m_a8);
     pop_matrix();
 }
 
@@ -1218,7 +1217,7 @@ void TUnk_804E094C::vfunc_14() {
     post_translate_matrix((u8 *)&this->unk_AC);
     rotate_matrix_y(0, this->m_b8);
     rotate_matrix_z(0, this->m_c0);
-    draw_model_motion(*(s32 *)&this->unk_98, this->m_9c, this->m_a8);
+    draw_model_motion((void *)(*(s32 *)&this->unk_98), (void *)this->m_9c, this->m_a8);
     pop_matrix();
 }
 
@@ -1406,7 +1405,7 @@ void TUnk_804E0988::vfunc_14() {
     rotate_matrix_y(0, this->m_b8);
     rotate_matrix_z(0, this->m_c0);
     TObjPlayer::set_global_flag();
-    draw_model_motion(*(s32 *)&this->unk_98, this->m_9c, this->m_a8);
+    draw_model_motion((void *)(*(s32 *)&this->unk_98), (void *)this->m_9c, this->m_a8);
     TObjPlayer::clear_global_state();
     pop_matrix();
 }
@@ -1503,7 +1502,7 @@ s32 sample_clamped_path_position(void *arg0, s32 arg1, void *arg2, s32 arg3, f32
     var_r31 = 0;
     var_f1 = (f32)temp_r7;
   }
-  bind_motion_context(arg2, var_f1);
+  bind_motion_context((s32)arg2, var_f1);
   sample_motion_node_transform(arg1, arg3, sp24, sp18, sp8);
   return var_r31;
 }

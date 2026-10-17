@@ -6,7 +6,7 @@ extern "C" {
 
 s32 has_game_join_id__13TUnk_804E355CFv();
 s32 check_hits__14TItemAttackColFPv(void *);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 extern f32 lbl_805DAD50;
 

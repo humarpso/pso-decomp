@@ -11,7 +11,7 @@ s32 post_translate_matrix(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
-s32 restore_render_scissor(int);
+void restore_render_scissor(s32 arg0);
 
 s32 TObjEneRecobox::render_trap_model_if_visible() {
     if (get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x20) {
@@ -22,7 +22,7 @@ s32 TObjEneRecobox::render_trap_model_if_visible() {
             rotate_matrix_y((int) (0), (int) (this->rotation_y));
             ((TObjEneRe7Berura *)((u8 *)this))->draw();
             pop_matrix();
-            restore_render_scissor((int) (1));
+            restore_render_scissor((1));
         }
         return 1;
     }

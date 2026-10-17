@@ -115,7 +115,7 @@ void send_6x0A_enemy_state_packet(void* p);
 void init_6x0A_enemy_state_packet(void* p);
 int get_attack_credit_slot_count(void);
 void unload_current_floor_resources(void);
-int TLobby__send_and_handle_60(void*);
+void TLobby__send_and_handle_60(u8 *arg0);
 void unload_floor_resources(s32 arg0);
 s32 load_floor_resources(s32 arg0);
 s32 is_area_transfer_pending();
@@ -123,7 +123,7 @@ s32 load_current_floor_resources(void);
 int read_be16_field2__10TObjPlayerFv(void*);
 
 void TLobby::bswap_field() { read_be16_field2__10TObjPlayerFv(this); bswap_32((u32 *)((char*)this + 0x4)); }
-void TLobby::broadcast_state() { bswap_field(); TLobby__send_and_handle_60(this); }
+void TLobby::broadcast_state() { bswap_field(); TLobby__send_and_handle_60((u8 *)this); }
 
 void init_6x9C_enemy_low_game_flags_packet(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 4) = 0;
@@ -132,7 +132,7 @@ void init_6x9C_enemy_low_game_flags_packet(u8 *arg0) {
 }
 
 void TLobby::bswap_enemy_state() { read_be16_field2__10TObjPlayerFv(this); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); }
-void send_6x0A_enemy_state_packet(void* p) { ((TLobby *)p)->bswap_enemy_state(); TLobby__send_and_handle_60(p); }
+void send_6x0A_enemy_state_packet(void* p) { ((TLobby *)p)->bswap_enemy_state(); TLobby__send_and_handle_60((u8 *)p); }
 void init_6x0A_enemy_state_packet(void* p) { *(u8*)((char*)p + 0x0) = 10; *(u8*)((char*)p + 0x1) = 3; }
 int get_attack_credit_slot_count(void) { return 4; }
 

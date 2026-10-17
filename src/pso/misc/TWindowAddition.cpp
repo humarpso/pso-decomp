@@ -4,12 +4,12 @@
 #include "pso/misc/TWindowSubStatusDisp.h"
 
 extern "C" {
-s32 get_shared_text_buffer();
-s32 *TQuestVmDownLoadServer__sub_8006EF6C(s32);
-s32 append_text_space();
-s32 append_padded_number(void *, int);
-s32 text_builder_append(void *);
-s32 text_builder_reset();
+s32 *get_shared_text_buffer(void);
+s32 TQuestVmDownLoadServer__sub_8006EF6C(s32 arg0);
+void append_text_space(void);
+void append_padded_number(s32 v, u8 n);
+void text_builder_append(u8 *str);
+void text_builder_reset(void);
 extern s32 TWindowSubStatusDisp__count_ratio_value;
 extern s32 lbl_805DCAB8;
 void sub_802443B4__13TUnk_804CDFE8Fv(void *, void *);
@@ -39,11 +39,11 @@ void *TUnk_804CDFE8::construct_with_parent(void *arg1) {
 void TWindowSubStatusDisp::set_count_ratio_text(s32 arg1, s32 arg2) {
     s32 arg0 = (s32)this;
     text_builder_reset();
-    text_builder_append((void *) (TQuestVmDownLoadServer__sub_8006EF6C(0x67)));
+    text_builder_append((u8 *)(TQuestVmDownLoadServer__sub_8006EF6C((s32)(0x67))));
     append_text_space();
-    append_padded_number((void *) (arg1), (int) (2U));
-    text_builder_append((void *) (&lbl_805DCAB8));
-    append_padded_number((void *) (arg2), (int) (2U));
+    append_padded_number((arg1), (2U));
+    text_builder_append((u8 *)(&lbl_805DCAB8));
+    append_padded_number((arg2), (2U));
     ((TWindowSubStatusDisp *)arg0)->set_entry_display_value((int) (get_shared_text_buffer()));
     TWindowSubStatusDisp__count_ratio_value = arg1;
 }

@@ -114,15 +114,15 @@ struct AudioStreamInputState {
 extern "C" {
 void TLobby__sub_803BFE58(u8 *arg0);
 void TLobby__sub_803BFEE8(u8 *arg0);
-s32 TLobby__sub_803C3ABC(int);
-s32 TLobby__sub_803C3AC4(int);
+s32 TLobby__sub_803C3ABC(u8 *arg0);
+s32 TLobby__sub_803C3AC4(u8 *arg0);
 s32 TLobby__sub_803C3B38(int);
-s32 TLobby__sub_803C3B44(int);
+s32 TLobby__sub_803C3B44(u8 *arg0);
 s32 get_field_a8__6TLobbyFv(int);
 void TLobby__sub_803BFFC0(u8 *arg0);
 void TLobby__sub_803BFFFC(u8 *arg0, s32 arg1, s32 arg2);
 s32 TLobby__sub_803C0010(u8 *arg0);
-s32 TLobby__sub_803C39CC(int);
+void TLobby__sub_803C39CC(u8 *arg0);
 void TLobby__sub_803C0758(u8 *arg0);
 s32 TLobby__sub_803C1A00(int);
 s32 memset(void *, int, int);
@@ -139,7 +139,7 @@ void TLobby__sub_803C0628(void *arg0_, s32 *arg1, s32 *arg2, s32 *arg3);
 void EXIGetID(Snd_803C0BE8 *arg0);
 void GXFlush(void);
 s32 TLobby__sub_803C0238();
-s32 TLobby__sub_803C3B68(s32, void *, s32);
+s32 TLobby__sub_803C3B68(s32 arg0, u16 *hdr, s32 size);
 s32 TLobby__sub_803D3130(AudioStreamChunk *, s32, AudioStreamChunk *, AudioStreamChunk *);
 void *memcpy(void *, const void *, u32);
 void process_audio_stream_input(AudioStreamInputState *arg0);
@@ -167,11 +167,11 @@ void TLobby__sub_803BFEE8(u8 *arg0) {
 }
 void TLobby::send_packet_by_id() {
     u8 *arg0 = (u8 *)this;
-    TLobby__sub_803C3ABC((int) (*(s32 *)((s8 *)arg0 + 4)));
+    TLobby__sub_803C3ABC((u8 *)(*(s32 *)((s8 *)arg0 + 4)));
 }
 void TLobby::notify_field_4_alt() {
     u8 *arg0 = (u8 *)this;
-    TLobby__sub_803C3AC4((int) (*(s32 *)((s8 *)arg0 + 4)));
+    TLobby__sub_803C3AC4((u8 *)(*(s32 *)((s8 *)arg0 + 4)));
 }
 void TLobby::send_packet_by_id_2() {
     u8 *arg0 = (u8 *)this;
@@ -183,7 +183,7 @@ void TLobby::send_with_offset4() {
 }
 void TLobby::notify_field_4() {
     u8 *arg0 = (u8 *)this;
-    TLobby__sub_803C3B44((int) (*(s32 *)((s8 *)arg0 + 4)));
+    TLobby__sub_803C3B44((u8 *)(*(s32 *)((s8 *)arg0 + 4)));
 }
 void TLobby__sub_803BFFC0(u8 *arg0) {
     get_field_a8__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 4)));
@@ -237,7 +237,7 @@ inline void parse_audio_stream_input_header(AudioStreamInputState *arg0) {
         s->vt->unlock(s, 1, &b);
         return;
     }
-    n = TLobby__sub_803C3B68(h, b.data, b.size);
+    n = TLobby__sub_803C3B68(h, (u16 *)b.data, b.size);
     if (n == 0 || n > b.size) {
         s->vt->unlock(s, 1, &b);
         return;
@@ -294,7 +294,7 @@ void TLobby__sub_803C0628(void *arg0_, s32 *arg1, s32 *arg2, s32 *arg3) {
 
 void TLobby::reset_flag() {
     u8 *arg0 = (u8 *)this;
-    TLobby__sub_803C39CC((int) (*(s32 *)((s8 *)arg0 + 4)));
+    TLobby__sub_803C39CC((u8 *)(*(s32 *)((s8 *)arg0 + 4)));
     *(s8 *)((s8 *)arg0 + 1) = 0;
 }
 void TLobby__sub_803C0758(u8 *arg0) {

@@ -46,8 +46,8 @@ extern s32 TOJungleDesign__name;
 u8 *TOJungleDesign__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__dt__14TOJungleDesignFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object(int);
-s32 rotate_matrix_yxz(int, int, int, int);
+void draw_ginja_object(void *child);
+void rotate_matrix_yxz(s32 matrix, s32 arg1, s32 arg2, s32 arg3);
 void free_collision_body_parts(void *);
 s32 push_matrix();
 s32 pop_matrix();
@@ -62,8 +62,8 @@ void TOJungleDesign::render() {
         TObjFish::set_global_param((int) (this->texture_id));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_yxz((int) (0), (int) (*(s32 *)&this->m_5c), (int) (this->rotation_y), (int) (this->rotation_z));
-        draw_ginja_object((int) (*(s32 *)&this->m_ac));
+        rotate_matrix_yxz((0), (*(s32 *)&this->m_5c), (this->rotation_y), (this->rotation_z));
+        draw_ginja_object((void *)(*(s32 *)&this->m_ac));
         pop_matrix();
     }
 }

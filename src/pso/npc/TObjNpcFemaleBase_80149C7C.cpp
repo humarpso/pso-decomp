@@ -21,7 +21,7 @@ extern s32 lbl_804A8640[];
 extern s32 *npc_town_motion_data;
 void TObjNpcFemaleBase__sub_80149C7C(void);
 void __dl__7TObjectFPv(void *);
-void __dt__11TObjNpcBaseFv(void *, int);
+void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1);
 
     extern int lbl_805D5758;
     extern int lbl_805D5D78;

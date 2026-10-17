@@ -42,11 +42,11 @@ struct RecoveredGlobal_80176FF8___vt__12TOSignCave03 {
 
 extern "C" {
 s32 rotate_matrix_y(int, int);
-s32 translate_matrix(int, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
-s32 draw_ginja_model(int);
+void draw_ginja_model(s32 model);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_80176F50_lbl_804B43A0 bm_fs_obj_dokanban03_resource_descriptor;
 extern u32 TOSignCave03__shared_resource;

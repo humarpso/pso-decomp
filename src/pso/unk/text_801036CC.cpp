@@ -82,7 +82,7 @@ void debug_print__6TLobbyFle(const char *, ...);
 void *memcpy(void *, const void *, u32);
 extern char lbl_8043E048[];
 Ent_801037A0 *find_item_condition_entry__6TLobbyFii(s32 n, s32 val);
-void *find_item_by_id(s32);
+u8 *find_item_by_id(s32 id);
 void spawn_dropped_item_from_msg(void *, s32);
 s32 get_sync_counter__6TLobbyFi(u16);
 void normalize__9TItemDataFv(void *);

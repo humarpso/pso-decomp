@@ -51,7 +51,7 @@ extern const f32 lbl_805DD5CC;
 extern const f32 lbl_805DD5D0;
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
-s32 is_player_input_active(int);
+s32 is_player_input_active(s32 param_1);
 extern RecoveredGlobal_80277928_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DD5E4;
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -79,7 +79,7 @@ extern const f32 lbl_805DD5BC;
 extern const f32 lbl_805DD5C0;
 s32 can_use_palette_action__10TObjPlayerFPvUcUc(s32, u8, u8);
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
-s32 update_palette_item_count_label(void *, void *, u16, u16, s32);
+void update_palette_item_count_label(u8 *arg0, u8 *arg1, u16 arg2, u16 arg3, s32 arg4);
 s32 draw_action_palette_icon(void *, u16, u16);
 s32 draw_visible_window_entries(void *, void *, void *);
 extern const f32 lbl_805DD5D4;
@@ -130,7 +130,7 @@ void TWindowSubCustomSelect::handle_grid_navigation() {
     u8 temp_r4;
     u8 temp_r5;
     u8 *temp_r30;
-    temp_r30 = (u8 *)&(*(RecoveredGlobal_80277408_lbl_8050E208 *)&controller_input_state).value + (is_player_input_active((int)((s32) this->m_20)) * 0x50) + 0x20;
+    temp_r30 = (u8 *)&(*(RecoveredGlobal_80277408_lbl_8050E208 *)&controller_input_state).value + (is_player_input_active(((s32) this->m_20)) * 0x50) + 0x20;
     if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r30), (int) (0xF0), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&(*(RecoveredGlobal_80277408_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0xF0), (int) (6), (int) (1)) != 0)) {
         play_sound_effect((s32)(0x54100), (s32)(0U), (s32)(0), (s32)(0));
         if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r30), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&(*(RecoveredGlobal_80277408_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
@@ -240,7 +240,7 @@ void TWindowSubCustomSelect::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r30;
     u8 *temp_r30_2;
-    temp_r30 = is_player_input_active((int) ((s32) this->m_20));
+    temp_r30 = is_player_input_active(((s32) this->m_20));
     if (!(*(s32 *)&this->m_2c & 2)) {
         *(s32 *)&this->m_5c = 0x01000000;
     }

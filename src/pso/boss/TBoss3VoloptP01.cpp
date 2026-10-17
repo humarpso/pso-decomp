@@ -25,8 +25,8 @@ s32 play_sound_effect(s32,s32,s32,s32);
 void* __nw__7TObjectFUl(u32);
 s32 subtract_vector(void*,void*);
 void rotate_matrix_y(s32,s32);
-void translate_matrix(s32,f32,f32,f32);
-void pop_matrix(void);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
+s32 pop_matrix(void);
 void push_nearby_players__10TObjPlayerFPv(Obj_80042DE8*);
 s32 obj_testFlags30(void*,s32);
 s32 update_if_active__15TObjEneMe1GiGueFl(void*,s32);
@@ -61,7 +61,6 @@ __declspec(section ".rodata") V_80042ED0 lbl_80436630 = { 0, 0, 0 };
 __declspec(section ".rodata") S_80042B34 lbl_8043663C[1] = { { 3, 0.0f } };
 }
 #define TObjPlayer__sub_80042ED0 ((s32 (*)(void*,int,void*))TObjPlayer__sub_80042ED0)
-#define fn_80044330 ((s32 (*)(void*))fn_80044330)
 
 struct Ent_80042974 { u16 id; s16 flag; s32 pad; };
 
@@ -121,7 +120,6 @@ void cast_tech_on_players__10TObjPlayerFPv(u8 *arg0) {
 }
 
 #undef TObjPlayer__sub_80042ED0
-#undef fn_80044330
 #define TObjPlayer__sub_80042ED0 ((s32 (*)(void*,int,void*))TObjPlayer__sub_80042ED0)
 
 struct Vec_80042B34 { f32 x, y, z; };
@@ -156,7 +154,7 @@ struct VObj_18_b27ba1 : VBase_18_b27ba1 {
 extern "C" {
 
 s32 TBoss3Volopt__sub_80040FCC(void *);
-s32 fn_800443DC(void *, int);
+s32 fn_800443DC(void *self, s32 i);
 u8 *find_entity_by_id(u16);
 s32 play_sound_effect(s32, s32, s32, s32);
 void *__nw__7TObjectFUl(u32);
@@ -265,9 +263,9 @@ typedef struct Obj_80042DE8 {
 extern "C" {
 void matrix_mult_vec(s32, void *, s32);
 void rotate_matrix_y(s32, s32);
-void translate_matrix(s32, f32, f32, f32);
-void push_matrix_from(void *);
-void pop_matrix();
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
+s32 push_matrix_from(void *src);
+s32 pop_matrix(void);
 extern V_80042ED0 lbl_80436630;
 extern u8 identity_matrix[];
 extern E_80042ED0 *anim_model_matrix_array;
@@ -327,17 +325,13 @@ void TObjPlayer__sub_80042ED0(P_80042ED0 *o, s32 idx, s32 arg2) {
 #undef obj_getField1c
 #undef subtract_vector
 #define TObjPlayer__sub_80042ED0 ((s32 (*)(void*,int,void*))TObjPlayer__sub_80042ED0)
-#define cast_tech_on_players__10TObjPlayerFPv ((s32 (*)(void*))cast_tech_on_players__10TObjPlayerFPv)
 #define play_sound_effect ((s32 (*)(s32,void*,s32,s32))play_sound_effect)
 #define __nw__7TObjectFUl ((void* (*)(int))__nw__7TObjectFUl)
 #define rotate_matrix_y ((s32 (*)(s32,s32))rotate_matrix_y)
-#define translate_matrix ((s32 (*)(s32,f32,f32,f32))translate_matrix)
-#define pop_matrix ((s32 (*)(void))pop_matrix)
 #define push_nearby_players__10TObjPlayerFPv ((s32 (*)(void*))push_nearby_players__10TObjPlayerFPv)
 #define obj_testFlags30 ((s32 (*)(void*,int))obj_testFlags30)
 #define update_if_active__15TObjEneMe1GiGueFl ((s32 (*)(void*,int))update_if_active__15TObjEneMe1GiGueFl)
 #define update_pulse_scale__15TBoss3VoloptP01FPv ((s32 (*)(void*))update_pulse_scale__15TBoss3VoloptP01FPv)
-#define fire_zonde_at_players__10TObjPlayerFPv ((s32 (*)(void*))fire_zonde_at_players__10TObjPlayerFPv)
 #define sub_80043758__15TBoss3VoloptP01Fv ((void (*)(void*))sub_80043758__15TBoss3VoloptP01Fv)
 
 #define F(o,t,p) (*(t*)((u8*)(o)+(p)))
@@ -675,7 +669,7 @@ struct VObj_80044038 : VBase_80044038 {
     virtual void m80();
 };
 
-s32 reset_status_effect_row(void *);
+void reset_status_effect_row(u8 *arg0);
 void obj_setFlags30(void *, u32);
 f32 fabs_float();
 void queue_destruction__7TObjectFv(void *);
@@ -683,7 +677,7 @@ s32 dispatch_shared_handler_a__6TLobbyFl(s32);
 s32 register_object__6TLobbyFl(s32);
 s32 dispatch_shared_handler_b__6TLobbyFl(s32);
 s32 register_boss__6TLobbyFl(s32);
-s32 TBoss3Volopt__sub_8003F398();
+int TBoss3Volopt__sub_8003F398(void);
 s32 link_photon__10TObjPlayerFUs(u16, s32);
 s32 copy_position__20TBoss3VoloptHiraisinFi(void *, int, f32, f32);
 void TBoss3VoloptP01__sub_80042F84(u8 *arg0);
@@ -702,14 +696,14 @@ void fn_80044330(void* p);
 void* fn_8004438C(void* p);
 void reset_look_state__11TCameraCtrlFv(void *);
 void set_mode__11TCameraCtrlFv(void *);
-u8 * __ct__17TObjVoloptShutterFv(void *, s32);
+u8 *__ct__17TObjVoloptShutterFv(u8 *arg0, s32 arg1);
 u8 * create_particle_emitter(void *, s32);
 s32 init_from_model__11TBreakUpMdlFl(s32, s32);
-void __dt__15TObjEnemyCustomFv(void *, int);
-u8 * TObjEnemyCustom__ct(void *);
+void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
+u8 *TObjEnemyCustom__ct(u8 *arg0);
 void * collect_and_count__12TBoss3VoloptFUll(s32, s32);
-s32 restore_scene_lighting();
-s32 select_actor_lighting(void *);
+void restore_scene_lighting(void);
+void select_actor_lighting(s32 obj);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 s32 advance_animation_playback(void *);
 void free_collision_body_parts(void *);
@@ -722,8 +716,8 @@ s32 sin_table_lookup(s32);
 f32 cos_table_lookup(int);
 s32 push_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_chunk_model(s32);
-s32 draw_chunk_object(void *);
+void draw_chunk_model(void *arg0);
+void draw_chunk_object(void *child);
 
 extern RecoveredGlobal_80044174_lbl_804FEE68 boss3_volopt_spawn_pos;
 extern void *boss3_volopt_resources;
@@ -793,18 +787,18 @@ extern "C" void is_target_in_attack_range__10TObjPlayerFv();
 extern "C" void receive_direct_attack__10TObjPlayerFv();
 extern "C" void receive_physical_attack__10TObjPlayerFv();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
-extern "C" void render_actor_shadows_default();
+extern "C" void render_actor_shadows_default(u8 *arg0);
 extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__13TUnk_804806E8Fv();
 extern "C" void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
-extern "C" void trigger_switch_attack__10TObjPlayerFi();
+extern "C" void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 extern "C" void try_start_action__13TUnk_804806E8Fll();
 extern "C" void update_action_hold_status__13TUnk_804806E8Fv();
-extern "C" void update_action_timer__10TObjPlayerFPv();
+extern "C" s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
 extern "C" void update_actor_ground_y__13TUnk_804806E8Fv();
-extern "C" void update_attack_stat_status();
-extern "C" void update_defense_stat_status();
+extern "C" s32 update_attack_stat_status(u8 *arg0);
+extern "C" s32 update_defense_stat_status(u8 *arg0);
 extern "C" void update_flag30_timer__13TUnk_804806E8Fv();
 extern "C" void vfunc_60__15TObjEnemyCustomFv();
 extern "C" void vfunc_59__15TObjEnemyCustomFv();
@@ -881,17 +875,13 @@ s32 TBoss3VoloptP01__sub_80042FCC(u8 *arg0) {
 #pragma pop
 
 #undef TObjPlayer__sub_80042ED0
-#undef cast_tech_on_players__10TObjPlayerFPv
 #undef play_sound_effect
 #undef __nw__7TObjectFUl
 #undef rotate_matrix_y
-#undef translate_matrix
-#undef pop_matrix
 #undef push_nearby_players__10TObjPlayerFPv
 #undef obj_testFlags30
 #undef update_if_active__15TObjEneMe1GiGueFl
 #undef update_pulse_scale__15TBoss3VoloptP01FPv
-#undef fire_zonde_at_players__10TObjPlayerFPv
 #undef sub_80043758__15TBoss3VoloptP01Fv
 extern "C" {
 struct S_8004301C { u8 pad0[0x38c]; f32 f38c; s8 f390; };
@@ -922,17 +912,13 @@ s32 update_pulse_scale__15TBoss3VoloptP01FPv(S_8004301C *o) {
 }
 
 #define TObjPlayer__sub_80042ED0 ((s32 (*)(void*,int,void*))TObjPlayer__sub_80042ED0)
-#define cast_tech_on_players__10TObjPlayerFPv ((s32 (*)(void*))cast_tech_on_players__10TObjPlayerFPv)
 #define play_sound_effect ((s32 (*)(s32,void*,s32,s32))play_sound_effect)
 #define __nw__7TObjectFUl ((void* (*)(int))__nw__7TObjectFUl)
 #define rotate_matrix_y ((s32 (*)(s32,s32))rotate_matrix_y)
-#define translate_matrix ((s32 (*)(s32,f32,f32,f32))translate_matrix)
-#define pop_matrix ((s32 (*)(void))pop_matrix)
 #define push_nearby_players__10TObjPlayerFPv ((s32 (*)(void*))push_nearby_players__10TObjPlayerFPv)
 #define obj_testFlags30 ((s32 (*)(void*,int))obj_testFlags30)
 #define update_if_active__15TObjEneMe1GiGueFl ((s32 (*)(void*,int))update_if_active__15TObjEneMe1GiGueFl)
 #define update_pulse_scale__15TBoss3VoloptP01FPv ((s32 (*)(void*))update_pulse_scale__15TBoss3VoloptP01FPv)
-#define fire_zonde_at_players__10TObjPlayerFPv ((s32 (*)(void*))fire_zonde_at_players__10TObjPlayerFPv)
 #define sub_80043758__15TBoss3VoloptP01Fv ((void (*)(void*))sub_80043758__15TBoss3VoloptP01Fv)
 void reset_state__15TBoss3VoloptP01FPv(void *arg0) {
     void *temp_r3;
@@ -1185,17 +1171,13 @@ void TBoss3VoloptP01::run_state_machine() {
 #pragma pop
 
 #undef TObjPlayer__sub_80042ED0
-#undef cast_tech_on_players__10TObjPlayerFPv
 #undef play_sound_effect
 #undef __nw__7TObjectFUl
 #undef rotate_matrix_y
-#undef translate_matrix
-#undef pop_matrix
 #undef push_nearby_players__10TObjPlayerFPv
 #undef obj_testFlags30
 #undef update_if_active__15TObjEneMe1GiGueFl
 #undef update_pulse_scale__15TBoss3VoloptP01FPv
-#undef fire_zonde_at_players__10TObjPlayerFPv
 #undef sub_80043758__15TBoss3VoloptP01Fv
 #define reset_look_state__11TCameraCtrlFv ((s32 (*)(int))reset_look_state__11TCameraCtrlFv)
 #define advance_animation_playback ((s32 (*)(int))advance_animation_playback)
@@ -1227,17 +1209,13 @@ void TBoss3VoloptP01::sub_80043758() {
 #undef reset_look_state__11TCameraCtrlFv
 #undef advance_animation_playback
 #define TObjPlayer__sub_80042ED0 ((s32 (*)(void*,int,void*))TObjPlayer__sub_80042ED0)
-#define cast_tech_on_players__10TObjPlayerFPv ((s32 (*)(void*))cast_tech_on_players__10TObjPlayerFPv)
 #define play_sound_effect ((s32 (*)(s32,void*,s32,s32))play_sound_effect)
 #define __nw__7TObjectFUl ((void* (*)(int))__nw__7TObjectFUl)
 #define rotate_matrix_y ((s32 (*)(s32,s32))rotate_matrix_y)
-#define translate_matrix ((s32 (*)(s32,f32,f32,f32))translate_matrix)
-#define pop_matrix ((s32 (*)(void))pop_matrix)
 #define push_nearby_players__10TObjPlayerFPv ((s32 (*)(void*))push_nearby_players__10TObjPlayerFPv)
 #define obj_testFlags30 ((s32 (*)(void*,int))obj_testFlags30)
 #define update_if_active__15TObjEneMe1GiGueFl ((s32 (*)(void*,int))update_if_active__15TObjEneMe1GiGueFl)
 #define update_pulse_scale__15TBoss3VoloptP01FPv ((s32 (*)(void*))update_pulse_scale__15TBoss3VoloptP01FPv)
-#define fire_zonde_at_players__10TObjPlayerFPv ((s32 (*)(void*))fire_zonde_at_players__10TObjPlayerFPv)
 #define sub_80043758__15TBoss3VoloptP01Fv ((void (*)(void*))sub_80043758__15TBoss3VoloptP01Fv)
 void TBoss3VoloptP01::update_breakup() {
     u8 *arg0 = (u8 *)this;
@@ -1348,7 +1326,7 @@ void render__15TBoss3VoloptP01Fv(u8 *arg0) {
 
     if (!(*(s32 *)&((TBoss3VoloptP01 *)arg0)->actorFlags& 0x02000000) && (((TBoss3VoloptP01_800430AC*)arg0)->m8((4e+02f), (4e+01f)) != 0)) {
         TObjFish::set_global_param(((TBoss3VoloptP01 *)arg0)->texture_id);
-        select_actor_lighting(arg0);
+        select_actor_lighting((s32)arg0);
         TObjPlayer::toggle_particle_effect();
         push_matrix();
         if (TObjPlayer::check_demo_mode() == 1) {
@@ -1360,7 +1338,7 @@ void render__15TBoss3VoloptP01Fv(u8 *arg0) {
             rotate_matrix_y(0, ((TBoss3VoloptP01 *)arg0)->rotation_y);
             temp_r3 = *(s32 *)&((TBoss3VoloptP01 *)arg0)->m_388;
             if (temp_r3 & 0x40000) {
-                draw_chunk_model(*(s32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&((TBoss3VoloptP01 *)arg0)->model) + 0x2C)) + 4));
+                draw_chunk_model((void *)(*(s32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&((TBoss3VoloptP01 *)arg0)->model) + 0x2C)) + 4)));
             } else {
                 if (temp_r3 & 0x80000) {
                     sin_table_lookup(*(s32 *)&((TBoss3VoloptP01 *)arg0)->m_3b4);
@@ -1409,7 +1387,7 @@ void run_task__15TBoss3VoloptP01Fv(u8 *arg0) {
     }
     if (obj_testFlags30((void *) (arg0), (int) (0x4000)) != 0) {
         if (((TObjPlayer *)arg0)->add_status_effect_timer((int) (4), (int) (-1)) <= 0) {
-            reset_status_effect_row((void *) (arg0 + 0x284));
+            reset_status_effect_row((arg0 + 0x284));
             ((TUnk_804B9870 *)arg0)->obj_clearFlags30((int) (0x4000));
         }
     } else {
@@ -1513,7 +1491,7 @@ u8 *TBoss3VoloptP01__ct(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3, s16 arg4) {
     s32 temp_r29;
     s32 temp_r3;
     s32 var_r0;
-    TObjEnemyCustom__ct((void *) (arg0));
+    TObjEnemyCustom__ct((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80044174___vt__15TBoss3VoloptP01 *)&*__vt__15TBoss3VoloptP01).value;
     ((TObjPlayer *)(arg0 + 0x3BC))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) (*(s32 *)&TBoss3VoloptP01_class_name);
@@ -1531,7 +1509,7 @@ u8 *TBoss3VoloptP01__ct(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3, s16 arg4) {
     temp_r3 = ((s32)__nw__7TObjectFUl((int) (0x34)));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = ((s32)__ct__17TObjVoloptShutterFv((void *)((int) (temp_r3)), (s32)((void *) (arg2))));
+        var_r0 = ((s32)__ct__17TObjVoloptShutterFv((u8 *)((int) (temp_r3)), (s32)((void *) (arg2))));
     }
     *(s32 *)&((TBoss3VoloptP01 *)arg0)->m_3b8 = var_r0;
     return arg0;
@@ -1577,16 +1555,12 @@ void TBoss3VoloptP01::init_cursor_record() {
 }
 
 #undef TObjPlayer__sub_80042ED0
-#undef cast_tech_on_players__10TObjPlayerFPv
 #undef play_sound_effect
 #undef __nw__7TObjectFUl
 #undef rotate_matrix_y
-#undef translate_matrix
-#undef pop_matrix
 #undef push_nearby_players__10TObjPlayerFPv
 #undef obj_testFlags30
 #undef update_if_active__15TObjEneMe1GiGueFl
 #undef update_pulse_scale__15TBoss3VoloptP01FPv
-#undef fire_zonde_at_players__10TObjPlayerFPv
 #undef sub_80043758__15TBoss3VoloptP01Fv
 #undef TBoss3VoloptP01_class_name

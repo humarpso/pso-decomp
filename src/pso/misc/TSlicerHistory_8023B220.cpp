@@ -16,8 +16,8 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object(int);
-s32 set_chunk_material_color(void *);
+void draw_ginja_object(void *child);
+void set_chunk_material_color(f32 *arg);
 typedef struct { f32 r, g, b, a; } Col_8023B220;
 extern Col_8023B220 chunk_material_color_half_alpha_f32;
 extern s32 lbl_805D5660;
@@ -47,9 +47,9 @@ void TSlicerHistory::render() {
             rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x24)));
             rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x1C)));
             scale_current_matrix((void *) ((u8 *)(arg0) + 0x4C));
-            set_chunk_material_color((void *) (&col));
-            draw_ginja_object((int) (*(u32 *)((s8 *)arg0 + 0x34)));
-            set_chunk_material_color((void *) (&chunk_material_color_half_alpha_f32));
+            set_chunk_material_color((f32 *)(&col));
+            draw_ginja_object((void *)(*(u32 *)((s8 *)arg0 + 0x34)));
+            set_chunk_material_color((f32 *)(&chunk_material_color_half_alpha_f32));
             TParticleCtrl::end_effect_render();
         }
         pop_matrix();

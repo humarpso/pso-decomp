@@ -33,7 +33,7 @@ struct RecoveredGlobal_8034146C_TWindowDD__data_804EFC24 {
 
 extern "C" {
 s32 refresh_status_display__9TWindowDDFv(int);
-s32 set_text_entry_string(int, void *, int);
+void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 extern RecoveredGlobal_8034138C_TWindowDD__data_804EFC24 TWindowDD__data_804EFC24;
 extern s32 lbl_804EFC38[];
 extern s32 lbl_805D42D8;
@@ -73,7 +73,7 @@ u8 *TWindowDD__sub_8034138C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     *(s32 *)((s8 *)arg0 + 0x60) = arg4;
     temp_r3 = (u8 *)(((TUnk_804CE018 *)arg0)->get_array_entry(0));
     if (temp_r3 != NULL) {
-        set_text_entry_string((int) (temp_r3), (void *) (arg3), (int) (0x80));
+        set_text_entry_string((temp_r3), (arg3), (0x80));
         *(f32 *)((s8 *)temp_r3 + 8) = (f32) lbl_805DFC94;
         *(f32 *)((s8 *)temp_r3 + 0xC) = (f32) lbl_805DFC94;
         refresh_status_display__9TWindowDDFv((int) (temp_r3));

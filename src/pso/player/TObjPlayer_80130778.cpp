@@ -9,7 +9,7 @@ void TObjPlayer__sub_801307D0(void *arg0);
 int draw_weapon_model(void*);
 int draw_weapon_at_joint(void*, void*);
 void __dl__7TObjectFPv(void *);
-void __dt__15TItemShootModelFv(void *, int);
+void *__dt__15TItemShootModelFv(void *self, s16 flag);
 
 extern s32 lbl_804A69C0[];
 

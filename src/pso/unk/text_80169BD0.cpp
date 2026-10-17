@@ -23,14 +23,14 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_chunk_model(s32);
-s32 draw_chunk_object(void *);
-s32 draw_model_motion(void *, void *, f32);
+void draw_chunk_model(void *arg0);
+void draw_chunk_object(void *child);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 s32 submit_cursor_candidate(void *, int);
 s32 check_player_flag1__6TLobbyFv();
-s32 end_conversation_camera();
-s32 begin_conversation_camera();
-s32 is_any_player_within_radius_xz(void *, f32);
+void end_conversation_camera(void);
+void begin_conversation_camera(void);
+s32 is_any_player_within_radius_xz(u8 *self, f32 radius);
 s32 get_player_by_client_id(void *);
 u32 __ct__12TQuestThreadFv(int, void *, int);
 u32 __nw__7TObjectFUl(int);
@@ -62,7 +62,7 @@ void TUnk_804B27D8::run_task() {
     temp_r0 = *(s32 *)&this->m_ac;
     switch (temp_r0) {
     case 0:
-        if ((this->update_active_state() != 0) && (is_any_player_within_radius_xz((void *) (arg0), (f32) (lbl_805DB6D8)) != 0) && ((s32) *(s32 *)&this->unk_D8 > 0)) {
+        if ((this->update_active_state() != 0) && (is_any_player_within_radius_xz((arg0), (f32) (lbl_805DB6D8)) != 0) && ((s32) *(s32 *)&this->unk_D8 > 0)) {
             *(s32 *)&this->m_ac = 1;
         }
         break;
@@ -144,7 +144,7 @@ void TUnk_804B27D8::render() {
                 draw_chunk_object(*(void * *)&this->model);
             }
         } else {
-            draw_chunk_model(*(s32 *)((s8 *)(*(void * *)&this->model) + 4));
+            draw_chunk_model((void *)(*(s32 *)((s8 *)(*(void * *)&this->model) + 4)));
         }
         pop_matrix();
     }

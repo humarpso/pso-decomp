@@ -40,7 +40,7 @@ struct O_80337644 {
 };
 
 extern "C" {
-u8 *csnVecterUnder(s32, s32);
+s32 *csnVecterUnder(s32 origin, s32 mask);
 f32 xz_distance_squared(void *, void *);
 void subtract_vector(void *, void *);
 extern P_80337500 lbl_80477B70[];

@@ -41,7 +41,7 @@ struct Spawn_8018990C {
 struct Obj_8018990C { u8 pad[0x38]; f32 x, y, z; u8 pad44[0x326 - 0x44]; s16 f326; };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 extern const f32 lbl_805DBCF4;
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_container_base(void *, s32);
@@ -51,14 +51,14 @@ extern s32 lbl_805D32E8;
 u8 *TObjContainerBase__ct(u8 *arg0, s32 arg1);
 s32 get_container_param(int);
 extern s32 lbl_805D5B7C;
-s32 spawn_particle_effect_with_flags(void *, int, int);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 s32 construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
-s32 play_container_break_sound(void *);
+void play_container_break_sound(s32 arg0);
 void *__nw__7TObjectFUl(int);
 extern Spawn_8018990C *const lbl_805D5B80;
 extern Spawn_8018990C *const lbl_805D5B84;
 extern void *tl_05;
-s32 draw_ginja_box_tree(s32);
+void draw_ginja_box_tree(u8 *arg0);
 s32 scale_matrix(s32, f32, f32, f32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
@@ -121,13 +121,13 @@ void TObjContainerNoItem::vfunc_6(s16 *arg1, s32 arg2) {
             this->vfunc_79();
             ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
             ((TUnk_804AF8A0 *)arg0)->set_flag8();
-            queue_destruction__7TObjectFv((void *) (arg0));
+            queue_destruction__7TObjectFv((arg0));
             this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
         ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
         ((TUnk_804AF8A0 *)arg0)->set_flag8();
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         this->mode = 1;
     }
 }
@@ -158,7 +158,7 @@ void TObjContainerNoItem::vfunc_79() {
         if (o != NULL) {
             construct_debris__8TObjChipFPvPvPv(o, tl_05, &b);
         }
-        play_container_break_sound(self);
+        play_container_break_sound((s32)self);
     }
 }
 
@@ -184,7 +184,7 @@ void TObjContainerNoItem::vfunc_81() {
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         scale_matrix(0, lbl_805DBCFC, lbl_805DBCFC, lbl_805DBCFC);
-        draw_ginja_box_tree(*(s32 *)((s8 *)arg0 + 0x34));
+        draw_ginja_box_tree((u8 *)(*(s32 *)((s8 *)arg0 + 0x34)));
         pop_matrix();
             break;
         }

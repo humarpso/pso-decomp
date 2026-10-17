@@ -195,7 +195,7 @@ struct Obj_8015D518 {
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 send_6x0A_enemy_state(void *, void *);
 s32 exchange_object_state__9TObjEnemyFls(void *, void *, int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
@@ -227,8 +227,8 @@ extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 void TOCtrlDubchik__sub_8015C9D0(u8 *);
 void submit_cursor_candidate(void *, s32);
-void spawn_particle_effect(void *, s32);
-void TObjPlayer__sub_800A8C1C(void *);
+void *spawn_particle_effect(void *pos, s32 id);
+void TObjPlayer__sub_800A8C1C(u8 *arg0);
 s32 play_sound_effect(s32, void *, s32, s32);
 f32 receive_direct_attack__10TObjPlayerFv(void *, s32, Pair_8015D518, void *, s32, s32);
 f32 TOCtrlDubchik__vt21(Obj_8015D518 *arg0, s32 arg1, Pair_8015D518 arg2, void *arg3);
@@ -237,7 +237,7 @@ void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 select_melee_contact_body__10TObjPlayerFv();
 s32 __dl__7TObjectFPv(void *);
-s32 __dt__9TObjEnemyFv(void *, s32);
+void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 
 void TOCtrlDubchik::sub_8015CA74() {
@@ -245,8 +245,8 @@ void TOCtrlDubchik::sub_8015CA74() {
     s32 state;
     s32 i;
     u8 *p;
-    spawn_particle_effect((u8 *)&this->position, 0x45);
-    spawn_particle_effect((u8 *)&this->position, 0x46);
+    spawn_particle_effect(&this->position, 0x45);
+    spawn_particle_effect(&this->position, 0x46);
     state = TOKeyMachine01::get_global_state();
     if (state >= 0x17 || state < 0x13) {
         play_sound_effect(0x4003AD16, (u8 *)&this->position, 0, 0);
@@ -270,7 +270,7 @@ void TOCtrlDubchik::complete_and_destroy() {
         ((VObj_18_65b835 *)(arg0))->m77(&sp8);
         ((TOCtrlDubchik *)arg0)->sub_8015CA74();
         ((TUnk_804AF8A0 *)arg0)->set_flag8();
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
     }
 }
 

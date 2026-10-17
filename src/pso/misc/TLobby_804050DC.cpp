@@ -535,7 +535,7 @@ void NetMemcpy(void *, void *, int);
 void TLobby__sub_803FD85C(void *);
 s32 TLobby__sub_804062A0(s16);
 s32 TLobby__sub_803F79AC(void *);
-s32 TLobby__sub_803F79B0(void *);
+void TLobby__sub_803F79B0(u8 *arg0);
 extern s32 lobby_timer_list_head;
 s16 reset_network_timer_list(void);
 void TLobby__sub_803F8A08(void *);
@@ -634,8 +634,8 @@ extern u8 lbl_805C0038[];
 extern s16 lbl_805D7A7C;
 s32 TLobby__sub_8040B838(u8 *dst, u8 *src, s16 len);
 s16 TLobby__sub_8040DC8C(u8 *arg0, u8 *arg1);
-void TLobby__sub_804217E4(void);
-void TLobby__sub_80421814(void);
+s32 TLobby__sub_804217E4(void);
+s32 TLobby__sub_80421814(void);
 s32 TLobby__sub_80421B3C(s32);
 s16 TLobby__sub_80401BCC(void *, void *, int);
 extern u8 lcp_read_value_buffer[4];
@@ -927,7 +927,7 @@ void TLobby::init_net_block_18A0() {
 
 typedef char RecoveredGlobal_80405114_lbl_805C18A0_size[sizeof(RecoveredGlobal_80405114_lbl_805C18A0) == 0x10 ? 1 : -1];
 s32 TLobby::run_net_init_step() {
-    TLobby__sub_803F79B0((void *) (&(*(RecoveredGlobal_80405114_lbl_805C18A0 *)&lbl_805C18A0).value));
+    TLobby__sub_803F79B0((u8 *)(&(*(RecoveredGlobal_80405114_lbl_805C18A0 *)&lbl_805C18A0).value));
     return 0;
 }
 
@@ -939,7 +939,7 @@ s16 reset_network_timer_list(void) {
 struct G_80405150 { s32 p0; s32 p4; s16 h8; };
 extern s16 lbl_805D7A84;
 extern s16 lbl_805D7A88;
-void TLobby__sub_803FB6A0(void);
+s32 TLobby__sub_803FB6A0(void);
 void TLobby__sub_803FB7A4(void);
 void TLobby::run_net_thread_loop() {
     G_80405150 *g = (G_80405150 *)&lbl_805C18A0;
@@ -2450,7 +2450,7 @@ typedef struct Mgr_8040A3C0 {
 } Mgr_8040A3C0;
 
 void TLobby__sub_803F86BC(void *);
-s32 TLobby__sub_80421844(void *);
+s32 TLobby__sub_80421844(s32 arg0);
 
 typedef struct Ent_80409FC4 { s16 st; s16 pad2; s32 (*f4)(s32); s32 (*f8)(s32); s32 (*fC)(s32); s32 (*f10)(s32); u8 pad14[0x30-0x14]; } Ent_80409FC4;
 typedef struct Tbl_80409FC4 { s16 count; Ent_80409FC4 *list; } Tbl_80409FC4;
@@ -2551,7 +2551,7 @@ s32 TLobby__sub_8040A3C0(void) {
     Mgr_8040A3C0 *m = (Mgr_8040A3C0 *)&dns_resolver_state;
     Ent_8040A3C0 *e;
 
-    ret = TLobby__sub_80421844((void *)TLobby::tick_connection_timeouts);
+    ret = TLobby__sub_80421844((s32)((void *)TLobby::tick_connection_timeouts));
     e = m->ents;
     i = 0;
     while (i < m->count) {

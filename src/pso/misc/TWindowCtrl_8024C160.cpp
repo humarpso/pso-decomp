@@ -47,7 +47,7 @@ extern "C" {
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
 void __dl__7TObjectFPv(void *);
-void TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 extern u8 __vt__11TWindowCtrl[];
 extern void *TWindowCtrl__active_window;
 TWindowCtrl_8024C160 *__dt__11TWindowCtrlFv(TWindowCtrl_8024C160 *self, s16 flag);
@@ -68,20 +68,20 @@ TWindowCtrl_8024C160 *__dt__11TWindowCtrlFv(TWindowCtrl_8024C160 *self, s16 flag
         self->vt = __vt__11TWindowCtrl;
         for (i = 3; i >= 0; i--) {
             if (self->wins84[i] != NULL) {
-                TWindow__close(self->wins84[i]);
+                TWindow__close((u8 *)self->wins84[i]);
                 self->wins84[i] = NULL;
             }
         }
         if (self->f44 != NULL) {
-            TWindow__close(self->f44);
+            TWindow__close((u8 *)self->f44);
             self->f44 = NULL;
         }
         if (self->f34 != NULL) {
-            TWindow__close(self->f34);
+            TWindow__close((u8 *)self->f34);
             self->f34 = NULL;
         }
         if (self->f30 != NULL) {
-            TWindow__close(self->f30);
+            TWindow__close((u8 *)self->f30);
             self->f30 = NULL;
         }
         if (self->f40 != NULL) {
@@ -94,7 +94,7 @@ TWindowCtrl_8024C160 *__dt__11TWindowCtrlFv(TWindowCtrl_8024C160 *self, s16 flag
         }
         for (i = 2; i >= 0; i--) {
             if (self->wins78[i] != NULL) {
-                TWindow__close(self->wins78[i]);
+                TWindow__close((u8 *)self->wins78[i]);
                 self->wins78[i] = NULL;
             }
         }
@@ -109,7 +109,7 @@ TWindowCtrl_8024C160 *__dt__11TWindowCtrlFv(TWindowCtrl_8024C160 *self, s16 flag
             self->f38 = NULL;
         }
         if (self->f2C != NULL) {
-            TWindow__close(self->f2C);
+            TWindow__close((u8 *)self->f2C);
             self->f2C = NULL;
         }
         if (TWindowCtrl__active_window == self) {

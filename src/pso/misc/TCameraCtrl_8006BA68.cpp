@@ -44,7 +44,7 @@ void* TCameraCtrl__sub_8006BA68(void* a0);
 unsigned char TCameraCtrl__sub_8006BADC(void);
 void *TCameraCtrl__vt4(void);
 void *__dt__13TUnk_80488B38Fv(void *arg0, s16 arg1);
-void __dt__13TUnk_80488A28Fv(void *, int);
+void *__dt__13TUnk_80488A28Fv(void *arg0, s16 arg1);
 int __ct__13TUnk_80488A28Fv(void);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -218,7 +218,7 @@ f32 fabs_float(f32);
 extern const f32 lbl_805D901C;
 extern const f32 lbl_805D9018;
 s32 approach_camera_scalar(f32 *arg0, f32 *arg1, f32 farg0);
-f32 atan2_float(f64, f64);
+f32 atan2_float(f32 y, f32 x);
 f32 newton_sqrtf(f32);
 extern const f64 lbl_804383D0;
 void *TCameraCtrl__vt5(void);
@@ -439,12 +439,12 @@ struct Stack_8006C28C {
 
 void sample_camera_motion(void *, Motion_8006C28C *, void **, f32);
 void set_camera_capture_overlay_alpha(int);
-f32 vec_squared_length(Vec_8006C28C *);
+f32 vec_squared_length(u8 *arg0);
 void normalize_vector(Vec_8006C28C *);
-void push_matrix_from(void *);
+s32 push_matrix_from(void *src);
 void rotate_matrix_y(int, s32);
 void matrix_mult_vec(int, Vec_8006C28C *, Vec_8006C28C *);
-void pop_matrices(int);
+s32 pop_matrices(s32 arg0);
 extern u8 identity_matrix[];
 extern const f32 lbl_805D9028;
 extern const f32 lbl_805D902C;
@@ -469,7 +469,7 @@ void TUnk_80488B68::run_task() {
             tmp.x = st.v.x;
             tmp.y = lbl_805D9028;
             tmp.z = st.v.z;
-            f32 m = vec_squared_length(&tmp);
+            f32 m = vec_squared_length((u8 *)&tmp);
             if (m != lbl_805D9028) {
                 normalize_vector(&tmp);
             }
@@ -494,7 +494,7 @@ void TUnk_80488B68::run_task() {
         v2.x = st.v.x;
         v2.y = st.v.y;
         v2.z = st.v.z;
-        if (vec_squared_length(&v2) != lbl_805D9028) {
+        if (vec_squared_length((u8 *)&v2) != lbl_805D9028) {
             normalize_vector(&v2);
         }
         push_matrix_from(identity_matrix);

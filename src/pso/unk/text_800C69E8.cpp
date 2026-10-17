@@ -11,7 +11,7 @@ struct O_800C6A18 { u8 pad[0x2a8]; P_800C6A18 *p; u8 pad2[0x8c]; u16 f338; };
 struct Vec_800C6A48 { f32 x, y, z; };
 
 extern "C" {
-f64 atan2_float(f32, f32);
+f32 atan2_float(f32 y, f32 x);
 void *csnVector(void *, void *, s32);
 f32 horizontal_distance__10TObjPlayerFPUc(void *, s32);
 s32 vec3_add_to(void *, void *);

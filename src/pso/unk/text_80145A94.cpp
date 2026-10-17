@@ -19,9 +19,9 @@ s32 request_network_info_load(s32, void *);
 s32 take_network_info_request_result(s32 *, s32 *);
 s32 request_network_info_exists(s32);
 s32 take_network_info_exists_result(s32 *, s32 *);
-u32 get_network_info_file_size();
+s32 get_network_info_file_size(void);
 s32 TLobby__sub_803F53A0(int, void *, int);
-s32 TLobby__sub_8042EE4C(u32 *);
+s32 TLobby__sub_8042EE4C(s32 *arg0);
 s32 memset(void *, int, int);
 extern s32 lbl_8043F3E8[];
 extern s16 disc_error_code;
@@ -49,7 +49,7 @@ s32 TLobby__sub_80145A94(void) {
     lbl_805D56CC = 0;
     ids.v[0] = lbl_8043F3E8[0];
     ids.v[1] = lbl_8043F3E8[1];
-    TLobby__sub_8042EE4C(&status);
+    TLobby__sub_8042EE4C((s32 *)&status);
     if (status == 5) {
         status = 4;
     }
@@ -179,7 +179,7 @@ s32 TLobby__sub_80145A94(void) {
 }
 s32 TLobby__sub_80145DB4(s32 arg0) {
     s32 sp8;
-    TLobby__sub_8042EE4C((u32 *)(&sp8));
+    TLobby__sub_8042EE4C((s32 *)((u32 *)(&sp8)));
     switch (sp8) {
     case 0:
     case 1:

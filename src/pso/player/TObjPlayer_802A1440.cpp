@@ -8,7 +8,7 @@ struct P_802A1544 { u8 pad0[0x408]; s8 v[0x14]; };
 extern "C" {
 
 void TObjPlayer__sub_802A1588(void* p);
-int TAdSelectTxtGC__sub_802A16A8(void*);
+void TAdSelectTxtGC__sub_802A16A8(void *p);
 s32 TAdSelectTxtGC__sub_802A16C0(void *);
 s32 export_character_data__10TObjPlayerFPvPv(void *, void *);
 int clear_player_data_block(void*);

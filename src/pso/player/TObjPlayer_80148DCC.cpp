@@ -110,19 +110,19 @@ struct VObj_18_3eea3b : VBase_18_3eea3b {
 extern "C" {
 void copy_position__20TBoss3VoloptHiraisinFi(s32);
 void set_indexed_flags(void *, s32, s32);
-s32 get_register__12TQuestThreadFPvi(void *, s32);
+s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1);
 s32 advance_animation_playback(void *);
 s32 submit_cursor_candidate(void *, int);
 extern u8 *quest_mission_manager;
 extern u8 *quest_area_manager;
 void run_task__11TObjNpcBaseFPv(u8 *arg0);
-s32 draw_chunk_object(s32);
-s32 restore_scene_lighting();
-s32 select_actor_lighting(void *);
+void draw_chunk_object(void *child);
+void restore_scene_lighting(void);
+void select_actor_lighting(s32 obj);
 u16 find_nearest_visible_player(void *, s32, f32 *, f32);
-s32 translate_matrix_vec3(s32, void *);
+void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 s32 rotate_matrix_y(s32, s32);
-s32 push_matrix_from(s32);
+s32 push_matrix_from(void *src);
 s32 pop_matrix();
 s32 get_player_by_client_id(u32);
 
@@ -151,15 +151,15 @@ void TObjPlayer::draw_model() {
     u8 *arg0 = (u8 *)this;
     VObj1_80148e54 *self = (VObj1_80148e54 *)arg0;
     if ((self->m8(*(f32 *)&this->unk_398, *(f32 *)((s8 *)arg0 + 0x39C)) != 0) && ((s32) *(s32 *)&this->unk_390 == 1)) {
-        select_actor_lighting(arg0);
+        select_actor_lighting((s32)arg0);
         model_render_flags |= 1;
         TObjFish::set_global_param(*(s32 *)&this->texture_id);
         push_matrix_from(0);
-        translate_matrix_vec3(0, (u8 *)&this->position);
+        translate_matrix_vec3((u8 *)(0), (u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TObjPlayer::set_global_flag();
         if ((s32) this->m_394 != 0) {
-            draw_chunk_object(*(s32 *)&this->model);
+            draw_chunk_object((void *)(*(s32 *)&this->model));
         } else {
             ((TObjEneRe7Berura *)arg0)->draw();
         }

@@ -5,12 +5,12 @@ struct Obj_8020BBA0 { u8 pad[0xC]; Obj_8020BBA0 *next; u8 pad2[4]; Obj_8020BBA0 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void destroy_child_recursive__6TLobbyFPvPv(Obj_8020BBA0 *arg0, Obj_8020BBA0 *arg1);
-int get_current_floor(void);
-int create_floor_quest_thread(void);
-int clear_floor_event_flags(void);
+s32 get_current_floor(void);
+u8 *create_floor_quest_thread(void);
+void clear_floor_event_flags(void);
 int create_objects__6TLobbyFl(void);
 int attach_objects_by_id__6TLobbyFl(void);
-int init_switch_table(void);
+void init_switch_table(void);
 
 void destroy_child_recursive__6TLobbyFPvPv(Obj_8020BBA0 *arg0, Obj_8020BBA0 *arg1) {
     Obj_8020BBA0 *p = arg0->child;

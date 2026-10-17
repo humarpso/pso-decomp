@@ -157,11 +157,11 @@ s32 get_state_flag__9TMainTaskFv();
 struct O_8003C21C;
 u8 * sub_8003C21C__15TObjBoss2TunnelFv(O_8003C21C *self);
 s32 rotate_matrix_z(s32, s32);
-s32 translate_matrix(s32, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object(s32);
+void draw_ginja_object(void *child);
 extern Vec_8003B2EC boss2_tunnel_render_zero_vec[];
 extern s32 boss2_tunnel_model_index_table[];
 extern s32 boss2_tunnel_model_order_table[];
@@ -203,7 +203,6 @@ void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o);
 #define __nw__7TObjectFUl ((void * (*)(int))__nw__7TObjectFUl)
 #define init__13TUnk_804835D8Fv ((void (*)(void *, void *))init__13TUnk_804835D8Fv)
 #define enable_fog__15TObjBoss2TunnelFv ((void (*)(void *))enable_fog__15TObjBoss2TunnelFv)
-#define enable_fog__15TObjBoss2TunnelFPv ((void (*)(void *))enable_fog__15TObjBoss2TunnelFPv)
 void TObjBoss2Tunnel__sub_8003B2B0(void);
 void *__ct__7TObjectFP7TObject(void *, void *);
 
@@ -234,7 +233,7 @@ void render__15TObjBoss2TunnelFv(u8 *arg0) {
     if (o->f24 == 0 || o->f24 == 1) {
         push_matrix();
         translate_matrix(0, (0.0f), (0.0f), -o->f60);
-        draw_ginja_object(boss2_tunnel_instance->models[13].obj);
+        draw_ginja_object((void *)boss2_tunnel_instance->models[13].obj);
         pop_matrix();
     }
     if (o->f24 == 3) {
@@ -270,25 +269,25 @@ void render__15TObjBoss2TunnelFv(u8 *arg0) {
             translate_matrix(0, (0.0f), o->fac, (0.0f));
             rotate_matrix_z(0, o->fa0);
             translate_matrix(0, o->f98, (0.0f), (0.0f));
-            draw_ginja_object(boss2_tunnel_instance->models[18].obj);
-            draw_ginja_object(boss2_tunnel_instance->models[21].obj);
+            draw_ginja_object((void *)boss2_tunnel_instance->models[18].obj);
+            draw_ginja_object((void *)boss2_tunnel_instance->models[21].obj);
             pop_matrix();
             push_matrix();
             rotate_matrix_z(0, o->fa8);
             translate_matrix(0, o->f98, (0.0f), (0.0f));
-            draw_ginja_object(boss2_tunnel_instance->models[10].obj);
+            draw_ginja_object((void *)boss2_tunnel_instance->models[10].obj);
             pop_matrix();
             translate_matrix(0, (0.0f), (0.0f), (4e+02f));
             push_matrix();
             translate_matrix(0, (0.0f), o->fac, (0.0f));
             rotate_matrix_z(0, o->fa0);
             translate_matrix(0, o->f98, (0.0f), (0.0f));
-            draw_ginja_object(boss2_tunnel_instance->models[19].obj);
+            draw_ginja_object((void *)boss2_tunnel_instance->models[19].obj);
             pop_matrix();
             push_matrix();
             rotate_matrix_z(0, o->fa8);
             translate_matrix(0, o->f98, (0.0f), (0.0f));
-            draw_ginja_object(boss2_tunnel_instance->models[11].obj);
+            draw_ginja_object((void *)boss2_tunnel_instance->models[11].obj);
             pop_matrix();
             post_translate_matrix(&v);
         } else {
@@ -296,12 +295,12 @@ void render__15TObjBoss2TunnelFv(u8 *arg0) {
             translate_matrix(0, (0.0f), o->fac, (0.0f));
             rotate_matrix_z(0, o->fa0);
             translate_matrix(0, o->f98, (0.0f), (0.0f));
-            draw_ginja_object(boss2_tunnel_instance->models[boss2_tunnel_model_index_table[t]].obj);
+            draw_ginja_object((void *)(boss2_tunnel_instance->models[boss2_tunnel_model_index_table[t]].obj));
             pop_matrix();
             push_matrix();
             rotate_matrix_z(0, o->fa8);
             translate_matrix(0, o->f98, (0.0f), (0.0f));
-            draw_ginja_object(boss2_tunnel_instance->models[boss2_tunnel_model_order_table[t]].obj);
+            draw_ginja_object((void *)(boss2_tunnel_instance->models[boss2_tunnel_model_order_table[t]].obj));
             pop_matrix();
             post_translate_matrix(&v);
         }
@@ -634,7 +633,6 @@ void TObjBoss2Tunnel::update_particles() {
 #undef __nw__7TObjectFUl
 #undef init__13TUnk_804835D8Fv
 #undef enable_fog__15TObjBoss2TunnelFv
-#undef enable_fog__15TObjBoss2TunnelFPv
 
 struct S_8003C21C { u8 pad[0x1f]; u8 x; };
 

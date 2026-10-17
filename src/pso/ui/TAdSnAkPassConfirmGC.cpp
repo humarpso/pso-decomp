@@ -37,7 +37,7 @@ struct Obj_8032C004 { s32 f0; u8 pad[0x14]; void *vt; u8 pad2[0x48 - 0x1C]; s32 
 extern "C" {
 void *__nw__7TObjectFUl(u32);
 void __ct__10TAdTitleGCFP7TObjectl(void *, void *, int);
-void TAdYesNoBaseGC__ct(void *);
+void *TAdYesNoBaseGC__ct(void *arg0);
 extern u8 lbl_804772C0[];
 extern u8 lbl_804772C8[];
 extern u8 lbl_804772D0[];
@@ -48,9 +48,9 @@ int TAdSnAkPassConfirmGC__vt4(void* p);
 int TAdSnAkPassConfirmGC__vt5(void* p);
 void TAdSnAkPassConfirmGC__vt8(void);
 void *__dt__20TAdSnAkPassConfirmGCFv(void *arg0, s16 arg1);
-int get_localized_text_entry(void*, void*);
-void __dt__14TAdYesNoBaseGCFv(void *, int);
-int TWindow__close(void*);
+s32 get_localized_text_entry(s32 arg0, s32 arg1);
+void *__dt__14TAdYesNoBaseGCFv(void *arg0, s16 arg1);
+void TWindow__close(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 void queue_destruction__7TObjectFv(void *);
 int request_transition__21TAdMultiChgGameModeGCFv(void*);
@@ -63,9 +63,9 @@ void TAdSnAkPassConfirmGC::render() {
     o->m10();
 }
 
-void TAdSnAkPassConfirmGC__vt8(void) { get_localized_text_entry((void*)39, (void*)0); }
-void TAdSnAkPassConfirmGC::vfunc_9() { if (*(unsigned int *)&this->m_48 != 0) { TWindow__close(*(void* *)&this->m_48); *(int *)&this->m_48 = 0; } }
-void TAdSnAkPassConfirmGC::vfunc_8() { if (*(unsigned int *)&this->m_48 != 0) { TWindow__close(*(void* *)&this->m_48); *(int *)&this->m_48 = 0; } }
+void TAdSnAkPassConfirmGC__vt8(void) { get_localized_text_entry((s32)((void*)39), (s32)((void*)0)); }
+void TAdSnAkPassConfirmGC::vfunc_9() { if (*(unsigned int *)&this->m_48 != 0) { TWindow__close((u8 *)(*(void* *)&this->m_48)); *(int *)&this->m_48 = 0; } }
+void TAdSnAkPassConfirmGC::vfunc_8() { if (*(unsigned int *)&this->m_48 != 0) { TWindow__close((u8 *)(*(void* *)&this->m_48)); *(int *)&this->m_48 = 0; } }
 int TAdSnAkPassConfirmGC__vt5(void* p) { return request_transition__21TAdMultiChgGameModeGCFv(p); }
 int TAdSnAkPassConfirmGC__vt4(void* p) { return set_state_0x1a__21TAdMultiChgGameModeGCFv(p); }
 

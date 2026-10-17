@@ -27,14 +27,14 @@ f32 get_scale_factor__10TObjPlayerFv(f32);
 s32 TObjLight__sub_801337F8(s32);
 s32 scale_matrix(int, f32, f32, f32);
 f32 vector_length(void *);
-s32 translate_matrix_vec3(int, void *);
+void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 s32 rotate_matrix_y(int, int);
 s32 subtract_vector(void *, void *);
 s32 rotate_matrix_x(int, int);
 s32 normalize_vector(void *);
 s32 push_matrix();
 s32 pop_matrix();
-s32 draw_chunk_object(void *);
+void draw_chunk_object(void *child);
 extern const f64 lbl_80435A50[];
 extern G_800367C4 *lbl_805D4BA4;
 extern s32 current_scene_light;
@@ -59,7 +59,7 @@ void TBoss2Fin::render() {
     for (; seg->n >= 2; pt++, seg++, ang++) {
         for (j = seg->n - 1; j > 0; j--, pt++) {
             push_matrix();
-            translate_matrix_vec3(0, pt);
+            translate_matrix_vec3((u8 *)(0), (u8 *)pt);
             VecCopy((Vec *)&v, (const Vec *)(pt + 1));
             subtract_vector(&v, pt);
             if (TBoss2Fin__data_805D8450 == vector_length(&v)) {

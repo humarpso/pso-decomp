@@ -39,8 +39,8 @@ struct Obj_802FFE58 {
 };
 
 extern "C" {
-s32 get_localized_text_entry(int, int);
-s32 TAdSinglePlyChrSelectGC__sub_801334DC(int);
+s32 get_localized_text_entry(s32 arg0, s32 arg1);
+s32 TAdSinglePlyChrSelectGC__sub_801334DC(void *p);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 extern RecoveredGlobal_802FFCE4_lbl_8050E208 controller_input_state;
@@ -93,12 +93,12 @@ void TAdMultiChgGameModeGC::run_task() {
   s32 *new_var;
   s32 temp_r4;
   TAdMultiChgGameModeGC::set_default_camera();
-  arg0->field_20 = TAdSinglePlyChrSelectGC__sub_801334DC((int) arg0->field_2C);
+  arg0->field_20 = TAdSinglePlyChrSelectGC__sub_801334DC((void *)arg0->field_2C);
   temp_r4 = arg0->field_20;
   new_var = &arg0->field_2C;
   if (((s32) arg0->field_24) != temp_r4)
   {
-    ((TAdMultiPlyChrSelectGC *)((int) arg0->field_28))->set_entry_value((int) 0, (int) get_localized_text_entry((int) 0x21, (int) arg0->field_20));
+    ((TAdMultiPlyChrSelectGC *)((int) arg0->field_28))->set_entry_value((int) 0, (int) get_localized_text_entry((int) 0x21, arg0->field_20));
   }
   if ((TWindowShortListCtrl__check_controller_button((void *) (((u8 *) (&controller_input_state.value)) + 0x20), (int) 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) (((u8 *) (&controller_input_state.value)) + 0x160), (int) 2) != 0))
   {
@@ -107,7 +107,7 @@ void TAdMultiChgGameModeGC::run_task() {
   else
     if (1 == ((TAdSinglePlyChrSelectGC *)((int) arg0->field_2C))->get_selected_slot())
   {
-    temp_r3 = TAdSinglePlyChrSelectGC__sub_801334DC((int) (*new_var));
+    temp_r3 = TAdSinglePlyChrSelectGC__sub_801334DC((void *)(*new_var));
     switch (temp_r3)
     {
       case 0:

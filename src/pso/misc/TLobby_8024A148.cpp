@@ -4,7 +4,7 @@
 
 extern "C" {
 
-s32 get_character_save_record(s32);
+s32 get_character_save_record(u32 arg0);
 s32 TLobby__sub_80077798(s32, s32 *);
 s32 open_hard_keyboard__6TLobbyFPv(s32);
 

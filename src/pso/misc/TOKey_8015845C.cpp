@@ -24,7 +24,7 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
-s32 draw_chunk_object(int);
+void draw_chunk_object(void *child);
 s32 draw_model_motion(int, int, f32);
 extern const f32 lbl_805DB2E8;
 extern const f32 lbl_805DB2EC;
@@ -57,9 +57,9 @@ void TUnk_804AFBF8::render() {
                 draw_model_motion((int) (*(s32 *)&this->model), (int) (temp_r4), (f32) (this->m_b0));
             }
         } else if (temp_r3 == 1) {
-            draw_chunk_object((int) (*(s32 *)&this->model));
+            draw_chunk_object((void *)(*(s32 *)&this->model));
         } else {
-            draw_chunk_object((int) (*(s32 *)&this->model));
+            draw_chunk_object((void *)(*(s32 *)&this->model));
         }
         pop_matrix();
     }

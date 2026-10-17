@@ -78,7 +78,7 @@ void * __dt__13TUnk_804999D0Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, int);
 void __ct__7TObjectFP7TObject(void *);
-u32 TWindowCtrlMain__sub_8024CD5C(s32);
+s32 TWindowCtrlMain__sub_8024CD5C(s32 viewport_index);
 u32 prs_decompress(int, int, int, int);
 u32 reset_counters__6TLobbyFv();
 void set_cached_blend_factor(s32, s32);

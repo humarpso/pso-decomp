@@ -13,7 +13,7 @@ extern const float lbl_805DA350;
 extern const f32 lbl_805DA354;
 extern const f32 lbl_805DA358;
 s32 TObjEneMe3SinowZoa__sub_800D72A4(O_800D72A4 *self);
-int set_chunk_blend(int);
+void set_chunk_blend(u32 x);
 
 s32 TObjEneMe3SinowZoa__sub_800D72A4(O_800D72A4 *self) {
     return self->f18 > (*(const f32 *)&lbl_805DA348) && self->f18 < lbl_805DA34C;
@@ -125,7 +125,7 @@ void TObjEneMe3SinowZoa__sub_800D758C(V_800D758C *self) {
 }
 
 void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
-s32 __dt__13TUnk_80494AE0Fv(void *, s16);
+void *__dt__13TUnk_80494AE0Fv(void *arg0, s16 arg1);
 
 extern s32 lbl_80494938[];
 

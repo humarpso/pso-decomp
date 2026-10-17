@@ -11,7 +11,7 @@ s32 TWindowKeyBoardSoft__sub_80260E30(void *, s32);
 s32 sub_80244994__13TUnk_804CE018Fv();
 s32 update_fade__13TUnk_804CE018Fv(void *);
 s32 initialize_subwindow__9TWindowDDFv(void *);
-s32 is_player_input_active(s16);
+s32 is_player_input_active(s32 param_1);
 
 extern const f32 lbl_805DD0D4;
 

@@ -16,7 +16,7 @@ void TObjPlayer__sub_801BE838(void* p, u8 v);
 void TObjPlayer__sub_801BE864(void* p, u8 v);
 int TObjPlayer__sub_801BEABC(void* p);
 int check_flag__10TObjPlayerFl(void*, int);
-int TObjPlayer__sub_8011E204(void*, int);
+void TObjPlayer__sub_8011E204(void *arg0, s32 arg1);
 int TObjPlayer__sub_801BED70(void*);
 int TObjPlayer__sub_801BED78(void*);
 int TObjPlayer__sub_801BED80(void*);
@@ -92,7 +92,7 @@ void TObjPlayer::clamp_nested_index() {
     TObjPlayer::clamp_index_to_max(*(s32 *)((s8 *)(*(void * *)&this->m_2b0) + 0x18));
 }
 void TObjPlayer__sub_801BE9A8(s32 arg0) {
-    TObjPlayer__sub_8011E204((void*)(arg0), 0x20000);
+    TObjPlayer__sub_8011E204((void *)(arg0), 0x20000);
 }
 void set_flag_20000__10TObjPlayerFi(s32 arg0) {
     ((TObjPlayer *)arg0)->set_state_flags(0x20000);

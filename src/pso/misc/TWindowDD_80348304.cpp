@@ -18,9 +18,9 @@ extern "C" {
 s32 copy_chat_entry__9TWindowDDFPvPv(int, void *);
 s32 reset_selection__9TWindowDDFv(void *, void *);
 void TWindowDD__sub_803484C4(u8 *arg0);
-int TWindowDD__sub_8034B008(s32, s32);
+s32 TWindowDD__sub_8034B008(s32 arg0, s32 arg1);
 void TWindowDD__sub_80348448(s32 arg0, s16 arg1);
-s32 TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 s32 is_flag_set__6TLobbyFv();
 int TWindowDD__sub_80348424(s32 _w0, s32 _w1);
 s32 TWindowDD__sub_8034435C();
@@ -76,10 +76,10 @@ s32 TWindowDD::get_word_select_context() {
     return (*(s32 *)&this->m_bc != 0 ? 1 : 0) + 2;
 }
 
-int TWindowDD__sub_80348424(s32 _w0, s32 _w1) { return TWindowDD__sub_8034B008((s32)((void*)(1)), (s32)(_w1)); }
+int TWindowDD__sub_80348424(s32 _w0, s32 _w1) { return TWindowDD__sub_8034B008((s32)((void*)(1)), (_w1)); }
 
 void TWindowDD__sub_80348448(s32 arg0, s16 arg1) {
-    TWindowDD__sub_8034B008((s32)(0), (s32)((s32) arg1));
+    TWindowDD__sub_8034B008((0), ((s32) arg1));
 }
 
 s32 TWindowDD::get_mode_code() {
@@ -107,26 +107,26 @@ void TWindowDD::close_all_windows() {
     W_80348520 *w = (W_80348520 *)this;
     s32 i;
     if (w->f84 != NULL) {
-        TWindow__close(w->f84);
+        TWindow__close((u8 *)w->f84);
         w->f84 = NULL;
     }
     if (w->f80 != NULL) {
-        TWindow__close(w->f80);
+        TWindow__close((u8 *)w->f80);
         w->f80 = NULL;
     }
     if (w->f7c != NULL) {
-        TWindow__close(w->f7c);
+        TWindow__close((u8 *)w->f7c);
         w->f7c = NULL;
     }
     for (i = 0; i < 6; i++) {
         if (w->a[i] != NULL) {
-            TWindow__close(w->a[i]);
+            TWindow__close((u8 *)w->a[i]);
             w->a[i] = NULL;
         }
     }
     for (i = 7; i >= 0; i--) {
         if (w->b[i] != NULL) {
-            TWindow__close(w->b[i]);
+            TWindow__close((u8 *)w->b[i]);
             w->b[i] = NULL;
         }
     }

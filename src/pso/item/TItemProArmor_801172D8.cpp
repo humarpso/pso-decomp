@@ -5,8 +5,8 @@
 extern "C" {
 
 void *__dt__13TUnk_8049FE00Fv(void *arg0, s16 arg1);
-s32 add_actor_tp(s32, s32);
-void __dt__11TItemObjectFv(void *, int);
+s32 add_actor_tp(u8 *arg0, s32 arg1);
+void *__dt__11TItemObjectFv(void *arg0, s16 arg1);
 s32 calc_armor_value__13TItemProArmorFv(void *);
 s32 calc_scaled_offset__13TItemProArmorFv(void *);
 u8 get_slot_count__14TItemProShieldFv();
@@ -28,7 +28,7 @@ void TItemProArmor::apply_armor_stat() {
         stat_value = get_stat_value();
         break;
     }
-    add_actor_tp(*(s32 *)&this->m_f0, stat_value);
+    add_actor_tp((u8 *)(*(s32 *)&this->m_f0), stat_value);
 }
 
 extern s32 lbl_8049FE00[];

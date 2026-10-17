@@ -10,7 +10,7 @@ struct E_8029BCB4 { u8 b[0x14]; };
 struct T_8029BCB4 { u8 b[0x20]; };
 
 extern "C" {
-s32 begin_screen_draw(int);
+void begin_screen_draw(s32 arg0);
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(void *, void *);
 extern T_8029BCB4 TAdRayGC_ray_quad_table[];
@@ -18,7 +18,7 @@ extern s32 TAdRayGC__ray_texture_list;
 extern const f32 lbl_805DDD10;
 void *__ct__8TAdRayGCFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
-s32 set_cached_blend_factor(s32, s32);
+void set_cached_blend_factor(s32 arg0, s32 arg1);
 s32 queue_destruction__7TObjectFv();
 
 void TAdRayGC::draw_ray_quads(s32 arg0, u8 *arg1, void *arg2, s32 arg3) {

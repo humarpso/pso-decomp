@@ -9,8 +9,8 @@ struct RecoveredGlobal_802A9880___vt__9TTecKafun { s32 value; u8 remaining[0x24]
 typedef char RecoveredGlobal_802A9880___vt__9TTecKafun_size[sizeof(RecoveredGlobal_802A9880___vt__9TTecKafun) == 0x28 ? 1 : -1];
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
-s32 spawn_particle_effect(void *, int);
+void queue_destruction__7TObjectFv(void *arg0);
+void *spawn_particle_effect(void *pos, s32 id);
 u32 find_entity_by_id(int);
 u16 obj_getField1c(void *);
 s32 play_sound_effect(s32, u32, s16, s32);
@@ -37,20 +37,20 @@ void TTecKafun::render() {  }
 void TTecKafun::run_task() {
     u8 *arg0 = (u8 *)this;
     if ((u32) this->m_e8 == 0U) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     this->source = find_entity_by_id((int) (this->m_b4));
     if ((u32) this->source == 0U) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
-    spawn_particle_effect((void *) (arg0 + 0x20), (int) (*(s32 *)&this->m_f0));
+    spawn_particle_effect((arg0 + 0x20), (*(s32 *)&this->m_f0));
     if ((s32) *(s32 *)&this->m_fc == 1) {
-        spawn_particle_effect((void *) (arg0 + 0x20), (int) (*(s32 *)&this->m_f4));
+        spawn_particle_effect((arg0 + 0x20), (*(s32 *)&this->m_f4));
     }
     ((TUnk_804CC148 *)arg0)->apply_technique_to_area_targets();
-    queue_destruction__7TObjectFv((void *) (arg0));
+    queue_destruction__7TObjectFv((arg0));
 }
 
 u8 *TTecKafun__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s16 arg6, f32 farg0, f32 farg1) {

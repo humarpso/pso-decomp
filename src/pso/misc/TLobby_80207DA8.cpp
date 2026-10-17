@@ -517,7 +517,7 @@ void bswap_floor_event_set(s32 idx);
 void clear_floor_event_flags(void);
 void TLobby__sub_80208884(void* a0);
 void create_empty_floor_event(void);
-s32 show_partner_chatter_for_key(s16);
+void show_partner_chatter_for_key(s16 key);
 s32 __ct__14TSetEvtDestroyFP7TObjectP21SetDestroyEventRecord(void *, s32, void *);
 void *__nw__7TObjectFUl(s32);
 
@@ -856,7 +856,7 @@ u8 * __ct__5THeapFUli(void *, s32, s32);
 u8 *__nw__5THeapFUl(s32);
 #define area_event_set_heap (*(int *)&area_event_set_heap)
 void close_gsl_archive();
-void open_gsl_archive(void *);
+void open_gsl_archive(char *name);
 extern u8 lbl_8044BAD0[];
 #define lobby_slot_ptr_table (*(s32 (*)[1])&lobby_slot_ptr_table)
 extern s32 lbl_805D6098;
@@ -873,7 +873,7 @@ void TLobby::load_set_event_gsl() {
     }
     (*(s32 *)&set_event_destroy_id) = -1;
     lbl_805D6098 = 0;
-    open_gsl_archive(lbl_8044BAD0);
+    open_gsl_archive((char *)lbl_8044BAD0);
     if (TLobby::load_all_floor_event_sets() == 0) {
         close_gsl_archive();
         return;

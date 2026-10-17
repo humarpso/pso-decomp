@@ -24,7 +24,7 @@ struct Fence_80193188 { u8 pad0[0x8C]; s32 f8C; u8 pad90[0x2C]; Node_80193188 *f
 extern "C" {
 void rotate_matrix_y(int, void *);
 void push_matrix(void);
-void pop_matrix(void);
+s32 pop_matrix(void);
 void post_translate_matrix(void *);
 void draw_ginja_object(void *);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
@@ -37,7 +37,7 @@ Node_80193188 *get_bml_model(s32, s32);
 extern s32 lazer_fence_norm_bml_resource;
 f32 xz_distance_squared(void *, s32);
 s16 update_object_view_visibility__13TUnk_804B9870Fff(void *, f32, f32);
-s32 set_indexed_flags(void *, s32, s32);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
 
 extern s32 camera_ctrl_instance;
 

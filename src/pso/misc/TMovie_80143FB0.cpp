@@ -42,7 +42,7 @@ struct Movie_80143FB0 {
 
 extern "C" {
 
-s32 TMovie__sub_80143C94(int, int, int);
+void TMovie__sub_80143C94(int a0, int a1, int a2);
 s32 flush_framebuffer(void *, void *, void *);
 extern s32 (*TMovie__decode_frame_callback)(void **, u32 *);
 extern s32 (*lbl_805D6B3C)(void **);
@@ -118,7 +118,7 @@ s32 TMovie::decode_frame() {
     TMovie__decode_frame_callback(*(void ** *)&this->m_flags, &frame.field_00);
     if (frame.field_00 != 0U) {
         if ((s32) *(s32 *)((s8 *)arg0 + 0xCC) != 0) {
-            TMovie__sub_80143C94((int) (frame.field_00), (int) (frame.field_08), (int) (frame.field_0c));
+            TMovie__sub_80143C94((frame.field_00), (frame.field_08), (frame.field_0c));
         } else {
             flush_framebuffer((void *) (arg0), (void *) (*(void ** *)&this->m_flags), (void *) (&frame.field_00));
         }

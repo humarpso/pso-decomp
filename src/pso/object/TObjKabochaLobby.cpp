@@ -46,7 +46,7 @@ extern "C" {
 
 s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);
-s32 draw_ginja_object(int);
+void draw_ginja_object(void *child);
 void *TObjKabochaLobby__ct(void *arg0, s32 arg1, s32 arg2);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
@@ -77,7 +77,7 @@ void TObjKabochaLobby::render() {
             temp_f1 = *(f32 *)&this->unk_CC;
             scale_matrix((int) (0), (f32) (temp_f1), (f32) (1.0f), (f32) (temp_f1));
         }
-        draw_ginja_object((int) (*(s32 *)&this->model));
+        draw_ginja_object((void *)(*(s32 *)&this->model));
         pop_matrix();
         TParticleCtrl::end_effect_render();
     }

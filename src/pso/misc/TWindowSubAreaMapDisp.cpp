@@ -23,21 +23,21 @@ struct RecoveredGlobal_80271D00___vt__21TWindowSubAreaMapDisp {
 
 extern "C" {
 extern const f32 lbl_805DD4F0;
-s32 mem_free(void *);
+void mem_free(void *p);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_80271C6C___vt__21TWindowSubAreaMapDisp __vt__21TWindowSubAreaMapDisp;
 u8 *__dt__21TWindowSubAreaMapDispFv(u8 *arg0, s16 arg1);
-u8 *get_shared_text_buffer();
-s32 TQuestVmDownLoadServer__sub_8006EF6C(int);
+s32 *get_shared_text_buffer(void);
+s32 TQuestVmDownLoadServer__sub_8006EF6C(s32 arg0);
 u8 *get_floor_destination_name(s32);
 s32 mem_alloc(void *);
 s32 measure_string_len__20TWindowSubStatusDispFv(int);
-s32 append_text_space();
-s32 append_padded_number(int, int);
-s32 text_builder_append(int);
-s32 text_builder_reset();
+void append_text_space(void);
+void append_padded_number(s32 v, u8 n);
+void text_builder_append(u8 *str);
+void text_builder_reset(void);
 s32 get_window_layout_position(int);
-s32 get_window_count_ratio_value();
+int get_window_count_ratio_value(void);
 s32 construct_type1_heading__20TWindowSubStatusDispFll(int, int, int);
 s32 get_game_play_mode();
 s32 strncpy(int, int, void *);
@@ -240,9 +240,9 @@ u8 *TWindowSubAreaMapDisp__ct(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubAreaMapDisp__name;
     if (get_game_play_mode() == 1) {
         text_builder_reset();
-        text_builder_append((int) (TQuestVmDownLoadServer__sub_8006EF6C((int) (0x67))));
+        text_builder_append((u8 *)(TQuestVmDownLoadServer__sub_8006EF6C((s32)(0x67))));
         append_text_space();
-        append_padded_number((int) (get_window_count_ratio_value()), (int) (2U));
+        append_padded_number((get_window_count_ratio_value()), (2U));
         var_r30 = (u8 *)(get_shared_text_buffer());
     } else {
         var_r30 = (u8 *)(get_floor_destination_name(TOKeyMachine01::get_global_state()));

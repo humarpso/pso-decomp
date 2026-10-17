@@ -25,7 +25,7 @@ struct Ply_800F7118 {
 };
 
 extern "C" {
-u8 *get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 u16 obj_getField1c(void *);
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
@@ -425,9 +425,9 @@ s32 obj_testFlags30(void *, s32);
 void obj_setFlags30(void *, s32);
 s32 is_split_screen();
 s32 get_current_floor();
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 exchange_object_state__9TObjEnemyFls(void *, void *, int);
-s32 set_flag_3__7TObjectFv(int);
+void set_flag_3__7TObjectFv(void *arg0);
 s32 is_quest_active();
 s32 is_flag_set__6TLobbyFv();
 void subtractive_rng_seed(void *, s32);
@@ -440,7 +440,7 @@ void distribute_experience__9TObjEnemyFv(TObjPlayer_800F6B68 *self);
 void award_enemy_experience__9TObjEnemyFl(u8 *arg0, s32 arg1);
 void link_chain_nodes__10TObjPlayerFPvPvPv(void *arg0, Node_800F6E2C *arg1, Node_800F6E2C *arg2);
 void apply_by_index__9TObjEnemyFs(s16, void *);
-s32 clear_flag_3__7TObjectFv(int);
+void clear_flag_3__7TObjectFv(void *arg0);
 void init_6x9C_enemy_low_game_flags_packet(u8 *arg0);
 s32 get_attack_credit_slot_count(void *);
 f32 TLobby__sub_800F7A6C();
@@ -483,7 +483,7 @@ void TObjControl::run_task() {
     }
     if (TObjPlayer::check_demo_mode() == 0) {
         if (((EnemyControlDispatch *)(enemy))->m31() != 0) {
-            clear_flag_3__7TObjectFv((int) (enemy));
+            clear_flag_3__7TObjectFv((enemy));
             ((EnemyControlDispatch *)(enemy))->m61();
             return;
         }
@@ -495,10 +495,10 @@ void TObjControl::run_task() {
                 submit_cursor_candidate((int) (enemy), (int) (-1));
                 minimap_render_dot((void *) (enemy + 0x38), (int) (-0x5DB4), (int) (1), (int) (0));
                 ((EnemyControlDispatch *)(enemy))->m26();
-                set_flag_3__7TObjectFv((int) (enemy));
+                set_flag_3__7TObjectFv((enemy));
                 return;
             }
-            clear_flag_3__7TObjectFv((int) (enemy));
+            clear_flag_3__7TObjectFv((enemy));
         }
         if (((EnemyControlDispatch *)(enemy))->m30() != 0) {
             ((EnemyControlDispatch *)(enemy))->m60();

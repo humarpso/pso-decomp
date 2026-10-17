@@ -103,7 +103,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_80149B0C_lbl_804A84B8 bm_n_hakase_i_body_resource_descriptor;
 extern u32 TObjNpcExpertBase__shared_resource;
-s32 construct_male_npc_base(void *);
+u8 *construct_male_npc_base(u8 *arg0);
 extern s32 __vt__17TObjNpcExpertBase[];
 extern s32 TObjNpcExpertBase__name;
 u8 *TObjNpcExpertBase__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -141,7 +141,7 @@ void *__dt__17TObjNpcExpertBaseFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_80149BB4___vt__17TObjNpcExpertBase_size[sizeof(RecoveredGlobal_80149BB4___vt__17TObjNpcExpertBase) == 0x178 ? 1 : -1];
 u8 *TObjNpcExpertBase__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_male_npc_base((void *) (arg0));
+    construct_male_npc_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80149BB4___vt__17TObjNpcExpertBase *)&__vt__17TObjNpcExpertBase).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcExpertBase__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);

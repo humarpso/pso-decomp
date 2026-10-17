@@ -84,7 +84,7 @@ extern const f32 lbl_805DF0E4;
 extern const f32 lbl_805DF0E8;
 
 extern const f32 TBoss7Crawfish__data_805DF0D8;
-s32 spawn_particle_effect(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
 s32 exchange_object_state__9TObjEnemyFls(void *, void *, int);
 s32 get_mode__11TCameraCtrlFPv(void *);
 f32 horizontal_distance_squared(void *, void *);
@@ -102,12 +102,12 @@ s32 play_sound_effect(s32, s32, s32, s32);
 int change_state__14TBoss7CrawfishFl(void*, int);
 int scale_current_matrix(void*);
 int post_translate_matrix(void*);
-s32 play_persistent_sound(s32, s32, s32, s32, s32);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 int rotate_matrix_yxz(void*, void*, void*, void*);
 int push_matrix(void);
 int pop_matrix(void);
 int draw__16TObjEneRe7BeruraFv(void*);
-int queue_destruction__7TObjectFv(void*);
+void queue_destruction__7TObjectFv(void *arg0);
 
 extern f32 lbl_805DF0C8;
 
@@ -170,7 +170,7 @@ block_5:
     return 1;
 }
 
-void TBoss7Crawfish::free_child() { if (*(unsigned int *)&this->m_3cc != 0) { queue_destruction__7TObjectFv((void*)(*(void* *)&this->m_3cc)); *(int *)&this->m_3cc = 0; } }
+void TBoss7Crawfish::free_child() { if (*(unsigned int *)&this->m_3cc != 0) { queue_destruction__7TObjectFv((*(void* *)&this->m_3cc)); *(int *)&this->m_3cc = 0; } }
 
 void TBoss7Crawfish::spawn_ground_effects() {
     u8 *arg0 = (u8 *)this;
@@ -178,8 +178,8 @@ void TBoss7Crawfish::spawn_ground_effects() {
     position.x = *(f32 *)((s8 *)arg0 + 0x38);
     position.y = TBoss7Crawfish__data_805DF0D8;
     position.z = *(f32 *)((s8 *)arg0 + 0x40);
-    spawn_particle_effect((void *) (&position.x), (int) (0x20D));
-    spawn_particle_effect((void *) (&position.x), (int) (0x20E));
+    spawn_particle_effect((&position.x), (0x20D));
+    spawn_particle_effect((&position.x), (0x20E));
 }
 
 #define arg0 ((s32)arg0_)
@@ -242,7 +242,7 @@ void TBoss7Crawfish::check_band_and_destroy() {
         spawn_ground_effects();
     }
     if (TBoss7Crawfish__data_805DF0D8 == ((TBoss7Crawfish *)arg0)->get_health()) {
-        queue_destruction__7TObjectFv((void*)(arg0));
+        queue_destruction__7TObjectFv((void *)(arg0));
     }
 }
 

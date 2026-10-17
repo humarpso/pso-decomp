@@ -177,7 +177,7 @@ extern s32 TQuestListVM__decompression_capacity;
 extern RecoveredGlobal_8033B9C4_lbl_80513910 download_rng_seed_pair;
 void seed_download_rng(s32 arg0);
 extern int evt2_random_enemies_mode;
-u8 * __ct__15TShopWindowBaseFv(void *);
+void *__ct__15TShopWindowBaseFv(void *arg0);
 extern s32 __vt__12TQuestListVM[];
 extern s32 TQuestListVM__class_name;
 extern s32 TQuestListVM__quest_data_output_cursor;
@@ -205,7 +205,7 @@ extern const f32 lbl_805DC6B8;
 extern const f32 lbl_805DC6BC;
 s32 TAdPlayerLoadGC__sub_801E1538(Dl_80218E94 *, s32);
 s32 poll_download__12TQuestListVMFv(void *);
-s32 TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 s32 get_selected_menu_value(void *);
 s32 calc_list_content_extent(void *);
 u32 set_window_mode_4__6TLobbyFPvll(int, void *, int);
@@ -226,11 +226,11 @@ struct VObj_802186E4_80218570 : Base_802186E4_80218570 {
 
 void TQuestVmDownLoadServer__sub_80219EC4(void* p);
 void *__dt__12TQuestListVMFv(void *arg0, s16 arg1);
-int TKeyBoardControl__sub_8000F950(void);
-s32 TLobby__sub_8001EDF4(s32 *);
+void TKeyBoardControl__sub_8000F950(void);
+void TLobby__sub_8001EDF4(u8 *arg0);
 s32 __dl__7TObjectFPv(void *);
-s32 __dt__15TShopWindowBaseFv(void *, s32);
-s32 queue_destruction__7TObjectFv(void *);
+void *__dt__15TShopWindowBaseFv(void *self, s16 m);
+void queue_destruction__7TObjectFv(void *arg0);
 
 s32 TQuestListVM::update_load_status() {
     s32 temp_r3;
@@ -254,19 +254,19 @@ s32 TQuestListVM::update_load_status() {
 
 void TQuestListVM::close_windows() {
     if ((u32) this->m_2378 != 0U) {
-        TWindow__close(*(void * *)&this->m_2378);
+        TWindow__close((u8 *)(*(void * *)&this->m_2378));
         this->m_2378 = 0U;
     }
     if ((u32) this->m_2380 != 0U) {
-        TWindow__close(*(void * *)&this->m_2380);
+        TWindow__close((u8 *)(*(void * *)&this->m_2380));
         this->m_2380 = 0U;
     }
     if ((u32) this->m_237c != 0U) {
-        TWindow__close(*(void * *)&this->m_237c);
+        TWindow__close((u8 *)(*(void * *)&this->m_237c));
         this->m_237c = 0U;
     }
     if ((u32) this->m_2374 != 0U) {
-        TWindow__close(*(void * *)&this->m_2374);
+        TWindow__close((u8 *)(*(void * *)&this->m_2374));
         this->m_2374 = 0U;
     }
 }
@@ -333,7 +333,7 @@ void TQuestListVM::update_close() {
     p = *(void * *)&this->m_2374;
     if ((p != NULL) && (((TLobby *)p)->get_flag_bit2() != 0)) {
         if ((u32) this->m_2380 != 0U) {
-            TWindow__close(*(void * *)&this->m_2380);
+            TWindow__close((u8 *)(*(void * *)&this->m_2380));
             this->m_2380 = 0U;
         }
         if ((u32) this->m_2374 != 0U) {
@@ -421,15 +421,15 @@ void TQuestListVM::handle_confirm_window() {
         if (((TWindowMenu *)(*(void * *)&this->m_2378))->is_visible() != 0) {
             switch (get_selected_menu_value(*(void * *)&this->m_2378)) {
             case 0:
-                TWindow__close(*(void * *)&this->m_2378);
+                TWindow__close((u8 *)(*(void * *)&this->m_2378));
                 *(void * *)&this->m_2378 = NULL;
                 ((TShopWindowBase *)arg0)->set_field_20((s32)0xB);
                 return;
             case 1:
-                TWindow__close(*(void * *)&this->m_2378);
+                TWindow__close((u8 *)(*(void * *)&this->m_2378));
                 *(void * *)&this->m_2378 = NULL;
                 if (*(void * *)&this->m_2380 != NULL) {
-                    TWindow__close(*(void * *)&this->m_2380);
+                    TWindow__close((u8 *)(*(void * *)&this->m_2380));
                     *(void * *)&this->m_2380 = NULL;
                 }
                 if (*(void * *)&this->m_2374 != NULL) {
@@ -444,10 +444,10 @@ void TQuestListVM::handle_confirm_window() {
             }
         }
         if (((TWindowSubComCard *)(*(void * *)&this->m_2378))->get_status_flag() != 0) {
-            TWindow__close(*(void * *)&this->m_2378);
+            TWindow__close((u8 *)(*(void * *)&this->m_2378));
             *(void * *)&this->m_2378 = NULL;
             if (*(void * *)&this->m_2380 != NULL) {
-                TWindow__close(*(void * *)&this->m_2380);
+                TWindow__close((u8 *)(*(void * *)&this->m_2380));
                 *(void * *)&this->m_2380 = NULL;
             }
             if (*(void * *)&this->m_2374 != NULL) {
@@ -577,7 +577,7 @@ void TQuestListVM::update_lobby_selection(void *arg0_) {
             send_and_handle__6TLobbyFii(arg0->f237C, arg0->recs[sel].name, 0x80);
             arg0->f236C = sel;
             if (arg0->f2380 != NULL) {
-                TWindow__close(arg0->f2380);
+                TWindow__close((u8 *)arg0->f2380);
                 arg0->f2380 = NULL;
             }
         }
@@ -900,19 +900,19 @@ void *__dt__12TQuestListVMFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void **) ((s8 *) arg0 + 0x18) = __vt__12TQuestListVM;
         if ((u32) ((TQuestListVM *)arg0)->m_2380 != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x2380));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x2380)));
             ((TQuestListVM *)arg0)->m_2380 = 0U;
         }
         if ((u32) ((TQuestListVM *)arg0)->m_237c != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x237C));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x237C)));
             ((TQuestListVM *)arg0)->m_237c = 0U;
         }
         if ((u32) ((TQuestListVM *)arg0)->m_2378 != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x2378));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x2378)));
             ((TQuestListVM *)arg0)->m_2378 = 0U;
         }
         if ((u32) ((TQuestListVM *)arg0)->m_2374 != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x2374));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x2374)));
             ((TQuestListVM *)arg0)->m_2374 = 0U;
         }
         if ((u32) ((TQuestListVM *)arg0)->m_2388 != 0U) {
@@ -920,7 +920,7 @@ void *__dt__12TQuestListVMFv(void *arg0, s16 arg1) {
             ((TQuestListVM *)arg0)->m_2388 = 0U;
         }
         quest_list_vm_instance = 0;
-        TLobby__sub_8001EDF4(TQuestListVM__data_8044BF20);
+        TLobby__sub_8001EDF4((u8 *)TQuestListVM__data_8044BF20);
         __dt__15TShopWindowBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

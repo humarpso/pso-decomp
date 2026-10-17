@@ -7,7 +7,7 @@ void *TOContainerAncientEnemyCommon__ct(void *arg0);
 void *__dt__29TOContainerAncientEnemyCommonFv(void *arg0, s16 arg1);
 void TOContainerAncientEnemy__ct(void *);
 void __dl__7TObjectFPv(void *);
-void __dt__23TOContainerAncientEnemyFv(void *, int);
+void *__dt__23TOContainerAncientEnemyFv(void *arg0, s16 arg1);
 
 extern s32 __vt__29TOContainerAncientEnemyCommon[];
 

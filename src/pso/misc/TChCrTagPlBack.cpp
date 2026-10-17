@@ -7,7 +7,7 @@ int TChCrTagPlBack__vt4(void);
 int render__14TChCrTagPlBackFv(void* p);
 void *__dt__8TChCrTagFv(void *self, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void update_fade__8TChCrTagFPv(void *);
+void update_fade__8TChCrTagFPv(u8 *arg0);
 void render_shadows__7TObjectFv(void *);
 void *__dt__14TChCrTagPlBackFv(void *self, s16 arg1);
 extern void *__vt__14TChCrTagPlBack[6];

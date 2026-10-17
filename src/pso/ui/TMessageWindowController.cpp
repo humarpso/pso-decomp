@@ -16,13 +16,13 @@ extern s32 local_client_id;
 const char *get_selected_entry__16TQuestListOnlineFv();
 const char *get_selected_quest_text__19TQuestListChallengeFv();
 s32 get_game_play_mode();
-const char *get_quest_name__12TQuestThreadFv();
+char *get_quest_name__12TQuestThreadFv(void);
 const char *get_guild_text(s32);
 const char *get_shop_text(s32);
-const char *get_appraisal_text(s32);
+s32 get_appraisal_text(s32 arg0);
 TWindowMessagePage *create__18TWindowMessagePageFllll(s32, s32, s32, s32);
 TWindowMessagePage *set_text__18TWindowMessagePageFlll(s32, s32, s32);
-void TWindow__close(TWindowMessagePage *);
+void TWindow__close(u8 *arg0);
 __declspec(section ".rodata") extern const char message_tag_error[];
 }
 struct MessageTagCommand {
@@ -185,7 +185,7 @@ void TMessageWindowController::format_shop_message(s32 index, s32 flags) {
 }
 void TMessageWindowController::close() {
     if (window != NULL) {
-        TWindow__close(window);
+        TWindow__close((u8 *)window);
         window = NULL;
     }
 }
@@ -213,7 +213,7 @@ TWindowMessagePage *TMessageWindowController::create_window(s32 x, s32 y) {
 }
 TMessageWindowController::~TMessageWindowController() {
     if (window != NULL) {
-        TWindow__close(window);
+        TWindow__close((u8 *)window);
         window = NULL;
     }
 }

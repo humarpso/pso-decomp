@@ -36,7 +36,7 @@ s32 draw_visible_window_entries(void *, void *, s32);
 s32 update_item_list_window();
 s32 draw_list_page_indicator(s32, s32);
 void __dl__7TObjectFPv(void *);
-void delete_if_allocated(void *, int);
+s32 delete_if_allocated(s32 arg0, s16 arg1);
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
 
 void TWindowSubShortCutList::refresh_entries() {
@@ -112,7 +112,7 @@ void TWindowSubShortCutList::run_task() {
 void *__dt__22TWindowSubShortCutListFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TWindowSubShortCutList;
-        delete_if_allocated(*(void **)((s8 *)arg0 + 0x88), 1);
+        delete_if_allocated((s32)(*(void **)((s8 *)arg0 + 0x88)), 1);
         ((TWindowSubStatusDisp *)arg0)->destroy_item_list_resources(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

@@ -25,10 +25,10 @@ extern u8 *tl_04;
 extern const f32 lbl_805D8904;
 u8 *__ct__17TObjVoloptShutterFv(u8 *arg0, s32 arg1);
 s32 rotate_matrix_y(s32, s32);
-s32 translate_matrix(s32, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
 s32 pop_matrix();
-s32 draw_chunk_model(s32);
+void draw_chunk_model(void *arg0);
 
 extern s32 volopt_shutter_model_a;
 extern s32 volopt_shutter_model_b;
@@ -96,9 +96,9 @@ void TObjVoloptShutter::render() {
     rotate_matrix_y(0, *(s32 *)((s8 *)this + 0x30));
     push_matrix();
     translate_matrix(0, TObjVoloptShutter__data_805D88F4, TObjVoloptShutter__data_805D88F4, *(f32 *)((s8 *)this + 0x2C));
-    draw_chunk_model(volopt_shutter_model_b);
+    draw_chunk_model((void *)volopt_shutter_model_b);
     translate_matrix(0, TObjVoloptShutter__data_805D88F4, *(f32 *)((s8 *)this + 0x28), TObjVoloptShutter__data_805D88F4);
-    draw_chunk_model(volopt_shutter_model_a);
+    draw_chunk_model((void *)volopt_shutter_model_a);
     pop_matrix();
     pop_matrix();
     TParticleCtrl::end_effect_render();

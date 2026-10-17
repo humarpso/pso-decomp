@@ -23,13 +23,13 @@ struct B_80338608 { u8 pad[0xC]; u32 col; };
 
 extern "C" {
 void TLobby__sub_803384D4(void);
-s32 prs_decompress_buffer(int, int);
+u32 prs_decompress_buffer(s32 arg0, s32 arg1);
 s32 set_stream_state__6TLobbyFi(void *, int);
 s32 load_gvm_texture_archive(int, void *);
 extern s32 lbl_80477BC4[];
 extern s32 lobby_request_flags;
 void TCameraCtrl__sub_80068EF0(void);
-void set_texture_num(s32);
+s32 set_texture_num(s32 i);
 void draw_projected_quads__15TObjBoss2TunnelFPvi(void *, s32);
 void TObjBoss2Tunnel__sub_803E2D10(s32);
 void draw_projected_textured_strip(void *, s32);
@@ -174,7 +174,7 @@ void TLobby::load_now_loading_texture() {
         temp_r31 = ((TQuestVmDownLoadServer *)0x11000)->alloc();
         temp_r3 = ((TQuestVmDownLoadServer *)0x2000)->alloc();
         set_stream_state__6TLobbyFi((void *) (lbl_80477BC4), (int) (temp_r3));
-        prs_decompress_buffer((int) (temp_r3), (int) (temp_r31));
+        prs_decompress_buffer((temp_r3), (temp_r31));
         load_gvm_texture_archive((int) (temp_r31), (void *) (lbl_804EF1DC));
         TAdSinglePlyChrSelectGC::safe_free((int) (temp_r3));
         TAdSinglePlyChrSelectGC::safe_free((int) (temp_r31));

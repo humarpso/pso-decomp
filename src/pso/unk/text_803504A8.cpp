@@ -4,15 +4,15 @@
 
 extern "C" {
 
-s32 get_quest_bgm_issued_flag();
+int get_quest_bgm_issued_flag(void);
 void *__nw__7TObjectFUl(s32);
-s32 fn_80350440(void *, void *, u32);
+u8 *fn_80350440(u8 *arg0, u8 *arg1, s32 arg2);
 extern void *tl_05;
 u8 get_slot_count__14TItemProShieldFv();
 void *__dt__13TUnk_804F0D34Fv(void *arg0, s16 arg1);
 void *fn_80350588(void *arg0);
 void TItemObject__ct(void *);
-void __dt__11TItemObjectFv(void *, int);
+void *__dt__11TItemObjectFv(void *arg0, s16 arg1);
 extern s32 item_object_dispatch_table[];
 
 void create_quest_bgm_object(s32 arg0, u32 arg1) {
@@ -25,7 +25,7 @@ void create_quest_bgm_object(s32 arg0, u32 arg1) {
     if (get_quest_bgm_issued_flag() == 0) {
         void *obj = __nw__7TObjectFUl(0x1C);
         if (obj != 0) {
-            fn_80350440(obj, tl_05, var_r31);
+            fn_80350440((u8 *)obj, (u8 *)tl_05, var_r31);
         }
     }
 }

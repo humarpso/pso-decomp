@@ -2,7 +2,7 @@
 #include "pso/system/vector.h"
 extern "C" {
 void queue_destruction__7TObjectFv(void*);
-s32 spawn_particle_effect(const Vec*, s32);
+void *spawn_particle_effect(void *pos, s32 id);
 extern const char* TEffGuard__class_name;
 s32 play_sound_effect(u32, const Vec*, s32, s32);
 }

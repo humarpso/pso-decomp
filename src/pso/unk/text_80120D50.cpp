@@ -16,12 +16,12 @@ struct V_80120D50 : Pad_80120D50 {
 extern "C" {
 u8 get_field_ed__5TItemFv(void *);
 s32 TItemEquipBase__ct(void *, void *, u8 *);
-u8 *lookup_item_pmt_record(void *);
+void *lookup_item_pmt_record(u8 *item);
 u8 get_weapon_class_motion_type(u8);
 s32 set_weapon_trail_joints(void *, int, int, int);
 s32 memcpy(void *, void *, int);
 s32 memset(void *, int, int);
-void create_gun_shot(void);
+s32 create_gun_shot(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
 extern void *__vt__11TItemWeapon[];
 extern s32 lbl_805D53EC;
 extern const f32 lbl_805DAC98;

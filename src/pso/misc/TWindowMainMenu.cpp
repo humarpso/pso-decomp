@@ -80,9 +80,9 @@ extern s32 lbl_805D3950;
 Win_802649C0 *TWindowMainMenu__ct(Win_802649C0 *arg0, void *arg1, s32 arg2);
 int test_keyboard_card_flag4(void* p);
 int park_selection__15TWindowMainMenuFPv(void*);
-int TWindow__close(void*);
+void TWindow__close(u8 *arg0);
 s32 is_split_screen();
-int window_request_show(void*);
+void window_request_show(void *arg0);
 
 void TWindowMainMenu4P::show_child_window() { if (*(unsigned int*)((char*)this + 0x1c) != 0) { window_request_show(*(void**)((char*)this + 0x1c)); ((TWindowMainMenu *)(*(void**)((char*)this + 0x1c)))->update_scaled_position(); } }
 void TWindowMainMenu::update_trade_submenu() { void* m = *(void**)((char*)this + 0x1c); if (m) ((TWindowLockOn *)m)->request_close(); }
@@ -98,7 +98,7 @@ void TWindowMainMenu::update_submenu() {
 void TWindowMainMenu::close_submenu(void* a1) { if (*(unsigned int*)((char*)this + 0x1c) != 0) { ((TWindowMainMenu *)(*(void**)((char*)this + 0x1c)))->pop_level(); ((TWindowMainMenu *)(*(void**)((char*)this + 0x1c)))->clear_menu_flags(); populate_menu__15TWindowMainMenuFPvPv((u8 *)((void*)(this)), (Ent_802646E4 *)((void*)(a1))); } }
 void TWindowMainMenu::refresh_submenu(void* a1) { if (*(unsigned int*)((char*)this + 0x1c) != 0) { park_selection__15TWindowMainMenuFPv(*(void**)((char*)this + 0x1c)); ((TWindowMainMenu *)(*(void**)((char*)this + 0x1c)))->clear_menu_flags(); populate_menu__15TWindowMainMenuFPvPv((u8 *)((void*)(this)), (Ent_802646E4 *)((void*)(a1))); } }
 
-void TWindowMainMenu::close() { if (*(unsigned int*)((char*)this + 0x1c) != 0) { TWindow__close(*(void**)((char*)this + 0x1c)); *(int*)((char*)this + 0x1c) = 0; } }
+void TWindowMainMenu::close() { if (*(unsigned int*)((char*)this + 0x1c) != 0) { TWindow__close((u8 *)(*(void**)((char*)this + 0x1c))); *(int*)((char*)this + 0x1c) = 0; } }
 
 void TWindowMainMenu::open_menu_with_entry(s16 arg1) {
     u32 temp_r31;

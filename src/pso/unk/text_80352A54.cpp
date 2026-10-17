@@ -14,7 +14,7 @@ struct Stack_80352A54 {
 
 extern "C" {
 u16 TObjPlayer__sub_80100474(void *);
-s32 replace_item_with_new_code(void *, void *);
+void replace_item_with_new_code(void *arg0, u32 arg1);
 void TUnk_804F0FF0::vfunc_44() {
     s32 arg0 = (s32)this;
     typedef char sp8_offset[(offsetof(Stack_80352A54, sp8) == 0x0) ? 1 : -1];
@@ -25,7 +25,7 @@ void TUnk_804F0FF0::vfunc_44() {
         stack.sp8 = 3;
         stack.sp9 = 0x17;
         stack.spA = TObjPlayer__sub_80100474((void *) (arg0));
-        replace_item_with_new_code((void *) (&stack.sp8), (void *) (arg0));
+        replace_item_with_new_code((&stack.sp8), (arg0));
     }
 }
 

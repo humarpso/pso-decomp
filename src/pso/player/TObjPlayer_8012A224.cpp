@@ -6,7 +6,7 @@ extern "C" {
 void s_rank_windmill_turn_blade(void* p);
 void s_rank_windmill_slow_down(void *arg0);
 int rotate_matrix_x(void*, void*);
-s32 advance_angle_wrap(void *, s32);
+void advance_angle_wrap(s32 *arg0, s32 arg1);
 s32 update_trail_slot__11TItemWeaponFPvi(void *, s32);
 s32 draw_weapon_model(void *);
 int get_player_list__10TObjPlayerFv(void*);
@@ -52,7 +52,7 @@ void TUnk_804A4848::update_attack() {
 
 void TUnk_804A4848::update_weapon() {
     u8 *arg0 = (u8 *)this;
-    advance_angle_wrap(arg0 + 0x1FC, *(s32 *)((s8 *)arg0 + 0x200));
+    advance_angle_wrap((s32 *)(arg0 + 0x1FC), *(s32 *)((s8 *)arg0 + 0x200));
 }
 
 }

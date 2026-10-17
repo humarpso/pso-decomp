@@ -5,7 +5,7 @@
 
 extern "C" {
 s32 is_handle_valid__10TObjPlayerFv();
-s32 TLobby__sub_802A0F70();
+void TLobby__sub_802A0F70(void);
 s32 TLobby__sub_802A5154();
 
 extern s32 TAdDialingGC__instance;

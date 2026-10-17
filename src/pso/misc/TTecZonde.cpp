@@ -153,8 +153,8 @@ void TTecZonde::render() {  }
 #pragma push
 #pragma fp_contract on
 
-s32 queue_destruction__7TObjectFv(void *);
-u8 *find_entity_by_id(u16);
+void queue_destruction__7TObjectFv(void *arg0);
+void *find_entity_by_id(u16 id);
 void update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 u8 *construct_helper_effect__11TTecGiZondeFPvPvPvPvi(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4);

@@ -109,7 +109,7 @@ extern "C" {
 extern u8 *photon_blast_shared_resource;
 extern u32 farlla_photon_blast_model_buffers;
 void create_farlla_photon_blast_model(void);
-s32 spawn_particle_effect(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
 s32 advance_animation_playback(void *);
 s32 find_entity_by_id(int);
 s32 spawn_photon_blast_attachment_effects(void *, int);
@@ -119,15 +119,15 @@ u32 __nw__7TObjectFUl(int);
 extern const f32 lbl_805DC1A0;
 extern const f32 lbl_805DC1A4;
 extern const f32 lbl_805DC1A8;
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 s32 scroll_strip_uvs(void *, s16, int);
 s32 clear_render_context__10TObjPlayerFv(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_chunk_material_override_pair(int, int);
-s32 set_chunk_material_color(void *);
+void set_chunk_material_override_pair(s32 arg0, s32 arg1);
+void set_chunk_material_color(f32 *arg);
 extern Color_801ABAA0 saved_model_draw_color;
 extern Color_801ABAA0 model_material_color;
 extern s32 lbl_805D5660;
@@ -144,8 +144,8 @@ void vec3_add_to(void *, void *);
 void rotate_vector_by_matrix(int, void *, void *);
 void subtract_vector(void *, void *);
 void normalize_vector(void *);
-void push_matrix_from(void *);
-void pop_matrices(int);
+s32 push_matrix_from(void *src);
+s32 pop_matrices(s32 arg0);
 extern const Packet_801AB6A0 photon_golla_concentrate_packet;
 extern u8 identity_matrix[];
 extern const float lbl_805DC188;
@@ -155,17 +155,17 @@ extern const f32 lbl_805DC194;
 extern const f32 lbl_805DC198;
 s32 spawn_concentrate__12TPhotonGollaFPv(void *arg0);
 Target_801AB868 *get_battle_param__10TObjPlayerFi(s32);
-f32 vec_squared_length(void *);
+f32 vec_squared_length(u8 *arg0);
 f32 vec3_dot(void *, void *);
 u16 obj_getField1c(void *);
 void queue_photon_blast_hit(u32, int, int, f32);
 extern const f32 lbl_805DC19C;
 void collect_hit_targets__12TPhotonGollaFPv(void *arg0);
-s32 destroy_buffer_pair(void*, s32);
+void *destroy_buffer_pair(void *arg0, s16 arg1);
 
 void TObjPlayer::destroy_buffers() {
     if ((u32) farlla_photon_blast_model_buffers != 0U) {
-        destroy_buffer_pair((void*)farlla_photon_blast_model_buffers, 1);
+        destroy_buffer_pair((void *)farlla_photon_blast_model_buffers, 1);
     }
     farlla_photon_blast_model_buffers = 0U;
 }
@@ -258,8 +258,8 @@ void collect_hit_targets__12TPhotonGollaFPv(void *arg0) {
                     subtract_vector(&selected_delta, &self->pos);
                     Vec_801AB868 candidate_delta = candidate->pos;
                     subtract_vector(&candidate_delta, &self->pos);
-                    selected_distance = vec_squared_length(&selected_delta);
-                    if (vec_squared_length(&candidate_delta) < selected_distance) {
+                    selected_distance = vec_squared_length((u8 *)&selected_delta);
+                    if (vec_squared_length((u8 *)&candidate_delta) < selected_distance) {
                         self->f1a8 = candidate;
                     }
                     owner = (Owner_801AB868 *)find_entity_by_id(self->owner_id);
@@ -322,7 +322,7 @@ void TPhotonGolla::render() {
         model_render_flags |= 0x200820;
         TObjPlayer::set_global_flag();
         set_chunk_material_override_pair(-1, 0x800);
-        set_chunk_material_color(&self->color);
+        set_chunk_material_color((f32 *)&self->color);
         ((TObjEneRe7Berura *)self)->draw();
         TObjPlayer::clear_global_state();
         chunk_polygon_flags_and_mask = lbl_805D5664;
@@ -371,7 +371,7 @@ void TPhotonGolla::run_task() {
     *(s16 *)((s8 *)arg0 + 0x14C) = (s16) (u8) *(s16 *)((s8 *)arg0 + 0x14C);
     if ((s32) *(s32 *)&this->unk_1C8 == 0x50) {
         VecCopy((Vec *)(arg0 + 0x1AC), (const Vec *)(this->m_148 + 0x44));
-        spawn_particle_effect((void *) (arg0 + 0x1AC), (int) (0x133));
+        spawn_particle_effect((arg0 + 0x1AC), (0x133));
         spawn_concentrate__12TPhotonGollaFPv((void *)((void *) (arg0)));
     }
     temp_r0 = *(s32 *)&this->unk_1C8;

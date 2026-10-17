@@ -11,7 +11,7 @@
 
 extern "C" {
 
-int TWindow__close(void*);
+void TWindow__close(u8 *arg0);
 void *__nw__7TObjectFUl(int);
 
     extern int player_unique_pair_entry_count;
@@ -170,7 +170,7 @@ int TObjOnlineEnding::get_instance() {  return player_unique_pair_entry_count; }
     extern unsigned char lbl_8050DAD0[];
 void*TObjOnlineEnding::get_attack_entry(int a0) {  return (char*)lbl_8050DAD0 + a0 * 8; }
 
-void TObjOnlineEnding::close_window() { if (*(unsigned int *)&this->m_154 != 0) { TWindow__close(*(void* *)&this->m_154); *(int *)&this->m_154 = 0; } }
+void TObjOnlineEnding::close_window() { if (*(unsigned int *)&this->m_154 != 0) { TWindow__close((u8 *)(*(void* *)&this->m_154)); *(int *)&this->m_154 = 0; } }
 
 }
 
@@ -213,20 +213,20 @@ struct Obj_802E4C70 {
 };
 
 extern "C" {
-u32 get_player_by_client_id(u16);
+void *get_player_by_client_id(s32 i);
 s32 activate_camera_mode(s32);
 s32 set_active_camera_pose_from_params(Cam_802E4E44 *);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 extern Vec_802E4E44 lbl_80472B9C;
 extern Vec_802E4E44 lbl_80472BA8;
-u32 calc_text_width(void *);
+u32 calc_text_width(char *s);
 s32 render_status_line__15TAdSubPlyItemGCFi(void *, int, f32, f32, f32);
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_model_motion(int, int, f32);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern const f32 online_ending_scene_scale;
 extern f32 online_ending_quad_y_offset;
 extern f32 online_ending_scene_z_offset;
@@ -284,7 +284,7 @@ void TObjOnlineEnding::render() {
     post_translate_matrix(lbl_804E3A38);
     scale_matrix(0, online_ending_scene_scale, lbl_805DE934, lbl_805DE934);
     TObjFish::set_global_param(arg0->f94);
-    draw_model_motion(arg0->f90, arg0->f98, arg0->f150);
+    draw_model_motion((void *)arg0->f90, (void *)arg0->f98, arg0->f150);
     pop_matrix();
     for (i = 0; i < arg0->count; i++) {
         e = &arg0->ent[i];
@@ -298,7 +298,7 @@ void TObjOnlineEnding::render() {
             }
             {
                 u8 *name = e->name;
-                u32 w = calc_text_width(name);
+                u32 w = calc_text_width((char *)name);
                 V2_802E4C70 v = online_ending_quad_vertices[i];
                 v.x -= (f32)(w >> 1);
                 render_status_line__15TAdSubPlyItemGCFi(name, -1, v.x, v.y, lbl_805DE940);
@@ -387,8 +387,8 @@ s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 void construct_world_actor_base(void *, void *);
-void play_area_music(void *);
-void fn_802E6218(void *);
+void play_area_music(char *name);
+void *fn_802E6218(void *arg0);
 void fn_802E6260();
 char *strncpy(char *, const char *, unsigned long);
 extern u8 lbl_80472BC0[];
@@ -431,7 +431,7 @@ void *TObjOnlineEnding__ct(void *arg0, void *parent) {
         SELF->ent[i].name[0] = 0;
     }
     for (i = 0; i < 4; i++) {
-        pl = (u8 *)((u32 (*)(s32))get_player_by_client_id)(i);
+        pl = (u8 *)get_player_by_client_id(i);
         if (pl != 0 && SELF->fA0 == ((TBoss3Volopt *)pl)->get_field_3e0()) {
             s32 c;
             e = &SELF->ent[SELF->count];
@@ -453,11 +453,11 @@ void *TObjOnlineEnding__ct(void *arg0, void *parent) {
     restore_player_cameras();
     switch (SELF->f9C) {
     case 0:
-        play_area_music(lbl_80472BC0);
+        play_area_music((char *)lbl_80472BC0);
         break;
     default:
     case 1:
-        play_area_music(lbl_80472BD0);
+        play_area_music((char *)lbl_80472BD0);
         break;
     }
     fn_802E6260();

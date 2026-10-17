@@ -44,10 +44,10 @@ s32 TItemLoad__sub_80110740(void* p);
 s32 TItemLoad__sub_80110748(void* p);
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 __ct__9TItemLoadFv(void *, s32);
-s32 mem_free(s32);
+void mem_free(void *p);
 
 void TItemLoad::free_all() {
-    mem_free(TItemLoad__model_slot_in_use);
+    mem_free((void *)TItemLoad__model_slot_in_use);
     if ((void *) TItemLoad__model_load_task_root != NULL) {
         ((VObj_801105AC *)TItemLoad__model_load_task_root)->m0(1);
     }

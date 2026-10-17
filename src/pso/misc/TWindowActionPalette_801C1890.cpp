@@ -17,7 +17,7 @@ struct C_801C1BA8 { u32 w[5]; };
 struct S_801C1BA8 { u8 a; u8 b; u8 c; u8 d; s32 e; C_801C1BA8 f; };
 
 extern "C" {
-s32 TLobby__send_and_handle_60(s32);
+void TLobby__send_and_handle_60(u8 *arg0);
 s32 read_be16_field2__10TObjPlayerFv();
 void TObjPlayer__sub_801C19C8(void* p, f32 v);
 s32 TLobby__sub_801C19D0(void* p);
@@ -30,7 +30,7 @@ int TWindowActionPalette__sub_801C1C20(void* p);
 int TObjPlayer__sub_801C1F50(void* p);
 int test_flags_any(void*, int);
 void TObjPlayer__sub_801C1F78(void* p, s16 v);
-int __dl__FPv();
+void __dl__FPv(void);
 void TObjPlayer__sub_801C18E0(void* p);
 s32 TWindowDuelResult__sub_801C19AC(f32 *arg0);
 void init_6x21_inter_level_warp_packet(u8 *arg0);
@@ -72,9 +72,9 @@ void init_6x21_inter_level_warp_packet(u8 *arg0) {
     *(s8 *)((s8 *)arg0 + 1) = 2;
 }
 
-void TObjPlayer::send_warp_packet() { bswap_warp_packet(); TLobby__send_and_handle_60((s32)(this)); }
+void TObjPlayer::send_warp_packet() { bswap_warp_packet(); TLobby__send_and_handle_60((u8 *)(this)); }
 
-void TObjPlayer__sub_801C18E0(void* p) { ((TObjPlayer *)p)->byteswap_set_position_cmd(); TLobby__send_and_handle_60((s32)(p)); }
+void TObjPlayer__sub_801C18E0(void* p) { ((TObjPlayer *)p)->byteswap_set_position_cmd(); TLobby__send_and_handle_60((u8 *)(p)); }
 
 void TObjPlayer::byteswap_set_position_cmd() {
     s32 arg0 = (s32)this;

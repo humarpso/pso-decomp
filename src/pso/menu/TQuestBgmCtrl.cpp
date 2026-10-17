@@ -7,8 +7,8 @@ TQuestBgmCtrl* TQuestBgmCtrl__instance;
 extern "C" const char* TQuestBgmCtrl__class_name;
 
 extern "C" {
-s32 get_register__12TQuestThreadFPvi(void *, int);
-s32 play_area_music(int);
+s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1);
+void play_area_music(char *name);
 extern s32 quest_mission_manager;
 extern void *quest_bgm_area_filename_table[];
 }
@@ -46,8 +46,8 @@ void TQuestBgmCtrl::defer_bgm(int index) {
 }
 
 void TQuestBgmCtrl::run_task() {
-    if (((s32) TQuestBgmCtrl__bgm_issued_flag == 0) && ((get_register__12TQuestThreadFPvi((void *) (quest_mission_manager), (int) (0xFF)) != 0) || ((s32) TQuestBgmCtrl__bgm_forced_flag != 0)) && ((s32) TQuestBgmCtrl__area_bgm_index > 0) && ((s32) TQuestBgmCtrl__area_bgm_index <= 0x11)) {
-        play_area_music((s32) quest_bgm_area_filename_table[TQuestBgmCtrl__area_bgm_index - 1]);
+    if (((s32) TQuestBgmCtrl__bgm_issued_flag == 0) && ((get_register__12TQuestThreadFPvi((u8 *)(quest_mission_manager), (0xFF)) != 0) || ((s32) TQuestBgmCtrl__bgm_forced_flag != 0)) && ((s32) TQuestBgmCtrl__area_bgm_index > 0) && ((s32) TQuestBgmCtrl__area_bgm_index <= 0x11)) {
+        play_area_music((char *)quest_bgm_area_filename_table[TQuestBgmCtrl__area_bgm_index - 1]);
         TQuestBgmCtrl__bgm_issued_flag = 1;
     }
 }

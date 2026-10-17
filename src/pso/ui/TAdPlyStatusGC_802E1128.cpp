@@ -15,8 +15,8 @@ struct Clock_802E11D4 { u8 pad0[0x1C]; s32 visible; Pt_802E11D4 pos; };
 
 extern "C" {
 char *get_localized_text_entry(s32, s32);
-u32 calc_text_width(void *);
-u32 TWindowSubStatusDisp__sub_80144E9C(void *);
+u32 calc_text_width(char *s);
+u32 TWindowSubStatusDisp__sub_80144E9C(char *s);
 int sprintf(char *, const char *, ...);
 extern char ply_status_date_format[];
 extern char ply_status_date_format_mdy[];
@@ -28,7 +28,7 @@ extern const f32 lbl_805DE8F0;
 extern const f32 lbl_805DE8F4;
 void TAdPlyStatusGC__sub_802E11BC(void* p);
 void TAdPlyStatusGC__sub_802E11C8(void* p);
-s32 TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 
 s32 TAdPlyStatusGC::get_field_498() { return *(s32*)((char*)this + 0x498); }
 void*TAdPlyStatusGC::get_chara_making_data() { return (char*)this + 0x1b8; }
@@ -52,7 +52,7 @@ extern s32 TAdPlyStatusGC__window_offset_index;
 void TAdPlyStatusGC::close_window(s32 arg1) {
     TAdPlyStatusGC__window_offset_index = arg1;
     if ((u32) this->m_6c != 0U) {
-        TWindow__close(*(void * *)&this->m_6c);
+        TWindow__close((u8 *)(*(void * *)&this->m_6c));
         this->m_6c = 0U;
     }
 }

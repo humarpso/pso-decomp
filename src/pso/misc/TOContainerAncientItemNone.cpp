@@ -7,9 +7,9 @@ extern "C" {
 void *__dt__26TOContainerAncientItemNoneFv(void *arg0, s16 arg1);
 void *TOContainerAncientItemNone__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
-void __dt__26TOContainerAncientItemRareFv(void *, int);
+void *__dt__26TOContainerAncientItemRareFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 void TOContainerAncientItemNone::vfunc_6(s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 1) {

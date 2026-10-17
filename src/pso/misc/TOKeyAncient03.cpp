@@ -77,7 +77,7 @@ extern RecoveredGlobal_8016BF68_lbl_80441B4C lbl_80441B4C;
 extern s32 enable_v2_features;
 void TOKeyCave01__vt16(s32 arg0);
 u8 *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
-s32 *mem_alloc(s32);
+void *mem_alloc(u32 size);
 s32 load_gvm_texture_file(void *);
 extern RecoveredGlobal_8016BC84_lbl_80441ACC lbl_80441ACC;
 extern RecoveredGlobal_8016BC84_lbl_804B2B30 bm_fs_obj_o_doorpanel_resource_descriptor;
@@ -97,8 +97,8 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_ginja_model(int);
-s32 set_chunk_material_color(void *);
+void draw_ginja_model(s32 model);
+void set_chunk_material_color(f32 *arg);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
@@ -106,9 +106,9 @@ void TOKeyAncient03__vt16(s32 arg0);
 void *__dt__14TOKeyAncient03Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
-void __dt__5TOKeyFv(void *, int);
+void *__dt__5TOKeyFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
-s32 mem_free(void*);
+void mem_free(void *p);
 
 void TOKeyAncient03::vfunc_19() {
     s32 arg0 = (s32)this;
@@ -180,28 +180,28 @@ void TOKeyAncient03::render() {
         rotate_matrix_y((int) (0), (int) (this->rotation_y));
         temp_r31 = *(u8 * *)&this->model;
         post_translate_matrix((void *) (temp_r31 + 8));
-        draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
+        draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
         if ((s32) *(s32 *)&this->m_d4 != 1) {
             temp_r4 = model_render_flags;
             lbl_805D5660 = temp_r4;
             model_render_flags = temp_r4 | 0x10;
-            set_chunk_material_color((u8 *)&this->m_e8);
+            set_chunk_material_color(&this->m_e8);
         }
         temp_r31_2 = *(u8 **)((s8 *)temp_r31 + 0x2C);
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x68));
         post_translate_matrix((void *) (temp_r31_2 + 8));
-        draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_2 + 4)));
+        draw_ginja_model((*(s32 *)((s8 *)temp_r31_2 + 4)));
         temp_r31_3 = *(u8 **)((s8 *)temp_r31_2 + 0x2C);
         push_matrix();
         post_translate_matrix((void *) (temp_r31_3 + 8));
         TParticleCtrl::begin_effect_render();
-        draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_3 + 4)));
+        draw_ginja_model((*(s32 *)((s8 *)temp_r31_3 + 4)));
         TParticleCtrl::end_effect_render();
         pop_matrix();
         pop_matrix();
         if ((s32) *(s32 *)&this->m_d4 != 1) {
-            set_chunk_material_color(chunk_material_color_half_alpha_f32);
+            set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
             model_render_flags = lbl_805D5660;
         }
         pop_matrix();
@@ -220,7 +220,7 @@ void TOKeyAncient03::cleanup_refs() {
     if ((void *) TOKeyAncient03__texture_variants != NULL) {
         TObjPlayer::free_if_valid(*(s32 *)((s8 *)TOKeyAncient03__texture_variants + 4));
         if ((void *) TOKeyAncient03__texture_variants != NULL) {
-            mem_free((void*)TOKeyAncient03__texture_variants);
+            mem_free(TOKeyAncient03__texture_variants);
             TOKeyAncient03__texture_variants = NULL;
         }
     }

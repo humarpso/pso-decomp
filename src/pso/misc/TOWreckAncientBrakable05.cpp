@@ -6,7 +6,7 @@ void *TOWreckAncientBrakable05__create(void *arg0);
 void *__dt__24TOWreckAncientBrakable05Fv(void *arg0, s16 arg1);
 void *TOWreckAncientBrakable05__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
-void __dt__22TOWreckAncientBrakableFv(void *, int);
+void *__dt__22TOWreckAncientBrakableFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 
 void *TOWreckAncientBrakable05__create(void *arg0) {

@@ -34,7 +34,7 @@ struct RecoveredGlobal_8026D40C___vt__17TWindowReturnCity
 extern "C" {
 void *get_player_by_client_id(s32);
 s32 get_floor_map_terrain(s32);
-s32 mark_area_change_pending();
+void mark_area_change_pending(void);
 s32 prepare_hospital_return__10TObjPlayerFv();
 s32 set_area__6TLobbyFl(void *, int, int);
 s32 send_inter_level_warp_all__10TNpcPlayerFl();
@@ -43,7 +43,7 @@ extern s32 lbl_805D55C0;
 extern int TWindowReturnCity__client_scan_index;
 void return_to_city_after_defeat(void);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-s32 fn_8024AC64(int);
+void fn_8024AC64(s32 arg0);
 s32 get_window_layout_position(int);
 void TWindowCtrl__sub_8026D4E8(void);
 s32 free_member__17TWindowSubComCardFv(int, int);
@@ -53,9 +53,9 @@ extern s32 __vt__17TWindowReturnCity[];
 extern s32 TWindowReturnCity__class_name;
 extern const f32 lbl_805DD2E8;
 u8 *TWindowReturnCity__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 u32 __nw__7TObjectFUl(s32);
-s32 TWindowReturnCity__sub_8024ACA8(s32);
+void TWindowReturnCity__sub_8024ACA8(s32 arg0);
 extern s32 tl_00;
 void TWindowReturnCity__sub_8026D4BC(void);
 void TWindowReturnCity__sub_8026D4C0(void);
@@ -165,7 +165,7 @@ u8 *TWindowReturnCity__ct(u8 *arg0, s32 arg1, s32 arg2) {
   temp_r31 = get_window_layout_position((int) 0x23);
   forward_slot_selection__16TAdChrSelASlotGCFPvPv((int) (*(s32 *)&((TWindowReturnCity *)arg0)->m_1c), (int) TWindowSubStatusDisp::get_message_10((int) 0x43), (int) temp_r31, (f32) lbl_805DD2E8);
   free_member__17TWindowSubComCardFv((int) (*(s32 *)&((TWindowReturnCity *)arg0)->m_1c), (int) 1);
-  fn_8024AC64((int) (*(s32 *)&((TWindowReturnCity *)arg0)->m_24));
+  fn_8024AC64((*(s32 *)&((TWindowReturnCity *)arg0)->m_24));
   TWindowCtrl::set_close_flag();
   TWindowCtrl__sub_8026D4E8();
   *(s32 *)&((TWindowReturnCity *)arg0)->m_20 = 0;

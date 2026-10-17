@@ -3,7 +3,7 @@
 
 extern "C" {
 
-s32 translate_matrix(s32, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 
 extern f32 lbl_805DAF7C;
 extern f32 lbl_805DAF80;

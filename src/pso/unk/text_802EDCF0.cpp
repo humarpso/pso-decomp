@@ -20,11 +20,11 @@ struct Obj_802EDCF0 {
 
 extern "C" {
 s32 __dt__7TObjectFv(void *, int);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 free_if_positive__13TBoss2DeRolLeFis(void *, int);
-s32 __dt__12TObjEneDD_STFv(void *, int);
+void *__dt__12TObjEneDD_STFv(void *arg0, s16 arg1);
 s32 delete_buffer__12TBoss8DragonFis(void *, int);
-s32 mem_free(s32);
+void mem_free(void *p);
 s32 __dl__7TObjectFPv(void *);
 extern s32 TBoss7DeRolLeC__vtable[];
 extern u32 boss7_joint_state;
@@ -44,7 +44,7 @@ u8 *__dt__14TBoss7DeRolLeCFv(u8 *arg0, s16 arg1) {
                 o->f788[i] = 0;
             }
         }
-        mem_free(o->f6D4);
+        mem_free((void *)o->f6D4);
         o->f6D4 = 0;
         if (o->f71C != 0) {
             queue_destruction__7TObjectFv(o->f71C);
@@ -66,7 +66,7 @@ u8 *__dt__14TBoss7DeRolLeCFv(u8 *arg0, s16 arg1) {
             queue_destruction__7TObjectFv(o->f6DC[i]);
             o->f6DC[i] = 0;
         }
-        mem_free(o->f6D8);
+        mem_free((void *)o->f6D8);
         ((TUnk_804AF8A0 *)arg0)->clear_obj_links();
         if (boss7_joint_state == (u32) arg0) {
             boss7_joint_state = 0;

@@ -45,7 +45,7 @@ void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
-void __dt__9TObjEnemyFv(void *, int);
+void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 
 void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

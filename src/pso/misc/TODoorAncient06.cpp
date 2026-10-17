@@ -18,7 +18,7 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object(s32);
+void draw_ginja_object(void *child);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 extern s32 TODoorAncient06__detached_model_nodes;
 extern const f32 lbl_805DB430;
@@ -30,7 +30,7 @@ s32 is_any_player_within_radius_xz(void *, f32);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern u8 *TODoorAncient06__texture_lists;
 extern const f32 lbl_805DB444;
-void *TODoorAncient06__ct(void *, void *, void *);
+u8 *TODoorAncient06__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);
 
 extern const f32 lbl_805DB440;
@@ -46,10 +46,10 @@ void TODoorAncient06::render() {
         if (((u32) *(u32 *)&this->m_bc != 0U) && (lbl_805DB43C != this->m_b0)) {
             draw_ginja_model_with_motion(*(s32 *)&this->model, *(s32 *)&this->m_bc, this->m_b0);
         } else {
-            draw_ginja_object(TODoorAncient06__detached_model_nodes);
-            draw_ginja_object(TODoorAncient06__detached_model_nodes + 0x38);
+            draw_ginja_object((void *)TODoorAncient06__detached_model_nodes);
+            draw_ginja_object((void *)(TODoorAncient06__detached_model_nodes + 0x38));
             TParticleCtrl::begin_effect_render();
-            draw_ginja_object(TODoorAncient06__detached_model_nodes + 0x70);
+            draw_ginja_object((void *)(TODoorAncient06__detached_model_nodes + 0x70));
             TParticleCtrl::end_effect_render();
         }
         pop_matrix();
@@ -92,7 +92,7 @@ void TODoorAncient06::play_proximity_sound() {
 void *TODoorAncient06::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD4);
     if (o != NULL) {
-        o = TODoorAncient06__ct(o, tl_05, arg0);
+        o = TODoorAncient06__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

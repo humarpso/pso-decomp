@@ -151,12 +151,12 @@ void reset_globals2__19TQuestListChallengeFv(void);
 void reset_globals__19TQuestListChallengeFv(void);
 s32 prepare_offline_quest_filenames(s32, s32);
 void *TObjControl__ct(void *, void *);
-void *TObjNpcKenkyu__ct(void *, void *, void *);
+u8 *TObjNpcKenkyu__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_selected_menu_value(u32);
 s32 __dl__7TObjectFPv(void *);
-s32 __dt__15TShopWindowBaseFv(void *, s32);
+void *__dt__15TShopWindowBaseFv(void *self, s16 m);
 void *__nw__7TObjectFUl(int);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 extern "C" {
 struct QLCStage_80289200 { s32 a; s32 b; s32 c; const char *name; };
@@ -457,7 +457,7 @@ void * TObjNpcKenkyu__create(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x3B8);
     if (o2 != NULL) {
-        o2 = TObjNpcKenkyu__ct(o2, o, arg0);
+        o2 = TObjNpcKenkyu__ct((u8 *)o2, (s32)o, (s32)arg0);
     }
     return o2;
 }

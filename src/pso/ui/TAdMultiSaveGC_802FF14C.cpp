@@ -17,7 +17,7 @@ extern s32 lbl_80474D90[];
 extern const f32 lbl_805DEF28;
 s32 TAdMultiSaveGC__sub_802FF170(void);
 s32 update_window_mode_from_progress__6TLobbyFPv(void *, void *);
-s32 get_localized_text_entry(int, int);
+s32 get_localized_text_entry(s32 arg0, s32 arg1);
 extern u8 TAdMultiSaveGC__data_80474D70[];
 extern u8 TAdMultiSaveGC__data_80474D78[];
 s32 TAdMultiSaveGC__sub_802FF1F4(void);
@@ -28,7 +28,7 @@ s32 verify_system_file__23TAdSinglePlyChrSelectGCFPv();
 s32 TAdSinglePlyChrSelectGC__sub_801FDAAC();
 s32 write_encrypted_save__23TAdSinglePlyChrSelectGCFv();
 void *__nw__7TObjectFUl(u32);
-s32 TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 s32 get_selected_menu_value(int);
 extern s32 tl_fade;
 void run_task__14TAdMultiSaveGCFv(u8 *arg0);
@@ -74,19 +74,19 @@ void run_task__14TAdMultiSaveGCFv(u8 *arg0) {
     switch (temp_r0) {
     case 0:
         if ((u32) ((TAdMultiSaveGC *)arg0)->m_24 != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x24));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x24)));
             ((TAdMultiSaveGC *)arg0)->m_24 = 0U;
         }
         if ((u32) ((TAdMultiSaveGC *)arg0)->m_28 != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x28));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x28)));
             ((TAdMultiSaveGC *)arg0)->m_28 = 0U;
         }
         if ((u32) ((TAdMultiSaveGC *)arg0)->m_2c != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x2C));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x2C)));
             ((TAdMultiSaveGC *)arg0)->m_2c = 0U;
         }
         if ((u32) ((TAdMultiSaveGC *)arg0)->m_30 != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x30));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x30)));
             ((TAdMultiSaveGC *)arg0)->m_30 = 0U;
         }
         if (((TAdPlayerLoadGC *)0)->probe_card_slot() != 0) {
@@ -99,7 +99,7 @@ void run_task__14TAdMultiSaveGCFv(u8 *arg0) {
         break;
     case 1:
         if ((u32) ((TAdMultiSaveGC *)arg0)->m_20 != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x20));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x20)));
             ((TAdMultiSaveGC *)arg0)->m_20 = 0U;
         }
         if (TAdPlayerLoadGC::check_memcard_status((int) (0)) == 0) {
@@ -158,7 +158,7 @@ void run_task__14TAdMultiSaveGCFv(u8 *arg0) {
     case 7:
         if (TAdPlayerLoadGC::get_instance() == 0) {
             if ((u32) ((TAdMultiSaveGC *)arg0)->m_28 != 0U) {
-                TWindow__close(*(void **)((s8 *)arg0 + 0x28));
+                TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x28)));
                 ((TAdMultiSaveGC *)arg0)->m_28 = 0U;
             }
             ((TAdMultiSaveGC *)arg0)->m_1c = 8U;

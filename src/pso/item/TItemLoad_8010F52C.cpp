@@ -39,10 +39,10 @@ struct VObj_8010F52C : Base_8010F52C {
 void *__dt__13TUnk_8049F41CFv(void *arg0, s16 arg1);
 s32 __dt__13TUnk_8049F42CFv(void *, s32);
 s32 load_gvm_texture_archive(s32, s32);
-s32 mem_free(s32);
+void mem_free(void *p);
 
 void TItemLoad::free_all_models() {
-    mem_free(item_load_model_buffer);
+    mem_free((void *)item_load_model_buffer);
     if (item_model_chunk_loader != NULL) {
         ((struct VObj_8010F52C *)item_model_chunk_loader)->m0(1);
     }

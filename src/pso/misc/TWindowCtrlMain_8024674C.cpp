@@ -16,7 +16,7 @@ s32 is_trade_active();
 s32 is_com_card_active();
 s32 is_guild_card_receive_active();
 void update_entry_visibility__20TWindowSubStatusDispFi(s32 arg0);
-s32 TLobby__sub_8023E554(void *, void *);
+s32 TLobby__sub_8023E554(s32 arg0, s32 arg1);
 extern s32 lbl_8044E658[];
 extern s32 lbl_8044E688[];
 extern s32 hud_palette_texture_filename[];
@@ -57,7 +57,7 @@ void load_hud_palette_textures(void) {
     TLanguage::draw_string((void *) (lbl_8044E734), (void *) (sp8), (int) (0x4A));
     TLanguage::draw_string((void *) (lbl_8044E748), (void *) (sp8), (int) (0x43));
     ((TLobby *)lbl_8044E658)->tmp_buf_release();
-    TLobby__sub_8023E554((void *) (lbl_8044E758), (void *) (lbl_804D2F3C));
+    TLobby__sub_8023E554((s32)(lbl_8044E758), (s32)(lbl_804D2F3C));
     lbl_805D63F0 = (u32)lbl_804D2F3C;
     TObjFish::set_global_param((s32)((void *) (lbl_804D2F3C)));
     TLanguage::set_entry_index((int) (0), (int) (0x40));

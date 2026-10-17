@@ -21,8 +21,8 @@ void *__nw__7TObjectFUl(u32);
 void vec3_add_to(void *, void *);
 void rotate_vector_by_matrix(int, void *, void *);
 void rotate_matrix_y(int, s32);
-void push_matrix_from(void *);
-void pop_matrix();
+s32 push_matrix_from(void *src);
+s32 pop_matrix(void);
 extern Offs_80174CFC rock_cave_debris_offset_table;
 extern Init_80174CFC rock_cave_debris_init_params;
 extern u8 identity_matrix[];
@@ -32,11 +32,11 @@ void *TORockCaveBrakable__ct(void *arg0);
 void *__dt__18TORockCaveBrakableFv(void *arg0, s16 arg1);
 int play_sound_effect(void*, void*, void*, void*);
 u8 is_current_floor_switch_set(u16);
-void TORockCave__ct(void *);
-s32 spawn_particle_effect(void *, s32);
+void *TORockCave__ct(void *arg0);
+void *spawn_particle_effect(void *pos, s32 id);
 void __dl__7TObjectFPv(void *);
-void __dt__10TORockCaveFv(void *, int);
-s32 queue_destruction__7TObjectFv(void *);
+void *__dt__10TORockCaveFv(void *arg0, s16 arg1);
+void queue_destruction__7TObjectFv(void *arg0);
 
 void TORockCaveBrakable::vfunc_19() {  }
 void TORockCaveBrakable::vfunc_18() { play_sound_effect((void*)277521, (char*)this + 0x38, (void*)0, (void*)0); }
@@ -73,8 +73,8 @@ void TORockCaveBrakable::vfunc_16() {
 
 void TORockCaveBrakable::spawn_break_effect() {
     this->vfunc_18();
-    spawn_particle_effect((u8 *)&this->position, 0x45);
-    spawn_particle_effect((u8 *)&this->position, 0x46);
+    spawn_particle_effect(&this->position, 0x45);
+    spawn_particle_effect(&this->position, 0x46);
 }
 
 void TORockCaveBrakable::update_break_state() {

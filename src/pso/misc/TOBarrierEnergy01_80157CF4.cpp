@@ -5,9 +5,9 @@
 #include "pso/misc/TOKeyMachine01.h"
 
 extern "C" {
-void play_persistent_sound(int, void *, void *, int, int);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 void vfunc_20__17TOBarrierEnergy01Fv(void);
-int TLobby__sub_80156BA8(void*);
+void TLobby__sub_80156BA8(void *p);
 
 extern "C" void vfunc_6__13TUnk_804B9870FPsl();
 extern "C" void play_proximity_sound__17TOBarrierEnergy01Fv();
@@ -17,7 +17,7 @@ extern "C" void vfunc_18__17TOBarrierEnergy01Fv();
 extern "C" void vfunc_13__13TUnk_804AF8A0Fl();
 extern "C" void vfunc_12__13TUnk_804B9870Fv();
 extern "C" void vfunc_9__13TUnk_804B9870Fv();
-extern "C" void __dt__17TOBarrierEnergy01Fv();
+extern "C" void *__dt__17TOBarrierEnergy01Fv(void *arg0, s16 arg1);
 extern "C" void apply_object_set_data__13TUnk_804B9870FPv();
 extern "C" void classify_actor_view_detail__13TUnk_804B9870Ffff();
 extern "C" void init_door_switch_binding__13TUnk_804B0BB8Fv();
@@ -66,21 +66,21 @@ void TOBarrierEnergy01::play_ambient_loop_sound() {
     switch (global_state) {
     case 1:
     case 2:
-        play_persistent_sound((int) (0x4CB09), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_persistent_sound((0x4CB09), (arg0), (arg0 + 0x38), (0), (0));
         return;
     case 3:
     case 4:
     case 5:
-        play_persistent_sound((int) (0x44B08), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_persistent_sound((0x44B08), (arg0), (arg0 + 0x38), (0), (0));
         return;
     case 6:
     case 7:
-        play_persistent_sound((int) (0x4004CB02), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_persistent_sound((0x4004CB02), (arg0), (arg0 + 0x38), (0), (0));
         return;
     case 8:
     case 9:
     case 10:
-        play_persistent_sound((int) (0x4004CB09), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_persistent_sound((0x4004CB09), (arg0), (arg0 + 0x38), (0), (0));
         return;
     case 0:
         return;

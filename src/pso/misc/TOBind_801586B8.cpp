@@ -64,7 +64,7 @@ struct BindObj_801586B8 : BindBase_801586B8 {
 void *__dt__6TOBindFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object(s32);
+void draw_ginja_object(void *child);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 free_collision_body_parts(void *);
 s32 rotate_matrix_y(s32, s32);
@@ -80,7 +80,7 @@ void TOBind::render() {
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
-        draw_ginja_object(*(s32 *)&this->model);
+        draw_ginja_object((void *)(*(s32 *)&this->model));
         if ((s32) *(s32 *)&this->m_b0 != 1) {
             TObjFish::set_global_param(*(s32 *)&this->m_c8);
             TParticleCtrl::begin_effect_render();

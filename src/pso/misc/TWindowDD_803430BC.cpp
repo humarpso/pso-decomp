@@ -158,25 +158,25 @@ s32 free_child__9TWindowDDFv(int);
 s32 apply_input__9TWindowDDFPvPv(int, int);
 s32 update__9TWindowDDFl(int, int, int);
 void TWindowDD__sub_803434F4(u8 *arg0);
-s32 TWindowDD__sub_80342428(void *);
-s32 handle_input__9TWindowDDFi(void *);
+void TWindowDD__sub_80342428(u8 *arg0);
+void handle_input__9TWindowDDFi(s32 arg0);
 s32 enter_state_19__9TWindowDDFv(void *);
 s32 enter_state_18__9TWindowDDFv(void *);
-s32 enter_state_16__9TWindowDDFPv(void *);
-s32 update_state__9TWindowDDFPv(void *);
-s32 TWindowDD__sub_80342800(void *);
-s32 update__9TWindowDDFi(void *);
-s32 TWindowDD__sub_803429B0(void *);
+void enter_state_16__9TWindowDDFPv(void *arg0);
+void update_state__9TWindowDDFPv(void *arg0);
+void TWindowDD__sub_80342800(u8 *arg0);
+void update__9TWindowDDFi(s32 arg0);
+void TWindowDD__sub_803429B0(u8 *arg0);
 s32 enter_state_9__9TWindowDDFv(void *);
 s32 update_dispatch__9TWindowDDFv(void *);
 s32 update_layout__9TWindowDDFv(void *);
 s32 update_transition__9TWindowDDFv(void *);
-s32 TWindowDD__sub_80342D14(void *);
+void TWindowDD__sub_80342D14(u8 *arg0);
 s32 update__9TWindowDDFv(void *);
 s32 handle_confirm_input__9TWindowDDFPv(void *);
 void run_state__9TWindowDDFPv(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
-s16 TWindowDD__sub_8034214C(int);
+s16 TWindowDD__sub_8034214C(u8 *arg0);
 void destroy_menu_entry__9TWindowDDFl(void *, int);
 void TWindowDD__sub_80347980(void *);
 s32 *get_entry__9TWindowDDFii(void *, s32);
@@ -274,7 +274,7 @@ void *get_player_by_client_id(s32);
 s32 get_current_floor(void);
 s32 is_boss_area(void);
 s32 check_all_ready__9TWindowDDFl(s32);
-s32 is_room_free_of_active_enemies(s32, s32);
+s32 is_room_free_of_active_enemies(s32 floor, s16 room);
 void init_item_slots__9TWindowDDFv(void *);
 s32 TWindowDD__sub_80340F70(void);
 s32 TWindowDD__sub_80342384(s32 arg0, s32 arg1);
@@ -282,7 +282,7 @@ void set_default_positions__9TWindowDDFiPv(void *, s32);
 void init_layout__9TWindowDDFiPv(void *, s32);
 s32 TWindowDD__sub_8034146C(V2_80343C64 *arg0, V2_80343C64 *arg1, s32 arg2, s32 arg3, f32 farg0);
 s32 TWindowDD__sub_80348B70(s16 arg0);
-void TWindowDD__sub_803412A0(s32);
+void TWindowDD__sub_803412A0(u8 *arg0);
 void update_state__9TWindowDDFv(void);
 void update_position__9TWindowDDFl(u8 *arg0, s32 arg1);
 s32 create__9TWindowDDFv(void);
@@ -326,7 +326,7 @@ void close_all_windows__9TWindowDDFv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 classify_id__9TWindowDDFs();
-s32 clear_window_dd_nodes();
+void clear_window_dd_nodes(void);
 void mem_free(void*);
 
 s32 update_close_flag__9TWindowDDFPv(void *arg0) {
@@ -382,7 +382,7 @@ void pop_menu_level__9TWindowDDFPv(TWindowDD_803431C0 *arg0) {
     }
     arg0->f90 = arg0->f8C;
     arg0->f8C = arg0->f88;
-    arg0->f88 = TWindowDD__sub_8034214C((int) arg0->child[arg0->depth]);
+    arg0->f88 = TWindowDD__sub_8034214C((u8 *)arg0->child[arg0->depth]);
     arg0->fB0 = arg0->ids[arg0->depth + 1];
     if (arg0->fB0 == 0xD) {
         arg0->fC6 = 4;
@@ -576,7 +576,7 @@ void run_state__9TWindowDDFPv(u8 *arg0) {
         update__9TWindowDDFv((void *) (arg0));
         return;
     case 3:
-        TWindowDD__sub_80342D14((void *) (arg0));
+        TWindowDD__sub_80342D14((arg0));
         return;
     case 5:
         update_transition__9TWindowDDFv((void *) (arg0));
@@ -591,19 +591,19 @@ void run_state__9TWindowDDFPv(u8 *arg0) {
         enter_state_9__9TWindowDDFv((void *) (arg0));
         return;
     case 9:
-        TWindowDD__sub_803429B0((void *) (arg0));
+        TWindowDD__sub_803429B0((arg0));
         return;
     case 12:
-        update__9TWindowDDFi((void *) (arg0));
+        update__9TWindowDDFi((s32)(arg0));
         return;
     case 13:
-        TWindowDD__sub_80342800((void *) (arg0));
+        TWindowDD__sub_80342800((arg0));
         return;
     case 14:
-        update_state__9TWindowDDFPv((void *) (arg0));
+        update_state__9TWindowDDFPv((arg0));
         return;
     case 15:
-        enter_state_16__9TWindowDDFPv((void *) (arg0));
+        enter_state_16__9TWindowDDFPv((arg0));
         return;
     case 17:
         enter_state_18__9TWindowDDFv((void *) (arg0));
@@ -612,13 +612,13 @@ void run_state__9TWindowDDFPv(u8 *arg0) {
         enter_state_19__9TWindowDDFv((void *) (arg0));
         return;
     case 20:
-        handle_input__9TWindowDDFi((void *) (arg0));
+        handle_input__9TWindowDDFi((s32)(arg0));
         return;
     case 10:
     case 11:
     case 16:
     case 19:
-        TWindowDD__sub_80342428((void *) (arg0));
+        TWindowDD__sub_80342428((arg0));
     default:
         return;
     }
@@ -863,7 +863,7 @@ Obj_80343C64 *TWindowDD__ct(Obj_80343C64 *self, void *parent, void *arg2) {
     self->a64[2] = (s32) q;
     if (q != 0)
     {
-      TWindowDD__sub_803412A0((s32) q);
+      TWindowDD__sub_803412A0((u8 *)q);
     }
   }
   ((void (*)(void *, u32, u16)) update_state__9TWindowDDFv)(self->fC4, TWindowDD__work_buffer, local_client_id);
@@ -876,7 +876,7 @@ Obj_80343C64 *TWindowDD__ct(Obj_80343C64 *self, void *parent, void *arg2) {
     self->a64[3] = (s32) p;
     if (p != 0)
     {
-      TWindowDD__sub_803412A0((s32) p);
+      TWindowDD__sub_803412A0(p);
       update_position__9TWindowDDFl(p, 0);
       ((Win_80343C64 *) p)->f30 = lbl_805DFB60;
       ((Win_80343C64 *) p)->f40 = lbl_805DFB60;

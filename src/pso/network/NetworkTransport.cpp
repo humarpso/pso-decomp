@@ -167,7 +167,7 @@ extern s32 lbl_805D7A38;
 Q_803F7AF4 *get_next_send_chunk__6TLobbyFv(void);
 s32 OSIsThreadSuspended(s32);
 void resume_thread__6TLobbyFv(s32);
-void NetMemcpy(void *, void *, s32);
+void NetMemcpy(void *_w0, void *_w1, int _w2);
 extern s32 lobby_ring_buffer_write_pos;
 s16 TLobby__sub_804281DC(void *);
 s32 TAdSinglePlyChrSelectGC__sub_8042CEF8(char *);

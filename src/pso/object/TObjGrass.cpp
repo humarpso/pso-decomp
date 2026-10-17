@@ -351,7 +351,7 @@ struct E1C_800BF924 { u8 pad[0x1C]; };
 struct E2C_800BF924 { u8 pad[0x2C]; };
 
 extern "C" {
-s32 spawn_particle_effect(s32, s32);
+void *spawn_particle_effect(void *pos, s32 id);
 s32 apply_actor_gravity(void *, s32, f32);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 advance_animation_playback(void *);
@@ -360,9 +360,9 @@ s32 play_persistent_sound(s32, void *, void *, s32, s32);
 s32 play_sound_effect(void *, void *, int, int);
 extern u32 TObjGrass__resource_bundle;
 void TObjGrass__sub_800BFB68(O_800BFB68 *self);
-s32 queue_destruction__7TObjectFv(void *);
-s32 __dt__13TUnk_80494938Fv(void *, s16);
-void __dt__9TObjEnemyFv(void *, int);
+void queue_destruction__7TObjectFv(void *arg0);
+void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
+void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 extern u8 __vt__9TObjGrass[];
@@ -397,7 +397,7 @@ u8 *alloc__23TAdSinglePlyChrSelectGCFv(int);
 u8 *load_enemy_bml_resource_named(void *, void *);
 s32 draw_trail_with_colors(void *, s32, s32, int, int);
 u8 *init_trail_buffer__11TBoss4Type3FPvifff(void *, int, f32, f32, f32);
-s32 *mem_alloc(int);
+void *mem_alloc(u32 size);
 extern Quad_800BF66C grass_spawn_descriptor;
 extern s32 lbl_805D5140;
 extern u32 TObjGrass__bml_resource;
@@ -414,7 +414,7 @@ s32 update_angle__10TObjPlayerFlPv(void *, void *, void *);
 u32 lookup_entry_by_value__10TObjPlayerFPvf(void *);
 s32 mult_vec_array__10TObjPlayerFUll(int, int, void *, int);
 s32 scale_matrix(int, f32, f32, f32);
-s32 set_matrix_identity(int);
+void set_matrix_identity(u8 *arg0);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
@@ -453,7 +453,7 @@ s32 create__12TObjEneSaverFPvPv(int, int);
 s32 set_param__12TObjEneLappyFl(void *, int, int);
 s32 bind_enemy_combat_stats(void *, int, int, int);
 s32 initialize__9TObjEnemyFPv(void *, s32, s32);
-s32 set_animation__10TObjPlayerFPvs(void *, int);
+void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 s32 init_collision_body_parts(void *, void *, int);
 extern "C" u8 lbl_8043B6A0[];
 extern "C" u8 lbl_8043B6B4[];
@@ -471,7 +471,7 @@ void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
 s32 update_movement_status__13TUnk_804806E8Fv();
 s32 update_action_hold_status__13TUnk_804806E8Fv();
-void __dt__11TBoss4Type3FPvs(void*, int);
+s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1);
 void mem_free(void*);
 
 extern "C" {
@@ -484,7 +484,7 @@ extern "C" {
 void vfunc_9__13TUnk_804B9870Fv();
 }
 extern "C" {
-void __dt__12TObjGrassWebFv();
+void *__dt__12TObjGrassWebFv(void *arg0, s16 arg1);
 }
 extern "C" {
 void apply_object_set_data__13TUnk_804B9870FPv();
@@ -548,7 +548,7 @@ extern "C" {
 extern "C" {
 extern void vfunc_6__13TUnk_804B9870FPsl();  }
 extern "C" {
-extern void __dt__12TObjGrassWebFv();  }
+void *__dt__12TObjGrassWebFv(void *arg0, s16 arg1);  }
 extern "C" {
 extern void run_task__12TObjGrassWebFv(); }
 __declspec(section ".data") void *bm_ene_grass_model_names[2] = {
@@ -614,7 +614,7 @@ void TObjGrass::update_dying(void *arg0_) {
         *(f32 *)((s8 *)arg0 + 0x310) *= (0.5f);
         if (objInBand((GameObj *)arg0, (f32)(23.0f)) != 0) {
             *(s16 *)((s8 *)arg0 + 0x328) = 2;
-            spawn_particle_effect((s32)(arg0 + 0x38), 0xF0);
+            spawn_particle_effect((arg0 + 0x38), 0xF0);
         }
         break;
     case 2:
@@ -660,7 +660,7 @@ void TObjGrass::update_dying(void *arg0_) {
         (*(s32 *)((s8 *)arg0 + 0x3A0))++;
         if (*(s32 *)((s8 *)arg0 + 0x3A0) == 4) {
             *(s32 *)((s8 *)arg0 + 0x3A0) = 0;
-            spawn_particle_effect((s32)(arg0 + 0x38C), 0xF2);
+            spawn_particle_effect((arg0 + 0x38C), 0xF2);
         }
     }
 }
@@ -718,7 +718,7 @@ void TObjGrass::vfunc_63() {
         *(s16 *)((s8 *)arg0 + 0xB8) = 6;
         temp_r6 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xA4));
         *(s32 *)((s8 *)temp_r6 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r6 + 0x18) & 0xFFFF7FFE);
-        spawn_particle_effect((s32) (arg0 + 0x2FC), 0xF2);
+        spawn_particle_effect((arg0 + 0x2FC), 0xF2);
         ((TObjPlayer *)arg0)->refresh_lobby_state();
         ((TObjEnemy *)arg0)->send_entity_set_flags();
     }
@@ -1635,11 +1635,11 @@ struct VObj_18_ca64a0 : VBase_18_ca64a0 {
 };
 
 s32 render_with_position_override__9TObjEnemyFPUcl(void *, void *, int, f32);
-s32 restore_scene_lighting();
-s32 select_actor_lighting(void *);
+void restore_scene_lighting(void);
+void select_actor_lighting(s32 obj);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
-s32 translate_matrix(int, f32, f32, f32);
-s32 draw_chunk_object(int);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
+void draw_chunk_object(void *child);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -1662,7 +1662,7 @@ void TObjGrass::render() {
     if (*(s32 *)((s8 *)arg0 + 0x3A8) == 0) {
         return;
     }
-    select_actor_lighting(self);
+    select_actor_lighting((s32)self);
     TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
     push_matrix();
     translate_matrix(0, (0.0f), *(f32 *)((s8 *)arg0 + 0x35C), (0.0f));
@@ -1670,7 +1670,7 @@ void TObjGrass::render() {
     rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
     scale_matrix(0, (1.3f), *(f32 *)((s8 *)arg0 + 0x6C), (1.3f));
     if (TObjPlayer::check_demo_mode() == 1) {
-        draw_chunk_object(*(s32 *)((s8 *)arg0 + 0x34));
+        draw_chunk_object((void *)(*(s32 *)((s8 *)arg0 + 0x34)));
     } else {
         TObjPlayer::toggle_particle_effect();
         TObjGrass__render_node_index = 0;
@@ -1817,11 +1817,11 @@ void TObjGrass::destroy_all() {
         TObjGrass__bml_resource = 0U;
     }
     if ((u32) lbl_805D515C != 0U) {
-        __dt__11TBoss4Type3FPvs((void*)lbl_805D515C, 1);
+        __dt__11TBoss4Type3FPvs((s32 *)lbl_805D515C, 1);
         lbl_805D515C = 0U;
     }
     if ((u32) lbl_805D5158 != 0U) {
-        __dt__11TBoss4Type3FPvs((void*)lbl_805D5158, 1);
+        __dt__11TBoss4Type3FPvs((s32 *)lbl_805D5158, 1);
         lbl_805D5158 = 0U;
     }
     if ((u32) TObjGrass__resource_bundle != 0U) {

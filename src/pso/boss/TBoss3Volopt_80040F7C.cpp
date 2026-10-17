@@ -5,7 +5,7 @@ extern "C" {
 
 s32 TBoss3Volopt__sub_80040FCC(void *arg0);
 s32 clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
-s32 set_indexed_flags(void *, s32, s32);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
 
 void TBoss3Volopt::set_player_flag_08000000() {
     clear_player_status_flag__10TObjPlayerFlUl(this, 0, 0x08000000);

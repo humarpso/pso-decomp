@@ -273,7 +273,7 @@ struct S_8003EF38 { u8 pad0[0x18]; void *vt; };
 
 struct Cam_8003DA78 { s8 a; s8 b; s16 c; f32 d; f32 e; };
 
-s32 reset_status_effect_row(void *);
+void reset_status_effect_row(u8 *arg0);
 u8 * get_player_data__10TObjPlayerFi(s32);
 s32 obj_testFlags30(void *, int);
 u16 obj_getField1c(void *);
@@ -281,7 +281,7 @@ s32 obj_setFlags30(void *, s32);
 int read_be16_field2__10TObjPlayerFv(void* a0 = 0);
 f32 fabs_float(f32);
 f32 newton_sqrtf(f32);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 dispatch_shared_handler_a__6TLobbyFl(s32);
 void TLobby__sub_8001FE7C(void*, int);
 void * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
@@ -306,19 +306,19 @@ void TBoss3Volopt__sub_8003F33C(void* p);
 void TBoss3Volopt__sub_8003F384(void* p);
 s32 get_adjusted_angle__12TBoss3VoloptFl(void *, int);
 u16 get_param_offset__12TBoss3VoloptFl(void *, int);
-s32 clear_volopt_cage_flag();
+void clear_volopt_cage_flag(void);
 s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
 s32 is_photon_blast_active__11TCameraCtrlFPv();
 s32 fn_8003F3F8();
-s32 TBoss3VoloptCore__sub_80040788();
+void TBoss3VoloptCore__sub_80040788(void);
 void cache_volopt_resource_ptrs(void);
 s32 init_object__13TUnk_80483B88Fv();
 s32 set_player_flag_08000000__12TBoss3VoloptFv();
 s32 set_flag_08000000__12TBoss3VoloptFv();
-void start_attack__20TBoss3VoloptHiraisinFPv(void *);
-s32 destroy__20TBoss3VoloptHiraisinFv();
+void start_attack__20TBoss3VoloptHiraisinFPv(u8 *arg0);
+void destroy__20TBoss3VoloptHiraisinFv(void);
 s32 TObjPlayer__sub_80042EC0(void *);
-void TBoss3VoloptP01__sub_80042F84(void *);
+void TBoss3VoloptP01__sub_80042F84(u8 *arg0);
 s32 set_player_view_flag__11TCameraCtrlFl();
 s32 set_flag_08000000__11TCameraCtrlFl();
 void set_motion__12TBoss3VoloptFs(void *, u16);
@@ -327,19 +327,19 @@ s32 TBoss3Volopt__sub_800479D0();
 void TBoss3Volopt__sub_80047A60(void);
 s32 set_active_camera_pose(void *, void *);
 s32 restore_player_cameras();
-s32 activate_camera_mode(int);
-s32 reset_cameras_to_actor(void *, s32);
+s32 activate_camera_mode(s32 arg0);
+void reset_cameras_to_actor(void *actor, s32 arg1);
 s32 set_scripted_camera_pose(int, int, void *);
 u8 * get_scripted_camera_playback();
 void * alloc__23TAdSinglePlyChrSelectGCFv(u32);
 s32 sub_800C7860__15TObjEnemyCustomFv();
-void __dt__15TObjEnemyCustomFv(void *, s32);
+void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
 s32 TObjEnemyCustom__ct(void *, int);
 int reset_photon_effect__10TObjPlayerFv(void*);
-s32 TObjPlayer__sub_801BA42C();
-int TLobby__send_and_handle_60(void*);
+void TObjPlayer__sub_801BA42C(void);
+void TLobby__send_and_handle_60(u8 *arg0);
 s32 get_story_flag(s32);
-int play_area_music(void*);
+void play_area_music(char *name);
 void __dl__7TObjectFPv(void *);
 int update_if_active__12TBoss3VoloptFl(void*);
 
@@ -761,7 +761,7 @@ void TCameraCtrl::run_intro_camera_sequence() {
     switch (temp_r0) {
     case 0:
         ((TBoss3Volopt *)arg0)->start_phase2();
-        activate_camera_mode((int) (9));
+        activate_camera_mode((9));
         set_active_camera_pose((void *) (&boss3_volopt_intro_camera_poses.value), (void *) ((u8 *)&boss3_volopt_intro_camera_poses.value + 0xC));
         TObjPlayer::freeze_all_players();
         TWindowCtrl::init_all_slots();
@@ -791,7 +791,7 @@ void TCameraCtrl::run_intro_camera_sequence() {
         stack.spA = 0;
         stack.spC = lbl_805D8660;
         stack.sp10 = lbl_805D8678;
-        activate_camera_mode((int) (5));
+        activate_camera_mode((5));
         ((TCameraCtrl *)(&stack.sp8))->cache_target_and_forward((int) (0x160A));
         temp_r3 = (u8 *)(arg0 + 0x38);
         set_scripted_camera_pose((int) (temp_r3), (int) (temp_r3), (void *) (arg0 + 0x5C));
@@ -962,7 +962,7 @@ void TBoss3Volopt::start_phase2() {
     this->m_3f0 = 0;
     *(s16 *)((s8 *)arg0 + 0x3F2) = 0;
     clear_volopt_cage_flag();
-    play_area_music((void*)((void *) (&lbl_80436318.value)));
+    play_area_music((char *)((void *) (&lbl_80436318.value)));
     this->m_404 = 0;
 }
 
@@ -980,7 +980,7 @@ void reset_vol_opt_state(void* a0) {
     *(int*)((char*)a0 + 0x400) = 1;
     *(short*)((char*)a0 + 0x3fc) = 2;
     volopt_death_active = 0;
-    play_area_music(lbl_80436328);
+    play_area_music((char *)lbl_80436328);
     volopt_resources_loaded = 1;
 }
 
@@ -1247,12 +1247,12 @@ void TBoss3Volopt::update_camera_seq() {
 void TBoss3Volopt::run_task() {
     u8 *arg0 = (u8 *)this;
     if (obj_testFlags30((void *) (arg0), (int) (0x800)) != 0) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     if (obj_testFlags30((void *) (arg0), (int) (0x4000)) != 0) {
         if (((TObjPlayer *)arg0)->add_status_effect_timer((int) (4), (int) (-1)) <= 0) {
-            reset_status_effect_row((void *) (arg0 + 0x284));
+            reset_status_effect_row((arg0 + 0x284));
             ((TUnk_804B9870 *)arg0)->obj_clearFlags30((int) (0x4000));
         }
     } else {
@@ -1531,7 +1531,7 @@ void TBoss3Volopt::bswap_actions() { read_be16_field2__10TObjPlayerFv(this); bsw
 
 void bswap_position__12TBoss3VoloptFPv(void* p) { read_be16_field2__10TObjPlayerFv(p); bswap_32((u32 *)((char*)p + 0x10)); bswap_32((u32 *)((char*)p + 0x4)); bswap_32((u32 *)((char*)p + 0x8)); bswap_32((u32 *)((char*)p + 0xc)); }
 
-void TBoss3Volopt::send_state() { bswap_position__12TBoss3VoloptFPv((void*)(this)); TLobby__send_and_handle_60(this); }
+void TBoss3Volopt::send_state() { bswap_position__12TBoss3VoloptFPv((void*)(this)); TLobby__send_and_handle_60((u8 *)this); }
 
 void TBoss3Volopt__sub_8003F22C(void* p) { *(u8*)((char*)p + 0x0) = 23; *(u8*)((char*)p + 0x1) = 5; }
 
@@ -1539,15 +1539,15 @@ void TBoss3Volopt::swap_6x16_fields() { read_be16_field2__10TObjPlayerFv(this); 
 
 void TBoss3Volopt::swap_6x15_fields() { read_be16_field2__10TObjPlayerFv(this); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); bswap_16((u16 *)((char*)this + 0x8)); bswap_16((u16 *)((char*)this + 0xa)); }
 
-void TBoss3Volopt::finalize_and_send_60() { swap_6x15_fields(); TLobby__send_and_handle_60(this); }
+void TBoss3Volopt::finalize_and_send_60() { swap_6x15_fields(); TLobby__send_and_handle_60((u8 *)this); }
 
 void TBoss3Volopt::set_type() { *(u8 *)&this->m_name = 21; *(u8*)((char*)this + 0x1) = 3; }
 
-void TBoss3Volopt::send_6x16() { swap_6x16_fields(); TLobby__send_and_handle_60(this); }
+void TBoss3Volopt::send_6x16() { swap_6x16_fields(); TLobby__send_and_handle_60((u8 *)this); }
 
 void TBoss3Volopt__sub_8003F33C(void* p) { *(u8*)((char*)p + 0x0) = 22; *(u8*)((char*)p + 0x1) = 3; }
 
-void TBoss3Volopt::send_update_60() { bswap_actions(); TLobby__send_and_handle_60(this); }
+void TBoss3Volopt::send_update_60() { bswap_actions(); TLobby__send_and_handle_60((u8 *)this); }
 
 void TBoss3Volopt__sub_8003F384(void* p) { *(u8*)((char*)p + 0x0) = 132; *(u8*)((char*)p + 0x1) = 4; }
 

@@ -17,7 +17,7 @@ void *get_player_by_client_id(s32);
 void THunterGuildSeqOffline__sub_8021E180(s32);
 s32 get_window_layout_position(int, f32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 void TMedicalCenterMes__sub_80216260(void);
 
 extern const char *TMedicalCenterMes__class_name;
@@ -132,28 +132,28 @@ s32 create_meseta_window(unsigned short);
 s32 set_service_counter_camera(void *, int);
 extern const f32 lbl_805DC688;
 extern const f32 lbl_805DC68C;
-s32 __dt__13TShopSequenceFv(void *, int);
+void *__dt__13TShopSequenceFv(void *arg0, s16 arg1);
 s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 __dl__7TObjectFPv(void *);
-s32 TWindow__close(u32);
+void TWindow__close(u8 *arg0);
 extern RecoveredGlobal_802169A8___vt__22TMedicalCenterSequence __vt__22TMedicalCenterSequence;
 extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCenterSequence__data_80513E90;
 u8 *__dt__22TMedicalCenterSequenceFv(u8 *arg0, s16 arg1);
-s32 TShopSequence__ct(void *);
+u8 *TShopSequence__ct(u8 *arg0);
 extern s32 TMedicalCenterSequence__class_name;
 u8 *TMedicalCenterSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
 f32 get_scale__15TShopWindowBaseFv(void *);
 s32 create_yes_no_window(s32, u16, s32, s32);
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 try_spend_actor_meseta(s32, s32);
+s32 try_spend_actor_meseta(u8 *arg0, s32 arg1);
 int sub_802239EC__13TShopSequenceFv(void *);
 int sub_80223A48__15TShopWindowBaseFv(void *);
 s32 get_selected_menu_value(u32);
 s32 close_window__13TShopSequenceFv(void *);
-s32 obj_getPtr2B0_20(s32);
+int obj_getPtr2B0_20(u8 *p);
 int restore_player_state__13TShopSequenceFv(void*);
-s32 send_code50_packet__10TObjPlayerFi(s32);
-s32 send_code_49_1__10TObjPlayerFi(s32);
+void send_code50_packet__10TObjPlayerFi(s32 arg0);
+void send_code_49_1__10TObjPlayerFi(s32 arg0);
 
 void TMedicalCenterSequence::clear_window_slots() {
     s32 i;
@@ -172,7 +172,7 @@ void TMedicalCenterSequence::clear_slot_data() {
 typedef char RecoveredGlobal_80216A70___vt__22TMedicalCenterSequence_size[sizeof(RecoveredGlobal_80216A70___vt__22TMedicalCenterSequence) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_80216A70_TMedicalCenterSequence__data_80513E90_size[sizeof(RecoveredGlobal_80216A70_TMedicalCenterSequence__data_80513E90) == 0x10 ? 1 : -1];
 u8 *TMedicalCenterSequence__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TShopSequence__ct((void *) (arg0));
+    TShopSequence__ct((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80216A70___vt__22TMedicalCenterSequence *)&__vt__22TMedicalCenterSequence).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TMedicalCenterSequence__class_name;
     *(s32 *)&((TMedicalCenterSequence *)arg0)->m_20 = 0;
@@ -193,15 +193,15 @@ u8 *__dt__22TMedicalCenterSequenceFv(u8 *arg0, s16 arg1) {
         }
         ((TShopSequence *)arg0)->close_message_window();
         if ((u32) *(u32 *)&((TMedicalCenterSequence *)arg0)->m_2c != 0U) {
-            TWindow__close((u32)(*(void **)((s8 *)arg0 + 0x2C)));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x2C)));
             *(u32 *)&((TMedicalCenterSequence *)arg0)->m_2c = 0U;
         }
         if ((u32) ((TMedicalCenterSequence *)arg0)->m_30 != 0U) {
-            TWindow__close((u32)(*(void **)((s8 *)arg0 + 0x30)));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x30)));
             ((TMedicalCenterSequence *)arg0)->m_30 = 0U;
         }
         *(s32 *)((s8 *)(&TMedicalCenterSequence__data_80513E90.value) + (sub_8022397C__15TShopWindowBaseFv((void *) (arg0)) * 4)) = 0;
-        __dt__13TShopSequenceFv((void *) (arg0), (int) (0));
+        __dt__13TShopSequenceFv((arg0), (0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
         }
@@ -285,13 +285,13 @@ void TMedicalCenterSequence::handle_window_result() {
     if (((u32) this->m_30 != 0U) && (((TWindowMenu *)((u32) this->m_30))->is_visible() != 0)) {
         selected_menu_value = get_selected_menu_value(this->m_30);
         if (selected_menu_value == 0) {
-            TWindow__close(this->m_30);
+            TWindow__close((u8 *)this->m_30);
             this->m_30 = 0U;
             set_field_20((s32)((void*)(4)));
             return;
         }
         if (selected_menu_value == 1) {
-            TWindow__close(this->m_30);
+            TWindow__close((u8 *)this->m_30);
             this->m_30 = 0U;
             set_field_20((s32)((void*)(5)));
             return;
@@ -300,14 +300,14 @@ void TMedicalCenterSequence::handle_window_result() {
     }
 block_6:
     if (((u32) this->m_30 != 0U) && (((TWindowSubComCard *)((u32) this->m_30))->get_status_flag() != 0)) {
-        TWindow__close(this->m_30);
+        TWindow__close((u8 *)this->m_30);
         this->m_30 = 0U;
         set_field_20((s32)((void*)(5)));
     }
 }
 
 void TMedicalCenterSequence::exec_heal() {
-    if (obj_getPtr2B0_20(*(s32 *)((s8 *)this + 0x24)) < 0xA) {
+    if (obj_getPtr2B0_20((u8 *)(*(s32 *)((s8 *)this + 0x24))) < 0xA) {
         ((VObj_802165D8_802163AC *)this)->m4(0xF, 1);
         set_field_20((s32)((void*)(0xA)));
         return;
@@ -319,7 +319,7 @@ void TMedicalCenterSequence::exec_heal() {
         ((TObjPlayer *)(*(s32 *)((s8 *)this + 0x24)))->refill_traps();
     }
     ((TObjPlayer *)(*(s32 *)((s8 *)this + 0x24)))->send_field_state();
-    try_spend_actor_meseta(*(s32 *)((s8 *)this + 0x24), 0xA);
+    try_spend_actor_meseta((u8 *)(*(s32 *)((s8 *)this + 0x24)), 0xA);
     ((VObj_802165D8_802163AC *)this)->m4(0x22, 1);
     set_field_20((s32)((void*)(0xA)));
 }

@@ -323,14 +323,14 @@ struct VObj_8019D250;
 
 s32 get_main_phase();
 void mark_area_change_pending();
-s32 TKeyBoardControl__sub_8000F9CC(s32);
+void TKeyBoardControl__sub_8000F9CC(s32 arg0);
 s32 obj_isState3_324__13TUnk_804806E8Fv(void *);
 u16 obj_getField1c(void *);
 s32 is_split_screen();
 s32 get_current_floor();
 void queue_destruction__7TObjectFv(void *);
 void allow_rendering__7TObjectFv(void *);
-s32 disallow_rendering__7TObjectFv(void *);
+void disallow_rendering__7TObjectFv(void *arg0);
 s32 get_split_screen_view_index__11TCameraCtrlFUs(void *);
 u32 TLobby__sub_80070AD8(s32 arg0);
 s32 get_floor_destination_name();
@@ -372,13 +372,13 @@ void * TObjAreaWarp__ct(void *arg0);
 u8 * TObjMapWarpForest__ct(u8 *arg0);
 void process_player_warps__11TObjMapWarpFPv(VObj_8019D250 *self);
 s32 can_warp__11TObjMapWarpFlUs(void *, u16);
-void __dt__11TObjMapWarpFv(void *, int);
+void *__dt__11TObjMapWarpFv(void *arg0, s16 arg1);
 s32 TObjMapWarp__ct();
 s32 TObjWarpBase__vt13(s32);
 void * find_warp_player_in_range(void *, u16, f32);
-u8 * __dt__12TObjWarpBaseFv(void *, s16);
+void *__dt__12TObjWarpBaseFv(void *arg0, s16 arg1);
 s32 TObjWarpBase__ct();
-s32 TAdStorySelectGC__sub_8019DC14();
+int TAdStorySelectGC__sub_8019DC14(void);
 s32 register_area_warp_object__16TAdStorySelectGCFPv(int);
 s32 register_warp__16TObjMapForceWarpFPv(int);
 void * get_dest_area__17TObjAreaWarpQuestFv(void *);
@@ -389,8 +389,8 @@ f32 get_static_field4_as_float__12TObjWarpJungFv(f32);
 s32 TObjWarpJung__sub_801A0404(s32);
 s32 check_flag_100__10TObjPlayerFPv();
 void * get_player_by_client_id(s32);
-void send_6x21_inter_level_warp(void *, void *);
-void send_6x55_intra_map_warp(u16, Vec_8019D250 *, s32);
+void send_6x21_inter_level_warp(void *obj, s32 value);
+void send_6x55_intra_map_warp(u16 id, void *pos, s32 c);
 s32 init__23TAdSinglePlyChrSelectGCFv();
 s32 get_floor_map_terrain(s32);
 s32 should_record_episode1_quest_completion();
@@ -404,7 +404,7 @@ s32 align_menu_entry_positions(u32);
 u32 create_window_menu(s32, s32, s16);
 s32 get_window_layout_position(s32);
 s32 find_active_player__12TObjAreaWarpFv(void *);
-u8 * destroy__13TAdVIConfigGCFPvs(void *, s16);
+void *destroy__13TAdVIConfigGCFPvs(void *arg0, s16 arg1);
 s32 init__13TAdVIConfigGCFf(int, void *, f32);
 s32 get_game_play_mode(int);
 void send_inter_level_warp_all__10TNpcPlayerFl();
@@ -413,15 +413,15 @@ int sprintf(char *, const char *, ...);
 void strncpy(s32, s32, s32);
 void debug_printf_at(s32 id, const char *fmt, ...);
 s32 matrix_mult_vec(int, void *, void *);
-void rotate_matrix_zyx(int, s32, s32, s32);
+void rotate_matrix_zyx(void *m, s32 x, s32 y, s32 z);
 s32 rotate_matrix_y(s32, s32);
 void rotate_matrix_x(int, s32);
 s32 push_matrix_from(void *);
 void push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object(s32);
-void draw_ginja_model(void *);
+void draw_ginja_object(void *child);
+void draw_ginja_model(s32 model);
 void draw_ginja_model_with_motion(s32, s32, f32);
 
 extern s32 __vt__12TObjAreaWarp[];
@@ -819,14 +819,14 @@ void TObjAreaWarpEnding::render() {
     ((void (*)(int, int))rotate_matrix_y)(0, arg0->f60);
     push_matrix();
     ((void (*)(void *))post_translate_matrix)(root->pos);
-    draw_ginja_model(root->model);
+    draw_ginja_model((s32)root->model);
     TParticleCtrl::begin_effect_render();
     for (root = root->child; root != 0; root = root->sibling) {
         push_matrix();
         ((void (*)(void *))post_translate_matrix)(root->pos);
         rotate_matrix_zyx(0, root->ang[0], root->ang[1], root->ang[2]);
         rotate_matrix_x(0, arg0->fC8);
-        draw_ginja_model(root->model);
+        draw_ginja_model((s32)root->model);
         ((void (*)(void))pop_matrix)();
     }
     TParticleCtrl::end_effect_render();
@@ -909,7 +909,7 @@ void TObjAreaWarpQuest__vt17(Warp_8019C05C *arg0, void *arg1) {
     }
     get_dest_area__17TObjAreaWarpQuestFv(((u8 *)&lbl_80515BA0));
     send_inter_level_warp_all__10TNpcPlayerFl();
-    send_6x21_inter_level_warp(arg1, get_dest_area__17TObjAreaWarpQuestFv(((u8 *)&lbl_80515BA0)));
+    send_6x21_inter_level_warp(arg1, (s32)(get_dest_area__17TObjAreaWarpQuestFv(((u8 *)&lbl_80515BA0))));
 }
 
 void TObjAreaWarpQuest__vt18(Obj_8019C144 *self) {
@@ -954,15 +954,15 @@ void TObjAreaWarpQuest::render() {
         ((void (*)(int, int))rotate_matrix_y)((int)(0), (int)(self->f60));
         push_matrix();
         ((void (*)(void *))post_translate_matrix)(m->f8);
-        draw_ginja_model(m->f4);
+        draw_ginja_model((s32)m->f4);
         TParticleCtrl::begin_effect_render();
         m = m->next2C;
         while (m != NULL) {
             push_matrix();
             ((void (*)(void *))post_translate_matrix)(m->f8);
-            rotate_matrix_zyx((int)(0), (s32)(m->f14), (s32)(m->f18), (s32)(m->f1C));
+            rotate_matrix_zyx((0), (m->f14), (m->f18), (m->f1C));
             rotate_matrix_x((int)(0), (s32)(self->fCC));
-            draw_ginja_model(m->f4);
+            draw_ginja_model((s32)m->f4);
             ((void (*)(void))pop_matrix)();
             m = m->next30;
         }
@@ -1065,15 +1065,15 @@ void TObjAreaWarpForest::render() {
         ((void (*)(int, int))rotate_matrix_y)((int)(0), (int)(self->f60));
         push_matrix();
         ((void (*)(void *))post_translate_matrix)(m->f8);
-        draw_ginja_model(m->f4);
+        draw_ginja_model((s32)m->f4);
         TParticleCtrl::begin_effect_render();
         m = m->next2C;
         while (m != NULL) {
             push_matrix();
             ((void (*)(void *))post_translate_matrix)(m->f8);
-            rotate_matrix_zyx((int)(0), (s32)(m->f14), (s32)(m->f18), (s32)(m->f1C));
+            rotate_matrix_zyx((0), (m->f14), (m->f18), (m->f1C));
             rotate_matrix_x((int)(0), (s32)(self->fCC));
-            draw_ginja_model(m->f4);
+            draw_ginja_model((s32)m->f4);
             ((void (*)(void))pop_matrix)();
             m = m->next30;
         }
@@ -1162,7 +1162,7 @@ void handle_6x94_inter_level_warp(Pkt_8019C988 *arg0) {
         send_inter_level_warp_all__10TNpcPlayerFl();
         void *p = get_player_by_client_id(local_client_id);
         if (p != 0) {
-            send_6x21_inter_level_warp(p, get_dest_area__17TObjAreaWarpQuestFv(((u8 *)&lbl_80515BA0)));
+            send_6x21_inter_level_warp(p, (s32)(get_dest_area__17TObjAreaWarpQuestFv(((u8 *)&lbl_80515BA0))));
         }
     }
 }
@@ -1172,7 +1172,7 @@ void confirm_area_transfer__12TObjAreaWarpFPvi(u8 *arg0, s32 arg1) {
     ((s32 (*)(void))mark_area_change_pending)();
     ((s32 (*)(void *))get_dest_area__17TObjAreaWarpQuestFv)(&lbl_80515BA0.value);
     ((s32 (*)(void))send_inter_level_warp_all__10TNpcPlayerFl)();
-    ((s32 (*)(void *, void *))send_6x21_inter_level_warp)((void *) (arg1), (void *) (((s32 (*)(void *))get_dest_area__17TObjAreaWarpQuestFv)(&lbl_80515BA0.value)));
+    send_6x21_inter_level_warp((void *)(arg1), (((s32 (*)(void *))get_dest_area__17TObjAreaWarpQuestFv)(&lbl_80515BA0.value)));
     ((s32 (*)(s32, u32, s16, s32))play_sound_effect)(0x40003205, 0U, 0, 0);
 }
 
@@ -1312,7 +1312,7 @@ void TObjMapWarpForest::render() {
         ((s32 (*)(void))push_matrix)();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
-        draw_ginja_object(*(s32 *)&this->baseModel);
+        draw_ginja_object((void *)(*(s32 *)&this->baseModel));
         TParticleCtrl::begin_effect_render();
         ((s32 (*)(s32, s32, f32))draw_ginja_model_with_motion)(*(s32 *)&this->beamModel, *(s32 *)&this->motion, this->frame);
         TParticleCtrl::end_effect_render();

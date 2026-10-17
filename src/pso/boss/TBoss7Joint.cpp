@@ -18,14 +18,14 @@ extern "C" {
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
 extern const f32 lbl_805DEBB8;
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
-u8 * TObjEneDD__ct(void *);
+void *TObjEneDD__ct(void *arg0);
 extern s32 __vt__11TBoss7Joint[];
 extern s32 lbl_805D3FC0;
 u8 *TBoss7Joint__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32 arg5);
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
-s32 fn_8002B630(void *, void *);
+void fn_8002B630(u8 *arg0, u8 *arg1);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
 s32 TBoss7Joint_get_shell_max_hp();
 extern s32 lbl_80473FB8[];
@@ -35,7 +35,7 @@ struct VOff_802EE9A4_arg0_802EE9A4 { char pad_0[0x2FC]; char f_2FC[1]; };
 
 void TBoss7Joint__vt85(void);
 void *__dt__11TBoss7JointFv(void *arg0, s16 arg1);
-void __dt__9TObjEneDDFv(void *, int);
+void *__dt__9TObjEneDDFv(void *arg0, s16 arg1);
 s32 TObjFish__sub_802EC468(void *, f32, f32);
 s32 apply_damage_and_set_effect__8TObjFishFl(int, int, int);
 void __dl__7TObjectFPv(void *);
@@ -102,7 +102,7 @@ typedef char RecoveredGlobal_802EEC60___vt__11TBoss7Joint_size[sizeof(RecoveredG
 #pragma opt_common_subs off
 s32 TBoss7Joint::init_params() {
     init_position_vectors();
-    fn_8002B630(&((J_802EEB88 *)this)->sub, lbl_80473FB8);
+    fn_8002B630(&((J_802EEB88 *)this)->sub, (u8 *)lbl_80473FB8);
     initialize_linked_object_reference(&((J_802EEB88 *)this)->sub);
     transform_part_positions();
     reset_hp__9TObjEneDDFv(this, register_boss__6TLobbyFl(0x10), dispatch_shared_handler_b__6TLobbyFl(0xF), register_object__6TLobbyFl(0x10));

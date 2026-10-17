@@ -59,12 +59,12 @@ void VecCopy__FP3VecPC3Vec(Vec_8029EFFC *, Vec_8029EFFC *);
 f32 fabs_float(f32);
 Pl_8029EFFC *get_player_by_client_id(s32);
 s32 is_boss_area();
-s32 fn_8029E7BC(Vec_8029EFFC *, Vec_8029EFFC *);
+s32 fn_8029E7BC(s32 arg0, u8 *arg1);
 s32 fn_8029EC3C(Vec_8029EFFC *, s32);
 void TScene__sub_8029F5D8();
 void TScene__sub_8029F5E4(f32);
 void TScene__sub_8029F5EC();
-f32 vec_squared_length(Vec_8029EFFC *);
+f32 vec_squared_length(u8 *arg0);
 void reflect_matrix_in_plane(s32, Cam_8029EFFC *);
 void normalize_vector(Vec_8029EFFC *);
 extern Vec_8029EFFC sora_reflection_up_vec;
@@ -147,7 +147,7 @@ void TUnk_804DC7C4::render_shadows() {
     {
         Vec_8029EFFC off = p->pos2FC;
         off.y += lbl_805DDDB0;
-        hit = fn_8029E7BC(&off, &o->pos24);
+        hit = fn_8029E7BC((s32)&off, (u8 *)&o->pos24);
     }
     if (is_boss_area() != 0) {
         hit = 1;
@@ -219,7 +219,7 @@ void TUnk_804DC7C4::render_shadows() {
         } else if (lbl_805DDD8C != v.z) {
             v.x = lbl_805DDD8C;
         }
-        if (k != vec_squared_length(&v)) {
+        if (k != vec_squared_length((u8 *)&v)) {
             Vec_8029EFFC tmp;
             normalize_vector(&v);
             TSceneSora::copy_reflection_vec((u8 *)(&v));

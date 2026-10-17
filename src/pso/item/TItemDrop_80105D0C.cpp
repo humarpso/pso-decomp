@@ -25,7 +25,7 @@ extern s32 item_drop_cached_offset;
 extern s32 TItemDrop__drop_table_mode_flags;
 extern s32 TItemDrop__section_id;
 u8 can_drop__9TItemDropFv(void);
-u8 get_bool_from_1d6ddc__9TItemDropFPv(void *);
+s8 get_bool_from_1d6ddc__9TItemDropFPv(void *p);
 u8 TItemDrop__sub_80107B04(void *);
 s32 is_rare_item__9TItemDataFPv(void *);
 s32 init__9TItemDataFv(void *);
@@ -52,15 +52,15 @@ void TItemDrop__sub_80105D10(void);
 u8 is_enabled__9TItemDropFv(void);
 u8 is_not_special__9TItemDropFv(void);
 s8 select_weighted_byte__9TItemDropFiiiii(s32, s32, s32, s32, s32);
-int is_unsealable_item(void*);
-u8 get_item_star_count(s32);
+s32 is_unsealable_item(u8 *id);
+s32 get_item_star_count(s32 id);
 
 void unload_item_drop_globals(void) {  }
 
     extern int lbl_805D5450;
 void TItemDrop__sub_80105D10(void) { lbl_805D5450 = 0; }
 
-void TItemDrop::clear_item_if_player_picked_up(void* p, void* a1) { if (is_unsealable_item(a1) == 1) { ((TItemData *)a1)->set_packed_value((u16)((void*)0)); } }
+void TItemDrop::clear_item_if_player_picked_up(void* p, void* a1) { if (is_unsealable_item((u8 *)a1) == 1) { ((TItemData *)a1)->set_packed_value((u16)((void*)0)); } }
 
 s32 get_drop_table_mode_flags(void) {
     s32 f = 0;
@@ -391,8 +391,8 @@ u32 roll_channel_below__9TItemDropFPviUi(u8 *arg0, s32 arg1, u32 arg2);
 s32 calc_random_ratio__10TObjPlayerFv(void *);
 void roll_table_ratio__9TItemDropFPvUi(u8 *arg0, u32 arg1);
 s32 __dt__7TObjectFv(void *, int);
-s32 TItemDrop__sub_8010F168(int, int);
-s32 mem_free(s32);
+void *TItemDrop__sub_8010F168(void *arg0, s16 arg1);
+void mem_free(void *p);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_80107840_lbl_8049EF88 lbl_8049EF88;
 extern s32 TItemDrop__relocatable_load_buffer;
@@ -497,10 +497,10 @@ void set_flag__9TItemDropFPvPv(void *arg0, void *arg1);
 s32 serialize_mag__9TItemDataFPvPv(void *, s32 *);
 s32 is_rare_item__9TItemDataFPv(void *);
 void roll_armor_bonuses__9TItemDropFv(s32, void *);
-int TLobby__sub_801D6DDC(void*);
+u8 TLobby__sub_801D6DDC(void *arg0);
 s32 mem_alloc(s32);
 s32 can_drop__9TItemDropFv();
-s32 mem_free(s32);
+void mem_free(void *p);
 s32 init__9TItemDataFv(void *);
 s32 is_enabled__9TItemDropFv();
 
@@ -508,9 +508,9 @@ extern s32 TItemDrop__unit_star_classes;
 extern s32 TItemDrop__unit_star_bucket_counts;
 
 void run_task__9TItemDropFv(void) {
-    mem_free(TItemDrop__unit_star_bucket_counts);
+    mem_free((void *)TItemDrop__unit_star_bucket_counts);
     TItemDrop__unit_star_bucket_counts = 0;
-    mem_free(TItemDrop__unit_star_classes);
+    mem_free((void *)TItemDrop__unit_star_classes);
     TItemDrop__unit_star_classes = 0;
 }
 
@@ -1076,7 +1076,7 @@ u8 *TItemDrop__sub_80107840(u8 *arg0, s16 arg1) {
   {
     *((s32 **) (((s8 *) arg0) + 0x18)) = &lbl_8049EF88.value;
     var_r31 = (int) (*(s32 *)&((TItemDrop *)arg0)->m_1c);
-    TItemDrop__sub_8010F168(var_r31, (int) 1);
+    TItemDrop__sub_8010F168((void *)var_r31, (int) 1);
     *(s32 *)&((TItemDrop *)arg0)->m_1c = 0;
     TAdSinglePlyChrSelectGC::safe_free((int) TItemDrop__relocatable_load_buffer);
     TItemDrop__relocatable_load_buffer = 0;
@@ -1091,7 +1091,7 @@ u8 *TItemDrop__sub_80107840(u8 *arg0, s16 arg1) {
       var_r31 += 4;
     }
     while (var_r30 != 0x11);
-    mem_free((s32)((int) (*(s32 *)&((TItemDrop *)arg0)->m_20)));
+    mem_free((void *)((int) (*(s32 *)&((TItemDrop *)arg0)->m_20)));
     *(s32 *)&((TItemDrop *)arg0)->m_20 = 0;
     __dt__7TObjectFv((void *) arg0, (int) 0);
     if (arg1 > 0)

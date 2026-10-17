@@ -59,7 +59,7 @@ extern s32 *TOBarrierEnergy01__texture_lists;
 extern s32 barrier_energy_model;
 u8 *get_bml_motion(s32, s32);
 s32 init_collision_body_parts(void *, void *, int);
-s32 init_door_base(void *);
+void *init_door_base(void *a0);
 extern RecoveredGlobal_80158188_lbl_804AFB34 lbl_804AFB34;
 extern s32 __vt__17TOBarrierEnergy01[];
 extern s32 lbl_805D2EA0;
@@ -72,13 +72,13 @@ void *__dt__17TOBarrierEnergy01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
-s32 mem_free(void*);
+void mem_free(void *p);
 
 void TOBarrierEnergy01::free_resources() {
     if ((s32 *) TOBarrierEnergy01__texture_lists != NULL) {
         TObjPlayer::free_if_valid(*TOBarrierEnergy01__texture_lists);
         if ((s32 *) TOBarrierEnergy01__texture_lists != NULL) {
-            mem_free((void*)TOBarrierEnergy01__texture_lists);
+            mem_free(TOBarrierEnergy01__texture_lists);
             TOBarrierEnergy01__texture_lists = NULL;
         }
     }
@@ -120,7 +120,7 @@ void *__dt__17TOBarrierEnergy01Fv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80158188_lbl_804AFB34_size[sizeof(RecoveredGlobal_80158188_lbl_804AFB34) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80158188___vt__17TOBarrierEnergy01_size[sizeof(RecoveredGlobal_80158188___vt__17TOBarrierEnergy01) == 0x54 ? 1 : -1];
 u8 *TOBarrierEnergy01__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    init_door_base((void *) (arg0));
+    init_door_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80158188___vt__17TOBarrierEnergy01 *)&__vt__17TOBarrierEnergy01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2EA0;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);

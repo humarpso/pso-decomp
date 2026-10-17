@@ -328,7 +328,7 @@ void TCameraCtrl__sub_800689E8(void);
 s32 is_split_screen();
 s32 approach_camera_vector(void *, void *, f32);
 extern int TCameraCtrl__pose_snap_flags;
-s32 set_target__11TCameraCtrlFii(int, int);
+void set_target__11TCameraCtrlFii(int a0, int a1);
 s32 GXSetViewport(f32, f32, f32, f32, f32, f32);
 s32 GXSetScissor(int, int, int, int);
 s32 GXSetScissorBoxOffset(int, int);
@@ -393,7 +393,7 @@ u8 *csnVector(void *, void *, u32);
 f32 vector_length(void *);
 void normalize_vector(void *);
 f32 TCameraCtrl__sub_80068A04(void);
-s32 TCameraCtrl__ct(void *, s32);
+u8 *TCameraCtrl__ct(u8 *arg0, void *parent);
 void * __nw__7TObjectFUl(s32);
 
 void TUnk_80488A28::run_task() {  }
@@ -501,7 +501,7 @@ extern f32 lbl_805D8FC8;
 
 void TCameraCtrl::set_fullscreen_viewport() {
     TCameraCtrl::set_target_coords((int) (0), (int) (0));
-    set_target__11TCameraCtrlFii((int) (0x280), (int) (0x1E0));
+    set_target__11TCameraCtrlFii((0x280), (0x1E0));
     GXSetViewport((f32) TCameraCtrl__viewport_x, (f32) TCameraCtrl__viewport_y, (f32) TCameraCtrl__viewport_size, (f32) TCameraCtrl__viewport_height, (f32) ((*(const f32 *)&TCameraCtrl__data_805D8FA8)), (f32) ((*(const f32 *)&TCameraCtrl__data_805D8FAC)));
     GXSetScissor((int) ((s32) TCameraCtrl__viewport_x), (int) ((s32) TCameraCtrl__viewport_y), (int) ((s32) TCameraCtrl__viewport_size), (int) ((s32) TCameraCtrl__viewport_height));
     GXSetScissorBoxOffset((int) (0), (int) (0));
@@ -670,7 +670,7 @@ s32 *TCameraCtrl::get_view_matrix() {
 void TCameraCtrl::create() {
     void *obj = __nw__7TObjectFUl(0x1D4);
     if (obj != 0) {
-        TCameraCtrl__ct(obj, tl_camera);
+        TCameraCtrl__ct((u8 *)obj, (void *)tl_camera);
     }
 }
 
@@ -695,7 +695,7 @@ void TCameraCtrl::reset_default_view() {
     Stack_80069318 stack;
     TCameraCtrl__camera_mode = 0;
     TCameraCtrl::set_target_coords((int) (0), (int) (0));
-    set_target__11TCameraCtrlFii((int) (0x280), (int) (0x1E0));
+    set_target__11TCameraCtrlFii((0x280), (0x1E0));
     TCameraCtrl::set_fullscreen_viewport();
     TCameraCtrl::reset_viewport_scissor();
     fn_803D64F8((void *) (&lbl_804FF5E8.value));
@@ -732,7 +732,7 @@ void TCameraCtrl::init_default_view() {
     Stack_800693F4 stack;
     TCameraCtrl__camera_mode = 0;
     TCameraCtrl::set_target_coords((int) (0), (int) (0));
-    set_target__11TCameraCtrlFii((int) (0x280), (int) (0x1E0));
+    set_target__11TCameraCtrlFii((0x280), (0x1E0));
     stack.sp10 = TCameraCtrl__data_805D8FC0;
     stack.sp14 = TCameraCtrl__data_805D8FC4;
     stack.sp30 = TCameraCtrl__data_805D8FB8;

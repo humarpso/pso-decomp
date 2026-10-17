@@ -76,7 +76,7 @@ struct Seq_802129FC : Base_802129FC {
 
 extern "C" {
 s32 create_quest_thread(s32);
-void TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 s32 get_selected_menu_value(void *);
 extern RecoveredGlobal_802128B0_THunterGuildSeqOffline__data_80513DC8 THunterGuildSeqOffline__quest_result_callbacks;
 List_80212B88 *TQuestListOffline__ct(void *, s32, Seq_80212B88 *, s32);
@@ -104,7 +104,7 @@ struct VObj_80212858_8021282C : Base_80212858_8021282C {
     virtual void m7(int, int);
 };
 
-int TKeyBoardControl__sub_8000F950(void);
+void TKeyBoardControl__sub_8000F950(void);
 
     extern int evt2_random_enemies_mode;
 void THunterGuildSeqOffline::set_enemy_mode_0() { TLobby::clear_counter(); evt2_random_enemies_mode = 0; TKeyBoardControl__sub_8000F950(); }

@@ -112,7 +112,7 @@ extern u8 item_reduce_owner_match_field_ec;
 extern u8 reduce_owner_match_id;
 extern s32 *TObjPlayer__owner_field_write_cursor;
 extern s32 inventory_walk_visit_count;
-void TItemList__sub_801D5B10(void*, int);
+void *TItemList__sub_801D5B10(void *arg0, s16 arg1);
 }
 
 TPlyItem::~TPlyItem() {

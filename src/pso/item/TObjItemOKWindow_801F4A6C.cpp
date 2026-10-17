@@ -2,12 +2,12 @@
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowSubComCard.h"
 
-extern "C" void TWindow__close(void*);
+extern "C" void TWindow__close(u8 *arg0);
 
 TObjItemOKWindow::~TObjItemOKWindow() {
-    if (m_64 != nullptr) { TWindow__close(m_64); m_64 = nullptr; }
-    if (m_5c != nullptr) { TWindow__close(m_5c); m_5c = nullptr; }
-    if (m_60 != nullptr) { TWindow__close(m_60); m_60 = nullptr; }
+    if (m_64 != nullptr) { TWindow__close((u8 *)m_64); m_64 = nullptr; }
+    if (m_5c != nullptr) { TWindow__close((u8 *)m_5c); m_5c = nullptr; }
+    if (m_60 != nullptr) { TWindow__close((u8 *)m_60); m_60 = nullptr; }
 }
 
 struct Pos_801F4B10 { f32 x, y; };
@@ -25,12 +25,12 @@ struct Self_801F4B10 {
 extern "C" {
 
 void *TQuestVmDownLoadServer__sub_8006EF6C(s32);
-s32 TObjItemOKWindow__sub_801F3268(void);
+s32 *TObjItemOKWindow__sub_801F3268(void);
 s32 fn_801F4C98(void);
 void set_status_flag_80__12TQuestThreadFPv(void *);
 void align_menu_entry_positions(void *);
 void forward_trade_action_default__16TObjCityMainWarpFPviii(void *, void *, s32, s32);
-void *init_shop_judgment_window(void *);
+u8 *init_shop_judgment_window(void *p);
 void *check_room_seq_4__16TAdChrSelASlotGCFl(void *, s32);
 void send_and_handle__6TLobbyFii(void *, void *, s32);
 void *update_window_mode_from_progress__6TLobbyFPv(void *, Pos_801F4B10 *);

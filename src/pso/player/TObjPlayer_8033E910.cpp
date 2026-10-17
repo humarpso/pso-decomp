@@ -49,16 +49,16 @@ extern const f32 lbl_805DFAD0;
 void setup_projection_tex_matrix__10TObjPlayerFv(void);
 void queue_destruction__7TObjectFv(void *);
 void TLobby__sub_8033EE38(void *);
-s32 play_indirect_effect_recipe(int, int, int);
+void play_indirect_effect_recipe(u8 arg0, u16 sampler, s32 second);
 void init_particle_effect__10TObjPlayerFv(void);
 void reset_effects__10TObjPlayerFv(void);
 s32 rotate_matrix_by_node_angles(void *, int);
 s32 post_translate_matrix(void *);
 int set_global_param__8TObjFishFl(void);
-s32 draw_ginja_object(int);
-s32 set_material_alpha_compare_reference(int);
-int get_shared_capture_texture_list(void);
-int load_list_texture(int, int, int, int);
+void draw_ginja_object(void *child);
+void set_material_alpha_compare_reference(s32 reference);
+char *get_shared_capture_texture_list(void);
+void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map);
 
 void init_particle_effect__10TObjPlayerFv(void) { get_shared_capture_texture_list(); set_global_param__8TObjFishFl(); load_list_texture(0, 0, 0, 2); }
 
@@ -126,7 +126,7 @@ void TObjPlayer::draw_ginja_item_list() {
         ((void (*)(void *))init_particle_effect__10TObjPlayerFv)(((O_8033EB4C *)this));
         ((void (*)(void *))setup_projection_tex_matrix__10TObjPlayerFv)(((O_8033EB4C *)this));
         ((void (*)(s32))set_global_param__8TObjFishFl)(((O_8033EB4C *)this)->items[i].p18);
-        draw_ginja_object(((O_8033EB4C *)this)->items[i].p1C);
+        draw_ginja_object((void *)(((O_8033EB4C *)this)->items[i].p1C));
         pop_matrix();
         TParticleCtrl::set_tev_direct(1);
         ((void (*)(void *))reset_effects__10TObjPlayerFv)(((O_8033EB4C *)this));

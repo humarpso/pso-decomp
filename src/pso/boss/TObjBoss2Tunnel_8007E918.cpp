@@ -5,7 +5,7 @@
 
 extern "C" {
 
-s32 TCameraCtrl__sub_8006B370(f32);
+int TCameraCtrl__sub_8006B370(f32 farg0);
 f32 newton_sqrtf(f32);
 
 extern const f32 TObjBoss2Tunnel__data_805D9234;

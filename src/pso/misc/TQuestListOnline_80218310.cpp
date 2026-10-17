@@ -6,8 +6,8 @@
 extern "C" {
 
 void *TQuestListOnline__ct(void *arg0, void *arg1, void *arg2, void *arg3);
-void __ct__13GameListEntryFv(void *);
-void __ct__15TShopWindowBaseFv(void *);
+s32 __ct__13GameListEntryFv(s32 arg0);
+void *__ct__15TShopWindowBaseFv(void *arg0);
 
 extern s32 __vt__16TQuestListOnline[];
 extern void *TQuestListOnline__class_name;
@@ -19,7 +19,7 @@ void *TQuestListOnline__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
     struct VOff_80218310_arg0 *self = (struct VOff_80218310_arg0 *)arg0;
     __ct__15TShopWindowBaseFv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TQuestListOnline;
-    __ct__13GameListEntryFv(self->f_4C);
+    __ct__13GameListEntryFv((s32)self->f_4C);
     *(void * *)&((TQuestListOnline *)arg0)->m_name = TQuestListOnline__class_name;
     ((TQuestListOnline *)arg0)->list_window = 0;
     ((TQuestListOnline *)arg0)->description_window = 0;

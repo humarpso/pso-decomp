@@ -10,16 +10,16 @@
 struct Stack_801AB370 { f32 x, y, z; };
 
 extern "C" {
-u8 *photon_base_ct(void *);
+void *photon_base_ct(void *arg0);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
 s32 init_collision_body_parts(void *, void *, int);
-s32 spawn_photon_blast_opening_effects(int, int);
+void spawn_photon_blast_opening_effects(s32 arg0, s32 arg1);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
 s32 sub_801AAE6C__13TPhotonFarllaFv(void *, int);
 s32 construct_photon_magic_square_normal(void *, void *, int, void *, int);
 u8 *TPhotonRainbow__ct(u8 *arg0, s32 arg1_unused, s32 arg2);
-s32 play_cue_stream_file(void *);
+void play_cue_stream_file(s32 name);
 void *__nw__7TObjectFUl(int);
 extern u8 lbl_80446D40[];
 extern u8 lbl_80446D4C[];
@@ -32,7 +32,7 @@ extern "C" void vfunc_12__13TUnk_804B9870Fv();
 extern "C" void vfunc_9__13TUnk_804B9870Fv();
 extern "C" void apply_object_set_data__13TUnk_804B9870FPv();
 extern "C" void classify_actor_view_detail__13TUnk_804B9870Ffff();
-extern "C" void destroy__13TPhotonFarllaFPvs();
+extern "C" void *destroy__13TPhotonFarllaFPvs(void *arg0, s16 arg1);
 extern "C" void enter_scene__13TUnk_804C3248Fv();
 extern "C" void render__13TPhotonFarllaFv();
 extern "C" void render_shadows__7TObjectFv();
@@ -127,10 +127,10 @@ u8 *TPhotonFarlla__ct(u8 *arg0, u8 *arg1) {
             construct_photon_magic_square_normal(p, arg0, 0, &pos, 0x78);
         }
         spawn_photon_blast_attachment_effects(arg0, 0);
-        play_cue_stream_file(lbl_80446D40);
+        play_cue_stream_file((s32)lbl_80446D40);
     } else {
         spawn_photon_blast_opening_effects(0, ((TPhotonFarlla *)arg0)->m_17c);
-        play_cue_stream_file(lbl_80446D4C);
+        play_cue_stream_file((s32)lbl_80446D4C);
     }
     return arg0;
 }

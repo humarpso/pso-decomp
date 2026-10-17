@@ -14,15 +14,15 @@ int is_script_controlled__10TObjPlayerFv(void*);
 s32 sub_801A1DDC__10TObjPlayerFv(s32);
 s32 is_final_phase__10TObjPlayerFv();
 s32 obj_isState2_324__13TUnk_804806E8Fv();
-int queue_destruction__7TObjectFv(void*);
-s32 set_flag_400000__10TObjPlayerFi(void *);
+void queue_destruction__7TObjectFv(void *arg0);
+void set_flag_400000__10TObjPlayerFi(s32 arg0);
 
 extern "C" {
 
 void TObjPlayer::init_battle() {
     s32 arg0 = (s32)this;
     ((s32 (*)())TObjPlayer__sub_801BC8F0)();
-    set_flag_400000__10TObjPlayerFi((void *) (arg0));
+    set_flag_400000__10TObjPlayerFi((arg0));
     ((TObjPlayer *)(arg0 + 0x634))->enter_battle_state();
 }
 

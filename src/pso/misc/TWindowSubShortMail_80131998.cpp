@@ -8,7 +8,7 @@
 
 extern "C" {
 
-s32 window_request_show(void * a0 = 0);
+void window_request_show(void *arg0);
 
 void TWindowSubShortMail__sub_80131998(void *arg0) {
     u16 temp_r3;

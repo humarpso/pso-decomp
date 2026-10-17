@@ -20,7 +20,7 @@ struct H_800FE32C { u8 pad[0x878]; u8 state; u8 pad879[0x88E - 0x879]; s8 flags;
 
 extern "C" {
 s32 get_move_done_result__24TObjWaitEntryHairMoveSimFPv(H_800FE32C *h);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 void TObjWaitEntryHairMoveSim__sub_800FE3BC(int);
 extern void *hair_bone_rotation_descriptor[];
 int is_move_done__24TObjWaitEntryHairMoveSimFv(void);

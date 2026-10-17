@@ -59,7 +59,7 @@ extern Tbl5_802A8448 indirect_tev_ordinary_scale_table;
 s32 setup_indirect_tev_ordinary(s32 arg0, s32 sampler, s32 scale, s32 second);
 void eff_indirect_update_and_flush(void *arg0);
 void update_eff_indirect(void *arg0);
-s32 deform_indirect_texture_wave(s32, s32, s32, s32, s32, u8);
+void deform_indirect_texture_wave(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, u8 arg5);
 s32 update_indirect_texture_wave(s32, s32, s32, s32, s32, u8);
 s8 find_indirect_effect_ctrl();
 

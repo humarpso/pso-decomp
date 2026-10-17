@@ -95,8 +95,8 @@ s32 copy_bank_to_card_window(int);
 s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 get_selected_menu_value(int);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(int);
-s32 queue_destruction__7TObjectFv(void *);
-s32 copy_bank_item_with_stack_limit(s32, u8 *, s32 *, s32);
+void queue_destruction__7TObjectFv(void *arg0);
+s32 copy_bank_item_with_stack_limit(s32 idx, void *data, s32 *out, s32 slot);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 void *__nw__7TObjectFUl(u32);
@@ -111,9 +111,9 @@ void TWindowSetLevelUp__sub_8026DE28(u32, s32);
 u32 create_item_list_window(s32, s32, u16);
 void *TShopGetItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
 void *__dt__18TShopGetItemWindowFv(void *arg0, s16 arg1);
-void __ct__15TShopWindowBaseFv(void *);
+void *__ct__15TShopWindowBaseFv(void *arg0);
 void __dl__7TObjectFPv(void *);
-void __dt__15TShopWindowBaseFv(void *, int);
+void *__dt__15TShopWindowBaseFv(void *self, s16 m);
 void init__9TItemDataFv(void *);
 
 s32 TShopGetItemWindow::close() {
@@ -286,7 +286,7 @@ void TShopGetItemWindow::rebuild_item_list() {
         arg0->f28 = create_item_list_window(get_shop_text(0x30), 0xC8, obj_getField1c(arg0->f24));
         TWindowSetLevelUp__sub_8026DE28(arg0->f28, 0xC8);
         for (i = 0; i < 0xC8; i++) {
-            if (copy_bank_item_with_stack_limit(i, (u8 *)&item, &count, x) != 0) {
+            if (copy_bank_item_with_stack_limit(i, &item, &count, x) != 0) {
                 if (count > 1) {
                     add_item_info_entry__20TWindowSubStatusDispFlll(arg0->f28, &item, i, count);
                 } else {
@@ -303,7 +303,7 @@ void TShopGetItemWindow::rebuild_item_list() {
         ((TShopArmorListWindow *)(arg0->f28))->save_cursor_selection();
         ((TShopArmorListWindow *)(arg0->f28))->reset_list();
         for (j = 0; j < 0xC8; j++) {
-            if (copy_bank_item_with_stack_limit(j, (u8 *)&item, &count, x) != 0) {
+            if (copy_bank_item_with_stack_limit(j, &item, &count, x) != 0) {
                 if (count > 1) {
                     add_item_info_entry__20TWindowSubStatusDispFlll(arg0->f28, &item, j, count);
                 } else {
@@ -365,14 +365,14 @@ void TShopGetItemWindow::vfunc_11() {
         if (temp_r12 != NULL) {
             temp_r12(*(s32 *)((s8 *)arg0 + 0x5C));
         }
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     case 7:
         temp_r12_2 = *(s32 (**)(s32))((s8 *)arg0 + 0x60);
         if (temp_r12_2 != NULL) {
             temp_r12_2(*(s32 *)((s8 *)arg0 + 0x5C));
         }
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
     default:
         return;
     }

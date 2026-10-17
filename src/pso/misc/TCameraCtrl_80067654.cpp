@@ -16,7 +16,7 @@ struct RecoveredGlobal_800677D4_lbl_804887C8 {
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
-u8 *TCameraCtrl__sub_8003CFF4();
+int TCameraCtrl__sub_8003CFF4(void);
 f32 vector_length(void *, int, f32, f32);
 s32 normalize_vector(void *);
 extern const f32 lbl_805D8F28;
@@ -33,7 +33,7 @@ void TCameraCtrl__sub_8006765C(void);
 void TCameraCtrl__sub_80067660(void);
 void TCameraCtrl__sub_80067664(void);
 void *__dt__13TUnk_804887C8Fv(void *arg0, s16 arg1);
-void __dt__13TUnk_80488A28Fv(void *, int);
+void *__dt__13TUnk_80488A28Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 void TCameraCtrl__sub_80067654(void) {  }

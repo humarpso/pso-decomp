@@ -3,7 +3,7 @@ extern "C" {
 extern u8 TPlyCharData__global_character_data[];
 extern u8 TPlyCharData__global_destructor_registration[];
 void *__ct__12TPlyCharDataFv(void *p);
-void __dt__12TPlyCharDataFv(void *p, s32 d);
+s32 __dt__12TPlyCharDataFv(s32 arg0, s16 arg1);
 void __register_global_object(void *obj, void *dtor, void *link);
 void fn_801A3BB8(void);
 void fn_801A3BB8(void) {

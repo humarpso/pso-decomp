@@ -26,7 +26,7 @@ struct Copy_8029C214 { u32 w[15]; };
 
 extern "C" {
 s32 init_collision_body_parts(void *, void *, int);
-s32 TORockCave__ct(void *);
+void *TORockCave__ct(void *arg0);
 s32 get_jungle_rock_texture_resource(s32 a);
 extern "C" void vfunc_15__15TORockJungleL01Fv();
 extern "C" void vfunc_14__15TORockJungleL01Fv();

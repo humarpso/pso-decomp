@@ -11,7 +11,7 @@ struct Wn_802787F0 { u8 pad0[0x20]; s16 f20; u8 pad22[0x50]; s16 f72; };
 struct Ent_802787F0 { u32 id; s32 count; };
 
 extern "C" {
-u8 *find_item_by_id(int);
+u8 *find_item_by_id(s32 id);
 u8 *get_player_by_client_id(s16);
 void calc_list_content_extent(void *);
 void build_usable_item_list(Wn_802788A8 *arg0);

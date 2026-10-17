@@ -35,9 +35,9 @@ extern "C" {
 void *TAdLicAgreementGC__ct(void *arg0);
 void *__dt__17TAdLicAgreementGCFv(void *arg0, s16 arg1);
 void TAdAgreementBaseGC__ct(void *);
-void *TAdScrollWinGC__ct(void *, void *, int, int);
+void *TAdScrollWinGC__ct(void *arg0, void *arg1, s32 arg2, s32 arg3);
 void __dl__7TObjectFPv(void *);
-void __dt__18TAdAgreementBaseGCFv(void *, int);
+void *__dt__18TAdAgreementBaseGCFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 int set_game_mode__21TAdMultiChgGameModeGCFv(void*);

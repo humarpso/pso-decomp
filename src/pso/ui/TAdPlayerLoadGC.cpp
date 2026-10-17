@@ -48,7 +48,7 @@ Item_802D6FD4 *__ct__15TAdSubPlyItemGCFv(Item_802D6FD4 *self);
 void *__dt__13TUnk_804E24F0Fv(void *arg0, s16 arg1);
 void *__ct__15TAdPlayerLoadGCFv(void *arg0, void *arg1, void *arg2);
 void render__15TAdPlayerLoadGCFv(void);
-void __dt__11TItemWeaponFv(void *, int);
+void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
 
 extern s32 lbl_804E24F0[];
 
@@ -301,7 +301,7 @@ extern const f32 lbl_805DE7C0;
 extern const f32 lbl_805DE7C4;
 extern const f32 lbl_805DE7C8;
 char *strncpy(char *, const char *, u32);
-u32 calc_text_width(const char *);
+u32 calc_text_width(char *s);
 u8 *format_level_text__15TAdSubPlyItemGCFii(s32 arg0, s32 arg1);
 extern const f32 lbl_805DE7CC;
 extern const f32 lbl_805DE7D0;
@@ -349,7 +349,7 @@ void set_entry_text__15TAdSubPlyItemGCFPvPv(Item_802D6BEC *self, Entry_802D6DAC 
     self->ids[i] = e->id;
     ((TWindowSubSymbolChatPartsSet *)(&self->base[i]))->copy_vec2(&e->pos);
     self->pos[i].x = (lbl_805DE7CC + self->base[i].x) -
-                     (f32)calc_text_width((const char *)format_level_text__15TAdSubPlyItemGCFii((s32)self, self->ids[i]));
+                     (f32)calc_text_width((char *)((const char *)format_level_text__15TAdSubPlyItemGCFii((s32)self, self->ids[i])));
     self->pos[i].y = lbl_805DE7D0 + self->base[i].y;
     self->alpha[i] = 0;
     self->flags[i] = 1;
@@ -359,7 +359,7 @@ void run_task__15TAdSubPlyItemGCFv(Self_802D6E7C *self) {
     u32 i;
     for (i = 0; i < 4; i++) {
         self->pos[i].x = (lbl_805DE7CC + self->base[i].x) -
-                         (f32)calc_text_width(((const char *(*)(void *, s32))format_level_text__15TAdSubPlyItemGCFii)(self, self->ids[i]));
+                         (f32)calc_text_width((char *)(((const char *(*)(void *, s32))format_level_text__15TAdSubPlyItemGCFii)(self, self->ids[i])));
         self->pos[i].y = lbl_805DE7D0 + self->base[i].y;
         if (self->flags[i] != 0) {
             self->alpha[i] += 0xB;

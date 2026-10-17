@@ -8,7 +8,7 @@ extern "C" {
 s32 get_player_by_client_id(s32);
 u32 find_item_by_id(s32);
 s32 send_6x26_unequip_item__10TObjPlayerFPvPv(s32, s32);
-s32 send_6x25_equip_item(s32, s32, s32);
+void send_6x25_equip_item(void *arg0, s32 arg1, s32 arg2);
 u32 get_slot_value__10TObjPlayerFPvi(s32, s32);
 
 void TWindowShortListCtrl::assign_shortcut(s32 arg0, s32 item, s32 arg2) {
@@ -32,7 +32,7 @@ void TWindowShortListCtrl::assign_shortcut(s32 arg0, s32 item, s32 arg2) {
             temp_r0 = ((TItem *)temp_r31)->get_field_d8();
             send_6x26_unequip_item__10TObjPlayerFPvPv(temp_r3, temp_r0);
         }
-        send_6x25_equip_item(temp_r3, item, arg0);
+        send_6x25_equip_item((void *)temp_r3, item, arg0);
     }
 }
 

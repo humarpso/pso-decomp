@@ -5,8 +5,8 @@
 extern "C" {
 
 void *__dt__12TObjEneDD_STFv(void *arg0, s16 arg1);
-void TObjEneDD__ct(void *);
-void __dt__9TObjEneDDFv(void *, int);
+void *TObjEneDD__ct(void *arg0);
+void *__dt__9TObjEneDDFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void enemy_clear_target__12TObjEneDD_STFUs(void *);
 

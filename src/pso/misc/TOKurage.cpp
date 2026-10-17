@@ -63,11 +63,11 @@ struct TOKurage_8016DB24 {
 };
 
 extern "C" {
-void rotate_matrix_zyx(s32, s32, s32, s32);
+void rotate_matrix_zyx(void *m, s32 x, s32 y, s32 z);
 void push_matrix(void);
-void pop_matrix(void);
+s32 pop_matrix(void);
 void post_translate_matrix(void *);
-s32 set_chunk_material_color(void *);
+void set_chunk_material_color(f32 *arg);
 void TObjEneSlimeOne__sub_803E4B54(s32, s32, s32, f32);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
@@ -80,7 +80,7 @@ s32 rotate_matrix_y(int, int);
 s32 subtract_vector(void *, void *);
 s32 normalize_vector(void *);
 s32 push_matrix_from(void *);
-s32 pop_matrices(int);
+s32 pop_matrices(s32 arg0);
 f32 xyz_distance(void *, void *);
 extern u8 identity_matrix[];
 }
@@ -94,7 +94,7 @@ extern u32 TOKurage__static_model_resource;
 u8 *get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-s32 init_map_object_base(void *);
+void *init_map_object_base(void *a0);
 extern s32 __vt__8TOKurage[];
 extern s32 TOKurage__name;
 u8 *TOKurage__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -368,9 +368,9 @@ void TOKurage::render() {
             model_render_flags |= 0x10;
             break;
         }
-        set_chunk_material_color((u8 *)&this->m_104);
+        set_chunk_material_color((f32 *)&this->m_104);
         TObjEneSlimeOne__sub_803E4B54(*(s32 *)(arg0 + 0x34), *(s32 *)(arg0 + 0xBC), *(s32 *)(arg0 + 0xC8), *(f32 *)(arg0 + 0xB0));
-        set_chunk_material_color(chunk_material_color_half_alpha_f32);
+        set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
         model_render_flags = lbl_805D5660;
         pop_matrix();
     }
@@ -415,7 +415,7 @@ void *__dt__8TOKurageFv(void *arg0, s16 arg1) {
     return arg0;
 }
 u8 *TOKurage__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    init_map_object_base((void *) (arg0));
+    init_map_object_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016E8A8___vt__8TOKurage *)&__vt__8TOKurage).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOKurage__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

@@ -11,7 +11,7 @@ extern u8 *boss8_dragon_leader_part;
 s32 TBoss8Dragon__sub_802F3348(s32 arg0);
 f32 calc_random_ratio__10TObjPlayerFv(void *);
 void subtractive_rng_seed(void *, s32);
-void __ct__14SubtractiveRngFv(void *);
+s32 __ct__14SubtractiveRngFv(void *arg0);
 void spawn_attack_object__12TBoss8DragonFllll(void *, Vec_802F33C8 *, u16, s32, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);

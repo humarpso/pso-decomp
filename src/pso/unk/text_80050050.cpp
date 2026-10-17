@@ -16,8 +16,8 @@ extern const f32 lbl_805D8A24;
 s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
-s32 draw_chunk_object(int);
-s32 draw_model_motion(int, int, f32);
+void draw_chunk_object(void *child);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern RecoveredGlobal_80050050_lbl_80485864 three_part_model_translate_offset;
 
 typedef struct RecoveredGlobal_80050050_lbl_80485864 RecoveredGlobal_80050050_lbl_80485864;
@@ -40,11 +40,11 @@ void TObjDFDemoF::render() {
     temp_r4 = *((unsigned int *) (((s8 *) temp_r30) + 0xAC));
     if (temp_r4 == 0U)
     {
-      draw_chunk_object((int) (*((int *) (((s8 *) temp_r30) + 0x94))));
+      draw_chunk_object((void *)(*((int *) (((s8 *) temp_r30) + 0x94))));
     }
     else
     {
-      draw_model_motion((int) (*((int *) (((s8 *) temp_r30) + 0x94))), (int) temp_r4, (f32) (this->m_b8));
+      draw_model_motion((void *)(*((int *) (((s8 *) temp_r30) + 0x94))), (void *)temp_r4, (f32) (this->m_b8));
     }
     var_r29 += 1;
     var_r31 += 4;

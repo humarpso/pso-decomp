@@ -19,7 +19,7 @@ struct Ent_80103F68 { u8 pad[0x24]; };
 struct Tbl_801044B8 { s32 v[17]; };
 
 extern "C" {
-s32 mem_free(s32);
+void mem_free(void *p);
 extern u32 TLobby__floor_item_entry_pool;
 extern s32 floor_item_row_table;
 extern s32 floor_item_counts_by_floor;
@@ -32,21 +32,21 @@ s32 mem_alloc(s32);
 extern s32 drop_stacked_item_passthrough__6TLobbyFv[];
     extern int lbl_805D5868;
 int read_be16_field2__10TObjPlayerFv(void*);
-int TLobby__send_and_handle_60(void*);
+void TLobby__send_and_handle_60(u8 *arg0);
 void TLobby__sub_801041BC(void *arg0);
 void TLobby__sub_801041D8(void);
-int bswap__9TItemDataFv(void*);
+void bswap__9TItemDataFv(s32 arg0);
 void TLobby__sub_80104350(void);
     extern int* item_sync_counter_table;
 s32 get_item_icon_index();
     extern int lobby_drop_flag;
 void TLobby__sub_80104464(void);
-s32 fn_80077788();
-s32 fn_80077790();
+int fn_80077788(void);
+int fn_80077790(void);
 s32 fn_801058E8();
-u32 get_char_index__23TAdSinglePlyChrSelectGCFUi(s32);
+s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
 s32 is_locally_controlled__10TObjPlayerFPv();
-s32 send_6x25_equip_item(s32, s32, s32);
+void send_6x25_equip_item(void *arg0, s32 arg1, s32 arg2);
 s32 get_player_by_client_id(u16);
 s32 is_script_controlled__10TObjPlayerFv(s32);
 s32 obj_isState3_324__13TUnk_804806E8Fv(s32);
@@ -55,14 +55,14 @@ extern s32 TLobby__designated_client_id;
 s32 send_6x26_unequip_item__10TObjPlayerFPvPv(s32, s32);
 u32 get_equip_field_d04__10TObjPlayerFv(s32, s32);
 s32 get_field_d8__5TItemFv();
-u32 get_item_field_6__10TObjPlayerFPv(s32);
+int get_item_field_6__10TObjPlayerFPv(void *p);
 extern void *item_tool_factory_table[];
 void create__11TItemObjectFv();
 void *TLobby__sub_8010440C(In_8010440C *arg0);
 extern void *weapon_factory_table[];
-void create_common_weapon();
+s32 create_common_weapon(s32 arg0);
 void *get_weapon_factory_for_item(In_80104438 *arg0);
-s32 is_quest_active();
+int is_quest_active(void);
 s32 TItemDropSub__sub_80107B74();
 extern Tbl_801044B8 item_drop_area_remap_table;
 void normalize_drop_area(s32 *p);
@@ -93,17 +93,17 @@ void TLobby::reset_floor_items() {
 }
 
 void TLobby::free_boss_rocks() {
-    mem_free(floor_item_next_sort_keys);
+    mem_free((void *)floor_item_next_sort_keys);
     floor_item_next_sort_keys = 0;
-    mem_free(floor_item_free_id_stack);
+    mem_free((void *)floor_item_free_id_stack);
     floor_item_free_id_stack = 0;
     (*(s32 *)&floor_item_free_id_count) = 0;
-    mem_free(floor_item_counts_by_floor);
+    mem_free((void *)floor_item_counts_by_floor);
     floor_item_counts_by_floor = 0;
-    mem_free(floor_item_row_table);
+    mem_free((void *)floor_item_row_table);
     floor_item_row_table = 0;
     if ((u32) TLobby__floor_item_entry_pool != 0U) {
-        mem_free(TLobby__floor_item_entry_pool - 0x10);
+        mem_free((void *)(TLobby__floor_item_entry_pool - 0x10));
     }
     TLobby__floor_item_entry_pool = 0U;
     ((TObjPlayer *)(&lbl_805D5430))->clear_id();
@@ -120,7 +120,7 @@ void TLobby::alloc_objects() {
 }
 int TLobby::get_lobby_flag() {  return lbl_805D5868; }
 void TLobby::bswap_player_packet() { read_be16_field2__10TObjPlayerFv(this); bswap_32((u32 *)((char*)this + 0x4)); bswap_32((u32 *)((char*)this + 0x8)); }
-void TLobby::update_and_send() { bswap_player_packet(); TLobby__send_and_handle_60(this); }
+void TLobby::update_and_send() { bswap_player_packet(); TLobby__send_and_handle_60((u8 *)this); }
 void TLobby__sub_801041BC(void *arg0) {
     *(s32 *)((s8 *)arg0 + 4) = -1;
     *(s8 *)((s8 *)arg0 + 0) = 0x63;
@@ -129,7 +129,7 @@ void TLobby__sub_801041BC(void *arg0) {
 void TLobby__sub_801041D8(void) {
     ((TObjPlayer *)(&lbl_805D5430))->set_flags(1);
 }
-void TLobby::bswap_item() { bswap_16((u16 *)((char*)this + 0x2)); bswap_32((u32 *)((char*)this + 0x4)); bswap_32((u32 *)((char*)this + 0x8)); bswap_16((u16 *)((char*)this + 0xc)); bswap_16((u16 *)((char*)this + 0xe)); bswap__9TItemDataFv((char*)this + 0x10); }
+void TLobby::bswap_item() { bswap_16((u16 *)((char*)this + 0x2)); bswap_32((u32 *)((char*)this + 0x4)); bswap_32((u32 *)((char*)this + 0x8)); bswap_16((u16 *)((char*)this + 0xc)); bswap_16((u16 *)((char*)this + 0xe)); bswap__9TItemDataFv((s32)((char*)this + 0x10)); }
 
 typedef char SyncItemHeaderPlayerIds[offsetof(G_SyncItemState_6x6D_Decompressed, next_item_id_per_player) == 0x20 ? 1 : -1];
 typedef char SyncItemHeaderFloorCounts[offsetof(G_SyncItemState_6x6D_Decompressed, floor_item_count_per_floor) == 0x50 ? 1 : -1];
@@ -238,7 +238,7 @@ void TLobby::forward_to_player(int arg0, void *item) {
         player = get_player_by_client_id(arg0);
         if ((player != 0) && ((is_locally_controlled__10TObjPlayerFPv() == 1) || ((obj_isState3_324__13TUnk_804806E8Fv(player) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)) || ((is_script_controlled__10TObjPlayerFv(player) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)))) {
             ((TObjPlayer *)player)->request_inventory_item((TItemData*)item);
-            send_6x25_equip_item(player, *(s32 *)((s8 *)item + 0xC), 0);
+            send_6x25_equip_item((void *)player, *(s32 *)((s8 *)item + 0xC), 0);
         }
     }
 }
@@ -250,7 +250,7 @@ void TLobby::handle_player_event(s32 arg0, s32 arg1) {
         var_r3 = 0U;
         switch (arg1) {
         case 0:
-            var_r3 = get_item_field_6__10TObjPlayerFPv(temp_r3);
+            var_r3 = get_item_field_6__10TObjPlayerFPv((void *)temp_r3);
             break;
         case 1:
             var_r3 = ((TItemData *)temp_r3)->get_item_field_2();

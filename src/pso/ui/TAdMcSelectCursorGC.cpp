@@ -46,11 +46,11 @@ extern const f32 lbl_805DF738;
 extern const f32 lbl_805DF73C;
 void *__dt__19TAdMcSelectCursorGCFv(void *arg0, s16 arg1);
 s32 draw_textured_quad_at_depth(void *, f32);
-s32 begin_screen_draw(int);
-s32 set_draw_texture_and_color(int, int);
+void begin_screen_draw(s32 arg0);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
-s32 restore_saved_depth_alpha_state();
+void restore_saved_depth_alpha_state(void);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 extern s32 TAdMcSelectCursorGC__texture_entry;
@@ -58,9 +58,9 @@ extern const f32 lbl_805DF728;
 
 void TAdMcSelectCursorGC::render_cursor() {
     u8 *arg0 = (u8 *)this;
-    begin_screen_draw((int) (1));
+    begin_screen_draw((1));
     TObjFish::set_global_param((s32)((void *) (TAdMcSelectCursorGC__texture_entry)));
-    set_draw_texture_and_color((int) (0), (int) ((*(s32 *)&this->m_128 << 0x18) | 0xFF0000 | 0xFFFF));
+    set_draw_texture_and_color((0), ((*(s32 *)&this->m_128 << 0x18) | 0xFF0000 | 0xFFFF));
     draw_textured_quad_at_depth((void *) (arg0 + 0x28), (f32) (lbl_805DF728));
     TWindowSubStatusDisp::get_player();
 }

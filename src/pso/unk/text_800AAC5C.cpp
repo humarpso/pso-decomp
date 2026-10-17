@@ -17,8 +17,8 @@ typedef struct O_800AAC5C {
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-void __dt__15TObjEnemyCustomFv(void *, int);
-void __dt__13TUnk_80494938Fv(void *, int);
+void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
+void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 extern u8 lbl_804912C8[];

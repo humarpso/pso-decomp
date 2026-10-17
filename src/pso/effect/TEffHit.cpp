@@ -2,7 +2,7 @@
 #include "pso/system/vector.h"
 extern "C" {
 void queue_destruction__7TObjectFv(void*);
-s32 spawn_particle_effect(const Vec*, s32);
+void *spawn_particle_effect(void *pos, s32 id);
 extern const f32 lbl_805D9448;
 extern const char* TEffHit__class_name;
 }

@@ -110,10 +110,10 @@ s32 register_boss__6TLobbyFl(int);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
 s32 set_field_b8__10TObjMotionFs(void *, int);
-s32 fn_8002B630(void *, void *);
+void fn_8002B630(u8 *arg0, u8 *arg1);
 s32 bind_enemy_combat_stats(void *, int, int, int);
 s32 initialize__9TObjEnemyFPv();
-s32 set_animation__10TObjPlayerFPvs(void *, int);
+void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 s32 TBoss7Crawfish__sub_80308ED8(void *, void *);
 extern s32 crawfish_collision_body_desc[];
 extern s32 lbl_804E7380[];
@@ -125,12 +125,12 @@ extern const f32 lbl_805DF100;
 u8 *TBoss7Crawfish__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__dt__14TBoss7CrawfishFv(void *arg0, s16 arg1);
 s32 advance_animation_playback(void *);
-s32 TBoss7Crawfish__sub_80308BEC(void *);
+int TBoss7Crawfish__sub_80308BEC(void *p);
 void TLobby__sub_8001FE7C(void*, int);
 s32 submit_cursor_candidate(void *, int);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
 s32 __dl__7TObjectFPv(void *);
-s32 __dt__9TObjEnemyFv(void *, s32);
+void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 s32 obj_testFlags30(void *, int);
 
 extern const f32 lbl_805DF0FC;
@@ -157,7 +157,7 @@ void TBoss7Crawfish::run_task() {
         TBoss7Crawfish::update((s32)((void *) (arg0)));
         break;
     case 4:
-        TBoss7Crawfish__sub_80308BEC((void *) (arg0));
+        TBoss7Crawfish__sub_80308BEC((arg0));
         break;
     case 5:
         ((TBoss7Crawfish *)arg0)->check_band_and_destroy();
@@ -191,12 +191,12 @@ u8 *TBoss7Crawfish__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TBoss7Crawfish;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss7Crawfish__class_name;
     ((TBoss7Crawfish *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) (TBoss7Crawfish__shared_resource), (int) (0));
-    fn_8002B630((void *) (arg0 + 0x374), (void *) (crawfish_collision_body_desc));
+    fn_8002B630((arg0 + 0x374), (u8 *)(crawfish_collision_body_desc));
     ((TUnk_804AF8A0 *)arg0)->initialize_linked_object_reference((void *) (arg0 + 0x374));
     ((TObjPlayer *)arg0)->set_field_d8((s32)((void *) (lbl_804E7380)));
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)((u8 *)TBoss7Crawfish__shared_resource) + 0x430)));
     ((TBoss7Crawfish *)arg0)->set_anim_timer((int) (2));
-    set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (((TBoss7Crawfish *)arg0)->m_b8));
+    set_animation__10TObjPlayerFPvs((arg0), (((TBoss7Crawfish *)arg0)->m_b8));
     set_field_b8__10TObjMotionFs((void *) (arg0), (int) (((TBoss7Crawfish *)arg0)->m_b8));
     ((TUnk_804806E8 *)arg0)->add_flags_2e4((int) (2));
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);

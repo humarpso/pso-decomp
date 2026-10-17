@@ -67,9 +67,9 @@ struct Self_80121CB8 : Pl_80121CB8 {
 };
 
 extern "C" {
-void belra_cannon_create_extra_shot();
-void belra_cannon_create_shot();
-void belra_cannon_return_timer();
+u32 belra_cannon_create_extra_shot(void *arg0, s32 arg1, s32 arg2, f32 farg0);
+long belra_cannon_create_shot(u8 *arg0);
+void belra_cannon_return_timer(void *arg0);
 extern const f32 lbl_805DACD0;
 void TUnk_804A0CB8::emit_marker_effects() {
     Self_80121CB8 *self = (Self_80121CB8 *)this;

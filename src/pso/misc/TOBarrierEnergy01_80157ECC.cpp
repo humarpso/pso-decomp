@@ -3,7 +3,7 @@
 
 extern "C" {
 
-s32 set_indexed_flags(void *, s32, s32);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
 s32 update_anim_phase__13TUnk_804AFBF8Fv();
 
 extern void *TOBarrierEnergy01__texture_lists;

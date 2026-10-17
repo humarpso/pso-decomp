@@ -27,9 +27,9 @@ s32 get_id__13TItemProArmorFv(void *);
 s32 init_item_timer_event__13TUnk_804A0648Fv(int, int, void *, int);
 int fn_800F953C(void*);
     extern int TItemProShield__shield_table;
-s32 fn_800F955C(s32);
+int fn_800F955C(void *p);
 extern s32 lbl_805D2C3C;
-void __dt__14TItemEquipBaseFv(void *, int);
+void *__dt__14TItemEquipBaseFv(void *arg0, s16 arg1);
 extern s32 __vt__14TItemProShield[];
 void *__dt__14TItemProShieldFv(void *arg0, s16 arg1);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
@@ -40,17 +40,17 @@ s16 getS16_06__9TItemDataFPv(void *);
 s32 lookup_item_pmt_record(void *);
 extern s32 lbl_805D2C38;
 u8 *TItemProShield__ct(u8 *arg0, s32 arg1, u8 *arg2);
-s32 add_actor_tp(u32, s32);
-s32 add_actor_hp(u32, s32);
-s16 obj_getS16_2BA(u32);
+s32 add_actor_tp(u8 *arg0, s32 arg1);
+s32 add_actor_hp(u8 *arg0, s16 arg1);
+s16 obj_getS16_2BA(u8 *p);
 s32 create_shield_effect__14TItemProShieldFlUsUl(s32, s32, s32);
 s32 play_shield_sound_cue(Status_80118558 *);
 extern const f32 lbl_805DABF0;
 s32 register_technique_boosts__14TItemEquipBaseFPvPv(void *, s32);
-s32 draw_ginja_object(u32);
+void draw_ginja_object(void *child);
 s32 set_model_fade_alpha__10TObjPlayerFf();
-s32 TObjPlayer__sub_8036414C();
-s32 TObjPlayer__sub_80364198();
+void TObjPlayer__sub_8036414C(void);
+void TObjPlayer__sub_80364198(void);
 s32 push_matrix_from();
 s32 pop_matrix();
 s32 get_mag_scale__10TObjPlayerFv(void *);
@@ -70,7 +70,7 @@ void TItemProShield::deactivate_shield_effect(s32 arg1) {
             TParticleCtrl::begin_effect_render();
         }
         TObjPlayer::notify_fish_if_valid(this->texture_id);
-        draw_ginja_object(this->m_f4);
+        draw_ginja_object((void *)this->m_f4);
         if (*(s32 *)&this->m_19c & 2) {
             TParticleCtrl::end_effect_render();
         }
@@ -165,11 +165,11 @@ void TItemProShield::vfunc_30() {
         if (*(s32 *)&this->m_19c & 1) {
             switch (((TItemProShield *)this)->get_slot_count()) {
             case 34:
-                add_actor_hp(this->m_f0, (s32) (lbl_805DABF0 * (f32)((TItemProShield *)(this->m_f0))->get_field_2b8()));
+                add_actor_hp((u8 *)this->m_f0, (lbl_805DABF0 * (f32)((TItemProShield *)(this->m_f0))->get_field_2b8()));
                 break;
             case 35:
-                add_actor_hp(this->m_f0, (s32) (lbl_805DABF0 * (f32)((TItemProShield *)(this->m_f0))->get_field_2b8()));
-                add_actor_tp(this->m_f0, (s32) (lbl_805DABF0 * (f32)obj_getS16_2BA(this->m_f0)));
+                add_actor_hp((u8 *)this->m_f0, (lbl_805DABF0 * (f32)((TItemProShield *)(this->m_f0))->get_field_2b8()));
+                add_actor_tp((u8 *)this->m_f0, (s32)(lbl_805DABF0 * (f32)obj_getS16_2BA((u8 *)this->m_f0)));
                 break;
             }
         }
@@ -216,7 +216,7 @@ void TItemProShield::load_data() {
     s32 var_r30;
     s32 var_r29;
     s32 var_r28;
-    temp_r3 = fn_800F955C(lbl_805D2C3C);
+    temp_r3 = fn_800F955C((void *)lbl_805D2C3C);
     (*(s32 *)&TItemProShield__shield_table) = temp_r3;
     var_r31 = 0;
     var_r28 = temp_r3;

@@ -15,7 +15,7 @@ int TChCrTagInformation__vt4(void);
 void *__dt__19TChCrTagInformationFv(void *arg0, s16 arg1);
 int update_fade__8TChCrTagFPv(void*);
 void __dl__7TObjectFPv(void *);
-void __dt__8TChCrTagFv(void *, int);
+void *__dt__8TChCrTagFv(void *self, s16 arg1);
 void fn_803098DC(void);
 
 void TChCrTagInformation::render() { { (void)(draw_char_info_sprites()); return; } }

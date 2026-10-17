@@ -86,15 +86,15 @@ u32 create_item_list_window(s32, int, u16);
 extern Stack_80217EC4 lbl_8044BED4[];
 extern u8 *TQuestListOnline__quest_list_buffer;
 
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 send_action__9TProtocolFR13GameListEntryUcPcPc(void *, void *, int, void *, void *);
 
-s32 TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 s32 get_selected_menu_value(void *);
 extern void *TLobby__protocol_instance;
 extern u8 lbl_805DC6A0;
 
-s32 __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
+void __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *arg0, void *arg1);
 s32 get_unlocked_tier__16TQuestListOnlineFv(void *);
 f32 get_scale__15TShopWindowBaseFv(void *);
 u32 create_yes_no_window(int, int, int, int);
@@ -108,7 +108,7 @@ extern s32 online_quest_bin_data;
 extern s32 online_quest_dat_buffer;
 extern s32 quest_bin_decompressed_size;
 extern s32 online_quest_list_decompressed_size;
-s32 prs_decompress_buffer(s32, s32);
+u32 prs_decompress_buffer(s32 arg0, s32 arg1);
 
 s32 TLobby__sub_8001EEF4();
 
@@ -159,10 +159,10 @@ void TQuestListOnline::handle_quest_confirm() {
             return;
         }
         if (v == 1) {
-            TWindow__close(*(void * *)&this->confirm_window);
+            TWindow__close((u8 *)(*(void * *)&this->confirm_window));
             *(void * *)&this->confirm_window = NULL;
             if (*(void * *)&this->info_window != NULL) {
-                TWindow__close(*(void * *)&this->info_window);
+                TWindow__close((u8 *)(*(void * *)&this->info_window));
                 *(void * *)&this->info_window = NULL;
             }
             if (*(void * *)&this->list_window != NULL) {
@@ -179,10 +179,10 @@ void TQuestListOnline::handle_quest_confirm() {
         }
     }
     if (*(void * *)&this->confirm_window != NULL && ((TWindowSubComCard *)(*(void * *)&this->confirm_window))->get_status_flag() != 0) {
-        TWindow__close(*(void * *)&this->confirm_window);
+        TWindow__close((u8 *)(*(void * *)&this->confirm_window));
         *(void * *)&this->confirm_window = NULL;
         if (*(void * *)&this->info_window != NULL) {
-            TWindow__close(*(void * *)&this->info_window);
+            TWindow__close((u8 *)(*(void * *)&this->info_window));
             *(void * *)&this->info_window = NULL;
         }
         if (*(void * *)&this->list_window != NULL) {
@@ -236,7 +236,7 @@ void TQuestListOnline::handle_list_selection() {
             send_and_handle__6TLobbyFii(description_window, QL_80217C1C->ents[sel].name, 0x80);
         }
         if (info_window != 0 && sel != selected_index) {
-            TWindow__close((void *)info_window);
+            TWindow__close((u8 *)info_window);
             info_window = 0;
         }
         selected_index = sel;
@@ -258,10 +258,10 @@ void TQuestListOnline::handle_list_selection() {
             }
             send_action__9TProtocolFR13GameListEntryUcPcPc(TLobby__protocol_instance, selected_entry, get_unlocked_tier__16TQuestListOnlineFv(this), &lbl_805DC6A0, &lbl_805DC6A0);
             if (description_window != 0) {
-                TWindow__close((void *)description_window);
+                TWindow__close((u8 *)description_window);
                 description_window = 0;
             }
-            TWindow__close((void *)list_window);
+            TWindow__close((u8 *)list_window);
             list_window = 0;
             set_field_20__15TShopWindowBaseFl(this, 0xC);
             selection_stage++;

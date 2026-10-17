@@ -37,8 +37,8 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_ginja_model(int);
-s32 is_quest_active();
+void draw_ginja_model(s32 model);
+int is_quest_active(void);
 void * TOContainerAncientItemCommon__ct(void *, void *);
 s32 __nw__7TObjectFUl(int);
 s32 get_game_play_mode();
@@ -47,7 +47,7 @@ void submit_cursor_candidate(Obj_8015C48C *self, s32 x);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
-s32 spawn_particle_effect(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
 u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
 void play_container_break_sound(s32 arg0);
 extern Desc_8015C234 fish_break_debris_desc;
@@ -82,8 +82,8 @@ struct VObj_8015C098 : Base_8015C098 {
 
 void *__dt__28TOContainerAncientItemCommonFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void init_ancient_container(void *, void *);
-s32 queue_destruction__7TObjectFv(void *);
+u8 *init_ancient_container(u8 *arg0, s32 arg1);
+void queue_destruction__7TObjectFv(void *arg0);
 
 void TOContainerAncientItemCommon::vfunc_6(s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 1) {
@@ -135,7 +135,7 @@ void *__dt__28TOContainerAncientItemCommonFv(void *arg0, s16 arg1) {
 extern void *lbl_805D2EFC;
 
 void *TOContainerAncientItemCommon__ct(void *arg0, void * _w1) {
-    init_ancient_container(arg0, _w1);
+    init_ancient_container((u8 *)arg0, (s32)_w1);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__28TOContainerAncientItemCommon;
     *(void * *)&((TOContainerAncientItemCommon *)arg0)->m_name = lbl_805D2EFC;
     return arg0;
@@ -197,17 +197,17 @@ void TUnk_804B08BC::vfunc_81() {
             temp_r31 = (unsigned char *) (*(void * *)&this->model);
             push_matrix();
             post_translate_matrix((void *) (temp_r31 + 8));
-            draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
+            draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
             temp_r31_2 = (unsigned char *) (*(void **)((s8 *)temp_r31 + 0x2C));
             push_matrix();
             post_translate_matrix((void *) (temp_r31_2 + 8));
-            draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_2 + 4)));
+            draw_ginja_model((*(s32 *)((s8 *)temp_r31_2 + 4)));
             pop_matrix();
             temp_r31_3 = (unsigned char *) (*(void **)((s8 *)temp_r31_2 + 0x30));
             push_matrix();
             post_translate_matrix((void *) (temp_r31_3 + 8));
             TParticleCtrl::begin_effect_render();
-            draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_3 + 4)));
+            draw_ginja_model((*(s32 *)((s8 *)temp_r31_3 + 4)));
             TParticleCtrl::end_effect_render();
             pop_matrix();
             pop_matrix();

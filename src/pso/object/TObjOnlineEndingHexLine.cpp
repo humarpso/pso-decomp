@@ -97,8 +97,8 @@ f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 s32 draw_color_lines(Desc_802E55B8 *, s32, s32, f32);
 s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
-void send_6x92__14TAdGameStartGCFPv(Pkt_802E5EFC *);
-void TAdGameStartGC__sub_802E6368(Pkt_802E5EFC *);
+void send_6x92__14TAdGameStartGCFPv(void *p);
+void TAdGameStartGC__sub_802E6368(void *p);
 void *__nw__7TObjectFUl(int);
 
 s32 calc_rotated_hex_point__23TObjOnlineEndingHexLineFPvPv(V2_802E55B8 *, P2_802E55B8 *);

@@ -2,7 +2,7 @@
 
 extern "C" {
 extern void *__vt__13TItemShootGun[];
-void __dt__15TItemShootModelFv(void *self, s32 flag);
+void *__dt__15TItemShootModelFv(void *self, s16 flag);
 void __dl__7TObjectFPv(void *p);
 
 void *__dt__13TItemShootGunFv(void *self, s16 flag) {

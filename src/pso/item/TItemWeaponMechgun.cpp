@@ -62,11 +62,11 @@ extern const f32 lbl_805DADD4;
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_mechgun_weapon(u8 *arg0);
-s32 TItemWeapon__ct(void *, s32, void *);
+u8 *TItemWeapon__ct(u8 *arg0, void *parent, u8 *item);
 void spawn_weapon_impact_effect();
 extern s32 lbl_804A3260[];
 void *TItemWeaponMechgun__ct(void *arg0, s32 parent, void *arg2);
-void advance_angle_wrap(void*,int);
+void advance_angle_wrap(s32 *arg0, s32 arg1);
 }
 void TItemWeaponMechgun::prepareMarker() {
     TItemWeaponMechgun* arg0=this;
@@ -75,7 +75,7 @@ void TItemWeaponMechgun::prepareMarker() {
     } else {
         ((WeaponDispatch *)(arg0))->launchShot(arg0->muzzle[1], 0, 0, 1);
     }
-    advance_angle_wrap((void *) (&arg0->effectAngle), (int) (0x2000));
+    advance_angle_wrap((&arg0->effectAngle), (0x2000));
     arg0->effectFrame = 1;
 }
 
@@ -101,7 +101,7 @@ void TUnk_804A3260::reserved_53() {
 
 void *TItemWeaponMechgun__ct(void *arg0, s32 parent, void *arg2) {
     u8 temp_r0;
-    TItemWeapon__ct(arg0, parent, arg2);
+    TItemWeapon__ct((u8 *)arg0, (void *)parent, (u8 *)arg2);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A3260;
     ((TObjPlayer *)arg0)->set_status_flags(0x203);
     *(void (**)())((s8 *)arg0 + 0x1EC) = &spawn_weapon_impact_effect;

@@ -4,9 +4,9 @@
 
 extern "C" {
 
-s32 draw_textured_quad_at_depth(s32, f32);
-s32 begin_screen_draw(s32);
-s32 set_draw_texture_and_color(s32, s32);
+void draw_textured_quad_at_depth(f32 *q, f32 depth);
+void begin_screen_draw(s32 arg0);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 
 extern s32 lbl_805D6668;
 extern f32 lbl_805DDF88;
@@ -16,12 +16,12 @@ void TWindowSubStatusDisp::render_status_pair(s32 arg1) {
     begin_screen_draw(1);
     TObjFish::set_global_param(lbl_805D6668);
     set_draw_texture_and_color(0, arg1);
-    draw_textured_quad_at_depth(arg0 + 0x1C, lbl_805DDF88);
+    draw_textured_quad_at_depth((f32 *)(arg0 + 0x1C), lbl_805DDF88);
     TWindowSubStatusDisp::get_player();
     begin_screen_draw(1);
     TObjFish::set_global_param(lbl_805D6668);
     set_draw_texture_and_color(0, arg1);
-    draw_textured_quad_at_depth(arg0 + 0x3C, lbl_805DDF88);
+    draw_textured_quad_at_depth((f32 *)(arg0 + 0x3C), lbl_805DDF88);
     TWindowSubStatusDisp::get_player();
 }
 

@@ -4,7 +4,7 @@
 
 extern "C" {
 void *__nw__7TObjectFUl(u32);
-void expire_weapon_casing(void);
+int expire_weapon_casing(void *p);
 
 void TObjPlayer::spawn_weapon_casing(s32 arg0, u32 arg1, u32 arg2, u32 arg3, u32 arg4) {
     void *p;

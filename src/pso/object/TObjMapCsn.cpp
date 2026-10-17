@@ -45,11 +45,11 @@ struct Csn_801946D0 {
 };
 
 extern "C" {
-s32 fn_80140DFC(int, void *);
+void fn_80140DFC(s32 arg0, s32 arg1);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_80194988___vt__10TObjMapCsn __vt__10TObjMapCsn;
 u8 *__dt__10TObjMapCsnFv(u8 *arg0, s16 arg1);
-s32 fn_80140EA8(int, void *);
+void fn_80140EA8(s32 arg0, s32 arg1);
 extern s32 TObjMapCsn__class_name;
 u8 *TObjMapCsn__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 matrix_mult_vec(int, void *, void *);
@@ -171,7 +171,7 @@ u8 *__dt__10TObjMapCsnFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__10TObjMapCsn.value;
         if (((u32)TObjMapCsn::get_map_count()) != 0U) {
-            fn_80140DFC((int) (((u32)TObjMapCsn::get_map_count())), (void *) (arg0));
+            fn_80140DFC((((u32)TObjMapCsn::get_map_count())), (s32)(arg0));
         }
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller((int) (0));
         if (arg1 > 0) {
@@ -201,7 +201,7 @@ u8 *TObjMapCsn__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjMapCsn *)arg0)->m_bc = (f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0));
     *(s32 *)&((TObjMapCsn *)arg0)->m_c0 = (s32) *(s32 *)((s8 *)arg0 + 0x88);
     if (((u32)TObjMapCsn::get_map_count()) != 0U) {
-        fn_80140EA8((int) (((u32)TObjMapCsn::get_map_count())), (void *) (arg0));
+        fn_80140EA8((((u32)TObjMapCsn::get_map_count())), (s32)(arg0));
     }
     return arg0;
 }

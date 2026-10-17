@@ -2,7 +2,7 @@
 extern "C" {
 s32 isV2Mode__12TBoss1DragonFv(void);
 s32 load_enemy_bml_resource_named(void *, void *);
-s32 load_enemy_bml_resource(void *);
+s32 load_enemy_bml_resource(u8 *arg0);
 s32 load_gvm_texture_file(void *);
 extern u8 dragon_common_texture_filename[];
 extern u8 lbl_8043552C[];

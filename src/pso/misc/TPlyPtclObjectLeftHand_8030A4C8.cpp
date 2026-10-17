@@ -27,10 +27,10 @@ extern s32 tl_06;
 Ctrl_8030A5B8 *TPlyFollowParticleCtrl__ct(Ctrl_8030A5B8 *self, u8 *arg1);
 void *TPlyPtclObjectLeftHand__ct(void *arg0, u8 * _w1);
 void *__dt__22TPlyFollowParticleCtrlFv(void *arg0, s16 arg1);
-u32 get_player_by_client_id(u16);
+void *get_player_by_client_id(s32 i);
 void __dl__7TObjectFPv(void *);
 s32 get_lifetime__22TPlyFollowParticleCtrlFv();
-s32 queue_destruction__7TObjectFv(s32);
+void queue_destruction__7TObjectFv(void *arg0);
 
 extern s32 __vt__22TPlyPtclObjectLeftHand[];
 extern void *TPlyPtclObjectLeftHand__class_name;
@@ -44,7 +44,7 @@ void *TPlyPtclObjectLeftHand__ct(void *arg0, u8 * _w1) {
 
 void TPlyFollowParticleCtrl::destroy_if_inactive(s32 arg0) {
     if (get_player_by_client_id((u16) get_lifetime__22TPlyFollowParticleCtrlFv()) == 0U) {
-        queue_destruction__7TObjectFv(arg0);
+        queue_destruction__7TObjectFv((void *)arg0);
     }
 }
 

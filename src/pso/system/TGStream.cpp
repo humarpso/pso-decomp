@@ -26,7 +26,7 @@ GslArchiveEntry * find_gsl_entry(void *);
 s32 get_file_size__6TLobbyFv(void *);
 s32 is_split_screen();
 void open_gsl_archive(char *);
-void prs_decompress_buffer(s32, s32);
+u32 prs_decompress_buffer(s32 arg0, s32 arg1);
 int get_gstream_file_size();
 TGStreamPrefix * destroy_gstream(TGStreamPrefix *, s16);
 TGStreamPrefix * open__8TGStreamFPvPvi(TGStreamPrefix *, void *, s32);

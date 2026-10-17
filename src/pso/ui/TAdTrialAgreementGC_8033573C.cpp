@@ -24,7 +24,7 @@ struct RecoveredGlobal_80335870___vt__19TAdTrialAgreementGC {
 
 extern "C" {
 extern const f32 lbl_805DF8B0;
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 __nw__7TObjectFUl(int);
 s32 TAdScrollWinGC__ct(int, void *, int, int);
 s32 TAdAgreementBaseGC__ct(void *);
@@ -34,7 +34,7 @@ u8 *TAdTrialAgreementGC__ct(u8 *arg0);
 void *__dt__19TAdTrialAgreementGCFv(void *arg0, s16 arg1);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32 *);
 void __dl__7TObjectFPv(void *);
-void __dt__18TAdAgreementBaseGCFv(void *, int);
+void *__dt__18TAdAgreementBaseGCFv(void *arg0, s16 arg1);
 s32 wait_for_load__19TAdTrialAgreementGCFv(s32);
 
 extern s32 pso_system_card_filename[];
@@ -86,7 +86,7 @@ u8 *TAdTrialAgreementGC__ct(u8 *arg0) {
     *(s32 *)&((TAdTrialAgreementGC *)arg0)->m_38 = 0;
     if (TAdTrialAgreementGC::check_card_file((s32)((void *) (arg0))) != 0) {
         ((TAdTrialAgreementGC *)(arg0))->vfunc_7();
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         return arg0;
     }
     temp_r3 = __nw__7TObjectFUl((int) (0x54));

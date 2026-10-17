@@ -27,27 +27,27 @@ struct Opt_8026BCC0 {
 };
 
 extern "C" {
-void TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 void *create_menu__17TWindowOptionCtrlFv(void *);
 s32 get_selected_menu_value(void *);
 void *create_select_menu_window__17TWindowOptionCtrlFv(void *);
 s32 update_selected_item__17TWindowOptionCtrlFv(void *);
-s32 TWindowOptionCtrl__sub_802273B4(int);
+void TWindowOptionCtrl__sub_802273B4(s32 arg0);
 void *create_list_window__17TWindowOptionCtrlFv(void *);
-void play_area_music(void *);
+void play_area_music(char *name);
 extern u8 lbl_8044F4B4[];
 void *create_sound_mode_menu__17TWindowOptionCtrlFv(void *);
 void *create_sound_balance_window__17TWindowOptionCtrlFv(void *);
-s32 TWindowOptionCtrl__sub_8026C658(void *);
+int TWindowOptionCtrl__sub_8026C658(void *p);
 s32 get_field_64__17TWindowOptionCtrlFv(void *p);
 void set_params__17TWindowOptionCtrlFPvsSc(void *arg0, s16 arg1, s8 arg2);
-void save_screen_snapshot(void);
+s32 save_screen_snapshot(void);
 void *create_snap_shot_window__17TWindowOptionCtrlFv(void *);
-s32 TWindowOptionCtrl__sub_8026C630(void *);
+int TWindowOptionCtrl__sub_8026C630(void *p);
 void *__nw__7TObjectFUl(u32);
 void *ct__13TUnk_804F01A8Fv(void *arg0);
 void queue_destruction__7TObjectFv(void *);
-s32 TKeyBoardControl__sub_8000F9CC(int);
+void TKeyBoardControl__sub_8000F9CC(s32 arg0);
 void *create_sub_menu_window__17TWindowOptionCtrlFv(void *);
 void *create_option_menu__17TWindowOptionCtrlFv(void *);
 void set_field_value__17TWindowOptionCtrlFls(s32 arg0, s16 arg1);
@@ -61,7 +61,7 @@ void TWindowOptionCtrl::run_task() {
     case 0:
     case 1:
         if (self->f44 != NULL) {
-            TWindow__close(self->f44);
+            TWindow__close((u8 *)self->f44);
             self->f44 = NULL;
         }
         if (self->f40 != NULL) {
@@ -69,19 +69,19 @@ void TWindowOptionCtrl::run_task() {
             self->f40 = NULL;
         }
         if (self->f3C != NULL) {
-            TWindow__close(self->f3C);
+            TWindow__close((u8 *)self->f3C);
             self->f3C = NULL;
         }
         if (self->f38 != NULL) {
-            TWindow__close(self->f38);
+            TWindow__close((u8 *)self->f38);
             self->f38 = NULL;
         }
         if (self->f34 != NULL) {
-            TWindow__close(self->f34);
+            TWindow__close((u8 *)self->f34);
             self->f34 = NULL;
         }
         if (self->f2C != NULL) {
-            TWindow__close(self->f2C);
+            TWindow__close((u8 *)self->f2C);
             self->f2C = NULL;
         }
         if (self->f28 == NULL) {
@@ -127,7 +127,7 @@ void TWindowOptionCtrl::run_task() {
             } else {
                 TLobby::stop_audio_streams();
                 TLobby::close_option_window();
-                play_area_music(lbl_8044F4B4);
+                play_area_music((char *)lbl_8044F4B4);
                 self->state = 1;
                 break;
             }
@@ -219,11 +219,11 @@ void TWindowOptionCtrl::run_task() {
             self->f40 = NULL;
         }
         if (self->f34 != NULL) {
-            TWindow__close(self->f34);
+            TWindow__close((u8 *)self->f34);
             self->f34 = NULL;
         }
         if (self->f30 != NULL) {
-            TWindow__close(self->f30);
+            TWindow__close((u8 *)self->f30);
             self->f30 = NULL;
         }
         if (self->f2C == NULL) {

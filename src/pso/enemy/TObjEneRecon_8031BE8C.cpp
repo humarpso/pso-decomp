@@ -140,7 +140,7 @@ s32 is_main_phase_15__9TObjEneDDFv();
 s32 update_player_state__9TObjEneDDFv(void *, void *, int);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 rotate_matrix_y(int, int);
-s32 translate_matrix(int, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
 s32 pop_matrix();
 extern Vec_8031BE8C lbl_804760FC;
@@ -195,7 +195,7 @@ void render__12TObjEneReconFv(u8 *arg0) {
                     ((TObjEneDD *)arg0)->update_secondary_light();
                     TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
                     push_matrix();
-                    translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) (*(f32 *)((s8 *)arg0 + 0x448)), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));
+                    translate_matrix((0), (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) (*(f32 *)((s8 *)arg0 + 0x448)), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));
                     rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
                     TObjEneDD::clear_global_flag_400();
                     recon_intro_stage = 0;

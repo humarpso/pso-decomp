@@ -2,7 +2,7 @@
 #include "pso/misc/TLobby.h"
 
 extern "C" {
-s32 TLobby__sub_803F5678(void *);
+s32 TLobby__sub_803F5678(u8 *dst);
 s32 TLobby__sub_80145EE4(void);
 int TLobby__sub_80145E40(void);
 s32 TLobby__sub_803F517C(u8 *);
@@ -22,7 +22,7 @@ s32 TLobby::is_status_zero() {
 s32 TLobby::is_state_active() {
     u8 sp8;
 
-    if (TLobby__sub_803F5678((void *) (&sp8)) != 0) {
+    if (TLobby__sub_803F5678((&sp8)) != 0) {
         return 0;
     }
     if (sp8 == 0) {
@@ -32,7 +32,7 @@ s32 TLobby::is_state_active() {
 }
 s32 TLobby__sub_80145EE4(void) {
     u8 sp8;
-    if (TLobby__sub_803F5678((void *) (&sp8)) != 0) {
+    if (TLobby__sub_803F5678((&sp8)) != 0) {
         return 0;
     }
     if (sp8 == 0) {
@@ -43,22 +43,22 @@ s32 TLobby__sub_80145EE4(void) {
 
 s32 init_struct(u8 *arg0);
 s32 init_work(s32 arg0, u8 *arg1);
-s32 TLobby__sub_803F4EBC(void *, int);
+s32 TLobby__sub_803F4EBC(char *dst, s32 len);
 s32 TLobby__sub_803F4FF4(void *);
 s32 TLobby__sub_803F50B8(void *);
-s32 TLobby__sub_803F524C(s32 *, s32);
+s32 TLobby__sub_803F524C(char *dst, s32 len);
 s32 TLobby__sub_803F53A0(s32, void *, s32);
 s32 TLobby__sub_803F5748(void *);
 s32 TLobby__sub_803F5824(void *);
 s32 TLobby__sub_803F5900(void *);
-s32 TLobby__sub_803F59DC(void *, int);
-s32 TLobby__sub_803F5B20(void *, int);
-s32 TLobby__sub_803F5C58(void *, int);
-s32 TLobby__sub_803F5D90(void *, s32);
-s32 TLobby__sub_803F5EC8(void *, int);
-s32 TLobby__sub_803F6000(void *, int);
-s32 TLobby__sub_803F6138(void *, int);
-s32 TLobby__sub_803F6270(void *);
+s32 TLobby__sub_803F59DC(char *buf, u32 n);
+s32 TLobby__sub_803F5B20(char *buf, s32 n);
+s32 TLobby__sub_803F5C58(char *buf, s32 n);
+s32 TLobby__sub_803F5D90(char *buf, s32 n);
+s32 TLobby__sub_803F5EC8(char *buf, s32 n);
+s32 TLobby__sub_803F6000(char *buf, s32 n);
+s32 TLobby__sub_803F6138(char *buf, s32 n);
+s32 TLobby__sub_803F6270(u16 *arg0);
 s32 memset(void *, s32, s32);
 
 extern u16 lbl_805D56CC;
@@ -77,16 +77,16 @@ s32 init_struct(u8 *arg0) {
     TLobby__sub_803F5748(arg0 + 0xA8);
     TLobby__sub_803F5824(arg0 + 0xAC);
     TLobby__sub_803F5900(arg0 + 0xBC);
-    TLobby__sub_803F59DC(arg0 + 0xC4, 0x40);
-    TLobby__sub_803F5B20(arg0 + 0x144, 0x20);
-    TLobby__sub_803F5C58((void *)(arg0 + 0x164), (int)(0x40));
-    TLobby__sub_803F5EC8((void *)(arg0 + 0x1A4), (int)(0x40));
-    TLobby__sub_803F6000((void *)(arg0 + 0x1E4), (int)(0x20));
-    TLobby__sub_803F6138((void *)(arg0 + 0x204), (int)(0x20));
-    TLobby__sub_803F6138((void *)(arg0 + 0x204), (int)(0x20));
-    TLobby__sub_803F6270(arg0 + 0x244);
+    TLobby__sub_803F59DC((char *)(arg0 + 0xC4), 0x40);
+    TLobby__sub_803F5B20((char *)(arg0 + 0x144), 0x20);
+    TLobby__sub_803F5C58((char *)(arg0 + 0x164), (0x40));
+    TLobby__sub_803F5EC8((char *)(arg0 + 0x1A4), (0x40));
+    TLobby__sub_803F6000((char *)(arg0 + 0x1E4), (0x20));
+    TLobby__sub_803F6138((char *)(arg0 + 0x204), (0x20));
+    TLobby__sub_803F6138((char *)(arg0 + 0x204), (0x20));
+    TLobby__sub_803F6270((u16 *)(arg0 + 0x244));
     ((TLobby *)(arg0 + 8))->copy_current_entry_name((int)(0x80));
-    TLobby__sub_803F4EBC((void *)(arg0 + 0x88), (int)(0x20));
+    TLobby__sub_803F4EBC((char *)(arg0 + 0x88), (0x20));
     TLobby__sub_803F4FF4(arg0 + 0xB4);
     TLobby__sub_803F50B8(arg0 + 0xB8);
     return 0;
@@ -101,17 +101,17 @@ s32 init_work(s32 arg0, u8 *arg1) {
         return 0;
     }
     ((TLobby *)(arg1 + 0x4))->copy_current_entry_name((int)(0x80));
-    TLobby__sub_803F4EBC((void *)(arg1 + 0x84), (int)(0x20));
+    TLobby__sub_803F4EBC((char *)(arg1 + 0x84), (0x20));
     TLobby__sub_803F4FF4(arg1 + 0x164);
     TLobby__sub_803F50B8(arg1 + 0x168);
-    TLobby__sub_803F5C58((void *)(arg1 + 0x16C), (int)(0x20));
-    TLobby__sub_803F5D90(arg1 + 0x18C, 0x40);
-    TLobby__sub_803F5EC8((void *)(arg1 + 0x1CC), (int)(0x40));
-    TLobby__sub_803F6000((void *)(arg1 + 0x20C), (int)(0x20));
-    TLobby__sub_803F6138((void *)(arg1 + 0x22C), (int)(0x20));
+    TLobby__sub_803F5C58((char *)(arg1 + 0x16C), (0x20));
+    TLobby__sub_803F5D90((char *)(arg1 + 0x18C), 0x40);
+    TLobby__sub_803F5EC8((char *)(arg1 + 0x1CC), (0x40));
+    TLobby__sub_803F6000((char *)(arg1 + 0x20C), (0x20));
+    TLobby__sub_803F6138((char *)(arg1 + 0x22C), (0x20));
     memset((void *)(dst), (s32)(0), (s32)(0x20));
     memset((void *)(sp28), (s32)(0), (s32)(0x40));
-    TLobby__sub_803F524C((s32 *)dst, 0x20);
+    TLobby__sub_803F524C((char *)((s32 *)dst), 0x20);
     TLobby__sub_803F53A0(0, arg1 + 0xA4, 0x40);
     TLobby__sub_803F53A0(1, arg1 + 0xE4, 0x40);
     TLobby__sub_803F53A0(2, arg1 + 0x124, 0x40);

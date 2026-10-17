@@ -35,7 +35,7 @@ extern const f32 lbl_805D9288;
 extern const f32 lbl_805D928C;
 extern const f32 lbl_805D9294;
 
-s32 __dl__FPv();
+void __dl__FPv(void);
 s32 reset_floats__15TObjBoss2TunnelFv();
 
 s32 TObjBoss2Tunnel::dt(s32 arg0, s16 arg1) {

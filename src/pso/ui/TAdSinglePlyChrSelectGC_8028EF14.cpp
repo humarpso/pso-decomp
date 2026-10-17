@@ -58,8 +58,8 @@ extern u32 chara_select_hair_node_a;
 extern u32 chara_select_hair_node_b;
 extern u32 chara_select_head_node;
 s32 TLobby__sub_8001FE7C(void *, int);
-s32 __dt__10TObjMotionFv(void *, int);
-s32 mem_free(int);
+void *__dt__10TObjMotionFv(void *arg0, s16 arg1);
+void mem_free(void *p);
 s32 __dl__7TObjectFPv(void *);
 s32 TAdSinglePlyChrSelectGC__sub_802905D4(void *);
 extern s32 lbl_805D49B4;
@@ -67,17 +67,17 @@ extern int char_creation_figure_draw_flag;
 extern s32 chara_select_preview_resource;
 extern s32 creation_resource_ready_state;
 u8 *TAdSinglePlyChrSelectGC__sub_802908CC(u8 *arg0, s16 arg1);
-void translate_matrix_vec3(int, void *);
+void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 void rotate_matrix_y(int, u32);
 void push_matrix_from();
 void push_matrix();
-void pop_matrix();
+s32 pop_matrix(void);
 extern u32 creation_figure_rotation_y;
 void map_shape_region_samples(s32 region, s32 *samples);
 extern CreationShapeBlend creation_shape_blend;
 s32 clear_creation_shape_eval_masks(f32 *dst, const f32 *a, const f32 *b, const f32 *c);
 s32 scan_creation_resources(void *arg0);
-s32 fn_8001ED90(s32);
+int fn_8001ED90(void *p);
 void update_pair__23TAdSinglePlyChrSelectGCFPv(void* p);
 void ***relocate_data_block_pointers(s32, s32);
 extern s32 char_select_active_flag;
@@ -1045,10 +1045,10 @@ struct Sel_802902CC {
 };
 
 s32 load_resource_from_descriptor(s32, s32, s32, s32, s32, s32);
-s32 set_animation__10TObjPlayerFPvs(void *, s16);
+void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 s32 TObjMotion__ct(void *, void *);
 s32 mem_alloc(s32);
-s32 reset_character_creation_figure_rotation();
+void reset_character_creation_figure_rotation(void);
 extern s32 lbl_805D3BBC;
 extern void *creation_menu_main_obj;
 extern const f32 lbl_805DD940;
@@ -1124,12 +1124,12 @@ u8 *TAdSinglePlyChrSelectGC__sub_802908CC(u8 *arg0, s16 arg1) {
         (*(s32 *)&chara_select_hair_node_b) = 0;
         (*(s32 *)&chara_select_hair_node_a) = 0;
         *(s32 *)((s8 *)arg0 + 0x34) = 0;
-        mem_free((int) (*(s32 *)((s8 *)arg0 + 0xE0)));
+        mem_free((void *)(*(s32 *)((s8 *)arg0 + 0xE0)));
         creation_resource_ready_state = 0;
         creation_figure_object = 0;
         lbl_805D49B4 = 0;
         char_creation_figure_draw_flag = 0;
-        __dt__10TObjMotionFv((void *) (arg0), (int) (0));
+        __dt__10TObjMotionFv((arg0), (0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
         }
@@ -1306,7 +1306,7 @@ void TCMCharacter::apply_character_appearance() {
     CharacterAppearanceFields *raw;
     s32 hair;
     s32 head;
-    if (fn_8001ED90(chara_select_preview_resource) == 0 || this->shape_rel_ready == 0) {
+    if (fn_8001ED90((void *)chara_select_preview_resource) == 0 || this->shape_rel_ready == 0) {
         return;
     }
     update_pair__23TAdSinglePlyChrSelectGCFPv(this);

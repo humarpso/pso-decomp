@@ -21,7 +21,7 @@ struct TUserAns_801E0198 {
 };
 
 extern "C" {
-int __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
+void __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *arg0, void *arg1);
 void *fn_801DF61C(void *, void *);
 TUserAns_801E0198 *__ct__8TUserAnsFRC8TUserAns(TUserAns_801E0198 *dst, TUserAns_801E0198 *src);
 TUserAns_801E0198 *__ct__8TUserAnsFRC8TUserAns(TUserAns_801E0198 *dst, TUserAns_801E0198 *src) {

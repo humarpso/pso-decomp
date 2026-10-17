@@ -29,7 +29,7 @@ extern const f32 lbl_805DDD2C;
 void *TOGrassJungle__create(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
-void *TOGrassJungle__ct(void *, void *, void *);
+u8 *TOGrassJungle__ct(u8 *arg0, s32 parent, s32 arg2);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
@@ -37,7 +37,7 @@ extern void *tl_05;
 void *TOGrassJungle__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x94);
     if (o != NULL) {
-        o = TOGrassJungle__ct(o, tl_05, arg0);
+        o = TOGrassJungle__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

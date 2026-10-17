@@ -134,7 +134,7 @@ void * TObjEnvSoundEx__create(void *arg0) {
 }
 
 f32 fabs_float(f32);
-s32 disallow_rendering__7TObjectFv(void *);
+void disallow_rendering__7TObjectFv(void *arg0);
 extern s32 __vt__14TObjEnvSoundEx[];
 extern s32 TObjEnvSoundEx__class_name;
 void *__dt__14TObjEnvSoundExFv(void *arg0, s16 arg1);
@@ -233,7 +233,7 @@ u8 *TObjEnvSoundEx__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     ((TObjEnvSoundEx *)arg0)->init_sound_params();
     *(f32 *)((s8 *)arg0 + 0x94) = (f32) (-127.0f);
-    disallow_rendering__7TObjectFv((void *) (arg0));
+    disallow_rendering__7TObjectFv((arg0));
     return arg0;
 }
 

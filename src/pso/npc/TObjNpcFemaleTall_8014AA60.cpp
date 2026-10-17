@@ -6,7 +6,7 @@ extern "C" {
 
 void TObjNpcFemaleTall__sub_8014AA60(void);
 void __dl__7TObjectFPv(void *);
-void __dt__11TObjNpcBaseFv(void *, int);
+void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1);
 
     extern int lbl_805D5798;
     extern int lbl_805D5D78;

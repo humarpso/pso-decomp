@@ -147,7 +147,7 @@ s32 queue_destruction__7TObjectFv(int);
 u32 create_particle_emitter(void *, int);
 s32 transition_enemy_state(void *, int);
 s32 noop__9TObjEneDDFv(void *);
-s32 fn_800C3A60(void *, int);
+s32 fn_800C3A60(s32 arg0, s32 arg1);
 s32 check_hit_flag__16TObjEneRe2FlowerFv(void *);
 s32 TObjPlayer__sub_800C4A5C(int, void *, void *, int);
 s32 advance_animation_playback(void *);
@@ -157,7 +157,7 @@ extern u8 *lbl_805D5170;
 extern const f32 lbl_805D9FD8;
 extern const f32 lbl_805D9FDC;
 void fn_800C32DC(u8 *arg0, s32 arg1);
-s32 enemy_validate_retained_target(void *);
+s32 enemy_validate_retained_target(u8 *arg0);
 extern const f32 lbl_805D9FAC;
 extern const f32 lbl_805D9FC0;
 extern const f32 lbl_805D9FC4;
@@ -194,7 +194,7 @@ void fn_800C3088(u8 *arg0, int arg1) {
     return;
     case 0:
       advance_animation_playback((void *) arg0);
-      enemy_validate_retained_target((void *) arg0);
+      enemy_validate_retained_target(arg0);
       temp_r0 = ((RecoveredFields_800C3088_arg0 *) arg0)->field_414;
       switch (temp_r0)
     {
@@ -222,7 +222,7 @@ void fn_800C3088(u8 *arg0, int arg1) {
             (((VObj_18_880cfd *)(temp_r3_3))->m23((arg0), (lbl_805D9FD4)));
           }
         }
-        play_sound_effect((void *) fn_800C3A60((void *) arg0, (int) 0x4003A814), (void *) (arg0 + 0x38), (int) 0, (int) 0);
+        play_sound_effect((void *) fn_800C3A60((s32)arg0, (int) 0x4003A814), (void *) (arg0 + 0x38), (int) 0, (int) 0);
         TObjPlayer::play_effect_if_v2((int) (-0x200));
       }
         break;
@@ -292,7 +292,7 @@ void fn_800C32DC(u8 *owner, s32 arg1) {
                     TObjPlayer__sub_800C4A5C((int) (temp_r3_3), (void *) (owner), (void *) (&stack.sp8), (int) (*(s32 *)((s8 *)owner + 0x60)));
                 }
             }
-            play_sound_effect((void *) (fn_800C3A60((void *) (owner), (int) (0x4003A10E))), (void *) (owner + 0x3DC), (int) (0), (int) (0));
+            play_sound_effect((void *) (fn_800C3A60((s32)(owner), (0x4003A10E))), (void *) (owner + 0x3DC), (int) (0), (int) (0));
         }
         ((TObjEneDD *)(owner))->vfunc_102();
         ((TObjEneDD *)(owner))->vfunc_88();

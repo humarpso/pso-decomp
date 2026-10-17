@@ -44,8 +44,8 @@ void lzss_remove_ring_node(Lz_8013FCB0 *t, s32 p);
 void debug_print__FPCc(const char *);
 void bswap_32__FPUl(u32 *);
 int sprintf(char *, const char *, ...);
-s32 TLobby__sub_803DF1CC(void);
-s32 fn_803DF204(s32);
+u32 TLobby__sub_803DF1CC(void);
+u32 fn_803DF204(u32 x);
 extern char lbl_8043F168[];
 
 #pragma push

@@ -16,19 +16,19 @@ struct Needle_80109D48 {
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
-s32 allow_rendering__7TObjectFv(void *);
-s32 disallow_rendering__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
+void allow_rendering__7TObjectFv(void *arg0);
+void disallow_rendering__7TObjectFv(void *arg0);
 u32 query_game_join_id__10TObjPlayerFv(int);
 extern const f32 lbl_805DAB50;
 extern const f32 lbl_805DAB54;
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 void rotate_matrix_by_node_angles(void *, s32);
 void push_matrix();
-void pop_matrix();
+s32 pop_matrix(void);
 void post_translate_matrix(void *);
 void draw_ginja_object(void *);
-void set_chunk_material_color(void *);
+void set_chunk_material_color(f32 *arg);
 extern u8 saved_model_draw_color[];
 extern u8 model_material_color[];
 extern u32 lbl_805D5660;
@@ -50,7 +50,7 @@ void TItemEffNeedleBase::render() {
         lbl_805D5660 = model_render_flags;
         model_render_flags = lbl_805D5660 | 0x20;
         copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, model_material_color);
-        set_chunk_material_color(self->m_1c);
+        set_chunk_material_color((f32 *)self->m_1c);
         TObjPlayer::notify_fish_if_valid(self->m_40);
         TParticleCtrl::begin_effect_render();
         push_matrix();
@@ -67,15 +67,15 @@ void TItemEffNeedleBase::render() {
 void TItemEffNeedleBase::run_task() {
     u8 *arg0 = (u8 *)this;
     if (query_game_join_id__10TObjPlayerFv((int) (*(s32 *)((s8 *)arg0 + 0x2C))) == 0U) {
-        queue_destruction__7TObjectFv((void *) (arg0));
-        disallow_rendering__7TObjectFv((void *)((void *) (arg0)));
+        queue_destruction__7TObjectFv((arg0));
+        disallow_rendering__7TObjectFv(((void *) (arg0)));
         return;
     }
-    allow_rendering__7TObjectFv((void *) (arg0));
+    allow_rendering__7TObjectFv((arg0));
     if (this->vfunc_6() != 0) {
         *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (*(f32 *)((s8 *)arg0 + 0x1C) - lbl_805DAB50);
         if (*(f32 *)((s8 *)arg0 + 0x1C) <= lbl_805DAB54) {
-            queue_destruction__7TObjectFv((void *) (arg0));
+            queue_destruction__7TObjectFv((arg0));
         }
     }
 }

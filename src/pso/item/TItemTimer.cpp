@@ -145,13 +145,13 @@ struct Timer_8011D5B4 { u8 pad[0x28]; VObj_8011D5B4 *obj; f32 f2c; };
 extern "C" {
 void TItemTimer__sub_8011D598(u8 *arg0, s32 arg1, s32 arg2);
 u8 *TItemTimer__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 add_actor_hp(s32, s32);
+s32 add_actor_hp(u8 *arg0, s16 arg1);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
-s32 add_actor_tp(s32, s32);
+s32 add_actor_tp(u8 *arg0, s32 arg1);
 s32 set_owner_id__13TParticleCtrlFUs(s32, s32);
 s32 is_item_area_enabled();
 s32 __ct__7TObjectFP7TObject();
-s32 disallow_rendering__7TObjectFv(void *);
+void disallow_rendering__7TObjectFv(void *arg0);
 s32 is_flag_20000_set__10TObjPlayerFv(s32);
 s32 obj_getField1c(s32);
 s32 obj_isState2_324__13TUnk_804806E8Fv(void *);
@@ -173,7 +173,7 @@ u8 *TItemTimer__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
         ((TItemTimer *)arg0)->m_1C = 1;
     }
     TItemTimer__sub_8011D598((u8 *)((void *)((void *) (arg0 + 0x20))), (s32)((void *)((void *) (arg1))), (s32)((void *)((void *) (arg2))));
-    disallow_rendering__7TObjectFv((void *) (arg0));
+    disallow_rendering__7TObjectFv((arg0));
     return arg0;
 }
 
@@ -274,13 +274,13 @@ void TUnk_804A0608::vfunc_6() {
 
 void TUnk_804A0628::vfunc_6() {
     if (obj_testFlags30((void *)((void *)(*(s32 *)&this->m_28)), (s32)((s32)(0x800))) == 0) {
-        add_actor_tp(*(s32 *)&this->m_28, 1);
+        add_actor_tp((u8 *)(*(s32 *)&this->m_28), 1);
     }
 }
 
 void TUnk_804A0648::vfunc_6() {
     if (obj_testFlags30((void *)((void *)(*(s32 *)&this->m_28)), (s32)((s32)(0x800))) == 0) {
-        add_actor_hp(*(s32 *)&this->m_28, 1);
+        add_actor_hp((u8 *)(*(s32 *)&this->m_28), 1);
     }
 }
 

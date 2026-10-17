@@ -117,10 +117,10 @@ s32 rotate_matrix_x(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object(s32);
-s32 set_chunk_material_override_pair(int, int);
-s32 set_chunk_material_color(void *);
-s32 set_chunk_blend(int);
+void draw_ginja_object(void *child);
+void set_chunk_material_override_pair(s32 arg0, s32 arg1);
+void set_chunk_material_color(f32 *arg);
+void set_chunk_blend(u32 x);
 extern s32 boss2_ceil_junk_model_index_table[];
 extern f32 TObjBoss2CeilJunk__radius_table[];
 extern Color_8003A1B4 boss2_ceil_junk_render_color;
@@ -129,7 +129,7 @@ extern s32 lbl_805D4BEC;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 u8 *get_player_data__10TObjPlayerFi(s32);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 forward_switch_phase_stats__13TBoss2DeRolLeFi(void *);
 s32 create_particle__17TObjBoss2CeilJunkFv(void *, int);
 s32 is_valid_target__9TObjEneDDFv(void *);
@@ -167,7 +167,7 @@ void TObjBoss2CeilJunk::render() {
     {
       Color_8003A1B4 c = boss2_ceil_junk_render_color;
       c.a = (-1.0f) + self->fB4;
-      set_chunk_material_color(&c);
+      set_chunk_material_color((f32 *)&c);
     }
     set_chunk_material_override_pair(0xFF00, 0x800);
     set_chunk_blend(0x2500);
@@ -177,7 +177,7 @@ void TObjBoss2CeilJunk::render() {
   post_translate_matrix(self->pos);
   rotate_matrix_y(0, self->f60);
   rotate_matrix_x(0, self->f5C);
-  draw_ginja_object(boss2_tunnel_instance->mdls[boss2_ceil_junk_model_index_table[self->fAC]].f8);
+  draw_ginja_object((void *)(boss2_tunnel_instance->mdls[boss2_ceil_junk_model_index_table[self->fAC]].f8));
   pop_matrix();
   model_render_flags = lbl_805D5660;
   set_chunk_material_override_pair(0xFF00, 0);

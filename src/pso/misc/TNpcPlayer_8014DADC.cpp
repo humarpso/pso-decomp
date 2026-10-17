@@ -17,8 +17,8 @@ struct Self_8014DC5C {
 extern "C" {
 u32 get_npc_state__10TNpcPlayerFv(s32);
 s32 npc_counter_reset_if_reached(void *, s32, s32);
-s32 set_partner_counter(void *, s32, s32);
-u32 TNpcPlayer__sub_80152978(s32);
+void set_partner_counter(s32 arg0, s32 arg1, s16 arg2);
+s32 TNpcPlayer__sub_80152978(void *p);
 u8 *find_active_entity_by_id(s32);
 u8 *get_state_ptr__10TObjPlayerFv(void *);
 void reset_partner_counter(void *, s32);
@@ -35,7 +35,7 @@ void TNpcPlayer__sub_8014DC30(void);
 int TNpcPlayer__sub_8014DC3C(void* p);
 int request_technique_cast__10TNpcPlayerFPvi(void*);
 s32 set_technique_seed_level(s32, s32, u8);
-s32 clamp_and_set_unit_value__10TObjPlayerFiUci(s32, u8, s32);
+void clamp_and_set_unit_value__10TObjPlayerFiUci(s32 arg0, u8 arg1, s32 i);
 
 void TNpcPlayer::init_equipment() {
     s32 temp_r31;
@@ -140,10 +140,10 @@ void TNpcPlayer::partner_request_physical_attack() {
     u8 *arg0 = (u8 *)this;
     u32 temp_r31;
     u32 temp_r3;
-    temp_r31 = TNpcPlayer__sub_80152978(*(s32 *)&this->m_78);
+    temp_r31 = TNpcPlayer__sub_80152978((void *)(*(s32 *)&this->m_78));
     temp_r3 = get_npc_state__10TNpcPlayerFv(*(s32 *)&this->m_78);
     if (temp_r3 != temp_r31) {
-        set_partner_counter((u8 *)&this->m_5c, 1, 0);
+        set_partner_counter((s32)&this->m_5c, 1, 0);
     }
     npc_counter_reset_if_reached((u8 *)&this->m_5c, 1, 3);
     ((TNpcPlayer *)arg0)->send_partner_attack_stage_request();

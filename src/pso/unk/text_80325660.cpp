@@ -6,9 +6,9 @@ struct Ent_80325660 { u8 b[0x20]; };
 struct Obj_80325660 { u8 pad[0x20]; u32 count; u8 pad2[4]; Ent_80325660 ents[12]; u32 col[4]; };
 
 extern "C" {
-void begin_screen_draw(int);
+void begin_screen_draw(s32 arg0);
 void draw_textured_quad_at_depth(void *, f32);
-void set_draw_texture_and_color(int, u32);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern s32 chr_sel_move_plate_texture;
 extern const f32 lbl_805DF600;
 void draw_move_plate_quads(Obj_80325660 *arg0);

@@ -22,14 +22,14 @@ struct Bringer_8010834C {
 };
 
 extern "C" {
-f64 atan2_float(f32, f32);
+f32 atan2_float(f32 y, f32 x);
 void disallow_rendering__7TObjectFv(void *);
 void *__ct__10TItemShootFPvPC3VecPC3Vecf(void *, u32, s32, s32, f32);
 f32 sin_table_lookup(s32);
 void subtract_vector(Vec*, Vec*);
 void transform_point_by_current_matrix(void *, void *);
 void push_matrix(void);
-void pop_matrix(void);
+s32 pop_matrix(void);
 extern const f64 lbl_8043E188[];
 extern void *__vt__15TItemEffBringer[];
 extern s32 TItemEffBringer__class_name;
@@ -38,7 +38,7 @@ extern const f32 lbl_805DAB14;
 extern const f32 lbl_805DAB18;
 extern const f32 lbl_805DAB1C;
 void *__ct__15TItemEffBringerFv(Bringer_8010834C *self, u32 arg1, Vec_8010834C *src, s32 arg3, f32 farg0);
-void spawn_particle_effect(Vec*, int);
+void *spawn_particle_effect(void *pos, s32 id);
 }
 void TItemEffBringer::hook() {
     Vec work = this->m_pos;

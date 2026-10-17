@@ -12,7 +12,7 @@ s32 is_mode_two_and_ready__10TObjPlayerFv();
 s32 roll_technique__11TItemWeaponFv(void *);
 int get_player_list__10TObjPlayerFv(void*);
 void __dl__7TObjectFPv(void *);
-void __dt__15TItemShootModelFv(void *, int);
+void *__dt__15TItemShootModelFv(void *self, s16 flag);
 
 extern s32 lbl_804A0AA8[];
 

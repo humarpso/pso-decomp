@@ -42,7 +42,7 @@ struct Arr_801673C4 { void *a; s32 b; s32 c; s32 d; };
 
 extern "C" {
 u8 *TLobby__sub_8001FE7C(void *, s16);
-void mem_free(u32);
+void mem_free(void *p);
 extern u8 *TOFenceAncient03__shared_resource_object;
 extern u32 TOFenceAncient03__texture_lists;
 s32 init_collision_body_parts(void *, void *, int, int, f32);
@@ -97,7 +97,7 @@ void TOFenceAncient03::free_shared_resources() {
     while (var_r30 < 4);
     if (((u32) TOFenceAncient03__texture_lists) != 0)
     {
-      mem_free(TOFenceAncient03__texture_lists);
+      mem_free((void *)TOFenceAncient03__texture_lists);
       TOFenceAncient03__texture_lists = 0;
     }
   }

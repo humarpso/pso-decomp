@@ -8,7 +8,7 @@ struct VObj_8031E650 : Base_8031E650 {
 
 extern "C" {
 
-s32 TObjEneRecon__sub_8031BC38();
+void TObjEneRecon__sub_8031BC38(void);
 
 extern struct VObj_8031E650 *boss3_volopt_instance;
 

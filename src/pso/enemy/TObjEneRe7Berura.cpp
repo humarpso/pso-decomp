@@ -445,7 +445,7 @@ u32 csnLookAt(void *, void *);
 void * alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 TObjEneRe7Berura__sub_80093470(void *, void *);
 s32 state_patrol__16TObjEneRe7BeruraFPvi(void *, void *);
-s32 TObjEneRe7Berura__sub_80093888(void *, void *);
+void TObjEneRe7Berura__sub_80093888(u8 *actor, s32 arg1);
 s32 TObjEneRe7Berura__sub_80093C80(void *, void *);
 s32 TObjEneRe7Berura__sub_800940E8(void *, void *);
 s32 TObjEneRe7Berura__sub_80094624(void *, void *);
@@ -472,9 +472,9 @@ void fn_80095DD0(u8 *arg0);
 void fn_80095DF4(u8 *arg0);
 s32 spawn_punch__16TObjEneRe7BeruraFPv(void *);
 s32 TObjPlayer__sub_800A0554(void *);
-void __dt__13TUnk_80490470Fv(void *, int);
+void *__dt__13TUnk_80490470Fv(void *arg0, s16 arg1);
 s32 enemy_set_target_id(void *, u16);
-void __dt__12TObjEneDD_STFv(void *, int);
+void *__dt__12TObjEneDD_STFv(void *arg0, s16 arg1);
 int reload_stats_keep_hp_tp__9TObjEneDDFv(void *self, void *a, void *b, void *c);
 void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 void initialize_enemy_state__9TObjEneDDFv(void *, int);
@@ -487,9 +487,9 @@ Res_800959F8 * load_enemy_bml_resource(void *);
 s32 set_field_378__9TObjEneDDFl(void *, s32, s32);
 int transition_enemy_state(void*, void*);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
-void __dt__11TBoss4Type3FPvs(void*, int);
+s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1);
 void * init_trail_buffer__11TBoss4Type3FPvifff(void *arg0, s32 segs, f32 start, f32 end, f32 step);
-void destroy_buffer_pair(void*, int);
+void *destroy_buffer_pair(void *arg0, s16 arg1);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 s32 * collect_and_count__12TBoss3VoloptFUll(u32 arg0, s32 arg1);
 s32 angle_diff_s16(s32);
@@ -504,19 +504,19 @@ void __destroy_arr(void *, void *, u32, u32);
 void __construct_array(void *, void *, void *, int, int);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-void bind_motion_context(void *, f32);
-s32 compose_motion_node_matrix(int);
+void bind_motion_context(s32 arg0, f32 farg0);
+void compose_motion_node_matrix(void *arg0);
 s32 matrix_mult_vec(int, void *, void *);
 void get_current_matrix(void *);
 void copy_matrix__10TObjPlayerFUlUl(int, void *);
 s32 subtract_vector(void *, void *);
-void translate_matrix(s32, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 concat_matrix__10TObjPlayerFUlUl(s32, s32);
 s32 push_matrix_from(void *, int, int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 set_global_param__8TObjFishFl(s32, void *);
-s32 draw_chunk_model(s32);
+void draw_chunk_model(void *arg0);
 
 extern s32 TObjEneRe7Berura__data_80439DA8[];
 extern s32 TObjEneRe7Berura__data_80439DB0[];
@@ -590,7 +590,7 @@ extern "C" void vfunc_99__9TObjEneDDFv();
 extern "C" void vfunc_100__9TObjEneDDFv();
 extern "C" void vfunc_101__9TObjEneDDFPUc();
 extern "C" void vfunc_102__9TObjEneDDFv();
-extern "C" void TObjEneEpsilon__vt101();
+extern "C" int TObjEneEpsilon__vt101(void *p);
 extern "C" void vfunc_83__12TObjEneDD_STFv();
 extern "C" void vfunc_83__16TObjEneRe7BeruraFv();
 extern "C" void vfunc_105__16TObjEneRe7BeruraFv();
@@ -656,18 +656,18 @@ extern "C" void receive_direct_attack__10TObjPlayerFv();
 extern "C" void receive_physical_attack__10TObjPlayerFv();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
 extern "C" void render__16TObjEneRe7BeruraFv();
-extern "C" void render_actor_shadows_default();
+extern "C" void render_actor_shadows_default(u8 *arg0);
 extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__13TUnk_804806E8Fv();
 extern "C" void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
-extern "C" void trigger_switch_attack__10TObjPlayerFi();
+extern "C" void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 extern "C" void try_start_action__13TUnk_804806E8Fll();
 extern "C" void update_action_hold_status__13TUnk_804806E8Fv();
-extern "C" void update_action_timer__10TObjPlayerFPv();
+extern "C" s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
 extern "C" void update_actor_ground_y__13TUnk_804806E8Fv();
-extern "C" void update_attack_stat_status();
-extern "C" void update_defense_stat_status();
+extern "C" s32 update_attack_stat_status(u8 *arg0);
+extern "C" s32 update_defense_stat_status(u8 *arg0);
 extern "C" void update_flag30_timer__13TUnk_804806E8Fv();
 extern "C" void update_movement_status__13TUnk_804806E8Fv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
@@ -804,7 +804,7 @@ void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 mode) {
         TObjEneRe7Berura__sub_80093C80((void *) (arg0), (void *) (mode));
         return;
     case 6:
-        TObjEneRe7Berura__sub_80093888((void *) (arg0), (void *) (mode));
+        TObjEneRe7Berura__sub_80093888((u8 *)(arg0), (mode));
         return;
     case 7:
         ((TObjEneRe7Berura *)arg0)->run_flash_warning_state((s32)((void *) (mode)));
@@ -950,7 +950,7 @@ void draw_node_tree__16TObjEneRe7BeruraFPv(void *arg0) {
         concat_matrix__10TObjPlayerFUlUl(0, temp_r4);
         temp_r31 = *(s32 *)((s8 *)var_r30 + 0);
         if (!(temp_r31 & 8)) {
-            draw_chunk_model(*(s32 *)((s8 *)var_r30 + 4));
+            draw_chunk_model((void *)(*(s32 *)((s8 *)var_r30 + 4)));
         }
         pop_matrix();
         if (!(temp_r31 & 0x10)) {
@@ -984,7 +984,7 @@ s32 TObjEneRe7Berura::collect_node_matrices(void *arg0, int idx) {
     u32 flags;
     do {
         push_matrix();
-        compose_motion_node_matrix((int)node);
+        compose_motion_node_matrix(node);
         flags = node->flags;
         if (idx == berura_attack_node_range_start) {
             V[0] = TObjEneRe7Berura__data_805D972C;
@@ -1214,11 +1214,11 @@ void *TObjEneRe7Berura__ct(void *arg0, void *arg1, void *arg2) {
 
 void TObjEneRe7Berura::destroy_children() {
     if ((u32) belra_trail_buffer != 0U) {
-        __dt__11TBoss4Type3FPvs((void*)belra_trail_buffer, 1);
+        __dt__11TBoss4Type3FPvs((s32 *)belra_trail_buffer, 1);
         belra_trail_buffer = 0U;
     }
     if ((u32) belra_uv_animation_buffer != 0U) {
-        destroy_buffer_pair((void*)belra_uv_animation_buffer, 1);
+        destroy_buffer_pair((void *)belra_uv_animation_buffer, 1);
         belra_uv_animation_buffer = 0U;
     }
     if ((u32) re7_berura_static_buffer != 0U) {
@@ -1288,7 +1288,7 @@ void TObjEneRe7Berura::load_static_resources() {
         Elem_800959F8 *e = &TObjEneRe7Berura__detached_part_states[i];
         u8 *ent = RES->f430[TObjEneRe7Berura__animation_definitions[e->fC].f4].f4;
         TObjPlayer::set_global_flag();
-        bind_motion_context(ent, e->f14);
+        bind_motion_context((s32)ent, e->f14);
         ((void (*)(u32, void *))apply_attack_params__16TObjEneRe7BeruraFiPv)(m, e);
         TObjPlayer::clear_global_state();
         e->f18 = collect_and_count__12TBoss3VoloptFUll(m, e->f4);

@@ -6,7 +6,7 @@ extern "C" {
 u8 get_slot_count__14TItemProShieldFv(void *);
 s32 rotate_matrix_z(s32, s32);
 s32 rotate_matrix_x(s32, s32);
-s32 translate_matrix(s32, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 
 extern const f32 lbl_805DAF58;
 

@@ -67,7 +67,7 @@ extern u32 TOKeyCave01__resource_bundle;
 extern s32 *TOKeyCave01__texture_lists;
 extern s32 key_cave_render_state;
 s32 get_main_phase(void);
-u8 * TOKey__ct(void *);
+void *TOKey__ct(void *arg0);
 extern s32 __vt__11TOKeyCave01[];
 extern s32 TOKeyCave01__class_name;
 extern const f32 lbl_805DB73C;
@@ -82,17 +82,17 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_ginja_model(int);
-int set_chunk_material_color(void *);
+void draw_ginja_model(s32 model);
+void set_chunk_material_color(f32 *arg);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 void *__dt__11TOKeyCave01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
-void __dt__5TOKeyFv(void *, int);
+void *__dt__5TOKeyFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
-s32 mem_free(void*);
+void mem_free(void *p);
 
 extern f32 lbl_805DB744;
 extern f32 lbl_805DB748;
@@ -144,12 +144,12 @@ void TOKeyCave01::render() {
         rotate_matrix_y((int) (0), (int) (this->rotation_y));
         temp_r31 = *(u8 * *)&this->model;
         post_translate_matrix((void *) (temp_r31 + 8));
-        draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
+        draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
         if ((s32) *(s32 *)&this->m_d4 != 1) {
             temp_r4 = model_render_flags;
             lbl_805D5660 = temp_r4;
             model_render_flags = temp_r4 | 0x10;
-            set_chunk_material_color((void *) (arg0 + 0xE8));
+            set_chunk_material_color((f32 *)(arg0 + 0xE8));
         }
         TParticleCtrl::begin_effect_render();
         temp_r31_2 = *(u8 **)((s8 *)temp_r31 + 0x2C);
@@ -163,16 +163,16 @@ void TOKeyCave01::render() {
             break;
         }
         post_translate_matrix((void *) (temp_r31_2 + 8));
-        draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_2 + 4)));
+        draw_ginja_model((*(s32 *)((s8 *)temp_r31_2 + 4)));
         temp_r31_3 = *(u8 **)((s8 *)temp_r31_2 + 0x2C);
         push_matrix();
         post_translate_matrix((void *) (temp_r31_3 + 8));
-        draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_3 + 4)));
+        draw_ginja_model((*(s32 *)((s8 *)temp_r31_3 + 4)));
         pop_matrix();
         pop_matrix();
         TParticleCtrl::end_effect_render();
         if ((s32) *(s32 *)&this->m_d4 != 1) {
-            set_chunk_material_color((void *) chunk_material_color_half_alpha_f32);
+            set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
             model_render_flags = lbl_805D5660;
         }
         pop_matrix();
@@ -191,7 +191,7 @@ void TOKeyCave01::free_objects() {
     if ((s32 *) TOKeyCave01__texture_lists != NULL) {
         TObjPlayer::free_if_valid(*TOKeyCave01__texture_lists);
         if ((s32 *) TOKeyCave01__texture_lists != NULL) {
-            mem_free((void*)TOKeyCave01__texture_lists);
+            mem_free(TOKeyCave01__texture_lists);
             TOKeyCave01__texture_lists = NULL;
         }
     }

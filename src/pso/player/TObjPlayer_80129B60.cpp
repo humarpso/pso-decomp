@@ -4,7 +4,7 @@
 extern "C" {
 
 void s_rank_bazooka_slide_barrel(void *arg0);
-s32 translate_matrix(s32, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 
 extern f32 lbl_805DAE48;
 extern f32 lbl_805DAE4C;

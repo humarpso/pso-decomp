@@ -45,11 +45,11 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_ginja_model(int);
+void draw_ginja_model(s32 model);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
 s32 init_collision_body_parts(void *, void *, int);
-s32 init_container_base(void *, int, void *);
+u8 *init_container_base(u8 *arg0, s32 arg1, s32 arg2);
 extern RecoveredGlobal_8015BD68_lbl_804B00C8 TOContainerAncientEnemy__collision_body_params;
 extern s32 __vt__23TOContainerAncientEnemy[];
 extern s32 lbl_805D2F08;
@@ -66,9 +66,9 @@ void byteswap_and_send__6TLobbyFv(void *, int);
 extern s32 local_client_id;
 extern const f32 lbl_805DB39C;
 s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
-s32 spawn_particle_effect(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
 s32 construct_debris__8TObjChipFPvPvPv(void *, s32, void *);
-s32 play_container_break_sound(void *);
+void play_container_break_sound(s32 arg0);
 void *__nw__7TObjectFUl(int);
 extern Spawn_8015B94C ancient_enemy_break_debris_desc;
 extern Spawn_8015B94C ancient_enemy_break_debris_desc_b;
@@ -77,7 +77,7 @@ extern Ref_8015B94C *ancient_container_fragment_texture_lists;
 void *__dt__23TOContainerAncientEnemyFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 void TOContainerAncientEnemy::vfunc_6(s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 1) {
@@ -123,7 +123,7 @@ void TOContainerAncientEnemy::vfunc_79() {
         if (o != NULL) {
             construct_debris__8TObjChipFPvPvPv(o, tl_05, &b);
         }
-        play_container_break_sound(self);
+        play_container_break_sound((s32)self);
     }
 }
 
@@ -171,17 +171,17 @@ void TOContainerAncientEnemy::vfunc_81() {
             temp_r31 = (unsigned char *) (*(void * *)&this->model);
             push_matrix();
             post_translate_matrix((void *) (temp_r31 + 8));
-            draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
+            draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
             temp_r31_2 = (unsigned char *) (*(void **)((s8 *)temp_r31 + 0x2C));
             push_matrix();
             post_translate_matrix((void *) (temp_r31_2 + 8));
-            draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_2 + 4)));
+            draw_ginja_model((*(s32 *)((s8 *)temp_r31_2 + 4)));
             pop_matrix();
             temp_r31_3 = (unsigned char *) (*(void **)((s8 *)temp_r31_2 + 0x30));
             push_matrix();
             post_translate_matrix((void *) (temp_r31_3 + 8));
             TParticleCtrl::begin_effect_render();
-            draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_3 + 4)));
+            draw_ginja_model((*(s32 *)((s8 *)temp_r31_3 + 4)));
             TParticleCtrl::end_effect_render();
             pop_matrix();
             pop_matrix();
@@ -218,7 +218,7 @@ typedef char RecoveredGlobal_8015BD68_lbl_804B00C8_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8015BD68___vt__23TOContainerAncientEnemy_size[sizeof(RecoveredGlobal_8015BD68___vt__23TOContainerAncientEnemy) == 0x14C ? 1 : -1];
 u8 *TOContainerAncientEnemy__ct(u8 *arg0, s32 arg1) {
     extern u32 ancient_container_resource_bundle;
-    init_container_base((void *) (arg0), (int) (tl_05), (void *) (arg1));
+    init_container_base((arg0), (tl_05), (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8015BD68___vt__23TOContainerAncientEnemy *)&__vt__23TOContainerAncientEnemy).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2F08;
     ((TOContainerAncientEnemy *)arg0)->mode = 0;

@@ -23,7 +23,7 @@ extern "C" {
 void init__9TItemDataFv(void *);
 s32 get_selected_menu_value(void *);
 extern RecoveredGlobal_8034B158_lbl_804F00C8 TChallenge4PItemSelect__item_table;
-void TWindow__close(void*);
+void TWindow__close(u8 *arg0);
 }
 
 #include "pso/misc/TLobby.h"
@@ -128,7 +128,7 @@ void TChallenge4PItemSelect::run_task() {
 extern "C" {
 
 TChallenge4PItemSelect::~TChallenge4PItemSelect() {
-    if (menu_window != nullptr) { TWindow__close(menu_window); menu_window = nullptr; }
+    if (menu_window != nullptr) { TWindow__close((u8 *)menu_window); menu_window = nullptr; }
 }
  }
 TChallenge4PItemSelect::TChallenge4PItemSelect(TObject *parent, TChallenge4PResult *resultOwner) : TObject(parent) {

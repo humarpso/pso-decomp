@@ -4,9 +4,9 @@
 #include "pso/object/TObjFish.h"
 
 extern "C" {
-s32 begin_screen_draw(int);
+void begin_screen_draw(s32 arg0);
 s32 draw_textured_quad_at_depth(void *, f32, f32, f32);
-s32 set_draw_texture_and_color(void *, void *);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern s32 TAdBackTxtGC__backtext_texture_list;
 extern const f32 lbl_805DDCF8;
 extern const f32 lbl_805DDCFC;
@@ -17,7 +17,7 @@ void TAdBackTxtGC::draw_character_background_frame(s32 arg1, s32 arg2) {
   f32 buffer_8[8];
   begin_screen_draw((int) 1);
   TObjFish::set_global_param((s32)((void *) TAdBackTxtGC__backtext_texture_list));
-  set_draw_texture_and_color((void *) arg1, (void *) arg2);
+  set_draw_texture_and_color(arg1, arg2);
   buffer_8[0] = lbl_805DDCF8;
   buffer_8[1] = lbl_805DDCF8;
   buffer_8[2] = lbl_805DDCFC;

@@ -18,8 +18,8 @@ struct Obj_8007FF28 {
 
 extern "C" {
 s32 __cvt_fp2unsigned(f32);
-void draw_textured_quad_at_depth(void *, f32);
-void set_constant_material_color(s32);
+void draw_textured_quad_at_depth(f32 *q, f32 depth);
+void set_constant_material_color(u32 x);
 void fn_8007FE78(Obj_8007FF28 *self, s32 arg1, void *arg2, f32 farg0, f32 farg1, f32 farg2);
 extern const char TDuelEffectNumber__class_name_string[] = "TDuelEffectNumber";
 extern const RecoveredGlobal_800800EC_lbl_80438D7C duel_number_uv_table = {0, {0x43, 0x2A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x42, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x43, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x43, 0x40, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x42, 0xAA, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}};
@@ -28,8 +28,8 @@ void fn_8007FF28(Obj_8007FF28 *self, s32 arg1);
 f32 get_scale__15TWindowCtrlMainFv(s32);
 
 void queue_destruction__7TObjectFv(void *);
-s32 begin_screen_draw(s32);
-s32 set_draw_texture_and_color(s32, s32);
+void begin_screen_draw(s32 arg0);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern s32 lbl_805D63F0;
 
 void fn_8007FE78(Obj_8007FF28 *self, s32 arg1, void *arg2, f32 farg0, f32 farg1, f32 farg2) {
@@ -40,7 +40,7 @@ void fn_8007FE78(Obj_8007FF28 *self, s32 arg1, void *arg2, f32 farg0, f32 farg1,
     *(f32 *)((s8 *)arg1 + 8) = src[0] + 64.0f * farg1;
     *(f32 *)((s8 *)arg1 + 0xC) = src[1] + 85.0f * farg1;
     set_constant_material_color(__cvt_fp2unsigned(4278190080.0f * farg2) | 0xFF0000 | 0xFFFF);
-    draw_textured_quad_at_depth((void *)arg1, farg0);
+    draw_textured_quad_at_depth((f32 *)arg1, farg0);
 }
 
 #pragma push

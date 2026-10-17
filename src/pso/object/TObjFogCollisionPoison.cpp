@@ -53,7 +53,7 @@ s32 obj_getField1c(s32);
 s32 is_valid_target__9TObjEneDDFv(s32);
 s32 send_6x2F_change_player_hp(s32, s32, s16);
 s32 get_player_by_client_id(u16);
-s32 play_persistent_sound(s32, s32, s32, s32, s32);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 void TObjFogCollisionPoison__sub_80153520(s32 arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 void TObjFogCollisionPoison__sub_801535D0(s32 arg0);

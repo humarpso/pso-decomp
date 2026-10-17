@@ -3,7 +3,7 @@
 
 extern "C" {
 
-void __dt__11TItemWeaponFv(void *, int);
+void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
 extern s32 ruby_bullet_weapon_vtable[];
 
 void *__dt__13TUnk_804F1EC8Fv(void *arg0, s16 arg1) {

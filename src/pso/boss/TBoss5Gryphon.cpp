@@ -5,13 +5,13 @@
 
 extern "C" {
 
-s32 TBoss5GryphonSnarl__sub_80066E84();
+void TBoss5GryphonSnarl__sub_80066E84(void);
 void *TBoss5Gryphon__ct(void *, void *, void *);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 void *__nw__7TObjectFUl(int);
-s32 TBoss8Dragon__sub_80066A4C();
-s32 TBoss8Dragon__sub_80355A1C();
+void TBoss8Dragon__sub_80066A4C(void);
+void TBoss8Dragon__sub_80355A1C(void);
 
 extern u32 boss5_gryphon_body_bml_resource;
 extern u32 boss5_gryphon_bml_resource;

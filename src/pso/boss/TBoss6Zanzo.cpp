@@ -40,7 +40,7 @@ u8 *mem_alloc(s32);
 extern s32 TBoss6Zanzo__name;
 s32 fn_803204B0(void* p);
 int TBoss6Zanzo__sub_803205C4(void*);
-int restore_saved_depth_alpha_state(void);
+void restore_saved_depth_alpha_state(void);
 int set_depth_buffer_settings_1__Fv(void*);
 
 s32 fn_803204B0(void* p) { return *(s32*)((char*)p + 0x4); }

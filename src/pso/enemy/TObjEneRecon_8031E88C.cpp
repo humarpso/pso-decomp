@@ -148,7 +148,7 @@ s32 rotate_matrix_x(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_chunk_object(void *);
+void draw_chunk_object(void *child);
 extern char lbl_804763D4[];
 extern char lbl_804763E4[];
 extern char lbl_804763F4[];
@@ -213,14 +213,14 @@ void TObjEneRecobox::draw_with_debug_info() {
         }
         TObjEneDD::clear_global_flag_400();
         TObjPlayer::toggle_particle_effect();
-        draw_chunk_object((void *) (*(s32 *)&this->model));
+        draw_chunk_object((void *)(*(s32 *)&this->model));
         TParticleCtrl::end_effect_render();
         pop_matrix();
     }
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (this->rotation_y));
-    draw_chunk_object((void *) (debug_chunk_object));
+    draw_chunk_object((void *)(debug_chunk_object));
     pop_matrix();
 }
 void render__12TObjEneReconFPv(u8 *arg0) {

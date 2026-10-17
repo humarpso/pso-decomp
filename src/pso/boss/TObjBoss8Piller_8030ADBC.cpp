@@ -4,7 +4,7 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 u32 get_enemy_entity(int);
 s32 TBoss8Dragon__sub_802FB1B0(int, f32, void *);
 extern const f32 lbl_805DF150;
@@ -49,7 +49,7 @@ void TObjBoss8Piller::run_task() {
     temp_r3_2 = *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x2C)) + 4) - 1;
     if (*(f32 *)((s8 *)arg0 + 0x28) >= (f32) temp_r3_2) {
         *(f32 *)((s8 *)arg0 + 0x28) = (f32) temp_r3_2;
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
     }
 }
 

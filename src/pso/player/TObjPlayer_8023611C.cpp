@@ -108,7 +108,7 @@ extern const f32 lbl_805DC898;
 s32 find_support_technique_contact(void *self, int target, void *_w2, void *_w3);
 u16 obj_getField1c(void *);
 s32 find_area_technique_contact(void *self, int target, void *_w2, void *arg3);
-u8 *find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 extern const f32 lbl_805DC890;
 f32 vector_length(void *);
 extern const f64 lbl_8044D8D0[];

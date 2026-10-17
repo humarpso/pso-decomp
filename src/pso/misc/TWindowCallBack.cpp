@@ -27,17 +27,17 @@ void build_6xA3_olga_flow_boss_actions(void* p);
 int fn_802ACD40(void* p);
 void fn_802ACD60(void* p);
 void run_task__15TWindowCallBackFv(void* p);
-int TLobby__send_and_handle_60(void*);
+void TLobby__send_and_handle_60(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 int read_be16_field2__10TObjPlayerFv(void*);
 
 s32 TBoss6Type2::get_state() { return *(s32 *)&this->m_374; }
 s32 TBoss6GravBall::get_state() { return *(s32*)((char*)this + 0x374); }
-void TBoss6Type2::update_and_send() { handle_olga_action(); TLobby__send_and_handle_60(this); }
+void TBoss6Type2::update_and_send() { handle_olga_action(); TLobby__send_and_handle_60((u8 *)this); }
 int TBoss6Type2::handle_olga_action() { return read_be16_field2__10TObjPlayerFv(this); }
 void TBoss6Type2::init_packet() { *(u8*)((char*)this + 0x0) = 165; *(u8*)((char*)this + 0x1) = 5; }
 int fn_802ACD40(void* p) { return read_be16_field2__10TObjPlayerFv(p); }
-void fn_802ACD60(void* p) { fn_802ACD40((void*)(p)); TLobby__send_and_handle_60(p); }
+void fn_802ACD60(void* p) { fn_802ACD40((void*)(p)); TLobby__send_and_handle_60((u8 *)p); }
 void build_6xA3_olga_flow_boss_actions(void* p) { *(u8*)((char*)p + 0x0) = 163; *(u8*)((char*)p + 0x1) = 5; }
 void set_field_60__15TWindowCallBackFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x60) = v; }
 

@@ -25,7 +25,7 @@ s32 get_message_10__20TWindowSubStatusDispFl(s32);
 u32 calc_text_width(void);
 void draw_window_text(V2_8027831C *, s32, u32, s32, f32);
 void set_text_draw_params(Win_8027831C *, s32, s32, f32, f32);
-f32 TWindowSubStatusDisp__sub_80287570(s32);
+f32 TWindowSubStatusDisp__sub_80287570(void *arg0);
 void draw_window_tab(Win_8027831C *, V2_8027831C *, u8, f32);
 extern s32 status_disp_tab_label_message_ids[];
 extern const u8 lbl_805DD5F8[4];
@@ -53,7 +53,7 @@ void draw_tab_label__20TWindowSubStatusDispFPvPv(Disp_8027831C *self, Win_802783
     u8 col;
 
     if (win->f30 >= 0) {
-        pos.x = win->x + TWindowSubStatusDisp__sub_80287570(self->f80);
+        pos.x = win->x + TWindowSubStatusDisp__sub_80287570((void *)self->f80);
         pos.y = win->y - lbl_805DD5FC;
         col = lbl_805DD5F8[self->f88];
         fl = self->f8A;

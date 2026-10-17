@@ -28,11 +28,11 @@ extern const f32 lbl_805D8ACC;
 extern const f32 lbl_805D8AD0;
 extern const f32 lbl_805D8AD4;
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object(s32);
+void draw_ginja_object(void *child);
 s32 TObjPlayer__sub_80052390();
 s32 push_matrix();
 s32 pop_matrix();
-s32 set_color_blend_mode(s32, s32, s32, s32);
+void set_color_blend_mode(s32 a, s32 b, s32 c, s32 d);
 
 void TObjDFUsoTower::render() {
     f32 temp_f1;
@@ -46,7 +46,7 @@ void TObjDFUsoTower::render() {
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
         TObjFish::set_global_param(this->texture_id);
-        draw_ginja_object(*(s32 *)&this->model);
+        draw_ginja_object((void *)(*(s32 *)&this->model));
         pop_matrix();
         if (*(f32 *)&this->unk_94 < lbl_805D8A34) {
             TObjPlayer::sync_player_globals();

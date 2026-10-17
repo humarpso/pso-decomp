@@ -17,7 +17,7 @@ struct Sel_802DC118 { u8 pad[0x64]; u32 win; };
 
 extern "C" {
 s32 get_localized_text_entry(int, int);
-s32 set_status_flag_80__12TQuestThreadFPv(int);
+void set_status_flag_80__12TQuestThreadFPv(void *p);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(void *, int);
 extern const f32 lbl_805DE890;
@@ -33,7 +33,7 @@ extern s32 lbl_804728A0[];
 extern const f32 lbl_805DE88C;
 s32 TAdMultiPlyChrSelectGC__sub_802DBD64(s32 arg0);
 s32 align_menu_entry_positions(int);
-s32 create_window_menu(void *, int, int);
+s32 create_window_menu(s32 arg0, s32 arg1, s32 arg2);
 extern s32 lbl_80472890[];
 extern const f32 lbl_805DE894;
 extern u8 lbl_80472898[];
@@ -51,7 +51,7 @@ extern s32 TAdMultiPlyChrSelectGC__data_805DE898;
 void TAdMultiPlyChrSelectGC__sub_802DC310(void *arg0);
 s32 clear_entries__18TAdChrMoveEffectGCFv();
 s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 
 void TAdMultiPlyChrSelectGC::render() {
@@ -88,7 +88,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802DBE4C(long long arg1) {
   temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFl((void *) arg1, (int) 1);
   forward_trade_action_default__16TObjCityMainWarpFPviii((int) temp_r31, (int) get_localized_text_entry((int) 0x1F, (int) 7), (int) 0x21, (int) 0);
   ((TAdChrSelASlotGC *)temp_r31)->set_flag_40();
-  set_status_flag_80__12TQuestThreadFPv((int) temp_r31);
+  set_status_flag_80__12TQuestThreadFPv((void *)temp_r31);
   ((TWindowSubComCard *)temp_r31)->calc_layout_height((f32) lbl_805DE890);
   return temp_r31;
 }
@@ -98,14 +98,14 @@ s32 TAdMultiPlyChrSelectGC__sub_802DBEC4(unsigned long long arg1) {
   temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFl((void *) arg1, (int) 1);
   forward_trade_action_default__16TObjCityMainWarpFPviii((int) temp_r31, (int) get_localized_text_entry((int) 0x1F, (int) 6), (int) 0x21, (int) 0);
   ((TAdChrSelASlotGC *)temp_r31)->set_flag_40();
-  set_status_flag_80__12TQuestThreadFPv((int) temp_r31);
+  set_status_flag_80__12TQuestThreadFPv((void *)temp_r31);
   ((TWindowSubComCard *)temp_r31)->calc_layout_height((f32) lbl_805DE890);
   return temp_r31;
 }
 
 s32 TAdMultiPlyChrSelectGC::create_choice_menu() {
     s32 window_menu;
-    window_menu = create_window_menu((void *) (lbl_80472890), (int) (4), (int) (TAdMultiPlyChrSelectGC::get_clamped_cursor()));
+    window_menu = create_window_menu((s32)(lbl_80472890), (4), (TAdMultiPlyChrSelectGC::get_clamped_cursor()));
     forward_trade_action_default__16TObjCityMainWarpFPviii((int) (window_menu), (int) (get_localized_text_entry((int) (0x1F), (int) (2))), (int) (6), (int) (0));
     forward_trade_action_default__16TObjCityMainWarpFPviii((int) (window_menu), (int) (get_localized_text_entry((int) (0x1F), (int) (3))), (int) (6), (int) (1));
     forward_trade_action_default__16TObjCityMainWarpFPviii((int) (window_menu), (int) (get_localized_text_entry((int) (0x1F), (int) (4))), (int) (6), (int) (2));

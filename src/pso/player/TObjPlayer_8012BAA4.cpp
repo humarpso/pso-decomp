@@ -6,26 +6,26 @@ extern "C" {
 
 void psycho_wand_node_callback(void *arg0);
 s32 rotate_matrix_z(s32, s32);
-s32 add_actor_tp(s32, s16);
+s32 add_actor_tp(u8 *arg0, s32 arg1);
 s32 get_attack_stage__11TItemWeaponFv();
 s32 reset_key_machine_state__10TObjPlayerFv();
-s32 translate_matrix(s32, f32, f32, f32);
-s32 TObjectV8047c128_subtract_hp(s32, s16);
-s16 obj_getS16_32E(s32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
+s32 TObjectV8047c128_subtract_hp(u8 *arg0, s16 arg1);
+s16 obj_getS16_32E(u8 *p);
 
 void TUnk_804A4F60::update_weapon() {
     s16 temp_r0;
     s16 temp_r3;
 
     if (reset_key_machine_state__10TObjPlayerFv() != 0) {
-        temp_r3 = obj_getS16_32E(*(s32 *)&this->player);
+        temp_r3 = obj_getS16_32E((u8 *)(*(s32 *)&this->player));
         temp_r0 = *(s16 *)((s8 *)this + 0x1F8) - temp_r3;
         if (temp_r0 != 0) {
             *(s16 *)((s8 *)this + 0x1F8) = temp_r3;
         }
         if (temp_r0 > 0) {
-            TObjectV8047c128_subtract_hp(*(s32 *)&this->player, temp_r0);
-            add_actor_tp(*(s32 *)&this->player, (s16) (temp_r0 / 2));
+            TObjectV8047c128_subtract_hp((u8 *)(*(s32 *)&this->player), temp_r0);
+            add_actor_tp((u8 *)(*(s32 *)&this->player), (s16) (temp_r0 / 2));
         }
     }
 }

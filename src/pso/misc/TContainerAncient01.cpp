@@ -67,7 +67,7 @@ extern "C" {
 s32 construct_actor_base__10TObjPlayerFPvPv(void *);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-s32 set_animation__10TObjPlayerFPvs(void *, int);
+void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_8018BD00_TContainerAncient01__data_804B6DC0 TContainerAncient01__collision_body_parts;
 extern RecoveredGlobal_8018BD00_lbl_804B6DEC TContainerAncient01__anim_table;
@@ -119,7 +119,7 @@ u8 *TContainerAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjPlayer *)arg0)->set_field_d8((s32)((void *) (*(s32 * *)&((TContainerAncient01 *)arg0)->action_table)));
     *(s32 *)((s8 *)arg0 + 0xDC) = (s32) *(s32 *)((s8 *)(*(u8 * *)&TContainerAncient01__bml_resource) + 0x430);
     ((TContainerAncient01 *)arg0)->m_b8 = 0;
-    set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (((TContainerAncient01 *)arg0)->m_b8));
+    set_animation__10TObjPlayerFPvs((arg0), (((TContainerAncient01 *)arg0)->m_b8));
     ((TObjMotion *)arg0)->set_field_b8((int) (((TContainerAncient01 *)arg0)->m_b8));
     *(s32 *)&((TContainerAncient01 *)arg0)->actorFlags = (s32) (*(s32 *)&((TContainerAncient01 *)arg0)->actorFlags| 0x60000000);
     init_collision_body_parts((void *) (arg0), (void *) (&TContainerAncient01__collision_body_parts.value), (int) (1));
@@ -300,7 +300,7 @@ void rotate_vector_by_matrix(int, void *, void *);
 void play_persistent_sound(s32, void *, void *, s32, s32);
 void play_sound_effect(s32, void *, s32, s32);
 s32 rand();
-void spawn_particle_effect(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
 int update_obstruction_fade(void*);
 extern const Vec3_8018C18C lbl_80445110;
 extern const Vec3_8018C18C lbl_8044511C;
@@ -463,7 +463,7 @@ struct VObj_8018C7BC : VBase_8018C7BC {
 struct Ido_8018C7BC { u8 pad[0xCC]; s32 ids[4]; };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 extern u32 container_ido_texture_gvm_handle;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 * load_gvm_texture_file(s32);
@@ -482,7 +482,7 @@ void *__dt__16TObjContainerIdoFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 s32 scale_matrix(s32, f32, f32, f32);
-void __dt__13TUnk_804949A8Fv(void *, int);
+void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
 
 void TObjContainerIdo::free_resources() {
     if ((u32) container_ido_texture_gvm_handle != 0U) {
@@ -571,13 +571,13 @@ void TObjContainerJungEnemy::vfunc_6(s16 *arg1, s32 arg2) {
             ((TObjContainerJungEnemy *)arg0)->vfunc_79();
             ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
             ((TUnk_804AF8A0 *)arg0)->set_flag8();
-            queue_destruction__7TObjectFv((void *) (arg0));
+            queue_destruction__7TObjectFv((arg0));
             this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
         ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
         ((TUnk_804AF8A0 *)arg0)->set_flag8();
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         this->mode = 1;
     }
 }

@@ -5,7 +5,7 @@ extern "C" {
 
 void * TObjNpcAHM01__create(void *arg0);
 void *TObjControl__ct(void *, void *);
-void *TObjNpcAHM01__ct(void *, void *, void *);
+u8 *TObjNpcAHM01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);
 void mem_free(void *p);
 void *mem_alloc(u32 size);
@@ -34,7 +34,7 @@ void * TObjNpcAHM01__create(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x3B8);
     if (o2 != NULL) {
-        o2 = TObjNpcAHM01__ct(o2, o, arg0);
+        o2 = TObjNpcAHM01__ct((u8 *)o2, (s32)o, (s32)arg0);
     }
     return o2;
 }

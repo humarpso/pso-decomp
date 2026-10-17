@@ -3,9 +3,9 @@
 
 extern "C" {
 
-s32 bswap_cmd_88_body(s32 *);
+void bswap_cmd_88_body(void *p);
 s32 copy_entry_table(s32 *);
-s32 fn_801DF42C(s32 *);
+void fn_801DF42C(void *p);
 s32 fn_801DF4FC(s32 *);
 
 void TProtocol::handle_cmd_88(packet &) {

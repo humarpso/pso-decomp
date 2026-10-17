@@ -12,12 +12,12 @@ struct Rec_80103368 { u8 pad[0x1C]; f32 v[3]; u8 pad2[0x2C - 0x28]; };
 struct M_80103368 { u8 pad[0xA4]; Rec_80103368 *recs; };
 
 extern "C" {
-void mem_free(u32);
+void mem_free(void *p);
 extern s32 lbl_8043E038[];
 extern s32 item_buffer_temp_mode;
 extern s32 item_buff_buffer;
 void TItemBuff__ct(void);
-u8 *find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 s32 __ct__7TObjectFP7TObject(void*,s32);
 extern s32 __vt__13TItemAttacker[];
 extern s32 TItemAttacker__name;
@@ -25,12 +25,12 @@ u8 *__ct__13TItemAttackerFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void TItemAttacker__sub_8010349C(u32 arg0);
 int get_item_chunk_buffer(int a0);
 s32 create_item_buff(s32 arg0);
-s32 TItemTimer__ct(void *, s32, s32, s32);
+u8 *TItemTimer__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 TLobby__sub_8001EEF4();
 s32 deliver_delayed_weapon_hit();
 u32 __nw__7TObjectFUl(s32);
 s32 mem_alloc(s32);
-int queue_destruction__7TObjectFv(void*);
+void queue_destruction__7TObjectFv(void *arg0);
 
 u8 *__ct__13TItemAttackerFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u8* temp_r5;
@@ -65,7 +65,7 @@ void TItemAttacker::spawn_item_timer(s32 arg0, s32 arg1, s32 arg2) {
     if (arg0 != 0) {
         temp_r3 = (void *)__nw__7TObjectFUl(0x28);
         if (temp_r3 != (void *)0U) {
-            TItemTimer__ct(temp_r3, arg0, arg1, arg2);
+            TItemTimer__ct((u8 *)temp_r3, arg0, arg1, arg2);
         }
     }
 }
@@ -87,7 +87,7 @@ void TItemBuff__ct(void) {
         if ((s32) item_buffer_temp_mode != 0) {
             ((TLobby *)((s32) &(*(RecoveredGlobal_8010355C_lbl_8043E038 *)&lbl_8043E038).value))->tmp_buf_release();
         } else {
-            mem_free((*(u32 *)&item_buff_buffer));
+            mem_free((void *)(*(u32 *)&item_buff_buffer));
         }
         (*(u32 *)&item_buff_buffer) = 0;
     }

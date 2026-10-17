@@ -127,7 +127,7 @@ void fn_802D1C84(void) {
     }
 }
 
-void *mem_alloc(s32);
+void *mem_alloc(u32 size);
 void pso_load_texture__6TLobbyFv(void *, void *);
 void set_texture_name(void *, void *, int, int);
 

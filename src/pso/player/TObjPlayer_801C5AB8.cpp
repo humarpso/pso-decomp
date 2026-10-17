@@ -40,12 +40,12 @@ void TObjPlayer::calc_pos_delta(void *arg1, void *arg2) {
 
 void set_params__10TObjPlayerFPvPvPviPv(void *arg0, void *arg1, void *arg2, s32 arg3, void *arg4);
 
-s16 obj_getS16_2BA(s32);
+s16 obj_getS16_2BA(u8 *p);
 
 void TObjPlayer::init_shield_params(s32 arg1) {
     ((void (*)()) set_params__10TObjPlayerFPvPvPviPv)();
     *(s16 *)((s8 *)this + 0x16) = ((TItemProShield *)arg1)->get_field_2b8();
-    *(s16 *)((s8 *)this + 0x18) = obj_getS16_2BA(arg1);
+    *(s16 *)((s8 *)this + 0x18) = obj_getS16_2BA((u8 *)arg1);
 }
 
 }
@@ -73,14 +73,14 @@ void set_arrival_override_pos(u16 idx, s32 yaw, void *pos);
 extern const f32 lbl_805DC32C;
 void clear_movement_history(Obj_801C5FCC *p);
 s16 TObjPlayer__sub_800194E8(s32, s16);
-s32 get_attack_params_atp_max(s32);
+s16 get_attack_params_atp_max(void *p);
 
 extern const f32 lbl_805DC330;
 
 void set_params__10TObjPlayerFPvPvPviPv(void *arg0, void *arg1, void *arg2, s32 arg3, void *arg4) {
     s16 temp_r4;
 
-    *(s16 *)((s8 *)arg0 + 0) = (s16) (*(s16 *)((s8 *)arg2 + 0) + get_attack_params_atp_max(arg3));
+    *(s16 *)((s8 *)arg0 + 0) = (s16) (*(s16 *)((s8 *)arg2 + 0) + get_attack_params_atp_max((void *)arg3));
     temp_r4 = *(s16 *)((s8 *)arg2 + 8);
     *(s16 *)((s8 *)arg0 + 2) = (s16) (temp_r4 + *(s32 *)((s8 *)arg4 + 0x1C));
     *(s16 *)((s8 *)arg0 + 4) = (s16) *(s16 *)((s8 *)arg2 + 2);

@@ -39,7 +39,7 @@ void debug_printf_at(s32, const char *, ...);
 extern Ctl_8006C964 controller_input_state;
 void TCameraCtrl__sub_8006C928(void);
 void *__dt__13TUnk_80488DA0Fv(void *arg0, s16 arg1);
-void __dt__13TUnk_80488A28Fv(void *, int);
+void *__dt__13TUnk_80488A28Fv(void *arg0, s16 arg1);
 int __ct__13TUnk_80488A28Fv(void);
 void __dl__7TObjectFPv(void *);
 

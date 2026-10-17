@@ -9,10 +9,10 @@ struct Lim_8032B1A4 { u32 n[4]; };
 struct B4_8032AD30 { u8 b[4]; };
 
 extern "C" {
-void fn_8032AC9C();
+void fn_8032AC9C(void *arg0, void *arg1);
 extern char lbl_80477188[];
 extern char lbl_80477190[];
-s32 get_localized_text_entry(int, void *);
+s32 get_localized_text_entry(s32 arg0, s32 arg1);
 s32 update_window_mode_from_progress__6TLobbyFPv(void *, void *);
 extern u8 lbl_80477178[];
 extern u8 lbl_80477180[];
@@ -77,7 +77,7 @@ void TAdEnterSerialAccessGC::create_default_callback() {
 
 s32 TAdEnterSerialAccessGC::show_message_window(void *arg0, void *arg1) {
     s32 r = update_window_mode_from_progress__6TLobbyFPv(lbl_80477178, lbl_80477180);
-    ((TLobby *)r)->send_and_handle(get_localized_text_entry(0x17, arg1), 1);
+    ((TLobby *)r)->send_and_handle(get_localized_text_entry(0x17, (s32)arg1), 1);
     return r;
 }
 

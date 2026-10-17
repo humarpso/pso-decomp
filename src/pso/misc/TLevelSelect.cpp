@@ -32,7 +32,7 @@ int count_unlocked_difficulties__12TLevelSelectFv(void);
 void TKeyBoardControl__sub_8000F9CC(s32);
 void queue_destruction__7TObjectFv(void *);
 s32 get_localized_text_entry(s32, s32);
-s32 TAdSinglePlyChrSelectGC__sub_801334DC(s32);
+s32 TAdSinglePlyChrSelectGC__sub_801334DC(void *p);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 extern u8 controller_input_state[];
@@ -82,10 +82,10 @@ int count_unlocked_difficulties__12TLevelSelectFv(void) {
 void TLevelSelect::run_task() {
     Self_80133068 *self = (Self_80133068 *)this;
     TAdMultiChgGameModeGC::set_default_camera();
-    if (game_difficulty_selection != TAdSinglePlyChrSelectGC__sub_801334DC(self->f20)) {
-        ((TAdMultiPlyChrSelectGC *)(self->f24))->set_entry_value(1, get_localized_text_entry(0xD, TAdSinglePlyChrSelectGC__sub_801334DC(self->f20) + 1));
+    if (game_difficulty_selection != TAdSinglePlyChrSelectGC__sub_801334DC((void *)self->f20)) {
+        ((TAdMultiPlyChrSelectGC *)(self->f24))->set_entry_value(1, get_localized_text_entry(0xD, TAdSinglePlyChrSelectGC__sub_801334DC((void *)self->f20) + 1));
     }
-    game_difficulty_selection = TAdSinglePlyChrSelectGC__sub_801334DC(self->f20);
+    game_difficulty_selection = TAdSinglePlyChrSelectGC__sub_801334DC((void *)self->f20);
     switch (((TAdSinglePlyChrSelectGC *)(self->f20))->get_selected_slot()) {
     case 1:
         TKeyBoardControl__sub_8000F9CC(0xE);

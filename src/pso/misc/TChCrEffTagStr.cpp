@@ -10,7 +10,7 @@ struct Stack_8029AEDC {
 };
 
 extern "C" {
-s32 restore_saved_depth_alpha_state();
+void restore_saved_depth_alpha_state(void);
 s32 draw_creation_sprite_offset(s32, void *, f32 *, f32, f32, f32, f32, f32);
 extern const f32 lbl_805DDCB8;
 extern const f32 lbl_805DDCBC;

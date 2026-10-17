@@ -43,13 +43,13 @@ struct Obj_800665FC { s32 f0; u8 pad4[0x14]; void *f18; f32 f1c; f32 f20; s32 f2
 struct Cam_800665FC { s8 f8; s8 f9; s16 fa; f32 fc; f32 f10; };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
-s32 set_camera_capture_overlay_alpha(int);
+void queue_destruction__7TObjectFv(void *arg0);
+void set_camera_capture_overlay_alpha(int a0);
 s32 restore_player_cameras();
 u8 *get_scripted_camera_playback();
-void fn_8002B630(void *, void *);
-u8 *mem_alloc(s32);
-void register_entity_by_id(void *);
+void fn_8002B630(u8 *arg0, u8 *arg1);
+void *mem_alloc(u32 size);
+u16 register_entity_by_id(void *ov);
 int refresh_collision_body_centers__13TUnk_804AF8A0Fv(void*);
 extern s32 gryphon_demo_collision_body_desc[];
 extern s32 lbl_804886AC[];
@@ -57,8 +57,8 @@ extern s32 lbl_805D2808;
 extern const f32 lbl_805D8ED0;
 extern const f32 lbl_805D8EDC;
 Obj_800663DC *TBoss5GryphonDemo__sub_800663DC(Obj_800663DC *arg0, s32 arg1, s32 arg2, void *arg3, f32 len);
-s32 TBoss8Dragon__sub_8005D700(void);
-void activate_camera_mode(int);
+int TBoss8Dragon__sub_8005D700(void);
+s32 activate_camera_mode(s32 arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 __vt__17TBoss5GryphonDemo[];
 extern s32 lbl_805D2810;
@@ -126,7 +126,7 @@ Obj_800663DC *TBoss5GryphonDemo__sub_800663DC(Obj_800663DC *arg0, s32 arg1, s32 
     i = 0;
     z = len * (f32)(arg0->count - 1);
     for (; i < arg0->count; i++) {
-        fn_8002B630(s, gryphon_demo_collision_body_desc);
+        fn_8002B630((u8 *)s, (u8 *)gryphon_demo_collision_body_desc);
         s->f0 = zero;
         s->f4 = zero;
         s->f8 = z;
@@ -147,10 +147,10 @@ void TBoss5GryphonDemo::run_task() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r31;
     temp_r31 = get_scripted_camera_playback();
-    set_camera_capture_overlay_alpha((int) (0x8F));
+    set_camera_capture_overlay_alpha((0x8F));
     if ((*(u16 *)((s8 *)temp_r31 + 2) & 1) || ((s32) **(s32 **)((s8 *)arg0 + 0x24) == 0)) {
         restore_player_cameras();
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
     }
 }
 TBoss5GryphonDemo::~TBoss5GryphonDemo() {}

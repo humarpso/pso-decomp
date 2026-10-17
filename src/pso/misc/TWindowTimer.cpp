@@ -20,20 +20,20 @@ extern "C" {
 s32 draw_default_entry__9TWindowDDFl();
 s32 draw_visible_window_entries(void *, void *, int);
 void render__12TWindowTimerFv(s32 arg0);
-s16 get_timer_value__12TWindowTimerFi(int);
+s16 get_timer_value__12TWindowTimerFi(s32 i);
 void run_task__12TWindowTimerFv(u8 *arg0);
 s32 draw_window_tab(void *, void *, int, f32);
 extern const f32 lbl_805DD890;
-u8 * get_zero_vec2(void);
+char *get_zero_vec2(void);
 extern RecoveredGlobal_80287FBC_lbl_804D2E74 lbl_804D2E74;
 extern s32 __vt__12TWindowTimer[];
 extern s32 TWindowTimer__name;
 u8 *TWindowTimer__ct(u8 *arg0);
-s32 get_shared_text_buffer();
-s32 append_padded_number(s32, s32);
-s32 text_builder_append(s32 *);
-s32 text_builder_reset();
-s32 set_text_entry_string(s32, s32, s32);
+s32 *get_shared_text_buffer(void);
+void append_padded_number(s32 v, u8 n);
+void text_builder_append(u8 *str);
+void text_builder_reset(void);
+void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 extern s32 lbl_8044FCE8[];
 extern s32 lbl_805DD888;
 extern s32 lbl_805DD88C;
@@ -68,11 +68,11 @@ void TWindowTimer::draw(s32 arg1, s32 arg2) {
 
     array_entry = get_array_entry(0);
     text_builder_reset();
-    text_builder_append(&lbl_805DD884);
+    text_builder_append((u8 *)&lbl_805DD884);
     append_padded_number(arg1, 3);
-    text_builder_append(lbl_8044FCE0);
+    text_builder_append((u8 *)lbl_8044FCE0);
     append_padded_number(arg2, 3);
-    set_text_entry_string(array_entry, get_shared_text_buffer(), 0x20);
+    set_text_entry_string((u8 *)array_entry, (u32)(get_shared_text_buffer()), 0x20);
     ((TWindowHelpItem *)array_entry)->reset_float_field();
 }
 
@@ -85,17 +85,17 @@ void TWindowTimer::set_time(u32 secs) {
     hours = secs / 3600;
     secs %= 3600;
     if (hours > 9) {
-        text_builder_append((s32 *)(lbl_8044FCE8));
+        text_builder_append((u8 *)((s32 *)(lbl_8044FCE8)));
     } else {
-        append_padded_number((s32)(hours), (s32)(1));
-        text_builder_append((s32 *)(&lbl_805DD888));
+        append_padded_number((hours), (1));
+        text_builder_append((u8 *)((s32 *)(&lbl_805DD888)));
         mins = secs / 60;
         secs %= 60;
-        append_padded_number((s32)(mins), (s32)(2));
-        text_builder_append((s32 *)(&lbl_805DD88C));
-        append_padded_number((s32)(secs), (s32)(2));
+        append_padded_number((mins), (2));
+        text_builder_append((u8 *)((s32 *)(&lbl_805DD88C)));
+        append_padded_number((secs), (2));
     }
-    set_text_entry_string((s32)(entry), (s32)(get_shared_text_buffer()), (s32)(0x20));
+    set_text_entry_string((u8 *)(entry), (u32)(get_shared_text_buffer()), (0x20));
     ((TWindowHelpItem *)entry)->reset_float_field();
 }
 

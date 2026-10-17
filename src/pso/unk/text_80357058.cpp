@@ -38,7 +38,7 @@ struct V4_8035740C { f32 x, y, z; s32 w; };
 struct O_8035740C { u8 pad0[0xC4]; V4_8035740C v[10]; };
 
 extern "C" {
-u8 * construct_attack_collision(void *, s32, void *);
+u8 *construct_attack_collision(u8 *arg0, s32 arg1, u8 *arg2);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 f32 normalize_vector(void *);
@@ -59,10 +59,10 @@ void clear_rock_state__10TBoss6RockFl(s32 i, s32 a, s32 b);
 int read_be16_field2_forward(void* p);
 extern int olga_flow_subordinate_actions_enabled;
 void handle_6xAD_olga_flow_subordinate_boss_actions(Pkt_803570E4 *pkt);
-s32 queue_destruction__7TObjectFv(void *);
-s32 disallow_rendering__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
+void disallow_rendering__7TObjectFv(void *arg0);
 s32 has_game_join_id__13TUnk_804E355CFv();
-s32 check_hits__14TItemAttackColFPv(void *);
+void check_hits__14TItemAttackColFPv(u8 *arg0);
 extern const f32 lbl_805E0030;
 extern const f32 lbl_805E0034;
 void run_task__20TItemEffOrgaFlowShotFv(u8 *arg0);
@@ -71,12 +71,12 @@ void TItemEffOrgaFlowShot__sub_80357204(void);
 void TItemEffOrgaFlowShot__sub_80357210(void);
 void *__dt__20TItemEffOrgaFlowShotFv(void *arg0, s16 arg1);
 int TLobby__send_and_handle_60(void*);
-s32 draw_untextured_trail_strip(s32, s32);
-s32 TObjPlayer__sub_803DF768(s32);
+void draw_untextured_trail_strip(void *arg0, void *arg1);
+void TObjPlayer__sub_803DF768(s32 arg0);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 restore_saved_depth_alpha_state();
-s32 reset_player_transform();
+void restore_saved_depth_alpha_state(void);
+void reset_player_transform(void);
 
 void send_6xAD_olga_flow_subordinate_boss_actions(u8 *arg0) {
     B_80357058 b;
@@ -214,7 +214,7 @@ void TItemEffOrgaFlowShot::render() {
     set_depth_buffer_settings_1();
     TObjPlayer::init_xyz_limits();
     TObjPlayer__sub_803DF768(1);
-    draw_untextured_trail_strip(arg0 + 0xC4, 0xA);
+    draw_untextured_trail_strip((void *)(arg0 + 0xC4), (void *)(0xA));
     reset_player_transform();
     TObjPlayer::reset_transform_state();
     restore_saved_depth_alpha_state();
@@ -226,10 +226,10 @@ void run_task__20TItemEffOrgaFlowShotFv(u8 *arg0) {
     s32 temp_r3;
     s32 i;
     if (has_game_join_id__13TUnk_804E355CFv() != 0) {
-        check_hits__14TItemAttackColFPv((void *) (arg0));
+        check_hits__14TItemAttackColFPv((arg0));
     } else {
-        queue_destruction__7TObjectFv((void *) (arg0));
-        disallow_rendering__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
+        disallow_rendering__7TObjectFv((arg0));
     }
     TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x190), (f32)((f32) (lbl_805E0030)), (f32)((f32) (*(f32 *)((s8 *)arg0 + 0x18C))));
     if (*(f32 *)((s8 *)arg0 + 0x190) == *(f32 *)((s8 *)arg0 + 0x18C)) {
@@ -242,7 +242,7 @@ void run_task__20TItemEffOrgaFlowShotFv(u8 *arg0) {
         temp_r3 = *(s32 *)&((TItemEffOrgaFlowShot *)arg0)->m_19c;
         *(s32 *)&((TItemEffOrgaFlowShot *)arg0)->m_19c = (s32) (temp_r3 - 1);
         if (temp_r3 == 0) {
-            queue_destruction__7TObjectFv((void *) (arg0));
+            queue_destruction__7TObjectFv((arg0));
         }
     }
     ((TItemEffOrgaFlowShot *)arg0)->update_segments();

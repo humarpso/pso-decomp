@@ -15,7 +15,7 @@ struct VObj800AFB60_8031bd64 : VBase800AFB60_8031bd64 {
 extern "C" {
 
 s32 post_translate_matrix(void *);
-s32 draw_chunk_object(s32);
+void draw_chunk_object(void *child);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -34,7 +34,7 @@ void TObjEneRecon::vfunc_106() {
         rotate_matrix_y(0, this->rotation_y);
         TObjEneDD::clear_global_flag_400();
         TObjPlayer::toggle_particle_effect();
-        draw_chunk_object(*(s32 *)&this->model);
+        draw_chunk_object((void *)(*(s32 *)&this->model));
         TParticleCtrl::end_effect_render();
         pop_matrix();
     }

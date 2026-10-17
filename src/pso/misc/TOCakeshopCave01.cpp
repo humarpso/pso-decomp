@@ -81,7 +81,7 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_ginja_model(int);
+void draw_ginja_model(s32 model);
 extern const f32 lbl_805DB368;
 void *__dt__16TOCakeshopCave01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);

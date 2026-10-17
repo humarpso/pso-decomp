@@ -64,7 +64,7 @@ struct VObj_18_382324 : VBase_18_382324 {
 
 extern "C" {
 s32 get_current_floor();
-s8 TObjPlayer__sub_80102C30(void *);
+s8 TObjPlayer__sub_80102C30(u8 *arg0);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 update_technique_slot__10TTecRaFoieFl(int, int, int);
 s32 play_sound_effect(int, int, int, int);
@@ -72,7 +72,7 @@ s32 init_shoot_model__13TUnk_804A69C0Fv(int, void *, void *, void *, f32);
 s32 __nw__7TObjectFUl(int);
 s32 create_shoot_model__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
-void TObjPlayer__sub_801307D0(void);
+void TObjPlayer__sub_801307D0(void *arg0);
 extern const f32 lbl_805DB000;
 typedef struct VBase_18_382324 VBase_18_382324;
 typedef struct VObj_18_382324 VObj_18_382324;
@@ -100,7 +100,7 @@ void TUnk_804A69DC::vfunc_17(s32) {
   if ((((u32) (*((u32 *) (((s8 *) arg0) + 0xF0)))) != 0U) && (reset_key_machine_state__10TObjPlayerFv() != 0))
   {
     ;
-    if ((get_current_floor() == ((TObjPlayer *)(*((u32 *) (((s8 *) arg0) + 0xF0))))->get_field_3e4()) && (TObjPlayer__sub_80102C30((void *) arg0) == 2))
+    if ((get_current_floor() == ((TObjPlayer *)(*((u32 *) (((s8 *) arg0) + 0xF0))))->get_field_3e4()) && (TObjPlayer__sub_80102C30(arg0) == 2))
     {
       if (!arg0)
       {

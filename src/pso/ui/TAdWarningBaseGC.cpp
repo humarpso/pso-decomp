@@ -21,7 +21,7 @@ extern u8 lbl_8047733C[];
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 void play_sound_effect(int, int, int, int);
-void TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 extern u8 controller_input_state[];
 extern u8 controller_physical_port_bank[];
 extern const f32 lbl_805DF7B0;
@@ -78,7 +78,7 @@ void TAdWarningBaseGC::vfunc_8() {
         break;
     case 3:
         if (*(void * *)&this->m_2c != NULL) {
-            TWindow__close(*(void * *)&this->m_2c);
+            TWindow__close((u8 *)(*(void * *)&this->m_2c));
             *(void * *)&this->m_2c = NULL;
         }
         if ((f32)++*(s32 *)&this->m_28 > lbl_805DF7B0) {

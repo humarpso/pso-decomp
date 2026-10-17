@@ -42,16 +42,16 @@ extern char *status_text_label_table[];
 extern Ent_800FC968 lobby_player_status_records[];
 extern char lbl_805DA9F4[4];
 extern char lbl_805DA9F8[4];
-s32 fn_800FCCC8(s32, s32);
+void fn_800FCCC8(s32 arg0, s32 arg1);
 
 void *__dt__13TUnk_8049CA54Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__14TFontSmallHelpFv(void *, int);
 void *__nw__7TObjectFUl(int);
-void *fn_800FCC78(void *, void *);
-s32 fn_800FCCF4(s32);
+u8 *fn_800FCC78(u8 *arg0, s32 arg1);
+s32 fn_800FCCF4(void *p);
 s32 get_status_index_or_default__20TWindowSubStatusDispFPUs(void *, s32);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 run_task__14TFontSmallHelpFv(void *);
 
     extern int TWindowCtrlMain__instance;
@@ -120,7 +120,7 @@ s32 TWindowSubStatusDisp::build_status_text(s32 arg0) {
 void *TFontSmallLobby::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x64);
     if (o != NULL) {
-        o = fn_800FCC78(o, arg0);
+        o = fn_800FCC78((u8 *)o, (s32)arg0);
     }
     return o;
 }
@@ -146,7 +146,7 @@ void TUnk_8049CA54::run_task() {
                 temp_r4 = *(s32 *)&this->player_id;
                 set_color(get_status_index_or_default__20TWindowSubStatusDispFPUs((s8 *)lobby_player_status_records + (temp_r4 * 0x11C) + 4, temp_r4));
             } else {
-                set_color(fn_800FCCF4(temp_r3));
+                set_color(fn_800FCCF4((void *)temp_r3));
             }
         }
     }

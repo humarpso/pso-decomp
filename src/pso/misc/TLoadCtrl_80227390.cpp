@@ -65,7 +65,7 @@ extern s32 lbl_805D6330;
 void update_music_fade(void);
 void update_all_zones__14TObjBgmColCtrlFl(void);
 void strncpy(void *, void *, s32);
-void TLobby__sub_803C94DC(s32, s32);
+void TLobby__sub_803C94DC(u8 *arg0, s32 arg1);
 void start_audio_stream_file(s32, char *);
 extern char lbl_80514D00[][0x20];
 extern s32 lbl_805D3714;
@@ -76,7 +76,7 @@ void TWindowOptionCtrl__sub_802273B4(s32 arg0);
 void TLobby__sub_803CA194(s32);
 extern u32 lbl_805D62DC;
 extern u32 lbl_805D62EC;
-int stop_cue_stream(void);
+void stop_cue_stream(void);
 
 void TLoadCtrl::step() { TLobby::stop_audio_streams(); stop_cue_stream(); }
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
@@ -126,7 +126,7 @@ void play_area_music(char *name) {
     }
     lbl_805D371C = music_fade_slot_index + 1;
     start_audio_stream_file(lbl_804CB850[music_fade_slot_index], name);
-    TLobby__sub_803C94DC(lbl_804CB850[music_fade_slot_index], 0);
+    TLobby__sub_803C94DC((u8 *)lbl_804CB850[music_fade_slot_index], 0);
     TLobby::close_option_window();
     lbl_805D62E0 = 0;
     lbl_805D62E4 = 1;

@@ -56,7 +56,7 @@ void free_collision_body_parts(void *);
 Ctrl_801910F4 *get_player_by_client_id(u32);
 s32 __dl__7TObjectFPv(void *);
 Obj_801910F4 *__dt__13TUnk_804B7C1CFv(Obj_801910F4 *arg0, s16 arg1);
-int queue_destruction__7TObjectFv(void*);
+void queue_destruction__7TObjectFv(void *arg0);
 f32 horizontal_distance_squared(void *, void *);
 void set_indexed_flags(void *, s32, s32);
 void *__nw__7TObjectFUl(int);
@@ -65,7 +65,7 @@ extern s32 local_client_id;
 extern void *tl_07;
 void TLobby__sub_80190FD0(int a0);
 s32 build_npc_player_record__10TNpcPlayerFl(s32);
-s32 send_6x24_teleport_player(u16, void *, s32);
+void send_6x24_teleport_player(u16 slot, void *pos, s32 heading);
 u8 *create_player_object(u16, s32, s32);
 s32 queue_player_injured_pose();
 s32 __dt__7TObjectFv(void *, s32);
@@ -120,7 +120,7 @@ void TUnk_804B7C1C::run_task() {
     Ply_80190FDC *p;
     void *o;
     if (npc_proximity_target_id == arg0->f8C) {
-        queue_destruction__7TObjectFv((void*)(arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     p = (Ply_80190FDC *)get_player_by_client_id(local_client_id);
@@ -143,7 +143,7 @@ void TUnk_804B7C1C::run_task() {
             arg0->fB4 = 0;
             p = (Ply_80190FDC *)get_player_by_client_id(arg0->fAC);
             if (p != 0) {
-                queue_destruction__7TObjectFv((void*)(p));
+                queue_destruction__7TObjectFv((p));
             }
         }
     }

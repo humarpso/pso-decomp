@@ -40,9 +40,9 @@ struct Poly_8024CE68 {
 struct Quad_8024CE68 { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
 
 void draw_color_lines(void *, int, int, f32);
-void begin_screen_draw(int);
+void begin_screen_draw(s32 arg0);
 void draw_textured_quad_at_depth(void *, f32);
-void set_draw_texture_and_color(int, int);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern void *lbl_805D63F0;
 
 void TWindowCtrlMain__sub_8024CB7C() {

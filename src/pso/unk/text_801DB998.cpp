@@ -29,15 +29,15 @@ struct Stack_801DB998 {
 };
 
 extern "C" {
-s32 fn_801DF918(void *);
-s32 fn_801DF954(void *);
+void fn_801DF918(void *p);
+void *fn_801DF954(void *p);
 s32 __as__8TPlySmthFRC8TPlySmth(void *, void *);
 s32 strncpy(void *, void *, int);
 s32 memset(void *, int, int);
 void send_register_9c(u8 *arg0);
 void send_register_9c(u8 *arg0) {
     Stack_801DB998 stack;
-    fn_801DF954((void *) (&stack.sp8));
+    fn_801DF954((&stack.sp8));
     memset((void *) (&stack.sp8), (int) (0), (int) (0xA4));
     stack.sp8 = 0x9C;
     stack.spA = 0xA4;
@@ -47,7 +47,7 @@ void send_register_9c(u8 *arg0) {
     strncpy((void *) (&stack.sp1C), (void *) (arg0 + 0x3EDA), (int) (0x30));
     strncpy((void *) (&stack.sp4C), (void *) (arg0 + 0x3F0A), (int) (0x30));
     strncpy((void *) (&stack.sp7C), (void *) (arg0 + 0x3F3A), (int) (0x30));
-    fn_801DF918((void *) (&stack.sp8));
+    fn_801DF918((&stack.sp8));
     ((VObj_18_44382c *)(arg0))->m8(&stack.sp8, 0xA4);
 }
 

@@ -3,7 +3,7 @@
 extern "C" {
 
 void *create_remote_player_object(void *arg0);
-s32 TItem__sub_80101CF0();
+void TItem__sub_80101CF0(void);
 void *__ct__10TObjPlayerFPvPvPv(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 

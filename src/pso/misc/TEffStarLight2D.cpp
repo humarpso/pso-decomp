@@ -54,7 +54,7 @@ void matrix_mult_vec(int, void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 void project_world_to_screen(int, void *, void *);
 extern u32 lbl_805D292C;
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 f32 approach_vector_fixed_distance(void *, void *, void *, f32);
 f32 vector_length(void *);
 s32 normalize_vector(void *);

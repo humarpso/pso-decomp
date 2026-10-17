@@ -65,7 +65,7 @@ void bswap_pick_up_item_request__6TLobbyFi(Msg_8011A9D8 *msg);
 void *find_item_condition_entry__6TLobbyFii(s16 a, u32 b);
 void handle_6x5A_pick_up_item_request(Msg_8011A9D8 *msg);
 s32 get_main_phase();
-s32 is_quest_active();
+int is_quest_active(void);
 extern s32 build_item_id_mode;
 u32 build_item_id(u16 arg0);
 void init__9TItemDataFv(void *);

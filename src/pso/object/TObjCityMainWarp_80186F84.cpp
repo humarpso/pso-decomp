@@ -35,7 +35,7 @@ extern "C" {
 s32 get_current_floor(void);
 f32 xz_distance_squared(void *, void *);
 Player_80187438 *get_player_by_client_id(s32);
-s32 TWindow__close(u32);
+void TWindow__close(u8 *arg0);
 char *strcpy(char *, const char *);
 extern s32 local_client_id;
 extern const f32 lbl_805DBCA8;
@@ -150,11 +150,11 @@ void TObjCityMainWarpChallenge::update_challenge_state() {
             break;
         }
         if (*(u32 *)((s8 *)arg0 + 0xB0) != 0) {
-            TWindow__close(*(u32 *)((s8 *)arg0 + 0xB0));
+            TWindow__close((u8 *)(*(u32 *)((s8 *)arg0 + 0xB0)));
             *(u32 *)((s8 *)arg0 + 0xB0) = 0;
         }
         if (*(u32 *)((s8 *)arg0 + 0x164) != 0) {
-            TWindow__close(*(u32 *)((s8 *)arg0 + 0x164));
+            TWindow__close((u8 *)(*(u32 *)((s8 *)arg0 + 0x164)));
             *(u32 *)((s8 *)arg0 + 0x164) = 0;
         }
         break;
@@ -243,7 +243,7 @@ void TObjCityMainWarpChallenge::count_players_in_warp_radius() {
         self->names[i][0] = 0;
     }
     if (old != self->count && self->window != 0) {
-        TWindow__close(self->window);
+        TWindow__close((u8 *)self->window);
         self->window = 0;
     }
     pl2 = get_player_by_client_id(local_client_id);

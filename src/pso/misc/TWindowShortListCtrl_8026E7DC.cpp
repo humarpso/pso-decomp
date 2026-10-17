@@ -64,21 +64,21 @@ extern "C" {
 u8 * find_item_by_id(s32);
 s32 canSetMenuCursorAction(s32, s32, u8, u8);
 s32 get_player_by_client_id(s32);
-u32 TItemObject__sub_80115DE8(int);
-s32 TMainCursor__sub_8013DFC4(int);
+s32 TItemObject__sub_80115DE8(void *item);
+void TMainCursor__sub_8013DFC4(u8 *arg0);
 extern s32 lbl_805DD380;
 s32 fn_8002AE08(int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-s32 is_player_input_active(int);
+s32 is_player_input_active(s32 param_1);
 extern RecoveredGlobal_8026EA60_lbl_8050E208 controller_input_state;
-s32 get_character_save_record(int);
+s32 get_character_save_record(u32 arg0);
 void align_menu_entry_positions(void *);
-void draw_technique_row__19TWindowSubTechniqueFiii(int, int, void *);
+void draw_technique_row__19TWindowSubTechniqueFiii(s32 id, s32 arg1, s32 arg2);
 s32 TWindow__close(void *);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
-void try_send_6x27_use_item(u8 *, s32);
-void decrement_clamped(void *, int);
+s32 try_send_6x27_use_item(void *arg0, s32 arg1);
+s32 decrement_clamped(s32 *arg0, s32 arg1);
 s32 try_equip_item__10TObjPlayerFii(u8 *, s32);
 void play_sound_effect(int, int, int, int);
 void *__nw__7TObjectFUl(u32);
@@ -166,7 +166,7 @@ void TWindowShortListCtrl::assign_item_to_palette(u32 arg0, u32 arg1) {
             var_r31 = item;
             if ((var_r31 != 0) && (((TItem *)item)->get_field_ec() == 3)) {
                 var_r3 = var_r31;
-                var_r31 = TItemObject__sub_80115DE8((int) (var_r3));
+                var_r31 = TItemObject__sub_80115DE8((void *)(var_r3));
                 if ((s32) var_r31 != -1) {
                     var_r4 = player;
                     var_r3 = var_r29 + 0x520;
@@ -180,7 +180,7 @@ void TWindowShortListCtrl::assign_item_to_palette(u32 arg0, u32 arg1) {
                         var_r4 = (s32) (u8) var_r31;
                         ((TWindowActionPalette *)var_r3)->set_slot((int) (var_r4));
                         var_r3 = var_r29 + 0x520;
-                        TMainCursor__sub_8013DFC4((int) (var_r3));
+                        TMainCursor__sub_8013DFC4((u8 *)(var_r3));
                     }
                 }
             }
@@ -275,7 +275,7 @@ void TWindowShortListCtrl::refresh_technique_rows(s32 arg1, void *arg2_arg) {
     cur = ((TWindowShortListCtrl *)arg1)->get_cursor_pos();
     ((TWindowSubComCardList *)arg1)->reset_entries();
     for (i = 0; i < 0x13; i++) {
-        draw_technique_row__19TWindowSubTechniqueFiii(tbl->e[i], ((Wn_8026EBB0 *)this)->card, (void *)arg1);
+        draw_technique_row__19TWindowSubTechniqueFiii(tbl->e[i], ((Wn_8026EBB0 *)this)->card, arg1);
     }
     ((TWindowSubComCardList *)arg1)->set_scroll_target(arg2->x, arg2->y);
     align_menu_entry_positions((void *)arg1);
@@ -423,7 +423,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
             if (TAdSinglePlyChrSelectGC::create_if_key_pressed() == 0) {
                 break;
             }
-            decrement_clamped(player + 0x7C8, 1);
+            decrement_clamped((s32 *)(player + 0x7C8), 1);
             queue_destruction__7TObjectFv(self);
             return;
         }

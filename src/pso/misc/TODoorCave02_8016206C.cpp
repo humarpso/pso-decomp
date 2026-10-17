@@ -55,7 +55,7 @@ struct RecoveredGlobal_8016226C___vt__12TODoorCave02 {
 
 extern "C" {
 s32 init_collision_body_parts(void *, void *, int);
-s32 init_door_base(void *);
+void *init_door_base(void *a0);
 extern RecoveredGlobal_8016226C_lbl_804B1488 TODoorCave02__collision_body_parts;
 extern s32 __vt__12TODoorCave02[];
 extern s32 lbl_805D2F68;
@@ -65,7 +65,7 @@ extern const f32 lbl_805DB4C8;
 u8 *TODoorCave02__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-void *mem_alloc(s32);
+void *mem_alloc(u32 size);
 s32 load_gvm_texture_file(void *);
 extern u8 lbl_80440E24[];
 extern u8 lbl_80440E3C[];
@@ -77,7 +77,7 @@ void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 mem_free(void*);
+void mem_free(void *p);
 
 extern void *tl_05;
 
@@ -93,7 +93,7 @@ void TODoorCave02::free_globals() {
     if ((s32 *) cave_door02_resources != NULL) {
         TObjPlayer::free_if_valid(*cave_door02_resources);
         if ((s32 *) cave_door02_resources != NULL) {
-            mem_free((void*)cave_door02_resources);
+            mem_free(cave_door02_resources);
             cave_door02_resources = NULL;
         }
     }
@@ -139,7 +139,7 @@ void *__dt__12TODoorCave02Fv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8016226C_lbl_804B1488_size[sizeof(RecoveredGlobal_8016226C_lbl_804B1488) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8016226C___vt__12TODoorCave02_size[sizeof(RecoveredGlobal_8016226C___vt__12TODoorCave02) == 0x54 ? 1 : -1];
 u8 *TODoorCave02__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    init_door_base((void *) (arg0));
+    init_door_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016226C___vt__12TODoorCave02 *)&__vt__12TODoorCave02).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2F68;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);

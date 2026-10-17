@@ -152,7 +152,7 @@ extern s32 lbl_805E0CC0;
 extern s32 lbl_805E0CC8;
 extern s32 lbl_805E0CD0;
 extern s32 lbl_805E0CD8;
-void TLobby__sub_803C0B3C(void *);
+void TLobby__sub_803C0B3C(u8 *arg0);
 void TLobby__sub_803C19D8(void *);
 void TLobby__sub_803C3570(void *);
 void TLobby__sub_803C40D0(void *);
@@ -165,7 +165,7 @@ u8 *TLobby__sub_803C2388(u8 *, s32 *, s32 *, s32 *, s32 *);
 s32 __DVDPrepareResetAsync(void *, void *, void *, void *, void *, void *, void *, void *, void *);
 s32 TLobby__sub_803C48C8(void *, void *, void *);
 s32 ARStartDMA(void *, void *, void *, void *, void *, void *, void *, void *, void *, void *);
-s32 TLobby__sub_803CB570(int, void *, void *);
+void TLobby__sub_803CB570(u8 *arg0, u8 *arg1, s16 *arg2);
 extern s32 lbl_8047C520[];
 extern s32 lbl_8047C540[];
 s32 TRK__write_aram(void *arg0p, void *arg1, void *arg2);
@@ -586,7 +586,7 @@ void TLobby__sub_803C34F4(Obj_803C34F4 *arg0) {
     } else if (s == 4) {
         ((TLobby *)arg0)->dispatch_by_state();
     } else if (s == 1) {
-        TLobby__sub_803C0B3C(arg0);
+        TLobby__sub_803C0B3C((u8 *)arg0);
     }
 }
 
@@ -776,7 +776,7 @@ s32 TRK__write_aram(void *arg0p, void *hdr, void *size) {
         return 0;
     }
     ((TLobby *)(*(s32 *)((s8 *)arg0 + 8)))->calc_adx_coeffs_at_offset((void *)(*(s32 *)((s8 *)arg0 + 0x14)), (s32)((int) (*(s16 *)((s8 *)arg0 + 0x1C))));
-    TLobby__sub_803CB570((int) (*(s32 *)((s8 *)arg0 + 8)), (void *) (&sp18), (void *) (&sp14));
+    TLobby__sub_803CB570((u8 *)(*(s32 *)((s8 *)arg0 + 8)), (u8 *)(&sp18), (s16 *)(&sp14));
     __DVDPrepareResetAsync((void *) (hdr), (void *) (size), (void *) (arg0 + 0x20), (void *) (arg0 + 0x24), (void *) (arg0 + 0x26), (void *) (arg0 + 0x28), (void *) (arg0 + 0x2C), (void *) (arg0 + 0x30), (void *) (arg0 + 0x34));
     *(s16 *)((s8 *)arg0 + 0xA8) = 0;
 block_11:

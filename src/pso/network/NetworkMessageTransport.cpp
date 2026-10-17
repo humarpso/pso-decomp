@@ -92,7 +92,7 @@ extern "C" {
 s32 OSInitMessageQueue(void *, void *, int);
 s32 NetResumeThread(void *);
 s16 TLobby__sub_803F9B94(void *, void *);
-s32 NetMemset(void *, int, int);
+void NetMemset(void *_w0, int _w1, int _w2);
 void NetRegisterTimer(int, int, void (*)(void));
 s32 TLobby__sub_8042AAA0(void *);
 u8 lbl_805CF240[0xA0];
@@ -104,7 +104,7 @@ extern s16 network_link_status_cache;
 extern s32 lbl_805D7BB8;
 extern u32 lbl_805D7BBC;
 extern u32 lbl_805D7BC0;
-s32 NetMemcpy(void *, void *, int);
+void NetMemcpy(void *_w0, void *_w1, int _w2);
 void TAdSinglePlyChrSelectGC__sub_8042DDE4(int, int);
 s32 OSSendMessage(void *mq, void *msg, s32 flags);
 extern u8 lbl_805CF380[];
@@ -136,7 +136,7 @@ s32 TLobby__sub_8042558C(void *);
 s32 post_send_message__6TLobbyFiUs(s32 arg0, u16 arg1);
 extern u8 lbl_805E1190[6];
 s32 TLobby__sub_80426660(u8 *arg0);
-s32 enable_network_multicast_address(void *);
+void enable_network_multicast_address(void *arg0);
 
 void TLobby__sub_804089A8(s32, s32, void *, void *);
 void dispatch_received_ethernet_frame(void *q, void *a, void *b);
@@ -356,7 +356,7 @@ s16 TLobby__sub_804262CC(void *argp) {
     if ((s32) lbl_805D7BB0 == 1) {
         return 0;
     }
-    NetMemset((void *) (arg0), (int) (0), (int) (0x56));
+    NetMemset((void *)(arg0), (0), (0x56));
     if (TLobby__sub_8042AAA0((void *) (lbl_805D7BC8)) != 1) {
         var_r0 = -1;
     } else {
@@ -368,7 +368,7 @@ s16 TLobby__sub_804262CC(void *argp) {
         var_r30 = (s16 *)((u8 *)(arg0 + 6));
         do {
             if ((s16) *(s16 *)((s8 *)var_r30 + 0) > 0) {
-                enable_network_multicast_address((void *) ((u8 *)(var_r30) + 2));
+                enable_network_multicast_address(((u8 *)(var_r30) + 2));
             }
             var_r29 += 1;
             var_r30 = (s16 *)((u8 *)((s16 *)((u8 *)(var_r30) + 8)));
@@ -408,7 +408,7 @@ s32 post_send_message__6TLobbyFiUs(s32 arg0, u16 arg1) {
     if (temp_r3 == 0) {
         return -1;
     }
-    NetMemcpy((void *) (temp_r3), (void *) (arg0), (int) (void *) (arg1));
+    NetMemcpy((void *)(temp_r3), (void *)(arg0), (int) (void *) (arg1));
     msg = (u8 *)(TLobby__sub_804256B8(temp_r3));
     if (msg != NULL) {
         *(s32 *)((s8 *)msg + 4) = (s32) arg1;

@@ -22,8 +22,8 @@ struct Obj_8036B1AC {
 extern "C" {
 extern s32 lbl_804F3610[];
 void TBoss8Dragon__sub_8036AF40(s32 **arg0);
-s32 begin_screen_draw(int);
-s32 set_draw_texture_and_color(int, int);
+void begin_screen_draw(s32 arg0);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern s32 lbl_805D63F0;
 extern s32 lbl_805D7000;
 void TBoss8Dragon__sub_8036B088(void);

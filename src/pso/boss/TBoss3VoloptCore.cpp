@@ -442,7 +442,7 @@ struct VObj_80040894 : VBase_80040894 {
     virtual void m80();
 };
 
-s32 reset_status_effect_row(void *);
+void reset_status_effect_row(u8 *arg0);
 s32 obj_testFlags30(void *, s32);
 s32 obj_setFlags30(void *, s32);
 s32 queue_destruction__7TObjectFv(void *);
@@ -450,7 +450,7 @@ int dispatch_shared_handler_a__6TLobbyFl(void*);
 int register_object__6TLobbyFl(void*);
 int dispatch_shared_handler_b__6TLobbyFl(void*);
 int register_boss__6TLobbyFl(void*);
-s32 fn_8003CFEC(void *);
+void fn_8003CFEC(int a0);
 s32 TBoss3Volopt__sub_8003F398();
 s32 alloc_boss_target_slot__10TObjPlayerFPvi(Obj_8003F730 *self, s32 _w1);
 void TObjPlayer__sub_8003F81C(u8 *arg0);
@@ -465,13 +465,13 @@ void TBoss3VoloptCore__ct(VObj_80040894 *arg0);
 void * create_TBoss3VoloptCore(void *arg0, void *arg1, s16 arg2, s16 arg3);
 void * TBoss3VoloptCore__sub_80040A7C(void *arg0, void *arg1, void *arg2);
 int is_target_in_attack_range__13TUnk_80483A10Fv(void);
-s32 TCameraCtrl__sub_8006A044(s32, f32);
+void TCameraCtrl__sub_8006A044(s32 id, f32 v);
 u32 create_particle_emitter(void *, int);
-s32 __dt__15TObjEnemyCustomFv(void *, s32);
+void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
 s32 TObjEnemyCustom__ct();
 s32 angle_difference_abs(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
-s32 set_animation__10TObjPlayerFPvs(void *, s16);
+void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void * find_entity_by_id(u16);
 s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, s32);
@@ -480,7 +480,7 @@ s32 __dl__7TObjectFPv(void *);
 s32 scale_matrix(s32, f32, f32, f32);
 s32 rotate_matrix_x(s32, s32);
 s32 post_translate_matrix(void *);
-s32 draw_chunk_object(s32);
+void draw_chunk_object(void *child);
 
 extern Slot_8003F730 volopt_target_slot_used[];
 extern u16 lbl_805D271C;
@@ -669,7 +669,7 @@ extern "C" {
 void receive_weapon_special_attack__10TObjPlayerFv();
 }
 extern "C" {
-void render_actor_shadows_default();
+void render_actor_shadows_default(u8 *arg0);
 }
 extern "C" {
 void reset_motion_fields__13TUnk_804806E8Fv();
@@ -684,7 +684,7 @@ extern "C" {
 void select_melee_contact_body__10TObjPlayerFv();
 }
 extern "C" {
-void trigger_switch_attack__10TObjPlayerFi();
+void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 }
 extern "C" {
 void try_start_action__13TUnk_804806E8Fll();
@@ -693,16 +693,16 @@ extern "C" {
 void update_action_hold_status__13TUnk_804806E8Fv();
 }
 extern "C" {
-void update_action_timer__10TObjPlayerFPv();
+s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
 }
 extern "C" {
 void update_actor_ground_y__13TUnk_804806E8Fv();
 }
 extern "C" {
-void update_attack_stat_status();
+s32 update_attack_stat_status(u8 *arg0);
 }
 extern "C" {
-void update_defense_stat_status();
+s32 update_defense_stat_status(u8 *arg0);
 }
 extern "C" {
 void update_flag30_timer__13TUnk_804806E8Fv();
@@ -1263,7 +1263,7 @@ void TUnk_80483A10::render() {
             rotate_matrix_y(0, this->rotation_y);
         }
         if (TObjPlayer::check_demo_mode() == 1) {
-            draw_chunk_object(*(s32 *)&this->model);
+            draw_chunk_object((void *)(*(s32 *)&this->model));
         } else {
             ((TObjEneRe7Berura *)arg0)->draw();
         }
@@ -1323,7 +1323,7 @@ void TUnk_80483A10::run_task() {
   {
     if (((TObjPlayer *)arg0)->add_status_effect_timer((int) 4, (int) (-1)) <= 0)
     {
-      reset_status_effect_row((void *) (arg0 + 0x284));
+      reset_status_effect_row((arg0 + 0x284));
       ((TUnk_804B9870 *)arg0)->obj_clearFlags30((s32)((int) 0x4000));
     }
   }
@@ -1353,7 +1353,7 @@ void TUnk_80483A10::run_task() {
     }
     *((f32 *) (((s8 *) arg0) + 0x3C)) = var_f1;
     ((TObjEnemy *)arg0)->update_prev_position();
-    fn_8003CFEC((void *) (arg0 + 0x2FC));
+    fn_8003CFEC((int)(arg0 + 0x2FC));
     (this->clear_all_status_effects());
   }
 }
@@ -1374,7 +1374,7 @@ void *TUnk_80483A10::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = TBoss3VoloptCore__vtable;
         free_collision_body_parts(this);
-        ((s32 (*)(s32))fn_8003CFEC)(0);
+        fn_8003CFEC(0);
         __dt__15TObjEnemyCustomFv(this, 0);
         if ((s16) arg1 > 0) {
             __dl__7TObjectFPv(this);

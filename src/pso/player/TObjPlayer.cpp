@@ -65,11 +65,11 @@ u8 TObjPlayer__sub_801BF460(s32 *arg0, s32 arg1);
 void TObjPlayer__sub_801BF488(s32 *arg0, s32 arg1);
 void TObjPlayer__sub_801BF4A0(s32 *arg0, s32 arg1);
 void emit_grass_footstep_effect(s32 arg0);
-s32 emit_water_step_particles(void *, int);
+void emit_water_step_particles(s32 owner, s32 position);
 void emit_water_footstep_effect(s32 arg0);
-s32 emit_sand_step_particles(void *, int);
+void emit_sand_step_particles(s32 owner, s32 position);
 void emit_sand_footstep_effect(s32 arg0);
-s32 emit_idle_water_splash(void *, int);
+void emit_idle_water_splash(s32 owner, s32 position);
 void emit_idle_water_effect(s32 arg0);
 void TObjPlayer__sub_801BEEAC(u8 *arg0, u8 *arg1);
 void emit_photon_blast_feedback_effects(s32 arg0, s32 arg1);
@@ -246,7 +246,7 @@ void emit_shifta_support_effect(u8 *arg0) {
 #pragma pop
 
 void emit_idle_water_effect(s32 arg0) {
-    emit_idle_water_splash((void *) (arg0 + 4), (int) (get_surface_contact_point((void*)arg0)));
+    emit_idle_water_splash((arg0 + 4), (s32)(get_surface_contact_point((void*)arg0)));
 }
 
 void* get_surface_contact_point(void* p) { return (char*)p + 0x24; }
@@ -262,11 +262,11 @@ void TObjPlayer::check_hit_by_id_431_from_packet() {
 }
 
 void emit_sand_footstep_effect(s32 arg0) {
-    emit_sand_step_particles((void *) (arg0 + 4), (int) (get_surface_contact_point((void*)arg0)));
+    emit_sand_step_particles((arg0 + 4), (s32)(get_surface_contact_point((void*)arg0)));
 }
 
 void emit_water_footstep_effect(s32 arg0) {
-    emit_water_step_particles((void *) (arg0 + 4), (int) (get_surface_contact_point((void*)arg0)));
+    emit_water_step_particles((arg0 + 4), (s32)(get_surface_contact_point((void*)arg0)));
 }
 
 void emit_grass_footstep_effect(s32 arg0) {

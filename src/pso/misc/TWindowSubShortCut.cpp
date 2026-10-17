@@ -37,9 +37,9 @@ s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, s32, s32);
 extern const f32 lbl_805DD6C0;
 void queue_destruction__7TObjectFv(void *);
 s32 clear_chat_shortcut();
-s32 store_chat_shortcut(int, void *);
+s32 store_chat_shortcut(s32 arg0, s32 arg1);
 void *__nw__7TObjectFUl(u32);
-void TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 u8 get_selected_menu_value(int);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
 u32 TWindowShortCut__ct(int, int, int, void *);
@@ -120,11 +120,11 @@ void TWindowSubShortCut::run_task() {
             this->m_34 = 0U;
         }
         if ((u32) this->m_3c != 0U) {
-            TWindow__close(*(void * *)&this->m_3c);
+            TWindow__close((u8 *)(*(void * *)&this->m_3c));
             this->m_3c = 0U;
         }
         if ((u32) this->m_30 != 0U) {
-            TWindow__close(*(void * *)&this->m_30);
+            TWindow__close((u8 *)(*(void * *)&this->m_30));
             this->m_30 = 0U;
         }
         if ((u32) this->m_2c == 0U) {
@@ -167,12 +167,12 @@ void TWindowSubShortCut::run_task() {
         break;
     case 5:
         if ((u32) this->m_30 != 0U) {
-            TWindow__close(*(void * *)&this->m_30);
+            TWindow__close((u8 *)(*(void * *)&this->m_30));
             this->m_30 = 0U;
         }
         if ((u32) this->m_2c != 0U) {
             *(s32 *)&this->m_24 = select_cursor_entry__22TWindowSubShortCutListFv(*(s32 *)&this->m_2c);
-            TWindow__close(*(void * *)&this->m_2c);
+            TWindow__close((u8 *)(*(void * *)&this->m_2c));
             this->m_2c = 0U;
         }
         if ((u32) this->m_38 == 0U) {
@@ -216,7 +216,7 @@ void TWindowSubShortCut::run_task() {
         }
         if (((TWindowMessageYesNo *)(this->m_34))->is_child_visible() != 0) {
             if (((TWindowSubComCard *)(this->m_34))->get_slot_or_neg1() == 0) {
-                store_chat_shortcut((int) (*(s32 *)&this->m_24), (void *) ((u8 *)(arg0) + 0x40));
+                store_chat_shortcut((*(s32 *)&this->m_24), (s32)((u8 *)(arg0) + 0x40));
                 this->m_1c = 1U;
                 return;
             }
@@ -255,9 +255,9 @@ void *__dt__18TWindowSubShortCutFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TWindowSubShortCut;
         if (*(void **)((s8 *)arg0 + 0x38) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x38)); *(s32 *)&((TWindowSubShortCut *)arg0)->m_38 = 0; }
         if (*(void **)((s8 *)arg0 + 0x34) != NULL) { ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x34)))->close(); *(s32 *)&((TWindowSubShortCut *)arg0)->m_34 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x3C)); *(s32 *)&((TWindowSubShortCut *)arg0)->m_3c = 0; }
-        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x30)); *(s32 *)&((TWindowSubShortCut *)arg0)->m_30 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x2C) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x2C)); *(s32 *)&((TWindowSubShortCut *)arg0)->m_2c = 0; }
+        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x3C))); *(s32 *)&((TWindowSubShortCut *)arg0)->m_3c = 0; }
+        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x30))); *(s32 *)&((TWindowSubShortCut *)arg0)->m_30 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x2C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x2C))); *(s32 *)&((TWindowSubShortCut *)arg0)->m_2c = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

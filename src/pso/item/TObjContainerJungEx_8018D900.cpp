@@ -42,7 +42,7 @@ extern const f32 TObjDoaEx01__data_805DBDA8;
 s32 is_any_player_within_radius_xz(void *, f32);
 void play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805DBDA4;
-void set_indexed_flags(void *, int, int);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
 extern const f32 lbl_805DBDAC;
 extern const f32 lbl_805DBDB0;
 void TLobby__sub_8001FE7C(void*, int);

@@ -121,7 +121,7 @@ void *__dt__21TObjEneMe3ShinowaRealFv(void *arg0, s16 arg1);
 int vfunc_62__17TObjEneMe3ShinowaFv(void*);
 int vfunc_63__17TObjEneMe3ShinowaFv(void*);
 void __dl__7TObjectFPv(void *);
-void __dt__17TObjEneMe3ShinowaFv(void *, int);
+void *__dt__17TObjEneMe3ShinowaFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 int init_mirage__23TObjEneMe3ShinowaMirageFv(void);
 

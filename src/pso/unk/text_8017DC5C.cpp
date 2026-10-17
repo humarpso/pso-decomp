@@ -24,7 +24,7 @@ struct RecoveredGlobal_8017DC5C___vt__16TOWreckAncient01 {
 
 extern "C" {
 u32 init_collision_body_parts(void *, s32, s32);
-u8 * TOWreckAncient__ct(void *, s32);
+u8 *TOWreckAncient__ct(u8 *arg0, s32 arg1);
 extern RecoveredGlobal_8017DC5C_lbl_804B5418 TOWreckAncient__collision_body_templates;
 extern RecoveredGlobal_8017DC5C___vt__16TOWreckAncient01 __vt__16TOWreckAncient01;
 extern s32 TOWreckAncient01__name;

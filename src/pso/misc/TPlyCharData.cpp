@@ -4,7 +4,7 @@
 extern "C" {
 
 s32 __dt__12TPlyCharDataFv(s32 arg0, s16 arg1);
-s32 __dt__14TPlyDispConfigFv(s32, s32);
+s32 __dt__14TPlyDispConfigFv(s32 arg0, s16 arg1);
 
 s32 __dt__12TPlyCharDataFv(s32 arg0, s16 arg1) {
     if (arg0 != 0) {

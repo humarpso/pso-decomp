@@ -4,11 +4,11 @@
 
 extern "C" {
 
-s32 get_char_select_class_id(void *);
+int get_char_select_class_id(int a0);
 s32 get_class_appearance_preset();
 s32 copy_player_visual_record(int, int);
-s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(int);
-s32 queue_destruction__7TObjectFv(void *);
+s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
+void queue_destruction__7TObjectFv(void *arg0);
 
 extern s32 TChCrCharSelect__selected_slot_index;
 extern s32 tl_03;
@@ -20,13 +20,13 @@ void TChCrCharSelect::tick_and_apply_selection() {
     temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x1C) - 1;
     *(s32 *)((s8 *)((u8 *)this) + 0x1C) = temp_r0;
     if (temp_r0 <= 0) {
-        temp_r31 = (unsigned char *) (get_char_index__23TAdSinglePlyChrSelectGCFUi((int) (0xFFFF)) + 0x370);
-        get_char_select_class_id((void *) (TChCrCharSelect__selected_slot_index));
+        temp_r31 = (unsigned char *) (get_char_index__23TAdSinglePlyChrSelectGCFUi((0xFFFF)) + 0x370);
+        get_char_select_class_id((TChCrCharSelect__selected_slot_index));
         copy_player_visual_record((int) (temp_r31), (int) (get_class_appearance_preset()));
         *(s8 *)((s8 *)temp_r31 + 0x30) = -1;
         *(s8 *)((s8 *)temp_r31 + 0) = 0;
         TCharaMaking::create((void *)tl_03, (void *)temp_r31);
-        queue_destruction__7TObjectFv((void *) (((u8 *)this)));
+        queue_destruction__7TObjectFv((((u8 *)this)));
     }
 }
 

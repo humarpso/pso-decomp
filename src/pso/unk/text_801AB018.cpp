@@ -20,7 +20,7 @@ struct Stack_801AB018 {
 };
 
 extern "C" {
-s32 spawn_particle_effect(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
 s32 advance_animation_playback(void *);
 s32 find_entity_by_id(int);
 s32 spawn_photon_blast_attachment_effects(void *, int);
@@ -88,9 +88,9 @@ void TPhotonFarlla::run_task() {
             VecCopy((Vec *)(&stack.sp14), (const Vec *)(temp_r3_3 + 0x38));
         }
         stack.sp18 += lbl_805DC168;
-        spawn_particle_effect((void *) (&stack.sp14), (int) (0x151));
+        spawn_particle_effect((&stack.sp14), (0x151));
         stack.sp18 += lbl_805DC16C;
-        spawn_particle_effect((void *) (&stack.sp14), (int) (0x15F));
+        spawn_particle_effect((&stack.sp14), (0x15F));
     }
     temp_r3_4 = *(s32 *)&this->unk_1A4;
     if ((lbl_805DC170 == (f32) temp_r3_4) || (lbl_805DC174 == (f32) temp_r3_4)) {
@@ -99,7 +99,7 @@ void TPhotonFarlla::run_task() {
             VecCopy((Vec *)(&stack.sp8), (const Vec *)(temp_r3_5 + 0x38));
             stack.spC += lbl_805DC168;
         }
-        spawn_particle_effect((void *) (&stack.sp8), (int) (0x151));
+        spawn_particle_effect((&stack.sp8), (0x151));
     }
     if ((f32) *(s32 *)&this->unk_1A4 > lbl_805DC178) {
         temp_f1 = this->m_184;

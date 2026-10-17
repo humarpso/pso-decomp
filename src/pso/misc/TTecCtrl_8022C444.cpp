@@ -15,7 +15,7 @@ extern RecoveredGlobal_8022C680_lbl_80515FBC lbl_80515FBC;
 void TItemEquipBase__sub_8022C680(s32 arg0, u16 arg1, s32 arg2);
 f32 calc_technique_boost(s32, u16);
 f32 get_battle_value__10TObjPlayerFlil(void *, s32, s16);
-void *get_player_by_client_id(u16);
+void *get_player_by_client_id(s32 i);
 extern const f32 lbl_805DC7D8;
 s32 calc_technique_parameters();
 
@@ -56,7 +56,7 @@ f32 calc_technique_boost(s32 technique, u16 actor) {
             sum += ((struct Slot_8022C5CC (*)[6])&lbl_80515FBC)[actor][i].amount;
         }
     }
-    player = ((void *(*)(s32))get_player_by_client_id)(actor);
+    player = get_player_by_client_id(actor);
     if (player != NULL) {
         sum += ((f32 (*)(void *, u16, s16))get_battle_value__10TObjPlayerFlil)(player, actor, technique);
     }

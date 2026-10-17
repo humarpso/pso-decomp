@@ -49,7 +49,7 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-s32 draw_ginja_model(int);
+void draw_ginja_model(s32 model);
 void draw_node_tree__18TObjLaboDesignBaseFiPv(s32 arg0, u8 *arg1);
 s32 init_collision_body_parts(void *, int, int);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv();
@@ -259,7 +259,7 @@ void draw_node_tree__18TObjLaboDesignBaseFiPv(s32 arg0, u8 *arg1) {
             scale_current_matrix((void *) (var_r30 + 0x20));
         }
         if (!(temp_r31 & 8)) {
-            draw_ginja_model((int) (*(s32 *)((s8 *)var_r30 + 4)));
+            draw_ginja_model((*(s32 *)((s8 *)var_r30 + 4)));
         }
         if (!(temp_r31 & 0x10)) {
             temp_r4 = (u8 *)(*(u8 **)((s8 *)var_r30 + 0x2C));

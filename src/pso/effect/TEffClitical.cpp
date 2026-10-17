@@ -40,10 +40,10 @@ extern "C" {
 f32 approach_vector_fixed_distance(void *, void *, void *, f32);
 f32 vector_length(void *);
 void approach_position_if_far(u8 *arg0, u8 *arg1, f32 farg0);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 approach_vector_in_place(void *, void *, f32);
 s32 approach_alpha_clamped(void *, void *, f32);
-s32 spawn_particle_effect(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
 extern RecoveredGlobal_800823E0_lbl_80438EB8 clitical_vec_a;
 extern RecoveredGlobal_800823E0_lbl_80438EC8 clitical_vec_b;
 extern const f32 TEffClitical__alpha_approach_step;
@@ -52,15 +52,15 @@ extern const f32 lbl_805D93AC;
 void init_texture_copy_rect(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 copy_slot_to_anim_frame(void *);
 s32 fn_800829E0(void *);
-s32 restore_saved_depth_alpha_state();
+void restore_saved_depth_alpha_state(void);
 s32 begin_effect_render__13TParticleCtrlFv(int);
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_chunk_material_color(void *);
-s32 draw_chunk_object(int);
+void set_chunk_material_color(f32 *arg);
+void draw_chunk_object(void *child);
 extern s32 lbl_8048E2E0[];
 extern s32 technique_ringwave_texture_list[];
 extern u8 *camera_ctrl_instance;
@@ -89,14 +89,14 @@ void TEffClitical::render() {
     lbl_805D5660 = temp_r3;
     model_render_flags = temp_r3 | 0x10;
     begin_effect_render__13TParticleCtrlFv((int) (temp_r3));
-    set_chunk_material_color((void *) ((u8 *)(arg0) + 0x2C));
+    set_chunk_material_color((f32 *)((u8 *)(arg0) + 0x2C));
     fn_800829E0((void *) (&sp8));
     push_matrix();
     TObjFish::set_global_param((s32)((void *) (lbl_8048E2E0)));
     post_translate_matrix((void *) ((u8 *)(arg0) + 0x20));
     rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)camera_ctrl_instance + 0x194)));
     scale_matrix((int) (0), (f32) (*(f32 *)((s8 *)arg0 + 0x3C)), (f32) (*(f32 *)((s8 *)arg0 + 0x40)), (f32) (*(f32 *)((s8 *)arg0 + 0x44)));
-    draw_chunk_object((int) (*(s32 *)((s8 *)lbl_805D4ED8 + 0)));
+    draw_chunk_object((void *)(*(s32 *)((s8 *)lbl_805D4ED8 + 0)));
     pop_matrix();
     copy_slot_to_anim_frame((void *) (&sp8));
     model_render_flags = lbl_805D5660;
@@ -135,19 +135,19 @@ void TEffClitical::run_task() {
         do {
             switch (var_r30) {
             case 0:
-                spawn_particle_effect((void *) (arg0 + 0x20), (int) (7));
+                spawn_particle_effect((arg0 + 0x20), (7));
                 break;
             case 1:
-                spawn_particle_effect((void *) (arg0 + 0x20), (int) (0xB));
+                spawn_particle_effect((arg0 + 0x20), (0xB));
                 break;
             case 2:
                 stack.sp8 = *(f32 *)((s8 *)arg0 + 0x20);
                 stack.spC = *(f32 *)((s8 *)arg0 + 0x24) - lbl_805D93A8;
                 stack.sp10 = *(f32 *)((s8 *)arg0 + 0x28);
-                spawn_particle_effect((void *) (&stack.sp8), (int) (0xC));
+                spawn_particle_effect((&stack.sp8), (0xC));
                 break;
             case 3:
-                spawn_particle_effect((void *) (arg0 + 0x20), (int) (0xE));
+                spawn_particle_effect((arg0 + 0x20), (0xE));
                 break;
             }
             var_r30 += 1;
@@ -156,7 +156,7 @@ void TEffClitical::run_task() {
         break;
     }
     if (approach_alpha_clamped((void *) (arg0 + 0x2C), (void *) (&stack.sp20), (f32) (TEffClitical__alpha_approach_step)) != 0) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     approach_vector_in_place((void *) (arg0 + 0x3C), (void *) (&stack.sp14), (f32) (lbl_805D93AC));

@@ -40,7 +40,7 @@ s32 __ct__10TAdTitleGCFP7TObjectl(void *, void *, int);
 void *__ct__13TAdTitleTexGCFv(void *, void *);
 void *__ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
 void *__ct__13TAdGuideTxtGCFv(void *, void *);
-s32 fn_802D50B8(void *, P_802D4F2C *, P_802D4F2C *, P_802D4F2C *);
+void fn_802D50B8(void *arg0, void *arg1, void *arg2, void *arg3);
 s32 get_or_create_player__22TAdMultiPlyChrSelectGCFiiii(void *, int, int, int);
 s32 get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(void *, int);
 extern u8 single_chr_select_item_rect_table[];
@@ -53,7 +53,7 @@ void *__dt__23TAdSinglePlyChrSelectGCFv(void *arg0, s16 arg1);
 s32 *get_localized_text_entry(s32, s32);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
-s32 TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
@@ -70,7 +70,7 @@ void TAdSinglePlyChrSelectGC::cleanup() {
     set_entry_value__22TAdMultiPlyChrSelectGCFlUl(*(s32 *)((s8 *)this + 0x34), 1, &lbl_805DE784);
     *(s32 *)((s8 *)this + 0x58) = -1;
     if ((u32) *(u32 *)((s8 *)this + 0x38) != 0U) {
-        TWindow__close(*(void **)((s8 *)this + 0x38));
+        TWindow__close((u8 *)(*(void **)((s8 *)this + 0x38)));
         *(u32 *)((s8 *)this + 0x38) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x44) != 0U) {
@@ -90,11 +90,11 @@ void TAdSinglePlyChrSelectGC::cleanup() {
         *(u32 *)((s8 *)this + 0x50) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x3C) != 0U) {
-        TWindow__close(*(void **)((s8 *)this + 0x3C));
+        TWindow__close((u8 *)(*(void **)((s8 *)this + 0x3C)));
         *(u32 *)((s8 *)this + 0x3C) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x40) != 0U) {
-        TWindow__close(*(void **)((s8 *)this + 0x40));
+        TWindow__close((u8 *)(*(void **)((s8 *)this + 0x40)));
         *(u32 *)((s8 *)this + 0x40) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x54) != 0U) {

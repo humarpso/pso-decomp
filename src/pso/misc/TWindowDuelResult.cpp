@@ -72,7 +72,7 @@ void update__17TWindowDuelResultFPv(u8 *arg0);
 s32 TWindowDuelResult__sub_8024F330(void *);
 s32 handle_list_page_flip_input(s32);
 void __dl__7TObjectFPv(void *);
-void delete_if_allocated(void *, int);
+s32 delete_if_allocated(s32 arg0, s16 arg1);
 
 extern "C" u8 lbl_805D63F0[];
 extern "C" const char lbl_805DCCA8[] = ":";
@@ -293,7 +293,7 @@ void *lbl_804CF020[6] = {
 void *destroy__17TWindowDuelResultFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CF020;
-        delete_if_allocated(*(void **)((s8 *)arg0 + 0x68), 1);
+        delete_if_allocated((s32)(*(void **)((s8 *)arg0 + 0x68)), 1);
         ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

@@ -19,8 +19,8 @@ typedef struct Obj_8004AA80 {
 } Obj_8004AA80;
 
 extern "C" {
-void destroy_buffer_pair(void *p, s32 flag);
-int mem_free(void *p);
+void *destroy_buffer_pair(void *arg0, s16 arg1);
+void mem_free(void *p);
 void fn_8004AA04(Obj_8004AA04 *self);
 s32 get_bml_model(s32, s32);
 s32 alloc_tables__6TLobbyFll(s32, s32, s32);

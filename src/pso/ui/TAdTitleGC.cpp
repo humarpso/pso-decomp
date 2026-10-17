@@ -41,19 +41,19 @@ struct Title_802A0C84 {
 };
 
 extern "C" {
-u32 calc_text_width(void *);
-s32 begin_screen_draw(s32);
+u32 calc_text_width(char *s);
+void begin_screen_draw(s32 arg0);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
-s32 set_draw_texture_and_color(s32, s32);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern s32 lbl_805D6630;
 u32 create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 extern s32 ad_title_gc_class_name;
 extern f32 title_rect_scale_table[];
 void run_task__10TAdTitleGCFv(u8 *arg0);
 s32 get_localized_text_entry(s32, s32);
-s32 set_cached_blend_factor(s32, s32);
-s32 restore_saved_depth_alpha_state();
+void set_cached_blend_factor(s32 arg0, s32 arg1);
+void restore_saved_depth_alpha_state(void);
 s32 fn_802A0A30(void *, void *, s32, s32, s32);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
@@ -94,7 +94,7 @@ block_5:
 #pragma push
 #pragma fp_contract on
 void TAdTitleGC::calc_text_pos(s32 arg0, u8 *arg1, s32 arg2) {
-    *(f32 *)((s8 *)arg1 + 0) = (f32) ((6.2e+02f) - (f32) calc_text_width((void *) (arg2)));
+    *(f32 *)((s8 *)arg1 + 0) = (f32) ((6.2e+02f) - (f32) calc_text_width((char *)(arg2)));
     *(f32 *)((s8 *)arg1 + 4) = (f32) (86.0f);
 }
 #pragma pop

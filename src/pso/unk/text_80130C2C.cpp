@@ -20,7 +20,7 @@ extern "C" {
 extern const f32 lbl_805DB024;
 extern const f32 lbl_805DB028;
 extern const f32 lbl_805DB02C;
-s32 spawn_particle_effect(void *, s32);
+void *spawn_particle_effect(void *pos, s32 id);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern s32 tl_05;

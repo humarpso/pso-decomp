@@ -27,11 +27,11 @@ struct VObj_80081EA4 : VBase_80081EA4 {
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
-s32 disallow_rendering__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
+void disallow_rendering__7TObjectFv(void *arg0);
 u32 find_active_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-s32 create_timed_particle_emitter(void *, int, int, int);
+void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
 f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
@@ -55,9 +55,9 @@ s32 push_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFl();
-s32 draw_ginja_object(int);
-s32 set_chunk_material_override_pair(int, int);
-s32 set_chunk_material_color(void *);
+void draw_ginja_object(void *child);
+void set_chunk_material_override_pair(s32 arg0, s32 arg1);
+void set_chunk_material_color(f32 *arg);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
@@ -114,7 +114,7 @@ void TUnk_8048E1A4::freeze_shell_grow() {
         rotate_vector_by_matrix((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
         pop_matrix();
         vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x38));
-        create_timed_particle_emitter((void *) (&stack.sp8), (int) (0x12D), (int) (0), (int) (0xA));
+        create_timed_particle_emitter((&stack.sp8), (0x12D), (0), (0xA));
     }
 }
 
@@ -172,16 +172,16 @@ void TUnk_8048E1A4::render() {
         switch (*(s32 *)((s8 *)arg0 + 0x334)) {
         case 0:
         case 1:
-            draw_ginja_object(*(s32 *)&this->model);
+            draw_ginja_object((void *)(*(s32 *)&this->model));
             break;
         case 2:
             lbl_805D5660 = model_render_flags;
             model_render_flags = lbl_805D5660 | 0x8820;
-            set_chunk_material_color((u8 *)&this->m_340);
-            draw_ginja_object(*(s32 *)&this->model);
+            set_chunk_material_color(&this->m_340);
+            draw_ginja_object((void *)(*(s32 *)&this->model));
             model_render_flags &= 0xFFFF77DF;
             set_chunk_material_override_pair(0xFF00, 0);
-            set_chunk_material_color(chunk_material_color_half_alpha_f32);
+            set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
             model_render_flags = lbl_805D5660;
             break;
         }

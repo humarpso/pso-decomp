@@ -9,7 +9,7 @@ extern u8 lbl_80470A68[];
 extern u8 boss06_tube_dat_resource_descriptor[];
 extern u32 boss6_tube_bml_resource;
 extern u32 boss6_tube_texture_list;
-void *TBoss6Tube__ct(void *, void *);
+u8 *TBoss6Tube__ct(u8 *arg0, u8 *arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 void *__nw__7TObjectFUl(int);
@@ -17,7 +17,7 @@ void *__nw__7TObjectFUl(int);
 void *TBoss6Tube::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x30);
     if (o != NULL) {
-        o = TBoss6Tube__ct(o, arg0);
+        o = TBoss6Tube__ct((u8 *)o, (u8 *)arg0);
     }
     return o;
 }

@@ -159,7 +159,7 @@ extern const f32 lbl_805DE704;
 s32 transition_enemy_state(void * a0, s32 a1);
 void TObjEneBm9Mericarol__sub_802D0B04(u8 *arg0);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
-s32 play_persistent_sound(void *, void *, void *, int, int);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 void TObjEneBm9Mericarol__sub_802D073C(s32 arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 extern const f32 lbl_805DE6F4;
@@ -171,25 +171,25 @@ extern const f32 lbl_805DE748;
 s32 TObjEneBm9Mericarol__sub_802CEDA0(void *, void *);
 s32 TObjEneBm9Mericarol__sub_802CF368(void *, void *);
 s32 TObjEneBm9Mericarol__sub_802CF4F8(void *, void *);
-s32 TObjEneDD__sub_802CF7B4(void *, void *);
-s32 TObjPlayer__sub_802CFB64(void *, void *);
+void TObjEneDD__sub_802CF7B4(u8 *arg0, s32 arg1);
+void TObjPlayer__sub_802CFB64(u8 *arg0, s32 arg1);
 s32 handle_shot_state__19TObjEneBm9MericarolFPvi(void *, void *);
 s32 TObjEneBm9Mericarol__sub_802D01D8(void *, void *);
 s32 TObjEneBm9Mericarol__sub_802D05BC(void *, void *);
 void dispatch_state_handler__19TObjEneBm9MericarolFiUii(s32 arg0, u32 arg1, s32 arg2);
 s32 obj_isState2_324__13TUnk_804806E8Fv(s32);
-s32 get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 s32 is_valid_target__9TObjEneDDFv(s32);
 f32 horizontal_distance_squared(void *, void *);
 extern const f32 lbl_805DE74C;
-s32 queue_destruction__7TObjectFv(void *);
-s32 __dt__12TObjEneDD_STFv(void *, int);
+void queue_destruction__7TObjectFv(void *arg0);
+void *__dt__12TObjEneDD_STFv(void *arg0, s16 arg1);
 s32 delete_buffer__12TBoss8DragonFis(void *, int);
-s32 __dt__13TUnk_80494938Fv(void *, int);
+void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __destroy_arr(void *, void *, u32, u32);
-void __dt__13TUnk_804949A8Fv(void);
+void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
 u8 *__dt__19TObjEneBm9MericarolFPvs(u8 *arg0, s16 arg1);
 s32 obj_is_hit_receivable(u32);
 f32 fabs_float(f32);
@@ -208,9 +208,9 @@ void TLobby__sub_8001FE7C(void*, int);
 struct Obj_802D0D3C;
 Obj_802D0D3C *TObjEneBm9Mericarol__ct(Obj_802D0D3C *, void *, s32);
 s32 transition_enemy_state(void * a0 = 0, s32 a1 = 0);
-void __dt__11TBoss4Type3FPvs(void*, int);
+s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
-s32 fn_802D1C84();
+void fn_802D1C84(void);
 
 extern "C" void vfunc_6__13TUnk_804B9870FPsl();
 extern "C" void vfunc_105__19TObjEneBm9MericarolFv();
@@ -233,7 +233,7 @@ extern "C" void vfunc_99__9TObjEneDDFv();
 extern "C" void vfunc_100__9TObjEneDDFv();
 extern "C" void vfunc_101__9TObjEneDDFPUc();
 extern "C" void vfunc_102__9TObjEneDDFv();
-extern "C" void TObjEneEpsilon__vt101();
+extern "C" int TObjEneEpsilon__vt101(void *p);
 extern "C" void vfunc_83__12TObjEneDD_STFv();
 extern "C" void vfunc_29__13TUnk_804806E8Fv();
 extern "C" void vfunc_73__13TUnk_804806E8Fv();
@@ -252,7 +252,7 @@ extern "C" void vfunc_13__13TUnk_804AF8A0Fl();
 extern "C" void vfunc_74__9TObjEnemyFl();
 extern "C" void apply_hit_message_flags__9TObjEnemyFPv();
 extern "C" void draw_color_variant__19TObjEneBm9MericarolFv();
-extern "C" void TObjPlayer__sub_802CE8CC();
+extern "C" void TObjPlayer__sub_802CE8CC(u8 *arg0);
 extern "C" void add_actor_exp__13TUnk_804806E8Fl();
 extern "C" void apply_action_hold_status__13TUnk_804806E8Ff();
 extern "C" void apply_anti_technique__13TUnk_804806E8Fl();
@@ -300,18 +300,18 @@ extern "C" u8 lbl_8047244C[];
 extern "C" void receive_direct_attack__10TObjPlayerFv();
 extern "C" void receive_physical_attack__10TObjPlayerFv();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
-extern "C" void render_actor_shadows_default();
+extern "C" void render_actor_shadows_default(u8 *arg0);
 extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__13TUnk_804806E8Fv();
 extern "C" void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
-extern "C" void trigger_switch_attack__10TObjPlayerFi();
+extern "C" void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 extern "C" void try_start_action__13TUnk_804806E8Fll();
 extern "C" void update_action_hold_status__13TUnk_804806E8Fv();
-extern "C" void update_action_timer__10TObjPlayerFPv();
+extern "C" s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
 extern "C" void update_actor_ground_y__13TUnk_804806E8Fv();
-extern "C" void update_attack_stat_status();
-extern "C" void update_defense_stat_status();
+extern "C" s32 update_attack_stat_status(u8 *arg0);
+extern "C" s32 update_defense_stat_status(u8 *arg0);
 extern "C" void update_flag30_timer__13TUnk_804806E8Fv();
 extern "C" void update_movement_status__13TUnk_804806E8Fv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
@@ -383,7 +383,7 @@ void initialize_enemy_state__9TObjEneDDFv(void *, s32);
 void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, s32);
 void init_collision_body_parts(void *, void *, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-void *TBoss8Dragon__sub_800BC5EC(void *, s32);
+u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1);
 void init_and_activate__10TObjPlayerFv(void *);
 extern const s32 lbl_80472318[];
 extern s32 lbl_805D3F28;
@@ -473,7 +473,7 @@ u32 mericarol_phase_param_table[3];
 u32 lbl_80540B88[4];
 
 void TObjEneBm9Mericarol__sub_802D073C(s32 arg0) {
-    play_persistent_sound((void *) (copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), (int) (0x3A810))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_persistent_sound((copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), (int) (0x3A810))), (arg0), (arg0 + 0x38), (0), (0));
 }
 
 s32 TObjEneBm9Mericarol::get_phase() { return *(s32*)((char*)this + 0x45c); }
@@ -586,10 +586,10 @@ void dispatch_state_handler__19TObjEneBm9MericarolFiUii(s32 actor, u32 arg1, s32
         handle_shot_state__19TObjEneBm9MericarolFPvi((void *) (actor), (void *) (msg));
         return;
     case 5:
-        TObjPlayer__sub_802CFB64((void *) (actor), (void *) (msg));
+        TObjPlayer__sub_802CFB64((u8 *)(actor), (msg));
         return;
     case 6:
-        TObjEneDD__sub_802CF7B4((void *) (actor), (void *) (msg));
+        TObjEneDD__sub_802CF7B4((u8 *)(actor), (msg));
         return;
     case 10:
         TObjEneBm9Mericarol__sub_802CF368((void *) (actor), (void *) (msg));
@@ -704,7 +704,7 @@ Obj_802D0D3C *TObjEneBm9Mericarol__ct(Obj_802D0D3C *self, void *parent, s32 arg2
     init_collision_body_parts(self->f48C, (u8 *)lbl_804E1564 + 0x2C, 1);
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
     if (p != NULL) {
-        p = TBoss8Dragon__sub_800BC5EC(p, 8);
+        p = TBoss8Dragon__sub_800BC5EC((u8 *)p, 8);
     }
     self->f488 = p;
     self->f490 = 0;
@@ -764,11 +764,11 @@ u8 *__dt__19TObjEneBm9MericarolFPvs(u8 *arg0, s16 arg1) {
 
 void TObjEneBm9Mericarol::free_shared_instances() {
     if ((u32) lbl_805D6864 != 0U) {
-        __dt__11TBoss4Type3FPvs((void*)lbl_805D6864, 1);
+        __dt__11TBoss4Type3FPvs((s32 *)lbl_805D6864, 1);
         lbl_805D6864 = 0U;
     }
     if ((u32) TBoss4Type3_shared_instance != 0U) {
-        __dt__11TBoss4Type3FPvs((void*)TBoss4Type3_shared_instance, 1);
+        __dt__11TBoss4Type3FPvs((s32 *)TBoss4Type3_shared_instance, 1);
         TBoss4Type3_shared_instance = 0U;
     }
     fn_802D1C84();

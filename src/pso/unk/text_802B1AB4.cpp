@@ -38,9 +38,9 @@ struct VObj_802B1B80 : VBase_802B1B80 {
 
 extern "C" {
 s32 get_shared_text_buffer();
-u8 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 s32 text_builder_append();
-s32 text_builder_reset();
+void text_builder_reset(void);
 s32 get_window_layout_position(int);
 s32 free_member__17TWindowSubComCardFv(int, int);
 s32 open_yes_no_prompt(int, int, int, int, f32);

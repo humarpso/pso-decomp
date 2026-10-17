@@ -6,7 +6,7 @@ s32 poll_load_status__12TAdTimeSetGCFv();
 extern void *lbl_804E32A4[];
 
 extern "C" {
-void TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 }
 
@@ -37,7 +37,7 @@ TAdTimeSetGC::~TAdTimeSetGC() {
         owned_object = NULL;
     }
     if (window != NULL) {
-        TWindow__close(window);
+        TWindow__close((u8 *)window);
         window = NULL;
     }
     if (queued_object != NULL) {
@@ -75,30 +75,30 @@ void TAdTimeSetGC__sub_802E34A8(void) {  }
 }
 
 extern "C" void render__18T_ATS_DrawCalendarFv();
-extern "C" void __dt__18T_ATS_DrawCalendarFv();
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E1F8C();
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E1FAC();
-extern "C" void show_confirm_dialog__23TAdSinglePlyChrSelectGCFPv();
+extern "C" void *__dt__18T_ATS_DrawCalendarFv(void *arg0, s16 arg1);
+extern "C" int TAdSinglePlyChrSelectGC__sub_802E1F8C(void *p);
+extern "C" void TAdSinglePlyChrSelectGC__sub_802E1FAC(u8 *arg0);
+extern "C" void show_confirm_dialog__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E2158();
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E22A4();
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E23E8();
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E2450();
+extern "C" void TAdSinglePlyChrSelectGC__sub_802E22A4(u8 *arg0);
+extern "C" void TAdSinglePlyChrSelectGC__sub_802E23E8(u8 *arg0);
+extern "C" void TAdSinglePlyChrSelectGC__sub_802E2450(u8 *arg0);
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E24B8();
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E2520();
+extern "C" void TAdSinglePlyChrSelectGC__sub_802E2520(u8 *arg0);
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E2588();
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E2610();
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E2848();
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E289C();
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E2A7C();
-extern "C" void advance_when_load_done__23TAdSinglePlyChrSelectGCFi();
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E2BC8();
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E2BD4();
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E2D3C();
+extern "C" void TAdSinglePlyChrSelectGC__sub_802E2610(u8 *arg0);
+extern "C" void TAdSinglePlyChrSelectGC__sub_802E2848(void *p);
+extern "C" void TAdSinglePlyChrSelectGC__sub_802E289C(void *arg0);
+extern "C" void TAdSinglePlyChrSelectGC__sub_802E2A7C(void *p);
+extern "C" void advance_when_load_done__23TAdSinglePlyChrSelectGCFi(s32 arg0);
+extern "C" void TAdSinglePlyChrSelectGC__sub_802E2BC8(void *p);
+extern "C" void TAdSinglePlyChrSelectGC__sub_802E2BD4(s32 arg0);
+extern "C" void TAdSinglePlyChrSelectGC__sub_802E2D3C(void *p);
 extern "C" void handle_confirm_menu__23TAdSinglePlyChrSelectGCFv();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E2F20();
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E2F68();
+extern "C" int TAdSinglePlyChrSelectGC__sub_802E2F68(void *p);
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E2FEC();
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E3038();
+extern "C" int TAdSinglePlyChrSelectGC__sub_802E3038(void *p);
 extern "C" void report_card_status__23TAdSinglePlyChrSelectGCFv();
 extern "C" void build_selection_summary__23TAdSinglePlyChrSelectGCFv();
 extern "C" void close_and_next_cancel__23TAdSinglePlyChrSelectGCFv();
@@ -116,10 +116,10 @@ extern "C" void update_char_timer__23TAdSinglePlyChrSelectGCFv();
 extern "C" void update_close_on_load__23TAdSinglePlyChrSelectGCFv();
 extern "C" void update_close_timer__23TAdSinglePlyChrSelectGCFv();
 extern "C" void update_load_countdown__23TAdSinglePlyChrSelectGCFv();
-extern "C" void update_load_state__23TAdSinglePlyChrSelectGCFPv();
+extern "C" void update_load_state__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 extern "C" void update_load_state__23TAdSinglePlyChrSelectGCFv();
-extern "C" void update_state__23TAdSinglePlyChrSelectGCFPv();
-extern "C" void update_state__23TAdSinglePlyChrSelectGCFi();
+extern "C" void update_state__23TAdSinglePlyChrSelectGCFPv(void *arg0);
+extern "C" void update_state__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 extern "C" void update_timer__23TAdSinglePlyChrSelectGCFv();
 __declspec(section ".data") void *lbl_804E3040[2] = {
     (void *)0x0, (void *)0x42b40000,

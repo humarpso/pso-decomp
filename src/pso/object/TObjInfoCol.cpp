@@ -26,7 +26,7 @@ struct RecoveredGlobal_80191EC0___vt__11TObjInfoCol {
 };
 
 extern "C" {
-s32 open_lobby_warp_menu__6TLobbyFv();
+void open_lobby_warp_menu__6TLobbyFv(void);
 s32 is_idle__6TLobbyFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 check_flag_100__10TObjPlayerFPv();

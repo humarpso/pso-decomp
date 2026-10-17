@@ -36,7 +36,7 @@ f32 get_distance_to_local_player_xz__13TObjTombstoneFPv(void *);
 s32 TObjTombstone__sub_80075DFC(void *);
 void __dl__7TObjectFPv(void *);
 s32 check_owner__13TObjTombstoneFv();
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 void TObjTombstone::init_parts() { format_player_name(); format_label(); build_name_text(); format_enemy_text(); format_quoted_name(); format_date_text(); }
 

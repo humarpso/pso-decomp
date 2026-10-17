@@ -146,13 +146,13 @@ extern s32 lbl_805D3790;
 extern const f32 lbl_805DC798;
 u8 *TTecAnti__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 S_8022B3E8 *copy_technique_target_list(S_8022B3E8 *d, S_8022B3E8 *s);
-void *create_timed_particle_emitter_with_flags(Vec_8022AE10 *, s32, s32, s32, s32);
+void *create_timed_particle_emitter_with_flags(void *pos, s32 id, s32 a, s32 b, s32 c);
 void set_owner_id__13TParticleCtrlFUs(void *, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern AntiRow_8022AE10 TTecAnti__self_effect_rows[];
 extern s32 lbl_804CC0E8[];
 Obj_8022AE10 *construct_self_effect__8TTecAntiFPvPvPviPv(Obj_8022AE10 *self, const Vec_8022AE10 *body, const Vec_8022AE10 *ground, s32 actor, void *parent);
-int queue_destruction__7TObjectFv(void*);
+void queue_destruction__7TObjectFv(void *arg0);
 u32 find_entity_by_id(int);
 s32 is_parents_unqueued__9TTecLukerFUl();
 void deliver_technique_to_party_targets(void *);
@@ -166,7 +166,7 @@ extern void *tl_07;
 void *__dt__13TUnk_804CC0E8Fv(void *arg0, s16 arg1);
 void *__dt__8TTecAntiFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void __dt__19TTecPlayerInfluenceFv(void *, int);
+void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1);
 void __dt__7TObjectFv(void *, int);
 int spawn_support_tec_range_effect(void*);
 
@@ -272,7 +272,7 @@ void run_task__8TTecAntiFv(Anti_8022B150 *self) {
     s32 i;
     self->source = find_entity_by_id(self->source_id);
     if (self->source == 0) {
-        queue_destruction__7TObjectFv((void*)(self));
+        queue_destruction__7TObjectFv((self));
         return;
     }
     if (self->captured != 0) {
@@ -294,7 +294,7 @@ void run_task__8TTecAntiFv(Anti_8022B150 *self) {
     } else {
         deliver_technique_to_party_targets(self);
     }
-    queue_destruction__7TObjectFv((void*)(self));
+    queue_destruction__7TObjectFv((self));
 }
 
 u8 *TTecAnti__ct(u8 *arg0, s32 owner, s32 pos, s32 arg3, s32 level) {

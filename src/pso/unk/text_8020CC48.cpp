@@ -21,7 +21,7 @@ typedef struct SpawnRecord_8020CC48 {
 typedef EnemyFactoryEntry SpawnFactory_8020CC48;
 
 extern "C" {
-void copy_enemy_factory_entry(SpawnFactory_8020CC48 *out, SpawnFactory_8020CC48 *entry);
+void copy_enemy_factory_entry(EnemyFactoryEntry *arg0, EnemyFactoryEntry *arg1);
 s32 find_enemy_factory_entry(SpawnRecord_8020CC48 *row, SpawnFactory_8020CC48 *out);
 s32 find_enemy_factory_entry(SpawnRecord_8020CC48 *row, SpawnFactory_8020CC48 *out) {
     s32 index = 0;

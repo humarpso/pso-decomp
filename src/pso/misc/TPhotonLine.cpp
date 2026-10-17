@@ -66,7 +66,7 @@ s32 check_path_obstructed(void *, Vec_801ACD14 *);
 u16 obj_getField1c(void *);
 void queue_destruction__7TObjectFv(void *);
 u8 *get_battle_param__10TObjPlayerFi(s32);
-s32 spawn_particle_effect(void *, s32);
+void *spawn_particle_effect(void *pos, s32 id);
 void queue_photon_blast_hit(s32, s32, s32, f32);
 void vec3_add_to(Vec_801ACD14 *, Vec_801ACD14 *);
 extern const f32 lbl_805DC1D8;

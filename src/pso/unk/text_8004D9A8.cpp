@@ -14,7 +14,7 @@ s32 TObjPlayer__sub_80052390();
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_model_motion(s32, s32, f32);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern void *lbl_80485550[3];
 
 struct O_8004D9A8 { u8 pad0[0xBC]; s32 bc[6]; s32 d4[6]; s32 ec[6]; f32 f104; f32 f108; f32 f10c; };
@@ -36,7 +36,7 @@ void fn_8004D9A8(u8 *arg0) {
                 s = o->f104;
             }
             TObjFish::set_global_param(o->d4[i]);
-            draw_model_motion(o->bc[i], o->ec[i], s);
+            draw_model_motion((void *)o->bc[i], (void *)o->ec[i], s);
         }
         TObjPlayer::clear_global_state();
         pop_matrix();
@@ -58,7 +58,7 @@ void *create_particle_emitter(void *, s32);
 void subtract_vector(void *, void *);
 void normalize_vector(void *);
 void vec3_add_to(void *, void *);
-void *spawn_particle_effect(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
 s32 play_sound_effect(int, void *, int, int);
 void queue_destruction__7TObjectFv(void *);
 void TBoss3Volopt__sub_8004DA7C(u8 *self);
@@ -215,7 +215,7 @@ struct S_8004DE44 {
 
 extern "C" {
 void fn_8004AA04(void *);
-void restore_player_cameras();
+s32 restore_player_cameras(void);
 void __dl__7TObjectFPv(void *);
 extern void *__vt__11TObjDFDemo0[13];
 S_8004DE44 *__dt__11TObjDFDemo0Fv(S_8004DE44 *o, s16 flag);
@@ -267,7 +267,7 @@ s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 void init_model_node_tables(void *, void *, s32);
-void activate_camera_mode(s32);
+s32 activate_camera_mode(s32 arg0);
 void set_scripted_camera_pose(void *, void *, void *);
 void construct_world_actor_base(void *, void *);
 extern u8 TObjDFDemo0__model_node_entries[];

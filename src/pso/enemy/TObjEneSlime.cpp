@@ -112,8 +112,8 @@ s32 pop_matrix();
 s32 post_translate_matrix(void *, void *);
 s32 set_global_param__8TObjFishFl();
 s32 draw_chunk_object();
-s32 func_803e11e8__FUl(int);
-s32 func_803e11f0__Fv();
+void func_803e11e8__FUl(s32 arg0);
+void func_803e11f0__Fv(void);
 extern char lbl_8043D298[];
 extern s32 slime_debug_label_table[];
 extern s32 lbl_80496368[];
@@ -121,7 +121,7 @@ extern s32 slime_bml_resource;
 extern u32 model_render_flags;
 s32 send_6x0A_enemy_state(void *, s32 *);
 s32 has_no_active_slot(void *);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 void TObjEneSlime::release_split_slimes() {
     Obj_800EB910 *self = (Obj_800EB910 *)this;
@@ -165,13 +165,13 @@ void TObjEneSlime::render() {
         set_global_param__8TObjFishFl();
         if (temp_r31 != 0) {
             model_render_flags |= 0x400000;
-            func_803e11e8__FUl((int) (1));
+            func_803e11e8__FUl((1));
             get_bml_model((void *) (slime_bml_resource), (int) (temp_r30_2));
             draw_chunk_object();
             func_803e11f0__Fv();
             model_render_flags &= 0xFFBFFFFF;
         } else {
-            func_803e11e8__FUl((int) (2));
+            func_803e11e8__FUl((2));
             TObjFish::set_cull_back();
             get_bml_model((void *) (slime_bml_resource), (int) (temp_r30_2));
             draw_chunk_object();

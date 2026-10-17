@@ -36,7 +36,7 @@ extern Tbl_8020E934 **lbl_805D6158;
 extern s32 lbl_805D615C;
 extern s32 shop_difficulty_tier;
 void push_shop_pool_entry(Ctr_8020E934 *, u8);
-void shuffle_shop_pool_n_times(Ctr_8020E934 *, s32);
+void shuffle_shop_pool_n_times(void *arg0_, s32 arg1);
 void init__9TItemDataFv(Item_8020E934 *);
 s32 is_duplicate_shop_shield_or_unit(Item_8020E934 *, s32);
 void generate_shop_shield_pool(s32 arg0);

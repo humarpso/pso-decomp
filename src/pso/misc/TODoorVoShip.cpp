@@ -40,7 +40,7 @@ s32 get_bml_motion(void *, s32);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 u32 init_collision_body_parts(void *, s32, s32);
-u8 * init_map_object_base(void *);
+void *init_map_object_base(void *a0);
 s32 get_story_flag(s32);
 extern RecoveredGlobal_80163C44_lbl_804B1770 lbl_804B1770;
 extern s32 __vt__12TODoorVoShip[];
@@ -56,8 +56,8 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_chunk_material_color(void *);
-s32 draw_chunk_model(int);
+void set_chunk_material_color(f32 *arg);
+void draw_chunk_model(void *arg0);
 s32 TObjEneSlimeOne__sub_803E4B54(int, int, int, f32);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
@@ -123,7 +123,7 @@ void TODoorVoShip::render() {
         temp_r4 = model_render_flags;
         lbl_805D5660 = temp_r4;
         model_render_flags = temp_r4 | 0x20;
-        set_chunk_material_color((void *) (arg0 + 0xDC));
+        set_chunk_material_color((f32 *)(arg0 + 0xDC));
         TParticleCtrl::begin_effect_render();
         temp_r31 = *(u8 * *)&this->m_d4;
         push_matrix();
@@ -132,26 +132,26 @@ void TODoorVoShip::render() {
         if (*(s32 *)&this->m_cc & 4) {
             push_matrix();
             post_translate_matrix((void *) (temp_r31_2 + 8));
-            draw_chunk_model((int) (*(s32 *)((s8 *)temp_r31_2 + 4)));
+            draw_chunk_model((void *)(*(s32 *)((s8 *)temp_r31_2 + 4)));
             pop_matrix();
         }
         temp_r31_3 = *(u8 **)((s8 *)temp_r31_2 + 0x30);
         if (*(s32 *)&this->m_cc & 2) {
             push_matrix();
             post_translate_matrix((void *) (temp_r31_3 + 8));
-            draw_chunk_model((int) (*(s32 *)((s8 *)temp_r31_3 + 4)));
+            draw_chunk_model((void *)(*(s32 *)((s8 *)temp_r31_3 + 4)));
             pop_matrix();
         }
         temp_r31_4 = *(u8 **)((s8 *)temp_r31_3 + 0x30);
         if (*(s32 *)&this->m_cc & 8) {
             push_matrix();
             post_translate_matrix((void *) (temp_r31_4 + 8));
-            draw_chunk_model((int) (*(s32 *)((s8 *)temp_r31_4 + 4)));
+            draw_chunk_model((void *)(*(s32 *)((s8 *)temp_r31_4 + 4)));
             pop_matrix();
         }
         pop_matrix();
         TParticleCtrl::end_effect_render();
-        set_chunk_material_color(chunk_material_color_half_alpha_f32);
+        set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
         model_render_flags = lbl_805D5660;
         pop_matrix();
     }

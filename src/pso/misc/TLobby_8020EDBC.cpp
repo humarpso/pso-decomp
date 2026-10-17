@@ -3,7 +3,7 @@
 
 extern "C" {
 
-s32 mem_free(u32);
+void mem_free(void *p);
 
 extern u32 lbl_80513D78[];
 extern u32 lbl_805D6158;
@@ -16,7 +16,7 @@ void TLobby::free_rocks() {
     do {
         u32 v = (u32)var_r29[var_r31];
         if (v != 0U) {
-            mem_free(v);
+            mem_free((void *)v);
             var_r29[var_r31] = (u32)var_r30;
         }
         var_r28 -= 1;

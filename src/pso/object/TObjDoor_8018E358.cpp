@@ -76,7 +76,7 @@ struct Door_8018F15C {
 extern "C" {
 void rotate_matrix_y(int, int);
 void push_matrix();
-void pop_matrix();
+s32 pop_matrix(void);
 void post_translate_matrix(void *);
 void draw_ginja_object(void *);
 void draw_ginja_model_with_motion(int, int, void *, f32);
@@ -84,7 +84,7 @@ extern Glob_8018E358 TObjDoor__model_resource_ptrs[];
 void TObjDoor__sub_8018E8BC(void);
 f32 sin_table_lookup(s32);
 void update_anim__8TObjDoorFPv(void *arg0);
-f32 xyz_distance_squared(void *, void *);
+f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
 s32 project_world_to_screen(int, void *, void *);
 extern s32 camera_ctrl_instance;
 s32 free_collision_body_parts(void *);
@@ -97,10 +97,10 @@ void *TObjDoor__create(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 extern s32 TObjDoor__resource_param;
 extern u32 door_resource_handle;
-void *TObjDoorJung__ct(void *, void *, void *);
+u8 *TObjDoorJung__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *TObjDoorJung__create(void *arg0);
 void update_opening_glow__8TObjDoorFPv(u8 *arg0);
-void set_chunk_material_color(Color_8018E40C *);
+void set_chunk_material_color(f32 *arg);
 extern DoorMotionHeader* TObjDoor__motion_table[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
@@ -111,8 +111,8 @@ s32 load_gvm_texture_file(void *);
 s32 get_bml_model(s32, s32);
 s32 get_bml_motion(s32, s32);
 s32 draw_locked__8TObjDoorFPv(Door_8018E74C *arg0);
-void set_active_camera_pose(f32*,f32*);
-void restore_player_cameras();
+void set_active_camera_pose(u8 *arg0, u8 *arg1);
+s32 restore_player_cameras(void);
 s32 activate_camera_mode(s32);
 void clear_player_status_flag__10TObjPlayerFlUl(TObjDoor*,s32,u32);
 void set_indexed_flags(TObjDoor*,s32,u32);
@@ -252,7 +252,7 @@ void render__8TObjDoorFPv(Door_8018E40C *arg0) {
     model_render_flags |= 0x10;
     Color_8018E40C color = TObjDoor__label_color_table[arg0->fD0];
     color.a = arg0->fC4;
-    set_chunk_material_color(&color);
+    set_chunk_material_color((f32 *)&color);
     Glob_8018E40C *g0 = ((Glob_8018E40C *)&TObjDoor__model_resource_ptrs);
     ((TObjDoorJung *)(g0->c->f4))->free_children((void *)((u16)arg0->fD0));
     draw_ginja_object(g0->c);
@@ -295,7 +295,7 @@ s32 draw_closed__8TObjDoorFPv(Door_8018E5F4 *arg0) {
     model_render_flags |= 0x10;
     Color_8018E5F4 color = ((Color_8018E5F4 *)TObjDoor__label_color_table)[arg0->fD0];
     color.a = arg0->fC4;
-    set_chunk_material_color((Color_8018E40C *)(&color));
+    set_chunk_material_color((f32 *)((Color_8018E40C *)(&color)));
     Glob_8018E5F4 *g0 = ((Glob_8018E5F4 *)&TObjDoor__model_resource_ptrs);
     ((TObjDoorJung *)(g0->c->f4))->free_children((void *)((u16)arg0->fD0));
     draw_ginja_object(g0->c);
@@ -330,7 +330,7 @@ s32 draw_locked__8TObjDoorFPv(Door_8018E74C *arg0) {
     model_render_flags |= 0x10;
     Color_8018E74C color = ((Color_8018E74C *)TObjDoor__label_color_table)[arg0->fD0];
     color.a = arg0->fC4;
-    set_chunk_material_color((Color_8018E40C *)(&color));
+    set_chunk_material_color((f32 *)((Color_8018E40C *)(&color)));
     Glob_8018E74C *g0 = ((Glob_8018E74C *)&TObjDoor__model_resource_ptrs);
     ((TObjDoorJung *)(g0->c->f4))->free_children((void *)((u16)arg0->fD0));
     draw_ginja_object(g0->c);
@@ -385,7 +385,7 @@ s32 TObjDoor::is_visible(f32 farg0, f32 farg1) {
     s32 arg0 = (s32)this;
     f32 sp8;
     f32 temp_f1;
-    temp_f1 = xyz_distance_squared((void *) (arg0 + 0x38), (void *) (camera_ctrl_instance + 0x178));
+    temp_f1 = xyz_distance_squared((u8 *)(arg0 + 0x38), (u8 *)(camera_ctrl_instance + 0x178));
     if (temp_f1 > (farg0 * farg0)) {
         return 0;
     }
@@ -461,7 +461,7 @@ void TObjDoor::update_state() {
         if(this->cameraMode==1 && activate_camera_mode(9)!=0) {
             VecCopy((Vec *)target, (const Vec *)this->position);
             VecCopy((Vec *)position, (const Vec *)((f32 *)&this->scale));
-            set_active_camera_pose(position,target);this->cameraMode=2;
+            set_active_camera_pose((u8 *)position, (u8 *)target);this->cameraMode=2;
         }
         if(this->cameraMode==2) {
             s32 ticks=this->cameraTicks-1;this->cameraTicks=ticks;
@@ -610,7 +610,7 @@ void TObjDoor::load_resources() {
 void *TObjDoorJung__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD8);
     if (o != NULL) {
-        o = TObjDoorJung__ct(o, tl_05, arg0);
+        o = TObjDoorJung__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

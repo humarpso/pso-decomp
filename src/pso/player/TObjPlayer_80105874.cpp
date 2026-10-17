@@ -17,10 +17,10 @@ extern RecoveredGlobal_801058AC_lbl_8049EE60 item_class_load_unload_table;
 extern s32 lbl_805D5440;
 extern int item_class_load_handle;
 void fn_801058E8(void* p);
-int TItemDrop__sub_8010F168(void*, void*);
+void *TItemDrop__sub_8010F168(void *arg0, s16 arg1);
 int get_slot_value__10TObjPlayerFPvi(void*, int);
 
-void TObjPlayer::free_item_globals() { TItemDrop__sub_8010F168((void*)(item_class_load_handle), (void*)1); item_class_load_handle = 0; TItemLoad::free_all(); TItemBuff::free_all_and_init(); }
+void TObjPlayer::free_item_globals() { TItemDrop__sub_8010F168((void *)(item_class_load_handle), (s16)((void*)1)); item_class_load_handle = 0; TItemLoad::free_all(); TItemBuff::free_all_and_init(); }
 
 typedef char RecoveredGlobal_801058AC_lbl_8049EE60_size[sizeof(RecoveredGlobal_801058AC_lbl_8049EE60) == 0x78 ? 1 : -1];
 void TObjPlayer::init_game_resources() {

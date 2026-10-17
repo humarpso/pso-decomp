@@ -475,7 +475,7 @@ extern Tbl_80408718 lbl_805C1AB0;
 s32 TLobby__sub_80405304(void *arg0);
 extern u16 lbl_805D7A68;
 extern Ent_803F9B48 *lbl_805D7A6C;
-void TLobby__sub_80426B88(void);
+s32 TLobby__sub_80426B88(s16 arg0);
 void NetMemcpy(void * _w0, void * _w1, int _w2);
 s32 TLobby__sub_803FC684(u8 *, u8 *, u8 *);
 extern u8 *lobby_buffer_pool_base;

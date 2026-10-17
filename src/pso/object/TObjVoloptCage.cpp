@@ -43,9 +43,9 @@ s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
 s32 TObjVoloptCage__sub_800C76F0(void *);
 s32 submit_cursor_candidate(void *, int);
 s32 is_locally_controlled__10TObjPlayerFPv();
-s32 clear_volopt_cage_flag();
+void clear_volopt_cage_flag(void);
 void obj_clear_flag30_20000(void *arg0);
-s32 __dt__15TObjEnemyCustomFv(void *, int);
+void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 get_player_by_client_id(int);
 s32 __dl__7TObjectFPv(void *);
@@ -132,7 +132,7 @@ u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1) {
         }
         clear_volopt_cage_flag();
         free_collision_body_parts((void *) (arg0));
-        __dt__15TObjEnemyCustomFv((void *) (arg0), (int) (0));
+        __dt__15TObjEnemyCustomFv((arg0), (0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
         }

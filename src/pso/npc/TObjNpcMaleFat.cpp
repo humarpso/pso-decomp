@@ -96,7 +96,7 @@ struct RecoveredGlobal_8014BFD4___vt__14TObjNpcMaleFat {
 };
 
 extern "C" {
-s32 construct_male_npc_base(void *);
+u8 *construct_male_npc_base(u8 *arg0);
 extern s32 __vt__14TObjNpcMaleFat[];
 extern s32 TObjNpcMaleFat__name;
 extern u8 *TObjNpcMaleFat__static_model_resource;
@@ -123,7 +123,7 @@ extern void *tl_04;
 
 typedef char RecoveredGlobal_8014BFD4___vt__14TObjNpcMaleFat_size[sizeof(RecoveredGlobal_8014BFD4___vt__14TObjNpcMaleFat) == 0x178 ? 1 : -1];
 u8 *TObjNpcMaleFat__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_male_npc_base((void *) (arg0));
+    construct_male_npc_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8014BFD4___vt__14TObjNpcMaleFat *)&__vt__14TObjNpcMaleFat).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcMaleFat__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);

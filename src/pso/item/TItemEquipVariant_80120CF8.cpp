@@ -4,7 +4,7 @@
 extern "C" {
 
 void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
-void __dt__14TItemEquipBaseFv(void *, int);
+void *__dt__14TItemEquipBaseFv(void *arg0, s16 arg1);
 
 extern s32 __vt__11TItemWeapon[];
 

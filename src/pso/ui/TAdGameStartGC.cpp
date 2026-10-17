@@ -63,10 +63,10 @@ void TAdGameStartGC__sub_802E6368(void* p);
 void bswap_6x92__14TAdGameStartGCFPv(void* p);
 void render__14TAdGameStartGCFv(void);
 void send_6x92__14TAdGameStartGCFPv(void* p);
-int TLobby__send_and_handle_60(void*);
+void TLobby__send_and_handle_60(u8 *arg0);
 
 void bswap_6x92__14TAdGameStartGCFPv(void* p) { ((TObjPlayer *)p)->read_be16_field2(); bswap_32((u32 *)((char*)p + 0x4)); bswap_32((u32 *)((char*)p + 0x8)); }
-void send_6x92__14TAdGameStartGCFPv(void* p) { bswap_6x92__14TAdGameStartGCFPv((void*)(p)); TLobby__send_and_handle_60(p); }
+void send_6x92__14TAdGameStartGCFPv(void* p) { bswap_6x92__14TAdGameStartGCFPv((void*)(p)); TLobby__send_and_handle_60((u8 *)p); }
 void TAdGameStartGC__sub_802E6368(void* p) { *(u8*)((char*)p + 0x0) = 146; *(u8*)((char*)p + 0x1) = 3; }
 
 void render__14TAdGameStartGCFv(void) {  }
@@ -247,17 +247,17 @@ __declspec(section ".rodata") extern const char lbl_80472C48[] = "TAdGameStartSu
 #pragma push
 #pragma fp_contract on
 
-s32 begin_screen_draw(int);
+void begin_screen_draw(s32 arg0);
 s32 draw_textured_quad_at_depth(void *, int, f32);
-s32 set_draw_texture_and_color(int, int);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern s32 game_start_player_instance;
 
 void draw_background__17TAdGameStartSubGCFPv(u8 *arg0) {
     s32 temp_r4;
 
-    begin_screen_draw((int) (1));
+    begin_screen_draw((1));
     TObjFish::set_global_param((s32)((void *) (game_start_player_instance)));
-    set_draw_texture_and_color((int) (0), (int) ((*(s32 *)((s8 *)arg0 + 0x80) << 0x18) | 0xFF0000 | 0xFFFF));
+    set_draw_texture_and_color((0), ((*(s32 *)((s8 *)arg0 + 0x80) << 0x18) | 0xFF0000 | 0xFFFF));
     temp_r4 = *(s32 *)((s8 *)arg0 + 0x1C);
     draw_textured_quad_at_depth((void *) (arg0 + 0x40), (int) (temp_r4), (f32) (((0.01f) * (f32) temp_r4) + (0.8f)));
     TWindowSubStatusDisp::get_player();
@@ -268,11 +268,10 @@ void run_task__17TAdGameStartSubGCFv(u8 *arg0);
 extern s32 __vt__17TAdGameStartSubGC[];
 extern void *lbl_805D3FB0[2];
 void render__17TAdGameStartSubGCFv(void* p);
-#define draw_background__17TAdGameStartSubGCFPv ((int (*)(void*))draw_background__17TAdGameStartSubGCFPv)
-int set_cached_blend_factor(void*, void*);
+void set_cached_blend_factor(s32 arg0, s32 arg1);
 int get_state_flag__9TMainTaskFv(void*);
 
-void render__17TAdGameStartSubGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)10); draw_background__17TAdGameStartSubGCFPv(p); set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)6); } }
+void render__17TAdGameStartSubGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)10)); draw_background__17TAdGameStartSubGCFPv((u8 *)p); set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)6)); } }
 #pragma push
 #pragma fp_contract on
 void run_task__17TAdGameStartSubGCFv(u8 *arg0) {
@@ -345,7 +344,6 @@ u8 *__ct__17TAdGameStartSubGCFv(u8 *arg0, void *arg1, u8 *arg2) {
 #undef I
 #pragma pop
 
-#undef draw_background__17TAdGameStartSubGCFPv
 void __dt__14TAdGameStartGCFv();
 void __dt__17TAdGameStartSubGCFv();
 void render_shadows__7TObjectFv();

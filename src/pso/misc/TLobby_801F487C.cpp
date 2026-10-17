@@ -3,11 +3,11 @@
 #include "pso/misc/TCameraCtrl.h"
 
 extern "C" {
-s32 clear_story_flag(s32);
+void clear_story_flag(s32 flag);
 extern s32 lobby_story_flag_clear_list[];
 void reset_camera_if_fullscreen__6TLobbyFPv(void* p);
 void TLobby__sub_801F494C(u16 arg0);
-u32 get_character_save_record(u32);
+s32 get_character_save_record(u32 arg0);
 void *memcpy(void *, void *, u32);
 extern u8 quest_story_flags_by_difficulty[0x200];
 int is_not_split_screen__13TRaderMapCoreFv(void*);

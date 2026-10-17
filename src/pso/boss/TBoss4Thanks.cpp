@@ -52,7 +52,7 @@ u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 u8 *__dt__12TBoss4ThanksFv(u8 *arg0, s16 arg1);
 void TBoss4Thanks__sub_8035C480(s32 arg0);
-void *create_particle_emitter(void *, int);
+void *create_particle_emitter(void *pos, s32 id);
 extern u8 TBoss4Thanks__data_80479B40[];
 extern Ent_8035C35C boss4_thanks_emitter_table[];
 void *get_player_data__10TObjPlayerFi(s32);
@@ -64,14 +64,14 @@ extern const f32 lbl_805E018C;
 extern const f32 lbl_805E0194;
 void TObjPlayer__sub_80052390(void);
 void push_matrix(void);
-void pop_matrix(void);
+s32 pop_matrix(void);
 void post_translate_matrix(void *);
-void draw_model_motion(s32, s32, f32);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 u8 fn_8035C2B4(void);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 get_story_flag(s32);
 int dispatch_by_main_phase__14TBoss4DarkFalzFUs(void*);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 u8 fn_8035C2B4(void) {
     return (u8) (get_story_flag(0x99) != 0);
@@ -159,7 +159,7 @@ void TBoss4Thanks::render() {
     TObjPlayer::set_global_flag();
     post_translate_matrix(TBoss4Thanks__data_80479B40);
     TObjFish::set_global_param(texture_list);
-    draw_model_motion(model, motions[current_motion], motion_frame);
+    draw_model_motion((void *)model, (void *)motions[current_motion], motion_frame);
     TObjPlayer::clear_global_state();
     pop_matrix();
     TObjPlayer::sync_player_globals();

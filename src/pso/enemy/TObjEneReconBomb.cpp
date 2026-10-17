@@ -75,14 +75,14 @@ struct Obj_8031B808 {
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *, int);
 s16 obj_getField1c(int);
 f32 horizontal_distance_squared(void *, void *);
 s32 fn_8031B618(Obj_8031B618 *arg0);
 VObj_8031B808 *get_player_data__10TObjPlayerFi(s32);
 u32 csnVector(void *, void *, int);
-s32 spawn_particle_effect_with_flags(void *, int, int);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 s32 project_actor_to_ground(void *, void *, void *);
 s32 play_sound_effect(s32, void *, int, int);
 s32 TObjEneRecon__sub_8031C250(u32);
@@ -93,16 +93,16 @@ extern const f32 lbl_805DF3B0;
 extern const f32 lbl_805DF3B4;
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
-s32 draw_blob_shadow(int);
-s32 direction_to_rotation_xz(void *, void *, void *);
-s32 rotate_matrix_zyx(int, int, int, int);
+void draw_blob_shadow(s32 arg0);
+void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
+void rotate_matrix_zyx(void *m, s32 x, s32 y, s32 z);
 s32 rotate_matrix_z(int, int);
-s32 translate_matrix(int, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 rotate_matrix_x(int, void *);
 s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
-s32 draw_chunk_object(int);
+void draw_chunk_object(void *child);
 s32 find_nearest_visible_player(void *, int, f32);
 Ctrl_8031B618 *get_player_by_client_id(s32);
 extern u32 recon_bomb_bml_resource;
@@ -154,14 +154,14 @@ void TObjEneReconBomb::render() {
     bml_model = get_bml_model((void *) (recon_bomb_bml_resource), (int) (2));
     temp_r30 = TObjFish__sub_8001EDB0((void *) (recon_bomb_bml_resource), (int) (2));
     push_matrix();
-    translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) ((2.0f) + *(f32 *)((s8 *)arg0 + 0x3C)), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));
-    rotate_matrix_zyx((int) (0), (int) (*(s32 *)&this->m_5c), (int) (this->rotation_y), (int) (this->rotation_z));
+    translate_matrix((0), (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) ((2.0f) + *(f32 *)((s8 *)arg0 + 0x3C)), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));
+    rotate_matrix_zyx((0), (*(s32 *)&this->m_5c), (this->rotation_y), (this->rotation_z));
     TObjFish::set_global_param((int) (temp_r30));
-    draw_chunk_object((int) (bml_model));
+    draw_chunk_object((void *)(bml_model));
     pop_matrix();
     push_matrix();
-    translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) ((0.1f) + this->m_348), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));
-    direction_to_rotation_xz((void *) (arg0 + 0x248), (void *) (&spC), (void *) (&sp8));
+    translate_matrix((0), (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) ((0.1f) + this->m_348), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));
+    direction_to_rotation_xz((arg0 + 0x248), (&spC), (&sp8));
     rotate_matrix_z((int) (0), (int) (sp8));
     rotate_matrix_x((int) (0), (void *) (spC + 0x4000));
     var_f1 = *(f32 *)((s8 *)arg0 + 0x3C) - this->m_348;
@@ -173,7 +173,7 @@ void TObjEneReconBomb::render() {
     sc.x = sc.y = 0.65f * (1.0f - (var_f1 / 40.0f)) + 0.1f;
     sc.z = 1.0f;
     scale_current_matrix((void *) (&sc));
-    draw_blob_shadow((int) (0));
+    draw_blob_shadow((0));
     pop_matrix();
 }
 #pragma pop

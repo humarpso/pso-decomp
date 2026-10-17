@@ -14,7 +14,7 @@ s32 forward_render__20TWindowSubStatusDispFv(void *, int);
 u8 *__nw__7TObjectFUl(s32);
 s32 TShopJudgmentItemWindow__sub_80267F9C(void *, int);
 u8 *create_equip_list_window(s32 arg0, s32 arg1, s16 arg2);
-s32 fn_802683F4(void *, void *, int, void *);
+u8 *fn_802683F4(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 extern s32 __vt__19TWindowSubEquipList[];
 extern s32 TWindowSubEquipList__class_name;
 u8 *TWindowSubEquipList__ct(u8 *arg0, s32 arg1, s16 arg2);
@@ -61,7 +61,7 @@ void *__dt__19TWindowSubEquipListFv(void *arg0, s16 arg1) {
     return arg0;
 }
 u8 *TWindowSubEquipList__ct(u8 *arg0, s32 arg1, s16 arg2) {
-    fn_802683F4((void *) (arg0), (void *) (arg1), (int) (8), (void *) (arg2));
+    fn_802683F4((arg0), (arg1), (8), (arg2));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802793E4___vt__19TWindowSubEquipList *)&__vt__19TWindowSubEquipList).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubEquipList__class_name;
     ((TUnk_804D0618 *)arg0)->ensure_status_display((int) (TWindowSubStatusDisp::get_message_10((int) (0x25))));

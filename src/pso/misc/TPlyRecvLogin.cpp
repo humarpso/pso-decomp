@@ -10,7 +10,7 @@ extern "C" {
 s32 * copy_with_guild_card_tag__13TPlyRecvLoginFPvPv(s32 *arg0, s32 *arg1);
 s32 __ct__13TPlyRecvLoginFRC13TPlyRecvLogin(s32 arg0, s32 arg1);
 void bswap__13TPlyRecvLoginFv(s32 arg0);
-s32 __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
+void __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *arg0, void *arg1);
 s32 bswap__13packet_headerFv();
 
 void bswap__13TPlyRecvLoginFv(s32 arg0) {

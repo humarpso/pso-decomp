@@ -95,8 +95,8 @@ struct Shield_8010A4C0 {
 };
 
 extern "C" {
-s32 create_oneshot_particle_emitter(void *, void *, int, int);
-s32 get_item_system_generation(void);
+void *create_oneshot_particle_emitter(void *pos, void *dir, s32 id, s32 flags);
+int get_item_system_generation(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_8049F148[];
 void disallow_rendering__7TObjectFv(void *);
@@ -149,7 +149,7 @@ void TItemEffShield::spawn_recipe_particles() {
     temp_r5 = *((s32 *) (((s8 *) (*((s32 *) (((s8 *) arg0) + 0x34)))) + var_r31));
     if (temp_r5 != (-1))
     {
-      create_oneshot_particle_emitter((void *) (arg0 + 0x1C), (void *) (arg0 + 0x28), (int) temp_r5, (int) 4);
+      create_oneshot_particle_emitter((arg0 + 0x1C), (arg0 + 0x28), temp_r5, (int) 4);
     }
     var_r30 += 1;
     var_r31 += 4;

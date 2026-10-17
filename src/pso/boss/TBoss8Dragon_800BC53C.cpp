@@ -20,7 +20,7 @@ u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1);
 int attack_target_history_contains(void* object, void* target);
 s32 mem_alloc(s32);
 s32 fill_value_array(void *);
-s32 mem_free(u32);
+void mem_free(void *p);
 
 s32 attack_target_history_add(s32 object, s32 target) {
     if ((fn_800BC758((u8 *)(object)) != 0) && (((s32)attack_target_history_contains((void*)((void *)((void *) (object))), (void*)((void *)((void *) (target))))) == 0)) {
@@ -60,7 +60,7 @@ void *TBoss8Dragon::init_buffer(s32 arg1, s32 arg2) {
 u32 *free_buffer__12TBoss8DragonFPvs(u32 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         if ((u32) *arg0 != 0U) {
-            mem_free(*arg0);
+            mem_free((void *)(*arg0));
             *arg0 = 0U;
         }
         if (arg1 > 0) {

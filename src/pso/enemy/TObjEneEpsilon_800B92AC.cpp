@@ -262,7 +262,7 @@ void TObjEneDD_ST::enemy_copy_target_destination() {
     u32 temp_r4;
     temp_r4 = *(u32 *)((s8 *)((u8 *)this) + 0x390);
     if (temp_r4 != 0U) {
-        copy_position__14TObjEneEpsilonFPv((void *)((void *)(((u8 *)this))), (void *)((void *) (temp_r4 + 0x38)));
+        copy_position__14TObjEneEpsilonFPv(((void *)(((u8 *)this))), ((void *) (temp_r4 + 0x38)));
     }
 }
 
@@ -270,7 +270,6 @@ void TObjEneDD_ST::enemy_copy_target_destination() {
 #undef enemy_clear_target__12TObjEneDD_STFUs
 #undef enemy_tick_target_acquisition__12TObjEneDD_STFPllf
 
-#define copy_position__14TObjEneEpsilonFPv ((int (*)(void *))copy_position__14TObjEneEpsilonFPv)
 #define tick_period_counter ((s32 (*)(void *, s32 *, s32))tick_period_counter)
 #define enemy_clear_target__12TObjEneDD_STFUs ((s32 (*)(void *))enemy_clear_target__12TObjEneDD_STFUs)
 
@@ -400,7 +399,6 @@ s32 TObjEneDD_ST::enemy_tick_target_acquisition(s32 *counter, s32 limit, f32 sca
     return var_r31;
 }
 
-#undef copy_position__14TObjEneEpsilonFPv
 #undef tick_period_counter
 #undef enemy_clear_target__12TObjEneDD_STFUs
 

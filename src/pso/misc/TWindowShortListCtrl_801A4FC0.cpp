@@ -14,7 +14,7 @@ extern RecoveredGlobal_801A51C0_lbl_80446980 short_list_ctrl_interval_table;
 void *construct_option_scene(void *arg0);
 s32 TWindowShortListCtrl__sub_801A513C(void* p);
 int TWindowShortListCtrl__sub_801A5144(void* p);
-void TKeyBoardControl__sub_8000F90C(int);
+void TKeyBoardControl__sub_8000F90C(s32 arg0);
 void *TWindowOptionCtrl__ct(void *, void *);
 void *__ct__10TAdTitleGCFP7TObjectl(void *, void *, int);
 void *__ct__12TAdBackTxtGCFv(void *, void *);

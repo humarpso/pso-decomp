@@ -47,7 +47,7 @@ s32 set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s32, s32, s32 *);
 s32 TAdMultiPlyChrSelectGC__sub_802DBCE8(void *);
 s32 get_selected_menu_value(s32);
 s32 clear_entry__23TAdSinglePlyChrSelectGCFi();
-s32 clear_slot_body__23TAdSinglePlyChrSelectGCFi(s32);
+void clear_slot_body__23TAdSinglePlyChrSelectGCFi(s32 i);
 int TAdMultiPlyChrSelectGC__sub_802E006C(void*, void*, void*);
 s32 get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(void *, s32);
 s32 create__16TAdChrSelBSlotGCFPv(void *);

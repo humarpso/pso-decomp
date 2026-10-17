@@ -235,14 +235,14 @@ void draw_name_plate__15TWindowFukidasiFv(void *, View_80252764 *, u32);
 void draw_body_row__15TWindowFukidasiFv(Fuki_802523CC *b, Slice_802523CC *s, Ctx_802523CC *ctx, f32 offsetX, f32 rowTop, f32 fullWidth, f32 rowHeight);
 void draw_body__15TWindowFukidasiFPvPvUiPvf(struct Fukidasi_80252558 *b, struct DrawCtx_80252558 *ctx, u32 argb, f32 *offset, f32 depth);
 void render__15TWindowFukidasiFPv(Fuki_80252764 *b);
-s32 TWindowFukidasi__sub_80252C38(void *);
+void TWindowFukidasi__sub_80252C38(void *p);
 void clear_flag_20__13TUnk_804CF0B8Fv();
 s32 fn_80252CBC(void);
 void draw_visible_window_entries(void *, void *, View_80252764 *);
 s32 init_window_layout_entries(void *, void *, int);
 s32 reset_float_field__15TWindowHelpItemFv();
 s32 measure_message_text_width(int, f32);
-s32 set_text_entry_string(int, void *, int);
+void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 s32 strcmp(s32, s32);
 s32 strncpy(s32, s32, s32);
 f32 vec3_dot(void *, void *);
@@ -251,12 +251,12 @@ void rotate_vector_by_matrix(s32, void *, void *);
 void rotate_matrix_y(s32, s32);
 void rotate_matrix_z(s32, s32);
 void rotate_matrix_x(s32, s32);
-void push_matrix_from(void *);
+s32 push_matrix_from(void *src);
 void push_matrix();
 void pop_matrix();
-void begin_screen_draw(int);
-void DVDConvertEntrynumToPath(void *);
-void set_draw_texture_and_color(int, u32);
+void begin_screen_draw(s32 arg0);
+void DVDConvertEntrynumToPath(f32 *q);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 
 extern Cam_802511E4 TCameraCtrl__data_804FF634;
 extern const f32 TWindowFukidasi__data_805DCCF4;
@@ -915,11 +915,11 @@ void set_text__15TWindowFukidasiFPvii(u8 *arg0, s32 str, s32 arg2) {
   temp_r3 = (u8 *) ((u8 * (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(arg0, 0);
   if (arg2 & 1)
   {
-    set_text_entry_string((int) temp_r3, (void *) str, (int) 0x20);
+    set_text_entry_string(temp_r3, str, (int) 0x20);
   }
   else
   {
-    set_text_entry_string((int) temp_r3, (void *) str, (int) 0);
+    set_text_entry_string(temp_r3, str, (int) 0);
   }
   if (arg2 & 4)
   {
@@ -1061,18 +1061,18 @@ void draw_body_row__15TWindowFukidasiFv(Fuki_802523CC *b, Slice_802523CC *s, Ctx
     s->x = ctx->pivot + ctx->scale * (s->x - ctx->pivot);
     s->width *= ctx->scale;
     s->lean *= ctx->scale;
-    DVDConvertEntrynumToPath(s);
+    DVDConvertEntrynumToPath((f32 *)s);
     s->x = left + fullWidth - cap;
     s->x = ctx->pivot + ctx->scale * (s->x - ctx->pivot);
     s->u = (194.0f - cap) / 256.0f;
-    DVDConvertEntrynumToPath(s);
+    DVDConvertEntrynumToPath((f32 *)s);
     w = (fullWidth - 64.0f) * ctx->scale;
     if (w >= 0.0f) {
         s->x = 32.0f + left;
         s->x = ctx->pivot + ctx->scale * (s->x - ctx->pivot);
         s->width = w;
         s->u = 0.5078125f;
-        DVDConvertEntrynumToPath(s);
+        DVDConvertEntrynumToPath((f32 *)s);
     }
 }
 #pragma pop
@@ -1192,7 +1192,7 @@ void TWindowFukidasi::run_task() {
       sync_display_pos();
       break;
     case 3:
-      ((void (*)(void *))TWindowFukidasi__sub_80252C38)(arg0);
+      TWindowFukidasi__sub_80252C38(arg0);
       ((TUnk_804CF0B8 *)arg0)->set_flag2c_bit100();
       *((u8 *) (((s8 *) arg0) + 0x70)) = 4U;
     case 4:

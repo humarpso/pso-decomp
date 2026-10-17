@@ -227,8 +227,8 @@ extern const f32 lbl_805DF1A4;
 extern const f32 lbl_805DF1AC;
 extern const f32 lbl_805DF1B0;
 s32 TBoss8Dragon__sub_802F3638();
-s32 TObjPlayer__sub_80082CBC(void *);
-s32 TObjPlayer__sub_80082CCC(void *);
+void TObjPlayer__sub_80082CBC(void *effect);
+void TObjPlayer__sub_80082CCC(void *effect);
 
     extern int local_client_id;
 int TBoss8Dragon__sub_8030B80C(void) {  return (local_client_id & 0xffff); }

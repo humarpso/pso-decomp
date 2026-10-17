@@ -41,7 +41,7 @@ s32 is_split_screen(void);
 u8 *__nw__7TObjectFUl(s32);
 extern s32 tl_05;
 u8 *TObjParticle__create(u8 *arg0);
-s32 disallow_rendering__7TObjectFv(void *);
+void disallow_rendering__7TObjectFv(void *arg0);
 s32 spawn_particle_effect_with_rotation(void *, void *, s32, u16);
 s32 spawn_continuous_particle_with_direction(void *, void *, s32);
 s32 construct_world_actor_base(void *, void *);
@@ -51,7 +51,7 @@ extern const f32 lbl_805DBEEC;
 Part_80195400 *TObjParticle__ct(Part_80195400 *arg0, s32 arg1, Src_80195400 *arg2);
 void *__dt__12TObjParticleFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-f32 xyz_distance_squared(void *, s32);
+f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
 void queue_destruction__7TObjectFv(void *);
 
 extern s32 camera_ctrl_instance;
@@ -80,7 +80,7 @@ void TObjParticle::run_task() {
     if (((s32) *(s32 *)&this->m_8c == 1) && ((s32) this->m_84 == 1)) {
         var_f31 = lbl_805DBEE8;
     }
-    if (xyz_distance_squared((u8 *)&this->position, camera_ctrl_instance + 0x178) > var_f31) {
+    if (xyz_distance_squared((u8 *)&this->position, (u8 *)(camera_ctrl_instance + 0x178)) > var_f31) {
         queue_destruction__7TObjectFv((void *)(arg0));
         return;
     }

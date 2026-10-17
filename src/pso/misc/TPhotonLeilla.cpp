@@ -5,7 +5,7 @@ extern "C" {
 
 void *__dt__13TPhotonLeillaFv(void *arg0, s16 arg1);
 s32 __dl__7TObjectFPv(void *);
-s32 destroy_photon_motion_object(void *, s32);
+void *destroy_photon_motion_object(void *arg0, s16 arg1);
 
 extern s32 __vt__13TPhotonLeilla[];
 

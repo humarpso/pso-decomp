@@ -16,8 +16,8 @@ void *memset(void *dst, int val, unsigned long n);
 extern LscStream lsc_slot_table[];
 extern s32 lobby_slot_refcount;
 extern char lbl_8047DD34[];
-void TLobby__sub_803C89C4(void *);
-void TLobby__sub_803C8B38(void *);
+void TLobby__sub_803C89C4(u8 *arg0);
+void TLobby__sub_803C8B38(u8 *arg0);
 extern char lbl_8047DDB8[];
 extern char lbl_8047DDE4[];
 extern const char *volatile lbl_805E0DB0;
@@ -148,10 +148,10 @@ void lsc_stop(LscStream *arg0) {
         arg0->state = 0U;
         if ((u32) (u32)arg0->file_handle != 0U) {
             if ((s32) arg0->read_started == 1) {
-                TLobby__sub_803C89C4(arg0->file_handle);
+                TLobby__sub_803C89C4((u8 *)arg0->file_handle);
                 arg0->read_started = 0U;
             }
-            TLobby__sub_803C8B38((void *)((int) ((u32)arg0->file_handle)));
+            TLobby__sub_803C8B38((u8 *)((int) ((u32)arg0->file_handle)));
             arg0->file_handle = 0;
         }
         arg0->file_sector_count = 0;
@@ -183,10 +183,10 @@ void lsc_start(LscStream *o) {
             o->state = 0;
             if (o->file_handle != 0) {
                 if ((s32)o->read_started == 1) {
-                    TLobby__sub_803C89C4(o->file_handle);
+                    TLobby__sub_803C89C4((u8 *)o->file_handle);
                     o->read_started = 0;
                 }
-                TLobby__sub_803C8B38(o->file_handle);
+                TLobby__sub_803C8B38((u8 *)o->file_handle);
                 o->file_handle = 0;
             }
             o->file_sector_count = 0;
@@ -236,10 +236,10 @@ void lsc_destroy(LscStream *arg0) {
             arg0->state = 0U;
             if ((u32) (u32)arg0->file_handle != 0U) {
                 if ((s32) arg0->read_started == 1) {
-                    TLobby__sub_803C89C4(arg0->file_handle);
+                    TLobby__sub_803C89C4((u8 *)arg0->file_handle);
                     arg0->read_started = 0U;
                 }
-                TLobby__sub_803C8B38((void *)((int) ((u32)arg0->file_handle)));
+                TLobby__sub_803C8B38((u8 *)((int) ((u32)arg0->file_handle)));
                 arg0->file_handle = 0;
             }
             arg0->file_sector_count = 0;

@@ -13,12 +13,12 @@ extern RecoveredGlobal_802E1024_lbl_804E2F68 multi_chr_select_player_slot_table;
 s32 get_or_create_player__22TAdMultiPlyChrSelectGCFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void TAdChrSelPlayerGC__sub_802E10A0(void);
 void TLobby__sub_8001FE7C(void*, int);
-void TObjMotion__ct(void *);
+u8 *TObjMotion__ct(u8 *arg0);
 
 extern s32 multi_chr_select_player_actor_ops[];
 
 void *TUnk_804E3008::init_player(void *arg1, void *arg2, void *arg3, void *arg4) {
-    TObjMotion__ct(this);
+    TObjMotion__ct((u8 *)this);
     *(s32 **)((s8 *)this + 0x18) = multi_chr_select_player_actor_ops;
     *(void **)((s8 *)this + 0x10C) = arg4;
     this->m_108 = arg3;

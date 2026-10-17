@@ -48,17 +48,17 @@ struct Node_801760A8 {
 
 extern "C" {
 u8 *load_resource_from_descriptor(void *, s32, BmlResourceDescriptor *, s32, s32, s32);
-s32 *mem_alloc(s32);
+void *mem_alloc(u32 size);
 s32 load_gvm_texture_file(void *);
 extern RecoveredGlobal_80176308_lbl_80442A80 lbl_80442A80;
 extern u32 sensor_general_shared_bml_archive;
 extern s32 *TOSensorGeneral01__texture_lists;
 s32 rotate_matrix_y(int, int);
-s32 translate_matrix(int, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_ginja_model(int);
+void draw_ginja_model(s32 model);
 s32 TOSensor__ct(void *, void *);
 extern s32 __vt__17TOSensorGeneral01[];
 extern s32 lbl_805D3154;
@@ -66,9 +66,9 @@ void *TOSensorGeneral01__ct(void *arg0, void *arg1, void *arg2);
 void *__dt__17TOSensorGeneral01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
-void __dt__8TOSensorFv(void *, int);
+void *__dt__8TOSensorFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
-s32 mem_free(void*);
+void mem_free(void *p);
 
 void TOSensorGeneral01::vfunc_17() {
     this->rotation_y = (s32) (this->rotation_y+ 0x147);
@@ -159,7 +159,7 @@ void TOSensorGeneral01::free_rocks() {
     if ((s32 *) TOSensorGeneral01__texture_lists != NULL) {
         TObjPlayer::free_if_valid(*TOSensorGeneral01__texture_lists);
         if ((s32 *) TOSensorGeneral01__texture_lists != NULL) {
-            mem_free((void*)TOSensorGeneral01__texture_lists);
+            mem_free(TOSensorGeneral01__texture_lists);
             TOSensorGeneral01__texture_lists = NULL;
         }
     }

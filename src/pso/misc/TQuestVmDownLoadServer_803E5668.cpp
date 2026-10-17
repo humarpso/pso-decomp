@@ -28,7 +28,7 @@ extern "C" {
 s32 TQuestVmDownLoadServer__sub_803F0890(void);
 extern s32 quest_download_initialized;
 extern s32 lbl_805D7834;
-s32 TQuestVmDownLoadServer__sub_803E6ACC(int);
+void TQuestVmDownLoadServer__sub_803E6ACC(s32 arg0);
 s32 TQuestVmDownLoadServer__sub_803F08E4(void *);
 extern RecoveredGlobal_803E5EFC_lbl_8058DD88 lbl_8058DD88;
 u8 * TQuestVmDownLoadServer__sub_803EE828(void);
@@ -43,12 +43,12 @@ extern Ent_803E5670 quest_download_slot_chain_table[];
 extern s32 lbl_805D78EC;
 extern s32 lbl_805D78F0;
 s32 TQuestVmDownLoadServer__sub_803E5670(s32 *arg0);
-s32 TQuestVmDownLoadServer__sub_803EB0D8(int, int);
+s32 TQuestVmDownLoadServer__sub_803EB0D8(s32 arg0, s32 arg1);
 s32 TQuestVmDownLoadServer__sub_803EB208(int, int);
 extern s32 lbl_805D789C;
 s32 TQuestVmDownLoadServer__sub_803E6134(s32 *arg0);
 extern s32 lbl_805D7898;
-s32 TQuestVmDownLoadServer__sub_803E9F54(int);
+s32 TQuestVmDownLoadServer__sub_803E9F54(s32 arg0);
 s32 TQuestVmDownLoadServer__sub_803EA9E8(int, int, int, int);
 s32 TQuestVmDownLoadServer__sub_803EDC20(u32);
 s32 OSFillFPUContext(s32 *arg0);
@@ -87,7 +87,7 @@ extern s32 lbl_805E10C0;
 s32 TQuestVmDownLoadServer__sub_803E5B94(s32 *arg0);
 s32 TQuestVmDownLoadServer__sub_803EC69C(s32);
 u8 TQuestVmDownLoadServer__sub_803EC8D8();
-s32 TQuestVmDownLoadServer__sub_803ECC7C(s32);
+s32 TQuestVmDownLoadServer__sub_803ECC7C(u32 arg0);
 s32 TQuestVmDownLoadServer__sub_803EF208(Req_803E5D20 *);
 s32 TQuestVmDownLoadServer__sub_803EF538(Req_803E5D20 *);
 extern u8 quest_download_code_remap_table[];
@@ -368,7 +368,7 @@ s32 TQuestVmDownLoadServer::poll_download_status() {
     if (TQuestVmDownLoadServer__sub_803F08E4((void *) (&lbl_8058DD88.value)) == -7) {
         return 1;
     }
-    TQuestVmDownLoadServer__sub_803E6ACC((int) (0));
+    TQuestVmDownLoadServer__sub_803E6ACC((0));
     lbl_805D7834 = 1;
     return 0;
 }

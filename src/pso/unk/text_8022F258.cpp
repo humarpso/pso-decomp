@@ -4,7 +4,7 @@
 #include "pso/player/TObjPlayer.h"
 extern "C" {
 extern u32 dark_technique_charge_effect_ids[];
-void* spawn_particle_effect(float*,u32);
+void *spawn_particle_effect(void *pos, s32 id);
 void queue_destruction__7TObjectFv(void*);
 void updateDarkTechniqueCharge(TechniqueChargeEmitter* state);
 s32 __construct_array(void *, void *, int, int, int);

@@ -115,7 +115,7 @@ extern RecoveredGlobal_802895D8_lbl_804D3320 bm_npc_soutokufu_resource_descripto
 extern u32 TObjNpcSoutokufu__shared_model_resource;
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-s32 construct_male_npc_base(void *);
+u8 *construct_male_npc_base(u8 *arg0);
 extern s32 __vt__16TObjNpcSoutokufu[];
 extern s32 TObjNpcSoutokufu__name;
 u8 *TObjNpcSoutokufu__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -159,7 +159,7 @@ extern s32 boss5_common_texture_list;
 
 typedef char RecoveredGlobal_80289680___vt__16TObjNpcSoutokufu_size[sizeof(RecoveredGlobal_80289680___vt__16TObjNpcSoutokufu) == 0x178 ? 1 : -1];
 u8 *TObjNpcSoutokufu__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_male_npc_base((void *) (arg0));
+    construct_male_npc_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80289680___vt__16TObjNpcSoutokufu *)&__vt__16TObjNpcSoutokufu).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcSoutokufu__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);

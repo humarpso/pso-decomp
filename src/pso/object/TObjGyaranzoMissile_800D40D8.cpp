@@ -74,19 +74,19 @@ extern s32 gyaranzo_missile_param_table;
 f32 get_gyaranzo_missile_float_parameter(s32 arg0);
 s32 get_gyaranzo_missile_int_parameter(s32 i);
 s32 obj_is_hit_receivable();
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 u8 *get_battle_param__10TObjPlayerFi(s32);
-s32 spawn_particle_effect(void *, int);
-s32 remap_area_sound_id(int, int);
+void *spawn_particle_effect(void *pos, s32 id);
+s32 remap_area_sound_id(s32 arg0, s32 arg1);
 u8 *find_entity_by_id(u16);
-s32 check_enemy_body_collisions(void *);
+void check_enemy_body_collisions(void *arg0);
 s32 play_sound_effect(void *, void *, int, int);
 extern Hit_800D4200 lbl_8043C440[];
 extern const f32 lbl_805DA2A8;
 void TObjGyaranzoMissile__sub_800D4200(u8 *arg0);
 s32 rotate_matrix_y(s32, s32);
 s32 pop_matrix();
-void push_matrix_from(void *);
+s32 push_matrix_from(void *src);
 void rotate_vector_by_matrix(int, void *, void *);
 u32 csnVector(void *, void *, int);
 extern u8 identity_matrix[];
@@ -94,7 +94,7 @@ extern const f32 lbl_805DA2AC;
 extern const f32 lbl_805DA2B0;
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_x(s32, s32);
-s32 draw_chunk_object(s32);
+void draw_chunk_object(void *child);
 s32 push_matrix();
 
 void TObjEneGyaranzo::vfunc_61() {  }
@@ -176,7 +176,7 @@ void TUnk_8049442C::render() {
     rotate_matrix_y(0, this->m_bc);
     rotate_matrix_x(0, *(s32 *)&this->unk_C0);
     model_render_flags &= 0xFFFFFBFF;
-    draw_chunk_object(this->m_c4);
+    draw_chunk_object((void *)this->m_c4);
     pop_matrix();
 }
 void TUnk_8049442C::run_task() {

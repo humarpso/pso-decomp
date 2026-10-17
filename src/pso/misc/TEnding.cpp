@@ -6,17 +6,17 @@
 
 extern "C" {
 void TEnding__sub_8008C9F8();
-void TObjPlayer__sub_8001A8F0(void *, TEnding *);
+u8 *TObjPlayer__sub_8001A8F0(u8 *arg0, s32 arg1);
 void TAdRicoRingCtrl__sub_8001B4A0(TAdRicoRingCtrl *, f32);
 s32 get_end_text_font_loaded_flag();
 u32 __cvt_fp2unsigned(f32);
-void destroy_keyboard_objects();
+void destroy_keyboard_objects(void *_w0);
 void cleanup_game_objects__9TMainTaskFv();
 void set_current_floor_area(s32);
-s32 TKeyBoardControl__sub_8000F828();
-void __ct__10TEndingPicFv(void *, TObject *);
-void __ct__9TEndingABFv(void *, TObject *);
-void __ct__8TEndingCFv(void *, TObject *);
+int TKeyBoardControl__sub_8000F828(void);
+u8 *__ct__10TEndingPicFv(u8 *arg0, u8 *arg1);
+u8 *__ct__9TEndingABFv(u8 *arg0, u8 *arg1);
+u8 *__ct__8TEndingCFv(u8 *arg0, u8 *arg1);
 TAdRicoRingCtrl *TAdRicoRingCtrl__ct(void *, TObject *);
 void __ct__10TAdEndTextFv(void *, TObject *);
 extern u32 ending_frame_counter;
@@ -37,7 +37,7 @@ void TEnding::run_task() {
         s32 rate = timing_rate;
         if (ticks > (u32)(rate * 140)) {
             void *child = TObject::operator new(0x1C);
-            if (child != NULL) TObjPlayer__sub_8001A8F0(child, this);
+            if (child != NULL) TObjPlayer__sub_8001A8F0((u8 *)child, (s32)this);
             phase = 1;
             return;
         }
@@ -78,11 +78,11 @@ TEnding::TEnding() : TObject(tl_window) {
     case 1: timing_rate = 25; break;
     }
     void *picture = TObject::operator new(0xF0);
-    if (picture != NULL) __ct__10TEndingPicFv(picture, tl_01);
+    if (picture != NULL) __ct__10TEndingPicFv((u8 *)picture, (u8 *)tl_01);
     void *first = TObject::operator new(0xF0);
-    if (first != NULL) __ct__9TEndingABFv(first, this);
+    if (first != NULL) __ct__9TEndingABFv((u8 *)first, (u8 *)this);
     void *second = TObject::operator new(0x9C);
-    if (second != NULL) __ct__8TEndingCFv(second, this);
+    if (second != NULL) __ct__8TEndingCFv((u8 *)second, (u8 *)this);
     ending_frame_counter = 0;
     phase = 0;
     elapsed_ticks = 0;

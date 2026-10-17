@@ -5,7 +5,7 @@ struct Obj_8012AF00 { u32 f0; Elem_8012AF00 arr[10]; };
 
 extern "C" {
 void *__construct_array(void *, void *, void *, u32, u32);
-void TObjPlayer__sub_8012AF50(void *p);
+s32 TObjPlayer__sub_8012AF50(s32 arg0);
 void clear_lockon_list__10TObjPlayerFPvPvff(void *p);
 Obj_8012AF00 *TObjPlayer__sub_8012AF00(Obj_8012AF00 *self);
 Obj_8012AF00 *TObjPlayer__sub_8012AF00(Obj_8012AF00 *self) {

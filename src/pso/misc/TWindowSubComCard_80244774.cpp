@@ -106,8 +106,8 @@ struct QFrameCtx_80245808
 };
 
 extern "C" {
-s32 reset_line_width();
-s32 set_line_width(s32);
+void reset_line_width(void);
+void set_line_width(int a0);
 void TWindowSubComCard__sub_80245A10(u8 *arg0, s32 arg1, void *r, f32 len);
 extern u16 window_ui_theme_index;
 extern s16 lbl_805D63F6;
@@ -139,7 +139,7 @@ struct Quad_802455CC { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
 struct Rect_802455CC { f32 x, y, w, h; u8 pad10[0x20 - 0x10]; f32 px, py, sx, sy; u8 pad30[0x38 - 0x30]; f32 depth; };
 
 void queue_destruction__7TObjectFv(void *);
-s32 allow_rendering__7TObjectFv(void *);
+void allow_rendering__7TObjectFv(void *arg0);
 void disallow_rendering__7TObjectFv(void *);
 int copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void*);
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -157,9 +157,9 @@ bool is_balloon_overlapping(u8 *arg0, u8 *arg1, u8 *arg2);
 Win_80244DFC * find_overlapping_balloon__15TWindowFukidasiFPvPvPvPv(Win_80244DFC *self, void *a, void *b, Win_80244DFC *p);
 void draw_message_frame_row(u8 *a, Quad_802455CC *q, Rect_802455CC *r);
 s32 sub_80246948__13TUnk_804CE018Fv();
-s32 TWindowFukidasi__sub_8024695C(void *);
+int TWindowFukidasi__sub_8024695C(void *p);
 s32 TWindowCtrlMain__sub_8024CE24();
-s32 apply_window_closing_stretch(int, int);
+void apply_window_closing_stretch(u8 *arg0, int arg1);
 s32 animate_scale__19TWindowKeyBoardSoftFv();
 s32 open_singleton__19TWindowKeyBoardSoftFiiii(void *, void *, void *, int, f32);
 s32 init_window_layout_entries(void *, int, int);
@@ -341,7 +341,7 @@ s32 TUnk_804CE018::setup_window_draw_context(s32 arg1) {
         var_r4 = (s32) ((f32) var_r4 - lbl_805DCAD0);
     }
     ((TWindowKeyBoardSoft *)temp_r31)->set_open_tick((int) (var_r4));
-    apply_window_closing_stretch((int) (temp_r31), (int) (*(s16 *)((s8 *)((u8 *)this) + 0x22)));
+    apply_window_closing_stretch((u8 *)(temp_r31), (*(s16 *)((s8 *)((u8 *)this) + 0x22)));
     return temp_r31;
 }
 

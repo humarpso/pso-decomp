@@ -31,7 +31,7 @@ extern RecoveredGlobal_802DEDA8_lbl_804727D0 multi_play_chr_select_slot_position
 extern s8 controller_physical_port_bank[];
 void TAdMultiPlyChrSelectGC__sub_802DEDA8(u8 *arg0);
 s32 TAdMultiPlyChrSelectGC__sub_802C6848(s32);
-s32 *get_localized_text_entry(s32, s32);
+s32 get_localized_text_entry(s32 arg0, s32 arg1);
 
 extern s32 TAdMultiPlyChrSelectGC__data_805DE898;
 

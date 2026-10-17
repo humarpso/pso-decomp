@@ -18,7 +18,7 @@ s32 TObjPlayer__sub_801BFFA0(void* p);
 int clear_id__10TObjPlayerFv(void*);
 int get_valid_child__6TLobbyFv(void*);
 s32 init_forward__10TObjPlayerFv();
-s32 init_gc_tag(void *);
+s32 init_gc_tag(s32 arg0);
 
 void TObjPlayer__sub_801BFED4(void* p) { *(s32*)((char*)p + 0x4) = -1; }
 s32 TObjPlayer::setup_state() {
@@ -34,7 +34,7 @@ extern s32 lbl_804C3E50[];
 u8 *TObjPlayer::init_subobject() {
     u8 *arg0 = (u8 *)this;
     *(s32 **)((s8 *)arg0 + 8) = lbl_804C3E50;
-    init_gc_tag(arg0 + 4);
+    init_gc_tag((s32)(arg0 + 4));
     *(s32 *)((s8 *)arg0 + 0) = 0;
     return arg0;
 }

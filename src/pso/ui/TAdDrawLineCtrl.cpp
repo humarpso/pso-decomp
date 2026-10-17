@@ -14,7 +14,7 @@ extern u32 lbl_805D49D8;
 u8 *create_draw_line_ctrl__13TAdMcSelectGCFiif(s32 arg0, s32 arg1, f32 farg0);
 void __ct__7TObjectFP7TObject(void *);
 void fn_80019B08(void *, int);
-s32 restore_saved_depth_alpha_state();
+void restore_saved_depth_alpha_state(void);
 s32 get_main_phase();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 

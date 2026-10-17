@@ -6,7 +6,7 @@ extern "C" {
 
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 void TObjEneMe1Canadin_EffLineFade::run_task() {
     s32 var_r31;

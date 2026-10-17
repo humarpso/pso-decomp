@@ -4,7 +4,7 @@
 struct Tbl_8033A844 { s32 v[5]; };
 
 extern "C" {
-s32 TLobby__sub_8023E4B4(void *, void *);
+s32 TLobby__sub_8023E4B4(s32 arg0, s32 arg1);
 extern const s32 lobby_menu_cursor_resource_name_table[];
 extern const s32 menu_cursor_resource_name_table_b[];
 extern const s32 current_language;
@@ -23,7 +23,7 @@ void TLobby::update_menu_cursor_selection() {
     Tbl_8033A844 b = *(const Tbl_8033A844 *)menu_cursor_resource_name_table_b;
     s32 r4 = b.v[current_language];
     lbl_805D6D78 = r4;
-    TLobby__sub_8023E4B4((void *)a.v[current_language], (void *)r4);
+    TLobby__sub_8023E4B4(a.v[current_language], r4);
 }
 
 }

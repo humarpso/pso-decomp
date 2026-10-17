@@ -22,7 +22,7 @@ struct VObj18_80166970 : VBase18_80166970 {
 
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-s32 draw_ginja_model(int);
+void draw_ginja_model(s32 model);
 s32 rotate_matrix_z(int, int);
 s32 rotate_matrix_x(int, int);
 s32 draw_ginja_model_with_motion(void *, int, f32);
@@ -30,7 +30,7 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-void init_map_object_base(void *);
+void *init_map_object_base(void *a0);
 
 void TObjPlayer::on_zone_exit() {
     u8 *arg0 = (u8 *)this;
@@ -51,7 +51,7 @@ void TObjPlayer::on_zone_exit() {
             rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)temp_r31 + 0x14)));
             rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)temp_r31 + 0x18)));
             scale_current_matrix((void *) (temp_r31 + 0x20));
-            ::draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
+            ::draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
             pop_matrix();
         }
         pop_matrix();

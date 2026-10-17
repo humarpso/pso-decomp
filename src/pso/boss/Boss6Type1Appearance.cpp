@@ -32,7 +32,7 @@ struct Fish_8033CB4C
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 u32 create_particle_emitter(int, int);
 s32 play_sound_effect(int, int, int, int);
 extern const f32 lbl_805DFA48;
@@ -41,7 +41,7 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
-int activate_camera_mode(int);
+s32 activate_camera_mode(s32 arg0);
 int set_scripted_camera_pose(void *, void *, void *);
 s32 TObjFish__sub_800E3124(void *, void *);
 int __ct__7TObjectFP7TObject(void *, void *);
@@ -65,7 +65,7 @@ void *TBoss6Demo10_TYPE1_APPEAR__create(void *arg0);
 s32 refresh_players_equipment__14TBoss6PlotFalzFPv();
 s32 restore_player_cameras();
 s32 post_translate_matrix(s32 *);
-s32 draw_model_motion(s32, s32, f32);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 s32 push_matrix();
 s32 pop_matrix();
 s32 __dl__7TObjectFPv(void *);
@@ -78,10 +78,10 @@ void TBoss6Demo10_TYPE1_APPEAR::sub_8033C7C8() {
     TObjPlayer::set_global_flag();
     post_translate_matrix(lbl_80477DEC);
     TObjFish::set_global_param(this->m_20);
-    draw_model_motion(*(s32 *)((s8 *)this + 0x1C), *(s32 *)((s8 *)this + 0x24), *(f32 *)((s8 *)this + 0x34));
+    draw_model_motion((void *)(*(s32 *)((s8 *)this + 0x1C)), (void *)(*(s32 *)((s8 *)this + 0x24)), *(f32 *)((s8 *)this + 0x34));
     TObjFish::set_global_param(*(s32 *)((s8 *)this + 0x2C));
     ((TObjFish *)(this->m_60))->set_draw_callback_list();
-    draw_model_motion(this->m_28, this->m_30, *(f32 *)((s8 *)this + 0x34));
+    draw_model_motion((void *)this->m_28, (void *)this->m_30, *(f32 *)((s8 *)this + 0x34));
     clear_render_callback__8TObjFishFv(this->m_60);
     TObjPlayer::clear_global_state();
     pop_matrix();
@@ -162,7 +162,7 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
     }
     ((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38 = (s32) (((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38+ 1);
     if (((s32) ((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38 >= 0x1F4) || (((TObjFish *)(*(s32 *)((s8 *)arg0 + 0x3C)))->get_phase() != 1)) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
     }
 }
 #pragma pop

@@ -6,7 +6,7 @@
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-s32 create_particle_emitter(s32, s32);
+void *create_particle_emitter(void *pos, s32 id);
 }
 
 void TItemMagGrowEff::run_task() {
@@ -27,7 +27,7 @@ void TItemMagGrowEff::run_task() {
         if (((TItemMagSub *)active_mag)->get_world_position((void*)position) != 0) {
             if (progress_ticks == 0xA) {
                 TBoss4Type2::request_destroy((u32)effect);
-                effect = (u8 *) (create_particle_emitter((s32) position, 0x9E));
+                effect = (u8 *) (create_particle_emitter(position, 0x9E));
             }
             ((TNowLoading *)effect)->copy_pos(position);
             ticks = progress_ticks;
@@ -54,7 +54,7 @@ TItemMagGrowEff::TItemMagGrowEff(TObject *parent, void *mag_object) : TObject(pa
     if (mag_object != NULL) {
         mag = (u8*)mag_object;
         progress_ticks = 0;
-        effect = (u8*)create_particle_emitter((s32)(mag + 0xDC), 0x9D);
+        effect = (u8*)create_particle_emitter((mag + 0xDC), 0x9D);
         ((TItemMagSub *)mag)->set_growth_flag();
     } else {
         mag = NULL;

@@ -10,7 +10,7 @@ int get_field_38_ptr__16TEneParticleCtrlFv(void*);
 int TWindowSubStatusDisp__sub_80338B88(void* p);
 int reset_entry__20TWindowSubStatusDispFPv(void*, int);
 s32 deleting_destructor__20TWindowSubStatusDispFs(void *, s32);
-s32 mem_free(void *);
+void mem_free(void *p);
 extern u8 lbl_804EF440[];
 void TWindowSubStatusDisp__sub_80338A9C(void);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
@@ -56,8 +56,8 @@ typedef struct
   f32 x48;
 } Win_80338890;
 s32 get_shared_text_buffer();
-void TWindowSubStatusDisp__sub_80228F5C(int);
-void text_builder_append(s32 *);
+void TWindowSubStatusDisp__sub_80228F5C(s32 arg0);
+void text_builder_append(u8 *str);
 void text_builder_reset();
 void draw_window_text(V2_80338890 *, s32, s32, s32, f32);
 void set_text_draw_params(Win_80338890 *, s32, s32, f32, f32);
@@ -151,7 +151,7 @@ void draw_item_row__20TWindowSubStatusDispFPvPv(Item_80338890 *arg0, Win_8033889
   pos.x += lbl_805DF9E0;
   text_builder_reset();
   TWindowSubStatusDisp__sub_80228F5C(arg0->c20);
-  text_builder_append(lbl_805D6D68);
+  text_builder_append((u8 *)lbl_805D6D68);
   TWindowSubStatusDisp__sub_80228F5C(arg0->c21);
   draw_window_text(&pos, get_shared_text_buffer(), -1, 0, lbl_805DF9D0);
 }

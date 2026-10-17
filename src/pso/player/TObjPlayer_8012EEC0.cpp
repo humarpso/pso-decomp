@@ -5,7 +5,7 @@
 extern "C" {
 
 s32 rotate_matrix_z(s32, s32);
-int advance_angle_wrap(void*, int);
+void advance_angle_wrap(s32 *arg0, s32 arg1);
 void TItemWeapon__ct(void *);
 
 void TObjPlayer::update_boss2tunnel_move() {
@@ -26,7 +26,7 @@ void TObjPlayer::update_boss2tunnel_move() {
         return;
     }
 }
-void TUnk_804A6108::update_weapon() { advance_angle_wrap((char*)this + 0x1f8, 3276); }
+void TUnk_804A6108::update_weapon() { advance_angle_wrap((s32 *)((char*)this + 0x1f8), 3276); }
 
 extern s32 lbl_804A6108[];
 

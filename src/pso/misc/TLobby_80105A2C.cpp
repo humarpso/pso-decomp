@@ -6,7 +6,7 @@
 extern "C" {
     extern const float lbl_805DAAB0;
 void build_6x05_write_switch_flag(void* a0);
-int dispatch_packet__6TLobbyFPv(void*);
+void dispatch_packet__6TLobbyFPv(void *src);
 void bswap_6x60_drop_request_fields(void* p);
 void * build_6x06_send_guild_card(void *arg0);
 

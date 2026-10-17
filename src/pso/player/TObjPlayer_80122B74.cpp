@@ -5,7 +5,7 @@
 extern "C" {
 
 void *TObjPlayer__sub_80122BE4(void *arg0);
-s32 spawn_particle_effect(s32 *, s32);
+void *spawn_particle_effect(void *pos, s32 id);
 void TItemWeapon__ct(void *);
 
 void TObjPlayer::cast_foie() {

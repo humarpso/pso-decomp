@@ -6,7 +6,7 @@ void OSFreeToHeap(void *heap, void *ptr);
 void free_to_sys_heap(void *ptr);
 void *OSAllocFromHeap(void *heap, u32 size);
 void *sys_alloc(u32 size);
-void fill_memory(void *, s32, s32);
+void fill_memory(void *p, u8 c, u32 n);
 void *sys_calloc(s32 arg0, s32 arg1);
 void move_data__6TLobbyFPCvUl(void *, void *, void *);
 void *fn_803DE960(void *arg0, void *arg1);

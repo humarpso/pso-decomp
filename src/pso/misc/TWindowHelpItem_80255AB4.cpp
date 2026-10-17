@@ -31,7 +31,7 @@ s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 s32 draw_list_page_indicator(int, int);
 void __dl__7TObjectFPv(void *);
-void delete_if_allocated(void *, int);
+s32 delete_if_allocated(s32 arg0, s16 arg1);
 void destroy_window_base__9TWindowDDFs(void *, int);
 s32 toggle_help_window_on_button(void *, s16);
 s32 decay_page_arrow_offset(s32);
@@ -92,7 +92,7 @@ void TWindowHelpItem::update_display() {
 void *TWindowHelpItem::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 * *)&this->m_vtable18 = TWindowHelpItem__object_vtable;
-        delete_if_allocated(*(void * *)&this->m_64, 1);
+        delete_if_allocated((s32)(*(void * *)&this->m_64), 1);
         destroy_window_base__9TWindowDDFs(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

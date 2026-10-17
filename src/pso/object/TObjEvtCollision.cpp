@@ -25,12 +25,12 @@ struct Pkt_80190CFC { u8 hdr[2]; u16 id; s32 player; s32 x10; s32 x14; };
 struct Obj_80190CFC { u8 pad0[0x1C]; u16 id; u8 pad1E[0x84 - 0x1E]; s32 x84; u8 pad88[0xAC - 0x88]; f32 radius; u8 padB0[4]; s32 timer; };
 
 extern "C" {
-s32 disallow_rendering__7TObjectFv(void *);
+void disallow_rendering__7TObjectFv(void *arg0);
 extern s32 __vt__16TObjEvtCollision[];
 extern s32 TObjEvtCollision__class_name;
 u8 *TObjEvtCollision__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_current_floor();
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 extern s32 local_client_id;
 void *TObjEvtCollision__create(void *arg0);
 void *__dt__16TObjEvtCollisionFv(void *arg0, s16 arg1);
@@ -111,7 +111,7 @@ u8 *TObjEvtCollision__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xAC) = (f32) ((TObjEvtCollision *)arg0)->scale;
     *(s32 *)&((TObjEvtCollision *)arg0)->m_b0 = (s32) ((TObjEvtCollision *)arg0)->m_84;
     *(s32 *)&((TObjEvtCollision *)arg0)->m_b4 = 3;
-    disallow_rendering__7TObjectFv((void *) (arg0));
+    disallow_rendering__7TObjectFv((arg0));
     return arg0;
 }
 

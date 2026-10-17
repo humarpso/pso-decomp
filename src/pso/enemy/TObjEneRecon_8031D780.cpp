@@ -37,7 +37,7 @@ extern "C" {
 
 u16 TObjEneRecon__sub_8031D878(void *arg0);
 void TObjEneRecon__vt102(void *arg0, f32 farg0);
-s32 play_persistent_sound(s32, s32, s32, s32, s32);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 s32 spawn_part__14TObjEneEpsilonFi(void *, f32);
 
 void TObjEneRecon__vt102(void *arg0, f32 farg0) {
@@ -50,12 +50,12 @@ void TObjEneRecon__vt102(void *arg0, f32 farg0) {
 
 void TObjEneRecon::spawn_trap_a() {
     s32 arg0 = (s32)this;
-    play_persistent_sound((s32)(TObjEneRecobox::remap_area_sound_id(0x4003AD07)), (s32)(arg0), (s32)(arg0 + 0x38), (s32)(0), (s32)(0));
+    play_persistent_sound((TObjEneRecobox::remap_area_sound_id(0x4003AD07)), (arg0), (arg0 + 0x38), (0), (0));
 }
 
 void TObjEneRecon::spawn_trap_b() {
     s32 arg0 = (s32)this;
-    play_persistent_sound((s32)(TObjEneRecobox::remap_area_sound_id(0x4003B206)), (s32)(arg0), (s32)(arg0 + 0x38), (s32)(0), (s32)(0));
+    play_persistent_sound((TObjEneRecobox::remap_area_sound_id(0x4003B206)), (arg0), (arg0 + 0x38), (0), (0));
 }
 
 u16 TObjEneRecon__sub_8031D878(void *arg0) {

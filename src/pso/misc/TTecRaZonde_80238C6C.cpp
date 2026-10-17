@@ -83,7 +83,7 @@ struct Self_80239070 {
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 extern RecoveredGlobal_80230D9C_lbl_804CC510 tech_high_level_linear_power_table;
@@ -200,11 +200,11 @@ struct VObj_18_9c98dd : VBase_18_9c98dd {
 };
 
 extern "C" {
-u32 find_entity_by_id(int);
+void *find_entity_by_id(u16 id);
 void update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 create_particle_emitter(void *, int);
-s32 mem_alloc(int);
+void *mem_alloc(u32 size);
 
 typedef struct RecoveredFields_80238D10_arg0 RecoveredFields_80238D10_arg0;
 typedef struct RecoveredGlobal_80238D10_lbl_804CC510 RecoveredGlobal_80238D10_lbl_804CC510;
@@ -316,12 +316,12 @@ void TTecRaZonde::render() {  }
 void run_task__11TTecRaZondeFv(Obj_80238F84 *self) {
     s32 i;
     if (self->proxy == NULL) {
-        ((void (*)(void *))queue_destruction__7TObjectFv)(self);
+        queue_destruction__7TObjectFv(self);
         return;
     }
-    self->source = ((void * (*)(u16))find_entity_by_id)(self->sourceId);
+    self->source = find_entity_by_id(self->sourceId);
     if (self->source == NULL) {
-        ((void (*)(void *))queue_destruction__7TObjectFv)(self);
+        queue_destruction__7TObjectFv(self);
         return;
     }
     for (i = 0; i < ((RProfile_80238F84 *)TTecRaZonde__band_profile_table)[self->band].count; i++) {
@@ -334,7 +334,7 @@ void run_task__11TTecRaZondeFv(Obj_80238F84 *self) {
         }
     }
     ((TUnk_804CC148 *)self)->apply_technique_to_area_targets();
-    ((void (*)(void *))queue_destruction__7TObjectFv)(self);
+    queue_destruction__7TObjectFv(self);
 }
 
 #pragma push

@@ -43,17 +43,17 @@ s32 TKeyBoardControl__sub_801A58B0();
 s32 TKeyBoardControl__sub_801A58D8();
 s32 get_function_key_menu__16TKeyBoardControlFPv(void *arg0);
 void queue_destruction__7TObjectFv(void *);
-s32 fn_8002AE08(int);
+s32 fn_8002AE08(void *p);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 is_on_current_screen__11TCameraCtrlFv(void *, int);
 u16 get_current_target_id__10TObjPlayerFv();
 void *__nw__7TObjectFUl(int);
 s32 is_player_input_active(s32);
-s32 TWindowCtrl__sub_8024C7D4(void *);
+int TWindowCtrl__sub_8024C7D4(void *p);
 void *TWindowShortListCtrl__ct(void *, void *, int);
 extern Pad_8024DCE8 controller_input_state[];
 u32 is_action_active__10TObjPlayerFv(void *);
-s32 TWindowMainMenu__sub_8024E3F4(void *);
+int TWindowMainMenu__sub_8024E3F4(void *p);
 void TWindowCtrl__sub_8024DAAC(void *arg0);
 s32 TWindowMainMenu__sub_8024E3E0(void *);
 s32 get_window_layout_position(s32);
@@ -134,7 +134,7 @@ void TWindowCtrl::update_short_list_request() {
                     *(void **)((s8 *)this + 0x3C) = NULL;
                 }
             } else if (*(void **)((s8 *)this + 0x3C) == NULL && is_enabled() == 0) {
-                if (is_on_current_screen__11TCameraCtrlFv(btn = controller_input_state[idx].btn, fn_8002AE08(*(s32 *)((s8 *)this + 0x24))) != 0 &&
+                if (is_on_current_screen__11TCameraCtrlFv(btn = controller_input_state[idx].btn, fn_8002AE08((void *)(*(s32 *)((s8 *)this + 0x24)))) != 0 &&
                     TWindowShortListCtrl__check_controller_button(btn, 0x200) != 0) {
                     o = __nw__7TObjectFUl(0x3C);
                     if (o != NULL) {

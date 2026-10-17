@@ -47,11 +47,11 @@ extern "C" {
 void TAdVIConfigGC__vt5(void* p);
 void *VIGetDTVStatus(void *);
 void TAdVIConfigGC__vt4(void *arg0);
-s32 allow_rendering__7TObjectFv(u32);
+void allow_rendering__7TObjectFv(void *arg0);
 void disallow_rendering__7TObjectFv(void *);
-s32 update_players_in_range(void *);
+void update_players_in_range(u8 *arg0);
 u8 *get_player_by_client_id(s32);
-s32 TWindow__close(u32);
+void TWindow__close(u8 *arg0);
 s32 get_window_layout_position(s32);
 char *strncpy(char *, const char *, u32);
 extern u8 player_names_window_pos[];
@@ -61,9 +61,9 @@ void TAdVIConfigGC__vt8(void);
 void *__dt__13TAdVIConfigGCFv(void *arg0, s16 arg1);
 void *destroy__13TAdVIConfigGCFPvs(void *arg0, s16 arg1);
 int OSSetProgressiveMode(void*);
-int get_localized_text_entry(void*, void*);
-void TAdYesNoBaseGC__ct(void *);
-void __dt__14TAdYesNoBaseGCFv(void *, int);
+s32 get_localized_text_entry(s32 arg0, s32 arg1);
+void *TAdYesNoBaseGC__ct(void *arg0);
+void *__dt__14TAdYesNoBaseGCFv(void *arg0, s16 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *);
 void __dl__7TObjectFPv(void *);
 int VIWaitForRetrace(void);
@@ -75,7 +75,7 @@ void TAdVIConfigGC::open_player_names_window() {
     s32 i;
     u8 *p;
     if (((Cfg_80307D00 *)this)->win != 0) {
-        TWindow__close(((Cfg_80307D00 *)this)->win);
+        TWindow__close((u8 *)(((Cfg_80307D00 *)this)->win));
         ((Cfg_80307D00 *)this)->win = 0;
     }
     ((Cfg_80307D00 *)this)->win = TAdVIConfigGC::draw_with_layer((s32)(get_window_layout_position(0x5A)), (s32)player_names_window_pos, (s32)local_client_id);
@@ -106,12 +106,12 @@ void TAdVIConfigGC::update_visibility() {
         *(s32 *)&this->m_flags = temp_r3;
         open_player_names_window();
     }
-    update_players_in_range((void *) (((u8 *)this)));
+    update_players_in_range((((u8 *)this)));
     temp_r3_2 = (u8 *)(*(u8 * *)&this->m_24);
     if (temp_r3_2 != NULL) {
         if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x18) != 0) {
             ((TQuestVmDownLoadServer *)temp_r3_2)->clear_flag4_bit4();
-            allow_rendering__7TObjectFv((u32)(*(u8 * *)&this->m_24));
+            allow_rendering__7TObjectFv((*(u8 * *)&this->m_24));
             return;
         }
         ((TObject *)temp_r3_2)->set_flag_4();
@@ -123,8 +123,8 @@ void *destroy__13TAdVIConfigGCFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U) {
             ((TQuestVmDownLoadServer *)(*(void **)((s8 *)arg0 + 0x24)))->clear_flag4_bit4();
-            allow_rendering__7TObjectFv(*(u32 *)((s8 *)arg0 + 0x24));
-            TWindow__close(*(u32 *)((s8 *)arg0 + 0x24));
+            allow_rendering__7TObjectFv((void *)(*(u32 *)((s8 *)arg0 + 0x24)));
+            TWindow__close((u8 *)(*(u32 *)((s8 *)arg0 + 0x24)));
             *(u32 *)((s8 *)arg0 + 0x24) = 0U;
         }
         if (arg1 > 0) {
@@ -169,7 +169,7 @@ void TAdVIConfigGC::set_field48_clear_global() {
 void TAdVIConfigGC::enable_progressive_mode(void * _w0) { OSSetProgressiveMode((void*)1); active_gx_render_mode = (int)GXNtsc480Prog; VIConfigure(GXNtsc480Prog); VIFlush(); VIWaitForRetrace(); VIWaitForRetrace(); }
 
 int TAdVIConfigGC::disable_progressive_mode(void* _w0) { return OSSetProgressiveMode((void*)(0)); }
-void TAdVIConfigGC__vt8(void) { get_localized_text_entry((void*)29, (void*)0); }
+void TAdVIConfigGC__vt8(void) { get_localized_text_entry((s32)((void*)29), (s32)((void*)0)); }
 
 void TAdVIConfigGC__vt5(void* p) { TAdVIConfigGC::disable_progressive_mode((void*)((void*)(p))); ((TAdVIConfigGC *)p)->set_field48_clear_global(); }
 

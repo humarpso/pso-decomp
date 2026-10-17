@@ -28,7 +28,7 @@ s32 TObjPlayer__sub_801C1F50(void *);
 
 u32 get_item_field_6__10TObjPlayerFPv(void *);
 s32 weapon_has_extra_attack(u32);
-s32 check_flag_100__10TObjPlayerFPv(void *);
+int check_flag_100__10TObjPlayerFPv(void *p);
 s32 validate_and_clear_slot__10TObjPlayerFv(void *, s32);
 void init__9TItemDataFv(void *);
 void *set_mode_and_refresh_object__10TObjPlayerFPvi(void *, TItemData_801D8044 *);
@@ -314,7 +314,7 @@ u8 *TObjPlayer__sub_801D84B0(s32 *arg0) {
     return (u8 *)(arg0) + 0x14;
 }
 
-s32 advance_item_id_counter(u16);
+u32 advance_item_id_counter(s32 client);
 s32 equip_saved_item_if_slot_empty__10TObjPlayerFPvPv(s32, void *);
 
 int TObjPlayer::bswap_disp_config_field() { return bswap_16__FPUs((char*)this + 0x2); }

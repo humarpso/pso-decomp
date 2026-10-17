@@ -33,7 +33,7 @@ struct Ent_8027CFC8 { u8 pad[0x20]; s32 f20; };
 
 extern "C" {
 void TWindowCtrl__sub_8027D1F8(void);
-void TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 extern s32 __vt__20TWindowSubQuestBoard[];
@@ -44,7 +44,7 @@ u8 *TWindowSubQuestBoard__sub_8027CE74(u8 *arg0, u8 *arg1, s32 arg2);
 s32 get_selected_menu_value(s32);
 s32 create_instance__17TQuestThreadBoardFi(s32);
 s8 get_page_index__20TWindowSubQuestBoardFv(s32);
-s32 TWindowSubQuestBoard__sub_8027D1DC(s32);
+int TWindowSubQuestBoard__sub_8027D1DC(void *p);
 s32 fn_8027D1E8(s32);
 extern Ent_8027CFC8 quest_board_handlers[];
 void TWindowSubQuestBoard__sub_8027CF50(s32 arg0, s32 arg1);
@@ -58,7 +58,7 @@ void TUnk_804D1818::run_task() {
     case 0:
     case 1:
         if (this->m_2c != 0U) {
-            TWindow__close(*(void * *)&this->m_2c);
+            TWindow__close((u8 *)(*(void * *)&this->m_2c));
             this->m_2c = 0U;
         }
         ((TWindowSubComCard *)(*(s32 *)&this->unk_28))->clear_flag_and_release();
@@ -90,8 +90,8 @@ void TUnk_804D1818::run_task() {
 void *TUnk_804D1818::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = __vt__19TWindowSubQuestBoard;
-        if (*(void * *)&this->m_2c != NULL) { TWindow__close(*(void * *)&this->m_2c); *(s32 *)&this->m_2c = 0; }
-        if (*(void * *)&(*(u32 *)&this->unk_28) != NULL) { TWindow__close(*(void * *)&(*(u32 *)&this->unk_28)); *(s32 *)&(*(u32 *)&this->unk_28) = 0; }
+        if (*(void * *)&this->m_2c != NULL) { TWindow__close((u8 *)(*(void * *)&this->m_2c)); *(s32 *)&this->m_2c = 0; }
+        if (*(void * *)&(*(u32 *)&this->unk_28) != NULL) { TWindow__close((u8 *)(*(void * *)&(*(u32 *)&this->unk_28))); *(s32 *)&(*(u32 *)&this->unk_28) = 0; }
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
@@ -141,7 +141,7 @@ void TWindowSubQuestBoard::run_task() {
         fn_8027D1E8(*(s32 *)&this->m_28);
         this->m_1c = 2;
     case 2:
-        if (TWindowSubQuestBoard__sub_8027D1DC(*(s32 *)&this->m_28) != 0) {
+        if (TWindowSubQuestBoard__sub_8027D1DC((void *)(*(s32 *)&this->m_28)) != 0) {
             (*(VO_8027CFC8 * *)&this->m_24)->m7();
             this->m_1c = 5;
             break;
@@ -169,7 +169,7 @@ void *__dt__20TWindowSubQuestBoardFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TWindowSubQuestBoard;
         TWindowCtrl__sub_8027D1F8();
-        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x28)); *(s32 *)((s8 *)arg0 + 0x28) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x28))); *(s32 *)((s8 *)arg0 + 0x28) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

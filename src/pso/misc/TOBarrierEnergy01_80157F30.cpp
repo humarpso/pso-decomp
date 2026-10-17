@@ -20,7 +20,7 @@ struct BarrierObj_80157F30 : BarrierBase_80157F30 {
 
 void *TOBarrierEnergy01__ct(void *, void *, void *);
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object(s32);
+void draw_ginja_object(void *child);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
@@ -41,7 +41,7 @@ void TOBarrierEnergy01::render() {
         draw_ginja_model_with_motion(*(s32 *)&this->model, *(s32 *)&this->m_bc, this->m_b0);
         TParticleCtrl::end_effect_render();
         TObjFish::set_global_param(*(s32 *)((s8 *)TOBarrierEnergy01__texture_lists + 8));
-        draw_ginja_object(barrier_energy_model);
+        draw_ginja_object((void *)barrier_energy_model);
         pop_matrix();
     }
 }

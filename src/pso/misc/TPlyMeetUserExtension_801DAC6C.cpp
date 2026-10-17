@@ -49,7 +49,7 @@ Ext_801DAC6C *__as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(Ext_801DAC
 void reset__18PSOV3EncryptionTCPFUl(void *, u32);
 void bswap__21TRecvPsoRegistConnectFv(void *);
 void fn_801DF280(void *);
-void fn_801DF2BC(void *);
+s32 fn_801DF2BC(s32 arg0);
 void __as__8TPlySmthFRC8TPlySmth(void *, void *);
 s32 strcmp(const char *, const char *);
 s32 strncpy(void *, s32, s32);
@@ -101,7 +101,7 @@ void handle_cmd_9B__9TProtocolFR6packet(u8 *arg0, Regist_801DAD38 *arg1) {
         reset__18PSOV3EncryptionTCPFUl(arg0 + 0x10BC, r.key0);
         reset__18PSOV3EncryptionTCPFUl(arg0 + 0x884, r.key1);
         *(s32 *)(arg0 + 0x18F4) = 1;
-        fn_801DF2BC(&pkt);
+        fn_801DF2BC((s32)&pkt);
         memset((void *)(&pkt), (s32)(0), (s32)(0xE0));
         pkt.cmd = 0xDB;
         pkt.size = 0xE0;

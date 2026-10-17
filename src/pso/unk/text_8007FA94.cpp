@@ -13,9 +13,9 @@ extern u8 lbl_80438D48[];
 extern u8 lbl_80438D50[];
 void update_duel_end_effect(Obj_8007FA94 *self);
 void *__ct__17TDuelEffectNumberFP7TObjectPvPv(void *p, s32 v, void *s, s32 n);
-s32 spawn_particle_effect_with_flags(void *, s32, s32);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 s32 play_sound_effect(s32, void *, s32, s32);
-s32 play_cue_stream_file(void *);
+void play_cue_stream_file(s32 name);
 extern u8 lbl_80438D40[];
 extern u8 lbl_80438D58[];
 f32 duel_start_countdown_effect_pos[3] = { 320.0f, 221.0f, 0.5f };
@@ -80,7 +80,7 @@ void TDuelEffectCtrl::update_duel_start_countdown() {
         break;
     case 0xA0:
         spawn_particle_effect_with_flags(duel_start_countdown_effect_pos, 0x1F1, 0x48C0);
-        play_cue_stream_file(lbl_80438D58);
+        play_cue_stream_file((s32)lbl_80438D58);
         break;
     case 0xB4:
         queue_destruction__7TObjectFv(((Obj_8007FB14 *)this));

@@ -746,7 +746,7 @@ void TLobby::reset_keyboard_state() { area_transfer_pending_flag = 0; TKeyBoardC
 
 bool is_area_transfer_pending(void);
 void TLobby__sub_800F8AD0(void);
-int TKeyBoardControl__sub_8000F92C(void);
+s32 TKeyBoardControl__sub_8000F92C(void);
 void TLobby__sub_800F8BD8(void);
 
 extern u32 main_phase_deferred_callback;
@@ -764,7 +764,7 @@ bool is_area_transfer_pending(void) {
 void TLobby::clear_callback_and_reset_keyboard() { TLobby::set_keyboard_mode(0); TKeyBoardControl::reset(); }
 
 s32 get_main_phase();
-s32 is_quest_active();
+int is_quest_active(void);
 void apply_phase_keyboard_mode(void);
 #define main_phase_deferred_callback (*(s32 (**)())&main_phase_deferred_callback)
 
@@ -868,9 +868,9 @@ extern const char lbl_8043D9F4[];
 void *tmp_buf_use_req__6TLobbyFPCc(const char *);
 s32 prs_decompress_buffer(void *, void *);
 s32 load_gvm_texture_archive(void *, void *);
-void begin_screen_draw(int);
-void draw_textured_quad_at_depth(void *, f32);
-void set_draw_texture_and_color(void *, int);
+void begin_screen_draw(s32 arg0);
+void draw_textured_quad_at_depth(f32 *q, f32 depth);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 void TLobby__sub_800F8DD8(void);
 void TLobby__sub_800F8F34(void);
 
@@ -890,7 +890,7 @@ void TLobby::draw_fullscreen_texture_quad() {
     v[7] = v[6] = 1.0f;
     TObjFish::set_global_param((s32)lbl_8049C61C);
     begin_screen_draw(0);
-    set_draw_texture_and_color(this, -1);
+    set_draw_texture_and_color((s32)this, -1);
     draw_textured_quad_at_depth(v, (0.5f));
     TWindowSubStatusDisp::get_player();
 }
@@ -942,7 +942,7 @@ void TLobby::reset_state_byte() {
 
 extern "C" {
 
-s32 TLobby__sub_801384E4();
+void TLobby__sub_801384E4(void);
 
 void TLobby::wait_ready_loop() {
     (*(s8 *)&lobby_wait_ready_flag) = 0;

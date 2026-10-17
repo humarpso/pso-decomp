@@ -6,7 +6,7 @@ extern "C" {
 
 s32 rotate_matrix_z(s32, s32);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
-s32 TObjPlayer__sub_80124C90(void *);
+void TObjPlayer__sub_80124C90(u8 *owner);
 
 extern f32 lbl_805DAD3C;
 
@@ -14,7 +14,7 @@ void TObjPlayer::launch_double_cannon_extra() {
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
         if (((TObjPlayer *)(*(s32 *)&this->unk_F0 + 0x7CC))->get_stage_strike_count() == 0) {
             drain_owner_hp_fraction(lbl_805DAD3C);
-            TObjPlayer__sub_80124C90(this);
+            TObjPlayer__sub_80124C90((u8 *)this);
         }
     } else {
         update_active_game_effect();

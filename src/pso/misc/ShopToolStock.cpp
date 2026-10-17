@@ -57,7 +57,7 @@ extern s32 shop_tool_stock_buffers[];
 extern u32 lobby_tool_random_rel;
 extern int shop_tool_stock_level;
 void load_tool_random_rel(void);
-s32 mem_free(u32);
+void mem_free(void *p);
 void sort_shop_items(s32, s32, s32);
 void generate_shop_technique_pool(s32);
 void generate_shop_rare_tool_pool(s32);
@@ -93,7 +93,7 @@ void TLobby::free_all_rocks() {
     do {
         u32 v = (u32)var_r29[var_r31];
         if (v != 0U) {
-            mem_free(v);
+            mem_free((void *)v);
             var_r29[var_r31] = (s32)var_r30;
         }
         var_r28 -= 1;

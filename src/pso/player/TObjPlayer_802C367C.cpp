@@ -32,7 +32,7 @@ void init_character_stats_for_level(void *cls, Char_802C38B4 *c, s32 level);
 void init_technique_levels(s32 flags, s8 *counts);
 int init_new_character_data(void* p);
 void init_new_character_stats(void *arg0);
-int init_class_starting_inventory(void*);
+void init_class_starting_inventory(void *arg0);
 int TObjPlayer__sub_802C456C(void*, void*, void*);
 int init_character_action_config(void*);
 s32 TObjPlayer__sub_802C46E0(s32, s32, s32, s32, s32);

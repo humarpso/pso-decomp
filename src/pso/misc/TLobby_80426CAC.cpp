@@ -91,7 +91,7 @@ extern u8 lbl_805CF240[0xA0];
 extern u8 TLobby__pppoe_message_queue[0xA0];
 extern u8 lbl_805CF380[0x48];
 RecoveredGlobal_80427D0C_lbl_805CFC20 lobby_pppoe_slot_table;
-s32 NetMemcpy(void *, void *, int);
+void NetMemcpy(void *_w0, void *_w1, int _w2);
 s32 TLobby__sub_80428360(void);
 void TAdSinglePlyChrSelectGC__sub_8042DDE4(int, int);
 extern u8 lbl_805CF380[];
@@ -183,13 +183,13 @@ s32 TLobby::write_name_field(s32 *arg0, u8 *arg1) {
         return 0;
     }
     sp12 = 0x102;
-    NetMemcpy((void *) (*arg0), (void *) (&sp12), (int) (2));
+    NetMemcpy((void *)(*arg0), (&sp12), (2));
     *arg0 += 2;
     temp_r3 = TLobby::str_length((s32)((void *) (arg1 + 0x3A)));
     sp10 = temp_r3;
-    NetMemcpy((void *) (*arg0), (void *) (&sp10), (int) (2));
+    NetMemcpy((void *)(*arg0), (&sp10), (2));
     *arg0 += 2;
-    NetMemcpy((void *) (*arg0), (void *) (arg1 + 0x3A), (int) (temp_r3));
+    NetMemcpy((void *)(*arg0), (arg1 + 0x3A), (temp_r3));
     *arg0 += temp_r3;
     return temp_r3 + 4;
 }
@@ -223,7 +223,7 @@ Ent_80427C6C *TLobby__sub_80427C6C(s32 arg0, u16 arg1) {
     if (arg1 < 0x14U) {
         return NULL;
     }
-    NetMemcpy((void *)&id, (void *)(arg0 + 0x10), 2);
+    NetMemcpy(&id, (void *)(arg0 + 0x10), 2);
     if (id == 0) {
         return NULL;
     }

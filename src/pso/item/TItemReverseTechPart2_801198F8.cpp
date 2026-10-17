@@ -4,9 +4,9 @@
 extern "C" {
 
 void run_task__21TItemReverseTechPart2Fv(u8 *arg0);
-s32 __ct__18TItemReverseTechBGFv(void *, void *, void *);
+void *__ct__18TItemReverseTechBGFv(void *arg0, void *arg1, void *arg3);
 u32 __nw__7TObjectFUl(s32);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 void TItemReverseTechPart2::render() {  }
 

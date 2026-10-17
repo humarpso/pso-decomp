@@ -202,22 +202,22 @@ void TBoss6Mine__vt4(u8 *arg0);
 void TBoss6Mine__vt6(s32 arg0);
 void TBoss6Mine__vt7(void* p);
 void *__dt__10TBoss6MineFPvs(void *arg0, s16 arg1);
-s32 TBoss6PlotFalz__sub_802AC008(f32, f32);
+void TBoss6PlotFalz__sub_802AC008(f32 farg0, f32 farg1);
 void TBoss6Type1__sub_802B5DD4(void *);
 int post_translate_matrix(void*);
 int spawn_particle_effect_with_flags(void*, void*, void*);
 int rotate_matrix_x(void*, void*);
 s32 TObjControl__ct(s32, s32);
 void free_collision_body_parts(void *);
-s32 draw_model_motion(s32, s32, f32);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 int rotate_matrix_y(void*, void*);
 int push_matrix(void*);
-int pop_matrix(void);
+s32 pop_matrix(void);
 void __dl__7TObjectFPv(void *);
-void __dt__9TObjEnemyFv(void *, int);
+void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 s32 __nw__7TObjectFUl(s32);
 int queue_destruction__7TObjectFv(void*);
 
@@ -252,7 +252,7 @@ void TBoss6Mine::draw() {
     bml_motion = get_bml_motion(*(s32 *)&this->m_374, 0);
     TObjFish::set_global_param(temp_r31);
     TBoss6PlotFalz__sub_802AC008(*(f32 *)&this->m_3c8, TBoss6Mine__data_805DF580);
-    draw_model_motion(bml_model, bml_motion, *(f32 *)&this->_pad39C);
+    draw_model_motion((void *)bml_model, (void *)bml_motion, *(f32 *)&this->_pad39C);
     TBoss6PlotFalz::update_camera_target();
     TObjPlayer::clear_global_state();
 }

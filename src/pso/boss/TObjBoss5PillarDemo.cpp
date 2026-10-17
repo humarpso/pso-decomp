@@ -29,10 +29,10 @@ void TObjBoss5PillarDemo__sub_8028AD88(void* a0);
 void TObjBoss5PillarDemo__sub_8028ADB0(u32 arg0);
 void *__dt__19TObjBoss5PillarDemoFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void __dt__15TObjBoss5PillarFv(void *, int);
+void *__dt__15TObjBoss5PillarFv(void *arg0, s16 arg1);
 s32 clear_child_target_refs(s32, s32);
 s32 clear_chain_flags(s32, s32);
-s32 set_model_node_callback(s32);
+void set_model_node_callback(s32 arg0);
 
 void TObjBoss5PillarDemo__sub_8028AB38(void) {
     void *temp_r4;

@@ -4,7 +4,7 @@
 extern "C" {
 s32 obj_getField1c(int);
 s32 get_field_3e0__12TBoss3VoloptFv();
-s32 spawn_particle_effect(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
 s32 TObjPlayer__sub_80117E50();
 s32 get_player_by_client_id(int);
 s32 is_item_area_enabled();
@@ -18,7 +18,7 @@ void TUnk_8049EFB8::run_task() {
             if (is_item_area_enabled() == 1) {
                 obj_getField1c((int) (player));
                 if (TObjPlayer__sub_80117E50() != 0) {
-                    spawn_particle_effect((void *) (player + 0x2FC), (int) (0x1BE));
+                    spawn_particle_effect((void *)(player + 0x2FC), (0x1BE));
                 }
             }
         }

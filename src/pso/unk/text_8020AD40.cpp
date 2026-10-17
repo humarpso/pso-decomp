@@ -37,7 +37,7 @@ extern s32 TLobby__data_805D6148;
 s32 read_disc_file(void *, Rec_8020AD40 *);
 void debug_print__6TLobbyFle(void *, ...);
 void replace_file_extension__6TLobbyFPvPvPv(void *, s32, void *);
-void swap_object_row_endian(Rec_8020AD40 *);
+void swap_object_row_endian(void *arg0);
 void load_object_set_entries__6TLobbyFlPUcUl(s32, Rec_8020AD40 *, s32);
 s32 get_game_play_mode();
 extern u8 lbl_8044BBB0[];

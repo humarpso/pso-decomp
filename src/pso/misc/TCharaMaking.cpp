@@ -76,8 +76,8 @@ struct P_8028DCCC { f32 a; f32 b; };
 extern "C" {
 extern RecoveredGlobal_8028DE78_lbl_804D9164 class_appearance_preset_table;
 u8 *get_class_appearance_preset(s32 arg0);
-s32 set_shadow_material_state();
-s32 draw_chunk_object(void *);
+void set_shadow_material_state(void);
+void draw_chunk_object(void *child);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -90,7 +90,7 @@ s32 calc_section_id_from_name(s8 *arg0);
 extern P_8028DCCC character_proportion_height_table[];
 f32 calc_character_height(void *p);
 s32 TLobby__sub_803DA16C(void *);
-s32 TObjCMMainMenu__sub_8028EBCC(void*);
+s32 TObjCMMainMenu__sub_8028EBCC(u8 *arg0);
 
 extern u32 creation_main_menu_obj;
 
@@ -98,7 +98,7 @@ s32 TCharaMaking::query_state() {
     if ((u32) creation_main_menu_obj == 0U) {
         return -1;
     }
-    return TObjCMMainMenu__sub_8028EBCC((void*)creation_main_menu_obj);
+    return TObjCMMainMenu__sub_8028EBCC((u8 *)creation_main_menu_obj);
 }
 
 s32 calc_section_id_from_name(s8 *arg0) {
@@ -161,7 +161,7 @@ void TCharaMaking__draw_colored_hair(f32 farg0, s32 arg0, CharacterAppearanceFie
         color.b = lbl_805DD934 * (f32) arg1->blue;
         set_chunk_material_color(&color.a);
     }
-    draw_chunk_object((void *) (arg0));
+    draw_chunk_object((void *)(arg0));
     chunk_polygon_flags_and_mask = lbl_805D5664;
     chunk_polygon_flags_or_mask = lbl_805D5668;
     model_render_flags = lbl_805D5660;
@@ -212,8 +212,8 @@ void TCharaMaking::update_body_parts() {
     TChCrLoadReq::create(arg0);
 }
 
-int restore_default_scene(void);
-int set_scene_override(void*);
+void restore_default_scene(void);
+void set_scene_override(u8 scene);
 
 s32 validate_player_visual_record(void *arg0) {
     s32 bad;
@@ -319,7 +319,7 @@ s32 validate_player_visual_record(void *arg0) {
 
 void TCharaMaking::clear_flag_bit0() { restore_default_scene(); model_render_flags = (model_render_flags & 0xfffffffe); }
 
-void TCharaMaking::enable_making() { model_render_flags = (model_render_flags | 0x1); set_scene_override((void*)31); }
+void TCharaMaking::enable_making() { model_render_flags = (model_render_flags | 0x1); set_scene_override((u8)((void*)31)); }
 typedef struct Appearance Appearance;
 typedef struct ClassAppearance ClassAppearance;
 typedef struct TextureList TextureList;

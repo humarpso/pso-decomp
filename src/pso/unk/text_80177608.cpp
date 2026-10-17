@@ -10,7 +10,7 @@ struct Parm_80177608 { s32 a; s32 b; s32 c; };
 
 extern "C" {
 void disallow_rendering__7TObjectFv(void *);
-void *spawn_particle_effect_with_rotation(void *, Parm_80177608 *, s32, int);
+void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern Tbl_80177608 switch_attack_sub_id_table;
 extern Tbl_80177608 switch_attack_sub_init_table;

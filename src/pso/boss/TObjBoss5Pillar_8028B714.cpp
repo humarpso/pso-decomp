@@ -3,7 +3,7 @@
 
 extern "C" {
 
-s32 free_texture_if_valid(void *);
+s32 free_texture_if_valid(u32 arg0);
 s32 is_unloaded__12TChCrLoadAfsFv();
 
 struct SubBase { char pad[0x18]; };
@@ -22,19 +22,19 @@ u8 *free_chcr_resources(u8 *arg0, s16 arg1) {
         }
         if ((s32) *(s32 *)((s8 *)arg0 + 0x54) != 0) {
             if (!(*(s32 *)((s8 *)arg0 + 0x4A8) & 1)) {
-                free_texture_if_valid((void *) (arg0 + 0x1B8));
+                free_texture_if_valid((u32)(arg0 + 0x1B8));
             }
             *(s32 *)((s8 *)arg0 + 0x54) = 0;
         }
         if ((s32) *(s32 *)((s8 *)arg0 + 0x1C0) != 0) {
             if (!(*(s32 *)((s8 *)arg0 + 0x4A8) & 2)) {
-                free_texture_if_valid((void *) (arg0 + 0x324));
+                free_texture_if_valid((u32)(arg0 + 0x324));
             }
             *(s32 *)((s8 *)arg0 + 0x1C0) = 0;
         }
         if ((s32) *(s32 *)((s8 *)arg0 + 0x32C) != 0) {
             if (!(*(s32 *)((s8 *)arg0 + 0x4A8) & 4)) {
-                free_texture_if_valid((void *) (arg0 + 0x490));
+                free_texture_if_valid((u32)(arg0 + 0x490));
             }
             *(s32 *)((s8 *)arg0 + 0x32C) = 0;
         }

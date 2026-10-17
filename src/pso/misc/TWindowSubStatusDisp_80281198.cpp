@@ -260,7 +260,7 @@ void *TWindowSubStatusDisp__window_layout[5] = {
 struct SD_80281760 { s32 f0; u8 pad4[0x14]; void *vt; u8 pad1c[4]; s16 f20; u8 pad22[0x3E]; s16 f60; s16 f62; u8 pad64[4]; void *f68; f32 f6c; f32 f70; };
 
 extern "C" {
-s32 fn_8026C7AC(int, int);
+s32 fn_8026C7AC(void *arg0, s8 arg1);
 s32 handle_list_page_flip_input(int);
 extern s32 lbl_805DD6F4;
 void TWindowSubStatusDisp__sub_80281644(u8 *arg0);
@@ -272,12 +272,12 @@ extern s32 __vt__20TWindowSubStatusDisp[];
 extern s32 TWindowSubStatusDisp__class_name;
 extern const f32 lbl_805DD70C;
 SD_80281760 *TWindowSubStatusDisp__ct(SD_80281760 *arg0, s32 arg1);
-u32 get_player_by_client_id(s16);
+void *get_player_by_client_id(s32 i);
 s32 draw_window_frame(void *, s32);
 s32 draw_visible_window_entries(void *, void *, s32);
 s32 draw_list_page_indicator(s32, s32);
 void __dl__7TObjectFPv(void *);
-void delete_if_allocated(void *, int);
+s32 delete_if_allocated(s32 arg0, s16 arg1);
 void destroy_window_base__9TWindowDDFs(void *, int);
 
 }
@@ -360,7 +360,7 @@ void TWindowSubStatusDisp__sub_80281644(u8 *arg0) {
     if (((s16) (((TWindowSubStatusDisp *)arg0)->m_60)) != temp_r3)
     {
       ((TWindowSubStatusDisp *)arg0)->m_60 = *(s16 *)&((TWindowSubStatusDisp *)arg0)->m_62;
-      fn_8026C7AC((int) (*(s32 *)&((TWindowSubStatusDisp *)arg0)->m_68), (int) ((s8) (*((u8 *) (((s8 *) (((u8 *) (&lbl_805DD6F4)) + (((TWindowSubStatusDisp *)arg0)->m_60))) + 0)))));
+      fn_8026C7AC((void *)(*(s32 *)&((TWindowSubStatusDisp *)arg0)->m_68), ((s8) (*((u8 *) (((s8 *) (((u8 *) (&lbl_805DD6F4)) + (((TWindowSubStatusDisp *)arg0)->m_60))) + 0)))));
     }
     ((TWindowSubStatusDisp *)(((u8 *) arg0) + 0x24))->destroy_all_items();
     ((TWindowSubStatusDisp *)arg0)->dispatch_page_init();
@@ -373,7 +373,7 @@ void TWindowSubStatusDisp__sub_80281644(u8 *arg0) {
 void *TWindowSubStatusDisp::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = __vt__20TWindowSubStatusDisp;
-        delete_if_allocated(*(void * *)&this->m_68, 1);
+        delete_if_allocated((s32)(*(void * *)&this->m_68), 1);
         destroy_window_base__9TWindowDDFs(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

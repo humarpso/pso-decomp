@@ -9,7 +9,7 @@ struct RecoveredGlobal_80227AA8_lbl_80514F64 {
 
 extern "C" {
 void get_menu_field_280__6TLobbyFv(void);
-s32 fn_8023F660(void *, void *, void *, int, int, int);
+void fn_8023F660(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
 extern unsigned char sound_control_state[];
 void TLobby__sub_80227AA8(s32 arg0);
 int free__6TLobbyFPv(void* p);
@@ -37,7 +37,7 @@ void TLobby__sub_80227A94(void) { lbl_805D6314 = lbl_805D3710; }
 int get_music_base_gain(void) {  return music_stream_base_gain; }
 typedef char RecoveredGlobal_80227AA8_lbl_80514F64_size[sizeof(RecoveredGlobal_80227AA8_lbl_80514F64) == 0xC3C ? 1 : -1];
 void TLobby__sub_80227AA8(s32 arg0) {
-    fn_8023F660((void *) (&(*(RecoveredGlobal_80227AA8_lbl_80514F64 *)sound_control_state).value), (void *) (arg0), (void *) (((s32 (*)())get_menu_field_280__6TLobbyFv)() + 0x55), (int) (0x40), (int) (0x40), (int) (0));
+    fn_8023F660((&(*(RecoveredGlobal_80227AA8_lbl_80514F64 *)sound_control_state).value), (arg0), (((s32 (*)())get_menu_field_280__6TLobbyFv)() + 0x55), (0x40), (0x40), (0));
 }
 
 }
@@ -207,12 +207,12 @@ struct RecoveredGlobal_80069A6C_TCameraCtrl__data_804FF628 {
 extern "C" {
 s32 set_clamped_field27c__6TLobbyFPvf(s32 *);
 void apply_clamped_field_27c__6TLobbyFv(void);
-s32 get_field_0x280__6TLobbyFPv(s32 *);
+s32 get_field_0x280__6TLobbyFPv(void *p);
 s32 set_menu_index__6TLobbyFPvi(void *, int);
 s32 is_ready__6TLobbyFPv(s32 *);
 void is_sound_enabled(void);
 s32 is_special_sound_id(u32 x);
-s32 set_sound_slot_special_scale(s32, f32);
+void set_sound_slot_special_scale(s32 slot, f32 scale);
 s32 alloc_looping_sound_slot(s32, s32, s32, s32, s32);
 extern const f32 lbl_805DC768;
 s32 normalize_sound_request(u32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
@@ -230,7 +230,7 @@ int fade_voice_channels__6TLobbyFi(void*);
 s32 get_player_by_client_id(s32);
 s32 bswap_6xB2_play_sound();
 s32 on_set_mode__6TLobbyFv(s32);
-s32 set_mode__6TLobbyFPvi(s32 *, s32);
+void set_mode__6TLobbyFPvi(void *arg0, s32 arg1);
 
 int TLobby__sub_80227AF8(void* p) { return TLobby__sub_8023F754(p); }
 
@@ -477,21 +477,21 @@ s32 lookup_scene_object__6TLobbyFPv(s32, void *);
 extern RecoveredGlobal_80228634_lbl_804CBE98 area_initializer_dispatch_table;
 void run_area_scene_cleanup(u8 *arg0);
 void promote_area_floor(u8 *arg0);
-s32 set_current_floor_area(int);
+void set_current_floor_area(s32 arg0);
 void load_area_scene_and_init(u8 *arg0);
 s32 TLobby__sub_802401C8(void *);
 s32 update_sound_frame(void *);
 void update_global_sound_frame(void);
-s32 reset_sound_state__6TLobbyFPv(void *);
+s32 reset_sound_state__6TLobbyFPv(u8 *arg0);
 void TLobby__sub_8022809C(void);
 int render_tick__Fv(void);
 s32 init_sound_aux_effects(void *);
 s32 validate_and_set_selection__6TLobbyFPvi(void *, int);
-s32 TLobby__sub_803382E4();
+void TLobby__sub_803382E4(void);
 s32 TLobby__sub_803CB81C();
 extern RecoveredGlobal_802287F0_lbl_80515BA0 lbl_80515BA0;
 void *reset_sound_owner_state(void *self);
-void TLobby__sub_80240808(void *self, s32 x);
+void *TLobby__sub_80240808(void *arg0, s16 arg1);
 void *__register_global_object(void *obj, void *dtor, void *entry);
 extern char lbl_80514F58[];
 void TLobby__sub_80228118(void);
@@ -549,7 +549,7 @@ void update_global_sound_frame(void) {
 
 typedef char RecoveredGlobal_8022809C_lbl_80514F64_size[sizeof(RecoveredGlobal_8022809C_lbl_80514F64) == 0xC3C ? 1 : -1];
 void TLobby__sub_8022809C(void) {
-    reset_sound_state__6TLobbyFPv((void *) (&(*(RecoveredGlobal_8022809C_lbl_80514F64 *)&sound_control_state).value));
+    reset_sound_state__6TLobbyFPv((u8 *)(&(*(RecoveredGlobal_8022809C_lbl_80514F64 *)&sound_control_state).value));
 }
 
 typedef char RecoveredGlobal_802280C4_lbl_80514F64_size[sizeof(RecoveredGlobal_802280C4_lbl_80514F64) == 0xC3C ? 1 : -1];
@@ -647,7 +647,7 @@ void load_area_scene_and_init(u8 *arg0) {
     u8 *var_r31;
     var_r31 = (u8 *)(arg0);
     var_r3 = *(s32 *)((s8 *)arg0 + 4);
-    set_current_floor_area((int) (var_r3));
+    set_current_floor_area((var_r3));
     var_r3 = *(s32 *)((s8 *)var_r31 + 0x10);
     TScene::set_scene((int) (var_r3));
     var_r3 = *(s32 *)((s8 *)var_r31 + 4);

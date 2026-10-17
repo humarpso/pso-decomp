@@ -4,8 +4,8 @@
 extern "C" {
 
 s32 request_story_select_state(s32 arg0);
-s32 TLobby__sub_80207BB0();
-s32 init_floor_map_registry();
+void TLobby__sub_80207BB0(void);
+void init_floor_map_registry(void);
 
 extern s32 story_select_pending_state;
 

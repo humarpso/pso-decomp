@@ -23,7 +23,7 @@ void *TOVS2Wreck01__create(void *arg0);
 void *TOVS2Wreck01__ct(void *arg0, void *arg1);
 void *__dt__12TOVS2Wreck01Fv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object(s32);
+void draw_ginja_object(void *child);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -68,7 +68,7 @@ void TOVS2::render() {
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
-        draw_ginja_object(*(s32 *)&this->model);
+        draw_ginja_object((void *)(*(s32 *)&this->model));
         pop_matrix();
     }
 }

@@ -34,10 +34,10 @@ struct Obj_80329AA8 { s32 f0; u8 pad[0x14]; void *vt; s32 f1C; u8 pad2[4]; s32 f
 struct Pos_803296E8 { f32 x, y; };
 
 extern "C" {
-s32 TAdSinglePlyChrSelectGC__sub_801334DC(int);
+s32 TAdSinglePlyChrSelectGC__sub_801334DC(void *p);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-s32 TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 extern RecoveredGlobal_80329830_lbl_8050E208 controller_input_state;
 extern RecoveredGlobal_80329830_lbl_8050E3B8 controller_physical_port_bank;
 extern const f32 lbl_805DF710;
@@ -57,7 +57,7 @@ extern s32 lbl_805D41B8;
 extern s32 tl_clipout;
 Obj_80329AA8 *TAdAgreementBaseGC__ct(Obj_80329AA8 *arg0, void *arg1);
 void *get_localized_text_entry(int, u32);
-u32 calc_text_width(void *);
+u32 calc_text_width(char *s);
 s32 render_status_line__15TAdSubPlyItemGCFi(void *, int, f32, f32, f32);
 void draw_window_frame();
 extern const f32 lbl_805DF700;
@@ -81,7 +81,7 @@ void TAdAgreementBaseGC::draw_agreement_text() {
     u32 i;
     draw_window_frame();
     for (i = 0; i < 2; i++) {
-        pos[i].x = lbl_805DF700 - (f32) (calc_text_width(get_localized_text_entry(0x1B, i)) >> 1);
+        pos[i].x = lbl_805DF700 - (f32) (calc_text_width((char *)(get_localized_text_entry(0x1B, i))) >> 1);
         pos[i].y = lbl_805DF708 * (f32) i + lbl_805DF704;
         render_status_line__15TAdSubPlyItemGCFi(get_localized_text_entry(0x1B, i), -1, pos[i].x, pos[i].y, lbl_805DF70C);
     }
@@ -111,7 +111,7 @@ void TAdAgreementBaseGC::update_state() {
         break;
     case 1:
         if (((TAdSinglePlyChrSelectGC *)(*(s32 *)&this->m_30))->get_selected_slot() == 1) {
-            temp_r3 = TAdSinglePlyChrSelectGC__sub_801334DC((int) (*(s32 *)&this->m_30));
+            temp_r3 = TAdSinglePlyChrSelectGC__sub_801334DC((void *)(*(s32 *)&this->m_30));
             switch (temp_r3) {
             case 0:
                 *(s32 *)&this->m_1c = 2;
@@ -129,7 +129,7 @@ void TAdAgreementBaseGC::update_state() {
         break;
     case 2:
         if ((u32) this->m_2c != 0U) {
-            TWindow__close(*(void * *)&this->m_2c);
+            TWindow__close((u8 *)(*(void * *)&this->m_2c));
             this->m_2c = 0U;
         }
         this->vfunc_6();

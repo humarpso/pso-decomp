@@ -39,8 +39,8 @@ struct Moto_801951C8 { s32 x0; u8 pad4[0x30 - 4]; u32 flags; u8 pad34[0x68 - 0x3
 extern "C" {
 s32 get_state_flag__9TMainTaskFv(void);
 s32 get_bml_model(void *, int);
-s32 func_80141618__Fv();
-s32 rotate_matrix_yxz(int, int, int, int);
+void func_80141618__Fv(void);
+void rotate_matrix_yxz(s32 matrix, s32 arg1, s32 arg2, s32 arg3);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
@@ -56,7 +56,7 @@ extern const f32 lbl_805DBED8;
 extern const f32 lbl_805DBEDC;
 f32 fabs_float(f32);
 s32 init_collision_body_parts(void *, void *, int);
-s32 TObjMesBase__ct(void *, void *, void *);
+void *TObjMesBase__ct(void *arg0, s32 arg1, s32 arg2);
 extern s32 lbl_80445DF4[];
 extern s32 TMotorcycle__collision_parts[];
 extern s32 __vt__11TMotorcycle[];
@@ -67,7 +67,7 @@ void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
-s32 __dt__11TObjMesBaseFv(void *, s32);
+void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 
 void TMotorcycle::render() {
@@ -78,7 +78,7 @@ void TMotorcycle::render() {
             TObjFish::set_global_param((s32) TMotorcycle__texture_list);
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));
-            rotate_matrix_yxz((int) (0), (int) (*(s32 *)&this->m_5c), (int) (this->rotation_y), (int) (this->rotation_z));
+            rotate_matrix_yxz((0), (*(s32 *)&this->m_5c), (this->rotation_y), (this->rotation_z));
             get_bml_model((void *) ((*(s32 *)&TMotorcycle__bml_resource)), (int) (*(s32 *)&this->m_bc));
             draw_ginja_object();
             pop_matrix();
@@ -139,7 +139,7 @@ void *__dt__11TMotorcycleFv(void *arg0, s16 arg1) {
 }
 #define self ((Moto_801951C8 *)arg0)
 void *TMotorcycle__ct(void *arg0, void *arg1, void *arg2) {
-    TObjMesBase__ct(arg0, arg1, arg2);
+    TObjMesBase__ct(arg0, (s32)arg1, (s32)arg2);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TMotorcycle;
     self->x0 = motorcycle_class_name;
     self->xBC = fabs_float(self->x68);

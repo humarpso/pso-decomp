@@ -20,7 +20,7 @@ void *__dt__13TUnk_8049FD48Fv(void *arg0, s16 arg1);
 void TItemObject__ct(void *);
 u8 get_tool_pmt_amount_byte__11TItemObjectFv();
 s32 launch_technique__10TObjPlayerFv(s32, s32, s32);
-void __dt__11TItemObjectFv(void *, int);
+void *__dt__11TItemObjectFv(void *arg0, s16 arg1);
 int obj_getS16_2BA(void*);
 
 extern s32 lbl_8049FBC0[];

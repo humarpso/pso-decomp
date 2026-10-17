@@ -52,11 +52,11 @@ extern V3_802534B0 item_help_description_idle_callback;
 s32 get_shared_text_buffer();
 u8 calc_display_grade__9TItemDataFv(void *);
 void check_equip_requirements(int, void *, void *);
-void format_item_description(void *);
+s32 format_item_description(u8 *item);
 void text_builder_append();
 void text_builder_reset();
-void get_help_text_string(u8);
-void set_sprite_uv_from_pixels(void *, f32, f32);
+s32 get_help_text_string(s32 arg0);
+void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1);
 extern u8 help_item_tech_disk_window_layout_table[];
 extern V3_802532E8 item_help_tech_disk_stats_callback;
 extern s32 current_language;
@@ -117,7 +117,7 @@ void TWindowHelpItem::update_tech_disk_details() {
         *(V3_802532E8 *)(((u8 *)this) + 0xB0) = item_help_tech_disk_stats_callback;
         e0 = get_array_entry__13TUnk_804CE018Fi(((u8 *)this), 0);
         text_builder_reset();
-        format_item_description(*(void **)(((u8 *)this) + 0x68));
+        format_item_description((u8 *)(*(void **)(((u8 *)this) + 0x68)));
         text_builder_append();
         if (current_language == 0) {
             get_help_text_string(*(*(u8 **)(((u8 *)this) + 0x68) + 4));

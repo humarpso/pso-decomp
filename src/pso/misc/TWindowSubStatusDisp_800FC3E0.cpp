@@ -5,7 +5,7 @@
 
 extern "C" {
     extern int localized_alphabet_list;
-u32 calc_small_font_text_width(void *);
+u32 calc_small_font_text_width(const char *s);
 s32 strncpy(void *, void *, s32);
 extern const f32 lbl_805DA9C0;
 void TWindowSubStatusDisp::render_forward(void* p) { TWindowSubStatusDisp::begin_render((s32)(p)); }

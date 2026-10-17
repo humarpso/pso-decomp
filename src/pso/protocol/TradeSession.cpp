@@ -139,10 +139,10 @@ extern "C" {
 
 s32 format_trade_out_of_range_message(s32 arg0);
 s32 get_shared_text_buffer();
-void * find_item_by_id(s32);
+u8 *find_item_by_id(s32 id);
 s32 text_builder_append();
-s32 text_builder_reset();
-s32 fn_80330A40(s32);
+void text_builder_reset(void);
+void fn_80330A40(u8 *arg0);
 
 s32 is_trade_active();
 s32 refresh_player_status__6TLobbyFv(s32);
@@ -223,7 +223,7 @@ void reset__6TLobbyFv(void) {
             ((TWindowSubTradeMessage *)(*(const u32 *)&trade_message_controller))->finish();
         }
         if ((u32) (*(const u32 *)&TLobby__trade_main_window) != 0U) {
-            fn_80330A40((*(const u32 *)&TLobby__trade_main_window));
+            fn_80330A40((u8 *)(*(const u32 *)&TLobby__trade_main_window));
         }
         if ((u32) (*(const u32 *)&TLobby__data_805D6894) != 0U) {
             reset__15TLobby_802D2F7CFPv((*(const u32 *)&TLobby__data_805D6894));
@@ -261,11 +261,11 @@ struct Ent_802D3134 { u32 id; s32 count; };
 struct Trade_802D3134 { u8 pad[4]; s16 who; u16 count; Item_802D3134 items[1]; };
 
 extern "C" {
-s32 build_6xA6_modify_trade_proposal(void *);
+void build_6xA6_modify_trade_proposal(void *p);
 
 u8 *get_quest_id__12TQuestListVMFv(u32);
 u32 get_player_by_client_id(void *);
-s32 TLobby__sub_8024AAA0(s32, s32);
+void TLobby__sub_8024AAA0(s32 arg0, s32 arg1);
 
 void send_modify_trade_proposal__6TLobbyFi(s32 arg0);
 
@@ -315,7 +315,7 @@ void cancel_trade_for_member_out_of_range(s32 arg0) {
 
 void send_trade_busy_reply(s32 arg0) {
     G_ModifyTradeProposal_6xA6 packet;
-    build_6xA6_modify_trade_proposal((void *) (&packet.header));
+    build_6xA6_modify_trade_proposal((&packet.header));
     packet.what = 6;
     packet.result = 0;
     ((TLobby *)(&packet.header))->prepare_and_send_trade_packet((void *) (arg0));
@@ -343,7 +343,7 @@ void TLobby::build_trade_item_list() {
                 if (id == 0xFFFFFF01) {
                     ((TObjPlayer *)(&item))->init_item_data(n);
                     ((TLobby *)(&((Trade_802D3134 *)this)->items[((Trade_802D3134 *)this)->count++]))->copy_item_data(&item);
-                } else if ((p = ((void *(*)(u32))find_item_by_id)(id)) != NULL) {
+                } else if ((p = find_item_by_id(id)) != NULL) {
                     ((TItem *)p)->copy_to_item_data(&item);
                     item.d = -1;
                     set_stack_count__24TShopEquipmentListWindowFSc(&item, n);
@@ -383,14 +383,14 @@ void send_modify_trade_proposal__6TLobbyFi(s32 arg0) {
     G_ModifyTradeProposal_6xA6 packet;
     u32 player;
     u8 *temp_r3_2;
-    build_6xA6_modify_trade_proposal((void *) (&packet.header));
+    build_6xA6_modify_trade_proposal((&packet.header));
     player = get_player_by_client_id((void *) (local_client_id));
     if ((player != 0U) && (temp_r3_2 = get_quest_id__12TQuestListVMFv(player), ((temp_r3_2 == NULL) == 0))) {
         if ((s32) (*(u8 *)&(*(s8 *)&TLobby__trade_partner_client_id)) != 4) {
             TWindowTradeRequest::close_request_window();
             if ((s8) (*(u8 *)&(*(s8 *)&TLobby__trade_partner_client_id)) == arg0) {
                 TLobby::send_trade_proposal_modify();
-                TLobby__sub_8024AAA0((s32)((void *) (local_client_id)), (s32)((int) (0x1D)));
+                TLobby__sub_8024AAA0((s32)((void *) (local_client_id)), ((int) (0x1D)));
                 return;
             }
             send_trade_busy_reply((s32)((int) ((s32) (s8) (*(u8 *)&(*(s8 *)&TLobby__trade_partner_client_id)))));
@@ -486,7 +486,7 @@ void transfer_trade_item_amount__6TLobbyFUll(void *, s32, s32, void *);
 void handle_trade_item_amount__6TLobbyFPv(S_802D3544 *arg0);
 
 void update_status_message__6TLobbyFPv(O_802D368C *self);
-s32 TLobby__sub_802D3AA8();
+void TLobby__sub_802D3AA8(void);
 
 void handle_state_init__6TLobbyFPv(O_802D377C *self);
 void handle_trade_final_confirmation(void *arg0);

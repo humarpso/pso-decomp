@@ -5,13 +5,13 @@
 #include "pso/TObject.h"
 
 extern "C" {
-u32 get_mode__11TCameraCtrlFPv(void*);
+s32 get_mode__11TCameraCtrlFPv(void *p);
 void restore_saved_depth_alpha_state();
 void reset_player_transform();
 void draw_untextured_trail_strip(TItemEffectWeapon::TrailVertex*, s32);
 void TObjPlayer__sub_803DF768(s32);
 void set_flag_9__7TObjectFv(void*);
-void* mem_alloc(size_t);
+void *mem_alloc(u32 size);
 extern u32 lbl_805D5660;
 extern u32 model_render_flags;
 
@@ -23,10 +23,10 @@ void *__dt__17TItemEffectWeaponFv(void *self, s32 flag);
 
 void decrement_timer__17TItemEffectWeaponFv(void *, s32);
 void *__dt__15TItemHeapObjectFv(void *, s32);
-int mem_free(void*);
+void mem_free(void *p);
 void  __dl__15TItemHeapObjectFPv(void *);
 void  __ct__15TItemHeapObjectFP7TObject(void *);
-void __dt__13TUnk_804A4948Fv(void *, int);
+void *__dt__13TUnk_804A4948Fv(void *arg0, s16 arg1);
 void* memcpy(void* destination, const void* source, size_t size);
 
 extern s32 lbl_804F28E0[];

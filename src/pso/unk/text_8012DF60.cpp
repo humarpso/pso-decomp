@@ -6,9 +6,9 @@ extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_shot_weapon(u8 *arg0);
-s32 TItemWeapon__ct(void *, s32, void *);
-void spawn_weapon_impact_effect();
-void create_gun_shot();
+u8 *TItemWeapon__ct(u8 *arg0, void *parent, u8 *item);
+void spawn_weapon_impact_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 create_gun_shot(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
 extern u8 lbl_804A5C18[];
 extern const f32 lbl_805DAF58;
 extern const f32 lbl_805DAF68;
@@ -16,7 +16,7 @@ void *construct_shot_weapon(void *arg0, s32 parent, void *arg2);
 
 void *construct_shot_weapon(void *arg0, s32 parent, void *arg2) {
     u8 temp_r0;
-    TItemWeapon__ct(arg0, parent, arg2);
+    TItemWeapon__ct((u8 *)arg0, (void *)parent, (u8 *)arg2);
     *(void **)((s8 *)arg0 + 0x18) = lbl_804A5C18;
     ((TObjPlayer *)arg0)->set_status_flags(2);
     *(void **)((s8 *)arg0 + 0x1F0) = (void *)create_gun_shot;

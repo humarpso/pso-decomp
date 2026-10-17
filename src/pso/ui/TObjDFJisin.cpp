@@ -72,7 +72,7 @@ extern "C" {
 u16 find_nearest_visible_player(void *, int, f32);
 void queue_destruction__7TObjectFv(void *);
 s32 is_boss_active__13TObjDFHormingFv();
-s32 TBoss4DarkFalz__sub_8004C1AC();
+int TBoss4DarkFalz__sub_8004C1AC(void);
 s32 steer_homing_direction(void *);
 int queue_destruction__13TObjDFHormingFPv(void* p);
 s32 query_teammate_state__9TObjEneDDFv();
@@ -170,7 +170,7 @@ struct Obj_80050AF8 { u8 pad[0x358]; u32 objs[2]; };
 s32 construct_actor_base__10TObjPlayerFPvPv(void *, s32);
 Player_80050D74 * get_player_data__10TObjPlayerFi(s32);
 s16 obj_getField1c(void *);
-f64 atan2_float(f32, f32);
+f32 atan2_float(f32 y, f32 x);
 f32 newton_sqrtf(f32);
 s32 is_state_ready__14TBoss4DarkFalzFv();
 s32 TBoss4DarkFalz__sub_8004C1B4();
@@ -628,13 +628,13 @@ void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 void run_task__11TObjDFJisinFv();
 void run_task__13TObjDFRecBallFv();
 void select_melee_contact_body__10TObjPlayerFv();
-void trigger_switch_attack__10TObjPlayerFi();
+void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 void try_start_action__13TUnk_804806E8Fll();
 void update_action_hold_status__13TUnk_804806E8Fv();
-void update_action_timer__10TObjPlayerFPv();
+s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
 void update_actor_ground_y__13TUnk_804806E8Fv();
-void update_attack_stat_status();
-void update_defense_stat_status();
+s32 update_attack_stat_status(u8 *arg0);
+s32 update_defense_stat_status(u8 *arg0);
 void update_flag30_timer__13TUnk_804806E8Fv();
 void update_movement_status__13TUnk_804806E8Fv();
 void update_object_view_visibility__13TUnk_804B9870Fff();
@@ -886,7 +886,7 @@ extern "C" {
 extern RecoveredGlobal_80051938___vt__16TObjDFTenchuFuru __vt__16TObjDFTenchuFuru;
 extern s32 TObjDFTenchuFuru__name;
 u8 *TObjDFTenchuFuru__ct(u8 *arg0, u8 *arg1, u8 *arg2);
-s32 get_current_matrix(void *);
+void get_current_matrix(void *m);
 extern RecoveredGlobal_80051A18_lbl_804FF240 df_captured_matrix_pair;
 extern int TObjDFTenchuFuru__matrix_node_index;
 s32 matrix_mult_vec(int, void *, void *);
@@ -954,10 +954,10 @@ typedef char RecoveredGlobal_80051A18_lbl_804FF240_size[sizeof(RecoveredGlobal_8
 void TObjDFTenchuFuru::capture_matrix_by_frame() {
     switch ((s32) (*(s32 *)&TObjDFTenchuFuru__matrix_node_index)) {
     case 0x3B:
-        get_current_matrix((void *) (&df_captured_matrix_pair.value));
+        get_current_matrix((&df_captured_matrix_pair.value));
         break;
     case 0x3A:
-        get_current_matrix((void *) ((u8 *)&df_captured_matrix_pair.value + 0x30));
+        get_current_matrix(((u8 *)&df_captured_matrix_pair.value + 0x30));
         break;
     }
     (*(s32 *)&TObjDFTenchuFuru__matrix_node_index) += 1;

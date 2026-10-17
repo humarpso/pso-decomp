@@ -14,7 +14,7 @@ void subtractive_rng_seed(R_8007C48C *arg0, s32 arg1);
 extern void* memcpy(void*,const void*,u32);
 void subtractive_rng_unshuffle(void* stream,const u8* source,u8* destination,u32 size);
 extern u8 save_block_shuffle_permutation[256], save_block_unshuffle_permutation[256];
-extern u16 TAdSinglePlyChrSelectGC__sub_8007C584(s32*,u16);
+u16 TAdSinglePlyChrSelectGC__sub_8007C584(void *self, u16 x);
 void subtractive_rng_make_shuffle(s32* stream);
 extern u8 save_block_shuffle_permutation[256], save_block_shuffle_permutation[256];
 

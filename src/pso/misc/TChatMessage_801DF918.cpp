@@ -8,8 +8,8 @@ typedef char RegistConnectPacketSize[(sizeof(TSendPsoRegistConnect) == 0x28) ? 1
 
 extern "C" {
 
-int __ct__8TPlySmthFv(void*);
-int fn_801E0900(void*);
+void __ct__8TPlySmthFv(void *);
+void fn_801E0900(void *p);
 
 void fn_801DF918(void* p) { ((packet_header *)p)->bswap(); fn_801E0900((char*)p + 0x4); bswap_32((u32 *)((char*)p + 0xc)); }
 void* fn_801DF954(void* p) { __ct__8TPlySmthFv((char*)p + 0x4); return p; }

@@ -5,9 +5,9 @@ extern "C" {
 void * create__14TObjNpcBringerFPv(void *arg0);
 void *__dt__14TObjNpcBringerFv(void *arg0, s16 arg1);
 void *TObjControl__ct(void *, void *);
-void *TObjNpcBringer__ct(void *, void *, void *);
+u8 *TObjNpcBringer__ct(u8 *self, void *parent, s32 arg2);
 void __dl__7TObjectFPv(void *);
-void __dt__11TObjNpcBaseFv(void *, int);
+void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_04;
@@ -21,7 +21,7 @@ void * create__14TObjNpcBringerFPv(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x3B8);
     if (o2 != NULL) {
-        o2 = TObjNpcBringer__ct(o2, o, arg0);
+        o2 = TObjNpcBringer__ct((u8 *)o2, o, (s32)arg0);
     }
     return o2;
 }

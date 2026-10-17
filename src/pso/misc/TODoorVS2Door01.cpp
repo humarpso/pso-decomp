@@ -82,25 +82,25 @@ struct Door_80163FB4 : VObj_80163FB4 {
 
 extern "C" {
 u8 *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
-s32 *mem_alloc(s32);
+void *mem_alloc(u32 size);
 s32 load_gvm_texture_file(void *);
 extern RecoveredGlobal_80176308_lbl_80442A80 lbl_804410E0;
 extern RecoveredGlobal_80176308_lbl_804B4278 fs_obj_o_vs2door01l_resource_descriptor;
 extern u32 door_vs2_shared_bml_archive;
 extern s32 *TODoorVS2Door01__texture_lists;
 s32 init_collision_body_parts(void *, void *, int);
-s32 init_door_base(void *);
+void *init_door_base(void *a0);
 extern RecoveredGlobal_80164340_lbl_804B17F0 todoor_vs2_door01_collision_parts;
 extern s32 __vt__15TODoorVS2Door01[];
 extern s32 TODoorVS2Door01__class_name;
 u8 *TODoorVS2Door01__ct(u8 *arg0, s32 arg1, s32 arg2);
 u8 is_open__15TODoorVS2Door01Fv(void *arg0);
 s32 rotate_matrix_y(int, int);
-s32 translate_matrix(int, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_ginja_model(int);
+void draw_ginja_model(s32 model);
 void *__dt__15TODoorVS2Door01Fv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, void *, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
@@ -109,8 +109,8 @@ s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 s32 is_in_view_depth__13TUnk_804AFBF8Ff();
-s32 mem_free(void*);
-s32 set_indexed_flags(void *, s32, s32);
+void mem_free(void *p);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
 
 void TODoorVS2Door01::vfunc_20() {  }
 
@@ -243,7 +243,7 @@ void TODoorVS2Door01::free_resources() {
     if ((s32 *) TODoorVS2Door01__texture_lists != NULL) {
         TObjPlayer::free_if_valid(*TODoorVS2Door01__texture_lists);
         if ((s32 *) TODoorVS2Door01__texture_lists != NULL) {
-            mem_free((void*)TODoorVS2Door01__texture_lists);
+            mem_free(TODoorVS2Door01__texture_lists);
             TODoorVS2Door01__texture_lists = NULL;
         }
     }
@@ -286,7 +286,7 @@ void *__dt__15TODoorVS2Door01Fv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80164340_lbl_804B17F0_size[sizeof(RecoveredGlobal_80164340_lbl_804B17F0) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80164340___vt__15TODoorVS2Door01_size[sizeof(RecoveredGlobal_80164340___vt__15TODoorVS2Door01) == 0x54 ? 1 : -1];
 u8 *TODoorVS2Door01__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    init_door_base((void *) (arg0));
+    init_door_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80164340___vt__15TODoorVS2Door01 *)&__vt__15TODoorVS2Door01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TODoorVS2Door01__class_name;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);

@@ -49,7 +49,7 @@ void remove_equipped_item__10TObjPlayerFPvii(void *, s32, s32);
 s32 start_inventory_update__10TObjPlayerFi(void *, s32);
 s32 TObjPlayer__sub_801D49F4(void *arg0, void *arg1, s32 *arg2, s32 arg3);
 s32 place_on_ground__5TItemFPvsPvi(void *, s16, s32, s32);
-s32 unequip_item__10TObjPlayerFiPv(s32, void *);
+void unequip_item__10TObjPlayerFiPv(s32 arg0, void *arg1);
 s32 is_item_equipped(void *);
 void *get_owner_if_alive__10TObjPlayerFv();
 s32 queue_destruction__7TObjectFv(s32, s16);

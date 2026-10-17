@@ -50,7 +50,7 @@ extern s32 bringer_projectile_actor_ops_table[];
 void *__dt__13TUnk_8048FE64Fv(void *arg0, s16 arg1);
 void queue_destruction__7TObjectFv(void *);
 void *csnVector(void *, void *, s32);
-void create_timed_particle_emitter(void *, s32, s32, s32);
+void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
 void subtract_vector(void *, void *);
 extern u8 lbl_8043A164[];
 extern s32 lbl_8043A16C[];

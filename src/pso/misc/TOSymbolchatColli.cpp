@@ -60,7 +60,7 @@ struct Ent_8017873C
 };
 
 extern "C" {
-s32 newton_sqrtf(f32);
+f32 newton_sqrtf(f32 x);
 s32 TObjRoomId__sub_80141CF4(void *, void *);
 extern const f32 lbl_805DBA2C;
 extern const f32 lbl_805DBA30;
@@ -75,7 +75,7 @@ f32 horizontal_distance_squared(void *, void *);
 Player_80178890 *find_entity_by_id(u16);
 void fn_8017866C(void *, s32, u16);
 void run_task__17TOSymbolchatColliFv(Obj_80178890 *self);
-void prs_decompress_buffer(s32, s32);
+u32 prs_decompress_buffer(s32 arg0, s32 arg1);
 s32 set_stream_and_load_file__6TLobbyFi(s32);
 s32 mem_alloc(s32);
 extern u32 symbolchat_colli_param_table[];
@@ -88,7 +88,7 @@ u8 is_current_floor_switch_set(u16);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-int mem_free(void*);
+void mem_free(void *p);
 
 s32 TOSymbolchatColli::get_state() {
     if (is_current_floor_switch_set(this->m_37c) == 1) {
@@ -192,7 +192,7 @@ void *TOSymbolchatColli::create(void *arg0) {
     return o;
 }
 
-void TOSymbolchatColli::free_rock() { mem_free((void*)(symbol_chat_colli_entries)); symbol_chat_colli_entries = 0; }
+void TOSymbolchatColli::free_rock() { mem_free((void *)(symbol_chat_colli_entries)); symbol_chat_colli_entries = 0; }
 
 void TOSymbolchatColli::load_symbol_chat_data() {
     s32 h;

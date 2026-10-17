@@ -22,7 +22,7 @@ void VIFlush(void);
 void VISetBlack(s32);
 void GXDrawDone(void);
 char *strcpy(char *, const char *);
-void fn_8042EAD4(void *, s32);
+s32 fn_8042EAD4(u8 *arg0, u32 arg1);
 void fn_8042EBA4(s32, s32);
 void *memset(void *, s32, u32);
 u32 strlen(const char *);
@@ -66,7 +66,7 @@ s32 launch_switcher_dol(const char *arg0) {
     GXDrawDone();
     memset(buf, 0, 0xFF);
     strcpy(buf, arg0);
-    fn_8042EAD4(buf, strlen(buf) + 1);
+    fn_8042EAD4((u8 *)buf, strlen(buf) + 1);
     fn_8042EBA4(v, r);
     return 1;
 }

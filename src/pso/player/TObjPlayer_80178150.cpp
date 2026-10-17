@@ -19,8 +19,8 @@ struct Stack_801781D8 {
 struct Pkt_80178178 { u8 pad[4]; s16 area; u16 id; u8 mode; };
 
 extern "C" {
-s32 clear_floor_switch_flag(int, int);
-s32 set_floor_switch_flag(int, int);
+void clear_floor_switch_flag(u32 id, s16 floor);
+void set_floor_switch_flag(u32 id, s16 floor);
 s32 get_current_floor();
 void handle_6x93_set_switch_flag_from_timer(Pkt_80178178 *p);
 u8 TObjPlayer::is_state_ec1_ed3() {
@@ -65,7 +65,7 @@ void TOSwitchTimer::send_switch_states() {
             stack.sp1A = this->m_a8;
             stack.sp1C = 0;
             ((TOChatSensor *)(&stack.sp14))->send_state();
-            clear_floor_switch_flag((int) (this->m_a8), (int) ((s16) (this->m_b4)));
+            clear_floor_switch_flag((this->m_a8), ((s16) (this->m_b4)));
         }
     } else {
         var_r30 = (u16 *)((u8 *)(arg0 + 0xAA));

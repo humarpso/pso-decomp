@@ -6,9 +6,9 @@
 
 extern "C" {
 
-s32 translate_matrix_vec3(s32, void *);
+void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 s32 rotate_matrix_y(s32, s32);
-s32 push_matrix_from(s32);
+s32 push_matrix_from(void *src);
 s32 pop_matrix();
 
 extern s32 model_render_flags;
@@ -32,7 +32,7 @@ void TObjPlayer::draw_if_visible() {
         model_render_flags |= 1;
         TObjFish::set_global_param(*(s32 *)&this->texture_id);
         push_matrix_from(0);
-        translate_matrix_vec3(0, (u8 *)&this->position);
+        translate_matrix_vec3((u8 *)(0), (u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         ((TObjEneRe7Berura *)arg0)->draw();
         pop_matrix();

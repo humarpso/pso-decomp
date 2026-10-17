@@ -88,26 +88,26 @@ void TLobby__sub_80070358(void);
 void clear_four_slots__6TLobbyFv(void);
 void TLobby__sub_800738F4(void *, s32);
 s32 get_main_phase(void);
-void create_obj_tag_challenge(s32);
+void *create_obj_tag_challenge(void *arg0);
 extern s32 tl_07;
 
 void queue_destruction__7TObjectFv(void *);
 s32 get_current_floor(void);
-s32 create_ch_time_win(s32);
+void *create_ch_time_win(void *arg0);
 void TLobby__sub_80070170(void *arg0);
 Info_800703D0 *TLobby__sub_800703D0(Info_800703D0 *dst, Info_800703D0 *src);
 s32 send_6x7c_reset__6TLobbyFv(void *);
-u32 get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 extern void *challenge_mode_state[];
 void TLobby__sub_80070254(L_80070254 *arg0);
 void render__10TChallengeFv(void);
 
-s32 is_quest_active();
+int is_quest_active(void);
 s32 update_card_save_info__6TLobbyFv(void *);
-s32 TLobby__sub_800722AC(s32);
-s32 TLobby__sub_80072618();
+void TLobby__sub_800722AC(s32 arg0);
+void TLobby__sub_80072618(void);
 s32 TLobby__sub_800739BC(void *);
-s32 create_new_floor_windows__6TLobbyFi(s32);
+u8 *create_new_floor_windows__6TLobbyFi(s32 arg0);
 s32 TLobby__sub_8026A328();
 s32 check_player_state_flag_2__6TLobbyFv();
 
@@ -375,7 +375,7 @@ void *challenge_mode_state[420] = {
 
 void TLobby::create_time_window(void * _w0) {
     TLobby::spawn_player_tombstones();
-    create_ch_time_win(tl_07);
+    create_ch_time_win((void *)tl_07);
     create_new_floor_windows__6TLobbyFi(tl_07);
     if ((s32) *(s32 *)((s8 *)challenge_mode_state + 0x30) == 0) {
         TObjSoloPlayWin::create((TObject*)tl_07);
@@ -460,9 +460,9 @@ void TLobby__sub_80070170(void *arg0) {
         old = challenge_mode_state[2];
         challenge_mode_state[2] = -1;
         if (old != -1) {
-            create_obj_tag_challenge(tl_07);
+            create_obj_tag_challenge((void *)tl_07);
             if (challenge_mode_state[8] == 0) {
-                create_ch_time_win(tl_07);
+                create_ch_time_win((void *)tl_07);
             }
         }
         break;
@@ -579,7 +579,7 @@ void TChallenge::initialize_windows() {
         break;
     }
     if (flag != 0) {
-        create_obj_tag_challenge(tl_07);
+        create_obj_tag_challenge((void *)tl_07);
         TObjBagWarnWin::create((void *)tl_07);
         self->x1c = 1;
     }

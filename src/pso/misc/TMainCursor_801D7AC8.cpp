@@ -3,8 +3,8 @@
 
 extern "C" {
 
-s32 matches_type_and_enabled__11TMainCursorFiUcUc(s32, u8, u8);
-s32 TObjPlayer__sub_801D84F0(s32);
+int matches_type_and_enabled__11TMainCursorFiUcUc(s32 arg0, u8 arg1, u8 arg2);
+s32 TObjPlayer__sub_801D84F0(void *p);
 s32 TWindowActionPalette__sub_801C1C68(s32, s32);
 
 s32 TMainCursor::find_action_slot(s32 arg0, void *arg1, s16 arg2, s32 arg3, s32 arg4) {
@@ -17,7 +17,7 @@ s32 TMainCursor::find_action_slot(s32 arg0, void *arg1, s16 arg2, s32 arg3, s32 
         temp_r3 = *(u32 *)((s8 *)arg1 + 0x424);
         if (temp_r3 != 0U) {
             temp_r31 = temp_r3 + 0x520;
-            if (TObjPlayer__sub_801D84F0(temp_r31) != 0) {
+            if (TObjPlayer__sub_801D84F0((void *)temp_r31) != 0) {
                 if (((TMainCursor *)temp_r31)->get_type() == 1) {
                     if (arg2 == (s32) ((TMainCursor *)temp_r31)->get_type()) {
                         return 0;

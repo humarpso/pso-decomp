@@ -18,8 +18,8 @@ extern s32 lbl_805D75B0;
 void __OSCallResetFunctions(void);
 void dispatch_callback(void);
 void dispatch_lobby_callback(void);
-s32 TLobby__sub_803D3988();
-s32 TLobby__sub_803D39C0();
+void TLobby__sub_803D3988(void);
+void TLobby__sub_803D39C0(void);
 
 void __OSCallResetFunctions(void) {
     s32 enabled;

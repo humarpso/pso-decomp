@@ -36,8 +36,8 @@ s16 obj_getField1c(void *);
 f32 query_extended_state__10TObjPlayerFv(void *);
 void TObjPlayer__sub_80128A70(void);
 void init_slicer_launch_state(void *);
-s16 get_validated_attack_stage(void *);
-s16 TObjPlayer__sub_801D2F4C(void *);
+s16 get_validated_attack_stage(u8 *arg0);
+s16 TObjPlayer__sub_801D2F4C(s16 *arg0);
 void enlarge_s_rank_j_cutter_blade(void *);
 extern const f32 lbl_805DAE18;
 extern const f32 lbl_805DAE1C;
@@ -53,7 +53,7 @@ void TUnk_804A4238::emit_marker_effects() {
     tec.fC = ((TItem *)self)->get_field_d8();
     tec.f4 = self->f24;
     tec.f8 = self->f188;
-    tec.f10 = TObjPlayer__sub_801D2F4C((u8 *)self->owner + 0x7CC);
+    tec.f10 = TObjPlayer__sub_801D2F4C((s16 *)((u8 *)self->owner + 0x7CC));
     tec.f12 = get_validated_attack_stage((u8 *)self->owner + 0x7CC);
     tec.f14 = query_extended_state__10TObjPlayerFv(self->owner);
     tec.f18 = lbl_805DAE18;
@@ -67,7 +67,7 @@ void TUnk_804A4238::emit_marker_effects() {
 }
 
 void *__dt__13TUnk_804A4238Fv(void *arg0, s16 arg1);
-void __dt__13TUnk_804A4948Fv(void *, int);
+void *__dt__13TUnk_804A4948Fv(void *arg0, s16 arg1);
 
 void *__dt__13TUnk_804A4238Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -195,7 +195,7 @@ void TUnk_804A4338::emit_marker_effects() {
     tec.fC = ((TItem *)self)->get_field_d8();
     tec.f4 = self->f24;
     tec.f8 = self->f188;
-    tec.f10 = TObjPlayer__sub_801D2F4C((u8 *)self->owner + 0x7CC);
+    tec.f10 = TObjPlayer__sub_801D2F4C((s16 *)((u8 *)self->owner + 0x7CC));
     tec.f12 = get_validated_attack_stage((u8 *)self->owner + 0x7CC);
     tec.f14 = query_extended_state__10TObjPlayerFv(self->owner);
     tec.f18 = lbl_805DAE30;
@@ -255,7 +255,7 @@ void *__dt__13TUnk_804A4338Fv(void *arg0, s16 arg1) {
 
 }
 
-extern "C" void TItemEquipBase__sub_8010A77C();
+extern "C" s8 TItemEquipBase__sub_8010A77C(u8 *arg0);
 extern "C" void TItemWeapon__sub_8011E5C0();
 extern "C" void TItemWeapon__sub_8011E5C4();
 extern "C" void TItemWeapon__sub_8011E5C8();
@@ -267,16 +267,16 @@ extern "C" void vfunc_17__11TItemWeaponFl();
 extern "C" void vfunc_14__11TItemWeaponFv();
 extern "C" void vfunc_50__11TItemWeaponFv();
 extern "C" void vfunc_45__11TItemWeaponFv();
-extern "C" void TItemWeapon__sub_80121064();
+extern "C" u8 TItemWeapon__sub_80121064(void *p);
 extern "C" void TItemWeapon__write_item_data();
 extern "C" void TItem__sub_801005D8();
 extern "C" void TItem__sub_801005E0();
-extern "C" void TItem__sub_801005E4();
+extern "C" int TItem__sub_801005E4(void);
 extern "C" void TItem__sub_80100648();
-extern "C" void TItem__sub_80100B8C();
+extern "C" int TItem__sub_80100B8C(void *p);
 extern "C" void vfunc_6__13TUnk_804B9870FPsl();
 extern "C" void srank_marker_noop();
-extern "C" void receive_srank_hit();
+extern "C" void receive_srank_hit(void *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 farg0);
 extern "C" void add_equip_stats__14TItemEquipBaseFl();
 extern "C" void vfunc_44__11TItemWeaponFv();
 extern "C" void apply_object_set_data__13TUnk_804B9870FPv();
@@ -298,10 +298,10 @@ extern "C" void remove_equip_stats__14TItemEquipBaseFl();
 extern "C" void render_shadows__5TItemFv();
 extern "C" void vfunc_49__11TItemWeaponFv();
 extern "C" void release__11TItemWeaponFv();
-extern "C" void ret_8010064C();
-extern "C" void ret_80100654();
-extern "C" void ret_8010065C();
-extern "C" void ret_80100664();
+extern "C" int ret_8010064C(void);
+extern "C" int ret_80100654(void);
+extern "C" int ret_8010065C(void);
+extern "C" int ret_80100664(void);
 extern "C" void run_task__5TItemFv();
 extern "C" void set_attach_slot__14TItemEquipBaseFSc();
 extern "C" void subtract_equip_stats__14TItemEquipBaseFlPUcPUc();

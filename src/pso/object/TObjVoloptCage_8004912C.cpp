@@ -19,7 +19,7 @@ struct TObjVoloptCageVObj_8004912C : TObjVoloptCageBase_8004912C {
 
 s32 init_from_model__11TBreakUpMdlFl(s32, s32);
 s32 post_translate_matrix(void *);
-s32 draw_chunk_object(s32);
+void draw_chunk_object(void *child);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -61,7 +61,7 @@ void TObjVoloptCage::render() {
         model_render_flags &= 0xFFFFFBFF;
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
-        draw_chunk_object(volopt_cage_break_model_handle);
+        draw_chunk_object((void *)volopt_cage_break_model_handle);
         pop_matrix();
     }
 }

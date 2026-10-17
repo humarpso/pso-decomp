@@ -4,7 +4,7 @@
 
 extern "C" {
 
-int process_pending_resources(void);
+void process_pending_resources(void);
 int __dt__5THeapFv(void*, void*);
 
     extern int async_file_read_sector_buffer;

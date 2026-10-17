@@ -34,7 +34,7 @@ const u8 boss6_type2_appear_camera_script[12] = {0x01, 0x03, 0x00, 0x00, 0x00, 0
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_model_motion(s32, s32, f32);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern const f32 lbl_805DFA70;
 extern const f32 lbl_805DFA74;
 extern const f32 lbl_805DFA78;
@@ -48,7 +48,7 @@ void TBoss6Demo20_TYPE2_APPEAR::draw_model_12() {
     TObjPlayer::set_global_flag();
     post_translate_matrix((void *)&boss6_type2_appear_origin);
     TObjFish::set_global_param(*(s32 *)((s8 *)this + 0xD8));
-    draw_model_motion(this->m_d4, this->m_dc, *(f32 *)((s8 *)this + 0xE0));
+    draw_model_motion((void *)this->m_d4, (void *)this->m_dc, *(f32 *)((s8 *)this + 0xE0));
     TObjPlayer::clear_global_state();
     pop_matrix();
 }
@@ -73,11 +73,11 @@ void TBoss6Demo20_TYPE2_APPEAR::draw_fading_model_1_pair() {
         TObjPlayer::set_global_flag();
         push_matrix();
         post_translate_matrix((s32 *)((u8 *)this + 0x4C));
-        draw_model_motion(*(s32 *)((s8 *)this + 0xC8), *(s32 *)((s8 *)this + 0xD0), this->m_e4);
+        draw_model_motion((void *)(*(s32 *)((s8 *)this + 0xC8)), (void *)(*(s32 *)((s8 *)this + 0xD0)), this->m_e4);
         pop_matrix();
         push_matrix();
         post_translate_matrix((s32 *)((u8 *)this + 0x58));
-        draw_model_motion(*(s32 *)((s8 *)this + 0xC8), *(s32 *)((s8 *)this + 0xD0), this->m_e4);
+        draw_model_motion((void *)(*(s32 *)((s8 *)this + 0xC8)), (void *)(*(s32 *)((s8 *)this + 0xD0)), this->m_e4);
         pop_matrix();
         TObjPlayer::clear_global_state();
         if (var_f31 < lbl_805DFA74) {
@@ -108,7 +108,7 @@ void TBoss6Demo20_TYPE2_APPEAR::draw_fading_model_4() {
         post_translate_matrix((void *)&boss6_type2_appear_origin);
         TObjFish::set_global_param(*(s32 *)((s8 *)this + 0xC0));
         ((TObjFish *)(this->m_7c))->set_draw_callback_list();
-        draw_model_motion(this->m_bc, this->m_c4, *(f32 *)((s8 *)this + 0xE0));
+        draw_model_motion((void *)this->m_bc, (void *)this->m_c4, *(f32 *)((s8 *)this + 0xE0));
         clear_render_callback__8TObjFishFv(this->m_7c);
         TObjPlayer::clear_global_state();
         pop_matrix();
@@ -144,7 +144,7 @@ void TBoss6Demo20_TYPE2_APPEAR::draw_fading_model_pair() {
         do {
             temp_r30 = (u8 *)this + var_r31;
             TObjFish::set_global_param(*(s32 *)((s8 *)temp_r30 + 0xA8));
-            draw_model_motion(*(s32 *)((s8 *)temp_r30 + 0xA4), *(s32 *)((s8 *)temp_r30 + 0xAC), *(f32 *)((s8 *)this + 0xE0));
+            draw_model_motion((void *)(*(s32 *)((s8 *)temp_r30 + 0xA4)), (void *)(*(s32 *)((s8 *)temp_r30 + 0xAC)), *(f32 *)((s8 *)this + 0xE0));
             var_r29 += 1;
             var_r31 += 0xC;
         } while (var_r29 < 2);
@@ -302,7 +302,7 @@ void initialize_boss6_type2_appear_particle_origin(void);
 s32 get_bml_motion(int, int);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-void activate_camera_mode(int);
+s32 activate_camera_mode(s32 arg0);
 void set_scripted_camera_pose(void *, void *, void *);
 s32 TObjFish__sub_800E3124(void *, void *);
 void __ct__7TObjectFP7TObject(void *);

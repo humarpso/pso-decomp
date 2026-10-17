@@ -3,7 +3,7 @@
 struct T_8032DA60 { u8 pad0[0x70]; void *f70; void *f74; s32 f78; };
 
 extern "C" {
-void start_guardianna_wall_card();
+void start_guardianna_wall_card(s32 arg0, s32 arg1, s32 arg2);
 void config_guardianna_attack_collider(void *self, T_8032DA60 *p);
 void config_guardianna_attack_collider(void *self, T_8032DA60 *p) {
     p->f78 = 0x176;

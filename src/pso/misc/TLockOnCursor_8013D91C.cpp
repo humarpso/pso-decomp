@@ -71,14 +71,14 @@ void render__13TLockOnCursorFv(s32 arg0);
 struct VOff_8013DE3C_arg0_8013D91C { char pad_0[0x1C]; char f_1C[1]; };
 
 void *TLockOnCursor__ct(void *arg0, void *arg1, void *arg2);
-s32 TLockOnCursor__sub_8013EB80(s32);
-s32 TLockOnCursor__sub_8013EB8C(s32);
+void TLockOnCursor__sub_8013EB80(void *p);
+void TLockOnCursor__sub_8013EB8C(void *p);
 void sub_8013EEC0__13TLockOnCursorFs(void *, void *);
 s32 is_channel_active__11TMainCursorFv(s32);
-void TMainCursor__sub_8013F1F0(void *);
+u8 *TMainCursor__sub_8013F1F0(u8 *arg0);
 void __construct_array(void *, void *, void *, int, int);
 void __ct__7TObjectFP7TObject(void *);
-void fn_8013F0A0(void *);
+void *fn_8013F0A0(void *arg0);
 
 #pragma push
 #pragma opt_loop_invariants off
@@ -123,10 +123,10 @@ void render__13TLockOnCursorFv(s32 arg0) {
 void TLockOnCursor::run_task() {
     s32 arg0 = (s32)this;
     if (is_channel_active__11TMainCursorFv(arg0 + 0x520) != 0) {
-        TLockOnCursor__sub_8013EB8C(arg0 + 0x520);
+        TLockOnCursor__sub_8013EB8C((void *)(arg0 + 0x520));
         return;
     }
-    TLockOnCursor__sub_8013EB80(arg0 + 0x520);
+    TLockOnCursor__sub_8013EB80((void *)(arg0 + 0x520));
 }
 
 void reset_and_spawn_cursors__13TLockOnCursorFi(s32 arg0) {
@@ -239,9 +239,9 @@ void *TLockOnCursor__ct(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TLockOnCursor;
     ((TObjPlayer *)(self->f_1C))->init_forward();
-    fn_8013F0A0((void *)((char *)arg0 + 36));
+    fn_8013F0A0(((char *)arg0 + 36));
     ((TLockOnCursor *)((char *)arg0 + 60))->reset_fields();
-    TMainCursor__sub_8013F1F0((void *)((char *)arg0 + 72));
+    TMainCursor__sub_8013F1F0((u8 *)((char *)arg0 + 72));
     __construct_array((void *)((char *)arg0 + 92), TLockOnCursor__sub_8013EFB8, __dt_deleting__13TLockOnCursorFis, 292, 4);
     ((TLockOnCursor *)((char *)arg0 + 1260))->cleanup();
     ((TLockOnCursor *)((char *)arg0 + 1288))->init_forward();

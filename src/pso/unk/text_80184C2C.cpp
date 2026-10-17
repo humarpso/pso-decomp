@@ -19,7 +19,7 @@ extern const char lbl_80444A00[];
 extern const char lbl_80444A10[];
 extern const char *lbl_804B6028[];
 void TLobby__sub_8001FE7C(void *, s32);
-void destroy_buffer_pair(void *, s32);
+void *destroy_buffer_pair(void *arg0, s16 arg1);
 extern int city_season_easter_egg_model_table[];
 extern int city_season_xmas_model_table[];
 extern void *lbl_805D5B34;

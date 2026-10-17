@@ -26,7 +26,7 @@ void TWindowGetComCard__sub_8007B54C(void);
 s32 *TWindowGetComCard__sub_8007B594(void);
 s32 TWindowSubComCard__sub_8007B26C(s32);
 void TWindowGetComCard__sub_8007B60C(s32 _w0);
-void init_guild_card_tag__17TWindowSubComCardFi(void *);
+s32 init_guild_card_tag__17TWindowSubComCardFi(s32 arg0);
 void __construct_array(void *ptr, void *ctor, void *dtor, u32 size, u32 n);
 void TWindowGetComCard__sub_8007B65C(void* p);
 void TWindowGetComCard__sub_8007B67C(void* p);

@@ -270,7 +270,7 @@ extern s32 TRaderMapCore__view_mode;
 void disallow_rendering__7TObjectFv(void *);
 extern void *TRaderMapCore__instance;
 void allow_rendering__7TObjectFv(void *);
-s32 TCameraCtrl__sub_801E32D8(f32, f32);
+void TCameraCtrl__sub_801E32D8(f32 farg0, f32 farg1);
 s32 GXSetScissorBoxOffset(int, int);
 extern RecoveredGlobal_801FA964_lbl_804C8784 radar_map_view_scissor_table;
 extern s32 camera_ctrl_instance;
@@ -310,8 +310,8 @@ void set_camera_look_at(Vec3_801F9314 *, Vec3_801F9314 *, Vec3_801F9314 *);
 void set_perspective_projection_from_fov(s32, f32, f32, f32);
 void rotate_vector_by_matrix(void *, Vec3_801F9314 *, Vec3_801F9314 *);
 void rotate_matrix_y(void *, s32);
-void push_matrix_from(void *);
-void pop_matrix(void);
+s32 push_matrix_from(void *src);
+s32 pop_matrix(void);
 extern Vec3_801F9314 lbl_8044A794;
 extern u8 identity_matrix[];
 extern f32 lbl_805D3608;
@@ -321,12 +321,12 @@ extern const f32 lbl_805DC54C;
 extern const f32 lbl_805DC550;
 void setup_overhead_projection__13TRaderMapCoreFv(s32 arg0, Cam_801F9314 *arg1);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-void rotate_matrix_zyx(s32, s32, s32, s32);
-void translate_matrix(s32, f32, f32, f32);
+void rotate_matrix_zyx(void *m, s32 x, s32 y, s32 z);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 void push_matrix(void);
 void draw_ginja_model(s32);
 void set_chunk_material_override_pair(s32, s32);
-void set_chunk_material_color(void *);
+void set_chunk_material_color(f32 *arg);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern Color_801FAAEC radar_map_backdrop_color;
 extern u8 saved_model_draw_color[];
@@ -340,7 +340,7 @@ extern s32 model_render_flags;
 extern const f32 lbl_805DC590;
 void TRaderMapCore__sub_801F967C(void *, s32);
 void scale_matrix(s32, f32, f32, f32);
-void draw_ginja_object(s32);
+void draw_ginja_object(void *child);
 extern const f32 TRaderMapCore__data_805DC528;
 extern const f32 lbl_805DC57C;
 extern const f32 lbl_805DC580;
@@ -840,16 +840,16 @@ void TRaderMapCore::draw_enemy_gate_markers() {
         switch (g->kind) {
         case 0:
             scale_matrix(0, lbl_805DC57C * g->scale, lbl_805DC580, lbl_805DC584 * g->scale);
-            draw_ginja_object(*(s32 *)&this->m_180);
+            draw_ginja_object((void *)(*(s32 *)&this->m_180));
             break;
         case 1:
             scale_matrix(0, lbl_805DC580 * g->scale, lbl_805DC580, lbl_805DC580 * g->scale);
-            draw_ginja_object(*(s32 *)&this->m_17c);
+            draw_ginja_object((void *)(*(s32 *)&this->m_17c));
             break;
         }
         pop_matrix();
     }
-    set_chunk_material_color(chunk_material_color_half_alpha_f32);
+    set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
     chunk_polygon_flags_and_mask = lbl_805D5664;
     chunk_polygon_flags_or_mask = lbl_805D5668;
     copy_vec4__13TRaderMapCoreFPvPv(&(*(RecoveredGlobal_801FA1E0_lbl_8058D4C0 *)&model_material_color).value, &(*(RecoveredGlobal_801FA1E0_lbl_8050BEC0 *)&saved_model_draw_color).value);
@@ -872,14 +872,14 @@ void TRaderMapCore::draw_player_markers() {
     var_r30 = 0;
     do {
         if ((s16) *(s16 *)((s8 *)var_r31 + 0x16) != -1) {
-            set_chunk_material_color((u8 *)(var_r31) + 0x18);
+            set_chunk_material_color((f32 *)((u8 *)(var_r31) + 0x18));
             push_matrix();
             translate_matrix(0, *(f32 *)((s8 *)var_r31 + 0x0), TRaderMapCore__data_805DC528, *(f32 *)((s8 *)var_r31 + 0x8));
             rotate_matrix_y(0, *(s32 *)((s8 *)var_r31 + 0xC));
             scale_matrix(0, *(f32 *)((s8 *)var_r31 + 0x10), *(f32 *)((s8 *)var_r31 + 0x10), *(f32 *)((s8 *)var_r31 + 0x10));
-            draw_ginja_object(*(s32 *)&this->m_178);
+            draw_ginja_object((void *)(*(s32 *)&this->m_178));
             pop_matrix();
-            set_chunk_material_color(chunk_material_color_half_alpha_f32);
+            set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
         }
         var_r30 += 1;
         var_r31 = (u8 *)((void *)((u8 *)(var_r31) + 0x28));
@@ -971,13 +971,13 @@ void TRaderMapCore::render_region_records(void * _w1) {
                 r->alpha = arg0->maxAlpha;
             }
             c.r = r->alpha;
-            set_chunk_material_color(&c);
+            set_chunk_material_color((f32 *)&c);
             push_matrix();
             translate_matrix(0, r->x, r->y, r->z);
             rotate_matrix_zyx(0, r->rx, r->ry, r->rz);
             draw_ginja_model(r->model->obj);
             pop_matrix();
-            set_chunk_material_color(chunk_material_color_half_alpha_f32);
+            set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
         }
     }
     }

@@ -21,9 +21,9 @@ struct RecoveredGlobal_802C8034___vt__18TObjTradeCollision {
 
 extern "C" {
 s32 is_player_outside_trade_radius__18TObjTradeCollisionFUl(void *, int);
-s32 clear_trade_range_bit(int);
-s32 set_trade_range_bit(int);
-s32 disallow_rendering__7TObjectFv(void *);
+void clear_trade_range_bit(s32 arg0);
+void set_trade_range_bit(s32 arg0);
+void disallow_rendering__7TObjectFv(void *arg0);
 extern s32 __vt__18TObjTradeCollision[];
 extern s32 TObjTradeCollision__name;
 u8 *TObjTradeCollision__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -39,9 +39,9 @@ void run_task__18TObjTradeCollisionFv(s32 arg0) {
     var_r31 = 0;
     do {
         if (is_player_outside_trade_radius__18TObjTradeCollisionFUl((void *) (arg0), (int) (var_r31)) != 0) {
-            set_trade_range_bit((int) (var_r31));
+            set_trade_range_bit((var_r31));
         } else {
-            clear_trade_range_bit((int) (var_r31));
+            clear_trade_range_bit((var_r31));
         }
         var_r31 += 1;
     } while (var_r31 < 4);
@@ -67,7 +67,7 @@ u8 *TObjTradeCollision__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjTradeCollision__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     *(f32 *)((s8 *)arg0 + 0xAC) = (f32) ((TObjTradeCollision *)arg0)->scale;
-    disallow_rendering__7TObjectFv((void *) (arg0));
+    disallow_rendering__7TObjectFv((arg0));
     return arg0;
 }
 

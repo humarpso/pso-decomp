@@ -93,7 +93,7 @@ struct Quad_8025E350 {
     f32 uv[4];
 };
 
-void init_keyboard_text_buffer(void *, u32, u32);
+void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2);
 u8 calc_gauge_scale__20TWindowSubStatusDispFPvPvi(s32, void *, s32);
 s32 end_render_forward__20TWindowSubStatusDispFPv();
 void init_keyboard_text_field(u8 *arg0, u32 arg1, u32 arg2);

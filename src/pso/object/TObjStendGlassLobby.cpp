@@ -40,7 +40,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern u32 TObjStendGlassLobby__static_model_resource;
 extern s32 stend_glass_lobby_type;
-s32 init_map_object_base(void *);
+void *init_map_object_base(void *a0);
 extern s32 __vt__19TObjStendGlassLobby[];
 extern s32 TObjStendGlassLobby__name;
 u8 *TObjStendGlassLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -49,7 +49,7 @@ void *__dt__19TObjStendGlassLobbyFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);
-s32 draw_ginja_object(int);
+void draw_ginja_object(void *child);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -72,7 +72,7 @@ void TObjStendGlassLobby::render() {
             temp_f1 = *(f32 *)&this->_padCC;
             scale_matrix((int) (0), (f32) (temp_f1), (f32) (1.0f), (f32) (temp_f1));
         }
-        draw_ginja_object((int) (*(s32 *)&this->model));
+        draw_ginja_object((void *)(*(s32 *)&this->model));
         pop_matrix();
         TParticleCtrl::end_effect_render();
     }
@@ -172,7 +172,7 @@ void *__dt__19TObjStendGlassLobbyFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_803599F4___vt__19TObjStendGlassLobby_size[sizeof(RecoveredGlobal_803599F4___vt__19TObjStendGlassLobby) == 0x38 ? 1 : -1];
 u8 *TObjStendGlassLobby__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    init_map_object_base((void *) (arg0));
+    init_map_object_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_803599F4___vt__19TObjStendGlassLobby *)&__vt__19TObjStendGlassLobby).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjStendGlassLobby__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

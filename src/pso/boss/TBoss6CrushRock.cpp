@@ -18,8 +18,8 @@ struct Vec_8035A460 { f32 x, y, z; };
 extern "C" {
 s32 get_bml_model(int, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-s32 TBoss6Rock__sub_80353A04();
-s32 TBoss6Rock__sub_80353A0C();
+int TBoss6Rock__sub_80353A04(void);
+int TBoss6Rock__sub_80353A0C(void);
 s32 rand();
 extern RecoveredGlobal_8035A1A4___vt__15TBoss6CrushRock __vt__15TBoss6CrushRock;
 extern s32 TBoss6CrushRock__name;

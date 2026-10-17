@@ -8,14 +8,14 @@ extern "C" {
 
 s32 get_flag_40__8TItemMagFv();
 s32 post_translate_matrix(Sp8Type_80123524 *);
-s32 draw_ginja_object(void *);
+void draw_ginja_object(void *child);
 s32 get_attack_stage__11TItemWeaponFv();
 s32 draw_icon__10TObjPlayerFll(void *, s32, Sp8Type_80123524 *, s32);
 s32 draw_weapon_at_joint(void *, s32, void *);
 s32 warn_if_gauge_low__10TObjPlayerFv(s32);
 s32 set_model_fade_alpha__10TObjPlayerFf();
-s32 TObjPlayer__sub_8036414C();
-s32 TObjPlayer__sub_80364198();
+void TObjPlayer__sub_8036414C(void);
+void TObjPlayer__sub_80364198(void);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();

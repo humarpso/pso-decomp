@@ -40,8 +40,8 @@ extern s32 __vt__21TObjEneRe7BeruraPunch[];
 extern s32 lbl_805D2990;
 u8 *TObjEneRe7BeruraPunch__ct(u8 *arg0, s32 arg1, s32 arg2);
 void queue_destruction__7TObjectFv(void *);
-void *create_particle_emitter(void *, int);
-u32 find_entity_by_id(u16);
+void *create_particle_emitter(void *pos, s32 id);
+void *find_entity_by_id(u16 id);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -66,7 +66,7 @@ void TObjEneRe7BeruraPunch__sub_800962F4(void* p);
 void *__dt__21TObjEneRe7BeruraPunchFv(void *arg0, s16 arg1);
 void delete_buffer__12TBoss8DragonFis(void *, int);
 s32 TBoss8Dragon__sub_800BC5EC(s32, s32);
-void __dt__13TUnk_80490470Fv(void *, int);
+void *__dt__13TUnk_80490470Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 s32 fill_value_array(s32);
 
@@ -142,7 +142,7 @@ void TObjEneRe7BeruraPunch::run_task() {
         s = -sin_table_lookup(this->rotation_y);
         c = -cos_table_lookup(this->rotation_y);
         if (*(void * *)&this->m_d0 == NULL) {
-            *(void * *)&this->m_d0 = create_particle_emitter((u8 *)&this->position, 0xDD);
+            *(void * *)&this->m_d0 = create_particle_emitter(&this->position, 0xDD);
             if (*(void * *)&this->m_d0 != NULL) {
                 ((TBoss4Type2 *)(*(void * *)&this->m_d0))->set_flags(2);
                 ((TParticleCtrl *)(*(void * *)&this->m_d0))->enable();
@@ -156,7 +156,7 @@ void TObjEneRe7BeruraPunch::run_task() {
             ((TBoss4Type2 *)(*(void * *)&this->m_d0))->copy_vec3(&ang);
         }
         if (*(void * *)&this->m_d4 == NULL) {
-            *(void * *)&this->m_d4 = create_particle_emitter((u8 *)&this->position, 0x150);
+            *(void * *)&this->m_d4 = create_particle_emitter(&this->position, 0x150);
             if (*(void * *)&this->m_d4 != NULL) {
                 ((TBoss4Type2 *)(*(void * *)&this->m_d4))->set_flags(2);
                 ((TParticleCtrl *)(*(void * *)&this->m_d4))->enable();

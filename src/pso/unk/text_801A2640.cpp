@@ -55,7 +55,7 @@ void *TODoorLabo__ct(void *, void *, void *);
 void *TObjAreaWarpEnding__ct(void *, void *, void *);
 void *TObjAreaWarpForest__ct(void *, void *, void *);
 void *TObjAreaWarpQuest__ct(void *, void *, void *);
-void *TObjInfoCol__ct(void *, void *, void *);
+u8 *TObjInfoCol__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *TObjMapForceWarp__ct(void *, void *, void *);
 void *TObjMapWarpForest__ct(void *, void *, void *);
 void *TObjWarpLobby__ct(void *, void *, void *);
@@ -144,7 +144,7 @@ void *TODoorFourLightSpace__create(void *arg0) {
 void *TObjInfoCol__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xB0);
     if (o != NULL) {
-        o = TObjInfoCol__ct(o, tl_05, arg0);
+        o = TObjInfoCol__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

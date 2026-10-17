@@ -48,7 +48,7 @@ s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_801FB430___vt__13TRaderMapCore __vt__13TRaderMapCore;
 extern s32 TRaderMapCore__instance;
 u8 *__dt__13TRaderMapCoreFv(u8 *arg0, s16 arg1);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 construct_world_actor_base(void *, void *);
 s32 init_map_ptr__13TRaderMapCoreFv(void *, int);
 s32 fn_803D64F8(void *);

@@ -71,10 +71,10 @@ void TObjBoss2Tunnel__sub_802F2C84(void);
 void TObjBoss2Tunnel__sub_802F22DC(void);
 void TObjBoss2Tunnel__sub_802F22C4(void);
 s32 query_teammate_state__9TObjEneDDFv();
-s32 draw_particle_effect(int);
-s32 draw_tunnel_segment(int);
-s32 fn_802F1DAC(int);
-s32 fn_802F1E54(int);
+void draw_particle_effect(void *a0);
+void draw_tunnel_segment(u8 *arg0);
+void fn_802F1DAC(u8 *arg0);
+void fn_802F1E54(u8 *arg0);
 s32 is_split_screen();
 s32 get_current_floor();
 s32 reset_floats__15TObjBoss2TunnelFv(void *);
@@ -171,16 +171,16 @@ void TUnk_804E4B3C::render() {
     Nd_802F2348 *n;
     if (query_teammate_state__9TObjEneDDFv() == 0) {
         for (n = (*(Li_802F2348 **)((s8 *)arg0 + 0x90))->head; n != 0; n = n->next) {
-            draw_particle_effect((int)n);
+            draw_particle_effect(n);
         }
         for (n = (*(Li_802F2348 **)((s8 *)arg0 + 0x8C))->head; n != 0; n = n->next) {
-            fn_802F1E54((int)n);
+            fn_802F1E54((u8 *)n);
         }
         for (n = (*(Li_802F2348 **)((s8 *)arg0 + 0x8C))->head; n != 0; n = n->next) {
-            fn_802F1DAC((int)n);
+            fn_802F1DAC((u8 *)n);
         }
         for (n = (*(Li_802F2348 **)((s8 *)arg0 + 0x8C))->head; n != 0; n = n->next) {
-            draw_tunnel_segment((int)n);
+            draw_tunnel_segment((u8 *)n);
         }
     }
 }

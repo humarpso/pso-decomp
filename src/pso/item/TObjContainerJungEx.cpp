@@ -33,7 +33,7 @@ struct Spawn_8018CFD4 {
 struct Obj_8018CFD4 { u8 pad[0x38]; Vec_8018CFD4 pos; };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_container_base(void *, s32);
 extern RecoveredGlobal_8018D314_lbl_804B7168 container_jung_collision_desc;
@@ -122,12 +122,12 @@ void TObjContainerJungEx::vfunc_6(s16 *arg1, s32 arg2) {
             this->vfunc_79();
             ((TUnk_804B6C24 *)arg0)->spawn_item((s32)((void *) (arg0)));
             ((TUnk_804AF8A0 *)arg0)->set_flag8();
-            queue_destruction__7TObjectFv((void *) (arg0));
+            queue_destruction__7TObjectFv((arg0));
             this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
         ((TUnk_804AF8A0 *)arg0)->set_flag8();
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         this->mode = 1;
     }
 }

@@ -5,8 +5,8 @@
 struct Zone_8017E748 { u8 pad[0x9C]; s32 category; };
 
 extern "C" {
-s32 get_quest_bgm_issued_flag();
-void play_area_music(s32);
+int get_quest_bgm_issued_flag(void);
+void play_area_music(char *name);
 extern s32 area_music_filename_table[];
 extern s32 bgm_zone_category;
 extern s32 lbl_805D5B04;
@@ -38,7 +38,7 @@ void TObjBgmCol::run_task() {
                 if (zone->category == 4) {
                     TObjBgmColCtrl::play_lobby_theme_music();
                 } else {
-                    play_area_music(area_music_filename_table[zone->category]);
+                    play_area_music((char *)area_music_filename_table[zone->category]);
                 }
                 bgm_zone_category = zone->category;
             }

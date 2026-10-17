@@ -37,7 +37,7 @@ struct DrawTarget : DrawPrefix {
 struct Color { f32 a, r, g, b; };
 
 extern "C" {
-void copy_vec4__13TRaderMapCoreFPvPv(Color *, const Color *);
+void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 DrawTarget *query_game_join_id__10TObjPlayerFv(u32);
 extern u32 model_render_flags, chunk_polygon_flags_and_mask, chunk_polygon_flags_or_mask;
 extern u32 lbl_805D5660, lbl_805D5664, lbl_805D5668;

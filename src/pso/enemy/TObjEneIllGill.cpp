@@ -165,7 +165,7 @@ f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, void *);
 s32 push_matrix_from(void *);
-s32 pop_matrices(int);
+s32 pop_matrices(s32 arg0);
 u8 *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
 void enemy_set_heading_velocity(void *, s32, f32);
@@ -174,7 +174,7 @@ s32 move_with_wall_slide(void *);
 f32 horizontal_distance_squared(void *, void *);
 void TObjEneIllGill__sub_80367DA4(s32 arg0);
 u32 create_particle_emitter(void *, int);
-s32 set_indexed_flags(void *, int, int);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
 f32 get_collision_body_radius(void *, int);
 s32 select_enemy_destination(void *, Vec_80365688, int);
 s32 copy_position_if_valid__10TObjPlayerFii(void *, Vec_80365688);
@@ -341,9 +341,9 @@ struct Obj_80367B00 {
 };
 
 extern "C" {
-s32 spawn_particle_effect(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
 void TObjEneIllGill__sub_803669B0(u8 *arg0);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 extern const f32 TObjEneIllGill__data_805E02DC;
 extern const f32 lbl_805E02E0;
 extern const f32 lbl_805E02E4;
@@ -381,10 +381,10 @@ int TLobby__sub_8001FE7C(void*, void*);
 void *TObjControl__ct(void *, void *);
 void free_collision_body_parts(void *);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
-s32 enemy_wander_home(void *, int, f32, f32, f32);
+f32 enemy_wander_home(u8 *arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2);
 void __dl__7TObjectFPv(void *);
-void __dt__13TUnk_80494938Fv(void *, int);
-void __dt__9TObjEnemyFv(void *, int);
+void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
+void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 
 #pragma push
 #pragma opt_common_subs off
@@ -398,7 +398,7 @@ extern "C" {
 void vfunc_9__13TUnk_804B9870Fv();
 }
 extern "C" {
-void __dt__15TObjIllGillKageFv();
+void *__dt__15TObjIllGillKageFv(void *arg0, s16 arg1);
 }
 extern "C" {
 void apply_object_set_data__13TUnk_804B9870FPv();
@@ -878,7 +878,7 @@ void TObjEneIllGill::update_death_fall() {
       if (objInBand((GameObj *)arg0, (f32)((f32) TObjEneIllGill__data_805E02C0)) != 0)
     {
       *((s16 *) (((s8 *) arg0) + 0x328)) = 3;
-      spawn_particle_effect((void *) (arg0 + 0x38), (int) 0xF0);
+      spawn_particle_effect((arg0 + 0x38), (int) 0xF0);
       return;
     }
       break;
@@ -898,7 +898,7 @@ void TObjEneIllGill::update_death_fall() {
       *((s32 *) (((s8 *) arg0) + 0x3A0)) = temp_r0_2;
       if (temp_r0_2 < 0)
     {
-      queue_destruction__7TObjectFv((void *) arg0);
+      queue_destruction__7TObjectFv(arg0);
     }
       break;
   }
@@ -914,7 +914,7 @@ void TObjEneIllGill::vfunc_63() {
         temp_r5 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xA4));
         *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) & 0xFFFF7FFE);
         ((TObjEneIllGill *)arg0)->free_resources();
-        spawn_particle_effect((void *) (arg0 + 0x2FC), (int) (0xF2));
+        spawn_particle_effect((arg0 + 0x2FC), (0xF2));
         ((TObjPlayer *)arg0)->refresh_lobby_state();
         ((TObjEnemy *)arg0)->send_entity_set_flags();
     }
@@ -1431,7 +1431,7 @@ void TObjEneIllGill::run_attack_phase() {
         } else {
             *(f32 *)&this->m_300 = (f32) (*(f32 *)&this->m_300 + TObjEneIllGill__data_805E02DC);
             temp_r4 = (unsigned char *) (*(void * *)&this->movementParameters);
-            enemy_wander_home((void *) (arg0), (int) (*(s32 *)((s8 *)temp_r4 + 8)), (f32) (lbl_805E02E8 * *(f32 *)((s8 *)temp_r4 + 4)), (f32) (lbl_805E02C4), (f32) (lbl_805E02FC));
+            enemy_wander_home((arg0), (*(s32 *)((s8 *)temp_r4 + 8)), (f32) (lbl_805E02E8 * *(f32 *)((s8 *)temp_r4 + 4)), (f32) (lbl_805E02C4), (f32) (lbl_805E02FC));
         }
         ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
         break;
@@ -1511,7 +1511,7 @@ void TObjEneIllGill::sub_80367DC8(s32 arg1) {
     push_matrix_from((void *) (&identity_matrix.value));
     rotate_matrix_y((int) (0), (void *) (arg1));
     rotate_vector_by_matrix((int) (0), (void *) (&lbl_8050BF00.value), (void *) (&lbl_8050BF00.value));
-    pop_matrices((int) (1));
+    pop_matrices((1));
     vec3_add_to((void *) (&lbl_8050BF00.value), (void *) (((u8 *)this) + 0x38));
     project_actor_to_ground((void *) (((u8 *)this)), (void *) (&lbl_8050BF00.value), (int) (0));
 }
@@ -1642,10 +1642,10 @@ struct VObj_14_80368208 : VBase_14_80368208 {
     virtual void m7();
     virtual s32 m8();
 };
-void select_actor_lighting(void *);
+void select_actor_lighting(s32 obj);
 void scale_matrix(int, f32, f32, f32);
 void push_matrix(void);
-void pop_matrix(void);
+s32 pop_matrix(void);
 void post_translate_matrix(void *);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -1663,7 +1663,7 @@ void TObjEneIllGill::render() {
     }
     *(s32 *)&this->m_3a8 = ((VObj_18_80368208 *)arg0)->m9(lbl_805E0300, lbl_805E0304, lbl_805E02F4);
     if (*(s32 *)&this->m_3a8 != 0) {
-        select_actor_lighting(arg0);
+        select_actor_lighting((s32)arg0);
         TObjFish::set_global_param(this->texture_id);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);

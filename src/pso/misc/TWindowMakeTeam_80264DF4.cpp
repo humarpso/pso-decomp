@@ -21,7 +21,7 @@ typedef struct Self_80264EB8 {
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-void TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 s32 update_selected_entry__17TWindowSubComCardFv(void *);
 void *__nw__7TObjectFUl(u32);
 void *TKeyBoardControl__ct(void *, void *, s32, s32, s32, s32);
@@ -67,7 +67,7 @@ void TWindowMakeTeam::run_task() {
             self->keyboard = NULL;
         }
         if (self->window != NULL) {
-            TWindow__close(self->window);
+            TWindow__close((u8 *)self->window);
             self->window = NULL;
         }
         ((TWindowSubComCard *)(self->menu))->clear_flag_and_release2();

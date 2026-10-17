@@ -11,14 +11,14 @@ struct Name_8020A834 { char s[0x20]; };
 extern "C" {
 s32 read_disc_file(Name_8020A768 *, void *);
 void replace_file_extension__6TLobbyFPvPvPv(Name_8020A768 *, s32, const void *);
-void bswap_enemy_set_row(Ent_8020A768 *);
+void bswap_enemy_set_row(void *arg0);
 void reserve_enemy_set_actor_ids(struct SpawnRecord_8020A9C4 *, s32, s32);
 void init_floor_enemy_count__6TLobbyFlPUcUl(s32, Ent_8020A768 *, s32);
 extern u8 lbl_8044BBA8[];
 extern Ent_8020A768 *TLobby__map_set_file_buffer;
 extern s32 TLobby__map_set_file_buffer_size;
 s32 load_enemy_set_file(s32 arg0, s32 arg1);
-void swap_object_row_endian(Ent_8020A834 *);
+void swap_object_row_endian(void *arg0);
 void load_object_set_entries__6TLobbyFlPUcUl(s32, Ent_8020A834 *, s32);
 extern u8 lbl_8044BBB0[];
 s32 load_object_set_file(s32 arg0, s32 arg1);
@@ -75,9 +75,9 @@ s32 load_object_set_file(s32 idx, s32 arg1) {
     return 1;
 }
 
-s32 copy_name(s32 *);
-s32 advance_enemy_id_counter(u16);
-s32 advance_object_id_counter(u16);
+void copy_name(s32 arg0);
+void advance_enemy_id_counter(s32 arg0);
+void advance_object_id_counter(s32 arg0);
 s32 load_enemy_set_file(s32, s32);
 s32 load_object_set_file(s32, s32);
 extern s32 map_set_data_handle_a;
@@ -99,7 +99,7 @@ void load_map_set_data(s32 idx, s32 arg1) {
     TLobby__next_enemy_set_actor_id = 0;
     map_object_id_counter = 0;
     map_set_enemy_id_counter = 0;
-    copy_name(&lbl_805DC620);
+    copy_name((s32)&lbl_805DC620);
     TLobby__data_805D6134 = 0;
     if (TLobby::init_handle(0x8000) != 0) {
         load_object_set_file(idx, arg1);
@@ -111,7 +111,7 @@ void load_map_set_data(s32 idx, s32 arg1) {
         TLobby::free_data_60F0();
         TLobby__data_805D6134 |= 1;
     }
-    copy_name(&lbl_805DC624);
+    copy_name((s32)&lbl_805DC624);
 }
 
 }

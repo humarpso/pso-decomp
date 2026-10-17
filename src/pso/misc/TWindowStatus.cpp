@@ -21,19 +21,19 @@ s32 TWindowSubComCard__sub_802454E4(int);
 s32 TWindowSubComCard__sub_80245558(void *, void *, void *);
 s32 apply_context_transform_to_rect(void *, void *);
 void draw_photon_blast_gauge_ring(s32, void *, const f32 *, f32, f32);
-s32 begin_screen_draw(int);
+void begin_screen_draw(s32 arg0);
 s32 draw_textured_quad_at_depth(void *, f32);
-s32 set_draw_texture_and_color(int, int);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern const f32 lbl_8044F650[];
 extern const f32 lbl_805DD434;
 extern void *lbl_805D63F0;
 
-s16 obj_getS16_2BA(void *);
+s16 obj_getS16_2BA(u8 *p);
 s32 update_hp_gauge__20TWindowSubStatusDispFi(void *);
 u8 *get_player_by_client_id();
 s32 get_width__19TWindowSimpleStatusFv();
 s32 draw_right_aligned_number(void *);
-s32 set_status_entry_target(void *, s32);
+void set_status_entry_target(void *arg0, s32 arg1);
 extern const f32 lbl_805DD430;
 void update_hp_tp_values__20TWindowSubStatusDispFPv(u8 *arg0);
 
@@ -50,8 +50,8 @@ s32 get_window_layout_position(s32);
 
 void __dl__7TObjectFPv(void *);
 void __dt__19TWindowSimpleStatusFv(void *, int);
-s32 update_lockon_window(s32);
-s32 update_status_help_item(s32);
+void update_lockon_window(u8 *arg0);
+void update_status_help_item(s32 arg0);
 
 void update_hp_tp_values__20TWindowSubStatusDispFPv(u8 *arg0) {
     u8 *pl;
@@ -163,7 +163,7 @@ void TWindowStatus::render() {
 void TWindowStatus::run_task() {
     s32 arg0 = (s32)this;
     ((s32 (*)(void))update_hp_tp_values__20TWindowSubStatusDispFPv)();
-    update_lockon_window(arg0);
+    update_lockon_window((u8 *)arg0);
     update_status_help_item(arg0);
     ((TWindowSimpleStatus *)arg0)->update_status_icons((void *)(get_window_layout_position(0x1D)));
     ((TWindowDD *)arg0)->initialize_subwindow();

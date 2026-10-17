@@ -67,7 +67,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern u32 freeze_shell_bml_resource;
 s32 construct_actor_base__10TObjPlayerFPvPv(void *, void *);
 s16 obj_getField1c(void *);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 get_bml_model(void *, int);
 u8 *get_quest_id__12TQuestListVMFv(void *);
 s32 create_particle_emitter(void *, int);
@@ -171,7 +171,7 @@ u8 *TObjPlayer::construct_freeze_shell(u8 *arg1, u8 *arg2) {
         ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_354 = 0;
     } else {
         ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_350 = 0;
-        queue_destruction__7TObjectFv((void *) (((u8 *)this)));
+        queue_destruction__7TObjectFv((((u8 *)this)));
     }
     return ((u8 *)this);
 }

@@ -35,7 +35,7 @@ struct Pkt_801D5FC0 { u16 hdr; u16 id; };
 extern "C" {
 s32 get_current_floor();
 s32 get_player_by_client_id(int);
-s32 TFontSmallLobby__sub_801C01BC(void *);
+int TFontSmallLobby__sub_801C01BC(void *p);
 s32 send_photon_blast_ready__15TFontSmallLobbyFv(void *);
 s32 handle_photon_blast_ready__15TFontSmallLobbyFv(void *, void *);
 s32 reset_key_machine_state__10TObjPlayerFv();
@@ -67,7 +67,7 @@ void handle_6x3B_clear_temporary_photon_blast_state_flags(s32 arg0) {
     s32 temp_r3;
     ((TFontSmallLobby *)(&sp8))->init_pkt_cmd_3B();
     TFontSmallLobby__sub_801D6804((void *) (&sp8), (void *) (arg0));
-    TFontSmallLobby__sub_801C01BC((void *) (&sp8));
+    TFontSmallLobby__sub_801C01BC((&sp8));
     if (validate_6x3B_clear_temporary_photon_blast_state_flags((void *) (&sp8)) != 0) {
         temp_r3 = get_player_by_client_id((int) (sp8.b));
         if (temp_r3 != 0) {
@@ -93,7 +93,7 @@ void handle_6x3A_clear_photon_blast_ready_flag(s32 arg0) {
     u8 *player;
     ((TFontSmallLobby *)(&sp8))->init_6x3A_packet();
     clear_photon_blast_ready_flag__15TFontSmallLobbyFv((void *) (&sp8), (void *) (arg0));
-    TFontSmallLobby__sub_801C01BC((void *) (&sp8));
+    TFontSmallLobby__sub_801C01BC((&sp8));
     if (validate_6x3A_clear_photon_blast_ready_flag((void *) (&sp8)) != 0) {
         player = (u8 *)get_player_by_client_id((int) (sp8.b));
         if (player != 0) {
@@ -118,7 +118,7 @@ void handle_6x39_set_photon_blast_ready_flag(s32 arg0) {
     s32 v;
     ((TFontSmallLobby *)(&sp8))->init_6x39_packet();
     handle_photon_blast_ready__15TFontSmallLobbyFv((void *) (&sp8), (void *) (arg0));
-    TFontSmallLobby__sub_801C01BC((void *) (&sp8));
+    TFontSmallLobby__sub_801C01BC((&sp8));
     if (validate_6x39_set_photon_blast_ready_flag((void *) (&sp8)) != 0) {
         player = get_player_by_client_id((int) (sp8.b));
         if ((player != 0) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
@@ -181,7 +181,7 @@ void handle_6x38_donate_to_photon_blast(s32 arg0) {
 
 void draw_party_label__15TFontSmallLobbyFiUis(s32 arg0, u32 arg1, s16 arg2);
 s32 subtract_photon_blast_charge(s32, f32);
-s32 TFontSmallLobby__sub_801D671C(s32, s32);
+void TFontSmallLobby__sub_801D671C(void *a0, int a1);
 s32 set_flag_40_bit5__15TFontSmallLobbyFv();
 s32 create_party_effect__11TWindowCtrlFPvPv(s16, s16);
 s16 obj_getField1c(u32);
@@ -194,7 +194,7 @@ void draw_party_label__15TFontSmallLobbyFiUis(s32 arg0, u32 arg1, s16 arg2) {
     set_flag_40_bit5__15TFontSmallLobbyFv();
     subtract_photon_blast_charge(arg0, lbl_805DC3D8);
     ((TFontSmallLobby *)(arg0 + 0x4C))->set_target_index(8);
-    TFontSmallLobby__sub_801D671C(arg0 + 0x4C, 1);
+    TFontSmallLobby__sub_801D671C((void *)(arg0 + 0x4C), 1);
     create_party_effect__11TWindowCtrlFPvPv(obj_getField1c(arg1), arg2);
     if ((arg1 == 0U) || (((s32 (*)(u32)) obj_isState2_324__13TUnk_804806E8Fv)(arg1) == 0)) {
         TFontSmallLobby__sub_801D698C((void *) &sp8);

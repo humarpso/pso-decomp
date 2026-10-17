@@ -93,22 +93,22 @@ extern "C" {
 extern const f32 lbl_805DEF18;
 void fn_8002B630(void *, void *);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-void *TBoss8Dragon__sub_800BC5EC(void *, s32);
+u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1);
 extern u8 boss8_dragon_eff_tail_init_data[];
 extern s32 __vt__19TBoss8DragonEffTail[];
 extern s32 TBoss8DragonEffTail__name;
 extern const f32 lbl_805DEF14;
 EffTail_8002C06C *TBoss8DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 arg2);
-void update_collider_contact_by_height(void *, f32);
+void update_collider_contact_by_height(u8 *arg0, f32 farg0);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 s32 vec3_add_to(s32, s32, s32);
 void matrix_mult_vec(s32, void *, void *);
-void set_matrix_identity(s32);
+void set_matrix_identity(u8 *arg0);
 void rotate_matrix_y(s32, s32);
-void translate_matrix(s32, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 void push_matrix(void);
-void pop_matrix(void);
+s32 pop_matrix(void);
 extern P8_802FE494 lbl_80474BBC[];
 extern const f32 lbl_805DEF08;
 extern const f32 lbl_805DEF0C;
@@ -211,7 +211,7 @@ EffTail_8002C06C *TBoss8DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 
     arg0->unkB4 = arg2;
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
     if (p != 0) {
-        p = TBoss8Dragon__sub_800BC5EC(p, 4);
+        p = TBoss8Dragon__sub_800BC5EC((u8 *)p, 4);
     }
     arg0->unkB8 = p;
     arg0->unkBC = 0;

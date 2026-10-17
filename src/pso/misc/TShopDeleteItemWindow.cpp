@@ -72,13 +72,13 @@ void TWindow__close(void *);
 s32 get_selected_menu_value(int);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(int);
 void handle_confirm_dialog__21TShopDeleteItemWindowFPv(u8 *arg0);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 TShopDeleteItemWindow__sub_80337E2C(void *);
 u16 obj_getField1c(void *);
 f32 get_scale__15TShopWindowBaseFv(void *);
 void *create_yes_no_window(void *, int, int, int);
 void *get_window_layout_position(int);
-s32 copy_bank_item_with_stack_limit(int, void *, void *, int);
+s32 copy_bank_item_with_stack_limit(s32 idx, void *data, s32 *out, s32 slot);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 s16 get_child_field1c__13TShopSequenceFv(void *);
@@ -93,9 +93,9 @@ struct VObj_80337980_80337910 : Base_80337980_80337910 {
 
 void *TShopDeleteItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
 void *__dt__21TShopDeleteItemWindowFv(void *arg0, s16 arg1);
-void __ct__15TShopWindowBaseFv(void *);
+void *__ct__15TShopWindowBaseFv(void *arg0);
 void __dl__7TObjectFPv(void *);
-void __dt__15TShopWindowBaseFv(void *, int);
+void *__dt__15TShopWindowBaseFv(void *self, s16 m);
 void init__9TItemDataFv(void *);
 
 void TShopDeleteItemWindow::vfunc_7() {
@@ -262,14 +262,14 @@ void TShopDeleteItemWindow::vfunc_11() {
         if (temp_r12 != NULL) {
             temp_r12(*(s32 *)((s8 *)arg0 + 0x64));
         }
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     case 7:
         temp_r12_2 = *(s32 (**)(s32))((s8 *)arg0 + 0x28);
         if (temp_r12_2 != NULL) {
             temp_r12_2(*(s32 *)((s8 *)arg0 + 0x64));
         }
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
     default:
         return;
     }

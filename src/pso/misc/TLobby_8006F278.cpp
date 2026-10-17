@@ -83,7 +83,7 @@ s32 TLobby__sub_8006F5B0(s32 arg0);
 s32 strncpy(void *, void *, int);
 extern RecoveredGlobal_8006F848_lbl_804FF800 lobby_name_string_buffer;
 s32 decode_slot__6TLobbyFUi(u32 id);
-s16 TLobby__sub_80071640(int);
+u32 TLobby__sub_80071640(u32 c);
 s32 strncmp(void *, void *, int);
 void TLobby__sub_8006F48C(void);
 s32 calc_layout_hash__20TWindowSubStatusDispFv(int);
@@ -312,7 +312,7 @@ s32 decode_slot__6TLobbyFUi(u32 arg0) {
 s32 TLobby__sub_8006FBE4(void);
 s32 mix_seed__6TLobbyFUs(u16 arg0);
 u16 TLobby__sub_8006FAE4(void);
-u32 get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 
 s32 mix_seed__6TLobbyFUs(u16 arg0) {
     s32 temp_r3;

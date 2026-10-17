@@ -34,7 +34,7 @@ extern void *__vt__17TAdFloorLoadPrtGC[];
 TAdFloorLoadPrtGC_8034AD38 *__dt__17TAdFloorLoadPrtGCFv(TAdFloorLoadPrtGC_8034AD38 *self, s16 deleting);
 extern s16 lbl_804F0070[];
 void push_recent_id(s16 arg0);
-void *create_particle_controller_with_angles(void *, void *, int, int, int);
+void *create_particle_controller_with_angles(void *arg0, void *arg1, s32 arg2, s32 arg3, u16 arg4);
 s32 __ct__7TObjectFP7TObject(void *);
 void *memset(void *, int, u32);
 extern Vec_8034ADE0 floor_load_particle_positions[];

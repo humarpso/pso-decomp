@@ -25,8 +25,8 @@ struct Win_80246DCC {
 
 s32 get_shared_text_buffer(void);
 Entry_80246DCC *get_array_entry__13TUnk_804CE018Fi(void *, s32);
-void append_padded_number(s32, s32);
-void text_builder_append(const char *);
+void append_padded_number(s32 v, u8 n);
+void text_builder_append(u8 *str);
 void text_builder_reset(void);
 void refresh_status_display__9TWindowDDFv(Entry_80246DCC *);
 void draw_right_aligned_number(void);
@@ -43,7 +43,7 @@ void *dt__22TWindowChallengeResultFPvs(void *arg0, s16 arg1);
 void init_subwindow__22TWindowChallengeResultFPv(void* p);
 void __dl__7TObjectFPv(void *);
 
-extern "C" void fn_80246CE8();
+extern "C" void fn_80246CE8(s32 arg0);
 extern "C" u8 lbl_8044E790[];
 extern "C" u8 lbl_8044E7A0[];
 extern "C" u8 lbl_8044E7B0[];
@@ -108,14 +108,14 @@ Win_80246DCC *TWindowChallengeResult__ct(Win_80246DCC *self, s32 arg1, s32 arg2,
     m = arg2 / 3600;
     arg2 = arg2 % 3600;
     if (m > 99) {
-        text_builder_append(lbl_8044E7BC);
+        text_builder_append((u8 *)lbl_8044E7BC);
     } else {
         append_padded_number(m, 2);
-        text_builder_append(lbl_805DCB64);
+        text_builder_append((u8 *)lbl_805DCB64);
         m = arg2 / 60;
         arg2 = arg2 % 60;
         append_padded_number(m, 2);
-        text_builder_append(lbl_805DCB64);
+        text_builder_append((u8 *)lbl_805DCB64);
         append_padded_number(arg2, 2);
     }
     set_text_entry_string(e, get_shared_text_buffer(), 0x20);

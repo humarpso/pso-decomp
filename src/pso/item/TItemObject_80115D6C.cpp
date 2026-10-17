@@ -43,7 +43,7 @@ u8 get_field_ed__5TItemFv(void *);
 s32 TItemObject__sub_80115DE8(void *item);
 s32 set_hp_clamped__10TObjPlayerFs(void *, s32);
 s32 get_field_2b8__14TItemProShieldFv(void *);
-s32 spawn_particle_effect(void *, s32);
+void *spawn_particle_effect(void *pos, s32 id);
 s32 reset_key_machine_state__10TObjPlayerFv();
 void handle_6x66_use_star_atomizer(u8 *arg0);
 void *TObjPlayer__sub_80116620(void *, s32);
@@ -69,15 +69,15 @@ void vfunc_44__11TItemObjectFv(void *arg0);
 s32 vfunc_36__11TItemObjectFv(void);
 void run_task__5TItemFv(); void dispatch_state__5TItemFv(); void render_shadows__5TItemFv();
 void vfunc_6__13TUnk_804B9870FPsl(); void apply_object_set_data__13TUnk_804B9870FPv(); void release_member_90__10TObjPlayerFv();
-void TItem__sub_80100B8C(); void classify_actor_view_detail__13TUnk_804B9870Ffff(); void register_attack__5TItemFv();
+int TItem__sub_80100B8C(void *p); void classify_actor_view_detail__13TUnk_804B9870Ffff(); void register_attack__5TItemFv();
 void try_pick_up_item__5TItemFl(); void TItem__sub_801005E0(); void vfunc_16__5TItemFv();
 void vfunc_17__5TItemFv(); void vfunc_19__5TItemFSc(); void vfunc_20__5TItemFv();
 void vfunc_21__5TItemFPUclll(); void vfunc_22__5TItemFl(); void vfunc_23__5TItemFl();
 void vfunc_24__5TItemFllPs(); void vfunc_25__5TItemFv(); void vfunc_26__5TItemFv();
 void vfunc_27__5TItemFv(); void vfunc_28__5TItemFv(); void destroy__5TItemFv();
 void vfunc_30__5TItemFv(); void vfunc_32__5TItemFv(); void vfunc_33__5TItemFv();
-void vfunc_34__5TItemFv(); void vfunc_35__5TItemFv(); void ret_8010064C(); void TItem__sub_80100648();
-void TItem__sub_801005E4(); void TItem__sub_801005D8(); void vfunc_43__5TItemFv();
+void vfunc_34__5TItemFv(); void vfunc_35__5TItemFv(); int ret_8010064C(void); void TItem__sub_80100648();
+int TItem__sub_801005E4(void); void TItem__sub_801005D8(); void vfunc_43__5TItemFv();
 void *__vt__11TItemObject[] = {
     0, 0,
     (void *)__dt__11TItemObjectFv, (void *)run_task__5TItemFv, (void *)dispatch_state__5TItemFv,
@@ -286,7 +286,7 @@ s32 set_stack_count__24TShopEquipmentListWindowFSc(void *, void *);
 void *TItemObject__ct(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-void *lookup_item_pmt_record(void *);
+void *lookup_item_pmt_record(u8 *item);
 s32 TItem__ct();
 s32 consume_item_by_id();
 s32 check_flag_400__20TWindowSubStatusDispFv();
@@ -355,7 +355,7 @@ void *TItemObject__ct(void *arg0, void *arg1, void *item) {
     TItem__ct();
     *(void **)((s8 *)arg0 + 0x18) = (void *) __vt__11TItemObject;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C28;
-    *(void **)((s8 *)arg0 + 0xF8) = lookup_item_pmt_record(item);
+    *(void **)((s8 *)arg0 + 0xF8) = lookup_item_pmt_record((u8 *)item);
     ((TItemObject *)arg0)->m_100 = (u8) *(u8 *)((s8 *)item + 4);
     ((TItemObject *)arg0)->store_encoded_value(get_item_type_or_default__9TItemListFv(item));
     if (*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF8)) + 0x10) & 1) {
@@ -384,7 +384,7 @@ u8 *TItemObject::create() {
     return NULL;
 }
 
-void __dt__5TItemFv(void *, int);
+void *__dt__5TItemFv(void *arg0, s16 arg1);
 
 s32 (*TLobby__sub_8010440C())(s32);
 

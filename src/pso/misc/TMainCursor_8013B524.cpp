@@ -8,15 +8,15 @@ extern "C" {
 struct VOff_8013B524_arg0_8013B524 { char pad_0[0x4C]; char f_4C[1]; };
 
 void render__11TMainCursorFPv(u8 *arg0);
-void TMainCursor__sub_8013E2DC(void);
+int TMainCursor__sub_8013E2DC(void);
 s32 rotate_matrix_z(s32, s32);
 void draw_chunk_object(void);
 s32 rotate_matrix_y(s32, s32);
-s32 translate_matrix(s32, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
 s32 pop_matrix();
 s32 offset_point_toward_camera(void *, s32 *, f32);
-s32 translate_matrix_vec3(s32, s32 *);
+void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 
 void TMainCursor::update_chair() {
     struct VOff_8013B524_arg0_8013B524 *self = (struct VOff_8013B524_arg0_8013B524 *)this;
@@ -38,7 +38,7 @@ void render__11TMainCursorFPv(u8 *arg0) {
     temp_f31 = *(f32 *)((s8 *)arg0 + 0x30);
     push_matrix();
     offset_point_toward_camera(arg0 + 0x40, &sp8, ((TMainCursor *)arg0)->m_2c);
-    translate_matrix_vec3(0, &sp8);
+    translate_matrix_vec3((u8 *)(0), (u8 *)&sp8);
     rotate_matrix_y(0, *(s32 *)((s8 *)camera_ctrl_instance + 0x194));
     push_matrix();
     rotate_matrix_z(0, 0x2AAA);

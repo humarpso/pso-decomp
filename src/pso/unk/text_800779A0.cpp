@@ -10,7 +10,7 @@ extern u8 *lbl_805D4E5C;
 void fn_800779A0(u8 *arg0);
 u32 *fn_800779FC(u32 *dst, u32 *src);
 void *__construct_array(void *, void *, void *, u32, u32);
-void fn_80077A70(void);
+s32 fn_80077A70(s32 arg0);
 Obj_80077A28 *construct_entry_array(Obj_80077A28 *self);
 void fn_800779A0(u8 *src) {
     s32 temp_r3;

@@ -29,17 +29,17 @@ struct RecoveredGlobal_8032C618___vt__17TAdExNetConfirmGC { s32 value; u8 remain
 typedef char RecoveredGlobal_8032C618___vt__17TAdExNetConfirmGC_size[sizeof(RecoveredGlobal_8032C618___vt__17TAdExNetConfirmGC) == 0x28 ? 1 : -1];
 
 extern "C" {
-s32 get_localized_text_entry(int, int);
+s32 get_localized_text_entry(s32 arg0, s32 arg1);
 void TKeyBoardControl__sub_8000F9CC(s32);
 void queue_destruction__7TObjectFv(void *);
 s32 TLobby__sub_80145A94(void);
 s32 TLobby__sub_80145DB4(s32);
-u8 * TAdWarningBaseGC__ct(void *);
+void *TAdWarningBaseGC__ct(void *arg0);
 extern s32 __vt__17TAdExNetConfirmGC[];
 extern s32 lbl_805D4200;
 u8 *TAdExNetConfirmGC__ct(u8 *arg0);
 void *__dt__17TAdExNetConfirmGCFv(void *arg0, s16 arg1);
-void __dt__16TAdWarningBaseGCFv(void *, int);
+void *__dt__16TAdWarningBaseGCFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 
@@ -50,10 +50,10 @@ void TAdExNetConfirmGC::render() {
 
 void TAdExNetConfirmGC::vfunc_7() {
     if (TAdExNetConfirmGC::is_confirmed() != 0) {
-        get_localized_text_entry((int) (0x22), (int) (1));
+        get_localized_text_entry((0x22), (1));
         return;
     }
-    get_localized_text_entry((int) (0x22), (int) (0));
+    get_localized_text_entry((0x22), (0));
 }
 
 int TAdExNetConfirmGC::vfunc_6() { return request_scene_change__21TAdMultiChgGameModeGCFv(this); }

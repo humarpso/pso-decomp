@@ -71,7 +71,7 @@ s32 *TLobby__sub_80291D4C(void);
 void calc_spherical_camera_position__13TUnk_804DAB08Fv(CreationCamera*);
 int creation_camera_mode;
 void *TCameraCtrl__sub_80291C64(void *arg0, s16 arg1);
-void __dt__13TUnk_80488A28Fv(void *, int);
+void *__dt__13TUnk_80488A28Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 typedef char RecoveredGlobal_80291D4C_lbl_80540958_size[sizeof(RecoveredGlobal_80291D4C_lbl_80540958) == 0x10 ? 1 : -1];

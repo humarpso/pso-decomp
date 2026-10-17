@@ -18,21 +18,21 @@ u8 *__ct__13TObjBoss7DustFv(u8 *arg0, s32 arg1, s32 arg2);
 void fn_802F105C(void);
 void fn_802F1084(void);
 void init_scene_boss2_tunnel(void);
-int TObjBoss2Tunnel__sub_802F2C4C(void);
-int TObjBoss2Tunnel__sub_802F2C50(void);
-int TObjBoss2Tunnel__sub_802F2C84(void);
-int TObjBoss7DustCtrl__sub_802F1450(void);
-int fn_802F0E24(void);
-int load_boss7_common_resources(void);
-int boss7_dust_draw_at(void*, void*);
-int fn_802F1454(void);
-int fn_802F19C0(void);
+void TObjBoss2Tunnel__sub_802F2C4C(void);
+void TObjBoss2Tunnel__sub_802F2C50(void);
+void TObjBoss2Tunnel__sub_802F2C84(void);
+void TObjBoss7DustCtrl__sub_802F1450(void);
+void fn_802F0E24(void);
+void load_boss7_common_resources(void);
+void boss7_dust_draw_at(s32 *arg0, s32 arg1);
+void fn_802F1454(void);
+void fn_802F19C0(void);
 s32 queue_destruction__7TObjectFv();
 
 void fn_802F105C(void) { TObjBoss7DustCtrl__sub_802F1450(); TObjBoss2Tunnel__sub_802F2C4C(); fn_802F0E24(); }
 void fn_802F1084(void) { TObjBoss2Tunnel__sub_802F2C50(); fn_802F19C0(); TObjBoss7DustCtrl::create(); }
 void init_scene_boss2_tunnel(void) { load_boss7_common_resources(); TObjBoss2Tunnel__sub_802F2C84(); fn_802F1454(); }
-void TObjBoss7Dust::render() { boss7_dust_draw_at((char*)this + 0x24, *(void**)((char*)this + 0x20)); }
+void TObjBoss7Dust::render() { boss7_dust_draw_at((s32 *)((char*)this + 0x24), (s32)(*(void**)((char*)this + 0x20))); }
 
 extern const f32 lbl_805DEC68;
 

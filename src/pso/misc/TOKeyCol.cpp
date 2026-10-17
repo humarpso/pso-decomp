@@ -19,7 +19,7 @@ void TOKeyCol__vt16(void);
 void *__dt__8TOKeyColFv(void *arg0, s16 arg1);
 s32 TOKey__ct();
 void __dl__7TObjectFPv(void *);
-void __dt__5TOKeyFv(void *, int);
+void *__dt__5TOKeyFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 
 void TOKeyCol::vfunc_19() {  }

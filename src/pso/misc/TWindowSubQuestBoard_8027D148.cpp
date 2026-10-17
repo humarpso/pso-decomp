@@ -6,7 +6,7 @@ extern "C" {
 
 int TWindowSubQuestBoard__sub_8027D1DC(void* p);
 void TWindowCtrl__sub_8027D214(void);
-void *TWindowSubQuestBoardSelect__ct(void *);
+u8 *TWindowSubQuestBoardSelect__ct(u8 *arg0);
 void *__nw__7TObjectFUl(int);
 
 extern void *TWindowSubQuestBoard__class_name;
@@ -19,7 +19,7 @@ TWindowSubQuestBoard::TWindowSubQuestBoard(TObject *arg1, void *arg2) : TObject(
     *(void **)((s8 *)this + 0x20) = arg2;
     o = __nw__7TObjectFUl(0x68);
     if (o != NULL) {
-        o = TWindowSubQuestBoardSelect__ct(o);
+        o = TWindowSubQuestBoardSelect__ct((u8 *)o);
     }
     *(void **)((s8 *)this + 0x28) = o;
     this->m_2c = 0;

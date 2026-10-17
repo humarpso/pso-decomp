@@ -5,9 +5,9 @@ struct Quad_80336874 { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
 
 extern "C" {
 void bind_title_texture_list(void);
-s32 begin_screen_draw(int);
+void begin_screen_draw(s32 arg0);
 s32 draw_textured_quad_at_depth(void *, f32);
-s32 set_draw_texture_and_color(int, int);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern const f32 lbl_805DF910;
 extern const f32 lbl_805DF914;
 extern const f32 lbl_805DF918;

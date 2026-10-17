@@ -12,8 +12,8 @@ struct RecoveredGlobal_802A4CC4_lbl_804DCFF8 {
 extern "C" {
 s32 TObjPlayer__sub_802A445C(void *, s32);
 u32 find_entity_by_id(u16);
-s32 TNeedleShoot__sub_802A4668(void *);
-s32 queue_destruction__7TObjectFv(void *);
+void TNeedleShoot__sub_802A4668(void *arg0);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 update_lifetime__22TObjEneMe1GiGueMissileFv(void *);
 u16 obj_getField1c(void *);
 u8 * TNeedleShoot__ct(void *, s32, void *, void *);
@@ -36,7 +36,7 @@ s32 pop_matrix();
 void TObjEneMe1Gee_NEEDLE::render() {
     u8 *arg0 = (u8 *)this;
     if ((u32) me1gee_cached_model_handle == 0U) {
-        queue_destruction__7TObjectFv((void *)(arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     push_matrix();
@@ -54,7 +54,7 @@ void TObjEneMe1Gee_NEEDLE::render() {
 void TObjEneMe1Gee_NEEDLE::run_task() {
     this->m_1c = find_entity_by_id(this->m_34);
     if ((u32) this->m_1c == 0U) {
-        queue_destruction__7TObjectFv((void *)(this));
+        queue_destruction__7TObjectFv((this));
         return;
     }
     if ((s32) *(s32 *)&this->m_b8 == 1) {

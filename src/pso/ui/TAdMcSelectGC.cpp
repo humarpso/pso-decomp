@@ -25,7 +25,7 @@ void *__ct__10TAdTitleGCFP7TObjectl(void *, void *, s32);
 void *__ct__15TAdChrSelSlotGCFP7TObject(void *, void *);
 void TAdMcSelectGC__sub_8032A180(void *, s32);
 void *__ct__15TAdMcSelectMcGCFv(void *, void *, s32);
-void fn_8033F314(void *, s32);
+s32 fn_8033F314(s32 arg0, s32 arg1);
 extern u8 lbl_804770F8[];
 extern u8 lbl_80477100[];
 extern s32 __vt__13TAdMcSelectGC[];
@@ -146,7 +146,7 @@ Self_80329EC8 *TAdMcSelectGC__ct(Self_80329EC8 *self, void *parent) {
     }
     ((TAdMcSelectGC *)(TAdMcSelectCursorGC::get_instance((s32)self)))->set_field_13c(0);
     for (j = 0; j < 2; j++) {
-        fn_8033F314(self, j);
+        fn_8033F314((s32)self, j);
     }
     return self;
 }

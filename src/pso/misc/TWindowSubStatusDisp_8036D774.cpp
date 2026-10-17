@@ -12,12 +12,12 @@ struct Desc_8036D774 { f32 *pos; u32 *col; s32 a; s32 n; };
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-s32 begin_screen_draw(int);
-s32 draw_textured_quad_at_depth(void *, f32);
-s32 set_draw_texture_and_color(int, int);
+void begin_screen_draw(s32 arg0);
+void draw_textured_quad_at_depth(f32 *q, f32 depth);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern s32 TBGMulti__textures;
 s32 TCameraCtrl__sub_80068EF0();
-s32 restore_saved_depth_alpha_state();
+void restore_saved_depth_alpha_state(void);
 extern s32 split_screen_hud_animation_frame;
 void TWindowSubStatusDisp__sub_8036D994(void);
 
@@ -57,9 +57,9 @@ void TWindowSubStatusDisp::draw_tiled_background() {
     s32 i;
     s32 j;
     f32 buf[8];
-    begin_screen_draw((int) (1));
+    begin_screen_draw((1));
     TObjFish::set_global_param((s32)((void *) (TBGMulti__textures)));
-    set_draw_texture_and_color((int) (0), (int) (-1));
+    set_draw_texture_and_color((0), (-1));
     i = 0;
     buf[4] = 0.5f;
     buf[5] = 0.0f;
@@ -72,7 +72,7 @@ void TWindowSubStatusDisp::draw_tiled_background() {
         j = 0;
         buf[3] = 256.0f;
         do {
-            draw_textured_quad_at_depth((void *) buf, 0.5f);
+            draw_textured_quad_at_depth(buf, 0.5f);
             j++;
             buf[1] += 64.0f;
             buf[3] += 64.0f;
@@ -91,9 +91,9 @@ void TWindowSubStatusDisp__sub_8036D994(void) {
     f32 buf[8];
     if (split_screen_hud_animation_frame <= 0x1E) {
         TObjPlayer::init_xyz_limits();
-        begin_screen_draw((int) (1));
+        begin_screen_draw((1));
         TObjFish::set_global_param((s32)((void *) (TBGMulti__textures)));
-        set_draw_texture_and_color((int) (0), (int) (-1));
+        set_draw_texture_and_color((0), (-1));
         i = 0;
         buf[0] = 0.0f;
         buf[1] = 10.133333f * split_screen_hud_animation_frame + 176.0f;
@@ -104,7 +104,7 @@ void TWindowSubStatusDisp__sub_8036D994(void) {
         buf[6] = 1.0f;
         buf[7] = 1.0f;
         do {
-            draw_textured_quad_at_depth((void *) buf, 0.5f);
+            draw_textured_quad_at_depth(buf, 0.5f);
             i++;
             buf[0] += 64.0f;
             buf[2] += 64.0f;
@@ -121,7 +121,7 @@ void TWindowSubStatusDisp::draw_bottom_bar() {
   f32 temp_f31;
   begin_screen_draw((int) 1);
   TObjFish::set_global_param((s32)((void *) TBGMulti__textures));
-  set_draw_texture_and_color((int) 0, (int) (-1));
+  set_draw_texture_and_color((int) 0, (-1));
   var_r31 = 0;
   ;
   buffer_8[0] = (0.0f);
@@ -134,7 +134,7 @@ void TWindowSubStatusDisp::draw_bottom_bar() {
   buffer_8[7] = (1.0f);
   do
   {
-    draw_textured_quad_at_depth((void *) (&buffer_8[0]), (f32) (0.5f));
+    draw_textured_quad_at_depth((&buffer_8[0]), (f32) (0.5f));
     var_r31 += 1;
     buffer_8[0] += (64.0f);
     buffer_8[2] += (64.0f);

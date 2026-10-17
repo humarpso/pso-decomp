@@ -16,10 +16,10 @@ extern s32 local_client_id;
 extern s32 quest_collision_warp_pending;
 void *TObjQuestColApcINW__ct(void *arg0);
 void TObjQuestColBase__ct(void *);
-int create__12TQuestThreadFi(void*);
+u32 create__12TQuestThreadFi(s32 arg0);
 int destroy_board__17TQuestThreadBoardFv(void*);
 
-int TObjQuestColApcINW::vfunc_16() { destroy_board__17TQuestThreadBoardFv(this); create__12TQuestThreadFi(*(void* *)&this->m_b0); }
+int TObjQuestColApcINW::vfunc_16() { destroy_board__17TQuestThreadBoardFv(this); create__12TQuestThreadFi((s32)(*(void* *)&this->m_b0)); }
 
 extern const f32 lbl_805DBF04;
 extern s32 __vt__18TObjQuestColApcINW[];

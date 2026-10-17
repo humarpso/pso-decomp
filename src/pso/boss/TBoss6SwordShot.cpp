@@ -57,19 +57,19 @@ u8 test_rock_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1);
 void set_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1);
 f32 *dispatch_shared_handler_a__6TLobbyFl(s32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-void fn_80356E30(void *);
+void fn_80356E30(s32 *p);
 extern RecoveredGlobal_80356B18___vt__15TBoss6SwordWave __vt__15TBoss6SwordWave;
 extern s32 lbl_805D43A8;
 extern const f32 lbl_805DFFE8;
 extern const f32 lbl_805DFFF0;
 u8 *__ct__15TBoss6SwordWaveFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 query_teammate_state__9TObjEneDDFv();
 extern const f32 lbl_805E0010;
 extern const f32 lbl_805E0014;
 void clear_bit__15TBoss6SwordWaveFPvUc(W_80356D10 *arg0, u8 arg1);
-void *spawn_particle_effect_with_flags(void *, int, int);
-void spawn_particle_effect(void *, int);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
+void *spawn_particle_effect(void *pos, s32 id);
 u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
@@ -80,7 +80,7 @@ extern const f32 lbl_805DFFFC;
 extern const f32 lbl_805E0000;
 extern const f32 lbl_805E0004;
 extern const f32 lbl_805E0008;
-f64 atan2_float(f32, f32);
+f32 atan2_float(f32 y, f32 x);
 s32 get_point__10TBoss6RockFllPf(s32, void *, void *);
 s32 vec3_add_to(void *, void *);
 f32 vector_length(void *);
@@ -152,7 +152,7 @@ void run_task__15TBoss6SwordShotFv(u8 *arg0) {
         damage_players_in_radius((u8 *) (arg0));
         *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) + 1);
         if ((s32) *(s32 *)((s8 *)arg0 + 0x30) > 7) {
-            queue_destruction__7TObjectFv((void *) (arg0));
+            queue_destruction__7TObjectFv((arg0));
         }
     }
 }
@@ -399,7 +399,7 @@ void TBoss6SwordWave::run_task() {
         *(f32 *)((s8 *)arg0 + 0x50) = (f32) *(f32 *)((s8 *)arg0 + 0x54);
         *(f32 *)((s8 *)arg0 + 0x54) = (f32) (*(f32 *)((s8 *)arg0 + 0x54) + lbl_805E0010);
         if (*(f32 *)((s8 *)arg0 + 0x54) > *(f32 *)((s8 *)arg0 + 0x2C)) {
-            queue_destruction__7TObjectFv((void *) (arg0));
+            queue_destruction__7TObjectFv((arg0));
         }
     }
 }
@@ -478,7 +478,7 @@ void TBoss6SwordWave::fill_range(void *arg1, void *arg2) {
     if (a > b) {
         b += 0x100;
     }
-    fn_80356E30(this);
+    fn_80356E30((s32 *)this);
     while (a <= b) {
         ((void (*)(void *, s32))set_bit__15TBoss6SwordWaveFiUc)(this, a);
         a++;

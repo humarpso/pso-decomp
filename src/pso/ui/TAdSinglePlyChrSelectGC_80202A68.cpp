@@ -108,7 +108,7 @@ s32 *TAdSinglePlyChrSelectGC__sub_80202B38(Obj_80202B38 *self, s32 i);
 Ent_80202B1C *TAdSinglePlyChrSelectGC__sub_80202B1C(Obj_80202B1C *self, s32 i);
 void __construct_array(void *, void *, void *, int, int);
 void* TAdSinglePlyChrSelectGC__sub_80203158(void* p);
-void TAdSinglePlyChrSelectGC__sub_802115C0();
+void *TAdSinglePlyChrSelectGC__sub_802115C0(void *p);
 u8 *TAdSinglePlyChrSelectGC__sub_80203190(u8 *arg0);
 Save_80202C68 *copy_save_data__23TAdSinglePlyChrSelectGCFPvPv(Save_80202C68 *arg0, Save_80202C68 *arg1);
 void TAdSinglePlyChrSelectGC__sub_80076D9C(void *, void *);
@@ -116,8 +116,8 @@ void copy_player_data__9TProtocolFPvPv();
 void *TAdSinglePlyChrSelectGC__sub_80202D7C(void *a0, void *a1);
 u8 TAdSinglePlyChrSelectGC__sub_80202B30(void* p);
 void TAdSinglePlyChrSelectGC__sub_80203210(void* p);
-int __ct__12TPlyCharDataFv(void*);
-s32 __dt__12TPlyCharDataFv(s32, s32);
+s32 __ct__12TPlyCharDataFv(s32 arg0);
+s32 __dt__12TPlyCharDataFv(s32 arg0, s16 arg1);
 int copy_item_data__6TLobbyFPv(void*);
 int init_guild_card_tag__17TWindowSubComCardFi(void*);
 
@@ -294,7 +294,7 @@ u8 *TAdSinglePlyChrSelectGC::construct_chardata_array() {
     return ((u8 *)this);
 }
 
-void* TAdSinglePlyChrSelectGC__sub_80203158(void* p) { __ct__12TPlyCharDataFv(p); TAdSinglePlyChrSelectGC__sub_80203190((u8 *)((void*)((char*)p + 0x41c))); return p; }
+void* TAdSinglePlyChrSelectGC__sub_80203158(void* p) { __ct__12TPlyCharDataFv((s32)p); TAdSinglePlyChrSelectGC__sub_80203190((u8 *)((void*)((char*)p + 0x41c))); return p; }
 
 u8 *TAdSinglePlyChrSelectGC__sub_80203190(u8 *arg0) {
     __construct_array(arg0 + 0x450, (void *)TAdSinglePlyChrSelectGC__sub_802115C0, 0, 0x18, 4);

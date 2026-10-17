@@ -27,8 +27,8 @@ s32 *TObjCMMainMenu__sub_8028D9A8(void);
 s32 strncpy(void *, void *, int);
 extern RecoveredGlobal_8028DA0C_lbl_8051C07C character_creation_name_buffer;
 void TObjCMMainMenu__sub_8028D9F8(void);
-s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(s32);
-s32 get_class_appearance_preset(int);
+s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
+u8 *get_class_appearance_preset(s32 arg0);
 void fn_8028DBC4(s32 _w0);
 int TAdSinglePlyChrSelectGC__sub_8028DC14(void);
 int TAdSinglePlyChrSelectGC__sub_8028DC1C(void* p);
@@ -108,13 +108,13 @@ s32 TObjCMMainMenu::validate_character_name(s8 *arg0) {
 }
 
 s32 TObjCMMainMenu::get_current_char_flag() {
-    s32 x = (s8) *(u8 *)((s8 *)((void *)get_char_index__23TAdSinglePlyChrSelectGCFUi((s32)(0xFFFF))) + 0x3A0);
+    s32 x = (s8) *(u8 *)((s8 *)((void *)get_char_index__23TAdSinglePlyChrSelectGCFUi((0xFFFF))) + 0x3A0);
     return (u32) __cntlzw(-1 - x) >> 5;
 }
 void fn_8028DBC4(s32 _w0) {
     u8 *temp_r31;
-    temp_r31 = (u8 *)(((s32)((void *)get_char_index__23TAdSinglePlyChrSelectGCFUi((s32)((s32)((int) (0xFFFF)))))) + 0x370);
-    copy_player_visual_record((void *)((int) (temp_r31)), (void *)((int) (get_class_appearance_preset((int) (0)))));
+    temp_r31 = (u8 *)(((s32)((void *)get_char_index__23TAdSinglePlyChrSelectGCFUi(((s32)((int) (0xFFFF)))))) + 0x370);
+    copy_player_visual_record((void *)((int) (temp_r31)), (void *)((int) (get_class_appearance_preset((0)))));
     *(s8 *)((s8 *)temp_r31 + 0x30) = -1;
 }
 int TAdSinglePlyChrSelectGC__sub_8028DC14(void) { return 1; }

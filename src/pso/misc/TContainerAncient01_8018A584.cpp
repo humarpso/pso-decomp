@@ -235,7 +235,7 @@ extern s32 lbl_805D586C;
 extern const f32 lbl_805DBD38;
 s32 TContainerAncient01__sub_8018BE90(void);
 
-int spawn_particle_effect(void*, void*);
+void *spawn_particle_effect(void *pos, s32 id);
 extern s32 TContainerAncient01__effect_id_table[];
 void TContainerAncient01__sub_8018B180(Obj_8018B180 *self, f32 range);
 
@@ -245,7 +245,7 @@ void render__20TContainerAncient01RFv(u8 *arg0);
 void vfunc_6__20TContainerAncient01RFPsl(void *arg0, s16 *arg1, s32 arg2);
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object(s32);
+void draw_ginja_object(void *child);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
@@ -323,12 +323,12 @@ extern "C" u8 lbl_8044505C[];
 extern "C" void render_shadows__7TObjectFv();
 extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__13TUnk_804806E8Fv();
-extern "C" void trigger_switch_attack__10TObjPlayerFi();
+extern "C" void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 extern "C" void update_action_hold_status__13TUnk_804806E8Fv();
-extern "C" void update_action_timer__10TObjPlayerFPv();
+extern "C" s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
 extern "C" void update_actor_ground_y__13TUnk_804806E8Fv();
-extern "C" void update_attack_stat_status();
-extern "C" void update_defense_stat_status();
+extern "C" s32 update_attack_stat_status(u8 *arg0);
+extern "C" s32 update_defense_stat_status(u8 *arg0);
 extern "C" void update_flag30_timer__13TUnk_804806E8Fv();
 extern "C" void update_movement_status__13TUnk_804806E8Fv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
@@ -599,7 +599,7 @@ void TContainerAncient01R::render() {
             scale_current_matrix((u8 *)&this->unk_364);
         }
         if (TObjPlayer::check_demo_mode() == 1) {
-            draw_ginja_object(*(s32 *)&this->model);
+            draw_ginja_object((void *)(*(s32 *)&this->model));
         } else {
             draw_ginja_model_with_motion(*(s32 *)&this->model, *(s32 *)&this->unknownF8, this->m_c0);
         }
@@ -716,7 +716,7 @@ void *TContainerAncient01R__ct(Obj_8018B030 *self, void *arg1, void *parent) {
 }
 #pragma pop
 
-void TContainerAncient01::spawn_effect(void* p, void* a1, void* a2) { spawn_particle_effect(a1, a2); }
+void TContainerAncient01::spawn_effect(void* p, void* a1, void* a2) { spawn_particle_effect(a1, (s32)a2); }
 
 void TContainerAncient01__sub_8018B180(Obj_8018B180 *self, f32 range) {
     u16 i;

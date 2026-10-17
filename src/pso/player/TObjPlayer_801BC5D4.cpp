@@ -4,9 +4,9 @@
 
 extern "C" {
 
-s32 TObjPlayer__sub_801BF690(void *);
-s32 zero_vec3(void *);
-s32 TObjPlayer__sub_8011E204(void *, int);
+void TObjPlayer__sub_801BF690(u8 *arg0);
+void zero_vec3(void *a0);
+void TObjPlayer__sub_8011E204(void *arg0, s32 arg1);
 
 extern const f32 TObjPlayer__data_805DC278;
 
@@ -31,7 +31,7 @@ void TObjPlayer::reset_state() {
     *(f32 *)&this->m_310 = (f32) TObjPlayer__data_805DC278;
     (*(f32 *)&this->m_30c) = (f32) TObjPlayer__data_805DC278;
     *(f32 *)&this->unk_308 = (f32) TObjPlayer__data_805DC278;
-    zero_vec3((u8 *)&this->m_5fc);
+    zero_vec3(&this->m_5fc);
 }
 
 }

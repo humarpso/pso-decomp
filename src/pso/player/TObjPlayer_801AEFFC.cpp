@@ -11,7 +11,7 @@ s32 update_movement_by_screen__10TObjPlayerFv(s32);
 s32 TObjPlayer__sub_801AF868(s32);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 check_flag_800000__10TObjPlayerFPv(s32);
-s32 emit_idle_water_effect(s32);
+void emit_idle_water_effect(s32 arg0);
 s32 has_water_ground_flag(s32);
 int test_flag_2000000__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801BEF60(void*, void*);

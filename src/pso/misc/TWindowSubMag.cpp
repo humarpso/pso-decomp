@@ -75,15 +75,15 @@ struct TWindowSubMag_8027B62C {
 };
 u8 *find_item_by_id(s32);
 s32 align_menu_entry_positions(void *);
-s32 forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, s32, s32);
+int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
 void *create_titled_window_menu(s32, s32, s32, s32);
-s32 get_shared_text_buffer();
+s32 *get_shared_text_buffer(void);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 deserialize_mag__9TItemDataFPvPv(s32, s32 *);
 s32 calc_text_width();
-s32 append_text_space();
+void append_text_space(void);
 s32 text_builder_append();
-s32 text_builder_reset();
+void text_builder_reset(void);
 s32 set_field_1c__6TLobbyFf(void *);
 s32 TWindowSubEquip__sub_80263AF8(s32, s32);
 s32 send_and_handle__6TLobbyFii(s32, s32 *, s32);
@@ -91,12 +91,12 @@ void *create_message_window__6TLobbyFllUls(s32, s32 *, s32, s32);
 s32 get_window_layout_position(s32);
 void *get_player_by_client_id(s32);
 s32 is_player_input_active(s32);
-s32 TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 void *__nw__7TObjectFUl(u32);
 void *__ct__15TWindowHelpItemFPvUs(void *, s32, s32);
 void *fn_802628C0(s32, void *, s32);
-s32 queue_destruction__7TObjectFv(void *);
-s32 window_request_show(void *);
+void queue_destruction__7TObjectFv(void *arg0);
+void window_request_show(void *arg0);
 s32 call_if_split_screen(void *, s32);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
 s32 get_selected_menu_value(void *);
@@ -104,9 +104,9 @@ s32 update_help_item__13TWindowSubMagFv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 window_request_refresh(void *);
+void window_request_refresh(u8 *arg0);
 s32 are_status_entries_ready__13TWindowSubMagFi(void *);
-s32 fn_8025373C(void *);
+s32 fn_8025373C(u8 *self);
 void *TWindowSubMagPhoton__ct(void *, s32, s32, s32);
 int TWindowSubMag__sub_8027C0E8(void* p);
 u32 is_action_active__10TObjPlayerFv(void *);
@@ -120,7 +120,7 @@ s32 create_equip_kind_window(s32, s32 *, s32);
 s32 __ct__7TObjectFP7TObject();
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
-s32 toggle_help_window_on_button(s32, s32);
+void toggle_help_window_on_button(u32 arg0, s32 arg1);
 
 extern "C" const char lbl_805DD648[] = "";
 
@@ -314,7 +314,7 @@ void TWindowSubMag::run_task(void *arg0) {
     case 0:
     case 1:
         if (self->card != NULL) {
-            TWindow__close(self->card);
+            TWindow__close((u8 *)self->card);
             self->card = NULL;
         }
         if (self->help == NULL) {
@@ -351,11 +351,11 @@ void TWindowSubMag::run_task(void *arg0) {
             self->effect = NULL;
         }
         if (self->photon != NULL) {
-            TWindow__close(self->photon);
+            TWindow__close((u8 *)self->photon);
             self->photon = NULL;
         }
         if (self->list2 != NULL) {
-            TWindow__close(self->list2);
+            TWindow__close((u8 *)self->list2);
             self->list2 = NULL;
         }
         if (self->help != NULL) {
@@ -379,7 +379,7 @@ void TWindowSubMag::run_task(void *arg0) {
         break;
     case 5:
         if (self->card != NULL) {
-            TWindow__close(self->card);
+            TWindow__close((u8 *)self->card);
             self->card = NULL;
         }
         ((TWindowSubStatusDisp *)(self->list))->init_scroll_pos();
@@ -410,7 +410,7 @@ void TWindowSubMag::run_task(void *arg0) {
         break;
     case 8:
         window_request_show(self->help);
-        window_request_refresh(self->help);
+        window_request_refresh((u8 *)self->help);
         ((TWindowSubMag *)(self->help))->set_flag60_bit8();
         ((TWindowHelpItem *)(self->help))->refresh_copied_items();
         ((TWindowSubMag *)((s32)self->list))->init_and_setup((void*)2);
@@ -427,7 +427,7 @@ void TWindowSubMag::run_task(void *arg0) {
         }
         break;
     case 10:
-        if (fn_8025373C(self->help) != 0) {
+        if (fn_8025373C((u8 *)self->help) != 0) {
             play_sound_effect(0x4002A80F, 0, 0, 0);
             self->timer = 0;
             self->state = 11;
@@ -452,14 +452,14 @@ void TWindowSubMag::run_task(void *arg0) {
         }
     case 13:
         if ((f32)self->timer++ > (9e+01f) && self->effect != NULL) {
-            TWindow__close(self->effect);
+            TWindow__close((u8 *)self->effect);
             self->effect = NULL;
             self->state = 3;
         }
         break;
     case 14:
         if (self->card != NULL) {
-            TWindow__close(self->card);
+            TWindow__close((u8 *)self->card);
             self->card = NULL;
         }
         if (self->help != NULL) {
@@ -504,27 +504,27 @@ void *__dt__13TWindowSubMagFv(void *arg0, s16 arg1) {
             ((TWindowSubMag *)arg0)->m_4c = 0U;
         }
         if ((u32) ((TWindowSubMag *)arg0)->m_48 != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x48));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x48)));
             ((TWindowSubMag *)arg0)->m_48 = 0U;
         }
         if ((u32) ((TWindowSubMag *)arg0)->m_38 != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x38));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x38)));
             ((TWindowSubMag *)arg0)->m_38 = 0U;
         }
         if ((u32) ((TWindowSubMag *)arg0)->m_3c != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x3C));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x3C)));
             ((TWindowSubMag *)arg0)->m_3c = 0U;
         }
         if ((u32) ((TWindowSubMag *)arg0)->m_44 != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x44));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x44)));
             ((TWindowSubMag *)arg0)->m_44 = 0U;
         }
         if ((u32) ((TWindowSubMag *)arg0)->m_40 != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x40));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x40)));
             ((TWindowSubMag *)arg0)->m_40 = 0U;
         }
         if ((u32) ((TWindowSubMag *)arg0)->m_34 != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x34));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x34)));
             ((TWindowSubMag *)arg0)->m_34 = 0U;
         }
         __dt__7TObjectFv(arg0, 0);

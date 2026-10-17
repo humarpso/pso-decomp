@@ -4,7 +4,7 @@
 struct Obj_800A0814 { u8 pad[0x374]; s32 mode; s32 timer; s32 count; u8 pad2[4]; u16 ids[1]; };
 
 extern "C" {
-void *get_enemy_entity(int);
+u8 *get_enemy_entity(u16 arg0);
 void TObjEneDarkGunCenter::hide_linked_enemies() {
     Obj_800A0814 *self = (Obj_800A0814 *)this;
     s32 i;

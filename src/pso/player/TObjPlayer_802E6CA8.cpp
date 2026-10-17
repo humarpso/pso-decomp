@@ -92,26 +92,26 @@ extern const f32 lbl_805DEA04;
 extern const f32 lbl_805DEA08;
 extern const f32 lbl_805DEA0C;
 s32 TObjPlayer__sub_802E76C8(u8 *arg0);
-s32 mem_free(int);
+void mem_free(void *p);
 void __dl__7TObjectFPv(void *);
 extern s32 __vt__13TUnk_804E3BD8[];
 u8 *__dt__13TUnk_804E3BD8Fv(u8 *arg0, s16 arg1);
-f64 atan2_float(f32, f32);
+f32 atan2_float(f32 y, f32 x);
 f32 newton_sqrtf(f32);
 f32 subtract_vector(Vec_802E7888 *, Vec_802E7888 *);
 extern const f64 lbl_80473FA8[];
 s32 TObjLight__sub_801337F8(s32);
 u8 *queue_boss_effect__10TObjPlayerFPv(s32);
 s32 rotate_matrix_z(int, s32);
-s32 translate_matrix(int, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 rotate_matrix_x(int, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_chunk_material_override_pair(int, int);
-s32 set_chunk_material_color(Col_802E6CB0 *);
-s32 set_chunk_blend(int);
-s32 draw_chunk_model(s32);
+void set_chunk_material_override_pair(s32 arg0, s32 arg1);
+void set_chunk_material_color(f32 *arg);
+void set_chunk_blend(u32 x);
+void draw_chunk_model(void *arg0);
 extern Col_802E6CB0 lbl_80472C9C;
 extern s32 current_scene_light;
 extern s32 lbl_805D5660;
@@ -119,7 +119,7 @@ extern s32 model_render_flags;
 f32 lerp__9TDeadSpotFff(f32, f32);
 f32 rand_signed_unit();
 s32 matrix_mult_vec(int, void *, void *);
-s32 set_matrix_identity(int);
+void set_matrix_identity(u8 *arg0);
 s32 rotate_vector_by_matrix(int, void *, void *);
 extern s32 lbl_804E3BA8[];
 extern const f32 lbl_805DE9C8;
@@ -132,7 +132,7 @@ s32 scale_current_matrix(Vec_802E708C *);
 extern Col_802E708C lbl_80472C80;
 extern Vec_802E708C lbl_80472C90;
 extern const f32 lbl_805DE9F8;
-int queue_destruction__7TObjectFv(void*);
+void queue_destruction__7TObjectFv(void *arg0);
 void TObjPlayer__sub_802E7640(void *);
 extern s32 lbl_80472C68[];
 extern s32 lbl_804E3BC0[];
@@ -173,16 +173,16 @@ void TUnk_804E3BA8::render() {
         switch (part->type) {
         case 0:
         case 1:
-            draw_chunk_model(node->model);
+            draw_chunk_model((void *)node->model);
             break;
         case 2:
             lbl_805D5660 = model_render_flags;
             model_render_flags = lbl_805D5660 | 0x8810;
             c.a = part->f24;
-            set_chunk_material_color(&c);
+            set_chunk_material_color((f32 *)&c);
             set_chunk_material_override_pair(0xFF00, 0x800);
             set_chunk_blend(0x2500);
-            draw_chunk_model(node->model);
+            draw_chunk_model((void *)node->model);
             set_chunk_material_override_pair(0xFF00, 0);
             model_render_flags = lbl_805D5660;
             break;
@@ -256,16 +256,16 @@ void TUnk_804E3BC0::render() {
         switch (part->type) {
         case 0:
         case 1:
-            draw_chunk_model(node->model);
+            draw_chunk_model((void *)node->model);
             break;
         case 2:
             lbl_805D5660 = model_render_flags;
             model_render_flags = lbl_805D5660 | 0x8810;
             c.a = part->f24;
-            set_chunk_material_color((Col_802E6CB0 *)(&c));
+            set_chunk_material_color((f32 *)((Col_802E6CB0 *)(&c)));
             set_chunk_material_override_pair(0xFF00, 0x800);
             set_chunk_blend(0x2500);
-            draw_chunk_model(node->model);
+            draw_chunk_model((void *)node->model);
             set_chunk_material_override_pair(0xFF00, 0);
             model_render_flags = lbl_805D5660;
             break;
@@ -342,7 +342,7 @@ void TUnk_804E3BD8::alloc_breakup_model(s32 arg1) {
 }
 TUnk_804E3BD8::~TUnk_804E3BD8() {
     VObj_802E74E4 *temp_r3;
-    mem_free(*(s32 *)((s8 *)this + 0x28));
+    mem_free((void *)(*(s32 *)((s8 *)this + 0x28)));
     temp_r3 = *(VObj_802E74E4 **)((s8 *)this + 0x1C);
     if (temp_r3 != NULL) {
         temp_r3->m0(1);

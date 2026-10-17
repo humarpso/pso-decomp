@@ -445,10 +445,10 @@ s16 * register_boss__6TLobbyFl(s32);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
-s32 fn_80044330(void *);
+void fn_80044330(void *p);
 void fn_8004AA04(void *);
-s32 TObjPlayer__sub_80052390(f32);
-s32 drain_player_hp(u16, s32);
+void TObjPlayer__sub_80052390(f32 x);
+u32 drain_player_hp(s32 id, u32 arg1);
 f32 TBoss4Type3__sub_800524E8(f32);
 void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0);
 void update_target_effect_timer__11TBoss4Type3FPv(void *arg0);
@@ -468,14 +468,14 @@ void init_effect__11TBoss4Type3FPv(u8 *arg0);
 S_8005AD50 * __dt__11TBoss4Type3Fv(S_8005AD50 *o, s16 flag);
 void * __ct__13TObjBs4CutAtkFv(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void * create__13TObjBs4CutAtkFPvPvPv(void *arg0, void *arg1, void *arg2);
-s32 request_follow_camera_offsets(void *, void *, int);
+void request_follow_camera_offsets(void *arg0, void *arg1, u16 arg2);
 s32 query_teammate_state__9TObjEneDDFv(void *);
 int toggle_particle_effect__10TObjPlayerFv(void*);
 u8 * lookup_entry_by_value__10TObjPlayerFPvf(s32);
 void __dt__11TBoss4Type3FPvs(void *, s16);
 s32 clear_render_callback__8TObjFishFv(s32);
 s32 TObjControl__ct(s32, s32);
-void __dt__9TObjEnemyFv(void *, s32);
+void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 s32 approach_angle_limited(s32, s32, s32);
 void free_collision_body_parts(void *);
 s32 TObjEneRe4Sorcerer__sub_801E3F1C(f32, f32);
@@ -483,16 +483,16 @@ void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 void __ct__7TObjectFP7TObject(void *);
 s32 create__9TTecMegidFllll(void *, Vec_80058848 *, u8 *, s32);
-s32 TBoss6PlotFalz__sub_802AC008(f32, f32);
+void TBoss6PlotFalz__sub_802AC008(f32 farg0, f32 farg1);
 s32 rand();
 s32 matrix_mult_vec(int, void *, void *);
-s32 set_matrix_identity(int);
+void set_matrix_identity(u8 *arg0);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
 f32 xyz_distance(Vec_80056C30 *, Vec_80056C30 *);
-s32 draw_model_motion(int, int, f32);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
 
@@ -746,13 +746,13 @@ extern "C" {
 void reset_pose__13TUnk_804806E8Fv();
 }
 extern "C" {
-void trigger_switch_attack__10TObjPlayerFi();
+void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 }
 extern "C" {
 void try_start_action__13TUnk_804806E8Fll();
 }
 extern "C" {
-void update_action_timer__10TObjPlayerFPv();
+s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
 }
 extern "C" {
 void update_flag30_timer__13TUnk_804806E8Fv();
@@ -1473,7 +1473,7 @@ void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0) {
         stack.sp20 = *(s32 *)((s8 *)(&lbl_80437860.value) + 0);
         stack.sp24 = *(s32 *)((s8 *)(&lbl_80437860.value) + 4);
         stack.sp28 = *(s32 *)((s8 *)(&lbl_80437860.value) + 8);
-        request_follow_camera_offsets((void *) (&stack.sp20), (void *) (&stack.sp2C), (int) (0xFFFFU));
+        request_follow_camera_offsets((&stack.sp20), (&stack.sp2C), (0xFFFFU));
         return;
     }
     stack.sp14 = *(s32 *)((s8 *)(&lbl_8043786C.value) + 0);
@@ -1482,7 +1482,7 @@ void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0) {
     stack.sp8 = *(s32 *)((s8 *)(&boss4_type3_follow_camera_offsets.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&boss4_type3_follow_camera_offsets.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&boss4_type3_follow_camera_offsets.value) + 8);
-    request_follow_camera_offsets((void *) (&stack.sp8), (void *) (&stack.sp14), (int) (0xFFFFU));
+    request_follow_camera_offsets((&stack.sp8), (&stack.sp14), (0xFFFFU));
 }
 #pragma pop
 
@@ -1899,7 +1899,7 @@ void TBoss4Type3::draw_model_set(const s32 *tbl, f32 t) {
         TObjFish::set_global_param(TObjFish__sub_8001EDB0(this->m_390, tbl[i]));
         off = i;
         ((TObjFish *)((s32)this->render_lists[off]))->set_draw_callback_list();
-        draw_model_motion(get_bml_model(this->m_390, tbl[i]), get_bml_motion(this->m_390, ((Type3MotionView *)&TBoss4Type3__anim_state_table)[this->m_3f0].motions[i]), this->m_3f4);
+        draw_model_motion((void *)(get_bml_model(this->m_390, tbl[i])), (void *)(get_bml_motion(this->m_390, ((Type3MotionView *)&TBoss4Type3__anim_state_table)[this->m_3f0].motions[i])), this->m_3f4);
         clear_render_callback__8TObjFishFv((s32)this->render_lists[off]);
     }
     clear_global_state__10TObjPlayerFv();
@@ -2011,7 +2011,7 @@ void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0);
 void draw_motion_trail__11TBoss4Type3Fllll(void *, s32, s32, void *, s32);
 u8 * lookup_entry_by_value__10TObjPlayerFPvf(s32);
 s32 push_matrix();
-s32 set_matrix_identity(int);
+void set_matrix_identity(u8 *arg0);
 f32 post_translate_matrix(void *);
 s32 rotate_matrix_y(int, int);
 s32 matrix_mult_vec(int, void *, void *);

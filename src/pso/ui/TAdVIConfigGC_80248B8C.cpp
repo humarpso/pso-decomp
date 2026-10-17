@@ -3,7 +3,7 @@
 
 extern "C" {
 
-s32 TAdVIConfigGC__sub_80267704(s32);
+void TAdVIConfigGC__sub_80267704(s32 arg0);
 s32 TWindowSubStatusDisp__sub_80248BE8(s32, s32, s32);
 
 s32 TAdVIConfigGC::draw_with_layer(s32 arg0, s32 arg1, s32 arg2) {

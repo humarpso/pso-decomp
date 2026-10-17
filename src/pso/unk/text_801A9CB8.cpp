@@ -24,8 +24,8 @@ extern "C" {
 extern struct Rec_801AA17C photon_blast_sequence_table[];
 s32 get_photon_blast_chain(struct Rec_801AA17C *output, s32 player);
 void __dt__7TObjectFv(void *, int);
-void restore_player_cameras(void);
-void reset_cameras_to_actor(void *, int);
+s32 restore_player_cameras(void);
+void reset_cameras_to_actor(void *actor, s32 arg1);
 void *get_player_by_client_id(s32);
 void release_photon_blast_player_holds(void *);
 void __dl__7TObjectFPv(void *);

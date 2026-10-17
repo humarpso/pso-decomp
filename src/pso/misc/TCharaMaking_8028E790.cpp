@@ -35,11 +35,11 @@ extern void *creation_player_character;
 u8 *__dt__12TCharaMakingFv(u8 *arg0, s16 arg1);
 s32 is_active__23TAdSinglePlyChrSelectGCFv(void *self);
 void TCharaMaking__sub_8028E790(void);
-s32 fn_8028D8F4();
-s32 fn_80291268();
+void fn_8028D8F4(void);
+void fn_80291268(void);
 s32 is_state_3__14TObjCMMainMenuFv(s32);
 s32 is_state_4__14TObjCMMainMenuFv(s32);
-s32 queue_destruction__7TObjectFv(s32);
+void queue_destruction__7TObjectFv(void *arg0);
 
 void TCharaMaking__sub_8028E790(void) {  }
 
@@ -67,11 +67,11 @@ s32 TCharaMaking::update_main_menu(s32 arg0) {
         }
         TSaveChCr::create((void *)var_r3);
         fn_80291268();
-        queue_destruction__7TObjectFv(arg0);
+        queue_destruction__7TObjectFv((void *)arg0);
         return 1;
     }
     if (is_state_4__14TObjCMMainMenuFv(creation_main_menu_obj) != 0) {
-        queue_destruction__7TObjectFv(arg0);
+        queue_destruction__7TObjectFv((void *)arg0);
         TChCrCharSelect::create((void *)tl_03);
         return 1;
     }

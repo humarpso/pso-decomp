@@ -147,7 +147,7 @@ void *__dt__13TUnk_804CCBC0Fv(void *arg0, s16 arg1);
 void *__dt__9TTecRestaFv(void *arg0, s16 arg1);
 void create__9TTecRestaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void __dl__7TObjectFPv(void *);
-void __dt__19TTecPlayerInfluenceFv(void *, int);
+void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1);
 void __dt__7TObjectFv(void *, int);
 int spawn_support_tec_range_effect(void*);
 

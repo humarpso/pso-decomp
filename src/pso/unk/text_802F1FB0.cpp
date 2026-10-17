@@ -15,7 +15,7 @@ struct RecoveredGlobal_802F1FB0_lbl_804E4B24 {
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *, int, int);
 s32 __ct__7TObjectFP7TObject();
-s32 TObjBoss2Tunnel__sub_802F2278();
+void TObjBoss2Tunnel__sub_802F2278(void);
 s32 copy_position__16TBoss8DragonDemoFv(int, void *);
 extern RecoveredGlobal_802F1FB0_lbl_804E4978 boss2_tunnel_effect_name_table;
 extern RecoveredGlobal_802F1FB0_lbl_804E4B24 lbl_804E4B24;

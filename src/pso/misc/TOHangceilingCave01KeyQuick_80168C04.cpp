@@ -31,7 +31,7 @@ s32 construct_actor_base__10TObjPlayerFPvPv(void *);
 s32 get_bml_motion(void *, void *);
 s32 get_bml_model(void *, void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 reset_state(void *);
+void reset_state(u8 *arg0);
 extern RecoveredGlobal_80168C6C_lbl_804B2174 lbl_804B2174;
 extern s32 lbl_804B2578[];
 extern s32 TOHangceilingCave01__model_archive;
@@ -65,7 +65,7 @@ u8 *TOHangceilingCave01KeyQuick::init_base(s32 arg1, s32 arg2) {
     init_collision_body_parts((void *) (((u8 *)this)), (void *) (&lbl_804B2174.value), (int) (1));
     ((TUnk_804AF8A0 *)((u8 *)this))->refresh_collision_body_centers();
     ((TObjPlayer *)((u8 *)this))->reset_photon_effect();
-    reset_state((void *) (((u8 *)this)));
+    reset_state((((u8 *)this)));
     temp_r4 = (u8 *)(*(u8 * *)&this->m_a4);
     *(s32 *)((s8 *)temp_r4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x18) | 0x1080);
     return ((u8 *)this);

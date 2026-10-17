@@ -7,7 +7,7 @@ void *TOWreckAncientBrakable__ct(void *arg0);
 void *__dt__22TOWreckAncientBrakableFv(void *arg0, s16 arg1);
 void TOWreckAncient__ct(void *);
 void __dl__7TObjectFPv(void *);
-void __dt__14TOWreckAncientFv(void *, int);
+void *__dt__14TOWreckAncientFv(void *arg0, s16 arg1);
 
 extern s32 __vt__22TOWreckAncientBrakable[];
 

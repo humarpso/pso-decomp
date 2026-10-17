@@ -98,9 +98,9 @@ struct Mon_80172AE0 : VObj_80172AE0 {
 extern "C" {
 s32 create_particle_emitter(s32, s32);
 u32 init_collision_body_parts(void *, s32, s32);
-u8 * init_map_object_base(void *);
+void *init_map_object_base(void *a0);
 s32 get_game_play_mode(void);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 extern RecoveredGlobal_80172EA0_lbl_804B39A8 monument_ancient02_collision_parts;
 extern s32 __vt__19TOMonumentAncient02[];
 extern s32 enable_v2_features;
@@ -115,11 +115,11 @@ u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 rand(void);
 int rotate_matrix_y(int, int);
 int push_matrix();
-int pop_matrix();
+s32 pop_matrix(void);
 int post_translate_matrix(void *);
-int draw_ginja_model(int);
-void translate_matrix(s32, f32, f32, f32);
-void set_chunk_material_color(void *);
+void draw_ginja_model(s32 model);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
+void set_chunk_material_color(f32 *arg);
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern u8 chunk_material_color_half_alpha_f32[];
@@ -207,7 +207,7 @@ void TOMonumentAncient02::render() {
             model_render_flags = model_render_flags | 0x20;
             set_chunk_material_color(&self->fD8);
             draw_ginja_model(n->f4);
-            set_chunk_material_color(chunk_material_color_half_alpha_f32);
+            set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
             model_render_flags = lbl_805D5660;
             TParticleCtrl::end_effect_render();
             pop_matrix();
@@ -315,7 +315,7 @@ u8 *TOMonumentAncient02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)&((TOMonumentAncient02 *)arg0)->m_ec = 1;
     if ((s32) enable_v2_features == 1) {
         if (get_game_play_mode() == 1) {
-            queue_destruction__7TObjectFv((void *) (arg0));
+            queue_destruction__7TObjectFv((arg0));
         }
     }
     return arg0;

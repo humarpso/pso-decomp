@@ -13,9 +13,9 @@ struct VObj_18_909b87 : VBase_18_909b87 {
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
-s32 TObjPlayer__sub_8015431C(void *);
-s32 reset_global_table();
+void queue_destruction__7TObjectFv(void *arg0);
+void TObjPlayer__sub_8015431C(u8 *arg0);
+void reset_global_table(void);
 s32 try_add_hit_target__14TItemAttackColFPvPv(void *, int);
 s32 get_attack_entry__16TObjOnlineEndingFi(int);
 void TItemAttackCol::check_object_hits() {

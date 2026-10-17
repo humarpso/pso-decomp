@@ -3,7 +3,7 @@
 
 extern "C" {
 
-s32 TAdSinglePlyChrSelectGC__sub_802115C0(void *);
+void *TAdSinglePlyChrSelectGC__sub_802115C0(void *p);
 
 void TAdSinglePlyChrSelectGC::swap_item_data(s32 *arg1) {
     struct { u8 _pad[0x20]; } sp8;

@@ -5,7 +5,7 @@ extern "C" {
 s32 fn_8035C2B4();
 int is_door_0x97_open__12TBoss4ThanksFv(void*);
 int TBoss4Thanks__sub_8035C96C(void* p);
-void *TBoss4Thanks__ct(void *, void *);
+u8 *TBoss4Thanks__ct(u8 *arg0, u8 *arg1);
 void *__nw__7TObjectFUl(int);
 s32 any_player_has_listed_item();
 s32 get_main_phase();
@@ -16,7 +16,7 @@ extern void *tl_02;
 void *TBoss4Thanks::create() {
     void *o = __nw__7TObjectFUl(0x54);
     if (o != NULL) {
-        o = TBoss4Thanks__ct(o, tl_02);
+        o = TBoss4Thanks__ct((u8 *)o, (u8 *)tl_02);
     }
     return o;
 }

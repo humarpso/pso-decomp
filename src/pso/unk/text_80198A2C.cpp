@@ -24,8 +24,8 @@ struct Vec_80198E84;
 struct Vec_80199674;
 struct Vec_8019978C;
 extern "C" {
-s32 queue_destruction__7TObjectFv(void*);
-s32 spawn_particle_effect_with_flags(void*,int,int);
+void queue_destruction__7TObjectFv(void *arg0);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 extern Sys_80198A2C gogo_ball_configuration;
 extern Vec_80198E84 gogo_ball_sync_state[];
 void send_gogo_ball__12TWindowTimerFi(s32);
@@ -76,10 +76,10 @@ struct Pad_80198A2C { u8 pad0[0x10]; s16 buttons; };
 struct Sys_80198A2C { u8 pad0[0x48]; u16 mode; };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
-void *spawn_particle_effect_with_rotation(void *, void *, int, int);
-s32 spawn_particle_effect_with_flags(void *, int, int);
-s32 spawn_particle_effect(void *, int);
+void queue_destruction__7TObjectFv(void *arg0);
+void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
+void *spawn_particle_effect(void *pos, s32 id);
 s32 play_sound_effect(int, void *, int, int);
 extern Vec_80198A2C boss3_volopt_init_vec;
 void TBoss3Volopt__sub_80198A2C(u8 *arg0);
@@ -139,11 +139,6 @@ void TBoss3Volopt__sub_80198A2C(u8 *arg0) {
 #pragma pop
 
 }
-
-#define queue_destruction__7TObjectFv ((void (*)(void*))queue_destruction__7TObjectFv)
-#define send_gogo_ball__12TWindowTimerFi ((s32 (*)(void*))send_gogo_ball__12TWindowTimerFi)
-#define TWindowTimer__sub_8019A6F8 ((s32 (*)(void*))TWindowTimer__sub_8019A6F8)
-#define TWindowTimer__sub_80199410 ((s32 (*)(void*,s32))TWindowTimer__sub_80199410)
 
 #include <stddef.h>
 struct Stack_80198DCC {
@@ -210,7 +205,7 @@ u8 *TWindowTimer__sub_80198CF8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4,
 void TWindowTimer__sub_80198D98(void) {
     void *obj = __nw__7TObjectFUl(0x20);
     if (obj != 0) {
-        TWindowTimer__sub_80199410(obj, tl_03);
+        TWindowTimer__sub_80199410((u8 *)obj, (u8 *)tl_03);
     }
 }
 void throw_gogo_ball__12TWindowTimerFPvii(u8 *arg0, s32 arg1, s32 arg2) {
@@ -221,7 +216,7 @@ void throw_gogo_ball__12TWindowTimerFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     typedef char sp18_offset[(offsetof(Stack_80198DCC, sp18) == 0x10) ? 1 : -1];
     typedef char sp1C_offset[(offsetof(Stack_80198DCC, sp1C) == 0x14) ? 1 : -1];
     Stack_80198DCC stack;
-    TWindowTimer__sub_8019A6F8((void *) (&stack.sp8));
+    TWindowTimer__sub_8019A6F8((&stack.sp8));
     stack.spC = arg2;
     stack.sp10 = arg1;
     stack.sp14 = *(f32 *)((s8 *)arg0 + 0);
@@ -233,15 +228,10 @@ void throw_gogo_ball__12TWindowTimerFPvii(u8 *arg0, s32 arg1, s32 arg2) {
         play_sound_effect((int) (0x4002A600), (void *) (arg0), (int) (0), (int) (0));
         stack.sp1C = 0;
     }
-    send_gogo_ball__12TWindowTimerFi((void *) (&stack.sp8));
+    send_gogo_ball__12TWindowTimerFi((s32)(&stack.sp8));
 }
 
 }
-
-#undef queue_destruction__7TObjectFv
-#undef send_gogo_ball__12TWindowTimerFi
-#undef TWindowTimer__sub_8019A6F8
-#undef TWindowTimer__sub_80199410
 
 struct Vec_80198E84 { f32 x; f32 y; f32 z; s32 w; u8 pad10[2]; s16 f12; };
 
@@ -321,10 +311,8 @@ void TLanguage::load_lobby_textures() {
 #define gogo_ball_configuration (*(u8 (*)[1])&gogo_ball_configuration)
 #define controller_input_state (*(s32 (*)[1])&controller_input_state)
 #define __nw__7TObjectFUl ((void* (*)(int))__nw__7TObjectFUl)
-#define set_timer_value__12TWindowTimerFii ((void (*)(s32,s32))set_timer_value__12TWindowTimerFii)
 #define bswap_6x79_gogo_ball__12TWindowTimerFi ((s32 (*)(void))bswap_6x79_gogo_ball__12TWindowTimerFi)
 #define TWindowTimer__sub_8019A770 ((void (*)(void))TWindowTimer__sub_8019A770)
-#define get_timer_value__12TWindowTimerFi ((s16 (*)(int))get_timer_value__12TWindowTimerFi)
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -363,7 +351,7 @@ void handle_6x79_gogo_ball(u8 *arg0);
 s32 direction_to_rotation_xz(void *, void *, void *);
 s32 rotate_matrix_y(int, s32);
 s32 rotate_matrix_z(int, int);
-s32 translate_matrix(int, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 rotate_matrix_x(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -619,10 +607,8 @@ void TObjPlayer__sub_801994DC(s32 arg0, void *arg1, void *arg2, s32 arg3, void *
 #undef gogo_ball_configuration
 #undef controller_input_state
 #undef __nw__7TObjectFUl
-#undef set_timer_value__12TWindowTimerFii
 #undef bswap_6x79_gogo_ball__12TWindowTimerFi
 #undef TWindowTimer__sub_8019A770
-#undef get_timer_value__12TWindowTimerFi
 #define TObjPlayer__sub_801994DC ((void (*)(void*,Vec_80199674*,Vec_80199674*,s32,Vec_80199674*,f32))TObjPlayer__sub_801994DC)
 struct Vec_80199674 { f32 x, y, z; };
 struct Seg_80199674 { Vec_80199674 a; Vec_80199674 b; };
@@ -906,8 +892,6 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
 #undef vector_length
 #undef normalize_vector
 #undef draw_shadow_on_ground
-#define queue_destruction__7TObjectFv ((void (*)(void*))queue_destruction__7TObjectFv)
-#define spawn_particle_effect_with_flags ((void (*)(void*,int,int))spawn_particle_effect_with_flags)
 #define gogo_ball_sync_state (*(s32 (*)[1])&gogo_ball_sync_state)
 #define throw_gogo_ball__12TWindowTimerFPvii ((void (*)(void*,s32,s32))throw_gogo_ball__12TWindowTimerFPvii)
 #define __dl__7TObjectFPv ((s32 (*)(void*))__dl__7TObjectFPv)
@@ -998,7 +982,7 @@ f32 atan2_float(f32, f32);
 extern u8 lbl_80446148[];
 extern const f64 lbl_80446150[];
 void send_gogo_ball__12TWindowTimerFi(s32 arg0);
-s32 TLobby__send_and_handle_60(void *);
+void TLobby__send_and_handle_60(u8 *arg0);
 
 void TUnk_804B8E18::update_best_time() {
     if ((*(s16 *)((s8 *)gogo_ball_sync_state + 0x12) == 0) && ((s32) this->m_354 <= (s32) *(s32 *)((s8 *)gogo_ball_sync_state + 0x14))) {
@@ -1208,7 +1192,7 @@ u8 *TWindowTimer__sub_8019A574(u8 *arg0) {
 
 void send_gogo_ball__12TWindowTimerFi(s32 arg0) {
     bswap_6x79_gogo_ball__12TWindowTimerFi((s32)(arg0));
-    TLobby__send_and_handle_60((void *) (arg0));
+    TLobby__send_and_handle_60((u8 *)(arg0));
 }
 void bswap_6x79_gogo_ball__12TWindowTimerFi(s32 arg0) {
     read_be16_field2__10TObjPlayerFv();
@@ -1239,8 +1223,6 @@ int TWindowTimer__sub_8019A770(void* p) { return close_timer_window__11TWindowCt
 
 }
 
-#undef queue_destruction__7TObjectFv
-#undef spawn_particle_effect_with_flags
 #undef gogo_ball_sync_state
 #undef throw_gogo_ball__12TWindowTimerFPvii
 #undef __dl__7TObjectFPv

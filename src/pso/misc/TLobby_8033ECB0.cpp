@@ -13,12 +13,12 @@ extern "C" {
 extern s32 lbl_805D6DA0;
 int mem_alloc(void *);
 s32 __ct__7TObjectFP7TObject();
-s32 TLobby__sub_8033EE38(int);
+void TLobby__sub_8033EE38(void *p);
 extern s32 lbl_804EFA88[];
 u8 *TLobby__sub_8033ED24(u8 *arg0);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
-s32 mem_free(void *);
+void mem_free(void *p);
 
 void *TUnk_804EFA88::destroy_object(s16 arg1) {
     if (this != NULL) {
@@ -50,7 +50,7 @@ u8 *TLobby__sub_8033ED24(u8 *arg0) {
     var_r31 = 0;
     do
     {
-      TLobby__sub_8033EE38((int) ((*((s32 *) (((s8 *) arg0) + 0x1C))) + var_r31));
+      TLobby__sub_8033EE38((void *)((*((s32 *) (((s8 *) arg0) + 0x1C))) + var_r31));
       var_r30 += 1;
       var_r31 += 0x24;
     }

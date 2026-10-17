@@ -55,7 +55,7 @@ extern "C" {
 void TAdEp3Exist__sub_8036F574(u8 *arg0);
 u8 TAdEp3Exist__sub_8036F590(u8 *arg0);
 s32 get_localized_text_entry(int, int);
-u32 calc_text_width(int);
+u32 calc_text_width(char *s);
 s32 render_status_line__15TAdSubPlyItemGCFi(int, int, f32, f32, f32);
 s32 draw_window_frame(void *, void *);
 extern const f32 lbl_805E0440;
@@ -72,30 +72,30 @@ void __ct__9TAdBackGCFv(void *, void *);
 void __ct__12TAdBackTxtGCFv(void *, void *);
 u32 __ct__14TAdSelectCurGCFv(void *, s32, void *, void *);
 u32 TAdScrollWinGC__ct(void *, void *, int, s32);
-void fn_80329BAC(u32);
+void fn_80329BAC(void *p);
 extern u8 lbl_8047B8A8[];
 extern u8 lbl_8047B8B0[];
 extern s32 __vt__11TAdEp3Exist[];
 extern s32 lbl_805D4500;
 extern s32 tl_clipout;
 void *TAdEp3Exist__ct(Ep3_8036F354 *o);
-s32 TAdSinglePlyChrSelectGC__sub_801334DC(s32);
+s32 TAdSinglePlyChrSelectGC__sub_801334DC(void *p);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
-void TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 int TAdEp3Exist__sub_8036F0AC(void* p);
 extern u8 controller_input_state[];
 extern u8 controller_physical_port_bank[];
 extern const f32 lbl_805E044C;
 int prs_read_control_bit(Obj_8036F4DC *arg0);
 void TAdEp3Exist__sub_8036F5A4(void* p);
-u8 prs_read_byte_at(void *, s32);
+u8 prs_read_byte_at(u8 *arg0, u32 arg1);
 u8 *prs_next_output_byte(void *);
 void *memmove(void *, const void *, u32);
 s32 prs_decompress(Prs_8036F5B0 *c, u8 *src, s32 arg2, s32 arg3);
 void *__dt__11TAdEp3ExistFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-int __dl__FPv();
+void __dl__FPv(void);
 void __dt__7TObjectFv(void *, int);
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 int request_transition__21TAdMultiChgGameModeGCFv(void*);
@@ -104,7 +104,7 @@ void TAdEp3Exist::draw_message_window(s32 arg1) {
     s32 arg0 = (s32)this;
     f32 temp_f31;
     draw_window_frame((void *) (arg0), (void *) (arg1));
-    temp_f31 = lbl_805E0440 - (f32) (calc_text_width((int) (get_localized_text_entry((int) (0x2C), (int) (0xA)))) >> 1U);
+    temp_f31 = lbl_805E0440 - (f32) (calc_text_width((char *)(get_localized_text_entry((int) (0x2C), (int) (0xA)))) >> 1U);
     render_status_line__15TAdSubPlyItemGCFi((int) (get_localized_text_entry((int) (0x2C), (int) (0xA))), (int) (-1), (f32) (temp_f31), (f32) (lbl_805E0444), (f32) (lbl_805E0448));
 }
 
@@ -129,7 +129,7 @@ void TAdEp3Exist::run_task() {
         break;
     case 1:
         if (((TAdSinglePlyChrSelectGC *)(o->sel))->get_selected_slot() == 1) {
-            switch (TAdSinglePlyChrSelectGC__sub_801334DC(o->sel)) {
+            switch (TAdSinglePlyChrSelectGC__sub_801334DC((void *)o->sel)) {
             case 0:
                 o->state = 2;
                 o->next = 3;
@@ -147,7 +147,7 @@ void TAdEp3Exist::run_task() {
         break;
     case 2:
         if (o->win != 0) {
-            TWindow__close((void *)o->win);
+            TWindow__close((u8 *)o->win);
             o->win = 0;
         }
         close_window();
@@ -238,7 +238,7 @@ void *TAdEp3Exist__ct(Ep3_8036F354 *o) {
     }
     o->cur20 = r;
     ((TLevelSelect *)(o->cur20))->add_item_rect(lbl_8047B8A8);
-    fn_80329BAC(o->cur20);
+    fn_80329BAC((void *)o->cur20);
     ((TLobby *)(o->cur20))->set_ad_field(0);
     return o;
 }
@@ -321,7 +321,7 @@ s32 prs_decompress(Prs_8036F5B0 *c, u8 *src, s32 arg2, s32 arg3) {
         off += n;
         while (size-- != 0) {
             p = prs_next_output_byte(c);
-            *p = prs_read_byte_at(c, off);
+            *p = prs_read_byte_at((u8 *)c, off);
             n++;
             off++;
         }

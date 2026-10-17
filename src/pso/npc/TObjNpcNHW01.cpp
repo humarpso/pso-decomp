@@ -103,8 +103,8 @@ extern s32 TObjNpcNHW01__name;
 extern u32 TObjNpcNHW01__model_object;
 extern u32 TObjNpcNHW01__texture_handle;
 u8 *TObjNpcNHW01__ct(u8 *arg0, s32 arg1, s32 arg2);
-void *create_named_object(const char *name);
-void *load_gvm_texture_file(const char *name);
+s32 create_named_object(s32 arg0);
+u8 *load_gvm_texture_file(s32 arg0);
 extern char lbl_8043FE38[];
 extern char lbl_8043FE4C[];
 void * TObjNpcNurseBase__create(void *arg0);
@@ -128,8 +128,8 @@ void TObjNpcNHW01::free_resources() {
 }
 
 void TObjNpcNHW01::load_resources() {
-    TObjNpcNHW01__model_object = (u32)create_named_object(lbl_8043FE38);
-    TObjNpcNHW01__texture_handle = (u32)load_gvm_texture_file(lbl_8043FE4C);
+    TObjNpcNHW01__model_object = (u32)create_named_object((s32)lbl_8043FE38);
+    TObjNpcNHW01__texture_handle = (u32)load_gvm_texture_file((s32)lbl_8043FE4C);
 }
 
 void *__dt__12TObjNpcNHW01Fv(void *arg0, s16 arg1) {

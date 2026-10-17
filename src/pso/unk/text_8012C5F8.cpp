@@ -63,8 +63,8 @@ extern "C" {
 s32 test_flags_any(void *p, s32 n);
 void draw_ginja_object(void *p);
 void rocket_punch_node_callback(Obj_8012C714 *self);
-s32 increment_burst_counter(int);
-s32 get_burst_counter(int);
+void increment_burst_counter(u8 *arg0);
+s32 get_burst_counter(void *p);
 void rocket_punch_return_timer(u32);
 void rocket_punch_marker(u8 *arg0);
 
@@ -75,10 +75,10 @@ void rocket_punch_marker(u8 *arg0) {
     temp_r3 = *(u32 *)((s8 *)arg0 + 0xF0);
     if (temp_r3 == 0U) return;
     temp_r31 = temp_r3 + 0x7CC;
-    if (get_burst_counter((int) (temp_r31)) == 0) {
+    if (get_burst_counter((void *)(temp_r31)) == 0) {
         var_r30 = 0;
         do {
-            increment_burst_counter((int) (temp_r31));
+            increment_burst_counter((u8 *)(temp_r31));
             var_r30 += 1;
         } while (var_r30 != 2);
         ((TObjPlayer *)(arg0 + 0x1F8))->set_flags((int) (2));

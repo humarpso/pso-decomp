@@ -26,10 +26,10 @@ struct Sub_80281840 { u8 pad[0x5C]; s32 count; };
 struct Win_80281840 { u8 pad[0x24]; s32 ctrl; u8 pad2[0x34 - 0x28]; Sub_80281840 *sub; };
 
 extern "C" {
-s32 TWindow__close(int);
+void TWindow__close(u8 *arg0);
 s32 get_window_layout_position(s32);
 u8 *create_chat_symbol_window__20TWindowSubSymbolChatFll(void *, s32);
-s32 TWindowSubSymbolChat__sub_8028379C();
+s32 *TWindowSubSymbolChat__sub_8028379C(void);
 s32 add__20TWindowSubSymbolChatFlllll(int, int, int, int, int, int);
 s32 get_cursor_pos__20TWindowSubSymbolChatFv(int);
 s32 get_cursor_x__20TWindowSubSymbolChatFv(int);
@@ -50,7 +50,7 @@ extern s8 TWindowSubSymbolChat__data_805D6494;
 f32 get_scale__15TWindowCtrlMainFv(s32);
 void begin_screen_draw(s32);
 void draw_textured_quad_at_depth(void *, f32);
-void set_draw_texture_and_color(s32, u32);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DD710;
 extern const f32 lbl_805DD714;
@@ -70,7 +70,7 @@ s32 get_selected_menu_value(s32);
 s32 align_menu_entry_positions(s32);
 s32 TWindowSubSymbolChatPartsSet__ct(s32, s32, s16, s32 *, s32 *);
 s32 TWindowSubSymbolChatParts__ct(s32, s32, s32 *, s32 *);
-s32 TWindowSubSymbolChat__sub_80076FE0(s32);
+int TWindowSubSymbolChat__sub_80076FE0(void *p);
 s32 __nw__7TObjectFUl(s32);
 s32 select_symbol_chat_slot(s32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
@@ -79,7 +79,7 @@ s32 get_keyboard_field_6c__15TWindowMakeTeamFv(s32, s32);
 s32 get_keyboard_ptr__20TWindowSubSymbolChatFv(s32);
 s32 refresh_parts__20TWindowSubSymbolChatFv();
 s32 refresh_with_default_list__20TWindowSubStatusDispFll(s32, s32 *);
-s32 update_chat_window(s32);
+void update_chat_window(void *p);
 
 extern void *TWindowSubSymbolChat__instance;
 
@@ -138,7 +138,7 @@ void TWindowSubSymbolChat::update_sub_window() {
     if (is_card_confirmed() == 0) {
         temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x34));
         if (temp_r3 != NULL) {
-            TWindow__close((int) (temp_r3));
+            TWindow__close((temp_r3));
             *(u8 **)((s8 *)arg0 + 0x34) = NULL;
             ((TWindowSubSymbolChatPartsSet *)(*(u8 **)((s8 *)arg0 + 0x30) + 0x30))->copy_vec2((void*)(get_window_layout_position((s32)((int) (0x7B)))));
             *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x30)) + 0x50) = 6;
@@ -242,7 +242,7 @@ s32 TWindowSubSymbolChat::create_keyboard_control() {
     if (keyboard != 0) {
         keyboard = TKeyBoardControl__ct(keyboard, this, 0x90, 1, 4, local_client_id);
     }
-    update_chat_window(keyboard);
+    update_chat_window((void *)keyboard);
     get_keyboard_field_6c__15TWindowMakeTeamFv(keyboard, get_keyboard_ptr__20TWindowSubSymbolChatFv(*(s32 *)((s8 *)this + 0x28)));
     ((TWindowMakeTeam *)keyboard)->set_sub_position((u8 *)(get_window_layout_position((s32)(0xBB))));
     ((TWindowMakeTeam *)keyboard)->set_keyboard_flag62_bit2();
@@ -259,7 +259,7 @@ s32 TWindowSubSymbolChat::create_confirm_window() {
     ((TUnk_804D0618 *)temp_r31)->ensure_status_display(get_message_10__20TWindowSubStatusDispFl(0xAC));
     TWindowOptionCtrl::add_menu_item(temp_r31, get_message_10__20TWindowSubStatusDispFl(0xBF), 1);
     TWindowOptionCtrl::add_menu_item(temp_r31, get_message_10__20TWindowSubStatusDispFl(0xC0), 0);
-    if (TWindowSubSymbolChat__sub_80076FE0(*(s32 *)((s8 *)this + 0x28)) != 0) {
+    if (TWindowSubSymbolChat__sub_80076FE0((void *)(*(s32 *)((s8 *)this + 0x28))) != 0) {
         ((TWindowSubStatusDisp *)temp_r31)->set_selected_index(0);
     } else {
         ((TWindowSubStatusDisp *)temp_r31)->set_selected_index(1);

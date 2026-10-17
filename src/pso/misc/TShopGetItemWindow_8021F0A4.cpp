@@ -4,9 +4,9 @@
 extern "C" {
 
 void reset_shop_stock_and_params(void);
-s32 clear_shop_armor_flags();
-s32 clear_shop_weapon_flags();
-s32 clear_shop_tool_flags();
+void clear_shop_armor_flags(void);
+void clear_shop_weapon_flags(void);
+void clear_shop_tool_flags(void);
 
 extern s32 TLobby__data_805011D8[];
 extern s32 game_difficulty_selection;

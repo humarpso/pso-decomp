@@ -6,7 +6,7 @@ struct Hit_8007A5D8 { u8 pad[0x40]; };
 extern "C" {
 int mem_alloc(void*);
 extern u32 wall_query_scene_buffer;
-void TObjPlayer__sub_80079118(const char *);
+s32 TObjPlayer__sub_80079118(s32 *_w0);
 void TObjPlayer__sub_8007911C(void *, void *, u32);
 s32 query_segment_wall_meshes(void *, void *, u32, void *);
 u32 query_collision_segment_groups(void *, void *, u32);
@@ -25,7 +25,7 @@ Hit_8007A5D8 *csnVector(void *from, void *to, u32 mask) {
     } else if (query_segment_wall_meshes(from, to, mask, lbl_804FFD40) == 0) {
         hit = 0;
     }
-    TObjPlayer__sub_80079118(lbl_804389FC);
+    TObjPlayer__sub_80079118((s32 *)lbl_804389FC);
     return hit;
 }
 

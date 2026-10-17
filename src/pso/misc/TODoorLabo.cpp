@@ -102,7 +102,7 @@ void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
-void __dt__19TODoorFourLightBaseFv(void *, int);
+void *__dt__19TODoorFourLightBaseFv(void *arg0, s16 arg1);
 
 void TODoorLaboNormal::init_field_d4() { *(int *)&this->m_d4 = get_bml_model((s32)(TODoorLabo__model_archive), 0); }
 

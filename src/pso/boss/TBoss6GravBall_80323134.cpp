@@ -21,7 +21,7 @@ struct Obj_80323134 { u8 pad[0xC8]; Vec_80323134 pos; void *items[9]; };
 struct T_80323320 { u8 pad[0xD4]; s32 arr[9]; };
 
 extern "C" {
-s32 create_particle_emitter(s32, s32);
+void *create_particle_emitter(void *pos, s32 id);
 extern RecoveredGlobal_80323214_lbl_80476658 TBoss6GravBall__emitter_id_table;
 void TBoss6GravBall__sub_80323214(s32 arg0, s32 arg1);
 void TBoss6GravBall__sub_80323320(T_80323320 *self);
@@ -76,7 +76,7 @@ void TBoss6GravBall__sub_80323214(s32 arg0, s32 arg1) {
     temp_r5 = arg1 * 4;
     temp_r31 = (u8 *)(arg0 + temp_r5);
     if ((void *) *(u8 **)((s8 *)temp_r31 + 0xD4) == NULL) {
-        *(u8 **)((s8 *)temp_r31 + 0xD4) = (unsigned char *) (create_particle_emitter(arg0 + 0xC8, *(s32 *)((s8 *)(&TBoss6GravBall__emitter_id_table.value) + temp_r5)));
+        *(u8 **)((s8 *)temp_r31 + 0xD4) = (unsigned char *) (create_particle_emitter((void *)(arg0 + 0xC8), *(s32 *)((s8 *)(&TBoss6GravBall__emitter_id_table.value) + temp_r5)));
         temp_r3 = (u8 *)(*(u8 **)((s8 *)temp_r31 + 0xD4));
         if (temp_r3 != NULL) {
             ((TBoss4Type2 *)temp_r3)->set_flags(0x2040);
@@ -96,7 +96,7 @@ void TBoss6GravBall::create_emitter(s32 arg1) {
     temp_r5 = arg1 * 4;
     temp_r31 = (u8 *)(arg0 + temp_r5);
     if ((void *) *(u8 **)((s8 *)temp_r31 + 0xD4) == NULL) {
-        *(u8 **)((s8 *)temp_r31 + 0xD4) = (unsigned char *) (create_particle_emitter(arg0 + 0xC8, *(s32 *)((s8 *)(&(*(RecoveredGlobal_80323278_lbl_80476658 *)&TBoss6GravBall__emitter_id_table).value) + temp_r5)));
+        *(u8 **)((s8 *)temp_r31 + 0xD4) = (unsigned char *) (create_particle_emitter((void *)(arg0 + 0xC8), *(s32 *)((s8 *)(&(*(RecoveredGlobal_80323278_lbl_80476658 *)&TBoss6GravBall__emitter_id_table).value) + temp_r5)));
         temp_r3 = (u8 *)(*(u8 **)((s8 *)temp_r31 + 0xD4));
         if (temp_r3 != NULL) {
             ((TBoss4Type2 *)temp_r3)->set_flags(0x40);

@@ -154,8 +154,8 @@ struct RecoveredFields_800C2AC4_arg0
 extern "C" {
 s32 TBoss8Dragon__sub_800BB7D4(void *, int);
 s32 transition_enemy_state(void *, int);
-s32 fn_800C3A60(void *, int);
-s32 TObjPlayer__sub_800D9290(void *, int);
+s32 fn_800C3A60(s32 arg0, s32 arg1);
+void TObjPlayer__sub_800D9290(s32 point, s32 delay);
 s32 advance_animation_playback(void *);
 s32 play_sound_effect(void *, void *, int, int);
 f32 sin_table_lookup(int);
@@ -201,7 +201,7 @@ void fn_800C2AC4(u8 *arg0, int arg1) {
       TBoss8Dragon__sub_800BB7D4((void *) arg0, (int) 0xF2);
       ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_410 = 0;
       ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_424 = (f32) lbl_805D9FAC;
-      play_sound_effect((void *) fn_800C3A60((void *) arg0, (int) 0x4003A812), (void *) (arg0 + 0x38), (int) 0, (int) 0);
+      play_sound_effect((void *) fn_800C3A60((s32)arg0, (int) 0x4003A812), (void *) (arg0 + 0x38), (int) 0, (int) 0);
       TObjPlayer::play_effect_if_v2((int) (-0x200));
       return;
     case 3:
@@ -233,7 +233,7 @@ void fn_800C2AC4(u8 *arg0, int arg1) {
         }
         else
         {
-          TObjPlayer__sub_800D9290((void *) (&stack.sp8), (int) 0x32);
+          TObjPlayer__sub_800D9290((s32)(&stack.sp8), (int) 0x32);
           ((TObjPlayer *)(&stack.sp8))->spawn_ground_effect((int) 0x46);
         }
       }

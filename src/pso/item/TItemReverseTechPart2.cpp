@@ -9,7 +9,7 @@ typedef char RecoveredGlobal_80119B28___vt__21TItemReverseTechPart2_size[sizeof(
 
 extern "C" {
 s32 __ct__18TItemReverseTechBGFv(int, void *, void *);
-s32 TItemReverseTech__sub_8011A54C(void *);
+void TItemReverseTech__sub_8011A54C(void *a0);
 u32 __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_80119B28___vt__21TItemReverseTechPart2 __vt__21TItemReverseTechPart2;
@@ -40,13 +40,13 @@ u8 *__ct__21TItemReverseTechPart2Fv(u8 *arg0, s32 arg1, s32 arg2) {
     u32 temp_r3;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__21TItemReverseTechPart2.value;
-    TItemReverseTech__sub_8011A54C((void *) (arg0 + 0x1C));
-    TItemReverseTech__sub_8011A54C((void *) (arg0 + 0x48));
-    TItemReverseTech__sub_8011A54C((void *) (arg0 + 0x74));
-    TItemReverseTech__sub_8011A54C((void *) (arg0 + 0xA0));
-    TItemReverseTech__sub_8011A54C((void *) (arg0 + 0xCC));
-    TItemReverseTech__sub_8011A54C((void *) (arg0 + 0xF8));
-    TItemReverseTech__sub_8011A54C((void *) (arg0 + 0x124));
+    TItemReverseTech__sub_8011A54C((arg0 + 0x1C));
+    TItemReverseTech__sub_8011A54C((arg0 + 0x48));
+    TItemReverseTech__sub_8011A54C((arg0 + 0x74));
+    TItemReverseTech__sub_8011A54C((arg0 + 0xA0));
+    TItemReverseTech__sub_8011A54C((arg0 + 0xCC));
+    TItemReverseTech__sub_8011A54C((arg0 + 0xF8));
+    TItemReverseTech__sub_8011A54C((arg0 + 0x124));
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C50;
     *(s32 *)((s8 *)arg0 + 0x1C) = 0x12C;
     *(s32 *)((s8 *)arg0 + 0x20) = 0;

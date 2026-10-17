@@ -125,8 +125,8 @@ extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CC8;
 extern const f32 lbl_805D8CE4;
 void vt6__9TBoss4UroFv(u8 *arg0);
-s32 queue_destruction__7TObjectFv(void *);
-s32 spawn_particle_effect(void *, int);
+void queue_destruction__7TObjectFv(void *arg0);
+void *spawn_particle_effect(void *pos, s32 id);
 extern const f32 lbl_805D8CB8;
 extern const f32 lbl_805D8CC0;
 void vt2__11TBoss4BishiFv(u8 *arg0);
@@ -393,7 +393,7 @@ s32 TBoss4Zako__ct(s32 arg0, s32 arg1, s32 arg2);
 void update_state3__10TBoss4ZakoFPv(void* p);
 s32 free_collision_body_parts(void *);
 
-s32 __dt__9TObjEnemyFv(void *, s32);
+void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 
 #define THIS self
 
@@ -720,11 +720,11 @@ void TBoss4Zako::update_sink_state() {
     m_38.y = (f32) (m_38.y + lbl_805D8CB8);
     temp_f1 = m_38.y;
     if ((temp_f1 < lbl_805D8CBC) && (temp_f1 >= lbl_805D8CB8)) {
-        spawn_particle_effect((void *) (&m_38), (int) (0xF3));
+        spawn_particle_effect((&m_38), (0xF3));
     }
     m_5c = (s32) (m_5c + 0x111);
     if (m_38.y < lbl_805D8CC0) {
-        queue_destruction__7TObjectFv((void *)this);
+        queue_destruction__7TObjectFv(this);
     }
 }
 #pragma pop
@@ -982,11 +982,11 @@ void vt5__9TBoss4UroFv(u8 *arg0) {
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) + lbl_805D8CB8);
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x3C);
     if ((temp_f1 < lbl_805D8CBC) && (temp_f1 >= lbl_805D8CB8)) {
-        spawn_particle_effect((void *) (arg0 + 0x38), (int) (0xF3));
+        spawn_particle_effect((arg0 + 0x38), (0xF3));
     }
     *(s32 *)((s8 *)arg0 + 0x5C) = (s32) (*(s32 *)((s8 *)arg0 + 0x5C) + 0x111);
     if (*(f32 *)((s8 *)arg0 + 0x3C) < lbl_805D8CC0) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
     }
 }
 #pragma pop
@@ -1148,11 +1148,11 @@ void vt2__11TBoss4BishiFv(u8 *arg0) {
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) + lbl_805D8CB8);
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x3C);
     if ((temp_f1 < lbl_805D8CBC) && (temp_f1 >= lbl_805D8CB8)) {
-        spawn_particle_effect((void *) (arg0 + 0x38), (int) (0xF3));
+        spawn_particle_effect((arg0 + 0x38), (0xF3));
     }
     *(s32 *)((s8 *)arg0 + 0x5C) = (s32) (*(s32 *)((s8 *)arg0 + 0x5C) + 0x111);
     if (*(f32 *)((s8 *)arg0 + 0x3C) < lbl_805D8CC0) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
     }
 }
 #pragma pop
@@ -1191,7 +1191,7 @@ void vfunc_29__13TUnk_804806E8Fv();
 void apply_anti_technique__13TUnk_804806E8Fl();
 void vfunc_73__13TUnk_804806E8Fv();
 void enemy_spawn_zalure_effect__13TUnk_804806E8Fv();
-void trigger_switch_attack__10TObjPlayerFi();
+void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 void enemy_spawn_jellen_effect__13TUnk_804806E8Fv();
 void apply_switch_attack__13TUnk_804806E8Fv();
 void vfunc_78__13TUnk_804806E8Fl();
@@ -1232,12 +1232,12 @@ void calc_distance_accuracy_penalty__10TObjPlayerFv();
 void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 void try_start_action__13TUnk_804806E8Fll();
 void select_melee_contact_body__10TObjPlayerFv();
-void update_defense_stat_status();
-void update_attack_stat_status();
+s32 update_defense_stat_status(u8 *arg0);
+s32 update_attack_stat_status(u8 *arg0);
 void update_shock_clock__13TUnk_804806E8Fv();
 void update_movement_status__13TUnk_804806E8Fv();
 void update_flag30_timer__13TUnk_804806E8Fv();
-void update_action_timer__10TObjPlayerFPv();
+s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
 void update_action_hold_status__13TUnk_804806E8Fv();
 void update_poison_status__13TUnk_804806E8Fv();
 void vfunc_43__13TUnk_804806E8Fv();
@@ -1250,7 +1250,7 @@ void get_pos__13TUnk_804806E8Fl();
 void vfunc_13__13TUnk_804AF8A0Fl();
 void run_task__10TBoss4ZakoFv();
 void clear_lobby_object_state__9TObjEnemyFv();
-void render_actor_shadows_default();
+void render_actor_shadows_default(u8 *arg0);
 void vfunc_12__9TObjEnemyFv();
 void vfunc_74__9TObjEnemyFl();
 void apply_hit_message_flags__9TObjEnemyFPv();

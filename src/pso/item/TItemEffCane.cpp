@@ -8,9 +8,9 @@ extern "C" {
 void queue_destruction__7TObjectFv(void*);
 void disallow_rendering__7TObjectFv(void*);
 TItem* find_item_by_id(s32 item_id);
-s8 TObjPlayer__sub_80102C30(TItem* item);
+s8 TObjPlayer__sub_80102C30(u8 *arg0);
 u32 test_flags_1b8__11TItemWeaponFUl(TItem* item, u32 flags);
-void* create_particle_emitter(const f32* position, s32 effect_id);
+void *create_particle_emitter(void *pos, s32 id);
 extern const char* TItemEffCane__class_name;
 }
 
@@ -21,7 +21,7 @@ void TItemEffCane::run_task() {
         queue_destruction__7TObjectFv(this);
         return;
     }
-    if (TObjPlayer__sub_80102C30(item) != 2 ||
+    if (TObjPlayer__sub_80102C30((u8 *)item) != 2 ||
         test_flags_1b8__11TItemWeaponFUl(item, 0x10) == 0 || effect == NULL) {
         queue_destruction__7TObjectFv(this);
         return;

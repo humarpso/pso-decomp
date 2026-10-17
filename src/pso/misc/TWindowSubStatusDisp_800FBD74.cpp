@@ -111,9 +111,9 @@ s32 get_small_font_glyph_width(u8 c);
 void TWindowSubStatusDisp__sub_800FC248(void);
 void build_small_font_glyph_quad(u8 c, Quad_800FC310 *q);
 s32 render_forward__20TWindowSubStatusDispFPv();
-s32 begin_screen_draw(int);
+void begin_screen_draw(s32 arg0);
 s32 draw_textured_quad_at_depth(void *, f32);
-s32 set_draw_texture_and_color(int, void *);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 
 extern E_800FC220 *small_font_metrics_table_ptr;
 
@@ -135,9 +135,9 @@ void TWindowSubStatusDisp__sub_800FBD74(s32 arg0, f32 farg0, f32 farg1, f32 farg
     f32 temp_f7;
     f32 temp_f8;
     TObjPlayer::reset_transform_state();
-    begin_screen_draw((int) (1));
+    begin_screen_draw((1));
     render_forward__20TWindowSubStatusDispFPv();
-    set_draw_texture_and_color((int) (0), (void *) (arg0));
+    set_draw_texture_and_color((0), (arg0));
     stack.sp8 = farg0;
     stack.spC = farg1;
     stack.sp10 = (109.0f) + farg0;
@@ -166,7 +166,7 @@ void TWindowSubStatusDisp::draw_number_digits(void *color, s16 value, u16 digits
     TObjPlayer::reset_transform_state();
     begin_screen_draw(1);
     render_forward__20TWindowSubStatusDispFPv();
-    set_draw_texture_and_color(0, color);
+    set_draw_texture_and_color(0, (s32)color);
     for (i = 0; i < digits; i++) {
         id = ((s32 (*)(s32))TWindowSubStatusDisp__sub_800FC248)((u8)(value % 10) + '0');
         x -= ((u8 (*)(s32))get_small_font_glyph_width)(id);
@@ -185,7 +185,7 @@ void draw_small_font_text(void *color, const char *s, f32 x, f32 y, f32 scale) {
     TObjPlayer::reset_transform_state();
     begin_screen_draw(1);
     render_forward__20TWindowSubStatusDispFPv();
-    set_draw_texture_and_color(0, color);
+    set_draw_texture_and_color(0, (s32)color);
     while (*s != 0) {
         u8 c = *s++;
         pos.x = x;

@@ -52,7 +52,7 @@ extern const f32 TContainerAncient01__data_805DBD44;
 s32 TContainerAncient01__vt18(s32 arg0, s32 arg1);
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object(s32);
+void draw_ginja_object(void *child);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
@@ -107,7 +107,7 @@ void TContainerAncient01::render() {
             scale_current_matrix((u8 *)&this->m_360);
         }
         if (TObjPlayer::check_demo_mode() == 1) {
-            draw_ginja_object(*(s32 *)&this->model);
+            draw_ginja_object((void *)(*(s32 *)&this->model));
         } else {
             draw_ginja_model_with_motion(*(s32 *)&this->model, *(s32 *)&this->unknownF8, this->m_c0);
         }

@@ -6,7 +6,7 @@
 
 extern "C" {
 s32 is_symbol_chat_preset_in_use(void *);
-s32 get_symbol_chat_preset(s32);
+u8 *get_symbol_chat_preset(s32 i);
 u8 * TWindowChatSymbol__ct(void *, s32, s32);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void *, int, int, int);
 u8 *__nw__7TObjectFUl(s32);

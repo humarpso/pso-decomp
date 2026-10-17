@@ -4,15 +4,15 @@ extern "C" {
 
 void *TOWreckAncient05__create(void *arg0);
 void *__dt__16TOWreckAncient05Fv(void *arg0, s16 arg1);
-void *TOWreckAncient05__ct(void *, void *);
+u8 *TOWreckAncient05__ct(u8 *arg0, s32 arg1);
 void __dl__7TObjectFPv(void *);
-void __dt__14TOWreckAncientFv(void *, int);
+void *__dt__14TOWreckAncientFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 
 void *TOWreckAncient05__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xB4);
     if (o != NULL) {
-        o = TOWreckAncient05__ct(o, arg0);
+        o = TOWreckAncient05__ct((u8 *)o, (s32)arg0);
     }
     return o;
 }

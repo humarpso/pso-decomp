@@ -21,7 +21,7 @@ struct RecoveredGlobal_8019733C___vt__13TObjRaderIcon {
 struct Icon_80197110 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x1C]; s32 f60; u8 pad64[0x2C]; s32 f90; s32 f94; s32 f98; f32 f9C; u32 fA0; };
 
 extern "C" {
-s32 disallow_rendering__7TObjectFv(void *);
+void disallow_rendering__7TObjectFv(void *arg0);
 s32 construct_world_actor_base(void *);
 extern s32 __vt__13TObjRaderIcon[];
 extern s32 lbl_805D3418;
@@ -121,7 +121,7 @@ u8 *TObjRaderIcon__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3418;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     ((TObjRaderIcon *)arg0)->initialize_from_placement();
-    disallow_rendering__7TObjectFv((void *) (arg0));
+    disallow_rendering__7TObjectFv((arg0));
     return arg0;
 }
 

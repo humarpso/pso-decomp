@@ -22,7 +22,7 @@ extern "C" {
 int obj_getArrWord_254(void *p, int i);
 void * get_player_by_client_id();
 void *__nw__7TObjectFUl(int);
-void TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 s32 get_status_effect_icon_index(u32 arg0);
 void TWindowComCard__sub_80249D7C(u8 *arg0, s32 arg1);
 void *TWindowComCard__sub_80249ED8(void *, void *, void *, s32, s32, s32);
@@ -95,7 +95,7 @@ struct Vec2_80270394 { f32 x; f32 y; };
 
 struct Rect_80270394 { f32 x0; f32 y0; f32 x1; f32 y1; f32 u0; f32 v0; f32 u1; f32 v1; };
 
-s16 obj_getS16_2BA(void *);
+s16 obj_getS16_2BA(u8 *p);
 s32 get_sub_value__8TItemMagFv();
 s32 get_photon_blast_chain(Slots_80270060 *);
 s32 TLobby__sub_801C19D0(void *);
@@ -107,7 +107,7 @@ s32 TWindowSubComCard__sub_80245558(u8 *, Vec2_80270394 *, Vec2_80270394 *);
 s32 get_width__19TWindowSimpleStatusFv();
 s32 apply_context_transform_to_rect(u8 *, Rect_80270394 *);
 s32 start_text_color_transition(void *, s32, f32);
-s32 set_text_entry_string(void *, s32, s32);
+void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 s32 set_sprite_uv_from_pixels(s32, f32, f32);
 s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0);
 void update_lockon_window(u8 *arg0);
@@ -116,9 +116,9 @@ s32 rand(void);
 s32 strcmp(s32, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-s32 begin_screen_draw(s32);
+void begin_screen_draw(s32 arg0);
 s32 draw_textured_quad_at_depth(Rect_80270394 *, f32);
-s32 set_draw_texture_and_color(s32, s32);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 
 extern s32 lbl_8044F5E4[];
 extern s32 lobby_rule_settings[];
@@ -192,7 +192,7 @@ s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0) {
         return 0xFF008CFC;
     }
     temp_r30 = get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(4));
-    *(f32 *)((s8 *)temp_r30 + 0x20) = (f32) obj_getS16_2BA(temp_r3);
+    *(f32 *)((s8 *)temp_r30 + 0x20) = (f32) obj_getS16_2BA((u8 *)temp_r3);
     *(f32 *)((s8 *)temp_r30 + 0x24) = (f32) *(s16 *)((s8 *)temp_r3 + 0x32E);
     if (*(f32 *)((s8 *)temp_r30 + 0x24) > (lbl_805DD390 * *(f32 *)((s8 *)temp_r30 + 0x20))) {
         var_r31 = -1;
@@ -246,7 +246,7 @@ void TWindowSimpleStatus::update_status_icons(void *ofs) {
     if (player == NULL || sub_80244994() == 0) {
         for (i = 0; i < 5; i++) {
             if (((Disp_8026F9F4 *)this)->windows[i] != NULL) {
-                TWindow__close(((Disp_8026F9F4 *)this)->windows[i]);
+                TWindow__close((u8 *)(((Disp_8026F9F4 *)this)->windows[i]));
                 ((Disp_8026F9F4 *)this)->windows[i] = NULL;
             }
         }
@@ -276,7 +276,7 @@ void TWindowSimpleStatus::update_status_icons(void *ofs) {
         }
         count = 1;
     } else if (((Disp_8026F9F4 *)this)->windows[j] != NULL) {
-        TWindow__close(((Disp_8026F9F4 *)this)->windows[j]);
+        TWindow__close((u8 *)(((Disp_8026F9F4 *)this)->windows[j]));
         ((Disp_8026F9F4 *)this)->windows[j] = NULL;
     }
     j++;
@@ -284,7 +284,7 @@ void TWindowSimpleStatus::update_status_icons(void *ofs) {
         s32 word = obj_getArrWord_254(player, k);
         if (word == 0) {
             if (((Disp_8026F9F4 *)this)->windows[j] != NULL) {
-                TWindow__close(((Disp_8026F9F4 *)this)->windows[j]);
+                TWindow__close((u8 *)(((Disp_8026F9F4 *)this)->windows[j]));
                 ((Disp_8026F9F4 *)this)->windows[j] = NULL;
             }
         } else {

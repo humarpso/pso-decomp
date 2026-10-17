@@ -89,23 +89,23 @@ void *__dt__18T_ATS_DrawCalendarFv(void *arg0, s16 arg1);
 void * create__23TAdSinglePlyChrSelectGCFv(void);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdPlayerLoadGC__sub_801E24F8(s32, s32, s32, s32, s32);
-s32 TAdPlyStatusGC__sub_802E11BC(void *);
+void TAdPlyStatusGC__sub_802E11BC(void *p);
 s32 load_system_file_blocking__23TAdSinglePlyChrSelectGCFv();
 s32 load_character_and_wait__23TAdSinglePlyChrSelectGCFv();
 s32 load_player_and_wait__23TAdSinglePlyChrSelectGCFv();
 int TKeyBoardControl__sub_8000F9CC(void*);
-s32 TLobby__sub_8022614C(s32 a0 = 0);
-s32 update_music_stream_gain(s16 a0 = 0);
+void TLobby__sub_8022614C(s32 arg0);
+void update_music_stream_gain(s32 user);
 s32 init_sound_mode__6TLobbyFPv(void);
-s32 TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 void *__ct__9TAdBackGCFv(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
-s32 fn_8023F160(void);
-s32 fn_8023F18C(void);
+void fn_8023F160(void);
+void fn_8023F18C(void);
 void * get_global_state__23TAdSinglePlyChrSelectGCFv(void);
 s32 set_language__19TWindowKeyBoardSoftFSc(u8 a0 = 0);
 
@@ -360,12 +360,12 @@ void TAdSinglePlyChrSelectGC::open_message_choice(void *arg1, s32 sel, void *arg
 
 void close_windows__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0x50) != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0x50));
+        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x50)));
         *(u32 *)((s8 *)arg0 + 0x50) = 0U;
         *(s32 *)((s8 *)arg0 + 0x60) = 7;
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 0x54) != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0x54));
+        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x54)));
         *(u32 *)((s8 *)arg0 + 0x54) = 0U;
         *(s32 *)((s8 *)arg0 + 0x60) = 7;
     }
@@ -605,7 +605,6 @@ void show_confirm_dialog__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
 #define close_and_next__23TAdSinglePlyChrSelectGCFPvPvPvPvPv ((int (*)(void*, void*, void*, void*, void*))close_and_next__23TAdSinglePlyChrSelectGCFPvPvPvPvPv)
 #define close_windows__23TAdSinglePlyChrSelectGCFPv ((s32 (*)(void *))close_windows__23TAdSinglePlyChrSelectGCFPv)
 #define create_backgrounds__23TAdSinglePlyChrSelectGCFPv ((s32 (*)())create_backgrounds__23TAdSinglePlyChrSelectGCFPv)
-#define is_load_complete__23TAdSinglePlyChrSelectGCFv ((s32 (*)())is_load_complete__23TAdSinglePlyChrSelectGCFv)
 #define is_visible__11TWindowMenuFv ((s32 (*)(u32))is_visible__11TWindowMenuFv)
 void TAdSinglePlyChrSelectGC__sub_802E2158(void);
 
@@ -615,8 +614,8 @@ void TAdSinglePlyChrSelectGC::create_result_bg(s32 arg0) {
     close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(arg0, get_localized_text_entry(0x1C, 0x1C), -1, 0, 0);
 }
 
-s32 TAdSinglePlyChrSelectGC__sub_801FBB1C();
-s32 TAdSinglePlyChrSelectGC__sub_801FBB7C();
+void TAdSinglePlyChrSelectGC__sub_801FBB1C(void);
+void TAdSinglePlyChrSelectGC__sub_801FBB7C(void);
 void TAdSinglePlyChrSelectGC__sub_802E22A4(u8 *arg0);
 s32 strcat(void *, void *);
 
@@ -713,12 +712,12 @@ void TAdSinglePlyChrSelectGC__sub_802E2848(void* p);
 void TAdSinglePlyChrSelectGC__sub_802E289C(void *arg0);
 void TAdSinglePlyChrSelectGC__sub_802E2A7C(void* p);
 void update_state__23TAdSinglePlyChrSelectGCFi(s32 arg0);
-s32 TAdSinglePlyChrSelectGC__sub_801FD990(s32);
-s32 reset_save_header__23TAdSinglePlyChrSelectGCFv();
+int TAdSinglePlyChrSelectGC__sub_801FD990(s32 a0);
+void reset_save_header__23TAdSinglePlyChrSelectGCFv(void);
 
 s32 check_ready__23TAdSinglePlyChrSelectGCFv();
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
-s32 init_timestamped_data();
+void init_timestamped_data(void);
 s32 setup__23TAdSinglePlyChrSelectGCFi(s32);
 int start_load__23TAdSinglePlyChrSelectGCFv(void*);
 s32 try_confirm_selection__23TAdSinglePlyChrSelectGCFv();
@@ -1133,5 +1132,4 @@ void TAdSinglePlyChrSelectGC::rebuild_and_maybe_close() {
 #undef close_and_next__23TAdSinglePlyChrSelectGCFPvPvPvPvPv
 #undef close_windows__23TAdSinglePlyChrSelectGCFPv
 #undef create_backgrounds__23TAdSinglePlyChrSelectGCFPv
-#undef is_load_complete__23TAdSinglePlyChrSelectGCFv
 #undef is_visible__11TWindowMenuFv

@@ -4,7 +4,7 @@
 #include "pso/ui/TAdEnterSerialAccessGC.h"
 
 extern "C" {
-int init_game_mode_select_scene(void);
+void init_game_mode_select_scene(void);
 void TAdMultiChgGameModeGC__sub_8023F564(void);
 void TAdMultiChgGameModeGC__sub_8023F58C(void);
 void TAdMultiChgGameModeGC__sub_8023F5B4(void);

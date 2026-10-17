@@ -1,9 +1,9 @@
 #include "pso/TItemShoot.h"
 #include "pso/system/vector.h"
 
-extern "C" void  disallow_rendering__7TObjectFv(TObject*);
-extern "C" void  allow_rendering__7TObjectFv(TObject*);
-extern "C" void  queue_destruction__7TObjectFv(TObject*);
+extern "C" void disallow_rendering__7TObjectFv(void *arg0);
+extern "C" void allow_rendering__7TObjectFv(void *arg0);
+extern "C" void queue_destruction__7TObjectFv(void *arg0);
 extern "C" u32   query_game_join_id__10TObjPlayerFv(void*);
 extern "C" void  vec3_add_to(Vec*, Vec*);
 extern "C" void  copy_position__15TEffStarLight2DFPv(void*, Vec*);
@@ -11,7 +11,7 @@ extern "C" void  copy_position__15TEffStarLight2DFPv(void*, Vec*);
 extern "C" void  subtract_vector(Vec*, const Vec*);
 extern "C" f32   vector_length(Vec*);
 extern "C" void  normalize_vector(Vec*);
-extern "C" f64   atan2_float(f32, f32);
+extern "C" f32 atan2_float(f32 y, f32 x);
 extern "C" void  direction_to_rotation_xz(Vec*, s32*, s32*);
 extern "C" void* get_field_d8__5TItemFv(void*);
 extern "C" TObject*    tl_05;
@@ -19,15 +19,15 @@ extern "C" const char* TItemShoot__class_name;
 extern "C" const f64   lbl_8043E7A0[];
 
 extern "C" {
-void __dt__19TItemShootModelRotZFv();
+void *__dt__19TItemShootModelRotZFv(void *self, s16 flag);
 void render__19TItemShootModelRotZFv();
 void hook__19TItemShootModelRotZFv();
-void __dt__13TItemShootGunFv();
+void *__dt__13TItemShootGunFv(void *self, s16 flag);
 void render__13TItemShootGunFv();
 void hook__13TItemShootGunFv();
 void __dt__18TItemShootParticleFv();
 void hook__18TItemShootParticleFv();
-void __dt__15TItemShootModelFv();
+void *__dt__15TItemShootModelFv(void *self, s16 flag);
 void render__15TItemShootModelFv();
 void run_task__10TItemShootFv();
 void hook__10TItemShootFv();

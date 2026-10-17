@@ -97,7 +97,7 @@ struct RecoveredGlobal_801499DC___vt__18TObjNpcConnoisseur {
 };
 
 extern "C" {
-s32 construct_male_npc_base(void *);
+u8 *construct_male_npc_base(u8 *arg0);
 extern s32 __vt__18TObjNpcConnoisseur[];
 extern s32 TObjNpcConnoisseur__name;
 extern u32 TObjNpcConnoisseur__instance;
@@ -147,7 +147,7 @@ extern void *tl_04;
 
 typedef char RecoveredGlobal_801499DC___vt__18TObjNpcConnoisseur_size[sizeof(RecoveredGlobal_801499DC___vt__18TObjNpcConnoisseur) == 0x178 ? 1 : -1];
 u8 *TObjNpcConnoisseur__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_male_npc_base((void *) (arg0));
+    construct_male_npc_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801499DC___vt__18TObjNpcConnoisseur *)&__vt__18TObjNpcConnoisseur).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcConnoisseur__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);

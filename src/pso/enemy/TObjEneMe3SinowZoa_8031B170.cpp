@@ -19,7 +19,7 @@ extern "C" {
 extern RecoveredGlobal_8031B170_lbl_804E8880 lbl_804E8880;
 extern const f32 lbl_805DF38C;
 s32 TLobby__sub_8001FE7C(u32, s32);
-s32 mem_free(u32);
+void mem_free(void *p);
 extern G_8031B198 lbl_80542FDC;
 extern u32 TObjEneMe3SinowZoa__data_805D6AD8;
 extern Obj_8031B198 *TObjEneMe3SinowZoa__data_805D6AE0;
@@ -43,7 +43,7 @@ void TObjEneMe3SinowZoa::free_resources() {
         TObjEneMe3SinowZoa__data_805D6AE0 = NULL;
     }
     if (lbl_80542FDC.p != 0) {
-        mem_free(lbl_80542FDC.p);
+        mem_free((void *)lbl_80542FDC.p);
         lbl_80542FDC.p = 0;
     }
     if (TObjEneMe3SinowZoa__data_805D6AD8 != 0) {

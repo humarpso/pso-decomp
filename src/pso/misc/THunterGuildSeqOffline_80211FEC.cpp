@@ -21,7 +21,7 @@ extern f32 THunterGuildSeqOffline__data_805DC648;
 extern s32 local_client_id;
 s32 THunterGuildSeqOffline__sub_80212074(void);
 s32 is_flag_set__6TLobbyFv();
-void TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 void *refresh_with_default_list__20TWindowSubStatusDispFll(void *, void *);
 void *get_window_layout_position(s32);
 char *strcpy(char *, const char *);
@@ -142,7 +142,7 @@ void TMemberCheck::open_member_name_window() {
     Seq_80212304 *self = (Seq_80212304 *)this;
     s32 i;
     if (self->win != 0) {
-        TWindow__close(self->win);
+        TWindow__close((u8 *)self->win);
         self->win = 0;
     }
     self->win = refresh_with_default_list__20TWindowSubStatusDispFll(get_window_layout_position(0xBD), member_name_window_pos);

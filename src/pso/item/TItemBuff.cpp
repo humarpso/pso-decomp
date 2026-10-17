@@ -3,8 +3,8 @@
 
 extern "C" {
 
-s32 TItemBuff__ct();
-s32 mem_free(s32);
+void TItemBuff__ct(void);
+void mem_free(void *p);
 
 extern s32 item_nj_chunk_buffer_table[];
 
@@ -20,7 +20,7 @@ void TItemBuff::free_all_and_init() {
     var_r28 = 0;
     var_r29 = item_nj_chunk_buffer_table;
     do {
-        mem_free(var_r29[var_r31]);
+        mem_free((void *)var_r29[var_r31]);
         var_r28 += 1;
         var_r29[var_r31] = var_r30;
         var_r31 += 1;

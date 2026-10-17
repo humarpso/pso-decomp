@@ -190,8 +190,8 @@ s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 extern RecoveredGlobal_80235348_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_80235348_lbl_804CC55C lbl_804CC55C;
-s32 queue_destruction__7TObjectFv(void *);
-void mem_free(void **);
+void queue_destruction__7TObjectFv(void *arg0);
+void mem_free(void *p);
 void __dl__7TObjectFPv(void *);
 extern TTecGiBartaData_80230B48 TTecMegid__emitter_bands[];
 extern void *__vt__9TTecMegid[];
@@ -207,11 +207,11 @@ s32 play_sound_effect(s32, s32, s32, s32);
 s32 get_technique_caster_flags(s32, u16);
 void TTecMegid__vt6(Obj_80235490 *self, VObj_80235490 *target);
 void *find_entity_by_id(u16);
-void push_matrix_from(void *);
+s32 push_matrix_from(void *src);
 void rotate_matrix_y(s32, s32);
 void matrix_mult_vec(s32, Vec_80235740 *, Vec_80235740 *);
-void pop_matrices(s32);
-void move_technique_projectile(Obj_80235740 *);
+s32 pop_matrices(s32 arg0);
+void move_technique_projectile(u8 *arg0);
 void dispatch_technique_contact__13TUnk_804CCC68Fv(Obj_80235740 *, s32);
 extern Vec_80235740 tec_megid_offset_vec;
 extern u8 identity_matrix[];
@@ -401,7 +401,7 @@ TTecGiBarta_80230B48 *__dt__9TTecMegidFv(TTecGiBarta_80230B48 *self, s16 deletin
         self->vtable = __vt__9TTecMegid;
         for (u32 i = 0; i < TTecMegid__emitter_bands[self->band].count; ++i) {
             if (self->emitters[i]) {
-                queue_destruction__7TObjectFv((void *)(self->emitters[i]));
+                queue_destruction__7TObjectFv((self->emitters[i]));
             }
         }
         mem_free(self->emitters);
@@ -434,7 +434,7 @@ void run_task__9TTecMegidFv(Obj_80235740 *self) {
             ((TNowLoading *)(self->emitters[i]))->copy_pos(&self->pos);
         }
     }
-    move_technique_projectile(self);
+    move_technique_projectile((u8 *)self);
     ((TUnk_804CCC68 *)self)->advance_lifetime_or_destroy();
     dispatch_technique_contact__13TUnk_804CCC68Fv(self, 1);
 }
@@ -481,7 +481,7 @@ u8 *TTecMegid::construct_facing(s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
 void TUnk_804CCA78::run_task() {
     this->m_1e = (s16) (this->m_1e + 1);
     if ((s16) this->m_1e > (s16) *(s16 *)&this->unk_1C) {
-        queue_destruction__7TObjectFv((void *)((void *)(this)));
+        queue_destruction__7TObjectFv(((void *)(this)));
     }
 }
 

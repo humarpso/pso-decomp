@@ -131,7 +131,7 @@ s32 is_any_player_within_radius_xz(s32, f32);
 extern const f32 lbl_805DB588;
 extern const f32 lbl_805DB58C;
 extern const f32 lbl_805DB590;
-f32 atan2_float(f64, f64);
+f32 atan2_float(f32 y, f32 x);
 f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(s32, s32);
@@ -165,7 +165,7 @@ struct VObj_80164c34_80164760 : Base_80164c34_80164760 {
 
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
-s32 translate_matrix(s32, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
 
 #pragma push

@@ -6,7 +6,7 @@ extern char *text_builder_write_cursor;
 extern char text_builder_buffer[];
 void append_text_space(void);
 void append_padded_number(s32 v, u8 n);
-s32 text_builder_append(void *);
+void text_builder_append(u8 *str);
 extern s32 lbl_8044CB60[];
 extern s32 lbl_805DC790;
 extern s32 lbl_805DC794;
@@ -15,15 +15,15 @@ void TWindowSubStatusDisp::append_play_time(u32 arg0) {
     u32 h = arg0 / 3600U;
     u32 rem = arg0 % 3600U;
     if (h > 99U) {
-        text_builder_append(lbl_8044CB60);
+        text_builder_append((u8 *)lbl_8044CB60);
         return;
     }
     append_padded_number(h, 2);
-    text_builder_append(&lbl_805DC790);
+    text_builder_append((u8 *)&lbl_805DC790);
     u32 m = rem / 60U;
     rem = rem % 60U;
     append_padded_number(m, 2);
-    text_builder_append(&lbl_805DC794);
+    text_builder_append((u8 *)&lbl_805DC794);
     append_padded_number(rem, 2);
 }
 

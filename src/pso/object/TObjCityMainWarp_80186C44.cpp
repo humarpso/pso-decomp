@@ -23,11 +23,11 @@ struct Obj_80186DA0 {
 extern "C" {
 u8 is_current_floor_switch_set(int);
 s32 get_player_by_client_id(s32);
-s32 end_player_keyboard_hold(s32);
-s32 TWindow__close(void *);
-s32 obj_clear_flag30_20000(s32);
-s32 obj_set_flag_20000(s32);
-s32 play_effect_default__10TObjPlayerFii(s32, s32);
+void end_player_keyboard_hold(s32 arg0);
+void TWindow__close(u8 *arg0);
+void obj_clear_flag30_20000(void *arg0);
+void obj_set_flag_20000(void *arg0);
+void play_effect_default__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 send_code_45_1__10TObjPlayerFl();
 
 extern s32 local_client_id;
@@ -38,11 +38,11 @@ void TObjCityMainWarp::close_windows() {
         *(u32 *)((s8 *)this + 0x168) = 0U;
     }
     if ((u32) this->m_b0 != 0U) {
-        TWindow__close(*(void * *)&this->m_b0);
+        TWindow__close((u8 *)(*(void * *)&this->m_b0));
         this->m_b0 = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x164) != 0U) {
-        TWindow__close(*(void **)((s8 *)this + 0x164));
+        TWindow__close((u8 *)(*(void **)((s8 *)this + 0x164)));
         *(u32 *)((s8 *)this + 0x164) = 0U;
     }
     end_player_keyboard_hold(local_client_id);
@@ -65,7 +65,7 @@ void TObjCityMainWarp::notify_player_warp(void *arg0, s32 arg1) {
     player = get_player_by_client_id(arg1);
     if (player != 0) {
         send_code_45_1__10TObjPlayerFl();
-        obj_clear_flag30_20000(player);
+        obj_clear_flag30_20000((void *)player);
     }
 }
 
@@ -75,7 +75,7 @@ void TObjCityMainWarpChallenge::trigger_warp_effect(s32 arg1) {
     player = get_player_by_client_id(arg1);
     if (player != 0) {
         play_effect_default__10TObjPlayerFii(player, -1);
-        obj_set_flag_20000(player);
+        obj_set_flag_20000((void *)player);
         this->m_174 = 0x12C;
     }
 }

@@ -24,23 +24,23 @@ struct RecoveredGlobal_8027AF58_lbl_8050E208 {
 struct Lg_8027B194 { s32 f0; u8 pad4[0x14]; void *vt; void *f1c; void *f20; s32 f24; void *f28; u8 f2c[0x10]; };
 
 extern "C" {
-s32 chat_accept_submission(void *);
+s32 chat_accept_submission(s32 arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 is_flag_set__11TLoadingCurFv(void *, int);
 s32 is_on_current_screen__11TCameraCtrlFv(int, int);
 s32 play_sound_effect(int, int, int, int);
 s32 TWindowCtrl__sub_8024701C(int);
-s32 TWindowChat__sub_80247DFC(int);
-s32 TWindowChat__sub_80247E50(int);
-s32 fn_8026A61C(void *, f32);
-s32 TWindowSubLog__sub_8026A664(void *, f32);
+void TWindowChat__sub_80247DFC(u8 *arg0);
+void TWindowChat__sub_80247E50(u8 *arg0);
+void fn_8026A61C(void *p, f32 v);
+void TWindowSubLog__sub_8026A664(u8 *arg0, f32 farg0);
 extern RecoveredGlobal_8027AF58_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DD638;
 extern const f32 lbl_805DD63C;
 extern const f32 lbl_805DD640;
 extern const f32 lbl_805DD644;
-void TWindowCtrl__sub_8024ADAC(void *);
+void TWindowCtrl__sub_8024ADAC(s32 arg0);
 s32 create_message_log_window(void *, void *, void *);
 int fn_8027B288(void* p);
 void fn_8027B2A8(void* p);
@@ -49,8 +49,8 @@ extern u8 lbl_8044F9D0[];
 extern s32 __vt__13TWindowSubLog[];
 extern s32 TWindowSubLog__class_name;
 void *__dt__13TWindowSubLogFv(void *arg0, s16 arg1);
-void TWindowCtrl__sub_8024ADF0(void *);
-void TWindow__close(void *);
+void TWindowCtrl__sub_8024ADF0(s32 arg0);
+void TWindow__close(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
@@ -65,20 +65,20 @@ void TWindowSubLog::run_task() {
     u8 *temp_r31;
     u8 *temp_r3;
     u8 *temp_r3_2;
-    if ((((TWindowChat *)(*(s32 *)&this->m_28))->is_mode_bit4() != 0) && (chat_accept_submission((void *) (arg0 + 0x2C)) != 0)) {
-        TWindowChat__sub_80247E50((int) (*(s32 *)&this->m_28));
+    if ((((TWindowChat *)(*(s32 *)&this->m_28))->is_mode_bit4() != 0) && (chat_accept_submission((s32)(arg0 + 0x2C)) != 0)) {
+        TWindowChat__sub_80247E50((u8 *)(*(s32 *)&this->m_28));
     }
     if (((TWindowChat *)(*(s32 *)&this->m_28))->is_visible() != 0) {
-        TWindowChat__sub_80247DFC((int) (*(s32 *)&this->m_28));
+        TWindowChat__sub_80247DFC((u8 *)(*(s32 *)&this->m_28));
     }
     if (TWindowCtrl__sub_8024701C((int) (*(s32 *)&this->m_28)) != 0) {
-        TWindowSubLog__sub_8026A664((void *) (*(u8 * *)&this->m_24), (f32) (lbl_805DD638));
+        TWindowSubLog__sub_8026A664((*(u8 * *)&this->m_24), (f32) (lbl_805DD638));
         return;
     }
-    TWindowSubLog__sub_8026A664((void *) (*(u8 * *)&this->m_24), (f32) (lbl_805DD63C));
+    TWindowSubLog__sub_8026A664((*(u8 * *)&this->m_24), (f32) (lbl_805DD63C));
     temp_r31 = (u8 *)&controller_input_state.value + 0x20;
     if ((is_on_current_screen__11TCameraCtrlFv((int) (temp_r31), (int) (0x10)) != 0) || (is_flag_set__11TLoadingCurFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x10)) != 0)) {
-        fn_8026A61C((void *) (*(u8 * *)&this->m_24), (f32) (lbl_805DD640));
+        fn_8026A61C((*(u8 * *)&this->m_24), (f32) (lbl_805DD640));
     }
     if ((is_on_current_screen__11TCameraCtrlFv((int) (temp_r31), (int) (0x20)) != 0) || (is_flag_set__11TLoadingCurFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x20)) != 0)) {
         ((TAdScrollWinGC *)(*(u8 * *)&this->m_24))->advance_scroll((f32) (lbl_805DD644));
@@ -96,9 +96,9 @@ void *__dt__13TWindowSubLogFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TWindowSubLog;
         if (*(void **)((s8 *)arg0 + 0x28) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x28)); *(s32 *)&((TWindowSubLog *)arg0)->m_28 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x24) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x24)); *(s32 *)&((TWindowSubLog *)arg0)->m_24 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x24) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x24))); *(s32 *)&((TWindowSubLog *)arg0)->m_24 = 0; }
         if (*(void **)((s8 *)arg0 + 0x20) != NULL) { ((TWindowSubLog *)(*(void **)((s8 *)arg0 + 0x20)))->clear_flag4c_bit8(); ((TWindowSubLog *)(*(void **)((s8 *)arg0 + 0x20)))->cleanup(); }
-        TWindowCtrl__sub_8024ADF0(*(void **)((s8 *)arg0 + 0x1C));
+        TWindowCtrl__sub_8024ADF0((s32)(*(void **)((s8 *)arg0 + 0x1C)));
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -113,7 +113,7 @@ TWindowSubLog::TWindowSubLog(TObject *arg1, void *arg2) : TObject(arg1) {
     ((Lg_8027B194 *)this)->f0 = TWindowSubLog__class_name;
     ((Lg_8027B194 *)this)->f20 = arg1;
     ((Lg_8027B194 *)this)->f1c = arg2;
-    TWindowCtrl__sub_8024ADAC(((Lg_8027B194 *)this)->f1c);
+    TWindowCtrl__sub_8024ADAC((s32)(((Lg_8027B194 *)this)->f1c));
     fn_8027B288((void*)(((Lg_8027B194 *)this)->f20));
     ((TWindowSubLog *)(((Lg_8027B194 *)this)->f20))->set_flag4c_bit8();
     ((Lg_8027B194 *)this)->f24 = create_message_log_window(lbl_8044F9C8, lbl_8044F9D0, ((Lg_8027B194 *)this)->f1c);

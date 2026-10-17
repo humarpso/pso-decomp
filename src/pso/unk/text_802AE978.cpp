@@ -14,9 +14,9 @@ struct Obj_802AE978 {
 };
 
 extern "C" {
-void begin_screen_draw(int);
+void begin_screen_draw(s32 arg0);
 void draw_textured_quad_at_depth(void *, f32);
-void set_draw_texture_and_color(int, int);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern s32 menu_selection_cursor_texture_list;
 void draw_select_cursor_quads(Obj_802AE978 *o);
 void draw_select_cursor_quads(Obj_802AE978 *o) {

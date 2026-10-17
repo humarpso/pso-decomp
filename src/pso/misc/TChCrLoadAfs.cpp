@@ -49,7 +49,7 @@ void close_adxf_handle__6TLobbyFv(int);
 void poll_load__12TChCrLoadAfsFv(L_8028B948 *arg0);
 void sub_8028B940__12TChCrLoadAfsFv(void);
 void sub_8028B944__12TChCrLoadAfsFv(void);
-s32 TLobby__sub_803CC53C(u32);
+s32 TLobby__sub_803CC53C(u8 *arg0);
 u32 adxf_open_afs__6TLobbyFii(s32, s32);
 
 void sub_8028B940__12TChCrLoadAfsFv(void) {  }
@@ -110,7 +110,7 @@ struct Ld_8028BE00 {
 
 extern "C" {
 extern Te_8028BFA4 player_class_texture_archive_table[];
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
 f32 TLobby__sub_8028C50C(f32);
 s32 strcmp(const char *, const char *);
@@ -133,7 +133,7 @@ void TChCrLoadAfs::start_download() {
             *(s32 *)((s8 *)this + 0x2C) = 3;
             return;
         }
-        count = TLobby__sub_803CC53C(*(u32 *)((s8 *)this + 0x1C));
+        count = TLobby__sub_803CC53C((u8 *)(*(u32 *)((s8 *)this + 0x1C)));
         temp_r3_3 = ((TQuestVmDownLoadServer *)(count << 0xB))->alloc();
         *(u32 *)((s8 *)this + 0x28) = temp_r3_3;
         if (temp_r3_3 == 0U) {
@@ -317,7 +317,7 @@ void TChCrLoadAfsTextureReq::start_read(void *) {
     if (t != 0) {
         arg0->f20 = 0;
         arg0->f24 = 0;
-        n = TLobby__sub_803CC53C((u32)(arg0->f60));
+        n = TLobby__sub_803CC53C((u8 *)(arg0->f60));
         buf = ((void *)((TQuestVmDownLoadServer *)(n << 11))->alloc());
         arg0->bufs[arg0->f5c] = buf;
         if (buf != NULL) {

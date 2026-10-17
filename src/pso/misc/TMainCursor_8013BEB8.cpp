@@ -41,13 +41,13 @@ s32 is_technique_ready__8TTecCtrlFv();
 s32 try_add_target_candidate__11TMainCursorFPvPvPvPv(u8 *cursor, u8 *player, u8 *target, Best_8013C288 *best);
 s32 try_move__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
 struct Ent_8013C678 { u32 id; f32 key; };
-s32 fn_8004438C(void *);
+void *fn_8004438C(void *p);
 s32 quick_sort_partition__11TMainCursorFiPvii(s32 self, Ent_8013C678 *a, s32 lo, s32 hi);
 s32 is_channel_active__11TMainCursorFv();
 int matches_type_and_enabled__11TMainCursorFiUcUc(void*, void* a1 = 0, void* a2 = 0);
 u8 TMainCursor__sub_8013E900(s32);
-s32 TMainCursor__sub_8013F170(void *, int);
-s32 fn_80044330(s32);
+void TMainCursor__sub_8013F170(void *p, s32 v);
+void fn_80044330(void *p);
 u8 get_active__11TMainCursorFv(s32);
 
 s32 try_move__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2) {
@@ -245,7 +245,7 @@ void TMainCursor::reset_cursor_parts() {
     u8 *arg0 = (u8 *)this;
     s32 var_r30;
 
-    TMainCursor__sub_8013F170((void *) (arg0 + 0x40), (int) (0));
+    TMainCursor__sub_8013F170((arg0 + 0x40), (0));
     var_r30 = 0;
     *(f32 *)((s8 *)arg0 + 0x18) = (f32) TMainCursor__data_805DB0C0;
     do {
@@ -302,7 +302,7 @@ void TMainCursor::reset_slots() {
     base = arg0 + 0x5C;
     i = 0;
     do {
-        fn_80044330(base + 0x40);
+        fn_80044330((void *)(base + 0x40));
         ((TMainCursor *)(base + 0x9C))->reset_slot();
         i += 1;
         base += 0x124;

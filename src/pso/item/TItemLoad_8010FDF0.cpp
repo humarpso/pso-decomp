@@ -26,14 +26,14 @@ struct Sp8Buf_8010fe6c_8010FDF0 {
 };
 
 s32 *__dt__9TItemLoadFPvs(s32 *arg0, s16 arg1);
-s32 TItemBuff__ct();
+void TItemBuff__ct(void);
 s32 apply_rel_relocations(s32 *);
 s32 read_disc_file(u32, s32);
 s32 read_checked_align__6TLobbyFlll(s32, s32, s32, void *);
 int mem_alloc(void*);
 s32 create_item_buff(s32);
 s32 prs_decompress_alloc(s32, u32, s32);
-s32 mem_free(s32);
+void mem_free(void *p);
 
     extern int item_load_compressed_work_buffer;
     extern int item_load_work_buffer_busy;
@@ -41,7 +41,7 @@ void TItemLoad::alloc_work_buffer() { item_load_compressed_work_buffer = mem_all
 
 s32 *__dt__9TItemLoadFPvs(s32 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        mem_free(*arg0);
+        mem_free((void *)(*arg0));
         if (arg1 > 0) {
             ::operator delete(arg0);
         }

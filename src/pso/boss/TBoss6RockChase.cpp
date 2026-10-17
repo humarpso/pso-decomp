@@ -83,8 +83,8 @@ extern const f32 lbl_805E03D8;
 extern const f32 lbl_805E03E4;
 s32 spawn__15TBoss6RockChaseFii(s32 arg0, s32 arg1);
 s32 get_bml_model(int, int);
-s32 TBoss6Rock__sub_80353A04();
-s32 TBoss6Rock__sub_80353A0C();
+int TBoss6Rock__sub_80353A04(void);
+int TBoss6Rock__sub_80353A0C(void);
 __declspec(section ".rodata") char lbl_8047ACD8[] = "TBoss6RockChase";
 __declspec(section ".rodata") RecoveredGlobal_8036D4E0_lbl_8047ACE8 boss6_rock_chase_model_radius_table = {
     4, { 0x41, 0xA0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x41, 0xF0, 0x00, 0x00 }
@@ -99,7 +99,7 @@ extern const f32 lbl_805E03E0;
 u8 *TBoss6RockChase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void queue_destruction__7TObjectFv(void *);
 s32 query_teammate_state__9TObjEneDDFv(void);
-s32 spawn_particle_effect(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
 s32 play_sound_effect(int, void *, int, int);
 extern const f32 lbl_805E03C0;
 extern const f32 lbl_805E03C4;
@@ -113,11 +113,11 @@ extern const f32 lbl_805E03BC;
 void *__dt__15TBoss6RockChaseFv(void *arg0, s16 arg1);
 int post_translate_matrix(void*);
 int rotate_matrix_z(void*, void*);
-int draw_ginja_object(void*);
+void draw_ginja_object(void *child);
 int rotate_matrix_x(void*, void*);
 int rotate_matrix_y(void*, void*);
 int push_matrix(void*);
-int pop_matrix(void);
+s32 pop_matrix(void);
 void __dl__7TObjectFPv(void *);
 
 #pragma push
@@ -183,8 +183,8 @@ void TBoss6RockChase::run_task() {
             *(f32 *)&this->_padB8 = (f32) TBoss6RockChase__data_805E03B8;
             damage_players_in_range();
             play_sound_effect((int) (0x4006B51E), (void *) (arg0 + 0x38), (int) (0), (int) (0));
-            spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x220));
-            spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x222));
+            spawn_particle_effect((arg0 + 0x38), (0x220));
+            spawn_particle_effect((arg0 + 0x38), (0x222));
             TBoss6PlotFalz::apply_radial_effect_to_players((void *) (arg0 + 0x38), (int) (0xC0), (int) (0xF), (f32) (lbl_805E03C8));
             ((TBoss6Rock *)(arg0 + 0x38))->spawn_crush_rocks((int) (*(s32 *)&this->m_b0));
             play_sound_effect((int) (0x4006AB1F), (void *) (arg0 + 0x38), (int) (0), (int) (0));

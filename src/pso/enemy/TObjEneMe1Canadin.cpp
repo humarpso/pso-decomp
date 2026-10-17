@@ -513,7 +513,7 @@ s32 update_player_state__9TObjEneDDFv(void *, int, int);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_z(int, int);
-s32 translate_matrix(int, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
@@ -531,7 +531,7 @@ extern const f32 lbl_805D9E84;
 extern const f32 lbl_805D9E88;
 void render__17TObjEneMe1CanadinFv(u8 *arg0);
 f64 atan2_float(f32, f32);
-s32 rotate_xz_pair_by_angle(void *, void *, int);
+void rotate_xz_pair_by_angle(f32 *arg0, f32 *arg1, s32 arg2);
 void TObjEneMe1Canadin__sub_8009E930(u8 *arg0);
 void TObjEneMe1Canadin__sub_8009E948(u8 *arg0);
 void push_history_entry__17TObjEneMe1CanadinFPvfPvi(s32, f32, void *, s32);
@@ -563,8 +563,8 @@ extern const f32 lbl_805D9910;
 void TObjEneMe1Canadin__sub_8009D320(void *arg0, s32 arg1);
 u32 __cvt_fp2unsigned(f32);
 extern const f32 lbl_805D9914;
-s32 pack_debug_text_position(int, int);
-s32 draw_chunk_object(int);
+s32 pack_debug_text_position(s32 arg0, s32 arg1);
+void draw_chunk_object(void *child);
 extern s32 lbl_8043A398[];
 extern s32 lbl_8043A3A8[];
 extern s32 lbl_8043A3BC[];
@@ -1937,9 +1937,9 @@ s32 obj_getField1c(void *);
 f32 newton_sqrtf(f32);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 is_vec_xz_cross_negative(void *, void *);
+bool is_vec_xz_cross_negative(u8 *arg0, u8 *arg1);
 f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
-s32 create_timed_particle_emitter(void *, int, int, int);
+void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
 void bringer_effect_cleanup_noop(void);
 void render_bringer_rush_effect_noop(void);
 void update_bringer_rush_effect(u8 *arg0);
@@ -2001,17 +2001,17 @@ void vfunc_28__17TObjEneMe1CanadinFv(void);
 void * __dt__17TObjEneMe1CanadinFv(void *arg0, s16 arg1);
 u8 * TObjEneMe1Canadin__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4, s16 arg5);
 void * TObjEneMe1Canadin_EffLight__ct(void *, void *, s32);
-void TObjEneEpsilon__sub_800B92AC(void *, s32, f32);
-s32 copy_position__14TObjEneEpsilonFPv(void *, void *);
+void TObjEneEpsilon__sub_800B92AC(u8 *arg0, s32 arg1, f32 farg0);
+int copy_position__14TObjEneEpsilonFPv(void *p, void *_w1);
 int select_and_apply_target__12TObjEneDD_STFf(void*);
 s32 set_target_player__12TObjEneDD_STFPv(void *);
-void __dt__12TObjEneDD_STFv(void *, int);
+void *__dt__12TObjEneDD_STFv(void *arg0, s16 arg1);
 void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 s32 get_camera_ctrl__9TObjEneDDFv(void *, int);
 s32 update_camera_sequence__9TObjEneDDFv();
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
 void TObjEneDD__sub_800BA5A4(void *, void *, void *);
-s32 is_player_entity_id();
+u32 is_player_entity_id(u16 arg0);
 int vfunc_89__9TObjEneDDFv(void*);
 void set_part_position__9TObjEneDDFPvPvi(void *, s32, s32);
 void init_model__9TObjEneDDFv(void *, void *, s32);
@@ -2020,8 +2020,8 @@ s32 collect_enemy_target_candidates(void *, Entry_8009E860 *);
 void clear_attack_receipts__9TObjEneDDFv();
 void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
-void __dt__13TUnk_80494938Fv(void *, int);
-s32 TBoss3Volopt__sub_800D8D88(void *);
+void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
+void TBoss3Volopt__sub_800D8D88(s32 arg0);
 s32 trigger_dell_biter_events__10TObjPlayerFv(void *, f32);
 s32 approach_angle_limited(s32, s32, s32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
@@ -2335,7 +2335,7 @@ extern "C" {
 void receive_weapon_special_attack__10TObjPlayerFv();
 }
 extern "C" {
-void render_actor_shadows_default();
+void render_actor_shadows_default(u8 *arg0);
 }
 extern "C" {
 void reset_motion_fields__13TUnk_804806E8Fv();
@@ -2350,7 +2350,7 @@ extern "C" {
 void select_melee_contact_body__10TObjPlayerFv();
 }
 extern "C" {
-void trigger_switch_attack__10TObjPlayerFi();
+void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 }
 extern "C" {
 void try_start_action__13TUnk_804806E8Fll();
@@ -2359,16 +2359,16 @@ extern "C" {
 void update_action_hold_status__13TUnk_804806E8Fv();
 }
 extern "C" {
-void update_action_timer__10TObjPlayerFPv();
+s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
 }
 extern "C" {
 void update_actor_ground_y__13TUnk_804806E8Fv();
 }
 extern "C" {
-void update_attack_stat_status();
+s32 update_attack_stat_status(u8 *arg0);
 }
 extern "C" {
-void update_defense_stat_status();
+s32 update_defense_stat_status(u8 *arg0);
 }
 extern "C" {
 void update_flag30_timer__13TUnk_804806E8Fv();
@@ -2942,7 +2942,7 @@ void TObjEneMe1Canadin::render_canadin_model_with_debug_type() {
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
         TObjEneDD::clear_global_flag_400();
-        draw_chunk_object((int) (*(s32 *)((s8 *)arg0 + 0x34)));
+        draw_chunk_object((void *)(*(s32 *)((s8 *)arg0 + 0x34)));
         pop_matrix();
         TParticleCtrl::end_effect_render();
     }
@@ -2981,7 +2981,7 @@ void TObjEneMe1Canadin::render() {
         ((VObj_18_8dc821 *)(arg0))->m111();
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        translate_matrix((int) (0), (f32) (lbl_805D9898), (f32) (*(f32 *)((s8 *)arg0 + 0x3F4)), (f32) (lbl_805D9898));
+        translate_matrix((0), (f32) (lbl_805D9898), (f32) (*(f32 *)((s8 *)arg0 + 0x3F4)), (f32) (lbl_805D9898));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
         temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
         var_r29 = 1;
@@ -3202,8 +3202,8 @@ void TObjEneMe1Canadin__sub_8009C178(u8 *arg0, s32 arg1) {
         } else {
             ((TObjEnemy *)arg0)->send_entity_set_flags();
         }
-        create_timed_particle_emitter((void *) (arg0 + 0x2FC), (int) (0x117), (int) (0), (int) (0x19));
-        create_timed_particle_emitter((void *) (arg0 + 0x2FC), (int) (0x118), (int) (0x19), (int) (0xF));
+        create_timed_particle_emitter((arg0 + 0x2FC), (0x117), (0), (0x19));
+        create_timed_particle_emitter((arg0 + 0x2FC), (0x118), (0x19), (0xF));
         ((Sub_8009C178 *)(arg0 + 0x3CC))->s1(0x19);
         ((Sub_8009C178 *)(arg0 + 0x3CC))->s2();
         ((s32 (*)(int, void *, int, int))play_sound_effect)((int) (0x4003AD18), (void *) (arg0 + 0x2FC), (int) (0), (int) (0));
@@ -3373,7 +3373,7 @@ void TObjEneMe1Canadin::run_task(s32 arg1) {
         return;
     case 0:
         advance_animation_playback();
-        copy_position__14TObjEneEpsilonFPv((void *) (arg0), (void *) (arg0 + 0x50));
+        copy_position__14TObjEneEpsilonFPv((arg0), (arg0 + 0x50));
         ((TObjEneDD *)arg0)->update_velocity();
         update_angle();
         update_position_with_offset();
@@ -3858,7 +3858,7 @@ void TObjEneMe1Canadin__sub_8009DE90(void *argv0, s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x3FC) = 4;
         *(s32 *)((s8 *)arg0 + 0x4B8) = 1;
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x3CC);
-        TBoss3Volopt__sub_800D8D88(arg0 + 0x38);
+        TBoss3Volopt__sub_800D8D88((s32)(arg0 + 0x38));
         return;
     case 3:
         if (((V_Sub_8009DE90 *) (arg0 + 0x3CC))->m5() != 0) {

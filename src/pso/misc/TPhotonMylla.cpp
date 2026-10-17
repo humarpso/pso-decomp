@@ -102,7 +102,7 @@ struct Game_801AD970 { u8 pad[0x42C]; Res_801AD970 *res; s32 f430; };
 
 extern "C" {
 u16 obj_getField1c(void *);
-s32 spawn_particle_effect(s32, s32);
+void *spawn_particle_effect(void *pos, s32 id);
 u8 * find_entity_by_id(u16);
 u8 * TPhotonMagicSquare__ct(void *, s32, s32, s32, s32, f32);
 s32 play_persistent_sound(s32, s32, u32, s16, s32);
@@ -120,15 +120,15 @@ extern const f32 lbl_805DC214;
 extern const f32 lbl_805DC218;
 extern const f32 lbl_805DC21C;
 extern const f32 lbl_805DC220;
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 s32 clear_render_context__10TObjPlayerFv(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
-s32 translate_matrix(int, f32, f32, f32);
-s32 set_material_alpha_compare_reference(int);
-s32 set_chunk_material_override_pair(int, int);
-s32 set_chunk_material_color(void *);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
+void set_material_alpha_compare_reference(s32 reference);
+void set_chunk_material_override_pair(s32 arg0, s32 arg1);
+void set_chunk_material_color(f32 *arg);
 extern Color_801AD4C0 saved_model_draw_color;
 extern Color_801AD4C0 model_material_color;
 extern s32 lbl_805D5660;
@@ -138,12 +138,12 @@ extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 void set_animation__10TObjPlayerFPvs(void *, s16);
-void spawn_photon_blast_opening_effects(s32, u16);
-void photon_base_ct(void *);
+void spawn_photon_blast_opening_effects(s32 arg0, s32 arg1);
+void *photon_base_ct(void *arg0);
 void sub_801AD4A8__12TPhotonMyllaFv(void* a0);
 void TPhotonRainbow__ct(void *, void *, void *, s32);
 void TPhotonYoulla__ct(void *, void *);
-void play_cue_stream_file(void *);
+void play_cue_stream_file(s32 name);
 extern YPkt_801AD970 photon_mylla_packet_template;
 extern u8 lbl_80446E80[];
 extern u8 lbl_80446E8C[];
@@ -162,7 +162,7 @@ struct VObj_801AD8FC_801AD4A8 : Base_801AD8FC_801AD4A8 {
 
 void *__dt__12TPhotonMyllaFv(void *arg0, s16 arg1);
 s32 __dl__7TObjectFPv(void *);
-s32 destroy_photon_motion_object(void *, s32);
+void *destroy_photon_motion_object(void *arg0, s16 arg1);
 
     extern const float lbl_805DC1F8;
 void TPhotonMylla::sub_801AD4A8() { *(float *)&this->m_184 = lbl_805DC1F8; *(float*)((char*)this + 0x188) = lbl_805DC1F8; this->m_18c = lbl_805DC1F8; *(float *)&this->unk_190 = lbl_805DC1F8; }
@@ -194,7 +194,7 @@ void TPhotonMylla::render() {
         TObjPlayer::set_global_flag();
         set_material_alpha_compare_reference(0);
         set_chunk_material_override_pair(-1, 0x800);
-        set_chunk_material_color(&self->color);
+        set_chunk_material_color((f32 *)&self->color);
         ((TUnk_804C3248 *)self)->set_photon_blast_joint_callback();
         ((TObjEneRe7Berura *)self)->draw();
         TObjPlayer::clear_global_state();
@@ -259,8 +259,8 @@ void TPhotonMylla::run_task() {
             VecCopy((Vec *)(&stack.sp20), (const Vec *)(temp_r3_3 + 0x38));
         }
         stack.sp24 += lbl_805DC20C;
-        spawn_particle_effect((s32) &stack.sp20, 0x174);
-        spawn_particle_effect((s32) &stack.sp20, 0x175);
+        spawn_particle_effect(&stack.sp20, 0x174);
+        spawn_particle_effect(&stack.sp20, 0x175);
     }
     if (lbl_805DC210 == (f32) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A4) {
         temp_r3_4 = (u8 *)(find_entity_by_id(((RecoveredFields_801AD5D8_arg0 *)arg0)->field_17C));
@@ -268,7 +268,7 @@ void TPhotonMylla::run_task() {
             VecCopy((Vec *)(&stack.sp14), (const Vec *)(temp_r3_4 + 0x38));
         }
         stack.sp18 += lbl_805DC20C;
-        spawn_particle_effect((s32) &stack.sp14, 0x169);
+        spawn_particle_effect(&stack.sp14, 0x169);
     }
     if (lbl_805DC214 == (f32) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A4) {
         temp_r3_5 = (u8 *)(find_entity_by_id(((RecoveredFields_801AD5D8_arg0 *)arg0)->field_17C));
@@ -276,7 +276,7 @@ void TPhotonMylla::run_task() {
             VecCopy((Vec *)(&stack.sp8), (const Vec *)(temp_r3_5 + 0x38));
         }
         stack.spC += lbl_805DC20C;
-        spawn_particle_effect((s32) &stack.sp8, 0x169);
+        spawn_particle_effect(&stack.sp8, 0x169);
         if (temp_r3_5 != NULL) {
             queue_photon_blast_hit((int) (obj_getField1c(temp_r3_5)), (int) (5), (int) (0), (f32) (((RecoveredFields_801AD5D8_arg0 *)arg0)->field_150));
         }
@@ -389,10 +389,10 @@ void *TPhotonMylla__ct(Mylla_801AD970 *self, Pkt_801AD970 *pkt) {
             TPhotonMagicSquare__ct(o, (s32)self, 5, (s32)&v, 0xAA, lbl_805DC200);
         }
         spawn_photon_blast_attachment_effects(self, 5);
-        play_cue_stream_file(lbl_80446E80);
+        play_cue_stream_file((s32)lbl_80446E80);
     } else {
         spawn_photon_blast_opening_effects(5, F_801AD970(self, u16, 0x17C));
-        play_cue_stream_file(lbl_80446E8C);
+        play_cue_stream_file((s32)lbl_80446E8C);
     }
     return self;
 }

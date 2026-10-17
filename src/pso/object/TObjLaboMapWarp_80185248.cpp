@@ -146,7 +146,7 @@ s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-s32 is_quest_active();
+int is_quest_active(void);
 int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 s32 get_localized_text_entry(s32, s32);
 void run_task__15TObjLaboMapWarpFv(u8 *arg0);
@@ -166,10 +166,10 @@ void * TObjCityMainWarp__ct(void *arg0, void *arg1, void *arg2);
 void unlock_main_warp_destination(s32 id);
 void clear_enabled_main_warps(void);
 s32 get_floor_warp_bit__16TObjCityMainWarpFl();
-void __dt__12TObjAreaWarpFv(void *, int);
+u8 *__dt__12TObjAreaWarpFv(u8 *arg0, s16 arg1);
 void TObjAreaWarp__ct(void *);
 s32 process_player_warps__11TObjMapWarpFPv(void *);
-void __dt__11TObjMapWarpFv(void *, int);
+void *__dt__11TObjMapWarpFv(void *arg0, s16 arg1);
 void TObjMapWarp__ct(void *);
 int vfunc_14__12TObjWarpBaseFv(void*);
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -206,7 +206,7 @@ extern s32 city_warp_group9_text_table_b[];
 extern const f32 lbl_805DBC9C;
 extern const f32 lbl_805DBCA0;
 extern s32 TObjCityMainWarp__sub_80186AF4();
-extern void update_main_warp_visible_mask(int);
+void update_main_warp_visible_mask(s32 arg0);
 extern void request_active_window_close();
 extern void forward_trade_action_default__16TObjCityMainWarpFPviii(void *, int, int, int);
 extern s16 TLobby__data_805D5CE8;
@@ -525,7 +525,7 @@ void *TObjCityAreaWarp::create(void *arg0) {
 void *__dt__16TObjCityAreaWarpFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjCityAreaWarp;
-        __dt__12TObjAreaWarpFv(arg0, 0);
+        __dt__12TObjAreaWarpFv((u8 *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -645,7 +645,7 @@ void TObjCityMainWarp__vt13(Warp_8018615C *w, s16 arg1) {
         return;
     }
     if (is_quest_active() == 0) {
-        ((void (*)(int))update_main_warp_visible_mask)(w->f150);
+        update_main_warp_visible_mask(w->f150);
     } else {
         TObjCityMainWarp__visible_destination_mask = TObjCityMainWarp__enabled_destinations;
     }
@@ -721,7 +721,7 @@ void *TObjCityMainWarp::create() {
 void *__dt__16TObjCityMainWarpFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjCityMainWarp;
-        __dt__12TObjAreaWarpFv(arg0, 0);
+        __dt__12TObjAreaWarpFv((u8 *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

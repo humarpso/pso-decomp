@@ -11,11 +11,11 @@ struct GE_802F1DAC { s32 a, b, obj, d; };
 struct GE_802F1E54 { s32 a, b, obj, d; };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 copy_position__16TBoss8DragonDemoFv(int, void *);
-f32 TBoss8DragonDemo__sub_802F2CB4(int);
-f32 TBoss8DragonDemo__sub_802F2CBC(int);
-s32 func_80141618__Fv();
+f32 TBoss8DragonDemo__sub_802F2CB4(void *p);
+f32 TBoss8DragonDemo__sub_802F2CBC(void *p);
+void func_80141618__Fv(void);
 s32 draw_ginja_object(int);
 s32 is_in_camera_range__18TObjBoss7TunnelColFv(void *);
 s32 push_matrix();
@@ -85,13 +85,13 @@ void fn_802F1E54(u8 *arg0) {
 
 void TUnk_804E4B24::run_task() {
     u8 *arg0 = (u8 *)this;
-    *(f32 *)((s8 *)arg0 + 0x1C) = TBoss8DragonDemo__sub_802F2CBC((int) (this->m_34));
-    this->m_24 = (f32) (this->m_24 - TBoss8DragonDemo__sub_802F2CB4((int) (this->m_34)));
+    *(f32 *)((s8 *)arg0 + 0x1C) = TBoss8DragonDemo__sub_802F2CBC((void *)(this->m_34));
+    this->m_24 = (f32) (this->m_24 - TBoss8DragonDemo__sub_802F2CB4((void *)(this->m_34)));
     if ((s32) this->m_40 == 4) {
         copy_position__16TBoss8DragonDemoFv((int) (this->m_34), (void *) (arg0 + 0x1C));
     }
     if (this->m_24 <= -*(f32 *)((s8 *)arg0 + 0x44)) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
     }
     ((TUnk_804E4B24 *)arg0)->update_collision();
 }

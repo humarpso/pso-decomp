@@ -142,8 +142,7 @@ struct RaBarta_802377FC {
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
-#define queue_destruction__7TObjectFv ((void (*)(void *))queue_destruction__7TObjectFv)
+void queue_destruction__7TObjectFv(void *arg0);
 u16 obj_getField1c(void *);
 void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target);
 
@@ -152,9 +151,9 @@ void *get_bml_motion(void *, int);
 void *get_bml_model(void *, int);
 void attach_particle_model(void *, void *, void *, int, int, f32);
 #define attach_particle_model ((void (*)(void *, void *, void *, void *, int, f32))attach_particle_model)
-void *spawn_particle_effect(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
 
-void *create_particle_emitter(void *, int);
+void *create_particle_emitter(void *pos, s32 id);
 void **mem_alloc(int);
 extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
@@ -326,15 +325,12 @@ void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target) {
 
 }
 
-#undef queue_destruction__7TObjectFv
-
 #undef attach_particle_model
 
 #define TTecRaBarta_class_name ((u32)TTecRaBarta_class_name)
 #define __nw__7TObjectFUl ((void * (*)(int))__nw__7TObjectFUl)
 #define rabarta_band_emitter_table ((struct Profile_80237A94 *)rabarta_band_emitter_table)
 #define __dl__7TObjectFPv ((s32 (*)(void *))__dl__7TObjectFPv)
-#define spawn_particle_effect ((void * (*)(Vec_80237FB8 *, int))spawn_particle_effect)
 #define calc_parameters__11TTecRaBartaFv ((void (*)(void *))calc_parameters__11TTecRaBartaFv)
 
 struct Vec_80237DAC { f32 x, y, z; };
@@ -415,8 +411,8 @@ struct Self_80237A94 {
     void **objs;
 };
 
-s32 mem_free(void *);
-s32 stop_sound_request(void *);
+void mem_free(void *p);
+void stop_sound_request(s32 idx);
 
 void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *level);
 void create__11TTecRaBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
@@ -449,7 +445,7 @@ struct Self_80237A94 *__dt__11TTecRaBartaFv(struct Self_80237A94 *self, s16 arg1
                 queue_destruction__7TObjectFv(obj);
             }
         }
-        stop_sound_request(self->emitters);
+        stop_sound_request((s32)self->emitters);
         mem_free(self->objs);
         ((TUnk_804CC148 *)self)->destroy_technique_base((int) (0));
         if (arg1 > 0) {
@@ -465,19 +461,19 @@ void TTecRaBarta::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r4;
     if ((u32) this->m_e8 == 0U) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     this->source = find_entity_by_id((int) (this->m_b4));
     if ((u32) this->source == 0U) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     temp_r4 = this->age;
     this->age = (s32) (temp_r4 + 1);
     apply_technique_to_area_targets__13TUnk_804CC148Fv((void *) (arg0), (int) (temp_r4));
     if ((s32) this->age > (s16) this->m_a8) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
     }
 }
 
@@ -538,7 +534,6 @@ void *TTecRaBarta::construct_area(void *source, void *origin, void *level) {
 
 #undef calc_parameters__11TTecRaBartaFv
 
-#undef spawn_particle_effect
 #undef __dl__7TObjectFPv
 #undef rabarta_band_emitter_table
 #undef __nw__7TObjectFUl

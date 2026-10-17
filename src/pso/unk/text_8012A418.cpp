@@ -122,7 +122,7 @@ extern const f32 lbl_805DAE64;
 s32 get_extended_state__10TObjPlayerFv(void *);
 s32 get_captured_target_collider_index(s32);
 s32 get_captured_target_entry(s32, s32);
-s32 get_captured_target_count(s32);
+s32 get_captured_target_count(s32 *arg0);
 s32 resolve_hittable_target(s32, s32);
 
 u8 *TObjPlayer::create_state_8012a418(s32 arg0) {
@@ -150,7 +150,7 @@ void TUnk_804A4948::send_srank_stat_extra_to_locks() {
   st = get_extended_state__10TObjPlayerFv(((Pl_8012A470 *)this)->f0);
   if (st != 0)
   {
-    for (i = 0; i != get_captured_target_count((((((((((((st & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF); i++)
+    for (i = 0; i != get_captured_target_count((s32 *)((((((((((((st & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF)); i++)
     {
       e = get_captured_target_entry(st, i);
       uid = ((TObjPlayer *)e)->get_uid();

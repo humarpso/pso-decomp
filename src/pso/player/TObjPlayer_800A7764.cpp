@@ -100,7 +100,7 @@ s32 copy_target_state__14TObjEnePanarmsFPv(s32, s32);
 s32 TObjPlayer__sub_800A0554(void *);
 s32 advance_animation_playback();
 s32 mult_vec_array__10TObjPlayerFUll(int, int, void *, int);
-s32 set_matrix_identity(int);
+void set_matrix_identity(u8 *arg0);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -145,7 +145,7 @@ s16 TObjPlayer__sub_800A776C(void* p);
 int TObjPlayer__sub_800A7774(void* p);
 int VecCopy__FP3VecPC3Vec(void*);
 f32 calc_boss4_scale__10TObjPlayerFi();
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 s16 TObjPlayer::get_field_2c8() { return *(s16 *)&this->m_2c8; }
 s16 TObjPlayer__sub_800A776C(void* p) { return *(s16*)((char*)p + 0x2ca); }

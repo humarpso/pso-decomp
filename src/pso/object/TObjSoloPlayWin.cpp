@@ -11,8 +11,8 @@ void* get_window_layout_position(s32);
 void* set_window_mode_4__6TLobbyFPvll(void*, void*, s32);
 void* TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 send_and_handle__6TLobbyFii(void*, void*, s32);
-s32 TWindow__close(u32);
-s32 queue_destruction__7TObjectFv(void*);
+void TWindow__close(u8 *arg0);
+void queue_destruction__7TObjectFv(void *arg0);
 extern s32 local_client_id;
 extern const char TObjSoloPlayWin_class_name[] = "TObjSoloPlayWin";
 const char* TObjSoloPlayWin_name = TObjSoloPlayWin_class_name;
@@ -51,7 +51,7 @@ void TObjSoloPlayWin::update_close_timer() {
     m_countdown = countdown;
     if (countdown < 0) {
         if (m_result_window != 0) {
-            TWindow__close((u32)m_result_window);
+            TWindow__close((u8 *)m_result_window);
             m_result_window = 0;
         }
         TLobby::mark_solo_win_closing();

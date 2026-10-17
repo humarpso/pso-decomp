@@ -30,10 +30,10 @@ void *TAdTrialModemChkGC__ct(void *arg0);
 void TAdTrialModemChkGC__sub_803354A4(void);
 int TAdTrialModemChkGC__sub_803354E8(void* p);
 void *__dt__18TAdTrialModemChkGCFv(void *arg0, s16 arg1);
-int get_localized_text_entry(void*, void*);
-s32 TAdTrialModemChkGC__sub_8007FA24(s32);
-void TAdWarningBaseGC__ct(void *);
-void __dt__16TAdWarningBaseGCFv(void *, int);
+s32 get_localized_text_entry(s32 arg0, s32 arg1);
+void TAdTrialModemChkGC__sub_8007FA24(s32 arg0);
+void *TAdWarningBaseGC__ct(void *arg0);
+void *__dt__16TAdWarningBaseGCFv(void *arg0, s16 arg1);
 int TKeyBoardControl__sub_8000F9CC(void*);
 s32 TLobby__sub_80145A94();
 int stop_audio_streams__6TLobbyFv(void*);
@@ -55,7 +55,7 @@ void TAdTrialModemChkGC::render() {
     o->m7();
 }
 
-void TAdTrialModemChkGC::vfunc_7() { get_localized_text_entry((void*)35, (void*)0); }
+void TAdTrialModemChkGC::vfunc_7() { get_localized_text_entry((s32)((void*)35), (s32)((void*)0)); }
 int TAdTrialModemChkGC::vfunc_6() { return TKeyBoardControl__sub_8000F9CC((void*)(0)); }
 
 void TAdTrialModemChkGC::run_task() {

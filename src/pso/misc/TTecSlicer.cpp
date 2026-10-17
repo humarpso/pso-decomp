@@ -7,15 +7,15 @@
 #include "pso/player/TObjPlayer.h"
 extern "C" {
 extern u32 lightning_charge_particle_ids[];
-void* spawn_particle_effect(float*,u32);
+void *spawn_particle_effect(void *pos, s32 id);
 int queue_destruction__7TObjectFv(void*);
 void TTecSlicer__updateLightningTechniqueCharge(TechniqueChargeEmitter* state);
 u8 *init_from_owner__10TTecSlicerFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 play_sound_effect(int, void *, int, int);
-void stop_sound_request(void *);
+void stop_sound_request(s32 idx);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
-int __dl__FPv();
+void __dl__FPv(void);
 void __dt__7TObjectFv(void *, int);
 
 s32 TTecSlicer::get_field_110() { return *(s32 *)&this->model; }
@@ -47,7 +47,7 @@ void TTecSlicer__updateLightningTechniqueCharge(TechniqueChargeEmitter* state) {
 void *TTecSlicer::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804CCD0C;
-        stop_sound_request(this->m_30);
+        stop_sound_request((s32)this->m_30);
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

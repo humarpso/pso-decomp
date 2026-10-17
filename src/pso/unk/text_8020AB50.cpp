@@ -10,7 +10,7 @@ extern "C" {
 s32 read_disc_file(void *, void *);
 void debug_print__6TLobbyFle(const char *, ...);
 s32 replace_file_extension__6TLobbyFPvPvPv(void *, s32, void *);
-s32 bswap_enemy_set_row(void *);
+void bswap_enemy_set_row(void *arg0);
 s32 reserve_enemy_set_actor_ids(void *, u32, s32);
 s32 init_floor_enemy_count__6TLobbyFlPUcUl(s32, void *, s32);
 s32 get_game_play_mode();

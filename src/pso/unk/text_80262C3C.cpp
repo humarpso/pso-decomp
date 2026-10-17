@@ -154,14 +154,14 @@ extern const f32 lbl_805DD11C;
 extern const f32 lbl_805DD120;
 
 s32 obj_testFlags30(s32, s32);
-s8 TObjPlayer__sub_80102C30(void *);
-void update_photon_blast_player_marker(s32, u32);
+s8 TObjPlayer__sub_80102C30(u8 *arg0);
+s32 update_photon_blast_player_marker(s32 arg0, s32 arg1);
 s32 obj_isState3_324__13TUnk_804806E8Fv(void *);
 s32 is_script_controlled__10TObjPlayerFv(void *);
-void TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 void calc_row_width__20TWindowSubStatusDispFv(void *);
 u8 calc_display_grade__5TItemFv(void *);
-f32 get_item_star_row_width(void *);
+f32 get_item_star_row_width(u8 *arg0);
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 void __dl__7TObjectFPv(void *);
@@ -282,7 +282,7 @@ void TWindowLockOn::refresh_ground_item() {  }
 
 void TWindowLockOn::update_photon_blast_marker() {
     u8 *arg0 = (u8 *)this;
-    update_photon_blast_player_marker(((TUnk_804CE018 *)arg0)->get_array_entry(0), (u32) this->m_60);
+    update_photon_blast_player_marker(((TUnk_804CE018 *)arg0)->get_array_entry(0), this->m_60);
 }
 
 struct Obj_80263014;
@@ -415,7 +415,7 @@ s32 TWindowLockOn__update_for_item(s32 a0, s32 a1) {
         ((Ent2_80263370 *)e2)->grade = calc_display_grade__5TItemFv(item);
         arg0->h += lbl_805DD120;
         e2->flags &= ~2;
-        r = get_item_star_row_width(e2);
+        r = get_item_star_row_width((u8 *)e2);
         if (arg0->w < r) {
             arg0->w = r;
         }
@@ -534,7 +534,7 @@ void TWindowLockOn::run_task() {
     old = w->retention;
     w->retention = old - 1;
     if (old < 0) {
-        TWindow__close(w);
+        TWindow__close((u8 *)w);
     }
 }
 

@@ -103,7 +103,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8014B9A4_lbl_804AA0D0 bm_n_ebm_i_body_resource_descriptor;
 extern u32 TObjNpcMaleBase__shared_bml_archive;
-s32 construct_male_npc_base(void *);
+u8 *construct_male_npc_base(u8 *arg0);
 extern s32 __vt__15TObjNpcMaleBase[];
 extern s32 TObjNpcMaleBase__name;
 u8 *TObjNpcMaleBase__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -148,7 +148,7 @@ extern void *tl_04;
 
 typedef char RecoveredGlobal_8014BA4C___vt__15TObjNpcMaleBase_size[sizeof(RecoveredGlobal_8014BA4C___vt__15TObjNpcMaleBase) == 0x178 ? 1 : -1];
 u8 *TObjNpcMaleBase__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_male_npc_base((void *) (arg0));
+    construct_male_npc_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8014BA4C___vt__15TObjNpcMaleBase *)&__vt__15TObjNpcMaleBase).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcMaleBase__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);

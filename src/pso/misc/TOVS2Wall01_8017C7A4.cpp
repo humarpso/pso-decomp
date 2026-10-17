@@ -61,7 +61,7 @@ void TOVS2Wall01__sub_8017CA48(void* p, s32 v);
 s32 TOVS2Wall01__sub_8017CA50(void* p);
 void TOVS2Wall01__vt23(void);
 void *TObjGoalWarpAncient__create(void *arg0);
-int TLobby__send_and_handle_60(void*);
+void TLobby__send_and_handle_60(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 void free_collision_body_parts(void *);
 void *TObjGoalWarpAncient__ct(void *, void *, void *);
@@ -145,7 +145,7 @@ void TOVS2Wall01__vt23(void) {  }
 void TOVS2Wall01__sub_8017CA48(void* p, s32 v) { *(s32*)((char*)p + 0x33c) = v; }
 s32 TOVS2Wall01__sub_8017CA50(void* p) { return *(s32*)((char*)p + 0x33c); }
 void TOVS2Wall01::byteswap_hit_packet() { bswap_header__6TLobbyFv(this); bswap_16((u16 *)((char*)this + 0xc)); bswap_16((u16 *)((char*)this + 0xe)); }
-void TOVS2Wall01::update_and_send() { byteswap_hit_packet(); TLobby__send_and_handle_60(this); }
+void TOVS2Wall01::update_and_send() { byteswap_hit_packet(); TLobby__send_and_handle_60((u8 *)this); }
 void*TOVS2Wall01::init() { init__17TOBarrierEnergy01Fv(this); *(short *)&this->m_next = 0; *(short*)((char*)this + 0xe) = 0; *(unsigned char*)(this) = 134; *(unsigned char*)((char*)this + 0x1) = 4; return this; }
 
 void *TObjGoalWarpAncient__create(void *arg0) {

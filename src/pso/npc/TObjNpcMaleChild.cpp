@@ -103,7 +103,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8014BB7C_lbl_804AA260 bm_n_ecm_i_body_resource_descriptor;
 extern u32 TObjNpcMaleChild__shared_model_resource;
-s32 construct_male_npc_base(void *);
+u8 *construct_male_npc_base(u8 *arg0);
 extern s32 __vt__16TObjNpcMaleChild[];
 extern s32 TObjNpcMaleChild__name;
 u8 *TObjNpcMaleChild__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -148,7 +148,7 @@ extern void *tl_04;
 
 typedef char RecoveredGlobal_8014BC24___vt__16TObjNpcMaleChild_size[sizeof(RecoveredGlobal_8014BC24___vt__16TObjNpcMaleChild) == 0x178 ? 1 : -1];
 u8 *TObjNpcMaleChild__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_male_npc_base((void *) (arg0));
+    construct_male_npc_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8014BC24___vt__16TObjNpcMaleChild *)&__vt__16TObjNpcMaleChild).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcMaleChild__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);

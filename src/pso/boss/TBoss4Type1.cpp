@@ -275,7 +275,7 @@ f32 calc_boss4_scale__10TObjPlayerFi(void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 O_80053914 * get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
-f64 atan2_float(f32, f32);
+f32 atan2_float(f32 y, f32 x);
 u8 * dispatch_shared_handler_a__6TLobbyFl(s32);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
@@ -284,7 +284,7 @@ void fn_8004AA04(void *);
 s32 TBoss4DarkFalz__sub_8004AF5C(s32, s16 *, s16 *);
 void TBoss4DarkFalz__sub_8004B4F0(void *, void *);
 void TBoss4DarkFalz__sub_8004D990(s32);
-void create__16TObjDFBeamCursorFPvPv(void *, void *);
+void *create__16TObjDFBeamCursorFPvPv(void *arg0, void *arg1);
 s32 TBoss4Type3__sub_8005254C(u16);
 void TBoss4Type2__sub_800525AC(u8 *arg0);
 void TBoss4Type2__sub_800528B8(void *arg0);
@@ -328,9 +328,9 @@ u32 create_particle_emitter(int, int);
 int toggle_particle_effect__10TObjPlayerFv(void*);
 s32 clear_render_callback__8TObjFishFv(s32);
 s32 TObjControl__ct(s32, s32);
-void __dt__9TObjEnemyFv(void *, s32);
+void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 s32 angle_diff_s16(s32, s32);
-void set_indexed_flags(void *, int, int);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
 void free_collision_body_parts(void *);
 s32 project_actor_to_ground(void *, void *, int);
 s32 submit_cursor_candidate(void *, s32);
@@ -340,7 +340,7 @@ s32 play_sound_effect(int, void *, int, int);
 void __dl__7TObjectFPv(void *);
 s32 __nw__7TObjectFUl(s32);
 s32 create__11TTecRaBartaFPvPvPvPv(void *, void *, void *, s32);
-s32 TBoss6PlotFalz__sub_802AC008(f32, f32);
+void TBoss6PlotFalz__sub_802AC008(f32 farg0, f32 farg1);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void vec3_add_to(Vec_80053440 *, Vec_80053440 *);
@@ -349,7 +349,7 @@ void normalize_vector(void *);
 int post_translate_matrix(void*);
 s32 set_global_param__8TObjFishFl();
 f32 xyz_distance(Vec_80053914 *, Vec_80053914 *);
-s32 draw_model_motion(s32, s32, f32);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 
 extern u8 TBoss4DarkFalz__data_804FF1E8[];
 extern Vec_800530C0 lbl_80437604;
@@ -609,18 +609,18 @@ extern "C" void is_target_in_attack_range__10TObjPlayerFv();
 extern "C" void receive_direct_attack__10TObjPlayerFv();
 extern "C" void receive_physical_attack__10TObjPlayerFv();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
-extern "C" void render_actor_shadows_default();
+extern "C" void render_actor_shadows_default(u8 *arg0);
 extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__13TUnk_804806E8Fv();
 extern "C" void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
-extern "C" void trigger_switch_attack__10TObjPlayerFi();
+extern "C" void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 extern "C" void try_start_action__13TUnk_804806E8Fll();
 extern "C" void update_action_hold_status__13TUnk_804806E8Fv();
-extern "C" void update_action_timer__10TObjPlayerFPv();
+extern "C" s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
 extern "C" void update_actor_ground_y__13TUnk_804806E8Fv();
-extern "C" void update_attack_stat_status();
-extern "C" void update_defense_stat_status();
+extern "C" s32 update_attack_stat_status(u8 *arg0);
+extern "C" s32 update_defense_stat_status(u8 *arg0);
 extern "C" void update_flag30_timer__13TUnk_804806E8Fv();
 extern "C" void update_movement_status__13TUnk_804806E8Fv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
@@ -885,7 +885,7 @@ void update_scale_state__11TBoss4Type2FPv(void *arg0) {
 }
 
 void init_child_and_set_timer__11TBoss4Type2FPv(void *arg0) {
-    create__16TObjDFBeamCursorFPvPv(arg0, (void *)((char *)arg0 + 952));
+    create__16TObjDFBeamCursorFPvPv(arg0, ((char *)arg0 + 952));
     *(u32 *)((s8 *)arg0 + 0x398) = 75;
 }
 
@@ -1482,17 +1482,17 @@ void TBoss4Type1::draw_parts() {
             off = (i - 2) * 4 + 0x42C;
             ((TObjFish *)(*(s32 *)(arg0 + off)))->set_draw_callback_list();
             a = get_bml_model(*(s32 *)((s8 *)arg0 + 0x390), lbl_80485EB0[i]);
-            draw_model_motion(a, get_bml_motion(*(s32 *)((s8 *)arg0 + 0x390), *(s32 *)((s8 *)((u8 *)&boss4_type1_motion_states.value + (*(s32 *)((s8 *)arg0 + 0x3E4) << 5) + i * 4) + 8)), *(f32 *)((s8 *)arg0 + 0x3E8));
+            draw_model_motion((void *)a, (void *)(get_bml_motion(*(s32 *)((s8 *)arg0 + 0x390), *(s32 *)((s8 *)((u8 *)&boss4_type1_motion_states.value + (*(s32 *)((s8 *)arg0 + 0x3E4) << 5) + i * 4) + 8))), *(f32 *)((s8 *)arg0 + 0x3E8));
             clear_render_callback__8TObjFishFv(*(s32 *)(arg0 + off));
             TBoss6PlotFalz::update_camera_target();
             break;
         case 5:
             ((TObjFish *)(*(s32 *)((s8 *)arg0 + 0x480)))->set_draw_callback_list();
-            draw_model_motion(get_bml_model(*(s32 *)((s8 *)arg0 + 0x390), lbl_80485EB0[i]), get_bml_motion(*(s32 *)((s8 *)arg0 + 0x390), *(s32 *)((s8 *)((u8 *)&boss4_type1_motion_states.value + (*(s32 *)((s8 *)arg0 + 0x3E4) << 5) + i * 4) + 8)), *(f32 *)((s8 *)arg0 + 0x3E8));
+            draw_model_motion((void *)(get_bml_model(*(s32 *)((s8 *)arg0 + 0x390), lbl_80485EB0[i])), (void *)(get_bml_motion(*(s32 *)((s8 *)arg0 + 0x390), *(s32 *)((s8 *)((u8 *)&boss4_type1_motion_states.value + (*(s32 *)((s8 *)arg0 + 0x3E4) << 5) + i * 4) + 8))), *(f32 *)((s8 *)arg0 + 0x3E8));
             clear_render_callback__8TObjFishFv(*(s32 *)((s8 *)arg0 + 0x480));
             break;
         default:
-            draw_model_motion(get_bml_model(*(s32 *)((s8 *)arg0 + 0x390), lbl_80485EB0[i]), get_bml_motion(*(s32 *)((s8 *)arg0 + 0x390), *(s32 *)((s8 *)((u8 *)&boss4_type1_motion_states.value + (*(s32 *)((s8 *)arg0 + 0x3E4) << 5) + i * 4) + 8)), *(f32 *)((s8 *)arg0 + 0x3E8));
+            draw_model_motion((void *)(get_bml_model(*(s32 *)((s8 *)arg0 + 0x390), lbl_80485EB0[i])), (void *)(get_bml_motion(*(s32 *)((s8 *)arg0 + 0x390), *(s32 *)((s8 *)((u8 *)&boss4_type1_motion_states.value + (*(s32 *)((s8 *)arg0 + 0x3E4) << 5) + i * 4) + 8))), *(f32 *)((s8 *)arg0 + 0x3E8));
             break;
         }
     }

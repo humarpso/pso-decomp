@@ -8,22 +8,22 @@ extern "C" {
 s32 select_cursor_entry__22TWindowSubShortCutListFv(void *);
 extern u32 TQuestListOnline__quest_list_buffer;
 extern void *TQuestListOnline__instance;
-s32 prs_decompress_buffer(s32, s32);
+u32 prs_decompress_buffer(s32 arg0, s32 arg1);
 extern s32 TQuestListOnline__decompression_cursor;
 extern u32 online_quest_dat_buffer;
 extern s32 online_quest_list_decompressed_size;
 void TQuestListOnline__sub_802176DC(s32 arg0);
 extern u32 online_quest_bin_data;
 extern s32 quest_bin_decompressed_size;
-void TLobby__sub_8001EDF4(s32);
+void TLobby__sub_8001EDF4(u8 *arg0);
 s32 TLobby__sub_8001EEF4();
 extern s32 lbl_8044BEB0[];
 
 extern s32 online_quest_list_state;
 s32 get_story_flag(s32);
-s32 TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 s32 is_flag_set__6TLobbyFv();
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 extern void *TQuestListOnline__selected_quest_info;
 
@@ -101,19 +101,19 @@ u8 TQuestListOnline::get_unlocked_tier() {
 }
 void TQuestListOnline::close_windows() {
     if ((u32) confirm_window != 0U) {
-        TWindow__close(*(void * *)&this->confirm_window);
+        TWindow__close((u8 *)(*(void * *)&this->confirm_window));
         confirm_window = 0U;
     }
     if ((u32) info_window != 0U) {
-        TWindow__close(*(void * *)&this->info_window);
+        TWindow__close((u8 *)(*(void * *)&this->info_window));
         info_window = 0U;
     }
     if ((u32) description_window != 0U) {
-        TWindow__close(*(void * *)&this->description_window);
+        TWindow__close((u8 *)(*(void * *)&this->description_window));
         description_window = 0U;
     }
     if ((u32) list_window != 0U) {
-        TWindow__close(*(void * *)&this->list_window);
+        TWindow__close((u8 *)(*(void * *)&this->list_window));
         list_window = 0U;
     }
 }
@@ -121,7 +121,7 @@ extern "C" {
 
 void TQuestListOnline__sub_802176DC(s32 arg0) {
     if ((u32) (*(u32 *)&TQuestListOnline__decompression_cursor) != 0U) {
-        online_quest_list_decompressed_size = prs_decompress_buffer(arg0, (s32) (*(u32 *)&TQuestListOnline__decompression_cursor));
+        online_quest_list_decompressed_size = prs_decompress_buffer(arg0, (*(u32 *)&TQuestListOnline__decompression_cursor));
         online_quest_dat_buffer = (*(u32 *)&TQuestListOnline__decompression_cursor);
     }
 }
@@ -129,7 +129,7 @@ void TQuestListOnline__sub_802176DC(s32 arg0) {
 void TQuestListOnline::decompress_quest_buffer(s32 arg0) {
     s32 temp_r3;
     if ((u32) (*(u32 *)&TQuestListOnline__decompression_cursor) != 0U) {
-        temp_r3 = prs_decompress_buffer(arg0, (s32) (*(u32 *)&TQuestListOnline__decompression_cursor));
+        temp_r3 = prs_decompress_buffer(arg0, (*(u32 *)&TQuestListOnline__decompression_cursor));
         quest_bin_decompressed_size = temp_r3;
         online_quest_bin_data = (*(u32 *)&TQuestListOnline__decompression_cursor);
         (*(u32 *)&TQuestListOnline__decompression_cursor) += temp_r3;
@@ -177,7 +177,7 @@ extern "C" {
 
 void TQuestListOnline::ensure_online_quests_loaded() {
     if (TLobby__sub_8001EEF4() == 0) {
-        TLobby__sub_8001EDF4((s32) &lbl_8044BEB0);
+        TLobby__sub_8001EDF4((u8 *)&lbl_8044BEB0);
     }
 }
 

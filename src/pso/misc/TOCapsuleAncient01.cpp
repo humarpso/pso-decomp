@@ -65,10 +65,10 @@ u8 *TOCapsuleAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__dt__18TOCapsuleAncient01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
-s32 draw_ginja_model(int);
+void draw_ginja_model(s32 model);
 s32 free_collision_body_parts(void *);
 s32 rotate_matrix_y(int, int);
-s32 translate_matrix(int, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
 s32 pop_matrix();
 s32 __dl__7TObjectFPv(void *);
@@ -86,15 +86,15 @@ void TOCapsuleAncient01::render() {
         rotate_matrix_y((int) (0), (int) (this->rotation_y));
         TObjFish::set_global_param((int) (this->texture_id));
         temp_r31 = (unsigned char *) (*(void * *)&this->model);
-        translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r31 + 8)), (f32) (*(f32 *)((s8 *)temp_r31 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r31 + 0x10)));
-        draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
+        translate_matrix((0), (f32) (*(f32 *)((s8 *)temp_r31 + 8)), (f32) (*(f32 *)((s8 *)temp_r31 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r31 + 0x10)));
+        draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
         if ((s32) this->m_cc == 1) {
             TParticleCtrl::begin_effect_render();
             temp_r31_2 = (unsigned char *) (*(void **)((s8 *)temp_r31 + 0x2C));
             push_matrix();
-            translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r31_2 + 8)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0x10)));
+            translate_matrix((0), (f32) (*(f32 *)((s8 *)temp_r31_2 + 8)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0x10)));
             rotate_matrix_y((int) (0), (int) (*(s32 *)&this->m_e4));
-            draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_2 + 4)));
+            draw_ginja_model((*(s32 *)((s8 *)temp_r31_2 + 4)));
             pop_matrix();
             TParticleCtrl::end_effect_render();
         }

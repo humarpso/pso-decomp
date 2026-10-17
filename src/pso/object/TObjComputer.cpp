@@ -87,7 +87,7 @@ struct Obj_8018860C {
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 push_matrix();
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_y(s32, s32);
@@ -123,7 +123,7 @@ void load_computer_resources(void);
 s32 scroll_ginja_mesh_uvs(void *, s32, s32, u16, s32);
 s32 PPCSync();
 s32 rotate_matrix_by_node_angles(void *, u32);
-s32 draw_ginja_object(void *);
+void draw_ginja_object(void *child);
 extern u32 actor_frame_tick;
 extern const f32 lbl_805DBCE4;
 s32 get_current_floor();
@@ -145,7 +145,7 @@ s32 free_collision_body_parts(void *);
 s32 vfunc_14__11TObjMesBaseFv();
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
-s32 __dt__11TObjMesBaseFv(void *, s32);
+void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1);
 s32 clear_ref_if_destroyed__11TObjMesBaseFv();
 
 extern const f32 lbl_805DBCDC;
@@ -295,12 +295,12 @@ void TObjContainerAbeEnemy::vfunc_6(s16 *arg1, s32 arg2) {
         if ((s16) *arg1 == 1) {
             this->vfunc_79();
             ((TUnk_804AF8A0 *)arg0)->set_flag8();
-            queue_destruction__7TObjectFv((void *) (arg0));
+            queue_destruction__7TObjectFv((arg0));
             this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
         ((TUnk_804AF8A0 *)arg0)->set_flag8();
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         this->mode = 1;
     }
 }

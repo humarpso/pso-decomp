@@ -161,7 +161,7 @@ struct G_802346F8 { u8 pad[0x1c]; s32 f1c; };
 extern "C" {
 void clear_pipe_interaction_latch(void* p);
 s32 get_pipe_interaction_latch(void* p);
-s32 TLobby__send_and_handle_60(s32);
+void TLobby__send_and_handle_60(u8 *arg0);
 void init_telepipe_packet_header(void* p);
 void TTecLuker__sub_8023503C(void* p);
 void TTecLuker__sub_80235048(void* p);
@@ -192,7 +192,7 @@ void TTecLuker__sub_80234F08(void);
 extern const f32 lbl_805DC85C;
 void reset_telepipe_record(O_802340A0 *o);
 void TTecLuker__sub_80234F48(void);
-u32 TObjPlayer__sub_801BFFA0(void *p);
+s32 TObjPlayer__sub_801BFFA0(void *p);
 void set_state__9TTecLukerFl(void *p, s32 v);
 extern s32 telepipe_town_heading_table[];
 extern Vec_80233E78 telepipe_town_position_table[];
@@ -259,7 +259,7 @@ extern const f32 lbl_805DC874;
 void *create_telepipe_visual(void *self, Vec_802347B4 *pos, u32 id, s32 res);
 void *__dt__13TUnk_804CC9D4Fv(void *arg0, s16 arg1);
 void *__dt__9TTecLukerFv(void *arg0, s16 arg1);
-void stop_sound_request(void *);
+void stop_sound_request(s32 idx);
 s32 free_collision_body_parts(void *);
 s32 submit_cursor_candidate(void *, s32);
 
@@ -275,7 +275,7 @@ void TTecLuker__updateRecoveryTechniqueCharge(TechniqueChargeEmitter* state) {
 void *TTecLuker::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = recovery_technique_charge_vtable;
-        stop_sound_request(*(void **)((s8 *)this + 0x30));
+        stop_sound_request((s32)(*(void **)((s8 *)this + 0x30)));
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)(this));
@@ -985,7 +985,7 @@ void clear_pipe_interaction_latch(void* p) { *(s32*)((char*)p + 0xb0) = 0; }
 
 s32 get_pipe_interaction_latch(void* p) { return *(s32*)((char*)p + 0xb0); }
 
-void TTecLuker::send_swapped_telepipe_packet() { byteswap_telepipe_packet(); TLobby__send_and_handle_60((s32)(this)); }
+void TTecLuker::send_swapped_telepipe_packet() { byteswap_telepipe_packet(); TLobby__send_and_handle_60((u8 *)(this)); }
 
 void TTecLuker::byteswap_telepipe_packet() {
     read_be16_field2__10TObjPlayerFv(this);

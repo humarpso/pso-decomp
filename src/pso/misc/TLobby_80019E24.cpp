@@ -13,11 +13,11 @@ extern u32 item_loader_instance;
 
 extern "C" {
 
-void __dt__9TItemLoadFPvs(void*, int);
+s32 *__dt__9TItemLoadFPvs(s32 *arg0, s16 arg1);
 
 void TLobby::free_item_loader() {
     if ((u32) item_loader_instance != 0U) {
-        __dt__9TItemLoadFPvs((void*)item_loader_instance, 1);
+        __dt__9TItemLoadFPvs((s32 *)item_loader_instance, 1);
         item_loader_instance = 0U;
         lbl_805D49D8 = 0;
     }

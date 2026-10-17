@@ -12,9 +12,9 @@ struct AirV_80156e8c : AirBase_80156e8c {
     virtual s32 m8(void *a, f32 b, f32 c);
 };
 
-void *TOAirconCave01__ct(void *, void *, void *);
+u8 *TOAirconCave01__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 post_translate_matrix(void *);
-s32 draw_ginja_model(int);
+void draw_ginja_model(s32 model);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix(int);
 s32 pop_matrix();
@@ -37,7 +37,7 @@ void TOAirconCave01::render() {
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (this->rotation_y));
         TObjFish::set_global_param((int) (this->texture_id));
-        draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
+        draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
         pop_matrix();
     }
 }
@@ -47,7 +47,7 @@ extern void *tl_05;
 void *TOAirconCave01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC8);
     if (o != NULL) {
-        o = TOAirconCave01__ct(o, tl_05, arg0);
+        o = TOAirconCave01__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

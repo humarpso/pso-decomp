@@ -131,7 +131,7 @@ s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 void *__nw__7TObjectFUl(s32);
 void *construct_indirect_effect_task(void *, s32, s32, s32);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 extern s32 lbl_804DC7C4[];
 extern s16 scene_sora_reflect_active;

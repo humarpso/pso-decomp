@@ -13,7 +13,7 @@ void *__ct__14TItemEffNeedleFv(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg
 s32 obj_getField1c(void *);
 s32 create_timed_particle_emitter(void *, s32, s32, s32, void *);
 s32 find_item_by_id();
-s32 TObjPlayer__sub_8010A058(s32);
+s32 TObjPlayer__sub_8010A058(void *p);
 void *__nw__7TObjectFUl(s32);
 extern s32 tl_05;
 
@@ -52,7 +52,7 @@ void create_needle_effect(s32 arg0, void *arg1) {
         var_r31 = __ct__14TItemEffNeedleFv((void *)(var_r31), (s32)(tl_05), (s32)(temp_r29), (s32)(obj_getField1c(temp_r30)), (s32)(*(s32 *)((s8 *)temp_r30 + 0xA8)));
     }
     if (var_r31 != NULL) {
-        *(s32 *)((s8 *)var_r31 + 0x3C) = TObjPlayer__sub_8010A058(temp_r29);
+        *(s32 *)((s8 *)var_r31 + 0x3C) = TObjPlayer__sub_8010A058((void *)temp_r29);
         *(s32 *)((s8 *)var_r31 + 0x40) = ((TObjPlayer *)temp_r29)->get_entity_id();
         *(s32 *)((s8 *)var_r31 + 0x44) = (s32) (*(s32 *)((s8 *)var_r31 + 0x44) + 0x8000);
     }

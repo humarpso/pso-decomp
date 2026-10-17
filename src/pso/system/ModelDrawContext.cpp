@@ -44,7 +44,7 @@ extern "C" {
 extern RecoveredGlobal_803DCBD8_lbl_8058D380 render_contexts;
 extern u8 *current_render_context;
 void select_render_context(s32 arg0);
-s32 compose_motion_node_matrix(int);
+void compose_motion_node_matrix(void *arg0);
 s32 push_matrix();
 s32 pop_matrix();
 s32 queue_model_draw_matrix(int, void *);
@@ -68,7 +68,7 @@ extern RecoveredCallback_1268626c296b motion_node_draw_callback;
 void draw_motion_node_tree_with_context(struct Node_803DCB40 *arg0);
 __declspec(section ".rodata") extern const Tbl_803DCC34 gx_blend_mode_table;
 void set_cached_blend_factor(s32 arg0, s32 arg1);
-s32 get_current_matrix(void *);
+void get_current_matrix(void *m);
 s32 apply_quat_rotation__10TObjPlayerFf(void *, f32);
 s32 rotate_matrix_by_node_angles(void *, void *);
 s32 scale_current_matrix(void *);
@@ -102,7 +102,7 @@ void draw_ginja_motion_node_tree(u8 *arg0) {
     var_r31 = (u8 *)(arg0);
     do {
         push_matrix();
-        compose_motion_node_matrix((int) (var_r31));
+        compose_motion_node_matrix((var_r31));
         if (((s32 (*)(void *)) (*(RecoveredCallback_92513335c3ed *)&model_node_callback)) != NULL) {
             (*(RecoveredCallback_92513335c3ed *)&model_node_callback)(var_r31);
         }
@@ -138,7 +138,7 @@ void traverse_model_node_tree(struct N_803DC9E4 *p, s32 (*cb)(s32)) {
     do {
         u32 f = p->flags;
         if (f & 0x800) {
-            get_current_matrix((void *) (node_saved_matrix));
+            get_current_matrix((node_saved_matrix));
         }
         if ((f & 7) == 7) {
             if (!(f & 8)) {
@@ -180,7 +180,7 @@ void draw_motion_node_tree_with_context(struct Node_803DCB40 *arg0) {
     u32 t;
     do {
         push_matrix();
-        compose_motion_node_matrix((int) arg0);
+        compose_motion_node_matrix(arg0);
         if (motion_node_draw_callback != NULL) {
             motion_node_draw_callback(arg0);
         }

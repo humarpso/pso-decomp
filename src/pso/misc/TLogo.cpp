@@ -46,7 +46,7 @@ int is_logo_exit_requested(int);
 int is_sega_logo_done(int);
 s32 TLogo__sub_8013F800(void* p);
 int TLogo__sub_8013F808(void);
-s32 TLobby__sub_80145DB4(int);
+s32 TLobby__sub_80145DB4(s32 arg0);
 u32 __nw__7TObjectFUl(int);
 u32 TAdVIConfigGC__ct(void *, void *);
 s32 check_progressive_ready__5TLogoFv();
@@ -151,7 +151,7 @@ void run_task__5TLogoFv(u8 *arg0) {
         }
         break;
     case 2:
-        if (TLobby__sub_80145DB4((int) (1)) == 0) {
+        if (TLobby__sub_80145DB4((1)) == 0) {
             var_r0_5 = __nw__7TObjectFUl((int) (0x30));
             if (var_r0_5 != 0U) {
                 var_r0_5 = TAdTrialModemChkGC__ct((void *)var_r0_5, arg0);

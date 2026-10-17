@@ -6,7 +6,7 @@
 
 extern "C" {
 
-s32 TBoss6PlotFalz__sub_802AC008(f32, f32);
+void TBoss6PlotFalz__sub_802AC008(f32 farg0, f32 farg1);
 s32 sum_offsets__11TBoss6Type2Fv();
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_y(int, int);

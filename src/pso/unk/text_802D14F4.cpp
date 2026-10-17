@@ -31,12 +31,12 @@ struct Rot_802D14F4 { s32 x, y, z; };
 struct Hit_802D14F4 { u8 pad[4]; u8 *tri; };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 Hit_802D14F4 *csnVecterUnder(void *, int);
 u32 csnVector(void *, void *, int);
 u32 spawn_particle_effect_with_rotation(void *, void *, int, int);
-void *find_entity_by_id(int);
-s32 TObjEneBm9Mericarol__sub_802CED40(void *);
+void *find_entity_by_id(u16 id);
+void TObjEneBm9Mericarol__sub_802CED40(void *p);
 s32 vec3_add_to(void *, void *);
 extern const f32 lbl_805DE75C;
 extern const f32 lbl_805DE760;

@@ -542,7 +542,7 @@ typedef struct Msg_80044CE4 {
 } Msg_80044CE4;
 
 extern "C" {
-u32 find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 s32 fn_80048C04();
 extern u16 TBoss3Volopt__cage_entity_id;
 f32 sin_table_lookup(s32);
@@ -551,9 +551,9 @@ extern const f32 lbl_805D8818;
 void update_state__12TBoss3VoloptFPv(void *arg0);
 s32 obj_testFlags30(void*, s32);
 s32 post_translate_matrix(void *);
-s32 draw_chunk_object(s32);
-s32 restore_scene_lighting();
-s32 select_actor_lighting(void *);
+void draw_chunk_object(void *child);
+void restore_scene_lighting(void);
+void select_actor_lighting(s32 obj);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -562,16 +562,16 @@ extern const f32 lbl_805D881C;
 extern const f32 lbl_805D8820;
 void render__12TBoss3VoloptFPv(u8 *arg0);
 void *__nw__7TObjectFUl(s32);
-void *fn_800480B0(void *, void *, void *);
+u8 *fn_800480B0(u8 *arg0, s32 arg1, s32 arg2);
 extern void *tl_04;
 void *TBoss3Volopt__sub_80047DD4(void *arg0);
 void free_collision_body_parts(void *);
-void __dt__13TUnk_804949A8Fv(void *, int);
+void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void __dt__15TObjEnemyCustomFv(void *, int);
+void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
 void queue_destruction__7TObjectFv(void *);
 extern s32 volopt_boss_dispatch_table[];
-s32 spawn_particle_effect(s32, s32);
+void *spawn_particle_effect(void *pos, s32 id);
 s32 play_persistent_sound(s32, s32, u32, s16, s32);
 s32 rand(void);
 f32 cos_table_lookup(s32);
@@ -586,7 +586,7 @@ extern const f32 lbl_805D87DC;
 f32 fabs_float(f32);
 s32 TBoss3Volopt__sub_8003F398(void);
 s32 minimap_render_dot(void *, s32, s16, s32);
-s32 reset_status_effect_row(void *);
+void reset_status_effect_row(u8 *arg0);
 s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
 s32 update_obstruction_fade(void *);
 s32 submit_cursor_candidate(void *, int);
@@ -655,9 +655,9 @@ s32 approach_angle_limited(s32, s32, s32);
 extern s16 lbl_8048441C[];
 extern const f32 TBoss3Volopt__data_805D87A8;
 extern const f32 lbl_805D8810;
-s16 TObjVoloptPillar__sub_80048118(int);
+s32 TObjVoloptPillar__sub_80048118(s32 i);
 s32 TObjVoloptPillar__ct(void *, void *, void *);
-void *create_particle_emitter(void *, int);
+void *create_particle_emitter(void *pos, s32 id);
 s32 turn_toward_point__12TBoss3VoloptFPvPvPvi(void *, void *, int, int);
 u32 get_player_by_client_id(u16);
 s32 matrix_mult_vec(int, void *, void *);
@@ -1105,7 +1105,7 @@ void TBoss3Volopt::spawn_ambient_particles() {
         stack.sp8 = (temp_f31 * cos_table_lookup(temp_r31)) + *(f32 *)((s8 *)((u8 *)this) + 0x38);
         stack.spC = (lbl_805D87DC * (lbl_805D87BC * (f32) rand())) + TBoss3Volopt__data_805D87D8;
         stack.sp10 = (temp_f31 * sin_table_lookup(temp_r31)) + *(f32 *)((s8 *)((u8 *)this) + 0x40);
-        spawn_particle_effect((s32) &stack.sp8, 0xFB);
+        spawn_particle_effect(&stack.sp8, 0xFB);
     }
     play_persistent_sound(0x4003AD21, (s32) ((u8 *)this), (u32) (((u8 *)this) + 0x38), 0, 0);
 }
@@ -1282,7 +1282,7 @@ void TBoss3Volopt::update_pillar_heal_state(void *arg0_) {
                 queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x474));
                 *(u32 *)((s8 *)arg0 + 0x474) = 0U;
             }
-            n = ((s32 (*)(int))TObjVoloptPillar__sub_80048118)(3) / 5;
+            n = TObjVoloptPillar__sub_80048118(3) / 5;
             TBoss3Volopt__sub_800FD344(arg0 + 0x2FC, 0xFF00FF00, 0x1E, &lbl_805D880C, n);
             *(s16 *)((s8 *)arg0 + 0x32C) = imin_80045EEC(*(s16 *)((s8 *)arg0 + 0x32C) + n, *(s16 *)((s8 *)arg0 + 0x2B8));
             for (s32 i = 0; i < 4; i++) {
@@ -1693,14 +1693,14 @@ void render__12TBoss3VoloptFPv(u8 *arg0) {
             ((VObjB_80044498 *)(arg0 + 0x490))->n6();
         }
         TObjFish::set_global_param(((TUnk_80484610 *)arg0)->texture_id);
-        select_actor_lighting(arg0);
+        select_actor_lighting((s32)arg0);
         TObjPlayer::toggle_particle_effect();
         push_matrix();
         model_render_flags &= 0xFFFFFBFF;
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, ((TUnk_80484610 *)arg0)->rotation_y);
         if (TObjPlayer::check_demo_mode() == 1) {
-            draw_chunk_object(*(s32 *)((s8 *)arg0 + 0x34));
+            draw_chunk_object((void *)(*(s32 *)((s8 *)arg0 + 0x34)));
         } else {
             ((TObjEneRe7Berura *)arg0)->draw();
         }
@@ -1755,7 +1755,7 @@ void TUnk_80484610::run_task() {
         }
         if (obj_testFlags30((void*)(arg0), (s32)(0x4000)) != 0) {
             if (((TObjPlayer *)arg0)->add_status_effect_timer((int) (4), (int) (-1)) <= 0) {
-                reset_status_effect_row((void *) (arg0 + 0x284));
+                reset_status_effect_row((arg0 + 0x284));
                 ((TUnk_804B9870 *)arg0)->obj_clearFlags30((int) (0x4000));
             }
         } else {
@@ -1785,7 +1785,7 @@ void TUnk_80484610::run_task() {
 void *TBoss3Volopt__sub_80047DD4(void *arg0) {
     void *o = __nw__7TObjectFUl((s32)(0x510));
     if (o != NULL) {
-        o = fn_800480B0(o, tl_04, arg0);
+        o = fn_800480B0((u8 *)o, (s32)tl_04, (s32)arg0);
     }
     return o;
 }

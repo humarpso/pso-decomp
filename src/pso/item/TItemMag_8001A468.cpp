@@ -95,14 +95,14 @@ typedef struct Light_8001A6A8 { u8 bytes[0xC]; } Light_8001A6A8;
 
 extern "C" {
 s32 init__9TItemDataFv(void *);
-s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(int);
+s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8001A8F0_lbl_8043455C lbl_8043455C;
 extern s32 lbl_80480938[];
 extern s8 player_light_index;
 u8 *TObjPlayer__sub_8001A8F0(u8 *arg0, s32 arg1);
 void set_active_camera_pose_from_params(void *);
-void activate_camera_mode(int);
+s32 activate_camera_mode(s32 arg0);
 extern Vec_8001A77C lbl_80434568;
 extern Vec_8001A77C lbl_80434574;
 int TObjPlayer__sub_8001A77C(void *p);
@@ -193,7 +193,7 @@ u8 *TObjPlayer__sub_8001A8F0(u8 *arg0, s32 arg1) {
     stack.sp8 = *(s32 *)((s8 *)(&lbl_8043455C.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&lbl_8043455C.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_8043455C.value) + 8);
-    temp_r3 = ((TObjPlayer *)(get_char_index__23TAdSinglePlyChrSelectGCFUi((int) (0xFFFF))))->create_ending_player();
+    temp_r3 = ((TObjPlayer *)(get_char_index__23TAdSinglePlyChrSelectGCFUi((0xFFFF))))->create_ending_player();
     lbl_805D49E0 = temp_r3;
     query_darkfalz_state__10TObjPlayerFv((int) (temp_r3), (void *) (&stack.sp8));
     init__9TItemDataFv((void *) (&stack.sp14));

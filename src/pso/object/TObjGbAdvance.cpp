@@ -34,7 +34,7 @@ s32 free_collision_body_parts(void *);
 s32 vfunc_14__11TObjMesBaseFv();
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
-s32 __dt__11TObjMesBaseFv(void *, s32);
+void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1);
 
 void TObjGbAdvance::vfunc_14() {
     vfunc_14__11TObjMesBaseFv();

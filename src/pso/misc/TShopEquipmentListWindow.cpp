@@ -190,14 +190,14 @@ struct Win_8021C160 : VObj_8021C160 {
 
 extern "C" {
 s32 sub_8022397C__15TShopWindowBaseFv(void *);
-s32 __ct__15TShopWindowBaseFv(void *);
-s32 TLobby__sub_80225238(void *, int);
+void *__ct__15TShopWindowBaseFv(void *arg0);
+void TLobby__sub_80225238(int a0, int a1);
 extern s32 __vt__24TShopEquipmentListWindow[];
 extern s32 TShopEquipmentListWindow__class_name;
 u8 *TShopEquipmentListWindow__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 int set_field_20__15TShopWindowBaseFl(void*, int);
-s32 obj_getPtr2B0_20(void *);
+int obj_getPtr2B0_20(u8 *p);
 s32 check_equip_requirements(void *, Rec_8021C33C *, u32 *);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(void *);
 s32 obj_getField1c(s32);
@@ -228,10 +228,10 @@ s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 void play_sound_effect(int, int, int, int);
 void *__dt__24TShopEquipmentListWindowFv(void *arg0, s16 arg1);
-u32 create_window_menu(s32, s32, u16);
+s32 create_window_menu(s32 arg0, s32 arg1, s32 arg2);
 s32 align_menu_entry_positions(u32);
 void __dl__7TObjectFPv(void *);
-void __dt__15TShopWindowBaseFv(void *, int);
+void *__dt__15TShopWindowBaseFv(void *self, s16 m);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, s32, s32);
 
 void TShopEquipmentListWindow::vfunc_7() {
@@ -460,7 +460,7 @@ s32 TShopEquipmentListWindow::check_purchase_eligibility() {
         return 0;
     }
     i = select_cursor_entry__22TWindowSubShortCutListFv(w->list);
-    if (w->recs[i].price > obj_getPtr2B0_20(w->player)) {
+    if (w->recs[i].price > obj_getPtr2B0_20((u8 *)w->player)) {
         return 0;
     }
     r = &w->recs[i];
@@ -575,7 +575,7 @@ void TShopEquipmentListWindow::vfunc_11() {
         if (temp_r12 != NULL) {
             temp_r12(*(s32 *)((s8 *)arg0 + 0x28));
         }
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
     default:
         return;
     }
@@ -602,7 +602,7 @@ void *__dt__24TShopEquipmentListWindowFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8021C7C0___vt__24TShopEquipmentListWindow_size[sizeof(RecoveredGlobal_8021C7C0___vt__24TShopEquipmentListWindow) == 0x30 ? 1 : -1];
 u8 *TShopEquipmentListWindow__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 sp8;
-    __ct__15TShopWindowBaseFv((void *) (arg0));
+    __ct__15TShopWindowBaseFv((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8021C7C0___vt__24TShopEquipmentListWindow *)&__vt__24TShopEquipmentListWindow).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TShopEquipmentListWindow__class_name;
     *(s32 *)((s8 *)arg0 + 0x24) = arg3;
@@ -618,7 +618,7 @@ u8 *TShopEquipmentListWindow__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)((s8 *)arg0 + 0x20) = 0;
     *(s32 *)((s8 *)arg0 + 0x190) = 0;
     ((TShopGetItemWindow *)(*(s32 *)((s8 *)arg0 + 0x24)))->calc_item_count((s32 *)(&sp8));
-    TLobby__sub_80225238((void *) (sub_8022397C__15TShopWindowBaseFv((void *) (arg0))), (int) (sp8));
+    TLobby__sub_80225238((sub_8022397C__15TShopWindowBaseFv((void *) (arg0))), (sp8));
     return arg0;
 }
 

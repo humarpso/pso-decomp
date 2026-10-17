@@ -177,7 +177,7 @@ s32 *get_character_select_request_buffer(void);
 s32 is_boss_area(void);
 void reset_cameras_to_actor(void *actor, s32 arg1);
 void reset__11TCameraCtrlFv(void);
-s32 TCameraCtrl__sub_80068354();
+void TCameraCtrl__sub_80068354(void);
 
 extern s16 TCameraCtrl__data_805D4E0A;
 
@@ -698,34 +698,34 @@ int reset_to_local_player__11TCameraCtrlFv(void*);
 int set_fixed_position_and_target__11TCameraCtrlFPUcPUc(void*);
 
 extern "C" {
-void TCameraCtrl__vt0();
+void *TCameraCtrl__vt0(void);
 }
 extern "C" {
-void TCameraCtrl__vt10();
+void *TCameraCtrl__vt10(void);
 }
 extern "C" {
-void TCameraCtrl__vt11();
+void *TCameraCtrl__vt11(void);
 }
 extern "C" {
-void TCameraCtrl__vt12();
+void *TCameraCtrl__vt12(void);
 }
 extern "C" {
-void TCameraCtrl__vt4();
+void *TCameraCtrl__vt4(void);
 }
 extern "C" {
-void TCameraCtrl__vt5();
+void *TCameraCtrl__vt5(void);
 }
 extern "C" {
-void TCameraCtrl__vt6();
+void *TCameraCtrl__vt6(void);
 }
 extern "C" {
-void TCameraCtrl__vt7();
+void *TCameraCtrl__vt7(void);
 }
 extern "C" {
-void TCameraCtrl__vt8();
+void *TCameraCtrl__vt8(void);
 }
 extern "C" {
-void TCameraCtrl__vt9();
+void *TCameraCtrl__vt9(void);
 }
 extern "C" {
 void render_shadows__7TObjectFv();

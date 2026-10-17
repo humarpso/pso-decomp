@@ -4,7 +4,7 @@
 extern "C" {
 
 void bswap__18TPlyJoinLobbyEntryFv(s32 arg0);
-s32 bswap__12TPlyCharDataFv(s32);
+void bswap__12TPlyCharDataFv(s32 arg0);
 s32 bswap__16TPlyGuildCardTagFv();
 
 void bswap__18TPlyJoinLobbyEntryFv(s32 arg0) {

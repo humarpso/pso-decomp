@@ -60,7 +60,7 @@ struct Ang_800DC83C { s32 x, y, z; };
 
 extern "C" {
 s32 TObjPlayer__sub_800DC478(u8 *arg0, s32 arg1, f32 farg0);
-u8 *csnVecterUnder(s32, s32);
+s32 *csnVecterUnder(s32 origin, s32 mask);
 extern s32 lbl_805D5254;
 f32 TObjPlayer__sub_800DC434(s32 arg0, s32 arg1);
 s32 TObjPlayer__sub_800DC420(void *self, s32 i);

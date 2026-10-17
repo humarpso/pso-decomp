@@ -13,7 +13,7 @@ struct RecoveredGlobal_802CE428___vt__22TObjEneMe1GiGueMissile {
 };
 
 extern "C" {
-int queue_destruction__7TObjectFv(void*);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 get_bml_motion(void *, int);
 s32 get_bml_model(void *, int);
 s32 rotate_matrix_y(int, int);
@@ -21,7 +21,7 @@ s32 rotate_matrix_x(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
-s32 draw_model_motion(void *, int, f32);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern int TObjEneMe1GiGue_barrier_count;
 u16 obj_getField1c(void *);
 s32 play_sound_effect(s32, u32, s16, s32);
@@ -37,7 +37,7 @@ void TObjEneMe1GiGue__sub_802CE4E8(void);
 void TObjEneMe1GiGue__sub_802CE4EC(void);
 void *__dt__22TObjEneMe1GiGueMissileFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void __dt__12TNeedleShootFv(void *, int);
+void *__dt__12TNeedleShootFv(void *arg0, s16 arg1);
 u32 __nw__7TObjectFUl(s32);
 
 struct Hit_802CE088 { s32 kind; f32 power; };
@@ -51,7 +51,7 @@ struct VEnt_802CE088 : VBase_802CE088 {
     virtual void m20();
     virtual f32 m21(void *src, Hit_802CE088 *hit, s32 a, s32 b, s32 c);
 };
-u8 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 f32 horizontal_distance_squared(void *, void *);
 void obj_setFlags30(void *, int);
 void create_fire_explosion_effect(void *, f32, void *, int, void *);
@@ -120,7 +120,7 @@ void TObjEneMe1GiGueMissile::render() {
   s32 bml_motion;
   if (((void *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count)) == 0)
   {
-    queue_destruction__7TObjectFv((void*)((void *) arg0));
+    queue_destruction__7TObjectFv(((void *) arg0));
     return;
   }
   push_matrix();
@@ -132,7 +132,7 @@ void TObjEneMe1GiGueMissile::render() {
   TObjFish::set_global_param((s32)((void *) (*((s32 *) (((s8 *) (*((u8 **) (((s8 *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count)) + 0x42C)))) + 0x1C)))));
   TObjPlayer::set_global_flag();
   bml_motion = get_bml_motion((void *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count), (int) 5);
-  draw_model_motion((void *) get_bml_model((void *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count), (int) 1), (int) bml_motion, (f32) (*((f32 *) (((s8 *) arg0) + 0xBC))));
+  draw_model_motion((void *) get_bml_model((void *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count), (int) 1), (void *)bml_motion, (f32) (*((f32 *) (((s8 *) arg0) + 0xBC))));
   TObjPlayer::clear_global_state();
   TParticleCtrl::end_effect_render();
   pop_matrix();
@@ -147,7 +147,7 @@ void TObjEneMe1GiGueMissile::run_task() {
     f32 temp_f1;
     this->m_1c = find_entity_by_id((int) (this->m_34));
     if ((u32) this->m_1c == 0U) {
-        queue_destruction__7TObjectFv((void*)((void *) (arg0)));
+        queue_destruction__7TObjectFv(((void *) (arg0)));
         return;
     }
     *(f32 *)&this->unk_BC = (f32) (*(f32 *)&this->unk_BC + lbl_805DE6DC);

@@ -45,8 +45,8 @@ struct V2_80248374 { f32 x; f32 y; };
 struct Win_80248374 { u8 pad[0x2C]; int f2c; };
 
 extern "C" {
-void swap_sprite_v_edges(void *);
-void swap_sprite_u_edges(void *);
+void swap_sprite_v_edges(u8 *arg0);
+void swap_sprite_u_edges(u8 *arg0);
 void set_sprite_uv_from_pixels(void *, f32, f32);
 void set_sprite_dimensions(void *, f32, f32);
 extern UV_802480EC TWindowSubSymbolChatPartsSet__part_uv_table[];
@@ -72,10 +72,10 @@ struct RecoveredGlobal_80248494_lbl_804CE2E8 {
 
 typedef char RecoveredGlobal_80248494_lbl_804CE2E8_size[sizeof(RecoveredGlobal_80248494_lbl_804CE2E8) == 0x4B8 ? 1 : -1];
 
-s32 allow_rendering__7TObjectFv(void *);
-s32 disallow_rendering__7TObjectFv(void *);
-s32 is_symbol_chat_preset_in_use(void *);
-s32 get_symbol_chat_preset(s32);
+void allow_rendering__7TObjectFv(void *arg0);
+void disallow_rendering__7TObjectFv(void *arg0);
+s32 is_symbol_chat_preset_in_use(u32 *arg0);
+u8 *get_symbol_chat_preset(s32 i);
 u8 * draw_default_entry__9TWindowDDFl();
 void TWindowSubSymbolChatPartsSet__sub_802482B8(s32 arg0, s32 arg1);
 void get_parts_entry__28TWindowSubSymbolChatPartsSetFii(s32 arg0, s32 arg1);
@@ -131,10 +131,10 @@ void TWindowSubSymbolChatPartsSet::set_part_sprite(void *arg0, s16 id, s32 a, s3
     e = &symbol_chat_part_uv_table[id];
     set_sprite_uv_from_pixels(o, e->x, e->y);
     if (a != 0) {
-        swap_sprite_u_edges(o);
+        swap_sprite_u_edges((u8 *)o);
     }
     if (b != 0) {
-        swap_sprite_v_edges(o);
+        swap_sprite_v_edges((u8 *)o);
     }
 }
 #undef o
@@ -186,10 +186,10 @@ void setup_part_sprites__28TWindowSubSymbolChatPartsSetFPvPvPvUsiiii(Part_802480
     }
     set_sprite_uv_from_pixels(arg0, u, v);
     if (arg5 != 0) {
-        swap_sprite_u_edges(arg0);
+        swap_sprite_u_edges((u8 *)arg0);
     }
     if (arg6 != 0) {
-        swap_sprite_v_edges(arg0);
+        swap_sprite_v_edges((u8 *)arg0);
     }
 }
 
@@ -250,7 +250,7 @@ void TWindowSubSymbolChat::init_layout_entries(s32 player) {
 
 void TWindowSubSymbolChatPartsSet::update_visibility() {
     u8 *arg0 = (u8 *)this;
-    if (((s32) *(s32 *)&this->m_64 == 0) && (((u32) this->m_60 == 0U) || (is_symbol_chat_preset_in_use((void *) this->m_60) == 0))) {
+    if (((s32) *(s32 *)&this->m_64 == 0) && (((u32) this->m_60 == 0U) || (is_symbol_chat_preset_in_use((u32 *)this->m_60) == 0))) {
         disallow_rendering__7TObjectFv(arg0);
         return;
     }

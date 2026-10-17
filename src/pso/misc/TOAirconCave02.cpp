@@ -17,9 +17,9 @@ struct VObj570D4_801570d4 : VBase570D4_801570d4 {
     virtual s32 m8(f32, f32);
 };
 
-void *TOAirconCave02__ct(void *, void *, void *);
+u8 *TOAirconCave02__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object(int);
+void draw_ginja_object(void *child);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -39,7 +39,7 @@ void TOAirconCave02::render() {
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (this->rotation_y));
         TObjFish::set_global_param((int) (this->texture_id));
-        draw_ginja_object((int) (temp_r31));
+        draw_ginja_object((void *)(temp_r31));
         pop_matrix();
     }
 }
@@ -49,7 +49,7 @@ extern void *tl_05;
 void *TOAirconCave02::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC8);
     if (o != NULL) {
-        o = TOAirconCave02__ct(o, tl_05, arg0);
+        o = TOAirconCave02__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

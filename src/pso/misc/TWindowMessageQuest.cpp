@@ -4,7 +4,7 @@ extern "C" {
 
 void *__dt__19TWindowMessageQuestFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void __dt__14TWindowMessageFv(void *, int);
+void *__dt__14TWindowMessageFv(void *arg0, s16 arg1);
 
 extern s32 __vt__19TWindowMessageQuest[];
 

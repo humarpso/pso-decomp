@@ -36,7 +36,7 @@ s32 get_map_id__13TRaderMapCoreFv();
 u32 get_player_by_client_id(int);
 extern u8 controller_input_state[];
 extern s32 TChallenge4PResult__slot_entries[];
-s32 TLobby__sub_80292270(int, int);
+s32 TLobby__sub_80292270(s32 seed, s32 card);
 
 s32 get_window_layout_position(int, int, void *);
 extern s32 lbl_80478BCC[];
@@ -56,7 +56,7 @@ void resume_challenge_result_processing(void *arg0);
 
 void update_entries__18TChallenge4PResultFii(s32 arg0, s32 arg1);
 s32 __ct__18TChallenge4PResultFP7TObjectUsl(void *, s32, int, s32);
-int TWindow__close(void*);
+void TWindow__close(u8 *arg0);
 u32 __nw__7TObjectFUl(s32);
 int queue_destruction__7TObjectFv(void*);
 
@@ -144,7 +144,7 @@ void TChallenge4PResult::set_entry_item(void *arg1, s32 arg2) {
     arg0->f[arg2].v = 1;
 }
 
-void TChallenge4PResult::close_window() { if (*(unsigned int *)&this->message_window != 0) { TWindow__close(*(void* *)&this->message_window); *(int *)&this->message_window = 0; } }
+void TChallenge4PResult::close_window() { if (*(unsigned int *)&this->message_window != 0) { TWindow__close((u8 *)(*(void* *)&this->message_window)); *(int *)&this->message_window = 0; } }
 
 }
 
@@ -242,7 +242,7 @@ void TChallenge4PResult::update_wait_input() {
 void TChallenge4PResult::handle_result_code() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r3;
-    temp_r3 = TLobby__sub_80292270((int) (this->result_code), (int) (this->slot_index));
+    temp_r3 = TLobby__sub_80292270((this->result_code), (this->slot_index));
     switch (temp_r3) {
     case 2:
         ((TChallenge4PResult *)arg0)->handle_third_reward();

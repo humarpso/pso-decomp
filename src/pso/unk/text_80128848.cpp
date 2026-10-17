@@ -57,7 +57,7 @@ struct VObj_18 : VBase_18 {
 };
 
 extern "C" {
-s32 TObjPlayer__sub_80128A70();
+void TObjPlayer__sub_80128A70(void);
 u8 * init_shot_state__13TUnk_804A3E20Fv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;

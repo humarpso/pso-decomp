@@ -104,8 +104,8 @@ extern s32 TObjNpcNFW00__name;
 extern s32 *TObjNpcNFW00__named_object_resource;
 extern s32 TObjNpcNFW00__texture_gvm_handle;
 u8 *TObjNpcNFW00__ct(u8 *arg0, s32 arg1, s32 arg2);
-void *create_named_object(const char *name);
-void *load_gvm_texture_file(const char *name);
+s32 create_named_object(s32 arg0);
+u8 *load_gvm_texture_file(s32 arg0);
 extern u32 TObjNpcNFW01__shared_object_resource;
 extern u32 TObjNpcNFW01__texture_gvm;
 extern char lbl_8043FDC8[];
@@ -114,7 +114,7 @@ void * TObjNpcNFW01__create(void *arg0);
 void *__dt__12TObjNpcNFW00Fv(void *arg0, s16 arg1);
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);
-void *TObjNpcNFW01__ct(void *, void *, void *);
+u8 *TObjNpcNFW01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -153,7 +153,7 @@ void * TObjNpcNFW01__create(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x3B8);
     if (o2 != NULL) {
-        o2 = TObjNpcNFW01__ct(o2, o, arg0);
+        o2 = TObjNpcNFW01__ct((u8 *)o2, (s32)o, (s32)arg0);
     }
     return o2;
 }
@@ -170,8 +170,8 @@ void TObjNpcNFW01::free_resources() {
     }
 }
 void TObjNpcNFW01::load_resources() {
-    TObjNpcNFW01__shared_object_resource = (u32)create_named_object(lbl_8043FDC8);
-    TObjNpcNFW01__texture_gvm = (u32)load_gvm_texture_file(lbl_8043FDDC);
+    TObjNpcNFW01__shared_object_resource = (u32)create_named_object((s32)lbl_8043FDC8);
+    TObjNpcNFW01__texture_gvm = (u32)load_gvm_texture_file((s32)lbl_8043FDDC);
 }
 
 }

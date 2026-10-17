@@ -196,7 +196,6 @@ typedef void *(*Ctor_80257D44)(void *, void *, s32);
 #define sub_80256BDC__13TUnk_804CF930Fs ((int (*)(void*, int))sub_80256BDC__13TUnk_804CF930Fs)
 #define calc_bar_width__20TWindowSubStatusDispFPv ((s32 (*)())calc_bar_width__20TWindowSubStatusDispFPv)
 #define step_gauge_bar_width ((void (*)(void *))step_gauge_bar_width)
-#define TWindowSubStatusDisp__sub_80257298 ((s32 (*)(void *, s16))TWindowSubStatusDisp__sub_80257298)
 
 #define lbl_804CF930 (*(unsigned char (*)[1])&lbl_804CF930)
 extern const float lbl_805DCE58;
@@ -210,5 +209,4 @@ void*TUnk_804CF930::init_from(void*a1, int a2) { sub_80256BDC__13TUnk_804CF930Fs
 #undef sub_80256BDC__13TUnk_804CF930Fs
 #undef calc_bar_width__20TWindowSubStatusDispFPv
 #undef step_gauge_bar_width
-#undef TWindowSubStatusDisp__sub_80257298
 #undef lbl_804CF930

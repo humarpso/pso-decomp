@@ -4,8 +4,8 @@
 #include "pso/boss/TBoss6Thanks.h"
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
-s32 play_area_music(void *);
+void queue_destruction__7TObjectFv(void *arg0);
+void play_area_music(char *name);
 s32 is_flag_set__14TBoss6PlotFalzFv();
 s32 is_ship_door_ready__12TBoss6ThanksFv();
 extern s32 lbl_804709E0[];
@@ -23,7 +23,7 @@ extern s32 __vt__15TBoss6EmptyWarp[];
 void TBoss6EmptyWarp::run_task() {
     u8 *arg0 = (u8 *)this;
     if (is_flag_set__14TBoss6PlotFalzFv() != 0) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     *(s32 *)&this->unk_1C = (s32) (*(s32 *)&this->unk_1C + 1);
@@ -31,11 +31,11 @@ void TBoss6EmptyWarp::run_task() {
         TBoss6EmptyWarp::init_warp();
         if (is_ship_door_ready__12TBoss6ThanksFv() != 0) {
             TBoss6Thanks::create();
-            play_area_music((void *) (lbl_804709E0));
+            play_area_music((char *)(lbl_804709E0));
         } else {
-            play_area_music((void *) (lbl_804709E8));
+            play_area_music((char *)(lbl_804709E8));
         }
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
     }
 }
 

@@ -22,15 +22,15 @@ extern const f32 lbl_805DAC9C;
 u32 test_flags_1b8__11TItemWeaponFUl(void *, u32);
 s32 update_trail_slot__11TItemWeaponFPvi(void *, int);
 s32 draw_weapon_model(void *);
-s32 draw_weapon_at_joint(void *, int);
+void draw_weapon_at_joint(s32 arg0, s8 arg1);
 s32 get_field_d8__5TItemFv(void *);
 
 void TItemWeapon::update_trails() {
     u8 *arg0 = (u8 *)this;
     if (test_flags_1b8__11TItemWeaponFUl(arg0, 0x400U) != 0U) {
-        draw_weapon_at_joint((void *) (arg0), (int) (0x30));
+        draw_weapon_at_joint((s32)(arg0), (0x30));
         update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (0));
-        draw_weapon_at_joint((void *) (arg0), (int) (0x23));
+        draw_weapon_at_joint((s32)(arg0), (0x23));
         update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (1));
         return;
     }
@@ -53,8 +53,8 @@ void TItemWeapon::vfunc_27() {
     if (((u32) *(u32 *)&this->player != 0U) && (test_flags_1b8__11TItemWeaponFUl(arg0, 0xCU) == 0xCU) && (test_flags_1b8__11TItemWeaponFUl(arg0, 0x80U) == 0U) && (test_flags_1b8__11TItemWeaponFUl(arg0, 0x1000U) == 0U)) {
         this->reserved_53();
         if (test_flags_1b8__11TItemWeaponFUl(arg0, 0x400U) != 0U) {
-            draw_weapon_at_joint((void *) (arg0), (int) (0x30));
-            draw_weapon_at_joint((void *) (arg0), (int) (0x23));
+            draw_weapon_at_joint((s32)(arg0), (0x30));
+            draw_weapon_at_joint((s32)(arg0), (0x23));
             return;
         }
         if (test_flags_1b8__11TItemWeaponFUl(arg0, 1U) == 0U) {

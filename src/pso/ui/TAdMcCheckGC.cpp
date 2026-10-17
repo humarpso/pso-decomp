@@ -11,7 +11,7 @@ struct RecoveredGlobal_8033F1C4___vt__12TAdMcCheckGC {
 
 extern "C" {
 s32 __dt__7TObjectFv(void *, int);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 __dl__7TObjectFPv(void *);
 extern s32 memcard_cursor_instance_table[];
 extern s32 __vt__12TAdMcCheckGC[];
@@ -22,7 +22,7 @@ s32 GXSetTexCoordGen2(s32, s32, s32, s32, s32, s32);
 s32 get_localized_text_entry(s32, s32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(void *, s32, s32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
-s32 set_status_flag_80__12TQuestThreadFPv(s32);
+void set_status_flag_80__12TQuestThreadFPv(void *p);
 
 void set_tex_coord_gen2(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     GXSetTexCoordGen2(arg0, arg1, arg2, arg3, 0, 0x7D);
@@ -41,7 +41,7 @@ s32 TAdMcCheckGC::create(s32 arg1) {
     temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFl(lbl_804783B8 + temp_r5, 1, temp_r5);
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_localized_text_entry(0x16, arg1), 0x20, 0);
     ((TAdChrSelASlotGC *)temp_r31)->set_flag_40();
-    set_status_flag_80__12TQuestThreadFPv(temp_r31);
+    set_status_flag_80__12TQuestThreadFPv((void *)temp_r31);
     ((TWindowSubComCard *)temp_r31)->calc_layout_height(lbl_805DFAD8);
     return temp_r31;
 }

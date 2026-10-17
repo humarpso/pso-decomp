@@ -6,7 +6,7 @@ s32 is_camera_visible__17TObjEneHoldEffectFv(s32);
 extern const f32 lbl_805E03A8;
 extern const f32 lbl_805E03AC;
 u16 TObjRoomId__sub_801A1DB8(u16);
-u32 find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 
 s32 validate_attack_target_entry(void *parameters) {
     return ((u32) *(s16 *)((s8 *)parameters + 2) >> 0x1FU) ^ 1;

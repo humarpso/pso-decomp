@@ -14,13 +14,13 @@ extern const f32 lbl_805DF300;
 void TObjEneMe3SinowZoa__sub_80316840(u8 *arg0);
 void attach_particle_model(void *, s32, s32, s32, s32, f32);
 Hit_80316690 *csnVectorUnder(void *, void *, s32);
-void spawn_particle_effect(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
 void TObjEneGibbles__sub_800D8988(void *);
 extern const f32 TObjEneMe3SinowZoa__data_805DF2F0;
 extern const f32 TObjEneMe3SinowZoa__data_805DF2F4;
 struct VOff_803167FC_arg0 { char pad_0[0x38]; char f_38[1]; };
 
-#define DELL ((void *(*)(void *, int))spawn_particle_effect)
+#define DELL spawn_particle_effect
 s32 TObjEneMe3SinowZoa::check_floor_contact(void *arg1) {
     u8 *arg0 = (u8 *)this;
     Vec_80316690 v;

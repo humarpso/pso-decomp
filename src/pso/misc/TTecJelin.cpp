@@ -137,7 +137,7 @@ struct Jelin_80233808 {
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 u32 find_entity_by_id(int);
 void run_task__9TTecJelinFv(struct Self_802336F0 *self);
 void construct_area_technique_base(void *);
@@ -193,7 +193,7 @@ void run_task__9TTecJelinFv(struct Self_802336F0 *self) {
     u32 id;
     self->target = find_entity_by_id(self->owner);
     if (self->target == 0) {
-        queue_destruction__7TObjectFv((void *) (self));
+        queue_destruction__7TObjectFv((self));
         return;
     }
     if (self->flag != 0) {
@@ -206,7 +206,7 @@ void run_task__9TTecJelinFv(struct Self_802336F0 *self) {
     } else {
         ((TUnk_804CC148 *)self)->apply_technique_to_area_targets();
     }
-    queue_destruction__7TObjectFv((void *) (self));
+    queue_destruction__7TObjectFv((self));
 }
 
 void *__dt__9TTecJelinFv(void *arg0, s16 arg1) {

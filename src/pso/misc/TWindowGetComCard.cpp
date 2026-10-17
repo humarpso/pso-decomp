@@ -28,17 +28,17 @@ struct GetCard_80252CCC {
 };
 
 extern "C" {
-s32 get_shared_text_buffer();
+s32 *get_shared_text_buffer(void);
 s32 init_com_card__17TWindowSubComCardFv();
 s32 TWindowGetComCard__sub_8007B594();
 s32 reset_equip_slots__10TObjPlayerFv();
-u32 get_player_by_client_id(s32);
-s32 get_com_card_list__6TLobbyFPv(int);
+void *get_player_by_client_id(s32 i);
+void *get_com_card_list__6TLobbyFPv(void *p);
 s32 text_builder_append();
-s32 text_builder_reset();
+void text_builder_reset(void);
 s32 __ct__7TObjectFP7TObject();
-s32 TObjPlayer__sub_8024ABDC(void *);
-s32 fn_8024AC64(void *);
+void TObjPlayer__sub_8024ABDC(s32 arg0);
+void fn_8024AC64(s32 arg0);
 s32 set_window_mode_4__6TLobbyFPvll(void *, void *, int);
 extern s32 lbl_8044ED94[];
 extern s32 lbl_8044ED9C[];
@@ -54,17 +54,17 @@ s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 void play_sound_effect(s32, s32, s32, s32);
 s32 is_player_input_active(s32);
 s32 get_selected_menu_value(void *);
-void *init_shop_judgment_window(void *);
+u8 *init_shop_judgment_window(void *p);
 extern u8 TWindowGetComCard__window_rect[];
 extern Pad_80252CCC controller_input_state[];
 void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self);
 void TWindowFukidasi__sub_80252C38(void* p);
 void *__dt__17TWindowGetComCardFv(void *arg0, s16 arg1);
 int fn_80252CBC(void* p);
-s32 TLobby__sub_8024AC20(s32);
+void TLobby__sub_8024AC20(s32 arg0);
 s32 TWindowCtrl__sub_8024A314();
-s32 TWindowReturnCity__sub_8024ACA8(s32);
-s32 TWindow__close(void *);
+void TWindowReturnCity__sub_8024ACA8(s32 arg0);
+void TWindow__close(u8 *arg0);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 s32 init_parts__10TObjPlayerFv();
@@ -151,11 +151,11 @@ void *__dt__17TWindowGetComCardFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void **)((s8 *)arg0 + 0x18) = __vt__17TWindowGetComCard;
         if ((u32) ((TWindowGetComCard *)arg0)->m_20 != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x20));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x20)));
             ((TWindowGetComCard *)arg0)->m_20 = 0U;
         }
         if ((u32) ((TWindowGetComCard *)arg0)->m_1c != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x1C));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x1C)));
             ((TWindowGetComCard *)arg0)->m_1c = 0U;
         }
         TWindowReturnCity__sub_8024ACA8(local_client_id);
@@ -181,7 +181,7 @@ u8 *TWindowGetComCard__ct(u8 *arg0) {
     if (init_com_card__17TWindowSubComCardFv() != 0) {
         temp_r31 = TWindowGetComCard__sub_8007B594();
         text_builder_reset();
-        get_com_card_list__6TLobbyFPv((int) (temp_r31));
+        get_com_card_list__6TLobbyFPv((void *)(temp_r31));
         text_builder_append();
         TWindowSubStatusDisp::get_message_10((int) (0x36));
         text_builder_append();
@@ -194,8 +194,8 @@ u8 *TWindowGetComCard__ct(u8 *arg0) {
     if (get_player_by_client_id((s32)((void *) (local_client_id))) != 0U) {
         reset_equip_slots__10TObjPlayerFv();
     }
-    TObjPlayer__sub_8024ABDC((void *) (local_client_id));
-    fn_8024AC64((void *) (local_client_id));
+    TObjPlayer__sub_8024ABDC((local_client_id));
+    fn_8024AC64((local_client_id));
     *(s32 *)&((TWindowGetComCard *)arg0)->m_24 = 0;
     return arg0;
 }

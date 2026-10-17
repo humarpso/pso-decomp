@@ -264,7 +264,7 @@ struct Sub_80094624 : SBase_80094624 {
 };
 
 extern "C" {
-f64 atan2_float(f32, f32);
+f32 atan2_float(f32 y, f32 x);
 s32 check_death_trigger__16TObjEneRe7BeruraFv();
 s32 is_over_limit__16TObjEneRe7BeruraFv(void *);
 s32 TObjEneRe7Berura__sub_8009518C(void *);
@@ -284,7 +284,7 @@ void TObjEneRe7Berura__sub_800940E8(u8 *arg0, s32 arg1);
 
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 s32 get_field_3D4_shifted__16TObjEneRe7BeruraFPv(void *);
-s32 enemy_validate_retained_target(void *);
+s32 enemy_validate_retained_target(u8 *arg0);
 s32 play_sound_effect(s32, u32, s16, s32);
 s32 push_matrix(void);
 s32 pop_matrix(void);
@@ -292,7 +292,7 @@ f32 post_translate_matrix(void *);
 s32 TObjEneDD__sub_800BA378(void *, void *);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 s32 mult_vec_array__10TObjPlayerFUll(int, int, void *, int);
-s32 set_matrix_identity(int);
+void set_matrix_identity(u8 *arg0);
 s32 rotate_matrix_y(int, int);
 extern u8 *belra_trail_buffer;
 extern const f32 lbl_805D9744;
@@ -309,7 +309,7 @@ f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
 extern const f32 lbl_805D976C;
 void TObjEneRe7Berura__sub_8009472C(u8 *arg0, s32 arg1);
-s32 rotate_xz_pair_by_angle(void *, void *, s32);
+void rotate_xz_pair_by_angle(f32 *arg0, f32 *arg1, s32 arg2);
 void *create_particle_emitter(void *, s32);
 s32 launch__21TObjEneRe7BeruraPunchFll(s32, s32, void *, void *);
 s32 vec3_add_to(void *, void *);
@@ -611,7 +611,7 @@ void TObjEneRe7Berura__sub_80093888(u8 *actor, s32 arg1) {
             entry = TObjPlayer::lookup_entry_by_value(belra_trail_buffer, *(f32 *)((s8 *)actor + 0xC0));
             if (entry != 0) {
                 push_matrix();
-                set_matrix_identity((int) (0));
+                set_matrix_identity((0));
                 post_translate_matrix(actor + 0x38);
                 rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)actor + 0x60)));
                 mult_vec_array__10TObjPlayerFUll((int) (0), (int) (entry), (void *) (&sp8), (int) (4));

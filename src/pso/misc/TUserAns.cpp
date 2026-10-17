@@ -6,8 +6,8 @@ extern "C" {
 
 void bswap__8TUserAnsFv(s32 arg0);
 s32 bswap__13packet_headerFv();
-s32 bswap__21TPlyMeetUserExtensionFv(s32);
-s32 bswap__9TRecvPortFv(s32);
+void bswap__21TPlyMeetUserExtensionFv(s32 arg0);
+void bswap__9TRecvPortFv(s32 arg0);
 
 void bswap__8TUserAnsFv(s32 arg0) {
     bswap__13packet_headerFv();

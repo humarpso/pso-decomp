@@ -61,7 +61,7 @@ extern void *lbl_805D4B8C;
 extern u8 *lbl_805D4BA4;
 void TObjPlayer__sub_8002E7C8(void);
 extern struct VObj8002EB88_8002eb88_8002E784 *shared_breakup_model;
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 create_particle__17TObjBoss2CeilJunkFv(void *, s32);
 void TObjPlayer__sub_8002E974(u8 *arg0);
 f32 vec3_add_to(void *, void *);
@@ -76,10 +76,10 @@ extern const f32 lbl_805D8270;
 extern const f32 lbl_805D8274;
 s32 TObjPlayer__sub_8002EDCC(u8 *arg0);
 void scale_matrix(int, f32, f32, f32);
-void set_matrix_identity(int);
+void set_matrix_identity(u8 *arg0);
 void rotate_vector_by_matrix(int, void *, void *);
 void push_matrix(void);
-void pop_matrix(void);
+s32 pop_matrix(void);
 extern const f32 lbl_805D824C;
 void TObjPlayer__sub_8002ECC4(Obj_8002ECC4 *self, s32 n);
 extern const f32 lbl_805D8260;
@@ -130,7 +130,7 @@ void TObjPlayer__sub_8002E974(u8 *arg0) {
     Boss2 *self;
     *(s32 *)((s8 *)arg0 + 0x1C) += 1;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) >= 0xA0) {
-        queue_destruction__7TObjectFv((void *)(arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     var_r29 = 0;

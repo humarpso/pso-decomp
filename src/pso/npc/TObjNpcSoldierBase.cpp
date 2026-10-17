@@ -103,7 +103,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8014D7CC_lbl_804AB978 TObjNpcSoldierBase__body_resource_desc;
 extern u32 TObjNpcSoldierBase__shared_model_resource;
-s32 construct_male_npc_base(void *);
+u8 *construct_male_npc_base(u8 *arg0);
 extern s32 __vt__18TObjNpcSoldierBase[];
 extern s32 TObjNpcSoldierBase__name;
 u8 *TObjNpcSoldierBase__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -148,7 +148,7 @@ extern void *tl_04;
 
 typedef char RecoveredGlobal_8014D874___vt__18TObjNpcSoldierBase_size[sizeof(RecoveredGlobal_8014D874___vt__18TObjNpcSoldierBase) == 0x178 ? 1 : -1];
 u8 *TObjNpcSoldierBase__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_male_npc_base((void *) (arg0));
+    construct_male_npc_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8014D874___vt__18TObjNpcSoldierBase *)&__vt__18TObjNpcSoldierBase).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcSoldierBase__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);

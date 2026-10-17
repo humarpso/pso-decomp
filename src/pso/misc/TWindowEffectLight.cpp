@@ -38,7 +38,7 @@ extern void *__vt__18TWindowEffectLight[];
 extern s32 lbl_805D3E60;
 extern s32 tl_window;
 s32 draw_textured_quad_at_depth(void *, f32);
-s32 set_draw_texture_and_color(int, int);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern const f32 lbl_805DE10C;
 extern const f32 lbl_805DE110;
 extern const f32 lbl_805DE114;

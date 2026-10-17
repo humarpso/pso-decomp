@@ -259,12 +259,12 @@ void TLobby__sub_803C8514(u8 *arg0, s32 arg1);
 s32 TLobby__sub_803C8578(u8 *arg0, s32 arg1);
 s32 TLobby__sub_803C8594(u8 *arg0, s32 *arg1, s32 *arg2);
 s32 set_range__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2);
-s32 ARAlloc();
-s32 SIGetTypeAsync();
+void ARAlloc(void);
+void SIGetTypeAsync(void);
 void TLobby__sub_803C9608(void);
 s32 TLobby__sub_803CB844();
 void TLobby__sub_803CBA38(void);
-s32 TLobby__sub_803CE240();
+void TLobby__sub_803CE240(void);
 s32 set_global_805D7520__6TLobbyFl();
 
 s32 TLobby::ar_alloc() {
@@ -1502,7 +1502,7 @@ extern Ch_803CB5C4 adx_decoder_channel_pool[16];
 void TLobby__sub_803CB194(u8 *arg0);
 extern s32 lbl_805D7590;
 s32 TLobby__sub_803CB844(void);
-void TLobby__sub_803C0758(void *);
+void TLobby__sub_803C0758(u8 *arg0);
 void configure_audio_stream_output(Stream_803C9FCC *self);
 extern char adxt_start_filename_open_error[];
 void start_audio_stream_file(Stream_803CA824 *self, const char *name);
@@ -1514,18 +1514,18 @@ extern const char *const volatile lbl_805E0D78;
 void TLobby__sub_803CB81C(void);
 s32 TLobby__sub_803CBF50(void *);
 extern u8 adx_out_pan_parameter_error[];
-s32 GXFlush();
+void GXFlush(void);
 s32 TLobby__sub_803CA8B4(Ent_803C9608 *);
 extern Ent_803C9608 adx_stream_player_pool[16];
 extern s32 lbl_805D7564;
 struct SjMemoryBuffer;
-SjMemoryBuffer* sj_memory_buffer_create(void *, int);
+SjMemoryBuffer *sj_memory_buffer_create(void *arg0, s32 arg1);
 extern char adxt_start_mem_idx_stream_create_error[];
 void TLobby__sub_803CE544(void *, int);
 void TLobby__sub_803CFAA8(const char *, void *, int);
-void set_dvd_synchronous_read_mode(int, int, int, int);
+void set_dvd_synchronous_read_mode(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void* initialize_dvd_file_driver(void);
-void TLobby__sub_803D43B8(void);
+char *TLobby__sub_803D43B8(void);
 extern const char lbl_805E0D70[4];
 extern const char lbl_805E0D74[4];
 void TLobby__sub_803CB74C(s32 *arg0);
@@ -1849,7 +1849,7 @@ void TLobby__sub_803C9E38(Obj_803C9E38 *arg0, VObj_803C9E38 *arg1) {
     }
     ((TLobby *)(arg0->f4))->set_param_and_notify((int)arg1);
     arg0->f14 = arg1;
-    TLobby__sub_803C0758(arg0->f4);
+    TLobby__sub_803C0758((u8 *)arg0->f4);
     arg0->f1 = 1;
     arg0->f2 = 3;
     arg0->f4c = 0;
@@ -1877,7 +1877,7 @@ void configure_audio_stream_output(Stream_803C9FCC *self) {
     }
     ((TLobby *)(self->f4))->set_param_and_notify(v);
     self->f14 = v;
-    TLobby__sub_803C0758(self->f4);
+    TLobby__sub_803C0758((u8 *)self->f4);
     self->active = 1;
     self->f4c = 0;
     self->f71 = 0;
@@ -1899,7 +1899,7 @@ void TLobby::start_stream_playback(s32 arg1) {
     }
     ((TLobby *)(((Stream_803CA0C8 *)this)->f4))->set_param_and_notify(arg1);
     ((Stream_803CA0C8 *)this)->f14 = arg1;
-    TLobby__sub_803C0758(((Stream_803CA0C8 *)this)->f4);
+    TLobby__sub_803C0758((u8 *)(((Stream_803CA0C8 *)this)->f4));
     ((Stream_803CA0C8 *)this)->active = 1;
     ((Stream_803CA0C8 *)this)->f4c = 0;
     ((Stream_803CA0C8 *)this)->f71 = 0;
@@ -2293,7 +2293,7 @@ struct Conn_803CAEB4
   u8 pad99[0xA4 - 0x99];
   s32 fA4;
 };
-s32 TLobby__sub_803C0010(int);
+s32 TLobby__sub_803C0010(u8 *arg0);
 s32 process_audio_stream_input(int);
 
 void TLobby__sub_803CAEB4(Conn_803CAEB4 *o) {
@@ -2354,9 +2354,9 @@ void TLobby__sub_803CAEB4(Conn_803CAEB4 *o) {
       ring->vt->m6(ring, 0, &b);
       ring->vt->m5(ring, 1, &d);
     }
-    o->fA4 += TLobby__sub_803C0010(lobby);
+    o->fA4 += TLobby__sub_803C0010((u8 *)lobby);
     ((TLobby *)lobby)->reset_flag();
-    TLobby__sub_803C0758((void *) lobby);
+    TLobby__sub_803C0758((u8 *)lobby);
     process_audio_stream_input(lobby);
     if (TLobby__sub_803C07E8(lobby) != 2)
     {

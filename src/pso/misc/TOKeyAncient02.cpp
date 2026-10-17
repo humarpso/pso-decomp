@@ -44,12 +44,12 @@ struct Self_8016B84C { u8 pad[0x1C]; u16 id; u8 pad1e[0xC8 - 0x1E]; s32 switchId
 
 extern "C" {
 s32 is_split_screen();
-s32 scale_matrix_vec3(int, void *);
+void scale_matrix_vec3(u8 *arg0, u8 *arg1);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_ginja_model(int);
+void draw_ginja_model(s32 model);
 extern s32 TOKeyAncient02__model_root;
 extern void *TOKeyAncient02__texture_lists;
 s32 TObjFish__sub_8001EDB0(void *, s32);
@@ -61,7 +61,7 @@ extern RecoveredGlobal_8016B5A4_lbl_80441A74 lbl_80441A74;
 extern RecoveredGlobal_8016B5A4_lbl_804B2A7C bm_fs_obj_o_doorswitch01_resource_descriptor;
 extern u32 TOKeyAncient02__model_archive;
 s32 init_collision_body_parts(void *, void *, int);
-s32 TOKey__ct(void *);
+void *TOKey__ct(void *arg0);
 extern RecoveredGlobal_8016B6A4_lbl_804B2A8C lbl_804B2A8C;
 extern s32 __vt__14TOKeyAncient02[];
 extern s32 TOKeyAncient02__class_name;
@@ -78,9 +78,9 @@ void *__dt__14TOKeyAncient02Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
-void __dt__5TOKeyFv(void *, int);
+void *__dt__5TOKeyFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
-s32 mem_free(void*);
+void mem_free(void *p);
 
 void TOKeyAncient02::vfunc_25() {  }
 
@@ -101,19 +101,19 @@ void TOKeyAncient02::render() {
         temp_r31 = *(u8 * *)&this->model;
         push_matrix();
         post_translate_matrix((void *) (temp_r31 + 8));
-        draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
+        draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
         temp_r31_2 = *(u8 **)((s8 *)temp_r31 + 0x2C);
         push_matrix();
         post_translate_matrix((void *) (temp_r31_2 + 8));
-        scale_matrix_vec3((int) (0), (void *) (arg0 + 0x68));
+        scale_matrix_vec3((0), (arg0 + 0x68));
         TParticleCtrl::begin_effect_render();
-        draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_2 + 4)));
+        draw_ginja_model((*(s32 *)((s8 *)temp_r31_2 + 4)));
         TParticleCtrl::end_effect_render();
         pop_matrix();
         temp_r31_3 = *(u8 **)((s8 *)temp_r31_2 + 0x30);
         push_matrix();
         post_translate_matrix((void *) (temp_r31_3 + 8));
-        draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_3 + 4)));
+        draw_ginja_model((*(s32 *)((s8 *)temp_r31_3 + 4)));
         pop_matrix();
         pop_matrix();
         TObjFish::set_global_param((int) (*(s32 *)((s8 *)(*(s32 *)&TOKeyAncient02__texture_lists) + (*(s32 *)&this->m_d4 * 4))));
@@ -121,12 +121,12 @@ void TOKeyAncient02::render() {
         temp_r31_4 = (u8 *)((*(u8 * *)&TOKeyAncient02__model_root));
         push_matrix();
         post_translate_matrix((void *) (temp_r31_4 + 8));
-        draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_4 + 4)));
+        draw_ginja_model((*(s32 *)((s8 *)temp_r31_4 + 4)));
         temp_r31_5 = *(u8 **)((s8 *)temp_r31_4 + 0x2C);
         push_matrix();
         post_translate_matrix((void *) (temp_r31_5 + 8));
         rotate_matrix_y((int) (0), (int) (this->m_ec));
-        draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_5 + 4)));
+        draw_ginja_model((*(s32 *)((s8 *)temp_r31_5 + 4)));
         pop_matrix();
         pop_matrix();
         TParticleCtrl::end_effect_render();
@@ -188,7 +188,7 @@ void TOKeyAncient02::free_static() {
     if ((void *) TOKeyAncient02__texture_lists != NULL) {
         TObjPlayer::free_if_valid(*(s32 *)((s8 *)TOKeyAncient02__texture_lists + 4));
         if ((void *) TOKeyAncient02__texture_lists != NULL) {
-            mem_free((void*)TOKeyAncient02__texture_lists);
+            mem_free(TOKeyAncient02__texture_lists);
             TOKeyAncient02__texture_lists = NULL;
         }
     }
@@ -230,7 +230,7 @@ void *__dt__14TOKeyAncient02Fv(void *arg0, s16 arg1) {
 }
 
 u8 *TOKeyAncient02__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TOKey__ct((void *) (arg0));
+    TOKey__ct((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016B6A4___vt__14TOKeyAncient02 *)&__vt__14TOKeyAncient02).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOKeyAncient02__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

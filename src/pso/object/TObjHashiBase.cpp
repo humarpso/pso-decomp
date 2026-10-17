@@ -39,8 +39,8 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object(s32);
-s32 draw_model_motion(s32, void *, f32);
+void draw_ginja_object(void *child);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 f32 xz_distance_squared(void *, void *);
 s32 matrix_mult_vec(int, void *, void *);
 s32 project_world_to_screen(int, void *, void *);
@@ -54,9 +54,9 @@ void handle_6x78(void *arg0);
 u8 is_current_floor_switch_set(u16, f32);
 void __dl__7TObjectFPv(void *);
 s32 bswap_6x78__11TObjInfoColFv();
-s32 fn_80191D14(u16, s32);
+void fn_80191D14(u16 arg0, s32 arg1);
 s32 get_handle_6x78_entry(u16);
-s32 fn_80191D5C(u16);
+void fn_80191D5C(u16 arg0);
 s32 init_map_object_base();
 
 extern s32 __vt__13TObjHashiBase[];
@@ -123,15 +123,15 @@ void TObjHashiBase::render() {
         TObjFish::set_global_param(this->m_24);
         p = *(void * *)&this->motion;
         if (p != NULL) {
-            draw_model_motion(this->m_34, p, *(f32 *)((s8 *)arg0 + 0xB0));
+            draw_model_motion((void *)this->m_34, p, *(f32 *)((s8 *)arg0 + 0xB0));
         } else {
-            draw_ginja_object(this->m_34);
+            draw_ginja_object((void *)this->m_34);
         }
         pop_matrix();
     }
 }
 
-extern "C" void set_indexed_flags(void*,s32,u32);
+extern "C" void set_indexed_flags(void *arg0, s32 index, s32 flags);
 }
 typedef char BridgeSize[sizeof(TObjHashiBase)==0xD4?1:-1];
 typedef char BridgePhase[offsetof(TObjHashiBase,phase)==0xAC?1:-1];

@@ -115,16 +115,16 @@ s32 get_player_by_client_id(s32);
 s32 obj_isState3_324__13TUnk_804806E8Fv();
 void quest_remove_npc_player(u16 arg0);
 s32 set_arrival_override_coords(s32, s32, f32, f32, f32);
-s32 send_6x21_inter_level_warp(s32, s32);
+void send_6x21_inter_level_warp(void *obj, s32 value);
 s32 obj_getField1c(s32);
 s32 notify_field1c__10TObjPlayerFl();
-void send_6x24_teleport_player(u16, s32, s32);
+void send_6x24_teleport_player(u16 slot, void *pos, s32 heading);
 void TNpcPlayer__sub_8034EDB8(void);
 s32 end_camera_pan__10TObjPlayerFv();
 s32 init_photon_blast__10TObjPlayerFl(u32, s16);
 void set_npc_control_flag__10TNpcPlayerFPvs(void* p, s16 v);
 int read_be16_field2__10TObjPlayerFv(void*);
-int TLobby__send_and_handle_60(void*);
+void TLobby__send_and_handle_60(u8 *arg0);
 void build_6x69_npc_control(void* p);
 extern E_8034E02C npc_partner_dialogue_state[];
 void clear_partner_dialogue_flags(void);
@@ -151,8 +151,8 @@ extern s32 local_client_id;
 extern s32 tl_00;
 void handle_6x69_npc_control(Pkt_8034E814 *pkt);
 void quest_player_face_actor(u16 src, u16 dst);
-void send_6x55_intra_map_warp(u16, f32 *, s32);
-s32 play_effect_default__10TObjPlayerFii(s32, s32);
+void send_6x55_intra_map_warp(u16 id, void *pos, s32 c);
+void play_effect_default__10TObjPlayerFii(s32 arg0, s32 arg1);
 
 s32 obj_isState2_324__13TUnk_804806E8Fv();
 
@@ -177,8 +177,7 @@ void TNpcPlayer::send_warp_toward_player(u16 arg0, f32 *arg1) {
     P_8034E054 *me = (P_8034E054 *)get_player_by_client_id(local_client_id);
     if (me == NULL || arg0 == 0) return;
     if (((TNpcPlayer *)npc)->get_action_flags() != 0xFFFF) {
-        send_6x55_intra_map_warp(arg0, arg1,
-            (s32)(lbl_80478CB0[0] * atan2_float(arg1[0] - me->x, arg1[2] - me->z)));
+        send_6x55_intra_map_warp(arg0, arg1, (lbl_80478CB0[0] * atan2_float(arg1[0] - me->x, arg1[2] - me->z)));
     }
 }
 
@@ -372,7 +371,7 @@ void TNpcPlayer::apply_to_players(s32 arg0, void *arg1, s32 arg2) {
         temp_r3 = get_player_by_client_id(var_r31);
         if ((temp_r3 != 0) && (obj_isState3_324__13TUnk_804806E8Fv() != 0) && ((u16) ((TNpcPlayer *)temp_r3)->get_action_flags() != 0xFFFF)) {
             set_arrival_override_coords(obj_getField1c(temp_r3), arg2, *(f32 *)((s8 *)arg1 + 0), *(f32 *)((s8 *)arg1 + 4), *(f32 *)((s8 *)arg1 + 8));
-            send_6x21_inter_level_warp(temp_r3, arg0);
+            send_6x21_inter_level_warp((void *)temp_r3, arg0);
         }
         var_r31 += 1;
     } while (var_r31 < 4);
@@ -384,7 +383,7 @@ void TNpcPlayer::send_inter_level_warp_all(s32 arg0) {
     for (i = 0; i < 4; i++) {
         player = get_player_by_client_id(i);
         if (player != 0 && obj_isState3_324__13TUnk_804806E8Fv() != 0 && ((TNpcPlayer *)player)->get_action_flags() != 0xFFFF) {
-            send_6x21_inter_level_warp(player, arg0);
+            send_6x21_inter_level_warp((void *)player, arg0);
         }
     }
 }
@@ -518,7 +517,7 @@ void TNpcPlayer::create_companion(u16 leader, u16 slot, s32 appearance, f32 *p, 
     pkt.slot = slot;
     set_arrival_override_coords(slot, heading, p[0], p[1], p[2]);
     ((TNpcPlayer *)(&pkt))->send_state_60();
-    send_6x24_teleport_player(pkt.slot, (s32)p, heading);
+    send_6x24_teleport_player(pkt.slot, p, heading);
 }
 
 void TNpcPlayer::create_default_companion(s16 arg0, s16 arg1, u8 *arg2, s32 arg3) {
@@ -531,7 +530,7 @@ void TNpcPlayer::create_default_companion(s16 arg0, s16 arg1, u8 *arg2, s32 arg3
     stack.spE = 1;
     set_arrival_override_coords((s32)(1U), (s32)(arg3), *(f32 *)((s8 *)arg2 + 0), *(f32 *)((s8 *)arg2 + 4), *(f32 *)((s8 *)arg2 + 8));
     ((TNpcPlayer *)(&stack.sp8))->send_state_60();
-    send_6x24_teleport_player(stack.spE, (s32) arg2, arg3);
+    send_6x24_teleport_player(stack.spE, arg2, arg3);
 }
 
 void TNpcPlayer::send_npc_control_notify_players(s16 arg0, u16 arg1, s16 arg2) {
@@ -612,7 +611,7 @@ s32 TNpcPlayer::get_field_67c() { return *(s32*)((char*)this + 0x67c); }
 void TNpcPlayer::set_npc_ctrl_state(s32 v) { *(s32*)((char*)this + 0x67c) = v; }
 void set_npc_control_flag__10TNpcPlayerFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x678) = v; }
 void TNpcPlayer::byteswap_header() { read_be16_field2__10TObjPlayerFv(this); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); bswap_16((u16 *)((char*)this + 0x8)); bswap_16((u16 *)((char*)this + 0xa)); }
-void TNpcPlayer::send_state_60() { byteswap_header(); TLobby__send_and_handle_60(this); }
+void TNpcPlayer::send_state_60() { byteswap_header(); TLobby__send_and_handle_60((u8 *)this); }
 void build_6x69_npc_control(void* p) { *(u8*)((char*)p + 0x0) = 105; *(u8*)((char*)p + 0x1) = 3; }
 
 }

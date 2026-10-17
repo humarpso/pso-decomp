@@ -66,9 +66,9 @@ extern s8 slime_one_animation_end_initialized;
 extern f32 slime_one_animation_end_frame;
 extern f32 lbl_805DA760;
 s32 TObjFish__sub_8001EDB0(s32, s32);
-s32 func_803e11e8__FUl(u32);
-s32 func_803e11f0__Fv();
-s32 draw_model_motion(s32, s32, f32);
+void func_803e11e8__FUl(s32 arg0);
+void func_803e11f0__Fv(void);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 s32 TObjEneSlimeOne__sub_803E4B54(s32, s32, s32, f32);
 extern s32 slime_one_part_texture_index_table[];
 extern s32 model_render_flags;
@@ -82,7 +82,7 @@ void TObjEneSlimeOne__sub_800EC470(void* p);
 s32 __dt__15TObjEneSlimeOneFis(s32 arg0, s16 arg1);
 void fn_800ECA28(void *arg0, s32 arg1);
 int get_validated_attack_stage(void*);
-int __dl__FPv();
+void __dl__FPv(void);
 
 s32 TObjEneSlimeOne::get_attack_target() { return *(s32*)((char*)this + 0x3f4); }
 
@@ -171,22 +171,22 @@ void TObjEneSlimeOne::draw_part(s32 arg1) {
     if (arg1 != 0) {
         model_render_flags |= 0x400000;
         func_803e11e8__FUl(1);
-        draw_model_motion(*(s32 *)&this->m_prev, *(s32 *)&this->m_up, *(f32 *)&this->actorFlags);
+        draw_model_motion((void *)(*(s32 *)&this->m_prev), (void *)(*(s32 *)&this->m_up), *(f32 *)&this->actorFlags);
         TObjFish::set_global_param(*(s32 *)&this->m_1c);
-        draw_model_motion(*(s32 *)((s8 *)arg0 + 0x18), *(s32 *)&this->m_20, *(f32 *)&this->actorFlags);
+        draw_model_motion((void *)(*(s32 *)((s8 *)arg0 + 0x18)), (void *)(*(s32 *)&this->m_20), *(f32 *)&this->actorFlags);
         func_803e11f0__Fv();
         model_render_flags &= ~0x400000;
     } else {
         func_803e11e8__FUl(2);
         TObjFish::set_cull_back();
-        draw_model_motion(*(s32 *)&this->m_prev, *(s32 *)&this->m_up, *(f32 *)&this->actorFlags);
+        draw_model_motion((void *)(*(s32 *)&this->m_prev), (void *)(*(s32 *)&this->m_up), *(f32 *)&this->actorFlags);
         TObjFish::set_cull_mode_front();
-        draw_model_motion(*(s32 *)&this->m_prev, *(s32 *)&this->m_up, *(f32 *)&this->actorFlags);
+        draw_model_motion((void *)(*(s32 *)&this->m_prev), (void *)(*(s32 *)&this->m_up), *(f32 *)&this->actorFlags);
         TObjFish::set_global_param(*(s32 *)&this->m_1c);
         TObjFish::set_cull_back();
-        draw_model_motion(*(s32 *)((s8 *)arg0 + 0x18), *(s32 *)&this->m_20, *(f32 *)&this->actorFlags);
+        draw_model_motion((void *)(*(s32 *)((s8 *)arg0 + 0x18)), (void *)(*(s32 *)&this->m_20), *(f32 *)&this->actorFlags);
         TObjFish::set_cull_mode_front();
-        draw_model_motion(*(s32 *)((s8 *)arg0 + 0x18), *(s32 *)&this->m_20, *(f32 *)&this->actorFlags);
+        draw_model_motion((void *)(*(s32 *)((s8 *)arg0 + 0x18)), (void *)(*(s32 *)&this->m_20), *(f32 *)&this->actorFlags);
         TObjFish::set_cull_none();
         func_803e11f0__Fv();
     }

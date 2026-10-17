@@ -44,12 +44,12 @@ struct Weapon_8013CDE4 { f32 f0; f32 f4; s32 f8; s32 fc; s32 f10; };
 
 extern "C" {
 s32 check_visible__11TMainCursorFv(void *, int, void *, void *);
-s32 TLockOnCursor__sub_8013EB34();
+int TLockOnCursor__sub_8013EB34(void);
 u32 get_player_by_client_id(void *);
 s32 offset_point_toward_camera(void *, void *, f32);
-s32 translate_matrix_vec3(int, void *);
+void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 s32 rotate_matrix_y(int, int);
-s32 translate_matrix(int, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
 s32 pop_matrix();
 s32 draw_chunk_object();
@@ -75,9 +75,9 @@ s32 update_cursor_pos__13TLockOnCursorFv(void *);
 s32 TLockOnCursor__sub_8013EB2C(void *);
 void set_cursor_id__11TMainCursorFs(void *, u16);
 s32 get_record_at__11TMainCursorFPvi(s32, s32);
-s32 TMainCursor__sub_8013F168(s32);
+s32 TMainCursor__sub_8013F168(void *p);
 u8 fn_8013F264(void *);
-void TMainCursor__sub_80154230(void *, s16, u16);
+void TMainCursor__sub_80154230(void *arg0, s32 arg1, u16 arg2);
 Ent_8013D4A0 *find_entity_by_id(u16);
 void *__nw__7TObjectFUl(u32);
 extern s32 tl_loc_end;
@@ -85,11 +85,11 @@ void publish_target_list__11TMainCursorFPvi(Self_8013D4A0 *arg0, s32 arg1);
 s32 obj_isState3_324__13TUnk_804806E8Fv(void *);
 s32 obj_getField1c(void *);
 void *get_item_field_6__10TObjPlayerFPv(void *);
-s32 get_type__10TObjPlayerFPv(s32);
-s32 fn_80044330(void *);
+s32 get_type__10TObjPlayerFPv(void *p);
+void fn_80044330(void *p);
 Weapon_8013CDE4 *get_weapon_range_record(void *, s32);
 s32 check_type_and_enabled__11TMainCursorFPvPv(Cursor_8013CDE4 *, u8, u8);
-s32 TMainCursor__sub_8013E9A0(Cursor_8013CDE4 *);
+int TMainCursor__sub_8013E9A0(void *p);
 s32 TMainCursor__sub_8013E9E0(Cursor_8013CDE4 *, u8);
 Tech_8013CDE4 *get_photon_blast_entry__10TObjPlayerFi(s16);
 s32 get_cast_technique_level(void *, s32);
@@ -146,7 +146,7 @@ s32 TMainCursor::get_action_cursor_priority(void *arg0, s32 arg1, s32 arg2) {
 }
 
 void TMainCursor::set_cursor_color(s32 arg0, s32 arg1, s32 arg2) {
-    if (get_type__10TObjPlayerFPv(arg1 + 0x828) != 0) {
+    if (get_type__10TObjPlayerFPv((void *)(arg1 + 0x828)) != 0) {
         ((TMainCursor *)arg2)->set_color(0xA000);
         ((TMainCursor *)arg2)->set_color_mode(0x70000000);
         return;
@@ -299,7 +299,7 @@ void setup_action_channel__11TMainCursorFiPviii(s32 self, u8 *player, s32 slot, 
             break;
         case 11:
         case 12:
-            if (get_type__10TObjPlayerFPv((s32)(player + 0x828)) != 0) {
+            if (get_type__10TObjPlayerFPv((player + 0x828)) != 0) {
                 ((TMainCursor *)C_8013CDE4)->set_color(0xA000);
                 ((TMainCursor *)C_8013CDE4)->set_color_mode(0x30000000);
             } else {
@@ -321,7 +321,7 @@ void setup_action_channel__11TMainCursorFiPviii(s32 self, u8 *player, s32 slot, 
         s16 pid = id;
         tech = get_photon_blast_entry__10TObjPlayerFi(pid);
         TMainCursor__sub_8013E9A0(cur);
-        if (get_type__10TObjPlayerFPv((s32)(player + 0x828)) == 0) {
+        if (get_type__10TObjPlayerFPv((player + 0x828)) == 0) {
             ((TMainCursor *)C_8013CDE4)->set_color(0x8000);
             ((TMainCursor *)C_8013CDE4)->set_color_mode(0x20000000);
         } else {
@@ -356,7 +356,7 @@ void TMainCursor::sort_list(s32 arg0, s32 arg1) {
     temp_r4 = arg1 * 0x124;
     temp_r30 = arg0 + temp_r4 + 0x5C;
     if (get_selected_entry__11TMainCursorFv(temp_r30, temp_r4) != 0) {
-        temp_r31 = TMainCursor__sub_8013F168(temp_r30 + 0x40);
+        temp_r31 = TMainCursor__sub_8013F168((void *)(temp_r30 + 0x40));
         TMainCursor::quick_sort(temp_r30, get_record_at__11TMainCursorFPvi(temp_r30 + 0x40, 0), 0, temp_r31 - 1);
     }
 }
@@ -374,7 +374,7 @@ void publish_target_list__11TMainCursorFPvi(Self_8013D4A0 *arg0, s32 arg1) {
     sub = &arg0->subs[arg1];
     count = 0;
     item = (Item_8013D4A0 *)((s32 (*)(void *, s32))get_record_at__11TMainCursorFPvi)(sub->x40, 0);
-    n = ((s32 (*)(void *))TMainCursor__sub_8013F168)(sub->x40);
+    n = TMainCursor__sub_8013F168(sub->x40);
     for (i = 0; i < n; i++, item++) {
         if (item->id == 0xFFFF) {
             continue;
@@ -470,11 +470,11 @@ void TLockOnCursor::renderSecondaryCursor(u8 *arg1, s32 arg2, s32 arg3) {
                 temp_f31 = *(f32 *)((s8 *)arg1 + 0xC);
                 push_matrix();
                 offset_point_toward_camera((void *) (arg1 + 0x1C), (void *) (&sp8), (f32) (temp_f31));
-                translate_matrix_vec3((int) (0), (void *) (&sp8));
+                translate_matrix_vec3((u8 *)(0), (u8 *)(&sp8));
                 rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)camera_ctrl_instance + 0x194)));
                 TParticleCtrl::begin_effect_render();
                 push_matrix();
-                translate_matrix((int) (0), (f32) (TMainCursor__data_805DB0C0), (f32) (temp_f31), (f32) (TMainCursor__data_805DB0C0));
+                translate_matrix((0), (f32) (TMainCursor__data_805DB0C0), (f32) (temp_f31), (f32) (TMainCursor__data_805DB0C0));
                 TPlyPhotonChair::update_parts2((void *) (arg0 + 0x48));
                 TPlyPhotonChair::play_sound_with_arg((void *) (arg0 + 0x48), (void *) ((u8 *)&target_cursor_color_table.value + 0x50));
                 TMainCursor::get_cursor_state();

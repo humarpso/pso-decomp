@@ -431,7 +431,7 @@ s32 TLobby__sub_803F79BC(void *);
 extern RecoveredGlobal_80401A68_lbl_805C04A8 lbl_805C04A8;
 s32 TLobby__sub_803F778C(void *);
 extern RecoveredGlobal_80402B60_lbl_805C0620 lbl_805C0620;
-s32 TLobby__sub_803F811C(void *);
+s32 TLobby__sub_803F811C(s16 *arg0);
 s32 TLobby__sub_804036FC(u8 *arg0);
 s32 TLobby__sub_80403DA8(void *, void *, void *, void *, void *, void *, void *);
 s32 TLobby__sub_804062A0(s16);
@@ -491,7 +491,7 @@ s16 TLobby__sub_80403F4C(void *, Strm_80405A74 **);
 extern u8 lobby_ppp_read_buf;
 void MD5Transform(u32 *state, u8 *block);
 B_803FADA0 *init_net_buffer_entry__6TLobbyFUs(u16);
-s32 TLobby__sub_803F812C(int, u8 *, u16 *);
+s32 TLobby__sub_803F812C(u16 arg0, void *arg1, u16 *arg2);
 s32 TLobby__sub_80403730(u8 *dst, unsigned short n);
 s32 TLobby__sub_80400270(u32 *, void *, s32);
 Ent_80401CE8 *init_net_buffer_entry__6TLobbyFUs(u16 idx);
@@ -2017,7 +2017,7 @@ void TLobby::handle_request_timeout() {
 }
 
 s32 TLobby__sub_804036FC(u8 *arg0) {
-    if (TLobby__sub_803F811C(arg0) != 0) {
+    if (TLobby__sub_803F811C((s16 *)arg0) != 0) {
         return -1;
     }
     return 0;
@@ -2194,7 +2194,7 @@ s32 TLobby__sub_80403BA8(u8 *arg0, u8 *arg1, s32 arg2) {
     return 0;
 }
 
-s32 TLobby__sub_803F808C();
+void TLobby__sub_803F808C(void);
 s16 TLobby__sub_80400744(int, void *);
 
 s32 TLobby__sub_80403C60(u8 *arg0) {

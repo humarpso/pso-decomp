@@ -14,7 +14,7 @@ s32 GXLoadPosMtxImm(s32, s32);
 extern s32 (*model_node_callback)(void *);
 s32 PSMTXInverse(s32, s32 *);
 s32 PSMTXTranspose(s32 *, s32 *);
-s32 compose_motion_node_matrix(void *);
+void compose_motion_node_matrix(void *arg0);
 s32 push_matrix();
 s32 pop_matrix();
 

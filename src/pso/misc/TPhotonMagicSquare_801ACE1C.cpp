@@ -30,14 +30,14 @@ struct Self_801ACE1C {
 };
 
 extern "C" {
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-s32 set_chunk_material_color(void *);
-s32 draw_model_motion(int, int, f32);
+void set_chunk_material_color(f32 *arg);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern Color_801ACE1C chunk_material_color_half_alpha_f32;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
@@ -60,11 +60,11 @@ void TPhotonMagicSquare::render() {
     if (self->color.a > 1.0f) {
         self->color.a = 1.0f;
     }
-    set_chunk_material_color(&self->color);
+    set_chunk_material_color((f32 *)&self->color);
     TObjPlayer::set_global_flag();
-    draw_model_motion(self->f34, self->f90, self->f9C);
+    draw_model_motion((void *)self->f34, (void *)self->f90, self->f9C);
     TObjPlayer::clear_global_state();
-    set_chunk_material_color(&chunk_material_color_half_alpha_f32);
+    set_chunk_material_color((f32 *)&chunk_material_color_half_alpha_f32);
     model_render_flags = lbl_805D5660;
     copy_vec4__13TRaderMapCoreFPvPv(&self->color, &saved);
     pop_matrix();
@@ -182,7 +182,7 @@ u8 *TPhotonMagicSquare__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32
     ((TPhotonMagicSquare *)arg0)->scale = (f32) (0.0f);
     ((TPhotonMagicSquare *)arg0)->target_scale = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0x70) = (f32) (0.0f);
-    copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xA0), (void *) ((u8 *)&TPhotonMagicSquare__color_palette.value + (arg2 * 0x10)));
+    copy_vec4__13TRaderMapCoreFPvPv((arg0 + 0xA0), ((u8 *)&TPhotonMagicSquare__color_palette.value + (arg2 * 0x10)));
     VecCopy((Vec *)(arg0 + 0xB8), (const Vec *)(arg3));
     *(s32 *)&((TPhotonMagicSquare *)arg0)->m_b0 = 0;
     *(s32 *)&((TPhotonMagicSquare *)arg0)->m_b4 = 0;
@@ -204,7 +204,7 @@ u8 *construct_photon_magic_square_normal(u8 *arg0, s32 arg1, s32 arg2, s32 arg3,
     ((TPhotonMagicSquare *)arg0)->scale = (f32) (0.0f);
     ((TPhotonMagicSquare *)arg0)->target_scale = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0x70) = (f32) (0.0f);
-    copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xA0), (void *) ((u8 *)&(*(RecoveredGlobal_801AD218_TPhotonMagicSquare__data_804C3940 *)&TPhotonMagicSquare__color_palette).value + (arg2 * 0x10)));
+    copy_vec4__13TRaderMapCoreFPvPv((arg0 + 0xA0), ((u8 *)&(*(RecoveredGlobal_801AD218_TPhotonMagicSquare__data_804C3940 *)&TPhotonMagicSquare__color_palette).value + (arg2 * 0x10)));
     VecCopy((Vec *)(arg0 + 0xB8), (const Vec *)(arg3));
     *(s32 *)&((TPhotonMagicSquare *)arg0)->m_b0 = 0;
     *(s32 *)&((TPhotonMagicSquare *)arg0)->m_b4 = 0;
@@ -227,7 +227,7 @@ u8 *TPhotonMagicSquare::construct_at_owner(s32 arg1, s32 arg2, s32 arg3) {
     this->scale = (f32) (0.0f);
     this->target_scale = (f32) (0.0f);
     *(f32 *)&this->m_70 = (f32) (0.0f);
-    copy_vec4__13TRaderMapCoreFPvPv((void *) (((u8 *)this) + 0xA0), (void *) ((u8 *)&(*(RecoveredGlobal_801AD330_TPhotonMagicSquare__data_804C3940 *)&TPhotonMagicSquare__color_palette).value + (arg2 * 0x10)));
+    copy_vec4__13TRaderMapCoreFPvPv((((u8 *)this) + 0xA0), ((u8 *)&(*(RecoveredGlobal_801AD330_TPhotonMagicSquare__data_804C3940 *)&TPhotonMagicSquare__color_palette).value + (arg2 * 0x10)));
     entity = find_entity_by_id((void *) (arg3));
     if (entity != 0) {
         VecCopy((Vec *)(((u8 *)this) + 0xB8), (const Vec *)(entity + 0x38));

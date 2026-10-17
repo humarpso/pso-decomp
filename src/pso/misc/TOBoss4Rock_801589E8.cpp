@@ -10,8 +10,8 @@ s32 TObjFish__sub_8001EDB0(s32,s32);
 s32 get_bml_model(s32,s32);
 s32 rotate_matrix_y(int,int);
 s32 set_global_param__8TObjFishFl(int);
-s32 draw_ginja_object(int);
-void* mem_alloc(s32);
+void draw_ginja_object(void *child);
+void *mem_alloc(u32 size);
 void TOBoss4__ct(void*,void*);
 u8* TOBoss4Bird__ct(u8*,s32);
 extern s32 __vt__11TOBoss4Bird[];
@@ -131,7 +131,7 @@ void *__dt__11TOBoss4RockFv(void *arg0, s16 arg1);
 void *TOBoss4Rock__ct(void *, void *);
 void mem_free(void *);
 void __dl__7TObjectFPv(void *);
-void __dt__7TOBoss4Fv(void *, int);
+void *__dt__7TOBoss4Fv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 
 void TOBoss4Rock::render() {
@@ -147,7 +147,7 @@ void TOBoss4Rock::render() {
             rotate_matrix_z(0, self->rots[i].z);
             rotate_matrix_x(0, self->rots[i].x);
             rotate_matrix_y(0, self->rots[i].y);
-            draw_ginja_object(self->models[i]);
+            draw_ginja_object((void *)self->models[i]);
             pop_matrix();
         }
         pop_matrix();
@@ -206,7 +206,7 @@ struct Rock_80158FB4 {
 
 extern "C" {
 
-void *mem_alloc(s32);
+void *mem_alloc(u32 size);
 void TOBoss4__ct(void *, void *);
 extern s32 lbl_805D2EBC;
 
@@ -282,7 +282,6 @@ void *TOBoss4Rock__ct(void *arg0_, void *arg1) {
 #define get_bml_model ((s32 (*)(void*,int))get_bml_model)
 #define rotate_matrix_y ((s32 (*)(s32,s32))rotate_matrix_y)
 #define set_global_param__8TObjFishFl ((s32 (*)(s32))set_global_param__8TObjFishFl)
-#define draw_ginja_object ((s32 (*)(s32))draw_ginja_object)
 #define TOBoss4__ct ((s32 (*)(void))TOBoss4__ct)
 
 struct RecoveredGlobal_80159514___vt__12TOBoss4Tower {
@@ -325,7 +324,7 @@ void TOBoss4Tower::render() {
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         set_global_param__8TObjFishFl(this->texture_id);
-        draw_ginja_object(*(s32 *)&this->model);
+        draw_ginja_object((void *)(*(s32 *)&this->model));
         pop_matrix();
     }
 }
@@ -351,7 +350,6 @@ u8 *TOBoss4Tower__ct(u8 *arg0, s32 arg1) {
 #undef get_bml_model
 #undef rotate_matrix_y
 #undef set_global_param__8TObjFishFl
-#undef draw_ginja_object
 #undef TOBoss4__ct
 struct Vec_8015959C { f32 x, y, z; };
 
@@ -475,7 +473,7 @@ struct Bird_80159870 : VObj_80159870 {
 };
 
 extern "C" {
-s32 translate_matrix(int, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 draw_ginja_model_with_motion(int, int, f32);
 void TOBoss4Bird::render() {
     Bird_80159870 *self = (Bird_80159870 *)this;
@@ -497,13 +495,12 @@ void TOBoss4Bird::render() {
     }
 }
 
-#define TOBoss4Bird__ct ((void* (*)(void*,void*))TOBoss4Bird__ct)
 void *__dt__11TOBoss4BirdFv(void *arg0, s16 arg1);
 
 void *TOBoss4Bird::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE8);
     if (o != NULL) {
-        o = TOBoss4Bird__ct(o, arg0);
+        o = TOBoss4Bird__ct((u8 *)o, (s32)arg0);
     }
     return o;
 }
@@ -517,9 +514,7 @@ extern "C" {
 
 }
 
-#undef TOBoss4Bird__ct
 #define get_bml_model ((u8* (*)(s32,s32))get_bml_model)
-#define mem_alloc ((s32 (*)(s32))mem_alloc)
 #define TOBoss4__ct ((void (*)(void*))TOBoss4__ct)
 #define __vt__11TOBoss4Bird (*(u8 (*)[1])&__vt__11TOBoss4Bird)
 
@@ -615,6 +610,5 @@ u8 *TOBoss4Bird__ct(u8 *arg0, s32 arg1) {
 }
 
 #undef get_bml_model
-#undef mem_alloc
 #undef TOBoss4__ct
 #undef __vt__11TOBoss4Bird

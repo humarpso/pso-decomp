@@ -146,22 +146,22 @@ s32 set_service_counter_camera(void *, int);
 extern const f32 lbl_805DC650;
 extern const f32 lbl_805DC654;
 s32 queue_destruction__7TObjectFv(int);
-s32 __dt__13TShopSequenceFv(void *, int);
+void *__dt__13TShopSequenceFv(void *arg0, s16 arg1);
 s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 __dl__7TObjectFPv(void *);
-s32 TWindow__close(int);
+void TWindow__close(u8 *arg0);
 extern RecoveredGlobal_80213220___vt__22THunterGuildSeqOffline __vt__22THunterGuildSeqOffline;
 extern RecoveredGlobal_80213220_THunterGuildSeqOffline__data_80513DD8 THunterGuildSeqOffline__instance_table;
 extern s32 THunterGuildSeqOffline__active_instance;
 u8 *__dt__22THunterGuildSeqOfflineFv(u8 *arg0, s16 arg1);
-s32 is_quest_active(void);
+int is_quest_active(void);
 s32 create_quest_thread(s32);
-s32 get_register__12TQuestThreadFPvi(void *, s32);
+s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 extern s32 THunterGuildSeqOffline__quest_result_callbacks[];
 extern u8 *quest_mission_manager;
-s32 TShopSequence__ct(void *);
+u8 *TShopSequence__ct(u8 *arg0);
 extern s32 lbl_805D3658;
 u8 *THunterGuildSeqOffline__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_selected_menu_value(void *);
@@ -289,7 +289,7 @@ u8 *__dt__22THunterGuildSeqOfflineFv(u8 *arg0, s16 arg1) {
         ((TShopSequence *)arg0)->close_message_window();
         temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x2C);
         if (temp_r3_2 != 0U) {
-            TWindow__close((int) (temp_r3_2));
+            TWindow__close((u8 *)(temp_r3_2));
             *(u32 *)((s8 *)arg0 + 0x2C) = 0U;
         }
         temp_r3_3 = *(u32 *)&((THunterGuildSeqOffline *)arg0)->m_34;
@@ -299,7 +299,7 @@ u8 *__dt__22THunterGuildSeqOfflineFv(u8 *arg0, s16 arg1) {
         }
         *(s32 *)((s8 *)(&THunterGuildSeqOffline__instance_table.value) + (sub_8022397C__15TShopWindowBaseFv((void *) (arg0)) * 4)) = 0;
         THunterGuildSeqOffline__active_instance = 0;
-        __dt__13TShopSequenceFv((void *) (arg0), (int) (0));
+        __dt__13TShopSequenceFv((arg0), (0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
         }
@@ -310,7 +310,7 @@ u8 *__dt__22THunterGuildSeqOfflineFv(u8 *arg0, s16 arg1) {
 typedef char RecoveredGlobal_802132F0___vt__22THunterGuildSeqOffline_size[sizeof(RecoveredGlobal_802132F0___vt__22THunterGuildSeqOffline) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_802132F0_THunterGuildSeqOffline__data_80513DD8_size[sizeof(RecoveredGlobal_802132F0_THunterGuildSeqOffline__data_80513DD8) == 0x10 ? 1 : -1];
 u8 *THunterGuildSeqOffline__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TShopSequence__ct((void *) (arg0));
+    TShopSequence__ct((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802132F0___vt__22THunterGuildSeqOffline *)&__vt__22THunterGuildSeqOffline).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3658;
     *(s32 *)((s8 *)arg0 + 0x20) = 0;
@@ -401,7 +401,7 @@ void THunterGuildSeqOffline::handle_confirm_window() {
         selected_menu_value = get_selected_menu_value(*(u8 **)((s8 *)arg0 + 0x3C));
         switch (selected_menu_value) {
         case 0:
-            TWindow__close((int)(*(u8 **)((s8 *)arg0 + 0x3C)));
+            TWindow__close((*(u8 **)((s8 *)arg0 + 0x3C)));
             *(u8 **)((s8 *)arg0 + 0x3C) = NULL;
             ((VObj_18_97738d *)(arg0))->m7(9, 1);
             this->m_34 = 1;
@@ -411,7 +411,7 @@ void THunterGuildSeqOffline::handle_confirm_window() {
             ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)(0xC)));
             break;
         case 1:
-            TWindow__close((int)(*(u8 **)((s8 *)arg0 + 0x3C)));
+            TWindow__close((*(u8 **)((s8 *)arg0 + 0x3C)));
             *(u8 **)((s8 *)arg0 + 0x3C) = NULL;
             ((VObj_18_97738d *)(arg0))->m7(0xA, 1);
             this->m_34 = 0;
@@ -421,7 +421,7 @@ void THunterGuildSeqOffline::handle_confirm_window() {
     }
     temp_r3_3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x3C));
     if ((temp_r3_3 != NULL) && (((TWindowSubComCard *)temp_r3_3)->get_status_flag() != 0)) {
-        TWindow__close((int)(*(u8 **)((s8 *)arg0 + 0x3C)));
+        TWindow__close((*(u8 **)((s8 *)arg0 + 0x3C)));
         *(u8 **)((s8 *)arg0 + 0x3C) = NULL;
         ((VObj_18_97738d *)(arg0))->m7(0xA, 1);
         this->m_34 = 0;

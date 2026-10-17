@@ -22,10 +22,10 @@ extern s32 __vt__17TAdFloorLoadCamGC[];
 extern void *lbl_805D4340;
 void set_default_camera__21TAdMultiChgGameModeGCFv(void *);
 void set_active_camera_pose(void *, void *);
-void activate_camera_mode(int);
+s32 activate_camera_mode(s32 arg0);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-f32 vec_squared_length(void *);
+f32 vec_squared_length(u8 *arg0);
 void normalize_vector(void *);
 extern Pad_8034BE5C controller_physical_port_bank;
 extern const f32 lbl_805DFDB8;
@@ -95,7 +95,7 @@ void TAdFloorLoadCamGC::run_task() {
     s->up.y += dy;
     s->up.z += dz;
     VecCopy((Vec *)&up, (const Vec *)&s->up);
-    if (vec_squared_length(&s->up) == (*(const f32 *)&lbl_805DFDB8)) {
+    if (vec_squared_length((u8 *)&s->up) == (*(const f32 *)&lbl_805DFDB8)) {
         up.y = 1.0f;
     } else {
         normalize_vector(&up);

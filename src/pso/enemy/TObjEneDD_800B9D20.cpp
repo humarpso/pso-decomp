@@ -15,11 +15,11 @@ struct Obj_800B9E84 {
 
 extern "C" {
 s32 minimap_render_dot(void *, int, int, int);
-s32 draw_blob_shadow(int);
+void draw_blob_shadow(s32 arg0);
 s32 direction_to_rotation_xz(void *, void *, void *);
 s32 rotate_matrix_y(int, void *);
 s32 rotate_matrix_z(int, int);
-s32 translate_matrix(int, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 rotate_matrix_x(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -54,7 +54,7 @@ void TObjEneDD::draw_oriented_shadow(s32 arg1, s32 arg2, u32 arg3) {
     direction_to_rotation_xz((void *) (arg1), (void *) (&stack.sp8), (void *) (&stack.sp10));
     push_matrix();
     post_translate_matrix((void *) (arg0));
-    translate_matrix((int) (0), (f32) (TObjEneDD__data_805D9E8C), (f32) (lbl_805D9E90), (f32) (TObjEneDD__data_805D9E8C));
+    translate_matrix((0), (f32) (TObjEneDD__data_805D9E8C), (f32) (lbl_805D9E90), (f32) (TObjEneDD__data_805D9E8C));
     rotate_matrix_z((int) (0), (int) (stack.sp10));
     rotate_matrix_x((int) (0), (int) (stack.sp8));
     rotate_matrix_y((int) (0), (void *) (arg2));
@@ -62,7 +62,7 @@ void TObjEneDD::draw_oriented_shadow(s32 arg1, s32 arg2, u32 arg3) {
         scale_current_matrix((void *) (arg3));
     }
     rotate_matrix_x((int) (0), (int) (-0x4000));
-    draw_blob_shadow((int) (0));
+    draw_blob_shadow((0));
     pop_matrix();
 }
 

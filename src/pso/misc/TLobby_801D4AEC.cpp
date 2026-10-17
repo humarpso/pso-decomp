@@ -48,7 +48,7 @@ VA
 extern "C" {
 
 void TLobby__sub_801D4C28(void* a0, int a1, int a2, int a3);
-s32 try_spend_actor_meseta(s32, s32);
+s32 try_spend_actor_meseta(u8 *arg0, s32 arg1);
 s32 is_item_equipped(void *);
 int TObjPlayer__sub_801D52A8(void*);
 s32 queue_destruction__7TObjectFv(s32);
@@ -80,7 +80,7 @@ s32 TLobby::use_item(s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r3;
 
     if (arg2 == -1) {
-        try_spend_actor_meseta(arg1, arg3);
+        try_spend_actor_meseta((u8 *)arg1, arg3);
         return 1;
     }
     temp_r3 = start_inventory_update__10TObjPlayerFi(arg0, arg2);

@@ -16,7 +16,7 @@ extern u32 local_client_id;
 void *tmp_buf_use_req__6TLobbyFPCc(char *);
 void *alloc__22TQuestVmDownLoadServerFv(void);
 void debug_print__6TLobbyFle(const char *, ...);
-void change_file_extension__6TLobbyFPvPvPv(s32, char *, char *);
+s32 change_file_extension__6TLobbyFPvPvPv(char *arg0, char *arg1, char *arg2);
 char *strncpy(char *, const char *, u32);
 s32 load_gvm_texture_archive(void *, s32);
 extern char texture_pvm_not_found_format[];

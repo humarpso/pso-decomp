@@ -101,7 +101,7 @@ struct BreakUp_80096AD8 {
 };
 
 extern "C" {
-s32 compose_motion_node_matrix(int);
+void compose_motion_node_matrix(void *arg0);
 s32 matrix_mult_vec(int, int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -109,19 +109,19 @@ s32 rotate_matrix_by_node_angles(void *, int);
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 void bind_motion_context(s32, f32);
-s32 push_matrix_from(u32);
+s32 push_matrix_from(void *src);
 extern s32 TBreakUpMdl__vtable[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
 u8 *init__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
 extern const f32 lbl_805D97C8;
 s32 count_active_segments__15TObjBoss2TunnelFPv(void *);
-void *mem_alloc(int);
+void *mem_alloc(u32 size);
 extern const f32 lbl_805D97CC;
 void alloc_breakup_piece_records(Brk_80096EBC *arg0, void *arg1);
 void draw_ginja_model(s32);
-void set_chunk_material_override_pair(u32, u32);
-void set_chunk_material_color(Color_8009680C *);
-void draw_chunk_model(s32);
+void set_chunk_material_override_pair(s32 arg0, s32 arg1);
+void set_chunk_material_color(f32 *arg);
+void draw_chunk_model(void *arg0);
 extern Color_8009680C breakup_default_color;
 extern u32 lbl_805D5660;
 extern u32 model_render_flags;
@@ -156,7 +156,7 @@ void TBreakUpMdl::render() {
         model_render_flags |= 0x810;
         set_chunk_material_override_pair(0xFF00, 0x800);
         color.a = self->alpha;
-        set_chunk_material_color(&color);
+        set_chunk_material_color((f32 *)&color);
     }
     for (i = 0; i < self->count; i++) {
         part = &self->parts[i];
@@ -166,7 +166,7 @@ void TBreakUpMdl::render() {
         if (self->model->is_chunk != 0) {
             draw_ginja_model(self->model->chunks[i].model);
         } else {
-            draw_chunk_model(self->model->chunks[i].model);
+            draw_chunk_model((void *)self->model->chunks[i].model);
         }
         pop_matrix();
     }
@@ -242,7 +242,7 @@ u8 *TBreakUpMdl__ct(u8 *arg0, void *arg1, Model_80096AD8 *arg2, void *arg3, s32 
     base = self->f4C;
     scale = self->f50;
     self->parts = (Part_80096AD8 *)mem_alloc(self->count * 0x28);
-    push_matrix_from((u32)&identity_matrix);
+    push_matrix_from(&identity_matrix);
     post_translate_matrix(arg5);
     rotate_matrix_y(0, arg6);
     for (i = 0; i < self->count; i++) {
@@ -275,7 +275,7 @@ s32 TBreakUpMdl::collect_node_positions(u8 *arg1, s32 arg2) {
     var_r29 = arg2;
     do {
         push_matrix();
-        compose_motion_node_matrix((int) (var_r28));
+        compose_motion_node_matrix((var_r28));
         temp_r30 = *(s32 *)((s8 *)var_r28 + 0);
         if (!(temp_r30 & 8)) {
             temp_r31 = (u8 *)(*(s32 *)&this->m_flags + (var_r29 * 0x1C));
@@ -360,7 +360,7 @@ u8 *TBreakUpMdl::setup_pieces(s32 arg1, s32 arg2, f32 farg0) {
     *(s32 *)&this->m_prev = 1;
     alloc_breakup_piece_records((Brk_80096EBC *)(((u8 *)this)), (void *)(arg1));
     bind_motion_context(arg2, farg0);
-    push_matrix_from((u32) &identity_matrix.value);
+    push_matrix_from(&identity_matrix.value);
     ((TBreakUpMdl *)((u8 *)this))->collect_node_positions((u8 *)((void *) arg1), (s32)(0));
     pop_matrix();
     return ((u8 *)this);
@@ -371,7 +371,7 @@ u8 *init__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
     *(s32 *)((s8 *)arg0 + 8) = 0;
     alloc_breakup_piece_records((Brk_80096EBC *)(arg0), (void *)(arg1));
     bind_motion_context(arg2, farg0);
-    push_matrix_from((u32) &(*(RecoveredGlobal_80096FD8_lbl_8058D490 *)&identity_matrix).value);
+    push_matrix_from((void *)((u32) &(*(RecoveredGlobal_80096FD8_lbl_8058D490 *)&identity_matrix).value));
     ((TBreakUpMdl *)arg0)->collect_node_positions((u8 *)((void *) arg1), (s32)(0));
     pop_matrix();
     return arg0;
@@ -382,7 +382,7 @@ typedef char RecoveredGlobal_8009705C_lbl_8058D490_size[sizeof(RecoveredGlobal_8
 u8 *TBreakUpMdl::init_from_model(s32 arg1) {
     *(s32 * *)&this->m_next = &(*(RecoveredGlobal_8009705C_TBreakUpMdl__data_8048FA00 *)&TBreakUpMdl__vtable).value;
     alloc_breakup_piece_records((Brk_80096EBC *)(((u8 *)this)), (void *)(arg1));
-    push_matrix_from((u32) &(*(RecoveredGlobal_8009705C_lbl_8058D490 *)&identity_matrix).value);
+    push_matrix_from((void *)((u32) &(*(RecoveredGlobal_8009705C_lbl_8058D490 *)&identity_matrix).value));
     ((TBreakUpMdl *)((u8 *)this))->build_node_records((u8 *)((void *) arg1), (s32)(0));
     pop_matrix();
     *(s32 *)&this->m_prev = 0;

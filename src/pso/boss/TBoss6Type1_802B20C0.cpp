@@ -82,7 +82,7 @@ struct Params_802B49A4 {
 
 typedef char RecoveredGlobal_802B3BEC_lbl_80470CE0_size[sizeof(RecoveredGlobal_802B3BEC_lbl_80470CE0) == 0xC ? 1 : -1];
 
-int queue_destruction__7TObjectFv(void*);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 play_persistent_sound(int, void *, void *, int, int);
 s32 play_sound_effect(s32, void *, s32, s32);
 void TBoss6PlotFalz__sub_802AC008(f32, f32);
@@ -103,14 +103,14 @@ void TBoss6Type1__sub_802B381C(void *arg0);
 void TBoss6Type1__sub_802B3B94(void *arg0);
 void release_object__11TBoss6Type1FPv(void* p);
 s32 TBoss6Type1__sub_802B4A9C(void *);
-s32 TBoss6Type1__sub_802B4B04(void *);
+void TBoss6Type1__sub_802B4B04(u8 *arg0);
 s32 TBoss6Type1__sub_802B5140(void *, s32, s32);
 int clamp_to_arena_radius__11TBoss6Type1FPvPvf(void*, void*);
-s32 TBoss6Type1__sub_802B5598(void *, void *);
+void TBoss6Type1__sub_802B5598(void *arg0, void *arg1);
 s32 calc_grid_cell_position__11TBoss6Type1FPvPv(void *, void *);
 s32 is_timer_expired__11TBoss6Type1Fv();
 s32 is_field4b0_delta_reached__11TBoss6Type1Fv();
-s32 TBoss6Type1__sub_802B6060(void *);
+s32 TBoss6Type1__sub_802B6060(u8 *arg0);
 int TBoss6Type1__sub_802B626C(void*);
 int TBoss6Type1__sub_802B6504(void*);
 s32 TBoss6Type1__sub_802B6944(void *);
@@ -120,16 +120,16 @@ s32 TBoss6Type1__sub_802B715C();
 s32 TBoss6Type1__sub_802B73AC();
 s32 update_beam_attack__11TBoss6Type1Fv();
 s32 TBoss6Type1__sub_802B8A70(void *);
-s32 TBoss6Type1__sub_802B8BB4(void *);
+void TBoss6Type1__sub_802B8BB4(u8 *arg0);
 int TBoss6Type1__sub_802B8E1C(void*);
 int send_flow_action_if_idle__11TBoss6Type1FPvc(void*, void*);
 s32 rand(void);
-s32 set_matrix_identity(s32);
+void set_matrix_identity(u8 *arg0);
 s32 rotate_vector_by_matrix(s32, void *, void *);
 void rotate_matrix_y(int, int);
 void rotate_matrix_x(int, int);
 void push_matrix();
-void pop_matrix();
+s32 pop_matrix(void);
 void post_translate_matrix(Vec_802B4898 *);
 
 extern const f32 TBoss6Type1__data_805DE2D0;
@@ -630,7 +630,7 @@ void TBoss6Type1__sub_802B31E4(u8 *arg0) {
         play_persistent_sound((int) (var_r3), (void *) (arg0), (void *) (arg0 + 0x5CC), (int) (0), (int) (1));
     }
     if (*(f32 *)((s8 *)arg0 + 0x4DC) > lbl_805DE2BC) {
-        TBoss6Type1__sub_802B4B04((void *) (arg0));
+        TBoss6Type1__sub_802B4B04((arg0));
     } else {
         TBoss6Type1__sub_802B4A9C((void *) (arg0));
     }
@@ -849,7 +849,7 @@ void TBoss6Type1::choose_next_action() {
                 return;
             }
             if (((((TBoss6Type1 *)arg0)->count_matches((int) (3), (int) (0xA)) + ((TBoss6Type1 *)arg0)->count_matches((int) (5), (int) (0xA))) == 0) || ((lbl_805DE2C0 * (f32) rand()) < lbl_805DE2C4)) {
-                TBoss6Type1__sub_802B8BB4((void *) (arg0));
+                TBoss6Type1__sub_802B8BB4((arg0));
                 return;
             }
             ((TBoss6Type1 *)arg0)->do_attack();
@@ -859,7 +859,7 @@ void TBoss6Type1::choose_next_action() {
             TBoss6Type1__sub_802B8A70((void *) (arg0));
             return;
         }
-        TBoss6Type1__sub_802B8BB4((void *) (arg0));
+        TBoss6Type1__sub_802B8BB4((arg0));
     }
 }
 

@@ -5,7 +5,7 @@
 extern "C" {
 
 void TObjEneRe7BeruraPunch__vt20(void *arg0, s32 arg1);
-s32 TObjEneDD__sub_800BA438(s32, s32);
+void TObjEneDD__sub_800BA438(s32 arg0, u8 *arg1);
 s32 is_player_entity_id();
 s32 find_entity_by_id(u16);
 s32 apply_hit_if_active__13TUnk_804928CCFPvPf();
@@ -25,7 +25,7 @@ void TObjEneRe7BeruraPunch__vt20(void *arg0, s32 target) {
         if (is_player_entity_id() != 0) {
             entity = find_entity_by_id(((TObjEneRe7BeruraPunch *)arg0)->m_b0);
             if ((entity != 0) && (calc_boss4_scale__10TObjPlayerFi() < lbl_805D9790)) {
-                TObjEneDD__sub_800BA438(entity, target);
+                TObjEneDD__sub_800BA438(entity, (u8 *)target);
             }
         }
     }

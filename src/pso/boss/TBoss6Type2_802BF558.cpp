@@ -12,7 +12,7 @@ typedef struct S_802BF6CC {
 } S_802BF6CC;
 
 extern "C" {
-s32 spawn_particle_effect_with_flags(void *, int, int);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 s32 play_sound_effect(int, void *, int, int);
 void TBoss6Type2__sub_802BF834(u8 *arg0);
 extern s32 lbl_805D6750;
@@ -25,7 +25,7 @@ void TBoss6Type2__sub_802BFA1C(u8 *arg0);
 void TBoss6Type2__sub_802BFBE4(void* p);
 s32 TBoss6Type2__sub_802BA944(void *);
 s32 TBoss6Type2__sub_802BA9E4();
-u16 TBoss6Type2__sub_802BB694();
+int TBoss6Type2__sub_802BB694(void);
 s32 TBoss6Type2__sub_802BB768();
 s32 play_persistent_sound(int, void *, void *, int, int);
 
@@ -153,7 +153,7 @@ void TBoss6Type2__sub_802BF834(u8 *arg0) {
     if (((s32) *(s32 *)((s8 *)arg0 + 0x460) == (s32) (*(s32 *)((s8 *)arg0 + 0x45C) - 0x1E)) && ((u16) *(u16 *)((s8 *)arg0 + 0x466) != 0xFFFF)) {
         play_sound_effect((int) (0x4006A10A), (void *) (arg0 + 0x38), (int) (0), (int) (1));
         play_sound_effect((int) (0x69E27), (void *) (arg0 + 0x38), (int) (0), (int) (1));
-        spawn_particle_effect_with_flags((void *) (arg0 + 0x62C), (int) (0x223), (int) (0x40));
+        spawn_particle_effect_with_flags((arg0 + 0x62C), (0x223), (0x40));
     }
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x460) - 1;
     *(s32 *)((s8 *)arg0 + 0x460) = temp_r0;

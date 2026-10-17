@@ -207,7 +207,7 @@ void TItemProUnit::vfunc_44() {
 }
 
 extern "C" {
-void __dt__12TItemProUnitFv();
+void *__dt__12TItemProUnitFv(void *arg0, s16 arg1);
 void run_task__5TItemFv();
 void dispatch_state__5TItemFv();
 void render_shadows__5TItemFv();
@@ -215,7 +215,7 @@ void vfunc_6__13TUnk_804B9870FPsl();
 void apply_object_set_data__13TUnk_804B9870FPv();
 void release_member_90__10TObjPlayerFv();
 void vfunc_9__13TUnk_804B9870Fv();
-void TItem__sub_80100B8C();
+int TItem__sub_80100B8C(void *p);
 void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void register_attack__5TItemFv();
 void try_pick_up_item__5TItemFl();
@@ -234,15 +234,15 @@ void vfunc_28__5TItemFv();
 void update_equip__14TItemEquipBaseFv();
 void vfunc_30__5TItemFv();
 void vfunc_32__5TItemFv();
-void TItemEquipBase__sub_8010A77C();
+s8 TItemEquipBase__sub_8010A77C(u8 *arg0);
 void vfunc_34__5TItemFv();
 void vfunc_35__5TItemFv();
-void ret_80100664();
-void ret_8010065C();
-void ret_80100654();
-void ret_8010064C();
+int ret_80100664(void);
+int ret_8010065C(void);
+int ret_80100654(void);
+int ret_8010064C(void);
 void TItem__sub_80100648();
-void TItem__sub_801005E4();
+int TItem__sub_801005E4(void);
 void TItem__sub_801005D8();
 void vfunc_43__5TItemFv();
 void vfunc_46__14TItemEquipBaseFv();

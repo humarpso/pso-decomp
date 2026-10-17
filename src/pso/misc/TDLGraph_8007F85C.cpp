@@ -4,7 +4,7 @@
 
 extern "C" {
 extern void *lbl_8048DF94[];
-void launch_switcher_dol(void *p);
+s32 launch_switcher_dol(const char *arg0);
 void *TDLGraph__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
@@ -18,7 +18,7 @@ void *TDLGraph::create() {
     return o;
 }
 void TAdDialingGC::select_dial_image(void *self, s32 x) {
-    launch_switcher_dol(lbl_8048DF94[x ? 1 : 0]);
+    launch_switcher_dol((const char *)lbl_8048DF94[x ? 1 : 0]);
 }
 
 }

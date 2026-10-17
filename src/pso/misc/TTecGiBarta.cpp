@@ -125,14 +125,14 @@ void *get_bml_motion(void *, u32);
 void *get_bml_model(void *, u32);
 void attach_particle_model(void *, void *, void *, void *, s32, f32);
 void *create_timed_particle_emitter(void *, s32, s32, s32);
-void *spawn_continuous_particle_with_direction(void *, void *, u32);
+void *spawn_continuous_particle_with_direction(void *pos, void *dir, s32 id);
 void *spawn_particle_effect(void *, s32);
-void *create_particle_emitter(void *, u32);
+void *create_particle_emitter(void *pos, s32 id);
 void **mem_alloc(u32);
 void matrix_mult_vec(s32, void *, void *);
 void rotate_matrix_y(s32, s32);
-void push_matrix_from(void *);
-void pop_matrices(s32);
+s32 push_matrix_from(void *src);
+s32 pop_matrices(s32 arg0);
 extern Vec_802304A0 lbl_8044D288;
 extern u8 identity_matrix[];
 extern void *technique_effect_bml;
@@ -147,8 +147,8 @@ extern RecoveredGlobal_802308A0_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_802308A0_lbl_804CC55C lbl_804CC55C;
 u16 obj_getField1c(void *);
 void TTecGiBarta__vt6(Obj_802309AC *self, VObj_802309AC *target);
-s32 queue_destruction__7TObjectFv(void *);
-void mem_free(void **);
+void queue_destruction__7TObjectFv(void *arg0);
+void mem_free(void *p);
 void __dl__7TObjectFPv(void *);
 extern void *__vt__11TTecGiBarta[];
 TTecGiBarta_80230B48 *__dt__11TTecGiBartaFv(TTecGiBarta_80230B48 *self, s16 deleting);
@@ -160,7 +160,7 @@ void construct_facing_technique__10TObjPlayerFPviPvii();
 s32 play_sound_effect(s32, s32, s32, s32);
 u32 find_entity_by_id(u16);
 void *__nw__7TObjectFUl(int);
-s32 move_technique_projectile(void *);
+void move_technique_projectile(u8 *arg0);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 
 void TTecGiBarta::update_technique_by_phase() {
@@ -368,7 +368,7 @@ void TTecGiBarta::run_task() {
         queue_destruction__7TObjectFv(this);
         return;
     }
-    move_technique_projectile(this);
+    move_technique_projectile((u8 *)this);
     advance_lifetime_or_destroy();
     dispatch_all_technique_contacts();
 }

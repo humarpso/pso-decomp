@@ -33,7 +33,7 @@ extern s32 TObjCityMainWarp__enabled_destinations;
 extern s32 TObjCityMainWarp__visible_destination_mask;
 void update_main_warp_visible_mask(s32 arg0);
 void TObjCityMainWarp__sub_80186AB8(void);
-int clear_enabled_main_warps(void);
+void clear_enabled_main_warps(void);
 
 void TObjCityMainWarp::update_unlock_flags() {
     s32 var_r31;

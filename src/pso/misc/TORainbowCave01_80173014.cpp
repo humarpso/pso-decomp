@@ -53,17 +53,17 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_80173330_lbl_804B3A18 abeniji_fe_obj001_niji_resource_descriptor;
 extern u32 TORainbowCave01__static_model_resource;
-u8 * init_map_object_base(void *);
+void *init_map_object_base(void *a0);
 extern s32 __vt__15TORainbowCave01[];
 extern s32 TORainbowCave01__name;
 u8 *TORainbowCave01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void rotate_matrix_y(s32, s32);
 void push_matrix(void);
-void pop_matrix(void);
+s32 pop_matrix(void);
 void scale_current_matrix(void *);
 void post_translate_matrix(void *);
-void draw_ginja_object(s32);
-void set_chunk_material_color(void *);
+void draw_ginja_object(void *child);
+void set_chunk_material_color(f32 *arg);
 extern Color_8017310C chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
@@ -116,14 +116,14 @@ void TORainbowCave01::render() {
         } else {
             c.a = self->fCC;
         }
-        set_chunk_material_color(&c);
+        set_chunk_material_color((f32 *)&c);
         push_matrix();
         post_translate_matrix(self->pos38);
         rotate_matrix_y(0, self->f60);
         scale_current_matrix(self->fD4);
-        draw_ginja_object(self->f34);
+        draw_ginja_object((void *)self->f34);
         pop_matrix();
-        set_chunk_material_color(chunk_material_color_half_alpha_f32);
+        set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
         model_render_flags = lbl_805D5660;
         TParticleCtrl::end_effect_render();
     }

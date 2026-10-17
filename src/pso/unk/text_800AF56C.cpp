@@ -2,7 +2,7 @@
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-u8 * __dt__9TObjEnemyFv(void *, s16);
+void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(s32);
 s32 __destroy_arr(void *, void *, int, int);

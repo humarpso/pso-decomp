@@ -51,9 +51,9 @@ extern "C" {
 void fn_80141EB4(void);
 void setSpriteInverseColorBlend(void);
 void transform_point_by_current_matrix(void *, void *);
-s32 begin_screen_draw(int);
+void begin_screen_draw(s32 arg0);
 s32 draw_textured_quad_at_depth(void *, f32);
-s32 set_draw_texture_and_color(int, int);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern Cam_801E58D8 lbl_8058D4F8;
 extern const f32 lbl_805DC470;
 extern const f32 lbl_805DC474;
@@ -62,7 +62,7 @@ void render__14TQuadSpriteSclFv(Self_801E58D8 *self);
 void *TQuadSpriteScl__ct(void *arg0);
 void *__dt__14TQuadSpriteSclFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void __dt__13TUnk_804C57F0Fv(void *, int);
+void *__dt__13TUnk_804C57F0Fv(void *arg0, s16 arg1);
 void quad_sprite_base_ct(void *);
 
 extern s32 __vt__14TQuadSpriteScl[];

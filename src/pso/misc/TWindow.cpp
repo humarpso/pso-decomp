@@ -110,7 +110,7 @@ extern "C" {
 u16 obj_getField1c(void *);
 s32 get_quest_list_text(s32, s32);
 f32 get_scale__15TShopWindowBaseFv(void *);
-s32 TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 void *create_yes_no_window(void *, s32, s32, s32);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
 void *create_message_window__6TLobbyFllUls(void *, void *, s32, s32);
@@ -118,9 +118,9 @@ void *get_window_layout_position(s32);
 extern Pos_80216CF8 lbl_8044BEA4[];
 extern const f32 lbl_805DC694;
 extern const f32 lbl_805DC698;
-s32 get_story_flag(s16);
+s32 get_story_flag(s32 flag);
 s32 are_all_story_quests_complete();
-s32 refresh_story_quest_availability(void *);
+void refresh_story_quest_availability(void *p);
 void *get_guild_text(s32);
 s32 calc_list_content_extent(void *);
 void *set_window_mode_4__6TLobbyFPvll(void *, void *, s32);
@@ -128,24 +128,24 @@ void *create_item_list_window(void *, s32, s32);
 extern Pos_80216F50 lbl_8044BE9C[];
 extern void *story_quest_list_resource;
 void handle_confirm_dialog(void *arg0);
-s32 prepare_offline_quest_filenames(s32);
+void prepare_offline_quest_filenames(const char *identity);
 s32 get_selected_menu_value(u32);
 
 void TWindow::close_sub_windows() {
     if ((u32) *(u32 *)((s8 *)this + 0x38) != 0U) {
-        TWindow__close(*(void **)((s8 *)this + 0x38));
+        TWindow__close((u8 *)(*(void **)((s8 *)this + 0x38)));
         *(u32 *)((s8 *)this + 0x38) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x44) != 0U) {
-        TWindow__close(*(void **)((s8 *)this + 0x44));
+        TWindow__close((u8 *)(*(void **)((s8 *)this + 0x44)));
         *(u32 *)((s8 *)this + 0x44) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x40) != 0U) {
-        TWindow__close(*(void **)((s8 *)this + 0x40));
+        TWindow__close((u8 *)(*(void **)((s8 *)this + 0x40)));
         *(u32 *)((s8 *)this + 0x40) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x3C) != 0U) {
-        TWindow__close(*(void **)((s8 *)this + 0x3C));
+        TWindow__close((u8 *)(*(void **)((s8 *)this + 0x3C)));
         *(u32 *)((s8 *)this + 0x3C) = 0U;
     }
 }
@@ -163,7 +163,7 @@ void handle_confirm_dialog(void *arg0) {
             selected_menu_value = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0x38));
             if (selected_menu_value == 0) {
                 temp_r0 = select_cursor_entry__22TWindowSubShortCutListFv(*(s32 *)((s8 *)arg0 + 0x3C));
-                prepare_offline_quest_filenames((*(Entry_80216BCC_80216B44 **)((s8 *)arg0 + 0x54))[temp_r0].field18);
+                prepare_offline_quest_filenames((const char *)((*(Entry_80216BCC_80216B44 **)((s8 *)arg0 + 0x54))[temp_r0].field18));
                 ((TShopWindowBase *)arg0)->set_field_20(3);
                 return;
             }
@@ -204,7 +204,7 @@ void TQuestListOffline::update_list_navigation() {
             ((TLobby *)(((Win_80216CF8 *)this)->f40))->send_and_handle(msg, 0x80);
             ((Win_80216CF8 *)this)->f50 = sel;
             if (((Win_80216CF8 *)this)->f44 != NULL) {
-                TWindow__close(((Win_80216CF8 *)this)->f44);
+                TWindow__close((u8 *)(((Win_80216CF8 *)this)->f44));
                 ((Win_80216CF8 *)this)->f44 = NULL;
             }
         }

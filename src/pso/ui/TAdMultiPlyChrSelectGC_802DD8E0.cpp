@@ -54,12 +54,12 @@ s32 create_confirm_window__22TAdMultiPlyChrSelectGCFv(void *, s32);
 s32 TAdMultiPlyChrSelectGC__sub_802DC294(void *, s32);
 u32 __ct__9TAdFadeGCFP7TObjectPv(u32, s32, s32);
 u32 __nw__7TObjectFUl(s32);
-u32 TAdSinglePlyChrSelectGC__sub_801FE3E4(s32);
-s32 TAdSinglePlyChrSelectGC__sub_801FE800(s32);
+s32 *TAdSinglePlyChrSelectGC__sub_801FE3E4(u32 i);
+s32 TAdSinglePlyChrSelectGC__sub_801FE800(u32 i);
 s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(s32);
 u32 check_slot_flags__23TAdSinglePlyChrSelectGCFlUl(s32, s32);
 
-s32 load_tables(s32);
+void load_tables(int a0);
 extern s32 lbl_80472860[];
 extern s32 tl_fade;
 

@@ -54,11 +54,11 @@ s32 set_service_counter_camera(void *, int);
 s32 get_window_layout_position(int, f32);
 extern const f32 lbl_805DC680;
 extern const f32 lbl_805DC684;
-s32 queue_destruction__7TObjectFv(void *);
-s32 __dt__13TShopSequenceFv(void *, int);
+void queue_destruction__7TObjectFv(void *arg0);
+void *__dt__13TShopSequenceFv(void *arg0, s16 arg1);
 s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 __dl__7TObjectFPv(void *);
-s32 TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 extern RecoveredGlobal_80215EF8___vt__17TJudgmentSequence __vt__17TJudgmentSequence;
 extern RecoveredGlobal_80215EF8_TJudgmentSequence__data_80513E80 TJudgmentSequence__slot_flags;
 extern s32 judgment_sequence_instance;
@@ -171,12 +171,12 @@ u8 *__dt__17TJudgmentSequenceFv(u8 *arg0, s16 arg1) {
         }
         ((TShopSequence *)arg0)->close_message_window();
         if ((u32) *(u32 *)&((TJudgmentSequence *)arg0)->m_2c != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x2C));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x2C)));
             *(u32 *)&((TJudgmentSequence *)arg0)->m_2c = 0U;
         }
         judgment_sequence_instance = 0;
         *(s32 *)((s8 *)(&TJudgmentSequence__slot_flags.value) + (sub_8022397C__15TShopWindowBaseFv((void *) (arg0)) * 4)) = 0;
-        __dt__13TShopSequenceFv((void *) (arg0), (int) (0));
+        __dt__13TShopSequenceFv((arg0), (0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
         }
@@ -184,14 +184,14 @@ u8 *__dt__17TJudgmentSequenceFv(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
-s32 TShopSequence__ct(void *);
+u8 *TShopSequence__ct(u8 *arg0);
 extern s32 TJudgmentSequence__class_name;
 u8 *TJudgmentSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
 void TJudgmentSequence__sub_80216030(void);
 void TJudgmentSequence__sub_80216058(void);
 
 u8 *TJudgmentSequence__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TShopSequence__ct((void *) (arg0));
+    TShopSequence__ct((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__17TJudgmentSequence.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TJudgmentSequence__class_name;
     *(s32 *)((s8 *)arg0 + 0x24) = arg2;

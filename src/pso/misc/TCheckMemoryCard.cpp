@@ -27,7 +27,7 @@ extern "C" {
 
 void *__ct__16TCheckMemoryCardFP7TObjectPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void *__dt__16TCheckMemoryCardFv(void *arg0, s16 arg1);
-s32 TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 void *__nw__7TObjectFUl(int);
@@ -77,7 +77,7 @@ void *__dt__16TCheckMemoryCardFv(void *arg0, s16 arg1) {
             ((TCheckMemoryCard *)arg0)->m_30 = NULL;
         }
         if ((u32) *(u32 *)((s8 *)arg0 + 0x34) != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x34));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x34)));
             *(u32 *)((s8 *)arg0 + 0x34) = 0U;
         }
         __dt__7TObjectFv(arg0, 0);

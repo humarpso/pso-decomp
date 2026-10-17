@@ -34,12 +34,12 @@ extern s32 TSaveChCr__name;
 u8 *TSaveChCr__ct(u8 *arg0, u8 *arg1, s32 arg2);
 int TSaveChCr__sub_8033A138(void);
 int load_character_from_card__23TAdSinglePlyChrSelectGCFi(void*);
-s32 TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 int begin_action_from_char_select__10TObjPlayerFv(void*);
 
 void TSaveChCr::close_window() {
     if ((u32) *(u32 *)((s8 *)this + 0x3C) != 0U) {
-        TWindow__close(*(void **)((s8 *)this + 0x3C));
+        TWindow__close((u8 *)(*(void **)((s8 *)this + 0x3C)));
         *(u32 *)((s8 *)this + 0x3C) = 0U;
         *(s32 *)((s8 *)this + 0x38) = 7;
     }

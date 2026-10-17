@@ -14,7 +14,7 @@ struct RecoveredGlobal_8029AA74_lbl_804652A4 {
 };
 
 extern "C" {
-s32 TChCrEffTagStr__sub_8029AED0(int);
+void TChCrEffTagStr__sub_8029AED0(void *p);
 u32 create_str__11TChCrEffTagFPvPvPv(void *, int, void *);
 extern RecoveredGlobal_8029AA74_lbl_804652A4 lbl_804652A4;
 extern s32 TChCrEffTag__selected_heading;
@@ -35,7 +35,7 @@ void TChCrEffTag::refresh_label() {
     u32 temp_r3;
     temp_r3 = *(u32 *)&this->label;
     if (temp_r3 != 0U) {
-        TChCrEffTagStr__sub_8029AED0((int) (temp_r3));
+        TChCrEffTagStr__sub_8029AED0((void *)(temp_r3));
         *(u32 *)&this->label = 0U;
     }
     this->heading = (s32) TChCrEffTag__selected_heading;

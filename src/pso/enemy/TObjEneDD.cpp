@@ -10,8 +10,8 @@ struct Part_800BA084 { u8 pad[0x2c]; };
 struct Obj_800BA084 { u8 pad[0xa4]; Part_800BA084 *parts; s32 count; };
 
 extern "C" {
-void set_collider_contact_low(Part_800BA030 *);
-void set_collider_contact_high(Part_800BA084 *);
+void set_collider_contact_low(u8 *arg0);
+void set_collider_contact_high(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi();
 
 extern f32 lbl_805D9E98;
@@ -29,7 +29,7 @@ void TObjEneDD::vfunc_98() {
     Obj_800BA030 *self = (Obj_800BA030 *)this;
     s32 i;
     for (i = 0; i < self->count; i++) {
-        set_collider_contact_low(&self->parts[i]);
+        set_collider_contact_low((u8 *)&self->parts[i]);
     }
 }
 
@@ -37,7 +37,7 @@ void TObjEneDD::vfunc_97() {
     Obj_800BA084 *self = (Obj_800BA084 *)this;
     s32 i;
     for (i = 0; i < self->count; i++) {
-        set_collider_contact_high(&self->parts[i]);
+        set_collider_contact_high((u8 *)&self->parts[i]);
     }
 }
 

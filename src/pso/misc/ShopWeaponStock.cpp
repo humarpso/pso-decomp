@@ -100,12 +100,12 @@ void get_shop_weapon_stock_item(C14_80225550 *dst, s32 idx, s32 tbl);
 s32 is_split_screen(void);
 s32 create_named_object(void *);
 s32 mem_alloc(s32);
-s32 mem_free(u32);
+void mem_free(void *p);
 extern u32 lobby_weapon_random_tables_ptr;
 s32 memcmp(const void *, const void *, u32);
 extern Cnt_80224B7C shop_weapon_stock_counts[];
 s32 is_duplicate_shop_weapon(C14_80224B7C *item, s32 tbl);
-s8 roll_weapon_special_channel15(s32);
+int roll_weapon_special_channel15(void *p);
 void shuffle_shop_pool_n_times(void *, s32);
 void push_shop_pool_entry(void *, u8);
 s32 TLobby__sub_80224840(s32 arg0);
@@ -484,7 +484,7 @@ void roll_shop_weapon_special(Obj_80224F7C *obj) {
         obj->v = roll_weapon_special_channel15(0);
         break;
     case 2:
-        obj->v = roll_weapon_special_channel15(1);
+        obj->v = roll_weapon_special_channel15((void *)(1));
         break;
     case 0:
     default:
@@ -658,7 +658,7 @@ void TLobby::free_lobby_resources() {
     s32 i;
     for (i = 3; i >= 0; i--) {
         if (((u32 *)&shop_weapon_stock_buffers)[i] != 0) {
-            mem_free(((u32 *)&shop_weapon_stock_buffers)[i]);
+            mem_free((void *)(((u32 *)&shop_weapon_stock_buffers)[i]));
             ((u32 *)&shop_weapon_stock_buffers)[i] = 0;
         }
     }

@@ -20,7 +20,7 @@ typedef TBoss7LaserPtclVector Vec_8035AAEC;
 struct Ang_8035AAEC { s32 x, y, z; };
 
 f32 atan2_float(f32 y, f32 x);
-void create_oneshot_particle_emitter(void *, void *, int, int);
+void *create_oneshot_particle_emitter(void *pos, void *dir, s32 id, s32 flags);
 void direction_to_rotation_xz(void *, void *, void *);
 void vec3_add_to(void *, void *);
 void normalize_vector(void *);
@@ -53,8 +53,8 @@ extern s32 __vt__15TBoss7LaserPtcl[];
 extern s32 TBoss7LaserPtcl__class_name;
 extern const f32 lbl_805E010C;
 u8 *TBoss7LaserPtcl__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
-s32 create_timed_particle_emitter(void *, int, int, int);
-s32 spawn_particle_effect(void *, int);
+void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
+void *spawn_particle_effect(void *pos, s32 id);
 extern s32 lbl_804F1C88[];
 extern const f32 lbl_805E0118;
 u8 *TBoss7LaserPtcl__sub_8035AE54(u8 *arg0, s32 arg1, s32 arg2);
@@ -193,8 +193,8 @@ u8 *TBoss7LaserPtcl__sub_8035AE54(u8 *arg0, s32 arg1, s32 arg2) {
     *(u8 **)((s8 *)arg0 + 0x1C) = (unsigned char *) ((void *) (arg0 + 0x34));
     *(s32 *)((s8 *)arg0 + 0x20) = 1;
     VecCopy((Vec *)(arg0 + 0x24), (const Vec *)(arg2));
-    spawn_particle_effect((void *) (arg0 + 0x24), (int) (0x211));
-    create_timed_particle_emitter((void *) (arg0 + 0x24), (int) (0x213), (int) (0), (int) (0x1E));
+    spawn_particle_effect((arg0 + 0x24), (0x211));
+    create_timed_particle_emitter((arg0 + 0x24), (0x213), (0), (0x1E));
     return arg0;
 }
 

@@ -10,7 +10,7 @@ typedef char RecoveredGlobal_80288838___vt__17TWindowMainMenu1P_size[sizeof(Reco
 extern "C" {
 void TCameraCtrl__sub_800694A8(void);
 void __dl__7TObjectFPv(s32);
-u8 * __dt__15TWindowMainMenuFv(void *, s16);
+u8 *__dt__15TWindowMainMenuFv(u8 *arg0, s16 arg1);
 extern s32 __vt__17TWindowMainMenu1P[];
 u8 *__dt__17TWindowMainMenu1PFv(u8 *arg0, s16 arg1);
 extern const f32 lbl_805DD8A0;

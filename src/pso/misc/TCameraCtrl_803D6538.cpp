@@ -182,7 +182,7 @@ void compose_motion_node_matrix(void *arg0);
 s32 blend_motion_poses(void *, void *, void *, void *, void *);
 void TCameraCtrl__sub_803D65F8(u8 *);
 void set_camera_look_at(u8* eye, u8* target, u8* up);
-void set_matrix_identity(s32);
+void set_matrix_identity(u8 *arg0);
 extern u8 lbl_804FA4F0[];
 extern const f32 lbl_805E0E08;
 void set_screen_size(f32 farg0, f32 farg1);

@@ -64,8 +64,8 @@ struct Shower_8035D924 {
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-s32 spawn_particle_effect_with_flags(void *, int, int);
-void create_TDPBShower(int, void *);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
+void *create_TDPBShower(void *arg0, void *arg1);
 extern s32 tl_02;
 extern const f32 lbl_805E01C8;
 u8 *__nw__7TObjectFUl(s32);
@@ -89,7 +89,7 @@ void TBoss6DPB::sub_8035D8B0() {
     v.b = lbl_805E01C8;
     spawn_particle_effect_with_flags(&v, 0x21C, 0x40);
     spawn_particle_effect_with_flags(&v, 0x21D, 0x40);
-    create_TDPBShower(tl_02, &arg0->v);
+    create_TDPBShower((void *)tl_02, &arg0->v);
 }
 
 #pragma push
@@ -120,7 +120,7 @@ void TBoss6DPB::apply_shower_damage_to_players() {
                 dmg.d = r;
                 dmg.b = *(s32 *)&dmg.d;
                 pl->v21(arg0->owner, &dmg, 0, -1, -1);
-                create_TDPBShower(tl_02, (u8 *)pl + 0x38);
+                create_TDPBShower((void *)tl_02, (u8 *)pl + 0x38);
             }
         }
     }

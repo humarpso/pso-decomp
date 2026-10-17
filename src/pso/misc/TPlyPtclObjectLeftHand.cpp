@@ -25,9 +25,9 @@ struct VObj_PTR18_8030A400 : VBase_PTR18_8030A400 {
 extern "C" {
 
 void *__dt__22TPlyPtclObjectLeftHandFv(void *arg0, s16 arg1);
-void *get_player_by_client_id(u16);
+void *get_player_by_client_id(s32 i);
 void __dl__7TObjectFPv(void *);
-void __dt__22TPlyFollowParticleCtrlFv(void *, int);
+void *__dt__22TPlyFollowParticleCtrlFv(void *arg0, s16 arg1);
 u16 get_lifetime__22TPlyFollowParticleCtrlFv();
 s32 get_position_ptr__10TObjPlayerFv(s32);
 

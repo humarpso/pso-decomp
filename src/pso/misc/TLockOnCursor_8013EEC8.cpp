@@ -10,19 +10,19 @@ void __construct_array(void *, void *, int, int, int);
 void TMainCursor__sub_8013F10C(void* p, s32 v);
 void TMainCursor__sub_8013F104(void* p, s32 v);
 void *fn_8013F0A0(void *arg0);
-int init_gc_tag(void*);
+s32 init_gc_tag(s32 arg0);
 void * TLockOnCursor__sub_8013EFB8(void *arg0);
 void* init_sub__13TLockOnCursorFPv(void* p);
-void TLockOnCursor__sub_8013EDC4(void *p);
+s32 TLockOnCursor__sub_8013EDC4(s32 arg0, s16 arg1);
 int TLockOnCursor__sub_8013F000(void *self);
 int TLockOnCursor__sub_8013EC1C(void*);
 int reset_nearest_target_record(void*);
-int fn_8004438C(void*);
+void *fn_8004438C(void *p);
 
 extern s32 lbl_804A7248[];
 
 void *TLockOnCursor::init_vtable() {
-    init_gc_tag((void*)(this));
+    init_gc_tag((s32)(this));
     *(s32 * *)&this->m_prev = lbl_804A7248;
     *(u32 *)&this->m_flags = 0;
     return this;
@@ -30,10 +30,10 @@ void *TLockOnCursor::init_vtable() {
 
 void*TLockOnCursor::init_cursor() { reset_nearest_target_record(this); return this; }
 void*TLockOnCursor::init_forward() { TLockOnCursor__sub_8013EC1C(this); return this; }
-void*TLockOnCursor::cleanup() { init_gc_tag((void*)((char*)this + 0x8)); ((TMainCursor *)((char*)this + 0xc))->reset(); ((TMainCursor *)((char*)this + 0x14))->reset(); reset_state(); return this; }
+void*TLockOnCursor::cleanup() { init_gc_tag((s32)((char*)this + 0x8)); ((TMainCursor *)((char*)this + 0xc))->reset(); ((TMainCursor *)((char*)this + 0x14))->reset(); reset_state(); return this; }
 
 void *TLockOnCursor__sub_8013EFB8(void *arg0) {
-    init_gc_tag((void*)(arg0));
+    init_gc_tag((s32)(arg0));
     ((TObjPlayer *)((char *)arg0 + 64))->construct_target_cursor_records();
     TLockOnCursor__sub_8013F000((void *)((void *)((void *)((char *)arg0 + 156))));
     ((TMainCursor *)arg0)->reset_state();

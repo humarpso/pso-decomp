@@ -12,8 +12,8 @@ s32 play_sound_effect(s32, s32, s32, s32);
 s32 TBoss6PlotFalz__sub_802ABADC();
 int refresh_players_equipment__14TBoss6PlotFalzFPv(void);
 int end_cutscene_camera__14TBoss6PlotFalzFPv(void*);
-s32 play_area_music(s32 *);
-s32 TBoss6Demo10_TYPE1_APPEAR__create(void *);
+void play_area_music(char *name);
+void *TBoss6Demo10_TYPE1_APPEAR__create(void *parent);
 int is_ready__14TBoss6PlotFalzFv(void*);
 
 void TBoss6PlotFalz__sub_802B0808(void) {  }
@@ -40,7 +40,7 @@ void TBoss6PlotFalz__sub_802B08F0(void* p) { if (is_ready__14TBoss6PlotFalzFv(p)
 extern s32 lbl_804709B4[];
 
 void init_proto1_adx(void *parent) {
-    play_area_music(lbl_804709B4);
+    play_area_music((char *)lbl_804709B4);
     TBoss6PlotFalz::freeze_all_players();
     *(s32 *)((s8 *)parent + 0x3D0) = 0;
     *(s32 *)((s8 *)parent + 0x3CC) = 0;

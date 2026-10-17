@@ -14,7 +14,7 @@ void *__ct__13TUnk_804F3A20FP7TObject(void *, s32);
 void *__ct__17TAdMultiConfirmGCFP7TObject(void *, s32);
 void *TAdMultiSaveGC__ct(void *, s32);
 void *TAdPsoPassSaveGC__ct(void *, s32);
-void *TAdSinglePlyChrSelectGC__ct(void *, s32);
+u8 *TAdSinglePlyChrSelectGC__ct(u8 *arg0, void *parent);
 void *TAdSnAkPassConfirmGC__ct(void *, s32);
 void *TAdTimeSetGC__ct(void *, s32);
 void *TAdTrialAgreementGC__ct(void *, s32);
@@ -23,7 +23,7 @@ void *TAdVIConfigGC__ct(void *, s32);
 void *construct_title_scene__13TUnk_804EEF64Fv(void *, s32);
 void *__ct__12TLevelSelectFv(void *);
 void *__ct__16TAdStorySelectGCFv(void *, s32);
-void *__ct__19TAdSelectGameModeGCFv(void *, s32);
+u8 *__ct__19TAdSelectGameModeGCFv(u8 *arg0, void *parent);
 void *__ct__21TAdMultiChgGameModeGCFv(void *, s32);
 void *__ct__21TAdMultiSelGameModeGCFv(void *, s32, s32);
 void *__ct__5TLogoFv(void *, s32);
@@ -147,14 +147,14 @@ void TAdMultiChgGameModeGC::create_mode_scene() {
     case 5:
         p = __nw__7TObjectFUl(0x24);
         if (p != NULL) {
-            p = __ct__19TAdSelectGameModeGCFv(p, tl_01);
+            p = __ct__19TAdSelectGameModeGCFv((u8 *)p, (void *)tl_01);
         }
         game_mode_scene_instance = (s32)p;
         break;
     case 6:
         p = __nw__7TObjectFUl(0x60);
         if (p != NULL) {
-            p = TAdSinglePlyChrSelectGC__ct(p, tl_01);
+            p = TAdSinglePlyChrSelectGC__ct((u8 *)p, (void *)tl_01);
         }
         game_mode_scene_instance = (s32)p;
         break;

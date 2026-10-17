@@ -15,7 +15,7 @@ s32 TBoss8Dragon__sub_8005D700(void *self);
 extern u8 boss5_gryphon_snarl_effect_id_table[];
 extern void *TBoss5GryphonSnarl__effect_table;
 void TBoss5GryphonSnarl__sub_80066E88(void *self);
-void spawn_particle_effect_with_flags(void *, s32, s32);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 __vt__18TBoss5GryphonSnarl[];
 extern s32 lbl_805D2820;

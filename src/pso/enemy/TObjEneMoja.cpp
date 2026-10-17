@@ -6,7 +6,7 @@ extern "C" {
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
 void *TObjEneMoja__ct(void *, void *, void *);
-void __dt__11TBoss4Type3FPvs(void*, int);
+s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 void mem_free(void*);
 
@@ -51,7 +51,7 @@ void TObjEneMoja::free_resources() {
         lbl_805D50D4 = 0U;
     }
     if ((u32) lbl_805D50DC != 0U) {
-        __dt__11TBoss4Type3FPvs((void*)lbl_805D50DC, 1);
+        __dt__11TBoss4Type3FPvs((s32 *)lbl_805D50DC, 1);
         lbl_805D50DC = 0U;
     }
     if ((u32) lbl_805D50D8 != 0U) {

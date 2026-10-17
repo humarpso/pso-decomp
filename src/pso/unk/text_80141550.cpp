@@ -104,11 +104,11 @@ extern "C" {
 void GXSetZMode(u8, s32, s32);
 void GXSetZCompLoc(s32);
 void set_material_alpha_compare_reference(s32);
-s32 set_ginja_draw_list_mask(int);
+void set_ginja_draw_list_mask(s32 arg0);
 void func_80141618__Fv(void);
 void restore_default_scene(void);
 void set_scene_override(u8 scene);
-void set_ginja_draw_end_callback(void *);
+void set_ginja_draw_end_callback(s32 arg0);
 void restore_saved_depth_alpha_state();
 void TObjPlayer__sub_801416AC(void);
 void TObjPlayer::copy_config(void* q) { *(u32*)((char*)this + 0x0) = *(u32*)((char*)q + 0x0); *(u8*)((char*)this + 0x4) = *(u8*)((char*)q + 0x4); *(u8*)((char*)this + 0x5) = *(u8*)((char*)q + 0x5); *(u32*)((char*)this + 0x8) = *(u32*)((char*)q + 0x8); *(u8*)((char*)this + 0xc) = *(u8*)((char*)q + 0xc); *(u8*)((char*)this + 0xd) = *(u8*)((char*)q + 0xd); *(u32*)((char*)this + 0x10) = *(u32*)((char*)q + 0x10); }
@@ -123,13 +123,13 @@ void TObjPlayer__sub_801416AC(void) {
     ((TObjPlayer *)(&depth_buffer_config_copy))->copy_config(&depth_buffer_settings);
     ((TObjPlayer *)(&saved_depth_alpha_scene_state))->copy_config(&depth_buffer_settings);
     TObjPlayer::set_global_state((s32)((void *)restore_saved_depth_alpha_state));
-    set_ginja_draw_end_callback((void *)restore_saved_depth_alpha_state);
+    set_ginja_draw_end_callback((s32)restore_saved_depth_alpha_state);
 }
 typedef char RecoveredGlobal_80141860_lbl_8050C000_size[sizeof(RecoveredGlobal_80141860_lbl_8050C000) == 0x28 ? 1 : -1];
 
 typedef char RecoveredGlobal_80141730_lbl_8050C028_size[sizeof(RecoveredGlobal_80141730_lbl_8050C028) == 0x18 ? 1 : -1];
 void func_80141618__Fv(void) {
-    set_ginja_draw_list_mask((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_80141730_lbl_8050C028 *)&saved_depth_alpha_scene_state).value) + 0x10)));
+    set_ginja_draw_list_mask((*(s32 *)((s8 *)(&(*(RecoveredGlobal_80141730_lbl_8050C028 *)&saved_depth_alpha_scene_state).value) + 0x10)));
 }
 
 typedef char RecoveredGlobal_80141788_lbl_8050C000_size[sizeof(RecoveredGlobal_80141788_lbl_8050C000) == 0x28 ? 1 : -1];
@@ -139,7 +139,7 @@ typedef char RecoveredGlobal_8014175C_lbl_8050C000_size[sizeof(RecoveredGlobal_8
 }
 void set_depth_buffer_settings_id(u32 arg0) {
     *(s32 *)((s8 *)(&(*(RecoveredGlobal_8014175C_lbl_8050C000 *)&(*(RecoveredGlobal_80141860_lbl_8050C000 *)&depth_buffer_settings)).value) + 0x10) = arg0;
-    set_ginja_draw_list_mask((int)((void *) (arg0)));
+    set_ginja_draw_list_mask((s32)((void *) (arg0)));
 }
 extern "C" {
 

@@ -12,12 +12,12 @@ extern s32 lbl_804C89BC[];
 s32 TAdSinglePlyChrSelectGC__sub_80339DBC(void);
 int TSaveChCr__sub_80339B94(void* p);
 void TSaveChCr__sub_80339CE4(void);
-int request_queued_main_phase(void);
-s32 TKeyBoardControl__sub_8000F9CC(s32);
+s32 request_queued_main_phase(void);
+void TKeyBoardControl__sub_8000F9CC(s32 arg0);
 int TSaveChCr__sub_80339F30(void*);
 s32 TSaveChCr__sub_8033A138(void *);
 s32 poll_memcard_status__9TSaveChCrFv();
-int queue_destruction__7TObjectFv(void*);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 save_character__9TSaveChCrFv(void *);
 
 void TSaveChCr::destroy_if_keyboard_idle() { if (*(int *)&this->timer == 0) { queue_destruction__7TObjectFv(this); request_queued_main_phase(); } }
@@ -43,7 +43,7 @@ void TSaveChCr::update_save_status() {
             set_state((s32)((void*)(4)));
             return;
         }
-        queue_destruction__7TObjectFv((void*)(this));
+        queue_destruction__7TObjectFv((this));
         TKeyBoardControl__sub_8000F9CC(9);
     }
 }

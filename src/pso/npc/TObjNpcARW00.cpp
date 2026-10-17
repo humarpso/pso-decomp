@@ -124,8 +124,8 @@ extern s32 TObjNpcARW00__name;
 extern u32 TObjNpcARW00__static_model;
 extern u32 TObjNpcARW00__gvm_texture_handle;
 u8 *TObjNpcARW00__ct(u8 *arg0, s32 arg1, s32 arg2);
-void *create_named_object(const char *name);
-void *load_gvm_texture_file(const char *name);
+s32 create_named_object(s32 arg0);
+u8 *load_gvm_texture_file(s32 arg0);
 extern char lbl_8043F4A8[];
 extern char lbl_8043F4BC[];
 void debug_printf_at(s32, const char *, ...);
@@ -151,8 +151,8 @@ void TObjNpcARW00::free_resources() {
 }
 
 void TObjNpcARW00::load_resources() {
-    TObjNpcARW00__static_model = (u32)create_named_object(lbl_8043F4A8);
-    TObjNpcARW00__gvm_texture_handle = (u32)load_gvm_texture_file(lbl_8043F4BC);
+    TObjNpcARW00__static_model = (u32)create_named_object((s32)lbl_8043F4A8);
+    TObjNpcARW00__gvm_texture_handle = (u32)load_gvm_texture_file((s32)lbl_8043F4BC);
 }
 
 void *__dt__12TObjNpcARW00Fv(void *arg0, s16 arg1) {

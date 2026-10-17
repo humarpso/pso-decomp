@@ -35,7 +35,7 @@ typedef char TEndingC_fade_out_ticks_offset[offsetof(TEndingC, fade_out_ticks) =
 #include "pso/object/TObjFish.h"
 
 extern "C" {
-s32 TKeyBoardControl__sub_8000F828(void);
+int TKeyBoardControl__sub_8000F828(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern void *__vt__8TEndingC[];
 extern s32 lbl_805D2960;
@@ -51,13 +51,13 @@ extern const f32 lbl_805D95F0;
 extern const f32 lbl_805D95F4;
 extern const f32 lbl_805D95F8;
 u8 *__ct__8TEndingCFv(u8 *arg0, u8 *arg1);
-s32 TEndingC__sub_8008C6F4();
+int TEndingC__sub_8008C6F4(void);
 void TEndingAB__sub_8008D5A0(void);
 void TEndingPic__sub_8008D5AC(void);
 int TEnding__sub_8008D5B8(void);
 extern const f32 lbl_805D95D0;
 s32 draw_textured_quad_at_depth(void *, f32);
-s32 begin_screen_draw(s32);
+void begin_screen_draw(s32 arg0);
 s32 set_draw_texture_and_color(s32, s32, f32);
 
 extern s32 TEndingC__wall_texture_list_entry[];

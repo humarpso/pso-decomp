@@ -42,8 +42,8 @@ s32 TLobby__sub_803FB184(void *);
 s32 TLobby__sub_803FB1A4(void *);
 s32 TLobby__sub_80407358();
 s32 TLobby__sub_8041509C();
-s32 TLobby__sub_80423064(void *, int);
-s32 TLobby__sub_80424CA8();
+s16 TLobby__sub_80423064(s16 idx, s32 arg1);
+void TLobby__sub_80424CA8(void);
 s32 TLobby__sub_80424CF4(void *, void *, int);
 void TLobby__sub_801469B8(void* p);
     extern int lbl_805D5708;
@@ -145,16 +145,16 @@ extern s32 lbl_805D56E8;
 extern s32 lbl_805D56EC;
 extern s32 lbl_805D56F0;
 extern s32 lbl_805D56F4;
-s32 TLobby__sub_80145E40(void);
-s32 init_struct(void *);
-s32 init_work(int, void *);
+int TLobby__sub_80145E40(void);
+s32 init_struct(u8 *arg0);
+s32 init_work(s32 arg0, u8 *arg1);
 int TLobby__sub_80146724(void);
 int TLobby__sub_80146740(void);
 int TLobby__sub_8014677C(void);
-int TLobby__sub_80145A94(void);
-int TLobby__sub_80145DB4(void*);
+s32 TLobby__sub_80145A94(void);
+s32 TLobby__sub_80145DB4(s32 arg0);
 s32 TLobby__sub_80147284();
-int get_network_config_buffer_size(void*);
+s32 get_network_config_buffer_size(s32 mode);
 s32 TLobby__sub_804219D0(s32, s32, s32);
 s32 TLobby__sub_80421A50(s32, s32, s32);
 s8 func_801A5E54__Fv();
@@ -180,7 +180,7 @@ extern s32 lbl_805D5714;
 #define lbl_8050CCE8 (*(RecoveredGlobal_80146CB8_lbl_8050CCE8 *)lbl_8050CCE8)
 #define lbl_8050CE14 (*(RecoveredGlobal_80146D44_lbl_8050CE14 *)lbl_8050CE14)
 
-void TLobby::init_keyboard_buffer() { keyboard_buffer_cursor = 0; lbl_805D56CE = 0; lbl_805D56C8 = 0; get_network_config_buffer_size((void*)0); lbl_805D56C8 = xmalloc__FUl(); TLobby__sub_80145A94(); }
+void TLobby::init_keyboard_buffer() { keyboard_buffer_cursor = 0; lbl_805D56CE = 0; lbl_805D56C8 = 0; get_network_config_buffer_size((s32)((void*)0)); lbl_805D56C8 = xmalloc__FUl(); TLobby__sub_80145A94(); }
 
 s32 TLobby::poll_connect() {
     s32 var_r31;
@@ -287,8 +287,8 @@ s32 TLobby::query_task_active() {
     return 0;
 }
 
-int TLobby__sub_8014677C(void) { return TLobby__sub_80145DB4((void*)(1)); }
-int TLobby::get_link_status_value() { return TLobby__sub_80145DB4((void*)(4)); }
+int TLobby__sub_8014677C(void) { return TLobby__sub_80145DB4((1)); }
+int TLobby::get_link_status_value() { return TLobby__sub_80145DB4((4)); }
 
 extern u32 lbl_805D5700;
 extern s32 TLobby__net_session_mode;
@@ -323,7 +323,7 @@ void TLobby::flush_pending_flags() {
         }
     } else if (TLobby::is_state_active() != 0) {
         if ((s32) lbl_805D2D00 != -1) {
-            TLobby__sub_80423064((void *) ((s16) lbl_805D2D00), (int) (0));
+            TLobby__sub_80423064(((s16) lbl_805D2D00), (0));
             sp8 = 0;
             TLobby__sub_803FB1A4((void *) (&sp8));
             do {
@@ -453,7 +453,7 @@ void TLobby::load_network_configs() {
     } else {
         lbl_8050CE0C[1] = 0;
     }
-    if (init_work(1, &w) == 0) {
+    if (init_work(1, (u8 *)&w) == 0) {
         S_80146D7C(A_80146D7C[0].host, w.host, 0x7F);
         S_80146D7C(A_80146D7C[0].user, w.user, 0x1F);
         S_80146D7C(A_80146D7C[0].pass, w.pass, 0x1F);
@@ -468,7 +468,7 @@ void TLobby::load_network_configs() {
     } else {
         A_80146D7C[0].valid = 0;
     }
-    if (init_work(2, &w) == 0) {
+    if (init_work(2, (u8 *)&w) == 0) {
         S_80146D7C(A_80146D7C[1].host, w.host, 0x7F);
         S_80146D7C(A_80146D7C[1].user, w.user, 0x1F);
         S_80146D7C(A_80146D7C[1].pass, w.pass, 0x1F);
@@ -483,7 +483,7 @@ void TLobby::load_network_configs() {
     } else {
         A_80146D7C[1].valid = 0;
     }
-    if (init_work(0, &w) == 0) {
+    if (init_work(0, (u8 *)&w) == 0) {
         S_80146D7C(A_80146D7C[2].host, w.host, 0x7F);
         S_80146D7C(A_80146D7C[2].user, w.user, 0x1F);
         S_80146D7C(A_80146D7C[2].pass, w.pass, 0x1F);
@@ -499,7 +499,7 @@ void TLobby::load_network_configs() {
         A_80146D7C[2].valid = 0;
     }
     C_80146D7C.f120 = 0;
-    if (TLobby__net_session_mode == 1 && init_struct(&info) == 0) {
+    if (TLobby__net_session_mode == 1 && init_struct((u8 *)&info) == 0) {
         C_80146D7C.f0 = info.f4;
         C_80146D7C.f4 = info.fA8;
         C_80146D7C.f8 = info.fAC;
@@ -558,7 +558,6 @@ void TLobby__sub_80147978(void);
 
 #define lbl_8050C784 (*(Cfg_801471A0 *)lbl_8050C784)
 #define TLobby__sub_803FB184 ((s16 (*)(void *))TLobby__sub_803FB184)
-#define TLobby__sub_80423064 ((s32 (*)(s16, s32))TLobby__sub_80423064)
 
 s32 TLobby::set_dns_servers() {
     Req_801471A0 req;
@@ -665,4 +664,3 @@ s32 *get_ppp_password_buffer(void) {
 
 }
 #undef TLobby__sub_803FB184
-#undef TLobby__sub_80423064

@@ -71,17 +71,17 @@ struct Pos_80177E24 { f32 x, y, z; };
 struct Obj_80177E24 { u8 pad[0x38]; Pos_80177E24 pos; };
 
 extern "C" {
-s32 newton_sqrtf(f32);
+f32 newton_sqrtf(f32 x);
 s32 TObjRoomId__sub_80141CF4(void *, void *);
 extern const f32 lbl_805DBA10;
 extern const f32 lbl_805DBA14;
-s32 TOKey__ct(void *);
+void *TOKey__ct(void *arg0);
 extern s32 __vt__12TOSwitchItem[];
 extern s32 lbl_805D3180;
 u8 *TOSwitchItem__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 copy_item_data_and_process__5TItemFv(int);
-u8 *get_sorted_item_registry_entry(s32);
-s32 get_item_registry_count();
+int get_sorted_item_registry_entry(int a0);
+int get_item_registry_count(void);
 s8 TObjPlayer__sub_80102C30(u8 *);
 f32 horizontal_distance_squared(Pos_80177E24 *, Pos_80177E24 *);
 s32 is_state_ec1_ed3__10TObjPlayerFv(int);
@@ -90,7 +90,7 @@ void TOSwitchItem__sub_80178080(void);
 void TOSwitchItem__sub_80178084(void);
 void *__dt__12TOSwitchItemFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void __dt__5TOKeyFv(void *, int);
+void *__dt__5TOKeyFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 s32 init_switch_id__5TOKeyFv();
 
@@ -216,7 +216,7 @@ void *__dt__12TOSwitchItemFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_801780E0___vt__12TOSwitchItem_size[sizeof(RecoveredGlobal_801780E0___vt__12TOSwitchItem) == 0x70 ? 1 : -1];
 u8 *TOSwitchItem__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TOKey__ct((void *) (arg0));
+    TOKey__ct((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801780E0___vt__12TOSwitchItem *)&__vt__12TOSwitchItem).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3180;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

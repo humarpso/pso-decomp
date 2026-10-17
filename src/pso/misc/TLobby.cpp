@@ -9,7 +9,7 @@
 
 extern "C" {
 
-s32 clear_state();
+void clear_state(void);
 int get_instance__15TAdPlayerLoadGCFv(void*);
 s32 get_option_field_C__17TWindowOptionCtrlFv();
 

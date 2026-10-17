@@ -83,7 +83,7 @@ extern s32 __OSCurrHeap;
 s32 TAdPlayerLoadGC__sub_803F3998(s32 arg0);
 s32 get_network_config_card_channel(void);
 s32 get_network_info_file_size(void);
-u32 calc_crc32(Save_803F3F64 *arg0, s32 arg1);
+u32 calc_crc32(s32 buf, s32 len);
 
 extern u8 TAdPlayerLoadGC__network_info_payload_buffer[];
 extern u8 network_info_trailer_buffer[];
@@ -202,7 +202,7 @@ void update_network_info_load(void) {
                 } else {
                     crc = TAdPlayerLoadGC__network_config_buffer->crc;
                     TAdPlayerLoadGC__network_config_buffer->crc = 0;
-                    sum = calc_crc32(TAdPlayerLoadGC__network_config_buffer, 0x8000);
+                    sum = calc_crc32((s32)TAdPlayerLoadGC__network_config_buffer, 0x8000);
                     if (sum != crc) {
                         init_network_config_defaults();
                         TAdPlayerLoadGC::close_card_slot(network_info_load_state.file_handle);

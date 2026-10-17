@@ -3,7 +3,7 @@
 
 extern "C" {
 
-u32 get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 u16 obj_getField1c();
 
 u16 TObjAreaWarp::find_active_player() {

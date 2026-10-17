@@ -20,7 +20,7 @@ void *__dt__18TWindowEffectPartyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 sub_80244994__13TUnk_804CE018Fv();
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 void TWindowEffectParty::render() {  }
 

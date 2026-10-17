@@ -14,8 +14,8 @@ typedef char RecoveredGlobal_8025E9E4___vt__19TWindowKeyBoardBase_size[sizeof(Re
 extern "C" {
 int mem_alloc(void *);
 u8 * get_window_layout_position(s32);
-s32 init_keyboard_text_buffer(void *, int, int);
-s32 init_keyboard_text_field(void *, int, int);
+void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2);
+void init_keyboard_text_field(u8 *arg0, u32 arg1, u32 arg2);
 extern RecoveredGlobal_8025E9E4_lbl_804CFA70 TWindowKeyBoardBase__window_descriptor;
 extern s32 __vt__19TWindowKeyBoardBase[];
 extern s32 keyboard_base_type_name_pointer;
@@ -70,8 +70,8 @@ u8 *TWindowKeyBoardBase__ct(u8 *arg0) {
     ((TWindowKeyBoardBase *)(arg0 + 0x84))->init_text_buffer_holder();
     *(s32 *)((s8 *)arg0 + 0) = (s32) keyboard_base_type_name_pointer;
     temp_r31 = current_language;
-    init_keyboard_text_field((void *) (arg0), (int) (0), (int) (0));
-    init_keyboard_text_buffer((void *) (arg0 + 0x84), (int) (0), (int) (0));
+    init_keyboard_text_field((arg0), (0), (0));
+    init_keyboard_text_buffer((arg0 + 0x84), (0), (0));
     *(u8 **)((s8 *)arg0 + 0x68) = (unsigned char *) ((void *) (arg0 + 0x6C));
     *(s32 *)&((TWindowKeyBoardBase *)arg0)->m_b4 = 0;
     *(s16 *)&((TWindowKeyBoardBase *)arg0)->m_62 = 0;
@@ -82,7 +82,7 @@ u8 *TWindowKeyBoardBase__ct(u8 *arg0) {
     *(s32 *)&((TWindowKeyBoardBase *)arg0)->m_a8 = 0;
     *(s32 *)&((TWindowKeyBoardBase *)arg0)->m_ac = 0;
     if (temp_r31 == 0) {
-        init_keyboard_text_buffer((void *) (arg0 + 0x84), (int) (0x24), (int) (0));
+        init_keyboard_text_buffer((arg0 + 0x84), (0x24), (0));
         *(s32 *)&((TWindowKeyBoardBase *)arg0)->m_9c = mem_alloc((void *)0x194);
         *(s32 *)&((TWindowKeyBoardBase *)arg0)->m_b0 = 0x94;
     }

@@ -15,12 +15,12 @@ struct RecoveredGlobal_8011DC90___vt__15TItemTimerEvent {
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 u32 get_player_by_client_id(u16);
-void fn_8011085C(void *, s32);
+void fn_8011085C(u8 *arg0, s32 arg1);
 extern struct VObj_8011E140_8011DA9C *item_timer_event_instance;
-void fn_801108C8(void *, s32);
-s32 disallow_rendering__7TObjectFv(void *);
+void fn_801108C8(u8 *arg0, s32 arg1);
+void disallow_rendering__7TObjectFv(void *arg0);
 s32 __ct__15TItemHeapObjectFP7TObject(void *);
 extern s32 __vt__15TItemTimerEvent[];
 extern s32 TItemTimerEvent__class_name;
@@ -38,7 +38,7 @@ void *__dt__13TUnk_804A0688Fv(void *arg0, s16 arg1);
 void *__dt__15TItemTimerEventFv(void *arg0, s16 arg1);
 s32 test_action_mask__10TObjPlayerFl(s32, s32);
 s32 is_item_area_enabled();
-s32 TObjectV8047c128_subtract_hp(s32, s32);
+s32 TObjectV8047c128_subtract_hp(u8 *arg0, s16 arg1);
 void __dt__15TItemHeapObjectFv(void *, int);
 s32 fn_8011E1D4();
 void __dl__15TItemHeapObjectFPv(void *);
@@ -55,7 +55,7 @@ void TUnk_804A0668::vfunc_7() {
 void TUnk_804A0688::vfunc_6() {
     ((TBoss3Volopt *)(*(s32 *)&this->m_28))->get_field_3e0();
     if ((is_item_area_enabled() == 1) && (obj_isState3_324__13TUnk_804806E8Fv(*(s32 *)&this->m_28) == 0) && (obj_testFlags30(*(s32 *)&this->m_28, 0x800) == 0)) {
-        TObjectV8047c128_subtract_hp(*(s32 *)&this->m_28, 1);
+        TObjectV8047c128_subtract_hp((u8 *)(*(s32 *)&this->m_28), 1);
     }
 }
 
@@ -105,7 +105,7 @@ u8 *TItemTimerEvent__ct(u8 *arg0, s32 arg1, s16 arg2, s32 arg3) {
     *(s32 *)&((TItemTimerEvent *)arg0)->m_28 = 0;
     *(s32 *)&((TItemTimerEvent *)arg0)->m_20 = arg3;
     *(s32 *)&((TItemTimerEvent *)arg0)->m_24 = 0;
-    disallow_rendering__7TObjectFv((void *) (arg0));
+    disallow_rendering__7TObjectFv((arg0));
     return arg0;
 }
 
@@ -239,13 +239,13 @@ void *__dt__13TUnk_804A0688Fv(void *arg0, s16 arg1) {
 
 void TItemTimerEvent::clear_timer_slot(u16 arg0) {
     if (((void *) (*(u8 * *)&item_timer_event_instance) != NULL) && (arg0 < 0xCU)) {
-        fn_8011085C((*(u8 * *)&item_timer_event_instance), (s32) arg0);
+        fn_8011085C((*(u8 * *)&item_timer_event_instance), arg0);
     }
 }
 
 void TItemTimerEvent::start_event_by_index(u16 arg0) {
     if (((void *) (*(u8 * *)&item_timer_event_instance) != NULL) && (arg0 < 0xCU)) {
-        fn_801108C8((*(u8 * *)&item_timer_event_instance), (s32) arg0);
+        fn_801108C8((*(u8 * *)&item_timer_event_instance), arg0);
     }
 }
 

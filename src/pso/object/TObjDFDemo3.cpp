@@ -11,25 +11,25 @@
 #pragma readonly_strings on
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 u32 spawn_particle_effect(void *, s32);
 u32 create_particle_emitter(void *, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 void run_task__11TObjDFDemo3Fv(u8 *arg0);
-s32 TObjPlayer__sub_80052390(f32);
+void TObjPlayer__sub_80052390(f32 x);
 s32 clear_render_callback__8TObjFishFv(s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 func_803e11e8__FUl(u32);
-s32 func_803e11f0__Fv();
-s32 draw_model_motion(s32, s32, f32);
+void func_803e11e8__FUl(s32 arg0);
+void func_803e11f0__Fv(void);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 void render__11TObjDFDemo3Fv(u8 *arg0);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
-s32 activate_camera_mode(int);
+s32 activate_camera_mode(s32 arg0);
 void set_scripted_camera_pose(void *, void *, void *);
 s32 construct_world_actor_base(void *, void *);
 }
@@ -49,7 +49,7 @@ struct S_EF94 {
 
 extern "C" {
 s32 is_ending_or_split_screen__14TBoss4DarkFalzFv();
-void restore_player_cameras();
+s32 restore_player_cameras(void);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 s32 TObjFish__sub_800E3124(void *, void *);
@@ -105,10 +105,10 @@ void TObjDFDemo3::render() {
     TObjFish::set_global_param(*(s32 *)&this->m_98);
     ((TObjFish *)(*(s32 *)&this->m_b8))->set_draw_callback_list();
     func_803e11e8__FUl(1);
-    draw_model_motion(*(s32 *)&this->m_94, *(s32 *)&this->m_9c, *(f32 *)&this->_padB4);
+    draw_model_motion((void *)(*(s32 *)&this->m_94), (void *)(*(s32 *)&this->m_9c), *(f32 *)&this->_padB4);
     clear_render_callback__8TObjFishFv(*(s32 *)&this->m_b8);
     func_803e11e8__FUl(2);
-    draw_model_motion(*(s32 *)&this->m_94, *(s32 *)&this->m_9c, *(f32 *)&this->_padB4);
+    draw_model_motion((void *)(*(s32 *)&this->m_94), (void *)(*(s32 *)&this->m_9c), *(f32 *)&this->_padB4);
     func_803e11f0__Fv();
     TObjPlayer::clear_global_state();
     pop_matrix();

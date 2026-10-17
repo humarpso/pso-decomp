@@ -7,7 +7,7 @@ void *TWindowCost__ct(void *arg0);
 void *__dt__11TWindowCostFv(void *arg0, s16 arg1);
 void TWindowMeseta__ct(void *);
 void __dl__7TObjectFPv(void *);
-void __dt__13TWindowMesetaFv(void *, int);
+void *__dt__13TWindowMesetaFv(void *arg0, s16 arg1);
 void get_item_count__24TShopEquipmentSellWindowFv(void *, int);
 
 extern s32 __vt__11TWindowCost[];

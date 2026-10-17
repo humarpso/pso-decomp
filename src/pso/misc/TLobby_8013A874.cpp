@@ -8,7 +8,7 @@
 struct ByteBlock_10 { u8 bytes[0x10]; };
 
 extern "C" {
-s32 fn_8013AAD4(void *, void *);
+u8 *fn_8013AAD4(u8 *arg0, u8 *arg1);
 s32 __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag();
 u8 *TLobby__sub_8013AA64(u8 *arg0, u8 *arg1);
 void bswap_telepipe_record(void* p);
@@ -46,7 +46,7 @@ u8 *TLobby__sub_8013AA64(u8 *arg0, u8 *arg1) {
     *(s32 *)((s8 *)arg0 + 8) = (s32) *(s32 *)((s8 *)arg1 + 8);
     *(s32 *)((s8 *)arg0 + 0xC) = (s32) *(s32 *)((s8 *)arg1 + 0xC);
     *(ByteBlock_10 *)((s32) arg0 + 0x10) = *(const ByteBlock_10 *)((s32) arg1 + 0x10);
-    fn_8013AAD4((void *) (arg0 + 0x20), (void *) (arg1 + 0x20));
+    fn_8013AAD4((arg0 + 0x20), (arg1 + 0x20));
     return arg0;
 }
 

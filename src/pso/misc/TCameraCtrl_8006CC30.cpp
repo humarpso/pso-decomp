@@ -330,7 +330,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
 s32 check_flag_100__10TObjPlayerFPv(void *);
 void *TCameraCtrl__vt0(void);
-void __dt__13TUnk_80488A28Fv(void *, int);
+void *__dt__13TUnk_80488A28Fv(void *arg0, s16 arg1);
 void *TKeyBoardControl__sub_803DEB74(s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);

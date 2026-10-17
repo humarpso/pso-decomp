@@ -104,7 +104,7 @@ u8 *TObjNpcNFW01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void * TObjNpcNHW00__create(void *arg0);
 void *__dt__12TObjNpcNFW01Fv(void *arg0, s16 arg1);
 void *TObjControl__ct(void *, void *);
-void *TObjNpcNHW00__ct(void *, void *, void *);
+u8 *TObjNpcNHW00__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -143,7 +143,7 @@ void * TObjNpcNHW00__create(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x3B8);
     if (o2 != NULL) {
-        o2 = TObjNpcNHW00__ct(o2, o, arg0);
+        o2 = TObjNpcNHW00__ct((u8 *)o2, (s32)o, (s32)arg0);
     }
     return o2;
 }

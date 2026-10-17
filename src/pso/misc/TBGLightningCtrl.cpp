@@ -94,7 +94,7 @@ s32 rand();
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 s32 TLobby__sub_803DA16C(void*);
-void set_texture_num(s32);
+s32 set_texture_num(s32 i);
 void TParticleCtrl__sub_803E2A1C(void *, int);
 
 extern void *__vt__12TBGLightning[];

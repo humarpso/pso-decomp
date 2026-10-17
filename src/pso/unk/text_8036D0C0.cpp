@@ -19,7 +19,7 @@ struct Hold_8036D0C0 {
 extern "C" {
 s16 obj_getField1c(void *);
 void queue_destruction__7TObjectFv(void *);
-void *create_particle_emitter(void *, int);
+void *create_particle_emitter(void *pos, s32 id);
 void construct_world_actor_base(void *, s32);
 extern void *__vt__17TObjEneHoldEffect[];
 extern s32 lbl_805D44E8;

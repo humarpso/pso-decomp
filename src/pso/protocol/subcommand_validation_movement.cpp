@@ -2,7 +2,7 @@
 
 extern "C" {
 s32 is_in_view__17TObjEneHoldEffectFv(s32);
-u32 find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 s32 is_matching_id__6TLobbyFlUs(void *, u16);
 
 s32 validate_6x21_inter_level_warp(G_ClientIDHeader *packet) {

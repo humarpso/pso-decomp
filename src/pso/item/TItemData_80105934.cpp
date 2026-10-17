@@ -5,7 +5,7 @@
 
 extern "C" {
 
-int initialize_mag_item_data(void*);
+void initialize_mag_item_data(void *arg0);
 int get_slot_value__10TObjPlayerFPvi(void*, int);
 
 int TItemData::test_flag3() { return get_slot_value__10TObjPlayerFPvi((char*)this + 0xd04, 3); }

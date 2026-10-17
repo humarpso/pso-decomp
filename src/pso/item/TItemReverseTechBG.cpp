@@ -20,9 +20,9 @@ struct TItemReverseTechBG_80119658 {
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void *__ct__18TItemReverseTechBGFv(void *arg0, void *arg1, void *arg3);
-void draw_textured_quad_at_depth(void *, f32);
-void begin_screen_draw(int);
-void set_draw_texture_and_color(void *, void *);
+void draw_textured_quad_at_depth(f32 *q, f32 depth);
+void begin_screen_draw(s32 arg0);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 s32 __ct__7TObjectFP7TObject();
 void reset_transform_state__10TObjPlayerFv(void *);
 
@@ -30,8 +30,8 @@ void TItemReverseTechBG::render() {
     reset_transform_state__10TObjPlayerFv(this);
     TObjPlayer::notify_fish_if_valid((u32)(*(void **)((s8 *)this + 0x2C)));
     begin_screen_draw(1);
-    set_draw_texture_and_color(*(void **)((s8 *)this + 0x30), *(void **)((s8 *)this + 0x34));
-    draw_textured_quad_at_depth((void *)((char *)this + 56), *(f32 *)((s8 *)this + 0x58));
+    set_draw_texture_and_color((s32)(*(void **)((s8 *)this + 0x30)), (s32)(*(void **)((s8 *)this + 0x34)));
+    draw_textured_quad_at_depth((f32 *)((char *)this + 56), *(f32 *)((s8 *)this + 0x58));
     TWindowSubStatusDisp::get_player();
 }
 

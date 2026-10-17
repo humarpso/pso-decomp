@@ -4,10 +4,10 @@ extern "C" {
 
 void bswap_pair__14TPlyDispConfigFPv(void* p);
 void bswap__12TPlyCharDataFv(s32 arg0);
-s32 bswap__12player_statsFv(s32);
-s32 bswap__15disp_data_part2Fv(s32);
-s32 bswap__17TPlyInventoryItemFv(s32);
-int bswap__18TPlyDispConfigSmthFv(void*);
+void bswap__12player_statsFv(void *arg0);
+void bswap__15disp_data_part2Fv(s32 arg0);
+void bswap__17TPlyInventoryItemFv(s32 arg0);
+void bswap__18TPlyDispConfigSmthFv(s32 arg0);
 
 void bswap__12TPlyCharDataFv(s32 arg0) {
     s32 off;
@@ -17,10 +17,10 @@ void bswap__12TPlyCharDataFv(s32 arg0) {
         bswap__17TPlyInventoryItemFv((s32)((char *)arg0 + off + 4));
     }
     bswap__15disp_data_part2Fv(arg0 + 0x370);
-    bswap__12player_statsFv(arg0 + 0x34C);
+    bswap__12player_statsFv((void *)(arg0 + 0x34C));
     bswap_pair__14TPlyDispConfigFPv((void*)(arg0 + 0x3C0));
 }
 
-void bswap_pair__14TPlyDispConfigFPv(void* p) { bswap__18TPlyDispConfigSmthFv(p); bswap__18TPlyDispConfigSmthFv((char*)p + 0x24); }
+void bswap_pair__14TPlyDispConfigFPv(void* p) { bswap__18TPlyDispConfigSmthFv((s32)p); bswap__18TPlyDispConfigSmthFv((s32)((char*)p + 0x24)); }
 
 }

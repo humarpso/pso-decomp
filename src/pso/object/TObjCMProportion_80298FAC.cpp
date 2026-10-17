@@ -12,14 +12,14 @@ struct RecoveredGlobal_8029916C_lbl_805409C8 {
 };
 
 extern "C" {
-u8 *get_creation_pad();
+s32 get_creation_pad(void);
 extern RecoveredGlobal_8029914C_lbl_805409C8 creation_input_state;
 u8 TObjCMProportion__sub_8029914C(s32 arg0);
 u8 TObjCMProportion__sub_8029916C(s32 arg0);
 s32 is_flag_set__11TLoadingCurFv(void *, s32);
 extern s32 lbl_804DBDC0[];
 extern u8 controller_input_state[];
-f64 atan2_float(f32, f32);
+f32 atan2_float(f32 y, f32 x);
 f32 newton_sqrtf(f32);
 extern const f64 lbl_80465170;
 extern const f32 lbl_805DDC28;

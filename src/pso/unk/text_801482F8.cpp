@@ -298,16 +298,16 @@ struct Lim_8014854C { u8 pad0[8]; s32 lim; };
 extern "C" {
 s32 approach_angle_limited(s32, s32, s32);
 f32 calc_boss4_scale__10TObjPlayerFi();
-void move_with_wall_slide(void *);
-void enemy_set_heading_velocity(void *, s32, f32);
+void move_with_wall_slide(u8 *arg0);
+void enemy_set_heading_velocity(u8 *arg0, s32 arg1, f32 farg0);
 void select_enemy_destination(void *, void *, s32);
 void enemy_turn_toward_dest(void *, s32);
 f32 horizontal_distance_squared(void *, void *);
 void vec3_add_to(void *, void *);
 void rotate_vector_by_matrix(int, void *, void *);
 void rotate_matrix_y(int, int);
-void push_matrix_from(void *);
-void pop_matrix();
+s32 push_matrix_from(void *src);
+s32 pop_matrix(void);
 extern u8 identity_matrix[];
 extern const f32 lbl_805DB1C4;
 extern const f32 lbl_805DB1C8;
@@ -337,7 +337,7 @@ extern const f32 lbl_805DB1C0;
 s32 sub_8010319C__13TUnk_804AF8A0Fv();
 s32 debug_printf_at(s32, const char *, ...);
 extern char lbl_8043F544[];
-s32 play_effect_default__10TObjPlayerFii(u32, s32);
+void play_effect_default__10TObjPlayerFii(s32 arg0, s32 arg1);
 
 void TObjNpcFemaleBase::handle_message_event(u16 arg1) {
     u32 temp_r3;

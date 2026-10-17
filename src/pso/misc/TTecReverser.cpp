@@ -51,7 +51,7 @@ struct Rev_8023A364 {
 struct List_8023A244 { u32 objs[16]; s32 vals[16]; s32 count; };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 u32 find_entity_by_id(int);
 s32 is_active__12TTecReverserFv();
 void run_task__12TTecReverserFv(u8 *arg0);
@@ -76,10 +76,10 @@ extern char lbl_8044DBC8[];
 extern char lbl_8044DBD4[];
 extern char lbl_8044DBE0[];
 extern char lbl_8044DBEC[];
-s32 get_type__10TObjPlayerFPv(int);
+s32 get_type__10TObjPlayerFPv(void *p);
 void *__dt__13TUnk_804CCC28Fv(void *arg0, s16 arg1);
 void *__dt__12TTecReverserFv(void *arg0, s16 arg1);
-s32 spawn_particle_effect(void *, s32);
+void *spawn_particle_effect(void *pos, s32 id);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -131,18 +131,18 @@ void run_task__12TTecReverserFv(u8 *arg0) {
     u32 temp_r31;
     *(u32 *)((s8 *)arg0 + 0x1C) = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0xB4)));
     if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) == 0U) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0xEC) == 0) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     temp_r31 = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0xF0)));
     if ((is_active__12TTecReverserFv() == 0) && (TObjPlayer::is_valid_and_active((int) (temp_r31)) != 0)) {
         ((VObj_18 *)(arg0))->m4(temp_r31);
     }
-    queue_destruction__7TObjectFv((void *) (arg0));
+    queue_destruction__7TObjectFv((arg0));
 }
 
 void TTecReverser::create(void *arg0, void *arg1, void *arg2, void *arg3) {
@@ -183,11 +183,11 @@ u8 *TTecReverser__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
 void TUnk_804CCC68::dispatch_technique_contact() {
     u8 *var_r31;
     if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x128) == 0U) {
-        queue_destruction__7TObjectFv((void *) (((u8 *)this)));
+        queue_destruction__7TObjectFv((((u8 *)this)));
         return;
     }
     if ((u16) obj_getField1c((int) (*(s32 *)((s8 *)((u8 *)this) + 0x1C))) < 4U) {
-        if (get_type__10TObjPlayerFPv((int) (*(s32 *)((s8 *)((u8 *)this) + 0x1C) + 0x828)) != 0) {
+        if (get_type__10TObjPlayerFPv((void *)(*(s32 *)((s8 *)((u8 *)this) + 0x1C) + 0x828)) != 0) {
             var_r31 = query_technique_player_contacts(*(s32 *)((s8 *)((u8 *)this) + 0x1C));
         } else {
             var_r31 = query_technique_enemy_contacts(*(s32 *)((s8 *)((u8 *)this) + 0x1C));
@@ -197,7 +197,7 @@ void TUnk_804CCC68::dispatch_technique_contact() {
     }
     if (var_r31 == NULL) {
         this->vfunc_6();
-        queue_destruction__7TObjectFv((void *) (((u8 *)this)));
+        queue_destruction__7TObjectFv((((u8 *)this)));
         return;
     }
     if (TObjPlayer::is_valid_and_active((int) (*(u32 *)((s8 *)var_r31 + 0))) != 0) {
@@ -213,11 +213,11 @@ void TUnk_804CCC68::dispatch_all_technique_contacts() {
     List_8023A244 *list;
     s32 i;
     if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x128) == 0U) {
-        queue_destruction__7TObjectFv((void *) (((u8 *)this)));
+        queue_destruction__7TObjectFv((((u8 *)this)));
         return;
     }
     if ((u16) obj_getField1c((int) (*(s32 *)((s8 *)((u8 *)this) + 0x1C))) < 4U) {
-        if (get_type__10TObjPlayerFPv((int) (*(s32 *)((s8 *)((u8 *)this) + 0x1C) + 0x828)) != 0) {
+        if (get_type__10TObjPlayerFPv((void *)(*(s32 *)((s8 *)((u8 *)this) + 0x1C) + 0x828)) != 0) {
             list = (List_8023A244 *) query_technique_player_contacts(*(s32 *)((s8 *)((u8 *)this) + 0x1C));
         } else {
             list = (List_8023A244 *) query_technique_enemy_contacts(*(s32 *)((s8 *)((u8 *)this) + 0x1C));
@@ -227,7 +227,7 @@ void TUnk_804CCC68::dispatch_all_technique_contacts() {
     }
     if (list == NULL) {
         this->vfunc_6();
-        queue_destruction__7TObjectFv((void *) (((u8 *)this)));
+        queue_destruction__7TObjectFv((((u8 *)this)));
         return;
     }
     for (i = 0; i < list->count; i++) {

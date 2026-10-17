@@ -65,7 +65,7 @@ extern void *TWindowCtrl__active_window;
 void TLobby__sub_8024AAA0(s32 arg0, s32 arg1);
 u32 get_window__11TWindowCtrlFl(void);
 s32 update_field28__15TWindowCtrlMainFv(u32 a0 = 0, s32 a1 = 0);
-s32 TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 s32 TWindowCtrl__sub_8024B098(void *, void *);
 extern RecoveredGlobal_8024A228_lbl_804CEA88 window_ctrl_main_callback_desc;
 void TWindowCtrl__sub_8024A228(s32 arg0);
@@ -91,7 +91,7 @@ extern const f32 lbl_805DCBDC;
 void get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv(Ctrl_8024A928 *arg0, s32 arg1, f32 *arg2, s32 *arg3);
 s32 TWindowCtrl__sub_8024C5C4(u32);
 u32 create_area_window();
-u32 create_window_area();
+s32 create_window_area(void);
 
 typedef char RecoveredGlobal_8024A1CC_lbl_804CEA94_size[sizeof(RecoveredGlobal_8024A1CC_lbl_804CEA94) == 0xC ? 1 : -1];
 
@@ -181,7 +181,7 @@ void TWindowCtrl::open_status_112() {
 
 void TWindowCtrl::close_active_window() {
     if (((void *) TWindowCtrl__active_window != NULL) && ((u32) *(u32 *)((s8 *)TWindowCtrl__active_window + 0x34) != 0U)) {
-        TWindow__close(*(void **)((s8 *)TWindowCtrl__active_window + 0x34));
+        TWindow__close((u8 *)(*(void **)((s8 *)TWindowCtrl__active_window + 0x34)));
         *(u32 *)((s8 *)TWindowCtrl__active_window + 0x34) = 0U;
     }
 }
@@ -211,7 +211,7 @@ void TWindowCtrl::set_timer_window_time() {
 
 void TWindowCtrl::close_timer_window() {
     if (((void *) TWindowCtrl__active_window != NULL) && ((u32) *(u32 *)((s8 *)TWindowCtrl__active_window + 0x30) != 0U)) {
-        TWindow__close(*(void **)((s8 *)TWindowCtrl__active_window + 0x30));
+        TWindow__close((u8 *)(*(void **)((s8 *)TWindowCtrl__active_window + 0x30)));
         *(u32 *)((s8 *)TWindowCtrl__active_window + 0x30) = 0U;
     }
 }
@@ -357,7 +357,7 @@ void *acquire_balloon_slot__11TWindowCtrlFPviiPv(Ctrl_8024A928 *self, s32 player
             return 0;
         }
         if (self->slots[i] != 0) {
-            TWindow__close(self->slots[i]);
+            TWindow__close((u8 *)self->slots[i]);
         }
         b = __nw__7TObjectFUl(0x98);
         if (b != 0) {

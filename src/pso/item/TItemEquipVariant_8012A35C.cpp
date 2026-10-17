@@ -4,7 +4,7 @@
 extern "C" {
 
 void *__dt__13TUnk_804A4848Fv(void *arg0, s16 arg1);
-void __dt__13TUnk_804A4948Fv(void *, int);
+void *__dt__13TUnk_804A4948Fv(void *arg0, s16 arg1);
 
 extern s32 s_rank_windmill_weapon_vtable[];
 

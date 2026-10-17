@@ -9,10 +9,10 @@ s32 TObjPlayer__sub_801BE2C8(void* p);
 int TObjPlayer__sub_801BE2D0(void* p);
 int TObjPlayer__vt77(void);
 s32 destroy_char_data__10TObjPlayerFis(s32 arg0, s16 arg1);
-s32 is_quest_active();
+int is_quest_active(void);
 int subtract_photon_blast_charge(void*);
 int add_photon_blast_chain_charge(void*);
-s32 __dt__12TPlyCharDataFv(s32, s32);
+s32 __dt__12TPlyCharDataFv(s32 arg0, s16 arg1);
 int set_flags__10TObjPlayerFUl(void*, int);
 
 s32 destroy_char_data__10TObjPlayerFis(s32 arg0, s16 arg1) {

@@ -88,14 +88,14 @@ struct Door_80160000 {
 extern "C" {
 u8 is_current_floor_switch_set(int);
 u8 *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
-s32 *mem_alloc(s32);
+void *mem_alloc(u32 size);
 s32 load_gvm_texture_file(void *);
 extern RecoveredGlobal_8016BC84_lbl_80441ACC lbl_80440C74;
 extern RecoveredGlobal_8016BC84_lbl_804B2B30 TODoorAncient08__resource_descriptor;
 extern u32 door_ancient08_bml_resource;
 extern void *TODoorAncient08__switch_texture_lists;
 s32 init_collision_body_parts(void *, void *, int);
-s32 init_door_base(void *);
+void *init_door_base(void *a0);
 extern RecoveredGlobal_8016069C_lbl_804B10E8 TODoorAncient08__collision_body;
 extern s32 __vt__15TODoorAncient08[];
 extern s32 lbl_805D2F50;
@@ -103,15 +103,15 @@ extern const f32 lbl_805DB470;
 extern const f32 lbl_805DB474;
 u8 *TODoorAncient08__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 play_sound_effect(s32, void *, s32, s32);
-s32 is_any_player_within_radius_xz(void *, f32);
+s32 is_any_player_within_radius_xz(u8 *self, f32 radius);
 extern const f32 lbl_805DB478;
-s32 set_indexed_flags(void *, s32, s32);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
 extern const f32 lbl_805DB47C;
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-int draw_ginja_model(void *);
+void draw_ginja_model(s32 model);
 struct TODoorBase_8015FCBC { char pad[0x14]; void **vtbl; };
 struct TODoorVObj_8015FCBC : TODoorBase_8015FCBC {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -125,7 +125,7 @@ s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 mem_free(void*);
+void mem_free(void *p);
 s32 get_main_phase();
 s32 is_split_screen();
 
@@ -265,8 +265,8 @@ void TODoorAncient08::draw_switch_lights() {
     post_translate_matrix(self->pos);
     post_translate_matrix(root->pos);
     rotate_matrix_y((s32)(0), (s32)(self->x60));
-    draw_ginja_model(root->model);
-    draw_ginja_model(root->x2c->model);
+    draw_ginja_model((s32)root->model);
+    draw_ginja_model((s32)root->x2c->model);
     TParticleCtrl::begin_effect_render();
     for (i = 0; i < 4; i++) {
         if (on[i] != 0) {
@@ -277,11 +277,11 @@ void TODoorAncient08::draw_switch_lights() {
         push_matrix();
         pp = pairs[i];
         post_translate_matrix(pp[0]->pos);
-        draw_ginja_model(pp[0]->model);
+        draw_ginja_model((s32)pp[0]->model);
         pop_matrix();
         push_matrix();
         post_translate_matrix(pp[1]->pos);
-        draw_ginja_model(pp[1]->model);
+        draw_ginja_model((s32)pp[1]->model);
         pop_matrix();
     }
     TParticleCtrl::end_effect_render();
@@ -401,7 +401,7 @@ void TODoorAncient08::free_objects() {
     if ((void *) TODoorAncient08__switch_texture_lists != NULL) {
         TObjPlayer::free_if_valid(*(s32 *)((s8 *)TODoorAncient08__switch_texture_lists + 4));
         if ((void *) TODoorAncient08__switch_texture_lists != NULL) {
-            mem_free((void*)TODoorAncient08__switch_texture_lists);
+            mem_free(TODoorAncient08__switch_texture_lists);
             TODoorAncient08__switch_texture_lists = NULL;
         }
     }
@@ -447,7 +447,7 @@ typedef char RecoveredGlobal_8016069C_lbl_804B10E8_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8016069C___vt__15TODoorAncient08_size[sizeof(RecoveredGlobal_8016069C___vt__15TODoorAncient08) == 0x54 ? 1 : -1];
 u8 *TODoorAncient08__ct(u8 *arg0, s32 arg1, s32 arg2) {
     s32 temp_r0;
-    init_door_base((void *) (arg0));
+    init_door_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016069C___vt__15TODoorAncient08 *)&__vt__15TODoorAncient08).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2F50;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);

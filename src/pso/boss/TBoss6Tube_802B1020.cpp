@@ -20,15 +20,15 @@ extern f32 TBoss6Tube__scroll_delta;
 void get_bml_model(s32, s32);
 s32 query_teammate_state__9TObjEneDDFv(void);
 void func_80141618__Fv(void);
-void translate_matrix(s32, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 void push_matrix(void);
-void pop_matrix(void);
+s32 pop_matrix(void);
 void draw_ginja_object(void);
 extern s32 lbl_80470A54[];
 extern s32 boss6_tube_bml_resource;
 extern s32 boss6_tube_texture_list;
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 play_persistent_sound(s32, s32, s32, s32, s32);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 
 void TBoss6Tube::render() {
     TBoss6Tube_802B1020 *o = (TBoss6Tube_802B1020 *)this;

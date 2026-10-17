@@ -94,7 +94,7 @@ struct VObj_802898E8 : Base_802898E8 {
 void *__dt__20TODoorFourLightSpaceFv(void *arg0, s16 arg1);
 void fn_802898E8(void);
 void fn_802898EC(void);
-s32 draw_ginja_object(s32);
+void draw_ginja_object(void *child);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
@@ -287,7 +287,7 @@ void TODoorFourLightSpace::render() {
             set_global_param__8TObjFishFl();
             post_translate_matrix((u8 *)&this->position);
             rotate_matrix_y(0, this->rotation_y);
-            draw_ginja_object(*(s32 *)&this->m_d4);
+            draw_ginja_object((void *)(*(s32 *)&this->m_d4));
             pop_matrix();
             break;
         }
@@ -521,7 +521,7 @@ void TODoorFourLightRuins::render() {
             set_global_param__8TObjFishFl();
             post_translate_matrix((u8 *)&this->position);
             rotate_matrix_y(0, this->rotation_y);
-            draw_ginja_object(*(s32 *)&this->m_d4);
+            draw_ginja_object((void *)(*(s32 *)&this->m_d4));
             pop_matrix();
             break;
         }

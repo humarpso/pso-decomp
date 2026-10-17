@@ -68,7 +68,7 @@ extern RecoveredGlobal_8030CEEC_lbl_80475858 lbl_80475858;
 extern RecoveredGlobal_8030CEEC_lbl_80475878 lbl_80475878;
 extern const f32 lbl_805DF218;
 void TAdChrSelASlotGC__sub_8030CEEC(u8 *arg0);
-u8 * TAdSinglePlyChrSelectGC__sub_801FE4BC(u32);
+s32 *TAdSinglePlyChrSelectGC__sub_801FE4BC(u32 i);
 bool TAdChrSelASlotGC__sub_8030C3C0(s32 arg0, u32 arg1);
 s32 is_slot_value_ready__19TAdPlyChrSelPlateGCFl(void *, int);
 extern G_8030C45C lbl_80542E60;
@@ -90,8 +90,8 @@ s32 TAdSinglePlyChrSelectGC__sub_801FDAAC();
 s32 write_encrypted_save__23TAdSinglePlyChrSelectGCFv();
 s32 TAdSubPlyItemGC__sub_802D6D88(s32);
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 TWindow__close(void *);
-s32 queue_destruction__7TObjectFv(void *);
+void TWindow__close(u8 *arg0);
+void queue_destruction__7TObjectFv(void *arg0);
 
 extern f32 lbl_805DF210;
 
@@ -273,7 +273,7 @@ void TAdChrSelASlotGC__sub_8030CEEC(u8 *arg0) {
 void TAdChrSelASlotGC::update_window_78() {
     if (((TAdChrSelASlotGC *)(*(s32 *)&this->m_30))->get_slot_index() > 0xB) {
         if ((u32) this->m_78 != 0U) {
-            TWindow__close(*(void * *)&this->m_78);
+            TWindow__close((u8 *)(*(void * *)&this->m_78));
             this->m_78 = 0U;
         }
         *(s32 *)&this->m_24 = 0xC;
@@ -287,7 +287,7 @@ void TAdChrSelASlotGC::update_window_78() {
 void TAdChrSelASlotGC::update_window_7c() {
     if (((TAdChrSelASlotGC *)(*(s32 *)&this->m_30))->get_slot_index() > 0xA) {
         if ((u32) *(u32 *)&this->unk_7C != 0U) {
-            TWindow__close(*(void * *)&this->unk_7C);
+            TWindow__close((u8 *)(*(void * *)&this->unk_7C));
             *(u32 *)&this->unk_7C = 0U;
         }
         *(s32 *)&this->m_24 = 0xB;
@@ -301,7 +301,7 @@ void TAdChrSelASlotGC::update_window_7c() {
 void TAdChrSelASlotGC::update_window_74() {
     if (((TAdChrSelASlotGC *)(*(s32 *)&this->m_30))->get_slot_index() > 8) {
         if ((u32) *(u32 *)&this->unk_74 != 0U) {
-            TWindow__close(*(void * *)&this->unk_74);
+            TWindow__close((u8 *)(*(void * *)&this->unk_74));
             *(u32 *)&this->unk_74 = 0U;
         }
         *(s32 *)&this->m_24 = 0xA;
@@ -315,7 +315,7 @@ void TAdChrSelASlotGC::update_window_74() {
 void TAdChrSelASlotGC::update_window_70() {
     if (((TAdChrSelASlotGC *)(*(s32 *)&this->m_30))->get_slot_index() > 7) {
         if ((u32) this->m_70 != 0U) {
-            TWindow__close(*(void * *)&this->m_70);
+            TWindow__close((u8 *)(*(void * *)&this->m_70));
             this->m_70 = 0U;
         }
         *(s32 *)&this->m_24 = 9;
@@ -329,7 +329,7 @@ void TAdChrSelASlotGC::update_window_70() {
 void TAdChrSelASlotGC::update_window_6c() {
     if (((TAdChrSelASlotGC *)(*(s32 *)&this->m_30))->get_slot_index() > 6) {
         if ((u32) *(u32 *)&this->unk_6C != 0U) {
-            TWindow__close(*(void * *)&this->unk_6C);
+            TWindow__close((u8 *)(*(void * *)&this->unk_6C));
             *(u32 *)&this->unk_6C = 0U;
         }
         *(s32 *)&this->m_24 = 8;
@@ -343,7 +343,7 @@ void TAdChrSelASlotGC::update_window_6c() {
 void TAdChrSelASlotGC::update_slot5() {
     if (((TAdChrSelASlotGC *)(*(s32 *)&this->m_30))->get_slot_index() > 5) {
         if ((u32) this->m_68 != 0U) {
-            TWindow__close(*(void * *)&this->m_68);
+            TWindow__close((u8 *)(*(void * *)&this->m_68));
             this->m_68 = 0U;
         }
         *(s32 *)&this->m_24 = 7;
@@ -357,7 +357,7 @@ void TAdChrSelASlotGC::update_slot5() {
 void TAdChrSelASlotGC::update_slot4() {
     if (((TAdChrSelASlotGC *)(*(s32 *)&this->m_30))->get_slot_index() > 4) {
         if ((u32) *(u32 *)&this->unk_64 != 0U) {
-            TWindow__close(*(void * *)&this->unk_64);
+            TWindow__close((u8 *)(*(void * *)&this->unk_64));
             *(u32 *)&this->unk_64 = 0U;
         }
         *(s32 *)&this->m_24 = 6;
@@ -371,7 +371,7 @@ void TAdChrSelASlotGC::update_slot4() {
 void TAdChrSelASlotGC::update_slot3() {
     if (((TAdChrSelASlotGC *)(*(s32 *)&this->m_30))->get_slot_index() > 3) {
         if ((u32) this->m_60 != 0U) {
-            TWindow__close(*(void * *)&this->m_60);
+            TWindow__close((u8 *)(*(void * *)&this->m_60));
             this->m_60 = 0U;
         }
         *(s32 *)&this->m_24 = 5;
@@ -385,7 +385,7 @@ void TAdChrSelASlotGC::update_slot3() {
 void TAdChrSelASlotGC::update_slot2() {
     if (((TAdChrSelASlotGC *)(*(s32 *)&this->m_30))->get_slot_index() > 2) {
         if ((u32) *(u32 *)&this->unk_5C != 0U) {
-            TWindow__close(*(void * *)&this->unk_5C);
+            TWindow__close((u8 *)(*(void * *)&this->unk_5C));
             *(u32 *)&this->unk_5C = 0U;
         }
         *(s32 *)&this->m_24 = 4;
@@ -399,7 +399,7 @@ void TAdChrSelASlotGC::update_slot2() {
 void TAdChrSelASlotGC::update_slot1() {
     if (((TAdChrSelASlotGC *)(*(s32 *)&this->m_30))->get_slot_index() > 1) {
         if ((u32) this->m_58 != 0U) {
-            TWindow__close(*(void * *)&this->m_58);
+            TWindow__close((u8 *)(*(void * *)&this->m_58));
             this->m_58 = 0U;
         }
         *(s32 *)&this->m_24 = 3;
@@ -414,43 +414,43 @@ void TAdChrSelASlotGC__sub_8030D5DC(void *arg0) {
     s32 temp_r0;
 
     if ((u32) *(u32 *)((s8 *)arg0 + 0x58) != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0x58));
+        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x58)));
         *(u32 *)((s8 *)arg0 + 0x58) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 0x5C) != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0x5C));
+        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x5C)));
         *(u32 *)((s8 *)arg0 + 0x5C) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 0x60) != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0x60));
+        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x60)));
         *(u32 *)((s8 *)arg0 + 0x60) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0x64));
+        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x64)));
         *(u32 *)((s8 *)arg0 + 0x64) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 0x68) != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0x68));
+        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x68)));
         *(u32 *)((s8 *)arg0 + 0x68) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 0x6C) != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0x6C));
+        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x6C)));
         *(u32 *)((s8 *)arg0 + 0x6C) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 0x70) != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0x70));
+        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x70)));
         *(u32 *)((s8 *)arg0 + 0x70) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 0x74) != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0x74));
+        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x74)));
         *(u32 *)((s8 *)arg0 + 0x74) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 0x78) != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0x78));
+        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x78)));
         *(u32 *)((s8 *)arg0 + 0x78) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 0x7C) != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0x7C));
+        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x7C)));
         *(u32 *)((s8 *)arg0 + 0x7C) = 0U;
     }
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x20);
@@ -485,7 +485,7 @@ void TAdChrSelASlotGC__sub_8030D5DC(void *arg0) {
     TAdChrSelSlotGC__sub_802C7498(*(s32 *)((s8 *)arg0 + 0x2C), 2);
     if (((TAdChrSelASlotGC *)(*(s32 *)((s8 *)arg0 + 0x30)))->get_slot_index() > 0) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0x54) != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x54));
+            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x54)));
             *(u32 *)((s8 *)arg0 + 0x54) = 0U;
         }
         *(s32 *)((s8 *)arg0 + 0x24) = 2;
@@ -517,47 +517,47 @@ void TAdChrSelASlotGC::close_windows() {
         this->m_50 = 0U;
     }
     if ((u32) *(u32 *)&this->unk_54 != 0U) {
-        TWindow__close(*(void * *)&this->unk_54);
+        TWindow__close((u8 *)(*(void * *)&this->unk_54));
         *(u32 *)&this->unk_54 = 0U;
     }
     if ((u32) this->m_58 != 0U) {
-        TWindow__close(*(void * *)&this->m_58);
+        TWindow__close((u8 *)(*(void * *)&this->m_58));
         this->m_58 = 0U;
     }
     if ((u32) *(u32 *)&this->unk_5C != 0U) {
-        TWindow__close(*(void * *)&this->unk_5C);
+        TWindow__close((u8 *)(*(void * *)&this->unk_5C));
         *(u32 *)&this->unk_5C = 0U;
     }
     if ((u32) this->m_60 != 0U) {
-        TWindow__close(*(void * *)&this->m_60);
+        TWindow__close((u8 *)(*(void * *)&this->m_60));
         this->m_60 = 0U;
     }
     if ((u32) *(u32 *)&this->unk_64 != 0U) {
-        TWindow__close(*(void * *)&this->unk_64);
+        TWindow__close((u8 *)(*(void * *)&this->unk_64));
         *(u32 *)&this->unk_64 = 0U;
     }
     if ((u32) this->m_68 != 0U) {
-        TWindow__close(*(void * *)&this->m_68);
+        TWindow__close((u8 *)(*(void * *)&this->m_68));
         this->m_68 = 0U;
     }
     if ((u32) *(u32 *)&this->unk_6C != 0U) {
-        TWindow__close(*(void * *)&this->unk_6C);
+        TWindow__close((u8 *)(*(void * *)&this->unk_6C));
         *(u32 *)&this->unk_6C = 0U;
     }
     if ((u32) this->m_70 != 0U) {
-        TWindow__close(*(void * *)&this->m_70);
+        TWindow__close((u8 *)(*(void * *)&this->m_70));
         this->m_70 = 0U;
     }
     if ((u32) *(u32 *)&this->unk_74 != 0U) {
-        TWindow__close(*(void * *)&this->unk_74);
+        TWindow__close((u8 *)(*(void * *)&this->unk_74));
         *(u32 *)&this->unk_74 = 0U;
     }
     if ((u32) this->m_78 != 0U) {
-        TWindow__close(*(void * *)&this->m_78);
+        TWindow__close((u8 *)(*(void * *)&this->m_78));
         this->m_78 = 0U;
     }
     if ((u32) *(u32 *)&this->unk_7C != 0U) {
-        TWindow__close(*(void * *)&this->unk_7C);
+        TWindow__close((u8 *)(*(void * *)&this->unk_7C));
         *(u32 *)&this->unk_7C = 0U;
     }
     temp_r0 = *(s32 *)&this->_pad20;

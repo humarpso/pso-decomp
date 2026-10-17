@@ -48,12 +48,12 @@ s32 TLobby__sub_803C48C8(u8 *arg0, s32 arg1, u16 *arg2);
 void ARAlloc(void);
 s32 decode_adx_stereo_downmix();
 s32 decode_adx_stereo();
-s32 update_active_stream_reads();
-s32 TLobby__sub_803CC884();
-s32 TLobby__sub_803CEF60();
+void update_active_stream_reads(void);
+void TLobby__sub_803CC884(void);
+void TLobby__sub_803CEF60(void);
 void sj_memory_buffer_shutdown(void);
-s32 sj_ring_buffer_shutdown();
-s32 TLobby__sub_803D3194();
+void sj_ring_buffer_shutdown(void);
+void TLobby__sub_803D3194(void);
 s32 set_callback_params__6TLobbyFll();
 
 extern s32 TLobby__init_ref_count;

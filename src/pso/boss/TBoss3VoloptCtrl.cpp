@@ -8,8 +8,8 @@
 struct RecoveredGlobal_80040D70_lbl_8043636C { s32 value; u8 remaining[0x9]; };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
-u8 *get_player_by_client_id(s32);
+void queue_destruction__7TObjectFv(void *arg0);
+void *get_player_by_client_id(s32 i);
 s32 init_music_sequencer(int);
 extern s32 local_client_id;
 extern const f32 lbl_805D86F8;
@@ -21,13 +21,13 @@ s32 activate_camera_mode(s32);
 s32 get_story_flag(s32);
 s32 unhide_room_set_objects(s32, s32, s32);
 s32 TBoss3Volopt__sub_8003EA2C(int);
-s32 TObjPlayer__sub_801BA42C();
-s32 play_area_music(void *);
+void TObjPlayer__sub_801BA42C(void);
+void play_area_music(char *name);
 u8 *__nw__7TObjectFUl(s32);
 extern RecoveredGlobal_80040D70_lbl_8043636C lbl_8043636C;
 extern s32 volopt_resources_loaded;
 void *TBoss3VoloptCtrl__ct(void *arg0);
-s32 TLobby__sub_8020C07C(s32, s32, s32, s32, s32);
+void TLobby__sub_8020C07C(s32 pl, s16 b, s16 a, s32 mask, s32 set);
 void __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -45,7 +45,7 @@ void TBoss3VoloptCtrl__sub_80040B80(s32 arg0) {
     player = (u8 *)(get_player_by_client_id(local_client_id));
     if ((player != NULL) && (*(f32 *)((s8 *)player + 0x40) >= lbl_805D86F8)) {
         init_music_sequencer((int) (3));
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((void *)(arg0));
     }
 }
 void *TUnk_80483B88::deleting_destructor(s16 arg1) {
@@ -104,7 +104,7 @@ void TBoss3VoloptCtrl::run_task() {
                 TBoss3Volopt__sub_8003EA2C((int) (1));
                 activate_camera_mode(9);
                 TObjPlayer::freeze_all_players();
-                play_area_music((void *) (&lbl_8043636C.value));
+                play_area_music((char *)(&lbl_8043636C.value));
                 if (get_main_phase() != 0xF) {
                     if (TRaderMapCore::is_not_split_screen() == 1) {
                         unhide_room_set_objects((s32)(((s32)get_current_floor())), (s32)(0), (s32)(1));
@@ -131,10 +131,10 @@ void TBoss3VoloptCtrl::run_task() {
     case 2:
         restore_player_cameras();
         TObjPlayer__sub_801BA42C();
-        queue_destruction__7TObjectFv((void *) (this));
+        queue_destruction__7TObjectFv((this));
         break;
     case -1:
-        queue_destruction__7TObjectFv((void *) (this));
+        queue_destruction__7TObjectFv((this));
         break;
     }
 }

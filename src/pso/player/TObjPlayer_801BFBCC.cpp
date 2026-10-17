@@ -14,7 +14,7 @@ void TObjPlayer__sub_801BFC90(O_801BFC90 *p);
 extern const f32 lbl_805DC2DC;
 int init_player_scale_state(void *arg0);
 void TObjPlayer__sub_801BFD3C(void* p);
-int zero_vec3(void*);
+void zero_vec3(void *a0);
 int reset_stat_scale_and_ring__10TObjPlayerFi(void*);
 
 extern const f32 TObjPlayer__data_805DC278;

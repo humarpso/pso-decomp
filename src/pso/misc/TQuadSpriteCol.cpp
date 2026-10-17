@@ -49,17 +49,17 @@ extern "C" {
 void fn_80141EB4(void);
 void setSpriteInverseColorBlend(void);
 s32 matrix_mult_vec(int, void *, void *);
-s32 begin_screen_draw(int);
+void begin_screen_draw(s32 arg0);
 s32 draw_textured_quad_at_depth(void *, f32);
-s32 set_draw_texture_and_color(int, int);
-s32 set_constant_material_color(int);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
+void set_constant_material_color(u32 x);
 extern Cam_801E4FF0 lbl_8058D4F8;
 extern const f32 lbl_805DC450;
 extern const f32 lbl_805DC454;
 void *TQuadSpriteCol__ct(void *arg0);
 void *__dt__14TQuadSpriteColFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void __dt__13TUnk_804C57F0Fv(void *, int);
+void *__dt__13TUnk_804C57F0Fv(void *arg0, s16 arg1);
 void quad_sprite_base_ct(void *);
 
 void TUnk_804C57F0::render() {  }

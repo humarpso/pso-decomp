@@ -24,7 +24,7 @@ struct Obj_800D7824 : B_800D7824 {
 };
 
 extern "C" {
-s32 TAdDrawLineTask__sub_80019A8C(void *, void *);
+void TAdDrawLineTask__sub_80019A8C(void *p, void *q);
 
 void TUnk_80494968::vfunc_6(void *p0_arg, void *p1_arg) {
     Obj_800D7824 *self = (Obj_800D7824 *)this;

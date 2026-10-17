@@ -22,7 +22,7 @@ struct RecoveredGlobal_80195720___vt__13TObjPlayerSet {
 };
 
 extern "C" {
-u8 * __ct__12TQuestThreadFv(void *, s32, s32);
+u8 *__ct__12TQuestThreadFv(u8 *arg0, s32 arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);
 extern s32 tl_00;
 u8 *TObjQuestCol2__vt14(u8 *arg0);

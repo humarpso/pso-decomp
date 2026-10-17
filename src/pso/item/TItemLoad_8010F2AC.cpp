@@ -4,8 +4,8 @@
 
 extern "C" {
 
-s32 TItemLoad__sub_80110740(u32);
-u32 TItemLoad__sub_80110748(u32);
+s32 TItemLoad__sub_80110740(void *p);
+s32 TItemLoad__sub_80110748(void *p);
 s32 TItemLoad__sub_80110750(u32, s32);
 
 extern u32 item_texture_archive_loader;
@@ -37,8 +37,8 @@ void TUnk_8049F3F4::run_task() {
                 *(s32 *)(arg0 + var_r31 + 0x2C) = temp_r3;
                 var_r31 += 4;
             } while (i != 4);
-            this->m_3c = TItemLoad__sub_80110748(item_model_chunk_loader);
-            *(s32 *)&this->unk_40 = TItemLoad__sub_80110740(item_model_chunk_loader);
+            this->m_3c = TItemLoad__sub_80110748((void *)item_model_chunk_loader);
+            *(s32 *)&this->unk_40 = TItemLoad__sub_80110740((void *)item_model_chunk_loader);
             if ((u32) this->m_3c != 0U) {
                 this->m_20 = 3;
                 ((TItemLoad *)item_texture_archive_loader)->begin_load_if_pending(this->m_3c, this->m_28);

@@ -65,20 +65,20 @@ struct Grass_800B8EFC {
 };
 
 extern "C" {
-s32 translate_matrix_vec3(int, void *);
+void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 s32 rotate_matrix_y(int, int);
-s32 push_matrix_from(int);
-s32 pop_matrices(int);
-s32 draw_model_motion(int, int, f32);
-s32 queue_destruction__7TObjectFv(void *);
+s32 push_matrix_from(void *src);
+s32 pop_matrices(s32 arg0);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
+void queue_destruction__7TObjectFv(void *arg0);
 u8 *csnVectorUnder(void *, void *, int);
 s32 vec3_add_to(void *, void *);
 extern s32 actor_frame_tick;
 extern const f32 lbl_805D9E60;
 extern const f32 TObjCGrass__data_805D9E64;
-s32 set_animation__10TObjPlayerFPvs(void *, int);
+void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 s32 TObjMotion__ct(void *, s32);
-s32 mem_alloc(int);
+void *mem_alloc(u32 size);
 s32 rand(void);
 s32 rotate_vector_by_matrix(int, void *, void *);
 extern s32 cgrass_action_desc[];
@@ -96,7 +96,7 @@ void *__dt__10TObjCGrassFv(void *arg0, s16 arg1);
 void* fn_800B8B00(void* p);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
-void __dt__10TObjMotionFv(void *, int);
+void *__dt__10TObjMotionFv(void *arg0, s16 arg1);
 void mem_free(void *);
 
 struct Stack_800B8DC4 {
@@ -136,9 +136,9 @@ void TObjCGrass::render() {
     for (i = 0; i < arg0->count; i++) {
         if (!(arg0->recs[i].flags & 1)) {
             push_matrix_from(0);
-            translate_matrix_vec3(0, &arg0->recs[i]);
+            translate_matrix_vec3((u8 *)(0), (u8 *)&arg0->recs[i]);
             rotate_matrix_y(0, arg0->recs[i].f18);
-            draw_model_motion(arg0->f34, arg0->ff8, arg0->fc0);
+            draw_model_motion((void *)arg0->f34, (void *)arg0->ff8, arg0->fc0);
             TObjPlayer::reset_transform_state();
             pop_matrices(1);
         }
@@ -272,7 +272,7 @@ u8 *TObjCGrass__ct(Grass_800B8EFC *self, u8 *arg1, s32 arg2, s32 arg3) {
         v.z = lbl_805D9E70 * (f32)rand() + lbl_805D9E6C;
         a = (s32)(lbl_805D9E74 * (lbl_805D9E78 * (lbl_805D9E70 * (f32)rand())));
         self->recs[i].f18 = a;
-        ((s32 (*)(void *))push_matrix_from)(identity_matrix);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0, a);
         rotate_vector_by_matrix(0, &v, &self->recs[i].v2);
         pop_matrices(1);

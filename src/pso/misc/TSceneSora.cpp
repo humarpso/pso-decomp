@@ -49,7 +49,7 @@ void TSceneSora__sub_80207430(void);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_802072E0___vt__10TSceneSora __vt__10TSceneSora;
 u8 *__dt__10TSceneSoraFv(u8 *arg0, s16 arg1);
-void TLobby__sub_80141038(void *, s32, s32);
+void TLobby__sub_80141038(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_floor_map_terrain(s32);
 void randomize_adventure_maps(void);
 extern RecoveredGlobal_802075F8_lbl_80515BA0 lbl_80515BA0;
@@ -64,7 +64,7 @@ extern s32 TSceneSora__has_sky_motion;
 extern const f32 lbl_805DC608;
 extern const f32 lbl_805DC60C;
 u8 *TSceneSora__ct(u8 *arg0, s32 _w1);
-s32 draw_ginja_object(int);
+void draw_ginja_object(void *child);
 s32 draw_ginja_model_with_motion(int, int, f32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
@@ -96,7 +96,7 @@ void TSceneSora::render() {
         if ((u32) this->m_94 != 0U) {
             draw_ginja_model_with_motion((int) (*(s32 *)&this->m_90), (int) (*(s32 *)&this->m_94), (f32) (this->m_a0));
         } else {
-            draw_ginja_object((int) (*(s32 *)&this->m_90));
+            draw_ginja_object((void *)(*(s32 *)&this->m_90));
         }
         pop_matrix();
         TParticleCtrl::end_effect_render();
@@ -227,7 +227,7 @@ typedef char RecoveredGlobal_802075F8_lbl_80515BA0_size[sizeof(RecoveredGlobal_8
 void prepare_adventure_maps(void) {
     randomize_adventure_maps();
     if ((s32) pending_adventure_map_floor != -1) {
-        TLobby__sub_80141038(&lbl_80515BA0.value, pending_adventure_map_floor, get_floor_map_terrain(pending_adventure_map_floor));
+        TLobby__sub_80141038((u8 *)&lbl_80515BA0.value, pending_adventure_map_floor, get_floor_map_terrain(pending_adventure_map_floor));
         pending_adventure_map_floor = -1;
     }
 }

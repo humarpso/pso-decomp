@@ -5,16 +5,16 @@ extern "C" {
 
 void *TORockCaveL02__create(void *arg0);
 void *__dt__13TORockCaveL02Fv(void *arg0, s16 arg1);
-void *TORockCaveL02__ct(void *, void *);
+u8 *TORockCaveL02__ct(u8 *arg0, s32 arg1);
 s32 __dl__7TObjectFPv(void *);
-s32 __dt__10TORockCaveFv(void *, s32);
+void *__dt__10TORockCaveFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 s32 free_collision_body_parts(void *);
 
 void *TORockCaveL02__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xB4);
     if (o != NULL) {
-        o = TORockCaveL02__ct(o, arg0);
+        o = TORockCaveL02__ct((u8 *)o, (s32)arg0);
     }
     return o;
 }

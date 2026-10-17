@@ -12,12 +12,12 @@ s32 is_channel_active__11TMainCursorFv(PaletteCursorOverride*);
 s32 can_start_technique__10TObjPlayerFPvi(TObjPlayer*, s32);
 s32 canSetMenuCursorAction(PaletteCursorOverride* cursor, TObjPlayer* player, u8 kind, u8 parameter);
 void TMainCursor__sub_8013B398(void *arg0, void *arg1);
-s16 TMainCursor__sub_8013E298(Ent_8013B2C8 *);
+s16 TMainCursor__sub_8013E298(void *p);
 s32 TMainCursor__sub_8013E2A0(void *);
 Ent_8013B2C8 *get_index__11TMainCursorFv(void *);
 void TMainCursor__sub_8013E2B0(void *);
 void TMainCursor__sub_8013B2A4(u16 *arg0);
-s32 get_player_by_client_id(u16);
+void *get_player_by_client_id(s32 i);
 int init__13TUnk_804A7260FPvPv(void);
 
     extern unsigned char lbl_804A7290[];

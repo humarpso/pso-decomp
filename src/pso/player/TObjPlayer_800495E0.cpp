@@ -56,7 +56,7 @@ extern "C" {
 void queue_destruction__7TObjectFv(void *);
 u32 csnVector(void *, void *, int);
 s32 direction_to_rotation_yx(void *, void *, void *);
-u8 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 s32 play_persistent_sound(int, void *, void *, int, int);
 s32 vec3_add_to(void *, void *);
 s32 subtract_vector(void *, void *, int);
@@ -64,13 +64,13 @@ extern const f32 lbl_805D8890;
 extern s32 lbl_805D4D1C;
 f32 TObjPlayer__sub_800499FC(s32 arg0);
 s16 obj_getField1c(void *);
-s32 TBoss3Volopt__sub_8004816C(int);
+s32 TBoss3Volopt__sub_8004816C(s32 i);
 s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 void init_collision_body_parts(void *, void *, int);
 void construct_collider_proxy__13TUnk_804AF8A0Fv();
 void rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(s32, s32);
-void push_matrix_from(void *);
+s32 push_matrix_from(void *src);
 s32 pop_matrix();
 extern Vec_800498E8 lbl_804366F8;
 extern u8 player_collision_body_desc[];
@@ -94,7 +94,7 @@ void TObjPlayer__sub_80049A0C(void* p);
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_x(s32, s32);
 void free_collision_body_parts(void *);
-s32 draw_chunk_object(s32);
+void draw_chunk_object(void *child);
 s32 push_matrix();
 void __dl__7TObjectFPv(void *);
 
@@ -267,7 +267,7 @@ void TUnk_80484AFC::render() {
     rotate_matrix_x(0, *(s32 *)&this->m_5c);
     rotate_matrix_y(0, this->rotation_y);
     model_render_flags &= 0xFFFFFBFF;
-    draw_chunk_object(*(s32 *)&this->unk_AC);
+    draw_chunk_object((void *)(*(s32 *)&this->unk_AC));
     pop_matrix();
 }
 

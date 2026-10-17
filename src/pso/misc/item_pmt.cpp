@@ -9,14 +9,14 @@ extern "C" TObject* item_mgr;
 extern "C" char* const item_pmt_filename_descriptor;
 
 extern "C" void*    alloc__23TAdSinglePlyChrSelectGCFv(int size);
-extern "C" void     __dt__9TItemLoadFPvs(void* obj, int flag);
+extern "C" s32 *__dt__9TItemLoadFPvs(s32 *arg0, s16 arg1);
 extern "C" void*    get_type__8TItemMagFv(void* pmt);
 extern "C" TObject* create_drop__9TItemDropFi(int arg);
 
 extern "C" {
 
 void free_item_pmt() {
-    __dt__9TItemLoadFPvs(item_pmt, 1);
+    __dt__9TItemLoadFPvs((s32 *)item_pmt, 1);
     item_pmt = NULL;
     item_pmt_tbl = NULL;
 }

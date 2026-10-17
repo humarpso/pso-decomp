@@ -62,7 +62,7 @@ typedef char RecoveredGlobal_80167C78___vt__27TOHangceilingCave01KeyQuick_size[s
 
 void TLobby__sub_8001FE7C(void*, int);
 Big_8016775C * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-s32 mem_free(void*);
+void mem_free(void *p);
 Buf_8016775C * mem_alloc(s32);
 int set_indexed_flags(void*, void*, void*);
 s32 free_collision_body_parts(void *);
@@ -112,7 +112,7 @@ void TOFenceAncient04::destroy() {
         TObjPlayer::free_if_valid(*(s32 *)((s8 *)TOFenceAncient04__resource_bundle + 8));
         TObjPlayer::free_if_valid(*(s32 *)((s8 *)TOFenceAncient04__resource_bundle + 0xC));
         if ((void *) TOFenceAncient04__resource_bundle != NULL) {
-            mem_free((void*)TOFenceAncient04__resource_bundle);
+            mem_free(TOFenceAncient04__resource_bundle);
             TOFenceAncient04__resource_bundle = NULL;
         }
     }

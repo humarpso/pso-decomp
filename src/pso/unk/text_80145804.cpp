@@ -33,7 +33,7 @@ typedef struct Glyph_80145804 {
 
 extern "C" {
 s32 set_stream_and_load_file__6TLobbyFi(void *);
-void *TNECFontEORFunction__ct(void *);
+u8 *TNECFontEORFunction__ct(u8 *arg0);
 void *mem_alloc(u32);
 void *__nw__7TObjectFUl(u32);
 void set_texture_name(void *, void *, u32, u32);
@@ -116,7 +116,7 @@ void load_menu_font(void) {
     menu_font_upload_flags = 3;
     f = __nw__7TObjectFUl(0x1C);
     if (f != NULL) {
-        f = TNECFontEORFunction__ct(f);
+        f = TNECFontEORFunction__ct((u8 *)f);
     }
     menu_font_object = f;
 }

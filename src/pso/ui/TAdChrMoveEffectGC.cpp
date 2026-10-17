@@ -107,11 +107,11 @@ void *__dt__18TAdChrMoveEffectGCFv(void *arg0, s16 arg1);
 void __ct__7TObjectFP7TObject(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
-int set_cached_blend_factor(void*, void*);
+void set_cached_blend_factor(s32 arg0, s32 arg1);
 
 int get_state_flag__9TMainTaskFv(void*);
 
-void TAdChrMoveEffectGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)10); sub_80348E34(); set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)6); } }
+void TAdChrMoveEffectGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)10)); sub_80348E34(); set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)6)); } }
 
 extern s32 __vt__18TAdChrMoveEffectGC[];
 extern u32 lbl_805D6E78;

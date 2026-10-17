@@ -117,7 +117,7 @@ struct Sub_8031FE98 { u8 b[0x1C]; };
 
 struct Self_8031FE98 { u8 pad[0x3FC]; s32 f3fc[4]; u8 pad40c[0x418 - 0x40C]; u16 f418[6]; u16 f424[30]; Sub_8031FE98 subs[4]; };
 
-void __dt__12TObjEneDD_STFv(void *, int);
+void *__dt__12TObjEneDD_STFv(void *arg0, s16 arg1);
 void init_object__12TObjEneDD_STFv(void *, s32, void *);
 void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 void initialize_enemy_state__9TObjEneDDFv(void *, int);
@@ -125,14 +125,14 @@ void init_model__9TObjEneDDFv(void *, void *, int);
 void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 s32 transition_enemy_state(void *, int);
 void TObjEneMe3SinowZoa__sub_800D758C(void *);
-void __dt__13TUnk_80494938Fv(void *, int);
-void __dt__13TUnk_804949A8Fv();
+void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
+void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
 void init_and_activate__10TObjPlayerFv();
 void set_animation__10TObjPlayerFPvs(void *, s16);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
-s32 TObjEneRecon__sub_8031F408(void *, void *);
-s32 TObjEneRecon__sub_8031F600(void *, void *);
+void TObjEneRecon__sub_8031F408(void *arg0, s32 arg1);
+void TObjEneRecon__sub_8031F600(void *arg0, s32 arg1);
 void dispatch_state__12TObjEneReconFiUii(s32 arg0, u32 arg1, s32 arg2);
 void fn_8031FD3C(u8 *arg0);
 Obj_8031FE14 * fn_8031FE14(Obj_8031FE14 *arg0, s16 arg1);
@@ -168,11 +168,11 @@ extern "C" void vfunc_99__9TObjEneDDFv();
 extern "C" void vfunc_100__9TObjEneDDFv();
 extern "C" void vfunc_101__9TObjEneDDFPUc();
 extern "C" void vfunc_102__9TObjEneDDFv();
-extern "C" void TObjEneEpsilon__vt101();
+extern "C" int TObjEneEpsilon__vt101(void *p);
 extern "C" void vfunc_83__12TObjEneDD_STFv();
 extern "C" void draw_with_debug_info__14TObjEneRecoboxFv();
-extern "C" void render__12TObjEneReconFPv();
-extern "C" void TObjEneRecon__sub_8031FB6C();
+extern "C" void render__12TObjEneReconFPv(u8 *arg0);
+extern "C" void TObjEneRecon__sub_8031FB6C(u8 *arg0);
 extern "C" void vfunc_61__14TObjEneRecoboxFv();
 extern "C" void vfunc_62__14TObjEneRecoboxFv();
 extern "C" void vfunc_28__14TObjEneRecoboxFv();
@@ -247,19 +247,19 @@ extern "C" u8 lbl_804762AC[];
 extern "C" void receive_direct_attack__10TObjPlayerFv();
 extern "C" void receive_physical_attack__10TObjPlayerFv();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
-extern "C" void render_actor_shadows_default();
+extern "C" void render_actor_shadows_default(u8 *arg0);
 extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__13TUnk_804806E8Fv();
 extern "C" void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
 extern "C" void vfunc_63__14TObjEneRecoboxFv();
-extern "C" void trigger_switch_attack__10TObjPlayerFi();
+extern "C" void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 extern "C" void try_start_action__13TUnk_804806E8Fll();
 extern "C" void update_action_hold_status__13TUnk_804806E8Fv();
-extern "C" void update_action_timer__10TObjPlayerFPv();
+extern "C" s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
 extern "C" void update_actor_ground_y__13TUnk_804806E8Fv();
-extern "C" void update_attack_stat_status();
-extern "C" void update_defense_stat_status();
+extern "C" s32 update_attack_stat_status(u8 *arg0);
+extern "C" s32 update_defense_stat_status(u8 *arg0);
 extern "C" void update_flag30_timer__13TUnk_804806E8Fv();
 extern "C" void update_if_800BB858__14TObjEneRecoboxFv();
 extern "C" void update_movement_status__13TUnk_804806E8Fv();
@@ -351,7 +351,7 @@ void dispatch_state__12TObjEneReconFiUii(s32 arg0, u32 arg1, s32 arg2) {
         ((TObjEneRecon *)arg0)->handle_state((s32)((void *) (arg2)));
         return;
     case 2:
-        TObjEneRecon__sub_8031F600((void *) (arg0), (void *) (arg2));
+        TObjEneRecon__sub_8031F600((void *)(arg0), (arg2));
         return;
     case 3:
         ((TObjEneRecon *)arg0)->update_state((s32)((void *) (arg2)));
@@ -360,7 +360,7 @@ void dispatch_state__12TObjEneReconFiUii(s32 arg0, u32 arg1, s32 arg2) {
         ((TObjEneRecon *)arg0)->handle_action_state((s32)((void *) (arg2)));
         return;
     case 5:
-        TObjEneRecon__sub_8031F408((void *) (arg0), (void *) (arg2));
+        TObjEneRecon__sub_8031F408((void *)(arg0), (arg2));
         return;
     case 6:
         ((TObjEneRecon *)arg0)->handle_death_state((s32)((void *) (arg2)));
@@ -491,7 +491,6 @@ u32 TObjEneRecobox::remap_area_sound_id(u32 arg0) {
 
 int TObjEneRecobox__sub_803201D0(void) {  return (*(int *)&TObjEneRecobox__static_instance); }
 
-#define TObjEneRecobox__ct ((void *(*)(void *, void *, void *))TObjEneRecobox__ct)
 void *TObjEneRecobox__create(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 void *__nw__7TObjectFUl(int);
@@ -509,7 +508,7 @@ extern void *tl_04;
 void *TObjEneRecobox__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x4F4);
     if (o != NULL) {
-        o = TObjEneRecobox__ct(o, tl_04, arg0);
+        o = TObjEneRecobox__ct((u8 *)o, (s32)tl_04, (u8 *)arg0);
     }
     return o;
 }
@@ -526,7 +525,7 @@ s32 dispatch_shared_handler_a__6TLobbyFl(s32);
 s32 register_object__6TLobbyFl(s32);
 s32 dispatch_shared_handler_b__6TLobbyFl(s32);
 s32 register_boss__6TLobbyFl(s32);
-u32 load_enemy_bml_resource(void *);
+s32 load_enemy_bml_resource(u8 *arg0);
 extern Spawn_80320260 recobox_resource_binding_desc;
 extern "C" u8 lbl_80476118[];
 extern "C" u8 lbl_80476124[];
@@ -565,9 +564,9 @@ void TObjEneRecobox::load_resources() {
     {
         u32 res;
         if (is_split_screen(&lbl_80543000) != 0) {
-            res = load_enemy_bml_resource(lbl_804EC750);
+            res = load_enemy_bml_resource((u8 *)lbl_804EC750);
         } else {
-            res = load_enemy_bml_resource(lbl_804EC6F8);
+            res = load_enemy_bml_resource((u8 *)lbl_804EC6F8);
         }
         (*(u32 *)&TObjEneRecobox__static_instance) = res;
     }

@@ -6,7 +6,7 @@ extern "C" {
 
 s32 is_matching_id__6TLobbyFlUs(void *, u16);
 int get_slot_value__10TObjPlayerFPvi(void*);
-int TLobby__send_and_handle_60(void* a0 = 0);
+void TLobby__send_and_handle_60(u8 *arg0);
 void TObjPlayer__sub_80102D84(u8 *arg0);
 
 void TObjPlayer::set_facing(s16 v) { *(s16 *)&this->m_32e = v; }
@@ -20,7 +20,7 @@ void TObjPlayer::is_flag_20000_set() {
 f32 TObjPlayer::get_mag_scale_f() { return *(f32*)((char*)this + 0x1c); }
 
 void TObjPlayer::bswap_pkt_u32x2() { bswap_32((u32*)this); bswap_32((u32*)((char*)this + 0x4)); }
-void TObjPlayer::bswap_and_send_6x61() { swap_6x61_fields(); TLobby__send_and_handle_60(this); }
+void TObjPlayer::bswap_and_send_6x61() { swap_6x61_fields(); TLobby__send_and_handle_60((u8 *)this); }
 
 void TObjPlayer::swap_6x61_fields() {
     read_be16_field2();

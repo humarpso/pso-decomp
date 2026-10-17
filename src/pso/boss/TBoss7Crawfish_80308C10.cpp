@@ -4,7 +4,7 @@
 
 extern "C" {
 
-s32 queue_destruction__7TObjectFv(s32);
+void queue_destruction__7TObjectFv(void *arg0);
 
 extern const f32 TBoss7Crawfish__data_805DF0D8;
 extern const f32 lbl_805DF0F0;
@@ -16,7 +16,7 @@ void TBoss7Crawfish::update(s32 arg0) {
     }
     ((TBoss7Crawfish *)arg0)->register_attack_hits();
     if (TBoss7Crawfish__data_805DF0D8 == ((TBoss7Crawfish *)arg0)->get_health()) {
-        queue_destruction__7TObjectFv(arg0);
+        queue_destruction__7TObjectFv((void *)arg0);
     }
 }
 

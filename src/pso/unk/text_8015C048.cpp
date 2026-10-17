@@ -7,7 +7,7 @@ struct RecoveredGlobal_8015C048___vt__26TOContainerAncientItemRare {
 };
 
 extern "C" {
-u8 * init_ancient_container(void *, s32);
+u8 *init_ancient_container(u8 *arg0, s32 arg1);
 extern RecoveredGlobal_8015C048___vt__26TOContainerAncientItemRare __vt__26TOContainerAncientItemRare;
 extern s32 lbl_805D2F00;
 extern s32 *ancient_container_fragment_texture_lists;

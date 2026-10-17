@@ -9,8 +9,8 @@ void *__ct__12TChCrEffFadeFv(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 TCameraCtrl__sub_80068EF0();
 s32 draw_fade_strip__12TChCrEffFadeFf(void *, f32);
 s32 __ct__7TObjectFP7TObject(s32, s32);
-s32 fn_80293E58(void *, f32);
-s32 queue_destruction__7TObjectFv(void *);
+void fn_80293E58(void *arg0, f32 scale);
+void queue_destruction__7TObjectFv(void *arg0);
 
 void TChCrEffFade::render() {
     f32 temp_f0;

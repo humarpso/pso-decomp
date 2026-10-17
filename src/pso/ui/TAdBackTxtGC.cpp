@@ -11,8 +11,8 @@ void *__ct__12TAdBackTxtGCFv(void *arg0);
 void render__12TAdBackTxtGCFv(void *arg0);
 void run_task__12TAdBackTxtGCFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
-s32 set_cached_blend_factor(s32, s32);
-s32 restore_saved_depth_alpha_state();
+void set_cached_blend_factor(s32 arg0, s32 arg1);
+void restore_saved_depth_alpha_state(void);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 void render__12TAdBackTxtGCFv(void *arg0) {

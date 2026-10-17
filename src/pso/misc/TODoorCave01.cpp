@@ -18,17 +18,17 @@ struct VObj_801618fc : VBase_801618fc {
 };
 
 extern "C" {
-s32 translate_matrix(int, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix();
 s32 pop_matrix();
-s32 draw_ginja_model(int);
+void draw_ginja_model(s32 model);
 s32 set_chunk_material_color(void *, int);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern u8 *TODoorCave01__texture_lists;
 extern s32 model_render_flags;
 void render__12TODoorCave01Fv(u8 *arg0);
-void *TODoorCave01__ct(void *, void *, void *);
+u8 *TODoorCave01__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model_with_motion(void *, int, f32);
 s32 rotate_matrix_y(int, int);
@@ -42,8 +42,8 @@ s32 TODoorCave01::draw_door_model(void *p0, int p1, int arg2) {
     u8 *temp_r31_2;
     TObjFish::set_global_param((int) (*(s32 *)((s8 *)TODoorCave01__texture_lists + (arg2 * 4))));
     push_matrix();
-    translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)((u8 *) p1) + 8)), (f32) (*(f32 *)((s8 *)((u8 *) p1) + 0xC)), (f32) (*(f32 *)((s8 *)((u8 *) p1) + 0x10)));
-    draw_ginja_model((int) (*(s32 *)((s8 *)((u8 *) p1) + 4)));
+    translate_matrix((0), (f32) (*(f32 *)((s8 *)((u8 *) p1) + 8)), (f32) (*(f32 *)((s8 *)((u8 *) p1) + 0xC)), (f32) (*(f32 *)((s8 *)((u8 *) p1) + 0x10)));
+    draw_ginja_model((*(s32 *)((s8 *)((u8 *) p1) + 4)));
     temp_r31 = *(u8 **)((s8 *)((u8 *) p1) + 0x2C);
     if (arg2 != 1) {
         temp_r4 = model_render_flags;
@@ -53,12 +53,12 @@ s32 TODoorCave01::draw_door_model(void *p0, int p1, int arg2) {
     }
     TParticleCtrl::begin_effect_render();
     push_matrix();
-    translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r31 + 8)), (f32) (*(f32 *)((s8 *)temp_r31 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r31 + 0x10)));
-    draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
+    translate_matrix((0), (f32) (*(f32 *)((s8 *)temp_r31 + 8)), (f32) (*(f32 *)((s8 *)temp_r31 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r31 + 0x10)));
+    draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
     temp_r31_2 = *(u8 **)((s8 *)temp_r31 + 0x2C);
     push_matrix();
-    translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r31_2 + 8)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0x10)));
-    draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_2 + 4)));
+    translate_matrix((0), (f32) (*(f32 *)((s8 *)temp_r31_2 + 8)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0x10)));
+    draw_ginja_model((*(s32 *)((s8 *)temp_r31_2 + 4)));
     pop_matrix();
     pop_matrix();
     TParticleCtrl::end_effect_render();
@@ -98,7 +98,7 @@ extern void *tl_05;
 void *TODoorCave01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xEC);
     if (o != NULL) {
-        o = TODoorCave01__ct(o, tl_05, arg0);
+        o = TODoorCave01__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

@@ -35,9 +35,9 @@ TFontSmallTask_800FD4D4 *__ct__14TFontSmallTaskFv(TFontSmallTask_800FD4D4 *self,
 struct Vec_800FCD40 { f32 x, y, z; };
 static const Vec_800FCD40 font_small_forward_vec = {0.0f, 0.0f, -1.0f};
 extern "C" {
-void allow_rendering__7TObjectFv(TObject*);
-void disallow_rendering__7TObjectFv(TObject*);
-void queue_destruction__7TObjectFv(TObject*);
+void allow_rendering__7TObjectFv(void *arg0);
+void disallow_rendering__7TObjectFv(void *arg0);
+void queue_destruction__7TObjectFv(void *arg0);
 extern const f32 lbl_805DAA30;
 extern const f32 lbl_805DAA00;
 extern const f32 lbl_805DAA04;
@@ -48,9 +48,9 @@ s32 create_font_small_task_default_color(s32 arg0, s32 arg1, s32 arg2, s32 arg3,
 void fn_800FCCC8(s32 arg0, s32 arg1);
 s32 fn_800FCCF4(void* p);
 s32 get_shared_text_buffer();
-s32 TWindowSubStatusDisp__sub_80228F5C(s32);
-s32 text_builder_append(s32 *);
-s32 text_builder_reset();
+void TWindowSubStatusDisp__sub_80228F5C(s32 arg0);
+void text_builder_append(u8 *str);
+void text_builder_reset(void);
 s32 __nw__7TObjectFUl(s32);
 
 void fn_800FCCC8(s32 arg0, s32 arg1) {
@@ -227,9 +227,9 @@ s32 create_font_small_task(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 *arg4, s3
     s32 var_r31;
 
     text_builder_reset();
-    text_builder_append(arg4);
+    text_builder_append((u8 *)arg4);
     if (arg5 >= 0) {
-        text_builder_append(&lbl_805DAA34);
+        text_builder_append((u8 *)&lbl_805DAA34);
     }
     TWindowSubStatusDisp__sub_80228F5C(arg5);
     var_r31 = __nw__7TObjectFUl(0x58);
@@ -243,9 +243,9 @@ s32 create_font_small_task_default_color(s32 arg0, s32 arg1, s32 arg2, s32 arg3,
     s32 var_r31;
 
     text_builder_reset();
-    text_builder_append(arg4);
+    text_builder_append((u8 *)arg4);
     if (arg5 >= 0) {
-        text_builder_append(&lbl_805DAA34);
+        text_builder_append((u8 *)&lbl_805DAA34);
     }
     TWindowSubStatusDisp__sub_80228F5C(arg5);
     var_r31 = __nw__7TObjectFUl(0x58);
@@ -275,7 +275,7 @@ s32 TOCtrlDubchik::create_font(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 var_r31;
 
     text_builder_reset();
-    ((s32 (*)(s32))text_builder_append)(arg3);
+    text_builder_append((u8 *)arg3);
     var_r31 = __nw__7TObjectFUl(0x58);
     if (var_r31 != 0) {
         var_r31 = ((s32 (*)(s32, s32, s32, s32, s32, s32, s32))__ct__14TFontSmallTaskFv)(var_r31, arg0, arg1, arg2, 0, get_shared_text_buffer(), 0xFFFF);
@@ -348,11 +348,11 @@ extern RecoveredGlobal_8000F7FC_lbl_80515F48 TLobby__data_805011D8;
 void call_funcs_reverse__6TLobbyFPvUi(Ent_800FD6A0 *arr, u32 size);
 s32 is_area_transfer_pending(void);
 s32 run_load_callback_table(Ent_800FD6F8 *p, u32 size);
-void *get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 u16 obj_getField1c();
 s32 get_actor_section_id__15TPlyPhotonChairFv(void *);
 void find_leader_section_id(struct Out_800FD614 *out, s32 arg1);
-u32 calc_small_font_text_width(char *);
+u32 calc_small_font_text_width(const char *s);
 void *get_instance__15TWindowCtrlMainFv(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 char *strncpy(char *, const char *, u32);
@@ -378,7 +378,7 @@ TFontSmallTask_800FD4D4 *__ct__14TFontSmallTaskFv(TFontSmallTask_800FD4D4 *self,
     if (self->view >= 4) {
         self->view = 0xFFFF;
     }
-    ((void (*)(void *))disallow_rendering__7TObjectFv)(self);
+    disallow_rendering__7TObjectFv(self);
     strncpy(self->text, text, 0xF);
     self->text[0xF] = 0;
     self->width = calc_small_font_text_width(self->text);

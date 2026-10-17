@@ -98,7 +98,7 @@ extern "C" {
 void handle_cmd_9C__9TProtocolFR6packet(u8 *arg0, s32 *arg1);
 void bswap_cmd_c5(void *);
 void handle_cmd_C5__9TProtocolFR6packet(u8 *arg0, Pkt_801DA848 *arg1);
-s32 __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
+void __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *arg0, void *arg1);
 s32 __as__16TPlyClientConfigFRC16TPlyClientConfig(void *, void *);
 s32 __as__8TPlySmthFRC8TPlySmth(void *, void *);
 s32 strncpy(void *, void *, int);

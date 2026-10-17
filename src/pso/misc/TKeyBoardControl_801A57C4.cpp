@@ -14,7 +14,7 @@ struct RecoveredGlobal_801A58D8_TKeyBoardControl__data_80506270 {
 struct Pad_801A57D0 { u8 pad0[0x10]; u32 f10; u8 pad14[4]; u16 f18; u16 f1A; s16 f1C; s16 f1E; };
 
 extern "C" {
-s32 TKeyBoardControl__sub_801321B4(s32);
+bool TKeyBoardControl__sub_801321B4(s32 arg0);
 extern s32 TKeyBoardControl__global_key_state[];
 void TKeyBoardControl__sub_801A58B0(void);
 s32 TKeyBoardControl__sub_80132310(s32);

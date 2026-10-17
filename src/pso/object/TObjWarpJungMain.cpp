@@ -35,7 +35,7 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object(s32);
+void draw_ginja_object(void *child);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 extern s32 warp_jung_beam_models[];
 extern s32 actor_frame_tick;
@@ -110,8 +110,8 @@ f32 fabs_float(f32);
 void queue_destruction__7TObjectFv(void *);
 void * alloc__23TAdSinglePlyChrSelectGCFv(s32);
 int confirm_area_transfer__12TObjAreaWarpFPvi(void*);
-void __dt__12TObjAreaWarpFv(void *, int);
-void TObjAreaWarp__ct(void *);
+u8 *__dt__12TObjAreaWarpFv(u8 *arg0, s16 arg1);
+void *TObjAreaWarp__ct(void *arg0);
 int vfunc_14__12TObjWarpBaseFv(void*);
 s32 TObjWarpJungMain__vt16(u8 *arg0);
 void * __dt__16TObjWarpJungMainFv(void *arg0, s16 arg1);
@@ -167,7 +167,7 @@ void TObjWarpJungMain::render() {
         push_matrix();
         post_translate_matrix((u8 *)arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        draw_ginja_object(get_bml_model(TObjWarpJung__beam_bml_resource, 0));
+        draw_ginja_object((void *)(get_bml_model(TObjWarpJung__beam_bml_resource, 0)));
         TParticleCtrl::begin_effect_render();
         draw_ginja_model_with_motion(get_bml_model(TObjWarpJung__beam_bml_resource, 1), *(s32 *)&warp_jung_beam_motion, *(f32 *)((s8 *)arg0 + 0xC4));
         TParticleCtrl::end_effect_render();
@@ -218,7 +218,7 @@ void TObjWarpJungMain::run_task() {
 void *__dt__16TObjWarpJungMainFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjWarpJungMain;
-        __dt__12TObjAreaWarpFv(arg0, 0);
+        __dt__12TObjAreaWarpFv((u8 *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -301,7 +301,7 @@ void TObjWarpJung::run_task() {
 void *__dt__12TObjWarpJungFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjWarpJung;
-        __dt__12TObjAreaWarpFv(arg0, 0);
+        __dt__12TObjAreaWarpFv((u8 *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

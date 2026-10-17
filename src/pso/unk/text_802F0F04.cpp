@@ -8,7 +8,7 @@ void *__dt__13TUnk_804E48D8Fv(void *arg0, s16 arg1);
 void TObjAreaWarpForest__ct(void *);
 s32 TObjBoss2Tunnel__sub_802F2070();
 void __dl__7TObjectFPv(void *);
-void __dt__18TObjAreaWarpForestFv(void *, int);
+void *__dt__18TObjAreaWarpForestFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 
 void TObjAreaWarpForest::render_if_active() { if (*(int*)((char*)this + 0xdc) != 0) { TObjAreaWarpForest::render(); } }

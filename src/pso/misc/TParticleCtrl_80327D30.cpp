@@ -18,12 +18,12 @@ struct Obj_80327D30 { u8 pad0[0x1C]; f32 w; f32 h; u8 pos[0xC]; u8 pad30; u8 f31
 extern "C" {
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 extern s32 lbl_804ED598[];
 void *__dt__13TUnk_804ED598Fv(void *arg0, s16 arg1);
 int GXSetNumIndStages(int);
 int GXSetTevDirect(int);
-int set_ginja_post_texgen_count(int);
+void set_ginja_post_texgen_count(s32 x);
 extern s32 lbl_804ED5B0[];
 int register_indirect_effect_ctrl(void*);
 void *__dt__13TUnk_804ED5B0Fv(void *arg0, s16 arg1);
@@ -33,9 +33,9 @@ s32 construct_indirect_effect_task(int, int, int, int);
 extern s32 tl_05;
 u8 *create_telepipe_marker(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 arg5, s32 arg6, f32 farg0, f32 farg1);
 void play_indirect_effect_recipe(u8 arg0, u16 arg1, s32 arg2);
-s32 setup_particle_tev(int);
-s32 load_projected_texture_matrix(f32);
-s32 restore_saved_depth_alpha_state();
+void setup_particle_tev(s32 arg0);
+void load_projected_texture_matrix(f32 farg0);
+void restore_saved_depth_alpha_state(void);
 s32 GXSetNumTexGens(int);
 s32 GXSetNumTevStages(int);
 s32 rotate_matrix_y(int, int);
@@ -43,7 +43,7 @@ s32 rotate_matrix_x(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_texture_num(int);
+s32 set_texture_num(s32 i);
 s32 TParticleCtrl__sub_803E2A1C(void *, int);
 extern u8 lbl_804C5820[];
 extern u8 *camera_ctrl_instance;
@@ -108,7 +108,7 @@ void TUnk_804ED598::run_task() {
     s32 temp_r4;
 
     if ((u32) *(u32 *)&this->unk_40 == 0U) {
-        queue_destruction__7TObjectFv((void *)(this));
+        queue_destruction__7TObjectFv((this));
         return;
     }
     temp_r4 = this->m_3c;
@@ -116,14 +116,14 @@ void TUnk_804ED598::run_task() {
         temp_r0 = temp_r4 - 1;
         this->m_3c = temp_r0;
         if (temp_r0 == 0) {
-            queue_destruction__7TObjectFv((void *)(this));
+            queue_destruction__7TObjectFv((this));
         }
     }
 }
 void *__dt__13TUnk_804ED598Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804ED598;
-        if (*(void **)((s8 *)arg0 + 0x40) != NULL) { queue_destruction__7TObjectFv((void *)(*(void **)((s8 *)arg0 + 0x40))); *(s32 *)((s8 *)arg0 + 0x40) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x40) != NULL) { queue_destruction__7TObjectFv((*(void **)((s8 *)arg0 + 0x40))); *(s32 *)((s8 *)arg0 + 0x40) = 0; }
         *(s32 *)((s8 *)arg0 + 0x40) = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

@@ -65,7 +65,7 @@ struct Save_8033F6A8 { u8 pad[0xC]; u32 fC; };
 extern "C" {
 s32 allow_rendering__7TObjectFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
-s32 TWindow__close(void *);
+void TWindow__close(u8 *arg0);
 u32 get_player_index__14TAdPlyStatusGCFv();
 extern RecoveredGlobal_8033F93C_lbl_8050E3B8 controller_physical_port_bank;
 extern s32 TAdPlyStatusGC__window_offset_index;
@@ -90,7 +90,7 @@ s32 get_localized_text_entry(int, int);
 void __ct__7TObjectFP7TObject(void *, void *);
 void create_guide_button(void *, void *);
 void *__construct_array(void *, void *, void *, u32, u32);
-void *init_guide_button_params(void *);
+void init_guide_button_params(GuideButtonSpec *spec);
 extern s32 lbl_805D42C0;
 extern s32 ply_status_chcr_load_afs;
 extern const f32 lbl_805DFAF0;
@@ -98,10 +98,10 @@ extern const f32 lbl_805DFAF4;
 TAdPlyStatusGC_8033FC14 *TAdPlyStatusGC__ct(TAdPlyStatusGC_8033FC14 *self, void *parent, s32 arg2);
 Save_8033F6A8 *TAdSinglePlyChrSelectGC__sub_801FE3E4(u32);
 u8 *get_entry__23TAdSinglePlyChrSelectGCFi(s32);
-s32 TAdSinglePlyChrSelectGC__sub_801FE800(s32);
+s32 TAdSinglePlyChrSelectGC__sub_801FE800(u32 i);
 Save_8033F6A8 *get_character_save_record(u32);
 u8 *get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
-u32 get_class_name_text(int);
+s32 get_class_name_text(s32 arg0);
 s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(s32);
 int sprintf(char *, const char *, ...);
 void *memset(void *, int, u32);
@@ -116,7 +116,7 @@ u32 ply_status_index;
 s32 TAdPlyStatusGC__is_shown;
 void close_window__14TAdPlyStatusGCFv(void *arg0);
 void render__14TAdPlyStatusGCFv(void* p);
-int set_cached_blend_factor(void*, void*);
+void set_cached_blend_factor(s32 arg0, s32 arg1);
 int get_state_flag__9TMainTaskFv(void*);
 
 void *TAdPlyStatusGC__status_window_box[8] = {
@@ -131,7 +131,7 @@ void *lbl_804EFAF8[6] = {
     (void *)0x42700000, (void *)0x42280000, (void *)0x42700000, (void *)0x42780000,
     (void *)0x42700000, (void *)0x42a40000,
 };
-void render__14TAdPlyStatusGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)10); set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)6); } }
+void render__14TAdPlyStatusGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)10)); set_cached_blend_factor((s32)((void*)0), (s32)((void*)8)); set_cached_blend_factor((s32)((void*)1), (s32)((void*)6)); } }
 
 typedef char RecoveredGlobal_8033F93C_lbl_8050E3B8_size[sizeof(RecoveredGlobal_8033F93C_lbl_8050E3B8) == 0x1B0 ? 1 : -1];
 
@@ -296,7 +296,7 @@ void update_hidden__14TAdPlyStatusGCFv(u8 *arg0) {
     s32 temp_r5;
     TAdPlyStatusGC__is_shown = 0;
     if ((u32) *(u32 *)((s8 *)arg0 + 0x6C) != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0x6C));
+        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x6C)));
         *(u32 *)((s8 *)arg0 + 0x6C) = 0U;
     }
     if ((s32) TAdPlyStatusGC__window_offset_index < 3) {
@@ -337,7 +337,7 @@ void update_shown__14TAdPlyStatusGCFv(struct RecoveredFields_8033F9DC_arg0 *arg0
 void close_window__14TAdPlyStatusGCFv(void *arg0) {
     void *temp_r3 = *(void **)((s8 *)arg0 + 0x6C);
     if ((u32) temp_r3 != 0U) {
-        TWindow__close(temp_r3);
+        TWindow__close((u8 *)temp_r3);
         *(u32 *)((s8 *)arg0 + 0x6C) = 0U;
     }
     if (get_player_index__14TAdPlyStatusGCFv() != 0U) {

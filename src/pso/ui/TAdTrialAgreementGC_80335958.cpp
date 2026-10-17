@@ -39,12 +39,12 @@ struct RecoveredGlobal_80335974_lbl_8050E3B8
 
 extern "C" {
 u8 TAdTrialAgreementGC__sub_80335958(u8 *arg0);
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 s32 TCameraCtrl__sub_80068EF0();
 s32 draw_record_with_camera__19TAdTrialAgreementGCFlll(void *, void *, int);
 s32 TAdTrialAgreementGC__sub_8033596C(void* p);
-s32 bind_title_texture_list();
-s32 set_chunk_material_color(void *);
+void bind_title_texture_list(void);
+void set_chunk_material_color(f32 *arg);
 extern RecoveredGlobal_80335BD4_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_80335BD4_lbl_8058D4C0 model_material_color;
 extern s32 lbl_805D5660;
@@ -119,10 +119,10 @@ void TAdTrialAgreementGC::render_screen() {
         TParticleCtrl::begin_effect_render();
         TCameraCtrl::restore_full_screen_view();
         lbl_805D5660 = model_render_flags;
-        copy_vec4__13TRaderMapCoreFPvPv((void *) (&saved_model_draw_color.value), (void *) (&model_material_color.value));
+        copy_vec4__13TRaderMapCoreFPvPv((&saved_model_draw_color.value), (&model_material_color.value));
         if ((s32) *(s32 *)&this->m_24 == 0) {
             model_render_flags |= 0x10;
-            set_chunk_material_color((void *) (arg0 + 0x28));
+            set_chunk_material_color((f32 *)(arg0 + 0x28));
             bind_title_texture_list();
             TLobby::draw_with_camera((int) (TLobby::get_record((int) (0xA))), (int) (0xA), (int) (0x22), (f32) (lbl_805DF8B0));
         }
@@ -148,7 +148,7 @@ void TAdTrialAgreementGC::render_screen() {
             }
             TObjPlayer::reset_transform_state();
         }
-        copy_vec4__13TRaderMapCoreFPvPv((void *) (&model_material_color.value), (void *) (&saved_model_draw_color.value));
+        copy_vec4__13TRaderMapCoreFPvPv((&model_material_color.value), (&saved_model_draw_color.value));
         model_render_flags = lbl_805D5660;
         TCameraCtrl__sub_80068EF0();
         TParticleCtrl::end_effect_render();

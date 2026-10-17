@@ -56,7 +56,7 @@ extern const f32 TBoss8Dragon__data_805DED64;
 s32 TBoss8Dragon__sub_802F3F20(u8 *arg0);
 s32 isFading__15RenderFadeStateCFv(int);
 s32 TObjLight__sub_801337F8(void *);
-s32 fn_801414B0(int, int, int, int);
+void fn_801414B0(u8 arg0, u8 arg1, u8 arg2, u8 arg3);
 s32 has_enough_enemies__12TBoss8DragonFv();
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_z(int, int);
@@ -65,8 +65,8 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-s32 set_material_alpha_compare_reference(int);
-s32 set_chunk_material_override_pair(int, int);
+void set_material_alpha_compare_reference(s32 reference);
+void set_chunk_material_override_pair(s32 arg0, s32 arg1);
 extern s32 current_scene_light;
 extern s32 lbl_805D5660;
 extern u8 *TBoss8Dragon__data_805D6988;
@@ -131,7 +131,7 @@ void TBoss8Dragon::draw_with_fade(s32 arg1, s32 arg2) {
         TObjFish::set_global_param((int) (*(s32 *)((s8 *)((u8 *)this) + 0x24)));
         TObjEneDD::clear_global_flag_400();
         lbl_805D5660 = model_render_flags;
-        set_material_alpha_compare_reference((int) (0));
+        set_material_alpha_compare_reference((0));
         if (TBoss8Dragon__sub_802F3F20(((u8 *)this)) != 0) {
             ((RenderFadeState *)(&((Obj_802F4114 *)((u8 *)this))->fades[arg2]))->fadeOut();
         } else {
@@ -149,7 +149,7 @@ void TBoss8Dragon::draw_with_fade(s32 arg1, s32 arg2) {
         scale_current_matrix((void *) (((u8 *)this) + 0x68));
         TObjPlayer::toggle_particle_effect();
         if (*(s32 *)&this->m_3c0 & 0x80) {
-            fn_801414B0((int) (3), (int) (3), (int) (3), (int) (3));
+            fn_801414B0((3), (3), (3), (3));
         }
         if (has_enough_enemies__12TBoss8DragonFv() != 0) {
             *(s32 *)&this->m_34 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TBoss8Dragon__data_805D6988 + 0x42C)) + 0x18);
@@ -161,8 +161,8 @@ void TBoss8Dragon::draw_with_fade(s32 arg1, s32 arg2) {
         TParticleCtrl::end_effect_render();
         TObjLight__sub_801337F8((void *) (current_scene_light));
         pop_matrix();
-        set_chunk_material_override_pair((int) (0xFF00), (int) (0));
-        set_material_alpha_compare_reference((int) (0xBF));
+        set_chunk_material_override_pair((0xFF00), (0));
+        set_material_alpha_compare_reference((0xBF));
         model_render_flags = lbl_805D5660;
     }
 }

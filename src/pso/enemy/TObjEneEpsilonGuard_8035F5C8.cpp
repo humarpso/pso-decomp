@@ -507,7 +507,7 @@ struct Induction_8035FAA8_var_r31_2 { u8 bytes[0x2]; };
 struct Induction_8035FAA8_var_r31_2_owner { u8 padding[0x4DC]; Induction_8035FAA8_var_r31_2 elements[4]; };
 
 extern "C" {
-f64 atan2_float(f32, f32);
+f32 atan2_float(f32 y, f32 x);
 s32 matrix_mult_vec(int, void *, void *);
 s32 push_matrix_from(void *);
 extern Tbl_803606A0 epsilon_guard_attack_offset_table;
@@ -518,7 +518,7 @@ extern u8 *anim_model_matrix_array;
 f32 receive_physical_attack__10TObjPlayerFv(void *, void *, f32);
 extern const f32 lbl_805E0208;
 s32 get_bml_model(s32, s32);
-s32 set_indexed_flags(void *, s32, s32);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
 extern s32 lbl_805D6FA0;
 s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);
@@ -575,7 +575,7 @@ extern const f64 lbl_80479E88;
 extern Tbl_8035FFA8 epsilon_guard_attack_pattern_table[];
 extern const f32 lbl_805E0210;
 f32 receive_weapon_special_attack__10TObjPlayerFv(void *, void *, void *);
-s16 obj_getS16_118(void *);
+s16 obj_getS16_118(u8 *p);
 s32 obj_testFlags30(void *, int);
 u16 obj_getField1c(void *);
 f32 receive_weapon_special_attack__19TObjEneEpsilonGuardFPvPvPv(Self_8035F5C8 *o, void *src, Hit_8035F5C8 *hit);
@@ -601,7 +601,7 @@ extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 void draw_with_fade__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1);
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 s32 play_persistent_sound(int, void *, void *, int, int);
 extern Vec4_80360D9C lbl_80479CAC[];
 void handle_warp_state__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1);
@@ -609,7 +609,7 @@ s32 check_path_obstructed(void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
 void obj_setFlags30(void *, s32);
 u32 csnVector(void *, void *, s32);
-void enemy_turn_and_move_on_ground(void *, s32, f32);
+void enemy_turn_and_move_on_ground(u8 *arg0, s32 arg1, f32 farg0);
 f32 horizontal_distance_squared(void *, void *);
 s32 project_actor_to_ground(void *, void *, s32);
 u8 *get_player_by_client_id(s32);
@@ -639,7 +639,7 @@ f32 receive_weapon_special_attack__19TObjEneEpsilonGuardFPvPvPv(Self_8035F5C8 *o
     if (!(o->flags & 2) && !(o->flags & 0x40)) {
         s16 kind = ((TObjPlayer *)src)->obj_getS16_116();
         s32 strong;
-        obj_getS16_118(src);
+        obj_getS16_118((u8 *)src);
         strong = 0;
         if (src == NULL || obj_getField1c(src) == 0xFFFF) {
             ((TUnk_804806E8 *)o)->show_miss_popup((const float *)(o->x38));

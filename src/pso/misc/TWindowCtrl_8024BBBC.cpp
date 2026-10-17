@@ -9,7 +9,7 @@ void *TWindowTradeRequest__ct(void *, void *);
 void *__nw__7TObjectFUl(s32);
 s32 is_trade_active();
 s32 TWindowCtrl__sub_8024701C(void *);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 extern s32 local_client_id;
 

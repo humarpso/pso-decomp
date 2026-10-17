@@ -11,7 +11,7 @@ struct RecoveredGlobal_8027FCE4_lbl_804D1AD0 {
 extern "C" {
 s32 __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-s32 fn_8027FD88(int, f32, f32);
+void fn_8027FD88(void *p, f32 a, f32 b);
 s32 TWindowSubStatusDisp__ct(int, int);
 extern RecoveredGlobal_8027FCE4_lbl_804D1AD0 status_category_window_vtable;
 extern const f32 lbl_805DD6DC;
@@ -33,7 +33,7 @@ u8 *construct_status_category_window(u8 *arg0, s32 arg1, s32 arg2) {
     ((TUnk_804D1AD0 *)arg0)->m_28 = var_r0;
     if (TCameraCtrl::get_camera_id() > 2) {
         ((TUnk_804CDFE8 *)(*(s32 *)((s8 *)arg0 + 0x24)))->set_position_xy((f32) (lbl_805DD6DC), (f32) (lbl_805DD6DC));
-        fn_8027FD88((int) (((TUnk_804D1AD0 *)arg0)->m_28), (f32) (lbl_805DD6DC), (f32) (lbl_805DD6DC));
+        fn_8027FD88((void *)(((TUnk_804D1AD0 *)arg0)->m_28), (f32) (lbl_805DD6DC), (f32) (lbl_805DD6DC));
     }
     return arg0;
 }

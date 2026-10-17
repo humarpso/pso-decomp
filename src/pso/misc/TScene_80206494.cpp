@@ -18,7 +18,7 @@ struct Res_80207038 { s32 table; s32 index; s32 pad; };
 
 extern "C" {
 s32 get_player_name_copy_buffer();
-s32 copy_name(s32 *);
+void copy_name(s32 arg0);
 s32 strncmp(s32, s32, s32);
 s32 TLobby__sub_803DA16C(u32);
 extern s32 TScene__current_floor_name;
@@ -215,7 +215,7 @@ void load_floor_scene(void) {
         scene_resource_index = res.index;
         ent = tbl[res.index].idx;
     }
-    copy_name((s32 *)TScene__current_floor_name);
+    copy_name((s32)((s32 *)TScene__current_floor_name));
     load_scene_map_file(ent);
     load_scene_collision_file((s32)(ent));
     if (TScene__data_805D5FCC != NULL && *(u32 *)((s8 *)TScene__data_805D5FCC + 0x14) != 0) {
@@ -233,7 +233,7 @@ void load_floor_scene(void) {
     TScene::load_tam_file((s32)(ent));
     ((void (*)(s32))TScene__sub_802065EC)(ent);
     ((void (*)(s32))TScene__sub_802065E8)(ent);
-    copy_name(&lbl_805DC604);
+    copy_name((s32)&lbl_805DC604);
     TScene__floor_scene_ready_flag = 1;
     TScene__data_805D5FE0 = 0;
     TScene__map_section_render_callback = 0;
@@ -287,7 +287,7 @@ void TScene::free_scene_resources() {
     (*(s32 *)&scene_collision_data) = 0;
     TScene__data_805D5FCC = NULL;
     if (strncmp(get_player_name_copy_buffer(), TScene__current_floor_name, 0x10) == 0) {
-        copy_name(&lbl_805DC604);
+        copy_name((s32)&lbl_805DC604);
     }
 }
 #pragma pop
@@ -512,7 +512,7 @@ void TScene::load_current_floor() {
         scene_resource_index = res.index;
         ent = tbl[res.index].idx;
     }
-    copy_name((s32 *)TScene__current_floor_name);
+    copy_name((s32)((s32 *)TScene__current_floor_name));
     TScene::load_scene_rel_file((s32)(ent));
     if (TScene__data_805D5FCC != NULL && *(u32 *)((s8 *)TScene__data_805D5FCC + 0x14) != 0) {
         found = 0;

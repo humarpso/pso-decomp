@@ -80,7 +80,7 @@ extern void *player_render_texture_buffer;
 void TLobby__sub_803DA16C(void *);
 void mem_free(void *);
 void TObjPlayer__sub_800C4D44(void);
-int queue_destruction__7TObjectFv(void*);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 is_alive__9TObjEneDDFv(s32);
 extern u8 *camera_ctrl_instance;
 s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
@@ -98,7 +98,7 @@ void TObjEneRe2Flower_EffCurse3::run_task() {
     Vec_800C4B78 b;
     o->timer++;
     if (o->timer > 20) {
-        queue_destruction__7TObjectFv((void*)(o));
+        queue_destruction__7TObjectFv((o));
         return;
     }
     if (is_alive__9TObjEneDDFv((s32)o->target) != 0) {
@@ -117,7 +117,7 @@ void TObjEneRe2Flower_EffCurse3::run_task() {
 
 }
 TObjEneRe2Flower_EffCurse3::~TObjEneRe2Flower_EffCurse3() {
-    if (*(void * *)&this->unk_24 != NULL) { queue_destruction__7TObjectFv((void*)(*(void * *)&this->unk_24)); *(s32 *)&this->unk_24 = 0; }
+    if (*(void * *)&this->unk_24 != NULL) { queue_destruction__7TObjectFv((*(void * *)&this->unk_24)); *(s32 *)&this->unk_24 = 0; }
 }
 extern "C" {
 
@@ -152,7 +152,7 @@ void TObjPlayer__sub_800C4D44(void) {
     }
 }
 
-void *mem_alloc(s32);
+void *mem_alloc(u32 size);
 void pso_load_texture__6TLobbyFv(void *, void *);
 void set_texture_name(void *, void *, s32, s32);
 void TObjPlayer::create_render_texture() {

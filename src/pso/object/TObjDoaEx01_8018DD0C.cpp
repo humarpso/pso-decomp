@@ -33,8 +33,8 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-s32 draw_ginja_model(int);
-s32 set_chunk_material_color(void *);
+void draw_ginja_model(s32 model);
+void set_chunk_material_color(f32 *arg);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern u8 *TObjDoaEx01__alpha_model_node;
@@ -81,9 +81,9 @@ s32 TObjDoaEx01::draw_object_tree(s32 arg1) {
             TParticleCtrl::begin_effect_render();
             lbl_805D5660 = model_render_flags;
             model_render_flags = model_render_flags | 0x10;
-            set_chunk_material_color((u8 *)this + 0xD4);
+            set_chunk_material_color((f32 *)((u8 *)this + 0xD4));
             draw_ginja_model(obj->model);
-            set_chunk_material_color(chunk_material_color_half_alpha_f32);
+            set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
             model_render_flags = lbl_805D5660;
             TParticleCtrl::end_effect_render();
         } else {

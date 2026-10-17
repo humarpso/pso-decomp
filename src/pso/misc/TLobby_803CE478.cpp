@@ -4,7 +4,7 @@
 extern "C" {
 
 void TLobby__sub_803CE544(u32 arg0, s32 arg1);
-s32 TLobby__sub_803CE220();
+void TLobby__sub_803CE220(void);
 
 void TLobby::update_scroll() {
     u8 *arg0 = (u8 *)this;

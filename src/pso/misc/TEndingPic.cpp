@@ -58,7 +58,7 @@ struct P_80353018 { s32 x; s32 y; };
 struct T_80353018 { u8 pad0[0xF0]; VObj_18_c82b17 *obj; };
 
 extern "C" {
-s32 TKeyBoardControl__sub_8000F828(void);
+int TKeyBoardControl__sub_8000F828(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 int get_ending_ab_wall_texture_list(void);
 extern RecoveredGlobal_80352F6C___vt__10TEndingPic __vt__10TEndingPic;
@@ -78,8 +78,8 @@ s32 add_actor_hp(s32, s32);
 s32 add_actor_tp(s32, s32);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 s32 draw_textured_quad_at_depth(void *, f32);
-s32 begin_screen_draw(int);
-s32 set_draw_texture_and_color(int, int);
+void begin_screen_draw(s32 arg0);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 s32 get_field_2b8__14TItemProShieldFv(s32);
 s32 obj_getS16_2BA(s32);
 
@@ -147,18 +147,18 @@ extern const f32 lbl_805DFEF0;
 
 void TEndingPic::draw_current_pic() {
     u8 *arg0 = (u8 *)this;
-    begin_screen_draw((int) (1));
+    begin_screen_draw((1));
     switch ((s32) TEndingPic__animation_state) {
     case 1:
     case 3:
         break;
     case 2:
-        set_draw_texture_and_color((int) ((*(s32 *)((s8 *)arg0 + 0x28) * 2) + 2), (int) (-1));
+        set_draw_texture_and_color(((*(s32 *)((s8 *)arg0 + 0x28) * 2) + 2), (-1));
         draw_textured_quad_at_depth((void *) (arg0 + 0xAC), (f32) (lbl_805DFEF0));
         break;
     case 4:
     case 5:
-        set_draw_texture_and_color((int) ((*(s32 *)((s8 *)arg0 + 0x28) * 2) + 3), (int) (-1));
+        set_draw_texture_and_color(((*(s32 *)((s8 *)arg0 + 0x28) * 2) + 3), (-1));
         draw_textured_quad_at_depth((void *) (arg0 + 0xCC), (f32) (lbl_805DFEF0));
         break;
     default:

@@ -62,7 +62,7 @@ void TObjPlayer__sub_80354DAC(s32 arg0);
 s32 set_flag1__10TObjPlayerFv(void *, int);
 void TObjPlayer__sub_80354DF4(s32 arg0);
 s32 is_locally_controlled__10TObjPlayerFPv();
-u32 get_player_by_client_id(u16);
+void *get_player_by_client_id(s32 i);
 s32 TObjPlayer__sub_80354E3C(s32 arg0);
 void TObjPlayer__sub_80354E7C(void);
 typedef char RecoveredGlobal_80354BE4_lbl_80543984_size[sizeof(RecoveredGlobal_80354BE4_lbl_80543984) == 0x24 ? 1 : -1];

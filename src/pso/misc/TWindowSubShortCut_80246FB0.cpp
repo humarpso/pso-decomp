@@ -4,7 +4,7 @@
 extern "C" {
 
 s32 open_next_input_window__11TWindowChatFv(void *);
-int TWindowChat__sub_80247D2C(void*);
+void TWindowChat__sub_80247D2C(void *p);
 s32 close_all_children__11TWindowChatFv();
 
 void TWindowSubShortCut::close_and_clear_flag() {

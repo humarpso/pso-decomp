@@ -15,7 +15,7 @@ u8 *TWindowArea__ct(u8 *arg0);
 void *__dt__11TWindowAreaFv(void *arg0, s16 arg1);
 int update_window_entry_list__13TUnk_804CE018FPv(void*, void*);
 void __dl__7TObjectFPv(void *);
-void __dt__11TWindowRoomFv(void *, int);
+void *__dt__11TWindowRoomFv(void *arg0, s16 arg1);
 int initialize_subwindow__9TWindowDDFv(void*);
 
 void TWindowArea::run_task() { initialize_subwindow__9TWindowDDFv(this); update_window_entry_list__13TUnk_804CE018FPv(this, (char*)this + 0x24); }

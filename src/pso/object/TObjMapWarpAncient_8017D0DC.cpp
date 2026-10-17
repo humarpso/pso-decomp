@@ -10,7 +10,7 @@ void TLobby__sub_8001FE7C(void*, int);
 s32 TObjGoalWarpAncient__sub_8017D2D4(int);
 s32 TObjMapWarp__ct();
 void __dl__7TObjectFPv(void *);
-void __dt__11TObjMapWarpFv(void *, int);
+void *__dt__11TObjMapWarpFv(void *arg0, s16 arg1);
 s32 register_warp__19TObjGoalWarpAncientFPv(int);
 s32 register_warp_object__19TObjGoalWarpAncientFPv(int);
 

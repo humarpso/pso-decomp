@@ -12,11 +12,11 @@ struct VOff_802F1C68_arg0_802f1c68_802F1B7C { char pad_0[0x48]; char f_48[1]; };
 void *TObjBoss7TunnelCol__ct(void *arg0);
 void *__dt__18TObjBoss7TunnelColFv(void *arg0, s16 arg1);
 void rotate_matrix_yxz(void *, void *, void *, void *);
-void set_matrix_identity(void *);
+void set_matrix_identity(u8 *arg0);
 void __dl__7TObjectFPv(void *);
-void fn_8002B630(void *, void *);
-s32 get_mode__11TCameraCtrlFPv(s32 *);
-void translate_matrix_vec3(void *, void *);
+void fn_8002B630(u8 *arg0, u8 *arg1);
+s32 get_mode__11TCameraCtrlFPv(void *p);
+void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 
 void TObjBoss7TunnelCol::render() {  }
 void TObjBoss7TunnelCol::run_task() {  }
@@ -46,7 +46,7 @@ void *TObjBoss7TunnelCol__ct(void *arg0) {
     ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjBoss7TunnelCol;
     *(void * *)&((TObjBoss7TunnelCol *)arg0)->m_name = lbl_805D3FF0;
-    fn_8002B630(self->f_AC, TObjBoss7TunnelCol__col_desc);
+    fn_8002B630((u8 *)self->f_AC, (u8 *)TObjBoss7TunnelCol__col_desc);
     *(f32 *)((s8 *)arg0 + 0x38) = lbl_805DECA0;
     *(f32 *)((s8 *)arg0 + 0x3C) = lbl_805DEC9C;
     *(f32 *)((s8 *)arg0 + 0x40) = lbl_805DEC9C;
@@ -57,8 +57,8 @@ void *TObjBoss7TunnelCol__ct(void *arg0) {
 
 void TUnk_804E4B24::update_collision() {
     struct VOff_802F1C68_arg0_802f1c68_802F1B7C *self = (struct VOff_802F1C68_arg0_802f1c68_802F1B7C *)this;
-    set_matrix_identity(self->f_48);
-    translate_matrix_vec3(self->f_48, (void *)((char *)this + 28));
+    set_matrix_identity((u8 *)self->f_48);
+    translate_matrix_vec3((u8 *)self->f_48, (u8 *)((char *)this + 28));
     rotate_matrix_yxz(self->f_48, *(void * *)&(*(void * *)((u8 *)this + 0x28)), (this->m_2c), *(void * *)&(*(u32 *)&this->unk_30));
 }
 

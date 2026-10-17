@@ -12,7 +12,7 @@ struct RecoveredGlobal_80350440_lbl_804F0D1C {
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-void play_area_music(s32);
+void play_area_music(char *name);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_80350440_lbl_804F0D00 lbl_804F0D00;
 extern RecoveredGlobal_80350440_lbl_804F0D1C quest_bgm_object_dispatch_table;
@@ -27,7 +27,7 @@ u8 *fn_80350440(u8 *arg0, u8 *arg1, s32 arg2) {
         queue_destruction__7TObjectFv(pending_destroy_object);
     }
     pending_destroy_object = arg0;
-    play_area_music(*(s32 *)((s8 *)(&lbl_804F0D00.value) + (arg2 * 4)));
+    play_area_music((char *)(*(s32 *)((s8 *)(&lbl_804F0D00.value) + (arg2 * 4))));
     return arg0;
 }
 

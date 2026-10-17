@@ -14,13 +14,13 @@ extern "C" {
 void *TORockCaveSimple__ct(void *arg0);
 void *__dt__16TORockCaveSimpleFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
-void TORockCave__ct(void *);
-s32 draw_ginja_object(s32);
+void *TORockCave__ct(void *arg0);
+void draw_ginja_object(void *child);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-void __dt__10TORockCaveFv(void *, int);
+void *__dt__10TORockCaveFv(void *arg0, s16 arg1);
 
 void TORockCaveSimple::play_trigger_effect() {
     u8 *arg0 = (u8 *)this;
@@ -30,7 +30,7 @@ void TORockCaveSimple::play_trigger_effect() {
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
-        draw_ginja_object(*(s32 *)&this->model);
+        draw_ginja_object((void *)(*(s32 *)&this->model));
         pop_matrix();
     }
 }

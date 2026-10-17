@@ -40,10 +40,10 @@ struct Src_802A1838 {
 struct Tbl_802A194C { s32 v[5]; };
 
 extern "C" {
-int queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 void *__nw__7TObjectFUl(s32);
 void *__ct__17TAdSelectTxtSubGCFv(void *, void *, void *);
-void TLobby__sub_8023E4B4(s32, s32);
+s32 TLobby__sub_8023E4B4(s32 arg0, s32 arg1);
 extern Tbl_802A194C select_gamen_resource_name_table;
 extern Tbl_802A194C select_gamen_resource_name_table_b;
 extern const s32 current_language;

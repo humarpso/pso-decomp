@@ -107,9 +107,9 @@ s32 advance_animation_playback(void *);
 s32 minimap_render_dot(void *, s32, s32, s32);
 extern const f32 lbl_805D9984;
 void TObjPlayer__sub_800A16C4(u8 *arg0);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 update_if_active__15TObjEneMe1GiGueFl(void *, s32);
-s32 spawn_particle_effect(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
 s32 TObjPlayer__sub_800A3210(s32 i, s32 _w1, s32 _w2);
 u8 *TObjPlayer__sub_800A34E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
 void *TObjPlayer__sub_800A4204(void *, void *, void *, void *, s32);
@@ -339,7 +339,7 @@ struct Raw_800A10A0 { u8 b[12]; };
 
 s32 update_movement_status__13TUnk_804806E8Fv();
 s32 update_action_hold_status__13TUnk_804806E8Fv();
-s32 move_with_wall_slide(void *);
+void move_with_wall_slide(u8 *arg0);
 void calc_velocity_toward_destination(void *, Vec_800A12C0, Vec_800A12C0, f32);
 s32 check_path_obstructed(void *, Vec_800A1D70 *);
 s32 obj_is_hit_receivable();
@@ -377,16 +377,16 @@ void vfunc_59__17TObjEneDarkGunnerFv(void);
 s32 TObjPlayer__sub_800A3290(Obj_800A3290 *self, s32 id);
 void * __dt__13TUnk_804909C4Fv(void *arg0, s16 arg1);
 u8 * TObjPlayer__sub_800A34E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
-s32 TEneEffHamon__sub_800A380C();
+void TEneEffHamon__sub_800A380C(void);
 u8 * __ct__12TEneEffHamonFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
-void __dt__15TObjEnemyCustomFv(void *, int);
-u32 get_enemy_entity(u16);
+void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
+u8 *get_enemy_entity(u16 arg0);
 s32 initialize__9TObjEnemyFPv(void *);
 f32 horizontal_distance__10TObjPlayerFPUc(void *, int);
 f32 xz_distance_squared(void *, void *);
 s32 angle_diff_s16(s32, s32);
 Obj_800A3290 * find_entity_by_id(s32);
-s32 check_enemy_body_collisions(void *);
+void check_enemy_body_collisions(void *arg0);
 s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 project_actor_to_ground(void *, void *, int);
@@ -405,7 +405,7 @@ s32 push_matrix_from(void *);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(s32);
-s32 draw_chunk_object(s32);
+void draw_chunk_object(void *child);
 
 extern s32 __vt__20TObjEneDarkGunCenter[];
 extern Ofs_800A1814 hamon_effect_offset_table;
@@ -418,7 +418,7 @@ extern s32 lbl_80490998[];
 
 void obj_setFlags30(void *, u32);
 void TObjEnemyCustom__ct(void *, s32, void *);
-void initialize_enemy_photon_effect(void *);
+int initialize_enemy_photon_effect(void *p);
 void bind_enemy_combat_stats(void *, s32, s32, s32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 extern Atk_800A2F94 dark_gunner_attack_binding_desc;
@@ -644,7 +644,7 @@ extern "C" {
 void receive_weapon_special_attack__10TObjPlayerFv();
 }
 extern "C" {
-void render_actor_shadows_default();
+void render_actor_shadows_default(u8 *arg0);
 }
 extern "C" {
 void reset_motion_fields__13TUnk_804806E8Fv();
@@ -659,22 +659,22 @@ extern "C" {
 void select_melee_contact_body__10TObjPlayerFv();
 }
 extern "C" {
-void trigger_switch_attack__10TObjPlayerFi();
+void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 }
 extern "C" {
 void try_start_action__13TUnk_804806E8Fll();
 }
 extern "C" {
-void update_action_timer__10TObjPlayerFPv();
+s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
 }
 extern "C" {
 void update_actor_ground_y__13TUnk_804806E8Fv();
 }
 extern "C" {
-void update_attack_stat_status();
+s32 update_attack_stat_status(u8 *arg0);
 }
 extern "C" {
-void update_defense_stat_status();
+s32 update_defense_stat_status(u8 *arg0);
 }
 extern "C" {
 void update_flag30_timer__13TUnk_804806E8Fv();
@@ -909,7 +909,7 @@ void TObjPlayer::update_move_to_destination() {
             ((s32 (*)(void *, int, f32))apply_actor_gravity)(o, 0, lbl_805D9984);
         }
         calc_velocity_toward_destination(o, o->pos, o->dest, ((f32 (*)(int))TObjPlayer__sub_800A3200)(0));
-        move_with_wall_slide(o);
+        move_with_wall_slide((u8 *)o);
         if (xz_distance_squared(&o->pos, &o->dest) <= lbl_805D9988) {
             o->flags388 &= ~0x80000;
             apply_fall_damage_flag();
@@ -1058,7 +1058,7 @@ void TObjPlayer__sub_800A16C4(u8 *arg0) {
 void TObjEneDarkGunner::vfunc_61() {
     u8 *arg0 = (u8 *)this;
     ((TUnk_804B9870 *)arg0)->obj_clearFlags30((s32)(0x100U));
-    spawn_particle_effect((void *) (arg0 + 0x2FC), (int) (0xD7));
+    spawn_particle_effect((arg0 + 0x2FC), (0xD7));
     play_sound_effect((int) (0x4003B22D), (void *) (arg0 + 0x38), (int) (0), (int) (0));
 }
 
@@ -1095,7 +1095,7 @@ void TObjPlayer::render_shadow() {
         }
         push_matrix();
         post_translate_matrix(arg0 + 0x3B4);
-        draw_chunk_object(TObjPlayer__shadow_chunk_object);
+        draw_chunk_object((void *)TObjPlayer__shadow_chunk_object);
         pop_matrix();
     }
 }
@@ -1123,7 +1123,7 @@ void TObjPlayer__sub_800A1D70(u8 *arg0) {
             *(f32 *)((s8 *)arg0 + 0x310) = (f32) ((*(f32 *)((s8 *)arg0 + 0x310) * temp_f1) / temp_f31);
         }
         if (*(s32 *)((s8 *)arg0 + 0x388) & 0x400000) {
-            spawn_particle_effect((void *) (arg0 + 0x2FC), (int) (0xD7));
+            spawn_particle_effect((arg0 + 0x2FC), (0xD7));
         }
         *(s16 *)((s8 *)arg0 + 0x39E) = 0;
         *(s32 *)((s8 *)arg0 + 0x37C) = 1;
@@ -1136,7 +1136,7 @@ void TObjPlayer__sub_800A1D70(u8 *arg0) {
         v.x = v.x + *(f32 *)((s8 *)arg0 + 0x308);
         v.z = v.z + *(f32 *)((s8 *)arg0 + 0x310);
         if (check_path_obstructed((void *) (arg0), &v) == 0) {
-            move_with_wall_slide((void *) (arg0));
+            move_with_wall_slide((arg0));
         } else {
             *(f32 *)((s8 *)arg0 + 0x310) = (f32) lbl_805D9984;
             *(f32 *)((s8 *)arg0 + 0x308) = (f32) lbl_805D9984;
@@ -1597,13 +1597,13 @@ void TUnk_804909C4::run_task() {
         }
     }
     if (TObjPlayer__sub_800A3290((Obj_800A3290 *)((void *) (arg0)), (s32)((int) (*(u16 *)((s8 *)arg0 + 0xC8)))) != 0) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     temp_r0 = this->m_c4 - 1;
     this->m_c4 = temp_r0;
     if (temp_r0 <= 0) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
     }
 }
 

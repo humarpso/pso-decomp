@@ -2,8 +2,8 @@
 #include "pso/misc/TLobby.h"
 
 extern "C" {
-s32 get_character_save_record(s32);
-s32 get_shared_text_buffer();
+s32 get_character_save_record(u32 arg0);
+s32 *get_shared_text_buffer(void);
 s32 TWindowSubComCard__sub_80225E80(void *, int);
 s32 strncpy(int, int, int);
 extern s32 info_board_state_flags;
@@ -37,7 +37,7 @@ s32 TLobby::get_card_window_field() {
 void TLobby::set_info_board_text() {
     s32 arg0 = (s32)this;
     u8 *temp_r31;
-    temp_r31 = (u8 *)(get_character_save_record((s32)(0xFFFFU)) + 0x20FC);
+    temp_r31 = (u8 *)(get_character_save_record((0xFFFFU)) + 0x20FC);
     TWindowSubComCard__sub_80225E80((void *) (arg0), (int) (get_shared_text_buffer()));
     strncpy((int) (temp_r31), (int) (get_shared_text_buffer()), (int) (0xAB));
     *(s8 *)((s8 *)temp_r31 + 0xAB) = 0;

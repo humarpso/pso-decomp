@@ -7,7 +7,7 @@ extern s32 TWindowCtrlMain__sub_controller;
 #include "pso/misc/TWindowCtrlMain.h"
 
 extern "C" {
-s32 resolve_chat_balloon_overlaps();
+void resolve_chat_balloon_overlaps(void);
 extern s32 TWindowCtrlMain__window_task_root;
 void *TWindowCtrlSub__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);

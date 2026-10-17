@@ -5,7 +5,7 @@ struct C_80052390 { f32 a, b, c, d; };
 
 extern "C" {
 void set_chunk_material_override_pair(s32, s32);
-void set_chunk_material_color(void *);
+void set_chunk_material_color(f32 *arg);
 extern int lbl_805D5660;
 extern int lbl_805D5664;
 extern int lbl_805D5668;
@@ -28,7 +28,7 @@ void TObjPlayer__sub_80052390(f32 x) {
     set_chunk_material_override_pair(0xFF00, 0x800);
     c.a = lbl_805D8AEC + x;
     c.b = c.c = c.d = lbl_805D8ADC;
-    set_chunk_material_color(&c);
+    set_chunk_material_color((f32 *)&c);
 }
 
 }

@@ -18,11 +18,11 @@ struct Obj_8007F0E4 {
     s32 f30;
 };
 
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 void fn_8007ECF0(u8 *arg0, s32 arg1, s32 arg2);
 s32 draw_outlined_string_right_aligned__14TObjWarpStringFPviiPv(void *arg0, s32 x0, s32 y0, s8 *str);
 s32 fn_8007F4B8(void *, s32, f32);
-s32 calc_text_width(s8 *);
+u32 calc_text_width(char *s);
 int sprintf(s8 *, const char *, ...);
 
 extern const char lbl_80438AD8[];
@@ -82,7 +82,7 @@ void fn_8007ECF0(u8 *arg0, s32 arg1, s32 arg2) {
         }
     }
     if (lbl_805D929C == *(f32 *)((s8 *)arg0 + 0x1C)) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
     }
 }
 #pragma pop
@@ -93,7 +93,7 @@ s32 draw_outlined_string_right_aligned__14TObjWarpStringFPviiPv(void *arg0, s32 
     f32 xr;
     f32 yb;
 
-    x = (f32)(u32)(x0 - calc_text_width(str));
+    x = (f32)(u32)(x0 - calc_text_width((char *)str));
     y = (f32)y0;
     ((TObjWarpString *)str)->draw_string(0xFF000000, x - 2.0f, y - 2.0f);
     ((TObjWarpString *)str)->draw_string(0xFF000000, x, y - 2.0f);

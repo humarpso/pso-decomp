@@ -96,7 +96,7 @@ s32 isV2Mode__12TBoss1DragonFv();
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 create_particle_emitter(void *, int, f32);
 void construct_collision_body(void *);
-void *TBoss8Dragon__sub_800BC5EC(void *, int);
+u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1);
 s32 rand();
 extern const V3_8002C544 lbl_80435560;
 extern s32 __vt__15TObjBoss1Crater[];
@@ -108,11 +108,11 @@ extern const f32 lbl_805D8164;
 Crater_8002C544 *TObjBoss1Crater__ct(Crater_8002C544 *self, void *arg1, void *arg2, void *arg3);
 f32 TBoss1Dragon__sub_80027634(u32);
 s32 TObjBoss1Crater__sub_8002C7E4(void *);
-void attack_target_list_remove(void *, s32);
+void attack_target_list_remove(u8 *arg0, s32 arg1);
 void *__dt__15TObjBoss1CraterFv(void *arg0, s16 arg1);
 void delete_buffer__12TBoss8DragonFis(void *, int);
 s32 post_translate_matrix(void *);
-s32 draw_chunk_object(void *);
+void draw_chunk_object(void *child);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -130,7 +130,7 @@ void TObjBoss1Crater::render() {
     post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (this->rotation_y));
     model_render_flags |= 0x01000000;
-    draw_chunk_object((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)lbl_805D4B50 + 0x42C)) + 8)));
+    draw_chunk_object((void *)(*(s32 *)((s8 *)(*(void **)((s8 *)lbl_805D4B50 + 0x42C)) + 8)));
     model_render_flags &= 0xFEFFFFFF;
     pop_matrix();
 }
@@ -161,7 +161,7 @@ void TObjBoss1Crater::run_task() {
         n = TObjBoss1Crater__sub_8002C7E4(self->fB4);
         for (s32 i = 0; i < n; i++) {
             if (self->fB8[i] <= 0) {
-                attack_target_list_remove(self->fB4, i);
+                attack_target_list_remove((u8 *)self->fB4, i);
                 self->fB8[i] = self->fB8[n - 1];
                 self->fB8[n - 1] = 0;
                 i--;
@@ -223,7 +223,7 @@ Crater_8002C544 *TObjBoss1Crater__ct(Crater_8002C544 *self, void *arg1, void *ar
     self->fB0 = create_particle_emitter(self->pos, 0x40, r);
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
     if (p != NULL) {
-        p = TBoss8Dragon__sub_800BC5EC(p, 4);
+        p = TBoss8Dragon__sub_800BC5EC((u8 *)p, 4);
     }
     self->fB4 = p;
     for (i = 0; i < 4; i++) {

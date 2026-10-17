@@ -188,7 +188,7 @@ u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_chunk_object(int, void *);
+void draw_chunk_object(void *child);
 void matrix_mult_vec(int, Vec_8018085C *, Vec_8018085C *);
 void project_world_to_screen(int, Vec_8018085C *, Out_8018085C *, Vec_8018085C *);
 extern Vec_8018085C lbl_804FF610;
@@ -197,10 +197,10 @@ int rand(void);
 s32 spawn_chips__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
 s32 init_chips__8TObjChipFPv(u8 *arg0);
 void tick_chips__8TObjChipFPv(u8 *arg0);
-s32 rotate_matrix_yxz(int, int, int, int);
+void rotate_matrix_yxz(s32 matrix, s32 arg1, s32 arg2, s32 arg3);
 s32 scale_matrix(int, f32, f32, f32);
-s32 set_chunk_material_override_pair(int, int);
-s32 set_chunk_material_color(void *);
+void set_chunk_material_override_pair(s32 arg0, s32 arg1);
+void set_chunk_material_color(f32 *arg);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -219,7 +219,7 @@ int TObjChip__vt6(void* p);
 u8 *copy_transform__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
 void dispatch_vt9__8TObjChipFPv(void *arg0);
 void update__8TObjChipFPv(void *arg0);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 #pragma readonly_strings on
 const char *obj_chip_class_name_ptr = "TObjChip";
@@ -236,14 +236,14 @@ void draw_chips__8TObjChipFPv(Obj_8017FE58 *o) {
             for (s32 i = 0; i < o->count; i++, c++) {
                 Color_8017FE58 col = { 0.0f, 0x3F800000, 0x3F800000, 0x3F800000 };
                 col.a = c->alpha;
-                set_chunk_material_color(&col);
+                set_chunk_material_color((f32 *)&col);
                 push_matrix();
                 post_translate_matrix(c);
                 rotate_matrix_yxz(0, c->rx, c->ry, c->rz);
                 scale_matrix(0, o->scale, o->scale, o->scale);
-                ((s32 (*)(int))draw_chunk_object)(o->model);
+                draw_chunk_object((void *)o->model);
                 pop_matrix();
-                set_chunk_material_color(chunk_material_color_half_alpha_f32);
+                set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
             }
             model_render_flags = lbl_805D5660;
             chunk_polygon_flags_and_mask = lbl_805D5664;
@@ -254,7 +254,7 @@ void draw_chips__8TObjChipFPv(Obj_8017FE58 *o) {
                 post_translate_matrix(c);
                 rotate_matrix_yxz(0, c->rx, c->ry, c->rz);
                 scale_matrix(0, o->scale, o->scale, o->scale);
-                ((s32 (*)(int))draw_chunk_object)(o->model);
+                draw_chunk_object((void *)o->model);
                 pop_matrix();
             }
         }
@@ -267,14 +267,14 @@ void draw_chips__8TObjChipFPv(Obj_8017FE58 *o) {
         for (s32 i = 0; i < o->count; i++, c++) {
             Color_8017FE58 col = { 0.0f, 0x3F800000, 0x3F800000, 0x3F800000 };
             col.a = c->alpha;
-            set_chunk_material_color(&col);
+            set_chunk_material_color((f32 *)&col);
             push_matrix();
             post_translate_matrix(c);
             rotate_matrix_yxz(0, c->rx, c->ry, c->rz);
             scale_matrix(0, o->scale, o->scale, o->scale);
-            ((s32 (*)(int))draw_chunk_object)(o->model);
+            draw_chunk_object((void *)o->model);
             pop_matrix();
-            set_chunk_material_color(chunk_material_color_half_alpha_f32);
+            set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
         }
         model_render_flags = lbl_805D5660;
         chunk_polygon_flags_and_mask = lbl_805D5664;
@@ -285,7 +285,7 @@ void draw_chips__8TObjChipFPv(Obj_8017FE58 *o) {
             post_translate_matrix(c);
             rotate_matrix_yxz(0, c->rx, c->ry, c->rz);
             scale_matrix(0, o->scale, o->scale, o->scale);
-            ((s32 (*)(int))draw_chunk_object)(o->model);
+            draw_chunk_object((void *)o->model);
             pop_matrix();
         }
     }

@@ -32,13 +32,13 @@ struct Tbl_8001CBC4 { Vec_8001CBC4 base; Vec_8001CBC4 dir; };
 struct Obj_8001CBC4 { u8 pad[0x44]; Vec_8001CBC4 pos; };
 
 extern "C" {
-s32 direction_to_rotation_xy(void *, void *, void *);
+void direction_to_rotation_xy(u8 *arg0, s32 *arg1, s32 *arg2);
 f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_x(int, int);
 s32 push_matrix_from(void *);
-s32 pop_matrices(int);
+s32 pop_matrices(s32 arg0);
 extern RecoveredGlobal_8001CAD4_lbl_804349FC lbl_804349FC;
 extern RecoveredGlobal_8001CAD4_lbl_804FF5E8 lbl_804FF5E8;
 extern RecoveredGlobal_8001CAD4_lbl_8058D490 identity_matrix;
@@ -62,12 +62,12 @@ void TLoadingCur::update_camera_facing_offset() {
         *(f32 *)((s8 *)arg0 + 0x50) = (f32) -*(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0xC);
         this->m_54 = (f32) -*(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x10);
         *(f32 *)&this->unk_58 = (f32) -*(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x14);
-        direction_to_rotation_xy((void *) (arg0 + 0x50), (void *) (&stack.sp8), (void *) (&stack.spC));
+        direction_to_rotation_xy((arg0 + 0x50), (&stack.sp8), (&stack.spC));
         push_matrix_from((void *) (&identity_matrix.value));
         rotate_matrix_y((int) (0), (int) (stack.spC));
         rotate_matrix_x((int) (0), (int) (stack.sp8));
         rotate_vector_by_matrix((int) (0), (void *) (arg0 + 0x20), (void *) (arg0 + 0x2C));
-        pop_matrices((int) (1));
+        pop_matrices((1));
         vec3_add_to((void *) (arg0 + 0x2C), (void *) (arg0 + 0x44));
         ((TNowLoading *)(*(u32 *)((s8 *)arg0 + 0x1C)))->copy_pos((void *) (arg0 + 0x2C));
     }

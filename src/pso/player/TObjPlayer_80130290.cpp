@@ -5,7 +5,7 @@
 extern "C" {
 
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object(u32);
+void draw_ginja_object(void *child);
 s32 rotate_matrix_x(s32, s32);
 s32 is_owner_alive__15TItemShootModelFv();
 s32 rotate_matrix_y(s32, s32);
@@ -21,7 +21,7 @@ void TUnk_804A69C0::render() {
         post_translate_matrix(arg0 + 0x1C);
         rotate_matrix_y(0, this->m_count);
         rotate_matrix_x(0, this->m_28);
-        draw_ginja_object(*(u32 *)&this->m_58);
+        draw_ginja_object((void *)(*(u32 *)&this->m_58));
         pop_matrix();
     }
 }

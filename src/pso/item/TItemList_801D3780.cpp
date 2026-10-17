@@ -93,8 +93,8 @@ s32 check_player_action_allowed(void);
 s32 fn_801D4270(s32);
 s32 load_character_from_card__23TAdSinglePlyChrSelectGCFv(void);
 s32 queue_destruction__7TObjectFv(void *);
-s32 remove_list_entry_by_id(int);
-s32 TItemList__sub_801D5884(void *, int);
+void remove_list_entry_by_id(s32 arg0);
+void TItemList__sub_801D5884(void *p, u8 v);
 u8 *run_item_count_update__9TItemListFv(void *);
 extern s32 item_drop_search_task_vtable[];
 u8 *TItemList__sub_801D39C8(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, s32 arg4, s8 arg5);
@@ -196,12 +196,12 @@ u8 *TItemList__sub_801D39C8(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, s32 arg4, s8
     construct_placement_search_base((u8 *)(arg0), (u8 *)(arg1), (u8 *)(arg3), (u8 *)(arg4), arg5);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801D39C8_lbl_804C4468 *)&item_drop_search_task_vtable).value;
     *(s32 *)((s8 *)arg0 + 0x54) = arg2;
-    TItemList__sub_801D5884((void *) (arg0), (int) (1));
+    TItemList__sub_801D5884((arg0), (1));
     ((TUnk_804C4498 *)arg0)->reset_placement_search_ring();
     if (check_player_action_allowed() != 0) {
         temp_r3 = (u8 *)(run_item_count_update__9TItemListFv(arg0));
         if (fn_801D4270(*(s32 *)((s8 *)temp_r3 + 4)) != 0) {
-            remove_list_entry_by_id((int) (*(s32 *)((s8 *)temp_r3 + 4)));
+            remove_list_entry_by_id((*(s32 *)((s8 *)temp_r3 + 4)));
             if (load_character_from_card__23TAdSinglePlyChrSelectGCFv() != 0) {
                 queue_destruction__7TObjectFv((void *) (arg0));
                 return arg0;
@@ -256,7 +256,7 @@ u8 *TItemList::ct_init_placement_ring(u8 *arg1, s32 arg2, u8 *arg3, u8 *arg4, s8
     construct_placement_search_base((u8 *)(((u8 *)this)), (u8 *)(arg1), (u8 *)(arg3), (u8 *)(arg4), arg5);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_801D3BD4_lbl_804C4480 *)&placement_search_task_vtable).value;
     *(s32 *)((s8 *)((u8 *)this) + 0x54) = arg2;
-    TItemList__sub_801D5884((void *)(((u8 *)this)), (int)(0U));
+    TItemList__sub_801D5884((((u8 *)this)), (0U));
     ((TUnk_804C4498 *)((u8 *)this))->reset_placement_search_ring();
     return ((u8 *)this);
 }

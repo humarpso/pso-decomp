@@ -83,7 +83,7 @@ extern s32 ginja_vertex_component_counts[];
 extern s32 ginja_vertex_component_types[];
 void GXSetVtxAttrFmt(s32, s32, s32, s32, u8);
 void ginja_set_vertex_format(u32 arg0);
-void load_list_texture(u32, u32, u32, u32);
+void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map);
 void ginja_load_texture_slot(u32 arg0);
 void GXSetArray(s32, void *, u8);
 void set_ginja_vertex_arrays(Arr_803DC3BC *arg0);

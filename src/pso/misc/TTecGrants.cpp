@@ -79,7 +79,7 @@ struct VObj_802386F8 : VBase_802386F8 {
 extern "C" {
 u8 * find_entity_by_id(u16);
 u8 * __ct__13TUnk_804CC888FPUclP7TObject(void *, s32, s32, s32);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 void *__nw__7TObjectFUl(int);
 extern s32 tl_07;
 void run_task__10TTecGrantsFv(u8 *arg0);
@@ -123,11 +123,11 @@ void run_task__10TTecGrantsFv(u8 *arg0) {
     u8 *temp_r3_2;
     *(u8 **)((s8 *)arg0 + 0x1C) = find_entity_by_id(((TTecGrants *)arg0)->m_b4);
     if ((void *) *(u8 **)((s8 *)arg0 + 0x1C) == NULL) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     if ((s32) *(s32 *)&((TTecGrants *)arg0)->m_ec == 0) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     temp_r3 = (unsigned long) (find_entity_by_id(((TTecGrants *)arg0)->m_f0));
@@ -142,7 +142,7 @@ void run_task__10TTecGrantsFv(u8 *arg0) {
         if ((temp_r3 != 0) && (TTecLuker::is_parents_unqueued(temp_r3) != 0) && (TObjPlayer::is_valid_and_active(temp_r3) != 0)) {
             ((VObj_18_4560ce *)(arg0))->m4(temp_r3);
         }
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
     }
 }
 

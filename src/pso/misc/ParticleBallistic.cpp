@@ -135,11 +135,11 @@ struct Part_800890F4 {
 extern "C" {
 void *alloc_particle_memory(int);
 u8 *create_ballistic_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
-int queue_destruction__7TObjectFv(void *);
-f32 vec_squared_length(void *);
+void queue_destruction__7TObjectFv(void *arg0);
+f32 vec_squared_length(u8 *arg0);
 extern const f32 TParticleCtrl__data_805D94F8;
 extern const f32 TParticleCtrl__data_805D94FC;
-void __dt__13TUnk_8048E728Fv(void *, int);
+u8 *__dt__13TUnk_8048E728Fv(u8 *arg0, s16 arg1);
 extern s32 TParticleCtrl__data_8048E778[];
 void *__dt__13TUnk_8048E778Fv(void *arg0, s16 arg1);
 u8 * init_particle_base(void *, void *, s32);
@@ -285,13 +285,13 @@ void TUnk_8048E778::retire_ballistic_particle_if_done() {
         stack.spC = *(f32 *)&this->unk_74 - *(f32 *)((s8 *)arg0 + 0x34);
         temp_f1 = this->m_78;
         stack.sp10 = temp_f1 - this->m_38;
-        if (TParticleCtrl__data_805D94F8 == vec_squared_length((void *)((void *) (&stack.sp8)))) {
-            queue_destruction__7TObjectFv((void *) (arg0));
+        if (TParticleCtrl__data_805D94F8 == vec_squared_length((u8 *)((void *) (&stack.sp8)))) {
+            queue_destruction__7TObjectFv((arg0));
             return;
         }
     }
     if (this->m_58 >= TParticleCtrl__data_805D94FC) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
     }
 }
 
@@ -452,7 +452,7 @@ void TUnk_8048E778::render() {
 void *__dt__13TUnk_8048E778Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = TParticleCtrl__data_8048E778;
-        __dt__13TUnk_8048E728Fv(arg0, 0);
+        __dt__13TUnk_8048E728Fv((u8 *)arg0, 0);
         if (arg1 > 0) {
             ((TUnk_8048E728 *)arg0)->free_from_heap();
         }

@@ -21,7 +21,7 @@ void * TItemProShield__sub_80116708(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *TItemProShield__sub_80116744(u8 *arg0);
-void add_actor_hp(s32, s16);
+s32 add_actor_hp(u8 *arg0, s16 arg1);
 s32 get_slot_count__14TItemProShieldFv(void *);
 extern s32 game_difficulty_selection;
 void vfunc_44__13TUnk_8049F770Fv(Obj_80116634 *arg0);
@@ -30,7 +30,7 @@ void *__dt__13TUnk_8049F828Fv(void *arg0, s16 arg1);
 void vfunc_44__13TUnk_8049F828Fv(void *arg0);
 s32 apply_transform_action__8TItemMagFUc(s32, s32);
 void TItemObject__ct(void *);
-void __dt__11TItemObjectFv(void *, int);
+void *__dt__11TItemObjectFv(void *arg0, s16 arg1);
 
 extern void *item_hp_recovery_vtable[];
 
@@ -46,11 +46,11 @@ void TUnk_8049F770::vfunc_44() {
     t = ((TItemObject *)arg0)->get_tool_pmt_amount_byte();
     new_var = game_difficulty_selection;
     new_var = t + (new_var * (t / 2));
-    add_actor_hp(arg0->f0, new_var);
+    add_actor_hp((u8 *)arg0->f0, new_var);
   }
   else
   {
-    add_actor_hp(arg0->f0, ((TItemProShield *)(arg0->f0))->get_field_2b8());
+    add_actor_hp((u8 *)arg0->f0, ((TItemProShield *)(arg0->f0))->get_field_2b8());
   }
 }
 
@@ -295,7 +295,7 @@ void *__dt__13TUnk_8049F998Fv(void *arg0, s16 arg1);
 void vfunc_44__13TUnk_8049FA50Fv(void *arg0);
 int vfunc_44__13TUnk_8049FB08Fv(void* p);
 void *TItemProShield__sub_80116D54(void *arg0);
-int send_star_atomizer_targets(void*);
+void send_star_atomizer_targets(void *arg0);
 
 extern void *item_status_cure_vtable[];
 
@@ -390,15 +390,15 @@ void *TItemProShield__sub_80116D54(void *arg0) {
 }
 
 void vfunc_14__11TItemObjectFv();
-void TItemObject__vt16();
+void TItemObject__vt16(u8 *arg0, u8 *item);
 void vfunc_31__11TItemObjectFv();
-void TItemObject__vt35();
-void TItemObject__vt36();
+s32 TItemObject__vt35(void *arg0, s32 arg1);
+s32 TItemObject__vt36(void *arg0, s32 arg1);
 void vfunc_9__11TItemObjectFv();
 void TItem__sub_801005D8();
 void vfunc_16__5TItemFv();
 void TItem__sub_801005E0();
-void TItem__sub_801005E4();
+int TItem__sub_801005E4(void);
 void TItem__sub_80100648();
 void vfunc_34__5TItemFv();
 void vfunc_17__5TItemFv();
@@ -414,7 +414,7 @@ void vfunc_22__5TItemFl();
 void vfunc_30__5TItemFv();
 void vfunc_21__5TItemFPUclll();
 void vfunc_20__5TItemFv();
-void TItem__sub_80100B8C();
+int TItem__sub_80100B8C(void *p);
 void vfunc_6__13TUnk_804B9870FPsl();
 void vfunc_33__5TItemFv();
 void vfunc_43__5TItemFv();
@@ -426,7 +426,7 @@ void vfunc_36__11TItemObjectFv();
 void register_attack__5TItemFv();
 void release_member_90__10TObjPlayerFv();
 void render_shadows__5TItemFv();
-void ret_8010064C();
+int ret_8010064C(void);
 void vfunc_35__5TItemFv();
 void run_task__5TItemFv();
 void try_pick_up_item__5TItemFl();

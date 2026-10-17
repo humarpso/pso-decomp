@@ -91,14 +91,14 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
 f32 post_translate_matrix(void *);
-s32 draw_ginja_model(int);
+void draw_ginja_model(s32 model);
 void init_door_base(void *, void *);
 extern s32 __vt__19TODoorFourLightBase[];
 extern s32 TODoorFourLightBase__class_name;
 Door_802A0994 *TODoorFourLightBase__ct(Door_802A0994 *arg0, void *arg1, s32 arg2);
 u8 is_current_floor_switch_set(int);
 s32 rotate_matrix_y(int, int);
-s32 draw_ginja_object(s32);
+void draw_ginja_object(void *child);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 void render__19TODoorFourLightBaseFv(u8 *arg0);
 void *__dt__19TODoorFourLightBaseFv(void *arg0, s16 arg1);
@@ -215,7 +215,7 @@ void TODoorFourLightBase::draw_node_tree(u8 *arg1) {
             scale_current_matrix((void *) (var_r30 + 0x20));
         }
         if (!(temp_r31 & 8)) {
-            draw_ginja_model((int) (*(s32 *)((s8 *)var_r30 + 4)));
+            draw_ginja_model((*(s32 *)((s8 *)var_r30 + 4)));
         }
         if (!(temp_r31 & 0x10)) {
             temp_r4 = (u8 *)(*(u8 **)((s8 *)var_r30 + 0x2C));
@@ -301,7 +301,7 @@ void render__19TODoorFourLightBaseFv(u8 *arg0) {
         TObjFish::set_global_param((s32)((void *)self->m20()));
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, ((TODoorFourLightBase *)arg0)->rotation_y);
-        draw_ginja_object(*(s32 *)&((TODoorFourLightBase *)arg0)->m_d4);
+        draw_ginja_object((void *)(*(s32 *)&((TODoorFourLightBase *)arg0)->m_d4));
         pop_matrix();
         break;
     }

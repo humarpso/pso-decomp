@@ -28,15 +28,15 @@ typedef struct Obj_800502FC {
 } Obj_800502FC;
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
-s32 TBoss4Type3__sub_8005254C(int);
+void queue_destruction__7TObjectFv(void *arg0);
+s32 TBoss4Type3__sub_8005254C(u16 id);
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
 u8 *get_player_by_client_id(u16);
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
 void push_matrix();
-void pop_matrix();
+s32 pop_matrix(void);
 void post_translate_matrix(void *);
 
 void *lbl_804858A8[3] = {
@@ -90,20 +90,20 @@ void TObjDFYutai::render() {
 void TObjDFYutai::run_task() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
-    if (TBoss4Type3__sub_8005254C((int) (*(u16 *)((s8 *)arg0 + 0x20))) == 0) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+    if (TBoss4Type3__sub_8005254C((*(u16 *)((s8 *)arg0 + 0x20))) == 0) {
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) (*(f32 *)((s8 *)arg0 + 0x24) + *(f32 *)((s8 *)arg0 + 0x28));
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x24);
     if (temp_f1 <= lbl_805D8A30) {
         *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805D8A30;
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     if (temp_f1 >= lbl_805D8A34) {
         *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805D8A34;
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((arg0));
     }
 }
 #pragma pop

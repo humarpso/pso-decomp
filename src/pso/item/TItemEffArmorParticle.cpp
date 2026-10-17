@@ -15,9 +15,9 @@ extern "C" {
 void queue_destruction__7TObjectFv(void *);
 s32 obj_testFlags30(int, int);
 u32 find_item_by_id(int);
-s32 get_item_system_generation();
+int get_item_system_generation(void);
 s8 TObjPlayer__sub_80102C30();
-void *get_player_by_client_id(u16);
+void *get_player_by_client_id(s32 i);
 }
 
 void TItemEffArmorParticle::run_task() {
@@ -77,7 +77,7 @@ struct V_A_80364364 : Base_A_80364364 {
 extern "C" {
 
 u32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
-s32 disallow_rendering__7TObjectFv(void *);
+void disallow_rendering__7TObjectFv(void *arg0);
 
 extern s32 TItemEffArmorParticle__class_name;
 

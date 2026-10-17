@@ -470,7 +470,7 @@ struct Obj_800E37E4 {
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
 s32 set_flag_0x100__23TObjEneMe3ShinowaMirageFv();
@@ -486,14 +486,14 @@ extern s32 lbl_805D2AC0;
 void *TObjEnePanarmsAtkColli__ct(Obj_800E37E4 *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void *__dt__22TObjEnePanarmsAtkColliFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void __dt__9TObjEnemyFv(void *, int);
+void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 
 void TObjEnePanarmsAtkColli::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0_2;
     if (--*(s32 *)&this->m_380 < 0) {
-        queue_destruction__7TObjectFv((void *)(arg0));
+        queue_destruction__7TObjectFv((arg0));
         return;
     }
     VecCopy((Vec *)&this->m_44, (const Vec *)&this->position);

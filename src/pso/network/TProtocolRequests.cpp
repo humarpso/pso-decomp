@@ -19,9 +19,9 @@ typedef char TProtocol_guildcard_offset[offsetof(TProtocol, m_guildcard_tag) == 
 extern "C" {
 void bswap_save_packet(s32);
 void bswap__12TChatMessageFv(s32);
-void fn_801DF8A8(void *);
+s32 fn_801DF8A8(s32 arg0);
 void fn_801DF874(void *);
-void __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, const void *);
+void __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *arg0, void *arg1);
 }
 
 void TProtocol::send_character_save_info(int creation_timestamp, int event_counter) {
@@ -50,7 +50,7 @@ void TProtocol::send_block_list_request() {
     ChangeShipOrBlockPacket packet;
     u8 pad[8];
     if (m_connected != 0) {
-        fn_801DF8A8(&packet);
+        fn_801DF8A8((s32)&packet);
         memset(&packet, 0, sizeof(packet));
         packet.header.command = 0xA1;
         packet.header.size = sizeof(packet);
@@ -64,7 +64,7 @@ void TProtocol::send_ship_list_request() {
     ChangeShipOrBlockPacket packet;
     u8 pad[8];
     if (m_connected != 0) {
-        fn_801DF8A8(&packet);
+        fn_801DF8A8((s32)&packet);
         memset(&packet, 0, sizeof(packet));
         packet.header.command = 0xA0;
         packet.header.size = sizeof(packet);

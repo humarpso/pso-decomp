@@ -19,7 +19,7 @@ struct RecoveredGlobal_803284F8_lbl_8050E208 {
 struct Obj_803285C0 { u8 pad[0x20]; s32 mode; u8 pad2[0xC]; s16 state; };
 
 extern "C" {
-s32 get_localized_text_entry(int, int);
+s32 get_localized_text_entry(s32 arg0, s32 arg1);
 s32 create_guide_button(void *, void *, f32);
 s32 init_guide_button_params(void *);
 extern const f32 lbl_805DF6E4;
@@ -35,7 +35,7 @@ void draw_dialing_status__12TAdDialingGCFv(void *);
 void spawn_title_screen__12TAdDialingGCFl(void *arg0, s32);
 s32 update_status_message__12TAdDialingGCFv();
 s32 create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
-s32 TLobby__sub_803FB184(void *);
+void TLobby__sub_803FB184(u8 *arg0);
 s32 __ct__10TAdTitleGCFP7TObjectl(u32, void *, s32);
 u32 __nw__7TObjectFUl(s32);
 s8 func_801A5E54__Fv();
@@ -244,7 +244,7 @@ void TAdDialingGC::show_guide_button() {
     if (!(*(s32 *)&this->m_a4 & 2)) {
         init_guide_button_params((void *) (&stack.sp8));
         stack.sp8 = 1;
-        stack.sp28 = get_localized_text_entry((int) (0xF), (int) (0x13));
+        stack.sp28 = get_localized_text_entry((0xF), (0x13));
         stack.spC = lbl_805DF6E4;
         stack.sp14 = lbl_805DF6E4;
         stack.sp10 = lbl_805DF6E8;

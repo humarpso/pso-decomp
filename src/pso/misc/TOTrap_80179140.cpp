@@ -9,8 +9,8 @@ s32 post_translate_matrix(void *);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
-s32 draw_chunk_object(s32);
-s32 draw_model_motion(s32, s32, f32);
+void draw_chunk_object(void *child);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 
 extern const f32 lbl_805DBA40;
 extern const f32 lbl_805DBA44;
@@ -38,9 +38,9 @@ void TOTrap::render() {
             rotate_matrix_y(0, this->rotation_y);
             TObjFish::set_global_param(this->texture_id);
             if (TObjPlayer::check_demo_mode() == 1) {
-                draw_chunk_object(*(s32 *)&this->model);
+                draw_chunk_object((void *)(*(s32 *)&this->model));
             } else {
-                draw_model_motion(*(s32 *)&this->model, *(s32 *)&this->unknownF8, this->m_c0);
+                draw_model_motion((void *)(*(s32 *)&this->model), (void *)(*(s32 *)&this->unknownF8), this->m_c0);
             }
             pop_matrix();
         }

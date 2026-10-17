@@ -26,7 +26,7 @@ s32 draw_visible_window_entries(void *, void *, s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void set_sprite_uv_bounds(f32, f32, f32, f32);
-s32 fn_8026287C(void *);
+void fn_8026287C(u8 *arg0);
 int initialize_subwindow__9TWindowDDFv(void*);
 void queue_destruction__7TObjectFv(void *);
 

@@ -243,7 +243,7 @@ f32 newton_sqrtf(f32);
 void calc_triangle_normal__10TObjPlayerFPvPv(Vec_80181BAC *, Vec_80181BAC *);
 void vec3_add_to(Vec_80181BAC *, Vec_80181BAC *);
 void mult_vec_array__10TObjPlayerFUll(s32, Vec_80181BAC *, Vec_80181BAC *, s32);
-void set_matrix_identity(s32);
+void set_matrix_identity(u8 *arg0);
 s32 push_matrix(void);
 s32 pop_matrix(void);
 extern Vec_80181BAC city_door_lobby_collision_vertices[];
@@ -480,7 +480,7 @@ void run_task__16TObjCityDoor_MedFv(void *arg0);
 void render__16TObjCityDoor_MedFv(u8 *arg0);
 s32 get_city_common_motion(s32);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
-s32 translate_matrix(s32, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 
 extern const f32 lbl_805DBBF4;
 

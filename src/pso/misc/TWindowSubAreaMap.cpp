@@ -36,8 +36,8 @@ s32 is_on_current_screen__11TCameraCtrlFv(int, int);
 extern const f32 lbl_805DD478;
 extern const f32 lbl_805DD47C;
 void *__dt__17TWindowSubAreaMapFv(void *arg0, s16 arg1);
-void *TWindowSubAreaMapDisp__ct(void *);
-void TWindow__close(void *);
+u8 *TWindowSubAreaMapDisp__ct(u8 *arg0);
+void TWindow__close(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -59,7 +59,7 @@ void TWindowSubAreaMap::run_task() {
 void *__dt__17TWindowSubAreaMapFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TWindowSubAreaMap;
-        if (*(void **)((s8 *)arg0 + 0x24) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x24)); *(s32 *)&((TWindowSubAreaMap *)arg0)->m_24 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x24) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x24))); *(s32 *)&((TWindowSubAreaMap *)arg0)->m_24 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -78,7 +78,7 @@ TWindowSubAreaMap::TWindowSubAreaMap(TObject *arg1, void *arg2) : TObject(arg1) 
     *(void **)((s8 *)this + 0x1C) = arg2;
     o = __nw__7TObjectFUl(0x78);
     if (o != NULL) {
-        o = TWindowSubAreaMapDisp__ct(o);
+        o = TWindowSubAreaMapDisp__ct((u8 *)o);
     }
     *(void **)((s8 *)this + 0x24) = o;
 }

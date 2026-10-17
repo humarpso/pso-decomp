@@ -238,7 +238,7 @@ extern "C" {
 void TObjPlayer__sub_8036414C(void);
 void TObjPlayer__sub_80364198(void);
 void set_chunk_material_override_pair(s32, s32);
-s32 set_chunk_blend(s32);
+void set_chunk_blend(u32 x);
 extern Rec_80364028 lbl_80479FF8;
 extern const f32 lbl_805E0288;
 void TObjPlayer::spawn_cleanup_helper(void *arg0) {

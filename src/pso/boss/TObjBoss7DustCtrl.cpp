@@ -29,11 +29,11 @@ typedef struct Dust_802F127C {
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int, f32);
 void matrix_mult_vec(s32, Vec_802F127C *, Out_802F127C *);
-void set_matrix_identity(s32);
-void translate_matrix(s32, f32, f32, f32);
+void set_matrix_identity(u8 *arg0);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 void rotate_matrix_x(s32, s32);
 void push_matrix(void);
-void pop_matrix(void);
+s32 pop_matrix(void);
 Vec_802F127C TObjBoss7DustCtrl__helix_points[6];
 Rot_802F127C TObjBoss7DustCtrl__rotation_pairs[10];
 Out_802F127C TObjBoss7DustCtrl__transformed_vertices[60];

@@ -12,7 +12,7 @@ s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void*,s32);
 void play_sound_effect(s32,s32,s32,s32);
 void TLobby__sub_802D29B8(void*);
 void TLobby__sub_802D29DC(void*);
-void TWindow__close(void*);
+void TWindow__close(u8 *arg0);
 u8* get_window_layout_position(s32);
 TWindowMessage* create_message_window__6TLobbyFllUls(void*,const f32*,s32,s32);
 int send_and_handle__6TLobbyFii(void*,const char*,s32);
@@ -62,7 +62,7 @@ void TWindowSubTradeMessage::run_task() {
 TWindowSubTradeMessage::~TWindowSubTradeMessage() {
     TLobby__sub_802D29B8(this);
     if (messageWindow != 0) {
-        TWindow__close(messageWindow);
+        TWindow__close((u8 *)messageWindow);
         messageWindow=0;
     }
 }

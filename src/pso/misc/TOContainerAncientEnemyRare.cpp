@@ -8,20 +8,20 @@ struct RecoveredGlobal_8015B76C___vt__27TOContainerAncientEnemyRare {
 };
 
 extern "C" {
-s32 is_quest_active();
+int is_quest_active(void);
 s32 TOContainerAncientEnemyCommon__ct(int, void *);
 s32 __nw__7TObjectFUl(int);
 s32 get_game_play_mode();
 extern s32 enable_v2_features;
 s32 TOContainerAncientEnemyCommon__create(s32 arg0);
-u8 * TOContainerAncientEnemy__ct(void *, s32);
+u8 *TOContainerAncientEnemy__ct(u8 *arg0, s32 arg1);
 extern s32 __vt__27TOContainerAncientEnemyRare[];
 extern s32 lbl_805D2F10;
 extern s32 *ancient_container_fragment_texture_lists;
 u8 *TOContainerAncientEnemyRare__ct(u8 *arg0, s32 arg1);
 void *__dt__27TOContainerAncientEnemyRareFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void __dt__23TOContainerAncientEnemyFv(void *, int);
+void *__dt__23TOContainerAncientEnemyFv(void *arg0, s16 arg1);
 
 void TUnk_804B27D8::vfunc_15() {  }
 

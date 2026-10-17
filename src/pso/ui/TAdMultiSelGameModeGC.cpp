@@ -89,7 +89,7 @@ extern Arr3_803001B4 lbl_80474EEC;
 extern Arr3_803001B4 multi_sel_game_mode_arr3;
 extern const f32 lbl_805DEF40;
 void TAdMultiSelGameModeGC__sub_80300764(void* p);
-int TKeyBoardControl__sub_8000F9CC(int);
+void TKeyBoardControl__sub_8000F9CC(s32 arg0);
 
 void TAdMultiSelGameModeGC::render() {  }
 

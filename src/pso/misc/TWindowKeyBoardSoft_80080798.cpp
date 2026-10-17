@@ -35,7 +35,7 @@ struct F_80080B34 { u16 *buffer; u32 cursor; };
 
 extern "C" {
 u16 map_char_to_font_code(u16);
-u8 get_font_char_advance(u16);
+u32 get_font_char_advance(u16 arg0);
 extern u16 lbl_8048E020[];
 s32 TWindowKeyBoardSoft__sub_80080F68(F_80080F68 *arg0, u16 arg1);
 void TWindowKeyBoardSoft__sub_800808FC(Kb_800808FC *kb, u16 ch);

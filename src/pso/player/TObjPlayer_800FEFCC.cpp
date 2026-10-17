@@ -69,16 +69,16 @@ f32 atan2_float(f32, f32);
 f32 get_scale_factor__10TObjPlayerFv(f32);
 s32 scale_matrix(int, f32, f32, f32);
 f32 vector_length(void *);
-s32 translate_matrix_vec3(int, void *);
+void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 s32 rotate_matrix_y(int, int);
 s32 subtract_vector(void *, void *);
 s32 rotate_matrix_x(int, int);
 s32 normalize_vector(void *);
 s32 push_matrix();
 s32 pop_matrix();
-s32 set_chunk_material_override_pair(int, int);
-s32 set_chunk_material_color(void *);
-s32 draw_chunk_object(void *);
+void set_chunk_material_override_pair(s32 arg0, s32 arg1);
+void set_chunk_material_color(f32 *arg);
+void draw_chunk_object(void *child);
 extern const f64 lbl_8043DF40;
 extern u8 lbl_8048DEF4[];
 extern s32 lbl_805D5660;
@@ -209,7 +209,7 @@ void TObjHMS_EZRope_Player::sub_800FF2D0() {
     for (; rec->n >= 2; rec++, ang++) {
         for (n = rec->n - 1; n > 0; n--, pt++) {
             push_matrix();
-            translate_matrix_vec3(0, pt);
+            translate_matrix_vec3((u8 *)(0), (u8 *)pt);
             VecCopy((Vec *)&d, (const Vec *)&pt[1]);
             subtract_vector(&d, pt);
             if (lbl_805DAA58 == vector_length(&d)) {
@@ -243,11 +243,11 @@ void TObjHMS_EZRope_Player::sub_800FF2D0() {
         lbl_805D5668 = chunk_polygon_flags_or_mask;
         model_render_flags |= 0x10;
         set_chunk_material_override_pair(0, 0x800);
-        set_chunk_material_color(ezrope_chunk_material_color_table);
+        set_chunk_material_color((f32 *)ezrope_chunk_material_color_table);
         for (b = arg0->blobs; b->scale >= lbl_805DAA58; b++) {
             f32 s;
             push_matrix();
-            translate_matrix_vec3(0, &b->pos);
+            translate_matrix_vec3((u8 *)(0), (u8 *)&b->pos);
             s = lbl_805DAA60 * b->scale;
             scale_matrix(0, s, s, s);
             draw_chunk_object(lbl_8048DEF4);

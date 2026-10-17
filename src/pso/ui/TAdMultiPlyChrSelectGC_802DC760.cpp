@@ -33,10 +33,10 @@ extern RecoveredGlobal_802DCA20_TAdMultiPlyChrSelectGC__data_804727B0 TAdMultiPl
 extern RecoveredGlobal_802DCA20_lbl_804727E8 multi_chr_select_item_rect_table;
 extern s32 controller_physical_port_bank[];
 void TAdMultiPlyChrSelectGC__sub_802DCA20(u8 *arg0);
-s32 allow_rendering__7TObjectFv(void *);
-s32 load_tables(s32);
-s32 is_slot_active__23TAdSinglePlyChrSelectGCFUi(s32);
-s32 TWindow__close(void *);
+void allow_rendering__7TObjectFv(void *arg0);
+void load_tables(int a0);
+s32 is_slot_active__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
+void TWindow__close(u8 *arg0);
 s32 TAdMultiPlyChrSelectGC__sub_802DBD64(void *);
 s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
 void TAdMultiPlyChrSelectGC__sub_802DC8A0(void *arg0);
@@ -89,11 +89,11 @@ void TAdMultiPlyChrSelectGC__sub_802DC8A0(void *arg0) {
     u32 i;
     s32 k;
     if (*(u32 *)((s8 *)arg0 + 0x80) != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0x80));
+        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x80)));
         *(u32 *)((s8 *)arg0 + 0x80) = 0U;
     }
     if (*(u32 *)((s8 *)arg0 + 0x84) != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0x84));
+        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x84)));
         *(u32 *)((s8 *)arg0 + 0x84) = 0U;
     }
     if (TWindowShortListCtrl__check_controller_button(((Ent_802DC8A0 *)controller_physical_port_bank)[get_instance__22TAdMultiPlyChrSelectGCFv(*(s32 *)((s8 *)arg0 + 0x5C))].d + 0x20, 2) != 0) {

@@ -12,7 +12,7 @@ s32 try_move_char__23TAdSinglePlyChrSelectGCFii(s32, s32);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(s32);
 s32 get_card_index__22TAdMultiPlyChrSelectGCFv(s32, s32);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 
 extern s32 lbl_80472868[];
 

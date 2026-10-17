@@ -113,8 +113,8 @@ struct Ten_802F0A5C;
 typedef struct Anim_802F0BE8 { u8 pad0[4]; u32 n; } Anim_802F0BE8;
 
 s32 obj_testFlags30(void *, s32);
-int queue_destruction__7TObjectFv(void*);
-int disallow_rendering__7TObjectFv(void*);
+void queue_destruction__7TObjectFv(void *arg0);
+void disallow_rendering__7TObjectFv(void *arg0);
 s32 attach_particle_model(int, int, int, int, int, f32);
 s32 spawn_particle_effect(void *, int);
 f32 horizontal_distance_squared(void *, void *);
@@ -146,12 +146,12 @@ void TBoss7Tentacle__sub_802F0B70(void* p);
 void TBoss7Tentacle__sub_802F0B80(void* p);
 void TObjPlayer__sub_802F0D2C(void);
 s32 rand(void);
-s32 rotate_matrix_zyx(int, int, int, int);
+void rotate_matrix_zyx(void *m, s32 x, s32 y, s32 z);
 s32 rotate_matrix_y(int, int);
 void rotate_matrix_by_node_angles(void *, int);
 s32 scale_current_matrix(void *);
 void post_translate_matrix(void *);
-s32 draw_chunk_object(void *);
+void draw_chunk_object(void *child);
 void draw_model_motion(void *, void *, f32);
 
 extern V_802F0A5C TBoss7Tentacle__segment_offsets[];
@@ -182,7 +182,7 @@ void TBoss7Tentacle::restart_particle_effect() {
   s32 temp_r3;
   if (((u32) (*((u32 *) (((s8 *) arg0) + 0x40)))) != 0U)
   {
-    queue_destruction__7TObjectFv((void*)(*((void **) (((s8 *) arg0) + 0x40))));
+    queue_destruction__7TObjectFv((*((void **) (((s8 *) arg0) + 0x40))));
     *((u32 *) (((s8 *) arg0) + 0x40)) = 0U;
   }
   particle_effect = spawn_particle_effect((void *) (arg0 + 0x1C), (int) 0x215);
@@ -311,7 +311,7 @@ void TBoss7TentacleNeedle::run_task() {
 void *__dt__20TBoss7TentacleNeedleFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TBoss7TentacleNeedle;
-        if (*(void **)((s8 *)arg0 + 0x40) != NULL) { ((void (*)(void *))queue_destruction__7TObjectFv)(*(void **)((s8 *)arg0 + 0x40)); *(s32 *)((s8 *)arg0 + 0x40) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x40) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x40)); *(s32 *)((s8 *)arg0 + 0x40) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -364,21 +364,21 @@ void render__14TBoss7TentacleFv(u8 *arg0) {
     case 5:
         TObjPlayer::set_global_flag();
         TObjPlayer::concat_matrix((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x130)));
-        rotate_matrix_zyx((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x140)), (int) (*(s32 *)((s8 *)arg0 + 0x13C)), (int) (0));
+        rotate_matrix_zyx((0), (*(s32 *)((s8 *)arg0 + 0x140)), (*(s32 *)((s8 *)arg0 + 0x13C)), (0));
         scale_current_matrix((void *) ((u8 *)(arg0) + 0x24));
         ((s32 (*)(void *, int, f32))draw_model_motion)((void *) (*(s32 **)((s8 *)arg0 + 0x1C)), (int) (*(s32 *)((s8 *)arg0 + 0x20)), (f32) (*(f32 *)((s8 *)arg0 + 0x134)));
         TObjPlayer::clear_global_state();
         break;
     case 2:
         TObjPlayer::concat_matrix((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x130)));
-        rotate_matrix_zyx((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x140)), (int) (*(s32 *)((s8 *)arg0 + 0x13C)), (int) (0));
+        rotate_matrix_zyx((0), (*(s32 *)((s8 *)arg0 + 0x140)), (*(s32 *)((s8 *)arg0 + 0x13C)), (0));
         scale_current_matrix((void *) ((u8 *)(arg0) + 0x24));
-        draw_chunk_object((void *) (*(s32 **)((s8 *)arg0 + 0x1C)));
+        draw_chunk_object((*(s32 **)((s8 *)arg0 + 0x1C)));
         break;
     case 3:
         ((s32 (*)(void *))post_translate_matrix)((void *) ((u8 *)(arg0) + 0x40));
         scale_current_matrix((void *) (lbl_80474070));
-        rotate_matrix_zyx((int) (0), (int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x13C)), (int) (*(s32 *)((s8 *)arg0 + 0x140)));
+        rotate_matrix_zyx((0), (0), (*(s32 *)((s8 *)arg0 + 0x13C)), (*(s32 *)((s8 *)arg0 + 0x140)));
         for (var_ctr = 0; var_ctr < 14; var_ctr++) {
             lbl_80541528[var_ctr].pos.x = ((Tent_802EFF24 *)arg0)->pos[var_ctr].x;
             lbl_80541528[var_ctr].pos.y = ((Tent_802EFF24 *)arg0)->pos[var_ctr].y;
@@ -386,7 +386,7 @@ void render__14TBoss7TentacleFv(u8 *arg0) {
             lbl_80541528[var_ctr].ang = ((Tent_802EFF24 *)arg0)->ang[var_ctr];
         }
         scale_current_matrix((void *) ((u8 *)(arg0) + 0x24));
-        draw_chunk_object((void *) (lbl_80541528));
+        draw_chunk_object((lbl_80541528));
         break;
     }
     ((s32 (*)(void))pop_matrix)();

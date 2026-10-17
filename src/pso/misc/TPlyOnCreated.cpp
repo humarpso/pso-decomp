@@ -12,8 +12,8 @@ extern RecoveredGlobal_801C6178___vt__13TPlyOnCreated __vt__13TPlyOnCreated;
 extern s32 TPlyOnCreated__name;
 extern u8 *tl_06;
 u8 *__ct__13TPlyOnCreatedFv(u8 *arg0, s16 arg1, s32 arg2);
-u32 get_player_by_client_id(u16);
-s32 queue_destruction__7TObjectFv(void *);
+void *get_player_by_client_id(s32 i);
+void queue_destruction__7TObjectFv(void *arg0);
 
 void TPlyOnCreated::run_task() {
     s32 (*temp_r12)();

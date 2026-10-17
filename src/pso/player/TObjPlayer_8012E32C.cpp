@@ -6,7 +6,7 @@ extern "C" {
 
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_z(s32, s32);
-s32 draw_ginja_object(u32);
+void draw_ginja_object(void *child);
 s32 rotate_matrix_x(s32, s32);
 u8 *query_game_join_id__10TObjPlayerFv(s32);
 s32 get_entity_id__10TObjPlayerFv();
@@ -31,7 +31,7 @@ void TUnk_804A5D10::render() {
             rotate_matrix_y(0, *(s32 *)&this->unk_3C);
             rotate_matrix_x(0, this->m_38);
             rotate_matrix_z(0, this->m_40);
-            draw_ginja_object(temp_r31);
+            draw_ginja_object((void *)temp_r31);
             pop_matrix();
         }
     }

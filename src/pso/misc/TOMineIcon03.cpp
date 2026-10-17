@@ -7,7 +7,7 @@ extern "C" {
 void *__dt__12TOMineIcon03Fv(void *arg0, s16 arg1);
 void *TOMineIcon03__ct(void *, void *, void *);
 s32 __dl__7TObjectFPv(void *);
-s32 __dt__6TOMineFv(void *, s32);
+void *__dt__6TOMineFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 s32 free_collision_body_parts(void *);
 

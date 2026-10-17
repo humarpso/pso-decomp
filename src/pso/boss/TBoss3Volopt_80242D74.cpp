@@ -4,18 +4,18 @@
 #include "pso/boss/TBoss4Type3.h"
 
 extern "C" {
-u32 find_active_pad_rumble_effect_by_id(s32);
-void *find_free_pad_rumble_effect_slot();
+s32 *find_active_pad_rumble_effect_by_id(u32 arg0);
+s32 *find_free_pad_rumble_effect_slot(void);
 int reset_state__23TAdSinglePlyChrSelectGCFv();
 
 void TBoss3Volopt::update_if_active(s32 _w0) {
-    if (find_active_pad_rumble_effect_by_id((s32)(_w0)) != 0U) {
+    if (find_active_pad_rumble_effect_by_id((_w0)) != 0U) {
         reset_state__23TAdSinglePlyChrSelectGCFv();
     }
 }
 void TBoss3Volopt::alloc_event(s16 arg0, s32 arg1) {
     void *active_pad_rumble_effect;
-    active_pad_rumble_effect = ((void *)find_active_pad_rumble_effect_by_id((s32)(arg1)));
+    active_pad_rumble_effect = ((void *)find_active_pad_rumble_effect_by_id((arg1)));
     if ((active_pad_rumble_effect != NULL) || (active_pad_rumble_effect = find_free_pad_rumble_effect_slot(), ((active_pad_rumble_effect == NULL) == 0))) {
         *(u8 *)((s8 *)active_pad_rumble_effect + 0) = 0x99;
         *(s16 *)((s8 *)active_pad_rumble_effect + 0x10) = arg0;

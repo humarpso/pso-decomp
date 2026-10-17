@@ -8,7 +8,7 @@ struct RecoveredGlobal_8007FA24_lbl_8048DF88
 };
 
 extern "C" {
-s32 launch_switcher_dol(int);
+s32 launch_switcher_dol(const char *arg0);
 s32 TLobby__sub_8014618C();
 extern RecoveredGlobal_8007FA24_lbl_8048DF88 lbl_8048DF88;
 void TAdTrialModemChkGC__sub_8007FA24(s32 arg0);
@@ -29,7 +29,7 @@ void TAdTrialModemChkGC__sub_8007FA24(s32 arg0) {
   {
     TAdTrialModemChkGC::init_modem_check_params();
   }
-  launch_switcher_dol((int) (*((s32 *) (((s8 *) (((u8 *) (&lbl_8048DF88.value)) + (temp_r31 * 4))) + 0))));
+  launch_switcher_dol((const char *)(*((s32 *) (((s8 *) (((u8 *) (&lbl_8048DF88.value)) + (temp_r31 * 4))) + 0))));
 }
 
 }

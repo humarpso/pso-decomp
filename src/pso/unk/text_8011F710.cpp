@@ -107,7 +107,7 @@ extern "C" {
 s32 obj_getField1c(void *);
 s8 TObjPlayer__sub_80102C30();
 s32 play_weapon_hit_sound(void *);
-f32 get_attack_accuracy_scale(void *);
+f32 get_attack_accuracy_scale(s16 *arg0);
 s32 apply_camera_shake__10TObjPlayerFiii(void *, void *, int);
 extern s32 tl_05;
 extern const f32 lbl_805DAC94;
@@ -163,7 +163,7 @@ void TItemWeapon::deliver_hit(s32 arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0)
     if (TObjPlayer__sub_80102C30() == 2) {
         temp_r3 = (u8 *)(*(u8 * *)&this->player);
         if ((temp_r3 != NULL) && (arg2 != NULL)) {
-            attack_accuracy_scale = get_attack_accuracy_scale((void *) (temp_r3 + 0x7CC));
+            attack_accuracy_scale = get_attack_accuracy_scale((s16 *)(temp_r3 + 0x7CC));
             if ((arg3 == 2) && (((VObj_18_f8c4e0 *)(((u8 *)this)))->m33() == 0)) {
                 attack_accuracy_scale *= lbl_805DAC94;
             }

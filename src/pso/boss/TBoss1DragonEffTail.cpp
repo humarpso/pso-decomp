@@ -74,25 +74,25 @@ struct Pair_8002BD38 { s32 a, b; };
 struct Vec_8002BD38 { f32 x, y, z; };
 
 extern "C" {
-s32 TBoss1Dragon__sub_8002AB6C(void *);
+void TBoss1Dragon__sub_8002AB6C(u8 *arg0);
 extern const f32 lbl_805D8158;
 void TBoss1DragonEffTail__vt20(u8 *arg0, u8 *arg1);
 void fn_8002B630(void *, void *);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-void *TBoss8Dragon__sub_800BC5EC(void *, s32);
+u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1);
 extern u8 TBoss1DragonEffTail__collision_body_templates[];
 extern s32 __vt__19TBoss1DragonEffTail[];
 extern s32 TBoss1DragonEffTail__name;
 extern const f32 lbl_805D8154;
 EffTail_8002C06C *TBoss1DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 arg2);
-s32 update_collider_contact_by_height(void *, f32);
+void update_collider_contact_by_height(u8 *arg0, f32 farg0);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 s32 vec3_add_to(s32, s32, s32);
 s32 matrix_mult_vec(int, void *, void *);
-s32 set_matrix_identity(int);
+void set_matrix_identity(u8 *arg0);
 s32 rotate_matrix_y(int, int);
-s32 translate_matrix(int, f32, f32, f32);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 push_matrix(void);
 s32 pop_matrix(void);
 extern u8 lbl_80435454[];
@@ -155,7 +155,7 @@ void TBoss1DragonEffTail__vt18(s32 arg0, s32 arg1) {
 void TBoss1DragonEffTail__vt20(u8 *arg0, u8 *arg1) {
     ((VObj_18 *)(arg1))->m20(*(s32 *)&((TBoss1DragonEffTail *)arg0)->m_ac, lbl_805D8158);
     if (TObjEneDD::check_v2_mode() != 0) {
-        TBoss1Dragon__sub_8002AB6C((void *) (arg1));
+        TBoss1Dragon__sub_8002AB6C((arg1));
     }
 }
 
@@ -190,7 +190,7 @@ EffTail_8002C06C *TBoss1DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 
     arg0->unkB4 = arg2;
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
     if (p != 0) {
-        p = TBoss8Dragon__sub_800BC5EC(p, 4);
+        p = TBoss8Dragon__sub_800BC5EC((u8 *)p, 4);
     }
     arg0->unkB8 = p;
     arg0->unkBC = 0;

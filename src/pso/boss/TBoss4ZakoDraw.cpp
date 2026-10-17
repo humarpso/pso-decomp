@@ -5,12 +5,12 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 extern u8 boss4_zako_draw_buffers[];
 extern u32 dark_falz_controller_instance;
 extern s32 TBoss4ZakoDraw__draw_buffer_index;
 extern s32 TBoss4ZakoDraw__rotation_phase;
-int TCameraCtrl__sub_8030ABF4(void);
+void TCameraCtrl__sub_8030ABF4(void);
 
 void TBoss4ZakoDraw::render() { TObjPlayer::toggle_particle_effect(); TCameraCtrl__sub_8030ABF4(); TParticleCtrl::end_effect_render(); }
 void TBoss4ZakoDraw::run_task() {

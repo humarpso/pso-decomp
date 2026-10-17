@@ -48,10 +48,10 @@ s32 get_theme_lobby_type();
 void resolve_theme_index__13TObjLobbyMainFv(u8 *arg0);
 void set_mode_index_from_state__13TObjLobbyMainFv(u8 *arg0);
 void matrix_mult_vec(int, Vec3_80352240 *, Vec3_80352240 *);
-void set_matrix_identity(int);
+void set_matrix_identity(u8 *arg0);
 void rotate_matrix_y(int, s32);
 void push_matrix();
-void pop_matrix();
+s32 pop_matrix(void);
 void post_translate_matrix(void *);
 void update_emitter_positions__13TObjLobbyMainFv(u8 *arg0);
 s32 get_bml_motion(void *, s32);
@@ -296,7 +296,6 @@ void reset_state__13TObjLobbyMainFPv(void *arg0) {
 #define advance_motion_frame__13TObjLobbyMainFv ((s32 (*)(void *))advance_motion_frame__13TObjLobbyMainFv)
 #define update_fade_in__13TObjLobbyMainFv ((s32 (*)(void *))update_fade_in__13TObjLobbyMainFv)
 #define update_fade__13TObjLobbyMainFv ((s32 (*)(void *))update_fade__13TObjLobbyMainFv)
-#define reset_state__13TObjLobbyMainFPv ((s32 (*)(void *))reset_state__13TObjLobbyMainFPv)
 #define update_computer_machines__13TObjLobbyMainFv ((s32 (*)(void *))update_computer_machines__13TObjLobbyMainFv)
 #define update_particles__13TObjLobbyMainFv ((s32 (*)(void *))update_particles__13TObjLobbyMainFv)
 #define enable__13TParticleCtrlFv ((s32 (*)(int))enable__13TParticleCtrlFv)
@@ -329,7 +328,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_803527F0_lbl_804F0F24 bm_obj_lobby_main_resource_descriptor;
 u32 create_particle_emitter(void *, int);
 s32 init_collision_body_parts(void *, void *, int);
-s32 init_map_object_base(void *);
+void *init_map_object_base(void *a0);
 extern RecoveredGlobal_80352940_lbl_804F0F34 lbl_804F0F34;
 extern s32 __vt__13TObjLobbyMain[];
 u8 *TObjLobbyMain__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -415,7 +414,7 @@ typedef char RecoveredGlobal_80352940___vt__13TObjLobbyMain_size[sizeof(Recovere
 u8 *TObjLobbyMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     u32 temp_r3;
     u32 temp_r3_2;
-    init_map_object_base((void *) (arg0));
+    init_map_object_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80352940___vt__13TObjLobbyMain *)&__vt__13TObjLobbyMain).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4370;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
@@ -453,7 +452,6 @@ u8 *TObjLobbyMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
 #undef advance_motion_frame__13TObjLobbyMainFv
 #undef update_fade_in__13TObjLobbyMainFv
 #undef update_fade__13TObjLobbyMainFv
-#undef reset_state__13TObjLobbyMainFPv
 #undef update_computer_machines__13TObjLobbyMainFv
 #undef update_particles__13TObjLobbyMainFv
 #undef enable__13TParticleCtrlFv

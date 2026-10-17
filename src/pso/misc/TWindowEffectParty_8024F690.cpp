@@ -3,7 +3,7 @@
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 
 extern "C" {
-f32 atan2_float(f64, f64);
+f32 atan2_float(f32 y, f32 x);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern const f64 lbl_8044ECF0;

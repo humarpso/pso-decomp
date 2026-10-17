@@ -10,7 +10,7 @@ extern "C" {
 s32 refresh_players_equipment__14TBoss6PlotFalzFPv();
 s32 end_cutscene_camera__14TBoss6PlotFalzFPv();
 s32 destroy_static_instance__14TBoss6PlotFalzFv(void *);
-s32 create_boss6_type2_death(void *, void *);
+void *create_boss6_type2_death(void *arg0, void *arg1);
 s32 is_ending_or_split_screen__14TBoss6PlotFalzFv(void *);
 s32 is_ready__14TBoss6PlotFalzFv(void *);
 s32 obj_setArrS16_FC(void *, int, void *);
@@ -57,7 +57,7 @@ void TBoss6PlotFalz::finish_and_dispatch_next_phase() {
     *(s32 *)((s8 *)((u8 *)this) + 0x3CC) = 0;
     TBoss4DarkFalz::dispatch_by_main_phase((int) (0x57));
     TBoss6Thanks::try_dispatch_darkfalz_phase();
-    create_boss6_type2_death((void *) (((u8 *)this)), (void *) (sp10));
+    create_boss6_type2_death((((u8 *)this)), (sp10));
 }
 
 }

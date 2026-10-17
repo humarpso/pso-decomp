@@ -1,9 +1,9 @@
 #include "pso/TObjEZRopeBase.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" void TObjPlayer__sub_800FEE84();
+extern "C" int TObjPlayer__sub_800FEE84(void *p);
 extern "C" void update_bone_attach_points__10TObjPlayerFv();
-extern "C" void __dt__21TObjHMS_EZRope_PlayerFv();
+extern "C" void *__dt__21TObjHMS_EZRope_PlayerFv(void *arg0, s16 arg1);
 extern "C" void render_shadows__7TObjectFv();
 f32 ezrope_chunk_material_color_table[12] = {
     0.5f, 1.0f, 1.0f, 0.5f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,

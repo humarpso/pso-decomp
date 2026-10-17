@@ -16,8 +16,8 @@ struct W_80342ED0 {
 };
 
 extern "C" {
-s32 TWindow__close(int);
-s32 TWindowDD__sub_80341AF8(int);
+void TWindow__close(u8 *arg0);
+void TWindowDD__sub_80341AF8(u8 *arg0);
 s32 open_numeric_parameter_input__9TWindowDDFPviii(void *, int, void *, void *);
 s32 classify_id__9TWindowDDFs();
 s32 TWindowDD__sub_80347CC8(void *, void *);
@@ -95,10 +95,10 @@ u8 update_numeric_parameter_input__9TWindowDDFPv(u8 *arg0) {
         if (((TShopEquipmentSellWindow *)(*(u32 *)((s8 *)arg0 + 0x84)))->is_confirmed() != 0) {
             var_r31 = 2;
             ((TWindowDD *)(arg0 + 0xC4))->reset_index();
-            TWindow__close((int) (*(u32 *)((s8 *)arg0 + 0x84)));
+            TWindow__close((u8 *)(*(u32 *)((s8 *)arg0 + 0x84)));
         } else if (((TWindowInputNumber *)(*(u32 *)((s8 *)arg0 + 0x84)))->is_confirmed() != 0) {
             var_r31 = 1;
-            TWindow__close((int) (*(u32 *)((s8 *)arg0 + 0x84)));
+            TWindow__close((u8 *)(*(u32 *)((s8 *)arg0 + 0x84)));
         }
     } else {
         var_r31 = 2;
@@ -106,7 +106,7 @@ u8 update_numeric_parameter_input__9TWindowDDFPv(u8 *arg0) {
     if (var_r31 != 0) {
         var_r3 = (u8 *)(arg0 + (*(s32 *)((s8 *)arg0 + 0x20) * 4));
         var_r3 = (u8 *)(*(u8 **)((s8 *)var_r3 + 0x24));
-        TWindowDD__sub_80341AF8((int)(var_r3));
+        TWindowDD__sub_80341AF8((var_r3));
         *(u32 *)((s8 *)arg0 + 0x84) = 0U;
         *(s32 *)((s8 *)arg0 + 0xB8) = 0;
     }

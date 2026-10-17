@@ -61,7 +61,7 @@ struct Self_8012DE24 {
 };
 
 extern "C" {
-s32 spawn_particle_effect(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
 s32 draw_icon__10TObjPlayerFll(void *, int, void *);
 extern s32 basic_shot_angle_table[];
 void TUnk_804A5C18::emit_marker_effects() {

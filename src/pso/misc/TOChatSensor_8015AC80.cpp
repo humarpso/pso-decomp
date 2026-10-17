@@ -27,7 +27,7 @@ s32 TObjRoomId__sub_80141CF4(void *, void *);
 extern const f32 lbl_805DB388;
 extern const f32 lbl_805DB38C;
 void *strncpy(void *, void *, s32);
-s16 get_current_floor(void);
+s32 get_current_floor(void);
 void *__ct__12TQuestThreadFv(void *, void *, u32);
 s32 find_chat_keyword(void *, void *, void *);
 void *__nw__7TObjectFUl(u32);

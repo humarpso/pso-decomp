@@ -28,7 +28,7 @@ s32 get_current_floor();
 void subtractive_rng_seed(void *, s32);
 s32 __ct__14SubtractiveRngFv(void *);
 void *fn_800832EC(void *, int, int, void *, void *, f32);
-s32 is_room_enemy_set_cleared(s32, int);
+s32 is_room_enemy_set_cleared(s32 floor, s16 room);
 void *__nw__7TObjectFUl(u32);
 extern s32 lbl_804757E0[];
 extern s32 __vt__18TObjLiveCameraCtrl[];

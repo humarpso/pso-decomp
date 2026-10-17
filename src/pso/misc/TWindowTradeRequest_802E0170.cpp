@@ -41,24 +41,24 @@ struct Obj_802E0174 { u8 pad[0x1C]; s32 state; void *card; };
 extern "C" {
 s32 __dt__7TObjectFv(void *, int);
 s32 init_parts__10TObjPlayerFv();
-u32 get_player_by_client_id(void *);
+void *get_player_by_client_id(s32 i);
 s32 __dl__7TObjectFPv(void *);
-s32 fn_8024AADC(void *, int);
-s32 TLobby__sub_8024AC20(void *);
-s32 TWindowReturnCity__sub_8024ACA8(void *);
+void fn_8024AADC(s32 arg0, s32 arg1);
+void TLobby__sub_8024AC20(s32 arg0);
+void TWindowReturnCity__sub_8024ACA8(s32 arg0);
 extern RecoveredGlobal_802E0224___vt__19TWindowTradeRequest __vt__19TWindowTradeRequest;
 extern s32 local_client_id;
 u8 *__dt__19TWindowTradeRequestFv(u8 *arg0, s16 arg1);
-u8 *get_shared_text_buffer(void);
+s32 *get_shared_text_buffer(void);
 u8 *get_window_layout_position(s32);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(s32, s32, s32, s32);
 char get_trade_mode__6TLobbyFv(void);
 s32 reset_equip_slots__10TObjPlayerFv();
 s32 text_builder_append();
-s32 text_builder_reset();
+void text_builder_reset(void);
 s32 __ct__7TObjectFP7TObject();
-s32 TObjPlayer__sub_8024ABDC(void *);
-s32 fn_8024AC64(void *);
+void TObjPlayer__sub_8024ABDC(s32 arg0);
+void fn_8024AC64(s32 arg0);
 s32 forward_slot_selection__16TAdChrSelASlotGCFPvPv(int, int, int, f32);
 extern s32 lbl_805D3F70;
 extern const f32 lbl_805DE8A0;
@@ -107,13 +107,13 @@ u8 *__dt__19TWindowTradeRequestFv(u8 *arg0, s16 arg1) {
             ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x20)))->close();
             ((TWindowTradeRequest *)arg0)->m_20 = 0U;
         }
-        TWindowReturnCity__sub_8024ACA8((void *) (local_client_id));
-        TLobby__sub_8024AC20((void *) (local_client_id));
-        if (get_player_by_client_id((void *) (local_client_id)) != 0U) {
+        TWindowReturnCity__sub_8024ACA8((local_client_id));
+        TLobby__sub_8024AC20((local_client_id));
+        if (get_player_by_client_id((local_client_id)) != 0U) {
             init_parts__10TObjPlayerFv();
         }
         if ((u32) ((TWindowTradeRequest *)arg0)->m_1c == 2U) {
-            fn_8024AADC((void *) (local_client_id), (int) (0x1D));
+            fn_8024AADC((local_client_id), (0x1D));
         }
         __dt__7TObjectFv((void *) (arg0), (int) (0));
         if (arg1 > 0) {
@@ -135,7 +135,7 @@ u8 *TWindowTradeRequest__ct(u8 *arg0) {
   __ct__7TObjectFP7TObject();
   *((s32 **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_802E02D4___vt__19TWindowTradeRequest *)&__vt__19TWindowTradeRequest).value;
   *((s32 *) (((s8 *) arg0) + 0)) = (s32) lbl_805D3F70;
-  player = ((s32)get_player_by_client_id((void *)((u32) get_trade_mode__6TLobbyFv())));
+  player = ((s32)get_player_by_client_id(((u32) get_trade_mode__6TLobbyFv())));
   text_builder_reset();
   new_var = (u32) player;
   if (new_var)
@@ -150,12 +150,12 @@ u8 *TWindowTradeRequest__ct(u8 *arg0) {
   forward_slot_selection__16TAdChrSelASlotGCFPvPv((int) (*(s32 *)&((TWindowTradeRequest *)arg0)->m_20), (int) get_shared_text_buffer(), (int) window_layout_position, (f32) lbl_805DE8A0);
   new_var2 = ((s8 *) arg0) + 0x1C;
   ((TWindowSubShortMail *)(*(s32 *)&((TWindowTradeRequest *)arg0)->m_20))->notify_warp_flag70();
-  if (((s32)get_player_by_client_id((void *)((u32) local_client_id))) != 0U)
+  if (((s32)get_player_by_client_id(((u32) local_client_id))) != 0U)
   {
     reset_equip_slots__10TObjPlayerFv();
   }
-  TObjPlayer__sub_8024ABDC((void *) local_client_id);
-  fn_8024AC64((void *) local_client_id);
+  TObjPlayer__sub_8024ABDC(local_client_id);
+  fn_8024AC64(local_client_id);
   *((s32 *) new_var2) = 0;
   return arg0;
 }

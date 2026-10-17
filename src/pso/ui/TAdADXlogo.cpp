@@ -9,7 +9,7 @@ extern "C" {
 void TLogo__sub_80019A28(void);
 void TLogo__sub_80019A2C(void);
 void *__ct__10TAdADXlogoFv(void *arg0);
-int get_logo_texture_e_handle(void);
+s32 get_logo_texture_e_handle(void);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 

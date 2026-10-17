@@ -41,7 +41,7 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object(int);
+void draw_ginja_object(void *child);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -65,11 +65,11 @@ extern const f32 lbl_805DBAB0;
 void *TOVS2Wall01__ct(void *arg0, void *arg1);
 void *__dt__11TOVS2Wall01Fv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
-void __dt__13TUnk_804949A8Fv(void *, int);
+void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
 int submit_cursor_candidate(void*, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-int queue_destruction__7TObjectFv(void*);
+void queue_destruction__7TObjectFv(void *arg0);
 
 void TOVS2Wall01::release() { set_flag8(); queue_destruction__7TObjectFv(this); }
 int TOVS2Wall01::interact_player_neg1() { return submit_cursor_candidate(this, -1); }
@@ -115,7 +115,7 @@ void TOVS2Wall01::render() {
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (this->rotation_y));
         TObjFish::set_global_param((int) (this->texture_id));
-        draw_ginja_object((int) (*(s32 *)&this->model));
+        draw_ginja_object((void *)(*(s32 *)&this->model));
         pop_matrix();
         if (var_r31 != 0) {
             ((VObj_14_1eb8da *)((u8 *)(arg0) + (832)))->m7();

@@ -41,7 +41,7 @@ void TObjLight__sub_801337F8(s32);
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
 void push_matrix();
-void pop_matrix();
+s32 pop_matrix(void);
 void post_translate_matrix(void *);
 void draw_model_motion(void *, void *, f32);
 extern s32 current_scene_light;

@@ -43,19 +43,19 @@ s32 draw_window_text(void *, int, int, int, f32);
 s32 set_text_draw_params(void *, int, int, f32, f32, f32, f32, f32, f32);
 void TWindowSubStatusDisp__sub_802878B8(u8 *arg0, u8 *arg1);
 f32 TWindowSubStatusDisp__sub_802877A4(f32 farg0);
-u32 calc_text_width(void *);
+u32 calc_text_width(char *s);
 u8 *init_heading_entry__20TWindowSubStatusDispFPvPvici(u8 *arg0, u8 *arg1, s32 arg2, s8 arg3, s32 arg4);
 u8 TWindowSubStatusDisp__sub_80287AC4(u8 *arg0);
 void apply_context_transform_to_rect(void *, Rect_80287580 *);
-void begin_screen_draw(int);
+void begin_screen_draw(s32 arg0);
 void draw_textured_quad_at_depth(Rect_80287580 *, f32);
-void set_draw_texture_and_color(int, s32);
+void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern const UV_80287580 window_tab_uv_table[];
 extern s32 lbl_805D63F0;
 void draw_window_tab(Obj_80287580 *obj, f32 *pos, u8 idx, f32 width);
 f32 TWindowSubStatusDisp__sub_80287570(void *arg0);
 void TWindowSubStatusDisp__sub_802879B0(void *arg0);
-s32 __dl__FPv();
+void __dl__FPv(void);
 
 f32 TWindowSubStatusDisp__sub_80287570(void *arg0) {
     return (1.6e+02f) + *(f32 *)((s8 *)arg0 + 0xC);
@@ -196,7 +196,7 @@ s32 TWindowSubStatusDisp::deleting_destructor(s32 arg0, s16 arg1) {
 u8 *init_heading_entry__20TWindowSubStatusDispFPvPvici(u8 *arg0, u8 *arg1, s32 arg2, s8 arg3, s32 arg4) {
     *(f32 *)((s8 *)arg0 + 4) = (f32) *(f32 *)((s8 *)arg1 + 0);
     *(f32 *)((s8 *)arg0 + 8) = (f32) *(f32 *)((s8 *)arg1 + 4);
-    *(f32 *)((s8 *)arg0 + 0x10) = (f32) calc_text_width((void *) (arg2));
+    *(f32 *)((s8 *)arg0 + 0x10) = (f32) calc_text_width((char *)(arg2));
     *(f32 *)((s8 *)arg0 + 0xC) = TWindowSubStatusDisp__sub_802877A4(*(f32 *)((s8 *)arg0 + 0x10));
     *(s32 *)((s8 *)arg0 + 0) = arg2;
     *(s8 *)((s8 *)arg0 + 0x19) = 0;

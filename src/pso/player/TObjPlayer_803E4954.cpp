@@ -23,7 +23,7 @@ extern B_803E4BDC *current_motion_context;
 void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 void draw_blend_motion_tree__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 bind_motion_blend_channels(void *);
-s32 select_motion_context(int);
+void select_motion_context(s32 arg0);
 void draw_model_blend_motion(void *arg0, void *arg1, f32 farg0);
 void draw_motion_bound__10TObjPlayerFiiPvfi(void *, void *, void *, f32, void (*)(void));
 void TObjEneSlimeOne__sub_803E4B54(void *arg0, void *arg1, void *arg2, f32 farg0);
@@ -31,7 +31,7 @@ s32 push_matrix();
 s32 pop_matrix();
 extern RecoveredCallback_1268626c296b chunk_model_node_callback;
 s32 draw_object_tree_recursive(void *arg);
-s32 compose_motion_node_matrix(int);
+void compose_motion_node_matrix(void *arg0);
 void traverse_animated_node_tree(void *arg);
 extern s32 chunk_render_flags;
 
@@ -50,9 +50,9 @@ extern s32 motion_packed_rotation_mode;
 void draw_blend_motion_tree__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     bind_motion_blend_channels((void *) (arg1));
     if ((s32) motion_packed_rotation_mode != 0) {
-        select_motion_context((int) (1));
+        select_motion_context((1));
         *(s32 *)((s8 *)current_motion_context + 0x28) = (s32) *(s32 *)((s8 *)motion_angle_sampler_table + 0xC);
-        select_motion_context((int) (0));
+        select_motion_context((0));
         *(s32 *)((s8 *)current_motion_context + 0x28) = (s32) *(s32 *)((s8 *)motion_angle_sampler_table + 0xC);
     }
     *(s32 *)((s8 *)model_draw_context + 0xC) = arg2;
@@ -118,7 +118,7 @@ void traverse_animated_node_tree(void *arg) {
     u32 t;
     do {
         push_matrix();
-        compose_motion_node_matrix((int) arg0);
+        compose_motion_node_matrix(arg0);
         if (chunk_model_node_callback != NULL) {
             chunk_model_node_callback(arg0);
         }

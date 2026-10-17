@@ -31,7 +31,7 @@ s32 TLobby::init_handle(s32 arg0) {
 }
 
 s32 get_player_name_copy_buffer();
-s32 copy_name(s32 *);
+void copy_name(s32 arg0);
 s32 strncmp(s32, s32 *, s32);
 extern s32 map_set_object_id_counter;
 extern s32 TLobby__next_enemy_set_actor_id;
@@ -48,7 +48,7 @@ void clear_map_set_data(void) {
     TLobby__map_set_file_buffer_size = 0;
     s32 temp_r3 = get_player_name_copy_buffer();
     if (strncmp(temp_r3, &lbl_805DC620, 0x10) == 0) {
-        copy_name(&lbl_805DC624);
+        copy_name((s32)&lbl_805DC624);
     }
 }
 
@@ -70,7 +70,7 @@ struct Grp_8020B1E4 { u8 pad[4]; s32 count; u8 pad2[0xC]; Ent_8020B1E4 *ents; };
 
 extern "C" {
 void close_gsl_archive(void);
-void open_gsl_archive(s32);
+void open_gsl_archive(char *name);
 extern RecoveredGlobal_8020B118_lbl_8044BBF0 lbl_8044BBF0;
 extern RecoveredGlobal_8020B118_lbl_8044BC04 lbl_8044BC04;
 extern s32 map_set_data_handle_a;
@@ -90,7 +90,7 @@ void TLobby::load_set_gsl_files() {
     TLobby__map_set_file_buffer_size = 0;
     TLobby__data_805D6134 = 0;
     if (TLobby::init_handle(0x8000) != 0) {
-        open_gsl_archive((s32) &lbl_8044BBF0.value);
+        open_gsl_archive((char *)&lbl_8044BBF0.value);
         if (TLobby::load_all_floor_object_sets() == 0) {
             close_gsl_archive();
             TLobby::free_data_60F0();
@@ -98,7 +98,7 @@ void TLobby::load_set_gsl_files() {
             return;
         }
         close_gsl_archive();
-        open_gsl_archive((s32) &lbl_8044BC04.value);
+        open_gsl_archive((char *)&lbl_8044BC04.value);
         if (TLobby::load_all_floor_enemy_sets() == 0) {
             close_gsl_archive();
             TLobby::free_data_60F0();

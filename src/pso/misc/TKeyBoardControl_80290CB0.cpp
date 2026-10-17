@@ -5,12 +5,12 @@
 extern "C" {
 extern u8 main_menu_scene_active_flag;
 void TKeyBoardControl__sub_80290D10(void);
-s32 TKeyBoardControl__sub_8000F90C(s32);
-s32 TKeyBoardControl__sub_8000F91C(s32);
+void TKeyBoardControl__sub_8000F90C(s32 arg0);
+void TKeyBoardControl__sub_8000F91C(s32 arg0);
 s32 TKeyBoardControl__sub_8000F92C();
-s32 reset_controller_input_state();
+void reset_controller_input_state(void);
 s32 set_copy_clear_color_argb(s32, s32, s32);
-s32 init_creation_menu_scene();
+void init_creation_menu_scene(void);
 
 void TKeyBoardControl::update_main_menu_scene() {
     set_copy_clear_color_argb(0, 0, 0xFF);

@@ -11,7 +11,7 @@ struct Cam_802AF64C { u8 pad[0x178]; Vec_802AF64C v178; u8 pad2[0x190 - 0x184]; 
 
 extern "C" {
 s32 vec3_add_to(void *, void *);
-s32 rotate_matrix_zyx(s32, s32, s32, s32);
+void rotate_matrix_zyx(void *m, s32 x, s32 y, s32 z);
 s32 rotate_vector_by_matrix(s32, void *, void *);
 s32 normalize_vector(void *);
 s32 push_matrix_from(void *);
