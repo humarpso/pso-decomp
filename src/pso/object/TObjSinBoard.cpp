@@ -244,7 +244,7 @@ void TUnk_804B8DD0::update_effects() {
                 spawn_particle_effect_with_flags(&vda, 0x20E, 0x40);
                 o = (void *)__nw__7TObjectFUl(0x28);
                 if (o != NULL) {
-                    construct_timed_sound_voice((u8 *)o, (s32)&this->unk_1C, (s16)(5), (s32)(0x4002A90C), (s32)(0), (s32)tl_05);
+                    construct_timed_sound_voice((u8 *)o, (s32)&this->unk_1C, (s16)(5), 0x4002A90C, 0, (s32)tl_05);
                 }
             }
         } else {
@@ -254,7 +254,7 @@ void TUnk_804B8DD0::update_effects() {
                 spawn_particle_effect_with_flags(&vdb, 0x20F, 0x40);
                 o = (void *)__nw__7TObjectFUl(0x28);
                 if (o != NULL) {
-                    construct_timed_sound_voice((u8 *)o, (s32)&this->unk_1C, (s16)(5), (s32)(0x4002A90C), (s32)(0), (s32)tl_05);
+                    construct_timed_sound_voice((u8 *)o, (s32)&this->unk_1C, (s16)(5), 0x4002A90C, 0, (s32)tl_05);
                 }
             }
         }

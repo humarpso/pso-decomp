@@ -667,9 +667,9 @@ void TObjEneMe1GiGue__sub_802CB03C(u8 *arg0) {
     ((TObjEnemy *)arg0)->render_anim_model(((TObjEnemy *)arg0)->m_c0);
     clear_global_state__10TObjPlayerFv();
     pop_matrix();
-    ((TObjEnemy *)(arg0))->vfunc_65((s32)0, (s32)(arg0 + 0x3B4));
-    ((TObjEnemy *)(arg0))->vfunc_65((s32)0x2A, (s32)(arg0 + 0x39C));
-    ((TObjEnemy *)(arg0))->vfunc_65((s32)0x16, (s32)(arg0 + 0x3A8));
+    ((TObjEnemy *)(arg0))->vfunc_65(0, (s32)(arg0 + 0x3B4));
+    ((TObjEnemy *)(arg0))->vfunc_65(0x2A, (s32)(arg0 + 0x39C));
+    ((TObjEnemy *)(arg0))->vfunc_65(0x16, (s32)(arg0 + 0x3A8));
 }
 s32 TObjEneMe1GiGue__sub_802CB10C(S_802CB10C *arg0) {
     s32 i;

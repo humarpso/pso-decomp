@@ -123,7 +123,7 @@ void TPhotonLeilla::run_task() {
         stack.spC = temp_f1 + lbl_805DC1C4;
         temp_r3_2 = (u8 *)(__nw__7TObjectFUl(0xD0, temp_f1));
         if (temp_r3_2 != NULL) {
-            construct_photon_magic_square_normal((u8 *)temp_r3_2, (s32)arg0, (s32)(4), (s32)&stack.sp8, (s32)(0x78));
+            construct_photon_magic_square_normal((u8 *)temp_r3_2, (s32)arg0, 4, (s32)&stack.sp8, 0x78);
         }
     }
     if ((lbl_805DC1C8 == (f32) *(s32 *)&this->m_1ac) && ((s16) this->m_b8 == 1)) {

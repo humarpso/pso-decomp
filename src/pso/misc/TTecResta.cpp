@@ -274,7 +274,7 @@ void TTecResta::vfunc_7(void *arg1_arg) {
     if (*(s32 *)&arg0->m_ac != 0) {
         void *o = __nw__7TObjectFUl(0x30);
         if (o != NULL) {
-            construct_delayed_point_sound((u8 *)o, (u8 *)((u8 *)arg1 + 0x2FC), (s16)(0x14), (s32)(0x4002A80F), (u8 *)tl_07);
+            construct_delayed_point_sound((u8 *)o, (u8 *)((u8 *)arg1 + 0x2FC), (s16)(0x14), 0x4002A80F, (u8 *)tl_07);
         }
     }
 }
@@ -385,7 +385,7 @@ void TTecReverser::vfunc_6(void *arg1_arg) {
     arg1->m21(arg0->source, &c, 0, -1, -1);
     void *o = __nw__7TObjectFUl(0x30);
     if (o != NULL) {
-        construct_delayed_point_sound((u8 *)o, (u8 *)((u8 *)arg1 + 0x38), (s16)(0x2D), (s32)(0x4002AD13), (u8 *)tl_07);
+        construct_delayed_point_sound((u8 *)o, (u8 *)((u8 *)arg1 + 0x38), (s16)(0x2D), 0x4002AD13, (u8 *)tl_07);
     }
 }
 }

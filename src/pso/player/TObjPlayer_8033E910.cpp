@@ -90,8 +90,8 @@ void setup_projection_tex_matrix__10TObjPlayerFv(void) {
         GXSetTevOp(1, 1);
         set_tex_coord_gen2(1, 0, 0, 0x24);
         (*(s32 *)&model_render_flags) |= 0x80000;
-        set_ginja_post_tev_stage_count((1));
-        set_ginja_post_texgen_count((1));
+        set_ginja_post_tev_stage_count(1);
+        set_ginja_post_texgen_count(1);
         TObjPlayer::set_global_effect_state((s32)((void*)(1)));
     }
 }

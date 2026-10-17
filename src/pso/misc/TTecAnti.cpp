@@ -234,7 +234,7 @@ void TTecAnti::vfunc_7(void *pl_arg) {
     if (self->xAC != 0) {
         o = __nw__7TObjectFUl(0x30);
         if (o != NULL) {
-            construct_delayed_point_sound((u8 *)o, (u8 *)pl->x2FC, (s16)(0xF), (s32)(0x4002AD11), (u8 *)tl_07);
+            construct_delayed_point_sound((u8 *)o, (u8 *)pl->x2FC, (s16)(0xF), 0x4002AD11, (u8 *)tl_07);
         }
     }
 }

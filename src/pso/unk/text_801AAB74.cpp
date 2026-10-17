@@ -91,7 +91,7 @@ u8 *TPhotonEstlla__ct(u8 *photon_estlla, u8 *arg1) {
         }
         p = __nw__7TObjectFUl(0xD0);
         if (p != NULL) {
-            construct_photon_magic_square_normal((u8 *)p, (s32)photon_estlla, (s32)(1), (s32)&pos, (s32)(0x78));
+            construct_photon_magic_square_normal((u8 *)p, (s32)photon_estlla, 1, (s32)&pos, 0x78);
         }
         spawn_photon_blast_attachment_effects(photon_estlla, 1);
         play_cue_stream_file((s32)lbl_80446D10);

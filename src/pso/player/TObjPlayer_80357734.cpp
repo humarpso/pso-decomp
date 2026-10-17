@@ -345,8 +345,8 @@ void TObjPlayer__sub_80357954(u8 *arg0) {
     }
 }
 
-void TUnk_804F14A8::update_idle() { TObjPlayer::add_angle_clamped((s32 *)((char*)this + 0x1f8), (s32)1820, (s32)8192); }
-void TUnk_804F14A8::update_attack() { TObjPlayer::add_angle_clamped((s32 *)((char*)this + 0x1f8), (s32)(-3640), (s32)0); }
+void TUnk_804F14A8::update_idle() { TObjPlayer::add_angle_clamped((s32 *)((char*)this + 0x1f8), 1820, 8192); }
+void TUnk_804F14A8::update_attack() { TObjPlayer::add_angle_clamped((s32 *)((char*)this + 0x1f8), -3640, 0); }
 
 extern s32 item_equip_variant_vtable[];
 
@@ -688,7 +688,7 @@ void weapon_dim_shadow_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     }
     if (arg3 == 1) {
         spawn_particle_effect_with_flags((void *)arg2, 0xC8, 0x40);
-        create_timed_particle_emitter_with_flags((void *)arg2, (s32)(0x101), (s32)(0), (s32)(0x1E), (s32)(0x40));
+        create_timed_particle_emitter_with_flags((void *)arg2, 0x101, 0, 0x1E, 0x40);
     }
 }
 extern "C" {
@@ -827,7 +827,7 @@ void TObjPlayer::handle_hit_effect(s32 arg1, s32 arg2, s32 arg3) {
         spawn_particle_effect(&sp8, 0x68);
     }
     if (arg3 == 1) {
-        create_timed_particle_emitter_with_flags((void *)arg2, (s32)(0x18), (s32)(0), (s32)(5), (s32)(0x40));
+        create_timed_particle_emitter_with_flags((void *)arg2, 0x18, 0, 5, 0x40);
     }
 }
 void dispatch_weapon_special_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {

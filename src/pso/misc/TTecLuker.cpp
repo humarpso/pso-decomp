@@ -684,7 +684,7 @@ void *create_telepipe_visual(void *self, Vec_802347B4 *pos, u32 id, s32 res) {
     p = __nw__7TObjectFUl(0x44);
     if (p != 0)
     {
-      p = create_telepipe_marker((u8 *)p, (s32)&v2, (s8)(0x1F), (s8)(4), (s32)tl_particlemodel, (s32)(0), (s32)(0), (f32)lbl_805DC874, (f32)lbl_805DC874);
+      p = create_telepipe_marker((u8 *)p, (s32)&v2, (s8)(0x1F), (s8)(4), (s32)tl_particlemodel, 0, 0, (f32)lbl_805DC874, (f32)lbl_805DC874);
     }
     ((Fx_8023453C *) self)->f28 = p;
   }

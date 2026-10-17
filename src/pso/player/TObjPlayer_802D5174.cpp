@@ -155,7 +155,7 @@ void spawn_hit_particles__10TObjPlayerFiPv(s32 pos, const P_802D5478 *arg1) {
     v[0] = 0;
     v[1] = (s32)(lbl_804725B8[0] * atan2_float(arg1->x, arg1->z));
     v[2] = 0;
-    if (create_timed_particle_emitter_with_angles((void *)pos, (void *)v, (s32)(0x1B8), (s32)(0), (s32)(0xF), (s32)(4)) != 0U) {
+    if (create_timed_particle_emitter_with_angles((void *)pos, (void *)v, 0x1B8, 0, 0xF, 4) != 0U) {
         set_position_xy__10TObjPlayerFff(lbl_805DE794, lbl_805DE794);
     }
 }

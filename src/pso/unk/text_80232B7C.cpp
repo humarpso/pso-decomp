@@ -141,7 +141,7 @@ void TUnk_804CC888::run_task() {
         }
         p = __nw__7TObjectFUl(0x28);
         if (p != 0) {
-            construct_timed_sound_voice((u8 *)p, (s32)((Ctl_80232C50 *)this)->f30, (s16)(0xF), (s32)(0x4002A60D), (s32)dir, (s32)tl_07);
+            construct_timed_sound_voice((u8 *)p, (s32)((Ctl_80232C50 *)this)->f30, (s16)(0xF), 0x4002A60D, (s32)dir, (s32)tl_07);
         }
         queue_destruction__7TObjectFv(((Ctl_80232C50 *)this));
     }
