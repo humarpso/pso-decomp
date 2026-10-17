@@ -758,8 +758,6 @@ u8 TItemData::get_entry_field16() {
 }
 int TItemData::register_drop() { return register_item_drop__10TObjPlayerFv(this); }
 
-extern "C" {
-
 s32 TItemData::get_item_use_result() {
     u8 *arg0 = (u8 *)this;
     if (lookup_item_def__9TItemDataFPv() != 0) {
@@ -769,8 +767,6 @@ s32 TItemData::get_item_use_result() {
         return 0xA;
     }
     return 1;
-}
-
 }
 
 #undef lookup_item_pmt_record

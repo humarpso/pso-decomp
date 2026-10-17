@@ -78,7 +78,7 @@ struct RecoveredFields_8032F174_arg0
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/enemy/TObjEneLappy.h"
-#include "pso/misc/TLobby.h"
+
 #include "pso/misc/TNowLoading.h"
 union MemberActionStorage_803301B8 { s32 words[3]; void (TBoss6Type2::*action)(); };
 

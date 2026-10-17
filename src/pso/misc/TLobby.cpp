@@ -2,7 +2,7 @@
 #include "pso/misc/TLobby.h"
 struct TAdScrollWinGC;
 #include "pso/player/TObjPlayer.h"
-#include "pso/misc/TLobby.h"
+
 #include "pso/ui/TAdEnterSerialAccessGC.h"
 
 #pragma inline_depth(1)

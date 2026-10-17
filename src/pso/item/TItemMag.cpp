@@ -1833,9 +1833,6 @@ void TItemMag::load_data_files() {
 }
 void TItemMagSub::set_flags(u32 value) { flags |= value; }
 
-extern "C" {
-
-}
 void TItemMagSub::set_node_id(s32 index, s32 id) { node_ids[index] = id; }
 void TItemMagSub::set_material_node(s32 node, void* parameters) { node_ids[0] = node; if (parameters != 0) ((TRaderMapCore *)material_parameters)->copy_vec4(parameters); }
 
