@@ -3,8 +3,8 @@
 
 #include "types.h"
 
-extern "C" {
 void init_disc_error_messages(void);
+extern "C" {
 s32 launch_switcher_dol(const char *arg0);
 }
 

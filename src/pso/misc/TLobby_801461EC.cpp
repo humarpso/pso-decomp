@@ -146,15 +146,19 @@ extern s32 lbl_805D56EC;
 extern s32 lbl_805D56F0;
 extern s32 lbl_805D56F4;
 int TLobby__sub_80145E40(void);
+}
 s32 init_struct(u8 *arg0);
 s32 init_work(s32 arg0, u8 *arg1);
+extern "C" {
 int TLobby__sub_80146724(void);
 int TLobby__sub_80146740(void);
 int TLobby__sub_8014677C(void);
 s32 TLobby__sub_80145A94(void);
 s32 TLobby__sub_80145DB4(s32 arg0);
 s32 TLobby__sub_80147284();
+}
 s32 get_network_config_buffer_size(s32 mode);
+extern "C" {
 s32 TLobby__sub_804219D0(s32, s32, s32);
 s32 TLobby__sub_80421A50(s32, s32, s32);
 s8 func_801A5E54__Fv();
@@ -526,8 +530,8 @@ void TLobby::teardown_boss2() {
         lbl_805D570C = 0;
     }
 }
-
 }
+
 #undef lbl_8050C0A8
 #undef lbl_8050C784
 #undef lbl_8050CCE8
@@ -544,9 +548,9 @@ struct Req_801471A0 { s32 type; u32 addr; u8 pad[0x18]; };
 
 struct Cfg_801471A0 { u8 pad[0x558]; u32 dns1; u32 dns2; };
 
-extern "C" {
 extern RecoveredGlobal_80147A74_lbl_804EF500 ppp_password_buffer;
 s32 *get_ppp_password_buffer(void);
+extern "C" {
 void TLobby__sub_801472F8(s16 *arg0, s16 *arg1);
 void OSReport(const char *, ...);
 s16 init_net_tables__6TLobbyFv();
@@ -657,10 +661,9 @@ void TLobby::init_account_entries() {
 void fn_80147A60(int a0) { keyboard_buffer_cursor = a0; }
 
 void fn_80147A68(void) { keyboard_buffer_cursor = 0; }
+}
 typedef char RecoveredGlobal_80147A74_lbl_804EF500_size[sizeof(RecoveredGlobal_80147A74_lbl_804EF500) == 0x98 ? 1 : -1];
 s32 *get_ppp_password_buffer(void) {
     return &ppp_password_buffer.value;
-}
-
 }
 #undef TLobby__sub_803FB184

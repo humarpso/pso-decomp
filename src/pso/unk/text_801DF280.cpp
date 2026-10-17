@@ -88,6 +88,7 @@ s32 fn_801DF2BC(s32 arg0) {
     __ct__8TPlySmthFv((void *)(arg0 + 0x44));
     return arg0;
 }
+}
 int bswap_cmd_8a_header(void* p) { return bswap__13packet_headerFv(p); }
 void bswap_cmd_88_body(void* p) { bswap__13packet_headerFv(p); { int i; for (i = 0; i < 16; i++) { bswap_cmd_88_marker_record((void*)((char*)p + 0x4 + i * 12)); } } }
 
@@ -95,6 +96,7 @@ void bswap_cmd_88_marker_record(void* p) { ((TPlyGuildCardTag *)p)->bswap(); bsw
 
 typedef struct RecoveredFields_801DF394_arg0 RecoveredFields_801DF394_arg0;
 typedef struct RecoveredFields_801DF394_arg1 RecoveredFields_801DF394_arg1;
+extern "C" {
 s32 *copy_entry_table(s32 *arg0, s32 *arg1) {
   u32 var_r30;
   s32 var_r29;
@@ -173,7 +175,9 @@ Obj_801DF61C *fn_801DF61C(Obj_801DF61C *dst, Obj_801DF61C *src) {
 }
 
 void fn_801DF6BC(void* p) { bswap__13packet_headerFv(p); bswap_choice_search_config((char*)p + 0x4); }
+}
 void bswap_choice_search_config(void* p) { bswap_32__FPUl(p); { int i; for (i = 0; i < 5; i++) { fn_801DF740((void*)((char*)p + 0x4 + i * 4)); } } }
+extern "C" {
 
 void fn_801DF740(void* p) { bswap_16__FPUs((s32)p); bswap_16__FPUs((s32)((void*)((char*)p + 0x2))); }
 
@@ -182,10 +186,13 @@ Blk_801DF774 *TProtocol__sub_801DF774(Blk_801DF774 *d, const Blk_801DF774 *s) {
     d->b = s->b;
     return d;
 }
+}
 
 void bswap_c0_lobby_entries(void* p) { bswap__13packet_headerFv(p); { int i; for (i = 0; i < 56; i++) { fn_801DF7F8((void*)((char*)p + 0x4 + i * 32)); } } }
+extern "C" {
 
 void fn_801DF7F8(void* p) { fn_801DF740(p); }
+}
 
 int bswap_packet_header_cmd_b1(void* p) { return bswap__13packet_headerFv(p); }
 
@@ -194,6 +201,7 @@ void bswap_save_packet(s32 arg0) {
     ((s32)bswap_32__FPUl((void*)(arg0 + 4)));
     ((s32)bswap_32__FPUl((void*)(arg0 + 8)));
 }
+extern "C" {
 
 void fn_801DF874(void* p) { bswap__13packet_headerFv(p); ((TPlyGuildCardTag *)((char*)p + 0x4))->bswap(); }
 
@@ -201,5 +209,4 @@ s32 fn_801DF8A8(s32 arg0) {
     __ct__16TPlyGuildCardTagFv(arg0 + 4);
     return arg0;
 }
-
 }

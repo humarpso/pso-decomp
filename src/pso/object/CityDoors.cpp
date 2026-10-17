@@ -146,13 +146,15 @@ struct VObj_80181AE8 : Base_80181AE8 {
     virtual s32 m8(f32, f32);
 };
 
-extern "C" {
 extern u8 *city_common_model_archive;
 extern s32 city_common_texture_list;
+extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 * load_gvm_texture_file(s32);
+}
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 bm_obj_city_common_resource_descriptor;
 void load_city_common_resources(void);
+extern "C" {
 int is_phase_e__9TObjEneDDFPv(void*);
 void render__18TObjCityDoor_LobbyFv(void* p);
 s32 get_city_common_model(s32);
@@ -175,6 +177,7 @@ void TLobby::free_map_resources() {
     TLobby__sub_8001FE7C((s32)city_common_model_archive, 1);
     city_common_model_archive = 0;
 }
+}
 typedef char RecoveredGlobal_8019A880_lbl_804B8F70_size[sizeof(RecoveredGlobal_8019A880_lbl_804B8F70) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8019A880___vt__8TObjTank_size[sizeof(RecoveredGlobal_8019A880___vt__8TObjTank) == 0x3C ? 1 : -1];
 typedef char RecoveredGlobal_8019A9B8_lbl_804B8F60_size[sizeof(RecoveredGlobal_8019A9B8_lbl_804B8F60) == 0x14 ? 1 : -1];
@@ -189,6 +192,7 @@ void load_city_common_resources(void) {
     (*(s32 *)&city_common_model_archive) = var_r0;
     (*(u8 * *)&city_common_texture_list) = load_gvm_texture_file((s32)city_common_texture_filename);
 }
+extern "C" {
 void TObjCityDoor_Lobby::render() { if (is_phase_e__9TObjEneDDFPv(this) != 0) { process_lobby_action_14(); } }
 void TObjCityDoor_Lobby::process_lobby_action_14() {
     u8 *arg0 = (u8 *)this;
@@ -343,9 +347,11 @@ u8 *TObjCityDoor_Lobby__create(s32 arg0) {
 u8 *__dt__18TObjCityDoor_LobbyFPvs(u8 *arg0, s16 arg1);
 u32 get_map_count__10TObjMapCsnFv();
 void __dl__7TObjectFPv(void *);
+}
 void remove_value_from_id_list(s32 arg0, u32 arg1);
 
 extern s32 __vt__18TObjCityDoor_Lobby[];
+extern "C" {
 
 u8 *__dt__18TObjCityDoor_LobbyFPvs(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -360,7 +366,6 @@ u8 *__dt__18TObjCityDoor_LobbyFPvs(u8 *arg0, s16 arg1) {
     }
     return arg0;
 }
-
 }
 
 struct Vec_80181F10 { f32 x, y, z; };
@@ -449,8 +454,6 @@ struct VObj_8018208C_80181FF4 : Base_8018208C_80181FF4 {
     virtual void m19();
 };
 
-extern "C" {
-
 struct Base_80181ff4 { char pad[0x18]; };
 struct VObj_80181ff4 : Base_80181ff4 {
     virtual void m0();
@@ -475,6 +478,7 @@ struct VObj_80181ff4 : Base_80181ff4 {
     virtual void m19();
     virtual s32 m20();
 };
+extern "C" {
 
 void run_task__16TObjCityDoor_MedFv(void *arg0);
 void render__16TObjCityDoor_MedFv(u8 *arg0);
@@ -504,11 +508,15 @@ void TObjCityDoor_Med::run_task() {
 
 void *TObjCityDoor_Med__create(void *arg0);
 void *dt__16TObjCityDoor_MedFPvs(void *arg0, s16 arg1);
+}
 s32 is_rader_map_active(void);
+extern "C" {
 s32 TLobby__sub_80182E60();
 s32 get_game_play_mode();
 void *TObjCityDoor_Med__ct(void *, void *, void *);
+}
 u8 *init_city_door(u8 *, s32, s32, u8 *);
+extern "C" {
 void *TObjPlayer__sub_80182D24(void *, s16);
 
 void *TObjCityDoor_Med__create(void *set) {
@@ -539,6 +547,7 @@ void *TObjCityDoor_Med__ct(void *o, void *parent, void *set) {
  ((TObjCityDoor_Med *)o)->m_b0=(f32)(*(u32 *)((u8 *)get_city_common_motion(11) + 4)-1);
  return o;
 }
+}
 
 s32 is_rader_map_active(void) {
     s32 temp_r3;
@@ -555,8 +564,6 @@ s32 is_rader_map_active(void) {
     }
 block_6:
     return 1;
-}
-
 }
 
 #define F(o,t,p) (*(t*)((u8*)(o)+(p)))
@@ -963,8 +970,10 @@ extern void *challenge_task;
 s32 TLobby__sub_80182E60(void);
 s32 init_collision_body_parts(void *, void *, int, int);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv();
+}
 extern RecoveredGlobal_80182D8C_lbl_80443F20 city_door_init_params;
 u8 *init_city_door(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3);
+extern "C" {
 void city_door_tick_opening__13TUnk_804B5BA8Fv(void* o);
 void city_door_tick_closing__13TUnk_804B5BA8Fv(void* o);
 struct Vec_8018291C { char pad14[0x14]; f32 x; f32 y; };
@@ -1114,6 +1123,7 @@ void *TObjPlayer__sub_80182D24(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+}
 
 typedef char RecoveredGlobal_80182D8C_lbl_80443F20_size[sizeof(RecoveredGlobal_80182D8C_lbl_80443F20) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80182D8C_lbl_804B5BA8_size[sizeof(RecoveredGlobal_80182D8C_lbl_804B5BA8) == 0x60 ? 1 : -1];
@@ -1138,6 +1148,7 @@ u8 *init_city_door(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3) {
     ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;
 }
+extern "C" {
 
 s32 TLobby__sub_80182E60(void) {
     if ((void *) challenge_task == NULL) {

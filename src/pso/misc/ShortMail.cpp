@@ -70,8 +70,8 @@ typedef struct Hdr_8022525C
   Tier_8022525C *tiers;
 } Hdr_8022525C;
 
-extern "C" {
 extern unsigned char lbl_80513F70[];
+extern "C" {
 s32 strncpy(void *, void *, int);
 extern s32 lbl_805D6270;
 s32 is_name_too_long__6TLobbyFPv(O_80225B90 *o);
@@ -164,6 +164,7 @@ s32 find_free_slot__6TLobbyFv(void) {
   }
   goto loop_1;
 }
+}
 
 void remove_short_mail_by_id(u32 id) {
     s32 count = get_short_mail_ctrl__6TLobbyFv();
@@ -175,6 +176,7 @@ void remove_short_mail_by_id(u32 id) {
         }
     }
 }
+extern "C" {
 
 void remove_entry_at__6TLobbyFi(s32 idx) {
     if (idx < 7) {
@@ -241,5 +243,4 @@ void TLobby__sub_80225CB8(void) {
 void clear_lobby_flag__6TLobbyFv(void) {
     lbl_805D63FC &= 0xFFFE;
 }
-
 }

@@ -165,7 +165,9 @@ s32 select_cursor_entry__22TWindowSubShortCutListFv(int);
 extern s32 lbl_8044C1D4[];
 u16 obj_getField1c(s32);
 void fn_80221838(u8 *arg0, s32 arg1, s32 arg2);
+}
 s32 get_appraisal_text(s32 arg0);
+extern "C" {
 s32 calc_list_content_extent(void *);
 u8 *create_item_list_window(s32 arg0, s32 arg1, s32 arg2);
 void *memset(void *, int, unsigned long);
@@ -702,5 +704,4 @@ void *TShopJudgmentItemWindow__ct(TShopJudgmentItemWindow *arg0, void *arg1, voi
     arg0->m_174 = 0;
     return arg0;
 }
-
 }

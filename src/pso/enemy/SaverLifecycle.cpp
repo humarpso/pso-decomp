@@ -97,7 +97,9 @@ Obj_800A73F8 *__dt__12TObjEneSaverFv(Obj_800A73F8 *arg0, s16 arg1);
 void* vfunc_9__12TObjEneSaverFv(void* p);
 void copy_position__20TBoss3VoloptHiraisinFv(s32 arg0);
 s32 create__12TObjEneSaverFPvPv(u32, u32);
+}
 int initialize_enemy_photon_effect(void *p);
+extern "C" {
 s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 void initialize__9TObjEnemyFPv(void *, void *, void *);
 void set_animation__10TObjMotionFs(void *, s16);
@@ -130,17 +132,19 @@ struct VObj1 : Base1 {
     virtual void m5();
 };
 
-extern "C" {
 extern A_800A4294 lbl_804CC8C8;
 extern G_800A4294 player_effect_task_list;
 extern int TObjPlayer__effect_count;
+extern "C" {
 void TObjPlayer__sub_800A4294(void);
 void calc_move_state__12TObjEneSaverFv(void *arg0);
 s32 TObjPlayer__sub_800A7774(void *, void *);
 s32 set_param__16TEneParticleCtrlFv(void *, s32);
 void sub_800A435C__12TObjEneSaverFv(u8 *arg0);
 void apply_actor_gravity(TObjEnemy *arg0, s32 *arg1, f32 farg0);
+}
 void move_with_wall_slide(u8 *arg0);
+extern "C" {
 s32 TObjPlayer__sub_800A04F0(void *);
 #define step_angle_clamped__10TObjPlayerFPvi ((s32 (*)(void*, int))(step_angle_clamped__10TObjPlayerFPvi))
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
@@ -476,7 +480,6 @@ void TObjEneSaver::update_entry_motion() {
     submit_cursor_candidate(this, -1);
     this->actorFlags = (s32) (this->actorFlags & 0xFFDFFFFF);
 }
-
 }
 
 #undef step_angle_clamped__10TObjPlayerFPvi

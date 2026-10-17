@@ -128,7 +128,9 @@ int reset_active_state__18TObjEneBalClawClawFPv(void* p);
 void apply_actor_gravity(TObjEnemy *arg0, s32 *arg1, f32 farg0);
 void advance_animation_playback(void *);
 void update_drop__18TObjEneBalClawClawFPv(Claw_800906C8 *self);
+}
 void move_with_wall_slide(u8 *arg0);
+extern "C" {
 void calc_velocity_toward_destination(void *self, Vec_80090850 pos, Vec_80090850 dest, f32 speed);
 void update_angle__10TObjPlayerFlPv(void *arg0, s32 arg1, void *arg2);
 void update_move_to_target__18TObjEneBalClawClawFPv(Claw_80090850 *self);
@@ -244,7 +246,6 @@ void update_move_to_target__18TObjEneBalClawClawFPv(Claw_80090850 *self) {
         break;
     }
 }
-
 }
 
 #define sub_80090798__18TObjEneBalClawClawFv (*(void (*)(void *))&sub_80090798__18TObjEneBalClawClawFv)

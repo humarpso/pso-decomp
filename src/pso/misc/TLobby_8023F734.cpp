@@ -45,14 +45,16 @@ typedef struct Src_8024220C
   u8 ext[0x64];
 } Src_8024220C;
 
-extern "C" {
 extern RecoveredGlobal_8023F880_lbl_805162EC lbl_805162EC;
+extern "C" {
 s32 TLobby__sub_8023F880(s32 arg0);
 void clamp_field9c__6TLobbyFPvf(void *voice, f32 scale);
 void set_sound_slot_special_scale(s32 slot, f32 scale);
 s32 start_voice_fade(struct Voice_80241FD8 *v, s32 step);
 void fade_out_sound_slot(s32 slot, s32 step);
+}
 s32 set_voice_pitch_slide(u8 *arg0, s32 arg1, s32 arg2);
+extern "C" {
 void set_sound_slot_pitch(s32 slot, s32 pitch, s32 duration);
 
 s32 resolve_sound_effect_bank(Owner_8023FBBC *owner, s32 kind, s32 bank, s32 index);
@@ -65,7 +67,9 @@ s32 memset(void *, int, int);
 extern u8 selected_guild_card_record[];
 void load_selected_guild_card_record(Src_8024220C *arg0);
 u16 update_crc16_ccitt__6TLobbyFUsUc(u16 crc, u8 c);
+}
 u16 calculate_crc16_ccitt(const u8* bytes, s32 count);
+extern "C" {
 s32 advance_rng__6TLobbyFPv(void *arg0);
 s32 get_field_0x280__6TLobbyFPv(void* p);
 f32 get_field_2a4__6TLobbyFPv(void* p);
@@ -194,9 +198,8 @@ s32 resolve_sound_effect_bank(Owner_8023FBBC *owner, s32 kind, s32 bank, s32 ind
     }
     return result;
 }
-#pragma pop
-
 }
+#pragma pop
 
 #pragma pop
 
@@ -338,8 +341,10 @@ s32 sndPopGroup();
 s32 pop_sound_groups__6TLobbyFPvi(void *p, s32 arg1);
 s32 OSGetTick();
 s32 TLobby__sub_8023FCC0(void *);
+}
 s32 tick_sound_voice(SoundRequestVoice *v);
 #define lbl_805162EC ((Voice_802401D0 *)&lbl_805162EC)
+extern "C" {
 s32 update_sound_frame(Lobby_802401D0 *self);
 int TLobby__sub_802401C8(void);
 
@@ -517,6 +522,7 @@ void reset_sound_owner_state(u8 *arg0) {
     *(f32 *)((s8 *)arg0 + 0x2A4) = (f32) lbl_805DC9D8;
     *(s32 *)((s8 *)arg0 + 0x2AC) = 0x1E240;
 }
+}
 
 u16 calculate_crc16_ccitt(const u8* bytes, s32 count) {
     u16 crc = 0;
@@ -526,6 +532,7 @@ u16 calculate_crc16_ccitt(const u8* bytes, s32 count) {
     }
     return crc;
 }
+extern "C" {
 
 u16 update_crc16_ccitt__6TLobbyFUsUc(u16 crc, u8 c) {
     s32 i;
@@ -603,7 +610,6 @@ void update__6TLobbyFPv(void *arg0) {
         *(s32 *)((s8 *)arg0 + 0x64) = 0x3FFF;
     }
 }
-
 }
 
 #undef lbl_805162EC
@@ -644,7 +650,9 @@ struct Sound_80241798 {
 
 extern "C" {
 s32 sndFXCtrl(int, int, int);
+}
 void send_voice_controller_updates(u8 *arg0);
+extern "C" {
 s32 init_sound_voice__6TLobbyFPviiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 sndFXKeyOff(int);
 s32 OSDisableInterrupts(void);
@@ -660,6 +668,7 @@ extern s8 TLobby__data_805434A8[];
 extern s32 TLobby__lobby_state_flags;
 void TLobby__sub_80241798(Sound_80241798 *arg0);
 void update_random_flip_flag__6TLobbyFPv(u8 *arg0);
+}
 
 s32 set_voice_pitch_slide(u8 *arg0, s32 arg1, s32 arg2) {
     s32 var_r5;
@@ -772,6 +781,7 @@ s32 tick_sound_voice(SoundRequestVoice *v) {
     }
     return 0;
 }
+extern "C" {
 
 void update_random_flip_flag__6TLobbyFPv(u8 *arg0) {
     switch (*(s32 *)((s8 *)arg0 + 0x10)) {
@@ -897,6 +907,7 @@ void TLobby__sub_80241798(Sound_80241798 *arg0) {
 }
 
 void TLobby__sub_80241A0C(void) {  }
+}
 
 extern const f32 lbl_805DC9EC;
 
@@ -942,6 +953,7 @@ void send_voice_controller_updates(u8 *arg0) {
         break;
     }
 }
+extern "C" {
 
 void clamp_params__6TLobbyFPv(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0x28) = (((*(s32 *)((s8 *)arg0 + 0x48) + *(s32 *)((s8 *)arg0 + 0x40)) + *(s32 *)((s8 *)arg0 + 0x3C)) + *(s32 *)((s8 *)arg0 + 0x44)) + 0x7F;
@@ -1036,9 +1048,8 @@ s32 init_sound_voice__6TLobbyFPviiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s
     }
     return 0;
 }
-#pragma pop
-
 }
+#pragma pop
 
 #pragma pop
 
@@ -1082,7 +1093,9 @@ void TLobby__sub_8024259C(s32 arg0);
 char *skip_to_comma_field__6TLobbyFPvii(char *s, s32 a, s32 b);
 char *get_shared_text_buffer();
 void text_builder_append(char *);
+}
 void text_builder_reset();
+extern "C" {
 s32 send_find_user__9TProtocolFR16TPlyGuildCardTagUl(void *, Tag_802421C4 *, s32);
 void send_find_user_self_tag__6TLobbyFi(s32 arg0);
 void* get_com_card_entry__6TLobbyFi(int a0);
@@ -1232,7 +1245,6 @@ void TLobby__sub_8024259C(s32 arg0) {
         seq_jump__9TProtocolFPUcR21TPlyMeetUserExtension(TLobby__protocol_instance, (void *)(arg0 + 0x4C), (void *)(arg0 + 0x58));
     }
 }
-
 }
 
 #pragma pop

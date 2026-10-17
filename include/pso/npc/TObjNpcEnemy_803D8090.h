@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void print_float_padded(s32 arg0, s32 prec, f32 val);
-}
 
 #endif

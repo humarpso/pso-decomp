@@ -97,6 +97,7 @@ s32 TAdSinglePlyChrSelectGC::create_chr_warp(s32 arg0, s32 arg1) {
     align_menu_entry_positions(var_r31);
     return var_r31;
 }
+}
 
 void finish_character_selection_transition(void *arg0) {
     s32 temp_r4;
@@ -139,6 +140,7 @@ void finish_character_selection_transition(void *arg0) {
         }
     }
 }
+extern "C" {
 
 void TAdSinglePlyChrSelectGC::close_and_change_scene() {
     s32 temp_r4;
@@ -482,5 +484,4 @@ void TAdSinglePlyChrSelectGC__sub_802D486C(void *arg0) {
         }
     }
 }
-
 }

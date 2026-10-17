@@ -20,6 +20,7 @@ int ret_801D7944(void) { return 0; }
 int ret_801D794C(void) { return 0; }
 int ret_801D7954(void) { return 0; }
 int ret_801D795C(void) { return 0; }
+}
 void assign_default_photon_blast_palette_slots(u8 *arg0) {
     s32 tbl[3];
     s32 i;
@@ -31,6 +32,4 @@ void assign_default_photon_blast_palette_slots(u8 *arg0) {
         set_slot_mode__20TWindowActionPaletteFllll(arg0 + 0x24, 1, tbl[i], 0);
         i++;
     } while (i < 3);
-}
-
 }

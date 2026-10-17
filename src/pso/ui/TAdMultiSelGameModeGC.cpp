@@ -158,6 +158,7 @@ void run_task__21TAdMultiSelGameModeGCFv(Self_80300770 *self) {
     };
     (self->*tbl[self->state])();
 }
+}
 s32 get_max_difficulty_for_party_level(void) {
     s32 m;
     s32 i;
@@ -181,6 +182,7 @@ s32 get_max_difficulty_for_party_level(void) {
     }
     return (m < 80 ? -1 : 0) + 3;
 }
+extern "C" {
 Obj_8030095C *__ct__21TAdMultiSelGameModeGCFv(Obj_8030095C *self, s32 parent, s32 mode) {
     void *p;
     __ct__7TObjectFP7TObject(self);
@@ -279,5 +281,4 @@ Obj_8030095C *__ct__21TAdMultiSelGameModeGCFv(Obj_8030095C *self, s32 parent, s3
     create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)self, 0x10, (f32)lbl_805DEF44);
     return self;
 }
-
 }

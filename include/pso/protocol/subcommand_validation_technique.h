@@ -5,8 +5,8 @@
 
 extern "C" {
 s32 validate_6x46_attack_finished(G_ClientIDHeader *packet);
+}
 s32 validate_cast_target_entry(void *parameters);
 s32 validate_technique_parameters(void *parameters);
-}
 
 #endif

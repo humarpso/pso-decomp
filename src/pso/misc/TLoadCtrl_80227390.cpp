@@ -46,23 +46,27 @@ struct RecoveredGlobal_8000F91C_lbl_804FE120 {
 
 extern "C" {
 s32 VISetPreRetraceCallback(s32 *);
+}
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 TLobby__sub_80227A6C;
-s32 stop_audio_stream(int);
+void stop_audio_stream(u8 *arg0);
 extern s32 lbl_804CB850[];
 extern f32 music_fade_volumes[];
 extern s32 lbl_805D62E0;
 extern s32 lbl_805D62E4;
 extern s32 music_fade_frames_remaining;
 extern const f32 lbl_805DC764;
+extern "C" {
 s32 get_music_base_gain(void);
 void TLobby__sub_80227AA8(s32);
 void set_field_40_and_notify__6TLobbyFs(s32, s32);
 s32 TLobby__sub_803C9CB0(s32);
+}
 extern s32 lbl_805D62B8;
 extern s32 music_fade_slot_index;
 extern f32 music_fade_step;
 extern s32 lbl_805D6330;
 void update_music_fade(void);
+extern "C" {
 void update_all_zones__14TObjBgmColCtrlFl(void);
 void strncpy(void *, void *, s32);
 void TLobby__sub_803C94DC(u8 *arg0, s32 arg1);
@@ -74,9 +78,11 @@ extern s16 lbl_805D371C;
 void play_area_music(char *name);
 void TWindowOptionCtrl__sub_802273B4(s32 arg0);
 void TLobby__sub_803CA194(s32);
+}
 extern u32 lbl_805D62DC;
 extern u32 lbl_805D62EC;
 void stop_cue_stream(void);
+extern "C" {
 
 void TLoadCtrl::step() { TLobby::stop_audio_streams(); stop_cue_stream(); }
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
@@ -96,7 +102,7 @@ void TWindowOptionCtrl__sub_802273B4(s32 arg0) {
 void TLobby::stop_audio_streams() {
     s32 i;
     for (i = 0; i < 2; i++) {
-        stop_audio_stream(lbl_804CB850[i]);
+        stop_audio_stream((u8 *)lbl_804CB850[i]);
         music_fade_volumes[i] = lbl_805DC764;
     }
     music_fade_frames_remaining = 0;
@@ -132,6 +138,7 @@ void play_area_music(char *name) {
     lbl_805D62E4 = 1;
     strncpy(lbl_80514D00[music_fade_slot_index], name, 0x20);
 }
+}
 
 void update_music_fade(void) {
     s32 i;
@@ -155,7 +162,7 @@ void update_music_fade(void) {
         }
         if (--music_fade_frames_remaining <= 0) {
             s32 st;
-            stop_audio_stream(lbl_804CB850[1 - music_fade_slot_index]);
+            stop_audio_stream((u8 *)lbl_804CB850[1 - music_fade_slot_index]);
             st = TLobby__sub_803C9CB0(lbl_804CB850[music_fade_slot_index]);
             if (st == 0 || st == 5) {
                 lbl_805D62E4 = 0;
@@ -166,6 +173,7 @@ void update_music_fade(void) {
         TLobby__sub_80227AA8(lbl_804CB850[2]);
     }
 }
+extern "C" {
 
 void TLobby::set_pre_retrace_callback() {
     VISetPreRetraceCallback(&TLobby__sub_80227A6C.value);
@@ -184,6 +192,7 @@ void TLobby::shutdown_buffers() {
         TAdSinglePlyChrSelectGC::safe_free(lbl_805D62EC);
     }
 }
+}
 
 typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8000F8FC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8FC_lbl_804FE120) == 0x18 ? 1 : -1];
@@ -191,5 +200,3 @@ typedef char RecoveredGlobal_8000F8EC_lbl_804FE120_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8000F91C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F91C_lbl_804FE120) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8000F9E4_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9E4_lbl_804FE120) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8000F9CC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9CC_lbl_804FE120) == 0x18 ? 1 : -1];
-
-}

@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void harisen_battle_fan_scale_node(void *p);
-}
 
 #endif

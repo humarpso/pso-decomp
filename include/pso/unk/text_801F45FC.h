@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void clear_story_flag(s32 flag);
-}
 
 #endif

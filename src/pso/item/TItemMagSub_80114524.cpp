@@ -20,6 +20,7 @@ void initialize_mag_item_data(void *arg0) {
 s16 get_mag_total_level(void *mag) {
     return ((TItemData *)mag)->get_stat_percent() + ((TItemData *)mag)->get_percent() + ((TItemData *)mag)->get_mag_mind_level() + ((TItemData *)mag)->get_level();
 }
+}
 
 void update_mag_node_oscillation_state(void *arg0) {
     s8 temp_r3;
@@ -50,6 +51,4 @@ void update_mag_node_oscillation_state(void *arg0) {
             }
         }
     }
-}
-
 }

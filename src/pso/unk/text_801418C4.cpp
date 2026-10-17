@@ -10,6 +10,7 @@ extern "C" {
 void GXSetZMode(u8, s32, s32);
 void GXSetZCompLoc(s32);
 s32 GXSetAlphaCompare(int, void *, int, int, int);
+}
 extern RecoveredGlobal_801418C4_lbl_8050C000 depth_buffer_settings;
 typedef char RecoveredGlobal_801418C4_lbl_8050C000_size[sizeof(RecoveredGlobal_801418C4_lbl_8050C000) == 0x28 ? 1 : -1];
 void setup_alpha_test_render_state(u8 arg0) {
@@ -21,6 +22,4 @@ void setup_alpha_test_render_state(u8 arg0) {
     GXSetZCompLoc(0);
     GXSetZMode(1U, 3, 1);
     GXSetAlphaCompare(4, (void *)arg0, 0, 7, 0);
-}
-
 }

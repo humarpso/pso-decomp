@@ -69,7 +69,9 @@ void *__dt__19TWindowSubMagPhotonFv(void *arg0, s16 arg1);
 s32 get_selected_menu_value(s32);
 s32 align_menu_entry_positions(s32);
 void __dl__7TObjectFPv(void *);
+}
 s32 create_titled_window_menu(s32, s32, s32, s32);
+extern "C" {
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 s32 is_split_screen();
 s32 update_selected_item__17TWindowOptionCtrlFv(s32);
@@ -303,5 +305,4 @@ s32 TUnk_804D1818::create_option_menu_window() {
     set_field_1c__6TLobbyFf(titled_window_menu);
     return titled_window_menu;
 }
-
 }

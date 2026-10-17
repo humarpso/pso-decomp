@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void init_6x04_packet(u8 *arg0);
-}
 
 #endif

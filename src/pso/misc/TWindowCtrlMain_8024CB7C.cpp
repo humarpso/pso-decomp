@@ -72,6 +72,7 @@ void TWindowCtrlMain::set_field18(f32 value, s32 viewport_index) {
 void TWindowCtrlMain::set_depth(f32 value, s32 viewport_index) {
     get_window_control_state(viewport_index)->field0C = value;
 }
+}
 
 WindowControlState* get_window_control_state(s32 viewport_index) {
     if (is_split_screen()) {
@@ -79,6 +80,7 @@ WindowControlState* get_window_control_state(s32 viewport_index) {
     }
     return TWindowCtrlMain__viewport_states;
 }
+extern "C" {
 void TWindowCtrlMain::update_fade_alphas() {
     s32 i;
     for (i = 0; i < 4; i++) {
@@ -130,6 +132,7 @@ s32 is_window_display_enabled(void) {
 
 bool TWindowCtrlMain__sub_8024CE58(void) {
     return TWindowCtrlMain__window_task_root != 0;
+}
 }
 
 #pragma push
@@ -258,5 +261,3 @@ void draw_menu_backdrop_gradients(s32 viewport_index) {
     draw_color_lines(&line, 2, 4, -10.0f);
 }
 #pragma pop
-
-}

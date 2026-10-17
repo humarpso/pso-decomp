@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void assign_photon_blast_palette_slot(u8 *arg0, s32 arg1);
-}
 
 #endif

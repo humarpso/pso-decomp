@@ -15,7 +15,9 @@ typedef char RecoveredGlobal_8025E9E4___vt__19TWindowKeyBoardBase_size[sizeof(Re
 extern "C" {
 void *mem_alloc(u32 size);
 u8 * get_window_layout_position(s32);
+}
 void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2);
+extern "C" {
 void init_keyboard_text_field__19TWindowKeyBoardBaseFUlUl(u8 *arg0, u32 arg1, u32 arg2);
 extern RecoveredGlobal_8025E9E4_lbl_804CFA70 TWindowKeyBoardBase__window_descriptor;
 extern s32 __vt__19TWindowKeyBoardBase[];
@@ -102,5 +104,4 @@ void TLobby::load_ask_dictionary() {
     TQuestVmDownLoadServer__sub_803F0C04(aram, size, 3, 1, 0x2710);
     TQuestVmDownLoadServer__sub_803F09A4();
 }
-
 }

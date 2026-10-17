@@ -45,8 +45,8 @@ struct Spawn_8018990C {
 
 struct Obj_8018990C { u8 pad[0x38]; f32 x, y, z; u8 pad44[0x326 - 0x44]; s16 f326; };
 
-extern "C" {
 extern const f32 lbl_805DBCF4;
+extern "C" {
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_container_base(void *, s32);
 extern RecoveredGlobal_80188DC0_lbl_804B63BC forest_box_collision_body_parts;
@@ -54,8 +54,10 @@ extern s32 __vt__17TObjContainerBase[];
 extern s32 lbl_805D32E8;
 u8 *TObjContainerBase__ct(u8 *arg0, s32 arg1);
 s32 get_container_param(int);
+}
 extern s32 lbl_805D5B7C;
 void play_container_break_sound(s32 arg0);
+extern "C" {
 void *__nw__7TObjectFUl(int);
 extern Spawn_8018990C *const lbl_805D5B80;
 extern Spawn_8018990C *const lbl_805D5B84;
@@ -188,5 +190,4 @@ void TObjContainerNoItem::vfunc_81() {
         }
     }
 }
-
 }

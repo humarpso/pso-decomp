@@ -39,6 +39,7 @@ void *__ct__13TObjCHTimeWinFv(void *arg0) {
     *(u32 *)((s8 *)arg0 + 0x1C) = 0;
     return arg0;
 }
+}
 
 void *create_ch_time_win(void *arg0) {
     void *o = __nw__7TObjectFUl(0x20);
@@ -46,6 +47,4 @@ void *create_ch_time_win(void *arg0) {
         o = ((void *(*)(void *, void *))__ct__13TObjCHTimeWinFv)(o, arg0);
     }
     return o;
-}
-
 }

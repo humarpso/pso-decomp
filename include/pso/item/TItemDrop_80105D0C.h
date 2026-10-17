@@ -39,7 +39,7 @@ u8 select_weighted_byte__9TItemDropFiiiii(s32 rng, s32 base, s32 off, s32 count,
 u8 select_weighted_column_u16__9TItemDropFiiiii(s32 rng, s32 base, s32 off, s32 count, s32 stride);
 void set_flag__9TItemDropFPvPv(void *arg0, void *item);
 s32 try_generate_rare_item__9TItemDropFiPvPv(s32 arg0, u8 *arg1, u8 *arg2);
-void unload_item_drop_globals(void);
 }
+void unload_item_drop_globals(void);
 
 #endif

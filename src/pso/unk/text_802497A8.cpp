@@ -15,11 +15,15 @@ s8 TWindowSubComCard__sub_8007B6EC(void *);
 s32 TWindowSubComCard__sub_8007B6F4(void *);
 s32 get_com_card_list__6TLobbyFPv(void *);
 void TWindowSubStatusDisp__sub_80228F5C(int);
+}
 void text_builder_reset();
+extern "C" {
 void refresh_status_display__9TWindowDDFv(void *);
 s8 TWindowComCard__sub_80249C18(void *);
 s8 TWindowComCard__sub_80249C20(void *);
-s32 get_class_name_text(int);
+}
+s32 get_class_name_text(s32 arg0);
+extern "C" {
 void set_text_entry_string(void *, void *, int);
 extern s32 com_card_status_text_table[];
 extern const f32 lbl_805DCBCC;
@@ -74,5 +78,4 @@ void update_com_card_display(Win_802497A8 *arg0, void *arg1) {
     }
     set_text_entry_string(t14, (void *)((TWindowComCard *)arg1)->get_kbd_ptr(), 0x220);
 }
-
 }

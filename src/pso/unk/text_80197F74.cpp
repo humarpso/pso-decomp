@@ -29,7 +29,6 @@ void **TLobby::free_global_buffer() {
     }
     return var_r3;
 }
+}
 
 void clear_signboard_texture_buffer_pointer(void) { TObjSinBoard__texture_buffer = 0; }
-
-}

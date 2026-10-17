@@ -530,7 +530,9 @@ void rotate_xz_pair_by_angle(f32 *arg0, f32 *arg1, s32 arg2);
 void *create_particle_emitter(void *, s32);
 s32 enemy_set_target_id(void *, u16);
 s32 transform_relative_position__9TObjEneDDFPv(void *, void *);
+}
 void calc_wall_clamped_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist);
+extern "C" {
 s32 collect_target_candidates__9TObjEneDDFlf(void *, f32);
 s32 subtract_vector(void *, void *);
 extern Tgt_800E54E8 enemy_target_candidate_table[];
@@ -1473,7 +1475,9 @@ f32 calc_boss4_scale__10TObjPlayerFi(s32);
 s32 is_split_screen();
 void queue_destruction__7TObjectFv(void *arg0);
 void fn_8002B630(void *, void *, s32);
+}
 void enemy_turn_and_move_on_ground(u8 *arg0, s32 arg1, f32 farg0);
+extern "C" {
 s32 enemy_validate_retained_target(void *, int);
 s32 update_linked_position__12TObjEneDD_STFf(f32);
 int select_and_apply_target__12TObjEneDD_STFf(void*);
@@ -3378,5 +3382,4 @@ void *TObjEneMe3Shinowa__ct(void *arg0) {
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D2AC8;
     return arg0;
 }
-
 }

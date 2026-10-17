@@ -5,7 +5,7 @@
 
 extern "C" {
 void fn_8015C5F8(void);
-u8 *init_ancient_container(u8 *arg0, s32 arg1);
 }
+u8 *init_ancient_container(u8 *arg0, s32 arg1);
 
 #endif

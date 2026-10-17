@@ -5,7 +5,7 @@
 
 extern "C" {
 void copy_card_window_data(void);
-s32 get_story_flag(s32 flag);
 }
+s32 get_story_flag(s32 flag);
 
 #endif

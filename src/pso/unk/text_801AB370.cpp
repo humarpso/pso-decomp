@@ -19,7 +19,9 @@ void *find_entity_by_id(u16 id);
 s32 init_collision_body_parts(void *, void *, int);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
 s32 sub_801AAE6C__13TPhotonFarllaFv(void *, int);
+}
 u8 *construct_photon_magic_square_normal(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+extern "C" {
 void *__nw__7TObjectFUl(int);
 extern u8 lbl_80446D40[];
 extern u8 lbl_80446D4C[];
@@ -122,7 +124,7 @@ u8 *TPhotonFarlla__ct(u8 *arg0, u8 *arg1) {
         }
         p = __nw__7TObjectFUl(0xD0);
         if (p != NULL) {
-            construct_photon_magic_square_normal((u8 *)p, (s32)arg0, 0, (s32)&pos, 0x78);
+            construct_photon_magic_square_normal((u8 *)p, (s32)arg0, (s32)(0), (s32)&pos, (s32)(0x78));
         }
         spawn_photon_blast_attachment_effects(arg0, 0);
         play_cue_stream_file((s32)lbl_80446D40);
@@ -132,6 +134,5 @@ u8 *TPhotonFarlla__ct(u8 *arg0, u8 *arg1) {
     }
     return arg0;
 }
-#pragma pop
-
 }
+#pragma pop

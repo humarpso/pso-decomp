@@ -8,11 +8,11 @@ void fn_803DCEC8(void);
 void fn_803DCF0C(void);
 void fn_803DD294(void);
 void func_803DCDFC__Fv(void);
+}
 void init_gx_display(void);
 void init_locked_cache_heap(u8 *arg0);
 void init_sin_cos_table(void);
 void present_frame_and_wait_vsync(void);
 void set_present_interval(s32 *arg0, s32 arg1);
-}
 
 #endif

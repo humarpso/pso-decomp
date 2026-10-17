@@ -17,7 +17,9 @@ s32 TLobby__sub_8001E75C(void *arg0);
 void TLobby__sub_8001E998(f32 farg0, f32 farg1, f32 farg2, f32 farg3);
 void TLobby__sub_8001ED70(void);
 void TLobby__sub_8001ED74(void);
+}
 void alloc_battle_param_tables(void);
+extern "C" {
 void broadcast_to_players__6TLobbyFii(s32 arg0, s32 arg1);
 void bswap__12player_statsFv(void *arg0);
 void copy_all_data__6TLobbyFii(s32 arg0, s32 arg1);
@@ -31,7 +33,9 @@ int get_flag_bit0__6TLobbyFv(void);
 void *get_player_entry__6TLobbyFii(int a0, int a1);
 s32 *get_shared_text_buffer(void);
 u8 is_valid_player_index__6TLobbyFi(s32 arg0);
+}
 void load_battle_param_entry(void);
+extern "C" {
 void set_difficulty__6TLobbyFi(s32 arg0);
 }
 

@@ -42,7 +42,9 @@ void TObjPlayer__sub_8003FCD0(u8 *arg0);
 void TObjPlayer__sub_800401CC(u8 *arg0);
 void TObjPlayer__sub_80040558(void *_w0);
 s32 TObjPlayer__sub_80040AE4(s32 i);
+}
 void cache_volopt_resource_ptrs(void);
+extern "C" {
 void *create_TBoss3VoloptCore(void *arg0, void *arg1, s16 arg2, s16 arg3);
 }
 

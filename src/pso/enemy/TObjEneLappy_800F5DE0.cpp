@@ -14,8 +14,10 @@ s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
 extern s32 model_render_flags;
 
 void TObjEnemy::set_param(s32 v) { *(s32 *)&this->control = v; }
+}
 
 int initialize_enemy_photon_effect(void* p) { return ((TBoss3Volopt *)p)->reset_photon_effect(); }
+extern "C" {
 void TObjEnemy::render_shadows() {
     if (obj_testFlags30__13TUnk_804AF8A0FUl(this, 0x800) == 0) {
         this->set_shadow_flag();
@@ -27,5 +29,4 @@ void TObjEnemy::render_shadows() {
         model_render_flags &= ~0xC10;
     }
 }
-
 }

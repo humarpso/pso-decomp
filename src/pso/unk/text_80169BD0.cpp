@@ -23,7 +23,9 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
+}
 void draw_chunk_model(void *arg0);
+extern "C" {
 void draw_chunk_object(void *child);
 void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 s32 submit_cursor_candidate(void *, int);
@@ -147,6 +149,5 @@ void TUnk_804B27D8::render() {
         pop_matrix();
     }
 }
-#pragma pop
-
 }
+#pragma pop

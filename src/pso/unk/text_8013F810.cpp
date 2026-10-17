@@ -257,6 +257,7 @@ void TLobby__sub_8013FF64(u8 *arg0, s8 arg1) {
     *(s8 **)((s8 *)arg0 + 0x7224) = (temp_r5 + 1);
     *temp_r5 = arg1;
 }
+}
 
 u8 lzss_input_exhausted(u8 *arg0) {
     return (u8) ((u32) *(u32 *)((s8 *)arg0 + 0x7220) > (u32) *(u32 *)((s8 *)arg0 + 0x7228));
@@ -267,6 +268,4 @@ u8 lzss_read_byte(u8 *arg0) {
     temp_r4 = *(u8 **)((s8 *)arg0 + 0x7220);
     *(u8 **)((s8 *)arg0 + 0x7220) = (temp_r4 + 1);
     return *temp_r4;
-}
-
 }

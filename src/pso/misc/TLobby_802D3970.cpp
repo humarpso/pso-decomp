@@ -16,12 +16,13 @@ int TLobby__sub_802D39DC(void* p) { return reset_trade_state__6TLobbyFv(p); }
 int TLobby__sub_802D39FC(void* p) { return reset_trade_state__6TLobbyFv(p); }
 void TLobby::byteswap_trade_packet() { ((TObjPlayer *)this)->read_be16_field2(); bswap_32((u32 *)((char*)this + 0x8)); bswap_32((u32 *)((char*)this + 0xc)); }
 void TLobby::prepare_and_send_trade_packet(void* a1) { this->prepare_trade_packet(); send_subcommand_to_client((u32)a1); }
+}
 void build_6xA6_modify_trade_proposal(void* p) { *(u8*)((char*)p + 0x0) = 166; *(u8*)((char*)p + 0x1) = 4; }
 
 extern u16 lbl_805D63FC;
+extern "C" {
 
 void TLobby__sub_802D3AA8(void) {
     lbl_805D63FC |= 8;
 }
-
 }

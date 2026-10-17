@@ -35,8 +35,6 @@
 #include "pso/ui/TAdChrSelASlotGC.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
-
 struct VObjBase_8019B124 { char pad[0x18]; };
 
 struct VObj_8019B124 : VObjBase_8019B124 {
@@ -320,6 +318,7 @@ typedef char RecoveredGlobal_8019CA24_lbl_80515BA0_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8019CE40___vt__12TObjAreaWarp_size[sizeof(RecoveredGlobal_8019CE40___vt__12TObjAreaWarp) == 0x54 ? 1 : -1];
 
 struct VObj_8019D250;
+extern "C" {
 
 s32 get_main_phase();
 void mark_area_change_pending();
@@ -342,7 +341,9 @@ s32 TObjCityMainWarp__sub_80186AF4();
 void * TObjAreaWarpEndingJung__create(void *arg0);
 void * __dt__22TObjAreaWarpEndingJungFv(void *arg0, s16 arg1);
 void * TObjAreaWarpEndingJung__ct(void *arg0);
+}
 void * create_TObjWarpString(void *arg0, void *arg1);
+extern "C" {
 s64 fn_8019B480(void *arg0, void *arg1);
 void fade_and_destroy__14TObjWarpStringFPv(u8 *arg0);
 void TObjWarpString__sub_8019B728(void *arg0);
@@ -377,8 +378,10 @@ s32 register_area_warp_object__16TAdStorySelectGCFPv(int);
 s32 register_warp__16TObjMapForceWarpFPv(int);
 void * get_dest_area__17TObjAreaWarpQuestFv(void *);
 void TObjAreaWarpQuest__sub_8019DCD8(void *, s32);
+}
 void bswap_6x94_inter_level_warp(void *);
-s32 mask_action_buttons(s32, s32);
+void mask_action_buttons(void *p, u32 v);
+extern "C" {
 f32 get_static_field4_as_float__12TObjWarpJungFv(f32);
 s32 TObjWarpJung__sub_801A0404(s32);
 s32 check_flag_100__10TObjPlayerFPv();
@@ -387,7 +390,9 @@ void send_6x21_inter_level_warp(void *obj, s32 value);
 void send_6x55_intra_map_warp(u16 id, void *pos, s32 c);
 s32 init__23TAdSinglePlyChrSelectGCFv();
 s32 get_floor_map_terrain(s32);
+}
 s32 should_record_episode1_quest_completion();
+extern "C" {
 s32 play_sound_effect(s32, s32, s32, s32);
 void set_area__6TLobbyFl(void *, int, int);
 void __dl__7TObjectFPv(void *);
@@ -557,6 +562,7 @@ void *TObjAreaWarpEndingJung__ct(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0x8C) = (s32) (((temp_r0 & 1) ^ temp_r4) - temp_r4);
     return arg0;
 }
+}
 
 void * create_TObjWarpString(void *arg0, void *arg1) {
     void *o;
@@ -566,6 +572,7 @@ void * create_TObjWarpString(void *arg0, void *arg1) {
     }
     return o;
 }
+extern "C" {
 
 s64 fn_8019B480(void *arg0, void *arg1) {
     s64 *p = warp_string_screen_position_table;
@@ -1258,7 +1265,7 @@ void TObjAreaWarp::open_confirm_window(u16 arg1) {
         *(u16 *)((s8 *)this + 0xB8) = arg1;
         temp_r3 = ((u32 (*)(s32))get_player_by_client_id)((s32)(*(u16 *)((s8 *)this + 0xB8)));
         if (temp_r3 != 0U) {
-            mask_action_buttons(temp_r3 + 0x550, 4);
+            mask_action_buttons((void *)(temp_r3 + 0x550), 4);
         }
     }
 }
@@ -1420,5 +1427,4 @@ void TObjMapWarp::process_player_warps() {
         }
     }
 }
-
 }

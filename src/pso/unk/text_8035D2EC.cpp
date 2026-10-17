@@ -18,6 +18,7 @@ void *get_equip_field_d04__10TObjPlayerFv(void *, int);
 extern u8 listed_equipment_table[][3];
 void get_weapon_color__11TItemWeaponFPv(void *, void *);
 void fn_8035D3E0(Obj_8035D3E0 *arg0, Out_8035D3E0 *arg1);
+}
 s32 any_player_has_listed_equipment(void) {
     s32 n = TLobby::get_game_mode();
     s32 i;
@@ -41,6 +42,7 @@ s32 any_player_has_listed_equipment(void) {
     }
     return 0;
 }
+extern "C" {
 void fn_8035D3E0(Obj_8035D3E0 *weapon, Out_8035D3E0 *arg1) {
     f32 sp8[4];
     arg1->f40 |= 0x1C;
@@ -49,5 +51,4 @@ void fn_8035D3E0(Obj_8035D3E0 *weapon, Out_8035D3E0 *arg1) {
     arg1->f44 = weapon->f188;
     arg1->f70 = (void *)TObjPlayer::forward_item_effect_callback;
 }
-
 }

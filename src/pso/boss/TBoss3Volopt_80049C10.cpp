@@ -70,8 +70,10 @@ extern const f32 lbl_805D88B0;
 u8 *TBoss3Volopt__sub_80049E9C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void explode_and_destroy__12TBoss3VoloptFPv(u8 *arg0);
 u32 csnVector(void *, void *, s32);
+}
 void direction_to_rotation_yx(u8 *arg0, s32 *arg1, s32 *arg2);
 void direction_to_rotation_xy(u8 *arg0, s32 *arg1, s32 *arg2);
+extern "C" {
 void check_enemy_body_collisions(void *);
 void *get_player_by_client_id(s32 i);
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
@@ -180,5 +182,4 @@ u8 *TBoss3Volopt__sub_80049E9C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4)
     volopt_homing_projectile_expire_tick = (s32) TBoss3Volopt__sub_8004812C(3) + 0xF0;
     return arg0;
 }
-
 }

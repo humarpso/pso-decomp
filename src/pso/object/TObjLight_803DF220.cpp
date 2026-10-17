@@ -33,9 +33,9 @@ typedef union WGPipe_803DF5E4 {
     f32 f32;
 } WGPipe_803DF5E4;
 
-extern "C" {
 extern s32 light_slot_mask_table[];
 extern s32 gx_chan_ctrl_light_mask;
+extern "C" {
 s32 GXLoadLightObjImm(void *, int);
 extern RecoveredGlobal_803DF528_TObjLight__data_8058D528 TObjLight__gx_light_objects;
 extern char lbl_804FC75C[];
@@ -56,6 +56,7 @@ void TObjLight::assert_light_id(s32 arg0) {
     if (arg0 < 0 || arg0 > 5) {
         OSPanic(lbl_804FC75C, 0x12, lbl_804FC768);
     }
+}
 }
 
 
@@ -125,6 +126,7 @@ void load_gx_light_slot(s32 arg0) {
     TObjLight::assert_light_id((s32)arg0);
     GXLoadLightObjImm((void *) ((u8 *)&TObjLight__gx_light_objects.value + (arg0 << 6)), (int) (*(s32 *)((s8 *)((u8 *)light_slot_mask_table + (arg0 * 4)) + 0)));
 }
+extern "C" {
 
 
 
@@ -132,6 +134,7 @@ void TObjPlayer::draw_trail_strip(void *arg1, s32 arg2) {
     TObjPlayer__sub_803DF768(arg2);
     draw_untextured_trail_strip(this, arg1);
     reset_player_transform();
+}
 }
 
 void reset_player_transform(void) {
@@ -143,6 +146,7 @@ void reset_player_transform(void) {
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)
+extern "C" {
 static inline void GXPosition3f32_803DF5E4(f32 x, f32 y, f32 z) {
     (*(volatile WGPipe_803DF5E4 *)0xCC008000).f32 = x;
     (*(volatile WGPipe_803DF5E4 *)0xCC008000).f32 = y;
@@ -150,6 +154,7 @@ static inline void GXPosition3f32_803DF5E4(f32 x, f32 y, f32 z) {
 }
 static inline void GXColor1u32_803DF5E4(u32 c) {
     (*(volatile WGPipe_803DF5E4 *)0xCC008000).u32 = c;
+}
 }
 void draw_untextured_trail_strip(void *arg0, void *arg1) {
     s32 n;
@@ -166,6 +171,7 @@ void draw_untextured_trail_strip(void *arg0, void *arg1) {
     }
 }
 #pragma pop
+extern "C" {
 
 void TObjPlayer__sub_803DF768(s32 arg0) {
     load_camera_view_matrix();
@@ -175,6 +181,4 @@ void TObjPlayer__sub_803DF768(s32 arg0) {
     }
     setup_opaque_color_draw();
 }
-
-
 }

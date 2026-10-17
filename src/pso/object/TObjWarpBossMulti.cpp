@@ -211,7 +211,9 @@ void request_active_window_close(void);
 void begin_player_keyboard_hold(s32 arg0);
 s32 get_window_layout_position(s32);
 s32 free_member__17TWindowSubComCardFv(void *, int);
+}
 void initialize_option_dialog(void *arg0, s32 arg1, s32 arg2, f32 farg0);
+extern "C" {
 s32 forward_slot_selection__16TAdChrSelASlotGCFPvPv(void *, s32, s32, f32);
 extern s32 local_client_id;
 extern const f32 lbl_805DC020;
@@ -401,7 +403,9 @@ void run_task__17TObjWarpBossMultiFv(Obj_8019DFE8 *self);
 void *__dt__17TObjWarpBossMultiFv(void *arg0, s16 arg1);
 Obj_8019E238 *TObjWarpBossMulti__ct(Obj_8019E238 *self, void * _w1, void * _w2);
 void update_warp_boss_visibility__12TObjWarpBossFv(void *arg0);
+}
 void handle_6x6A_set_boss_warp_flags(void *arg0);
+extern "C" {
 
 void render_shadows__7TObjectFv();
 void vfunc_6__13TUnk_804B9870FPsl();
@@ -743,6 +747,7 @@ void TObjWarpBoss::close_windows() {
     TWindowCtrl::clear_flag();
     ((TWindowCtrl *)local_client_id)->unsuppress_slot();
 }
+}
 
 void handle_6x6A_set_boss_warp_flags(void *arg0) {
     void *entity;
@@ -753,6 +758,7 @@ void handle_6x6A_set_boss_warp_flags(void *arg0) {
         *(s16 *)((s8 *)entity + 0xDC) = (s16) *(s16 *)((s8 *)arg0 + 4);
     }
 }
+extern "C" {
 
 void TObjWarpBoss::send_cmd_6A(u16 value) {
     Obj_8019E6C0 *self = (Obj_8019E6C0 *)this;
@@ -1344,9 +1350,9 @@ int get_boss_warp_motion(void) {  return (*(int *)&warp_boss_motion); }
 int get_boss_warp_model(void) {  return (*(int *)&warp_boss_model); }
 int get_boss_warp_confirmation_model(void) {  return (*(int *)&boss_warp_confirmation_model); }
 int get_boss_warp_base_model(void) {  return (*(int *)&boss_warp_base_model); }
+}
 
 extern char lbl_80446618[];
 extern char lbl_80446628[];
 s32 TObjWarpBoss__name = (s32)lbl_80446618;
 s32 TObjWarpBossMulti__name = (s32)lbl_80446628;
-}

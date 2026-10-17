@@ -585,12 +585,14 @@ struct Obj_8018C9F0 {
 
 void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
+}
 void play_container_break_sound(s32 arg0);
 extern Spawn_8018C9F0 lbl_80445398;
 extern Spawn_8018C9F0 lbl_804453E4;
 
 #pragma push
 #pragma opt_propagation off
+extern "C" {
 void TObjContainerJungEnemy__vt77(const Obj_8018C9F0 *self) {
     if (self->f326 != 1) {
         Spawn_8018C9F0 a = lbl_80445398;
@@ -679,5 +681,4 @@ void TObjContainerJungEnemy::vfunc_81() {
         return;
     }
 }
-
 }

@@ -6,6 +6,7 @@ extern "C" {
 s32 get_current_floor();
 void *get_player_by_client_id(s32 i);
 f32 xyz_distance(void *, void *);
+}
 s32 check_player_door_proximity(s32 arg0, s32 arg1, f32 farg0);
 s32 check_player_door_proximity(s32 arg0, s32 arg1, f32 farg0) {
     s32 p;
@@ -34,6 +35,4 @@ s32 check_player_door_proximity(s32 arg0, s32 arg1, f32 farg0) {
         return 0;
     }
     return 0;
-}
-
 }

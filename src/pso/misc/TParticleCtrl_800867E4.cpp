@@ -65,6 +65,7 @@ s32 TParticleCtrl::get_particle_model(s32 arg0) {
 }
 
 int TParticleCtrl::get_instance() {  return TParticleCtrl__texture_list; }
+}
 #pragma push
 #pragma opt_propagation off
 void *create_timed_particle_emitter_with_flags(void *pos, s32 id, s32 a, s32 b, s32 c) {
@@ -91,6 +92,7 @@ void *create_timed_particle_emitter_with_flags(void *pos, s32 id, s32 a, s32 b, 
 
 #pragma push
 #pragma opt_propagation off
+extern "C" {
 void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c) {
     void *p;
     s32 idx = id;
@@ -110,6 +112,7 @@ void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c) {
         return p;
     }
     return 0;
+}
 }
 #pragma pop
 
@@ -136,5 +139,3 @@ void *create_timed_particle_emitter_with_angles(void *pos, void *dir, s32 id, s3
     return 0;
 }
 #pragma pop
-
-}

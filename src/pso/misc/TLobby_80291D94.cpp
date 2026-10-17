@@ -332,8 +332,10 @@ extern RecoveredGlobal_802925C4_lbl_80540968 split_screen_player_name;
 void set_split_screen_name__6TLobbyFi(s32 arg0);
 f32 fabs_float(f32);
 void TLobby__sub_80292200(s32 arg0);
+}
 void set_challenge_time_window_timer(int);
 #define is_challenge_mode_active ((s32 (*)())is_challenge_mode_active)
+extern "C" {
 s32 TWindowSubStatusDisp__sub_8006F134(s32, s32);
 s32 get_character_save_record(s32);
 s32 TLobby__sub_802924B4(s32 arg0, u16 arg1);
@@ -584,7 +586,6 @@ void TLobby::update_challenge_timer(s32 arg0) {
         set_challenge_time_window_timer(arg0);
     }
 }
-
 }
 
 #undef lbl_804DB1F0
@@ -1203,12 +1204,18 @@ s32 queue_destruction__7TObjectFv(void *);
 void TLobby__sub_80293218(s32 arg0);
 void TLobby__sub_800703D0(void *, void *);
 void snapshot_player_card_status__6TLobbyFv(void);
+}
 void *create_obj_tag_challenge(void *arg0);
 extern s32 tl_07;
+extern "C" {
 s32 get_current_floor(void);
+}
 void *create_ch_time_win(void *arg0);
+extern "C" {
 void TLobby__sub_802933FC(void *arg0);
+}
 void setup_split_screen(void);
+extern "C" {
 int TAdPlayerLoadGC__sub_801E1510(void);
 u8 *create_new_floor_windows__6TLobbyFv(s32 arg0);
 #define set_split_screen_name__6TLobbyFi ((s32 (*)(void *))set_split_screen_name__6TLobbyFi)
@@ -1216,6 +1223,7 @@ s32 export_character_data__10TObjPlayerFPvPv(u32, u32);
 #define create_challenge4p__6TLobbyFv ((u32 (*)())create_challenge4p__6TLobbyFv)
 
 u32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
+}
 
 extern s32 lbl_80464E58[];
 extern s32 lbl_805D6584;
@@ -1254,6 +1262,7 @@ void setup_split_screen(void) {
         } while (var_r31 != 4U);
     }
 }
+extern "C" {
 
 void TLobby__sub_80293218(s32 arg0) {
     u8 *p = (u8 *)get_player_by_client_id(arg0);
@@ -1417,7 +1426,6 @@ typedef char RecoveredGlobal_8029379C_lbl_804DB1F0_size[sizeof(RecoveredGlobal_8
 void TLobby::copy_global_value_block() {
     *(ByteBlock_690 *)(&(*(RecoveredGlobal_8029379C_lbl_804DB1F0 *)&lbl_804DB1F0).value) = *(const ByteBlock_690 *)(&challenge_default_settings.value);
 }
-
 }
 
 #undef get_player_by_client_id

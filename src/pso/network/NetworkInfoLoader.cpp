@@ -49,10 +49,10 @@ typedef struct Save_803F3F64 {
     u8 tail[0x400];
 } Save_803F3F64;
 
-extern "C" {
 s32 get_or_set_network_config_mode(s32 arg0);
 s32 get_or_set_network_config_backup_mode(s32 arg0);
 extern NetworkInfoLoadState network_info_load_state;
+extern "C" {
 
 s32 CARDGetSerialNo(s32 chan, u64 *serialNo);
 s32 CARDGetUniqueCode(s32 chan, u64 *code);
@@ -72,6 +72,7 @@ extern Big_803F47BC *lobby_net_config_buffer;
 extern void *lbl_805D79E0;
 void *OSAllocFromHeap(s32 heap, u32 size);
 void OSFreeToHeap(s32 heap, void *p);
+}
 extern s32 __OSCurrHeap;
 
 extern u8 TAdPlayerLoadGC__network_info_payload_buffer[];
@@ -490,7 +491,6 @@ u8 TAdPlayerLoadGC__network_info_payload_buffer[0x23C0];
 NetworkInfoLoadState network_info_load_state;
 u8 network_info_trailer_buffer[0x400];
 u8 network_info_trailer_backup[0x404];
-}
 typedef char NetworkInfoPayloadBufferExtent[
     sizeof(TAdPlayerLoadGC__network_info_payload_buffer) == 0x23C0 ? 1 : -1];
 typedef char NetworkInfoTrailerExtent[sizeof(network_info_trailer_buffer) == 0x400 ? 1 : -1];

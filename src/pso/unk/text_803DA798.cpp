@@ -44,8 +44,8 @@ struct Rec_803DA8E4 { u32 a; u32 b; u32 c; Obj_803DA8E4 *obj; s32 cnt; s32 v14; 
 
 struct B_803DAE1C { u32 a; u32 b; Obj_803DAD84 *c; };
 
-extern "C" {
 extern s32 record_array_ptr;
+extern "C" {
 void TObjPlayer__sub_803DAC1C(s32 arg0);
 s32 fn_803DB20C(void *);
 extern u8 *current_render_context;
@@ -55,7 +55,9 @@ s32 TObjPlayer__sub_803DAD28(u32 arg0);
 s32 TObjPlayer__sub_803DA8B4(u8 *arg0, s32 arg1);
 extern S_803DA7E0 lbl_8058D470;
 void TObjPlayer__sub_803DA7E0(void);
+}
 s32 set_texture_num(s32 i);
+extern "C" {
 void TObjPlayer__sub_803DAB7C(Obj_803DAB7C *self, s32 i, s32 j);
 void move_data__6TLobbyFPCvUl();
 void DCFlushRange(void *, void *);
@@ -76,6 +78,7 @@ s32 TObjPlayer__sub_803DAE1C(s32 arg0, s32 arg1, u32 arg2);
 s32 TObjFish::set_global_param(s32 arg0) {
     *(s32 *)((s8 *)current_render_context + 0x20) = arg0;
     return 1;
+}
 }
 
 #pragma push
@@ -99,6 +102,7 @@ s32 set_texture_num(s32 i) {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
+extern "C" {
 void TObjPlayer__sub_803DA7E0(void) {
     lbl_8058D470.a = -1;
     lbl_8058D470.b = -1;
@@ -353,6 +357,5 @@ s32 TObjPlayer__sub_803DAE98(TObjPlayer *arg0, s32 _w1) {
     arg0->release_empty_ref_entry();
     return 1;
 }
-#pragma pop
-
 }
+#pragma pop

@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void yamigarasu_start_timers(void *arg0);
-}
 
 #endif

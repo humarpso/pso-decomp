@@ -214,6 +214,7 @@ void *TChCrLoadAfs::create(void *arg1, void *arg2) {
     }
     return o;
 }
+}
 
 s32 find_player_texture_name_ordinal(u8 *arg0) {
     char *name;
@@ -256,6 +257,7 @@ s32 find_player_texture_name_ordinal(u8 *arg0) {
     queue_destruction__7TObjectFv(arg0);
     return 0;
 }
+extern "C" {
 
 void TChCrLoadAfsTextureReq::update_loading(void *) {
     Ld_8028BE00 *arg0 = (Ld_8028BE00 *)this;
@@ -323,7 +325,6 @@ void TChCrLoadAfsTextureReq::start_read(void *) {
         }
     }
 }
-
 }
 
 #undef TLobby__sub_803CC4C0

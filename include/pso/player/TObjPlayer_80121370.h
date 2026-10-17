@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void marina_bag_start_regen(void *arg0);
-}
 
 #endif

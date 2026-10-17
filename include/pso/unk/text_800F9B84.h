@@ -3,9 +3,7 @@
 
 #include "types.h"
 
-extern "C" {
 void clear_resource_load_tasks(void);
 s32 create_named_object(s32 arg0);
-}
 
 #endif

@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 s32 request_story_select_state(s32 arg0);
-}
 
 #endif

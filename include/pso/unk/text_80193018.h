@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void load_lazer_fence_norm_resources(void);
-}
 
 #endif

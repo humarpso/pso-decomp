@@ -1,8 +1,6 @@
 #include "pso/network/NetworkInfoLoader.h"
 #include "pso/network/NetworkInfoRequests.h"
 
-extern "C" {
-
 #pragma push
 #pragma scheduling off
 s32 take_network_info_request_result(s32 *arg0, s32 *arg1) {
@@ -32,5 +30,3 @@ s32 take_network_info_request_result(s32 *arg0, s32 *arg1) {
     return r;
 }
 #pragma pop
-
-}

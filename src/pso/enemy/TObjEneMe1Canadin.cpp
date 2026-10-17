@@ -1837,11 +1837,15 @@ s32 copy_vec4__13TRaderMapCoreFPv(void *, void *);
 bool is_vec_xz_cross_negative(u8 *arg0, u8 *arg1);
 f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
 void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
+}
 void bringer_effect_cleanup_noop(void);
+extern "C" {
 void render__26TObjEneDf2Bringer_Eff_RushFv(void);
 void run_task__26TObjEneDf2Bringer_Eff_RushFv(u8 *arg0);
 void * __dt__26TObjEneDf2Bringer_Eff_RushFv(void *arg0, s16 arg1);
+}
 u8 * construct_bringer_rush_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0);
+extern "C" {
 void TObjEneMe1CanadinLeader__vt110(Leader_8009AB4C *obj, s32 mode);
 u8 TObjEneMe1CanadinLeader__vt107(void *arg0);
 void TObjEneMe1CanadinLeader__vt111(void *arg0);
@@ -2360,8 +2364,10 @@ u32 lbl_80500954[3];
 #define lbl_80500954 ((s32 *)lbl_80500954)
 
 void *__dt__26TObjEneDf2Bringer_Eff_RushFv(void *arg0, s16 arg1);
+}
 
 u8 *construct_bringer_rush_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0);
+extern "C" {
 
 void TObjEneMe1CanadinLeader__vt110(Leader_8009AB4C *obj, s32 mode) {
     s32 i;
@@ -4378,5 +4384,4 @@ void *TObjEneMe1Canadin::init(void *arg1, void *arg2, void *arg3) {
     setup_enemy();
     return this;
 }
-
 }

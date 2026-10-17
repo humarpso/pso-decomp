@@ -3,9 +3,7 @@
 
 #include "types.h"
 
-extern "C" {
 void collect_plist_strips_by_texture(void *ctx, s16 *p, s32 tex);
 void count_plist_strips_by_texture(void *ctx, void *plist, void *arg);
-}
 
 #endif

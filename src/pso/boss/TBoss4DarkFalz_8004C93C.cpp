@@ -521,7 +521,9 @@ extern const f32 lbl_805D8960;
 extern const f32 lbl_805D8964;
 void TBoss4DarkFalz__sub_8004D29C(void* p);
 void TBoss4DarkFalz__sub_8004B8F8(TBoss4DarkFalz *arg0);
+}
 void set_dark_falz_music_request(s32 arg0);
+extern "C" {
 int check_demo_mode__10TObjPlayerFv(void*);
 int create__14TObjDFUsoTowerFPv(void);
 int fn_8036A514(void*);
@@ -598,5 +600,4 @@ s32 TBoss4DarkFalz__sub_8004D990(u8 *arg0) {
 }
 
 void TBoss4DarkFalz__sub_8004D9A0(void* p, s32 v) { *(s32*)((char*)p + 0x90) = v; }
-
 }

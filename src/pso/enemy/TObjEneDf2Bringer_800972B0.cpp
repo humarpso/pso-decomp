@@ -38,7 +38,9 @@ s32 __destroy_arr(void *, void *, int, int);
 extern s32 __dt__13TUnk_804949A8Fv[];
 u8 *__dt__17TObjEneDf2BringerFv(u8 *arg0, s16 arg1);
 void render__17TObjEneDf2BringerFv(u8 *arg0);
+}
 void bringer_render_node_callback(void);
+extern "C" {
 void TObjEneDf2Bringer__sub_80097620(u8 *arg0, s32 arg1);
 void TObjEneDf2Bringer__sub_80097714(Bringer_80097714 *obj, s32 mode);
 void TObjEneDf2Bringer__sub_80097820(u8 *arg0, s32 arg1);
@@ -1024,6 +1026,7 @@ void render__17TObjEneDf2BringerFv(u8 *arg0) {
         VecCopy((Vec *)&S->pts[i], (const Vec *)&S->pos);
     }
 }
+}
 #pragma pop
 
 void bringer_render_node_callback(void) {
@@ -1043,6 +1046,7 @@ void bringer_render_node_callback(void) {
     }
     TObjEneDf2Bringer__render_node_index += 1;
 }
+extern "C" {
 
 void TObjEneDf2Bringer__sub_80097620(u8 *arg0, s32 arg1) {
     switch (arg1) {
@@ -1752,7 +1756,6 @@ void TObjEneDf2Bringer__vt85(s32 arg0, u32 arg1, s32 mode) {
         return;
     }
 }
-
 }
 #undef TObjEneDf2Bringer__data_805D9820
 #undef play_effect_if_v2__10TObjPlayerFl
@@ -2469,18 +2472,22 @@ struct VObj_18_be4a70 : VBase_18_be4a70 {
     virtual s32 m85(s16, s32);
 };
 
-extern "C" {
 #define set_effect_pos_above_self__17TObjEneDf2BringerFv ((s32 (*)(void *))set_effect_pos_above_self__17TObjEneDf2BringerFv)
 extern const f32 lbl_805D9844;
+extern "C" {
 void *TObjEneDf2Bringer__ct(void *arg0, void *arg1, void *arg2);
 void TLobby__sub_8001FE7C(void*, int);
+}
 #define transition_enemy_state ((int (*)(void*, void*))transition_enemy_state)
 #define TObjEneDf2Bringer__sub_800994F8 ((void (*)(void *))TObjEneDf2Bringer__sub_800994F8)
 void bringer_effect_cleanup_noop(void);
+extern "C" {
 void __construct_array(void *, void *, void *, int, int);
 s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1);
+}
 #define __nw__7TObjectFUl ((void * (*)(int))__nw__7TObjectFUl)
 void *destroy_buffer_pair(void *arg0, s16 arg1);
+extern "C" {
 void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 
 void TObjEneDf2Bringer::vfunc_63() { if (*(short*)((char*)this + 0x326) != 10) { transition_enemy_state(this, (void*)10); } }
@@ -2722,7 +2729,9 @@ u8 *dispatch_shared_handler_a__6TLobbyFl(s32);
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
+}
 void init_bringer_effect_tables(void);
+extern "C" {
 u32 load_enemy_bml_resource_named(void *, void *);
 s32 load_enemy_bml_resource(u8 *arg0);
 void *init_trail_buffer__11TBoss4Type3FPvifff(void *, s32, f32, f32, f32);
@@ -2828,11 +2837,10 @@ void TObjEneDf2Bringer::load_resources() {
     TLobby::spawn_npc_enemy((s16)0x16, (s32)(*((s32 *) ((*((u8 **) (((u8 *) TObjEneDf2Bringer__resource_bundle) + 0x42C))) + 8))), (s32)(*((s32 *) ((*((u8 **) (((u8 *) TObjEneDf2Bringer__resource_bundle) + 0x42C))) + 0xC))), (s32)&sp, (f32)TObjEneDf2Bringer__data_805D9808, (f32)TObjEneDf2Bringer__data_805D97E0);
   }
 }
+}
 #pragma pop
 #undef bringer_camera_ctrl_target_vec
 #undef TObjEneDf2Bringer__data_805D4FB4
-
-}
 
 #undef TObjEneDf2Bringer__uv_scroll_buffer
 #undef TObjEneDf2Bringer__trail_buffer

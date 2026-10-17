@@ -16,10 +16,10 @@ struct RecoveredGlobal_803404A4_lbl_8050E208
 
 struct E_803403F8 { f32 a; f32 b; f32 c; f32 d; f32 e; s32 f; };
 
-extern "C" {
 extern const f32 lbl_805DFC34;
 extern const f32 lbl_805DFC38;
 extern const f32 lbl_805DFC3C;
+extern "C" {
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, void *);
 extern RecoveredGlobal_80340508_lbl_8050E208 controller_input_state;
@@ -103,11 +103,13 @@ typedef char RecoveredGlobal_803404A4_lbl_8050E208_size[((sizeof(RecoveredGlobal
 s32 TWindowDD::apply_both_choices(s32 arg0, s32 arg1) {
   return apply_choice__20TWindowChoiceSettingFllll((void *) (((u8 *) (&(*(RecoveredGlobal_803404A4_lbl_8050E208 *)&controller_input_state).value)) + 0x20), (void *) arg1, 6, 1) | apply_choice__20TWindowChoiceSettingFllll((void *) (((u8 *) (&(*(RecoveredGlobal_803404A4_lbl_8050E208 *)&controller_input_state).value)) + 0x160), (void *) arg1, 6, 1);
 }
+}
 #pragma pop
 
 s32 TWindowDD_check_input_mask(void *input_context, s32 arg1) {
   return TWindowShortListCtrl__check_controller_button((void *) (((u8 *)&controller_input_state.value) + 0x20), (void *) arg1) | test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) (((u8 *)&controller_input_state.value) + 0x160), (void *) arg1);
 }
+extern "C" {
 
 void update_draw__9TWindowDDFPv(void* p) { ((TWindowDD *)p)->initialize_subwindow(); update_fade__13TUnk_804CE018Fv(p); }
 
@@ -245,5 +247,4 @@ void TWindowDD::set_scale(s32 arg1, s32 arg2) {
     *(f32 *)&this->m_84 = (f32) arg2;
     *(f32 *)&this->m_7c = (f32) (lbl_805DFC6C / *(f32 *)&this->m_80);
 }
-
 }

@@ -100,14 +100,20 @@ struct Self_80236A20 { u8 pad[0x128]; Proxy_80236A20 *proxy; f32 f12c; };
 extern "C" {
 void *find_actor_body_contact__13TUnk_804AF8A0FPUcf(u8 *arg0, u8 *arg1, f32 limit);
 void *get_player_by_client_id(s32 i);
+}
 extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
 extern const f32 lbl_805DC89C;
 void resetTechniqueContactQuery();
+extern "C" {
 int get_player_data__10TObjPlayerFi(int a0);
+}
 extern const f32 lbl_805DC898;
 s32 find_support_technique_contact(void *self, int target, void *_w2, void *_w3);
+extern "C" {
 u16 obj_getField1c(void *);
+}
 s32 find_area_technique_contact(void *self, int target, void *_w2, void *arg3);
+extern "C" {
 void *find_entity_by_id(u16 id);
 extern const f32 lbl_805DC890;
 f32 vector_length(void *);
@@ -122,6 +128,7 @@ s32 TObjPlayer::is_valid_and_active(u32 arg0) {
         return 1;
     }
     return 0;
+}
 }
 
 typedef char RecoveredGlobal_80236290_lbl_80516150_size[sizeof(RecoveredGlobal_80236290_lbl_80516150) == 0x88 ? 1 : -1];
@@ -160,6 +167,7 @@ s32 find_support_technique_contact(void *self, int target, void *_w2, void *_w3)
     }
     return (s32)&technique_contact_query_results;
 }
+extern "C" {
 
 s32 *TObjPlayer::gather_player_contacts(u32 actor, s32 _w2, s32 _w3) {
     s32 arg0 = (s32)this;
@@ -186,6 +194,7 @@ loop_3:
         }
     }
     return &technique_contact_query_results.value;
+}
 }
 
 s32 find_area_technique_contact(void *self, int target, void *_w2, void *arg3) {
@@ -221,6 +230,7 @@ s32 find_area_technique_contact(void *self, int target, void *_w2, void *arg3) {
     }
     return (s32)&technique_contact_query_results;
 }
+extern "C" {
 
 s32 TObjPlayer::collect_body_contacts(int target, void *_w2, void *arg3) {
     Vec_802364D8 pos;
@@ -427,6 +437,7 @@ u8 *TUnk_804CCC68::query_technique_player_contacts(s32 arg) {
     }
     return (u8 *)&technique_contact_query_results;
 }
+}
 
 void resetTechniqueContactQuery() {
     for (s32 i=0;i<16;++i) {
@@ -435,7 +446,7 @@ void resetTechniqueContactQuery() {
     }
     (*(TechniqueContactList *)&technique_contact_query_results).count=0;
 }
+extern "C" {
 
 void*TObjPlayer::get_pos_ptr() { return (char*)this + 0x78; }
-
 }

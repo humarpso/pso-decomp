@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 u8 *create_guld_milla(s32 arg0);
-}
 
 #endif

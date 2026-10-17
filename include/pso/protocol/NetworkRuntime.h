@@ -6,7 +6,9 @@
 extern "C" {
 void NetStoreTick(s32* tick);
 void NetStoreCurrentThread(s32* thread);
+}
 void NetYieldThread(void);
+extern "C" {
 void NetSuspendCurrentThread(void);
 
 s32 NetIPv4IsLoopback(s32 address);
@@ -21,11 +23,15 @@ s32 NetMemcmp(void *_w0, void *_w1, int _w2);
 void NetMemcpy(void *_w0, void *_w1, int _w2);
 void NetMemset(void *_w0, int _w1, int _w2);
 void NetResumeThread(void);
+}
 s32 NetSetDefaultThreadPriority(s32 arg0);
+extern "C" {
 void NetStoreCurrentThread(s32 *arg0);
 void NetStoreTick(s32 *arg0);
 void NetSuspendCurrentThread(void);
+}
 void NetYieldThread(void);
+extern "C" {
 void TLobby__sub_803FA234(void);
 void TLobby__sub_803FA238(u8 *arg0);
 void TLobby__sub_803FA280(void);

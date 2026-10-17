@@ -5,7 +5,7 @@
 
 extern "C" {
 void *get_armor_pmt_record(int type, int id);
-void *get_photon_color_record(int i);
 }
+void *get_photon_color_record(int i);
 
 #endif

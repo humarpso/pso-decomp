@@ -16,6 +16,7 @@ void *TShopEquipmentSequence::create_instance(void *arg0) {
     }
     return o;
 }
+}
 
     extern int TShopEquipmentSequence__slot_active_flags[];
 int get_equipment_shop_slot_active_flag(int a0) {  return TShopEquipmentSequence__slot_active_flags[a0]; }
@@ -29,6 +30,6 @@ void *create_medical_center_sequence(void *arg0) {
 }
 
     extern int TMedicalCenterSequence__data_80513E90[];
+extern "C" {
 int TMedicalCenterSequence__sub_8021E390(int a0) {  return TMedicalCenterSequence__data_80513E90[a0]; }
-
 }

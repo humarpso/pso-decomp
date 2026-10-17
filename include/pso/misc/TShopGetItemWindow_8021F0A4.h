@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void reset_shop_stock_and_params(void);
-}
 
 #endif

@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 u8 calc_day_in_cycle(s32 *date);
-}
 
 #endif

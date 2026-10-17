@@ -78,7 +78,9 @@ extern s32 ginja_vertex_component_types[];
 void GXSetVtxAttrFmt(s32, s32, s32, s32, u8);
 void GXSetArray(s32, void *, u8);
 void set_ginja_vertex_arrays(Arr_803DC3BC *arg0);
+}
 GinjaMaterialCache *invalidate_ginja_inherited_state();
+extern "C" {
 s32 apply_ginja_material_params(GinjaDrawRecord *);
 s32 GXCallDisplayList(void *, u32);
 extern s32 ginja_draw_list_state, ginja_draw_list_mask, ginja_draw_flags;
@@ -126,6 +128,7 @@ void draw_ginja_object(void *child) {
         apply_scene_fog();
     }
 }
+}
 
 #pragma push
 #pragma scheduling off
@@ -134,12 +137,14 @@ s32 queue_model_draw_current_matrix(s32 model) {
     return 1;
 }
 #pragma pop
+extern "C" {
 
 void draw_ginja_model(s32 model) {
     load_ginja_model_matrices(0);
     prepare_ginja_model();
     draw_ginja_model_lists((GinjaModel *)model);
     end_ginja_model_draw();
+}
 }
 
 s32 get_ginja_vertex_descriptor_type(u32 arg0, s32 arg1) {
@@ -289,6 +294,7 @@ void set_ginja_material_color(u32 v) {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
+extern "C" {
 void TObjPlayer::set_global_color_rgba(u32 v) {
     (*(S_803DBAF8 *)&ginja_material_cache).c.r = (v & 0xFF000000) >> 24;
     (*(S_803DBAF8 *)&ginja_material_cache).c.g = (v & 0xFF0000) >> 16;
@@ -305,6 +311,7 @@ void TObjPlayer::set_global_color_rgba_alt_b(u32 v) {
     (*(S_803DBB38 *)&ginja_material_cache).c.g = (v & 0xFF0000) >> 16;
     (*(S_803DBB38 *)&ginja_material_cache).c.b = (v & 0xFF00) >> 8;
     (*(S_803DBB38 *)&ginja_material_cache).c.a = v & 0xFF;
+}
 }
 #pragma pop
 
@@ -372,12 +379,14 @@ void ginja_set_alpha_compare(s32 ref) {
     GXSetAlphaCompare(4, ref, 0, 7, 0);
 }
 #pragma pop
+extern "C" {
 
 void set_ginja_vertex_arrays(Arr_803DC3BC *arg0) {
     while (arg0->idx != 0xFF) {
         GXSetArray(ginja_vertex_attributes[arg0->idx], arg0->base, arg0->stride);
         arg0++;
     }
+}
 }
 
 #pragma push
@@ -398,6 +407,7 @@ GinjaMaterialCache *invalidate_ginja_inherited_state() {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
+extern "C" {
 s32 draw_ginja_model_lists(GinjaModel *model) {
   s32 secondaryCount;
   GinjaDrawRecord *secondary;
@@ -466,6 +476,7 @@ void prepare_ginja_model(void) {
     *(u32 *)((*(GinjaMaterialCache *)&ginja_material_cache).prefix + 4) = -1;
     (*(GinjaMaterialCache *)&ginja_material_cache).inherited_flags = (*(u32 *)&model_render_flags);
     (*(GinjaMaterialCache *)&ginja_material_cache).blend_valid = 0;
+}
 }
 #pragma pop
 
@@ -540,4 +551,3 @@ s32 ginja_texture_matrix_ids[11] = {
     0x2a, 0x2d, 0x30, 0x33,
     0x36, 0x39, 0x3c,
 };
-}

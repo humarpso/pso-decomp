@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void handle_6x74_word_select(u8 *arg0);
-}
 
 #endif

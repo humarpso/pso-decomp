@@ -114,6 +114,7 @@ void* setup_state__10TObjPlayerFPv(void* a0) { init_state_445__10TObjPlayerFPv()
 
 }
 
+void *create_timed_particle_emitter_with_angles(void *pos, void *dir, s32 id, s32 a, s32 b, s32 flags);
 namespace P802D53E4 {
 
 struct V_802D5478 { s32 a; s32 b; s32 c; };
@@ -130,7 +131,6 @@ extern const f32 lbl_805DE794;
 f32 atan2_float(f32 y, f32 x);
 void set_position_xy__10TObjPlayerFff(f32, f32);
 void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
-void *create_timed_particle_emitter_with_angles(void *pos, void *dir, s32 id, s32 a, s32 b, s32 flags);
 void spawn_hit_particles__10TObjPlayerFiPv(s32 arg0, const P_802D5478 *arg1);
 void* init_needle_effect__10TObjPlayerFPv(void* a0);
 void set_radar_marker_flag__10TObjPlayerFPvPv(void *arg0, void *arg1);
@@ -154,7 +154,7 @@ void spawn_hit_particles__10TObjPlayerFiPv(s32 pos, const P_802D5478 *arg1) {
     v[0] = 0;
     v[1] = (s32)(lbl_804725B8[0] * atan2_float(arg1->x, arg1->z));
     v[2] = 0;
-    if (create_timed_particle_emitter_with_angles((void *)pos, (void *)v, 0x1B8, 0, 0xF, 4) != 0U) {
+    if (create_timed_particle_emitter_with_angles((void *)pos, (void *)v, (s32)(0x1B8), (s32)(0), (s32)(0xF), (s32)(4)) != 0U) {
         set_position_xy__10TObjPlayerFff(lbl_805DE794, lbl_805DE794);
     }
 }

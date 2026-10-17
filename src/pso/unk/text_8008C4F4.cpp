@@ -24,9 +24,13 @@ struct RecoveredGlobal_8008C4F4_main_task {
 extern "C" {
 s32 TKeyBoardControl__sub_8000F92C();
 s32 TKeyBoardControl__sub_8000F9CC(int);
-s32 process_async_file_reads();
+}
+void process_async_file_reads(void);
+extern "C" {
 s8 func_801A5E54__Fv();
-s32 update_sound_request_slots();
+}
+void update_sound_request_slots(void);
+extern "C" {
 s32 render_screen_overlay__9TMainTaskFv(void *);
 s32 some_empty_func__9TMainTaskFv(void *);
 s32 render__9TMainTaskFv(void *);
@@ -51,6 +55,7 @@ void fn_8008C4F4(void) {
     var_r3 = &ending_scene_callbacks.value;
     call_funcs_reverse__6TLobbyFPvUi(&ending_scene_callbacks.value, 0x68);
     render_tick();
+}
 }
 
 void run_game_frame(void) {
@@ -81,6 +86,4 @@ void run_game_frame(void) {
         TKeyBoardControl__sub_8000F9CC(0);
     }
     render_tick();
-}
-
 }

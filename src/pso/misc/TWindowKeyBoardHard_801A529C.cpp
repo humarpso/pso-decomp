@@ -69,8 +69,6 @@ void copy_packet(packet *arg0) {
         deferred_packet_buffer_used += len;
     }
 }
-extern "C" {
-
 extern s32 lbl_805D5D00;
 
 void buffer_reset(void) {
@@ -79,6 +77,7 @@ void buffer_reset(void) {
     memset(deferred_packet_buffer, 0, 0x10000);
     lbl_805D5D04 = 1;
 }
+extern "C" {
 
 void mem_free(void *p);
 
@@ -93,7 +92,6 @@ void alloc_work_buffer(void) {
     deferred_packet_buffer = (s32)mem_alloc(0x10000);
     memset(deferred_packet_buffer, 0, 0x10000);
 }
-
 }
 
 struct VBase_801a54e8_801A529C { char pad[0x18]; };

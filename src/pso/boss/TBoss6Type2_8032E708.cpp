@@ -310,7 +310,9 @@ void TBoss6Type2__sub_8032F5C4(void *arg0);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 clear_render_callback__8TObjFishFv(s32);
-s32 draw_model_blend_motion(s32, s32 *, f32);
+}
+void draw_model_blend_motion(void *arg0, void *arg1, f32 farg0);
+extern "C" {
 s32 draw_model_motion(s32, s32, f32);
 s32 get_bml_motion(int, int);
 
@@ -1040,7 +1042,7 @@ void TBoss6Mag::draw_model_motion_blend() {
         stack.spC = *(s32 *)((s8 *)this + 0x3DC);
         stack.sp14 = *(f32 *)((s8 *)this + 0x3E0);
         ((TObjFish *)(*(s32 *)((s8 *)this + 0x458)))->set_draw_callback_list();
-        draw_model_blend_motion(bml_model, &stack.sp8, *(f32 *)((s8 *)this + 0x3E8));
+        draw_model_blend_motion((void *)bml_model, &stack.sp8, *(f32 *)((s8 *)this + 0x3E8));
         clear_render_callback__8TObjFishFv(*(s32 *)((s8 *)this + 0x458));
     }
     TObjPlayer::clear_global_state();

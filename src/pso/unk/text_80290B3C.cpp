@@ -18,7 +18,6 @@ struct Ctx_80290B3C {
     u8 pad[0x10];
 };
 
-extern "C" {
 u32 relocate_data_block_pointers(u32 arg0, u32 arg1) {
     Ctx_80290B3C c;
     u16 *idx;
@@ -42,6 +41,4 @@ u32 relocate_data_block_pointers(u32 arg0, u32 arg1) {
     c.result = r;
     ((TUnk_8049C658 *)(&c))->destroy(-1);
     return r;
-}
-
 }

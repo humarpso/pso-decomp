@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void update_players_in_range(u8 *arg0);
-}
 
 #endif

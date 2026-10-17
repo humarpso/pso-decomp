@@ -29,7 +29,7 @@ void *__dt__10TODoorLaboFv(void *arg0, s16 arg1);
 void *__dt__16TODoorLaboNormalFv(void *arg0, s16 arg1);
 void *__dt__21TODoorFourLightSeabedFv(void *arg0, s16 arg1);
 void *__dt__22TODoorFourLightSeabedUFv(void *arg0, s16 arg1);
-void load_labo_door_resources(void);
 }
+void load_labo_door_resources(void);
 
 #endif

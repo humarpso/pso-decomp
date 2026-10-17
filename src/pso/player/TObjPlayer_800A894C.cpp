@@ -249,7 +249,9 @@ extern RecoveredGlobal_800A8B8C_lbl_804910F4 lbl_804910F4;
 void TObjPlayer__sub_800A93E4(void *);
 void TObjPlayer__sub_800A9C38(void *);
 void TObjPlayer__sub_800A9718(void *);
+}
 void move_with_wall_slide(u8 *arg0);
+extern "C" {
 s32 calc_velocity_toward_destination(void *, Vec_800A8C4C, Vec_800A8C4C, f32);
 f32 xz_distance_squared(void *, void *);
 extern s32 lbl_804910E4[];
@@ -1203,6 +1205,5 @@ void TObjPlayer__sub_800AA82C(void) {
         }
     }
 }
-#pragma pop
-
 }
+#pragma pop

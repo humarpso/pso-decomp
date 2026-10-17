@@ -5,7 +5,7 @@
 
 extern "C" {
 void *__dt__13TUnk_804A2564Fv(void *arg0, s16 arg1);
-void clear_faust_reload_timer(void *p);
 }
+void clear_faust_reload_timer(void *p);
 
 #endif

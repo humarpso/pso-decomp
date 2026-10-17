@@ -9,7 +9,7 @@ s32 TKeyBoardControl__sub_803F0E90(s32 arg0, void *arg1);
 void TKeyBoardControl__sub_803F107C(s32 chan, u32 type);
 u8 TKeyBoardControl__sub_803F1548(s32 arg0);
 u32 kb_sum_803F1604(u32 *p);
-s32 poll_keyboard_port(s32 chan, u8 *out);
 }
+s32 poll_keyboard_port(s32 chan, u8 *out);
 
 #endif

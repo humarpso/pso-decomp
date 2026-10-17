@@ -41,9 +41,8 @@ void TObjBoss8DemoRoom::load_resource() {
     }
     (*(s32 *)&TObjBoss8DemoRoom__shared_resource_object) = var_r0;
 }
+}
 
 s32 validate_6x0E_clear_negative_status_effects(G_ClientIDHeader *packet) {
     return validate_subcommand_client(packet) ? 1 : 0;
-}
-
 }

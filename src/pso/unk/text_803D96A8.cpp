@@ -21,9 +21,9 @@ struct Ent_803D9E38 { u8 *p; s32 a; s32 b; };
 
 struct Tbl_803D9E38 { u8 pad[8]; Ent_803D9E38 arr[1]; };
 
-extern "C" {
 extern u32 matrix_stack_base;
 extern u32 current_matrix;
+extern "C" {
 f32 PSMTXConcat(int, int, int);
 extern u32 matrix_stack_limit;
 void PSMTXQuat(void *, void *);
@@ -154,6 +154,7 @@ void TObjPlayer__sub_803D9C60(u32 *p) {
     u32 v = *p;
     *p = ((v & 0xFF000000) >> 24) | ((v & 0xFF0000) >> 8) | ((v & 0xFF00) << 8) | ((v & 0xFF) << 24);
 }
+}
 #pragma pop
 
 u32 *find_gvrt_texture_chunk(TLobby *arg0, u32 *arg1, u32 *arg2) {
@@ -187,6 +188,7 @@ u32 *find_gvrt_texture_chunk(TLobby *arg0, u32 *arg1, u32 *arg2) {
     } while (tag != 0x54525647);
     return p;
 }
+extern "C" {
 
 s32 TObjPlayer__sub_803D9DA8(A_803D9DA8 *arg0, B_803D9DA8 *arg1) {
     if (fn_803DA12C(arg0->p + 4, arg1->b, arg1->c, arg1->a) != 0) {
@@ -261,5 +263,4 @@ block_7:
     }
     return 0;
 }
-
 }

@@ -154,6 +154,7 @@ extern Vec_80155294 lbl_8050BEE0;
 f64 atan2_float(f32, f32);
 extern const f64 lbl_804400F0;
 s32 angle_difference_abs(s32, s32);
+}
 extern const f32 TObjPlayer__data_805DB270;
 extern const f32 lbl_805DB284;
 extern const f32 lbl_805DB288;
@@ -161,6 +162,7 @@ extern const f32 lbl_805DB28C;
 extern const f32 lbl_805DB290;
 extern const f32 lbl_805DB294;
 s32 resolve_player_box_contact(u8 *arg0, u8 *arg1, u8 *arg2);
+extern "C" {
 void *find_entity_by_id(u16 id);
 extern s32 TLobby__data_805D6140;
 void handle_6x0B_update_object_state(G_UpdateObjectState_6x0B *packet);
@@ -175,8 +177,10 @@ extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 extern s32 registered_entity_count;
 void TObjPlayer__sub_8015431C(u8 *arg0);
+}
 s32 test_collider_sphere_overlap_xz(s32 arg0, u8 *arg1, u32 arg2);
 extern int player_battle_param_table[];
+extern "C" {
 int TObjPlayer__sub_80154E28(int a0, int a1);
 int get_player_data__10TObjPlayerFi(int a0);
 extern s32 lbl_805D5868;
@@ -188,9 +192,11 @@ void TObjPlayer__sub_80156A74(void* p);
 f32 horizontal_distance_squared(void *, void *);
 s16 angle_diff_s16(s32 a, s32 b);
 s32 normalize_vector(void *);
+}
 extern const f32 lbl_805DB27C;
 extern const f32 lbl_805DB280;
 s32 resolve_actor_sphere_contact(u8 *arg0, s32 arg1, s32 arg2);
+extern "C" {
 void* refresh_actor_body_spheres(CollisionBody_80155FBC, CollisionBody_80155FBC);
 void* find_actor_body_contact__13TUnk_804AF8A0FPUcf(u8* arg0, u8* arg1, f32 limit);
 extern s32 TObjPlayer__data_8050D460[];
@@ -202,7 +208,9 @@ Part_80156780 *init_collision_body_parts(Obj_80156780 *self, Part_80156780 *src,
 void *get_player_by_client_id(u32 id);
 void TLobby__sub_80156BA8(void *p);
 void check_enemy_body_collisions(void *arg0);
+}
 s32 respond_to_body_contact(u8 *arg0, u32 arg1, u8 *arg2);
+extern "C" {
 void construct_world_actor_base(void);
 extern unsigned char lbl_8050DAD0[];
 extern int player_unique_pair_entry_count;
@@ -218,7 +226,9 @@ extern const f32 lbl_805DB2A0;
 s32 project_actor_to_ground(Obj_80156844 *self, Vec_80156844 *pos, Vec_80156844 *normal);
 s32 test_box_overlap__10TObjPlayerFPvPv(CollisionBox_80155C54*,CollisionBox_80155C54*);
 s32 test_box_sphere_contact(CollisionBox_80155C54*,CollisionSphere_80155C54*);
+}
 s32 spheres_overlap(u8 *arg0, u8 *arg1);
+extern "C" {
 void TOTrapAncient02R__sub_80154D78(void);
 void TObjPlayer__sub_801542F4(s32 a);
 void reset_global_table(void);
@@ -575,6 +585,7 @@ u8 * TObjPlayer__sub_80155028(s32 arg0, s32 arg1) {
     *(ByteBlock_60 *)(arg0) = *(const ByteBlock_60 *)(arg1);
     return (u8 *)arg0;
 }
+}
 
 s32 test_collider_sphere_overlap_xz(s32 arg0, u8 *arg1, u32 arg2) {
     typedef char sp8_offset[(offsetof(Stack_80155050, sp8) == 0x0) ? 1 : -1];
@@ -590,10 +601,12 @@ s32 test_collider_sphere_overlap_xz(s32 arg0, u8 *arg1, u32 arg2) {
     }
     return 0;
 }
+extern "C" {
 
 void TObjPlayer__sub_801550B8(u8 *arg0, u8 *arg1) {
     *(ByteBlock_C *)(arg0) = *(const ByteBlock_C *)(arg1);
     *(f32 *)((s8 *)arg0 + 0xC) = (f32) *(f32 *)((s8 *)arg1 + 0xC);
+}
 }
 
 s32 resolve_actor_sphere_contact(u8 *arg0, s32 arg1, s32 arg2) {
@@ -749,6 +762,7 @@ s32 respond_to_body_contact(u8 *actor, u32 arg1, u8 *arg2) {
     }
     return 0;
 }
+extern "C" {
 
 s32 TObjPlayer::check_flag_pair(s32 arg0, s32 arg1) {
     if (((arg0 & 0x2000) && (arg1 & 0x100)) || ((arg0 & 0x100) && (arg1 & 0x2000))) {
@@ -1213,5 +1227,4 @@ s32 TUnk_804AF8A0::access_object_saved_state(void *arg1, s16 arg2) {
     }
     return 1;
 }
-
 }

@@ -5,7 +5,7 @@
 
 extern "C" {
 void *__dt__10TUdpSocketFv(void *arg0, s16 arg1);
-void reset_buffer(u8 *arg0);
 }
+void reset_buffer(u8 *arg0);
 
 #endif

@@ -344,8 +344,8 @@ struct S_802CA550 {
     s32 f34C;
 };
 
-extern "C" {
 void setup_particle_tev(s32 arg0);
+extern "C" {
 f32 rotate_matrix_by_node_angles(void *, void *);
 s32 push_matrix();
 s32 pop_matrix();
@@ -467,7 +467,6 @@ void render__14TOTrapSeabed01Fv(S_802CA550 *arg0) {
         }
     }
 }
-
 }
 
 #pragma pop

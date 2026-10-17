@@ -29,13 +29,17 @@ extern s32 local_client_id;
 int get_player_data__10TObjPlayerFi(int a0);
 extern s32 lbl_805D586C;
 void TOKey__sub_80169FB0(void* p);
+}
 void handle_6x05_write_switch_flag(void *arg0);
+extern "C" {
 s32 play_sound_effect(s32, s32, s32, s32);
 void *find_entity_by_id(u16);
+}
 void clear_floor_switch_flag(u32 id, s16 floor);
 void clear_current_floor_switch(s32 id);
 void set_floor_switch_flag(u32 id, s16 floor);
 void set_current_floor_switch(s32 id);
+extern "C" {
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 void __dl__7TObjectFPv(void *);
 s32 bswap_6x05_switch_flag__5TOKeyFv();
@@ -101,6 +105,7 @@ void TOKey::handle_switch_trigger(void *arg1) {
         return;
     }
 }
+}
 
 void handle_6x05_write_switch_flag(void *arg0) {
     void *entity;
@@ -120,6 +125,7 @@ void handle_6x05_write_switch_flag(void *arg0) {
     }
     clear_floor_switch_flag(*(u16 *)((s8 *)arg0 + 8), *(s8 *)((s8 *)arg0 + 0xA));
 }
+extern "C" {
 
 void TOKey::vfunc_13(s32 arg1) {
     u8 *arg0 = (u8 *)this;
@@ -195,5 +201,4 @@ s32 TOKey::is_confirm_pressed() {
     }
     return 0;
 }
-
 }

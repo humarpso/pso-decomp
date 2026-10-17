@@ -58,7 +58,9 @@ u8 get_cast_technique_level(void *, s16);
 s32 validate_and_clear_slot__10TObjPlayerFv(void *, s16);
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 void text_builder_append();
+}
 void text_builder_reset();
+extern "C" {
 u8 *calc_technique_parameters(u16, u8, s32);
 s32 get_palette_consumable_count(u16, s32);
 extern s32 current_language;
@@ -293,5 +295,4 @@ void TUnk_804D1160::run_task() {
         break;
     }
 }
-
 }

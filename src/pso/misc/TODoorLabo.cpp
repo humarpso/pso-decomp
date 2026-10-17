@@ -251,6 +251,7 @@ void TAdSinglePlyChrSelectGC::free_all_resources() {
         TODoorLabo__bml_resource = 0U;
     }
 }
+}
 
 extern u8 lbl_80466074[];
 extern u8 lbl_80466090[];
@@ -266,6 +267,7 @@ void load_labo_door_resources(void) {
 }
 
 extern s32 seabed_four_light_door_textures;
+extern "C" {
 
 s32 TODoorFourLightSeabedU__vt20(void) {
     return seabed_four_light_door_textures;
@@ -461,7 +463,6 @@ u8 *TODoorFourLightSeabed__ct(u8 *arg0) {
     ((TODoorFourLightBase *)arg0)->clamp_light_index();
     return arg0;
 }
-#undef self
-
 }
+#undef self
 #pragma pop

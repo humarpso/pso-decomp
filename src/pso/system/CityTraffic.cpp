@@ -56,9 +56,9 @@ typedef struct
   s32 objs[5];
 } Tbl_801817AC;
 
-extern "C" {
 void *destroy_buffer_pair(void *arg0, s16 arg1);
 extern void *air_car_buffer_pair_table[];
+extern "C" {
 void __ct__7TObjectFP7TObject(void *);
 extern u8 __vt__19TObjCityAirCar_Ctrl[];
 extern s32 TObjCityAirCar_Ctrl__name;
@@ -97,6 +97,7 @@ Obj_801815F8 *construct_traffic_manager(Obj_801815F8 *arg0) {
     }
     return arg0;
 }
+}
 #pragma pop
 
 s32 sample_aircar_path_position(s32 arg0, void *arg1, f32 farg0) {
@@ -127,8 +128,6 @@ void free_buffer_pair_table(void) {
             air_car_buffer_pair_table[i] = 0;
         }
     }
-}
-
 }
 
 #pragma pop

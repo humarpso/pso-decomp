@@ -3,11 +3,9 @@
 
 #include "types.h"
 
-extern "C" {
 void free_item_pmt(void);
 void load_item_pmt(void);
 void load_items(void);
 void unload_items(void);
-}
 
 #endif

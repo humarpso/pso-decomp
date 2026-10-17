@@ -37,8 +37,10 @@ void vfunc_40__13TItemProArmorFv(u8 *arg0);
 void vfunc_14__13TItemProArmorFv(u8 *arg0);
 void * TItemProArmor__sub_80117650(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
+}
 extern s32 tl_05;
 u8 *create_item_grinder(u8 *arg0);
+extern "C" {
 u8 * TItemEquipBase__ct(void *);
 s16 get_bswap16_field8__9TItemDataFPv(void *);
 s16 getS16_06__9TItemDataFPv(void *);
@@ -127,6 +129,7 @@ void *TUnk_8049FF88::init_item_object(void *_w1, void *_w2) {
     *(s32 **)((s8 *)this + 0x18) = (s32 *)lbl_8049FF88;
     return this;
 }
+}
 
 u8 *create_item_grinder(u8 *arg0) {
     u8 *temp_r3;
@@ -141,6 +144,7 @@ u8 *create_item_grinder(u8 *arg0) {
     }
     return NULL;
 }
+extern "C" {
 
 void TItemProArmor::init_effect_flags() {
     TItemProArmor_8011781C *self = (TItemProArmor_8011781C *)this;
@@ -520,5 +524,4 @@ void *TUnk_804A0688::ct() {
     *(s32 **)((s8 *)this + 0x18) = lbl_804A0688;
     return this;
 }
-
 }

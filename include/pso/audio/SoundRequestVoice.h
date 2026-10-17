@@ -33,5 +33,5 @@ typedef char SoundRequestVoice_studio_offset[offsetof(SoundRequestVoice, studio)
 typedef char SoundRequestVoice_reverb_offset[offsetof(SoundRequestVoice, reverb) == 0x9C ? 1 : -1];
 typedef char SoundRequestOwner_reverb_offset[offsetof(SoundRequestOwner, reverb) == 0x27C ? 1 : -1];
 
-extern "C" void send_sound_request_reverb(SoundRequestVoice* voice);
+void send_sound_request_reverb(SoundRequestVoice* voice);
 #endif

@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 int get_judgment_shop_slot_flags(int a0);
-}
 
 #endif

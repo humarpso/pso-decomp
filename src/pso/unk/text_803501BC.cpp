@@ -12,7 +12,9 @@ struct T_803501BC { s32 n; E_803501BC *e; };
 
 extern "C" {
 s32 consume_item_by_id(s32 arg0);
+}
 void replace_item_with_new_code(void *arg0, u32 arg1);
+extern "C" {
 T_803501BC *get_item_pmt_entry__10TObjPlayerFUc(u8);
 s32 rand(void);
 extern const f32 lbl_805DFE28;
@@ -39,5 +41,4 @@ void TUnk_804F0C48::vfunc_44() {
     }
     consume_item_by_id(this->get_field_d8());
 }
-
 }

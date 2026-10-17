@@ -29,6 +29,7 @@ void TObjPlayer::load_screen_space_matrix() {
     GXLoadPosMtxImm((int)m, 0);
     GXSetCurrentMtx(0);
 }
+}
 
 #pragma push
 #pragma scheduling off
@@ -40,5 +41,3 @@ void load_camera_view_matrix(void) {
     GXLoadPosMtxImm(var_r3, 0);
 }
 #pragma pop
-
-}

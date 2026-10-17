@@ -70,7 +70,9 @@ extern const f32 lbl_805DBCF4;
 extern s32 lbl_805D5B7C;
 void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
+}
 void play_container_break_sound(s32 arg0);
+extern "C" {
 void *__nw__7TObjectFUl(int);
 extern Spawn_8018990C *const lbl_805D5B80;
 extern Spawn_8018990C *const lbl_805D5B84;
@@ -230,5 +232,4 @@ void TObjContainerEnemy::vfunc_81() {
         break;
     }
 }
-
 }

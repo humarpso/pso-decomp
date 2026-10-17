@@ -77,6 +77,7 @@ void fn_80291178(void) {
     (*(s32 *)&cmicon_instance) = create__10TObjCMIconFPv(tl_06);
     TLobby::load_texture_pvm_file((const char *)(ccconsole_pvm_file_name_table[creation_sprite_table_index]), (s32)(((s32 *)&creation_sprite_table)));
 }
+}
 
 void set_creation_projection_center(f32 farg0) {
     struct CopyStack_802911E8 { u8 bytes[0x48]; };
@@ -87,5 +88,3 @@ void set_creation_projection_center(f32 farg0) {
     lbl_805D3CA0 = farg0;
 }
 #pragma pop
-
-}

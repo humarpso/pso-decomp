@@ -6,6 +6,7 @@
 extern "C" {
 
 void *__nw__7TObjectFUl(int);
+}
 
 extern void *tl_03;
 
@@ -18,6 +19,4 @@ void *create_remote_player_object(void *arg0) {
         o = __ct__10TObjPlayerFPvPvPv(o, tl_03, arg0);
     }
     return o;
-}
-
 }

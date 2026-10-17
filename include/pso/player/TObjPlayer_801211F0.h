@@ -5,7 +5,7 @@
 
 extern "C" {
 void increment_model_node_counter(void);
-void reset_model_node_counter(void);
 }
+void reset_model_node_counter(void);
 
 #endif

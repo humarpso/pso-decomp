@@ -4,6 +4,7 @@
 extern "C" {
 s32 __ct__19TItemShootModelRotZFPvPC3VecPC3Vecf(int, void *, void *, void *, f32);
 s32 __nw__7TObjectFUl(int);
+}
 extern const f32 lbl_805DAC60;
 s32 create_shoot_model_rot_z(u32 arg0, s32 arg1, s32 arg2, f32 farg0) {
     s32 temp_r3;
@@ -19,6 +20,4 @@ s32 create_shoot_model_rot_z(u32 arg0, s32 arg1, s32 arg2, f32 farg0) {
         var_r3 = var_r0;
     }
     return var_r3;
-}
-
 }

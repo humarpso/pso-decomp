@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void apply_weapon_node_material(void);
-}
 
 #endif

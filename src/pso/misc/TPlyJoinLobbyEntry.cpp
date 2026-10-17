@@ -94,9 +94,11 @@ void bswap_6x6E_sync_game_state__6TLobbyFPv(void *p);
 void sync_game_state__6TLobbyFv(void *, u16);
 void import_sync_records__6TLobbyFPs(void *, u16);
 void activate_triggered_floor_events(void);
-void restore_switch_table(void *, u16);
+}
+void restore_switch_table(s32 arg0, s32 arg1);
 extern char lbl_8043EE90[];
 extern s16 TLobby__data_805D5CE8;
+extern "C" {
 void handle_6x6E_sync_game_state(Pkt_8013566C *arg0);
 struct Stack_80135458 {
     s8 sp8;
@@ -334,7 +336,9 @@ s32 __dt__12TPlyCharDataFv(s32, s32);
 void TLobby__sub_80077798(void *, void *);
 void set_ip_address__7TSocketFUl(void*, u32);
 int bswap_packet_header__6TLobbyFv(void *);
+}
 void set_world_section_id(void *, s32);
+extern "C" {
 void update_idle_timeout__6TLobbyFPv(u8 *arg0);
 u8 * TLobby__sub_80135198(u8 *arg0, s32 arg1);
 void handle_6x70_sync_player_disp_and_inventory(Pkt_801354AC *arg0);
@@ -359,9 +363,13 @@ void set_player_count__6TLobbyFi(s32);
 s32 bswap_and_send_extended_subcommand(int, void *);
 s32 bswap_and_handle_packet__6TLobbyFii(void *, void *);
 s32 TLobby__sub_8013A578(void *);
+}
 void bswap_object_source_record(void *);
+extern "C" {
 void fn_8013ACE4(s32);
-void set_area_random_seed(s32);
+}
+void set_area_random_seed(int a0);
+extern "C" {
 s32 mem_free(int);
 u8 * mem_alloc(s32);
 void clear_enabled_main_warps();
@@ -370,16 +378,22 @@ s32 get_table_entry_by_index__6TLobbyFv(void *);
 VObj_18_80135208 * TPacket__ct(void*, s32);
 s32 fill_player_record__10TObjPlayerFPvPv(void *, void *);
 s32 init_player_join_record(void *);
-Plr_801354AC * create_remote_player_object(void *);
+}
+void *create_remote_player_object(void *arg0);
+extern "C" {
 void send_player_data_98__9TProtocolFPvPvPvPvPvPvPv(void *, void *, void *, void *, void *, void *, void *);
 void init__23TAdSinglePlyChrSelectGCFv(void);
 u8 * get_character_save_record(u32);
 void * get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
-void set_floor_map_variant(void *, s32);
-void request_story_select_state(s32);
-u16 serialize_area_set_flags(void *);
+}
+void set_floor_map_variant(s32 arg0, s32 arg1);
+s32 request_story_select_state(s32 arg0);
+int serialize_area_set_flags(void *p);
+extern "C" {
 void set_area__6TLobbyFl(void *, s32, s32);
-u16 copy_switch_table(void *);
+}
+u32 copy_switch_table(void *destination);
+extern "C" {
 s32 clear_flag3_all_tasks__9TMainTaskFv(void *);
 void * __nw__7TObjectFUl(u32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -662,7 +676,7 @@ void handle_6x70_sync_player_disp_and_inventory(Pkt_801354AC *arg0) {
             if (p != NULL) {
                 delete p;
             }
-            plr = create_remote_player_object(disp);
+            plr = (Plr_801354AC *)create_remote_player_object(disp);
             strncpy(TLobby__player_names[obj_getField1c(plr)], plr->m10(), 0x10);
             ((TLobby *)(disp->id))->open_udp_socket_for_player();
             lobby_debug_printf_stub(lbl_8043EE7C, obj_getField1c(plr));
@@ -724,7 +738,7 @@ void handle_6x6E_sync_game_state(Pkt_8013566C *arg0) {
         {
         }
         n += buf->f4;
-        restore_switch_table(&buf->data[n], buf->f6);
+        restore_switch_table((s32)&buf->data[n], buf->f6);
         activate_triggered_floor_events();
       }
       ::operator delete((0, buf));
@@ -1188,7 +1202,7 @@ void handle_lobby_enter__6TLobbyFPviiiiiii(Ent_801368B0 *ents, s32 n, s32 client
         }
     }
     add_lobby_members__6TLobbyFPvisi(ents, n, client_id, leader);
-    set_floor_map_variant(get_current_floor(), v4);
+    set_floor_map_variant((s32)(get_current_floor()), v4);
     TLobby__event_theme_id = arg7;
     activate_keyboard();
     *(u8 **)(TLobby__protocol_instance + 0xBBF8) = TLobby__sub_801371B0;
@@ -1215,7 +1229,7 @@ void TLobby::make_players() {
             hdr.fAC = 0;
             hdr.f488 = 0;
             delete p;
-            q = ((Ply_80136A8C * (*)(void *))create_remote_player_object)(&hdr);
+            q = (Ply_80136A8C *)create_remote_player_object(&hdr);
             if (q != NULL) {
                 q->m6();
             }
@@ -1324,7 +1338,6 @@ void open_ship_block_select_menu__6TLobbyFiPvPv(s32 arg0, Ent_8013703C *arg1, En
         strncpy(TLobby__data_8050AAAC, arg2->name, 0x10);
     }
 }
-
 }
 
 #pragma push
@@ -1439,6 +1452,8 @@ void send_position_update__6TLobbyFv(void) {
 #pragma pop
 
 #pragma push
+void send_register_9c(u8 *arg0);
+void buffer_reset(void);
 namespace P3_80137360 {
 extern "C" {
 void reset_state__6TLobbyFv(void);
@@ -1495,7 +1510,6 @@ extern void *TLobby__protocol_instance;
 void send_selected_character__6TLobbyFv(void);
 void lobby_debug_printf_stub(const char *fmt, ...);
 s32 send_login_9e_extended__6TLobbyFPvPvi(int, void *, int);
-s32 send_register_9c(int);
 void *get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
 extern char lbl_8043F05C[];
 extern void *TLobby__protocol_instance;
@@ -1520,7 +1534,6 @@ extern s32 TLobby__player_setup_pending;
 void process_deferred_player_setup__6TLobbyFv(void);
 void queue_static_object_destruction__6TLobbyFv(void);
 void reset_state_flags__6TLobbyFv(void);
-s32 buffer_reset();
 s32 queue_destruction__7TObjectFv(s32);
 
 extern s32 TLobby__join_lobby_controller;
@@ -1659,7 +1672,7 @@ void handle_verify_result__6TLobbyFUi(u32 arg0) {
         send_login_9e_extended__6TLobbyFPvPvi((int)TLobby__protocol_instance, (void *) (((s32)get_char_index__23TAdSinglePlyChrSelectGCFUi((u32)(0xFFFF))) + 0x370), (int)option_state);
         return;
     case 1:
-        send_register_9c((int)TLobby__protocol_instance);
+        send_register_9c((u8 *)TLobby__protocol_instance);
         return;
     case 3:
         TLobby::dispatch_by_index(0);
@@ -3654,6 +3667,7 @@ void destroy_join_entries__6TLobbyFv(void) {
 #pragma pop
 
 #pragma push
+void bswap_telepipe_record(void *);
 namespace P6_8013A2A4 {
 
 struct H_8013A348 { u8 b[12]; };
@@ -3664,7 +3678,6 @@ extern "C" {
 void bswap__12player_statsFv(void *);
 void bswap_inventory__6TLobbyFPv(void* p);
 void bswap__15disp_data_part2Fv(void *);
-void bswap_telepipe_record(void *);
 void TLobby__sub_8013A9C0(void *);
 void bswap_player_data__6TLobbyFi(s32 arg0);
 void TLobby__sub_8013A2DC(void);

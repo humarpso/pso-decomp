@@ -46,7 +46,9 @@ extern "C" {
 s32 check_visible__11TMainCursorFv(void *, int, void *, void *);
 int TLockOnCursor__sub_8013EB34(void);
 void *get_player_by_client_id(s32 i);
+}
 void offset_point_toward_camera(u8 *arg0, u8 *arg1, f32 farg0);
+extern "C" {
 void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 s32 rotate_matrix_y(int, int);
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
@@ -451,7 +453,6 @@ void publish_target_list__11TMainCursorFPvi(Self_8013D4A0 *arg0, s32 arg1) {
     TMainCursor__sub_8013EA00(sub->x9C, count);
     set_cursor_id__11TMainCursorFs(TObjPlayer__sub_80116620(sub->x9C, count), 0xFFFF);
 }
-
 }
 
 typedef char RecoveredGlobal_8013D7E0_lbl_804A7164_size[sizeof(RecoveredGlobal_8013D7E0_lbl_804A7164) == 0x60 ? 1 : -1];
@@ -469,7 +470,7 @@ void TLockOnCursor::renderSecondaryCursor(u8 *arg1, s32 arg2, s32 arg3) {
                 TObjFish::set_global_param((s32)&shared_effect_texture_list);
                 temp_f31 = *(f32 *)((s8 *)arg1 + 0xC);
                 push_matrix();
-                offset_point_toward_camera(arg1 + 0x1C, (u8 *)&sp8, temp_f31);
+                offset_point_toward_camera((u8 *)(arg1 + 0x1C), (u8 *)&sp8, (f32)temp_f31);
                 translate_matrix_vec3((u8 *)(0), (u8 *)&sp8);
                 rotate_matrix_y(0, (int) (*(s32 *)((s8 *)camera_ctrl_instance + 0x194)));
                 TParticleCtrl::begin_effect_render();

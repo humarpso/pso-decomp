@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 s32 any_player_has_listed_item(void);
-}
 
 #endif

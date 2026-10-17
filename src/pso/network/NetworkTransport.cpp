@@ -118,9 +118,9 @@ struct Info_803F861C {
     s32 i;
 };
 
-extern "C" {
 extern NetworkPacketBufferStorage network_packet_buffer_storage;
 extern s32 lbl_805D7A00;
+extern "C" {
 void TLobby__sub_803F95E4(u32);
 void TLobby__sub_803F97E8(s32);
 s32 TLobby__sub_80428094(s16);
@@ -151,14 +151,20 @@ s16 TLobby__sub_803F96AC(void *);
 void NetResumeThread(s32);
 s16 TLobby__sub_803F9B94(void *, void *);
 void TLobby__sub_803F7A90(void);
+}
 extern s32 TLobby__queue_timeout_remaining;
 void NetYieldThread(void);
+extern "C" {
 void NetSuspendCurrentThread(void);
 s32 TAdSinglePlyChrSelectGC__sub_8042DD70(s32 arg0, s32 arg1, s32 arg2);
 s32 TAdSinglePlyChrSelectGC__sub_8042E184(void);
+}
 void subtract_network_queue_timeout(s32 arg0);
+extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_8042E320(s32, s32, void *);
+}
 void set_lobby_map_state_code(s32 arg0);
+extern "C" {
 s32 TLobby__sub_803F8090(void);
 extern s32 lobby_send_ring_read_pos;
 extern s32 lobby_send_ring_pending_bytes;
@@ -505,6 +511,7 @@ s32 TLobby::write_ring_buffer(u8 *src, s32 len) {
     }
     return 1;
 }
+}
 
 void set_lobby_map_state_code(s32 arg0) {
     lobby_map_state_code = arg0;
@@ -513,6 +520,7 @@ void set_lobby_map_state_code(s32 arg0) {
 void subtract_network_queue_timeout(s32 arg0) {
     TLobby__queue_timeout_remaining -= arg0;
 }
+extern "C" {
 
 s32 TLobby::map_state_to_mode_id() {
     switch ((*(u32 *)&lobby_map_state_code)) {
@@ -903,6 +911,5 @@ void TLobby::init_net_config() {
     c->f40 = 8;
     c->f44 = buf;
 }
-#pragma pop
-
 }
+#pragma pop

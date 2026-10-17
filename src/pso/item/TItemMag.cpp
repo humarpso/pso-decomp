@@ -18,8 +18,6 @@
 #include "types.h"
 #include "pso/item/TItemMag.h"
 
-extern "C" {
-
 struct O_80110F04 { u8 pad[0x190]; f32 f190; f32 f194; };
 
 struct TItemMag_80110B94 { u8 pad[0x1a8]; void *subs[2]; };
@@ -136,6 +134,7 @@ struct VObj_80112720 : VBase_80112720 {
     virtual void m13();
     virtual s32 m14();
 };
+extern "C" {
 
 void * memcpy(void *dst, const void *src, u32 n);
 s32 get_main_phase();
@@ -187,8 +186,10 @@ s16 get_mag_total_level(void *);
 s32 get_mag_feed_result(s32 arg0, s32 arg1);
 u8 * get_pmt_record__10TObjPlayerFi(u8);
 void send_6x26_unequip_item__10TObjPlayerFPvPv(void *self, void *item);
+}
 void assign_default_photon_blast_palette_slots(u8 *arg0);
 void assign_photon_blast_palette_slot(u8 *arg0, s32 arg1);
+extern "C" {
 s32 is_boss_area();
 s32 play_sound_effect(int, int, int, int);
 void create__10TTecDebandFlll(void *, void *, int);
@@ -1394,7 +1395,6 @@ void TItemMag::apply_auto_support_techniques() {
         request_support_action((s32)((void*)(1)));
     }
 }
-
 }
 #pragma push
 #pragma dont_inline on

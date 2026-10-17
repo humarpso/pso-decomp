@@ -11,6 +11,7 @@ extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 * TItemWeapon__ct(void *, void *);
+}
 extern RecoveredGlobal_80123EC4_lbl_804A1E28 lbl_804A1E28;
 
 typedef char RecoveredGlobal_80123EC4_lbl_804A1E28_size[sizeof(RecoveredGlobal_80123EC4_lbl_804A1E28) == 0xF8 ? 1 : -1];
@@ -35,6 +36,4 @@ u8 *create_sorcerers_cane(u8 *arg0) {
         return var_r0;
     }
     return NULL;
-}
-
 }

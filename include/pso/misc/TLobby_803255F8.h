@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void load_f512_inazuma(void);
-}
 
 #endif

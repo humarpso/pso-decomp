@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void init_particle_sprite_atlas(void);
-}
 
 #endif

@@ -7,10 +7,10 @@
 
 struct Obj_80185160 { u8 pad[0x8C]; s32 dest; };
 
-extern "C" {
 extern int lbl_8050DC20[];
 extern s32 lobby_event_theme_id_table[];
 extern s32 TLobby__event_theme_id;
+extern "C" {
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern const char lbl_804449C0[];
 extern const char lbl_804449D0[];
@@ -30,10 +30,12 @@ extern s32 lbl_805D5B44;
 extern void *lbl_805D5B48;
 
 int TLobby__sub_80184C2C(int a0) {  return city_season_xmas_model_table[a0]; }
+}
 
 int get_season_model_resource(int a0) {  return city_season_easter_egg_model_table[a0]; }
 
 extern s32 lbl_805D5B30;
+extern "C" {
 
 u8 TLobby__sub_80184C54(void) {
     return (u8) (lbl_805D5B30 != -1);
@@ -98,5 +100,4 @@ void TObjLaboMapWarp::slot4C() {
     debug_printf_at(0x130022, lbl_80444A10, labo_map_warp_dest_name_table_b[self->dest]);
     TObjNpcEnemy::set_global_count(0xF0F0F0FF);
 }
-
 }

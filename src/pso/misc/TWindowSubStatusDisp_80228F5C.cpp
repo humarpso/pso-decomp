@@ -9,8 +9,8 @@ struct RecoveredGlobal_802290E0_lbl_80515BC8 {
     u8 remaining[0xFF];
 };
 
-extern "C" {
 extern u8 *text_builder_write_cursor;
+extern "C" {
 void strncpy(s32, s32, s32);
 extern RecoveredGlobal_802290E0_lbl_80515BC8 text_builder_buffer;
 char *parse_text_control_codes(char *p, s32 *a, s32 *b);
@@ -64,10 +64,9 @@ void text_builder_append(u8 *str) {
   *(((s8 *) (*(s32 *)&text_builder_write_cursor)) - (-temp_r3)) = 0;
   (*(s32 *)&text_builder_write_cursor) += temp_r3;
 }
+}
 typedef char RecoveredGlobal_802290E0_lbl_80515BC8_size[sizeof(RecoveredGlobal_802290E0_lbl_80515BC8) == 0x100 ? 1 : -1];
 void text_builder_reset(void) {
     (*(s8 * *)&text_builder_write_cursor) = &text_builder_buffer.value;
     text_builder_buffer.value = 0;
-}
-
 }

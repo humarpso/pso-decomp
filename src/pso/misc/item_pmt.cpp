@@ -14,8 +14,6 @@ extern "C" char* const item_pmt_filename_descriptor;
 extern "C" void*    alloc__23TAdSinglePlyChrSelectGCFv(int size);
 extern "C" void*    get_type__8TItemMagFv(void* pmt);
 
-extern "C" {
-
 void free_item_pmt() {
     __dt__9TItemLoadFPvs((s32 *)item_pmt, 1);
     item_pmt = NULL;
@@ -42,6 +40,4 @@ void load_item_pmt() {
 void load_items() {
     load_item_pmt();
     item_mgr = (TObject *)create_drop__9TItemDropFi(0);
-}
-
 }

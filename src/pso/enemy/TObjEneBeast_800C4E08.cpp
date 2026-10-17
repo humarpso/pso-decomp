@@ -925,7 +925,6 @@ struct Player_800C5B10 : VObj_18_189925 {
     Ctl_800C5B10 *field_350;
 };
 
-extern "C" {
 struct Obj_800C5164 {
     u8 pad0[0x38];
     u8 f38;
@@ -951,6 +950,7 @@ struct Obj_800C5164 {
     u8 pad358[0x374 - 0x358];
     s16 f374;
 };
+extern "C" {
 s32 check_path_obstructed(void *, void *);
 f32 get_collision_body_radius(void *, s32);
 s32 pop_matrix();
@@ -974,7 +974,9 @@ extern Vec_800C5164 lbl_8050BF00;
 extern u8 identity_matrix[];
 
 s32 apply_actor_gravity(void *, int, f32);
+}
 void move_with_wall_slide(u8 *arg0);
+extern "C" {
 s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, int);
 void *spawn_particle_effect(void *pos, s32 id);
 s32 advance_animation_playback();
@@ -1660,5 +1662,4 @@ void *__dt__13TUnk_80493450Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 void*TUnk_80493450::init_enemy_base() { initialize__9TObjEnemyFPv(); *(int*)((char*)this + 0x18) = (int)((unsigned char *)&lbl_80493450); *(short *)&(this->mode) = 0; *(short *)&(this->phase) = 0; *(short *)&this->m_374 = 0; *(short *)&this->m_376 = 0; *(int *)&this->m_378 = 0; *(int *)&this->m_37c = 0; *(float *)&this->unk_380 = (*(const float *)&lbl_805DA034); *(float *)&(*(void * *)&this->m_384) = lbl_805DA058; *(float*)((char*)this + 0x388) = lbl_805DA05C; (*(int *)&this->m_38c) = 0; *(int *)&this->m_390 = 0; this->m_398 = lbl_805DA060; *(float *)&(*(s16 *)((u8 *)this + 0x39C)) = lbl_805DA064; *(float *)&(*(s32 *)&this->unk_394) = lbl_805DA060; (this->m_3a0) = lbl_805DA060; *(float *)&this->unk_3A4 = lbl_805DA064; return this; }
-
 }

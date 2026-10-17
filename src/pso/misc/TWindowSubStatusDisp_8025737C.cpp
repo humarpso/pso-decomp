@@ -75,6 +75,7 @@ s32 TWindowSubStatusDisp__sub_80256C40(void *, void *, void *, f32);
 #define draw_status_gauge_bar__13TUnk_804CF930FPvPvff ((s32 (*)(void *, void *, void *, f32, f32))draw_status_gauge_bar__13TUnk_804CF930FPvPvff)
 s32 begin_screen_draw(s32, f32, f32, f32);
 void set_draw_texture_and_color(s32 idx, s32 arg1);
+}
 void set_constant_material_color(u32 x);
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DCED8;
@@ -83,6 +84,7 @@ extern const f32 lbl_805DCEE0;
 extern const f32 lbl_805DCEE4;
 extern const f32 lbl_805DCEE8;
 extern const f32 lbl_805DCEEC;
+extern "C" {
 void draw_gauge__20TWindowSubStatusDispFPvPv(Gauge_80257784 *self, Parent_80257784 *parent);
 struct Col_802575C0 { u8 r, g, b, a; };
 
@@ -279,7 +281,6 @@ u8 *TWindowSubStatusDisp::init_layout_entry_copy(u8 *arg1) {
     this->m_2a = 0;
     return ((u8 *)this);
 }
-
 }
 
 #undef draw_status_gauge_bar__13TUnk_804CF930FPvPvff

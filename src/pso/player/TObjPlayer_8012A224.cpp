@@ -9,8 +9,10 @@ extern "C" {
 int rotate_matrix_x(void*, void*);
 s32 update_trail_slot__11TItemWeaponFPvi(void *, s32);
 int get_player_list__10TObjPlayerFv(void*);
+}
 
 void s_rank_windmill_turn_blade(void* p) { if (get_player_list__10TObjPlayerFv(p) == 3) { rotate_matrix_x((void*)0, *(void**)((char*)p + 0x1fc)); } }
+extern "C" {
 
 void TUnk_804A4848::reserved_53() {
     s32 *temp_r31;
@@ -53,5 +55,4 @@ void TUnk_804A4848::update_weapon() {
     u8 *arg0 = (u8 *)this;
     advance_angle_wrap((s32 *)(arg0 + 0x1FC), *(s32 *)((s8 *)arg0 + 0x200));
 }
-
 }

@@ -15,6 +15,7 @@ struct RecoveredGlobal_8019DBB4_lbl_804B90FC {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
+}
 extern RecoveredGlobal_8019DBB4_lbl_80446470 lbl_80446470;
 extern RecoveredGlobal_8019DBB4_lbl_804B90FC forest_warp_resource_descriptor;
 extern s32 forest_warp_bml_resource;
@@ -31,6 +32,4 @@ void load_forest_warp_resources(void) {
     }
     forest_warp_bml_resource = var_r0;
     forest_warp_texture_list = load_gvm_texture_file((s32) &lbl_80446470.value);
-}
-
 }

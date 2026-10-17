@@ -7,6 +7,7 @@ extern "C" {
 
 s32 get_attack_stage__11TItemWeaponFv();
 s32 rotate_matrix_y(s32, s32);
+}
 
 void twinkle_star_turn_stars(void *arg0) {
     s32 player_list;
@@ -24,6 +25,7 @@ void twinkle_star_turn_stars(void *arg0) {
         return;
     }
 }
+extern "C" {
 
 void TUnk_804A6010::update_weapon() {
     *(s32 *)&this->unk_1F8 = (s32) (*(s32 *)&this->unk_1F8 + 0xCCC);
@@ -37,5 +39,4 @@ void TUnk_804A6010::emit_marker_effects() {
         ((TObjPlayer *)tl_05)->spawn_cane_effects((TItem*)arg0, 2, 4);
     }
 }
-
 }

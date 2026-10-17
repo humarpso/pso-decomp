@@ -110,12 +110,14 @@ s32 pop_matrix();
 s32 post_translate_matrix(void *);
 void set_chunk_material_override_pair(s32 arg0, s32 arg1);
 void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
+}
 void set_chunk_blend(u32 x);
 void draw_chunk_model(void *arg0);
 extern Col_802E6CB0 lbl_80472C9C;
 extern s32 current_scene_light;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
+extern "C" {
 f32 lerp__9TDeadSpotFff(f32, f32);
 f32 rand_signed_unit();
 s32 matrix_mult_vec(int, void *, void *);
@@ -338,8 +340,8 @@ void TUnk_804E3BD8::alloc_breakup_model(s32 arg1) {
     TObjPlayer__sub_802E75B8(this, temp_r4);
     *(s32 *)&(this->unk_28) = (s32)mem_alloc(this->m_24 * 0x2C);
 }
-
 }
+
 TUnk_804E3BD8::~TUnk_804E3BD8() {
     VObj_802E74E4 *temp_r3;
     mem_free((void *)(*(s32 *)((s8 *)this + 0x28)));

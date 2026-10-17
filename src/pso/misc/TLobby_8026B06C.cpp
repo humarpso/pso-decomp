@@ -8,6 +8,7 @@ s32 __nw__7TObjectFUl(int);
 s32 TLobby__sub_80269DA4(void *, int);
 int append_message_window_line(void *w, int text, int flags, int color);
 void TLobby::set_field_90(s32 v) { *(s32*)((char*)this + 0x90) = v; }
+}
 
 int dispatch_message_window_text(void *w, int text, int flags) {
     switch (*(s32 *)((u8 *)w + 0x90)) {
@@ -31,6 +32,4 @@ s32 create_quest_message_window_at(s32 arg0, s32 arg1) {
         var_r0 = (s32)TWindowMessageQuest__ct((u8 *)temp_r3, (arg0));
     }
     return var_r0;
-}
-
 }

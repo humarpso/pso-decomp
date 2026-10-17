@@ -10,6 +10,7 @@ u8 *get_enemy_entity(u16 arg0);
 s32 legacy_enemy_kill_received_flags[128];
 
 void TObjEnemyCustom::reset_instance() { enemy_custom_camera_active_flag = 0; TObjEnemyCustom::init_globals(); }
+}
 
 void handle_6x09_legacy_kill_enemy(s32 arg0) {
     s32 temp_r5;
@@ -26,6 +27,7 @@ void handle_6x09_legacy_kill_enemy(s32 arg0) {
         }
     }
 }
+extern "C" {
 
 void TLobby__sub_800C80D0(void) {  }
 void TLobby::clear_table_80500C38() {
@@ -34,5 +36,4 @@ void TLobby::clear_table_80500C38() {
         legacy_enemy_kill_received_flags[i] = 0;
     }
 }
-
 }

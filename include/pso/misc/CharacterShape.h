@@ -10,8 +10,6 @@ struct CreationShapeBlend {
     f32 weights[3];
     CreationModelNodeState *destination, *sources[3];
 };
-extern "C" {
 void reset_creation_body_shapes();
 void reset_creation_head_shapes();
-}
 #endif

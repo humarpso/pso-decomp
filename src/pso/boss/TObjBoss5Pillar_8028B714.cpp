@@ -6,6 +6,7 @@
 extern "C" {
 
 s32 is_unloaded__12TChCrLoadAfsFv();
+}
 
 struct SubBase { char pad[0x18]; };
 struct SubObj : SubBase { virtual void m0(int); virtual void m1(int); virtual void m2(int); };
@@ -44,6 +45,4 @@ u8 *free_chcr_resources(u8 *arg0, s16 arg1) {
         }
     }
     return arg0;
-}
-
 }

@@ -10,10 +10,12 @@ int load_encrypted_archive_data(void*);
 f32 xz_distance_squared(s32, s32);
 s32 update_object_view_visibility__13TUnk_804B9870Fff(s32, f32, f32);
 int read_be16_field2__10TObjPlayerFv(void* a0 = 0);
+}
 
     extern unsigned char lbl_804404B0[];
     extern int chat_sensor_table;
 void load_chat_sensor(void) { chat_sensor_table = load_encrypted_archive_data(lbl_804404B0); }
+extern "C" {
 
 void TOChatSensor::send_state() { swap_state_endian(); TLobby__send_and_handle_60((u8 *)this); }
 
@@ -30,5 +32,4 @@ s32 TOComputerMachine01__vt8(s32 arg0, f32 farg0, f32 farg1) {
     }
     return update_object_view_visibility__13TUnk_804B9870Fff(arg0, farg0, farg1);
 }
-
 }

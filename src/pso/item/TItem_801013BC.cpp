@@ -8,17 +8,19 @@
 
 struct Player_8010147C { u8 pad[0xF0]; u32 f_F0; };
 
-extern "C" {
 void get_current_matrix(void *m);
+extern "C" {
 s32 rotate_matrix_by_node_angles(void *, void *);
 s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
+}
 extern s32 (*model_node_draw_callback)(s32);
 extern s32 (*model_node_visit_callback)(void *);
 extern u8 *model_node_matrix_output_cursor;
 void draw_model_node_tree(u8 *arg0);
+extern "C" {
 u16 obj_getField1c(void *);
 s32 set_item_count__13TUnk_804B9870Fs(s32, s32);
 s32 TLobby__sub_80103B04();
@@ -127,6 +129,7 @@ void TItem::calc_display_grade() {
     copy_to_item_data(&sp8);
     ((TItemData *)(&sp8))->calc_display_grade();
 }
+}
 void draw_model_node_tree(u8 *arg0) {
     s32 temp_r30;
     u8 *var_r31;
@@ -177,6 +180,4 @@ void draw_model_node_tree(u8 *arg0) {
         }
         var_r31 = *(u8 **)((s8 *)var_r31 + 0x30);
     } while (var_r31 != NULL);
-}
-
 }

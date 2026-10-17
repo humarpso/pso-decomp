@@ -13,6 +13,7 @@ u8 *__nw__7TObjectFUl(s32);
 int set_flags__10TObjPlayerFUl(void*);
 
 int TItemMenuCtrl::set_menu_flags() { return set_flags__10TObjPlayerFUl((char*)this + 0x1c); }
+}
 
 extern const f32 lbl_805DABE8;
 
@@ -32,6 +33,7 @@ u8 *spawn_star_light_2d(s32 arg0, s32 arg1, s32 arg2) {
     return NULL;
 }
 #pragma pop
+extern "C" {
 
 void TItemEffOrgaFlowShot::approach_value(f32 *arg0, f32 farg0, f32 farg1) {
     *arg0 += farg0;
@@ -54,6 +56,7 @@ void TObjPlayer::add_angle_clamped(s32 *arg0, s32 arg1, s32 arg2) {
         *arg0 = arg2;
     }
 }
+}
 
 void advance_angle_wrap(s32 *arg0, s32 arg1) {
     s32 temp_r4;
@@ -62,6 +65,4 @@ void advance_angle_wrap(s32 *arg0, s32 arg1) {
     if (temp_r4 >= 0x10000) {
         *arg0 = temp_r4 + 0xFFFF0000;
     }
-}
-
 }

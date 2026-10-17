@@ -247,7 +247,9 @@ extern const Quad_800F1440 me3_stelth_offset_vec;
 extern const f32 lbl_805DA828;
 extern const f32 lbl_805DA82C;
 void TObjEneMe3Stelth__sub_800F1440(u8 *arg0, s32 arg1);
+}
 void move_with_wall_slide(u8 *arg0);
+extern "C" {
 void enemy_set_heading_velocity(TObjEnemy *arg0, s32 arg1, f32 farg0);
 s32 select_enemy_destination(void *, Vec_800F1098 *, int);
 s32 copy_position_if_valid__10TObjPlayerFii(s32 arg0, s32 arg1);
@@ -483,5 +485,4 @@ void TObjEneMe3Stelth__sub_800F1440(u8 *arg0, s32 arg1) {
         break;
     }
 }
-
 }

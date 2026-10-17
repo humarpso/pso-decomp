@@ -27,6 +27,7 @@ int GXSetCullMode(void*);
 int TObjFish::set_cull_none() { return GXSetCullMode((void*)(0)); }
 int TObjFish::set_cull_mode_front() { return GXSetCullMode((void*)(1)); }
 int TObjFish::set_cull_back() { return GXSetCullMode((void*)(2)); }
+}
 void set_shadow_material_state(void) {
     Stack_801415BC stack;
     stack.spC = lbl_805DB150;
@@ -48,6 +49,7 @@ u32 photon_chair_color_vec4[4];
 Cfg_80141604 depth_buffer_settings;
 Cfg_80141604 depth_buffer_config_copy;
 Cfg_80141604 saved_depth_alpha_scene_state;
+extern "C" {
 void TObjPlayer::init_default_config() {
     depth_buffer_settings.a = 7;
     depth_buffer_settings.b = 1;
@@ -59,7 +61,6 @@ void TObjPlayer::init_default_config() {
     ((TObjPlayer *)(&depth_buffer_config_copy))->copy_config(&depth_buffer_settings);
     ((TObjPlayer *)(&saved_depth_alpha_scene_state))->copy_config(&depth_buffer_settings);
 }
-
 }
 
 struct RecoveredGlobal_80141860_lbl_8050C000 {
@@ -148,8 +149,6 @@ typedef char RecoveredGlobal_801417B8_lbl_8050C028_size[sizeof(RecoveredGlobal_8
 void save_depth_buffer_settings(void) {
     ((TObjPlayer *)(&(*(RecoveredGlobal_801417B8_lbl_8050C028 *)&(*(RecoveredGlobal_80141730_lbl_8050C028 *)&saved_depth_alpha_scene_state)).value))->copy_config((void*)((void *) (&(*(RecoveredGlobal_801417B8_lbl_8050C000 *)&(*(RecoveredGlobal_80141860_lbl_8050C000 *)&depth_buffer_settings)).value)));
 }
-extern "C" {
-
 typedef char RecoveredGlobal_801417E8_lbl_8050C028_size[sizeof(RecoveredGlobal_801417E8_lbl_8050C028) == 0x18 ? 1 : -1];
 void restore_default_scene(void) {
     model_render_flags &= 0xFFFFFFFE;
@@ -160,8 +159,6 @@ void set_scene_override(u8 scene) {
     model_render_flags |= 1;
     (*(G_80141820 *)&(*(RecoveredGlobal_80141860_lbl_8050C000 *)&depth_buffer_settings)).scene = scene;
     set_material_alpha_compare_reference(scene);
-}
-
 }
 void set_depth_buffer_settings_2(void) {
     *(s8 *)((s8 *)(&(*(RecoveredGlobal_80141860_lbl_8050C000 *)&depth_buffer_settings).value) + 4) = 0;

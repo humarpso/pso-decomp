@@ -10,12 +10,16 @@ struct DS_80142108 { u16 y; u8 b2; u8 b3; u8 b4; u8 b5; u8 b6; u8 b7; };
 extern "C" {
 f32 atan2_float(f32 y, f32 x);
 f32 newton_sqrtf(f32);
+}
 void direction_to_rotation_yx(u8 *arg0, s32 *arg1, s32 *arg2);
 void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
 void direction_to_rotation_xy(u8 *arg0, s32 *arg1, s32 *arg2);
+extern "C" {
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
+}
 f32 vec_distance_squared(u8 *arg0, u8 *arg1);
+extern "C" {
 u16 approach_angle_adaptive(s32 a0, s32 b0);
 f32 TAdSinglePlyChrSelectGC__sub_80141EA0(s32 v);
 s32 TAdSinglePlyChrSelectGC__sub_80141E8C(f32 v);
@@ -23,8 +27,10 @@ u16 angle_difference_abs(s32 a, s32 b);
 s16 angle_diff_s16(s32 a, s32 b);
 u16 approach_angle_limited(s32 arg0, s32 arg1, s32 arg2);
 void fn_80141EB4(void);
+}
 void setSpriteInverseColorBlend(void);
 void vsub(void *arg0, void *arg1, void *arg2);
+extern "C" {
 f32 vec_squared_length(u8 *arg0);
 void normalize_vector(void *);
 void set_cached_blend_factor(s32 arg0, s32 arg1);
@@ -72,7 +78,9 @@ f32 TAdSinglePlyChrSelectGC__sub_80141EA0(s32 v) {
 }
 
 void fn_80141EB4(void) { set_cached_blend_factor(0, 5); set_cached_blend_factor(1, 6); }
+}
 void setSpriteInverseColorBlend(void) { set_cached_blend_factor(0, 5); set_cached_blend_factor(1, 7); }
+extern "C" {
 
 void TObjPlayer::reset_transform_state() { set_cached_blend_factor(0, 8); set_cached_blend_factor(1, 6); }
 
@@ -143,6 +151,7 @@ void TAdSinglePlyChrSelectGC::get_current_date_stamp() {
     arg0->b6 = d.b6;
     arg0->b7 = d.b7;
 }
+}
 
 #pragma push
 #pragma scheduling on
@@ -179,6 +188,7 @@ void direction_to_rotation_xy(u8 *arg0, s32 *arg1, s32 *arg2) {
     *arg2 = (s32) (RAD_TO_ANGLE * atan2_float((f32) (*(f32 *)((s8 *)arg0 + 0)), (f32) (newton_sqrtf((f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0))))));
 }
 #pragma pop
+extern "C" {
 
 u16 approach_angle_adaptive(s32 a0, s32 b0) {
     u16 a = a0;
@@ -210,6 +220,7 @@ u16 approach_angle_limited(s32 arg0, s32 arg1, s32 arg2) {
     }
     return arg1;
 }
+}
 
 void vsub(void *arg0, void *arg1, void *arg2) {
     *(f32 *)((s8 *)arg2 + 0) = (f32) (*(f32 *)((s8 *)arg1 + 0) - *(f32 *)((s8 *)arg0 + 0));
@@ -232,6 +243,7 @@ f32 vec_distance_squared(u8 *arg0, u8 *arg1) {
   temp_f1 = (*((f32 *) (((s8 *) arg1) + 8))) - (*((f32 *) (((s8 *) arg0) + 8)));
   return (temp_f1 * temp_f1) + ((temp_f3 * temp_f3) + (((*((f32 *) (((s8 *) arg1) + 4))) - (*new_var)) * ((*((f32 *) (((s8 *) arg1) + 4))) - (*new_var))));
 }
+extern "C" {
 
 s32 TObjPlayer::is_in_range(f32 farg0) {
     if ((lbl_805DB160 < farg0) && (farg0 < lbl_805DB15C)) {
@@ -239,5 +251,4 @@ s32 TObjPlayer::is_in_range(f32 farg0) {
     }
     return 0;
 }
-
 }

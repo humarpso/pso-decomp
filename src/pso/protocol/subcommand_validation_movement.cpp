@@ -4,6 +4,7 @@ extern "C" {
 s32 is_in_view__17TObjEneHoldEffectFv(s32);
 void *find_entity_by_id(u16 id);
 s32 is_matching_id__6TLobbyFlUs(void *, u16);
+}
 
 s32 validate_6x21_inter_level_warp(G_ClientIDHeader *packet) {
     s32 temp_r0;
@@ -90,6 +91,7 @@ s32 validate_6x9B_level_up_all_techniques(G_ClientIDHeader *packet) {
     }
     return (u8) *(u8 *)((s8 *)packet + 4) <= 0x1DU ? 1 : 0;
 }
+extern "C" {
 
 s32 validate_subcommand_client(G_ClientIDHeader *packet) {
     if (find_entity_by_id(packet->client_id) == 0U) {

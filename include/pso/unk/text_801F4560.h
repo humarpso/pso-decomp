@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void clear_story_flag_in_bank(s32 n, s32 flag);
-}
 
 #endif

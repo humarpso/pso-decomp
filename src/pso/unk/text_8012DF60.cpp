@@ -8,6 +8,7 @@
 
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
+}
 extern s32 tl_05;
 extern u8 lbl_804A5C18[];
 extern const f32 lbl_805DAF58;
@@ -85,6 +86,4 @@ u8 *create_shot_weapon(u8 *item) {
         return var_r0;
     }
     return NULL;
-}
-
 }

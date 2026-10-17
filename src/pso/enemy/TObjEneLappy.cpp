@@ -284,7 +284,9 @@ extern "C" {
 s32 remap_area_sound_id(s32, s32);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 apply_actor_gravity(void *, s32, f32);
+}
 void move_with_wall_slide(u8 *arg0);
+extern "C" {
 void sub_800C20B0__12TObjEneLappyFv(void *arg0);
 #define sub_800C20B0__12TObjEneLappyFv (*(s32 (*)())&sub_800C20B0__12TObjEneLappyFv)
 s32 play_sound_effect(s32, u32, s32, s32);
@@ -1143,7 +1145,6 @@ void *TObjEneLappy::create(void *arg0) {
     }
     return o2;
 }
-
 }
 
 #undef TObjEneLappy__ct
@@ -1385,9 +1386,11 @@ struct Obj_800C220C : VObj_800C220C {
 extern "C" {
 s32 update_player_state__9TObjEneDDFv(void *, void *, int);
 s32 sub_800C3B8C__16TObjEneRe2FlowerFv(void *);
+}
 void restore_default_scene(void);
 void set_scene_override(u8 scene);
 extern Vec_800C20D0 lbl_8043BBC0[];
+extern "C" {
 void TObjPlayer__sub_800C20D0(Obj_800C20D0 *o);
 s32 is_main_phase_15__9TObjEneDDFv(void);
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
@@ -2126,7 +2129,6 @@ void TObjPlayer__sub_800C220C(Obj_800C220C *o) {
     o->f3EC = lbl_805D9FB4 + o->pos.y;
     o->f3F0 = o->pos.z;
 }
-
 }
 
 #undef toggle_particle_effect__10TObjPlayerFv

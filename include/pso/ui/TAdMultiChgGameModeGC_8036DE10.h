@@ -17,7 +17,9 @@ void TAdMultiChgGameModeGC__sub_8036E9EC(void *p);
 void *__dt__13TUnk_804F3A20Fv(void *arg0, s16 arg1);
 s32 check_system_file_status__23TAdSinglePlyChrSelectGCFv(void);
 void close_window__21TAdMultiChgGameModeGCFPv(void *p);
+}
 void close_windows_and_cleanup(void *arg0);
+extern "C" {
 int init_change_mode__21TAdMultiChgGameModeGCFPv(void *p);
 void update_mode_selection__21TAdMultiChgGameModeGCFPv(void *self);
 }

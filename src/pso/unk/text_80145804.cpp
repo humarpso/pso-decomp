@@ -59,6 +59,7 @@ static inline void clear_words_80145804(u32 *p, s32 count) {
         *p++ = 0;
     }
 }
+}
 void load_menu_font(void) {
     u32 m;
     u32 *p;
@@ -121,5 +122,3 @@ void load_menu_font(void) {
     menu_font_object = f;
 }
 #pragma pop
-
-}

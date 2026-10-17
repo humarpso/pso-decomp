@@ -2,27 +2,36 @@
 
 #include "types.h"
 
-extern "C" {
 void clear_current_floor_switch(s32 arg0);
+extern "C" {
 s32 get_current_floor(void);
+}
 void set_current_floor_switch(s32 arg0);
+extern "C" {
 void is_current_floor_switch_set(s32 arg0);
+}
 u8 is_floor_switch_set(u32 id, s16 floor);
+extern "C" {
 s32 memcpy(void *, void *, void *);
+}
 extern u8 TSwitch__floor_switch_table[18][32];
 void restore_switch_table(s32 arg0, s32 arg1);
+extern "C" {
 s32 memset(void *, int, int);
+}
 void clear_switch_table(void);
 void init_switch_table(void);
 u32 copy_switch_table(void* destination);
 s32 get_floor_switch_flag(u32 id, s16 floor);
 void clear_floor_switch_flag(u32 id, s16 floor);
 void set_floor_switch_flag(u32 id, s16 floor);
+extern "C" {
 void *__ct__7TSwitchFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 void TSwitch::render() {  }
 void TSwitch::run_task() {  }
+}
 
 void restore_switch_table(s32 arg0, s32 arg1) {
     memcpy((void *) TSwitch__floor_switch_table, (void *)arg0, (void *)arg1);
@@ -135,6 +144,6 @@ void clear_switch_table(void) {
 void init_switch_table(void) {
     memset((void *) TSwitch__floor_switch_table, 0, 0x240);
 }
+extern "C" {
 TSwitch::~TSwitch() {}
-
 }

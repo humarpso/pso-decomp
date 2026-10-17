@@ -55,7 +55,9 @@ s32 create__19TWindowMessageYesNoFPvPvPvPv(s32, s32, s32, s32);
 char get_trade_mode__6TLobbyFv(void);
 s32 reset_equip_slots__10TObjPlayerFv();
 s32 text_builder_append();
+}
 void text_builder_reset(void);
+extern "C" {
 s32 __ct__7TObjectFP7TObject();
 void TObjPlayer__sub_8024ABDC(s32 arg0);
 void fn_8024AC64(s32 arg0);
@@ -159,5 +161,4 @@ u8 *TWindowTradeRequest__ct(TWindowTradeRequest *arg0) {
   *((s32 *) new_var2) = 0;
   return (u8 *)arg0;
 }
-
 }

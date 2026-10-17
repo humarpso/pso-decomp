@@ -17,11 +17,15 @@ union Pk_800FFF68 { s32 w; u16 h[2]; };
 
 extern "C" {
 s32 consume_item_by_id();
+}
 void replace_item_with_new_code(void *arg0, u32 arg1);
+extern "C" {
 u8 *find_item_by_id(s32 id);
 s32 init__9TItemDataFv(u8 *);
 s32 get_main_phase();
+}
 u32 build_item_id(u16);
+extern "C" {
 s32 advance_item_id_counter(u16);
 extern s32 local_client_id;
 extern s32 lbl_805D5450;
@@ -74,5 +78,4 @@ void TItem::assign_item_id() {
         o->handle = advance_item_id_counter(local_client_id);
     }
 }
-
 }

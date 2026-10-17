@@ -6,6 +6,7 @@ extern "C" {
 
 s32 scale_current_matrix(s32);
 s32 post_translate_matrix(s32);
+}
 
 void yasminkov_2000h_node_callback(s32 arg0) {
     s32 player_list;
@@ -19,6 +20,4 @@ void yasminkov_2000h_node_callback(s32 arg0) {
         scale_current_matrix(arg0 + 0x1FC);
         return;
     }
-}
-
 }

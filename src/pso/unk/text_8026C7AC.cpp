@@ -19,6 +19,7 @@ u8 get_font_char_advance(void);
 u16 map_char_to_font_code(u16 c);
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 void text_builder_append(u8 *str);
+}
 void text_builder_reset(void);
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DD29C;
@@ -31,6 +32,7 @@ extern const f32 lbl_805DD2B4;
 extern const f32 lbl_805DD2B8;
 extern const f32 lbl_805DD2BC;
 extern char lbl_805DD2C0[4];
+extern "C" {
 void draw_list_page_indicator(Self_8026C800 *self, Rect_8026C800 *r);
 s32 fn_8026C7AC(void *arg0, s8 arg1) {
     *(s8 *)((s8 *)arg0 + 0) = 0;
@@ -84,6 +86,5 @@ void draw_list_page_indicator(Self_8026C800 *self, Rect_8026C800 *r) {
     TWindowSubStatusDisp__sub_80228F5C(self->count);
     draw_window_text((f32 *)&pos, (const char *)(get_shared_text_buffer()), -1, 0, (f32)lbl_805DD2B8);
 }
-#pragma pop
-
 }
+#pragma pop

@@ -25,6 +25,7 @@ void *TUnk_8049FBC0::construct_material(void *_w1, void *_w2) {
     *(s32 **)((s8 *)this + 0x18) = lbl_8049FBC0;
     return this;
 }
+}
 
 extern s32 lbl_8049FC90[];
 
@@ -41,6 +42,7 @@ u8 *create_material_item(u8 *arg0) {
     }
     return NULL;
 }
+extern "C" {
 
 void TUnk_8049FC90::vfunc_44() {
   u8 temp_r31;
@@ -58,6 +60,7 @@ void *__dt__13TUnk_8049FC90Fv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
 }
 void *construct_technique_disk_item(void *arg0, void * _w1, void * _w2) {
     TItemObject__ct(arg0);
@@ -78,6 +81,7 @@ u8 *create_technique_disk_item(u8 *arg0) {
     }
     return NULL;
 }
+extern "C" {
 
 void TUnk_8049FD48::vfunc_44() {
     launch_technique__10TObjPlayerFv(0xE, 0, this->m_f0);
@@ -101,6 +105,7 @@ void *TUnk_8049FD48::init(void *_w1, void *_w2) {
     *(s32 **)((s8 *)this + 0x18) = lbl_8049FD48;
     return this;
 }
+}
 
 u8 *create_telepipe_item(u8 *arg0) {
     u8 *temp_r3;
@@ -115,6 +120,7 @@ u8 *create_telepipe_item(u8 *arg0) {
     }
     return NULL;
 }
+extern "C" {
 
 int TItemProArmor::get_stat_value() { return obj_getS16_2BA(*(void* *)&this->m_f0); }
 
@@ -123,5 +129,4 @@ extern s32 game_difficulty_selection;
 s16 TItemProArmor::calc_scaled_offset() {
     return (s16) ((game_difficulty_selection * 0x32) + get_tool_pmt_amount_byte__11TItemObjectFv());
 }
-
 }

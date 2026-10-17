@@ -18,9 +18,9 @@ struct Stack_801781D8 {
 
 struct Pkt_80178178 { u8 pad[4]; s16 area; u16 id; u8 mode; };
 
-extern "C" {
 void clear_floor_switch_flag(u32 id, s16 floor);
 void set_floor_switch_flag(u32 id, s16 floor);
+extern "C" {
 s32 get_current_floor();
 void handle_6x93_set_switch_flag_from_timer(Pkt_80178178 *p);
 u8 TObjPlayer::is_state_ec1_ed3() {
@@ -83,6 +83,5 @@ void TOSwitchTimer::send_switch_states() {
         } while (var_r29 != 3);
     }
 }
-#pragma pop
-
 }
+#pragma pop

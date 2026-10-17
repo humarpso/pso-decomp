@@ -20,7 +20,9 @@ s32 get_lobby_id__6TLobbyFPv(void *p);
 int get_short_mail_ctrl__6TLobbyFv(void);
 int is_flag_set__6TLobbyFPv(void *p);
 void remove_entry_at__6TLobbyFi(s32 idx);
+}
 void remove_short_mail_by_id(u32 id);
+extern "C" {
 void send_simple_mail__6TLobbyFiPv(s32 arg0, void *arg1);
 void try_close__6TLobbyFPv(void *p);
 }

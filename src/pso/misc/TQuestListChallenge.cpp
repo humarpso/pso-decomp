@@ -122,6 +122,7 @@ s32 __ct__15TShopWindowBaseFv();
 extern s32 TQuestListChallenge__active_instance;
 extern void *__vt__19TQuestListChallenge[];
 u8 *TQuestListChallenge__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+}
 struct Entry_80288FDC { s32 id; u8 pad[0xC]; };
 struct QLC_80288FDC {
     u8 pad[0x24];
@@ -137,6 +138,7 @@ struct QLC_80288FDC {
 };
 
 s32 get_guild_text(s32);
+extern "C" {
 void calc_list_content_extent(u32);
 u8 *create_item_list_window(s32 arg0, s32 arg1, s32 arg2);
 void create_quest_list_window__19TQuestListChallengeFv(QLC_80288FDC *arg0);
@@ -459,7 +461,6 @@ void * TObjNpcKenkyu__create(void *arg0) {
     }
     return o2;
 }
-
 }
 
 #undef TQuestListChallenge__stage_table

@@ -21,12 +21,14 @@ void TBGLightningCtrl__sub_802A9A08(void);
 u8 *__ct__12TBGLightningFv(u8 *arg0, void *arg1, s32 arg2, f32 farg0);
 void *__dt__16TBGLightningCtrlFv(void *arg0, s16 arg1);
 u8 *create__12TBGLightningFiif(s32 arg0, s32 arg1, f32 farg0);
+}
 void load_bg_lightning(void);
+extern "C" {
 void render__12TBGLightningFv(s32 arg0);
 void run_task__12TBGLightningFv(void *arg0);
 void run_task__16TBGLightningCtrlFv(void *arg0);
 void spawn_lightning_at_angle__16TBGLightningCtrlFPvi(TBGLightningCtrl *arg0, s32 arg1);
-void submit_particle_quad(void *arg0, f32 *p, f32 *d, s32 c);
 }
+void submit_particle_quad(void *arg0, f32 *p, f32 *d, s32 c);
 
 #endif

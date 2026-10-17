@@ -244,8 +244,8 @@ struct RecoveredGlobal_8007AE8C_TWindowGetComCard__data_80500158 {
     u8 remaining[0x23C];
 };
 
-extern "C" {
 struct Card_8007B0D0;
+extern "C" {
 s32 TWindowSubComCard__sub_8007B0D0(Card_8007B0D0 *, Card_8007B0D0 *, s32);
 s32 bswap_guild_card__17TWindowSubComCardFv();
 extern RecoveredGlobal_8007AE8C_TWindowGetComCard__data_80500158 TWindowGetComCard__received_guild_card_tags;
@@ -258,6 +258,7 @@ void TWindowSubComCard::start_player_data_load(s32 arg0) {
         load_player_data__23TAdSinglePlyChrSelectGCFv();
     }
 }
+}
 typedef char RecoveredGlobal_8007AE8C_TWindowGetComCard__data_80500158_size[sizeof(RecoveredGlobal_8007AE8C_TWindowGetComCard__data_80500158) == 0x240 ? 1 : -1];
 void handle_6x06_send_guild_card(s32 arg0) {
     s32 temp_r31;
@@ -269,8 +270,6 @@ void handle_6x06_send_guild_card(s32 arg0) {
             ((s32 (*)(int, void *, int))TWindowSubComCard__sub_8007B1AC)(temp_r31, &TWindowGetComCard__received_guild_card_tags.value, 4);
         }
     }
-}
-
 }
 
 typedef struct Big { u8 b[144]; } Big;

@@ -5,8 +5,8 @@
 
 extern "C" {
 void TLobby__sub_8013FF64(u8 *arg0, s8 arg1);
+}
 u8 lzss_input_exhausted(u8 *arg0);
 u8 lzss_read_byte(u8 *arg0);
-}
 
 #endif

@@ -26,8 +26,8 @@ struct RecoveredGlobal_80271D00___vt__21TWindowSubAreaMapDisp {
     u8 remaining[0x18];
 };
 
-extern "C" {
 extern const f32 lbl_805DD4F0;
+extern "C" {
 void mem_free(void *p);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_80271C6C___vt__21TWindowSubAreaMapDisp __vt__21TWindowSubAreaMapDisp;
@@ -36,7 +36,9 @@ u8 *get_floor_destination_name(s32);
 void *mem_alloc(u32 size);
 s32 measure_string_len__20TWindowSubStatusDispFv(int);
 void text_builder_append(u8 *str);
+}
 void text_builder_reset(void);
+extern "C" {
 s32 get_window_layout_position(int);
 s32 construct_type1_heading__20TWindowSubStatusDispFll(int, int, int);
 s32 get_game_play_mode();
@@ -253,5 +255,4 @@ u8 *TWindowSubAreaMapDisp__ct(TWindowSubAreaMapDisp *arg0) {
     arg0->m_6c = 0;
     return (u8 *)arg0;
 }
-
 }

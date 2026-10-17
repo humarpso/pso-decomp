@@ -3,9 +3,9 @@
 
 #include "types.h"
 
-extern "C" {
 s32 get_appraisal_text(s32 arg0);
 s32 get_guild_text(s32 arg0);
+extern "C" {
 s32 get_quest_list_text(s32 arg0, s32 arg1);
 s32 get_shop_text(s32 arg0);
 }

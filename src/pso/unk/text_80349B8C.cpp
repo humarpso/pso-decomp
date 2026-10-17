@@ -46,7 +46,6 @@ struct Item_80349C54 {
     f32 *size;
 };
 
-extern "C" {
 extern RecoveredGlobal_80349E5C_lbl_8047890C TAdLoadQuestLineGC__rectangle_groups;
 extern RecoveredGlobal_80349DC8_lbl_804788B8 quest_line_color_quad_coordinates;
 extern RecoveredGlobal_80349DC8_lbl_804788D8 quest_line_quad_vertices;
@@ -119,6 +118,7 @@ void draw_filled_rects_2d(void *arg0, void *arg1, int arg2) {
         }
     }
 }
+extern "C" {
 
 void init_quest_line_draw_colors(s32 arg0) {
     ByteBlock_20 sp8;
@@ -133,5 +133,4 @@ void fn_80349E5C(s32 arg0) {
     sp8 = *(const ByteBlock_60 *)((s32) ((u8 *)&TAdLoadQuestLineGC__rectangle_groups.value - 4) + 4);
     draw_filled_rects_2d((void *)arg0, (void *)((void *)&sp8), 6);
 }
-
 }

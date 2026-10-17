@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void send_register_9c(u8 *arg0);
-}
 
 #endif

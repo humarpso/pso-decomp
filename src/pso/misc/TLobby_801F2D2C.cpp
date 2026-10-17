@@ -151,6 +151,7 @@ void TLobby::close_windows() {
         TLobby__quest_state_object_16c = 0U;
     }
 }
+}
 
 extern u32 quest_mission_manager;
 
@@ -171,6 +172,7 @@ s32 dispatch_quest_opcode(void) {
     }
     return TLobby__quest_window_state;
 }
+extern "C" {
 
 void TLobby::save_quest_state_to_record() {
     *(s32 *)&this->m_name = (s32) (*(s32 *)&TLobby__quest_data_base);
@@ -320,7 +322,9 @@ int TLobby__sub_801F345C(void* p) { return test_action_mask__10TObjPlayerFl(p, 2
 
 int fn_801F3480(void* p) { return ((TObjPlayer *)p)->has_item_flag_4096(); }
 int fn_801F34A0(void* p) { return ((TObjPlayer *)p)->check_technique_flag(); }
+}
 s32 get_field_d4(void* p) { return *(s32*)((char*)p + 0xd4); }
+extern "C" {
 s32 fn_get_field_3ac(void* p) { return *(s32*)((char*)p + 0x3ac); }
 
 void TMainTask__sub_801F34D0(u8 *arg0) {
@@ -344,9 +348,11 @@ void TLobby__sub_801F3568(void) { camera_capture_flags = (camera_capture_flags |
 
 void TLobby::sync_quest_register_and_send() { bswap_header__6TLobbyFPv(this); TLobby__send_and_handle_60((u8 *)this); }
 void bswap_header__6TLobbyFPv(void* p) { ((TObjPlayer *)p)->read_be16_field2(); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x8); }
+}
 void build_6x77_sync_quest_register(void* p) { *(u8*)((char*)p + 0x0) = 119; *(u8*)((char*)p + 0x1) = 3; }
 
     extern int warning_aram_load_done_flag;
+extern "C" {
 int TLobby::get_field_6CE8() {  return warning_aram_load_done_flag; }
 
     extern int lobby_count_value;
@@ -395,5 +401,4 @@ int TLobby__sub_801F36F0(void) { return -1; }
 int TLobby__sub_801F36F8(void) { return 0; }
 int TLobby__sub_801F3700(void) { return -1; }
 int TLobby__sub_801F3708(void) { return 0; }
-
 }

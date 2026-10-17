@@ -58,6 +58,7 @@ void handle_trade_received_items(S_802D2BC0 *arg0) {
         TLobby__trade_proposal_state = 9;
     }
 }
+}
 
 void handle_6xA7(void) {  }
 
@@ -83,6 +84,7 @@ void handle_6xA6_modify_trade_proposal(u8 *arg0) {
         }
     }
 }
+extern "C" {
 
 void TLobby::clear_flag400() {
     if (trade_protocol_flags & 0x400) {
@@ -117,7 +119,6 @@ void TLobby::cancel_trade() {
         break;
     }
 }
-
 }
 
 struct VObj_802D2E28_0x30_802D2B64 {
@@ -140,9 +141,12 @@ extern "C" {
 s32 get_shared_text_buffer();
 u8 *find_item_by_id(s32 id);
 s32 text_builder_append();
+}
 void text_builder_reset(void);
+extern "C" {
 
 s32 refresh_player_status__6TLobbyFv(s32);
+}
 
 s32 format_trade_out_of_range_message(s32 arg0) {
     if ((s32) local_client_id == arg0) {
@@ -154,6 +158,7 @@ s32 format_trade_out_of_range_message(s32 arg0) {
     text_builder_append();
     return get_shared_text_buffer();
 }
+extern "C" {
 
 s32 TLobby::show_event_message(s32 arg0, s32 arg1, s32 arg2) {
     void *item;
@@ -226,7 +231,6 @@ void reset__6TLobbyFv(void) {
         }
     }
 }
-
 }
 
 #include "pso/protocol/subcmd_6x.h"
@@ -282,6 +286,7 @@ void reset__6TLobbyFi(s32 arg0) {
         }
     }
 }
+}
 
 void cancel_trade_for_member_out_of_range(s32 arg0) {
     G_ModifyTradeProposal_6xA6 packet;
@@ -307,6 +312,7 @@ void send_trade_busy_reply(s32 arg0) {
     packet.result = 0;
     ((TLobby *)(&packet.header))->prepare_and_send_trade_packet((void *)arg0);
 }
+extern "C" {
 
 void TLobby::build_trade_item_list() {
     Item_802D3134 item;
@@ -392,8 +398,10 @@ block_6:
         (*(s8 *)&TLobby__trade_proposal_state) = 1;
     }
 }
+}
 
 void ignore_trade_proposal_event(void) {  }
+extern "C" {
 
 void handle_trade_member_out_of_range(O_802D3384 *self) {
     switch (self->state) {
@@ -415,6 +423,7 @@ void handle_trade_state_cancel__6TLobbyFPv(O_802D33C0 *self) {
         break;
     }
 }
+}
 void handle_trade_partner_cancel(void *arg0) {
     switch (*(u8 *)((s8 *)arg0 + 5)) {
     case 4:
@@ -427,8 +436,6 @@ void handle_trade_partner_cancel(void *arg0) {
     case 3:
         break;
     }
-}
-
 }
 
 struct O_802D361C { u8 pad[5]; u8 state; };
@@ -474,6 +481,7 @@ void handle_trade_item_amount__6TLobbyFPv(S_802D3544 *arg0);
 void update_status_message__6TLobbyFPv(O_802D368C *self);
 
 void handle_state_init__6TLobbyFPv(O_802D377C *self);
+}
 
 void handle_trade_final_confirmation(void *arg0) {
 
@@ -510,6 +518,7 @@ void handle_trade_offer_confirmation(void *arg0) {
         break;
     }
 }
+extern "C" {
 
 void handle_trade_item_amount__6TLobbyFPv(S_802D3544 *arg0) {
     s32 t = arg0->f5;
@@ -583,6 +592,7 @@ void update_status_message__6TLobbyFPv(O_802D368C *self) {
         break;
     }
 }
+}
 
 void handle_trade_request_reply(void *arg0) {
     switch ((s32) (*(u8 *)((s8 *)arg0 + 5))) {
@@ -605,6 +615,7 @@ void handle_trade_request_reply(void *arg0) {
         return;
     }
 }
+extern "C" {
 void handle_state_init__6TLobbyFPv(O_802D377C *self) {
     switch (self->state) {
     case 0:
@@ -618,7 +629,6 @@ void handle_state_init__6TLobbyFPv(O_802D377C *self) {
         break;
     }
 }
-
 }
 
 struct Half_802D38B4 { u8 data[0x1F0]; };

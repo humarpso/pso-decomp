@@ -337,7 +337,9 @@ void enemy_pursue_point(void *, s32, void *, f32, f32);
 f64 atan2_float(f32, f32);
 f32 horizontal_distance_squared(void *, void *);
 s32 angle_difference_abs(s32, s32);
-s32 move_with_wall_slide(void *);
+}
+void move_with_wall_slide(u8 *arg0);
+extern "C" {
 void TObjCGrass__ct(void *, void *, s32, s32);
 void *__nw__7TObjectFUl(int);
 f32 newton_sqrtf(f32);
@@ -923,7 +925,7 @@ void TObjGrass::sub_800BD4D8() {
             }
             enemy_turn_toward_dest(o, (s32)((2.0f) * (f32)prm->turn));
             enemy_set_heading_velocity(o, o->angle, spd);
-            move_with_wall_slide(o);
+            move_with_wall_slide((u8 *)o);
             d2 = horizontal_distance_squared(&o->f29c, &o->p2fc);
             if (o->f338 == 0xFFFF) {
                 o->f3a4++;
@@ -1373,7 +1375,7 @@ void TObjGrass::update_ai(void *arg0) {
                 }
                 enemy_turn_toward_dest(o, o->param->turn);
                 enemy_set_heading_velocity(o, o->angle, o->param->speed);
-                move_with_wall_slide(o);
+                move_with_wall_slide((u8 *)o);
             } else {
                 ((void (*)(void *, f32, f32, f32, s32))enemy_wander_home__9TObjEnemyFlfff)(o, (0.25f) * o->param->speed, (1e+02f), (5e+01f), o->param->turn);
             }
@@ -1865,5 +1867,4 @@ void TObjGrass::init_from_table_entry(s32 i) {
     self->f34 = (*(D_800BFB8C * *)&TObjGrass__resource_bundle)->entries[i].f8;
     self->f24 = (*(D_800BFB8C * *)&TObjGrass__resource_bundle)->entries[i].fc;
 }
-
 }

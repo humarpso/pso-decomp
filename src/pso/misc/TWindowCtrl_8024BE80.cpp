@@ -20,7 +20,9 @@ extern "C" {
 s32 obj_isState3_324__13TUnk_804806E8Fv(void *);
 s32 is_script_controlled__10TObjPlayerFv(void *);
 void *get_player_by_client_id(s32);
+}
 void window_request_show(void *);
+extern "C" {
 s32 has_player_active_menu__11TWindowCtrlFv(s32);
 int TWindowCtrl__sub_8024B048(void *p);
 s32 is_slot_visible__11TWindowCtrlFv(s32);
@@ -55,5 +57,4 @@ void TWindowCtrl::update_party_status_rows() {
         }
     }
 }
-
 }

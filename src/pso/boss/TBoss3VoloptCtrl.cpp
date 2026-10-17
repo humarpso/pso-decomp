@@ -18,7 +18,9 @@ s32 get_main_phase(void);
 s32 get_current_floor();
 s32 restore_player_cameras(void);
 s32 activate_camera_mode(s32);
+}
 s32 get_story_flag(s32);
+extern "C" {
 s32 unhide_room_set_objects(s32, s32, s32);
 s32 TBoss3Volopt__sub_8003EA2C(int);
 void TObjPlayer__sub_801BA42C(void);

@@ -201,7 +201,9 @@ extern const f32 TBoss6Type2__data_805DE40C;
 extern const f32 TBoss6Type2__data_805DE430;
 extern const f32 TBoss6Type2__data_805DE434;
 s32 clear_render_callback__8TObjFishFv(u32);
+}
 void draw_model_blend_motion(void *arg0, void *arg1, f32 farg0);
+extern "C" {
 void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern const f32 TBoss6Type2__data_805DE410;
 u8 * get_player_data__10TObjPlayerFi(s32);
@@ -3066,6 +3068,5 @@ void TBoss6Type2__vt47(void) {  }
 #pragma auto_inline off
 #pragma dont_inline off
 void TBoss6Type2__vt48(void) {  }
-#pragma pop
-
 }
+#pragma pop

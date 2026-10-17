@@ -7,6 +7,7 @@ struct Desc_80290D1C { void *verts; u32 *colors; int start; int count; };
 extern "C" {
 s32 draw_line_list(void *, int, int);
 s32 __cvt_fp2unsigned(f32);
+}
 extern s32 creation_ruler_line_vertices[];
 extern u32 creation_ruler_line_colors[4];
 extern s32 lbl_804DA98C[];
@@ -29,6 +30,4 @@ void draw_creation_ruler_lines(f32 farg0) {
     c = __cvt_fp2unsigned(lbl_805DD95C * farg0) | 0x40400000 | 0x4000;
     creation_ruler_line_colors[0] = creation_ruler_line_colors[1] = c;
     ((TObjPlayer *)lbl_804DA98C)->draw_tri_fan_3d(4, 7);
-}
-
 }

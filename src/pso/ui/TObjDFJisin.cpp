@@ -76,7 +76,9 @@ int TBoss4DarkFalz__sub_8004C1AC(void);
 s32 steer_homing_direction(void *);
 int queue_destruction__13TObjDFHormingFPv(void* p);
 s32 query_teammate_state__9TObjEneDDFv();
+}
 void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
+extern "C" {
 void *get_player_by_client_id(s32 i);
 s32 minimap_render_dot(void *, int, int, int);
 void vec3_add_to(void *, void *);
@@ -402,7 +404,6 @@ void fn_spawn_particle_f3_with_flags(s32 arg0, s32 arg1) {
         ((TBoss4Type2 *)particle_effect)->set_flags(0x40);
     }
 }
-
 }
 #pragma push
 #pragma fp_contract on
@@ -882,13 +883,15 @@ struct RecoveredFields_80051AD0_var_r31 {
     u8 * field_30;
 };
 
-extern "C" {
 extern RecoveredGlobal_80051938___vt__16TObjDFTenchuFuru __vt__16TObjDFTenchuFuru;
 extern s32 TObjDFTenchuFuru__name;
+extern "C" {
 u8 *TObjDFTenchuFuru__ct(u8 *arg0, u8 *arg1, u8 *arg2);
+}
 void get_current_matrix(void *m);
 extern RecoveredGlobal_80051A18_lbl_804FF240 df_captured_matrix_pair;
 extern int TObjDFTenchuFuru__matrix_node_index;
+extern "C" {
 s32 matrix_mult_vec(int, void *, void *);
 f32 rotate_matrix_by_node_angles(void *, int);
 s32 push_matrix();
@@ -999,6 +1002,7 @@ void TObjDFTenchuFuru::transform_node_tree() {
         var_r31 = (u8 *)(((RecoveredFields_80051AD0_var_r31 *)var_r31)->field_30);
     } while (var_r31 != NULL);
 }
+}
 
 extern char lbl_8043748C[];
 extern char lbl_8043749C[];
@@ -1010,4 +1014,3 @@ s32 TObjDFRecBall__name = (s32)lbl_8043749C;
 void *TObjDFBeamCursor__name = lbl_804374AC;
 s32 TObjDFJisin__name = (s32)lbl_804374C0;
 s32 TObjDFHorming__name = (s32)lbl_804374CC;
-}

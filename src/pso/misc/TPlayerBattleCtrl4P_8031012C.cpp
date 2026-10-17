@@ -98,8 +98,8 @@ struct Rank_801C343C { u16 id; s16 rank; s32 score; };
 
 struct Team_801C343C { s32 v[2]; };
 
-extern "C" {
 extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 split_screen_battle_rankings;
+extern "C" {
 s32 *get_split_screen_battle_rankings(void);
 void clear_split_screen_battle_window_slots(T_803102A4 *self);
 extern void *TPlayerBattleCtrl4P__instance;
@@ -113,6 +113,7 @@ extern MapEnt_8031012C controller_input_state[];
 u8 TLobby__sub_801D7100(void *);
 extern u8 lobby_rule_settings[];
 int sprintf(char *, const char *, ...);
+}
 extern char lbl_80475B90[];
 extern char lbl_80475B98[];
 extern char lbl_80475BA0[];
@@ -121,6 +122,7 @@ void request_split_screen_battle_event(void* p);
 extern s16 battle_event_second_table[];
 extern s32 local_client_id;
 extern s32 TLobby__designated_client_id;
+extern "C" {
 s32 TLobby__sub_801C19D0(void *);
 extern P_803109D4 lbl_80475B80[];
 s32 are_split_screen_battle_players_tied(void);
@@ -133,13 +135,17 @@ f32 fn_801C19A4(void *);
 s32 TWindowDuelResult__sub_801C19AC(void *);
 
 s32 calc_battle_score__19TPlayerBattleCtrl4PFPvPv(void *self, u8 *arg1);
+}
 s32 get_split_screen_battle_timer_limit(u8 *arg0);
+extern "C" {
 void set_split_screen_battle_phase__19TPlayerBattleCtrl4PFl(u8 *arg0, s32 arg1);
 s32 check_value_equals__13TUnk_804B6C24Fl(void *, int);
 void queue_destruction__7TObjectFv(void *);
 extern s32 lbl_805D2A98;
 void destroy_matching_children__19TPlayerBattleCtrl4PFPvPv(void *self, Par_80311304 *p);
+}
 void reset_cameras_to_actor(void *actor, s32 arg1);
+extern "C" {
 void TObjPlayer__send_selected_spawn_position(void *self, u16 id);
 extern s32 tl_05;
 s32 obj_set_flag_20000();
@@ -189,7 +195,9 @@ void TLobby__sub_801C36E4(void *arg0, void *arg1);
 s32 TLobby__sub_801C4FC4(void *p);
 extern Team_801C343C lbl_80475B78[];
 s32 calculate_split_screen_battle_rankings(void *);
+}
 void refresh_split_screen_battle_alive_flags(void* p);
+extern "C" {
 void TLobby__sub_801B09A4(void);
 void play_cue_stream_file(s32 name);
 void show_duel_result_window(s32 arg0, s32 arg1);
@@ -323,8 +331,10 @@ void TPlayerBattleCtrl4P::update_player_alive_flags() {
         }
     }
 }
+}
 
 void refresh_split_screen_battle_alive_flags(void* p) { ((TPlayerBattleCtrl4P *)p)->update_player_alive_flags(); }
+extern "C" {
 
 void TPlayerBattleCtrl4P::reset_ctrl_to_default() {
     void *temp_r3;
@@ -446,8 +456,10 @@ void TPlayerBattleCtrl4P::start_match() {
     }
     TPlayerBattleCtrl4P::notify_lobby(this, lbl_80475BA0, (void *)0x3C);
 }
+}
 
 void request_split_screen_battle_event(void* p) { *(s32*)((char*)p + 0x260) = 1; }
+extern "C" {
 void TPlayerBattleCtrl4P::update_timed_events(s32 frames) {
     s32 i;
     switch (((Ctl_80310910 *)this)->state) {
@@ -717,11 +729,13 @@ void TPlayerBattleCtrl4P::apply_rule_configuration(s32 arg1) {
     }
   }
 }
+}
 #pragma pop
 
 s32 get_split_screen_battle_timer_limit(u8 *arg0) {
     return *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x1C)) + 0x24) * 0x3C;
 }
+extern "C" {
 
 void TPlayerBattleCtrl4P::set_score(s32 v) { this->phase_state = v; }
 
@@ -895,6 +909,6 @@ void TPlayerBattleCtrl4P::init_battle() {
         ((Ctl_8031171C *)this)->ok[j] = 1;
     }
 }
+}
 
 #undef get_player_by_client_id
-}

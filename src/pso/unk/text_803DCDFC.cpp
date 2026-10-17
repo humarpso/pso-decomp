@@ -35,7 +35,6 @@ struct RMode_803DCDFC {
 };
 typedef void (*RecoveredCallback_2be3cacebb2e)(void);
 
-extern "C" {
 struct RMode_803DD0D8 {
     u32 viTVmode;
     u16 fbWidth;
@@ -47,6 +46,7 @@ struct RMode_803DD0D8 {
     u8 vfilter[7];
 };
 struct Tlut_803DD0D8 { u32 w[4]; };
+extern "C" {
 
 u32 VIGetNextField(void);
 void GXInvalidateVtxCache(void);
@@ -123,6 +123,7 @@ void fn_803DCEC8(void) {
 void fn_803DCF0C(void) {
     present_frame_and_wait_vsync();
 }
+}
 
 
 
@@ -149,10 +150,12 @@ void present_frame_and_wait_vsync(void) {
 
 
 #define frame_update_callback (*(s32 (**)())&frame_update_callback)
+extern "C" {
 void TMovie::run_callback() {
     if (((s32 (*)()) frame_update_callback) != NULL) {
         frame_update_callback();
     }
+}
 }
 
 void init_locked_cache_heap(u8 *arg0) {
@@ -220,6 +223,7 @@ void init_gx_display(void) {
     GXCopyDisp((void *)(*(s32 *)&video_current_framebuffer), 1);
 }
 #undef rmode
+extern "C" {
 
 
 void fn_803DD294(void) {
@@ -302,8 +306,6 @@ s32 TCameraCtrl::init_projection_state() {
     }
     select_render_context(0);
 }
-
-
 }
 
 
@@ -398,6 +400,7 @@ void get_render_mode_for_tv_format(GXRenderModeObj_803DD430 *rmode, GXRenderMode
     }
     GXAdjustForOverscan(rmode, out, 0, 0);
 }
+}
 
 #pragma push
 #pragma optimize_for_size on
@@ -420,6 +423,3 @@ void init_sin_cos_table(void) {
     }
 }
 #pragma pop
-
-
-}

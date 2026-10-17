@@ -38,10 +38,12 @@ void mark_area_change_pending(void);
 s32 prepare_hospital_return__10TObjPlayerFv();
 s32 set_area__6TLobbyFl(void *, int, int);
 s32 send_inter_level_warp_all__10TNpcPlayerFl();
+}
 extern RecoveredGlobal_8026D18C_lbl_80515BA0 lbl_80515BA0;
 extern s32 lbl_805D55C0;
 extern int TWindowReturnCity__client_scan_index;
 void return_to_city_after_defeat(void);
+extern "C" {
 s32 __ct__7TObjectFP7TObject(void *, void *);
 void fn_8024AC64(s32 arg0);
 s32 get_window_layout_position(int);
@@ -62,6 +64,7 @@ void TWindowReturnCity__sub_8026D4C0(void);
 void *__dt__17TWindowReturnCityFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
+}
 
 typedef char RecoveredGlobal_8026D18C_lbl_80515BA0_size[sizeof(RecoveredGlobal_8026D18C_lbl_80515BA0) == 0x28 ? 1 : -1];
 void return_to_city_after_defeat(void) {
@@ -76,6 +79,7 @@ void return_to_city_after_defeat(void) {
         (*(s32 *)&TWindowReturnCity__client_scan_index) = 4;
     }
 }
+extern "C" {
 
 s32 TWindowReturnCity::query_battle_state() {
     struct VObj_8026D208 *o = (struct VObj_8026D208 *)get_player_by_client_id(this->m_24);
@@ -187,5 +191,4 @@ void TWindowCtrl__sub_8026D4E8(void) {
         *(u16 *)((s8 *)TWindowCtrl__active_window + 0x1C) = (u16) (*(u16 *)((s8 *)TWindowCtrl__active_window + 0x1C) | 0x20);
     }
 }
-
 }

@@ -143,6 +143,7 @@ extern const f32 lbl_805D86DC;
 extern const f32 lbl_805D86E0;
 extern const f32 lbl_805D86E4;
 void TObjPlayer__sub_800401CC(u8 *arg0);
+}
 struct Base_8003F6B4_8003F4C0 { char pad[0x18]; };
 
 struct VObj_8003F6B4_8003F4C0 : Base_8003F6B4_8003F4C0 {
@@ -442,6 +443,7 @@ struct VObj_80040894 : VBase_80040894 {
 };
 
 void reset_status_effect_row(u8 *arg0);
+extern "C" {
 s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
 s32 obj_setFlags30(void *, s32);
 s32 queue_destruction__7TObjectFv(void *);
@@ -457,7 +459,9 @@ void render__13TUnk_80483A10Fv(u8 *arg0);
 void TObjPlayer__sub_80040558(void * _w0);
 void run_task__13TUnk_80483A10Fv(u8 *arg0);
 void TBoss3VoloptCore__sub_80040788(void);
+}
 void cache_volopt_resource_ptrs(void);
+extern "C" {
 void * TBoss3VoloptCore__sub_800407E0(void *arg0);
 void * destroy__13TUnk_80483A10Fs(void *arg0, s16 arg1);
 void sub_80040894__13TUnk_80483A10Fv(VObj_80040894 *arg0);
@@ -1350,8 +1354,10 @@ void TUnk_80483A10::run_task() {
 }
 
 void TBoss3VoloptCore__sub_80040788(void) {  }
+}
 
 void cache_volopt_resource_ptrs(void) { volopt_resource_table_ptr = boss3_volopt_resources; lbl_805D4C50 = register_boss__6TLobbyFl((void*)33); lbl_805D4C54 = dispatch_shared_handler_b__6TLobbyFl((void*)33); lbl_805D4C58 = register_object__6TLobbyFl((void*)33); volopt_array_resource_ptr = dispatch_shared_handler_a__6TLobbyFl((void*)33); }
+extern "C" {
 
 void *TBoss3VoloptCore__sub_800407E0(void *arg0) {
     void *o = __nw__7TObjectFUl(0x3D4);
@@ -1440,5 +1446,4 @@ void TUnk_80483A10::load_entry_params_volopt(s32 i) {
     self->f34 = (*(G_80040AF8 * *)&volopt_resource_table_ptr)->entries[i].f8;
     self->f24 = (*(G_80040AF8 * *)&volopt_resource_table_ptr)->entries[i].fc;
 }
-
 }

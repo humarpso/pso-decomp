@@ -35,6 +35,7 @@ s32 TLobby::init_handle(s32 arg0) {
 }
 
 s32 strncmp(s32, s32 *, s32);
+}
 extern s32 map_set_object_id_counter;
 extern s32 TLobby__next_enemy_set_actor_id;
 extern s32 map_object_id_counter;
@@ -52,8 +53,6 @@ void clear_map_set_data(void) {
     if (strncmp(temp_r3, &lbl_805DC620, 0x10) == 0) {
         copy_name((s32)&lbl_805DC624);
     }
-}
-
 }
 
 struct RecoveredGlobal_8020B118_lbl_8044BBF0 { char value[0x13]; };

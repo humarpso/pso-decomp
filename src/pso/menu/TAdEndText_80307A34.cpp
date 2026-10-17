@@ -14,7 +14,9 @@ struct RecoveredGlobal_80307A74_main_task {
 extern "C" {
 s32 TKeyBoardControl__sub_8000F92C();
 s32 TKeyBoardControl__sub_8000F9CC(int);
-s32 process_async_file_reads();
+}
+void process_async_file_reads(void);
+extern "C" {
 s8 func_801A5E54__Fv();
 s32 render_screen_overlay__9TMainTaskFv(void *);
 s32 some_empty_func__9TMainTaskFv(void *);
@@ -63,6 +65,7 @@ void TKeyBoardControl::run_main_frame() {
     }
     render_tick();
 }
+}
 void start_ending_sequence(void) {
     (*(s32 *)&ending_sequence_active) = 1;
     set_screen_size(lbl_805DF0B0, lbl_805DF0B4);
@@ -77,6 +80,4 @@ void start_ending_sequence(void) {
         init_ending_movie();
     }
     render_tick();
-}
-
 }

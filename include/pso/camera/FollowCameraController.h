@@ -27,5 +27,5 @@ typedef char FollowViewSplitOffset[offsetof(FollowView, split_positions) == 0xD4
 typedef char FollowViewPositionOffset[offsetof(FollowView, position) == 0x178 ? 1 : -1];
 typedef char FollowViewTargetOffset[offsetof(FollowView, target) == 0x184 ? 1 : -1];
 
-extern "C" s32 conversation_camera_obstructed(FollowController *, s32 heading);
+s32 conversation_camera_obstructed(FollowController *, s32 heading);
 #endif

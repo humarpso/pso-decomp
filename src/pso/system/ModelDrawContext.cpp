@@ -40,20 +40,24 @@ struct N_803DC9E4 {
     f32 f34;
 };
 
-extern "C" {
 extern RecoveredGlobal_803DCBD8_lbl_8058D380 render_contexts;
 extern u8 *current_render_context;
+extern "C" {
 void select_render_context(s32 arg0);
 void compose_motion_node_matrix(void *arg0);
 s32 push_matrix();
 s32 pop_matrix();
 s32 queue_model_draw_matrix(int, void *);
+}
 extern s32 model_node_callback;
 extern s32 current_matrix;
 void draw_ginja_motion_node_tree(u8 *arg0);
+extern "C" {
 void bind_motion_context(void *);
 void init_model_draw_queue(void *);
+}
 void flush_model_draw_queue(void);
+extern "C" {
 void prepare_ginja_model(void *);
 void draw_ginja_model_lists(void);
 extern struct MotionCtx_803DC894 * const model_draw_context;
@@ -68,7 +72,9 @@ extern RecoveredCallback_1268626c296b motion_node_draw_callback;
 void draw_motion_node_tree_with_context(struct Node_803DCB40 *arg0);
 __declspec(section ".rodata") extern const Tbl_803DCC34 gx_blend_mode_table;
 void set_cached_blend_factor(s32 arg0, s32 arg1);
+}
 void get_current_matrix(void *m);
+extern "C" {
 s32 apply_quat_rotation__10TObjPlayerFf(void *, f32);
 s32 rotate_matrix_by_node_angles(void *, void *);
 s32 scale_current_matrix(void *);
@@ -90,6 +96,7 @@ void draw_ginja_model_with_motion(void *arg0, void *arg1) {
     if (ginja_draw_end_callback != NULL) {
         ginja_draw_end_callback();
     }
+}
 }
 
 #pragma push
@@ -119,6 +126,7 @@ void draw_ginja_motion_node_tree(u8 *arg0) {
     } while (child != NULL);
 }
 #pragma pop
+extern "C" {
 
 void copy_rotation_to_current_matrix(struct Mtx_803DC994 *src) {
     struct Mtx_803DC994 *dst = (struct Mtx_803DC994 *)current_matrix;

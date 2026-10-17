@@ -44,6 +44,7 @@ void TODoorJungleMain::vfunc_6(s16 *arg1, s32 arg2) {
 
 s32 get_current_floor(void);
 void *get_player_by_client_id(s32 i);
+}
 extern const f32 lbl_805DDCD0;
 s32 is_any_player_near(s32 arg0);
 s32 is_any_player_near(s32 arg0) {
@@ -75,6 +76,7 @@ s32 is_any_player_near(s32 arg0) {
 
 void clear_story_flag_in_bank(s32 n, s32 flag);
 extern s32 TOKeyJungleMain__data_804653C8[];
+extern "C" {
 void TLobby__sub_8029B2A4(void* p);
 void *TODoorJungleMain__create(void *arg0);
 void *__nw__7TObjectFUl(int);
@@ -100,7 +102,6 @@ void *TODoorJungleMain__create(void *arg0) {
     }
     return o;
 }
-
 }
 
 struct RecoveredGlobal_8019A9B8_lbl_80446184 {

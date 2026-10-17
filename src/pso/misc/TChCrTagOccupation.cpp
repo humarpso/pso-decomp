@@ -92,6 +92,7 @@ void *__ct__17TChCrTagOccHeaderFv(void *arg0) {
 }
 
 void *__nw__7TObjectFUl(int);
+}
 extern void *tl_03;
 
 void *create_ch_cr_tag_occ_header(void *arg0) {
@@ -105,8 +106,6 @@ void *create_ch_cr_tag_occ_header(void *arg0) {
 void create_all_ch_cr_tag_headers(void);
 
 void create_all_ch_cr_tag_headers(void) { { int i; for (i = 0; i < 15; i++) { ((int (*)(void *))create_ch_cr_tag_occ_header)((void*)i); } } }
-
-}
 
 #include "pso/TMath.h"
 

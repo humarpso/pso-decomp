@@ -115,11 +115,15 @@ s32 check_flag_40000__10TObjPlayerFv(int);
 u8 *get_player_by_client_id(u16);
 s32 set_flag_2000000_alt__10TObjPlayerFv();
 s32 check_flag_04000000__10TObjPlayerFv(int);
+}
 void update_player_appear_fade(u8 *arg0);
 struct VOff_801C5870_arg0_801C57D0 { char pad_0[0x1C]; char f_1C[1]; };
+extern "C" {
 
 void *TForceOperate__ct(void *arg0, void *arg1, void *arg2);
+}
 void calc_death_sink_offset(void *arg0);
+extern "C" {
 void run_task__13TForceOperateFv(s32 arg0);
 s32 TObjPlayer__sub_801C6DAC(u8 *arg0);
 void *find_entity_by_id();
@@ -174,6 +178,7 @@ void calc_death_pose_height_offset(Out_801C58CC *arg0, Actor_801C58CC *arg1) {
         arg0->v = lbl_805DC328[0];
     }
 }
+}
 #pragma pop
 
 void calc_death_sink_offset(void *arg0) {
@@ -226,8 +231,6 @@ void update_player_appear_fade(u8 *arg0) {
 }
 #pragma pop
 
-}
-
 #include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_801C5B68_lbl_8058D4C0 {
@@ -239,13 +242,17 @@ struct Obj_801C5C38 { u8 pad[4]; s32 n; };
 
 extern "C" {
 void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
+}
 extern RecoveredGlobal_801C5B68_lbl_8058D4C0 model_material_color;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 void save_render_material_state(u8 *arg0);
+extern "C" {
 s32 tick_battle_music_timer(Obj_801C5C38 *p);
+}
 void reset_player_appearance_opacity(void* a0);
+extern "C" {
 void update_target_lock__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 get_current_floor();
 s32 TObjPlayer__sub_801C6F90();
@@ -270,10 +277,13 @@ void TObjPlayer::enter_battle_state() {
         *(s16 *)((s8 *)this + 2) = 4;
     }
 }
+}
 
 void reset_player_appearance_opacity(void* a0) { *(float*)((char*)a0 + 0x1c) = lbl_805DC320[0]; }
+extern "C" {
 
 void TObjPlayer::write_ids() { set_some_id__FUl((s32)this->m_name); set_chunk_material_override_pair((s32)(*(void**)((char*)this + 0x4)), (s32)this->m_prev); set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)((char*)this + 0xc)); }
+}
 
 typedef char RecoveredGlobal_801C5B68_lbl_8058D4C0_size[sizeof(RecoveredGlobal_801C5B68_lbl_8058D4C0) == 0x10 ? 1 : -1];
 void save_render_material_state(u8 *arg0) {
@@ -282,6 +292,7 @@ void save_render_material_state(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 8) = (s32) chunk_polygon_flags_or_mask;
     copy_vec4__13TRaderMapCoreFPv((arg0 + 0xC), (&model_material_color.value));
 }
+extern "C" {
 
 void TObjPlayer::set_vec4_const() { *(float*)((char*)this + 0x1c) = lbl_805DC320[0]; *(float *)&this->m_20 = lbl_805DC320[0]; *(float *)&this->texture_id = lbl_805DC320[0]; *(float *)&this->m_28 = lbl_805DC320[0]; }
 
@@ -313,5 +324,4 @@ void update_target_lock__10TObjPlayerFii(s32 arg0, s32 arg1) {
         }
     }
 }
-
 }

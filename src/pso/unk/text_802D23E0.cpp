@@ -27,13 +27,17 @@ u8 * copy_struct_f8__6TLobbyFii(s32 arg0, s32 arg1);
 s32 *get_shared_text_buffer(void);
 s32 refresh_player_status__6TLobbyFv(int);
 s32 text_builder_append();
+}
 void text_builder_reset(void);
 extern s8 TLobby__trade_partner_client_id;
+extern "C" {
 void TLobby__sub_802D268C(void);
 void *get_player_by_client_id(s32 i);
+}
 void build_6xA6_modify_trade_proposal(void *);
 extern u32 local_client_id;
 extern u8 TLobby__trade_proposal_state;
+extern "C" {
 s32 send_trade_list__6TLobbyFPvPv(s32, s32 *);
 void TWindowSubTradeMain__sub_80330A84(void *p);
 extern s32 TLobby__protocol_instance;
@@ -183,5 +187,4 @@ u8 * copy_struct_f8__6TLobbyFii(s32 arg0, s32 arg1) {
     *(ByteBlock_F8 *)(arg0) = *(const ByteBlock_F8 *)(arg1);
     return (u8 *)arg0;
 }
-
 }

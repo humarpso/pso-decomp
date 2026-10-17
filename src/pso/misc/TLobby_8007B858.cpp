@@ -35,7 +35,9 @@ struct RecoveredGlobal_8007BA20_lbl_8048D5A8 {
 
 extern "C" {
 void TLobby__sub_802A5154(void);
+}
 void load_obj_lobby_main(void);
+extern "C" {
 s32 run_load_callback_table(void *, int);
 extern RecoveredGlobal_8007BA98_lbl_8048D4C0 lbl_8048D4C0;
 extern RecoveredGlobal_8007BA98_lbl_8048D5A8 lbl_8048D5A8;
@@ -208,7 +210,6 @@ s32 TLobby::check_disconnect_conditions() {
     return 0;
 }
 void TLobby::reset_and_invoke() { TLobby::reset_keyboard_state(); TLobby::invoke_callback(); TLobby::clear_callback_and_reset_keyboard(); }
-
 }
 
 #include "pso/misc/TWindowSubComCard.h"

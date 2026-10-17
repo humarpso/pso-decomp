@@ -113,6 +113,7 @@ s32 TObjPlayer__sub_80116620(s32, s32);
 s32 sub_801A1DDC__10TObjPlayerFv(void *);
 s32 send_6x33_revive_player(s32, s32);
 void vfunc_44__13TUnk_8049F8E0Fv(void *arg0);
+}
 u8 *create_moon_atomizer_item(u8 *arg0);
 struct Base_80116A5C_80116634 { char pad[0x18]; };
 struct VObj_80116A5C_80116634 : Base_80116A5C_80116634 {
@@ -131,6 +132,7 @@ struct VObj_80116A5C_80116634 : Base_80116A5C_80116634 {
     virtual void m45(); virtual void m46(); virtual void m47(); virtual void m48();
     virtual void m49(); virtual void m50(); virtual void m51(); virtual void m52();
 };
+extern "C" {
 
 void *__dt__13TUnk_8049F8E0Fv(void *arg0, s16 arg1);
 void vfunc_44__13TUnk_8049F998Fv(void *arg0);
@@ -195,6 +197,7 @@ void *TUnk_8049F8E0::init_item_object(void *_w1, void *_w2) {
     *(s32 **)((s8 *)this + 0x18) = (s32 *)item_moon_atomizer_vtable;
     return this;
 }
+}
 
 u8 *create_moon_atomizer_item(u8 *arg0) {
     u8 *temp_r3;
@@ -209,6 +212,7 @@ u8 *create_moon_atomizer_item(u8 *arg0) {
     }
     return NULL;
 }
+extern "C" {
 
 void TUnk_8049F998::vfunc_44() {
     struct VObj_80116A5C_80116634 *obj;
@@ -224,7 +228,6 @@ void TUnk_8049F998::vfunc_44() {
         return;
     }
 }
-
 }
 
 struct Base_80116BBC_80116634 { char pad[0x18]; };
@@ -282,9 +285,13 @@ struct VObj_80116BBC_80116634 : Base_80116BBC_80116634 {
 
 extern "C" {
 void * TItemProShield__sub_80116B28(void *arg0, void *arg1, void *arg2);
+}
 u8 *create_status_cure_item(u8 *arg0);
+extern "C" {
 void * TItemProShield__sub_80116C44(void *arg0, void *arg1, void *arg2);
+}
 u8 *create_sol_atomizer_item(u8 *arg0);
+extern "C" {
 void *__dt__13TUnk_8049FA50Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_8049FB08Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_8049F998Fv(void *arg0, s16 arg1);
@@ -311,6 +318,7 @@ void *TItemProShield__sub_80116B28(void *arg0, void * _w1, void * _w2) {
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)item_status_cure_vtable;
     return arg0;
 }
+}
 
 u8 *create_status_cure_item(u8 *arg0) {
     u8 *temp_r3;
@@ -325,6 +333,7 @@ u8 *create_status_cure_item(u8 *arg0) {
     }
     return NULL;
 }
+extern "C" {
 
 void TUnk_8049FA50::vfunc_44() {
     struct VObj_80116BBC_80116634 *o = (struct VObj_80116BBC_80116634 *)this->m_f0;
@@ -349,6 +358,7 @@ void *TItemProShield__sub_80116C44(void *arg0, void * _w1, void * _w2) {
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)item_sol_atomizer_vtable;
     return arg0;
 }
+}
 
 u8 *create_sol_atomizer_item(u8 *arg0) {
     u8 *temp_r3;
@@ -363,6 +373,7 @@ u8 *create_sol_atomizer_item(u8 *arg0) {
     }
     return NULL;
 }
+extern "C" {
 
 void TUnk_8049FB08::vfunc_44() { send_star_atomizer_targets(*(void* *)&this->m_f0); }
 
@@ -426,6 +437,7 @@ int ret_8010064C(void);
 void vfunc_35__5TItemFv();
 void run_task__5TItemFv();
 void try_pick_up_item__5TItemFl();
+}
 void *item_hp_recovery_vtable[46] = {
     0,
     0,
@@ -714,4 +726,3 @@ void *item_star_atomizer_vtable[46] = {
     (void *)&vfunc_44__13TUnk_8049FB08Fv,
     0
 };
-}

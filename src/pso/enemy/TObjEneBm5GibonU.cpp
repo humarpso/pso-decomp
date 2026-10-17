@@ -2048,7 +2048,9 @@ s32 get_camera_mode__11TCameraCtrlFv();
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 update_obstruction_fade(void *);
 s32 draw_blob_shadow(s32);
-s32 direction_to_rotation_xz(void *, s32 *, s32 *);
+}
+void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
+extern "C" {
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 rotate_matrix_z(s32, s32);
 s32 rotate_matrix_x(s32, s32);
@@ -2059,7 +2061,9 @@ extern const f32 lbl_805D9E88;
 u32 enemy_probe_wall_ahead__13TBoss5GryphonFfff(void *, f32, f32, f32);
 void TObjEneBm5GibonU__sub_800CE694(u8 *arg0, s32 arg1);
 s32 is_vec_xz_cross_negative(void *, void *);
-void enemy_turn_and_move_on_ground(void *, s32, f32);
+}
+void enemy_turn_and_move_on_ground(u8 *arg0, s32 arg1, f32 farg0);
+extern "C" {
 void TObjEneBm5GibonU__sub_800CE978(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800D095C(void *arg0, s32 arg1, s16 arg2);
 s32 spawn_dead_spot_scale15(void *, s32);
@@ -2069,7 +2073,9 @@ void TObjEneBm5GibonU__sub_800CF4BC(u8 *arg0, s32 arg1);
 Pl_800CDB98 *get_battle_param__10TObjPlayerFi(s32);
 s32 obj_is_hit_receivable(void *);
 void TObjEneBm5GibonU__sub_800CDB98(Obj_800CDB98 *arg0, s32 arg1);
+}
 void move_with_wall_slide(u8 *arg0);
+extern "C" {
 void enemy_set_heading_velocity(TObjEnemy *arg0, s32 arg1, f32 farg0);
 s32 select_enemy_destination(void *, Vec_800CD5F4, s32);
 void copy_position_if_valid__10TObjPlayerFii(void *, Vec_800CD5F4);
@@ -3749,11 +3755,11 @@ void TObjEneBm5GibonU__sub_800CF7CC(u8 *actor, s32 arg1) {
             }
             temp_f1 = *(f32 *)((s8 *)actor + 0xC0);
             if ((temp_f1 >= TObjEneBm5GibonU__data_805DA178) && (temp_f1 <= lbl_805DA200)) {
-                enemy_turn_and_move_on_ground(actor, (s32) (lbl_805DA20C * *(f32 *)((s8 *)actor + 0x498)), TObjEneBm5GibonU__data_805DA168);
+                enemy_turn_and_move_on_ground(actor, (lbl_805DA20C * *(f32 *)((s8 *)actor + 0x498)), TObjEneBm5GibonU__data_805DA168);
             } else {
                 *(f32 *)((s8 *)actor + 0x498) = (f32) (*(f32 *)((s8 *)actor + 0x498) * TObjEneBm5GibonU__data_805DA1BC);
                 temp_f1_2 = *(f32 *)((s8 *)actor + 0x498);
-                enemy_turn_and_move_on_ground(actor, (s32) (lbl_805DA20C * temp_f1_2), temp_f1_2);
+                enemy_turn_and_move_on_ground(actor, (lbl_805DA20C * temp_f1_2), temp_f1_2);
             }
             *(f32 *)((s8 *)actor + 0x49C) += *(f32 *)((s8 *)actor + 0x498);
             if (*(f32 *)((s8 *)actor + 0x49C) >= 50.0f) {
@@ -4197,9 +4203,8 @@ s32 TObjEneBm5GibonU__sub_800D0968(u8 *arg0, int _w1) {
     *(f32 *)((s8 *)arg0 + 0x3AC) = (f32) lbl_805DA23C;
     return *(s32 *)((s8 *)arg0 + 0x60);
 }
-#pragma pop
-
 }
+#pragma pop
 
 #undef find_enemy_by_id__16TObjEneBm5GibonUFi
 #undef is_active__16TObjEneBm5GibonUFPv

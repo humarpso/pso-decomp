@@ -175,7 +175,6 @@ struct QL_802194BC { u8 pad[0x28]; Rec_802194BC recs[48]; s32 count; };
 struct Dl_802194BC { u8 pad[0x58]; u8 *data; s32 size; };
 struct Ent_802194BC { u8 pad[0x13]; s8 c; char name[0x20]; char desc[0x80]; };
 
-extern "C" {
 extern s32 TQuestListVM__data_8044BF20[];
 extern s32 TQuestListVM__decrypted_quest_buffer;
 extern s32 TQuestListVM__decompression_capacity;
@@ -187,6 +186,7 @@ extern s32 TQuestListVM__class_name;
 extern s32 TQuestListVM__quest_data_output_cursor;
 extern s32 TQuestListVM__quest_decrypt_result_size;
 extern s32 quest_list_vm_instance;
+extern "C" {
 u8 *TQuestListVM__ct(TQuestListVM *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 TQuestListVM__sub_8021884C(void *);
 int memset(void*, void*, void*);
@@ -962,10 +962,9 @@ u8 *TQuestListVM__ct(TQuestListVM *arg0, s32 arg1, s32 arg2, s32 arg3) {
 }
 
 void TQuestVmDownLoadServer__sub_80219EC4(void* p) { *(u16*)((char*)p + 0x70) |= 0x8; }
+}
 typedef char RecoveredGlobal_8033B9C4_lbl_80513910_size[sizeof(RecoveredGlobal_8033B9C4_lbl_80513910) == 0x10 ? 1 : -1];
 void seed_download_rng(s32 arg0) {
     *(s32 *)((s8 *)&download_rng_seed_pair.value + 4) = arg0;
     *(s32 *)((s8 *)&download_rng_seed_pair.value + 0) = arg0;
-}
-
 }

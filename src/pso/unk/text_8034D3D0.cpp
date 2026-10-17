@@ -111,10 +111,10 @@ struct PartnerText_8034DA38
   s32 kind[6];
 };
 
-extern "C" {
 extern struct PartnerText_8034D9E0 partner_dialogue_table[];
 struct V3_8034D790 { f32 x, y, z; };
 struct Ent_8034D790 { V3_8034D790 p; f32 weight; };
+extern "C" {
 void normalize_vector(void *);
 
 #pragma push
@@ -181,6 +181,7 @@ s32 fn_8034D790(Ent_8034D790 *e, s32 n, s32 arg2, s32 closed, V3_8034D790 *out, 
     out->z = d.z * pos + a.z;
     return 0;
 }
+}
 #pragma pop
 const char *get_partner_custom_text(s32 kind, u16 player) {
     s32 i;
@@ -212,6 +213,4 @@ void set_partner_dialogue_override(const char *text, s32 kind, u16 player) {
       return;
     }
   }
-}
-
 }

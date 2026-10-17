@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void set_challenge_time_window_timer(int a0);
-}
 
 #endif

@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void copy_enemy_factory_entry(EnemyFactoryEntry *arg0, EnemyFactoryEntry *arg1);
-}
 
 #endif

@@ -50,7 +50,9 @@ extern s32 tl_camera;
 s32 TNowLoading__ct(s32, void *, void *);
 void set_active_camera_pose(u8 *arg0, u8 *arg1);
 s32 activate_camera_mode(s32 arg0);
+}
 void update_sound_request_slots(void);
+extern "C" {
 s32 TAdLoadQuestGC__ct(s32, void *);
 s32 __ct__14TAdFloorLoadGCFP7TObjectPv(s32, void *, int);
 extern u8 lbl_804349CC[];
@@ -253,5 +255,4 @@ void TLoadCtrl::start_loading(u32 arg0) {
 }
 
 void TLoadCtrl::poll_default() { TLoadCtrl::start_loading((u32)((void*)(0))); }
-
 }

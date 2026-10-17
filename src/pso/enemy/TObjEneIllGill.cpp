@@ -170,7 +170,9 @@ u8 *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
 void enemy_set_heading_velocity(void *, s32, f32);
 void enemy_turn_toward_dest(void *, s32);
-s32 move_with_wall_slide(void *);
+}
+void move_with_wall_slide(u8 *arg0);
+extern "C" {
 f32 horizontal_distance_squared(void *, void *);
 void TObjEneIllGill__sub_80367DA4(s32 arg0);
 void *create_particle_emitter(void *pos, s32 id);
@@ -668,7 +670,7 @@ void TObjEneIllGill::update_ai() {
             }
             enemy_turn_toward_dest(o, (s32)(lbl_805E02D0 * (f32)prm->turn));
             enemy_set_heading_velocity(o, o->angle, spd);
-            move_with_wall_slide(o);
+            move_with_wall_slide((u8 *)o);
             d2 = horizontal_distance_squared(&o->f29c, &o->p2fc);
             t = spd + o->body->radius;
             if (d2 < t * t || o->param->range * o->param->range < d2 || lbl_805E02D4 < (f32)(c = o->f410)) {
@@ -870,7 +872,7 @@ void TObjEneIllGill::update_death_fall() {
     return;
     case 2:
       *((f32 *) (((s8 *) arg0) + 0x300)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x300))) + TObjEneIllGill__data_805E02DC);
-      move_with_wall_slide((void *) arg0);
+      move_with_wall_slide(arg0);
       *((f32 *) (((s8 *) arg0) + 0x308)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x308))) * lbl_805E02E0);
       *((f32 *) (((s8 *) arg0) + 0x310)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x310))) * lbl_805E02E0);
       if (objInBand((GameObj *)arg0, (f32)((f32) TObjEneIllGill__data_805E02C0)) != 0)
@@ -1471,7 +1473,7 @@ void TObjEneIllGill::move_toward_dest_with_detour() {
     enemy_turn_toward_dest(o, o->f350->f8);
     enemy_set_heading_velocity(o, o->f60, o->f350->f4);
     o->v2FC.y += TObjEneIllGill__data_805E02DC;
-    move_with_wall_slide(o);
+    move_with_wall_slide((u8 *)o);
 }
 
 void TObjEneIllGill__sub_80367DA4(s32 arg0) {

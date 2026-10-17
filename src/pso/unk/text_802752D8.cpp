@@ -3,8 +3,8 @@
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowShortListCtrl.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
-extern "C" {
 void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2);
+extern "C" {
 volatile char get_type__20TWindowSubStatusDispFv(void *);
 extern s32 actor_frame_tick;
 void TWindowSubComCardList::draw_card_list_selection(u8 *arg1) {
@@ -23,5 +23,4 @@ void TWindowSubComCardList::draw_card_list_selection(u8 *arg1) {
     }
   }
 }
-
 }

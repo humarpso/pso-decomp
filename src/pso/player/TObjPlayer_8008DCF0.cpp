@@ -147,10 +147,12 @@ struct En0VObj : En0Base {
     virtual s32 m5();
 };
 
-extern "C" {
 extern Row_8008ED48 lbl_805006F8[];
+extern "C" {
 void apply_actor_gravity(TObjEnemy *arg0, s32 *arg1, f32 farg0);
+}
 void move_with_wall_slide(u8 *arg0);
+extern "C" {
 s32 check_path_obstructed(void *, Vec_8008F910 *);
 s32 fn_80090464(void *, int);
 s32 advance_animation_playback(void *);
@@ -604,5 +606,4 @@ void TObjPlayer__sub_8008FAD0(u8 *arg0) {
         break;
     }
 }
-
 }

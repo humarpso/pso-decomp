@@ -44,11 +44,13 @@ extern const f32 lbl_805DCA44;
 void draw_action_palette_icon(Icon_80243630 *icon, u16 group, u16 index);
 void *find_item_by_id();
 s32 get_palette_consumable_count();
+}
 void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1);
 
 extern f32 lbl_805DCA1C;
 extern f32 lbl_805DCA20;
 extern f32 lbl_805DCA24;
+extern "C" {
 
 void TWindowHelpItem::set_help_text(s32 arg0, s32 arg1) {
     if (((TBoss8Dragon *)arg1)->test_card_flag_2() != 0) {
@@ -182,5 +184,4 @@ void draw_action_palette_icon(Icon_80243630 *icon, u16 group, u16 index) {
     icon->u1 = icon->u1 * lbl_805DCA44;
     icon->v1 = icon->v1 * lbl_805DCA44;
 }
-
 }

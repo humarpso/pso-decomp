@@ -417,7 +417,9 @@ f64 atan2_float(f32, f32);
 s32 enemy_set_target_id(void *, u16);
 u16 set_squared_value__9TObjEneDDFf(void *, f32);
 u16 enemy_find_nearest_player_in_range(void *, f32);
-s32 tick_period_counter(void *, void *, int);
+}
+s32 tick_period_counter(s32 arg0, s32 *arg1, s32 arg2);
+extern "C" {
 s32 angle_difference_abs(int, int);
 s32 approach_angle_limited(int, int, void *);
 extern const f64 lbl_8043BBD8;
@@ -469,7 +471,7 @@ void TObjEneDD::state_chase_target(s32 arg1) {
     case 0:
         ((s32 (*)())advance_animation_playback)();
         idx = 0xFFFF;
-        if (tick_period_counter(arg0, arg0 + 0x3D0, 0x14) != 0) {
+        if (tick_period_counter((s32)arg0, (s32 *)(arg0 + 0x3D0), 0x14) != 0) {
             if (*(f32 *)((s8 *)arg0 + 0x3AC) > lbl_805D9FEC) {
                 if (((VObj_18 *)(arg0))->m97() != 0) {
                     idx = set_squared_value__9TObjEneDDFf(arg0, *(f32 *)((s8 *)arg0 + 0x3AC) - lbl_805D9FEC);
@@ -521,5 +523,4 @@ void handle_flower_state_change(TObjEneDD *arg0, s32 arg1) {
         break;
     }
 }
-
 }

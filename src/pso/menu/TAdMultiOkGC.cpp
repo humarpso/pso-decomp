@@ -73,7 +73,6 @@ typedef struct { P3_80307034 v[11]; } Pos_80307034;
 
 typedef struct { u32 c[12]; } Col_80307034;
 
-extern "C" {
 extern const f32 lbl_805DF04C;
 extern const f32 lbl_805DF050;
 extern const f32 lbl_805DF054;
@@ -81,6 +80,7 @@ extern const f32 lbl_805DF058;
 extern const f32 lbl_805DF05C;
 extern const f32 lbl_805DF060;
 extern const f32 lbl_805DF064;
+extern "C" {
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 play_sound_effect(int, void *, int, int);
 extern Ports_80306DF4 multi_ok_player_port_index_table;
@@ -98,7 +98,9 @@ extern const f32 lbl_805DF068;
 extern const f32 lbl_805DF06C;
 extern const f32 lbl_805DF070;
 Ok_80307034 *__ct__12TAdMultiOkGCFv(Ok_80307034 *self, void *parent, Cfg_80307034 *cfg);
+}
 int multi_confirm_cancel_requested(void* p) { return *(u32*)((char*)p + 0x980) & 0x1; }
+extern "C" {
 
 s32 are_all_entries_finished(O_80306AC8 *self) {
     s32 i;
@@ -212,10 +214,11 @@ void TAdMultiOkGC::run_task() {
     }
 }
 }
+
 TAdMultiOkGC::~TAdMultiOkGC() {}
-extern "C" {
 #pragma push
 #pragma fp_contract on
+extern "C" {
 Ok_80307034 *__ct__12TAdMultiOkGCFv(Ok_80307034 *self, void *parent, Cfg_80307034 *cfg) {
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = __vt__12TAdMultiOkGC;
@@ -270,6 +273,7 @@ Ok_80307034 *__ct__12TAdMultiOkGCFv(Ok_80307034 *self, void *parent, Cfg_8030703
     }
     return self;
 }
+}
 #pragma pop
 
 void free_multi_confirm_textures(void) {
@@ -279,4 +283,3 @@ void free_multi_confirm_textures(void) {
     }
 }
 void load_multi_confirm_textures(void) { multi_confirm_texture_list = (int)&multi_confirm_texture_descriptor; TLobby__sub_8023E4B4((s32)multi_confirm_texture_archive_name, (s32)&multi_confirm_texture_descriptor); }
-}

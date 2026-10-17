@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void setup_alpha_test_render_state(u8 arg0);
-}
 
 #endif

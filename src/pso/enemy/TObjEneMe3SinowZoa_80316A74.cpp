@@ -148,7 +148,9 @@ s32 play_sound_effect(s32, u32, s16, s32);
 s32 pack_debug_text_position(s32, s32);
 s32 sub_8031A454__18TObjEneMe3SinowZoaFv(void *);
 s32 is_outside_visible_range__18TObjEneMe3SinowZoaFv(void *);
-s32 print_float_padded(s32, s32, f32);
+}
+void print_float_padded(s32 arg0, s32 prec, f32 val);
+extern "C" {
 void debug_printf_at(s32 id, const char *fmt, ...);
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
@@ -176,7 +178,9 @@ s32 select_enemy_destination(void *, Vec_80316C3C, int);
 s32 copy_position_if_valid__10TObjPlayerFii(void *, Vec_80316C3C);
 s32 enemy_turn_toward_dest(void *, s32);
 void enemy_set_heading_velocity(void *, s32, f32);
-s32 move_with_wall_slide(void *);
+}
+void move_with_wall_slide(u8 *arg0);
+extern "C" {
 void subtract_vector(void *, void *);
 s32 update_angle__10TObjPlayerFlPv(void *, s32, void *);
 s32 push_matrix_from(void *);
@@ -213,7 +217,7 @@ inline s32 seek_80316C3C(Obj_80316C3C *arg0, Vec_80316C3C *diff) {
     if (select_enemy_destination(arg0, arg0->dest, 1) != 0) {
         angle = approach_80316C3C(arg0);
         enemy_set_heading_velocity(arg0, arg0->rotY, arg0->move->speed);
-        move_with_wall_slide(arg0);
+        move_with_wall_slide((u8 *)arg0);
     } else {
         VecCopy((Vec *)diff, (const Vec *)&arg0->dest);
         subtract_vector(diff, &arg0->cur);
@@ -534,5 +538,4 @@ void TObjEneMe3SinowZoa::vfunc_115() {
         TParticleCtrl::end_effect_render();
     }
 }
-
 }

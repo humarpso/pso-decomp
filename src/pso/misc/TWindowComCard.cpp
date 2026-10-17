@@ -23,8 +23,10 @@ s32 draw_default_entry__9TWindowDDFl();
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 void render__14TWindowComCardFv(s32 arg0);
+}
 extern u8 *text_language_group_table;
 s32 get_class_name_text(s32 arg0);
+extern "C" {
 s32 TWindowSubComCard__sub_8007B070(s32);
 void *__nw__7TObjectFUl(int);
 extern s32 local_client_id;
@@ -204,6 +206,7 @@ u8 *TWindowComCard__ct(u8 *arg0, s32 arg1, s32 arg2) {
 void*TWindowComCard::get_kbd_ptr() { return (char*)this + 0x20; }
 u8 TWindowComCard__sub_80249C18(void* p) { return *(u8*)((char*)p + 0x8e); }
 u8 TWindowComCard__sub_80249C20(void* p) { return *(u8*)((char*)p + 0x8d); }
+}
 s32 get_class_name_text(s32 arg0) {
     return *(s32 *)((s8 *)(*(s32 *)((s8 *)text_language_group_table + 0x1C)) + (arg0 * 4));
 }
@@ -212,6 +215,7 @@ s32 get_status_effect_icon_index(u32 arg0);
 void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1);
 
 extern u8 com_card_help_panel_rect_table[];
+extern "C" {
 
 void TWindowComCard::set_help_mode(s32 arg1) {
     void *temp_r4;
@@ -231,6 +235,7 @@ void TWindowComCard::set_help_mode(s32 arg1) {
 }
 
 void*TWindowComCard::get_card_name_ptr() { return (char*)this + 0xa; }
+}
 s32 get_status_effect_icon_index(u32 arg0) {
     switch (arg0) {
     case 3:
@@ -257,6 +262,7 @@ s32 get_status_effect_icon_index(u32 arg0) {
         return 0xE;
     }
 }
+extern "C" {
 
 void TWindowComCard::set_selected_index(s32 arg1) {
     s32 temp;
@@ -280,9 +286,8 @@ void TWindowComCard__sub_80249D7C(u8 *arg0, s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x50) = 0xF;
     }
 }
-#pragma pop
-
 }
+#pragma pop
 
 #include "pso/misc/TWindowTradeRequest.h"
 

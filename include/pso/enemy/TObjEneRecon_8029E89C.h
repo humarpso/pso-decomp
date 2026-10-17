@@ -5,7 +5,7 @@
 
 extern "C" {
 s32 TObjEneRecon__sub_8029EA4C(void *arg0, s32 _w1);
-void restore_render_scissor(s32 arg0);
 }
+void restore_render_scissor(s32 arg0);
 
 #endif

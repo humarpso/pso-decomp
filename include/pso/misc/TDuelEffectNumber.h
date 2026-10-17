@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void calc_duel_number_uv(s32 arg0, u8 *arg1, s32 arg2);
-}
 
 #endif

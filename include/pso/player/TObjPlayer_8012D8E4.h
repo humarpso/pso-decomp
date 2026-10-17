@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void enlarge_flight_cutter_slicer(void *arg0);
-}
 
 #endif

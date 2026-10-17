@@ -663,7 +663,9 @@ s32 free_collision_body_parts(void *);
 Pl_8033496C * get_player_by_client_id(s32);
 s32 __dl__7TObjectFPv(void *);
 void TObjPlayer__sub_8023DEE0(s16 *p, s16 a, s16 b, u16 id);
+}
 void restore_render_scissor(s32 arg0);
+extern "C" {
 void TObjEneMorfos__sub_80332DBC(u8 *arg0, s32 arg1);
 void TObjEneMorfos__sub_80333E48(u8 *arg0, s32 arg1);
 void TObjEneMorfos__sub_80334030(u8 *arg0, s32 arg1);
@@ -687,6 +689,7 @@ void subtract_vector(void *, void *);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
+}
 void draw_chunk_model(void *arg0);
 
 extern int TObjEneMorfos__instance;
@@ -1091,6 +1094,7 @@ void *__vt__13TObjEneMorfos[107] = {
     (void *)&TObjEneEpsilon__vt101, (void *)&vfunc_83__13TObjEneMorfosFv, (void *)&vfunc_106__13TObjEneMorfosFv,
 };
 #define __vt__13TObjEneMorfos ((s32 *)__vt__13TObjEneMorfos)
+extern "C" {
 
 int TObjEneMorfos::get_instance() {  return TObjEneMorfos__instance; }
 
@@ -2378,5 +2382,4 @@ void *TObjEneMorfos::create() {
     }
     return o;
 }
-
 }

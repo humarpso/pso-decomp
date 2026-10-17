@@ -86,12 +86,16 @@ s32 get_text_collection(s32);
 extern s32 lbl_805D2B10;
 u32 roll_channel_below__9TItemDropFPviUi(u8 *arg0, s32 count, u32 arg2);
 s32 __cvt_fp2unsigned(f32);
+}
 void roll_item_channel_below(u32 arg0, s32 arg1);
+extern "C" {
 u8 get_weapon_class_motion_type(u8 arg0);
 u8 get_technique_learn_limit(s8 arg0, u8 arg1);
 s32 get_item_star_count(s32 id);
 Entry_8011CB18 *get_weapon_range_record(Item_8011CB18 *item, s16 mode);
+}
 s32 is_unsealable_item(u8 *id);
+extern "C" {
 void get_weapon_special_type_amount(u32 x, s16 *a, s16 *b);
 void update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
@@ -120,6 +124,7 @@ s32 TObjPlayer::get_item_pmt_entry(u8 arg0) {
     }
     return 0;
 }
+}
 
 s32 is_unsealable_item(u8 *id) {
     List_8011C030 *l = ((Tbl_8011C030 *)item_pmt_tbl)->list;
@@ -134,6 +139,7 @@ s32 is_unsealable_item(u8 *id) {
     }
     return 0;
 }
+extern "C" {
 
 s32 TObjPlayer::get_shield_pmt_entry(u8 arg0) {
     if (arg0 == 0) {
@@ -206,6 +212,7 @@ f32 TObjPlayer::get_drop_random_float(u32 arg0) {
     }
     return lbl_805DAC70 * (f32) rand();
 }
+}
 
 void roll_item_channel_below(u32 count, s32 arg1) {
     if ((u32) (*(u32 *)&item_mgr) != 0U) {
@@ -214,6 +221,7 @@ void roll_item_channel_below(u32 count, s32 arg1) {
     }
     __cvt_fp2unsigned((f32) count * TObjPlayer::get_drop_random_float(arg1));
 }
+extern "C" {
 
 void TObjPlayer::drop_item_from_slot(s32 area, s32 arg1, s32 arg2) {
     s32 sp8;
@@ -447,5 +455,4 @@ Entry_8011CB18 *get_weapon_range_record(Item_8011CB18 *item, s16 mode) {
     }
     return (*(Pmt_8011CB18 **)&item_pmt_tbl)->entries;
 }
-
 }

@@ -294,6 +294,7 @@ s32 TObjBoss2Tunnel::load_snapshot() {
     }
     return 0;
 }
+}
 
 s32 save_screen_snapshot(void) {
     if (memcard_check_snapshot(1, 0) == 0) {
@@ -305,6 +306,7 @@ s32 save_screen_snapshot(void) {
     TObjBoss2Tunnel__snapshot_state = 2;
     return 1;
 }
+extern "C" {
 s32 TObjBoss2Tunnel::save_snapshot_to_card() {
     Card_8007CCD0 c;
     s32 *p;
@@ -338,5 +340,4 @@ s32 TObjBoss2Tunnel::save_snapshot_to_card() {
     TObjBoss2Tunnel__snapshot_state = 1;
     return 1;
 }
-
 }

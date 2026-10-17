@@ -5,7 +5,9 @@ extern "C" {
 void TLobby__sub_801E6C4C();
 void TLobby__sub_801E6CA4();
 void TLobby__sub_801E6E20();
+}
 void quest_check_chat_keyword();
+extern "C" {
 void TLobby__sub_801E6F1C();
 void qst_op_arg_pushs();
 void push_table_ref_by_index__6TLobbyFUs();
@@ -437,6 +439,7 @@ extern const char quest_bgm_miniclear_filename[];
 __declspec(section ".data") const char* qst_bgm_filename_table[2] = {
     quest_bgm_clear_filename, quest_bgm_miniclear_filename
 };
+}
 
 QuestOpcodeEntry qst_opcode_table[0x300] = {
     { qst_getargs_801F2B94, qst_op_nop },
@@ -1208,4 +1211,3 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { 0, 0 },
     { 0, 0 },
 };
-}

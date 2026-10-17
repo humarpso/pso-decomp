@@ -56,6 +56,7 @@ void TObjPlayer::mult_vec_array(u32 arg0, s32 arg1) {
     }
     PSMTXMultVecArray((s32) var_r3, arg1);
 }
+}
 #pragma pop
 
 #pragma push
@@ -72,6 +73,7 @@ void get_current_matrix(void *m) {
 
 #pragma push
 #pragma scheduling off
+extern "C" {
 void TObjPlayer::invert_matrix_in_place(u32 arg0) {
     u32 var_r3;
     var_r3 = arg0;
@@ -96,6 +98,7 @@ void rotate_matrix_zyx(void *m, s32 x, s32 y, s32 z) {
         rotate_matrix_x(m, x);
     }
 }
+}
 #pragma pop
 
 void rotate_matrix_yxz(s32 matrix, s32 arg1, s32 arg2, s32 arg3) {
@@ -110,6 +113,7 @@ void rotate_matrix_yxz(s32 matrix, s32 arg1, s32 arg2, s32 arg3) {
     }
 }
 typedef f32 Mtx_803D8B5C[3][4];
+extern "C" {
 void scale_matrix(f32 (*m)[4], f32 sx, f32 sy, f32 sz) {
     Mtx_803D8B5C tmp;
     f32 (*t)[4];
@@ -633,8 +637,8 @@ u8 debug_font_texture_i4[DEBUG_FONT_TEXTURE_BYTES] ATTRIBUTE_ALIGN(32) = {
     0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
     0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 };
+}
 
 GXTexObj debug_font_texture_object;
-}
 typedef char DebugFontTextureObjectSize[sizeof(GXTexObj)==32 ? 1 : -1];
 typedef char DebugFontTextureFormat[(GX_TF_I4==0) ? 1 : -1];

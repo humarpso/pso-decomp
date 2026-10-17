@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void create_leilla_photon_blast_model(void);
-}
 
 #endif

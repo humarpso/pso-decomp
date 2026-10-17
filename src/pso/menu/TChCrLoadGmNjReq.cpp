@@ -61,6 +61,7 @@ void *TChCrLoadGmNjReq__ct(void *arg0, void *arg1, void *arg2) {
     *(u32 *)((s8 *)arg0 + 0x2C) = 0;
     return arg0;
 }
+}
 
 void * create_ch_cr_load_gm_nj_req(void *arg0, void *arg1) {
     void *o;
@@ -69,6 +70,4 @@ void * create_ch_cr_load_gm_nj_req(void *arg0, void *arg1) {
         o = TChCrLoadGmNjReq__ct(o, arg0, arg1);
     }
     return o;
-}
-
 }

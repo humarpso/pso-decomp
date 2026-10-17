@@ -16,8 +16,7 @@ void *TCheckRoomSequence::create(void *arg2_) {
     }
     return o;
 }
+}
 
     extern int TCheckRoomSequence__slot_active_flags[];
 int get_check_room_slot_active_flag(int a0) {  return TCheckRoomSequence__slot_active_flags[a0]; }
-
-}

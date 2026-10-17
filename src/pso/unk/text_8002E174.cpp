@@ -125,6 +125,7 @@ s32 pop_matrix();
 s32 post_translate_matrix(void *);
 void set_chunk_material_override_pair(s32 arg0, s32 arg1);
 void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
+}
 void set_chunk_blend(u32 x);
 void draw_chunk_model(void *arg0);
 extern Color_8002E3D4 player_part_model_white_color;
@@ -132,6 +133,7 @@ extern Holder_8002E3D4 *lbl_805D4BA4;
 extern s32 current_scene_light;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
+extern "C" {
 s32 matrix_mult_vec(int, void *, void *);
 void set_matrix_identity(u8 *arg0);
 s32 rotate_vector_by_matrix(int, void *, void *);
@@ -290,5 +292,4 @@ Obj_8002E62C *construct_piece_controller__10TObjPlayerFPvii(Obj_8002E62C *self, 
     pop_matrix();
     return self;
 }
-
 }

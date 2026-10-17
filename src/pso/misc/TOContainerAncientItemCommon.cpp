@@ -50,6 +50,7 @@ void submit_cursor_candidate(Obj_8015C48C *self, s32 x);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 s32 check_value_equals__13TUnk_804B6C24Fl(void *, s32);
+}
 void play_container_break_sound(s32 arg0);
 extern Desc_8015C234 fish_break_debris_desc;
 extern Desc_8015C234 lbl_8044074C;
@@ -80,6 +81,7 @@ struct VObj_8015C098 : Base_8015C098 {
     virtual void m73(); virtual void m74(); virtual void m75(); virtual void m76();
     virtual void m77();
 };
+extern "C" {
 
 void __dl__7TObjectFPv(void *);
 
@@ -223,5 +225,4 @@ void TUnk_804B08BC::vfunc_80() {
         break;
     }
 }
-
 }

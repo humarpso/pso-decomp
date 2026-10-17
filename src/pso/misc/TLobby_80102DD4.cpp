@@ -4,9 +4,8 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/object/TObjMotion.h"
 
-extern "C" {
-
 void init_6x5E_buy_item_header(void* p);
+extern "C" {
 void TLobby__send_and_handle_60(u8 *arg0);
 void bswap__9TItemDataFv(s32 arg0);
 s32 read_be16_field2__10TObjPlayerFv();
@@ -27,7 +26,9 @@ u8 TLobby::is_matching_id(s32 arg0, u16 arg1) {
 void TLobby::bswap_shop_item() { ((int (*)(void*))read_be16_field2__10TObjPlayerFv)(this); bswap__9TItemDataFv((s32)((char*)this + 0x4)); }
 void TLobby::send_item_and_handle_60() { bswap_shop_item(); TLobby__send_and_handle_60((u8 *)this); }
 void TLobby::copy_item_data(void* q) { *(u8 *)&this->m_name = *(u8*)((char*)q + 0x0); *(u8*)((char*)this + 0x1) = *(u8*)((char*)q + 0x1); *(u8*)((char*)this + 0x2) = *(u8*)((char*)q + 0x2); *(u8*)((char*)this + 0x3) = *(u8*)((char*)q + 0x3); *(u8 *)&this->m_flags = *(u8*)((char*)q + 0x4); *(u8*)((char*)this + 0x5) = *(u8*)((char*)q + 0x5); *(u32 *)&this->m_id = *(u32*)((char*)q + 0x6); *(u16*)((char*)this + 0xa) = *(u16*)((char*)q + 0xa); *(u32 *)&this->m_next = *(u32*)((char*)q + 0xc); *(u32 *)&this->m_up = *(u32*)((char*)q + 0x10); }
+}
 void init_6x5E_buy_item_header(void* p) { *(u8*)((char*)p + 0x0) = 94; *(u8*)((char*)p + 0x1) = 6; }
+extern "C" {
 void TLobby::bswap_6x5D() { ((int (*)(void*))read_be16_field2__10TObjPlayerFv)(this); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); ((TObjPlayer *)((char*)this + 0x8))->bswap_pkt_u32x2(); bswap__9TItemDataFv((s32)((char*)this + 0x10)); }
 void TLobby::send_6x5D() { bswap_6x5D(); TLobby__send_and_handle_60((u8 *)this); }
 void*TLobby::init_fields() { init_default_fields(); *(unsigned char*)((char*)this + 0x24) = 2; *(unsigned char*)((char*)this + 0x25) = 0; *(unsigned char*)((char*)this + 0x26) = 0; *(unsigned char*)((char*)this + 0x27) = 0; *(unsigned char*)((char*)this + 0x1) = 10; return this; }
@@ -41,7 +42,6 @@ void bswap_pick_up_item_packet__6TLobbyFi(s32 arg0) {
     bswap_16((u16 *)(arg0 + 6));
     bswap_32((u32 *)(arg0 + 8));
 }
-
 }
 
 struct O_80103044 { u8 f0; u8 f1; u8 pad[2]; u16 f4; u16 f6; s32 f8; };
@@ -166,7 +166,9 @@ extern const f32 lbl_805DAA88;
 u8 *__ct__13TItemAttackerFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 __nw__7TObjectFUl(int);
 void TItemAttacker__sub_8010349C(u32);
+}
 void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3);
+extern "C" {
 u8 *find_item_by_id(s32);
 f32 horizontal_distance_squared(void *, void *);
 void *resolve_hittable_target(u16 actorId, s16 collider);
@@ -238,6 +240,7 @@ void deliver_delayed_weapon_hit(u8 *arg0) {
     }
     *(s32 *)((s8 *)arg0 + 0x34) = 1;
 }
+}
 
 void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3) {
     s32 var_r0;
@@ -248,6 +251,4 @@ void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3) {
         }
         TItemAttacker::spawn_item_timer(var_r0, (s32)&TItemAttacker__sub_8010349C, arg2);
     }
-}
-
 }

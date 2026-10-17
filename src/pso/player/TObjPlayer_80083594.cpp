@@ -16,27 +16,33 @@ struct Stack_800836E8 {
 extern "C" {
 s32 is_split_screen();
 s32 TCameraCtrl__sub_800689F4();
-s32 calc_projection_screen_offset(void *, void *);
-f64 calc_camera_fov_degrees();
+}
+void calc_projection_screen_offset(f32 *arg0, f32 *arg1);
+f32 calc_camera_fov_degrees(void);
+extern "C" {
 s32 PSMTXConcat(void *, void *, void *);
 s32 C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
 s32 rotate_matrix_y(int, void *);
 s32 push_matrix();
-s32 load_current_pos_matrix(int);
-s32 load_current_tex_matrix(int);
+}
+void load_current_pos_matrix(s32 arg0);
+void load_current_tex_matrix(s32 i);
 extern const f64 lbl_80439358;
 extern s32 current_matrix;
 extern const f32 lbl_805D93DC;
 extern const f32 lbl_805D940C;
 extern const f32 lbl_805D9414;
+extern "C" {
 s32 GXSetTevOp(s32, s32);
 s32 GXSetTevOrder(s32, s32, s32, s32);
-s32 set_ginja_post_texgen_count(s32);
-s32 set_ginja_post_tev_stage_count(s32);
-s32 load_list_texture(s32, s32, s32, s32);
+}
+void set_ginja_post_texgen_count(s32 x);
+void set_ginja_post_tev_stage_count(s32 x);
+void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map);
 
 extern s32 shared_capture_texture_list[];
 extern s32 model_render_flags;
+extern "C" {
 
 void TObjPlayer::setup_tev_stage() {
     if (is_split_screen() == 0) {
@@ -49,6 +55,7 @@ void TObjPlayer::setup_tev_stage() {
         set_ginja_post_tev_stage_count(1);
         set_ginja_post_texgen_count(1);
     }
+}
 }
 
 void setup_particle_tev(s32 arg0) {
@@ -89,6 +96,7 @@ void load_projected_texture_matrix(f32 farg0) {
         load_current_pos_matrix(0);
     }
 }
+extern "C" {
 
 void TOTrapAncient02::load_projection_tex_matrix() {
     s32 arg0 = (s32)this;
@@ -112,5 +120,4 @@ void TOTrapAncient02::load_projection_tex_matrix() {
         load_current_pos_matrix(0);
     }
 }
-
 }

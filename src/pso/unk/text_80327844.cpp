@@ -2,6 +2,7 @@
 #include "pso/unk/text_80327844.h"
 extern "C" {
 s32 collect_scroll_uv_entries__19TOComputerMachine01FiPvi(void *, int, void *);
+}
 void visit_matching_models(s32 arg0, u8 *arg1, s32 arg2) {
   unsigned int new_var;
   u32 temp_r4;
@@ -24,6 +25,4 @@ void visit_matching_models(s32 arg0, u8 *arg1, s32 arg2) {
     var_r30 = (u8 *) (*((u8 **) (((s8 *) var_r30) + 0x30)));
   }
   while (var_r30 != 0);
-}
-
 }

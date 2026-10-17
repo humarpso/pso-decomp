@@ -94,10 +94,12 @@ extern const f32 lbl_805DA3D0;
 void TObjPlayer::spawn_dead_spot_here(s32 point, s32 delay) {
     TObjPlayer::spawn_dead_spot(point, 1, delay, lbl_805DA3D0);
 }
+}
 
 void spawn_landing_dead_spot(s32 point, s32 delay) {
     TObjPlayer::spawn_dead_spot(point, 2, delay, lbl_805DA3C4);
 }
+extern "C" {
 
 void TObjPlayer::spawn_dead_spot_type2(s32 point, s32 delay) {
     TObjPlayer::spawn_dead_spot(point, 2, delay, lbl_805DA3C8);
@@ -138,7 +140,9 @@ extern s32 player_particle_effect_enabled;
 extern u8 corpse_mark_resource_descriptor[];
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
+}
 void set_chunk_blend(u32 x);
+extern "C" {
 void set_chunk_material_override_pair(s32 arg0, s32 arg1);
 
 void TObjPlayer::destroy_static_lobby() {
@@ -146,6 +150,7 @@ void TObjPlayer::destroy_static_lobby() {
         TLobby__sub_8001FE7C((void*)(*(u32 *)&player_corpse_mark_resource), 1);
         (*(u32 *)&player_corpse_mark_resource) = 0U;
     }
+}
 }
 
 extern s32 model_render_flags;
@@ -158,6 +163,7 @@ void load_corpse_mark_resource(void) {
     (*(u32 *)&player_corpse_mark_resource) = (u32)p;
     player_particle_effect_enabled = 1;
 }
+extern "C" {
 
 s32 TUnk_80494AE0::vfunc_10() {
     f32 *arg0 = (f32 *)this;
@@ -211,7 +217,6 @@ s32 TUnk_80494AE0::decay_value_toward_floor() {
 }
 
 void TUnk_80494AE0::reset_obstruction_fade() { *(float *)&this->unk_0 = lbl_805DA3D8; this->m_4 = lbl_805DA3DC; *(float *)&this->unk_8 = lbl_805DA3DC; this->m_c = lbl_805DA3DC; }
-
 }
 
 struct Raw_800D9718 { u8 pad[0x10]; f32 f10; s32 *vt; };

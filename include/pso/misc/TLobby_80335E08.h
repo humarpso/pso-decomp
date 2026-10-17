@@ -9,7 +9,9 @@ void TLobby__sub_80335E78(void);
 void TLobby__sub_80335FE0(void);
 void TLobby__sub_80335FE4(void);
 int TLobby__sub_80336030(void *p);
+}
 void bind_title_texture_list(void);
+extern "C" {
 void *get_title_texture_list(void);
 }
 

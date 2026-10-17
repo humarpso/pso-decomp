@@ -3,7 +3,6 @@
 #include "pso/unk/text_803E2008.h"
 #include "pso/unk/text_803E2070.h"
 #include "pso/player/TObjPlayer.h"
-extern "C" {
 extern const f32 lbl_805E1050;
 extern const f32 lbl_805E1054;
 #pragma push
@@ -16,5 +15,3 @@ void reset_scene_fog(void) {
     apply_scene_fog();
 }
 #pragma pop
-
-}

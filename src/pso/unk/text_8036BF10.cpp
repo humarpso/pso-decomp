@@ -2,6 +2,7 @@
 extern "C" {
 s32 validate_attack_target_count(s32 *count);
 s32 validate_attack_target_entry(void *entry);
+}
 s32 validate_attack_target_list(s32 *list);
 s32 validate_attack_target_list(s32 *list) {
     s32 i;
@@ -14,6 +15,4 @@ s32 validate_attack_target_list(s32 *list) {
         }
     }
     return 1;
-}
-
 }

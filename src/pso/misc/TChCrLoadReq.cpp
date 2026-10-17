@@ -24,12 +24,13 @@ void TLobby__sub_8028D738(s32, s32);
 extern u8 class_appearance_table[];
 void *__ct__12TChCrLoadReqFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 void *__dt__12TChCrLoadReqFv(void *arg0, s16 arg1);
+}
 void * create_ch_cr_load_req(void *arg0, void *arg1);
+extern "C" {
 void sub_8028CEEC__12TChCrLoadReqFPl(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
-
 }
 
 void TChCrLoadReq::update_load_progress() {
@@ -117,6 +118,7 @@ u8 *TChCrLoadReq__sub_8028D360(TChCrLoadReq *arg0, s32 arg1) {
     arg0->reset_request();
     return (u8 *)arg0;
 }
+}
 
 void * create_ch_cr_load_req(void *arg0, void *arg1) {
     void *o;
@@ -126,6 +128,7 @@ void * create_ch_cr_load_req(void *arg0, void *arg1) {
     }
     return o;
 }
+extern "C" {
 
 void *TChCrLoadReq::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x90);
@@ -134,5 +137,4 @@ void *TChCrLoadReq::create(void *arg0) {
     }
     return o;
 }
-
 }

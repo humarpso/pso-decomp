@@ -19,6 +19,7 @@ extern "C" {
 s32 TLobby__sub_803CC4C0(u32);
 u32 adxf_open__6TLobbyFUii(void *, s32);
 void load_gvm_texture_archive(u32, s32);
+}
 extern u8 fsrv_read_pvm_buffer_tag[];
 extern AsyncFileReadRequest *async_file_read_current_request;
 extern s32 async_file_read_state;
@@ -112,6 +113,4 @@ void process_async_file_reads(void) {
         break;
     }
     TGStream__sub_800FDD64();
-}
-
 }

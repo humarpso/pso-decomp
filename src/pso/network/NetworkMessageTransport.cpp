@@ -135,10 +135,14 @@ extern u8 lbl_805CF240[];
 s32 TLobby__sub_8042558C(void *);
 extern u8 lbl_805E1190[6];
 s32 TLobby__sub_80426660(u8 *arg0);
+}
 void enable_network_multicast_address(void *arg0);
+extern "C" {
 
 void TLobby__sub_804089A8(s32, s32, void *, void *);
+}
 void dispatch_received_ethernet_frame(void *q, void *a, void *b);
+extern "C" {
 s32 TLobby__sub_80426440(void);
 
 #pragma push
@@ -228,6 +232,7 @@ void TLobby::message_thread_loop() {
 void TLobby__sub_80425D88(u8 v) {
     network_message_pending_count++;
     OSSendMessage(lbl_805CF380, (void *)v, 0);
+}
 }
 
 #define self ((EthernetReceiveFilter *)q)
@@ -323,6 +328,7 @@ void dispatch_received_ethernet_frame(void *q, void *a, void *b) {
 
 #undef self
 #undef pkt
+extern "C" {
 
 s16 TLobby__sub_80426110(Obj_80426110 *o, u16 arg1, u16 arg2) {
     s32 i;
@@ -639,7 +645,6 @@ typedef char RecoveredGlobal_8042DD70_lbl_805D1D20_size[sizeof(RecoveredGlobal_8
 #pragma pop
 
 void TAdSinglePlyChrSelectGC__sub_8042DDE4(int _w0, int _w1);
+}
 
 typedef char RecoveredGlobal_8042E768_lbl_805D1D20_size[sizeof(RecoveredGlobal_8042E768_lbl_805D1D20) == 0x1C ? 1 : -1];
-
-}

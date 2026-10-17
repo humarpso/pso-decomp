@@ -10,10 +10,12 @@ struct RecoveredGlobal_8022C680_lbl_80515FBC {
     u8 remaining[0xBC];
 };
 
-extern "C" {
 extern RecoveredGlobal_8022C680_lbl_80515FBC lbl_80515FBC;
+extern "C" {
 void TItemEquipBase__sub_8022C680(s32 arg0, u16 arg1, s32 arg2);
+}
 f32 calc_technique_boost(s32, u16);
+extern "C" {
 f32 get_battle_value__10TObjPlayerFlil(void *, s32, s16);
 void *get_player_by_client_id(s32 i);
 extern const f32 lbl_805DC7D8;
@@ -42,6 +44,7 @@ s32 TTecCtrl::classify_distance_band(s32 arg0, s32 arg1, s32 arg2) {
     }
     return 3;
 }
+}
 f32 calc_technique_boost(s32 technique, u16 actor) {
     f32 sum;
     void *player;
@@ -63,10 +66,10 @@ f32 calc_technique_boost(s32 technique, u16 actor) {
     return sum;
 }
 typedef char RecoveredGlobal_8022C680_lbl_80515FBC_size[sizeof(RecoveredGlobal_8022C680_lbl_80515FBC) == 0xC0 ? 1 : -1];
+extern "C" {
 void TItemEquipBase__sub_8022C680(s32 arg0, u16 arg1, s32 arg2) {
     if (arg1 < 4U) {
         ((TItemEquipBase *)((u8 *)&lbl_80515FBC.value + (arg1 * 0x30)))->set_slot(arg2, arg0);
     }
 }
-
 }

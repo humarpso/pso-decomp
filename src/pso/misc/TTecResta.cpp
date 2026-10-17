@@ -128,8 +128,10 @@ void run_task__9TTecRestaFv(Resta_802399F8 *self);
 s32 is_split_screen(void);
 s32 is_script_controlled__10TObjPlayerFv(void *);
 void *__nw__7TObjectFUl(int);
-void construct_delayed_point_sound(void *, void *, s32, s32, s32);
+}
+u8 *construct_delayed_point_sound(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3, u8 *arg4);
 extern s32 tl_07;
+extern "C" {
 s32 copy_technique_target_list(void *, void *);
 void *TTecResta__ct(TTecResta *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void *__dt__13TUnk_804CCBC0Fv(void *arg0, s16 arg1);
@@ -274,7 +276,7 @@ void TTecResta::vfunc_7(void *arg1_arg) {
     if (arg0->active != 0) {
         void *o = __nw__7TObjectFUl(0x30);
         if (o != NULL) {
-            construct_delayed_point_sound(o, (u8 *)arg1 + 0x2FC, 0x14, 0x4002A80F, tl_07);
+            construct_delayed_point_sound((u8 *)o, (u8 *)((u8 *)arg1 + 0x2FC), (s16)(0x14), (s32)(0x4002A80F), (u8 *)tl_07);
         }
     }
 }
@@ -385,8 +387,7 @@ void TTecReverser::vfunc_6(void *arg1_arg) {
     arg1->m21(arg0->source, &c, 0, -1, -1);
     void *o = __nw__7TObjectFUl(0x30);
     if (o != NULL) {
-        construct_delayed_point_sound(o, (u8 *)arg1 + 0x38, 0x2D, 0x4002AD13, tl_07);
+        construct_delayed_point_sound((u8 *)o, (u8 *)((u8 *)arg1 + 0x38), (s16)(0x2D), (s32)(0x4002AD13), (u8 *)tl_07);
     }
 }
-
 }

@@ -197,7 +197,9 @@ int rand(void);
 s32 spawn_chips__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
 s32 init_chips__8TObjChipFPv(u8 *arg0);
 void tick_chips__8TObjChipFPv(u8 *arg0);
+}
 void rotate_matrix_yxz(s32 matrix, s32 arg1, s32 arg2, s32 arg3);
+extern "C" {
 s32 scale_matrix(int, f32, f32, f32);
 void set_chunk_material_override_pair(s32 arg0, s32 arg1);
 void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
@@ -458,7 +460,6 @@ void update__8TObjChipFPv(void *arg0) {
         queue_destruction__7TObjectFv(arg0);
     }
 }
-
 }
 
 TObjChip::~TObjChip() {}

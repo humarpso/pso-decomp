@@ -17,6 +17,7 @@ void TBoss4Type2::request_destroy(u32 arg0) {
         queue_destruction__7TObjectFv();
     }
 }
+}
 #pragma push
 #pragma opt_propagation off
 void *create_oneshot_particle_emitter(void *pos, void *dir, s32 id, s32 flags) {
@@ -40,5 +41,3 @@ void *create_oneshot_particle_emitter(void *pos, void *dir, s32 id, s32 flags) {
     return 0;
 }
 #pragma pop
-
-}

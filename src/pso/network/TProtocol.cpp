@@ -264,7 +264,9 @@ struct Proto_801DC1E4 { u8 pad[0x1910]; s32 connected; u8 pad1914[0x74]; u8 char
 
 void TItem__sub_80101CF8(void *);
 void TProtocol__sub_801DF774(void *, void *);
+}
 s32 validate_player_visual_record(void *arg0);
+extern "C" {
 
 void send_player_data_98__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC1E4 *self, u8 *char_data, void *challenge, void *choice_search_config,
                                List_801DC1E4 *blocked_senders, Text_801DC1E4 *auto_reply, char *info_board) {
@@ -339,7 +341,6 @@ void send_player_data_61__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC34C *self, u8 *ch
         destroy__9TProtocolFis((s32)&tmp, -1);
     }
 }
-
 }
 
 void TProtocol::send_text_list() {

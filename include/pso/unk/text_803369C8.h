@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void rotate_title_background_quad(s32 arg0, u8 *arg1, u8 *arg2, s32 arg3, f32 farg0);
-}
 
 #endif

@@ -964,9 +964,11 @@ struct Stack_802AC040 {
 
 extern "C" {
 void TBoss6PlotFalz__sub_802AC008(f32 farg0, f32 farg1);
+}
 void set_chunk_blend(u32 x);
 extern f32 TBoss6PlotFalz__fade_amount;
 extern s32 game_difficulty_selection;
+extern "C" {
 bool is_normal_difficulty(void);
 void TBoss6PlotFalz::update_camera_target() {
     if (TBoss6PlotFalz__fade_amount > 0.0f) {
@@ -1038,7 +1040,6 @@ bool is_normal_difficulty(void) {
 #undef set_chunk_material_color__13TUnk_80494AE0Fv
 
 int TBoss6PlotFalz::get_phase() {  return plot_falz_phase; }
-
 }
 
 struct Obj_8004AA04 { s32 count; u8 pad[0xC]; void **items; };
@@ -1079,8 +1080,8 @@ struct Sub_802AC3E8 { u8 pad[0x18]; s32 flags; };
 
 struct Obj_802AC3E8 { u8 pad[0x38]; Vec_802AC3E8 pos; u8 pad2[0xA4 - 0x44]; Sub_802AC3E8 *sub; };
 
-extern "C" {
 void *destroy_buffer_pair(void *arg0, s16 arg1);
+extern "C" {
 void mem_free(void *p);
 void refresh_players_equipment__14TBoss6PlotFalzFPv(void *self);
 void scroll_strip_uvs(u32, s16, s16);
@@ -1195,13 +1196,13 @@ void refresh_players_equipment__14TBoss6PlotFalzFPv(void *self) {
         }
     }
 }
-
 }
 
 struct V_802AC538 { f32 x, y, z; };
 extern "C" {
 u8 *get_hit_data__14TBoss4DarkFalzFv(void *);
 void set_position_from__14TBoss4DarkFalzFPv();
+}
 void reset_cameras_to_actor(void *, s32);
 extern const V_802AC538 lbl_804705A8;
 
@@ -1235,6 +1236,7 @@ void place_players_in_warp_circle(void) {
 }
 #pragma pop
 void place_players_in_warp_circle(void);
+extern "C" {
 
 void TBoss6EmptyWarp::init_warp() { place_players_in_warp_circle(); TBoss6PlotFalz::warp_nearby_players(); }
 
@@ -1274,7 +1276,6 @@ void TBoss6PlotFalz__sub_802AC724(u8 *arg0, u32 arg1) {
     set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 0x900000);
     *(u32 *)(arg0 + 0x30) &= 0xFFFFFFDF;
 }
-
 }
 
 #define set_visible_flag__14TBoss6PlotFalzFv ((s32 (*)(void *))set_visible_flag__14TBoss6PlotFalzFv)
@@ -1432,8 +1433,10 @@ s32 register_boss__6TLobbyFl(int);
 s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 s32 initialize__9TObjEnemyFPv();
 u16 register_entity_by_id(void *ov);
+}
 s32 create_boss4_fade();
 extern s32 lbl_805D3E50;
+extern "C" {
 s32 TBoss6PlotFalz__ct(s32, s32, s32);
 void TItemEffOrgaFlowShot__sub_80357204(void);
 int TLobby__sub_8001FE7C(void*, void*);
@@ -1480,7 +1483,9 @@ void handle_6xA3_olga_flow_boss_actions(Msg_802AC7E4 *m) {
 struct Msg_802AC86C { u16 h; u16 a; s8 b; s8 c; u8 pad[0x12]; };
 struct Boss_802AC86C { u8 pad[0x1C]; u16 f1C; u8 pad2[0x374 - 0x1E]; s32 f374; };
 void fn_802ACD60(void *);
+}
 void build_6xA3_olga_flow_boss_actions(void *);
+extern "C" {
 
 void TBoss6PlotFalz::send_6xA3_action(s8 v) {
     Boss_802AC86C *o = (Boss_802AC86C *)this;
@@ -1647,5 +1652,5 @@ int TObjFish::get_fish_count() {  return obj_fish_count; }
 
 __declspec(section ".data") const char *boss06_plotfalz_dat_model_names[15] = { lbl_8046FDB8, lbl_8046FDC8, lbl_8046FDDC, lbl_8046FDF4, lbl_8046FE08, lbl_8046FE1C, lbl_8046FE34, lbl_8046FE48, lbl_8046FE58, lbl_8046FE6C, lbl_8046FE7C, lbl_8046FE94, lbl_8046FEA8, lbl_8046FEB8, NULL };
 __declspec(section ".data") const char *boss06_plotfalz_dat_motion_names[63] = { lbl_8046FED0, lbl_8046FEF0, lbl_8046FF0C, lbl_8046FF28, lbl_8046FF40, lbl_8046FF5C, lbl_8046FF78, lbl_8046FF94, lbl_8046FFB0, lbl_8046FFC4, lbl_8046FFDC, lbl_8046FFF4, lbl_8047000C, lbl_80470028, lbl_80470044, lbl_80470060, lbl_80470078, lbl_80470094, lbl_804700B0, lbl_804700CC, lbl_804700E8, lbl_80470104, lbl_80470120, lbl_8047013C, lbl_8047015C, lbl_80470178, lbl_80470194, lbl_804701B0, lbl_804701CC, lbl_804701E8, lbl_80470204, lbl_80470220, lbl_80470238, lbl_80470250, lbl_80470268, lbl_8047027C, lbl_80470294, lbl_804702AC, lbl_804702C8, lbl_804702E4, lbl_80470300, lbl_80470320, lbl_80470340, lbl_8047035C, lbl_80470378, lbl_80470394, lbl_804703B0, lbl_804703CC, lbl_804703E8, lbl_80470404, lbl_8047041C, lbl_80470438, lbl_80470454, lbl_80470470, lbl_80470490, lbl_804704A8, lbl_804704C4, lbl_804704E4, lbl_80470504, lbl_80470520, lbl_8047053C, lbl_8047055C, NULL };
-BmlResourceDescriptor boss6_plot_falz_resource_descriptor = { lbl_80470574, boss06_plotfalz_dat_model_names, boss06_plotfalz_dat_motion_names, 14, 62 };
 }
+BmlResourceDescriptor boss6_plot_falz_resource_descriptor = { lbl_80470574, boss06_plotfalz_dat_model_names, boss06_plotfalz_dat_motion_names, 14, 62 };

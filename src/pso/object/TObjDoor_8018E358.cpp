@@ -116,7 +116,9 @@ s32 restore_player_cameras(void);
 s32 activate_camera_mode(s32);
 void clear_player_status_flag__13TUnk_804AF8A0FlUl(TObjDoor*,s32,u32);
 void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
+}
 s32 check_player_door_proximity(s32 arg0, s32 arg1, f32 farg0);
+extern "C" {
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 u8 is_current_floor_switch_set(u16);
 extern s32 TObjDoor__data_805D5BC8;
@@ -614,7 +616,6 @@ void *TObjDoorJung__create(void *arg0) {
     }
     return o;
 }
+}
 
 #pragma pop
-
-}

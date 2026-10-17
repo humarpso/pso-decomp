@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 u8 *create_star_atomizer_item(u8 *arg0);
-}
 
 #endif

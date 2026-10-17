@@ -25,11 +25,15 @@ s32 is_split_screen();
 f32 PSMTXConcat(void *, void *, void *);
 s32 C_MTXLightFrustum(void *, f32, f32, f32, f32, f32, f32, f32, f32);
 f32 rotate_matrix_by_node_angles(void *, int);
-s32 set_ginja_post_texgen_count(s32);
-s32 set_ginja_post_tev_stage_count(s32);
+}
+void set_ginja_post_texgen_count(s32 x);
+void set_ginja_post_tev_stage_count(s32 x);
+extern "C" {
 f32 rotate_current_matrix_x_ps(int);
-s32 load_current_pos_matrix(int);
-s32 load_current_tex_matrix(int);
+}
+void load_current_pos_matrix(s32 arg0);
+void load_current_tex_matrix(s32 i);
+extern "C" {
 s32 push_identity_matrix_ps();
 extern RecoveredGlobal_80083914_lbl_8048E5D0 shadow_light_position;
 extern s32 current_matrix;
@@ -79,9 +83,10 @@ void render_projected_shadow_receiver(u8 *arg0, s32 arg1) {
         GXSetTevOp(1, 1);
         TObjPlayer::set_tex_coord_gen(1, 0, 0, 0x1E);
         model_render_flags |= 0x80000;
-        set_ginja_post_tev_stage_count((s32)((int) (1U)));
-        set_ginja_post_texgen_count((s32)((int) (1U)));
+        set_ginja_post_tev_stage_count(((int) (1U)));
+        set_ginja_post_texgen_count(((int) (1U)));
     }
+}
 }
 #pragma pop
 
@@ -99,6 +104,4 @@ f32 calc_camera_fov_degrees(void) {
         var_f1 = (f32) ((s32) (lbl_80439360 * get_end_text_value__10TObjPlayerFv((f32) ((sin_table_lookup(temp_r31) / temp_f31) / lbl_805D940C))) * 2);
     }
     return var_f1;
-}
-
 }

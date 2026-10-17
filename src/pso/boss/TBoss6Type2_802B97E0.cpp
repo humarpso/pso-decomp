@@ -16,7 +16,7 @@ void TBoss6Type2::draw() {
         push_matrix(this);
         post_translate_matrix((void *)((char *)this + 1568));
         rotate_matrix_y(0, *(void * *)&this->m_60);
-        boss6type2_draw_models((s32)((char *)this + 1396), (s32)((char *)this + 1404), (s32)((char *)this + 1412), (u32)(*(void **)((s8 *)this + 0x58C)), (u32)(*(void **)((s8 *)this + 0x590)), (u32)(*(void **)((s8 *)this + 0x594)), (u32)(*(void **)((s8 *)this + 0x598)), (s32)(*(void **)((s8 *)this + 0x570)), (f32)TBoss6Type2__data_805DE40C);
+        boss6type2_draw_models((s32)((char *)this + 1396), (s32)((char *)this + 1404), (s32)((char *)this + 1412), (u32)(*(void **)((s8 *)this + 0x58C)), (u32)(*(void **)((s8 *)this + 0x590)), (u32)(*(void **)((s8 *)this + 0x594)), (u32)(*(void **)((s8 *)this + 0x598)), (s32)(*(void **)((s8 *)this + 0x570)), (f32)((f32)TBoss6Type2__data_805DE40C));
         pop_matrix();
     }
 }

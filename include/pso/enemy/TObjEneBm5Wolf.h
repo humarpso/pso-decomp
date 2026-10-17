@@ -118,7 +118,9 @@ extern "C" {
 u8 *TObjEneBm5Wolf__ct(u8 *arg0, void *arg1, void *arg2);
 s32 __dt__14TObjEneBm5WolfFis(s32 arg0, s16 arg1);
 u8 *__dt__14TObjEneBm5WolfFv(u8 *arg0, s16 arg1);
+}
 s32 actor_rand_int(s32 actor, s32 arg1);
+extern "C" {
 void anchor_state__14TObjEneBm5WolfFl(u8 *arg0, s32 arg1);
 void apply_global_to_position__14TObjEneBm5WolfFv(s32 arg0);
 void apply_to_position__14TObjEneBm5WolfFPv(void *p, void *a1);

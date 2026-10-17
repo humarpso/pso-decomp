@@ -12,7 +12,7 @@ extern "C" void  subtract_vector(Vec*, const Vec*);
 extern "C" f32   vector_length(Vec*);
 extern "C" void  normalize_vector(Vec*);
 extern "C" f32 atan2_float(f32 y, f32 x);
-extern "C" void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
+void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
 extern "C" void* get_field_d8__5TItemFv(void*);
 extern "C" TObject*    tl_05;
 extern "C" const char* TItemShoot__class_name;

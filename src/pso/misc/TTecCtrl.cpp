@@ -30,6 +30,7 @@ void reset_telepipe_visit_counts(void);
 void __ct__7TObjectFP7TObject(void *);
 
 void TTecCtrl::render() {  }
+}
 
     extern unsigned char technique_param_table[];
 
@@ -39,6 +40,7 @@ s32 clamp_nonnegative_int(s32 x) {
     }
     return x;
 }
+extern "C" {
 
 void* get_technique_base_params(int a0) {  return (char*)technique_param_table + a0 * 44; }
 
@@ -79,6 +81,7 @@ void TLobby__sub_8022F068(void) {
     }
     technique_effect_bml = NULL;
 }
+}
 void load_technique_resources(void) {
     u8 *p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
     if (p != 0) {
@@ -88,6 +91,4 @@ void load_technique_resources(void) {
     lbl_805D63B0 = (void **)load_gvm_texture_file((s32)lbl_8044D088);
     bind_gvm_texture_list(lbl_8044D094, ((u8 *)&technique_ringwave_texture_list));
     TTecZondeEff::init_resources();
-}
-
 }

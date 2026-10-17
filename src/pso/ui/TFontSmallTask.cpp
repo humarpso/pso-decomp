@@ -38,10 +38,12 @@ extern "C" {
 void allow_rendering__7TObjectFv(TObject *arg0);
 void disallow_rendering__7TObjectFv(TObject *arg0);
 void queue_destruction__7TObjectFv(void *arg0);
+}
 extern const f32 lbl_805DAA30;
 extern const f32 lbl_805DAA00;
 extern const f32 lbl_805DAA04;
 f32 calc_small_font_scale(void);
+extern "C" {
 void TBoss3Volopt__sub_800FD344(s32 arg0, s32 arg1, s32 arg2, void *arg3, void *arg4);
 s32 create_font_small_task(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 *arg4, s32 arg5, s32 arg6);
 s32 create_font_small_task_default_color(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 *arg4, s32 arg5);
@@ -50,13 +52,16 @@ s32 fn_800FCCF4(void* p);
 s32 *get_shared_text_buffer(void);
 void TWindowSubStatusDisp__sub_80228F5C(s32 arg0);
 void text_builder_append(u8 *str);
+}
 void text_builder_reset(void);
+extern "C" {
 s32 __nw__7TObjectFUl(s32);
 
 void fn_800FCCC8(s32 arg0, s32 arg1) {
     TWindowKeyBoardHard::set_card_window_flags((void *)arg0, (s32)(arg1 << 0xD), (s32)0xFFFF1FFF);
 }
 s32 fn_800FCCF4(void* p) { return *(s32*)((char*)p + 0x874); }
+}
 
 extern s32 lbl_805DAA34;
 
@@ -70,6 +75,7 @@ f32 calc_small_font_scale(void) {
 }
 
 struct Quad_800FCD40 { f32 x, y, right, bottom, u, v, u2, v2; };
+extern "C" {
 
 void push_matrix_from(void *);
 void rotate_matrix_y(int, s32);
@@ -91,6 +97,7 @@ void set_draw_texture_and_color(int, u32);
 void build_small_font_glyph_quad(u8, Quad_800FCD40 *);
 void draw_textured_quad_at_depth(Quad_800FCD40 *, f32);
 u8 get_small_font_glyph_width(u8);
+}
 extern u8 identity_matrix[];
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DAA08;
@@ -103,8 +110,6 @@ extern const f32 lbl_805DAA20;
 extern const f32 lbl_805DAA24;
 extern const f32 lbl_805DAA28;
 extern const f32 lbl_805DAA2C;
-
-}
 
 #pragma push
 #pragma fp_contract on
@@ -342,9 +347,9 @@ struct VObj_800FD614 : VBase_800FD614 {
 
 struct Out_800FD614 { s32 a; s32 b; };
 
-extern "C" {
 void reset_leader_selection(void* p);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 TLobby__data_805011D8;
+extern "C" {
 void call_funcs_reverse__6TLobbyFPvUi(Ent_800FD6A0 *arr, u32 size);
 s32 is_area_transfer_pending(void);
 s32 run_load_callback_table(Ent_800FD6F8 *p, u32 size);
@@ -352,16 +357,20 @@ int get_player_data__10TObjPlayerFi(int a0);
 u16 obj_getField1c();
 s32 get_actor_section_id__15TPlyPhotonChairFv(void *);
 void find_leader_section_id(struct Out_800FD614 *out, s32 arg1);
+}
 u32 calc_small_font_text_width(const char *s);
+extern "C" {
 void *get_instance__15TWindowCtrlMainFv(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 char *strncpy(char *, const char *, u32);
+}
 extern u8 __vt__14TFontSmallTask[];
 extern s32 TFontSmallTask__name;
 void set_world_section_id(void* p, s32 v);
 
 #pragma push
 #pragma fp_contract on
+extern "C" {
 TFontSmallTask_800FD4D4 *__ct__14TFontSmallTaskFv(TFontSmallTask_800FD4D4 *self, Vec_800FD4D4 *pos, u32 color, s32 life, s32 delay, const char *text, u16 view) {
     __ct__7TObjectFP7TObject(self, get_instance__15TWindowCtrlMainFv());
     self->vt = __vt__14TFontSmallTask;
@@ -385,13 +394,17 @@ TFontSmallTask_800FD4D4 *__ct__14TFontSmallTaskFv(TFontSmallTask_800FD4D4 *self,
     self->ofs_x -= lbl_805DAA20 * self->width * ((f32 (*)(void *))calc_small_font_scale)(self);
     return self;
 }
+}
 #pragma pop
 
 void set_world_section_id(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
+extern "C" {
 s32 TFontSmallTask::get_task_id() { return *(s32 *)&this->m_flags; }
+}
 void reset_leader_selection(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
+extern "C" {
 
 void find_leader_section_id(struct Out_800FD614 *out, s32 arg1) {
     s32 n;
@@ -437,13 +450,12 @@ s32 run_load_callback_table(Ent_800FD6F8 *p, u32 size) {
 void TLobby::reset_leader_selection_static() {
     reset_leader_selection(&TLobby__data_805011D8.value);
 }
+}
 typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8000F8FC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8FC_lbl_804FE120) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8000F8EC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8EC_lbl_804FE120) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8000F91C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F91C_lbl_804FE120) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8000F9E4_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9E4_lbl_804FE120) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8000F9CC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9CC_lbl_804FE120) == 0x18 ? 1 : -1];
-
-}
 
 __declspec(section ".ctors") static void *const __sinit_TFontSmallTask_cpp_ref = (void *)TLobby::reset_leader_selection_static;

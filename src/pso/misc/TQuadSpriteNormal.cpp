@@ -48,7 +48,9 @@ typedef struct Cam_801E5598 { u8 pad0[8]; f32 cx; f32 cy; u8 pad10[8]; f32 sw; f
 
 extern "C" {
 void fn_80141EB4(void);
+}
 void setSpriteInverseColorBlend(void);
+extern "C" {
 s32 matrix_mult_vec(int, void *, void *);
 void begin_screen_draw(s32 arg0);
 void draw_textured_quad_at_depth(f32 *q, f32 depth);
@@ -176,5 +178,4 @@ void *TQuadSpriteNormal__ct(void *arg0) {
     *(void * *)&((TQuadSpriteNormal *)arg0)->m_name = TQuadSpriteNormal__class_name;
     return arg0;
 }
-
 }

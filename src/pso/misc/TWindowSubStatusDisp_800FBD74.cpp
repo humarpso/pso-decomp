@@ -13,8 +13,6 @@
 #include "pso/object/TObjFogCollisionPoison.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 struct RecoveredGlobal_800FAD08_TFogCtrl__data_80501188 {
     s32 value;
     u8 remaining[0xC];
@@ -104,6 +102,7 @@ struct O_800FB400;
 struct FogCtrl_800FB134;
 
 struct Quad_800FC24C { f32 x0; f32 y0; f32 x1; f32 y1; f32 u0; f32 v0; f32 u1; f32 v1; };
+extern "C" {
 
 void build_small_font_glyph_quad(u8 c, Quad_800FC310 *q);
 s32 render_forward__20TWindowSubStatusDispFPv();
@@ -192,6 +191,7 @@ void draw_small_font_text(void *color, const char *s, f32 x, f32 y, f32 scale) {
 }
 
 int get_name_text_width(void* p) { return ((int (*)(void*))calc_small_font_text_width)(p); }
+}
 
 u32 calc_small_font_text_width(const char *s) {
     f32 max = (0.0f);
@@ -219,6 +219,7 @@ u32 calc_small_font_text_width(const char *s) {
     }
     return max;
 }
+extern "C" {
 
 s32 get_small_font_glyph_width(u8 c) {
     return (s32)small_font_metrics_table_ptr[c - 0x20].w;
@@ -251,5 +252,4 @@ void build_small_font_glyph_quad(u8 c, Quad_800FC310 *q) {
     q->u1 = (a + g->w) / 256.0f;
     q->v1 = (13.0f + b) / 256.0f;
 }
-
 }

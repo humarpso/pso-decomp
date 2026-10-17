@@ -47,8 +47,10 @@ struct Obj_802C0A74 {
 
 extern "C" {
 f64 atan2_float(f32, f32);
-void direction_to_rotation_xz(Vec_802C0CAC *, s32 *, s32 *);
+}
+void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
 s32 sample_clamped_path_position(void *arg0, s32 arg1, void *arg2, s32 arg3, f32 farg0);
+extern "C" {
 f32 subtract_vector(Vec_802C0CAC *, Vec_802C0CAC *);
 extern Entry_802C0CAC lobby_pigeon_path_profiles[];
 extern const f64 lbl_80471960[];
@@ -72,7 +74,7 @@ s32 advance_lobby_pigeon_path(Obj_802C0A74 *self) {
     r = ((s32 (*)(void *, s32, s32, Vec_802C0CAC *, f32))sample_clamped_path_position)(self, self->f98, self->fA0, &b, self->fA4 + lobby_pigeon_path_profiles[self->fC8].d);
     VecCopy((Vec *)&d, (const Vec *)&b);
     subtract_vector(&d, &a);
-    direction_to_rotation_xz(&d, &tmp, &tmp2);
+    direction_to_rotation_xz((u8 *)&d, &tmp, &tmp2);
     self->fBC = approach_angle_limited(self->fBC, tmp, lobby_pigeon_path_profiles[self->fC8].e);
     old = self->fB8;
     tmp = (s32)(lbl_80471960[0] * atan2_float(b.x - a.x, b.z - a.z));
@@ -130,7 +132,7 @@ s32 initialize_lobby_pigeon_path(Obj_802C0CAC *self) {
     r = ((s32 (*)(void *, s32, s32, Vec_802C0CAC *, f32))sample_clamped_path_position)(self, self->f98, self->fA0, &b, lobby_pigeon_path_profiles[self->fC8].d);
     VecCopy((Vec *)&d, (const Vec *)&b);
     subtract_vector(&d, &a);
-    direction_to_rotation_xz(&d, &self->fBC, &tmp);
+    direction_to_rotation_xz((u8 *)&d, &self->fBC, &tmp);
     self->fB8 = (s32)(lbl_80471960[0] * atan2_float(b.x - a.x, b.z - a.z));
     return r;
 }
@@ -166,7 +168,6 @@ void TUnk_804E0898::select_lobby_pigeon_model() {
     }
     *(s32 *)((s8 *)this + 0x98) = 0;
 }
-
 }
 
 #pragma pop
@@ -728,7 +729,7 @@ s32 TUnk_804E08D4::update_path_steering() {
         ((Obj_802C1428 *)this), ((Obj_802C1428 *)this)->f98, ((Obj_802C1428 *)this)->fA0, &b, ((Obj_802C1428 *)this)->fA4 + jungle_seagull_path_profiles[((Obj_802C1428 *)this)->fC8].d);
     VecCopy((Vec *)&d, (const Vec *)&b);
     ((f32 (*)(Vec_802C1660 *, Vec_802C1660 *))subtract_vector)(&d, &a);
-    ((void (*)(Vec_802C1660 *, s32 *, s32 *))direction_to_rotation_xz)(&d, &tmp, &tmp2);
+    direction_to_rotation_xz((u8 *)&d, &tmp, &tmp2);
     ((Obj_802C1428 *)this)->fBC = approach_angle_limited(((Obj_802C1428 *)this)->fBC, tmp, jungle_seagull_path_profiles[((Obj_802C1428 *)this)->fC8].e);
     old = ((Obj_802C1428 *)this)->fB8;
     tmp = (s32)(lbl_80471960[0] * atan2_float(b.x - a.x, b.z - a.z));
@@ -790,7 +791,7 @@ s32 TObjPlayer__sub_802C1660(Obj_802C1660 *self) {
         self, self->f98, self->fA0, &b, jungle_seagull_path_profiles[self->fC8].d);
     VecCopy((Vec *)&d, (const Vec *)&b);
     ((f32 (*)(Vec_802C1660 *, Vec_802C1660 *))subtract_vector)(&d, &a);
-    ((void (*)(Vec_802C1660 *, s32 *, s32 *))direction_to_rotation_xz)(&d, &self->fBC, &tmp);
+    direction_to_rotation_xz((u8 *)&d, &self->fBC, &tmp);
     self->fB8 = (s32)(lbl_80471960[0] * atan2_float(b.x - a.x, b.z - a.z));
     return r;
 }
@@ -925,7 +926,7 @@ s32 TObjPlayer__sub_802C1BFC(Obj_802C1BFC *self) {
         self, self->f98, self->fA0, &b, self->fA4 + lobby_pigeon_path_parameters[self->fC8].d);
     VecCopy((Vec *)&d, (const Vec *)&b);
     ((f32 (*)(Vec_802C1E34 *, Vec_802C1E34 *))subtract_vector)(&d, &a);
-    ((void (*)(Vec_802C1E34 *, s32 *, s32 *))direction_to_rotation_xz)(&d, &tmp, &tmp2);
+    direction_to_rotation_xz((u8 *)&d, &tmp, &tmp2);
     self->fBC = approach_angle_limited(self->fBC, tmp, lobby_pigeon_path_parameters[self->fC8].e);
     old = self->fB8;
     tmp = (s32)(lbl_80471960[0] * atan2_float(b.x - a.x, b.z - a.z));
@@ -987,7 +988,7 @@ s32 TObjPlayer__sub_802C1E34(Obj_802C1E34 *self) {
         self, self->f98, self->fA0, &b, lobby_pigeon_path_parameters[self->fC8].d);
     VecCopy((Vec *)&d, (const Vec *)&b);
     ((f32 (*)(Vec_802C1E34 *, Vec_802C1E34 *))subtract_vector)(&d, &a);
-    ((void (*)(Vec_802C1E34 *, s32 *, s32 *))direction_to_rotation_xz)(&d, &self->fBC, &tmp);
+    direction_to_rotation_xz((u8 *)&d, &self->fBC, &tmp);
     self->fB8 = (s32)(lbl_80471960[0] * atan2_float(b.x - a.x, b.z - a.z));
     return r;
 }
@@ -1133,7 +1134,7 @@ s32 TUnk_804E094C::update_path_follow_rotation(void *, f32) {
     Vec_802C22A4 d;
     VecCopy((Vec *)((Vec_802C1660 *)&d), (const Vec *)((Vec_802C1660 *)&b));
     ((f32 (*)(Vec_802C1660 *, Vec_802C1660 *))subtract_vector)((Vec_802C1660 *)&d, (Vec_802C1660 *)&a);
-    ((void (*)(Vec_802C1660 *, s32 *, s32 *))direction_to_rotation_xz)((Vec_802C1660 *)&d, &tmp, &tmp2);
+    direction_to_rotation_xz((u8 *)((Vec_802C1660 *)&d), &tmp, &tmp2);
     }
     self->fBC = approach_angle_limited(self->fBC, tmp, e->e);
     old = self->fB8;
@@ -1200,7 +1201,7 @@ s32 TObjPlayer__sub_802C2548(Obj_802C2548 *self) {
         self, self->f98, self->fA0, &b, jungle_ebi_path_profiles[self->fC8].d);
     VecCopy((Vec *)&d, (const Vec *)&b);
     ((f32 (*)(Vec_802C2548 *, Vec_802C2548 *))subtract_vector)(&d, &a);
-    ((void (*)(Vec_802C2548 *, s32 *, s32 *))direction_to_rotation_xz)(&d, &self->fBC, &tmp);
+    direction_to_rotation_xz((u8 *)&d, &self->fBC, &tmp);
     self->fB8 = (s32)(lbl_80471960[0] * atan2_float(b.x - a.x, b.z - a.z));
     return r;
 }
@@ -1325,7 +1326,7 @@ s32 TObjPlayer__sub_802C2A10(Obj_802C2A10 *self) {
         self, self->f98, self->fA0, &b, self->fA4 + seabed_dolphin_path_profiles[self->fC8].d);
     VecCopy((Vec *)&d, (const Vec *)&b);
     ((f32 (*)(Vec_802C2C48 *, Vec_802C2C48 *))subtract_vector)(&d, &a);
-    ((void (*)(Vec_802C2C48 *, s32 *, s32 *))direction_to_rotation_xz)(&d, &tmp, &tmp2);
+    direction_to_rotation_xz((u8 *)&d, &tmp, &tmp2);
     self->fBC = approach_angle_limited(self->fBC, tmp, seabed_dolphin_path_profiles[self->fC8].e);
     old = self->fB8;
     tmp = (s32)(lbl_80471960[0] * atan2_float(b.x - a.x, b.z - a.z));
@@ -1387,7 +1388,7 @@ s32 TObjPlayer__sub_802C2C48(Obj_802C2C48 *self) {
         self, self->f98, self->fA0, &b, seabed_dolphin_path_profiles[self->fC8].d);
     VecCopy((Vec *)&d, (const Vec *)&b);
     ((f32 (*)(Vec_802C2C48 *, Vec_802C2C48 *))subtract_vector)(&d, &a);
-    ((void (*)(Vec_802C2C48 *, s32 *, s32 *))direction_to_rotation_xz)(&d, &self->fBC, &tmp);
+    direction_to_rotation_xz((u8 *)&d, &self->fBC, &tmp);
     self->fB8 = (s32)(lbl_80471960[0] * atan2_float(b.x - a.x, b.z - a.z));
     return r;
 }
@@ -1486,6 +1487,7 @@ void draw_line_strip__10TObjPlayerFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0
       pop_matrix();
     } while (temp_r30 != 0);
 }
+}
 
 s32 sample_clamped_path_position(void *arg0, s32 arg1, void *arg2, s32 arg3, f32 farg0) {
   s32 sp24[3];
@@ -1505,7 +1507,6 @@ s32 sample_clamped_path_position(void *arg0, s32 arg1, void *arg2, s32 arg3, f32
   bind_motion_context((s32)arg2, var_f1);
   sample_motion_node_transform((void *)arg1, (void *)arg3, (void *)sp24, (void *)sp18, (void *)sp8);
   return var_r31;
-}
 }
 
 #pragma pop

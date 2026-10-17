@@ -15,9 +15,9 @@ struct RecoveredGlobal_801A58D8_TKeyBoardControl__data_80506270 {
 
 struct Pad_801A57D0 { u8 pad0[0x10]; u32 f10; u8 pad14[4]; u16 f18; u16 f1A; s16 f1C; s16 f1E; };
 
-extern "C" {
 extern s32 TKeyBoardControl__global_key_state[];
 extern Pad_801A57D0 *controller_input_state[];
+extern "C" {
 u8 TKeyBoardControl__sub_8013239C(void *, u8);
 s32 OSGetResetButtonState();
 s32 TKeyBoardControl__sub_801323C8(void *, void *);
@@ -120,6 +120,7 @@ s32 TKeyBoardControl::check_input_angle() {
     }
     return 0;
 }
+}
 
 void init_stick_escape_detector(void *arg0, void *arg1) {
     if (arg1 != NULL) {
@@ -127,6 +128,4 @@ void init_stick_escape_detector(void *arg0, void *arg1) {
         *(s32 *)((s8 *)arg0 + 0) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 8)) + 0x1C);
         *(s32 *)((s8 *)arg0 + 4) = (s32) actor_frame_tick;
     }
-}
-
 }

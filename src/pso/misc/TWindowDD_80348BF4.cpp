@@ -5,6 +5,7 @@
 extern "C" {
 
 s32 handle_word_select__9TWindowDDFv();
+}
 extern s32 local_client_id;
 extern u32 TWindowDD__word_select_lists;
 
@@ -17,6 +18,4 @@ void handle_6x74_word_select(u8 *arg0) {
         TWindowDD::build_player_word_lists();
         TWindowDD::open((s32)(arg0 + 4), (s32)((int) (*(u16 *)((s8 *)arg0 + 2))));
     }
-}
-
 }

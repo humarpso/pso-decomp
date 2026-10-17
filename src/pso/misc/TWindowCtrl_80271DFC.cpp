@@ -3,9 +3,8 @@
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/misc/TWindowCtrl.h"
 
-extern "C" {
-
 extern void *TWindowCtrl__active_window;
+extern "C" {
 
 void TWindowCtrl::set_flag_bit0() {
     if ((void *) TWindowCtrl__active_window != NULL) {
@@ -21,8 +20,7 @@ void TWindowCtrl::clear_active_flag() {
 
     extern int TRaderMapCore__view_mode;
 void TRaderMapCore::clear() { TRaderMapCore__view_mode = 0; }
+}
 
     extern int TWindowSubStatusDisp__count_ratio_value;
 int get_window_count_ratio_value(void) {  return TWindowSubStatusDisp__count_ratio_value; }
-
-}

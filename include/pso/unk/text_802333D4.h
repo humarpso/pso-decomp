@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void updateIceTechniqueCharge(TechniqueChargeEmitter *state);
-}
 
 #endif

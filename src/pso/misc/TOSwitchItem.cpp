@@ -69,8 +69,10 @@ extern s32 __vt__12TOSwitchItem[];
 extern s32 lbl_805D3180;
 u8 *TOSwitchItem__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 copy_item_data_and_process__5TItemFv(int);
+}
 int get_sorted_item_registry_entry(int a0);
 int get_item_registry_count(void);
+extern "C" {
 s8 sub_80102C30__5TItemFv(u8 *);
 f32 horizontal_distance_squared(Pos_80177E24 *, Pos_80177E24 *);
 s32 is_state_ec1_ed3__10TObjPlayerFv(int);
@@ -210,5 +212,4 @@ u8 *TOSwitchItem__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0xEC) = 0;
     return arg0;
 }
-
 }

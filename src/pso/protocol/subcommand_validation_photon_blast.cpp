@@ -4,6 +4,7 @@
 extern "C" {
 s32 is_valid_technique_id__10TObjPlayerFs(s32);
 s32 is_valid_technique_slot__10TObjPlayerFUc(u8);
+}
 
 s32 validate_photon_blast_parameters(void *parameters) {
     s8 temp_r4;
@@ -24,6 +25,7 @@ s32 validate_photon_blast_parameters(void *parameters) {
     }
     return ((u32) *(s16 *)((s8 *)parameters + 6) >> 0x1FU) ^ 1;
 }
+extern "C" {
 
 s32 validate_6x48_cast_technique_complete(G_ClientIDHeader *packet) {
     if (validate_subcommand_client(packet) == 0) {

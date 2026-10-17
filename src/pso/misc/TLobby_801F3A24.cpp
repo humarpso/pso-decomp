@@ -126,6 +126,7 @@ int rebuild_entry__6TLobbyFv(void);
 
     extern short TLobby__data_805D6134;
 void rebuild_all__6TLobbyFi(int a0) { TLobby__data_805D5EE0 = a0; TLobby::handle_msg_type1_for_idle_slots(); init_sub_state__6TLobbyFv(); TLobby__sub_8020A2AC(); TLobby::init_floor_encounter_sections(); TLobby::free_boss4rock(); rebuild_entry__6TLobbyFv(); TLobby::init_id_tables(); TLobby__data_805D6134 = 1; TLobby__data_805D5EE0 = 0; }
+}
 typedef char RecoveredGlobal_801F3DEC_TLobby__data_805127D0_size[sizeof(RecoveredGlobal_801F3DEC_TLobby__data_805127D0) == 0x28 ? 1 : -1];
 
 void set_quest_floor_designation_ex(s16 mode, s32 floor, s32 area, s32 layout, s32 entities) {
@@ -237,6 +238,7 @@ loop_1:
 block_6:
     return 0;
 }
+extern "C" {
 
 s32 reserve_enemy_set_actor_ids(void *, u32, s32);
 
@@ -356,7 +358,6 @@ void TLobby::setup_quest_list() {
 }
 
 void update_and_reset__6TLobbyFi(int a0) { TLobby__data_805D5EE0 = a0; populate_quest_floor_sets(); TLobby::init_id_tables(); TLobby__data_805D6134 = 1; TLobby__data_805D5EE0 = 0; }
-
 }
 
 #include "pso/player/TObjPlayer.h"

@@ -68,11 +68,13 @@ struct Missile_800D43B4 {
 
 extern "C" {
 s32 project_actor_to_ground(void *, void *, int);
+}
 extern const f32 lbl_805DA2A0;
 extern const f32 lbl_805DA2A4;
 extern s32 gyaranzo_missile_param_table;
 f32 get_gyaranzo_missile_float_parameter(s32 arg0);
 s32 get_gyaranzo_missile_int_parameter(s32 i);
+extern "C" {
 s32 obj_is_hit_receivable();
 void queue_destruction__7TObjectFv(void *arg0);
 u8 *get_battle_param__10TObjPlayerFi(s32);
@@ -101,6 +103,7 @@ void TObjEneGyaranzo::vfunc_61() {  }
 void TObjEneGyaranzo::vfunc_59() {  }
 s32 TObjEneGyaranzo::is_target_in_attack_range() { return 0; }
 void TObjEneGyaranzo::vfunc_58() {  }
+}
 
 extern s32 model_render_flags;
 
@@ -111,6 +114,7 @@ f32 get_gyaranzo_missile_float_parameter(s32 arg0) {
 s32 get_gyaranzo_missile_int_parameter(s32 i) {
     return (*(D_800D40FC * *)&gyaranzo_missile_param_table)->arr[i];
 }
+extern "C" {
 
 void TUnk_8049442C::update_ground_fall(s32 *arg1, f32 farg0) {
     Vec position;
@@ -242,5 +246,4 @@ void TUnk_8049442C::run_task() {
         sub_800D4200__13TUnk_8049442CFv((u8 *)self);
     }
 }
-
 }

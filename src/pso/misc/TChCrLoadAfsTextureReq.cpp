@@ -69,7 +69,9 @@ s32 TLobby__sub_803CC4C0(s32);
 Req_8028C1F0 *__dt__22TChCrLoadAfsTextureReqFv(Req_8028C1F0 *arg0, s16 arg1);
 f32 TLobby__sub_8028C50C(void);
 void * create__22TChCrLoadAfsTextureReqFPvPv(void *arg0, void *arg1);
+}
 void * create_ch_cr_load_afs_texture_req(void *arg0, void *arg1, void *arg2, void *arg3);
+extern "C" {
 void *init__22TChCrLoadAfsTextureReqFPvPvPv(void *arg0, void *arg1, void *arg2);
 s32 try_acquire_load_slot__22TChCrLoadAfsTextureReqFPv(void *arg0);
 void try_begin_load__22TChCrLoadAfsTextureReqFPv(void* p);
@@ -202,6 +204,7 @@ void *init__22TChCrLoadAfsTextureReqFPvPvPv(void *arg0, void *arg1, void *arg2) 
     init_texture_table__22TChCrLoadAfsTextureReqFPv((R_8028C310 *)(arg0));
     return arg0;
 }
+}
 
 void * create_ch_cr_load_afs_texture_req(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;
@@ -211,6 +214,7 @@ void * create_ch_cr_load_afs_texture_req(void *arg0, void *arg1, void *arg2, voi
     }
     return o;
 }
+extern "C" {
 
 void * create__22TChCrLoadAfsTextureReqFPvPv(void *arg0, void *arg1) {
     void *o;
@@ -263,6 +267,5 @@ void TLobby::update_model_load() {
         }
     }
 }
-#pragma pop
-
 }
+#pragma pop

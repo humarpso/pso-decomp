@@ -28,29 +28,35 @@ struct O_8033EB4C { u8 pad[0x1C]; Item_8033EB4C *items; s32 n; };
 
 extern "C" {
 s32 TCameraCtrl__sub_800689F4();
-s32 calc_projection_screen_offset(void *, void *);
-f64 calc_camera_fov_degrees();
-s32 set_tex_coord_gen2(int, int, int, int);
+}
+void calc_projection_screen_offset(f32 *arg0, f32 *arg1);
+f32 calc_camera_fov_degrees(void);
+void set_tex_coord_gen2(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+extern "C" {
 s32 PSMTXConcat(void *, void *, void *);
 s32 C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
 s32 GXSetTevOp(int, int);
 s32 GXSetTevOrder(int, int, int, int);
 s32 push_matrix();
 s32 pop_matrix();
-int set_ginja_post_texgen_count(void*);
-int set_ginja_post_tev_stage_count(void*);
-s32 load_current_pos_matrix(int);
-s32 load_current_tex_matrix(int);
+}
+void set_ginja_post_texgen_count(s32 x);
+void set_ginja_post_tev_stage_count(s32 x);
+void load_current_pos_matrix(s32 arg0);
+void load_current_tex_matrix(s32 i);
 extern const f64 lbl_804783B0;
 extern u32 camera_ctrl_instance;
 extern s32 current_matrix;
 extern const f32 lbl_805DFAC8;
 extern const f32 lbl_805DFACC;
 extern const f32 lbl_805DFAD0;
+extern "C" {
 void setup_projection_tex_matrix__10TObjPlayerFv(void);
 void queue_destruction__7TObjectFv(void *);
 void TLobby__sub_8033EE38(void *);
+}
 void play_indirect_effect_recipe(u8 arg0, u16 sampler, s32 second);
+extern "C" {
 void init_particle_effect__10TObjPlayerFv(void);
 void reset_effects__10TObjPlayerFv(void);
 s32 rotate_matrix_by_node_angles(void *, int);
@@ -58,13 +64,15 @@ s32 post_translate_matrix(void *);
 int set_global_param__8TObjFishFl(void);
 void draw_ginja_object(void *child);
 void set_material_alpha_compare_reference(s32 reference);
+}
 char *get_shared_capture_texture_list(void);
 void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map);
+extern "C" {
 
 void init_particle_effect__10TObjPlayerFv(void) { get_shared_capture_texture_list(); set_global_param__8TObjFishFl(); load_list_texture(0, 0, 0, 2); }
 
     extern int model_render_flags;
-void reset_effects__10TObjPlayerFv(void) { set_ginja_post_tev_stage_count((void*)0); set_ginja_post_texgen_count((void*)0); TObjPlayer::set_global_effect_state((s32)((void*)0)); model_render_flags = (model_render_flags & 0xfff7ffff); }
+void reset_effects__10TObjPlayerFv(void) { set_ginja_post_tev_stage_count((s32)((void*)0)); set_ginja_post_texgen_count((s32)((void*)0)); TObjPlayer::set_global_effect_state((s32)((void*)0)); model_render_flags = (model_render_flags & 0xfff7ffff); }
 
 void setup_projection_tex_matrix__10TObjPlayerFv(void) {
     u8 sp10[0x30];
@@ -88,8 +96,8 @@ void setup_projection_tex_matrix__10TObjPlayerFv(void) {
         GXSetTevOp(1, 1);
         set_tex_coord_gen2(1, 0, 0, 0x24);
         (*(s32 *)&model_render_flags) |= 0x80000;
-        set_ginja_post_tev_stage_count((void*)(1));
-        set_ginja_post_texgen_count((void*)(1));
+        set_ginja_post_tev_stage_count((1));
+        set_ginja_post_texgen_count((1));
         TObjPlayer::set_global_effect_state((s32)((void*)(1)));
     }
 }
@@ -146,5 +154,4 @@ void TUnk_804EFA88::run_task() {
     }
     arg0->n = 0;
 }
-
 }

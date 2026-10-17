@@ -8,16 +8,18 @@ struct GinjaModelQueue {
     u32 count;
     void (*draw)(void*);
 };
-extern "C" {
 extern GinjaMatrix* current_matrix;
 extern u32 model_render_flags;
 extern GinjaModelQueue model_draw_queue_state;
 extern GinjaMatrix model_draw_queue_texture_matrices[10];
 extern void* model_draw_queue_models[10];
+extern "C" {
 void init_model_draw_queue(void (*draw)(void*));
 void queue_model_draw_matrix(void* model, const GinjaMatrix matrix);
+}
 void flush_model_draw_queue();
 void draw_queued_models(u32 count);
+extern "C" {
 void GXLoadPosMtxImm(const GinjaMatrix,u32);
 void GXLoadNrmMtxImm(const GinjaMatrix,u32);
 void GXLoadTexMtxImm(const GinjaMatrix,u32,u32);

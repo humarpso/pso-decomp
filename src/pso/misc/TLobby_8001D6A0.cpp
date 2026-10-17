@@ -238,8 +238,8 @@ struct RecoveredGlobal_8001DC24_lbl_80515BC8 {
     u8 remaining[0xFC];
 };
 
-extern "C" {
 extern RecoveredGlobal_8001DC24_lbl_80515BC8 text_builder_buffer;
+extern "C" {
 
 s32 TLobby::is_active() {
     return *((s8* (*)(void))get_card_window_area__6TLobbyFv)() == 0 ? 0 : 1;
@@ -300,6 +300,7 @@ s32 is_main_phase_15__9TObjEneDDFv(void);
 void read_disc_file(const char *, void *);
 void mem_free(void *);
 void *mem_alloc(u32 size);
+}
 extern const char lbl_80434A20[];
 extern const char lbl_80434A38[];
 extern const char lbl_80434A50[];
@@ -395,6 +396,7 @@ void load_battle_param_entry(void) {
  ;
   }
 }
+extern "C" {
 
 void TLobby::broadcast(void* a0) { ((int (*)(void*, void*))broadcast_to_players__6TLobbyFii)((void*)TLobby__lobby_instance, a0); }
 
@@ -403,7 +405,6 @@ void TLobby__sub_8001DE30(void* a0) { ((int (*)(void*, void*))TLobby__sub_8001DF
 void TLobby::copy_all_entries(void* a0) { ((int (*)(void*, void*))copy_all_entries__6TLobbyFii)((void*)TLobby__lobby_instance, a0); }
 
 void TLobby::copy_data(void* a0) { ((int (*)(void*, void*))copy_all_data__6TLobbyFii)((void*)TLobby__lobby_instance, a0); }
-
 }
 
 #pragma inline_depth(1)
@@ -604,6 +605,7 @@ void TLobby::free_boss4_rock() {
     TLobby__battle_param_resistances = 0;
     battle_param_movement = 0;
 }
+}
 
 void alloc_battle_param_tables(void) {
     u8 *buf = (u8 *)mem_alloc(0x3d80);
@@ -622,6 +624,7 @@ void alloc_battle_param_tables(void) {
     load_battle_param_entry();
     TLobby__lobby_instance = 0;
 }
+extern "C" {
 
 void TLobby::swap_endian() { bswap_16((u16 *)this); bswap_16((u16 *)((char*)this + 0x2)); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); bswap_16((u16 *)((char*)this + 0x8)); bswap_16((u16 *)((char*)this + 0xa)); bswap_32((u32 *)((char*)this + 0xc)); bswap_32((u32 *)((char*)this + 0x10)); bswap_32((u32 *)((char*)this + 0x14)); bswap_32((u32 *)((char*)this + 0x18)); bswap_32((u32 *)((char*)this + 0x1c)); }
 
@@ -795,5 +798,4 @@ void TLobby__sub_8001ED70(void) {  }
 void TLobby__sub_8001ED74(void) {
     lbl_805D4AC0 = TLobby__data_805D7EE0;
 }
-
 }

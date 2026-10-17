@@ -3,10 +3,10 @@
 
 #include "types.h"
 
-extern "C" {
 void clear_trade_range_bit(s32 arg0);
+extern "C" {
 bool is_trade_range_bit_set(s32 arg0);
-void set_trade_range_bit(s32 arg0);
 }
+void set_trade_range_bit(s32 arg0);
 
 #endif

@@ -4,7 +4,6 @@
 
 struct Ent_80226294 { u32 flags; u8 pad4[4]; s32 f8; u8 padC[0xC]; s16 f18; u8 pad1a[0xE]; };
 
-extern "C" {
 void set_music_streams_volume(s32);
 extern s32 lbl_805D627C;
 extern int lbl_805D6280;
@@ -12,6 +11,7 @@ extern int lbl_805D6284;
 extern s32 music_stream_base_gain;
 extern s32 music_stream_gain;
 extern const f32 lbl_805DC744;
+extern "C" {
 void update_music_stream_gain(s32 user);
 void TLobby__sub_8022614C(s32 arg0);
 int init_sound_mode__6TLobbyFPv(void *);
@@ -158,5 +158,4 @@ void TLobby__sub_8022644C(void) {
         lbl_805145F0[i].f8 = 0;
     }
 }
-
 }

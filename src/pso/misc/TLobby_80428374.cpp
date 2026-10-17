@@ -80,10 +80,10 @@ typedef struct Ent_80427C6C {
     u8 rest[0xE10];
 } Ent_80427C6C;
 
-extern "C" {
 extern u8 lbl_805CF240[0xA0];
 extern u8 TLobby__pppoe_message_queue[0xA0];
 extern u8 lbl_805CF380[0x48];
+extern "C" {
 void TLobby__sub_803F95E4(u32);
 s32 TLobby__sub_803F77E0(void *);
 extern RecoveredGlobal_80428374_lbl_805D0A40 lobby_net_session_state;
@@ -149,12 +149,14 @@ typedef char RecoveredGlobal_80428360_lbl_805CFC20_size[sizeof(RecoveredGlobal_8
 void TLobby::reset_boot_state() {
     TLobby__sub_803F77E0(&lobby_net_session_state.value);
 }
+}
 
 typedef char RecoveredGlobal_8042839C_lbl_805D0A40_size[sizeof(RecoveredGlobal_8042839C_lbl_805D0A40) == 0x60 ? 1 : -1];
 s32 init_modem_session_config(void) {
     init_modem_buffer_config((void *) (&(*(RecoveredGlobal_8042839C_lbl_805D0A40 *)&lobby_net_session_state).value));
     return 0;
 }
+extern "C" {
 
 s32 TLobby::wait_timeout_loop() {
     u8 *arg0 = (u8 *)this;
@@ -222,6 +224,7 @@ void TLobby::reset_buffer_pool() {
     TLobby__buffer_pool_limit = 0;
     lbl_805D7C20 = 0;
 }
+}
 
 #pragma push
 #pragma opt_common_subs off
@@ -229,5 +232,3 @@ typedef char RecoveredGlobal_8042DD70_lbl_805D1D20_size[sizeof(RecoveredGlobal_8
 #pragma pop
 
 typedef char RecoveredGlobal_8042E768_lbl_805D1D20_size[sizeof(RecoveredGlobal_8042E768_lbl_805D1D20) == 0x1C ? 1 : -1];
-
-}

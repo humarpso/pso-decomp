@@ -35,6 +35,7 @@ u8 *TItemWeaponPartisan__ct(u8 *arg0, u8 *arg1, s32 _w2) {
     }
     return arg0;
 }
+}
 
 u8 *create_partisan_weapon(u8 *arg0) {
     u8 *temp_r3;
@@ -48,6 +49,4 @@ u8 *create_partisan_weapon(u8 *arg0) {
         return var_r0;
     }
     return NULL;
-}
-
 }

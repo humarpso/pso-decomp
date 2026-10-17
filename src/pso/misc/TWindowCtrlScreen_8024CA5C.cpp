@@ -16,7 +16,9 @@ s32 get_nth_view_player_id__11TCameraCtrlFl(int);
 s32 TCameraCtrl__sub_80068EF0();
 s32 TWindowCtrlMain__sub_8024CDD0(s32 arg0);
 s32 is_window_display_enabled();
+}
 void draw_menu_backdrop_gradients(s32 viewport_index);
+extern "C" {
 s32 TWindowCtrlMain__sub_8024D2A4(int);
 extern s32 TWindowCtrlMain__instance;
 u8 * __dt__7TObjectFv(void *, s16);
@@ -50,5 +52,4 @@ u8 *__dt__17TWindowCtrlScreenFv(u8 *arg0, s16 arg1) {
     }
     return arg0;
 }
-
 }

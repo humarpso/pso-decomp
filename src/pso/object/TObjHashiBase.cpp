@@ -51,7 +51,9 @@ extern const f32 lbl_805DBE2C;
 extern const f32 lbl_805DBE30;
 void *TObjHashiBase__ct(TObjHashiBase *arg0, s32 arg1, s32 arg2);
 void *__dt__13TObjHashiBaseFv(void *arg0, s16 arg1);
+}
 void handle_6x78(void *arg0);
+extern "C" {
 u8 is_current_floor_switch_set(u16, f32);
 void __dl__7TObjectFPv(void *);
 s32 bswap_6x78__11TObjInfoColFv();
@@ -202,6 +204,7 @@ void *TObjHashiBase__ct(TObjHashiBase *arg0, s32 arg1, s32 arg2) {
     }
     return arg0;
 }
+}
 
 void handle_6x78(void *arg0) {
     bswap_6x78__11TObjInfoColFv();
@@ -210,6 +213,4 @@ void handle_6x78(void *arg0) {
         return;
     }
     fn_80191D5C(*(u16 *)((s8 *)arg0 + 4));
-}
-
 }

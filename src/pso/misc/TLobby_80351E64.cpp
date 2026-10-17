@@ -92,6 +92,7 @@ void TLobby__sub_8035202C(void) {
         (*(u32 *)&lobby_main_texture_gvm) = 0U;
     }
 }
+}
 void load_obj_lobby_main(void) { lobby_main_texture_gvm = (int)load_gvm_texture_file((s32)lbl_80478E20); }
 s32 get_theme_lobby_type(void) {
     s32 r = TLobby::get_filtered_event_theme();
@@ -104,6 +105,4 @@ s32 get_theme_lobby_type(void) {
         break;
     }
     return r;
-}
-
 }

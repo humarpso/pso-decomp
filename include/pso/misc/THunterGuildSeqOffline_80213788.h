@@ -23,7 +23,9 @@ void reset_quest_list_vm__22THunterGuildSeqOfflineFv(void);
 void reset_random_enemies_mode(void);
 void restore_and_init_quest_list__22THunterGuildSeqOfflineFPv(void *arg0);
 void restore_shop_and_init_quest_state(void *arg0);
+}
 void set_random_enemies_mode(void);
+extern "C" {
 void update__15TShopWindowBaseFPv(void *arg0);
 void update_close_shop__22THunterGuildSeqOfflineFPv(void *arg0);
 void update_confirm_input__15TShopWindowBaseFPv(void *arg0);

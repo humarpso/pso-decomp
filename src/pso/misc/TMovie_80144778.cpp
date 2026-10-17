@@ -26,7 +26,9 @@ struct Vec_80144778 { s32 x, y, z; };
 
 extern "C" {
 u8 *alloc__23TAdSinglePlyChrSelectGCFv(int);
+}
 u8 *initialize_movie_with_soundtrack(u8 *arg0, s8 *arg1, s32 arg2, s32 arg3, s32 arg4);
+extern "C" {
 u8 *load_rel_module(u8 *arg0, s32 arg1);
 char *strncpy(char *, const char *, u32);
 extern u8 lbl_8043F380[];
@@ -93,7 +95,6 @@ void run_task__6TMovieFv(TMovie *arg0) {
     }
     queue_destruction__7TObjectFv(arg0);
 }
-
 }
 TMovie::TMovie(TObject *parent, s8 *name, s32 a3, s32 a4, s32 a5) : TObject(parent) {
     u8 *p;

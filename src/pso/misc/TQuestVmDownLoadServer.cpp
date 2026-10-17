@@ -161,8 +161,8 @@ struct QVm_801F6D24;extern "C" {
 void *alloc__22TQuestVmDownLoadServerFv(s32);
 }
 extern RecoveredGlobal_801F84AC_lbl_80512BDC quest_download_file_header;
-extern "C" {
 s32 *get_quest_download_file_header(void);
+extern "C" {
 void *memset(void *, int, u32);
 }
 extern const char *TQuestVmDownLoadServer__class_name;
@@ -573,9 +573,9 @@ s32 TQuestVmDownLoadServer::verify_checksum(s32 arg0, s32 arg1) {
   TAdSinglePlyChrSelectGC::safe_free((u32)temp_r3);
   return ((u32) __cntlzw((u32) (temp_r31 - temp_r29))) >> 5;
 }
+}
 s32 *get_quest_download_file_header(void) {
     return &quest_download_file_header.value;
-}
 }
 
 TQuestVmDownLoadServer::TQuestVmDownLoadServer(TObject *parent) : TObject(parent) {

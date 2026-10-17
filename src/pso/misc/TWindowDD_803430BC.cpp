@@ -249,7 +249,9 @@ s32 TWindowDD__sub_8034694C(DD_803461CC *, s32, char *, char *, char *, s32 *);
 s32 format_german_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 arg2);
 s32 format_english_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 arg2);
 s32 apply_both_choices__9TWindowDDFll(void *, int);
-s32 TWindowDD_check_input_mask(void *, int);
+}
+s32 TWindowDD_check_input_mask(void *input_context, s32 arg1);
+extern "C" {
 s32 set_clamped_page__9TWindowDDFl(int, int);
 s32 TWindowDD__sub_80340820(int);
 s32 handle_input__9TWindowDDFv(int);
@@ -326,7 +328,9 @@ void close_all_windows__9TWindowDDFv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 classify_id__9TWindowDDFs();
+}
 void clear_window_dd_nodes(void);
+extern "C" {
 void mem_free(void*);
 
 s32 update_close_flag__9TWindowDDFPv(void *arg0) {
@@ -2090,5 +2094,4 @@ void build_item_list__9TWindowDDFPv(u8 *arg0) {
     }
     BUF_803467CC->n4 = n;
 }
-
 }

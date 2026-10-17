@@ -21,7 +21,6 @@ typedef char NetworkInfoPhaseOffset[offsetof(NetworkInfoLoadState, phase) == 8 ?
 typedef char NetworkInfoHandleOffset[offsetof(NetworkInfoLoadState, file_handle) == 0x10 ? 1 : -1];
 typedef char NetworkInfoDetailOffset[offsetof(NetworkInfoLoadState, card_detail) == 0x20 ? 1 : -1];
 
-extern "C" {
 extern NetworkInfoLoadState network_info_load_state;
 
 s32 take_network_info_request_result(s32 *card_result, s32 *card_detail);
@@ -39,9 +38,7 @@ void set_network_config_card_channel(s32 channel);
 s32 get_network_config_buffer_size(s32 backup_mode);
 s32 get_network_info_file_size(void);
 s32 get_network_info_card_key(int channel, u8 *key);
-}
 
-extern "C" {
 s32 get_network_config_backup_mode(void);
 s32 get_network_config_buffer_size(s32 mode);
 s32 get_network_config_card_channel(void);
@@ -56,6 +53,5 @@ void set_network_config_card_channel(s32 arg0);
 s32 take_network_info_exists_result(s32 *arg0, s32 *arg1);
 void update_network_info_exists(void);
 void update_network_info_load(void);
-}
 
 #endif

@@ -22,8 +22,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #define PADV virtual void CAT(pv, __LINE__)();
 #define PADV4 virtual void CAT(pa, __LINE__)(); virtual void CAT(pb, __LINE__)(); virtual void CAT(pc, __LINE__)(); virtual void CAT(pd, __LINE__)();
 
-extern "C" {
-
 struct Base_Sub_80094994 { char pad[0x14]; };
 
 struct V_Sub_80094994 : Base_Sub_80094994 {
@@ -431,6 +429,7 @@ struct Sub_800955E0 { u8 b[0x1C]; };
 struct Vec_800955E0 { f32 x, y, z; };
 
 struct Self_800955E0 { u8 pad[0x418]; s32 f418[2]; Vec_800955E0 v420[2]; s32 f438[2]; u8 pad440[8]; Sub_800955E0 subs[4]; };
+extern "C" {
 
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 Player_800951AC * get_player_data__10TObjPlayerFi(s32);
@@ -488,7 +487,9 @@ int transition_enemy_state(void*, void*);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
 s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1);
 void * init_trail_buffer__11TBoss4Type3FPvifff(void *arg0, s32 segs, f32 start, f32 end, f32 step);
+}
 void *destroy_buffer_pair(void *arg0, s16 arg1);
+extern "C" {
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 s32 * collect_and_count__12TBoss3VoloptFUll(u32 arg0, s32 arg1);
 s32 angle_diff_s16(s32);
@@ -506,7 +507,9 @@ f32 cos_table_lookup(s32);
 void bind_motion_context(s32 arg0, f32 farg0);
 void compose_motion_node_matrix(void *arg0);
 s32 matrix_mult_vec(int, void *, void *);
+}
 void get_current_matrix(void *);
+extern "C" {
 void copy_matrix__10TObjPlayerFUlUl(int, void *);
 s32 subtract_vector(void *, void *);
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
@@ -515,6 +518,7 @@ s32 push_matrix_from(void *, int, int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 set_global_param__8TObjFishFl(s32, void *);
+}
 void draw_chunk_model(void *arg0);
 
 extern s32 TObjEneRe7Berura__data_80439DA8[];
@@ -569,6 +573,7 @@ extern void *tl_04;
 
 #define PADV virtual void CAT(pv, __LINE__)();
 #define PADV4 virtual void CAT(pa, __LINE__)(); virtual void CAT(pb, __LINE__)(); virtual void CAT(pc, __LINE__)(); virtual void CAT(pd, __LINE__)();
+extern "C" {
 extern "C" void vfunc_6__13TUnk_804B9870FPsl();
 extern "C" void vfunc_103__9TObjEneDDFPUc();
 extern "C" void vfunc_79__9TObjEneDDFv();
@@ -1359,6 +1364,6 @@ void fn_80095DF4(u8 *arg0) {
     *(*(s32 **)((s8 *)arg0 + 0x18)) |= 8;
     *(*(s32 **)((s8 *)arg0 + 0x1C)) |= 8;
 }
+}
 
 #undef RES
-}

@@ -27,6 +27,7 @@ u8 *TUnk_804A3070::construct_agito(s32 a, void *b) {
     }
     return (u8 *)self;
 }
+}
 
 u8 *create_agito_weapon(u8 *arg0) {
     u8 *temp_r3;
@@ -40,6 +41,4 @@ u8 *create_agito_weapon(u8 *arg0) {
         return var_r0;
     }
     return NULL;
-}
-
 }

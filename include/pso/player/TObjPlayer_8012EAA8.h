@@ -3,9 +3,7 @@
 
 #include "types.h"
 
-extern "C" {
 void s_red_blade_equip_rolls(void *p);
 void s_red_blade_turn_node(void *p);
-}
 
 #endif

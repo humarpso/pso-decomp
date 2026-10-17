@@ -3,9 +3,7 @@
 
 #include "types.h"
 
-extern "C" {
 bool is_signboard_texture_buffer_missing(void);
 void load_memcard_file(void);
-}
 
 #endif

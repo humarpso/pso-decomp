@@ -5,7 +5,9 @@
 extern "C" {
 
 u8 get_slot_count__5TItemFv();
+}
 void advance_angle_wrap(s32 *arg0, s32 arg1);
+extern "C" {
 int obj_getPtr2B0_20(u8 *p);
 
 void TUnk_804A4D70::update_weapon() {
@@ -20,5 +22,4 @@ void TUnk_804A4D70::update_weapon() {
         advance_angle_wrap((s32 *)&this->unk_1F8, var_r4 + 0x1555);
     }
 }
-
 }

@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 s32 create_status_window(s32 arg0);
-}
 
 #endif

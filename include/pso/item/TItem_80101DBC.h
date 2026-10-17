@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void handle_6x5E_buy_shop_item(void *arg0);
-}
 
 #endif

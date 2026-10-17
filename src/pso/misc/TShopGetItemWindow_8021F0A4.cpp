@@ -5,8 +5,6 @@
 #include "pso/unk/text_80223B98.h"
 #include "pso/TFontSmallTask.h"
 
-extern "C" {
-
 extern s32 TLobby__data_805011D8[];
 extern s32 game_difficulty_selection;
 extern s32 lbl_805D6238;
@@ -35,6 +33,4 @@ void reset_shop_stock_and_params(void) {
     if ((s32) shop_difficulty_tier > 3) {
         shop_difficulty_tier = 3;
     }
-}
-
 }

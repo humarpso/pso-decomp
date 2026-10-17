@@ -55,9 +55,9 @@ struct Req_8011AD1C {
     f32 x; f32 z; s16 room; s16 x12; s8 slot;
 };
 
-extern "C" {
 extern s32 item_sync_counter_table;
 extern s32 item_id_counter_table;
+extern "C" {
 s32 bswap_6xa2_fields__6TLobbyFv();
 s32 handle_box_drop_directive(void *);
 void set_boss_buf_entry__6TLobbyFii(s32 v, u16 idx);
@@ -76,6 +76,7 @@ s32 TItemData__sub_8010CCB0(void *);
 s32 spawn_dropped_item_from_msg(void *, int);
 void handle_6x5F_drop_item(Pkt_8011ADF4 *pkt);
 s32 bswap_packet__6TLobbyFv();
+}
 
 u32 build_item_id(u16 arg0) {
     u32 id;
@@ -92,6 +93,7 @@ u32 build_item_id(u16 arg0) {
     }
     return id;
 }
+extern "C" {
 
 void TLobby::observe_item_id() {
     int id = (int)this;
@@ -105,11 +107,13 @@ void TLobby::observe_item_id() {
         }
     }
 }
+}
 
 void handle_6x5C_destroy_floor_item(void *arg0) {
     bswap_packet__6TLobbyFv();
     TLobby::remove_item_condition(*(s32 *)((s8 *)arg0 + 8), *(s32 *)((s8 *)arg0 + 4));
 }
+extern "C" {
 
 void handle_6x5A_pick_up_item_request(Msg_8011A9D8 *msg) {
     bswap_pick_up_item_request__6TLobbyFi((s32)msg);
@@ -155,6 +159,7 @@ void TLobby::drop_item_from_source(s16 source, int client, s16 room, int slot, f
             }
         }
     }
+}
 }
 
 void process_enemy_drop_request(s8 area, s16 source, int client, s16 room, int slot, f32 x, f32 z) {
@@ -228,6 +233,7 @@ void handle_6x60_standard_drop_item_request(void *arg0) {
     }
     process_enemy_drop_request(area, req->source, client, req->room, slot, req->x, req->z);
 }
+extern "C" {
 
 void handle_6x5F_drop_item(Pkt_8011ADF4 *pkt) {
     ((TLobby *)pkt)->bswap_item_packet();
@@ -266,8 +272,10 @@ void TLobby__sub_8011AED8(s8 arg0, s16 arg1, u8 *arg2, f32 farg0, f32 farg1) {
     ((TLobby *)(*(s32 *)((s8 *)arg2 + 0xC)))->observe_item_id();
     ((TLobby *)(&stack.sp8))->insert_sorted_entry();
 }
+}
 
 void handle_6x62(void) {  }
+extern "C" {
 u32 advance_item_id_counter(s32 client) {
     if (TOKeyMachine01::get_global_state() == 0xF)
         return ((u32*)item_id_counter_table)[(u16)client]++;
@@ -283,5 +291,4 @@ void TLobby::reset_item_id_counters() {
         ((s32 *)item_id_counter_table)[i] = (i << 21) + 0x10010000;
     }
 }
-
 }

@@ -31,7 +31,9 @@ extern "C" {
 void TAdMultiConfirmGC__sub_802E03D0(void *);
 void TAdMultiConfirmGC__sub_802E0448(void *);
 s32 fn_802E0454(void *);
-s32 multi_confirm_cancel_requested(s32);
+}
+int multi_confirm_cancel_requested(void *p);
+extern "C" {
 s32 are_all_entries_finished(s32);
 void *get_localized_text_entry(s32, s32);
 void *__nw__7TObjectFUl(u32);
@@ -90,7 +92,7 @@ void TAdMultiConfirmGC::run_task() {
         }
         break;
     case 3:
-        if (multi_confirm_cancel_requested(arg0->x48) != 0) {
+        if (multi_confirm_cancel_requested((void *)arg0->x48) != 0) {
             TAdMultiChgGameModeGC::set_change_game_mode();
         } else if (are_all_entries_finished(arg0->x48) != 0) {
             TAdMultiChgGameModeGC::set_state_0xc();
@@ -110,9 +112,9 @@ void *__dt__17TAdMultiConfirmGCFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+}
 #pragma push
 #pragma opt_common_subs off
-}
 TAdMultiConfirmGC::TAdMultiConfirmGC(TObject *parent) : TObject(parent) {
     OkArg_802FFA3C arg;
     u32 i;

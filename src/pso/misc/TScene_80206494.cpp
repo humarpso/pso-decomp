@@ -156,6 +156,7 @@ void TScene::load_tam_file(s32 name) {
         }
     }
 }
+}
 
 void load_scene_map_file(s32 arg0) {
     u8 id[0x20];
@@ -238,6 +239,7 @@ void load_floor_scene(void) {
 
 #pragma push
 #pragma fp_contract on
+extern "C" {
 void TScene::free_scene_resources() {
     u32 temp_r3;
     temp_r3 = TScene__material_info_buffer;
@@ -531,5 +533,4 @@ void TScene::load_current_floor() {
     TScene__render_callback = 0;
     TScene__visibility_radius_margin = TScene__data_805DC5D8;
 }
-
 }

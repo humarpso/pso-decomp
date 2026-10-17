@@ -44,7 +44,7 @@ void TWindowOptionCtrl::open_confirm_dialog(s32 arg1, s32 arg2) {
         forward_slot_selection__16TAdChrSelASlotGCFPvPv(this->m_2c, arg1, get_option_entry__17TWindowOptionCtrlFi(0xCF), lbl_805DFDD0);
         return;
     }
-    initialize_option_dialog((void *)this->m_2c, (s32)arg1, (s32)(get_option_entry__17TWindowOptionCtrlFi(0xCF)), (f32)lbl_805DFDD0);
+    initialize_option_dialog((void *)this->m_2c, arg1, (get_option_entry__17TWindowOptionCtrlFi(0xCF)), (f32)lbl_805DFDD0);
 }
 
 void TWindowOptionCtrl::set_option_and_confirm(s32 arg1, s32 arg2) {

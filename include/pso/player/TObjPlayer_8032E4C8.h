@@ -6,7 +6,7 @@
 extern "C" {
 void TItemWpnCardEffect__sub_8032E588(s32 arg0, s32 arg1, s32 arg2);
 void TObjPlayer__sub_8032E648(s32 arg0, s32 arg1, s32 arg2);
-void start_guardianna_wall_card(s32 arg0, s32 arg1, s32 arg2);
 }
+void start_guardianna_wall_card(s32 arg0, s32 arg1, s32 arg2);
 
 #endif

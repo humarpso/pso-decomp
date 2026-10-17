@@ -18,14 +18,15 @@ struct Pair_802907E4 { u32 a; u32 b; };
 
 struct Opaque_80290088;
 
-extern "C" {
 extern const f32 lbl_805DD944;
 extern const f32 lbl_805DD948;
 extern const f32 lbl_805DD94C;
 extern const f32 lbl_805DD950;
 extern const f32 lbl_805DD954;
 s32 find_shape_triangle_region(u8 *arg0);
+extern "C" {
 void TAdSinglePlyChrSelectGC__sub_802905A4(void* p, void* q);
+}
 void reset_creation_shape_set(s32 arg0);
 extern void ***char_creation_data_block;
 void reset_creation_body_shapes();
@@ -36,12 +37,15 @@ CreationBodyModelStates creation_body_shape_destination;
 CreationBodyModelStates creation_body_shape_samples[7];
 CreationShapeBlend creation_shape_blend;
 CreationTextureCacheEntry creation_texture_cache[CREATION_TEXTURE_CACHE_CAPACITY];
+extern "C" {
 s32 is_entry_equal__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
 s32 creation_motion_group(u32);
+}
 extern u32 creation_player_character;
 extern u32 creation_figure_object;
 void request_creation_motion(s32 arg0);
 extern s32 chara_select_creation_shape_rel_files[];
+extern "C" {
 void load_creation_shape_rel(W_80290250 *arg0);
 void TCharaMaking__sub_8028E3A0();
 void TAdSinglePlyChrSelectGC__sub_80290884(void* p, void* q);
@@ -72,15 +76,19 @@ void rotate_matrix_y(int, u32);
 void push_matrix_from();
 void push_matrix();
 s32 pop_matrix(void);
+}
 extern u32 creation_figure_rotation_y;
 void map_shape_region_samples(s32 region, s32 *samples);
 extern CreationShapeBlend creation_shape_blend;
 s32 clear_creation_shape_eval_masks(f32 *dst, const f32 *a, const f32 *b, const f32 *c);
 s32 scan_creation_resources(void *arg0);
+extern "C" {
 int fn_8001ED90(void *p);
 void update_pair__23TAdSinglePlyChrSelectGCFPv(void* p);
+}
 u32 relocate_data_block_pointers(u32 arg0, u32 arg1);
 extern s32 char_select_active_flag;
+extern "C" {
 int TAdSinglePlyChrSelectGC__sub_802905B8(void);
 void close_if_active__23TAdSinglePlyChrSelectGCFv(u8 * _w0);
 int TAdSinglePlyChrSelectGC__sub_8029071C(void*);
@@ -1048,10 +1056,12 @@ s32 load_resource_from_descriptor(s32, s32, s32, s32, s32, s32);
 void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
 s32 TObjMotion__ct(void *, void *);
 void *mem_alloc(u32 size);
+}
 void reset_character_creation_figure_rotation(void);
 extern s32 lbl_805D3BBC;
 extern void *creation_menu_main_obj;
 extern const f32 lbl_805DD940;
+extern "C" {
 
 void TCharaMaking__bind_head_shape_nodes(CharacterAppearanceFields *appearance, void *model);
 void TCharaMaking__bind_body_shape_nodes(CharacterAppearanceFields *appearance, void *model);
@@ -1152,6 +1162,7 @@ u8 TAdSinglePlyChrSelectGC::is_active() {
 }
 int TAdSinglePlyChrSelectGC__sub_802905B8(void) {  return char_creation_figure_draw_flag; }
 void TAdSinglePlyChrSelectGC__sub_802905A4(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
+}
 void reset_creation_shape_set(s32 arg0) {
     TAdSinglePlyChrSelectGC__sub_802905A4((void*)arg0, (void*)((void *)&creation_empty_model_node));
 }
@@ -1218,6 +1229,7 @@ void reset_creation_body_shapes() {
   while (group < 7);
 }
 #pragma pop
+extern "C" {
 void TCharaMaking__bind_body_shape_nodes(CharacterAppearanceFields *appearance, void *model) {
     reset_creation_body_shapes();
     TObjPlayer::clear_next_entry((s32)model, (u8 *)&creation_body_shape_destination);
@@ -1354,13 +1366,13 @@ void TCMCharacter::update_chara_preview() {
     advance_animation_playback((s32)this);
 }
 
-extern "C" {
 void request_creation_motion(s32 arg0) {
     if (creation_figure_object == 0 || creation_player_character == 0) {
         return;
     }
     ((TObjMotion *)creation_figure_object)->set_field_b8(arg0 * 3 + creation_motion_group(creation_player_character));
 }
+extern "C" {
 void TAdSinglePlyChrSelectGC::draw_player_model() { set_motion_interpolation_flag__10TObjMotionFv(this); draw_model_with_callback__10TObjPlayerFv(this); }
 void close_if_active__23TAdSinglePlyChrSelectGCFv(u8 * _w0) {
     if ((s32) char_select_active_flag != 0) {
@@ -1409,6 +1421,7 @@ void TAdSinglePlyChrSelectGC::draw_creation_figure() {
         pop_matrix();
         TParticleCtrl::end_effect_render();
     }
+}
 }
 s32 scan_creation_resources(void *arg0) {
     CreationTextureCacheEntry *p;
@@ -1485,6 +1498,7 @@ void map_shape_region_samples(s32 region, s32 *samples) {
         samples[i] = sample;
     }
 }
+extern "C" {
 void TAdSinglePlyChrSelectGC::get_sorted_region_samples(s32 *samples) {
     s32 j;
     s32 y;
@@ -1503,6 +1517,7 @@ void TAdSinglePlyChrSelectGC::get_sorted_region_samples(s32 *samples) {
         }
     }
 }
+}
 #pragma push
 #pragma fp_contract on
 s32 clear_creation_shape_eval_masks(f32 *dst, const f32 *a, const f32 *b, const f32 *c) {
@@ -1513,6 +1528,7 @@ s32 clear_creation_shape_eval_masks(f32 *dst, const f32 *a, const f32 *b, const 
     return 1;
 }
 #pragma pop
+extern "C" {
 s32 TAdSinglePlyChrSelectGC::map_button_code(s32 arg0) {
     switch (arg0) {
     case 0x29:

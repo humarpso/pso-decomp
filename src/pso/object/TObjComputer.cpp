@@ -113,6 +113,7 @@ void *TObjComputer__ct(void *arg0, void *parent, void *row);
 void *load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 u8 *load_gvm_texture_file(s32 arg0);
+}
 extern char lbl_80444B60[];
 extern char lbl_80444B78[];
 extern s32 fe_obj_tanmatu02_resource_descriptor[];
@@ -120,6 +121,7 @@ extern s32 fs_obj_tanmatu02_resource_descriptor[];
 extern u32 TObjComputer__texture_gvm_handle;
 extern s16 computer_uv_scroll_phase;
 void load_computer_resources(void);
+extern "C" {
 s32 scroll_ginja_mesh_uvs(void *, s32, s32, u16, s32);
 s32 PPCSync();
 s32 rotate_matrix_by_node_angles(void *, u32);
@@ -131,7 +133,9 @@ extern s32 local_client_id;
 extern const f32 lbl_805DBCF4;
 void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
+}
 void play_container_break_sound(s32 arg0);
+extern "C" {
 s32 dispatch_fish_event__6TLobbyFPv(void *a0);
 void *__nw__7TObjectFUl(int);
 extern ChipParam_8018860C lbl_80444E5C;
@@ -224,6 +228,7 @@ void TObjComputer::free_resources() {
         TObjComputer__model_archive = 0U;
     }
 }
+}
 
 void load_computer_resources(void) {
     void *p;
@@ -249,6 +254,7 @@ void load_computer_resources(void) {
         break;
     }
 }
+extern "C" {
 
 void *__dt__12TObjComputerFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -394,5 +400,4 @@ void TObjContainerAbeEnemy::vfunc_81() {
         }
     }
 }
-
 }

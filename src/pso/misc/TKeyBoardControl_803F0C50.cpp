@@ -119,8 +119,8 @@ struct Kb_803F1604 {
     u8 pad64[4];
 };
 
-extern "C" {
 extern RecoveredGlobal_803F1548_lbl_805A2720 keyboard_pad_state_table;
+extern "C" {
 s32 SIDisablePolling(u32);
 extern s32 TKeyBoardControl__polling_channel_mask;
 extern s32 TKeyBoardControl__polling_disabled;
@@ -480,6 +480,7 @@ inline u32 kb_sum_803F1604(u32 *p) {
     sum ^= (u8)(p[1] >> 8);
     return sum == (u8)p[1];
 }
+}
 s32 poll_keyboard_port(s32 chan, u8 *out) {
     u32 resp[2];
     u8 unused[4];
@@ -538,5 +539,3 @@ s32 poll_keyboard_port(s32 chan, u8 *out) {
     return ret;
 }
 #pragma pop
-
-}

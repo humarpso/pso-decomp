@@ -69,7 +69,9 @@ extern RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270 TKeyBoardControl
 extern RecoveredGlobal_801A5EC4_lbl_8050E208 controller_input_state;
 s32 TKeyBoardControl__sub_80132310(s32);
 u8 TKeyBoardControl__sub_8013239C(void *, int);
+}
 void reset_system();
+extern "C" {
 s32 DVDCheckDisk();
 extern s32 lbl_805D49B4;
 extern u8 lbl_805D5D09;
@@ -84,6 +86,7 @@ f32 newton_sqrtf(f32);
 void bind_controller_devices(void);
 void map_c_stick_to_buttons(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
 void map_main_stick_to_buttons(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
+}
 extern u8 controller_physical_port_bank[];
 extern s32 lbl_805D34C8;
 extern u8 *camera_ctrl_instance;
@@ -92,7 +95,6 @@ extern const f32 lbl_805DC0BC;
 extern const f32 lbl_805DC0C0;
 extern const f32 lbl_805DC0C4;
 extern const f32 lbl_805DC0C8;
-}
 
 struct Kb_801A6910 {
     u32 f0;
@@ -103,12 +105,12 @@ struct Kb_801A6910 {
     u32 f4C;
 };
 struct Def_804C2308 { u32 w[13]; };
-extern "C" {
 void accumulate_key_bits(s32 arg0, s32 *arg1);
 Def_804C2308 controller_default_pad_state = { 0, 0, 0, 0xFFFFFFFF, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 u32 TKeyBoardControl_key_bit_table[6] = { 16, 32, 64, 128, 4, 2 };
 u32 keyboard_poll_key_codes[6] = { 94, 93, 92, 95, 97, 76 };
 s32 controller_device_id_table[4] = { 0, 6, 12, 18 };
+extern "C" {
 void TObjPlayer::reset_fields() { *(s32*)((char*)this + 0x0) = 0; *(s32*)((char*)this + 0x4) = 0; *(s32*)((char*)this + 0x8) = 0; }
 
 typedef struct RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270 RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270;
@@ -248,9 +250,9 @@ void TKeyBoardControl::update_input_frame() {
         update_button_hold_counters((int)temp_r31);
     }
 }
+}
 #pragma push
 #pragma fp_contract on
-}
 void controller_stuff(void) {
     s32 i;
     Src_801A5F1C **pp;
@@ -636,6 +638,7 @@ s32 TKeyBoardControl::poll_key_state() {
     self->f4C = self->f8;
     return 0;
 }
+}
 
 #undef controller_input_state
 #undef controller_physical_port_bank
@@ -650,6 +653,4 @@ void accumulate_key_bits(s32 arg0, s32 *arg1) {
             *arg1 |= ((s32 *)TKeyBoardControl_key_bit_table)[i];
         }
     }
-}
-
 }

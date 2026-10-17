@@ -46,6 +46,7 @@ s32 GXSetViewport(f32, f32, f32, f32, f32, f32);
 s32 GXSetScissor(int, int, int, int);
 s32 set_camera_look_at(void *, void *, void *);
 s32 set_perspective_projection_from_fov(int, f32, f32, f32);
+}
 extern RecoveredGlobal_800830B0_lbl_80439348 camera_ctrl_up_vector;
 extern u8 *camera_ctrl_instance;
 extern u32 camera_render_target_singleton;
@@ -63,10 +64,12 @@ extern const f32 lbl_805D93F4;
 extern const f32 lbl_805D93F8;
 extern const f32 lbl_805D93FC;
 extern const f32 lbl_805D9400;
-s32 load_list_texture(s32, s32, s32, s32);
+void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map);
+extern "C" {
 void VecCopy__FP3VecPC3Vec(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
+}
 
 void calc_projection_screen_offset(f32 *arg0, f32 *arg1) {
     f32 dx = TCameraCtrl__data_804FF634.f8;
@@ -77,6 +80,7 @@ void calc_projection_screen_offset(f32 *arg0, f32 *arg1) {
     *arg0 = (lbl_805D93F4 * dx) / lbl_805D93F8;
     *arg1 = (lbl_805D93FC * dy) / lbl_805D9400;
 }
+extern "C" {
 
 void TCameraCtrl::copy_position_vectors(void *arg1, void *arg2) {
     VecCopy__FP3VecPC3Vec((void *)((char *)this + 32));
@@ -158,5 +162,4 @@ void *TUnk_8048E5DC::dt(s16 arg1) {
     }
     return this;
 }
-
 }

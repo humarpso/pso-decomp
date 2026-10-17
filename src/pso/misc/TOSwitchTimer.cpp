@@ -21,11 +21,13 @@ struct RecoveredGlobal_80178604___vt__13TOSwitchTimer {
 
 extern "C" {
 s32 TObjRoomId__sub_80141CF4(s32, f32 *, f32, f32, f32);
+}
 extern const f32 lbl_805DBA18;
 extern const f32 lbl_805DBA1C;
 extern const f32 lbl_805DBA20;
 extern const f32 lbl_805DBA24;
 void clear_floor_switch_flag(u32 id, s16 floor);
+extern "C" {
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8017858C___vt__13TOSwitchTimer __vt__13TOSwitchTimer;
 s32 fn_801782A0(void *);
@@ -119,5 +121,4 @@ u8 *TOSwitchTimer__ct(u8 *arg0, s32 arg1, s32 arg2) {
     fn_801782A0(arg0);
     return arg0;
 }
-
 }

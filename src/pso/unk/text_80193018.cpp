@@ -28,6 +28,7 @@ extern "C" {
 void *load_resource_from_descriptor(void *, int, BmlResourceDescriptor *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 u8 *load_gvm_texture_file(s32 arg0);
+}
 extern u8 lbl_80445BB8[];
 extern u8 lbl_80445BCC[];
 extern s32 lazer_fence_norm_texture_list;
@@ -61,11 +62,12 @@ void load_lazer_fence_norm_resources(void) {
         break;
     }
 }
+extern "C" {
 
 __declspec(section ".data") const char *fe_obj_lazer2_4m_model_names[9] = { lbl_80445A30, lbl_80445A44, lbl_80445A60, lbl_80445A74, lbl_80445A90, lbl_80445AA4, lbl_80445AC0, lbl_80445AD4, NULL };
 __declspec(section ".data") const char *fe_obj_lazer2_4m_motion_names[5] = { lbl_80445AF0, lbl_80445B08, lbl_80445B20, lbl_80445B38, NULL };
 BmlResourceDescriptor lazer_fence_norm_episode1_resource_descriptor = { lbl_80445B50, fe_obj_lazer2_4m_model_names, fe_obj_lazer2_4m_motion_names, 8, 4 };
 __declspec(section ".data") const char *fe_obj_lazer2_2_model_names[9] = { lbl_80445A30, lbl_80445A44, lbl_80445A60, lbl_80445A74, lbl_80445A90, lbl_80445AA4, lbl_80445AC0, lbl_80445AD4, NULL };
 __declspec(section ".data") const char *fe_obj_lazer2_2_motion_names[5] = { lbl_80445AF0, lbl_80445B08, lbl_80445B20, lbl_80445B38, NULL };
-BmlResourceDescriptor lazer_fence_norm_episode2_resource_descriptor = { lbl_80445B68, fe_obj_lazer2_2_model_names, fe_obj_lazer2_2_motion_names, 8, 4 };
 }
+BmlResourceDescriptor lazer_fence_norm_episode2_resource_descriptor = { lbl_80445B68, fe_obj_lazer2_2_model_names, fe_obj_lazer2_2_motion_names, 8, 4 };

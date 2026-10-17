@@ -93,12 +93,14 @@ u32 calc_text_width(const char *);
 void draw_menu_font_string(const char *, u32, s32, f32, f32, f32);
 f32 sin_table_lookup(s32);
 u32 strlen(const char *);
+}
 extern Off_800753DC tombstone_name_label_offset_table[];
 extern const f32 lbl_805D9188;
 extern const f32 lbl_805D918C;
 extern const f32 lbl_805D9190;
 extern const f32 lbl_805D91A0;
 void handle_6x96(void);
+extern "C" {
 s32 is_challenge_mode_active();
 s32 get_current_floor();
 s32 is_flag_set__6TLobbyFv();
@@ -112,8 +114,10 @@ void TObjTombstone::reset_matrix() {
     sp8 = *(const ByteBlock_28 *)((s32) ((u8 *)&tombstone_reset_matrix_template.value + -4) + 4);
     ((TObjTombstone *)(&TObjTombstone__base_matrix.value))->copy_matrix((void*)&sp8);
 }
+}
 
 void handle_6x96(void) {  }
+extern "C" {
 s32 TObjTombstone::check_owner() {
     s32 var_r3;
 
@@ -263,7 +267,6 @@ s32 TObjTombstone::draw_name_labels(void *arg0_) {
         }
     }
 }
+}
 #undef self
 #pragma pop
-
-}

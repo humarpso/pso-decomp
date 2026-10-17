@@ -14,6 +14,7 @@ s32 is_split_screen();
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 sub_80246948__13TUnk_804CE018Fv(void *);
 s32 is_player_input_active(void *);
+}
 extern RecoveredGlobal_80263A20_lbl_8050E208 controller_input_state;
 typedef char RecoveredGlobal_80263A20_lbl_8050E208_size[sizeof(RecoveredGlobal_80263A20_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void toggle_help_window_on_button(u32 arg0, s32 arg1) {
@@ -24,6 +25,4 @@ void toggle_help_window_on_button(u32 arg0, s32 arg1) {
         }
         ((TWindowLockOn *)arg0)->request_close();
     }
-}
-
 }

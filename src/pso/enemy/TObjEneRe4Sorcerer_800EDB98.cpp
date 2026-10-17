@@ -865,12 +865,16 @@ int TObjEneDD__sub_800BA804(u16 arg0);
 s32 init_model__9TObjEneDDFv(void *, void *, int, int);
 u32 vfunc_102__9TObjEneDDFv();
 u32 vfunc_101__9TObjEneDDFPUc();
+}
 void calc_wall_clamped_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist);
+extern "C" {
 s32 clear_attack_receipts__9TObjEneDDFv(void *);
 void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 u32 load_enemy_bml_resource_named(void *, void *);
 s32 load_enemy_bml_resource(u8 *arg0);
+}
 s32 tick_period_counter(s32 arg0, s32 *arg1, s32 arg2);
+extern "C" {
 s32 reset_transform__13TObjEneRe4BitFv();
 s32 set_flag_and_notify__18TObjEneRe4SorcererFv();
 u8 * get_spell_data__18TObjEneRe4SorcererFv();
@@ -899,7 +903,9 @@ Obj_800F0054 * __dt__18TObjEneRe4SorcererFv(Obj_800F0054 *arg0, s16 arg1);
 void * TObjEneRe4Sorcerer__ct(void *arg0, void *arg1, void *arg2);
 void TBoss3Volopt__sub_800F059C(void);
 s32 remap_area_sound_id(s32 arg0, s32 arg1);
+}
 void *destroy_buffer_pair(void *arg0, s16 arg1);
+extern "C" {
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 approach_angle_limited(s32, s32, s32);
 void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
@@ -2630,5 +2636,4 @@ s32 remap_area_sound_id(s32 arg0, s32 arg1) {
         return r | (arg0 & 0x8FFFFF00);
     }
 }
-
 }

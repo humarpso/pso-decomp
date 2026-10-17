@@ -338,8 +338,6 @@ void reset_random_enemies_mode(void) { TLobby::clear_counter(); evt2_random_enem
 
 }
 
-extern "C" {
-
 struct Base_80213E64_80213E38 { char pad[0x18]; };
 struct VObj_80213E64_80213E38 : Base_80213E64_80213E38 {
     virtual void m0();
@@ -356,6 +354,7 @@ struct VObj_80213E64_80213E38 : Base_80213E64_80213E38 {
 void set_random_enemies_mode(void) { TLobby::set_enemy_mode_flag(); evt2_random_enemies_mode = 2; TKeyBoardControl__sub_8000F950(); }
 
 extern struct VObj_80213E64_80213E38 *offline_quest_list_vm;
+extern "C" {
 
 void THunterGuildSeqOffline__sub_80213E64(void) {
     if (offline_quest_list_vm != NULL) {
@@ -364,7 +363,6 @@ void THunterGuildSeqOffline__sub_80213E64(void) {
         *(s32 *)((s8 *)offline_quest_list_vm + 0x34) = 2;
     }
 }
-
 }
 
 namespace part2 {

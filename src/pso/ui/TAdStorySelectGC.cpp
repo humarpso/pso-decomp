@@ -3,8 +3,6 @@
 #include "pso/ui/TAdStorySelectGC.h"
 #include "pso/TAdStorySelectGC.h"
 
-extern "C" {
-
 extern s32 story_select_pending_state;
 
 s32 request_story_select_state(s32 arg0) {
@@ -16,6 +14,7 @@ s32 request_story_select_state(s32 arg0) {
 }
 
 extern s32 selected_episode;
+extern "C" {
 
 void TAdStorySelectGC::set_state(s32 arg0) {
     selected_episode = arg0;
@@ -28,5 +27,4 @@ void TAdStorySelectGC::set_state(s32 arg0) {
         return;
     }
 }
-
 }

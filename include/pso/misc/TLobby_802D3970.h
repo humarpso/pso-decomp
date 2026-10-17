@@ -8,7 +8,9 @@ int TLobby__sub_802D39BC(void *p);
 int TLobby__sub_802D39DC(void *p);
 int TLobby__sub_802D39FC(void *p);
 void TLobby__sub_802D3AA8(void);
+}
 void build_6xA6_modify_trade_proposal(void *p);
+extern "C" {
 int close_trade_request__6TLobbyFPv(void *p);
 }
 

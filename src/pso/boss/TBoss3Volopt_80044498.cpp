@@ -585,7 +585,9 @@ extern const f32 lbl_805D87DC;
 f32 fabs_float(f32);
 s32 TBoss3Volopt__sub_8003F398(void);
 s32 minimap_render_dot(void *, s32, s16, s32);
+}
 void reset_status_effect_row(u8 *arg0);
+extern "C" {
 void copy_position__20TBoss3VoloptHiraisinFv(s32 arg0);
 s32 update_obstruction_fade(void *);
 s32 submit_cursor_candidate(void *, int);
@@ -1801,5 +1803,4 @@ void *TUnk_80484610::destroy(s16 arg1) {
     }
     return this;
 }
-
 }

@@ -12,7 +12,9 @@ s32 is_locally_controlled__10TObjPlayerFPv(void *);
 s32 obj_isState2_324__13TUnk_804806E8Fv(void *);
 u16 obj_getField1c(void *);
 s32 check_flag__10TObjPlayerFl(void *, int);
-s32 reset_cameras_to_actor(void *, int);
+}
+void reset_cameras_to_actor(void *actor, s32 arg1);
+extern "C" {
 s32 sub_801A1DDC__10TObjPlayerFv(void *);
 s32 is_single_screen__10TObjPlayerFv();
 s32 is_key_machine_ready__10TObjPlayerFv();
@@ -88,5 +90,4 @@ void TObjPlayer::place_on_area_entry() {
         }
     }
 }
-
 }

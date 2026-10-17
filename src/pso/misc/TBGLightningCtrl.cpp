@@ -14,8 +14,6 @@ public:
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
-
 struct RecoveredGlobal_802A9C24___vt__16TBGLightningCtrl {
     s32 value;
     u8 remaining[0x30];
@@ -58,6 +56,7 @@ struct Stack_802A9A2C {
     f32 spC;
     f32 sp10;
 };
+extern "C" {
 
 s32 VecCopy__FP3VecPC3Vec(void *, s32, s8, f32, f32);
 s32 queue_destruction__7TObjectFv();
@@ -160,9 +159,12 @@ void TBGLightningCtrl::destroy_instance() {
         (*(u32 *)&bg_lightning_texture_handle) = 0U;
     }
 }
+}
 
 void load_bg_lightning(void) { bg_lightning_texture_handle = (int)load_gvm_texture_file((s32)lbl_8046FCA0); }
+extern "C" {
 __declspec(section ".rodata") extern unsigned char lbl_8046FCA0[] = "bg_lightning.gvm";
+}
 
 extern const f32 lbl_805DE040 = 0.0f;
 void submit_particle_quad(void *arg0, f32 *p, f32 *d, s32 c) {
@@ -184,6 +186,7 @@ void submit_particle_quad(void *arg0, f32 *p, f32 *d, s32 c) {
 
 #pragma push
 #pragma fp_contract on
+extern "C" {
 void fn_802A9DF4(Obj_802A9DF4 *self, Vec_802A9DF4 *dir) {
     Vec_802A9DF4 p;
     Vec_802A9DF4 d;
@@ -291,7 +294,6 @@ u8 *create__12TBGLightningFiif(s32 arg0, s32 arg1, f32 farg0) {
     }
     return var_r0;
 }
-
 }
 TBGLightning::~TBGLightning() {}
 

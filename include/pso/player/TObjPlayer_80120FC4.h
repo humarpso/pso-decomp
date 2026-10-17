@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 s32 create_common_weapon(s32 item);
-}
 
 #endif

@@ -4,6 +4,7 @@
 extern "C" {
 s32 OSDisableInterrupts(void);
 s32 OSRestoreInterrupts(s32 level);
+}
 extern volatile s32 middleware_interrupt_lock_depth;
 extern s32 middleware_saved_interrupt_state;
 
@@ -23,4 +24,3 @@ void middleware_interrupt_lock_enter(void) {
 
 volatile s32 middleware_interrupt_lock_depth;
 s32 middleware_saved_interrupt_state;
-}

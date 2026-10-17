@@ -101,7 +101,9 @@ extern s32 lbl_80494A10[];
 Obj_800D80E4 *init_corner_vertices__9TDeadSpotFPv(Obj_800D80E4 *arg0, void * _w1, Vec_800D8314 * _w2, void * _w3, s32 _w4, s32 _w5, f32 _w6);
 void run_task__9TDeadSpotFv(Obj_800D8228 *arg0);
 Ground_800D8314 *csnVecterUnder(void *, s32);
-s32 direction_to_rotation_yx(void *, s32 *, s32 *);
+}
+void direction_to_rotation_yx(u8 *arg0, s32 *arg1, s32 *arg2);
+extern "C" {
 s32 rand();
 s32 fn_803D8DE0(int, void *, void *, int);
 s32 rotate_matrix_y(int, int);
@@ -369,7 +371,7 @@ Mark_800D8314 *__ct__9TDeadSpotFv(Mark_800D8314 *self, void *parent, Vec_800D831
     basis[1].x = TDeadSpot__data_805DA38C;
     basis[1].y = lbl_805DA390;
     basis[1].z = TDeadSpot__data_805DA38C;
-    direction_to_rotation_yx(&ground->plane->normal, &yaw, &pitch);
+    direction_to_rotation_yx((u8 *)&ground->plane->normal, &yaw, &pitch);
     if (pitch < 0x3000 || pitch > 0x5000) {
         queue_destruction__7TObjectFv(self);
         return self;
@@ -436,6 +438,5 @@ Mark_800D8314 *__ct__9TDeadSpotFv(Mark_800D8314 *self, void *parent, Vec_800D831
     }
     return self;
 }
-#pragma pop
-
 }
+#pragma pop

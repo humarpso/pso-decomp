@@ -411,7 +411,9 @@ s32 OSLockMutex();
 s32 OSGetCurrentThread();
 void NetStoreCurrentThread(s32 *arg0);
 s32 OSYieldThread();
+}
 void NetYieldThread(void);
+extern "C" {
 s32 OSResumeThread();
 s32 OSSuspendThread();
 void NetSuspendCurrentThread(void);
@@ -476,7 +478,9 @@ extern u8 lobby_ppp_read_buf;
 B_803FADA0 *init_net_buffer_entry__6TLobbyFUs(s32);
 extern u8 lbl_805D7A74[1];
 void TLobby__sub_803FADA0(B_803FADA0 **arg0, A_803FADA0 *arg1, s32 arg2, s32 arg3, void *arg4);
+}
 s32 NetSetDefaultThreadPriority(s32 arg0);
+extern "C" {
 void TLobby__sub_803FA234(void);
 void TLobby__sub_803FA238(u8 *arg0);
 void TLobby__sub_803FA280(void);
@@ -596,10 +600,12 @@ void TLobby::signal_alarm_queue(void *alarm) {
         }
     }
 }
+}
 
 void NetYieldThread(void) {
     OSYieldThread();
 }
+extern "C" {
 
 void TLobby::resume_thread() {
     OSResumeThread();
@@ -656,6 +662,7 @@ s32 TLobby::run_current_thread_callback() {
     }
     return 0;
 }
+}
 
 s32 NetSetDefaultThreadPriority(s32 arg0) {
     if ((arg0 < 0) || (arg0 > 0x1F)) {
@@ -666,6 +673,7 @@ s32 NetSetDefaultThreadPriority(s32 arg0) {
 }
 
 typedef char RecoveredGlobal_803AA0C0_lbl_80556E88_size[sizeof(RecoveredGlobal_803AA0C0_lbl_80556E88) == 0x100 ? 1 : -1];
+extern "C" {
 void TLobby::append_string(u8 arg0) {
     strcat(arg0);
 }
@@ -1385,6 +1393,7 @@ typedef char RecoveredGlobal_8040ED70_lbl_805C1B60_size[sizeof(RecoveredGlobal_8
 s16 TLobby__sub_8040FCEC(u32 ip);
 
 s32 TLobby__sub_8040FDA0(u32 arg0, s16 arg1);
+}
 
 typedef char RecoveredGlobal_8040FE40_lbl_805C1B60_size[sizeof(RecoveredGlobal_8040FE40_lbl_805C1B60) == 0x18 ? 1 : -1];
 
@@ -1538,4 +1547,3 @@ Slot_803F8E08 lobby_alarm_slot_table[0x40];
 u32 network_mutex_slot_table[0x40];
 RecoveredGlobal_803F94A0_lbl_805BF770 network_message_queue_slot_table;
 u32 ppp_ipv6cp_protocol_state[0x2A];
-}

@@ -5,7 +5,7 @@
 
 extern "C" {
 void fn_803653A4(void);
-void free_object_table(void);
 }
+void free_object_table(void);
 
 #endif

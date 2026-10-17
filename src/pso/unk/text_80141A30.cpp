@@ -28,6 +28,7 @@ void restore_saved_depth_alpha_state(void) {
     GXSetZMode((int) (*(u8 *)((s8 *)&depth_buffer_settings.value + 5)), (int) (*(s32 *)((s8 *)&depth_buffer_settings.value + 8)), (int) (*(u8 *)((s8 *)&depth_buffer_settings.value + 0xC)));
     set_material_alpha_compare_reference((*(u8 *)((s8 *)&depth_buffer_settings.value + 0xD)));
 }
+}
 #pragma fp_contract on
 u32 calc_pulse_flash_color(u8 r, u8 g, u8 b, s32 frame, s32 period, s32 start, s32 peak, s32 end) {
     f32 t;
@@ -45,6 +46,4 @@ u32 calc_pulse_flash_color(u8 r, u8 g, u8 b, s32 frame, s32 period, s32 start, s
     g = (f32)(0xFF - g) * t + g;
     b = (f32)(0xFF - b) * t + b;
     return 0xFF000000 | (r << 16) | (g << 8) | b;
-}
-
 }

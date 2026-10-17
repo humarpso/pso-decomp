@@ -3,9 +3,9 @@
 #include "pso/unk/text_800F9B84.h"
 #include "pso/misc/TLobby.h"
 
-extern "C" {
     extern unsigned char lbl_8044BD3C[];
 extern u32 item_appraisal_rules;
+extern "C" {
 s32 adjust_appraisal_percentages(s32);
 s32 adjust_appraisal_special(s32);
 s32 is_slot_match__6TLobbyFv();
@@ -29,6 +29,5 @@ void TLobby::free_window() {
         item_appraisal_rules = 0U;
     }
 }
-void load_judge_item(void) { (*(int *)&item_appraisal_rules) = create_named_object((s32)lbl_8044BD3C); }
-
 }
+void load_judge_item(void) { (*(int *)&item_appraisal_rules) = create_named_object((s32)lbl_8044BD3C); }

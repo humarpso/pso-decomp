@@ -55,6 +55,7 @@ u8 calc_display_grade__9TItemDataFv(void *);
 void check_equip_requirements(int, void *, void *);
 s32 format_item_description(u8 *item);
 void text_builder_append();
+}
 void text_builder_reset();
 extern u8 help_item_tech_disk_window_layout_table[];
 extern V3_802532E8 item_help_tech_disk_stats_callback;
@@ -62,6 +63,7 @@ extern s32 current_language;
 extern const f32 TWindowHelpItem__data_805DCDE4;
 extern const f32 lbl_805DCDE8;
 extern const f32 lbl_805DCDEC;
+extern "C" {
 
 void TWindowHelpItem__sub_802531A0(void) {  }
 
@@ -177,5 +179,4 @@ void TWindowHelpItem__vt11(u8 *window) {
         }
     }
 }
-
 }

@@ -10,8 +10,8 @@ struct RecoveredGlobal_801BFBEC_lbl_804C3E38 {
 
 struct O_801BFC90 { u16 a; u16 b; s32 c; };
 
-extern "C" {
 extern RecoveredGlobal_801BFBEC_lbl_804C3E38 lbl_804C3E38;
+extern "C" {
 void TObjPlayer__sub_801BFC90(O_801BFC90 *p);
 extern const f32 lbl_805DC2DC;
 void reset_stat_scale_and_ring__10TObjPlayerFi(s32 arg0);
@@ -49,10 +49,9 @@ void*TObjPlayer::init_wrapper() { TObjPlayer__sub_801BFD3C(this); return this; }
 void TObjPlayer__sub_801BFD3C(void* p) { *(s16*)((char*)p + 0x0) = 0; *(s16*)((char*)p + 0x2) = 0; *(s32*)((char*)p + 0x4) = 0; *(s16*)((char*)p + 0x8) = 0; }
 void*TObjPlayer::init_sub() { ((TObjPlayer *)((char*)this + 0xc))->init_forward(); reset_stat_scale_and_ring__10TObjPlayerFi((s32)this); return this; }
 void*TObjPlayer::init_subobjects() { ((TObjPlayer *)((char*)this + 0x4))->init_forward(); ((TObjPlayer *)((char*)this + 0x18))->init_pair(); init_player_scale_state(this); return this; }
+}
 int init_player_scale_state(TObjPlayer *arg0) {
     *(u16 *)arg0 = 0xFFFF;
     ((TObjPlayer *)((u8 *)arg0 + 4))->clear_id();
     arg0->set_speed(lbl_805DC2DC);
-}
-
 }

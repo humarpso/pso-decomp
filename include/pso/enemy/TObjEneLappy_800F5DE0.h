@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 int initialize_enemy_photon_effect(void *p);
-}
 
 #endif

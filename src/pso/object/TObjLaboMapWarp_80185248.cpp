@@ -19,6 +19,7 @@
 extern "C" {
 s32 is_split_screen();
 int is_main_phase_15__9TObjEneDDFv(void*);
+}
 s32 get_story_flag(s32);
 extern s32 TObjCityMainWarp__visible_destination_mask;
 struct RecoveredGlobal_80185428_lbl_80444878 {
@@ -141,6 +142,7 @@ struct Anim_80185BE8 { u8 pad[0x3C]; Info_80185BE8 *info; };
 struct Root_80185BE8 { u8 pad[0x430]; Anim_80185BE8 *anim; };
 
 struct Obj_80185BE8 { u8 pad[0xC4]; f32 t; };
+extern "C" {
 
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
@@ -846,5 +848,4 @@ void TObjCityMainWarp::init_visible_mask() {
         TObjCityMainWarp__visible_destination_mask &= ~(1 << i);
     }
 }
-
 }

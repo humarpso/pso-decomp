@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 s32 spawn_fire_explosion_at(u32 a0, s32 a1);
-}
 
 #endif

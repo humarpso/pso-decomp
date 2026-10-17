@@ -80,10 +80,12 @@ void rotate_matrix_y(int, s32);
 s32 matrix_mult_vec(int, void *, void *);
 s32 pop_matrices(s32 arg0);
 f32 vec3_dot(Vec_801A1A60 *, Vec_801A1A60 *);
+}
 extern Vec_801A1A60 lbl_8044688C[];
 extern u8 identity_matrix[];
 extern const f32 lbl_805DC090;
 void set_player_room_control_flag(TObjPlayer *arg0);
+extern "C" {
 void *__dt__10TObjRoomIdFv(void *arg0, s16 arg1);
 void *create__10TObjRoomIdFPv(void *arg0);
 void set__10TObjRoomIdFPvs(void *arg0, s16 arg1);
@@ -119,9 +121,8 @@ void render__10TObjRoomIdFv(RoomId_801A18EC *self) {
         draw_debug_line__10TObjRoomIdFUllll(self, 0x13, 0x22, lbl_804468DC);
     }
 }
-#pragma pop
-
 }
+#pragma pop
 
 #pragma push
 #pragma fp_contract on
@@ -218,12 +219,14 @@ void *create__10TObjRoomIdFPv(void *arg0) {
     }
     return o;
 }
+}
 
 void set_player_room_control_flag(TObjPlayer *arg0) {
     arg0->set_state_flags(0x02000000);
 }
 
 extern s32 local_client_id;
+extern "C" {
 
 u16 TObjRoomId__sub_801A1DB8(u16 x) {
     u16 r;
@@ -256,5 +259,4 @@ void set__10TObjRoomIdFPvs(void *arg0, s16 arg1) {
     }
     *(s16 *)((s8 *)arg0 + 0x28) = arg1;
 }
-
 }

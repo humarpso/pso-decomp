@@ -384,7 +384,9 @@ bool TCameraCtrl__sub_800689F4(void);
 extern s32 local_client_id;
 Cam_80068958 *get_character_select_request_buffer(void);
 s32 TCameraCtrl__sub_800695A0(TCameraCtrl *arg0);
-void reset_cameras_to_actor(u8 *, int);
+}
+void reset_cameras_to_actor(void *actor, s32 arg1);
+extern "C" {
 u16 TCameraCtrl__sub_8006A5DC();
 u8 *get_player_by_client_id(s32);
 extern s32 TCameraCtrl__saved_projection_angle;
@@ -1171,8 +1173,7 @@ void TCameraCtrl::reset_view_flags() {
     OUT_80069F20->f58 = v;
     OUT_80069F20->f5c = v;
 }
+}
 
 #undef CAM_80069F20
 #undef OUT_80069F20
-
-}

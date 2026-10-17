@@ -49,16 +49,20 @@ typedef struct Cam_801E5C24 { u8 pad0[8]; f32 cx; f32 cy; u8 pad10[8]; f32 sw; f
 
 extern "C" {
 void fn_80141EB4(void);
+}
 void setSpriteInverseColorBlend(void);
+extern "C" {
 void transform_point_by_current_matrix(void *, void *);
 void begin_screen_draw(s32 arg0);
 void draw_textured_quad_at_depth(f32 *q, f32 depth);
 void set_draw_texture_and_color(s32 idx, s32 arg1);
+}
 void set_constant_material_color(u32 x);
 extern Cam_801E5C24 lbl_8058D4F8;
 extern const f32 lbl_805DC480;
 extern const f32 lbl_805DC484;
 extern const f32 lbl_805DC488;
+extern "C" {
 void render__17TQuadSpriteSclColFv(Self_801E5C24 *self);
 void *TQuadSpriteSclCol__ct(void *arg0);
 void *__dt__17TQuadSpriteSclColFv(void *arg0, s16 arg1);
@@ -181,5 +185,4 @@ void *TQuadSpriteSclCol__ct(void *arg0) {
     *(void * *)&((TQuadSpriteSclCol *)arg0)->m_name = TQuadSpriteSclCol__class_name;
     return arg0;
 }
-
 }

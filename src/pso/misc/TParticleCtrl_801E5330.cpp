@@ -2,12 +2,11 @@
 #include "pso/misc/TParticleCtrl_801E5330.h"
 #include "pso/TParticleCtrl.h"
 
-extern "C" {
-
 struct ParticleDefinition {
     u8 data[0x24];
     s32 sprite_type;
 };
+extern "C" {
 
 void *__nw__7TObjectFUl(u32);
 void *TQuadSpriteNormal__ct(void *, void *, ParticleDefinition *);
@@ -87,6 +86,7 @@ void TParticleCtrl::create_quad_sprites() {
         index++;
     } while (index < 0x6C);
 }
+}
 
 void init_particle_sprite_atlas(void) {
     f32 (*p)[4];
@@ -118,6 +118,4 @@ void init_particle_sprite_atlas(void) {
         *(s32 *)(lbl_804C5820[i].data + 4) = lbl_805D35A0[*(s32 *)(lbl_804C5820[i].data + 0x20)];
         TParticleCtrl__data_80511F70[i] = 0;
     }
-}
-
 }

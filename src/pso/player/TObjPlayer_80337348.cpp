@@ -4,8 +4,8 @@
 
 struct T_803374C4 { u8 b[8]; void *p; };
 
-extern "C" {
 extern char lbl_804C3E44[];
+extern "C" {
 T_803374C4 *TObjPlayer__sub_803374C4(T_803374C4 *self);
 s32 TObjPlayer__sub_801BED70(s32);
 s32 TObjPlayer__sub_801BED78(s32);
@@ -33,6 +33,7 @@ s32 TObjPlayer::can_use_more_materials(s32 arg1) {
         return 1;
     }
     return 0;
+}
 }
 
 s32 get_total_materials_used(s32 arg0) {
@@ -65,6 +66,7 @@ u8 get_material_limit_for_class(s32 arg0) {
     }
     return 0xFA;
 }
+extern "C" {
 
 T_803374C4 *TObjPlayer__sub_803374C4(T_803374C4 *self) {
     s32 i;
@@ -74,5 +76,4 @@ T_803374C4 *TObjPlayer__sub_803374C4(T_803374C4 *self) {
     }
     return self;
 }
-
 }

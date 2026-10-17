@@ -56,6 +56,7 @@ s32 fn_8042EF48(s8 arg0) {
     *(s32 *)((s8 *)lbl_805D7CC0 + 4) = (s32) (*(s32 *)((s8 *)lbl_805D7CC0 + 4) | 0x1000);
     return 0;
 }
+}
 
 extern u8 *lbl_805D7CC4;
 
@@ -103,11 +104,13 @@ s32 set_modem_check_param(s32 arg0) {
     *(s32 *)((s8 *)lbl_805D7CC0 + 4) = (s32) (*(s32 *)((s8 *)lbl_805D7CC0 + 4) | 0x800);
     return 0;
 }
+extern "C" {
 
 s32 TAdTrialModemChkGC__sub_8042F080(s16 arg0) {
     *(s16 *)((s8 *)lbl_805D7CC4 + 0x1C2) = arg0;
     *(s32 *)((s8 *)lbl_805D7CC0 + 4) = (s32) (*(s32 *)((s8 *)lbl_805D7CC0 + 4) | 0x800);
     return 0;
+}
 }
 
 s32 set_modem_trial_param(s16 arg0) {
@@ -118,6 +121,7 @@ s32 set_modem_trial_param(s16 arg0) {
     *(s32 *)((s8 *)lbl_805D7CC0 + 4) = (s32) (*(s32 *)((s8 *)lbl_805D7CC0 + 4) | 0x800);
     return 0;
 }
+extern "C" {
 
 s32 TAdTrialModemChkGC__sub_8042F0D4(s8 arg0) {
     if ((s32) lbl_805D7CA8 == 0) {
@@ -136,5 +140,4 @@ s32 TAdPlayerLoadGC__sub_8042F108(s8 arg0) {
     *(s32 *)((s8 *)lbl_805D7CC0 + 4) = (s32) (*(s32 *)((s8 *)lbl_805D7CC0 + 4) | 0x800);
     return 0;
 }
-
 }

@@ -81,7 +81,6 @@ typedef struct Src_80120454 { u8 pad[0x1A4]; u8 ents[6]; u8 pad2[0x27]; u8 f1d1;
 
 typedef struct Dst_80120454 { u8 pad[3]; u8 f3; u8 f4; u8 pad2; u8 ents[6]; } Dst_80120454;
 
-extern "C" {
 extern const f32 lbl_805DAC98;
 extern const f32 lbl_805DAC9C;
 extern const f32 lbl_805DACA0;
@@ -89,10 +88,12 @@ extern s16 weapon_node_material_index;
 extern s16 TObjPlayer__weapon_node_ids[];
 extern u8* weapon_render_callback_object;
 extern u32 lbl_805D53EC;
+extern "C" {
 s32 test_flags_any(void*,u32);
 WeaponArgb get_weapon_color__11TItemWeaponFPv(void *weapon);
 extern u8 lbl_805DACA4;
 void TItemWeapon__write_item_data(Src_80120454 *arg0, Dst_80120454 *arg1);
+}
 
 void apply_weapon_node_material() {
     const s32 node = TObjPlayer::get_player_list();
@@ -117,6 +118,7 @@ void apply_weapon_node_material() {
 
 #pragma push
 #pragma opt_common_subs off
+extern "C" {
 void TItemWeapon::advance_weapon_photon_phase() {
     u8 *arg0 = (u8 *)this;
     if (((TItemWeapon *)arg0)->test_flags_1b8(0x02000000U) == 0U) {
@@ -190,5 +192,4 @@ void TItemWeapon__write_item_data(Src_80120454 *arg0, Dst_80120454 *arg1) {
         arg1->f4 = arg1->f4 | lbl_805DACA4;
     }
 }
-
 }

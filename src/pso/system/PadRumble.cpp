@@ -29,10 +29,10 @@ struct Ent_802430F4 { u8 pad[0x18]; };
 
 struct Sp_802430F4 { u32 a; u32 b; };
 
-extern "C" {
 extern RecoveredGlobal_802430E8_lbl_80518580 pad_rumble_effect_slots;
 extern Pt_80243070 pad_rumble_channel_states[];
 extern const f32 lbl_805DCA04;
+extern "C" {
 void accumulate_rumble_strength__23TAdSinglePlyChrSelectGCFPsl(Sp_802430F4 *, u32, s32);
 void PADControlMotor(s32, u32);
 typedef char RecoveredGlobal_802430E8_lbl_80518580_size[sizeof(RecoveredGlobal_802430E8_lbl_80518580) == 0x180 ? 1 : -1];
@@ -91,6 +91,7 @@ void reset_pad_rumble_effects_and_channels(s16 arg0) {
 s32 *get_pad_rumble_effect_slots(void) {
     return &pad_rumble_effect_slots.value;
 }
+}
 void update_pad_rumble(void) {
     s32 j;
     s32 t;
@@ -117,6 +118,4 @@ void update_pad_rumble(void) {
     for (j = 0; j < 16; j++, p++) {
         fn_80242C54((TAdSinglePlyChrSelectGC *)p);
     }
-}
-
 }

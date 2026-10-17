@@ -5,10 +5,9 @@
 #include "pso/player/TUnk_804A2564.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 extern const f32 lbl_805DAD58;
 extern const f32 lbl_805DAD5C;
+extern "C" {
 
 void TObjPlayer::draw_faust_loaded_projectile() {
     void *temp_r31;
@@ -43,10 +42,12 @@ void TUnk_804A2564::update_weapon() {
         *(s32 *)((s8 *)arg0 + 0x234) = (temp_r4 - 1);
     }
 }
+}
 
 void clear_faust_reload_timer(void* p) { *(s32*)((char*)p + 0x234) = 0; }
 
 extern s32 lbl_804A2564[];
+extern "C" {
 
 void *__dt__13TUnk_804A2564Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -58,5 +59,4 @@ void *__dt__13TUnk_804A2564Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
 }

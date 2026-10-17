@@ -739,6 +739,7 @@ void fn_8002F5AC(u8 *arg0) {
 #pragma pop
 
 #pragma push
+void get_current_matrix(void *m);
 namespace joint_transform_view {
 
 struct RecoveredGlobal_8002F61C_lbl_80435628 {
@@ -760,7 +761,6 @@ extern "C" {
 void get_camera_ctrl__9TObjEneDDFv(s32, s32);
 void update_camera_sequence__9TObjEneDDFv(void);
 s32 mult_vec_array__10TObjPlayerFUll(int, void *, void *, int);
-void get_current_matrix(void *m);
 s32 subtract_vector(void *, void *);
 s32 push_matrix();
 s32 pop_matrix();

@@ -38,6 +38,7 @@ s32 create_area_window(s32 arg0) {
     *(f32 *)((s8 *)temp_r31 + 8) = (f32) -((lbl_805DCAC0 * (f32) calc_text_width((char *)(arg0))) - lbl_805DCABC);
     return var_r30;
 }
+}
 #pragma pop
 
 #pragma push
@@ -56,5 +57,3 @@ s32 create_window_area(void) {
     return var_r30;
 }
 #pragma pop
-
-}

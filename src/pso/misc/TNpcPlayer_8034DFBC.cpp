@@ -109,11 +109,13 @@ struct Stack_8034ED58 {
     s16 sp12;
 };
 
-extern "C" {
     extern int lbl_805D6EA0;
+extern "C" {
 s32 get_player_by_client_id(s32);
 s32 obj_isState3_324__13TUnk_804806E8Fv();
+}
 void quest_remove_npc_player(u16 arg0);
+extern "C" {
 s32 set_arrival_override_coords(s32, s32, f32, f32, f32);
 void send_6x21_inter_level_warp(void *obj, s32 value);
 s32 obj_getField1c(s32);
@@ -128,20 +130,26 @@ void TLobby__send_and_handle_60(u8 *arg0);
 void build_6x69_npc_control(void* p);
 extern E_8034E02C npc_partner_dialogue_state[];
 void clear_partner_dialogue_flags(void);
+}
 void show_partner_chatter_for_key(s16 key);
 extern struct Slot_8034EDC4 partner_dialogue_table[];
 extern s32 TNpcPlayer__data_805D5864;
+extern "C" {
 void init_partner_dialogue(void);
 s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, int);
 int sprintf(char *, const char *, ...);
 char *strcpy(char *, const char *);
 u32 strlen(const char *);
+}
 extern const char lbl_805DFDF0[4];
 void set_partner_common_remark(s32 kind, const char *text);
+extern "C" {
 f32 atan2_float(f32, f32);
+}
 extern const f64 lbl_80478CB0[];
 void quest_player_look_at_partner(u16 src);
 void notify_partner_room_cleared(s32 arg0);
+extern "C" {
 void TNpcPlayer__ct(void *, u16, u16, s16, s32, s32);
 void construct_partner__10TNpcPlayerFPviisPv(void *, u16, u16, s16, s32);
 s32 load_npc_player_template(s16);
@@ -150,11 +158,14 @@ void *__nw__7TObjectFUl(u32);
 extern s32 local_client_id;
 extern s32 tl_00;
 void handle_6x69_npc_control(Pkt_8034E814 *pkt);
+}
 void quest_player_face_actor(u16 src, u16 dst);
+extern "C" {
 void send_6x55_intra_map_warp(u16 id, void *pos, s32 c);
 void play_effect_default__10TObjPlayerFii(s32 arg0, s32 arg1);
 
 s32 obj_isState2_324__13TUnk_804806E8Fv();
+}
 
 void set_partner_common_remark(s32 kind, const char *text) {
     char buf[0x40];
@@ -164,6 +175,7 @@ void set_partner_common_remark(s32 kind, const char *text) {
         strcpy((char *)&npc_partner_dialogue_state[kind], buf);
     }
 }
+extern "C" {
 
 void clear_partner_dialogue_flags(void) {
     s32 i;
@@ -197,6 +209,7 @@ void TNpcPlayer::play_effect(int arg0) {
     if ((player != 0) && (obj_isState2_324__13TUnk_804806E8Fv() == 0)) {
         play_effect_default__10TObjPlayerFii(player, -1);
     }
+}
 }
 
 void quest_player_face_actor(u16 src, u16 dst) {
@@ -270,6 +283,7 @@ void quest_player_look_at_partner(u16 src) {
         ((TNpcPlayer *)(&pkt))->send_6x3E();
     }
 }
+extern "C" {
 
 void TNpcPlayer::send_stop_at_position(u16 id, void *pos, s16 arg) {
     struct Pkt_8034E3A0 pkt;
@@ -303,6 +317,7 @@ void TNpcPlayer::enable_all_battle_ctrl() {
         }
         var_r31 += 1;
     } while (var_r31 < 4);
+}
 }
 void quest_remove_npc_player(u16 arg0) {
     s32 player;
@@ -340,6 +355,7 @@ void show_partner_chatter_for_key(s16 key) {
         }
     }
 }
+extern "C" {
 
 void TNpcPlayer::send_6x3e_to_all_players(void *pos, s16 arg) {
     Pkt_8034E64C pkt;
@@ -613,5 +629,4 @@ void set_npc_control_flag__10TNpcPlayerFPvs(void* p, s16 v) { *(s16*)((char*)p +
 void TNpcPlayer::byteswap_header() { read_be16_field2__10TObjPlayerFv(this); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); bswap_16((u16 *)((char*)this + 0x8)); bswap_16((u16 *)((char*)this + 0xa)); }
 void TNpcPlayer::send_state_60() { byteswap_header(); TLobby__send_and_handle_60((u8 *)this); }
 void build_6x69_npc_control(void* p) { *(u8*)((char*)p + 0x0) = 105; *(u8*)((char*)p + 0x1) = 3; }
-
 }

@@ -6,7 +6,7 @@
 extern "C" {
 void TLanguage__ct(s32 arg0);
 int TLobby__sub_80132EC8(void);
-void select_language_text_resources(s32 arg0);
 }
+void select_language_text_resources(s32 arg0);
 
 #endif

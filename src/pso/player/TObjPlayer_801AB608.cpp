@@ -106,9 +106,9 @@ typedef struct Golla_801AB868 {
     Target_801AB868 *f1a8;
 } Golla_801AB868;
 
-extern "C" {
 extern u8 *photon_blast_shared_resource;
 extern u32 farlla_photon_blast_model_buffers;
+extern "C" {
 void *spawn_particle_effect(void *pos, s32 id);
 s32 advance_animation_playback(void *);
 void *find_entity_by_id(u16 id);
@@ -158,14 +158,17 @@ f32 vec_squared_length(u8 *arg0);
 f32 vec3_dot(void *, void *);
 u16 obj_getField1c(void *);
 void queue_photon_blast_hit(u32, int, int, f32);
+}
 extern const f32 lbl_805DC19C;
 void *destroy_buffer_pair(void *arg0, s16 arg1);
+extern "C" {
 
 void TObjPlayer::destroy_buffers() {
     if ((u32) farlla_photon_blast_model_buffers != 0U) {
         destroy_buffer_pair((void *)farlla_photon_blast_model_buffers, 1);
     }
     farlla_photon_blast_model_buffers = 0U;
+}
 }
 
 void create_farlla_photon_blast_model(void) {
@@ -178,6 +181,7 @@ void create_farlla_photon_blast_model(void) {
     }
     (*(s32 *)&farlla_photon_blast_model_buffers) = var_r0;
 }
+extern "C" {
 
 void TPhotonGolla::sub_801AB688() { this->m_15c = lbl_805DC188; *(float*)((char*)this + 0x160) = lbl_805DC188; this->m_164 = lbl_805DC188; *(float*)((char*)this + 0x168) = lbl_805DC188; }
 
@@ -380,5 +384,4 @@ void TPhotonGolla::run_task() {
         play_persistent_sound(0x4002462F, (s32)arg0, 0, 0, 0);
     }
 }
-
 }

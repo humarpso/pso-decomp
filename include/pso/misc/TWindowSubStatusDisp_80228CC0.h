@@ -3,9 +3,7 @@
 
 #include "types.h"
 
-extern "C" {
 void append_padded_number(s32 v, u8 n);
 void append_text_space(void);
-}
 
 #endif

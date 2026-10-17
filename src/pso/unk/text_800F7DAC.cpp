@@ -15,8 +15,6 @@
 #include "pso/object/TObjLuker.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
-
 struct RecoveredGlobal_800F81A8_lbl_80499970 {
     s32 value;
     u8 remaining[0x14];
@@ -62,12 +60,15 @@ struct Fade_800F88D8 {
         u8 c[4];
     } u;
 };
+extern "C" {
 
 void queue_destruction__7TObjectFv(void *);
 void init_object__13TUnk_804999E8FPv(void *, void *);
 void TCameraCtrl__sub_80068EF0(void);
 u32 prs_decompress_buffer(s32 arg0, s32 arg1);
+}
 void step_fade_opacity_increase(u8 *arg0);
+extern "C" {
 void step_fade_opacity_decrease__13TUnk_80499970Fv(u8 *arg0);
 u8 * __dt__13TUnk_80499988Fv(u8 *arg0, s16 arg1);
 void * TLobby__sub_800F8498(void *arg0, void *arg1, s32 arg2, s32 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7);
@@ -195,6 +196,7 @@ void TLobby::tick_fade_counter() {
         *(s32 *)((s8 *)arg0 + 0x24) = 0;
     }
 }
+}
 #pragma pop
 
 #pragma push
@@ -212,6 +214,7 @@ void step_fade_opacity_increase(u8 *arg0) {
     }
 }
 #pragma pop
+extern "C" {
 
 void TLobby::init_fadeout_state(s32 arg0) {
     if ((void *) screen_fade_controller != NULL) {
@@ -475,5 +478,4 @@ void TUnk_804999E8::render() {
     }
     TCameraCtrl__sub_80068EF0();
 }
-
 }

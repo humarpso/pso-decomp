@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void belra_cannon_return_timer(void *arg0);
-}
 
 #endif

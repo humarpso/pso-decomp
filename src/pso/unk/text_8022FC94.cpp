@@ -92,9 +92,11 @@ struct Foie_8022FC94
 extern "C" {
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
-s32 clamp_nonnegative_int(int);
+}
+s32 clamp_nonnegative_int(s32 x);
 extern RecoveredGlobal_8022FE84_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_8022FE84_lbl_804CC55C lbl_804CC55C;
+extern "C" {
 s32 play_sound_effect(s32 id, void *pos, s32 a, s32 b);
 void queue_destruction__7TObjectFv(void *self);
 void mem_free(void *p);
@@ -182,7 +184,7 @@ void TTecFoie::init_projectile_params() {
       ((RecoveredFields_8022FE84_arg0 *) arg0)->field_CC = (f32) (((RecoveredFields_8022FE84_arg0 *) arg0)->field_CC * lbl_804CC55C.value);
     }
   }
-  ((RecoveredFields_8022FE84_arg0 *) arg0)->field_64 = (f32) (((RecoveredFields_8022FE84_arg0 *) arg0)->field_D0 + ((f32) clamp_nonnegative_int((int) (((RecoveredFields_8022FE84_arg0 *) arg0)->field_C4 - 4))));
+  ((RecoveredFields_8022FE84_arg0 *) arg0)->field_64 = (f32) (((RecoveredFields_8022FE84_arg0 *) arg0)->field_D0 + ((f32) clamp_nonnegative_int((((RecoveredFields_8022FE84_arg0 *) arg0)->field_C4 - 4))));
   ((RecoveredFields_8022FE84_arg0 *) arg0)->field_70 = (f32) ((RecoveredFields_8022FE84_arg0 *) arg0)->field_D4;
 }
 
@@ -229,5 +231,4 @@ TTecFoie_80230144 *__dt__8TTecFoieFv(TTecFoie_80230144 *self, s16 deleting) {
     }
     return self;
 }
-
 }

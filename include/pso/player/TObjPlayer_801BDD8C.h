@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void *create_remote_player_object(void *arg0);
-}
 
 #endif

@@ -80,9 +80,11 @@ s8 get_type__20TWindowSubStatusDispFv(int);
 Q_80280F14 *get_quest_id__12TQuestListVMFv();
 void *get_player_by_client_id(s32 i);
 void vt11__20TWindowSubStatusDispFv(Wn_80280F14 *arg0);
+}
 extern s32 TWindowSubStatusDisp__stat_page_layout[];
 s32 get_class_name_text(s32);
 extern s32 TWindowSubStatusDisp__summary_page_layout[];
+extern "C" {
 s32 build_player_class_stat_template(s32 arg0, s32 arg1);
 s32 build_player_equipment_requirement_stats(int, void *);
 s32 get_shared_text_buffer();
@@ -382,5 +384,4 @@ void vt0__20TWindowSubStatusDispFv(u8 *arg0) {
         *(u8 **)((s8 *)arg0 + 0x64) = pl + 0xCF4;
     }
 }
-
 }

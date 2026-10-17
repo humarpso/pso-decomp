@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void init_shop_world_context(void);
-}
 
 #endif

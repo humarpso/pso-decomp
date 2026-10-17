@@ -122,6 +122,7 @@ void *TItemWeaponMechgun__ct(void *arg0, s32 parent, void *item) {
     }
     return arg0;
 }
+}
 
 u8 *create_mechgun_weapon(u8 *item) {
     u8 *temp_r3;
@@ -135,6 +136,4 @@ u8 *create_mechgun_weapon(u8 *item) {
         return var_r0;
     }
     return NULL;
-}
-
 }

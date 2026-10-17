@@ -6,6 +6,7 @@ s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFv();
 f32 xz_distance_squared(void *, void *);
 void *get_player_by_client_id(s32 i);
+}
 void update_players_in_range(u8 *arg0);
 #pragma push
 #pragma fp_contract on
@@ -41,5 +42,3 @@ void update_players_in_range(u8 *arg0) {
     }
 }
 #pragma pop
-
-}

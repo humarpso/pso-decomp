@@ -3,9 +3,7 @@
 
 #include "types.h"
 
-extern "C" {
 void sorcerers_cane_equip(void *p);
 void sorcerers_cane_unequip(void *p);
-}
 
 #endif

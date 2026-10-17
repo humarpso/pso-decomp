@@ -31,7 +31,9 @@ void *create_challenge4p__6TLobbyFv(void);
 void enable_split_screen_challenge_mode(void);
 s32 is_challenge_mode_active(void);
 void set_split_screen_name__6TLobbyFi(s32 arg0);
+}
 void setup_split_screen(void);
+extern "C" {
 void snapshot_player_card_status__6TLobbyFv(void);
 void update_destruction_countdown__6TLobbyFPv(TLobby *arg0);
 }

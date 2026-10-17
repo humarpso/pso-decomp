@@ -7,8 +7,8 @@ typedef void (*RecoveredCallback_c88e8900640a)(s32, u8 *);
 #include "pso/system/GcciRequests.h"
 #include "pso/misc/TLobby.h"
 
-extern "C" {
 extern s32 dvd_synchronous_read_enabled;
+extern "C" {
 int vsprintf(char *s, const char *fmt, va_list ap);
 extern u8 log_printf_buffer[];
 extern RecoveredCallback_c88e8900640a log_printf_callback;
@@ -53,6 +53,7 @@ void TLobby::poll_dvd_requests() {
         }
     }
 }
+}
 
 #pragma push
 #pragma scheduling off
@@ -60,6 +61,7 @@ void set_dvd_synchronous_read_mode(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     dvd_synchronous_read_enabled = arg3;
 }
 #pragma pop
+extern "C" {
 
 void TLobby::log_printf(const char *fmt, ...) {
     va_list ap;
@@ -73,5 +75,5 @@ void TLobby::log_printf(const char *fmt, ...) {
 GcciStatus dvd_active_request;
 GcciRequest dvd_request_table[40];
 char dvd_default_path_buffer[0x100] ATTRIBUTE_ALIGN(8);
-u8 log_printf_buffer[0x100];
 }
+u8 log_printf_buffer[0x100];

@@ -39,7 +39,9 @@ s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, s32, s32);
 extern const f32 lbl_805DD6C0;
 void queue_destruction__7TObjectFv(void *);
 s32 clear_chat_shortcut();
+}
 s32 store_chat_shortcut(s32 arg0, s32 arg1);
+extern "C" {
 void *__nw__7TObjectFUl(u32);
 void TWindow__close(u8 *arg0);
 u8 get_selected_menu_value(int);
@@ -263,10 +265,9 @@ void *__dt__18TWindowSubShortCutFv(TWindowSubShortCut *arg0, s16 arg1) {
     }
     return arg0;
 }
+}
 
 extern void *TWindowSubShortCut__class_name;
-
-}
 TWindowSubShortCut::TWindowSubShortCut(TObject *arg1, void *arg2) : TObject(arg1) {
     *(void * *)&this->m_name = TWindowSubShortCut__class_name;
     *(void **)((s8 *)this + 0x28) = arg1;

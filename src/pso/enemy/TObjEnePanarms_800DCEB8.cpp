@@ -192,7 +192,9 @@ int push_matrix(void*);
 int pop_matrix(void);
 typedef struct { f32 x, y, z; } Vec_800DEDC4;
 void draw_blob_shadow(s32 arg0);
+}
 void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
+extern "C" {
 s32 rotate_matrix_z(int, int);
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 rotate_matrix_x(int, int);
@@ -1075,5 +1077,4 @@ void TObjEnePanarms::load_and_spawn_npc() {
         TObjEnePanarms::spawn_npc_pair();
     }
 }
-
 }

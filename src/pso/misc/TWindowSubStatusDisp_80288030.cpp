@@ -7,7 +7,9 @@
 extern "C" {
 s32 *get_shared_text_buffer(void);
 void text_builder_append(u8 *str);
+}
 void text_builder_reset(void);
+extern "C" {
 void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 u8 *get_card_data_ptr__17TWindowSubComCardFv(s32);
 void *TWindowSubComCard__sub_8027523C(void *p);
@@ -85,6 +87,5 @@ void TWindowSubStatusDisp::fill_card_text_entries(s32 arg1) {
     }
     ((TWindowHelpItem *)temp_r26)->set_flag0_bit2();
 }
-#pragma pop
-
 }
+#pragma pop

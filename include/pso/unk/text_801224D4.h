@@ -3,9 +3,7 @@
 
 #include "types.h"
 
-extern "C" {
 u8 *construct_dagger_weapon(u8 *arg0, u8 *arg1, u8 *arg2);
 u8 *create_dagger_weapon(u8 *arg0);
-}
 
 #endif

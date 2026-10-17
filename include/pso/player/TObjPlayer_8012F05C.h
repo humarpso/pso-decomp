@@ -3,9 +3,7 @@
 
 #include "types.h"
 
-extern "C" {
 void madam_parasol_scale_canopy(void *p);
 void madam_parasol_start_regen(void *arg0);
-}
 
 #endif

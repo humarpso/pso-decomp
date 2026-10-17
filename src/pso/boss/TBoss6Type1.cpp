@@ -315,7 +315,6 @@ struct Boss_802B8384 {
     Anim_802B8384 anims[2];
 };
 
-extern "C" {
 struct V3_802B5AD4 { f32 x, y, z; };
 struct Boss_802B5AD4 {
     u8 pad0[0x38];
@@ -323,6 +322,7 @@ struct Boss_802B5AD4 {
     u8 pad44[0x438 - 0x44];
     s32 f438;
 };
+extern "C" {
 
 f32 vector_length(void *, f32);
 f32 subtract_vector(void *, void *);
@@ -364,7 +364,9 @@ void TBoss6Type1__sub_802B6C30(Boss_802B6C30 *self);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 void clear_render_callback__8TObjFishFv(u32);
+}
 void draw_model_blend_motion(void *arg0, void *arg1, f32 farg0);
+extern "C" {
 void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern s32 lbl_804DF614[];
 extern const s32 lbl_805DE3C8;
@@ -1042,7 +1044,6 @@ s32 TBoss6Type1__sub_802B6060(u8 *arg0) {
 }
 
 void TBoss6Type1::set_part_default_value(int a0, void* a1) { *(float*)((char*)a1 + 0x4) = TBoss6Type1__data_805DE344; }
-
 }
 
 void TBoss6Type1::update_effect_points() {
@@ -1113,7 +1114,9 @@ s32 render_shadows__9TObjEnemyFv();
 extern const f32 lbl_805DE3D0;
 s32 angle_difference_abs(int, int);
 s32 approach_angle_limited(int, int, int);
+}
 void build_6xA4_olga_flow_boss_actions(void* p);
+extern "C" {
 s32 TBoss6Type1__ct(s32, s32, s32);
 void TLobby__send_and_handle_60(u8 *arg0);
 s32 TObjControl__ct(s32, s32);
@@ -2329,6 +2332,5 @@ void*TBoss6Type1::get_mag_mine_ptr() { return (char*)this + 0x388; }
 int TBoss6Type1::is_idle() { return this->m_374 == 0; }
 int TBoss6Type1::read_be16_field2() { return read_be16_field2__10TObjPlayerFv(this); }
 void TBoss6Type1::step_and_send_60() { read_be16_field2(); TLobby__send_and_handle_60((u8 *)this); }
-void build_6xA4_olga_flow_boss_actions(void* p) { *(u8*)((char*)p + 0x0) = 164; *(u8*)((char*)p + 0x1) = 5; }
-
 }
+void build_6xA4_olga_flow_boss_actions(void* p) { *(u8*)((char*)p + 0x0) = 164; *(u8*)((char*)p + 0x1) = 5; }

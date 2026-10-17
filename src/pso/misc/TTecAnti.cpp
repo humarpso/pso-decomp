@@ -150,8 +150,10 @@ s32 is_split_screen();
 void *spawn_particle_effect_with_flags(void *, int, int);
 s32 is_script_controlled__10TObjPlayerFv(void *);
 void *__nw__7TObjectFUl(int);
-int construct_delayed_point_sound(void *, void *, int, int, void *);
+}
+u8 *construct_delayed_point_sound(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3, u8 *arg4);
 extern void *tl_07;
+extern "C" {
 void *__dt__13TUnk_804CC0E8Fv(void *arg0, s16 arg1);
 void *__dt__8TTecAntiFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
@@ -232,7 +234,7 @@ void TTecAnti::vfunc_7(void *pl_arg) {
     if (self->xAC != 0) {
         o = __nw__7TObjectFUl(0x30);
         if (o != NULL) {
-            construct_delayed_point_sound(o, pl->x2FC, 0xF, 0x4002AD11, tl_07);
+            construct_delayed_point_sound((u8 *)o, (u8 *)pl->x2FC, (s16)(0xF), (s32)(0x4002AD11), (u8 *)tl_07);
         }
     }
 }
@@ -340,5 +342,4 @@ S_8022B3E8 *copy_technique_target_list(S_8022B3E8 *d, S_8022B3E8 *s) {
 }
 
 void TTecAnti::render() {  }
-
 }

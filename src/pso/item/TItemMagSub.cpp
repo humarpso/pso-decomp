@@ -86,8 +86,6 @@ void TItemMagSub::transition_motion_type(s32 type) {
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 struct Stack_80114DB8 {
     s32 sp8;
     s32 spC;
@@ -265,6 +263,7 @@ struct Sub_80115334 {
     u8 pad40[0xCC - 0x40];
     Stat_80115334 st[2];
 };
+extern "C" {
 
 s32 memset(void *, int, int);
 s32 TItem__sub_80100A40(f32 *, f32, f32);
@@ -276,16 +275,22 @@ u32 test_flags__11TItemMagSubFUl(void *, u32);
 s32 obj_isState7_324(void *);
 s32 mag_node_oscillation_is_disabled(Feed_80114AB4 *);
 void reset_oscillation__11TItemMagSubFv(u8 *arg0);
+}
 void accumulate_mag_axis_oscillation(f32 *arg0, s32 *arg1, void *arg2);
+extern "C" {
 void lerp_follow_anchor(Vec_80114CD8 *target, Vec_80114CD8 *cur, f32 *t);
+}
 void mag_accumulate_drift(f32 *out, s32 *phase, f32 *amplitude, s32 *velocity, s8 *offset);
+extern "C" {
 void reset__11TItemMagSubFv(u8 *arg0);
+}
 int mag_node_oscillation_uses_z(void* p);
 int mag_node_oscillation_uses_y(void* p);
 s32 mag_node_oscillation_angle(void *arg0);
 int mag_node_oscillation_uses_x(void* p);
 int mag_node_oscillation_node_index(void* p);
 int mag_item_tests_flag_20(void* p);
+extern "C" {
 f32 sin_table_lookup(s32);
 void vec3_add_to(void *, void *);
 s32 rotate_matrix_zyx(int, int, int, int, int);
@@ -296,6 +301,7 @@ s32 rotate_matrix_x(int, int);
 f32 transform_point_by_current_matrix(void *, void *);
 void push_matrix();
 s32 post_translate_matrix(void *);
+}
 
 extern void *TItemMagSub__oscillating_instance;
 extern s32 TItemMagSub__feed_sequence_index;
@@ -317,8 +323,6 @@ extern s32 chunk_polygon_flags_and_mask;
 extern const f32 mag_sub_render_distance_limit, mag_sub_screen_cull_margin;
 extern const f32 mag_sub_height_intercept;
 extern const f32 mag_sub_height_slope;
-
-}
 void TItemMagSub::clear_optional_oscillation_flag(void* arg0) {
 
     if ((u32) arg0 != 0U) {
@@ -376,8 +380,6 @@ void TItemMagSub::update_node_oscillation(void* arg) {
         TItemMagSub__feed_sequence_index++;
     }
 }
-extern "C" {
-
 void accumulate_mag_axis_oscillation(f32 *arg0, s32 *arg1, void *arg2) {
     *arg1 = *arg1 + *(s32 *)((s8 *)arg2 + 0xC);
     *arg0 = *(f32 *)((s8 *)arg2 + 0) * sin_table_lookup(*arg1 + *(s32 *)((s8 *)arg2 + 8));
@@ -385,10 +387,12 @@ void accumulate_mag_axis_oscillation(f32 *arg0, s32 *arg1, void *arg2) {
 
 #pragma push
 #pragma fp_contract on
+extern "C" {
 void lerp_follow_anchor(Vec_80114CD8 *target, Vec_80114CD8 *cur, f32 *t) {
     cur->x += *t * (target->x - cur->x);
     cur->y += *t * (target->y - cur->y);
     cur->z += *t * (target->z - cur->z);
+}
 }
 #pragma pop
 
@@ -399,8 +403,6 @@ void mag_accumulate_drift(f32 *out, s32 *phase, f32 *amplitude, s32 *velocity, s
     *out += *amplitude * sin_table_lookup(*phase + (s32)(mag_sub_angle_units_per_degree * (f32)*offset));
 }
 #pragma pop
-
-}
 s32 TItemMagSub::get_world_position(void* output) {
 
     typedef char sp8_offset[(offsetof(Stack_80114DB8, sp8) == 0x0) ? 1 : -1];
@@ -715,8 +717,6 @@ void TItemMagSub::clear_flags(u32 v) {
     void* p=this; *(u32*)((char*)p + 0x64) &= ~v; }
 int TItemMagSub::set_growth_flag() {
     void* p=this; return set_flags__11TItemMagSubFUl(p, 64); }
-extern "C" {
-
 int mag_node_oscillation_uses_z(void* p) { return (*(u8*)((char*)p + 0x0) >> 7) & 0x1; }
 
 int mag_node_oscillation_uses_y(void* p) { return (*(u8*)((char*)p + 0x0) >> 6) & 0x1; }
@@ -730,6 +730,7 @@ int mag_node_oscillation_uses_x(void* p) { return (*(u8*)((char*)p + 0x0) >> 5) 
 int mag_node_oscillation_node_index(void* p) { return *(u8*)((char*)p + 0x0) & 0x7; }
 
 int mag_item_tests_flag_20(void* p) { return *(u32*)((char*)p + 0x18c) & 0x20; }
+extern "C" {
 
 __declspec(section ".sdata2") extern const f32 mag_sub_zero = 0.0f;
 __declspec(section ".sdata2") extern const f32 mag_sub_angle_units_per_degree = 182.0444488525390625f;

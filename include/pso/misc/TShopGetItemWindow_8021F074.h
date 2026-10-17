@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void clear_all_shop_stock(void);
-}
 
 #endif

@@ -37,6 +37,7 @@ void __OSCallResetFunctions(void) {
     }
     lbl_805D7594++;
 }
+}
 
 void dispatch_lobby_callback(void) {
     TLobby__sub_803D3988();
@@ -44,6 +45,4 @@ void dispatch_lobby_callback(void) {
 
 void dispatch_callback(void) {
     TLobby__sub_803D39C0();
-}
-
 }

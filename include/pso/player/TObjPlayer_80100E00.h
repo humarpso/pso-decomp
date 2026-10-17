@@ -7,7 +7,7 @@ struct TObjPlayer;
 extern "C" {
 int TObjPlayer__sub_80100F34(void);
 void TObjPlayer__sub_80101088(void);
-void handle_6x61_activate_mag_effect(TObjPlayer *arg0);
 }
+void handle_6x61_activate_mag_effect(TObjPlayer *arg0);
 
 #endif

@@ -659,7 +659,9 @@ void fn_8002B630(void *, void *, s32);
 void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
 void *spawn_particle_effect(void *pos, s32 id);
 s32 get_field_d8__5TItemFv();
+}
 void enemy_turn_and_move_on_ground(u8 *arg0, s32 arg1, f32 farg0);
+extern "C" {
 int select_and_apply_target__12TObjEneDD_STFf(void*);
 void *__dt__12TObjEneDD_STFv(void *arg0, s16 arg1);
 s32 check_v2_mode__9TObjEneDDFv(s32, s32);
@@ -3487,6 +3489,5 @@ void TObjEneMe3SinowZoaReal::init_enemy() {
         ((TUnk_804AF8A0 *)((u8 *)this))->clear_player_status_flag(0, 0x08000000);
     }
 }
-#pragma pop
-
 }
+#pragma pop

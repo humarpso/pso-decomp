@@ -428,6 +428,7 @@ s16 TLobby__sub_80401BCC(void *, void *, int);
 extern u8 lcp_read_value_buffer[4];
 extern u8 lobby_read_byte_buffer[1];
 s16 TLobby__sub_80403F4C(void *, Strm_80405A74 **);
+}
 extern u8 lobby_ppp_read_buf;
 extern u32 lbl_805BFF68[];
 extern s16 lbl_805D7A82;
@@ -436,6 +437,7 @@ extern s16 lbl_805D7A88;
 extern s16 lbl_805D7A8A;
 extern s32 lbl_805D7A8C;
 s32 NetApplyConnectionConfig(u8 *arg0);
+extern "C" {
 
 void TLobby__sub_803F87DC(void * _w0);
 
@@ -570,6 +572,7 @@ u8 *TLobby::copy_name_buffer(void *src) {
 void TLobby__sub_803FB184(u8 *arg0) {
     TLobby__sub_803FB358(arg0);
 }
+}
 
 s32 NetApplyConnectionConfig(u8 *arg0) {
   u8 *g = (u8 *) &lbl_805BFF68;
@@ -617,6 +620,7 @@ s32 NetApplyConnectionConfig(u8 *arg0) {
   TUdpSocket::unlock_mutex((int)((void *) ((s32 *)&lbl_805C18A0)[0]));
   return 0;
 }
+extern "C" {
 
 s32 TLobby::get_remaining(s32 arg0) {
     return lbl_805D7A78 - arg0;
@@ -1196,6 +1200,7 @@ typedef char RecoveredGlobal_8040ED70_lbl_805C1B60_size[sizeof(RecoveredGlobal_8
 s16 TLobby__sub_8040FCEC(u32 ip);
 
 s32 TLobby__sub_8040FDA0(u32 arg0, s16 arg1);
+}
 
 typedef char RecoveredGlobal_8040FE40_lbl_805C1B60_size[sizeof(RecoveredGlobal_8040FE40_lbl_805C1B60) == 0x18 ? 1 : -1];
 
@@ -1344,5 +1349,3 @@ typedef char RecoveredGlobal_8041E178_lbl_805C1D48_size[sizeof(RecoveredGlobal_8
 #pragma push
 #pragma opt_propagation off
 #pragma pop
-
-}

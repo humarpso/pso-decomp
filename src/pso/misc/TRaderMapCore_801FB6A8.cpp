@@ -7,15 +7,17 @@
 
 struct Ent_801FB798 { s32 a; char *name; };
 
-extern "C" {
 extern u32 TRaderMapCore__data_805D5F4C;
+extern "C" {
 s32 get_current_floor();
 s32 save_floor_discovery__13TRaderMapCoreFiPv(int, int);
 s32 TLobby__sub_803DA16C(int);
 extern u8 *TRaderMapCore__floor_map_resource;
 extern s32 TRaderMapCore__render_mode;
 void copy_name(s32 arg0);
+}
 s32 create_named_object(s32 arg0);
+extern "C" {
 s32 replace_file_extension__6TLobbyFPvPvPv(char *arg0, char *arg1, char *arg2);
 void init_radar_floor_flags(s32, u8 *);
 s32 get_floor_scene_table(s32 arg0);
@@ -101,5 +103,4 @@ s32 TRaderMapCore::apply_compass_param() {
     }
     return -1;
 }
-
 }

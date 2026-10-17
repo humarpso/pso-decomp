@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void load_boss5_common_assets(void);
-}
 
 #endif

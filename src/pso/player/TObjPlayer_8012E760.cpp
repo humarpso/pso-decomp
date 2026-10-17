@@ -19,7 +19,6 @@ void *__dt__13TUnk_804A5D10Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+}
 
 int expire_weapon_casing(void* p) { return queue_destruction__7TObjectFv(p); }
-
-}

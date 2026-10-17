@@ -356,6 +356,7 @@ extern s32 bringer_rush_effect_vtable[];
 extern s32 bringer_rush_effect_name;
 typedef Vec_8009A640 Vec_8009A7A4;
 s32 rand();
+}
 void bringer_effect_cleanup_noop(void) {  }
 
 void init_bringer_effect_tables(void) {
@@ -395,6 +396,7 @@ void init_bringer_effect_tables(void) {
   }
 
 }
+extern "C" {
 
 void TObjEneDf2Bringer_Eff_Rush::render() {  }
 
@@ -433,6 +435,7 @@ void *__dt__26TObjEneDf2Bringer_Eff_RushFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+}
 
 u8 *construct_bringer_rush_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_8009AA64, sp8) == 0x0) ? 1 : -1];
@@ -456,6 +459,4 @@ u8 *construct_bringer_rush_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 fa
         rotate_xz_pair_by_angle(arg0 + 0x20, arg0 + 0x28, 0x1800);
     }
     return arg0;
-}
-
 }

@@ -56,12 +56,14 @@ void set_random_timer__15TObjEneSlimeOneFPvii(void *arg0, s32 arg1, s32 arg2);
 void tick_timer__15TObjEneSlimeOneFPv(TObjEneSlimeOne *arg0);
 s32 try_spawn_child__15TObjEneSlimeOneFPv(int origin, void *arg1);
 void update_dive_timer__10TObjPlayerFPv(u8 *arg0);
+}
 void update_effect_fade_lifetime(u8 *arg0);
+extern "C" {
 void update_slime_timer__10TObjPlayerFPv(u8 *arg0);
 void update_tick__15TObjEneSlimeOneFPv(TObjEneSlimeOne *arg0);
 void update_wait_search__15TObjEneSlimeOneFPv(TObjEneSlimeOne *arg0);
 void update_water_bomb_timer__15TObjEneSlimeOneFPv(u8 *arg0);
-s32 water_bomb_hit_nearby(u8 *target);
 }
+s32 water_bomb_hit_nearby(u8 *target);
 
 #endif

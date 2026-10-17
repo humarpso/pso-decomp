@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 s32 create_boss4_fade(void);
-}
 
 #endif

@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 u8 *sealed_j_sword_create(u8 *arg0);
-}
 
 #endif

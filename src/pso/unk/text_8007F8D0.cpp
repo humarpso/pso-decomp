@@ -5,6 +5,7 @@ extern "C" {
 void TAdTrialModemChkGC__sub_8042EC14(int, int);
 void fn_8042ED98(int, void *);
 void fn_8042EF48(int);
+}
 extern u8 disc_error_message_text[];
 extern u8 lbl_80438BBC[];
 extern u8 lbl_80438BF0[];
@@ -16,6 +17,7 @@ extern s16 disc_error_code;
 extern s32 lbl_805D4EC0;
 extern s32 lbl_805D4EC4;
 void init_disc_error_messages(void);
+extern "C" {
 void read_disc_file(void *, s32);
 void VIWaitForRetrace(void);
 void VIFlush(void);
@@ -29,6 +31,7 @@ u32 strlen(const char *);
 extern u8 lbl_80438D20[];
 extern s32 resource_decompress_buffer;
 s32 launch_switcher_dol(const char *arg0);
+}
 #pragma push
 #pragma optimization_level 1
 #pragma dont_inline on
@@ -50,6 +53,7 @@ void init_disc_error_messages(void) {
     fn_8042ED98(3, lbl_80438CB0);
 }
 #pragma pop
+extern "C" {
 
 s32 launch_switcher_dol(const char *arg0) {
     char buf[0x100];
@@ -70,5 +74,4 @@ s32 launch_switcher_dol(const char *arg0) {
     fn_8042EBA4(v, r);
     return 1;
 }
-
 }

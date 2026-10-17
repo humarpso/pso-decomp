@@ -6,9 +6,9 @@
 extern "C" {
 int TObjEneDD__sub_800BA804(u16 arg0);
 u32 is_player_entity_id(u16 arg0);
+}
 void set_collider_contact_high(u8 *arg0);
 void set_collider_contact_low(u8 *arg0);
 void update_collider_contact_by_height(u8 *arg0, f32 farg0);
-}
 
 #endif

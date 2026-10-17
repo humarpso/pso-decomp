@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void spawn_land_hit_effect(s32 arg0, u32 arg1, u32 arg2, u32 arg3, s32 arg4);
-}
 
 #endif

@@ -5,7 +5,9 @@
 
 extern "C" {
 void fn_801E2C50(void);
+}
 void reset_system(void);
+extern "C" {
 void system_reset(void);
 }
 

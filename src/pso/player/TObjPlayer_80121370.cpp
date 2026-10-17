@@ -20,6 +20,7 @@ void TUnk_804A08B8::emit_marker_effects() {
         spawn_particle_effect(&sp8, 0x1BE);
     }
 }
+}
 
 void marina_bag_start_regen(void *arg0) {
     s32 temp_r3;
@@ -30,6 +31,4 @@ void marina_bag_start_regen(void *arg0) {
             init_item_timer_event__13TUnk_804A0648Fv(temp_r3, *(u32 *)((s8 *)arg0 + 0x174), get_id__13TItemProArmorFv(arg0), 0x5A);
         }
     }
-}
-
 }

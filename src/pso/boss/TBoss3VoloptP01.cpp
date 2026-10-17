@@ -313,6 +313,7 @@ void TObjPlayer__sub_80042ED0(P_80042ED0 *o, s32 idx, s32 arg2) {
     matrix_mult_vec(0, &v, arg2);
     pop_matrix();
 }
+}
 
 #undef obj_getField1c
 #undef subtract_vector
@@ -491,6 +492,7 @@ typedef char RecoveredGlobal_80044174___vt__15TBoss3VoloptP01_size[sizeof(Recove
 typedef char RecoveredGlobal_80044174_lbl_804FEE68_size[sizeof(RecoveredGlobal_80044174_lbl_804FEE68) == 0xC ? 1 : -1];
 
 void reset_status_effect_row(u8 *arg0);
+extern "C" {
 void obj_setFlags30(void *, u32);
 f32 fabs_float();
 void queue_destruction__7TObjectFv(void *);
@@ -537,7 +539,9 @@ s32 sin_table_lookup(s32);
 f32 cos_table_lookup(int);
 s32 push_matrix();
 s32 post_translate_matrix(void *);
+}
 void draw_chunk_model(void *arg0);
+extern "C" {
 void draw_chunk_object(void *child);
 
 extern RecoveredGlobal_80044174_lbl_804FEE68 boss3_volopt_spawn_pos;
@@ -1368,7 +1372,6 @@ void TBoss3VoloptP01::init_cursor_record() {
     self->b = 0;
     self->c = (0.0f);
 }
-
 }
 
 #undef TObjPlayer__sub_80042ED0

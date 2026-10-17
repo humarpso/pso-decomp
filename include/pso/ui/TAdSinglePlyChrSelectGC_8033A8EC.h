@@ -15,9 +15,11 @@ void TAdSinglePlyChrSelectGC__sub_8033B9EC(void *p);
 u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
 bool TAdSinglePlyChrSelectGC__sub_8033BA84(void *self);
 void close_window__23TAdSinglePlyChrSelectGCFPv(void *arg0);
-void init_single_player_char_select_scene(void);
-int queue_destruction__23TAdSinglePlyChrSelectGCFPv(void *p);
-void seed_character_select_serial_rng(s32 arg0);
 }
+void init_single_player_char_select_scene(void);
+extern "C" {
+int queue_destruction__23TAdSinglePlyChrSelectGCFPv(void *p);
+}
+void seed_character_select_serial_rng(s32 arg0);
 
 #endif

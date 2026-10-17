@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void close_window_if_active(void *p);
-}
 
 #endif

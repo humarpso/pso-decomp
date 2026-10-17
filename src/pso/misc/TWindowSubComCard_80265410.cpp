@@ -19,8 +19,8 @@
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern const f32 lbl_805DD160;
+extern "C" {
 s32 get_selected_entry__17TWindowSubComCardFPv(u8 *arg0);
 struct Stack_80265500 {
     f32 sp8;
@@ -109,7 +109,9 @@ s32 __nw__7TObjectFUl(int);
 s32 get_draw_context__11TWindowBaseFPv();
 s32 construct_with_parent__13TUnk_804CDFE8FPv(void *, void *, s16, s32);
 void * get_field_20__17TWindowSubComCardFv(void *e);
+}
 void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2);
+extern "C" {
 s32 draw_window_frame(void *, s32);
 void refresh_status_display__9TWindowDDFv(void *);
 void TWindowChat__sub_80247D2C(void *p);
@@ -118,7 +120,9 @@ s32 is_window_display_enabled();
 s32 draw_visible_window_entries(void *, void *, s32);
 void measure_message_text_width(Ent_80265C30 *e, f32 x);
 void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
+}
 void update_chat_window(void* p);
+extern "C" {
 void TWindowSubComCard__sub_80265500(u8 *arg0);
 s32 TWindowSubComCard__sub_80265660(Obj_80265660 *o, s16 i);
 void TWindowSubComCard__sub_80265680(u8 *arg0, s16 arg1);
@@ -130,7 +134,9 @@ void fn_80266378(s32 arg0);
 u8 * create_yes_no_window(s32 arg0, s32 arg1, u32 arg2, u32 arg3);
 u8 * init_shop_judgment_window(void* p);
 s32 create_window_menu(s32 arg0, s32 arg1, s32 arg2);
+}
 s32 create_titled_window_menu(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+extern "C" {
 void render__11TWindowMenuFv(TWindowMenu *arg0);
 void * __dt__11TWindowMenuFv(void *arg0, s16 arg1);
 u8 * TWindowMenu__ct(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
@@ -140,6 +146,7 @@ s32 draw_window_scrollbar(s32, s32, void *);
 u32 reset_selection__20TWindowSubStatusDispFv(int, void *);
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
 s32 construct_type1_heading__20TWindowSubStatusDispFll(s32, s32, s32);
+}
 
 extern s32 __vt__11TWindowMenu[];
 extern const f64 lbl_8044F330;
@@ -161,6 +168,7 @@ extern const f32 lbl_805DD174;
 extern const f32 lbl_805DD178;
 
 void update_chat_window(void* p) { void* m = *(void**)((char*)p + 0x20); if (m) TWindowChat__sub_80247D2C(m); }
+extern "C" {
 
 int TWindowSubComCard::get_flag() { return (*(u16*)((char*)this + 0x70) >> 2) & 0x1; }
 
@@ -707,6 +715,7 @@ void TAdChrSelASlotGC::check_room_seq_4(s32 arg1) {
     s32 arg0 = (s32)this;
     ((int (*)(void*, void*, void*))create_window_menu)((void*)arg0, (void*)arg1, (void*)(4));
 }
+}
 
 s32 create_titled_window_menu(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r31;
@@ -722,6 +731,7 @@ s32 create_titled_window_menu(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)((s8 *)temp_r31 + 0x2C) = (s32) (*(s32 *)((s8 *)temp_r31 + 0x2C) | 0x40);
     return temp_r31;
 }
+extern "C" {
 
 void TWindowSubComCard::draw_card_icon(s32 arg1, s32 arg2) {
     s32 arg0 = (s32)this;
@@ -884,5 +894,4 @@ s32 TWindowMenu::is_locked(s32 arg1) {
 }
 
 int TWindowMenu::sub_80266BB8() { return (this->m_70 >> 6) & 0x1; }
-
 }

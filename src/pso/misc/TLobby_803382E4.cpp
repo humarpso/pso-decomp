@@ -268,8 +268,7 @@ void TLobby::update_pulse_colors(s32 arg0) {
 #pragma pop
 
 void TWindowSubStatusDisp__sub_803386F0(void) { free_if_valid__10TObjPlayerFl((void*)info_icon_texture); }
+}
 
     extern unsigned char lbl_80477BD4[];
 void load_info_icon(void) { info_icon_texture = (int)load_gvm_texture_file((s32)lbl_80477BD4); }
-
-}

@@ -176,13 +176,17 @@ extern const f32 lbl_805D9478;
 void TObjRoomId__sub_80141CF4(void *dst, Col_80085798 *src, f32 t);
 void set_color_blend_mode(s32 a, s32 b, s32 c, s32 d);
 void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
+}
 s32 find_particle_texture_index(s32 id);
+extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
+}
 extern const f32 TParticleCtrl__data_805D94C4;
 extern const f32 TParticleCtrl__data_805D94CC;
 void *init_particle_base(void *arg0, void *arg1, s32 arg2);
-s32 load_projected_texture_matrix(f32);
-s32 play_indirect_effect_recipe(int, int, int);
+void load_projected_texture_matrix(f32 farg0);
+void play_indirect_effect_recipe(u8 arg0, u16 sampler, s32 second);
+extern "C" {
 s32 GXSetNumTexGens(int);
 s32 GXSetTevOp(int, int);
 s32 GXSetNumTevStages(int);
@@ -191,23 +195,29 @@ s32 rotate_matrix_x(int, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_texture_num(int);
+}
+s32 set_texture_num(s32 i);
+extern "C" {
 s32 TParticleCtrl__sub_803E2A1C(void *, int);
 extern Tex_80086248 lbl_804C5820[];
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805D94D8;
 void fn_80141EB4(void);
+}
 void setSpriteInverseColorBlend(void);
+extern "C" {
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 s32 matrix_mult_vec(int, void *, void *);
 void begin_screen_draw(s32 arg0);
 void DVDConvertEntrynumToPath(f32 *q);
 void set_draw_texture_and_color(s32 idx, s32 arg1);
+}
 void set_constant_material_color(u32 x);
 extern Cam_80085EE4 lbl_8058D4F8;
 extern const f32 lbl_805D94C0;
 extern const f32 lbl_805D94C8;
+extern "C" {
 f32 fabs_float(f32);
 u32 csnVector(void *, void *, int);
 f32 vec3_dot(void *, void *);
@@ -540,6 +550,7 @@ u8 *__dt__13TUnk_8048E728Fv(u8 *arg0, s16 arg1) {
     }
     return arg0;
 }
+}
 void *init_particle_base(void *arg0, void *arg1, s32 arg2) {
     Particle_800865BC *p = (Particle_800865BC *)arg0;
     f32 v;
@@ -593,6 +604,4 @@ void *init_particle_base(void *arg0, void *arg1, s32 arg2) {
     p->f24 = 0;
     p->f26 = 0xFFFF;
     return arg0;
-}
-
 }

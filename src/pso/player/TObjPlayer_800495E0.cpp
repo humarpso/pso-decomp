@@ -55,7 +55,9 @@ struct VObj_80049A1C : VBase_80049A1C {
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 u32 csnVector(void *, void *, int);
+}
 void direction_to_rotation_yx(u8 *arg0, s32 *arg1, s32 *arg2);
+extern "C" {
 void *get_player_by_client_id(s32 i);
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 s32 vec3_add_to(void *, void *);
@@ -155,7 +157,7 @@ void TUnk_80484A94::run_task() {
   }
   VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
   vec3_add_to((u8 *)&this->position, arg0 + 0xB4);
-  direction_to_rotation_yx((u8 *)(arg0 + 0xB4), (s32 *)(arg0 + 0x60), (s32 *)(arg0 + 0x64));
+  direction_to_rotation_yx((arg0 + 0xB4), (s32 *)(arg0 + 0x60), (s32 *)(arg0 + 0x64));
   this->rotation_z = (s32) ((this->rotation_z) - 0x4000);
   temp_r3_2 = (u8 *)this->m_d4;
   if (temp_r3_2 != 0)
@@ -270,5 +272,4 @@ void TUnk_80484AFC::render() {
     draw_chunk_object((void *)(*(s32 *)&this->unk_AC));
     pop_matrix();
 }
-
 }

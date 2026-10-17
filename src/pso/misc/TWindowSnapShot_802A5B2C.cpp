@@ -28,10 +28,12 @@ int fn_802A5B50(s32 arg0) { return fn_802A5B74(arg0, (s32)((void *) arg0)); }
 int fn_802A5B74(s32 _w0, s32 _w1) { return 0; }
 
 int rlc_get_directory_offset(void *arg0) { return fn_802A5BFC((s32)arg0, (s32)((s8 *)arg0 + 0x14)); }
+}
 
 s32 rlc_get_chunk_count(s32 arg0) {
     fn_802A5BFC(arg0, arg0 + 0x10);
 }
+extern "C" {
 
 int fn_802A5BFC(s32 _w0, s32 _w1) { return 0; }
 
@@ -91,6 +93,7 @@ s32 init__15TWindowSnapShotFPvi(TWindowSnapShot *arg0, s32 arg1) {
         return 0;
     }
     return 1;
+}
 }
 
 extern "C" {
@@ -152,7 +155,5 @@ s32 TWindowSnapShot__sub_802A605C(u8 *arg0) {
 }
 void fn_802A6070(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
 void fn_802A6078(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
-
-}
 
 }

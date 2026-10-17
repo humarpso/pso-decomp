@@ -30,8 +30,8 @@ extern "C" {
 
 s32 run_wave_event_actions();
 void TLobby__sub_80208884(void*);
-void notify_partner_room_cleared(s32);
 }
+void notify_partner_room_cleared(s32);
 
 void TSetEvtDestroy::run_task() {
     switch (m_phase) {
@@ -84,19 +84,20 @@ struct RecoveredGlobal_802093EC_lbl_805139F8 {
     u8 remaining[0x44];
 };
 
-extern "C" {
 extern RecoveredGlobal_802093EC_lbl_805139F8 lobby_slot_ptr_table;
 s32 get_area_event_data(s32 arg0);
+extern "C" {
 s32 next_event_shuffle_entry(EventShuffleTable *s);
+}
 void init_event_shuffle_table(EventShuffleTable *arg0, s32 arg1);
+extern "C" {
 s32 get_current_floor();
 void queue_destruction__7TObjectFv(void *);
 
 s32 item_drop_rng_below(s32, u32);
+}
 void shuffle_event_entries(EventShuffleTable *arg0);
 typedef char RecoveredGlobal_802093EC_lbl_805139F8_size[sizeof(RecoveredGlobal_802093EC_lbl_805139F8) == 0x48 ? 1 : -1];
-
-}
 
 TSetEvtDestroy::TSetEvtDestroy(TObject* parent, SetDestroyEventRecord* event) : TObject(parent) {
     s32* p;
@@ -118,17 +119,17 @@ TSetEvtDestroy::TSetEvtDestroy(TObject* parent, SetDestroyEventRecord* event) : 
     }
 }
 
-extern "C" {
-
 s32 get_area_event_data(s32 arg0) {
     if (arg0 < 0x12) {
         return *(s32 *)((s8 *)&lobby_slot_ptr_table.value + (arg0 * 4));
     }
     return 0;
 }
+extern "C" {
 s32 next_event_shuffle_entry(EventShuffleTable *s) {
     if (s->count < s->cursor) return 0;
     return s->entries[s->cursor++];
+}
 }
 void shuffle_event_entries(EventShuffleTable *arg0) {
     EventShuffleTable *s = arg0;
@@ -155,6 +156,4 @@ void init_event_shuffle_table(EventShuffleTable *arg0, s32 arg1) {
     shuffle_event_entries(arg0);
     shuffle_event_entries(arg0);
     shuffle_event_entries(arg0);
-}
-
 }

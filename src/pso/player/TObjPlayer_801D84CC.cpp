@@ -93,7 +93,9 @@ s32 pop_matrix(void);
 void restore_scene_lighting(void);
 void select_actor_lighting(s32 obj);
 s32 TObjPlayer__sub_801BAC48(void *);
+}
 void save_render_material_state(u8 *arg0);
+extern "C" {
 void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 s32 rotate_matrix_y(int, int);
 void TObjPlayer__sub_801D877C(u8 *arg0);
@@ -148,7 +150,6 @@ void TObjPlayer__sub_801D8864(void) {  }
 
     extern int player_ending_motion_object;
 void TObjPlayer::free_shared_lobby_data() { TLobby::free_nodes_with_id(player_ending_motion_object); player_ending_motion_object = 0; TObjPlayer::free_shared_data(); }
-
 }
 
 #include "pso/boss/TBoss4DarkFalz.h"
@@ -282,6 +283,7 @@ typedef struct Rec_801D8F60 { f32 a, b, c; } Rec_801D8F60;
 
 extern "C" {
 s8 TObjPlayer__sub_801AFDBC(s8);
+}
 extern int ply_level_table;
 s32 get_ply_level_table_row(s8 arg0, s32 arg1);
 f32 lookup_attack_marker(s32, s16, s16, s32);
@@ -290,6 +292,7 @@ extern s32 attack_marker_table_dagger[];
 extern s32 attack_marker_table_double_saber[];
 extern s32 twin_sword_male_marker_table[];
 extern s32 twin_sword_female_marker_table[];
+extern "C" {
 s32 get_main_phase();
 s32 obj_isState3_324__13TUnk_804806E8Fv(int);
 extern RecoveredGlobal_801D8ADC_lbl_8044929C getup_protection_ticks_table_a;
@@ -336,18 +339,24 @@ s32 TBoss4DarkFalz__sub_801D94C0(void* p);
 void *__dt__13TUnk_804C4540Fv(void *arg0, s16 arg1);
 void TObjPlayer__sub_801D8A38(void* a0);
 void TObjPlayer__sub_801D92A4(void);
+}
 void create_player_ending_motion(void);
 void load_ply_level_tbl(void);
+extern "C" {
 void TObjPlayer__sub_801BFF80(u8 *arg0);
 s32 get_contact_surface_type(s32 arg0);
 void __dl__7TObjectFPv(void *);
 void *__dt__10TObjPlayerFv(void *arg0, s16 arg1);
+}
 s32 create_named_object(s32 arg0);
+extern "C" {
 int load_encrypted_archive_data(void*);
 void init__17TPlyInventoryItemFv(u8 *arg0);
+}
 
     extern unsigned char lbl_80447190[];
 void create_player_ending_motion(void) { TObjPlayer::alloc_shared_buffers(); player_ending_motion_object = create_named_object((s32)lbl_80447190); }
+extern "C" {
 
 Player_801D88C8 *create_ending_sequence_player(Player_801D88C8 *self, void *parent, Src_801D88C8 *src) {
     TObjPlayer__ct(self, parent);
@@ -586,6 +595,7 @@ void TObjPlayer::select_normal_attack_marker() {
   falz_phase = this->get_falz_phase();
   lookup_attack_marker((s32) get_handle_value(), falz_phase, temp_r30, move_mode);
 }
+}
 
 #pragma pop
 
@@ -604,6 +614,7 @@ f32 lookup_attack_marker(s32 arg0, s16 arg1, s16 arg2, s32 arg3) {
         return *(f32 *)((s8 *)((u8 *)(((u8 *)attack_marker_table + (arg0 * 0xC))) + (arg1 * 4)) + 0);
     }
 }
+extern "C" {
 
 s32 TObjPlayer__sub_801D91B8(s32 arg0) {
     return TObjPlayer::get_current_state_field(((TObjPlayer *)arg0)->get_class_index(), get_max_level__10TObjPlayerFv(arg0));
@@ -615,6 +626,7 @@ s32 TObjPlayer::get_current_state_field(s8 _w0, s32 _w1) {
 
 s32 TObjPlayer::get_class_state_field(s32 arg1) {
     s32 arg0 = (s32)this; return TObjPlayer::get_current_state_field(((TObjPlayer *)arg0)->get_class_index(), arg1); }
+}
 
 s32 get_ply_level_table_row(s8 arg0, s32 arg1) {
   s32 temp_r30;
@@ -623,8 +635,10 @@ s32 get_ply_level_table_row(s8 arg0, s32 arg1) {
   ;
   return (*((s32 *) (((s8 *) temp_r30) + (TObjPlayer__sub_801AFDBC(arg0) * 4)))) + (TObjPlayer::clamp_index_to_max(arg1) * 0xC);
 }
+extern "C" {
 
 void TObjPlayer__sub_801D92A4(void) { TLobby::free_nodes_with_id(ply_level_table); }
+}
 
     extern unsigned char lbl_804492E8[];
 void load_ply_level_tbl(void) { ply_level_table = load_encrypted_archive_data(lbl_804492E8); }
@@ -632,6 +646,7 @@ void load_ply_level_tbl(void) { ply_level_table = load_encrypted_archive_data(lb
 typedef char RecoveredGlobal_801D9328_lbl_80447430_size[sizeof(RecoveredGlobal_801D9328_lbl_80447430) == 0x180 ? 1 : -1];
 
 typedef char RecoveredGlobal_801D92F4_lbl_804475B0_size[sizeof(RecoveredGlobal_801D92F4_lbl_804475B0) == 0x240 ? 1 : -1];
+extern "C" {
 u8 *get_class_attack_template(TObjPlayer *arg0) {
     return (u8 *)&class_attack_template_table.value + (arg0->get_class_index() * 0x30);
 }
@@ -671,5 +686,4 @@ s32 TObjPlayer::get_falz_phase() { return TBoss4DarkFalz__sub_801D94C0((void*)((
 int TBoss4DarkFalz::get_instance_count() {  return dark_falz_form_index; }
 
 s32 TBoss4DarkFalz__sub_801D94C0(void* p) { return *(s32*)((char*)p + 0x14); }
-
 }

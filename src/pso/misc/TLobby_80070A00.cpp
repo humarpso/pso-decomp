@@ -255,8 +255,10 @@ extern RecoveredGlobal_800713C8_lbl_804FF82C lbl_804FF82C;
 s32 *TLobby__sub_800713C8(void);
 s32 TLobby__sub_80070DA8(void);
 f32 fabs_float(f32);
+}
 
 void set_challenge_time_window_timer(int a0);
+extern "C" {
 void TLobby__sub_80071064(s32 arg0);
 void TLobby__sub_80070EE4(s32 arg0);
 s32 TLobby__sub_8006F6B0(int);
@@ -511,7 +513,6 @@ s32 *TLobby__sub_800713C8(void) {
     decode_obfuscated_string__6TLobbyFPvi((void *)&lbl_804FF82C.value, (void *)(character_save_record + 0x229C), 0xC, character_save_record);
     return &lbl_804FF82C.value;
 }
-
 }
 
 struct RecoveredGlobal_80292574_lbl_804DB1F0 {

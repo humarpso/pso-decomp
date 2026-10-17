@@ -27,8 +27,10 @@ s32 fn_801908F8(f32);
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 void byteswap_event_packet__6TLobbyFi(s32 arg0);
 s32 get_current_floor(void);
+}
 s32 set_floor_event_flags(s32 arg0, s32 arg1, s32 arg2);
 s32 activate_first_floor_event(s32 idx, s32 id);
+extern "C" {
 void handle_6x67_trigger_set_event(Pkt_80190BA0 *pkt);
 void queue_destruction__7TObjectFv(void *);
 void disallow_rendering__7TObjectFv(TObject *);
@@ -110,5 +112,4 @@ void handle_6x67_trigger_set_event(Pkt_80190BA0 *pkt) {
         activate_first_floor_event(pkt->target, pkt->event);
     }
 }
-
 }

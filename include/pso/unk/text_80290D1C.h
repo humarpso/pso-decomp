@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void draw_creation_ruler_lines(f32 farg0);
-}
 
 #endif

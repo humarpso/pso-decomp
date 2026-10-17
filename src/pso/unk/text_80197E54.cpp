@@ -10,13 +10,14 @@ struct Stat_80197E64 { u8 pad0[4]; u16 blocks; u8 pad6[0xE]; };
 
 struct Hdr_80197E64 { u8 pad0[0x58]; s32 f58; s32 f5C; u8 pad60[0xC]; };
 
-extern "C" {
 extern s32 TObjSinBoard__texture_buffer;
+extern "C" {
 void *alloc__22TQuestVmDownLoadServerFv(s32);
 s32 TAdPlayerLoadGC__sub_801E1538(Hdr_80197E64 *, void *);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 get_card_file_info__15TAdPlayerLoadGCFiPvPv(s32, s32, Stat_80197E64 *);
 void memset(void *, int, int);
+}
 extern s32 memcard_file_099_name;
 bool is_signboard_texture_buffer_missing(void) {
     return TObjSinBoard__texture_buffer == 0;
@@ -64,6 +65,4 @@ void load_memcard_file(void) {
     }
     fn_80197FD0((void *)hdr.f58, (void *)hdr.f5C);
     TAdSinglePlyChrSelectGC::safe_free((u32)buf);
-}
-
 }

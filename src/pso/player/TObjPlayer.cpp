@@ -51,10 +51,14 @@ void TObjPlayer__sub_801BEEE0(void* p, void* q);
 void TObjPlayer__sub_801BEF30(void* p, void* q);
 void TObjPlayer__sub_801BEF44(void* p, void* q);
 void TObjPlayer__sub_801BEF60(void* p, s32 v);
+}
 int emit_zalure_support_effect(void* p, int a1);
+extern "C" {
 int create_attached_oneshot_emitter(void*, int, int);
+}
 int emit_deband_support_effect(void* p, int a1);
 void* get_surface_contact_point(void* p);
+extern "C" {
 int emit_player_particle(void*, int, int);
 void* TObjPlayer__sub_801BF31C(void* p);
 int TObjPlayer__sub_801BF3A0(void* p);
@@ -64,19 +68,25 @@ int test_flags_any(void*, int);
 u8 TObjPlayer__sub_801BF460(s32 *arg0, s32 arg1);
 void TObjPlayer__sub_801BF488(s32 *arg0, s32 arg1);
 void TObjPlayer__sub_801BF4A0(s32 *arg0, s32 arg1);
+}
 void emit_grass_footstep_effect(s32 arg0);
 void emit_water_step_particles(s32 owner, s32 position);
 void emit_water_footstep_effect(s32 arg0);
 void emit_sand_step_particles(s32 owner, s32 position);
 void emit_sand_footstep_effect(s32 arg0);
 void emit_idle_water_splash(s32 owner, s32 position);
+extern "C" {
 void emit_idle_water_effect(s32 arg0);
 void TObjPlayer__sub_801BEEAC(u8 *arg0, u8 *arg1);
+}
 void emit_photon_blast_feedback_effects(s32 arg0, s32 arg1);
+extern "C" {
 s32 obj_getField1c(int);
+}
 void prepare_heavy_attack_particles(u8 *arg0);
 void emit_jellen_support_effect(u8 *arg0);
 void emit_shifta_support_effect(u8 *arg0);
+extern "C" {
 int TFontSmallLobby__sub_801C0228(void*);
 u8 TObjPlayer__sub_801BED70(void* p);
 u8 TObjPlayer__sub_801BED78(void* p);
@@ -196,6 +206,7 @@ void TObjPlayer__sub_801BEF44(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u3
 void TObjPlayer__sub_801BEF60(void* p, s32 v) { *(s32*)((char*)p + 0xc) = v; }
 
 void TObjPlayer::prepare_heavy_attack_particles_default() { prepare_heavy_attack_particles((u8 *)((char*)this + 0x4)); }
+}
 
 #pragma push
 #pragma fp_contract on
@@ -206,18 +217,24 @@ void prepare_heavy_attack_particles(u8 *arg0) {
     }
 }
 #pragma pop
+extern "C" {
 
 int TObjPlayer::emit_zalure_support_effect_at() {
     u16 *arg0 = (u16 *)this; return emit_zalure_support_effect((void*)((s8 *)arg0 + 4), (int)(*arg0)); }
+}
 
 int emit_zalure_support_effect(void* p, int a1) { return create_attached_oneshot_emitter(p, a1, 508); }
+extern "C" {
 
 int TObjPlayer::emit_deband_support_effect_at() {
     u16 *arg0 = (u16 *)this; return emit_deband_support_effect((void*)((s8 *)arg0 + 4), (int)(*arg0)); }
+}
 
 int emit_deband_support_effect(void* p, int a1) { return TObjPlayer::check_hit_by_id((s32)p, (s32)a1, 508); }
+extern "C" {
 
 void TObjPlayer::emit_jellen_support_effect_default() { emit_jellen_support_effect((u8 *)((char*)this + 0x4)); }
+}
 
 #pragma push
 #pragma fp_contract on
@@ -230,8 +247,10 @@ void emit_jellen_support_effect(u8 *arg0) {
     }
 }
 #pragma pop
+extern "C" {
 
 void TObjPlayer::emit_shifta_support() { emit_shifta_support_effect((u8 *)((char*)this + 0x4)); }
+}
 
 #pragma push
 #pragma fp_contract on
@@ -244,12 +263,15 @@ void emit_shifta_support_effect(u8 *arg0) {
     }
 }
 #pragma pop
+extern "C" {
 
 void emit_idle_water_effect(s32 arg0) {
     emit_idle_water_splash((arg0 + 4), (s32)(get_surface_contact_point((void*)arg0)));
 }
+}
 
 void* get_surface_contact_point(void* p) { return (char*)p + 0x24; }
+extern "C" {
 
 int TObjPlayer::emit_movement_effect_at() {
     u16 *arg0 = (u16 *)this; return ((TObjPlayer *)((s8 *)arg0 + 4))->check_hit_by_id_276((int)(*arg0)); }
@@ -259,6 +281,7 @@ int TObjPlayer::check_hit_by_id_276(int a1) { return TObjPlayer::check_hit_by_id
 void TObjPlayer::check_hit_by_id_431_from_packet() {
     u16 *arg0 = (u16 *)this;
     TObjPlayer::check_hit_by_id_431((s8 *)arg0 + 4, *arg0);
+}
 }
 
 void emit_sand_footstep_effect(s32 arg0) {
@@ -272,6 +295,7 @@ void emit_water_footstep_effect(s32 arg0) {
 void emit_grass_footstep_effect(s32 arg0) {
     ((TObjPlayer *)(arg0 + 4))->emit_grass_footstep_particle((int)((int) (TObjPlayer__sub_801BF31C((void*)arg0))));
 }
+extern "C" {
 
 int TObjPlayer::emit_grass_footstep_particle(int a1) { return emit_player_particle(this, a1, 570); }
 
@@ -281,12 +305,14 @@ void TObjPlayer::emit_photon_blast_feedback_from_packet() {
     u16 *arg0 = (u16 *)this;
     emit_photon_blast_feedback_effects((s32)((s8 *)arg0 + 4), (s32)(*arg0));
 }
+}
 
 void emit_photon_blast_feedback_effects(s32 arg0, s32 arg1) {
     TObjPlayer::check_hit_by_id(arg0, arg1, 5);
     TObjPlayer::check_hit_by_id(arg0, arg1, 0x2C);
     TObjPlayer::check_hit_by_id(arg0, arg1, 0x3B);
 }
+extern "C" {
 
 int TObjPlayer__sub_801BF3A0(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 0x24); }
 
@@ -295,9 +321,9 @@ int TObjPlayer::copy_vec_at_18() { return VecCopy__FP3VecPC3Vec((char*)this + 0x
 int has_water_ground_flag(void* p) { return test_flags_any(p, 4); }
 
 void TPlayerLobbyMarker::set_material_index(u8 v) { this->material_index = v; }
+}
 
 typedef char RecoveredGlobal_801BF414_lbl_804C3FA8_size[sizeof(RecoveredGlobal_801BF414_lbl_804C3FA8) == 0x18 ? 1 : -1];
-}
 TPlayerReadyCallback::TPlayerReadyCallback(TObject* parent, u16 id, void (*fn)(TObjPlayer*)) : TObject(parent) {
     player_id = id;
     callback = fn;

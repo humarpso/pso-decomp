@@ -105,12 +105,12 @@ struct Rec_80426998 { u16 a; u16 b; };
 
 struct Obj_80426998 { u8 pad[0x36]; s16 count; Rec_80426998 recs[5]; };
 
-extern "C" {
 NetworkPacketBufferDescriptor network_packet_buffer_descriptors[NETWORK_PACKET_BUFFER_COUNT];
 u8 network_packet_buffers[NETWORK_PACKET_BUFFER_COUNT][NETWORK_PACKET_BUFFER_BYTES];
 extern u8 lbl_805CF240[0xA0];
 extern u8 TLobby__pppoe_message_queue[0xA0];
 extern u8 lbl_805CF380[0x48];
+extern "C" {
 void TLobby__sub_803F95E4(u32);
 extern u32 lbl_805D7BA8;
 s32 NetMemcpy(void *, void *, int);
@@ -369,6 +369,7 @@ u8 *TLobby::find_entry_by_address(s32 arg0) {
 void TLobby::cancel_alarm_a() {
     TLobby__sub_803F95E4(lbl_805D7BA8);
 }
+}
 s32 initialize_network_packet_pool(void) {
     s32 i;
     if (TLobby__sub_803F96AC(&lbl_805D7BA8) < 0) {
@@ -384,6 +385,7 @@ s32 initialize_network_packet_pool(void) {
 }
 
 #define arg0 ((s32)argp)
+extern "C" {
 s16 TLobby__sub_804262CC(void *argp);
 #undef arg0
 
@@ -424,10 +426,9 @@ typedef char RecoveredGlobal_8042DD70_lbl_805D1D20_size[sizeof(RecoveredGlobal_8
 #pragma pop
 
 void TAdSinglePlyChrSelectGC__sub_8042DDE4(int _w0, int _w1);
+}
 
 typedef char RecoveredGlobal_8042E768_lbl_805D1D20_size[sizeof(RecoveredGlobal_8042E768_lbl_805D1D20) == 0x1C ? 1 : -1];
-
-}
 
 typedef char NetworkPacketDescriptorSize[sizeof(NetworkPacketBufferDescriptor)==12 ? 1 : -1];
 typedef char NetworkPacketInUseOffset[offsetof(NetworkPacketBufferDescriptor,in_use)==0 ? 1 : -1];

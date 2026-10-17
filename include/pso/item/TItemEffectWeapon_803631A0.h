@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void s_rank_launcher_slide_node(void *arg0);
-}
 
 #endif

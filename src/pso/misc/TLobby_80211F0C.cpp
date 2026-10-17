@@ -8,8 +8,6 @@
 #include "pso/misc/THunterGuildSeqOffline.h"
 #include "pso/misc/TQuestListOnline.h"
 
-extern "C" {
-
 void update_hunter_guild_phase(void) {
     if (get_main_phase() == 0xE) {
         THunterGuildWarning__sub_80211700();
@@ -21,6 +19,7 @@ void update_hunter_guild_phase(void) {
         TQuestListOnline::release_resources();
     }
 }
+extern "C" {
 
 void THunterGuildSeqOffline__sub_8021339C(void);
 
@@ -57,5 +56,4 @@ void *TLobby::create_tl05_object(void *arg0) {
     }
     return o;
 }
-
 }

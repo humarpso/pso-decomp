@@ -34,6 +34,7 @@ void collect_model_strips_by_texture(void *ctx, Node_800F5A50 *node, void *arg) 
         node = node->sibling;
     } while (node != 0);
 }
+}
 
 void collect_plist_strips_by_texture(void *ctx, s16 *p, s32 tex) {
     s16 c;
@@ -82,6 +83,7 @@ void collect_plist_strips_by_texture(void *ctx, s16 *p, s32 tex) {
         }
     }
 }
+extern "C" {
 
 void count_model_strips_by_texture(void *ctx, Node_800F5A50 *node, void *arg) {
     do {
@@ -93,6 +95,7 @@ void count_model_strips_by_texture(void *ctx, Node_800F5A50 *node, void *arg) {
         }
         node = node->sibling;
     } while (node != 0);
+}
 }
 void count_plist_strips_by_texture(void *ctx, void *plist, void *arg) {
     Count_800F5AC8 *cnt = (Count_800F5AC8 *) ctx;
@@ -136,6 +139,4 @@ void count_plist_strips_by_texture(void *ctx, void *plist, void *arg) {
             }
         }
     }
-}
-
 }

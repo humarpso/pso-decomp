@@ -26,6 +26,7 @@ int TUnk_804D0658::is_selected() { return (this->m_70 >> 5) & 0x1; }
 void TWindowFukidasi::draw_resolved_window(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     find_overlapping_balloon__15TWindowFukidasiFPvPvPvPv(arg0, arg1, arg2, *(s32 *)((s8 *)(TWindowCtrlMain__sub_8024CDD0(arg3)) + 0x14));
 }
+}
 
 void resolve_chat_balloon_overlaps(void) {
     s32 i;
@@ -62,8 +63,8 @@ void resolve_chat_balloon_overlaps(void) {
         }
     }
 }
+extern "C" {
 
 void TWindowFukidasi__sub_80249788(void* p) { *(u32*)((char*)p + 0x2c) |= 0x400; }
 void TWindowFukidasi::hide() { *(u32*)((char*)this + 0x2c) &= 0xfffffbff; }
-
 }

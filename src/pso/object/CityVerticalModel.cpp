@@ -148,6 +148,7 @@ void *create_city_vertical_model(void *arg0) {
     }
     return o;
 }
+}
 void *destroy_city_vertical_model(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = city_vertical_model_vtable;
@@ -169,6 +170,7 @@ u8 *construct_city_vertical_model(u8 *arg0, s32 parent, s32 arg2) {
     ((TUnk_804B5C08 *)arg0)->m_9c = (f32) lbl_805DBC00;
     return arg0;
 }
+extern "C" {
 
 __declspec(section ".sdata2") extern const f32 lbl_805DBC00 = 0.0f;
 __declspec(section ".sdata2") extern const f32 lbl_805DBC04 = 600.0f;
@@ -184,6 +186,7 @@ void vfunc_9__13TUnk_804B9870Fv();
 void update_object_view_visibility__13TUnk_804B9870Fff();
 void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void vfunc_12__13TUnk_804B9870Fv();
+}
 s32 city_vertical_model_vtable[14] = {
     0,
     0,
@@ -200,4 +203,3 @@ s32 city_vertical_model_vtable[14] = {
     (s32)vfunc_12__13TUnk_804B9870Fv,
     (s32)vfunc_13__13TUnk_804B5C08Fl,
 };
-}

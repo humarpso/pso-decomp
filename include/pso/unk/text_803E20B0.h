@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void load_camera_view_matrix(void);
-}
 
 #endif

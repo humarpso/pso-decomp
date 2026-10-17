@@ -746,7 +746,9 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 void TObjPlayer__sub_8023DEE0(s16 *p, s16 a, s16 b, u16 id);
+}
 void restore_render_scissor(s32 arg0);
+extern "C" {
 void * __dt__25TObjEneDellBiter_Eff_RushFv(void *arg0, s16 arg1);
 u8 * TObjEneDellBiter_Eff_Rush__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0);
 void vfunc_106__16TObjEneDellBiterFv(u8 *arg0);
@@ -2740,5 +2742,4 @@ void *TItemObject__sub_80306A28(void *arg0) {
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E6FA8;
     return arg0;
 }
-
 }

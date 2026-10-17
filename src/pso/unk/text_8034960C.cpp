@@ -34,6 +34,7 @@ struct Vec2_8034960C {
 
 extern "C" {
 void draw_color_lines(Desc_80349844 *, s32, s32, f32);
+}
 extern const f32 lbl_805DFD04;
 extern const f32 lbl_805DFD08;
 extern const f32 lbl_805DFD0C;
@@ -100,6 +101,7 @@ void draw_quest_load_letterbox_bars(void) {
         i++;
     } while (i < 2);
 }
+extern "C" {
 
 void fn_80349844(void) {
     f32 pos[8];
@@ -130,5 +132,4 @@ void fn_80349844(void) {
         draw_color_lines(&d, 4, 3, lbl_805DFD14);
     }
 }
-
 }

@@ -34,6 +34,7 @@ struct Stack_801DB998 {
 extern "C" {
 s32 strncpy(void *, void *, int);
 s32 memset(void *, int, int);
+}
 void send_register_9c(u8 *arg0) {
     Stack_801DB998 stack;
     fn_801DF954((&stack.sp8));
@@ -48,6 +49,4 @@ void send_register_9c(u8 *arg0) {
     strncpy(&stack.sp7C, arg0 + 0x3F3A, 0x30);
     fn_801DF918((&stack.sp8));
     ((VObj_18_44382c *)(arg0))->m8(&stack.sp8, 0xA4);
-}
-
 }

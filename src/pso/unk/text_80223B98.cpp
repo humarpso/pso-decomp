@@ -47,8 +47,8 @@ struct Tbl_80224190 { Ent_80224190 *base; u8 count; };
 
 struct Ctr_80224190 { u8 buf[0x74]; };
 
-extern "C" {
 extern RecoveredGlobal_80224404_lbl_80513F20 shop_tool_stock_buffers;
+extern "C" {
 s32 memset(void *, int, int);
 extern RecoveredGlobal_802243D4_lbl_80513F10 shop_tool_flags;
 void init__9TItemDataFv(void *);
@@ -105,6 +105,7 @@ s32 fn_80223C28(s32 arg0) {
     }
     return -1;
 }
+}
 
 s32 classify_tool_shop_level_bracket(s32 arg0) {
     if ((arg0 >= 1) && (arg0 <= 0xA)) {
@@ -127,6 +128,7 @@ s32 classify_tool_shop_level_bracket(s32 arg0) {
     }
     return -1;
 }
+extern "C" {
 
 s32 TLobby__sub_80223D48(s32 arg0) {
     if ((arg0 >= 1) && (arg0 <= 0xA)) {
@@ -338,5 +340,4 @@ void mark_shop_tool_sold_out(s32 a, s32 b) {
         }
     }
 }
-
 }

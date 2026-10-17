@@ -27,8 +27,8 @@ struct Node_801103F4 : Base_801103F4 {
 
 struct Load_8011006C { void *buf; s32 f4; s32 f8; s32 fC; s32 f10; void *f14; };
 
-extern "C" {
 extern u32 TItemLoad__completed_model_load_task_root;
+extern "C" {
 void *TItemLoad__sub_801107EC(void *p);
 void *lookup_item_pmt_record(u8 *item);
 void *__nw__7TObjectFUl(u32);
@@ -109,6 +109,7 @@ void TItemLoad::get_model_ids(u8 arg0, s32 *bml_model, s32 *arg2) {
         *arg2 = TObjFish__sub_8001EDB0(TItemLoad__bml_resource, 0);
     }
 }
+}
 
 s32 request_item_model_load(u8 *item) {
     Parm_8011029C *parm;
@@ -141,6 +142,7 @@ s32 request_item_model_load(u8 *item) {
     }
     return -1;
 }
+extern "C" {
 
 void *TItemLoad::find_node_by_id(s32 id) {
     Node_8011038C *n;
@@ -187,5 +189,4 @@ void TItemLoad::update() {
         }
     }
 }
-
 }

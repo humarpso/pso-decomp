@@ -3,8 +3,8 @@
 
 #include "types.h"
 
-extern "C" {
 void shuffle_shop_pool(void *arg0_);
+extern "C" {
 void shuffle_shop_pool_n_times(void *arg0_, s32 arg1);
 }
 

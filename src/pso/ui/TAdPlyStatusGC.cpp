@@ -102,7 +102,9 @@ s32 get_entry__23TAdSinglePlyChrSelectGCFi(s32 i);
 s32 TAdSinglePlyChrSelectGC__sub_801FE800(u32 i);
 s32 get_character_save_record(u32 arg0);
 s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
+}
 s32 get_class_name_text(s32 arg0);
+extern "C" {
 s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(s32);
 int sprintf(char *, const char *, ...);
 void *memset(void *, int, u32);
@@ -410,7 +412,6 @@ TAdPlyStatusGC_8033FC14 *TAdPlyStatusGC__ct(TAdPlyStatusGC_8033FC14 *self, void 
     }
     return self;
 }
-
 }
 #pragma pop
 #undef ply_status_window_offset_table

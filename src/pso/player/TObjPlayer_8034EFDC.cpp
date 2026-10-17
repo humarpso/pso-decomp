@@ -114,8 +114,10 @@ extern s32 tl_05;
 u8 *TObjPlayer__sub_8034F1AC(u8 *arg0);
 void TItemWeapon__ct(void *, void *);
 void set_status_flags__10TObjPlayerFUl(void *, int);
+}
 extern s32 lbl_804F0A00[];
 u8 *construct_gi_gue_bazooka(u8 *arg0, u8 *arg1, s32 _w2);
+extern "C" {
 void init_fire_explosion_config__10TObjPlayerFPvPv(void *a, O_8034F590 *o);
 s32 rotate_matrix_z(s32, s32);
 void init_slicer_launch_state(void *arg0);
@@ -346,6 +348,7 @@ void *__dt__13TUnk_804F0A00Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+}
 
 typedef char RecoveredGlobal_8034F754_lbl_804F0A00_size[sizeof(RecoveredGlobal_8034F754_lbl_804F0A00) == 0xF8 ? 1 : -1];
 u8 *construct_gi_gue_bazooka(u8 *arg0, u8 *arg1, s32 _w2) {
@@ -357,6 +360,7 @@ u8 *construct_gi_gue_bazooka(u8 *arg0, u8 *arg1, s32 _w2) {
     *(s32 *)((s8 *)arg0 + 0x200) = 0x238E;
     return arg0;
 }
+extern "C" {
 
 u8 *TObjPlayer::create_gi_gue_bazooka(s32 arg0) {
     u8 *temp_r3;
@@ -404,5 +408,4 @@ void *__dt__13TUnk_804F0AF8Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
 }

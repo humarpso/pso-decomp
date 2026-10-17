@@ -21,12 +21,14 @@ void *__dt__13TUnk_804A5340Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+}
 
 void rocket_punch_return_timer(u32 arg0) {
     if (arg0 != 0U) {
         ((TAdRicoRing *)(arg0 + 0x1F8))->clear_flags(2);
     }
 }
+extern "C" {
 
 s32 TObjPlayer::get_hp_by_flag() {
     u8 *arg0 = (u8 *)this;
@@ -35,5 +37,4 @@ s32 TObjPlayer::get_hp_by_flag() {
     }
     return this->m_184;
 }
-
 }

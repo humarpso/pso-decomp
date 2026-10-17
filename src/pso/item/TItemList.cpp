@@ -11,7 +11,9 @@ extern "C" {
 void TItemList__sub_801D5A0C(s32 *arg0);
 void TItemList__sub_801D5A64(void* p);
 u8 *TItemList__sub_801D5868(s32, s8);
+}
 void clear_placement_search_slot(TItemList *arg0, s32 arg1);
+extern "C" {
 void* get_ptr_0x44__9TItemListFPv(void* p);
 void copy_position__9TItemListFPv(void *, s32);
 void *TItemList__sub_801D598C(int, int);
@@ -20,14 +22,18 @@ int TObjPlayer__sub_801C2098(void);
 extern s32 lbl_804C4444[];
 u8 *TItemList__sub_801D5CF8(u8 *arg0);
 void TItemList__sub_801D59DC(void* p);
+}
 void decrement_placement_search_pending(void* p, void* a1);
+extern "C" {
 void *TItemList__sub_801D5B10(void *arg0, s16 arg1);
 void *__dt__9TItemListFPvs(void *arg0, s16 arg1);
 void* reset_position__9TItemListFPv(void* a0);
 s32 check_value_equals__13TUnk_804B6C24Fl(s32, s32);
 
 void TItemList__sub_801D59DC(void* p) { *(s32*)((char*)p + 0x0) = 2; }
+}
 void decrement_placement_search_pending(void* p, void* a1) { TItemList__sub_801D5A0C((s32 *)a1); }
+extern "C" {
 
 void TItemList__sub_801D5A0C(s32 *arg0) {
     s32 temp_r0;
@@ -37,10 +43,12 @@ void TItemList__sub_801D5A0C(s32 *arg0) {
         *arg0 = 0;
     }
 }
+}
 
 void clear_placement_search_slot(TItemList *arg0, s32 arg1) {
     TItemList__sub_801D5A64((void*)(TItemList__sub_801D5868(arg1, arg0->get_item_count())));
 }
+extern "C" {
 
 void TItemList__sub_801D5A64(void* p) { *(s32*)((char*)p + 0x0) = 0; }
 
@@ -121,5 +129,4 @@ u8 *TItemList__sub_801D5CF8(u8 *arg0) {
     *(s32 *)arg0 = 0;
     return arg0;
 }
-
 }

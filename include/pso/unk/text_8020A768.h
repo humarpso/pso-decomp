@@ -3,10 +3,8 @@
 
 #include "types.h"
 
-extern "C" {
 s32 load_enemy_set_file(s32 idx, s32 arg1);
 void load_map_set_data(s32 idx, s32 arg1);
 s32 load_object_set_file(s32 idx, s32 arg1);
-}
 
 #endif

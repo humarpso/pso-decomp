@@ -28,8 +28,10 @@ typedef struct Obj_801D650C {
 
 extern "C" {
 s32 send_6x39_photon_blast_ready();
+}
 extern const f32 lbl_805DC3DC;
 void add_photon_blast_charge(u8 *arg0, f32 farg0);
+extern "C" {
 int TFontSmallLobby__sub_801D677C(void *);
 extern const f32 lbl_805DC3E4;
 void add_photon_blast_chain_charge(u8 *arg0, f32 farg0);
@@ -92,6 +94,7 @@ void add_photon_blast_chain_charge(u8 *arg0, f32 farg0) {
         }
     }
 }
+}
 
 void add_photon_blast_charge(u8 *arg0, f32 farg0) {
     f32 temp_f0;
@@ -104,6 +107,7 @@ void add_photon_blast_charge(u8 *arg0, f32 farg0) {
         }
     }
 }
+extern "C" {
 
 void TFontSmallLobby::send_photon_blast_ready() {
     if (get_player_by_client_id(((u16 (*)())get_type__15TFontSmallLobbyFPv)()) != 0U) {
@@ -146,7 +150,6 @@ void TFontSmallLobby::reset_state() {
     }
     ((TFontSmallLobby *)((u8 *)arg0 + 0x4C))->reset_fields();
 }
-
 }
 
 struct Pkt_801D698C { u8 cmd; u8 size; u8 pad[2]; u16 a; u16 b; };

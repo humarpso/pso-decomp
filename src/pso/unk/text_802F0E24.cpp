@@ -28,6 +28,7 @@ void fn_802F0E24(void) {
     TLobby__sub_8001FE7C(lbl_805D6950, 1);
     lbl_805D6950 = 0;
 }
+}
 void load_boss7_common_resources(void) {
     void *p;
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
@@ -38,6 +39,4 @@ void load_boss7_common_resources(void) {
     lbl_805D6954 = *(void **)(((struct Obj_802F0E94 *)p)->f42c + 0xC);
     TLobby::load_texture_pvm_file((const char *)lbl_80474344, (s32)lbl_805D6954);
     TParticleCtrl::init_heap((void *)0x50000);
-}
-
 }

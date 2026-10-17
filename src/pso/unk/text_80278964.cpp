@@ -7,6 +7,7 @@ extern "C" {
 
 s32 calc_list_content_extent(void *);
 s32 TWindowSubItem__sub_8027AA78(s32 arg0);
+}
 
 void refresh_battle_stat_list(void *arg0) {
     u32 var_r31;
@@ -21,6 +22,4 @@ void refresh_battle_stat_list(void *arg0) {
     }
     TWindowSubEquip__sub_80279044(arg0);
     calc_list_content_extent(arg0);
-}
-
 }

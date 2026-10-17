@@ -9,7 +9,9 @@ void *get_player_by_client_id(s32 i);
 s32 has_player_active_menu__11TWindowCtrlFv(s32);
 s32 apply_default_vec__11TWindowCtrlFll(void *, s32);
 s32 is_slot_visible__11TWindowCtrlFv(s32);
+}
 s32 chat_accept_submission(s32 arg0);
+extern "C" {
 void TWindowChat__sub_80247DFC(u8 *arg0);
 void TWindowChat__sub_80247E50(u8 *arg0);
 
@@ -43,5 +45,4 @@ void TWindowCtrl::update_window_visibility() {
         }
     }
 }
-
 }

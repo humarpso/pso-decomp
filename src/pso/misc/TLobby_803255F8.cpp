@@ -16,6 +16,5 @@ void TLobby::free_char_select_singleton() {
         inazuma_texture_list = 0U;
     }
 }
-void load_f512_inazuma(void) { (*(int *)&inazuma_texture_list) = (int)load_gvm_texture_file((s32)lbl_804766F0); }
-
 }
+void load_f512_inazuma(void) { (*(int *)&inazuma_texture_list) = (int)load_gvm_texture_file((s32)lbl_804766F0); }

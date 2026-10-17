@@ -46,20 +46,26 @@ void *get_player_by_client_id(s32 i);
 u16 get_lifetime__22TPlyFollowParticleCtrlFv();
 s32 get_position_ptr__10TObjPlayerFv(s32);
 s32 TPlyPtclObjectRightHand__vt7(s32 arg0);
+}
 void *create_oneshot_particle_emitter(void *pos, void *dir, s32 id, s32 flags);
+extern "C" {
 s32 set_owner_id__13TParticleCtrlFUs(s32, s32);
 u32 find_entity_by_id(s32);
 s32 create_attached_oneshot_emitter(unsigned long long arg1, s32 arg2);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
+}
 void emit_player_sprite_particle(s32 arg0, s32 arg1, s32 arg2);
 void emit_sand_step_particles(s32 arg0, s32 arg1);
 void emit_water_step_particles(s32 arg0, s32 arg1);
 void emit_idle_water_splash(s32 arg0, s32 arg1);
+extern "C" {
 s32 emit_player_particle(void* p, void* a1, void* a2);
 void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
+}
 extern f32 lbl_805DF134;
 s32 emit_player_model_particle(s32 owner, s32 position, s32 entry, s32 model);
 extern const f32 lbl_805DF130;
+extern "C" {
 Fol_80309E9C *TObjPlayer__sub_80309E9C(Fol_80309E9C *o);
 struct VOff_80309DD0_arg0_80309dd0_80309D80 { char pad_0[0x4]; char f_4[1]; };
 
@@ -114,6 +120,7 @@ Fol_80309E9C *TObjPlayer__sub_80309E9C(Fol_80309E9C *o) {
 }
 
 s32 TObjPlayer::check_hit_by_id_431(void* p, int a1) { return TObjPlayer::check_hit_by_id((s32)p, (s32)a1, 431); }
+}
 
 void emit_idle_water_splash(s32 owner, s32 position) {
     emit_player_sprite_particle(owner, position, 0xA2);
@@ -131,6 +138,7 @@ void emit_water_step_particles(s32 owner, s32 position) {
     emit_player_model_particle(owner, position, 0x239, 0);
     emit_player_particle((void*)owner, (void*)position, (void*)(0x238));
 }
+extern "C" {
 
 void TObjPlayer::create_right_hand_ptcl(void *arg1) {
     void *o;
@@ -160,6 +168,7 @@ s32 TObjPlayer::dt_follow_particle_ctrl(s32 arg0, s16 arg1) {
     return arg0;
 }
 void*TObjPlayer::init_follow_particle_ctrl() { TPlyFollowParticleCtrl__sub_8030A694(this); *(int*)(this) = 0; *(int*)((char*)this + 0x4) = 0; return this; }
+}
 
 typedef struct Stack_8030A1E4 Stack_8030A1E4;
 
@@ -175,6 +184,7 @@ s32 emit_player_model_particle(s32 owner, s32 position, s32 entry, s32 model) {
   }
   return emitter;
 }
+extern "C" {
 
 s32 create_attached_oneshot_emitter(unsigned long long arg1, s32 arg2) {
   Stack_8030A1E4 stack;
@@ -221,5 +231,4 @@ s32 TPlyPtclObjectRightHand__vt7(s32 arg0) {
     ((VObj_PTR18_8030A400 *) player)->m63(0x30, get_position_ptr__10TObjPlayerFv(arg0));
     return get_position_ptr__10TObjPlayerFv(arg0);
 }
-
 }

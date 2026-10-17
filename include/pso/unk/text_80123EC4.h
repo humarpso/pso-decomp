@@ -3,9 +3,7 @@
 
 #include "types.h"
 
-extern "C" {
 u8 *create_sorcerers_cane(u8 *arg0);
 u8 *sorcerers_cane_ct(u8 *arg0, u8 *arg1, s32 _w2);
-}
 
 #endif

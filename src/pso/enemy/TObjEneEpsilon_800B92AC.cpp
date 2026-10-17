@@ -173,12 +173,14 @@ void TObjEneEpsilon__sub_800B92F8(u8 *arg0, s32 arg1, f32 farg0) {
     ((TObjEneEpsilon *)arg0)->fire_attack_b((s32) &sp8, arg1, farg0);
     ((VObj_18_807e53 *)(arg0))->m99(&sp8);
 }
+}
 
 void enemy_turn_and_move_on_ground(u8 *arg0, s32 arg1, f32 farg0) {
     s32 sp8;
     ((TObjEneEpsilon *)arg0)->fire_attack_b((s32) &sp8, arg1, farg0);
     ((TBoss5Gryphon *)arg0)->try_move_actor_xz_on_ground((u8 *)&sp8);
 }
+extern "C" {
 
 void TObjEneEpsilon__sub_800B9384(u8 *arg0, s32 arg1, f32 farg0) {
     s32 sp8;
@@ -191,7 +193,7 @@ void TObjEneEpsilon::fire_attack_a(s32 arg1, s32 arg2, f32 farg0) {
 
     dist = farg0;
     update_angle(arg2);
-    calc_wall_clamped_destination((void *)this, (void *)arg1, (f32)(sin_table_lookup(this->rotation_y)), (f32)cos_table_lookup(this->rotation_y), (f32)dist);
+    calc_wall_clamped_destination((void *)this, (void *)arg1, (f32)(sin_table_lookup(this->rotation_y)), (f32)((f32)cos_table_lookup(this->rotation_y)), (f32)((f32)dist));
 }
 
 void TObjEneEpsilon::fire_attack_b(s32 arg1, s32 arg2, f32 farg0) {
@@ -201,7 +203,7 @@ void TObjEneEpsilon::fire_attack_b(s32 arg1, s32 arg2, f32 farg0) {
     dist = farg0;
     update_angle(arg2);
     dz = cos_table_lookup(this->rotation_y);
-    calc_wall_slide_destination((void *)this, (void *)arg1, (f32)(sin_table_lookup(this->rotation_y)), (f32)dz, (f32)dist);
+    calc_wall_slide_destination((void *)this, (void *)arg1, (f32)(sin_table_lookup(this->rotation_y)), (f32)((f32)dz), (f32)((f32)dist));
 }
 
 void TObjEneEpsilon::fire_attack_c(s32 arg1, s32 arg2, f32 farg0) {
@@ -227,7 +229,7 @@ s32 TObjEneEpsilon::update_death_check() {
 }
 
 s32 enemy_validate_retained_target(u8 *arg0) {
-    if (tick_period_counter((s32)arg0, (s32 *)(arg0 + 0x3B8), (s32)(*(s32 *)((s8 *)arg0 + 0x3BC))) != 0) {
+    if (tick_period_counter((s32)arg0, (s32 *)(arg0 + 0x3B8), (*(s32 *)((s8 *)arg0 + 0x3BC))) != 0) {
         if (transform_relative_position__9TObjEneDDFPv(arg0, (int) (*(s32 *)((s8 *)arg0 + 0x390))) != 0) {
             return 1;
         }
@@ -254,8 +256,8 @@ void TObjEneDD_ST::enemy_copy_target_destination() {
         copy_position__14TObjEneEpsilonFPv(this, ((void *)(temp_r4 + 0x38)));
     }
 }
-
 }
+
 #undef enemy_clear_target__12TObjEneDD_STFUs
 #undef enemy_tick_target_acquisition__12TObjEneDD_STFPllf
 

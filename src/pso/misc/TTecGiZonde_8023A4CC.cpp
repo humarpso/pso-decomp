@@ -64,10 +64,12 @@ s32 queue_destruction__7TObjectFv(void *);
 u8 *csnVecterUnder(s32 *, s32);
 u8 *csnVector(f32 *, f32 *, s32);
 s32 angle_difference_abs(int, int);
-s32 direction_to_rotation_xy(void *, void *, void *);
+}
+void direction_to_rotation_xy(u8 *arg0, s32 *arg1, s32 *arg2);
 extern const f32 lbl_805DC918;
 extern const f32 lbl_805DC91C;
 extern const f32 lbl_805DC920;
+extern "C" {
 void step_ground_technique_projectile(RecoveredFields_8023A510_arg0 *arg0);
 void move_ground_technique_projectile(void* p);
 
@@ -146,7 +148,7 @@ void step_ground_technique_projectile(RecoveredFields_8023A510_arg0 *arg0) {
         stack.sp10 = ((RecoveredFields_8023A510_temp_r6 *)temp_r6)->field_C;
         stack.sp14 = ((RecoveredFields_8023A510_temp_r6 *)temp_r6)->field_10;
         stack.sp18 = ((RecoveredFields_8023A510_temp_r6 *)temp_r6)->field_14;
-        direction_to_rotation_xy(&stack.sp10, &stack.spC, &stack.sp8);
+        direction_to_rotation_xy((u8 *)&stack.sp10, &stack.spC, &stack.sp8);
         if (angle_difference_abs(0, stack.spC) >= 0x1555) {
             queue_destruction__7TObjectFv((void *)((void *) (((u8 *)arg0))));
         }
@@ -173,5 +175,4 @@ void TUnk_804CCC68::move_technique_projectile() {
 #pragma pop
 
 void TUnk_804CCC68::run_task() { move_technique_projectile__13TUnk_804CCC68Fv((u8 *)this); ((TUnk_804CCC68 *)this)->advance_lifetime_or_destroy(); }
-
 }

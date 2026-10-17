@@ -28,7 +28,6 @@ u32 baranz_launcher_create_shot(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
     }
     return temp_r31;
 }
+}
 
 void baranz_launcher_node_callback(void* p) { if (get_player_list__10TObjPlayerFv(p) == 1) { rotate_matrix_y((void*)0, *(void**)((char*)p + 0x1f8)); } }
-
-}

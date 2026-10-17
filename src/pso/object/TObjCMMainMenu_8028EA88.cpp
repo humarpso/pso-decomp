@@ -26,9 +26,9 @@ struct RecoveredGlobal_8028EBCC_TObjCMMainMenu__data_804DB9C8 {
     u8 remaining[0x9C];
 };
 
-extern "C" {
 extern RecoveredGlobal_8028EC24_lbl_8051C07C character_creation_name_buffer;
 extern RecoveredGlobal_8028EBCC_TObjCMMainMenu__data_804DB9C8 TObjCMMainMenu__data_804DB9C8;
+extern "C" {
 void *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
 u8 *TCameraCtrl__ct(u8 *arg0, void *parent);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
@@ -36,6 +36,7 @@ s32 init_menu_scene_lights(s32 *, s32);
 void *__nw__7TObjectFUl(s32);
 s32 TWindowCtrlMain__ct(void *);
 s32 init_and_create__15TChCrCharSelectFv(s32);
+}
 extern s32 lbl_80451290[];
 extern s32 default_scene_light_config[];
 extern s32 creation_menu_resource_descriptor[];
@@ -92,6 +93,7 @@ void init_creation_menu_scene(void) {
         }
     }
 }
+extern "C" {
 
 s32 TObjCMMainMenu__sub_8028EBCC(u8 *arg0) {
     return *(s32 *)((s8 *)((u8 *)&TObjCMMainMenu__data_804DB9C8.value + (*(s32 *)((s8 *)(*(s32 *)((s8 *)arg0 + 0x24) + (*(s32 *)((s8 *)arg0 + 0x2C) * 4)) + 0) * 0x10)) + 0);
@@ -114,5 +116,4 @@ void TObjCMMainMenu__sub_8028EC24(void) {
 }
 
 void TObjCMMainMenu__sub_8028EC34(void) { creation_dressing_room_mode_flag = 0; }
-
 }

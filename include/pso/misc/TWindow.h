@@ -9,8 +9,6 @@ struct TWindow
 };
 
 class TShopWindowBase;
-extern "C" {
 void handle_confirm_dialog(TShopWindowBase *arg0);
-}
 
 #endif

@@ -222,6 +222,5 @@ Win_802649C0 *TWindowMainMenu__ct(Win_802649C0 *arg0, void *arg1, s32 arg2) {
 
 void TWindowMainMenu::vfunc_7() {  }
 void TWindowMainMenu::vfunc_9() {  }
-int test_keyboard_card_flag4(void* p) { return TWindowKeyBoardHard::test_card_flag((s32)p, 4); }
-
 }
+int test_keyboard_card_flag4(void* p) { return TWindowKeyBoardHard::test_card_flag((s32)p, 4); }

@@ -5,7 +5,7 @@
 
 extern "C" {
 void fn_8008C4F4(void);
-void run_game_frame(void);
 }
+void run_game_frame(void);
 
 #endif

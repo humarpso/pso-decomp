@@ -276,10 +276,10 @@ struct VObj_18 : VBase_18 {
 
 struct Rec_8006E310 { u8 pad0[0x20]; u8 pad20[0x30]; };
 
-extern "C" {
 extern RecoveredGlobal_8006CD78_TCameraCtrl__data_80488DE8 TCameraCtrl__override_position;
 extern RecoveredGlobal_8006CD78_lbl_80488DF4 camera_fixed_target_position;
 extern u8 TCameraCtrl__override_flags;
+extern "C" {
 s32 get_player_by_client_id(u32);
 extern u16 TCameraCtrl__camera_override_client_id;
 s32 sub_8006CDD0__13TUnk_80488E00Fv(u8 *arg0);
@@ -289,8 +289,10 @@ void end_conversation_camera(void);
 u8 * csnVector(void *, void *, u32);
 s32 angle_difference_abs(int, void *);
 void begin_conversation_camera(void);
+}
 extern void *local_client_id;
 void reset_cameras_to_actor(void *p, s32 x);
+extern "C" {
 s32 is_split_screen();
 void request_follow_camera_offsets(void *arg0, void *arg1, u16 arg2);
 void push_matrix_from(void *);
@@ -299,10 +301,12 @@ void matrix_mult_vec(s32, void *, void *);
 void pop_matrices(s32);
 extern u8 identity_matrix[];
 int get_camera_mode__11TCameraCtrlFv();
+}
 extern FollowView *camera_ctrl_instance;
 
 s32 conversation_camera_obstructed(FollowController *self,s32 heading);
 void apply_follow_camera_offsets(void *arg0, void *arg1, s32 arg2, u16 arg3);
+extern "C" {
 int __ct__13TUnk_80488A28Fv(void);
 void TCameraCtrl__sub_8006E804(void* a0);
 extern s32 follow_camera_vtable[];
@@ -317,8 +321,10 @@ extern Preset_8006DEF8 *follow_camera_init_pose_table[];
 extern u8 lbl_804FF5E8[];
 FollowVector *get_position_ptr__10TObjPlayerFv(void *);
 FollowVector *get_target_ptr__11TCameraCtrlFv(void *);
-void approach_camera_scalar(void *, f32 *, f32);
-void get_dragon_follow_camera_offsets(Vec_8006D9F0 *, Vec_8006D9F0 *);
+}
+s32 approach_camera_scalar(f32 *arg0, f32 *target, f32 farg0);
+void get_dragon_follow_camera_offsets(u8 *arg0, u8 *arg1);
+extern "C" {
 void get_camera_offsets__12TBoss8DragonFPvPv(Vec_8006D9F0 *, Vec_8006D9F0 *);
 extern Vec_8006D9F0 follow_camera_offset_default;
 s32 sub_8006E7FC__13TUnk_80488E00Fv(void* p);
@@ -530,6 +536,7 @@ void request_follow_camera_offsets(void *arg0, void *arg1, u16 arg2) {
     }
     apply_follow_camera_offsets(arg0, arg1, v, arg2);
 }
+}
 
 #define REG_8006D344 ((void **)&camera_controller_registry)
 void apply_follow_camera_offsets(void *arg0, void *arg1, s32 arg2, u16 arg3) {
@@ -561,6 +568,7 @@ void apply_follow_camera_offsets(void *arg0, void *arg1, s32 arg2, u16 arg3) {
     }
 }
 #undef REG_8006D344
+extern "C" {
 
 void TCameraCtrl::set_active_camera_flag() {
     u8 *temp_r3;
@@ -580,6 +588,7 @@ void end_conversation_camera(void) {
             ((TCameraCtrl *)temp_r3)->set_field_100(0);
         }
     }
+}
 }
 
 #pragma push
@@ -608,6 +617,7 @@ s32 conversation_camera_obstructed(FollowController *self,s32 heading) {
     if(((u32)csnVector(&eye, &candidate, (u32)(0x100))))return 1;
     return ((u32)csnVector(&candidate, &camera_ctrl_instance->target, (u32)(0x100))) ? 1 : 0;
 }
+extern "C" {
 
 void begin_conversation_camera(void) {
     s32 temp_r30;
@@ -737,9 +747,9 @@ void TUnk_80488E00::select_follow_camera_offsets() {
         Vec_8006D9F0 a0;
         Vec_8006D9F0 b1;
         Vec_8006D9F0 a1;
-        get_dragon_follow_camera_offsets(&a0, &b0);
+        get_dragon_follow_camera_offsets((u8 *)&a0, (u8 *)&b0);
         request_follow_camera_offsets(&a0, &b0, 0xFFFF);
-        get_dragon_follow_camera_offsets(&a1, &b1);
+        get_dragon_follow_camera_offsets((u8 *)&a1, (u8 *)&b1);
         request_follow_camera_offsets(&a1, &b1, 0xFFFF);
     } else if (state == 30) {
         Vec_8006D9F0 b;
@@ -1103,5 +1113,4 @@ s32 TCameraCtrl::set_field_100(s32 v) { *(s32 *)&this->unk_100 = v; }
 s32 TUnk_80488E00::sub_8006E7FC() { return ((TUnk_80488E00 *)this)->m_10c; }
 
 void TCameraCtrl__sub_8006E804(void* a0) { *(int*)((char*)a0 + 0x18) = 0; *(float*)((char*)a0 + 0x0) = (0.0f); *(float*)((char*)a0 + 0x4) = (0.0f); *(float*)((char*)a0 + 0x8) = (0.0f); *(float*)((char*)a0 + 0xc) = (0.0f); *(float*)((char*)a0 + 0x10) = (0.0f); *(float*)((char*)a0 + 0x14) = (0.0f); }
-
 }

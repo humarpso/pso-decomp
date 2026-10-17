@@ -153,6 +153,7 @@ s32 calc_triangle_normal__10TObjPlayerFPvPv(V3_801412D0 *v, V3_801412D0 *out) {
     out->z = n.z / len;
     return 1;
 }
+}
 #pragma pop
 
 u32 calc_gx_tile_index(u32 x, u32 y, s16 w) {
@@ -160,6 +161,4 @@ u32 calc_gx_tile_index(u32 x, u32 y, s16 w) {
     r += ((y >> 2) * w) << 2;
     r += (y & 3) << 2;
     return r;
-}
-
 }

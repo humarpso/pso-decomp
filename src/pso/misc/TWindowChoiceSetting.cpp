@@ -103,13 +103,13 @@ void create_sub_window__20TWindowChoiceSettingFPvi(void *arg0, s32 arg1) {
 }
 }
 struct W_802689EC { u8 pad[0x4C]; f32 f4c; u32 f50; u8 pad54[0x6C - 0x54]; f32 f6c; u8 pad70[4]; s16 f74; u8 pad76[0x7C - 0x76]; u32 f7c; };
-extern "C" {
 extern const f32 lbl_805DD1E4;
 extern const f32 lbl_805DD1E8;
 extern const f32 lbl_805DD1EC;
 extern const f32 lbl_805DD1F0;
 #pragma push
 #pragma fp_contract on
+extern "C" {
 void TUnk_804D0658::update_scroll_offset() {
     W_802689EC *w = (W_802689EC *)this;
     f32 v;
@@ -135,8 +135,10 @@ void TUnk_804D0658::clamp_scroll() {
         clamp_list_scroll_offset((int) (*(u32 *)&this->unk_7C), arg0 + 0x68, &stack.sp8);
     }
 }
+}
 
 void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2);
+extern "C" {
 
 void TUnk_804D0658::draw_setting(s32 arg1) {
     u16 *temp_r3;
@@ -166,7 +168,6 @@ void TWindowMenuInfomation__ct(u8 *arg0, u32 arg1) {
     }
     ((TLobby *)arg0)->set_field_1c(lbl_805DD1F4);
 }
-
 }
 
 #pragma inline_depth(1)
@@ -174,13 +175,14 @@ void TWindowMenuInfomation__ct(u8 *arg0, u32 arg1) {
 #pragma dont_inline off
 struct V_80268C5C { f32 x; f32 y; };
 
-extern "C" {
 extern V_80268C5C choice_setting_popup_window_descriptor[];
 extern s32 lbl_804D0638[];
+extern "C" {
 void fn_80268C5C(V_80268C5C v, s32 x);
 s32 __nw__7TObjectFUl(s32);
 s32 fn_80269004(s32, s32, s32);
 s32 get_window_layout_position(s32);
+}
 extern s32 lbl_8044F3A0[];
 extern s32 lbl_8044F3B8[];
 s32 create_information_counter_window(s32 arg0) {
@@ -194,12 +196,12 @@ s32 create_information_counter_window(s32 arg0) {
     ((s32 (*)(s32, s32 *))create_sub_window__20TWindowChoiceSettingFPvi)(var_r31, lbl_8044F3B8);
     return var_r31;
 }
+extern "C" {
 
 void fn_80268C5C(V_80268C5C v, s32 x) {
     choice_setting_popup_window_descriptor[0] = v;
     lbl_804D0638[1] = x;
 }
-
 }
 
 struct RecoveredGlobal_80268D08_lbl_8050E208 {

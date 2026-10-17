@@ -14,6 +14,7 @@ void shuffle_shop_pool_n_times(void *arg0_, s32 arg1) {
         shuffle_shop_pool(arg0_);
     }
 }
+}
 void shuffle_shop_pool(void *arg0_) {
     Deck_8020EF40 *arg0 = (Deck_8020EF40 *)arg0_;
     s32 i;
@@ -25,6 +26,4 @@ void shuffle_shop_pool(void *arg0_) {
         arg0->buf[i] = arg0->buf[k];
         arg0->buf[k] = t;
     }
-}
-
 }

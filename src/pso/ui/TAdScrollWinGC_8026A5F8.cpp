@@ -51,6 +51,7 @@ s32 TLobby::find_free_chat_log_slot() {
     chat_log_remove_line(0);
     return 29;
 }
+}
 
 void chat_log_remove_line(s32 arg0) {
     u32 *temp_r31;
@@ -115,6 +116,7 @@ void cache_last_chat_line(u32 text) {
         strncpy((int)var_r3, (void *)text, (int)size);
     }
 }
+extern "C" {
 
 void chat_log_add_line(s32 arg0) {
     s32 temp_r29;
@@ -136,5 +138,4 @@ void chat_log_add_line(s32 arg0) {
     strncpy((int) (*(s32 *)((s8 *)((u8 *)&chat_log_lines.value + temp_r30) + 0)), (void *)arg0, (int)temp_r29);
     *(s8 *)((s8 *)(temp_r29 + *(s32 *)((s8 *)((u8 *)&chat_log_lines.value + temp_r30) + 0)) + 0) = 0;
 }
-
 }

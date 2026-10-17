@@ -31,12 +31,14 @@ s32 get_field_ed__5TItemFv(void *p);
 s32 get_field_ec__5TItemFv(void *p);
 s32 is_item_stackable(u8, u8);
 S_801C1BA8 *fn_801C1BA8(S_801C1BA8 *arg0, S_801C1BA8 *arg1);
+}
 
 void init_6x21_inter_level_warp_packet(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 4) = 0;
     *(s8 *)((s8 *)arg0 + 0) = 0x21;
     *(s8 *)((s8 *)arg0 + 1) = 2;
 }
+extern "C" {
 
 void TObjPlayer::send_warp_packet() { bswap_warp_packet(); TLobby__send_and_handle_60((u8 *)this); }
 
@@ -239,5 +241,4 @@ s32 TObjPlayer::free_owned_buffer_b(s32 arg0, s16 arg1) {
     }
     return arg0;
 }
-
 }

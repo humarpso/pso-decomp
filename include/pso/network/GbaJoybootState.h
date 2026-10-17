@@ -13,9 +13,7 @@ typedef char GbaJoybootTimeoutOffset[(offsetof(GbaJoybootState,timeout_counter)=
 typedef char GbaJoybootPhaseOffset[(offsetof(GbaJoybootState,phase)==6)?1:-1];
 typedef char GbaJoybootPresentOffset[(offsetof(GbaJoybootState,device_present)==7)?1:-1];
 typedef char GbaJoybootStateSize[(sizeof(GbaJoybootState)==8)?1:-1];
-extern "C" {
 extern GbaJoybootState TLobby__data_805434A8[];
 void gba_joyboot_transfer_callback(s32 channel, s32 result);
 void update_gba_joyboot_transfer(void);
-}
 #endif

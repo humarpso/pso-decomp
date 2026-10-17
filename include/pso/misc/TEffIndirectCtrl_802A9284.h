@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void load_indirect_dat(void);
-}
 
 #endif

@@ -42,11 +42,13 @@ struct SlicerState_801295FC;
 void init_slicer_launch_state(void *arg0);
 s16 get_validated_attack_stage(u8 *arg0);
 s16 TObjPlayer__sub_801D2F4C(s16 *arg0);
+}
 void enlarge_flight_cutter_slicer(void *arg0);
 extern const f32 lbl_805DAF28;
 extern const f32 lbl_805DAF2C;
 extern const f32 lbl_805DAF30;
 typedef char RecoveredGlobal_8012D6BC_lbl_804A05A8_size[sizeof(RecoveredGlobal_8012D6BC_lbl_804A05A8) == 0x20 ? 1 : -1];
+extern "C" {
 u8 *slow_curse_timer_ct(u8 *arg0, s16 arg1, s32 arg2, f32 farg0) {
     TItemTimerEvent__ct(arg0, arg1, arg2);
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A05A8.value;
@@ -74,5 +76,4 @@ void TUnk_804A5A28::emit_marker_effects() {
     ((TObjPlayer *)this)->draw_icon(2, (s32)&tec.dir);
     TItemAttacker::spawn_item_timer((s32)(TTecSlicer::create((u16*)&tec)), (s32)enlarge_flight_cutter_slicer, 3);
 }
-
 }

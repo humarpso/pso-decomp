@@ -21,11 +21,13 @@ struct RecoveredGlobal_8032DC94_lbl_8058D4C0
 
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
+}
 extern s32 tl_05;
 u8 *create_guardianna(u8 *arg0);
 extern const f32 lbl_805DF7D8;
 extern const f32 lbl_805DF7DC;
 extern const f32 lbl_805DF7E0;
+extern "C" {
 void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
 s32 *query_game_join_id__10TObjPlayerFv(s32 *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
@@ -75,6 +77,7 @@ void *TUnk_804EDC28::construct_guardianna(s32 _w1, void *_w2) {
     set_status_flags__10TObjPlayerFUl(this, 2);
     return this;
 }
+}
 
 extern s32 lbl_804EDD20[];
 
@@ -91,6 +94,7 @@ u8 *create_guardianna(u8 *arg0) {
     }
     return NULL;
 }
+extern "C" {
 
 void *__dt__13TUnk_804EDC28Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -239,7 +243,6 @@ void TObjPlayer::create_and_init_effect(s32 arg0, u32 *arg1, s32 arg2) {
         }
     }
 }
-
 }
 
 struct O_8032DFF8 { u8 pad[0x1C]; void *o[3]; };

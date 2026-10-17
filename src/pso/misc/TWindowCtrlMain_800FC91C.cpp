@@ -36,15 +36,19 @@ char *TWindowSubStatusDisp__sub_80071820(char *);
 s32 get_card_status_bits__20TWindowShortListCtrlFv();
 s32 TObjPlayer__sub_801AFD8C(void *);
 VObj_18_7b3651 *get_player_by_client_id(s32);
+}
 void append_text_space(void);
-void append_padded_number(s32, s32);
+void append_padded_number(s32 v, u8 n);
+extern "C" {
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 void text_builder_append(void *);
+}
 void text_builder_reset(void);
 extern char *status_text_label_table[];
 extern Ent_800FC968 lobby_player_status_records[];
 extern char lbl_805DA9F4[4];
 extern char lbl_805DA9F8[4];
+extern "C" {
 
 void __dl__7TObjectFPv(void *);
 void __dt__14TFontSmallHelpFv(void *, int);
@@ -164,5 +168,4 @@ void *__dt__13TUnk_8049CA54Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
 }

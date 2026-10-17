@@ -11,6 +11,7 @@ extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 * TItemWeapon__ct(void *, void *);
+}
 extern RecoveredGlobal_801224D4_lbl_804A0FA0 lbl_804A0FA0;
 extern const f32 lbl_805DACE0;
 
@@ -40,6 +41,4 @@ u8 *create_dagger_weapon(u8 *arg0) {
         return var_r0;
     }
     return NULL;
-}
-
 }

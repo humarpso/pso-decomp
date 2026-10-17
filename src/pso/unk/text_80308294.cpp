@@ -21,12 +21,13 @@ struct Info_8034F4FC {
     u8 pad14[0x80 - 0x14];
 };
 
-extern "C" {
 extern s32 tl_05;
+extern "C" {
 s32 construct_explosion_collider__13TUnk_804A2548Fv(void *, s32, void *);
 void *__nw__7TObjectFUl(u32);
 s32 create_fire_explosion_effect(void *, void *, s32, s32, f32);
 void *TObjPlayer__sub_802E449C(void *a0);
+}
 extern s32 tl_particle;
 extern const f32 lbl_805DF0B8;
 s32 spawn_fire_explosion_at(u32 a0, s32 a1) {
@@ -46,5 +47,3 @@ s32 spawn_fire_explosion_at(u32 a0, s32 a1) {
     }
 }
 typedef char RecoveredGlobal_8034F754_lbl_804F0A00_size[sizeof(RecoveredGlobal_8034F754_lbl_804F0A00) == 0xF8 ? 1 : -1];
-
-}

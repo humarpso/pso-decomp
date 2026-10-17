@@ -34,9 +34,9 @@ struct RecoveredGlobal_802A80A0___vt__15TWindowSnapShot {
     u8 remaining[0x14];
 };
 
-extern "C" {
 extern int player_motion_data_filename_ptr;
 extern void *shared_snapshot_capture;
+extern "C" {
 s32 TObjBoss2Tunnel__sub_8007CAE8(f32 *, f32);
 u8 *draw_default_entry__9TWindowDDFl();
 s32 draw_window_frame(void *, void *);
@@ -62,6 +62,7 @@ void TWindowSnapShot::free_shared_instance() {
     }
     shared_snapshot_capture = NULL;
 }
+}
 
 s32 load_player_motion_data(void) {
     s32 temp_r3;
@@ -81,6 +82,7 @@ s32 load_player_motion_data(void) {
     ((TWindowSnapShot *)var_r0)->start_capture((*(s32 *)&player_motion_data_filename_ptr));
     return 1;
 }
+extern "C" {
 
 s32 TWindowSnapShot::get_size() { return *(s32 *)&this->m_name; }
 s32 TWindowSnapShot::get_field_8() { return *(s32 *)&this->m_prev; }
@@ -149,5 +151,4 @@ u8 *TWindowSnapShot__ct(TWindowSnapShot *arg0, s32 arg1) {
     TWindowDuelResult::set_default_status((void *) temp_r31, get_localized_text_entry(0xF, 0x13));
     return (u8 *)arg0;
 }
-
 }

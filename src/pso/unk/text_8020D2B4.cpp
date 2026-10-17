@@ -69,8 +69,10 @@ s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_z(int, int);
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 rotate_matrix_x(int, int);
+}
 extern RecoveredGlobal_8020D2B4_lbl_8058D490 identity_matrix;
 void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2);
+extern "C" {
 s32 get_current_floor();
 extern RecoveredGlobal_8020D6F0_TLobby__data_80513AD0 TLobby__floor_enemy_group_table;
 extern s32 TLobby__data_805D60FC;
@@ -82,13 +84,18 @@ void *find_scene_room_by_id(s32 room);
 void apply_room_transform_to_enemy_rows(SpawnRecord_8020D36C *rows, s32 count);
 void apply_room_transform_to_object_rows(Rec_8020D3F0 *arr, s32 n);
 s32 find_set_factory_index(void *, void *);
+}
 s32 resolve_set_row_factory_indices(void *arg0, int arg1, int arg2);
+extern "C" {
 f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
+}
 extern Obj_8020D4E8 *camera_ctrl_instance;
 s32 is_within_camera_distance(void *arg0, void *arg1, f32 farg0);
+extern "C" {
 s32 is_quest_active();
 s32 TLobby__sub_801C2614();
 u8 *call_area_set_factory(void *, void *);
+}
 void spawn_decorations_in_range(void *arg0);
 void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2) {
     push_matrix_from(&identity_matrix.value);
@@ -102,6 +109,7 @@ void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2) {
     *(s32 *)((s8 *)arg1 + 4) = (s32) (*(s32 *)((s8 *)arg1 + 4) + *(s32 *)((s8 *)arg2 + 0x14));
     *(s32 *)((s8 *)arg1 + 8) = (s32) (*(s32 *)((s8 *)arg1 + 8) + *(s32 *)((s8 *)arg2 + 0x18));
 }
+extern "C" {
 
 void apply_room_transform_to_enemy_rows(SpawnRecord_8020D36C *rows, s32 count) {
     SpawnRecord_8020D36C *row;
@@ -137,6 +145,7 @@ void apply_room_transform_to_object_rows(Rec_8020D3F0 *arr, s32 n) {
             apply_room_transform((s32)p->a, p->b, (u8 *)sec);
         }
     }
+}
 }
 
 s32 resolve_set_row_factory_indices(void *arg0, int arg1, int arg2) {
@@ -206,6 +215,7 @@ void spawn_decorations_in_range(void *arg0) {
         }
     }
 }
+extern "C" {
 
 void TSetManager::update_decoration_spawning() { spawn_decorations_in_range(this); }
 #pragma push
@@ -239,6 +249,5 @@ void TSetManager::apply_floor_set_rows() {
     }
     *(s32 *)((s8 *)arg0 + 0x1C) = 1;
 }
-#pragma pop
-
 }
+#pragma pop

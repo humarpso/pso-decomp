@@ -237,6 +237,7 @@ void preview_unequip_stats__10TObjPlayerFv(s32, Stats_802541E0 *, s32);
 s32 preview_equip_stats__10TObjPlayerFv(u8 *arg0, s16 *out, u8 *incoming);
 void set_flag8_and_field20__15TWindowHelpItemFl(s32, s32);
 void set_flag4_and_field1c__15TWindowHelpItemFl(s32, s32);
+}
 extern Vec3_802541E0 item_help_resistance_stat_callback;
 void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1);
 extern const f32 TWindowHelpItem__data_805DCDE4;
@@ -245,6 +246,7 @@ extern const f32 lbl_805DCE04;
 extern const f32 lbl_805DCE08;
 extern const f32 lbl_805DCDEC;
 extern const f32 lbl_805DCE0C;
+extern "C" {
 s32 build_player_equipment_requirement_stats(s32, Stats_80254CE4 *);
 void update_requirements__15TWindowHelpItemFv(Help_80254CE4 *self);
 void update_stat_comparison__15TWindowHelpItemFv(Help_802549B0 *self);
@@ -1137,5 +1139,4 @@ void TWindowHelpItem::set_displayed_item_colored(u32 arg1) {
 }
 void TWindowHelpItem::set_displayed_item_data(void* a1, void* a2) { *(void* *)&this->m_a4 = a2; *(void* *)&this->m_70 = a1; update_cursor_selection(); dispatch_item_help(); }
 void TWindowHelpItem::set_items_and_refresh(void* a1, void* a2) { *(void* *)&this->m_a0 = a2; *(void* *)&this->m_6c = a1; update_cursor_selection(); dispatch_item_help(); }
-
 }

@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void *create_TChCrEffTag(void *arg0);
-}
 
 #endif

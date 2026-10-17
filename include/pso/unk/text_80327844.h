@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void visit_matching_models(s32 arg0, u8 *arg1, s32 arg2);
-}
 
 #endif

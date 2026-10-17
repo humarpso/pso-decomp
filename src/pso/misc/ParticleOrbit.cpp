@@ -156,8 +156,10 @@ extern const f32 TParticleCtrl__data_805D9528;
 extern s32 TParticleCtrl__data_8048E790[];
 s32 rand(void);
 s32 is_split_screen();
-s32 setup_particle_tev(s32);
-s32 load_projected_texture_matrix(f32);
+}
+void setup_particle_tev(s32 arg0);
+void load_projected_texture_matrix(f32 farg0);
+extern "C" {
 s32 is_particle_sprite_additive__13TUnk_8048E728Fv(void *, s32);
 s32 append_node_to_tail__13TParticleCtrlFPvPv(s32, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
@@ -182,6 +184,7 @@ extern const f32 lbl_805D9548;
 extern const f32 lbl_805D954C;
 extern const f32 lbl_805D9550;
 void __ct__7TObjectFP7TObject(void *, void *);
+}
 
 extern void *__vt__13TParticleCtrl[];
 extern s32 TParticleCtrl__class_name_descriptor;
@@ -241,8 +244,6 @@ extern const f32 TParticleCtrl__data_805D94E4;
         particle->owner = tl_07;                                               \
     }                                                                          \
 } while (0)
-
-}
 
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -367,6 +368,7 @@ void *__dt__13TUnk_8048E790Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+}
 #pragma push
 #pragma fp_contract on
 u8 *init_orbit_sprite_particle(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, u16 arg5, s16 arg6) {
@@ -416,6 +418,7 @@ u8 *init_orbit_sprite_particle(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4,
 
 #pragma push
 #pragma fp_contract on
+extern "C" {
 void *TUnk_8048E790::init_random_particle(void *arg1, void *arg2, void *arg3, void *arg4) {
     OObj_8008B060 *o = (OObj_8008B060 *)this;
     ODesc_8008B060 *d = (ODesc_8008B060 *)arg1;
@@ -454,6 +457,5 @@ void *TUnk_8048E790::init_random_particle(void *arg1, void *arg2, void *arg3, vo
     }
     return this;
 }
-#pragma pop
-
 }
+#pragma pop

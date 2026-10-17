@@ -89,7 +89,6 @@ typedef struct Ent_80427D40 {
     u8 rest[0xE14 - 0x10];
 } Ent_80427D40;
 
-extern "C" {
 extern u8 lbl_805CF240[0xA0];
 extern u8 TLobby__pppoe_message_queue[0xA0];
 extern u8 lbl_805CF380[0x48];
@@ -97,6 +96,7 @@ extern RecoveredGlobal_80427D0C_lbl_805CFC20 lobby_pppoe_slot_table;
 u8 lbl_805D0AA0[0x80];
 u8 exi_dma_buffer[0x600];
 u8 exi_dma_write_buffer[0xC00];
+extern "C" {
 s32 OSWakeupThread(void *);
 extern s32 network_thread_queue;
 s32 EXIDeselect(s32);
@@ -405,6 +405,7 @@ void TLobby__sub_8042BA48(s32 arg0, s32 arg1) {
     lbl_805D7C48 = arg1;
     OSRestoreInterrupts(e);
 }
+}
 
 void enable_network_multicast_address(void *arg0) {
   u8 val0;
@@ -476,6 +477,7 @@ void enable_network_multicast_address(void *arg0) {
   }
   EXIUnlock(0);
 }
+extern "C" {
 
 u8 TLobby::exi_read_status_byte() {
     u8 val;
@@ -503,6 +505,7 @@ u8 TLobby::exi_read_status_byte() {
     EXIUnlock(0);
     return ret;
 }
+}
 
 #pragma push
 #pragma opt_common_subs off
@@ -510,5 +513,3 @@ typedef char RecoveredGlobal_8042DD70_lbl_805D1D20_size[sizeof(RecoveredGlobal_8
 #pragma pop
 
 typedef char RecoveredGlobal_8042E768_lbl_805D1D20_size[sizeof(RecoveredGlobal_8042E768_lbl_805D1D20) == 0x1C ? 1 : -1];
-
-}

@@ -191,8 +191,10 @@ s32 update_scale__15TObjBoss2TunnelFv(void *, f32);
 void rotate_matrix_y(int, int);
 void rotate_matrix_x(int, int);
 void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
+}
 
 s32 is_dragon_trail_damaging(u8 *arg0);
+extern "C" {
 u8 *TObjBoss1MokoHill_SoloM__ct(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3);
 void update_dragon_trail_uvs(Obj_8002D4C0 *self);
 s32 TBoss8Dragon__sub_8002DAEC(void *arg0);
@@ -230,15 +232,14 @@ void TObjBoss1MokoHill_Solo::run_task() {
 s32 get_state__12TBoss8DragonFv(void) {
     return dragon_trail_position_source;
 }
-
 }
 TObjBoss1MokoHill_Solo::~TObjBoss1MokoHill_Solo() {
 
 }
-extern "C" {
 
 #pragma fp_contract on
 #define arg0 ((Obj_8002CD8C *)arg0_)
+extern "C" {
 void *TObjBoss1MokoHill_Solo__ct(void *arg0_, void *arg1, int arg2) {
     f32 r;
     f32 t;
@@ -389,11 +390,13 @@ void TObjBoss1MokoHill_SoloM::run_task() {
         }
     }
 }
+}
 #pragma pop
 
 s32 is_dragon_trail_damaging(u8 *arg0) {
     return *(f32 *)((s8 *)arg0 + 0x34) >= lbl_805D81D0;
 }
+extern "C" {
 
 void TBoss8Dragon::set_field_3c() { set_field_1c(); *(int *)&this->unk_3C = 1; }
 void TBoss8Dragon::set_field_1c() { *(s32 *)&this->unk_1C = 1; }
@@ -409,7 +412,6 @@ void TBoss8Dragon::spawn_child_object() {
     }
     *(u32 *)&this->unk_3C = 0;
 }
-
 }
 TObjBoss1MokoHill_SoloM::~TObjBoss1MokoHill_SoloM() {
 

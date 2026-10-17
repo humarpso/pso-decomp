@@ -97,11 +97,15 @@ struct O_80142B3C { u8 pad[0xD8]; A_80142B3C *tab; struct { u32 x; R_80142B3C *r
 int set_field_d8__10TObjMotionFl(void*);
 f32 get_speed__13TUnk_804806E8Fv();
 s32 restore_actor_draw_lighting(s32);
+}
 void setup_actor_draw_lighting(void);
+extern "C" {
 s32 get_anim_entry_value__10TObjMotionFs(Obj_80142BB4 *self, s16 i);
 void serialize_node_flags__10TObjPlayerFPv(u8 *arg0);
+}
 void save_joint_matrix_callback(void);
 void draw_motion_model_saving_joints(TObjPlayer *arg0);
+extern "C" {
 void apply_animation_transition(void *, s16);
 void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
 void advance_animation_playback(Anim_80143504 *a);
@@ -109,9 +113,13 @@ s32 sub_80143960__10TObjMotionFl(void *, int);
 s32 draw_ginja_model_tree__10TObjPlayerFPv(s32, void *, f32);
 s32 draw_ginja_model__10TObjPlayerFl(s32, s32, f32);
 s32 render_model_tree__12TBoss8DragonFPv(u32, s32, f32);
+}
 void get_current_matrix(void *m);
+extern "C" {
 void set_model_node_callback(s32 arg0);
+}
 void draw_model_blend_motion(void *arg0, void *arg1, f32 farg0);
+extern "C" {
 void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 
 extern s32 anim_model_matrix_array;
@@ -291,7 +299,6 @@ f32 TObjEneDD_ST::get_speed_or_default() {
     }
     return get_speed__13TUnk_804806E8Fv();
 }
-
 }
 int objInBand(GameObj* obj, f32 v) {
     u32 flags = obj->flags;
@@ -303,7 +310,6 @@ int objInBand(GameObj* obj, f32 v) {
     return 0;
 }
 
-extern "C" {
 void save_joint_matrix_callback(void) { get_current_matrix((void *)((*(int *)&player_joint_matrix_write_ptr))); (*(int *)&player_joint_matrix_write_ptr) = ((*(int *)&player_joint_matrix_write_ptr) + 0x30); }
 
 void draw_motion_model_saving_joints(TObjPlayer *arg0) {
@@ -319,6 +325,7 @@ void draw_motion_model_saving_joints(TObjPlayer *arg0) {
     TObjEneRe7Berura::set_global_state((s32)NULL);
     TObjPlayer::reset_transform_state();
 }
+extern "C" {
 
 void TObjPlayer::draw_model_with_callback() {
     s32 temp_r3;
@@ -330,7 +337,7 @@ void TObjPlayer::draw_model_with_callback() {
         TObjEneRe7Berura::set_global_state((s32)save_joint_matrix_callback);
         temp_r3 = this->animationFlags;
         if ((temp_r3 & 4) && !(temp_r3 & 0x400)) {
-            draw_model_blend_motion(this->model, (void *)&this->unk_E4, this->m_c0);
+            draw_model_blend_motion(this->model, &this->unk_E4, this->m_c0);
         } else {
             draw_model_motion((void *)this->model, (void *)this->unknownF8, this->m_c0);
         }
@@ -342,7 +349,7 @@ void TObjPlayer::draw_model_with_callback() {
 void TObjEnemy::render_world_model() {
     TObjPlayer::set_global_flag();
     if (this->animationFlags & 4) {
-        draw_model_blend_motion(this->model, (void *)&this->unk_E4, this->m_c0);
+        draw_model_blend_motion(this->model, &this->unk_E4, this->m_c0);
     } else {
         TObjEneRe7Berura::set_global_state(chunk_model_node_callback);
         draw_model_motion((void *)this->model, (void *)this->unknownF8, this->m_c0);
@@ -356,7 +363,7 @@ void TObjEneRe7Berura::draw() {
     TObjPlayer::set_global_flag();
     setup_actor_draw_lighting();
     if (this->animationFlags & 4) {
-        draw_model_blend_motion(this->model, (void *)&this->unk_E4, this->m_c0);
+        draw_model_blend_motion(this->model, &this->unk_E4, this->m_c0);
     } else {
         TObjEneRe7Berura::set_global_state((s32)chunk_model_node_callback);
         draw_model_motion((void *)this->model, (void *)this->unknownF8, this->m_c0);
@@ -534,5 +541,4 @@ void advance_animation_playback(Anim_80143504 *a) {
         break;
     }
 }
-
 }

@@ -23,12 +23,14 @@ void fn_80019EB8(Node_80019AB0 *n, f32 v);
 void queue_destruction__7TObjectFv(void *arg0) {
     ((TObject *)arg0)->m_flags = (u16) (((TObject *)arg0)->m_flags | 1);
 }
+}
 
 extern s32 logo_texture_e_handle;
 
 s32 get_logo_texture_e_handle(void) {
     return logo_texture_e_handle;
 }
+extern "C" {
 
 void func_80019A68__Fv(void) {
     fn_8036B18C();
@@ -54,5 +56,4 @@ void fn_80019B08(Obj_80019B08 *self, s32 key) {
         }
     }
 }
-
 }

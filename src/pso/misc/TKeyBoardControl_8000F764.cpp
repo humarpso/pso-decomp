@@ -69,8 +69,8 @@ struct Cfg_8000FAE4 {
     u32 heapsize;
 };
 
-extern "C" {
 extern s32 lbl_805D49C0;
+extern "C" {
 void TKeyBoardControl__sub_8000F950(void);
 void TKeyBoardControl__sub_8000F95C(void);
 extern s32 keyboard_active_flag;
@@ -80,8 +80,10 @@ extern s32 keyboard_key_state;
 void mark_area_change_pending(void);
 void clear_keyboard_key_state(void);
 s32 disable_disconnected_ports__16TKeyBoardControlFv(void *);
+}
 void update_pad_rumble(void);
 extern RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
+extern "C" {
 void TKeyBoardControl__sub_8000F764(void);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_80515F48;
 void TKeyBoardControl__sub_8000F7FC(void);
@@ -102,6 +104,7 @@ void GXInitLightColor(void *lt_obj, GXColor_8000FA00 color);
 void GXLoadLightObjImm(void *lt_obj, int light);
 void GXSetChanAmbColor(int chan, GXColor_8000FA00 amb_color);
 void GXSetChanMatColor(int chan, GXColor_8000FA00 mat_color);
+}
 extern u8 gx_default_light_obj[];
 extern void *video_initial_draw_framebuffer;
 extern void *video_initial_display_framebuffer;
@@ -112,20 +115,25 @@ extern const f32 lbl_805D7D0C;
 extern const f32 lbl_805D7D10;
 extern GXColor_8000FA00 lbl_805E1200;
 void init_gx_lighting_defaults(void);
+extern "C" {
 s32 DVDInit();
 u32 OSGetArenaHi();
 u32 OSGetArenaLo();
 s32 OSInit();
 s32 OSSetArenaLo(u32);
 void TLobby__sub_8007EB70(void);
+}
 void init_disc_error_messages(void);
 void load_critical_effect_resources(void);
 void load_ha_u032_kage(void);
+extern "C" {
 void TObjTailsTailsMove__sub_800FFE10(void);
 void TObjPlayer__sub_801416AC(void);
+}
 void load_menu_font(void);
 void load_ply_level_tbl(void);
 void init_particle_sprite_atlas(void);
+extern "C" {
 void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void);
 void reset_story_select__6TLobbyFv(void);
 void TLobby__sub_8020E3C0(void);
@@ -137,7 +145,9 @@ void TCharaMaking__sub_8028E6B4(void);
 void TCharaMaking__sub_8028E790(void);
 s32 fn_802A1020();
 s32 TLobby__sub_8032C91C();
+}
 void load_info_icon(void);
+extern "C" {
 u32 OSInitAlloc(u32, u32, int);
 s32 VIInit();
 s32 PADInit();
@@ -147,7 +157,9 @@ s32 fn_803D8030(s32, int, int);
 void fn_803D8064(u16 arg0);
 void set_matrix_identity(u8 *arg0);
 void fn_803DA754(s32 arg0, s32 arg1, void *arg2, void *arg3);
+}
 void init_video_and_gx(void *arg0);
+extern "C" {
 u32 fn_803DD3DC(int, void *);
 void fn_803DE804(u8 *start, s32 size);
 s32 xmalloc__FUl(u32);
@@ -155,6 +167,7 @@ s32 init_pad_slots_and_read__16TKeyBoardControlFv(int, int, int);
 s32 init_light_globals(int, int);
 void set_some_id__FUl(s32 arg0);
 void TObjPlayer__sub_803E492C(s32 a, s32 b);
+}
 extern u8 GXNtsc480IntDf[];
 extern int lbl_805D49A0;
 extern int lbl_805D49A4;
@@ -164,8 +177,11 @@ extern int resource_decompress_buffer;
 extern int anim_model_matrix_array;
 extern int lbl_805D5680;
 void init_game_systems(void);
+extern "C" {
 int TKeyBoardControl__sub_8000F828(void);
+}
 void shutdown_and_reset_system(void);
+extern "C" {
 int OSResetSystem(void*, void*, void*);
 void TAdPlayerLoadGC__sub_801E1350(void);
 void release_all__23TAdSinglePlyChrSelectGCFv(void);
@@ -173,7 +189,9 @@ void TAdWarningBaseGC__sub_8032D188(void);
 int clear_split_screen_fog__8TFogCtrlFv(void*);
 void TLobby__sub_80147978(void);
 void TLobby__sub_8020E3BC(void);
+}
 void update_music_sequencer(void);
+extern "C" {
 void update_global_sound_frame(void);
 void TLobby__sub_8022809C(void);
 void TLobby__sub_802433A8(void);
@@ -219,6 +237,7 @@ void TKeyBoardControl__sub_8000F7FC(void) {
 
 void TKeyBoardControl::update() {  }
 int TKeyBoardControl__sub_8000F828(void) { return 0; }
+}
 
 void shutdown_and_reset_system(void) { TLobby__sub_802433A8(); TObjTailsTailsMove__sub_800FFE0C(); TObjPlayer::init_default_config(); TObjEneMe3Stelth::destroy_resources(); TAdPlayerLoadGC__sub_801E1350(); TParticleCtrl::free_system(); TParticleCtrl::reset_emitter_table(); fn_80082A6C(); TAdSinglePlyChrSelectGC::free_resources(); TObjPlayer__sub_801D92A4(); TLobby__sub_8020E3BC(); TWindowSnapShot__sub_802A7DA0(); TAdWarningBaseGC__sub_8032D188(); TLobby::destroy_game_heap(); TLobby__sub_8022809C(); TLobby::shutdown_buffers(); release_all__23TAdSinglePlyChrSelectGCFv(); TWindowSubStatusDisp__sub_803386F0(); TObjBoss2Tunnel__sub_8036EF4C(); TLobby__sub_80147978(); xfree__FPv((void*)lbl_805D49A0); xfree__FPv((void*)lbl_805D49A4); xfree__FPv((void*)resource_decompress_buffer); xfree__FPv((void*)lbl_805D5680); xfree__FPv((void*)anim_model_matrix_array); xfree__FPv((void*)player_matrix_stack_buffer); VISetBlack((void*)1); VIFlush(); VIWaitForRetrace(); OSResetSystem((void*)1, (void*)0, (void*)1); }
 
@@ -227,6 +246,7 @@ typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8000F8FC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8FC_lbl_804FE120) == 0x18 ? 1 : -1];
 
 typedef char RecoveredGlobal_8000F8EC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8EC_lbl_804FE120) == 0x18 ? 1 : -1];
+extern "C" {
 s32 TKeyBoardControl__sub_8000F8EC(void) {
     return *(s32 *)((s8 *)(&(*(RecoveredGlobal_8000F8EC_lbl_804FE120 *)&main_phase_state).value) + 0x14);
 }
@@ -303,6 +323,7 @@ void TKeyBoardControl__sub_8000F9E4(void) {
     *(s32 *)((s8 *)&main_phase_state.value + 8) = 1;
     *(s32 *)((s8 *)&main_phase_state.value + 0xC) = 1;
     *(s32 *)((s8 *)&main_phase_state.value + 0x14) = 1;
+}
 }
 void init_gx_lighting_defaults(void) {
     GXColor_8000FA00 c0 = lbl_805D7D00;
@@ -408,6 +429,4 @@ void init_game_systems(void) {
     load_ply_level_tbl();
     fn_802A1020();
     TLobby::handle_flag2_request();
-}
-
 }

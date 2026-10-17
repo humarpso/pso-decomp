@@ -68,7 +68,9 @@ extern const f32 lbl_805DB39C;
 s32 check_value_equals__13TUnk_804B6C24Fl(void *, s32);
 void *spawn_particle_effect(void *pos, s32 id);
 u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
+}
 void play_container_break_sound(s32 arg0);
+extern "C" {
 void *__nw__7TObjectFUl(int);
 extern Spawn_8015B94C ancient_enemy_break_debris_desc;
 extern Spawn_8015B94C ancient_enemy_break_debris_desc_b;
@@ -231,5 +233,4 @@ u8 *TOContainerAncientEnemy__ct(u8 *arg0, s32 arg1) {
     ((TOContainerAncientEnemy *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&ancient_container_resource_bundle)), 0);
     return arg0;
 }
-
 }

@@ -65,11 +65,7 @@ void TMenuList<GameListEntry, 64, 1>::bswap() {
     }
 }
 
-extern "C" {
-
 int bswap_game_list_entry(void* p) { return bswap__16TPlyGuildCardTagFv(p); }
-
-}
 
 TMenuList<GameListEntry, 64, 1>::TMenuList(const TMenuList &o) {
     header = o.header;

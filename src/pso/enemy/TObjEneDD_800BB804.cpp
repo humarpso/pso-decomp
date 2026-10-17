@@ -555,6 +555,7 @@ void TObjEneDD::create_instance() {
 
     extern int lbl_805D5870;
 int TObjEneDD::get_enemy_count() {  return lbl_805D5870; }
+}
 s32 tick_period_counter(s32 arg0, s32 *arg1, s32 arg2) {
     s32 temp_r3;
     temp_r3 = *arg1;
@@ -564,6 +565,4 @@ s32 tick_period_counter(s32 arg0, s32 *arg1, s32 arg2) {
     }
     *arg1 = temp_r3 + 1;
     return 0;
-}
-
 }

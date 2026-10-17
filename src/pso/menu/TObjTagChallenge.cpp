@@ -38,6 +38,7 @@ void *TObjTagChallenge__ct(void *arg0) {
 #define TObjTagChallenge__ct (*(void * (*)(void *, void *))&TObjTagChallenge__ct)
 
 void *__nw__7TObjectFUl(int);
+}
 
 void *create_obj_tag_challenge(void *arg0) {
     void *o = __nw__7TObjectFUl(0x1C);
@@ -45,8 +46,6 @@ void *create_obj_tag_challenge(void *arg0) {
         o = TObjTagChallenge__ct(o, arg0);
     }
     return o;
-}
-
 }
 
 #undef TObjTagChallenge__ct

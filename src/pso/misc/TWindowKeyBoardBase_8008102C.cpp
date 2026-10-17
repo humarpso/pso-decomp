@@ -15,6 +15,7 @@ void *mem_alloc(u32 size);
 u32 __cvt_fp2unsigned(f32);
 f32 horizontal_distance_squared(s32, s32);
 void *get_player_by_client_id(s32 i);
+}
 
 void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2) {
     s16 *temp_r3;
@@ -40,6 +41,7 @@ void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2) {
     *(u32 *)((s8 *)arg0 + 8) = arg1;
     *(s32 *)((s8 *)arg0 + 0xC) = (s32) (arg2 * 0x14);
 }
+extern "C" {
 
 u32 *destroy__19TWindowKeyBoardBaseFPvs(u32 *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -85,5 +87,4 @@ u8 *TEF_LensFlare__create(s32 arg0) {
     }
     return var_r0;
 }
-
 }

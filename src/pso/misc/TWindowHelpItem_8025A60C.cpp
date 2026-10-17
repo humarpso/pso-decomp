@@ -20,8 +20,8 @@ struct Item_8025A650 { u8 p0[8]; f32 x; f32 y; s32 count; };
 
 struct Ctx_8025A650 { u8 p0[0x10]; f32 x; f32 y; u8 p18[0x18]; s32 f30; u8 p34[4]; f32 z; };
 
-extern "C" {
 f32 get_item_star_row_width(u8 *arg0);
+extern "C" {
 s32 sub_80256BDC__13TUnk_804CF930Fs(void *, void *);
 u8 *TWindowHelpItem__sub_8025A95C(u8 *arg0, s32 arg1, s32 arg2);
 s32 try_open__19TWindowKeyBoardSoftFii(void *, void *);
@@ -32,6 +32,7 @@ extern s32 lbl_805D63F0;
 void render_item_rarity_stars(Item_8025A650 *item, Ctx_8025A650 *ctx);
 void TWindowHelpItem__sub_8025A900(void);
 void *TWindowHelpItem__sub_8025A904(void *arg0, s16 arg1);
+}
 
 extern const UV_8025A650 item_rarity_star_uv_table[4] = {
     { 0.0f, 239.0f }, { 17.0f, 239.0f }, { 34.0f, 239.0f }, { 51.0f, 239.0f },
@@ -53,6 +54,7 @@ f32 get_item_star_row_width(u8 *arg0) {
     }
     return 17.0f * (f32) var_r0;
 }
+extern "C" {
 
 void render_item_rarity_stars(Item_8025A650 *item, Ctx_8025A650 *ctx) {
     Quad_8025A650 q;
@@ -139,5 +141,4 @@ u8 *TWindowHelpItem__sub_8025A95C(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x10) = 0;
     return arg0;
 }
-
 }

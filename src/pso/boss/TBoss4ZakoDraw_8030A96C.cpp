@@ -60,6 +60,7 @@ struct Col_8030A9B0 { f32 r, g, b, a; };
 void set_chunk_material_override_pair(int, int);
 void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
 f32 xyz_distance(void *, void *);
+}
 void draw_chunk_model(void *arg0);
 extern u8 *camera_ctrl_instance;
 extern u32 lbl_805D5660;
@@ -77,7 +78,6 @@ extern const f32 lbl_805DF140;
 extern const f32 lbl_805DF144;
 extern const f32 lbl_805DF148;
 extern const f32 lbl_805DF14C;
-}
 
 extern "C" {
 

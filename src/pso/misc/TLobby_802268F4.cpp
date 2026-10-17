@@ -57,12 +57,14 @@ int TLobby__sub_80226308(void);
     extern int lbl_805D62B8;
 int TLobby__sub_80226B64(void);
 int set_and_notify__6TLobbyFi(void*);
+}
 void stop_audio_stream(u8 *arg0);
 extern s32 lbl_804CB850[];
 extern s32 lbl_805D6330;
 extern s32 lbl_805D6300;
 extern s32 music_target_id;
 void set_dark_falz_music_request(s32 arg0);
+extern "C" {
 void start_audio_stream_file(void *, s32);
 void play_cue_stream_file(s32 arg0);
 s32 TLobby__sub_803C94DC(int, int);
@@ -70,18 +72,25 @@ s32 TLobby__sub_803C9CB0(int);
 extern s32 lbl_805D62E4;
 extern s32 music_fade_slot_index;
 void TLobby__sub_802272B4(void);
+}
 void stop_cue_stream(void);
+extern "C" {
 s32 set_field_40_and_notify__6TLobbyFs(int, int);
 void set_cue_stream_gain(s32 arg0);
+}
 extern RecoveredGlobal_80226C3C_lbl_80514D00 lbl_80514D00;
 extern u8 *lobby_current_slot_entry;
 void set_music_streams_volume(s32 arg0);
+extern "C" {
 void TLobby__sub_8022733C(void);
 void *get_player_by_client_id(s32 i);
 void stop_sound_request(s32 idx);
 s32 fn_802264B8(int, int);
+}
 void update_music_fade(void);
+extern "C" {
 s32 TLobby__sub_8023F880(s32 arg0);
+}
 extern Ent_802269B4 lbl_805145F0[];
 extern f32 lbl_80514C50[];
 extern u32 camera_ctrl_instance;
@@ -89,9 +98,13 @@ extern s32 local_client_id;
 extern s8 lbl_805D6279;
 extern const f32 lbl_805DC74C;
 void update_sound_request_slots(void);
+extern "C" {
 s32 TLobby__sub_803C5D00(void *);
+}
 void append_music_stream_segment(u8 *arg0, s32 arg1, s32 arg2);
+extern "C" {
 s32 TLobby__sub_803C97B8(u8 *arg0);
+}
 extern s32 lbl_805D62E0;
 extern s32 lbl_805D62F0;
 extern s32 lbl_805D62F4;
@@ -104,9 +117,11 @@ extern s32 music_sequencer_fade_state;
 extern s32 music_sequencer_timer;
 extern s16 lbl_805D6334;
 void update_music_sequencer(void);
+extern "C" {
 void TLobby__sub_8022644C(void);
 
 void TLobby::update_lobby_subsystems() { TLobby__sub_8022644C(); stop_cue_stream(); }
+}
 
 void update_sound_request_slots(void) {
     s32 i;
@@ -160,6 +175,7 @@ void update_sound_request_slots(void) {
         update_music_fade();
     }
 }
+extern "C" {
 
 int TLobby__sub_80226B64(void) { TLobby::update_lobby_subsystems(); TLobby::init_layout_positions(); TLobby__sub_80226308(); lbl_805D62B4 = 0; lbl_805D62B8 = 0; lbl_805D62B0 = 1; return 0; }
 
@@ -185,6 +201,7 @@ void set_cue_stream_gain(s32 arg0) {
         set_field_40_and_notify__6TLobbyFs((int) (*(u32 *)((s8 *)(&(*(RecoveredGlobal_80226CB0_lbl_804CB850 *)&lbl_804CB850).value) + 8)), var_r4);
     }
 }
+}
 
 typedef char RecoveredGlobal_80226CF4_lbl_804CB850_size[sizeof(RecoveredGlobal_80226CF4_lbl_804CB850) == 0xC ? 1 : -1];
 void set_music_streams_volume(s32 arg0) {
@@ -198,6 +215,7 @@ void set_music_streams_volume(s32 arg0) {
     }
     set_field_40_and_notify__6TLobbyFs((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_80226CF4_lbl_804CB850 *)&lbl_804CB850).value) + 4)), var_r31);
 }
+extern "C" {
 
 void TLobby::release_bgm_resource() {
     if ((s32) lbl_805D6330 != 0) {
@@ -211,6 +229,7 @@ u8 lbl_80514C60[0x80];
 __declspec(section ".data") s32 lbl_80514CE0[2];
 __declspec(section ".data") s32 lbl_80514CE8[2];
 __declspec(section ".data") s32 lbl_80514CF0[2];
+}
 void update_music_sequencer(void) {
     Passage_80226FA0 *passage;
     Passage_80226FA0 *next;
@@ -284,10 +303,12 @@ void set_dark_falz_music_request(s32 arg0) {
         music_target_id = arg0;
     }
 }
+extern "C" {
 void TLobby::set_target_id(s32 arg0) {
     if ((s32) lbl_805D6300 != 4) {
         music_target_id = arg0;
     }
+}
 }
 typedef char RecoveredGlobal_8022727C_lbl_804CB850_size[sizeof(RecoveredGlobal_8022727C_lbl_804CB850) == 0xC ? 1 : -1];
 
@@ -297,6 +318,7 @@ void stop_cue_stream(void) {
         stop_audio_stream((u8 *)((int) (*(u32 *)((s8 *)(&(*(RecoveredGlobal_80227248_lbl_804CB850 *)&lbl_804CB850).value) + 8))));
     }
 }
+extern "C" {
 
 void play_cue_stream_file(s32 name) {
     if ((void *) *(u8 **)((s8 *)(&(*(RecoveredGlobal_8022727C_lbl_804CB850 *)&lbl_804CB850).value) + 8) != NULL) {
@@ -321,5 +343,4 @@ void TLobby__sub_8022733C(void) {
     TLobby__sub_803C94DC((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8022733C_lbl_804CB850 *)&lbl_804CB850).value) + 8)), 1);
     lbl_805D62E4 = 2;
 }
-
 }

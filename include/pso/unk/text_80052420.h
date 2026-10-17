@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 u32 drain_player_hp(s32 id, u32 arg1);
-}
 
 #endif

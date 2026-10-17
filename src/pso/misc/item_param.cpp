@@ -62,12 +62,11 @@ void* get_armor_pmt_record(int type, int id) {
     }
     return NULL;
 }
+}
 
 void* get_photon_color_record(int i) {
     if (i < 32) {
         return *(char**)((char*)item_pmt_tbl + 0x18) + i * 36;
     }
     return NULL;
-}
-
 }

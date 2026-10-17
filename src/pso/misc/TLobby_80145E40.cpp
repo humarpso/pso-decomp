@@ -3,9 +3,8 @@
 #include "pso/unk/text_803F4D84.h"
 #include "pso/misc/TLobby.h"
 
-extern "C" {
-
     extern unsigned short lbl_805D56CC;
+extern "C" {
 int TLobby__sub_80145E40(void) {  return (lbl_805D56CC & 0x1); }
 
 s32 TLobby::is_status_zero() {
@@ -40,6 +39,7 @@ s32 TLobby__sub_80145EE4(void) {
 }
 
 s32 memset(void *, s32, s32);
+}
 
 extern u16 lbl_805D56CC;
 
@@ -96,6 +96,4 @@ s32 init_work(s32 arg0, u8 *arg1) {
     TLobby__sub_803F53A0(1, (char *)(arg1 + 0xE4), 0x40);
     TLobby__sub_803F53A0(2, (char *)(arg1 + 0x124), 0x40);
     return 0;
-}
-
 }

@@ -5,8 +5,6 @@
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 struct Scroll_8026D790 { u8 pad0[4]; f32 height; s32 frame; };
 
 struct Ctx_8026D790 {
@@ -59,17 +57,22 @@ typedef struct LvUp_8026DA44 {
     s16 d3a;
     s16 d3c;
 } LvUp_8026DA44;
+extern "C" {
 
 void queue_destruction__7TObjectFv(void *);
 s32 *get_shared_text_buffer(void);
 char * get_message_10__20TWindowSubStatusDispFl(s32);
 u32 get_quest_id__12TQuestListVMFv(void);
 void __dl__FPv(void);
+}
 u32 calc_pulse_flash_color(u8 r, u8 g, u8 b, s32 frame, s32 period, s32 start, s32 peak, s32 end);
+extern "C" {
 void *get_player_by_client_id(s32 i);
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 void text_builder_append(u8 *str);
+}
 void text_builder_reset(void);
+extern "C" {
 void __ct__7TObjectFP7TObject(void *);
 void apply_context_transform_to_rect(void *, Quad_8026D790 *);
 s32 copy_position__11TWindowMenuFPv();
@@ -81,7 +84,9 @@ void TWindowSetLevelUp__sub_8026DE28(void* p, s32 v);
 void begin_screen_draw(s32 arg0);
 void draw_textured_quad_at_depth(f32 *q, f32 depth);
 void set_draw_texture_and_color(s32 idx, s32 arg1);
+}
 void set_constant_material_color(u32 x);
+extern "C" {
 
 void *__dt__17TWindowSetLevelUpFv(void *arg0, s16 arg1);
 void run_task__17TWindowSetLevelUpFv(u8 *arg0);
@@ -345,6 +350,5 @@ void TWindowSetLevelUp::copy_stat_block(s32 arg1) {
 #pragma auto_inline on
 #pragma dont_inline off
 void TWindowSetLevelUp__sub_8026DE28(void* p, s32 v) { *(s32*)((char*)p + 0x88) = v; }
-#pragma pop
-
 }
+#pragma pop

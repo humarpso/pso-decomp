@@ -5,6 +5,7 @@ extern "C" {
 
 void *__nw__7TObjectFUl(int);
 void *TObjEneEpsilonBody__ct(void *, void *, void *);
+}
 extern void *tl_04;
 
 void *create_TObjEneEpsilonBody(void *arg0) {
@@ -13,6 +14,4 @@ void *create_TObjEneEpsilonBody(void *arg0) {
         o = TObjEneEpsilonBody__ct(o, tl_04, arg0);
     }
     return o;
-}
-
 }

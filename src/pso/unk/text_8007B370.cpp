@@ -25,6 +25,7 @@ s32 TObjPlayer__sub_801AFD8C(u8 *arg0);
 void *get_player_by_client_id(s32 i);
 s32 __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *);
 s32 strncpy(void *, void *, int);
+}
 s32 fill_guild_card_from_player(u8 *arg0, u32 arg1);
 typedef struct VBase_18_26c590 VBase_18_26c590;
 typedef struct VObj_18_26c590 VObj_18_26c590;
@@ -56,6 +57,4 @@ s32 fill_guild_card_from_player(u8 *arg0, u32 arg1) {
   }
   __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag((void *) arg0);
   return 1;
-}
-
 }

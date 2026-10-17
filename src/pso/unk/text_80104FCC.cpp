@@ -91,9 +91,11 @@ extern s32 local_client_id;
 int check_class_equip_permission(Player_80105348 *player, s32 perm);
 s32 *csnVecterUnder(s32 origin, s32 mask);
 s32 is_valid_drop_floor();
+}
 void *build_6x06_send_guild_card(void *arg0);
 extern Rec_80105538 *TLobby__data_805D6144;
 extern const f32 lbl_805DAAB4;
+extern "C" {
 void send_6x60_standard_drop_item_request(Obj_80105538 *self);
 int roll_weapon_special_channel15(void* p);
 int roll_weapon_special_for_stars(void*);
@@ -223,5 +225,4 @@ void TUnk_804806E8::request_box_item_drop(void *unused, s16 arg2) {
         }
     }
 }
-
 }

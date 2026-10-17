@@ -448,7 +448,9 @@ s32 get_bml_model(s32, s32);
 void fn_80044330(void *p);
 void fn_8004AA04(void *);
 void TObjPlayer__sub_80052390(f32 x);
+}
 u32 drain_player_hp(s32 id, u32 arg1);
+extern "C" {
 f32 TBoss4Type3__sub_800524E8(f32);
 void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0);
 void update_target_effect_timer__11TBoss4Type3FPv(void *arg0);
@@ -884,8 +886,8 @@ void TUnk_80486924::apply_movement_ailment(s32) {  }
 void TUnk_80486924::apply_shock_status() {  }
 
 void TUnk_80486924::clear_harmful_statuses() {  }
-
 }
+
 void TBoss4Type3::update_libera() {
     S_80058224 *o = (S_80058224 *)this;
     u16 id = o->f3ba;

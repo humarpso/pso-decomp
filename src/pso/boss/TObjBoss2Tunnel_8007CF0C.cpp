@@ -19,7 +19,6 @@ struct Vtx_8007D828 { f32 x; f32 y; f32 z; u32 color; };
 
 struct Quad_8007D828 { f32 x0; f32 y0; f32 x1; f32 y1; f32 u0; f32 v0; f32 u1; f32 v1; };
 
-extern "C" {
 extern Vec2_8007DD28 TObjBoss2Tunnel__data_8048DF2C;
 extern const f32 lbl_805D9280;
 extern const f32 lbl_805D9284;
@@ -27,6 +26,7 @@ extern u8 boss2_tunnel_state_flag;
 extern s16 TObjBoss2Tunnel__snapshot_state;
 extern u32 TObjBoss2Tunnel__snapshot_buffer;
 extern s32 TObjBoss2Tunnel__snapshot_saved_flag;
+extern "C" {
 void set_depth_buffer_settings_1__Fv(void);
 void restore_saved_depth_alpha_state(void);
 void draw_projected_quads__15TObjBoss2TunnelFPvi(Vtx_8007D828 *, s32);
@@ -38,6 +38,7 @@ s32 memset(void *, s32, s32);
 s32 query_memcard_capacity__15TAdPlayerLoadGCFl(s32, s32);
 s32 set_stream_and_load_file__6TLobbyFi(s32);
 u32 xmalloc__FUl(s32);
+}
 
 extern s32 screen_binary_filename;
 extern u32 boss2_tunnel_snapshot_buffer;
@@ -69,6 +70,7 @@ void load_data_buffers(void) {
 }
 
 extern s32 TObjBoss2Tunnel__data_80438A08[];
+extern "C" {
 
 s32 memcard_check_snapshot(s32 arg0, s32 *arg1) {
     s32 temp_r3;
@@ -259,5 +261,4 @@ void TObjBoss2Tunnel::reset_state() {
     TObjBoss2Tunnel__snapshot_saved_flag = 0;
     TQuestListVM::reset();
 }
-
 }

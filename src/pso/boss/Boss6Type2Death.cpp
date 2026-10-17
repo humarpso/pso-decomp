@@ -378,8 +378,6 @@ TBoss6Demo21_TYPE2_DEAD::~TBoss6Demo21_TYPE2_DEAD() {
         ((O_8033E5A8 *)this)->f9c = NULL;
     }
 }
-extern "C" {
-
 #pragma push
 #pragma opt_common_subs off
 typedef struct { f32 x, y, z; } Vec_8033E688;
@@ -388,6 +386,7 @@ typedef struct {
     s32 arr[4];
 } Fish_8033E688;
 #define arg0 ((u8 *)arg0p)
+extern "C" {
 void *TBoss6Demo21_TYPE2_DEAD__ct(void *arg0p, void *arg1, void *arg2) {
     Vec_8033E688 v;
     s32 i;
@@ -432,6 +431,7 @@ void *TBoss6Demo21_TYPE2_DEAD__ct(void *arg0p, void *arg1, void *arg2) {
     *(s32 *)((s8 *)arg0 + 0x50) = 0;
     return arg0;
 }
+}
 #undef arg0
 #pragma pop
 
@@ -442,7 +442,5 @@ void * create_boss6_type2_death(void *arg0, void *arg1) {
         o = TBoss6Demo21_TYPE2_DEAD__ct(o, arg0, arg1);
     }
     return o;
-}
-
 }
 #undef __vt__23TBoss6Demo21_TYPE2_DEAD

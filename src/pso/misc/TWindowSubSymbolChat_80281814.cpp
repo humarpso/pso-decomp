@@ -76,9 +76,11 @@ s32 get_keyboard_field_6c__15TWindowMakeTeamFv(s32, s32);
 s32 get_keyboard_ptr__20TWindowSubSymbolChatFv(s32);
 s32 refresh_parts__20TWindowSubSymbolChatFv();
 s32 refresh_with_default_list__20TWindowSubStatusDispFll(s32, s32 *);
+}
 void update_chat_window(void *p);
 
 extern void *TWindowSubSymbolChat__instance;
+extern "C" {
 
 void TWindowSubSymbolChat::close_child() {
     void *temp_r3;
@@ -356,5 +358,4 @@ s32 TWindowSubSymbolChat__sub_8028233C(s32 arg0) {
     TWindowSubSymbolChat::open_menu(arg0, r);
     return r;
 }
-
 }

@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void *find_unique_combination_target(void *player, void *item);
-}
 
 #endif

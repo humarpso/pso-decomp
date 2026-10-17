@@ -5,6 +5,7 @@
 extern "C" {
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
+}
 extern u8 lbl_80450C50[];
 extern u8 lbl_80450C6C[];
 extern u8 bm_obj_door_ruins_resource_descriptor[];
@@ -35,6 +36,4 @@ void load_green_door_resources(void) {
         green_door_texture_handle = load_gvm_texture_file((s32)lbl_80450C6C);
         break;
     }
-}
-
 }

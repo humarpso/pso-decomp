@@ -25,7 +25,9 @@ struct Vec_8023F22C { f32 x, y, z; };
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *arg0);
-s32 clear_resource_load_tasks();
+}
+void clear_resource_load_tasks(void);
+extern "C" {
 s32 call_funcs_reverse__6TLobbyFPvUi(void *, int);
 s32 delete_all_task_children__9TMainTaskFv(void *);
 extern RecoveredGlobal_8023F1B8_lbl_804CCDA8 lbl_804CCDA8;
@@ -120,5 +122,4 @@ void init_game_mode_select_scene(void) {
     game_mode_scene_instance = 0;
     load_floor_sound_bank(0);
 }
-
 }

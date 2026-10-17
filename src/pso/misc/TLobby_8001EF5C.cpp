@@ -133,8 +133,8 @@ struct Ctx_8001F128 {
     s32 f438;
 };
 
-extern "C" {
 void reset_gstream_globals(void);
+extern "C" {
 s32 xmalloc__FUl(s32);
 extern s8 TLobby__tmp_buf_name[];
 extern s32 lobby_download_buffer;
@@ -170,7 +170,9 @@ Lobby_8001FE7C *TLobby__sub_8001FE7C(Lobby_8001FE7C *self, s16 del);
 void open__8TGStreamFPvPvi(void *, s32, s32);
 s32 get_gstream_file_size(void *);
 void destroy_gstream(void *, s32);
+}
 void align_gstream_read_offset(void *, s32);
+extern "C" {
 u32 prs_decompress_buffer(s32 arg0, s32 arg1);
 void debug_printf_nop(void *, ...);
 void *mem_alloc(u32 size);
@@ -853,5 +855,4 @@ Lobby_80020004 *load_resource_from_descriptor(Lobby_80020004 *self, s32 kind, De
     }
     return self;
 }
-
 }

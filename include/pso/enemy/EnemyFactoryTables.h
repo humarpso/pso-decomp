@@ -10,8 +10,6 @@ struct EnemyFactoryEntry {
     s32 child_count;
 };
 
-extern "C" {
 extern EnemyFactoryEntry* enemy_factory_area_table[36];
 void copy_enemy_factory_entry(EnemyFactoryEntry* out, EnemyFactoryEntry* entry);
-}
 #endif

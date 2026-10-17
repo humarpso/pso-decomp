@@ -3,8 +3,8 @@
 
 #include "types.h"
 
-extern "C" {
 void load_judge_item(void);
+extern "C" {
 void update_all__6TLobbyFi(s32 arg0);
 }
 

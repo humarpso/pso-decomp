@@ -36,6 +36,7 @@ extern SrcA_8020DEE4 *TLobby__data_805D610C;
 extern SrcB_8020DEE4 *TLobby__data_805D6114;
 void depart_floor_population(int unused);
 s32 lookup_scene_object__6TLobbyFPv(s32, void *);
+}
 void arrive_floor_population(void);
 extern s32 lbl_805D60F8;
 extern s32 TLobby__data_805D60FC;
@@ -43,17 +44,20 @@ extern u32 TLobby__data_805D611C;
 extern s32 TLobby__data_805D6120;
 extern u32 TLobby__data_805D6124;
 extern s32 TLobby__data_805D6128;
+extern "C" {
 void *memset(void *, int, unsigned long);
 extern A_8020DBCC *TLobby__data_805D6140;
 extern B_8020DBCC *TLobby__data_805D6144;
 void read_disc_file(char *, void *);
 s32 replace_file_extension__6TLobbyFPvPvPv(char *arg0, char *arg1, char *arg2);
 void *mem_alloc(u32);
+}
 void swap_object_row_endian(void *);
 extern char lbl_8044BC24[];
 extern char lbl_8044BC2C[];
 extern Map_8020D9A0 *TLobby__data_805D6068;
 s32 load_map_decoration_rows(s32 map, s32 grp, s32 room);
+extern "C" {
 void* TSetManager__ct(void*, s32);
 void* __nw__7TObjectFUl(u32);
 void mem_free(void*);
@@ -78,6 +82,7 @@ void TLobby__sub_8020D94C(void) {
         TLobby__data_805D6124 = 0U;
         TLobby__data_805D6128 = 0;
     }
+}
 }
 
 s32 load_map_decoration_rows(s32 map, s32 grp, s32 room) {
@@ -117,6 +122,7 @@ s32 load_map_decoration_rows(s32 map, s32 grp, s32 room) {
 
 #pragma push
 #pragma scheduling off
+extern "C" {
 void TLobby::clear_floor_flags_and_depart() {
     s32 unused;
     TLobby__sub_8020D94C();
@@ -200,5 +206,4 @@ void depart_floor_population(int unused) {
         TLobby__data_805D610C = 0;
     }
 }
-
 }

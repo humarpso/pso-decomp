@@ -74,6 +74,7 @@ void TObjPlayer::clear_photon_blast_slots() {
         photon_blast_sequence_table[i].state = 0;
     }
 }
+}
 void load_photon_blast_resources(void) {
     u8 *p;
     s32 i;
@@ -88,8 +89,9 @@ void load_photon_blast_resources(void) {
     }
     TObjPlayer::clear_photon_blast_slots();
 }
+extern "C" {
 
 __declspec(section ".data") const char *pm_mdl_model_names[13] = { lbl_80446A78, lbl_80446A88, lbl_80446A98, lbl_80446AAC, lbl_80446ABC, lbl_80446ACC, lbl_80446AE0, lbl_80446AF4, lbl_80446B08, lbl_80446B1C, lbl_80446B30, lbl_80446B44, NULL };
 __declspec(section ".data") const char *pm_mdl_motion_names[16] = { lbl_80446B58, lbl_80446B68, lbl_80446B78, lbl_80446B8C, lbl_80446BA4, lbl_80446BBC, lbl_80446BD4, lbl_80446BE8, lbl_80446C00, lbl_80446C18, lbl_80446C30, lbl_80446C44, lbl_80446C58, lbl_80446C74, lbl_80446C90, NULL };
-BmlResourceDescriptor photon_blast_resource_descriptor = { lbl_80446CAC, pm_mdl_model_names, pm_mdl_motion_names, 12, 15 };
 }
+BmlResourceDescriptor photon_blast_resource_descriptor = { lbl_80446CAC, pm_mdl_model_names, pm_mdl_motion_names, 12, 15 };

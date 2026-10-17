@@ -9,6 +9,7 @@ struct Obj_801DFC3C { u8 pad[0x600]; u32 w[30]; };
 
 extern "C" {
 void bswap__13packet_headerFv();
+}
 void bswap_player_record_upload(u8 *arg0) {
     s32 i;
     bswap__13packet_headerFv();
@@ -19,6 +20,4 @@ void bswap_player_record_upload(u8 *arg0) {
         bswap_32(&((Obj_801DFC3C *)arg0)->w[i]);
     }
     bswap_32((u32 *)(arg0 + 0x678));
-}
-
 }

@@ -3,8 +3,8 @@
 
 #include "types.h"
 
-extern "C" {
 void fill_memory(void *p, u8 c, u32 n);
+extern "C" {
 void fn_803DE804(u8 *start, s32 size);
 }
 

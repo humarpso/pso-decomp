@@ -9,6 +9,7 @@ u8 get_slot_count__5TItemFv();
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_z(s32, s32);
 s32 rotate_matrix_x(s32, s32);
+}
 
 extern const f32 lbl_805DAF34;
 
@@ -19,6 +20,7 @@ void enlarge_flight_cutter_slicer(void *arg0) {
         *(f32 *)((s8 *)arg0 + 0x70) = (f32) lbl_805DAF34;
     }
 }
+extern "C" {
 
 void TObjPlayer::setup_item_render() {
     s32 player_list;
@@ -47,5 +49,4 @@ void TObjPlayer::setup_item_render() {
         break;
     }
 }
-
 }

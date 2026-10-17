@@ -45,7 +45,9 @@ s32 set_hp_clamped__10TObjPlayerFs(void *, s32);
 s32 get_field_2b8__14TItemProShieldFv(void *);
 void *spawn_particle_effect(void *pos, s32 id);
 s32 reset_key_machine_state__10TObjPlayerFv();
+}
 void handle_6x66_use_star_atomizer(u8 *arg0);
+extern "C" {
 void *TObjPlayer__sub_80116620(void *, s32);
 void send_star_atomizer_targets(void *arg0);
 }
@@ -145,6 +147,7 @@ s32 TItemObject__sub_80115DE8(void *item) {
     }
     return -1;
 }
+}
 
 void handle_6x66_use_star_atomizer(u8 *arg0) {
     u8 *player;
@@ -171,6 +174,7 @@ void handle_6x66_use_star_atomizer(u8 *arg0) {
         } while (var_r28 != 4);
     }
 }
+extern "C" {
 
 void send_nearby_player_ids(Obj_80116004 *self, f32 range) {
     Msg_80116004 msg;
@@ -222,7 +226,6 @@ void*TItemObject::vfunc_9() {
     }
     return (u8 *)&this->position;
 }
-
 }
 
 struct Base_8011626C_80115D6C { char pad[0x18]; };

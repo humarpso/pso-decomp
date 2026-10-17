@@ -166,7 +166,9 @@ void update_collisions__10TObjPlayerFv(void *);
 #define update_angle__10TObjPlayerFlPv ((void (*)(void *, s32, void *))update_angle__10TObjPlayerFlPv)
 #define update_collisions__10TObjPlayerFv ((void (*)(void *))update_collisions__10TObjPlayerFv)
 void apply_actor_gravity(void *, int, f32);
-s32 move_with_wall_slide(void *);
+}
+void move_with_wall_slide(u8 *arg0);
+extern "C" {
 void calc_velocity_toward_destination(void *, Vec_800D1E4C, Vec_800D1E4C, f32);
 s32 update_if_active__15TObjEneMe1GiGueFl(void *, int);
 f32 xz_distance_squared(void *, void *);
@@ -191,7 +193,7 @@ void update_walk_to_target__10TObjPlayerFPv(Ene_800D1E4C *arg0) {
         VecCopy((Vec *)&arg0->v290, (const Vec *)&arg0->v2FC);
         calc_velocity_toward_destination(arg0, arg0->v290, arg0->v29C, arg0->param->speed);
         update_angle__10TObjPlayerFlPv(arg0, arg0->param->turn, arg0->v308);
-        move_with_wall_slide(arg0);
+        move_with_wall_slide((u8 *)arg0);
         update_collisions__10TObjPlayerFv(arg0);
         if (xz_distance_squared(&arg0->pos, &arg0->target) <= lbl_805DA25C) {
             update_if_active__15TObjEneMe1GiGueFl(arg0, 0);
@@ -295,11 +297,11 @@ struct Vec_800D23D4 { f32 x, y, z; };
 
 struct Desc_800D23D4 { Vec_800D23D4 *pos; s32 a; s32 angle; f32 b; f32 c; f32 d; };
 
-extern "C" {
 f32 get_gyaranzo_missile_float_parameter(s32);
 extern f32 lbl_805D51F0;
 extern f32 TObjGyaranzoMissile__speed_scale;
 extern f32 TObjGyaranzoMissile__max_range;
+extern "C" {
 void init_params_from_table__15TObjEneGyaranzoFv(u8 *arg0);
 s32 check_path_obstructed(void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
@@ -311,7 +313,9 @@ extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 extern const f32 lbl_805DA260;
 void select_targets__15TObjEneGyaranzoFv(u8 *arg0);
-s32 get_gyaranzo_missile_int_parameter(int);
+}
+s32 get_gyaranzo_missile_int_parameter(s32 i);
+extern "C" {
 s32 TObjGyaranzoMissile__ct(void *, void *, void *, u16);
 void *__nw__7TObjectFUl(int);
 extern s32 gyaranzo_missile_volley_end_time;
@@ -487,9 +491,9 @@ void spawn_missile_volley__19TObjGyaranzoMissileFPv(u8 *arg0) {
     }
     play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003AD0A), arg0 + 0x38, 0, 0);
 }
+}
 #pragma pool_data reset
 
-}
 #pragma pop
 #undef V
 #undef NEW
@@ -605,14 +609,12 @@ extern const f32 lbl_805DA290;
 void enemy_turn_toward_dest(void *, s32);
 void move_along_ground_avoiding_walls__10TObjPlayerFPviff(void *, Vec_800D3314, void *, f32, f32);
 #define render_anim_model_at_pos__15TObjEneGyaranzoFv ((void (*)(void *))render_anim_model_at_pos__15TObjEneGyaranzoFv)
-#define get_gyaranzo_missile_float_parameter ((f32 (*)(int))get_gyaranzo_missile_float_parameter)
 u8 *find_active_entity_by_id(u16);
 #define copy_target_state__14TObjEnePanarmsFPv ((s32 (*)(void *, int))copy_target_state__14TObjEnePanarmsFPv)
 #define play_sound_effect ((s32 (*)(void *, void *, int, int))play_sound_effect)
 extern s32 actor_frame_tick;
 void TObjPlayer__sub_800D3314(u8 *arg0);
 #define spawn_missile_volley__19TObjGyaranzoMissileFPv ((s32 (*)())spawn_missile_volley__19TObjGyaranzoMissileFPv)
-#define get_gyaranzo_missile_int_parameter ((s16 (*)(int))get_gyaranzo_missile_int_parameter)
 extern const f32 lbl_805DA274;
 extern const f32 lbl_805DA278;
 #define check_path_obstructed ((s32 (*)(void *, Vec_800D30A8 *))check_path_obstructed)
@@ -731,7 +733,9 @@ void __dt__13TUnk_804949A8Fv();
 void init_and_activate__10TObjPlayerFv(void *);
 void create_dead_spot__10TObjPlayerFllf(void *, s32, f32);
 s32 set_param__9TObjEnemyFl(void *, int, int, int);
-s32 initialize_enemy_photon_effect(void *);
+}
+int initialize_enemy_photon_effect(void *p);
+extern "C" {
 void * TObjControl__ct(void *, void *);
 s32 bind_enemy_combat_stats(void *, void *, void *, void *);
 s32 restore_scene_lighting();
@@ -1288,7 +1292,7 @@ void TObjPlayer__sub_800D30A8(Obj_800D30A8 *arg0) {
         v.x += arg0->vel.x;
         v.z += arg0->vel.z;
         if (check_path_obstructed(arg0, &v) == 0) {
-            move_with_wall_slide(arg0);
+            move_with_wall_slide((u8 *)arg0);
         } else {
             arg0->vel.x = arg0->vel.z = lbl_805DA258;
         }
@@ -1733,5 +1737,4 @@ u8 *TObjEneGyaranzo__ct(TObjEneGyaranzo *arg0, s32 arg1, u8 *arg2) {
     ((TObjEneGyaranzo *)(arg0))->clear_lobby_object_state();
     return (u8 *)arg0;
 }
-
 }

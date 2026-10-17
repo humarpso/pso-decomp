@@ -315,13 +315,17 @@ void run_task__22TObjEneSlimeTailAttackFv(u8 *arg0);
 void * create__22TObjEneSlimeTailAttackFiiii(s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void * dt__22TObjEneSlimeTailAttackFPvs(void *arg0, s16 arg1);
 void *TObjEneSlimeTailAttack__ct(TObjEneSlimeTailAttack *, void *, s32, s32, s32);
+}
 s32 water_bomb_hit_nearby(u8 *arg0);
+extern "C" {
 void run_task__21TObjEneSlimeWaterBombFv(Bomb_800E8D4C *arg0);
 void * __dt__21TObjEneSlimeWaterBombFv(void *arg0, s16 arg1);
 void *TObjEneSlimeWaterBomb__ct(TObjEneSlimeWaterBomb *arg0, void *arg1, void *arg2);
 void fn_800E9238(s32 arg0);
 void fn_800E9538(u8 *arg0);
+}
 void update_effect_fade_lifetime(u8 *arg0);
+extern "C" {
 void fn_800E95F4(u8 *arg0);
 void TObjEneSlimeOne__sub_800E969C(TObjEneSlimeOne *arg0);
 void init_split_effect__15TObjEneSlimeOneFPv(u8 *arg0);
@@ -361,7 +365,9 @@ u8 *get_enemy_entity(u16 arg0);
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 s32 initialize__9TObjEnemyFPv(void *);
 f32 horizontal_distance_squared(void *, void *);
+}
 void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
+extern "C" {
 s32 advance_animation_playback(void *);
 void free_collision_body_parts(void *);
 s32 get_player_by_client_id(void *);
@@ -1335,6 +1341,7 @@ void fn_800E9538(u8 *arg0) {
     ((TObjEneSlimeOne *)(*(s32 *)((s8 *)arg0 + 0x388)))->set_motion_state(7);
     set_display_mode__15TObjEneSlimeOneFPvi(arg0, 0);
 }
+}
 
 #pragma push
 #pragma opt_common_subs off
@@ -1354,6 +1361,7 @@ void update_effect_fade_lifetime(u8 *arg0) {
     }
 }
 #pragma pop
+extern "C" {
 
 void fn_800E95F4(u8 *arg0) {
     u8 *temp_r3;
@@ -2144,5 +2152,4 @@ s32 TObjEneSlimeOne::try_spawn_child(void *arg1) {
     play_sound_effect(0x4003A619, &pos, 0, 0);
     return spawn_slime_in_slot((void *) origin, i, &pos, &dir);
 }
-
 }

@@ -441,7 +441,9 @@ struct RecoveredGlobal_802E80F4_lbl_8058D4C0 {
 
 extern "C" {
 s32 mult_vec_array__10TObjPlayerFUll(int, void *, void *, int);
+}
 void get_current_matrix(void *m);
+extern "C" {
 f32 subtract_vector(void *, void *);
 s32 transform_point_by_current_matrix(void *, void *);
 s32 push_matrix();
@@ -591,7 +593,6 @@ void TObjPlayer__sub_802E8274(void) {
     }
     boss7_derolle_c_motion_id += 1;
 }
-
 }
 
 #include <stddef.h>
@@ -851,7 +852,9 @@ void set_state_and_send__14TBoss7DeRolLeCFl(u8 *arg0, s32 arg1);
 #define set_state_and_send__14TBoss7DeRolLeCFl ((s32 (*)(void *, int))set_state_and_send__14TBoss7DeRolLeCFl)
 s32 push_ring_point__15TBoss7LaserPtclFPvPv(void *, void *);
 u32 construct_with_params__16TBoss7LaserLightFlll(void *, void *, int, int);
+}
 void calc_laser_ray_hit_point(u8 *arg0, u8 *arg1);
+extern "C" {
 s32 is_state_2__15TBoss7LaserPtclFv(void *);
 u8 *TBoss7LaserPtcl__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 extern s32 boss7_laser_particle_params[];
@@ -903,7 +906,9 @@ extern s32 particle_pos_index_table[];
 extern f32 lbl_804E3E48[];
 void TParticleCtrl__sub_802EC550(PCtrl_802EC550 *o);
 void assign_slots_from_list(void *arg0, s32 arg1);
+}
 void *create_timed_particle_emitter_with_flags(void *pos, s32 id, s32 a, s32 b, s32 c);
+extern "C" {
 
 void TBoss7Tentacle__sub_802F0AD0(void *a0);
 extern Vec_802E8B50 lbl_80473F90[];
@@ -1174,8 +1179,10 @@ void TObjFish__sub_802EC468(s32 arg0, f32 farg0, f32 farg1);
 void TBoss7DeRolLeC__sub_802EC994(void* p);
 void fn_802EC9A4(void *arg0, void *arg1);
 void fn_802EC9F0(void *arg0, void *arg1);
+}
 void handle_6xAA_barba_ray_boss_actions(void *arg0);
 void handle_6xA9_barba_ray_boss_actions(void *arg0);
+extern "C" {
 void TObjFish__sub_802ECBDC(Fish_802ECBDC *self);
 void TObjFish__sub_802ECC44(Fish_802ECC44 *self);
 
@@ -3298,6 +3305,7 @@ void fn_802EC9F0(void *arg0, void *arg1) {
     *(s32 *)((s8 *)arg0 + 0x6B4) = (s32) *(s16 *)((s8 *)arg1 + 6);
     transition_enemy_state(arg0, *(s16 *)((s8 *)arg1 + 4));
 }
+}
 
 void handle_6xAA_barba_ray_boss_actions(void *arg0) {
     void *x;
@@ -3316,6 +3324,7 @@ void handle_6xA9_barba_ray_boss_actions(void *arg0) {
         fn_802EC9F0(x, arg0);
     }
 }
+extern "C" {
 
 void TBoss7DeRolLeC::sub_802ECAA4() {
     if (((Ply_802ECAA4 *)this)->state == 0x1C || ((Ply_802ECAA4 *)this)->state == 0x1D) {
@@ -3425,9 +3434,8 @@ void TBoss7LaserPtcl__sub_802ECE28(u8 *arg0) {
     *(f32 *)((s8 *)arg0 + 0x710) = (f32) ((lbl_805DEA5C * *(f32 *)((s8 *)arg0 + 0x4EC)) + *(f32 *)((s8 *)arg0 + 0x710));
     *(f32 *)((s8 *)arg0 + 0x714) = (f32) ((lbl_805DEA5C * *(f32 *)((s8 *)arg0 + 0x4F0)) + *(f32 *)((s8 *)arg0 + 0x714));
 }
-#pragma pop
-
 }
+#pragma pop
 #undef VecCopy__FP3VecPC3Vec
 
 #define VecCopy__FP3VecPC3Vec ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)

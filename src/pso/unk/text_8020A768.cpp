@@ -21,6 +21,7 @@ extern u8 lbl_8044BBA8[];
 extern Ent_8020A768 *TLobby__map_set_file_buffer;
 extern s32 TLobby__map_set_file_buffer_size;
 void load_object_set_entries__6TLobbyFlPUcUl(s32, Ent_8020A834 *, s32);
+}
 extern u8 lbl_8044BBB0[];
 s32 load_enemy_set_file(s32 idx, s32 arg1) {
     Name_8020A768 name;
@@ -107,8 +108,6 @@ void load_map_set_data(s32 idx, s32 arg1) {
         TLobby__data_805D6134 |= 1;
     }
     copy_name((s32)&lbl_805DC624);
-}
-
 }
 
 struct SpawnRecord_8020A9C4 {

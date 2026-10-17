@@ -10,7 +10,6 @@ struct Inner_80132A5C { char pad8[0x8]; u32 f8; };
 struct Outer_80132A5C { struct Inner_80132A5C *f0; };
 
 struct Outer_80132A5C;
-extern "C" {
 extern s32 lbl_8043ECD4[];
 extern s32 lbl_8043ECE4[];
 extern s32 lbl_8043ECF0[];
@@ -19,6 +18,7 @@ extern s32 lbl_8043ED08[];
 extern int TWindowKeyBoardSoft__text_resource;
 extern int text_language_group_table;
 extern int TWindowKeyBoardSoft__language_text_resources;
+extern "C" {
 s32 begin_render__20TWindowSubStatusDispFl();
 u8 *load_gvm_texture_file(s32 arg0);
 extern s32 lbl_8043EAE8[];
@@ -107,6 +107,7 @@ void TLanguage__ct(s32 arg0) {
     TLanguage::set_entry_index(3, 2);
     TLanguage::set_entry_index(4, 3);
 }
+}
 
 void select_language_text_resources(s32 arg0) {
     switch (arg0) {
@@ -129,6 +130,7 @@ void select_language_text_resources(s32 arg0) {
     (*(s32 *)&TWindowKeyBoardSoft__language_text_resources) = *(s32 *)((s8 *)(*(u8 * *)&TWindowKeyBoardSoft__text_resource) + 0);
     (*(s32 *)&text_language_group_table) = *(s32 *)((s8 *)(*(u8 * *)&TWindowKeyBoardSoft__text_resource) + 4);
 }
+extern "C" {
 
 void *get_global_state__23TAdSinglePlyChrSelectGCFv();
 
@@ -153,5 +155,4 @@ s32 TWindowKeyBoardSoft::set_language(s8 arg0) {
 }
 
 int TLobby__sub_80132EC8(void) { return 1; }
-
 }

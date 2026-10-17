@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void reset_scene_fog(void);
-}
 
 #endif

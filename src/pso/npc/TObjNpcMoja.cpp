@@ -101,8 +101,8 @@ struct VObj_8014C780 : VBase_8014C780 {
     virtual s32 m85(s32, s32);
 };
 
-extern "C" {
 s32 create_named_object(s32 arg0);
+extern "C" {
 u8 *load_gvm_texture_file(s32 arg0);
 extern u32 TObjNpcNFM00__shared_named_model_object;
 extern u32 TObjNpcNFM00__texture_gvm_handle;
@@ -329,5 +329,4 @@ void TObjNpcNFM00::load_assets() {
     TObjNpcNFM00__shared_named_model_object = (u32)create_named_object((s32)lbl_8043FD20);
     TObjNpcNFM00__texture_gvm_handle = (u32)load_gvm_texture_file((s32)lbl_8043FD34);
 }
-
 }

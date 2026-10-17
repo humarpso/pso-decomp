@@ -37,7 +37,9 @@ extern "C" {
 void *find_entity_by_id(u16 id);
 s32 spawn_photon_blast_attachment_effects(void *, int);
 void sub_801AC444__13TPhotonLeillaFv(void *, u8);
+}
 u8 *construct_photon_magic_square_normal(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+extern "C" {
 void TPhotonRainbow__ct(void *, void *, void *, s32);
 u8 *__nw__7TObjectFUl(s32, f32);
 extern u8 lbl_80446DF8[];
@@ -111,7 +113,7 @@ void *TPhotonLeilla__ct(Leilla_801AC808 *self, Pkt_801AC808 *pkt) {
         v.y = v.y + lbl_805DC1C4;
         o = NEW_801AC808(0xD0);
         if (o != NULL) {
-            construct_photon_magic_square_normal((u8 *)o, (s32)self, 4, (s32)&v, 0x78);
+            construct_photon_magic_square_normal((u8 *)o, (s32)self, (s32)(4), (s32)&v, (s32)(0x78));
         }
         spawn_photon_blast_attachment_effects(self, 4);
         play_cue_stream_file((s32)lbl_80446DF8);
@@ -121,5 +123,4 @@ void *TPhotonLeilla__ct(Leilla_801AC808 *self, Pkt_801AC808 *pkt) {
     }
     return self;
 }
-
 }

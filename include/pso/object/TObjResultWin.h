@@ -48,7 +48,7 @@ typedef char ResultRecordField[(offsetof(TObjResultWin,m_result)==0x128)?1:-1];
 
 extern "C" {
 int TObjNewFloorWin__sub_8007410C(void);
-ChallengeResultRecord *copy_challenge_result_record(ChallengeResultRecord *destination, const ChallengeResultRecord *source);
 }
+ChallengeResultRecord *copy_challenge_result_record(ChallengeResultRecord *destination, const ChallengeResultRecord *source);
 
 #endif

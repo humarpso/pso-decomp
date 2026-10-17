@@ -38,6 +38,7 @@ void scroll_strip_uvs(Provider_800F5BC0 *arg0, s16 arg1, s16 arg2) {
         }
     }
 }
+}
 
 void *destroy_buffer_pair(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -50,6 +51,4 @@ void *destroy_buffer_pair(void *arg0, s16 arg1) {
         }
     }
     return arg0;
-}
-
 }

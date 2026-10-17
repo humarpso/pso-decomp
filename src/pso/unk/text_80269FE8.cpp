@@ -5,6 +5,7 @@ extern "C" {
 s32 __nw__7TObjectFUl(int);
 s32 TLobby__sub_80269DA4(void *, int);
 s32 TWindowMessageInfomation__ct(int, void *, void *);
+}
 s32 create_message_information_window(s32 arg0, s32 arg1, s32 arg2) {
   s32 temp_r3_2;
   u8 *temp_r3;
@@ -19,6 +20,4 @@ s32 create_message_information_window(s32 arg0, s32 arg1, s32 arg2) {
   }
   *((s32 *) (((s8 *) temp_r3) + 0x10)) = (s32) ((*((s32 *) (((s8 *) temp_r3) + 0x10))) & 0xFFFFFFDF);
   return phi_r4;
-}
-
 }

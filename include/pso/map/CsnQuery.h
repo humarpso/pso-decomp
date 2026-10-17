@@ -22,9 +22,7 @@ typedef char CsnGroupCenterOffset[offsetof(CsnGroup, center) == 4 ? 1 : -1];
 typedef char CsnGroupRadiusOffset[offsetof(CsnGroup, radius) == 0x10 ? 1 : -1];
 typedef char CsnGroupFlagsOffset[offsetof(CsnGroup, flags) == 0x14 ? 1 : -1];
 
-extern "C" {
 CsnGroup* select_ground_query_groups(CsnVector* origin, u32 mask);
-}
 
 extern "C" {
 void TObjPlayer__sub_80079108(void);
@@ -39,10 +37,10 @@ s32 *csnLookAt(s32 arg0, s32 arg1);
 s32 *csnVecterUnder(s32 origin, s32 mask);
 s32 *csnVectorUnder(s32 arg0, u32 *arg1, s32 arg2);
 s32 get_csn_group_flags(u8 arg0);
+}
 s32 prepare_wall_query_polygons(void *arg0, f32 r, s32 mask);
 void *query_prepared_wall_polygons(void *self);
 s32 query_wall_segment(void *arg0, void *arg1, void *arg2, s32 arg3);
 CsnGroup *select_ground_query_groups(CsnVector *origin, u32 mask);
-}
 
 #endif

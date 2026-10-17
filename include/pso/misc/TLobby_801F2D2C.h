@@ -26,12 +26,16 @@ int TLobby__sub_801F3708(void);
 void TMainTask__sub_801F34D0(u8 *arg0);
 s32 *TObjItemOKWindow__sub_801F3268(void);
 void bswap_header__6TLobbyFPv(void *p);
+}
 void build_6x77_sync_quest_register(void *p);
 s32 dispatch_quest_opcode(void);
+extern "C" {
 int fn_801F3480(void *p);
 int fn_801F34A0(void *p);
 s32 fn_get_field_3ac(void *p);
+}
 s32 get_field_d4(void *p);
+extern "C" {
 int set_flag_4__6TLobbyFPv(void *p);
 }
 

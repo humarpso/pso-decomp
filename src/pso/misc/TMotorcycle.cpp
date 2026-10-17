@@ -40,7 +40,9 @@ extern "C" {
 s32 get_state_flag__9TMainTaskFv(void);
 s32 get_bml_model(void *, int);
 void func_80141618__Fv(void);
+}
 void rotate_matrix_yxz(s32 matrix, s32 arg1, s32 arg2, s32 arg3);
+extern "C" {
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);

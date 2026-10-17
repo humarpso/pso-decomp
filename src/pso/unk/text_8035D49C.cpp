@@ -20,6 +20,7 @@ u8 *fn_8035D49C(u8 *arg0, u8 *arg1, s32 _w2) {
     ((TObjPlayer *)arg0)->set_status_flags(0x8000);
     return arg0;
 }
+}
 
 u8 *alloc_and_init_obj_effect(u8 *arg0) {
     u8 *temp_r3;
@@ -33,6 +34,4 @@ u8 *alloc_and_init_obj_effect(u8 *arg0) {
         return var_r0;
     }
     return NULL;
-}
-
 }

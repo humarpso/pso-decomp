@@ -35,7 +35,9 @@ s32 reset_equip_slots__10TObjPlayerFv();
 void *get_player_by_client_id(s32 i);
 void *get_com_card_list__6TLobbyFPv(void *p);
 s32 text_builder_append();
+}
 void text_builder_reset(void);
+extern "C" {
 s32 __ct__7TObjectFP7TObject();
 void TObjPlayer__sub_8024ABDC(s32 arg0);
 void fn_8024AC64(s32 arg0);
@@ -199,5 +201,4 @@ u8 *TWindowGetComCard__ct(TWindowGetComCard *arg0) {
     arg0->m_24 = 0;
     return (u8 *)arg0;
 }
-
 }

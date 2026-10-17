@@ -6,7 +6,9 @@ struct G_801E2DE4 { u8 pad[0xC]; void (*draw)(); };
 extern "C" {
 void bind_motion_context(s32);
 void prepare_ginja_model(G_801E2DE4 *);
+}
 void end_ginja_model_draw();
+extern "C" {
 void draw_ginja_model_lists();
 extern void *model_draw_context;
 s32 GXLoadNrmMtxImm(s32 *, s32);
@@ -83,5 +85,4 @@ void TObjPlayer::render_matrix_chain(void *arg0) {
         var_r31 = *(void **)((s8 *)var_r31 + 0x30);
     } while (var_r31 != NULL);
 }
-
 }

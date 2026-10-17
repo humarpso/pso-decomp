@@ -41,7 +41,9 @@ extern "C" {
 s32 get_shared_text_buffer();
 void *get_player_by_client_id(s32 i);
 s32 text_builder_append();
+}
 void text_builder_reset(void);
+extern "C" {
 s32 get_window_layout_position(int);
 s32 free_member__17TWindowSubComCardFv(int, int);
 void open_yes_no_prompt(TChCrTagPlBack *arg0, u32 arg1, s32 arg2, s32 arg3, f32 farg0);
@@ -80,5 +82,4 @@ s32 TWindowSubTrade::open_player_message_window(s32 arg1, s32 arg2) {
     ((TLobby *)r)->send_and_handle(get_shared_text_buffer(), 0x82);
     return r;
 }
-
 }

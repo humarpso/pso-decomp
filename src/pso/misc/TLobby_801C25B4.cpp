@@ -378,7 +378,9 @@ void queue_destruction__7TObjectFv(void *arg0);
 s32 check_value_equals__13TUnk_804B6C24Fl(void *, s32);
 extern s32 lbl_805D2A98;
 s32 obj_getField1c();
+}
 void reset_cameras_to_actor(void *actor, s32 arg1);
+extern "C" {
 s32 TObjPlayer__send_selected_spawn_position(s32, u16);
 extern u16 battle_mode_data_table[];
 extern s32 tl_05;
@@ -586,7 +588,6 @@ void TPlayerBattleCtrl::init_battle_round() {
     TLobby__battle_team_table[i] = 1;
   }
 }
-
 }
 
 #pragma pop

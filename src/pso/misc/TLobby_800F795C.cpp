@@ -128,24 +128,28 @@ struct RecoveredGlobal_800F7A7C_lbl_8048C9D8 {
     u8 remaining[0x744];
 };
 
-extern "C" {
 extern RecoveredGlobal_800F7A6C_lbl_804DB1F0 lbl_804DB1F0;
 extern RecoveredGlobal_800F7A7C_lbl_8048C9D8 challenge_mode_state;
+extern "C" {
 s32 is_area_transfer_pending();
 int read_be16_field2__10TObjPlayerFv(void*);
 
 void TLobby::bswap_field() { read_be16_field2__10TObjPlayerFv(this); bswap_32((u32 *)((char*)this + 0x4)); }
 void TLobby::broadcast_state() { bswap_field(); TLobby__send_and_handle_60((u8 *)this); }
+}
 
 void init_6x9C_enemy_low_game_flags_packet(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 4) = 0;
     *(u8 *)((s8 *)arg0 + 0) = 0x9C;
     *(s8 *)((s8 *)arg0 + 1) = 2;
 }
+extern "C" {
 
 void TLobby::bswap_enemy_state() { read_be16_field2__10TObjPlayerFv(this); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); }
+}
 void send_6x0A_enemy_state_packet(void* p) { ((TLobby *)p)->bswap_enemy_state(); TLobby__send_and_handle_60((u8 *)p); }
 void init_6x0A_enemy_state_packet(void* p) { *(u8*)((char*)p + 0x0) = 10; *(u8*)((char*)p + 0x1) = 3; }
+extern "C" {
 int get_attack_credit_slot_count(void) { return 4; }
 
 typedef char RecoveredGlobal_800F7A6C_lbl_804DB1F0_size[sizeof(RecoveredGlobal_800F7A6C_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
@@ -156,6 +160,7 @@ f32 TLobby__sub_800F7A6C(void) {
 typedef char RecoveredGlobal_800F7A7C_lbl_8048C9D8_size[sizeof(RecoveredGlobal_800F7A7C_lbl_8048C9D8) == 0x748 ? 1 : -1];
 f32 TLobby__sub_800F7A7C(void) {
     return *(f32 *)((s8 *)&challenge_mode_state.value + 4);
+}
 }
 
 void unload_floor_resources(s32 arg0) {
@@ -194,6 +199,7 @@ void unload_current_floor_resources(void) {
 s32 load_current_floor_resources(void) {
     return load_floor_resources(TOKeyMachine01::get_global_state());
 }
+extern "C" {
 
 void load_resources__12TBoss1DragonFv();
 void TBoss8Dragon__sub_80065C90();
@@ -427,6 +433,7 @@ FloorResourceCallbacks floor_resource_callbacks_selector_33[6] = {
 __declspec(section ".data") FloorResourceCallbacks floor_resource_callbacks_selector_15[1] = {
     { 0, 0 },
 };
+}
 
 FloorResourceCallbacks floor_resource_callbacks_selector_16[10] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
@@ -642,4 +649,3 @@ FloorResourceCallbacks* floor_resource_callback_tables[36] = {
     floor_resource_callbacks_selector_34,
     floor_resource_callbacks_selector_35,
 };
-}

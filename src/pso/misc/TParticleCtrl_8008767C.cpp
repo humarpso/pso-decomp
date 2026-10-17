@@ -123,11 +123,13 @@ u8 *load_gvm_texture_file(s32 arg0);
 int sprintf(char *, const char *, ...);
 char *strcpy(char *, const char *);
 void *memset(void *, int, u32);
+}
 void load_particle_entry_resources(void);
 extern char lbl_80439494[];
 extern char lbl_804394A4[];
 extern char lbl_804394BC[];
 extern char lbl_804394D4[];
+extern "C" {
 s32 is_split_screen();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 extern u8 *camera_ctrl_instance;
@@ -600,6 +602,7 @@ s32 TParticleCtrl::get_particle_by_index(s32 arg0) {
     }
     return (*(s32 *)&particle_global_entry_table) + (arg0 * 0x98);
 }
+}
 
 void load_particle_entry_resources(void) {
     char name[0x20];
@@ -624,6 +627,7 @@ void load_particle_entry_resources(void) {
     TParticleCtrl__regular_bml_resource = (u32)p;
     TParticleCtrl__texture_list = (u32)load_gvm_texture_file((s32)lbl_804394D4);
 }
+extern "C" {
 
 __declspec(section ".rodata") extern char lbl_80439494[] = "particleentrya";
 __declspec(section ".rodata") extern char lbl_804394A4[] = "particleentrya0%d.dat";

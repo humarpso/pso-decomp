@@ -225,6 +225,7 @@ s32 test_box_sphere_contact(CollisionPoint* box,CollisionSphere* sphere) {
 
 __declspec(section ".sdata2") extern const f64 lbl_805E1040;
 __declspec(section ".sdata2") extern const f64 lbl_805E1048;
+}
 
 
 s32 spheres_overlap(u8 *arg0, u8 *arg1) {
@@ -243,6 +244,7 @@ s32 spheres_overlap(u8 *arg0, u8 *arg1) {
 
 #pragma push
 #pragma scheduling off
+extern "C" {
 f32 project_point_onto_line(V_803E18C0 *p, Line_803E18C0 *l, V_803E18C0 *out) {
     f32 t;
     f32 x;
@@ -330,6 +332,7 @@ void TObjPlayer::calc_bounds(u8 *arg1, u8 *arg2) {
     *(f32 *)((s8 *)arg2 + 4) = (f32) (*(f32 *)((s8 *)arg0 + 4) + *(f32 *)((s8 *)arg0 + 0xC));
     *(f32 *)((s8 *)arg2 + 8) = (f32) (*(f32 *)((s8 *)arg0 + 8) + *(f32 *)((s8 *)arg0 + 0xC));
 }
+}
 
 
 extern s8 scene_fog_enable_flag;
@@ -374,6 +377,7 @@ void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map) {
     }
     GXLoadTexObj(&list_texture_tex_obj, list_texture_map_table[map]);
 }
+extern "C" {
 
 void TObjPlayer::reload_texture(s32 arg1, u32 arg2, void *arg3) {
     s32 size;
@@ -393,5 +397,4 @@ void TObjPlayer::set_effect_active() {
 void TObjPlayer::reset_particle_counter() {
     scene_fog_enable_flag = 0;
 }
-
 }

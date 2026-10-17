@@ -45,10 +45,10 @@ f32 xyz_distance(Vec_80199674*,void*);
 f32 vector_length(Vec_8019978C*);
 void normalize_vector(Vec_8019978C*);
 s32 reflect_velocity_off_collision(Obj_8019978C*,Vec_8019978C*,Vec_8019978C*);
+}
 void draw_shadow_on_ground(u8*);
 extern void* lbl_804B8D94[];
 extern void* lbl_804B8DA0[];
-}
 
 struct Vec_80198A2C { f32 x, y, z; };
 
@@ -336,11 +336,13 @@ struct Col_801994DC { f32 r, g, b, a; };
 
 struct Ang_801994DC { s32 x, y, z; };
 
-extern "C" {
 extern s32 lbl_804B8E00[];
+extern "C" {
 u8 *TWindowTimer__sub_80199410(u8 *arg0, u8 *arg1);
+}
 void handle_6x79_gogo_ball(u8 *arg0);
 void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
+extern "C" {
 s32 rotate_matrix_y(int, s32);
 s32 rotate_matrix_z(int, int);
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
@@ -538,6 +540,7 @@ u8 *TWindowTimer__sub_80199410(u8 *arg0, u8 *arg1) {
     TWindowTimer::set_timer_value(0, 0);
     return arg0;
 }
+}
 typedef char RecoveredGlobal_80199470_lbl_8050DDAC_size[sizeof(RecoveredGlobal_80199470_lbl_8050DDAC) == 0x1C ? 1 : -1];
 void handle_6x79_gogo_ball(u8 *arg0) {
     bswap_6x79_gogo_ball__12TWindowTimerFi();
@@ -549,6 +552,7 @@ void handle_6x79_gogo_ball(u8 *arg0) {
     *(u8 *)((s8 *)(&(*(RecoveredGlobal_80199470_lbl_8050DDAC *)&gogo_ball_sync_state).value) + 0x18) = (u8) *(u8 *)((s8 *)arg0 + 0x14);
     *(s32 *)((s8 *)(&(*(RecoveredGlobal_80199470_lbl_8050DDAC *)&gogo_ball_sync_state).value) + 0x14) = (s32) *(s32 *)((s8 *)arg0 + 4);
 }
+extern "C" {
 void TObjPlayer__sub_801994DC(s32 arg0, void *arg1, void *arg2, s32 arg3, void *arg4, f32 farg0) {
     Ang_801994DC ang;
     Col_801994DC col;
@@ -608,6 +612,7 @@ struct Hit_80199674 { u32 f0; Seg_80199674 *seg; };
 s32 copy_vec4__13TRaderMapCoreFPv(void *, void *);
 s32 *csnVectorUnder(s32 arg0, u32 *arg1, s32 arg2);
 f32 xyz_distance(Vec_80199674 *, void *);
+}
 extern u8 saved_model_draw_color[];
 extern u8 model_material_color[];
 
@@ -644,8 +649,6 @@ void draw_shadow_on_ground(u8 *arg0) {
     }
 }
 #pragma pop
-
-}
 
 struct Vec_8019978C { f32 x, y, z; };
 
@@ -751,7 +754,9 @@ struct Color_80199A44 { f32 a, r, g, b; };
 struct Glob_80199A44 { u8 pad[0x1C]; f32 scale; u8 pad20[0x28]; u16 kind; };
 
 s32 get_bml_model(void *, s32);
-void direction_to_rotation_yx(void *, void *, void *);
+}
+void direction_to_rotation_yx(u8 *arg0, s32 *arg1, s32 *arg2);
+extern "C" {
 s32 approach_angle_limited(int, int, int);
 s32 matrix_mult_vec(int, void *, void *);
 s32 scale_matrix(int, f32, f32, f32);
@@ -787,7 +792,7 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
     VecCopy((Vec *)&dir, (const Vec *)(arg0 + 0x344));
     dir.y = 0.0f;
     len = vector_length(&dir);
-    direction_to_rotation_yx(&dir, arg0 + 0x60, arg0 + 0x64);
+    direction_to_rotation_yx((u8 *)&dir, (s32 *)(arg0 + 0x60), (s32 *)(arg0 + 0x64));
     F(s32, 0x334) = (u16)F(s32, 0x334);
     F(s32, 0x60) = (u16)F(s32, 0x60);
     if (0.0f != len) {
@@ -874,7 +879,6 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
     model_render_flags = lbl_805D5660;
     draw_shadow_on_ground(arg0);
 }
-
 }
 
 #undef rotate_matrix_y
@@ -952,10 +956,12 @@ void TWindowTimer__sub_8019A6F8(void* p);
 int close_timer_window__11TWindowCtrlFv(void*);
 int TWindowTimer__sub_8019A770(void* p);
 u8 * construct_actor_base__10TObjPlayerFPvPv(void *);
+}
 extern s32 lbl_804B8E18[];
 void add_gogo_ball_three_point_score(s32 i);
 void add_gogo_ball_one_point_score(s32 i);
 void init_6x40_walk_packet(void *cmd);
+extern "C" {
 void *get_player_by_client_id(s32 i);
 extern s32 local_client_id;
 void TWindowTimer__sub_8019A098(void);
@@ -1133,6 +1139,7 @@ void *TUnk_804B8E18::destroy_player_obj(s16 arg1) {
     }
     return this;
 }
+}
 
 extern "C" {
 
@@ -1204,8 +1211,6 @@ void add_gogo_ball_one_point_score(s32 i) {
 }
 
 int TWindowTimer__sub_8019A770(void* p) { return close_timer_window__11TWindowCtrlFv(p); }
-
-}
 
 }
 

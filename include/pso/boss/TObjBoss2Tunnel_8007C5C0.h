@@ -5,7 +5,7 @@
 
 extern "C" {
 void TObjBoss2Tunnel__sub_8007CAE8(u32 arg0);
-s32 save_screen_snapshot(void);
 }
+s32 save_screen_snapshot(void);
 
 #endif

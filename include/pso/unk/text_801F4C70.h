@@ -5,7 +5,7 @@
 
 extern "C" {
 s32 *fn_801F4C98(void);
-s32 get_selected_entry_value(void);
 }
+s32 get_selected_entry_value(void);
 
 #endif

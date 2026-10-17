@@ -298,7 +298,9 @@ struct Lim_8014854C { u8 pad0[8]; s32 lim; };
 extern "C" {
 s32 approach_angle_limited(s32, s32, s32);
 f32 calc_boss4_scale__10TObjPlayerFi();
+}
 void move_with_wall_slide(u8 *arg0);
+extern "C" {
 void enemy_set_heading_velocity(TObjEnemy *arg0, s32 arg1, f32 farg0);
 void select_enemy_destination(void *, void *, s32);
 void enemy_turn_toward_dest(void *, s32);
@@ -319,7 +321,9 @@ extern const f32 lbl_805DB1DC;
 u16 obj_getField1c(void *);
 f64 atan2_float(f32, f32);
 s32 queue_destruction__7TObjectFv(void *);
-u32 create_conversation_camera(int);
+}
+u8 *create_conversation_camera(s32 arg0);
+extern "C" {
 s32 end_conversation_camera(void);
 s32 begin_conversation_camera(void);
 s32 angle_difference_abs(s32, s32);
@@ -455,27 +459,27 @@ void TObjNpcBase::update_conversation() {
         if (TRaderMapCore::is_not_split_screen() == 0) {
             switch (F(s32, 0x3AC)) {
             case 0x3E9:
-                F(u32, 0x3B4) = create_conversation_camera(7);
+                F(u32, 0x3B4) = (u32)create_conversation_camera(7);
                 TCameraCtrl::update_battle_camera();
                 break;
             case 0x3EA:
-                F(u32, 0x3B4) = create_conversation_camera(9);
+                F(u32, 0x3B4) = (u32)create_conversation_camera(9);
                 TCameraCtrl::update_battle_camera();
                 break;
             case 0x3EB:
-                F(u32, 0x3B4) = create_conversation_camera(8);
+                F(u32, 0x3B4) = (u32)create_conversation_camera(8);
                 TCameraCtrl::update_battle_camera();
                 break;
             case 0x41A:
-                F(u32, 0x3B4) = create_conversation_camera(0x11);
+                F(u32, 0x3B4) = (u32)create_conversation_camera(0x11);
                 TCameraCtrl::update_battle_camera();
                 break;
             case 0x41B:
-                F(u32, 0x3B4) = create_conversation_camera(0x12);
+                F(u32, 0x3B4) = (u32)create_conversation_camera(0x12);
                 TCameraCtrl::update_battle_camera();
                 break;
             case 0x41F:
-                F(u32, 0x3B4) = create_conversation_camera(0x13);
+                F(u32, 0x3B4) = (u32)create_conversation_camera(0x13);
                 TCameraCtrl::update_battle_camera();
                 break;
             default:
@@ -639,8 +643,7 @@ void TObjNpcBase::vfunc_59() {
 }
 
 void TObjNpcBase::vfunc_83() {  }
-
- }
+}
 
 void TObjNpcBase::vfunc_58() {
     if (mode != 0) {

@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void load_green_door_resources(void);
-}
 
 #endif

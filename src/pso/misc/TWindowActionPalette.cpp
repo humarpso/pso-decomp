@@ -47,8 +47,10 @@ struct Ent_80243968 { u8 pad[0x2c]; s32 color; };
 
 extern "C" {
 void* get_array_entry__13TUnk_804CE018Fi(TWindowActionPalette*,int);
+}
 void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1);
 extern float TWindowActionPalette__bank_panel_uv_origins[][2];
+extern "C" {
 s32 is_split_screen();
 s32 fn_8002AE08(s32);
 s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);

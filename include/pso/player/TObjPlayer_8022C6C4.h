@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void create_technique_charge_light(u32 kind, void *owner);
-}
 
 #endif

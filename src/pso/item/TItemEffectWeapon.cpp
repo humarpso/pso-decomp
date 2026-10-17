@@ -8,8 +8,10 @@
 extern "C" {
 s32 get_mode__11TCameraCtrlFPv(void *p);
 void restore_saved_depth_alpha_state();
+}
 void reset_player_transform();
 void draw_untextured_trail_strip(void *arg0, void *arg1);
+extern "C" {
 void TObjPlayer__sub_803DF768(s32);
 void set_flag_9__7TObjectFv(void*);
 void *mem_alloc(u32 size);
@@ -44,7 +46,6 @@ void *__dt__13TUnk_804F28E0Fv(void *arg0, s16 arg1) {
 
 void TItemEffectWeapon__sub_8036340C(void) {  }
 void TItemEffectWeapon__sub_80363410(void) {  }
-
 }
 
 void TItemEffectWeapon::run_task() {

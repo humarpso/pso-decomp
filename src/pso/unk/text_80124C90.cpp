@@ -24,7 +24,9 @@ struct Me_80124C90 { u8 pad0[0xF0]; Pl_80124C90 *pl; u8 padf4[0x1E4 - 0xF4]; f32
 extern "C" {
 s16 obj_getField1c(void *);
 Hit_80124C90 *csnVector(void *, void *, int);
+}
 void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3);
+extern "C" {
 void create_lavis_shot(void *, void *, void *, f32);
 f32 *get_weapon_range_record(void *, s32);
 f32 query_extended_state__10TObjPlayerFv(void *);
@@ -116,5 +118,4 @@ void TUnk_804A2260::sub_80124C90() {
         }
     }
 }
-
 }

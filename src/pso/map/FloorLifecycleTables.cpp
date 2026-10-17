@@ -119,11 +119,15 @@
 extern "C" {
 void TMainCursor__sub_80154090();
 void TMainCursor__sub_80154094();
+}
 void load_chat_sensor();
+extern "C" {
 void fn_8015C5F8();
 void TODummyKeyCave01__sub_80165E88();
 void TODummyKeyCave01__sub_80165E8C();
+}
 void load_turiten_singo_resources();
+extern "C" {
 void TOSwitchAttack__sub_80177C20();
 void TOSwitchAttack__sub_80177C24();
 void TOSwitchItem__sub_80178080();
@@ -131,37 +135,52 @@ void TOSwitchItem__sub_80178084();
 void TOSwitchTimer__sub_80178584();
 void TOSwitchTimer__sub_80178588();
 void fn_8017F45C();
+}
 void load_city_common_resources();
 void load_computer_resources();
+extern "C" {
 void load_forest_box_resources();
 void TContainerAncient01R__sub_8018AF74();
 void TObjDoorJung__sub_8018F4AC();
+}
 void load_lazer_fence_norm_resources();
+extern "C" {
 void TLazerFenceSw__sub_80193C5C();
 void fn_8019AD50();
 void fn_8019B09C();
 void fn_8019B0D4();
+}
 void load_forest_warp_resources();
+extern "C" {
 void TObjFish__sub_8019F72C();
+}
 void free_warp_jung_beam_resources();
 void load_warp_beam_resources();
+extern "C" {
 void TObjWarpLobby__sub_801A0B38();
 void destroy_quest_obj__12TQuestThreadFv();
+}
 void load_area_dialogue_script();
 void load_green_door_resources();
 void load_labo_door_resources();
+extern "C" {
 void TLanguage__sub_8029FF0C();
 void TLanguage__sub_802A0204();
+}
 void load_bg_lightning();
+extern "C" {
 void TObjPlayer__sub_802C2900();
 void fn_802C99D8();
 void fn_8030B7B4();
 void fn_8030B7B8();
 void fn_803516F8();
+}
 void free_object_table();
+extern "C" {
 void fn_803653A4();
 void TObjParticleLobby__sub_80369A60();
 void TObjParticleLobby__sub_80369A64();
+}
 
 FloorLifecycleEntry floor_lifecycle_callbacks_floor_00[12] = {
     { load_area_dialogue_script, destroy_quest_obj__12TQuestThreadFv },
@@ -1082,4 +1101,3 @@ FloorLifecycleEntry* floor_lifecycle_callback_tables[36] = {
     floor_lifecycle_callbacks_floor_34,
     floor_lifecycle_callbacks_floor_35,
 };
-}

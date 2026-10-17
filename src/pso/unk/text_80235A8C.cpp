@@ -9,6 +9,7 @@ extern "C" {
 s32 update_technique_slot__10TTecRaFoieFl(int, void *, int);
 s32 play_sound_effect(int, void *, int, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
+}
 extern RecoveredGlobal_80235A8C_lbl_804CCA78 lbl_804CCA78;
 u8 *construct_timed_sound_voice(u8 *arg0, s32 arg1, s16 arg2, s32 arg3, s32 arg4, s32 arg5) {
     s32 handle;
@@ -23,6 +24,4 @@ u8 *construct_timed_sound_voice(u8 *arg0, s32 arg1, s16 arg2, s32 arg3, s32 arg4
         update_technique_slot__10TTecRaFoieFl((int)handle, (void *)arg4, 0);
     }
     return arg0;
-}
-
 }

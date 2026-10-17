@@ -95,7 +95,9 @@ extern const f32 TObjCamera__data_805DBB58;
 extern const f32 lbl_805DBB68;
 extern const f32 lbl_805DBB6C;
 void run_task__10TObjCameraFv(Obj_8017F910 *self);
-void rotate_matrix_yxz(int, int, int, int);
+}
+void rotate_matrix_yxz(s32 matrix, s32 arg1, s32 arg2, s32 arg3);
+extern "C" {
 void scale_matrix(int, f32, f32, f32);
 void draw_ginja_object(int);
 void set_color_blend_mode(int, int, int, int, s32, s32);
@@ -285,5 +287,4 @@ void TObjChip__vt10(u8 *arg0) {
         }
     }
 }
-
 }

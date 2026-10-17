@@ -3,6 +3,7 @@
 
 extern "C" {
 s32 memmove(s32, s32, s32);
+}
 
 u8 prs_read_byte_at(u8 *arg0, u32 arg1) {
     u32 temp_r4;
@@ -33,6 +34,4 @@ s32 prs_next_output_byte(void *arg0) {
     *((u32 *) (((s8 *) arg0) + 0x1C)) = (u32) ((temp_r3 + 1) & 0xFFFFFFFFFFFFFFFFu);
     return base + temp_r3;
   }
-}
-
 }

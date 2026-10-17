@@ -62,7 +62,9 @@ s32 get_shared_text_buffer(s32);
 s32 *TWindowDuelResult__sub_801C257C(void);
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 s32 text_builder_append(s32);
+}
 void text_builder_reset(void);
+extern "C" {
 void refresh_status_display__9TWindowDDFv(void *);
 extern u8 lobby_rule_settings[];
 void sub_8024F094__17TWindowDuelResultFv(Win_8024F094 *self);
@@ -328,5 +330,4 @@ u8 *TWindowDuelResult__ct(u8 *arg0_, s16 arg1) {
     TWindowDuelResult__sub_8024F3CC(arg0_);
     return arg0_;
 }
-
 }

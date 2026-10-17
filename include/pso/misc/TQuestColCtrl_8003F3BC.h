@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void clear_volopt_cage_flag(void);
-}
 
 #endif

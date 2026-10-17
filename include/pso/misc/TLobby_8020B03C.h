@@ -5,7 +5,7 @@
 
 extern "C" {
 s32 TLobby__sub_8020B308(void);
-void clear_map_set_data(void);
 }
+void clear_map_set_data(void);
 
 #endif

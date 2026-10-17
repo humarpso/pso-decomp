@@ -1,6 +1,7 @@
 #include "types.h"
 extern "C" {
 s32 validate_subcommand_client(void *packet);
+}
 s32 validate_technique_parameters(void *parameters);
 s32 validate_cast_target_entry(void *entry);
 s32 validate_6x47_cast_technique(u8 *packet);
@@ -18,6 +19,4 @@ s32 validate_6x47_cast_technique(u8 *packet) {
         }
     }
     return 1;
-}
-
 }

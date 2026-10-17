@@ -3,6 +3,7 @@
 
 extern "C" {
 s32 is_valid_technique_id__10TObjPlayerFs(s32);
+}
 
 s32 validate_technique_parameters(void *parameters) {
     s8 b3;
@@ -22,6 +23,7 @@ s32 validate_technique_parameters(void *parameters) {
 s32 validate_cast_target_entry(void *parameters) {
     return ((u32) *(s16 *)((s8 *)parameters + 2) >> 0x1FU) ^ 1;
 }
+extern "C" {
 
 s32 validate_6x46_attack_finished(G_ClientIDHeader *packet) {
     if (validate_subcommand_client(packet) == 0) {

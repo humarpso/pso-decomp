@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void yasminkov_9000m_node_callback(void *p);
-}
 
 #endif

@@ -111,7 +111,9 @@ extern s32 item_appraisal_score;
 void adjust_appraisal_special(Obj_8021599C *obj);
 void adjust_appraisal_percentages(Obj_80215720 *arg0);
 void *mem_alloc(u32 size);
+}
 s32 get_guild_text(s32);
+extern "C" {
 void render_screen_overlay__9TMainTaskFv(void *);
 void some_empty_func__9TMainTaskFv(void *);
 void run_all_lists__9TMainTaskFv(void *);
@@ -441,5 +443,4 @@ bool TLobby::is_slot_match() {
     u8 *arg0 = (u8 *)this;
     return *(u8 *)((s8 *)arg0 + 1) == *(s32 *)((s8 *)&section_id_favored_grind_table.value + (lbl_805D6238 * 4));
 }
-
 }

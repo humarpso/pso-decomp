@@ -19,7 +19,9 @@ void fn_802A5CC4(u8 *arg0, s32 arg1);
 void fn_802A6070(void *p, s32 v);
 void fn_802A6078(void *p, s32 v);
 s32 init__15TWindowSnapShotFPvi(TWindowSnapShot *arg0, s32 arg1);
+}
 s32 rlc_get_chunk_count(s32 arg0);
+extern "C" {
 int rlc_get_directory_offset(void *arg0);
 }
 

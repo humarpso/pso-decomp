@@ -109,8 +109,10 @@ extern RecoveredGlobal_802CE68C_lbl_804724A8 player_sub_802ce68c_zero_vec;
 extern RecoveredGlobal_802CE68C_lbl_8058D490 identity_matrix;
 extern s32 anim_model_matrix_array;
 s32 update_player_state__9TObjEneDDFv(void *, Vec_802CE740 *, int);
-s32 restore_default_scene();
-s32 set_scene_override(int);
+}
+void restore_default_scene(void);
+void set_scene_override(u8 scene);
+extern "C" {
 s32 push_matrix();
 extern Vec_802CE740 lbl_8047249C;
 extern const f32 lbl_805DE700;
@@ -314,5 +316,4 @@ void TObjEneBm9Mericarol::render() {
         (*self->f24)[8] = s2;
     }
 }
-
 }

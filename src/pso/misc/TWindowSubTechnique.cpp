@@ -33,8 +33,8 @@ struct Tech_802870C4 {
 
 struct Pad_802870C4 { u8 pad[0x20]; u8 m20[0x30]; };
 
-extern "C" {
 extern u8 *text_language_group_table;
+extern "C" {
 s32 TWindowSubTechnique__sub_8028753C(s32 arg0);
 u8 *calc_technique_parameters(s16, u8, s32);
 s32 *get_shared_text_buffer();
@@ -43,9 +43,13 @@ s32 get_cast_technique_level(void *, int);
 s32 validate_and_clear_slot__10TObjPlayerFv(void *, int);
 void TWindowSubStatusDisp__sub_80228F5C(s32 arg0);
 void text_builder_append(u8 *str);
+}
 void text_builder_reset(void);
+extern "C" {
 s32 get_help_text_string(s32 arg0);
+}
 void toggle_help_window_on_button(u32 arg0, s32 arg1);
+extern "C" {
 s32 send_and_handle__6TLobbyFii(int, void *, int);
 extern s32 lbl_805DD83C;
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
@@ -73,7 +77,9 @@ s32 align_menu_entry_positions(s32);
 s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
+}
 s32 create_titled_window_menu(s32, s32, s32, s32);
+extern "C" {
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
 
@@ -252,5 +258,4 @@ s32 TWindowSubTechnique__sub_8028753C(s32 arg0) {
 
 void TWindowSubTechnique::clear_flag70_bit80() { *(u16*)((char*)this + 0x70) &= 0xffffff7f; }
 void TWindowSubTradeMain::clear_trade_flag() { this->m_70 &= 0xffffffbf; }
-
 }

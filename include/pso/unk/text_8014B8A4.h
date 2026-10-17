@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 u8 *construct_male_npc_base(u8 *arg0);
-}
 
 #endif

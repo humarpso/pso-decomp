@@ -85,11 +85,11 @@ struct VObj_8010A26C : Base_8010A26C {
     virtual s32 m63(s32, s32 *);
 };
 
-extern "C" {
 int get_item_system_generation(void);
 extern const s32 lbl_8043E280[];
 extern const s32 lbl_8043E2A0[];
 extern s32 __vt__13TUnk_8049F130[];
+extern "C" {
 s32 TObjPlayer__sub_8010A058(void* p);
 void *__dt__13TUnk_8049F130Fv(void *arg0, s16 arg1);
 s32 get_field_3e0__12TBoss3VoloptFv();
@@ -158,6 +158,7 @@ void *__dt__13TUnk_8049F130Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 }
+
 TUnk_8049F130::TUnk_8049F130(TObject *parent, s16 a, u8 b) : TObject(parent) {
     ((Obj_8010A1D0 *)this)->f_1C = 0;
     ((Obj_8010A1D0 *)this)->f_20 = lbl_8043E2A0[(b - 0x53) % 8];

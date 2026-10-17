@@ -12,8 +12,10 @@ s32 TWindowCtrlMain__sub_8024CDD0(s32 arg0);
 s32 TWindowCtrlMain__sub_8024CE24(void);
 s32 TWindowCtrlMain__sub_8024CE34(void);
 bool TWindowCtrlMain__sub_8024CE58(void);
+}
 void draw_menu_backdrop_gradients(s32 viewport_index);
 WindowControlState *get_window_control_state(s32 viewport_index);
+extern "C" {
 s32 is_window_display_enabled(void);
 }
 

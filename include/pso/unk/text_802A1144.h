@@ -5,7 +5,7 @@
 
 extern "C" {
 unsigned char get_opening_movie_purpose(void);
-void set_opening_movie_purpose(int a0);
 }
+void set_opening_movie_purpose(int a0);
 
 #endif

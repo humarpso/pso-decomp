@@ -89,6 +89,7 @@ s32 TObjEneRecon::push_reflect_matrix() {
     }
     return temp_r3;
 }
+}
 
 void restore_render_scissor(s32 arg0) {
     if ((u16) scene_sora_reflect_active != 0) {
@@ -100,6 +101,7 @@ void restore_render_scissor(s32 arg0) {
 }
 
 extern u32 scene_sora_instance;
+extern "C" {
 
 s32 TObjEneRecon__sub_8029EA4C(void *arg0, s32 _w1) {
     Vec_8029EA4C v;
@@ -132,7 +134,6 @@ void TObjEneRecon::notify_scene(s32 arg0) {
         }
     }
 }
-
 }
 
 #include "pso/player/TObjPlayer.h"

@@ -2,6 +2,7 @@
 #include "pso/unk/text_80121E94.h"
 extern "C" {
 u32 create_shoot_model__10TObjPlayerFUiiif();
+}
 long belra_cannon_create_shot(u8 *arg0) {
   s32 temp_r4;
   u8 *temp_r6;
@@ -19,6 +20,4 @@ long belra_cannon_create_shot(u8 *arg0) {
       }
     }
   }
-}
-
 }

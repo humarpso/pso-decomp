@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void process_pending_resources(void);
-}
 
 #endif

@@ -51,7 +51,9 @@ void draw_ginja_box_tree(void);
 extern void *container_breakup_model_archive;
 extern s32 lbl_805D5B8C;
 void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
+}
 void play_container_break_sound(s32 arg0);
+extern "C" {
 void *__nw__7TObjectFUl(int);
 extern Spawn_80188B3C container_break_particle_parameters;
 extern Spawn_80188B3C container_break_small_debris_parameters;
@@ -190,5 +192,4 @@ void TObjContainerBase::vfunc_81() {
         }
     }
 }
-
 }

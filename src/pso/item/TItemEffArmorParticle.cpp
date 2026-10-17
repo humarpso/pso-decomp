@@ -16,7 +16,9 @@ extern "C" {
 void queue_destruction__7TObjectFv(void *);
 s32 obj_testFlags30__13TUnk_804AF8A0FUl(int, int);
 u8 *find_item_by_id(s32 id);
+}
 int get_item_system_generation(void);
+extern "C" {
 s8 sub_80102C30__5TItemFv();
 void *get_player_by_client_id(s32 i);
 }

@@ -2,7 +2,9 @@
 #include "pso/unk/text_8020EE2C.h"
 extern "C" {
 s32 is_split_screen(void);
-s32 create_named_object(void *);
+}
+s32 create_named_object(s32 arg0);
+extern "C" {
 s32 mem_alloc(s32);
 extern u8 lbl_8044BC40[];
 extern s32 lbl_80513D78[];
@@ -10,7 +12,7 @@ extern s32 lbl_805D6158;
 extern s32 lbl_805D615C;
 void load_armor_random_table(void) {
     s32 i;
-    lbl_805D6158 = create_named_object(lbl_8044BC40);
+    lbl_805D6158 = create_named_object((s32)lbl_8044BC40);
     for (i = 0; i < 4; i++) {
         lbl_80513D78[i] = 0;
     }
@@ -23,5 +25,4 @@ void load_armor_random_table(void) {
     }
     lbl_805D615C = 0;
 }
-
 }

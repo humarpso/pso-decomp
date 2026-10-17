@@ -56,10 +56,12 @@ void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
 void push_matrix();
 void post_translate_matrix(void *);
+}
 extern u32 lbl_805D5B78;
 extern s32 lbl_805D5B7C;
 extern const f32 lbl_805DBCFC;
 void play_container_break_sound(s32 arg0);
+extern "C" {
 void *__nw__7TObjectFUl(int);
 extern Spawn_8018990C *const lbl_805D5B80;
 extern Spawn_8018990C *const lbl_805D5B84;
@@ -183,7 +185,7 @@ void TObjContainerItem::vfunc_81() {
         }
     }
 }
+}
 
 extern char lbl_80444D84[];
 s32 TObjContainerEnemy__name = (s32)lbl_80444D84;
-}

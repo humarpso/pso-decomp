@@ -215,9 +215,11 @@ extern const f32 lbl_805D9020;
 
 u16 TCameraCtrl__sub_8006A5DC();
 f32 fabs_float(f32);
+}
 extern const f32 lbl_805D901C;
 extern const f32 lbl_805D9018;
 s32 approach_camera_scalar(f32 *arg0, f32 *arg1, f32 farg0);
+extern "C" {
 f32 atan2_float(f32 y, f32 x);
 f32 newton_sqrtf(f32);
 extern const f64 lbl_804383D0;
@@ -226,6 +228,7 @@ s32 angle_difference_abs(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
 
 void*TUnk_80488B38::init_defaults() { __ct__13TUnk_80488A28Fv(); *(int*)((char*)this + 0x18) = (int)lbl_80488B38; *(float *)&this->unk_6C = 10.0f; *(int *)&this->m_38 = 0; return this; }
+}
 
 s32 approach_camera_scalar(f32 *arg0, f32 *target, f32 farg0) {
   f32 step;
@@ -255,6 +258,7 @@ void step_camera_scalar(const f32* current, const f32* target, f32* output, f32 
     }
     *output = value - step;
 }
+extern "C" {
 
 void direction_to_pitch_yaw(u8 *arg0, s32 *arg1, s32 *arg2) {
   f32 new_var;
@@ -361,6 +365,7 @@ void TCameraCtrl::cache_target_and_forward(s32 unused) {
     }
     configure_scripted_camera_playback((u8 *)playback_data, (s32)unused);
 }
+}
 
 typedef char RecoveredGlobal_8006C140_camera_controller_registry_size[sizeof(RecoveredGlobal_8006C140_camera_controller_registry) == 0x68 ? 1 : -1];
 typedef char RecoveredGlobal_8006C140_lbl_80488C50_size[sizeof(RecoveredGlobal_8006C140_lbl_80488C50) == 0x120 ? 1 : -1];
@@ -383,6 +388,7 @@ void configure_scripted_camera_playback(u8* playback_data, s32 unused) {
         camera->motion_data = motions[playback->bank].directory->entries[camera->playback.index];
     }
 }
+extern "C" {
 
 CameraPlayback* get_scripted_camera_playback() {
     ScriptedCameraState* camera = (ScriptedCameraState*)camera_controller_registry[5];
@@ -519,6 +525,5 @@ void TUnk_80488B68::run_task() {
         s->flags |= 1;
     }
 }
-#pragma pop
-
 }
+#pragma pop

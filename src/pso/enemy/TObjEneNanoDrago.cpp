@@ -261,7 +261,9 @@ u16 find_nearest_visible_player(void *, s32, f32);
 s32 select_nearest_target__15TObjEnemyCustomFf(void *, f32);
 s32 apply_actor_gravity(void *, int, f32);
 s32 enemy_wander_home__9TObjEnemyFlfff(void *, int, f32, f32, f32);
-void move_with_wall_slide(void *);
+}
+void move_with_wall_slide(u8 *arg0);
+extern "C" {
 void enemy_set_heading_velocity(void *, f32, s32);
 f32 atan2_float(f32 y, f32 x);
 s32 update_if_active__15TObjEneMe1GiGueFl(void *, s32, s32);
@@ -355,7 +357,6 @@ void TObjEneNanoDrago::sub_800DA2A0() {
         break;
     }
 }
-
 }
 
 struct Rec_800DA4B4 { s32 a; s32 b; s32 c; };
@@ -505,7 +506,7 @@ void update_circle_move__10TObjPlayerFPvPvf(Ene_800DA508 *actor, Vec_800DA508 *c
     VecCopy((Vec *)&actor->v29C, (const Vec *)&actor->dest);
     enemy_turn_toward_dest(actor, actor->param->turn);
     enemy_set_heading_velocity(actor, actor->speed, actor->angle);
-    move_with_wall_slide(actor);
+    move_with_wall_slide((u8 *)actor);
 }
 #pragma pop
 
@@ -1201,7 +1202,9 @@ void TLobby__sub_800DC028(void);
 Obj_800DC0FC * __dt__16TObjEneNanoDragoFv(Obj_800DC0FC *arg0, s16 arg1);
 u8 * TObjEneNanoDrago__ct(u8 *arg0, s32 arg1, u8 *arg2);
 void TObjPlayer__sub_800DC444(void);
+}
 int initialize_enemy_photon_effect(void *p);
+extern "C" {
 void * TObjControl__ct(void *, void *);
 s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 void set_animation__10TObjMotionFs(void *, s16);
@@ -1850,5 +1853,4 @@ void TObjEneNanoDrago::vfunc_58() {  }
 void TObjEneNanoDrago::vfunc_60() {  }
 void TObjEneNanoDrago::vfunc_59() {  }
 void TObjEneNanoDrago::vfunc_61() {  }
-
 }

@@ -20,10 +20,12 @@ extern s32 __vt__12TAdMcCheckGC[];
 s32 GXSetTexCoordGen2(s32, s32, s32, s32, s32, s32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(void *, s32, s32);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
+}
 
 void set_tex_coord_gen2(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     GXSetTexCoordGen2(arg0, arg1, arg2, arg3, 0, 0x7D);
 }
+extern "C" {
 void TLobby__sub_8033EE38(void* p) { *(s32*)((char*)p + 0x18) = 0; *(s32*)((char*)p + 0x1c) = 0; }
 void TAdMcCheckGC::render() {  }
 
@@ -167,7 +169,6 @@ u8 *__dt__12TAdMcCheckGCFv(TAdMcCheckGC *arg0, s16 arg1) {
     }
     return (u8 *)arg0;
 }
-
 }
 TAdMcCheckGC::TAdMcCheckGC(TObject *arg1, void *arg2) : TObject(arg1) {
     *(void * *)&this->m_name = TAdMcCheckGC__name;

@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 u8 *construct_indirect_effect_task(u8 *arg0, s32 kind, s32 arg2, u8 *arg3);
-}
 
 #endif

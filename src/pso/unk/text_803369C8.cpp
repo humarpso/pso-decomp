@@ -17,6 +17,7 @@ void render_logo_with_default(void *,s32,s32,f32);
 void draw_title_background_pulse(void *,f32,s32);
 void draw_title_rings(void *,f32,s32);
 void TCameraCtrl__sub_80068EF0(void);
+}
 extern const f32 lbl_805DF968;
 extern const f32 lbl_805DF96C;
 extern const f32 lbl_805DF970;
@@ -36,6 +37,7 @@ void rotate_title_background_quad(s32 arg0, u8 *arg1, u8 *arg2, s32 arg3, f32 fa
     *(f32 *)((s8 *)arg1 + 0x18) = temp_f5;
 }
 #pragma pop
+extern "C" {
 
 void TUnk_804EEF80::render() {
     u8 *arg0 = (u8 *)this;
@@ -54,7 +56,6 @@ void TUnk_804EEF80::render() {
 void TUnk_804EEF80::run_task() {
     this->m_20 = (this->m_20 + 1);
 }
-
 }
 TUnk_804EEF80::~TUnk_804EEF80() {
 

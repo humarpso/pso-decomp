@@ -29,6 +29,7 @@ u8 *fn_8035A860(u8 *arg0, s32 arg1, s32 arg2) {
     ((TUnk_804F1C58 *)arg0)->m_38 = 0;
     return arg0;
 }
+}
 #pragma push
 #pragma fp_contract on
 void calc_laser_ray_hit_point(u8 *arg0, u8 *arg1) {
@@ -43,5 +44,3 @@ void calc_laser_ray_hit_point(u8 *arg0, u8 *arg1) {
     }
 }
 #pragma pop
-
-}

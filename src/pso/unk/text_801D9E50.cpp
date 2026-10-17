@@ -22,7 +22,6 @@ struct Stack_801D9E50 {
     s16 spA;
 };
 
-extern "C" {
 void send_keepalive(u8 *arg0) {
     Stack_801D9E50 stack;
     stack.sp8 = 0x1D;
@@ -30,6 +29,4 @@ void send_keepalive(u8 *arg0) {
     stack.spA = 4;
     ((packet_header *)((s32) &stack.sp8))->bswap();
     ((VObj_18_44382c *)(arg0))->m8(&stack.sp8, 4);
-}
-
 }

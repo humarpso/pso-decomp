@@ -3,8 +3,8 @@
 
 #include "types.h"
 
-extern "C" {
 void calc_laser_ray_hit_point(u8 *arg0, u8 *arg1);
+extern "C" {
 u8 *fn_8035A860(u8 *arg0, s32 arg1, s32 arg2);
 }
 

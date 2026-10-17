@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void yasminkov_2000h_node_callback(s32 arg0);
-}
 
 #endif

@@ -592,6 +592,7 @@ struct Gi_802CB170
 extern "C" {
 s32 update_if_active__15TObjEneMe1GiGueFl(void *, s32);
 s32 project_actor_to_ground(void *, void *, s32);
+}
 s32 get_gigue_int_parameter(s32, s32);
 f32 get_gigue_float_parameter(s32, s32);
 extern f32 lbl_805D6840;
@@ -600,6 +601,7 @@ extern f32 lbl_805D6848;
 extern f32 lbl_805D684C;
 extern s32 lbl_805D6850;
 extern s32 lbl_805D6854;
+extern "C" {
 s32 push_matrix_from(void *src);
 s32 pop_matrix(void);
 s32 rotate_matrix_y(int, int);
@@ -767,7 +769,6 @@ void add_target_in_cone__15TObjEneMe1GiGueFPvPv(Gi_802CB170 *self, Tgt_802CB170 
     }
   }
 }
-
 }
 
 typedef struct { f32 x, y, z; } Vec_802CB378;
@@ -923,7 +924,9 @@ void queue_destruction__7TObjectFv(void *arg0);
 #define play_sound_effect ((s32 (*)(void *, void *, int, int))play_sound_effect)
 extern void *TObjEneMe1GiGue__barrier_obj;
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-s32 move_with_wall_slide(void *);
+}
+void move_with_wall_slide(u8 *arg0);
+extern "C" {
 s32 enemy_set_heading_velocity(void *, f32, s32);
 s32 enemy_turn_toward_dest(void *, s32);
 f32 xz_distance_squared(void *, void *);
@@ -1030,7 +1033,7 @@ void move_around_center__15TObjEneMe1GiGueFPvPvf(Obj_802CB8F0 *o, Vec_802CB8F0 *
     VecCopy((Vec *)&o->v29C, (const Vec *)&o->v390);
     enemy_turn_toward_dest(o, o->f350->f8);
     enemy_set_heading_velocity(o, o->f3E4, o->f60);
-    move_with_wall_slide(o);
+    move_with_wall_slide((u8 *)o);
 }
 
 void TObjEneMe1GiGue::break_apart() {
@@ -1115,7 +1118,6 @@ void TObjEneMe1GiGue::update_hit_reaction() {
         break;
     }
 }
-
 }
 #undef play_sound_effect
 #undef update_if_active__15TObjEneMe1GiGueFl
@@ -1677,7 +1679,7 @@ void TObjEneMe1GiGue__sub_802CCBAC(Obj_802CCBAC *o) {
         }
         o->f60 += o->f350->f8 / 2;
         enemy_set_heading_velocity(o, o->f3E4, o->f60);
-        move_with_wall_slide(o);
+        move_with_wall_slide((u8 *)o);
         o->f3DC += o->f350->f8 / 2;
         if (o->f3DC > 0x10000) {
             o->f3E0 = 0.0f;
@@ -2187,7 +2189,9 @@ void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
 void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
 s32 obj_setFlags30(void *, int);
 s32 TObjEnemyCustom__ct(void *, s32);
+}
 int initialize_enemy_photon_effect(void *p);
+extern "C" {
 s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
 s32 init_collision_body_parts(void *, void *, int);
@@ -2279,6 +2283,7 @@ void TObjEneMe1GiGue::vfunc_58() {  }
 void TObjEneMe1GiGue::vfunc_60() {  }
 void TObjEneMe1GiGue::vfunc_59() {  }
 void TObjEneMe1GiGue::vfunc_61() {  }
+}
 
 s32 get_gigue_int_parameter(s32 self, s32 i) {
     return (*(G_802CDAC4 * *)&TObjEneMe1GiGue__param_table)->v[i];
@@ -2287,6 +2292,7 @@ s32 get_gigue_int_parameter(s32 self, s32 i) {
 f32 get_gigue_float_parameter(s32 arg0, s32 arg1) {
     return *(f32 *)((s8 *)(TObjEneMe1GiGue__param_table + (arg1 * 4)) + 0);
 }
+extern "C" {
 
 void TObjEneMe1GiGue__sub_802CDAE8(void) {  }
 
@@ -2295,6 +2301,5 @@ void TObjEneMe1GiGue::load_params_from_table(s32 i) {
     self->f34 = GIGUE_DATA_6838->e[i].c;
     self->f24 = GIGUE_DATA_6838->e[i].d;
 }
-#undef GIGUE_DATA_6838
-
 }
+#undef GIGUE_DATA_6838

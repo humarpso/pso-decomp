@@ -32,7 +32,9 @@ void *get_class_base_stats(void *);
 extern const f32 lbl_805DE530;
 void init_character_stats_for_level(void *cls, Char_802C38B4 *c, s32 level);
 int TObjPlayer__sub_802C456C(void*, void*, void*);
+}
 int init_character_action_config(void*);
+extern "C" {
 s32 TObjPlayer__sub_802C46E0(s32, s32, s32, s32, s32);
 
 int init_new_character_data(void* p) { *(unsigned char*)(p) = 0; ((TObjPlayer *)p)->clear_item_slots(); init_character_action_config((char*)p + 0x3c0); init_class_starting_inventory(p); *(int*)((char*)p + 0x36c) = 300; ((TObjPlayer *)p)->set_action_state((u8)((void*)1)); return 1; }
@@ -107,5 +109,4 @@ void init_character_stats_for_level(void *cls, Char_802C38B4 *c, s32 level) {
 void init_new_character_stats(void *arg0) {
     init_character_stats_for_level((void *)(*(u8 *)((s8 *)arg0 + 0x3A1)), (Char_802C38B4 *)(arg0), 0);
 }
-
 }

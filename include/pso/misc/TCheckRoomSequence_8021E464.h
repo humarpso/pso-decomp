@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 int get_check_room_slot_active_flag(int a0);
-}
 
 #endif

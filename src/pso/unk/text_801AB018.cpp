@@ -24,7 +24,9 @@ extern "C" {
 s32 advance_animation_playback(void *);
 void *find_entity_by_id(u16 id);
 s32 spawn_photon_blast_attachment_effects(void *, int);
+}
 u8 *construct_photon_magic_square_normal(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+extern "C" {
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 u32 __nw__7TObjectFUl(int);
 extern const f32 lbl_805DC15C;
@@ -64,7 +66,7 @@ void TPhotonFarlla::run_task() {
         }
         temp_r3_2 = __nw__7TObjectFUl(0xD0);
         if (temp_r3_2 != 0U) {
-            construct_photon_magic_square_normal((u8 *)temp_r3_2, (s32)arg0, 0, (s32)&stack.sp20, 0x78);
+            construct_photon_magic_square_normal((u8 *)temp_r3_2, (s32)arg0, (s32)(0), (s32)&stack.sp20, (s32)(0x78));
         }
     }
     if (((s32) *(s32 *)&this->unk_1A4 == 0x64) && ((s16) this->m_b8 == 1)) {
@@ -111,6 +113,5 @@ void TPhotonFarlla::run_task() {
         play_persistent_sound(0x4002462F, (s32)arg0, 0, 0, 0);
     }
 }
-#pragma pop
-
 }
+#pragma pop

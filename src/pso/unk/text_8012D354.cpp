@@ -13,6 +13,7 @@ extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 * TItemWeapon__ct(void *, void *);
+}
 extern RecoveredGlobal_8012D354_lbl_804A5838 lbl_804A5838;
 
 typedef char RecoveredGlobal_8012D354_lbl_804A5838_size[sizeof(RecoveredGlobal_8012D354_lbl_804A5838) == 0xF8 ? 1 : -1];
@@ -38,6 +39,4 @@ u8 *create_soul_eater_weapon(u8 *arg0) {
         return var_r0;
     }
     return NULL;
-}
-
 }

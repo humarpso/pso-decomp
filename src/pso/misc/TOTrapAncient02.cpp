@@ -329,7 +329,9 @@ void TLobby__sub_8001FE7C(void*, int);
 void * load_resource_from_descriptor(void *, int, char *, int, int, int);
 s32 check_player_flag1__6TLobbyFv();
 void * alloc__23TAdSinglePlyChrSelectGCFv(u32);
+}
 void setup_particle_tev(s32 arg0);
+extern "C" {
 void func_80141618__Fv(void);
 s32 free_collision_body_parts(void *);
 void init_collision_body_parts(void *, void *, s32);
@@ -986,7 +988,6 @@ void TOTrapAncient02::vfunc_82() {
         break;
     }
 }
-
 }
 
 void TOTrapAncient02::vfunc_81() {

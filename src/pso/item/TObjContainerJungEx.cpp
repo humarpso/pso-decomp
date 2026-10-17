@@ -43,7 +43,9 @@ extern RecoveredGlobal_8018D314_lbl_804B7168 container_jung_collision_desc;
 extern s32 __vt__19TObjContainerJungEx[];
 extern s32 TObjContainerJungEx__name;
 void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
+}
 void play_container_break_sound(s32 arg0);
+extern "C" {
 s32 get_model__19TObjContainerJungExFl(s32);
 void *__nw__7TObjectFUl(int);
 extern Spawn_8018CFD4 container_jung_ex_spawn_params_a;
@@ -191,5 +193,4 @@ u8 *TObjContainerJungEx__ct(u8 *arg0, s32 arg1, s32 _w2) {
     *(f32 *)((s8 *)arg0 + 0x78) = (f32) (*(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)&container_jung_collision_desc.value + 4));
     return arg0;
 }
-
 }

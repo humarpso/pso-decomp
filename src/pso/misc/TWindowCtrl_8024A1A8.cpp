@@ -91,9 +91,11 @@ extern const f32 lbl_805DCBDC;
 void get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv(Ctrl_8024A928 *arg0, s32 arg1, f32 *arg2, s32 *arg3);
 s32 TWindowCtrl__sub_8024C5C4(u32);
 u32 create_area_window();
+}
 s32 create_window_area(void);
 
 typedef char RecoveredGlobal_8024A1CC_lbl_804CEA94_size[sizeof(RecoveredGlobal_8024A1CC_lbl_804CEA94) == 0xC ? 1 : -1];
+extern "C" {
 
 bool TWindowCtrl__sub_8024A1A8(void) {
     if ((void *) (*(u8 * *)&TWindowCtrl__active_window) == NULL) {
@@ -417,5 +419,4 @@ void TLobby__sub_8024AAA0(s32 arg0, s32 arg1) {
         update_field28__15TWindowCtrlMainFv(temp_r3, arg1);
     }
 }
-
 }

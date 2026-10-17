@@ -25,15 +25,16 @@ struct Copy_800829E0 {
     s32 slot;
 };
 
-extern "C" {
 extern E_80082AA8 *shared_effect_texture_list[];
 extern s32 particle_texture_id_table[];
 extern void *lbl_805D4ED8;
 extern char lbl_80438EF8[];
 extern void *lbl_80438EE8[];
+extern "C" {
 void bind_gvm_texture_list(const char *name, void *data);
 void copy_slot_to_anim_frame(struct Copy_80082954 *c);
 void fn_800829E0(struct Copy_800829E0 *c);
+}
 
 s32 find_particle_texture_index(s32 id) {
     s32 r = 0;
@@ -46,6 +47,7 @@ s32 find_particle_texture_index(s32 id) {
     }
     return r;
 }
+extern "C" {
 
 void copy_slot_to_anim_frame(struct Copy_80082954 *c) {
     (*c->animation)[c->frame].z = (*c->destination)[c->slot].z;
@@ -58,6 +60,7 @@ void fn_800829E0(struct Copy_800829E0 *c) {
     (*c->destination)[c->slot].y = (*c->animation)[c->frame].y;
     (*c->destination)[c->slot].x = (*c->animation)[c->frame].x;
 }
+}
 
 void load_critical_effect_resources(void) {
     E_80082AA8 *e;
@@ -68,6 +71,4 @@ void load_critical_effect_resources(void) {
     for (i = 0; i < 0x36; i++) {
         particle_texture_id_table[i] = e[i].node->c->v;
     }
-}
-
 }

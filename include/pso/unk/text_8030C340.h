@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void *create_party_status_window(s32 arg0);
-}
 
 #endif

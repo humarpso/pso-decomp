@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 s32 init_modem_session_config(void);
-}
 
 #endif

@@ -38,7 +38,9 @@ u8 *get_shared_text_buffer(void);
 void mem_free(void *p);
 void send_simple_mail__6TLobbyFiPv(s32 arg0, void *arg1);
 void TWindowSubComCard__sub_80225E80(void *, void *);
+}
 s32 *get_selected_guild_card_record(void);
+extern "C" {
 void set_value_by_key(void *, u16, s32);
 s32 open_hard_keyboard__6TLobbyFPv(void *);
 void *get_field_20__17TWindowSubComCardFv(void *);
@@ -148,7 +150,6 @@ void TWindowSubComCard::sub_802721D8() {
   send_simple_mail__6TLobbyFiPv(((TLobby *)temp_r29)->get_id(), temp_r31);
   mem_free((void *)temp_r30);
 }
-
 }
 
 #pragma pop
@@ -160,11 +161,13 @@ struct RecoveredGlobal_8034CC68_lbl_80478C3C {
 
 struct Rec_80272290 { s32 f0; u8 f4[0xD0]; };
 
-extern "C" {
 extern const RecoveredGlobal_8034CC68_lbl_80478C3C com_card_help_message_id_table;
+extern "C" {
 Rec_80272290 *get_com_count__17TWindowSubComCardFv();
 void text_builder_append(u8 *str);
+}
 void text_builder_reset();
+extern "C" {
 void load_selected_guild_card_record(int, int);
 void* TWindowSubComCard__sub_8027523C(void* p);
 extern u8 lbl_805DD4F8;
@@ -219,7 +222,6 @@ void update_selection__17TWindowSubComCardFUiUiPvi(u32 arg0, u32 arg1, s32 *arg2
         }
     }
 }
-
 }
 
 #pragma push
@@ -607,8 +609,10 @@ s32 TLobby__sub_8024259C();
 s32 fn_80244958(int, int);
 void fn_802449E0(u8 *arg0);
 void TWindow__close(u8 *arg0);
+}
 void window_request_show(void *arg0);
 s32 is_com_card_active();
+extern "C" {
 void TWindowSubComCard__sub_80249144(void *arg0);
 s32 create_com_card_window__17TWindowSubComCardFl(s32 arg0);
 void fn_8024AB54(s32 arg0);
@@ -1740,10 +1744,9 @@ void *__dt__17TWindowSubComCardFv(TWindowSubComCard *arg0, s16 arg1) {
 }
 
 void TWindowSubComCard__sub_80077980(void *);
+}
 
 extern void *TWindowSubComCard__class_name;
-
-}
 TWindowSubComCard::TWindowSubComCard(TObject *arg1, void *arg2) : TObject(arg1) {
     *(void * *)&this->m_name = TWindowSubComCard__class_name;
     *(void **)((s8 *)this + 0x5C) = arg1;
@@ -1770,19 +1773,21 @@ struct RecoveredGlobal_80275228_lbl_80517EE0 {
     u8 remaining[0xB8];
 };
 
-extern "C" {
 extern RecoveredGlobal_80275228_lbl_80517EE0 selected_guild_card_record;
+extern "C" {
 void fn_80247ED8(void *p);
 
 void TWindowSubComCard::set_com_param(s32 arg1) {
     s32 arg0 = (s32)this;
     TWindowKeyBoardHard::set_card_window_flags((void *)arg0, (s32)(arg1 << 0x12), (s32)0xFFFBFFFF);
 }
+}
 
 typedef char RecoveredGlobal_80275228_lbl_80517EE0_size[sizeof(RecoveredGlobal_80275228_lbl_80517EE0) == 0xBC ? 1 : -1];
 s32 *get_selected_guild_card_record(void) {
     return &selected_guild_card_record.value;
 }
+extern "C" {
 
 void*TWindowSubComCard::get_card_data_ptr() { return (char*)this + 0x3b; }
 void* TWindowSubComCard__sub_8027523C(void* p) { return (char*)p + 0x2a; }
@@ -1792,14 +1797,13 @@ void TWindowSubComCard::destroy_keyboard() { void* m = *(void* *)&this->m_28; if
 s16 TWindowSubComCardList::get_field_72() { return *(s16 *)&this->m_72; }
 void TWindowSubComCard::set_page(s16 v) { *(s16*)((char*)this + 0x7a) = v; }
 void TWindowSubComCard::set_flag_10() { *(u16*)((char*)this + 0x70) |= 0x10; }
+}
 
 extern "C" {
 
 void TWindowSubComCard::set_display_page() {
     s32 arg0 = (s32)this;
     set_page((s16)((int) (((s16 (*)(void))get_selected_menu_value)())));
-}
-
 }
 
 }

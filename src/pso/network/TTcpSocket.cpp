@@ -60,7 +60,9 @@ struct VObj_80078064 : Base_80078064 {
 };
 
 void *__dt__10TUdpSocketFv(void *arg0, s16 arg1);
+}
 void reset_buffer(u8 *arg0);
+extern "C" {
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TSocketFv(void *, s32);
 
@@ -78,13 +80,13 @@ const char *sock_status_names[17] = {
     "API_RECVPENDING", "API_PORTCLOSED", "API_TIMEOUT", "API_NOBUF", "API_BADOPT",
     "API_dummy1", "API_dummy2", "API_GENERAL",
 };
-extern "C" {
 void *__vt__10TUdpSocket[11] = {
     0, 0, (void *)__dt__10TUdpSocketFv, (void *)run_task__7TObjectFv,
     (void *)render__7TObjectFv, (void *)render_shadows__7TObjectFv,
     (void *)open_socket__10TUdpSocketFPv, (void *)free_socket_slot__10TUdpSocketFPv,
     (void *)reset_buffer, (void *)TUdpSocket__sub_800781B8, (void *)TUdpSocket__sub_80078110,
 };
+extern "C" {
 
 void *__dt__10TUdpSocketFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -98,12 +100,14 @@ void *__dt__10TUdpSocketFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+}
 
 void reset_buffer(u8 *arg0) {
     memset(arg0 + 0x74, 0, 0x800);
     *(s8 *)((s8 *)arg0 + 0x2B) = 1;
 }
 typedef char RecoveredGlobal_80078378_lbl_8048D3B8_size[sizeof(RecoveredGlobal_80078378_lbl_8048D3B8) == 0x40 ? 1 : -1];
+extern "C" {
 
 void TUdpSocket__sub_80078110(Sock_80078110 *arg0, s32 arg1, s16 arg2) {
     Q_80078110 q2;
@@ -202,7 +206,6 @@ s32 TUdpSocket::handle_socket_event(s16 arg0, u8 *arg1) {
     }
     return 0;
 }
-
 }
 
 #pragma push

@@ -20,8 +20,8 @@ struct Ent_801E4874 {
     u8 pad[8];
 };
 
-extern "C" {
 extern s32 TLanguage__read_cursor;
+extern "C" {
 u8 *TQuestVmDownLoadServer__sub_8007EBDC(s32, s32);
 u32 alloc__22TQuestVmDownLoadServerFv();
 void debug_print__6TLobbyFle(void *, ...);
@@ -131,6 +131,7 @@ s32 TLanguage::read_u16_le() {
     lo |= *(u8 *)TLanguage__read_cursor++ << 8;
     return lo;
 }
+}
 
 void update_texture_wave_image(void *wave) {
     if ((is_split_screen() == 0) || (TCameraCtrl::get_camera_no() == 0)) {
@@ -138,6 +139,4 @@ void update_texture_wave_image(void *wave) {
         ((VObj_801E4B68_801E4874 *)wave)->m0();
         distort_texture_wave_image(wave);
     }
-}
-
 }

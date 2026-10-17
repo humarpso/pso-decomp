@@ -249,14 +249,13 @@ void *__ct__15TAdPlayerLoadGCFv(void *arg0, void *arg1, void *arg2) {
     set_state__15TAdPlayerLoadGCFi(0);
     return arg0;
 }
+}
 
     extern int TAdPlayerLoadGC__load_state;
 int get_player_load_state(void) {  return TAdPlayerLoadGC__load_state; }
 
     extern int TAdChrSelBSlotGC__global_state;
 void set_character_select_b_slot_state(int a0) { TAdChrSelBSlotGC__global_state = a0; }
-
-}
 
 class TAdSubPlyItemGC : public TObject {
 public:

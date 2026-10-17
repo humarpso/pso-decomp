@@ -29,12 +29,16 @@ void bswap__15disp_data_part2Fv(s32 arg0) {
     bswap_32((u32 *)(arg0 + 0x48));
     bswap_32((u32 *)(arg0 + 0x4C));
 }
+}
 
 void bswap_telepipe_record(void* p) { bswap_16((u16 *)p); bswap_16((u16 *)((char*)p + 0x2)); bswap_32((u32 *)((char*)p + 0x4)); bswap_32((u32 *)((char*)p + 0x8)); bswap_32((u32 *)((char*)p + 0xc)); bswap_32((u32 *)((char*)p + 0x10)); bswap_32((u32 *)((char*)p + 0x14)); bswap_32((u32 *)((char*)p + 0x18)); }
+extern "C" {
 
 void TLobby__sub_8013A9C0(void* p) { bswap_32((u32 *)p); bswap_32((u32 *)((char*)p + 0x4)); }
+}
 
 void bswap_object_source_record(void* p) { bswap_16((u16 *)p); bswap_16((u16 *)((char*)p + 0x2)); }
+extern "C" {
 
 void TLobby::bswap_6x6B() { bswap_32((u32 *)this); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); }
 u8 *TLobby__sub_8013AA64(u8 *arg0, u8 *arg1) {
@@ -45,5 +49,4 @@ u8 *TLobby__sub_8013AA64(u8 *arg0, u8 *arg1) {
     fn_8013AAD4((arg0 + 0x20), (arg1 + 0x20));
     return arg0;
 }
-
 }

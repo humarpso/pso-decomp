@@ -2,8 +2,8 @@
 #include "pso/system/memory.h"
 #include "pso/misc/TEffIndirectCtrl.h"
 
-extern "C" {
 extern u32 indirect_effect_tile_buffer;
+extern "C" {
 void read_disc_file(void *, void *);
 s16 calc_i8_tiled_texel_offset(u8, u8, s32);
 void *memset(void *, s32, u32);
@@ -27,6 +27,7 @@ u16 get_indirect_tile_coord(u8 arg0, s32 arg1) {
     }
     return 0U;
 }
+}
 
 void load_indirect_info(void) {
     s32 i;
@@ -47,9 +48,9 @@ void load_indirect_info(void) {
     }
     read_disc_file(indinfo_dat_filename, (void *)indirect_recipe_buffer);
 }
+extern "C" {
 
 void TEffIndirectCtrl__sub_802A9548(void* p) { *(s16*)((char*)p + 0x46) = 0; }
 u8 TEffIndirectCtrl__sub_802A9554(void* p) { return *(u8*)((char*)p + 0x25); }
 void TEffIndirectCtrl::sub_802A955C() { this->m_46 = 1; }
-
 }

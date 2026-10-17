@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void calc_projection_screen_offset(f32 *arg0, f32 *arg1);
-}
 
 #endif

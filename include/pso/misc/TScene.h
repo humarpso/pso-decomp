@@ -78,6 +78,6 @@ typedef char TScene_field_34_offset[offsetof(TScene, m_34) == 0x34 ? 1 : -1];
 typedef char TScene_field_38_offset[offsetof(TScene, m_38) == 0x38 ? 1 : -1];
 typedef char TScene_field_3c_offset[offsetof(TScene, m_3c) == 0x3C ? 1 : -1];
 
-extern "C" void load_scene_collision_file(s32 scene_file_index);
+void load_scene_collision_file(s32 scene_file_index);
 
 #endif

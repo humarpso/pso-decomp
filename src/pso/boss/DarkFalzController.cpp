@@ -52,6 +52,7 @@ s32 initialize__9TObjEnemyFPv();
 u16 register_entity_by_id(void *ov);
 s32 init_music_sequencer(int);
 void *fn_8030A83C(void *arg0);
+}
 s32 create_boss4_fade();
 extern Desc_8004BD58 TBoss4DarkFalz__data_804FF1E8;
 extern s32 TBoss4DarkFalz__name;
@@ -60,6 +61,7 @@ extern s32 lbl_805D4D6C;
 extern s32 lbl_805D4D70;
 extern s32 game_difficulty_selection;
 extern const f32 lbl_805D8908;
+extern "C" {
 s32 TBoss4DarkFalz__ct(s32 a0, s32 arg1, s32 a2);
 int TBoss4DarkFalz__sub_8030AD38(void);
 int TLobby__sub_8001FE7C(void*, void*);
@@ -264,5 +266,4 @@ s32 TBoss4DarkFalz::create(s32 arg0) {
     }
     return var_r31;
 }
-
 }

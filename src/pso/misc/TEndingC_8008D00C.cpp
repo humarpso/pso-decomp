@@ -286,6 +286,7 @@ void release_lobby__8TEndingCFv(void) {
 }
 
     int bind_gvm_texture_list(void*, void*);
+}
     extern unsigned char lbl_804398EC[];
 void register_texture_ed_512kabe_c(void) { TEndingC__wall_texture_list = (int)TEndingC__wall_texture_list_entry; bind_gvm_texture_list(lbl_804398EC, TEndingC__wall_texture_list_entry); }
 
@@ -293,6 +294,7 @@ void register_texture_ed_512kabe_c(void) { TEndingC__wall_texture_list = (int)TE
 #define CAT(a, b) CAT2(a, b)
 #define PADV virtual void CAT(pv, __LINE__)();
 #define PADV4 virtual void CAT(pa, __LINE__)(); virtual void CAT(pb, __LINE__)(); virtual void CAT(pc, __LINE__)(); virtual void CAT(pd, __LINE__)();
+extern "C" {
 s32 update_movement_status__13TUnk_804806E8Fv();
 s32 update_action_hold_status__13TUnk_804806E8Fv();
 
@@ -330,5 +332,4 @@ s32 TObjEneBalClaw::update_action_hold_status() {
     }
     return 0;
 }
-
 }

@@ -5,8 +5,8 @@ typedef char queue_models_offset[(offsetof(GinjaModelQueue, models) == 0) ? 1 : 
 typedef char queue_count_offset[(offsetof(GinjaModelQueue, count) == 4) ? 1 : -1];
 typedef char queue_draw_offset[(offsetof(GinjaModelQueue, draw) == 8) ? 1 : -1];
 typedef char queue_known_size[(sizeof(GinjaModelQueue) == 12) ? 1 : -1];
-extern "C" {
 extern void* model_draw_queue_models[10];
+extern "C" {
 void init_model_draw_queue(void (*draw)(void*));
 void queue_model_draw_matrix(void* model, const GinjaMatrix matrix);
 
@@ -43,6 +43,7 @@ void queue_model_draw_matrix(void* model, const GinjaMatrix matrix) {
         model_draw_queue_state.count = 0;
     }
 }
+}
 
 #pragma push
 #pragma scheduling off
@@ -71,4 +72,3 @@ void draw_queued_models(u32 count) {
 
 GinjaMatrix model_draw_queue_texture_matrices[10];
 void* model_draw_queue_models[10];
-}

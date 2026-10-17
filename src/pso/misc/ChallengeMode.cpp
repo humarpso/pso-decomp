@@ -88,12 +88,16 @@ void TLobby__sub_80070358(void);
 void clear_four_slots__6TLobbyFv(void);
 void TLobby__sub_800738F4(void *, s32);
 s32 get_main_phase(void);
+}
 void *create_obj_tag_challenge(void *arg0);
 extern s32 tl_07;
+extern "C" {
 
 void queue_destruction__7TObjectFv(void *);
 s32 get_current_floor(void);
+}
 void *create_ch_time_win(void *arg0);
+extern "C" {
 void TLobby__sub_80070170(void *arg0);
 Info_800703D0 *TLobby__sub_800703D0(Info_800703D0 *dst, Info_800703D0 *src);
 s32 send_6x7c_reset__6TLobbyFv(void *);
@@ -690,5 +694,4 @@ Obj_80070944 *TChallenge__ct(Obj_80070944 *arg0, void *parent) {
     arg0->f1C = 0;
     return arg0;
 }
-
 }

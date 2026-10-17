@@ -100,7 +100,9 @@ extern RecoveredGlobal_8022559C_lbl_80513F50 shop_weapon_stock_generated_flags;
 extern G_80225550 shop_weapon_stock_buffers;
 void get_shop_weapon_stock_item(C14_80225550 *dst, s32 idx, s32 tbl);
 s32 is_split_screen(void);
-s32 create_named_object(void *);
+}
+s32 create_named_object(s32 arg0);
+extern "C" {
 s32 mem_alloc(s32);
 void mem_free(void *p);
 extern u32 lobby_weapon_random_tables_ptr;
@@ -672,19 +674,19 @@ void load_weapon_random_tables(void) {
     s32 j;
     switch (shop_difficulty_tier) {
     case 0:
-        lobby_weapon_random_tables_ptr = create_named_object(lbl_8044C7C0);
+        lobby_weapon_random_tables_ptr = create_named_object((s32)lbl_8044C7C0);
         break;
     case 1:
-        lobby_weapon_random_tables_ptr = create_named_object(lbl_8044C7D8);
+        lobby_weapon_random_tables_ptr = create_named_object((s32)lbl_8044C7D8);
         break;
     case 2:
-        lobby_weapon_random_tables_ptr = create_named_object(lbl_8044C7F0);
+        lobby_weapon_random_tables_ptr = create_named_object((s32)lbl_8044C7F0);
         break;
     case 3:
-        lobby_weapon_random_tables_ptr = create_named_object(lbl_8044C80C);
+        lobby_weapon_random_tables_ptr = create_named_object((s32)lbl_8044C80C);
         break;
     default:
-        lobby_weapon_random_tables_ptr = create_named_object(lbl_8044C7C0);
+        lobby_weapon_random_tables_ptr = create_named_object((s32)lbl_8044C7C0);
         break;
     }
     for (j = 0; j < 4; j++) {
@@ -699,6 +701,5 @@ void load_weapon_random_tables(void) {
     }
     shop_weapon_stock_level = 0;
 }
-#pragma pop
-
 }
+#pragma pop

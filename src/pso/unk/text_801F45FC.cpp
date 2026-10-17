@@ -1,6 +1,5 @@
 #include "types.h"
 #include "pso/unk/text_801F45FC.h"
-extern "C" {
 extern u8 quest_story_flags_by_difficulty[4][128];
 extern s32 game_difficulty_selection;
 void clear_story_flag(s32 flag) {
@@ -17,6 +16,4 @@ void clear_story_flag(s32 flag) {
         return;
     }
     quest_story_flags_by_difficulty[game_difficulty_selection][byteIdx - 1] &= 0xFE;
-}
-
 }

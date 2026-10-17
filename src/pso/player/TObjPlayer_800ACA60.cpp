@@ -15,7 +15,9 @@ extern const f32 lbl_805D9BE0;
 s32 spawn_particle_effect(s32, s32);
 struct Vec_800ACB58 { f32 x, y, z; };
 s32 apply_actor_gravity(void *, int, f32);
-s32 move_with_wall_slide(void *);
+}
+void move_with_wall_slide(u8 *arg0);
+extern "C" {
 void queue_destruction__7TObjectFv(void *arg0);
 s32 spawn_dead_spot_scale15(void *, int);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
@@ -140,7 +142,6 @@ void TObjPlayer::update_ground_effect() {
         *(s32 *)&this->unk_388 = 0;
     }
 }
-
 }
 
 #include "pso/TParticleCtrl.h"
@@ -700,7 +701,7 @@ void update_attack_jump__11TObjEneMojaFv(Obj_800ACFE8 *arg0) {
         break;
     case 1:
         calc_velocity_toward_destination(arg0, arg0->f290, arg0->f29C, arg0->f378);
-        move_with_wall_slide(arg0);
+        move_with_wall_slide((u8 *)arg0);
         if (objInBand((GameObj *)arg0, (f32)lbl_805D9C08) != 0) {
             arg0->f328 = 2;
             for (i = 0; i < lbl_805D5868; i++) {
@@ -785,7 +786,7 @@ s32 TObjEneMoja::update_technique_state(void *self_800AD3D8) {
                 copy_position_if_valid__10TObjPlayerFii(self, &cur);
                 a = enemy_turn_toward_dest(self, self->info->turn);
                 enemy_set_heading_velocity((TObjEnemy *)((u8 *)self), self->rot_y, self->info->speed);
-                move_with_wall_slide(self);
+                move_with_wall_slide((u8 *)self);
             } else {
                 VecCopy((Vec *)&dir, (const Vec *)&self->target->pos);
                 subtract_vector(&dir, &self->pos);

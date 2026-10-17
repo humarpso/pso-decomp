@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 long belra_cannon_create_shot(u8 *arg0);
-}
 
 #endif

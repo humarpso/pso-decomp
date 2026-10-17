@@ -145,8 +145,10 @@ extern s32 TParticleCtrl__data_8048E778[];
 s32 rand(void);
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
 s32 is_split_screen();
-s32 setup_particle_tev(s32);
-s32 load_projected_texture_matrix(f32);
+}
+void setup_particle_tev(s32 arg0);
+void load_projected_texture_matrix(f32 farg0);
+extern "C" {
 s32 is_particle_sprite_additive__13TUnk_8048E728Fv(void *, s32);
 s32 append_node_to_tail__13TParticleCtrlFPvPv(s32, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
@@ -170,7 +172,9 @@ extern const f32 TParticleCtrl__data_805D950C;
 extern const f32 lbl_805D9520;
 void func_80141618__Fv();
 void restore_saved_depth_alpha_state();
-void direction_to_rotation_xz(void *, void *, void *);
+}
+void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
+extern "C" {
 f32 vec3_dot(void *, void *);
 void project_world_to_screen(int, void *, void *);
 void push_matrix_from(void *);
@@ -183,6 +187,7 @@ extern const f64 lbl_80439528;
 extern u8 identity_matrix[];
 extern const f32 lbl_805D951C;
 void __ct__7TObjectFP7TObject(void *, void *);
+}
 
 extern void *__vt__13TParticleCtrl[];
 extern s32 TParticleCtrl__class_name_descriptor;
@@ -242,8 +247,6 @@ extern const f32 TParticleCtrl__data_805D94E4;
         particle->owner = tl_07;                                               \
     }                                                                          \
 } while (0)
-
-}
 
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -380,7 +383,7 @@ void TUnk_8048E778::render() {
         t.y = p->pos.y + p->ofs.y;
         t.z = p->pos.z + p->ofs.z;
         Ang_800890F4 r = lbl_8043950C;
-        direction_to_rotation_xz(&p->vel, &r.x, &r.z);
+        direction_to_rotation_xz((u8 *)&p->vel, &r.x, &r.z);
         ((s32 (*)())push_matrix)();
         post_translate_matrix(&t);
         scale_matrix(0, p->sw, p->sw, p->sw);
@@ -454,6 +457,7 @@ void *__dt__13TUnk_8048E778Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+}
 #pragma push
 #pragma fp_contract on
 u8 *construct_ballistic_particle(void *a0, void *a1, void *a2, void *a3, s32 arg4, u16 arg5, s16 arg6) {
@@ -516,8 +520,6 @@ u8 *construct_ballistic_particle(void *a0, void *a1, void *a2, void *a3, s32 arg
     return (u8 *)a0;
 }
 #pragma pop
-
-}
 
 struct RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70;
 struct BF0_80089B50 {

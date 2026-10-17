@@ -20,9 +20,11 @@ u8 * init_state__10TObjPlayerFv(void *, s32, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 s32 scale_current_matrix(void *, int);
+}
 extern RecoveredGlobal_80123CA8_lbl_8043E878 lbl_8043E878;
 extern RecoveredGlobal_80123CA8_lbl_8043E8D8 lbl_8043E8D8;
 void sorcerers_cane_node_callback(u8 *arg0);
+extern "C" {
 
 u8 *TObjPlayer::create_state(s32 arg0) {
     u8 *temp_r3;
@@ -36,6 +38,7 @@ u8 *TObjPlayer::create_state(s32 arg0) {
         return var_r0;
     }
     return NULL;
+}
 }
 
 typedef char RecoveredGlobal_80123CA8_lbl_8043E878_size[sizeof(RecoveredGlobal_80123CA8_lbl_8043E878) == 0x60 ? 1 : -1];
@@ -61,6 +64,7 @@ void sorcerers_cane_node_callback(u8 *arg0) {
         return;
     }
 }
+extern "C" {
 
 void TUnk_804A1E28::update_weapon() {
     u8 *arg0 = (u8 *)this;
@@ -95,5 +99,4 @@ void TUnk_804A1E28::update_weapon() {
         this->m_1fc = obj_getS16_32E(*(u8 * *)&this->player);
     }
 }
-
 }

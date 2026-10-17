@@ -29,7 +29,9 @@ struct W_8024DCE8 : WBase_8024DCE8 {
 
 extern "C" {
 u32 get_player_by_client_id(int);
-s32 window_request_show(u32);
+}
+void window_request_show(void *arg0);
+extern "C" {
 s32 is_split_screen();
 s32 TWindowCtrl__sub_8024C7F8(void *);
 s32 TWindow__close(void *);
@@ -153,7 +155,7 @@ void TWindowCtrl::show_active_window() {
             ((TWindowLockOn *)(*(u32 *)((s8 *)this + 0x2C)))->request_close();
             return;
         }
-        window_request_show(*(u32 *)((s8 *)this + 0x2C));
+        window_request_show((void *)(*(u32 *)((s8 *)this + 0x2C)));
         if (get_active_menu() != 0) {
             ((TWindowCtrl *)(*(u32 *)((s8 *)this + 0x2C)))->set_position((void *)(get_window_layout_position(0x21)));
             return;
@@ -246,7 +248,7 @@ void TWindowCtrl::update_child_window_visibility() {
             ((TWindowLockOn *)(*(u32 *)((s8 *)arg0 + 0x34)))->request_close();
             return;
         }
-        window_request_show((u32)((int) (*(u32 *)((s8 *)arg0 + 0x34))));
+        window_request_show((void *)((int) (*(u32 *)((s8 *)arg0 + 0x34))));
     }
 }
 
@@ -257,7 +259,7 @@ void TWindowCtrl::update_trade_window_visibility() {
             ((TWindowLockOn *)(*(u32 *)((s8 *)arg0 + 0x30)))->request_close();
             return;
         }
-        window_request_show((u32)((int) (*(u32 *)((s8 *)arg0 + 0x30))));
+        window_request_show((void *)((int) (*(u32 *)((s8 *)arg0 + 0x30))));
     }
 }
 
@@ -291,6 +293,5 @@ void TWindowCtrlPlayer::sub_8024E0F0() {
     }
     *(s16 *)((s8 *)arg0 + 0x1E) = (s16) (*(s16 *)((s8 *)arg0 + 0x1E) + 1);
 }
-#pragma pop
-
 }
+#pragma pop

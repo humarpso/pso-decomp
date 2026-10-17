@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void load_forest_warp_resources(void);
-}
 
 #endif

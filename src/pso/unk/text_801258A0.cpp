@@ -14,6 +14,7 @@ extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 * TItemWeapon__ct(void *, void *);
+}
 extern RecoveredGlobal_801258A0_lbl_804A2564 lbl_804A2564;
 extern const f32 lbl_805DAD50;
 extern const f32 lbl_805DAD58;
@@ -51,6 +52,4 @@ u8 *create_panzer_faust(s32 arg0) {
         return var_r0;
     }
     return NULL;
-}
-
 }

@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 u8 *create_dark_flow(u8 *arg0);
-}
 
 #endif

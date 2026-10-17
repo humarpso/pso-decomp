@@ -152,7 +152,9 @@ extern "C" {
 s32 disallow_rendering__7TObjectFv(void *);
 s32 test_flags_any(void *, int);
 s32 copy_position__15TEffStarLight2DFPv(int, void *);
-f32 vec_distance_squared(void *, void *);
+}
+f32 vec_distance_squared(u8 *arg0, u8 *arg1);
+extern "C" {
 s32 has_game_join_id__13TUnk_804E355CFv(void *);
 s32 check_hits__13TUnk_804E355CFv(void *);
 u8 *find_item_by_id(s32 id);
@@ -399,5 +401,4 @@ s32 TUnk_804E355C::resolve_attack_col_hit(u8 *arg1) {
     }
     return 0;
 }
-
 }

@@ -310,7 +310,9 @@ void refresh_lobby_state__10TObjPlayerFv();
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 f32 horizontal_distance_squared(void *, void *);
 s32 angle_difference_abs(s32, s32);
+}
 void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
+extern "C" {
 s32 approach_angle_limited(s32, s32, s32);
 int draw__16TObjEneRe7BeruraFv(void*);
 void advance_animation_playback(void *);
@@ -1411,7 +1413,7 @@ void TObjEnePanarms::update_linked_effect() {
         temp_f1 = this->m_3a8;
         this->m_3a8 = (f32) (temp_f1 + lbl_805DA58C);
         post_translate_matrix((u8 *)&this->unk_3A4, temp_f1);
-        direction_to_rotation_xz((u8 *)&sp10, (s32 *)&spC, (s32 *)&sp8);
+        direction_to_rotation_xz((u8 *)&sp10, (s32 *)((s32 *)&spC), (s32 *)((s32 *)&sp8));
         rotate_matrix_z(0, sp8);
         rotate_matrix_y(0, this->rotation_y);
         rotate_matrix_x(0, (void *)(spC + 0x4000));
@@ -1622,5 +1624,4 @@ s32 TObjEnePanarms__sub_800E2FB4(O_800E2FB4 *self) {
 }
 
 int clear_render_callback__8TObjFishFv(void) { return set_global_state__16TObjEneRe7BeruraFl((void*)(0)); }
-
 }

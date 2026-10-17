@@ -28,7 +28,9 @@ struct VObj_18_26a62c : VBase_18_26a62c {
 extern "C" {
 s32 get_attach_joint__11TItemWeaponFv(void *);
 void draw_weapon_at_joint(s32 arg0, s8 arg1);
+}
 void set_shadow_material_state(void);
+extern "C" {
 s32 set_model_fade_alpha__10TObjPlayerFf();
 s32 push_matrix_from();
 s32 pop_matrix();
@@ -131,5 +133,4 @@ void draw_weapon_at_joint(s32 arg0, s8 arg1) {
     draw_weapon_model__11TItemWeaponFv((TItemWeapon *)((void *)arg0));
     ((TItemEquipBase *)arg0)->set_equip_flag(temp_r31);
 }
-
 }

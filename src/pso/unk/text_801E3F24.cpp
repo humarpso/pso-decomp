@@ -39,6 +39,7 @@ void fn_801E3F44(f32 farg0, f32 farg1) {
 }
 
 void TObjCMHairMenu__sub_801E3F54(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); }
+}
 
 void handle_6x9E_player_camera_shutter_sound(void) {
 
@@ -51,6 +52,7 @@ void handle_6x04_legacy_activate_switch_by_token(void *arg0) {
 
 void handle_6x03(void) {  }
 void handle_6x02(void) {  }
+extern "C" {
 void dispatch_6x_subcommand(Msg_801E3FA4 *arg0) {
     s32 i;
     char buf[0x80];
@@ -64,5 +66,4 @@ void dispatch_6x_subcommand(Msg_801E3FA4 *arg0) {
         }
     }
 }
-
 }

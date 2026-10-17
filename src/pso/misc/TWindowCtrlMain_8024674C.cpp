@@ -14,7 +14,6 @@
 
 struct Obj_80246948 { u8 pad[0x2c]; u32 f2c; };
 
-extern "C" {
 extern s32 lbl_8044E658[];
 extern s32 lbl_8044E688[];
 extern s32 hud_palette_texture_filename[];
@@ -30,6 +29,7 @@ extern s32 lbl_8044E758[];
 extern s32 f256_hyouji_texlist[];
 extern u32 lbl_805D63F0;
 extern s16 window_ui_theme_index;
+extern "C" {
 void TLobby__sub_803DA16C(void*);
 
 void TWindowCtrlMain::free_window() {
@@ -37,6 +37,7 @@ void TWindowCtrlMain::free_window() {
         TLobby__sub_803DA16C((void*)lbl_805D63F0);
         lbl_805D63F0 = 0U;
     }
+}
 }
 
 void load_hud_palette_textures(void) {
@@ -71,6 +72,7 @@ void load_hud_palette_textures(void) {
     TLanguage::set_entry_index(0xA, 1);
     window_ui_theme_index = 0;
 }
+extern "C" {
 
 u8 TUnk_804CE018::sub_80246948() {
     Obj_80246948 *self = (Obj_80246948 *)this;
@@ -161,5 +163,4 @@ void TWindowSubStatusDisp::update_entry_visibility() {
         }
     }
 }
-
 }

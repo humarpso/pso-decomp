@@ -222,9 +222,11 @@ extern const f32 lbl_805D8920;
 extern const f32 lbl_805D8924;
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 Hit_8004B7DC *get_hit_data__14TBoss4DarkFalzFv(void *);
+}
 void reset_cameras_to_actor(void *, s32);
 extern Vec_8004B7DC dark_falz_player_ring_center;
 extern const f32 lbl_805D892C;
+extern "C" {
 void TBoss4DarkFalz__sub_8004B7DC(TBoss4DarkFalz *arg0);
 extern Vec_8004B8F8 lbl_804371BC;
 void TBoss4DarkFalz__sub_8004B8F8(TBoss4DarkFalz *arg0);
@@ -644,11 +646,10 @@ void TBoss4DarkFalz::update_roar_sound_timer() {
         }
     }
 }
+}
 #pragma pop
 
 #pragma push
 #pragma fp_contract on
 
 #pragma pop
-
-}

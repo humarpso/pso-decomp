@@ -34,9 +34,9 @@ struct Self_801AAF00 {
     s32 started;
 };
 
-extern "C" {
 extern u8 *photon_blast_shared_resource;
 extern u32 estlla_photon_blast_model;
+extern "C" {
 s32 scroll_strip_uvs(void *, s16, int);
 s32 clear_render_context__10TObjPlayerFv(void *);
 s32 rotate_matrix_y(int, int);
@@ -59,6 +59,7 @@ void TObjPlayer::destroy_global_buffer() {
     }
     estlla_photon_blast_model = 0U;
 }
+}
 
     extern const float lbl_805DC158;
 
@@ -72,6 +73,7 @@ void create_estlla_photon_blast_model(void) {
     }
     (*(s32 *)&estlla_photon_blast_model) = var_r0;
 }
+extern "C" {
 
 void TPhotonFarlla::sub_801AAE6C() { this->m_184 = lbl_805DC158; *(float*)((char*)this + 0x188) = lbl_805DC158; this->m_18c = lbl_805DC158; *(float*)((char*)this + 0x190) = lbl_805DC158; }
 
@@ -119,5 +121,4 @@ void TPhotonFarlla::render() {
         TParticleCtrl::end_effect_render();
     }
 }
-
 }

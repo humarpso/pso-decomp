@@ -119,8 +119,6 @@ struct VObj_18_ec708a : VBase_18_ec708a {
     virtual s32 m21(s32, struct Pair_803561C4, int, int, int);
 };
 
-extern "C" {
-
 struct Vec_803561C4 { f32 x, y, z; };
 
 void damage_players_in_radius(u8 *arg0) {
@@ -146,6 +144,7 @@ void damage_players_in_radius(u8 *arg0) {
         }
     }
 }
+extern "C" {
 
 void run_task__15TBoss6SwordShotFv(u8 *arg0) {
     if (query_teammate_state__9TObjEneDDFv() == 0) {
@@ -166,7 +165,6 @@ void *__dt__15TBoss6SwordShotFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
 }
 
 struct Shot_80356374 {

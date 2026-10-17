@@ -469,10 +469,12 @@ s32 minimap_render_dot(void *, int, int, int);
 void subtract_vector(void *, void *);
 extern const f64 lbl_804750C8[];
 s32 TObjEneDolmOlm__sub_8030177C(void *arg0_);
+}
 struct Vec_80301C3C { f32 x, y, z; };
 struct Elem_80301C3C { u8 pad[0xC]; f32 r; u8 pad2[0x1C]; };
 struct Tgt_80301C3C { u8 pad[0xA4]; Elem_80301C3C *arr; s32 count; };
-s32 move_with_wall_slide(void *);
+void move_with_wall_slide(u8 *arg0);
+extern "C" {
 s32 enemy_set_heading_velocity(void *, s32, f32);
 s32 select_enemy_destination(void *, void *, int);
 s32 copy_position_if_valid__10TObjPlayerFii(void *, void *);
@@ -511,12 +513,16 @@ void __dt__11TBoss4Type3FPvs(void*, int);
 void *__nw__7TObjectFUl(int);
 void mem_free(void*);
 s32 get_mode__11TCameraCtrlFPv(void *);
-s32 restore_render_scissor(int);
+}
+void restore_render_scissor(s32 arg0);
+extern "C" {
 s32 set_indexed_flags__13TUnk_804AF8A0Fll(void *, s32, s32);
 
 s32 init_enemy_base__13TUnk_80493450Fv(void *, s32);
 s32 create__12TObjEneSaverFPvPv(u32, u32);
-s32 initialize_enemy_photon_effect(void *);
+}
+int initialize_enemy_photon_effect(void *p);
+extern "C" {
 s32 bind_enemy_combat_stats(void *, int, int, int);
 s32 set_animation__10TObjMotionFs(void *, int);
 s32 init_collision_body_parts(void *, void *, int);

@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 s32 delete_if_allocated(s32 arg0, s16 arg1);
-}
 
 #endif

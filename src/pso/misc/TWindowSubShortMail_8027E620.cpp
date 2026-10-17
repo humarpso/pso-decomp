@@ -70,7 +70,9 @@ s32 __nw__7TObjectFUl(s32);
 u8 *fn_80267F38(s32 arg0, s32 arg1, s32 arg2, s16 arg3);
 int get_flag_bit0__6TLobbyFv(void);
 void set_status_flag_80__12TQuestThreadFPv(void *p);
+}
 void update_chat_window(void *p);
+extern "C" {
 
 void TWindowSubShortMail__sub_8027E620(void* p) { select_cursor_entry__22TWindowSubShortCutListFv((void*)(*(void**)((char*)p + 0x38))); get_card_entry__17TWindowSubComCardFi(); send_find_user_self_tag__6TLobbyFi(*(void**)((char*)p + 0x2c)); }
 
@@ -300,7 +302,6 @@ s32 TWindowSubShortMail::create_list_item() {
     ((TWindowSubShortCutList *)temp_r31)->set_flag70_bit10();
     return temp_r31;
 }
-
 }
 
 struct VBase_18_8027EF98 { char pad[0x18]; };
@@ -335,8 +336,10 @@ struct ShortMail_8027EF98 {
 
 extern "C" {
 s32 create_window_menu(s32 arg0, s32 arg1, s32 arg2);
+}
 s32 create_titled_window_menu(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 extern const f32 lbl_805DD6D8;
+extern "C" {
 void queue_destruction__7TObjectFv(void *arg0);
 s32 get_selected_menu_value(s32);
 void *send_cmd_133__17TWindowSubComCardFv(void);
@@ -346,7 +349,9 @@ s32 TWindowSubShortMail__sub_8007B834(void *);
 void free_menu_object(void *);
 void TWindowSubShortMail__sub_80131998(void *);
 void TWindowSubShortMail__sub_8027E620(void *p);
+}
 void remove_short_mail_by_id(u32 id);
+extern "C" {
 void get_keyboard_field_6c__15TWindowMakeTeamFv(void *, void *);
 struct VObj_8027FBF0_Base_8027fbf0_8027E620 { char pad[0x18]; };
 struct VObj_8027FBF0_8027E620 : VObj_8027FBF0_Base_8027fbf0_8027E620 {
@@ -672,10 +677,9 @@ void *__dt__19TWindowSubShortMailFv(TWindowSubShortMail *arg0, s16 arg1) {
     }
     return arg0;
 }
+}
 
 extern void *TWindowSubShortMail__class_name;
-
-}
 TWindowSubShortMail::TWindowSubShortMail(TObject *arg1, void *arg2) : TObject(arg1) {
     *(void * *)&this->m_name = TWindowSubShortMail__class_name;
     *(void **)((s8 *)this + 0x34) = arg1;

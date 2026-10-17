@@ -38,6 +38,7 @@ void TObjPlayer::set_camera_mode(s32 arg0) {
         play_area_music((char *)area_music_filename_table[arg0]);
     }
 }
+}
 void create_bgm_col_zones(void) {
     Set_8017E550 set;
     s32 i;
@@ -68,6 +69,4 @@ void create_bgm_col_zones(void) {
         }
         break;
     }
-}
-
 }

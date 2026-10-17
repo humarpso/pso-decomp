@@ -50,6 +50,7 @@ void *get_player_by_client_id(s32);
 void clear_shop_armor_flags(void);
 void clear_shop_tool_flags(void);
 void clear_shop_weapon_flags(void);
+}
 extern s32 TLobby__data_805011D8[];
 extern s32 local_client_id;
 extern s32 game_difficulty_selection;
@@ -58,6 +59,7 @@ extern s32 shop_world_player_level;
 extern s32 shop_difficulty_tier;
 extern s32 lbl_805D6244;
 void init_shop_world_context(void);
+extern "C" {
 s16 TShopGetItemWindow::get_cursor_index() { return *(s16*)((char*)this + 0x74); }
 
 void TShopGetItemWindow::calc_item_count(s32 *arg1) {
@@ -80,6 +82,7 @@ void TShopGetItemWindow::calc_item_count(s32 *arg1) {
         var_r31 = 0xC7;
     }
     *arg1 = var_r31;
+}
 }
 #pragma push
 #pragma opt_dead_code off
@@ -121,5 +124,3 @@ void init_shop_world_context(void) {
     lbl_805D6244 = 0;
 }
 #pragma pop
-
-}

@@ -114,12 +114,9 @@ typedef char NetworkInfoConfigCredentialOffset[offsetof(NetworkInfoConfig, d) ==
 typedef char NetworkInfoConfigText400Offset[offsetof(NetworkInfoConfig, e) == 0x14B4 ? 1 : -1];
 typedef char NetworkInfoConfigText256Offset[offsetof(NetworkInfoConfig, f) == 0x17D4 ? 1 : -1];
 
-extern "C" {
 s32 parse_netinfo(char *text, u32 size, NetworkInfoConfig *config);
 s32 decode_network_info_payload(u8 *key, u8 *payload, u32 size, NetworkInfoConfig *config);
-}
 
-extern "C" {
 u32 *allocate_network_info_cipher_key(s32 src);
 void bind_network_info_cipher_pool(u32 *p, s32 n);
 void clear_network_info_cipher_pool(void);
@@ -132,6 +129,5 @@ s32 parse_hex_string(char *s);
 s32 parse_network_info_config_decimal(char *s, u32 n);
 s32 parse_network_info_config_hex(char *s, u32 n);
 void release_network_info_cipher_key(u32 *mask);
-}
 
 #endif

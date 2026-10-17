@@ -96,7 +96,9 @@ f32 calc_boss4_scale__10TObjPlayerFi(void *);
 void copy_position__20TBoss3VoloptHiraisinFv(void *);
 void init_enemy_base__13TUnk_80493450Fv(void *);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
-void initialize_enemy_photon_effect(void *);
+}
+int initialize_enemy_photon_effect(void *p);
+extern "C" {
 void bind_enemy_combat_stats(void *, s32, s32, s32);
 void init_collision_body_parts(void *, void *, s32);
 void __construct_array(void *, void *, void *, int, int);
@@ -524,8 +526,7 @@ void *TObjEneDimedian__ct(void *arg0_, void *arg1_, void *arg2_) {
     ((VObj_18_c99286 *)arg0)->m80();
     return arg0;
 }
+}
 #undef arg0
 #undef arg1
 #undef arg2
-
-}

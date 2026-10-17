@@ -12,6 +12,7 @@ extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 * TItemWeapon__ct(void *, void *);
+}
 extern RecoveredGlobal_801301D0_lbl_804A68C8 lbl_804A68C8;
 extern const f32 lbl_805DAFFC;
 
@@ -39,6 +40,4 @@ u8 *create_cane_weapon(u8 *arg0) {
         return var_r0;
     }
     return NULL;
-}
-
 }

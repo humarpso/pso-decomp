@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void bswap_player_record_upload(u8 *arg0);
-}
 
 #endif

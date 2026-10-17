@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void create_bgm_col_zones(void);
-}
 
 #endif

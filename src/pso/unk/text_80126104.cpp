@@ -151,6 +151,7 @@ s32 obj_is_hit_receivable(void *);
 extern const f32 lbl_805DAD70;
 void frozen_shooter_collider_block(Obj_80126180 *self, Out_80126180 *o);
 void fire_shot_at_target__11TItemWeaponFv(void *, void *, s32, s32);
+}
 #pragma push
 #pragma fp_contract on
 void frozen_shooter_freeze_hit(int arg0, u8 *arg1) {
@@ -162,6 +163,7 @@ void frozen_shooter_freeze_hit(int arg0, u8 *arg1) {
     }
 }
 #pragma pop
+extern "C" {
 
 void frozen_shooter_collider_block(Obj_80126180 *self, Out_80126180 *o) {
     if (self->b == 0) {
@@ -187,5 +189,4 @@ void TUnk_804A2960::emit_marker_effects() {
         ((Pl_801261BC *)this)->m49(p, 0, 0, 1);
     }
 }
-
 }

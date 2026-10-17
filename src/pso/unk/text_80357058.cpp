@@ -67,6 +67,7 @@ extern const f32 lbl_805E0030;
 extern const f32 lbl_805E0034;
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
+}
 
 void send_6xAD_olga_flow_subordinate_boss_actions(u8 *arg0) {
     B_80357058 b;
@@ -79,6 +80,7 @@ void send_6xAD_olga_flow_subordinate_boss_actions(u8 *arg0) {
         ((TItemEffOrgaFlowShot *)(&b))->bswap_6xAD_subordinate_action();
     }
 }
+extern "C" {
 
 void TBoss6Type2__sub_803570C8(s8 *arg0) {
     s32 var_ctr;
@@ -145,6 +147,7 @@ void TItemEffOrgaFlowShot__sub_80357204(void) { olga_flow_subordinate_actions_en
 void TItemEffOrgaFlowShot__sub_80357210(void) { olga_flow_subordinate_actions_enabled = 1; }
 
 void TItemEffOrgaFlowShot::bswap_6xAD_subordinate_action() { read_be16_field2_forward(this); TLobby__send_and_handle_60((u8 *)this); }
+}
 
 int read_be16_field2_forward(void* p) { return ((TObjPlayer *)p)->read_be16_field2(); }
 void build_6xAD_olga_flow_subordinate_boss_actions(void* p) { *(u8*)((char*)p + 0x0) = 173; *(u8*)((char*)p + 0x1) = 17; }
@@ -155,6 +158,7 @@ extern s32 model_render_flags;
 #pragma push
 #pragma fp_contract on
 #pragma fp_contract on
+extern "C" {
 void TItemEffOrgaFlowShot::update_segments() {
     Shot_80357284 *o = (Shot_80357284 *)this;
     Vec4_80357284 *dst;
@@ -300,5 +304,4 @@ void TItemEffOrgaFlowShot::create(void *arg0, void *arg1) {
         TItemEffOrgaFlowShot__ct((TItemEffOrgaFlowShot *)((u8 *)o), (s32)((s32)arg0), (u8 *)((u8 *)arg1));
     }
 }
-
 }

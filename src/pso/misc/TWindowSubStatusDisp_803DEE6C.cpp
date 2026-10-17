@@ -12,8 +12,8 @@ union Pipe_803DEECC { u8 u8v; u16 u16v; u32 u32v; s32 s32v; f32 f32v; };
 #define FIFO_803DF00C (*(volatile Pipe_803DF00C *)0xCC008000)
 union Pipe_803DF00C { u8 u8v; u16 u16v; u32 u32v; s32 s32v; f32 f32v; };
 
-extern "C" {
 extern s32 constant_material_color;
+extern "C" {
 void GXBegin(u32, u32, u16);
 extern const f32 lbl_805E0FC8;
 s64 OSGetTime(void);
@@ -123,6 +123,7 @@ void set_draw_texture_and_color(s32 idx, s32 arg1) {
     load_list_texture((idx), 0, 0, 0);
     constant_material_color = ((arg1 & 0xFFFFFF) << 8) | ((u32) (arg1 & 0xFF000000) >> 0x18U);
 }
+}
 #pragma pop
 
 #pragma push
@@ -136,9 +137,9 @@ void set_constant_material_color(u32 x) {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
+extern "C" {
 u32 TLobby__sub_803DF1CC(void) {
     return OSGetTime() >> 6;
 }
-#pragma pop
-
 }
+#pragma pop

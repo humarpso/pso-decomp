@@ -8,6 +8,7 @@ void TLobby__sub_8001FE7C(void *, int);
 extern u32 labo_design_object_table[];
 void *load_resource_from_descriptor(void *, s32, s32, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
+}
 extern Ent_803653A4 lbl_804F2C08[];
 void free_object_table(void) {
     s32 i;
@@ -18,6 +19,7 @@ void free_object_table(void) {
         }
     }
 }
+extern "C" {
 void fn_803653A4(void) {
     s32 i;
     Ent_803653A4 *e;
@@ -37,5 +39,4 @@ void fn_803653A4(void) {
         }
     }
 }
-
 }

@@ -18,6 +18,6 @@ typedef char WindowControlState_size[sizeof(WindowControlState) == 0x1C ? 1 : -1
 typedef char WindowControlState_field0C[offsetof(WindowControlState, field0C) == 0xC ? 1 : -1];
 typedef char WindowControlState_field18[offsetof(WindowControlState, field18) == 0x18 ? 1 : -1];
 
-extern "C" WindowControlState* get_window_control_state(s32 viewport_index);
+WindowControlState* get_window_control_state(s32 viewport_index);
 
 #endif

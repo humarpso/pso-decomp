@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void *create_TObjCMHexTile(void *pos);
-}
 
 #endif

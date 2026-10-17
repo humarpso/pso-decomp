@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 int get_window_count_ratio_value(void);
-}
 
 #endif

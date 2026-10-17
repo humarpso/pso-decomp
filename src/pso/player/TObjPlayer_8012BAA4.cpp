@@ -2,9 +2,8 @@
 #include "pso/unk/TUnk_804A4F60.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 void psycho_wand_node_callback(void *arg0);
+extern "C" {
 s32 rotate_matrix_z(s32, s32);
 s32 add_actor_tp(u8 *arg0, s32 arg1);
 s32 get_attack_stage__11TItemWeaponFv();
@@ -43,6 +42,7 @@ void TUnk_804A4F60::emit_marker_effects() {
     }
     ((TObjPlayer *)arg0)->update_active_game_effect();
 }
+}
 
 extern const f32 lbl_805DAEC8;
 extern const f32 lbl_805DAECC;
@@ -67,6 +67,4 @@ void psycho_wand_node_callback(void *arg0) {
         TObjPlayer::play_particle_effect_once();
         return;
     }
-}
-
 }

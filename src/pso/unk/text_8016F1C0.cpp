@@ -28,9 +28,11 @@ s32 get_trap_type__10TOMineTrapFv(s32);
 s32 is_technique_ready__8TTecCtrlFv(void);
 VO_8016F320 *get_player_by_client_id(u16);
 void text_builder_append(const char *);
+}
 void text_builder_reset(void);
 extern const char lbl_804421F0[];
 extern const char lbl_805DB860[4];
+extern "C" {
 u32 TOMineTrapDisp__ct(u32, s32, u16, s32);
 u32 __nw__7TObjectFUl(s32);
 s32 is_split_screen();
@@ -98,7 +100,6 @@ s32 TOMineTrap::show_owner_message(s32 arg0, u32 arg1) {
     }
     return 0;
 }
-
 }
 
 #include "pso/player/TObjPlayer.h"

@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void start_ending_sequence(void);
-}
 
 #endif

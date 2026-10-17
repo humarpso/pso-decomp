@@ -32,6 +32,7 @@ void TEffIndirectCtrl::free_all() {
         var_r31 += 1;
     } while (var_r28 < 8);
 }
+}
 void load_indirect_dat(void) {
     s32 i;
     s32 fail;
@@ -72,6 +73,4 @@ void load_indirect_dat(void) {
             TObjPlayer__sub_802A841C();
         }
     }
-}
-
 }

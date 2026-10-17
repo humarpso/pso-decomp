@@ -29,9 +29,13 @@ void run_all_updates__11TWindowCtrlFv(void* p);
 s32 is_split_screen(void);
 void *__nw__7TObjectFUl(u32);
 void *TWindowActionPalette__ct(void *, s32);
-void *create_message_information_window(s32, void *, s32);
+}
+s32 create_message_information_window(s32 arg0, s32 arg1, s32 arg2);
+extern "C" {
 s32 get_window_layout_position(s32);
-void *create_status_window(s32);
+}
+s32 create_status_window(s32 arg0);
+extern "C" {
 void *TWindowMainMenu1P__ct(void *, void *, s32);
 void *TWindowMainMenu4P__ct(void *, void *, s32);
 extern u8 lbl_8044EC4C[];
@@ -58,8 +62,8 @@ void *__dt__17TWindowCtrlPlayerFv(TWindowCtrlPlayer *arg0, s16 arg1) {
     }
     return arg0;
 }
-
 }
+
 TWindowCtrlPlayer::TWindowCtrlPlayer(TObject *parent, s32 arg2) : TObject(parent) {
     void *p;
     ((struct Ctl_8024E2A8 *)this)->f0 = TWindowCtrlPlayer__name;
@@ -86,8 +90,8 @@ TWindowCtrlPlayer::TWindowCtrlPlayer(TObject *parent, s32 arg2) : TObject(parent
         }
         ((struct Ctl_8024E2A8 *)this)->f28 = p;
     }
-    ((struct Ctl_8024E2A8 *)this)->f2c = create_message_information_window(get_window_layout_position(0x20), lbl_8044EC4C, ((struct Ctl_8024E2A8 *)this)->f24);
-    ((struct Ctl_8024E2A8 *)this)->f30 = create_status_window(((struct Ctl_8024E2A8 *)this)->f24);
+    ((struct Ctl_8024E2A8 *)this)->f2c = (void *)create_message_information_window((s32)(get_window_layout_position(0x20)), (s32)lbl_8044EC4C, (s32)(((struct Ctl_8024E2A8 *)this)->f24));
+    ((struct Ctl_8024E2A8 *)this)->f30 = (void *)create_status_window(((struct Ctl_8024E2A8 *)this)->f24);
     ((TObject *)(((struct Ctl_8024E2A8 *)this)->f30))->set_flag_4();
     p = __nw__7TObjectFUl(0x78);
     if (p != 0) {

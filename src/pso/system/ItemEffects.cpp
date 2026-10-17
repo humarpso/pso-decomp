@@ -18,7 +18,9 @@
 extern "C" {
 void disallow_rendering__7TObjectFv(TObject *arg0);
 void *create_particle_emitter(void *pos, s32 id);
+}
 int get_item_system_generation(void);
+extern "C" {
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 item_follow_effect_vtable[];
 u32 __nw__7TObjectFUl(s32 a0 = 0);
@@ -69,6 +71,7 @@ void TUnk_804A2660::run_task() {
         queue_destruction__7TObjectFv(this);
     }
 }
+}
 
 void *destroy_item_follow_effect(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -99,6 +102,7 @@ void spawn_item_follow_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
         construct_item_follow_effect((u8 *)obj, (s32)arg0, (s32)arg1, (s32)arg2, (s32)arg3);
     }
 }
+extern "C" {
 void TObjPlayer::cast_gifoie() {
     s32 sp8;
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
@@ -134,5 +138,4 @@ void TUnk_804A2678::update_weapon() {
         }
     }
 }
-
 }

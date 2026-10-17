@@ -64,7 +64,9 @@ s32 post_translate_matrix(void *);
 s32 draw_ginja_object();
 extern const f32 lbl_805DBD9C;
 void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
+}
 void play_container_break_sound(s32 arg0);
+extern "C" {
 void *__nw__7TObjectFUl(int);
 extern Spawn_8018D4DC container_jung_debris_desc;
 extern Spawn_8018D4DC container_jung_spawn_params;
@@ -239,5 +241,4 @@ u8 *TObjContainerJung__ct(u8 *arg0, s32 arg1, s32 _w2) {
     *(f32 *)((s8 *)arg0 + 0x78) = (f32) (*(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)&container_jung_collision_desc.value + 4));
     return arg0;
 }
-
 }

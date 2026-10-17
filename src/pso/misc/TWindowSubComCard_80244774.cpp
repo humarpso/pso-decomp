@@ -110,12 +110,15 @@ extern "C" {
 void reset_line_width(void);
 void set_line_width(int a0);
 void TWindowSubComCard__sub_80245A10(u8 *arg0, s32 arg1, void *r, f32 len);
+}
 extern u16 window_ui_theme_index;
 extern s16 lbl_805D63F6;
 void draw_window_scanlines(u8 *arg0, u8 *arg1);
+extern "C" {
 void begin_screen_draw(s32);
 s32 draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(s32, s32);
+}
 extern UVPair_8024503C selection_bar_texture_coordinates;
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DCAE4;
@@ -124,6 +127,7 @@ void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2);
 extern const f32 lbl_805DCB48;
 extern const f32 lbl_805DCB28;
 extern const f32 lbl_805DCB2C;
+extern "C" {
 void draw_window_frame_strips(u8 *a, Quad_80245D64 *q, Rect_80245D64 *r);
 extern const f32 lbl_805DCB10;
 void draw_window_frame(Card_80245F98 *a, Rect_80245F98 *r);
@@ -152,15 +156,19 @@ void fn_8024491C(void *arg0);
 void fn_80244958(void *arg0);
 void fn_802449E0(u8 *arg0);
 void TWindow__close(u8 *arg0);
+}
 void window_request_refresh(u8 *arg0);
 void window_request_show(void *arg0);
 bool is_balloon_overlapping(u8 *arg0, u8 *arg1, u8 *arg2);
+extern "C" {
 Win_80244DFC * find_overlapping_balloon__15TWindowFukidasiFPvPvPvPv(Win_80244DFC *self, void *a, void *b, Win_80244DFC *p);
 void draw_message_frame_row(u8 *a, Quad_802455CC *q, Rect_802455CC *r);
 s32 sub_80246948__13TUnk_804CE018Fv();
 int TWindowFukidasi__sub_8024695C(void *p);
 s32 TWindowCtrlMain__sub_8024CE24();
+}
 void apply_window_closing_stretch(u8 *arg0, int arg1);
+extern "C" {
 s32 animate_scale__19TWindowKeyBoardSoftFv();
 s32 open_singleton__19TWindowKeyBoardSoftFiiii(void *, void *, void *, int, f32);
 s32 init_window_layout_entries(void *, int, int);
@@ -294,6 +302,7 @@ void TWindowLockOn::request_close() {
 s32 TUnk_804CE018::is_window_reveal_complete() {
     return (f32) *(s32 *)((s8 *)((u8 *)this) + 0x5C) >= lbl_805DCAD0;
 }
+}
 
 void window_request_refresh(u8 *arg0) {
     if (!((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= lbl_805DCAD0)) {
@@ -322,6 +331,7 @@ void window_request_show(void *arg0) {
     }
     allow_rendering__7TObjectFv((TObject *)arg0);
 }
+extern "C" {
 
 s32 TUnk_804CE018::setup_window_draw_context(s32 arg1) {
     s32 temp_r31;
@@ -354,6 +364,7 @@ void TLobby::set_field_1c(f32 farg0) {
     *(f32 *)((s8 *)this + 0x1C) = farg0;
     resort_window_order__13TUnk_804CE018Fv(this);
 }
+}
 
 bool is_balloon_overlapping(u8 *arg0, u8 *arg1, u8 *arg2) {
     f32 temp_f1;
@@ -373,6 +384,7 @@ bool is_balloon_overlapping(u8 *arg0, u8 *arg1, u8 *arg2) {
     }
     return ((temp_f1 + *(f32 *)((s8 *)arg2 + 4)) <= temp_f2) == 0;
 }
+extern "C" {
 
 Win_80244DFC *find_overlapping_balloon__15TWindowFukidasiFPvPvPvPv(Win_80244DFC *self, void *a, void *b, Win_80244DFC *p) {
     if (TWindowFukidasi__sub_8024695C(self) == 0) {
@@ -429,6 +441,7 @@ void TUnk_804CE018::sub_80244F2C(u8 *arg1, u8 *arg2, s16 arg3) {
     if (TWindowSubStatusDisp::get_card_window_scale((int) (*(s16 *)((s8 *)((u8 *)this) + 0x20))) <= lbl_805DCAD4) {
         *(s32 *)((s8 *)((u8 *)this) + 0x5C) = 0x01000000;
     }
+}
 }
 
 void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2) {
@@ -496,6 +509,7 @@ void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2) {
 
 #pragma push
 #pragma fp_contract on
+extern "C" {
 bool TWindowSubComCard__sub_80245558(s32 arg0, f32 *arg1, f32 *arg2) {
     f32 temp_f1;
     f32 temp_f2;
@@ -612,6 +626,7 @@ void TUnk_804CE018::draw_quest_message_frame(void *c_arg) {
   }
   TWindowSubStatusDisp::get_player();
 }
+}
 
 #pragma push
 #pragma fp_contract on
@@ -651,6 +666,7 @@ typedef struct Quad_80245D64 Quad_80245D64;
 typedef struct Rect_80245D64 Rect_80245D64;
 #pragma push
 #pragma fp_contract on
+extern "C" {
 void draw_window_frame_strips(u8 *a, Quad_80245D64 *q, Rect_80245D64 *r) {
   f32 rem;
   f32 t;
@@ -824,5 +840,4 @@ void TWindowSubComCard::update_open_close() {
         }
     }
 }
-
 }

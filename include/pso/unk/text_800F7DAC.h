@@ -14,7 +14,7 @@ void *__dt__13TUnk_804999A0Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804999B8Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804999D0Fv(void *arg0, s16 arg1);
 u32 prs_decompress_buffer(s32 arg0, s32 arg1);
-void step_fade_opacity_increase(u8 *arg0);
 }
+void step_fade_opacity_increase(u8 *arg0);
 
 #endif

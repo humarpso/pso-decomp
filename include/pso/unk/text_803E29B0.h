@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void draw_particle_strip(void *arg0, void *arg1, void *arg2);
-}
 
 #endif

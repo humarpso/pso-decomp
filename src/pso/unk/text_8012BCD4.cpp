@@ -10,6 +10,7 @@ extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 * TItemWeapon__ct(void *, void *);
+}
 extern RecoveredGlobal_8012BCD4_lbl_804A4F60 psycho_wand_weapon_vtable;
 extern const f32 lbl_805DAEC8;
 
@@ -41,6 +42,4 @@ u8 *create_psycho_wand(s32 arg0) {
         return var_r0;
     }
     return NULL;
-}
-
 }

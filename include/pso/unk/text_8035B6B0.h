@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void load_and_spawn_chao_npc(void);
-}
 
 #endif

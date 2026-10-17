@@ -14,8 +14,8 @@ struct TAdWarningBaseGC {
 typedef TAdWarningBaseGC TAdWarningBaseGC_8032CEB4;
 typedef void (TAdWarningBaseGC_8032CEB4::*Act_8032CEB4)();
 
-extern "C" {
 s32 *get_quest_download_file_header(void);
+extern "C" {
 void DCInvalidateRange(void *, u32);
 void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void (*)(u32));
 void clear_aram_request_busy(u32);
@@ -122,5 +122,4 @@ void *TUnk_804EDBD0::init_vtable() {
     *(u32 *)&this->unk_1C = 0;
     return this;
 }
-
 }

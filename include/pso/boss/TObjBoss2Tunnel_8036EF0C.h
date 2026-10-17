@@ -6,7 +6,7 @@
 extern "C" {
 s32 TObjBoss2Tunnel__sub_8036EF44(void);
 void TObjBoss2Tunnel__sub_8036EF4C(void);
-void set_display_copy_filter(int sample_pattern);
 }
+void set_display_copy_filter(int sample_pattern);
 
 #endif

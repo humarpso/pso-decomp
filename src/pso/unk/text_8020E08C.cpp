@@ -32,6 +32,7 @@ void *TQuestVmDownLoadServer__sub_8007EBDC(s32, s32);
 void *__ct__5THeapFUli(void *, u32, s32);
 void *__nw__5THeapFUl(u32);
 void *memset(void *, int, u32);
+}
 extern void *TLobby__data_805D6104;
 extern ObjRow_8020E08C *TLobby__data_805D610C;
 extern EneRow_8020E08C *TLobby__data_805D6114;
@@ -150,6 +151,4 @@ void init_item_drop_tables(void) {
     TLobby__data_805D6120 = 0;
     TLobby__data_805D6128 = 0;
     lbl_805D6100 = 0;
-}
-
 }

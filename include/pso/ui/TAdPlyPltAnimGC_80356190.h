@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void register_player_prate(void);
-}
 
 #endif

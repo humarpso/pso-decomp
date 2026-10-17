@@ -18,7 +18,9 @@ typedef char TWindowChoiceSetting_size[sizeof(TWindowChoiceSetting) == 0x84 ? 1 
 extern "C" {
 void TWindowMenuInfomation__ct(u8 *arg0, u32 arg1);
 void TWindowSubStatusDisp__sub_80268C80(u8 *arg0);
+}
 s32 create_information_counter_window(s32 arg0);
+extern "C" {
 void create_sub_window__20TWindowChoiceSettingFPvi(void *arg0, s32 arg1);
 }
 

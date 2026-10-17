@@ -14,21 +14,22 @@ typedef char Laser_particles_offset[offsetof(TBoss7LaserPtcl, particles) == 0x44
 typedef char Laser_distance_offset[offsetof(TBoss7LaserPtcl, travel_distance) == 0x4C ? 1 : -1];
 typedef char Laser_last_known_offset[offsetof(TBoss7LaserPtcl, m_54) == 0x54 ? 1 : -1];
 
-extern "C" {
-
 typedef TBoss7LaserPtclVector Vec_8035AAEC;
 struct Ang_8035AAEC { s32 x, y, z; };
+extern "C" {
 
 f32 atan2_float(f32 y, f32 x);
+}
 void *create_oneshot_particle_emitter(void *pos, void *dir, s32 id, s32 flags);
 void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
+extern "C" {
 void vec3_add_to(void *, void *);
 void normalize_vector(void *);
+}
 extern const f64 lbl_804796D8[];
 extern const f32 lbl_805E0100;
 extern const f32 lbl_805E0104;
 extern const f32 lbl_805E0108;
-}
 
 struct RecoveredGlobal_8035ACBC___vt__15TBoss7LaserPtcl { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8035ACBC___vt__15TBoss7LaserPtcl_size[sizeof(RecoveredGlobal_8035ACBC___vt__15TBoss7LaserPtcl) == 0x18 ? 1 : -1];
@@ -102,7 +103,7 @@ void TBoss7LaserPtcl::run_task() {
         v.y *= lbl_805E0104;
         v.z *= lbl_805E0104;
         a.y = (s32)(lbl_804796D8[0] * atan2_float(v.x, v.z));
-        direction_to_rotation_xz((u8 *)&v, (s32 *)&a.x, (s32 *)&a.z);
+        direction_to_rotation_xz((u8 *)&v, (s32 *)((s32 *)&a.x), (s32 *)((s32 *)&a.z));
         for (n = (s32)o->travel_distance / 8; n != 0; n--) {
             create_oneshot_particle_emitter(&w, &a, 0x206, 0x40);
             create_oneshot_particle_emitter(&w, &a, 0x207, 0x40);

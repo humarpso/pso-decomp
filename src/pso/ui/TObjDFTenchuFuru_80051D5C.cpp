@@ -14,6 +14,7 @@ extern "C" {
 void *get_player_by_client_id(s32 i);
 s32 push_matrix();
 s32 post_translate_matrix(s32 *);
+}
 extern s32 lbl_804FF228[];
 extern s32 lbl_804FF234[];
 extern const f32 lbl_805D8A30;
@@ -57,6 +58,7 @@ void boss6type2_draw_models(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u3
         }
     }
 }
+extern "C" {
 
 void TObjPlayer::draw_player_model_by_id(s32 arg0, f32 alpha) {
     u8 *p;
@@ -120,5 +122,4 @@ void TObjPlayer::draw_player_model_by_id(s32 arg0, f32 alpha) {
         TCharaMaking::clear_flag_bit0();
     }
 }
-
 }

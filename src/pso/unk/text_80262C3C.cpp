@@ -138,7 +138,9 @@ extern "C" {
 u32 obj_getArrWord_254(Ent_80262E90 *, s32);
 s16 obj_getS16_2BA(Ent_80262E90 *);
 void *find_entity_by_id(u16 id);
+}
 s32 get_status_effect_icon_index(u32);
+extern "C" {
 u16 obj_getField1c(void *);
 void refresh_status_display__9TWindowDDFv(void *);
 void init_window_layout_entries(void *, void *, int);
@@ -561,5 +563,4 @@ u8 *TWindowLockOn__ct(TWindowLockOn *arg0, s16 arg1, s32 arg2) {
     arg0->m_50 = 0;
     return (u8 *)arg0;
 }
-
 }

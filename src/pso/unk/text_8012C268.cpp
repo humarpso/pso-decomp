@@ -23,6 +23,7 @@ TItemWeaponRifle* TItemWeaponRifle::initialize(s32 parent,u8* item) {
 extern "C" {
 
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
+}
 extern s32 tl_05;
 u8 *create_rifle_weapon(u8 *arg0) {
     u8 *temp_r3;
@@ -36,6 +37,4 @@ u8 *create_rifle_weapon(u8 *arg0) {
         return var_r0;
     }
     return NULL;
-}
-
 }

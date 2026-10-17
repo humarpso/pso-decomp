@@ -118,11 +118,13 @@ u8 *create_yes_no_window(s32 arg0, s32 arg1, u32 arg2, u32 arg3);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
 void *create_message_window__6TLobbyFllUls(void *, void *, s32, s32);
 void *get_window_layout_position(s32);
+}
 extern Pos_80216CF8 lbl_8044BEA4[];
 extern const f32 lbl_805DC694;
 extern const f32 lbl_805DC698;
 s32 get_story_flag(s32 flag);
 s32 get_guild_text(s32 arg0);
+extern "C" {
 s32 calc_list_content_extent(void *);
 void *set_window_mode_4__6TLobbyFPvll(void *, void *, s32);
 extern Pos_80216F50 lbl_8044BE9C[];
@@ -146,6 +148,7 @@ void TWindow::close_sub_windows() {
         TWindow__close((u8 *)(*(void **)((s8 *)this + 0x3C)));
         *(u32 *)((s8 *)this + 0x3C) = 0U;
     }
+}
 }
 
 void handle_confirm_dialog(TShopWindowBase *arg0) {
@@ -187,6 +190,7 @@ block_9:
         }
     }
 }
+extern "C" {
 void TQuestListOffline::update_list_navigation() {
     s32 sel;
     s32 msg;
@@ -296,5 +300,4 @@ void TQuestListOffline::init_quest_list_window() {
     }
     ((TShopWindowBase *)self)->set_field_20(1);
 }
-
 }

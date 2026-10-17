@@ -1,11 +1,14 @@
 #include "pso/network/NetworkInfoCodec.h"
 extern "C" {
 u32 strlen(const char *);
+}
 extern char network_info_file_header[19];
 s32 parse_netinfo(char *, u32, NetworkInfoConfig *);
+extern "C" {
 int strncmp(const char *, const char *, unsigned long);
 char *strncpy(char *, const char *, unsigned long);
 int atoi(const char *);
+}
 extern char network_info_unparsed_config_lines[0x400];
 extern char network_info_config_key_iver[5];
 extern char network_info_config_key_cnum[5];
@@ -293,11 +296,8 @@ s32 copy_network_info_config_string(char *arg0, char *arg1, u32 arg2, u32 arg3) 
 }
 #pragma pop
 
-}
-
 #include "types.h"
 
-extern "C" {
 extern NetworkInfoCipherPoolBinding network_info_cipher_pool_binding;
 extern NetworkInfoCipherWorkspace network_info_cipher_workspace;
 s32 decode_network_info_payload(u8 *arg0, u8 *arg1, u32 arg2, NetworkInfoConfig *arg3);
@@ -539,4 +539,3 @@ char network_info_config_key_cmi[4] = "CMI";
 char network_info_config_key_cmp[4] = "CMP";
 char network_info_config_key_sg[4] = "SG_";
 char network_info_config_key_url[4] = "URL";
-}

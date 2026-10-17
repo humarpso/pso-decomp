@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 u8 *create_yasminkov_9000m(s32 arg0);
-}
 
 #endif

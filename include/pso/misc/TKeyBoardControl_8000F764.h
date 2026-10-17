@@ -19,12 +19,14 @@ void activate_keyboard(void);
 void clear_keyboard_key_state(void);
 void deactivate_keyboard(void);
 s32 get_main_phase(void);
+}
 void init_game_systems(void);
 void init_gx_lighting_defaults(void);
+extern "C" {
 bool is_keyboard_active(void);
 void mark_area_change_pending(void);
 s32 request_queued_main_phase(void);
-void shutdown_and_reset_system(void);
 }
+void shutdown_and_reset_system(void);
 
 #endif

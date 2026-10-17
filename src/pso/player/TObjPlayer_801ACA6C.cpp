@@ -5,15 +5,16 @@
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern u8 *photon_blast_shared_resource;
 extern u32 leilla_photon_buffer_pair;
+extern "C" {
 
 void TObjPlayer::destroy_buffer_pair_instance() {
     if ((u32) leilla_photon_buffer_pair != 0U) {
         destroy_buffer_pair((void *)leilla_photon_buffer_pair, 1);
     }
     leilla_photon_buffer_pair = 0U;
+}
 }
 void create_leilla_photon_blast_model(void) {
     s32 temp_r3;
@@ -24,6 +25,4 @@ void create_leilla_photon_blast_model(void) {
         var_r0 = (long) (((TLobby *)temp_r3)->alloc_tables(*(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 8)) + 0x2C), 0));
     }
     (*(s32 *)&leilla_photon_buffer_pair) = var_r0;
-}
-
 }

@@ -16,9 +16,13 @@ extern "C" {
 s32 TKeyBoardControl__sub_8000F92C();
 s32 request_queued_main_phase();
 s32 TKeyBoardControl__sub_8000F9CC(int);
-s32 process_async_file_reads();
+}
+void process_async_file_reads(void);
+extern "C" {
 s8 func_801A5E54__Fv();
-s32 update_sound_request_slots();
+}
+void update_sound_request_slots(void);
+extern "C" {
 s32 render_screen_overlay__9TMainTaskFv(void *);
 s32 some_empty_func__9TMainTaskFv(void *);
 s32 render__9TMainTaskFv(void *);
@@ -34,6 +38,7 @@ void reset_controller_input_state(void);
 s32 set_copy_clear_color_argb(s32, s32, s32);
 u32 __nw__7TObjectFUl(s32);
 s32 create_opening_movie_sequence();
+}
 
 extern u8 opening_movie_purpose;
 
@@ -69,6 +74,7 @@ void update_movie_phase(void) {
     }
     render_tick();
 }
+extern "C" {
 
 void TKeyBoardControl::update_menu_scene() {
     set_copy_clear_color_argb(0, 0, 0);
@@ -106,5 +112,4 @@ void *__dt__13TUnk_804DCB64Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
 }

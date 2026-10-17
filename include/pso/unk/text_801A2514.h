@@ -3,9 +3,7 @@
 
 #include "types.h"
 
-extern "C" {
 void advance_enemy_id_counter(s32 arg0);
 void advance_object_id_counter(s32 arg0);
-}
 
 #endif

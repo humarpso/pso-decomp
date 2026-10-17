@@ -8,10 +8,10 @@ struct RecoveredGlobal_803CFEA0_lbl_8047DAE4 {
     u8 remaining[0x14];
 };
 
-extern "C" {
 extern RecoveredGlobal_803CFEA0_lbl_8047DAE4 lbl_8047E170;
 extern s32 mfci_error_callback_context;
 extern RecoveredCallback_4873a87e26d6 mfci_error_callback;
+extern "C" {
 s32 memset(void *, int, int);
 extern s32 lbl_8047E0C8[];
 extern s32 lbl_8047E18C[];
@@ -22,6 +22,7 @@ extern char mfci_error_message_buffer[0x12C];
 extern char lbl_8047E04C[];
 extern char lbl_8047E08C[];
 char *strcpy(char *, const char *);
+}
 extern char lbl_8047DF90[];
 extern MfciFilePool mfci_file_pool;
 typedef char RecoveredGlobal_803CFEA0_lbl_8047DAE4_size[sizeof(RecoveredGlobal_803CFEA0_lbl_8047DAE4) == 0x18 ? 1 : -1];
@@ -76,6 +77,7 @@ void mfci_close(MfciFileEntry *arg0) {
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)
+extern "C" {
 inline void parse_803D4290(char *s, u32 *hi, u32 *lo) {
     char *end;
     u32 v;
@@ -120,6 +122,7 @@ inline MfciFileEntry *find_free_803D4058(void) {
         }
     }
     return r;
+}
 }
 MfciFileEntry *mfci_open(const char *name, s32 arg1, s32 mode) {
     char *base = lbl_8047DF90;
@@ -193,4 +196,3 @@ u32 mfci_parse_file_size(char *s) {
 
 char mfci_error_message_buffer[0x12C];
 MfciFilePool mfci_file_pool;
-}

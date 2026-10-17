@@ -77,6 +77,7 @@ void TDuelEffectNumber::sub_8007FFF4(s32 arg1) {
     }
     fn_8007FE78((Obj_8007FF28 *)(((Obj_8007FF28 *)this)), arg1, (void *)(((Obj_8007FF28 *)this)->x1C), scale, b, c);
 }
+}
 #pragma pop
 
 #pragma push
@@ -95,6 +96,7 @@ void calc_duel_number_uv(s32 arg0, u8 *arg1, s32 arg2) {
     *(f32 *)((s8 *)arg1 + 0x1C) *= (0.00390625f);
 }
 #pragma pop
+extern "C" {
 
 void TDuelEffectNumber::render() {
     char sp8[0x20];
@@ -116,7 +118,6 @@ void TDuelEffectNumber::run_task() {
         queue_destruction__7TObjectFv(arg0);
     }
 }
-
 }
 
 TDuelEffectNumber::~TDuelEffectNumber() {}

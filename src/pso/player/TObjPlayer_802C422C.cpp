@@ -182,11 +182,12 @@ E_802C4698 *TObjPlayer__sub_802C4698(O_802C4698 *self, s32 i) {
 }
 
 void TObjPlayer::set_flag_40() { *(u8*)((char*)this + 0x7) |= 0x40; }
+}
 int init_character_action_config(void* p) { return init_action_config__10TObjPlayerFv((char*)p + 0x24); }
+extern "C" {
 
 int TObjPlayer__sub_802C46E0(void* p) { return set_palette_entry__20TWindowActionPaletteFlllll(p); }
 
 void TObjPlayer::set_flag_524288() { sub_8011E204__10TObjPlayerFl(this, (s32)((void*)524288)); }
 void TObjPlayer::set_flag_80000() { set_state_flags((u32)((void*)524288)); }
-
 }

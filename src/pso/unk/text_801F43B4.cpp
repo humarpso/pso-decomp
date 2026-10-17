@@ -44,6 +44,7 @@ s32 TLevelSelect::get_difficulty_flag_bit(s32 n, s32 flag) {
     }
     return quest_story_flags_by_difficulty[n][byteIdx - 1] & 1;
 }
+}
 
 s32 get_story_flag(s32 flag) {
     s32 v;
@@ -63,6 +64,4 @@ s32 get_story_flag(s32 flag) {
         return (quest_story_flags_by_difficulty[n][byteIdx] & (1 << shift)) >> shift;
     }
     return quest_story_flags_by_difficulty[n][byteIdx - 1] & 1;
-}
-
 }

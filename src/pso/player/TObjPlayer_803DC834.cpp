@@ -6,13 +6,14 @@ struct S_803DC83C { u8 pad[0x77]; u8 f; };
 
 struct S_803DC850 { u8 pad[0x78]; u8 f; };
 
-extern "C" {
 extern S_803DC83C ginja_material_cache;
 
 extern s32 lbl_805D76E0;
+extern "C" {
 
 void TObjPlayer::set_global_effect_state(s32 arg0) {
     lbl_805D76E0 = arg0;
+}
 }
 
 extern s32 ginja_draw_end_callback;
@@ -35,6 +36,4 @@ void set_ginja_post_tev_stage_count(s32 x) {
 
 void set_ginja_draw_end_callback(s32 arg0) {
     ginja_draw_end_callback = arg0;
-}
-
 }

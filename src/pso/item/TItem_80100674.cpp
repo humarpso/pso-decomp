@@ -177,7 +177,9 @@ extern "C" {
 u8 *lookup_inventory_item__10TObjPlayerFv(s32);
 void *pickup_item__10TObjPlayerFv(u8 *arg0, u8 *arg1);
 s32 get_player_by_client_id(void *);
+}
 void give_item_to_client(s32 arg0, s32 arg1);
+extern "C" {
 s16 obj_getS16_32E(u8 *p);
 s16 obj_getS16_32C(u8 *p);
 int is_locally_controlled__10TObjPlayerFPv(void *);
@@ -189,7 +191,9 @@ s32 init__9TItemDataFv(void *);
 s32 TItem__sub_80115D68(u8 *, u32);
 void TItemProArmor__sub_801178A8(void *p, void *q);
 s32 TItem__sub_8011892C(u8 *, u32);
+}
 void replace_item_with_new_code(void *arg0, u32 arg1);
+extern "C" {
 int TItem__sub_80100B8C(void* p);
 int TItem__sub_80100A40(void*);
 s32 check_flag_400__20TWindowSubStatusDispFv();
@@ -237,6 +241,7 @@ void TItem::update_pickup_flag(s32 arg0) {
 void TItem::vfunc_30() {  }
 s32 TItem::vfunc_21(u8 *, s32, s32, s32) {  }
 void TItem::vfunc_20() {  }
+}
 
 void give_item_to_client(s32 arg0, s32 arg1) {
     s32 player;
@@ -252,6 +257,7 @@ void give_item_to_client(s32 arg0, s32 arg1) {
 
 typedef struct VBase_18_8a175d VBase_18_8a175d;
 typedef struct VObj_18_8a175d VObj_18_8a175d;
+extern "C" {
 s32 consume_item_by_id(s32 arg0) {
   s32 temp_r30;
   s32 temp_r31;
@@ -279,6 +285,7 @@ s32 consume_item_by_id(s32 arg0) {
     return 0;
   }
   return 1;
+}
 }
 
 typedef struct TItemData TItemData;
@@ -332,7 +339,7 @@ void replace_item_with_new_code(void *arg0, u32 arg1) {
     }
   }
 }
+extern "C" {
 
 int TItem__sub_80100B8C(void* p) { return TItem__sub_80100A40((char*)p + 0x38); }
-
 }

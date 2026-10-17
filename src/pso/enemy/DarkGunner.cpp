@@ -255,7 +255,9 @@ struct Raw_800A10A0 { u8 b[12]; };
 
 s32 update_movement_status__13TUnk_804806E8Fv();
 s32 update_action_hold_status__13TUnk_804806E8Fv();
+}
 void move_with_wall_slide(u8 *arg0);
+extern "C" {
 void calc_velocity_toward_destination(void *, Vec_800A12C0, Vec_800A12C0, f32);
 s32 check_path_obstructed(void *, Vec_800A1D70 *);
 s32 obj_is_hit_receivable();
@@ -334,7 +336,9 @@ extern s32 lbl_80490998[];
 
 void obj_setFlags30(void *, u32);
 void TObjEnemyCustom__ct(void *, s32, void *);
+}
 int initialize_enemy_photon_effect(void *p);
+extern "C" {
 s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 void set_animation__10TObjMotionFs(void *, s16);
 extern Atk_800A2F94 dark_gunner_attack_binding_desc;
@@ -1569,5 +1573,4 @@ u8 *TObjPlayer__sub_800A34E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     }
     return arg0;
 }
-
 }

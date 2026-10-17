@@ -189,7 +189,9 @@ extern const f32 lbl_805D962C;
 extern const f32 lbl_805D9630;
 void calc_slot_offset_position__10TObjPlayerFPviPvPv(Obj_8008E18C *self, s32 slot, Vec_8008E18C *out, s32 *angle_out);
 void apply_actor_gravity(TObjEnemy *arg0, s32 *arg1, f32 farg0);
+}
 void move_with_wall_slide(u8 *arg0);
+extern "C" {
 s32 calc_velocity_toward_destination(void *, Vec_8008DD14, Vec_8008DD14, Info_8008DD14 *, f32);
 s32 check_path_obstructed(void *, void *);
 f32 xz_distance_squared(void *, void *);
@@ -634,7 +636,6 @@ void TObjPlayer__sub_8008E934(void *arg0_, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0x368) = arg1;
     *(s32 *)((s8 *)arg0 + 0x3D4) = 0;
 }
+}
 #undef arg0
 #pragma pop
-
-}

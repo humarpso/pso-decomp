@@ -159,19 +159,23 @@ struct VObj_802346F8 : VBase_802346F8 {
 
 struct G_802346F8 { u8 pad[0x1c]; s32 f1c; };
 
-extern "C" {
 void clear_pipe_interaction_latch(void* p);
 s32 get_pipe_interaction_latch(void* p);
+extern "C" {
 void TLobby__send_and_handle_60(u8 *arg0);
+}
 void init_telepipe_packet_header(void* p);
+extern "C" {
 void TTecLuker__sub_8023503C(void* p);
 void TTecLuker__sub_80235048(void* p);
 int TTecLuker__sub_80235054(void* p);
 void read_be16_field2__10TObjPlayerFv(void *);
 int fn_80235078(void *arg0);
 u32 get_player_by_client_id(s32);
+}
 void create_quest_telepipe_for_client(u16 arg0);
 void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
+extern "C" {
 s32 play_sound_effect(int, void *, int, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 recovery_technique_charge_vtable[];
@@ -219,7 +223,9 @@ u8 *find_entity_by_id(u16);
 extern s32 local_client_id;
 void handle_6x68_set_telepipe_state(Pkt_802341B0 *pkt);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
-s32 start_placement_search(void *, void *, void *);
+}
+void start_placement_search(s32 arg0, s32 arg1, s32 arg2);
+extern "C" {
 s32 construct_area_technique_base(void *, void *, void *);
 s32 matrix_mult_vec(int, void *, void *);
 s32 rotate_matrix_y(int, s32);
@@ -233,15 +239,19 @@ extern const f32 lbl_805DC878;
 void *TTecLuker__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 s32 mark_area_change_pending();
 s32 obj_isState3_324__13TUnk_804806E8Fv(void *);
-s32 are_players_gathered_near(void *, s32, f32);
+}
+s32 are_players_gathered_near(void *arg0, s32 *arg1, f32 range);
+extern "C" {
 s32 play_effect_default__10TObjPlayerFii(void *, s32);
 s32 send_6x21_inter_level_warp(void *, s32);
 s32 get_floor_map_terrain(s32);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
 s32 set_area__6TLobbyFl(s32 *, s32, s32);
-s32 offset_point_toward_camera(void *, s32 *, f32);
+}
+void offset_point_toward_camera(u8 *arg0, u8 *arg1, f32 farg0);
 extern s32 lbl_80515BA0[];
 extern const f32 lbl_805DC858;
+extern "C" {
 void run_task__9TTecLukerFv(u8 *arg0);
 f32 horizontal_distance_squared(void *, void *);
 extern s32 camera_ctrl_instance;
@@ -249,13 +259,15 @@ extern const f32 lbl_805DC864;
 extern const f32 lbl_805DC868;
 Hit_8023453C *csnVecterUnder(void *, s32);
 u32 spawn_continuous_particle_effect_with_flags(void *, s32, s32);
-void *create_telepipe_marker(void *, void *, s32, s32, s32, s32, s32, f32, f32);
+}
+u8 *create_telepipe_marker(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 arg5, s32 arg6, f32 farg0, f32 farg1);
 extern s32 telepipe_visual_template_table[][3];
 extern s32 telepipe_owner_tint_table[];
 extern s32 tl_particlemodel;
 extern const f32 lbl_805DC86C;
 extern const f32 lbl_805DC870;
 extern const f32 lbl_805DC874;
+extern "C" {
 void *create_telepipe_visual(void *self, Vec_802347B4 *pos, u32 id, s32 res);
 void *__dt__13TUnk_804CC9D4Fv(void *arg0, s16 arg1);
 void *__dt__9TTecLukerFv(TTecLuker *arg0, s16 arg1);
@@ -360,6 +372,7 @@ void TTecLuker::create_for_player(int arg0, s32 arg1) {
         ((TTecLuker *)r)->create((void *)arg1, (void *)arg1, (void *)(0xA));
     }
 }
+}
 
 void create_quest_telepipe_for_client(u16 arg0) {
     u8 *player;
@@ -368,6 +381,7 @@ void create_quest_telepipe_for_client(u16 arg0) {
         ((TTecLuker *)player)->create(player + 0x38, player + 0x2FC, NULL);
     }
 }
+extern "C" {
 
 Vec_80233E78 *consume_telepipe_arrival(u16 slot, s32 *heading) {
     Player_80233E78 *p;
@@ -461,6 +475,7 @@ void TTecLuker::send_telepipe_packet() {
     stack.sp20 = *(s32 *)&this->m_down;
     ((TTecLuker *)(&stack.sp8))->send_swapped_telepipe_packet();
 }
+}
 
 void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4) {
     u8 *player;
@@ -475,6 +490,7 @@ void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4) {
         }
     }
 }
+extern "C" {
 
 void handle_6x68_set_telepipe_state(Pkt_802341B0 *pkt) {
     u8 *player;
@@ -680,7 +696,7 @@ void *create_telepipe_visual(void *self, Vec_802347B4 *pos, u32 id, s32 res) {
     p = __nw__7TObjectFUl(0x44);
     if (p != 0)
     {
-      p = create_telepipe_marker(p, &v2, 0x1F, 4, tl_particlemodel, 0, 0, lbl_805DC874, lbl_805DC874);
+      p = create_telepipe_marker((u8 *)p, (s32)&v2, (s8)(0x1F), (s8)(4), (s32)tl_particlemodel, (s32)(0), (s32)(0), (f32)lbl_805DC874, (f32)lbl_805DC874);
     }
     ((Fx_8023453C *) self)->f28 = p;
   }
@@ -795,7 +811,7 @@ void run_task__9TTecLukerFv(u8 *arg0) {
             return;
         }
         if ((get_player_by_client_id(((TTecLuker *)arg0)->m_f6) != 0) && (get_pipe_interaction_latch(*(void **)((s8 *)arg0 + 0xF0)) != 0) && (are_players_gathered_near(arg0 + 0xFC, 0, lbl_805DC858) != 0)) {
-            offset_point_toward_camera(arg0 + 0xFC, (s32 *) &sp8, lbl_805DC858);
+            offset_point_toward_camera((u8 *)(arg0 + 0xFC), (u8 *)((s32 *) &sp8), (f32)lbl_805DC858);
             spawn_particle_effect((float *) &sp8, 0xB3);
             player = (u8 *)get_player_by_client_id(((TTecLuker *)arg0)->m_f6);
             if (player != NULL) {
@@ -947,7 +963,7 @@ void *TTecLuker__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) 
                 v.x += o->pos.x;
                 v.y += lbl_805DC878 + o->pos.y;
                 v.z += o->pos.z;
-                start_placement_search(L->fx, &v, o);
+                start_placement_search((s32)L->fx, (s32)&v, (s32)o);
             }
         }
     }
@@ -979,10 +995,12 @@ void TTecLuker__sub_80234F48(void) {
 
 void TTecLuker__sub_80234F68(void* p) { *(s32*)((char*)p + 0x0) = 6; }
 s16 get_field_2__9TTecLukerFPv(void* p) { return *(s16*)((char*)p + 0x2); }
+}
 
 void clear_pipe_interaction_latch(void* p) { *(s32*)((char*)p + 0xb0) = 0; }
 
 s32 get_pipe_interaction_latch(void* p) { return *(s32*)((char*)p + 0xb0); }
+extern "C" {
 
 void TTecLuker::send_swapped_telepipe_packet() { byteswap_telepipe_packet(); TLobby__send_and_handle_60((u8 *)this); }
 
@@ -996,8 +1014,10 @@ void TTecLuker::byteswap_telepipe_packet() {
     bswap_32((u32 *)((void *)((char *)this + 20)));
     bswap_32((u32 *)((void *)((char *)this + 24)));
 }
+}
 
 void init_telepipe_packet_header(void* p) { *(u8*)((char*)p + 0x0) = 104; *(u8*)((char*)p + 0x1) = 7; }
+extern "C" {
 
 void TTecLuker__sub_8023503C(void* p) { *(s32*)((char*)p + 0x38) = 1; }
 
@@ -1007,5 +1027,4 @@ int TTecLuker__sub_80235054(void* p) { return fn_80235078((void *)((char*)p + 0x
 int fn_80235078(void *arg0) {
     return (u8) (*(s32 *)((s8 *)arg0 + 0x0) == 2);
 }
-
 }

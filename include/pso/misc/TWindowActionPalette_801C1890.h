@@ -36,7 +36,9 @@ void fn_801C1F1C(void *p);
 void fn_801C1F40(s32 *arg0);
 f32 get_lock_target_distance_sq(void *p);
 u16 get_lock_target_id(void *p);
+}
 void init_6x21_inter_level_warp_packet(u8 *arg0);
+extern "C" {
 void is_action_channel_active(s32 *arg0, s32 arg1);
 u8 is_item_equipped(TObjPlayer *arg0);
 void set_photon_blast_kind(void *p, s16 v);

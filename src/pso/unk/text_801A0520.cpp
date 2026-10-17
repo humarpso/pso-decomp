@@ -30,6 +30,7 @@ s32 TObjFish__sub_8001EDB0(void *, s32);
 Node_801A0578 *get_bml_model(void *, s32);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
+}
 extern char lbl_80446718[];
 extern char lbl_80446728[];
 extern char lbl_80446738[];
@@ -71,8 +72,9 @@ void load_warp_beam_resources(void) {
     lbl_805D5CC0 = ((TObjDoorJung *)warp_jung_model_handle)->find_entry_by_name(lbl_80446728);
     lbl_805D5CC4 = ((TObjDoorJung *)warp_jung_model_handle)->find_entry_by_name(lbl_80446738);
 }
+extern "C" {
 
 __declspec(section ".data") const char *bm_obj_warp_jung_model_names[3] = { lbl_80446678, lbl_80446690, NULL };
 __declspec(section ".data") const char *bm_obj_warp_jung_motion_names[2] = { lbl_804466AC, NULL };
-BmlResourceDescriptor jungle_warp_beam_resource_descriptor = { lbl_804466C8, bm_obj_warp_jung_model_names, bm_obj_warp_jung_motion_names, 2, 1 };
 }
+BmlResourceDescriptor jungle_warp_beam_resource_descriptor = { lbl_804466C8, bm_obj_warp_jung_model_names, bm_obj_warp_jung_motion_names, 2, 1 };

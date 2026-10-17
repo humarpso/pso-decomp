@@ -19,6 +19,7 @@ void TObjPlayer::update_weapon_kill_count() {
         add_item_flags(0x200);
     }
 }
+}
 
 extern f32 lbl_805DAF20;
 
@@ -32,6 +33,4 @@ void sealed_j_sword_start_timers(void *arg0) {
         }
     }
     *(s16 *)((s8 *)arg0 + 0x1F8) = ((TObjPlayer *)(*(s32 *)((s8 *)arg0 + 0xF0)))->get_kill_count();
-}
-
 }

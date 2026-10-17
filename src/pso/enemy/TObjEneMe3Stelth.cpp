@@ -156,11 +156,13 @@ struct Obj_800F18C8 : VObj_18_800F18C8 {
 extern "C" {
 s32 get_target_info__9TObjEneDDFv(void *);
 s32 pack_debug_text_position(s32, s32);
+}
 #define sub_800F47D4__16TObjEneMe3StelthFv ((s32 (*)(void *))sub_800F47D4__16TObjEneMe3StelthFv)
 #define is_angle_in_range__16TObjEneMe3StelthFv ((s32 (*)(void *))is_angle_in_range__16TObjEneMe3StelthFv)
 #define sub_800F4850__16TObjEneMe3StelthFv ((s32 (*)(void *))sub_800F4850__16TObjEneMe3StelthFv)
 #define get_node_world_y__16TObjEneMe3StelthFv ((f32 (*)(void *))get_node_world_y__16TObjEneMe3StelthFv)
 void print_float_padded(s32 arg0, s32 prec, f32 val);
+extern "C" {
 void debug_printf_at(s32 id, const char *fmt, ...);
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
@@ -168,7 +170,9 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFl(void *);
+}
 void set_ginja_draw_list_mask(s32 arg0);
+extern "C" {
 s32 draw_ginja_model_with_motion(s32, void *, f32);
 extern char lbl_8043D68C[];
 extern char lbl_8043D69C[];
@@ -289,7 +293,6 @@ void setup_move__16TObjEneMe3StelthFv(void* p);
 #define setup_move_bounds__16TObjEneMe3StelthFv ((int (*)(void*))setup_move_bounds__16TObjEneMe3StelthFv)
 
 void TObjEneMe3Stelth::setup_move() { if (get_target_info__9TObjEneDDFv(this) != 0) { setup_move_bounds__16TObjEneMe3StelthFv(this); sub_800F4758__16TObjEneMe3StelthFv(this); } }
-
 }
 #undef get_target_info__9TObjEneDDFv
 #undef sub_800F4758__16TObjEneMe3StelthFv
@@ -431,7 +434,9 @@ struct Col_800F1CD4 { s32 a, b, c, d; };
 
 extern "C" {
 void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
+}
 void setup_particle_tev(s32 arg0);
+extern "C" {
 s32 is_main_phase_15__9TObjEneDDFv();
 #define sub_800F47D4__16TObjEneMe3StelthFv ((s32 (*)(void *))sub_800F47D4__16TObjEneMe3StelthFv)
 s32 draw_model__16TObjEneMe3StelthFv(void *);
@@ -612,7 +617,6 @@ void TObjEneMe3Stelth::render() {
 #undef TObjEneMe3Stelth__material_color_pointers
 #undef sub_800F47D4__16TObjEneMe3StelthFv
 void TObjEneMe3Stelth::add_instance() { ((TOTrapAncient02 *)(*(int *)&stelth_projection_texture_handle))->load_projection_tex_matrix(); (*(int *)&TObjEneMe3Stelth__render_node_index) = ((*(int *)&TObjEneMe3Stelth__render_node_index) + 0x1); }
-
 }
 
 typedef struct { f32 x, y, z; } Vec_800F290C;
@@ -1866,12 +1870,12 @@ struct VObj_18_347dfc : VBase_18_347dfc {
     virtual s32 m102(f32);
 };
 
-extern "C" {
 #define set_field_378__9TObjEneDDFl ((s32 (*)(void *, int))set_field_378__9TObjEneDDFl)
 #define transition_enemy_state ((s32 (*)(void *, int))transition_enemy_state)
 #define advance_animation_playback ((s32 (*)(void *))advance_animation_playback)
 extern const f32 lbl_805DA888;
 extern const f32 lbl_805DA88C;
+extern "C" {
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 s32 TBoss3Volopt__sub_800D8D88(void *, f32);
 void TObjEneMe3Stelth__sub_800F3FE4(u8 *arg0, s32 arg1);
@@ -1879,7 +1883,9 @@ void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
 f32 *TBoss3Volopt__sub_800F059C(void *);
 extern const f32 lbl_805DA890;
 void sub_800F42B8__16TObjEneMe3StelthFl(u8 *arg0, s32 arg1);
+}
 void enemy_turn_and_move_on_ground(u8 *arg0, s32 arg1, f32 farg0);
+extern "C" {
 s32 TObjEneMe3Stelth__sub_800F0C90(void *);
 #define TObjEneMe3Stelth__sub_800F4C10 ((s32 (*)(f32))TObjEneMe3Stelth__sub_800F4C10)
 #define TObjEneMe3Stelth__behavior_params_by_variant ((f32 * *)&TObjEneMe3Stelth__behavior_params_by_variant)
@@ -3725,7 +3731,6 @@ void *TObjEneMe3Stelth__ct(void *arg0) {
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D2AF8;
     return arg0;
 }
-
 }
 
 struct RecoveredGlobal_8031B170_lbl_804E8880

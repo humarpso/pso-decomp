@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 s32 player_auxiliary_surfaces_enabled(void);
-}
 
 #endif

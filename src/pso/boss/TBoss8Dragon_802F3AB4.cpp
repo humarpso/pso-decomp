@@ -4,8 +4,8 @@
 #include "pso/system/vector.h"
 #include "pso/boss/TUnk_804E4BF0.h"
 
-extern "C" {
     extern void* boss8_dragon_leader_part;
+extern "C" {
 void *__nw__7TObjectFUl(int);
 void __ct__7TObjectFP7TObject(void *);
 extern s32 lbl_804E4BF0[];
@@ -70,8 +70,10 @@ void * TBoss8Dragon__sub_802F3C24(void *arg0, void *arg1) {
 }
 
 void TBoss8Dragon__sub_802F3C74(void) {  }
+}
 
 void clear_boss8_dragon_leader_part(void) { boss8_dragon_leader_part = 0; }
+extern "C" {
 
 u16 TBoss8Dragon::get_part_count_plus(s32 arg1) {
     return (u16) (this->m_22 + arg1);
@@ -80,5 +82,4 @@ u16 TBoss8Dragon::get_part_count_plus(s32 arg1) {
 s32 TBoss8Dragon__sub_802F3C94(void *arg0, s32 arg1) {
     return *(s16 *)((s8 *)arg0 + 0x1C) + arg1;
 }
-
 }

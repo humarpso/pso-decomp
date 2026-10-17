@@ -66,9 +66,11 @@ struct Cam_8006B6A8 {
 extern "C" {
 s32 is_split_screen(void);
 void *__nw__7TObjectFUl(int);
+}
 extern s32 local_client_id;
 extern s32 tl_07;
 u8 *create_conversation_camera(s32 arg0);
+extern "C" {
 void *__dt__13TUnk_80488A28Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8006BA08_lbl_80488B08 lbl_80488B08;
@@ -113,6 +115,7 @@ void TCameraCtrl::update_battle_camera() {
         deactivate_body_collision__10TObjPlayerFv();
     }
 }
+}
 
 u8 *create_conversation_camera(s32 arg0) {
     s32 i;
@@ -131,6 +134,7 @@ u8 *create_conversation_camera(s32 arg0) {
 }
 
 typedef char RecoveredGlobal_8006B4A0_lbl_804381E0_size[sizeof(RecoveredGlobal_8006B4A0_lbl_804381E0) == 0x1E0 ? 1 : -1];
+extern "C" {
 void TUnk_80488AD8::run_task() {
     u8 *arg0 = (u8 *)this;
     approach_camera_vector((u8 *)&this->unk_1C, (u8 *)&fixed_npc_camera_destination_table.value + (this->m_34 * 0x18), lbl_805D8FF8);
@@ -281,5 +285,4 @@ u8 *__dt__13TUnk_80488B08Fv(u8 *arg0, s16 arg1) {
     }
     return arg0;
 }
-
 }

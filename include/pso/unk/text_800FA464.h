@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void process_async_file_reads(void);
-}
 
 #endif

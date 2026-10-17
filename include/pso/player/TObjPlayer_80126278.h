@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void frozen_shooter_start_curse(void *arg0);
-}
 
 #endif

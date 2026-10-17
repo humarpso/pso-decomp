@@ -5,7 +5,7 @@
 
 extern "C" {
 void *__dt__13TUnk_804A5340Fv(void *arg0, s16 arg1);
-void rocket_punch_return_timer(u32 arg0);
 }
+void rocket_punch_return_timer(u32 arg0);
 
 #endif

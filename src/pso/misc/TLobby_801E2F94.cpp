@@ -28,6 +28,7 @@ void TLobby::draw_with_camera(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
     TLobby__sub_80228154(arg0, arg1, arg2, farg0);
     TCameraCtrl__sub_80068EF0();
 }
+}
 
 typedef struct Vtx_801E2FEC { f32 x, y, z; f32 u, v; u32 color; } Vtx_801E2FEC;
 typedef struct Rect_801E2FEC { s16 x, y, w, h; u8 pad8[8]; s16 tex; } Rect_801E2FEC;
@@ -35,6 +36,7 @@ typedef struct Self_801E2FEC { f32 x, y, z; u8 padC[0xC]; s32 param; Rect_801E2F
 
 s32 set_texture_num(s32 i);
 void draw_particle_strip(void *arg0, void *arg1, void *arg2);
+extern "C" {
 
 void TObjPlayer::draw_shadow_quad(s32 arg1, s32 flags) {
     Self_801E2FEC *self = (Self_801E2FEC *)this;
@@ -87,7 +89,6 @@ void TObjPlayer::draw_shadow_quad(s32 arg1, s32 flags) {
     v[3].color = 0xFF000000;
     draw_particle_strip((void *)v, (void *)(4), (void *)(1));
 }
-
 }
 
 struct Rect_801E317C { f32 x0, y0, x1, y1; };
@@ -183,15 +184,21 @@ struct Tris_801E3784 {
 extern "C" {
 void GXBegin(s32, s32, u16);
 void GXSetLineWidth(s32, s32);
+}
 void setup_opaque_color_draw(void);
+extern "C" {
 void TObjPlayer__sub_803E21DC(void);
 void draw_color_lines(Lines_801E3330 *l, s32 n, s32 flags, f32 scale);
 void reset_line_width(void);
 extern int current_line_width;
 void draw_line_list(Lines_801E341C *l, s32 n, u32 flags);
+}
 void setup_blended_textured_draw(void);
+extern "C" {
 void TObjPlayer__sub_803E2248(void);
+}
 void load_context_texture_obj(void);
+extern "C" {
 void set_line_width(int a0);
 
 void draw_color_lines(Lines_801E3330 *l, s32 n, s32 flags, f32 scale) {
@@ -498,7 +505,6 @@ void TLobby__sub_801E3CF0(u32 *p) {
 int bind_motion_context(void*);
 
 void TBoss8Dragon::render_model_tree(void* a1) { bind_motion_context(a1); TObjPlayer::render_tree(this); }
-
 }
 
 struct RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270 { s32 value; u8 remaining[0xAC]; };

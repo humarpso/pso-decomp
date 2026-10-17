@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void load_menu_font(void);
-}
 
 #endif

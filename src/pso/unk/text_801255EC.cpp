@@ -23,6 +23,7 @@ void TObjPlayer::spawn_faust_wall_explosion(s32 arg0, s32 arg1) {
         spawn_faust_explosion(temp_r3, arg1);
     }
 }
+}
 void spawn_faust_hit_explosion(s32 arg0, s32 arg1) {
     Ctx_80125628 *ctx = (Ctx_80125628 *)arg1;
     u32 p = find_item_by_id();
@@ -30,6 +31,7 @@ void spawn_faust_hit_explosion(s32 arg0, s32 arg1) {
         spawn_faust_explosion(p, (s32)ctx->obj->elems[ctx->idx].f1c);
     }
 }
+extern "C" {
 void config_faust_attack_collider__10TObjPlayerFPvPv(Self_8012573C *self, Out_8012573C *out) {
     out->f74 = (void *)spawn_faust_hit_explosion;
     out->f70 = (void *)TObjPlayer::spawn_faust_wall_explosion;
@@ -38,5 +40,4 @@ void config_faust_attack_collider__10TObjPlayerFPvPv(Self_8012573C *self, Out_80
     out->f78 = 0x1bb;
     out->f7c = 0x1bc;
 }
-
 }

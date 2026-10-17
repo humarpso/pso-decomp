@@ -37,7 +37,7 @@ extern "C" {
 void TEffIndirectCtrl__sub_802A9548(void *p);
 u8 TEffIndirectCtrl__sub_802A9554(void *p);
 u16 get_indirect_tile_coord(u8 arg0, s32 arg1);
-void load_indirect_info(void);
 }
+void load_indirect_info(void);
 
 #endif

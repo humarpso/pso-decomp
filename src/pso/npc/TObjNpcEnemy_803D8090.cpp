@@ -37,6 +37,7 @@ void TObjEneMe1Gee::queue_debug_text(s32 arg0, char *arg1) {
     debug_text_pool_cursor[len] = 0;
     debug_text_pool_cursor += len + 1;
 }
+}
 
 void print_float_padded(s32 arg0, s32 prec, f32 val) {
     char buf[24];
@@ -82,6 +83,4 @@ void print_float_padded(s32 arg0, s32 prec, f32 val) {
     }
     debug_text_pool_cursor[total] = 0;
     debug_text_pool_cursor += total + 1;
-}
-
 }

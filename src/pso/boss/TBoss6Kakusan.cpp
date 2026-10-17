@@ -78,7 +78,9 @@ extern const f32 lbl_805DF530;
 extern const f32 lbl_805DF534;
 void queue_destruction__7TObjectFv(void *);
 s32 query_teammate_state__9TObjEneDDFv();
+}
 void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
+extern "C" {
 void *get_player_by_client_id(s32 i);
 s32 is_active__14TBoss6PlotFalzFv();
 int TBoss6Kakusan__sub_8032263C(void);
@@ -311,5 +313,4 @@ u8 *TBoss6Type1::create_kakusan(s32 arg0, u8 *arg1, u8 *arg2, s16 arg3, f32 farg
     }
     return var_r0;
 }
-
 }

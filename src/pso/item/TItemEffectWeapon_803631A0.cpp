@@ -18,6 +18,7 @@ void get_weapon_color__11TItemWeaponFPv(void *, void *);
 extern const f32 lbl_805E026C;
 void s_rank_launcher_collider_block(Src_803631E8 *arg0, Obj_803631E8 *arg1);
 s32 fire_shot_at_target__11TItemWeaponFv(s32, s32 *, s32, s32);
+}
 
 extern f32 lbl_805E0268;
 
@@ -26,6 +27,7 @@ void s_rank_launcher_slide_node(void *arg0) {
         translate_matrix(0, lbl_805E0268, *(f32 *)((s8 *)arg0 + 0x1FC), lbl_805E0268);
     }
 }
+extern "C" {
 
 void s_rank_launcher_collider_block(Src_803631E8 *weapon, Obj_803631E8 *arg1) {
     u8 sp8[16];
@@ -47,5 +49,4 @@ void TUnk_804F28E0::emit_marker_effects() {
     ((TItemWeapon *)arg0)->spawn_light_task();
     fire_shot_at_target__11TItemWeaponFv(arg0, &sp8, 0, 0);
 }
-
 }

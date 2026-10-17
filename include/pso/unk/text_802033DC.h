@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 s32 is_warp_excluded_area(s32 x);
-}
 
 #endif

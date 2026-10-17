@@ -63,11 +63,13 @@ void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32
 void *spawn_particle_effect(void *pos, s32 id);
 void *find_entity_by_id(u16 id);
 void *__nw__7TObjectFUl(u32);
+}
 u8 *construct_timed_sound_voice(u8 *arg0, s32 arg1, s16 arg2, s32 arg3, s32 arg4, s32 arg5);
 extern SGrp_80232C50 technique_effect_entry_table[];
 extern void *tl_07;
 extern s32 technique_effect_bml;
 extern s32 lbl_805D63B0;
+extern "C" {
 
 Obj_80232B7C *construct_grants_flash(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C *pos, f32 scale) {
     __ct__7TObjectFP7TObject(self, parent);
@@ -139,7 +141,7 @@ void TUnk_804CC888::run_task() {
         }
         p = __nw__7TObjectFUl(0x28);
         if (p != 0) {
-            construct_timed_sound_voice((u8 *)p, (s32)((Ctl_80232C50 *)this)->f30, (s16)(0xF), 0x4002A60D, (s32)dir, (s32)tl_07);
+            construct_timed_sound_voice((u8 *)p, (s32)((Ctl_80232C50 *)this)->f30, (s16)(0xF), (s32)(0x4002A60D), (s32)dir, (s32)tl_07);
         }
         queue_destruction__7TObjectFv(((Ctl_80232C50 *)this));
     }
@@ -163,5 +165,4 @@ Obj_80232E0C *__dt__13TUnk_804CC888Fv(Obj_80232E0C *arg0, s16 arg1) {
     }
     return arg0;
 }
-
 }

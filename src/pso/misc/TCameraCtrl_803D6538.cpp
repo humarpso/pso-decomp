@@ -122,9 +122,8 @@ struct SplineKey_803D7288 { u32 frame; f32 value[3]; };
 
 struct Cam_803D66DC { f32 f0, f4, f8, fC, f10, f14, f18, f1C, f20, f24; };
 
-extern "C" {
-
 extern u8 *current_motion_context;
+extern "C" {
 s32 C_MTXPerspective(void *, f32, f32, f32, f32);
 s32 GXSetProjection(void *, int);
 f64 atan(f32);
@@ -160,11 +159,13 @@ void rotate_matrix_by_node_angles(void *, int);
 void scale_current_matrix(void *);
 void post_translate_matrix(void *);
 void set_matrix_identity(u8 *arg0);
+}
 extern u8 camera_look_at_up_vector[];
 extern const f32 lbl_805E0E08;
 void euler_zyx_to_quaternion(u8 *arg0, u8 *arg1);
 void euler_yxz_to_quaternion(u8 *arg0, u8 *arg1);
 extern const f32 lbl_805E0E88;
+extern "C" {
 void TCameraCtrl::update_camera_state(f32 _w0, f32 _w1, f32 _w2) {
     TCameraCtrl::translate_view_negated(_w0, _w1, _w2);
 }
@@ -935,5 +936,4 @@ s32 TObjPlayer__sub_803D7FD0(void) {
 s32 TObjPlayer__sub_803D7FD8(void) {
     return 0;
 }
-
 }

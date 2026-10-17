@@ -40,10 +40,12 @@ Obj_8024D520 *TWindowCtrlMain__ct(Obj_8024D520 *arg0);
 s32 __dt__7TObjectFv(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 void *__dt__15TWindowCtrlMainFv(void *arg0, s16 arg1);
+}
 void load_hud_palette_textures(void);
 extern void *TWindowCtrlMain__display_flags;
 extern f32 window_depth_order_cursor;
 extern const f32 lbl_805DCC58;
+extern "C" {
 void TWindowCtrlMain__sub_8024D838(void);
 void TWindowCtrlMain__sub_8024D85C(void* p);
 int TCameraCtrl__sub_80068EF0(void);
@@ -217,5 +219,4 @@ s32 TWindowCtrlMain::get_main_menu_message() {
     }
     return TWindowMainMenu__sub_8024E3D4(p);
 }
-
 }

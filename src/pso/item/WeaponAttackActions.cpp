@@ -342,8 +342,10 @@ s32 fn_80100CC8(Pl_8011E87C *);
 s32 item_model_is_shown__11TItemWeaponFv(void *);
 void send_6x61_activate_mag_effect__14TItemEquipBaseFl(void *, s32);
 s8 sub_80102C30__5TItemFv(u8 *arg0);
-s32 spawn_item_attacker(int, void *, int, void *);
-s32 spawn_land_hit_effect(int, void *, void *, void *, int);
+}
+void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3);
+void spawn_land_hit_effect(s32 arg0, u32 arg1, u32 arg2, u32 arg3, s32 arg4);
+extern "C" {
 s32 init__9TItemDataFv(s32 *);
 void get_weapon_special_type_amount(u32 x, s16 *a, s16 *b);
 void TItemWeapon__sub_8011E5C0(void);
@@ -351,7 +353,9 @@ void TItemWeapon__sub_8011E5C4(void);
 void TItemWeapon__sub_8011E5C8(void);
 void TItemWeapon__sub_8011E5CC(void);
 void update_trail_slot__11TItemWeaponFPvi(Pl_8011E87C *self, s32 slot);
+}
 u32 pack_weapon_trail_color(void *arg0);
+extern "C" {
 V4_8011EA10 get_weapon_color__11TItemWeaponFPv(void *);
 void set_status_flags__10TObjPlayerFUl(void *, u32);
 void query_extended_state__10TObjPlayerFv(void *);
@@ -452,7 +456,6 @@ void TItemWeapon::update_attack() {  }
 void TItemWeapon::emit_marker_effects() {  }
 
 void TObjPlayer::copy_field6_from(void* a1) { memcpy((char*)this + 0x6, (char*)a1 + 0x1a4, (void*)6); }
-
 }
 
 void TItemWeapon::vfunc_17(s32 value) {
@@ -556,11 +559,13 @@ void TItemWeapon::create_weapon_trail_effects() {
         }
     }
 }
+}
 
 u32 pack_weapon_trail_color(void *weapon) {
     V4_8011EA10 w = get_weapon_color__11TItemWeaponFPv(weapon);
     return (__cvt_fp2unsigned(lbl_805DAC90 * w.a) << 24 | __cvt_fp2unsigned(lbl_805DAC90 * w.b) << 16 | __cvt_fp2unsigned(lbl_805DAC90 * w.c) << 8) | __cvt_fp2unsigned(lbl_805DAC90 * w.d);
 }
+extern "C" {
 
 void spawn_pg_effect__10TObjPlayerFPvPvif(u8 *arg0, Vec_8011EAB8 *arg1, s32 item, f32 farg0) {
     Params_8011EAB8 prm;
@@ -703,8 +708,7 @@ void TObjPlayer::launch_rare_weapon_special(void *origin, s32 enable, f32 scale)
                 sp.c = ((TItem *)this)->get_field_d8();
                 sp.f = get_captured_target_collider_index(e2);
                 sp.g = scale * ((f32 (*)(void *))query_extended_state__10TObjPlayerFv)(((Self_8011EDFC *)this)->owner);
-                spawn_item_attacker(tl_05, ((Self_8011EDFC *)this)->owner + 0x38,
-                                    (s32)(xyz_distance(origin, &part->pos) / ((Self_8011EDFC *)this)->speed), &sp);
+                spawn_item_attacker((s32)tl_05, (u32)(((Self_8011EDFC *)this)->owner + 0x38), (s32)(xyz_distance(origin, &part->pos) / ((Self_8011EDFC *)this)->speed), (u8 *)&sp);
             }
         }
     }
@@ -786,7 +790,7 @@ s32 TItemWeapon::launch_shot(u8 *arg1, s32 i, s32 arg3, s32 arg4) {
                         hit.weapon = ((TItem *)((u8 *)this))->get_field_d8();
                         hit.collider = get_captured_target_collider_index(temp_r22_3);
                         hit.damage = ((f32 (*)(void *))query_extended_state__10TObjPlayerFv)((void *)this->player);
-                        spawn_item_attacker(tl_05, arg1, (int) ((s32) var_f31), &hit.reserved);
+                        spawn_item_attacker(tl_05, (u32)arg1, ((s32) var_f31), (u8 *)&hit.reserved);
                         var_r31 = 1;
                         this->restore_action_type();
                     }
@@ -797,7 +801,7 @@ s32 TItemWeapon::launch_shot(u8 *arg1, s32 i, s32 arg3, s32 arg4) {
                 VecCopy((Vec *)(&endpoint.x), (const Vec *)(*(u8 **)((s8 *)temp_r3_3 + 4)));
                 var_f31 = xyz_distance(arg1, &endpoint.x) / *(f32 *)((s8 *)((u8 *)this) + 0x1E4);
                 if ((*(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r3_3 + 4)) + 0x18) & 0x100) && ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x1EC) != 0U)) {
-                    spawn_land_hit_effect(tl_05, this, arg1, &endpoint.x, (int) ((s32) var_f31));
+                    spawn_land_hit_effect((s32)tl_05, (u32)this, (u32)arg1, (u32)&endpoint.x, (s32)((s32) var_f31));
                 }
             }
             this->spawn_light_task();
@@ -836,5 +840,4 @@ void TUnk_804A69DC::for_each_target_in_range(f32 range) {
         this->restore_action_type();
     }
 }
-
 }

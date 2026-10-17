@@ -179,20 +179,21 @@ void *TObjPlayer::copy_field_4(void *arg1) {
     *(s32 *)((s8 *)this + 4) = (s32) *(s32 *)((s8 *)arg1 + 4);
     return this;
 }
+}
 
 void init_6x27_use_item_cmd(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 4) = -1;
     *(s8 *)((s8 *)arg0 + 0) = 0x27;
     *(s8 *)((s8 *)arg0 + 1) = 2;
 }
+extern "C" {
 
 void TObjPlayer::send_use_item_cmd() { bswap_cmd_u32(); TLobby__send_and_handle_60((u8 *)this); }
+}
 
 #undef TFontSmallLobby__sub_801C0228
 #undef bswap_pkt_u16x2_u32__10TObjPlayerFPv
 #undef read_be16_field2__10TObjPlayerFv
-
-}
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -454,18 +455,20 @@ void TObjPlayer::send_player_floor_packet_u32x5() { bswap_pkt_u32x5(); send_60_s
 void TObjPlayer::bswap_set_floor_packet() { read_be16_field2__10TObjPlayerFv(this); bswap_32((u32 *)((char*)this + 0x4)); }
 
 void*TObjPlayer::handle_6x1F_set_floor(void* a1) { TFontSmallLobby__sub_801C0228(this); *(void**)((char*)this + 0x4) = *(void**)((char*)a1 + 0x4); return this; }
+}
 
 void init_6x1F_floor_packet(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 4) = 0;
     *(s8 *)((s8 *)arg0 + 0) = 0x1F;
     *(s8 *)((s8 *)arg0 + 1) = 2;
 }
+extern "C" {
 
 void TObjPlayer::bswap_and_send_set_floor() { bswap_set_floor_packet(); send_60_sized__6TLobbyFv((s32)this); }
 
 void TObjPlayer::bswap_warp_packet() { read_be16_field2__10TObjPlayerFv(this); bswap_32((u32 *)((char*)this + 0x4)); }
 
 void*TObjPlayer::copy_warp_target(void* a1) { TFontSmallLobby__sub_801C0228(this); *(void**)((char*)this + 0x4) = *(void**)((char*)a1 + 0x4); return this; }
-
 }
+
 #undef TFontSmallLobby__sub_801C0228

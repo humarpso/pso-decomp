@@ -31,7 +31,9 @@ extern s32 __vt__17TObjContainerItem[];
 extern s32 TObjContainerItem__name;
 u8 *TObjContainerItem__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 play_sound_effect(int, void *, int, int);
+}
 void play_container_break_sound(s32 arg0);
+extern "C" {
 void *__dt__21TObjContainerAbeEnemyFv(void *arg0, s16 arg1);
 void run_task__13TUnk_804B6C24Fv();
 void render__13TUnk_804B6C24Fv();
@@ -255,6 +257,7 @@ void TUnk_804B6C24::spawn_item(s32 arg1) {
     u8 *arg0 = (u8 *)this;
     request_box_item_drop__13TUnk_804806E8FPvs(arg1, (u8 *)&this->position, this->m_360, arg0);
 }
+}
 void play_container_break_sound(s32 arg0) {
     u32 global_state;
     global_state = TOKeyMachine01::get_global_state();
@@ -308,6 +311,4 @@ void play_container_break_sound(s32 arg0) {
     default:
         return;
     }
-}
-
 }

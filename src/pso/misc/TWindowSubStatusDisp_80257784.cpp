@@ -71,7 +71,9 @@ void update_stat_line__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1);
 s32 get_shared_text_buffer();
 s32 TWindowSubStatusDisp__sub_80228F5C(s32);
 void text_builder_append(u8 *str);
-s32 text_builder_reset();
+}
+void text_builder_reset(void);
+extern "C" {
 s32 replace_owned_string__20TWindowSubStatusDispFPviiii(void *, s32, s32, s32, s32);
 
 extern s32 lbl_805DCF00;
@@ -90,7 +92,6 @@ void update_stat_line_if_positive__20TWindowSubStatusDispFPvi(void *arg0, s32 ar
         ((void (*)(void *))update_stat_line__20TWindowSubStatusDispFPvi)(arg0);
     }
 }
-
 }
 
 struct VBase18B_802582c4_80257784 { char pad[0x18]; };
@@ -608,6 +609,7 @@ u32 calc_text_width(char *s);
 s32 draw_window_text(f32 *pos, const char *s, s32 color, s32 mode, f32 width);
 void set_text_draw_params(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
 void draw_item_list_icon(s32, u8 *, s32, s32, f32);
+}
 extern const f32 lbl_805DCF14;
 extern const f32 lbl_805DCF20;
 extern const f32 lbl_805DCF24;
@@ -616,6 +618,7 @@ extern const f32 lbl_805DCF2C;
 void draw_item_list_row(ItemListRow *row, ItemListWindowView *win);
 extern const f32 lbl_805DCF10;
 extern const f32 lbl_805DCF18;
+extern "C" {
 void calc_row_width__20TWindowSubStatusDispFv(Row_8025930C *arg0);
 s32 mem_alloc(s32);
 s32 measure_string_len__20TWindowSubStatusDispFv(s32);
@@ -696,6 +699,7 @@ void calc_row_width__20TWindowSubStatusDispFv(Row_8025930C *arg0) {
 }
 
 void*TWindowSubStatusDisp::get_entry_ptr(int a0) {  return (char*)status_disp_item_icon_coord_table + (unsigned char)(a0) * 8; }
+}
 
 typedef struct ItemListRow ItemListRow;
 typedef struct ItemListPosition ItemListPosition;
@@ -777,6 +781,7 @@ void draw_item_list_row(ItemListRow *row, ItemListWindowView *win) {
     }
   }
 }
+extern "C" {
 
 void TWindowSubStatusDisp::check_flag_4_noop() {
     if (this->is_flag_4_set()) return;
@@ -818,5 +823,4 @@ void *TWindowSubStatusDisp::dispose(s16 arg1) {
     }
     return this;
 }
-
 }

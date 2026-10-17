@@ -5,7 +5,7 @@
 
 extern "C" {
 void *__dt__13TUnk_804A5D10Fv(void *arg0, s16 arg1);
-int expire_weapon_casing(void *p);
 }
+int expire_weapon_casing(void *p);
 
 #endif

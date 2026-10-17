@@ -242,12 +242,17 @@ void* TOJungleDesign__create(void* placement);
 void* TObjLiveCamera__create(void* placement);
 void* TObjButterflyLobby__create(void* placement);
 void* create_instance__18TObjLaboDesignBaseFPv(void* placement);
+}
 void* create_obj_labo_design_base(void* placement);
+extern "C" {
 void* TObjLaboDesignBase__sub_80364D38(void* placement);
+}
 void* create_labo_design_base(void* placement);
+extern "C" {
 void* alloc_and_construct__18TObjLaboDesignBaseFPv(void* placement);
 void* TObjLaboDesignBase__create(void* placement);
 void* create__15TObjSuisouLobbyFv(void* placement);
+}
 
 ObjectFactoryEntry object_factories_floor_00[50] = {
     { 0x0000, TObjPlayerSet::create, 250000.0f, 0 },
@@ -2133,4 +2138,3 @@ ObjectFactoryEntry* floor_object_factory_tables[36] = {
     object_factories_floor_34,
     object_factories_floor_35,
 };
-}

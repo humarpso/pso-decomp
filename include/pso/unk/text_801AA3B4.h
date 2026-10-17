@@ -5,7 +5,7 @@
 
 extern "C" {
 void TObjPlayer__sub_801AA3B4(void);
-void load_photon_blast_resources(void);
 }
+void load_photon_blast_resources(void);
 
 #endif

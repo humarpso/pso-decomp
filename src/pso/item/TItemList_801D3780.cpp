@@ -124,8 +124,10 @@ extern const f32 lbl_805DC3CC;
 void * TItemList__sub_801D3B00(void *arg0, void *arg1, void *arg2, s8 arg3);
 void *__dt__13TUnk_804C4480Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804C4498Fv(void *arg0, s16 arg1);
+}
 void decrement_placement_search_pending(void *p, void *a1);
 void clear_placement_search_slot(TItemList *arg0, s32 arg1);
+extern "C" {
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -373,5 +375,4 @@ u8 *construct_placement_search_base(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 a
     *(s32 *)((s8 *)arg0 + 0x50) = 0;
     return arg0;
 }
-
 }

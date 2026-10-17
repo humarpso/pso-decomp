@@ -5,6 +5,7 @@ extern "C" {
 
 void *__nw__7TObjectFUl(int);
 void *__ct__13TObjCMHexTileFv(void *, void *, void *);
+}
 extern void *tl_07;
 
 void *create_TObjCMHexTile(void *pos) {
@@ -13,6 +14,4 @@ void *create_TObjCMHexTile(void *pos) {
         o = __ct__13TObjCMHexTileFv(o, tl_07, pos);
     }
     return o;
-}
-
 }

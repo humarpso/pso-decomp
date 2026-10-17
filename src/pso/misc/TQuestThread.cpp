@@ -48,8 +48,6 @@ public:
     virtual void run_task();
 };
 
-extern "C" {
-
 struct Self_801F4DFC {
     const char *name;
     u8 pad4[0x18 - 0x4];
@@ -163,6 +161,7 @@ struct TQuestThread_801F5828 {
     u32 pad18C;
     u32 state;
 };
+extern "C" {
 
 s32 memcpy(s32, s32, s32);
 int memset(void*, void*, void*);
@@ -191,18 +190,24 @@ void * create__17TObjItemNameEntryFPv(void *arg0);
 void * TObjItemNameEntry__ct(void *arg0);
 s32 create_instance__17TQuestThreadBoardFi(s32 arg0);
 u8 * TQuestThreadBoard__ct(u8 *arg0, s32 arg1, s32 arg2);
+}
 void copy_quest_script_context(u8 *arg0, u8 *arg1);
+extern "C" {
 void destroy_children_with_tag(Node_801F57B4* arg0);
 u8 * create_floor_quest_thread(void);
 u32 create__12TQuestThreadFi(s32 arg0);
 u8 * create_quest_thread(s32 arg0);
 u8 * __ct__12TQuestThreadFv(u8 *arg0, s32 arg1, s32 arg2);
+}
 void clear_floor_handler(s32 i);
 void set_floor_handler(s32 i, s32 v);
+extern "C" {
 void TQuestThread__sub_801F5D88(void* p);
 void clear_all_floor_handlers(void* _w0);
 void clear_buffer__12TQuestThreadFPv(void* p);
+}
 void handle_6x77_sync_quest_register(u8 *arg0);
+extern "C" {
 char * get_quest_name__12TQuestThreadFv(void);
 void clear_thread_state__12TQuestThreadFv(void);
 s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1);
@@ -210,7 +215,9 @@ void * __dt__13TUnk_804C8678Fv(void *arg0, s16 arg1);
 void destroy_quest_obj__12TQuestThreadFv(void);
 s32 create_by_mode__12TQuestThreadFv(void);
 u8 * init_from_script__12TQuestThreadFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+}
 u8 * load_quest_root_script(u8 *arg0, void *parent, void *arg2, s32 arg3);
+extern "C" {
 QThread_801F6418 * construct_load_quest__12TQuestThreadFPvPvPv(QThread_801F6418 *self, void *unused, void *scene);
 void set_status_flag_80__12TQuestThreadFPv(void* p);
 void set_item_name_selection_index(int a0);
@@ -244,6 +251,7 @@ char *fn_8026CB5C(void);
 void * get_window_layout_position(s32);
 s32 strcmp(s32, s32 *);
 s32 strncpy(void *, void *, int);
+}
 
 extern s32 TQuestThread__data_804C8678[];
 extern RecoveredGlobal_801F5B5C_TQuestThread__data_80512AD0 TQuestThread__floor_handler_ids;
@@ -284,8 +292,6 @@ extern u8 lbl_805DC50C;
 extern s32 tl_00;
 extern s32 tl_04;
 extern s32 tl_su;
-
-}
 TObjItemNameSelect::~TObjItemNameSelect() {
     if (m_20 != nullptr) { TWindow__close(m_20); m_20 = nullptr; }
     if (m_1c != nullptr) { TWindow__close(m_1c); m_1c = nullptr; }
@@ -543,6 +549,7 @@ u8 *TQuestThreadBoard__ct(u8 *arg0, s32 arg1, s32 arg2) {
     (*(u8 * *)&quest_thread_board) = arg0;
     return arg0;
 }
+}
 
 #pragma push
 #pragma inline_depth(1)
@@ -606,6 +613,7 @@ void copy_quest_script_context(u8 *arg0, u8 *arg1) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
+extern "C" {
 void destroy_children_with_tag(Node_801F57B4* arg0) {
     Node_801F57B4* n = arg0->child;
     while (arg0->child != 0 && n != 0) {
@@ -781,6 +789,7 @@ u8 *__ct__12TQuestThreadFv(u8 *arg0, s32 arg1, s32 arg2) {
     }
     return arg0;
 }
+}
 
 void clear_floor_handler(s32 i) {
     if (i < 0 || i > 0x11) {
@@ -795,6 +804,7 @@ void set_floor_handler(s32 i, s32 v) {
     }
     ((s32 *)&TQuestThread__floor_handler_ids)[i] = v;
 }
+extern "C" {
 
 void TQuestThread__sub_801F5D88(void* p) { clear_all_floor_handlers(p); }
 
@@ -806,6 +816,7 @@ void clear_all_floor_handlers(void* _w0) {
 }
 
 void clear_buffer__12TQuestThreadFPv(void* p) { if (*(unsigned int*)((char*)p + 0x2c) != 0) { memset(*(void**)((char*)p + 0x2c), (void*)0, (void*)1024); } }
+}
 
 void handle_6x77_sync_quest_register(u8 *arg0) {
     s32 var_r4;
@@ -824,6 +835,7 @@ void handle_6x77_sync_quest_register(u8 *arg0) {
         }
     }
 }
+extern "C" {
 
 char *get_quest_name__12TQuestThreadFv(void) {
     if ((*(Obj_801F5E58 * *)&quest_mission_manager) != 0) {
@@ -869,6 +881,7 @@ void destroy_quest_obj__12TQuestThreadFv(void) {
         quest_area_manager = 0U;
     }
 }
+}
 
 void load_area_dialogue_script(void) {
     s32 bank;
@@ -899,6 +912,7 @@ void load_area_dialogue_script(void) {
         }
     }
 }
+extern "C" {
 
 s32 create_by_mode__12TQuestThreadFv(void) {
     s32 temp_r31;
@@ -966,6 +980,7 @@ u8 *init_from_script__12TQuestThreadFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg
     ((s32 (*)(void))clear_thread_state__12TQuestThreadFv)();
     return arg0;
 }
+}
 #pragma pop
 
 u8 *load_quest_root_script(u8 *arg0, void *parent, void *arg2, s32 arg3) {
@@ -1013,6 +1028,7 @@ u8 *load_quest_root_script(u8 *arg0, void *parent, void *arg2, s32 arg3) {
     }
     return arg0;
 }
+extern "C" {
 
 QThread_801F6418 *construct_load_quest__12TQuestThreadFPvPvPv(QThread_801F6418 *self, void *unused, void *scene) {
     s32 r;
@@ -1051,6 +1067,7 @@ void __dt__12TQuestThreadFv();
 void run_task__7TObjectFv();
 void render__7TObjectFv();
 void render_shadows__7TObjectFv();
+}
 void *__vt__18TObjItemNameSelect[] = {
     0,
     0,
@@ -1083,5 +1100,3 @@ void *__vt__12TQuestThread[] = {
     (void *)render__7TObjectFv,
     (void *)render_shadows__7TObjectFv,
 };
-
-}

@@ -4,10 +4,10 @@
 #include "pso/TPlyGuildCardTag.h"
 #include "pso/misc/TQuestListVM.h"
 
-extern "C" {
     extern int item_drop_server_seed;
     extern int area_random_seed;
 extern u8 *TQuestListOnline__instance;
+extern "C" {
 void *TPlyGuildCardTag::copy_full(void *arg1) {
     copy(arg1);
     ((TPlyGuildCardTag *)((char *)this + 36))->copy((void *)((char *)arg1 + 36));
@@ -26,11 +26,12 @@ void __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *arg0, void *arg1) {
     *(s32 *)((s8 *)arg0 + 4) = (s32) *(s32 *)((s8 *)arg1 + 4);
 }
 void fn_8013ACE4(int a0) { item_drop_server_seed = a0; }
+}
 void set_area_random_seed(int a0) { area_random_seed = a0; }
+extern "C" {
 void TQuestListOnline__sub_8013ACF4(s32 arg0) {
     if ((void *) TQuestListOnline__instance != NULL) {
         ((TShopWindowBase *)TQuestListOnline__instance)->set_field_20(arg0);
     }
 }
-
 }

@@ -4,6 +4,6 @@
 
 extern "C" {
 void init_modem_buffer_config(void* config);
-s32 init_modem_session_config();
 }
+s32 init_modem_session_config();
 #endif

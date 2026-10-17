@@ -36,9 +36,9 @@ struct Owner_802A8448 {
     s32 list;
 };
 
-extern "C" {
 extern s32 indirect_effect_ctrl_table[];
 extern u8 indirect_effect_ctrl_count;
+extern "C" {
 void TObjPlayer__sub_802A841C(void);
 void TObjPlayer__sub_802A83F4(void);
 s32 DCFlushRange(s32, s32);
@@ -49,6 +49,7 @@ void Dolphin_GXSetIndTexCoordScale(s32, s32, s32);
 void Dolphin_GXSetIndTexOrder(s32, s32, s32);
 void GXSetNumIndStages(s32);
 void GXSetTevIndWarp(s32, s32, s32, s32, s32);
+}
 void load_list_texture(s32, s32, s32, s32);
 extern Tbl5_802A85F0 indirect_tev_alternate_coord_table;
 extern Tbl5_802A85F0 indirect_tev_scale_table;
@@ -57,10 +58,13 @@ extern const f32 lbl_805DE024;
 s32 setup_indirect_tev_alternate(s32 arg0, s32 unused, s32 sampler, s32 arg3);
 extern Tbl5_802A8448 indirect_tev_ordinary_scale_table;
 s32 setup_indirect_tev_ordinary(s32 arg0, s32 sampler, s32 scale, s32 second);
+extern "C" {
 void eff_indirect_update_and_flush(TEffIndirectCtrl *arg0);
 void update_eff_indirect(TEffIndirectCtrl *arg0);
+}
 void deform_indirect_texture_wave(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, u8 arg5);
 s32 update_indirect_texture_wave(s32, s32, s32, s32, s32, u8);
+extern "C" {
 s8 find_indirect_effect_ctrl();
 
 void TObjPlayer::play_particle_at_active_slot(s32 arg0, s32 sampler, s32 arg2, s32 arg3, s32 unused, s32 second) {
@@ -85,6 +89,7 @@ void TObjPlayer__sub_802A841C(void) {
     s32 i;
     indirect_effect_ctrl_count = 0;
     for (i = 0; i < 6; i++) ((s32 *)&indirect_effect_ctrl_table)[i] = 0;
+}
 }
 
 void *indirect_effect_tile_buffer;
@@ -143,6 +148,7 @@ s32 setup_indirect_tev_alternate(s32 arg0, s32 unused, s32 sampler, s32 arg3) {
         load_list_texture(0, sampler, sampler, 5);
     }
 }
+extern "C" {
 
 void TEffIndirectCtrl::update_scroll_mode() {
     Ctrl_802A8728 *self = (Ctrl_802A8728 *)this;
@@ -156,13 +162,12 @@ void TEffIndirectCtrl::update_scroll_mode() {
 
 void update_eff_indirect(TEffIndirectCtrl *arg0) {
     arg0->copy_and_flush_texture(get_indirect_source_pixels(arg0->m_24));
-    deform_indirect_texture_wave(arg0->m_1c, (s32) *(f32 *)((s8 *)arg0 + 0x48), (s32) arg0->m_4c, arg0->m_3c, arg0->m_40, *(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0x20)) + 6));
+    deform_indirect_texture_wave(arg0->m_1c, (s32) *(f32 *)((s8 *)arg0 + 0x48), arg0->m_4c, arg0->m_3c, arg0->m_40, *(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0x20)) + 6));
     DCFlushRange(arg0->m_1c, 0x1000);
 }
 void eff_indirect_update_and_flush(TEffIndirectCtrl *arg0) {
     arg0->copy_and_flush_texture(get_indirect_source_pixels(arg0->m_24));
-    update_indirect_texture_wave(arg0->m_1c, (s32) *(f32 *)((s8 *)arg0 + 0x48), (s32) arg0->m_4c, arg0->m_3c, arg0->m_40, *(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0x20)) + 6));
+    update_indirect_texture_wave(arg0->m_1c, (s32) *(f32 *)((s8 *)arg0 + 0x48), arg0->m_4c, arg0->m_3c, arg0->m_40, *(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0x20)) + 6));
     DCFlushRange(arg0->m_1c, 0x1000);
 }
-
 }

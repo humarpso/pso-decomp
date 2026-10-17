@@ -63,6 +63,7 @@ u32 *free_buffer__12TBoss8DragonFPvs(u32 *arg0, s16 arg1) {
     }
     return arg0;
 }
+}
 
 s32 push_attack_target_entry(u8 *arg0, s32 arg1) {
     s32 temp_r4;
@@ -84,9 +85,9 @@ int attack_target_history_contains(void* object, void* target) {
     }
     return 0;
 }
+extern "C" {
 
 s32 fn_800BC758(u8 *arg0) {
     return *(s32 *)((s8 *)arg0 + 8) < *(s32 *)((s8 *)arg0 + 0xC);
 }
-
 }

@@ -14,8 +14,6 @@
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 struct RecoveredGlobal_80167878_lbl_804B1F80 {
     s32 value;
     u8 remaining[0x15C];
@@ -171,6 +169,7 @@ struct Pair_80168488 { s32 a; f32 b; };
 struct Fish_801682E4 { u32 pad0; u32 f4; };
 
 struct Obj_801682E4 { u8 pad0[0xC0]; f32 f0C0; f32 f0C4; f32 f0C8; u8 pad1[0x2C]; Fish_801682E4 *fish; u8 pad2[0x22A]; s16 mode; };
+extern "C" {
 
 s32 memset(void *, int, int);
 s32 obj_setFlags30(void *, s32);
@@ -198,7 +197,9 @@ void * get_player_by_client_id(s32);
 u8 *load_gvm_texture_file(s32 arg0);
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 u8 is_current_floor_switch_set(int);
+}
 void clear_current_floor_switch(s32 id);
+extern "C" {
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 
@@ -818,6 +819,7 @@ void TOHangceilingCave01::destroy_instance() {
 struct Buf_80168AA8 { s32 a; s32 b; s32 c; };
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
+}
 extern u8 fe_obj_turiten_moto_resource_descriptor[];
 extern u8 turiten_singo_resource_descriptor[];
 extern s32 lbl_805D59D8;
@@ -863,6 +865,4 @@ void load_turiten_singo_resources(void) {
         hanging_ceiling_motion_index = 0;
         break;
     }
-}
-
 }

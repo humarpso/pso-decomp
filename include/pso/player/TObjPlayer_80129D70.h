@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void s_rank_bazooka_marker(void *p);
-}
 
 #endif

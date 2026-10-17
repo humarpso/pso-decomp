@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 int serialize_area_set_flags(void *p);
-}
 
 #endif

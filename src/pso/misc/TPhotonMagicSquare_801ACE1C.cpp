@@ -188,6 +188,7 @@ u8 *TPhotonMagicSquare__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32
     ((TPhotonMagicSquare *)arg0)->m_cc = 0xFFFFFF;
     return arg0;
 }
+}
 u8 *construct_photon_magic_square_normal(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     construct_world_actor_base(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801AD218___vt__18TPhotonMagicSquare *)&__vt__18TPhotonMagicSquare).value;
@@ -210,6 +211,7 @@ u8 *construct_photon_magic_square_normal(u8 *arg0, s32 arg1, s32 arg2, s32 arg3,
     ((TPhotonMagicSquare *)arg0)->m_cc = 0xFFFFFF;
     return arg0;
 }
+extern "C" {
 u8 *TPhotonMagicSquare::construct_at_owner(s32 arg1, s32 arg2, s32 arg3) {
     s32 entity;
     construct_world_actor_base(this);
@@ -238,5 +240,4 @@ u8 *TPhotonMagicSquare::construct_at_owner(s32 arg1, s32 arg2, s32 arg3) {
     play_sound_effect(0x4002AD2E, 0, 0, 0);
     return ((u8 *)this);
 }
-
 }

@@ -114,15 +114,19 @@ s32 set_field_1c__6TLobbyFf(s32);
 s32 TWindowSubEquip__sub_80263AF8(s32, s32);
 s32 align_menu_entry_positions(int);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
-s32 create_titled_window_menu(int, int, int, int);
+}
+s32 create_titled_window_menu(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+extern "C" {
 s32 get_window_layout_position(s32);
 s32 get_player_by_client_id(s32);
 s32 TObjPlayer__sub_801B7B58(int, int, int);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(int);
 s32 get_item_info__10TObjPlayerFllPs(int, int, void *);
 void *find_item_by_id(s32);
+}
 void add_item_purpose_actions(TWindowSubItem *arg0, s32 arg1, s32 arg2);
 struct En_8027AA80 { u16 flags; u8 pad2[0x2A]; u32 c2c; u32 c30; u32 c34; };
+extern "C" {
 s32 is_flag_4_set__20TWindowSubStatusDispFv();
 
 struct Wn_8027AA80 { u8 pad0[0x76]; s16 f76; };
@@ -138,7 +142,9 @@ void calc_list_content_extent(void *);
 void TWindowSubItem__sub_8027AB10(Wn_8027AB10 *arg0);
 void populate_sub_item_list(Win_8027ABFC *arg0);
 u32 get_slot_value__10TObjPlayerFPvi(s32, s8);
+}
 s32 has_armor_with_unit_slot(TWindowSubItem *arg0, int arg1);
+extern "C" {
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 u32 is_action_active__10TObjPlayerFv(s32);
@@ -177,6 +183,7 @@ void TWindowSubItem::set_displayed_item(s32 arg1) {
         TWindowHelpItem__set_displayed_item_by_id(this->m_40);
     }
 }
+}
 
 s32 has_armor_with_unit_slot(TWindowSubItem *arg0, int arg1) {
     ItemData_80279754 d;
@@ -202,6 +209,7 @@ s32 has_armor_with_unit_slot(TWindowSubItem *arg0, int arg1) {
 
 #pragma push
 #pragma scheduling off
+extern "C" {
 void TWindowSubItem::use_selected_item() {
     s32 player;
     player = get_player_by_client_id(this->m_24);
@@ -287,6 +295,7 @@ void TWindowSubItem::set_cursor_row_for_mode(s32 arg1) {
         return;
     }
 }
+}
 
 void add_item_purpose_actions(TWindowSubItem *arg0, s32 arg1, s32 arg2) {
   s32 sp8;
@@ -352,6 +361,7 @@ void add_item_purpose_actions(TWindowSubItem *arg0, s32 arg1, s32 arg2) {
     forward_trade_action_default__16TObjCityMainWarpFPviii((s32)((void *) arg1), (s32)((int) get_message_10__20TWindowSubStatusDispFl(0x63)), 6, 7);
   }
 }
+extern "C" {
 
 void TWindowSubItem::draw_slot(s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r31;
@@ -811,5 +821,4 @@ void populate_sub_item_list(Win_8027ABFC *arg0) {
         calc_list_content_extent(arg0);
     }
 }
-
 }

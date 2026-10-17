@@ -33,8 +33,10 @@ struct Sora_8029EFFC {
 
 extern "C" {
 s32 TCameraCtrl__sub_800689F4();
-s32 calc_projection_screen_offset(void *, void *);
-f64 calc_camera_fov_degrees();
+}
+void calc_projection_screen_offset(f32 *arg0, f32 *arg1);
+f32 calc_camera_fov_degrees(void);
+extern "C" {
 s32 fn_8029F5B0(int, int, int, int);
 s32 PSMTXConcat(void *, void *, void *);
 s32 C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
@@ -42,10 +44,11 @@ s32 GXSetTevOp(int, int);
 s32 GXSetTevOrder(int, int, int, int);
 s32 push_matrix();
 s32 pop_matrix();
-s32 set_ginja_post_texgen_count(s32);
-s32 set_ginja_post_tev_stage_count(s32);
-s32 load_current_pos_matrix(int);
-s32 load_current_tex_matrix(int);
+}
+void set_ginja_post_texgen_count(s32 x);
+void set_ginja_post_tev_stage_count(s32 x);
+void load_current_pos_matrix(s32 arg0);
+void load_current_tex_matrix(s32 i);
 extern const f64 lbl_80465E18;
 extern u32 camera_ctrl_instance;
 extern u32 lbl_805D65F0;
@@ -53,6 +56,7 @@ extern s32 current_matrix;
 extern const f32 lbl_805DDDA0;
 extern const f32 lbl_805DDDA4;
 extern const f32 lbl_805DDDA8;
+extern "C" {
 void TObjPlayer__sub_8029EE2C(void);
 int set_instance__6TSceneFi(void *f);
 void VecCopy__FP3VecPC3Vec(Vec_8029EFFC *, Vec_8029EFFC *);
@@ -252,5 +256,4 @@ int TScene::set_scene_callbacks() {
     TScene::set_active_scene((int)((void *)TObjPlayer::clear_state_if_flag80));
     return set_instance__6TSceneFi((void *)TObjPlayer__sub_8029EE2C);
 }
-
 }

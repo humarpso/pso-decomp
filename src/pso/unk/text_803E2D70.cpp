@@ -398,6 +398,7 @@ void draw_strip_list_pos_nrm__10TObjPlayerFPvPvUi(s16 *list, Vtx_803E36C4 *verts
         } while (--n != 0);
     } while (--count != 0);
 }
+}
 #pragma pop
 
 #pragma push
@@ -471,12 +472,14 @@ void apply_chunk_texture_command(s32 arg0, s32 arg1) {
     chunk_texture_record_index = var_r31;
 }
 #pragma pop
+extern "C" {
 
 void TObjPlayer::setup_tev_passclr() {
     GXSetNumTevStages(1);
     GXSetNumTexGens(0U);
     GXSetTevOp(0, 4);
     GXSetTevOrder(0, 0xFF, 0xFF, 4);
+}
 }
 
 #pragma push
@@ -619,6 +622,7 @@ void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
         GXSetZMode(1, 3, 0);
     }
 }
+extern "C" {
 
 void TObjPlayer::setup_model_draw_state(void *) {
     Mtx_803E4354 scale;
@@ -699,6 +703,7 @@ s32 draw_chunk_vertices_cached__10TObjPlayerFPv(void* arg) {
         return 0;
     }
 }
+}
 
 void draw_chunk_model(void *arg0) {
     TObjPlayer::setup_model_draw_state(arg0);
@@ -708,6 +713,7 @@ void draw_chunk_model(void *arg0) {
 
 #pragma push
 #pragma scheduling off
+extern "C" {
 void draw_chunk_object(void *child) {
     TObjPlayer::setup_model_draw_state(child);
     transform_chunk_object_tree(child, (void (*)(void *))draw_chunk_vertices_cached__10TObjPlayerFPv);
@@ -832,5 +838,4 @@ void func_803e11e8__FUl(s32 arg0) {
 void func_803e11f0__Fv(void) {
     chunk_render_flags = 0;
 }
-
 }

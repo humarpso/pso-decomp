@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void s_rank_shot_turn_barrels(void *arg0);
-}
 
 #endif

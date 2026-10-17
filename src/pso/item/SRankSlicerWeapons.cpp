@@ -39,11 +39,13 @@ void TObjPlayer__sub_80128A70(void);
 void init_slicer_launch_state(void *);
 s16 get_validated_attack_stage(u8 *arg0);
 s16 TObjPlayer__sub_801D2F4C(s16 *arg0);
+}
 void enlarge_s_rank_j_cutter_blade(void *);
 extern const f32 lbl_805DAE18;
 extern const f32 lbl_805DAE1C;
 extern const f32 lbl_805DAE20;
 extern const f32 lbl_805DAE24;
+extern "C" {
 void emit_marker_effects__13TUnk_804A4238Fv(Self_801293FC *self);
 void TUnk_804A4238::emit_marker_effects() {
     Self_801293FC *self = (Self_801293FC *)this;
@@ -80,9 +82,12 @@ void *__dt__13TUnk_804A4238Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+}
 
 void *construct_s_rank_j_cutter_weapon(void *arg0, s32 task_root, void *owner);
+extern "C" {
 void construct_srank_weapon(void *);
+}
 
 void *construct_s_rank_j_cutter_weapon(void *arg0, s32 task_root, void *owner) {
     construct_srank_weapon(arg0);
@@ -92,7 +97,9 @@ void *construct_s_rank_j_cutter_weapon(void *arg0, s32 task_root, void *owner) {
 }
 
 void *construct_s_rank_j_cutter_weapon(void *, s32, void *);
+extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
+}
 extern s32 tl_05;
 u8 *create_s_rank_j_cutter_weapon(u8 *arg0);
 u8 *create_s_rank_j_cutter_weapon(u8 *owner) {
@@ -119,8 +126,6 @@ void enlarge_s_rank_j_cutter_blade(void *arg0) {
         *(f32 *)((s8 *)arg0 + 0x6C) = (f32) lbl_805DAE28;
         *(f32 *)((s8 *)arg0 + 0x70) = (f32) lbl_805DAE28;
     }
-}
-
 }
 
 struct SlicerState_801295FC {
@@ -165,12 +170,12 @@ struct Tec_80129648 {
     Vec_80129648 dir;
 };
 
-extern "C" {
 extern const f32 lbl_805DAE2C;
 extern const f32 lbl_805DAE30;
 extern const f32 lbl_805DAE34;
 extern const f32 lbl_805DAE38;
 extern const f32 lbl_805DAE3C;
+extern "C" {
 void emit_marker_effects__13TUnk_804A4338Fv(Self_80129648 *self);
 void init_slicer_launch_state(void *arg0) {
     SlicerState_801295FC *s = (SlicerState_801295FC *)arg0;
@@ -208,6 +213,7 @@ void TUnk_804A4338::emit_marker_effects() {
     ((TObjPlayer *)self)->draw_icon(2, (s32)&tec.dir);
     TTecSlicer::create((u16*)&tec);
 }
+}
 
 void *construct_s_rank_slicer_weapon(void *arg0, s32 task_root, void *owner);
 
@@ -232,8 +238,6 @@ u8 *create_s_rank_slicer_weapon(u8 *owner) {
         return var_r0;
     }
     return NULL;
-}
-
 }
 
 #include "pso/items/TItemWeapon.h"
@@ -276,7 +280,7 @@ extern "C" void TItem__sub_80100648();
 extern "C" int TItem__sub_80100B8C(void *p);
 extern "C" void vfunc_6__13TUnk_804B9870FPsl();
 extern "C" void srank_marker_noop();
-extern "C" void receive_srank_hit(TItemWeapon *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 farg0);
+void receive_srank_hit(TItemWeapon *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 farg0);
 extern "C" void add_equip_stats__14TItemEquipBaseFl();
 extern "C" void vfunc_44__11TItemWeaponFv();
 extern "C" void apply_object_set_data__13TUnk_804B9870FPv();
