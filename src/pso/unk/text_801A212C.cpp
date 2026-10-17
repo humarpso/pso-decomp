@@ -23,7 +23,7 @@ f32 transform_point_by_current_matrix(void *, void *);
 extern RecoveredGlobal_801A2340_lbl_804FF610 lbl_804FF610;
 extern const f32 lbl_805DC098;
 extern const f32 lbl_805DC09C;
-s16 classify_actor_view_detail(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
+s16 classify_actor_view_detail__13TUnk_804B9870Ffff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
@@ -34,54 +34,54 @@ typedef char RecoveredGlobal_801A2340_lbl_804FF610_size[sizeof(RecoveredGlobal_8
 #pragma opt_common_subs off
 #pragma opt_propagation off
 #pragma fp_contract on
-s16 classify_actor_view_detail(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
+s16 TUnk_804B9870::classify_actor_view_detail(f32 farg0, f32 farg1, f32 farg2) {
     Stack_801A2340 stack;
     f32 z;
-    if (*(u16 *)((s8 *)arg0 + 4) & 0x400) {
-        if (is_in_shadow_range(farg2, (void *) (arg0 + 0x38)) != 0) {
-            *(s16 *)((s8 *)arg0 + 0x1E) = 1;
+    if (*(u16 *)((s8 *)((u8 *)this) + 4) & 0x400) {
+        if (is_in_shadow_range(farg2, (void *) (((u8 *)this) + 0x38)) != 0) {
+            *(s16 *)((s8 *)((u8 *)this) + 0x1E) = 1;
             return 1;
         }
-        *(s16 *)((s8 *)arg0 + 0x1E) = 0;
+        *(s16 *)((s8 *)((u8 *)this) + 0x1E) = 0;
         return 0;
     }
     if (TMainTask::get_state_flag() == 1) {
-        return *(s16 *)((s8 *)arg0 + 0x1E);
+        return *(s16 *)((s8 *)((u8 *)this) + 0x1E);
     }
-    transform_point_by_current_matrix((void *) (arg0 + 0x38), (void *) (&stack.sp10));
+    transform_point_by_current_matrix((void *) (((u8 *)this) + 0x38), (void *) (&stack.sp10));
     z = stack.sp18;
     if (z > lbl_805DC098) {
-        *(s16 *)((s8 *)arg0 + 0x1E) = 0;
+        *(s16 *)((s8 *)((u8 *)this) + 0x1E) = 0;
         return 0;
     }
     if (z < -farg1) {
-        *(s16 *)((s8 *)arg0 + 0x1E) = 0;
+        *(s16 *)((s8 *)((u8 *)this) + 0x1E) = 0;
         return 0;
     }
     if (stack.sp10 < lbl_805DC098) {
-        stack.sp10 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 0) * farg2) + *(f32 *)((s8 *)arg0 + 0x38);
-        stack.sp14 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 4) * farg2) + *(f32 *)((s8 *)arg0 + 0x3C);
-        stack.sp18 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 8) * farg2) + *(f32 *)((s8 *)arg0 + 0x40);
+        stack.sp10 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 0) * farg2) + *(f32 *)((s8 *)((u8 *)this) + 0x38);
+        stack.sp14 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 4) * farg2) + *(f32 *)((s8 *)((u8 *)this) + 0x3C);
+        stack.sp18 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 8) * farg2) + *(f32 *)((s8 *)((u8 *)this) + 0x40);
         project_world_to_screen(0, (void *) (&stack.sp10), (void *) (&stack.sp8));
         if (stack.sp8 < lbl_805DC098) {
-            *(s16 *)((s8 *)arg0 + 0x1E) = 0;
+            *(s16 *)((s8 *)((u8 *)this) + 0x1E) = 0;
             return 0;
         }
     } else {
-        stack.sp10 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 0) * farg2) - *(f32 *)((s8 *)arg0 + 0x38));
-        stack.sp14 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 4) * farg2) - *(f32 *)((s8 *)arg0 + 0x3C));
-        stack.sp18 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 8) * farg2) - *(f32 *)((s8 *)arg0 + 0x40));
+        stack.sp10 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 0) * farg2) - *(f32 *)((s8 *)((u8 *)this) + 0x38));
+        stack.sp14 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 4) * farg2) - *(f32 *)((s8 *)((u8 *)this) + 0x3C));
+        stack.sp18 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 8) * farg2) - *(f32 *)((s8 *)((u8 *)this) + 0x40));
         project_world_to_screen(0, (void *) (&stack.sp10), (void *) (&stack.sp8));
         if (stack.sp8 > lbl_805DC09C) {
-            *(s16 *)((s8 *)arg0 + 0x1E) = 0;
+            *(s16 *)((s8 *)((u8 *)this) + 0x1E) = 0;
             return 0;
         }
     }
     if (z < -farg0) {
-        *(s16 *)((s8 *)arg0 + 0x1E) = 2;
+        *(s16 *)((s8 *)((u8 *)this) + 0x1E) = 2;
         return 2;
     }
-    *(s16 *)((s8 *)arg0 + 0x1E) = 1;
+    *(s16 *)((s8 *)((u8 *)this) + 0x1E) = 1;
     return 1;
 }
 #pragma pop

@@ -17,7 +17,7 @@ Vec_801A1F48 *VecCopy__FP3VecPC3Vec(Vec_801A1F48 *, const Vec_801A1F48 *);
 void apply_object_set_data(Dst_801A1F48 *self, Src_801A1F48 *src);
 extern u16 lbl_805D5CD4;
 extern u16 lbl_805D5CD6;
-void TLobby__sub_801A1FD8(void);
+void vfunc_6__13TUnk_804B9870FPsl(void);
 u16 TLobby__sub_801A20C8(s32);
 u16 fn_801A210C(s32);
 
@@ -49,7 +49,7 @@ void apply_object_set_data(Dst_801A1F48 *self, Src_801A1F48 *src) {
     }
 }
 
-void TLobby__sub_801A1FD8(void) {  }
+void TUnk_804B9870::vfunc_6(s16 *, s32) {  }
 u16 TUnk_804806E8::get_or_assign_actor_id(s32 arg1) {
     s32 temp_r3;
 

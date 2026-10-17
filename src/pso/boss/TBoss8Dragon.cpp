@@ -1625,7 +1625,7 @@ extern "C" {
 void vfunc_50__12TBoss8DragonFv();
 }
 extern "C" {
-void TLobby__sub_801A1FD8();
+void vfunc_6__13TUnk_804B9870FPsl();
 }
 extern "C" {
 void vfunc_103__9TObjEneDDFPUc();
@@ -2150,7 +2150,7 @@ void *TBoss8Dragon__dive_height_curve[12] = {
 };
 void *__vt__12TBoss8Dragon[107] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__12TBoss8DragonFv, (void *)&run_task__12TBoss8DragonFv,
-    (void *)&TBoss8Dragon__sub_802F4380, (void *)&render_shadows__12TBoss8DragonFv, (void *)&TLobby__sub_801A1FD8, (void *)&fn_801A1F48,
+    (void *)&TBoss8Dragon__sub_802F4380, (void *)&render_shadows__12TBoss8DragonFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&fn_801A1F48,
     (void *)&TObjPlayer__sub_80018F64, (void *)&TObjPlayer__sub_80018F5C, (void *)&fn_801A2340, (void *)&fn_801A212C,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&TObjPlayer__sub_80011210, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&TObjPlayer__sub_8001119C, (void *)&TObjPlayer__sub_80018EE4, (void *)&TObjPlayer__sub_80018E6C, (void *)&TObjPlayer__sub_80011704,

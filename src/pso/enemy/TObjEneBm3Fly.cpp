@@ -2320,7 +2320,7 @@ void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 
-void TLobby__sub_801A1FD8();
+void vfunc_6__13TUnk_804B9870FPsl();
 void vfunc_103__9TObjEneDDFPUc();
 void vfunc_79__9TObjEneDDFv();
 void TObjEneDD__vt82();
@@ -2369,7 +2369,7 @@ void apply_set_data__9TObjEnemyFPv();
 void apply_shock_status__13TUnk_804806E8Fv();
 void apply_switch_attack__10TObjPlayerFi();
 void calc_distance_accuracy_penalty__10TObjPlayerFv();
-void classify_actor_view_detail();
+void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void clear_all_status_effects__13TUnk_804806E8Fv();
 void clear_harmful_statuses__13TUnk_804806E8Fv();
 void cure_paralysis__13TUnk_804806E8Fv();
@@ -2440,8 +2440,8 @@ void *bm3_fly_action_table[20] = {
 };
 void *__vt__13TObjEneBm3Fly[107] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__13TObjEneBm3FlyFv, (void *)&run_task__13TObjEneBm3FlyFv,
-    (void *)&render__13TObjEneBm3FlyFv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&render__13TObjEneBm3FlyFv, (void *)&render_actor_shadows_default, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data,
+    (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,

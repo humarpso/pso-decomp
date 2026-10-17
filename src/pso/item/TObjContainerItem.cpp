@@ -37,7 +37,7 @@ void apply_object_set_data();
 void reset_motion_fields__13TUnk_804806E8Fv();
 void vfunc_9__13TUnk_804806E8Fv();
 void update_object_view_visibility__13TUnk_804B9870Fff();
-void classify_actor_view_detail();
+void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void vfunc_12__13TUnk_804B9870Fv();
 void vfunc_13__13TUnk_804AF8A0Fl();
 void add_actor_exp();
@@ -115,7 +115,7 @@ void *__vt__21TObjContainerAbeEnemy[83] = {
     (void *)reset_motion_fields__13TUnk_804806E8Fv,
     (void *)vfunc_9__13TUnk_804806E8Fv,
     (void *)update_object_view_visibility__13TUnk_804B9870Fff,
-    (void *)classify_actor_view_detail,
+    (void *)classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)vfunc_12__13TUnk_804B9870Fv,
     (void *)vfunc_13__13TUnk_804AF8A0Fl,
     (void *)add_actor_exp,

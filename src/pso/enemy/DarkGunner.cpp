@@ -426,7 +426,7 @@ extern "C" {
 void vfunc_65__15TObjEnemyCustomFll();
 }
 extern "C" {
-void TLobby__sub_801A1FD8();
+void vfunc_6__13TUnk_804B9870FPsl();
 }
 extern "C" {
 void vfunc_63__15TObjEnemyCustomFv();
@@ -519,7 +519,7 @@ extern "C" {
 void vfunc_79__15TObjEnemyCustomFv();
 }
 extern "C" {
-void classify_actor_view_detail();
+void classify_actor_view_detail__13TUnk_804B9870Ffff();
 }
 extern "C" {
 void clear_all_status_effects__13TUnk_804806E8Fv();
@@ -731,8 +731,8 @@ Vec_800A159C lbl_804907BC[4] = {
 };
 void *__vt__17TObjEneDarkGunner[83] = {
     (void *)0x0, (void *)0x0, (void *)&TObjPlayer__sub_800A2EDC, (void *)&TObjPlayer__sub_800A28A4,
-    (void *)&TObjPlayer__sub_800A1978, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&TObjPlayer__sub_800A1978, (void *)&render_actor_shadows_default, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data,
+    (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,

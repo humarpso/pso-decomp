@@ -1253,8 +1253,8 @@ void apply_hit_message_flags__9TObjEnemyFPv();
 void vfunc_79__9TObjEnemyFv();
 void apply_set_data__9TObjEnemyFPv();
 void apply_object_set_data();
-void TLobby__sub_801A1FD8();
-void classify_actor_view_detail();
+void vfunc_6__13TUnk_804B9870FPsl();
+void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void update_object_view_visibility__13TUnk_804B9870Fff();
 s32 __vt__11TBoss4Bishi[83] = {
     0,
@@ -1263,12 +1263,12 @@ s32 __vt__11TBoss4Bishi[83] = {
     (s32)TBoss4Zako__sub_8005BC4C,
     (s32)render__9TBoss4UroFv,
     (s32)render_actor_shadows_default,
-    (s32)TLobby__sub_801A1FD8,
+    (s32)vfunc_6__13TUnk_804B9870FPsl,
     (s32)apply_object_set_data,
     (s32)reset_motion_fields__13TUnk_804806E8Fv,
     (s32)vfunc_9__13TUnk_804806E8Fv,
     (s32)update_object_view_visibility__13TUnk_804B9870Fff,
-    (s32)classify_actor_view_detail,
+    (s32)classify_actor_view_detail__13TUnk_804B9870Ffff,
     (s32)vfunc_12__9TObjEnemyFv,
     (s32)vfunc_13__13TUnk_804AF8A0Fl,
     (s32)add_actor_exp,
@@ -1348,12 +1348,12 @@ s32 __vt__9TBoss4Uro[83] = {
     (s32)run_task__9TBoss4UroFv,
     (s32)render__9TBoss4UroFv,
     (s32)render_actor_shadows_default,
-    (s32)TLobby__sub_801A1FD8,
+    (s32)vfunc_6__13TUnk_804B9870FPsl,
     (s32)apply_object_set_data,
     (s32)reset_motion_fields__13TUnk_804806E8Fv,
     (s32)vfunc_9__13TUnk_804806E8Fv,
     (s32)update_object_view_visibility__13TUnk_804B9870Fff,
-    (s32)classify_actor_view_detail,
+    (s32)classify_actor_view_detail__13TUnk_804B9870Ffff,
     (s32)vfunc_12__9TObjEnemyFv,
     (s32)vfunc_13__13TUnk_804AF8A0Fl,
     (s32)add_actor_exp,
@@ -1433,12 +1433,12 @@ s32 __vt__10TBoss4Zako[83] = {
     (s32)run_task__10TBoss4ZakoFv,
     (s32)render__9TBoss4UroFv,
     (s32)render_actor_shadows_default,
-    (s32)TLobby__sub_801A1FD8,
+    (s32)vfunc_6__13TUnk_804B9870FPsl,
     (s32)apply_object_set_data,
     (s32)reset_motion_fields__13TUnk_804806E8Fv,
     (s32)vfunc_9__13TUnk_804806E8Fv,
     (s32)update_object_view_visibility__13TUnk_804B9870Fff,
-    (s32)classify_actor_view_detail,
+    (s32)classify_actor_view_detail__13TUnk_804B9870Ffff,
     (s32)vfunc_12__9TObjEnemyFv,
     (s32)vfunc_13__13TUnk_804AF8A0Fl,
     (s32)add_actor_exp,

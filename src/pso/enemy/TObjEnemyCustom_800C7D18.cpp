@@ -20,12 +20,12 @@ int update_if_active__15TObjEneMe1GiGueFl(void*, int);
 void __dt__15TObjEnemyCustomFv();
 void render__15TObjEnemyCustomFv();
 void render_actor_shadows_default();
-void TLobby__sub_801A1FD8();
+void vfunc_6__13TUnk_804B9870FPsl();
 void apply_object_set_data();
 void reset_motion_fields__13TUnk_804806E8Fv();
 void vfunc_9__13TUnk_804806E8Fv();
 void update_object_view_visibility__13TUnk_804B9870Fff();
-void classify_actor_view_detail();
+void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void vfunc_12__9TObjEnemyFv();
 void vfunc_13__13TUnk_804AF8A0Fl();
 void add_actor_exp();
@@ -96,12 +96,12 @@ void *__vt__15TObjEnemyCustom[83] = {
     (void *)run_task__15TObjEnemyCustomFv,
     (void *)render__15TObjEnemyCustomFv,
     (void *)render_actor_shadows_default,
-    (void *)TLobby__sub_801A1FD8,
+    (void *)vfunc_6__13TUnk_804B9870FPsl,
     (void *)apply_object_set_data,
     (void *)reset_motion_fields__13TUnk_804806E8Fv,
     (void *)vfunc_9__13TUnk_804806E8Fv,
     (void *)update_object_view_visibility__13TUnk_804B9870Fff,
-    (void *)classify_actor_view_detail,
+    (void *)classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)vfunc_12__9TObjEnemyFv,
     (void *)vfunc_13__13TUnk_804AF8A0Fl,
     (void *)add_actor_exp,

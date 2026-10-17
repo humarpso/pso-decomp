@@ -30,7 +30,7 @@ extern "C" void TItem__sub_801005E0();
 extern "C" void TItem__sub_801005E4();
 extern "C" void TItem__sub_80100648();
 extern "C" void TItem__sub_80100B8C();
-extern "C" void TLobby__sub_801A1FD8();
+extern "C" void vfunc_6__13TUnk_804B9870FPsl();
 extern "C" void TItemWeapon__sub_8011E5C0();
 extern "C" void TItemWeapon__sub_8011E5C4();
 extern "C" void TItemWeapon__sub_8011E5C8();
@@ -49,7 +49,7 @@ extern "C" void add_equip_stats__14TItemEquipBaseFl();
 extern "C" void vfunc_44__11TItemWeaponFv();
 extern "C" void apply_object_set_data();
 extern "C" void vfunc_48__11TItemWeaponFv();
-extern "C" void classify_actor_view_detail();
+extern "C" void classify_actor_view_detail__13TUnk_804B9870Ffff();
 extern "C" void create_cane_effect_from_state__10TObjPlayerFPv();
 extern "C" void deliver_hit__11TItemWeaponFlPUcllf();
 extern "C" void vfunc_30__11TItemWeaponFv();
@@ -91,8 +91,8 @@ extern "C" void vfunc_28__11TItemWeaponFv();
 extern "C" void emit_marker_effects__11TItemWeaponFv();
 void *lbl_804E1BB0[62] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__13TUnk_804E1BB0Fv, (void *)&run_task__5TItemFv,
-    (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&release_member_90__10TObjPlayerFv, (void *)&get_motion_ptr__11TItemWeaponFv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail,
+    (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data,
+    (void *)&release_member_90__10TObjPlayerFv, (void *)&get_motion_ptr__11TItemWeaponFv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&register_attack__5TItemFv, (void *)&try_pick_up_item__5TItemFl, (void *)&vfunc_14__11TItemWeaponFv, (void *)&TItem__sub_801005E0,
     (void *)&vfunc_16__11TItemWeaponFv, (void *)&vfunc_17__11TItemWeaponFl, (void *)&TItemWeapon__write_item_data, (void *)&set_attach_slot__14TItemEquipBaseFSc,
     (void *)&equip__14TItemEquipBaseFv, (void *)&unequip__14TItemEquipBaseFv, (void *)&add_equip_stats__14TItemEquipBaseFl, (void *)&remove_equip_stats__14TItemEquipBaseFl,
@@ -109,8 +109,8 @@ void *lbl_804E1BB0[62] = {
 };
 void *lbl_804E1CA8[63] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__13TUnk_804E1CA8Fv, (void *)&run_task__5TItemFv,
-    (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&release_member_90__10TObjPlayerFv, (void *)&get_motion_ptr__11TItemWeaponFv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail,
+    (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data,
+    (void *)&release_member_90__10TObjPlayerFv, (void *)&get_motion_ptr__11TItemWeaponFv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&register_attack__5TItemFv, (void *)&try_pick_up_item__5TItemFl, (void *)&vfunc_14__11TItemWeaponFv, (void *)&TItem__sub_801005E0,
     (void *)&vfunc_16__11TItemWeaponFv, (void *)&vfunc_17__11TItemWeaponFl, (void *)&TItemWeapon__write_item_data, (void *)&set_attach_slot__14TItemEquipBaseFSc,
     (void *)&equip__14TItemEquipBaseFv, (void *)&unequip__14TItemEquipBaseFv, (void *)&add_equip_stats__14TItemEquipBaseFl, (void *)&remove_equip_stats__14TItemEquipBaseFl,

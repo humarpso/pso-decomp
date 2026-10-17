@@ -475,7 +475,7 @@ void __dt__11TBoss4Type3FPvs(void*, int);
 void mem_free(void*);
 
 extern "C" {
-void TLobby__sub_801A1FD8();
+void vfunc_6__13TUnk_804B9870FPsl();
 }
 extern "C" {
 void vfunc_12__13TUnk_804B9870Fv();
@@ -490,7 +490,7 @@ extern "C" {
 void apply_object_set_data();
 }
 extern "C" {
-void classify_actor_view_detail();
+void classify_actor_view_detail__13TUnk_804B9870Ffff();
 }
 extern "C" {
 extern u8 lbl_8043B6A0[];
@@ -526,7 +526,7 @@ extern "C" {
 void render_shadows__7TObjectFv();
 }
 extern "C" {
-void reset_motion_fields__10TObjPlayerFv();
+void reset_motion_fields__13TUnk_804B9870Fv();
 }
 extern "C" {
 void run_task__12TObjGrassWebFv();
@@ -546,7 +546,7 @@ extern "C" {
  extern "C" u8 lbl_8043B760[];
 }
 extern "C" {
-extern void TLobby__sub_801A1FD8();  }
+extern void vfunc_6__13TUnk_804B9870FPsl();  }
 extern "C" {
 extern void __dt__12TObjGrassWebFv();  }
 extern "C" {
@@ -583,8 +583,8 @@ void *lbl_80492A00[11] = {
 };
 void *__vt__12TObjGrassWeb[13] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__12TObjGrassWebFv, (void *)&run_task__12TObjGrassWebFv,
-    (void *)&render__12TObjGrassWebFv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_motion_fields__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&render__12TObjGrassWebFv, (void *)&render_shadows__7TObjectFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data,
+    (void *)&reset_motion_fields__13TUnk_804B9870Fv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__13TUnk_804B9870Fv,
 };
 #define bm_ene_grass_resource_descriptor ((s32 *)bm_ene_grass_resource_descriptor)

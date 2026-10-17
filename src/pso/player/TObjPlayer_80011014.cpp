@@ -1837,10 +1837,10 @@ extern "C" {
 void run_task__7TObjectFv(void);
 void render__7TObjectFv(void);
 void render_shadows__7TObjectFv(void);
-void TLobby__sub_801A1FD8(void);
+void vfunc_6__13TUnk_804B9870FPsl(void);
 void apply_object_set_data(void);
 void update_object_view_visibility__13TUnk_804B9870Fff(void);
-void classify_actor_view_detail(void);
+void classify_actor_view_detail__13TUnk_804B9870Ffff(void);
 void vfunc_12__13TUnk_804B9870Fv(void);
 int calc_distance_accuracy_penalty__10TObjPlayerFv(RangedActor* target,RangedActor* attacker,RangedBody* body,const RangedVec* origin,float multiplier);
 f32 receive_physical_attack__10TObjPlayerFv(Obj_80014108 *self, Obj_80014108 *att, f32 scale);
@@ -1867,12 +1867,12 @@ void *lbl_804806E8[] = {
     (void *)run_task__7TObjectFv,
     (void *)render__7TObjectFv,
     (void *)render_shadows__7TObjectFv,
-    (void *)TLobby__sub_801A1FD8,
+    (void *)vfunc_6__13TUnk_804B9870FPsl,
     (void *)apply_object_set_data,
     (void *)reset_motion_fields__13TUnk_804806E8Fv,
     (void *)vfunc_9__13TUnk_804806E8Fv,
     (void *)update_object_view_visibility__13TUnk_804B9870Fff,
-    (void *)classify_actor_view_detail,
+    (void *)classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)vfunc_12__13TUnk_804B9870Fv,
     (void *)vfunc_13__13TUnk_804AF8A0Fl,
     (void *)add_actor_exp,

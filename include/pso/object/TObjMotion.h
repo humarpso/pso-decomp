@@ -10,7 +10,7 @@ public:
     virtual void reset_motion_fields();
     virtual void*vfunc_9();
     virtual s16 update_object_view_visibility(f32, f32);
-    virtual s16 vfunc_11(f32, f32, f32);
+    virtual s16 classify_actor_view_detail(f32, f32, f32);
     virtual int vfunc_12();
     void obj_clearFlags30(u32);
     s16 get_stat_by_key_state();

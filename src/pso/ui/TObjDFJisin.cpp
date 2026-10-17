@@ -560,7 +560,7 @@ void * create__13TObjDFRecBallFPvPvPv(void *arg0, void *arg1, void *arg2) {
     return o;
 }
 
-void TLobby__sub_801A1FD8();
+void vfunc_6__13TUnk_804B9870FPsl();
 void vfunc_29__13TUnk_804806E8Fv();
 void vfunc_74__13TUnk_804806E8Fl();
 void vfunc_73__13TUnk_804806E8Fv();
@@ -597,7 +597,7 @@ void apply_poison_status__13TUnk_804806E8Fv();
 void apply_shock_status__13TUnk_804806E8Fv();
 void apply_switch_attack__10TObjPlayerFi();
 void calc_distance_accuracy_penalty__10TObjPlayerFv();
-void classify_actor_view_detail();
+void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void clear_all_status_effects__13TUnk_804806E8Fv();
 void clear_harmful_statuses__13TUnk_804806E8Fv();
 void cure_paralysis__13TUnk_804806E8Fv();
@@ -642,12 +642,12 @@ void *__vt__13TObjDFHorming[] = {
     (void *)run_task__13TObjDFHormingFv,
     (void *)render__7TObjectFv,
     (void *)render_shadows__7TObjectFv,
-    (void *)TLobby__sub_801A1FD8,
+    (void *)vfunc_6__13TUnk_804B9870FPsl,
     (void *)apply_object_set_data,
     (void *)reset_motion_fields__13TUnk_804806E8Fv,
     (void *)vfunc_9__13TUnk_804806E8Fv,
     (void *)update_object_view_visibility__13TUnk_804B9870Fff,
-    (void *)classify_actor_view_detail,
+    (void *)classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)vfunc_12__13TUnk_804B9870Fv,
     (void *)vfunc_13__13TUnk_804AF8A0Fl,
     (void *)add_actor_exp,

@@ -167,7 +167,7 @@ struct Obj_800A4C4C;
 struct Obj_800A5A68;
 struct Obj_800A677C;
 extern "C" {
-void TLobby__sub_801A1FD8();
+void vfunc_6__13TUnk_804B9870FPsl();
 void vfunc_29__13TUnk_804806E8Fv();
 void vfunc_73__13TUnk_804806E8Fv();
 void vfunc_67__13TUnk_804806E8Fv();
@@ -200,7 +200,7 @@ void apply_slow_status__13TUnk_804806E8Fv();
 void apply_switch_attack__10TObjPlayerFi();
 void calc_distance_accuracy_penalty__10TObjPlayerFv();
 void vfunc_79__9TObjEnemyFv();
-void classify_actor_view_detail();
+void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void clear_all_status_effects__13TUnk_804806E8Fv();
 void clear_harmful_statuses__13TUnk_804806E8Fv();
 void clear_lobby_object_state__9TObjEnemyFv();
@@ -287,8 +287,8 @@ void *saver_collision_body_part_table[11] = {
 };
 void *TObjEneSaver__vtable[83] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__12TObjEneSaverFv, (void *)&TObjPlayer__sub_800A6EC0,
-    (void *)&TObjPlayer__sub_800A6C54, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__12TObjEneSaverFv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&TObjPlayer__sub_800A6C54, (void *)&render_actor_shadows_default, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data,
+    (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__12TObjEneSaverFv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,

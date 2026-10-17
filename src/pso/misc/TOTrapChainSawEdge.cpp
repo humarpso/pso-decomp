@@ -981,12 +981,12 @@ u8 *TOTrapChainSaw__ct(u8 *arg0, s32 arg1, s32 arg2) {
 }
 
 void render_shadows__7TObjectFv();
-void TLobby__sub_801A1FD8();
+void vfunc_6__13TUnk_804B9870FPsl();
 void apply_object_set_data();
 void release_member_90__10TObjPlayerFv();
 void vfunc_9__13TUnk_804B9870Fv();
 void update_object_view_visibility__13TUnk_804B9870Fff();
-void classify_actor_view_detail();
+void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void vfunc_12__13TUnk_804B9870Fv();
 void vfunc_13__13TUnk_804AF8A0Fl();
 void check_player_contact__18TOTrapChainSawEdgeFv();
@@ -1004,12 +1004,12 @@ s32 __vt__18TOTrapChainSawEdge[31] = {
     (s32)&run_task__14TOTrapChainSawFv,
     (s32)&render__14TOTrapChainSawFv,
     (s32)&render_shadows__7TObjectFv,
-    (s32)&TLobby__sub_801A1FD8,
+    (s32)&vfunc_6__13TUnk_804B9870FPsl,
     (s32)&apply_object_set_data,
     (s32)&release_member_90__10TObjPlayerFv,
     (s32)&vfunc_9__13TUnk_804B9870Fv,
     (s32)&update_object_view_visibility__13TUnk_804B9870Fff,
-    (s32)&classify_actor_view_detail,
+    (s32)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (s32)&vfunc_12__13TUnk_804B9870Fv,
     (s32)&vfunc_13__13TUnk_804AF8A0Fl,
     (s32)&vfunc_14__14TOTrapChainSawFv,
@@ -1037,12 +1037,12 @@ s32 __vt__17TOTrapChainSawKey[31] = {
     (s32)&run_task__14TOTrapChainSawFv,
     (s32)&render__14TOTrapChainSawFv,
     (s32)&render_shadows__7TObjectFv,
-    (s32)&TLobby__sub_801A1FD8,
+    (s32)&vfunc_6__13TUnk_804B9870FPsl,
     (s32)&apply_object_set_data,
     (s32)&release_member_90__10TObjPlayerFv,
     (s32)&vfunc_9__13TUnk_804B9870Fv,
     (s32)&update_object_view_visibility__13TUnk_804B9870Fff,
-    (s32)&classify_actor_view_detail,
+    (s32)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (s32)&vfunc_12__13TUnk_804B9870Fv,
     (s32)&vfunc_13__13TUnk_804AF8A0Fl,
     (s32)&vfunc_14__17TOTrapChainSawKeyFv,
@@ -1070,12 +1070,12 @@ s32 __vt__20TOTrapChainSawDamage[31] = {
     (s32)&run_task__14TOTrapChainSawFv,
     (s32)&render__14TOTrapChainSawFv,
     (s32)&render_shadows__7TObjectFv,
-    (s32)&TLobby__sub_801A1FD8,
+    (s32)&vfunc_6__13TUnk_804B9870FPsl,
     (s32)&apply_object_set_data,
     (s32)&release_member_90__10TObjPlayerFv,
     (s32)&vfunc_9__13TUnk_804B9870Fv,
     (s32)&update_object_view_visibility__13TUnk_804B9870Fff,
-    (s32)&classify_actor_view_detail,
+    (s32)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (s32)&vfunc_12__13TUnk_804B9870Fv,
     (s32)&vfunc_13__13TUnk_804AF8A0Fl,
     (s32)&vfunc_14__20TOTrapChainSawDamageFv,
@@ -1103,12 +1103,12 @@ s32 __vt__14TOTrapChainSaw[31] = {
     (s32)&run_task__14TOTrapChainSawFv,
     (s32)&render__14TOTrapChainSawFv,
     (s32)&render_shadows__7TObjectFv,
-    (s32)&TLobby__sub_801A1FD8,
+    (s32)&vfunc_6__13TUnk_804B9870FPsl,
     (s32)&apply_object_set_data,
     (s32)&release_member_90__10TObjPlayerFv,
     (s32)&vfunc_9__13TUnk_804B9870Fv,
     (s32)&update_object_view_visibility__13TUnk_804B9870Fff,
-    (s32)&classify_actor_view_detail,
+    (s32)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (s32)&vfunc_12__13TUnk_804B9870Fv,
     (s32)&vfunc_13__13TUnk_804AF8A0Fl,
     (s32)&vfunc_14__14TOTrapChainSawFv,

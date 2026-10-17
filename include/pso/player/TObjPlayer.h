@@ -649,7 +649,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void on_zone_exit();
     u8 is_state_ec1_ed3();
     static void set_camera_mode(s32 arg0);
-    void reset_motion_fields();
     void reset_fields();
     void reset_state_block();
     static void*get_photon_blast_entry(int a0);

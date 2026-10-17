@@ -26,12 +26,12 @@ extern u8 lbl_80446D4C[];
 extern s32 lbl_805D34E0;
 extern u8 *photon_blast_shared_resource;
 extern const f32 lbl_805DC15C;
-extern "C" void TLobby__sub_801A1FD8();
+extern "C" void vfunc_6__13TUnk_804B9870FPsl();
 extern "C" void vfunc_13__13TUnk_804AF8A0Fl();
 extern "C" void vfunc_12__13TUnk_804B9870Fv();
 extern "C" void vfunc_9__13TUnk_804B9870Fv();
 extern "C" void apply_object_set_data();
-extern "C" void classify_actor_view_detail();
+extern "C" void classify_actor_view_detail__13TUnk_804B9870Ffff();
 extern "C" void destroy__13TPhotonFarllaFPvs();
 extern "C" void enter_scene__13TUnk_804C3248Fv();
 extern "C" void render__13TPhotonFarllaFv();
@@ -54,8 +54,8 @@ void *lbl_804C3538[11] = {
 };
 void *lbl_804C3564[17] = {
     (void *)0x0, (void *)0x0, (void *)&destroy__13TPhotonFarllaFPvs, (void *)&run_task__13TPhotonFarllaFv,
-    (void *)&render__13TPhotonFarllaFv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_movement__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&render__13TPhotonFarllaFv, (void *)&render_shadows__7TObjectFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data,
+    (void *)&reset_movement__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__13TUnk_804B9870Fv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&enter_scene__13TUnk_804C3248Fv, (void *)&update_if_active__13TUnk_804C3248Fv,
     (void *)0x0,
 };

@@ -76,13 +76,13 @@ void *TObjDFDemo2__ct(void *, void *, void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
-void TLobby__sub_801A1FD8();
+void vfunc_6__13TUnk_804B9870FPsl();
 void vfunc_12__13TUnk_804B9870Fv();
 void vfunc_9__13TUnk_804B9870Fv();
 void apply_object_set_data();
-void classify_actor_view_detail();
+void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void render_shadows__7TObjectFv();
-void reset_motion_fields__10TObjPlayerFv();
+void reset_motion_fields__13TUnk_804B9870Fv();
 void update_object_view_visibility__13TUnk_804B9870Fff();
 
 const char *TObjDFDemo2__name = "TObjDFDemo2";
@@ -95,8 +95,8 @@ void *lbl_80485680[3] = {
 };
 void *__vt__11TObjDFDemo2[13] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__11TObjDFDemo2Fv, (void *)&run_task__11TObjDFDemo2Fv,
-    (void *)&render__11TObjDFDemo2Fv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_motion_fields__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&render__11TObjDFDemo2Fv, (void *)&render_shadows__7TObjectFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data,
+    (void *)&reset_motion_fields__13TUnk_804B9870Fv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__13TUnk_804B9870Fv,
 };
 

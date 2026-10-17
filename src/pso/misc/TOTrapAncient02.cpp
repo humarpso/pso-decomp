@@ -402,7 +402,7 @@ void apply_poison_status__13TUnk_804806E8Fv();
 void apply_shock_status__13TUnk_804806E8Fv();
 void apply_slow_status__13TUnk_804806E8Fv();
 void apply_switch_attack__10TObjPlayerFi();
-void classify_actor_view_detail();
+void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void clear_all_status_effects__13TUnk_804806E8Fv();
 void clear_harmful_statuses__13TUnk_804806E8Fv();
 void consume_timer_field__10TObjPlayerFPvi();
@@ -500,7 +500,7 @@ s32 __vt__16TOTrapAncient02R[90] = {
     (s32)&reset_motion_fields__13TUnk_804806E8Fv,
     (s32)&vfunc_9__13TUnk_804806E8Fv,
     (s32)&update_object_view_visibility__13TUnk_804B9870Fff,
-    (s32)&classify_actor_view_detail,
+    (s32)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (s32)&vfunc_12__13TUnk_804B9870Fv,
     (s32)&vfunc_13__13TUnk_804AF8A0Fl,
     (s32)&add_actor_exp,

@@ -157,7 +157,7 @@ void *spawn_particle_effect_with_rotation(void *, void *, int, int);
 s32 TObjEneDD__sub_800C2618(void *);
 void *find_entity_by_id(int);
 
-void TLobby__sub_801A1FD8();
+void vfunc_6__13TUnk_804B9870FPsl();
 void vfunc_13__13TUnk_804AF8A0Fl();
 void call_vt16_with_default__13TUnk_804928CCFv();
 void vfunc_16__13TUnk_804928CCFPvPv();
@@ -169,7 +169,7 @@ void apply_object_set_data();
 void area_attack_apply_recoil__13TUnk_804928CCFPvf();
 void area_attack_deliver_physical();
 void area_attack_receive_direct();
-void classify_actor_view_detail();
+void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void vfunc_19__13TUnk_804928CCFPv();
 void hit_area_targets__10TObjPlayerFPUclUlf();
 void release_member_90__10TObjPlayerFv();
@@ -181,8 +181,8 @@ extern const char lbl_8043BC24[] = "TObjEneRe2Flower_Bomb";
 s32 lbl_805D2A50 = (s32)lbl_8043BC24;
 void *lbl_804933D8[24] = {
     (void *)0x0, (void *)0x0, (void *)&destroy_and_free__21TObjEneRe2Flower_BombFs, (void *)&run_task__21TObjEneRe2Flower_BombFv,
-    (void *)&render__21TObjEneRe2Flower_BombFv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&release_member_90__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&render__21TObjEneRe2Flower_BombFv, (void *)&render_shadows__7TObjectFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data,
+    (void *)&release_member_90__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__13TUnk_804B9870Fv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&call_vt13_with_default__13TUnk_804928CCFv, (void *)&hit_area_targets__10TObjPlayerFPUclUlf,
     (void *)&vfunc_16__13TUnk_804928CCFPvPv, (void *)&call_vt16_with_default__13TUnk_804928CCFv, (void *)&area_attack_deliver_physical, (void *)&vfunc_19__13TUnk_804928CCFPv,
     (void *)&area_attack_apply_recoil__13TUnk_804928CCFPvf, (void *)&area_attack_receive_direct, (void *)&apply_hit_if_active__13TUnk_804928CCFPvPf, (void *)0x0,

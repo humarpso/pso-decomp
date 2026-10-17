@@ -37,7 +37,7 @@ struct TItemWeapon : WeaponObjectPrefix {
     virtual void reset_motion_fields();
     virtual void vfunc_9();
     virtual void update_object_view_visibility();
-    virtual void vfunc_11();
+    virtual void classify_actor_view_detail();
     virtual void vfunc_12();
     virtual void vfunc_13();
     virtual void vfunc_14();

@@ -69,7 +69,7 @@ void TObjEneDarkGunCenter::render() {  }
 
 extern void *tl_04;
 
-void TLobby__sub_801A1FD8();
+void vfunc_6__13TUnk_804B9870FPsl();
 void vfunc_29__13TUnk_804806E8Fv();
 void vfunc_73__13TUnk_804806E8Fv();
 void vfunc_28__13TUnk_804806E8Fv();
@@ -105,7 +105,7 @@ void apply_shock_status__13TUnk_804806E8Fv();
 void apply_switch_attack__10TObjPlayerFi();
 void calc_distance_accuracy_penalty__10TObjPlayerFv();
 void vfunc_79__9TObjEnemyFv();
-void classify_actor_view_detail();
+void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void clear_all_status_effects__13TUnk_804806E8Fv();
 void clear_harmful_statuses__13TUnk_804806E8Fv();
 void cure_paralysis__13TUnk_804806E8Fv();
@@ -150,12 +150,12 @@ void *__vt__20TObjEneDarkGunCenter[83] = {
     (void *)run_task__20TObjEneDarkGunCenterFv,
     (void *)&render__20TObjEneDarkGunCenterFv,
     (void *)render_actor_shadows_default,
-    (void *)TLobby__sub_801A1FD8,
+    (void *)vfunc_6__13TUnk_804B9870FPsl,
     (void *)apply_object_set_data,
     (void *)reset_motion_fields__13TUnk_804806E8Fv,
     (void *)vfunc_9__13TUnk_804806E8Fv,
     (void *)update_object_view_visibility__13TUnk_804B9870Fff,
-    (void *)classify_actor_view_detail,
+    (void *)classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)vfunc_12__9TObjEnemyFv,
     (void *)vfunc_13__13TUnk_804AF8A0Fl,
     (void *)add_actor_exp,

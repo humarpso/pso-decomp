@@ -92,7 +92,7 @@ extern "C" {
 void run_task__12TCMCharacterFv();
 }
 extern "C" {
-void TLobby__sub_801A1FD8();
+void vfunc_6__13TUnk_804B9870FPsl();
 }
 extern "C" {
 void vfunc_13__13TUnk_804AF8A0Fl();
@@ -107,7 +107,7 @@ extern "C" {
 void apply_object_set_data();
 }
 extern "C" {
-void classify_actor_view_detail();
+void classify_actor_view_detail__13TUnk_804B9870Ffff();
 }
 extern "C" {
 extern u8 lbl_804512A0[];
@@ -1290,8 +1290,8 @@ void *lbl_804D400C[18] = {
 };
 void *lbl_804D4054[21] = {
     (void *)0x0, (void *)0x0, (void *)&TAdSinglePlyChrSelectGC__sub_802908CC, (void *)&run_task__12TCMCharacterFv,
-    (void *)&close_if_active__23TAdSinglePlyChrSelectGCFv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_movement__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&close_if_active__23TAdSinglePlyChrSelectGCFv, (void *)&render_shadows__7TObjectFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data,
+    (void *)&reset_movement__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__13TUnk_804B9870Fv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)0x0, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x0,

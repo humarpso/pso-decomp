@@ -307,11 +307,11 @@ void TItemEffFlame::play_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 
 void render__7TObjectFv(void);
 void render_shadows__7TObjectFv(void);
-void TLobby__sub_801A1FD8(void);
+void vfunc_6__13TUnk_804B9870FPsl(void);
 void apply_object_set_data(void);
 void release_member_90__10TObjPlayerFv(void *);
 void update_object_view_visibility__13TUnk_804B9870Fff(void);
-void classify_actor_view_detail(void);
+void classify_actor_view_detail__13TUnk_804B9870Ffff(void);
 void vfunc_12__13TUnk_804B9870Fv(void);
 void vfunc_13__13TUnk_804AF8A0Fl(void);
 
@@ -322,9 +322,9 @@ void *__vt__13TItemEffEquip[6] = {
 void *lbl_8049F038[14] = {
     0, 0, (void *)destroy__13TUnk_8049F038Fs, (void *)run_task__13TUnk_8049F038Fv,
     (void *)render__7TObjectFv, (void *)render_shadows__7TObjectFv,
-    (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data,
+    (void *)vfunc_6__13TUnk_804B9870FPsl, (void *)apply_object_set_data,
     (void *)release_member_90__10TObjPlayerFv, (void *)vfunc_9__13TUnk_8049F038Fv,
-    (void *)update_object_view_visibility__13TUnk_804B9870Fff, (void *)classify_actor_view_detail,
+    (void *)update_object_view_visibility__13TUnk_804B9870Fff, (void *)classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)vfunc_12__13TUnk_804B9870Fv, (void *)vfunc_13__13TUnk_804AF8A0Fl,
 };
 }

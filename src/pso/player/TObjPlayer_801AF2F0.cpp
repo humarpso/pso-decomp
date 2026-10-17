@@ -2070,7 +2070,7 @@ s32 get_dest_area__17TObjAreaWarpQuestFv(void *);
 int mask_action_buttons(void*, void*);
 int fn_8019DD24(void*, void*);
 u16 TObjRoomId__sub_801A1DB8(s32);
-s32 reset_motion_fields__10TObjPlayerFv();
+s32 reset_motion_fields__13TUnk_804B9870Fv();
 s32 is_final_phase__10TObjPlayerFv();
 s32 is_camera_ready__10TObjPlayerFv();
 s32 is_camera_mode_active__10TObjPlayerFv();
@@ -7659,7 +7659,7 @@ void TObjPlayer__vt6(s32 arg0) {
     s32 temp_r30;
     s32 temp_r31;
     s32 temp_r3;
-    reset_motion_fields__10TObjPlayerFv();
+    reset_motion_fields__13TUnk_804B9870Fv();
     ((TObjPlayer *)arg0)->release_member_90();
     ((TObjPlayer *)arg0)->reset_movement();
     reset_motion_fields__13TUnk_804806E8Fv((void *) (arg0));

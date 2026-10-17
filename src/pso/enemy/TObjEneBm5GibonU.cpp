@@ -396,7 +396,7 @@ __declspec(section ".sdata2") const f32 TObjEneBm5GibonU__data_805DA158[1] = { 0
 #define vfunc_62__16TObjEneBm5GibonUFv ((void (*)())vfunc_62__16TObjEneBm5GibonUFv)
 #define vfunc_83__16TObjEneBm5GibonUFv ((void (*)())vfunc_83__16TObjEneBm5GibonUFv)
 extern "C" {
-void TLobby__sub_801A1FD8();
+void vfunc_6__13TUnk_804B9870FPsl();
 }
 extern "C" {
 void vfunc_61__16TObjEneBm5GibonUFv();
@@ -555,7 +555,7 @@ extern "C" {
 void calc_distance_accuracy_penalty__10TObjPlayerFv();
 }
 extern "C" {
-void classify_actor_view_detail();
+void classify_actor_view_detail__13TUnk_804B9870Ffff();
 }
 extern "C" {
 void clear_all_status_effects__13TUnk_804806E8Fv();
@@ -767,8 +767,8 @@ void *gibon_u_action_table[68] = {
 };
 void *lbl_80493F04[107] = {
     (void *)0x0, (void *)0x0, (void *)TObjEneBm5GibonU__sub_800D13B8, (void *)TObjEneBm5GibonU__sub_800D1268,
-    (void *)TObjEneBm5GibonU__sub_800CD204, (void *)render_actor_shadows_default, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data,
-    (void *)reset_motion_fields__13TUnk_804806E8Fv, (void *)vfunc_9__13TUnk_804806E8Fv, (void *)update_object_view_visibility__13TUnk_804B9870Fff, (void *)classify_actor_view_detail,
+    (void *)TObjEneBm5GibonU__sub_800CD204, (void *)render_actor_shadows_default, (void *)vfunc_6__13TUnk_804B9870FPsl, (void *)apply_object_set_data,
+    (void *)reset_motion_fields__13TUnk_804806E8Fv, (void *)vfunc_9__13TUnk_804806E8Fv, (void *)update_object_view_visibility__13TUnk_804B9870Fff, (void *)classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)vfunc_12__9TObjEnemyFv, (void *)vfunc_13__13TUnk_804AF8A0Fl, (void *)add_actor_exp, (void *)consume_timer_field__10TObjPlayerFPvi,
     (void *)get_actor_level_index, (void *)update_actor_ground_y, (void *)TObjPlayer__sub_80018E6C, (void *)is_actor_cadence_frame,
     (void *)select_melee_contact_body__10TObjPlayerFv, (void *)calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)receive_physical_attack__10TObjPlayerFv, (void *)receive_direct_attack__10TObjPlayerFv,

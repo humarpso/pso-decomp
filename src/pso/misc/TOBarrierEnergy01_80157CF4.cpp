@@ -9,7 +9,7 @@ void play_persistent_sound(int, void *, void *, int, int);
 void vfunc_20__17TOBarrierEnergy01Fv(void);
 int TLobby__sub_80156BA8(void*);
 
-extern "C" void TLobby__sub_801A1FD8();
+extern "C" void vfunc_6__13TUnk_804B9870FPsl();
 extern "C" void play_proximity_sound__17TOBarrierEnergy01Fv();
 extern "C" void vfunc_16__17TOBarrierEnergy01Fv();
 extern "C" void vfunc_17__17TOBarrierEnergy01Fv();
@@ -19,7 +19,7 @@ extern "C" void vfunc_12__13TUnk_804B9870Fv();
 extern "C" void vfunc_9__13TUnk_804B9870Fv();
 extern "C" void __dt__17TOBarrierEnergy01Fv();
 extern "C" void apply_object_set_data();
-extern "C" void classify_actor_view_detail();
+extern "C" void classify_actor_view_detail__13TUnk_804B9870Ffff();
 extern "C" void init_door_switch_binding__13TUnk_804B0BB8Fv();
 extern "C" u8 lbl_80440188[];
 extern "C" u8 lbl_804401A4[];
@@ -49,8 +49,8 @@ void *lbl_804AFB34[11] = {
 };
 void *__vt__17TOBarrierEnergy01[21] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__17TOBarrierEnergy01Fv, (void *)&run_task__13TUnk_804B0BB8Fv,
-    (void *)&render__17TOBarrierEnergy01Fv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&release_member_90__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&render__17TOBarrierEnergy01Fv, (void *)&render_shadows__7TObjectFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data,
+    (void *)&release_member_90__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__13TUnk_804B9870Fv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&update_door_switch_state__13TUnk_804B0BB8Fv, (void *)&play_proximity_sound__17TOBarrierEnergy01Fv,
     (void *)&vfunc_16__17TOBarrierEnergy01Fv, (void *)&vfunc_17__17TOBarrierEnergy01Fv, (void *)&vfunc_18__17TOBarrierEnergy01Fv, (void *)&init_door_switch_binding__13TUnk_804B0BB8Fv,
     (void *)&vfunc_20__17TOBarrierEnergy01Fv,

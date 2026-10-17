@@ -683,13 +683,13 @@ void TObjFish::free_resource() {
         TObjFish__area_bml_resource = 0U;
     }
 }
-void TLobby__sub_801A1FD8();
+void vfunc_6__13TUnk_804B9870FPsl();
 void vfunc_12__13TUnk_804B9870Fv();
 void vfunc_9__13TUnk_804B9870Fv();
 void apply_object_set_data();
-void classify_actor_view_detail();
+void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void render_shadows__7TObjectFv();
-void reset_motion_fields__10TObjPlayerFv();
+void reset_motion_fields__13TUnk_804B9870Fv();
 void run_task__8TObjFishFv();
 void update_object_view_visibility__13TUnk_804B9870Fff();
 #pragma push
@@ -764,12 +764,12 @@ void *__vt__8TObjFish[13] = {
     (void *)run_task__8TObjFishFv,
     (void *)render__8TObjFishFv,
     (void *)render_shadows__7TObjectFv,
-    (void *)TLobby__sub_801A1FD8,
+    (void *)vfunc_6__13TUnk_804B9870FPsl,
     (void *)apply_object_set_data,
-    (void *)reset_motion_fields__10TObjPlayerFv,
+    (void *)reset_motion_fields__13TUnk_804B9870Fv,
     (void *)vfunc_9__13TUnk_804B9870Fv,
     (void *)update_object_view_visibility__13TUnk_804B9870Fff,
-    (void *)classify_actor_view_detail,
+    (void *)classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)vfunc_12__13TUnk_804B9870Fv,
 };
 

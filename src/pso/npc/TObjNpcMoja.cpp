@@ -121,7 +121,7 @@ void TObjNpcBase__ct(void *, void *);
 void init_collision_body_parts(void *, void *, s32);
 extern u8 npc_default_battle_stats[];
 extern u8 npc_movement_parameters[];
-extern "C" void TLobby__sub_801A1FD8();
+extern "C" void vfunc_6__13TUnk_804B9870FPsl();
 extern "C" void draw_debug_info__11TObjNpcBaseFv();
 extern "C" void is_target_in_attack_range__11TObjNpcBaseFv();
 extern "C" void vfunc_92__11TObjNpcBaseFv();
@@ -163,7 +163,7 @@ extern "C" void apply_shock_status__13TUnk_804806E8Fv();
 extern "C" void apply_switch_attack__10TObjPlayerFi();
 extern "C" void calc_distance_accuracy_penalty__10TObjPlayerFv();
 extern "C" void vfunc_79__9TObjEnemyFv();
-extern "C" void classify_actor_view_detail();
+extern "C" void classify_actor_view_detail__13TUnk_804B9870Ffff();
 extern "C" void clear_all_status_effects__13TUnk_804806E8Fv();
 extern "C" void clear_harmful_statuses__13TUnk_804806E8Fv();
 extern "C" void cure_paralysis__13TUnk_804806E8Fv();
@@ -218,8 +218,8 @@ void *lbl_804AABD8[11] = {
 };
 void *__vt__11TObjNpcMoja[95] = {
     (void *)0x0, (void *)0x0, (void *)&dt__11TObjNpcMojaFPvs, (void *)&run_task__11TObjNpcBaseFPv,
-    (void *)&draw_if_visible__10TObjPlayerFv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&draw_if_visible__10TObjPlayerFv, (void *)&render_actor_shadows_default, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data,
+    (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&handle_message_event__17TObjNpcFemaleBaseFUs, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,

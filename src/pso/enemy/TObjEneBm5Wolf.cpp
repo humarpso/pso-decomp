@@ -2515,12 +2515,12 @@ void anchor_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
 
 extern "C" {
 void render_actor_shadows_default(void);
-void TLobby__sub_801A1FD8(void);
+void vfunc_6__13TUnk_804B9870FPsl(void);
 void apply_object_set_data(void);
 void reset_motion_fields__13TUnk_804806E8Fv(void);
 void vfunc_9__13TUnk_804806E8Fv(void);
 void update_object_view_visibility__13TUnk_804B9870Fff(void);
-void classify_actor_view_detail(void);
+void classify_actor_view_detail__13TUnk_804B9870Ffff(void);
 void vfunc_12__9TObjEnemyFv(void);
 void vfunc_13__13TUnk_804AF8A0Fl(void);
 void add_actor_exp(void);
@@ -2612,12 +2612,12 @@ void *lbl_804922F8[107] = {
     (void *)run_task__14TObjEneBm5WolfFPv,
     (void *)render__14TObjEneBm5WolfFPv,
     (void *)render_actor_shadows_default,
-    (void *)TLobby__sub_801A1FD8,
+    (void *)vfunc_6__13TUnk_804B9870FPsl,
     (void *)apply_object_set_data,
     (void *)reset_motion_fields__13TUnk_804806E8Fv,
     (void *)vfunc_9__13TUnk_804806E8Fv,
     (void *)update_object_view_visibility__13TUnk_804B9870Fff,
-    (void *)classify_actor_view_detail,
+    (void *)classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)vfunc_12__9TObjEnemyFv,
     (void *)vfunc_13__13TUnk_804AF8A0Fl,
     (void *)add_actor_exp,

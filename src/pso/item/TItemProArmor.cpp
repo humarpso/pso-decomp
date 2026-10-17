@@ -217,12 +217,12 @@ extern "C" {
 void run_task__5TItemFv();
 void dispatch_state__5TItemFv();
 void render_shadows__5TItemFv();
-void TLobby__sub_801A1FD8();
+void vfunc_6__13TUnk_804B9870FPsl();
 void apply_object_set_data();
 void release_member_90__10TObjPlayerFv();
 void vfunc_9__11TItemObjectFv();
 void TItem__sub_80100B8C();
-void classify_actor_view_detail();
+void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void register_attack__5TItemFv();
 void try_pick_up_item__5TItemFl();
 void vfunc_14__11TItemObjectFv();
@@ -282,12 +282,12 @@ void *lbl_8049FF88[46] = {
     (void *)run_task__5TItemFv,
     (void *)dispatch_state__5TItemFv,
     (void *)render_shadows__5TItemFv,
-    (void *)TLobby__sub_801A1FD8,
+    (void *)vfunc_6__13TUnk_804B9870FPsl,
     (void *)apply_object_set_data,
     (void *)release_member_90__10TObjPlayerFv,
     (void *)vfunc_9__11TItemObjectFv,
     (void *)TItem__sub_80100B8C,
-    (void *)classify_actor_view_detail,
+    (void *)classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)register_attack__5TItemFv,
     (void *)try_pick_up_item__5TItemFl,
     (void *)vfunc_14__11TItemObjectFv,
@@ -331,12 +331,12 @@ void *__vt__13TItemProArmor[51] = {
     (void *)run_task__5TItemFv,
     (void *)dispatch_state__5TItemFv,
     (void *)render_shadows__5TItemFv,
-    (void *)TLobby__sub_801A1FD8,
+    (void *)vfunc_6__13TUnk_804B9870FPsl,
     (void *)apply_object_set_data,
     (void *)release_member_90__10TObjPlayerFv,
     (void *)vfunc_9__13TUnk_804B9870Fv,
     (void *)TItem__sub_80100B8C,
-    (void *)classify_actor_view_detail,
+    (void *)classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)register_attack__5TItemFv,
     (void *)try_pick_up_item__5TItemFl,
     (void *)vfunc_14__13TItemProArmorFv,

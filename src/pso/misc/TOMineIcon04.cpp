@@ -120,7 +120,7 @@ void apply_switch_attack__10TObjPlayerFi();
 void receive_weapon_special_attack__6TOMineFPvPv();
 void can_trigger__10TOMineTrapFUl();
 void check_trigger__10TOMineTrapFUl();
-void classify_actor_view_detail();
+void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void clear_all_status_effects__13TUnk_804806E8Fv();
 void clear_harmful_statuses__13TUnk_804806E8Fv();
 void cure_paralysis__13TUnk_804806E8Fv();
@@ -165,7 +165,7 @@ void *__vt__12TOMineIcon04[87] = {
     (void *)reset_motion_fields__13TUnk_804806E8Fv,
     (void *)vfunc_9__13TUnk_804806E8Fv,
     (void *)update_object_view_visibility__13TUnk_804B9870Fff,
-    (void *)classify_actor_view_detail,
+    (void *)classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__6TOMineFv,
     (void *)vfunc_13__13TUnk_804AF8A0Fl,
     (void *)add_actor_exp,

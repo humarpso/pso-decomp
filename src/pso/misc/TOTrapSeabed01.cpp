@@ -845,7 +845,7 @@ void apply_shock_status__13TUnk_804806E8Fv();
 void apply_slow_status__13TUnk_804806E8Fv();
 void apply_switch_attack__10TObjPlayerFi();
 void check_trigger_range__6TOTrapFUl();
-void classify_actor_view_detail();
+void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void clear_all_status_effects__13TUnk_804806E8Fv();
 void clear_harmful_statuses__13TUnk_804806E8Fv();
 void consume_timer_field__10TObjPlayerFPvi();
@@ -910,7 +910,7 @@ void *__vt__14TOTrapSeabed01[91] = {
     (void *)&reset_motion_fields__13TUnk_804806E8Fv,
     (void *)&vfunc_9__13TUnk_804806E8Fv,
     (void *)&update_object_view_visibility__13TUnk_804B9870Fff,
-    (void *)&classify_actor_view_detail,
+    (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__13TUnk_804B9870Fv,
     (void *)&vfunc_13__13TUnk_804AF8A0Fl,
     (void *)&add_actor_exp,

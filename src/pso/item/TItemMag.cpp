@@ -221,12 +221,12 @@ extern "C" void vfunc_32__5TItemFv();
 extern "C" void vfunc_28__5TItemFv();
 extern "C" void vfunc_30__5TItemFv();
 extern "C" void TItem__sub_80100B8C();
-extern "C" void TLobby__sub_801A1FD8();
+extern "C" void vfunc_6__13TUnk_804B9870FPsl();
 extern "C" void vfunc_43__5TItemFv();
 extern "C" void vfunc_9__13TUnk_804B9870Fv();
 extern "C" void add_equip_stats__14TItemEquipBaseFl();
 extern "C" void apply_object_set_data();
-extern "C" void classify_actor_view_detail();
+extern "C" void classify_actor_view_detail__13TUnk_804B9870Ffff();
 extern "C" void dispatch_state__5TItemFv();
 extern "C" void equip__14TItemEquipBaseFv();
 extern "C" void register_attack__5TItemFv();
@@ -249,8 +249,8 @@ struct TItemMag_801138F0; struct Self_801134CC; struct Self_80113310; struct Sel
 extern "C" { void *__dt__8TItemMagFv(void *, s16); void TItemMag__vt12(s32); int TItemMag__vt13(void*); void TItemMag__vt14(Self_80113310*); void serialize_to_item__8TItemMagFPv(TItemMag *, void *); void TItemMag__vt24(Self_801135E0*); void TItemMag__vt25(Self_801134CC*); void TItemMag__vt42(u8*); void TItemMag__vt43(u8*); void TItemMag__vt44(s32); void TItemMag__vt45(TItemMag_801138F0*); }
 void *__vt__8TItemMag[51] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__8TItemMagFv, (void *)&run_task__5TItemFv,
-    (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&release_member_90__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail,
+    (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data,
+    (void *)&release_member_90__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&register_attack__5TItemFv, (void *)&try_pick_up_item__5TItemFl, (void *)&TItemMag__vt12, (void *)&TItemMag__vt13,
     (void *)&TItemMag__vt14, (void *)&TItemMag__vt15, (void *)&serialize_to_item__8TItemMagFPv, (void *)&set_attach_slot__14TItemEquipBaseFSc,
     (void *)&equip__14TItemEquipBaseFv, (void *)&unequip__14TItemEquipBaseFv, (void *)&add_equip_stats__14TItemEquipBaseFl, (void *)&remove_equip_stats__14TItemEquipBaseFl,

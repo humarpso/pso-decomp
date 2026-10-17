@@ -389,7 +389,7 @@ void __dt__9TObjEnemyFv(void *, int);
 #pragma push
 #pragma opt_common_subs off
 extern "C" {
-void TLobby__sub_801A1FD8();
+void vfunc_6__13TUnk_804B9870FPsl();
 }
 extern "C" {
 void vfunc_12__13TUnk_804B9870Fv();
@@ -404,7 +404,7 @@ extern "C" {
 void apply_object_set_data();
 }
 extern "C" {
-void classify_actor_view_detail();
+void classify_actor_view_detail__13TUnk_804B9870Ffff();
 }
 extern "C" {
 extern u8 lbl_8047A1E8[];
@@ -446,7 +446,7 @@ extern "C" {
 void render_shadows__7TObjectFv();
 }
 extern "C" {
-void reset_motion_fields__10TObjPlayerFv();
+void reset_motion_fields__13TUnk_804B9870Fv();
 }
 extern "C" {
 void run_task__15TObjIllGillKageFv();
@@ -501,8 +501,8 @@ void *ill_gill_combat_parameter_variants[4] = {
 };
 void *__vt__15TObjIllGillKage[13] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__15TObjIllGillKageFv, (void *)&run_task__15TObjIllGillKageFv,
-    (void *)&render__15TObjIllGillKageFv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_motion_fields__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&render__15TObjIllGillKageFv, (void *)&render_shadows__7TObjectFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data,
+    (void *)&reset_motion_fields__13TUnk_804B9870Fv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__13TUnk_804B9870Fv,
 };
 #define ill_gill_combat_parameter_variants ((s32 *)ill_gill_combat_parameter_variants)

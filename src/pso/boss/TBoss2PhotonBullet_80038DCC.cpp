@@ -234,14 +234,14 @@ S_80039288 *__ct__15TBoss2PhotonPadFv(S_80039288 *o, void *parent, s32 arg2, voi
     return o;
 }
 
-void TLobby__sub_801A1FD8(); void apply_object_set_data(); void release_member_90__10TObjPlayerFv();
-void vfunc_9__13TUnk_804B9870Fv(); void update_object_view_visibility__13TUnk_804B9870Fff(); void classify_actor_view_detail();
+void vfunc_6__13TUnk_804B9870FPsl(); void apply_object_set_data(); void release_member_90__10TObjPlayerFv();
+void vfunc_9__13TUnk_804B9870Fv(); void update_object_view_visibility__13TUnk_804B9870Fff(); void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void vfunc_12__13TUnk_804B9870Fv(); void vfunc_13__13TUnk_804AF8A0Fl(); void call_vt13_with_default__13TUnk_804928CCFv();
 void area_attack_deliver_direct(); void vfunc_16__13TUnk_804928CCFPvPv(); void call_vt16_with_default__13TUnk_804928CCFv();
 void area_attack_deliver_physical(); void vfunc_19__13TUnk_804928CCFPv(); void area_attack_apply_recoil__13TUnk_804928CCFPvf();
 void area_attack_receive_direct(); void apply_hit_if_active__13TUnk_804928CCFPvPf();
 void *__vt__18TBoss2PhotonBullet[23] = {
-    0, 0, (void *)__dt__18TBoss2PhotonBulletFv, (void *)run_task__18TBoss2PhotonBulletFv, (void *)render__18TBoss2PhotonBulletFv, (void *)render_shadows__7TObjectFv, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data, (void *)release_member_90__10TObjPlayerFv, (void *)vfunc_9__13TUnk_804B9870Fv, (void *)update_object_view_visibility__13TUnk_804B9870Fff, (void *)classify_actor_view_detail, (void *)vfunc_12__13TUnk_804B9870Fv, (void *)vfunc_13__13TUnk_804AF8A0Fl, (void *)call_vt13_with_default__13TUnk_804928CCFv, (void *)area_attack_deliver_direct, (void *)vfunc_16__13TUnk_804928CCFPvPv, (void *)call_vt16_with_default__13TUnk_804928CCFv, (void *)area_attack_deliver_physical, (void *)vfunc_19__13TUnk_804928CCFPv, (void *)area_attack_apply_recoil__13TUnk_804928CCFPvf, (void *)area_attack_receive_direct, (void *)apply_hit_if_active__13TUnk_804928CCFPvPf
+    0, 0, (void *)__dt__18TBoss2PhotonBulletFv, (void *)run_task__18TBoss2PhotonBulletFv, (void *)render__18TBoss2PhotonBulletFv, (void *)render_shadows__7TObjectFv, (void *)vfunc_6__13TUnk_804B9870FPsl, (void *)apply_object_set_data, (void *)release_member_90__10TObjPlayerFv, (void *)vfunc_9__13TUnk_804B9870Fv, (void *)update_object_view_visibility__13TUnk_804B9870Fff, (void *)classify_actor_view_detail__13TUnk_804B9870Ffff, (void *)vfunc_12__13TUnk_804B9870Fv, (void *)vfunc_13__13TUnk_804AF8A0Fl, (void *)call_vt13_with_default__13TUnk_804928CCFv, (void *)area_attack_deliver_direct, (void *)vfunc_16__13TUnk_804928CCFPvPv, (void *)call_vt16_with_default__13TUnk_804928CCFv, (void *)area_attack_deliver_physical, (void *)vfunc_19__13TUnk_804928CCFPv, (void *)area_attack_apply_recoil__13TUnk_804928CCFPvf, (void *)area_attack_receive_direct, (void *)apply_hit_if_active__13TUnk_804928CCFPvPf
 };
 void *__vt__15TBoss2PhotonPad[6] = {
     0, 0, (void *)__dt__15TBoss2PhotonPadFv, (void *)run_task__15TBoss2PhotonPadFv, (void *)&render__15TBoss2PhotonPadFv, (void *)render_shadows__7TObjectFv

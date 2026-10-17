@@ -44,7 +44,7 @@ extern "C" void apply_confusion_status__13TBoss2DeRolLeFv();
 extern "C" void apply_movement_ailment__13TBoss2DeRolLeFl();
 extern "C" void apply_shock_status__13TBoss2DeRolLeFv();
 extern "C" void clear_harmful_statuses__13TBoss2DeRolLeFv();
-extern "C" void TLobby__sub_801A1FD8();
+extern "C" void vfunc_6__13TUnk_804B9870FPsl();
 extern "C" void vfunc_103__9TObjEneDDFPUc();
 extern "C" void vfunc_79__9TObjEneDDFv();
 extern "C" void TObjEneDD__vt82();
@@ -91,7 +91,7 @@ extern "C" void apply_object_set_data();
 extern "C" void apply_set_data__9TObjEnemyFPv();
 extern "C" void apply_switch_attack__10TObjPlayerFi();
 extern "C" void calc_distance_accuracy_penalty__10TObjPlayerFv();
-extern "C" void classify_actor_view_detail();
+extern "C" void classify_actor_view_detail__13TUnk_804B9870Ffff();
 extern "C" void clear_all_status_effects__13TUnk_804806E8Fv();
 extern "C" void cure_paralysis__13TUnk_804806E8Fv();
 extern "C" void cure_poison_ailment__13TUnk_804806E8Fv();
@@ -247,8 +247,8 @@ void *boss2_derolle_particle_limits[3] = {
 };
 void *__vt__13TBoss2DeRolLe[107] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__13TBoss2DeRolLeFv, (void *)&run_task__13TBoss2DeRolLeFPv,
-    (void *)&render__13TBoss2DeRolLeFPv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&render__13TBoss2DeRolLeFPv, (void *)&render_actor_shadows_default, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data,
+    (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
@@ -5704,7 +5704,7 @@ extern "C" void apply_confusion_status__13TBoss2DeRolLeFv();
 extern "C" void apply_movement_ailment__13TBoss2DeRolLeFl();
 extern "C" void apply_shock_status__13TBoss2DeRolLeFv();
 extern "C" void clear_harmful_statuses__13TBoss2DeRolLeFv();
-extern "C" void TLobby__sub_801A1FD8();
+extern "C" void vfunc_6__13TUnk_804B9870FPsl();
 extern "C" void vfunc_103__9TObjEneDDFPUc();
 extern "C" void vfunc_79__9TObjEneDDFv();
 extern "C" void TObjEneDD__vt82();
@@ -5751,7 +5751,7 @@ extern "C" void apply_object_set_data();
 extern "C" void apply_set_data__9TObjEnemyFPv();
 extern "C" void apply_switch_attack__10TObjPlayerFi();
 extern "C" void calc_distance_accuracy_penalty__10TObjPlayerFv();
-extern "C" void classify_actor_view_detail();
+extern "C" void classify_actor_view_detail__13TUnk_804B9870Ffff();
 extern "C" void clear_all_status_effects__13TUnk_804806E8Fv();
 extern "C" void cure_paralysis__13TUnk_804806E8Fv();
 extern "C" void cure_poison_ailment__13TUnk_804806E8Fv();
