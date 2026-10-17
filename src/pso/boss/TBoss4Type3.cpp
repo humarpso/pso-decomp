@@ -474,7 +474,7 @@ void request_follow_camera_offsets(void *arg0, void *arg1, u16 arg2);
 s32 query_teammate_state__9TObjEneDDFv(void *);
 int toggle_particle_effect__10TObjPlayerFv(void*);
 u8 * lookup_entry_by_value__10TObjPlayerFPvf(s32);
-void __dt__11TBoss4Type3FPvs(void *, s16);
+s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1);
 s32 clear_render_callback__8TObjFishFv(s32);
 s32 TObjControl__ct(s32, s32);
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
@@ -2015,7 +2015,7 @@ s32 rotate_matrix_y(int, int);
 s32 matrix_mult_vec(int, void *, void *);
 s32 pop_matrix();
 void copy_pos__11TNowLoadingFPv(void *, void *);
-void __dt__11TBoss4Type3FPvs(void *, s16);
+s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 init_trail_buffer__11TBoss4Type3FPvifff(void *, s32, f32, f32, f32);
 s32 get_bml_motion(s32, s32);
@@ -2114,7 +2114,7 @@ void TBoss4Type3::run_task() {
             copy_pos__11TNowLoadingFPv(this->effect_parts[6], v[1]);
         }
     }
-    __dt__11TBoss4Type3FPvs(p, 1);
+    __dt__11TBoss4Type3FPvs((s32 *)p, 1);
     this->m_3e8 += -0.06666667f;
     if (this->m_3e8 < 0.0f) {
         this->m_3e8 = 0.0f;
@@ -2146,7 +2146,7 @@ S_8005AD50 *__dt__11TBoss4Type3Fv(S_8005AD50 *o, s16 flag) {
         fn_8004AA04(o->f378);
         ((TBoss4Type3 *)o)->destroy_parts();
         if (o->f51c != 0) {
-            __dt__11TBoss4Type3FPvs(o->f51c, 1);
+            __dt__11TBoss4Type3FPvs((s32 *)o->f51c, 1);
             o->f51c = 0;
         }
         if (o->f524 != 0) {
@@ -2154,7 +2154,7 @@ S_8005AD50 *__dt__11TBoss4Type3Fv(S_8005AD50 *o, s16 flag) {
             o->f524 = 0;
         }
         if (o->f520 != 0) {
-            __dt__11TBoss4Type3FPvs(o->f520, 1);
+            __dt__11TBoss4Type3FPvs((s32 *)o->f520, 1);
             o->f520 = 0;
         }
         if (o->f528 != 0) {

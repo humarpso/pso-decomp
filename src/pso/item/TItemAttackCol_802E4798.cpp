@@ -16,10 +16,10 @@ s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, u32);
 u16 obj_getField1c(void *);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 try_add_hit_target__13TUnk_804E355CFPv(u8 *arg0, Hit_802E4798 *arg1);
-s32 queue_destruction__7TObjectFv(void *);
-s32 TObjPlayer__sub_801542F4(void *);
-s32 TObjPlayer__sub_8015431C(void *);
-s32 reset_global_table();
+void queue_destruction__7TObjectFv(void *arg0);
+void TObjPlayer__sub_801542F4(s32 a);
+void TObjPlayer__sub_8015431C(u8 *arg0);
+void reset_global_table(void);
 Hit_802E4798 *get_attack_entry__16TObjOnlineEndingFi(int);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -73,7 +73,7 @@ void TUnk_804E355C::check_hits() {
     Hit_802E4798 *e;
     u8 *arg0 = (u8 *)this;
     reset_global_table();
-    TObjPlayer__sub_801542F4((u8 *)&this->unk_1C);
+    TObjPlayer__sub_801542F4((s32)&this->unk_1C);
     if (*(s32 *)((s8 *)arg0 + 0xC0) != 0) {
         TObjPlayer__sub_8015431C((u8 *)&this->unk_1C);
     }
