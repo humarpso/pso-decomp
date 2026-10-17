@@ -176,14 +176,14 @@ void TObjNpcBase::run_task() {
   s32 temp_r4_2;
   u8 *new_var;
   u8 *var_r31;
-  if ((((s32) (*((s32 *) (((s8 *) ((u8 *)this)) + ((((((((((0x3A0 & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu))))) <= 0) && (((s32) (*(s32 *)&this->m_3a4)) <= 0))
+  if ((((s32) (*((s32 *) (((s8 *) ((u8 *)this)) + ((((((((((0x3A0 & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu))))) <= 0) && (((s32) (this->m_3a4)) <= 0))
   {
-    *(s32 *)&this->m_390 = 1;
+    this->m_390 = 1;
     set_indexed_flags(this, 0, 1);
   }
   else
   {
-    if (((s32) (*(s32 *)&this->m_38c)) == 0)
+    if (((s32) (this->m_38c)) == 0)
     {
       var_r31 = (u8 *) quest_mission_manager;
     }
@@ -191,24 +191,24 @@ void TObjNpcBase::run_task() {
     {
       var_r31 = (u8 *) quest_area_manager;
     }
-    temp_r4 = *(s32 *)&this->m_3a0;
+    temp_r4 = this->m_3a0;
     if (temp_r4 > 0)
     {
       if (get_register__12TQuestThreadFPvi(var_r31, temp_r4) != 0)
       {
-        *(s32 *)&this->m_390 = 1;
+        this->m_390 = 1;
         set_indexed_flags(this, 0, 1);
       }
       else
       {
-        *(s32 *)&this->m_390 = 0;
+        this->m_390 = 0;
         ((TObjPlayer *)((u8 *)this))->clear_player_status_flag(0, 1U);
       }
     }
-    temp_r4_2 = *(s32 *)&this->m_3a4;
+    temp_r4_2 = this->m_3a4;
     if ((temp_r4_2 > 0) && (get_register__12TQuestThreadFPvi(var_r31, temp_r4_2) != 0))
     {
-      *(s32 *)&this->m_390 = 0;
+      this->m_390 = 0;
       ((TObjPlayer *)((u8 *)this))->clear_player_status_flag(0, 1U);
     }
   }
@@ -231,7 +231,7 @@ void TObjNpcBase::run_task() {
   this->update_prev_position();
   new_var = ((u8 *)this);
   copy_position__20TBoss3VoloptHiraisinFi((s32) new_var);
-  if ((((s32) (*(s32 *)&this->m_3a8)) > 0) && (TRaderMapCore::is_not_split_screen() == 0))
+  if ((((s32) (this->m_3a8)) > 0) && (TRaderMapCore::is_not_split_screen() == 0))
   {
     submit_cursor_candidate((void *) this, -1);
   }
