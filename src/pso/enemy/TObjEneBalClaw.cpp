@@ -52,9 +52,9 @@ void TObjEneBalClaw::render_scaled(s32 arg1) {
     O_8008D700 *arg0 = (O_8008D700 *)this;
     f32 a;
     f32 t;
-    if (!(arg0->flags & 0x800) && arg1 != 0) {
-        a = arg0->f3ac;
-        t = lbl_805D9600 - (lbl_805D9604 * ((arg0->f3b4 + arg0->f3bc) - a)) * (lbl_805D9600 / (arg0->f3b0 - a));
+    if (!(this->actorFlags & 0x800) && arg1 != 0) {
+        a = this->m_3ac;
+        t = lbl_805D9600 - (lbl_805D9604 * ((this->m_3b4 + arg0->f3bc) - a)) * (lbl_805D9600 / (arg0->f3b0 - a));
         V_8008D700 v = lbl_80439B34;
         v.x = t;
         v.y = t;

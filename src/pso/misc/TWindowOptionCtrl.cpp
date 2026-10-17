@@ -46,7 +46,7 @@ void TWindowOptionCtrl::apply_and_close(s32 arg1) {
     TLobby::close_option_window();
     fn_8036A648(arg1);
     play_area_music();
-    *(u8 *)((s8 *)this + 0x1D) = (u8) (*(u8 *)((s8 *)this + 0x1D) | 2);
+    this->m_1d = (u8) (this->m_1d | 2);
 }
 
 s32 TWindowOptionCtrl::handle_input(s32 arg1) {

@@ -9,7 +9,8 @@ public:
     virtual void render();
     void *init_object(void *);
     void *destroy_task_object(s16);
-    u8 unk_1C[0x8];
+    u8 unk_1C[0x4];
+    s32 m_20;
 };
 
 #endif

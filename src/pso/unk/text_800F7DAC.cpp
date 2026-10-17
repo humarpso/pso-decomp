@@ -239,7 +239,7 @@ void TUnk_80499970::step_fade_opacity_decrease() {
         if (temp_r12 != NULL) {
             temp_r12();
         }
-        *(s32 *)((s8 *)arg0 + 0x24) = 0;
+        this->m_24 = 0;
     }
 }
 #pragma pop
@@ -300,9 +300,9 @@ s32 TUnk_80499988::sub_800F8250(f32 farg0) {
 
 void TUnk_80499988::run_task() {
     s32 temp_r3;
-    TWindowCtrlMain::set_value((s32)local_client_id, (s32)(this->sub_800F8250((f32) *(s32 *)((s8 *)((u8 *)this) + 0x20) / (f32) *(s32 *)((s8 *)((u8 *)this) + 0x24))));
-    temp_r3 = *(s32 *)((s8 *)((u8 *)this) + 0x20) + 1;
-    *(s32 *)((s8 *)((u8 *)this) + 0x20) = temp_r3;
+    TWindowCtrlMain::set_value((s32)local_client_id, (s32)(this->sub_800F8250((f32) this->m_20 / (f32) *(s32 *)((s8 *)((u8 *)this) + 0x24))));
+    temp_r3 = this->m_20 + 1;
+    this->m_20 = temp_r3;
     if (temp_r3 > (s32) *(s32 *)((s8 *)((u8 *)this) + 0x24)) {
         queue_destruction__7TObjectFv(this);
     }
@@ -354,7 +354,7 @@ void TUnk_804999A0::run_task() {
         ((TObject *)arg0)->set_flag_4();
     }
     *(s8 *)((s8 *)arg0 + 0x23) = (s8) *(f32 *)((s8 *)arg0 + 0x1C);
-    TWindowCtrlMain::set_value((s32)(*(s32 *)((s8 *)arg0 + 0x24)), (s32)(*(s32 *)((s8 *)arg0 + 0x20)));
+    TWindowCtrlMain::set_value((s32)(*(s32 *)((s8 *)arg0 + 0x24)), (s32)(this->m_20));
 }
 
 void *__dt__13TUnk_804999A0Fv(void *arg0, s16 arg1) {

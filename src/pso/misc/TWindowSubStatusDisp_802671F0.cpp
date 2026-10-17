@@ -307,7 +307,7 @@ void TWindowSubStatusDisp::add_status_entry(s8 arg1, s32 src, s32 arg3) {
         init_status_entry__20TWindowSubStatusDispFPvcUii(temp_r31, var_r29, src, arg3);
         *(f32 *)((s8 *)temp_r31 + 8) = (f32) (*(const f32 *)&lbl_805DD194);
         if (arg1 & 2) {
-            *(s8 *)((s8 *)temp_r31 + 0x1C) = 0xE;
+            *(s8 *)&((TWindowSubStatusDisp *)temp_r31)->unk_1C = 0xE;
             *(u16 *)((s8 *)temp_r31 + 0) = (u16) (*(u16 *)((s8 *)temp_r31 + 0) | 0x100);
         }
         *(s16 *)((s8 *)this + 0x72) = (s16) (*(s16 *)((s8 *)this + 0x72) + 1);

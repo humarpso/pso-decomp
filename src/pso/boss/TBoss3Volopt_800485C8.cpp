@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TUnk_80484888.h"
 #include "pso/boss/TBoss3Volopt_800485C8.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_80086D50.h"
@@ -70,17 +71,17 @@ void update_particle_emitter__12TBoss3VoloptFPv(u8 *arg0) {
     Raw_80048674 v;
     s32 ang;
     f32 d;
-    *(f32 *)((s8 *)arg0 + 0x28) += *(f32 *)((s8 *)arg0 + 0x24);
-    while (*(f32 *)((s8 *)arg0 + 0x28) >= lbl_805D8844) {
+    ((TUnk_80484888 *)arg0)->m_28 += *(f32 *)((s8 *)arg0 + 0x24);
+    while (((TUnk_80484888 *)arg0)->m_28 >= lbl_805D8844) {
         ang = lbl_805D8838 * (lbl_805D883C * (lbl_805D8840 * (f32)rand()));
         v = *(Raw_80048674 *)(arg0 + 0x2C);
         d = *(f32 *)((s8 *)arg0 + 0x44) * (lbl_805D8840 * (f32)rand());
         *(f32 *)((s8 *)&v + 0) += d * cos_table_lookup(ang);
         *(f32 *)((s8 *)&v + 8) += d * sin_table_lookup(ang);
         spawn_directional_particle(&v, arg0 + 0x38, *(s32 *)((s8 *)arg0 + 0x1C));
-        *(f32 *)((s8 *)arg0 + 0x28) -= lbl_805D8844;
+        ((TUnk_80484888 *)arg0)->m_28 -= lbl_805D8844;
     }
-    if (--*(s32 *)((s8 *)arg0 + 0x20) <= 0) {
+    if (--((TUnk_80484888 *)arg0)->m_20 <= 0) {
         queue_destruction__7TObjectFv(arg0);
     }
 }
@@ -103,16 +104,16 @@ u8 *TBoss3Volopt__sub_8004885C(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4,
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8004885C_lbl_80484888 *)&lbl_80484888).value;
     VecCopy((Vec *)(arg0 + 0x2C), (const Vec *)arg1);
     *(s32 *)((s8 *)arg0 + 0x1C) = arg2;
-    *(s32 *)((s8 *)arg0 + 0x20) = arg3;
+    ((TUnk_80484888 *)arg0)->m_20 = arg3;
     *(f32 *)((s8 *)arg0 + 0x24) = farg0;
     if (arg4 != NULL) {
         ((TObjPlayer *)(arg0 + 0x38))->copy_xyz(arg4);
     } else {
-        *(s32 *)((s8 *)arg0 + 0x38) = 0;
+        ((TUnk_80484888 *)arg0)->m_38 = 0;
         *(s32 *)((s8 *)arg0 + 0x3C) = 0;
-        *(s32 *)((s8 *)arg0 + 0x40) = 0;
+        ((TUnk_80484888 *)arg0)->m_40 = 0;
     }
-    *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805D8848;
+    ((TUnk_80484888 *)arg0)->m_28 = (f32) lbl_805D8848;
     *(f32 *)((s8 *)arg0 + 0x44) = farg1;
     return arg0;
 }

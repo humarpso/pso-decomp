@@ -89,7 +89,7 @@ int TTecSifta__sub_8023AC88(void* p) { return spawn_support_tec_range_effect(p);
 void TTecSifta::play_sifta_cast_sound() {
     Obj_8023ACA8 *arg0 = (Obj_8023ACA8 *)this;
     s32 r;
-    switch (arg0->state) {
+    switch (*(s16 *)&this->m_a6) {
     case 0:
     case 1:
         r = play_sound_effect(0x4002AD14, (u8 *)arg0 + 0x20, 0, 0);

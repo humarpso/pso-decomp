@@ -18,7 +18,9 @@ struct TObjAreaWarpForest : public TObjAreaWarp {
     void render_if_active();
     void *init(void *, void *);
     void *alloc_and_init();
-    u8 unk_C0[0x1C];
+    u8 unk_C0[0x4];
+    f32 m_c4;
+    u8 unk_C8[0x14];
 };
 
 typedef char TObjAreaWarpForest_size[sizeof(TObjAreaWarpForest) == 0xDC ? 1 : -1];

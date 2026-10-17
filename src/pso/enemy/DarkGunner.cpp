@@ -812,17 +812,17 @@ void init_scale_global__10TObjPlayerFv(void) {
 
 void TObjPlayer::update_move_to_destination() {
     Obj_800A12C0 *o = (Obj_800A12C0 *)this;
-    switch (o->state) {
+    switch (this->m_37c) {
     case -1:
         break;
     case 0:
         o->flags388 &= ~0x200000;
         o->flags388 |= 0x480000;
-        o->fB8 = 0;
-        o->state = 1;
+        this->m_b8 = 0;
+        this->m_37c = 1;
     case 1: {
         advance_animation_playback(o);
-        if (!(o->flags30 & 0x800000)) {
+        if (!(*(s32 *)&this->actorFlags & 0x800000)) {
             ((s32 (*)(void *, int, f32))apply_actor_gravity)(o, 0, lbl_805D9984);
         }
         calc_velocity_toward_destination(o, o->pos, o->dest, ((f32 (*)(int))TObjPlayer__sub_800A3200)(0));
@@ -917,19 +917,19 @@ void TObjEneDarkGunner::sub_800A159C() {
     f32 v;
     f32 lo;
     s32 i;
-    o->f394 += lbl_805D998C;
-    o->f390 += o->f394;
+    this->m_394 += lbl_805D998C;
+    o->f390 += this->m_394;
     v = o->f390;
     o->f390 = (v < lbl_805D9984) ? lbl_805D9984 : ((v < lbl_805D9990) ? v : lbl_805D9990);
     push_matrix_from(identity_matrix);
     post_translate_matrix((s32)&o->pos);
-    rotate_matrix_z(0, o->f64);
-    rotate_matrix_y(0, o->f60);
+    rotate_matrix_z(0, this->rotation_z);
+    rotate_matrix_y(0, this->rotation_y);
     Vec_800A159C t = lbl_8043A6A4;
     lo = lbl_805D9994 + o->f390;
-    t.y = lo + o->f38C;
+    t.y = lo + this->render_y_offset;
     matrix_mult_vec(0, &t, o->mtx3B4);
-    if (o->f326 == 2) {
+    if (this->mode == 2) {
         for (i = 0; i < 4; i++) {
             matrix_mult_vec(0, &lbl_804907BC[i], &o->v3C0[i]);
         }

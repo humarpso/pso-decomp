@@ -13,7 +13,11 @@ public:
     virtual void run_task();
     u8 unk_158[0x24];
     u16 m_17c;
-    u8 unk_17E[0x12];
+    u8 unk_17E[0x2];
+    float m_180;
+    u8 unk_184[0x4];
+    float m_188;
+    u8 unk_18C[0x4];
     u8 * m_190;
     u8 unk_194[0x4];
     s16 m_198;

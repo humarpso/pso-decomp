@@ -14,7 +14,11 @@ struct TObjCityMainWarp : public TObjAreaWarp {
     u32 m_b0;
     u8 unk_B4[0x10];
     f32 m_c4;
-    u8 unk_C8[0x6C];
+    u8 unk_C8[0x8];
+    s32 m_d0;
+    u8 unk_D4[0xC];
+    s16 m_e0;
+    u8 unk_E2[0x52];
     u32 m_150;
     static void update_unlock_flags();
     static void set_active_bit(s32 _w0);

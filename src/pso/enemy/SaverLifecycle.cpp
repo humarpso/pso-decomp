@@ -772,7 +772,7 @@ int TObjEneSaver::test_flag_256() {
             if (!(calc_distance_to_client__10TObjPlayerFlUsUl(self, i, &v) < lbl_805D9A24)) {
                 continue;
             }
-            if (angle_difference_abs(self->f60, (s32)(lbl_8043A8D0[0] * atan2_float(v.x, v.z))) >= 0x2AAA) {
+            if (angle_difference_abs(this->rotation_y, (s32)(lbl_8043A8D0[0] * atan2_float(v.x, v.z))) >= 0x2AAA) {
                 continue;
             }
             if (test_action_mask__10TObjPlayerFl(p, 0xE0) == 0) {

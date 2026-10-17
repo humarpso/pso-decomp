@@ -16,7 +16,9 @@ struct TObjEneDarkGunner : public TObjEnemyCustom {
     virtual s32 update_action_hold_status();
     virtual void vfunc_28();
     f32 render_y_offset;
-    u8 unknown390[0x60];
+    u8 unk_390[0x4];
+    f32 m_394;
+    u8 unk_398[0x58];
     void* children[4];
     void* child400;
     void* child404;

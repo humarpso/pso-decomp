@@ -243,27 +243,27 @@ void TTecResta::create(void *arg0, void *pos, void *level) {
 #pragma push
 #pragma opt_common_subs off
 void TTecResta::vfunc_7(void *arg1_arg) {
-    Obj_8023985C *arg0 = (Obj_8023985C *)this;
+    TTecResta *arg0 = this;
     VObj_8023985C *arg1 = (VObj_8023985C *)arg1_arg;
     HitInfo_8023985C h;
     if (is_script_controlled__10TObjPlayerFv(arg1) != 0) {
         return;
     }
     h.type = 6;
-    h.power = arg0->power;
+    h.power = arg0->m_74;
     if (is_split_screen() == 0) {
         TWindowCtrl::show_party_effect((void*)(obj_getField1c(arg0->source)), (void*)(obj_getField1c((int)arg1)), (void*)6);
     }
     HitInfo_8023985C c = h;
     arg1->m21((void *)arg0->source, &c, 0, 0xF, -1);
     if ((u16)obj_getField1c(arg0->source) == (u16)obj_getField1c((int)arg1)) {
-        if (arg0->active != 0) {
+        if (*(s32 *)&arg0->m_ac != 0) {
             void *o = __nw__7TObjectFUl(0x30);
             if (o != NULL) {
                 construct_self_recovery__9TTecRestaFPvPviPv((Resta_8023967C *)o, (Vec_8023967C *)((u8 *)arg1 + 0x2FC), arg0->source, (void *)tl_07);
             }
         }
-    } else if (arg0->active != 0) {
+    } else if (*(s32 *)&arg0->m_ac != 0) {
         void *e = spawn_particle_effect_with_flags((u8 *)arg1 + 0x2FC, 0x1F6, 0x10);
         if (e != NULL) {
             set_owner_id__13TParticleCtrlFUs(e, obj_getField1c((int)arg1));
@@ -273,7 +273,7 @@ void TTecResta::vfunc_7(void *arg1_arg) {
             set_owner_id__13TParticleCtrlFUs(e, obj_getField1c((int)arg1));
         }
     }
-    if (arg0->active != 0) {
+    if (*(s32 *)&arg0->m_ac != 0) {
         void *o = __nw__7TObjectFUl(0x30);
         if (o != NULL) {
             construct_delayed_point_sound((u8 *)o, (u8 *)((u8 *)arg1 + 0x2FC), (s16)(0x14), (s32)(0x4002A80F), (u8 *)tl_07);

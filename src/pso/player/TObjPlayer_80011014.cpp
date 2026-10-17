@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -1525,7 +1526,7 @@ void TObjEnemy::render_with_position_override(u8 *arg1, s32 arg2) {
     s32 sp8;
 
     push_matrix();
-    direction_to_rotation_xz(arg0 + 0x248, &spC, &sp8);
+    direction_to_rotation_xz((u8 *)&this->m_248, &spC, &sp8);
     translate_matrix(0, (f32) (*(f32 *)&(*(void * *)((u8 *)this + 0x38))), (f32) ((0.3f) + *(f32 *)((s8 *)arg0 + 0x3C)), (f32) ((*(f32 *)((u8 *)this + 0x40))));
     rotate_matrix_z(0, sp8);
     rotate_matrix_x(0, spC);
@@ -3461,7 +3462,7 @@ void TUnk_804806E8::apply_poison_status() {
 void TObjPlayer::spawn_recovery_effect() {
     u8 *arg0 = (u8 *)this;
     if (((s32 (*)(void *, s32))obj_testFlags30__13TUnk_804AF8A0FUl)(arg0, 0x02000000) == 0) {
-        create_timed_particle_emitter_with_flags((arg0 + 0x2FC), 0x10A, 0, 0xA, 0x40);
+        create_timed_particle_emitter_with_flags(((u8 *)&this->m_2fc), 0x10A, 0, 0xA, 0x40);
     }
 }
 
@@ -4075,7 +4076,7 @@ f32 TObjEnemy::enemy_wander_home(s32 arg1, f32 farg0, f32 farg1, f32 farg2) {
     f32 var_f31;
     s32 ang;
     u8 *arg0 = (u8 *)this;
-    var_f31 = horizontal_distance_squared(arg0 + 0x2FC, arg0 + 0x29C);
+    var_f31 = horizontal_distance_squared((u8 *)&this->m_2fc, (u8 *)&this->m_29c);
     if ((var_f31 < (farg0 * farg0)) || (((TObjEnemy *)(arg0))->is_actor_cadence_frame(0x96) != 0)) {
         v.x = v.y = (0.0f);
         v.z = (1.0f);
@@ -4086,7 +4087,7 @@ f32 TObjEnemy::enemy_wander_home(s32 arg1, f32 farg0, f32 farg1, f32 farg2) {
         pop_matrix();
         v.x *= farg1;
         v.z *= farg2;
-        vec3_add_to(&v, arg0 + 0x50);
+        vec3_add_to(&v, (u8 *)&this->m_50);
         {
             Vec_80017BA8 c = v;
             select_enemy_destination((Obj_800182A0 *) arg0, (Vec_800182A0 *) &c, 1);
@@ -4097,7 +4098,7 @@ f32 TObjEnemy::enemy_wander_home(s32 arg1, f32 farg0, f32 farg1, f32 farg2) {
         enemy_turn_toward_dest((Obj_80018660 *) arg0, arg1);
         enemy_set_heading_velocity((TObjEnemy *)arg0, ((TObjEnemy *)arg0)->rotation_y, farg0);
         move_with_wall_slide(arg0);
-        var_f31 = horizontal_distance_squared(arg0 + 0x29C, arg0 + 0x2FC);
+        var_f31 = horizontal_distance_squared((u8 *)&this->m_29c, (u8 *)&this->m_2fc);
         ((TObjEnemy *)arg0)->m_2ac = ((TObjEnemy *)arg0)->m_2ac + 1;
     }
     return var_f31;
@@ -4350,7 +4351,7 @@ f32 TObjPlayer::calc_distance_to_client(s32 arg0, u16 arg1, u32 arg2) {
   if (arg1 < 0x1000U)
   {
     temp_r3 = ((s32 (*)(u32))get_player_by_client_id)((u32) arg1);
-    if ((temp_r3 != 0) && (!((*((s32 *) (((s8 *) temp_r3) + 0x30))) & 0x800)))
+    if ((temp_r3 != 0) && (!((*(s32 *)&((TObjPlayer *)temp_r3)->actorFlags) & 0x800)))
     {
       ;
       if (((TObjPlayer *)temp_r3)->get_field_3e4() == get_current_floor())
@@ -4513,13 +4514,13 @@ void TUnk_804806E8::reset_motion_fields() {
     self->v104.x = self->v104.y = self->v104.z = (0.0f);
     self->v290.x = self->v290.y = self->v290.z = (0.0f);
     self->v29c.x = self->v29c.y = self->v29c.z = (0.0f);
-    self->f248 = self->f250 = (0.0f);
+    this->m_248 = this->m_250 = (0.0f);
     self->f24c = (1.0f);
-    self->f2ac = 0;
-    self->f2b4 = (0.0f);
-    self->f2d4 = 0xFFFF;
-    self->f2dc = 0;
-    self->f328 = self->f32a = 0;
+    *(s32 *)&this->m_2ac = 0;
+    this->m_2b4 = (0.0f);
+    this->m_2d4 = 0xFFFF;
+    *(s32 *)&this->m_2dc = 0;
+    this->phase = self->f32a = 0;
     self->f320 = 0;
     self->v2fc.x = self->v2fc.y = self->v2fc.z = self->v308.x = self->v308.y = self->v308.z = (0.0f);
 }

@@ -87,12 +87,12 @@ void TObjCityMainWarp::update_state() {
 void TObjCityMainWarp::update_warp_sequence() {
     u8 *arg0 = (u8 *)this;
     s32 r;
-    switch (*(s16 *)((s8 *)arg0 + 0xE0)) {
+    switch (this->m_e0) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0x160) = 0x12C;
-        play_sound_effect(0x40003205, arg0 + 0x38, 0, 0);
-        *(s16 *)((s8 *)arg0 + 0xE0) = 1;
-        *(s32 *)((s8 *)arg0 + 0xD0) = *(s32 *)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x42C)) + 8);
+        play_sound_effect(0x40003205, (u8 *)&this->position, 0, 0);
+        this->m_e0 = 1;
+        this->m_d0 = *(s32 *)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x42C)) + 8);
         *(s32 *)((s8 *)arg0 + 0xD4) = *(s32 *)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x430)) + 0x2C);
         break;
     case 1:
@@ -112,7 +112,7 @@ void TObjCityMainWarp::update_warp_sequence() {
                 }
                 if (r != 0) {
                     ((TObjCityMainWarpChallenge *)arg0)->send_6x6A_set_boss_warp_flags(2);
-                    *(s16 *)((s8 *)arg0 + 0xE0) = 2;
+                    this->m_e0 = 2;
                 }
             }
         }

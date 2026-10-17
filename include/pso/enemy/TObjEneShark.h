@@ -29,7 +29,9 @@ struct TObjEneShark {
     s32 rotation_y;
     u8 unknown64[0x54];
     s16 m_b8;
-    u8 _padBA[0x1E];
+    u8 unk_BA[0x6];
+    f32 m_c0;
+    u8 unk_C4[0x14];
     u32 m_d8;
     u32 m_dc;
     u8 _padE0[0x1CC];

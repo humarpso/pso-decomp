@@ -37,7 +37,8 @@ struct TObjEneMe3Stelth : public TObjEneDD_ST {
     void vfunc_28();
     void render();
     void run_task();
-    u8 unk_374[0x30];
+    u8 unk_374[0x2C];
+    f32 m_3a0;
     u32 m_3c0;
     u8 _pad3C4[0x8];
     u32 m_3cc;

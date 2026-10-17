@@ -91,7 +91,7 @@ void TObjCityMainWarpChallenge::debug_print_area_num() {
 void TObjCityMainWarpChallenge::render() {
     u8 *arg0 = (u8 *)this;
     if ((s32) *(s32 *)&this->_padD8 == 0xE) {
-        if (xz_distance_squared(camera_ctrl_instance + 0x178, arg0 + 0x38) > lbl_805DBCB8) {
+        if (xz_distance_squared(camera_ctrl_instance + 0x178, (u8 *)&this->position) > lbl_805DBCB8) {
             return;
         }
         goto block_4;
@@ -100,8 +100,8 @@ void TObjCityMainWarpChallenge::render() {
 block_4:
         TObjFish::set_global_param(city_common_texture_list);
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        post_translate_matrix((u8 *)&this->position);
+        rotate_matrix_y(0, this->rotation_y);
         draw_ginja_object((void *)(*(s32 *)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x42C)) + 0xC8)));
         TParticleCtrl::begin_effect_render();
         draw_ginja_model_with_motion(*(s32 *)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x42C)) + 8), *(s32 *)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x430)) + 0x2C), *(f32 *)((s8 *)arg0 + 0xC4));
@@ -155,7 +155,7 @@ u8 *TObjCityMainWarpChallenge__ct(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D32B8;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DBCCC;
     *(f32 *)((s8 *)arg0 + 0xAC) = (f32) lbl_805DBCD0;
-    *(s32 *)((s8 *)arg0 + 0xBC) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
+    *(s32 *)((s8 *)arg0 + 0xBC) = (s32) ((TObjCityMainWarpChallenge *)arg0)->m_84;
     temp_r4 = *(s32 *)((s8 *)arg0 + 0xBC);
     city_main_warp_destination_id = temp_r4;
     *(s32 *)((s8 *)arg0 + 0xA4) = 0;
@@ -183,9 +183,9 @@ u8 *TObjCityMainWarpChallenge__ct(u8 *arg0) {
     *(s16 *)((s8 *)arg0 + 0xE2) = 0;
     *(s32 *)((s8 *)arg0 + 0xD0) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)city_common_model_archive + 0x42C)) + 8);
     *(s32 *)((s8 *)arg0 + 0xD4) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)city_common_model_archive + 0x430)) + 0x2C);
-    if ((u32) *(u32 *)((s8 *)arg0 + 0xB4) != 0U) {
+    if ((u32) ((TObjCityMainWarpChallenge *)arg0)->m_d0 != 0U) {
         queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xB4));
-        *(u32 *)((s8 *)arg0 + 0xB4) = 0U;
+        ((TObjCityMainWarpChallenge *)arg0)->m_d0 = 0U;
     }
     for (var_ctr = 0; var_ctr < 4; var_ctr++) {
         ((Warp_80187B50 *)arg0)->arr[var_ctr] = 0;

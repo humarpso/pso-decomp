@@ -1,6 +1,7 @@
 #pragma defer_codegen on
 
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneDolmOlm.h"
@@ -1300,26 +1301,26 @@ void TObjEneDolmOlm::toggle_effect_render() {
 void TObjEneDolmOlm::vfunc_83() {
     Ene_80302004 *self = (Ene_80302004 *)this;
     advance_animation_playback();
-    switch (self->s328) {
+    switch (this->phase) {
     case 0:
     default:
-        if (self->f390 != 0) {
+        if (this->m_390 != 0) {
             TObjEneMe3SinowZoa__sub_800D758C(&self->obj);
             ((TBoss3Volopt *)(self->sub38))->play_area_sound_effect();
-            self->s328 = 1;
+            this->phase = 1;
             return;
         }
-        self->s328 = 2;
+        this->phase = 2;
         return;
     case 1:
         if (self->obj.m5() == 1) {
-            self->s328 = 2;
-            self->f390 = 0;
+            this->phase = 2;
+            this->m_390 = 0;
         }
         break;
     case 2:
-        self->s326 = 1;
-        self->s328 = 0;
+        this->mode = 1;
+        this->phase = 0;
         break;
     }
 }
@@ -1704,16 +1705,16 @@ void TObjEneDolmOlm::vfunc_93() {
     u32 e;
     s32 idx;
     VObj_800A7A14 *eff;
-    if (!(o->fC0 < lbl_805DEF60)) {
+    if (!(this->m_c0 < lbl_805DEF60)) {
         return;
     }
-    switch (o->fB8) {
+    switch (this->m_b8) {
     case 3:
-        e = TObjPlayer::lookup_entry_by_value((void *)(*(s32 *)&TObjEneDolmOlm__data_805D6A14), o->fC0);
+        e = TObjPlayer::lookup_entry_by_value((void *)(*(s32 *)&TObjEneDolmOlm__data_805D6A14), this->m_c0);
         idx = 0;
         break;
     case 4:
-        e = TObjPlayer::lookup_entry_by_value((void *)(*(s32 *)&TObjEneDolmOlm__data_805D6A18), o->fC0);
+        e = TObjPlayer::lookup_entry_by_value((void *)(*(s32 *)&TObjEneDolmOlm__data_805D6A18), this->m_c0);
         idx = 1;
         break;
     default:
@@ -1726,7 +1727,7 @@ void TObjEneDolmOlm::vfunc_93() {
     push_matrix();
     set_matrix_identity(0);
     post_translate_matrix(&o->pos);
-    rotate_matrix_y(0, o->f60);
+    rotate_matrix_y(0, this->rotation_y);
     mult_vec_array__10TObjPlayerFUll(0, e, &a, 2);
     pop_matrix();
     eff = o->effs[idx];

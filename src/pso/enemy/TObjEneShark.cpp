@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMoja.h"
 #include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/enemy/TObjEneSaver.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -256,7 +257,7 @@ void TObjEneShark::vfunc_94() {
     rotate_matrix_y(0, this->rotation_y);
     rotate_vector_by_matrix(0, &stack.sp8, &stack.sp8);
     pop_matrix();
-    vec3_add_to(&stack.sp8, arg0 + 0x38);
+    vec3_add_to(&stack.sp8, (u8 *)&this->position);
     ((TObjPlayer *)(&stack.sp8))->spawn_ground_effect(0x23);
     TObjPlayer__sub_800D92BC(&stack.sp8, 0xF);
 }
@@ -268,16 +269,16 @@ void TObjEneShark::vfunc_93() {
     u32 e;
     s32 idx;
     VObj_800ABB38 *eff;
-    if (!(o->fC0 < lbl_805D9BAC)) {
+    if (!(this->m_c0 < lbl_805D9BAC)) {
         return;
     }
-    switch (o->fB8) {
+    switch (this->m_b8) {
     case 3:
-        e = TObjPlayer::lookup_entry_by_value((void *)TObjEneShark__attack_motion_3_trail, o->fC0);
+        e = TObjPlayer::lookup_entry_by_value((void *)TObjEneShark__attack_motion_3_trail, this->m_c0);
         idx = 0;
         break;
     case 4:
-        e = TObjPlayer::lookup_entry_by_value((void *)shark_attack4_trail_buffer, o->fC0);
+        e = TObjPlayer::lookup_entry_by_value((void *)shark_attack4_trail_buffer, this->m_c0);
         idx = 1;
         break;
     default:
@@ -290,7 +291,7 @@ void TObjEneShark::vfunc_93() {
     push_matrix();
     set_matrix_identity(0);
     post_translate_matrix(&o->pos);
-    rotate_matrix_y(0, o->f60);
+    rotate_matrix_y(0, this->rotation_y);
     mult_vec_array__10TObjPlayerFUll(0, e, &a, 2);
     pop_matrix();
     eff = o->effs[idx];
@@ -327,26 +328,26 @@ void TObjEneShark::apply_clamped_mode_param() {
 void TObjEneShark::vfunc_83() {
     Obj_800ABCBC *arg0 = (Obj_800ABCBC *)this;
     advance_animation_playback();
-    switch (arg0->state) {
+    switch (*(s16 *)&this->m_328) {
     case 0:
     default:
-        if (arg0->f390 != 0) {
+        if (*(s32 *)&this->m_390 != 0) {
             TObjEneMe3SinowZoa__sub_800D758C((u8 *)arg0 + 0x3A8);
             ((TBoss3Volopt *)(arg0->sub38))->play_area_sound_effect();
-            arg0->state = 1;
+            *(s16 *)&this->m_328 = 1;
         } else {
-            arg0->state = 2;
+            *(s16 *)&this->m_328 = 2;
         }
         break;
     case 1:
         if (((VObj_14_800ABCBC *)((u8 *)arg0 + 0x3A8))->m5() == 1) {
-            arg0->state = 2;
-            arg0->f390 = 0;
+            *(s16 *)&this->m_328 = 2;
+            *(s32 *)&this->m_390 = 0;
         }
         break;
     case 2:
-        arg0->f326 = 1;
-        arg0->state = 0;
+        this->action = 1;
+        *(s16 *)&this->m_328 = 0;
         break;
     }
 }
@@ -382,7 +383,7 @@ void TObjEneShark::render() {
   s16 v27;
   s16 v26;
   u8 *arg0 = (u8 *)this;
-  if ((*((s32 *) (((s8 *) arg0) + 0x30))) & 0x02000000)
+  if ((*(s32 *)&this->m_30) & 0x02000000)
   {
     return;
   }
@@ -407,45 +408,45 @@ void TObjEneShark::render() {
   model_render_flags |= 1;
   TObjFish::set_global_param(*((s32 *) (((s8 *) arg0) + 0x24)));
   push_matrix();
-  translate_matrix(0, lbl_805D9BA0, *((f32 *) (((s8 *) arg0) + 0x380)), lbl_805D9BA0);
-  post_translate_matrix(arg0 + 0x38);
-  rotate_matrix_y(0, *((s32 *) (((s8 *) arg0) + 0x60)));
+  translate_matrix(0, lbl_805D9BA0, this->render_y_offset, lbl_805D9BA0);
+  post_translate_matrix((u8 *)&this->position);
+  rotate_matrix_y(0, this->rotation_y);
   if (TObjPlayer::check_demo_mode() == 1)
   {
     draw_chunk_object(*((s32 *) (((s8 *) arg0) + 0x34)));
   }
   else
   {
-    switch (*((s16 *) (((s8 *) arg0) + 0x326)))
+    switch (this->action)
     {
       case 0:
       case 1:
       case 8:
       case 9:
       {
-        u8 *p = *((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0x34)))) + 0x2C)))) + 0x30)))) + 4)))) + 4));
+        u8 *p = *((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*(u8 * *)&this->model)) + 0x2C)))) + 0x30)))) + 4)))) + 4));
         s16 t = *((s16 *) (((s8 *) p) + 6));
-        *((s16 *) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0x34)))) + 0x2C)))) + 0x30)))) + 4)))) + 4)))) + 6)) = (u8) (*((s16 *) (((s8 *) p) + 6)));
+        *((s16 *) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*(u8 * *)&this->model)) + 0x2C)))) + 0x30)))) + 4)))) + 4)))) + 6)) = (u8) (*((s16 *) (((s8 *) p) + 6)));
         v28 = t;
       }
         break;
     }
-    if ((*((s32 *) (((s8 *) arg0) + 0x378))) == 0)
+    if ((*(s32 *)&this->m_378) == 0)
     {
       s16 a;
       s16 b;
-      u8 *p = *((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0x34)))) + 0x2C)))) + 0x30)))) + 0x30)))) + 4)))) + 4));
+      u8 *p = *((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*(u8 * *)&this->model)) + 0x2C)))) + 0x30)))) + 0x30)))) + 4)))) + 4));
       a = *((s16 *) (((s8 *) p) + 4));
       b = *((s16 *) (((s8 *) p) + 6));
       *((s16 *) (((s8 *) p) + 4)) = -0xB4;
       v26 = a;
       v27 = b;
-      *((s16 *) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0x34)))) + 0x2C)))) + 0x30)))) + 0x30)))) + 4)))) + 4)))) + 6)) = -1;
+      *((s16 *) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*(u8 * *)&this->model)) + 0x2C)))) + 0x30)))) + 0x30)))) + 4)))) + 4)))) + 6)) = -1;
     }
     TObjPlayer::toggle_particle_effect();
     shark_render_node_index = 0;
     TObjEneRe7Berura::set_global_state((s32)((void *) TObjPlayer::update_particle_by_phase));
-    if ((*((s32 *) (((s8 *) arg0) + 0x390))) == 1)
+    if ((*(s32 *)&this->m_390) == 1)
     {
       if (((VObj_14_800ABDD8 *) (arg0 + 0x3A8))->m8() != 0)
       {
@@ -501,25 +502,25 @@ void TObjEneShark::render() {
     }
     TObjEneRe7Berura::set_global_state(0);
     TParticleCtrl::end_effect_render();
-    if ((*((s32 *) (((s8 *) arg0) + 0x378))) == 0)
+    if ((*(s32 *)&this->m_378) == 0)
     {
-      *((s16 *) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0x34)))) + 0x2C)))) + 0x30)))) + 0x30)))) + 4)))) + 4)))) + 4)) = v26;
-      *((s16 *) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0x34)))) + 0x2C)))) + 0x30)))) + 0x30)))) + 4)))) + 4)))) + 6)) = v27;
+      *((s16 *) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*(u8 * *)&this->model)) + 0x2C)))) + 0x30)))) + 0x30)))) + 4)))) + 4)))) + 4)) = v26;
+      *((s16 *) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*(u8 * *)&this->model)) + 0x2C)))) + 0x30)))) + 0x30)))) + 4)))) + 4)))) + 6)) = v27;
     }
-    switch (*((s16 *) (((s8 *) arg0) + 0x326)))
+    switch (this->action)
     {
       case 0:
       case 1:
       case 8:
       case 9:
-        *((s16 *) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0x34)))) + 0x2C)))) + 0x30)))) + 4)))) + 4)))) + 6)) = v28;
+        *((s16 *) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*(u8 * *)&this->model)) + 0x2C)))) + 0x30)))) + 4)))) + 4)))) + 6)) = v28;
         break;
     }
   }
   pop_matrix();
   model_render_flags &= ~1;
   restore_scene_lighting();
-  switch (*((s16 *) (((s8 *) arg0) + 0x326)))
+  switch (this->action)
   {
     case 0:
     case 1:
@@ -1106,8 +1107,8 @@ void TObjEneShark::sub_800AC9DC(s32 i) {
 
 void TObjPlayer__sub_800ACA0C(void) {  }
 s32 TObjEneMoja::calc_technique_level() {
-    Obj_800ACA10 *self = (Obj_800ACA10 *)this;
-    Sub_800ACA10 *p = self->sub;
+    TObjEneMoja *self = this;
+    Sub_800ACA10 *p = *(Sub_800ACA10 * *)&self->m_2b0;
     s32 v = 0;
     if (p != 0) {
         v = p->level;

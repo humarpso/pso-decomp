@@ -813,8 +813,8 @@ void TObjEneMerillLia::vfunc_94() {
 void TObjEneMerillLia::vfunc_93() {  }
 
 s32 TObjEneMerillLia::get_clamped_level() {
-    Obj_800D5100 *self = (Obj_800D5100 *)this;
-    Sub_800D5100 *p = self->f2b0;
+    TObjEneMerillLia *self = this;
+    Sub_800D5100 *p = *(Sub_800D5100 * *)&self->m_2b0;
     s32 v = 0;
     if (p != 0) {
         v = p->f18;
@@ -853,9 +853,9 @@ void TObjEneMerillLia::clamp_and_apply_mode_param() {
 void TObjEneMerillLia::vfunc_59() {
     Ene_800D51C8 *arg0 = (Ene_800D51C8 *)this;
     if (obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x1000) != 0) {
-        arg0->state = 4;
+        this->mode = 4;
     }
-    switch (arg0->state) {
+    switch (this->mode) {
     case 0:
     case 2:
     case 3:
@@ -865,24 +865,24 @@ void TObjEneMerillLia::vfunc_59() {
     case 13:
         break;
     case 1:
-        arg0->f328 = 0;
-        if (arg0->f34C == NULL) {
-            arg0->state = 3;
-            arg0->fB8 = 7;
+        this->phase = 0;
+        if (*(void * *)&this->children == NULL) {
+            this->mode = 3;
+            this->m_b8 = 7;
         } else {
-            arg0->state = 2;
-            arg0->fB8 = 10;
+            this->mode = 2;
+            this->m_b8 = 10;
         }
         ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x4040000);
         ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 0xA000000);
         break;
     case 4:
-        arg0->fB8 = 5;
+        this->m_b8 = 5;
         break;
     default:
-        arg0->state = 3;
-        arg0->f328 = 1;
-        arg0->fB8 = 2;
+        this->mode = 3;
+        this->phase = 1;
+        this->m_b8 = 2;
         ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x4040000);
         ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 0xA000000);
         break;
@@ -891,7 +891,7 @@ void TObjEneMerillLia::vfunc_59() {
 
 void TObjEneMerillLia::vfunc_60() {
     Ene_800D52DC *arg0 = (Ene_800D52DC *)this;
-    switch (arg0->state) {
+    switch (this->mode) {
     case 0:
     case 2:
     case 4:
@@ -901,24 +901,24 @@ void TObjEneMerillLia::vfunc_60() {
     case 13:
         break;
     case 1:
-        arg0->f328 = 0;
-        if (arg0->f34C == NULL) {
-            arg0->state = 3;
-            arg0->fB8 = 7;
+        this->phase = 0;
+        if (*(void * *)&this->children == NULL) {
+            this->mode = 3;
+            this->m_b8 = 7;
         } else {
-            arg0->state = 2;
-            arg0->fB8 = 10;
+            this->mode = 2;
+            this->m_b8 = 10;
         }
         ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x4040000);
         ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 0xA000000);
         break;
     default:
-        arg0->state = 5;
-        arg0->f328 = 1;
+        this->mode = 5;
+        this->phase = 1;
         if (TObjEneMerillLia__data_805DA308 < calc_boss4_scale__10TObjPlayerFi(arg0)) {
-            arg0->fB8 = 3;
+            this->m_b8 = 3;
         } else {
-            arg0->fB8 = 4;
+            this->m_b8 = 4;
         }
         obj_setFlags30(arg0, 0x200000);
         ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x4040000);
@@ -992,22 +992,22 @@ typedef struct VObj_18_ca64a0 VObj_18_ca64a0;
 
 void TObjEneMerillLia::sub_800D5570() {
     Obj_800D5570 *arg0 = (Obj_800D5570 *)this;
-    switch (arg0->state) {
+    switch (this->phase) {
     case 0:
     default:
-        arg0->state = 1;
-        arg0->fb8 = 1;
+        this->phase = 1;
+        this->m_b8 = 1;
         TObjEneMe3SinowZoa__sub_800D758C((u8 *)arg0 + 0x3A8);
         ((TBoss3Volopt *)(arg0->sub38))->play_area_sound_effect();
         break;
     case 1:
         spawn_ground_effect__16TObjEneMerillLiaFPv((u8 *)arg0);
         if (((VObj_14_800D5570 *)((u8 *)arg0 + 0x3A8))->m5() != 0) {
-            arg0->state = 2;
+            this->phase = 2;
         }
         break;
     case 2:
-        arg0->f326 = 12;
+        this->mode = 12;
         break;
     }
     advance_animation_playback(arg0);

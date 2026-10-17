@@ -25,7 +25,8 @@ struct TObjGrass : public TObjEnemy {
     void* m_380;
     u8 _pad384[0x8];
     void* m_38c;
-    u8 _pad390[0xC];
+    u8 unk_390[0x8];
+    f32 m_398;
     s16 m_39c;
     s16 m_39e;
     u32 m_3a0;

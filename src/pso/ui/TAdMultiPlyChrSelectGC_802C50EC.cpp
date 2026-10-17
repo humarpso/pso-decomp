@@ -627,7 +627,7 @@ void TAdMultiPlyChrSelectGC::update_selection() {
     u32 i;
     u32 j;
     u32 k;
-    if (TAdMultiPlyChrSelectGC__sub_802C6848(TAdMultiPlyChrSelectGC::get_clamped_cursor()) == 0 && o->f20 < TAdMultiPlyChrSelectGC::count_ready()) {
+    if (TAdMultiPlyChrSelectGC__sub_802C6848(TAdMultiPlyChrSelectGC::get_clamped_cursor()) == 0 && *(s32 *)&this->m_20 < TAdMultiPlyChrSelectGC::count_ready()) {
         TAdMultiPlyChrSelectGC__data_805D67D8 = FIND_SLOT(o);
         switch (TAdMultiPlyChrSelectGC__select_mode) {
         case 1:
@@ -688,7 +688,7 @@ void TAdMultiPlyChrSelectGC::update_selection() {
         o->f4F8 = 0;
         o->f4FC = 0;
     }
-    o->f20 = TAdMultiPlyChrSelectGC::count_ready();
+    *(s32 *)&this->m_20 = TAdMultiPlyChrSelectGC::count_ready();
 }
 
 typedef char RecoveredGlobal_802C658C_TAdMultiPlyChrSelectGC__data_804E0A48_size[sizeof(RecoveredGlobal_802C658C_TAdMultiPlyChrSelectGC__data_804E0A48) == 0x10 ? 1 : -1];

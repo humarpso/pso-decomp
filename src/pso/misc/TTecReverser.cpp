@@ -90,7 +90,7 @@ void TUnk_804CCC28::run_task() {
     u8 *arg0 = (u8 *)this;
     this->m_28 = (this->m_28 + 1);
     if ((s32) this->m_28 == 0xA) {
-        spawn_particle_effect(arg0 + 0x2C, 0x38);
+        spawn_particle_effect((u8 *)&this->unk_2C, 0x38);
     }
     if ((s32) this->m_28 > 0xC8) {
         queue_destruction__7TObjectFv(arg0);
@@ -120,16 +120,16 @@ void TTecReverser::render() {  }
 
 void run_task__12TTecReverserFv(u8 *arg0) {
     u32 entity;
-    *(u32 *)((s8 *)arg0 + 0x1C) = (u32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0xB4)));
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) == 0U) {
+    ((TTecReverser *)arg0)->source = (u32)find_entity_by_id((((TTecReverser *)arg0)->m_b4));
+    if ((u32) ((TTecReverser *)arg0)->source == 0U) {
         queue_destruction__7TObjectFv((arg0));
         return;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xEC) == 0) {
+    if ((s32) *(s32 *)&((TTecReverser *)arg0)->m_ec == 0) {
         queue_destruction__7TObjectFv((arg0));
         return;
     }
-    entity = (u32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0xF0)));
+    entity = (u32)find_entity_by_id((((TTecReverser *)arg0)->m_f0));
     if ((is_active__12TTecReverserFv() == 0) && (TObjPlayer::is_valid_and_active(entity) != 0)) {
         ((TTecReverser *)(arg0))->vfunc_6((void *)entity);
     }
@@ -164,9 +164,9 @@ u8 *TTecReverser__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     ((TTecReverser *)arg0)->sub_8022BE64(arg0 + 0x88, arg4);
     copy_technique_target_list(arg0 + 0xEC, (void *)arg3);
     play_sound_effect(0x4002A812, arg0 + 0x20, 0, 0);
-    temp_r3 = *(u32 *)((s8 *)arg0 + 0x1C);
+    temp_r3 = ((TTecReverser *)arg0)->source;
     if (temp_r3 != 0U) {
-        *(s16 *)((s8 *)arg0 + 0xB4) = obj_getField1c(temp_r3);
+        *(s16 *)&((TTecReverser *)arg0)->m_b4 = obj_getField1c(temp_r3);
     }
     return arg0;
 }

@@ -222,7 +222,6 @@ f32 TWindowSubComCard::calc_offset() {
 #pragma push
 #pragma opt_common_subs off
 f32 TWindowSubComCard::get_normalized_progress() {
-    u8 *arg0 = (u8 *)this;
     s32 temp_r3;
     if (this->m_2c & 0x2000) {
         return (*(const f32 *)&lbl_805DCAC8);
@@ -277,26 +276,25 @@ void fn_802449E0(u8 *arg0) {
 
 void TWindow__close(u8 *arg0) {
     ((TWindowLockOn *)arg0)->request_close();
-    *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (*(s32 *)((s8 *)arg0 + 0x2C) | 0x10);
+    *(s32 *)&((TWindowLockOn *)arg0)->m_2c = (s32) (*(s32 *)&((TWindowLockOn *)arg0)->m_2c | 0x10);
 }
 
 void TWindowLockOn::request_close() {
-    u8 *arg0 = (u8 *)this;
     s32 temp_r3;
-    temp_r3 = *(s32 *)&(*(u32 *)((u8 *)this + 0x2C));
+    temp_r3 = *(s32 *)&(this->m_2c);
     if (!(temp_r3 & 1)) {
-        *(s32 *)&(*(u32 *)((u8 *)this + 0x2C)) = (s32) (temp_r3 & 0xFFFFFFFB);
+        *(s32 *)&(this->m_2c) = (s32) (temp_r3 & 0xFFFFFFFB);
         return;
     }
     if (temp_r3 & 2) {
-        *(s32 *)&(*(u32 *)((u8 *)this + 0x2C)) = (s32) (temp_r3 | 4);
+        *(s32 *)&(this->m_2c) = (s32) (temp_r3 | 4);
         return;
     }
     if (!(temp_r3 & 0x20)) {
         ((s32)play_sound_effect(0x53704, 0, 0, 0));
     }
-    *(s32 *)&(*(u32 *)((u8 *)this + 0x2C)) = (s32) (*(s32 *)&(*(u32 *)((u8 *)this + 0x2C)) & 0xFFFFFFFE);
-    *(s32 *)&(*(u32 *)((u8 *)this + 0x2C)) = (s32) (*(s32 *)&(*(u32 *)((u8 *)this + 0x2C)) | 2);
+    *(s32 *)&(this->m_2c) = (s32) (*(s32 *)&(this->m_2c) & 0xFFFFFFFE);
+    *(s32 *)&(this->m_2c) = (s32) (*(s32 *)&(this->m_2c) | 2);
 }
 
 s32 TUnk_804CE018::is_window_reveal_complete() {

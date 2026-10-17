@@ -52,7 +52,9 @@ struct TObjEneLappy : public TObjEnemy {
     static void update_idle_state(void *ov);
     static void *create(void *arg0);
     static void load_resources();
-    u8 unk_398[0xC];
+    u8 unk_398[0x4];
+    f32 m_39c;
+    u8 unk_3A0[0x4];
 };
 
 typedef char TObjEneLappy_size[sizeof(TObjEneLappy) == 0x3A4 ? 1 : -1];

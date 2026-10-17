@@ -83,26 +83,26 @@ extern Vec_80198A2C boss3_volopt_init_vec;
 void TUnk_804B8DE8::run_task() {
     Obj_80198A2C *self = (Obj_80198A2C *)this;
     s32 state;
-    if (self->counter++ >= self->limit) {
+    if (this->m_44++ >= self->limit) {
         spawn_particle_effect_with_flags(&self->pos, 0x45, 0x40);
         spawn_particle_effect_with_flags(&self->pos, 0x46, 0x40);
         queue_destruction__7TObjectFv(self);
         return;
     }
-    state = self->state;
+    state = this->m_4c;
     if (state == 0) {
         if (self->f50 != 0) {
-            if ((*(Pad_80198A2C *)&gogo_ball_sync_state).buttons & (self->f54 != 0 ? 0x10 : 1)) {
+            if ((*(Pad_80198A2C *)&gogo_ball_sync_state).buttons & (this->m_54 != 0 ? 0x10 : 1)) {
                 play_sound_effect(0x4002A605, &self->pos, 0, 0);
                 play_sound_effect(0x40052D15, &self->pos, 0, 0);
-                self->state = 1;
+                this->m_4c = 1;
                 return;
             }
         } else {
-            if ((*(Pad_80198A2C *)&gogo_ball_sync_state).buttons & (self->f54 != 0 ? 0x20 : 2)) {
+            if ((*(Pad_80198A2C *)&gogo_ball_sync_state).buttons & (this->m_54 != 0 ? 0x20 : 2)) {
                 play_sound_effect(0x4002A605, &self->pos, 0, 0);
                 play_sound_effect(0x40052D15, &self->pos, 0, 0);
-                self->state = 1;
+                this->m_4c = 1;
                 return;
             }
         }
@@ -118,7 +118,7 @@ void TUnk_804B8DE8::run_task() {
             queue_destruction__7TObjectFv(self);
             return;
         }
-        self->rot += 0x16C;
+        this->m_34 += 0x16C;
         if (self->timer <= 0x14) {
             Vec_80198A2C v;
             VecCopy((Vec *)&v, (const Vec *)&self->pos);
@@ -168,7 +168,7 @@ void * __nw__7TObjectFUl(s32);
 void *__dt__13TUnk_804B8DE8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804B8DE8;
-        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x3C)); *(s32 *)((s8 *)arg0 + 0x3C) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x3C)); ((TUnk_804B8DE8 *)arg0)->m_3c = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

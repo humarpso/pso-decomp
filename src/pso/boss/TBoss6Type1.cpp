@@ -479,7 +479,7 @@ int TBoss6Type1__sub_802B4B14(void* p) { return TBoss6Type1__sub_802B4A9C(p); }
 void TBoss6Type1::clear_slot_array() {
     Obj_802B4B34 *self = (Obj_802B4B34 *)this;
     s32 i;
-    self->f508 = 0;
+    this->m_508 = 0;
     for (i = 0; i < lbl_805DE2D4; i++) self->arr[i] = 0;
 }
 
@@ -1589,7 +1589,7 @@ void TBoss6Type1::update_part_positions() {
     s32 i;
     Vec_802B79DC *base;
     Ent_802B79DC *e;
-    if (arg0->ents != NULL) {
+    if (*(Ent_802B79DC * *)&this->m_a4 != NULL) {
         for (i = 0; i < 7; i++) {
             Tbl_802B79DC *t;
             e = &arg0->ents[i];
@@ -1610,7 +1610,7 @@ void TBoss6Type1::update_part_positions() {
             subtract_vector(&v, &arg0->pos);
             push_matrix();
             set_matrix_identity(0);
-            rotate_matrix_y(0, -arg0->f60);
+            rotate_matrix_y(0, -this->rotation_y);
             matrix_mult_vec(0, &v, e);
             pop_matrix();
             VecCopy((Vec *)&e->n, (const Vec *)e);
@@ -1834,7 +1834,7 @@ void TBoss6Type1::set_motion_set(s32 arg1) {
     z = TBoss6Type1__data_805DE2D0;
     n = TBoss6Type1__data_805DE3C4;
     t = &TBoss6Type1__motion_set_table[arg1];
-    arg0->f440 = t->f0;
+    this->m_440 = t->f0;
     for (i = 0; i < n; i++) {
         a = &arg0->anim[i];
         s32 id = get_bml_motion(arg0->f3FC, t->ids[i]);
@@ -1871,7 +1871,7 @@ void TBoss6Type1::advance_animations() {
     a = &self->anims[lbl_805DE3C8];
     len = a->motion->frames;
     a->t += a->speed;
-    switch (self->f440) {
+    switch (this->m_440) {
     case 0:
         if (a->t >= len) a->t -= len;
         break;

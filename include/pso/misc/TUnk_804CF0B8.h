@@ -38,7 +38,9 @@ public:
     u32 m_2c;
     u8 unk_30[0x18];
     f32 m_48;
-    u8 unk_4C[0x24];
+    u8 unk_4C[0xC];
+    f32 m_58;
+    u8 unk_5C[0x14];
     s8 m_70;
     u8 m_71;
     u8 unk_72[0x1];

@@ -217,7 +217,7 @@ s32 TObjPlayer::fire_zonde_at_players() {
             if (TBoss3Volopt__sub_80040FCC(e) != 0) {
                 Pkt_80042B34 pkt;
                 ((TBoss3Volopt *)(&pkt))->set_type();
-                pkt.id = *(u16 *)((s8 *)((u8 *)this) + 0x1C);
+                pkt.id = this->m_1c;
                 pkt.kind = 2;
                 ((TBoss3Volopt *)(&pkt))->finalize_and_send_60();
             }
@@ -1183,7 +1183,7 @@ void TBoss3VoloptP01__sub_80043CA8(void * _w0) {  }
 
 void TBoss3VoloptP01::dispatch_state() {
     Obj_80043CAC *arg0 = (Obj_80043CAC *)this;
-    switch (arg0->state) {
+    switch (this->mode) {
     case 0: sub_80043758__15TBoss3VoloptP01Fv(arg0); return;
     case 2: TBoss3VoloptP01__sub_800430D0(arg0); return;
     case 4: update_state(); return;

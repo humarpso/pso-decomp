@@ -5964,8 +5964,8 @@ void TBoss8Dragon::spawn_effect() {
 #pragma push
 #pragma fp_contract on
 f32 TBoss8Dragon::calc_step_value() {
-    Boss_802FB94C *o = (Boss_802FB94C *)this;
-    return TBoss8Dragon__data_805DED90 * (f32)o->n + TBoss8Dragon__data_805DED90;
+    TBoss8Dragon *o = this;
+    return TBoss8Dragon__data_805DED90 * (f32)*(s32 *)&o->m_6d0 + TBoss8Dragon__data_805DED90;
 }
 #pragma pop
 

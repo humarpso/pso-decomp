@@ -178,9 +178,9 @@ void TShopKeepItemWindow::handle_deposit_confirm() {
         base = sub_8022397C__15TShopWindowBaseFv(this);
         r = get_selected_menu_value(self->f388);
         if (r == 0) {
-            i = select_cursor_entry__22TWindowSubShortCutListFv(self->f384);
-            if (store_item_in_bank((u8 *)&self->ents[i].f4, self->f378, base) != 0) {
-                get_item_record__23TShopJudgmentItemWindowFPv(self->f24, ((TItem *)(self->ents[i].f0))->get_field_d8(), self->f378);
+            i = select_cursor_entry__22TWindowSubShortCutListFv(*(s32 *)&this->m_384);
+            if (store_item_in_bank((u8 *)&self->ents[i].f4, *(s32 *)&this->m_378, base) != 0) {
+                get_item_record__23TShopJudgmentItemWindowFPv(*(s32 *)&this->m_24, ((TItem *)(self->ents[i].f0))->get_field_d8(), *(s32 *)&this->m_378);
                 copy_bank_to_card_window(base);
                 play_sound_effect(0x52D01, 0, 0, 0);
                 TWindow__close((u8 *)self->f388);

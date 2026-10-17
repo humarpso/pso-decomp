@@ -75,7 +75,7 @@ void TObjPlayer__sub_801ADC6C(void) { lbl_805D5D50 = 0; }
 void TObjPlayer__sub_801ADC78(void) {  }
 
     extern const float lbl_805DC228;
-void TPhotonPilla::sub_801ADC7C() { *(float*)((char*)this + 0x180) = lbl_805DC228; *(float*)((char*)this + 0x184) = lbl_805DC228; *(float*)((char*)this + 0x188) = lbl_805DC228; *(float*)((char*)this + 0x18c) = lbl_805DC228; }
+void TPhotonPilla::sub_801ADC7C() { this->m_180 = lbl_805DC228; *(float*)((char*)this + 0x184) = lbl_805DC228; this->m_188 = lbl_805DC228; *(float*)((char*)this + 0x18c) = lbl_805DC228; }
 
 void TPhotonPilla::apply_photon_blast_effects() {
     s32 var_r31;
@@ -118,19 +118,19 @@ void TPhotonPilla::spawn_laser() {
     packet.pos.z = position.z;
     laser = (u8 *) __nw__7TObjectFUl(0x380);
     if (laser != NULL) {
-        TPhotonLaser__ct(laser, &packet, this, *(u16 *)((s8 *)((u8 *)this) + 0x17C));
+        TPhotonLaser__ct(laser, &packet, this, this->m_17c);
     }
 }
 
 void TPhotonPilla::render() {
     Self_801ADDDC *self = (Self_801ADDDC *)this;
-    if (self->started != 0) {
+    if (this->m_1a4 != 0) {
         scroll_strip_uvs(pilla_photon_buffer_pair, self->f14C, 0);
         TParticleCtrl::begin_effect_render();
-        TObjFish::set_global_param(self->f24);
+        TObjFish::set_global_param(this->texture_id);
         push_matrix();
         translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
-        rotate_matrix_y(0, self->f60);
+        rotate_matrix_y(0, this->rotation_y);
         ((TUnk_804C3248 *)self)->set_photon_blast_joint_callback();
         lbl_805D5660 = model_render_flags;
         ((TRaderMapCore *)(&saved_model_draw_color))->copy_vec4(&model_material_color);
@@ -158,10 +158,10 @@ void TPhotonPilla::run_task() {
     s32 temp_r3_2;
 
     *(s32 *)((s8 *)this + 0x1A8) = (s32) (*(s32 *)((s8 *)this + 0x1A8) + 1);
-    if (((s32) *(s32 *)((s8 *)this + 0x1A8) == 0x32) && ((s32) *(s32 *)((s8 *)this + 0x1A4) == 0)) {
-        *(s32 *)((s8 *)this + 0x1A4) = 1;
+    if (((s32) *(s32 *)((s8 *)this + 0x1A8) == 0x32) && ((s32) this->m_1a4 == 0)) {
+        this->m_1a4 = 1;
         *(s32 *)((s8 *)this + 0x1A8) = 0;
-        entity = (s32)find_entity_by_id(*(u16 *)((s8 *)this + 0x17C));
+        entity = (s32)find_entity_by_id(this->m_17c);
         if (entity != 0) {
             VecCopy((Vec *)&sp8, (const Vec *)(entity + 0x38));
         }
@@ -171,13 +171,13 @@ void TPhotonPilla::run_task() {
             TPhotonMagicSquare__ct((u8 *)entity, (s32)this, 3, (s32)&sp8, 0xD2, (f32)lbl_805DC234);
         }
     }
-    if ((lbl_805DC238 == (f32) *(s32 *)((s8 *)this + 0x1A8)) && ((s16) *(s16 *)((s8 *)this + 0xB8) == 1) && ((s32) *(s32 *)((s8 *)this + 0x1A4) == 1)) {
+    if ((lbl_805DC238 == (f32) *(s32 *)((s8 *)this + 0x1A8)) && ((s16) this->m_b8 == 1) && ((s32) this->m_1a4 == 1)) {
         begin_photon_summon_camera(4);
         *(s32 *)((s8 *)this + 0x1A8) = 0;
         this->set_field_b8(0);
         spawn_photon_blast_attachment_effects(this, 3);
     }
-    *(s16 *)((s8 *)this + 0x198) = (s16) *(s16 *)((s8 *)this + 0xB8);
+    this->m_198 = (s16) this->m_b8;
     update_state();
     advance_animation_playback(this);
     update_photon_blast_attachments();
@@ -190,7 +190,7 @@ void TPhotonPilla::run_task() {
     if (lbl_805DC254 == (f32) *(s32 *)((s8 *)this + 0x1A8)) {
         this->apply_photon_blast_effects();
     }
-    if ((s32) *(s32 *)((s8 *)this + 0x1A4) != 0) {
+    if ((s32) this->m_1a4 != 0) {
         play_persistent_sound(0x4002462F, (s32)this, 0, 0, 0);
     }
 }

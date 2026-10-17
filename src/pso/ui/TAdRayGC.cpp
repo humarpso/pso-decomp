@@ -101,7 +101,7 @@ TAdRayGC::~TAdRayGC() {}
 void *__ct__8TAdRayGCFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TAdRayGC;
-    *(void **)((s8 *)arg0 + 0x0) = TAdRayGC__name;
+    *(void * *)&((TAdRayGC *)arg0)->m_name = TAdRayGC__name;
     *(u32 *)((s8 *)arg0 + 0x1C) = 0;
     *(u32 *)((s8 *)arg0 + 0x20) = -1;
     return arg0;
