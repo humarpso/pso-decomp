@@ -130,11 +130,13 @@ s32 get_bml_model(s32, s32);
 void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
 void *find_entity_by_id(u16 id);
+}
 void move_ground_technique_projectile(void *p);
 extern s32 technique_effect_bml;
 extern s32 lbl_805D63B0;
 extern const f32 lbl_805DC7A0;
 extern const f32 lbl_805DC7A4;
+extern "C" {
 s32 get_bml_motion(s32, s32);
 void *spawn_continuous_particle_with_direction(void *pos, void *dir, s32 id);
 void *create_particle_emitter(void *pos, s32 id);

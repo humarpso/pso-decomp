@@ -70,6 +70,7 @@ extern const f32 lbl_805DC91C;
 extern const f32 lbl_805DC920;
 extern "C" {
 void step_ground_technique_projectile(RecoveredFields_8023A510_arg0 *arg0);
+}
 void move_ground_technique_projectile(void* p);
 
 void TUnk_804CCC68::render() {  }
@@ -101,6 +102,7 @@ typedef char RecoveredFields_8023A510_temp_r3_2_4_offset[offsetof(RecoveredField
 typedef char RecoveredFields_8023A510_temp_r6_C_offset[offsetof(RecoveredFields_8023A510_temp_r6, field_C) == 0xC ? 1 : -1];
 typedef char RecoveredFields_8023A510_temp_r6_10_offset[offsetof(RecoveredFields_8023A510_temp_r6, field_10) == 0x10 ? 1 : -1];
 typedef char RecoveredFields_8023A510_temp_r6_14_offset[offsetof(RecoveredFields_8023A510_temp_r6, field_14) == 0x14 ? 1 : -1];
+extern "C" {
 void step_ground_technique_projectile(RecoveredFields_8023A510_arg0 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_8023A510, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8023A510, spC) == 0x4) ? 1 : -1];
@@ -153,6 +155,7 @@ void step_ground_technique_projectile(RecoveredFields_8023A510_arg0 *arg0) {
         }
     }
 }
+}
 #pragma pop
 
 void move_ground_technique_projectile(void* p) { step_ground_technique_projectile((RecoveredFields_8023A510_arg0 *)(p)); }
@@ -174,4 +177,3 @@ void TUnk_804CCC68::move_technique_projectile() {
 #pragma pop
 
 void TUnk_804CCC68::run_task() { move_technique_projectile(); this->advance_lifetime_or_destroy(); }
-}

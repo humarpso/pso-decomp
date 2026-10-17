@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void register_texture_logo_e(void);
-}
 
 #endif
