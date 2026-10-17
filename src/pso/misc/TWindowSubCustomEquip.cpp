@@ -230,7 +230,7 @@ void TWindowSubCustomEquip::handle_cursor_input() {
     u8 temp_r3_3;
     u8 temp_r4;
     u8 *temp_r31;
-    u8 *temp_r31_2;
+    u8 *window_choice_setting;
     u8 *array_entry;
     temp_r29 = is_player_input_active((this->m_20));
     temp_r31 = (u8 *)(((u8 *)get_array_entry(0x10)));
@@ -244,23 +244,23 @@ void TWindowSubCustomEquip::handle_cursor_input() {
         *(s32 *)((s8 *)temp_r31 + 0x2C) = 0xFF666666;
         *(s32 *)((s8 *)array_entry + 0x2C) = 0xFF666666;
     }
-    temp_r31_2 = (u8 *)&controller_input_state.value + (temp_r29 * 0x50) + 0x20;
-    if ((apply_choice__20TWindowChoiceSettingFllll((void *)temp_r31_2, 0xF0, 6, 1) != 0) || (TWindowShortListCtrl__check_controller_button((int)temp_r31_2, (int) (fn_8002AE08((int)this->m_20))) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0xF0, 6, 1) != 0)) {
+    window_choice_setting = (u8 *)&controller_input_state.value + (temp_r29 * 0x50) + 0x20;
+    if ((apply_choice__20TWindowChoiceSettingFllll((void *)window_choice_setting, 0xF0, 6, 1) != 0) || (TWindowShortListCtrl__check_controller_button((int)window_choice_setting, (int) (fn_8002AE08((int)this->m_20))) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0xF0, 6, 1) != 0)) {
         play_sound_effect(0x54100, 0, 0, 0);
-        if (TWindowShortListCtrl__check_controller_button((int)temp_r31_2, (int) (fn_8002AE08((int)this->m_20))) != 0) {
+        if (TWindowShortListCtrl__check_controller_button((int)window_choice_setting, (int) (fn_8002AE08((int)this->m_20))) != 0) {
             this->m_62 = (u8) (1 - this->m_62);
             this->m_63 = 3U;
         }
-        if ((apply_choice__20TWindowChoiceSettingFllll(temp_r31_2, 0x10, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x10, 6, 1) != 0)) {
+        if ((apply_choice__20TWindowChoiceSettingFllll(window_choice_setting, 0x10, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x10, 6, 1) != 0)) {
             this->m_61 = (this->m_61 - 1);
         }
-        if ((apply_choice__20TWindowChoiceSettingFllll(temp_r31_2, 0x20, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x20, 6, 1) != 0)) {
+        if ((apply_choice__20TWindowChoiceSettingFllll(window_choice_setting, 0x20, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x20, 6, 1) != 0)) {
             this->m_61 = (this->m_61 + 1);
         }
-        if ((apply_choice__20TWindowChoiceSettingFllll(temp_r31_2, 0x80, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x80, 6, 1) != 0)) {
+        if ((apply_choice__20TWindowChoiceSettingFllll(window_choice_setting, 0x80, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x80, 6, 1) != 0)) {
             this->m_61 = (this->m_61 - 1);
         }
-        if ((apply_choice__20TWindowChoiceSettingFllll(temp_r31_2, 0x40, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x40, 6, 1) != 0)) {
+        if ((apply_choice__20TWindowChoiceSettingFllll(window_choice_setting, 0x40, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x40, 6, 1) != 0)) {
             this->m_61 = (this->m_61 + 1);
         }
         temp_r3_2 = this->m_61;

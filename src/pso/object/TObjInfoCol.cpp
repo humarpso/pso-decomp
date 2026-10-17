@@ -63,13 +63,13 @@ void TObjInfoCol::run_task() {
 extern "C" {
 
 typedef char RecoveredGlobal_80191EC0___vt__11TObjInfoCol_size[sizeof(RecoveredGlobal_80191EC0___vt__11TObjInfoCol) == 0x38 ? 1 : -1];
-u8 *TObjInfoCol__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_collider_proxy__13TUnk_804AF8A0Fv((void *)arg0, (void *)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80191EC0___vt__11TObjInfoCol *)&__vt__11TObjInfoCol).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjInfoCol__class_name;
-    ((TObjInfoCol *)(arg0))->apply_object_set_data((void *)arg2);
-    ((TObjInfoCol *)arg0)->interaction_radius = (f32) ((TObjInfoCol *)arg0)->scale;
-    return arg0;
+u8 *TObjInfoCol__ct(u8 *info_col, s32 arg1, s32 arg2) {
+    construct_collider_proxy__13TUnk_804AF8A0Fv((void *)info_col, (void *)arg1);
+    *(s32 **)((s8 *)info_col + 0x18) = &(*(RecoveredGlobal_80191EC0___vt__11TObjInfoCol *)&__vt__11TObjInfoCol).value;
+    *(s32 *)((s8 *)info_col + 0) = (s32) TObjInfoCol__class_name;
+    ((TObjInfoCol *)(info_col))->apply_object_set_data((void *)arg2);
+    ((TObjInfoCol *)info_col)->interaction_radius = (f32) ((TObjInfoCol *)info_col)->scale;
+    return info_col;
 }
 
 void *__dt__11TObjInfoColFv(void *arg0, s16 arg1) {

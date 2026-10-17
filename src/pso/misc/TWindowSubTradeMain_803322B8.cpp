@@ -16,7 +16,7 @@ s32 TLobby__sub_802D2A0C(u32 arg0);
 extern void *TWindowSubTradeMain__name;
 
 }
-TWindowSubTradeMain::TWindowSubTradeMain(TObject *arg1, void *arg2) : TObject(arg1) {
+TWindowSubTradeMain::TWindowSubTradeMain(TObject *object, void *arg2) : TObject(object) {
     void *o;
     void *x;
     *(void * *)&this->m_name = TWindowSubTradeMain__name;
@@ -24,7 +24,7 @@ TWindowSubTradeMain::TWindowSubTradeMain(TObject *arg1, void *arg2) : TObject(ar
     this->m_1d = 0;
     this->m_20 = 0;
     *(void **)((s8 *)this + 0x28) = arg2;
-    *(void **)((s8 *)this + 0x2C) = arg1;
+    *(void **)((s8 *)this + 0x2C) = object;
     this->m_30 = 0;
     this->m_34 = 0;
     this->m_38 = 0;

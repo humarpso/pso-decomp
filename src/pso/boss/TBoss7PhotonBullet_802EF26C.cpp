@@ -212,17 +212,17 @@ void *__dt__15TBoss7PhotonPadFv(void *self, s16 arg1) {
     }
     return self;
 }
-u8 *__ct__15TBoss7PhotonPadFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(void ***)((s8 *)arg0 + 0x18) = __vt__15TBoss7PhotonPad;
-    *(s32 *)((s8 *)arg0 + 0) = lbl_805D3FD0;
-    *(s32 *)((s8 *)arg0 + 0x1C) = arg2;
-    *(s32 *)((s8 *)arg0 + 0x2C) = arg4;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x20, (void *)arg3);
-    rotate_xz_pair_by_angle((f32 *)(arg0 + 0x20), (f32 *)(arg0 + 0x28), (s32)(-(boss7_photon_bullet_level_table[*(s32 *)((s8 *)arg0 + 0x2C)].c / 2)));
-    *(s32 *)((s8 *)arg0 + 0x30) = boss7_photon_bullet_level_table[*(s32 *)((s8 *)arg0 + 0x2C)].a;
-    *(s32 *)((s8 *)arg0 + 0x34) = 0;
-    return arg0;
+u8 *__ct__15TBoss7PhotonPadFv(u8 *object, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+    __ct__7TObjectFP7TObject(object, arg1);
+    *(void ***)((s8 *)object + 0x18) = __vt__15TBoss7PhotonPad;
+    *(s32 *)((s8 *)object + 0) = lbl_805D3FD0;
+    *(s32 *)((s8 *)object + 0x1C) = arg2;
+    *(s32 *)((s8 *)object + 0x2C) = arg4;
+    VecCopy__FP3VecPC3Vec(object + 0x20, (void *)arg3);
+    rotate_xz_pair_by_angle((f32 *)(object + 0x20), (f32 *)(object + 0x28), (s32)(-(boss7_photon_bullet_level_table[*(s32 *)((s8 *)object + 0x2C)].c / 2)));
+    *(s32 *)((s8 *)object + 0x30) = boss7_photon_bullet_level_table[*(s32 *)((s8 *)object + 0x2C)].a;
+    *(s32 *)((s8 *)object + 0x34) = 0;
+    return object;
 }
 
 void vfunc_6__13TUnk_804B9870FPsl(); void apply_object_set_data__13TUnk_804B9870FPv(); void release_member_90__10TObjPlayerFv();

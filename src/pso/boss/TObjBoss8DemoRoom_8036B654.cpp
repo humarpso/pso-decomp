@@ -17,11 +17,11 @@ void __ct__7TObjectFP7TObject(void *);
 extern s32 __vt__17TObjBoss8DemoRoom[];
 extern void *lbl_805D44E4;
 
-void *__ct__17TObjBoss8DemoRoomFv(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjBoss8DemoRoom;
-    *(void * *)&((TObjBoss8DemoRoom *)arg0)->m_name = lbl_805D44E4;
-    return arg0;
+void *__ct__17TObjBoss8DemoRoomFv(void *boss8_demo_room) {
+    __ct__7TObjectFP7TObject(boss8_demo_room);
+    *(s32 **)((s8 *)boss8_demo_room + 0x18) = __vt__17TObjBoss8DemoRoom;
+    *(void * *)&((TObjBoss8DemoRoom *)boss8_demo_room)->m_name = lbl_805D44E4;
+    return boss8_demo_room;
 }
 
 void TObjBoss8DemoRoom::free_static_instance() {

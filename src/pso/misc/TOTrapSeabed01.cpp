@@ -256,30 +256,30 @@ int TOTrapSeabed01::vfunc_67() {
 
 #pragma push
 #pragma fp_contract on
-void check_hold_player__14TOTrapSeabed01FPv(u8 *arg0) {
+void check_hold_player__14TOTrapSeabed01FPv(u8 *trap_seabed01) {
     f32 temp_f0;
     f32 temp_f31;
     u32 temp_r3;
     u32 temp_r3_2;
     u32 id;
-    *(u32 *)((s8 *)arg0 + 0x2A8) = 0U;
-    ((TOTrapSeabed01 *)arg0)->player = find_nearest_visible_player(arg0, 0, (f32) (((TOTrapSeabed01 *)arg0)->range));
-    id = ((TOTrapSeabed01 *)arg0)->player;
-    if ((id != 0xFFFF) && (temp_r3 = (u32)get_player_by_client_id(id), *(u32 *)((s8 *)arg0 + 0x2A8) = temp_r3, temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x2A8), ((temp_r3_2 == 0U) == 0))) {
-        temp_f31 = horizontal_distance_squared((void *)(temp_r3_2 + 0x38), (void *)(arg0 + 0x38));
-        ((TOTrapSeabed01 *)arg0)->dist = (f32) (((TOTrapSeabed01 *)arg0)->dist - TObjPlayer__sub_8017A1A4(temp_r3, 0));
-        temp_f0 = ((TOTrapSeabed01 *)arg0)->dist;
+    *(u32 *)((s8 *)trap_seabed01 + 0x2A8) = 0U;
+    ((TOTrapSeabed01 *)trap_seabed01)->player = find_nearest_visible_player(trap_seabed01, 0, (f32) (((TOTrapSeabed01 *)trap_seabed01)->range));
+    id = ((TOTrapSeabed01 *)trap_seabed01)->player;
+    if ((id != 0xFFFF) && (temp_r3 = (u32)get_player_by_client_id(id), *(u32 *)((s8 *)trap_seabed01 + 0x2A8) = temp_r3, temp_r3_2 = *(u32 *)((s8 *)trap_seabed01 + 0x2A8), ((temp_r3_2 == 0U) == 0))) {
+        temp_f31 = horizontal_distance_squared((void *)(temp_r3_2 + 0x38), (void *)(trap_seabed01 + 0x38));
+        ((TOTrapSeabed01 *)trap_seabed01)->dist = (f32) (((TOTrapSeabed01 *)trap_seabed01)->dist - TObjPlayer__sub_8017A1A4(temp_r3, 0));
+        temp_f0 = ((TOTrapSeabed01 *)trap_seabed01)->dist;
         if (temp_f31 < (temp_f0 * temp_f0)) {
             if (TRaderMapCore::is_not_split_screen() == 1) {
-                send_6x2C_impose_hold(temp_r3, arg0 + 0x38, -1, 0, (f32) (((TOTrapSeabed01 *)arg0)->dist));
-            } else if ((s32) ((TOTrapSeabed01 *)arg0)->player == (s32) local_client_id) {
-                send_6x2C_impose_hold(temp_r3, arg0 + 0x38, -1, 0, (f32) (((TOTrapSeabed01 *)arg0)->dist));
+                send_6x2C_impose_hold(temp_r3, trap_seabed01 + 0x38, -1, 0, (f32) (((TOTrapSeabed01 *)trap_seabed01)->dist));
+            } else if ((s32) ((TOTrapSeabed01 *)trap_seabed01)->player == (s32) local_client_id) {
+                send_6x2C_impose_hold(temp_r3, trap_seabed01 + 0x38, -1, 0, (f32) (((TOTrapSeabed01 *)trap_seabed01)->dist));
             }
-            ((TOTrapSeabed01 *)arg0)->sub_802C9C18(0);
+            ((TOTrapSeabed01 *)trap_seabed01)->sub_802C9C18(0);
             return;
         }
-        ((TOTrapSeabed01 *)arg0)->player = 0xFFFFU;
-        *(u32 *)((s8 *)arg0 + 0x2A8) = 0U;
+        ((TOTrapSeabed01 *)trap_seabed01)->player = 0xFFFFU;
+        *(u32 *)((s8 *)trap_seabed01 + 0x2A8) = 0U;
     }
 }
 #pragma pop

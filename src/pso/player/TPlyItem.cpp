@@ -132,14 +132,14 @@ void __ct__7TObjectFP7TObject(void *);
 extern s32 __vt__8TPlyItem[];
 extern void *TPlyItem_name_ref;
 
-void *TPlyItem__ct(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TPlyItem;
-    ((TItemList *)((char *)arg0 + 32))->init_items();
-    *(void * *)&((TPlyItem *)arg0)->m_name = TPlyItem_name_ref;
-    *(u16 *)((s8 *)arg0 + 0x1C) = 0;
-    *(u16 *)((s8 *)arg0 + 0x1E) = 0;
-    return arg0;
+void *TPlyItem__ct(void *ply_item) {
+    __ct__7TObjectFP7TObject(ply_item);
+    *(s32 **)((s8 *)ply_item + 0x18) = __vt__8TPlyItem;
+    ((TItemList *)((char *)ply_item + 32))->init_items();
+    *(void * *)&((TPlyItem *)ply_item)->m_name = TPlyItem_name_ref;
+    *(u16 *)((s8 *)ply_item + 0x1C) = 0;
+    *(u16 *)((s8 *)ply_item + 0x1E) = 0;
+    return ply_item;
 }
 void TLobby::reduce_owner_matched_items() {
     Item_801D5004 *self = (Item_801D5004 *)this;

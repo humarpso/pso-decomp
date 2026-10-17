@@ -744,12 +744,12 @@ s32 update_pulse_scale__15TBoss3VoloptP01FPv(S_8004301C *o) {
 #define update_if_active__15TObjEneMe1GiGueFl ((s32 (*)(void*,int))update_if_active__15TObjEneMe1GiGueFl)
 #define update_pulse_scale__15TBoss3VoloptP01FPv ((s32 (*)(void*))update_pulse_scale__15TBoss3VoloptP01FPv)
 #define sub_80043758__15TBoss3VoloptP01Fv ((void (*)(void*))sub_80043758__15TBoss3VoloptP01Fv)
-void reset_state__15TBoss3VoloptP01FPv(TBoss3VoloptP01 *arg0) {
+void reset_state__15TBoss3VoloptP01FPv(TBoss3VoloptP01 *boss3_volopt_p01) {
     void *temp_r3;
 
-    arg0->m_390 = 0;
-    *(f32 *)((s8 *)arg0 + 0x38C) = (f32) (-4e+01f);
-    temp_r3 = arg0->m_a4;
+    boss3_volopt_p01->m_390 = 0;
+    *(f32 *)((s8 *)boss3_volopt_p01 + 0x38C) = (f32) (-4e+01f);
+    temp_r3 = boss3_volopt_p01->m_a4;
     *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) | 1);
 }
 
@@ -1307,51 +1307,51 @@ void TBoss3VoloptP01::init_params() {
 
 #pragma push
 #pragma fp_contract on
-u8 *TBoss3VoloptP01__ct(TBoss3VoloptP01 *arg0, u8 *arg1, s32 arg2, s16 arg3, s16 arg4) {
+u8 *TBoss3VoloptP01__ct(TBoss3VoloptP01 *boss3_volopt_p01, u8 *arg1, s32 arg2, s16 arg3, s16 arg4) {
     s32 temp_r29;
     s32 temp_r3;
     s32 var_r0;
-    TObjEnemyCustom__ct(((u8 *)arg0));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80044174___vt__15TBoss3VoloptP01 *)&*__vt__15TBoss3VoloptP01).value;
-    ((TObjPlayer *)((u8 *)arg0 + 0x3BC))->construct_target_cursor_records();
-    *(s32 *)((s8 *)arg0 + 0) = (s32) (*(s32 *)&TBoss3VoloptP01_class_name);
-    arg0->m_1c = arg3;
-    *(s16 *)((s8 *)arg0 + 0x2C) = arg4;
-    *(s32 *)((s8 *)arg0 + 0x80) = 0;
-    *(s16 *)((s8 *)arg0 + 0x28) = (s16) *(s16 *)((s8 *)arg1 + 0x28);
-    *(s16 *)((s8 *)arg0 + 0x2A) = (s16) *(s16 *)((s8 *)arg1 + 0x2A);
-    arg0->init_params();
+    TObjEnemyCustom__ct(((u8 *)boss3_volopt_p01));
+    *(s32 **)((s8 *)boss3_volopt_p01 + 0x18) = &(*(RecoveredGlobal_80044174___vt__15TBoss3VoloptP01 *)&*__vt__15TBoss3VoloptP01).value;
+    ((TObjPlayer *)((u8 *)boss3_volopt_p01 + 0x3BC))->construct_target_cursor_records();
+    *(s32 *)((s8 *)boss3_volopt_p01 + 0) = (s32) (*(s32 *)&TBoss3VoloptP01_class_name);
+    boss3_volopt_p01->m_1c = arg3;
+    *(s16 *)((s8 *)boss3_volopt_p01 + 0x2C) = arg4;
+    *(s32 *)((s8 *)boss3_volopt_p01 + 0x80) = 0;
+    *(s16 *)((s8 *)boss3_volopt_p01 + 0x28) = (s16) *(s16 *)((s8 *)arg1 + 0x28);
+    *(s16 *)((s8 *)boss3_volopt_p01 + 0x2A) = (s16) *(s16 *)((s8 *)arg1 + 0x2A);
+    boss3_volopt_p01->init_params();
     temp_r29 = (s32) ((182.04445f) * (f32) (arg2 * 0x3C));
-    *(f32 *)((s8 *)arg0 + 0x38) = (f32) (((76.0f) * cos_table_lookup((int) (temp_r29))) + *(f32 *)((s8 *)(&boss3_volopt_spawn_pos.value) + 0));
-    *(f32 *)((s8 *)arg0 + 0x40) = (f32) (((76.0f) * ((f32 (*)(int))sin_table_lookup)((int) (temp_r29))) + *(f32 *)((s8 *)(&boss3_volopt_spawn_pos.value) + 8));
-    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (0.0f);
-    arg0->rotation_y = (s32) (-0x4000 - temp_r29);
+    *(f32 *)((s8 *)boss3_volopt_p01 + 0x38) = (f32) (((76.0f) * cos_table_lookup((int) (temp_r29))) + *(f32 *)((s8 *)(&boss3_volopt_spawn_pos.value) + 0));
+    *(f32 *)((s8 *)boss3_volopt_p01 + 0x40) = (f32) (((76.0f) * ((f32 (*)(int))sin_table_lookup)((int) (temp_r29))) + *(f32 *)((s8 *)(&boss3_volopt_spawn_pos.value) + 8));
+    *(f32 *)((s8 *)boss3_volopt_p01 + 0x3C) = (f32) (0.0f);
+    boss3_volopt_p01->rotation_y = (s32) (-0x4000 - temp_r29);
     temp_r3 = ((s32)__nw__7TObjectFUl(0x34));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = ((s32)__ct__17TObjVoloptShutterFv((u8 *)((int) (temp_r3)), (s32)((void *) (arg2))));
     }
-    arg0->m_3b8 = var_r0;
-    return (u8 *)arg0;
+    boss3_volopt_p01->m_3b8 = var_r0;
+    return (u8 *)boss3_volopt_p01;
 }
 #pragma pop
 
-u8 *TBoss3VoloptP01__sub_800442A0(u8 *arg0, s32 arg1, s32 arg2) {
-    u8 *temp_r3;
+u8 *TBoss3VoloptP01__sub_800442A0(u8 *boss3_volopt_p01, s32 arg1, s32 arg2) {
+    u8 *volopt_shutter;
     u8 *var_r0;
-    TObjEnemyCustom__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800442A0___vt__15TBoss3VoloptP01 *)&*__vt__15TBoss3VoloptP01).value;
-    ((TObjPlayer *)(arg0 + 0x3BC))->construct_target_cursor_records();
-    *(s32 *)((s8 *)arg0 + 0) = (s32) (*(s32 *)&TBoss3VoloptP01_class_name);
-    ((TBoss3VoloptP01 *)(arg0))->apply_set_data((void *)arg2);
-    ((TBoss3VoloptP01 *)arg0)->init_params();
-    temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x34)));
-    var_r0 = (u8 *)(temp_r3);
+    TObjEnemyCustom__ct(boss3_volopt_p01);
+    *(s32 **)((s8 *)boss3_volopt_p01 + 0x18) = &(*(RecoveredGlobal_800442A0___vt__15TBoss3VoloptP01 *)&*__vt__15TBoss3VoloptP01).value;
+    ((TObjPlayer *)(boss3_volopt_p01 + 0x3BC))->construct_target_cursor_records();
+    *(s32 *)((s8 *)boss3_volopt_p01 + 0) = (s32) (*(s32 *)&TBoss3VoloptP01_class_name);
+    ((TBoss3VoloptP01 *)(boss3_volopt_p01))->apply_set_data((void *)arg2);
+    ((TBoss3VoloptP01 *)boss3_volopt_p01)->init_params();
+    volopt_shutter = (u8 *)(((u8 *)__nw__7TObjectFUl(0x34)));
+    var_r0 = (u8 *)(volopt_shutter);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(__ct__17TObjVoloptShutterFv(temp_r3, 0));
+        var_r0 = (u8 *)(__ct__17TObjVoloptShutterFv(volopt_shutter, 0));
     }
-    *(u8 **)((s8 *)arg0 + 0x3B8) = var_r0;
-    return arg0;
+    *(u8 **)((s8 *)boss3_volopt_p01 + 0x3B8) = var_r0;
+    return boss3_volopt_p01;
 }
 
 void fn_80044330(void* p) { *(s32*)((char*)p + 0x0) = 0; }

@@ -142,21 +142,21 @@ typedef char RecoveredGlobal_8002BCE0_lbl_80435410_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8002BCE0_lbl_8043541C_size[sizeof(RecoveredGlobal_8002BCE0_lbl_8043541C) == 0xC ? 1 : -1];
 
 typedef char RecoveredGlobal_8002BC30___vt__21TBoss1DragonEffBullet_size[sizeof(RecoveredGlobal_8002BC30___vt__21TBoss1DragonEffBullet) == 0x18 ? 1 : -1];
-u8 *TBoss1DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
-    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8002BC30___vt__21TBoss1DragonEffBullet *)&__vt__21TBoss1DragonEffBullet).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss1DragonEffBullet__name;
-    VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)(arg2));
-    VecCopy((Vec *)(arg0 + 0x28), (const Vec *)(arg3));
-    subtract_vector(arg0 + 0x28, arg0 + 0x1C);
-    ((TBoss1DragonEffBullet *)arg0)->m_40 = ((TObjBoss2Tunnel *)(arg0 + 0x28))->update_scale();
-    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805D8144;
-    ((TBoss1DragonEffBullet *)arg0)->m_34 = 0;
-    ((TBoss1DragonEffBullet *)arg0)->m_38 = 0;
-    ((TBoss1DragonEffBullet *)arg0)->m_44 = 0;
-    ((TBoss1DragonEffBullet *)arg0)->m_48 = 0;
-    play_sound_effect(0x4003B20B, arg0 + 0x1C, 0, 0);
-    return arg0;
+u8 *TBoss1DragonEffBullet__ct(u8 *boss1_dragon_eff_bullet, s32 arg1, s32 arg2, s32 arg3) {
+    __ct__7TObjectFP7TObject((void *)boss1_dragon_eff_bullet, (void *)arg1);
+    *(s32 **)((s8 *)boss1_dragon_eff_bullet + 0x18) = &(*(RecoveredGlobal_8002BC30___vt__21TBoss1DragonEffBullet *)&__vt__21TBoss1DragonEffBullet).value;
+    *(s32 *)((s8 *)boss1_dragon_eff_bullet + 0) = (s32) TBoss1DragonEffBullet__name;
+    VecCopy((Vec *)(boss1_dragon_eff_bullet + 0x1C), (const Vec *)(arg2));
+    VecCopy((Vec *)(boss1_dragon_eff_bullet + 0x28), (const Vec *)(arg3));
+    subtract_vector(boss1_dragon_eff_bullet + 0x28, boss1_dragon_eff_bullet + 0x1C);
+    ((TBoss1DragonEffBullet *)boss1_dragon_eff_bullet)->m_40 = ((TObjBoss2Tunnel *)(boss1_dragon_eff_bullet + 0x28))->update_scale();
+    *(f32 *)((s8 *)boss1_dragon_eff_bullet + 0x3C) = (f32) lbl_805D8144;
+    ((TBoss1DragonEffBullet *)boss1_dragon_eff_bullet)->m_34 = 0;
+    ((TBoss1DragonEffBullet *)boss1_dragon_eff_bullet)->m_38 = 0;
+    ((TBoss1DragonEffBullet *)boss1_dragon_eff_bullet)->m_44 = 0;
+    ((TBoss1DragonEffBullet *)boss1_dragon_eff_bullet)->m_48 = 0;
+    play_sound_effect(0x4003B20B, boss1_dragon_eff_bullet + 0x1C, 0, 0);
+    return boss1_dragon_eff_bullet;
 }
 
 void TBoss1Dragon::select_fireball_particle_table() {

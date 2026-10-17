@@ -10,13 +10,13 @@ extern s32 __vt__12TItemDropSub[];
 extern void *TItemDropSub__class_name;
 extern void * TItemDropSub__instance;
 
-void *TItemDropSub__ct(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TItemDropSub;
-    *(void * *)&((TItemDropSub *)arg0)->m_name = TItemDropSub__class_name;
-    TItemDropSub__instance = arg0;
-    *(u32 *)((s8 *)arg0 + 0x1C) = 10;
-    return arg0;
+void *TItemDropSub__ct(void *item_drop_sub) {
+    __ct__7TObjectFP7TObject(item_drop_sub);
+    *(s32 **)((s8 *)item_drop_sub + 0x18) = __vt__12TItemDropSub;
+    *(void * *)&((TItemDropSub *)item_drop_sub)->m_name = TItemDropSub__class_name;
+    TItemDropSub__instance = item_drop_sub;
+    *(u32 *)((s8 *)item_drop_sub + 0x1C) = 10;
+    return item_drop_sub;
 }
 
 }

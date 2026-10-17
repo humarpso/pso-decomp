@@ -72,14 +72,14 @@ void TBoss6GravBall::destroy_part(s32 arg1) {
 void TBoss6GravBall__sub_80323214(s32 arg0, s32 arg1) {
     s32 temp_r5;
     u8 *temp_r31;
-    u8 *temp_r3;
+    u8 *boss4_type2;
     temp_r5 = arg1 * 4;
     temp_r31 = (u8 *)(arg0 + temp_r5);
     if ((void *) *(u8 **)((s8 *)temp_r31 + 0xD4) == NULL) {
         *(u8 **)((s8 *)temp_r31 + 0xD4) = (unsigned char *) (create_particle_emitter((void *)(arg0 + 0xC8), *(s32 *)((s8 *)&TBoss6GravBall__emitter_id_table.value + temp_r5)));
-        temp_r3 = (u8 *)(*(u8 **)((s8 *)temp_r31 + 0xD4));
-        if (temp_r3 != NULL) {
-            ((TBoss4Type2 *)temp_r3)->set_flags(0x2040);
+        boss4_type2 = (u8 *)(*(u8 **)((s8 *)temp_r31 + 0xD4));
+        if (boss4_type2 != NULL) {
+            ((TBoss4Type2 *)boss4_type2)->set_flags(0x2040);
         }
     }
 }
@@ -92,14 +92,14 @@ void TBoss6GravBall::create_emitter(s32 arg1) {
     s32 arg0 = (s32)this;
     s32 temp_r5;
     u8 *temp_r31;
-    u8 *temp_r3;
+    u8 *boss4_type2;
     temp_r5 = arg1 * 4;
     temp_r31 = (u8 *)(arg0 + temp_r5);
     if ((void *) *(u8 **)((s8 *)temp_r31 + 0xD4) == NULL) {
         *(u8 **)((s8 *)temp_r31 + 0xD4) = (unsigned char *) (create_particle_emitter((void *)(arg0 + 0xC8), *(s32 *)((s8 *)(&(*(RecoveredGlobal_80323278_lbl_80476658 *)&TBoss6GravBall__emitter_id_table).value) + temp_r5)));
-        temp_r3 = (u8 *)(*(u8 **)((s8 *)temp_r31 + 0xD4));
-        if (temp_r3 != NULL) {
-            ((TBoss4Type2 *)temp_r3)->set_flags(0x40);
+        boss4_type2 = (u8 *)(*(u8 **)((s8 *)temp_r31 + 0xD4));
+        if (boss4_type2 != NULL) {
+            ((TBoss4Type2 *)boss4_type2)->set_flags(0x40);
         }
     }
 }

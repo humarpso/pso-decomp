@@ -129,8 +129,8 @@ s32 next_event_shuffle_entry(EventShuffleTable *s) {
     return s->entries[s->cursor++];
 }
 }
-void shuffle_event_entries(EventShuffleTable *arg0) {
-    EventShuffleTable *s = arg0;
+void shuffle_event_entries(EventShuffleTable *event_shuffle_table) {
+    EventShuffleTable *s = event_shuffle_table;
     s32 i = 0;
     for (; i < s->count; i++) {
         s32 k = item_drop_rng_below(s->rngState, s->count);
@@ -140,18 +140,18 @@ void shuffle_event_entries(EventShuffleTable *arg0) {
     }
 }
 
-void init_event_shuffle_table(EventShuffleTable *arg0, s32 arg1) {
+void init_event_shuffle_table(EventShuffleTable *event_shuffle_table, s32 arg1) {
     s32 off;
     s32 i = 0;
-    arg0->cursor = off = 0;
-    arg0->count = arg1;
-    while (i < arg0->count) {
-        *(s32 *)((u8 *)arg0->entries + off) = i;
+    event_shuffle_table->cursor = off = 0;
+    event_shuffle_table->count = arg1;
+    while (i < event_shuffle_table->count) {
+        *(s32 *)((u8 *)event_shuffle_table->entries + off) = i;
         i++;
         off += 4;
     }
-    shuffle_event_entries(arg0);
-    shuffle_event_entries(arg0);
-    shuffle_event_entries(arg0);
-    shuffle_event_entries(arg0);
+    shuffle_event_entries(event_shuffle_table);
+    shuffle_event_entries(event_shuffle_table);
+    shuffle_event_entries(event_shuffle_table);
+    shuffle_event_entries(event_shuffle_table);
 }

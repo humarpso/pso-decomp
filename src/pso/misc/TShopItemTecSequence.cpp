@@ -140,20 +140,20 @@ s32 close_window__13TShopSequenceFv(void *);
     extern int shop_tool_stock_counts[];
 int TShopItemTecSequence__sub_8021FE6C(int a0) {  return shop_tool_stock_counts[a0]; }
 
-void select_and_advance__20TShopItemTecSequenceFPv(void *arg0) {
-    if (arg0 != NULL) {
-        ((VObj_8021FE80_8021FE6C *)arg0)->m4(0x1B, 1);
-        ((TShopWindowBase *)arg0)->set_field_20(6);
+void select_and_advance__20TShopItemTecSequenceFPv(void *shop_window_base) {
+    if (shop_window_base != NULL) {
+        ((VObj_8021FE80_8021FE6C *)shop_window_base)->m4(0x1B, 1);
+        ((TShopWindowBase *)shop_window_base)->set_field_20(6);
         lbl_805D6248 = 0x1A;
         lbl_805D624C = 2;
     }
 }
 
-void close__20TShopItemTecSequenceFPv(void *arg0) {
-    struct VObj_8021FEE0_8021FE6C *o = (struct VObj_8021FEE0_8021FE6C *)arg0;
+void close__20TShopItemTecSequenceFPv(void *shop_window_base) {
+    struct VObj_8021FEE0_8021FE6C *o = (struct VObj_8021FEE0_8021FE6C *)shop_window_base;
     if (o != NULL) {
         o->m4(0x1A, 1);
-        ((TShopWindowBase *)arg0)->set_field_20(2);
+        ((TShopWindowBase *)shop_window_base)->set_field_20(2);
     }
 }
 
@@ -304,20 +304,20 @@ u8 *__dt__20TShopItemTecSequenceFv(u8 *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_802204B0___vt__20TShopItemTecSequence_size[sizeof(RecoveredGlobal_802204B0___vt__20TShopItemTecSequence) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_802204B0_TShopItemTecSequence__data_80513EE0_size[sizeof(RecoveredGlobal_802204B0_TShopItemTecSequence__data_80513EE0) == 0x10 ? 1 : -1];
-u8 *TShopItemTecSequence__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TShopSequence__ct((arg0));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802204B0___vt__20TShopItemTecSequence *)&__vt__20TShopItemTecSequence).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TShopItemTecSequence__class_name;
-    ((TShopItemTecSequence *)arg0)->m_20 = 0;
-    *(s32 *)((s8 *)arg0 + 0x24) = arg2;
-    *(s32 *)((s8 *)arg0 + 0x30) = 0;
-    ((TShopItemTecSequence *)arg0)->m_2c = 0;
-    ((TShopItemTecSequence *)arg0)->m_34 = 0;
-    (*(u8 * *)&lbl_805D6250) = arg0;
+u8 *TShopItemTecSequence__ct(u8 *shop_item_tec_sequence, s32 arg1, s32 arg2) {
+    TShopSequence__ct((shop_item_tec_sequence));
+    *(s32 **)((s8 *)shop_item_tec_sequence + 0x18) = &(*(RecoveredGlobal_802204B0___vt__20TShopItemTecSequence *)&__vt__20TShopItemTecSequence).value;
+    *(s32 *)((s8 *)shop_item_tec_sequence + 0) = (s32) TShopItemTecSequence__class_name;
+    ((TShopItemTecSequence *)shop_item_tec_sequence)->m_20 = 0;
+    *(s32 *)((s8 *)shop_item_tec_sequence + 0x24) = arg2;
+    *(s32 *)((s8 *)shop_item_tec_sequence + 0x30) = 0;
+    ((TShopItemTecSequence *)shop_item_tec_sequence)->m_2c = 0;
+    ((TShopItemTecSequence *)shop_item_tec_sequence)->m_34 = 0;
+    (*(u8 * *)&lbl_805D6250) = shop_item_tec_sequence;
     lbl_805D6248 = 0;
     lbl_805D624C = 0;
-    *(s32 *)((s8 *)(&(*(RecoveredGlobal_802204B0_TShopItemTecSequence__data_80513EE0 *)&TShopItemTecSequence__slot_table).value) + (sub_8022397C__15TShopWindowBaseFv(arg0) * 4)) = 1;
-    return arg0;
+    *(s32 *)((s8 *)(&(*(RecoveredGlobal_802204B0_TShopItemTecSequence__data_80513EE0 *)&TShopItemTecSequence__slot_table).value) + (sub_8022397C__15TShopWindowBaseFv(shop_item_tec_sequence) * 4)) = 1;
+    return shop_item_tec_sequence;
 }
 
 void TShopItemTecSequence__sub_80220538(void) {

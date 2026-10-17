@@ -418,24 +418,24 @@ TObjBoss1MokoHill_SoloM::~TObjBoss1MokoHill_SoloM() {
 }
 extern "C" {
 
-u8 *TObjBoss1MokoHill_SoloM__ct(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8002D41C_lbl_80482060 *)&__vt__23TObjBoss1MokoHill_SoloM).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjBoss1MokoHill_SoloM__name;
-    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
+u8 *TObjBoss1MokoHill_SoloM__ct(u8 *boss1_moko_hill_solo_m, u8 *arg1, u8 *arg2, s32 arg3) {
+    __ct__7TObjectFP7TObject(boss1_moko_hill_solo_m, arg1);
+    *(s32 **)((s8 *)boss1_moko_hill_solo_m + 0x18) = &(*(RecoveredGlobal_8002D41C_lbl_80482060 *)&__vt__23TObjBoss1MokoHill_SoloM).value;
+    *(s32 *)((s8 *)boss1_moko_hill_solo_m + 0) = (s32) TObjBoss1MokoHill_SoloM__name;
+    *(s32 *)((s8 *)boss1_moko_hill_solo_m + 0x1C) = 0;
     (*(u8 * *)&dragon_trail_position_source) = arg2;
     dragon_trail_heading_source = arg3;
-    VecCopy((Vec *)(arg0 + 0x20), (const Vec *)arg2);
-    ((TObjBoss1MokoHill_SoloM *)arg0)->m_2c = (f32) lbl_805D8198;
-    *(f32 *)((s8 *)arg0 + 0x30) = (f32) lbl_805D81A0;
-    ((TObjBoss1MokoHill_SoloM *)arg0)->m_34 = (f32) lbl_805D81A0;
+    VecCopy((Vec *)(boss1_moko_hill_solo_m + 0x20), (const Vec *)arg2);
+    ((TObjBoss1MokoHill_SoloM *)boss1_moko_hill_solo_m)->m_2c = (f32) lbl_805D8198;
+    *(f32 *)((s8 *)boss1_moko_hill_solo_m + 0x30) = (f32) lbl_805D81A0;
+    ((TObjBoss1MokoHill_SoloM *)boss1_moko_hill_solo_m)->m_34 = (f32) lbl_805D81A0;
     if (TObjEneDD::check_v2_mode() != 0) {
-        *(s32 *)((s8 *)arg0 + 0x38) = 1;
+        *(s32 *)((s8 *)boss1_moko_hill_solo_m + 0x38) = 1;
     } else {
-        *(s32 *)((s8 *)arg0 + 0x38) = 0;
+        *(s32 *)((s8 *)boss1_moko_hill_solo_m + 0x38) = 0;
     }
-    ((TObjBoss1MokoHill_SoloM *)arg0)->m_3c = 0;
-    return arg0;
+    ((TObjBoss1MokoHill_SoloM *)boss1_moko_hill_solo_m)->m_3c = 0;
+    return boss1_moko_hill_solo_m;
 }
 
 void update_dragon_trail_uvs(Obj_8002D4C0 *self) {

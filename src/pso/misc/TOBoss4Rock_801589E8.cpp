@@ -322,15 +322,15 @@ TOBoss4Tower::~TOBoss4Tower() {
 }
 extern "C" {
 typedef char RecoveredGlobal_80159514___vt__12TOBoss4Tower_size[sizeof(RecoveredGlobal_80159514___vt__12TOBoss4Tower) == 0x34 ? 1 : -1];
-u8 *TOBoss4Tower__ct(u8 *arg0, s32 arg1) {
+u8 *TOBoss4Tower__ct(u8 *boss4_tower, s32 arg1) {
     TOBoss4__ct();
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80159514___vt__12TOBoss4Tower *)&__vt__12TOBoss4Tower).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2EB8;
-    ((TOBoss4Tower *)(arg0))->apply_object_set_data((void *)arg1);
-    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *)lbl_805D58A8, 5);
-    ((TOBoss4Tower *)arg0)->m_94 = (f32) (6e+01f);
-    ((TOBoss4Tower *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *)lbl_805D58A8, 5);
-    return arg0;
+    *(s32 **)((s8 *)boss4_tower + 0x18) = &(*(RecoveredGlobal_80159514___vt__12TOBoss4Tower *)&__vt__12TOBoss4Tower).value;
+    *(s32 *)((s8 *)boss4_tower + 0) = (s32) lbl_805D2EB8;
+    ((TOBoss4Tower *)(boss4_tower))->apply_object_set_data((void *)arg1);
+    *(s32 *)((s8 *)boss4_tower + 0x34) = get_bml_model((void *)lbl_805D58A8, 5);
+    ((TOBoss4Tower *)boss4_tower)->m_94 = (f32) (6e+01f);
+    ((TOBoss4Tower *)boss4_tower)->texture_id = TObjFish__sub_8001EDB0((void *)lbl_805D58A8, 5);
+    return boss4_tower;
 }
 
 #undef TObjFish__sub_8001EDB0
@@ -544,13 +544,13 @@ extern s32 lbl_805D2EB4;
 u8 *TOBoss4Bird__ct(u8 *arg0, s32 arg1);
 #pragma push
 #pragma fp_contract on
-u8 *TOBoss4Bird__ct(u8 *arg0, s32 arg1) {
-    Bird_80159A10 *o = (Bird_80159A10 *)arg0;
+u8 *TOBoss4Bird__ct(u8 *boss4_bird, s32 arg1) {
+    Bird_80159A10 *o = (Bird_80159A10 *)boss4_bird;
     s32 i;
-    TOBoss4__ct(arg0);
-    *(u8 **)(arg0 + 0x18) = __vt__11TOBoss4Bird;
+    TOBoss4__ct(boss4_bird);
+    *(u8 **)(boss4_bird + 0x18) = __vt__11TOBoss4Bird;
     o->f0 = lbl_805D2EB4;
-    ((TOBoss4Bird *)arg0)->apply_object_set_data((void *)arg1);
+    ((TOBoss4Bird *)boss4_bird)->apply_object_set_data((void *)arg1);
     o->model = get_bml_model(lbl_805D58A8, 0);
     o->f94 = *(f32 *)(*(u8 **)(o->model + 4) + 0x14);
     o->f24 = TObjFish__sub_8001EDB0(lbl_805D58A8, 0);
@@ -584,7 +584,7 @@ u8 *TOBoss4Bird__ct(u8 *arg0, s32 arg1) {
     o->fD0 = (0.1f) * (f32)o->f8C + (1.0f);
     o->fD4 = o->fD0 * sin_table_lookup(o->fE0);
     o->fE4 = 0;
-    return arg0;
+    return boss4_bird;
 }
 #pragma pop
 

@@ -85,11 +85,11 @@ void *__dt__13TUnk_804A4238Fv(void *arg0, s16 arg1) {
 void construct_srank_weapon(void *);
 }
 void *construct_s_rank_j_cutter_weapon(void *arg0, s32 task_root, void *owner);
-void *construct_s_rank_j_cutter_weapon(void *arg0, s32 task_root, void *owner) {
-    construct_srank_weapon(arg0);
-    *(void ***)((s8 *)arg0 + 0x18) = s_rank_j_cutter_weapon_vtable;
-    ((TObjPlayer *)arg0)->set_status_flags(2);
-    return arg0;
+void *construct_s_rank_j_cutter_weapon(void *player, s32 task_root, void *owner) {
+    construct_srank_weapon(player);
+    *(void ***)((s8 *)player + 0x18) = s_rank_j_cutter_weapon_vtable;
+    ((TObjPlayer *)player)->set_status_flags(2);
+    return player;
 }
 
 void *construct_s_rank_j_cutter_weapon(void *, s32, void *);
@@ -213,11 +213,11 @@ void TUnk_804A4338::emit_marker_effects() {
 
 void *construct_s_rank_slicer_weapon(void *arg0, s32 task_root, void *owner);
 
-void *construct_s_rank_slicer_weapon(void *arg0, s32 task_root, void *owner) {
-    construct_srank_weapon(arg0);
-    *(void ***)((s8 *)arg0 + 0x18) = s_rank_slicer_weapon_vtable;
-    ((TObjPlayer *)arg0)->set_status_flags(2);
-    return arg0;
+void *construct_s_rank_slicer_weapon(void *player, s32 task_root, void *owner) {
+    construct_srank_weapon(player);
+    *(void ***)((s8 *)player + 0x18) = s_rank_slicer_weapon_vtable;
+    ((TObjPlayer *)player)->set_status_flags(2);
+    return player;
 }
 
 void *construct_s_rank_slicer_weapon(void *, s32, void *);

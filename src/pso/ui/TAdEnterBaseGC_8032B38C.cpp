@@ -84,12 +84,12 @@ void *__dt__14TAdEnterBaseGCFv(void *arg0, s16 arg1) {
 
 extern void *lbl_805D41E0;
 
-void *TAdEnterBaseGC__ct(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TAdEnterBaseGC;
-    *(void * *)&((TAdEnterBaseGC *)arg0)->m_name = lbl_805D41E0;
-    ((TAdEnterBaseGC *)arg0)->sub_8032B460(0);
-    return arg0;
+void *TAdEnterBaseGC__ct(void *ad_enter_base_gc) {
+    __ct__7TObjectFP7TObject(ad_enter_base_gc);
+    *(s32 **)((s8 *)ad_enter_base_gc + 0x18) = __vt__14TAdEnterBaseGC;
+    *(void * *)&((TAdEnterBaseGC *)ad_enter_base_gc)->m_name = lbl_805D41E0;
+    ((TAdEnterBaseGC *)ad_enter_base_gc)->sub_8032B460(0);
+    return ad_enter_base_gc;
 }
 
 extern s32 TAdPsoPassSaveGC__data_805D6E80;

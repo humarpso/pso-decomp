@@ -43,23 +43,23 @@ TChCrLoadGmNjReq::~TChCrLoadGmNjReq() {
         TLobby__sub_8001FE7C(m_68, 1);
     }
 }
-void *TChCrLoadGmNjReq__ct(void *arg0, void *arg1, void *arg2) {
-    struct VOff_8028C7BC_arg0_8028C6EC *self = (struct VOff_8028C7BC_arg0_8028C6EC *)arg0;
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TChCrLoadGmNjReq;
-    *(void * *)&((TChCrLoadGmNjReq *)arg0)->m_name = lbl_805D3B58;
-    *(void **)((s8 *)arg0 + 0x24) = *(void **)((s8 *)arg2 + 0x8);
-    *(void **)((s8 *)arg0 + 0x28) = *(void **)((s8 *)arg2 + 0x10);
-    *(void **)((s8 *)arg0 + 0x1C) = *(void **)((s8 *)arg2 + 0x4);
-    *(void **)((s8 *)arg0 + 0x20) = *(void **)((s8 *)arg2 + 0xC);
+void *TChCrLoadGmNjReq__ct(void *ch_cr_load_gm_nj_req, void *arg1, void *arg2) {
+    struct VOff_8028C7BC_arg0_8028C6EC *self = (struct VOff_8028C7BC_arg0_8028C6EC *)ch_cr_load_gm_nj_req;
+    __ct__7TObjectFP7TObject(ch_cr_load_gm_nj_req);
+    *(s32 **)((s8 *)ch_cr_load_gm_nj_req + 0x18) = __vt__16TChCrLoadGmNjReq;
+    *(void * *)&((TChCrLoadGmNjReq *)ch_cr_load_gm_nj_req)->m_name = lbl_805D3B58;
+    *(void **)((s8 *)ch_cr_load_gm_nj_req + 0x24) = *(void **)((s8 *)arg2 + 0x8);
+    *(void **)((s8 *)ch_cr_load_gm_nj_req + 0x28) = *(void **)((s8 *)arg2 + 0x10);
+    *(void **)((s8 *)ch_cr_load_gm_nj_req + 0x1C) = *(void **)((s8 *)arg2 + 0x4);
+    *(void **)((s8 *)ch_cr_load_gm_nj_req + 0x20) = *(void **)((s8 *)arg2 + 0xC);
     strncpy(self->f_30, *(void **)((s8 *)arg2 + 0x0), 48);
-    *(void **)((s8 *)arg0 + 0x60) = self->f_30;
-    *(u32 *)((s8 *)arg0 + 0x64) = 0;
-    *(u32 *)((s8 *)arg0 + 0x68) = 0;
-    *(u32 *)((s8 *)arg0 + 0x6C) = 0;
-    *(u32 *)((s8 *)arg0 + 0x70) = 5370;
-    *(u32 *)((s8 *)arg0 + 0x2C) = 0;
-    return arg0;
+    *(void **)((s8 *)ch_cr_load_gm_nj_req + 0x60) = self->f_30;
+    *(u32 *)((s8 *)ch_cr_load_gm_nj_req + 0x64) = 0;
+    *(u32 *)((s8 *)ch_cr_load_gm_nj_req + 0x68) = 0;
+    *(u32 *)((s8 *)ch_cr_load_gm_nj_req + 0x6C) = 0;
+    *(u32 *)((s8 *)ch_cr_load_gm_nj_req + 0x70) = 5370;
+    *(u32 *)((s8 *)ch_cr_load_gm_nj_req + 0x2C) = 0;
+    return ch_cr_load_gm_nj_req;
 }
 }
 

@@ -521,37 +521,37 @@ void render__13TObjEneRe4BitFv(Bit_800ECA40 *self) {
 
 #pragma push
 #pragma fp_contract on
-void TObjEneRe4Bit__sub_800ECC14(u8 *arg0, s32 arg1) {
+void TObjEneRe4Bit__sub_800ECC14(u8 *ene_panarms, s32 arg1) {
     s32 temp_r4;
     switch (arg1) {
     case 4:
-        ((TObjEnePanarms *)arg0)->m_408 = 0;
-        ((s32 (*)(void *))set_hold_flags__18TObjEneRe4SorcererFPv)(arg0);
-        ((TObjEnePanarms *)arg0)->m_3cc = (s32) (((TObjEnePanarms *)arg0)->m_3cc | 0x400);
-        play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003A815), arg0 + 0x38, 0, 0);
+        ((TObjEnePanarms *)ene_panarms)->m_408 = 0;
+        ((s32 (*)(void *))set_hold_flags__18TObjEneRe4SorcererFPv)(ene_panarms);
+        ((TObjEnePanarms *)ene_panarms)->m_3cc = (s32) (((TObjEnePanarms *)ene_panarms)->m_3cc | 0x400);
+        play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(ene_panarms, 0x4003A815), ene_panarms + 0x38, 0, 0);
         break;
     case 3:
-        if (((TObjEnePanarms *)arg0)->m_3cc & 8) {
-            play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003AD16), arg0 + 0x38, 0, 0);
-            transition_enemy_state(arg0, 1);
+        if (((TObjEnePanarms *)ene_panarms)->m_3cc & 8) {
+            play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(ene_panarms, 0x4003AD16), ene_panarms + 0x38, 0, 0);
+            transition_enemy_state(ene_panarms, 1);
         }
         break;
     case 0:
-        ((TObjEnePanarms *)arg0)->m_408 = (s32) (((TObjEnePanarms *)arg0)->m_408 + 1);
-        if ((s32) ((TObjEnePanarms *)arg0)->m_408 >= 0x384) {
-            temp_r4 = ((TObjEnePanarms *)arg0)->m_3cc;
+        ((TObjEnePanarms *)ene_panarms)->m_408 = (s32) (((TObjEnePanarms *)ene_panarms)->m_408 + 1);
+        if ((s32) ((TObjEnePanarms *)ene_panarms)->m_408 >= 0x384) {
+            temp_r4 = ((TObjEnePanarms *)ene_panarms)->m_3cc;
             if (!(temp_r4 & 0x10)) {
-                ((TObjEnePanarms *)arg0)->m_3cc = (s32) (temp_r4 & 0xFFFFFBFF);
-                ((s32 (*)(void *))set_state_flags__18TObjEneRe4SorcererFPv)(arg0);
+                ((TObjEnePanarms *)ene_panarms)->m_3cc = (s32) (temp_r4 & 0xFFFFFBFF);
+                ((s32 (*)(void *))set_state_flags__18TObjEneRe4SorcererFPv)(ene_panarms);
                 return;
             }
         }
         break;
     case 5:
-        *(s32 *)&((TObjEnePanarms *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjEnePanarms *)arg0)->actorFlags & 0xFFFFF7FF);
-        ((TObjEnePanarms *)arg0)->hp = (s16) ((TObjEnePanarms *)arg0)->hpmax;
+        *(s32 *)&((TObjEnePanarms *)ene_panarms)->actorFlags = (s32) (*(s32 *)&((TObjEnePanarms *)ene_panarms)->actorFlags & 0xFFFFF7FF);
+        ((TObjEnePanarms *)ene_panarms)->hp = (s16) ((TObjEnePanarms *)ene_panarms)->hpmax;
         ((s32 (*)())TObjEneRe4Sorcerer__sub_800ED47C)();
-        *(f32 *)((s8 *)arg0 + 0x3D8) = (f32) TObjEneRe4Bit__data_805DA770;
+        *(f32 *)((s8 *)ene_panarms + 0x3D8) = (f32) TObjEneRe4Bit__data_805DA770;
         break;
     }
 }
@@ -559,28 +559,28 @@ void TObjEneRe4Bit__sub_800ECC14(u8 *arg0, s32 arg1) {
 
 typedef struct VBase_18_f9c8ca VBase_18_f9c8ca;
 typedef struct VObj_18_f9c8ca VObj_18_f9c8ca;
-void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1) {
+void TObjEneRe4Bit__sub_800ECD28(u8 *ene_dd, s32 arg1) {
   switch (arg1)
   {
     case 4:
-      *((s32 *) (((s8 *) arg0) + 0x408)) = 0;
+      *((s32 *) (((s8 *) ene_dd) + 0x408)) = 0;
       return;
     case 3:
-      if (((s32) (*((s32 *) (((s8 *) arg0) + 0x408)))) > 0xF)
+      if (((s32) (*((s32 *) (((s8 *) ene_dd) + 0x408)))) > 0xF)
     {
-      transition_enemy_state((void *)((void *) arg0), 1);
+      transition_enemy_state((void *)((void *) ene_dd), 1);
     }
       return;
     case 0:
-      *((s32 *) (((s8 *) arg0) + 0x408)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x408))) + 1);
-      VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)((int) (*((s32 *) (((s8 *) arg0) + 0x3C0)))));
-      ((TObjEneDD *)arg0)->m_300 = (f32) ((((TObjEneDD *)arg0)->m_300) + (*((f32 *) (((s8 *) arg0) + 0x3D8))));
-      ((TObjEneDD *)arg0)->m_2fc = (f32) ((((TObjEneDD *)arg0)->m_2fc) + calc_elapsed_scaled__9TObjEneDDFv((void *) arg0));
-      ((TObjEneDD *)arg0)->m_304 = (f32) ((((TObjEneDD *)arg0)->m_304) + calc_elapsed_scaled__9TObjEneDDFv((void *) arg0));
-      (((TObjEneDD *)(arg0))->vfunc_102());
+      *((s32 *) (((s8 *) ene_dd) + 0x408)) = (s32) ((*((s32 *) (((s8 *) ene_dd) + 0x408))) + 1);
+      VecCopy((Vec *)(ene_dd + 0x2FC), (const Vec *)((int) (*((s32 *) (((s8 *) ene_dd) + 0x3C0)))));
+      ((TObjEneDD *)ene_dd)->m_300 = (f32) ((((TObjEneDD *)ene_dd)->m_300) + (*((f32 *) (((s8 *) ene_dd) + 0x3D8))));
+      ((TObjEneDD *)ene_dd)->m_2fc = (f32) ((((TObjEneDD *)ene_dd)->m_2fc) + calc_elapsed_scaled__9TObjEneDDFv((void *) ene_dd));
+      ((TObjEneDD *)ene_dd)->m_304 = (f32) ((((TObjEneDD *)ene_dd)->m_304) + calc_elapsed_scaled__9TObjEneDDFv((void *) ene_dd));
+      (((TObjEneDD *)(ene_dd))->vfunc_102());
       return;
     case 5:
-      clear_attack_receipts__9TObjEneDDFv((void *) arg0);
+      clear_attack_receipts__9TObjEneDDFv((void *) ene_dd);
       return;
       break;
   }
@@ -588,28 +588,28 @@ void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1) {
 
 #pragma push
 #pragma opt_common_subs off
-void TObjEneRe4Bit__sub_800ECE04(TObjEneRe4Bit *arg0, s32 arg1) {
+void TObjEneRe4Bit__sub_800ECE04(TObjEneRe4Bit *ene_re4_bit, s32 arg1) {
     switch (arg1) {
     case 4:
-        ((TObjEneDD *)arg0)->set_field_378(3);
-        *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFFFEFFF);
-        *(s32 *)((s8 *)arg0 + 0x3D0) = 3;
+        ((TObjEneDD *)ene_re4_bit)->set_field_378(3);
+        *(s32 *)((s8 *)ene_re4_bit + 0x3CC) = (s32) (*(s32 *)((s8 *)ene_re4_bit + 0x3CC) & 0xFFFFEFFF);
+        *(s32 *)((s8 *)ene_re4_bit + 0x3D0) = 3;
         break;
     case 3:
-        if (*(f32 *)((s8 *)arg0 + 0x3D8) <= TObjEneRe4Bit__data_805DA770) {
-            transition_enemy_state(arg0, 1);
+        if (*(f32 *)((s8 *)ene_re4_bit + 0x3D8) <= TObjEneRe4Bit__data_805DA770) {
+            transition_enemy_state(ene_re4_bit, 1);
             break;
         }
     case 5:
         break;
     case 0:
-        *(f32 *)((s8 *)arg0 + 0x3D8) = (f32) (*(f32 *)((s8 *)arg0 + 0x3D8) - lbl_805DA778);
-        if (*(f32 *)((s8 *)arg0 + 0x3D8) < TObjEneRe4Bit__data_805DA770) {
-            *(f32 *)((s8 *)arg0 + 0x3D8) = (f32) TObjEneRe4Bit__data_805DA770;
+        *(f32 *)((s8 *)ene_re4_bit + 0x3D8) = (f32) (*(f32 *)((s8 *)ene_re4_bit + 0x3D8) - lbl_805DA778);
+        if (*(f32 *)((s8 *)ene_re4_bit + 0x3D8) < TObjEneRe4Bit__data_805DA770) {
+            *(f32 *)((s8 *)ene_re4_bit + 0x3D8) = (f32) TObjEneRe4Bit__data_805DA770;
         }
-        arg0->rotation_y = (s32) (arg0->rotation_y - 0x1800);
-        arg0->update_homing_velocity();
-        arg0->update_position_flag();
+        ene_re4_bit->rotation_y = (s32) (ene_re4_bit->rotation_y - 0x1800);
+        ene_re4_bit->update_homing_velocity();
+        ene_re4_bit->update_position_flag();
         break;
     }
 }
@@ -618,42 +618,42 @@ void TObjEneRe4Bit__sub_800ECE04(TObjEneRe4Bit *arg0, s32 arg1) {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
-void TObjEneRe4Bit__sub_800ECED0(TObjEneRe4Bit *arg0, s32 arg1) {
+void TObjEneRe4Bit__sub_800ECED0(TObjEneRe4Bit *ene_re4_bit, s32 arg1) {
     s32 temp_r4;
     switch (arg1) {
     case 4:
-        ((TObjEneDD *)arg0)->set_field_378(3);
-        *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 0x1000);
-        arg0->m_408 = 0;
-        *(s32 *)((s8 *)arg0 + 0x404) = 1;
-        *(s32 *)((s8 *)arg0 + 0x3D0) = (s32) *(s32 *)&arg0->m_3f0;
+        ((TObjEneDD *)ene_re4_bit)->set_field_378(3);
+        *(s32 *)((s8 *)ene_re4_bit + 0x3CC) = (s32) (*(s32 *)((s8 *)ene_re4_bit + 0x3CC) | 0x1000);
+        ene_re4_bit->m_408 = 0;
+        *(s32 *)((s8 *)ene_re4_bit + 0x404) = 1;
+        *(s32 *)((s8 *)ene_re4_bit + 0x3D0) = (s32) *(s32 *)&ene_re4_bit->m_3f0;
         return;
     case 3:
-        temp_r4 = *(s32 *)((s8 *)arg0 + 0x3CC);
+        temp_r4 = *(s32 *)((s8 *)ene_re4_bit + 0x3CC);
         if (temp_r4 & 2) {
-            *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (temp_r4 & 0xFFFFFFFD);
-            transition_enemy_state(arg0, 3);
+            *(s32 *)((s8 *)ene_re4_bit + 0x3CC) = (s32) (temp_r4 & 0xFFFFFFFD);
+            transition_enemy_state(ene_re4_bit, 3);
         }
         return;
     case 0:
-        switch (arg0->m_408) {
+        switch (ene_re4_bit->m_408) {
         case 1:
             break;
         case 0:
-            *(f32 *)((s8 *)arg0 + 0x3D8) = *(f32 *)((s8 *)arg0 + 0x3D8) + lbl_805DA778;
-            if (*(f32 *)((s8 *)arg0 + 0x3D8) > lbl_805DA76C) {
-                *(f32 *)((s8 *)arg0 + 0x3D8) = lbl_805DA76C;
-                arg0->m_408 = 1;
-                *(s32 *)((s8 *)arg0 + 0x404) = 2;
+            *(f32 *)((s8 *)ene_re4_bit + 0x3D8) = *(f32 *)((s8 *)ene_re4_bit + 0x3D8) + lbl_805DA778;
+            if (*(f32 *)((s8 *)ene_re4_bit + 0x3D8) > lbl_805DA76C) {
+                *(f32 *)((s8 *)ene_re4_bit + 0x3D8) = lbl_805DA76C;
+                ene_re4_bit->m_408 = 1;
+                *(s32 *)((s8 *)ene_re4_bit + 0x404) = 2;
             }
-            arg0->rotation_y = (s32) (arg0->rotation_y + 0x1800);
+            ene_re4_bit->rotation_y = (s32) (ene_re4_bit->rotation_y + 0x1800);
             break;
         }
-        arg0->update_homing_velocity();
-        arg0->update_position_flag();
+        ene_re4_bit->update_homing_velocity();
+        ene_re4_bit->update_position_flag();
         return;
     case 5:
-        *(s32 *)((s8 *)arg0 + 0x404) = 0;
+        *(s32 *)((s8 *)ene_re4_bit + 0x404) = 0;
         break;
     }
 }

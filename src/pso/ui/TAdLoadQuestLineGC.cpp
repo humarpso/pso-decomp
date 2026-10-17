@@ -42,7 +42,7 @@ TAdLoadQuestLineGC::~TAdLoadQuestLineGC() {
 }
 
 extern void *lbl_805D4300;
-TAdLoadQuestLineGC::TAdLoadQuestLineGC(TObject *arg1, void *arg2) : TObject(arg1) {
+TAdLoadQuestLineGC::TAdLoadQuestLineGC(TObject *object, void *arg2) : TObject(object) {
     *(void * *)&this->m_name = lbl_805D4300;
     *(void **)((s8 *)this + 0x1C) = arg2;
     this->m_frameCount = -1;

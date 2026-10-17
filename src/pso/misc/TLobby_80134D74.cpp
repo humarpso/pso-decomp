@@ -7,10 +7,10 @@ extern "C" {
 extern void *TLobby__protocol_instance;
 
 void TLobby::disconnect_protocol() {
-    void *temp_r3;
-    temp_r3 = TLobby__protocol_instance;
-    if (temp_r3 != NULL) {
-        ((TProtocol *)temp_r3)->send_logout();
+    void *protocol;
+    protocol = TLobby__protocol_instance;
+    if (protocol != NULL) {
+        ((TProtocol *)protocol)->send_logout();
     }
 }
 

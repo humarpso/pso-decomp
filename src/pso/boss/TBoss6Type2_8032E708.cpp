@@ -766,10 +766,10 @@ void TBoss6Mag::spawn_falling_rocks() {
 }
 #pragma pop
 
-void TBoss6Type2__sub_8032F5C4(void *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) ((*(s32 *)((s8 *)arg0 + 0x30)) & ~0xA00);
-    *(s16 *)((s8 *)arg0 + 0x32C) = (s16) *(s32 *)((s8 *)arg0 + 0x38C);
-    ((TBoss6Mag *)arg0)->sync_hp();
+void TBoss6Type2__sub_8032F5C4(void *boss6_mag) {
+    *(s32 *)((s8 *)boss6_mag + 0x30) = (s32) ((*(s32 *)((s8 *)boss6_mag + 0x30)) & ~0xA00);
+    *(s16 *)((s8 *)boss6_mag + 0x32C) = (s16) *(s32 *)((s8 *)boss6_mag + 0x38C);
+    ((TBoss6Mag *)boss6_mag)->sync_hp();
 }
 
 void TBoss6Type2::apply_random_drift() {

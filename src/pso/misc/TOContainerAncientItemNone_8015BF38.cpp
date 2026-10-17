@@ -27,11 +27,11 @@ void TOContainerAncientItemRare__ct(void *);
 extern s32 __vt__26TOContainerAncientItemNone[];
 extern void *lbl_805D2F04;
 
-void *TOContainerAncientItemNone__ct(void *arg0) {
-    TOContainerAncientItemRare__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__26TOContainerAncientItemNone;
-    *(void * *)&((TOContainerAncientItemNone *)arg0)->m_name = lbl_805D2F04;
-    return arg0;
+void *TOContainerAncientItemNone__ct(void *container_ancient_item_none) {
+    TOContainerAncientItemRare__ct(container_ancient_item_none);
+    *(s32 **)((s8 *)container_ancient_item_none + 0x18) = __vt__26TOContainerAncientItemNone;
+    *(void * *)&((TOContainerAncientItemNone *)container_ancient_item_none)->m_name = lbl_805D2F04;
+    return container_ancient_item_none;
 }
 
 void TOContainerAncientItemRare::vfunc_6(s16 *arg1, s32 arg2) {

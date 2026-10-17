@@ -146,16 +146,16 @@ void *__dt__20TObjEneMe3StelthRealFv(void *arg0, s16 arg1) {
 extern void *tl_04;
 
 typedef char RecoveredGlobal_800F0DF0___vt__20TObjEneMe3StelthReal_size[sizeof(RecoveredGlobal_800F0DF0___vt__20TObjEneMe3StelthReal) == 0x1D0 ? 1 : -1];
-u8 *TObjEneMe3StelthReal__ct(TObjEneMe3StelthReal *arg0, s32 arg1, s32 arg2) {
+u8 *TObjEneMe3StelthReal__ct(TObjEneMe3StelthReal *ene_me3_stelth_real, s32 arg1, s32 arg2) {
     TObjEneMe3Stelth__ct();
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800F0DF0___vt__20TObjEneMe3StelthReal *)&__vt__20TObjEneMe3StelthReal).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2AFC;
-    invoke_initialization_hook__9TObjEneDDFv((void *)arg0, (void *)arg2);
-    ((TObjEneMe3Stelth *)arg0)->setup_move_bounds();
-    arg0->init_common();
-    arg0->mode = 0;
-    ((VObj_18_be4a70 *)(arg0))->m85(arg0->mode, 4);
-    return (u8 *)arg0;
+    *(s32 **)((s8 *)ene_me3_stelth_real + 0x18) = &(*(RecoveredGlobal_800F0DF0___vt__20TObjEneMe3StelthReal *)&__vt__20TObjEneMe3StelthReal).value;
+    *(s32 *)((s8 *)ene_me3_stelth_real + 0) = (s32) lbl_805D2AFC;
+    invoke_initialization_hook__9TObjEneDDFv((void *)ene_me3_stelth_real, (void *)arg2);
+    ((TObjEneMe3Stelth *)ene_me3_stelth_real)->setup_move_bounds();
+    ene_me3_stelth_real->init_common();
+    ene_me3_stelth_real->mode = 0;
+    ((VObj_18_be4a70 *)(ene_me3_stelth_real))->m85(ene_me3_stelth_real->mode, 4);
+    return (u8 *)ene_me3_stelth_real;
 }
 
 void *TObjEneMe3StelthReal::create(void *arg0) {

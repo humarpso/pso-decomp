@@ -305,19 +305,19 @@ u8 *__dt__22THunterGuildSeqOfflineFv(u8 *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_802132F0___vt__22THunterGuildSeqOffline_size[sizeof(RecoveredGlobal_802132F0___vt__22THunterGuildSeqOffline) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_802132F0_THunterGuildSeqOffline__data_80513DD8_size[sizeof(RecoveredGlobal_802132F0_THunterGuildSeqOffline__data_80513DD8) == 0x10 ? 1 : -1];
-u8 *THunterGuildSeqOffline__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TShopSequence__ct((arg0));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802132F0___vt__22THunterGuildSeqOffline *)&__vt__22THunterGuildSeqOffline).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3658;
-    *(s32 *)((s8 *)arg0 + 0x20) = 0;
-    *(s32 *)((s8 *)arg0 + 0x2C) = 0;
-    ((THunterGuildSeqOffline *)arg0)->m_24 = arg2;
-    *(s32 *)((s8 *)arg0 + 0x30) = 0;
-    ((THunterGuildSeqOffline *)arg0)->m_34 = 0;
-    *(s32 *)((s8 *)arg0 + 0x38) = 0;
-    (*(u8 * *)&THunterGuildSeqOffline__active_instance) = arg0;
-    *(s32 *)((s8 *)(&(*(RecoveredGlobal_802132F0_THunterGuildSeqOffline__data_80513DD8 *)&THunterGuildSeqOffline__instance_table).value) + (sub_8022397C__15TShopWindowBaseFv(arg0) * 4)) = 1;
-    return arg0;
+u8 *THunterGuildSeqOffline__ct(u8 *hunter_guild_seq_offline, s32 arg1, s32 arg2) {
+    TShopSequence__ct((hunter_guild_seq_offline));
+    *(s32 **)((s8 *)hunter_guild_seq_offline + 0x18) = &(*(RecoveredGlobal_802132F0___vt__22THunterGuildSeqOffline *)&__vt__22THunterGuildSeqOffline).value;
+    *(s32 *)((s8 *)hunter_guild_seq_offline + 0) = (s32) lbl_805D3658;
+    *(s32 *)((s8 *)hunter_guild_seq_offline + 0x20) = 0;
+    *(s32 *)((s8 *)hunter_guild_seq_offline + 0x2C) = 0;
+    ((THunterGuildSeqOffline *)hunter_guild_seq_offline)->m_24 = arg2;
+    *(s32 *)((s8 *)hunter_guild_seq_offline + 0x30) = 0;
+    ((THunterGuildSeqOffline *)hunter_guild_seq_offline)->m_34 = 0;
+    *(s32 *)((s8 *)hunter_guild_seq_offline + 0x38) = 0;
+    (*(u8 * *)&THunterGuildSeqOffline__active_instance) = hunter_guild_seq_offline;
+    *(s32 *)((s8 *)(&(*(RecoveredGlobal_802132F0_THunterGuildSeqOffline__data_80513DD8 *)&THunterGuildSeqOffline__instance_table).value) + (sub_8022397C__15TShopWindowBaseFv(hunter_guild_seq_offline) * 4)) = 1;
+    return hunter_guild_seq_offline;
 }
 
 void THunterGuildSeqOffline::clear_instance_table() {
@@ -358,22 +358,22 @@ s32 THunterGuildSeqOffline__sub_80213458(void) {
 
 typedef char RecoveredGlobal_8021354C_THunterGuildSeqOffline__data_80513DC8_size[sizeof(RecoveredGlobal_8021354C_THunterGuildSeqOffline__data_80513DC8) == 0x10 ? 1 : -1];
 
-void THunterGuildSeqOffline__sub_80213474(void *arg0) {
-    void *p = *(void **)((s8 *)arg0 + 0x38);
+void THunterGuildSeqOffline__sub_80213474(void *shop_sequence) {
+    void *p = *(void **)((s8 *)shop_sequence + 0x38);
     if (p != NULL) {
         if (((TObject *)p)->all_parents_unqueued_for_destruction() != 0) {
             return;
         }
-        *(u32 *)((s8 *)arg0 + 0x38) = 0U;
+        *(u32 *)((s8 *)shop_sequence + 0x38) = 0U;
     }
-    if ((((V_A_80213474 *) arg0)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(arg0) != 0) || (sub_802239EC__13TShopSequenceFv(arg0) != 0))) {
-        switch (*(s32 *)((s8 *)arg0 + 0x34)) {
+    if ((((V_A_80213474 *) shop_sequence)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(shop_sequence) != 0) || (sub_802239EC__13TShopSequenceFv(shop_sequence) != 0))) {
+        switch (*(s32 *)((s8 *)shop_sequence + 0x34)) {
         case 1: {
             void *o = __nw__7TObjectFUl(0x28);
             if (o != NULL) {
                 ((THunterGuildSeqOffline *)o)->init(tl_00, reset_random_enemies_mode);
             }
-            obj_getField1c(*(s32 *)((s8 *)arg0 + 0x24));
+            obj_getField1c(*(s32 *)((s8 *)shop_sequence + 0x24));
             THunterGuildSeqOffline__sub_8021E180();
             break;
         }
@@ -382,18 +382,18 @@ void THunterGuildSeqOffline__sub_80213474(void *arg0) {
         case 2:
             break;
         }
-        close_window__13TShopSequenceFv(arg0);
-        queue_destruction__7TObjectFv(arg0);
+        close_window__13TShopSequenceFv(shop_sequence);
+        queue_destruction__7TObjectFv(shop_sequence);
     }
 }
 
 void THunterGuildSeqOffline::handle_confirm_window() {
     u8 *arg0 = (u8 *)this;
     s32 selected_menu_value;
-    u8 *temp_r3;
-    u8 *temp_r3_3;
-    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x3C));
-    if ((temp_r3 != NULL) && (((TWindowMenu *)temp_r3)->is_visible() != 0)) {
+    u8 *window_menu;
+    u8 *window_sub_com_card;
+    window_menu = (u8 *)(*(u8 **)((s8 *)arg0 + 0x3C));
+    if ((window_menu != NULL) && (((TWindowMenu *)window_menu)->is_visible() != 0)) {
         selected_menu_value = get_selected_menu_value(*(u8 **)((s8 *)arg0 + 0x3C));
         switch (selected_menu_value) {
         case 0:
@@ -415,8 +415,8 @@ void THunterGuildSeqOffline::handle_confirm_window() {
             break;
         }
     }
-    temp_r3_3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x3C));
-    if ((temp_r3_3 != NULL) && (((TWindowSubComCard *)temp_r3_3)->get_status_flag() != 0)) {
+    window_sub_com_card = (u8 *)(*(u8 **)((s8 *)arg0 + 0x3C));
+    if ((window_sub_com_card != NULL) && (((TWindowSubComCard *)window_sub_com_card)->get_status_flag() != 0)) {
         TWindow__close((*(u8 **)((s8 *)arg0 + 0x3C)));
         *(u8 **)((s8 *)arg0 + 0x3C) = NULL;
         ((VObj_18_97738d *)(arg0))->m7(0xA, 1);

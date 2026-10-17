@@ -27,375 +27,375 @@ s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdPlayerLoadGC__sub_801E24F8(s32, s32, s32, s32, s32);
 s32 TAdSubPlyItemGC__sub_802D6D88(s32);
 
-void update_slot_state__16TAdChrSelBSlotGCFPv(void *arg0) {
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x70) != 0U) {
-        ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x70)))->close();
-        *(u32 *)((s8 *)arg0 + 0x70) = 0U;
+void update_slot_state__16TAdChrSelBSlotGCFPv(void *ad_chr_sel_b_slot_gc) {
+    if ((u32) *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x70) != 0U) {
+        ((TWindowSubComCard *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x70)))->close();
+        *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x70) = 0U;
     }
     if ((u32) (TAdPlayerLoadGC__sub_801E1B50(1) + 0x10000) != 0xFFFFU) {
         if ((((TAdPlayerLoadGC *)1)->check_card_result_code() != 0) && (TAdPlayerLoadGC__sub_801E1B50(1) == 0)) {
-            ((TAdChrSelBSlotGC *)arg0)->m_74 = TAdChrSelASlotGC__sub_8030C688(TAdChrSelBSlotGC::get_global_slot_data(), 1);
-            *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_1c = 0xA;
+            ((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_74 = TAdChrSelASlotGC__sub_8030C688(TAdChrSelBSlotGC::get_global_slot_data(), 1);
+            *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_1c = 0xA;
             return;
         }
-        ((TAdChrSelBSlotGC *)arg0)->m_7c = TAdChrSelASlotGC__sub_8030C4F8(TAdChrSelBSlotGC::get_global_slot_data(), 1);
-        *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_1c = 0xB;
+        ((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_7c = TAdChrSelASlotGC__sub_8030C4F8(TAdChrSelBSlotGC::get_global_slot_data(), 1);
+        *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_1c = 0xB;
         return;
     }
-    if (get_global_state__16TAdChrSelBSlotGCFv(arg0) < 0xC) {
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x40) != 0U) {
-            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x40)));
-            *(u32 *)((s8 *)arg0 + 0x40) = 0U;
+    if (get_global_state__16TAdChrSelBSlotGCFv(ad_chr_sel_b_slot_gc) < 0xC) {
+        if ((u32) *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x40) != 0U) {
+            TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x40)));
+            *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x40) = 0U;
         }
-        *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_1c = 1;
+        *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_1c = 1;
     }
 }
 
-void update_card_select__16TAdChrSelBSlotGCFPv(void *arg0) {
+void update_card_select__16TAdChrSelBSlotGCFPv(void *ad_chr_sel_b_slot_gc) {
 
-    if ((u32) *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_6c != 0U) {
-        ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x6C)))->close();
-        *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_6c = 0U;
+    if ((u32) *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_6c != 0U) {
+        ((TWindowSubComCard *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x6C)))->close();
+        *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_6c = 0U;
     }
-    if (((TWindowMessageYesNo *)(*(s32 *)((s8 *)arg0 + 0x70)))->is_child_visible() != 0) {
-        switch (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x70)))->get_slot_or_neg1()) {
+    if (((TWindowMessageYesNo *)(*(s32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x70)))->is_child_visible() != 0) {
+        switch (((TWindowSubComCard *)(*(s32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x70)))->get_slot_or_neg1()) {
         case 1:
-            *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_1c = 7;
+            *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_1c = 7;
             return;
         case 0:
             if (TAdPlayerLoadGC__sub_801E24F8(1, 0, 0, 0, 0) == 0) {
-                *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_1c = 9;
+                *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_1c = 9;
                 return;
             }
-            ((TAdChrSelBSlotGC *)arg0)->m_7c = TAdChrSelASlotGC__sub_8030C4F8(TAdChrSelBSlotGC::get_global_slot_data(), 1);
-            *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_1c = 0xB;
+            ((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_7c = TAdChrSelASlotGC__sub_8030C4F8(TAdChrSelBSlotGC::get_global_slot_data(), 1);
+            *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_1c = 0xB;
             return;
         }
     } else {
-        if (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x70)))->get_card_data() != 0) {
-            *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_1c = 7;
+        if (((TWindowSubComCard *)(*(s32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x70)))->get_card_data() != 0) {
+            *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_1c = 7;
             return;
         }
-        if (get_global_state__16TAdChrSelBSlotGCFv(arg0) < 0xC) {
-            if ((u32) *(u32 *)((s8 *)arg0 + 0x40) != 0U) {
-                TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x40)));
-                *(u32 *)((s8 *)arg0 + 0x40) = 0U;
+        if (get_global_state__16TAdChrSelBSlotGCFv(ad_chr_sel_b_slot_gc) < 0xC) {
+            if ((u32) *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x40) != 0U) {
+                TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x40)));
+                *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x40) = 0U;
             }
-            *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_1c = 1;
+            *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_1c = 1;
         }
     }
 }
 
-void TAdChrSelBSlotGC__sub_8030EF74(void *arg0) {
-    if ((u32) *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_6c != 0U) {
-        ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x6C)))->close();
-        *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_6c = 0U;
+void TAdChrSelBSlotGC__sub_8030EF74(void *ad_chr_sel_b_slot_gc) {
+    if ((u32) *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_6c != 0U) {
+        ((TWindowSubComCard *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x6C)))->close();
+        *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_6c = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x70) != 0U) {
-        ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x70)))->close();
-        *(u32 *)((s8 *)arg0 + 0x70) = 0U;
+    if ((u32) *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x70) != 0U) {
+        ((TWindowSubComCard *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x70)))->close();
+        *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x70) = 0U;
     }
-    if (get_global_state__16TAdChrSelBSlotGCFv(arg0) < 0xC) {
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x40) != 0U) {
-            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x40)));
-            *(u32 *)((s8 *)arg0 + 0x40) = 0U;
+    if (get_global_state__16TAdChrSelBSlotGCFv(ad_chr_sel_b_slot_gc) < 0xC) {
+        if ((u32) *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x40) != 0U) {
+            TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x40)));
+            *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x40) = 0U;
         }
-        *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_1c = 1;
+        *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_1c = 1;
         return;
     }
-    if (((s32) *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_24 > 0xA) && ((u32) *(u32 *)((s8 *)arg0 + 0x78) == 0U) && (TAdChrSelBSlotGC::get_global_slot_data() != 0U)) {
-        *(u32 *)((s8 *)arg0 + 0x78) = TAdChrSelASlotGC__sub_8030C5C0(TAdChrSelBSlotGC::get_global_slot_data(), 1);
+    if (((s32) *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_24 > 0xA) && ((u32) *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x78) == 0U) && (TAdChrSelBSlotGC::get_global_slot_data() != 0U)) {
+        *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x78) = TAdChrSelASlotGC__sub_8030C5C0(TAdChrSelBSlotGC::get_global_slot_data(), 1);
     }
 }
 
-void update_card_confirm__16TAdChrSelBSlotGCFPv(void *arg0) {
+void update_card_confirm__16TAdChrSelBSlotGCFPv(void *ad_chr_sel_b_slot_gc) {
     s32 var_r31;
 
-    if (((TWindowMessageYesNo *)(((TAdChrSelBSlotGC *)arg0)->m_6c))->is_child_visible() != 0) {
-        switch (((TWindowSubComCard *)(((TAdChrSelBSlotGC *)arg0)->m_6c))->get_slot_or_neg1()) {
+    if (((TWindowMessageYesNo *)(((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_6c))->is_child_visible() != 0) {
+        switch (((TWindowSubComCard *)(((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_6c))->get_slot_or_neg1()) {
         case 1:
-            *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_1c = 7;
+            *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_1c = 7;
             return;
         case 0:
-            if (((u32) *(u32 *)((s8 *)arg0 + 0x70) == 0U) && (TAdChrSelBSlotGC::get_global_slot_data() != 0U)) {
+            if (((u32) *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x70) == 0U) && (TAdChrSelBSlotGC::get_global_slot_data() != 0U)) {
                 if (TAdMultiPlyChrSelectGC::get_state() != 0U) {
                     TAdMultiPlyChrSelectGC::get_state();
                     var_r31 = get_state_result__22TAdMultiPlyChrSelectGCFv();
                 } else {
                     var_r31 = 0;
                 }
-                *(u32 *)((s8 *)arg0 + 0x70) = ((TAdChrSelASlotGC *)(TAdChrSelBSlotGC::get_global_slot_data()))->open_confirm_message(1, var_r31);
-                *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_1c = 8;
+                *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x70) = ((TAdChrSelASlotGC *)(TAdChrSelBSlotGC::get_global_slot_data()))->open_confirm_message(1, var_r31);
+                *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_1c = 8;
                 return;
             }
             break;
         }
     } else {
-        if (((TWindowSubComCard *)(((TAdChrSelBSlotGC *)arg0)->m_6c))->get_card_data() != 0) {
-            *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_1c = 7;
+        if (((TWindowSubComCard *)(((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_6c))->get_card_data() != 0) {
+            *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_1c = 7;
             return;
         }
-        if (get_global_state__16TAdChrSelBSlotGCFv(arg0) < 0xC) {
-            if ((u32) *(u32 *)((s8 *)arg0 + 0x40) != 0U) {
-                TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x40)));
-                *(u32 *)((s8 *)arg0 + 0x40) = 0U;
+        if (get_global_state__16TAdChrSelBSlotGCFv(ad_chr_sel_b_slot_gc) < 0xC) {
+            if ((u32) *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x40) != 0U) {
+                TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x40)));
+                *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x40) = 0U;
             }
-            *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_1c = 1;
+            *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_1c = 1;
         }
     }
 }
 
-void TAdChrSelBSlotGC__sub_8030F13C(u8 *arg0) {
+void TAdChrSelBSlotGC__sub_8030F13C(u8 *ad_chr_sel_b_slot_gc) {
     s32 var_r31;
-    if (get_global_state__16TAdChrSelBSlotGCFv(arg0) > 0x11) {
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x50) != 0U) {
-            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x50)));
-            *(u32 *)((s8 *)arg0 + 0x50) = 0U;
+    if (get_global_state__16TAdChrSelBSlotGCFv(ad_chr_sel_b_slot_gc) > 0x11) {
+        if ((u32) *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x50) != 0U) {
+            TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x50)));
+            *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x50) = 0U;
         }
-        *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_1c = 0xC;
+        *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_1c = 0xC;
         return;
     }
-    if (get_global_state__16TAdChrSelBSlotGCFv(arg0) < 0xC) {
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x40) != 0U) {
-            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x40)));
-            *(u32 *)((s8 *)arg0 + 0x40) = 0U;
+    if (get_global_state__16TAdChrSelBSlotGCFv(ad_chr_sel_b_slot_gc) < 0xC) {
+        if ((u32) *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x40) != 0U) {
+            TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x40)));
+            *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x40) = 0U;
         }
-        *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_1c = 1;
+        *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_1c = 1;
         return;
     }
-    if (((s32) *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_24 > 0xA) && ((u32) *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_6c == 0U) && (TAdChrSelBSlotGC::get_global_slot_data() != 0U)) {
+    if (((s32) *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_24 > 0xA) && ((u32) *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_6c == 0U) && (TAdChrSelBSlotGC::get_global_slot_data() != 0U)) {
         if (TAdMultiPlyChrSelectGC::get_state() != 0U) {
             TAdMultiPlyChrSelectGC::get_state();
             var_r31 = get_state_result__22TAdMultiPlyChrSelectGCFv();
         } else {
             var_r31 = 0;
         }
-        *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_6c = ((TAdChrSelASlotGC *)(TAdChrSelBSlotGC::get_global_slot_data()))->create_message_window(1, var_r31);
-        *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_1c = 6;
+        *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_6c = ((TAdChrSelASlotGC *)(TAdChrSelBSlotGC::get_global_slot_data()))->create_message_window(1, var_r31);
+        *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_1c = 6;
     }
 }
 
-void TAdChrSelBSlotGC__sub_8030F228(u8 *arg0) {
-    if (get_global_state__16TAdChrSelBSlotGCFv(arg0) > 0x10) {
-        if ((u32) *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_4c != 0U) {
-            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x4C)));
-            *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_4c = 0U;
+void TAdChrSelBSlotGC__sub_8030F228(u8 *ad_chr_sel_b_slot_gc) {
+    if (get_global_state__16TAdChrSelBSlotGCFv(ad_chr_sel_b_slot_gc) > 0x10) {
+        if ((u32) *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_4c != 0U) {
+            TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x4C)));
+            *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_4c = 0U;
         }
-        *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_1c = 5;
+        *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_1c = 5;
         return;
     }
-    if (get_global_state__16TAdChrSelBSlotGCFv(arg0) < 0xC) {
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x40) != 0U) {
-            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x40)));
-            *(u32 *)((s8 *)arg0 + 0x40) = 0U;
+    if (get_global_state__16TAdChrSelBSlotGCFv(ad_chr_sel_b_slot_gc) < 0xC) {
+        if ((u32) *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x40) != 0U) {
+            TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x40)));
+            *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x40) = 0U;
         }
-        *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_1c = 1;
+        *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_1c = 1;
         return;
     }
-    if (((s32) *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_24 > 0xA) && ((u32) *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_4c == 0U)) {
+    if (((s32) *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_24 > 0xA) && ((u32) *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_4c == 0U)) {
         TAdChrSelBSlotGC::get_global_slot_data();
-        *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_4c = TAdChrSelASlotGC__sub_8030CB08((s32)((void *)(((s32)TAdChrSelBSlotGC::get_global_slot_data()))), 1, 7);
+        *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_4c = TAdChrSelASlotGC__sub_8030CB08((s32)((void *)(((s32)TAdChrSelBSlotGC::get_global_slot_data()))), 1, 7);
     }
 }
 
-void TAdChrSelBSlotGC__sub_8030F2E4(u8 *arg0) {
-    if (get_global_state__16TAdChrSelBSlotGCFv(arg0) > 0xF) {
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x48) != 0U) {
-            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x48)));
-            *(u32 *)((s8 *)arg0 + 0x48) = 0U;
+void TAdChrSelBSlotGC__sub_8030F2E4(u8 *ad_chr_sel_b_slot_gc) {
+    if (get_global_state__16TAdChrSelBSlotGCFv(ad_chr_sel_b_slot_gc) > 0xF) {
+        if ((u32) *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x48) != 0U) {
+            TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x48)));
+            *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x48) = 0U;
         }
-        *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_1c = 4;
+        *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_1c = 4;
         return;
     }
-    if (get_global_state__16TAdChrSelBSlotGCFv(arg0) < 0xC) {
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x40) != 0U) {
-            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x40)));
-            *(u32 *)((s8 *)arg0 + 0x40) = 0U;
+    if (get_global_state__16TAdChrSelBSlotGCFv(ad_chr_sel_b_slot_gc) < 0xC) {
+        if ((u32) *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x40) != 0U) {
+            TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x40)));
+            *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x40) = 0U;
         }
-        *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_1c = 1;
+        *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_1c = 1;
         return;
     }
-    if (((s32) *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_24 > 0xA) && ((u32) *(u32 *)((s8 *)arg0 + 0x48) == 0U)) {
+    if (((s32) *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_24 > 0xA) && ((u32) *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x48) == 0U)) {
         TAdChrSelBSlotGC::get_global_slot_data();
-        *(u32 *)((s8 *)arg0 + 0x48) = TAdChrSelASlotGC__sub_8030CB08((s32)((void *)(((s32)TAdChrSelBSlotGC::get_global_slot_data()))), 1, 5);
+        *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x48) = TAdChrSelASlotGC__sub_8030CB08((s32)((void *)(((s32)TAdChrSelBSlotGC::get_global_slot_data()))), 1, 5);
     }
 }
 
-void TAdChrSelBSlotGC__sub_8030F3A0(u8 *arg0) {
-    if (get_global_state__16TAdChrSelBSlotGCFv(arg0) > 0xE) {
-        if ((u32) *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_44 != 0U) {
-            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x44)));
-            *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_44 = 0U;
+void TAdChrSelBSlotGC__sub_8030F3A0(u8 *ad_chr_sel_b_slot_gc) {
+    if (get_global_state__16TAdChrSelBSlotGCFv(ad_chr_sel_b_slot_gc) > 0xE) {
+        if ((u32) *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_44 != 0U) {
+            TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x44)));
+            *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_44 = 0U;
         }
-        *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_1c = 3;
+        *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_1c = 3;
         return;
     }
-    if (get_global_state__16TAdChrSelBSlotGCFv(arg0) < 0xC) {
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x40) != 0U) {
-            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x40)));
-            *(u32 *)((s8 *)arg0 + 0x40) = 0U;
+    if (get_global_state__16TAdChrSelBSlotGCFv(ad_chr_sel_b_slot_gc) < 0xC) {
+        if ((u32) *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x40) != 0U) {
+            TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x40)));
+            *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x40) = 0U;
         }
-        *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_1c = 1;
+        *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_1c = 1;
         return;
     }
-    if (((s32) *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_24 > 0xA) && ((u32) *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_44 == 0U)) {
+    if (((s32) *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_24 > 0xA) && ((u32) *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_44 == 0U)) {
         TAdChrSelBSlotGC::get_global_slot_data();
-        *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_44 = TAdChrSelASlotGC__sub_8030CB08((s32)((void *)(((s32)TAdChrSelBSlotGC::get_global_slot_data()))), 1, 3);
+        *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_44 = TAdChrSelASlotGC__sub_8030CB08((s32)((void *)(((s32)TAdChrSelBSlotGC::get_global_slot_data()))), 1, 3);
     }
 }
 
-void close_windows__16TAdChrSelBSlotGCFPv(void *arg0) {
-    if ((u32) *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_44 != 0U) {
-        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x44)));
-        *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_44 = 0U;
+void close_windows__16TAdChrSelBSlotGCFPv(void *ad_chr_sel_b_slot_gc) {
+    if ((u32) *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_44 != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x44)));
+        *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_44 = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x48) != 0U) {
-        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x48)));
-        *(u32 *)((s8 *)arg0 + 0x48) = 0U;
+    if ((u32) *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x48) != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x48)));
+        *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x48) = 0U;
     }
-    if ((u32) *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_4c != 0U) {
-        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x4C)));
-        *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_4c = 0U;
+    if ((u32) *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_4c != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x4C)));
+        *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_4c = 0U;
     }
-    if ((u32) *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_6c != 0U) {
-        ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x6C)))->close();
-        *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_6c = 0U;
+    if ((u32) *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_6c != 0U) {
+        ((TWindowSubComCard *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x6C)))->close();
+        *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_6c = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x70) != 0U) {
-        ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x70)))->close();
-        *(u32 *)((s8 *)arg0 + 0x70) = 0U;
+    if ((u32) *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x70) != 0U) {
+        ((TWindowSubComCard *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x70)))->close();
+        *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x70) = 0U;
     }
-    if ((u32) *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_74 != 0U) {
-        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x74)));
-        *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_74 = 0U;
+    if ((u32) *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_74 != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x74)));
+        *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_74 = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x78) != 0U) {
-        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x78)));
-        *(u32 *)((s8 *)arg0 + 0x78) = 0U;
+    if ((u32) *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x78) != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x78)));
+        *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x78) = 0U;
     }
-    if ((u32) *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_7c != 0U) {
-        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x7C)));
-        *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_7c = 0U;
+    if ((u32) *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_7c != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x7C)));
+        *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_7c = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x50) != 0U) {
-        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x50)));
-        *(u32 *)((s8 *)arg0 + 0x50) = 0U;
+    if ((u32) *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x50) != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x50)));
+        *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x50) = 0U;
     }
-    if ((u32) *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_54 != 0U) {
-        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x54)));
-        *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_54 = 0U;
+    if ((u32) *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_54 != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x54)));
+        *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_54 = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x58) != 0U) {
-        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x58)));
-        *(u32 *)((s8 *)arg0 + 0x58) = 0U;
+    if ((u32) *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x58) != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x58)));
+        *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x58) = 0U;
     }
-    if ((u32) *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_5c != 0U) {
-        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x5C)));
-        *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_5c = 0U;
+    if ((u32) *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_5c != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x5C)));
+        *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_5c = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x60) != 0U) {
-        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x60)));
-        *(u32 *)((s8 *)arg0 + 0x60) = 0U;
+    if ((u32) *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x60) != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x60)));
+        *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x60) = 0U;
     }
-    if ((u32) *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_64 != 0U) {
-        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x64)));
-        *(u32 *)&((TAdChrSelBSlotGC *)arg0)->m_64 = 0U;
+    if ((u32) *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_64 != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x64)));
+        *(u32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_64 = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x68) != 0U) {
-        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x68)));
-        *(u32 *)((s8 *)arg0 + 0x68) = 0U;
+    if ((u32) *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x68) != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x68)));
+        *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x68) = 0U;
     }
-    ((TAdPlyChrSelPlateGC *)(((TAdChrSelBSlotGC *)arg0)->m_2c))->reset_selection_slots();
-    TAdSubPlyItemGC__sub_802D6D88(*(s32 *)((s8 *)arg0 + 0x30));
-    ((TAdChrSelMovePlateGC *)(*(s32 *)((s8 *)arg0 + 0x34)))->clear_entries();
-    TAdChrSelSlotGC__sub_802C7498(*(s32 *)((s8 *)arg0 + 0x28), 2);
-    if (get_global_state__16TAdChrSelBSlotGCFv(arg0) > 0xD) {
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x40) != 0U) {
-            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x40)));
-            *(u32 *)((s8 *)arg0 + 0x40) = 0U;
+    ((TAdPlyChrSelPlateGC *)(((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_2c))->reset_selection_slots();
+    TAdSubPlyItemGC__sub_802D6D88(*(s32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x30));
+    ((TAdChrSelMovePlateGC *)(*(s32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x34)))->clear_entries();
+    TAdChrSelSlotGC__sub_802C7498(*(s32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x28), 2);
+    if (get_global_state__16TAdChrSelBSlotGCFv(ad_chr_sel_b_slot_gc) > 0xD) {
+        if ((u32) *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x40) != 0U) {
+            TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x40)));
+            *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x40) = 0U;
         }
-        *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_1c = 2;
+        *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_1c = 2;
         return;
     }
-    if (get_global_state__16TAdChrSelBSlotGCFv(arg0) < 0xC) {
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x40) != 0U) {
-            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x40)));
-            *(u32 *)((s8 *)arg0 + 0x40) = 0U;
+    if (get_global_state__16TAdChrSelBSlotGCFv(ad_chr_sel_b_slot_gc) < 0xC) {
+        if ((u32) *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x40) != 0U) {
+            TWindow__close((u8 *)(*(void **)((s8 *)ad_chr_sel_b_slot_gc + 0x40)));
+            *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x40) = 0U;
         }
-        *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_24 = 0;
-        *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_1c = 1;
+        *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_24 = 0;
+        *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_1c = 1;
         return;
     }
-    if (((s32) *(s32 *)&((TAdChrSelBSlotGC *)arg0)->m_24 > 0xA) && ((u32) *(u32 *)((s8 *)arg0 + 0x40) == 0U)) {
+    if (((s32) *(s32 *)&((TAdChrSelBSlotGC *)ad_chr_sel_b_slot_gc)->m_24 > 0xA) && ((u32) *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x40) == 0U)) {
         TAdChrSelBSlotGC::get_global_slot_data();
-        *(u32 *)((s8 *)arg0 + 0x40) = TAdChrSelASlotGC__sub_8030CB08(TAdChrSelBSlotGC::get_global_slot_data(), 1, 1);
+        *(u32 *)((s8 *)ad_chr_sel_b_slot_gc + 0x40) = TAdChrSelASlotGC__sub_8030CB08(TAdChrSelBSlotGC::get_global_slot_data(), 1, 1);
     }
 }
 
 extern s32 lbl_80475910[];
 extern const f32 lbl_805DF220;
 
-void reset_windows__16TAdChrSelBSlotGCFPv(void *arg0) {
-    ((TAdChrSelSlotGC *)(*(s32 *)&((TAdMcSelectGC *)arg0)->m_28))->reset_all_slots();
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x38) != 0U) {
-        queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x38));
-        *(u32 *)((s8 *)arg0 + 0x38) = 0U;
+void reset_windows__16TAdChrSelBSlotGCFPv(void *ad_mc_select_gc) {
+    ((TAdChrSelSlotGC *)(*(s32 *)&((TAdMcSelectGC *)ad_mc_select_gc)->m_28))->reset_all_slots();
+    if ((u32) *(u32 *)((s8 *)ad_mc_select_gc + 0x38) != 0U) {
+        queue_destruction__7TObjectFv(*(void **)((s8 *)ad_mc_select_gc + 0x38));
+        *(u32 *)((s8 *)ad_mc_select_gc + 0x38) = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x3C) != 0U) {
-        queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x3C));
-        *(u32 *)((s8 *)arg0 + 0x3C) = 0U;
+    if ((u32) *(u32 *)((s8 *)ad_mc_select_gc + 0x3C) != 0U) {
+        queue_destruction__7TObjectFv(*(void **)((s8 *)ad_mc_select_gc + 0x3C));
+        *(u32 *)((s8 *)ad_mc_select_gc + 0x3C) = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x40) != 0U) {
-        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x40)));
-        *(u32 *)((s8 *)arg0 + 0x40) = 0U;
+    if ((u32) *(u32 *)((s8 *)ad_mc_select_gc + 0x40) != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)ad_mc_select_gc + 0x40)));
+        *(u32 *)((s8 *)ad_mc_select_gc + 0x40) = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x44) != 0U) {
-        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x44)));
-        *(u32 *)((s8 *)arg0 + 0x44) = 0U;
+    if ((u32) *(u32 *)((s8 *)ad_mc_select_gc + 0x44) != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)ad_mc_select_gc + 0x44)));
+        *(u32 *)((s8 *)ad_mc_select_gc + 0x44) = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x48) != 0U) {
-        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x48)));
-        *(u32 *)((s8 *)arg0 + 0x48) = 0U;
+    if ((u32) *(u32 *)((s8 *)ad_mc_select_gc + 0x48) != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)ad_mc_select_gc + 0x48)));
+        *(u32 *)((s8 *)ad_mc_select_gc + 0x48) = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x4C) != 0U) {
-        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x4C)));
-        *(u32 *)((s8 *)arg0 + 0x4C) = 0U;
+    if ((u32) *(u32 *)((s8 *)ad_mc_select_gc + 0x4C) != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)ad_mc_select_gc + 0x4C)));
+        *(u32 *)((s8 *)ad_mc_select_gc + 0x4C) = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x50) != 0U) {
-        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x50)));
-        *(u32 *)((s8 *)arg0 + 0x50) = 0U;
+    if ((u32) *(u32 *)((s8 *)ad_mc_select_gc + 0x50) != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)ad_mc_select_gc + 0x50)));
+        *(u32 *)((s8 *)ad_mc_select_gc + 0x50) = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x54) != 0U) {
-        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x54)));
-        *(u32 *)((s8 *)arg0 + 0x54) = 0U;
+    if ((u32) *(u32 *)((s8 *)ad_mc_select_gc + 0x54) != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)ad_mc_select_gc + 0x54)));
+        *(u32 *)((s8 *)ad_mc_select_gc + 0x54) = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x58) != 0U) {
-        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x58)));
-        *(u32 *)((s8 *)arg0 + 0x58) = 0U;
+    if ((u32) *(u32 *)((s8 *)ad_mc_select_gc + 0x58) != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)ad_mc_select_gc + 0x58)));
+        *(u32 *)((s8 *)ad_mc_select_gc + 0x58) = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x5C) != 0U) {
-        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x5C)));
-        *(u32 *)((s8 *)arg0 + 0x5C) = 0U;
+    if ((u32) *(u32 *)((s8 *)ad_mc_select_gc + 0x5C) != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)ad_mc_select_gc + 0x5C)));
+        *(u32 *)((s8 *)ad_mc_select_gc + 0x5C) = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x60) != 0U) {
-        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x60)));
-        *(u32 *)((s8 *)arg0 + 0x60) = 0U;
+    if ((u32) *(u32 *)((s8 *)ad_mc_select_gc + 0x60) != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)ad_mc_select_gc + 0x60)));
+        *(u32 *)((s8 *)ad_mc_select_gc + 0x60) = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
-        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x64)));
-        *(u32 *)((s8 *)arg0 + 0x64) = 0U;
+    if ((u32) *(u32 *)((s8 *)ad_mc_select_gc + 0x64) != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)ad_mc_select_gc + 0x64)));
+        *(u32 *)((s8 *)ad_mc_select_gc + 0x64) = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x68) != 0U) {
-        TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x68)));
-        *(u32 *)((s8 *)arg0 + 0x68) = 0U;
+    if ((u32) *(u32 *)((s8 *)ad_mc_select_gc + 0x68) != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)ad_mc_select_gc + 0x68)));
+        *(u32 *)((s8 *)ad_mc_select_gc + 0x68) = 0U;
     }
-    ((TAdPlyChrSelPlateGC *)(*(s32 *)&((TAdMcSelectGC *)arg0)->m_2c))->reset_selection_slots();
-    TAdSubPlyItemGC__sub_802D6D88(*(s32 *)&((TAdMcSelectGC *)arg0)->m_30);
-    ((TAdMcSelectGC *)(*(s32 *)&((TAdMcSelectGC *)arg0)->m_28))->init_slot(1, lbl_80475910);
-    *(u32 *)((s8 *)arg0 + 0x38) = create_draw_line_ctrl__13TAdMcSelectGCFiif(arg0, 0xE, lbl_805DF220);
-    *(u32 *)((s8 *)arg0 + 0x3C) = create_draw_line_ctrl__13TAdMcSelectGCFiif(arg0, 0x15, lbl_805DF220);
-    *(s32 *)&((TAdMcSelectGC *)arg0)->m_24 = -1;
-    *(s32 *)&((TAdMcSelectGC *)arg0)->m_1c = 1;
+    ((TAdPlyChrSelPlateGC *)(*(s32 *)&((TAdMcSelectGC *)ad_mc_select_gc)->m_2c))->reset_selection_slots();
+    TAdSubPlyItemGC__sub_802D6D88(*(s32 *)&((TAdMcSelectGC *)ad_mc_select_gc)->m_30);
+    ((TAdMcSelectGC *)(*(s32 *)&((TAdMcSelectGC *)ad_mc_select_gc)->m_28))->init_slot(1, lbl_80475910);
+    *(u32 *)((s8 *)ad_mc_select_gc + 0x38) = create_draw_line_ctrl__13TAdMcSelectGCFiif(ad_mc_select_gc, 0xE, lbl_805DF220);
+    *(u32 *)((s8 *)ad_mc_select_gc + 0x3C) = create_draw_line_ctrl__13TAdMcSelectGCFiif(ad_mc_select_gc, 0x15, lbl_805DF220);
+    *(s32 *)&((TAdMcSelectGC *)ad_mc_select_gc)->m_24 = -1;
+    *(s32 *)&((TAdMcSelectGC *)ad_mc_select_gc)->m_1c = 1;
 }
 
 struct C_8030F874 {

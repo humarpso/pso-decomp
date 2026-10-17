@@ -159,13 +159,13 @@ void TEffIndirectCtrl::update_scroll_mode() {
 }
 }
 
-void update_eff_indirect(TEffIndirectCtrl *arg0) {
-    arg0->copy_and_flush_texture(get_indirect_source_pixels(arg0->m_24));
-    deform_indirect_texture_wave(arg0->m_1c, (s32) *(f32 *)((s8 *)arg0 + 0x48), arg0->m_4c, arg0->m_3c, arg0->m_40, *(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0x20)) + 6));
-    DCFlushRange(arg0->m_1c, 0x1000);
+void update_eff_indirect(TEffIndirectCtrl *eff_indirect_ctrl) {
+    eff_indirect_ctrl->copy_and_flush_texture(get_indirect_source_pixels(eff_indirect_ctrl->m_24));
+    deform_indirect_texture_wave(eff_indirect_ctrl->m_1c, (s32) *(f32 *)((s8 *)eff_indirect_ctrl + 0x48), eff_indirect_ctrl->m_4c, eff_indirect_ctrl->m_3c, eff_indirect_ctrl->m_40, *(u8 *)((s8 *)(*(void **)((s8 *)eff_indirect_ctrl + 0x20)) + 6));
+    DCFlushRange(eff_indirect_ctrl->m_1c, 0x1000);
 }
-void eff_indirect_update_and_flush(TEffIndirectCtrl *arg0) {
-    arg0->copy_and_flush_texture(get_indirect_source_pixels(arg0->m_24));
-    update_indirect_texture_wave(arg0->m_1c, (s32) *(f32 *)((s8 *)arg0 + 0x48), arg0->m_4c, arg0->m_3c, arg0->m_40, *(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0x20)) + 6));
-    DCFlushRange(arg0->m_1c, 0x1000);
+void eff_indirect_update_and_flush(TEffIndirectCtrl *eff_indirect_ctrl) {
+    eff_indirect_ctrl->copy_and_flush_texture(get_indirect_source_pixels(eff_indirect_ctrl->m_24));
+    update_indirect_texture_wave(eff_indirect_ctrl->m_1c, (s32) *(f32 *)((s8 *)eff_indirect_ctrl + 0x48), eff_indirect_ctrl->m_4c, eff_indirect_ctrl->m_3c, eff_indirect_ctrl->m_40, *(u8 *)((s8 *)(*(void **)((s8 *)eff_indirect_ctrl + 0x20)) + 6));
+    DCFlushRange(eff_indirect_ctrl->m_1c, 0x1000);
 }

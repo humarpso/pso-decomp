@@ -541,24 +541,24 @@ void *__dt__13TWindowSubMagFv(TWindowSubMag *arg0, s16 arg1) {
 
 extern s32 TWindowSubMag__class_name;
 
-void *TWindowSubMag__ct(TWindowSubMag *arg0, s32 arg1, s32 arg2) {
+void *TWindowSubMag__ct(TWindowSubMag *window_sub_mag, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TWindowSubMag;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubMag__class_name;
-    arg0->m_30 = arg1;
-    arg0->m_28 = arg2;
-    arg0->m_34 = arg0->setup_list();
-    arg0->m_40 = 0;
-    arg0->m_44 = 0;
-    arg0->m_3c = 0;
-    arg0->m_38 = 0;
-    arg0->m_48 = 0;
-    arg0->m_4c = 0;
-    arg0->m_2c = 0;
-    arg0->m_24 = -1;
-    arg0->m_1c = 0;
-    arg0->m_20 = 0;
-    return arg0;
+    *(s32 **)((s8 *)window_sub_mag + 0x18) = __vt__13TWindowSubMag;
+    *(s32 *)((s8 *)window_sub_mag + 0) = (s32) TWindowSubMag__class_name;
+    window_sub_mag->m_30 = arg1;
+    window_sub_mag->m_28 = arg2;
+    window_sub_mag->m_34 = window_sub_mag->setup_list();
+    window_sub_mag->m_40 = 0;
+    window_sub_mag->m_44 = 0;
+    window_sub_mag->m_3c = 0;
+    window_sub_mag->m_38 = 0;
+    window_sub_mag->m_48 = 0;
+    window_sub_mag->m_4c = 0;
+    window_sub_mag->m_2c = 0;
+    window_sub_mag->m_24 = -1;
+    window_sub_mag->m_1c = 0;
+    window_sub_mag->m_20 = 0;
+    return window_sub_mag;
 }
 
 s32 TWindowSubMag__sub_8027C0B0(s32 arg0) {

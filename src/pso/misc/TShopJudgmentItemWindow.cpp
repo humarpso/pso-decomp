@@ -685,23 +685,23 @@ void *__dt__23TShopJudgmentItemWindowFv(void *arg0, s16 arg1) {
 
 extern void *TShopJudgmentItemWindow__class_name;
 
-void *TShopJudgmentItemWindow__ct(TShopJudgmentItemWindow *arg0, void *arg1, void *arg2, void *arg3) {
-    __ct__15TShopWindowBaseFv(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__23TShopJudgmentItemWindow;
-    *(void * *)&arg0->m_name = TShopJudgmentItemWindow__class_name;
-    arg0->m_144 = 0;
-    arg0->m_148 = 0;
-    arg0->m_150 = 0;
-    *(void **)((s8 *)arg0 + 0x24) = arg3;
-    arg0->m_154 = 0;
-    arg0->m_158 = 0;
-    arg0->m_15c = 0;
-    arg0->m_160 = 0;
-    arg0->m_50 = 0;
-    *(void **)((s8 *)arg0 + 0x164) = arg2;
-    arg0->m_16c = 0;
-    arg0->m_170 = 0;
-    arg0->m_174 = 0;
-    return arg0;
+void *TShopJudgmentItemWindow__ct(TShopJudgmentItemWindow *shop_judgment_item_window, void *arg1, void *arg2, void *arg3) {
+    __ct__15TShopWindowBaseFv(shop_judgment_item_window);
+    *(s32 **)((s8 *)shop_judgment_item_window + 0x18) = __vt__23TShopJudgmentItemWindow;
+    *(void * *)&shop_judgment_item_window->m_name = TShopJudgmentItemWindow__class_name;
+    shop_judgment_item_window->m_144 = 0;
+    shop_judgment_item_window->m_148 = 0;
+    shop_judgment_item_window->m_150 = 0;
+    *(void **)((s8 *)shop_judgment_item_window + 0x24) = arg3;
+    shop_judgment_item_window->m_154 = 0;
+    shop_judgment_item_window->m_158 = 0;
+    shop_judgment_item_window->m_15c = 0;
+    shop_judgment_item_window->m_160 = 0;
+    shop_judgment_item_window->m_50 = 0;
+    *(void **)((s8 *)shop_judgment_item_window + 0x164) = arg2;
+    shop_judgment_item_window->m_16c = 0;
+    shop_judgment_item_window->m_170 = 0;
+    shop_judgment_item_window->m_174 = 0;
+    return shop_judgment_item_window;
 }
 }

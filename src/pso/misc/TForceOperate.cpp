@@ -157,14 +157,14 @@ void run_task__13TForceOperateFv(s32 arg0) {
 extern s32 __vt__13TForceOperate[];
 extern void *lbl_805D3560;
 
-void *TForceOperate__ct(void *arg0, void *arg1, void *arg2) {
-    struct VOff_801C5870_arg0_801C57D0 *self = (struct VOff_801C5870_arg0_801C57D0 *)arg0;
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TForceOperate;
+void *TForceOperate__ct(void *force_operate, void *arg1, void *arg2) {
+    struct VOff_801C5870_arg0_801C57D0 *self = (struct VOff_801C5870_arg0_801C57D0 *)force_operate;
+    __ct__7TObjectFP7TObject(force_operate);
+    *(s32 **)((s8 *)force_operate + 0x18) = __vt__13TForceOperate;
     fn_8013E020(self->f_1C);
-    *(void * *)&((TForceOperate *)arg0)->m_name = lbl_805D3560;
+    *(void * *)&((TForceOperate *)force_operate)->m_name = lbl_805D3560;
     set_field_0__13TForceOperateFs(self->f_1C, arg2);
-    return arg0;
+    return force_operate;
 }
 
 #pragma push

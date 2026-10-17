@@ -110,12 +110,12 @@ s32 strcmp(const char *, const char *);
 extern u8 meet_user_settings[];
 extern char *lobby_server_greeting_text;
 void handle_cmd_02__9TProtocolFR6packet(u8 *arg0, Recv_801DAA70 *arg1);
-void TLobby::send_c6_packet(void *arg1) {
+void TLobby::send_c6_packet(void *lobby) {
     if ((s32) *(s32 *)((s8 *)this + 0x1910) != 0) {
-        *(u8 *)((s8 *)arg1 + 0) = 0xC6;
-        *(s16 *)((s8 *)arg1 + 2) = 0x7C;
-        ((TLobby *)arg1)->bswap_c6_packet();
-        ((VObj_801DA7DC *)this)->m_call(arg1, 0x7C);
+        *(u8 *)((s8 *)lobby + 0) = 0xC6;
+        *(s16 *)((s8 *)lobby + 2) = 0x7C;
+        ((TLobby *)lobby)->bswap_c6_packet();
+        ((VObj_801DA7DC *)this)->m_call(lobby, 0x7C);
     }
 }
 

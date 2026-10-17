@@ -158,22 +158,22 @@ void *__dt__20TBoss5GryphonTornadoFv(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_803558E4___vt__20TBoss5GryphonTornado_size[sizeof(RecoveredGlobal_803558E4___vt__20TBoss5GryphonTornado) == 0x18 ? 1 : -1];
-u8 *TBoss5GryphonTornado__ct(TBoss5GryphonTornado *arg0, u8 *arg1, s32 arg2, u8 *arg3, s16 arg4) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_803558E4___vt__20TBoss5GryphonTornado *)&__vt__20TBoss5GryphonTornado).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4398;
-    VecCopy((Vec *)((u8 *)arg0 + 0x28), (const Vec *)arg3);
-    arg0->m_24 = arg4;
-    arg0->m_4c = arg2;
-    *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805DFFA8;
-    arg0->m_38 = (f32) lbl_805DFFA8;
-    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805DFFA8;
-    arg0->m_50 = 0;
-    arg0->m_54 = 0;
-    arg0->m_58 = 0;
-    arg0->m_20 = 0;
-    arg0->m_1c = 0;
-    return (u8 *)arg0;
+u8 *TBoss5GryphonTornado__ct(TBoss5GryphonTornado *boss5_gryphon_tornado, u8 *arg1, s32 arg2, u8 *arg3, s16 arg4) {
+    __ct__7TObjectFP7TObject(boss5_gryphon_tornado, arg1);
+    *(s32 **)((s8 *)boss5_gryphon_tornado + 0x18) = &(*(RecoveredGlobal_803558E4___vt__20TBoss5GryphonTornado *)&__vt__20TBoss5GryphonTornado).value;
+    *(s32 *)((s8 *)boss5_gryphon_tornado + 0) = (s32) lbl_805D4398;
+    VecCopy((Vec *)((u8 *)boss5_gryphon_tornado + 0x28), (const Vec *)arg3);
+    boss5_gryphon_tornado->m_24 = arg4;
+    boss5_gryphon_tornado->m_4c = arg2;
+    *(f32 *)((s8 *)boss5_gryphon_tornado + 0x34) = (f32) lbl_805DFFA8;
+    boss5_gryphon_tornado->m_38 = (f32) lbl_805DFFA8;
+    *(f32 *)((s8 *)boss5_gryphon_tornado + 0x3C) = (f32) lbl_805DFFA8;
+    boss5_gryphon_tornado->m_50 = 0;
+    boss5_gryphon_tornado->m_54 = 0;
+    boss5_gryphon_tornado->m_58 = 0;
+    boss5_gryphon_tornado->m_20 = 0;
+    boss5_gryphon_tornado->m_1c = 0;
+    return (u8 *)boss5_gryphon_tornado;
 }
 
 }

@@ -415,37 +415,37 @@ void *__dt__23TObjEneMe3ShinowaMirageFv(void *arg0, s16 arg1) {
 
 #define arg3 ((s16)(s32)a3)
 #define arg4 ((s16)(s32)a4)
-u8 *TObjEneMe3ShinowaMirage__ct(u8 *arg0, void *arg1, u8 *arg2, void *a3, void *a4) {
+u8 *TObjEneMe3ShinowaMirage__ct(u8 *ene_me3_shinowa_mirage, void *arg1, u8 *arg2, void *a3, void *a4) {
     u8 *temp_r5;
 
-    TObjEneMe3Shinowa__ct(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__23TObjEneMe3ShinowaMirage;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2AD0;
-    *(s16 *)((s8 *)arg0 + 0x42C) = obj_getField1c(arg2);
-    ((TObjEneDD *)arg0)->init_common_from((u8 *)arg2);
-    *(f32 *)((s8 *)arg0 + 0x358) = (f32) *(f32 *)((s8 *)arg2 + 0x358);
-    fn_800E762C(arg0);
-    ((TObjEneMe3ShinowaMirage *)arg0)->m_1c = arg3;
-    *(s16 *)((s8 *)arg0 + 0x2C) = arg4;
-    ((TObjEneMe3Shinowa *)arg0)->init_enemy();
-    *(s32 *)((s8 *)arg0 + 0x3D4) = 0;
-    *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) | 0x1000);
-    ((TObjEneMe3ShinowaMirage *)arg0)->set_flag_0x100();
-    *(s32 *)((s8 *)arg0 + 0x3D0) = 0xB000FFB0;
-    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805DA5C0;
-    *(f32 *)((s8 *)arg0 + 0x48) = (f32) lbl_805DA5C0;
-    temp_r5 = (unsigned char *) (((TObjEneMe3ShinowaMirage *)arg0)->m_a4);
+    TObjEneMe3Shinowa__ct(ene_me3_shinowa_mirage, arg1);
+    *(s32 **)((s8 *)ene_me3_shinowa_mirage + 0x18) = __vt__23TObjEneMe3ShinowaMirage;
+    *(s32 *)((s8 *)ene_me3_shinowa_mirage + 0) = (s32) lbl_805D2AD0;
+    *(s16 *)((s8 *)ene_me3_shinowa_mirage + 0x42C) = obj_getField1c(arg2);
+    ((TObjEneDD *)ene_me3_shinowa_mirage)->init_common_from((u8 *)arg2);
+    *(f32 *)((s8 *)ene_me3_shinowa_mirage + 0x358) = (f32) *(f32 *)((s8 *)arg2 + 0x358);
+    fn_800E762C(ene_me3_shinowa_mirage);
+    ((TObjEneMe3ShinowaMirage *)ene_me3_shinowa_mirage)->m_1c = arg3;
+    *(s16 *)((s8 *)ene_me3_shinowa_mirage + 0x2C) = arg4;
+    ((TObjEneMe3Shinowa *)ene_me3_shinowa_mirage)->init_enemy();
+    *(s32 *)((s8 *)ene_me3_shinowa_mirage + 0x3D4) = 0;
+    *(s32 *)((s8 *)ene_me3_shinowa_mirage + 0x3C4) = (s32) (*(s32 *)((s8 *)ene_me3_shinowa_mirage + 0x3C4) | 0x1000);
+    ((TObjEneMe3ShinowaMirage *)ene_me3_shinowa_mirage)->set_flag_0x100();
+    *(s32 *)((s8 *)ene_me3_shinowa_mirage + 0x3D0) = 0xB000FFB0;
+    *(f32 *)((s8 *)ene_me3_shinowa_mirage + 0x3C) = (f32) lbl_805DA5C0;
+    *(f32 *)((s8 *)ene_me3_shinowa_mirage + 0x48) = (f32) lbl_805DA5C0;
+    temp_r5 = (unsigned char *) (((TObjEneMe3ShinowaMirage *)ene_me3_shinowa_mirage)->m_a4);
     *(f32 *)((s8 *)temp_r5 + 0x20) = (f32) lbl_805DA5C0;
-    ((TObjEneMe3ShinowaMirage *)arg0)->actorFlags = (s32) (((TObjEneMe3ShinowaMirage *)arg0)->actorFlags | 0x800);
-    *(f32 *)((s8 *)arg0 + 0x430) = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;
-    ((TObjEneMe3ShinowaMirage *)arg0)->m_434 = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;
-    *(f32 *)((s8 *)arg0 + 0x438) = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;
-    ((TObjEneMe3ShinowaMirage *)arg0)->m_43c = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;
-    ((Sub_800E3DFC *)(arg0 + 0x3E8))->v1(0, temp_r5, lbl_805DA5C0);
-    ((Sub_800E3DFC *)(arg0 + 0x3E8))->v2();
-    ((TObjEneMe3ShinowaMirage *)arg0)->mode = 8;
-    ((Self_800E3DFC *)arg0)->m85(((TObjEneMe3ShinowaMirage *)arg0)->mode, 4);
-    return arg0;
+    ((TObjEneMe3ShinowaMirage *)ene_me3_shinowa_mirage)->actorFlags = (s32) (((TObjEneMe3ShinowaMirage *)ene_me3_shinowa_mirage)->actorFlags | 0x800);
+    *(f32 *)((s8 *)ene_me3_shinowa_mirage + 0x430) = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;
+    ((TObjEneMe3ShinowaMirage *)ene_me3_shinowa_mirage)->m_434 = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;
+    *(f32 *)((s8 *)ene_me3_shinowa_mirage + 0x438) = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;
+    ((TObjEneMe3ShinowaMirage *)ene_me3_shinowa_mirage)->m_43c = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;
+    ((Sub_800E3DFC *)(ene_me3_shinowa_mirage + 0x3E8))->v1(0, temp_r5, lbl_805DA5C0);
+    ((Sub_800E3DFC *)(ene_me3_shinowa_mirage + 0x3E8))->v2();
+    ((TObjEneMe3ShinowaMirage *)ene_me3_shinowa_mirage)->mode = 8;
+    ((Self_800E3DFC *)ene_me3_shinowa_mirage)->m85(((TObjEneMe3ShinowaMirage *)ene_me3_shinowa_mirage)->mode, 4);
+    return ene_me3_shinowa_mirage;
 }
 #undef arg3
 #undef arg4
@@ -468,8 +468,8 @@ void TObjEneMe3ShinowaReal::vfunc_116(s32 arg1) {
     typedef char sp10_offset[(offsetof(Stack_800E3F8C, sp10) == 0x8) ? 1 : -1];
     Stack_800E3F8C stack;
     s32 temp_r3;
-    u8 *temp_r3_2;
-    u8 *temp_r3_3;
+    u8 *particle_ctrl;
+    u8 *object;
     switch (arg1) {
     case 4:
         this->m_b8 = 7;
@@ -504,9 +504,9 @@ void TObjEneMe3ShinowaReal::vfunc_116(s32 arg1) {
             if (this->m_c0 >= lbl_805DA5C8) {
                 if ((void *) *(u8 **)((s8 *)((u8 *)this) + 0x424) == NULL) {
                     *(u8 **)((s8 *)((u8 *)this) + 0x424) = (unsigned char *) (create_particle_emitter((s32) ((u8 *)this + 0x38), 0x114));
-                    temp_r3_2 = (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x424));
-                    if (temp_r3_2 != NULL) {
-                        ((TParticleCtrl *)temp_r3_2)->enable();
+                    particle_ctrl = (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x424));
+                    if (particle_ctrl != NULL) {
+                        ((TParticleCtrl *)particle_ctrl)->enable();
                     }
                 } else {
                     VecCopy((Vec *)&stack.sp8, (const Vec *)((u8 *)this + 0x38));
@@ -533,9 +533,9 @@ void TObjEneMe3ShinowaReal::vfunc_116(s32 arg1) {
         this->vfunc_89();
         return;
     case 5:
-        temp_r3_3 = (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x424));
-        if (temp_r3_3 != NULL) {
-            queue_destruction__7TObjectFv(temp_r3_3);
+        object = (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x424));
+        if (object != NULL) {
+            queue_destruction__7TObjectFv(object);
             *(u8 **)((s8 *)((u8 *)this) + 0x424) = NULL;
         }
         break;

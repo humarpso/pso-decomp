@@ -48,15 +48,15 @@ int TObjQuestColApcINW::vfunc_15() {
     return 0;
 }
 
-void *TObjQuestColApcINW__ct(TObjQuestColApcINW *arg0) {
-    TObjQuestColBase__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjQuestColApcINW;
-    *(void * *)&arg0->m_name = lbl_805D3400;
-    *(f32 *)((s8 *)arg0 + 0xBC) = arg0->target_scale;
-    arg0->m_c8 = lbl_805DBF04;
-    *(f32 *)((s8 *)arg0 + 0xC4) = lbl_805DBF04;
-    *(f32 *)((s8 *)arg0 + 0xC0) = lbl_805DBF04;
-    return arg0;
+void *TObjQuestColApcINW__ct(TObjQuestColApcINW *quest_col_apc_inw) {
+    TObjQuestColBase__ct(quest_col_apc_inw);
+    *(s32 **)((s8 *)quest_col_apc_inw + 0x18) = __vt__18TObjQuestColApcINW;
+    *(void * *)&quest_col_apc_inw->m_name = lbl_805D3400;
+    *(f32 *)((s8 *)quest_col_apc_inw + 0xBC) = quest_col_apc_inw->target_scale;
+    quest_col_apc_inw->m_c8 = lbl_805DBF04;
+    *(f32 *)((s8 *)quest_col_apc_inw + 0xC4) = lbl_805DBF04;
+    *(f32 *)((s8 *)quest_col_apc_inw + 0xC0) = lbl_805DBF04;
+    return quest_col_apc_inw;
 }
 
 }

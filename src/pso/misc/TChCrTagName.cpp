@@ -281,10 +281,10 @@ void update_slide_in__12TChCrTagNameFPv(u8 *arg0) {
   *((f32 *) (((s8 *) arg0) + 0x48)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x48))) + (((3e+02f) * var_f4) + (-3e+02f)));
 }
 
-void run_task__12TChCrTagNameFv(void *arg0) {
+void run_task__12TChCrTagNameFv(void *ch_cr_tag_name) {
     update_fade__8TChCrTagFPv();
-    update_slide_in__12TChCrTagNameFPv((u8 *)arg0);
-    *(s32 *)((s8 *)arg0 + 0x44) = (s32) (*(s32 *)((s8 *)arg0 + 0x44) + 1);
+    update_slide_in__12TChCrTagNameFPv((u8 *)ch_cr_tag_name);
+    *(s32 *)((s8 *)ch_cr_tag_name + 0x44) = (s32) (*(s32 *)((s8 *)ch_cr_tag_name + 0x44) + 1);
 }
 
 extern void *tl_03;
@@ -311,19 +311,19 @@ s32 TChCrTagName__vt4(u8 *arg0) {
 }
 TChCrTagName::~TChCrTagName() {}
 
-u8 *__ct__12TChCrTagNameFv(u8 *arg0, s32 arg1, s32 _w2) {
-    __ct__8TChCrTagFv(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__12TChCrTagName;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TChCrTagName__class_name;
-    *(f32 *)((s8 *)arg0 + 0x28) = (f32) (0.033333335f);
-    *(f32 *)((s8 *)arg0 + 0x2C) = (f32) (-0.022222223f);
-    *(f32 *)((s8 *)arg0 + 0x34) = (f32) (0.6666667f);
-    *(f32 *)((s8 *)arg0 + 0x38) = (f32) (-0.06666667f);
-    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (0.0f);
-    *(f32 *)((s8 *)arg0 + 0x40) = 0.8f - 0.053333335f * (f32) (0xC - *(s32 *)((s8 *)arg0 + 0x20));
-    update_slide_in__12TChCrTagNameFPv(arg0);
-    *(s32 *)((s8 *)arg0 + 0x44) = 0;
-    return arg0;
+u8 *__ct__12TChCrTagNameFv(u8 *ch_cr_tag_name, s32 arg1, s32 _w2) {
+    __ct__8TChCrTagFv(ch_cr_tag_name, arg1);
+    *(s32 **)((s8 *)ch_cr_tag_name + 0x18) = (s32 *)__vt__12TChCrTagName;
+    *(s32 *)((s8 *)ch_cr_tag_name + 0) = (s32) TChCrTagName__class_name;
+    *(f32 *)((s8 *)ch_cr_tag_name + 0x28) = (f32) (0.033333335f);
+    *(f32 *)((s8 *)ch_cr_tag_name + 0x2C) = (f32) (-0.022222223f);
+    *(f32 *)((s8 *)ch_cr_tag_name + 0x34) = (f32) (0.6666667f);
+    *(f32 *)((s8 *)ch_cr_tag_name + 0x38) = (f32) (-0.06666667f);
+    *(f32 *)((s8 *)ch_cr_tag_name + 0x3C) = (f32) (0.0f);
+    *(f32 *)((s8 *)ch_cr_tag_name + 0x40) = 0.8f - 0.053333335f * (f32) (0xC - *(s32 *)((s8 *)ch_cr_tag_name + 0x20));
+    update_slide_in__12TChCrTagNameFPv(ch_cr_tag_name);
+    *(s32 *)((s8 *)ch_cr_tag_name + 0x44) = 0;
+    return ch_cr_tag_name;
 }
 #pragma pop
 

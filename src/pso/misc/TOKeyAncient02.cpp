@@ -216,30 +216,30 @@ void *__dt__14TOKeyAncient02Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TOKeyAncient02__ct(TOKeyAncient02 *arg0, s32 arg1, s32 arg2) {
-    TOKey__ct((arg0));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016B6A4___vt__14TOKeyAncient02 *)&__vt__14TOKeyAncient02).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TOKeyAncient02__class_name;
-    ((TOKeyAncient02 *)(arg0))->apply_object_set_data((void *)arg2);
-    ((TOKey *)arg0)->init_switch_id();
-    arg0->model = ((u8 *)get_bml_model((void *)((*(s32 *)&TOKeyAncient02__model_archive)), 1));
-    arg0->texture_id = TObjFish__sub_8001EDB0((void *)((void *) ((*(s32 *)&TOKeyAncient02__model_archive))), 1);
-    init_collision_body_parts(arg0, &key_ancient02_collision_body.value, 1);
-    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    ((TObjPlayer *)arg0)->reset_photon_effect();
-    arg0->m_c0 = (f32) lbl_805DB710;
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (lbl_805DB714 + *(f32 *)((s8 *)(*(void **)((s8 *)arg0->model + 4)) + 0x14));
-    arg0->m_e8 = 0;
-    arg0->m_ec = 0;
-    if (((s32) arg0->m_d0 != 2) && ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0)) {
-        arg0->m_d0 = 1;
+u8 *TOKeyAncient02__ct(TOKeyAncient02 *key_ancient02, s32 arg1, s32 arg2) {
+    TOKey__ct((key_ancient02));
+    *(s32 **)((s8 *)key_ancient02 + 0x18) = &(*(RecoveredGlobal_8016B6A4___vt__14TOKeyAncient02 *)&__vt__14TOKeyAncient02).value;
+    *(s32 *)((s8 *)key_ancient02 + 0) = (s32) TOKeyAncient02__class_name;
+    ((TOKeyAncient02 *)(key_ancient02))->apply_object_set_data((void *)arg2);
+    ((TOKey *)key_ancient02)->init_switch_id();
+    key_ancient02->model = ((u8 *)get_bml_model((void *)((*(s32 *)&TOKeyAncient02__model_archive)), 1));
+    key_ancient02->texture_id = TObjFish__sub_8001EDB0((void *)((void *) ((*(s32 *)&TOKeyAncient02__model_archive))), 1);
+    init_collision_body_parts(key_ancient02, &key_ancient02_collision_body.value, 1);
+    ((TUnk_804AF8A0 *)key_ancient02)->refresh_collision_body_centers();
+    ((TObjPlayer *)key_ancient02)->reset_photon_effect();
+    key_ancient02->m_c0 = (f32) lbl_805DB710;
+    *(f32 *)((s8 *)key_ancient02 + 0xC4) = (f32) (lbl_805DB714 + *(f32 *)((s8 *)(*(void **)((s8 *)key_ancient02->model + 4)) + 0x14));
+    key_ancient02->m_e8 = 0;
+    key_ancient02->m_ec = 0;
+    if (((s32) key_ancient02->m_d0 != 2) && ((s32) *(s32 *)((s8 *)key_ancient02 + 0x88) < 0)) {
+        key_ancient02->m_d0 = 1;
     } else {
-        arg0->m_d0 = 0;
+        key_ancient02->m_d0 = 0;
     }
-    *(f32 *)((s8 *)arg0 + 0x70) = (f32) TOKeyAncient02__data_805DB70C;
-    arg0->target_scale = (f32) TOKeyAncient02__data_805DB70C;
-    arg0->scale = (f32) TOKeyAncient02__data_805DB70C;
-    return (u8 *)arg0;
+    *(f32 *)((s8 *)key_ancient02 + 0x70) = (f32) TOKeyAncient02__data_805DB70C;
+    key_ancient02->target_scale = (f32) TOKeyAncient02__data_805DB70C;
+    key_ancient02->scale = (f32) TOKeyAncient02__data_805DB70C;
+    return (u8 *)key_ancient02;
 }
 
 void TOKeyAncient03::vfunc_25() {  }

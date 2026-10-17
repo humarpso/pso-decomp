@@ -102,9 +102,9 @@ void TItemProShield::vfunc_16() {
     }
     this->bind_loaded_resources();
 }
-void TItemProShield__vt16(TItemProShield *arg0, void *arg1) {
-    ((TItemData *)arg1)->set_dfp_bonus(arg0->m_198);
-    ((TItemData *)arg1)->set_bswapped_field_8(arg0->m_199);
+void TItemProShield__vt16(TItemProShield *item_pro_shield, void *item_data) {
+    ((TItemData *)item_data)->set_dfp_bonus(item_pro_shield->m_198);
+    ((TItemData *)item_data)->set_bswapped_field_8(item_pro_shield->m_199);
 }
 void TItemProShield::vfunc_45() { TItemEquipBase__sub_8010A82C((s32)this); }
 void TItemProShield::vfunc_44() {
@@ -174,22 +174,22 @@ void TItemProShield::vfunc_30() {
     }
 }
 
-u8 *TItemProShield__ct(TItemProShield *arg0, s32 arg1, u8 *item) {
-    TItemEquipBase__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801186EC___vt__14TItemProShield *)&__vt__14TItemProShield).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C38;
-    ((TItemProShield *)(arg0))->vfunc_19(3);
-    arg0->m_18c = (s32)lookup_item_pmt_record(item);
-    arg0->m_190 = (s32) ((*(s32 *)&TItemProShield__shield_table) + ((s8) *(u8 *)(arg0->m_18c + 0xD) * 0x2C));
-    arg0->m_194 = TObjPlayer::get_shield_pmt_entry(*(u8 *)(arg0->m_18c + 0x19));
-    arg0->m_19a = (u8) *(u8 *)(arg0->m_18c + 0x17);
-    arg0->m_19b = (u8) *(u8 *)(arg0->m_18c + 0x16);
-    arg0->m_198 = getS16_06__9TItemDataFPv(item);
-    arg0->m_199 = get_bswap16_field8__9TItemDataFPv(item);
-    arg0->m_19c = 0;
-    ((TItemEquipBase *)arg0)->set_equip_flag(0x24);
-    arg0->sub_80117FEC();
-    return (u8 *)arg0;
+u8 *TItemProShield__ct(TItemProShield *item_pro_shield, s32 arg1, u8 *item) {
+    TItemEquipBase__ct(item_pro_shield);
+    *(s32 **)((s8 *)item_pro_shield + 0x18) = &(*(RecoveredGlobal_801186EC___vt__14TItemProShield *)&__vt__14TItemProShield).value;
+    *(s32 *)((s8 *)item_pro_shield + 0) = (s32) lbl_805D2C38;
+    ((TItemProShield *)(item_pro_shield))->vfunc_19(3);
+    item_pro_shield->m_18c = (s32)lookup_item_pmt_record(item);
+    item_pro_shield->m_190 = (s32) ((*(s32 *)&TItemProShield__shield_table) + ((s8) *(u8 *)(item_pro_shield->m_18c + 0xD) * 0x2C));
+    item_pro_shield->m_194 = TObjPlayer::get_shield_pmt_entry(*(u8 *)(item_pro_shield->m_18c + 0x19));
+    item_pro_shield->m_19a = (u8) *(u8 *)(item_pro_shield->m_18c + 0x17);
+    item_pro_shield->m_19b = (u8) *(u8 *)(item_pro_shield->m_18c + 0x16);
+    item_pro_shield->m_198 = getS16_06__9TItemDataFPv(item);
+    item_pro_shield->m_199 = get_bswap16_field8__9TItemDataFPv(item);
+    item_pro_shield->m_19c = 0;
+    ((TItemEquipBase *)item_pro_shield)->set_equip_flag(0x24);
+    item_pro_shield->sub_80117FEC();
+    return (u8 *)item_pro_shield;
 }
 
 u8 *TItemProShield::create_instance() {

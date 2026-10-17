@@ -98,13 +98,13 @@ extern s32 __vt__8TAdRayGC[];
 extern void *TAdRayGC__name;
 
 TAdRayGC::~TAdRayGC() {}
-void *__ct__8TAdRayGCFv(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TAdRayGC;
-    *(void * *)&((TAdRayGC *)arg0)->m_name = TAdRayGC__name;
-    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
-    *(u32 *)((s8 *)arg0 + 0x20) = -1;
-    return arg0;
+void *__ct__8TAdRayGCFv(void *ad_ray_gc) {
+    __ct__7TObjectFP7TObject(ad_ray_gc);
+    *(s32 **)((s8 *)ad_ray_gc + 0x18) = __vt__8TAdRayGC;
+    *(void * *)&((TAdRayGC *)ad_ray_gc)->m_name = TAdRayGC__name;
+    *(u32 *)((s8 *)ad_ray_gc + 0x1C) = 0;
+    *(u32 *)((s8 *)ad_ray_gc + 0x20) = -1;
+    return ad_ray_gc;
 }
 
 }

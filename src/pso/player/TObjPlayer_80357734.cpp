@@ -492,13 +492,13 @@ void TUnk_804F166C::render() {  }
 void TUnk_804F166C::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r3_2;
-    u8 *temp_r3;
+    u8 *now_loading;
     *(s32 *)&this->unk_44 = (s32) (*(s32 *)&this->unk_44 - 0x1999);
     this->m_40 = (f32) (this->m_40 - lbl_805E006C);
     ((TUnk_804F166C *)arg0)->update_inward_orbit_point();
-    temp_r3 = (u8 *)(*(u8 * *)&this->unk_4C);
-    if (temp_r3 != NULL) {
-        ((TNowLoading *)temp_r3)->copy_pos((u8 *)&this->m_34);
+    now_loading = (u8 *)(*(u8 * *)&this->unk_4C);
+    if (now_loading != NULL) {
+        ((TNowLoading *)now_loading)->copy_pos((u8 *)&this->m_34);
     }
     temp_r3_2 = this->m_48;
     if (temp_r3_2 > 0) {

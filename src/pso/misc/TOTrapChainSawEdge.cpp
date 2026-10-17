@@ -384,15 +384,15 @@ void *__dt__18TOTrapChainSawEdgeFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TOTrapChainSawEdge__ct(u8 *arg0) {
+u8 *TOTrapChainSawEdge__ct(u8 *trap_chain_saw_edge) {
     ((s32 (*)(void))TOTrapChainSaw__ct)();
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TOTrapChainSawEdge;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TOTrapChainSawEdge_class_name;
-    ((TOTrapChainSawEdge *)(arg0))->decode_params();
-    ((TOTrapChainSawEdge *)(arg0))->vfunc_16();
-    *(s32 *)((s8 *)arg0 + 0x100) = 0;
-    *(s32 *)((s8 *)arg0 + 0x104) = 0;
-    return arg0;
+    *(s32 **)((s8 *)trap_chain_saw_edge + 0x18) = __vt__18TOTrapChainSawEdge;
+    *(s32 *)((s8 *)trap_chain_saw_edge + 0) = (s32) TOTrapChainSawEdge_class_name;
+    ((TOTrapChainSawEdge *)(trap_chain_saw_edge))->decode_params();
+    ((TOTrapChainSawEdge *)(trap_chain_saw_edge))->vfunc_16();
+    *(s32 *)((s8 *)trap_chain_saw_edge + 0x100) = 0;
+    *(s32 *)((s8 *)trap_chain_saw_edge + 0x104) = 0;
+    return trap_chain_saw_edge;
 }
 
 void TParticleCtrl__sub_802C8464(u32 arg0) {
@@ -590,12 +590,12 @@ void TOTrapChainSawDamage::update_state() {
 #pragma auto_inline off
 #pragma dont_inline off
 #pragma inline_depth(1)
-void TOTrapChainSawDamage__vt16(u8 *arg0, u8 *arg1) {
+void TOTrapChainSawDamage__vt16(u8 *trap_chain_saw_damage, u8 *arg1) {
     P_802C8BD0 p;
     p.a = 0;
-    p.b = ((TOTrapChainSawDamage *)(arg0))->vfunc_30(*(f32 *)((s8 *)arg0 + 0xFC));
+    p.b = ((TOTrapChainSawDamage *)(trap_chain_saw_damage))->vfunc_30(*(f32 *)((s8 *)trap_chain_saw_damage + 0xFC));
     P_802C8BD0 q = p;
-    ((VObj_18_62e3d5 *)(arg1))->m21(arg0, (s32 *)&q, 0, -1, -1);
+    ((VObj_18_62e3d5 *)(arg1))->m21(trap_chain_saw_damage, (s32 *)&q, 0, -1, -1);
     obj_setFlags30(arg1, 0x400);
 }
 #pragma pop
@@ -938,20 +938,20 @@ void *__dt__14TOTrapChainSawFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TOTrapChainSaw__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    init_map_object_base((void *)arg0, (void *)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802C9890___vt__14TOTrapChainSaw *)&__vt__14TOTrapChainSaw).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TOTrapChainSaw__name;
-    ((TOTrapChainSaw *)(arg0))->apply_object_set_data((void *)arg2);
-    ((TOTrapChainSaw *)(arg0))->clear_field_d8();
-    *(s32 *)((s8 *)arg0 + 0xD4) = 0;
-    *(s32 *)((s8 *)arg0 + 0xCC) = 0;
-    *(s32 *)((s8 *)arg0 + 0xD0) = 0;
-    *(s32 *)((s8 *)arg0 + 0xC8) = 0;
-    *(s32 *)((s8 *)arg0 + 0xF4) = 0;
-    *(s32 *)((s8 *)arg0 + 0xE8) = 0;
-    *(s32 *)((s8 *)arg0 + 0xEC) = 0;
-    return arg0;
+u8 *TOTrapChainSaw__ct(u8 *trap_chain_saw, s32 arg1, s32 arg2) {
+    init_map_object_base((void *)trap_chain_saw, (void *)arg1);
+    *(s32 **)((s8 *)trap_chain_saw + 0x18) = &(*(RecoveredGlobal_802C9890___vt__14TOTrapChainSaw *)&__vt__14TOTrapChainSaw).value;
+    *(s32 *)((s8 *)trap_chain_saw + 0) = (s32) TOTrapChainSaw__name;
+    ((TOTrapChainSaw *)(trap_chain_saw))->apply_object_set_data((void *)arg2);
+    ((TOTrapChainSaw *)(trap_chain_saw))->clear_field_d8();
+    *(s32 *)((s8 *)trap_chain_saw + 0xD4) = 0;
+    *(s32 *)((s8 *)trap_chain_saw + 0xCC) = 0;
+    *(s32 *)((s8 *)trap_chain_saw + 0xD0) = 0;
+    *(s32 *)((s8 *)trap_chain_saw + 0xC8) = 0;
+    *(s32 *)((s8 *)trap_chain_saw + 0xF4) = 0;
+    *(s32 *)((s8 *)trap_chain_saw + 0xE8) = 0;
+    *(s32 *)((s8 *)trap_chain_saw + 0xEC) = 0;
+    return trap_chain_saw;
 }
 
 void render_shadows__7TObjectFv();

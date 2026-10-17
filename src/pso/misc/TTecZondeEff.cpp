@@ -490,20 +490,20 @@ void TTecZondeEff::run_task() {
 }
 #pragma pop
 
-u8 *__ct__12TTecZondeEffFv(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, f32 farg0) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__12TTecZondeEff.value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TTecZondeEff_class_name;
-    *(f32 *)((s8 *)arg0 + 0x244) = farg0;
-    *(s32 *)((s8 *)arg0 + 0x254) = arg2;
-    *(s32 *)((s8 *)arg0 + 0x258) = arg3;
-    *(s32 *)((s8 *)arg0 + 0x250) = 0;
-    *(s16 *)((s8 *)arg0 + 0x25C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x38) = 0xD;
-    *(s32 *)((s8 *)arg0 + 0x248) = 0;
-    *(s32 *)((s8 *)arg0 + 0x24C) = 0xFF000000;
-    *(s16 *)((s8 *)arg0 + 0x25E) = 0;
-    return arg0;
+u8 *__ct__12TTecZondeEffFv(u8 *object, u8 *arg1, s32 arg2, s32 arg3, f32 farg0) {
+    __ct__7TObjectFP7TObject(object, arg1);
+    *(s32 **)((s8 *)object + 0x18) = &__vt__12TTecZondeEff.value;
+    *(s32 *)((s8 *)object + 0) = (s32) TTecZondeEff_class_name;
+    *(f32 *)((s8 *)object + 0x244) = farg0;
+    *(s32 *)((s8 *)object + 0x254) = arg2;
+    *(s32 *)((s8 *)object + 0x258) = arg3;
+    *(s32 *)((s8 *)object + 0x250) = 0;
+    *(s16 *)((s8 *)object + 0x25C) = 0;
+    *(s32 *)((s8 *)object + 0x38) = 0xD;
+    *(s32 *)((s8 *)object + 0x248) = 0;
+    *(s32 *)((s8 *)object + 0x24C) = 0xFF000000;
+    *(s16 *)((s8 *)object + 0x25E) = 0;
+    return object;
 }
 
 typedef char RecoveredGlobal_8023DADC___vt__12TTecZondeEff_size[sizeof(RecoveredGlobal_8023DADC___vt__12TTecZondeEff) == 0x18 ? 1 : -1];

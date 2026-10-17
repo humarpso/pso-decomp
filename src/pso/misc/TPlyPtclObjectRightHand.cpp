@@ -22,11 +22,11 @@ void *__dt__23TPlyPtclObjectRightHandFv(void *arg0, s16 arg1) {
 
 extern void *TPlyPtclObjectRightHand__class_name;
 
-void *TPlyPtclObjectRightHand__ct(void *arg0) {
-    TPlyFollowParticleCtrl__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__23TPlyPtclObjectRightHand;
-    *(void * *)&((TPlyPtclObjectRightHand *)arg0)->m_name = TPlyPtclObjectRightHand__class_name;
-    return arg0;
+void *TPlyPtclObjectRightHand__ct(void *ply_ptcl_object_right_hand) {
+    TPlyFollowParticleCtrl__ct(ply_ptcl_object_right_hand);
+    *(s32 **)((s8 *)ply_ptcl_object_right_hand + 0x18) = __vt__23TPlyPtclObjectRightHand;
+    *(void * *)&((TPlyPtclObjectRightHand *)ply_ptcl_object_right_hand)->m_name = TPlyPtclObjectRightHand__class_name;
+    return ply_ptcl_object_right_hand;
 }
 
 }

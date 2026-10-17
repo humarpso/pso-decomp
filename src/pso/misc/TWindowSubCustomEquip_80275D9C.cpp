@@ -73,7 +73,7 @@ void draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif(u8 *arg0, Vec2_80275DE8 
 }
 #pragma pop
 
-void TWindowSubCustomEquip::sub_80275F08(void *arg1) {
+void TWindowSubCustomEquip::sub_80275F08(void *window_sub_custom_equip) {
     s8 idx;
     if ((s8)((u8 *)this)[0x64] == 0) {
         idx = ((u8 *)this)[0x61] + ((u8 *)this)[0x62] * 3;
@@ -81,7 +81,7 @@ void TWindowSubCustomEquip::sub_80275F08(void *arg1) {
         idx = ((u8 *)this)[0x61] + (1 - ((u8 *)this)[0x62]) * 3;
     }
     u8 *e = get_array_entry__13TUnk_804CE018Fi(this, lbl_8044F738[idx]);
-    ((TWindowSubCustomEquip *)arg1)->set_relative_pos(e);
+    ((TWindowSubCustomEquip *)window_sub_custom_equip)->set_relative_pos(e);
 }
 
 void TWindowSubCustomEquip::draw_cursor(u8 *arg1) {

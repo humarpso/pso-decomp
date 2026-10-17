@@ -58,19 +58,19 @@ u8 *TTecFoie::construct_aimed(s32 arg1, u8 *arg2, u8 *arg3, s16 arg4) {
     ((TTecFoie *)arg0)->play_foie_cast_sound();
     return arg0;
 }
-u8 *TTecFoie__ct(TTecFoie *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4) {
+u8 *TTecFoie__ct(TTecFoie *tec_foie, s32 arg1, u8 *arg2, s32 arg3, s16 arg4) {
     u8 *temp_r3;
-    construct_facing_technique__10TObjPlayerFPviPvii(arg0, arg1, arg2, arg3, arg4);
-    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__8TTecFoie.value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TTecFoie__name;
-    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x1C));
+    construct_facing_technique__10TObjPlayerFPviPvii(tec_foie, arg1, arg2, arg3, arg4);
+    *(s32 **)((s8 *)tec_foie + 0x18) = &__vt__8TTecFoie.value;
+    *(s32 *)((s8 *)tec_foie + 0) = (s32) TTecFoie__name;
+    temp_r3 = (u8 *)(*(u8 **)((s8 *)tec_foie + 0x1C));
     if (temp_r3 != NULL) {
-        arg0->sourceId = obj_getField1c(temp_r3);
+        tec_foie->sourceId = obj_getField1c(temp_r3);
     }
-    arg0->init_projectile_params();
-    arg0->create_particle_emitters();
-    arg0->play_foie_cast_sound();
-    return (u8 *)arg0;
+    tec_foie->init_projectile_params();
+    tec_foie->create_particle_emitters();
+    tec_foie->play_foie_cast_sound();
+    return (u8 *)tec_foie;
 }
 
 }

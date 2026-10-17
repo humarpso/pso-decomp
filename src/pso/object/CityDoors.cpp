@@ -881,16 +881,16 @@ typedef struct RecoveredGlobal_8018289C_lbl_80443F4C RecoveredGlobal_8018289C_lb
 typedef struct RecoveredGlobal_8018289C_lbl_804B5B4C RecoveredGlobal_8018289C_lbl_804B5B4C;
 typedef char RecoveredGlobal_8018289C_lbl_80443F4C_size[((sizeof(RecoveredGlobal_8018289C_lbl_80443F4C)) == 0x1C) ? (1) : (-1)];
 typedef char RecoveredGlobal_8018289C_lbl_804B5B4C_size[((sizeof(RecoveredGlobal_8018289C_lbl_804B5B4C)) == 0x5C) ? (1) : (-1)];
-u8 *TObjCityDoor_Shop__ct(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *TObjCityDoor_Shop__ct(u8 *city_door_shop, s32 arg1, s32 arg2) {
   unsigned int new_var2;
   s32 *new_var;
   new_var = &__vt__17TObjCityDoor_Shop.value;
-  init_city_door(arg0, arg1, arg2, (u8 *)&TObjCityDoor_Shop__params.value);
-  *((s32 **) (((s8 *) arg0) + 0x18)) = new_var;
-  *((s32 *) (((s8 *) arg0) + 0)) = (s32) TObjCityDoor_Shop__name;
+  init_city_door(city_door_shop, arg1, arg2, (u8 *)&TObjCityDoor_Shop__params.value);
+  *((s32 **) (((s8 *) city_door_shop) + 0x18)) = new_var;
+  *((s32 *) (((s8 *) city_door_shop) + 0)) = (s32) TObjCityDoor_Shop__name;
   new_var2 = 1;
-  ((TObjCityDoor_Shop *)arg0)->m_b0 = (f32) ((*((s32 *) (((s8 *) (*((void **) (((s8 *) (*((u8 **) (((s8 *) city_common_model_archive) + 0x430)))) + 0x54)))) + 4))) - new_var2);
-  return arg0;
+  ((TObjCityDoor_Shop *)city_door_shop)->m_b0 = (f32) ((*((s32 *) (((s8 *) (*((void **) (((s8 *) (*((u8 **) (((s8 *) city_common_model_archive) + 0x430)))) + 0x54)))) + 4))) - new_var2);
+  return city_door_shop;
 }
 
 }

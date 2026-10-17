@@ -39,9 +39,9 @@ int send_message__24TMessageWindowControllerFll(void*);
 int format_shop_message__24TMessageWindowControllerFll(void*);
 
 int TShopSequence::vfunc_10() {
-    void *temp_r3 = *(void **)((s8 *)this + 0x28);
-    if (temp_r3 != NULL) {
-        return ((TMessageWindowController *)temp_r3)->is_ready();
+    void *message_window_controller = *(void **)((s8 *)this + 0x28);
+    if (message_window_controller != NULL) {
+        return ((TMessageWindowController *)message_window_controller)->is_ready();
     }
     return 1;
 }
@@ -130,19 +130,19 @@ void *__dt__13TShopSequenceFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TShopSequence__ct(u8 *arg0) {
+u8 *TShopSequence__ct(u8 *shop_window_base) {
     s32 temp_r3;
     s32 var_r0;
-    __ct__15TShopWindowBaseFv(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__13TShopSequence.value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TShopSequence__class_name;
+    __ct__15TShopWindowBaseFv(shop_window_base);
+    *(s32 **)((s8 *)shop_window_base + 0x18) = &__vt__13TShopSequence.value;
+    *(s32 *)((s8 *)shop_window_base + 0) = (s32) TShopSequence__class_name;
     temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x210))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (__ct__24TMessageWindowControllerFv((void *) temp_r3));
     }
-    *(s32 *)((s8 *)arg0 + 0x28) = var_r0;
-    return arg0;
+    *(s32 *)((s8 *)shop_window_base + 0x28) = var_r0;
+    return shop_window_base;
 }
 
 }

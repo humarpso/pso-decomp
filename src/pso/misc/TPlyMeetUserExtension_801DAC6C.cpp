@@ -120,26 +120,26 @@ void handle_cmd_9B__9TProtocolFR6packet(u8 *arg0, Regist_801DAD38 *arg1) {
     }
 }
 
-s32 socket_set_server_info(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6) {
+s32 socket_set_server_info(u8 *socket, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6) {
     s32 temp_r31;
 
-    temp_r31 = resolve_domain__7TSocketFPc(arg0, arg5);
-    set_port__7TSocketFUl(arg0, arg6);
+    temp_r31 = resolve_domain__7TSocketFPc(socket, arg5);
+    set_port__7TSocketFUl(socket, arg6);
     if (temp_r31 != 0) {
         return 2;
     }
-    memset(arg0 + 0x3EB8, 0, 0x11);
-    memset(arg0 + 0x3EC9, 0, 0x11);
-    memset(arg0 + 0x3F8A, 0, 0x11);
-    memset(arg0 + 0x3F9B, 0, 0x11);
-    strncpy(arg0 + 0x3EB8, arg1, 8);
-    strncpy(arg0 + 0x3EC9, arg2, 0xC);
-    strncpy(arg0 + 0x3F8A, arg3, 8);
-    strncpy(arg0 + 0x3F9B, arg4, 0xC);
-    if (((VObjDA *)arg0)->m4() < 0) {
+    memset(socket + 0x3EB8, 0, 0x11);
+    memset(socket + 0x3EC9, 0, 0x11);
+    memset(socket + 0x3F8A, 0, 0x11);
+    memset(socket + 0x3F9B, 0, 0x11);
+    strncpy(socket + 0x3EB8, arg1, 8);
+    strncpy(socket + 0x3EC9, arg2, 0xC);
+    strncpy(socket + 0x3F8A, arg3, 8);
+    strncpy(socket + 0x3F9B, arg4, 0xC);
+    if (((VObjDA *)socket)->m4() < 0) {
         return 1;
     }
-    ((VObjDA *)arg0)->m6();
+    ((VObjDA *)socket)->m6();
     return 0;
 }
 

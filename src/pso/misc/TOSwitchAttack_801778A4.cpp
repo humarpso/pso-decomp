@@ -204,15 +204,15 @@ void *__dt__14TOSwitchAttackFv(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_80177C80___vt__14TOSwitchAttack_size[sizeof(RecoveredGlobal_80177C80___vt__14TOSwitchAttack) == 0x38 ? 1 : -1];
-u8 *TOSwitchAttack__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_world_actor_base(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80177C80___vt__14TOSwitchAttack *)&__vt__14TOSwitchAttack).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3178;
-    ((TOSwitchAttack *)(arg0))->apply_object_set_data((void *)arg2);
-    ((TOSwitchAttack *)arg0)->init_params();
-    ((TOSwitchAttack *)arg0)->m_a6 = 0;
-    ((TOSwitchAttack *)arg0)->m_a8 = 0;
-    return arg0;
+u8 *TOSwitchAttack__ct(u8 *switch_attack, s32 arg1, s32 arg2) {
+    construct_world_actor_base(switch_attack);
+    *(s32 **)((s8 *)switch_attack + 0x18) = &(*(RecoveredGlobal_80177C80___vt__14TOSwitchAttack *)&__vt__14TOSwitchAttack).value;
+    *(s32 *)((s8 *)switch_attack + 0) = (s32) lbl_805D3178;
+    ((TOSwitchAttack *)(switch_attack))->apply_object_set_data((void *)arg2);
+    ((TOSwitchAttack *)switch_attack)->init_params();
+    ((TOSwitchAttack *)switch_attack)->m_a6 = 0;
+    ((TOSwitchAttack *)switch_attack)->m_a8 = 0;
+    return switch_attack;
 }
 void TOSwitchItem::send_switch_on() {
     Pkt_80177CF4 pkt;

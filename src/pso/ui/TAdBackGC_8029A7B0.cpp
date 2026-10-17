@@ -42,13 +42,13 @@ extern s32 __vt__9TAdBackGC[];
 extern void *TAdBackGC__class_name;
 
 TAdBackGC::~TAdBackGC() {}
-void *__ct__9TAdBackGCFv(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TAdBackGC;
-    *(void * *)&((TAdBackGC *)arg0)->m_name = TAdBackGC__class_name;
-    *(f32 *)((s8 *)arg0 + 0x1C) = lbl_805DDC68;
-    *(u32 *)((s8 *)arg0 + 0x20) = 1;
-    return arg0;
+void *__ct__9TAdBackGCFv(void *ad_back_gc) {
+    __ct__7TObjectFP7TObject(ad_back_gc);
+    *(s32 **)((s8 *)ad_back_gc + 0x18) = __vt__9TAdBackGC;
+    *(void * *)&((TAdBackGC *)ad_back_gc)->m_name = TAdBackGC__class_name;
+    *(f32 *)((s8 *)ad_back_gc + 0x1C) = lbl_805DDC68;
+    *(u32 *)((s8 *)ad_back_gc + 0x20) = 1;
+    return ad_back_gc;
 }
 
 }

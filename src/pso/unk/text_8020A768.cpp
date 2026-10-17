@@ -153,13 +153,13 @@ void reserve_enemy_set_actor_ids(SpawnRecord_8020A9C4 *arg0, s32 arg1, s32 arg2)
         }
     }
 }
-void TLobby::assign_object_ids(s32 arg1, void *arg2) {
+void TLobby::assign_object_ids(s32 arg1, void *lobby) {
     s32 i;
     s32 r;
     for (i = 0; i < arg1; i++) {
         ((Rec_8020AA94 *)this)[i].f8 = map_object_id_counter++ + 0x4000;
         ((Rec_8020AA94 *)this)[i].f4 = map_set_object_id_counter++;
-        r = find_floor_object_factory__6TLobbyFlPs(arg2, &((Rec_8020AA94 *)this)[i]);
+        r = find_floor_object_factory__6TLobbyFlPs(lobby, &((Rec_8020AA94 *)this)[i]);
         if (r >= 0) {
             map_set_object_id_counter += r;
             map_object_id_counter += r;

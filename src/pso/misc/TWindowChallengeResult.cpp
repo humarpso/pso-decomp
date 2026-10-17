@@ -86,7 +86,7 @@ void *dt__22TWindowChallengeResultFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-Win_80246DCC *TWindowChallengeResult__ct(Win_80246DCC *self, s32 arg1, s32 arg2, s32 arg3) {
+Win_80246DCC *TWindowChallengeResult__ct(Win_80246DCC *self, s32 str, s32 arg2, s32 arg3) {
     s32 i;
     Entry_80246DCC *e;
     s32 m;
@@ -100,7 +100,7 @@ Win_80246DCC *TWindowChallengeResult__ct(Win_80246DCC *self, s32 arg1, s32 arg2,
         refresh_status_display__9TWindowDDFv(e);
         e->f8 = lbl_805DCB60 - e->f10;
     }
-    set_text_entry_string((u8 *)(get_array_entry__13TUnk_804CE018Fi(self, 1)), arg1, 0x20);
+    set_text_entry_string((u8 *)(get_array_entry__13TUnk_804CE018Fi(self, 1)), str, 0x20);
     e = get_array_entry__13TUnk_804CE018Fi(self, 3);
     text_builder_reset();
     m = arg2 / 3600;

@@ -187,26 +187,26 @@ void TEndingPic::run_task() { advance_animation_state(); }
     extern int ending_ab_wall_texture_list;
 
 TEndingPic::~TEndingPic() {}
-u8 *__ct__10TEndingPicFv(u8 *arg0, u8 *arg1) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__10TEndingPic.value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4378;
-    *(s32 *)((s8 *)arg0 + 0x1C) = -1;
+u8 *__ct__10TEndingPicFv(u8 *ending_pic, u8 *arg1) {
+    __ct__7TObjectFP7TObject(ending_pic, arg1);
+    *(s32 **)((s8 *)ending_pic + 0x18) = &__vt__10TEndingPic.value;
+    *(s32 *)((s8 *)ending_pic + 0) = (s32) lbl_805D4378;
+    *(s32 *)((s8 *)ending_pic + 0x1C) = -1;
     TEndingPic__animation_state = 0;
-    *(s32 *)((s8 *)arg0 + 0x20) = 0xFF;
-    *(s32 *)((s8 *)arg0 + 0x28) = 0;
-    *(s32 *)((s8 *)arg0 + 0x24) = 0;
+    *(s32 *)((s8 *)ending_pic + 0x20) = 0xFF;
+    *(s32 *)((s8 *)ending_pic + 0x28) = 0;
+    *(s32 *)((s8 *)ending_pic + 0x24) = 0;
     ending_pic_wall_texture_list = ((s32)get_ending_ab_wall_texture_list());
-    ((TEndingPic *)arg0)->init_positions();
+    ((TEndingPic *)ending_pic)->init_positions();
     switch (TKeyBoardControl__sub_8000F828()) {
     case 0:
-        *(s32 *)((s8 *)arg0 + 0xEC) = 0x1E;
+        *(s32 *)((s8 *)ending_pic + 0xEC) = 0x1E;
         break;
     case 1:
-        *(s32 *)((s8 *)arg0 + 0xEC) = 0x19;
+        *(s32 *)((s8 *)ending_pic + 0xEC) = 0x19;
         break;
     }
-    return arg0;
+    return ending_pic;
 }
 }
 

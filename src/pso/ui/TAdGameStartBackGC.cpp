@@ -83,32 +83,32 @@ void TAdGameStartBackGC::run_task() {
 #pragma pop
 
 TAdGameStartBackGC::~TAdGameStartBackGC() {}
-u8 *__ct__18TAdGameStartBackGCFv(u8 *arg0, u8 *arg1) {
+u8 *__ct__18TAdGameStartBackGCFv(u8 *object, u8 *arg1) {
     f32 temp_f5;
     f32 temp_f5_2;
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__18TAdGameStartBackGC.value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TAdGameStartBackGC__class_name;
-    *(f32 *)((s8 *)arg0 + 0x5C) = (f32) lbl_805DF084;
-    *(f32 *)((s8 *)arg0 + 0x60) = (f32) lbl_805DF088;
-    *(s32 *)((s8 *)arg0 + 0x78) = 0xFF;
-    *(s32 *)((s8 *)arg0 + 0x7C) = -1;
-    *(f32 *)((s8 *)arg0 + 0x6C) = (f32) lbl_805DF07C;
-    *(f32 *)((s8 *)arg0 + 0x70) = (f32) lbl_805DF07C;
+    __ct__7TObjectFP7TObject(object, arg1);
+    *(s32 **)((s8 *)object + 0x18) = &__vt__18TAdGameStartBackGC.value;
+    *(s32 *)((s8 *)object + 0) = (s32) TAdGameStartBackGC__class_name;
+    *(f32 *)((s8 *)object + 0x5C) = (f32) lbl_805DF084;
+    *(f32 *)((s8 *)object + 0x60) = (f32) lbl_805DF088;
+    *(s32 *)((s8 *)object + 0x78) = 0xFF;
+    *(s32 *)((s8 *)object + 0x7C) = -1;
+    *(f32 *)((s8 *)object + 0x6C) = (f32) lbl_805DF07C;
+    *(f32 *)((s8 *)object + 0x70) = (f32) lbl_805DF07C;
     game_start_background_texture_list = TObjPlayer::get_instance();
-    *(f32 *)((s8 *)arg0 + 0x1C) = (f32) *(f32 *)((s8 *)arg0 + 0x5C);
-    *(f32 *)((s8 *)arg0 + 0x20) = (f32) *(f32 *)((s8 *)arg0 + 0x60);
-    *(f32 *)((s8 *)arg0 + 0x24) = (f32) (lbl_805DF08C + *(f32 *)((s8 *)arg0 + 0x5C));
-    *(f32 *)((s8 *)arg0 + 0x28) = (f32) (lbl_805DF090 + *(f32 *)((s8 *)arg0 + 0x60));
-    temp_f5 = *(f32 *)((s8 *)arg0 + 0x1C);
-    *(f32 *)((s8 *)arg0 + 0x64) = (f32) ((lbl_805DF094 * (*(f32 *)((s8 *)arg0 + 0x24) - temp_f5)) + temp_f5);
-    temp_f5_2 = *(f32 *)((s8 *)arg0 + 0x20);
-    *(f32 *)((s8 *)arg0 + 0x68) = (f32) ((lbl_805DF094 * (*(f32 *)((s8 *)arg0 + 0x28) - temp_f5_2)) + temp_f5_2);
-    *(f32 *)((s8 *)arg0 + 0x4C) = (f32) lbl_805DF098;
-    *(f32 *)((s8 *)arg0 + 0x50) = (f32) lbl_805DF09C;
-    *(f32 *)((s8 *)arg0 + 0x54) = (f32) lbl_805DF0A0;
-    *(f32 *)((s8 *)arg0 + 0x58) = (f32) lbl_805DF094;
-    return arg0;
+    *(f32 *)((s8 *)object + 0x1C) = (f32) *(f32 *)((s8 *)object + 0x5C);
+    *(f32 *)((s8 *)object + 0x20) = (f32) *(f32 *)((s8 *)object + 0x60);
+    *(f32 *)((s8 *)object + 0x24) = (f32) (lbl_805DF08C + *(f32 *)((s8 *)object + 0x5C));
+    *(f32 *)((s8 *)object + 0x28) = (f32) (lbl_805DF090 + *(f32 *)((s8 *)object + 0x60));
+    temp_f5 = *(f32 *)((s8 *)object + 0x1C);
+    *(f32 *)((s8 *)object + 0x64) = (f32) ((lbl_805DF094 * (*(f32 *)((s8 *)object + 0x24) - temp_f5)) + temp_f5);
+    temp_f5_2 = *(f32 *)((s8 *)object + 0x20);
+    *(f32 *)((s8 *)object + 0x68) = (f32) ((lbl_805DF094 * (*(f32 *)((s8 *)object + 0x28) - temp_f5_2)) + temp_f5_2);
+    *(f32 *)((s8 *)object + 0x4C) = (f32) lbl_805DF098;
+    *(f32 *)((s8 *)object + 0x50) = (f32) lbl_805DF09C;
+    *(f32 *)((s8 *)object + 0x54) = (f32) lbl_805DF0A0;
+    *(f32 *)((s8 *)object + 0x58) = (f32) lbl_805DF094;
+    return object;
 }
 #pragma pop
 

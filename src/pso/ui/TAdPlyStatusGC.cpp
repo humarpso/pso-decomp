@@ -267,8 +267,8 @@ void format_status_strings__14TAdPlyStatusGCFPv(char *buf) {
     }
 }
 
-s32 TAdPlyStatusGC__sub_8033F8B0(void *arg0, void *arg1) {
-    s32 r = create_callback__22TAdEnterSerialAccessGCFPvPvPv(arg1, lbl_804783D8, (void *)draw_status_window__14TAdPlyStatusGCFPvPv);
+s32 TAdPlyStatusGC__sub_8033F8B0(void *arg0, void *ad_enter_serial_access_gc) {
+    s32 r = create_callback__22TAdEnterSerialAccessGCFPvPvPv(ad_enter_serial_access_gc, lbl_804783D8, (void *)draw_status_window__14TAdPlyStatusGCFPvPv);
     set_field_1c__6TLobbyFf(lbl_805DFAEC);
     return r;
 }
@@ -359,12 +359,12 @@ void run_task__14TAdPlyStatusGCFv(C_8033FAD8 *self) {
     self->last = self->idx;
 }
 u8 *__dt__14TAdPlyStatusGCFv(u8 *arg0, s16 arg1) {
-    u8 *temp_r3;
+    u8 *object;
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TAdPlyStatusGC.value;
-        temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x6C));
-        if (temp_r3 != NULL) {
-            queue_destruction__7TObjectFv(temp_r3);
+        object = (u8 *)(*(u8 **)((s8 *)arg0 + 0x6C));
+        if (object != NULL) {
+            queue_destruction__7TObjectFv(object);
             *(u8 **)((s8 *)arg0 + 0x6C) = NULL;
         }
         if ((u32) ply_status_gc_instance != 0U) {

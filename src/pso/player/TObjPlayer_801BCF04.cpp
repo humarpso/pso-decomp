@@ -15,12 +15,12 @@ u16 obj_getField1c(void *);
 extern s32 player_shared_buffer_base;
 extern s32 shared_state_flags;
 
-void TObjPlayer::load_character_state(u8 *arg1) {
+void TObjPlayer::load_character_state(u8 *player) {
     u8 count;
     s32 temp_r30;
 
-    count = *arg1;
-    temp_r30 = get_ptr_4__10TObjPlayerFv(arg1);
+    count = *player;
+    temp_r30 = get_ptr_4__10TObjPlayerFv(player);
     create_inventory();
     set_action_provider_variant__10TObjPlayerFPvs(this, (s16) TObjPlayer__sub_801C2114());
     if ((obj_isState2_324__13TUnk_804806E8Fv(this) == 0) || (is_lobby_floor_15__15TFontSmallLobbyFv() == 0)) {

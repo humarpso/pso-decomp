@@ -513,17 +513,17 @@ void *__dt__9TObjEneDDFv(void *arg0, s16 arg1) {
 extern const f32 lbl_805D9EA8;
 extern void *lbl_805D2A30;
 
-void *TObjEneDD__ct(void *arg0) {
-    initialize__9TObjEnemyFPv(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TObjEneDD;
-    *(void * *)&((TObjEneDD *)arg0)->m_name = lbl_805D2A30;
-    *(u32 *)((s8 *)arg0 + 0x374) = 0;
-    *(u32 *)((s8 *)arg0 + 0x378) = 0;
-    *(f32 *)((s8 *)arg0 + 0x37C) = lbl_805D9EA8;
-    *(u32 *)((s8 *)arg0 + 0x380) = 0;
-    *(u32 *)((s8 *)arg0 + 0x384) = 0;
-    *(u32 *)((s8 *)arg0 + 0x388) = 0;
-    return arg0;
+void *TObjEneDD__ct(void *ene_dd) {
+    initialize__9TObjEnemyFPv(ene_dd);
+    *(s32 **)((s8 *)ene_dd + 0x18) = __vt__9TObjEneDD;
+    *(void * *)&((TObjEneDD *)ene_dd)->m_name = lbl_805D2A30;
+    *(u32 *)((s8 *)ene_dd + 0x374) = 0;
+    *(u32 *)((s8 *)ene_dd + 0x378) = 0;
+    *(f32 *)((s8 *)ene_dd + 0x37C) = lbl_805D9EA8;
+    *(u32 *)((s8 *)ene_dd + 0x380) = 0;
+    *(u32 *)((s8 *)ene_dd + 0x384) = 0;
+    *(u32 *)((s8 *)ene_dd + 0x388) = 0;
+    return ene_dd;
 }
 
 struct Base_800BBDD4 { char pad[0x18]; };

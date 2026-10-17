@@ -48,10 +48,10 @@ extern s32 TBoss4Type3__motion_trail_points;
 void mem_free(void *p);
 
 typedef char RecoveredGlobal_800D9960_lbl_80500FA4_size[sizeof(RecoveredGlobal_800D9960_lbl_80500FA4) == 0xC ? 1 : -1];
-void draw_trail_with_colors(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+void draw_trail_with_colors(u8 *boss4_type3, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     *(s32 *)((s8 *)&lbl_80500FA4.value + 0) = arg3;
     *(s32 *)((s8 *)&lbl_80500FA4.value + 4) = arg4;
-    ((TBoss4Type3 *)arg0)->draw_motion_trail(arg1, arg2, (s32)((s32) &lbl_80500FA4.value), 0);
+    ((TBoss4Type3 *)boss4_type3)->draw_motion_trail(arg1, arg2, (s32)((s32) &lbl_80500FA4.value), 0);
 }
 
 void TBoss4Type3::draw_motion_trail(s32 arg1, s32 arg2, s32 arg3, s32 arg4) {

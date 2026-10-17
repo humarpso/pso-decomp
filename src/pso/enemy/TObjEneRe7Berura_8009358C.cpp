@@ -778,27 +778,27 @@ void TObjEneRe7Berura::handle_state(s32 arg1) {
     }
 }
 
-void TObjEneRe7Berura__sub_80094624(u8 *arg0, s32 arg1) {
+void TObjEneRe7Berura__sub_80094624(u8 *ene_re7_berura, s32 arg1) {
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-        ((TObjEneDD *)arg0)->vfunc_95();
-        *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C0) & 0xFFFFFFF9);
-        *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C0) | 1);
-        ((TObjEneDD *)arg0)->set_field_378(2);
-        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x50));
-        VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
-        VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
-        *(s32 *)((s8 *)arg0 + 0x3C4) = -1;
-        s32 c = *(s32 *)((s8 *)arg0 + 0x3C8) = 0xFF000000;
-        *(s32 *)((s8 *)arg0 + 0x3D4) = 1;
-        ((Sub_80094624 *)(arg0 + 0x3D8))->s2(c);
-        *(s32 *)((s8 *)arg0 + 0x3F4) = 1;
-        ((TObjEneRe7Berura *)arg0)->init_fields4B8();
+        *(s16 *)((s8 *)ene_re7_berura + 0xB8) = 0;
+        ((TObjEneDD *)ene_re7_berura)->vfunc_95();
+        *(s32 *)((s8 *)ene_re7_berura + 0x3C0) = (s32) (*(s32 *)((s8 *)ene_re7_berura + 0x3C0) & 0xFFFFFFF9);
+        *(s32 *)((s8 *)ene_re7_berura + 0x3C0) = (s32) (*(s32 *)((s8 *)ene_re7_berura + 0x3C0) | 1);
+        ((TObjEneDD *)ene_re7_berura)->set_field_378(2);
+        VecCopy((Vec *)(ene_re7_berura + 0x38), (const Vec *)(ene_re7_berura + 0x50));
+        VecCopy((Vec *)(ene_re7_berura + 0x44), (const Vec *)(ene_re7_berura + 0x38));
+        VecCopy((Vec *)(ene_re7_berura + 0x2FC), (const Vec *)(ene_re7_berura + 0x38));
+        *(s32 *)((s8 *)ene_re7_berura + 0x3C4) = -1;
+        s32 c = *(s32 *)((s8 *)ene_re7_berura + 0x3C8) = 0xFF000000;
+        *(s32 *)((s8 *)ene_re7_berura + 0x3D4) = 1;
+        ((Sub_80094624 *)(ene_re7_berura + 0x3D8))->s2(c);
+        *(s32 *)((s8 *)ene_re7_berura + 0x3F4) = 1;
+        ((TObjEneRe7Berura *)ene_re7_berura)->init_fields4B8();
         return;
     case 3:
-        if (((TObjEneDD_ST *)arg0)->update_linked_position(TObjEneRe7Berura__data_805D9724) != 0) {
-            transition_enemy_state(arg0, 1);
+        if (((TObjEneDD_ST *)ene_re7_berura)->update_linked_position(TObjEneRe7Berura__data_805D9724) != 0) {
+            transition_enemy_state(ene_re7_berura, 1);
         }
     case 5:
     case 0:

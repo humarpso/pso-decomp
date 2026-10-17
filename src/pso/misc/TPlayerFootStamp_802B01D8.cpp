@@ -27,14 +27,14 @@ void TPlayerFootStamp::sub_802B0204(s32 v) {
     }
 }
 
-void TBoss6PlotFalz__sub_802B0228(TBoss6PlotFalz *arg0) {
+void TBoss6PlotFalz__sub_802B0228(TBoss6PlotFalz *boss6_plot_falz) {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x3CC) + 1;
-    *(s32 *)((s8 *)arg0 + 0x3CC) = temp_r0;
+    temp_r0 = *(s32 *)((s8 *)boss6_plot_falz + 0x3CC) + 1;
+    *(s32 *)((s8 *)boss6_plot_falz + 0x3CC) = temp_r0;
     if (temp_r0 > 0x1C6) {
         end_cutscene_camera__14TBoss6PlotFalzFPv();
-        arg0->award_exp_and_destroy();
+        boss6_plot_falz->award_exp_and_destroy();
     }
 }
 

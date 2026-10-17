@@ -1237,11 +1237,11 @@ s32 TLobby__sub_803FF2CC(u8 *arg0, s32 arg1) {
     return 0;
 }
 
-s16 TLobby__sub_803FF304(u8 *arg0) {
+s16 TLobby__sub_803FF304(u8 *lobby) {
     struct Fields_arg0 { u8 pad_0[12]; u8 * field_C; };
-    ((TLobby *)arg0)->set_flags_and_state();
-    if ((u8) *((Fields_arg0*)arg0)->field_C == 3) {
-        TLobby__sub_803FD958((u8 *)(arg0));
+    ((TLobby *)lobby)->set_flags_and_state();
+    if ((u8) *((Fields_arg0*)lobby)->field_C == 3) {
+        TLobby__sub_803FD958((u8 *)(lobby));
     }
     return 0;
 }

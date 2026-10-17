@@ -220,13 +220,13 @@ void TItemEquipBase::send_6x61_activate_mag_effect(s32 arg1) {
     }
 }
 }
-void handle_6x61_activate_mag_effect(TObjPlayer *arg0) {
+void handle_6x61_activate_mag_effect(TObjPlayer *player) {
     struct VObj_80101350_80100E00 *obj;
     if (TOKeyMachine01::get_global_state() != 0xF) {
-        arg0->swap_6x61_fields();
-        obj = (VObj_80101350_80100E00 *)find_item_by_id(*(s32 *)((s8 *)arg0 + 4));
+        player->swap_6x61_fields();
+        obj = (VObj_80101350_80100E00 *)find_item_by_id(*(s32 *)((s8 *)player + 4));
         if ((obj != NULL) && ((u32) *(u32 *)((s8 *)obj + 0xF0) != 0U)) {
-            obj->m17(*(s32 *)((s8 *)arg0 + 8));
+            obj->m17(*(s32 *)((s8 *)player + 8));
         }
     }
 }

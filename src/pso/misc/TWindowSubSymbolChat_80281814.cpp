@@ -295,7 +295,7 @@ s32 TWindowSubSymbolChat::create_menu() {
     return temp_r31;
 }
 
-s32 create_menu__20TWindowSubSymbolChatFPv(void *arg0) {
+s32 create_menu__20TWindowSubSymbolChatFPv(void *window_sub_symbol_chat) {
     s32 temp_r31;
 
     temp_r31 = draw_card_icon__17TWindowSubComCardFll(get_window_layout_position(0x79), 3, get_message_10__20TWindowSubStatusDispFl(0xAA));
@@ -306,7 +306,7 @@ s32 create_menu__20TWindowSubSymbolChatFPv(void *arg0) {
         forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(get_message_10__20TWindowSubStatusDispFl(0xB0)), 6, 0x16);
         forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(get_message_10__20TWindowSubStatusDispFl(0xB1)), 6, 0x1A);
     }
-    if (((TWindowSubSymbolChat *)(*(s32 *)&((TWindowSubSymbolChat *)arg0)->m_28))->is_initialized() != 0) {
+    if (((TWindowSubSymbolChat *)(*(s32 *)&((TWindowSubSymbolChat *)window_sub_symbol_chat)->m_28))->is_initialized() != 0) {
         forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(get_message_10__20TWindowSubStatusDispFl(0xB2)), 6, 0x1C);
     } else {
         TWindowSubComCard::draw_text_gray(temp_r31, get_message_10__20TWindowSubStatusDispFl(0xB2), 6, 0x1C);

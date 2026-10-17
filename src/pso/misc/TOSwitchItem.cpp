@@ -74,19 +74,19 @@ void TOSwitchItem::debug_draw_key_id() {  }
 extern void *tl_05;
 
 #pragma opt_loop_invariants off
-void run_task__12TOSwitchItemFv(u8 *arg0) {
+void run_task__12TOSwitchItemFv(u8 *switch_item) {
     s32 temp_r31;
     s32 var_r30;
     s32 var_r29;
     u8 *sorted_item_registry_entry;
-    ((TOSwitchItem *)(arg0))->update_armed_switch();
+    ((TOSwitchItem *)(switch_item))->update_armed_switch();
     var_r30 = 0;
     temp_r31 = get_item_registry_count();
     var_r29 = 0;
     while (var_r29 != temp_r31) {
         sorted_item_registry_entry = (u8 *)(get_sorted_item_registry_entry(var_r29));
-        if ((((TItem *)sorted_item_registry_entry)->sub_80102C30() == 0) && (horizontal_distance_squared(&((Obj_80177E24 *)sorted_item_registry_entry)->pos, &((Obj_80177E24 *)arg0)->pos) < ((TOSwitchItem *)arg0)->m_e8)) {
-            switch (((TOSwitchItem *)arg0)->m_f0) {
+        if ((((TItem *)sorted_item_registry_entry)->sub_80102C30() == 0) && (horizontal_distance_squared(&((Obj_80177E24 *)sorted_item_registry_entry)->pos, &((Obj_80177E24 *)switch_item)->pos) < ((TOSwitchItem *)switch_item)->m_e8)) {
+            switch (((TOSwitchItem *)switch_item)->m_f0) {
             case 0:
                 var_r30 += 1;
                 break;
@@ -129,14 +129,14 @@ void run_task__12TOSwitchItemFv(u8 *arg0) {
         }
         var_r29 += 1;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xF4) <= var_r30) {
-        if ((s32) *(s32 *)((s8 *)arg0 + 0xEC) == 0) {
-            *(s32 *)((s8 *)arg0 + 0xEC) = 1;
-            ((TOSwitchItem *)(arg0))->send_switch_on();
+    if ((s32) *(s32 *)((s8 *)switch_item + 0xF4) <= var_r30) {
+        if ((s32) *(s32 *)((s8 *)switch_item + 0xEC) == 0) {
+            *(s32 *)((s8 *)switch_item + 0xEC) = 1;
+            ((TOSwitchItem *)(switch_item))->send_switch_on();
         }
-    } else if ((s32) *(s32 *)((s8 *)arg0 + 0xEC) != 0) {
-        *(s32 *)((s8 *)arg0 + 0xEC) = 0;
-        ((TOSwitchItem *)(arg0))->send_switch_on();
+    } else if ((s32) *(s32 *)((s8 *)switch_item + 0xEC) != 0) {
+        *(s32 *)((s8 *)switch_item + 0xEC) = 0;
+        ((TOSwitchItem *)(switch_item))->send_switch_on();
     }
 }
 
@@ -162,13 +162,13 @@ void *__dt__12TOSwitchItemFv(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_801780E0___vt__12TOSwitchItem_size[sizeof(RecoveredGlobal_801780E0___vt__12TOSwitchItem) == 0x70 ? 1 : -1];
-u8 *TOSwitchItem__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TOKey__ct((TOKey *)(arg0));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801780E0___vt__12TOSwitchItem *)&__vt__12TOSwitchItem).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3180;
-    ((TOSwitchItem *)(arg0))->apply_object_set_data((void *)arg2);
-    ((TOSwitchItem *)arg0)->update_anim();
-    *(s32 *)((s8 *)arg0 + 0xEC) = 0;
-    return arg0;
+u8 *TOSwitchItem__ct(u8 *switch_item, s32 arg1, s32 arg2) {
+    TOKey__ct((TOKey *)(switch_item));
+    *(s32 **)((s8 *)switch_item + 0x18) = &(*(RecoveredGlobal_801780E0___vt__12TOSwitchItem *)&__vt__12TOSwitchItem).value;
+    *(s32 *)((s8 *)switch_item + 0) = (s32) lbl_805D3180;
+    ((TOSwitchItem *)(switch_item))->apply_object_set_data((void *)arg2);
+    ((TOSwitchItem *)switch_item)->update_anim();
+    *(s32 *)((s8 *)switch_item + 0xEC) = 0;
+    return switch_item;
 }
 }

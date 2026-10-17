@@ -50,11 +50,11 @@ extern const f32 lbl_805DB184;
 extern const f32 lbl_805DB188;
 void run_task__6TMovieFv(TMovie *arg0);
 
-void run_task__6TMovieFv(TMovie *arg0) {
+void run_task__6TMovieFv(TMovie *movie) {
     VObj_18_a28850 *txt;
     u8 *p;
-    if (arg0->m_1c == 0 || arg0->m_20 == 0) {
-        queue_destruction__7TObjectFv(arg0);
+    if (movie->m_1c == 0 || movie->m_20 == 0) {
+        queue_destruction__7TObjectFv(movie);
         return;
     }
     render_tick();
@@ -64,20 +64,20 @@ void run_task__6TMovieFv(TMovie *arg0) {
     if (TAdEndText__sub_8001B41C() != 0) {
         p = __nw__7TObjectFUl(0x197C);
         if (p != NULL) {
-            p = __ct__10TAdEndTextFv(p, arg0);
+            p = __ct__10TAdEndTextFv(p, movie);
         }
         txt = (VObj_18_a28850 *)p;
     }
     for (;;) {
-        if (arg0->check_skip_input() != 0) {
+        if (movie->check_skip_input() != 0) {
             break;
         }
         func_803DCDFC__Fv();
         controller_stuff();
         TKeyBoardControl::update_input_frame();
-        ((TMovie *)(arg0->m_20))->decode_frame();
-        if (*(s32 *)&arg0->m_48 != 0) {
-            ((TMovie *)(arg0->m_20))->update_stop();
+        ((TMovie *)(movie->m_20))->decode_frame();
+        if (*(s32 *)&movie->m_48 != 0) {
+            ((TMovie *)(movie->m_20))->update_stop();
             TMovie::run_callback();
         } else {
             Vec_80144778 eye = lbl_8043F2E8;
@@ -85,7 +85,7 @@ void run_task__6TMovieFv(TMovie *arg0) {
             Vec_80144778 up = lbl_8043F300;
             set_perspective_projection_from_fov(0x4B, lbl_805DB180, lbl_805DB184, lbl_805DB188);
             set_camera_look_at((u8 *)&eye, (u8 *)&at, (u8 *)&up);
-            ((TMovie *)(arg0->m_20))->update_stop();
+            ((TMovie *)(movie->m_20))->update_stop();
             if (txt != NULL) {
                 txt->m1();
                 txt->m2();
@@ -93,7 +93,7 @@ void run_task__6TMovieFv(TMovie *arg0) {
             render_tick();
         }
     }
-    queue_destruction__7TObjectFv(arg0);
+    queue_destruction__7TObjectFv(movie);
 }
 }
 TMovie::TMovie(TObject *parent, s8 *name, s32 a3, s32 a4, s32 a5) : TObject(parent) {

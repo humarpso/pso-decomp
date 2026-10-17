@@ -192,22 +192,22 @@ s32 TUnk_804A4948::send_srank_stat_extra(u32 arg1, s32 arg2) {
 }
 }
 
-void receive_srank_hit(TItemWeapon *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 farg0) {
+void receive_srank_hit(TItemWeapon *item_weapon, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 farg0) {
     u32 f;
     if (sub_80102C30__5TItemFv() == 2) {
-        f = *(u32 *)((s8 *)arg0 + 0xF0);
+        f = *(u32 *)((s8 *)item_weapon + 0xF0);
         if ((f != 0U) && (arg2 != 0U)) {
-            switch (*(s32 *)((s8 *)arg0 + 0x1F8)) {
+            switch (*(s32 *)((s8 *)item_weapon + 0x1F8)) {
             case 1:
             case 2:
                 if (arg3 == 2) {
-                    ((TUnk_804A4948 *)arg0)->send_srank_stat_extra(arg2, arg4);
+                    ((TUnk_804A4948 *)item_weapon)->send_srank_stat_extra(arg2, arg4);
                 } else {
-                    arg0->deliver_hit((s32)f, (u8 *)arg2, (s32)arg3, (s32)arg4, (f32)farg0);
+                    item_weapon->deliver_hit((s32)f, (u8 *)arg2, (s32)arg3, (s32)arg4, (f32)farg0);
                 }
                 break;
             default:
-                arg0->deliver_hit((s32)f, (u8 *)arg2, (s32)arg3, (s32)arg4, (f32)farg0);
+                item_weapon->deliver_hit((s32)f, (u8 *)arg2, (s32)arg3, (s32)arg4, (f32)farg0);
                 break;
             }
         }

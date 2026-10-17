@@ -15,7 +15,7 @@ extern void *lbl_805D4328;
 
 TAdFloorLoadGC::~TAdFloorLoadGC() {}
 }
-TAdFloorLoadGC::TAdFloorLoadGC(TObject *arg1, void *arg2) : TObject(arg1) {
+TAdFloorLoadGC::TAdFloorLoadGC(TObject *object, void *arg2) : TObject(object) {
     void *o;
     void *o2;
     *(void * *)&this->m_name = lbl_805D4328;

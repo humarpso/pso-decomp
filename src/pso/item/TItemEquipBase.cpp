@@ -324,8 +324,8 @@ s8 TItemWeapon::get_attach_joint() {
     return (s8) (*(u8 *)((u8 *)this + 0x171));
 }
 
-s8 TItemEquipBase__sub_8010A77C(TItemEquipBase *arg0) {
-    return (s8) arg0->m_170;
+s8 TItemEquipBase__sub_8010A77C(TItemEquipBase *item_equip_base) {
+    return (s8) item_equip_base->m_170;
 }
 
 void TItemEquipBase::vfunc_50() {  }
@@ -363,7 +363,7 @@ void TItemEquipBase__sub_8010A82C(s32 arg0) {
     } while (var_r30 != 3);
 }
 
-void register_technique_boosts__14TItemEquipBaseFPvPv(void *arg0, Row_8010A89C *row) {
+void register_technique_boosts__14TItemEquipBaseFPvPv(void *item, Row_8010A89C *row) {
     s32 base;
     Row_8010A89C *p;
     s32 i;
@@ -375,7 +375,7 @@ void register_technique_boosts__14TItemEquipBaseFPvPv(void *arg0, Row_8010A89C *
     if (row == NULL) {
         return;
     }
-    base = (((TItem *)arg0)->get_field_ec() != 0) ? 3 : 0;
+    base = (((TItem *)item)->get_field_ec() != 0) ? 3 : 0;
     p = row;
     i = 0;
     do {
@@ -386,7 +386,7 @@ void register_technique_boosts__14TItemEquipBaseFPvPv(void *arg0, Row_8010A89C *
         slot.id = id;
         slot.level = lv;
         slot.amount = amt;
-        TItemEquipBase__sub_8022C680((void *)&slot, (void *)((s32 (*)(void *, int))get_id__13TItemProArmorFv)(arg0, id), (void *)(base + i));
+        TItemEquipBase__sub_8022C680((void *)&slot, (void *)((s32 (*)(void *, int))get_id__13TItemProArmorFv)(item, id), (void *)(base + i));
         i++;
         p++;
     } while (i != 3);

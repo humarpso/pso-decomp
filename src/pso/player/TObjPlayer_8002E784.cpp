@@ -120,7 +120,7 @@ void TObjPlayer__sub_8002E7C8(void) {
 }
 
 void TUnk_804820A8::run_task() {
-    u8 *temp_r30;
+    u8 *boss2_ceil_junk;
     s32 var_r29;
     Boss2 *self;
     *(s32 *)((s8 *)((u8 *)this) + 0x1C) += 1;
@@ -130,10 +130,10 @@ void TUnk_804820A8::run_task() {
     }
     var_r29 = 0;
     do {
-        temp_r30 = (u8 *)&((Boss2 *)((u8 *)this))->units[var_r29];
-        if (TObjPlayer__sub_8002EDCC(temp_r30) != 0) {
+        boss2_ceil_junk = (u8 *)&((Boss2 *)((u8 *)this))->units[var_r29];
+        if (TObjPlayer__sub_8002EDCC(boss2_ceil_junk) != 0) {
             if ((var_r29 % 2) == 0) {
-                create_particle__17TObjBoss2CeilJunkFv(temp_r30, 0x171);
+                create_particle__17TObjBoss2CeilJunkFv(boss2_ceil_junk, 0x171);
             }
         }
         var_r29 += 1;

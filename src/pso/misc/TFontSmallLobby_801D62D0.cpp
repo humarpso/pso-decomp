@@ -47,23 +47,23 @@ void *get_player_by_client_id(s32 i);
 u16 get_type__15TFontSmallLobbyFPv(void* p);
 s32 send_field_state__10TObjPlayerFPv();
 
-s32 subtract_photon_blast_charge(TFontSmallLobby *arg0, f32 farg0) {
+s32 subtract_photon_blast_charge(TFontSmallLobby *font_small_lobby, f32 farg0) {
   const f32 *new_var;
   f32 temp_f0;
   f32 temp_f1;
-  temp_f0 = *((f32 *) (((s8 *) arg0) + 0x3C));
+  temp_f0 = *((f32 *) (((s8 *) font_small_lobby) + 0x3C));
   if (temp_f0 < lbl_805DC3DC)
   {
-    *((f32 *) (((s8 *) arg0) + 0x3C)) = (f32) (temp_f0 - farg0);
-    if ((*((f32 *) (((s8 *) arg0) + 0x3C))) < (*(new_var = &lbl_805DC3E0)))
+    *((f32 *) (((s8 *) font_small_lobby) + 0x3C)) = (f32) (temp_f0 - farg0);
+    if ((*((f32 *) (((s8 *) font_small_lobby) + 0x3C))) < (*(new_var = &lbl_805DC3E0)))
     {
-      *((f32 *) (((s8 *) arg0) + 0x3C)) = (f32) (*new_var);
+      *((f32 *) (((s8 *) font_small_lobby) + 0x3C)) = (f32) (*new_var);
       return 0;
     }
     goto block_7;
   }
-  *((f32 *) (((s8 *) arg0) + 0x3C)) = (f32) (temp_f0 - farg0);
-  temp_f1 = *((f32 *) (((s8 *) arg0) + 0x3C));
+  *((f32 *) (((s8 *) font_small_lobby) + 0x3C)) = (f32) (temp_f0 - farg0);
+  temp_f1 = *((f32 *) (((s8 *) font_small_lobby) + 0x3C));
   if (temp_f1 < lbl_805DC3DC)
   {
     send_6x3A_clear_photon_blast_ready_flag();
@@ -71,7 +71,7 @@ s32 subtract_photon_blast_charge(TFontSmallLobby *arg0, f32 farg0) {
   else
     if (temp_f1 < lbl_805DC3E4)
   {
-    arg0->update_field_40();
+    font_small_lobby->update_field_40();
   }
   block_7:
   return 1;

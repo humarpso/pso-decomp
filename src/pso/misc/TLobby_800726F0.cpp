@@ -70,9 +70,9 @@ void TLobby::bswap_challenge_dead_flag() {
     bswap_32((u32 *)((char *)this + 4));
 }
 
-void TLobby__sub_80072724(TLobby *arg0) {
-    arg0->bswap_challenge_dead_flag();
-    TLobby__send_and_handle_60((u8 *)arg0);
+void TLobby__sub_80072724(TLobby *lobby) {
+    lobby->bswap_challenge_dead_flag();
+    TLobby__send_and_handle_60((u8 *)lobby);
 }
 
 void TLobby__sub_80072758(u8 *arg0) {
@@ -85,12 +85,12 @@ void TLobby::send_and_handle_60_wrapper() {
     TLobby__send_and_handle_60((u8 *)this);
 }
 
-void TLobby__sub_800727A0(void *arg0) {
-    ((TObjPlayer *)arg0)->read_be16_field2();
-    bswap_32((u32 *)((char *)arg0 + 4));
-    bswap_32((u32 *)((char *)arg0 + 8));
-    bswap_32((u32 *)((char *)arg0 + 12));
-    bswap_32((u32 *)((char *)arg0 + 16));
+void TLobby__sub_800727A0(void *player) {
+    ((TObjPlayer *)player)->read_be16_field2();
+    bswap_32((u32 *)((char *)player + 4));
+    bswap_32((u32 *)((char *)player + 8));
+    bswap_32((u32 *)((char *)player + 12));
+    bswap_32((u32 *)((char *)player + 16));
 }
 
 void TLobby__sub_800727EC(u8 *arg0) {
@@ -427,16 +427,16 @@ TObjChallengeRetry::~TObjChallengeRetry() {
     }
 }
 
-void *TObjChallengeRetry__ct(void *arg0, void *parent) {
-    __ct__7TObjectFP7TObject(arg0, parent);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjChallengeRetry;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjChallengeRetry__class_name;
-    ((TObjChallengeRetry *)arg0)->m_20 = ((s32 (*)(void *))is_challenge_lobby__6TLobbyFv)(arg0);
-    ((TObjChallengeRetry *)arg0)->m_24 = 0;
-    *(s32 *)((s8 *)arg0 + 0x2C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x30) = 0;
-    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
-    return arg0;
+void *TObjChallengeRetry__ct(void *challenge_retry, void *parent) {
+    __ct__7TObjectFP7TObject(challenge_retry, parent);
+    *(s32 **)((s8 *)challenge_retry + 0x18) = __vt__18TObjChallengeRetry;
+    *(s32 *)((s8 *)challenge_retry + 0) = (s32) TObjChallengeRetry__class_name;
+    ((TObjChallengeRetry *)challenge_retry)->m_20 = ((s32 (*)(void *))is_challenge_lobby__6TLobbyFv)(challenge_retry);
+    ((TObjChallengeRetry *)challenge_retry)->m_24 = 0;
+    *(s32 *)((s8 *)challenge_retry + 0x2C) = 0;
+    *(s32 *)((s8 *)challenge_retry + 0x30) = 0;
+    *(s32 *)((s8 *)challenge_retry + 0x1C) = 0;
+    return challenge_retry;
 }
 
 void *fn_800733C4(void *parent) {

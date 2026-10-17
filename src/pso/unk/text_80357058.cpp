@@ -254,47 +254,47 @@ void *__dt__20TItemEffOrgaFlowShotFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TItemEffOrgaFlowShot__ct(TItemEffOrgaFlowShot *arg0, s32 arg1, u8 *arg2) {
-    construct_attack_collision((u8 *)arg0, arg1, arg2);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80357548___vt__20TItemEffOrgaFlowShot *)&__vt__20TItemEffOrgaFlowShot).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TItemEffOrgaFlowShot__name;
-    *(s32 *)((s8 *)arg0 + 0xC0) = 0;
-    arg0->m_48 = 1;
-    *(f32 *)((s8 *)arg0 + 0x44) = (f32) lbl_805E0038;
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) *(s32 *)((s8 *)arg2 + 0x28);
-    arg0->m_188 = (s32) *(s32 *)((s8 *)arg2 + 0x28);
-    *(f32 *)((s8 *)arg0 + 0x190) = (f32) lbl_805E003C;
-    *(f32 *)((s8 *)arg0 + 0x18C) = (f32) lbl_805E0040;
-    *(f32 *)((s8 *)arg0 + 0x194) = (f32) lbl_805E003C;
-    arg0->m_19c = 0x14;
-    arg0->m_17c = sin_table_lookup(arg0->m_188);
-    *(f32 *)((s8 *)arg0 + 0x180) = (f32) lbl_805E003C;
-    arg0->m_184 = cos_table_lookup(arg0->m_188);
-    *(f32 *)((s8 *)arg0 + 0x164) = (f32) (*(f32 *)((s8 *)arg2 + 0x2C) - *(f32 *)((s8 *)arg2 + 0x38));
-    *(f32 *)((s8 *)arg0 + 0x168) = (f32) (*(f32 *)((s8 *)arg2 + 0x30) - *(f32 *)((s8 *)arg2 + 0x3C));
-    arg0->m_16c = (f32) (*(f32 *)((s8 *)arg2 + 0x34) - *(f32 *)((s8 *)arg2 + 0x40));
-    *(f32 *)((s8 *)arg0 + 0x198) = (f32) (lbl_805E0044 * normalize_vector((u8 *)arg0 + 0x164));
-    *(f32 *)((s8 *)arg0 + 0x170) = (f32) (*(f32 *)((s8 *)arg2 + 0x5C) - *(f32 *)((s8 *)arg2 + 0x50));
-    *(f32 *)((s8 *)arg0 + 0x174) = (f32) (*(f32 *)((s8 *)arg2 + 0x60) - *(f32 *)((s8 *)arg2 + 0x54));
-    arg0->m_178 = (f32) (*(f32 *)((s8 *)arg2 + 0x64) - *(f32 *)((s8 *)arg2 + 0x58));
-    normalize_vector((u8 *)arg0 + 0x170);
-    arg0->m_f4 = (f32) *(f32 *)((s8 *)arg2 + 0x38);
-    *(f32 *)((s8 *)arg0 + 0xF8) = (f32) *(f32 *)((s8 *)arg2 + 0x3C);
-    arg0->m_fc = (f32) *(f32 *)((s8 *)arg2 + 0x40);
-    arg0->m_100 = 0x6040FF40;
-    arg0->m_114 = (f32) *(f32 *)((s8 *)arg2 + 0x44);
-    *(f32 *)((s8 *)arg0 + 0x118) = (f32) *(f32 *)((s8 *)arg2 + 0x48);
-    arg0->m_11c = (f32) *(f32 *)((s8 *)arg2 + 0x4C);
-    arg0->m_120 = 0x408840;
-    arg0->m_134 = (f32) *(f32 *)((s8 *)arg2 + 0x50);
-    *(f32 *)((s8 *)arg0 + 0x138) = (f32) *(f32 *)((s8 *)arg2 + 0x54);
-    arg0->m_13c = (f32) *(f32 *)((s8 *)arg2 + 0x58);
-    arg0->m_140 = 0x6040FF40;
-    arg0->m_e0 = 0x408840;
-    arg0->m_160 = 0x408840;
-    arg0->update_segments();
-    arg0->update_position_from_velocity();
-    return (u8 *)arg0;
+u8 *TItemEffOrgaFlowShot__ct(TItemEffOrgaFlowShot *item_eff_orga_flow_shot, s32 arg1, u8 *arg2) {
+    construct_attack_collision((u8 *)item_eff_orga_flow_shot, arg1, arg2);
+    *(s32 **)((s8 *)item_eff_orga_flow_shot + 0x18) = &(*(RecoveredGlobal_80357548___vt__20TItemEffOrgaFlowShot *)&__vt__20TItemEffOrgaFlowShot).value;
+    *(s32 *)((s8 *)item_eff_orga_flow_shot + 0) = (s32) TItemEffOrgaFlowShot__name;
+    *(s32 *)((s8 *)item_eff_orga_flow_shot + 0xC0) = 0;
+    item_eff_orga_flow_shot->m_48 = 1;
+    *(f32 *)((s8 *)item_eff_orga_flow_shot + 0x44) = (f32) lbl_805E0038;
+    *(s32 *)((s8 *)item_eff_orga_flow_shot + 0x30) = (s32) *(s32 *)((s8 *)arg2 + 0x28);
+    item_eff_orga_flow_shot->m_188 = (s32) *(s32 *)((s8 *)arg2 + 0x28);
+    *(f32 *)((s8 *)item_eff_orga_flow_shot + 0x190) = (f32) lbl_805E003C;
+    *(f32 *)((s8 *)item_eff_orga_flow_shot + 0x18C) = (f32) lbl_805E0040;
+    *(f32 *)((s8 *)item_eff_orga_flow_shot + 0x194) = (f32) lbl_805E003C;
+    item_eff_orga_flow_shot->m_19c = 0x14;
+    item_eff_orga_flow_shot->m_17c = sin_table_lookup(item_eff_orga_flow_shot->m_188);
+    *(f32 *)((s8 *)item_eff_orga_flow_shot + 0x180) = (f32) lbl_805E003C;
+    item_eff_orga_flow_shot->m_184 = cos_table_lookup(item_eff_orga_flow_shot->m_188);
+    *(f32 *)((s8 *)item_eff_orga_flow_shot + 0x164) = (f32) (*(f32 *)((s8 *)arg2 + 0x2C) - *(f32 *)((s8 *)arg2 + 0x38));
+    *(f32 *)((s8 *)item_eff_orga_flow_shot + 0x168) = (f32) (*(f32 *)((s8 *)arg2 + 0x30) - *(f32 *)((s8 *)arg2 + 0x3C));
+    item_eff_orga_flow_shot->m_16c = (f32) (*(f32 *)((s8 *)arg2 + 0x34) - *(f32 *)((s8 *)arg2 + 0x40));
+    *(f32 *)((s8 *)item_eff_orga_flow_shot + 0x198) = (f32) (lbl_805E0044 * normalize_vector((u8 *)item_eff_orga_flow_shot + 0x164));
+    *(f32 *)((s8 *)item_eff_orga_flow_shot + 0x170) = (f32) (*(f32 *)((s8 *)arg2 + 0x5C) - *(f32 *)((s8 *)arg2 + 0x50));
+    *(f32 *)((s8 *)item_eff_orga_flow_shot + 0x174) = (f32) (*(f32 *)((s8 *)arg2 + 0x60) - *(f32 *)((s8 *)arg2 + 0x54));
+    item_eff_orga_flow_shot->m_178 = (f32) (*(f32 *)((s8 *)arg2 + 0x64) - *(f32 *)((s8 *)arg2 + 0x58));
+    normalize_vector((u8 *)item_eff_orga_flow_shot + 0x170);
+    item_eff_orga_flow_shot->m_f4 = (f32) *(f32 *)((s8 *)arg2 + 0x38);
+    *(f32 *)((s8 *)item_eff_orga_flow_shot + 0xF8) = (f32) *(f32 *)((s8 *)arg2 + 0x3C);
+    item_eff_orga_flow_shot->m_fc = (f32) *(f32 *)((s8 *)arg2 + 0x40);
+    item_eff_orga_flow_shot->m_100 = 0x6040FF40;
+    item_eff_orga_flow_shot->m_114 = (f32) *(f32 *)((s8 *)arg2 + 0x44);
+    *(f32 *)((s8 *)item_eff_orga_flow_shot + 0x118) = (f32) *(f32 *)((s8 *)arg2 + 0x48);
+    item_eff_orga_flow_shot->m_11c = (f32) *(f32 *)((s8 *)arg2 + 0x4C);
+    item_eff_orga_flow_shot->m_120 = 0x408840;
+    item_eff_orga_flow_shot->m_134 = (f32) *(f32 *)((s8 *)arg2 + 0x50);
+    *(f32 *)((s8 *)item_eff_orga_flow_shot + 0x138) = (f32) *(f32 *)((s8 *)arg2 + 0x54);
+    item_eff_orga_flow_shot->m_13c = (f32) *(f32 *)((s8 *)arg2 + 0x58);
+    item_eff_orga_flow_shot->m_140 = 0x6040FF40;
+    item_eff_orga_flow_shot->m_e0 = 0x408840;
+    item_eff_orga_flow_shot->m_160 = 0x408840;
+    item_eff_orga_flow_shot->update_segments();
+    item_eff_orga_flow_shot->update_position_from_velocity();
+    return (u8 *)item_eff_orga_flow_shot;
 }
 
 void TItemEffOrgaFlowShot::create(void *arg0, void *arg1) {

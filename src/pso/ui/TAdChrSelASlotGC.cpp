@@ -790,7 +790,7 @@ TAdChrSelASlotGC::~TAdChrSelASlotGC() {
     }
 }
 extern void *TAdChrSelASlotGC__name;
-TAdChrSelASlotGC::TAdChrSelASlotGC(TObject *arg1, void *arg2) : TObject(arg1) {
+TAdChrSelASlotGC::TAdChrSelASlotGC(TObject *object, void *arg2) : TObject(object) {
     *(void * *)&this->m_name = TAdChrSelASlotGC__name;
     this->init((s32)arg2);
     this->create_children((s32)arg2);
@@ -798,15 +798,15 @@ TAdChrSelASlotGC::TAdChrSelASlotGC(TObject *arg1, void *arg2) : TObject(arg1) {
 extern "C" {
 
 u8 *get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(s32 arg0, s32 arg1) {
-    u8 *temp_r3;
+    u8 *ad_chr_sel_a_slot_gc;
     u8 *var_r0;
     if ((void *) (*(u8 * *)&TAdChrSel__global_slot_data) != NULL) {
         return (*(u8 * *)&TAdChrSel__global_slot_data);
     }
-    temp_r3 = (u8 *)(__nw__7TObjectFUl(0x80));
-    var_r0 = temp_r3;
+    ad_chr_sel_a_slot_gc = (u8 *)(__nw__7TObjectFUl(0x80));
+    var_r0 = ad_chr_sel_a_slot_gc;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(((u8 *)__ct__16TAdChrSelASlotGCFP7TObjectPv((void *)temp_r3, (void *)arg0, (void *)arg1)));
+        var_r0 = (u8 *)(((u8 *)__ct__16TAdChrSelASlotGCFP7TObjectPv((void *)ad_chr_sel_a_slot_gc, (void *)arg0, (void *)arg1)));
     }
     (*(u8 * *)&TAdChrSel__global_slot_data) = var_r0;
     return var_r0;

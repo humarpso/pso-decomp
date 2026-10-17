@@ -26,18 +26,18 @@ char *strcpy(char *, const char *);
 extern char lbl_8047DF90[];
 extern MfciFilePool mfci_file_pool;
 typedef char RecoveredGlobal_803CFEA0_lbl_8047DAE4_size[sizeof(RecoveredGlobal_803CFEA0_lbl_8047DAE4) == 0x18 ? 1 : -1];
-s32 mfci_get_position(MfciFileEntry *arg0) {
-    if (arg0 == NULL) {
+s32 mfci_get_position(MfciFileEntry *mfci_file_entry) {
+    if (mfci_file_entry == NULL) {
         if (((s32 (*)(s32, s32 *, s32)) mfci_error_callback) != NULL) {
             mfci_error_callback(mfci_error_callback_context, &lbl_8047E170.value, 0);
         }
         return 0;
     }
-    return arg0->position_sector;
+    return mfci_file_entry->position_sector;
 }
 
-s32 mfci_seek(MfciFileEntry *arg0, s32 arg1, s32 arg2) {
-    if (arg0 == 0) {
+s32 mfci_seek(MfciFileEntry *mfci_file_entry, s32 arg1, s32 arg2) {
+    if (mfci_file_entry == 0) {
         if (mfci_error_callback != 0) {
             mfci_error_callback(mfci_error_callback_context, lbl_8047E18C, 0);
         }
@@ -45,32 +45,32 @@ s32 mfci_seek(MfciFileEntry *arg0, s32 arg1, s32 arg2) {
     }
     TLobby__sub_803D39C0();
     if (arg2 == 0) {
-        arg0->position_sector = arg1;
+        mfci_file_entry->position_sector = arg1;
     } else if (arg2 == 2) {
-        arg0->position_sector = arg0->sector_count + arg1;
+        mfci_file_entry->position_sector = mfci_file_entry->sector_count + arg1;
     } else if (arg2 == 1) {
-        arg0->position_sector += arg1;
+        mfci_file_entry->position_sector += arg1;
     }
-    arg0->position_sector = arg0->position_sector < arg0->sector_count ? arg0->position_sector : arg0->sector_count;
-    arg0->position_sector = arg0->position_sector > 0 ? arg0->position_sector : 0;
+    mfci_file_entry->position_sector = mfci_file_entry->position_sector < mfci_file_entry->sector_count ? mfci_file_entry->position_sector : mfci_file_entry->sector_count;
+    mfci_file_entry->position_sector = mfci_file_entry->position_sector > 0 ? mfci_file_entry->position_sector : 0;
     TLobby__sub_803D3988();
-    return arg0->position_sector;
+    return mfci_file_entry->position_sector;
 }
 
-void mfci_close(MfciFileEntry *arg0) {
-    if (arg0 != 0) {
-        if (arg0 == 0) {
+void mfci_close(MfciFileEntry *mfci_file_entry) {
+    if (mfci_file_entry != 0) {
+        if (mfci_file_entry == 0) {
             if (mfci_error_callback != 0) {
                 mfci_error_callback(mfci_error_callback_context, lbl_8047E0C8, 0);
             }
         } else {
             TLobby__sub_803D39C0();
-            arg0->state = 0;
+            mfci_file_entry->state = 0;
             TLobby__sub_803D3988();
         }
-        if ((s32)arg0->used == 1) {
-            arg0->used = 0;
-            memset(arg0, 0, sizeof(MfciFileEntry));
+        if ((s32)mfci_file_entry->used == 1) {
+            mfci_file_entry->used = 0;
+            memset(mfci_file_entry, 0, sizeof(MfciFileEntry));
         }
     }
 }

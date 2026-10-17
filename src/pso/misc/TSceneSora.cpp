@@ -134,20 +134,20 @@ u8 *__dt__10TSceneSoraFv(u8 *arg0, s16 arg1) {
 }
 
 typedef char RecoveredGlobal_80207340___vt__10TSceneSora_size[sizeof(RecoveredGlobal_80207340___vt__10TSceneSora) == 0x38 ? 1 : -1];
-u8 *TSceneSora__ct(TSceneSora *arg0, s32 _w1) {
-    construct_world_actor_base(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80207340___vt__10TSceneSora *)&__vt__10TSceneSora).value;
-    *(s32 *)((s8 *)arg0 + 0) = lbl_805D3624;
-    arg0->m_90 = get_bml_model((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), 0);
+u8 *TSceneSora__ct(TSceneSora *scene_sora, s32 _w1) {
+    construct_world_actor_base(scene_sora);
+    *(s32 **)((s8 *)scene_sora + 0x18) = &(*(RecoveredGlobal_80207340___vt__10TSceneSora *)&__vt__10TSceneSora).value;
+    *(s32 *)((s8 *)scene_sora + 0) = lbl_805D3624;
+    scene_sora->m_90 = get_bml_model((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), 0);
     if (TSceneSora__has_sky_motion != 0) {
-        arg0->m_94 = get_bml_motion((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), 0);
+        scene_sora->m_94 = get_bml_motion((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), 0);
     } else {
-        arg0->m_94 = 0;
+        scene_sora->m_94 = 0;
     }
-    arg0->m_98 = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), 0);
-    *(f32 *)((s8 *)arg0 + 0x9C) = lbl_805DC60C;
-    arg0->m_a0 = lbl_805DC608;
-    return (u8 *)arg0;
+    scene_sora->m_98 = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), 0);
+    *(f32 *)((s8 *)scene_sora + 0x9C) = lbl_805DC60C;
+    scene_sora->m_a0 = lbl_805DC608;
+    return (u8 *)scene_sora;
 }
 
 void TSceneSora::create_instance() {

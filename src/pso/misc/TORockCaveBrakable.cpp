@@ -116,13 +116,13 @@ void *__dt__18TORockCaveBrakableFv(void *arg0, s16 arg1) {
 
 extern void *lbl_805D3100;
 
-void *TORockCaveBrakable__ct(void *arg0) {
-    TORockCave__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TORockCaveBrakable;
-    *(void * *)&((TORockCaveBrakable *)arg0)->m_name = lbl_805D3100;
-    ((TORockCaveBrakable *)arg0)->m_b4 = 0;
-    ((TORockCaveBrakable *)arg0)->m_b8 = -1;
-    return arg0;
+void *TORockCaveBrakable__ct(void *rock_cave_brakable) {
+    TORockCave__ct(rock_cave_brakable);
+    *(s32 **)((s8 *)rock_cave_brakable + 0x18) = __vt__18TORockCaveBrakable;
+    *(void * *)&((TORockCaveBrakable *)rock_cave_brakable)->m_name = lbl_805D3100;
+    ((TORockCaveBrakable *)rock_cave_brakable)->m_b4 = 0;
+    ((TORockCaveBrakable *)rock_cave_brakable)->m_b8 = -1;
+    return rock_cave_brakable;
 }
 
 }

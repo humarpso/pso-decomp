@@ -67,10 +67,10 @@ void *__dt__17TWindowSubAreaMapFv(void *arg0, s16 arg1) {
 extern void *TWindowSubAreaMap__name;
 
 }
-TWindowSubAreaMap::TWindowSubAreaMap(TObject *arg1, void *arg2) : TObject(arg1) {
+TWindowSubAreaMap::TWindowSubAreaMap(TObject *object, void *arg2) : TObject(object) {
     void *o;
     *(void * *)&this->m_name = TWindowSubAreaMap__name;
-    *(void **)((s8 *)this + 0x20) = arg1;
+    *(void **)((s8 *)this + 0x20) = object;
     *(void **)((s8 *)this + 0x1C) = arg2;
     o = __nw__7TObjectFUl(0x78);
     if (o != NULL) {

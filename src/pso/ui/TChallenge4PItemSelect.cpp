@@ -67,9 +67,9 @@ void TChallenge4PItemSelect::submit_selected_item() {
     Stack_8034B158 stack;
     u32 temp_r3_2;
     u8 *temp_r31;
-    u8 *temp_r3;
-    temp_r3 = (u8 *)((u8 *)menu_window);
-    if ((temp_r3 != NULL) && (((TWindowMenu *)temp_r3)->is_visible() != 0)) {
+    u8 *window_menu;
+    window_menu = (u8 *)((u8 *)menu_window);
+    if ((window_menu != NULL) && (((TWindowMenu *)window_menu)->is_visible() != 0)) {
         temp_r31 = (u8 *)&TChallenge4PItemSelect__item_table.value + (get_selected_menu_value((u8 *)menu_window) * 0xC);
         init__9TItemDataFv(&stack.sp8);
         stack.sp8 = (s8) *(s32 *)((s8 *)temp_r31 + 0);

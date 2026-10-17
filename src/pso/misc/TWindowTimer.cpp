@@ -126,12 +126,12 @@ void render__12TWindowTimerFv(s32 arg0) {
     draw_visible_window_entries((void *)arg0, (void *)(arg0 + 0x24), (int)temp_r3);
 }
 
-void run_task__12TWindowTimerFv(TWindowTimer *arg0) {
-  if ((arg0->m_60) & 1)
+void run_task__12TWindowTimerFv(TWindowTimer *window_timer) {
+  if ((window_timer->m_60) & 1)
   {
-    arg0->draw((s32)((int) TWindowTimer::get_timer_value(0)), (s32)((int) TWindowTimer::get_timer_value(1)));
+    window_timer->draw((s32)((int) TWindowTimer::get_timer_value(0)), (s32)((int) TWindowTimer::get_timer_value(1)));
   }
- do { ((TWindowDD *)arg0)->initialize_subwindow(); arg0->update_chat_parts(); arg0->ease_window_timer_position(); ((TUnk_804CE018 *)arg0)->update_window_entry_list((u8 *)arg0 + 0x24); } while (0);
+ do { ((TWindowDD *)window_timer)->initialize_subwindow(); window_timer->update_chat_parts(); window_timer->ease_window_timer_position(); ((TUnk_804CE018 *)window_timer)->update_window_entry_list((u8 *)window_timer + 0x24); } while (0);
 }
 
 void *__dt__12TWindowTimerFv(void *arg0, s16 arg1) {
@@ -146,14 +146,14 @@ void *__dt__12TWindowTimerFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_80287FBC_lbl_804D2E74_size[sizeof(RecoveredGlobal_80287FBC_lbl_804D2E74) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80287FBC___vt__12TWindowTimer_size[sizeof(RecoveredGlobal_80287FBC___vt__12TWindowTimer) == 0x18 ? 1 : -1];
-u8 *TWindowTimer__ct(TWindowTimer *arg0) {
-    ((TWindowDD *)arg0)->construct_base((u8 *)&window_timer_layout.value, (s16)4, (u8 *)(get_zero_vec2()));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80287FBC___vt__12TWindowTimer *)&__vt__12TWindowTimer).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowTimer__name;
-    arg0->m_60 = 0;
-    arg0->update_chat_parts();
-    ((TUnk_804CE018 *)arg0)->save_position();
-    return (u8 *)arg0;
+u8 *TWindowTimer__ct(TWindowTimer *window_timer) {
+    ((TWindowDD *)window_timer)->construct_base((u8 *)&window_timer_layout.value, (s16)4, (u8 *)(get_zero_vec2()));
+    *(s32 **)((s8 *)window_timer + 0x18) = &(*(RecoveredGlobal_80287FBC___vt__12TWindowTimer *)&__vt__12TWindowTimer).value;
+    *(s32 *)((s8 *)window_timer + 0) = (s32) TWindowTimer__name;
+    window_timer->m_60 = 0;
+    window_timer->update_chat_parts();
+    ((TUnk_804CE018 *)window_timer)->save_position();
+    return (u8 *)window_timer;
 }
 
 }

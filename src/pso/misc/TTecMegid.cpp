@@ -436,23 +436,23 @@ void run_task__9TTecMegidFv(Obj_80235740 *self) {
     dispatch_technique_contact__13TUnk_804CCC68Fv(self, 1);
 }
 
-u8 *TTecMegid__ct(TTecMegid *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
+u8 *TTecMegid__ct(TTecMegid *tec_megid, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
     s32 i;
     __ct__13TUnk_804CCC68FlPUcPUcl();
-    *(void **)((s8 *)arg0 + 0x18) = __vt__9TTecMegid;
-    *(s32 *)((s8 *)arg0 + 0) = lbl_805D37E8;
-    arg0->init_parameters();
-    *(f32 *)((s8 *)arg0 + 0x178) = lbl_805DC884;
+    *(void **)((s8 *)tec_megid + 0x18) = __vt__9TTecMegid;
+    *(s32 *)((s8 *)tec_megid + 0) = lbl_805D37E8;
+    tec_megid->init_parameters();
+    *(f32 *)((s8 *)tec_megid + 0x178) = lbl_805DC884;
     for (i = 0; i < 0x20; i++) {
-        ((Obj_8023589C *)arg0)->ids[i] = 0xFFFF;
+        ((Obj_8023589C *)tec_megid)->ids[i] = 0xFFFF;
     }
-    arg0->m_174 = 0;
-    arg0->spawn_particle_emitters();
-    arg0->update_by_state();
-    if (*(void **)((s8 *)arg0 + 0x1C) != 0) {
-        arg0->sourceId = obj_getField1c(*(void **)((s8 *)arg0 + 0x1C));
+    tec_megid->m_174 = 0;
+    tec_megid->spawn_particle_emitters();
+    tec_megid->update_by_state();
+    if (*(void **)((s8 *)tec_megid + 0x1C) != 0) {
+        tec_megid->sourceId = obj_getField1c(*(void **)((s8 *)tec_megid + 0x1C));
     }
-    return (u8 *)arg0;
+    return (u8 *)tec_megid;
 }
 
 u8 *TTecMegid::construct_facing(s32 _w1, s32 _w2, s32 _w3, s32 _w4) {

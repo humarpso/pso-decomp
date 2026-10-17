@@ -578,34 +578,34 @@ void *TObjEnePanarmsAtkColli__ct(Obj_800E37E4 *arg0, void *parent, void *arg2, v
 }
 #undef self
 
-void TObjEneMe3ShinowaMirage__vt113(u8 *arg0, s32 arg1) {
+void TObjEneMe3ShinowaMirage__vt113(u8 *ene_me3_shinowa_mirage, s32 arg1) {
   f32 temp_f1;
   long new_var;
   switch (arg1)
   {
     case 4:
-      ((RecoveredFields_800E3970_arg0 *) arg0)->field_3C4 = (s32) (((RecoveredFields_800E3970_arg0 *) arg0)->field_3C4 & 0xFFFFFFFC);
-      ((RecoveredFields_800E3970_arg0 *) arg0)->field_3C4 = (s32) (((RecoveredFields_800E3970_arg0 *) arg0)->field_3C4 | 0x200);
-      (((TObjEneMe3ShinowaMirage *)(arg0))->vfunc_94());
-      ((RecoveredFields_800E3970_arg0 *) arg0)->field_430 = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;
+      ((RecoveredFields_800E3970_arg0 *) ene_me3_shinowa_mirage)->field_3C4 = (s32) (((RecoveredFields_800E3970_arg0 *) ene_me3_shinowa_mirage)->field_3C4 & 0xFFFFFFFC);
+      ((RecoveredFields_800E3970_arg0 *) ene_me3_shinowa_mirage)->field_3C4 = (s32) (((RecoveredFields_800E3970_arg0 *) ene_me3_shinowa_mirage)->field_3C4 | 0x200);
+      (((TObjEneMe3ShinowaMirage *)(ene_me3_shinowa_mirage))->vfunc_94());
+      ((RecoveredFields_800E3970_arg0 *) ene_me3_shinowa_mirage)->field_430 = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;
       return;
     case 3:
-      if (((RecoveredFields_800E3970_arg0 *) arg0)->field_430 <= lbl_805DA5BC)
+      if (((RecoveredFields_800E3970_arg0 *) ene_me3_shinowa_mirage)->field_430 <= lbl_805DA5BC)
     {
-      new_var = ((RecoveredFields_800E3970_arg0 *) arg0)->field_3C4 & 0xFFFFFDFF;
-      ((RecoveredFields_800E3970_arg0 *) arg0)->field_3C4 = (s32) new_var;
+      new_var = ((RecoveredFields_800E3970_arg0 *) ene_me3_shinowa_mirage)->field_3C4 & 0xFFFFFDFF;
+      ((RecoveredFields_800E3970_arg0 *) ene_me3_shinowa_mirage)->field_3C4 = (s32) new_var;
       set_flag_0x100__23TObjEneMe3ShinowaMirageFv();
-      ((RecoveredFields_800E3970_arg0 *) arg0)->field_3C = (f32) lbl_805DA5C0;
-      ((RecoveredFields_800E3970_arg0 *) arg0)->field_48 = (f32) lbl_805DA5C0;
-      *((f32 *) (((s8 *) ((RecoveredFields_800E3970_arg0 *) arg0)->field_A4) + 0x20)) = (f32) lbl_805DA5C0;
-      ((RecoveredFields_800E3970_arg0 *) arg0)->field_30 = (s32) (((RecoveredFields_800E3970_arg0 *) arg0)->field_30 | 0x800);
+      ((RecoveredFields_800E3970_arg0 *) ene_me3_shinowa_mirage)->field_3C = (f32) lbl_805DA5C0;
+      ((RecoveredFields_800E3970_arg0 *) ene_me3_shinowa_mirage)->field_48 = (f32) lbl_805DA5C0;
+      *((f32 *) (((s8 *) ((RecoveredFields_800E3970_arg0 *) ene_me3_shinowa_mirage)->field_A4) + 0x20)) = (f32) lbl_805DA5C0;
+      ((RecoveredFields_800E3970_arg0 *) ene_me3_shinowa_mirage)->field_30 = (s32) (((RecoveredFields_800E3970_arg0 *) ene_me3_shinowa_mirage)->field_30 | 0x800);
     }
     case 5:
       return;
     case 0:
-      temp_f1 = ((RecoveredFields_800E3970_arg0 *) arg0)->field_430;
-      ((RecoveredFields_800E3970_arg0 *) arg0)->field_430 = (f32) (temp_f1 - TObjEneMe3ShinowaMirage__data_805DA5C4);
-      (((VObj_18_f56c51 *)(arg0))->m100((temp_f1)));
+      temp_f1 = ((RecoveredFields_800E3970_arg0 *) ene_me3_shinowa_mirage)->field_430;
+      ((RecoveredFields_800E3970_arg0 *) ene_me3_shinowa_mirage)->field_430 = (f32) (temp_f1 - TObjEneMe3ShinowaMirage__data_805DA5C4);
+      (((VObj_18_f56c51 *)(ene_me3_shinowa_mirage))->m100((temp_f1)));
       break;
   }
   return;

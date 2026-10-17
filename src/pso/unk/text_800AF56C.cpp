@@ -10,12 +10,12 @@ s32 __destroy_arr(void *, void *, int, int);
 extern s32 __dt__13TUnk_804949A8Fv[];
 extern s32 __vt__11TObjEneMoja[];
 u8 *__dt__11TObjEneMojaFv(u8 *arg0, s16 arg1) {
-    u8 *temp_r3;
+    u8 *object;
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjEneMoja;
-        temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x398));
-        if (temp_r3 != NULL) {
-            queue_destruction__7TObjectFv(temp_r3);
+        object = (u8 *)(*(u8 **)((s8 *)arg0 + 0x398));
+        if (object != NULL) {
+            queue_destruction__7TObjectFv(object);
             *(u8 **)((s8 *)arg0 + 0x398) = NULL;
         }
         free_collision_body_parts(arg0);

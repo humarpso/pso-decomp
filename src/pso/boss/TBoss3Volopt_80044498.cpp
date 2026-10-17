@@ -1009,40 +1009,40 @@ void TBoss3Volopt::trigger_breakup() {
 typedef char RecoveredGlobal_800456E4_TBoss3Volopt__data_804845E8_size[sizeof(RecoveredGlobal_800456E4_TBoss3Volopt__data_804845E8) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_800456E4_TBoss3Volopt__data_804FF038_size[sizeof(RecoveredGlobal_800456E4_TBoss3Volopt__data_804FF038) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_800456E4_lbl_804FF10C_size[sizeof(RecoveredGlobal_800456E4_lbl_804FF10C) == 0x40 ? 1 : -1];
-void TBoss3Volopt__sub_800456E4(u8 *arg0) {
+void TBoss3Volopt__sub_800456E4(u8 *ene_gyaranzo) {
     s32 sp8;
     s32 temp_r4;
     u8 *temp_r5;
-    temp_r4 = *(s32 *)&((TObjEneGyaranzo *)arg0)->m_388;
+    temp_r4 = *(s32 *)&((TObjEneGyaranzo *)ene_gyaranzo)->m_388;
     if (!(temp_r4 & 0x40000)) {
-        *(s32 *)&((TObjEneGyaranzo *)arg0)->m_388 = (s32) (temp_r4 | 0x40000);
-        temp_r5 = (u8 *)(*(u8 * *)&((TObjEneGyaranzo *)arg0)->m_a4);
+        *(s32 *)&((TObjEneGyaranzo *)ene_gyaranzo)->m_388 = (s32) (temp_r4 | 0x40000);
+        temp_r5 = (u8 *)(*(u8 * *)&((TObjEneGyaranzo *)ene_gyaranzo)->m_a4);
         *(s32 *)((s8 *)temp_r5 + 0x70) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x70) & 0xEFFFFFFE);
-        ((TObjEneGyaranzo *)arg0)->render_anim_model_at_pos();
-        ((VObj_18_f1aa6a *)(arg0))->m63(0x22, &sp8);
-        TBoss3Volopt::create_breakup_mdl(*(s32 *)((s8 *)(&(*(RecoveredGlobal_800456E4_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__breakup_model_ids).value) + 0xC), (s32) &(*(RecoveredGlobal_800456E4_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value, ((TObjEneGyaranzo *)arg0)->texture_id, (s32) &sp8, ((TObjEneGyaranzo *)arg0)->rotation_y);
+        ((TObjEneGyaranzo *)ene_gyaranzo)->render_anim_model_at_pos();
+        ((VObj_18_f1aa6a *)(ene_gyaranzo))->m63(0x22, &sp8);
+        TBoss3Volopt::create_breakup_mdl(*(s32 *)((s8 *)(&(*(RecoveredGlobal_800456E4_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__breakup_model_ids).value) + 0xC), (s32) &(*(RecoveredGlobal_800456E4_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value, ((TObjEneGyaranzo *)ene_gyaranzo)->texture_id, (s32) &sp8, ((TObjEneGyaranzo *)ene_gyaranzo)->rotation_y);
         TBoss3Volopt::set_flag8_list((u32 **)(&lbl_804FF10C.value));
-        play_sound_effect(0x4003A80F, (u32)(arg0 + 0x38), 0, 1);
+        play_sound_effect(0x4003A80F, (u32)(ene_gyaranzo + 0x38), 0, 1);
     }
 }
 
 typedef char RecoveredGlobal_800457A0_TBoss3Volopt__data_804845E8_size[sizeof(RecoveredGlobal_800457A0_TBoss3Volopt__data_804845E8) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_800457A0_TBoss3Volopt__data_804FF038_size[sizeof(RecoveredGlobal_800457A0_TBoss3Volopt__data_804FF038) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_800457A0_lbl_804FF0CC_size[sizeof(RecoveredGlobal_800457A0_lbl_804FF0CC) == 0x40 ? 1 : -1];
-void TBoss3Volopt__sub_800457A0(u8 *arg0) {
+void TBoss3Volopt__sub_800457A0(u8 *ene_gyaranzo) {
     s32 sp8;
     s32 temp_r4;
     u8 *temp_r5;
-    temp_r4 = *(s32 *)&((TObjEneGyaranzo *)arg0)->m_388;
+    temp_r4 = *(s32 *)&((TObjEneGyaranzo *)ene_gyaranzo)->m_388;
     if (!(temp_r4 & 0x20000)) {
-        *(s32 *)&((TObjEneGyaranzo *)arg0)->m_388 = (s32) (temp_r4 | 0x20000);
-        temp_r5 = (u8 *)(*(u8 * *)&((TObjEneGyaranzo *)arg0)->m_a4);
+        *(s32 *)&((TObjEneGyaranzo *)ene_gyaranzo)->m_388 = (s32) (temp_r4 | 0x20000);
+        temp_r5 = (u8 *)(*(u8 * *)&((TObjEneGyaranzo *)ene_gyaranzo)->m_a4);
         *(s32 *)((s8 *)temp_r5 + 0x44) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x44) & 0xEFFFFFFE);
-        ((TObjEneGyaranzo *)arg0)->render_anim_model_at_pos();
-        ((VObj_18_f1aa6a *)(arg0))->m63(0x32, &sp8);
-        TBoss3Volopt::create_breakup_mdl(*(s32 *)((s8 *)(&(*(RecoveredGlobal_800457A0_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__breakup_model_ids).value) + 8), (s32) &(*(RecoveredGlobal_800457A0_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value, ((TObjEneGyaranzo *)arg0)->texture_id, (s32) &sp8, ((TObjEneGyaranzo *)arg0)->rotation_y);
+        ((TObjEneGyaranzo *)ene_gyaranzo)->render_anim_model_at_pos();
+        ((VObj_18_f1aa6a *)(ene_gyaranzo))->m63(0x32, &sp8);
+        TBoss3Volopt::create_breakup_mdl(*(s32 *)((s8 *)(&(*(RecoveredGlobal_800457A0_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__breakup_model_ids).value) + 8), (s32) &(*(RecoveredGlobal_800457A0_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value, ((TObjEneGyaranzo *)ene_gyaranzo)->texture_id, (s32) &sp8, ((TObjEneGyaranzo *)ene_gyaranzo)->rotation_y);
         TBoss3Volopt::set_flag8_list((u32 **)(&lbl_804FF0CC.value));
-        play_sound_effect(0x4003A80F, (u32)(arg0 + 0x38), 0, 1);
+        play_sound_effect(0x4003A80F, (u32)(ene_gyaranzo + 0x38), 0, 1);
     }
 }
 

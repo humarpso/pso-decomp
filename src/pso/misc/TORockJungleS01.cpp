@@ -150,29 +150,29 @@ void *__dt__15TORockJungleS01Fv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8029C9C8_lbl_804DC3A0_size[sizeof(RecoveredGlobal_8029C9C8_lbl_804DC3A0) == 0x84 ? 1 : -1];
 typedef char RecoveredGlobal_8029C9C8_lbl_804DC424_size[sizeof(RecoveredGlobal_8029C9C8_lbl_804DC424) == 0x24 ? 1 : -1];
 typedef char RecoveredGlobal_8029C9C8___vt__15TORockJungleS01_size[sizeof(RecoveredGlobal_8029C9C8___vt__15TORockJungleS01) == 0x50 ? 1 : -1];
-u8 *TORockJungleS01__ct(TORockJungleS01 *arg0, s32 arg1) {
+u8 *TORockJungleS01__ct(TORockJungleS01 *rock_jungle_s01, s32 arg1) {
     struct CopyStack_8029C9C8 { u8 bytes[0x3C]; };
     CopyStack_8029C9C8 copy_storage_8029C9C8;
     s32 temp_r0;
-    TORockCaveBrakable__ct((arg0));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8029C9C8___vt__15TORockJungleS01 *)&__vt__15TORockJungleS01).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TORockJungleS01__name;
-    ((TORockJungleS01 *)(arg0))->apply_object_set_data((void *)arg1);
-    arg0->model = TORockJungleS01::get_model(0);
-    arg0->texture_id = get_jungle_rock_texture_resource(0);
-    arg0->m_b0 = (f32) (lbl_805DDD1C + *(f32 *)((s8 *)(*(void **)((s8 *)arg0->model + 4)) + 0x14));
-    init_collision_body_parts(arg0, &rock_jungle_collision_body_parts.value, 1);
-    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    ((TObjPlayer *)arg0)->reset_photon_effect();
-    arg0->m_b8 = (s32) arg0->m_84;
-    temp_r0 = arg0->m_b8;
+    TORockCaveBrakable__ct((rock_jungle_s01));
+    *(s32 **)((s8 *)rock_jungle_s01 + 0x18) = &(*(RecoveredGlobal_8029C9C8___vt__15TORockJungleS01 *)&__vt__15TORockJungleS01).value;
+    *(s32 *)((s8 *)rock_jungle_s01 + 0) = (s32) TORockJungleS01__name;
+    ((TORockJungleS01 *)(rock_jungle_s01))->apply_object_set_data((void *)arg1);
+    rock_jungle_s01->model = TORockJungleS01::get_model(0);
+    rock_jungle_s01->texture_id = get_jungle_rock_texture_resource(0);
+    rock_jungle_s01->m_b0 = (f32) (lbl_805DDD1C + *(f32 *)((s8 *)(*(void **)((s8 *)rock_jungle_s01->model + 4)) + 0x14));
+    init_collision_body_parts(rock_jungle_s01, &rock_jungle_collision_body_parts.value, 1);
+    ((TUnk_804AF8A0 *)rock_jungle_s01)->refresh_collision_body_centers();
+    ((TObjPlayer *)rock_jungle_s01)->reset_photon_effect();
+    rock_jungle_s01->m_b8 = (s32) rock_jungle_s01->m_84;
+    temp_r0 = rock_jungle_s01->m_b8;
     if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {
-        arg0->m_b8 = -1;
+        rock_jungle_s01->m_b8 = -1;
     }
     *(ByteBlock_3C *)(copy_storage_8029C9C8.bytes) = *(const ByteBlock_3C *)((arg1 - 4) + 4);
     VecCopy((Vec *)((copy_storage_8029C9C8.bytes + 0x24)), (const Vec *)(&rock_jungle_vec3_table.value));
-    arg0->m_bc = TObjMapCsn::create((s32)((void *) ((copy_storage_8029C9C8.bytes))));
-    return (u8 *)arg0;
+    rock_jungle_s01->m_bc = TObjMapCsn::create((s32)((void *) ((copy_storage_8029C9C8.bytes))));
+    return (u8 *)rock_jungle_s01;
 }
 
 s32 get_jungle_rock_texture_resource(s32 a) {

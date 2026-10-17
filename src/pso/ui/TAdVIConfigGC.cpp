@@ -172,13 +172,13 @@ void TAdVIConfigGC__vt8(void) { get_localized_text_entry((s32)((void*)29), (s32)
 
 void TAdVIConfigGC__vt5(void* p) { TAdVIConfigGC::disable_progressive_mode(p); ((TAdVIConfigGC *)p)->set_field48_clear_global(); }
 
-void TAdVIConfigGC__vt4(void *arg0) {
+void TAdVIConfigGC__vt4(void *ad_vi_config_gc) {
     void *x;
-    x = VIGetDTVStatus(arg0);
+    x = VIGetDTVStatus(ad_vi_config_gc);
     if (x != NULL) {
-        TAdVIConfigGC::enable_progressive_mode(arg0);
+        TAdVIConfigGC::enable_progressive_mode(ad_vi_config_gc);
     }
-    ((TAdVIConfigGC *)arg0)->set_field48_clear_global();
+    ((TAdVIConfigGC *)ad_vi_config_gc)->set_field48_clear_global();
 }
 
 void TAdVIConfigGC::run_task() {
@@ -201,13 +201,13 @@ void *__dt__13TAdVIConfigGCFv(void *arg0, s16 arg1) {
 
 extern void *TAdVIConfigGC__class_name;
 
-void *TAdVIConfigGC__ct(TAdVIConfigGC *arg0) {
-    TAdYesNoBaseGC__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TAdVIConfigGC;
-    *(void * *)&arg0->m_name = TAdVIConfigGC__class_name;
-    arg0->set_field_2c(0);
-    arg0->m_48 = 0;
-    return arg0;
+void *TAdVIConfigGC__ct(TAdVIConfigGC *ad_vi_config_gc) {
+    TAdYesNoBaseGC__ct(ad_vi_config_gc);
+    *(s32 **)((s8 *)ad_vi_config_gc + 0x18) = __vt__13TAdVIConfigGC;
+    *(void * *)&ad_vi_config_gc->m_name = TAdVIConfigGC__class_name;
+    ad_vi_config_gc->set_field_2c(0);
+    ad_vi_config_gc->m_48 = 0;
+    return ad_vi_config_gc;
 }
 
 }

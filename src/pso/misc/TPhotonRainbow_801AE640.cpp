@@ -12,23 +12,23 @@ extern void *__vt__14TPhotonRainbow[];
 extern s32 lbl_805D3520;
 extern u8 *photon_blast_shared_resource;
 
-u8 *TPhotonRainbow__ct(u8 *arg0, s32 arg1_unused, s32 arg2) {
+u8 *TPhotonRainbow__ct(u8 *photon_rainbow, s32 arg1_unused, s32 arg2) {
     construct_world_actor_base();
-    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)&__vt__14TPhotonRainbow;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3520;
-    if ((s32) ((TPhotonRainbow *)arg0)->m_a8 == 1) {
-        ((TPhotonRainbow *)arg0)->m_90 = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x6C);
-        ((TPhotonRainbow *)arg0)->m_94 = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x8C);
-        ((TPhotonRainbow *)arg0)->m_98 = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x68);
-        ((TPhotonRainbow *)arg0)->m_9c = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x88);
+    *(s32 **)((s8 *)photon_rainbow + 0x18) = (s32 *)&__vt__14TPhotonRainbow;
+    *(s32 *)((s8 *)photon_rainbow + 0) = (s32) lbl_805D3520;
+    if ((s32) ((TPhotonRainbow *)photon_rainbow)->m_a8 == 1) {
+        ((TPhotonRainbow *)photon_rainbow)->m_90 = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x6C);
+        ((TPhotonRainbow *)photon_rainbow)->m_94 = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x8C);
+        ((TPhotonRainbow *)photon_rainbow)->m_98 = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x68);
+        ((TPhotonRainbow *)photon_rainbow)->m_9c = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x88);
     } else {
-        ((TPhotonRainbow *)arg0)->m_90 = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x5C);
-        ((TPhotonRainbow *)arg0)->m_94 = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x7C);
-        ((TPhotonRainbow *)arg0)->m_98 = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x58);
-        ((TPhotonRainbow *)arg0)->m_9c = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x78);
+        ((TPhotonRainbow *)photon_rainbow)->m_90 = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x5C);
+        ((TPhotonRainbow *)photon_rainbow)->m_94 = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x7C);
+        ((TPhotonRainbow *)photon_rainbow)->m_98 = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x58);
+        ((TPhotonRainbow *)photon_rainbow)->m_9c = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x78);
     }
-    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)arg2);
-    return arg0;
+    VecCopy((Vec *)(photon_rainbow + 0x38), (const Vec *)arg2);
+    return photon_rainbow;
 }
 
 void TObjPlayer__sub_801AE724(void) {  }

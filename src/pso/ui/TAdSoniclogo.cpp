@@ -17,12 +17,12 @@ extern u32 TLogo__exit_requested_flag;
 extern void *tl_00;
 extern s32 request_destroy__12TAdSoniclogoFv[];
 
-void *__ct__12TAdSoniclogoFv(void *arg0) {
+void *__ct__12TAdSoniclogoFv(void *ad_soniclogo) {
     void *o;
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TAdSoniclogo;
-    *(void * *)&((TAdSoniclogo *)arg0)->m_name = TAdSoniclogo__class_name;
-    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
+    __ct__7TObjectFP7TObject(ad_soniclogo);
+    *(s32 **)((s8 *)ad_soniclogo + 0x18) = __vt__12TAdSoniclogo;
+    *(void * *)&((TAdSoniclogo *)ad_soniclogo)->m_name = TAdSoniclogo__class_name;
+    *(u32 *)((s8 *)ad_soniclogo + 0x1C) = 0;
     TAdSoniclogo__state = 0;
     TLogo__exit_requested_flag = 0;
     TAdSinglePlyChrSelectGC::init_logo_state(1);
@@ -30,7 +30,7 @@ void *__ct__12TAdSoniclogoFv(void *arg0) {
     if (o != NULL) {
         ((TLobby *)o)->init_fade(tl_00, request_destroy__12TAdSoniclogoFv);
     }
-    return arg0;
+    return ad_soniclogo;
 }
 
 void TLogo__sub_8001C360(void) {  }

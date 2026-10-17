@@ -222,16 +222,16 @@ extern u32 TObjContainerIdo__model_resource;
 extern const f32 lbl_805DBD6C;
 extern const f32 lbl_805DBD70;
 
-void render__16TObjContainerIdoFv(u8 *arg0) {
+void render__16TObjContainerIdoFv(u8 *container_ido) {
     s32 var_r31;
 
-    if (((VOuter_8018C06C*)arg0)->m8(lbl_805DBD6C, lbl_805DBD70) != 0) {
+    if (((VOuter_8018C06C*)container_ido)->m8(lbl_805DBD6C, lbl_805DBD70) != 0) {
         var_r31 = 0;
         if (TRaderMapCore::is_not_split_screen() == 0) {
-            var_r31 = ((RenderFadeState*)(arg0 + 0xF0))->updateFromCamera((const f32*)(arg0 + 0x38));
+            var_r31 = ((RenderFadeState*)(container_ido + 0xF0))->updateFromCamera((const f32*)(container_ido + 0x38));
         }
         if (var_r31 != 0) {
-            ((VMem_8018C06C*)(arg0 + 0xF0))->m6();
+            ((VMem_8018C06C*)(container_ido + 0xF0))->m6();
         }
         {
             extern const u32 container_ido_texture_gvm_handle;
@@ -241,19 +241,19 @@ void render__16TObjContainerIdoFv(u8 *arg0) {
             }
         }
         push_matrix();
-        post_translate_matrix(arg0 + 0xC0);
-        rotate_matrix_y(0, ((TObjContainerIdo *)arg0)->rotation_y);
-        rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));
+        post_translate_matrix(container_ido + 0xC0);
+        rotate_matrix_y(0, ((TObjContainerIdo *)container_ido)->rotation_y);
+        rotate_matrix_x(0, *(s32 *)((s8 *)container_ido + 0x5C));
         draw_ginja_object((void *)get_bml_model(TObjContainerIdo__model_resource, 0));
         pop_matrix();
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, ((TObjContainerIdo *)arg0)->rotation_y);
-        rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));
+        post_translate_matrix(container_ido + 0x38);
+        rotate_matrix_y(0, ((TObjContainerIdo *)container_ido)->rotation_y);
+        rotate_matrix_x(0, *(s32 *)((s8 *)container_ido + 0x5C));
         draw_ginja_object((void *)get_bml_model(TObjContainerIdo__model_resource, 1));
         pop_matrix();
         if (var_r31 != 0) {
-            ((VMem_8018C06C*)(arg0 + 0xF0))->m7();
+            ((VMem_8018C06C*)(container_ido + 0xF0))->m7();
         }
     }
 }

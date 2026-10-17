@@ -150,26 +150,26 @@ void *__dt__18TPhotonConcentrateFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TPhotonConcentrate__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
+u8 *TPhotonConcentrate__ct(u8 *photon_concentrate, u8 *arg1, s32 arg2, s32 arg3) {
     f32 temp_f1;
 
-    construct_collider_proxy__13TUnk_804AF8A0Fv((s32)arg0, arg2);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TPhotonConcentrate;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D34D0;
-    VecCopy((Vec *)(arg0 + 0xAC), (const Vec *)(VecCopy((Vec *)(arg0 + 0xB8), (const Vec *)((const Vec *)arg1))));
-    VecCopy((Vec *)(arg0 + 0xD0), (const Vec *)(arg1 + 0xC));
-    VecCopy((Vec *)(arg0 + 0xC4), (const Vec *)(arg1 + 0x18));
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (*(f32 *)((s8 *)arg0 + 0xC4) * *(f32 *)((s8 *)arg1 + 0x28));
-    *(f32 *)((s8 *)arg0 + 0xC8) = (f32) (*(f32 *)((s8 *)arg0 + 0xC8) * *(f32 *)((s8 *)arg1 + 0x28));
-    temp_f1 = ((TPhotonConcentrate *)arg0)->m_cc;
-    ((TPhotonConcentrate *)arg0)->m_cc = (f32) (temp_f1 * *(f32 *)((s8 *)arg1 + 0x28));
-    ((TPhotonConcentrate *)arg0)->m_e4 = (f32) *(f32 *)((s8 *)arg1 + 0x24);
-    *(f32 *)((s8 *)arg0 + 0xE8) = (f32) *(f32 *)((s8 *)arg1 + 0x2C);
-    ((TPhotonConcentrate *)arg0)->m_f0 = (s32) *(s32 *)((s8 *)arg1 + 0x30);
-    ((TPhotonConcentrate *)arg0)->m_ec = (s32) *(s32 *)((s8 *)arg1 + 0x34);
-    ((TPhotonConcentrate *)arg0)->m_fc = find_entity_by_id(arg3, temp_f1);
-    ((TPhotonConcentrate *)arg0)->m_f8 = (s32)create_particle_emitter(arg0 + 0xB8, 0x135);
-    return arg0;
+    construct_collider_proxy__13TUnk_804AF8A0Fv((s32)photon_concentrate, arg2);
+    *(s32 **)((s8 *)photon_concentrate + 0x18) = __vt__18TPhotonConcentrate;
+    *(s32 *)((s8 *)photon_concentrate + 0) = (s32) lbl_805D34D0;
+    VecCopy((Vec *)(photon_concentrate + 0xAC), (const Vec *)(VecCopy((Vec *)(photon_concentrate + 0xB8), (const Vec *)((const Vec *)arg1))));
+    VecCopy((Vec *)(photon_concentrate + 0xD0), (const Vec *)(arg1 + 0xC));
+    VecCopy((Vec *)(photon_concentrate + 0xC4), (const Vec *)(arg1 + 0x18));
+    *(f32 *)((s8 *)photon_concentrate + 0xC4) = (f32) (*(f32 *)((s8 *)photon_concentrate + 0xC4) * *(f32 *)((s8 *)arg1 + 0x28));
+    *(f32 *)((s8 *)photon_concentrate + 0xC8) = (f32) (*(f32 *)((s8 *)photon_concentrate + 0xC8) * *(f32 *)((s8 *)arg1 + 0x28));
+    temp_f1 = ((TPhotonConcentrate *)photon_concentrate)->m_cc;
+    ((TPhotonConcentrate *)photon_concentrate)->m_cc = (f32) (temp_f1 * *(f32 *)((s8 *)arg1 + 0x28));
+    ((TPhotonConcentrate *)photon_concentrate)->m_e4 = (f32) *(f32 *)((s8 *)arg1 + 0x24);
+    *(f32 *)((s8 *)photon_concentrate + 0xE8) = (f32) *(f32 *)((s8 *)arg1 + 0x2C);
+    ((TPhotonConcentrate *)photon_concentrate)->m_f0 = (s32) *(s32 *)((s8 *)arg1 + 0x30);
+    ((TPhotonConcentrate *)photon_concentrate)->m_ec = (s32) *(s32 *)((s8 *)arg1 + 0x34);
+    ((TPhotonConcentrate *)photon_concentrate)->m_fc = find_entity_by_id(arg3, temp_f1);
+    ((TPhotonConcentrate *)photon_concentrate)->m_f8 = (s32)create_particle_emitter(photon_concentrate + 0xB8, 0x135);
+    return photon_concentrate;
 }
 
 }

@@ -168,30 +168,30 @@ u8 *__dt__10TObjMapCsnFv(u8 *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TObjMapCsn__ct(TObjMapCsn *arg0, s32 arg1, s32 arg2) {
+u8 *TObjMapCsn__ct(TObjMapCsn *map_csn, s32 arg1, s32 arg2) {
     f32 temp_f0;
     f32 temp_f1;
-    ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801949FC___vt__10TObjMapCsn *)&__vt__10TObjMapCsn).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjMapCsn__class_name;
-    ((TObjMapCsn *)(arg0))->apply_object_set_data((void *)arg2);
-    arg0->actorFlags = (s32) (arg0->actorFlags | 0x40000000);
-    arg0->update_state();
-    arg0->build_box_triangles();
-    arg0->m_c4 = 8;
-    *(u8 **)((s8 *)arg0 + 0xC8) = (unsigned char *) ((u8 *)arg0 + 0x1F4);
-    arg0->m_cc = 8;
-    *(u8 **)((s8 *)arg0 + 0xD0) = (unsigned char *) ((u8 *)arg0 + 0xD4);
-    *(u8 **)((s8 *)arg0 + 0xAC) = (unsigned char *) ((u8 *)arg0 + 0xC4);
-    VecCopy((Vec *)((u8 *)arg0 + 0xB0), (const Vec *)((u8 *)arg0 + 0x38));
-    temp_f1 = (0.5f) * arg0->scale;
-    temp_f0 = (0.5f) * *(f32 *)((s8 *)arg0 + 0x70);
-    arg0->m_bc = (f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0));
-    arg0->m_c0 = (s32) *(s32 *)((s8 *)arg0 + 0x88);
+    ((TUnk_804AF8A0 *)map_csn)->construct_collider_proxy();
+    *(s32 **)((s8 *)map_csn + 0x18) = &(*(RecoveredGlobal_801949FC___vt__10TObjMapCsn *)&__vt__10TObjMapCsn).value;
+    *(s32 *)((s8 *)map_csn + 0) = (s32) TObjMapCsn__class_name;
+    ((TObjMapCsn *)(map_csn))->apply_object_set_data((void *)arg2);
+    map_csn->actorFlags = (s32) (map_csn->actorFlags | 0x40000000);
+    map_csn->update_state();
+    map_csn->build_box_triangles();
+    map_csn->m_c4 = 8;
+    *(u8 **)((s8 *)map_csn + 0xC8) = (unsigned char *) ((u8 *)map_csn + 0x1F4);
+    map_csn->m_cc = 8;
+    *(u8 **)((s8 *)map_csn + 0xD0) = (unsigned char *) ((u8 *)map_csn + 0xD4);
+    *(u8 **)((s8 *)map_csn + 0xAC) = (unsigned char *) ((u8 *)map_csn + 0xC4);
+    VecCopy((Vec *)((u8 *)map_csn + 0xB0), (const Vec *)((u8 *)map_csn + 0x38));
+    temp_f1 = (0.5f) * map_csn->scale;
+    temp_f0 = (0.5f) * *(f32 *)((s8 *)map_csn + 0x70);
+    map_csn->m_bc = (f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0));
+    map_csn->m_c0 = (s32) *(s32 *)((s8 *)map_csn + 0x88);
     if (((u32)TObjMapCsn::get_map_count()) != 0U) {
-        fn_80140EA8((((u32)TObjMapCsn::get_map_count())), (s32)arg0);
+        fn_80140EA8((((u32)TObjMapCsn::get_map_count())), (s32)map_csn);
     }
-    return (u8 *)arg0;
+    return (u8 *)map_csn;
 }
 
 }

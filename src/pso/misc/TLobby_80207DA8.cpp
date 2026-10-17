@@ -914,12 +914,12 @@ void TLobby::load_set_event_gsl() {
 void TLobby::free_heap() { __dt__5THeapFv((void*)area_event_set_heap, (void*)1); area_event_set_heap = 0; }
 
 void TLobby::create_heap_8000() {
-    u8 *temp_r3;
+    u8 *heap;
     u8 *var_r0;
-    temp_r3 = (u8 *)(__nw__5THeapFUl(0x14));
-    var_r0 = temp_r3;
+    heap = (u8 *)(__nw__5THeapFUl(0x14));
+    var_r0 = heap;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(__ct__5THeapFUli(temp_r3, 0x8000, 0x20));
+        var_r0 = (u8 *)(__ct__5THeapFUli(heap, 0x8000, 0x20));
     }
     (*(u8 * *)&area_event_set_heap) = var_r0;
 }

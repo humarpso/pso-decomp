@@ -11,11 +11,11 @@ s32 is_within_range__16TObjQuestColBaseFf(f32);
 extern s32 __vt__12TObjQuestCol[];
 extern void *TObjQuestCol__class_name;
 
-void *TObjQuestCol__ct(void *arg0) {
-    TObjQuestColBase__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjQuestCol;
-    *(void * *)&((TObjQuestCol *)arg0)->m_name = TObjQuestCol__class_name;
-    return arg0;
+void *TObjQuestCol__ct(void *quest_col) {
+    TObjQuestColBase__ct(quest_col);
+    *(s32 **)((s8 *)quest_col + 0x18) = __vt__12TObjQuestCol;
+    *(void * *)&((TObjQuestCol *)quest_col)->m_name = TObjQuestCol__class_name;
+    return quest_col;
 }
 
 s32 TObjQuestColBase::update_trigger_state(f32 farg0) {

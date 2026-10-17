@@ -74,11 +74,11 @@ s32 get_help_value__15TWindowHelpItemFv(void) {
 }
 #pragma push
 #pragma fp_contract on
-void update_palette_item_count_label(TWindowHelpItem *arg0, u8 *arg1, u16 arg2, u16 arg3, s32 arg4) {
+void update_palette_item_count_label(TWindowHelpItem *window_help_item, u8 *arg1, u16 arg2, u16 arg3, s32 arg4) {
     s32 v;
     u32 p;
     if (arg2 != 4) {
-        arg0->set_flag0_bit2();
+        window_help_item->set_flag0_bit2();
         return;
     }
     if (arg3 >= 0xD) {
@@ -92,15 +92,15 @@ void update_palette_item_count_label(TWindowHelpItem *arg0, u8 *arg1, u16 arg2, 
         v = ((s32 (*)(u16, s32))get_help_value__15TWindowHelpItemFv)(arg3, arg4);
     }
     if (v <= 0) {
-        arg0->set_flag0_bit2();
+        window_help_item->set_flag0_bit2();
         return;
     }
-    ((TWindowSubStatusDisp *)arg0)->clear_visible_flag();
-    *(s32 *)((s8 *)arg0 + 0x1C) = *(s32 *)((s8 *)arg1 + 0x2C);
-    *(s32 *)((s8 *)arg0 + 0x20) = v;
-    draw_right_aligned_number(arg0);
-    arg0->m_8 = lbl_805DCA2C * *(f32 *)((s8 *)arg0 + 0x10) + (*(f32 *)((s8 *)arg1 + 8) - lbl_805DCA28);
-    *(f32 *)((s8 *)arg0 + 0xC) = *(f32 *)((s8 *)arg1 + 0xC) - lbl_805DCA30;
+    ((TWindowSubStatusDisp *)window_help_item)->clear_visible_flag();
+    *(s32 *)((s8 *)window_help_item + 0x1C) = *(s32 *)((s8 *)arg1 + 0x2C);
+    *(s32 *)((s8 *)window_help_item + 0x20) = v;
+    draw_right_aligned_number(window_help_item);
+    window_help_item->m_8 = lbl_805DCA2C * *(f32 *)((s8 *)window_help_item + 0x10) + (*(f32 *)((s8 *)arg1 + 8) - lbl_805DCA28);
+    *(f32 *)((s8 *)window_help_item + 0xC) = *(f32 *)((s8 *)arg1 + 0xC) - lbl_805DCA30;
 }
 #pragma pop
 

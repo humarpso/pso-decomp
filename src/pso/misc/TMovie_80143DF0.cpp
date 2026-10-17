@@ -11,11 +11,11 @@ extern s8 lbl_8043F330[];
 s32 get_opening_movie_selector();
 s8 get_opening_movie_purpose();
 }
-u8 *initialize_movie_with_soundtrack(u8 *arg0, s8 *arg1, s32 arg2, s32 arg3, s32 arg4) {
-    *(s32 *)((s8 *)arg0 + 0xCC) = arg2;
-    *(s32 *)((s8 *)arg0 + 0) = 0;
-    TMovie__sub_80144324(arg0, arg1);
-    ((TMovie *)arg0)->init_sfd_player(arg3, arg4);
+u8 *initialize_movie_with_soundtrack(u8 *movie, s8 *arg1, s32 arg2, s32 arg3, s32 arg4) {
+    *(s32 *)((s8 *)movie + 0xCC) = arg2;
+    *(s32 *)((s8 *)movie + 0) = 0;
+    TMovie__sub_80144324(movie, arg1);
+    ((TMovie *)movie)->init_sfd_player(arg3, arg4);
     if (arg3 != 0) {
         play_area_music(lbl_8043F30C);
     } else if ((get_opening_movie_purpose() == 0) && (get_opening_movie_selector() == 1)) {
@@ -23,5 +23,5 @@ u8 *initialize_movie_with_soundtrack(u8 *arg0, s8 *arg1, s32 arg2, s32 arg3, s32
     } else {
         play_area_music(lbl_8043F330);
     }
-    return arg0;
+    return movie;
 }

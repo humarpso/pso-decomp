@@ -924,7 +924,7 @@ void TObjEneBm9Mericarol__sub_802CF368(u8 *actor, s32 arg1) {
 }
 typedef struct VBase_18_3b55b6 VBase_18_3b55b6;
 typedef struct VObj_18_3b55b6 VObj_18_3b55b6;
-void TObjEneBm9Mericarol__sub_802CF4F8(u8 *arg0, s32 arg1) {
+void TObjEneBm9Mericarol__sub_802CF4F8(u8 *ene_bm9_mericarol, s32 arg1) {
   s32 temp_r0;
   s32 temp_r3;
   s32 temp_r4;
@@ -932,54 +932,54 @@ void TObjEneBm9Mericarol__sub_802CF4F8(u8 *arg0, s32 arg1) {
   switch (arg1)
   {
     case 4:
-      ((TObjEneBm9Mericarol *)arg0)->m_b8 = 2;
-      (((TObjEneBm9Mericarol *)(arg0))->vfunc_96());
-      (((TObjEneBm9Mericarol *)(arg0))->vfunc_91());
-      TObjEneBm9Mericarol__sub_802D093C((void *) arg0);
-      *(s32 *)&((TObjEneBm9Mericarol *)arg0)->m_454 = (s32) ((*(s32 *)&((TObjEneBm9Mericarol *)arg0)->m_454) & 0xFFFFFFF7);
-      *(s32 *)&((TObjEneBm9Mericarol *)arg0)->m_454 = (s32) ((*(s32 *)&((TObjEneBm9Mericarol *)arg0)->m_454) | 0x20);
-      *(s32 *)&((TObjEneBm9Mericarol *)arg0)->m_4ac = 0;
-      *((s32 *) (((s8 *) arg0) + 0x494)) = 0;
+      ((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_b8 = 2;
+      (((TObjEneBm9Mericarol *)(ene_bm9_mericarol))->vfunc_96());
+      (((TObjEneBm9Mericarol *)(ene_bm9_mericarol))->vfunc_91());
+      TObjEneBm9Mericarol__sub_802D093C((void *) ene_bm9_mericarol);
+      *(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_454 = (s32) ((*(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_454) & 0xFFFFFFF7);
+      *(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_454 = (s32) ((*(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_454) | 0x20);
+      *(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_4ac = 0;
+      *((s32 *) (((s8 *) ene_bm9_mericarol) + 0x494)) = 0;
       return;
       return;
     case 3:
-      if (((s32) (*(s32 *)&((TObjEneBm9Mericarol *)arg0)->m_4ac)) >= 0x1E)
+      if (((s32) (*(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_4ac)) >= 0x1E)
     {
-      transition_enemy_state((void *)((void *) arg0), 3);
+      transition_enemy_state((void *)((void *) ene_bm9_mericarol), 3);
     }
       return;
     case 0:
-      ((s32)advance_animation_playback((void *) arg0));
-      temp_r0 = *(s32 *)&((TObjEneBm9Mericarol *)arg0)->m_4ac;
+      ((s32)advance_animation_playback((void *) ene_bm9_mericarol));
+      temp_r0 = *(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_4ac;
       if (temp_r0 == 6)
     {
-      temp_r3 = ((TObjEneBm9Mericarol *)arg0)->find_nearby_target();
+      temp_r3 = ((TObjEneBm9Mericarol *)ene_bm9_mericarol)->find_nearby_target();
       if (temp_r3 != 0)
       {
         temp_r3_2 = __nw__7TObjectFUl(0x28);
         if (temp_r3_2 != 0U)
         {
-          ((TObjEneBm9Mericarol_EffCurse3 *)temp_r3_2)->construct((s32)((void *) arg0), (s32)((int) temp_r3));
+          ((TObjEneBm9Mericarol_EffCurse3 *)temp_r3_2)->construct((s32)((void *) ene_bm9_mericarol), (s32)((int) temp_r3));
         }
-        ((TObjEneBm9Mericarol *)arg0)->m_390 = temp_r3;
-        *((s32 *) (((s8 *) arg0) + 0x494)) = 1;
-        play_sound_effect((s32)((void *) ((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) arg0), 0x3A808))), arg0 + 0x38, 0, 0);
+        ((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_390 = temp_r3;
+        *((s32 *) (((s8 *) ene_bm9_mericarol) + 0x494)) = 1;
+        play_sound_effect((s32)((void *) ((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) ene_bm9_mericarol), 0x3A808))), ene_bm9_mericarol + 0x38, 0, 0);
       }
     }
     else
-      if (((temp_r0 == 0x19) && (((s32) (*((s32 *) (((s8 *) arg0) + 0x494)))) != 0)) && (is_alive__9TObjEneDDFv((int) (((TObjEneBm9Mericarol *)arg0)->m_390)) != 0))
+      if (((temp_r0 == 0x19) && (((s32) (*((s32 *) (((s8 *) ene_bm9_mericarol) + 0x494)))) != 0)) && (is_alive__9TObjEneDDFv((int) (((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_390)) != 0))
     {
-      ((TObjPlayer *)(((TObjEneBm9Mericarol *)arg0)->m_390))->set_facing(0);
+      ((TObjPlayer *)(((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_390))->set_facing(0);
     }
-      temp_r4 = *(s32 *)&((TObjEneBm9Mericarol *)arg0)->m_4ac;
-      *(s32 *)&((TObjEneBm9Mericarol *)arg0)->m_4ac = (temp_r4 + 1);
-      (((VObj_18_3b55b6 *)(arg0))->m100((temp_r4)));
-      (((TObjEneBm9Mericarol *)(arg0))->vfunc_88());
-      TObjEneBm9Mericarol__sub_802D073C((void *)((void *) arg0));
+      temp_r4 = *(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_4ac;
+      *(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_4ac = (temp_r4 + 1);
+      (((VObj_18_3b55b6 *)(ene_bm9_mericarol))->m100((temp_r4)));
+      (((TObjEneBm9Mericarol *)(ene_bm9_mericarol))->vfunc_88());
+      TObjEneBm9Mericarol__sub_802D073C((void *)((void *) ene_bm9_mericarol));
       return;
     case 5:
-      *(s32 *)&((TObjEneBm9Mericarol *)arg0)->actorFlags = (s32) ((*(s32 *)&((TObjEneBm9Mericarol *)arg0)->actorFlags) & 0xFBFFFFFF);
-      *(s32 *)&((TObjEneBm9Mericarol *)arg0)->m_454 = (s32) ((*(s32 *)&((TObjEneBm9Mericarol *)arg0)->m_454) & 0xFFFFFFFD);
+      *(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->actorFlags = (s32) ((*(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->actorFlags) & 0xFBFFFFFF);
+      *(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_454 = (s32) ((*(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_454) & 0xFFFFFFFD);
       break;
   }
 }

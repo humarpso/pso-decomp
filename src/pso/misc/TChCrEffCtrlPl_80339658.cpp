@@ -65,7 +65,7 @@ void TChCrEffCtrlPl::run_task() {
 TChCrEffCtrlPl::~TChCrEffCtrlPl() {}
 
 }
-TChCrEffCtrlPl::TChCrEffCtrlPl(TObject *_w1) : TObject(_w1) {
+TChCrEffCtrlPl::TChCrEffCtrlPl(TObject *object) : TObject(object) {
     ((O_80339808 *)this)->f0 = TChCrEffCtrlPl__name;
     ((O_80339808 *)this)->f1c = TChCrEffCtrlPl::get_clamped_player_index() + 0x8B;
     ((O_80339808 *)this)->f20 = TChCrEffCtrlPl::get_clamped_player_index() + 0xBC;

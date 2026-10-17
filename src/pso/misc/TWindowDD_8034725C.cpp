@@ -312,14 +312,14 @@ void TWindowDD::update_selection_state() {
     }
 }
 
-void TWindowDD__sub_80347CC8(W_80347CC8 *arg0, void *arg1) {
+void TWindowDD__sub_80347CC8(W_80347CC8 *arg0, void *window_dd) {
     S_80347CC8 *s;
     E_80347CC8 *e;
     f32 x;
     f32 c;
     f32 max;
     f32 f10;
-    update_state__9TWindowDDFv(arg1, TWindowDD__work_buffer, local_client_id);
+    update_state__9TWindowDDFv(window_dd, TWindowDD__work_buffer, local_client_id);
     s = arg0->f70;
     if (s != NULL) {
         e = get_array_entry__13TUnk_804CE018Fi(s, 0);

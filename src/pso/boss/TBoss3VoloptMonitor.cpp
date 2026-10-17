@@ -243,25 +243,25 @@ void *lbl_80483E84[12] = {
     (void *)0xc2e60000, (void *)0x41d00000, (void *)0x0, (void *)0xc2dc0000,
 };
 
-void render__19TBoss3VoloptMonitorFv(TBoss3VoloptMonitor *arg0) {
+void render__19TBoss3VoloptMonitorFv(TBoss3VoloptMonitor *boss3_volopt_monitor) {
     s32 v;
     s32 hit;
-    if (!(arg0->actorFlags & 0x02000000) && ((VObj_80041F6C *)arg0)->m8(lbl_805D8738, lbl_805D873C) != 0) {
-        if (arg0->actorFlags & 0x800) {
-            arg0->sub_80042944((&volopt_monitor_model_indices[arg0->variant])[8]);
+    if (!(boss3_volopt_monitor->actorFlags & 0x02000000) && ((VObj_80041F6C *)boss3_volopt_monitor)->m8(lbl_805D8738, lbl_805D873C) != 0) {
+        if (boss3_volopt_monitor->actorFlags & 0x800) {
+            boss3_volopt_monitor->sub_80042944((&volopt_monitor_model_indices[boss3_volopt_monitor->variant])[8]);
             v = 0x18;
         } else {
             hit = 0;
-            if (vol_opt_active_hit_zone >= 0 && vol_opt_active_hit_zone / 4 == arg0->m_38c / 4) {
+            if (vol_opt_active_hit_zone >= 0 && vol_opt_active_hit_zone / 4 == boss3_volopt_monitor->m_38c / 4) {
                 hit = 1;
             }
             if (hit != 0) {
-                arg0->sub_80042944((&volopt_monitor_model_indices[arg0->variant])[4]);
-                v = arg0->m_38e + 0x10;
+                boss3_volopt_monitor->sub_80042944((&volopt_monitor_model_indices[boss3_volopt_monitor->variant])[4]);
+                v = boss3_volopt_monitor->m_38e + 0x10;
             } else {
-                arg0->sub_80042944(((s32 (*)[4])volopt_monitor_model_indices)[0][arg0->variant]);
-                v = arg0->m_38e;
-                if (arg0->m_388 & 0x10000) {
+                boss3_volopt_monitor->sub_80042944(((s32 (*)[4])volopt_monitor_model_indices)[0][boss3_volopt_monitor->variant]);
+                v = boss3_volopt_monitor->m_38e;
+                if (boss3_volopt_monitor->m_388 & 0x10000) {
                     v += 8;
                 }
             }
@@ -271,8 +271,8 @@ void render__19TBoss3VoloptMonitorFv(TBoss3VoloptMonitor *arg0) {
         set_depth_buffer_settings_id(3);
         push_matrix();
         model_render_flags &= 0xFFFFFBFF;
-        rotate_matrix_y(0, arg0->rotation_y);
-        draw_ginja_object((void *)(*(s32 *)((s8 *)arg0 + 0x34)));
+        rotate_matrix_y(0, boss3_volopt_monitor->rotation_y);
+        draw_ginja_object((void *)(*(s32 *)((s8 *)boss3_volopt_monitor + 0x34)));
         pop_matrix();
         func_80141618__Fv();
     }
@@ -482,54 +482,54 @@ void *__vt__19TBoss3VoloptMonitor[84] = {
     (void *)&vfunc_76__13TUnk_804806E8Fv, (void *)&vfunc_77__13TUnk_804806E8Fv, (void *)&vfunc_78__13TUnk_804806E8Fl, (void *)&vfunc_79__15TObjEnemyCustomFv,
     (void *)&apply_hit_message_flags__9TObjEnemyFPv, (void *)&apply_set_data__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)0x0,
 };
-u8 *init_with_slot__19TBoss3VoloptMonitorFPvPviiii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
+u8 *init_with_slot__19TBoss3VoloptMonitorFPvPviiii(u8 *boss3_volopt_monitor, u8 *arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     s32 t;
     Mon_800426EC *m;
 
-    TObjEnemyCustom__ct(arg0);
-    *(void **)((s8 *)arg0 + 0x18) = (void *)__vt__19TBoss3VoloptMonitor;
-    *(s32 *)((s8 *)arg0 + 0) = lbl_805D2740;
-    ((TBoss3VoloptMonitor *)arg0)->m_1c = arg2;
-    *(s16 *)((s8 *)arg0 + 0x2C) = arg3;
-    *(s32 *)((s8 *)arg0 + 0x80) = 0;
-    *(s16 *)((s8 *)arg0 + 0x28) = *(s16 *)((s8 *)arg1 + 0x28);
-    *(s16 *)((s8 *)arg0 + 0x2A) = *(s16 *)((s8 *)arg1 + 0x2A);
-    ((TBoss3VoloptMonitor *)arg0)->m_38c = arg4;
-    ((TBoss3VoloptMonitor *)arg0)->variant = arg4 & 3;
-    ((TBoss3VoloptMonitor *)arg0)->timer = arg5;
-    ((TBoss3VoloptMonitor *)arg0)->sub_80042510();
+    TObjEnemyCustom__ct(boss3_volopt_monitor);
+    *(void **)((s8 *)boss3_volopt_monitor + 0x18) = (void *)__vt__19TBoss3VoloptMonitor;
+    *(s32 *)((s8 *)boss3_volopt_monitor + 0) = lbl_805D2740;
+    ((TBoss3VoloptMonitor *)boss3_volopt_monitor)->m_1c = arg2;
+    *(s16 *)((s8 *)boss3_volopt_monitor + 0x2C) = arg3;
+    *(s32 *)((s8 *)boss3_volopt_monitor + 0x80) = 0;
+    *(s16 *)((s8 *)boss3_volopt_monitor + 0x28) = *(s16 *)((s8 *)arg1 + 0x28);
+    *(s16 *)((s8 *)boss3_volopt_monitor + 0x2A) = *(s16 *)((s8 *)arg1 + 0x2A);
+    ((TBoss3VoloptMonitor *)boss3_volopt_monitor)->m_38c = arg4;
+    ((TBoss3VoloptMonitor *)boss3_volopt_monitor)->variant = arg4 & 3;
+    ((TBoss3VoloptMonitor *)boss3_volopt_monitor)->timer = arg5;
+    ((TBoss3VoloptMonitor *)boss3_volopt_monitor)->sub_80042510();
     t = (arg4 / 4) * 0x3C;
-    ((TBoss3VoloptMonitor *)arg0)->rotation_y = (s32)(lbl_805D8754 * (f32)t);
-    ((TBoss3VoloptMonitor *)arg0)->sub_80042944(volopt_monitor_model_indices[((TBoss3VoloptMonitor *)arg0)->variant]);
+    ((TBoss3VoloptMonitor *)boss3_volopt_monitor)->rotation_y = (s32)(lbl_805D8754 * (f32)t);
+    ((TBoss3VoloptMonitor *)boss3_volopt_monitor)->sub_80042944(volopt_monitor_model_indices[((TBoss3VoloptMonitor *)boss3_volopt_monitor)->variant]);
     push_matrix();
     set_matrix_identity(0);
-    rotate_matrix_y(0, ((TBoss3VoloptMonitor *)arg0)->rotation_y);
-    matrix_mult_vec(0, (u8 *)lbl_80483E84 + ((TBoss3VoloptMonitor *)arg0)->variant * 0xC, arg0 + 0x38);
+    rotate_matrix_y(0, ((TBoss3VoloptMonitor *)boss3_volopt_monitor)->rotation_y);
+    matrix_mult_vec(0, (u8 *)lbl_80483E84 + ((TBoss3VoloptMonitor *)boss3_volopt_monitor)->variant * 0xC, boss3_volopt_monitor + 0x38);
     pop_matrix();
-    VecCopy((Vec *)&volopt_slot_positions[((TBoss3VoloptMonitor *)arg0)->m_38c], (const Vec *)(arg0 + 0x38));
+    VecCopy((Vec *)&volopt_slot_positions[((TBoss3VoloptMonitor *)boss3_volopt_monitor)->m_38c], (const Vec *)(boss3_volopt_monitor + 0x38));
     {
-        s16 k = ((TBoss3VoloptMonitor *)arg0)->m_38c;
-        m = (Mon_800426EC *) arg0;
+        s16 k = ((TBoss3VoloptMonitor *)boss3_volopt_monitor)->m_38c;
+        m = (Mon_800426EC *) boss3_volopt_monitor;
         volopt_slot_positions[k].y = (k & 3) == 0 ? lbl_805D8758 : lbl_805D875C;
         init_collision_body_parts(m, (G44_800426EC *) &TBoss3VoloptMonitor__collision_body_part_table + *(s32 *)((s8 *)m + 0x368), 1);
     }
-    *(s32 *)((s8 *)(((TBoss3VoloptMonitor *)arg0)->m_a4) + 0x18) |= 0x500;
-    return arg0;
+    *(s32 *)((s8 *)(((TBoss3VoloptMonitor *)boss3_volopt_monitor)->m_a4) + 0x18) |= 0x500;
+    return boss3_volopt_monitor;
 }
 
 typedef char RecoveredGlobal_80042888_lbl_80483DD4_size[sizeof(RecoveredGlobal_80042888_lbl_80483DD4) == 0xE0 ? 1 : -1];
 typedef char RecoveredGlobal_80042888___vt__19TBoss3VoloptMonitor_size[sizeof(RecoveredGlobal_80042888___vt__19TBoss3VoloptMonitor) == 0x150 ? 1 : -1];
-u8 *TBoss3VoloptMonitor__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TObjEnemyCustom__ct((arg0));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80042888___vt__19TBoss3VoloptMonitor *)&__vt__19TBoss3VoloptMonitor).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2740;
-    ((TBoss3VoloptMonitor *)(arg0))->apply_set_data((void *)arg2);
-    ((TBoss3VoloptMonitor *)arg0)->variant = 0;
-    ((TBoss3VoloptMonitor *)arg0)->timer = 0;
-    ((TBoss3VoloptMonitor *)arg0)->sub_80042510();
-    init_collision_body_parts(arg0, &TBoss3VoloptMonitor__collision_body_part_table.value, 1);
-    ((TBoss3VoloptMonitor *)arg0)->sub_80042944(1);
-    return arg0;
+u8 *TBoss3VoloptMonitor__ct(u8 *boss3_volopt_monitor, s32 arg1, s32 arg2) {
+    TObjEnemyCustom__ct((boss3_volopt_monitor));
+    *(s32 **)((s8 *)boss3_volopt_monitor + 0x18) = &(*(RecoveredGlobal_80042888___vt__19TBoss3VoloptMonitor *)&__vt__19TBoss3VoloptMonitor).value;
+    *(s32 *)((s8 *)boss3_volopt_monitor + 0) = (s32) lbl_805D2740;
+    ((TBoss3VoloptMonitor *)(boss3_volopt_monitor))->apply_set_data((void *)arg2);
+    ((TBoss3VoloptMonitor *)boss3_volopt_monitor)->variant = 0;
+    ((TBoss3VoloptMonitor *)boss3_volopt_monitor)->timer = 0;
+    ((TBoss3VoloptMonitor *)boss3_volopt_monitor)->sub_80042510();
+    init_collision_body_parts(boss3_volopt_monitor, &TBoss3VoloptMonitor__collision_body_part_table.value, 1);
+    ((TBoss3VoloptMonitor *)boss3_volopt_monitor)->sub_80042944(1);
+    return boss3_volopt_monitor;
 }
 
 void TObjEnemyCustom::set_flags_30() { this->actorFlags |= 0x4040000; }

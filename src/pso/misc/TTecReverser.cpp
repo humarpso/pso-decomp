@@ -118,22 +118,22 @@ Obj_80239E44 *construct_revival_particle_effect(Obj_80239E44 *self, Player_80239
 
 void TTecReverser::render() {  }
 
-void run_task__12TTecReverserFv(u8 *arg0) {
+void run_task__12TTecReverserFv(u8 *tec_reverser) {
     u32 entity;
-    ((TTecReverser *)arg0)->source = (u32)find_entity_by_id((((TTecReverser *)arg0)->m_b4));
-    if ((u32) ((TTecReverser *)arg0)->source == 0U) {
-        queue_destruction__7TObjectFv((arg0));
+    ((TTecReverser *)tec_reverser)->source = (u32)find_entity_by_id((((TTecReverser *)tec_reverser)->m_b4));
+    if ((u32) ((TTecReverser *)tec_reverser)->source == 0U) {
+        queue_destruction__7TObjectFv((tec_reverser));
         return;
     }
-    if ((s32) *(s32 *)&((TTecReverser *)arg0)->m_ec == 0) {
-        queue_destruction__7TObjectFv((arg0));
+    if ((s32) *(s32 *)&((TTecReverser *)tec_reverser)->m_ec == 0) {
+        queue_destruction__7TObjectFv((tec_reverser));
         return;
     }
-    entity = (u32)find_entity_by_id((((TTecReverser *)arg0)->m_f0));
+    entity = (u32)find_entity_by_id((((TTecReverser *)tec_reverser)->m_f0));
     if ((is_active__12TTecReverserFv() == 0) && (TObjPlayer::is_valid_and_active(entity) != 0)) {
-        ((TTecReverser *)(arg0))->vfunc_6((void *)entity);
+        ((TTecReverser *)(tec_reverser))->vfunc_6((void *)entity);
     }
-    queue_destruction__7TObjectFv((arg0));
+    queue_destruction__7TObjectFv((tec_reverser));
 }
 
 void TTecReverser::create(void *arg0, void *arg1, void *arg2, void *arg3) {
@@ -154,21 +154,21 @@ void *__dt__12TTecReverserFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TTecReverser__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+u8 *TTecReverser__ct(u8 *tec_reverser, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u32 temp_r3;
-    __ct__13TUnk_804CC148Flll((void *)arg0, (void *)arg1, (void *)arg2, (void *)arg4);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8023A094___vt__12TTecReverser *)&__vt__12TTecReverser).value;
-    ((TObjPlayer *)(arg0 + 0xEC))->construct_target_cursor_records();
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3818;
-    ((TTecAnti *)(arg0 + 0x88))->copy_params((u8 *)((u8 *)&technique_param_table.value + 0x2EC));
-    ((TTecReverser *)arg0)->sub_8022BE64(arg0 + 0x88, arg4);
-    copy_technique_target_list(arg0 + 0xEC, (void *)arg3);
-    play_sound_effect(0x4002A812, arg0 + 0x20, 0, 0);
-    temp_r3 = ((TTecReverser *)arg0)->source;
+    __ct__13TUnk_804CC148Flll((void *)tec_reverser, (void *)arg1, (void *)arg2, (void *)arg4);
+    *(s32 **)((s8 *)tec_reverser + 0x18) = &(*(RecoveredGlobal_8023A094___vt__12TTecReverser *)&__vt__12TTecReverser).value;
+    ((TObjPlayer *)(tec_reverser + 0xEC))->construct_target_cursor_records();
+    *(s32 *)((s8 *)tec_reverser + 0) = (s32) lbl_805D3818;
+    ((TTecAnti *)(tec_reverser + 0x88))->copy_params((u8 *)((u8 *)&technique_param_table.value + 0x2EC));
+    ((TTecReverser *)tec_reverser)->sub_8022BE64(tec_reverser + 0x88, arg4);
+    copy_technique_target_list(tec_reverser + 0xEC, (void *)arg3);
+    play_sound_effect(0x4002A812, tec_reverser + 0x20, 0, 0);
+    temp_r3 = ((TTecReverser *)tec_reverser)->source;
     if (temp_r3 != 0U) {
-        *(s16 *)&((TTecReverser *)arg0)->m_b4 = obj_getField1c(temp_r3);
+        *(s16 *)&((TTecReverser *)tec_reverser)->m_b4 = obj_getField1c(temp_r3);
     }
-    return arg0;
+    return tec_reverser;
 }
 
 void TUnk_804CCC68::dispatch_technique_contact() {

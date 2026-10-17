@@ -453,11 +453,11 @@ void dispatch_vt9__8TObjChipFPv(void *arg0) {
     o->m9();
 }
 
-void update__8TObjChipFPv(void *arg0) {
-    struct VObj_801809F0_801809B4 *o = (struct VObj_801809F0_801809B4 *)arg0;
+void update__8TObjChipFPv(void *object) {
+    struct VObj_801809F0_801809B4 *o = (struct VObj_801809F0_801809B4 *)object;
     o->m7();
     if (o->m6() == 1) {
-        queue_destruction__7TObjectFv(arg0);
+        queue_destruction__7TObjectFv(object);
     }
 }
 }
@@ -467,18 +467,18 @@ TObjChip::~TObjChip() {}
 extern "C" {
 
 typedef char RecoveredGlobal_80180AA4___vt__8TObjChip_size[sizeof(RecoveredGlobal_80180AA4___vt__8TObjChip) == 0x38 ? 1 : -1];
-u8 *__ct__8TObjChipFv(u8 *arg0, u8 *arg1, u8 *arg2) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__8TObjChip;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) obj_chip_class_name_ptr;
-    copy_debris_params__8TObjChipFPvPv(arg0 + 0x24, arg2);
-    *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (2e+02f);
-    *(f32 *)((s8 *)arg0 + 0x20) = 40.0f;
-    *(s32 *)((s8 *)arg0 + 0x230) = 1;
-    if (((VObj_18_6eb662 *)(arg0))->m5(arg2 + 0x4C, (2e+02f)) == 0) {
-        *(s32 *)((s8 *)arg0 + 0x230) = 0;
+u8 *__ct__8TObjChipFv(u8 *object, u8 *arg1, u8 *arg2) {
+    __ct__7TObjectFP7TObject(object, arg1);
+    *(s32 **)((s8 *)object + 0x18) = (s32 *)__vt__8TObjChip;
+    *(s32 *)((s8 *)object + 0) = (s32) obj_chip_class_name_ptr;
+    copy_debris_params__8TObjChipFPvPv(object + 0x24, arg2);
+    *(f32 *)((s8 *)object + 0x1C) = (f32) (2e+02f);
+    *(f32 *)((s8 *)object + 0x20) = 40.0f;
+    *(s32 *)((s8 *)object + 0x230) = 1;
+    if (((VObj_18_6eb662 *)(object))->m5(arg2 + 0x4C, (2e+02f)) == 0) {
+        *(s32 *)((s8 *)object + 0x230) = 0;
     }
-    return arg0;
+    return object;
 }
 
 void copy_debris_params__8TObjChipFPvPv(u8 *arg0, u8 *arg1) {
@@ -498,18 +498,18 @@ void copy_debris_params__8TObjChipFPvPv(u8 *arg0, u8 *arg1) {
 }
 
 typedef char RecoveredGlobal_80180BD4___vt__8TObjChip_size[sizeof(RecoveredGlobal_80180BD4___vt__8TObjChip) == 0x38 ? 1 : -1];
-u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__8TObjChip;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) obj_chip_class_name_ptr;
-    copy_debris_params__8TObjChipFPvPv(arg0 + 0x24, arg2);
-    *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (2e+02f);
-    *(f32 *)((s8 *)arg0 + 0x20) = 40.0f;
-    *(s32 *)((s8 *)arg0 + 0x230) = 1;
-    if (((VObj_18_2a3247 *)(arg0))->m4((2e+02f)) == 0) {
-        *(s32 *)((s8 *)arg0 + 0x230) = 0;
+u8 *construct_debris__8TObjChipFPvPvPv(u8 *object, u8 *arg1, u8 *arg2) {
+    __ct__7TObjectFP7TObject(object, arg1);
+    *(s32 **)((s8 *)object + 0x18) = (s32 *)__vt__8TObjChip;
+    *(s32 *)((s8 *)object + 0) = (s32) obj_chip_class_name_ptr;
+    copy_debris_params__8TObjChipFPvPv(object + 0x24, arg2);
+    *(f32 *)((s8 *)object + 0x1C) = (f32) (2e+02f);
+    *(f32 *)((s8 *)object + 0x20) = 40.0f;
+    *(s32 *)((s8 *)object + 0x230) = 1;
+    if (((VObj_18_2a3247 *)(object))->m4((2e+02f)) == 0) {
+        *(s32 *)((s8 *)object + 0x230) = 0;
     }
-    return arg0;
+    return object;
 }
 
 u8 *copy_transform__8TObjChipFPvPv(u8 *arg0, u8 *arg1) {

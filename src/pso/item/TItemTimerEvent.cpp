@@ -83,15 +83,15 @@ void TItemTimerEvent::run_task() {
     this->vfunc_7();
 }
 
-void *__dt__15TItemTimerEventFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TItemTimerEvent;
-        __dt__15TItemHeapObjectFv(arg0, 0);
+void *__dt__15TItemTimerEventFv(void *item_heap_object, s16 arg1) {
+    if (item_heap_object != NULL) {
+        *(s32 **)((s8 *)item_heap_object + 0x18) = __vt__15TItemTimerEvent;
+        __dt__15TItemHeapObjectFv(item_heap_object, 0);
         if (arg1 > 0) {
-            __dl__15TItemHeapObjectFPv(arg0);
+            __dl__15TItemHeapObjectFPv(item_heap_object);
         }
     }
-    return arg0;
+    return item_heap_object;
 }
 
 extern s32 lbl_804A0568[];
@@ -109,132 +109,132 @@ u8 *TItemTimerEvent__ct(TItemTimerEvent *arg0, s32 arg1, s16 arg2, s32 arg3) {
     return (u8 *)arg0;
 }
 
-void *__dt__13TUnk_804A0568Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A0568;
-        __dt__15TItemTimerEventFv(arg0, (s16)(0));
+void *__dt__13TUnk_804A0568Fv(void *item_timer_event, s16 arg1) {
+    if (item_timer_event != NULL) {
+        *(s32 **)((s8 *)item_timer_event + 0x18) = lbl_804A0568;
+        __dt__15TItemTimerEventFv(item_timer_event, (s16)(0));
         if (arg1 > 0) {
-            __dl__15TItemHeapObjectFPv(arg0);
+            __dl__15TItemHeapObjectFPv(item_timer_event);
         }
     }
-    return arg0;
+    return item_timer_event;
 }
 
 extern s32 lbl_804A0588[];
 
-void *__dt__13TUnk_804A0588Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A0588;
-        __dt__15TItemTimerEventFv(arg0, (s16)(0));
+void *__dt__13TUnk_804A0588Fv(void *item_timer_event, s16 arg1) {
+    if (item_timer_event != NULL) {
+        *(s32 **)((s8 *)item_timer_event + 0x18) = lbl_804A0588;
+        __dt__15TItemTimerEventFv(item_timer_event, (s16)(0));
         if (arg1 > 0) {
-            __dl__15TItemHeapObjectFPv(arg0);
+            __dl__15TItemHeapObjectFPv(item_timer_event);
         }
     }
-    return arg0;
+    return item_timer_event;
 }
 
 extern s32 lbl_804A05A8[];
 
-void *__dt__13TUnk_804A05A8Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A05A8;
-        __dt__15TItemTimerEventFv(arg0, (s16)(0));
+void *__dt__13TUnk_804A05A8Fv(void *item_timer_event, s16 arg1) {
+    if (item_timer_event != NULL) {
+        *(s32 **)((s8 *)item_timer_event + 0x18) = lbl_804A05A8;
+        __dt__15TItemTimerEventFv(item_timer_event, (s16)(0));
         if (arg1 > 0) {
-            __dl__15TItemHeapObjectFPv(arg0);
+            __dl__15TItemHeapObjectFPv(item_timer_event);
         }
     }
-    return arg0;
+    return item_timer_event;
 }
 
 extern s32 lbl_804A05C8[];
 
-void *__dt__13TUnk_804A05C8Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A05C8;
-        __dt__15TItemTimerEventFv(arg0, (s16)(0));
+void *__dt__13TUnk_804A05C8Fv(void *item_timer_event, s16 arg1) {
+    if (item_timer_event != NULL) {
+        *(s32 **)((s8 *)item_timer_event + 0x18) = lbl_804A05C8;
+        __dt__15TItemTimerEventFv(item_timer_event, (s16)(0));
         if (arg1 > 0) {
-            __dl__15TItemHeapObjectFPv(arg0);
+            __dl__15TItemHeapObjectFPv(item_timer_event);
         }
     }
-    return arg0;
+    return item_timer_event;
 }
 
 extern s32 lbl_804A05E8[];
 
-void *__dt__13TUnk_804A05E8Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A05E8;
-        __dt__15TItemTimerEventFv(arg0, (s16)(0));
+void *__dt__13TUnk_804A05E8Fv(void *item_timer_event, s16 arg1) {
+    if (item_timer_event != NULL) {
+        *(s32 **)((s8 *)item_timer_event + 0x18) = lbl_804A05E8;
+        __dt__15TItemTimerEventFv(item_timer_event, (s16)(0));
         if (arg1 > 0) {
-            __dl__15TItemHeapObjectFPv(arg0);
+            __dl__15TItemHeapObjectFPv(item_timer_event);
         }
     }
-    return arg0;
+    return item_timer_event;
 }
 
 extern s32 lbl_804A0608[];
 
-void *__dt__13TUnk_804A0608Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A0608;
-        __dt__15TItemTimerEventFv(arg0, (s16)(0));
+void *__dt__13TUnk_804A0608Fv(void *item_timer_event, s16 arg1) {
+    if (item_timer_event != NULL) {
+        *(s32 **)((s8 *)item_timer_event + 0x18) = lbl_804A0608;
+        __dt__15TItemTimerEventFv(item_timer_event, (s16)(0));
         if (arg1 > 0) {
-            __dl__15TItemHeapObjectFPv(arg0);
+            __dl__15TItemHeapObjectFPv(item_timer_event);
         }
     }
-    return arg0;
+    return item_timer_event;
 }
 
 extern s32 lbl_804A0628[];
 
-void *__dt__13TUnk_804A0628Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A0628;
-        __dt__15TItemTimerEventFv(arg0, (s16)(0));
+void *__dt__13TUnk_804A0628Fv(void *item_timer_event, s16 arg1) {
+    if (item_timer_event != NULL) {
+        *(s32 **)((s8 *)item_timer_event + 0x18) = lbl_804A0628;
+        __dt__15TItemTimerEventFv(item_timer_event, (s16)(0));
         if (arg1 > 0) {
-            __dl__15TItemHeapObjectFPv(arg0);
+            __dl__15TItemHeapObjectFPv(item_timer_event);
         }
     }
-    return arg0;
+    return item_timer_event;
 }
 
 extern s32 lbl_804A0648[];
 
-void *__dt__13TUnk_804A0648Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A0648;
-        __dt__15TItemTimerEventFv(arg0, (s16)(0));
+void *__dt__13TUnk_804A0648Fv(void *item_timer_event, s16 arg1) {
+    if (item_timer_event != NULL) {
+        *(s32 **)((s8 *)item_timer_event + 0x18) = lbl_804A0648;
+        __dt__15TItemTimerEventFv(item_timer_event, (s16)(0));
         if (arg1 > 0) {
-            __dl__15TItemHeapObjectFPv(arg0);
+            __dl__15TItemHeapObjectFPv(item_timer_event);
         }
     }
-    return arg0;
+    return item_timer_event;
 }
 
 extern s32 lbl_804A0668[];
 
-void *__dt__13TUnk_804A0668Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A0668;
-        __dt__15TItemTimerEventFv(arg0, (s16)(0));
+void *__dt__13TUnk_804A0668Fv(void *item_timer_event, s16 arg1) {
+    if (item_timer_event != NULL) {
+        *(s32 **)((s8 *)item_timer_event + 0x18) = lbl_804A0668;
+        __dt__15TItemTimerEventFv(item_timer_event, (s16)(0));
         if (arg1 > 0) {
-            __dl__15TItemHeapObjectFPv(arg0);
+            __dl__15TItemHeapObjectFPv(item_timer_event);
         }
     }
-    return arg0;
+    return item_timer_event;
 }
 
 extern s32 lbl_804A0688[];
 
-void *__dt__13TUnk_804A0688Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A0688;
-        __dt__15TItemTimerEventFv(arg0, (s16)(0));
+void *__dt__13TUnk_804A0688Fv(void *item_timer_event, s16 arg1) {
+    if (item_timer_event != NULL) {
+        *(s32 **)((s8 *)item_timer_event + 0x18) = lbl_804A0688;
+        __dt__15TItemTimerEventFv(item_timer_event, (s16)(0));
         if (arg1 > 0) {
-            __dl__15TItemHeapObjectFPv(arg0);
+            __dl__15TItemHeapObjectFPv(item_timer_event);
         }
     }
-    return arg0;
+    return item_timer_event;
 }
 
 void TItemTimerEvent::clear_timer_slot(u16 arg0) {

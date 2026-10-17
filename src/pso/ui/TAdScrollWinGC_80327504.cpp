@@ -70,12 +70,12 @@ void TAdScrollWinGC::run_task() {
 }
 
 u8 *__dt__14TAdScrollWinGCFv(u8 *arg0, s16 arg1) {
-    u8 *temp_r3;
+    u8 *object;
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TAdScrollWinGC.value;
-        temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x40));
-        if (temp_r3 != NULL) {
-            queue_destruction__7TObjectFv(temp_r3);
+        object = (u8 *)(*(u8 **)((s8 *)arg0 + 0x40));
+        if (object != NULL) {
+            queue_destruction__7TObjectFv(object);
             *(u8 **)((s8 *)arg0 + 0x40) = NULL;
         }
         fn_8026A14C();
@@ -86,41 +86,41 @@ u8 *__dt__14TAdScrollWinGCFv(u8 *arg0, s16 arg1) {
     }
     return arg0;
 }
-void *TAdScrollWinGC__ct(TAdScrollWinGC *arg0, void *arg1, s32 arg2, s32 arg3) {
+void *TAdScrollWinGC__ct(TAdScrollWinGC *ad_scroll_win_gc, void *arg1, s32 arg2, s32 arg3) {
     s32 base;
     s32 i;
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TAdScrollWinGC.value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TAdScrollWinGC__class_name;
+    __ct__7TObjectFP7TObject(ad_scroll_win_gc, arg1);
+    *(s32 **)((s8 *)ad_scroll_win_gc + 0x18) = &__vt__14TAdScrollWinGC.value;
+    *(s32 *)((s8 *)ad_scroll_win_gc + 0) = (s32) TAdScrollWinGC__class_name;
     scroll_win_texture_handle = TAdMultiPlyChrSelectGC__sub_802C6FA8();
-    arg0->m_3c = 0;
-    arg0->m_40 = 0;
-    arg0->m_44 = arg2;
-    arg0->m_48 = 0;
-    arg0->m_4c = 0;
-    arg0->m_50 = 0;
-    base = arg0->get_scroll_delay_for_mode();
-    arg0->m_40 = (s32)create_message_log_window((s32)lbl_80476770, (s32)lbl_80476778, 0);
-    switch (arg0->m_44) {
+    ad_scroll_win_gc->m_3c = 0;
+    ad_scroll_win_gc->m_40 = 0;
+    ad_scroll_win_gc->m_44 = arg2;
+    ad_scroll_win_gc->m_48 = 0;
+    ad_scroll_win_gc->m_4c = 0;
+    ad_scroll_win_gc->m_50 = 0;
+    base = ad_scroll_win_gc->get_scroll_delay_for_mode();
+    ad_scroll_win_gc->m_40 = (s32)create_message_log_window((s32)lbl_80476770, (s32)lbl_80476778, 0);
+    switch (ad_scroll_win_gc->m_44) {
     case 0:
     case 1:
         for (i = 0; i < 10; i++) {
-            ((TLobby *)(arg0->m_40))->send_and_handle(get_localized_text_entry(0x1A, base + i), 1);
+            ((TLobby *)(ad_scroll_win_gc->m_40))->send_and_handle(get_localized_text_entry(0x1A, base + i), 1);
         }
         break;
     case 2:
     case 3:
-        ((TLobby *)(arg0->m_40))->send_and_handle(arg3, 1);
+        ((TLobby *)(ad_scroll_win_gc->m_40))->send_and_handle(arg3, 1);
         break;
     }
-    ((TWindowMessage *)(arg0->m_40))->complete_reveal();
-    ((TWindowMessageLog *)(arg0->m_40))->update_scroll_position();
-    TAdScrollWinGC__sub_8026A5F8((void *)arg0->m_40);
-    *(f32 *)((s8 *)arg0 + 0x2C) = lbl_805DF6B4;
-    arg0->m_30 = lbl_805DF6B8;
-    *(f32 *)((s8 *)arg0 + 0x34) = lbl_805DF6BC;
-    arg0->m_38 = lbl_805DF6C0;
-    return arg0;
+    ((TWindowMessage *)(ad_scroll_win_gc->m_40))->complete_reveal();
+    ((TWindowMessageLog *)(ad_scroll_win_gc->m_40))->update_scroll_position();
+    TAdScrollWinGC__sub_8026A5F8((void *)ad_scroll_win_gc->m_40);
+    *(f32 *)((s8 *)ad_scroll_win_gc + 0x2C) = lbl_805DF6B4;
+    ad_scroll_win_gc->m_30 = lbl_805DF6B8;
+    *(f32 *)((s8 *)ad_scroll_win_gc + 0x34) = lbl_805DF6BC;
+    ad_scroll_win_gc->m_38 = lbl_805DF6C0;
+    return ad_scroll_win_gc;
 }
 
 }

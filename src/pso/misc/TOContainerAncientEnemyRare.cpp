@@ -34,12 +34,12 @@ void *__dt__27TOContainerAncientEnemyRareFv(void *arg0, s16 arg1) {
 }
 
 typedef char RecoveredGlobal_8015B76C___vt__27TOContainerAncientEnemyRare_size[sizeof(RecoveredGlobal_8015B76C___vt__27TOContainerAncientEnemyRare) == 0x14C ? 1 : -1];
-u8 *TOContainerAncientEnemyRare__ct(u8 *arg0, s32 arg1) {
-    TOContainerAncientEnemy__ct(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8015B76C___vt__27TOContainerAncientEnemyRare *)&__vt__27TOContainerAncientEnemyRare).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2F10;
-    ((TOContainerAncientEnemyRare *)arg0)->texture_id = (s32) *ancient_container_fragment_texture_lists;
-    return arg0;
+u8 *TOContainerAncientEnemyRare__ct(u8 *container_ancient_enemy_rare, s32 arg1) {
+    TOContainerAncientEnemy__ct(container_ancient_enemy_rare, arg1);
+    *(s32 **)((s8 *)container_ancient_enemy_rare + 0x18) = &(*(RecoveredGlobal_8015B76C___vt__27TOContainerAncientEnemyRare *)&__vt__27TOContainerAncientEnemyRare).value;
+    *(s32 *)((s8 *)container_ancient_enemy_rare + 0) = (s32) lbl_805D2F10;
+    ((TOContainerAncientEnemyRare *)container_ancient_enemy_rare)->texture_id = (s32) *ancient_container_fragment_texture_lists;
+    return container_ancient_enemy_rare;
 }
 
 s32 TOContainerAncientEnemyCommon__create(s32 arg0) {

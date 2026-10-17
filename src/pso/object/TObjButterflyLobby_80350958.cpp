@@ -54,18 +54,18 @@ s32 push_matrix();
 
 extern s32 lobby_butterfly_bml_resource;
 
-void render__18TObjButterflyLobbyFPv(TObjButterflyLobby *arg0) {
+void render__18TObjButterflyLobbyFPv(TObjButterflyLobby *butterfly_lobby) {
     f32 temp_f1;
 
     push_matrix();
-    post_translate_matrix((u8 *)arg0 + 0x38);
-    rotate_matrix_y(0, arg0->rotation_y);
+    post_translate_matrix((u8 *)butterfly_lobby + 0x38);
+    rotate_matrix_y(0, butterfly_lobby->rotation_y);
     rotate_matrix_x(0, -0x2000);
-    if ((s32) arg0->m_90 != 3) {
-        temp_f1 = *(f32 *)((s8 *)arg0 + 0x94);
+    if ((s32) butterfly_lobby->m_90 != 3) {
+        temp_f1 = *(f32 *)((s8 *)butterfly_lobby + 0x94);
         scale_matrix(0, temp_f1, temp_f1, temp_f1);
     }
-    draw_ginja_model_with_motion(arg0->m_c4, (void *) (get_bml_motion((void *)lobby_butterfly_bml_resource, 0)), (f32) (*(f32 *)((s8 *)arg0 + 0xB0)));
+    draw_ginja_model_with_motion(butterfly_lobby->m_c4, (void *) (get_bml_motion((void *)lobby_butterfly_bml_resource, 0)), (f32) (*(f32 *)((s8 *)butterfly_lobby + 0xB0)));
     pop_matrix();
 }
 
@@ -302,28 +302,28 @@ void *__dt__18TObjButterflyLobbyFv(void *arg0, s16 arg1) {
 
 extern void *tl_05;
 
-u8 *TObjButterflyLobby__ct(TObjButterflyLobby *arg0, int arg1, u8 *arg2) {
+u8 *TObjButterflyLobby__ct(TObjButterflyLobby *butterfly_lobby, int arg1, u8 *arg2) {
     construct_world_actor_base();
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjButterflyLobby;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4360;
-    VecCopy((Vec *)((u8 *)arg0 + 0x38), (const Vec *)(arg2 + 0xC));
-    ((TObjPlayer *)((u8 *)arg0 + 0x5C))->copy_xyz(arg2 + 0x18);
-    VecCopy((Vec *)((u8 *)arg0 + 0x68), (const Vec *)(arg2 + 0x24));
+    *(s32 **)((s8 *)butterfly_lobby + 0x18) = __vt__18TObjButterflyLobby;
+    *(s32 *)((s8 *)butterfly_lobby + 0) = (s32) lbl_805D4360;
+    VecCopy((Vec *)((u8 *)butterfly_lobby + 0x38), (const Vec *)(arg2 + 0xC));
+    ((TObjPlayer *)((u8 *)butterfly_lobby + 0x5C))->copy_xyz(arg2 + 0x18);
+    VecCopy((Vec *)((u8 *)butterfly_lobby + 0x68), (const Vec *)(arg2 + 0x24));
     if (is_lobby_event_active() != 0) {
-        arg0->m_90 = 0;
+        butterfly_lobby->m_90 = 0;
     } else {
-        arg0->m_90 = 3;
+        butterfly_lobby->m_90 = 3;
     }
-    *(f32 *)((s8 *)arg0 + 0x94) = 1.0f;
+    *(f32 *)((s8 *)butterfly_lobby + 0x94) = 1.0f;
     if ((s32) *(s32 *)((s8 *)arg2 + 0x30) < 1) {
-        arg0->m_c4 = get_bml_model((void *)lobby_butterfly_bml_resource, 0);
-        arg0->m_c8 = TObjFish__sub_8001EDB0((void *)lobby_butterfly_bml_resource, 0);
+        butterfly_lobby->m_c4 = get_bml_model((void *)lobby_butterfly_bml_resource, 0);
+        butterfly_lobby->m_c8 = TObjFish__sub_8001EDB0((void *)lobby_butterfly_bml_resource, 0);
     } else {
-        arg0->m_c4 = get_bml_model((void *)lobby_butterfly_bml_resource, 1);
-        arg0->m_c8 = TObjFish__sub_8001EDB0((void *)lobby_butterfly_bml_resource, 1);
+        butterfly_lobby->m_c4 = get_bml_model((void *)lobby_butterfly_bml_resource, 1);
+        butterfly_lobby->m_c8 = TObjFish__sub_8001EDB0((void *)lobby_butterfly_bml_resource, 1);
     }
-    arg0->init_params();
-    return (u8 *)arg0;
+    butterfly_lobby->init_params();
+    return (u8 *)butterfly_lobby;
 }
 
 void *TObjButterflyLobby__create(void *arg0) {

@@ -115,20 +115,20 @@ void *__dt__16TObjRainbowLobbyFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void *TObjRainbowLobby__ct(TObjRainbowLobby *arg0, s32 arg1, s32 arg2) {
+void *TObjRainbowLobby__ct(TObjRainbowLobby *rainbow_lobby, s32 arg1, s32 arg2) {
     init_map_object_base();
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjRainbowLobby;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D435C;
-    arg0->apply_object_set_data((void *)arg2);
+    *(s32 **)((s8 *)rainbow_lobby + 0x18) = __vt__16TObjRainbowLobby;
+    *(s32 *)((s8 *)rainbow_lobby + 0) = (s32) lbl_805D435C;
+    rainbow_lobby->apply_object_set_data((void *)arg2);
     if (is_lobby_event_active() != 0) {
-        arg0->m_c8 = 0;
+        rainbow_lobby->m_c8 = 0;
     } else {
-        arg0->m_c8 = 3;
+        rainbow_lobby->m_c8 = 3;
     }
-    *(f32 *)((s8 *)arg0 + 0xCC) = 1.0f;
-    *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)((void *)TObjRainbowLobby__shared_model_resource) + 0x42C)) + 8);
-    arg0->texture_id = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)((void *)TObjRainbowLobby__shared_model_resource) + 0x42C)) + 0xC);
-    return arg0;
+    *(f32 *)((s8 *)rainbow_lobby + 0xCC) = 1.0f;
+    *(s32 *)((s8 *)rainbow_lobby + 0x34) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)((void *)TObjRainbowLobby__shared_model_resource) + 0x42C)) + 8);
+    rainbow_lobby->texture_id = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)((void *)TObjRainbowLobby__shared_model_resource) + 0x42C)) + 0xC);
+    return rainbow_lobby;
 }
 
 }

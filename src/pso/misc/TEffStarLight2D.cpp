@@ -103,7 +103,7 @@ extern "C" {
 #pragma push
 #pragma opt_common_subs off
 }
-TEffStarLight2D::TEffStarLight2D(void *arg1, void *arg2, TObject *arg3) : TObject(arg3) {
+TEffStarLight2D::TEffStarLight2D(void *arg1, void *arg2, TObject *object) : TObject(object) {
     P2_80085388 p;
     ((O_80085388 *)this)->f0 = lbl_805D292C;
     ((TEffStarLight2D *)((u8 *)this + 0x38))->copy_from(arg2);

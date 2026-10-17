@@ -134,11 +134,11 @@ void *__dt__28TOContainerAncientItemCommonFv(void *arg0, s16 arg1) {
 
 extern void *lbl_805D2EFC;
 
-void *TOContainerAncientItemCommon__ct(void *arg0, void * _w1) {
-    init_ancient_container((u8 *)arg0, (s32)_w1);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__28TOContainerAncientItemCommon;
-    *(void * *)&((TOContainerAncientItemCommon *)arg0)->m_name = lbl_805D2EFC;
-    return arg0;
+void *TOContainerAncientItemCommon__ct(void *container_ancient_item_common, void * _w1) {
+    init_ancient_container((u8 *)container_ancient_item_common, (s32)_w1);
+    *(s32 **)((s8 *)container_ancient_item_common + 0x18) = __vt__28TOContainerAncientItemCommon;
+    *(void * *)&((TOContainerAncientItemCommon *)container_ancient_item_common)->m_name = lbl_805D2EFC;
+    return container_ancient_item_common;
 }
 void TUnk_804B08BC::vfunc_79() {
     Obj_8015C234 *self = (Obj_8015C234 *)this;

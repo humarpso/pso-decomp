@@ -195,12 +195,12 @@ int TWindowSubComCard__sub_80244774(void) {  return lbl_805D3614; }
 
 s32 TWindowSubComCard::get_field_20() { return this->m_20; }
 
-f32 TWindowSubComCard__sub_80244784(TWindowSubComCard *arg0) {
-    f32 v = arg0->calc_offset();
+f32 TWindowSubComCard__sub_80244784(TWindowSubComCard *window_sub_com_card) {
+    f32 v = window_sub_com_card->calc_offset();
     if (v < lbl_805DCAC8) {
         return v;
     }
-    return arg0->get_normalized_progress();
+    return window_sub_com_card->get_normalized_progress();
 }
 
 f32 TWindowSubComCard::calc_offset() {
@@ -268,9 +268,9 @@ void fn_802449E0(u8 *arg0) {
     disallow_rendering__7TObjectFv((TObject *)arg0);
 }
 
-void TWindow__close(u8 *arg0) {
-    ((TWindowLockOn *)arg0)->request_close();
-    *(s32 *)&((TWindowLockOn *)arg0)->m_2c = (s32) (*(s32 *)&((TWindowLockOn *)arg0)->m_2c | 0x10);
+void TWindow__close(u8 *window_lock_on) {
+    ((TWindowLockOn *)window_lock_on)->request_close();
+    *(s32 *)&((TWindowLockOn *)window_lock_on)->m_2c = (s32) (*(s32 *)&((TWindowLockOn *)window_lock_on)->m_2c | 0x10);
 }
 
 void TWindowLockOn::request_close() {
@@ -302,26 +302,26 @@ void window_request_refresh(u8 *arg0) {
     }
 }
 
-void window_request_show(void *arg0) {
+void window_request_show(void *object) {
     s32 temp_r3;
 
-    temp_r3 = *(s32 *)((s8 *)arg0 + 0x2C);
+    temp_r3 = *(s32 *)((s8 *)object + 0x2C);
     if (temp_r3 & 1) {
-        *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (temp_r3 & 0xFFFFFFFB);
+        *(s32 *)((s8 *)object + 0x2C) = (s32) (temp_r3 & 0xFFFFFFFB);
         return;
     }
     if (temp_r3 & 2) {
-        *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (temp_r3 | 4);
+        *(s32 *)((s8 *)object + 0x2C) = (s32) (temp_r3 | 4);
         return;
     }
-    if (TWindowSubStatusDisp::get_card_window_scale(*(s16 *)((s8 *)arg0 + 0x20)) > lbl_805DCAD4) {
-        *(s32 *)((s8 *)arg0 + 0x5C) = 0;
+    if (TWindowSubStatusDisp::get_card_window_scale(*(s16 *)((s8 *)object + 0x20)) > lbl_805DCAD4) {
+        *(s32 *)((s8 *)object + 0x5C) = 0;
     }
-    *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (*(s32 *)((s8 *)arg0 + 0x2C) | 3);
-    if (!(*(s32 *)((s8 *)arg0 + 0x2C) & 0x20)) {
+    *(s32 *)((s8 *)object + 0x2C) = (s32) (*(s32 *)((s8 *)object + 0x2C) | 3);
+    if (!(*(s32 *)((s8 *)object + 0x2C) & 0x20)) {
         play_sound_effect(0x53703, 0, 0, 0);
     }
-    allow_rendering__7TObjectFv((TObject *)arg0);
+    allow_rendering__7TObjectFv((TObject *)object);
 }
 extern "C" {
 
@@ -436,7 +436,7 @@ void TUnk_804CE018::sub_80244F2C(u8 *arg1, u8 *arg2, s16 arg3) {
 }
 }
 
-void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2) {
+void draw_selection_bar(u8 *window_key_board_soft, u8 *arg1, s32 arg2) {
     UVPair_8024503C uv = selection_bar_texture_coordinates;
     UV_8024503C *p;
     Quad_802455CC q;
@@ -446,16 +446,16 @@ void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2) {
     f32 z;
     f32 t;
     f32 u;
-    if (*(s32 *)((s8 *)arg0 + 0x30) < 0) {
+    if (*(s32 *)((s8 *)window_key_board_soft + 0x30) < 0) {
         return;
     }
     p = &uv.e[0];
     if (arg2 != 0) {
         p = &uv.e[1];
     }
-    y = *(f32 *)((s8 *)arg0 + 0x14) + *(f32 *)((s8 *)arg1 + 0xC);
-    x = *(f32 *)((s8 *)arg0 + 0x10);
-    z = lbl_805DCAE4 / (lbl_805DCAE8 + *(f32 *)((s8 *)arg0 + 0x38));
+    y = *(f32 *)((s8 *)window_key_board_soft + 0x14) + *(f32 *)((s8 *)arg1 + 0xC);
+    x = *(f32 *)((s8 *)window_key_board_soft + 0x10);
+    z = lbl_805DCAE4 / (lbl_805DCAE8 + *(f32 *)((s8 *)window_key_board_soft + 0x38));
     TObjPlayer::init_xyz_limits();
     begin_screen_draw(1);
     TObjFish::set_global_param(lbl_805D63F0);
@@ -468,10 +468,10 @@ void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2) {
     q.v0 = p->v / 256.0f;
     q.u1 = (16.0f + p->u) / 256.0f;
     q.v1 = (18.0f + p->v) / 256.0f;
-    if (try_open__19TWindowKeyBoardSoftFii(arg0, &q) != 0) {
+    if (try_open__19TWindowKeyBoardSoftFii(window_key_board_soft, &q) != 0) {
         draw_textured_quad_at_depth(&q, z);
     }
-    t = x + *(f32 *)((s8 *)arg0 + 0x18);
+    t = x + *(f32 *)((s8 *)window_key_board_soft + 0x18);
     q.x0 = 2.0f + (t - 16.0f);
     q.y0 = y;
     q.x1 = 2.0f + t;
@@ -481,18 +481,18 @@ void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2) {
     q.v0 = p->v / 256.0f;
     q.u1 = (16.0f + u) / 256.0f;
     q.v1 = (18.0f + p->v) / 256.0f;
-    if (try_open__19TWindowKeyBoardSoftFii(arg0, &q) != 0) {
+    if (try_open__19TWindowKeyBoardSoftFii(window_key_board_soft, &q) != 0) {
         draw_textured_quad_at_depth(&q, z);
     }
     q.x0 = x1;
     q.y0 = y;
-    q.x1 = 2.0f + ((x + *(f32 *)((s8 *)arg0 + 0x18)) - 16.0f);
+    q.x1 = 2.0f + ((x + *(f32 *)((s8 *)window_key_board_soft + 0x18)) - 16.0f);
     q.y1 = y + *(f32 *)((s8 *)arg1 + 0x14);
     q.u0 = (16.0f + p->u) / 256.0f;
     q.v0 = p->v / 256.0f;
     q.u1 = (16.0f + (16.0f + p->u)) / 256.0f;
     q.v1 = (18.0f + p->v) / 256.0f;
-    if (try_open__19TWindowKeyBoardSoftFii(arg0, &q) != 0) {
+    if (try_open__19TWindowKeyBoardSoftFii(window_key_board_soft, &q) != 0) {
         draw_textured_quad_at_depth(&q, z);
     }
     TWindowSubStatusDisp::get_player();

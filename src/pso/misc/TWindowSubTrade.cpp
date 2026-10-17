@@ -112,16 +112,16 @@ void TWindowSubTrade::run_task() {
 }
 
 u8 *__dt__15TWindowSubTradeFv(u8 *arg0, s16 arg1) {
-    u8 *temp_r3;
+    u8 *window_sub_com_card;
     u8 *temp_r3_2;
     u8 *temp_r3_3;
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802B1F98___vt__15TWindowSubTrade *)&__vt__15TWindowSubTrade).value;
         TLobby__sub_802D2A2C((u32) arg0);
         TLobby::check_flags_and_proceed();
-        temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x34));
-        if (temp_r3 != NULL) {
-            ((TWindowSubComCard *)temp_r3)->close();
+        window_sub_com_card = (u8 *)(*(u8 **)((s8 *)arg0 + 0x34));
+        if (window_sub_com_card != NULL) {
+            ((TWindowSubComCard *)window_sub_com_card)->close();
             *(u8 **)((s8 *)arg0 + 0x34) = NULL;
         }
         temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x30));
@@ -143,9 +143,9 @@ u8 *__dt__15TWindowSubTradeFv(u8 *arg0, s16 arg1) {
 }
 
 }
-TWindowSubTrade::TWindowSubTrade(TObject *arg1, void *arg2) : TObject(arg1) {
+TWindowSubTrade::TWindowSubTrade(TObject *object, void *arg2) : TObject(object) {
     *(void * *)&this->m_name = lbl_805D3EA8;
-    *(void **)((s8 *)this + 0x28) = arg1;
+    *(void **)((s8 *)this + 0x28) = object;
     *(void **)((s8 *)this + 0x20) = arg2;
     this->m_24 = 4;
     this->m_2c = 0;

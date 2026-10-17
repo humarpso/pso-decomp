@@ -188,20 +188,20 @@ s32 TWindowSubStatusDisp::deleting_destructor(s32 arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *init_heading_entry__20TWindowSubStatusDispFPvPvici(u8 *arg0, u8 *arg1, s32 arg2, s8 arg3, s32 arg4) {
-    *(f32 *)((s8 *)arg0 + 4) = (f32) *(f32 *)((s8 *)arg1 + 0);
-    *(f32 *)((s8 *)arg0 + 8) = (f32) *(f32 *)((s8 *)arg1 + 4);
-    *(f32 *)((s8 *)arg0 + 0x10) = (f32) calc_text_width((char *)(arg2));
-    *(f32 *)((s8 *)arg0 + 0xC) = TWindowSubStatusDisp__sub_802877A4(*(f32 *)((s8 *)arg0 + 0x10));
-    *(s32 *)((s8 *)arg0 + 0) = arg2;
-    *(s8 *)((s8 *)arg0 + 0x19) = 0;
-    *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (0.0f);
-    ((TWindowSubStatusDisp *)arg0)->set_entry_state(arg3);
-    *(f32 *)((s8 *)arg0 + 0x20) = TWindowSubStatusDisp::get_card_window_scale(arg4);
-    if (*(f32 *)((s8 *)arg0 + 0x20) <= (0.0f)) {
-        *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (1e+05f);
+u8 *init_heading_entry__20TWindowSubStatusDispFPvPvici(u8 *window_sub_status_disp, u8 *arg1, s32 arg2, s8 arg3, s32 arg4) {
+    *(f32 *)((s8 *)window_sub_status_disp + 4) = (f32) *(f32 *)((s8 *)arg1 + 0);
+    *(f32 *)((s8 *)window_sub_status_disp + 8) = (f32) *(f32 *)((s8 *)arg1 + 4);
+    *(f32 *)((s8 *)window_sub_status_disp + 0x10) = (f32) calc_text_width((char *)(arg2));
+    *(f32 *)((s8 *)window_sub_status_disp + 0xC) = TWindowSubStatusDisp__sub_802877A4(*(f32 *)((s8 *)window_sub_status_disp + 0x10));
+    *(s32 *)((s8 *)window_sub_status_disp + 0) = arg2;
+    *(s8 *)((s8 *)window_sub_status_disp + 0x19) = 0;
+    *(f32 *)((s8 *)window_sub_status_disp + 0x1C) = (f32) (0.0f);
+    ((TWindowSubStatusDisp *)window_sub_status_disp)->set_entry_state(arg3);
+    *(f32 *)((s8 *)window_sub_status_disp + 0x20) = TWindowSubStatusDisp::get_card_window_scale(arg4);
+    if (*(f32 *)((s8 *)window_sub_status_disp + 0x20) <= (0.0f)) {
+        *(f32 *)((s8 *)window_sub_status_disp + 0x1C) = (f32) (1e+05f);
     }
-    return arg0;
+    return window_sub_status_disp;
 }
 
 u8 TWindowSubStatusDisp__sub_80287AC4(u8 *arg0) {

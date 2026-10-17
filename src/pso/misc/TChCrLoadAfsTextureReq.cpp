@@ -180,29 +180,29 @@ void init_texture_table__22TChCrLoadAfsTextureReqFPv(R_8028C310 *arg0) {
     }
 }
 
-u8 *TChCrLoadAfsTextureReq__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 *arg3, s32 arg4) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8028C378___vt__22TChCrLoadAfsTextureReq *)&__vt__22TChCrLoadAfsTextureReq).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) (*(s32 *)&lbl_805D3B50);
-    *(s32 *)((s8 *)arg0 + 0x30) = arg2;
-    *(s32 **)((s8 *)arg0 + 0x34) = arg3;
-    **(s32 **)((s8 *)arg0 + 0x34) = 0;
-    *(s32 *)((s8 *)arg0 + 0x6C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x70) = arg4;
-    init_texture_table__22TChCrLoadAfsTextureReqFPv((R_8028C310 *)(arg0));
-    return arg0;
+u8 *TChCrLoadAfsTextureReq__ct(u8 *object, u8 *arg1, s32 arg2, s32 *arg3, s32 arg4) {
+    __ct__7TObjectFP7TObject(object, arg1);
+    *(s32 **)((s8 *)object + 0x18) = &(*(RecoveredGlobal_8028C378___vt__22TChCrLoadAfsTextureReq *)&__vt__22TChCrLoadAfsTextureReq).value;
+    *(s32 *)((s8 *)object + 0) = (s32) (*(s32 *)&lbl_805D3B50);
+    *(s32 *)((s8 *)object + 0x30) = arg2;
+    *(s32 **)((s8 *)object + 0x34) = arg3;
+    **(s32 **)((s8 *)object + 0x34) = 0;
+    *(s32 *)((s8 *)object + 0x6C) = 0;
+    *(s32 *)((s8 *)object + 0x70) = arg4;
+    init_texture_table__22TChCrLoadAfsTextureReqFPv((R_8028C310 *)(object));
+    return object;
 }
 
-void *init__22TChCrLoadAfsTextureReqFPvPvPv(void *arg0, void *arg1, void *arg2) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TChCrLoadAfsTextureReq;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D3B50;
-    *(void **)((s8 *)arg0 + 0x30) = *(void **)((s8 *)arg2 + 0x0);
-    *(void **)((s8 *)arg0 + 0x6C) = *(void **)((s8 *)arg2 + 0x4);
-    *(void **)((s8 *)arg0 + 0x34) = *(void **)((s8 *)arg2 + 0x8);
-    *(void **)((s8 *)arg0 + 0x70) = *(void **)((s8 *)arg2 + 0xC);
-    init_texture_table__22TChCrLoadAfsTextureReqFPv((R_8028C310 *)(arg0));
-    return arg0;
+void *init__22TChCrLoadAfsTextureReqFPvPvPv(void *object, void *arg1, void *arg2) {
+    __ct__7TObjectFP7TObject(object, arg1);
+    *(s32 **)((s8 *)object + 0x18) = __vt__22TChCrLoadAfsTextureReq;
+    *(void **)((s8 *)object + 0x0) = lbl_805D3B50;
+    *(void **)((s8 *)object + 0x30) = *(void **)((s8 *)arg2 + 0x0);
+    *(void **)((s8 *)object + 0x6C) = *(void **)((s8 *)arg2 + 0x4);
+    *(void **)((s8 *)object + 0x34) = *(void **)((s8 *)arg2 + 0x8);
+    *(void **)((s8 *)object + 0x70) = *(void **)((s8 *)arg2 + 0xC);
+    init_texture_table__22TChCrLoadAfsTextureReqFPv((R_8028C310 *)(object));
+    return object;
 }
 }
 

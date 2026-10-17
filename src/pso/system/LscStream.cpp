@@ -30,26 +30,26 @@ s32 lsc_get_min_buffer_bytes(LscStream *p) {
     return p->min_buffer_bytes;
 }
 
-void lsc_set_min_buffer_bytes(LscStream *arg0, s32 arg1) {
-    if (arg0 == 0) {
+void lsc_set_min_buffer_bytes(LscStream *lsc_stream, s32 arg1) {
+    if (lsc_stream == 0) {
         TLobby::log_printf(lbl_8047DCF0);
         return;
     }
-    if (arg1 < 0 || arg1 > arg0->buffer_capacity) {
+    if (arg1 < 0 || arg1 > lsc_stream->buffer_capacity) {
         TLobby::log_printf(lbl_8047DD14);
         return;
     }
-    arg0->min_buffer_bytes = arg1;
+    lsc_stream->min_buffer_bytes = arg1;
 }
 
-s32 lsc_get_stream_progress(LscStream *arg0, s32 arg1) {
+s32 lsc_get_stream_progress(LscStream *lsc_stream, s32 arg1) {
     s32 i;
-    if (arg0 == 0) {
+    if (lsc_stream == 0) {
         TLobby::log_printf(lbl_8047DCF0);
         return 0;
     }
     for (i = 0; i < 16; i++) {
-        if (arg0->entries[i].stream_id == arg1) {
+        if (lsc_stream->entries[i].stream_id == arg1) {
             break;
         }
     }
@@ -57,17 +57,17 @@ s32 lsc_get_stream_progress(LscStream *arg0, s32 arg1) {
         TLobby::log_printf(lbl_8047DD34);
         return 0;
     }
-    return arg0->entries[i].progress;
+    return lsc_stream->entries[i].progress;
 }
 
-s32 lsc_get_stream_status(LscStream *arg0, s32 arg1) {
+s32 lsc_get_stream_status(LscStream *lsc_stream, s32 arg1) {
     s32 i;
-    if (arg0 == 0) {
+    if (lsc_stream == 0) {
         TLobby::log_printf(lbl_8047DCF0);
         return -1;
     }
     for (i = 0; i < 16; i++) {
-        if (arg0->entries[i].stream_id == arg1) {
+        if (lsc_stream->entries[i].stream_id == arg1) {
             break;
         }
     }
@@ -75,17 +75,17 @@ s32 lsc_get_stream_status(LscStream *arg0, s32 arg1) {
         TLobby::log_printf(lbl_8047DD34);
         return -1;
     }
-    return arg0->entries[i].status;
+    return lsc_stream->entries[i].status;
 }
 
-char *lsc_get_stream_filename(LscStream *arg0, s32 arg1) {
+char *lsc_get_stream_filename(LscStream *lsc_stream, s32 arg1) {
     s32 i;
-    if (arg0 == 0) {
+    if (lsc_stream == 0) {
         TLobby::log_printf(lbl_8047DCF0);
         return 0;
     }
     for (i = 0; i < 16; i++) {
-        if (arg0->entries[i].stream_id == arg1) {
+        if (lsc_stream->entries[i].stream_id == arg1) {
             break;
         }
     }
@@ -93,19 +93,19 @@ char *lsc_get_stream_filename(LscStream *arg0, s32 arg1) {
         TLobby::log_printf(lbl_8047DD34);
         return 0;
     }
-    return arg0->entries[i].filename;
+    return lsc_stream->entries[i].filename;
 }
 
-s32 lsc_get_queued_stream_id(LscStream *arg0, s32 arg1) {
-    if (arg0 == 0) {
+s32 lsc_get_queued_stream_id(LscStream *lsc_stream, s32 arg1) {
+    if (lsc_stream == 0) {
         TLobby::log_printf(lbl_8047DCF0);
         return -1;
     }
-    if (arg1 < 0 || arg1 >= arg0->queued_count) {
+    if (arg1 < 0 || arg1 >= lsc_stream->queued_count) {
         TLobby::log_printf(lbl_8047DD58);
         return -1;
     }
-    return arg0->entries[(arg0->read_index + arg1) % 16].stream_id;
+    return lsc_stream->entries[(lsc_stream->read_index + arg1) % 16].stream_id;
 }
 
 s32 lsc_get_queued_stream_count(LscStream *p) {
@@ -116,12 +116,12 @@ s32 lsc_get_queued_stream_count(LscStream *p) {
     return p->queued_count;
 }
 
-s32 lsc_get_state(LscStream *arg0) {
-    if (arg0 == 0) {
+s32 lsc_get_state(LscStream *lsc_stream) {
+    if (lsc_stream == 0) {
         TLobby::log_printf(lbl_8047DCF0);
         return -1;
     }
-    return arg0->state;
+    return lsc_stream->state;
 }
 
 void lsc_poll_all(void) {
@@ -136,32 +136,32 @@ void lsc_poll_all(void) {
     ((void (*)(void *))notify_dvd_read__6TLobbyFv)(sp8);
 }
 
-void lsc_stop(LscStream *arg0) {
+void lsc_stop(LscStream *lsc_stream) {
     s32 sp8;
-    if (arg0 == NULL) {
+    if (lsc_stream == NULL) {
         TLobby::log_printf((const char *) (((s32 *)&lbl_8047DCF0)));
         return;
     }
-    if ((s8) arg0->state != 0) {
+    if ((s8) lsc_stream->state != 0) {
         enter_lock__6TLobbyFv(&sp8);
-        arg0->state = 0U;
-        if ((u32) (u32)arg0->file_handle != 0U) {
-            if ((s32) arg0->read_started == 1) {
-                TLobby__sub_803C89C4((u8 *)arg0->file_handle);
-                arg0->read_started = 0U;
+        lsc_stream->state = 0U;
+        if ((u32) (u32)lsc_stream->file_handle != 0U) {
+            if ((s32) lsc_stream->read_started == 1) {
+                TLobby__sub_803C89C4((u8 *)lsc_stream->file_handle);
+                lsc_stream->read_started = 0U;
             }
-            TLobby__sub_803C8B38((u8 *)((int) ((u32)arg0->file_handle)));
-            arg0->file_handle = 0;
+            TLobby__sub_803C8B38((u8 *)((int) ((u32)lsc_stream->file_handle)));
+            lsc_stream->file_handle = 0;
         }
-        arg0->file_sector_count = 0;
-        if (arg0 == NULL) {
+        lsc_stream->file_sector_count = 0;
+        if (lsc_stream == NULL) {
             TLobby::log_printf((const char *) (((s32 *)&lbl_8047DCF0)));
-        } else if ((s8) arg0->state == 0) {
-            arg0->write_index = 0;
-            arg0->read_index = 0;
-            arg0->queued_count = 0;
+        } else if ((s8) lsc_stream->state == 0) {
+            lsc_stream->write_index = 0;
+            lsc_stream->read_index = 0;
+            lsc_stream->queued_count = 0;
         }
-        arg0->field_34 = 0;
+        lsc_stream->field_34 = 0;
         notify_dvd_read__6TLobbyFv(&sp8);
     }
 }
@@ -223,37 +223,37 @@ inline LscStream *find_free_803D1A98(void) {
     return o;
 }
 
-void lsc_destroy(LscStream *arg0) {
+void lsc_destroy(LscStream *lsc_stream) {
     s32 spC;
     s32 sp8;
-    if (arg0 != NULL) {
+    if (lsc_stream != NULL) {
         enter_lock__6TLobbyFv(&spC);
-        if (arg0 == NULL) {
+        if (lsc_stream == NULL) {
             TLobby::log_printf((const char *) (((s32 *)&lbl_8047DCF0)));
-        } else if ((s8) arg0->state != 0) {
+        } else if ((s8) lsc_stream->state != 0) {
             enter_lock__6TLobbyFv(&sp8);
-            arg0->state = 0U;
-            if ((u32) (u32)arg0->file_handle != 0U) {
-                if ((s32) arg0->read_started == 1) {
-                    TLobby__sub_803C89C4((u8 *)arg0->file_handle);
-                    arg0->read_started = 0U;
+            lsc_stream->state = 0U;
+            if ((u32) (u32)lsc_stream->file_handle != 0U) {
+                if ((s32) lsc_stream->read_started == 1) {
+                    TLobby__sub_803C89C4((u8 *)lsc_stream->file_handle);
+                    lsc_stream->read_started = 0U;
                 }
-                TLobby__sub_803C8B38((u8 *)((int) ((u32)arg0->file_handle)));
-                arg0->file_handle = 0;
+                TLobby__sub_803C8B38((u8 *)((int) ((u32)lsc_stream->file_handle)));
+                lsc_stream->file_handle = 0;
             }
-            arg0->file_sector_count = 0;
-            if (arg0 == NULL) {
+            lsc_stream->file_sector_count = 0;
+            if (lsc_stream == NULL) {
                 TLobby::log_printf((const char *) (((s32 *)&lbl_8047DCF0)));
-            } else if ((s8) arg0->state == 0) {
-                arg0->write_index = 0;
-                arg0->read_index = 0;
-                arg0->queued_count = 0;
+            } else if ((s8) lsc_stream->state == 0) {
+                lsc_stream->write_index = 0;
+                lsc_stream->read_index = 0;
+                lsc_stream->queued_count = 0;
             }
-            arg0->field_34 = 0;
+            lsc_stream->field_34 = 0;
             notify_dvd_read__6TLobbyFv(&sp8);
         }
-        arg0->in_use = 0;
-        memset(arg0, 0, (unsigned long)(0x438));
+        lsc_stream->in_use = 0;
+        memset(lsc_stream, 0, (unsigned long)(0x438));
         notify_dvd_read__6TLobbyFv(&spC);
     }
 }

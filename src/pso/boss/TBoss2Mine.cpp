@@ -15,20 +15,20 @@ int TObjPlayer__sub_800F0928(void*);
 extern void *__vt__10TBoss2Mine[];
 extern s32 TBoss2Mine__name;
 
-void *TBoss2Mine__ct(void *arg0, s32 arg1, s16 arg2, s16 arg3, s32 arg4) {
+void *TBoss2Mine__ct(void *boss2_mine, s32 arg1, s16 arg2, s16 arg3, s32 arg4) {
     s32 temp_r3;
 
-    TObjEneDD__ct(arg0, arg1);
-    *(void **)((s8 *)arg0 + 0x18) = (void *) __vt__10TBoss2Mine;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss2Mine__name;
+    TObjEneDD__ct(boss2_mine, arg1);
+    *(void **)((s8 *)boss2_mine + 0x18) = (void *) __vt__10TBoss2Mine;
+    *(s32 *)((s8 *)boss2_mine + 0) = (s32) TBoss2Mine__name;
     temp_r3 = get_instance__13TBoss2DeRolLeFv();
     if (temp_r3 != 0) {
-        ((TObjEneDD *)arg0)->init_common_from((u8 *)temp_r3);
+        ((TObjEneDD *)boss2_mine)->init_common_from((u8 *)temp_r3);
     }
-    ((TBoss2Mine *)arg0)->m_1c = arg2;
-    *(s16 *)((s8 *)arg0 + 0x2C) = arg3;
-    init__10TBoss2MineFPvi((u8 *)arg0, arg4);
-    return arg0;
+    ((TBoss2Mine *)boss2_mine)->m_1c = arg2;
+    *(s16 *)((s8 *)boss2_mine + 0x2C) = arg3;
+    init__10TBoss2MineFPvi((u8 *)boss2_mine, arg4);
+    return boss2_mine;
 }
 
 void TBoss2Mine__sub_80038D84(void) {  }

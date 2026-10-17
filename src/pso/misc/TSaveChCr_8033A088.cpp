@@ -122,19 +122,19 @@ extern "C" {
 
 typedef char RecoveredGlobal_8033A34C___vt__9TSaveChCr_size[sizeof(RecoveredGlobal_8033A34C___vt__9TSaveChCr) == 0x18 ? 1 : -1];
 
-u8 *TSaveChCr__ct(TSaveChCr *arg0, u8 *arg1, s32 arg2) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__9TSaveChCr.value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TSaveChCr__name;
-    *(s32 *)((s8 *)arg0 + 0x20) = arg2;
-    ((TSaveChCr *)arg0)->m_24 = 0;
-    ((TSaveChCr *)arg0)->m_28 = 0;
-    ((TSaveChCr *)arg0)->card_status = arg0->poll_memcard_status();
-    *(s32 *)((s8 *)arg0 + 0x3C) = 0;
-    ((TSaveChCr *)arg0)->timer = 0;
-    arg0->create_backgrounds();
-    arg0->set_state(0);
-    return (u8 *)arg0;
+u8 *TSaveChCr__ct(TSaveChCr *save_ch_cr, u8 *arg1, s32 arg2) {
+    __ct__7TObjectFP7TObject(save_ch_cr, arg1);
+    *(s32 **)((s8 *)save_ch_cr + 0x18) = &__vt__9TSaveChCr.value;
+    *(s32 *)((s8 *)save_ch_cr + 0) = (s32) TSaveChCr__name;
+    *(s32 *)((s8 *)save_ch_cr + 0x20) = arg2;
+    ((TSaveChCr *)save_ch_cr)->m_24 = 0;
+    ((TSaveChCr *)save_ch_cr)->m_28 = 0;
+    ((TSaveChCr *)save_ch_cr)->card_status = save_ch_cr->poll_memcard_status();
+    *(s32 *)((s8 *)save_ch_cr + 0x3C) = 0;
+    ((TSaveChCr *)save_ch_cr)->timer = 0;
+    save_ch_cr->create_backgrounds();
+    save_ch_cr->set_state(0);
+    return (u8 *)save_ch_cr;
 }
 
 void *TSaveChCr::create(void *arg0) {

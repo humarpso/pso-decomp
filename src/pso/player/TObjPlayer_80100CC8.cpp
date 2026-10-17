@@ -30,10 +30,10 @@ s32 TItemWeapon::item_model_is_shown() {
     }
     return 0;
 }
-void fn_80100D68(void *arg0) {
+void fn_80100D68(void *item) {
     s32 sp8[4];
 
-    copy_to_item_data__5TItemFPv(arg0, &sp8);
+    copy_to_item_data__5TItemFPv(item, &sp8);
     TItemData__sub_8010C738(&sp8);
 }
 void TItemMag::set_field_EE(u8 v) { this->m_ee = v; }

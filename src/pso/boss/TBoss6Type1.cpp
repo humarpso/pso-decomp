@@ -2091,13 +2091,13 @@ s32 TBoss6Type1::send_6xA4_action(s32 t, s32 *src) {
     }
 }
 
-void send_flow_action_if_idle__11TBoss6Type1FPvc(TBoss6Type1 *arg0, s8 arg1) {
+void send_flow_action_if_idle__11TBoss6Type1FPvc(TBoss6Type1 *boss6_type1, s8 arg1) {
     typedef char sp8_offset[(offsetof(Stack_802B9204_boss6_1, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802B9204_boss6_1, spC) == 0x4) ? 1 : -1];
     Stack_802B9204_boss6_1 stack;
-    if (((s32)((TBoss6Type1 *)(arg0->m_3f8))->is_idle()) != 0) {
+    if (((s32)((TBoss6Type1 *)(boss6_type1->m_3f8))->is_idle()) != 0) {
         build_6xA4_olga_flow_boss_actions(&stack.sp8);
-        arg0->set_sync_data(&stack.sp8);
+        boss6_type1->set_sync_data(&stack.sp8);
         stack.spC = arg1;
         ((TBoss6Type1 *)(&stack.sp8))->step_and_send_60();
     }

@@ -49,20 +49,20 @@ extern const f32 lbl_805DCCC8;
 extern const f32 lbl_805DCCCC;
 extern const f32 lbl_805DCCD0;
 
-void TWindowEffectParty::set_slot_position(s32 arg0, s32 arg1, void *arg2) {
+void TWindowEffectParty::set_slot_position(s32 arg0, s32 arg1, void *window_sub_symbol_chat_parts_set) {
     void *temp_r3;
     (void)arg0;
 
     if (arg1 <= 0) {
-        ((TWindowSubSymbolChatPartsSet *)arg2)->copy_vec2((void*)(get_window_layout_position(0x1C)));
-        *(f32 *)((s8 *)arg2 + 0) = (f32) (*(f32 *)((s8 *)arg2 + 0) + lbl_805DCCC4);
-        *(f32 *)((s8 *)arg2 + 4) = (f32) (*(f32 *)((s8 *)arg2 + 4) + lbl_805DCCC8);
+        ((TWindowSubSymbolChatPartsSet *)window_sub_symbol_chat_parts_set)->copy_vec2((void*)(get_window_layout_position(0x1C)));
+        *(f32 *)((s8 *)window_sub_symbol_chat_parts_set + 0) = (f32) (*(f32 *)((s8 *)window_sub_symbol_chat_parts_set + 0) + lbl_805DCCC4);
+        *(f32 *)((s8 *)window_sub_symbol_chat_parts_set + 4) = (f32) (*(f32 *)((s8 *)window_sub_symbol_chat_parts_set + 4) + lbl_805DCCC8);
         return;
     }
     temp_r3 = TWindowCtrl__sub_8024FB80(arg1 - 1);
     if (temp_r3 != NULL) {
-        *(f32 *)((s8 *)arg2 + 0) = (f32) (lbl_805DCCCC + *(f32 *)((s8 *)temp_r3 + 0x30));
-        *(f32 *)((s8 *)arg2 + 4) = (f32) (lbl_805DCCD0 + *(f32 *)((s8 *)temp_r3 + 0x34));
+        *(f32 *)((s8 *)window_sub_symbol_chat_parts_set + 0) = (f32) (lbl_805DCCCC + *(f32 *)((s8 *)temp_r3 + 0x30));
+        *(f32 *)((s8 *)window_sub_symbol_chat_parts_set + 4) = (f32) (lbl_805DCCD0 + *(f32 *)((s8 *)temp_r3 + 0x34));
     }
 }
 void *TWindowEffectParty::create(void *owner, s32 from, s32 to, u32 kind) {

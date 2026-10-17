@@ -206,32 +206,32 @@ void *__dt__11TLoadingCurFv(void *arg0, s16 arg1) {
 #pragma fp_contract on
 typedef char RecoveredGlobal_8001D0A0___vt__11TLoadingCur_size[sizeof(RecoveredGlobal_8001D0A0___vt__11TLoadingCur) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8001D0A0_lbl_804FF5E8_size[sizeof(RecoveredGlobal_8001D0A0_lbl_804FF5E8) == 0x28 ? 1 : -1];
-u8 *TLoadingCur__ct(u8 *arg0, s32 arg1) {
+u8 *TLoadingCur__ct(u8 *object, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_8001D0A0, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8001D0A0, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8001D0A0, sp10) == 0x8) ? 1 : -1];
     Stack_8001D0A0 stack;
-    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8001D0A0___vt__11TLoadingCur *)&__vt__11TLoadingCur).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TLoadingCur__class_name;
-    *(f32 *)((s8 *)arg0 + 0x20) = (f32) TLoadingCur__data_805D7E9C;
-    *(f32 *)((s8 *)arg0 + 0x24) = (f32) TLoadingCur__data_805D7E9C;
-    *(f32 *)((s8 *)arg0 + 0x28) = (f32) TLoadingCur__data_805D7E9C;
-    *(f32 *)((s8 *)arg0 + 0x38) = (f32) TLoadingCur__data_805D7E9C;
-    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) TLoadingCur__data_805D7E9C;
-    *(f32 *)((s8 *)arg0 + 0x40) = (f32) TLoadingCur__data_805D7E9C;
-    *(f32 *)((s8 *)arg0 + 0x44) = (f32) ((lbl_805D7E90 * *(f32 *)((s8 *)&lbl_804FF5E8.value + 0xC)) + *(f32 *)((s8 *)&lbl_804FF5E8.value + 0));
-    *(f32 *)((s8 *)arg0 + 0x48) = (f32) ((lbl_805D7E90 * *(f32 *)((s8 *)&lbl_804FF5E8.value + 0x10)) + *(f32 *)((s8 *)&lbl_804FF5E8.value + 4));
-    *(f32 *)((s8 *)arg0 + 0x4C) = (f32) ((lbl_805D7E90 * *(f32 *)((s8 *)&lbl_804FF5E8.value + 0x14)) + *(f32 *)((s8 *)&lbl_804FF5E8.value + 8));
-    *(f32 *)((s8 *)arg0 + 0x50) = (f32) -*(f32 *)((s8 *)&lbl_804FF5E8.value + 0xC);
-    *(f32 *)((s8 *)arg0 + 0x54) = (f32) -*(f32 *)((s8 *)&lbl_804FF5E8.value + 0x10);
-    *(f32 *)((s8 *)arg0 + 0x58) = (f32) -*(f32 *)((s8 *)&lbl_804FF5E8.value + 0x14);
+    __ct__7TObjectFP7TObject((void *)object, (void *)arg1);
+    *(s32 **)((s8 *)object + 0x18) = &(*(RecoveredGlobal_8001D0A0___vt__11TLoadingCur *)&__vt__11TLoadingCur).value;
+    *(s32 *)((s8 *)object + 0) = (s32) TLoadingCur__class_name;
+    *(f32 *)((s8 *)object + 0x20) = (f32) TLoadingCur__data_805D7E9C;
+    *(f32 *)((s8 *)object + 0x24) = (f32) TLoadingCur__data_805D7E9C;
+    *(f32 *)((s8 *)object + 0x28) = (f32) TLoadingCur__data_805D7E9C;
+    *(f32 *)((s8 *)object + 0x38) = (f32) TLoadingCur__data_805D7E9C;
+    *(f32 *)((s8 *)object + 0x3C) = (f32) TLoadingCur__data_805D7E9C;
+    *(f32 *)((s8 *)object + 0x40) = (f32) TLoadingCur__data_805D7E9C;
+    *(f32 *)((s8 *)object + 0x44) = (f32) ((lbl_805D7E90 * *(f32 *)((s8 *)&lbl_804FF5E8.value + 0xC)) + *(f32 *)((s8 *)&lbl_804FF5E8.value + 0));
+    *(f32 *)((s8 *)object + 0x48) = (f32) ((lbl_805D7E90 * *(f32 *)((s8 *)&lbl_804FF5E8.value + 0x10)) + *(f32 *)((s8 *)&lbl_804FF5E8.value + 4));
+    *(f32 *)((s8 *)object + 0x4C) = (f32) ((lbl_805D7E90 * *(f32 *)((s8 *)&lbl_804FF5E8.value + 0x14)) + *(f32 *)((s8 *)&lbl_804FF5E8.value + 8));
+    *(f32 *)((s8 *)object + 0x50) = (f32) -*(f32 *)((s8 *)&lbl_804FF5E8.value + 0xC);
+    *(f32 *)((s8 *)object + 0x54) = (f32) -*(f32 *)((s8 *)&lbl_804FF5E8.value + 0x10);
+    *(f32 *)((s8 *)object + 0x58) = (f32) -*(f32 *)((s8 *)&lbl_804FF5E8.value + 0x14);
     stack.sp8 = 0;
     stack.spC = 0;
     stack.sp10 = 0;
-    direction_to_rotation_xz((arg0 + 0x50), (&stack.sp8), (&stack.sp10));
-    *(s32 *)((s8 *)arg0 + 0x1C) = (s32)fn_80086FE0((arg0 + 0x20), (&stack.sp8), 0x16, 1);
-    return arg0;
+    direction_to_rotation_xz((object + 0x50), (&stack.sp8), (&stack.sp10));
+    *(s32 *)((s8 *)object + 0x1C) = (s32)fn_80086FE0((object + 0x20), (&stack.sp8), 0x16, 1);
+    return object;
 }
 #pragma pop
 

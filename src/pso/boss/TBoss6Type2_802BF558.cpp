@@ -30,11 +30,11 @@ extern "C" {
 
 void TBoss6Type2::start_death_sequence(u8 *arg0) {
     s32 temp_r0;
-    u8 *temp_r31;
+    u8 *boss6_type2;
     u8 *var_r3;
 
     var_r3 = arg0;
-    temp_r31 = var_r3;
+    boss6_type2 = var_r3;
     temp_r0 = *(s32 *)((s8 *)var_r3 + 0x4C8);
     *(s32 *)((s8 *)var_r3 + 0x45C) = temp_r0;
     *(s32 *)((s8 *)var_r3 + 0x460) = temp_r0;
@@ -49,8 +49,8 @@ void TBoss6Type2::start_death_sequence(u8 *arg0) {
         var_r3 = (unsigned char *) ((void *)0x68523);
         break;
     }
-    play_sound_effect((int)var_r3, temp_r31 + 0x38, 0, 1);
-    ((TBoss6Type2 *)temp_r31)->destroy_part(0xD);
+    play_sound_effect((int)var_r3, boss6_type2 + 0x38, 0, 1);
+    ((TBoss6Type2 *)boss6_type2)->destroy_part(0xD);
 }
 
 }

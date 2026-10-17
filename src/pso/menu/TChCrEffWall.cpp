@@ -61,7 +61,7 @@ void TChCrEffWall::render() {
 
 TChCrEffWall::~TChCrEffWall() {}
 }
-TChCrEffWall::TChCrEffWall(TObject *_w1) : TObject(_w1) {
+TChCrEffWall::TChCrEffWall(TObject *object) : TObject(object) {
     *(void * *)&this->m_name = TChCrEffWall__name;
 }
 extern "C" {

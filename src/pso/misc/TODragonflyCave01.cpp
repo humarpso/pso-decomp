@@ -170,25 +170,25 @@ s32 push_matrix();
 
 #pragma push
 #pragma fp_contract on
-u8 *TODragonflyCave01__ct(TODragonflyCave01 *arg0, void *arg1) {
-    TODragonfly__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TODragonflyCave01;
-    *(s32 *)((s8 *)arg0 + 0) = TODragonflyCave01__class_name;
-    ((TODragonflyCave01 *)(arg0))->apply_object_set_data(arg1);
-    arg0->model = *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyCave01__static_model_resource) + 0x42C)) + 8);
-    arg0->texture_id = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyCave01__static_model_resource) + 0x42C)) + 0xC);
-    *(void **)((s8 *)arg0 + 0xBC) = *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyCave01__static_model_resource) + 0x430)) + 4);
-    *(f32 *)((s8 *)arg0 + 0xB4) = (f32)*(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB560;
-    arg0->m_b8 = lbl_805DB564;
-    arg0->m_c0 = lbl_805DB568;
-    *(f32 *)((s8 *)arg0 + 0xC4) = *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0->model + 4)) + 0x14);
-    arg0->m_ac = 0;
-    arg0->m_f4 = lbl_805DB56C * (f32)arg0->m_84 + lbl_805DB560;
-    arg0->m_f8 = (s32)(lbl_805DB570 * (lbl_805DB574 / (lbl_805DB578 / arg0->m_f4)));
-    arg0->m_fc = (s32)(lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32)rand())));
-    arg0->m_ec = lbl_805DB56C * (f32)*(s32 *)((s8 *)arg0 + 0x88) + lbl_805DB560;
-    *(f32 *)((s8 *)arg0 + 0xF0) = arg0->m_ec * sin_table_lookup(arg0->m_fc);
-    return (u8 *)arg0;
+u8 *TODragonflyCave01__ct(TODragonflyCave01 *dragonfly_cave01, void *arg1) {
+    TODragonfly__ct(dragonfly_cave01);
+    *(s32 **)((s8 *)dragonfly_cave01 + 0x18) = __vt__17TODragonflyCave01;
+    *(s32 *)((s8 *)dragonfly_cave01 + 0) = TODragonflyCave01__class_name;
+    ((TODragonflyCave01 *)(dragonfly_cave01))->apply_object_set_data(arg1);
+    dragonfly_cave01->model = *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyCave01__static_model_resource) + 0x42C)) + 8);
+    dragonfly_cave01->texture_id = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyCave01__static_model_resource) + 0x42C)) + 0xC);
+    *(void **)((s8 *)dragonfly_cave01 + 0xBC) = *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyCave01__static_model_resource) + 0x430)) + 4);
+    *(f32 *)((s8 *)dragonfly_cave01 + 0xB4) = (f32)*(u32 *)((s8 *)(*(u8 **)((s8 *)dragonfly_cave01 + 0xBC)) + 4) - lbl_805DB560;
+    dragonfly_cave01->m_b8 = lbl_805DB564;
+    dragonfly_cave01->m_c0 = lbl_805DB568;
+    *(f32 *)((s8 *)dragonfly_cave01 + 0xC4) = *(f32 *)((s8 *)(*(u8 **)((s8 *)dragonfly_cave01->model + 4)) + 0x14);
+    dragonfly_cave01->m_ac = 0;
+    dragonfly_cave01->m_f4 = lbl_805DB56C * (f32)dragonfly_cave01->m_84 + lbl_805DB560;
+    dragonfly_cave01->m_f8 = (s32)(lbl_805DB570 * (lbl_805DB574 / (lbl_805DB578 / dragonfly_cave01->m_f4)));
+    dragonfly_cave01->m_fc = (s32)(lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32)rand())));
+    dragonfly_cave01->m_ec = lbl_805DB56C * (f32)*(s32 *)((s8 *)dragonfly_cave01 + 0x88) + lbl_805DB560;
+    *(f32 *)((s8 *)dragonfly_cave01 + 0xF0) = dragonfly_cave01->m_ec * sin_table_lookup(dragonfly_cave01->m_fc);
+    return (u8 *)dragonfly_cave01;
 }
 #pragma pop
 
@@ -344,22 +344,22 @@ void *__dt__11TODragonflyFv(void *arg0, s16 arg1) {
 }
 #pragma push
 #pragma fp_contract on
-u8 *TODragonfly__ct(TODragonfly *arg0) {
-    init_map_object_base(arg0, tl_05);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80164DEC___vt__11TODragonfly *)&__vt__11TODragonfly).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TODragonfly__class_name;
-    arg0->m_cc = 0;
-    *(f32 *)((s8 *)arg0 + 0xD0) = (f32) (lbl_805DB594 + arg0->scale);
-    VecCopy((Vec *)((u8 *)arg0 + 0xD4), (const Vec *)((u8 *)arg0 + 0x38));
-    arg0->m_e8 = (f32) lbl_805DB580;
-    *(f32 *)((s8 *)arg0 + 0xE4) = (f32) lbl_805DB580;
-    arg0->m_e0 = (f32) lbl_805DB580;
-    arg0->m_f4 = (f32) ((lbl_805DB56C * (f32) arg0->m_84) + lbl_805DB560);
-    arg0->m_f8 = (s32) (lbl_805DB570 * (lbl_805DB574 / (lbl_805DB578 / arg0->m_f4)));
-    arg0->m_fc = (s32) (lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32) rand())));
-    arg0->m_ec = (f32) ((lbl_805DB56C * (f32) *(s32 *)((s8 *)arg0 + 0x88)) + lbl_805DB560);
-    *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (arg0->m_ec * sin_table_lookup(arg0->m_fc));
-    return (u8 *)arg0;
+u8 *TODragonfly__ct(TODragonfly *dragonfly) {
+    init_map_object_base(dragonfly, tl_05);
+    *(s32 **)((s8 *)dragonfly + 0x18) = &(*(RecoveredGlobal_80164DEC___vt__11TODragonfly *)&__vt__11TODragonfly).value;
+    *(s32 *)((s8 *)dragonfly + 0) = (s32) TODragonfly__class_name;
+    dragonfly->m_cc = 0;
+    *(f32 *)((s8 *)dragonfly + 0xD0) = (f32) (lbl_805DB594 + dragonfly->scale);
+    VecCopy((Vec *)((u8 *)dragonfly + 0xD4), (const Vec *)((u8 *)dragonfly + 0x38));
+    dragonfly->m_e8 = (f32) lbl_805DB580;
+    *(f32 *)((s8 *)dragonfly + 0xE4) = (f32) lbl_805DB580;
+    dragonfly->m_e0 = (f32) lbl_805DB580;
+    dragonfly->m_f4 = (f32) ((lbl_805DB56C * (f32) dragonfly->m_84) + lbl_805DB560);
+    dragonfly->m_f8 = (s32) (lbl_805DB570 * (lbl_805DB574 / (lbl_805DB578 / dragonfly->m_f4)));
+    dragonfly->m_fc = (s32) (lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32) rand())));
+    dragonfly->m_ec = (f32) ((lbl_805DB56C * (f32) *(s32 *)((s8 *)dragonfly + 0x88)) + lbl_805DB560);
+    *(f32 *)((s8 *)dragonfly + 0xF0) = (f32) (dragonfly->m_ec * sin_table_lookup(dragonfly->m_fc));
+    return (u8 *)dragonfly;
 }
 #pragma pop
 

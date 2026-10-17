@@ -921,18 +921,18 @@ void TObjEneGibbles::update_position() {
     }
 }
 
-void render_and_get_joint_pos__14TObjEneGibblesFPvii(u8 *arg0, s32 arg1, s32 arg2) {
+void render_and_get_joint_pos__14TObjEneGibblesFPvii(u8 *enemy, s32 arg1, s32 arg2) {
     typedef char sp8_offset[(offsetof(Stack_802D7ED4, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802D7ED4, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_802D7ED4, sp10) == 0x8) ? 1 : -1];
     Stack_802D7ED4 stack;
     TObjPlayer::set_global_flag();
     push_matrix_from((void *) (&identity_matrix.value));
-    post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y(0, (int) (((TObjEnemy *)arg0)->rotation_y));
-    scale_matrix_vec3(0, (arg0 + 0x68));
+    post_translate_matrix((void *) (enemy + 0x38));
+    rotate_matrix_y(0, (int) (((TObjEnemy *)enemy)->rotation_y));
+    scale_matrix_vec3(0, (enemy + 0x68));
     TObjPlayer::set_global_flag();
-    ((TObjEnemy *)arg0)->render_anim_model((f32) (((TObjEnemy *)arg0)->m_c0));
+    ((TObjEnemy *)enemy)->render_anim_model((f32) (((TObjEnemy *)enemy)->m_c0));
     TObjPlayer::clear_global_state();
     pop_matrix();
     push_matrix_from((void *) (anim_model_matrix_array + (arg2 * 0x30)));

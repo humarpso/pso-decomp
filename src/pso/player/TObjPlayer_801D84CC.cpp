@@ -54,12 +54,12 @@ u16 obj_getField1c(void *);
 int set_animation__10TObjMotionFs(void*);
 void set_flag_20000__10TObjPlayerFi(s32 arg0);
 
-void process_trade_target__10TObjPlayerFiPv(s32 arg0, void *arg1) {
+void process_trade_target__10TObjPlayerFiPv(s32 arg0, void *player) {
     void *temp_r3;
 
     ((s32 (*)())obj_getField1c)();
-    *(s32 *)((s8 *)arg1 + 0xC) = advance_item_id_counter();
-    temp_r3 = lookup_inventory_item__10TObjPlayerFv(arg1);
+    *(s32 *)((s8 *)player + 0xC) = advance_item_id_counter();
+    temp_r3 = lookup_inventory_item__10TObjPlayerFv(player);
     if (temp_r3 != NULL) {
         s8 val = ((VObj_84_801d859c_801D84CC *)temp_r3)->m31();
         s32 val_ext = (s32)val;
@@ -512,11 +512,11 @@ typedef char RecoveredGlobal_801D8E60_lbl_804C4980_size[sizeof(RecoveredGlobal_8
 
 typedef struct RecoveredGlobal_801D8DCC_lbl_804C4998 RecoveredGlobal_801D8DCC_lbl_804C4998;
 typedef char RecoveredGlobal_801D8DCC_lbl_804C4998_size[((sizeof(RecoveredGlobal_801D8DCC_lbl_804C4998)) == 0x18) ? (1) : (-1)];
-s32 TObjPlayer__sub_801D8DCC(TObjPlayer *arg0) {
+s32 TObjPlayer__sub_801D8DCC(TObjPlayer *player) {
   s32 temp_r31;
   s8 *new_var;
-  temp_r31 = arg0->get_handle_value() * 0x14;
-  new_var = ((s8 *)&player_cast_motion_record_table.value) + (arg0->has_valid_handle() * 4);
+  temp_r31 = player->get_handle_value() * 0x14;
+  new_var = ((s8 *)&player_cast_motion_record_table.value) + (player->has_valid_handle() * 4);
   return (*((s32 *) new_var)) + temp_r31;
 }
 
@@ -642,12 +642,12 @@ typedef char RecoveredGlobal_801D9328_lbl_80447430_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_801D92F4_lbl_804475B0_size[sizeof(RecoveredGlobal_801D92F4_lbl_804475B0) == 0x240 ? 1 : -1];
 extern "C" {
-u8 *get_class_attack_template(TObjPlayer *arg0) {
-    return (u8 *)&class_attack_template_table.value + (arg0->get_class_index() * 0x30);
+u8 *get_class_attack_template(TObjPlayer *player) {
+    return (u8 *)&class_attack_template_table.value + (player->get_class_index() * 0x30);
 }
 
-u8 *get_class_defense_template(TObjPlayer *arg0) {
-    return (u8 *)&class_defense_template_table.value + (arg0->get_class_index() << 5);
+u8 *get_class_defense_template(TObjPlayer *player) {
+    return (u8 *)&class_defense_template_table.value + (player->get_class_index() << 5);
 }
 
 stats *get_class_base_stats(s8 arg0) {
@@ -658,8 +658,8 @@ player_stats *get_class_stat_caps(s8 arg0) {
     return (player_stats*)&player_class_stat_caps[TObjPlayer__sub_801AFDBC(arg0)];
 }
 
-player_stats *TObjPlayer::get_class_stat_entry(u8 *arg0) {
-    return (player_stats*)&player_class_stat_caps[((TObjPlayer *)arg0)->get_class_index()];
+player_stats *TObjPlayer::get_class_stat_entry(u8 *player) {
+    return (player_stats*)&player_class_stat_caps[((TObjPlayer *)player)->get_class_index()];
 }
 
 f32 TObjPlayer::get_tp_class_factor() {

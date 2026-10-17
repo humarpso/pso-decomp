@@ -6,14 +6,14 @@ extern "C" {
 
 s16 TAdSinglePlyChrSelectGC__sub_801D5DDC(void *arg0);
 
-s16 TAdSinglePlyChrSelectGC__sub_801D5DDC(void *arg0) {
+s16 TAdSinglePlyChrSelectGC__sub_801D5DDC(void *font_small_lobby) {
     s16 temp_r3;
 
-    temp_r3 = *(s16 *)((s8 *)arg0 + 4);
+    temp_r3 = *(s16 *)((s8 *)font_small_lobby + 4);
     if ((temp_r3 < 0) || (temp_r3 > 0xA)) {
-        ((TFontSmallLobby *)arg0)->set_section_index(0);
+        ((TFontSmallLobby *)font_small_lobby)->set_section_index(0);
     }
-    return *(s16 *)((s8 *)arg0 + 4);
+    return *(s16 *)((s8 *)font_small_lobby + 4);
 }
 
 s16 TFontSmallLobby::get_valid_index() {

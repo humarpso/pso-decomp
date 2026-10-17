@@ -18,19 +18,19 @@ extern u32 lbl_805D49D0;
 extern void *tl_00;
 extern s32 destroy__10TAdADXlogoFv[];
 
-void *__ct__10TAdADXlogoFv(void *arg0) {
+void *__ct__10TAdADXlogoFv(void *ad_ad_xlogo) {
     void *o;
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TAdADXlogo;
-    *(void * *)&((TAdADXlogo *)arg0)->m_name = lbl_805D2600;
-    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
+    __ct__7TObjectFP7TObject(ad_ad_xlogo);
+    *(s32 **)((s8 *)ad_ad_xlogo + 0x18) = __vt__10TAdADXlogo;
+    *(void * *)&((TAdADXlogo *)ad_ad_xlogo)->m_name = lbl_805D2600;
+    *(u32 *)((s8 *)ad_ad_xlogo + 0x1C) = 0;
     TAdADXlogo__state = 0;
     lbl_805D49D0 = 0;
     o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
         ((TLobby *)o)->init_fade(tl_00, destroy__10TAdADXlogoFv);
     }
-    return arg0;
+    return ad_ad_xlogo;
 }
 
 void TLogo__sub_80019A28(void) {  }

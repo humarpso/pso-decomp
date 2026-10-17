@@ -88,11 +88,11 @@ void *__nw__7TObjectFUl(int);
 extern s32 __vt__25THunterGuildSeqOnlineTask[];
 extern void *lbl_805D3660;
 
-void *THunterGuildSeqOnlineTask__ct(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__25THunterGuildSeqOnlineTask;
-    *(void * *)&((THunterGuildSeqOnlineTask *)arg0)->m_name = lbl_805D3660;
-    return arg0;
+void *THunterGuildSeqOnlineTask__ct(void *hunter_guild_seq_online_task) {
+    __ct__7TObjectFP7TObject(hunter_guild_seq_online_task);
+    *(s32 **)((s8 *)hunter_guild_seq_online_task + 0x18) = __vt__25THunterGuildSeqOnlineTask;
+    *(void * *)&((THunterGuildSeqOnlineTask *)hunter_guild_seq_online_task)->m_name = lbl_805D3660;
+    return hunter_guild_seq_online_task;
 }
 }
 

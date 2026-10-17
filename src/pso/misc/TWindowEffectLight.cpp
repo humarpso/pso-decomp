@@ -102,40 +102,40 @@ u32 TWindowEffectLight::calc_alpha() {
   return (u32)__cvt_fp2unsigned(lbl_805DE0EC * ((new_var * lbl_805DE0E8) + lbl_805DE0E0));
 }
 
-void render__18TWindowEffectLightFv(u8 *arg0) {
+void render__18TWindowEffectLightFv(u8 *window_effect_light) {
   s16 temp_r0;
   temp_r0 = 0x28;
-  if ((is_window_display_enabled() != 0) && ((is_split_screen() == 0) || (((s32) (*((s32 *) (((s8 *) arg0) + temp_r0)))) == ((s32) TCameraCtrl::get_nth_view_player_id(TCameraCtrl::get_camera_no())))))
+  if ((is_window_display_enabled() != 0) && ((is_split_screen() == 0) || (((s32) (*((s32 *) (((s8 *) window_effect_light) + temp_r0)))) == ((s32) TCameraCtrl::get_nth_view_player_id(TCameraCtrl::get_camera_no())))))
   {
     TParticleCtrl::begin_effect_render();
     TCameraCtrl::restore_full_screen_view();
     TObjPlayer::init_xyz_limits();
     begin_screen_draw(1);
     TObjFish::set_global_param(lbl_805D63F0);
-    temp_r0 = *((s16 *) (((s8 *) arg0) + 0x24));
+    temp_r0 = *((s16 *) (((s8 *) window_effect_light) + 0x24));
     {
       switch (temp_r0)
       {
         case 0:
-          ((TWindowEffectLight *)arg0)->draw_outline_quad(0xAA0E);
+          ((TWindowEffectLight *)window_effect_light)->draw_outline_quad(0xAA0E);
           break;
         case 1:
-          ((TWindowEffectLight *)arg0)->draw_outline_quad(0xFF2417);
+          ((TWindowEffectLight *)window_effect_light)->draw_outline_quad(0xFF2417);
           break;
         case 2:
-          ((TWindowEffectLight *)arg0)->draw_outline_quad(0xFFFFFF);
+          ((TWindowEffectLight *)window_effect_light)->draw_outline_quad(0xFFFFFF);
           break;
         case 3:
-          TWindowEffectLight__sub_802AD040(arg0, lbl_805DE0F4);
+          TWindowEffectLight__sub_802AD040(window_effect_light, lbl_805DE0F4);
           break;
         case 4:
-          TWindowEffectLight__sub_802AD040(arg0, lbl_805DE128);
+          TWindowEffectLight__sub_802AD040(window_effect_light, lbl_805DE128);
           break;
         case 5:
-          TWindowEffectLight__sub_802AD040(arg0, lbl_805DE12C);
+          TWindowEffectLight__sub_802AD040(window_effect_light, lbl_805DE12C);
           break;
         case 6:
-          TWindowEffectLight__sub_802AD040(arg0, lbl_805DE130);
+          TWindowEffectLight__sub_802AD040(window_effect_light, lbl_805DE130);
           break;
       }
     }

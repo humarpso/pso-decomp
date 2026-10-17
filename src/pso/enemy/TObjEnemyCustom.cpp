@@ -30,18 +30,18 @@ void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1) {
 extern s32 enemy_custom_camera_active_flag;
 
 typedef char RecoveredGlobal_800C7F80___vt__15TObjEnemyCustom_size[sizeof(RecoveredGlobal_800C7F80___vt__15TObjEnemyCustom) == 0x14C ? 1 : -1];
-u8 *TObjEnemyCustom__ct(u8 *arg0) {
-    initialize__9TObjEnemyFPv(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800C7F80___vt__15TObjEnemyCustom *)&__vt__15TObjEnemyCustom).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2A60;
-    *(s32 *)&((TObjEnemyCustom *)arg0)->next_action = 0;
-    *(s32 *)&((TObjEnemyCustom *)arg0)->m_378 = 0;
-    *(s32 *)&((TObjEnemyCustom *)arg0)->state = 0;
-    *(s32 *)&((TObjEnemyCustom *)arg0)->m_380 = 0;
-    *(s16 *)&((TObjEnemyCustom *)arg0)->resetTimer = 0xF;
-    *(s16 *)&((TObjEnemyCustom *)arg0)->timer = (s16) *(s16 *)&((TObjEnemyCustom *)arg0)->resetTimer;
-    *(s32 *)&((TObjEnemyCustom *)arg0)->m_388 = 0;
-    return arg0;
+u8 *TObjEnemyCustom__ct(u8 *enemy_custom) {
+    initialize__9TObjEnemyFPv(enemy_custom);
+    *(s32 **)((s8 *)enemy_custom + 0x18) = &(*(RecoveredGlobal_800C7F80___vt__15TObjEnemyCustom *)&__vt__15TObjEnemyCustom).value;
+    *(s32 *)((s8 *)enemy_custom + 0) = (s32) lbl_805D2A60;
+    *(s32 *)&((TObjEnemyCustom *)enemy_custom)->next_action = 0;
+    *(s32 *)&((TObjEnemyCustom *)enemy_custom)->m_378 = 0;
+    *(s32 *)&((TObjEnemyCustom *)enemy_custom)->state = 0;
+    *(s32 *)&((TObjEnemyCustom *)enemy_custom)->m_380 = 0;
+    *(s16 *)&((TObjEnemyCustom *)enemy_custom)->resetTimer = 0xF;
+    *(s16 *)&((TObjEnemyCustom *)enemy_custom)->timer = (s16) *(s16 *)&((TObjEnemyCustom *)enemy_custom)->resetTimer;
+    *(s32 *)&((TObjEnemyCustom *)enemy_custom)->m_388 = 0;
+    return enemy_custom;
 }
 
 void TObjEnemyCustom::update_camera_if_active() {

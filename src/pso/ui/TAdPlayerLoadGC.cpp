@@ -240,14 +240,14 @@ void run_task__15TAdPlayerLoadGCFv(u8 *arg0) {
 }
 TAdPlayerLoadGC::~TAdPlayerLoadGC() {}
 extern "C" {
-void *__ct__15TAdPlayerLoadGCFv(void *arg0, void *arg1, void *arg2) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__15TAdPlayerLoadGC;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D3F48;
-    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
-    *(void **)((s8 *)arg0 + 0x20) = arg2;
+void *__ct__15TAdPlayerLoadGCFv(void *object, void *arg1, void *arg2) {
+    __ct__7TObjectFP7TObject(object);
+    *(s32 **)((s8 *)object + 0x18) = (s32 *)__vt__15TAdPlayerLoadGC;
+    *(void **)((s8 *)object + 0x0) = lbl_805D3F48;
+    *(u32 *)((s8 *)object + 0x1C) = 0;
+    *(void **)((s8 *)object + 0x20) = arg2;
     set_state__15TAdPlayerLoadGCFi(0);
-    return arg0;
+    return object;
 }
 }
 

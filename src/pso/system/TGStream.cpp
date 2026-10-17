@@ -384,52 +384,52 @@ s32 refill_gstream_buffer(s32 arg0) {
 }
 extern "C" {
 
-TGStreamPrefix *destroy_gstream(TGStreamPrefix *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        if ((u32) (u32)arg0->archive_entry == 0U) {
-            ((TLobby *)(arg0->adxf_handle))->close_adxf_handle();
+TGStreamPrefix *destroy_gstream(TGStreamPrefix *g_stream_prefix, s16 arg1) {
+    if (g_stream_prefix != NULL) {
+        if ((u32) (u32)g_stream_prefix->archive_entry == 0U) {
+            ((TLobby *)(g_stream_prefix->adxf_handle))->close_adxf_handle();
         }
-        if ((s32) arg0->direct_read_mode == 0) {
+        if ((s32) g_stream_prefix->direct_read_mode == 0) {
             ((TLobby *)lbl_8043DAF8)->tmp_buf_release();
         }
         if (arg1 > 0) {
-            ::operator delete(arg0);
+            ::operator delete(g_stream_prefix);
         }
     }
-    return arg0;
+    return g_stream_prefix;
 }
 
-TGStreamPrefix *open__8TGStreamFPvPvi(TGStreamPrefix *arg0, void *file, s32 arg2) {
+TGStreamPrefix *open__8TGStreamFPvPvi(TGStreamPrefix *g_stream_prefix, void *file, s32 arg2) {
     s32 temp_r3;
 
-    arg0->adxf_handle = 0;
-    arg0->archive_entry = NULL;
+    g_stream_prefix->adxf_handle = 0;
+    g_stream_prefix->archive_entry = NULL;
     TGStream::reset();
-    arg0->archive_entry = (GslArchiveEntry *)((void * (*)(void *, s32))find_gsl_entry)(file, 1);
-    if ((void *) arg0->archive_entry != NULL) {
-        arg0->adxf_handle = (s32) TItemDrop__gsl_adxf_handle;
-        TLobby__sub_803CC578(arg0->adxf_handle, arg0->archive_entry->archive_offset, 0);
-        gstream_file_size = arg0->archive_entry->file_size;
-        ((s32 (*)(void *, void *, s32))strncpy)(arg0, arg0->archive_entry, 0x20);
+    g_stream_prefix->archive_entry = (GslArchiveEntry *)((void * (*)(void *, s32))find_gsl_entry)(file, 1);
+    if ((void *) g_stream_prefix->archive_entry != NULL) {
+        g_stream_prefix->adxf_handle = (s32) TItemDrop__gsl_adxf_handle;
+        TLobby__sub_803CC578(g_stream_prefix->adxf_handle, g_stream_prefix->archive_entry->archive_offset, 0);
+        gstream_file_size = g_stream_prefix->archive_entry->file_size;
+        ((s32 (*)(void *, void *, s32))strncpy)(g_stream_prefix, g_stream_prefix->archive_entry, 0x20);
     } else {
         temp_r3 = get_file_size__6TLobbyFv(file);
         gstream_file_size = temp_r3;
         if (temp_r3 > 0) {
-            arg0->adxf_handle = ((s32 (*)(void *, s32))adxf_open__6TLobbyFUii)(file, 0);
-            ((s32 (*)(void *, void *, s32))strncpy)(arg0, file, 0x20);
+            g_stream_prefix->adxf_handle = ((s32 (*)(void *, s32))adxf_open__6TLobbyFUii)(file, 0);
+            ((s32 (*)(void *, void *, s32))strncpy)(g_stream_prefix, file, 0x20);
         } else {
             gstream_file_size = 0;
-            arg0->name[0] = 0;
+            g_stream_prefix->name[0] = 0;
         }
     }
-    arg0->direct_read_mode = arg2;
-    if ((s32) arg0->direct_read_mode == 0) {
+    g_stream_prefix->direct_read_mode = arg2;
+    if ((s32) g_stream_prefix->direct_read_mode == 0) {
         while (TLobby__sub_8001EEF4() == 0) {
             TLobby::pump_frames();
         }
         gstream_tmp_buffer = TLobby::tmp_buf_use_req((const char *)lbl_8043DAF8);
     }
-    return arg0;
+    return g_stream_prefix;
 }
 
 void TItemDrop__sub_800FE2D8(void) {  }

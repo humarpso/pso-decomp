@@ -172,10 +172,10 @@ void *__dt__17TQuadSpriteNormalFv(void *arg0, s16 arg1) {
 
 extern void *TQuadSpriteNormal__class_name;
 
-void *TQuadSpriteNormal__ct(void *arg0) {
-    quad_sprite_base_ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TQuadSpriteNormal;
-    *(void * *)&((TQuadSpriteNormal *)arg0)->m_name = TQuadSpriteNormal__class_name;
-    return arg0;
+void *TQuadSpriteNormal__ct(void *quad_sprite_normal) {
+    quad_sprite_base_ct(quad_sprite_normal);
+    *(s32 **)((s8 *)quad_sprite_normal + 0x18) = __vt__17TQuadSpriteNormal;
+    *(void * *)&((TQuadSpriteNormal *)quad_sprite_normal)->m_name = TQuadSpriteNormal__class_name;
+    return quad_sprite_normal;
 }
 }

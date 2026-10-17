@@ -540,13 +540,13 @@ void TBoss4DarkFalz::refresh_player_equipment(void *self) {
 }
 
 #pragma fp_contract on
-void TBoss4DarkFalz__sub_8004B7DC(TBoss4DarkFalz *arg0) {
+void TBoss4DarkFalz__sub_8004B7DC(TBoss4DarkFalz *boss4_dark_falz) {
     Vec_8004B7DC base = dark_falz_player_ring_center;
     s32 rate;
     s32 ang;
     s32 i;
     void *p;
-    rate = arg0->calc_rate_from_field();
+    rate = boss4_dark_falz->calc_rate_from_field();
     ang = 0;
     for (i = 0; i < lbl_805D586C; i++) {
         p = get_player_data__10TObjPlayerFi(i);
@@ -567,13 +567,13 @@ void TBoss4DarkFalz__sub_8004B7DC(TBoss4DarkFalz *arg0) {
 }
 
 #pragma fp_contract on
-void TBoss4DarkFalz__sub_8004B8F8(TBoss4DarkFalz *arg0) {
+void TBoss4DarkFalz__sub_8004B8F8(TBoss4DarkFalz *boss4_dark_falz) {
     Vec_8004B8F8 base = lbl_804371BC;
     s32 rate;
     s32 ang;
     s32 i;
     void *p;
-    rate = arg0->calc_rate_from_field();
+    rate = boss4_dark_falz->calc_rate_from_field();
     ang = rate / 2;
     for (i = 0; i < lbl_805D586C; i++) {
         p = get_player_data__10TObjPlayerFi(i);

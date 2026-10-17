@@ -144,11 +144,11 @@ void TUnk_804EF8C0::alloc_download_buffer() {
         *(u32 *)((s8 *)this + 0x20) = ((TQuestVmDownLoadServer *)(*(s32 *)((s8 *)this + 0x1C)))->alloc();
     }
 }
-void TAdSinglePlyChrSelectGC__sub_8033A9F0(TAdSinglePlyChrSelectGC *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x2C) = 0xB;
+void TAdSinglePlyChrSelectGC__sub_8033A9F0(TAdSinglePlyChrSelectGC *ad_single_ply_chr_select_gc) {
+    *(s32 *)((s8 *)ad_single_ply_chr_select_gc + 0x2C) = 0xB;
     lbl_805D6D90 &= 0xFFFFFFFE;
-    arg0->set_char_slots(0xA, (s32)(*(s32 *)((s8 *)arg0 + 0x24) + 0xF));
-    arg0->init_warps();
+    ad_single_ply_chr_select_gc->set_char_slots(0xA, (s32)(*(s32 *)((s8 *)ad_single_ply_chr_select_gc + 0x24) + 0xF));
+    ad_single_ply_chr_select_gc->init_warps();
 }
 int queue_destruction__23TAdSinglePlyChrSelectGCFPv(void* p) { return queue_destruction__7TObjectFv(p); }
 
@@ -327,30 +327,30 @@ void TAdSinglePlyChrSelectGC::handle_load_result() {
     }
 }
 
-void TAdSinglePlyChrSelectGC__sub_8033B0AC(void *arg0) {
+void TAdSinglePlyChrSelectGC__sub_8033B0AC(void *ad_single_ply_chr_select_gc) {
     u32 o;
-    if (*(void **)((s8 *)arg0 + 0x40) != 0) {
-        if (((s32 (*)(void *))TAdSinglePlyChrSelectGC__sub_8033B9F8)(*(void **)((s8 *)arg0 + 0x40)) == 1) {
-            queue_destruction__7TObjectFv((void*)(*(void **)((s8 *)arg0 + 0x40)));
-            *(void **)((s8 *)arg0 + 0x40) = 0;
-            *(s32 *)((s8 *)arg0 + 0x2C) = 2;
-            *(s32 *)((s8 *)arg0 + 0x38) = update_window_mode_from_progress__6TLobbyFPv(lbl_80477D48, lbl_80477D50);
+    if (*(void **)((s8 *)ad_single_ply_chr_select_gc + 0x40) != 0) {
+        if (((s32 (*)(void *))TAdSinglePlyChrSelectGC__sub_8033B9F8)(*(void **)((s8 *)ad_single_ply_chr_select_gc + 0x40)) == 1) {
+            queue_destruction__7TObjectFv((void*)(*(void **)((s8 *)ad_single_ply_chr_select_gc + 0x40)));
+            *(void **)((s8 *)ad_single_ply_chr_select_gc + 0x40) = 0;
+            *(s32 *)((s8 *)ad_single_ply_chr_select_gc + 0x2C) = 2;
+            *(s32 *)((s8 *)ad_single_ply_chr_select_gc + 0x38) = update_window_mode_from_progress__6TLobbyFPv(lbl_80477D48, lbl_80477D50);
             lbl_805D6D90 |= 1;
             return;
         }
-        if (((TAdSinglePlyChrSelectGC *)(*(void **)((s8 *)arg0 + 0x40)))->get_field_44() == 1) {
-            queue_destruction__7TObjectFv((void*)(*(void **)((s8 *)arg0 + 0x40)));
-            *(void **)((s8 *)arg0 + 0x40) = 0;
-            *(s32 *)((s8 *)arg0 + 0x2C) = 0xE;
-            ((s32 (*)(void *))TAdSinglePlyChrSelectGC__sub_8033B5F0)(arg0);
-            close_window__23TAdSinglePlyChrSelectGCFPv(arg0);
+        if (((TAdSinglePlyChrSelectGC *)(*(void **)((s8 *)ad_single_ply_chr_select_gc + 0x40)))->get_field_44() == 1) {
+            queue_destruction__7TObjectFv((void*)(*(void **)((s8 *)ad_single_ply_chr_select_gc + 0x40)));
+            *(void **)((s8 *)ad_single_ply_chr_select_gc + 0x40) = 0;
+            *(s32 *)((s8 *)ad_single_ply_chr_select_gc + 0x2C) = 0xE;
+            ((s32 (*)(void *))TAdSinglePlyChrSelectGC__sub_8033B5F0)(ad_single_ply_chr_select_gc);
+            close_window__23TAdSinglePlyChrSelectGCFPv(ad_single_ply_chr_select_gc);
             o = __nw__7TObjectFUl(0x28);
             if (o != 0U) {
                 ((THunterGuildSeqOffline *)o)->init((void *)tl_fade, (void *)TAdSinglePlyChrSelectGC__sub_8033B244);
             }
         }
     } else {
-        *(s32 *)((s8 *)arg0 + 0x2C) = 0;
+        *(s32 *)((s8 *)ad_single_ply_chr_select_gc + 0x2C) = 0;
     }
 }
 
@@ -439,9 +439,9 @@ void init_single_player_char_select_scene(void) {
 extern "C" {
 
 void close_window__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
-    void *temp_r3 = *(void **)((s8 *)arg0 + 0x3C);
-    if ((u32) temp_r3 != 0U) {
-        if (((TObject *)temp_r3)->all_parents_unqueued_for_destruction() != 0) {
+    void *object = *(void **)((s8 *)arg0 + 0x3C);
+    if ((u32) object != 0U) {
+        if (((TObject *)object)->all_parents_unqueued_for_destruction() != 0) {
             TWindow__close(*(void **)((s8 *)arg0 + 0x3C));
             *(u32 *)((s8 *)arg0 + 0x3C) = 0U;
         }
@@ -503,9 +503,9 @@ void *character_select_scene_resource_callbacks[12] = {
 };
 
 void TAdSinglePlyChrSelectGC__sub_8033B5F0(void *arg0) {
-    void *temp_r3 = *(void **)((s8 *)arg0 + 0x38);
-    if ((u32) temp_r3 != 0U) {
-        if (((TObject *)temp_r3)->all_parents_unqueued_for_destruction() != 0) {
+    void *object = *(void **)((s8 *)arg0 + 0x38);
+    if ((u32) object != 0U) {
+        if (((TObject *)object)->all_parents_unqueued_for_destruction() != 0) {
             TWindow__close(*(void **)((s8 *)arg0 + 0x38));
             *(u32 *)((s8 *)arg0 + 0x38) = 0U;
         }

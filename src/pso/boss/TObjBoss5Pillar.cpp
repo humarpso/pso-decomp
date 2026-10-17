@@ -107,21 +107,21 @@ void *__dt__15TObjBoss5PillarFv(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_8028B60C___vt__15TObjBoss5Pillar_size[sizeof(RecoveredGlobal_8028B60C___vt__15TObjBoss5Pillar) == 0x18 ? 1 : -1];
-u8 *TObjBoss5Pillar__ct(TObjBoss5Pillar *arg0, u8 *arg1, u8 *arg2) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8028B60C___vt__15TObjBoss5Pillar *)&__vt__15TObjBoss5Pillar).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3B40;
-    VecCopy((Vec *)((u8 *)arg0 + 0x2C), (const Vec *)arg2);
-    arg0->m_1c = 0;
-    *(f32 *)((s8 *)arg0 + 0x20) = (f32) lbl_805DD918;
-    arg0->m_24 = (f32) lbl_805DD91C;
-    arg0->m_28 = 0;
-    arg0->m_48 = 0;
-    arg0->m_38 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x42C)) + 8);
-    arg0->m_3c = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x42C)) + 0x18);
-    arg0->m_40 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x430)) + 0x14);
-    arg0->m_44 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x430)) + 0x1C);
-    return (u8 *)arg0;
+u8 *TObjBoss5Pillar__ct(TObjBoss5Pillar *boss5_pillar, u8 *arg1, u8 *arg2) {
+    __ct__7TObjectFP7TObject(boss5_pillar, arg1);
+    *(s32 **)((s8 *)boss5_pillar + 0x18) = &(*(RecoveredGlobal_8028B60C___vt__15TObjBoss5Pillar *)&__vt__15TObjBoss5Pillar).value;
+    *(s32 *)((s8 *)boss5_pillar + 0) = (s32) lbl_805D3B40;
+    VecCopy((Vec *)((u8 *)boss5_pillar + 0x2C), (const Vec *)arg2);
+    boss5_pillar->m_1c = 0;
+    *(f32 *)((s8 *)boss5_pillar + 0x20) = (f32) lbl_805DD918;
+    boss5_pillar->m_24 = (f32) lbl_805DD91C;
+    boss5_pillar->m_28 = 0;
+    boss5_pillar->m_48 = 0;
+    boss5_pillar->m_38 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x42C)) + 8);
+    boss5_pillar->m_3c = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x42C)) + 0x18);
+    boss5_pillar->m_40 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x430)) + 0x14);
+    boss5_pillar->m_44 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x430)) + 0x1C);
+    return (u8 *)boss5_pillar;
 }
 
 }

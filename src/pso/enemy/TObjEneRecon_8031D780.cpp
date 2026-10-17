@@ -39,12 +39,12 @@ extern "C" {
 
 s32 spawn_part__14TObjEneEpsilonFi(void *, f32);
 
-void TObjEneRecon__vt102(void *arg0, f32 farg0) {
-    if (((VObj_8031D780 *)arg0)->m97() != 0) {
-        ((TObjEneDD_ST *)arg0)->select_and_apply_target(farg0);
+void TObjEneRecon__vt102(void *ene_epsilon, f32 farg0) {
+    if (((VObj_8031D780 *)ene_epsilon)->m97() != 0) {
+        ((TObjEneDD_ST *)ene_epsilon)->select_and_apply_target(farg0);
         return;
     }
-    spawn_part__14TObjEneEpsilonFi(arg0, farg0);
+    spawn_part__14TObjEneEpsilonFi(ene_epsilon, farg0);
 }
 
 void TObjEneRecon::spawn_trap_a() {

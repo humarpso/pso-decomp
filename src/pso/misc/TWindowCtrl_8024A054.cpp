@@ -20,12 +20,12 @@ void TWindowCtrl::clear_flag() {
 }
 
 void TWindowCtrl__sub_8024A08C(void) {
-    u8 *temp_r3;
+    u8 *object;
     lbl_805D63FC &= 0xFFFFFFFD;
     if ((void *) (*(u8 * *)&TWindowCtrl__active_window) != NULL) {
-        temp_r3 = (u8 *)(*(u8 **)((s8 *)(*(u8 * *)&TWindowCtrl__active_window) + 0x3C));
-        if (temp_r3 != NULL) {
-            queue_destruction__7TObjectFv(temp_r3);
+        object = (u8 *)(*(u8 **)((s8 *)(*(u8 * *)&TWindowCtrl__active_window) + 0x3C));
+        if (object != NULL) {
+            queue_destruction__7TObjectFv(object);
             *(u8 **)((s8 *)(*(u8 * *)&TWindowCtrl__active_window) + 0x3C) = NULL;
         }
     }

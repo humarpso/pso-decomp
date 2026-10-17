@@ -74,8 +74,8 @@ int copy_position__9TItemListFPv(void* p) { return VecCopy__FP3VecPC3Vec((char*)
 s32 TItemList__sub_801D598C(Obj_801D598C *arg0, s32 arg1) {
     return (s32)&arg0->e[arg1];
 }
-void TItemList__sub_801D59A0(TItemList *arg0, s32 arg1) {
-    TItemList__sub_801D59DC((void*)(((u8 *)TItemList__sub_801D5868((Arr_801D5868 *)arg1, (s8)arg0->get_item_count()))));
+void TItemList__sub_801D59A0(TItemList *item_list, s32 arg1) {
+    TItemList__sub_801D59DC((void*)(((u8 *)TItemList__sub_801D5868((Arr_801D5868 *)arg1, (s8)item_list->get_item_count()))));
 }
 
 }

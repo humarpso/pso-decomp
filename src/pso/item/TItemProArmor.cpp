@@ -188,10 +188,10 @@ void TItemProArmor::vfunc_14() {
     }
 }
 
-void write_item_data__13TItemProArmorFPvPv(TItemProArmor *arg0, void *arg1) {
-    *(u8 *)((s8 *)arg1 + 5) = (u8) arg0->m_192;
-    ((TItemData *)arg1)->set_dfp_bonus(arg0->m_193);
-    ((TItemData *)arg1)->set_bswapped_field_8(arg0->m_194);
+void write_item_data__13TItemProArmorFPvPv(TItemProArmor *item_pro_armor, void *item_data) {
+    *(u8 *)((s8 *)item_data + 5) = (u8) item_pro_armor->m_192;
+    ((TItemData *)item_data)->set_dfp_bonus(item_pro_armor->m_193);
+    ((TItemData *)item_data)->set_bswapped_field_8(item_pro_armor->m_194);
 }
 
 typedef void *(*Ctor4_80117954)(void *, void *, s32, s32);
@@ -427,23 +427,23 @@ void TItemProArmor::vfunc_16() {
 void TItemProArmor::vfunc_46() { if (((TItemEquipBase *)this)->get_flag_40() == 0) { obj_getField1c(*(void* *)&this->m_f0); spawn_appearance_effect__10TObjPlayerFl(); } }
 
 typedef char RecoveredGlobal_80117B98___vt__13TItemProArmor_size[sizeof(RecoveredGlobal_80117B98___vt__13TItemProArmor) == 0xCC ? 1 : -1];
-u8 *TItemProArmor__ct(TItemProArmor *arg0, s32 arg1, u8 *item) {
-    TItemEquipBase__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80117B98___vt__13TItemProArmor *)&__vt__13TItemProArmor).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C30;
-    ((TItemProArmor *)(arg0))->vfunc_19(2);
-    arg0->m_190 = 0;
-    arg0->m_192 = (u8) *(u8 *)((s8 *)item + 5);
-    arg0->m_193 = getS16_06__9TItemDataFPv(item);
-    arg0->m_194 = get_bswap16_field8__9TItemDataFPv(item);
-    arg0->m_18c = (s32)lookup_item_pmt_record(item);
-    arg0->m_195 = (u8) *(u8 *)(arg0->m_18c + 0x16);
-    arg0->m_196 = (u8) *(u8 *)(arg0->m_18c + 0x17);
-    if ((u8) arg0->m_192 > 4U) {
-        arg0->m_192 = 4U;
+u8 *TItemProArmor__ct(TItemProArmor *item_pro_armor, s32 arg1, u8 *item) {
+    TItemEquipBase__ct(item_pro_armor);
+    *(s32 **)((s8 *)item_pro_armor + 0x18) = &(*(RecoveredGlobal_80117B98___vt__13TItemProArmor *)&__vt__13TItemProArmor).value;
+    *(s32 *)((s8 *)item_pro_armor + 0) = (s32) lbl_805D2C30;
+    ((TItemProArmor *)(item_pro_armor))->vfunc_19(2);
+    item_pro_armor->m_190 = 0;
+    item_pro_armor->m_192 = (u8) *(u8 *)((s8 *)item + 5);
+    item_pro_armor->m_193 = getS16_06__9TItemDataFPv(item);
+    item_pro_armor->m_194 = get_bswap16_field8__9TItemDataFPv(item);
+    item_pro_armor->m_18c = (s32)lookup_item_pmt_record(item);
+    item_pro_armor->m_195 = (u8) *(u8 *)(item_pro_armor->m_18c + 0x16);
+    item_pro_armor->m_196 = (u8) *(u8 *)(item_pro_armor->m_18c + 0x17);
+    if ((u8) item_pro_armor->m_192 > 4U) {
+        item_pro_armor->m_192 = 4U;
     }
-    arg0->init_effect_flags();
-    return (u8 *)arg0;
+    item_pro_armor->init_effect_flags();
+    return (u8 *)item_pro_armor;
 }
 
 #pragma push

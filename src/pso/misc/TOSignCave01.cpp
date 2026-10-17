@@ -165,16 +165,16 @@ void *__dt__12TOSignCave01Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_80176800___vt__12TOSignCave01_size[sizeof(RecoveredGlobal_80176800___vt__12TOSignCave01) == 0x38 ? 1 : -1];
-u8 *TOSignCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    init_map_object_base((void *)arg0, (void *)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80176800___vt__12TOSignCave01 *)&__vt__12TOSignCave01).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D315C;
-    ((TOSignCave01 *)(arg0))->apply_object_set_data((void *)arg2);
-    *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOSignCave01__shared_resource) + 0x42C)) + 8);
-    ((TOSignCave01 *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOSignCave01__shared_resource) + 0x42C)) + 0xC);
-    ((TOSignCave01 *)arg0)->m_c0 = (f32) lbl_805DB9D0;
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB9D4;
-    return arg0;
+u8 *TOSignCave01__ct(u8 *sign_cave01, s32 arg1, s32 arg2) {
+    init_map_object_base((void *)sign_cave01, (void *)arg1);
+    *(s32 **)((s8 *)sign_cave01 + 0x18) = &(*(RecoveredGlobal_80176800___vt__12TOSignCave01 *)&__vt__12TOSignCave01).value;
+    *(s32 *)((s8 *)sign_cave01 + 0) = (s32) lbl_805D315C;
+    ((TOSignCave01 *)(sign_cave01))->apply_object_set_data((void *)arg2);
+    *(s32 *)((s8 *)sign_cave01 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOSignCave01__shared_resource) + 0x42C)) + 8);
+    ((TOSignCave01 *)sign_cave01)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOSignCave01__shared_resource) + 0x42C)) + 0xC);
+    ((TOSignCave01 *)sign_cave01)->m_c0 = (f32) lbl_805DB9D0;
+    *(f32 *)((s8 *)sign_cave01 + 0xC4) = (f32) lbl_805DB9D4;
+    return sign_cave01;
 }
 
 __declspec(section ".data") const char *bm_fs_obj_dokanban01_model_names[2] = { lbl_80442A98, NULL };

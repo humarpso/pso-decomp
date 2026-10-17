@@ -27,13 +27,13 @@ void TPlyOnCreated::run_task() {
     }
 }
 typedef char RecoveredGlobal_801C6178___vt__13TPlyOnCreated_size[sizeof(RecoveredGlobal_801C6178___vt__13TPlyOnCreated) == 0x18 ? 1 : -1];
-u8 *__ct__13TPlyOnCreatedFv(u8 *arg0, s16 arg1, s32 arg2) {
-    __ct__7TObjectFP7TObject(arg0, tl_06);
-    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__13TPlyOnCreated.value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TPlyOnCreated__name;
-    *(s16 *)((s8 *)arg0 + 0x1C) = arg1;
-    *(s32 *)((s8 *)arg0 + 0x20) = arg2;
-    return arg0;
+u8 *__ct__13TPlyOnCreatedFv(u8 *object, s16 arg1, s32 arg2) {
+    __ct__7TObjectFP7TObject(object, tl_06);
+    *(s32 **)((s8 *)object + 0x18) = &__vt__13TPlyOnCreated.value;
+    *(s32 *)((s8 *)object + 0) = (s32) TPlyOnCreated__name;
+    *(s16 *)((s8 *)object + 0x1C) = arg1;
+    *(s32 *)((s8 *)object + 0x20) = arg2;
+    return object;
 }
 
 extern char lbl_804470F0[];

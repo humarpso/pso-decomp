@@ -208,17 +208,17 @@ void run_task__5TLogoFv(u8 *arg0) {
 }
 
 TLogo::~TLogo() {}
-void *__ct__5TLogoFv(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__5TLogo;
-    *(void **)((s8 *)arg0 + 0x0) = TLogo__class_name;
-    *(u32 *)((s8 *)arg0 + 0x20) = 0;
-    *(u32 *)((s8 *)arg0 + 0x24) = 0;
-    *(u32 *)((s8 *)arg0 + 0x28) = 0;
-    *(u32 *)((s8 *)arg0 + 0x2C) = 0;
-    *(u32 *)((s8 *)arg0 + 0x30) = 0;
-    *(u32 *)((s8 *)arg0 + 0x34) = 0;
-    return arg0;
+void *__ct__5TLogoFv(void *object) {
+    __ct__7TObjectFP7TObject(object);
+    *(s32 **)((s8 *)object + 0x18) = (s32 *)__vt__5TLogo;
+    *(void **)((s8 *)object + 0x0) = TLogo__class_name;
+    *(u32 *)((s8 *)object + 0x20) = 0;
+    *(u32 *)((s8 *)object + 0x24) = 0;
+    *(u32 *)((s8 *)object + 0x28) = 0;
+    *(u32 *)((s8 *)object + 0x2C) = 0;
+    *(u32 *)((s8 *)object + 0x30) = 0;
+    *(u32 *)((s8 *)object + 0x34) = 0;
+    return object;
 }
 
     extern int lbl_805D49D0;

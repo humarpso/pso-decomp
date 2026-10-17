@@ -453,10 +453,10 @@ void TUnk_804A2148::render() {
 
 void TUnk_804A2148::hook() {  }
 
-void *ct_shoot_model__10TObjPlayerFPv(void *arg0) {
-    __ct__15TItemShootModelFPvPC3VecPC3Vecf(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = recoil_weapon_shoot_model_vtable;
-    return arg0;
+void *ct_shoot_model__10TObjPlayerFPv(void *item_shoot_model) {
+    __ct__15TItemShootModelFPvPC3VecPC3Vecf(item_shoot_model);
+    *(s32 **)((s8 *)item_shoot_model + 0x18) = recoil_weapon_shoot_model_vtable;
+    return item_shoot_model;
 }
 }
 

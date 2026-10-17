@@ -22,16 +22,16 @@ void fn_80076BC4(void);
 
 void fn_80076BC4(void) {  }
 }
-void submit_chat_text(u8 *arg0) {
+void submit_chat_text(u8 *lobby) {
     void *player;
     player = get_player_by_client_id(local_client_id);
-    if (player != NULL && (s8) *arg0 != 0) {
-        ((TLobby *)arg0)->capture_chat_sensor();
+    if (player != NULL && (s8) *lobby != 0) {
+        ((TLobby *)lobby)->capture_chat_sensor();
         if (get_main_phase() == 0xF) {
             Tag_80076BC8 tmp = *(Tag_80076BC8 *)&TPlyGuildCardTag(0, 0);
-            send_chat__9TProtocolFR16TPlyGuildCardTagPc(TLobby__protocol_instance, (TPlyGuildCardTag *)&tmp, arg0);
+            send_chat__9TProtocolFR16TPlyGuildCardTagPc(TLobby__protocol_instance, (TPlyGuildCardTag *)&tmp, lobby);
         } else {
-            TWindowCtrl::open((s32)(obj_getField1c(player)), (s32)arg0, 0xCB);
+            TWindowCtrl::open((s32)(obj_getField1c(player)), (s32)lobby, 0xCB);
         }
     }
 }

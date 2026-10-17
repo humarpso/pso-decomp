@@ -141,12 +141,12 @@ void TBoss3VoloptCtrl::run_task() {
 
 TBoss3VoloptCtrl::~TBoss3VoloptCtrl() {}
 extern "C" {
-void *TBoss3VoloptCtrl__ct(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0, tl_02);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TBoss3VoloptCtrl;
-    *(void * *)&((TBoss3VoloptCtrl *)arg0)->m_name = lbl_805D2730;
-    ((TBoss3VoloptCtrl *)arg0)->phase = 0;
-    *(u32 *)((s8 *)arg0 + 0x1C) = 3;
-    return arg0;
+void *TBoss3VoloptCtrl__ct(void *boss3_volopt_ctrl) {
+    __ct__7TObjectFP7TObject(boss3_volopt_ctrl, tl_02);
+    *(s32 **)((s8 *)boss3_volopt_ctrl + 0x18) = __vt__16TBoss3VoloptCtrl;
+    *(void * *)&((TBoss3VoloptCtrl *)boss3_volopt_ctrl)->m_name = lbl_805D2730;
+    ((TBoss3VoloptCtrl *)boss3_volopt_ctrl)->phase = 0;
+    *(u32 *)((s8 *)boss3_volopt_ctrl + 0x1C) = 3;
+    return boss3_volopt_ctrl;
 }
 }

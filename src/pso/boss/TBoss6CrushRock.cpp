@@ -41,23 +41,23 @@ extern s32 TBoss6PlotFalz__instance;
 #pragma opt_common_subs off
 #pragma fp_contract on
 typedef char RecoveredGlobal_8035A1A4___vt__15TBoss6CrushRock_size[sizeof(RecoveredGlobal_8035A1A4___vt__15TBoss6CrushRock) == 0x18 ? 1 : -1];
-u8 *__ct__15TBoss6CrushRockFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
-    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__15TBoss6CrushRock.value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss6CrushRock__name;
-    *(s32 *)((s8 *)arg0 + 0x1C) = get_bml_model((int) (TBoss6Rock__sub_80353A0C()), (void *)arg3);
-    *(s32 *)((s8 *)arg0 + 0x20) = TBoss6Rock__sub_80353A04();
-    VecCopy((Vec *)(arg0 + 0x24), (const Vec *)(arg2));
-    *(f32 *)((s8 *)arg0 + 0x30) = (f32) (lbl_805E00C8 * ((lbl_805E00CC * (f32) rand()) - lbl_805E00C8));
-    *(f32 *)((s8 *)arg0 + 0x34) = (f32) (lbl_805E00C8 * ((lbl_805E00CC * (f32) rand()) - lbl_805E00C8));
-    *(f32 *)((s8 *)arg0 + 0x38) = (f32) (lbl_805E00C8 * ((lbl_805E00CC * (f32) rand()) - lbl_805E00C8));
-    *(s32 *)((s8 *)arg0 + 0x3C) = (s32) (lbl_805E00D0 * (lbl_805E00CC * (f32) rand()));
-    *(s32 *)((s8 *)arg0 + 0x40) = (s32) (lbl_805E00D0 * (lbl_805E00CC * (f32) rand()));
-    *(s32 *)((s8 *)arg0 + 0x44) = (s32) (lbl_805E00D0 * (lbl_805E00CC * (f32) rand()));
-    *(s32 *)((s8 *)arg0 + 0x48) = (s32) (lbl_805E00D4 * ((lbl_805E00CC * (f32) rand()) - lbl_805E00C8));
-    *(s32 *)((s8 *)arg0 + 0x4C) = (s32) (lbl_805E00D4 * ((lbl_805E00CC * (f32) rand()) - lbl_805E00C8));
-    *(s32 *)((s8 *)arg0 + 0x50) = (s32) (lbl_805E00D4 * ((lbl_805E00CC * (f32) rand()) - lbl_805E00C8));
-    return arg0;
+u8 *__ct__15TBoss6CrushRockFv(u8 *object, s32 arg1, s32 arg2, s32 arg3) {
+    __ct__7TObjectFP7TObject((void *)object, (void *)arg1);
+    *(s32 **)((s8 *)object + 0x18) = &__vt__15TBoss6CrushRock.value;
+    *(s32 *)((s8 *)object + 0) = (s32) TBoss6CrushRock__name;
+    *(s32 *)((s8 *)object + 0x1C) = get_bml_model((int) (TBoss6Rock__sub_80353A0C()), (void *)arg3);
+    *(s32 *)((s8 *)object + 0x20) = TBoss6Rock__sub_80353A04();
+    VecCopy((Vec *)(object + 0x24), (const Vec *)(arg2));
+    *(f32 *)((s8 *)object + 0x30) = (f32) (lbl_805E00C8 * ((lbl_805E00CC * (f32) rand()) - lbl_805E00C8));
+    *(f32 *)((s8 *)object + 0x34) = (f32) (lbl_805E00C8 * ((lbl_805E00CC * (f32) rand()) - lbl_805E00C8));
+    *(f32 *)((s8 *)object + 0x38) = (f32) (lbl_805E00C8 * ((lbl_805E00CC * (f32) rand()) - lbl_805E00C8));
+    *(s32 *)((s8 *)object + 0x3C) = (s32) (lbl_805E00D0 * (lbl_805E00CC * (f32) rand()));
+    *(s32 *)((s8 *)object + 0x40) = (s32) (lbl_805E00D0 * (lbl_805E00CC * (f32) rand()));
+    *(s32 *)((s8 *)object + 0x44) = (s32) (lbl_805E00D0 * (lbl_805E00CC * (f32) rand()));
+    *(s32 *)((s8 *)object + 0x48) = (s32) (lbl_805E00D4 * ((lbl_805E00CC * (f32) rand()) - lbl_805E00C8));
+    *(s32 *)((s8 *)object + 0x4C) = (s32) (lbl_805E00D4 * ((lbl_805E00CC * (f32) rand()) - lbl_805E00C8));
+    *(s32 *)((s8 *)object + 0x50) = (s32) (lbl_805E00D4 * ((lbl_805E00CC * (f32) rand()) - lbl_805E00C8));
+    return object;
 }
 #pragma pop
 

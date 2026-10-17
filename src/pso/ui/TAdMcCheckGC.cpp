@@ -170,7 +170,7 @@ u8 *__dt__12TAdMcCheckGCFv(TAdMcCheckGC *arg0, s16 arg1) {
     return (u8 *)arg0;
 }
 }
-TAdMcCheckGC::TAdMcCheckGC(TObject *arg1, void *arg2) : TObject(arg1) {
+TAdMcCheckGC::TAdMcCheckGC(TObject *object, void *arg2) : TObject(object) {
     *(void * *)&this->m_name = TAdMcCheckGC__name;
     *(void **)((s8 *)this + 0x28) = arg2;
     this->m_1c = 0;

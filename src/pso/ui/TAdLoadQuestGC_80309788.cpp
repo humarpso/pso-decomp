@@ -14,25 +14,25 @@ void *__nw__7TObjectFUl(int);
 extern s32 __vt__14TAdLoadQuestGC[];
 extern void *TAdLoadQuestGC__class_name;
 
-void *TAdLoadQuestGC__ct(void *arg0) {
+void *TAdLoadQuestGC__ct(void *ad_load_quest_gc) {
     void *o;
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TAdLoadQuestGC;
-    *(void * *)&((TAdLoadQuestGC *)arg0)->m_name = TAdLoadQuestGC__class_name;
-    get_or_create_cell__14TAdLoadQuestGCFii((s32)arg0, 0);
-    get_or_create_prt_txt__14TAdLoadQuestGCFii((s32)arg0, 0);
-    get_or_create_cell__14TAdLoadQuestGCFii((s32)arg0, 1);
-    get_or_create_cell__14TAdLoadQuestGCFii((s32)arg0, 2);
-    get_or_create_line__14TAdLoadQuestGCFii((s32)arg0, 0);
-    get_or_create_line__14TAdLoadQuestGCFii((s32)arg0, 1);
-    get_or_create_prt_txt__14TAdLoadQuestGCFii((s32)arg0, 1);
-    get_or_create_prt_txt__14TAdLoadQuestGCFii((s32)arg0, 2);
+    __ct__7TObjectFP7TObject(ad_load_quest_gc);
+    *(s32 **)((s8 *)ad_load_quest_gc + 0x18) = __vt__14TAdLoadQuestGC;
+    *(void * *)&((TAdLoadQuestGC *)ad_load_quest_gc)->m_name = TAdLoadQuestGC__class_name;
+    get_or_create_cell__14TAdLoadQuestGCFii((s32)ad_load_quest_gc, 0);
+    get_or_create_prt_txt__14TAdLoadQuestGCFii((s32)ad_load_quest_gc, 0);
+    get_or_create_cell__14TAdLoadQuestGCFii((s32)ad_load_quest_gc, 1);
+    get_or_create_cell__14TAdLoadQuestGCFii((s32)ad_load_quest_gc, 2);
+    get_or_create_line__14TAdLoadQuestGCFii((s32)ad_load_quest_gc, 0);
+    get_or_create_line__14TAdLoadQuestGCFii((s32)ad_load_quest_gc, 1);
+    get_or_create_prt_txt__14TAdLoadQuestGCFii((s32)ad_load_quest_gc, 1);
+    get_or_create_prt_txt__14TAdLoadQuestGCFii((s32)ad_load_quest_gc, 2);
     o = __nw__7TObjectFUl(0x158);
     if (o != NULL) {
-        o = TAdLdQuestPrtGC__ct(o, arg0);
+        o = TAdLdQuestPrtGC__ct(o, ad_load_quest_gc);
     }
-    *(void * *)&((TAdLoadQuestGC *)arg0)->quest_display = o;
-    return arg0;
+    *(void * *)&((TAdLoadQuestGC *)ad_load_quest_gc)->quest_display = o;
+    return ad_load_quest_gc;
 }
 
 void TAdLoadQuestGC__sub_8030984C(void) {  }

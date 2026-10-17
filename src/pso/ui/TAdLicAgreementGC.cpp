@@ -71,19 +71,19 @@ void *__dt__17TAdLicAgreementGCFv(void *arg0, s16 arg1) {
 
 extern void *lbl_805D41C0;
 
-void *TAdLicAgreementGC__ct(void *arg0) {
+void *TAdLicAgreementGC__ct(void *ad_lic_agreement_gc) {
     void *o;
-    TAdAgreementBaseGC__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TAdLicAgreementGC;
-    *(void * *)&((TAdLicAgreementGC *)arg0)->m_name = lbl_805D41C0;
-    ((TAdLicAgreementGC *)arg0)->m_34 = 0;
-    ((TAdLicAgreementGC *)arg0)->m_38 = 0;
+    TAdAgreementBaseGC__ct(ad_lic_agreement_gc);
+    *(s32 **)((s8 *)ad_lic_agreement_gc + 0x18) = __vt__17TAdLicAgreementGC;
+    *(void * *)&((TAdLicAgreementGC *)ad_lic_agreement_gc)->m_name = lbl_805D41C0;
+    ((TAdLicAgreementGC *)ad_lic_agreement_gc)->m_34 = 0;
+    ((TAdLicAgreementGC *)ad_lic_agreement_gc)->m_38 = 0;
     o = __nw__7TObjectFUl(0x54);
     if (o != NULL) {
-        o = TAdScrollWinGC__ct((TAdScrollWinGC *)o, arg0, 0, 0);
+        o = TAdScrollWinGC__ct((TAdScrollWinGC *)o, ad_lic_agreement_gc, 0, 0);
     }
-    *(void **)((s8 *)arg0 + 0x38) = o;
-    return arg0;
+    *(void **)((s8 *)ad_lic_agreement_gc + 0x38) = o;
+    return ad_lic_agreement_gc;
 }
 
 }

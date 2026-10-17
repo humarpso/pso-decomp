@@ -124,11 +124,11 @@ void __ct__7TObjectFP7TObject(void *);
 extern s32 __vt__17TObjBoss7DustCtrl[];
 extern void *lbl_805D3FE0;
 
-void *TObjBoss7DustCtrl__ct(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjBoss7DustCtrl;
-    *(void * *)&((TObjBoss7DustCtrl *)arg0)->m_name = lbl_805D3FE0;
-    return arg0;
+void *TObjBoss7DustCtrl__ct(void *boss7_dust_ctrl) {
+    __ct__7TObjectFP7TObject(boss7_dust_ctrl);
+    *(s32 **)((s8 *)boss7_dust_ctrl + 0x18) = __vt__17TObjBoss7DustCtrl;
+    *(void * *)&((TObjBoss7DustCtrl *)boss7_dust_ctrl)->m_name = lbl_805D3FE0;
+    return boss7_dust_ctrl;
 }
 
 void* __nw__7TObjectFUl(u32);

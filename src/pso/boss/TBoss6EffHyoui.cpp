@@ -44,10 +44,10 @@ void TBoss6EffHyoui::run_task() {
 TBoss6EffHyoui::~TBoss6EffHyoui() {
     if (m_1c != nullptr) TBoss4Type2::request_destroy((u32)m_1c);
 }
-void *TBoss6EffHyoui__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
-    u8 *self = (u8 *)arg0;
+void *TBoss6EffHyoui__ct(void *object, void *arg1, void *arg2, void *arg3, void *arg4) {
+    u8 *self = (u8 *)object;
     u8 *p;
-    __ct__7TObjectFP7TObject(arg0, arg1);
+    __ct__7TObjectFP7TObject(object, arg1);
     *(s32 **)((s8 *)self + 0x18) = __vt__14TBoss6EffHyoui;
     *(s32 *)((s8 *)self + 0) = lbl_805D44D8;
     *(u16 *)((s8 *)self + 0x20) = (u16)(u32)arg2;
@@ -65,7 +65,7 @@ void *TBoss6EffHyoui__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *a
         }
     }
     *(s32 *)((s8 *)self + 0x28) = 0;
-    return arg0;
+    return object;
 }
 
 void *TBoss6EffHyoui::create(void *arg1, void *arg2) {

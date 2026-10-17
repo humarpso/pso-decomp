@@ -57,49 +57,49 @@ s32 TAdMultiSaveGC__sub_802FF314(void) {
     ((TLobby *)r)->send_and_handle(get_localized_text_entry(0x20, 0), 1);
     return r;
 }
-void run_task__14TAdMultiSaveGCFv(TAdMultiSaveGC *arg0) {
+void run_task__14TAdMultiSaveGCFv(TAdMultiSaveGC *ad_multi_save_gc) {
     s32 selected_menu_value;
     s32 var_r30;
     if (((TAdPlayerLoadGC *)0)->probe_card_slot() == 0) {
-        arg0->m_1c = 0U;
+        ad_multi_save_gc->m_1c = 0U;
     }
-    switch (arg0->m_1c) {
+    switch (ad_multi_save_gc->m_1c) {
     case 0:
-        if ((u32) arg0->m_24 != 0U) {
-            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x24)));
-            arg0->m_24 = 0U;
+        if ((u32) ad_multi_save_gc->m_24 != 0U) {
+            TWindow__close((u8 *)(*(void **)((s8 *)ad_multi_save_gc + 0x24)));
+            ad_multi_save_gc->m_24 = 0U;
         }
-        if ((u32) arg0->m_28 != 0U) {
-            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x28)));
-            arg0->m_28 = 0U;
+        if ((u32) ad_multi_save_gc->m_28 != 0U) {
+            TWindow__close((u8 *)(*(void **)((s8 *)ad_multi_save_gc + 0x28)));
+            ad_multi_save_gc->m_28 = 0U;
         }
-        if ((u32) arg0->m_2c != 0U) {
-            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x2C)));
-            arg0->m_2c = 0U;
+        if ((u32) ad_multi_save_gc->m_2c != 0U) {
+            TWindow__close((u8 *)(*(void **)((s8 *)ad_multi_save_gc + 0x2C)));
+            ad_multi_save_gc->m_2c = 0U;
         }
-        if ((u32) arg0->m_30 != 0U) {
-            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x30)));
-            arg0->m_30 = 0U;
+        if ((u32) ad_multi_save_gc->m_30 != 0U) {
+            TWindow__close((u8 *)(*(void **)((s8 *)ad_multi_save_gc + 0x30)));
+            ad_multi_save_gc->m_30 = 0U;
         }
         if (((TAdPlayerLoadGC *)0)->probe_card_slot() != 0) {
-            arg0->m_1c = 1U;
+            ad_multi_save_gc->m_1c = 1U;
             return;
         }
-        if ((u32) arg0->m_20 == 0U) {
-            arg0->m_20 = ((s32 (*)(void *))TAdMultiSaveGC__sub_802FF314)(arg0);
+        if ((u32) ad_multi_save_gc->m_20 == 0U) {
+            ad_multi_save_gc->m_20 = ((s32 (*)(void *))TAdMultiSaveGC__sub_802FF314)(ad_multi_save_gc);
         }
         break;
     case 1:
-        if ((u32) arg0->m_20 != 0U) {
-            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x20)));
-            arg0->m_20 = 0U;
+        if ((u32) ad_multi_save_gc->m_20 != 0U) {
+            TWindow__close((u8 *)(*(void **)((s8 *)ad_multi_save_gc + 0x20)));
+            ad_multi_save_gc->m_20 = 0U;
         }
         if (TAdPlayerLoadGC::check_memcard_status(0) == 0) {
-            arg0->m_1c = 2U;
+            ad_multi_save_gc->m_1c = 2U;
             return;
         }
-        if ((u32) arg0->m_24 == 0U) {
-            arg0->m_24 = ((s32 (*)(void *))TAdMultiSaveGC__sub_802FF254)(arg0);
+        if ((u32) ad_multi_save_gc->m_24 == 0U) {
+            ad_multi_save_gc->m_24 = ((s32 (*)(void *))TAdMultiSaveGC__sub_802FF254)(ad_multi_save_gc);
             return;
         }
         break;
@@ -112,48 +112,48 @@ void run_task__14TAdMultiSaveGCFv(TAdMultiSaveGC *arg0) {
             var_r30 = 0;
         }
         if (var_r30 != 0) {
-            arg0->m_1c = 4U;
+            ad_multi_save_gc->m_1c = 4U;
             return;
         }
-        arg0->m_2c = ((s32 (*)(void *))TAdMultiSaveGC__sub_802FF2B4)(arg0);
-        arg0->m_30 = ((s32 (*)(void *))TAdMultiSaveGC__sub_802FF170)(arg0);
-        arg0->m_1c = 3U;
+        ad_multi_save_gc->m_2c = ((s32 (*)(void *))TAdMultiSaveGC__sub_802FF2B4)(ad_multi_save_gc);
+        ad_multi_save_gc->m_30 = ((s32 (*)(void *))TAdMultiSaveGC__sub_802FF170)(ad_multi_save_gc);
+        ad_multi_save_gc->m_1c = 3U;
         return;
     case 3:
-        if (((TWindowMenu *)(arg0->m_30))->is_visible() != 0) {
-            selected_menu_value = get_selected_menu_value(arg0->m_30);
+        if (((TWindowMenu *)(ad_multi_save_gc->m_30))->is_visible() != 0) {
+            selected_menu_value = get_selected_menu_value(ad_multi_save_gc->m_30);
             switch (selected_menu_value) {
             case 1:
-                arg0->m_1c = 8U;
+                ad_multi_save_gc->m_1c = 8U;
                 return;
             case 0:
-                arg0->m_1c = 0U;
+                ad_multi_save_gc->m_1c = 0U;
                 return;
             }
         }
         break;
     case 4:
         write_encrypted_save__23TAdSinglePlyChrSelectGCFv();
-        arg0->m_28 = ((s32 (*)(void *))TAdMultiSaveGC__sub_802FF1F4)(arg0);
-        arg0->m_1c = 5U;
+        ad_multi_save_gc->m_28 = ((s32 (*)(void *))TAdMultiSaveGC__sub_802FF1F4)(ad_multi_save_gc);
+        ad_multi_save_gc->m_1c = 5U;
         return;
     case 5:
         if (TAdPlayerLoadGC::get_instance() == 0) {
-            arg0->m_1c = 6U;
+            ad_multi_save_gc->m_1c = 6U;
             return;
         }
         break;
     case 6:
         TAdSinglePlyChrSelectGC__sub_801FDAAC();
-        arg0->m_1c = 7U;
+        ad_multi_save_gc->m_1c = 7U;
         return;
     case 7:
         if (TAdPlayerLoadGC::get_instance() == 0) {
-            if ((u32) arg0->m_28 != 0U) {
-                TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x28)));
-                arg0->m_28 = 0U;
+            if ((u32) ad_multi_save_gc->m_28 != 0U) {
+                TWindow__close((u8 *)(*(void **)((s8 *)ad_multi_save_gc + 0x28)));
+                ad_multi_save_gc->m_28 = 0U;
             }
-            arg0->m_1c = 8U;
+            ad_multi_save_gc->m_1c = 8U;
             return;
         }
         break;

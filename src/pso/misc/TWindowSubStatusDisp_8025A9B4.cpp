@@ -249,24 +249,24 @@ void advance_text_entry_reveal(u8 *arg0) {
 #pragma pop
 extern "C" {
 
-void *TWindowSubStatusDisp__sub_8025AF0C(void *arg0, s16 arg1) {
+void *TWindowSubStatusDisp__sub_8025AF0C(void *window_sub_status_disp, s16 arg1) {
     u16 temp_r3;
 
-    if (arg0 != NULL) {
-        *(void ***)((s8 *)arg0 + 4) = lbl_804CFA28;
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x20) != 0U) {
-            temp_r3 = *(u16 *)((s8 *)arg0 + 0);
+    if (window_sub_status_disp != NULL) {
+        *(void ***)((s8 *)window_sub_status_disp + 4) = lbl_804CFA28;
+        if ((u32) *(u32 *)((s8 *)window_sub_status_disp + 0x20) != 0U) {
+            temp_r3 = *(u16 *)((s8 *)window_sub_status_disp + 0);
             if (temp_r3 & 0x20) {
-                *(u16 *)((s8 *)arg0 + 0) = (u16) (temp_r3 & 0xFFFFFFDF);
-                mem_free((void *)(*(u32 *)((s8 *)arg0 + 0x20)));
+                *(u16 *)((s8 *)window_sub_status_disp + 0) = (u16) (temp_r3 & 0xFFFFFFDF);
+                mem_free((void *)(*(u32 *)((s8 *)window_sub_status_disp + 0x20)));
             }
         }
-        deleting_destructor__20TWindowSubStatusDispFs(arg0, 0);
+        deleting_destructor__20TWindowSubStatusDispFs(window_sub_status_disp, 0);
         if (arg1 > 0) {
-            ::operator delete(arg0);
+            ::operator delete(window_sub_status_disp);
         }
     }
-    return arg0;
+    return window_sub_status_disp;
 }
 }
 

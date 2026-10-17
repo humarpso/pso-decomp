@@ -338,22 +338,22 @@ void TLobby__sub_803C5D00(u8 *arg0) {
 
 extern s32 lbl_805D7548;
 
-void TLobby__sub_803C5D24(u8 *arg0) {
+void TLobby__sub_803C5D24(u8 *lobby) {
     struct Fields_arg0 { u8 pad_0[2]; s8 field_2; u8 pad_3[13]; s32 field_10; void ** field_14; u8 pad_18[38]; s16 field_3E; u8 pad_40[84]; u8 * field_94; s8 field_98; };
     void **temp_r3;
     u8 *temp_r31;
     u8 *temp_r4;
-    temp_r31 = (u8 *)(((Fields_arg0*)arg0)->field_94);
-    TLobby__sub_803C9DB4(arg0);
+    temp_r31 = (u8 *)(((Fields_arg0*)lobby)->field_94);
+    TLobby__sub_803C9DB4(lobby);
     TLobby::init_once();
-    ((TLobby *)arg0)->start_stream_playback(((Fields_arg0*)arg0)->field_10);
-    temp_r3 = (void **)(((Fields_arg0*)arg0)->field_14);
+    ((TLobby *)lobby)->start_stream_playback(((Fields_arg0*)lobby)->field_10);
+    temp_r3 = (void **)(((Fields_arg0*)lobby)->field_14);
     temp_r4 = (u8 *)(*temp_r3);
     (*(s32 (**)(void **, void *))((s8 *)temp_r4 + 0x14))(temp_r3, temp_r4);
-    ((Fields_arg0*)arg0)->field_2 = 4;
-    lsc_set_min_buffer_bytes((LscStream*)temp_r31, ((Fields_arg0*)arg0)->field_3E << 0xB);
+    ((Fields_arg0*)lobby)->field_2 = 4;
+    lsc_set_min_buffer_bytes((LscStream*)temp_r31, ((Fields_arg0*)lobby)->field_3E << 0xB);
     lsc_start((LscStream*)temp_r31);
-    ((Fields_arg0*)arg0)->field_98 = 1;
+    ((Fields_arg0*)lobby)->field_98 = 1;
     TLobby::release_ref();
 }
 }
@@ -923,12 +923,12 @@ void TLobby::set_coords(s32 arg1, s32 arg2) {
 }
 
 void TLobby__sub_803C89C4(u8 *arg0) {
-    u8 *temp_r3;
+    u8 *lobby;
     *(s8 *)((s8 *)arg0 + 1) = 1;
     TLobby::init_once();
-    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 8));
-    if (temp_r3 != NULL) {
-        ((TLobby *)temp_r3)->cvfs_stop_tr();
+    lobby = (u8 *)(*(u8 **)((s8 *)arg0 + 8));
+    if (lobby != NULL) {
+        ((TLobby *)lobby)->cvfs_stop_tr();
         *(s8 *)((s8 *)arg0 + 2) = 0;
     }
     TLobby::release_ref();
@@ -2385,15 +2385,15 @@ void TLobby__sub_803CAEB4(Conn_803CAEB4 *o) {
 
 void TLobby__sub_803CB194(u8 *arg0) {
     s32 temp_r3;
-    u8 *temp_r31;
-    temp_r31 = (u8 *)(*(u8 **)((s8 *)arg0 + 8));
+    u8 *lobby;
+    lobby = (u8 *)(*(u8 **)((s8 *)arg0 + 8));
     temp_r3 = send_with_offset4_alt__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 4)));
     if ((s8) *(u8 *)((s8 *)arg0 + 0x6C) == 0) {
         set_field_3c__6TLobbyFl((int) (*(s32 *)((s8 *)arg0 + 4)), -1);
         ((TLobby *)(*(u8 **)((s8 *)arg0 + 8)))->set_scroll_position(0x7FFFFFFF);
         return;
     }
-    ((TLobby *)temp_r31)->set_scroll_offset(temp_r3 / 2048);
+    ((TLobby *)lobby)->set_scroll_offset(temp_r3 / 2048);
 }
 #pragma pop
 

@@ -486,7 +486,7 @@ TWindowChat::~TWindowChat() {
         *(u32 *)((s8 *)this + 0x20) = 0U;
     }
 }
-TWindowChat::TWindowChat(TObject *arg1, void *arg2) : TObject(arg1) {
+TWindowChat::TWindowChat(TObject *object, void *arg2) : TObject(object) {
     void *o;
     void *o2;
     *(void * *)&this->m_name = window_chat_type_name_pointer;
@@ -534,22 +534,22 @@ void TWindowChat::set_input_active() { this->flags |= 0x20; }
 
 int TWindowChat::is_mode_bit6() { return (this->flags >> 6) & 0x1; }
 
-void TWindowChat__sub_80247DFC(u8 *arg0) {
-    if (((TWindowChat *)arg0)->is_visible() != 0) {
-        ((TWindowChat *)arg0)->flags = (u16) (((TWindowChat *)arg0)->flags & 0xFFFFFFDF);
-        ((TWindowChat*)(arg0))->open_next_input_window();
+void TWindowChat__sub_80247DFC(u8 *window_chat) {
+    if (((TWindowChat *)window_chat)->is_visible() != 0) {
+        ((TWindowChat *)window_chat)->flags = (u16) (((TWindowChat *)window_chat)->flags & 0xFFFFFFDF);
+        ((TWindowChat*)(window_chat))->open_next_input_window();
     }
 }
 
 int TWindowChat::is_visible() { return (this->flags >> 5) & 0x1; }
 
-void TWindowChat__sub_80247E50(u8 *arg0) {
-    if (((TWindowChat *)arg0)->is_mode_bit4() != 0) {
-        ((TWindowChat *)arg0)->flags = (u16) (((TWindowChat *)arg0)->flags & 0xFFFFFFEF);
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x20) != 0U) {
-            ((TWindowChat *)(*(void * *)&((TWindowChat *)arg0)->composer))->flush_if_flagged();
+void TWindowChat__sub_80247E50(u8 *window_chat) {
+    if (((TWindowChat *)window_chat)->is_mode_bit4() != 0) {
+        ((TWindowChat *)window_chat)->flags = (u16) (((TWindowChat *)window_chat)->flags & 0xFFFFFFEF);
+        if ((u32) *(u32 *)((s8 *)window_chat + 0x20) != 0U) {
+            ((TWindowChat *)(*(void * *)&((TWindowChat *)window_chat)->composer))->flush_if_flagged();
         }
-        ((TWindowChat*)(arg0))->open_next_input_window();
+        ((TWindowChat*)(window_chat))->open_next_input_window();
     }
 }
 

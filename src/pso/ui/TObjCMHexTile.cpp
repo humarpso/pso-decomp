@@ -33,7 +33,7 @@ void render__13TObjCMHexTileFv(H_80294324 *arg0) {
     draw_ui_sprite_scaled(3, sp8, sp10, lbl_805DDA08, sc);
 }
 
-void run_task__13TObjCMHexTileFv(u8 *arg0) {
+void run_task__13TObjCMHexTileFv(u8 *object) {
     f32 temp_f1;
     f32 temp_f1_2;
     f32 temp_f1_3;
@@ -41,37 +41,37 @@ void run_task__13TObjCMHexTileFv(u8 *arg0) {
     s32 temp_r5;
     s32 temp_r5_2;
     s32 temp_r6;
-    switch (*(s32 *)((s8 *)arg0 + 0x1C)) {
+    switch (*(s32 *)((s8 *)object + 0x1C)) {
     case 0:
-        temp_f1 = (f32) *(s32 *)((s8 *)arg0 + 0x50) / (f32) *(s32 *)((s8 *)arg0 + 0x20);
-        *(f32 *)((s8 *)arg0 + 0x4C) = temp_f1;
+        temp_f1 = (f32) *(s32 *)((s8 *)object + 0x50) / (f32) *(s32 *)((s8 *)object + 0x20);
+        *(f32 *)((s8 *)object + 0x4C) = temp_f1;
         temp_f1_2 = lbl_805DDA0C - temp_f1;
-        *(f32 *)((s8 *)arg0 + 0x34) = (f32) (temp_f1_2 * *(f32 *)((s8 *)arg0 + 0x2C));
-        *(f32 *)((s8 *)arg0 + 0x38) = (f32) (temp_f1_2 * *(f32 *)((s8 *)arg0 + 0x30));
+        *(f32 *)((s8 *)object + 0x34) = (f32) (temp_f1_2 * *(f32 *)((s8 *)object + 0x2C));
+        *(f32 *)((s8 *)object + 0x38) = (f32) (temp_f1_2 * *(f32 *)((s8 *)object + 0x30));
         break;
     case 1:
-        *(f32 *)((s8 *)arg0 + 0x4C) = (f32) lbl_805DDA0C;
-        *(f32 *)((s8 *)arg0 + 0x48) = (f32) lbl_805DDA0C;
-        *(f32 *)((s8 *)arg0 + 0x38) = (f32) lbl_805DDA10;
-        *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805DDA10;
+        *(f32 *)((s8 *)object + 0x4C) = (f32) lbl_805DDA0C;
+        *(f32 *)((s8 *)object + 0x48) = (f32) lbl_805DDA0C;
+        *(f32 *)((s8 *)object + 0x38) = (f32) lbl_805DDA10;
+        *(f32 *)((s8 *)object + 0x34) = (f32) lbl_805DDA10;
         break;
     case 2:
-        *(f32 *)((s8 *)arg0 + 0x48) = (f32) (*(f32 *)((s8 *)arg0 + 0x48) + *(f32 *)((s8 *)arg0 + 0x44));
-        temp_r5 = *(s32 *)((s8 *)arg0 + 0x28);
-        temp_f2 = (f32) (temp_r5 - *(s32 *)((s8 *)arg0 + 0x50)) / (f32) (temp_r5 - *(s32 *)((s8 *)arg0 + 0x24));
-        *(f32 *)((s8 *)arg0 + 0x4C) = (f32) (temp_f2 * temp_f2);
+        *(f32 *)((s8 *)object + 0x48) = (f32) (*(f32 *)((s8 *)object + 0x48) + *(f32 *)((s8 *)object + 0x44));
+        temp_r5 = *(s32 *)((s8 *)object + 0x28);
+        temp_f2 = (f32) (temp_r5 - *(s32 *)((s8 *)object + 0x50)) / (f32) (temp_r5 - *(s32 *)((s8 *)object + 0x24));
+        *(f32 *)((s8 *)object + 0x4C) = (f32) (temp_f2 * temp_f2);
         temp_f1_3 = -(lbl_805DDA0C - temp_f2);
-        *(f32 *)((s8 *)arg0 + 0x34) = (f32) (temp_f1_3 * *(f32 *)((s8 *)arg0 + 0x2C));
-        *(f32 *)((s8 *)arg0 + 0x38) = (f32) (temp_f1_3 * *(f32 *)((s8 *)arg0 + 0x30));
+        *(f32 *)((s8 *)object + 0x34) = (f32) (temp_f1_3 * *(f32 *)((s8 *)object + 0x2C));
+        *(f32 *)((s8 *)object + 0x38) = (f32) (temp_f1_3 * *(f32 *)((s8 *)object + 0x30));
         break;
     }
-    temp_r6 = *(s32 *)((s8 *)arg0 + 0x50) + 1;
-    *(s32 *)((s8 *)arg0 + 0x50) = temp_r6;
-    temp_r5_2 = *(s32 *)((s8 *)arg0 + 0x1C);
-    if (temp_r6 >= ((s32 *)(arg0 + 0x20))[temp_r5_2]) {
-        *(s32 *)((s8 *)arg0 + 0x1C) = (s32)(temp_r5_2 + 1);
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) == 3) {
-            queue_destruction__7TObjectFv(arg0);
+    temp_r6 = *(s32 *)((s8 *)object + 0x50) + 1;
+    *(s32 *)((s8 *)object + 0x50) = temp_r6;
+    temp_r5_2 = *(s32 *)((s8 *)object + 0x1C);
+    if (temp_r6 >= ((s32 *)(object + 0x20))[temp_r5_2]) {
+        *(s32 *)((s8 *)object + 0x1C) = (s32)(temp_r5_2 + 1);
+        if ((s32) *(s32 *)((s8 *)object + 0x1C) == 3) {
+            queue_destruction__7TObjectFv(object);
         }
     }
 }

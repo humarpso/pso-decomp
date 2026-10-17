@@ -43,26 +43,26 @@ extern const f32 lbl_805D8ED0;
 extern const f32 lbl_805D8ED4;
 extern const f32 lbl_805D8ED8;
 typedef char RecoveredGlobal_800661E4___vt__18TBoss5GryphonColli_size[sizeof(RecoveredGlobal_800661E4___vt__18TBoss5GryphonColli) == 0x18 ? 1 : -1];
-u8 *TBoss5GryphonColli__ct(u8 *arg0, s32 arg1) {
+u8 *TBoss5GryphonColli__ct(u8 *object, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_800661E4, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800661E4, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_800661E4, sp10) == 0x8) ? 1 : -1];
     Stack_800661E4 stack;
     s32 temp_r3;
     s32 var_r0;
-    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__18TBoss5GryphonColli.value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D280C;
+    __ct__7TObjectFP7TObject((void *)object, (void *)arg1);
+    *(s32 **)((s8 *)object + 0x18) = &__vt__18TBoss5GryphonColli.value;
+    *(s32 *)((s8 *)object + 0) = (s32) lbl_805D280C;
     stack.sp8 = lbl_805D8ED0;
     stack.spC = lbl_805D8ED0;
     stack.sp10 = lbl_805D8ED4;
     temp_r3 = __nw__7TObjectFUl(0xB8);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = TBoss5GryphonDemo__sub_800663DC(temp_r3, arg0, 1, &stack.sp8, lbl_805D8ED8);
+        var_r0 = TBoss5GryphonDemo__sub_800663DC(temp_r3, object, 1, &stack.sp8, lbl_805D8ED8);
     }
-    *(s32 *)((s8 *)arg0 + 0x1C) = var_r0;
-    return arg0;
+    *(s32 *)((s8 *)object + 0x1C) = var_r0;
+    return object;
 }
 
 }

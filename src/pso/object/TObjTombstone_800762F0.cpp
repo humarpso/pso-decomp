@@ -82,26 +82,26 @@ s32 TObjTombstone::copy_record(void *arg0, s32 arg1) {
 #undef dst
 #undef src
 
-u8 *TObjTombstone__ct(TObjTombstone *arg0, s32 arg1, s32 arg2, u8 *arg3) {
+u8 *TObjTombstone__ct(TObjTombstone *tombstone, s32 arg1, s32 arg2, u8 *arg3) {
     typedef char sp8_offset[(offsetof(Stack_8007643C, sp8) == 0x0) ? 1 : -1];
     typedef char sp9_offset[(offsetof(Stack_8007643C, sp9) == 0x1) ? 1 : -1];
     typedef char spA_offset[(offsetof(Stack_8007643C, spA) == 0x2) ? 1 : -1];
     typedef char sp18_offset[(offsetof(Stack_8007643C, sp18) == 0x10) ? 1 : -1];
     Stack_8007643C stack;
     construct_collider_proxy__13TUnk_804AF8A0Fv();
-    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__13TObjTombstone.value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjTombstone__class_name;
+    *(s32 **)((s8 *)tombstone + 0x18) = &__vt__13TObjTombstone.value;
+    *(s32 *)((s8 *)tombstone + 0) = (s32) TObjTombstone__class_name;
     if ((u32) (*(u32 *)&TObjTombstone__shared_resource_object) == 0U) {
-        return (u8 *)arg0;
+        return (u8 *)tombstone;
     }
     stack.sp8 = *(u8 *)((s8 *)arg3 + 0);
     stack.sp9 = *(u8 *)((s8 *)arg3 + 1);
     stack.spA = *(u8 *)((s8 *)arg3 + 2);
     VecCopy((Vec *)(&stack.sp18), (const Vec *)(arg3 + 4));
-    arg0->setup(arg2, (s32)&stack.sp8);
-    arg0->reset_entries_and_format_name();
-    arg0->m_234 = 0;
-    return (u8 *)arg0;
+    tombstone->setup(arg2, (s32)&stack.sp8);
+    tombstone->reset_entries_and_format_name();
+    tombstone->m_234 = 0;
+    return (u8 *)tombstone;
 }
 
 }

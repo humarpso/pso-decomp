@@ -351,24 +351,24 @@ TTecBarta_8022BC10 *TTecBarta__ct(TTecBarta_8022BC10 *self, void * _w1, void * _
 }
 }
 
-u8 *construct_tec_barta_facing(TTecBarta *arg0, void * _w1, void * _w2, void * _w3, void * _w4) {
+u8 *construct_tec_barta_facing(TTecBarta *tec_barta, void * _w1, void * _w2, void * _w3, void * _w4) {
     s32 i;
     construct_facing_technique__10TObjPlayerFPviPvii();
-    *(void **)((s8 *)arg0 + 0x18) = ((u8 *)&__vt__9TTecBarta);
-    *(s32 *)((s8 *)arg0 + 0) = tec_barta_class_name_ptr;
-    arg0->init_parameters();
+    *(void **)((s8 *)tec_barta + 0x18) = ((u8 *)&__vt__9TTecBarta);
+    *(s32 *)((s8 *)tec_barta + 0) = tec_barta_class_name_ptr;
+    tec_barta->init_parameters();
     for (i = 0; i < 0x20; i++) {
-        ((Obj_8022BCB8 *)arg0)->ids[i] = 0xFFFF;
+        ((Obj_8022BCB8 *)tec_barta)->ids[i] = 0xFFFF;
     }
-    arg0->hitCursor = 0;
-    *(s32 *)((s8 *)arg0 + 0x114) = 0x40003;
-    *(f32 *)((s8 *)arg0 + 0x24) = *(f32 *)((s8 *)arg0 + 0x24) + lbl_805DC7A8;
-    arg0->create_particle_emitters();
-    arg0->update_technique_by_state();
-    if (*(void **)((s8 *)arg0 + 0x1C) != 0) {
-        arg0->sourceId = obj_getField1c(*(void **)((s8 *)arg0 + 0x1C));
+    tec_barta->hitCursor = 0;
+    *(s32 *)((s8 *)tec_barta + 0x114) = 0x40003;
+    *(f32 *)((s8 *)tec_barta + 0x24) = *(f32 *)((s8 *)tec_barta + 0x24) + lbl_805DC7A8;
+    tec_barta->create_particle_emitters();
+    tec_barta->update_technique_by_state();
+    if (*(void **)((s8 *)tec_barta + 0x1C) != 0) {
+        tec_barta->sourceId = obj_getField1c(*(void **)((s8 *)tec_barta + 0x1C));
     }
-    return (u8 *)arg0;
+    return (u8 *)tec_barta;
 }
 extern "C" {
 

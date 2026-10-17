@@ -160,31 +160,31 @@ extern void *lbl_805D41F8;
 extern const f32 lbl_805DF798;
 extern const f32 lbl_805DF79C;
 
-void *TAdYesNoBaseGC__ct(TAdYesNoBaseGC *arg0) {
+void *TAdYesNoBaseGC__ct(TAdYesNoBaseGC *ad_yes_no_base_gc) {
     void *o;
     void *o2;
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TAdYesNoBaseGC;
-    *(void * *)&arg0->m_name = lbl_805D41F8;
-    arg0->m_28 = 0;
-    *(f32 *)((s8 *)arg0 + 0x30) = lbl_805DF790;
-    arg0->m_34 = lbl_805DF794;
-    *(f32 *)((s8 *)arg0 + 0x38) = lbl_805DF798;
-    arg0->m_3c = lbl_805DF79C;
-    arg0->m_1c = 0;
-    arg0->m_24 = 0;
-    arg0->m_2c = 1;
-    arg0->m_40 = 0;
-    arg0->m_44 = 0;
+    __ct__7TObjectFP7TObject(ad_yes_no_base_gc);
+    *(s32 **)((s8 *)ad_yes_no_base_gc + 0x18) = __vt__14TAdYesNoBaseGC;
+    *(void * *)&ad_yes_no_base_gc->m_name = lbl_805D41F8;
+    ad_yes_no_base_gc->m_28 = 0;
+    *(f32 *)((s8 *)ad_yes_no_base_gc + 0x30) = lbl_805DF790;
+    ad_yes_no_base_gc->m_34 = lbl_805DF794;
+    *(f32 *)((s8 *)ad_yes_no_base_gc + 0x38) = lbl_805DF798;
+    ad_yes_no_base_gc->m_3c = lbl_805DF79C;
+    ad_yes_no_base_gc->m_1c = 0;
+    ad_yes_no_base_gc->m_24 = 0;
+    ad_yes_no_base_gc->m_2c = 1;
+    ad_yes_no_base_gc->m_40 = 0;
+    ad_yes_no_base_gc->m_44 = 0;
     o = __nw__7TObjectFUl(0x24);
     if (o != NULL) {
-        __ct__9TAdBackGCFv(o, arg0);
+        __ct__9TAdBackGCFv(o, ad_yes_no_base_gc);
     }
     o2 = __nw__7TObjectFUl(0x28);
     if (o2 != NULL) {
-        __ct__12TAdBackTxtGCFv(o2, arg0);
+        __ct__12TAdBackTxtGCFv(o2, ad_yes_no_base_gc);
     }
-    return arg0;
+    return ad_yes_no_base_gc;
 }
 
 }

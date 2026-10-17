@@ -59,26 +59,26 @@ void *__dt__9TWindowDDFPvs(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_8034138C_TWindowDD__data_804EFC24_size[sizeof(RecoveredGlobal_8034138C_TWindowDD__data_804EFC24) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_8034138C_lbl_804EFC38_size[sizeof(RecoveredGlobal_8034138C_lbl_804EFC38) == 0x18 ? 1 : -1];
-u8 *TWindowDD__sub_8034138C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+u8 *TWindowDD__sub_8034138C(u8 *arg0, s32 arg1, s32 arg2, s32 str, s32 arg4) {
     s32 temp_r0;
-    u8 *temp_r3;
+    u8 *window_help_item;
     ((TWindowDD *)arg0)->construct_base((u8 *)&TWindowDD__data_804EFC24.value, (s16)(4), (u8 *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8034138C_lbl_804EFC38 *)&lbl_804EFC38).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D42D8;
     ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x64))->copy_vec2((void *)arg1);
     ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x6C))->copy_vec2((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x60) = arg4;
-    temp_r3 = (u8 *)(((TUnk_804CE018 *)arg0)->get_array_entry(0));
-    if (temp_r3 != NULL) {
-        set_text_entry_string((temp_r3), (arg3), 0x80);
-        ((TWindowHelpItem *)temp_r3)->m_8 = (f32) lbl_805DFC94;
-        *(f32 *)((s8 *)temp_r3 + 0xC) = (f32) lbl_805DFC94;
-        refresh_status_display__9TWindowDDFv((int)temp_r3);
-        ((TWindowHelpItem *)temp_r3)->reset_float_field();
+    window_help_item = (u8 *)(((TUnk_804CE018 *)arg0)->get_array_entry(0));
+    if (window_help_item != NULL) {
+        set_text_entry_string((window_help_item), (str), 0x80);
+        ((TWindowHelpItem *)window_help_item)->m_8 = (f32) lbl_805DFC94;
+        *(f32 *)((s8 *)window_help_item + 0xC) = (f32) lbl_805DFC94;
+        refresh_status_display__9TWindowDDFv((int)window_help_item);
+        ((TWindowHelpItem *)window_help_item)->reset_float_field();
     }
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x60);
     if ((temp_r0 == 1) || (temp_r0 == 3)) {
-        *(s32 *)((s8 *)temp_r3 + 0x24) = (s32) lbl_805DFC18;
+        *(s32 *)((s8 *)window_help_item + 0x24) = (s32) lbl_805DFC18;
     }
     ((TWindowDD_WS_String *)arg0)->m_5c = 0x01000000;
     return arg0;

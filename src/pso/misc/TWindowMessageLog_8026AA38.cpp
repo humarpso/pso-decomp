@@ -69,7 +69,7 @@ u8 *__dt__17TWindowMessageLogFv(u8 *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_8026ABA8___vt__17TWindowMessageLog_size[sizeof(RecoveredGlobal_8026ABA8___vt__17TWindowMessageLog) == 0x18 ? 1 : -1];
-u8 *TWindowMessageLog__ct(TWindowMessageLog *arg0, s32 arg1, s32 arg2) {
+u8 *TWindowMessageLog__ct(TWindowMessageLog *window_message_log, s32 arg1, s32 arg2) {
     typedef char sp8_offset[(offsetof(Stack_8026ABA8, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8026ABA8, spC) == 0x4) ? 1 : -1];
     Stack_8026ABA8 stack;
@@ -77,11 +77,11 @@ u8 *TWindowMessageLog__ct(TWindowMessageLog *arg0, s32 arg1, s32 arg2) {
     f32 temp_f2;
     s32 temp_r3;
     s32 var_r0;
-    TWindowMessage__ct(((u8 *)arg0), (arg1), 0x1E, (arg2));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8026ABA8___vt__17TWindowMessageLog *)&__vt__17TWindowMessageLog).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3990;
-    TWindowCtrl__sub_8026AD78((s32)arg0);
-    temp_f2 = arg0->m_38;
+    TWindowMessage__ct(((u8 *)window_message_log), (arg1), 0x1E, (arg2));
+    *(s32 **)((s8 *)window_message_log + 0x18) = &(*(RecoveredGlobal_8026ABA8___vt__17TWindowMessageLog *)&__vt__17TWindowMessageLog).value;
+    *(s32 *)((s8 *)window_message_log + 0) = (s32) lbl_805D3990;
+    TWindowCtrl__sub_8026AD78((s32)window_message_log);
+    temp_f2 = window_message_log->m_38;
     temp_f1 = temp_f2 - lbl_805DD258;
     stack.spC = lbl_805DD240;
     stack.sp8 = temp_f1;
@@ -90,11 +90,11 @@ u8 *TWindowMessageLog__ct(TWindowMessageLog *arg0, s32 arg1, s32 arg2) {
     if (var_r0 != 0) {
         var_r0 = reset_selection__20TWindowSubStatusDispFv(temp_r3, &stack.sp8);
     }
-    *(s32 *)((s8 *)arg0 + 0x90) = var_r0;
-    arg0->m_2c = (s32) (arg0->m_2c | 0x80);
-    arg0->m_94 = (f32) lbl_805DD240;
-    arg0->load_chat_history();
-    return (u8 *)arg0;
+    *(s32 *)((s8 *)window_message_log + 0x90) = var_r0;
+    window_message_log->m_2c = (s32) (window_message_log->m_2c | 0x80);
+    window_message_log->m_94 = (f32) lbl_805DD240;
+    window_message_log->load_chat_history();
+    return (u8 *)window_message_log;
 }
 
 }

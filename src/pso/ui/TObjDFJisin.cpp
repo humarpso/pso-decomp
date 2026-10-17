@@ -438,15 +438,15 @@ void TObjDFJisin::run_task() {
 TObjDFJisin::~TObjDFJisin() {}
 
 extern "C" {
-u8 *TObjDFJisin__ct(u8 *arg0, u8 *arg1, s32 arg2) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__11TObjDFJisin;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjDFJisin__name;
-    *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (lbl_805D8AA0 * sin_table_lookup(arg2));
-    *(f32 *)((s8 *)arg0 + 0x20) = (f32) lbl_805D8A30;
-    *(f32 *)((s8 *)arg0 + 0x24) = (f32) (lbl_805D8AA8 * cos_table_lookup(arg2));
-    *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805D8AA4;
-    return arg0;
+u8 *TObjDFJisin__ct(u8 *object, u8 *arg1, s32 arg2) {
+    __ct__7TObjectFP7TObject(object, arg1);
+    *(s32 **)((s8 *)object + 0x18) = (s32 *)__vt__11TObjDFJisin;
+    *(s32 *)((s8 *)object + 0) = (s32) TObjDFJisin__name;
+    *(f32 *)((s8 *)object + 0x1C) = (f32) (lbl_805D8AA0 * sin_table_lookup(arg2));
+    *(f32 *)((s8 *)object + 0x20) = (f32) lbl_805D8A30;
+    *(f32 *)((s8 *)object + 0x24) = (f32) (lbl_805D8AA8 * cos_table_lookup(arg2));
+    *(f32 *)((s8 *)object + 0x28) = (f32) lbl_805D8AA4;
+    return object;
 }
 
 void *TBoss4Type2::create_jisin(void *arg0, void *arg1) {
@@ -534,26 +534,26 @@ TObjDFRecBall::~TObjDFRecBall() {
 }
 
 extern "C" {
-u8 *TObjDFRecBall__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
+u8 *TObjDFRecBall__ct(u8 *object, u8 *arg1, u8 *arg2, u8 *arg3) {
     s32 temp_r31;
     u8 *particle_emitter;
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__13TObjDFRecBall;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjDFRecBall__name;
-    VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)arg2);
-    VecCopy((Vec *)(arg0 + 0x28), (const Vec *)arg3);
+    __ct__7TObjectFP7TObject(object, arg1);
+    *(s32 **)((s8 *)object + 0x18) = (s32 *)__vt__13TObjDFRecBall;
+    *(s32 *)((s8 *)object + 0) = (s32) TObjDFRecBall__name;
+    VecCopy((Vec *)(object + 0x1C), (const Vec *)arg2);
+    VecCopy((Vec *)(object + 0x28), (const Vec *)arg3);
     temp_r31 = (s32) (lbl_805D8ABC * (lbl_805D8A6C * (f32) rand()));
-    *(f32 *)((s8 *)arg0 + 0x34) = sin_table_lookup(temp_r31);
-    *(f32 *)((s8 *)arg0 + 0x38) = (f32) lbl_805D8A30;
-    *(f32 *)((s8 *)arg0 + 0x3C) = cos_table_lookup(temp_r31);
-    *(f32 *)((s8 *)arg0 + 0x40) = (f32) lbl_805D8A34;
-    *(s32 *)((s8 *)arg0 + 0x48) = 0x96;
-    particle_emitter = (u8 *)(create_particle_emitter((arg0 + 0x1C), 0xAF));
-    *(u8 **)((s8 *)arg0 + 0x44) = particle_emitter;
+    *(f32 *)((s8 *)object + 0x34) = sin_table_lookup(temp_r31);
+    *(f32 *)((s8 *)object + 0x38) = (f32) lbl_805D8A30;
+    *(f32 *)((s8 *)object + 0x3C) = cos_table_lookup(temp_r31);
+    *(f32 *)((s8 *)object + 0x40) = (f32) lbl_805D8A34;
+    *(s32 *)((s8 *)object + 0x48) = 0x96;
+    particle_emitter = (u8 *)(create_particle_emitter((object + 0x1C), 0xAF));
+    *(u8 **)((s8 *)object + 0x44) = particle_emitter;
     if (particle_emitter != NULL) {
-        ((TBoss4Type2 *)(*(u8 **)((s8 *)arg0 + 0x44)))->set_flags(0x40);
+        ((TBoss4Type2 *)(*(u8 **)((s8 *)object + 0x44)))->set_flags(0x40);
     }
-    return arg0;
+    return object;
 }
 
 void * create__13TObjDFRecBallFPvPvPv(void *arg0, void *arg1, void *arg2) {
@@ -928,20 +928,20 @@ typedef char RecoveredGlobal_80051938___vt__16TObjDFTenchuFuru_size[sizeof(Recov
 TObjDFTenchuFuru::~TObjDFTenchuFuru() {
     if (m_2c != nullptr) TBoss4Type2::request_destroy((u32)m_2c);
 }
-u8 *TObjDFTenchuFuru__ct(u8 *arg0, u8 *arg1, u8 *arg2) {
+u8 *TObjDFTenchuFuru__ct(u8 *object, u8 *arg1, u8 *arg2) {
     u8 *particle_emitter;
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__16TObjDFTenchuFuru.value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjDFTenchuFuru__name;
-    *(s32 *)((s8 *)arg0 + 0x28) = 5;
-    VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)arg2);
-    *(f32 *)((s8 *)arg0 + 0x20) = (f32) (*(f32 *)((s8 *)arg0 + 0x20) + lbl_805D8AA0);
-    particle_emitter = (u8 *)(create_particle_emitter((arg0 + 0x1C), 0x134));
-    *(u8 **)((s8 *)arg0 + 0x2C) = particle_emitter;
+    __ct__7TObjectFP7TObject(object, arg1);
+    *(s32 **)((s8 *)object + 0x18) = &__vt__16TObjDFTenchuFuru.value;
+    *(s32 *)((s8 *)object + 0) = (s32) TObjDFTenchuFuru__name;
+    *(s32 *)((s8 *)object + 0x28) = 5;
+    VecCopy((Vec *)(object + 0x1C), (const Vec *)arg2);
+    *(f32 *)((s8 *)object + 0x20) = (f32) (*(f32 *)((s8 *)object + 0x20) + lbl_805D8AA0);
+    particle_emitter = (u8 *)(create_particle_emitter((object + 0x1C), 0x134));
+    *(u8 **)((s8 *)object + 0x2C) = particle_emitter;
     if (particle_emitter != NULL) {
-        ((TBoss4Type2 *)(*(u8 **)((s8 *)arg0 + 0x2C)))->set_flags(0x40);
+        ((TBoss4Type2 *)(*(u8 **)((s8 *)object + 0x2C)))->set_flags(0x40);
     }
-    return arg0;
+    return object;
 }
 
 void *TObjDFTenchuFuru::create(void *arg1) {

@@ -39,12 +39,12 @@ void TObjRainCtrl::run_task() {
 #pragma pop
 
 TObjRainCtrl::~TObjRainCtrl() {}
-void *TObjRainCtrl__ct(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjRainCtrl;
-    *(void * *)&((TObjRainCtrl *)arg0)->m_name = lbl_805D3428;
-    *(u32 *)((s8 *)arg0 + 0x1C) = 2;
-    return arg0;
+void *TObjRainCtrl__ct(void *rain_ctrl) {
+    __ct__7TObjectFP7TObject(rain_ctrl);
+    *(s32 **)((s8 *)rain_ctrl + 0x18) = __vt__12TObjRainCtrl;
+    *(void * *)&((TObjRainCtrl *)rain_ctrl)->m_name = lbl_805D3428;
+    *(u32 *)((s8 *)rain_ctrl + 0x1C) = 2;
+    return rain_ctrl;
 }
 
 }

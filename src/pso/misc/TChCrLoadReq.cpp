@@ -91,7 +91,7 @@ void TChCrLoadReq::reset_request() {
 }
 
 }
-TChCrLoadReq::TChCrLoadReq(TObject *arg1, void *arg2) : TObject(arg1) {
+TChCrLoadReq::TChCrLoadReq(TObject *object, void *arg2) : TObject(object) {
     *(void * *)&this->m_name = lbl_805D3B60;
     ((TChCrLoadReq *)((char *)this + 56))->copy(arg2);
     this->reset_request();
@@ -100,20 +100,20 @@ extern "C" {
 
 void TChCrLoadReq::copy(void* q) { *(u32 *)&this->m_name = *(u32*)((char*)q + 0x0); *(u32 *)&this->m_flags = *(u32*)((char*)q + 0x4); *(u32 *)&this->m_prev = *(u32*)((char*)q + 0x8); *(u32 *)&this->m_next = *(u32*)((char*)q + 0xc); *(u32 *)&this->m_up = *(u32*)((char*)q + 0x10); *(u32 *)&this->m_down = *(u32*)((char*)q + 0x14); *(u32*)((char*)this + 0x18) = *(u32*)((char*)q + 0x18); *(u32*)((char*)this + 0x1c) = *(u32*)((char*)q + 0x1c); }
 
-u8 *TChCrLoadReq__sub_8028D360(TChCrLoadReq *arg0, s32 arg1) {
-    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8028D360___vt__12TChCrLoadReq *)&__vt__12TChCrLoadReq).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) (*(s32 *)&lbl_805D3B60);
-    arg0->m_38 = (arg1 + 0x85C);
-    *(s32 *)((s8 *)arg0 + 0x3C) = (arg1 + 0xCFC);
-    arg0->m_40 = (s32) obj_getField1c((void *)arg1);
-    *(s32 *)((s8 *)arg0 + 0x44) = (arg1 + 0x34);
-    arg0->m_48 = (arg1 + 0x8AC);
-    *(s32 *)((s8 *)arg0 + 0x4C) = (arg1 + 0xCF4);
-    arg0->m_50 = (arg1 + 0xB88);
-    *(s32 *)((s8 *)arg0 + 0x54) = (arg1 + 0xA1C);
-    arg0->reset_request();
-    return (u8 *)arg0;
+u8 *TChCrLoadReq__sub_8028D360(TChCrLoadReq *ch_cr_load_req, s32 arg1) {
+    __ct__7TObjectFP7TObject((void *)ch_cr_load_req, (void *)arg1);
+    *(s32 **)((s8 *)ch_cr_load_req + 0x18) = &(*(RecoveredGlobal_8028D360___vt__12TChCrLoadReq *)&__vt__12TChCrLoadReq).value;
+    *(s32 *)((s8 *)ch_cr_load_req + 0) = (s32) (*(s32 *)&lbl_805D3B60);
+    ch_cr_load_req->m_38 = (arg1 + 0x85C);
+    *(s32 *)((s8 *)ch_cr_load_req + 0x3C) = (arg1 + 0xCFC);
+    ch_cr_load_req->m_40 = (s32) obj_getField1c((void *)arg1);
+    *(s32 *)((s8 *)ch_cr_load_req + 0x44) = (arg1 + 0x34);
+    ch_cr_load_req->m_48 = (arg1 + 0x8AC);
+    *(s32 *)((s8 *)ch_cr_load_req + 0x4C) = (arg1 + 0xCF4);
+    ch_cr_load_req->m_50 = (arg1 + 0xB88);
+    *(s32 *)((s8 *)ch_cr_load_req + 0x54) = (arg1 + 0xA1C);
+    ch_cr_load_req->reset_request();
+    return (u8 *)ch_cr_load_req;
 }
 }
 

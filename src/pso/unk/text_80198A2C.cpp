@@ -532,14 +532,14 @@ void *TUnk_804B8E00::dt(s16 arg1) {
     }
     return this;
 }
-u8 *TWindowTimer__sub_80199410(u8 *arg0, u8 *arg1) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80199410_lbl_804B8E00 *)&lbl_804B8E00).value;
-    *(s32 *)((s8 *)arg0 + 0x1C) = TLobby::get_internet_beat();
+u8 *TWindowTimer__sub_80199410(u8 *object, u8 *arg1) {
+    __ct__7TObjectFP7TObject(object, arg1);
+    *(s32 **)((s8 *)object + 0x18) = &(*(RecoveredGlobal_80199410_lbl_804B8E00 *)&lbl_804B8E00).value;
+    *(s32 *)((s8 *)object + 0x1C) = TLobby::get_internet_beat();
     TWindowCtrl::create_timer();
     TWindowTimer::set_timer_value(1, 0);
     TWindowTimer::set_timer_value(0, 0);
-    return arg0;
+    return object;
 }
 }
 typedef char RecoveredGlobal_80199470_lbl_8050DDAC_size[sizeof(RecoveredGlobal_80199470_lbl_8050DDAC) == 0x1C ? 1 : -1];

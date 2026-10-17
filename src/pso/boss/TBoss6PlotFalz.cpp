@@ -1264,14 +1264,14 @@ void TBoss6PlotFalz::freeze_all_players() {
         }
     }
 }
-void TBoss6PlotFalz__sub_802AC724(u8 *arg0, u32 arg1) {
-    if (arg0 == NULL || arg1 == 0U) {
+void TBoss6PlotFalz__sub_802AC724(u8 *boss4_dark_falz, u32 arg1) {
+    if (boss4_dark_falz == NULL || arg1 == 0U) {
         return;
     }
     set_position_from__14TBoss4DarkFalzFPv();
-    ((TBoss4DarkFalz *)arg0)->save_position();
-    ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 0x900000);
-    *(u32 *)(arg0 + 0x30) &= 0xFFFFFFDF;
+    ((TBoss4DarkFalz *)boss4_dark_falz)->save_position();
+    ((TUnk_804AF8A0 *)boss4_dark_falz)->set_indexed_flags(0, 0x900000);
+    *(u32 *)(boss4_dark_falz + 0x30) &= 0xFFFFFFDF;
 }
 }
 

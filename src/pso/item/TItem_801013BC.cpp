@@ -40,10 +40,10 @@ void TItem::update_item_data() {
     is_custom_name_srank__9TItemDataFPv((u8 *)&sp8);
 }
 
-void TItem__sub_801013E8(TItem *arg0) {
+void TItem__sub_801013E8(TItem *item) {
     s32 sp8[4];
 
-    arg0->copy_to_item_data(&sp8);
+    item->copy_to_item_data(&sp8);
     is_rare_item__9TItemDataFPv((u8 *)&sp8);
 }
 

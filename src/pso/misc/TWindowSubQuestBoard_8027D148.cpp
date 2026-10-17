@@ -12,10 +12,10 @@ void *__nw__7TObjectFUl(int);
 extern void *TWindowSubQuestBoard__class_name;
 
 }
-TWindowSubQuestBoard::TWindowSubQuestBoard(TObject *arg1, void *arg2) : TObject(arg1) {
+TWindowSubQuestBoard::TWindowSubQuestBoard(TObject *object, void *arg2) : TObject(object) {
     void *o;
     *(void * *)&this->m_name = TWindowSubQuestBoard__class_name;
-    *(void **)((s8 *)this + 0x24) = arg1;
+    *(void **)((s8 *)this + 0x24) = object;
     *(void **)((s8 *)this + 0x20) = arg2;
     o = __nw__7TObjectFUl(0x68);
     if (o != NULL) {

@@ -997,49 +997,49 @@ s32 start_voice_fade(struct Voice_80241FD8 *v, s32 step) {
 
 #pragma push
 #pragma fp_contract on
-s32 init_sound_voice__6TLobbyFPviiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
-    *(s32 *)((s8 *)arg0 + 4) = 0;
-    *(s32 *)((s8 *)arg0 + 8) = arg4;
-    *(s32 *)((s8 *)arg0 + 0xC) = arg1;
-    *(s32 *)((s8 *)arg0 + 0x10) = arg2;
-    *(s32 *)((s8 *)arg0 + 0x14) = arg3;
-    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x20) = 0;
-    *(s32 *)((s8 *)arg0 + 0x28) = 0x7F;
-    *(s32 *)((s8 *)arg0 + 0x24) = 0x88888888;
-    *(s32 *)((s8 *)arg0 + 0x30) = 0x40;
-    *(s32 *)((s8 *)arg0 + 0x2C) = 0x88888888;
-    *(s32 *)((s8 *)arg0 + 0x38) = 0;
-    *(s32 *)((s8 *)arg0 + 0x34) = 0x88888888;
-    *(s32 *)((s8 *)arg0 + 0x3C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x40) = 0;
-    *(s32 *)((s8 *)arg0 + 0x44) = 0;
-    *(s32 *)((s8 *)arg0 + 0x48) = 0;
-    *(s32 *)((s8 *)arg0 + 0x4C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x50) = 0;
-    *(s32 *)((s8 *)arg0 + 0x54) = 0;
-    *(s32 *)((s8 *)arg0 + 0x58) = 0;
-    *(s32 *)((s8 *)arg0 + 0x60) = 0;
-    *(s32 *)((s8 *)arg0 + 0x64) = 0;
-    *(s32 *)((s8 *)arg0 + 0x68) = 0x88888888;
-    *(s32 *)((s8 *)arg0 + 0x6C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x70) = 0;
-    *(s32 *)((s8 *)arg0 + 0x74) = 0;
-    *(s32 *)((s8 *)arg0 + 0x78) = 0;
-    *(s32 *)((s8 *)arg0 + 0x7C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x80) = 0;
-    *(s32 *)((s8 *)arg0 + 0x84) = 0;
-    *(s16 *)((s8 *)arg0 + 0x8C) = 0x3F00;
-    *(s32 *)((s8 *)arg0 + 0x98) = 0;
-    *(s16 *)((s8 *)arg0 + 0x90) = 0;
-    *(s16 *)((s8 *)arg0 + 0x92) = 0;
-    *(s32 *)((s8 *)arg0 + 0x94) = 0;
-    *(f32 *)((s8 *)arg0 + 0x9C) = (f32) lbl_805DC9E4;
-    *(s32 *)((s8 *)arg0 + 0x88) = 0;
-    switch (*(s32 *)((s8 *)arg0 + 0xC)) {
+s32 init_sound_voice__6TLobbyFPviiii(void *lobby, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+    *(s32 *)((s8 *)lobby + 4) = 0;
+    *(s32 *)((s8 *)lobby + 8) = arg4;
+    *(s32 *)((s8 *)lobby + 0xC) = arg1;
+    *(s32 *)((s8 *)lobby + 0x10) = arg2;
+    *(s32 *)((s8 *)lobby + 0x14) = arg3;
+    *(s32 *)((s8 *)lobby + 0x1C) = 0;
+    *(s32 *)((s8 *)lobby + 0x20) = 0;
+    *(s32 *)((s8 *)lobby + 0x28) = 0x7F;
+    *(s32 *)((s8 *)lobby + 0x24) = 0x88888888;
+    *(s32 *)((s8 *)lobby + 0x30) = 0x40;
+    *(s32 *)((s8 *)lobby + 0x2C) = 0x88888888;
+    *(s32 *)((s8 *)lobby + 0x38) = 0;
+    *(s32 *)((s8 *)lobby + 0x34) = 0x88888888;
+    *(s32 *)((s8 *)lobby + 0x3C) = 0;
+    *(s32 *)((s8 *)lobby + 0x40) = 0;
+    *(s32 *)((s8 *)lobby + 0x44) = 0;
+    *(s32 *)((s8 *)lobby + 0x48) = 0;
+    *(s32 *)((s8 *)lobby + 0x4C) = 0;
+    *(s32 *)((s8 *)lobby + 0x50) = 0;
+    *(s32 *)((s8 *)lobby + 0x54) = 0;
+    *(s32 *)((s8 *)lobby + 0x58) = 0;
+    *(s32 *)((s8 *)lobby + 0x60) = 0;
+    *(s32 *)((s8 *)lobby + 0x64) = 0;
+    *(s32 *)((s8 *)lobby + 0x68) = 0x88888888;
+    *(s32 *)((s8 *)lobby + 0x6C) = 0;
+    *(s32 *)((s8 *)lobby + 0x70) = 0;
+    *(s32 *)((s8 *)lobby + 0x74) = 0;
+    *(s32 *)((s8 *)lobby + 0x78) = 0;
+    *(s32 *)((s8 *)lobby + 0x7C) = 0;
+    *(s32 *)((s8 *)lobby + 0x80) = 0;
+    *(s32 *)((s8 *)lobby + 0x84) = 0;
+    *(s16 *)((s8 *)lobby + 0x8C) = 0x3F00;
+    *(s32 *)((s8 *)lobby + 0x98) = 0;
+    *(s16 *)((s8 *)lobby + 0x90) = 0;
+    *(s16 *)((s8 *)lobby + 0x92) = 0;
+    *(s32 *)((s8 *)lobby + 0x94) = 0;
+    *(f32 *)((s8 *)lobby + 0x9C) = (f32) lbl_805DC9E4;
+    *(s32 *)((s8 *)lobby + 0x88) = 0;
+    switch (*(s32 *)((s8 *)lobby + 0xC)) {
     case 0:
-        *(s32 *)((s8 *)arg0 + 4) = -1;
-        update_random_flip_flag__6TLobbyFPv((u8 *)arg0);
+        *(s32 *)((s8 *)lobby + 4) = -1;
+        update_random_flip_flag__6TLobbyFPv((u8 *)lobby);
         break;
     }
     return 0;
@@ -1305,10 +1305,10 @@ void init_player_entry__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
 
 typedef char RecoveredGlobal_802426E8_lbl_80517F9C_size[sizeof(RecoveredGlobal_802426E8_lbl_80517F9C) == 0x5E4 ? 1 : -1];
 void remove_com_card_entry__6TLobbyFi(s32 arg0) {
-    u8 *temp_r3;
+    u8 *lobby;
     if (arg0 < 7) {
-        temp_r3 = (u8 *)&lbl_80517F9C.value + (arg0 * 0xBC);
-        ((TLobby *)temp_r3)->move_words((u32 *)(temp_r3 + 0xBC), (s32)((void *) ((u32) ((7 - arg0) * 0xBC) >> 2U)));
+        lobby = (u8 *)&lbl_80517F9C.value + (arg0 * 0xBC);
+        ((TLobby *)lobby)->move_words((u32 *)(lobby + 0xBC), (s32)((void *) ((u32) ((7 - arg0) * 0xBC) >> 2U)));
     }
     (*(s32 *)&com_card_entry_count) -= 1;
 }

@@ -66,10 +66,10 @@ void TSaveChCr::update_save_state() {
         }
     }
 }
-void fn_80339D78(u8 *arg0) {
-    ((s32)close_window__9TSaveChCrFv(arg0));
-    if (((TSaveChCr *)arg0)->card_status & 1) {
-        ((s32)close_and_advance__9TSaveChCrFPv(arg0, 0));
+void fn_80339D78(u8 *save_ch_cr) {
+    ((s32)close_window__9TSaveChCrFv(save_ch_cr));
+    if (((TSaveChCr *)save_ch_cr)->card_status & 1) {
+        ((s32)close_and_advance__9TSaveChCrFPv(save_ch_cr, 0));
     }
 }
 s32 TAdSinglePlyChrSelectGC__sub_80339DBC(void) {

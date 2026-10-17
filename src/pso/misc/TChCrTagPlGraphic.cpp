@@ -59,21 +59,21 @@ s32 TChCrTagPlGraphic__vt4(u8 *arg0) {
     return 0;
 }
 
-u8 *__ct__17TChCrTagPlGraphicFv(u8 *arg0, s32 arg1, s32 _w2) {
+u8 *__ct__17TChCrTagPlGraphicFv(u8 *ch_cr_tag, s32 arg1, s32 _w2) {
     u8 *temp_r5;
-    __ct__8TChCrTagFv(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__17TChCrTagPlGraphic.value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) ch_cr_tag_pl_graphic_class_name;
-    *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805DDF2C;
-    *(f32 *)((s8 *)arg0 + 0x2C) = (f32) lbl_805DDF30;
-    *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805DDF2C;
-    *(f32 *)((s8 *)arg0 + 0x38) = (f32) lbl_805DDF30;
-    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805DDF18;
-    temp_r5 = (u8 *)&TChCrTagPlGraphic__data_804664A4.value + (*(s32 *)((s8 *)arg0 + 0x20) * 0x18);
-    *(f32 *)((s8 *)arg0 + 0x40) = (f32) *(f32 *)((s8 *)temp_r5 + 4);
-    *(f32 *)((s8 *)arg0 + 0x44) = (f32) *(f32 *)((s8 *)temp_r5 + 0);
-    ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x48))->copy_vec2(temp_r5 + 8);
-    return arg0;
+    __ct__8TChCrTagFv(ch_cr_tag, arg1);
+    *(s32 **)((s8 *)ch_cr_tag + 0x18) = &__vt__17TChCrTagPlGraphic.value;
+    *(s32 *)((s8 *)ch_cr_tag + 0) = (s32) ch_cr_tag_pl_graphic_class_name;
+    *(f32 *)((s8 *)ch_cr_tag + 0x28) = (f32) lbl_805DDF2C;
+    *(f32 *)((s8 *)ch_cr_tag + 0x2C) = (f32) lbl_805DDF30;
+    *(f32 *)((s8 *)ch_cr_tag + 0x34) = (f32) lbl_805DDF2C;
+    *(f32 *)((s8 *)ch_cr_tag + 0x38) = (f32) lbl_805DDF30;
+    *(f32 *)((s8 *)ch_cr_tag + 0x3C) = (f32) lbl_805DDF18;
+    temp_r5 = (u8 *)&TChCrTagPlGraphic__data_804664A4.value + (*(s32 *)((s8 *)ch_cr_tag + 0x20) * 0x18);
+    *(f32 *)((s8 *)ch_cr_tag + 0x40) = (f32) *(f32 *)((s8 *)temp_r5 + 4);
+    *(f32 *)((s8 *)ch_cr_tag + 0x44) = (f32) *(f32 *)((s8 *)temp_r5 + 0);
+    ((TWindowSubSymbolChatPartsSet *)(ch_cr_tag + 0x48))->copy_vec2(temp_r5 + 8);
+    return ch_cr_tag;
 }
 
 void *TChCrTagPlGraphic::create(void *arg0) {

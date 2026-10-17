@@ -120,15 +120,15 @@ void TObjVoloptShutter::run_task() {
 }
 
 TObjVoloptShutter::~TObjVoloptShutter() {}
-u8 *__ct__17TObjVoloptShutterFv(u8 *arg0, s32 arg1) {
-    __ct__7TObjectFP7TObject(arg0, tl_04);
-    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__17TObjVoloptShutter.value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2768;
-    *(s32 *)((s8 *)arg0 + 0x1C) = arg1;
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (lbl_805D8904 * (f32) (-0x5A - (arg1 * 0x3C)));
-    *(f32 *)((s8 *)arg0 + 0x28) = (f32) TObjVoloptShutter__data_805D88F4;
-    *(f32 *)((s8 *)arg0 + 0x2C) = (f32) TObjVoloptShutter__data_805D88F4;
-    return arg0;
+u8 *__ct__17TObjVoloptShutterFv(u8 *object, s32 arg1) {
+    __ct__7TObjectFP7TObject(object, tl_04);
+    *(s32 **)((s8 *)object + 0x18) = &__vt__17TObjVoloptShutter.value;
+    *(s32 *)((s8 *)object + 0) = (s32) lbl_805D2768;
+    *(s32 *)((s8 *)object + 0x1C) = arg1;
+    *(s32 *)((s8 *)object + 0x30) = (s32) (lbl_805D8904 * (f32) (-0x5A - (arg1 * 0x3C)));
+    *(f32 *)((s8 *)object + 0x28) = (f32) TObjVoloptShutter__data_805D88F4;
+    *(f32 *)((s8 *)object + 0x2C) = (f32) TObjVoloptShutter__data_805D88F4;
+    return object;
 }
 
 }

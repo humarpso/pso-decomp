@@ -518,13 +518,13 @@ void TScene::render_map_sections() {
         end_ginja_model_draw();
     }
 }
-void TScene::render_static_map_section(SceneMaterialSection *arg1, s32 arg2) {
+void TScene::render_static_map_section(SceneMaterialSection *scene_material_section, s32 arg2) {
     SceneMaterialStatic *e;
     s32 i;
     Node_8020533C *node;
     void *tex;
 
-    for (i = 0, e = arg1->objects; i < arg1->count; i++, e++) {
+    for (i = 0, e = scene_material_section->objects; i < scene_material_section->count; i++, e++) {
         if (arg2 != 0 && !(e->flags & 0x10000)) {
             continue;
         }
@@ -551,10 +551,10 @@ void TScene::render_static_map_section(SceneMaterialSection *arg1, s32 arg2) {
                 v.x = sh->pos.x;
                 v.y = sh->pos.y;
                 v.z = sh->pos.z;
-                vec3_add_to(&v, arg1->position);
-                a.x = sh->ang.x + arg1->angles[0];
-                a.y = sh->ang.y + arg1->angles[1];
-                a.z = sh->ang.z + arg1->angles[2];
+                vec3_add_to(&v, scene_material_section->position);
+                a.x = sh->ang.x + scene_material_section->angles[0];
+                a.y = sh->ang.y + scene_material_section->angles[1];
+                a.z = sh->ang.z + scene_material_section->angles[2];
                 render_projected_shadow_receiver(&v, &a);
             }
         }
@@ -565,10 +565,10 @@ void TScene::render_static_map_section(SceneMaterialSection *arg1, s32 arg2) {
             v.x = node->pos.x;
             v.y = node->pos.y;
             v.z = node->pos.z;
-            vec3_add_to(&v, arg1->position);
-            a.x = node->ang.x + arg1->angles[0];
-            a.y = node->ang.y + arg1->angles[1];
-            a.z = node->ang.z + arg1->angles[2];
+            vec3_add_to(&v, scene_material_section->position);
+            a.x = node->ang.x + scene_material_section->angles[0];
+            a.y = node->ang.y + scene_material_section->angles[1];
+            a.z = node->ang.z + scene_material_section->angles[2];
             TScene__map_section_render_callback(&v, &a, e->flags);
         }
         if (e->flags & 0x200) {
@@ -590,10 +590,10 @@ void TScene::render_static_map_section(SceneMaterialSection *arg1, s32 arg2) {
                     l.v.x = node->pos.x;
                     l.v.y = node->pos.y;
                     l.v.z = node->pos.z;
-                    vec3_add_to(&l.v, arg1->position);
-                    l.a.x = node->ang.x + arg1->angles[0];
-                    l.a.y = node->ang.y + arg1->angles[1];
-                    l.a.z = node->ang.z + arg1->angles[2];
+                    vec3_add_to(&l.v, scene_material_section->position);
+                    l.a.x = node->ang.x + scene_material_section->angles[0];
+                    l.a.y = node->ang.y + scene_material_section->angles[1];
+                    l.a.z = node->ang.z + scene_material_section->angles[2];
                     l.param = (void *)*(s32 *)((s8 *)TScene__data_805D5FCC + 0x14);
                     l.node = node;
                     l.scene = TScene__data_805D5FCC->flags;
@@ -631,12 +631,12 @@ void TScene::render_static_map_section(SceneMaterialSection *arg1, s32 arg2) {
     }
 }
 void draw_ginja_model_with_motion(void *, void *, f32);
-void TScene::render_animated_map_section(SceneMaterialSection *arg1, s32 arg2) {
+void TScene::render_animated_map_section(SceneMaterialSection *scene_material_section, s32 arg2) {
   void *texture;
   SceneMaterialAnimated *e;
   s32 i;
   Node_8020533C *node;
-  for (i = 0, e = arg1->animated; i < arg1->animatedCount; i++, e++)
+  for (i = 0, e = scene_material_section->animated; i < scene_material_section->animatedCount; i++, e++)
   {
     if ((arg2 != 0) && (!(e->flags & 0x10000)))
     {
@@ -674,10 +674,10 @@ void TScene::render_animated_map_section(SceneMaterialSection *arg1, s32 arg2) {
       v.x = node->pos.x;
       v.y = node->pos.y;
       v.z = node->pos.z;
-      vec3_add_to(&v, arg1->position);
-      a.x = node->ang.x + arg1->angles[0];
-      a.y = node->ang.y + arg1->angles[1];
-      a.z = node->ang.z + arg1->angles[2];
+      vec3_add_to(&v, scene_material_section->position);
+      a.x = node->ang.x + scene_material_section->angles[0];
+      a.y = node->ang.y + scene_material_section->angles[1];
+      a.z = node->ang.z + scene_material_section->angles[2];
       render_projected_shadow_receiver(&v, &a);
     }
     if (TScene__map_section_render_callback != 0)
@@ -687,10 +687,10 @@ void TScene::render_animated_map_section(SceneMaterialSection *arg1, s32 arg2) {
       v.x = node->pos.x;
       v.y = node->pos.y;
       v.z = node->pos.z;
-      vec3_add_to(&v, arg1->position);
-      a.x = node->ang.x + arg1->angles[0];
-      a.y = node->ang.y + arg1->angles[1];
-      a.z = node->ang.z + arg1->angles[2];
+      vec3_add_to(&v, scene_material_section->position);
+      a.x = node->ang.x + scene_material_section->angles[0];
+      a.y = node->ang.y + scene_material_section->angles[1];
+      a.z = node->ang.z + scene_material_section->angles[2];
       TScene__map_section_render_callback(&v, &a, e->flags);
     }
     if (e->flags & 0x200)

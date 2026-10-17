@@ -2758,60 +2758,60 @@ void select_path_waypoint__10TNpcPlayerFv(Self_801501A0 *self) {
 
 #pragma push
 #pragma fp_contract on
-void partner_observe_surroundings(TNpcPlayer *arg0) {
+void partner_observe_surroundings(TNpcPlayer *npc_player) {
     f32 temp_f3;
     s32 temp_r3_2;
     s32 temp_r5;
     u8 *temp_r3;
     u8 *temp_r3_3;
-    temp_r5 = *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x74)) + 0x94);
-    *(f32 *)((s8 *)arg0 + 0x58) = ((f32 (*)(void *, void *, int))horizontal_distance_squared)((void *) (temp_r5 + 0x38), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x78)) + 0x94) + 0x38), (int) (temp_r5));
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x84) != 0) {
-        ((s32 (*)(void *, void *, f32))try_update_target_flag__10TNpcPlayerFPvi)((void *) (*(u8 **)((s8 *)arg0 + 0x78)), (void *) (get_npc_type__10TNpcPlayerFPv((void *) (*(u8 **)((s8 *)arg0 + 0x74)))), (f32) (*(f32 *)((s8 *)arg0 + 0x38)));
+    temp_r5 = *(s32 *)((s8 *)(*(u8 **)((s8 *)npc_player + 0x74)) + 0x94);
+    *(f32 *)((s8 *)npc_player + 0x58) = ((f32 (*)(void *, void *, int))horizontal_distance_squared)((void *) (temp_r5 + 0x38), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)npc_player + 0x78)) + 0x94) + 0x38), (int) (temp_r5));
+    if ((s32) *(s32 *)((s8 *)npc_player + 0x84) != 0) {
+        ((s32 (*)(void *, void *, f32))try_update_target_flag__10TNpcPlayerFPvi)((void *) (*(u8 **)((s8 *)npc_player + 0x78)), (void *) (get_npc_type__10TNpcPlayerFPv((void *) (*(u8 **)((s8 *)npc_player + 0x74)))), (f32) (*(f32 *)((s8 *)npc_player + 0x38)));
     } else {
-        ((s32 (*)(s32, f32))check_and_set_reached__10TNpcPlayerFPv)((s32)((void *) (*(u8 **)((s8 *)arg0 + 0x78))), (f32) (*(f32 *)((s8 *)arg0 + 0x38)));
+        ((s32 (*)(s32, f32))check_and_set_reached__10TNpcPlayerFPv)((s32)((void *) (*(u8 **)((s8 *)npc_player + 0x78))), (f32) (*(f32 *)((s8 *)npc_player + 0x38)));
     }
-    ((s32 (*)(s32))partner_view_update_conditions)((s32)((void *) (*(u8 **)((s8 *)arg0 + 0x78))));
-    temp_f3 = *(f32 *)((s8 *)arg0 + 0xDC);
-    temp_r3 = (u8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x78)) + 0x94));
-    *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x78)) + 0x98) = (s32) (lbl_8043FFD8 * atan2_float((int) (temp_r3), (f32) (temp_f3 - *(f32 *)((s8 *)temp_r3 + 0x38)), (f32) (*(f32 *)((s8 *)arg0 + 0xE4) - *(f32 *)((s8 *)temp_r3 + 0x40)), (f32) (temp_f3)));
-    ((s32 (*)(void *))partner_probe_obstacles)((void *) (*(u8 **)((s8 *)arg0 + 0x78)));
-    if (partner_view_update_hp_change((void *) (*(u8 **)((s8 *)arg0 + 0x78))) != 0) {
-        if (((TNpcPlayer *)(*(u8 **)((s8 *)arg0 + 0x78)))->get_condition() & 0x40) {
-            arg0->request_chatter(0xE);
-        } else if (((TNpcPlayer *)(*(u8 **)((s8 *)arg0 + 0x78)))->get_condition() & 0x80) {
-            arg0->request_chatter(0xF);
-        } else if (((TNpcPlayer *)(*(u8 **)((s8 *)arg0 + 0x78)))->get_condition() & 0x200) {
-            if ((u32) *(u32 *)((s8 *)arg0 + 0x7C) != 8U) {
-                temp_r3_2 = *(s32 *)((s8 *)arg0 + 0x80);
+    ((s32 (*)(s32))partner_view_update_conditions)((s32)((void *) (*(u8 **)((s8 *)npc_player + 0x78))));
+    temp_f3 = *(f32 *)((s8 *)npc_player + 0xDC);
+    temp_r3 = (u8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)npc_player + 0x78)) + 0x94));
+    *(s32 *)((s8 *)(*(u8 **)((s8 *)npc_player + 0x78)) + 0x98) = (s32) (lbl_8043FFD8 * atan2_float((int) (temp_r3), (f32) (temp_f3 - *(f32 *)((s8 *)temp_r3 + 0x38)), (f32) (*(f32 *)((s8 *)npc_player + 0xE4) - *(f32 *)((s8 *)temp_r3 + 0x40)), (f32) (temp_f3)));
+    ((s32 (*)(void *))partner_probe_obstacles)((void *) (*(u8 **)((s8 *)npc_player + 0x78)));
+    if (partner_view_update_hp_change((void *) (*(u8 **)((s8 *)npc_player + 0x78))) != 0) {
+        if (((TNpcPlayer *)(*(u8 **)((s8 *)npc_player + 0x78)))->get_condition() & 0x40) {
+            npc_player->request_chatter(0xE);
+        } else if (((TNpcPlayer *)(*(u8 **)((s8 *)npc_player + 0x78)))->get_condition() & 0x80) {
+            npc_player->request_chatter(0xF);
+        } else if (((TNpcPlayer *)(*(u8 **)((s8 *)npc_player + 0x78)))->get_condition() & 0x200) {
+            if ((u32) *(u32 *)((s8 *)npc_player + 0x7C) != 8U) {
+                temp_r3_2 = *(s32 *)((s8 *)npc_player + 0x80);
                 if (temp_r3_2 & 0x10000) {
-                    *(s32 *)((s8 *)arg0 + 0x80) = (s32) (temp_r3_2 & 0xFFFEFFFF);
+                    *(s32 *)((s8 *)npc_player + 0x80) = (s32) (temp_r3_2 & 0xFFFEFFFF);
                 } else {
-                    arg0->request_chatter(0x11);
+                    npc_player->request_chatter(0x11);
                 }
             }
         } else {
-            arg0->request_chatter(0x10);
+            npc_player->request_chatter(0x10);
         }
     }
-    if (((s32)((s32 (*)(s32))partner_view_check_moved)((s32)((void *) (*(u8 **)((s8 *)arg0 + 0x78))))) == 0) {
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x7C) == 1U) {
-            if (((TNpcPlayer *)(*(u8 **)((s8 *)arg0 + 0x78)))->get_action_state() & 0x80) {
-                *(u8 *)((s8 *)arg0 + 0x8C) = 0U;
-                *(u8 *)((s8 *)arg0 + 0x8D) = 0U;
+    if (((s32)((s32 (*)(s32))partner_view_check_moved)((s32)((void *) (*(u8 **)((s8 *)npc_player + 0x78))))) == 0) {
+        if ((u32) *(u32 *)((s8 *)npc_player + 0x7C) == 1U) {
+            if (((TNpcPlayer *)(*(u8 **)((s8 *)npc_player + 0x78)))->get_action_state() & 0x80) {
+                *(u8 *)((s8 *)npc_player + 0x8C) = 0U;
+                *(u8 *)((s8 *)npc_player + 0x8D) = 0U;
                 return;
             }
-            *(u8 *)((s8 *)arg0 + 0x8D) = (u8) (*(u8 *)((s8 *)arg0 + 0x8D) + 1);
-            if ((s8) *(u8 *)((s8 *)arg0 + 0x8D) > 0x1E) {
-                *(u8 *)((s8 *)arg0 + 0x8D) = 0x1EU;
+            *(u8 *)((s8 *)npc_player + 0x8D) = (u8) (*(u8 *)((s8 *)npc_player + 0x8D) + 1);
+            if ((s8) *(u8 *)((s8 *)npc_player + 0x8D) > 0x1E) {
+                *(u8 *)((s8 *)npc_player + 0x8D) = 0x1EU;
             }
-            *(u8 *)((s8 *)arg0 + 0x8C) = (u8) (*(u8 *)((s8 *)arg0 + 0x8C) + 1);
+            *(u8 *)((s8 *)npc_player + 0x8C) = (u8) (*(u8 *)((s8 *)npc_player + 0x8C) + 1);
         }
     } else {
-        temp_r3_3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x78));
+        temp_r3_3 = (u8 *)(*(u8 **)((s8 *)npc_player + 0x78));
         ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (temp_r3_3 + 0x9C), (void *) (*(u8 **)((s8 *)temp_r3_3 + 0x94) + 0x44));
-        *(u8 *)((s8 *)arg0 + 0x8C) = 0U;
-        *(u8 *)((s8 *)arg0 + 0x8D) = 0U;
+        *(u8 *)((s8 *)npc_player + 0x8C) = 0U;
+        *(u8 *)((s8 *)npc_player + 0x8D) = 0U;
     }
 }
 #pragma pop
@@ -3411,13 +3411,13 @@ void TNpcPlayer::run_task() {
 
 u8 *__dt__10TNpcPlayerFv(u8 *arg0, s16 arg1) {
     u32 player;
-    u8 *temp_r3;
+    u8 *npc_player;
     u8 *temp_r3_2;
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = ((s32 *)__vt__10TNpcPlayer);
-        temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x74));
-        if (temp_r3 != NULL) {
-            ((TNpcPlayer *)temp_r3)->dt(1);
+        npc_player = (u8 *)(*(u8 **)((s8 *)arg0 + 0x74));
+        if (npc_player != NULL) {
+            ((TNpcPlayer *)npc_player)->dt(1);
             *(u8 **)((s8 *)arg0 + 0x74) = NULL;
         }
         temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x78));

@@ -326,9 +326,9 @@ u8 *TWindowSubTradeMain::open_confirm_prompt() {
     return w;
 }
 
-u8 *open_option_dialog__19TWindowSubTradeMainFPvi(u8 *arg0, s32 arg1) {
+u8 *open_option_dialog__19TWindowSubTradeMainFPvi(u8 *window_message_yes_no, s32 arg1) {
     u8 *temp_r31;
-    temp_r31 = (u8 *)(create__19TWindowMessageYesNoFPvPvPvPv(arg0, *(u8 **)((s8 *)arg0 + 0x28), NULL, NULL));
+    temp_r31 = (u8 *)(create__19TWindowMessageYesNoFPvPvPvPv(window_message_yes_no, *(u8 **)((s8 *)window_message_yes_no + 0x28), NULL, NULL));
     initialize_option_dialog(temp_r31, arg1, get_window_layout_position(0x5F), TWindowSubTradeMain__data_805DF858);
     return temp_r31;
 }

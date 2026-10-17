@@ -20,7 +20,7 @@ void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_801C241C_lbl_804C3E60 duel_result_window_dispatch_table;
 
 void show_duel_result_window(s32 arg0, s32 arg1) {
-    u8 *temp_r3;
+    u8 *window_duel_result;
     u8 *var_r0;
     if ((void *) duel_result_window != NULL) {
         *(s32 *)((s8 *)duel_result_window + 0x1C) = arg1;
@@ -28,10 +28,10 @@ void show_duel_result_window(s32 arg0, s32 arg1) {
         TLobby::set_and_notify(arg0);
         return;
     }
-    temp_r3 = (u8 *)(__nw__7TObjectFUl(0x24));
-    var_r0 = temp_r3;
+    window_duel_result = (u8 *)(__nw__7TObjectFUl(0x24));
+    var_r0 = window_duel_result;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(((TWindowDuelResult *)temp_r3)->init((void *)tl_00, (void *)arg0, (void *)arg1));
+        var_r0 = (u8 *)(((TWindowDuelResult *)window_duel_result)->init((void *)tl_00, (void *)arg0, (void *)arg1));
     }
     duel_result_window = var_r0;
 }

@@ -81,21 +81,21 @@ void *__dt__16TObjHashiVersus2Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TObjHashiVersus2__ct(u8 *arg0, s32 arg1, s32 _w2) {
-    TObjHashiBase__ct(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801913F8___vt__16TObjHashiVersus2 *)&__vt__16TObjHashiVersus2).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3380;
-    if (is_current_floor_switch_set((int) ((u16) *(s32 *)((s8 *)arg0 + 0xC8))) == 0) {
-        *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) - *(f32 *)((s8 *)arg0 + 0x68));
+u8 *TObjHashiVersus2__ct(u8 *player, s32 arg1, s32 _w2) {
+    TObjHashiBase__ct(player, arg1);
+    *(s32 **)((s8 *)player + 0x18) = &(*(RecoveredGlobal_801913F8___vt__16TObjHashiVersus2 *)&__vt__16TObjHashiVersus2).value;
+    *(s32 *)((s8 *)player + 0) = (s32) lbl_805D3380;
+    if (is_current_floor_switch_set((int) ((u16) *(s32 *)((s8 *)player + 0xC8))) == 0) {
+        *(f32 *)((s8 *)player + 0x3C) = (f32) (*(f32 *)((s8 *)player + 0x3C) - *(f32 *)((s8 *)player + 0x68));
     }
-    *(f32 *)((s8 *)arg0 + 0xD0) = (f32) *(f32 *)((s8 *)arg0 + 0x6C);
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DBE20;
-    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((*(u8 * *)&TObjHashiVersus2__resource_bundle), 0);
-    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((*(u8 * *)&TObjHashiVersus2__resource_bundle), 0);
-    init_collision_body_parts(arg0, (s32) &TObjHashiVersus2__collision_body_parts.value, 2);
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
-    ((TObjPlayer *)arg0)->reset_photon_effect();
-    return arg0;
+    *(f32 *)((s8 *)player + 0xD0) = (f32) *(f32 *)((s8 *)player + 0x6C);
+    *(f32 *)((s8 *)player + 0xC4) = (f32) lbl_805DBE20;
+    *(s32 *)((s8 *)player + 0x34) = get_bml_model((*(u8 * *)&TObjHashiVersus2__resource_bundle), 0);
+    *(s32 *)((s8 *)player + 0x24) = TObjFish__sub_8001EDB0((*(u8 * *)&TObjHashiVersus2__resource_bundle), 0);
+    init_collision_body_parts(player, (s32) &TObjHashiVersus2__collision_body_parts.value, 2);
+    *(s32 *)((s8 *)player + 0x30) = (s32) (*(s32 *)((s8 *)player + 0x30) | 0x40000000);
+    ((TObjPlayer *)player)->reset_photon_effect();
+    return player;
 }
 
 __declspec(section ".data") const char *fe_obj321_hashi_model_names[2] = { lbl_80445974, NULL };

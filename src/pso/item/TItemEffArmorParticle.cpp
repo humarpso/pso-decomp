@@ -82,7 +82,7 @@ void disallow_rendering__7TObjectFv(TObject *arg0);
 extern s32 TItemEffArmorParticle__class_name;
 
 }
-TItemEffArmorParticle::TItemEffArmorParticle(TObject *arg1, s32 item_id, s32 player_id, s32 arg4) : TObject(arg1) {
+TItemEffArmorParticle::TItemEffArmorParticle(TObject *object, s32 item_id, s32 player_id, s32 arg4) : TObject(object) {
     void *player;
     u32 p;
     *(s32 *)((s8 *)this + 0) = (s32) TItemEffArmorParticle__class_name;

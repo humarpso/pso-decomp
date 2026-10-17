@@ -227,50 +227,50 @@ void TEndingC::run_task() {
 TEndingC::~TEndingC() {}
 
 extern "C" {
-u8 *__ct__8TEndingCFv(u8 *arg0, u8 *arg1) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__8TEndingC;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2960;
-    *(s32 *)((s8 *)arg0 + 0x20) = 0;
-    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
-    *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805D95D4;
-    *(f32 *)((s8 *)arg0 + 0x2C) = (f32) lbl_805D95D4;
-    *(s32 *)((s8 *)arg0 + 0x24) = 0;
-    *(f32 *)((s8 *)arg0 + 0x30) = (f32) lbl_805D95D8;
-    *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805D95D4;
-    *(f32 *)((s8 *)arg0 + 0x38) = (f32) lbl_805D95DC;
-    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805D95E0;
-    *(f32 *)((s8 *)arg0 + 0x40) = (f32) lbl_805D95E4;
-    *(f32 *)((s8 *)arg0 + 0x44) = (f32) lbl_805D95D4;
-    *(f32 *)((s8 *)arg0 + 0x48) = (f32) lbl_805D95CC;
-    *(f32 *)((s8 *)arg0 + 0x4C) = (f32) lbl_805D95E8;
-    *(f32 *)((s8 *)arg0 + 0x50) = (f32) lbl_805D95D4;
-    *(f32 *)((s8 *)arg0 + 0x54) = (f32) lbl_805D95D4;
-    *(f32 *)((s8 *)arg0 + 0x58) = (f32) lbl_805D95EC;
-    *(f32 *)((s8 *)arg0 + 0x5C) = (f32) lbl_805D95E0;
-    *(f32 *)((s8 *)arg0 + 0x60) = (f32) lbl_805D95D4;
-    *(f32 *)((s8 *)arg0 + 0x64) = (f32) lbl_805D95D4;
-    *(f32 *)((s8 *)arg0 + 0x68) = (f32) lbl_805D95E4;
-    *(f32 *)((s8 *)arg0 + 0x6C) = (f32) lbl_805D95E8;
-    *(f32 *)((s8 *)arg0 + 0x70) = (f32) lbl_805D95F0;
-    *(f32 *)((s8 *)arg0 + 0x74) = (f32) lbl_805D95D4;
-    *(f32 *)((s8 *)arg0 + 0x78) = (f32) lbl_805D95F4;
-    *(f32 *)((s8 *)arg0 + 0x7C) = (f32) lbl_805D95E0;
-    *(f32 *)((s8 *)arg0 + 0x80) = (f32) lbl_805D95D4;
-    *(f32 *)((s8 *)arg0 + 0x84) = (f32) lbl_805D95D4;
-    *(f32 *)((s8 *)arg0 + 0x88) = (f32) lbl_805D95CC;
-    *(f32 *)((s8 *)arg0 + 0x8C) = (f32) lbl_805D95CC;
+u8 *__ct__8TEndingCFv(u8 *object, u8 *arg1) {
+    __ct__7TObjectFP7TObject(object, arg1);
+    *(s32 **)((s8 *)object + 0x18) = (s32 *)__vt__8TEndingC;
+    *(s32 *)((s8 *)object + 0) = (s32) lbl_805D2960;
+    *(s32 *)((s8 *)object + 0x20) = 0;
+    *(s32 *)((s8 *)object + 0x1C) = 0;
+    *(f32 *)((s8 *)object + 0x28) = (f32) lbl_805D95D4;
+    *(f32 *)((s8 *)object + 0x2C) = (f32) lbl_805D95D4;
+    *(s32 *)((s8 *)object + 0x24) = 0;
+    *(f32 *)((s8 *)object + 0x30) = (f32) lbl_805D95D8;
+    *(f32 *)((s8 *)object + 0x34) = (f32) lbl_805D95D4;
+    *(f32 *)((s8 *)object + 0x38) = (f32) lbl_805D95DC;
+    *(f32 *)((s8 *)object + 0x3C) = (f32) lbl_805D95E0;
+    *(f32 *)((s8 *)object + 0x40) = (f32) lbl_805D95E4;
+    *(f32 *)((s8 *)object + 0x44) = (f32) lbl_805D95D4;
+    *(f32 *)((s8 *)object + 0x48) = (f32) lbl_805D95CC;
+    *(f32 *)((s8 *)object + 0x4C) = (f32) lbl_805D95E8;
+    *(f32 *)((s8 *)object + 0x50) = (f32) lbl_805D95D4;
+    *(f32 *)((s8 *)object + 0x54) = (f32) lbl_805D95D4;
+    *(f32 *)((s8 *)object + 0x58) = (f32) lbl_805D95EC;
+    *(f32 *)((s8 *)object + 0x5C) = (f32) lbl_805D95E0;
+    *(f32 *)((s8 *)object + 0x60) = (f32) lbl_805D95D4;
+    *(f32 *)((s8 *)object + 0x64) = (f32) lbl_805D95D4;
+    *(f32 *)((s8 *)object + 0x68) = (f32) lbl_805D95E4;
+    *(f32 *)((s8 *)object + 0x6C) = (f32) lbl_805D95E8;
+    *(f32 *)((s8 *)object + 0x70) = (f32) lbl_805D95F0;
+    *(f32 *)((s8 *)object + 0x74) = (f32) lbl_805D95D4;
+    *(f32 *)((s8 *)object + 0x78) = (f32) lbl_805D95F4;
+    *(f32 *)((s8 *)object + 0x7C) = (f32) lbl_805D95E0;
+    *(f32 *)((s8 *)object + 0x80) = (f32) lbl_805D95D4;
+    *(f32 *)((s8 *)object + 0x84) = (f32) lbl_805D95D4;
+    *(f32 *)((s8 *)object + 0x88) = (f32) lbl_805D95CC;
+    *(f32 *)((s8 *)object + 0x8C) = (f32) lbl_805D95CC;
     switch (TKeyBoardControl__sub_8000F828()) {
     case 0:
-        *(s32 *)((s8 *)arg0 + 0x90) = 0x1E;
+        *(s32 *)((s8 *)object + 0x90) = 0x1E;
         break;
     case 1:
-        *(s32 *)((s8 *)arg0 + 0x90) = 0x19;
+        *(s32 *)((s8 *)object + 0x90) = 0x19;
         break;
     }
-    *(f32 *)((s8 *)arg0 + 0x94) = (f32) (lbl_805D95F8 * (f32) *(s32 *)((s8 *)arg0 + 0x90));
-    *(f32 *)((s8 *)arg0 + 0x98) = (f32) (lbl_805D95F8 * (f32) *(s32 *)((s8 *)arg0 + 0x90));
-    return arg0;
+    *(f32 *)((s8 *)object + 0x94) = (f32) (lbl_805D95F8 * (f32) *(s32 *)((s8 *)object + 0x90));
+    *(f32 *)((s8 *)object + 0x98) = (f32) (lbl_805D95F8 * (f32) *(s32 *)((s8 *)object + 0x90));
+    return object;
 }
 
 void release_lobby__8TEndingCFv(void);

@@ -62,11 +62,11 @@ void *__dt__17TWindowMainMenu4PFv(void *arg0, s16 arg1) {
 
 extern void *TWindowMainMenu4P__name;
 
-void *TWindowMainMenu4P__ct(void *arg0) {
-    TWindowMainMenu__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TWindowMainMenu4P;
-    *(void * *)&((TWindowMainMenu4P *)arg0)->m_name = TWindowMainMenu4P__name;
-    return arg0;
+void *TWindowMainMenu4P__ct(void *window_main_menu4_p) {
+    TWindowMainMenu__ct(window_main_menu4_p);
+    *(s32 **)((s8 *)window_main_menu4_p + 0x18) = __vt__17TWindowMainMenu4P;
+    *(void * *)&((TWindowMainMenu4P *)window_main_menu4_p)->m_name = TWindowMainMenu4P__name;
+    return window_main_menu4_p;
 }
 
 }

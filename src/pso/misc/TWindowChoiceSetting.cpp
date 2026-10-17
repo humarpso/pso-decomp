@@ -152,21 +152,21 @@ void TUnk_804D0658::draw_setting(s32 arg1) {
 extern s32 lbl_805D3970;
 extern const f32 lbl_805DD1F4;
 
-void TWindowMenuInfomation__ct(u8 *arg0, u32 arg1) {
+void TWindowMenuInfomation__ct(u8 *lobby, u32 arg1) {
     u32 i;
     u8 *e;
-    *(s32 *)arg0 = lbl_805D3970;
-    *(s16 *)(arg0 + 0x72) = 0;
-    *(s16 *)(arg0 + 0x74) = 0;
-    *(u16 *)(arg0 + 0x76) = arg1;
-    *(s16 *)(arg0 + 0x70) = 0;
-    *(s32 *)(arg0 + 0x78) = 0;
-    *(s32 *)(arg0 + 0x7C) = 0;
+    *(s32 *)lobby = lbl_805D3970;
+    *(s16 *)(lobby + 0x72) = 0;
+    *(s16 *)(lobby + 0x74) = 0;
+    *(u16 *)(lobby + 0x76) = arg1;
+    *(s16 *)(lobby + 0x70) = 0;
+    *(s32 *)(lobby + 0x78) = 0;
+    *(s32 *)(lobby + 0x7C) = 0;
     for (i = 0; i < arg1; i++) {
-        e = ((u8 *(*)(void *, u32))get_array_entry__13TUnk_804CE018Fi)(arg0, i);
+        e = ((u8 *(*)(void *, u32))get_array_entry__13TUnk_804CE018Fi)(lobby, i);
         *(f32 *)(e + 0xC) = (f32)(i * 0x14);
     }
-    ((TLobby *)arg0)->set_field_1c(lbl_805DD1F4);
+    ((TLobby *)lobby)->set_field_1c(lbl_805DD1F4);
 }
 }
 

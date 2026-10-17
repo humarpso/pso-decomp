@@ -195,12 +195,12 @@ void *__dt__14TWindowComCardFv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_80249BA8_lbl_804CE8D0_size[sizeof(RecoveredGlobal_80249BA8_lbl_804CE8D0) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80249BA8___vt__14TWindowComCard_size[sizeof(RecoveredGlobal_80249BA8___vt__14TWindowComCard) == 0x1C ? 1 : -1];
-u8 *TWindowComCard__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    ((TWindowDD *)arg0)->construct_base((u8 *)((s32) &TWindowComCard__window_desc.value), (s16)4, (u8 *)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__14TWindowComCard;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D38C0;
-    update_com_card_display((s32)(arg0 + 0x24), arg2);
-    return arg0;
+u8 *TWindowComCard__ct(u8 *window_dd, s32 arg1, s32 arg2) {
+    ((TWindowDD *)window_dd)->construct_base((u8 *)((s32) &TWindowComCard__window_desc.value), (s16)4, (u8 *)arg1);
+    *(s32 **)((s8 *)window_dd + 0x18) = (s32 *)__vt__14TWindowComCard;
+    *(s32 *)((s8 *)window_dd + 0) = (s32) lbl_805D38C0;
+    update_com_card_display((s32)(window_dd + 0x24), arg2);
+    return window_dd;
 }
 
 void*TWindowComCard::get_kbd_ptr() { return (char*)this + 0x20; }
@@ -371,12 +371,12 @@ Win_80249ED8 *TWindowComCard__sub_80249ED8(Win_80249ED8 *o, Parent_80249ED8 *par
 #pragma pop
 
 void TWindowTradeRequest::close_request_window() {
-    u8 *temp_r3;
+    u8 *object;
     lbl_805D63FC &= 0xFFFFFFF7;
     if ((void *) (*(u8 * *)&TWindowCtrl__active_window) != NULL) {
-        temp_r3 = (u8 *)(*(u8 **)((s8 *)(*(u8 * *)&TWindowCtrl__active_window) + 0x40));
-        if (temp_r3 != NULL) {
-            queue_destruction__7TObjectFv(temp_r3);
+        object = (u8 *)(*(u8 **)((s8 *)(*(u8 * *)&TWindowCtrl__active_window) + 0x40));
+        if (object != NULL) {
+            queue_destruction__7TObjectFv(object);
             *(u8 **)((s8 *)(*(u8 * *)&TWindowCtrl__active_window) + 0x40) = NULL;
         }
     }

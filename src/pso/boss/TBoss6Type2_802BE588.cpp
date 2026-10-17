@@ -381,37 +381,37 @@ void TBoss6Type2::init_attack_timers() {
     TBoss6Type2__sub_802BB768(this);
 }
 
-void update_death_sequence__11TBoss6Type2FPv(u8 *arg0) {
+void update_death_sequence__11TBoss6Type2FPv(u8 *boss6_type2) {
     s32 d;
     s32 t;
-    TBoss6Type2__sub_802BA598(arg0, *(s32 *)((s8 *)arg0 + 0x460), *(s32 *)((s8 *)arg0 + 0x45C));
-    d = *(s32 *)((s8 *)arg0 + 0x45C);
+    TBoss6Type2__sub_802BA598(boss6_type2, *(s32 *)((s8 *)boss6_type2 + 0x460), *(s32 *)((s8 *)boss6_type2 + 0x45C));
+    d = *(s32 *)((s8 *)boss6_type2 + 0x45C);
     s32 d16 = d - 0x16;
-    if (*(s32 *)((s8 *)arg0 + 0x460) == d - 7) {
-        play_sound_effect(0x4006A601, arg0 + 0x38, 0, 0);
+    if (*(s32 *)((s8 *)boss6_type2 + 0x460) == d - 7) {
+        play_sound_effect(0x4006A601, boss6_type2 + 0x38, 0, 0);
     }
-    if (*(s32 *)((s8 *)arg0 + 0x460) == d16) {
-        play_sound_effect(0x40069E03, arg0 + 0x38, 0, 1);
+    if (*(s32 *)((s8 *)boss6_type2 + 0x460) == d16) {
+        play_sound_effect(0x40069E03, boss6_type2 + 0x38, 0, 1);
     }
-    ((TBoss6Type2 *)arg0)->trigger_screen_pos();
-    switch (*(s32 *)((s8 *)arg0 + 0x460)) {
+    ((TBoss6Type2 *)boss6_type2)->trigger_screen_pos();
+    switch (*(s32 *)((s8 *)boss6_type2 + 0x460)) {
     case 0x2D:
     case 0x37:
     case 0x41:
-        spawn_particle_effect_with_flags(arg0 + 0x38, 0x221, 0x40);
-        spawn_particle_effect_with_flags(arg0 + 0x38, 0x22F, 0x40);
+        spawn_particle_effect_with_flags(boss6_type2 + 0x38, 0x221, 0x40);
+        spawn_particle_effect_with_flags(boss6_type2 + 0x38, 0x22F, 0x40);
         break;
     }
-    if (*(s32 *)((s8 *)arg0 + 0x460) == 0x41) {
+    if (*(s32 *)((s8 *)boss6_type2 + 0x460) == 0x41) {
         TCameraCtrl::set_shake_preset(1);
     }
-    t = *(s32 *)((s8 *)arg0 + 0x460) - 1;
-    *(s32 *)((s8 *)arg0 + 0x460) = t;
+    t = *(s32 *)((s8 *)boss6_type2 + 0x460) - 1;
+    *(s32 *)((s8 *)boss6_type2 + 0x460) = t;
     if (t < 0) {
-        if (*(s32 *)((s8 *)arg0 + 0x418) != 0) {
-            ((TBoss6Type2 *)arg0)->set_action_state((void *)0x1C);
+        if (*(s32 *)((s8 *)boss6_type2 + 0x418) != 0) {
+            ((TBoss6Type2 *)boss6_type2)->set_action_state((void *)0x1C);
         } else {
-            ((TBoss6Type2 *)arg0)->set_action_state((void *)0);
+            ((TBoss6Type2 *)boss6_type2)->set_action_state((void *)0);
         }
     }
 }

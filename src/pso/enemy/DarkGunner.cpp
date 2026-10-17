@@ -717,14 +717,14 @@ u8 *TObjEneDarkGunCenter__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void clear_lappy_flag_set_param(TObjEneLappy *arg0) {
-    arg0->m_388 = (s32) (arg0->m_388 & 0xFBFFFFFF);
-    arg0->set_param(0x22);
+void clear_lappy_flag_set_param(TObjEneLappy *ene_lappy) {
+    ene_lappy->m_388 = (s32) (ene_lappy->m_388 & 0xFBFFFFFF);
+    ene_lappy->set_param(0x22);
 }
 
-void fn_800A0FDC(TObjEneLappy *arg0) {
-    arg0->m_388 = (s32) (arg0->m_388 | 0x04000000);
-    arg0->set_param(0x23);
+void fn_800A0FDC(TObjEneLappy *ene_lappy) {
+    ene_lappy->m_388 = (s32) (ene_lappy->m_388 | 0x04000000);
+    ene_lappy->set_param(0x23);
 }
 
 void TObjPlayer__sub_800A100C(s32 _w0) {  }
@@ -935,36 +935,36 @@ void TObjEneDarkGunner::sub_800A159C() {
     pop_matrix();
 }
 
-void TObjPlayer__sub_800A16C4(u8 *arg0) {
+void TObjPlayer__sub_800A16C4(u8 *player) {
     s16 temp_r4;
-    switch (((TObjPlayer *)arg0)->m_37c) {
+    switch (((TObjPlayer *)player)->m_37c) {
     case 0:
-        *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 1);
-        ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x100);
-        *(s16 *)((s8 *)arg0 + 0x33C) = (s16) *(s16 *)((s8 *)arg0 + 0x33A);
-        ((TObjPlayer *)arg0)->m_b8 = 0;
-        *(s32 *)&((TObjPlayer *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjPlayer *)arg0)->actorFlags & 0xFF9FFFFF);
-        ((TObjPlayer *)arg0)->m_37c = 1;
+        *(s32 *)((s8 *)player + 0x388) = (s32) (*(s32 *)((s8 *)player + 0x388) | 1);
+        ((TUnk_804B9870 *)player)->obj_clearFlags30(0x100);
+        *(s16 *)((s8 *)player + 0x33C) = (s16) *(s16 *)((s8 *)player + 0x33A);
+        ((TObjPlayer *)player)->m_b8 = 0;
+        *(s32 *)&((TObjPlayer *)player)->actorFlags = (s32) (*(s32 *)&((TObjPlayer *)player)->actorFlags & 0xFF9FFFFF);
+        ((TObjPlayer *)player)->m_37c = 1;
         goto case1;
     case 1:
     case1:
-        advance_animation_playback(arg0);
-        if (!(*(s32 *)&((TObjPlayer *)arg0)->actorFlags & 0x800000)) {
-            apply_actor_gravity(arg0, 0, lbl_805D9984);
+        advance_animation_playback(player);
+        if (!(*(s32 *)&((TObjPlayer *)player)->actorFlags & 0x800000)) {
+            apply_actor_gravity(player, 0, lbl_805D9984);
         }
-        ((TObjPlayer *)arg0)->update_collisions();
-        temp_r4 = *(s16 *)((s8 *)arg0 + 0x33C);
-        *(s16 *)((s8 *)arg0 + 0x33C) = (temp_r4 - 1);
+        ((TObjPlayer *)player)->update_collisions();
+        temp_r4 = *(s16 *)((s8 *)player + 0x33C);
+        *(s16 *)((s8 *)player + 0x33C) = (temp_r4 - 1);
         if (temp_r4 < 0) {
-            ((TObjPlayer *)arg0)->m_33e = (s16) ((TObjPlayer *)arg0)->hp;
-            *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) & 0xFFFFFFFE);
-            ((TObjPlayer *)arg0)->set_hidden_flag();
+            ((TObjPlayer *)player)->m_33e = (s16) ((TObjPlayer *)player)->hp;
+            *(s32 *)((s8 *)player + 0x388) = (s32) (*(s32 *)((s8 *)player + 0x388) & 0xFFFFFFFE);
+            ((TObjPlayer *)player)->set_hidden_flag();
         }
         break;
     case -1:
         break;
     }
-    minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
+    minimap_render_dot(player + 0x38, -0x5DB4, 1, 0);
 }
 
 void TObjEneDarkGunner::vfunc_61() {
@@ -1530,21 +1530,21 @@ void *__dt__13TUnk_804909C4Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TObjPlayer__sub_800A34E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
+u8 *TObjPlayer__sub_800A34E8(u8 *arg0, u8 *player, s32 arg2, s32 arg3) {
     s32 var_r0;
     u8 *temp_r3;
     construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_04);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804909C4;
     init_collision_body_parts(arg0, lbl_80490998, 1);
     *(f32 *)((s8 *)(((TUnk_804909C4 *)arg0)->m_a4) + 0xC) = lbl_805D99D4 * player_scale_factor;
-    *(s16 *)((s8 *)arg0 + 0xC8) = obj_getField1c(arg1, lbl_805D99D4);
-    if (((TObjPlayer *)arg1)->is_flag_set_388_bit26() != 0) {
+    *(s16 *)((s8 *)arg0 + 0xC8) = obj_getField1c(player, lbl_805D99D4);
+    if (((TObjPlayer *)player)->is_flag_set_388_bit26() != 0) {
         var_r0 = 0xDA;
     } else {
         var_r0 = 0xD5;
     }
     ((TUnk_804909C4 *)arg0)->m_cc = var_r0;
-    *(s16 *)((s8 *)arg0 + 0x28) = *(s16 *)((s8 *)arg1 + 0x28);
+    *(s16 *)((s8 *)arg0 + 0x28) = *(s16 *)((s8 *)player + 0x28);
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2));
     VecCopy((Vec *)(arg0 + 0xAC), (const Vec *)(arg3));
     subtract_vector(arg0 + 0xAC, (void *)arg2);

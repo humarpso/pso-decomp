@@ -91,16 +91,16 @@ void TBGLightningCtrl__sub_802A9A08(void) { TObjFish::set_global_param(bg_lightn
 
 #pragma push
 #pragma fp_contract on
-void spawn_lightning_at_angle__16TBGLightningCtrlFPvi(TBGLightningCtrl *arg0, s32 arg1) {
+void spawn_lightning_at_angle__16TBGLightningCtrlFPvi(TBGLightningCtrl *bg_lightning_ctrl, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_802A9A2C, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802A9A2C, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_802A9A2C, sp10) == 0x8) ? 1 : -1];
     Stack_802A9A2C stack;
 
-    stack.sp8 = arg0->scale * sin_table_lookup(arg1);
-    stack.spC = arg0->target_scale;
-    stack.sp10 = arg0->scale * cos_table_lookup(arg1);
-    ((s32 (*)(s32, s32, f32))create__12TBGLightningFiif)((s32) arg0, (s32) &stack.sp8, *(f32 *)((s8 *)arg0 + 0x70) * (((0.3f) * ((3.0517578e-05f) * (f32) rand())) + (1.0f)));
+    stack.sp8 = bg_lightning_ctrl->scale * sin_table_lookup(arg1);
+    stack.spC = bg_lightning_ctrl->target_scale;
+    stack.sp10 = bg_lightning_ctrl->scale * cos_table_lookup(arg1);
+    ((s32 (*)(s32, s32, f32))create__12TBGLightningFiif)((s32) bg_lightning_ctrl, (s32) &stack.sp8, *(f32 *)((s8 *)bg_lightning_ctrl + 0x70) * (((0.3f) * ((3.0517578e-05f) * (f32) rand())) + (1.0f)));
 }
 #pragma pop
 
@@ -285,12 +285,12 @@ void run_task__12TBGLightningFv(void *arg0) {
 }
 
 u8 *create__12TBGLightningFiif(s32 arg0, s32 arg1, f32 farg0) {
-    u8 *temp_r3;
+    u8 *bg_lightning;
     u8 *var_r0;
-    temp_r3 = (u8 *)(((u8 * (*)(s32))__nw__7TObjectFUl)(0x30));
-    var_r0 = temp_r3;
+    bg_lightning = (u8 *)(((u8 * (*)(s32))__nw__7TObjectFUl)(0x30));
+    var_r0 = bg_lightning;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(__ct__12TBGLightningFv((u8 *)temp_r3, (void *)arg0, (s32)arg1, farg0));
+        var_r0 = (u8 *)(__ct__12TBGLightningFv((u8 *)bg_lightning, (void *)arg0, (s32)arg1, farg0));
     }
     return var_r0;
 }
@@ -298,22 +298,22 @@ u8 *create__12TBGLightningFiif(s32 arg0, s32 arg1, f32 farg0) {
 TBGLightning::~TBGLightning() {}
 
 extern "C" {
-u8 *__ct__12TBGLightningFv(u8 *arg0, void *arg1, s32 arg2, f32 farg0) {
+u8 *__ct__12TBGLightningFv(u8 *object, void *arg1, s32 arg2, f32 farg0) {
     f32 temp_f1;
     f32 temp_f2;
     s8 temp_r5;
 
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(void **)((s8 *)arg0 + 0x18) = (void *) __vt__12TBGLightning;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TBGLightning__name;
+    __ct__7TObjectFP7TObject(object, arg1);
+    *(void **)((s8 *)object + 0x18) = (void *) __vt__12TBGLightning;
+    *(s32 *)((s8 *)object + 0) = (s32) TBGLightning__name;
     temp_f2 = (f32) rand();
     temp_f1 = (3.0517578e-05f) * temp_f2;
     temp_r5 = (s8) ((2.0f) * temp_f1);
-    *(s8 *)((s8 *)arg0 + 0x1C) = temp_r5;
-    *(s8 *)((s8 *)arg0 + 0x1D) = 0;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x20, arg2, temp_r5, temp_f1, temp_f2);
-    *(f32 *)((s8 *)arg0 + 0x2C) = farg0;
-    return arg0;
+    *(s8 *)((s8 *)object + 0x1C) = temp_r5;
+    *(s8 *)((s8 *)object + 0x1D) = 0;
+    VecCopy__FP3VecPC3Vec(object + 0x20, arg2, temp_r5, temp_f1, temp_f2);
+    *(f32 *)((s8 *)object + 0x2C) = farg0;
+    return object;
 }
 
 void __dt__12TBGLightningFv();

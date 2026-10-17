@@ -307,7 +307,7 @@ extern "C" {
 #pragma push
 #pragma fp_contract on
 }
-TAdChrSelSlotGC::TAdChrSelSlotGC(TObject*_w1) : TObject((TObject*)(_w1)) {
+TAdChrSelSlotGC::TAdChrSelSlotGC(TObject*object) : TObject((TObject*)(object)) {
     u32 i;
     u32 j;
     u32 k;

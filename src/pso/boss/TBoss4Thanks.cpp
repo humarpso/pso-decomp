@@ -238,24 +238,24 @@ u8 *__dt__12TBoss4ThanksFv(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TBoss4Thanks__ct(u8 *arg0, u8 *arg1) {
+u8 *TBoss4Thanks__ct(u8 *object, u8 *arg1) {
     u8 *instance_count;
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__12TBoss4Thanks.value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss4Thanks__class_name;
+    __ct__7TObjectFP7TObject(object, arg1);
+    *(s32 **)((s8 *)object + 0x18) = &__vt__12TBoss4Thanks.value;
+    *(s32 *)((s8 *)object + 0) = (s32) TBoss4Thanks__class_name;
     instance_count = (u8 *)(TBoss4Uro::get_instance_count());
-    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model(instance_count, 1);
-    *(s32 *)((s8 *)arg0 + 0x38) = TObjFish__sub_8001EDB0(instance_count, 1);
-    *(s32 *)((s8 *)arg0 + 0x3C) = get_bml_motion(instance_count, 0x46);
-    *(s32 *)((s8 *)arg0 + 0x40) = get_bml_motion(instance_count, 0x47);
-    TBoss4Thanks__sub_8035C480((s32)((s32) arg0));
-    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x24) = 0;
-    *(s32 *)((s8 *)arg0 + 0x20) = 0;
-    *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805E0184;
-    *(f32 *)((s8 *)arg0 + 0x2C) = (f32) lbl_805E0188;
-    *(s32 *)((s8 *)arg0 + 0x30) = 0;
-    return arg0;
+    *(s32 *)((s8 *)object + 0x34) = get_bml_model(instance_count, 1);
+    *(s32 *)((s8 *)object + 0x38) = TObjFish__sub_8001EDB0(instance_count, 1);
+    *(s32 *)((s8 *)object + 0x3C) = get_bml_motion(instance_count, 0x46);
+    *(s32 *)((s8 *)object + 0x40) = get_bml_motion(instance_count, 0x47);
+    TBoss4Thanks__sub_8035C480((s32)((s32) object));
+    *(s32 *)((s8 *)object + 0x1C) = 0;
+    *(s32 *)((s8 *)object + 0x24) = 0;
+    *(s32 *)((s8 *)object + 0x20) = 0;
+    *(f32 *)((s8 *)object + 0x28) = (f32) lbl_805E0184;
+    *(f32 *)((s8 *)object + 0x2C) = (f32) lbl_805E0188;
+    *(s32 *)((s8 *)object + 0x30) = 0;
+    return object;
 }
 
 }

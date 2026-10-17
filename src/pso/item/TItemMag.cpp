@@ -1660,56 +1660,56 @@ void TItemMag::serialize_to_item(void *item) {
     serialize_mag__9TItemDataFPvPv(item, &m_198);
 }
 
-void TItemMag__vt43(u8 *arg0) {
+void TItemMag__vt43(u8 *item_mag) {
   s32 temp_r3;
   s32 slot;
   u8 *temp_r6;
   u8 *new_var;
-  if (((volatile int)((s32 (*)(void *))obj_isState2_324__13TUnk_804806E8Fv)(*((u8 **) (((s8 *) arg0) + 0xF0)))) == 0)
+  if (((volatile int)((s32 (*)(void *))obj_isState2_324__13TUnk_804806E8Fv)(*((u8 **) (((s8 *) item_mag) + 0xF0)))) == 0)
   {
-    assign_default_photon_blast_palette_slots(((*((u8 **) (((s8 *) arg0) + 0xF0))) + 0x500));
+    assign_default_photon_blast_palette_slots(((*((u8 **) (((s8 *) item_mag) + 0xF0))) + 0x500));
     slot = 0;
     do
     {
-      temp_r3 = ((TItemMag *)(arg0 + 0x198))->get_photon_blast_at_slot(slot);
+      temp_r3 = ((TItemMag *)(item_mag + 0x198))->get_photon_blast_at_slot(slot);
       if (temp_r3 != (-1))
       {
-        new_var = arg0;
+        new_var = item_mag;
         temp_r6 = (u8 *) (*((u8 **) (((s8 *) new_var) + 0xF0)));
         ((s32 (*)(void *, int, int, int))TItemMag__sub_80113EDC)(temp_r6 + 0x4AC, (int) ((s16) temp_r3), -1, (int) temp_r6);
       }
       slot += 1;
     }
     while (slot != 3);
-    if (is_flag_20000_set__10TObjPlayerFv((void *) (*((u8 **) (((s8 *) arg0) + 0xF0)))) == 0)
+    if (is_flag_20000_set__10TObjPlayerFv((void *) (*((u8 **) (((s8 *) item_mag) + 0xF0)))) == 0)
     {
-      ((TItemMag *)((*((u8 **) (((s8 *) arg0) + 0xF0))) + 0x4AC))->init_feed_timer();
-      send_6x3A_clear_photon_blast_ready_flag((u16 *)((*((u8 **) (((s8 *) arg0) + 0xF0))) + 0x4AC));
+      ((TItemMag *)((*((u8 **) (((s8 *) item_mag) + 0xF0))) + 0x4AC))->init_feed_timer();
+      send_6x3A_clear_photon_blast_ready_flag((u16 *)((*((u8 **) (((s8 *) item_mag) + 0xF0))) + 0x4AC));
     }
   }
-  ((TItemMag *)arg0)->apply_feed_delta();
+  ((TItemMag *)item_mag)->apply_feed_delta();
 }
 
-void TItemMag__vt42(TItemMag *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x18C) = 0;
-    if (((s32 (*)(void *))obj_isState2_324__13TUnk_804806E8Fv)((void *) (*(u8 **)((s8 *)arg0 + 0xF0))) == 0) {
-        *(s32 *)((s8 *)arg0 + 0x18C) = 0x10;
-        arg0->register_photon_blasts();
+void TItemMag__vt42(TItemMag *item_mag) {
+    *(s32 *)((s8 *)item_mag + 0x18C) = 0;
+    if (((s32 (*)(void *))obj_isState2_324__13TUnk_804806E8Fv)((void *) (*(u8 **)((s8 *)item_mag + 0xF0))) == 0) {
+        *(s32 *)((s8 *)item_mag + 0x18C) = 0x10;
+        item_mag->register_photon_blasts();
     }
-    arg0->request_support_action(1);
-    *(s16 *)((s8 *)arg0 + 0x1D4) = ((VObj_18 *)(*(u8 **)((s8 *)arg0 + 0xF0)))->m14();
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x1D6) == -1) {
-        *(s16 *)((s8 *)arg0 + 0x1D6) = TOKeyMachine01::get_global_state();
+    item_mag->request_support_action(1);
+    *(s16 *)((s8 *)item_mag + 0x1D4) = ((VObj_18 *)(*(u8 **)((s8 *)item_mag + 0xF0)))->m14();
+    if ((s16) *(s16 *)((s8 *)item_mag + 0x1D6) == -1) {
+        *(s16 *)((s8 *)item_mag + 0x1D6) = TOKeyMachine01::get_global_state();
     }
-    *(s16 *)((s8 *)arg0 + 0x1DC) = ((s16 (*)(void *))obj_getS16_32C)((void *) (*(u8 **)((s8 *)arg0 + 0xF0)));
-    *(s16 *)((s8 *)arg0 + 0x1DE) = obj_getS16_32E((void *) (*(u8 **)((s8 *)arg0 + 0xF0)));
-    if (test_flags_any((u8 *)arg0 + 0x178, 1) != 0) {
-        *(s32 *)((s8 *)arg0 + 0x18C) = (s32) (*(s32 *)((s8 *)arg0 + 0x18C) & 0xFFFFFFDF);
+    *(s16 *)((s8 *)item_mag + 0x1DC) = ((s16 (*)(void *))obj_getS16_32C)((void *) (*(u8 **)((s8 *)item_mag + 0xF0)));
+    *(s16 *)((s8 *)item_mag + 0x1DE) = obj_getS16_32E((void *) (*(u8 **)((s8 *)item_mag + 0xF0)));
+    if (test_flags_any((u8 *)item_mag + 0x178, 1) != 0) {
+        *(s32 *)((s8 *)item_mag + 0x18C) = (s32) (*(s32 *)((s8 *)item_mag + 0x18C) & 0xFFFFFFDF);
     } else {
-        *(s32 *)((s8 *)arg0 + 0x18C) = (s32) (*(s32 *)((s8 *)arg0 + 0x18C) | 0x20);
+        *(s32 *)((s8 *)item_mag + 0x18C) = (s32) (*(s32 *)((s8 *)item_mag + 0x18C) | 0x20);
     }
-    if ((((TItemEquipBase *)arg0)->get_flag_40() == 0) && (obj_isState7_324((void *) (*(u8 **)((s8 *)arg0 + 0xF0))) == 0)) {
-        ((s32 (*)(int, void *, int, int))play_sound_effect)(0x4000B20A, (void *) (*(u8 **)((s8 *)arg0 + 0xF0) + 0x38), 0, 0);
+    if ((((TItemEquipBase *)item_mag)->get_flag_40() == 0) && (obj_isState7_324((void *) (*(u8 **)((s8 *)item_mag + 0xF0))) == 0)) {
+        ((s32 (*)(int, void *, int, int))play_sound_effect)(0x4000B20A, (void *) (*(u8 **)((s8 *)item_mag + 0xF0) + 0x38), 0, 0);
     }
 }
 

@@ -174,12 +174,12 @@ void TWindowSubComCard::clear_flag_and_release2() {
 
 void TWindowSubComCardList::update_scroll_target_position() {
     Stack_80265484 stack;
-    u8 *temp_r5;
-    temp_r5 = (u8 *)(*(u8 * *)&this->m_84);
-    if (temp_r5 != NULL) {
+    u8 *window_menu;
+    window_menu = (u8 *)(*(u8 * *)&this->m_84);
+    if (window_menu != NULL) {
         stack.sp8 = ((this->m_48) - lbl_805DD148) - lbl_805DD14C;
         stack.spC = (f32) ((*(s16 *)&this->m_72 * 0x14) - 2);
-        ((TWindowMenu *)temp_r5)->copy_position(&stack.sp8);
+        ((TWindowMenu *)window_menu)->copy_position(&stack.sp8);
     }
 }
 
@@ -270,16 +270,16 @@ void TWindowSubComCard::set_entry_value_clear_flag(s32 idx, s32 val) {
     r[(s16)idx].flags &= ~0x10;
 }
 
-s32 get_selected_entry__17TWindowSubComCardFPv(u8 *arg0) {
+s32 get_selected_entry__17TWindowSubComCardFPv(u8 *window_menu) {
     s16 temp_r4;
-    temp_r4 = *(s16 *)&((TWindowMenu *)arg0)->m_78;
+    temp_r4 = *(s16 *)&((TWindowMenu *)window_menu)->m_78;
     if (temp_r4 < 0) {
         return 0;
     }
-    if (temp_r4 >= (s16) *(s16 *)&((TWindowMenu *)arg0)->m_76) {
+    if (temp_r4 >= (s16) *(s16 *)&((TWindowMenu *)window_menu)->m_76) {
         return 0;
     }
-    return ((s32 (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(arg0, (s32)((s32) temp_r4));
+    return ((s32 (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(window_menu, (s32)((s32) temp_r4));
 }
 
 void TWindowMenu::set_active_flag() {
@@ -294,7 +294,7 @@ void TWindowMenu::set_active_flag() {
 void TWindowMenu::confirm_selection() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r3;
-    u8 *temp_r3_2;
+    u8 *window_sub_status_disp;
     if (((int)((TWindowMenu *)arg0)->is_visible()) == 0) {
         temp_r3 = *(s32 *)((s8 *)(*(s32 *)&this->m_80) + (*(s16 *)&this->m_78 * 8));
         if (temp_r3 & 0x10) {
@@ -306,9 +306,9 @@ void TWindowMenu::confirm_selection() {
                 play_sound_effect(0x52D01, 0, 0, 0);
             }
             this->m_70 = (u16) (this->m_70 | 2);
-            temp_r3_2 = (u8 *)(*(u8 * *)&this->m_88);
-            if (temp_r3_2 != NULL) {
-                ((TWindowSubStatusDisp *)temp_r3_2)->set_entry_state(2);
+            window_sub_status_disp = (u8 *)(*(u8 * *)&this->m_88);
+            if (window_sub_status_disp != NULL) {
+                ((TWindowSubStatusDisp *)window_sub_status_disp)->set_entry_state(2);
             }
         }
     }
@@ -610,42 +610,42 @@ void TWindowSubComCard::draw_text_gray(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 s32 TWindowSubTradeMain::add_text_entry(s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u8 *arg0 = (u8 *)this;
     s16 temp_r7;
-    u8 *temp_r3;
+    u8 *window_help_item;
     u8 *temp_r30;
 
     if ((s16) *(s16 *)&this->unk_72 >= (s16) *(s16 *)((s8 *)arg0 + 0x76)) {
         return 0;
     }
-    temp_r3 = ((u8 * (*)(void *, s16))get_array_entry__13TUnk_804CE018Fi)(arg0, *(s16 *)&this->unk_72);
+    window_help_item = ((u8 * (*)(void *, s16))get_array_entry__13TUnk_804CE018Fi)(arg0, *(s16 *)&this->unk_72);
     temp_r7 = *(s16 *)&this->unk_72;
     temp_r30 = (unsigned char *) (*(s32 *)&this->m_80 + (temp_r7 * 8));
-    *(f32 *)((s8 *)temp_r3 + 0xC) = (f32) (temp_r7 * 0x14);
-    *(s32 *)((s8 *)temp_r3 + 0x24) = arg4;
+    *(f32 *)((s8 *)window_help_item + 0xC) = (f32) (temp_r7 * 0x14);
+    *(s32 *)((s8 *)window_help_item + 0x24) = arg4;
     if (arg2 & 1) {
-        set_text_entry_string(temp_r3, (arg1), 0x20);
+        set_text_entry_string(window_help_item, (arg1), 0x20);
     } else {
-        set_text_entry_string(temp_r3, (arg1), 0);
+        set_text_entry_string(window_help_item, (arg1), 0);
     }
     if (arg2 & 4) {
-        *(u16 *)((s8 *)temp_r3 + 0) = (u16) (*(u16 *)((s8 *)temp_r3 + 0) | 1);
+        *(u16 *)((s8 *)window_help_item + 0) = (u16) (*(u16 *)((s8 *)window_help_item + 0) | 1);
     }
     if (arg2 & 8) {
-        *(u16 *)((s8 *)temp_r3 + 0) = (u16) (*(u16 *)((s8 *)temp_r3 + 0) | 0x40);
+        *(u16 *)((s8 *)window_help_item + 0) = (u16) (*(u16 *)((s8 *)window_help_item + 0) | 0x40);
     }
     if (arg2 & 0x40) {
-        *(u16 *)((s8 *)temp_r3 + 0) = (u16) (*(u16 *)((s8 *)temp_r3 + 0) | 0x200);
+        *(u16 *)((s8 *)window_help_item + 0) = (u16) (*(u16 *)((s8 *)window_help_item + 0) | 0x200);
     }
     if (arg2 & 2) {
         if ((s16) *(s16 *)&this->unk_72 == (s16) this->m_74) {
             arg2 &= 0xFFFFFFFD;
         } else {
-            *(u16 *)((s8 *)temp_r3 + 0) = (u16) (*(u16 *)((s8 *)temp_r3 + 0) | 8);
+            *(u16 *)((s8 *)window_help_item + 0) = (u16) (*(u16 *)((s8 *)window_help_item + 0) | 8);
         }
     }
     if (this->m_70 & 0x100) {
-        ((TWindowHelpItem *)temp_r3)->reset_float_field();
+        ((TWindowHelpItem *)window_help_item)->reset_float_field();
     }
-    ((s32 (*)(int))refresh_status_display__9TWindowDDFv)((int)temp_r3);
+    ((s32 (*)(int))refresh_status_display__9TWindowDDFv)((int)window_help_item);
     *(s32 *)((s8 *)temp_r30 + 0) = arg2;
     *(s32 *)((s8 *)temp_r30 + 4) = arg3;
     *(s16 *)&this->unk_72 = (s16) (*(s16 *)&this->unk_72 + 1);
@@ -841,29 +841,29 @@ void *__dt__11TWindowMenuFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TWindowMenu__ct(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
+u8 *TWindowMenu__ct(u8 *window_menu, u32 arg1, s32 arg2, s32 arg3) {
     u32 i;
     u8 *p;
-    construct_with_parent__13TUnk_804CDFE8FPv(arg0, lbl_804D05CC, arg2, arg3);
-    *(void **)(arg0 + 0x18) = ((s32 *)&__vt__11TWindowMenu);
-    *(s32 *)arg0 = lbl_805D3960;
-    *(s16 *)(arg0 + 0x72) = 0;
-    *(s16 *)(arg0 + 0x74) = 0;
-    *(u16 *)(arg0 + 0x76) = arg1;
-    *(s16 *)(arg0 + 0x78) = 0;
-    *(s16 *)(arg0 + 0x70) = 0;
-    *(s16 *)(arg0 + 0x20) = arg2;
-    ((TWindowMenu *)arg0)->reset_selection();
-    *(u8 **)(arg0 + 0x80) = (u8 *)mem_alloc(arg1 * 8);
-    p = *(u8 **)(arg0 + 0x80);
+    construct_with_parent__13TUnk_804CDFE8FPv(window_menu, lbl_804D05CC, arg2, arg3);
+    *(void **)(window_menu + 0x18) = ((s32 *)&__vt__11TWindowMenu);
+    *(s32 *)window_menu = lbl_805D3960;
+    *(s16 *)(window_menu + 0x72) = 0;
+    *(s16 *)(window_menu + 0x74) = 0;
+    *(u16 *)(window_menu + 0x76) = arg1;
+    *(s16 *)(window_menu + 0x78) = 0;
+    *(s16 *)(window_menu + 0x70) = 0;
+    *(s16 *)(window_menu + 0x20) = arg2;
+    ((TWindowMenu *)window_menu)->reset_selection();
+    *(u8 **)(window_menu + 0x80) = (u8 *)mem_alloc(arg1 * 8);
+    p = *(u8 **)(window_menu + 0x80);
     for (i = 0; i < arg1; i++) {
         *(s32 *)p = 0;
         *(s32 *)(p + 4) = 0;
         p += 8;
     }
-    *(s32 *)(arg0 + 0x88) = 0;
-    *(s32 *)(arg0 + 0x84) = 0;
-    return arg0;
+    *(s32 *)(window_menu + 0x88) = 0;
+    *(s32 *)(window_menu + 0x84) = 0;
+    return window_menu;
 }
 
 void TWindowMenu::copy_position(void* q) { *(f32 *)&this->m_name = *(f32*)((char*)q + 0x0); *(f32 *)&this->m_flags = *(f32*)((char*)q + 0x4); }

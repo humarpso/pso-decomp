@@ -28,14 +28,14 @@ void *__dt__11TWindowAreaFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TWindowArea__ct(u8 *arg0) {
+u8 *TWindowArea__ct(u8 *window_room) {
     s32 *window_layout_position;
     f32 var_f0;
     u8 *var_r31;
     u8 *var_r3;
     window_layout_position = NULL;
-    var_r31 = arg0;
-    __ct__11TWindowRoomFPc(arg0, 0);
+    var_r31 = window_room;
+    __ct__11TWindowRoomFPc(window_room, 0);
     window_layout_position = (s32 *)(&(*(RecoveredGlobal_8024470C___vt__11TWindowArea *)&__vt__11TWindowArea).value);
     var_r3 = (u8 *)((void *)0x25);
     *(s32 **)((s8 *)var_r31 + 0x18) = &(*(RecoveredGlobal_8024470C___vt__11TWindowArea *)&__vt__11TWindowArea).value;

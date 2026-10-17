@@ -43,8 +43,8 @@ void TItemList__sub_801D5A0C(s32 *arg0) {
 }
 }
 
-void clear_placement_search_slot(TItemList *arg0, s32 arg1) {
-    TItemList__sub_801D5A64((void*)(TItemList__sub_801D5868(arg1, arg0->get_item_count())));
+void clear_placement_search_slot(TItemList *item_list, s32 arg1) {
+    TItemList__sub_801D5A64((void*)(TItemList__sub_801D5868(arg1, item_list->get_item_count())));
 }
 extern "C" {
 
@@ -69,28 +69,28 @@ u8 TItemList::is_item_valid(s32 arg0) {
 
 extern s32 lbl_804C445C[];
 
-void *TItemList__sub_801D5B10(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x24) = lbl_804C445C;
-        __dt__9TItemListFPvs(arg0, (s16)((s16)(0)));
+void *TItemList__sub_801D5B10(void *item_list, s16 arg1) {
+    if (item_list != NULL) {
+        *(s32 **)((s8 *)item_list + 0x24) = lbl_804C445C;
+        __dt__9TItemListFPvs(item_list, (s16)((s16)(0)));
         if (arg1 > 0) {
-            ::operator delete(arg0);
+            ::operator delete(item_list);
         }
     }
-    return arg0;
+    return item_list;
 }
 
 extern s32 lbl_804C4450[];
 
-void *__dt__9TItemListFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x24) = lbl_804C4450;
-        ((TItemList *)arg0)->dt((s16)(0));
+void *__dt__9TItemListFPvs(void *item_list, s16 arg1) {
+    if (item_list != NULL) {
+        *(s32 **)((s8 *)item_list + 0x24) = lbl_804C4450;
+        ((TItemList *)item_list)->dt((s16)(0));
         if (arg1 > 0) {
-            ::operator delete(arg0);
+            ::operator delete(item_list);
         }
     }
-    return arg0;
+    return item_list;
 }
 
 void *TItemList::dt(s16 arg1) {

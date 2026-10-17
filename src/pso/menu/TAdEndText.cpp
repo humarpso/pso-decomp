@@ -238,10 +238,10 @@ void run_task__10TAdEndTextFv(u8 *arg0) {
 
 typedef struct Box_8001B190 Box_8001B190;
 typedef struct Self_8001B190 Self_8001B190;
-u8 *__ct__10TAdEndTextFv(u8 *arg0) {
-  Self_8001B190 *self = (Self_8001B190 *) arg0;
+u8 *__ct__10TAdEndTextFv(u8 *object) {
+  Self_8001B190 *self = (Self_8001B190 *) object;
   s32 c;
-  __ct__7TObjectFP7TObject(arg0);
+  __ct__7TObjectFP7TObject(object);
   self->vtable = __vt__10TAdEndText;
   self->name = TAdEndText__class_name;
   self->f1C = 0;
@@ -288,7 +288,7 @@ u8 *__ct__10TAdEndTextFv(u8 *arg0) {
   self->rate = (TKeyBoardControl__sub_8000F828() == 0) ? (lbl_805D7E20) : (lbl_805D7E40);
   self->speed = lbl_805D7DF0 * self->rate;
   self->sizeIdx = (TAdEndText__sub_8001B41C() != 0) ? (1) : (0);
-  return arg0;
+  return object;
 }
 
 void TAdEndText::free_resources() {

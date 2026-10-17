@@ -20,22 +20,22 @@ void enter_state_16__9TWindowDDFPv(void *arg0);
 void update__9TWindowDDFi(s32 arg0);
 void update_state__9TWindowDDFPv(void *arg0);
 
-void enter_state_16__9TWindowDDFPv(void *arg0) {
+void enter_state_16__9TWindowDDFPv(void *window_dd) {
     s32 temp_r0;
     s32 var_r31;
 
     var_r31 = 0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xB8);
+    temp_r0 = *(s32 *)((s8 *)window_dd + 0xB8);
     switch (temp_r0) {
     case 0:
         TWindowDD__sub_80347C50();
-        update_selection_state__9TWindowDDFv(arg0);
-        if (test_input_flag_4__9TWindowDDFv(arg0) != 0) {
+        update_selection_state__9TWindowDDFv(window_dd);
+        if (test_input_flag_4__9TWindowDDFv(window_dd) != 0) {
             play_sound__9TWindowDDFv();
-            var_r31 = update_close_flag__9TWindowDDFPv(arg0) == 0;
-        } else if (TWindowDD__sub_803482B0(arg0) != 0) {
+            var_r31 = update_close_flag__9TWindowDDFPv(window_dd) == 0;
+        } else if (TWindowDD__sub_803482B0(window_dd) != 0) {
             play_se__9TWindowDDFv();
-            apply_entry_layout__9TWindowDDFPv(arg0);
+            apply_entry_layout__9TWindowDDFPv(window_dd);
         }
         break;
     case 1:
@@ -43,23 +43,23 @@ void enter_state_16__9TWindowDDFPv(void *arg0) {
         break;
     }
     if ((s32) var_r31 != 0) {
-        *(s32 *)((s8 *)arg0 + 0xB4) = 0x10;
-        TWindowDD__sub_803435A0(arg0);
+        *(s32 *)((s8 *)window_dd + 0xB4) = 0x10;
+        TWindowDD__sub_803435A0(window_dd);
     }
 }
 
-void update_state__9TWindowDDFPv(void *arg0) {
+void update_state__9TWindowDDFPv(void *window_dd) {
     TWindowDD__sub_80347C50();
-    update_selection_state__9TWindowDDFv(arg0);
-    if (test_input_flag_4__9TWindowDDFv(arg0) != 0) {
+    update_selection_state__9TWindowDDFv(window_dd);
+    if (test_input_flag_4__9TWindowDDFv(window_dd) != 0) {
         play_sound__9TWindowDDFv();
-        *(s32 *)((s8 *)arg0 + 0xB4) = 0xF;
-        TWindowDD__sub_803435A0(arg0);
+        *(s32 *)((s8 *)window_dd + 0xB4) = 0xF;
+        TWindowDD__sub_803435A0(window_dd);
         return;
     }
-    if (TWindowDD__sub_803482B0(arg0) != 0) {
+    if (TWindowDD__sub_803482B0(window_dd) != 0) {
         play_se__9TWindowDDFv();
-        apply_entry_layout__9TWindowDDFPv(arg0);
+        apply_entry_layout__9TWindowDDFPv(window_dd);
     }
 }
 
@@ -130,19 +130,19 @@ void update__9TWindowDDFi(s32 arg0) {
         apply_entry_layout__9TWindowDDFPv((void *)arg0);
     }
 }
-void TWindowDD__sub_803429B0(u8 *arg0) {
+void TWindowDD__sub_803429B0(u8 *window_dd) {
     s32 var_r31;
     u8 *var_r3;
     var_r31 = 0;
-    switch (*(s32 *)((s8 *)arg0 + 0xB8)) {
+    switch (*(s32 *)((s8 *)window_dd + 0xB8)) {
     case 0:
         ((s32 (*)())update_selection_state__9TWindowDDFv)();
-        if (test_input_flag_4__9TWindowDDFv(arg0) != 0) {
+        if (test_input_flag_4__9TWindowDDFv(window_dd) != 0) {
             play_sound__9TWindowDDFv();
-            var_r31 = update_close_flag__9TWindowDDFPv(arg0) == 0;
-        } else if (TWindowDD__sub_803482B0(arg0) != 0) {
+            var_r31 = update_close_flag__9TWindowDDFPv(window_dd) == 0;
+        } else if (TWindowDD__sub_803482B0(window_dd) != 0) {
             play_se__9TWindowDDFv();
-            apply_entry_layout__9TWindowDDFPv(arg0);
+            apply_entry_layout__9TWindowDDFPv(window_dd);
         }
         break;
     case 1:
@@ -150,17 +150,17 @@ void TWindowDD__sub_803429B0(u8 *arg0) {
         break;
     }
     if (var_r31 != 0) {
-        var_r3 = (u8 *)(arg0 + (*(s32 *)((s8 *)arg0 + 0x20) * 4));
+        var_r3 = (u8 *)(window_dd + (*(s32 *)((s8 *)window_dd + 0x20) * 4));
         var_r3 = (u8 *)(*(u8 **)((s8 *)var_r3 + 0x24));
         TWindowDD__sub_80342158((int)var_r3);
         if (TWindowDD_is_id_in_range_5AC_5F9() != 0) {
-            *(s32 *)((s8 *)arg0 + 0xB4) = 0xA;
+            *(s32 *)((s8 *)window_dd + 0xB4) = 0xA;
         } else {
-            *(s32 *)((s8 *)arg0 + 0xB4) = 0xB;
-            *(s32 *)((s8 *)arg0 + 0x90) = -1;
+            *(s32 *)((s8 *)window_dd + 0xB4) = 0xB;
+            *(s32 *)((s8 *)window_dd + 0x90) = -1;
         }
-        *(s32 *)((s8 *)arg0 + 0x8C) = -0x32;
-        TWindowDD__sub_803435A0(arg0);
+        *(s32 *)((s8 *)window_dd + 0x8C) = -0x32;
+        TWindowDD__sub_803435A0(window_dd);
     }
 }
 

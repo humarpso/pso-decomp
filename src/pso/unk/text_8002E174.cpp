@@ -228,7 +228,7 @@ void TUnk_80482090::render() {
 
 void TUnk_80482090::run_task() {
     u8 *arg0 = (u8 *)this;
-    u8 *temp_r30;
+    u8 *boss2_ceil_junk;
     s32 var_r29;
     Boss2 *self;
     self = (Boss2 *)arg0;
@@ -242,10 +242,10 @@ void TUnk_80482090::run_task() {
     }
     var_r29 = 0;
     do {
-        temp_r30 = (u8 *)&self->units[var_r29];
-        if (TObjPlayer__sub_8002EDCC(temp_r30) != 0) {
+        boss2_ceil_junk = (u8 *)&self->units[var_r29];
+        if (TObjPlayer__sub_8002EDCC(boss2_ceil_junk) != 0) {
             if ((var_r29 % 2) == 0) {
-                create_particle__17TObjBoss2CeilJunkFv(temp_r30, 0x170);
+                create_particle__17TObjBoss2CeilJunkFv(boss2_ceil_junk, 0x170);
             }
         }
         var_r29 += 1;

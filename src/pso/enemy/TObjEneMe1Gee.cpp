@@ -2296,26 +2296,26 @@ void TObjEneMe1Gee::state_return_home(s32 arg1) {
 
 #pragma push
 #pragma opt_common_subs off
-void TObjEneMe1Gee__sub_800C9580(u8 *arg0, s32 arg1) {
+void TObjEneMe1Gee__sub_800C9580(u8 *ene_dd, s32 arg1) {
     switch (arg1) {
     case 4:
-        ((RecoveredFields_800C9580_arg0 *)arg0)->field_B8 = 0;
-        ((TObjEneDD *)arg0)->set_field_378(0xC);
-        ((TObjEneDD *)(arg0))->vfunc_95();
-        ((RecoveredFields_800C9580_arg0 *)arg0)->field_3C8 = (s32) (((RecoveredFields_800C9580_arg0 *)arg0)->field_3C8 & 0xFFBFFFFF);
-        ((RecoveredFields_800C9580_arg0 *)arg0)->field_30 = (s32) (((RecoveredFields_800C9580_arg0 *)arg0)->field_30 | 0x800);
-        if ((s32) ((RecoveredFields_800C9580_arg0 *)arg0)->field_3C4 == 1) {
-            ((RecoveredFields_800C9580_arg0 *)arg0)->field_3C0 = (u8 *)find_entity_by_id(((RecoveredFields_800C9580_arg0 *)arg0)->field_48C);
-            ((VObj_18_455f6b *)((u8 *)(((RecoveredFields_800C9580_arg0 *)arg0)->field_3C0)))->m115(arg0);
+        ((RecoveredFields_800C9580_arg0 *)ene_dd)->field_B8 = 0;
+        ((TObjEneDD *)ene_dd)->set_field_378(0xC);
+        ((TObjEneDD *)(ene_dd))->vfunc_95();
+        ((RecoveredFields_800C9580_arg0 *)ene_dd)->field_3C8 = (s32) (((RecoveredFields_800C9580_arg0 *)ene_dd)->field_3C8 & 0xFFBFFFFF);
+        ((RecoveredFields_800C9580_arg0 *)ene_dd)->field_30 = (s32) (((RecoveredFields_800C9580_arg0 *)ene_dd)->field_30 | 0x800);
+        if ((s32) ((RecoveredFields_800C9580_arg0 *)ene_dd)->field_3C4 == 1) {
+            ((RecoveredFields_800C9580_arg0 *)ene_dd)->field_3C0 = (u8 *)find_entity_by_id(((RecoveredFields_800C9580_arg0 *)ene_dd)->field_48C);
+            ((VObj_18_455f6b *)((u8 *)(((RecoveredFields_800C9580_arg0 *)ene_dd)->field_3C0)))->m115(ene_dd);
         } else {
-            ((TObjEnemy *)arg0)->send_entity_set_flags();
+            ((TObjEnemy *)ene_dd)->send_entity_set_flags();
         }
-        ((VObj_14_87d649 *)(arg0 + (972)))->m1(0x19);
-        ((VObj_14_87d649 *)(arg0 + (972)))->m2();
+        ((VObj_14_87d649 *)(ene_dd + (972)))->m1(0x19);
+        ((VObj_14_87d649 *)(ene_dd + (972)))->m2();
         return;
     case 3:
-        if ((((VObj_14_87d649 *)(arg0 + (972)))->m4() != 0) && (((VObj_18_455f6b *)(arg0))->m107() != 0)) {
-            queue_destruction__7TObjectFv(arg0);
+        if ((((VObj_14_87d649 *)(ene_dd + (972)))->m4() != 0) && (((VObj_18_455f6b *)(ene_dd))->m107() != 0)) {
+            queue_destruction__7TObjectFv(ene_dd);
         }
     case 5:
     case 0:
@@ -3147,51 +3147,51 @@ void TObjEneMe1Gee::state_hover(s32 arg1) {
     }
 }
 
-void TObjEneMe1Gee__sub_800CAFD8(u8 *arg0, s32 arg1) {
+void TObjEneMe1Gee__sub_800CAFD8(u8 *ene_me1_gee, s32 arg1) {
     Stack_800CAFD8 stack;
     f32 temp_f0;
     switch (arg1) {
     case 4:
-        ((RecoveredFields_800CAFD8_arg0 *)arg0)->field_B8 = 0;
-        ((TObjEneDD *)arg0)->set_field_378(3);
-        ((RecoveredFields_800CAFD8_arg0 *)arg0)->field_3C8 = (s32) (((RecoveredFields_800CAFD8_arg0 *)arg0)->field_3C8 & 0xFFBFFFFF);
-        ((RecoveredFields_800CAFD8_arg0 *)arg0)->field_3C8 = (s32) (((RecoveredFields_800CAFD8_arg0 *)arg0)->field_3C8 & 0xFFF7FFFF);
-        ((RecoveredFields_800CAFD8_arg0 *)arg0)->field_30 = (s32) (((RecoveredFields_800CAFD8_arg0 *)arg0)->field_30 | 0x01000000);
-        ((TObjEneMe1Gee *)(arg0))->vfunc_95();
-        ((RecoveredFields_800CAFD8_arg0 *)arg0)->field_47C = 1;
-        TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x3CC);
-        ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&stack.sp8, arg0 + 0x38);
+        ((RecoveredFields_800CAFD8_arg0 *)ene_me1_gee)->field_B8 = 0;
+        ((TObjEneDD *)ene_me1_gee)->set_field_378(3);
+        ((RecoveredFields_800CAFD8_arg0 *)ene_me1_gee)->field_3C8 = (s32) (((RecoveredFields_800CAFD8_arg0 *)ene_me1_gee)->field_3C8 & 0xFFBFFFFF);
+        ((RecoveredFields_800CAFD8_arg0 *)ene_me1_gee)->field_3C8 = (s32) (((RecoveredFields_800CAFD8_arg0 *)ene_me1_gee)->field_3C8 & 0xFFF7FFFF);
+        ((RecoveredFields_800CAFD8_arg0 *)ene_me1_gee)->field_30 = (s32) (((RecoveredFields_800CAFD8_arg0 *)ene_me1_gee)->field_30 | 0x01000000);
+        ((TObjEneMe1Gee *)(ene_me1_gee))->vfunc_95();
+        ((RecoveredFields_800CAFD8_arg0 *)ene_me1_gee)->field_47C = 1;
+        TObjEneMe3SinowZoa__sub_800D758C(ene_me1_gee + 0x3CC);
+        ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&stack.sp8, ene_me1_gee + 0x38);
         temp_f0 = stack.spC + lbl_805DA128;
         stack.spC = temp_f0;
-        ((RecoveredFields_800CAFD8_arg0 *)arg0)->field_3F8 = temp_f0;
+        ((RecoveredFields_800CAFD8_arg0 *)ene_me1_gee)->field_3F8 = temp_f0;
         TBoss3Volopt__sub_800D8D88((s32) &stack.sp8);
-        ((TObjEneMe1Gee *)(arg0))->vfunc_91();
-        ((RecoveredFields_800CAFD8_arg0 *)arg0)->field_434 = 0;
+        ((TObjEneMe1Gee *)(ene_me1_gee))->vfunc_91();
+        ((RecoveredFields_800CAFD8_arg0 *)ene_me1_gee)->field_434 = 0;
         return;
     case 3:
-        if (((RecoveredFields_800CAFD8_arg0 *)arg0)->field_3C8 & 0x80000) {
-            ((void (*)(void *, s16))transition_enemy_state)(arg0, 3);
-            ((TObjEneMe1Gee *)(arg0))->vfunc_92();
+        if (((RecoveredFields_800CAFD8_arg0 *)ene_me1_gee)->field_3C8 & 0x80000) {
+            ((void (*)(void *, s16))transition_enemy_state)(ene_me1_gee, 3);
+            ((TObjEneMe1Gee *)(ene_me1_gee))->vfunc_92();
         }
         return;
     case 0:
-        ((void (*)(void *))advance_animation_playback)(arg0);
-        switch (((RecoveredFields_800CAFD8_arg0 *)arg0)->field_434) {
+        ((void (*)(void *))advance_animation_playback)(ene_me1_gee);
+        switch (((RecoveredFields_800CAFD8_arg0 *)ene_me1_gee)->field_434) {
         case 0:
-            if (((VObj_14_948132 *)(arg0 + (972)))->m5() != 0) {
-                ((RecoveredFields_800CAFD8_arg0 *)arg0)->field_434 = 1;
+            if (((VObj_14_948132 *)(ene_me1_gee + (972)))->m5() != 0) {
+                ((RecoveredFields_800CAFD8_arg0 *)ene_me1_gee)->field_434 = 1;
             }
             break;
         case 1:
-            ((TObjEneMe1Gee *)arg0)->update_from_float_sum();
+            ((TObjEneMe1Gee *)ene_me1_gee)->update_from_float_sum();
             break;
         }
-        ((TObjEneMe1Gee *)(arg0))->vfunc_88();
-        TObjEneMe1Gee__sub_800CB968((s32) arg0);
+        ((TObjEneMe1Gee *)(ene_me1_gee))->vfunc_88();
+        TObjEneMe1Gee__sub_800CB968((s32) ene_me1_gee);
         return;
     case 5:
-        ((TObjEneMe1Gee *)(arg0))->vfunc_92();
-        ((RecoveredFields_800CAFD8_arg0 *)arg0)->field_30 = (s32) (((RecoveredFields_800CAFD8_arg0 *)arg0)->field_30 & 0xFEFFFFFF);
+        ((TObjEneMe1Gee *)(ene_me1_gee))->vfunc_92();
+        ((RecoveredFields_800CAFD8_arg0 *)ene_me1_gee)->field_30 = (s32) (((RecoveredFields_800CAFD8_arg0 *)ene_me1_gee)->field_30 & 0xFEFFFFFF);
         break;
     }
 }
@@ -3750,12 +3750,12 @@ void TObjEneMe1Gee::vfunc_28() {  }
 int TObjEneMe1Gee__sub_800CC2BC(void) {  return (*(int *)&TObjEneMe1Gee__resource_bundle); }
 
 void run_task__13TObjEneMe1GeeFv(u8 *arg0) {
-    u8 *temp_r3;
+    u8 *object;
     if (TObjPlayer::check_demo_mode() != 0) {
         ((TObjEneMe1Gee *)(arg0))->vfunc_114();
         return;
     }
-    if (((s32) *(s32 *)&((TObjEneMe1Gee *)arg0)->m_3e0 == 1) && ((*(u8 **)((s8 *)arg0 + 0x3C0) = (u8 *)find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x48C)), temp_r3 = *(u8 **)((s8 *)arg0 + 0x3C0), ((temp_r3 == NULL) != 0)) || (((TObject *)temp_r3)->all_parents_unqueued_for_destruction() == 0))) {
+    if (((s32) *(s32 *)&((TObjEneMe1Gee *)arg0)->m_3e0 == 1) && ((*(u8 **)((s8 *)arg0 + 0x3C0) = (u8 *)find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x48C)), object = *(u8 **)((s8 *)arg0 + 0x3C0), ((object == NULL) != 0)) || (((TObject *)object)->all_parents_unqueued_for_destruction() == 0))) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
@@ -3856,22 +3856,22 @@ void TObjEneMe1Gee::init_state() {
 }
 #pragma pop
 
-u8 *TObjEneMe1Gee__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4, s16 arg5) {
-    init_object__12TObjEneDD_STFv(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800CC6D8___vt__13TObjEneMe1Gee *)&__vt__13TObjEneMe1Gee).value;
-    init_common__13TUnk_80494938Fv(arg0 + 0x3CC);
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2A68;
-    *(u8 **)((s8 *)arg0 + 0x3C0) = arg2;
-    ((TObjEneDD *)arg0)->init_common_from((u8 *)(*(u8 **)((s8 *)arg0 + 0x3C0)));
-    *(s16 *)&((TObjEneMe1Gee *)arg0)->m_1c = arg4;
-    *(s16 *)((s8 *)arg0 + 0x2C) = arg5;
-    ((s32 (*)(void *, void *))calc_position__13TObjEneMe1GeeFiPv)((void *) (*(u8 **)((s8 *)arg0 + 0x3C0)), arg0 + 0x38);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x38, (void *)arg3);
-    ((TObjEneMe1Gee *)arg0)->rotation_y = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x3C0)) + 0x60);
-    *(s32 *)((s8 *)arg0 + 0x3C8) = 0;
-    *(s32 *)&((TObjEneMe1Gee *)arg0)->m_3e0 = 1;
-    ((TObjEneMe1Gee *)arg0)->init_state();
-    return arg0;
+u8 *TObjEneMe1Gee__ct(u8 *ene_me1_gee, s32 arg1, u8 *arg2, s32 arg3, s16 arg4, s16 arg5) {
+    init_object__12TObjEneDD_STFv(ene_me1_gee);
+    *(s32 **)((s8 *)ene_me1_gee + 0x18) = &(*(RecoveredGlobal_800CC6D8___vt__13TObjEneMe1Gee *)&__vt__13TObjEneMe1Gee).value;
+    init_common__13TUnk_80494938Fv(ene_me1_gee + 0x3CC);
+    *(s32 *)((s8 *)ene_me1_gee + 0) = (s32) lbl_805D2A68;
+    *(u8 **)((s8 *)ene_me1_gee + 0x3C0) = arg2;
+    ((TObjEneDD *)ene_me1_gee)->init_common_from((u8 *)(*(u8 **)((s8 *)ene_me1_gee + 0x3C0)));
+    *(s16 *)&((TObjEneMe1Gee *)ene_me1_gee)->m_1c = arg4;
+    *(s16 *)((s8 *)ene_me1_gee + 0x2C) = arg5;
+    ((s32 (*)(void *, void *))calc_position__13TObjEneMe1GeeFiPv)((void *) (*(u8 **)((s8 *)ene_me1_gee + 0x3C0)), ene_me1_gee + 0x38);
+    VecCopy__FP3VecPC3Vec(ene_me1_gee + 0x38, (void *)arg3);
+    ((TObjEneMe1Gee *)ene_me1_gee)->rotation_y = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)ene_me1_gee + 0x3C0)) + 0x60);
+    *(s32 *)((s8 *)ene_me1_gee + 0x3C8) = 0;
+    *(s32 *)&((TObjEneMe1Gee *)ene_me1_gee)->m_3e0 = 1;
+    ((TObjEneMe1Gee *)ene_me1_gee)->init_state();
+    return ene_me1_gee;
 }
 
 #undef advance_animation_playback
@@ -3888,18 +3888,18 @@ u8 *TObjEneMe1Gee__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4, s16 arg5
 #define init_common__13TUnk_80494938Fv ((void (*)(void *))init_common__13TUnk_80494938Fv)
 void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 
-void *init__13TObjEneMe1GeeFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
-    init_object__12TObjEneDD_STFv(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjEneMe1Gee;
-    init_common__13TUnk_80494938Fv((void *)((char *)arg0 + 972));
-    *(void * *)&((TObjEneMe1Gee *)arg0)->m_name = (*(void **)&lbl_805D2A68);
-    invoke_initialization_hook__9TObjEneDDFv(arg0, arg2);
-    *(u32 *)((s8 *)arg0 + 0x3C8) = 0;
-    sub_800CC0C4__13TObjEneMe1GeeFv(arg0);
-    *(void **)((s8 *)arg0 + 0x3C0) = arg0;
-    *(void **)((s8 *)arg0 + 0x3C4) = arg3;
-    ((TObjEneMe1Gee *)arg0)->init_state();
-    return arg0;
+void *init__13TObjEneMe1GeeFPvPvPvPv(void *ene_me1_gee, void *arg1, void *arg2, void *arg3) {
+    init_object__12TObjEneDD_STFv(ene_me1_gee);
+    *(s32 **)((s8 *)ene_me1_gee + 0x18) = __vt__13TObjEneMe1Gee;
+    init_common__13TUnk_80494938Fv((void *)((char *)ene_me1_gee + 972));
+    *(void * *)&((TObjEneMe1Gee *)ene_me1_gee)->m_name = (*(void **)&lbl_805D2A68);
+    invoke_initialization_hook__9TObjEneDDFv(ene_me1_gee, arg2);
+    *(u32 *)((s8 *)ene_me1_gee + 0x3C8) = 0;
+    sub_800CC0C4__13TObjEneMe1GeeFv(ene_me1_gee);
+    *(void **)((s8 *)ene_me1_gee + 0x3C0) = ene_me1_gee;
+    *(void **)((s8 *)ene_me1_gee + 0x3C4) = arg3;
+    ((TObjEneMe1Gee *)ene_me1_gee)->init_state();
+    return ene_me1_gee;
 }
 
 }

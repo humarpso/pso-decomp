@@ -37,11 +37,11 @@ u8 *__dt__18TWindowCtrlClipOutFv(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
-void *TWindowCtrlClipOut__ct(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TWindowCtrlClipOut;
-    *(void * *)&((TWindowCtrlClipOut *)arg0)->m_name = TWindowCtrlClipOut__name;
-    return arg0;
+void *TWindowCtrlClipOut__ct(void *window_ctrl_clip_out) {
+    __ct__7TObjectFP7TObject(window_ctrl_clip_out);
+    *(s32 **)((s8 *)window_ctrl_clip_out + 0x18) = __vt__18TWindowCtrlClipOut;
+    *(void * *)&((TWindowCtrlClipOut *)window_ctrl_clip_out)->m_name = TWindowCtrlClipOut__name;
+    return window_ctrl_clip_out;
 }
 
 }

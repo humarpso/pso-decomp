@@ -837,39 +837,39 @@ void *__dt__16TOTrapAncient02RFv(void *arg0, s16 arg1) {
 #pragma push
 #pragma fp_contract on
 #pragma fp_contract on
-void *TOTrapAncient02R__ct(TOTrapAncient02R *arg0, void *arg1, void *arg2) {
-    ((s32 (*)(void *, void *))TOTrapAncient02__ct)(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TOTrapAncient02R;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D31B8;
-    arg0->apply_object_set_data(arg2);
-    ((TObjPlayer *)arg0)->init_position_vectors();
-    ((TUnk_804806E8 *)arg0)->calc_attach_pos();
-    *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&TOTrapAncient02__shared_resource) + 0x42C)) + 8);
-    arg0->texture_id = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&TOTrapAncient02__shared_resource) + 0x42C)) + 0xC);
-    arg0->mode = 0;
-    arg0->phase = 0;
-    arg0->range = lbl_805DBAA0 * arg0->scale + lbl_805DBA9C;
-    arg0->dist = arg0->range;
-    arg0->reset = (s32) (lbl_805DBA9C + (f32) arg0->m_84);
-    if (arg0->reset < 0) {
-        arg0->reset = 0;
+void *TOTrapAncient02R__ct(TOTrapAncient02R *trap_ancient02_r, void *arg1, void *arg2) {
+    ((s32 (*)(void *, void *))TOTrapAncient02__ct)(trap_ancient02_r, arg1);
+    *(s32 **)((s8 *)trap_ancient02_r + 0x18) = __vt__16TOTrapAncient02R;
+    *(s32 *)((s8 *)trap_ancient02_r + 0) = (s32) lbl_805D31B8;
+    trap_ancient02_r->apply_object_set_data(arg2);
+    ((TObjPlayer *)trap_ancient02_r)->init_position_vectors();
+    ((TUnk_804806E8 *)trap_ancient02_r)->calc_attach_pos();
+    *(s32 *)((s8 *)trap_ancient02_r + 0x34) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&TOTrapAncient02__shared_resource) + 0x42C)) + 8);
+    trap_ancient02_r->texture_id = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&TOTrapAncient02__shared_resource) + 0x42C)) + 0xC);
+    trap_ancient02_r->mode = 0;
+    trap_ancient02_r->phase = 0;
+    trap_ancient02_r->range = lbl_805DBAA0 * trap_ancient02_r->scale + lbl_805DBA9C;
+    trap_ancient02_r->dist = trap_ancient02_r->range;
+    trap_ancient02_r->reset = (s32) (lbl_805DBA9C + (f32) trap_ancient02_r->m_84);
+    if (trap_ancient02_r->reset < 0) {
+        trap_ancient02_r->reset = 0;
     }
-    arg0->timer = arg0->reset;
-    arg0->init_trap_object_id();
-    arg0->clamp_trap_level_param();
-    arg0->calc_trap_count();
-    arg0->init_trap_param_clamped();
-    arg0->player = 0xFFFF;
-    *(s32 *)((s8 *)arg0 + 0x2A8) = 0;
-    arg0->h348 = lbl_805DBA80;
-    arg0->h344 = lbl_805DBA80;
-    *(s32 *)&arg0->m_34c = 0;
-    if (arg0->rotation_z > 0) {
-        *(s32 *)&arg0->m_358 = 1;
+    trap_ancient02_r->timer = trap_ancient02_r->reset;
+    trap_ancient02_r->init_trap_object_id();
+    trap_ancient02_r->clamp_trap_level_param();
+    trap_ancient02_r->calc_trap_count();
+    trap_ancient02_r->init_trap_param_clamped();
+    trap_ancient02_r->player = 0xFFFF;
+    *(s32 *)((s8 *)trap_ancient02_r + 0x2A8) = 0;
+    trap_ancient02_r->h348 = lbl_805DBA80;
+    trap_ancient02_r->h344 = lbl_805DBA80;
+    *(s32 *)&trap_ancient02_r->m_34c = 0;
+    if (trap_ancient02_r->rotation_z > 0) {
+        *(s32 *)&trap_ancient02_r->m_358 = 1;
     } else {
-        *(s32 *)&arg0->m_358 = 0;
+        *(s32 *)&trap_ancient02_r->m_358 = 0;
     }
-    return arg0;
+    return trap_ancient02_r;
 }
 #pragma pop
 
@@ -1219,17 +1219,17 @@ void TOTrapAncient02::load_resources() {
     }
 }
 
-void *__dt__15TOTrapAncient02Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TOTrapAncient02;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
-        free_collision_body_parts(arg0);
-        __dt__6TOTrapFv(arg0, 0);
+void *__dt__15TOTrapAncient02Fv(void *trap, s16 arg1) {
+    if (trap != NULL) {
+        *(s32 **)((s8 *)trap + 0x18) = __vt__15TOTrapAncient02;
+        ((TUnk_804AF8A0 *)trap)->unregister_object_by_id();
+        free_collision_body_parts(trap);
+        __dt__6TOTrapFv(trap, 0);
         if (arg1 > 0) {
-            ((s32 (*)(void *))__dl__7TObjectFPv)(arg0);
+            ((s32 (*)(void *))__dl__7TObjectFPv)(trap);
         }
     }
-    return arg0;
+    return trap;
 }
 
 #pragma push

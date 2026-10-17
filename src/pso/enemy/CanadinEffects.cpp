@@ -251,7 +251,7 @@ void subtract_vector(void *, void *);
 extern s32 tl_05;
 extern const f32 canadin_discharge_motion_scale;
 
-void run_task__30TObjEneMe1Canadin_EffDischargeFv(u8 *arg0) {
+void run_task__30TObjEneMe1Canadin_EffDischargeFv(u8 *ene_me1_canadin_eff_discharge) {
     s32 sp8;
     f32 temp_f0;
     f32 temp_f1;
@@ -260,33 +260,33 @@ void run_task__30TObjEneMe1Canadin_EffDischargeFv(u8 *arg0) {
     s32 var_r31;
 
     var_r31 = 0;
-    ((TObjEneMe1Canadin_EffDischarge *)arg0)->m_28 = (f32) (((TObjEneMe1Canadin_EffDischarge *)arg0)->m_28 + canadin_discharge_motion_scale);
-    temp_f1 = ((TObjEneMe1Canadin_EffDischarge *)arg0)->m_28;
-    if (temp_f1 > *(f32 *)((s8 *)arg0 + 0x34)) {
-        VC_B(arg0 + 0x50, arg0 + 0x44);
+    ((TObjEneMe1Canadin_EffDischarge *)ene_me1_canadin_eff_discharge)->m_28 = (f32) (((TObjEneMe1Canadin_EffDischarge *)ene_me1_canadin_eff_discharge)->m_28 + canadin_discharge_motion_scale);
+    temp_f1 = ((TObjEneMe1Canadin_EffDischarge *)ene_me1_canadin_eff_discharge)->m_28;
+    if (temp_f1 > *(f32 *)((s8 *)ene_me1_canadin_eff_discharge + 0x34)) {
+        VC_B(ene_me1_canadin_eff_discharge + 0x50, ene_me1_canadin_eff_discharge + 0x44);
         var_r31 = 1;
     } else {
-        temp_f0 = ((TObjEneMe1Canadin_EffDischarge *)arg0)->m_30;
+        temp_f0 = ((TObjEneMe1Canadin_EffDischarge *)ene_me1_canadin_eff_discharge)->m_30;
         if (temp_f1 < temp_f0) {
-            *(f32 *)((s8 *)arg0 + 0x54) = (f32) *(f32 *)((s8 *)arg0 + 0x24);
+            *(f32 *)((s8 *)ene_me1_canadin_eff_discharge + 0x54) = (f32) *(f32 *)((s8 *)ene_me1_canadin_eff_discharge + 0x24);
         } else {
             temp_f2 = temp_f1 - temp_f0;
-            *(f32 *)((s8 *)arg0 + 0x54) = (f32) (temp_f2 * (((TObjEneMe1Canadin_EffDischarge *)arg0)->m_20 * temp_f2) + *(f32 *)((s8 *)arg0 + 0x24));
+            *(f32 *)((s8 *)ene_me1_canadin_eff_discharge + 0x54) = (f32) (temp_f2 * (((TObjEneMe1Canadin_EffDischarge *)ene_me1_canadin_eff_discharge)->m_20 * temp_f2) + *(f32 *)((s8 *)ene_me1_canadin_eff_discharge + 0x24));
         }
-        ((TObjEneMe1Canadin_EffDischarge *)arg0)->m_50 = (f32) (((TObjEneMe1Canadin_EffDischarge *)arg0)->m_50 + *(f32 *)((s8 *)arg0 + 0x5C));
-        ((TObjEneMe1Canadin_EffDischarge *)arg0)->m_58 = (f32) (((TObjEneMe1Canadin_EffDischarge *)arg0)->m_58 + ((TObjEneMe1Canadin_EffDischarge *)arg0)->m_64);
+        ((TObjEneMe1Canadin_EffDischarge *)ene_me1_canadin_eff_discharge)->m_50 = (f32) (((TObjEneMe1Canadin_EffDischarge *)ene_me1_canadin_eff_discharge)->m_50 + *(f32 *)((s8 *)ene_me1_canadin_eff_discharge + 0x5C));
+        ((TObjEneMe1Canadin_EffDischarge *)ene_me1_canadin_eff_discharge)->m_58 = (f32) (((TObjEneMe1Canadin_EffDischarge *)ene_me1_canadin_eff_discharge)->m_58 + ((TObjEneMe1Canadin_EffDischarge *)ene_me1_canadin_eff_discharge)->m_64);
     }
-    VC_B(&sp8, arg0 + 0x50);
-    subtract_vector(&sp8, arg0 + 0x38);
+    VC_B(&sp8, ene_me1_canadin_eff_discharge + 0x50);
+    subtract_vector(&sp8, ene_me1_canadin_eff_discharge + 0x38);
     temp_f31 = ((TObjBoss2Tunnel *)(&sp8))->update_scale();
     s32 nw_ret = __nw__7TObjectFUl(0x260);
     if (nw_ret != 0U) {
-        ((TTecZondeEff *)nw_ret)->construct((u8 *)tl_05, arg0 + 0x38, (u8 *)&sp8, (f32)temp_f31);
+        ((TTecZondeEff *)nw_ret)->construct((u8 *)tl_05, ene_me1_canadin_eff_discharge + 0x38, (u8 *)&sp8, (f32)temp_f31);
     }
-    VC_B(arg0 + 0x38, arg0 + 0x50);
+    VC_B(ene_me1_canadin_eff_discharge + 0x38, ene_me1_canadin_eff_discharge + 0x50);
     if (var_r31 != 0) {
-        fn_8009E1D4((u8 *)(*(s32 *)((s8 *)arg0 + 0x1C)), (s32)(arg0 + 0x44));
-        queue_destruction__7TObjectFv(arg0);
+        fn_8009E1D4((u8 *)(*(s32 *)((s8 *)ene_me1_canadin_eff_discharge + 0x1C)), (s32)(ene_me1_canadin_eff_discharge + 0x44));
+        queue_destruction__7TObjectFv(ene_me1_canadin_eff_discharge);
     }
 }
 
@@ -375,15 +375,15 @@ void render__25TObjEneMe1Canadin_EffLineFv(s32 arg0) {
 
 #define VC_D ((s32 (*)(void *, s32))VecCopy__FP3VecPC3Vec)
 
-void run_task__25TObjEneMe1Canadin_EffLineFv(u8 *arg0) {
-    VC_D(arg0 + 0x28, ((TObjEneMe1Canadin_EffLine *)arg0)->m_20);
-    VC_D(arg0 + 0x34, *(s32 *)((s8 *)arg0 + 0x24));
-    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) + 1);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) > 5) {
-        *(s32 *)((s8 *)arg0 + 0x1C) = 0;
+void run_task__25TObjEneMe1Canadin_EffLineFv(u8 *ene_me1_canadin_eff_line) {
+    VC_D(ene_me1_canadin_eff_line + 0x28, ((TObjEneMe1Canadin_EffLine *)ene_me1_canadin_eff_line)->m_20);
+    VC_D(ene_me1_canadin_eff_line + 0x34, *(s32 *)((s8 *)ene_me1_canadin_eff_line + 0x24));
+    *(s32 *)((s8 *)ene_me1_canadin_eff_line + 0x1C) = (s32) (*(s32 *)((s8 *)ene_me1_canadin_eff_line + 0x1C) + 1);
+    if ((s32) *(s32 *)((s8 *)ene_me1_canadin_eff_line + 0x1C) > 5) {
+        *(s32 *)((s8 *)ene_me1_canadin_eff_line + 0x1C) = 0;
         u32 newp = __nw__7TObjectFUl(0x3C);
         if (newp != 0U) {
-            fn_800A02AC((u8 *)newp, (u8 *)(*(s32 *)((s8 *)arg0 + 0x10)), arg0 + 0x28, arg0 + 0x34);
+            fn_800A02AC((u8 *)newp, (u8 *)(*(s32 *)((s8 *)ene_me1_canadin_eff_line + 0x10)), ene_me1_canadin_eff_line + 0x28, ene_me1_canadin_eff_line + 0x34);
         }
     }
 }
@@ -404,21 +404,21 @@ struct CanadinRandomScale { f32 value; u32 padding; };
 __declspec(section ".sdata2") extern const CanadinRandomScale canadin_random_scale;
 
 #pragma opt_propagation off
-u8 *TObjEneMe1Canadin_EffLine__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
-    ((s32 (*)(u8 *, s32))__ct__7TObjectFP7TObject)(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__25TObjEneMe1Canadin_EffLine;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneMe1Canadin_EffLine__name;
-    ((TObjEneMe1Canadin_EffLine *)arg0)->m_20 = arg2;
-    *(s32 *)((s8 *)arg0 + 0x24) = arg3;
-    VC_D(arg0 + 0x28, ((TObjEneMe1Canadin_EffLine *)arg0)->m_20);
-    VC_D(arg0 + 0x34, *(s32 *)((s8 *)arg0 + 0x24));
+u8 *TObjEneMe1Canadin_EffLine__ct(u8 *ene_me1_canadin_eff_line, s32 arg1, s32 arg2, s32 arg3) {
+    ((s32 (*)(u8 *, s32))__ct__7TObjectFP7TObject)(ene_me1_canadin_eff_line, arg1);
+    *(s32 **)((s8 *)ene_me1_canadin_eff_line + 0x18) = __vt__25TObjEneMe1Canadin_EffLine;
+    *(s32 *)((s8 *)ene_me1_canadin_eff_line + 0) = (s32) TObjEneMe1Canadin_EffLine__name;
+    ((TObjEneMe1Canadin_EffLine *)ene_me1_canadin_eff_line)->m_20 = arg2;
+    *(s32 *)((s8 *)ene_me1_canadin_eff_line + 0x24) = arg3;
+    VC_D(ene_me1_canadin_eff_line + 0x28, ((TObjEneMe1Canadin_EffLine *)ene_me1_canadin_eff_line)->m_20);
+    VC_D(ene_me1_canadin_eff_line + 0x34, *(s32 *)((s8 *)ene_me1_canadin_eff_line + 0x24));
     {
         s32 k = (s32) 0xFFFF0000;
-        ((TObjEneMe1Canadin_EffLine *)arg0)->m_40 = k + 0x33;
-        *(s32 *)((s8 *)arg0 + 0x44) = k + 0x33;
-        *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (canadin_line_initial_phase_range * (canadin_random_scale.value * (f32) rand(k)));
+        ((TObjEneMe1Canadin_EffLine *)ene_me1_canadin_eff_line)->m_40 = k + 0x33;
+        *(s32 *)((s8 *)ene_me1_canadin_eff_line + 0x44) = k + 0x33;
+        *(s32 *)((s8 *)ene_me1_canadin_eff_line + 0x1C) = (s32) (canadin_line_initial_phase_range * (canadin_random_scale.value * (f32) rand(k)));
     }
-    return arg0;
+    return ene_me1_canadin_eff_line;
 }
 
 void render_shadows__7TObjectFv();

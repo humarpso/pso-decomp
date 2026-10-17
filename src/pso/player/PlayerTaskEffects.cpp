@@ -517,14 +517,14 @@ int TObjPlayer__sub_801C7098(void* p);
 #pragma defer_codegen on
 namespace accessors {
 extern "C" {
-u8 *__ct__18TPlayerLobbyMarkerFP7TObjectsSc(u8 *arg0, u8 *arg1, s16 arg2, s8 arg3) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__18TPlayerLobbyMarker.value;
-    *(s8 *)&((TPlayerLobbyMarker *)arg0)->material_index = arg3;
-    *(s8 *)&((TPlayerLobbyMarker *)arg0)->flags = 0;
-    *(s16 *)&((TPlayerLobbyMarker *)arg0)->player_id = arg2;
-    ((TPlayerLobbyMarker *)arg0)->rotation = 0;
-    return arg0;
+u8 *__ct__18TPlayerLobbyMarkerFP7TObjectsSc(u8 *player_lobby_marker, u8 *arg1, s16 arg2, s8 arg3) {
+    __ct__7TObjectFP7TObject(player_lobby_marker, arg1);
+    *(s32 **)((s8 *)player_lobby_marker + 0x18) = &__vt__18TPlayerLobbyMarker.value;
+    *(s8 *)&((TPlayerLobbyMarker *)player_lobby_marker)->material_index = arg3;
+    *(s8 *)&((TPlayerLobbyMarker *)player_lobby_marker)->flags = 0;
+    *(s16 *)&((TPlayerLobbyMarker *)player_lobby_marker)->player_id = arg2;
+    ((TPlayerLobbyMarker *)player_lobby_marker)->rotation = 0;
+    return player_lobby_marker;
 }
 
 }

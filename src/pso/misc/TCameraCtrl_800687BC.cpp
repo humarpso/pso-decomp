@@ -806,12 +806,12 @@ void TCameraCtrl::reset_viewport_scissor() {
 }
 #pragma pop
 
-s32 TCameraCtrl__sub_800695A0(TCameraCtrl *arg0) {
+s32 TCameraCtrl__sub_800695A0(TCameraCtrl *camera_ctrl) {
     if ((*(G_800695A0 *)&TCameraCtrl__view_state).flags & 0x400) {
         return 0;
     }
     (*(G_800695A0 *)&TCameraCtrl__view_state).flags |= 0x400;
-    arg0->set_view_params();
+    camera_ctrl->set_view_params();
     return 1;
 }
 

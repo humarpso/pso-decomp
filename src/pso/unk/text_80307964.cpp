@@ -11,10 +11,10 @@ extern s32 game_difficulty_selection;
 extern void *tl_00;
 extern void *tl_04;
 extern s32 ending_movie_active_flag;
-u8 *init_ending_movie(u8 *arg0) {
+u8 *init_ending_movie(u8 *object) {
     void *p;
-    __ct__7TObjectFP7TObject(arg0, tl_04);
-    *(void **)(arg0 + 0x18) = lbl_804E71A0;
+    __ct__7TObjectFP7TObject(object, tl_04);
+    *(void **)(object + 0x18) = lbl_804E71A0;
     ending_movie_active_flag = 0;
     switch (game_difficulty_selection) {
     case 0:
@@ -32,7 +32,7 @@ u8 *init_ending_movie(u8 *arg0) {
         }
         break;
     }
-    return arg0;
+    return object;
 }
 
 }

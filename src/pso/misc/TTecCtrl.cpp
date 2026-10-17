@@ -54,12 +54,12 @@ void TTecCtrl::run_task() {
 extern s32 __vt__8TTecCtrl[];
 extern void *TTecCtrl__name;
 
-void *__ct__8TTecCtrlFv(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TTecCtrl;
-    *(void * *)&((TTecCtrl *)arg0)->m_name = TTecCtrl__name;
-    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
-    return arg0;
+void *__ct__8TTecCtrlFv(void *tec_ctrl) {
+    __ct__7TObjectFP7TObject(tec_ctrl);
+    *(s32 **)((s8 *)tec_ctrl + 0x18) = __vt__8TTecCtrl;
+    *(void * *)&((TTecCtrl *)tec_ctrl)->m_name = TTecCtrl__name;
+    *(u32 *)((s8 *)tec_ctrl + 0x1C) = 0;
+    return tec_ctrl;
 }
 typedef char RecoveredGlobal_8022F068_lbl_804CC934_size[sizeof(RecoveredGlobal_8022F068_lbl_804CC934) == 0xC ? 1 : -1];
 void TLobby__sub_8022F068(void) {

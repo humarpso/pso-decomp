@@ -69,17 +69,17 @@ void *__dt__19TWindowKeyBoardHardFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_80260304_lbl_804CFAD0_size[sizeof(RecoveredGlobal_80260304_lbl_804CFAD0) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80260304___vt__19TWindowKeyBoardHard_size[sizeof(RecoveredGlobal_80260304___vt__19TWindowKeyBoardHard) == 0x1C ? 1 : -1];
-u8 *TWindowKeyBoardHard__ct(TWindowKeyBoardHard *arg0, s32 arg1) {
-    ((TWindowDD *)arg0)->construct_base((u8 *)&lbl_804CFAD0.value, (s16)(4), (u8 *)(get_window_layout_position(0xB9)));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80260304___vt__19TWindowKeyBoardHard *)&__vt__19TWindowKeyBoardHard).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowKeyBoardHard__name;
-    arg0->m_60 = 0;
-    arg0->m_70 = arg1;
-    arg0->m_64 = 0;
-    arg0->m_68 = 0;
-    arg0->m_6c = 7;
-    arg0->release_keyboard();
-    return (u8 *)arg0;
+u8 *TWindowKeyBoardHard__ct(TWindowKeyBoardHard *window_key_board_hard, s32 arg1) {
+    ((TWindowDD *)window_key_board_hard)->construct_base((u8 *)&lbl_804CFAD0.value, (s16)(4), (u8 *)(get_window_layout_position(0xB9)));
+    *(s32 **)((s8 *)window_key_board_hard + 0x18) = &(*(RecoveredGlobal_80260304___vt__19TWindowKeyBoardHard *)&__vt__19TWindowKeyBoardHard).value;
+    *(s32 *)((s8 *)window_key_board_hard + 0) = (s32) TWindowKeyBoardHard__name;
+    window_key_board_hard->m_60 = 0;
+    window_key_board_hard->m_70 = arg1;
+    window_key_board_hard->m_64 = 0;
+    window_key_board_hard->m_68 = 0;
+    window_key_board_hard->m_6c = 7;
+    window_key_board_hard->release_keyboard();
+    return (u8 *)window_key_board_hard;
 }
 
 extern char lbl_8044F0A8[];

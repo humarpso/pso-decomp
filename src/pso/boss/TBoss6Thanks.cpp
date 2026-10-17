@@ -251,28 +251,28 @@ u8 *__dt__12TBoss6ThanksFv(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TBoss6Thanks__ct(TBoss6Thanks *arg0, u8 *arg1) {
+u8 *TBoss6Thanks__ct(TBoss6Thanks *boss6_thanks, u8 *arg1) {
     u8 *fish_count;
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__12TBoss6Thanks.value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss6Thanks__class_name;
+    __ct__7TObjectFP7TObject(boss6_thanks, arg1);
+    *(s32 **)((s8 *)boss6_thanks + 0x18) = &__vt__12TBoss6Thanks.value;
+    *(s32 *)((s8 *)boss6_thanks + 0) = (s32) TBoss6Thanks__class_name;
     fish_count = (u8 *)(TObjFish::get_fish_count());
-    *(s32 *)((s8 *)arg0 + 0x38) = get_bml_model(fish_count, 7);
-    arg0->texture0 = TObjFish__sub_8001EDB0(fish_count, 7);
-    *(s32 *)((s8 *)arg0 + 0x48) = get_bml_motion(fish_count, 9);
-    *(s32 *)((s8 *)arg0 + 0x4C) = get_bml_motion(fish_count, 0xB);
-    *(s32 *)((s8 *)arg0 + 0x3C) = get_bml_model(fish_count, 9);
-    arg0->texture1 = TObjFish__sub_8001EDB0(fish_count, 9);
-    *(s32 *)((s8 *)arg0 + 0x50) = get_bml_motion(fish_count, 0xA);
-    TBoss6Thanks__sub_8035CCAC((s32)((s32) arg0));
-    arg0->m_1c = 0;
-    arg0->m_24 = 0;
-    arg0->current_motion = 0;
-    arg0->frame0 = (f32) lbl_805E019C;
-    arg0->frame1 = (f32) lbl_805E019C;
-    arg0->opacity = (f32) lbl_805E01A4;
-    arg0->m_34 = 0;
-    return (u8 *)arg0;
+    *(s32 *)((s8 *)boss6_thanks + 0x38) = get_bml_model(fish_count, 7);
+    boss6_thanks->texture0 = TObjFish__sub_8001EDB0(fish_count, 7);
+    *(s32 *)((s8 *)boss6_thanks + 0x48) = get_bml_motion(fish_count, 9);
+    *(s32 *)((s8 *)boss6_thanks + 0x4C) = get_bml_motion(fish_count, 0xB);
+    *(s32 *)((s8 *)boss6_thanks + 0x3C) = get_bml_model(fish_count, 9);
+    boss6_thanks->texture1 = TObjFish__sub_8001EDB0(fish_count, 9);
+    *(s32 *)((s8 *)boss6_thanks + 0x50) = get_bml_motion(fish_count, 0xA);
+    TBoss6Thanks__sub_8035CCAC((s32)((s32) boss6_thanks));
+    boss6_thanks->m_1c = 0;
+    boss6_thanks->m_24 = 0;
+    boss6_thanks->current_motion = 0;
+    boss6_thanks->frame0 = (f32) lbl_805E019C;
+    boss6_thanks->frame1 = (f32) lbl_805E019C;
+    boss6_thanks->opacity = (f32) lbl_805E01A4;
+    boss6_thanks->m_34 = 0;
+    return (u8 *)boss6_thanks;
 }
 
 __declspec(section ".sdata2") const f32 lbl_805E0198 = 30.0f;

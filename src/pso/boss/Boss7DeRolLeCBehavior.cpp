@@ -1337,18 +1337,18 @@ void TObjFish__sub_802E85E0(u8 *arg0, u32 arg1, s32 arg2) {
 }
 #undef self
 
-void TObjFish__sub_802E88F8(u8 *arg0, u32 arg1) {
+void TObjFish__sub_802E88F8(u8 *boss7_de_rol_le_c, u32 arg1) {
     s32 temp_r3;
     switch (arg1) {
     case 4:
-        *(s32 *)((s8 *)arg0 + 0x728) = lbl_804E3C2C[game_difficulty_selection][*(s32 *)((s8 *)arg0 + 0x6B4)].b * 0x1E;
+        *(s32 *)((s8 *)boss7_de_rol_le_c + 0x728) = lbl_804E3C2C[game_difficulty_selection][*(s32 *)((s8 *)boss7_de_rol_le_c + 0x6B4)].b * 0x1E;
         return;
     case 0:
-        advance_animation_playback(arg0);
-        temp_r3 = *(s32 *)((s8 *)arg0 + 0x728);
-        *(s32 *)((s8 *)arg0 + 0x728) = temp_r3 - 1;
+        advance_animation_playback(boss7_de_rol_le_c);
+        temp_r3 = *(s32 *)((s8 *)boss7_de_rol_le_c + 0x728);
+        *(s32 *)((s8 *)boss7_de_rol_le_c + 0x728) = temp_r3 - 1;
         if (temp_r3 == 0) {
-            ((TBoss7DeRolLeC *)arg0)->advance_action_sequence();
+            ((TBoss7DeRolLeC *)boss7_de_rol_le_c)->advance_action_sequence();
         }
         return;
     case 1: return;
@@ -1362,20 +1362,20 @@ void TObjFish__sub_802E88F8(u8 *arg0, u32 arg1) {
     }
 }
 
-void TObjFish__sub_802E8990(u8 *arg0, u32 arg1) {
+void TObjFish__sub_802E8990(u8 *boss7_de_rol_le_c, u32 arg1) {
     switch (arg1) {
     case 4:
-        *(s32 *)((s8 *)arg0 + 0x728) = *(s16 *)((s8 *)arg0 + 0xF4);
-        *(s16 *)((s8 *)arg0 + 0xF4) = 1;
+        *(s32 *)((s8 *)boss7_de_rol_le_c + 0x728) = *(s16 *)((s8 *)boss7_de_rol_le_c + 0xF4);
+        *(s16 *)((s8 *)boss7_de_rol_le_c + 0xF4) = 1;
         return;
     case 0:
-        advance_animation_playback(arg0);
-        if (((TObject *)(*(s32 *)((s8 *)arg0 + 0x7A4)))->get_node_count() == 0) {
-            ((TBoss7DeRolLeC *)arg0)->advance_action_sequence();
+        advance_animation_playback(boss7_de_rol_le_c);
+        if (((TObject *)(*(s32 *)((s8 *)boss7_de_rol_le_c + 0x7A4)))->get_node_count() == 0) {
+            ((TBoss7DeRolLeC *)boss7_de_rol_le_c)->advance_action_sequence();
         }
         return;
     case 5:
-        *(s16 *)((s8 *)arg0 + 0xF4) = *(s32 *)((s8 *)arg0 + 0x728);
+        *(s16 *)((s8 *)boss7_de_rol_le_c + 0xF4) = *(s32 *)((s8 *)boss7_de_rol_le_c + 0x728);
         return;
     case 1: return;
     case 2: return;
@@ -1561,27 +1561,27 @@ void TObjFish::handle_death_state(u32 arg1) {
     }
 }
 
-void TObjFish__sub_802E8E34(u8 *arg0, u32 arg1) {
+void TObjFish__sub_802E8E34(u8 *boss7_de_rol_le_c, u32 arg1) {
     switch (arg1) {
     case 4:
-        *(s32 *)((s8 *)arg0 + 0x628) = *(s32 *)((s8 *)arg0 + 0x628) | 4;
-        *(s32 *)((s8 *)arg0 + 0x628) = *(s32 *)((s8 *)arg0 + 0x628) & 0xFFFFFEFF;
-        ((s32 (*)(void *))TObjFish__sub_802ECC44)(arg0);
-        *(s32 *)((s8 *)arg0 + 0x5C) = 0;
-        *(f32 *)((s8 *)arg0 + 0x6F0) = lbl_805DEA10;
+        *(s32 *)((s8 *)boss7_de_rol_le_c + 0x628) = *(s32 *)((s8 *)boss7_de_rol_le_c + 0x628) | 4;
+        *(s32 *)((s8 *)boss7_de_rol_le_c + 0x628) = *(s32 *)((s8 *)boss7_de_rol_le_c + 0x628) & 0xFFFFFEFF;
+        ((s32 (*)(void *))TObjFish__sub_802ECC44)(boss7_de_rol_le_c);
+        *(s32 *)((s8 *)boss7_de_rol_le_c + 0x5C) = 0;
+        *(f32 *)((s8 *)boss7_de_rol_le_c + 0x6F0) = lbl_805DEA10;
         return;
     case 9:
-        if (*(s16 *)((s8 *)arg0 + 0xB8) == 1) {
-            ((TBoss7DeRolLeC *)arg0)->advance_action_sequence();
+        if (*(s16 *)((s8 *)boss7_de_rol_le_c + 0xB8) == 1) {
+            ((TBoss7DeRolLeC *)boss7_de_rol_le_c)->advance_action_sequence();
         }
         return;
     case 8:
-        if (*(f32 *)((s8 *)arg0 + 0x6F0) < lbl_805DEA40) {
-            set_state_and_send__14TBoss7DeRolLeCFl(arg0, 0x1C);
+        if (*(f32 *)((s8 *)boss7_de_rol_le_c + 0x6F0) < lbl_805DEA40) {
+            set_state_and_send__14TBoss7DeRolLeCFl(boss7_de_rol_le_c, 0x1C);
         }
         return;
     case 0:
-        *(f32 *)((s8 *)arg0 + 0x6F0) = *(f32 *)((s8 *)arg0 + 0x6F0) - lbl_805DEA44;
+        *(f32 *)((s8 *)boss7_de_rol_le_c + 0x6F0) = *(f32 *)((s8 *)boss7_de_rol_le_c + 0x6F0) - lbl_805DEA44;
         return;
     case 1: return;
     case 2: return;
@@ -3305,21 +3305,21 @@ void fn_802EC9F0(void *arg0, void *arg1) {
 }
 }
 
-void handle_6xAA_barba_ray_boss_actions(void *arg0) {
+void handle_6xAA_barba_ray_boss_actions(void *boss7_joint) {
     void *x;
-    ((TBoss7Joint *)arg0)->read_state();
-    x = get_enemy_entity(*(u16 *)((s8 *)arg0 + 0x2));
+    ((TBoss7Joint *)boss7_joint)->read_state();
+    x = get_enemy_entity(*(u16 *)((s8 *)boss7_joint + 0x2));
     if (x != NULL) {
-        fn_802EC9A4(x, arg0);
+        fn_802EC9A4(x, boss7_joint);
     }
 }
 
-void handle_6xA9_barba_ray_boss_actions(void *arg0) {
+void handle_6xA9_barba_ray_boss_actions(void *boss7_joint) {
     void *x;
-    ((TBoss7Joint *)arg0)->byteswap_action_packet();
-    x = get_enemy_entity(*(u16 *)((s8 *)arg0 + 0x2));
+    ((TBoss7Joint *)boss7_joint)->byteswap_action_packet();
+    x = get_enemy_entity(*(u16 *)((s8 *)boss7_joint + 0x2));
     if (x != NULL) {
-        fn_802EC9F0(x, arg0);
+        fn_802EC9F0(x, boss7_joint);
     }
 }
 extern "C" {

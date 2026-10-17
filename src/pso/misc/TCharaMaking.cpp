@@ -139,7 +139,7 @@ f32 calc_character_height(void *p) {
 #pragma opt_dead_assignments off
 #pragma opt_propagation off
 extern "C" {
-void TCharaMaking__draw_colored_hair(f32 farg0, s32 arg0, CharacterAppearanceFields *arg1, s32 arg2) {
+void TCharaMaking__draw_colored_hair(f32 farg0, s32 arg0, CharacterAppearanceFields *character_appearance_fields, s32 arg2) {
     struct Color { f32 a, r, g, b; } color;
     s32 temp_r3;
     s32 second;
@@ -161,9 +161,9 @@ void TCharaMaking__draw_colored_hair(f32 farg0, s32 arg0, CharacterAppearanceFie
         set_shadow_material_state();
     } else {
         color.a = farg0;
-        color.r = lbl_805DD934 * (f32) arg1->red;
-        color.g = lbl_805DD934 * (f32) arg1->green;
-        color.b = lbl_805DD934 * (f32) arg1->blue;
+        color.r = lbl_805DD934 * (f32) character_appearance_fields->red;
+        color.g = lbl_805DD934 * (f32) character_appearance_fields->green;
+        color.b = lbl_805DD934 * (f32) character_appearance_fields->blue;
         ((TUnk_80494AE0 *)(&color.a))->set_chunk_material_color();
     }
     draw_chunk_object((void *)arg0);

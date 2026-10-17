@@ -247,7 +247,7 @@ s32 TLobby::handle_msg_type2(s32 arg0) {
     s32 sp10;
     s32 spC;
     s32 sp8;
-    u8 *temp_r31;
+    u8 *lobby;
     u8 *var_r31;
 
     if ((var_r31 = (u8 *)TLobby__data_805D5EE0) != NULL) {
@@ -261,10 +261,10 @@ loop_1:
         bswap_32((u32 *)&spC);
         bswap_32((u32 *)&sp8);
         if ((sp14 == 2) && (spC == arg0)) {
-            temp_r31 = var_r31 + 0x10;
-            ((TLobby *)temp_r31)->bswap_enemy_set_rows(sp8);
-            reserve_enemy_set_actor_ids(temp_r31, (u32) sp8 / 72U, TLobby::get_player_floor(spC));
-            TLobby::init_floor_enemy_count(spC, temp_r31, sp8);
+            lobby = var_r31 + 0x10;
+            ((TLobby *)lobby)->bswap_enemy_set_rows(sp8);
+            reserve_enemy_set_actor_ids(lobby, (u32) sp8 / 72U, TLobby::get_player_floor(spC));
+            TLobby::init_floor_enemy_count(spC, lobby, sp8);
             return 1;
         }
         if (sp14 != 0) {

@@ -314,17 +314,17 @@ void *__dt__17TWindowSetLevelUpFv(void *arg0, s16 arg1) {
 #pragma inline_depth(1)
 #pragma auto_inline on
 #pragma dont_inline off
-void *__ct__17TWindowSetLevelUpFv(void *arg0, void *arg1, void *arg2, void *arg3) {
-    struct VOff_8026DD70_arg0_8026DCE0 *self = (struct VOff_8026DD70_arg0_8026DCE0 *)arg0;
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__17TWindowSetLevelUp;
+void *__ct__17TWindowSetLevelUpFv(void *window_set_level_up, void *arg1, void *arg2, void *arg3) {
+    struct VOff_8026DD70_arg0_8026DCE0 *self = (struct VOff_8026DD70_arg0_8026DCE0 *)window_set_level_up;
+    __ct__7TObjectFP7TObject(window_set_level_up);
+    *(s32 **)((s8 *)window_set_level_up + 0x18) = (s32 *)__vt__17TWindowSetLevelUp;
     ((TObjPlayer *)(self->f_24))->reset_sub_status_disp();
-    *(void * *)&((TWindowSetLevelUp *)arg0)->m_name = lbl_805D39C8;
+    *(void * *)&((TWindowSetLevelUp *)window_set_level_up)->m_name = lbl_805D39C8;
     ((TWindowSetLevelUp *)(self->f_24))->copy_stat_block((s32)arg2);
-    *(u16 *)((s8 *)arg0 + 0x1E) = 0;
-    *(void **)((s8 *)arg0 + 0x20) = arg3;
-    *(u8 *)((s8 *)arg0 + 0x1C) = 0;
-    return arg0;
+    *(u16 *)((s8 *)window_set_level_up + 0x1E) = 0;
+    *(void **)((s8 *)window_set_level_up + 0x20) = arg3;
+    *(u8 *)((s8 *)window_set_level_up + 0x1C) = 0;
+    return window_set_level_up;
 }
 #pragma pop
 

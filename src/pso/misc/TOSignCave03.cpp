@@ -179,16 +179,16 @@ void *__dt__12TOSignCave03Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_80176FF8___vt__12TOSignCave03_size[sizeof(RecoveredGlobal_80176FF8___vt__12TOSignCave03) == 0x38 ? 1 : -1];
-u8 *TOSignCave03__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    init_map_object_base((void *)arg0, (void *)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80176FF8___vt__12TOSignCave03 *)&__vt__12TOSignCave03).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D316C;
-    ((TOSignCave03 *)(arg0))->apply_object_set_data((void *)arg2);
-    *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOSignCave03__shared_resource) + 0x42C)) + 8);
-    ((TOSignCave03 *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOSignCave03__shared_resource) + 0x42C)) + 0xC);
-    ((TOSignCave03 *)arg0)->m_c0 = (f32) lbl_805DB9E0;
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB9E4;
-    return arg0;
+u8 *TOSignCave03__ct(u8 *sign_cave03, s32 arg1, s32 arg2) {
+    init_map_object_base((void *)sign_cave03, (void *)arg1);
+    *(s32 **)((s8 *)sign_cave03 + 0x18) = &(*(RecoveredGlobal_80176FF8___vt__12TOSignCave03 *)&__vt__12TOSignCave03).value;
+    *(s32 *)((s8 *)sign_cave03 + 0) = (s32) lbl_805D316C;
+    ((TOSignCave03 *)(sign_cave03))->apply_object_set_data((void *)arg2);
+    *(s32 *)((s8 *)sign_cave03 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOSignCave03__shared_resource) + 0x42C)) + 8);
+    ((TOSignCave03 *)sign_cave03)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOSignCave03__shared_resource) + 0x42C)) + 0xC);
+    ((TOSignCave03 *)sign_cave03)->m_c0 = (f32) lbl_805DB9E0;
+    *(f32 *)((s8 *)sign_cave03 + 0xC4) = (f32) lbl_805DB9E4;
+    return sign_cave03;
 }
 
 }

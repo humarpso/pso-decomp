@@ -358,28 +358,28 @@ void *__dt__19TShopItemListWindowFv(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_8021FDC8___vt__19TShopItemListWindow_size[sizeof(RecoveredGlobal_8021FDC8___vt__19TShopItemListWindow) == 0x30 ? 1 : -1];
-u8 *TShopItemListWindow__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+u8 *TShopItemListWindow__ct(u8 *shop_item_list_window, s32 arg1, s32 arg2, s32 arg3) {
     s32 sp8;
-    __ct__15TShopWindowBaseFv((arg0));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8021FDC8___vt__19TShopItemListWindow *)&__vt__19TShopItemListWindow).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TShopItemListWindow__class_name;
-    *(s32 *)&((TShopItemListWindow *)arg0)->m_24 = arg3;
-    *(s32 *)&((TShopItemListWindow *)arg0)->m_2c = arg2;
-    *(s32 *)&((TShopItemListWindow *)arg0)->m_28 = 0;
-    *(s32 *)&((TShopItemListWindow *)arg0)->m_30 = 0;
-    *(s32 *)&((TShopItemListWindow *)arg0)->m_34 = 0;
-    *(s32 *)&((TShopItemListWindow *)arg0)->m_38 = 0;
-    *(s32 *)&((TShopItemListWindow *)arg0)->m_3c = 0;
-    *(s32 *)&((TShopItemListWindow *)arg0)->m_40 = 0;
-    *(s32 *)&((TShopItemListWindow *)arg0)->m_44 = 0;
-    *(s32 *)&((TShopItemListWindow *)arg0)->m_50 = 0;
-    *(s32 *)&((TShopItemListWindow *)arg0)->m_20 = 0;
-    *(s32 *)&((TShopItemListWindow *)arg0)->m_1c0 = 0;
-    *(s32 *)&((TShopItemListWindow *)arg0)->m_4c = 0;
-    *(s32 *)&((TShopItemListWindow *)arg0)->m_54 = 0;
-    ((TShopGetItemWindow *)(*(s32 *)&((TShopItemListWindow *)arg0)->m_24))->calc_item_count(&sp8);
-    TLobby::set_6264_and_call_2244B0((int)((void *) (sub_8022397C__15TShopWindowBaseFv(arg0))), sp8);
-    return arg0;
+    __ct__15TShopWindowBaseFv((shop_item_list_window));
+    *(s32 **)((s8 *)shop_item_list_window + 0x18) = &(*(RecoveredGlobal_8021FDC8___vt__19TShopItemListWindow *)&__vt__19TShopItemListWindow).value;
+    *(s32 *)((s8 *)shop_item_list_window + 0) = (s32) TShopItemListWindow__class_name;
+    *(s32 *)&((TShopItemListWindow *)shop_item_list_window)->m_24 = arg3;
+    *(s32 *)&((TShopItemListWindow *)shop_item_list_window)->m_2c = arg2;
+    *(s32 *)&((TShopItemListWindow *)shop_item_list_window)->m_28 = 0;
+    *(s32 *)&((TShopItemListWindow *)shop_item_list_window)->m_30 = 0;
+    *(s32 *)&((TShopItemListWindow *)shop_item_list_window)->m_34 = 0;
+    *(s32 *)&((TShopItemListWindow *)shop_item_list_window)->m_38 = 0;
+    *(s32 *)&((TShopItemListWindow *)shop_item_list_window)->m_3c = 0;
+    *(s32 *)&((TShopItemListWindow *)shop_item_list_window)->m_40 = 0;
+    *(s32 *)&((TShopItemListWindow *)shop_item_list_window)->m_44 = 0;
+    *(s32 *)&((TShopItemListWindow *)shop_item_list_window)->m_50 = 0;
+    *(s32 *)&((TShopItemListWindow *)shop_item_list_window)->m_20 = 0;
+    *(s32 *)&((TShopItemListWindow *)shop_item_list_window)->m_1c0 = 0;
+    *(s32 *)&((TShopItemListWindow *)shop_item_list_window)->m_4c = 0;
+    *(s32 *)&((TShopItemListWindow *)shop_item_list_window)->m_54 = 0;
+    ((TShopGetItemWindow *)(*(s32 *)&((TShopItemListWindow *)shop_item_list_window)->m_24))->calc_item_count(&sp8);
+    TLobby::set_6264_and_call_2244B0((int)((void *) (sub_8022397C__15TShopWindowBaseFv(shop_item_list_window))), sp8);
+    return shop_item_list_window;
 }
 
 }

@@ -109,22 +109,22 @@ void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1) {
 
 extern s32 TObjMesBase__class_name;
 
-void *TObjMesBase__ct(TObjMesBase *arg0, s32 arg1, s32 arg2) {
+void *TObjMesBase__ct(TObjMesBase *mes_base, s32 arg1, s32 arg2) {
     construct_collider_proxy__13TUnk_804AF8A0Fv();
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjMesBase;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjMesBase__class_name;
-    arg0->apply_object_set_data((void *)arg2);
-    arg0->messageLabel = (s32) arg0->m_84;
-    arg0->messageBank = (s32) arg0->m_8c;
-    if ((s32) arg0->messageBank < 0) {
-        arg0->messageBank = 0;
+    *(s32 **)((s8 *)mes_base + 0x18) = __vt__11TObjMesBase;
+    *(s32 *)((s8 *)mes_base + 0) = (s32) TObjMesBase__class_name;
+    mes_base->apply_object_set_data((void *)arg2);
+    mes_base->messageLabel = (s32) mes_base->m_84;
+    mes_base->messageBank = (s32) mes_base->m_8c;
+    if ((s32) mes_base->messageBank < 0) {
+        mes_base->messageBank = 0;
     }
-    if ((s32) arg0->messageBank > 1) {
-        arg0->messageBank = 1;
+    if ((s32) mes_base->messageBank > 1) {
+        mes_base->messageBank = 1;
     }
-    *(s32 *)((s8 *)arg0 + 0xAC) = 0;
-    arg0->messagePhase = 0;
-    return arg0;
+    *(s32 *)((s8 *)mes_base + 0xAC) = 0;
+    mes_base->messagePhase = 0;
+    return mes_base;
 }
 
 extern s32 camera_ctrl_instance;

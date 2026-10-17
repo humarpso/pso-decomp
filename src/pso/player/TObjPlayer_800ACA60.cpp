@@ -598,13 +598,13 @@ extern const f32 lbl_805D9C4C;
 }
 
 void TObjEneMoja::vfunc_62() {
-    MojaCollisionState *temp_r5;
+    MojaCollisionState *moja_collision_state;
 
     switch (mode) {
     case 4:
         (this->actorFlags) = (s32) ((this->actorFlags) & 0xF9FFF9FF);
-        temp_r5 = (*(MojaCollisionState * *)&this->m_a4);
-        temp_r5->flags = (s32) (temp_r5->flags & 0xFBFFFFFF);
+        moja_collision_state = (*(MojaCollisionState * *)&this->m_a4);
+        moja_collision_state->flags = (s32) (moja_collision_state->flags & 0xFBFFFFFF);
         referenceHp = (s16) hp;
         roar = 0;
         break;
@@ -1159,7 +1159,7 @@ s32 TObjEneMoja::update_approach_state() {
 }
 
 void TObjEneMoja::vfunc_59() {
-    MojaCollisionState *temp_r5;
+    MojaCollisionState *moja_collision_state;
 
     if ((s16) mode != 3) {
         mode = 3;
@@ -1175,8 +1175,8 @@ void TObjEneMoja::vfunc_59() {
         }
         attackSequence = -1;
         (this->actorFlags) = (s32) ((this->actorFlags) & 0xF9FBFFFF);
-        temp_r5 = (*(MojaCollisionState * *)&this->m_a4);
-        temp_r5->flags = (s32) (temp_r5->flags | 1);
+        moja_collision_state = (*(MojaCollisionState * *)&this->m_a4);
+        moja_collision_state->flags = (s32) (moja_collision_state->flags | 1);
         appearance = 0;
     }
 }

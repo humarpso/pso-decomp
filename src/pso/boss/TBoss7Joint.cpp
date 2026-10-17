@@ -112,18 +112,18 @@ s32 TBoss7Joint::init_params() {
     return *(s32 *)((s8 *)this + 0x3C4) = TBoss7Joint_get_shell_max_hp();
 }
 
-u8 *TBoss7Joint__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32 arg5) {
-    TObjEneDD__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802EEC60___vt__11TBoss7Joint *)&__vt__11TBoss7Joint).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3FC0;
-    ((TObjEneDD *)arg0)->init_common_from(arg1);
-    *(s16 *)&((TBoss7Joint *)arg0)->m_1c = arg2;
-    *(s16 *)((s8 *)arg0 + 0x2C) = arg3;
-    *(s32 *)((s8 *)arg0 + 0x3C0) = arg4;
-    *(s32 *)((s8 *)arg0 + 0x3B8) = arg5;
-    initialize_enemy_state__9TObjEneDDFv(arg0, 0x49);
-    ((TBoss7Joint *)arg0)->init_params();
-    return arg0;
+u8 *TBoss7Joint__ct(u8 *boss7_joint, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32 arg5) {
+    TObjEneDD__ct(boss7_joint);
+    *(s32 **)((s8 *)boss7_joint + 0x18) = &(*(RecoveredGlobal_802EEC60___vt__11TBoss7Joint *)&__vt__11TBoss7Joint).value;
+    *(s32 *)((s8 *)boss7_joint + 0) = (s32) lbl_805D3FC0;
+    ((TObjEneDD *)boss7_joint)->init_common_from(arg1);
+    *(s16 *)&((TBoss7Joint *)boss7_joint)->m_1c = arg2;
+    *(s16 *)((s8 *)boss7_joint + 0x2C) = arg3;
+    *(s32 *)((s8 *)boss7_joint + 0x3C0) = arg4;
+    *(s32 *)((s8 *)boss7_joint + 0x3B8) = arg5;
+    initialize_enemy_state__9TObjEneDDFv(boss7_joint, 0x49);
+    ((TBoss7Joint *)boss7_joint)->init_params();
+    return boss7_joint;
 }
 
 void TBoss7Joint__vt85(void) {  }

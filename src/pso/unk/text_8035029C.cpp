@@ -21,11 +21,11 @@ void *__dt__13TUnk_804F0C48Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void *create_item_object_lbl_804F0C48(void *arg0) {
-    TItemObject__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F0C48;
-    ((TItem *)arg0)->clear_item_flags(16);
-    return arg0;
+void *create_item_object_lbl_804F0C48(void *item) {
+    TItemObject__ct(item);
+    *(s32 **)((s8 *)item + 0x18) = lbl_804F0C48;
+    ((TItem *)item)->clear_item_flags(16);
+    return item;
 }
 
 }

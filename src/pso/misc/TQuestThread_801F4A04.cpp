@@ -16,9 +16,9 @@ s32 TQuestThread::tick_com_card() {
 }
 
 s32 TQuestThread::update_board_card() {
-    void *temp_r3 = *(void **)((s8 *)this + 0x60);
-    if (temp_r3 != NULL) {
-        return ((TWindowMenu *)temp_r3)->is_visible();
+    void *window_menu = *(void **)((s8 *)this + 0x60);
+    if (window_menu != NULL) {
+        return ((TWindowMenu *)window_menu)->is_visible();
     }
     return 0;
 }

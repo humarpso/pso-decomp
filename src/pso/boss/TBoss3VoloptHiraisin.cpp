@@ -226,20 +226,20 @@ void update_drop__20TBoss3VoloptHiraisinFPv(Hira_800411F0 *self);
 void start_attack__20TBoss3VoloptHiraisinFPv(u8 *arg0);
 s32 sub_800C7860__15TObjEnemyCustomFv(void *, s32);
 
-void start_attack__20TBoss3VoloptHiraisinFPv(u8 *arg0) {
+void start_attack__20TBoss3VoloptHiraisinFPv(u8 *enemy_custom) {
     s16 temp_r4;
     s32 temp_r4_2;
 
-    TBoss3Volopt::create_breakup_mdl((s32)TBoss3VoloptHiraisin__breakup_model, (s32)TBoss3VoloptHiraisin__init_param_table, (s32)(TObjFish__sub_8001EDB0(TBoss3VoloptHiraisin__resource_bundle, 0x10)), (s32)(arg0 + 0x2FC), (s32)(((TObjEnemyCustom *)arg0)->rotation_y));
-    ((TObjPlayer *)(arg0 + 0x2FC))->trigger_dell_biter_events();
-    play_sound_effect(0x4001C112, arg0 + 0x38, 0, 0);
-    *(s32 *)&((TObjEnemyCustom *)arg0)->m_388 = (s32) (*(s32 *)&((TObjEnemyCustom *)arg0)->m_388 & 0xFFFFFFFE);
-    temp_r4 = ((TObjEnemyCustom *)arg0)->hpmax;
-    ((TObjEnemyCustom *)arg0)->referenceHp = temp_r4;
-    ((TObjEnemyCustom *)arg0)->hp = temp_r4;
-    temp_r4_2 = *(s32 *)&((TObjEnemyCustom *)arg0)->actorFlags;
-    *(s32 *)&((TObjEnemyCustom *)arg0)->actorFlags = (s32) (temp_r4_2 & ~0xA00);
-    sub_800C7860__15TObjEnemyCustomFv(arg0, temp_r4_2);
+    TBoss3Volopt::create_breakup_mdl((s32)TBoss3VoloptHiraisin__breakup_model, (s32)TBoss3VoloptHiraisin__init_param_table, (s32)(TObjFish__sub_8001EDB0(TBoss3VoloptHiraisin__resource_bundle, 0x10)), (s32)(enemy_custom + 0x2FC), (s32)(((TObjEnemyCustom *)enemy_custom)->rotation_y));
+    ((TObjPlayer *)(enemy_custom + 0x2FC))->trigger_dell_biter_events();
+    play_sound_effect(0x4001C112, enemy_custom + 0x38, 0, 0);
+    *(s32 *)&((TObjEnemyCustom *)enemy_custom)->m_388 = (s32) (*(s32 *)&((TObjEnemyCustom *)enemy_custom)->m_388 & 0xFFFFFFFE);
+    temp_r4 = ((TObjEnemyCustom *)enemy_custom)->hpmax;
+    ((TObjEnemyCustom *)enemy_custom)->referenceHp = temp_r4;
+    ((TObjEnemyCustom *)enemy_custom)->hp = temp_r4;
+    temp_r4_2 = *(s32 *)&((TObjEnemyCustom *)enemy_custom)->actorFlags;
+    *(s32 *)&((TObjEnemyCustom *)enemy_custom)->actorFlags = (s32) (temp_r4_2 & ~0xA00);
+    sub_800C7860__15TObjEnemyCustomFv(enemy_custom, temp_r4_2);
 }
 #pragma push
 #pragma fp_contract on

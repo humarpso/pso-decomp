@@ -242,12 +242,12 @@ void *__dt__18TAdChrMoveEffectGCFv(void *arg0, s16 arg1) {
 
 extern void *lbl_805D42F0;
 
-void *TAdChrMoveEffectGC__ct(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TAdChrMoveEffectGC;
-    *(void * *)&((TAdChrMoveEffectGC *)arg0)->m_name = lbl_805D42F0;
-    ((TAdChrMoveEffectGC *)arg0)->m_20 = 0;
-    return arg0;
+void *TAdChrMoveEffectGC__ct(void *ad_chr_move_effect_gc) {
+    __ct__7TObjectFP7TObject(ad_chr_move_effect_gc);
+    *(s32 **)((s8 *)ad_chr_move_effect_gc + 0x18) = __vt__18TAdChrMoveEffectGC;
+    *(void * *)&((TAdChrMoveEffectGC *)ad_chr_move_effect_gc)->m_name = lbl_805D42F0;
+    ((TAdChrMoveEffectGC *)ad_chr_move_effect_gc)->m_20 = 0;
+    return ad_chr_move_effect_gc;
 }
 
 }

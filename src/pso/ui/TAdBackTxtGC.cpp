@@ -14,8 +14,8 @@ extern "C" {
 void __ct__7TObjectFP7TObject(void *);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
-void render__12TAdBackTxtGCFv(TAdBackTxtGC *arg0) {
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x24) == 0) {
+void render__12TAdBackTxtGCFv(TAdBackTxtGC *ad_back_txt_gc) {
+    if ((s32) *(s32 *)((s8 *)ad_back_txt_gc + 0x24) == 0) {
         if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) {
             set_depth_buffer_settings_2();
             goto block_4;
@@ -24,10 +24,10 @@ void render__12TAdBackTxtGCFv(TAdBackTxtGC *arg0) {
 block_4:
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 0xA);
-        arg0->draw_character_background_frame((s32) *(s32 *)((s8 *)arg0 + 0x1C) / 3, -1);
+        ad_back_txt_gc->draw_character_background_frame((s32) *(s32 *)((s8 *)ad_back_txt_gc + 0x1C) / 3, -1);
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 6);
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x24) == 0) {
+        if ((s32) *(s32 *)((s8 *)ad_back_txt_gc + 0x24) == 0) {
             restore_saved_depth_alpha_state();
         }
     }
@@ -54,14 +54,14 @@ TAdBackTxtGC::~TAdBackTxtGC() {
 }
 extern "C" {
 
-void *__ct__12TAdBackTxtGCFv(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(void ***)((s8 *)arg0 + 0x18) = __vt__12TAdBackTxtGC;
-    *(void * *)&((TAdBackTxtGC *)arg0)->m_name = TAdBackTxtGC__name;
-    *(u32 *)((s8 *)arg0 + 0x1C) = -1;
-    *(f32 *)((s8 *)arg0 + 0x20) = lbl_805DDD08;
-    *(u32 *)((s8 *)arg0 + 0x24) = 1;
-    return arg0;
+void *__ct__12TAdBackTxtGCFv(void *ad_back_txt_gc) {
+    __ct__7TObjectFP7TObject(ad_back_txt_gc);
+    *(void ***)((s8 *)ad_back_txt_gc + 0x18) = __vt__12TAdBackTxtGC;
+    *(void * *)&((TAdBackTxtGC *)ad_back_txt_gc)->m_name = TAdBackTxtGC__name;
+    *(u32 *)((s8 *)ad_back_txt_gc + 0x1C) = -1;
+    *(f32 *)((s8 *)ad_back_txt_gc + 0x20) = lbl_805DDD08;
+    *(u32 *)((s8 *)ad_back_txt_gc + 0x24) = 1;
+    return ad_back_txt_gc;
 }
 
     extern unsigned char lbl_80465490[];

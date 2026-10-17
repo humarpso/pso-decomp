@@ -162,43 +162,43 @@ void *__dt__14TOKeyMachine01Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TOKeyMachine01__ct(TOKeyMachine01 *arg0, s32 arg1, s32 arg2) {
-    TOKey__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016D7F0___vt__14TOKeyMachine01 *)&__vt__14TOKeyMachine01).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TOKeyMachine01__name;
-    ((TOKeyMachine01 *)(arg0))->apply_object_set_data((void *)arg2);
-    ((TOKey *)arg0)->init_switch_id();
-    arg0->texture_id = (s32) *TOKeyMachine01__texture_lists;
-    *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&key_machine_model_archive) + 0x42C)) + 8);
-    arg0->m_c0 = (f32) lbl_805DB794;
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB798;
-    *(f32 *)((s8 *)arg0 + 0xCC) = (f32) lbl_805DB798;
+u8 *TOKeyMachine01__ct(TOKeyMachine01 *key_machine01, s32 arg1, s32 arg2) {
+    TOKey__ct(key_machine01);
+    *(s32 **)((s8 *)key_machine01 + 0x18) = &(*(RecoveredGlobal_8016D7F0___vt__14TOKeyMachine01 *)&__vt__14TOKeyMachine01).value;
+    *(s32 *)((s8 *)key_machine01 + 0) = (s32) TOKeyMachine01__name;
+    ((TOKeyMachine01 *)(key_machine01))->apply_object_set_data((void *)arg2);
+    ((TOKey *)key_machine01)->init_switch_id();
+    key_machine01->texture_id = (s32) *TOKeyMachine01__texture_lists;
+    *(s32 *)((s8 *)key_machine01 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&key_machine_model_archive) + 0x42C)) + 8);
+    key_machine01->m_c0 = (f32) lbl_805DB794;
+    *(f32 *)((s8 *)key_machine01 + 0xC4) = (f32) lbl_805DB798;
+    *(f32 *)((s8 *)key_machine01 + 0xCC) = (f32) lbl_805DB798;
     if (get_main_phase() != 0xF) {
         if (is_split_screen() == 1) {
             goto block_2;
         }
     } else {
 block_2:
-        if ((s32) arg0->m_d0 != 2) {
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0) {
-                arg0->m_d0 = 1;
+        if ((s32) key_machine01->m_d0 != 2) {
+            if ((s32) *(s32 *)((s8 *)key_machine01 + 0x88) < 0) {
+                key_machine01->m_d0 = 1;
             } else {
                 goto block_5;
             }
         } else {
 block_5:
-            arg0->m_d0 = 0;
+            key_machine01->m_d0 = 0;
         }
     }
-    arg0->m_e8 = (f32) lbl_805DB784;
-    arg0->m_ec = (f32) lbl_805DB784;
-    *(f32 *)((s8 *)arg0 + 0xF0) = (f32) lbl_805DB784;
-    arg0->m_f4 = (f32) lbl_805DB784;
-    arg0->m_f8 = 0;
-    *(f32 *)((s8 *)arg0 + 0x70) = (f32) lbl_805DB788;
-    arg0->target_scale = (f32) lbl_805DB788;
-    arg0->scale = (f32) lbl_805DB788;
-    return (u8 *)arg0;
+    key_machine01->m_e8 = (f32) lbl_805DB784;
+    key_machine01->m_ec = (f32) lbl_805DB784;
+    *(f32 *)((s8 *)key_machine01 + 0xF0) = (f32) lbl_805DB784;
+    key_machine01->m_f4 = (f32) lbl_805DB784;
+    key_machine01->m_f8 = 0;
+    *(f32 *)((s8 *)key_machine01 + 0x70) = (f32) lbl_805DB788;
+    key_machine01->target_scale = (f32) lbl_805DB788;
+    key_machine01->scale = (f32) lbl_805DB788;
+    return (u8 *)key_machine01;
 }
 
 }

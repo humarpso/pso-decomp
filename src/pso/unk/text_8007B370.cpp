@@ -29,7 +29,7 @@ s32 strncpy(void *, void *, int);
 s32 fill_guild_card_from_player(u8 *arg0, u32 arg1);
 typedef struct VBase_18_26c590 VBase_18_26c590;
 typedef struct VObj_18_26c590 VObj_18_26c590;
-s32 fill_guild_card_from_player(u8 *arg0, u32 arg1) {
+s32 fill_guild_card_from_player(u8 *ply_guild_card_tag, u32 arg1) {
   unsigned char new_var;
   s32 player;
   u8 *temp_r4;
@@ -38,14 +38,14 @@ s32 fill_guild_card_from_player(u8 *arg0, u32 arg1) {
   {
     return 0;
   }
-  *((u8 *) (((s8 *) arg0) + 0x8C)) = (u8) ((*((u8 *) (((s8 *) arg0) + 0x8C))) | 3);
-  strncpy(arg0 + 8, (void *) (((TPlyPhotonChair *)(player))->vfunc_12()), 0x17);
-  *((s8 *) (((s8 *) arg0) + 0x1F)) = 0;
-  *((u8 *) (((s8 *) arg0) + 0x8F)) = (u8) (*((u8 *) (((s8 *) player) + 0x88D)));
-  *((s8 *) (((s8 *) arg0) + 0x8E)) = ((TPlyPhotonChair *)player)->get_actor_section_id();
+  *((u8 *) (((s8 *) ply_guild_card_tag) + 0x8C)) = (u8) ((*((u8 *) (((s8 *) ply_guild_card_tag) + 0x8C))) | 3);
+  strncpy(ply_guild_card_tag + 8, (void *) (((TPlyPhotonChair *)(player))->vfunc_12()), 0x17);
+  *((s8 *) (((s8 *) ply_guild_card_tag) + 0x1F)) = 0;
+  *((u8 *) (((s8 *) ply_guild_card_tag) + 0x8F)) = (u8) (*((u8 *) (((s8 *) player) + 0x88D)));
+  *((s8 *) (((s8 *) ply_guild_card_tag) + 0x8E)) = ((TPlyPhotonChair *)player)->get_actor_section_id();
   new_var = TObjPlayer__sub_801AFD8C((u8 *)player);
   temp_r4 = (u8 *)(player + 0xDAC);
-  *((s8 *) (((s8 *) arg0) + 0x8D)) = new_var;
+  *((s8 *) (((s8 *) ply_guild_card_tag) + 0x8D)) = new_var;
   if (temp_r4 == 0)
   {
     return 0;
@@ -54,6 +54,6 @@ s32 fill_guild_card_from_player(u8 *arg0, u32 arg1) {
   {
     return 0;
   }
-  __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag((void *) arg0);
+  __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag((void *) ply_guild_card_tag);
   return 1;
 }

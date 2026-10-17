@@ -151,42 +151,42 @@ void TWindow::close_sub_windows() {
 }
 }
 
-void handle_confirm_dialog(TShopWindowBase *arg0) {
+void handle_confirm_dialog(TShopWindowBase *shop_window_base) {
     s32 temp_r0;
     s32 selected_menu_value;
     VObj_80216BCC_80216B44 *temp_r3;
     VObj_80216BCC_80216B44 *temp_r3_3;
     VObj_80216BCC_80216B44 *temp_r3_4;
 
-    temp_r3 = *(VObj_80216BCC_80216B44 **)((s8 *)arg0 + 0x34);
+    temp_r3 = *(VObj_80216BCC_80216B44 **)((s8 *)shop_window_base + 0x34);
     if (temp_r3->m8() != 0) {
-        if ((*(void **)((s8 *)arg0 + 0x38) != NULL) && (((TWindowMenu *)(*(void **)((s8 *)arg0 + 0x38)))->is_visible() != 0)) {
-            selected_menu_value = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0x38));
+        if ((*(void **)((s8 *)shop_window_base + 0x38) != NULL) && (((TWindowMenu *)(*(void **)((s8 *)shop_window_base + 0x38)))->is_visible() != 0)) {
+            selected_menu_value = get_selected_menu_value(*(u32 *)((s8 *)shop_window_base + 0x38));
             if (selected_menu_value == 0) {
-                temp_r0 = select_cursor_entry__22TWindowSubShortCutListFv(*(s32 *)((s8 *)arg0 + 0x3C));
-                prepare_offline_quest_filenames((const char *)((*(Entry_80216BCC_80216B44 **)((s8 *)arg0 + 0x54))[temp_r0].field18));
-                arg0->set_field_20(3);
+                temp_r0 = select_cursor_entry__22TWindowSubShortCutListFv(*(s32 *)((s8 *)shop_window_base + 0x3C));
+                prepare_offline_quest_filenames((const char *)((*(Entry_80216BCC_80216B44 **)((s8 *)shop_window_base + 0x54))[temp_r0].field18));
+                shop_window_base->set_field_20(3);
                 return;
             }
             if (selected_menu_value == 1) {
-                ((TWindow *)arg0)->close_sub_windows();
-                temp_r3_3 = *(VObj_80216BCC_80216B44 **)((s8 *)arg0 + 0x34);
+                ((TWindow *)shop_window_base)->close_sub_windows();
+                temp_r3_3 = *(VObj_80216BCC_80216B44 **)((s8 *)shop_window_base + 0x34);
                 if (temp_r3_3 != NULL) {
                     temp_r3_3->m7(0x19, 1);
                 }
-                arg0->set_field_20(0);
+                shop_window_base->set_field_20(0);
                 return;
             }
             goto block_9;
         }
 block_9:
-        if ((*(void **)((s8 *)arg0 + 0x38) != NULL) && (((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x38)))->get_status_flag() != 0)) {
-            ((TWindow *)arg0)->close_sub_windows();
-            temp_r3_4 = *(VObj_80216BCC_80216B44 **)((s8 *)arg0 + 0x34);
+        if ((*(void **)((s8 *)shop_window_base + 0x38) != NULL) && (((TWindowSubComCard *)(*(void **)((s8 *)shop_window_base + 0x38)))->get_status_flag() != 0)) {
+            ((TWindow *)shop_window_base)->close_sub_windows();
+            temp_r3_4 = *(VObj_80216BCC_80216B44 **)((s8 *)shop_window_base + 0x34);
             if (temp_r3_4 != NULL) {
                 temp_r3_4->m7(0x19, 1);
             }
-            arg0->set_field_20(0);
+            shop_window_base->set_field_20(0);
         }
     }
 }

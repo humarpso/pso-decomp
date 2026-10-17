@@ -175,16 +175,16 @@ u8 *__dt__9TCineCtrlFv(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
-void *TCineCtrl__ct(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0, tl_fade);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TCineCtrl;
-    *(void * *)&((TCineCtrl *)arg0)->m_name = TCineCtrl__class_name;
-    *(f32 *)((s8 *)arg0 + 0x1C) = TCineCtrl__data_805D91D0;
-    ((TCineCtrl *)arg0)->m_20 = TCineCtrl__data_805D91D0;
-    *(u32 *)((s8 *)arg0 + 0x24) = 0;
-    *(u32 *)((s8 *)arg0 + 0x28) = 0;
-    TCineCtrl__instance = arg0;
-    return arg0;
+void *TCineCtrl__ct(void *cine_ctrl) {
+    __ct__7TObjectFP7TObject(cine_ctrl, tl_fade);
+    *(s32 **)((s8 *)cine_ctrl + 0x18) = __vt__9TCineCtrl;
+    *(void * *)&((TCineCtrl *)cine_ctrl)->m_name = TCineCtrl__class_name;
+    *(f32 *)((s8 *)cine_ctrl + 0x1C) = TCineCtrl__data_805D91D0;
+    ((TCineCtrl *)cine_ctrl)->m_20 = TCineCtrl__data_805D91D0;
+    *(u32 *)((s8 *)cine_ctrl + 0x24) = 0;
+    *(u32 *)((s8 *)cine_ctrl + 0x28) = 0;
+    TCineCtrl__instance = cine_ctrl;
+    return cine_ctrl;
 }
 
 }

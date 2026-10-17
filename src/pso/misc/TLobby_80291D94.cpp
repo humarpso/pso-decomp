@@ -1373,13 +1373,13 @@ s32 TLobby::check_destruction_by_phase() {
 
 void TLobby::maybe_handle_destruction() { if (check_destruction_by_phase() == 0) { TLobby__sub_802933FC(this); } }
 
-void update_destruction_countdown__6TLobbyFPv(TLobby *arg0) {
+void update_destruction_countdown__6TLobbyFPv(TLobby *lobby) {
     if (TAdPlayerLoadGC__sub_801E1510() != 1) {
-        if (arg0->check_destruction_by_phase() == 1) {
-            queue_destruction__7TObjectFv(arg0);
+        if (lobby->check_destruction_by_phase() == 1) {
+            queue_destruction__7TObjectFv(lobby);
         }
-        arg0->maybe_handle_destruction();
-        *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) + 1);
+        lobby->maybe_handle_destruction();
+        *(s32 *)((s8 *)lobby + 0x1C) = (s32) (*(s32 *)((s8 *)lobby + 0x1C) + 1);
     }
 }
 s32 __dt__7TObjectFv(void *, s32);

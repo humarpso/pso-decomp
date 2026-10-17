@@ -103,21 +103,21 @@ void *__dt__6TSceneFv(void *arg0, s16 arg1) {
 
 extern void *tl_02;
 
-u8 *TScene__ct(TScene *arg0, s32 arg1) {
-    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8020650C___vt__6TScene *)&__vt__6TScene).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3618;
-    arg0->m_1c = 0;
-    arg0->m_30 = 0;
-    arg0->m_34 = 0;
-    arg0->m_38 = 0x32;
-    arg0->m_3c = 0;
-    TScene__sub_80206410(arg0);
+u8 *TScene__ct(TScene *scene, s32 arg1) {
+    __ct__7TObjectFP7TObject((void *)scene, (void *)arg1);
+    *(s32 **)((s8 *)scene + 0x18) = &(*(RecoveredGlobal_8020650C___vt__6TScene *)&__vt__6TScene).value;
+    *(s32 *)((s8 *)scene + 0) = (s32) lbl_805D3618;
+    scene->m_1c = 0;
+    scene->m_30 = 0;
+    scene->m_34 = 0;
+    scene->m_38 = 0x32;
+    scene->m_3c = 0;
+    TScene__sub_80206410(scene);
     if ((TOKeyMachine01::get_global_state() == 1) && ((u32) TScene__texture_wave_resource != 0U) && ((void *) (*(u8 * *)&TScene__data_805D5FCC) != NULL) && ((u32) *(u32 *)((s8 *)(*(u8 * *)&TScene__data_805D5FCC) + 0x14) != 0U)) {
-        TScene::create_texture_wave_tasks((s32)arg0);
+        TScene::create_texture_wave_tasks((s32)scene);
     }
-    arg0->init_material_nodes();
-    return (u8 *)arg0;
+    scene->init_material_nodes();
+    return (u8 *)scene;
 }
 
 void TScene::create() {

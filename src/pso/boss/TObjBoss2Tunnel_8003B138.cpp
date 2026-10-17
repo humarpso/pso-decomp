@@ -680,8 +680,8 @@ extern s32 boss2_tunnel_shift_queue_table[];
 
 extern "C" {
 
-void enable_fog__15TObjBoss2TunnelFPv(TObjBoss2Tunnel *arg0) {
-    TFogCtrl::update_all(arg0->m_b0, 1);
+void enable_fog__15TObjBoss2TunnelFPv(TObjBoss2Tunnel *boss2_tunnel) {
+    TFogCtrl::update_all(boss2_tunnel->m_b0, 1);
     (*(s32 *)&TObjBoss2Tunnel__global_flags) |= 4;
 }
 
@@ -800,11 +800,11 @@ void *__dt__15TObjBoss2TunnelFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void *TObjBoss2Tunnel__ct(void *arg0, void *arg1) {
-    Tunnel_8003C45C *self = (Tunnel_8003C45C *)arg0;
+void *TObjBoss2Tunnel__ct(void *object, void *arg1) {
+    Tunnel_8003C45C *self = (Tunnel_8003C45C *)object;
     s32 i;
     s32 j;
-    __ct__7TObjectFP7TObject(arg0);
+    __ct__7TObjectFP7TObject(object);
     self->vt = ((s32 *)&__vt__15TObjBoss2Tunnel);
     TObjBoss2Tunnel::reset_floats((s32)self->sub68);
     self->name = lbl_805D2708;

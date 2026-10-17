@@ -174,25 +174,25 @@ void TLobby__sub_803DA16C(void*);
 void TEndingAB::run_task() { advance_fade_sequence(); }
 
 TEndingAB::~TEndingAB() {}
-u8 *__ct__9TEndingABFv(u8 *arg0, u8 *arg1) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__9TEndingAB.value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) ending_ab_class_name;
-    *(s32 *)((s8 *)arg0 + 0x1C) = -1;
+u8 *__ct__9TEndingABFv(u8 *ending_ab, u8 *arg1) {
+    __ct__7TObjectFP7TObject(ending_ab, arg1);
+    *(s32 **)((s8 *)ending_ab + 0x18) = &__vt__9TEndingAB.value;
+    *(s32 *)((s8 *)ending_ab + 0) = (s32) ending_ab_class_name;
+    *(s32 *)((s8 *)ending_ab + 0x1C) = -1;
     TEndingAB__fade_sequence_state = 0;
-    *(s32 *)((s8 *)arg0 + 0x20) = 0xFF;
-    *(s32 *)((s8 *)arg0 + 0x28) = 0;
-    *(s32 *)((s8 *)arg0 + 0x24) = 0;
-    ((TEndingAB *)arg0)->init_float_table();
+    *(s32 *)((s8 *)ending_ab + 0x20) = 0xFF;
+    *(s32 *)((s8 *)ending_ab + 0x28) = 0;
+    *(s32 *)((s8 *)ending_ab + 0x24) = 0;
+    ((TEndingAB *)ending_ab)->init_float_table();
     switch (TKeyBoardControl__sub_8000F828()) {
     case 0:
-        *(s32 *)((s8 *)arg0 + 0xEC) = 0x1E;
+        *(s32 *)((s8 *)ending_ab + 0xEC) = 0x1E;
         break;
     case 1:
-        *(s32 *)((s8 *)arg0 + 0xEC) = 0x19;
+        *(s32 *)((s8 *)ending_ab + 0xEC) = 0x19;
         break;
     }
-    return arg0;
+    return ending_ab;
 }
 
 void TEndingAB::destroy_instance() {

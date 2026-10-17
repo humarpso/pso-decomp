@@ -141,7 +141,7 @@ void TUnk_80484A94::run_task() {
   u8 *player;
   s32 new_var;
   u8 *temp_r3_2;
-  u8 *temp_r3_3;
+  u8 *now_loading;
   player = (u8 *) get_player_by_client_id(this->m_cc);
   if (player)
   {
@@ -165,10 +165,10 @@ void TUnk_80484A94::run_task() {
     ((TNowLoading *)temp_r3_2)->copy_pos((u8 *)&this->position);
     ((TBoss4Type2 *)(this->m_d4))->copy_vec3((u8 *)&this->m_5c);
   }
-  temp_r3_3 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0xD8)));
-  if (temp_r3_3 != 0)
+  now_loading = (u8 *) (*((u8 **) (((s8 *) arg0) + 0xD8)));
+  if (now_loading != 0)
   {
-    ((TNowLoading *)temp_r3_3)->copy_pos((u8 *)&this->position);
+    ((TNowLoading *)now_loading)->copy_pos((u8 *)&this->position);
     ((TBoss4Type2 *)(*((u8 **) (((s8 *) arg0) + 0xD8))))->copy_vec3((u8 *)&this->m_5c);
   }
   if (csnVector((u8 *)&this->m_44, (u8 *)&this->position, -1) != 0U)

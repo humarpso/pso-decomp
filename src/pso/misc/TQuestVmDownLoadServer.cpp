@@ -1281,12 +1281,12 @@ void TQuestVmDownLoadServer::check_cancel_input() {
     }
 }
 void TQuestVmDownLoadServer::create() {
-    void *temp_r3;
+    void *quest_vm_down_load_server;
 
     if ((u32) TQuestVmDownLoadServer__instance == 0U) {
-        temp_r3 = __nw__7TObjectFUl(0x2A8);
-        if (temp_r3 != 0) {
-            __ct__22TQuestVmDownLoadServerFP7TObject(temp_r3, tl_00);
+        quest_vm_down_load_server = __nw__7TObjectFUl(0x2A8);
+        if (quest_vm_down_load_server != 0) {
+            __ct__22TQuestVmDownLoadServerFP7TObject(quest_vm_down_load_server, tl_00);
         }
     }
 }
@@ -1314,19 +1314,19 @@ void TQuestVmDownLoadServer::sub_801F6B00() {
         }
     }
 }
-void *TMCFormatSequence__ct(TMCFormatSequence *arg0, void *arg1, void *arg2) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TMCFormatSequence;
-    *(void * *)&arg0->m_name = TMCFormatSequence__class_name;
-    arg0->m_24 = 0;
-    *(void **)((s8 *)arg0 + 0x28) = arg2;
-    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
-    arg0->m_20 = 0;
-    arg0->m_34 = 0;
-    *(u32 *)((s8 *)arg0 + 0x38) = 0;
-    arg0->m_2c = 11;
-    *(u32 *)((s8 *)arg0 + 0x30) = 101;
-    return arg0;
+void *TMCFormatSequence__ct(TMCFormatSequence *mc_format_sequence, void *arg1, void *arg2) {
+    __ct__7TObjectFP7TObject(mc_format_sequence);
+    *(s32 **)((s8 *)mc_format_sequence + 0x18) = __vt__17TMCFormatSequence;
+    *(void * *)&mc_format_sequence->m_name = TMCFormatSequence__class_name;
+    mc_format_sequence->m_24 = 0;
+    *(void **)((s8 *)mc_format_sequence + 0x28) = arg2;
+    *(u32 *)((s8 *)mc_format_sequence + 0x1C) = 0;
+    mc_format_sequence->m_20 = 0;
+    mc_format_sequence->m_34 = 0;
+    *(u32 *)((s8 *)mc_format_sequence + 0x38) = 0;
+    mc_format_sequence->m_2c = 11;
+    *(u32 *)((s8 *)mc_format_sequence + 0x30) = 101;
+    return mc_format_sequence;
 }
 TMCFormatSequence::~TMCFormatSequence() {
     if (m_38 != nullptr) { TWindow__close((u8 *)m_38); m_38 = nullptr; }

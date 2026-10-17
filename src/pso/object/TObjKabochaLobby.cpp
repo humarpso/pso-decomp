@@ -144,20 +144,20 @@ void *__dt__16TObjKabochaLobbyFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void *TObjKabochaLobby__ct(TObjKabochaLobby *arg0, s32 arg1, s32 arg2) {
+void *TObjKabochaLobby__ct(TObjKabochaLobby *kabocha_lobby, s32 arg1, s32 arg2) {
     init_map_object_base();
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjKabochaLobby;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4384;
-    arg0->apply_object_set_data((void *)arg2);
+    *(s32 **)((s8 *)kabocha_lobby + 0x18) = __vt__16TObjKabochaLobby;
+    *(s32 *)((s8 *)kabocha_lobby + 0) = (s32) lbl_805D4384;
+    kabocha_lobby->apply_object_set_data((void *)arg2);
     if (TLobby::get_filtered_event_theme() == 5) {
-        arg0->m_c8 = 3;
+        kabocha_lobby->m_c8 = 3;
     } else {
-        arg0->m_c8 = 0;
+        kabocha_lobby->m_c8 = 0;
     }
-    *(f32 *)((s8 *)arg0 + 0xCC) = 1.0f;
-    *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)((void *)TObjKabochaLobby__model_resource) + 0x42C)) + 8);
-    arg0->texture_id = (s32) TObjKabochaLobby__lobby_type;
-    return arg0;
+    *(f32 *)((s8 *)kabocha_lobby + 0xCC) = 1.0f;
+    *(s32 *)((s8 *)kabocha_lobby + 0x34) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)((void *)TObjKabochaLobby__model_resource) + 0x42C)) + 8);
+    kabocha_lobby->texture_id = (s32) TObjKabochaLobby__lobby_type;
+    return kabocha_lobby;
 }
 
 __declspec(section ".data") const char *bm_obj_lobby_kabocha_model_names[2] = { lbl_80479170, NULL };

@@ -43,33 +43,33 @@ extern const f32 lbl_805DB770;
 extern const f32 lbl_805DB774;
 extern const f32 lbl_805DB778;
 void *TOKeyGenericSw__ct(TOKeyGenericSw *arg0, void *parent, void *source);
-void *TOKeyGenericSw__ct(TOKeyGenericSw *arg0, void *parent, void *source) {
-    TOKey__ct(arg0, parent);
-    *(void **)((s8 *)arg0 + 0x18) = __vt__14TOKeyGenericSw;
-    *(s32 *)((s8 *)arg0 + 0) = TOKeyGenericSw__name;
-    arg0->apply_object_set_data(source);
-    ((TOKey *)arg0)->init_switch_id();
-    *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(void **)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1] + 0x42C)) + 8);
-    *(void **)((s8 *)arg0 + 0xBC) = *(void **)((s8 *)(*(void **)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1] + 0x430)) + 4);
-    *(f32 *)((s8 *)arg0 + 0xB4) = (f32) *(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB768;
-    arg0->m_b8 = lbl_805DB76C;
-    *(u32 *)&arg0->texture_id = TOKeyGenericSw__texture_lists[1];
-    init_collision_body_parts(arg0, key_generic_sw_collision_body, 1);
-    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    ((TObjPlayer *)arg0)->reset_photon_effect();
-    arg0->m_c0 = lbl_805DB770;
-    *(f32 *)((s8 *)arg0 + 0xC4) = lbl_805DB774;
-    if ((*(s32 *)&arg0->m_d0 != 2) && (arg0->scale < lbl_805DB778)) {
-        *(s32 *)&arg0->m_d0 = 1;
+void *TOKeyGenericSw__ct(TOKeyGenericSw *key_generic_sw, void *parent, void *source) {
+    TOKey__ct(key_generic_sw, parent);
+    *(void **)((s8 *)key_generic_sw + 0x18) = __vt__14TOKeyGenericSw;
+    *(s32 *)((s8 *)key_generic_sw + 0) = TOKeyGenericSw__name;
+    key_generic_sw->apply_object_set_data(source);
+    ((TOKey *)key_generic_sw)->init_switch_id();
+    *(s32 *)((s8 *)key_generic_sw + 0x34) = *(s32 *)((s8 *)(*(void **)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1] + 0x42C)) + 8);
+    *(void **)((s8 *)key_generic_sw + 0xBC) = *(void **)((s8 *)(*(void **)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1] + 0x430)) + 4);
+    *(f32 *)((s8 *)key_generic_sw + 0xB4) = (f32) *(u32 *)((s8 *)(*(void **)((s8 *)key_generic_sw + 0xBC)) + 4) - lbl_805DB768;
+    key_generic_sw->m_b8 = lbl_805DB76C;
+    *(u32 *)&key_generic_sw->texture_id = TOKeyGenericSw__texture_lists[1];
+    init_collision_body_parts(key_generic_sw, key_generic_sw_collision_body, 1);
+    ((TUnk_804AF8A0 *)key_generic_sw)->refresh_collision_body_centers();
+    ((TObjPlayer *)key_generic_sw)->reset_photon_effect();
+    key_generic_sw->m_c0 = lbl_805DB770;
+    *(f32 *)((s8 *)key_generic_sw + 0xC4) = lbl_805DB774;
+    if ((*(s32 *)&key_generic_sw->m_d0 != 2) && (key_generic_sw->scale < lbl_805DB778)) {
+        *(s32 *)&key_generic_sw->m_d0 = 1;
     } else {
-        *(s32 *)&arg0->m_d0 = 0;
+        *(s32 *)&key_generic_sw->m_d0 = 0;
     }
-    arg0->m_e8 = TOKeyMachine01::get_global_state();
-    arg0->m_ec = 0;
-    *(s32 *)((s8 *)arg0 + 0xF0) = 0;
-    arg0->m_f4 = 0;
-    *(s32 *)((s8 *)arg0 + 0xF8) = 0;
-    return arg0;
+    key_generic_sw->m_e8 = TOKeyMachine01::get_global_state();
+    key_generic_sw->m_ec = 0;
+    *(s32 *)((s8 *)key_generic_sw + 0xF0) = 0;
+    key_generic_sw->m_f4 = 0;
+    *(s32 *)((s8 *)key_generic_sw + 0xF8) = 0;
+    return key_generic_sw;
 }
 
 void TOKeyMachine01::vfunc_25() {  }

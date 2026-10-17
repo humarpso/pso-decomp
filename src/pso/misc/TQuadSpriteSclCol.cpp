@@ -177,10 +177,10 @@ void *__dt__17TQuadSpriteSclColFv(void *arg0, s16 arg1) {
 
 extern void *TQuadSpriteSclCol__class_name;
 
-void *TQuadSpriteSclCol__ct(void *arg0) {
-    quad_sprite_base_ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TQuadSpriteSclCol;
-    *(void * *)&((TQuadSpriteSclCol *)arg0)->m_name = TQuadSpriteSclCol__class_name;
-    return arg0;
+void *TQuadSpriteSclCol__ct(void *quad_sprite_scl_col) {
+    quad_sprite_base_ct(quad_sprite_scl_col);
+    *(s32 **)((s8 *)quad_sprite_scl_col + 0x18) = __vt__17TQuadSpriteSclCol;
+    *(void * *)&((TQuadSpriteSclCol *)quad_sprite_scl_col)->m_name = TQuadSpriteSclCol__class_name;
+    return quad_sprite_scl_col;
 }
 }

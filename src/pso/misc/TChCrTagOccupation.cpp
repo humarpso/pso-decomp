@@ -80,15 +80,15 @@ extern const f32 lbl_805DDECC;
 extern const f32 lbl_805DDED0;
 extern void *chcr_tag_occ_header_class_name;
 
-void *__ct__17TChCrTagOccHeaderFv(void *arg0) {
-    ((void (*)(void *))__ct__8TChCrTagFv)(arg0);
-    *(void ***)((s8 *)arg0 + 0x18) = __vt__17TChCrTagOccHeader;
-    *(void * *)&((TChCrTagOccHeader *)arg0)->m_name = chcr_tag_occ_header_class_name;
-    *(f32 *)((s8 *)arg0 + 0x28) = lbl_805DDECC;
-    *(f32 *)((s8 *)arg0 + 0x2C) = lbl_805DDED0;
-    *(f32 *)((s8 *)arg0 + 0x34) = lbl_805DDECC;
-    *(f32 *)((s8 *)arg0 + 0x38) = lbl_805DDED0;
-    return arg0;
+void *__ct__17TChCrTagOccHeaderFv(void *ch_cr_tag_occ_header) {
+    ((void (*)(void *))__ct__8TChCrTagFv)(ch_cr_tag_occ_header);
+    *(void ***)((s8 *)ch_cr_tag_occ_header + 0x18) = __vt__17TChCrTagOccHeader;
+    *(void * *)&((TChCrTagOccHeader *)ch_cr_tag_occ_header)->m_name = chcr_tag_occ_header_class_name;
+    *(f32 *)((s8 *)ch_cr_tag_occ_header + 0x28) = lbl_805DDECC;
+    *(f32 *)((s8 *)ch_cr_tag_occ_header + 0x2C) = lbl_805DDED0;
+    *(f32 *)((s8 *)ch_cr_tag_occ_header + 0x34) = lbl_805DDECC;
+    *(f32 *)((s8 *)ch_cr_tag_occ_header + 0x38) = lbl_805DDED0;
+    return ch_cr_tag_occ_header;
 }
 
 void *__nw__7TObjectFUl(int);
@@ -213,17 +213,17 @@ void *__dt__18TChCrTagOccupationFv(void *self, s16 m) {
 #pragma fp_contract on
 typedef char RecoveredGlobal_802A300C___vt__18TChCrTagOccupation_size[sizeof(RecoveredGlobal_802A300C___vt__18TChCrTagOccupation) == 0x20 ? 1 : -1];
 
-u8 *__ct__18TChCrTagOccupationFv(u8 *arg0, s32 arg1, s32 _w2) {
-    __ct__8TChCrTagFv(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__18TChCrTagOccupation;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) chcr_tag_occupation_class_name;
-    *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805DDF00;
-    *(f32 *)((s8 *)arg0 + 0x2C) = (f32) lbl_805DDF04;
-    *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805DDF08;
-    *(f32 *)((s8 *)arg0 + 0x38) = (f32) lbl_805DDF0C;
-    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) ((lbl_805DDF14 * (f32) *(s32 *)((s8 *)arg0 + 0x20)) + lbl_805DDF10);
-    *(f32 *)((s8 *)arg0 + 0x40) = (f32) lbl_805DDEF0;
-    return arg0;
+u8 *__ct__18TChCrTagOccupationFv(u8 *ch_cr_tag, s32 arg1, s32 _w2) {
+    __ct__8TChCrTagFv(ch_cr_tag, arg1);
+    *(s32 **)((s8 *)ch_cr_tag + 0x18) = (s32 *)__vt__18TChCrTagOccupation;
+    *(s32 *)((s8 *)ch_cr_tag + 0) = (s32) chcr_tag_occupation_class_name;
+    *(f32 *)((s8 *)ch_cr_tag + 0x28) = (f32) lbl_805DDF00;
+    *(f32 *)((s8 *)ch_cr_tag + 0x2C) = (f32) lbl_805DDF04;
+    *(f32 *)((s8 *)ch_cr_tag + 0x34) = (f32) lbl_805DDF08;
+    *(f32 *)((s8 *)ch_cr_tag + 0x38) = (f32) lbl_805DDF0C;
+    *(f32 *)((s8 *)ch_cr_tag + 0x3C) = (f32) ((lbl_805DDF14 * (f32) *(s32 *)((s8 *)ch_cr_tag + 0x20)) + lbl_805DDF10);
+    *(f32 *)((s8 *)ch_cr_tag + 0x40) = (f32) lbl_805DDEF0;
+    return ch_cr_tag;
 }
 #pragma pop
 

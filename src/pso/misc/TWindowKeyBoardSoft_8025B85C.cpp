@@ -292,13 +292,13 @@ void TWindowKeyBoardSoft__vt3(u8 *arg0) {
     }
 }
 
-void TWindowKeyBoardSoft__vt17(TWindowKeyBoardSoft *arg0) {
-    if (*(u16 *)((s8 *)arg0 + 0x60) & 4) {
-        if (*(u16 *)((s8 *)arg0 + 0x62) & 1) {
-            arg0->update();
+void TWindowKeyBoardSoft__vt17(TWindowKeyBoardSoft *window_key_board_soft) {
+    if (*(u16 *)((s8 *)window_key_board_soft + 0x60) & 4) {
+        if (*(u16 *)((s8 *)window_key_board_soft + 0x62) & 1) {
+            window_key_board_soft->update();
             return;
         }
-        arg0->process_input();
+        window_key_board_soft->process_input();
     }
 }
 
@@ -353,16 +353,16 @@ void TWindowKeyBoardSoft__vt15(u8 *arg0) {
     }
 }
 
-void TWindowKeyBoardSoft__vt20(TWindowKeyBoardSoft *arg0) {
+void TWindowKeyBoardSoft__vt20(TWindowKeyBoardSoft *window_key_board_soft) {
     u16 temp_r3;
-    temp_r3 = *(u16 *)((s8 *)arg0 + 0x60);
+    temp_r3 = *(u16 *)((s8 *)window_key_board_soft + 0x60);
     if (temp_r3 & 4) {
-        *(u16 *)((s8 *)arg0 + 0x60) = (u16) (temp_r3 & 0xFFFFFFFB);
+        *(u16 *)((s8 *)window_key_board_soft + 0x60) = (u16) (temp_r3 & 0xFFFFFFFB);
         return;
     }
-    ((TWindowKeyBoardSoft *)(*(void **)((s8 *)arg0 + 0x68)))->delete_char();
-    if ((*(u16 *)((s8 *)arg0 + 0x60) & 2) && ((u32) *(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x68)) + 0x10) == 0U)) {
-        arg0->init();
+    ((TWindowKeyBoardSoft *)(*(void **)((s8 *)window_key_board_soft + 0x68)))->delete_char();
+    if ((*(u16 *)((s8 *)window_key_board_soft + 0x60) & 2) && ((u32) *(u32 *)((s8 *)(*(void **)((s8 *)window_key_board_soft + 0x68)) + 0x10) == 0U)) {
+        window_key_board_soft->init();
     }
 }
 
@@ -399,46 +399,46 @@ void TWindowKeyBoardSoft::handle_backspace() {
   }
 }
 
-void TWindowKeyBoardSoft__vt1(TWindowKeyBoardSoft *arg0) {
+void TWindowKeyBoardSoft__vt1(TWindowKeyBoardSoft *window_key_board_soft) {
     u16 temp_r4;
     u32 temp_r3;
     u8 *temp_r4_2;
-    temp_r4 = *(u16 *)((s8 *)arg0 + 0x60);
+    temp_r4 = *(u16 *)((s8 *)window_key_board_soft + 0x60);
     if (temp_r4 & 4) {
-        if (*(u16 *)((s8 *)arg0 + 0x62) & 1) {
-            arg0->update();
+        if (*(u16 *)((s8 *)window_key_board_soft + 0x62) & 1) {
+            window_key_board_soft->update();
             return;
         }
-        *(u16 *)((s8 *)arg0 + 0x60) = (u16) (temp_r4 & 0xFFFFFFFB);
+        *(u16 *)((s8 *)window_key_board_soft + 0x60) = (u16) (temp_r4 & 0xFFFFFFFB);
         return;
     }
-    temp_r4_2 = *(u8 **)((s8 *)arg0 + 0x68);
+    temp_r4_2 = *(u8 **)((s8 *)window_key_board_soft + 0x68);
     temp_r3 = *(u32 *)((s8 *)temp_r4_2 + 4);
     if (temp_r3 != 0U) {
         *(u32 *)((s8 *)temp_r4_2 + 4) = (temp_r3 - 1);
-        ((TWindowKeyBoardSoft *)(*(u8 **)((s8 *)arg0 + 0x68)))->delete_char();
-        if ((*(u16 *)((s8 *)arg0 + 0x60) & 2) && ((u32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x68)) + 0x10) == 0U)) {
-            arg0->init();
+        ((TWindowKeyBoardSoft *)(*(u8 **)((s8 *)window_key_board_soft + 0x68)))->delete_char();
+        if ((*(u16 *)((s8 *)window_key_board_soft + 0x60) & 2) && ((u32) *(u32 *)((s8 *)(*(u8 **)((s8 *)window_key_board_soft + 0x68)) + 0x10) == 0U)) {
+            window_key_board_soft->init();
         }
     }
 }
 
-void TWindowKeyBoardSoft__vt21(u8 *arg0) {
+void TWindowKeyBoardSoft__vt21(u8 *window_key_board_soft) {
     u16 temp_r4;
-    temp_r4 = *(u16 *)((s8 *)arg0 + 0x60);
+    temp_r4 = *(u16 *)((s8 *)window_key_board_soft + 0x60);
     if (temp_r4 & 4) {
-        *(u16 *)((s8 *)arg0 + 0x60) = (u16) (temp_r4 & 0xFFFFFFFB);
+        *(u16 *)((s8 *)window_key_board_soft + 0x60) = (u16) (temp_r4 & 0xFFFFFFFB);
         return;
     }
     if (temp_r4 & 2) {
-        ((TWindowKeyBoardSoft *)arg0)->init();
+        ((TWindowKeyBoardSoft *)window_key_board_soft)->init();
         return;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x7C) != 0U) {
-        ((TWindowKeyBoardSoft *)(arg0 + 0x6C))->reset_state();
+    if ((u32) *(u32 *)((s8 *)window_key_board_soft + 0x7C) != 0U) {
+        ((TWindowKeyBoardSoft *)(window_key_board_soft + 0x6C))->reset_state();
         return;
     }
-    *(u16 *)((s8 *)arg0 + 0x60) = (u16) (temp_r4 | 0x20);
+    *(u16 *)((s8 *)window_key_board_soft + 0x60) = (u16) (temp_r4 | 0x20);
 }
 
 void TWindowKeyBoardSoft::update_input_state2() {
@@ -480,33 +480,33 @@ void TWindowKeyBoardSoft__vt19(TWindowKeyBoardSoft *arg0) {
     }
 }
 
-void TWindowKeyBoardSoft__vt0(u8 *arg0) {
-    if (!(*(u16 *)((s8 *)arg0 + 0x60) & 2)) {
-        if (!(*(u16 *)((s8 *)arg0 + 0x62) & 4) || (((TWindowKeyBoardSoft *)(arg0 + 0x6C))->is_buffer_blank() == 0)) {
-            *(u16 *)((s8 *)arg0 + 0x60) = (u16) (*(u16 *)((s8 *)arg0 + 0x60) | 1);
+void TWindowKeyBoardSoft__vt0(u8 *window_key_board_soft) {
+    if (!(*(u16 *)((s8 *)window_key_board_soft + 0x60) & 2)) {
+        if (!(*(u16 *)((s8 *)window_key_board_soft + 0x62) & 4) || (((TWindowKeyBoardSoft *)(window_key_board_soft + 0x6C))->is_buffer_blank() == 0)) {
+            *(u16 *)((s8 *)window_key_board_soft + 0x60) = (u16) (*(u16 *)((s8 *)window_key_board_soft + 0x60) | 1);
         }
     } else {
-        ((TWindowKeyBoardSoft *)arg0)->commit_composition_text();
+        ((TWindowKeyBoardSoft *)window_key_board_soft)->commit_composition_text();
     }
 }
 
-void TWindowKeyBoardSoft__sub_8025C51C(u8 *arg0, s32 arg1) {
+void TWindowKeyBoardSoft__sub_8025C51C(u8 *window_key_board_soft, s32 arg1) {
     s32 *temp_r3;
     u16 temp_r4;
     u32 temp_r3_2;
-    temp_r4 = *(u16 *)((s8 *)arg0 + 0x60);
+    temp_r4 = *(u16 *)((s8 *)window_key_board_soft + 0x60);
     if (temp_r4 & 2) {
         if (temp_r4 & 4) {
-            TWindowKeyBoardSoft__sub_8025DBDC(arg0, 1);
+            TWindowKeyBoardSoft__sub_8025DBDC(window_key_board_soft, 1);
         }
-        ((TWindowKeyBoardSoft *)arg0)->commit_composition_text();
+        ((TWindowKeyBoardSoft *)window_key_board_soft)->commit_composition_text();
     }
     temp_r3 = TWindowCtrl__sub_8024B7D4(arg1);
     if (temp_r3 != NULL) {
         text_builder_reset();
-        temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x70);
+        temp_r3_2 = *(u32 *)((s8 *)window_key_board_soft + 0x70);
         if (temp_r3_2 != 0U) {
-            if (temp_r3_2 == (u32) *(u32 *)((s8 *)arg0 + 0x7C)) {
+            if (temp_r3_2 == (u32) *(u32 *)((s8 *)window_key_board_soft + 0x7C)) {
                 text_builder_append((u8 *)&lbl_805DD030);
                 text_builder_append((u8 *)temp_r3);
             } else {
@@ -516,11 +516,11 @@ void TWindowKeyBoardSoft__sub_8025C51C(u8 *arg0, s32 arg1) {
             }
         } else {
             text_builder_append((u8 *)temp_r3);
-            if ((u32) *(u32 *)((s8 *)arg0 + 0x7C) != 0U) {
+            if ((u32) *(u32 *)((s8 *)window_key_board_soft + 0x7C) != 0U) {
                 text_builder_append((u8 *)&lbl_805DD034);
             }
         }
-        append_text__19TWindowKeyBoardSoftFPvPv(arg0 + 0x6C, get_shared_text_buffer());
+        append_text__19TWindowKeyBoardSoftFPvPv(window_key_board_soft + 0x6C, get_shared_text_buffer());
     }
 }
 

@@ -197,29 +197,29 @@ void *__dt__17TOSensorGeneral01Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void *TOSensorGeneral01__ct(TOSensorGeneral01 *arg0, void *arg1, void *arg2) {
-    TOSensor__ct(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TOSensorGeneral01;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3154;
-    arg0->apply_object_set_data(arg2);
-    ((TOKey *)arg0)->init_switch_id();
-    arg0->texture_id = (s32) *TOSensorGeneral01__texture_lists;
-    arg0->model = (void *) *(void **)((s8 *)(*(void **)((s8 *)(*(void * *)&sensor_general_shared_bml_archive) + 0x42C)) + 8);
-    arg0->m_c0 = 400.0f;
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)arg0->model + 4)) + 0x14);
-    *(f32 *)((s8 *)arg0 + 0xCC) = 50.0f + arg0->scale;
-    if (*(f32 *)((s8 *)arg0 + 0xCC) < 0.0f) {
-        *(f32 *)((s8 *)arg0 + 0xCC) = 0.0f;
+void *TOSensorGeneral01__ct(TOSensorGeneral01 *sensor_general01, void *arg1, void *arg2) {
+    TOSensor__ct(sensor_general01, arg1);
+    *(s32 **)((s8 *)sensor_general01 + 0x18) = __vt__17TOSensorGeneral01;
+    *(s32 *)((s8 *)sensor_general01 + 0) = (s32) lbl_805D3154;
+    sensor_general01->apply_object_set_data(arg2);
+    ((TOKey *)sensor_general01)->init_switch_id();
+    sensor_general01->texture_id = (s32) *TOSensorGeneral01__texture_lists;
+    sensor_general01->model = (void *) *(void **)((s8 *)(*(void **)((s8 *)(*(void * *)&sensor_general_shared_bml_archive) + 0x42C)) + 8);
+    sensor_general01->m_c0 = 400.0f;
+    *(f32 *)((s8 *)sensor_general01 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)sensor_general01->model + 4)) + 0x14);
+    *(f32 *)((s8 *)sensor_general01 + 0xCC) = 50.0f + sensor_general01->scale;
+    if (*(f32 *)((s8 *)sensor_general01 + 0xCC) < 0.0f) {
+        *(f32 *)((s8 *)sensor_general01 + 0xCC) = 0.0f;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0) {
-        arg0->m_d0 = 2;
+    if ((s32) *(s32 *)((s8 *)sensor_general01 + 0x88) < 0) {
+        sensor_general01->m_d0 = 2;
     } else {
-        arg0->m_d0 = 1;
+        sensor_general01->m_d0 = 1;
     }
-    arg0->m_e8 = 0;
-    *(s32 *)((s8 *)arg0 + 0xEC) = 3;
-    arg0->m_f0 = 0x5A;
-    return arg0;
+    sensor_general01->m_e8 = 0;
+    *(s32 *)((s8 *)sensor_general01 + 0xEC) = 3;
+    sensor_general01->m_f0 = 0x5A;
+    return sensor_general01;
 }
 
 __declspec(section ".data") const char *bm_fs_obj_sensor_model_names[2] = { lbl_80442A38, NULL };

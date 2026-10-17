@@ -920,20 +920,20 @@ struct VObj_80038948_80038610 : Base_80038948_80038610 {
 void TBoss2Mine__vt102(void *arg0, s32 arg1);
 void TBoss2Mine__vt85(void *arg0, s32 arg1, s32 arg2);
 
-void TBoss2Mine__vt102(void *arg0, s32 arg1) {
+void TBoss2Mine__vt102(void *boss2_mine, s32 arg1) {
     s32 temp_r4;
 
     switch (arg1) {
     case 4:
-        ((TBoss2Mine *)arg0)->vfunc_95();
-        *(s32 *)((s8 *)arg0 + 0x38C) = (s32) (*(s32 *)((s8 *)arg0 + 0x38C) | 1);
-        *(s32 *)((s8 *)arg0 + 0x38C) = (s32) (*(s32 *)((s8 *)arg0 + 0x38C) & 0xFFFFFFF9);
+        ((TBoss2Mine *)boss2_mine)->vfunc_95();
+        *(s32 *)((s8 *)boss2_mine + 0x38C) = (s32) (*(s32 *)((s8 *)boss2_mine + 0x38C) | 1);
+        *(s32 *)((s8 *)boss2_mine + 0x38C) = (s32) (*(s32 *)((s8 *)boss2_mine + 0x38C) & 0xFFFFFFF9);
         return;
     case 3:
-        temp_r4 = *(s32 *)((s8 *)arg0 + 0x38C);
+        temp_r4 = *(s32 *)((s8 *)boss2_mine + 0x38C);
         if (temp_r4 & 0x100) {
-            *(s32 *)((s8 *)arg0 + 0x38C) = (s32) (temp_r4 & 0xFFFFFEFF);
-            transition_enemy_state((void*)((s32)arg0), (void*)(1));
+            *(s32 *)((s8 *)boss2_mine + 0x38C) = (s32) (temp_r4 & 0xFFFFFEFF);
+            transition_enemy_state((void*)((s32)boss2_mine), (void*)(1));
         }
     case 5:
     case 0:
@@ -1355,48 +1355,48 @@ void *lbl_80482CD8[11] = {
     (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void init__10TBoss2MineFPvi(u8 *arg0, s32 arg1) {
+void init__10TBoss2MineFPvi(u8 *boss2_mine, s32 arg1) {
     s32 temp_r29;
     s32 temp_r30;
     u8 *temp_r6;
-    ((TObjEneDD *)arg0)->init_position_vectors();
-    *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4BA4 + 0x42C)) + 0x38);
+    ((TObjEneDD *)boss2_mine)->init_position_vectors();
+    *(s32 *)((s8 *)boss2_mine + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4BA4 + 0x42C)) + 0x38);
     temp_r6 = *(u8 **)((s8 *)lbl_805D4BA4 + 0x42C);
-    *(s32 *)((s8 *)arg0 + 0x24) = *(s32 *)((s8 *)temp_r6 + 0x2C);
-    init_model__9TObjEneDDFv(arg0, (u8 *)lbl_80482CD8, 1, (int)temp_r6);
-    reset_hp__9TObjEneDDFv(arg0, register_boss__6TLobbyFl(((s32 *)boss2_mine_params)[arg1]),
+    *(s32 *)((s8 *)boss2_mine + 0x24) = *(s32 *)((s8 *)temp_r6 + 0x2C);
+    init_model__9TObjEneDDFv(boss2_mine, (u8 *)lbl_80482CD8, 1, (int)temp_r6);
+    reset_hp__9TObjEneDDFv(boss2_mine, register_boss__6TLobbyFl(((s32 *)boss2_mine_params)[arg1]),
                             dispatch_shared_handler_b__6TLobbyFl(((s32 *)lbl_80482C90)[arg1]),
                             register_object__6TLobbyFl(((s32 *)lbl_80482C98)[arg1]));
-    ((TObjEneDD *)arg0)->check_state_flag_2();
-    *(Rec_80038BA0 **)((s8 *)arg0 + 0x350) = &((Rec_80038BA0 *)lbl_80482CA0)[arg1];
-    *(f32 *)((s8 *)arg0 + 0x37C) = (3.0f);
-    ((TBoss2Mine *)(arg0))->vfunc_95();
-    *(s32 *)((s8 *)arg0 + 0x38C) = 0;
-    *(f32 *)((s8 *)arg0 + 0x390) = (0.0f);
-    *(f32 *)((s8 *)arg0 + 0x394) = (0.0f);
-    *(f32 *)((s8 *)arg0 + 0x398) = (0.0f);
-    *(f32 *)((s8 *)arg0 + 0x39C) = (0.0f);
-    *(f32 *)((s8 *)arg0 + 0x3A0) = (0.0f);
-    *(f32 *)((s8 *)arg0 + 0x3A4) = (0.0f);
-    *(s32 *)((s8 *)arg0 + 0x3A8) = 0;
-    *(f32 *)((s8 *)arg0 + 0x3AC) = (0.0f);
-    *(s32 *)((s8 *)arg0 + 0x3B0) = 0;
-    *(f32 *)((s8 *)arg0 + 0x3B4) = (0.0f);
-    *(f32 *)((s8 *)arg0 + 0x3B8) = (0.0f);
-    *(s32 *)((s8 *)arg0 + 0x3BC) = 0;
-    *(s32 *)((s8 *)arg0 + 0x3C0) = 0;
-    *(s32 *)((s8 *)arg0 + 0x3C4) = 2;
-    *(s32 *)((s8 *)arg0 + 0x3C8) = 0;
-    *(s32 *)((s8 *)arg0 + 0x3CC) = 0;
-    *(s32 *)((s8 *)arg0 + 0x3D0) = 0;
-    *(s32 *)((s8 *)arg0 + 0x3D8) = 0;
-    *(f32 *)((s8 *)arg0 + 0x3DC) = (0.0f);
-    *(f32 *)((s8 *)arg0 + 0x3E0) = (0.0f);
-    *(f32 *)((s8 *)arg0 + 0x3E4) = (0.0f);
-    *(f32 *)((s8 *)arg0 + 0x3E8) = (0.0f);
-    *(f32 *)((s8 *)arg0 + 0x3EC) = (0.0f);
-    *(s16 *)((s8 *)arg0 + 0x326) = 0;
-    ((VObj_18_72b3e0 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 4);
+    ((TObjEneDD *)boss2_mine)->check_state_flag_2();
+    *(Rec_80038BA0 **)((s8 *)boss2_mine + 0x350) = &((Rec_80038BA0 *)lbl_80482CA0)[arg1];
+    *(f32 *)((s8 *)boss2_mine + 0x37C) = (3.0f);
+    ((TBoss2Mine *)(boss2_mine))->vfunc_95();
+    *(s32 *)((s8 *)boss2_mine + 0x38C) = 0;
+    *(f32 *)((s8 *)boss2_mine + 0x390) = (0.0f);
+    *(f32 *)((s8 *)boss2_mine + 0x394) = (0.0f);
+    *(f32 *)((s8 *)boss2_mine + 0x398) = (0.0f);
+    *(f32 *)((s8 *)boss2_mine + 0x39C) = (0.0f);
+    *(f32 *)((s8 *)boss2_mine + 0x3A0) = (0.0f);
+    *(f32 *)((s8 *)boss2_mine + 0x3A4) = (0.0f);
+    *(s32 *)((s8 *)boss2_mine + 0x3A8) = 0;
+    *(f32 *)((s8 *)boss2_mine + 0x3AC) = (0.0f);
+    *(s32 *)((s8 *)boss2_mine + 0x3B0) = 0;
+    *(f32 *)((s8 *)boss2_mine + 0x3B4) = (0.0f);
+    *(f32 *)((s8 *)boss2_mine + 0x3B8) = (0.0f);
+    *(s32 *)((s8 *)boss2_mine + 0x3BC) = 0;
+    *(s32 *)((s8 *)boss2_mine + 0x3C0) = 0;
+    *(s32 *)((s8 *)boss2_mine + 0x3C4) = 2;
+    *(s32 *)((s8 *)boss2_mine + 0x3C8) = 0;
+    *(s32 *)((s8 *)boss2_mine + 0x3CC) = 0;
+    *(s32 *)((s8 *)boss2_mine + 0x3D0) = 0;
+    *(s32 *)((s8 *)boss2_mine + 0x3D8) = 0;
+    *(f32 *)((s8 *)boss2_mine + 0x3DC) = (0.0f);
+    *(f32 *)((s8 *)boss2_mine + 0x3E0) = (0.0f);
+    *(f32 *)((s8 *)boss2_mine + 0x3E4) = (0.0f);
+    *(f32 *)((s8 *)boss2_mine + 0x3E8) = (0.0f);
+    *(f32 *)((s8 *)boss2_mine + 0x3EC) = (0.0f);
+    *(s16 *)((s8 *)boss2_mine + 0x326) = 0;
+    ((VObj_18_72b3e0 *)(boss2_mine))->m85(*(s16 *)((s8 *)boss2_mine + 0x326), 4);
 }
 
 }

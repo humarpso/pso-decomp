@@ -179,15 +179,15 @@ void TOKeyJungleMain::debug_draw_key_id() {
     TObjNpcEnemy::set_global_count(0xF0F0F0FF);
 }
 
-void render__15TOKeyJungleMainFv(TOKeyJungleMain *arg0) {
-    if (((VObj_8029CF68 *)arg0)->m8(arg0->m_c0, *(f32 *)((s8 *)arg0 + 0xC4)) == 1) {
-        switch (arg0->m_d4) {
+void render__15TOKeyJungleMainFv(TOKeyJungleMain *key_jungle_main) {
+    if (((VObj_8029CF68 *)key_jungle_main)->m8(key_jungle_main->m_c0, *(f32 *)((s8 *)key_jungle_main + 0xC4)) == 1) {
+        switch (key_jungle_main->m_d4) {
         case 0:
             TObjFish__sub_8001EDB0((*(s32 *)&TOKeyJungleMain__static_model_resource), 1);
             set_global_param__8TObjFishFl();
             push_matrix();
-            post_translate_matrix((u8 *)arg0 + 0x38);
-            rotate_matrix_y(0, arg0->rotation_y);
+            post_translate_matrix((u8 *)key_jungle_main + 0x38);
+            rotate_matrix_y(0, key_jungle_main->rotation_y);
             get_bml_model((*(s32 *)&TOKeyJungleMain__static_model_resource), 1);
             draw_ginja_object();
             pop_matrix();
@@ -196,11 +196,11 @@ void render__15TOKeyJungleMainFv(TOKeyJungleMain *arg0) {
             TObjFish__sub_8001EDB0((*(s32 *)&TOKeyJungleMain__static_model_resource), 1);
             set_global_param__8TObjFishFl();
             push_matrix();
-            post_translate_matrix((u8 *)arg0 + 0x38);
-            rotate_matrix_y(0, arg0->rotation_y);
-            draw_ginja_model_with_motion(get_bml_model((*(s32 *)&TOKeyJungleMain__static_model_resource), 1), get_bml_motion((*(s32 *)&TOKeyJungleMain__static_model_resource), 1), arg0->m_e8);
+            post_translate_matrix((u8 *)key_jungle_main + 0x38);
+            rotate_matrix_y(0, key_jungle_main->rotation_y);
+            draw_ginja_model_with_motion(get_bml_model((*(s32 *)&TOKeyJungleMain__static_model_resource), 1), get_bml_motion((*(s32 *)&TOKeyJungleMain__static_model_resource), 1), key_jungle_main->m_e8);
             TParticleCtrl::begin_effect_render();
-            draw_ginja_model_with_motion(get_bml_model((*(s32 *)&TOKeyJungleMain__static_model_resource), 0), get_bml_motion((*(s32 *)&TOKeyJungleMain__static_model_resource), 0), *(f32 *)((s8 *)arg0 + 0xEC));
+            draw_ginja_model_with_motion(get_bml_model((*(s32 *)&TOKeyJungleMain__static_model_resource), 0), get_bml_motion((*(s32 *)&TOKeyJungleMain__static_model_resource), 0), *(f32 *)((s8 *)key_jungle_main + 0xEC));
             TParticleCtrl::end_effect_render();
             pop_matrix();
             break;
@@ -270,26 +270,26 @@ void *__dt__15TOKeyJungleMainFv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_8029D438_lbl_804DC5A0_size[sizeof(RecoveredGlobal_8029D438_lbl_804DC5A0) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8029D438___vt__15TOKeyJungleMain_size[sizeof(RecoveredGlobal_8029D438___vt__15TOKeyJungleMain) == 0x74 ? 1 : -1];
-u8 *TOKeyJungleMain__ct(TOKeyJungleMain *arg0, s32 arg1, s32 arg2) {
-    TOKey__ct((arg0));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8029D438___vt__15TOKeyJungleMain *)&__vt__15TOKeyJungleMain).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3D50;
-    ((TOKeyJungleMain *)(arg0))->apply_object_set_data((void *)arg2);
-    ((TOKey *)arg0)->init_switch_id();
-    init_collision_body_parts(arg0, &TOKeyJungleMain_collision_body_parts.value, 1);
-    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    ((TObjPlayer *)arg0)->reset_photon_effect();
-    arg0->m_d0 = 0;
-    arg0->m_e4 = (s32) arg0->m_84;
-    if ((s32) arg0->m_e4 < 0) {
-        arg0->m_e4 = 0;
+u8 *TOKeyJungleMain__ct(TOKeyJungleMain *key_jungle_main, s32 arg1, s32 arg2) {
+    TOKey__ct((key_jungle_main));
+    *(s32 **)((s8 *)key_jungle_main + 0x18) = &(*(RecoveredGlobal_8029D438___vt__15TOKeyJungleMain *)&__vt__15TOKeyJungleMain).value;
+    *(s32 *)((s8 *)key_jungle_main + 0) = (s32) lbl_805D3D50;
+    ((TOKeyJungleMain *)(key_jungle_main))->apply_object_set_data((void *)arg2);
+    ((TOKey *)key_jungle_main)->init_switch_id();
+    init_collision_body_parts(key_jungle_main, &TOKeyJungleMain_collision_body_parts.value, 1);
+    ((TUnk_804AF8A0 *)key_jungle_main)->refresh_collision_body_centers();
+    ((TObjPlayer *)key_jungle_main)->reset_photon_effect();
+    key_jungle_main->m_d0 = 0;
+    key_jungle_main->m_e4 = (s32) key_jungle_main->m_84;
+    if ((s32) key_jungle_main->m_e4 < 0) {
+        key_jungle_main->m_e4 = 0;
     }
-    if ((s32) arg0->m_e4 > 2) {
-        arg0->m_e4 = 2;
+    if ((s32) key_jungle_main->m_e4 > 2) {
+        key_jungle_main->m_e4 = 2;
     }
-    arg0->m_e8 = (f32) lbl_805DDD3C;
-    *(f32 *)((s8 *)arg0 + 0xEC) = (f32) lbl_805DDD3C;
-    return (u8 *)arg0;
+    key_jungle_main->m_e8 = (f32) lbl_805DDD3C;
+    *(f32 *)((s8 *)key_jungle_main + 0xEC) = (f32) lbl_805DDD3C;
+    return (u8 *)key_jungle_main;
 }
 
 u8 TObjFish::update_state() {
@@ -619,34 +619,34 @@ void *__dt__8TObjFishFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TObjFish__ct(u8 *arg0, s32 arg1, u8 *arg2) {
+u8 *TObjFish__ct(u8 *fish, s32 arg1, u8 *arg2) {
     f32 temp_f0;
     f32 var_f1;
     construct_world_actor_base();
-    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__8TObjFish;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3D58;
-    ((TObjFish *)arg0)->m_a0 = 0;
-    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2 + 0xC));
-    ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz(arg2 + 0x18);
-    VecCopy((Vec *)(arg0 + 0x68), (const Vec *)(arg2 + 0x24));
-    var_f1 = ((TObjFish *)arg0)->scale;
-    temp_f0 = ((TObjFish *)arg0)->target_scale;
+    *(s32 **)((s8 *)fish + 0x18) = (s32 *)__vt__8TObjFish;
+    *(s32 *)((s8 *)fish + 0) = (s32) lbl_805D3D58;
+    ((TObjFish *)fish)->m_a0 = 0;
+    VecCopy((Vec *)(fish + 0x38), (const Vec *)(arg2 + 0xC));
+    ((TObjPlayer *)(fish + 0x5C))->copy_xyz(arg2 + 0x18);
+    VecCopy((Vec *)(fish + 0x68), (const Vec *)(arg2 + 0x24));
+    var_f1 = ((TObjFish *)fish)->scale;
+    temp_f0 = ((TObjFish *)fish)->target_scale;
     if (var_f1 < temp_f0) {
         var_f1 = temp_f0;
     }
     if (var_f1 < temp_f0) {
         var_f1 = temp_f0;
     }
-    *(f32 *)((s8 *)arg0 + 0x9C) = var_f1;
-    ((TObjFish *)arg0)->m_94 = *(s32 *)((s8 *)arg2 + 0x30) + *(s32 *)((s8 *)arg2 + 0x34) + *(s32 *)((s8 *)arg2 + 0x38);
-    ((TObjFish *)arg0)->m_98 = 0;
-    if ((s32) ((TObjFish *)arg0)->m_94 < 1) {
-        ((TObjFish *)arg0)->m_94 = 1;
+    *(f32 *)((s8 *)fish + 0x9C) = var_f1;
+    ((TObjFish *)fish)->m_94 = *(s32 *)((s8 *)arg2 + 0x30) + *(s32 *)((s8 *)arg2 + 0x34) + *(s32 *)((s8 *)arg2 + 0x38);
+    ((TObjFish *)fish)->m_98 = 0;
+    if ((s32) ((TObjFish *)fish)->m_94 < 1) {
+        ((TObjFish *)fish)->m_94 = 1;
     }
-    if (init_fish_school__8TObjFishFPvll(arg0, arg0 + 0x68, (int) (*(s32 *)((s8 *)arg2 + 0x30)), (int) (*(s32 *)((s8 *)arg2 + 0x34))) == 0) {
-        queue_destruction__7TObjectFv((arg0));
+    if (init_fish_school__8TObjFishFPvll(fish, fish + 0x68, (int) (*(s32 *)((s8 *)arg2 + 0x30)), (int) (*(s32 *)((s8 *)arg2 + 0x34))) == 0) {
+        queue_destruction__7TObjectFv((fish));
     }
-    return arg0;
+    return fish;
 }
 
 u8 *TObjFish__create(u8 *arg0) {

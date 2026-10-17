@@ -890,22 +890,22 @@ extern RecoveredGlobal_80184054_lbl_8050DC38 city_season_easter_egg_model_table;
 
 extern "C" {
 
-u8 *TObjCity_Season_21_21__ct(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *TObjCity_Season_21_21__ct(u8 *city_season_21_21, s32 arg1, s32 arg2) {
     typedef char sp8_offset[(offsetof(Stack_80183F24, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80183F24, spC) == 0x4) ? 1 : -1];
     Stack_80183F24 stack;
-    ((s32 (*)(void *, void *, void *, int, f32))init_city_season_object)((void *)arg0, (void *)arg1, (void *)arg2, 4, (f32)lbl_805DBC64[0]);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80183F24_lbl_804B5D00 *)&__vt__21TObjCity_Season_21_21).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjCity_Season_21_21__name;
-    *(s32 *)((s8 *)arg0 + 0xB4) = 0;
-    if (((u32 (*)(void *))get_anim_frame__13TUnk_804B5E48Fv)(arg0) != 0U) {
-        VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x38));
+    ((s32 (*)(void *, void *, void *, int, f32))init_city_season_object)((void *)city_season_21_21, (void *)arg1, (void *)arg2, 4, (f32)lbl_805DBC64[0]);
+    *(s32 **)((s8 *)city_season_21_21 + 0x18) = &(*(RecoveredGlobal_80183F24_lbl_804B5D00 *)&__vt__21TObjCity_Season_21_21).value;
+    *(s32 *)((s8 *)city_season_21_21 + 0) = (s32) TObjCity_Season_21_21__name;
+    *(s32 *)((s8 *)city_season_21_21 + 0xB4) = 0;
+    if (((u32 (*)(void *))get_anim_frame__13TUnk_804B5E48Fv)(city_season_21_21) != 0U) {
+        VecCopy((Vec *)(&stack.sp8), (const Vec *)(city_season_21_21 + 0x38));
         stack.spC += lbl_805DBC4C[0];
-        ((TObjCity_Season_21_21 *)arg0)->m_b8 = (s32)create_particle_emitter((&stack.sp8), 0x90);
+        ((TObjCity_Season_21_21 *)city_season_21_21)->m_b8 = (s32)create_particle_emitter((&stack.sp8), 0x90);
     } else {
-        ((TObjCity_Season_21_21 *)arg0)->m_b8 = 0;
+        ((TObjCity_Season_21_21 *)city_season_21_21)->m_b8 = 0;
     }
-    return arg0;
+    return city_season_21_21;
 }
 typedef char RecoveredGlobal_80184054_lbl_8050DC38_size[sizeof(RecoveredGlobal_80184054_lbl_8050DC38) == 0x18 ? 1 : -1];
 
@@ -1439,26 +1439,26 @@ void *__dt__25TObjCity_Season_EasterEggFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TObjCity_Season_EasterEgg__ct(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *TObjCity_Season_EasterEgg__ct(u8 *city_season_easter_egg, s32 arg1, s32 arg2) {
     typedef char sp8_offset[(offsetof(Stack_8018493C, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8018493C, spC) == 0x4) ? 1 : -1];
     Stack_8018493C stack;
-    ((s32 (*)(void *, void *, void *, int, f32))init_city_season_object)((void *)arg0, (void *)arg1, (void *)arg2, 0, (f32)lbl_805DBC78[0]);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8018493C_lbl_804B5E10 *)&__vt__25TObjCity_Season_EasterEgg).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjCity_Season_EasterEgg__name;
-    *(s32 *)((s8 *)arg0 + 0xB4) = 0;
-    if (((u32 (*)(void *))get_anim_frame__13TUnk_804B5E48Fv)(arg0) != 0U) {
-        VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x38));
+    ((s32 (*)(void *, void *, void *, int, f32))init_city_season_object)((void *)city_season_easter_egg, (void *)arg1, (void *)arg2, 0, (f32)lbl_805DBC78[0]);
+    *(s32 **)((s8 *)city_season_easter_egg + 0x18) = &(*(RecoveredGlobal_8018493C_lbl_804B5E10 *)&__vt__25TObjCity_Season_EasterEgg).value;
+    *(s32 *)((s8 *)city_season_easter_egg + 0) = (s32) TObjCity_Season_EasterEgg__name;
+    *(s32 *)((s8 *)city_season_easter_egg + 0xB4) = 0;
+    if (((u32 (*)(void *))get_anim_frame__13TUnk_804B5E48Fv)(city_season_easter_egg) != 0U) {
+        VecCopy((Vec *)(&stack.sp8), (const Vec *)(city_season_easter_egg + 0x38));
         stack.spC += lbl_805DBC18[0];
-        ((TObjCity_Season_EasterEgg *)arg0)->m_b8 = (s32)create_particle_emitter((&stack.sp8), 0x90);
-        VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x38));
+        ((TObjCity_Season_EasterEgg *)city_season_easter_egg)->m_b8 = (s32)create_particle_emitter((&stack.sp8), 0x90);
+        VecCopy((Vec *)(&stack.sp8), (const Vec *)(city_season_easter_egg + 0x38));
         stack.spC += lbl_805DBC7C[0];
-        *(s32 *)((s8 *)arg0 + 0xBC) = (s32)create_particle_emitter((&stack.sp8), 0x91);
+        *(s32 *)((s8 *)city_season_easter_egg + 0xBC) = (s32)create_particle_emitter((&stack.sp8), 0x91);
     } else {
-        ((TObjCity_Season_EasterEgg *)arg0)->m_b8 = 0;
-        *(s32 *)((s8 *)arg0 + 0xBC) = 0;
+        ((TObjCity_Season_EasterEgg *)city_season_easter_egg)->m_b8 = 0;
+        *(s32 *)((s8 *)city_season_easter_egg + 0xBC) = 0;
     }
-    return arg0;
+    return city_season_easter_egg;
 }
 s32 TUnk_804B5E48::advance_anim_time(s32 arg1, f32 farg0) {
     Obj_80184A08 *arg0 = (Obj_80184A08 *)this;

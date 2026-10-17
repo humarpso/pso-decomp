@@ -86,7 +86,7 @@ void TBoss4DarkFalz::vfunc_63() {  }
 
 u8 *__dt__14TBoss4DarkFalzFv(u8 *arg0, s16 arg1) {
     s32 temp_r0;
-    u8 *temp_r3;
+    u8 *object;
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TBoss4DarkFalz;
         switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
@@ -101,9 +101,9 @@ u8 *__dt__14TBoss4DarkFalzFv(u8 *arg0, s16 arg1) {
         if (is_ending_or_split_screen__14TBoss4DarkFalzFv() == 0) {
             TLobby::stop_audio_streams();
         }
-        temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x398));
-        if (temp_r3 != NULL) {
-            queue_destruction__7TObjectFv(temp_r3);
+        object = (u8 *)(*(u8 **)((s8 *)arg0 + 0x398));
+        if (object != NULL) {
+            queue_destruction__7TObjectFv(object);
             *(u8 **)((s8 *)arg0 + 0x398) = NULL;
         }
         if ((void *) TBoss4DarkFalz__type1_instance != NULL) {
@@ -128,7 +128,7 @@ u8 *__dt__14TBoss4DarkFalzFv(u8 *arg0, s16 arg1) {
 }
 
 s32 TBoss4DarkFalz__ct(s32 a0, s32 arg1, s32 a2) {
-    u8 *arg0 = (u8 *)a0;
+    u8 *boss4_dark_falz = (u8 *)a0;
     u8 *arg2 = (u8 *)a2;
     s32 temp_r0;
     s32 temp_r0_2;
@@ -137,43 +137,43 @@ s32 TBoss4DarkFalz__ct(s32 a0, s32 arg1, s32 a2) {
     s32 temp_r30;
     s32 temp_r30_2;
     initialize__9TObjEnemyFPv();
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TBoss4DarkFalz;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss4DarkFalz__name;
-    ((TBoss4DarkFalz *)arg0)->sub_8004AFB8();
+    *(s32 **)((s8 *)boss4_dark_falz + 0x18) = __vt__14TBoss4DarkFalz;
+    *(s32 *)((s8 *)boss4_dark_falz + 0) = (s32) TBoss4DarkFalz__name;
+    ((TBoss4DarkFalz *)boss4_dark_falz)->sub_8004AFB8();
     if ((s16) *(s16 *)((s8 *)arg2 + 2) != 0x200) {
-        return (s32)arg0;
+        return (s32)boss4_dark_falz;
     }
-    dark_falz_controller_instance = (s32)arg0;
-    ((TBoss4DarkFalz *)(arg0))->apply_set_data(arg2);
+    dark_falz_controller_instance = (s32)boss4_dark_falz;
+    ((TBoss4DarkFalz *)(boss4_dark_falz))->apply_set_data(arg2);
     TBoss4DarkFalz__sub_8004B4F0(&TBoss4DarkFalz__data_804FF1E8, arg2);
     TBoss4DarkFalz__data_804FF1E8.f2 = 0;
-    ((TBoss4DarkFalz *)(arg0))->clear_lobby_object_state();
-    VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(VecCopy((Vec *)(arg0 + 0x50), (const Vec *)(VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38))))));
-    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
-    *(f32 *)((s8 *)arg0 + 0x310) = (f32) lbl_805D8908;
-    *(f32 *)((s8 *)arg0 + 0x30C) = (f32) lbl_805D8908;
-    *(f32 *)((s8 *)arg0 + 0x308) = (f32) lbl_805D8908;
-    *(s32 *)((s8 *)arg0 + 0x2A8) = 0;
+    ((TBoss4DarkFalz *)(boss4_dark_falz))->clear_lobby_object_state();
+    VecCopy((Vec *)(boss4_dark_falz + 0x44), (const Vec *)(VecCopy((Vec *)(boss4_dark_falz + 0x50), (const Vec *)(VecCopy((Vec *)(boss4_dark_falz + 0x74), (const Vec *)(boss4_dark_falz + 0x38))))));
+    VecCopy((Vec *)(boss4_dark_falz + 0x2FC), (const Vec *)(boss4_dark_falz + 0x38));
+    *(f32 *)((s8 *)boss4_dark_falz + 0x310) = (f32) lbl_805D8908;
+    *(f32 *)((s8 *)boss4_dark_falz + 0x30C) = (f32) lbl_805D8908;
+    *(f32 *)((s8 *)boss4_dark_falz + 0x308) = (f32) lbl_805D8908;
+    *(s32 *)((s8 *)boss4_dark_falz + 0x2A8) = 0;
     if ((s32) game_difficulty_selection == 0) {
-        bind_enemy_combat_stats(arg0, (u8 *)(TLobby::register_boss(0x37)), (u8 *)(TLobby::dispatch_shared_handler_b(0x37)), (u8 *)(TLobby::register_object(0x37)));
+        bind_enemy_combat_stats(boss4_dark_falz, (u8 *)(TLobby::register_boss(0x37)), (u8 *)(TLobby::dispatch_shared_handler_b(0x37)), (u8 *)(TLobby::register_object(0x37)));
     } else {
-        bind_enemy_combat_stats(arg0, (u8 *)(TLobby::register_boss(0x38)), (u8 *)(TLobby::dispatch_shared_handler_b(0x38)), (u8 *)(TLobby::register_object(0x38)));
+        bind_enemy_combat_stats(boss4_dark_falz, (u8 *)(TLobby::register_boss(0x38)), (u8 *)(TLobby::dispatch_shared_handler_b(0x38)), (u8 *)(TLobby::register_object(0x38)));
     }
-    register_entity_by_id((arg0));
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x02000000);
-    ((TBoss4DarkFalz *)arg0)->update_visible_flag();
-    *(s32 *)((s8 *)arg0 + 0x390) = TBoss4DarkFalz::count_active_players();
+    register_entity_by_id((boss4_dark_falz));
+    *(s32 *)((s8 *)boss4_dark_falz + 0x30) = (s32) (*(s32 *)((s8 *)boss4_dark_falz + 0x30) | 0x02000000);
+    ((TBoss4DarkFalz *)boss4_dark_falz)->update_visible_flag();
+    *(s32 *)((s8 *)boss4_dark_falz + 0x390) = TBoss4DarkFalz::count_active_players();
     TBoss4DarkFalz__type1_instance = 0;
     TBoss4DarkFalz__type2_instance = 0;
     TBoss4DarkFalz__type3_instance = 0;
-    *(s32 *)((s8 *)arg0 + 0x394) = 0;
-    *(s32 *)((s8 *)arg0 + 0x398) = create_boss4_fade();
-    *(s32 *)((s8 *)arg0 + 0x388) = 0;
-    *(s32 *)((s8 *)arg0 + 0x38C) = 0;
-    fn_8030A83C((arg0));
+    *(s32 *)((s8 *)boss4_dark_falz + 0x394) = 0;
+    *(s32 *)((s8 *)boss4_dark_falz + 0x398) = create_boss4_fade();
+    *(s32 *)((s8 *)boss4_dark_falz + 0x388) = 0;
+    *(s32 *)((s8 *)boss4_dark_falz + 0x38C) = 0;
+    fn_8030A83C((boss4_dark_falz));
     init_music_sequencer(4);
     dark_falz_form_index = 0;
-    *(s32 *)((s8 *)arg0 + 0x374) = 0;
+    *(s32 *)((s8 *)boss4_dark_falz + 0x374) = 0;
     temp_r0 = *(s32 *)((s8 *)(TLobby::dispatch_shared_handler_a(0x36)) + 0x18);
     lbl_805D4D6C = temp_r0;
     if ((temp_r0 < 0) || (temp_r0 > 0xE)) {
@@ -184,10 +184,10 @@ s32 TBoss4DarkFalz__ct(s32 a0, s32 arg1, s32 a2) {
     if ((temp_r0_2 < 0) || (temp_r0_2 > 0xE)) {
         lbl_805D4D70 = 0;
     }
-    TBoss4DarkFalz::push_players_out_of_zone((s32)arg0, 0);
-    *(s32 *)((s8 *)arg0 + 0x37C) = -1;
-    ((TBoss4DarkFalz *)arg0)->change_state(1);
-    return (s32)arg0;
+    TBoss4DarkFalz::push_players_out_of_zone((s32)boss4_dark_falz, 0);
+    *(s32 *)((s8 *)boss4_dark_falz + 0x37C) = -1;
+    ((TBoss4DarkFalz *)boss4_dark_falz)->change_state(1);
+    return (s32)boss4_dark_falz;
 }
 
 void handle_6x19_dark_falz_actions(Msg_8004BFA4 *arg0) {

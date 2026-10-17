@@ -17,7 +17,7 @@ int close_active_window__11TWindowCtrlFv(void*);
 extern void *TObjNewFloorWin__class_name;
 
 }
-TObjNewFloorWin::TObjNewFloorWin(TObject *arg1, void *arg2) : TObject(arg1) {
+TObjNewFloorWin::TObjNewFloorWin(TObject *object, void *arg2) : TObject(object) {
     *(void * *)&this->m_name = TObjNewFloorWin__class_name;
     *(void **)((s8 *)this + 0x4C) = arg2;
     *(u32 *)((s8 *)this + 0x20) = 0;

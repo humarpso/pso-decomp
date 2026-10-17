@@ -16,13 +16,13 @@ void TObjRain::render() { draw_streaks(); }
 void TObjRain::run_task() { update_drops(); }
 typedef char RecoveredGlobal_80197C84___vt__8TObjRain_size[sizeof(RecoveredGlobal_80197C84___vt__8TObjRain) == 0x18 ? 1 : -1];
 TObjRain::~TObjRain() {}
-u8 *__ct__8TObjRainFv(u8 *arg0, s32 arg1, u32 arg2) {
+u8 *__ct__8TObjRainFv(u8 *rain, s32 arg1, u32 arg2) {
     __ct__7TObjectFP7TObject();
-    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__8TObjRain.value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3420;
-    *(u32 *)((s8 *)arg0 + 0x21C) = (arg2 > 0x10U) ? 0x10U : arg2;
-    ((TObjRain *)arg0)->init_drops();
-    return arg0;
+    *(s32 **)((s8 *)rain + 0x18) = &__vt__8TObjRain.value;
+    *(s32 *)((s8 *)rain + 0) = (s32) lbl_805D3420;
+    *(u32 *)((s8 *)rain + 0x21C) = (arg2 > 0x10U) ? 0x10U : arg2;
+    ((TObjRain *)rain)->init_drops();
+    return rain;
 }
 
 }

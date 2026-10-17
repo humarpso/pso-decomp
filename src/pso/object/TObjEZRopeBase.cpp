@@ -31,16 +31,16 @@ void __ct__7TObjectFP7TObject(void *);
 extern s32 __vt__14TObjEZRopeBase[];
 extern void *TObjEZRopeBase__name;
 
-void *TObjEZRopeBase__ct(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjEZRopeBase;
-    *(void * *)&((TObjEZRopeBase *)arg0)->m_name = TObjEZRopeBase__name;
-    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
-    *(u32 *)((s8 *)arg0 + 0x20) = 0;
-    *(u32 *)((s8 *)arg0 + 0x24) = 0;
-    ((TObjEZRopeBase *)arg0)->m_28 = 0;
-    *(u32 *)((s8 *)arg0 + 0x2C) = 0;
-    return arg0;
+void *TObjEZRopeBase__ct(void *obj_ez_rope_base) {
+    __ct__7TObjectFP7TObject(obj_ez_rope_base);
+    *(s32 **)((s8 *)obj_ez_rope_base + 0x18) = __vt__14TObjEZRopeBase;
+    *(void * *)&((TObjEZRopeBase *)obj_ez_rope_base)->m_name = TObjEZRopeBase__name;
+    *(u32 *)((s8 *)obj_ez_rope_base + 0x1C) = 0;
+    *(u32 *)((s8 *)obj_ez_rope_base + 0x20) = 0;
+    *(u32 *)((s8 *)obj_ez_rope_base + 0x24) = 0;
+    ((TObjEZRopeBase *)obj_ez_rope_base)->m_28 = 0;
+    *(u32 *)((s8 *)obj_ez_rope_base + 0x2C) = 0;
+    return obj_ez_rope_base;
 }
 
 extern char lbl_8043DF18[];

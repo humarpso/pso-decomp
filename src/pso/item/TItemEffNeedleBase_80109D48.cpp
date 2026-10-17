@@ -81,13 +81,13 @@ void TItemEffNeedleBase::run_task() {
     }
 }
 
-u8 *__ct__18TItemEffNeedleBaseFv(u8 *arg0, void *arg1, u8 *arg2) {
+u8 *__ct__18TItemEffNeedleBaseFv(u8 *arg0, void *arg1, u8 *item) {
 
     __ct__7TObjectFP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TItemEffNeedleBase;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TItemEffNeedleBase__class_name;
-    *(s32 *)((s8 *)arg0 + 0x2C) = ((TItem *)arg2)->get_field_d8();
-    *(s32 *)((s8 *)arg0 + 0x48) = (((TItem *)arg2)->rotation_y);
+    *(s32 *)((s8 *)arg0 + 0x2C) = ((TItem *)item)->get_field_d8();
+    *(s32 *)((s8 *)arg0 + 0x48) = (((TItem *)item)->rotation_y);
     *(s32 *)((s8 *)arg0 + 0x4C) = 0;
     *(s32 *)((s8 *)arg0 + 0x44) = 0;
     *(s32 *)((s8 *)arg0 + 0x3C) = 0;

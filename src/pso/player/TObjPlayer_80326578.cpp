@@ -282,12 +282,12 @@ void TUnk_804ED1A0::reserved_53() { draw_weapon_at_joint((s32)this, (s8)((void*)
 
 extern s32 lbl_804ED1A0[];
 
-void *morning_glory_ct(void *arg0, s32 _w1, void * _w2) {
-    TItemWeapon__ct((void *)arg0, (void *)_w1);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804ED1A0;
-    set_weapon_trail_joints((s32)arg0, 2, 6, 5);
-    set_status_flags__10TObjPlayerFUl(arg0, 1);
-    return arg0;
+void *morning_glory_ct(void *player, s32 _w1, void * _w2) {
+    TItemWeapon__ct((void *)player, (void *)_w1);
+    *(s32 **)((s8 *)player + 0x18) = lbl_804ED1A0;
+    set_weapon_trail_joints((s32)player, 2, 6, 5);
+    set_status_flags__10TObjPlayerFUl(player, 1);
+    return player;
 }
 u8 *create_morning_glory(u8 *arg0) {
     u8 *temp_r3;
@@ -513,10 +513,10 @@ void *__dt__13TUnk_804ED488Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void *construct_dark_flow(void *arg0) {
-    ((void (*)(void *))TItemWeapon__ct)(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804ED488;
-    set_status_flags__10TObjPlayerFUl(arg0, 34);
-    return arg0;
+void *construct_dark_flow(void *player) {
+    ((void (*)(void *))TItemWeapon__ct)(player);
+    *(s32 **)((s8 *)player + 0x18) = lbl_804ED488;
+    set_status_flags__10TObjPlayerFUl(player, 34);
+    return player;
 }
 }

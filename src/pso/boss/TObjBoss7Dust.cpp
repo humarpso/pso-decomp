@@ -43,13 +43,13 @@ void TObjBoss7Dust::run_task() {
 }
 typedef char RecoveredGlobal_802F119C___vt__13TObjBoss7Dust_size[sizeof(RecoveredGlobal_802F119C___vt__13TObjBoss7Dust) == 0x18 ? 1 : -1];
 TObjBoss7Dust::~TObjBoss7Dust() {}
-u8 *__ct__13TObjBoss7DustFv(u8 *arg0, s32 arg1, s32 arg2) {
-    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__13TObjBoss7Dust.value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3FE4;
-    VecCopy((Vec *)(arg0 + 0x24), (const Vec *)(arg2));
-    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x20) = TObjBoss7DustCtrl__sub_802F125C();
-    return arg0;
+u8 *__ct__13TObjBoss7DustFv(u8 *object, s32 arg1, s32 arg2) {
+    __ct__7TObjectFP7TObject((void *)object, (void *)arg1);
+    *(s32 **)((s8 *)object + 0x18) = &__vt__13TObjBoss7Dust.value;
+    *(s32 *)((s8 *)object + 0) = (s32) lbl_805D3FE4;
+    VecCopy((Vec *)(object + 0x24), (const Vec *)(arg2));
+    *(s32 *)((s8 *)object + 0x1C) = 0;
+    *(s32 *)((s8 *)object + 0x20) = TObjBoss7DustCtrl__sub_802F125C();
+    return object;
 }
 }

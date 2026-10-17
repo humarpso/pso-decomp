@@ -78,17 +78,17 @@ void *TObjQuestCol2__create(void *arg0) {
     }
     return o;
 }
-u8 *TObjQuestCol2__vt14(TObjQuestCol2 *arg0) {
-    u8 *temp_r3;
+u8 *TObjQuestCol2__vt14(TObjQuestCol2 *quest_col2) {
+    u8 *quest_thread;
     u8 *var_r0;
     u8 *var_r31;
     TQuestThreadBoard::destroy_board();
     var_r31 = NULL;
-    if ((u32) *(u32 *)((s8 *)arg0 + 0xBC) != 0U) {
-        temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x194)));
-        var_r0 = temp_r3;
+    if ((u32) *(u32 *)((s8 *)quest_col2 + 0xBC) != 0U) {
+        quest_thread = (u8 *)(((u8 *)__nw__7TObjectFUl(0x194)));
+        var_r0 = quest_thread;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(__ct__12TQuestThreadFv(temp_r3, (s32) *(u32 *)((s8 *)arg0 + 0xBC), arg0->m_b0));
+            var_r0 = (u8 *)(__ct__12TQuestThreadFv(quest_thread, (s32) *(u32 *)((s8 *)quest_col2 + 0xBC), quest_col2->m_b0));
         }
         var_r31 = var_r0;
         if (var_r0 != NULL) {

@@ -140,15 +140,15 @@ u8 *__dt__9TLoadCtrlFv(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TLoadCtrl__ct(TLoadCtrl *arg0, s32 arg1) {
+u8 *TLoadCtrl__ct(TLoadCtrl *load_ctrl, s32 arg1) {
     s32 temp_r3;
     s32 var_r0;
-    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__9TLoadCtrl.value;
-    arg0->m_1c = 1;
+    __ct__7TObjectFP7TObject((void *)load_ctrl, (void *)arg1);
+    *(s32 **)((s8 *)load_ctrl + 0x18) = &__vt__9TLoadCtrl.value;
+    load_ctrl->m_1c = 1;
     TLoadCtrl__fade_task = 0;
-    arg0->m_20 = 0;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TLoadCtrl__class_name;
+    load_ctrl->m_20 = 0;
+    *(s32 *)((s8 *)load_ctrl + 0) = (s32) TLoadCtrl__class_name;
     if (((u32) (*(u32 *)&TLoadCtrl__loading_mode) == 0U) || ((u32) (*(u32 *)&TLoadCtrl__loading_mode) == 1U)) {
         temp_r3 = __nw__7TObjectFUl(0x38);
         var_r0 = temp_r3;
@@ -157,7 +157,7 @@ u8 *TLoadCtrl__ct(TLoadCtrl *arg0, s32 arg1) {
         }
         TLoadCtrl__fade_task = var_r0;
     }
-    return (u8 *)arg0;
+    return (u8 *)load_ctrl;
 }
 
 void TLoadCtrl::cleanup_scene() {

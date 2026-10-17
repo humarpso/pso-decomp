@@ -3841,9 +3841,9 @@ void reset_random_enemies_mode__6TLobbyFv(void) { TLobby::clear_counter(); evt2_
 #pragma auto_inline off
 #pragma dont_inline off
 void TLobby::create_hunter_guild_seq() {
-    void *temp_r3;
-    if ((is_quest_active() == 1) && ((temp_r3 = (void*)((u32 (*)(s32))__nw__7TObjectFUl)(0x28)) != 0U)) {
-        ((THunterGuildSeqOffline *)temp_r3)->init((void *)tl_00, (void *)reset_random_enemies_mode__6TLobbyFv);
+    void *hunter_guild_seq_offline;
+    if ((is_quest_active() == 1) && ((hunter_guild_seq_offline = (void*)((u32 (*)(s32))__nw__7TObjectFUl)(0x28)) != 0U)) {
+        ((THunterGuildSeqOffline *)hunter_guild_seq_offline)->init((void *)tl_00, (void *)reset_random_enemies_mode__6TLobbyFv);
     }
 }
 #pragma pop
@@ -5955,14 +5955,14 @@ void TLobby::init_state() { TLobby__data_805D5EB0 = (int)create__17TObjItemNameE
 #pragma dont_inline off
 void TLobby__sub_801EC43C(void) {
     s32 temp_r31;
-    u8 *temp_r30;
+    u8 *lobby;
     temp_r31 = *(s32 *)((s8 *)(&(*(RecoveredGlobal_801EC43C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 0);
-    temp_r30 = (u8 *)(*(u8 **)((s8 *)(&(*(RecoveredGlobal_801EC43C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4));
+    lobby = (u8 *)(*(u8 **)((s8 *)(&(*(RecoveredGlobal_801EC43C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4));
     if (is_split_screen() == 1) {
-        TLobby::set_encoded_name_and_color(temp_r30, temp_r31);
+        TLobby::set_encoded_name_and_color(lobby, temp_r31);
         return;
     }
-    ((TLobby *)temp_r30)->set_player_name_and_color(temp_r31);
+    ((TLobby *)lobby)->set_player_name_and_color(temp_r31);
 }
 #pragma pop
 
@@ -6919,10 +6919,10 @@ void TLobby::send_6x05_switch_changed_on() {
 #pragma auto_inline off
 #pragma dont_inline off
 void TLobby::reset_player_floor_by_slot(s32 arg0) {
-    u8 *temp_r3;
-    temp_r3 = (u8 *)(((u8 *)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int)(*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))))), (int)((int)((int)((*(s32 *)&TLobby__script_reg_array)))))));
-    if (temp_r3 != NULL) {
-        ((TLobby *)temp_r3)->set_floor(0);
+    u8 *lobby;
+    lobby = (u8 *)(((u8 *)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int)(*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))))), (int)((int)((int)((*(s32 *)&TLobby__script_reg_array)))))));
+    if (lobby != NULL) {
+        ((TLobby *)lobby)->set_floor(0);
     }
 }
 #pragma pop
@@ -6941,10 +6941,10 @@ void TLobby::reset_player_floor_by_slot(s32 arg0) {
 #pragma auto_inline off
 #pragma dont_inline off
 void TLobby::store_player_kill_count(s32 arg0, s32 arg1) {
-    u8 *temp_r3;
-    temp_r3 = (u8 *)(((s32)((u32 (*)(int, int))get_player_by_client_id)((int)(*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), arg1)));
-    if (temp_r3 != NULL) {
-        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = (s32) ((TObjPlayer *)temp_r3)->get_kill_count();
+    u8 *player;
+    player = (u8 *)(((s32)((u32 (*)(int, int))get_player_by_client_id)((int)(*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), arg1)));
+    if (player != NULL) {
+        *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = (s32) ((TObjPlayer *)player)->get_kill_count();
         return;
     }
     *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC)) = 0;

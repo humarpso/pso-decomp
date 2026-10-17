@@ -91,7 +91,7 @@ int push_matrix(void*);
 int pop_matrix(void);
 void __dl__7TObjectFPv(void *);
 
-u8 *TBoss8DragonColli__ct(u8 *arg0, s32 arg1) {
+u8 *TBoss8DragonColli__ct(u8 *object, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_802F2F68, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802F2F68, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_802F2F68, sp10) == 0x8) ? 1 : -1];
@@ -102,37 +102,37 @@ u8 *TBoss8DragonColli__ct(u8 *arg0, s32 arg1) {
     s32 var_r0;
     s32 var_r0_2;
     s32 var_r0_3;
-    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__17TBoss8DragonColli;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4004;
+    __ct__7TObjectFP7TObject((void *)object, (void *)arg1);
+    *(s32 **)((s8 *)object + 0x18) = (s32 *)__vt__17TBoss8DragonColli;
+    *(s32 *)((s8 *)object + 0) = (s32) lbl_805D4004;
     stack.sp8 = lbl_805DED20;
     stack.spC = lbl_805DED20;
     stack.sp10 = lbl_805DED20;
     temp_r3 = __nw__7TObjectFUl(0xB8);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = init_collision_segments__17TBoss8DragonColliFiPviPvf(temp_r3, arg0, 1, &stack.sp8, lbl_805DED24);
+        var_r0 = init_collision_segments__17TBoss8DragonColliFiPviPvf(temp_r3, object, 1, &stack.sp8, lbl_805DED24);
     }
-    *(s32 *)((s8 *)arg0 + 0x1C) = var_r0;
+    *(s32 *)((s8 *)object + 0x1C) = var_r0;
     stack.sp8 = lbl_805DED28;
     stack.spC = lbl_805DED20;
     stack.sp10 = lbl_805DED2C;
     temp_r3_2 = __nw__7TObjectFUl(0xB8);
     var_r0_2 = temp_r3_2;
     if (var_r0_2 != 0) {
-        var_r0_2 = init_collision_segments__17TBoss8DragonColliFiPviPvf(temp_r3_2, arg0, 3, &stack.sp8, lbl_805DED30);
+        var_r0_2 = init_collision_segments__17TBoss8DragonColliFiPviPvf(temp_r3_2, object, 3, &stack.sp8, lbl_805DED30);
     }
-    *(s32 *)((s8 *)arg0 + 0x20) = var_r0_2;
+    *(s32 *)((s8 *)object + 0x20) = var_r0_2;
     stack.sp8 = lbl_805DED28;
     stack.spC = lbl_805DED20;
     stack.sp10 = lbl_805DED34;
     temp_r3_3 = __nw__7TObjectFUl(0xB8);
     var_r0_3 = temp_r3_3;
     if (var_r0_3 != 0) {
-        var_r0_3 = init_collision_segments__17TBoss8DragonColliFiPviPvf(temp_r3_3, arg0, 5, &stack.sp8, lbl_805DED30);
+        var_r0_3 = init_collision_segments__17TBoss8DragonColliFiPviPvf(temp_r3_3, object, 5, &stack.sp8, lbl_805DED30);
     }
-    *(s32 *)((s8 *)arg0 + 0x24) = var_r0_3;
-    return arg0;
+    *(s32 *)((s8 *)object + 0x24) = var_r0_3;
+    return object;
 }
 
 void TBoss8DragonColli_C::render() {  }

@@ -84,27 +84,27 @@ extern const f32 lbl_805DDFBC;
 extern const f32 lbl_805DDFC0;
 
 TAdTitleTexGC::~TAdTitleTexGC() {}
-void *__ct__13TAdTitleTexGCFv(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TAdTitleTexGC;
-    *(void * *)&((TAdTitleTexGC *)arg0)->m_name = TAdTitleTexGC__name;
-    *(u32 *)((s8 *)arg0 + 0x7C) = 51;
-    *(u32 *)((s8 *)arg0 + 0x80) = -1;
-    *(f32 *)((s8 *)arg0 + 0x34) = lbl_805DDF9C;
-    *(f32 *)((s8 *)arg0 + 0x38) = lbl_805DDFA0;
-    *(f32 *)((s8 *)arg0 + 0x2C) = lbl_805DDFA4;
-    *(f32 *)((s8 *)arg0 + 0x30) = lbl_805DDFA8;
-    *(f32 *)((s8 *)arg0 + 0x4C) = lbl_805DDFAC;
-    *(f32 *)((s8 *)arg0 + 0x50) = lbl_805DDFA8;
-    *(f32 *)((s8 *)arg0 + 0x54) = lbl_805DDFB0;
-    *(f32 *)((s8 *)arg0 + 0x58) = lbl_805DDFA0;
-    *(f32 *)((s8 *)arg0 + 0x84) = lbl_805DDFB4;
-    *(f32 *)((s8 *)arg0 + 0x88) = lbl_805DDFB8;
-    *(f32 *)((s8 *)arg0 + 0x8C) = lbl_805DDFBC;
-    *(f32 *)((s8 *)arg0 + 0x90) = lbl_805DDFB8;
-    *(f32 *)((s8 *)arg0 + 0x94) = lbl_805DDFC0;
-    *(f32 *)((s8 *)arg0 + 0x98) = lbl_805DDFB8;
-    return arg0;
+void *__ct__13TAdTitleTexGCFv(void *ad_title_tex_gc) {
+    __ct__7TObjectFP7TObject(ad_title_tex_gc);
+    *(s32 **)((s8 *)ad_title_tex_gc + 0x18) = __vt__13TAdTitleTexGC;
+    *(void * *)&((TAdTitleTexGC *)ad_title_tex_gc)->m_name = TAdTitleTexGC__name;
+    *(u32 *)((s8 *)ad_title_tex_gc + 0x7C) = 51;
+    *(u32 *)((s8 *)ad_title_tex_gc + 0x80) = -1;
+    *(f32 *)((s8 *)ad_title_tex_gc + 0x34) = lbl_805DDF9C;
+    *(f32 *)((s8 *)ad_title_tex_gc + 0x38) = lbl_805DDFA0;
+    *(f32 *)((s8 *)ad_title_tex_gc + 0x2C) = lbl_805DDFA4;
+    *(f32 *)((s8 *)ad_title_tex_gc + 0x30) = lbl_805DDFA8;
+    *(f32 *)((s8 *)ad_title_tex_gc + 0x4C) = lbl_805DDFAC;
+    *(f32 *)((s8 *)ad_title_tex_gc + 0x50) = lbl_805DDFA8;
+    *(f32 *)((s8 *)ad_title_tex_gc + 0x54) = lbl_805DDFB0;
+    *(f32 *)((s8 *)ad_title_tex_gc + 0x58) = lbl_805DDFA0;
+    *(f32 *)((s8 *)ad_title_tex_gc + 0x84) = lbl_805DDFB4;
+    *(f32 *)((s8 *)ad_title_tex_gc + 0x88) = lbl_805DDFB8;
+    *(f32 *)((s8 *)ad_title_tex_gc + 0x8C) = lbl_805DDFBC;
+    *(f32 *)((s8 *)ad_title_tex_gc + 0x90) = lbl_805DDFB8;
+    *(f32 *)((s8 *)ad_title_tex_gc + 0x94) = lbl_805DDFC0;
+    *(f32 *)((s8 *)ad_title_tex_gc + 0x98) = lbl_805DDFB8;
+    return ad_title_tex_gc;
 }
 
 }

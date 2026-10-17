@@ -325,7 +325,7 @@ struct RecoveredGlobal_8009A704_lbl_8048FE7C {
 extern "C" {
 typedef char RecoveredGlobal_8009A704_lbl_8048FE7C_size[sizeof(RecoveredGlobal_8009A704_lbl_8048FE7C) == 0x18 ? 1 : -1];
 }
-TUnk_8048FE7C::TUnk_8048FE7C(TObject *arg1, u8 *arg2, f32 farg0) : TObject(arg1) {
+TUnk_8048FE7C::TUnk_8048FE7C(TObject *object, u8 *arg2, f32 farg0) : TObject(object) {
     *(s32 *)((s8 *)this + 0) = (s32) bringer_tp_absorb_effect_name;
     VecCopy((Vec *)(((u8 *)this) + 0x20), (const Vec *)arg2);
     *(s32 *)((s8 *)this + 0x1C) = 0;
@@ -437,26 +437,26 @@ void *__dt__26TObjEneDf2Bringer_Eff_RushFv(void *arg0, s16 arg1) {
 }
 }
 
-u8 *construct_bringer_rush_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0) {
+u8 *construct_bringer_rush_effect(u8 *ene_df2_bringer_eff_rush, s32 arg1, u8 *arg2, s32 arg3, f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_8009AA64, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8009AA64, spC) == 0x4) ? 1 : -1];
     Stack_8009AA64 stack;
-    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8009AA64_lbl_8048FE94 *)&bringer_rush_effect_vtable).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) bringer_rush_effect_name;
-    *(s32 *)((s8 *)arg0 + 0x1C) = arg3;
-    *(f32 *)((s8 *)arg0 + 0x2C) = farg0;
-    ((TObjEneDf2Bringer_Eff_Rush *)arg0)->m_30 = 0;
+    __ct__7TObjectFP7TObject((void *)ene_df2_bringer_eff_rush, (void *)arg1);
+    *(s32 **)((s8 *)ene_df2_bringer_eff_rush + 0x18) = &(*(RecoveredGlobal_8009AA64_lbl_8048FE94 *)&bringer_rush_effect_vtable).value;
+    *(s32 *)((s8 *)ene_df2_bringer_eff_rush + 0) = (s32) bringer_rush_effect_name;
+    *(s32 *)((s8 *)ene_df2_bringer_eff_rush + 0x1C) = arg3;
+    *(f32 *)((s8 *)ene_df2_bringer_eff_rush + 0x2C) = farg0;
+    ((TObjEneDf2Bringer_Eff_Rush *)ene_df2_bringer_eff_rush)->m_30 = 0;
     VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg3 + 0x38));
     subtract_vector(&stack.sp8, arg2 + 0x38);
     stack.spC = 0.0f;
-    ((TObjEneDf2Bringer_Eff_Rush *)arg0)->m_20 = sin_table_lookup((int) (*(s32 *)((s8 *)arg2 + 0x60)));
-    *(f32 *)((s8 *)arg0 + 0x24) = (f32) 0.0f;
-    ((TObjEneDf2Bringer_Eff_Rush *)arg0)->m_28 = cos_table_lookup((int) (*(s32 *)((s8 *)arg2 + 0x60)));
-    if (is_vec_xz_cross_negative(arg0 + 0x20, &stack.sp8) != 0) {
-        rotate_xz_pair_by_angle(arg0 + 0x20, arg0 + 0x28, -0x1800);
+    ((TObjEneDf2Bringer_Eff_Rush *)ene_df2_bringer_eff_rush)->m_20 = sin_table_lookup((int) (*(s32 *)((s8 *)arg2 + 0x60)));
+    *(f32 *)((s8 *)ene_df2_bringer_eff_rush + 0x24) = (f32) 0.0f;
+    ((TObjEneDf2Bringer_Eff_Rush *)ene_df2_bringer_eff_rush)->m_28 = cos_table_lookup((int) (*(s32 *)((s8 *)arg2 + 0x60)));
+    if (is_vec_xz_cross_negative(ene_df2_bringer_eff_rush + 0x20, &stack.sp8) != 0) {
+        rotate_xz_pair_by_angle(ene_df2_bringer_eff_rush + 0x20, ene_df2_bringer_eff_rush + 0x28, -0x1800);
     } else {
-        rotate_xz_pair_by_angle(arg0 + 0x20, arg0 + 0x28, 0x1800);
+        rotate_xz_pair_by_angle(ene_df2_bringer_eff_rush + 0x20, ene_df2_bringer_eff_rush + 0x28, 0x1800);
     }
-    return arg0;
+    return ene_df2_bringer_eff_rush;
 }

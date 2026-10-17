@@ -38,14 +38,14 @@ void *__dt__17TWindowChatSymbolFv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_80248700_lbl_804CE7A0_size[sizeof(RecoveredGlobal_80248700_lbl_804CE7A0) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80248700___vt__17TWindowChatSymbol_size[sizeof(RecoveredGlobal_80248700___vt__17TWindowChatSymbol) == 0x1C ? 1 : -1];
-u8 *TWindowChatSymbol__ct(TWindowChatSymbol *arg0, s32 arg1, s32 arg2) {
-    ((TWindowDD *)arg0)->construct_base((u8 *)((s32) &window_chat_symbol_settings.value), (s16)4, (u8 *)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80248700___vt__17TWindowChatSymbol *)&__vt__17TWindowChatSymbol).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D38A8;
-    fn_8024491C((void *)arg0, (void *)arg2);
-    arg0->m_60 = 0;
-    arg0->m_64 = 0;
-    return (u8 *)arg0;
+u8 *TWindowChatSymbol__ct(TWindowChatSymbol *window_chat_symbol, s32 arg1, s32 arg2) {
+    ((TWindowDD *)window_chat_symbol)->construct_base((u8 *)((s32) &window_chat_symbol_settings.value), (s16)4, (u8 *)arg1);
+    *(s32 **)((s8 *)window_chat_symbol + 0x18) = &(*(RecoveredGlobal_80248700___vt__17TWindowChatSymbol *)&__vt__17TWindowChatSymbol).value;
+    *(s32 *)((s8 *)window_chat_symbol + 0) = (s32) lbl_805D38A8;
+    fn_8024491C((void *)window_chat_symbol, (void *)arg2);
+    window_chat_symbol->m_60 = 0;
+    window_chat_symbol->m_64 = 0;
+    return (u8 *)window_chat_symbol;
 }
 
 void TUnk_804CE7D0::render() {  }

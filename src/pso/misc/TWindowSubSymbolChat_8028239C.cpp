@@ -777,32 +777,32 @@ u8 *__dt__20TWindowSubSymbolChatFv(TWindowSubSymbolChat *arg0, s16 arg1) {
     return (u8 *)arg0;
 }
 
-void *TWindowSubSymbolChat__ct(TWindowSubSymbolChat *arg0, s32 arg1, s32 arg2) {
+void *TWindowSubSymbolChat__ct(TWindowSubSymbolChat *window_sub_symbol_chat, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TWindowSubSymbolChat;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubSymbolChat__class_name;
-    arg0->m_2c = arg1;
-    arg0->m_24 = arg2;
-    arg0->m_30 = 0;
-    arg0->m_34 = 0;
-    arg0->m_38 = 0;
-    arg0->m_3c = 0;
-    arg0->m_48 = 0;
-    arg0->m_4c = 0;
-    arg0->m_50 = 0;
-    arg0->m_54 = 0;
-    arg0->m_40 = 0;
-    arg0->m_44 = 0;
-    arg0->m_58 = 0;
-    arg0->m_28 = 0;
+    *(s32 **)((s8 *)window_sub_symbol_chat + 0x18) = __vt__20TWindowSubSymbolChat;
+    *(s32 *)((s8 *)window_sub_symbol_chat + 0) = (s32) TWindowSubSymbolChat__class_name;
+    window_sub_symbol_chat->m_2c = arg1;
+    window_sub_symbol_chat->m_24 = arg2;
+    window_sub_symbol_chat->m_30 = 0;
+    window_sub_symbol_chat->m_34 = 0;
+    window_sub_symbol_chat->m_38 = 0;
+    window_sub_symbol_chat->m_3c = 0;
+    window_sub_symbol_chat->m_48 = 0;
+    window_sub_symbol_chat->m_4c = 0;
+    window_sub_symbol_chat->m_50 = 0;
+    window_sub_symbol_chat->m_54 = 0;
+    window_sub_symbol_chat->m_40 = 0;
+    window_sub_symbol_chat->m_44 = 0;
+    window_sub_symbol_chat->m_58 = 0;
+    window_sub_symbol_chat->m_28 = 0;
     TWindowSubSymbolChat__data_805D6494 = 0;
     TWindowSubSymbolChat__data_805D6498 = 0;
     TWindowSubSymbolChat__data_805D649C = 0;
-    arg0->m_20 = 0;
-    TWindowSubSymbolChat__instance = arg0;
-    arg0->m_5c = update_display__20TWindowSubSymbolChatFl(close_child__20TWindowSubSymbolChatFv);
-    arg0->m_1c = 0;
-    return arg0;
+    window_sub_symbol_chat->m_20 = 0;
+    TWindowSubSymbolChat__instance = window_sub_symbol_chat;
+    window_sub_symbol_chat->m_5c = update_display__20TWindowSubSymbolChatFl(close_child__20TWindowSubSymbolChatFv);
+    window_sub_symbol_chat->m_1c = 0;
+    return window_sub_symbol_chat;
 }
 typedef char RecoveredGlobal_8028379C_lbl_804FF968_size[sizeof(RecoveredGlobal_8028379C_lbl_804FF968) == 0x58 ? 1 : -1];
 s32 *TWindowSubSymbolChat__sub_8028379C(void) {

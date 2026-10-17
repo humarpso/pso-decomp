@@ -398,50 +398,50 @@ Obj_8031FE14 *fn_8031FE14(Obj_8031FE14 *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
-    Self_8031FE98 *S = (Self_8031FE98 *)arg0;
+u8 *TObjEneRecobox__ct(u8 *ene_recobox, s32 arg1, u8 *arg2) {
+    Self_8031FE98 *S = (Self_8031FE98 *)ene_recobox;
     s32 i;
     s32 n;
-    init_object__12TObjEneDD_STFv(arg0, arg1, arg2);
-    *(u8 **)((s8 *)arg0 + 0x18) = TObjEneRecobox__vtable;
-    ((TUnk_80494938 *)(arg0 + 0x3C0))->init_common();
-    __construct_array(arg0 + 0x460, (void *)&init_and_activate__10TObjPlayerFv, (void *)&__dt__13TUnk_804949A8Fv, 0x1C, 4);
-    *(s32 *)((s8 *)arg0 + 0) = TObjEneRecobox_name_ref;
-    invoke_initialization_hook__9TObjEneDDFv(arg0, arg2);
-    ((TObjEneDD *)arg0)->init_position_vectors();
-    *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjEneRecobox__static_instance + 0x42C)) + 0x18);
-    ((TObjEneRecobox *)arg0)->texture_id = *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjEneRecobox__static_instance + 0x42C)) + 0x1C);
-    init_model__9TObjEneDDFv(arg0, lbl_804EC684, 1);
-    ((TObjEneRecobox *)arg0)->m_300 = lbl_805DF464 + *(f32 *)((s8 *)arg0 + 0x3C);
-    ((TObjEneRecobox *)arg0)->vfunc_88();
-    ((TObjMotion *)arg0)->set_field_d8((s32)TObjEneRecobox__animation_entries);
-    ((TObjMotion *)arg0)->set_field_dc(*(s32 *)((s8 *)TObjEneRecobox__static_instance + 0x430));
-    ((TObjEneRecobox *)arg0)->m_b8 = 0;
-    ((TObjMotion *)arg0)->set_animation(((TObjEneRecobox *)arg0)->m_b8);
-    ((TObjMotion *)arg0)->set_field_b8(((TObjEneRecobox *)arg0)->m_b8);
-    reset_hp__9TObjEneDDFv(arg0, recobox_boss_register_id, lbl_805D6B14, TObjEneRecobox__shared_object_handle);
-    ((TObjEneDD *)arg0)->check_state_flag_4();
-    *(u8 * *)&((TObjEneRecobox *)arg0)->movementParameters = TObjEneRecobox__attack_params;
-    initialize_enemy_state__9TObjEneDDFv(arg0, 0x43);
-    ((TObjEneRecobox *)arg0)->m_37c = lbl_805DF468;
-    ((TObjEneRecobox *)arg0)->sub_8031F800();
+    init_object__12TObjEneDD_STFv(ene_recobox, arg1, arg2);
+    *(u8 **)((s8 *)ene_recobox + 0x18) = TObjEneRecobox__vtable;
+    ((TUnk_80494938 *)(ene_recobox + 0x3C0))->init_common();
+    __construct_array(ene_recobox + 0x460, (void *)&init_and_activate__10TObjPlayerFv, (void *)&__dt__13TUnk_804949A8Fv, 0x1C, 4);
+    *(s32 *)((s8 *)ene_recobox + 0) = TObjEneRecobox_name_ref;
+    invoke_initialization_hook__9TObjEneDDFv(ene_recobox, arg2);
+    ((TObjEneDD *)ene_recobox)->init_position_vectors();
+    *(s32 *)((s8 *)ene_recobox + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjEneRecobox__static_instance + 0x42C)) + 0x18);
+    ((TObjEneRecobox *)ene_recobox)->texture_id = *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjEneRecobox__static_instance + 0x42C)) + 0x1C);
+    init_model__9TObjEneDDFv(ene_recobox, lbl_804EC684, 1);
+    ((TObjEneRecobox *)ene_recobox)->m_300 = lbl_805DF464 + *(f32 *)((s8 *)ene_recobox + 0x3C);
+    ((TObjEneRecobox *)ene_recobox)->vfunc_88();
+    ((TObjMotion *)ene_recobox)->set_field_d8((s32)TObjEneRecobox__animation_entries);
+    ((TObjMotion *)ene_recobox)->set_field_dc(*(s32 *)((s8 *)TObjEneRecobox__static_instance + 0x430));
+    ((TObjEneRecobox *)ene_recobox)->m_b8 = 0;
+    ((TObjMotion *)ene_recobox)->set_animation(((TObjEneRecobox *)ene_recobox)->m_b8);
+    ((TObjMotion *)ene_recobox)->set_field_b8(((TObjEneRecobox *)ene_recobox)->m_b8);
+    reset_hp__9TObjEneDDFv(ene_recobox, recobox_boss_register_id, lbl_805D6B14, TObjEneRecobox__shared_object_handle);
+    ((TObjEneDD *)ene_recobox)->check_state_flag_4();
+    *(u8 * *)&((TObjEneRecobox *)ene_recobox)->movementParameters = TObjEneRecobox__attack_params;
+    initialize_enemy_state__9TObjEneDDFv(ene_recobox, 0x43);
+    ((TObjEneRecobox *)ene_recobox)->m_37c = lbl_805DF468;
+    ((TObjEneRecobox *)ene_recobox)->sub_8031F800();
     n = *(s16 *)((s8 *)arg2 + 2);
     if (n <= 1) {
-        *(s32 *)&((TObjEneRecobox *)arg0)->m_410 = 0;
-    } else if (*(s32 *)&((TObjEneRecobox *)arg0)->m_410 >= n) {
-        *(s32 *)&((TObjEneRecobox *)arg0)->m_410 = n - 1;
+        *(s32 *)&((TObjEneRecobox *)ene_recobox)->m_410 = 0;
+    } else if (*(s32 *)&((TObjEneRecobox *)ene_recobox)->m_410 >= n) {
+        *(s32 *)&((TObjEneRecobox *)ene_recobox)->m_410 = n - 1;
     }
-    if (*(s32 *)&((TObjEneRecobox *)arg0)->m_414 > *(s32 *)&((TObjEneRecobox *)arg0)->m_410) {
-        *(s32 *)&((TObjEneRecobox *)arg0)->m_414 = *(s32 *)&((TObjEneRecobox *)arg0)->m_410;
+    if (*(s32 *)&((TObjEneRecobox *)ene_recobox)->m_414 > *(s32 *)&((TObjEneRecobox *)ene_recobox)->m_410) {
+        *(s32 *)&((TObjEneRecobox *)ene_recobox)->m_414 = *(s32 *)&((TObjEneRecobox *)ene_recobox)->m_410;
     }
     for (i = 0; i < 4; i++) {
         S->f3fc[i] = 0;
     }
-    *(s32 *)((s8 *)arg0 + 0x40C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x40C) |= 1;
-    TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x3C0);
-    *(s32 *)((s8 *)arg0 + 0x410) = 0;
-    *(s32 *)((s8 *)arg0 + 0x414) = 0;
+    *(s32 *)((s8 *)ene_recobox + 0x40C) = 0;
+    *(s32 *)((s8 *)ene_recobox + 0x40C) |= 1;
+    TObjEneMe3SinowZoa__sub_800D758C(ene_recobox + 0x3C0);
+    *(s32 *)((s8 *)ene_recobox + 0x410) = 0;
+    *(s32 *)((s8 *)ene_recobox + 0x414) = 0;
     for (i = 0; i < 30; i++) {
         S->f424[i] = 0xFFFF;
     }
@@ -451,18 +451,18 @@ u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     for (i = 0; i < 4; i++) {
         ((TObjPlayer *)(&S->subs[i]))->activate_and_dispatch();
     }
-    *(s32 *)((s8 *)arg0 + 0x4D8) = 0;
-    *(s32 *)((s8 *)arg0 + 0x4DC) = 0;
-    *(s32 *)((s8 *)arg0 + 0x3E0) = 0;
-    VecCopy((Vec *)(arg0 + 0x3E4), (const Vec *)(arg0 + 0x38));
-    *(s32 *)((s8 *)arg0 + 0x4E0) = 0;
-    *(s32 *)((s8 *)arg0 + 0x4E4) = 0;
-    *(s32 *)((s8 *)arg0 + 0x4E8) = 0;
-    *(s32 *)((s8 *)arg0 + 0x4EC) = 0;
-    ((TObjEneRecobox *)arg0)->m_4f0 = lbl_805DF46C;
-    ((TObjEneRecobox *)arg0)->mode = 0;
-    ((VObj_18_b2458f *)arg0)->m85(((TObjEneRecobox *)arg0)->mode, 4);
-    return arg0;
+    *(s32 *)((s8 *)ene_recobox + 0x4D8) = 0;
+    *(s32 *)((s8 *)ene_recobox + 0x4DC) = 0;
+    *(s32 *)((s8 *)ene_recobox + 0x3E0) = 0;
+    VecCopy((Vec *)(ene_recobox + 0x3E4), (const Vec *)(ene_recobox + 0x38));
+    *(s32 *)((s8 *)ene_recobox + 0x4E0) = 0;
+    *(s32 *)((s8 *)ene_recobox + 0x4E4) = 0;
+    *(s32 *)((s8 *)ene_recobox + 0x4E8) = 0;
+    *(s32 *)((s8 *)ene_recobox + 0x4EC) = 0;
+    ((TObjEneRecobox *)ene_recobox)->m_4f0 = lbl_805DF46C;
+    ((TObjEneRecobox *)ene_recobox)->mode = 0;
+    ((VObj_18_b2458f *)ene_recobox)->m85(((TObjEneRecobox *)ene_recobox)->mode, 4);
+    return ene_recobox;
 }
 
 int TObjEneRecobox__sub_803201D0(void);

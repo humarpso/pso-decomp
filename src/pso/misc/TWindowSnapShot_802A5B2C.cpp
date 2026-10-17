@@ -68,11 +68,11 @@ void TWindowSnapShot::free_buffer() {
     }
 }
 
-s32 alloc_buffer__15TWindowSnapShotFPv(TWindowSnapShot *arg0) {
-    arg0->get_buffer_size();
-    *(u32 *)((s8 *)arg0 + 8) = mem_alloc();
-    if ((u32) *(u32 *)((s8 *)arg0 + 8) == 0U) {
-        arg0->set_mode(4);
+s32 alloc_buffer__15TWindowSnapShotFPv(TWindowSnapShot *window_snap_shot) {
+    window_snap_shot->get_buffer_size();
+    *(u32 *)((s8 *)window_snap_shot + 8) = mem_alloc();
+    if ((u32) *(u32 *)((s8 *)window_snap_shot + 8) == 0U) {
+        window_snap_shot->set_mode(4);
         return 0;
     }
     return 1;
@@ -86,10 +86,10 @@ s32 TWindowSnapShot::open_stream(s32 arg1) {
     }
     return 1;
 }
-s32 init__15TWindowSnapShotFPvi(TWindowSnapShot *arg0, s32 arg1) {
-    *(s32 *)((s8 *)arg0 + 0xC) = ((TLobby *)arg1)->get_resource_file_size();
-    if (TWindowSnapShot__sub_802A605C((u8 *)arg0) == 0) {
-        arg0->set_mode(1);
+s32 init__15TWindowSnapShotFPvi(TWindowSnapShot *window_snap_shot, s32 arg1) {
+    *(s32 *)((s8 *)window_snap_shot + 0xC) = ((TLobby *)arg1)->get_resource_file_size();
+    if (TWindowSnapShot__sub_802A605C((u8 *)window_snap_shot) == 0) {
+        window_snap_shot->set_mode(1);
         return 0;
     }
     return 1;

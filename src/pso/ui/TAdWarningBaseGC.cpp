@@ -105,25 +105,25 @@ void *__dt__16TAdWarningBaseGCFv(void *arg0, s16 arg1) {
 
 extern void *lbl_805D4208;
 
-void *TAdWarningBaseGC__ct(TAdWarningBaseGC *arg0) {
+void *TAdWarningBaseGC__ct(TAdWarningBaseGC *ad_warning_base_gc) {
     void *o;
     void *o2;
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TAdWarningBaseGC;
-    *(void * *)&arg0->m_name = lbl_805D4208;
-    arg0->m_28 = 0;
-    arg0->m_1c = 0;
-    arg0->m_24 = 0;
-    arg0->m_2c = 0;
+    __ct__7TObjectFP7TObject(ad_warning_base_gc);
+    *(s32 **)((s8 *)ad_warning_base_gc + 0x18) = __vt__16TAdWarningBaseGC;
+    *(void * *)&ad_warning_base_gc->m_name = lbl_805D4208;
+    ad_warning_base_gc->m_28 = 0;
+    ad_warning_base_gc->m_1c = 0;
+    ad_warning_base_gc->m_24 = 0;
+    ad_warning_base_gc->m_2c = 0;
     o = __nw__7TObjectFUl(0x24);
     if (o != NULL) {
-        __ct__9TAdBackGCFv(o, arg0);
+        __ct__9TAdBackGCFv(o, ad_warning_base_gc);
     }
     o2 = __nw__7TObjectFUl(0x28);
     if (o2 != NULL) {
-        __ct__12TAdBackTxtGCFv(o2, arg0);
+        __ct__12TAdBackTxtGCFv(o2, ad_warning_base_gc);
     }
-    return arg0;
+    return ad_warning_base_gc;
 }
 
 }

@@ -224,10 +224,10 @@ void render__23TObjOnlineEndingHexLineFv(u8 *arg0) {
 }
 #pragma pop
 
-void run_task__23TObjOnlineEndingHexLineFv(TObjOnlineEndingHexLine *arg0) {
-    *(f32 *)((s8 *)arg0 + 0x9C) = (f32) (*(f32 *)((s8 *)arg0 + 0x9C) + TObjOnlineEndingHexLine__hex_line_params.a);
-    if (*(f32 *)((s8 *)arg0 + 0x9C) >= lbl_805DE968) {
-        arg0->step_line();
+void run_task__23TObjOnlineEndingHexLineFv(TObjOnlineEndingHexLine *online_ending_hex_line) {
+    *(f32 *)((s8 *)online_ending_hex_line + 0x9C) = (f32) (*(f32 *)((s8 *)online_ending_hex_line + 0x9C) + TObjOnlineEndingHexLine__hex_line_params.a);
+    if (*(f32 *)((s8 *)online_ending_hex_line + 0x9C) >= lbl_805DE968) {
+        online_ending_hex_line->step_line();
     }
 }
 
@@ -504,17 +504,17 @@ TObjOnlineEndingHexMove::~TObjOnlineEndingHexMove() {}
 
 extern "C" {
 
-u8 *TObjOnlineEndingHexMove__ct(u8 *arg0, void *origin) {
+u8 *TObjOnlineEndingHexMove__ct(u8 *object, void *origin) {
     s32 i;
-    __ct__7TObjectFP7TObject(arg0, origin);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__23TObjOnlineEndingHexMove;
-    *(s32 *)((s8 *)arg0 + 0) = lbl_805D3FA0;
+    __ct__7TObjectFP7TObject(object, origin);
+    *(s32 **)((s8 *)object + 0x18) = __vt__23TObjOnlineEndingHexMove;
+    *(s32 *)((s8 *)object + 0) = lbl_805D3FA0;
     for (i = 0; i < 4; i++) {
         TObjOnlineEndingHexLine::create(origin, &TObjOnlineEndingHexLine_corner_offsets[i]);
     }
     copy_move_params__23TObjOnlineEndingHexMoveFPvPv(&online_ending_hex_line_state, TObjOnlineEndingHexMove__default_move_params);
-    *(s32 *)((s8 *)arg0 + 0x1C) = 0x1E;
-    return arg0;
+    *(s32 *)((s8 *)object + 0x1C) = 0x1E;
+    return object;
 }
 
 void copy_move_params__23TObjOnlineEndingHexMoveFPvPv(void* p, void* q) { *(f32*)((char*)p + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(u32*)((char*)p + 0x8) = *(u32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); }

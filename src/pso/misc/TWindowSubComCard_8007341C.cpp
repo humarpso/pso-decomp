@@ -185,9 +185,9 @@ void TLobby::open_challenge_progress_window(void *arg1) {
     send_and_handle__6TLobbyFii(CHAL->window, challenge_progress_text_buffer, 0);
 }
 
-void TLobby__sub_800738F4(void *arg0, s32 arg1) {
+void TLobby__sub_800738F4(void *lobby, s32 arg1) {
     if (TWindowCtrlMain__sub_8024CE58() == 0) {
-        ((void (*)(void *))TLobby__sub_800739BC)(arg0);
+        ((void (*)(void *))TLobby__sub_800739BC)(lobby);
         return;
     }
     if ((*(Chal_800738F4 *)&challenge_mode_state).window != NULL) {
@@ -196,19 +196,19 @@ void TLobby__sub_800738F4(void *arg0, s32 arg1) {
         } else {
             queue_destruction__7TObjectFv((*(Chal_800738F4 *)&challenge_mode_state).window);
         }
-        ((void (*)(void *))TLobby__sub_800739BC)(arg0);
+        ((void (*)(void *))TLobby__sub_800739BC)(lobby);
     }
     switch (arg1) {
     case 0:
         return;
     case 1:
-        ((TLobby *)arg0)->open_challenge_progress_window((void *)0);
+        ((TLobby *)lobby)->open_challenge_progress_window((void *)0);
         break;
     case 2:
-        ((TLobby *)arg0)->open_challenge_progress_window((void *)1);
+        ((TLobby *)lobby)->open_challenge_progress_window((void *)1);
         break;
     default:
-        TLobby::open_challenge_window((s32)arg0, (s32)arg1);
+        TLobby::open_challenge_window((s32)lobby, (s32)arg1);
         break;
     }
 }

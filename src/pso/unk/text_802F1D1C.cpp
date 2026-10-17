@@ -23,13 +23,13 @@ s32 push_matrix();
 extern u8 *lbl_805D6950;
 extern u8 *lbl_805D6954;
 
-void draw_tunnel_segment(u8 *arg0) {
+void draw_tunnel_segment(u8 *boss7_tunnel_col) {
     s32 var_r31;
     u8 *var_r30;
     u8 *var_r3;
     u8 *var_r4;
-    var_r30 = arg0;
-    if (is_in_camera_range__18TObjBoss7TunnelColFv(arg0) != 0) {
+    var_r30 = boss7_tunnel_col;
+    if (is_in_camera_range__18TObjBoss7TunnelColFv(boss7_tunnel_col) != 0) {
         var_r3 = (u8 *)((void *)2);
         var_r4 = (u8 *)(*(u8 **)((s8 *)var_r30 + 0x3C));
         var_r4 += *(s32 *)((s8 *)var_r30 + 0x38) * 4;

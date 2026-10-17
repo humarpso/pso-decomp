@@ -144,53 +144,53 @@ void *__dt__25TObjCityMainWarpChallengeFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TObjCityMainWarpChallenge__ct(u8 *arg0) {
+u8 *TObjCityMainWarpChallenge__ct(u8 *city_main_warp_challenge) {
     s32 var_r3;
     s32 temp_r0;
     s32 temp_r0_2;
     s32 temp_r4;
     s32 var_ctr;
     TObjAreaWarp__ct();
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__25TObjCityMainWarpChallenge;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D32B8;
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DBCCC;
-    *(f32 *)((s8 *)arg0 + 0xAC) = (f32) lbl_805DBCD0;
-    *(s32 *)((s8 *)arg0 + 0xBC) = (s32) ((TObjCityMainWarpChallenge *)arg0)->m_84;
-    temp_r4 = *(s32 *)((s8 *)arg0 + 0xBC);
+    *(s32 **)((s8 *)city_main_warp_challenge + 0x18) = __vt__25TObjCityMainWarpChallenge;
+    *(s32 *)((s8 *)city_main_warp_challenge + 0) = (s32) lbl_805D32B8;
+    *(f32 *)((s8 *)city_main_warp_challenge + 0xC4) = (f32) lbl_805DBCCC;
+    *(f32 *)((s8 *)city_main_warp_challenge + 0xAC) = (f32) lbl_805DBCD0;
+    *(s32 *)((s8 *)city_main_warp_challenge + 0xBC) = (s32) ((TObjCityMainWarpChallenge *)city_main_warp_challenge)->m_84;
+    temp_r4 = *(s32 *)((s8 *)city_main_warp_challenge + 0xBC);
     city_main_warp_destination_id = temp_r4;
-    *(s32 *)((s8 *)arg0 + 0xA4) = 0;
-    register_entity_by_id(arg0, temp_r4, lbl_805DBCCC);
-    *(s32 *)((s8 *)arg0 + 0x164) = 0;
-    *(s32 *)((s8 *)arg0 + 0x168) = 0;
+    *(s32 *)((s8 *)city_main_warp_challenge + 0xA4) = 0;
+    register_entity_by_id(city_main_warp_challenge, temp_r4, lbl_805DBCCC);
+    *(s32 *)((s8 *)city_main_warp_challenge + 0x164) = 0;
+    *(s32 *)((s8 *)city_main_warp_challenge + 0x168) = 0;
     if (TOKeyMachine01::get_global_state() == 0) {
-        *(s32 *)((s8 *)arg0 + 0x16C) = -1;
+        *(s32 *)((s8 *)city_main_warp_challenge + 0x16C) = -1;
     } else {
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x88);
+        temp_r0 = *(s32 *)((s8 *)city_main_warp_challenge + 0x88);
         if ((temp_r0 < 0) || (temp_r0 > 0xFF)) {
-            *(s32 *)((s8 *)arg0 + 0x16C) = -1;
+            *(s32 *)((s8 *)city_main_warp_challenge + 0x16C) = -1;
         } else {
-            *(s32 *)((s8 *)arg0 + 0x16C) = temp_r0;
+            *(s32 *)((s8 *)city_main_warp_challenge + 0x16C) = temp_r0;
         }
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x16C) >= 0) {
-        *(s16 *)((s8 *)arg0 + 0xDC) = 4;
-        *(s16 *)((s8 *)arg0 + 0xDE) = 4;
+    if ((s32) *(s32 *)((s8 *)city_main_warp_challenge + 0x16C) >= 0) {
+        *(s16 *)((s8 *)city_main_warp_challenge + 0xDC) = 4;
+        *(s16 *)((s8 *)city_main_warp_challenge + 0xDE) = 4;
     } else {
-        *(s16 *)((s8 *)arg0 + 0xDC) = 0;
-        *(s16 *)((s8 *)arg0 + 0xDE) = 0;
+        *(s16 *)((s8 *)city_main_warp_challenge + 0xDC) = 0;
+        *(s16 *)((s8 *)city_main_warp_challenge + 0xDE) = 0;
     }
-    *(s16 *)((s8 *)arg0 + 0xE0) = 0;
-    *(s16 *)((s8 *)arg0 + 0xE2) = 0;
-    *(s32 *)((s8 *)arg0 + 0xD0) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)city_common_model_archive + 0x42C)) + 8);
-    *(s32 *)((s8 *)arg0 + 0xD4) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)city_common_model_archive + 0x430)) + 0x2C);
-    if ((u32) ((TObjCityMainWarpChallenge *)arg0)->m_d0 != 0U) {
-        queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xB4));
-        ((TObjCityMainWarpChallenge *)arg0)->m_d0 = 0U;
+    *(s16 *)((s8 *)city_main_warp_challenge + 0xE0) = 0;
+    *(s16 *)((s8 *)city_main_warp_challenge + 0xE2) = 0;
+    *(s32 *)((s8 *)city_main_warp_challenge + 0xD0) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)city_common_model_archive + 0x42C)) + 8);
+    *(s32 *)((s8 *)city_main_warp_challenge + 0xD4) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)city_common_model_archive + 0x430)) + 0x2C);
+    if ((u32) ((TObjCityMainWarpChallenge *)city_main_warp_challenge)->m_d0 != 0U) {
+        queue_destruction__7TObjectFv(*(void **)((s8 *)city_main_warp_challenge + 0xB4));
+        ((TObjCityMainWarpChallenge *)city_main_warp_challenge)->m_d0 = 0U;
     }
     for (var_ctr = 0; var_ctr < 4; var_ctr++) {
-        ((Warp_80187B50 *)arg0)->arr[var_ctr] = 0;
+        ((Warp_80187B50 *)city_main_warp_challenge)->arr[var_ctr] = 0;
     }
-    return arg0;
+    return city_main_warp_challenge;
 }
 
 }

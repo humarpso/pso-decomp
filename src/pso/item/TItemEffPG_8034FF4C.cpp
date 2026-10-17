@@ -66,26 +66,26 @@ void *__dt__10TItemEffPGFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TItemEffPG__ct(u8 *arg0, s32 arg1, u8 *arg2) {
+u8 *TItemEffPG__ct(u8 *item_eff_pg, s32 arg1, u8 *arg2) {
     s32 temp_r3;
     s32 var_r0;
-    construct_attack_collision((arg0), (arg1), (arg2));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8035007C___vt__10TItemEffPG *)&__vt__10TItemEffPG).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4350;
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) *(f32 *)((s8 *)arg2 + 0x28);
-    if ((*(const f32 *)&lbl_805DFE14) < *(f32 *)((s8 *)arg0 + 0xC4)) {
-        *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (*(const f32 *)&lbl_805DFE14);
+    construct_attack_collision((item_eff_pg), (arg1), (arg2));
+    *(s32 **)((s8 *)item_eff_pg + 0x18) = &(*(RecoveredGlobal_8035007C___vt__10TItemEffPG *)&__vt__10TItemEffPG).value;
+    *(s32 *)((s8 *)item_eff_pg + 0) = (s32) lbl_805D4350;
+    *(f32 *)((s8 *)item_eff_pg + 0xC4) = (f32) *(f32 *)((s8 *)arg2 + 0x28);
+    if ((*(const f32 *)&lbl_805DFE14) < *(f32 *)((s8 *)item_eff_pg + 0xC4)) {
+        *(f32 *)((s8 *)item_eff_pg + 0xC4) = (f32) (*(const f32 *)&lbl_805DFE14);
     }
-    ((TItemEffPG *)arg0)->m_c8 = (f32) *(f32 *)((s8 *)arg2 + 0x30);
-    *(f32 *)((s8 *)arg0 + 0xCC) = (f32) *(f32 *)((s8 *)arg2 + 0x2C);
-    *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (*(f32 *)((s8 *)arg0 + 0xB0) * lbl_805DFE18);
+    ((TItemEffPG *)item_eff_pg)->m_c8 = (f32) *(f32 *)((s8 *)arg2 + 0x30);
+    *(f32 *)((s8 *)item_eff_pg + 0xCC) = (f32) *(f32 *)((s8 *)arg2 + 0x2C);
+    *(f32 *)((s8 *)item_eff_pg + 0xB0) = (f32) (*(f32 *)((s8 *)item_eff_pg + 0xB0) * lbl_805DFE18);
     temp_r3 = ((s32)__nw__7TObjectFUl(0x68));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (s32)TItemEffPG__visual_ct((u8 *)temp_r3, (u8 *)arg0, (u8 *)arg2);
+        var_r0 = (s32)TItemEffPG__visual_ct((u8 *)temp_r3, (u8 *)item_eff_pg, (u8 *)arg2);
     }
-    ((TItemEffPG *)arg0)->m_d0 = var_r0;
-    return arg0;
+    ((TItemEffPG *)item_eff_pg)->m_d0 = var_r0;
+    return item_eff_pg;
 }
 
 void TItemEffPG::create(void *arg0, void *arg1) {

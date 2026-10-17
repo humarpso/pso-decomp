@@ -43,7 +43,7 @@ void *__dt__19TWindowMessageYesNoFv(void *arg0, s16 arg1) {
 extern void *TWindowMessageYesNo__name;
 
 }
-TWindowMessageYesNo::TWindowMessageYesNo(TObject *arg1, void *arg2, void *arg3, void *arg4) : TObject(arg1) {
+TWindowMessageYesNo::TWindowMessageYesNo(TObject *object, void *arg2, void *arg3, void *arg4) : TObject(object) {
     *(void * *)&this->m_name = TWindowMessageYesNo__name;
     *(void **)((s8 *)this + 0x24) = arg2;
     this->m_28 = 0;

@@ -103,16 +103,16 @@ void *__dt__9TKomorebiFv(void *arg0, s16 arg1) {
 extern void *tl_05;
 
 typedef char RecoveredGlobal_801922C4___vt__9TKomorebi_size[sizeof(RecoveredGlobal_801922C4___vt__9TKomorebi) == 0x38 ? 1 : -1];
-u8 *TKomorebi__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_world_actor_base(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801922C4___vt__9TKomorebi *)&__vt__9TKomorebi).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) komorebi_class_name;
-    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2 + 0xC));
-    ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz((void *)(arg2 + 0x18));
-    VecCopy((Vec *)(arg0 + 0x68), (const Vec *)(arg2 + 0x24));
-    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *) ((*(s32 *)&TKomorebi__resource_bundle)), 0);
-    ((TKomorebi *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&TKomorebi__resource_bundle)), 0);
-    return arg0;
+u8 *TKomorebi__ct(u8 *komorebi, s32 arg1, s32 arg2) {
+    construct_world_actor_base(komorebi);
+    *(s32 **)((s8 *)komorebi + 0x18) = &(*(RecoveredGlobal_801922C4___vt__9TKomorebi *)&__vt__9TKomorebi).value;
+    *(s32 *)((s8 *)komorebi + 0) = (s32) komorebi_class_name;
+    VecCopy((Vec *)(komorebi + 0x38), (const Vec *)(arg2 + 0xC));
+    ((TObjPlayer *)(komorebi + 0x5C))->copy_xyz((void *)(arg2 + 0x18));
+    VecCopy((Vec *)(komorebi + 0x68), (const Vec *)(arg2 + 0x24));
+    *(s32 *)((s8 *)komorebi + 0x34) = get_bml_model((void *) ((*(s32 *)&TKomorebi__resource_bundle)), 0);
+    ((TKomorebi *)komorebi)->texture_id = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&TKomorebi__resource_bundle)), 0);
+    return komorebi;
 }
 
 void *TKomorebi__create(void *arg0) {

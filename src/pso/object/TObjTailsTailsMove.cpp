@@ -27,13 +27,13 @@ void TObjTailsTailsMove::run_task() {
 }
 
 TObjTailsTailsMove::~TObjTailsTailsMove() {}
-void *TObjTailsTailsMove__ct(void *arg0, void *arg1) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjTailsTailsMove;
-    *(void * *)&((TObjTailsTailsMove *)arg0)->m_name = TObjTailsTailsMove__name;
-    *(void **)((s8 *)arg0 + 0x1C) = arg1;
-    *(u32 *)((s8 *)arg0 + 0x24) = 0;
-    return arg0;
+void *TObjTailsTailsMove__ct(void *tails_tails_move, void *arg1) {
+    __ct__7TObjectFP7TObject(tails_tails_move);
+    *(s32 **)((s8 *)tails_tails_move + 0x18) = __vt__18TObjTailsTailsMove;
+    *(void * *)&((TObjTailsTailsMove *)tails_tails_move)->m_name = TObjTailsTailsMove__name;
+    *(void **)((s8 *)tails_tails_move + 0x1C) = arg1;
+    *(u32 *)((s8 *)tails_tails_move + 0x24) = 0;
+    return tails_tails_move;
 }
 
 void *TObjTailsTailsMove::create(void *arg0) {

@@ -9,14 +9,14 @@ extern "C" {
 
 s32 render_clipout_and_fade__9TMainTaskFv();
 
-void render_screen_overlay__9TMainTaskFv(void *arg0) {
-    if (*(s32 *)((s8 *)arg0 + 0x1C) & 0x100) {
+void render_screen_overlay__9TMainTaskFv(void *object) {
+    if (*(s32 *)((s8 *)object + 0x1C) & 0x100) {
         render_clipout_and_fade__9TMainTaskFv();
-        ((TObject *)arg0)->empty_func();
-        TMainTask__sub_8022988C(arg0);
+        ((TObject *)object)->empty_func();
+        TMainTask__sub_8022988C(object);
         TLobby__sub_803384D4();
     }
-    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) & 0xFFFFFE7F);
+    *(s32 *)((s8 *)object + 0x1C) = (s32) (*(s32 *)((s8 *)object + 0x1C) & 0xFFFFFE7F);
 }
 
 void some_empty_func__9TMainTaskFv(void) {

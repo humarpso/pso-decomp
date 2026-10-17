@@ -326,11 +326,11 @@ s32 TLobby__sub_803C07E8(Obj_803C07E8 *self) {
 
 void TLobby::reset_entry() {
     u8 *arg0 = (u8 *)this;
-    u8 *temp_r3;
+    u8 *lobby;
     if (arg0 != NULL) {
-        temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 4));
-        if (temp_r3 != NULL) {
-            ((TLobby *)temp_r3)->clear_record();
+        lobby = (u8 *)(*(u8 **)((s8 *)arg0 + 4));
+        if (lobby != NULL) {
+            ((TLobby *)lobby)->clear_record();
         }
         TLobby::init_once();
         memset(arg0, 0, 0x9C);
@@ -344,19 +344,19 @@ void TLobby::reset_sound_buffers() {
     TLobby__sub_803C406C();
     memset(&lbl_80570AC0.value, 0, 0x9C0);
 }
-void TLobby__sub_803C0B3C(u8 *arg0) {
+void TLobby__sub_803C0B3C(u8 *lobby) {
     s16 temp_r0;
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0xAA);
+    temp_r0 = *(s16 *)((s8 *)lobby + 0xAA);
     if (temp_r0 == 2) {
-        EXIGetID((Snd_803C0BE8 *)(arg0));
+        EXIGetID((Snd_803C0BE8 *)(lobby));
         return;
     }
     if (temp_r0 == 1) {
-        ((TLobby *)arg0)->convert_pcm_u8_to_s16();
+        ((TLobby *)lobby)->convert_pcm_u8_to_s16();
         return;
     }
     if (temp_r0 == 0) {
-        TLobby__sub_803C133C(arg0);
+        TLobby__sub_803C133C(lobby);
     }
 }
 s32 TLobby::is_riff_wave() {

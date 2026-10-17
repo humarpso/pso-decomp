@@ -1199,17 +1199,17 @@ void TObjEneRe7Berura::init_enemy() {
     ((VObj_18_b345b0 *)arg0)->m85(*(s16 *)((s8 *)arg0 + 0x326), 4);
 }
 
-void *TObjEneRe7Berura__ct(void *arg0, void *arg1, void *arg2) {
-    ((TObjEneDD_ST *)arg0)->init_object();
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjEneRe7Berura;
-    ((TUnk_80490470 *)((char *)arg0 + 984))->init_vtable_and_field18();
-    ((TUnk_80490470 *)((char *)arg0 + 1020))->init_vtable_and_field18();
-    __construct_array((void *)((char *)arg0 + 1096), init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 28, 4);
-    *(void * *)&((TObjEneRe7Berura *)arg0)->m_name = lbl_805D2988;
-    invoke_initialization_hook__9TObjEneDDFv(arg0, arg2);
-    ((void (*)(void *))TObjEneRe7Berura__sub_80095328)(arg0);
-    ((TObjEneRe7Berura *)arg0)->init_enemy();
-    return arg0;
+void *TObjEneRe7Berura__ct(void *ene_re7_berura, void *arg1, void *arg2) {
+    ((TObjEneDD_ST *)ene_re7_berura)->init_object();
+    *(s32 **)((s8 *)ene_re7_berura + 0x18) = __vt__16TObjEneRe7Berura;
+    ((TUnk_80490470 *)((char *)ene_re7_berura + 984))->init_vtable_and_field18();
+    ((TUnk_80490470 *)((char *)ene_re7_berura + 1020))->init_vtable_and_field18();
+    __construct_array((void *)((char *)ene_re7_berura + 1096), init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 28, 4);
+    *(void * *)&((TObjEneRe7Berura *)ene_re7_berura)->m_name = lbl_805D2988;
+    invoke_initialization_hook__9TObjEneDDFv(ene_re7_berura, arg2);
+    ((void (*)(void *))TObjEneRe7Berura__sub_80095328)(ene_re7_berura);
+    ((TObjEneRe7Berura *)ene_re7_berura)->init_enemy();
+    return ene_re7_berura;
 }
 
 void TObjEneRe7Berura::destroy_children() {

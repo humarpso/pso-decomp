@@ -102,14 +102,14 @@ void *__dt__17TWindowSubGameEndFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void *TWindowSubGameEnd__ct(TWindowSubGameEnd *arg0, s32 arg1, s32 arg2) {
+void *TWindowSubGameEnd__ct(TWindowSubGameEnd *window_sub_game_end, s32 arg1, s32 arg2) {
     f32 var_f31;
     s32 var_r31;
     __ct__7TObjectFP7TObject();
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TWindowSubGameEnd;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubGameEnd__class_name;
-    arg0->m_24 = arg1;
-    arg0->m_20 = arg2;
+    *(s32 **)((s8 *)window_sub_game_end + 0x18) = __vt__17TWindowSubGameEnd;
+    *(s32 *)((s8 *)window_sub_game_end + 0) = (s32) TWindowSubGameEnd__class_name;
+    window_sub_game_end->m_24 = arg1;
+    window_sub_game_end->m_20 = arg2;
     if (get_main_phase() == 0xF) {
         var_r31 = get_message_10__20TWindowSubStatusDispFl(0x3B);
         var_f31 = lbl_805DD628;
@@ -120,12 +120,12 @@ void *TWindowSubGameEnd__ct(TWindowSubGameEnd *arg0, s32 arg1, s32 arg2) {
         var_r31 = get_message_10__20TWindowSubStatusDispFl(0x3A);
         var_f31 = lbl_805DD628;
     }
-    arg0->m_28 = create__19TWindowMessageYesNoFPvPvPvPv(arg0, arg0->m_20, 0, 0);
-    forward_slot_selection__16TAdChrSelASlotGCFPvPv(arg0->m_28, var_r31, get_window_layout_position(0x17), var_f31);
-    free_member__17TWindowSubComCardFv(arg0->m_28, 1);
-    ((TWindowSubShortMail *)(arg0->m_28))->notify_warp_flag70();
-    arg0->m_1c = 0;
-    return arg0;
+    window_sub_game_end->m_28 = create__19TWindowMessageYesNoFPvPvPvPv(window_sub_game_end, window_sub_game_end->m_20, 0, 0);
+    forward_slot_selection__16TAdChrSelASlotGCFPvPv(window_sub_game_end->m_28, var_r31, get_window_layout_position(0x17), var_f31);
+    free_member__17TWindowSubComCardFv(window_sub_game_end->m_28, 1);
+    ((TWindowSubShortMail *)(window_sub_game_end->m_28))->notify_warp_flag70();
+    window_sub_game_end->m_1c = 0;
+    return window_sub_game_end;
 }
 
 void TLobby__sub_802796FC(void) { window_sub_game_end_active_flag = 0; }

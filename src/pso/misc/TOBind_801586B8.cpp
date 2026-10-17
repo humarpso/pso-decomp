@@ -119,31 +119,31 @@ void *__dt__6TOBindFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_80158890_lbl_804AFC54_size[sizeof(RecoveredGlobal_80158890_lbl_804AFC54) == 0x58 ? 1 : -1];
 typedef char RecoveredGlobal_80158890___vt__6TOBind_size[sizeof(RecoveredGlobal_80158890___vt__6TOBind) == 0x3C ? 1 : -1];
-u8 *TOBind__ct(TOBind *arg0, s32 arg1) {
-    construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_05);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80158890___vt__6TOBind *)&__vt__6TOBind).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2EA8;
-    ((TOBind *)(arg0))->apply_object_set_data((void *)arg1);
-    arg0->m_b0 = 0;
-    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TOBind__static_model_resource)), 0);
-    arg0->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOBind__static_model_resource)), 0);
-    arg0->m_c4 = get_bml_model((int) ((*(s32 *)&TOBind__static_model_resource)), 1);
-    arg0->m_c8 = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOBind__static_model_resource)), 1);
-    *(u8 **)((s8 *)arg0 + 0xCC) = get_bml_motion((*(s32 *)&TOBind__static_model_resource), 0);
-    *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DB300;
-    arg0->m_bc = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xCC)) + 4) - lbl_805DB304);
-    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB304;
-    init_collision_body_parts(arg0, &bind_collision_body_parts.value, 2);
-    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    ((TObjPlayer *)arg0)->reset_photon_effect();
-    arg0->actorFlags = (s32) (arg0->actorFlags | 0x40000000);
-    arg0->m_b4 = (s32) arg0->m_84;
-    if ((s32) arg0->m_b4 < 0) {
-        arg0->m_b4 = 0;
+u8 *TOBind__ct(TOBind *bind, s32 arg1) {
+    construct_collider_proxy__13TUnk_804AF8A0Fv(bind, tl_05);
+    *(s32 **)((s8 *)bind + 0x18) = &(*(RecoveredGlobal_80158890___vt__6TOBind *)&__vt__6TOBind).value;
+    *(s32 *)((s8 *)bind + 0) = (s32) lbl_805D2EA8;
+    ((TOBind *)(bind))->apply_object_set_data((void *)arg1);
+    bind->m_b0 = 0;
+    *(s32 *)((s8 *)bind + 0x34) = get_bml_model((int) ((*(s32 *)&TOBind__static_model_resource)), 0);
+    bind->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOBind__static_model_resource)), 0);
+    bind->m_c4 = get_bml_model((int) ((*(s32 *)&TOBind__static_model_resource)), 1);
+    bind->m_c8 = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOBind__static_model_resource)), 1);
+    *(u8 **)((s8 *)bind + 0xCC) = get_bml_motion((*(s32 *)&TOBind__static_model_resource), 0);
+    *(f32 *)((s8 *)bind + 0xB8) = (f32) lbl_805DB300;
+    bind->m_bc = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)bind + 0xCC)) + 4) - lbl_805DB304);
+    *(f32 *)((s8 *)bind + 0xC0) = (f32) lbl_805DB304;
+    init_collision_body_parts(bind, &bind_collision_body_parts.value, 2);
+    ((TUnk_804AF8A0 *)bind)->refresh_collision_body_centers();
+    ((TObjPlayer *)bind)->reset_photon_effect();
+    bind->actorFlags = (s32) (bind->actorFlags | 0x40000000);
+    bind->m_b4 = (s32) bind->m_84;
+    if ((s32) bind->m_b4 < 0) {
+        bind->m_b4 = 0;
     }
-    *(f32 *)((s8 *)arg0 + 0xD0) = (f32) lbl_805DB308;
-    arg0->m_d4 = (f32) lbl_805DB30C;
-    return (u8 *)arg0;
+    *(f32 *)((s8 *)bind + 0xD0) = (f32) lbl_805DB308;
+    bind->m_d4 = (f32) lbl_805DB30C;
+    return (u8 *)bind;
 }
 
 }

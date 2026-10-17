@@ -270,11 +270,11 @@ s32 TAdMultiChgGameModeGC::setup_mode_menu(void *arg0, s32 arg1) {
 
 void TAdMultiChgGameModeGC::handle_menu_input() {
     s32 selected_menu_value;
-    u8 *temp_r3;
+    u8 *window_menu;
     if (handle_mode_selection() == 0) {
-        temp_r3 = (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x34));
-        if (temp_r3 != NULL) {
-            if (((int)((TWindowMenu *)temp_r3)->is_visible()) != 0) {
+        window_menu = (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x34));
+        if (window_menu != NULL) {
+            if (((int)((TWindowMenu *)window_menu)->is_visible()) != 0) {
                 selected_menu_value = get_selected_menu_value((void *) (*(u8 **)((s8 *)((u8 *)this) + 0x34)));
                 switch (selected_menu_value) {
                 case 0:
@@ -315,17 +315,17 @@ void TAdMultiChgGameModeGC::create_back_objects() {
         *(void **)((s8 *)this + 0x2C) = o2;
     }
 }
-void TAdMultiChgGameModeGC__sub_8036E51C(u8 *arg0) {
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x34) != 0U) {
-        TWindow__close((u8 *)((void*)(*(void **)((s8 *)arg0 + 0x34))));
-        *(u32 *)((s8 *)arg0 + 0x34) = 0U;
+void TAdMultiChgGameModeGC__sub_8036E51C(u8 *ad_multi_chg_game_mode_gc) {
+    if ((u32) *(u32 *)((s8 *)ad_multi_chg_game_mode_gc + 0x34) != 0U) {
+        TWindow__close((u8 *)((void*)(*(void **)((s8 *)ad_multi_chg_game_mode_gc + 0x34))));
+        *(u32 *)((s8 *)ad_multi_chg_game_mode_gc + 0x34) = 0U;
     }
-    TAdMultiChgGameModeGC::setup_mode_menu(arg0, 1);
-    TAdMultiChgGameModeGC__sub_8036E19C(arg0, 4);
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x30) != 0U) {
-        ((TLobby *)(*(u32 *)((s8 *)arg0 + 0x30)))->send_and_handle((s32)((int) (TAdMultiChgGameModeGC__sub_8036DE10((s32)arg0, 0, (s32)((s32)((int) (*(s32 *)((s8 *)arg0 + 0x24))))))), 3);
+    TAdMultiChgGameModeGC::setup_mode_menu(ad_multi_chg_game_mode_gc, 1);
+    TAdMultiChgGameModeGC__sub_8036E19C(ad_multi_chg_game_mode_gc, 4);
+    if ((u32) *(u32 *)((s8 *)ad_multi_chg_game_mode_gc + 0x30) != 0U) {
+        ((TLobby *)(*(u32 *)((s8 *)ad_multi_chg_game_mode_gc + 0x30)))->send_and_handle((s32)((int) (TAdMultiChgGameModeGC__sub_8036DE10((s32)ad_multi_chg_game_mode_gc, 0, (s32)((s32)((int) (*(s32 *)((s8 *)ad_multi_chg_game_mode_gc + 0x24))))))), 3);
     }
-    ((TAdMultiChgGameModeGC *)arg0)->create_back_objects();
+    ((TAdMultiChgGameModeGC *)ad_multi_chg_game_mode_gc)->create_back_objects();
 }
 void TAdMultiChgGameModeGC::update_mode_selection() {
     s32 arg0 = (s32)this;
@@ -488,7 +488,7 @@ void *__dt__13TUnk_804F3A20Fv(void *arg0, s16 arg1) {
 }
 }
 
-TUnk_804F3A20::TUnk_804F3A20(TObject *arg1) : TObject(arg1) {
+TUnk_804F3A20::TUnk_804F3A20(TObject *object) : TObject(object) {
     *(s32 *)((s8 *)this + 0x1C) = -1;
     this->m_20 = 1;
     *(s32 *)((s8 *)this + 0x24) = current_language;

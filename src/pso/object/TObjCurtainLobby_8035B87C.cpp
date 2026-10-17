@@ -144,20 +144,20 @@ void *__dt__16TObjCurtainLobbyFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void *TObjCurtainLobby__ct(TObjCurtainLobby *arg0, s32 arg1, s32 arg2) {
+void *TObjCurtainLobby__ct(TObjCurtainLobby *curtain_lobby, s32 arg1, s32 arg2) {
     init_map_object_base();
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjCurtainLobby;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjCurtainLobby__class_name;
-    arg0->apply_object_set_data((void *)arg2);
-    if (((s32 (*)(void *))get_lobby_theme_clamped__16TObjCurtainLobbyFv)(arg0) == 0xC) {
-        arg0->m_c8 = 3;
+    *(s32 **)((s8 *)curtain_lobby + 0x18) = __vt__16TObjCurtainLobby;
+    *(s32 *)((s8 *)curtain_lobby + 0) = (s32) TObjCurtainLobby__class_name;
+    curtain_lobby->apply_object_set_data((void *)arg2);
+    if (((s32 (*)(void *))get_lobby_theme_clamped__16TObjCurtainLobbyFv)(curtain_lobby) == 0xC) {
+        curtain_lobby->m_c8 = 3;
     } else {
-        arg0->m_c8 = 0;
+        curtain_lobby->m_c8 = 0;
     }
-    *(f32 *)((s8 *)arg0 + 0xCC) = 1.0f;
-    *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)((void *)TObjCurtainLobby__model_resource) + 0x42C)) + 8);
-    arg0->texture_id = (s32) curtain_lobby_type;
-    return arg0;
+    *(f32 *)((s8 *)curtain_lobby + 0xCC) = 1.0f;
+    *(s32 *)((s8 *)curtain_lobby + 0x34) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)((void *)TObjCurtainLobby__model_resource) + 0x42C)) + 8);
+    curtain_lobby->texture_id = (s32) curtain_lobby_type;
+    return curtain_lobby;
 }
 
 __declspec(section ".data") const char *bm_obj_lobby_curtain_model_names[2] = { lbl_804798F0, NULL };

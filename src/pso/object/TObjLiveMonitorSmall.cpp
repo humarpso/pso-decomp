@@ -26,12 +26,12 @@ extern s32 __vt__20TObjLiveMonitorSmall[];
 extern void *TObjLiveMonitorSmall__name;
 
 TObjLiveMonitorSmall::~TObjLiveMonitorSmall() {}
-void *__ct__20TObjLiveMonitorSmallFv(void *arg0, void *arg1, void *arg2) {
-    __ct__15TObjLiveMonitorFv(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TObjLiveMonitorSmall;
-    *(void * *)&((TObjLiveMonitorSmall *)arg0)->m_name = TObjLiveMonitorSmall__name;
-    *(void **)((s8 *)arg0 + 0x1C) = arg2;
-    return arg0;
+void *__ct__20TObjLiveMonitorSmallFv(void *live_monitor_small, void *arg1, void *arg2) {
+    __ct__15TObjLiveMonitorFv(live_monitor_small);
+    *(s32 **)((s8 *)live_monitor_small + 0x18) = __vt__20TObjLiveMonitorSmall;
+    *(void * *)&((TObjLiveMonitorSmall *)live_monitor_small)->m_name = TObjLiveMonitorSmall__name;
+    *(void **)((s8 *)live_monitor_small + 0x1C) = arg2;
+    return live_monitor_small;
 }
 
 extern s32 live_monitor_shared_resource;

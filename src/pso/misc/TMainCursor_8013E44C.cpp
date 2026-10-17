@@ -17,8 +17,8 @@ int TMainCursor::is_same_target(void *b) {
     return result;
 }
 
-int TMainCursor__sub_8013E40C(TMainCursor *arg0, u16 arg1) {
-    return (u8) (arg1 == arg0->get_id());
+int TMainCursor__sub_8013E40C(TMainCursor *main_cursor, u16 arg1) {
+    return (u8) (arg1 == main_cursor->get_id());
 }
 
 }

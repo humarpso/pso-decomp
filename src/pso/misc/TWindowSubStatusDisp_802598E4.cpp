@@ -92,7 +92,7 @@ void draw_right_aligned_number(void *arg0) {
 
 typedef struct Pos_80259A84 Pos_80259A84;
 #pragma fp_contract on
-void render_numeric_digit_entries(u8 *arg0, u8 *arg1) {
+void render_numeric_digit_entries(u8 *arg0, u8 *window_key_board_soft) {
   f32 t;
   Pos_80259A84 pos;
   f32 x;
@@ -107,23 +107,23 @@ void render_numeric_digit_entries(u8 *arg0, u8 *arg1) {
   f32 h;
   h = *((f32 *) (((s8 *) arg0) + 0xC));
   w = *((f32 *) (((s8 *) arg0) + 8));
-  t = (h / 21.0f) + (w / (*((f32 *) (((s8 *) arg1) + 0x18))));
+  t = (h / 21.0f) + (w / (*((f32 *) (((s8 *) window_key_board_soft) + 0x18))));
   t *= 7.5f;
-  t = 17.0f * (((f32) (*((s32 *) (((s8 *) arg1) + 0x30)))) - t);
+  t = 17.0f * (((f32) (*((s32 *) (((s8 *) window_key_board_soft) + 0x30)))) - t);
   if (t <= 0.0f)
   {
     return;
   }
   mode = ((*((u16 *) (((s8 *) arg0) + 0))) >> 2) & 1;
   n = *((s32 *) (((s8 *) arg0) + 0x20));
-  x = (*((f32 *) (((s8 *) arg1) + 0x10))) + w;
-  y = (*((f32 *) (((s8 *) arg1) + 0x14))) + h;
-  scale = (-1.0f) / ((0.299f * (*((f32 *) (((s8 *) arg0) + 0x18)))) + (*((f32 *) (((s8 *) arg1) + 0x38))));
+  x = (*((f32 *) (((s8 *) window_key_board_soft) + 0x10))) + w;
+  y = (*((f32 *) (((s8 *) window_key_board_soft) + 0x14))) + h;
+  scale = (-1.0f) / ((0.299f * (*((f32 *) (((s8 *) arg0) + 0x18)))) + (*((f32 *) (((s8 *) window_key_board_soft) + 0x38))));
   switch (mode)
   {
     case 0:
       TWindowSubStatusDisp::reset_gauge(0);
-      arg1 = arg1;
+      window_key_board_soft = window_key_board_soft;
       break;
     case 1:
       begin_screen_draw(1);
@@ -158,7 +158,7 @@ void render_numeric_digit_entries(u8 *arg0, u8 *arg1) {
         build_small_font_glyph_quad(g, &pos);
         break;
     }
-    if (try_open__19TWindowKeyBoardSoftFii(arg1, &pos) != 0)
+    if (try_open__19TWindowKeyBoardSoftFii(window_key_board_soft, &pos) != 0)
     {
       draw_textured_quad_at_depth(&pos, scale);
     }
@@ -178,15 +178,15 @@ extern "C" {
 
 void TWindowSubStatusDisp__sub_80259CE0(void) {  }
 
-void *TWindowSubStatusDisp__sub_80259CE4(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 4) = lbl_804CF9C8;
-        deleting_destructor__20TWindowSubStatusDispFs(arg0, 0);
+void *TWindowSubStatusDisp__sub_80259CE4(void *window_sub_status_disp, s16 arg1) {
+    if (window_sub_status_disp != NULL) {
+        *(s32 **)((s8 *)window_sub_status_disp + 4) = lbl_804CF9C8;
+        deleting_destructor__20TWindowSubStatusDispFs(window_sub_status_disp, 0);
         if (arg1 > 0) {
-            ::operator delete(arg0);
+            ::operator delete(window_sub_status_disp);
         }
     }
-    return arg0;
+    return window_sub_status_disp;
 }
 
 typedef char RecoveredGlobal_80259D3C_lbl_804CF9C8_size[sizeof(RecoveredGlobal_80259D3C_lbl_804CF9C8) == 0x18 ? 1 : -1];

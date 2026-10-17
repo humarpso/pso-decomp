@@ -268,9 +268,9 @@ void *__dt__18TWindowSubShortCutFv(TWindowSubShortCut *arg0, s16 arg1) {
 }
 
 extern void *TWindowSubShortCut__class_name;
-TWindowSubShortCut::TWindowSubShortCut(TObject *arg1, void *arg2) : TObject(arg1) {
+TWindowSubShortCut::TWindowSubShortCut(TObject *object, void *arg2) : TObject(object) {
     *(void * *)&this->m_name = TWindowSubShortCut__class_name;
-    *(void **)((s8 *)this + 0x28) = arg1;
+    *(void **)((s8 *)this + 0x28) = object;
     *(void **)((s8 *)this + 0x20) = arg2;
     this->m_2c = 0;
     this->m_30 = 0;

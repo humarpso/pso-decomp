@@ -32,11 +32,11 @@ void TObjFogCollision__ct(void *);
 
 extern void *lbl_805D2E7C;
 
-void *TObjFogCollisionSwitch__ct(void *arg0) {
-    TObjFogCollision__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TObjFogCollisionSwitch;
-    *(void * *)&((TObjFogCollisionSwitch *)arg0)->m_name = lbl_805D2E7C;
-    return arg0;
+void *TObjFogCollisionSwitch__ct(void *fog_collision_switch) {
+    TObjFogCollision__ct(fog_collision_switch);
+    *(s32 **)((s8 *)fog_collision_switch + 0x18) = __vt__22TObjFogCollisionSwitch;
+    *(void * *)&((TObjFogCollisionSwitch *)fog_collision_switch)->m_name = lbl_805D2E7C;
+    return fog_collision_switch;
 }
 
 }

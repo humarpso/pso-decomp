@@ -32,12 +32,12 @@ void *__dt__7TPacketFv(void *arg0, s16 arg1) {
 
 extern void *lbl_805D34C0;
 
-void *TPacket__ct(void *arg0) {
-    TUdpSocket__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__7TPacket;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D34C0;
-    ((TPacket *)arg0)->clear_send_buffer();
-    return arg0;
+void *TPacket__ct(void *packet) {
+    TUdpSocket__ct(packet);
+    *(s32 **)((s8 *)packet + 0x18) = __vt__7TPacket;
+    *(void **)((s8 *)packet + 0x0) = lbl_805D34C0;
+    ((TPacket *)packet)->clear_send_buffer();
+    return packet;
 }
 
 }

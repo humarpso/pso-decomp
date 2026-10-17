@@ -17,12 +17,12 @@ extern u8 *indirect_effect_ctrl_table[];
 extern s32 tl_01;
 extern u8 indirect_effect_ctrl_count;
 typedef char RecoveredGlobal_802A8210_lbl_804DDF04_size[sizeof(RecoveredGlobal_802A8210_lbl_804DDF04) == 0x18 ? 1 : -1];
-u8 *fn_802A8210(u8 *arg0, s32 kind, u8 *arg2) {
-    __ct__7TObjectFP7TObject(arg0, arg2);
-    *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804DDF04.value;
-    *(s8 *)((s8 *)arg0 + 0x1C) = kind;
+u8 *fn_802A8210(u8 *object, s32 kind, u8 *arg2) {
+    __ct__7TObjectFP7TObject(object, arg2);
+    *(s32 **)((s8 *)object + 0x18) = &lbl_804DDF04.value;
+    *(s8 *)((s8 *)object + 0x1C) = kind;
     register_indirect_effect_ctrl((s32)((s32) kind));
-    return arg0;
+    return object;
 }
 void register_indirect_effect_ctrl(s32 kind) {
     u8 *p;

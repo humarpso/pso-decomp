@@ -73,33 +73,33 @@ void *__dt__22TWindowLoadItemTextureFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void *TWindowLoadItemTexture__ct(TWindowLoadItemTexture *arg0, void *arg1, void *arg2, void *arg3) {
+void *TWindowLoadItemTexture__ct(TWindowLoadItemTexture *window_load_item_texture, void *arg1, void *arg2, void *arg3) {
     void *e;
-    ((TWindowDD *)arg0)->construct_base((u8 *)lbl_804D0058, (s16)((s16)(s32)arg3), (u8 *)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TWindowLoadItemTexture;
-    *(s32 *)((s8 *)arg0 + 0) = lbl_805D3940;
+    ((TWindowDD *)window_load_item_texture)->construct_base((u8 *)lbl_804D0058, (s16)((s16)(s32)arg3), (u8 *)arg1);
+    *(s32 **)((s8 *)window_load_item_texture + 0x18) = __vt__22TWindowLoadItemTexture;
+    *(s32 *)((s8 *)window_load_item_texture + 0) = lbl_805D3940;
     switch (TCameraCtrl::get_camera_id()) {
     case 1:
-        *(f32 *)((s8 *)arg0 + 0x68) = *(f32 *)((s8 *)arg0 + 0x64) = lbl_805DD0F0;
+        *(f32 *)((s8 *)window_load_item_texture + 0x68) = *(f32 *)((s8 *)window_load_item_texture + 0x64) = lbl_805DD0F0;
         break;
     case 2:
-        *(f32 *)((s8 *)arg0 + 0x68) = *(f32 *)((s8 *)arg0 + 0x64) = lbl_805DD0D8;
+        *(f32 *)((s8 *)window_load_item_texture + 0x68) = *(f32 *)((s8 *)window_load_item_texture + 0x64) = lbl_805DD0D8;
         break;
     case 3:
     case 4:
-        *(f32 *)((s8 *)arg0 + 0x68) = *(f32 *)((s8 *)arg0 + 0x64) = lbl_805DD0FC;
+        *(f32 *)((s8 *)window_load_item_texture + 0x68) = *(f32 *)((s8 *)window_load_item_texture + 0x64) = lbl_805DD0FC;
         break;
     }
-    arg0->m_38 = *(f32 *)((s8 *)arg2 + 0);
-    *(f32 *)((s8 *)arg0 + 0x3C) = *(f32 *)((s8 *)arg2 + 4);
-    ((TUnk_804CE018 *)arg0)->save_position();
-    e = ((void *(*)(void *, int))get_array_entry__13TUnk_804CE018Fi)(arg0, 0);
+    window_load_item_texture->m_38 = *(f32 *)((s8 *)arg2 + 0);
+    *(f32 *)((s8 *)window_load_item_texture + 0x3C) = *(f32 *)((s8 *)arg2 + 4);
+    ((TUnk_804CE018 *)window_load_item_texture)->save_position();
+    e = ((void *(*)(void *, int))get_array_entry__13TUnk_804CE018Fi)(window_load_item_texture, 0);
     *(f32 *)((s8 *)e + 0x10) = *(f32 *)((s8 *)arg2 + 0);
     *(f32 *)((s8 *)e + 0x14) = *(f32 *)((s8 *)arg2 + 4);
-    arg0->m_6c = (s32)TItemTexLoad::create((TObject*)tl_07);
-    arg0->m_61 = 0;
-    arg0->m_60 = 2;
-    return arg0;
+    window_load_item_texture->m_6c = (s32)TItemTexLoad::create((TObject*)tl_07);
+    window_load_item_texture->m_61 = 0;
+    window_load_item_texture->m_60 = 2;
+    return window_load_item_texture;
 }
 
 void fn_80262C2C(void* p) { *(u8*)((char*)p + 0x61) |= 0x1; }

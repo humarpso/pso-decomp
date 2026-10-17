@@ -136,18 +136,18 @@ void *__dt__14TObjEneBalClawFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TObjEneBalClaw__ct(TObjEneBalClaw *arg0) {
-    TObjEnemyCustom__ct((u8 *)arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8008DB6C___vt__14TObjEneBalClaw *)&__vt__14TObjEneBalClaw).value;
-    ((TUnk_80490470 *)((u8 *)arg0 + 0x390))->init_vtable_and_field18();
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2968;
-    ((TUnk_804806E8 *)arg0)->add_flags_2e4(8);
-    arg0->actorFlags = (s32) (arg0->actorFlags | 0x40000);
-    arg0->m_3b8 = 0;
-    *(f32 *)((s8 *)arg0 + 0x3BC) = (f32) lbl_805D960C;
-    arg0->clear_attack_flag();
-    arg0->m_388 = (s32) (arg0->m_388 | 0x20000);
-    return (u8 *)arg0;
+u8 *TObjEneBalClaw__ct(TObjEneBalClaw *ene_bal_claw) {
+    TObjEnemyCustom__ct((u8 *)ene_bal_claw);
+    *(s32 **)((s8 *)ene_bal_claw + 0x18) = &(*(RecoveredGlobal_8008DB6C___vt__14TObjEneBalClaw *)&__vt__14TObjEneBalClaw).value;
+    ((TUnk_80490470 *)((u8 *)ene_bal_claw + 0x390))->init_vtable_and_field18();
+    *(s32 *)((s8 *)ene_bal_claw + 0) = (s32) lbl_805D2968;
+    ((TUnk_804806E8 *)ene_bal_claw)->add_flags_2e4(8);
+    ene_bal_claw->actorFlags = (s32) (ene_bal_claw->actorFlags | 0x40000);
+    ene_bal_claw->m_3b8 = 0;
+    *(f32 *)((s8 *)ene_bal_claw + 0x3BC) = (f32) lbl_805D960C;
+    ene_bal_claw->clear_attack_flag();
+    ene_bal_claw->m_388 = (s32) (ene_bal_claw->m_388 | 0x20000);
+    return (u8 *)ene_bal_claw;
 }
 
 void TObjEneBalClaw::vfunc_61() {  }

@@ -129,14 +129,14 @@ typedef struct VBase_18_f23ffb VBase_18_f23ffb;
 typedef struct VObj_18_f23ffb VObj_18_f23ffb;
 #pragma fp_contract on
 #define PSO_VCALL_VObj_18_f23ffb_m10(_self) (((VObj_18_f23ffb *)(_self))->m10())
-u8 *TWindowTradeRequest__ct(TWindowTradeRequest *arg0) {
+u8 *TWindowTradeRequest__ct(TWindowTradeRequest *window_trade_request) {
   u32 new_var;
   s32 player;
   s8 *new_var2;
   u8 *window_layout_position;
   __ct__7TObjectFP7TObject();
-  *((s32 **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_802E02D4___vt__19TWindowTradeRequest *)&__vt__19TWindowTradeRequest).value;
-  *((s32 *) (((s8 *) arg0) + 0)) = (s32) lbl_805D3F70;
+  *((s32 **) (((s8 *) window_trade_request) + 0x18)) = &(*(RecoveredGlobal_802E02D4___vt__19TWindowTradeRequest *)&__vt__19TWindowTradeRequest).value;
+  *((s32 *) (((s8 *) window_trade_request) + 0)) = (s32) lbl_805D3F70;
   player = ((s32)get_player_by_client_id(((u32) get_trade_mode__6TLobbyFv())));
   text_builder_reset();
   new_var = (u32) player;
@@ -147,11 +147,11 @@ u8 *TWindowTradeRequest__ct(TWindowTradeRequest *arg0) {
   }
   TWindowSubStatusDisp::get_message_10(0xD9);
   text_builder_append();
-  arg0->m_20 = create__19TWindowMessageYesNoFPvPvPvPv((s32) arg0, local_client_id, 0, 0);
+  window_trade_request->m_20 = create__19TWindowMessageYesNoFPvPvPvPv((s32) window_trade_request, local_client_id, 0, 0);
   window_layout_position = (u8 *) get_window_layout_position(0xB2);
-  forward_slot_selection__16TAdChrSelASlotGCFPvPv(arg0->m_20, (int) get_shared_text_buffer(), (int) window_layout_position, (f32) lbl_805DE8A0);
-  new_var2 = ((s8 *) arg0) + 0x1C;
-  ((TWindowSubShortMail *)(arg0->m_20))->notify_warp_flag70();
+  forward_slot_selection__16TAdChrSelASlotGCFPvPv(window_trade_request->m_20, (int) get_shared_text_buffer(), (int) window_layout_position, (f32) lbl_805DE8A0);
+  new_var2 = ((s8 *) window_trade_request) + 0x1C;
+  ((TWindowSubShortMail *)(window_trade_request->m_20))->notify_warp_flag70();
   if (((s32)get_player_by_client_id(((u32) local_client_id))) != 0U)
   {
     reset_equip_slots__10TObjPlayerFv();
@@ -159,6 +159,6 @@ u8 *TWindowTradeRequest__ct(TWindowTradeRequest *arg0) {
   TObjPlayer__sub_8024ABDC(local_client_id);
   fn_8024AC64(local_client_id);
   *((s32 *) new_var2) = 0;
-  return (u8 *)arg0;
+  return (u8 *)window_trade_request;
 }
 }

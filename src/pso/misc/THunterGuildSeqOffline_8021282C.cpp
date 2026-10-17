@@ -254,10 +254,10 @@ void THunterGuildSeqOffline::open_quest_list() {
 }
 
 void THunterGuildSeqOffline::handle_window_input() {
-    void *temp_r3 = *(void * *)&this->m_34;
+    void *object = *(void * *)&this->m_34;
 
-    if (temp_r3 != NULL) {
-        if (((TObject *)temp_r3)->all_parents_unqueued_for_destruction() != 1) {
+    if (object != NULL) {
+        if (((TObject *)object)->all_parents_unqueued_for_destruction() != 1) {
             this->m_34 = 0U;
             goto block_3;
         }

@@ -555,18 +555,18 @@ void *create__10TObjCMNameFPv(void *arg0) {
 TObjCMName::~TObjCMName() {}
 
 extern "C" {
-void *__ct__10TObjCMNameFv(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjCMName;
-    *(void * *)&((TObjCMName *)arg0)->m_name = lbl_805D3CEC;
-    *(void **)((s8 *)arg0 + 0x1C) = creation_player_character;
-    *(u32 *)((s8 *)arg0 + 0x20) = 0;
-    *(u32 *)((s8 *)arg0 + 0x28) = 0;
-    *(u32 *)((s8 *)arg0 + 0x24) = 0;
-    *(u32 *)((s8 *)arg0 + 0x2C) = 1;
-    *(f32 *)((s8 *)arg0 + 0x30) = lbl_805DDA90;
+void *__ct__10TObjCMNameFv(void *obj_cm_name) {
+    __ct__7TObjectFP7TObject(obj_cm_name);
+    *(s32 **)((s8 *)obj_cm_name + 0x18) = __vt__10TObjCMName;
+    *(void * *)&((TObjCMName *)obj_cm_name)->m_name = lbl_805D3CEC;
+    *(void **)((s8 *)obj_cm_name + 0x1C) = creation_player_character;
+    *(u32 *)((s8 *)obj_cm_name + 0x20) = 0;
+    *(u32 *)((s8 *)obj_cm_name + 0x28) = 0;
+    *(u32 *)((s8 *)obj_cm_name + 0x24) = 0;
+    *(u32 *)((s8 *)obj_cm_name + 0x2C) = 1;
+    *(f32 *)((s8 *)obj_cm_name + 0x30) = lbl_805DDA90;
     TChCrEffTag::set_eff_tag(10);
-    return arg0;
+    return obj_cm_name;
 }
 
 }
@@ -683,16 +683,16 @@ void *__dt__16TObjCMProportionFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void *TObjCMProportion__ct(TObjCMProportion *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjCMProportion;
-    *(void * *)&arg0->m_name = lbl_805D3CE8;
-    *(void * *)&arg0->appearance = creation_player_character;
-    *(u32 *)((s8 *)arg0 + 0x20) = 0;
-    *(u32 *)((s8 *)arg0 + 0x24) = 1;
-    arg0->fade = lbl_805DDA90;
+void *TObjCMProportion__ct(TObjCMProportion *obj_cm_proportion) {
+    __ct__7TObjectFP7TObject(obj_cm_proportion);
+    *(s32 **)((s8 *)obj_cm_proportion + 0x18) = __vt__16TObjCMProportion;
+    *(void * *)&obj_cm_proportion->m_name = lbl_805D3CE8;
+    *(void * *)&obj_cm_proportion->appearance = creation_player_character;
+    *(u32 *)((s8 *)obj_cm_proportion + 0x20) = 0;
+    *(u32 *)((s8 *)obj_cm_proportion + 0x24) = 1;
+    obj_cm_proportion->fade = lbl_805DDA90;
     TChCrEffTag::set_eff_tag(9);
-    return arg0;
+    return obj_cm_proportion;
 }
 
 void TObjCMAutoMkData::render() {
@@ -1385,35 +1385,35 @@ void * create__16TObjCMAssignMenuFPvPv(void *parent, void *kind) {
 TObjCMAssignMenu::~TObjCMAssignMenu() {}
 extern "C" {
 
-void *__ct__16TObjCMAssignMenuFv(void *arg0, void *parent, void *kind) {
+void *__ct__16TObjCMAssignMenuFv(void *obj_cm_assign_menu, void *parent, void *kind) {
     u32 bit;
     s32 i;
-    ((void (*)(void *, void *))__ct__7TObjectFP7TObject)(arg0, parent);
-    ((Menu_80297128 *)arg0)->vt = __vt__16TObjCMAssignMenu;
-    ((Menu_80297128 *)arg0)->name = lbl_805D3CDC;
-    ((Menu_80297128 *)arg0)->chara = (*(Chara_80297128 * *)&creation_player_character);
-    ((Menu_80297128 *)arg0)->f20 = 0;
-    ((Menu_80297128 *)arg0)->kind = (s32)kind;
-    ((Menu_80297128 *)arg0)->count = ((Row_80297128 *)&class_appearance_table)[((TCharaMaking *)(((Menu_80297128 *)arg0)->chara))->get_display_index()].v[((Menu_80297128 *)arg0)->kind];
-    ((Menu_80297128 *)arg0)->f28 = ((Menu_80297128 *)arg0)->chara->f38[((Menu_80297128 *)arg0)->kind];
-    ((Menu_80297128 *)arg0)->n = 0;
-    ((Menu_80297128 *)arg0)->mask = 0;
+    ((void (*)(void *, void *))__ct__7TObjectFP7TObject)(obj_cm_assign_menu, parent);
+    ((Menu_80297128 *)obj_cm_assign_menu)->vt = __vt__16TObjCMAssignMenu;
+    ((Menu_80297128 *)obj_cm_assign_menu)->name = lbl_805D3CDC;
+    ((Menu_80297128 *)obj_cm_assign_menu)->chara = (*(Chara_80297128 * *)&creation_player_character);
+    ((Menu_80297128 *)obj_cm_assign_menu)->f20 = 0;
+    ((Menu_80297128 *)obj_cm_assign_menu)->kind = (s32)kind;
+    ((Menu_80297128 *)obj_cm_assign_menu)->count = ((Row_80297128 *)&class_appearance_table)[((TCharaMaking *)(((Menu_80297128 *)obj_cm_assign_menu)->chara))->get_display_index()].v[((Menu_80297128 *)obj_cm_assign_menu)->kind];
+    ((Menu_80297128 *)obj_cm_assign_menu)->f28 = ((Menu_80297128 *)obj_cm_assign_menu)->chara->f38[((Menu_80297128 *)obj_cm_assign_menu)->kind];
+    ((Menu_80297128 *)obj_cm_assign_menu)->n = 0;
+    ((Menu_80297128 *)obj_cm_assign_menu)->mask = 0;
     bit = 1;
-    for (i = 0; i < ((Menu_80297128 *)arg0)->count; i++) {
-        ((Menu_80297128 *)arg0)->n++;
-        ((Menu_80297128 *)arg0)->mask |= bit;
+    for (i = 0; i < ((Menu_80297128 *)obj_cm_assign_menu)->count; i++) {
+        ((Menu_80297128 *)obj_cm_assign_menu)->n++;
+        ((Menu_80297128 *)obj_cm_assign_menu)->mask |= bit;
         bit <<= 1;
     }
-    ((TObjCMAssignMenu *)arg0)->calc_grid_layout();
-    ((Menu_80297128 *)arg0)->f58 = ((Menu_80297128 *)arg0)->f48;
-    ((Menu_80297128 *)arg0)->f3C = 1;
-    ((Menu_80297128 *)arg0)->f40 = lbl_805DDA90;
-    switch (((Menu_80297128 *)arg0)->kind) {
+    ((TObjCMAssignMenu *)obj_cm_assign_menu)->calc_grid_layout();
+    ((Menu_80297128 *)obj_cm_assign_menu)->f58 = ((Menu_80297128 *)obj_cm_assign_menu)->f48;
+    ((Menu_80297128 *)obj_cm_assign_menu)->f3C = 1;
+    ((Menu_80297128 *)obj_cm_assign_menu)->f40 = lbl_805DDA90;
+    switch (((Menu_80297128 *)obj_cm_assign_menu)->kind) {
     case 0:
         TChCrEffTag::set_eff_tag(6);
         break;
     case 1:
-        if (((Menu_80297128 *)arg0)->chara->flags & 0x10) {
+        if (((Menu_80297128 *)obj_cm_assign_menu)->chara->flags & 0x10) {
             TChCrEffTag::set_eff_tag(8);
         } else {
             TChCrEffTag::set_eff_tag(7);
@@ -1426,7 +1426,7 @@ void *__ct__16TObjCMAssignMenuFv(void *arg0, void *parent, void *kind) {
         TChCrEffTag::set_eff_tag(3);
         break;
     }
-    return arg0;
+    return obj_cm_assign_menu;
 }
 
 void fn_802972BC(void) {  }

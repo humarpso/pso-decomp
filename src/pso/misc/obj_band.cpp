@@ -306,15 +306,15 @@ int objInBand(GameObj* obj, f32 v) {
 
 void save_joint_matrix_callback(void) { get_current_matrix((void *)((*(int *)&player_joint_matrix_write_ptr))); (*(int *)&player_joint_matrix_write_ptr) = ((*(int *)&player_joint_matrix_write_ptr) + 0x30); }
 
-void draw_motion_model_saving_joints(TObjPlayer *arg0) {
+void draw_motion_model_saving_joints(TObjPlayer *player) {
     s32 temp_r3;
-    (*(int *)&player_joint_matrix_write_ptr) = *(s32 *)((s8 *)arg0 + 0xE0);
+    (*(int *)&player_joint_matrix_write_ptr) = *(s32 *)((s8 *)player + 0xE0);
     TObjEneRe7Berura::set_global_state((s32)((void *) save_joint_matrix_callback));
-    temp_r3 = arg0->animationFlags;
+    temp_r3 = player->animationFlags;
     if ((temp_r3 & 4) && !(temp_r3 & 0x400)) {
-        draw_model_blend_motion((void *)(*(s32 *)((s8 *)arg0 + 0x34)), (u8 *)arg0 + 0xE4, arg0->m_c0);
+        draw_model_blend_motion((void *)(*(s32 *)((s8 *)player + 0x34)), (u8 *)player + 0xE4, player->m_c0);
     } else {
-        draw_model_motion((void *)(*(s32 *)((s8 *)arg0 + 0x34)), (void *)arg0->unknownF8, arg0->m_c0);
+        draw_model_motion((void *)(*(s32 *)((s8 *)player + 0x34)), (void *)player->unknownF8, player->m_c0);
     }
     TObjEneRe7Berura::set_global_state((s32)NULL);
     TObjPlayer::reset_transform_state();

@@ -221,8 +221,8 @@ void *create__10TObjRoomIdFPv(void *arg0) {
 }
 }
 
-void set_player_room_control_flag(TObjPlayer *arg0) {
-    arg0->set_state_flags(0x02000000);
+void set_player_room_control_flag(TObjPlayer *player) {
+    player->set_state_flags(0x02000000);
 }
 
 extern s32 local_client_id;

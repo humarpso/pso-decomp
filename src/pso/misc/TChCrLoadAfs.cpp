@@ -194,7 +194,7 @@ TChCrLoadAfs::~TChCrLoadAfs() {
 }
 
 extern void *lbl_805D3B48;
-TChCrLoadAfs::TChCrLoadAfs(TObject *arg1, void *arg2, void *arg3) : TObject(arg1) {
+TChCrLoadAfs::TChCrLoadAfs(TObject *object, void *arg2, void *arg3) : TObject(object) {
     *(void **)((s8 *)this + 0x0) = lbl_805D3B48;
     *(u32 *)((s8 *)this + 0x1C) = 0;
     *(void **)((s8 *)this + 0x20) = arg2;
@@ -216,7 +216,7 @@ void *TChCrLoadAfs::create(void *arg1, void *arg2) {
 }
 }
 
-s32 find_player_texture_name_ordinal(u8 *arg0) {
+s32 find_player_texture_name_ordinal(u8 *object) {
     char *name;
     s32 count;
     s32 steps;
@@ -226,13 +226,13 @@ s32 find_player_texture_name_ordinal(u8 *arg0) {
     s32 i;
     f32 l2;
     s32 r;
-    name = *(char **)(**(u8 ***)((s8 *)arg0 + 0x30) + *(s32 *)((s8 *)arg0 + 0x5C) * 0xC);
-    count = (&player_class_texture_archive_table[*(s32 *)((s8 *)arg0 + 0x70)].id)[1];
+    name = *(char **)(**(u8 ***)((s8 *)object + 0x30) + *(s32 *)((s8 *)object + 0x5C) * 0xC);
+    count = (&player_class_texture_archive_table[*(s32 *)((s8 *)object + 0x70)].id)[1];
     l2 = TLobby__sub_8028C50C(lbl_805DD920);
     steps = (s32)get_status_value_f32__23TObjEneMe1CanadinLeaderFv(TLobby__sub_8028C50C(count) / l2) + 1;
     mid = (count + 1) >> 1;
     step = (mid + 1) >> 1;
-    list = (char **)(&player_class_texture_archive_table[*(s32 *)((s8 *)arg0 + 0x70)].id)[3];
+    list = (char **)(&player_class_texture_archive_table[*(s32 *)((s8 *)object + 0x70)].id)[3];
     for (i = 0; i < steps; i++) {
         r = strcmp(name + 3, list[mid] + 3);
         if (r == 0) {
@@ -254,7 +254,7 @@ s32 find_player_texture_name_ordinal(u8 *arg0) {
             step = 1;
         }
     }
-    queue_destruction__7TObjectFv(arg0);
+    queue_destruction__7TObjectFv(object);
     return 0;
 }
 extern "C" {

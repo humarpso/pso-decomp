@@ -146,40 +146,40 @@ TBoss6DPB::~TBoss6DPB() {}
 
 extern "C" {
 
-u8 *__ct__9TBoss6DPBFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
+u8 *__ct__9TBoss6DPBFv(u8 *object, s32 arg1, s32 arg2, f32 farg0) {
     f32 temp_f1;
     f32 temp_f2;
-    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__9TBoss6DPB.value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss6DPB__class_name;
-    *(s32 *)((s8 *)arg0 + 0x1C) = arg1;
-    VecCopy((Vec *)(arg0 + 0x20), (const Vec *)(arg2));
-    *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805E01CC;
-    *(f32 *)((s8 *)arg0 + 0x2C) = farg0;
+    __ct__7TObjectFP7TObject((void *)object, (void *)arg1);
+    *(s32 **)((s8 *)object + 0x18) = &__vt__9TBoss6DPB.value;
+    *(s32 *)((s8 *)object + 0) = (s32) TBoss6DPB__class_name;
+    *(s32 *)((s8 *)object + 0x1C) = arg1;
+    VecCopy((Vec *)(object + 0x20), (const Vec *)(arg2));
+    *(f32 *)((s8 *)object + 0x24) = (f32) lbl_805E01CC;
+    *(f32 *)((s8 *)object + 0x2C) = farg0;
     temp_f2 = *(f32 *)((s8 *)(TLobby::dispatch_shared_handler_a(0x2C)) + 8);
-    *(s32 *)((s8 *)arg0 + 0x34) = (s32) temp_f2;
+    *(s32 *)((s8 *)object + 0x34) = (s32) temp_f2;
     if (lbl_805E01CC == temp_f2) {
-        *(s32 *)((s8 *)arg0 + 0x34) = 0x14;
+        *(s32 *)((s8 *)object + 0x34) = 0x14;
     }
     temp_f1 = *(f32 *)((s8 *)(TLobby::dispatch_shared_handler_a(0x2F)) + 8);
-    *(f32 *)((s8 *)arg0 + 0x38) = temp_f1;
+    *(f32 *)((s8 *)object + 0x38) = temp_f1;
     if (lbl_805E01CC == temp_f1) {
-        *(f32 *)((s8 *)arg0 + 0x38) = (f32) lbl_805E01D4;
+        *(f32 *)((s8 *)object + 0x38) = (f32) lbl_805E01D4;
     }
-    play_sound_effect(0x40069410, (u32)(arg0 + 0x20), 0, 0);
-    *(s32 *)((s8 *)arg0 + 0x30) = 0;
-    return arg0;
+    play_sound_effect(0x40069410, (u32)(object + 0x20), 0, 0);
+    *(s32 *)((s8 *)object + 0x30) = 0;
+    return object;
 }
 
 #pragma push
 #pragma fp_contract on
 u8 *TBoss6Type2::create_dpb(s32 arg0, s32 arg1, f32 farg0) {
-    u8 *temp_r3;
+    u8 *boss6_dpb;
     u8 *var_r0;
-    temp_r3 = (u8 *)(__nw__7TObjectFUl(0x3C));
-    var_r0 = temp_r3;
+    boss6_dpb = (u8 *)(__nw__7TObjectFUl(0x3C));
+    var_r0 = boss6_dpb;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(__ct__9TBoss6DPBFv(temp_r3, arg0, arg1, farg0));
+        var_r0 = (u8 *)(__ct__9TBoss6DPBFv(boss6_dpb, arg0, arg1, farg0));
     }
     return var_r0;
 }

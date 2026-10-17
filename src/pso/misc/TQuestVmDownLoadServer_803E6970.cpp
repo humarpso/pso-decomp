@@ -3945,16 +3945,16 @@ s32 TQuestVmDownLoadServer__sub_803F0890(void) {
     return 3;
 }
 
-s32 TQuestVmDownLoadServer__sub_803F08E4(s8 *arg0) {
+s32 TQuestVmDownLoadServer__sub_803F08E4(s8 *quest_vm_down_load_server) {
     s32 r;
 
     if (lbl_805D7904 != -1) {
         return -4;
     }
-    if (*arg0 == 0) {
+    if (*quest_vm_down_load_server == 0) {
         return -1;
     }
-    ((TQuestVmDownLoadServer *)arg0)->set_file_info_name();
+    ((TQuestVmDownLoadServer *)quest_vm_down_load_server)->set_file_info_name();
     r = TQuestVmDownLoadServer::find_file_info_index();
     if (r != 0) {
         if (r == -1) {

@@ -474,29 +474,29 @@ void *__dt__24TShopEquipmentSellWindowFv(void *arg0, s16 arg1) {
 
 extern void *TShopEquipmentSellWindow__class_name;
 
-void *TShopEquipmentSellWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
-    __ct__15TShopWindowBaseFv(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__24TShopEquipmentSellWindow;
-    *(void * *)&((TShopEquipmentSellWindow *)arg0)->m_name = TShopEquipmentSellWindow__class_name;
-    ((TShopEquipmentSellWindow *)arg0)->m_370 = 0;
-    ((TShopEquipmentSellWindow *)arg0)->m_374 = 0;
-    *(void **)((s8 *)arg0 + 0x378) = arg4;
-    ((TShopEquipmentSellWindow *)arg0)->m_20 = 0;
-    ((TShopEquipmentSellWindow *)arg0)->m_37c = 1;
-    ((TShopEquipmentSellWindow *)arg0)->m_380 = 0;
-    ((TShopEquipmentSellWindow *)arg0)->m_384 = 0;
-    *(void **)((s8 *)arg0 + 0x388) = arg2;
-    ((TShopEquipmentSellWindow *)arg0)->m_38c = 0;
-    ((TShopEquipmentSellWindow *)arg0)->m_390 = 0;
-    ((TShopEquipmentSellWindow *)arg0)->m_394 = 0;
-    ((TShopEquipmentSellWindow *)arg0)->m_39c = 0;
-    ((TShopEquipmentSellWindow *)arg0)->m_398 = 0;
-    ((TShopEquipmentSellWindow *)arg0)->m_3a0 = 0;
-    *(void **)((s8 *)arg0 + 0x24) = arg3;
-    ((TShopEquipmentSellWindow *)arg0)->m_3a4 = 0;
-    ((TShopEquipmentSellWindow *)arg0)->m_3a8 = 0;
-    memset((void *)((char *)arg0 + 40), 0, 840);
-    return arg0;
+void *TShopEquipmentSellWindow__ct(void *shop_equipment_sell_window, void *arg1, void *arg2, void *arg3, void *arg4) {
+    __ct__15TShopWindowBaseFv(shop_equipment_sell_window);
+    *(s32 **)((s8 *)shop_equipment_sell_window + 0x18) = __vt__24TShopEquipmentSellWindow;
+    *(void * *)&((TShopEquipmentSellWindow *)shop_equipment_sell_window)->m_name = TShopEquipmentSellWindow__class_name;
+    ((TShopEquipmentSellWindow *)shop_equipment_sell_window)->m_370 = 0;
+    ((TShopEquipmentSellWindow *)shop_equipment_sell_window)->m_374 = 0;
+    *(void **)((s8 *)shop_equipment_sell_window + 0x378) = arg4;
+    ((TShopEquipmentSellWindow *)shop_equipment_sell_window)->m_20 = 0;
+    ((TShopEquipmentSellWindow *)shop_equipment_sell_window)->m_37c = 1;
+    ((TShopEquipmentSellWindow *)shop_equipment_sell_window)->m_380 = 0;
+    ((TShopEquipmentSellWindow *)shop_equipment_sell_window)->m_384 = 0;
+    *(void **)((s8 *)shop_equipment_sell_window + 0x388) = arg2;
+    ((TShopEquipmentSellWindow *)shop_equipment_sell_window)->m_38c = 0;
+    ((TShopEquipmentSellWindow *)shop_equipment_sell_window)->m_390 = 0;
+    ((TShopEquipmentSellWindow *)shop_equipment_sell_window)->m_394 = 0;
+    ((TShopEquipmentSellWindow *)shop_equipment_sell_window)->m_39c = 0;
+    ((TShopEquipmentSellWindow *)shop_equipment_sell_window)->m_398 = 0;
+    ((TShopEquipmentSellWindow *)shop_equipment_sell_window)->m_3a0 = 0;
+    *(void **)((s8 *)shop_equipment_sell_window + 0x24) = arg3;
+    ((TShopEquipmentSellWindow *)shop_equipment_sell_window)->m_3a4 = 0;
+    ((TShopEquipmentSellWindow *)shop_equipment_sell_window)->m_3a8 = 0;
+    memset((void *)((char *)shop_equipment_sell_window + 40), 0, 840);
+    return shop_equipment_sell_window;
 }
 
 }

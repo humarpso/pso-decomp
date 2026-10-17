@@ -388,24 +388,24 @@ void *__dt__18TShopGetItemWindowFv(void *arg0, s16 arg1) {
 
 extern void *TShopGetItemWindow__class_name;
 
-void *TShopGetItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
-    __ct__15TShopWindowBaseFv(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TShopGetItemWindow;
-    *(void * *)&((TShopGetItemWindow *)arg0)->m_name = TShopGetItemWindow__class_name;
-    ((TShopGetItemWindow *)arg0)->m_20 = 0;
-    *(void **)((s8 *)arg0 + 0x24) = arg3;
-    ((TShopGetItemWindow *)arg0)->m_54 = 1;
-    ((TShopGetItemWindow *)arg0)->m_4c = 0;
-    ((TShopGetItemWindow *)arg0)->m_58 = 0;
-    ((TShopGetItemWindow *)arg0)->m_60 = 0;
-    ((TShopGetItemWindow *)arg0)->m_64 = 0;
-    ((TShopGetItemWindow *)arg0)->m_28 = 0;
-    ((TShopGetItemWindow *)arg0)->m_2c = 0;
-    ((TShopGetItemWindow *)arg0)->m_30 = 0;
-    ((TShopGetItemWindow *)arg0)->m_34 = 0;
-    *(void **)((s8 *)arg0 + 0x5C) = arg2;
-    init__9TItemDataFv((void *)((char *)arg0 + 56));
-    return arg0;
+void *TShopGetItemWindow__ct(void *shop_get_item_window, void *arg1, void *arg2, void *arg3) {
+    __ct__15TShopWindowBaseFv(shop_get_item_window);
+    *(s32 **)((s8 *)shop_get_item_window + 0x18) = __vt__18TShopGetItemWindow;
+    *(void * *)&((TShopGetItemWindow *)shop_get_item_window)->m_name = TShopGetItemWindow__class_name;
+    ((TShopGetItemWindow *)shop_get_item_window)->m_20 = 0;
+    *(void **)((s8 *)shop_get_item_window + 0x24) = arg3;
+    ((TShopGetItemWindow *)shop_get_item_window)->m_54 = 1;
+    ((TShopGetItemWindow *)shop_get_item_window)->m_4c = 0;
+    ((TShopGetItemWindow *)shop_get_item_window)->m_58 = 0;
+    ((TShopGetItemWindow *)shop_get_item_window)->m_60 = 0;
+    ((TShopGetItemWindow *)shop_get_item_window)->m_64 = 0;
+    ((TShopGetItemWindow *)shop_get_item_window)->m_28 = 0;
+    ((TShopGetItemWindow *)shop_get_item_window)->m_2c = 0;
+    ((TShopGetItemWindow *)shop_get_item_window)->m_30 = 0;
+    ((TShopGetItemWindow *)shop_get_item_window)->m_34 = 0;
+    *(void **)((s8 *)shop_get_item_window + 0x5C) = arg2;
+    init__9TItemDataFv((void *)((char *)shop_get_item_window + 56));
+    return shop_get_item_window;
 }
 
 }

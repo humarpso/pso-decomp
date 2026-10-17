@@ -244,10 +244,10 @@ s32 TLobby__sub_803F767C(void) {
     return 0;
 }
 
-s32 TLobby__sub_803F7684(void *arg0) {
+s32 TLobby__sub_803F7684(void *lobby) {
     E_803F7684 *p;
     for (p = lbl_804FD350; p->key != 0; p++) {
-        if (compare_str__6TLobbyFUc(arg0, p->key) == 0) {
+        if (compare_str__6TLobbyFUc(lobby, p->key) == 0) {
             return p->val;
         }
     }
@@ -657,19 +657,19 @@ s32 TLobby__sub_803F811C(s16 *arg0) {
     return 0;
 }
 
-s32 TLobby__sub_803F812C(u16 arg0, void *arg1, u16 *arg2) {
+s32 TLobby__sub_803F812C(u16 arg0, void *lobby, u16 *arg2) {
     if (network_pppoe_transport_enabled != 0) {
         if (net_slot_id < 0) {
             return 6;
         }
         {
-            s16 v = ((TLobby *)arg1)->pppoe_recv_packet(arg0, arg2);
+            s16 v = ((TLobby *)lobby)->pppoe_recv_packet(arg0, arg2);
             if (v != net_slot_id) {
                 return 6;
             }
         }
     } else {
-        s32 r = TAdSinglePlyChrSelectGC__sub_8042D7E0(arg1);
+        s32 r = TAdSinglePlyChrSelectGC__sub_8042D7E0(lobby);
         if (r < 0) {
             *arg2 = 0;
         } else {

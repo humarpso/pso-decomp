@@ -107,7 +107,7 @@ TBoss6Zanzo::~TBoss6Zanzo() {
 }
 extern "C" {
 }
-TBoss6Zanzo::TBoss6Zanzo(TObject *arg1, s32 arg2, s32 arg3) : TObject(arg1) {
+TBoss6Zanzo::TBoss6Zanzo(TObject *object, s32 arg2, s32 arg3) : TObject(object) {
     Src_803209F0 *p;
     Src_803209F0 *end;
     ((Obj_803209F0 *)this)->f0 = TBoss6Zanzo__name;

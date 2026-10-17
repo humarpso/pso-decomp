@@ -40,32 +40,32 @@ s32 transition_enemy_state(void *, s32);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 s32 enemy_clear_target__12TObjEneDD_STFUs(void *);
 
-void TObjEneBm9Mericarol__sub_802D05BC(u8 *arg0, s32 arg1) {
+void TObjEneBm9Mericarol__sub_802D05BC(u8 *ene_dd_st, s32 arg1) {
     switch (arg1) {
     case 4:
-        ((TObjEneDD_ST *)arg0)->m_b8 = 2;
-        ((TObjEneDD *)arg0)->vfunc_95();
-        TObjEneBm9Mericarol__sub_802D093C(arg0);
-        *(s32 *)((s8 *)arg0 + 0x438) = (s32) (*(s32 *)((s8 *)arg0 + 0x438) | 0x28);
-        *(s32 *)((s8 *)arg0 + 0x438) = (s32) (*(s32 *)((s8 *)arg0 + 0x438) & 0xFFFFFFEF);
-        ((TObjEneDD *)arg0)->set_field_378(2);
-        enemy_clear_target__12TObjEneDD_STFUs(arg0);
-        TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x46C);
-        ((TBoss3Volopt *)(arg0 + 0x38))->play_area_sound_effect();
+        ((TObjEneDD_ST *)ene_dd_st)->m_b8 = 2;
+        ((TObjEneDD *)ene_dd_st)->vfunc_95();
+        TObjEneBm9Mericarol__sub_802D093C(ene_dd_st);
+        *(s32 *)((s8 *)ene_dd_st + 0x438) = (s32) (*(s32 *)((s8 *)ene_dd_st + 0x438) | 0x28);
+        *(s32 *)((s8 *)ene_dd_st + 0x438) = (s32) (*(s32 *)((s8 *)ene_dd_st + 0x438) & 0xFFFFFFEF);
+        ((TObjEneDD *)ene_dd_st)->set_field_378(2);
+        enemy_clear_target__12TObjEneDD_STFUs(ene_dd_st);
+        TObjEneMe3SinowZoa__sub_800D758C(ene_dd_st + 0x46C);
+        ((TBoss3Volopt *)(ene_dd_st + 0x38))->play_area_sound_effect();
         return;
     case 3:
-        if (((SubObj_802d05bc *)(arg0 + 0x46C))->v5() != 0) {
-            transition_enemy_state(arg0, 2);
+        if (((SubObj_802d05bc *)(ene_dd_st + 0x46C))->v5() != 0) {
+            transition_enemy_state(ene_dd_st, 2);
         }
     case 1:
         return;
     case 0:
         advance_animation_playback();
-        ((TObjEneDD *)arg0)->vfunc_102();
-        ((TObjEneDD *)arg0)->vfunc_88();
+        ((TObjEneDD *)ene_dd_st)->vfunc_102();
+        ((TObjEneDD *)ene_dd_st)->vfunc_88();
         return;
     case 5:
-        *(s32 *)((s8 *)arg0 + 0x438) = (s32) (*(s32 *)((s8 *)arg0 + 0x438) & ~0x28);
+        *(s32 *)((s8 *)ene_dd_st + 0x438) = (s32) (*(s32 *)((s8 *)ene_dd_st + 0x438) & ~0x28);
         break;
     }
 }

@@ -93,18 +93,18 @@ void *__dt__19TObjBoss8PillerCtrlFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_8035C22C_lbl_804799DC_size[sizeof(RecoveredGlobal_8035C22C_lbl_804799DC) == 0x14C ? 1 : -1];
 typedef char RecoveredGlobal_8035C22C___vt__19TObjBoss8PillerCtrl_size[sizeof(RecoveredGlobal_8035C22C___vt__19TObjBoss8PillerCtrl) == 0x18 ? 1 : -1];
-u8 *TObjBoss8PillerCtrl__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3) {
+u8 *TObjBoss8PillerCtrl__ct(u8 *boss8_piller_ctrl, s32 arg1, s32 arg2, s16 arg3) {
     __ct__7TObjectFP7TObject();
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8035C22C___vt__19TObjBoss8PillerCtrl *)&__vt__19TObjBoss8PillerCtrl).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjBoss8PillerCtrl__class_name;
-    VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)(arg2));
-    TObjBoss8PillerCtrl__sub_8035C034(arg0, arg0 + 0x1C);
-    *(f32 *)((s8 *)arg0 + 0x20) = (f32) lbl_805E017C;
-    ((TObjBoss8PillerCtrl *)arg0)->m_28 = 0;
-    ((TObjBoss8PillerCtrl *)arg0)->m_2c = arg3;
-    ((TObjBoss8PillerCtrl *)arg0)->m_30 = 0;
-    *(s32 **)((s8 *)arg0 + 0x34) = &boss8_piller_ctrl_params.value;
-    return arg0;
+    *(s32 **)((s8 *)boss8_piller_ctrl + 0x18) = &(*(RecoveredGlobal_8035C22C___vt__19TObjBoss8PillerCtrl *)&__vt__19TObjBoss8PillerCtrl).value;
+    *(s32 *)((s8 *)boss8_piller_ctrl + 0) = (s32) TObjBoss8PillerCtrl__class_name;
+    VecCopy((Vec *)(boss8_piller_ctrl + 0x1C), (const Vec *)(arg2));
+    TObjBoss8PillerCtrl__sub_8035C034(boss8_piller_ctrl, boss8_piller_ctrl + 0x1C);
+    *(f32 *)((s8 *)boss8_piller_ctrl + 0x20) = (f32) lbl_805E017C;
+    ((TObjBoss8PillerCtrl *)boss8_piller_ctrl)->m_28 = 0;
+    ((TObjBoss8PillerCtrl *)boss8_piller_ctrl)->m_2c = arg3;
+    ((TObjBoss8PillerCtrl *)boss8_piller_ctrl)->m_30 = 0;
+    *(s32 **)((s8 *)boss8_piller_ctrl + 0x34) = &boss8_piller_ctrl_params.value;
+    return boss8_piller_ctrl;
 }
 
 }

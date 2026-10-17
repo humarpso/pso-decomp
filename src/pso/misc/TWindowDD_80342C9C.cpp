@@ -26,21 +26,21 @@ void TWindowDD::update_transition() {
         apply_entry_layout__9TWindowDDFPv(this);
     }
 }
-void TWindowDD__sub_80342D14(u8 *arg0) {
+void TWindowDD__sub_80342D14(u8 *window_dd) {
     s32 var_r31;
     var_r31 = 0;
-    *(s16 *)((s8 *)arg0 + 0xC6) = 1;
-    switch (*(s32 *)((s8 *)arg0 + 0xB8)) {
+    *(s16 *)((s8 *)window_dd + 0xC6) = 1;
+    switch (*(s32 *)((s8 *)window_dd + 0xB8)) {
     case 0:
         TWindowDD__sub_80347C50();
-        ((TWindowDD *)arg0)->update_selection_state();
-        if (((TWindowDD *)arg0)->test_input_flag_4() != 0) {
+        ((TWindowDD *)window_dd)->update_selection_state();
+        if (((TWindowDD *)window_dd)->test_input_flag_4() != 0) {
             TWindowDD::play_sound();
-            var_r31 = !update_close_flag__9TWindowDDFPv(arg0);
-        } else if (TWindowDD__sub_803482B0(arg0) != 0) {
+            var_r31 = !update_close_flag__9TWindowDDFPv(window_dd);
+        } else if (TWindowDD__sub_803482B0(window_dd) != 0) {
             TWindowDD::play_se();
-            *(s32 *)&((TWindowDD *)arg0)->m_c0 = 0;
-            apply_entry_layout__9TWindowDDFPv(arg0);
+            *(s32 *)&((TWindowDD *)window_dd)->m_c0 = 0;
+            apply_entry_layout__9TWindowDDFPv(window_dd);
         }
         break;
     case 1:
@@ -48,28 +48,28 @@ void TWindowDD__sub_80342D14(u8 *arg0) {
         break;
     }
     if (var_r31) {
-        *(s32 *)&((TWindowDD *)arg0)->m_c0 = 1;
-        if ((s32) *(s32 *)&((TWindowDD *)arg0)->m_a8 == -0x3C) {
-            *(s32 *)((s8 *)arg0 + 0xB4) = 0x14;
+        *(s32 *)&((TWindowDD *)window_dd)->m_c0 = 1;
+        if ((s32) *(s32 *)&((TWindowDD *)window_dd)->m_a8 == -0x3C) {
+            *(s32 *)((s8 *)window_dd + 0xB4) = 0x14;
         } else {
             switch (TWindowDD__window_mode) {
             case 0:
-                TWindowDD__sub_80342B5C(arg0);
-                ((TWindowDD *)(arg0 + 0xC4))->init_item_slots();
-                *(s16 *)((s8 *)arg0 + 0xC6) = 3;
+                TWindowDD__sub_80342B5C(window_dd);
+                ((TWindowDD *)(window_dd + 0xC4))->init_item_slots();
+                *(s16 *)((s8 *)window_dd + 0xC6) = 3;
                 break;
             case 1:
             case 2:
             case 3:
             case 4:
             default:
-                ((TWindowDD *)(arg0 + 0xC4))->init_item_slots();
-                *(s16 *)((s8 *)arg0 + 0xC6) = 4;
-                TWindowDD__sub_803428C4(arg0);
+                ((TWindowDD *)(window_dd + 0xC4))->init_item_slots();
+                *(s16 *)((s8 *)window_dd + 0xC6) = 4;
+                TWindowDD__sub_803428C4(window_dd);
                 break;
             }
         }
-        TWindowDD__sub_803435A0(arg0);
+        TWindowDD__sub_803435A0(window_dd);
     }
 }
 

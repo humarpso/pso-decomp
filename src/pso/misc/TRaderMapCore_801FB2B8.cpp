@@ -75,45 +75,45 @@ void TRaderMapCore::advance_scroll() {
     this->m_198 = (this->m_198 + 0x888);
     this->m_19c = lbl_805DC59C + lbl_805DC5A0 * (TRaderMapCore__data_805DC534 + sin_table_lookup(this->m_198));
 }
-void run_task__13TRaderMapCoreFv(TRaderMapCore *arg0) {
+void run_task__13TRaderMapCoreFv(TRaderMapCore *rader_map_core) {
     s32 player;
     s32 temp_r4;
     s32 var_r31;
     if ((u32) TRaderMapCore__floor_map_resource != 0U) {
-        temp_r4 = arg0->m_90;
+        temp_r4 = rader_map_core->m_90;
         if (temp_r4 > 0) {
-            arg0->m_90 = (temp_r4 - 1);
+            rader_map_core->m_90 = (temp_r4 - 1);
             return;
         }
         switch ((s32) TRaderMapCore__view_mode) {
         case 0:
-            arg0->update_target();
+            rader_map_core->update_target();
             break;
         case 1:
-            arg0->update_target();
+            rader_map_core->update_target();
             break;
         case 2:
             update_pan_zoom_input__13TRaderMapCoreFv();
             break;
         }
-        arg0->gather_player_markers();
-        if ((TRaderMapCore::is_not_split_screen() == 1) && ((u32) *(u32 *)((s8 *)arg0 + 0x184) != 0U)) {
-            arg0->m_134 = (s32) obj_getField1c(arg0->m_184);
+        rader_map_core->gather_player_markers();
+        if ((TRaderMapCore::is_not_split_screen() == 1) && ((u32) *(u32 *)((s8 *)rader_map_core + 0x184) != 0U)) {
+            rader_map_core->m_134 = (s32) obj_getField1c(rader_map_core->m_184);
         }
-        update_follow_projection__13TRaderMapCoreFv((void *)arg0, (void *)TRaderMapCore__view_mode);
+        update_follow_projection__13TRaderMapCoreFv((void *)rader_map_core, (void *)TRaderMapCore__view_mode);
         if (TRaderMapCore::is_not_split_screen() == 1) {
             var_r31 = 0;
             do {
                 player = get_player_by_client_id(var_r31);
                 if (player != 0) {
-                    update_radar_auto_discovery(arg0, 0, (void *)(player + 0x38));
+                    update_radar_auto_discovery(rader_map_core, 0, (void *)(player + 0x38));
                 }
                 var_r31 += 1;
             } while (var_r31 < 4);
         } else {
-            update_radar_auto_discovery(arg0, 0, (void *) ((u8 *)arg0 + arg0->m_134 * 0x28 + 0x94));
+            update_radar_auto_discovery(rader_map_core, 0, (void *) ((u8 *)rader_map_core + rader_map_core->m_134 * 0x28 + 0x94));
         }
-        arg0->advance_scroll();
+        rader_map_core->advance_scroll();
     }
 }
 typedef char RecoveredGlobal_801FB430___vt__13TRaderMapCore_size[sizeof(RecoveredGlobal_801FB430___vt__13TRaderMapCore) == 0x34 ? 1 : -1];

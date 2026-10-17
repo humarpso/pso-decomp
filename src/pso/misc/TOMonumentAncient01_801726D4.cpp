@@ -122,19 +122,19 @@ void TOMonumentAncient02::vfunc_6(s16 *arg1, s32) {
     access_object_saved_state(arg1, 0);
 }
 
-void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1) {
+void TOMonumentAncient02__vt11(u8 *monument_ancient02, u16 arg1) {
     s16 sp8;
     s32 player;
-    switch (((TOMonumentAncient02 *)arg0)->m_ac) {
+    switch (((TOMonumentAncient02 *)monument_ancient02)->m_ac) {
     case 1:
         player = (s32)get_player_by_client_id((arg1));
         if (player != 0) {
-            ((TOMonumentAncient02 *)arg0)->m_ac = 2;
-            start_camera_pan__10TObjPlayerFs(player, 0xC, (void *) (((TObjPlayer *)(player + 0x38))->calc_angle_to(arg0 + 0x38)));
-            if (((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 1) != 0) {
-                sp8 = (s16) ((TOMonumentAncient02 *)arg0)->m_ac;
-                ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 0);
-                ((TUnk_804AF8A0 *)arg0)->send_object_state_update(&sp8);
+            ((TOMonumentAncient02 *)monument_ancient02)->m_ac = 2;
+            start_camera_pan__10TObjPlayerFs(player, 0xC, (void *) (((TObjPlayer *)(player + 0x38))->calc_angle_to(monument_ancient02 + 0x38)));
+            if (((TUnk_804AF8A0 *)monument_ancient02)->access_object_saved_state(&sp8, 1) != 0) {
+                sp8 = (s16) ((TOMonumentAncient02 *)monument_ancient02)->m_ac;
+                ((TUnk_804AF8A0 *)monument_ancient02)->access_object_saved_state(&sp8, 0);
+                ((TUnk_804AF8A0 *)monument_ancient02)->send_object_state_update(&sp8);
             }
         }
         break;

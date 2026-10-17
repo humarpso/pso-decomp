@@ -24,11 +24,11 @@ int read_be16_field2__10TObjPlayerFv(void*);
 void __copy(void *, void *, int);
 int TFontSmallLobby__sub_801C013C(void* p) { return clear_flags__11TAdRicoRingFUl((void*)((char*)p + 0x10), 2); }
 
-void *TFontSmallLobby__sub_801C0164(void *arg0) {
-    ((TObjPlayer *)((char *)arg0 + 16))->init_forward();
-    __construct_array((void *)((char *)arg0 + 32), fn_80152EF8, 0, 4, 10);
-    ((TObjPlayer *)arg0)->reset_tech_state();
-    return arg0;
+void *TFontSmallLobby__sub_801C0164(void *player) {
+    ((TObjPlayer *)((char *)player + 16))->init_forward();
+    __construct_array((void *)((char *)player + 32), fn_80152EF8, 0, 4, 10);
+    ((TObjPlayer *)player)->reset_tech_state();
+    return player;
 }
 
 int TFontSmallLobby__sub_801C01BC(void* p) { return read_be16_field2__10TObjPlayerFv(p); }

@@ -40,12 +40,12 @@ void TWindowDD__sub_803412A0(u8 *arg0) {
 }
 #pragma pop
 
-void TWindowDD::set_first_entry_text(u32 arg1) {
+void TWindowDD::set_first_entry_text(u32 str) {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     temp_r3 = (u8 *)(((TUnk_804CE018 *)arg0)->get_array_entry(0));
     if (temp_r3 != NULL) {
-        set_text_entry_string(temp_r3, arg1, 0x80);
+        set_text_entry_string(temp_r3, str, 0x80);
     }
 }
 

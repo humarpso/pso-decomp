@@ -332,34 +332,34 @@ void TItemProUnit::apply_unit_effect_flags() {
     }
 }
 
-u8 *TItemProUnit__ct(TItemProUnit *arg0, s32 arg1, u8 *item) {
+u8 *TItemProUnit__ct(TItemProUnit *item_pro_unit, s32 arg1, u8 *item) {
     s16 temp_r0;
     u8 *item_pmt_record;
 
     TItemEquipBase__ct();
-    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__12TItemProUnit;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C40;
-    arg0->vfunc_19((s8) (*(u8 *)((s8 *)item + 4) + 9));
-    *(s16 *)((s8 *)arg0 + 0x190) = 0;
-    *(f32 *)((s8 *)arg0 + 0x1B8) = (f32) TItemProUnit__data_805DABF8;
+    *(s32 **)((s8 *)item_pro_unit + 0x18) = (s32 *)__vt__12TItemProUnit;
+    *(s32 *)((s8 *)item_pro_unit + 0) = (s32) lbl_805D2C40;
+    item_pro_unit->vfunc_19((s8) (*(u8 *)((s8 *)item + 4) + 9));
+    *(s16 *)((s8 *)item_pro_unit + 0x190) = 0;
+    *(f32 *)((s8 *)item_pro_unit + 0x1B8) = (f32) TItemProUnit__data_805DABF8;
     item_pmt_record = (u8 *)lookup_item_pmt_record(item);
     if (item_pmt_record != NULL) {
-        *(s16 *)((s8 *)arg0 + 0x18C) = (s16) *(s16 *)((s8 *)item_pmt_record + 8);
-        arg0->m_18e = (s16) *(s16 *)((s8 *)item_pmt_record + 0xA);
-        *(s16 *)((s8 *)arg0 + 0x1BE) = (s16) (*(s16 *)((s8 *)item_pmt_record + 0xC) * 2);
+        *(s16 *)((s8 *)item_pro_unit + 0x18C) = (s16) *(s16 *)((s8 *)item_pmt_record + 8);
+        item_pro_unit->m_18e = (s16) *(s16 *)((s8 *)item_pmt_record + 0xA);
+        *(s16 *)((s8 *)item_pro_unit + 0x1BE) = (s16) (*(s16 *)((s8 *)item_pmt_record + 0xC) * 2);
     } else {
-        *(s16 *)((s8 *)arg0 + 0x18C) = 0;
-        arg0->m_18e = 0;
-        *(s16 *)((s8 *)arg0 + 0x1BE) = 0;
+        *(s16 *)((s8 *)item_pro_unit + 0x18C) = 0;
+        item_pro_unit->m_18e = 0;
+        *(s16 *)((s8 *)item_pro_unit + 0x1BE) = 0;
     }
-    *(s16 *)((s8 *)arg0 + 0x1BC) = get_field6_bswap__9TItemDataFPv(item);
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x1BC);
+    *(s16 *)((s8 *)item_pro_unit + 0x1BC) = get_field6_bswap__9TItemDataFPv(item);
+    temp_r0 = *(s16 *)((s8 *)item_pro_unit + 0x1BC);
     if ((temp_r0 <= -0xA) || (temp_r0 >= 0xA)) {
-        *(s16 *)((s8 *)arg0 + 0x1BC) = 0;
+        *(s16 *)((s8 *)item_pro_unit + 0x1BC) = 0;
     }
-    memset((u8 *)arg0 + 0x192, 0, 0x26);
-    arg0->apply_unit_effect_flags();
-    return (u8 *)arg0;
+    memset((u8 *)item_pro_unit + 0x192, 0, 0x26);
+    item_pro_unit->apply_unit_effect_flags();
+    return (u8 *)item_pro_unit;
 }
 
 }

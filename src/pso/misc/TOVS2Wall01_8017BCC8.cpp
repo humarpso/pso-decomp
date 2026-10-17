@@ -27,7 +27,7 @@ void init__11TOVS2Wall01Fi(s32 arg0) {
 
 extern const f32 lbl_805DBAA8;
 
-f32 take_hit__11TOVS2Wall01FPvUi(u8 *arg0, u32 arg1) {
+f32 take_hit__11TOVS2Wall01FPvUi(u8 *ovs2_wall01, u32 arg1) {
     u32 var_r31;
 
     var_r31 = 0U;
@@ -36,15 +36,15 @@ f32 take_hit__11TOVS2Wall01FPvUi(u8 *arg0, u32 arg1) {
         var_r31 = arg1;
     }
     if ((var_r31 != 0U) && (is_locally_controlled__10TObjPlayerFPv(var_r31) == 1)) {
-        ((TOVS2Wall01 *)arg0)->m_33c = (s32) (((TOVS2Wall01 *)arg0)->m_33c - 1);
-        if ((s32) ((TOVS2Wall01 *)arg0)->m_33c <= 0) {
-            ((TOVS2Wall01 *)arg0)->m_33c = 0;
-            ((TOVS2Wall01 *)arg0)->save_and_send_state(1);
+        ((TOVS2Wall01 *)ovs2_wall01)->m_33c = (s32) (((TOVS2Wall01 *)ovs2_wall01)->m_33c - 1);
+        if ((s32) ((TOVS2Wall01 *)ovs2_wall01)->m_33c <= 0) {
+            ((TOVS2Wall01 *)ovs2_wall01)->m_33c = 0;
+            ((TOVS2Wall01 *)ovs2_wall01)->save_and_send_state(1);
         } else {
-            ((TOVS2Wall01 *)arg0)->save_and_send_state(0);
+            ((TOVS2Wall01 *)ovs2_wall01)->save_and_send_state(0);
         }
-        spawn_particle_effect((arg0 + 0x38), 0x1D0);
-        spawn_particle_effect((arg0 + 0x38), 1);
+        spawn_particle_effect((ovs2_wall01 + 0x38), 0x1D0);
+        spawn_particle_effect((ovs2_wall01 + 0x38), 1);
     }
     return lbl_805DBAA8;
 }

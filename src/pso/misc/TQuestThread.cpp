@@ -723,14 +723,14 @@ TQuestThread::~TQuestThread() {}
 
 u8 *create_floor_quest_thread(void) {
     s32 temp_r30;
-    u8 *temp_r3;
+    u8 *quest_thread;
     u8 *var_r0;
     temp_r30 = get_current_floor() * 4;
     if (((s32) *(s32 *)((s8 *)&TQuestThread__floor_handler_ids.value + temp_r30) != -1) && ((u32) quest_mission_manager != 0U)) {
-        temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x194)));
-        var_r0 = temp_r3;
+        quest_thread = (u8 *)(((u8 *)__nw__7TObjectFUl(0x194)));
+        var_r0 = quest_thread;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((u32)__ct__12TQuestThreadFv((u8 *)temp_r3, (s32)((u32)((s32) quest_mission_manager)), (s32)((s32)(*(s32 *)((s8 *)&TQuestThread__floor_handler_ids.value + temp_r30)))))));
+            var_r0 = (u8 *)(((u8 *)((u32)__ct__12TQuestThreadFv((u8 *)quest_thread, (s32)((u32)((s32) quest_mission_manager)), (s32)((s32)(*(s32 *)((s8 *)&TQuestThread__floor_handler_ids.value + temp_r30)))))));
         }
         return var_r0;
     }
@@ -755,13 +755,13 @@ u32 create__12TQuestThreadFi(s32 arg0) {
 }
 
 u8 *create_quest_thread(s32 arg0) {
-    u8 *temp_r3;
+    u8 *quest_thread;
     u8 *var_r0;
     if ((u32) quest_mission_manager != 0U) {
-        temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x194)));
-        var_r0 = temp_r3;
+        quest_thread = (u8 *)(((u8 *)__nw__7TObjectFUl(0x194)));
+        var_r0 = quest_thread;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((u32)__ct__12TQuestThreadFv(temp_r3, (s32)((u32)((s32) quest_mission_manager)), arg0))));
+            var_r0 = (u8 *)(((u8 *)((u32)__ct__12TQuestThreadFv(quest_thread, (s32)((u32)((s32) quest_mission_manager)), arg0))));
         }
         return var_r0;
     }
@@ -954,70 +954,70 @@ s32 create_by_mode__12TQuestThreadFv(void) {
 
 #pragma push
 #pragma fp_contract on
-u8 *init_from_script__12TQuestThreadFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+u8 *init_from_script__12TQuestThreadFPviii(u8 *object, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r31;
     __ct__7TObjectFP7TObject();
-    *(s32 **)((s8 *)arg0 + 0x18) = TQuestThread__data_804C8678;
+    *(s32 **)((s8 *)object + 0x18) = TQuestThread__data_804C8678;
     if (arg3 < 0) {
-        queue_destruction__7TObjectFv(arg0);
+        queue_destruction__7TObjectFv(object);
     } else {
         temp_r31 = arg3 + 0x400;
-        *(s32 *)((s8 *)arg0 + 0x198) = ((TQuestVmDownLoadServer *)temp_r31)->alloc();
-        memcpy(*(s32 *)((s8 *)arg0 + 0x198), arg2, temp_r31);
-        (*(u8 * *)&quest_mission_manager) = arg0;
-        init_quest_script_context(*(s32 *)((s8 *)arg0 + 0x198), arg0 + 0x24);
-        *(s32 *)((s8 *)arg0 + 0x1A0) = 0;
+        *(s32 *)((s8 *)object + 0x198) = ((TQuestVmDownLoadServer *)temp_r31)->alloc();
+        memcpy(*(s32 *)((s8 *)object + 0x198), arg2, temp_r31);
+        (*(u8 * *)&quest_mission_manager) = object;
+        init_quest_script_context(*(s32 *)((s8 *)object + 0x198), object + 0x24);
+        *(s32 *)((s8 *)object + 0x1A0) = 0;
     }
     ((s32 (*)(void))clear_thread_state__12TQuestThreadFv)();
-    return arg0;
+    return object;
 }
 }
 #pragma pop
 
-u8 *load_quest_root_script(u8 *arg0, void *parent, void *arg2, s32 arg3) {
+u8 *load_quest_root_script(u8 *object, void *parent, void *scene, s32 arg3) {
     s32 size;
     void *mem;
     TObj_801F62E0 *obj;
-    ((void (*)(void *, void *))__ct__7TObjectFP7TObject)(arg0, parent);
-    *(s32 **)((s8 *)arg0 + 0x18) = TQuestThread__data_804C8678;
-    *(s32 *)((s8 *)arg0 + 0x1A0) = arg3;
-    *(s32 *)((s8 *)arg0 + 0x198) = 0;
-    obj = (TObj_801F62E0 *)arg0;
-    switch (*(s32 *)((s8 *)arg0 + 0x1A0)) {
+    ((void (*)(void *, void *))__ct__7TObjectFP7TObject)(object, parent);
+    *(s32 **)((s8 *)object + 0x18) = TQuestThread__data_804C8678;
+    *(s32 *)((s8 *)object + 0x1A0) = arg3;
+    *(s32 *)((s8 *)object + 0x198) = 0;
+    obj = (TObj_801F62E0 *)object;
+    switch (*(s32 *)((s8 *)object + 0x1A0)) {
     case 0:
         copy_name((s32)lbl_8044A640);
-        size = ((TScene *)arg2)->update_lobby_scene();
+        size = ((TScene *)scene)->update_lobby_scene();
         if (size < 0) {
-            queue_destruction__7TObjectFv(arg0);
+            queue_destruction__7TObjectFv(object);
         } else {
-            *(s32 *)((s8 *)arg0 + 0x198) = ((TQuestVmDownLoadServer *)(size + 0x400))->alloc();
-            read_disc_file(arg2, *(s32 *)((s8 *)arg0 + 0x198));
+            *(s32 *)((s8 *)object + 0x198) = ((TQuestVmDownLoadServer *)(size + 0x400))->alloc();
+            read_disc_file(scene, *(s32 *)((s8 *)object + 0x198));
             copy_name((s32)&lbl_805DC50C);
-            (*(u8 * *)&quest_mission_manager) = arg0;
-            init_quest_script_context(*(s32 *)((s8 *)arg0 + 0x198), arg0 + 0x24);
+            (*(u8 * *)&quest_mission_manager) = object;
+            init_quest_script_context(*(s32 *)((s8 *)object + 0x198), object + 0x24);
             mem = (void *)((s32 (*)(s32))__nw__7TObjectFUl)(0x194);
             if (mem != NULL) {
-                ((s32 (*)(void *, void *, s32))__ct__12TQuestThreadFv)(mem, arg0, 0);
+                ((s32 (*)(void *, void *, s32))__ct__12TQuestThreadFv)(mem, object, 0);
             }
         }
         ((s32 (*)(void))clear_thread_state__12TQuestThreadFv)();
         break;
     case 1:
-        size = ((TScene *)arg2)->update_lobby_scene();
+        size = ((TScene *)scene)->update_lobby_scene();
         if (size < 0) {
-            queue_destruction__7TObjectFv(arg0);
+            queue_destruction__7TObjectFv(object);
         } else {
-            *(s32 *)((s8 *)arg0 + 0x198) = ((TQuestVmDownLoadServer *)(size + 0x400))->alloc();
-            read_disc_file(arg2, *(s32 *)((s8 *)arg0 + 0x198));
-            quest_area_manager = (u32)arg0;
-            init_quest_script_context(*(s32 *)((s8 *)arg0 + 0x198), arg0 + 0x24);
+            *(s32 *)((s8 *)object + 0x198) = ((TQuestVmDownLoadServer *)(size + 0x400))->alloc();
+            read_disc_file(scene, *(s32 *)((s8 *)object + 0x198));
+            quest_area_manager = (u32)object;
+            init_quest_script_context(*(s32 *)((s8 *)object + 0x198), object + 0x24);
         }
         break;
     default:
         queue_destruction__7TObjectFv(obj);
         break;
     }
-    return arg0;
+    return object;
 }
 extern "C" {
 

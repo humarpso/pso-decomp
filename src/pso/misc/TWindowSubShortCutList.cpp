@@ -120,25 +120,25 @@ void *__dt__22TWindowSubShortCutListFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void *TWindowSubShortCutList__ct(void *arg0, void *arg1, void *arg2) {
+void *TWindowSubShortCutList__ct(void *window_sub_short_cut_list, void *arg1, void *arg2) {
     s32 row;
     s32 col;
     void *p;
-    fn_802683F4(arg0, arg1, 4, local_client_id);
-    ((Obj_8027E558 *)arg0)->vt = ((s32 *)&__vt__22TWindowSubShortCutList);
-    ((Obj_8027E558 *)arg0)->f0 = TWindowSubShortCutList__class_name;
+    fn_802683F4(window_sub_short_cut_list, arg1, 4, local_client_id);
+    ((Obj_8027E558 *)window_sub_short_cut_list)->vt = ((s32 *)&__vt__22TWindowSubShortCutList);
+    ((Obj_8027E558 *)window_sub_short_cut_list)->f0 = TWindowSubShortCutList__class_name;
     row = (s32)arg2 / 4;
     col = (s32)arg2 % 4;
-    ((TUnk_804D0618 *)arg0)->ensure_status_display((s32)(TWindowSubStatusDisp::get_message_10(0x2D)));
+    ((TUnk_804D0618 *)window_sub_short_cut_list)->ensure_status_display((s32)(TWindowSubStatusDisp::get_message_10(0x2D)));
     p = alloc__23TAdSinglePlyChrSelectGCFv(0xC);
     if (p != NULL) {
         p = init__21TWindowSubComCardListFiii(p, row, 5, local_client_id);
     }
-    ((Obj_8027E558 *)arg0)->list = p;
-    ((TWindowSubShortCutList *)arg0)->set_flag70_bit10();
-    ((TWindowSubShortCutList *)arg0)->refresh_entries();
-    ((TWindowSubShortCutList *)arg0)->set_cursor_index(col);
-    return arg0;
+    ((Obj_8027E558 *)window_sub_short_cut_list)->list = p;
+    ((TWindowSubShortCutList *)window_sub_short_cut_list)->set_flag70_bit10();
+    ((TWindowSubShortCutList *)window_sub_short_cut_list)->refresh_entries();
+    ((TWindowSubShortCutList *)window_sub_short_cut_list)->set_cursor_index(col);
+    return window_sub_short_cut_list;
 }
 
 }

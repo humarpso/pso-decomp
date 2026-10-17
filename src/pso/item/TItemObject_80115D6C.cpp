@@ -199,15 +199,15 @@ void send_nearby_player_ids(Obj_80116004 *self, f32 range) {
     }
 }
 
-void send_star_atomizer_targets(void *arg0) {
+void send_star_atomizer_targets(void *player) {
     Msg_801160E0 msg;
     s32 t;
     s32 i;
-    if (arg0 != NULL && sub_801A1DDC__10TObjPlayerFv(arg0) != 0 && ((Item_801160E0 *)arg0)->f424 != 0) {
-        t = ((TMainCursor *)(((Item_801160E0 *)arg0)->f424))->find_by_pos(4, 0xA);
+    if (player != NULL && sub_801A1DDC__10TObjPlayerFv(player) != 0 && ((Item_801160E0 *)player)->f424 != 0) {
+        t = ((TMainCursor *)(((Item_801160E0 *)player)->f424))->find_by_pos(4, 0xA);
         if (t != 0) {
             ((TObjPlayer *)(&msg))->set_type_bytes();
-            msg.id = obj_getField1c((Obj_80116004 *)arg0);
+            msg.id = obj_getField1c((Obj_80116004 *)player);
             for (i = 0; i != 3; i++) {
                 msg.types[i] = ((TObjPlayer *)(TObjPlayer__sub_80116620((void *)(t + 0x9C), i)))->get_type_id();
             }
@@ -342,11 +342,11 @@ void TItemObject::vfunc_44() {
 
 extern s32 lbl_805D2C28;
 
-void TItemObject__vt16(u8 *arg0, u8 *item) {
+void TItemObject__vt16(u8 *item_object, u8 *item) {
     if (((u8 (*)())get_field_ed__5TItemFv)() == 2) {
-        *(u8 *)((s8 *)item + 4) = (u8) ((TItemObject *)arg0)->m_100;
+        *(u8 *)((s8 *)item + 4) = (u8) ((TItemObject *)item_object)->m_100;
     }
-    set_stack_count__24TShopEquipmentListWindowFSc(item, (void *) (((VObj_18 *)(arg0))->m34()));
+    set_stack_count__24TShopEquipmentListWindowFSc(item, (void *) (((VObj_18 *)(item_object))->m34()));
 }
 
 void *TItemObject__ct(void *arg0, void *arg1, void *item) {

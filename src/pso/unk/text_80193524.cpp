@@ -314,10 +314,10 @@ void TLazerFenceSw__vt24(Sw_80193978 *arg0) {
     TObjNpcEnemy::set_global_count(0xF0F0F0FF);
 }
 
-void TLazerFenceSw__vt16(void *arg0) {
-    ((TOKey *)arg0)->TOKey::trigger_activate_sound();
-    ((TLazerFenceSw *)arg0)->m_b0 = TLazerFenceSw__data_805DBE84;
-    *(f32 *)((s8 *)arg0 + 0xEC) = TLazerFenceSw__data_805DBE84;
+void TLazerFenceSw__vt16(void *lazer_fence_sw) {
+    ((TOKey *)lazer_fence_sw)->TOKey::trigger_activate_sound();
+    ((TLazerFenceSw *)lazer_fence_sw)->m_b0 = TLazerFenceSw__data_805DBE84;
+    *(f32 *)((s8 *)lazer_fence_sw + 0xEC) = TLazerFenceSw__data_805DBE84;
 }
 
 void TLazerFenceSw__vt17(void *arg0) {

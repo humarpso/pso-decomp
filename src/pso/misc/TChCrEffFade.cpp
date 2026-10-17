@@ -59,33 +59,33 @@ extern s32 lbl_805D3CC0;
 extern s32 tl_fade;
 
 TChCrEffFade::~TChCrEffFade() {}
-void *__ct__12TChCrEffFadeFv(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+void *__ct__12TChCrEffFadeFv(void *ch_cr_eff_fade, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r0;
     s32 temp_r0_2;
 
-    __ct__7TObjectFP7TObject((s32) arg0, tl_fade);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TChCrEffFade;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3CC0;
-    *(s32 *)((s8 *)arg0 + 0x1C) = arg1;
-    *(s32 *)((s8 *)arg0 + 0x20) = (arg2 + 3);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x20);
+    __ct__7TObjectFP7TObject((s32) ch_cr_eff_fade, tl_fade);
+    *(s32 **)((s8 *)ch_cr_eff_fade + 0x18) = __vt__12TChCrEffFade;
+    *(s32 *)((s8 *)ch_cr_eff_fade + 0) = (s32) lbl_805D3CC0;
+    *(s32 *)((s8 *)ch_cr_eff_fade + 0x1C) = arg1;
+    *(s32 *)((s8 *)ch_cr_eff_fade + 0x20) = (arg2 + 3);
+    temp_r0 = *(s32 *)((s8 *)ch_cr_eff_fade + 0x20);
     if (temp_r0 < 4) {
-        *(s32 *)((s8 *)arg0 + 0x20) = 4;
+        *(s32 *)((s8 *)ch_cr_eff_fade + 0x20) = 4;
     } else if (temp_r0 > 0x1C2) {
-        *(s32 *)((s8 *)arg0 + 0x20) = 0x1C2;
+        *(s32 *)((s8 *)ch_cr_eff_fade + 0x20) = 0x1C2;
     }
-    temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x1C);
+    temp_r0_2 = *(s32 *)((s8 *)ch_cr_eff_fade + 0x1C);
     if (temp_r0_2 == 1) {
-        *(s32 *)((s8 *)arg0 + 0x24) = 0;
+        *(s32 *)((s8 *)ch_cr_eff_fade + 0x24) = 0;
     } else if (temp_r0_2 == -1) {
-        *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)arg0 + 0x20);
+        *(s32 *)((s8 *)ch_cr_eff_fade + 0x24) = (s32) *(s32 *)((s8 *)ch_cr_eff_fade + 0x20);
     } else {
-        *(s32 *)((s8 *)arg0 + 0x1C) = 1;
-        *(s32 *)((s8 *)arg0 + 0x24) = 0;
+        *(s32 *)((s8 *)ch_cr_eff_fade + 0x1C) = 1;
+        *(s32 *)((s8 *)ch_cr_eff_fade + 0x24) = 0;
     }
-    ((TChCrEffFade *)arg0)->update_fade();
-    *(s32 *)((s8 *)arg0 + 0x2C) = arg3;
-    return arg0;
+    ((TChCrEffFade *)ch_cr_eff_fade)->update_fade();
+    *(s32 *)((s8 *)ch_cr_eff_fade + 0x2C) = arg3;
+    return ch_cr_eff_fade;
 }
 
 }

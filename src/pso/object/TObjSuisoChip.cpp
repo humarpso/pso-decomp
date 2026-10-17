@@ -31,40 +31,40 @@ void *__dt__13TObjSuisoChipFv(void *self, s16 arg1) {
     return self;
 }
 
-u8 *__ct__13TObjSuisoChipFv(u8 *arg0, u8 *arg1) {
-    __ct__8TObjChipFv((void *)arg0, (void *)tl_05);
-    *(void ***)((s8 *)arg0 + 0x18) = __vt__13TObjSuisoChip;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) suiso_chip_class_name_ptr;
+u8 *__ct__13TObjSuisoChipFv(u8 *chip, u8 *arg1) {
+    __ct__8TObjChipFv((void *)chip, (void *)tl_05);
+    *(void ***)((s8 *)chip + 0x18) = __vt__13TObjSuisoChip;
+    *(s32 *)((s8 *)chip + 0) = (s32) suiso_chip_class_name_ptr;
     if (arg1 != NULL) {
-        VecCopy((Vec *)(arg0 + 0x234), (const Vec *)(arg1 + 0x38));
-        *(s32 *)((s8 *)arg0 + 0x240) = (s32) *(s32 *)((s8 *)arg1 + 0x60);
+        VecCopy((Vec *)(chip + 0x234), (const Vec *)(arg1 + 0x38));
+        *(s32 *)((s8 *)chip + 0x240) = (s32) *(s32 *)((s8 *)arg1 + 0x60);
     } else {
-        *(f32 *)((s8 *)arg0 + 0x238) = (f32) lbl_805DDFF8;
-        *(f32 *)((s8 *)arg0 + 0x238) = (f32) lbl_805DDFF8;
-        *(f32 *)((s8 *)arg0 + 0x234) = (f32) lbl_805DDFF8;
-        *(s32 *)((s8 *)arg0 + 0x240) = 0;
+        *(f32 *)((s8 *)chip + 0x238) = (f32) lbl_805DDFF8;
+        *(f32 *)((s8 *)chip + 0x238) = (f32) lbl_805DDFF8;
+        *(f32 *)((s8 *)chip + 0x234) = (f32) lbl_805DDFF8;
+        *(s32 *)((s8 *)chip + 0x240) = 0;
     }
-    *(s32 *)((s8 *)arg0 + 0x244) = 0;
-    *(s32 *)((s8 *)arg0 + 0x248) = 0x14;
-    return arg0;
+    *(s32 *)((s8 *)chip + 0x244) = 0;
+    *(s32 *)((s8 *)chip + 0x248) = 0x14;
+    return chip;
 }
 
-u8 *init__13TObjSuisoChipFPvPv(u8 *arg0, u8 *arg1) {
-    construct_debris__8TObjChipFPvPvPv((void *)arg0, (void *)tl_05);
-    *(void ***)((s8 *)arg0 + 0x18) = __vt__13TObjSuisoChip;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) suiso_chip_class_name_ptr;
+u8 *init__13TObjSuisoChipFPvPv(u8 *chip, u8 *arg1) {
+    construct_debris__8TObjChipFPvPvPv((void *)chip, (void *)tl_05);
+    *(void ***)((s8 *)chip + 0x18) = __vt__13TObjSuisoChip;
+    *(s32 *)((s8 *)chip + 0) = (s32) suiso_chip_class_name_ptr;
     if (arg1 != NULL) {
-        VecCopy((Vec *)(arg0 + 0x234), (const Vec *)(arg1 + 0x38));
-        *(s32 *)((s8 *)arg0 + 0x240) = (s32) *(s32 *)((s8 *)arg1 + 0x60);
+        VecCopy((Vec *)(chip + 0x234), (const Vec *)(arg1 + 0x38));
+        *(s32 *)((s8 *)chip + 0x240) = (s32) *(s32 *)((s8 *)arg1 + 0x60);
     } else {
-        *(f32 *)((s8 *)arg0 + 0x238) = (f32) lbl_805DDFF8;
-        *(f32 *)((s8 *)arg0 + 0x238) = (f32) lbl_805DDFF8;
-        *(f32 *)((s8 *)arg0 + 0x234) = (f32) lbl_805DDFF8;
-        *(s32 *)((s8 *)arg0 + 0x240) = 0;
+        *(f32 *)((s8 *)chip + 0x238) = (f32) lbl_805DDFF8;
+        *(f32 *)((s8 *)chip + 0x238) = (f32) lbl_805DDFF8;
+        *(f32 *)((s8 *)chip + 0x234) = (f32) lbl_805DDFF8;
+        *(s32 *)((s8 *)chip + 0x240) = 0;
     }
-    *(s32 *)((s8 *)arg0 + 0x244) = 0;
-    *(s32 *)((s8 *)arg0 + 0x248) = 0x14;
-    return arg0;
+    *(s32 *)((s8 *)chip + 0x244) = 0;
+    *(s32 *)((s8 *)chip + 0x248) = 0x14;
+    return chip;
 }
 
 }
@@ -173,14 +173,14 @@ s32 *get_table1_entry__23TObjSeabedSuisoBrakableFi(s32);
 extern s32 actor_frame_tick;
 extern s32 suiso_brakable_last_tick;
 
-void TObjSeabedSuisoBrakable__vt12(TObjSeabedSuisoBrakable *arg0) {
+void TObjSeabedSuisoBrakable__vt12(TObjSeabedSuisoBrakable *seabed_suiso_brakable) {
     s32 break_data;
     s32 temp_r3_2;
     void *temp_r31;
     void *temp_r31_2;
 
-    if ((s32) arg0->m_bc == 2) {
-        temp_r31 = count_linked_switches__23TObjSeabedSuisoBrakableFl(*(s32 *)((s8 *)arg0 + 0x34), 2);
+    if ((s32) seabed_suiso_brakable->m_bc == 2) {
+        temp_r31 = count_linked_switches__23TObjSeabedSuisoBrakableFl(*(s32 *)((s8 *)seabed_suiso_brakable + 0x34), 2);
         if ((s32) suiso_brakable_last_tick != (s32) actor_frame_tick) {
             if ((temp_r31 != NULL) && ((u32) *(u32 *)((s8 *)temp_r31 + 4) != 0U)) {
                 break_data = TObjSeabedSuisoBrakable::get_break_data(1);
@@ -191,8 +191,8 @@ void TObjSeabedSuisoBrakable__vt12(TObjSeabedSuisoBrakable *arg0) {
             suiso_brakable_last_tick = actor_frame_tick;
         }
     }
-    if ((s32) arg0->m_bc == 0) {
-        temp_r31_2 = count_linked_switches__23TObjSeabedSuisoBrakableFl(*(s32 *)((s8 *)arg0 + 0x34), 8);
+    if ((s32) seabed_suiso_brakable->m_bc == 0) {
+        temp_r31_2 = count_linked_switches__23TObjSeabedSuisoBrakableFl(*(s32 *)((s8 *)seabed_suiso_brakable + 0x34), 8);
         if ((s32) suiso_brakable_last_tick != (s32) actor_frame_tick) {
             if ((temp_r31_2 != NULL) && ((u32) *(u32 *)((s8 *)temp_r31_2 + 4) != 0U)) {
                 temp_r3_2 = TObjSeabedSuisoBrakable::get_break_data(2);
@@ -205,10 +205,10 @@ void TObjSeabedSuisoBrakable__vt12(TObjSeabedSuisoBrakable *arg0) {
     }
 }
 
-void render__23TObjSeabedSuisoBrakableFv(void *arg0) {
-    struct VObj_802A63F8_802A62E8 *o = (struct VObj_802A63F8_802A62E8 *)arg0;
+void render__23TObjSeabedSuisoBrakableFv(void *rock_cave) {
+    struct VObj_802A63F8_802A62E8 *o = (struct VObj_802A63F8_802A62E8 *)rock_cave;
     o->m12();
-    ((TORockCave *)arg0)->draw_model();
+    ((TORockCave *)rock_cave)->draw_model();
 }
 
 typedef char RecoveredGlobal_802A6438_lbl_804DD388_size[sizeof(RecoveredGlobal_802A6438_lbl_804DD388) == 0x360 ? 1 : -1];
@@ -289,25 +289,25 @@ void *__dt__23TObjSeabedSuisoBrakableFv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_802A6668_lbl_804DD6E8_size[sizeof(RecoveredGlobal_802A6668_lbl_804DD6E8) == 0x84 ? 1 : -1];
 typedef char RecoveredGlobal_802A6668___vt__23TObjSeabedSuisoBrakable_size[sizeof(RecoveredGlobal_802A6668___vt__23TObjSeabedSuisoBrakable) == 0x50 ? 1 : -1];
-u8 *TObjSeabedSuisoBrakable__ct(TObjSeabedSuisoBrakable *arg0, s32 arg1) {
+u8 *TObjSeabedSuisoBrakable__ct(TObjSeabedSuisoBrakable *seabed_suiso_brakable, s32 arg1) {
     s32 temp_r0;
-    TORockCaveBrakable__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802A6668___vt__23TObjSeabedSuisoBrakable *)&__vt__23TObjSeabedSuisoBrakable).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjSeabedSuisoBrakable__name;
-    ((TObjSeabedSuisoBrakable *)(arg0))->apply_object_set_data((void *)arg1);
-    arg0->m_bc = (s32) fabs_float((f32) *(s32 *)((s8 *)arg0 + 0x88));
-    if ((s32) arg0->m_bc > 2) {
-        arg0->m_bc = 2;
+    TORockCaveBrakable__ct(seabed_suiso_brakable);
+    *(s32 **)((s8 *)seabed_suiso_brakable + 0x18) = &(*(RecoveredGlobal_802A6668___vt__23TObjSeabedSuisoBrakable *)&__vt__23TObjSeabedSuisoBrakable).value;
+    *(s32 *)((s8 *)seabed_suiso_brakable + 0) = (s32) TObjSeabedSuisoBrakable__name;
+    ((TObjSeabedSuisoBrakable *)(seabed_suiso_brakable))->apply_object_set_data((void *)arg1);
+    seabed_suiso_brakable->m_bc = (s32) fabs_float((f32) *(s32 *)((s8 *)seabed_suiso_brakable + 0x88));
+    if ((s32) seabed_suiso_brakable->m_bc > 2) {
+        seabed_suiso_brakable->m_bc = 2;
     }
-    arg0->sub_802A6438();
-    arg0->m_b8 = (s32) arg0->m_84;
-    temp_r0 = arg0->m_b8;
+    seabed_suiso_brakable->sub_802A6438();
+    seabed_suiso_brakable->m_b8 = (s32) seabed_suiso_brakable->m_84;
+    temp_r0 = seabed_suiso_brakable->m_b8;
     if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {
-        arg0->m_b8 = -1;
+        seabed_suiso_brakable->m_b8 = -1;
     }
-    init_collision_body_parts(arg0, (int) ((u8 *)&seabed_suiso_brakable_collision_bodies.value + (arg0->m_bc * 0x2C)), 1);
-    ((TObjPlayer *)arg0)->reset_photon_effect();
-    return (u8 *)arg0;
+    init_collision_body_parts(seabed_suiso_brakable, (int) ((u8 *)&seabed_suiso_brakable_collision_bodies.value + (seabed_suiso_brakable->m_bc * 0x2C)), 1);
+    ((TObjPlayer *)seabed_suiso_brakable)->reset_photon_effect();
+    return (u8 *)seabed_suiso_brakable;
 }
 
 void TObjSeabedSuisoBrakable::notify_break(u32 arg0) {
@@ -391,11 +391,11 @@ void update_switch_lock__23TObjSeabedSuisoBrakableFPv(void *arg0) {
 void notify_break__23TObjSeabedSuisoBrakableFPv(void *arg0);
 void set_model_node_callback(s32 arg0);
 
-void notify_break__23TObjSeabedSuisoBrakableFPv(void *arg0) {
+void notify_break__23TObjSeabedSuisoBrakableFPv(void *seabed_suiso_ch) {
     s32 break_data;
     void *temp_r31;
 
-    temp_r31 = count_linked_switches__23TObjSeabedSuisoBrakableFl(((TObjSeabedSuiso_CH *)arg0)->m_d4, 4);
+    temp_r31 = count_linked_switches__23TObjSeabedSuisoBrakableFl(((TObjSeabedSuiso_CH *)seabed_suiso_ch)->m_d4, 4);
     if ((s32) suiso_brakable_last_frame_tick != (s32) actor_frame_tick) {
         if ((temp_r31 != NULL) && ((u32) *(u32 *)((s8 *)temp_r31 + 4) != 0U)) {
             break_data = TObjSeabedSuisoBrakable::get_break_data(0);
@@ -436,21 +436,21 @@ void TObjSeabedSuiso_CH::update_state() {
         return;
     }
 }
-void draw_model__23TObjSeabedSuisoBrakableFPv(u8 *arg0) {
+void draw_model__23TObjSeabedSuisoBrakableFPv(u8 *seabed_suiso_ch) {
     void *p;
-    if (((VObj *)arg0)->m8(((TObjSeabedSuiso_CH *)arg0)->m_c0, *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
+    if (((VObj *)seabed_suiso_ch)->m8(((TObjSeabedSuiso_CH *)seabed_suiso_ch)->m_c0, *(f32 *)((s8 *)seabed_suiso_ch + 0xC4)) != 0) {
         TParticleCtrl::end_effect_render();
-        ((TObjSeabedSuiso_CH *)arg0)->update_state();
+        ((TObjSeabedSuiso_CH *)seabed_suiso_ch)->update_state();
         ((s32 (*)(s32))get_instance__23TObjSeabedSuisoBrakableFv)(0);
         set_global_param__8TObjFishFl();
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, ((TObjSeabedSuiso_CH *)arg0)->rotation_y);
-        p = *(void **)((s8 *)arg0 + 0xBC);
+        post_translate_matrix(seabed_suiso_ch + 0x38);
+        rotate_matrix_y(0, ((TObjSeabedSuiso_CH *)seabed_suiso_ch)->rotation_y);
+        p = *(void **)((s8 *)seabed_suiso_ch + 0xBC);
         if (p != NULL) {
-            draw_ginja_model_with_motion(((TObjSeabedSuiso_CH *)arg0)->m_d4, p, ((TObjSeabedSuiso_CH *)arg0)->m_b0);
+            draw_ginja_model_with_motion(((TObjSeabedSuiso_CH *)seabed_suiso_ch)->m_d4, p, ((TObjSeabedSuiso_CH *)seabed_suiso_ch)->m_b0);
         } else {
-            draw_ginja_box_tree((u8 *)(((TObjSeabedSuiso_CH *)arg0)->m_d4));
+            draw_ginja_box_tree((u8 *)(((TObjSeabedSuiso_CH *)seabed_suiso_ch)->m_d4));
         }
         pop_matrix();
         set_model_node_callback(0);

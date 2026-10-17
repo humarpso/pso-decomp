@@ -71,25 +71,25 @@ void TBoss5GryphonLightningWing::render() {  }
 
 #pragma push
 #pragma opt_common_subs off
-void run_task__26TBoss5GryphonLightningWingFv(TBoss5GryphonLightningWing *arg0) {
+void run_task__26TBoss5GryphonLightningWingFv(TBoss5GryphonLightningWing *boss5_gryphon_lightning_wing) {
     Stack_80351A80 stack;
-    *(f32 *)((s8 *)arg0 + 0x88) = (f32) ((f32) *(s32 *)((s8 *)arg0 + 0x94) / (f32) *(s32 *)((s8 *)arg0 + 0x9C));
-    if (*(f32 *)((s8 *)arg0 + 0x88) > lbl_805DFED4) {
-        *(f32 *)((s8 *)arg0 + 0x88) = (f32) lbl_805DFED4;
+    *(f32 *)((s8 *)boss5_gryphon_lightning_wing + 0x88) = (f32) ((f32) *(s32 *)((s8 *)boss5_gryphon_lightning_wing + 0x94) / (f32) *(s32 *)((s8 *)boss5_gryphon_lightning_wing + 0x9C));
+    if (*(f32 *)((s8 *)boss5_gryphon_lightning_wing + 0x88) > lbl_805DFED4) {
+        *(f32 *)((s8 *)boss5_gryphon_lightning_wing + 0x88) = (f32) lbl_805DFED4;
     }
-    *(f32 *)((s8 *)arg0 + 0x8C) = (f32) ((f32) *(s32 *)((s8 *)arg0 + 0x94) / (f32) *(s32 *)((s8 *)arg0 + 0x98));
-    if (*(f32 *)((s8 *)arg0 + 0x8C) > lbl_805DFED4) {
-        *(f32 *)((s8 *)arg0 + 0x8C) = (f32) lbl_805DFED4;
+    *(f32 *)((s8 *)boss5_gryphon_lightning_wing + 0x8C) = (f32) ((f32) *(s32 *)((s8 *)boss5_gryphon_lightning_wing + 0x94) / (f32) *(s32 *)((s8 *)boss5_gryphon_lightning_wing + 0x98));
+    if (*(f32 *)((s8 *)boss5_gryphon_lightning_wing + 0x8C) > lbl_805DFED4) {
+        *(f32 *)((s8 *)boss5_gryphon_lightning_wing + 0x8C) = (f32) lbl_805DFED4;
     }
-    arg0->update_wing_segments();
-    arg0->apply_lightning_effect();
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x94) == (s32) *(s32 *)((s8 *)arg0 + 0x98)) {
-        arg0->get_wing_position((s32)&stack.sp8);
+    boss5_gryphon_lightning_wing->update_wing_segments();
+    boss5_gryphon_lightning_wing->apply_lightning_effect();
+    if ((s32) *(s32 *)((s8 *)boss5_gryphon_lightning_wing + 0x94) == (s32) *(s32 *)((s8 *)boss5_gryphon_lightning_wing + 0x98)) {
+        boss5_gryphon_lightning_wing->get_wing_position((s32)&stack.sp8);
         play_sound_effect(0x40032516, &stack.sp8, 0, 0);
     }
-    ((TBoss5GryphonLightning *)arg0)->spawn_gryphon_lightning();
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x94) >= (s32) *(s32 *)((s8 *)arg0 + 0x9C)) {
-        queue_destruction__7TObjectFv((arg0));
+    ((TBoss5GryphonLightning *)boss5_gryphon_lightning_wing)->spawn_gryphon_lightning();
+    if ((s32) *(s32 *)((s8 *)boss5_gryphon_lightning_wing + 0x94) >= (s32) *(s32 *)((s8 *)boss5_gryphon_lightning_wing + 0x9C)) {
+        queue_destruction__7TObjectFv((boss5_gryphon_lightning_wing));
     }
 }
 #pragma pop

@@ -56,11 +56,11 @@ block_12:
 extern s32 __vt__13TObjQuestColA[];
 extern void *TObjQuestColA__class_name;
 
-void *TObjQuestColA__ct(void *arg0) {
-    TObjQuestColBase__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjQuestColA;
-    *(void * *)&((TObjQuestColA *)arg0)->m_name = TObjQuestColA__class_name;
-    return arg0;
+void *TObjQuestColA__ct(void *quest_col_a) {
+    TObjQuestColBase__ct(quest_col_a);
+    *(s32 **)((s8 *)quest_col_a + 0x18) = __vt__13TObjQuestColA;
+    *(void * *)&((TObjQuestColA *)quest_col_a)->m_name = TObjQuestColA__class_name;
+    return quest_col_a;
 }
 
 }

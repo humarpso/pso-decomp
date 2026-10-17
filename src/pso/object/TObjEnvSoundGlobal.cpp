@@ -109,14 +109,14 @@ u8 *TObjEnvSoundGlobal__ct(u8 *arg0, s32 parent, s32 arg2) {
     return arg0;
 }
 
-void * TObjEnvSoundEx__create(void *arg0) {
+void * TObjEnvSoundEx__create(void *rader_map_core) {
     void *o;
-    if (is_not_split_screen__13TRaderMapCoreFv(arg0) == 1) {
+    if (is_not_split_screen__13TRaderMapCoreFv(rader_map_core) == 1) {
         return NULL;
     }
     o = __nw__7TObjectFUl(0xA8);
     if (o != NULL) {
-        o = ((void *(*)(void *, void *, void *))TObjEnvSoundEx__ct)(o, tl_05, arg0);
+        o = ((void *(*)(void *, void *, void *))TObjEnvSoundEx__ct)(o, tl_05, rader_map_core);
     }
     return o;
 }

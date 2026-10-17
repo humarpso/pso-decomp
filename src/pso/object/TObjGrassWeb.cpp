@@ -96,19 +96,19 @@ void *__dt__12TObjGrassWebFv(void *arg0, s16 arg1) {
 }
 #pragma push
 #pragma fp_contract on
-u8 *TObjGrassWeb__ct(u8 *arg0, s32 arg1, u32 arg2) {
+u8 *TObjGrassWeb__ct(u8 *grass_web, s32 arg1, u32 arg2) {
     construct_world_actor_base();
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjGrassWeb;
+    *(s32 **)((s8 *)grass_web + 0x18) = __vt__12TObjGrassWeb;
     if (arg2 != 0U) {
-        *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2A3C;
-        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2 + 0x38));
-        ((TObjGrassWeb *)arg0)->m_90 = 0;
-        ((TObjGrassWeb *)arg0)->m_a4 = obj_getField1c(arg2);
-        ((TObjGrassWeb *)arg0)->m_84 = 0xB4;
+        *(s32 *)((s8 *)grass_web + 0) = (s32) lbl_805D2A3C;
+        VecCopy((Vec *)(grass_web + 0x38), (const Vec *)(arg2 + 0x38));
+        ((TObjGrassWeb *)grass_web)->m_90 = 0;
+        ((TObjGrassWeb *)grass_web)->m_a4 = obj_getField1c(arg2);
+        ((TObjGrassWeb *)grass_web)->m_84 = 0xB4;
     } else {
-        queue_destruction__7TObjectFv(arg0);
+        queue_destruction__7TObjectFv(grass_web);
     }
-    return arg0;
+    return grass_web;
 }
 #pragma pop
 

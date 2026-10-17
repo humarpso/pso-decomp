@@ -552,13 +552,13 @@ void TObjControl::run_task() {
 TObjControl::~TObjControl() {}
 
 extern "C" {
-void *TObjControl__ct(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjControl;
-    *(void * *)&((TObjControl *)arg0)->m_name = lbl_805D2B04;
-    *(u16 *)((s8 *)arg0 + 0x1C) = 2;
-    ((TObjControl *)arg0)->m_reserved = 0;
-    return arg0;
+void *TObjControl__ct(void *control) {
+    __ct__7TObjectFP7TObject(control);
+    *(s32 **)((s8 *)control + 0x18) = __vt__11TObjControl;
+    *(void * *)&((TObjControl *)control)->m_name = lbl_805D2B04;
+    *(u16 *)((s8 *)control + 0x1C) = 2;
+    ((TObjControl *)control)->m_reserved = 0;
+    return control;
 }
 
 void handle_6x9C_set_enemy_low_game_flags_ultimate(Msg_800F62E0 *arg0) {

@@ -190,22 +190,22 @@ void *__dt__16TODummyKeyCave01Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TODummyKeyCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_world_actor_base(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80165EE8___vt__16TODummyKeyCave01 *)&__vt__16TODummyKeyCave01).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TODummyKeyCave01__class_name;
-    ((TODummyKeyCave01 *)(arg0))->apply_object_set_data((void *)arg2);
-    *(f32 *)((s8 *)arg0 + 0xA8) = (f32) 1.0f;
-    ((TODummyKeyCave01 *)arg0)->m_a4 = (f32) 1.0f;
-    *(f32 *)((s8 *)arg0 + 0xA0) = (f32) 1.0f;
-    *(f32 *)((s8 *)arg0 + 0x9C) = (f32) 1.0f;
-    ((TODummyKeyCave01 *)arg0)->m_b4 = (f32) (0.0f);
-    *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (0.0f);
-    *(f32 *)((s8 *)arg0 + 0xAC) = (f32) (0.0f);
-    ((TODummyKeyCave01 *)arg0)->m_b8 = 1;
-    sub_80165940__16TODummyKeyCave01Fv(arg0, (f32) (1.0f));
-    ((TODummyKeyCave01 *)arg0)->m_cc = 0;
-    return arg0;
+u8 *TODummyKeyCave01__ct(u8 *dummy_key_cave01, s32 arg1, s32 arg2) {
+    construct_world_actor_base(dummy_key_cave01);
+    *(s32 **)((s8 *)dummy_key_cave01 + 0x18) = &(*(RecoveredGlobal_80165EE8___vt__16TODummyKeyCave01 *)&__vt__16TODummyKeyCave01).value;
+    *(s32 *)((s8 *)dummy_key_cave01 + 0) = (s32) TODummyKeyCave01__class_name;
+    ((TODummyKeyCave01 *)(dummy_key_cave01))->apply_object_set_data((void *)arg2);
+    *(f32 *)((s8 *)dummy_key_cave01 + 0xA8) = (f32) 1.0f;
+    ((TODummyKeyCave01 *)dummy_key_cave01)->m_a4 = (f32) 1.0f;
+    *(f32 *)((s8 *)dummy_key_cave01 + 0xA0) = (f32) 1.0f;
+    *(f32 *)((s8 *)dummy_key_cave01 + 0x9C) = (f32) 1.0f;
+    ((TODummyKeyCave01 *)dummy_key_cave01)->m_b4 = (f32) (0.0f);
+    *(f32 *)((s8 *)dummy_key_cave01 + 0xB0) = (f32) (0.0f);
+    *(f32 *)((s8 *)dummy_key_cave01 + 0xAC) = (f32) (0.0f);
+    ((TODummyKeyCave01 *)dummy_key_cave01)->m_b8 = 1;
+    sub_80165940__16TODummyKeyCave01Fv(dummy_key_cave01, (f32) (1.0f));
+    ((TODummyKeyCave01 *)dummy_key_cave01)->m_cc = 0;
+    return dummy_key_cave01;
 }
 
 }

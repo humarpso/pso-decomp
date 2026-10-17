@@ -71,8 +71,8 @@ extern "C" {
 s32 alloc__8TObjFishFPv(void *);
 
 void TBoss6PlotFalz::check_and_advance_state() {
-    void *temp_r3 = *(void **)((s8 *)this + 0x3DC);
-    if ((temp_r3 != NULL) && ((((TObjPlayer *)temp_r3)->get_plot_state() != 0) || (is_ready__14TBoss6PlotFalzFv(this) != 0))) {
+    void *player = *(void **)((s8 *)this + 0x3DC);
+    if ((player != NULL) && ((((TObjPlayer *)player)->get_plot_state() != 0) || (is_ready__14TBoss6PlotFalzFv(this) != 0))) {
         send_6xA3_action((s8)((void *)5));
     }
 }
@@ -80,27 +80,27 @@ void TBoss6PlotFalz::check_and_advance_state() {
 
 extern s32 lbl_804709A8[];
 
-void init_hall_boss_scene(void *arg0) {
+void init_hall_boss_scene(void *boss6_plot_falz) {
     TBoss6EmptyWarp::init_warp();
-    ((TBoss6PlotFalz *)arg0)->release_object();
+    ((TBoss6PlotFalz *)boss6_plot_falz)->release_object();
     play_area_music((char *)lbl_804709A8);
     refresh_players_equipment__14TBoss6PlotFalzFPv();
-    *(s32 *)((s8 *)arg0 + 0x3CC) = 0;
-    *(s32 *)((s8 *)arg0 + 0x3DC) = alloc__8TObjFishFPv(arg0);
+    *(s32 *)((s8 *)boss6_plot_falz + 0x3CC) = 0;
+    *(s32 *)((s8 *)boss6_plot_falz + 0x3DC) = alloc__8TObjFishFPv(boss6_plot_falz);
 }
 extern "C" {
-void TBoss6PlotFalz__sub_802B06D0(void *arg0) {
+void TBoss6PlotFalz__sub_802B06D0(void *boss6_plot_falz) {
     f32 f;
     refresh_players_equipment__14TBoss6PlotFalzFPv();
-    if (*(s32 *)((s8 *)arg0 + 0x3CC) > 0xF7) {
-        f = (f32)(*(s32 *)((s8 *)arg0 + 0x3CC) - 0xF7) / 8.0f;
+    if (*(s32 *)((s8 *)boss6_plot_falz + 0x3CC) > 0xF7) {
+        f = (f32)(*(s32 *)((s8 *)boss6_plot_falz + 0x3CC) - 0xF7) / 8.0f;
         if (f > 1.0f) {
             f = 1.0f;
         }
-        apply_fade_alpha__14TBoss6PlotFalzFlf(arg0, f, 0);
+        apply_fade_alpha__14TBoss6PlotFalzFlf(boss6_plot_falz, f, 0);
     }
-    if (++*(s32 *)((s8 *)arg0 + 0x3CC) > 0x101) {
-        ((TBoss6PlotFalz *)arg0)->set_state(4);
+    if (++*(s32 *)((s8 *)boss6_plot_falz + 0x3CC) > 0x101) {
+        ((TBoss6PlotFalz *)boss6_plot_falz)->set_state(4);
     }
 }
 }

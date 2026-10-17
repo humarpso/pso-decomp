@@ -177,7 +177,7 @@ void *TUnk_80480938::destroy_base(s16 arg1) {
 }
 typedef char RecoveredGlobal_8001A8F0_lbl_8043455C_size[sizeof(RecoveredGlobal_8001A8F0_lbl_8043455C) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_8001A8F0_lbl_80480938_size[sizeof(RecoveredGlobal_8001A8F0_lbl_80480938) == 0x18 ? 1 : -1];
-u8 *TObjPlayer__sub_8001A8F0(u8 *arg0, s32 arg1) {
+u8 *TObjPlayer__sub_8001A8F0(u8 *object, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_8001A8F0, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8001A8F0, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8001A8F0, sp10) == 0x8) ? 1 : -1];
@@ -185,8 +185,8 @@ u8 *TObjPlayer__sub_8001A8F0(u8 *arg0, s32 arg1) {
     typedef char sp15_offset[(offsetof(Stack_8001A8F0, sp15) == 0xD) ? 1 : -1];
     Stack_8001A8F0 stack;
     s32 temp_r3;
-    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8001A8F0_lbl_80480938 *)&lbl_80480938).value;
+    __ct__7TObjectFP7TObject((void *)object, (void *)arg1);
+    *(s32 **)((s8 *)object + 0x18) = &(*(RecoveredGlobal_8001A8F0_lbl_80480938 *)&lbl_80480938).value;
     player_light_index = 0;
     stack.sp8 = *(s32 *)((s8 *)&lbl_8043455C.value + 0);
     stack.spC = *(s32 *)((s8 *)&lbl_8043455C.value + 4);
@@ -197,7 +197,7 @@ u8 *TObjPlayer__sub_8001A8F0(u8 *arg0, s32 arg1) {
     init__9TItemDataFv((void *)&stack.sp14);
     stack.sp14 = 2;
     stack.sp15 = 0;
-    return arg0;
+    return object;
 }
 
 }

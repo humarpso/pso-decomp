@@ -15,21 +15,21 @@ s32 copy_entries(s32, s32, s32);
 
 extern s32 current_language;
 
-s32 begin_action_state__10TObjPlayerFPv(u8 *arg0) {
+s32 begin_action_state__10TObjPlayerFPv(u8 *player) {
     s32 temp_r31;
     u8 temp_r30;
 
-    if (arg0 == NULL) {
+    if (player == NULL) {
         return 0;
     }
-    temp_r30 = *(u8 *)((s8 *)arg0 + 0x3A1);
-    *(s8 *)((s8 *)arg0 + 0) = 5;
+    temp_r30 = *(u8 *)((s8 *)player + 0x3A1);
+    *(s8 *)((s8 *)player + 0) = 5;
     copy_entries(5, get_class_starting_inventory(temp_r30), get_ptr_4__10TObjPlayerFv());
-    ((TObjPlayer *)arg0)->set_action_state(1);
-    init_new_character_stats(arg0);
-    TObjPlayer::setup_effect_slots((s32)(*(s32 *)((s8 *)arg0 + 0x3A4)), (s32)(arg0 + 0x3C0));
-    init_technique_levels(*(s32 *)((s8 *)arg0 + 0x3A4), get_action_data__10TObjPlayerFv(arg0));
-    *(s8 *)((s8 *)arg0 + 3) = (s8) current_language;
+    ((TObjPlayer *)player)->set_action_state(1);
+    init_new_character_stats(player);
+    TObjPlayer::setup_effect_slots((s32)(*(s32 *)((s8 *)player + 0x3A4)), (s32)(player + 0x3C0));
+    init_technique_levels(*(s32 *)((s8 *)player + 0x3A4), get_action_data__10TObjPlayerFv(player));
+    *(s8 *)((s8 *)player + 3) = (s8) current_language;
     return 1;
 }
 
@@ -38,19 +38,19 @@ s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
 
 void TObjPlayer::begin_action_from_char_select() { get_char_index__23TAdSinglePlyChrSelectGCFUi((u32)((void*)65535)); ((int (*)(void))begin_action_state__10TObjPlayerFPv)(); }
 
-void TObjPlayer::copy_battle_mode(u8 *arg1) {
+void TObjPlayer::copy_battle_mode(u8 *player) {
     u8 *arg0 = (u8 *)this;
-    ((TObjPlayer *)arg1)->set_field_1ab(((TObjPlayer *)arg0)->get_battle_mode());
+    ((TObjPlayer *)player)->set_field_1ab(((TObjPlayer *)arg0)->get_battle_mode());
 }
 
-void TObjPlayer::copy_byte_339_to_record(u8 *arg1) {
+void TObjPlayer::copy_byte_339_to_record(u8 *player) {
     u8 *arg0 = (u8 *)this;
-    ((TObjPlayer *)arg1)->set_field_18f(((TObjPlayer *)arg0)->get_byte_339());
+    ((TObjPlayer *)player)->set_field_18f(((TObjPlayer *)arg0)->get_byte_339());
 }
 
-void TObjPlayer::copy_mag_level_to_record(u8 *arg1) {
+void TObjPlayer::copy_mag_level_to_record(u8 *player) {
     u8 *arg0 = (u8 *)this;
-    ((TObjPlayer *)arg1)->set_action_state(get_mag_level__10TObjPlayerFPv(arg0));
+    ((TObjPlayer *)player)->set_action_state(get_mag_level__10TObjPlayerFPv(arg0));
 }
 
 void TObjPlayer::apply_pending_action(s32 arg1) {

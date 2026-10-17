@@ -5385,7 +5385,7 @@ typedef char Layout_NetIcmpv6NeighborSolicitation_header[offsetof(NetIcmpv6Neigh
 typedef char Layout_NetIcmpv6NeighborSolicitation_target[offsetof(NetIcmpv6NeighborSolicitation, target) == 8 ? 1 : -1];
 typedef char Layout_NetIcmpv6RouterSolicitation_size[sizeof(NetIcmpv6RouterSolicitation) == 8 ? 1 : -1];
 typedef char Layout_NetIcmpv6RouterSolicitation_header[offsetof(NetIcmpv6RouterSolicitation, header) == 0 ? 1 : -1];
-s32 NetIPv6EmitRouterSolicitation(NetPacket *arg0, NetIPv6SendParameters *addr, s32 arg2) {
+s32 NetIPv6EmitRouterSolicitation(NetPacket *net_packet, NetIPv6SendParameters *addr, s32 arg2) {
     s16 NetIPv6GetInterfaceLinkLayerAddress(s32, s16, s32);
     s16 NetIPv6IsMulticast(u8 *);
     s16 NetIPv6IsUnspecified(u8 *);
@@ -5402,26 +5402,26 @@ s32 NetIPv6EmitRouterSolicitation(NetPacket *arg0, NetIPv6SendParameters *addr, 
             temp_r5 = temp_r3 + 2;
             option.type = 1;
             option.length_units = (u8) (temp_r5 >> 3);
-            arg0->total_bytes += temp_r5;
-            arg0->fragments[arg0->fragment_count].length = temp_r5;
-            ((TLobby *)(&arg0->fragments[arg0->fragment_count].buffer))->set_value_and_enable((s32)(&option));
-            arg0->fragment_count += 1;
+            net_packet->total_bytes += temp_r5;
+            net_packet->fragments[net_packet->fragment_count].length = temp_r5;
+            ((TLobby *)(&net_packet->fragments[net_packet->fragment_count].buffer))->set_value_and_enable((s32)(&option));
+            net_packet->fragment_count += 1;
         }
     }
     addr->traffic_class_bits = 0;
     addr->flow_label = 0;
     addr->next_header = 0x3A;
     addr->hop_limit = 0xFF;
-    arg0->total_bytes += 8;
-    arg0->fragments[arg0->fragment_count].length = 8;
-    ((TLobby *)(&arg0->fragments[arg0->fragment_count].buffer))->set_value_and_enable((s32)(&message));
-    arg0->fragment_count += 1;
+    net_packet->total_bytes += 8;
+    net_packet->fragments[net_packet->fragment_count].length = 8;
+    ((TLobby *)(&net_packet->fragments[net_packet->fragment_count].buffer))->set_value_and_enable((s32)(&message));
+    net_packet->fragment_count += 1;
     message.header.type = 0x85;
     message.header.code = 0;
     message.header.reserved = 0;
     message.header.checksum = 0;
-    message.header.checksum = TLobby__sub_80411040((const IPv6Address *)(&addr->source), (const IPv6Address *)(&addr->destination), addr->next_header, (const NetPacket *)(arg0), (s16)(1));
-    return TLobby__sub_80410BA8(arg0, addr, arg2, NULL);
+    message.header.checksum = TLobby__sub_80411040((const IPv6Address *)(&addr->source), (const IPv6Address *)(&addr->destination), addr->next_header, (const NetPacket *)(net_packet), (s16)(1));
+    return TLobby__sub_80410BA8(net_packet, addr, arg2, NULL);
 }
 #pragma pop
 

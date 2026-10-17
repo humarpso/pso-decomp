@@ -95,24 +95,24 @@ extern s32 __vt__16TItemReverseTech[];
 extern void *lbl_805D2C48;
 extern s32 lbl_8043E708[];
 
-void *TItemReverseTech__ct(void *arg0) {
+void *TItemReverseTech__ct(void *item_reverse_tech) {
     void *o;
     void *o2;
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TItemReverseTech;
-    *(void * *)&((TItemReverseTech *)arg0)->m_name = lbl_805D2C48;
+    __ct__7TObjectFP7TObject(item_reverse_tech);
+    *(s32 **)((s8 *)item_reverse_tech + 0x18) = __vt__16TItemReverseTech;
+    *(void * *)&((TItemReverseTech *)item_reverse_tech)->m_name = lbl_805D2C48;
     o = __nw__7TObjectFUl(0x34);
     if (o != NULL) {
-        o = TItemReverseTechPart1__ct(o, arg0, TItemReverseTech__texture_archive);
+        o = TItemReverseTechPart1__ct(o, item_reverse_tech, TItemReverseTech__texture_archive);
     }
-    *(void * *)&((TItemReverseTech *)arg0)->part_one = o;
-    *(u32 *)((s8 *)arg0 + 0x24) = 0;
+    *(void * *)&((TItemReverseTech *)item_reverse_tech)->part_one = o;
+    *(u32 *)((s8 *)item_reverse_tech + 0x24) = 0;
     o2 = __nw__7TObjectFUl(0x197C);
     if (o2 != NULL) {
-        __ct__10TAdEndTextFv(o2, arg0);
+        __ct__10TAdEndTextFv(o2, item_reverse_tech);
     }
     play_area_music((char *)lbl_8043E708);
-    return arg0;
+    return item_reverse_tech;
 }
 
 }

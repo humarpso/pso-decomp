@@ -78,11 +78,11 @@ s32 replace_owned_string__20TWindowSubStatusDispFPviiii(void *, s32, s32, s32, s
 
 extern s32 lbl_805DCF00;
 
-void update_stat_line__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1) {
+void update_stat_line__20TWindowSubStatusDispFPvi(void *window_sub_status_disp, s32 arg1) {
     text_builder_reset();
     text_builder_append((u8 *)&lbl_805DCF00);
     TWindowSubStatusDisp__sub_80228F5C(arg1);
-    *(s32 *)((s8 *)arg0 + 0x24) = replace_owned_string__20TWindowSubStatusDispFPviiii(arg0, get_shared_text_buffer(), *(s32 *)((s8 *)arg0 + 0x24), 0x10, 1);
+    *(s32 *)((s8 *)window_sub_status_disp + 0x24) = replace_owned_string__20TWindowSubStatusDispFPviiii(window_sub_status_disp, get_shared_text_buffer(), *(s32 *)((s8 *)window_sub_status_disp + 0x24), 0x10, 1);
 }
 
 void update_stat_line_if_positive__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1);
@@ -373,17 +373,17 @@ void TWindowSubStatusDisp::init_entry(s8 arg1, s8 arg2, u8 arg3, u32 src, s32 ar
     *(u16 *)((s8 *)((u8 *)this) + 0) = (u16) (*(u16 *)((s8 *)((u8 *)this) + 0) | 0x245);
 }
 
-void TWindowSubStatusDisp__sub_80258A28(u8 *arg0, s32 arg1, s32 arg2) {
-    *(f32 *)((s8 *)arg0 + 8) = (f32) lbl_805DCF08;
-    *(s8 *)&((TWindowSubStatusDisp *)arg0)->unk_1C = 0x33;
-    ((TWindowSubStatusDisp *)arg0)->m_1d = 9;
+void TWindowSubStatusDisp__sub_80258A28(u8 *window_sub_status_disp, s32 arg1, s32 arg2) {
+    *(f32 *)((s8 *)window_sub_status_disp + 8) = (f32) lbl_805DCF08;
+    *(s8 *)&((TWindowSubStatusDisp *)window_sub_status_disp)->unk_1C = 0x33;
+    ((TWindowSubStatusDisp *)window_sub_status_disp)->m_1d = 9;
     text_builder_reset();
     TWindowSubStatusDisp__sub_80228F5C(arg1);
     text_builder_append((u8 *)((s32 *) (TWindowSubStatusDisp::get_download_server())));
-    *(s32 *)((s8 *)arg0 + 0x24) = replace_owned_string__20TWindowSubStatusDispFPviiii(arg0, (s32)((int) (get_shared_text_buffer())), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x24))), 0x10, 1);
-    ((TWindowSubStatusDisp *)arg0)->m_34 = -1;
-    *(s32 *)((s8 *)arg0 + 0x18) = arg2;
-    *(u16 *)((s8 *)arg0 + 0) = (u16) (*(u16 *)((s8 *)arg0 + 0) | 0x45);
+    *(s32 *)((s8 *)window_sub_status_disp + 0x24) = replace_owned_string__20TWindowSubStatusDispFPviiii(window_sub_status_disp, (s32)((int) (get_shared_text_buffer())), (s32)((int) (*(s32 *)((s8 *)window_sub_status_disp + 0x24))), 0x10, 1);
+    ((TWindowSubStatusDisp *)window_sub_status_disp)->m_34 = -1;
+    *(s32 *)((s8 *)window_sub_status_disp + 0x18) = arg2;
+    *(u16 *)((s8 *)window_sub_status_disp + 0) = (u16) (*(u16 *)((s8 *)window_sub_status_disp + 0) | 0x45);
 }
 
 void TWindowSubStatusDisp::setup_stat_line(s32 src, s32 arg2, s32 arg3) {
@@ -435,17 +435,17 @@ void TWindowSubStatusDisp::init_list_entry(u8 arg1, s32 src, s32 arg3) {
         *(s32 *)((s8 *)this + 0x30) = 0xFF909090;
     }
 }
-void init_status_entry__20TWindowSubStatusDispFPvcUii(u8 *arg0, s8 arg1, u32 src, s32 arg3) {
-    *(f32 *)((s8 *)arg0 + 8) = (f32) lbl_805DCF04;
-    *(s8 *)&((TWindowSubStatusDisp *)arg0)->unk_1C = 0x33;
-    ((TWindowSubStatusDisp *)arg0)->m_1d = arg1;
-    *(s32 *)((s8 *)arg0 + 0x28) = -1;
-    ((TWindowSubStatusDisp *)arg0)->m_2c = -1;
-    *(s32 *)((s8 *)arg0 + 0x20) = ((u32)replace_owned_string__20TWindowSubStatusDispFPviiii(arg0, src, (s32)(*(s32 *)((s8 *)arg0 + 0x20)), 8, 1));
-    *(s32 *)((s8 *)arg0 + 0x30) = -1;
-    ((TWindowSubStatusDisp *)arg0)->m_34 = -1;
-    *(s32 *)((s8 *)arg0 + 0x18) = arg3;
-    *(u16 *)((s8 *)arg0 + 0) = (u16) (*(u16 *)((s8 *)arg0 + 0) | 0x45);
+void init_status_entry__20TWindowSubStatusDispFPvcUii(u8 *window_sub_status_disp, s8 arg1, u32 src, s32 arg3) {
+    *(f32 *)((s8 *)window_sub_status_disp + 8) = (f32) lbl_805DCF04;
+    *(s8 *)&((TWindowSubStatusDisp *)window_sub_status_disp)->unk_1C = 0x33;
+    ((TWindowSubStatusDisp *)window_sub_status_disp)->m_1d = arg1;
+    *(s32 *)((s8 *)window_sub_status_disp + 0x28) = -1;
+    ((TWindowSubStatusDisp *)window_sub_status_disp)->m_2c = -1;
+    *(s32 *)((s8 *)window_sub_status_disp + 0x20) = ((u32)replace_owned_string__20TWindowSubStatusDispFPviiii(window_sub_status_disp, src, (s32)(*(s32 *)((s8 *)window_sub_status_disp + 0x20)), 8, 1));
+    *(s32 *)((s8 *)window_sub_status_disp + 0x30) = -1;
+    ((TWindowSubStatusDisp *)window_sub_status_disp)->m_34 = -1;
+    *(s32 *)((s8 *)window_sub_status_disp + 0x18) = arg3;
+    *(u16 *)((s8 *)window_sub_status_disp + 0) = (u16) (*(u16 *)((s8 *)window_sub_status_disp + 0) | 0x45);
 }
 
 }

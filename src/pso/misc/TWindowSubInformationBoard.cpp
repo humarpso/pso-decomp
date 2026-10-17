@@ -162,11 +162,11 @@ void *__dt__26TWindowSubInformationBoardFv(TWindowSubInformationBoard *arg0, s16
 extern void *lbl_805D4348;
 
 }
-TWindowSubInformationBoard::TWindowSubInformationBoard(TObject *arg1, void *arg2) : TObject(arg1) {
+TWindowSubInformationBoard::TWindowSubInformationBoard(TObject *object, void *arg2) : TObject(object) {
     *(void * *)&this->m_name = lbl_805D4348;
     *(void **)((s8 *)this + 0x20) = arg2;
     this->m_24 = -1;
-    *(void **)((s8 *)this + 0x28) = arg1;
+    *(void **)((s8 *)this + 0x28) = object;
     this->m_2c = 0;
     this->m_30 = 0;
     this->m_34 = 0;

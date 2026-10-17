@@ -95,12 +95,12 @@ int set_status_flags__10TObjPlayerFUl(void*, void*);
 extern const f32 lbl_805DE788;
 extern const f32 lbl_805DE78C;
 
-void setup_radar_marker__10TObjPlayerFPvPv(TObjPlayer *arg0, void *arg1) {
+void setup_radar_marker__10TObjPlayerFPvPv(TObjPlayer *player, void *arg1) {
     set_radar_marker_params__10TObjPlayerFPvPv();
-    if (arg0->is_mode_two_and_ready() != 0) {
-        arg0->drain_owner_hp_fraction(lbl_805DE788);
+    if (player->is_mode_two_and_ready() != 0) {
+        player->drain_owner_hp_fraction(lbl_805DE788);
         *(s32 *)((s8 *)arg1 + 0x10) = 0xA;
-        *(s32 *)((s8 *)arg1 + 0x44) = (s32) ((TUnk_804E1CA8 *)arg0)->projectile;
+        *(s32 *)((s8 *)arg1 + 0x44) = (s32) ((TUnk_804E1CA8 *)player)->projectile;
         *(f32 *)((s8 *)arg1 + 0x4C) = lbl_805DE78C;
     }
 }
@@ -764,7 +764,7 @@ void fire_spread_shot__10TObjPlayerFPv(u8 *arg0) {
 }
 
 typedef char RecoveredGlobal_80362FB4_lbl_80479FC8_size[sizeof(RecoveredGlobal_80362FB4_lbl_80479FC8) == 0x10 ? 1 : -1];
-void TObjPlayer__sub_802D5DE0(u8 *arg0) {
+void TObjPlayer__sub_802D5DE0(u8 *item_weapon) {
     typedef char sp8_offset[(offsetof(Stack_80362FB4, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80362FB4, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80362FB4, sp10) == 0x8) ? 1 : -1];
@@ -775,22 +775,22 @@ void TObjPlayer__sub_802D5DE0(u8 *arg0) {
         stack.sp10 = *(s32 *)((s8 *)&lbl_80472590.value + 8);
         post_translate_matrix((void *)&stack.sp8);
         rotate_matrix_x(0, 0x18E3);
-        if (*(s32 *)((s8 *)arg0 + 0x1f8) & 1) {
+        if (*(s32 *)((s8 *)item_weapon + 0x1f8) & 1) {
             push_matrix();
             rotate_matrix_x(0, 0x2AAA);
-            ((TItemWeapon *)arg0)->check_boss2tunnel_field_f4();
+            ((TItemWeapon *)item_weapon)->check_boss2tunnel_field_f4();
             pop_matrix();
             push_matrix();
             rotate_matrix_x(0, -0x2AAA);
-            ((TItemWeapon *)arg0)->check_boss2tunnel_field_f4();
+            ((TItemWeapon *)item_weapon)->check_boss2tunnel_field_f4();
             pop_matrix();
         }
     }
 }
 
-void draw_weapon_if_not_hidden__10TObjPlayerFPv(u8 *arg0) {
-    if (((TItemWeapon *)arg0)->test_flags_1b8(0x01000000U) == 0U) {
-        draw_weapon_model__11TItemWeaponFv((TItemWeapon *)arg0);
+void draw_weapon_if_not_hidden__10TObjPlayerFPv(u8 *item_weapon) {
+    if (((TItemWeapon *)item_weapon)->test_flags_1b8(0x01000000U) == 0U) {
+        draw_weapon_model__11TItemWeaponFv((TItemWeapon *)item_weapon);
     }
 }
 

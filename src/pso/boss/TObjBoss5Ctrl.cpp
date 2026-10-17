@@ -40,37 +40,37 @@ TObjBoss5Ctrl::~TObjBoss5Ctrl() {
 
 extern "C" {
 
-void *TObjBoss5Ctrl__ct(void *arg0) {
+void *TObjBoss5Ctrl__ct(void *boss5_pillar_ctrl) {
     f32 temp_f2;
     f32 temp_f3;
 
-    __ct__7TObjectFP7TObject(arg0);
-    *(void **)((s8 *)arg0 + 0x18) = __vt__13TObjBoss5Ctrl;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2828;
-    *(u32 *)((s8 *)arg0 + 0x1C) = 0U;
-    *(u32 *)((s8 *)arg0 + 0x20) = 0U;
-    *(u32 *)((s8 *)arg0 + 0x24) = 0U;
-    *(u32 *)((s8 *)arg0 + 0x28) = 0U;
+    __ct__7TObjectFP7TObject(boss5_pillar_ctrl);
+    *(void **)((s8 *)boss5_pillar_ctrl + 0x18) = __vt__13TObjBoss5Ctrl;
+    *(s32 *)((s8 *)boss5_pillar_ctrl + 0) = (s32) lbl_805D2828;
+    *(u32 *)((s8 *)boss5_pillar_ctrl + 0x1C) = 0U;
+    *(u32 *)((s8 *)boss5_pillar_ctrl + 0x20) = 0U;
+    *(u32 *)((s8 *)boss5_pillar_ctrl + 0x24) = 0U;
+    *(u32 *)((s8 *)boss5_pillar_ctrl + 0x28) = 0U;
     temp_f3 = (f32) rand();
     temp_f2 = lbl_805D8F18 * temp_f3;
-    *(s16 *)((s8 *)arg0 + 0x2C) = (s16) (lbl_805D8F14 * temp_f2 + lbl_805D8F10);
+    *(s16 *)((s8 *)boss5_pillar_ctrl + 0x2C) = (s16) (lbl_805D8F14 * temp_f2 + lbl_805D8F10);
     if (is_room_enemy_set_cleared(get_current_floor(lbl_805D8F14, temp_f2, temp_f3), 1) == 0) {
         if (is_split_screen() == 0) {
-            if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) == 0U) {
-                *(u32 *)((s8 *)arg0 + 0x1C) = create__19TObjBoss5FloorGrassFv();
+            if ((u32) *(u32 *)((s8 *)boss5_pillar_ctrl + 0x1C) == 0U) {
+                *(u32 *)((s8 *)boss5_pillar_ctrl + 0x1C) = create__19TObjBoss5FloorGrassFv();
             }
-            if ((u32) *(u32 *)((s8 *)arg0 + 0x20) == 0U) {
-                *(u32 *)((s8 *)arg0 + 0x20) = create__19TObjBoss5FloorStoneFv();
+            if ((u32) *(u32 *)((s8 *)boss5_pillar_ctrl + 0x20) == 0U) {
+                *(u32 *)((s8 *)boss5_pillar_ctrl + 0x20) = create__19TObjBoss5FloorStoneFv();
             }
-            if ((u32) *(u32 *)((s8 *)arg0 + 0x24) == 0U) {
-                *(u32 *)((s8 *)arg0 + 0x24) = create__19TObjBoss5PillarCtrlFv(arg0);
+            if ((u32) *(u32 *)((s8 *)boss5_pillar_ctrl + 0x24) == 0U) {
+                *(u32 *)((s8 *)boss5_pillar_ctrl + 0x24) = create__19TObjBoss5PillarCtrlFv(boss5_pillar_ctrl);
             }
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x28) == 0U) {
-            *(u32 *)((s8 *)arg0 + 0x28) = TObjBoss5PillarDemo::create();
+        if ((u32) *(u32 *)((s8 *)boss5_pillar_ctrl + 0x28) == 0U) {
+            *(u32 *)((s8 *)boss5_pillar_ctrl + 0x28) = TObjBoss5PillarDemo::create();
         }
     }
-    return arg0;
+    return boss5_pillar_ctrl;
 }
 
 }

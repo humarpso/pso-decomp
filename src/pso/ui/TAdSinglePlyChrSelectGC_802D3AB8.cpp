@@ -145,15 +145,15 @@ extern "C" {
 void TAdSinglePlyChrSelectGC::close_and_change_scene() {
     s32 temp_r4;
     u8 *temp_r3;
-    u8 *temp_r3_2;
+    u8 *window_sub_com_card;
     temp_r3 = (u8 *)(*(u8 * *)&this->unk_38);
     if (temp_r3 != NULL) {
         TWindow__close(temp_r3);
         *(u8 * *)&this->unk_38 = NULL;
     }
-    temp_r3_2 = (u8 *)(*(u8 * *)&this->m_44);
-    if (temp_r3_2 != NULL) {
-        ((TWindowSubComCard *)temp_r3_2)->close();
+    window_sub_com_card = (u8 *)(*(u8 * *)&this->m_44);
+    if (window_sub_com_card != NULL) {
+        ((TWindowSubComCard *)window_sub_com_card)->close();
         *(u8 * *)&this->m_44 = NULL;
     }
     temp_r4 = *(s32 *)&this->m_1c + 1;

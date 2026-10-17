@@ -67,12 +67,12 @@ extern "C" {
 
 void TWindowHelpItem__sub_802531A0(void) {  }
 
-void TWindowHelpItem::init_text(void *arg1) {
+void TWindowHelpItem::init_text(void *str) {
     u8 *e;
     init_window_layout_entries(((u8 *)this) + 0x24, TWindowHelpItem__description_text_layout, this->m_20);
     *(V3_802531A4 *)(((u8 *)this) + 0xB0) = TWindowHelpItem__description_update_callback;
     e = get_array_entry__13TUnk_804CE018Fi(this, 0);
-    set_text_entry_string(e, (u32)arg1, 0x20);
+    set_text_entry_string(e, (u32)str, 0x20);
     ((TWindowHelpItem *)e)->reset_float_field();
 }
 

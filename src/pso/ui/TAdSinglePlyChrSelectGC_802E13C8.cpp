@@ -480,24 +480,24 @@ void TAdTimeSetGC::change_state(s32 arg1) {
 
 int TAdSinglePlyChrSelectGC__sub_802E1F8C(void* p);
 
-void init__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
+void init__23TAdSinglePlyChrSelectGCFPv(void *ad_time_set_gc) {
     ((s32 (*)())sub_802E1F14__12TAdTimeSetGCFv)();
-    *(s32 *)((s8 *)arg0 + 0x48) = 0;
-    ((TAdTimeSetGC *)arg0)->m_4c = 0;
-    *(s32 *)((s8 *)arg0 + 0x50) = 0;
-    *(s32 *)((s8 *)arg0 + 0x54) = 0;
-    *(s32 *)((s8 *)arg0 + 0x58) = ((s32 (*)())create__23TAdSinglePlyChrSelectGCFv)();
-    *(s32 *)((s8 *)arg0 + 0x20) = 0;
-    ((TAdTimeSetGC *)arg0)->unknown_5c = 0;
-    ((TAdTimeSetGC *)arg0)->timer = 0;
-    *(s32 *)((s8 *)arg0 + 0x40) = 0;
-    ((TAdTimeSetGC *)arg0)->load_status = ((TAdTimeSetGC *)arg0)->poll_load_status();
-    *(s32 *)((s8 *)arg0 + 0x1C) = -1;
-    if ((s32) ((TAdTimeSetGC *)arg0)->load_status == 0) {
-        ((s32 (*)(void *, s32))change_state__12TAdTimeSetGCFl)(arg0, 1);
+    *(s32 *)((s8 *)ad_time_set_gc + 0x48) = 0;
+    ((TAdTimeSetGC *)ad_time_set_gc)->m_4c = 0;
+    *(s32 *)((s8 *)ad_time_set_gc + 0x50) = 0;
+    *(s32 *)((s8 *)ad_time_set_gc + 0x54) = 0;
+    *(s32 *)((s8 *)ad_time_set_gc + 0x58) = ((s32 (*)())create__23TAdSinglePlyChrSelectGCFv)();
+    *(s32 *)((s8 *)ad_time_set_gc + 0x20) = 0;
+    ((TAdTimeSetGC *)ad_time_set_gc)->unknown_5c = 0;
+    ((TAdTimeSetGC *)ad_time_set_gc)->timer = 0;
+    *(s32 *)((s8 *)ad_time_set_gc + 0x40) = 0;
+    ((TAdTimeSetGC *)ad_time_set_gc)->load_status = ((TAdTimeSetGC *)ad_time_set_gc)->poll_load_status();
+    *(s32 *)((s8 *)ad_time_set_gc + 0x1C) = -1;
+    if ((s32) ((TAdTimeSetGC *)ad_time_set_gc)->load_status == 0) {
+        ((s32 (*)(void *, s32))change_state__12TAdTimeSetGCFl)(ad_time_set_gc, 1);
         return;
     }
-    ((s32 (*)(void *, s32))change_state__12TAdTimeSetGCFl)(arg0, 0);
+    ((s32 (*)(void *, s32))change_state__12TAdTimeSetGCFl)(ad_time_set_gc, 0);
 }
 
 #undef sub_802E1F14__12TAdTimeSetGCFv
@@ -545,19 +545,19 @@ void update_state__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
 }
 
 int TAdSinglePlyChrSelectGC__sub_802E1F8C(void* p) { return close_windows__23TAdSinglePlyChrSelectGCFPv(p); }
-void TAdSinglePlyChrSelectGC__sub_802E1FAC(u8 *arg0) {
+void TAdSinglePlyChrSelectGC__sub_802E1FAC(u8 *ad_time_set_gc) {
     s32 temp_r3;
-    if (*(u32 *)((s8 *)arg0 + 0x54) == 0U || ((s32 (*)(u32))is_visible__11TWindowMenuFv)(*(u32 *)((s8 *)arg0 + 0x54)) == 0) {
+    if (*(u32 *)((s8 *)ad_time_set_gc + 0x54) == 0U || ((s32 (*)(u32))is_visible__11TWindowMenuFv)(*(u32 *)((s8 *)ad_time_set_gc + 0x54)) == 0) {
         return;
     }
-    switch (get_selected_menu_value((int) (*(u32 *)((s8 *)arg0 + 0x54)))) {
+    switch (get_selected_menu_value((int) (*(u32 *)((s8 *)ad_time_set_gc + 0x54)))) {
     case 0:
-        *(s32 *)&((TAdTimeSetGC *)arg0)->unknown_5c = 1;
-        change_state__12TAdTimeSetGCFl(arg0, 0x18);
+        *(s32 *)&((TAdTimeSetGC *)ad_time_set_gc)->unknown_5c = 1;
+        change_state__12TAdTimeSetGCFl(ad_time_set_gc, 0x18);
         break;
     case 1:
-        sub_802E1F14__12TAdTimeSetGCFv(arg0);
-        change_state__12TAdTimeSetGCFl(arg0, 0);
+        sub_802E1F14__12TAdTimeSetGCFv(ad_time_set_gc);
+        change_state__12TAdTimeSetGCFl(ad_time_set_gc, 0);
         break;
     }
 }
@@ -635,33 +635,33 @@ void TAdSinglePlyChrSelectGC::build_selection_summary() {
     }
     ((s32 (*)(void *, void *, int, int, int))close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv)(arg0, arg0 + 0x68, 1, (int) (((s32 * (*)(s32, s32))get_localized_text_entry)(0x1C, 0x2A)), (int) (((s32 * (*)(s32, s32))get_localized_text_entry)(0x1C, 0x2B)));
 }
-void TAdSinglePlyChrSelectGC__sub_802E22A4(u8 *arg0) {
+void TAdSinglePlyChrSelectGC__sub_802E22A4(u8 *ad_time_set_gc) {
     s32 selected_menu_value;
     u32 temp_r3_2;
-    temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x54);
+    temp_r3_2 = *(u32 *)((s8 *)ad_time_set_gc + 0x54);
     if (temp_r3_2 == 0U || is_visible__11TWindowMenuFv(temp_r3_2) == 0) {
         return;
     }
-    selected_menu_value = get_selected_menu_value((int) (*(u32 *)((s8 *)arg0 + 0x54)));
+    selected_menu_value = get_selected_menu_value((int) (*(u32 *)((s8 *)ad_time_set_gc + 0x54)));
         switch (selected_menu_value) {
         case 0:
-            if (((TAdTimeSetGC *)arg0)->load_status & 0x80) {
+            if (((TAdTimeSetGC *)ad_time_set_gc)->load_status & 0x80) {
                 TAdSinglePlyChrSelectGC::try_load_system_file();
             }
-            if (((TAdTimeSetGC *)arg0)->load_status & 0x100) {
+            if (((TAdTimeSetGC *)ad_time_set_gc)->load_status & 0x100) {
                 TAdSinglePlyChrSelectGC__sub_801FBB1C();
             }
-            if (((TAdTimeSetGC *)arg0)->load_status & 0x200) {
+            if (((TAdTimeSetGC *)ad_time_set_gc)->load_status & 0x200) {
                 TAdSinglePlyChrSelectGC__sub_801FBB7C();
             }
             TAdPlayerLoadGC::poll_card_load(0);
-            sub_802E1F14__12TAdTimeSetGCFv(arg0);
-            change_state__12TAdTimeSetGCFl(arg0, 0);
+            sub_802E1F14__12TAdTimeSetGCFv(ad_time_set_gc);
+            change_state__12TAdTimeSetGCFl(ad_time_set_gc, 0);
             break;
         case 1:
             TAdPlayerLoadGC::poll_card_load(0);
-            sub_802E1F14__12TAdTimeSetGCFv(arg0);
-            change_state__12TAdTimeSetGCFl(arg0, 0);
+            sub_802E1F14__12TAdTimeSetGCFv(ad_time_set_gc);
+            change_state__12TAdTimeSetGCFl(ad_time_set_gc, 0);
             break;
         }
 }
@@ -813,20 +813,20 @@ void TAdSinglePlyChrSelectGC::update_close_timer() {
     }
 }
 void TAdSinglePlyChrSelectGC__sub_802E2848(void* p) { start_load__23TAdSinglePlyChrSelectGCFv(p); ((int (*)(void *))create_backgrounds__23TAdSinglePlyChrSelectGCFPv)(p); close_and_next__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(p, (void*)4, (void*)-1, (void*)-1, (void*)-1); *(int*)((char*)p + 0x64) = 30; }
-void TAdSinglePlyChrSelectGC__sub_802E289C(void *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x64) = (s32) (*(s32 *)((s8 *)arg0 + 0x64) - 1);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x64) < 0) {
-        *(s32 *)((s8 *)arg0 + 0x64) = 0;
+void TAdSinglePlyChrSelectGC__sub_802E289C(void *ad_single_ply_chr_select_gc) {
+    *(s32 *)((s8 *)ad_single_ply_chr_select_gc + 0x64) = (s32) (*(s32 *)((s8 *)ad_single_ply_chr_select_gc + 0x64) - 1);
+    if ((s32) *(s32 *)((s8 *)ad_single_ply_chr_select_gc + 0x64) < 0) {
+        *(s32 *)((s8 *)ad_single_ply_chr_select_gc + 0x64) = 0;
     }
-    if (!(((TAdSinglePlyChrSelectGC *)arg0)->m_44 & 2) && (TAdPlayerLoadGC::get_instance() == 0)) {
-        if (((s32) *(s32 *)((s8 *)arg0 + 0x64) < 0xF) && (TAdSinglePlyChrSelectGC__sub_802E1868(arg0) != 0)) {
-            *(s32 *)((s8 *)arg0 + 0x64) = 0;
+    if (!(((TAdSinglePlyChrSelectGC *)ad_single_ply_chr_select_gc)->m_44 & 2) && (TAdPlayerLoadGC::get_instance() == 0)) {
+        if (((s32) *(s32 *)((s8 *)ad_single_ply_chr_select_gc + 0x64) < 0xF) && (TAdSinglePlyChrSelectGC__sub_802E1868(ad_single_ply_chr_select_gc) != 0)) {
+            *(s32 *)((s8 *)ad_single_ply_chr_select_gc + 0x64) = 0;
         }
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x64) == 0) {
-            close_windows__23TAdSinglePlyChrSelectGCFPv(arg0);
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x60) == 0) {
-                *(s32 *)&((TAdSinglePlyChrSelectGC *)arg0)->m_34 = 1;
-                ((s32 (*)(void *, s32))change_state__12TAdTimeSetGCFl)(arg0, 0);
+        if ((s32) *(s32 *)((s8 *)ad_single_ply_chr_select_gc + 0x64) == 0) {
+            close_windows__23TAdSinglePlyChrSelectGCFPv(ad_single_ply_chr_select_gc);
+            if ((s32) *(s32 *)((s8 *)ad_single_ply_chr_select_gc + 0x60) == 0) {
+                *(s32 *)&((TAdSinglePlyChrSelectGC *)ad_single_ply_chr_select_gc)->m_34 = 1;
+                ((s32 (*)(void *, s32))change_state__12TAdTimeSetGCFl)(ad_single_ply_chr_select_gc, 0);
             }
         }
     }

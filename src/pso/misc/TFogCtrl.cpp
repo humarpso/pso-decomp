@@ -438,17 +438,17 @@ s32 TFogCtrl::select_fog(s32 arg1, s32 arg2) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-s32 request_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2) {
+s32 request_fog__8TFogCtrlFPvii(u8 *fog_ctrl, s32 arg1, s32 arg2) {
   s32 var_r30;
   s32 var_r31;
   s32 var_r4;
   s32 entry;
   u8 *var_r29;
   u8 *var_r3;
-  var_r29 = arg0;
+  var_r29 = fog_ctrl;
   var_r30 = arg1;
   var_r31 = arg2;
-  if (((TFogCtrl *)arg0)->get_param() != 0)
+  if (((TFogCtrl *)fog_ctrl)->get_param() != 0)
   {
     var_r3 = (u8 *) 0;
     return 0;

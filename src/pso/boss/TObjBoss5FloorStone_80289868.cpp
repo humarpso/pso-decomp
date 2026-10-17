@@ -9,11 +9,11 @@ void __ct__7TObjectFP7TObject(void *);
 extern s32 __vt__19TObjBoss5FloorStone[];
 extern void *TObjBoss5FloorStone__name;
 
-void *__ct__19TObjBoss5FloorStoneFv(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TObjBoss5FloorStone;
-    *(void * *)&((TObjBoss5FloorStone *)arg0)->m_name = TObjBoss5FloorStone__name;
-    return arg0;
+void *__ct__19TObjBoss5FloorStoneFv(void *boss5_floor_stone) {
+    __ct__7TObjectFP7TObject(boss5_floor_stone);
+    *(s32 **)((s8 *)boss5_floor_stone + 0x18) = __vt__19TObjBoss5FloorStone;
+    *(void * *)&((TObjBoss5FloorStone *)boss5_floor_stone)->m_name = TObjBoss5FloorStone__name;
+    return boss5_floor_stone;
 }
 
 }

@@ -308,15 +308,15 @@ extern s32 lbl_804A6FA8[];
 
 typedef char RecoveredGlobal_80133980_lbl_804A6F90_size[sizeof(RecoveredGlobal_80133980_lbl_804A6F90) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_80133980_TObjLight__data_80506320_size[sizeof(RecoveredGlobal_80133980_TObjLight__data_80506320) == 0x50 ? 1 : -1];
-u8 *TObjLight__sub_80133980(u8 *arg0, int _w1) {
-    ((TObjLight *)arg0)->init_object();
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80133980_lbl_804A6F90 *)&lbl_804A6F90).value;
+u8 *TObjLight__sub_80133980(u8 *light, int _w1) {
+    ((TObjLight *)light)->init_object();
+    *(s32 **)((s8 *)light + 0x18) = &(*(RecoveredGlobal_80133980_lbl_804A6F90 *)&lbl_804A6F90).value;
     rotate_vector_by_matrix(0, (void *) (&(*(RecoveredGlobal_80133980_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value), (void *) ((u8 *)&(*(RecoveredGlobal_80133980_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value + 0xC));
-    TObjLight__sub_8013397C(arg0);
-    submit_scene_light_direction(arg0);
-    set_scene_light_diffuse(arg0);
-    lbl_805D5558 = arg0;
-    return arg0;
+    TObjLight__sub_8013397C(light);
+    submit_scene_light_direction(light);
+    set_scene_light_diffuse(light);
+    lbl_805D5558 = light;
+    return light;
 }
 
 typedef char RecoveredGlobal_801339EC_TObjLight__data_80506320_size[sizeof(RecoveredGlobal_801339EC_TObjLight__data_80506320) == 0x50 ? 1 : -1];

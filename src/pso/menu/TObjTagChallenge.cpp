@@ -28,11 +28,11 @@ void __ct__7TObjectFP7TObject(void *);
 extern s32 __vt__16TObjTagChallenge[];
 extern void *TObjTagChallenge__class_name;
 
-void *TObjTagChallenge__ct(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjTagChallenge;
-    *(void * *)&((TObjTagChallenge *)arg0)->m_name = TObjTagChallenge__class_name;
-    return arg0;
+void *TObjTagChallenge__ct(void *tag_challenge) {
+    __ct__7TObjectFP7TObject(tag_challenge);
+    *(s32 **)((s8 *)tag_challenge + 0x18) = __vt__16TObjTagChallenge;
+    *(void * *)&((TObjTagChallenge *)tag_challenge)->m_name = TObjTagChallenge__class_name;
+    return tag_challenge;
 }
 
 #define TObjTagChallenge__ct (*(void * (*)(void *, void *))&TObjTagChallenge__ct)

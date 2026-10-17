@@ -1197,7 +1197,7 @@ u8 *TUnk_804AF8A0::construct_collider_proxy() {
 
 void TUnk_804AF8A0::sub_80156A68() { *(s16*)((char*)this + 0x96) = 0; }
 void TObjPlayer__sub_80156A74(void* p) { *(s32*)((char*)p + 0x0) = 0; }
-s32 TUnk_804AF8A0::access_object_saved_state(void *arg1, s16 arg2) {
+s32 TUnk_804AF8A0::access_object_saved_state(void *lobby, s16 arg2) {
     s16 temp_r31;
     u8 *temp_r3;
     temp_r3 = *(u8 * *)&this->m_80;
@@ -1209,10 +1209,10 @@ s32 TUnk_804AF8A0::access_object_saved_state(void *arg1, s16 arg2) {
         return 0;
     }
     if (arg2 == 0) {
-        ((TLobby *)(TLobby__data_805D6140 + (temp_r31 * 4)))->copy_short_fields(arg1);
+        ((TLobby *)(TLobby__data_805D6140 + (temp_r31 * 4)))->copy_short_fields(lobby);
     }
     if (arg2 == 1) {
-        ((TLobby *)arg1)->copy_short_fields((void *) (TLobby__data_805D6140 + (temp_r31 * 4)));
+        ((TLobby *)lobby)->copy_short_fields((void *) (TLobby__data_805D6140 + (temp_r31 * 4)));
     }
     return 1;
 }

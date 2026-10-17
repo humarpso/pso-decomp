@@ -235,20 +235,20 @@ u8 *__dt__26TShopEquipmentGearSequenceFv(u8 *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_8021B89C___vt__26TShopEquipmentGearSequence_size[sizeof(RecoveredGlobal_8021B89C___vt__26TShopEquipmentGearSequence) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_8021B89C_TShopEquipmentGearSequence__data_80513EB0_size[sizeof(RecoveredGlobal_8021B89C_TShopEquipmentGearSequence__data_80513EB0) == 0x10 ? 1 : -1];
-u8 *TShopEquipmentGearSequence__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TShopSequence__ct((arg0));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8021B89C___vt__26TShopEquipmentGearSequence *)&__vt__26TShopEquipmentGearSequence).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TShopEquipmentGearSequence__class_name;
-    ((TShopEquipmentGearSequence *)arg0)->m_20 = 0;
-    *(s32 *)((s8 *)arg0 + 0x24) = arg2;
-    ((TShopEquipmentGearSequence *)arg0)->m_2c = 0;
-    ((TShopEquipmentGearSequence *)arg0)->m_30 = 0;
-    *(s32 *)((s8 *)arg0 + 0x34) = 0;
-    (*(u8 * *)&lbl_805D6220) = arg0;
+u8 *TShopEquipmentGearSequence__ct(u8 *shop_equipment_gear_sequence, s32 arg1, s32 arg2) {
+    TShopSequence__ct((shop_equipment_gear_sequence));
+    *(s32 **)((s8 *)shop_equipment_gear_sequence + 0x18) = &(*(RecoveredGlobal_8021B89C___vt__26TShopEquipmentGearSequence *)&__vt__26TShopEquipmentGearSequence).value;
+    *(s32 *)((s8 *)shop_equipment_gear_sequence + 0) = (s32) TShopEquipmentGearSequence__class_name;
+    ((TShopEquipmentGearSequence *)shop_equipment_gear_sequence)->m_20 = 0;
+    *(s32 *)((s8 *)shop_equipment_gear_sequence + 0x24) = arg2;
+    ((TShopEquipmentGearSequence *)shop_equipment_gear_sequence)->m_2c = 0;
+    ((TShopEquipmentGearSequence *)shop_equipment_gear_sequence)->m_30 = 0;
+    *(s32 *)((s8 *)shop_equipment_gear_sequence + 0x34) = 0;
+    (*(u8 * *)&lbl_805D6220) = shop_equipment_gear_sequence;
     lbl_805D6218 = 0;
     lbl_805D621C = 0;
-    *(s32 *)((s8 *)(&(*(RecoveredGlobal_8021B89C_TShopEquipmentGearSequence__data_80513EB0 *)&TShopEquipmentGearSequence__window_slot_table).value) + (sub_8022397C__15TShopWindowBaseFv(arg0) * 4)) = 1;
-    return arg0;
+    *(s32 *)((s8 *)(&(*(RecoveredGlobal_8021B89C_TShopEquipmentGearSequence__data_80513EB0 *)&TShopEquipmentGearSequence__window_slot_table).value) + (sub_8022397C__15TShopWindowBaseFv(shop_equipment_gear_sequence) * 4)) = 1;
+    return shop_equipment_gear_sequence;
 }
 
 void TShopEquipmentGearSequence::clear_window_slots() {

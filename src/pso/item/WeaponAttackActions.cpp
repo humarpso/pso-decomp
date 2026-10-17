@@ -417,14 +417,14 @@ void TItemWeapon::restore_action_type() {
     }
 }
 
-void remap_extra_attack_type(TItemWeapon *arg0) {
-    if ((arg0->test_flags_1b8(0x20) != 0U) && (TObjPlayer__sub_801D2F4C((s16 *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC)) == 2)) {
-        if (arg0->test_flags_1b8(0x100000) != 0U) {
-            set_action_type__10TObjPlayerFs((int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC), 0);
+void remap_extra_attack_type(TItemWeapon *item_weapon) {
+    if ((item_weapon->test_flags_1b8(0x20) != 0U) && (TObjPlayer__sub_801D2F4C((s16 *)(*(s32 *)((s8 *)item_weapon + 0xF0) + 0x7CC)) == 2)) {
+        if (item_weapon->test_flags_1b8(0x100000) != 0U) {
+            set_action_type__10TObjPlayerFs((int) (*(s32 *)((s8 *)item_weapon + 0xF0) + 0x7CC), 0);
         } else {
-            set_action_type__10TObjPlayerFs((int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC), 1);
+            set_action_type__10TObjPlayerFs((int) (*(s32 *)((s8 *)item_weapon + 0xF0) + 0x7CC), 1);
         }
-        ((s32 (*)(void *, int))set_status_flags__10TObjPlayerFUl)(arg0, 0x04000000);
+        ((s32 (*)(void *, int))set_status_flags__10TObjPlayerFUl)(item_weapon, 0x04000000);
     }
 }
 

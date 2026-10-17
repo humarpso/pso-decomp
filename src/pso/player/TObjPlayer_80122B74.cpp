@@ -24,11 +24,11 @@ void TObjPlayer::cast_foie() {
 
 extern s32 lbl_804A1380[];
 
-void *TObjPlayer__sub_80122BE4(void *arg0) {
-    TItemWeapon__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A1380;
-    ((TObjPlayer *)arg0)->set_status_flags(34);
-    return arg0;
+void *TObjPlayer__sub_80122BE4(void *player) {
+    TItemWeapon__ct(player);
+    *(s32 **)((s8 *)player + 0x18) = lbl_804A1380;
+    ((TObjPlayer *)player)->set_status_flags(34);
+    return player;
 }
 
 }

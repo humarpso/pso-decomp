@@ -109,19 +109,19 @@ s32 TAdTitleGC::update_title_rects() {
     return (s32)this;
 }
 
-void run_task__10TAdTitleGCFv(u8 *arg0) {
+void run_task__10TAdTitleGCFv(u8 *ad_title_gc) {
     s32 temp_r3;
 
-    temp_r3 = *(s32 *)((s8 *)arg0 + 0x128);
+    temp_r3 = *(s32 *)((s8 *)ad_title_gc + 0x128);
     if (temp_r3 < 0xA) {
-        *(s32 *)((s8 *)arg0 + 0x128) = (temp_r3 + 1);
+        *(s32 *)((s8 *)ad_title_gc + 0x128) = (temp_r3 + 1);
     }
-    *(s32 *)((s8 *)arg0 + 0x12C) = (s32) (*(s32 *)((s8 *)arg0 + 0x12C) + 0xC);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x12C) > 0xFF) {
-        *(s32 *)((s8 *)arg0 + 0x12C) = 0xFF;
+    *(s32 *)((s8 *)ad_title_gc + 0x12C) = (s32) (*(s32 *)((s8 *)ad_title_gc + 0x12C) + 0xC);
+    if ((s32) *(s32 *)((s8 *)ad_title_gc + 0x12C) > 0xFF) {
+        *(s32 *)((s8 *)ad_title_gc + 0x12C) = 0xFF;
     }
-    ((TAdTitleGC *)arg0)->update_title_rects();
-    TAdTitleGC::calc_text_pos((s32)arg0, arg0 + 0x120, (s32)(get_localized_text_entry(0x13, *(s32 *)((s8 *)arg0 + 0x1C))));
+    ((TAdTitleGC *)ad_title_gc)->update_title_rects();
+    TAdTitleGC::calc_text_pos((s32)ad_title_gc, ad_title_gc + 0x120, (s32)(get_localized_text_entry(0x13, *(s32 *)((s8 *)ad_title_gc + 0x1C))));
 }
 #pragma push
 #pragma opt_common_subs off

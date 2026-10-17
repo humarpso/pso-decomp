@@ -143,7 +143,7 @@ void TAdFadeGC::start_fade(void *arg1) {
 
 TAdFadeGC::~TAdFadeGC() {}
 }
-TAdFadeGC::TAdFadeGC(TObject *arg1, void *arg2) : TObject(arg1) {
+TAdFadeGC::TAdFadeGC(TObject *object, void *arg2) : TObject(object) {
     *(void * *)&this->m_name = (*(void **)&TAdFadeGC__name);
     *(u32 *)((s8 *)this + 0x1C) = -1;
     *(f32 *)((s8 *)this + 0x20) = (0.0f);

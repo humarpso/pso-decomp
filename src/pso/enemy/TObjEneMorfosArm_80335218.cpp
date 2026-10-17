@@ -77,24 +77,24 @@ void *__dt__16TObjEneMorfosArmFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TObjEneMorfosArm__ct(TObjEneMorfosArm *arg0, s32 arg1, u8 *arg2) {
+u8 *TObjEneMorfosArm__ct(TObjEneMorfosArm *ene_morfos_arm, s32 arg1, u8 *arg2) {
     u8 *temp_r5;
-    TObjMotion__ct((u8 *)arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80335354___vt__16TObjEneMorfosArm *)&__vt__16TObjEneMorfosArm).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneMorfosArm__name;
-    *(u8 **)((s8 *)arg0 + 0xFC) = arg2;
-    arg0->m_100 = obj_getField1c(*(u8 **)((s8 *)arg0 + 0xFC));
-    VecCopy((Vec *)((u8 *)arg0 + 0x38), (const Vec *)((void *) (((s32)TObjEneMorfosArm__sub_803326B4((void *)((s32) *(u8 **)((s8 *)arg0 + 0xFC)))))));
-    arg0->rotation_y = TObjEneMorfosArm__sub_803326BC(*(u8 **)((s8 *)arg0 + 0xFC));
-    *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjEneMorfosArm__parent_morfos_instance) + 0x42C)) + 8);
+    TObjMotion__ct((u8 *)ene_morfos_arm);
+    *(s32 **)((s8 *)ene_morfos_arm + 0x18) = &(*(RecoveredGlobal_80335354___vt__16TObjEneMorfosArm *)&__vt__16TObjEneMorfosArm).value;
+    *(s32 *)((s8 *)ene_morfos_arm + 0) = (s32) TObjEneMorfosArm__name;
+    *(u8 **)((s8 *)ene_morfos_arm + 0xFC) = arg2;
+    ene_morfos_arm->m_100 = obj_getField1c(*(u8 **)((s8 *)ene_morfos_arm + 0xFC));
+    VecCopy((Vec *)((u8 *)ene_morfos_arm + 0x38), (const Vec *)((void *) (((s32)TObjEneMorfosArm__sub_803326B4((void *)((s32) *(u8 **)((s8 *)ene_morfos_arm + 0xFC)))))));
+    ene_morfos_arm->rotation_y = TObjEneMorfosArm__sub_803326BC(*(u8 **)((s8 *)ene_morfos_arm + 0xFC));
+    *(s32 *)((s8 *)ene_morfos_arm + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjEneMorfosArm__parent_morfos_instance) + 0x42C)) + 8);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjEneMorfosArm__parent_morfos_instance) + 0x42C));
-    arg0->texture_id = (s32) *(s32 *)((s8 *)temp_r5 + 0xC);
-    set_field_d8__10TObjMotionFl((void *)arg0, &morfos_arm_motion_params.value, (int)temp_r5);
-    ((TObjMotion *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)(*(u8 * *)&TObjEneMorfosArm__parent_morfos_instance) + 0x430)));
-    arg0->m_b8 = 0;
-    ((TObjMotion *)arg0)->set_animation((arg0->m_b8));
-    ((TObjMotion *)arg0)->set_field_b8(arg0->m_b8);
-    return (u8 *)arg0;
+    ene_morfos_arm->texture_id = (s32) *(s32 *)((s8 *)temp_r5 + 0xC);
+    set_field_d8__10TObjMotionFl((void *)ene_morfos_arm, &morfos_arm_motion_params.value, (int)temp_r5);
+    ((TObjMotion *)ene_morfos_arm)->set_field_dc((int) (*(s32 *)((s8 *)(*(u8 * *)&TObjEneMorfosArm__parent_morfos_instance) + 0x430)));
+    ene_morfos_arm->m_b8 = 0;
+    ((TObjMotion *)ene_morfos_arm)->set_animation((ene_morfos_arm->m_b8));
+    ((TObjMotion *)ene_morfos_arm)->set_field_b8(ene_morfos_arm->m_b8);
+    return (u8 *)ene_morfos_arm;
 }
 
 }

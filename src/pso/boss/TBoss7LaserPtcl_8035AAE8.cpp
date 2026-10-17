@@ -129,19 +129,19 @@ void *__dt__15TBoss7LaserPtclFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TBoss7LaserPtcl__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8035ACBC___vt__15TBoss7LaserPtcl *)&__vt__15TBoss7LaserPtcl).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss7LaserPtcl__class_name;
-    *(f32 *)((s8 *)arg0 + 0x4C) = (f32) lbl_805E010C;
-    *(s32 *)((s8 *)arg0 + 0x54) = 0;
-    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
-    VecCopy((Vec *)(arg0 + 0x20), (const Vec *)arg2);
-    VecCopy((Vec *)(arg0 + 0x2C), (const Vec *)arg3);
-    ((TBoss7LaserPtcl *)arg0)->update_position();
-    *(s32 *)((s8 *)arg0 + 0x44) = (s32)spawn_continuous_particle_effect_with_flags(arg2, 0x204, 0x40);
-    *(s32 *)((s8 *)arg0 + 0x48) = (s32)spawn_continuous_particle_effect_with_flags(arg2, 0x205, 0x40);
-    return arg0;
+u8 *TBoss7LaserPtcl__ct(u8 *boss7_laser_ptcl, u8 *arg1, u8 *arg2, u8 *arg3) {
+    __ct__7TObjectFP7TObject(boss7_laser_ptcl, arg1);
+    *(s32 **)((s8 *)boss7_laser_ptcl + 0x18) = &(*(RecoveredGlobal_8035ACBC___vt__15TBoss7LaserPtcl *)&__vt__15TBoss7LaserPtcl).value;
+    *(s32 *)((s8 *)boss7_laser_ptcl + 0) = (s32) TBoss7LaserPtcl__class_name;
+    *(f32 *)((s8 *)boss7_laser_ptcl + 0x4C) = (f32) lbl_805E010C;
+    *(s32 *)((s8 *)boss7_laser_ptcl + 0x54) = 0;
+    *(s32 *)((s8 *)boss7_laser_ptcl + 0x1C) = 0;
+    VecCopy((Vec *)(boss7_laser_ptcl + 0x20), (const Vec *)arg2);
+    VecCopy((Vec *)(boss7_laser_ptcl + 0x2C), (const Vec *)arg3);
+    ((TBoss7LaserPtcl *)boss7_laser_ptcl)->update_position();
+    *(s32 *)((s8 *)boss7_laser_ptcl + 0x44) = (s32)spawn_continuous_particle_effect_with_flags(arg2, 0x204, 0x40);
+    *(s32 *)((s8 *)boss7_laser_ptcl + 0x48) = (s32)spawn_continuous_particle_effect_with_flags(arg2, 0x205, 0x40);
+    return boss7_laser_ptcl;
 }
 
 void TUnk_804F1C88::render() {  }
@@ -175,26 +175,26 @@ void *__dt__13TUnk_804F1C88Fv(void *arg0, s16 arg1) {
 }
 
 typedef char RecoveredGlobal_8035AE54_lbl_804F1C88_size[sizeof(RecoveredGlobal_8035AE54_lbl_804F1C88) == 0x18 ? 1 : -1];
-u8 *TBoss7LaserPtcl__sub_8035AE54(u8 *arg0, s32 arg1, s32 arg2) {
-    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8035AE54_lbl_804F1C88 *)&lbl_804F1C88).value;
-    *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805E0118;
-    *(f32 *)((s8 *)arg0 + 0x38) = (f32) lbl_805E0118;
-    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805E0118;
-    *(f32 *)((s8 *)arg0 + 0x40) = (f32) lbl_805E0118;
-    *(f32 *)((s8 *)arg0 + 0x44) = (f32) lbl_805E0118;
-    *(s32 *)((s8 *)arg0 + 0x48) = 0;
-    *(s32 *)((s8 *)arg0 + 0x4C) = 0x11F07;
-    *(f32 *)((s8 *)arg0 + 0x50) = (f32) lbl_805E0118;
-    *(f32 *)((s8 *)arg0 + 0x54) = (f32) lbl_805E0118;
-    *(f32 *)((s8 *)arg0 + 0x58) = (f32) lbl_805E0118;
-    *(f32 *)((s8 *)arg0 + 0x5C) = (f32) lbl_805E0118;
-    *(u8 **)((s8 *)arg0 + 0x1C) = (unsigned char *) (arg0 + 0x34);
-    *(s32 *)((s8 *)arg0 + 0x20) = 1;
-    VecCopy((Vec *)(arg0 + 0x24), (const Vec *)(arg2));
-    spawn_particle_effect((arg0 + 0x24), 0x211);
-    create_timed_particle_emitter((arg0 + 0x24), 0x213, 0, 0x1E);
-    return arg0;
+u8 *TBoss7LaserPtcl__sub_8035AE54(u8 *object, s32 arg1, s32 arg2) {
+    __ct__7TObjectFP7TObject((void *)object, (void *)arg1);
+    *(s32 **)((s8 *)object + 0x18) = &(*(RecoveredGlobal_8035AE54_lbl_804F1C88 *)&lbl_804F1C88).value;
+    *(f32 *)((s8 *)object + 0x34) = (f32) lbl_805E0118;
+    *(f32 *)((s8 *)object + 0x38) = (f32) lbl_805E0118;
+    *(f32 *)((s8 *)object + 0x3C) = (f32) lbl_805E0118;
+    *(f32 *)((s8 *)object + 0x40) = (f32) lbl_805E0118;
+    *(f32 *)((s8 *)object + 0x44) = (f32) lbl_805E0118;
+    *(s32 *)((s8 *)object + 0x48) = 0;
+    *(s32 *)((s8 *)object + 0x4C) = 0x11F07;
+    *(f32 *)((s8 *)object + 0x50) = (f32) lbl_805E0118;
+    *(f32 *)((s8 *)object + 0x54) = (f32) lbl_805E0118;
+    *(f32 *)((s8 *)object + 0x58) = (f32) lbl_805E0118;
+    *(f32 *)((s8 *)object + 0x5C) = (f32) lbl_805E0118;
+    *(u8 **)((s8 *)object + 0x1C) = (unsigned char *) (object + 0x34);
+    *(s32 *)((s8 *)object + 0x20) = 1;
+    VecCopy((Vec *)(object + 0x24), (const Vec *)(arg2));
+    spawn_particle_effect((object + 0x24), 0x211);
+    create_timed_particle_emitter((object + 0x24), 0x213, 0, 0x1E);
+    return object;
 }
 
 void TBoss7LaserPtcl__sub_8035AF0C(void) {  }

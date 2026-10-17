@@ -34,9 +34,9 @@ s32 delete_buffer__12TBoss8DragonFis(s32 arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1) {
-    ((TBoss8Dragon *)arg0)->init_buffer(arg1, 0);
-    return arg0;
+u8 *TBoss8Dragon__sub_800BC5EC(u8 *boss8_dragon, s32 arg1) {
+    ((TBoss8Dragon *)boss8_dragon)->init_buffer(arg1, 0);
+    return boss8_dragon;
 }
 
 void *TBoss8Dragon::init_buffer(s32 arg1, s32 arg2) {

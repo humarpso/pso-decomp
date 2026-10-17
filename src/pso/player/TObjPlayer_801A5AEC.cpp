@@ -240,12 +240,12 @@ void TKeyBoardControl::read_key_checked(u8 arg0) {
 typedef char RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 typedef char RecoveredGlobal_801A5EC4_lbl_8050E208_size[sizeof(RecoveredGlobal_801A5EC4_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void TKeyBoardControl::update_input_frame() {
-    u8 *temp_r31;
+    u8 *key_board_control;
     TKeyBoardControl__sub_80132650((void *) (&TKeyBoardControl__global_key_state.value));
     if (is_split_screen() == 0) {
-        temp_r31 = (u8 *)&controller_input_state.value + 0x160;
-        ((TKeyBoardControl *)temp_r31)->poll_key_state();
-        update_button_hold_counters((int)temp_r31);
+        key_board_control = (u8 *)&controller_input_state.value + 0x160;
+        ((TKeyBoardControl *)key_board_control)->poll_key_state();
+        update_button_hold_counters((int)key_board_control);
     }
 }
 }

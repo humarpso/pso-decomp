@@ -2474,17 +2474,17 @@ void TBoss6Type2__vt61(void* p) { if (*(int *)&((TBoss6Type2 *)p)->m_374 != 35) 
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TBoss6Type2__vt60(TBoss6Type2 *arg0) {
-    arg0->m_30 = (s32) (arg0->m_30 & 0xFFFFFDFF);
-    *(f32 *)((s8 *)arg0 + 0x4FC) = (f32) TBoss6Type2__data_805DE40C;
+void TBoss6Type2__vt60(TBoss6Type2 *boss6_type2) {
+    boss6_type2->m_30 = (s32) (boss6_type2->m_30 & 0xFFFFFDFF);
+    *(f32 *)((s8 *)boss6_type2 + 0x4FC) = (f32) TBoss6Type2__data_805DE40C;
     {
-        int diff = arg0->m_4f8 - arg0->m_32c;
+        int diff = boss6_type2->m_4f8 - boss6_type2->m_32c;
         if (diff > 0) {
-            arg0->add_damage(diff);
+            boss6_type2->add_damage(diff);
         }
     }
-    if ((s32) arg0->m_418 != 0) {
-        ((s32 (*)(int, void *, int, int))play_sound_effect)(0x68A24, (u8 *)arg0 + 0x38, 0, 1);
+    if ((s32) boss6_type2->m_418 != 0) {
+        ((s32 (*)(int, void *, int, int))play_sound_effect)(0x68A24, (u8 *)boss6_type2 + 0x38, 0, 1);
     }
 }
 #pragma pop

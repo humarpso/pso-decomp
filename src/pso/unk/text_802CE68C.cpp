@@ -133,17 +133,17 @@ extern const f32 lbl_805D9E88;
 extern const f32 lbl_805DE70C;
 typedef char RecoveredGlobal_802CE68C_lbl_804724A8_size[sizeof(RecoveredGlobal_802CE68C_lbl_804724A8) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_802CE68C_lbl_8058D490_size[sizeof(RecoveredGlobal_802CE68C_lbl_8058D490) == 0x30 ? 1 : -1];
-void TObjPlayer__sub_802CE68C(u8 *arg0, s32 arg1, s32 arg2) {
+void TObjPlayer__sub_802CE68C(u8 *enemy, s32 arg1, s32 arg2) {
     typedef char sp8_offset[(offsetof(Stack_802CE68C, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802CE68C, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_802CE68C, sp10) == 0x8) ? 1 : -1];
     Stack_802CE68C stack;
     TObjPlayer::set_global_flag();
     push_matrix_from((void *)&identity_matrix.value);
-    post_translate_matrix(arg0 + 0x38);
-    rotate_matrix_y(0, (int) (((TObjEnemy *)arg0)->rotation_y));
+    post_translate_matrix(enemy + 0x38);
+    rotate_matrix_y(0, (int) (((TObjEnemy *)enemy)->rotation_y));
     TObjPlayer::set_global_flag();
-    ((TObjEnemy *)arg0)->render_anim_model((f32) (((TObjEnemy *)arg0)->m_c0));
+    ((TObjEnemy *)enemy)->render_anim_model((f32) (((TObjEnemy *)enemy)->m_c0));
     TObjPlayer::clear_global_state();
     pop_matrix();
     push_matrix_from((void *) (anim_model_matrix_array + (arg2 * 0x30)));

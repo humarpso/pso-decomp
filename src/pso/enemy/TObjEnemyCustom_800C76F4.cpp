@@ -60,22 +60,22 @@ void TObjEnemyCustom::render() {
 }
 
 #define K_800C77A4 (*(const f32 *)&lbl_805DA07C)
-void TObjEnemyCustom__sub_800C77A4(u8 *arg0) {
-    switch (((TObjPlayer *)arg0)->m_37c) {
+void TObjEnemyCustom__sub_800C77A4(u8 *player) {
+    switch (((TObjPlayer *)player)->m_37c) {
     case -1:
         break;
     case 0:
-        ((TObjPlayer *)arg0)->m_b8 = 4;
-        ((TObjPlayer *)arg0)->m_37c = 1;
+        ((TObjPlayer *)player)->m_b8 = 4;
+        ((TObjPlayer *)player)->m_37c = 1;
     case 1:
-        advance_animation_playback(arg0);
-        ((s32 (*)(void *, s32, f32))apply_actor_gravity)(arg0, 0, lbl_805DA070);
-        update_collisions__10TObjPlayerFv(arg0);
-        if (((TObjPlayer *)arg0)->m_c0 < (K_800C77A4 * (lbl_805DA08C * ((TObjPlayer *)arg0)->m_c8))) {
-            move_with_wall_slide((arg0));
+        advance_animation_playback(player);
+        ((s32 (*)(void *, s32, f32))apply_actor_gravity)(player, 0, lbl_805DA070);
+        update_collisions__10TObjPlayerFv(player);
+        if (((TObjPlayer *)player)->m_c0 < (K_800C77A4 * (lbl_805DA08C * ((TObjPlayer *)player)->m_c8))) {
+            move_with_wall_slide((player));
             f32 k;
-            *(f32 *)((s8 *)arg0 + 0x308) = (f32) (*(f32 *)((s8 *)arg0 + 0x308) * (k = lbl_805DA07C));
-            ((TObjPlayer *)arg0)->m_310 = (f32) (((TObjPlayer *)arg0)->m_310 * k);
+            *(f32 *)((s8 *)player + 0x308) = (f32) (*(f32 *)((s8 *)player + 0x308) * (k = lbl_805DA07C));
+            ((TObjPlayer *)player)->m_310 = (f32) (((TObjPlayer *)player)->m_310 * k);
         }
         break;
     default:

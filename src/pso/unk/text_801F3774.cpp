@@ -56,16 +56,16 @@ void TLobby::send_6x75_quest_flag_cur_difficulty(s16 arg0, s16 arg1) {
 }
 }
 
-void handle_6x75_update_quest_flag_dc(TLobby *arg0) {
+void handle_6x75_update_quest_flag_dc(TLobby *lobby) {
     u16 id;
-    arg0->byteswap_6x75_packet();
-    id = arg0->m_id;
+    lobby->byteswap_6x75_packet();
+    id = lobby->m_id;
     if (id == 0) {
-        set_story_flag_in_bank(((s32) *(s16 *)((s8 *)arg0 + 8)), ((s32) arg0->m_flags));
+        set_story_flag_in_bank(((s32) *(s16 *)((s8 *)lobby + 8)), ((s32) lobby->m_flags));
         return;
     }
     if (id == 1) {
-        clear_story_flag_in_bank(((s32) *(s16 *)((s8 *)arg0 + 8)), ((s32) arg0->m_flags));
+        clear_story_flag_in_bank(((s32) *(s16 *)((s8 *)lobby + 8)), ((s32) lobby->m_flags));
     }
 }
 extern "C" {
@@ -83,9 +83,9 @@ void prepare_offline_quest_filenames(const char* identity) {
 }
 }
 
-void send_and_handle_6x75(TLobby *arg0) {
-    arg0->byteswap_6x75_packet();
-    TLobby__send_and_handle_60((u8 *)arg0);
+void send_and_handle_6x75(TLobby *lobby) {
+    lobby->byteswap_6x75_packet();
+    TLobby__send_and_handle_60((u8 *)lobby);
 }
 extern "C" {
 

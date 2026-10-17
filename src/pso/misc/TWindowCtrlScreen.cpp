@@ -8,11 +8,11 @@ void __ct__7TObjectFP7TObject(void *);
 extern s32 __vt__17TWindowCtrlScreen[];
 extern void *TWindowCtrlScreen__name;
 
-void *TWindowCtrlScreen__ct(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TWindowCtrlScreen;
-    *(void * *)&((TWindowCtrlScreen *)arg0)->m_name = TWindowCtrlScreen__name;
-    return arg0;
+void *TWindowCtrlScreen__ct(void *window_ctrl_screen) {
+    __ct__7TObjectFP7TObject(window_ctrl_screen);
+    *(s32 **)((s8 *)window_ctrl_screen + 0x18) = __vt__17TWindowCtrlScreen;
+    *(void * *)&((TWindowCtrlScreen *)window_ctrl_screen)->m_name = TWindowCtrlScreen__name;
+    return window_ctrl_screen;
 }
 
 }

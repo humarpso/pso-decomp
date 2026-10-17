@@ -320,13 +320,13 @@ u8 *__dt__14TObjEneEpsilonFv(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
-void *TObjEneEpsilon__ct(void *arg0) {
-    ((TObjEneDD_ST *)arg0)->init_object();
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjEneEpsilon;
-    __construct_array((void *)((char *)arg0 + 960), init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 28, 4);
-    *(void * *)&((TObjEneEpsilon *)arg0)->m_name = TObjEneEpsilon__class_name;
-    ((TObjEneDD *)arg0)->check_state_flag_4();
-    return arg0;
+void *TObjEneEpsilon__ct(void *ene_epsilon) {
+    ((TObjEneDD_ST *)ene_epsilon)->init_object();
+    *(s32 **)((s8 *)ene_epsilon + 0x18) = __vt__14TObjEneEpsilon;
+    __construct_array((void *)((char *)ene_epsilon + 960), init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 28, 4);
+    *(void * *)&((TObjEneEpsilon *)ene_epsilon)->m_name = TObjEneEpsilon__class_name;
+    ((TObjEneDD *)ene_epsilon)->check_state_flag_4();
+    return ene_epsilon;
 }
 
 extern s32 lbl_804F26E0[];

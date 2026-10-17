@@ -54,16 +54,16 @@ void *__dt__14TOAirconCave02Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_80157280___vt__14TOAirconCave02_size[sizeof(RecoveredGlobal_80157280___vt__14TOAirconCave02) == 0x38 ? 1 : -1];
-u8 *TOAirconCave02__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    init_map_object_base((void *)arg0, (void *)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80157280___vt__14TOAirconCave02 *)&__vt__14TOAirconCave02).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2E94;
-    ((TOAirconCave02 *)(arg0))->apply_object_set_data((void *)arg2);
-    *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOAirconCave02__bml_resource) + 0x42C)) + 8);
-    ((TOAirconCave02 *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOAirconCave02__bml_resource) + 0x42C)) + 0xC);
-    ((TOAirconCave02 *)arg0)->m_c0 = (f32) lbl_805DB2C0;
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB2C4;
-    return arg0;
+u8 *TOAirconCave02__ct(u8 *aircon_cave02, s32 arg1, s32 arg2) {
+    init_map_object_base((void *)aircon_cave02, (void *)arg1);
+    *(s32 **)((s8 *)aircon_cave02 + 0x18) = &(*(RecoveredGlobal_80157280___vt__14TOAirconCave02 *)&__vt__14TOAirconCave02).value;
+    *(s32 *)((s8 *)aircon_cave02 + 0) = (s32) lbl_805D2E94;
+    ((TOAirconCave02 *)(aircon_cave02))->apply_object_set_data((void *)arg2);
+    *(s32 *)((s8 *)aircon_cave02 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOAirconCave02__bml_resource) + 0x42C)) + 8);
+    ((TOAirconCave02 *)aircon_cave02)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOAirconCave02__bml_resource) + 0x42C)) + 0xC);
+    ((TOAirconCave02 *)aircon_cave02)->m_c0 = (f32) lbl_805DB2C0;
+    *(f32 *)((s8 *)aircon_cave02 + 0xC4) = (f32) lbl_805DB2C4;
+    return aircon_cave02;
 }
 
 }

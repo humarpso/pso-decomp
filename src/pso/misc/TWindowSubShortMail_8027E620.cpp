@@ -180,9 +180,9 @@ s32 create_confirm_menu_window__19TWindowSubShortMailFv(void) {
     return temp_r31;
 }
 
-s32 open_confirm_prompt__19TWindowSubShortMailFPvi(void *arg0, s32 arg1) {
+s32 open_confirm_prompt__19TWindowSubShortMailFPvi(void *window_message_yes_no, s32 arg1) {
     s32 temp_r29;
-    temp_r29 = create__19TWindowMessageYesNoFPvPvPvPv(arg0, arg1, 0, 0);
+    temp_r29 = create__19TWindowMessageYesNoFPvPvPvPv(window_message_yes_no, arg1, 0, 0);
     open_yes_no_prompt((TChCrTagPlBack *)((u8 *)temp_r29), (u32)(get_message_10__20TWindowSubStatusDispFl(0x20)), (s32)(get_message_10__20TWindowSubStatusDispFl(0x3f)), (s32)(get_window_layout_position(0x9e)), (f32)lbl_805DD6D0);
     free_member__17TWindowSubComCardFv(temp_r29, 0);
     ((TWindowSubShortMail *)temp_r29)->notify_warp_flag70();
@@ -678,9 +678,9 @@ void *__dt__19TWindowSubShortMailFv(TWindowSubShortMail *arg0, s16 arg1) {
 }
 
 extern void *TWindowSubShortMail__class_name;
-TWindowSubShortMail::TWindowSubShortMail(TObject *arg1, void *arg2) : TObject(arg1) {
+TWindowSubShortMail::TWindowSubShortMail(TObject *object, void *arg2) : TObject(object) {
     *(void * *)&this->m_name = TWindowSubShortMail__class_name;
-    *(void **)((s8 *)this + 0x34) = arg1;
+    *(void **)((s8 *)this + 0x34) = object;
     *(void **)((s8 *)this + 0x20) = arg2;
     this->m_40 = 0;
     this->m_54 = 0;

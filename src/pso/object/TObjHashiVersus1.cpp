@@ -80,20 +80,20 @@ void *__dt__16TObjHashiVersus1Fv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_801915F4_lbl_804B7CCC_size[sizeof(RecoveredGlobal_801915F4_lbl_804B7CCC) == 0x58 ? 1 : -1];
 typedef char RecoveredGlobal_801915F4___vt__16TObjHashiVersus1_size[sizeof(RecoveredGlobal_801915F4___vt__16TObjHashiVersus1) == 0x38 ? 1 : -1];
-u8 *TObjHashiVersus1__ct(u8 *arg0, s32 arg1, s32 _w2) {
-    TObjHashiBase__ct(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801915F4___vt__16TObjHashiVersus1 *)&__vt__16TObjHashiVersus1).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D337C;
-    if (is_current_floor_switch_set((int) ((u16) *(s32 *)((s8 *)arg0 + 0xC8))) == 0) {
-        *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) - *(f32 *)((s8 *)arg0 + 0x68));
+u8 *TObjHashiVersus1__ct(u8 *player, s32 arg1, s32 _w2) {
+    TObjHashiBase__ct(player, arg1);
+    *(s32 **)((s8 *)player + 0x18) = &(*(RecoveredGlobal_801915F4___vt__16TObjHashiVersus1 *)&__vt__16TObjHashiVersus1).value;
+    *(s32 *)((s8 *)player + 0) = (s32) lbl_805D337C;
+    if (is_current_floor_switch_set((int) ((u16) *(s32 *)((s8 *)player + 0xC8))) == 0) {
+        *(f32 *)((s8 *)player + 0x3C) = (f32) (*(f32 *)((s8 *)player + 0x3C) - *(f32 *)((s8 *)player + 0x68));
     }
-    *(f32 *)((s8 *)arg0 + 0xD0) = (f32) *(f32 *)((s8 *)arg0 + 0x6C);
-    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((*(u8 * *)&TObjHashiVersus1__resource_bundle), 0);
-    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((*(u8 * *)&TObjHashiVersus1__resource_bundle), 0);
-    init_collision_body_parts(arg0, (s32) &versus_bridge_collision_bodies.value, 2);
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
-    ((TObjPlayer *)arg0)->reset_photon_effect();
-    return arg0;
+    *(f32 *)((s8 *)player + 0xD0) = (f32) *(f32 *)((s8 *)player + 0x6C);
+    *(s32 *)((s8 *)player + 0x34) = get_bml_model((*(u8 * *)&TObjHashiVersus1__resource_bundle), 0);
+    *(s32 *)((s8 *)player + 0x24) = TObjFish__sub_8001EDB0((*(u8 * *)&TObjHashiVersus1__resource_bundle), 0);
+    init_collision_body_parts(player, (s32) &versus_bridge_collision_bodies.value, 2);
+    *(s32 *)((s8 *)player + 0x30) = (s32) (*(s32 *)((s8 *)player + 0x30) | 0x40000000);
+    ((TObjPlayer *)player)->reset_photon_effect();
+    return player;
 }
 
 }

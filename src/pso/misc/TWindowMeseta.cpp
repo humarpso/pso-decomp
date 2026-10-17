@@ -64,7 +64,7 @@ void *__dt__13TWindowMesetaFv(void *arg0, s16 arg1) {
     return arg0;
 }
 #define self ((Meseta_80269244 *)arg0)
-void *TWindowMeseta__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+void *TWindowMeseta__ct(void *arg0, s32 arg1, s32 arg2, s32 str) {
     Sub_80269244 *a;
     Sub_80269244 *b;
     ((TWindowDD *)arg0)->construct_base((u8 *)TWindowMeseta__window_descriptor, (s16)arg2, (u8 *)arg1);
@@ -74,7 +74,7 @@ void *TWindowMeseta__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     self->meseta = ((s32 (*)(void *))get_meseta_value__13TWindowMesetaFv)(arg0);
     a = (Sub_80269244 *)((TUnk_804CE018 *)arg0)->get_array_entry(0);
     b = (Sub_80269244 *)((TUnk_804CE018 *)arg0)->get_array_entry(1);
-    set_text_entry_string((u8 *)a, arg3, 0);
+    set_text_entry_string((u8 *)a, str, 0);
     ((TWindowSubStatusDisp *)b)->set_all_values(self->meseta);
     self->x38 = lbl_805DD204 + b->x8;
     ((TUnk_804CE018 *)arg0)->save_position();

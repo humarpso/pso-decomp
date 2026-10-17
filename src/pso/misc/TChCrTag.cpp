@@ -90,19 +90,19 @@ void *__dt__8TChCrTagFv(void *self, s16 arg1) {
     return self;
 }
 
-void *__ct__8TChCrTagFv(void *arg0, void *arg1, void *arg2) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(void ***)((s8 *)arg0 + 0x18) = __vt__8TChCrTag;
-    *(void * *)&((TChCrTag *)arg0)->m_name = lbl_805D3D90;
-    *(void **)((s8 *)arg0 + 0x20) = arg2;
-    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
-    *(f32 *)((s8 *)arg0 + 0x24) = lbl_805DDE04;
-    *(f32 *)((s8 *)arg0 + 0x30) = lbl_805DDE04;
-    *(f32 *)((s8 *)arg0 + 0x34) = lbl_805DDE08;
-    *(f32 *)((s8 *)arg0 + 0x28) = lbl_805DDE08;
-    *(f32 *)((s8 *)arg0 + 0x38) = lbl_805DDE0C;
-    *(f32 *)((s8 *)arg0 + 0x2C) = lbl_805DDE0C;
-    return arg0;
+void *__ct__8TChCrTagFv(void *ch_cr_tag, void *arg1, void *arg2) {
+    __ct__7TObjectFP7TObject(ch_cr_tag);
+    *(void ***)((s8 *)ch_cr_tag + 0x18) = __vt__8TChCrTag;
+    *(void * *)&((TChCrTag *)ch_cr_tag)->m_name = lbl_805D3D90;
+    *(void **)((s8 *)ch_cr_tag + 0x20) = arg2;
+    *(u32 *)((s8 *)ch_cr_tag + 0x1C) = 0;
+    *(f32 *)((s8 *)ch_cr_tag + 0x24) = lbl_805DDE04;
+    *(f32 *)((s8 *)ch_cr_tag + 0x30) = lbl_805DDE04;
+    *(f32 *)((s8 *)ch_cr_tag + 0x34) = lbl_805DDE08;
+    *(f32 *)((s8 *)ch_cr_tag + 0x28) = lbl_805DDE08;
+    *(f32 *)((s8 *)ch_cr_tag + 0x38) = lbl_805DDE0C;
+    *(f32 *)((s8 *)ch_cr_tag + 0x2C) = lbl_805DDE0C;
+    return ch_cr_tag;
 }
 
 void *__vt__8TChCrTag[7] = {

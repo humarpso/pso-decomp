@@ -162,19 +162,19 @@ void *__dt__16TObjWeddingLobbyFv(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_8035BF68___vt__16TObjWeddingLobby_size[sizeof(RecoveredGlobal_8035BF68___vt__16TObjWeddingLobby) == 0x3C ? 1 : -1];
-u8 *TObjWeddingLobby__ct(TObjWeddingLobby *arg0, s32 arg1, s32 arg2) {
-    init_map_object_base((void *)arg0, (void *)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8035BF68___vt__16TObjWeddingLobby *)&__vt__16TObjWeddingLobby).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjWeddingLobby__class_name;
-    ((TObjWeddingLobby *)(arg0))->apply_object_set_data((void *)arg2);
+u8 *TObjWeddingLobby__ct(TObjWeddingLobby *wedding_lobby, s32 arg1, s32 arg2) {
+    init_map_object_base((void *)wedding_lobby, (void *)arg1);
+    *(s32 **)((s8 *)wedding_lobby + 0x18) = &(*(RecoveredGlobal_8035BF68___vt__16TObjWeddingLobby *)&__vt__16TObjWeddingLobby).value;
+    *(s32 *)((s8 *)wedding_lobby + 0) = (s32) TObjWeddingLobby__class_name;
+    ((TObjWeddingLobby *)(wedding_lobby))->apply_object_set_data((void *)arg2);
     if (TLobby::get_filtered_event_theme() == 0xA) {
-        arg0->m_c8 = 3;
+        wedding_lobby->m_c8 = 3;
     } else {
-        arg0->m_c8 = 0;
+        wedding_lobby->m_c8 = 0;
     }
-    *(f32 *)((s8 *)arg0 + 0xCC) = 1.0f;
-    arg0->m_b0 = 0.0f;
-    return (u8 *)arg0;
+    *(f32 *)((s8 *)wedding_lobby + 0xCC) = 1.0f;
+    wedding_lobby->m_b0 = 0.0f;
+    return (u8 *)wedding_lobby;
 }
 
 __declspec(section ".data") const char *bm_obj_lobby_bell_model_names[3] = { lbl_80479940, lbl_8047995C, NULL };

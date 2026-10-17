@@ -41,16 +41,16 @@ void *__dt__14TObjDFUsoTowerFv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_80052200_lbl_804858A8_size[sizeof(RecoveredGlobal_80052200_lbl_804858A8) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_80052200___vt__14TObjDFUsoTower_size[sizeof(RecoveredGlobal_80052200___vt__14TObjDFUsoTower) == 0x34 ? 1 : -1];
-u8 *TObjDFUsoTower__ct(u8 *arg0, s32 _w1) {
-    construct_world_actor_base(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80052200___vt__14TObjDFUsoTower *)&__vt__14TObjDFUsoTower).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjDFUsoTower__name;
-    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model(lbl_805D58A8, 5);
-    ((TObjDFUsoTower *)arg0)->texture_id = TObjFish__sub_8001EDB0(lbl_805D58A8, 5);
-    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)&lbl_804858A8.value);
-    *(f32 *)((s8 *)arg0 + 0x94) = (f32) lbl_805D8A30;
-    ((TObjDFUsoTower *)arg0)->m_90 = 0;
-    return arg0;
+u8 *TObjDFUsoTower__ct(u8 *obj_df_uso_tower, s32 _w1) {
+    construct_world_actor_base(obj_df_uso_tower);
+    *(s32 **)((s8 *)obj_df_uso_tower + 0x18) = &(*(RecoveredGlobal_80052200___vt__14TObjDFUsoTower *)&__vt__14TObjDFUsoTower).value;
+    *(s32 *)((s8 *)obj_df_uso_tower + 0) = (s32) TObjDFUsoTower__name;
+    *(s32 *)((s8 *)obj_df_uso_tower + 0x34) = get_bml_model(lbl_805D58A8, 5);
+    ((TObjDFUsoTower *)obj_df_uso_tower)->texture_id = TObjFish__sub_8001EDB0(lbl_805D58A8, 5);
+    VecCopy((Vec *)(obj_df_uso_tower + 0x38), (const Vec *)&lbl_804858A8.value);
+    *(f32 *)((s8 *)obj_df_uso_tower + 0x94) = (f32) lbl_805D8A30;
+    ((TObjDFUsoTower *)obj_df_uso_tower)->m_90 = 0;
+    return obj_df_uso_tower;
 }
 
 void *TObjDFUsoTower::create(void *arg0) {

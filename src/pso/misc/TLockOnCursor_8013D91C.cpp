@@ -234,23 +234,23 @@ s32 TLockOnCursor::dt(s32 arg0, s16 arg1) {
 extern s32 TLockOnCursor__sub_8013EFB8[];
 extern void *lock_on_cursor_class_name;
 
-void *TLockOnCursor__ct(void *arg0, void *arg1, void *arg2) {
-    struct VOff_8013DE3C_arg0_8013D91C *self = (struct VOff_8013DE3C_arg0_8013D91C *)arg0;
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TLockOnCursor;
+void *TLockOnCursor__ct(void *lock_on_cursor, void *arg1, void *arg2) {
+    struct VOff_8013DE3C_arg0_8013D91C *self = (struct VOff_8013DE3C_arg0_8013D91C *)lock_on_cursor;
+    __ct__7TObjectFP7TObject(lock_on_cursor);
+    *(s32 **)((s8 *)lock_on_cursor + 0x18) = __vt__13TLockOnCursor;
     ((TObjPlayer *)(self->f_1C))->init_forward();
-    fn_8013F0A0(((char *)arg0 + 36));
-    ((TLockOnCursor *)((char *)arg0 + 60))->reset_fields();
-    TMainCursor__sub_8013F1F0((u8 *)((char *)arg0 + 72));
-    __construct_array((void *)((char *)arg0 + 92), TLockOnCursor__sub_8013EFB8, __dt_deleting__13TLockOnCursorFis, 292, 4);
-    ((TLockOnCursor *)((char *)arg0 + 1260))->cleanup();
-    ((TLockOnCursor *)((char *)arg0 + 1288))->init_forward();
-    ((TLockOnCursor *)((char *)arg0 + 1296))->init_cursor();
-    ((TLockOnCursor *)((char *)arg0 + 1312))->init_vtable();
-    *(void * *)&((TLockOnCursor *)arg0)->m_name = lock_on_cursor_class_name;
-    sub_8013EEC0__13TLockOnCursorFs(arg0, arg2);
+    fn_8013F0A0(((char *)lock_on_cursor + 36));
+    ((TLockOnCursor *)((char *)lock_on_cursor + 60))->reset_fields();
+    TMainCursor__sub_8013F1F0((u8 *)((char *)lock_on_cursor + 72));
+    __construct_array((void *)((char *)lock_on_cursor + 92), TLockOnCursor__sub_8013EFB8, __dt_deleting__13TLockOnCursorFis, 292, 4);
+    ((TLockOnCursor *)((char *)lock_on_cursor + 1260))->cleanup();
+    ((TLockOnCursor *)((char *)lock_on_cursor + 1288))->init_forward();
+    ((TLockOnCursor *)((char *)lock_on_cursor + 1296))->init_cursor();
+    ((TLockOnCursor *)((char *)lock_on_cursor + 1312))->init_vtable();
+    *(void * *)&((TLockOnCursor *)lock_on_cursor)->m_name = lock_on_cursor_class_name;
+    sub_8013EEC0__13TLockOnCursorFs(lock_on_cursor, arg2);
     ((TObjPlayer *)(self->f_1C))->clear_id();
-    return arg0;
+    return lock_on_cursor;
 }
 
 }

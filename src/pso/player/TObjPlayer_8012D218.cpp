@@ -33,14 +33,14 @@ extern f32 lbl_805DAF18;
 
 void TObjPlayer::trigger_megid_special() {
     s32 sp8;
-    void *temp_r3;
+    void *tec_megid;
 
     if (get_slot_count__5TItemFv() == 1) {
         ((TObjPlayer *)tl_05)->create_item_eff_cane((TItem*)this, 2, 0x101);
         if (is_mode_two_and_ready() != 0) {
             if (draw_icon(2, (s32)&sp8) != 0) {
-                temp_r3 = *(void * *)&this->unk_F0;
-                create_ex__9TTecMegidFllll(temp_r3, &sp8, *(s32 *)((s8 *)temp_r3 + 0x60), 0);
+                tec_megid = *(void * *)&this->unk_F0;
+                create_ex__9TTecMegidFllll(tec_megid, &sp8, *(s32 *)((s8 *)tec_megid + 0x60), 0);
                 drain_owner_hp_fraction(lbl_805DAF18);
             }
         } else {

@@ -80,25 +80,25 @@ extern s32 lbl_804A05C8[];
 
 typedef char RecoveredGlobal_803646F0_lbl_8047A020_size[sizeof(RecoveredGlobal_803646F0_lbl_8047A020) == 0x30 ? 1 : -1];
 typedef char RecoveredGlobal_803646F0___vt__21TItemProArmorParticle_size[sizeof(RecoveredGlobal_803646F0___vt__21TItemProArmorParticle) == 0xD0 ? 1 : -1];
-u8 *TItemProArmorParticle__ct(TItemProArmorParticle *arg0, u8 *arg1) {
+u8 *TItemProArmorParticle__ct(TItemProArmorParticle *item_pro_armor_particle, u8 *arg1) {
     u8 temp_r0;
-    TItemProArmor__ct(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_803646F0___vt__21TItemProArmorParticle *)&__vt__21TItemProArmorParticle).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TItemProArmorParticle__class_name;
-    arg0->m_198 = -1;
-    temp_r0 = ((TItem *)arg0)->get_slot_count() - 0x29;
+    TItemProArmor__ct(item_pro_armor_particle, arg1);
+    *(s32 **)((s8 *)item_pro_armor_particle + 0x18) = &(*(RecoveredGlobal_803646F0___vt__21TItemProArmorParticle *)&__vt__21TItemProArmorParticle).value;
+    *(s32 *)((s8 *)item_pro_armor_particle + 0) = (s32) TItemProArmorParticle__class_name;
+    item_pro_armor_particle->m_198 = -1;
+    temp_r0 = ((TItem *)item_pro_armor_particle)->get_slot_count() - 0x29;
     if (temp_r0 < 0xCU) {
-        arg0->m_19c = (s32) *(s32 *)((s8 *)&TItemProArmorParticle__particle_id_table.value + ((temp_r0 * 4) & 0x3FC));
+        item_pro_armor_particle->m_19c = (s32) *(s32 *)((s8 *)&TItemProArmorParticle__particle_id_table.value + ((temp_r0 * 4) & 0x3FC));
         if (temp_r0 < 5U) {
-            arg0->m_1a0 = 1;
+            item_pro_armor_particle->m_1a0 = 1;
         } else {
-            arg0->m_1a0 = 2;
+            item_pro_armor_particle->m_1a0 = 2;
         }
     } else {
-        arg0->m_19c = 0;
-        arg0->m_1a0 = 0;
+        item_pro_armor_particle->m_19c = 0;
+        item_pro_armor_particle->m_1a0 = 0;
     }
-    return (u8 *)arg0;
+    return (u8 *)item_pro_armor_particle;
 }
 
 void *TUnk_804A05C8::initialize(void *arg1, void *arg2, void *arg3, void *arg4) {

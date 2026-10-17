@@ -183,13 +183,13 @@ extern const f32 lbl_805DB974;
 extern const f32 lbl_805DB978;
 extern void *TORockCave__class_name;
 
-void *TORockCave__ct(void *arg0) {
-    construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_05);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TORockCave;
-    *(void * *)&((TORockCave *)arg0)->m_name = TORockCave__class_name;
-    *(f32 *)((s8 *)arg0 + 0xAC) = lbl_805DB974;
-    ((TORockCave *)arg0)->m_b0 = lbl_805DB978;
-    return arg0;
+void *TORockCave__ct(void *rock_cave) {
+    construct_collider_proxy__13TUnk_804AF8A0Fv(rock_cave, tl_05);
+    *(s32 **)((s8 *)rock_cave + 0x18) = __vt__10TORockCave;
+    *(void * *)&((TORockCave *)rock_cave)->m_name = TORockCave__class_name;
+    *(f32 *)((s8 *)rock_cave + 0xAC) = lbl_805DB974;
+    ((TORockCave *)rock_cave)->m_b0 = lbl_805DB978;
+    return rock_cave;
 }
 
 void TORockCave::vfunc_14() {  }

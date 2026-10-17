@@ -41,20 +41,20 @@ s32 TObjEneRecon__sub_8031FACC(void *);
 
 extern const f32 TObjEneRecon__data_805DF438;
 
-void TObjEneRecon__sub_8031F600(void *arg0, s32 arg1) {
+void TObjEneRecon__sub_8031F600(void *ene_dd, s32 arg1) {
     s32 temp_r4;
 
     switch (arg1) {
     case 4:
-        temp_r4 = *(s32 *)((s8 *)arg0 + 0x40C) & 0xFFFFFFFE;
-        *(s32 *)((s8 *)arg0 + 0x40C) = temp_r4;
-        ((TObjEneDD *)arg0)->m_b8 = 0;
-        ((VObj_8031F600 *)arg0)->m94(temp_r4);
-        ((TObjEneDD *)arg0)->set_field_378(2);
+        temp_r4 = *(s32 *)((s8 *)ene_dd + 0x40C) & 0xFFFFFFFE;
+        *(s32 *)((s8 *)ene_dd + 0x40C) = temp_r4;
+        ((TObjEneDD *)ene_dd)->m_b8 = 0;
+        ((VObj_8031F600 *)ene_dd)->m94(temp_r4);
+        ((TObjEneDD *)ene_dd)->set_field_378(2);
         return;
     case 3:
-        if ((((VObj_8031F600 *)arg0)->m102(TObjEneRecon__data_805DF438) != 0) && (TObjEneRecon__sub_8031FACC(arg0) != 0)) {
-            transition_enemy_state(arg0, 3);
+        if ((((VObj_8031F600 *)ene_dd)->m102(TObjEneRecon__data_805DF438) != 0) && (TObjEneRecon__sub_8031FACC(ene_dd) != 0)) {
+            transition_enemy_state(ene_dd, 3);
         }
         break;
     case 5:

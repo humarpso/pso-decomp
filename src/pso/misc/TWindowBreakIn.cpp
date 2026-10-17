@@ -44,11 +44,11 @@ void *__dt__14TWindowBreakInFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_80246C58_lbl_804CE1B8_size[sizeof(RecoveredGlobal_80246C58_lbl_804CE1B8) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80246C58___vt__14TWindowBreakIn_size[sizeof(RecoveredGlobal_80246C58___vt__14TWindowBreakIn) == 0x1C ? 1 : -1];
-u8 *TWindowBreakIn__ct(u8 *arg0) {
-    ((TWindowDD *)arg0)->construct_base((u8 *)&window_break_in_layout.value, (s16)(4), (u8 *)(get_window_layout_position(0xAA)));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80246C58___vt__14TWindowBreakIn *)&__vt__14TWindowBreakIn).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3890;
-    return arg0;
+u8 *TWindowBreakIn__ct(u8 *window_dd) {
+    ((TWindowDD *)window_dd)->construct_base((u8 *)&window_break_in_layout.value, (s16)(4), (u8 *)(get_window_layout_position(0xAA)));
+    *(s32 **)((s8 *)window_dd + 0x18) = &(*(RecoveredGlobal_80246C58___vt__14TWindowBreakIn *)&__vt__14TWindowBreakIn).value;
+    *(s32 *)((s8 *)window_dd + 0) = (s32) lbl_805D3890;
+    return window_dd;
 }
 
 }

@@ -150,26 +150,26 @@ typedef struct RecoveredGlobal_80196DB4___vt__16TObjQuestColBase RecoveredGlobal
 typedef struct VBase_18_1a504b VBase_18_1a504b;
 typedef struct VObj_18_1a504b VObj_18_1a504b;
 typedef char RecoveredGlobal_80196DB4___vt__16TObjQuestColBase_size[((sizeof(RecoveredGlobal_80196DB4___vt__16TObjQuestColBase)) == 0x48) ? (1) : (-1)];
-u8 *TObjQuestColBase__ct(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *TObjQuestColBase__ct(u8 *quest_col_base, s32 arg1, s32 arg2) {
   u16 temp_r6;
-  ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
-  ((RecoveredFields_80196DB4_arg0 *) arg0)->field_18 = &(*(RecoveredGlobal_80196DB4___vt__16TObjQuestColBase *)&__vt__16TObjQuestColBase).value;
-  ((RecoveredFields_80196DB4_arg0 *) arg0)->field_0 = quest_col_base_class_name;
-  (((TObjQuestColBase *)(arg0))->apply_object_set_data((void *)arg2));
+  ((TUnk_804AF8A0 *)quest_col_base)->construct_collider_proxy();
+  ((RecoveredFields_80196DB4_arg0 *) quest_col_base)->field_18 = &(*(RecoveredGlobal_80196DB4___vt__16TObjQuestColBase *)&__vt__16TObjQuestColBase).value;
+  ((RecoveredFields_80196DB4_arg0 *) quest_col_base)->field_0 = quest_col_base_class_name;
+  (((TObjQuestColBase *)(quest_col_base))->apply_object_set_data((void *)arg2));
   temp_r6 = -1;
-  if (((RecoveredFields_80196DB4_arg0 *) arg0)->field_1C == temp_r6)
+  if (((RecoveredFields_80196DB4_arg0 *) quest_col_base)->field_1C == temp_r6)
   {
-    ((RecoveredFields_80196DB4_arg0 *) arg0)->field_1C = TLobby::alloc_actor_ids(0);
+    ((RecoveredFields_80196DB4_arg0 *) quest_col_base)->field_1C = TLobby::alloc_actor_ids(0);
   }
   temp_r6 = quest_collision_next_id;
   quest_collision_next_id = temp_r6 + 1;
-  ((RecoveredFields_80196DB4_arg0 *) arg0)->field_6 = temp_r6;
-  ((RecoveredFields_80196DB4_arg0 *) arg0)->field_AC = ((RecoveredFields_80196DB4_arg0 *) arg0)->field_68;
-  ((RecoveredFields_80196DB4_arg0 *) arg0)->field_B0 = ((RecoveredFields_80196DB4_arg0 *) arg0)->field_84;
-  ((RecoveredFields_80196DB4_arg0 *) arg0)->field_B4 = 1;
-  ((RecoveredFields_80196DB4_arg0 *) arg0)->field_B8 = 0;
+  ((RecoveredFields_80196DB4_arg0 *) quest_col_base)->field_6 = temp_r6;
+  ((RecoveredFields_80196DB4_arg0 *) quest_col_base)->field_AC = ((RecoveredFields_80196DB4_arg0 *) quest_col_base)->field_68;
+  ((RecoveredFields_80196DB4_arg0 *) quest_col_base)->field_B0 = ((RecoveredFields_80196DB4_arg0 *) quest_col_base)->field_84;
+  ((RecoveredFields_80196DB4_arg0 *) quest_col_base)->field_B4 = 1;
+  ((RecoveredFields_80196DB4_arg0 *) quest_col_base)->field_B8 = 0;
   TObjQuestColBase__instance_count += 1;
-  return arg0;
+  return quest_col_base;
 }
 
 }

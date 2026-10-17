@@ -31,11 +31,11 @@ int TObjQuestColApc::vfunc_15() {
     return 0;
 }
 
-void *TObjQuestColApc__ct(void *arg0) {
-    TObjQuestColBase__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjQuestColApc;
-    *(void * *)&((TObjQuestColApc *)arg0)->m_name = obj_quest_col_apc_class_name;
-    return arg0;
+void *TObjQuestColApc__ct(void *quest_col_apc) {
+    TObjQuestColBase__ct(quest_col_apc);
+    *(s32 **)((s8 *)quest_col_apc + 0x18) = __vt__15TObjQuestColApc;
+    *(void * *)&((TObjQuestColApc *)quest_col_apc)->m_name = obj_quest_col_apc_class_name;
+    return quest_col_apc;
 }
 
 }

@@ -109,12 +109,12 @@ void *__dt__20TWindowChoiceSettingFv(void *arg0, s16 arg1) {
 
 extern void *lbl_805D38B8;
 
-void *TWindowChoiceSetting__ct(void *arg0) {
-    fn_80269004(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TWindowChoiceSetting;
-    *(void * *)&((TWindowChoiceSetting *)arg0)->m_name = lbl_805D38B8;
-    ((TWindowChoiceSetting *)arg0)->m_80 = 0;
-    return arg0;
+void *TWindowChoiceSetting__ct(void *window_choice_setting) {
+    fn_80269004(window_choice_setting);
+    *(s32 **)((s8 *)window_choice_setting + 0x18) = __vt__20TWindowChoiceSetting;
+    *(void * *)&((TWindowChoiceSetting *)window_choice_setting)->m_name = lbl_805D38B8;
+    ((TWindowChoiceSetting *)window_choice_setting)->m_80 = 0;
+    return window_choice_setting;
 }
 
 }

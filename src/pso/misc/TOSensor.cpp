@@ -206,12 +206,12 @@ void *__dt__8TOSensorFv(void *arg0, s16 arg1) {
 
 extern void *lbl_805D3140;
 
-void *TOSensor__ct(void *arg0) {
-    TOKey__ct((TOKey *)arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TOSensor;
-    VecCopy((Vec *)((char *)arg0 + 80), (const Vec *)((char *)arg0 + 56));
-    *(void * *)&((TOSensor *)arg0)->m_name = lbl_805D3140;
-    return arg0;
+void *TOSensor__ct(void *sensor) {
+    TOKey__ct((TOKey *)sensor);
+    *(s32 **)((s8 *)sensor + 0x18) = __vt__8TOSensor;
+    VecCopy((Vec *)((char *)sensor + 80), (const Vec *)((char *)sensor + 56));
+    *(void * *)&((TOSensor *)sensor)->m_name = lbl_805D3140;
+    return sensor;
 }
 
 void TOSensor::vfunc_16() {  }
@@ -462,39 +462,39 @@ void *__dt__17TOSensorAncient01Fv(void *arg0, s16 arg1) {
 }
 #pragma push
 #pragma opt_common_subs off
-u8 *TOSensorAncient01__ct(TOSensorAncient01 *arg0, s32 arg1, s32 arg2) {
+u8 *TOSensorAncient01__ct(TOSensorAncient01 *sensor_ancient01, s32 arg1, s32 arg2) {
     s32 temp_r0;
-    ((s32 (*)(void *))TOSensor__ct)(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80175E2C___vt__17TOSensorAncient01 *)&__vt__17TOSensorAncient01).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TOSensorAncient01_class_name;
-    ((TOSensorAncient01 *)(arg0))->apply_object_set_data((void *)arg2);
-    ((TOKey *)arg0)->init_switch_id();
-    temp_r0 = *(s32 *)&arg0->m_8c;
+    ((s32 (*)(void *))TOSensor__ct)(sensor_ancient01);
+    *(s32 **)((s8 *)sensor_ancient01 + 0x18) = &(*(RecoveredGlobal_80175E2C___vt__17TOSensorAncient01 *)&__vt__17TOSensorAncient01).value;
+    *(s32 *)((s8 *)sensor_ancient01 + 0) = (s32) TOSensorAncient01_class_name;
+    ((TOSensorAncient01 *)(sensor_ancient01))->apply_object_set_data((void *)arg2);
+    ((TOKey *)sensor_ancient01)->init_switch_id();
+    temp_r0 = *(s32 *)&sensor_ancient01->m_8c;
     if (temp_r0 < 0) {
-        *(s32 *)&arg0->m_8c = 0;
+        *(s32 *)&sensor_ancient01->m_8c = 0;
     } else if (temp_r0 >= 2) {
-        *(s32 *)&arg0->m_8c = 1;
+        *(s32 *)&sensor_ancient01->m_8c = 1;
     }
-    *(u8 * *)&arg0->model = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&sensor_ancient01_model_resource) + 0x42C)) + 8));
-    *(u8 **)((s8 *)arg0 + 0xBC) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&sensor_ancient01_model_resource) + 0x430)) + 4));
-    *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - (1.0f));
-    arg0->m_b8 = (f32) (1.0f);
-    arg0->m_c0 = (f32) (4e+02f);
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 * *)&arg0->model) + 4)) + 0x14);
-    *(f32 *)((s8 *)arg0 + 0xCC) = (f32) ((5e+01f) + arg0->scale);
-    if (*(f32 *)((s8 *)arg0 + 0xCC) < (0.0f)) {
-        *(f32 *)((s8 *)arg0 + 0xCC) = (f32) (0.0f);
+    *(u8 * *)&sensor_ancient01->model = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&sensor_ancient01_model_resource) + 0x42C)) + 8));
+    *(u8 **)((s8 *)sensor_ancient01 + 0xBC) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&sensor_ancient01_model_resource) + 0x430)) + 4));
+    *(f32 *)((s8 *)sensor_ancient01 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)sensor_ancient01 + 0xBC)) + 4) - (1.0f));
+    sensor_ancient01->m_b8 = (f32) (1.0f);
+    sensor_ancient01->m_c0 = (f32) (4e+02f);
+    *(f32 *)((s8 *)sensor_ancient01 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 * *)&sensor_ancient01->model) + 4)) + 0x14);
+    *(f32 *)((s8 *)sensor_ancient01 + 0xCC) = (f32) ((5e+01f) + sensor_ancient01->scale);
+    if (*(f32 *)((s8 *)sensor_ancient01 + 0xCC) < (0.0f)) {
+        *(f32 *)((s8 *)sensor_ancient01 + 0xCC) = (f32) (0.0f);
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0) {
-        *(s32 *)&arg0->m_d0 = 2;
+    if ((s32) *(s32 *)((s8 *)sensor_ancient01 + 0x88) < 0) {
+        *(s32 *)&sensor_ancient01->m_d0 = 2;
     } else {
-        *(s32 *)&arg0->m_d0 = 1;
+        *(s32 *)&sensor_ancient01->m_d0 = 1;
     }
-    arg0->m_e8 = 0x78;
-    *(s32 *)((s8 *)arg0 + 0xEC) = 0;
-    arg0->m_f0 = (f32) (0.0f);
-    *(s32 *)((s8 *)arg0 + 0xF4) = 0;
-    return (u8 *)arg0;
+    sensor_ancient01->m_e8 = 0x78;
+    *(s32 *)((s8 *)sensor_ancient01 + 0xEC) = 0;
+    sensor_ancient01->m_f0 = (f32) (0.0f);
+    *(s32 *)((s8 *)sensor_ancient01 + 0xF4) = 0;
+    return (u8 *)sensor_ancient01;
 }
 #pragma pop
 

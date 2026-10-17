@@ -113,12 +113,12 @@ u8 *__dt__13TOSwitchTimerFv(u8 *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_80178604___vt__13TOSwitchTimer_size[sizeof(RecoveredGlobal_80178604___vt__13TOSwitchTimer) == 0x38 ? 1 : -1];
-u8 *TOSwitchTimer__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_world_actor_base(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80178604___vt__13TOSwitchTimer *)&__vt__13TOSwitchTimer).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3188;
-    ((TOSwitchTimer *)(arg0))->apply_object_set_data((void *)arg2);
-    fn_801782A0(arg0);
-    return arg0;
+u8 *TOSwitchTimer__ct(u8 *switch_timer, s32 arg1, s32 arg2) {
+    construct_world_actor_base(switch_timer);
+    *(s32 **)((s8 *)switch_timer + 0x18) = &(*(RecoveredGlobal_80178604___vt__13TOSwitchTimer *)&__vt__13TOSwitchTimer).value;
+    *(s32 *)((s8 *)switch_timer + 0) = (s32) lbl_805D3188;
+    ((TOSwitchTimer *)(switch_timer))->apply_object_set_data((void *)arg2);
+    fn_801782A0(switch_timer);
+    return switch_timer;
 }
 }

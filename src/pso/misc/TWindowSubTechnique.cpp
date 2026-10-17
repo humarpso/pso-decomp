@@ -233,19 +233,19 @@ void *__dt__19TWindowSubTechniqueFv(void *arg0, s16 arg1) {
 
 extern s32 TWindowSubTechnique__name;
 
-void *TWindowSubTechnique__ct(TWindowSubTechnique *arg0, s32 arg1, s32 arg2) {
+void *TWindowSubTechnique__ct(TWindowSubTechnique *window_sub_technique, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowSubTechnique;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubTechnique__name;
-    arg0->m_30 = arg1;
-    arg0->playerIndex = arg2;
-    arg0->m_34 = arg0->open_menu();
-    arg0->m_38 = 0;
-    arg0->m_3c = 0;
-    arg0->m_2c = -1;
-    arg0->m_1e = 0x13;
-    arg0->m_1c = 0;
-    return arg0;
+    *(s32 **)((s8 *)window_sub_technique + 0x18) = __vt__19TWindowSubTechnique;
+    *(s32 *)((s8 *)window_sub_technique + 0) = (s32) TWindowSubTechnique__name;
+    window_sub_technique->m_30 = arg1;
+    window_sub_technique->playerIndex = arg2;
+    window_sub_technique->m_34 = window_sub_technique->open_menu();
+    window_sub_technique->m_38 = 0;
+    window_sub_technique->m_3c = 0;
+    window_sub_technique->m_2c = -1;
+    window_sub_technique->m_1e = 0x13;
+    window_sub_technique->m_1c = 0;
+    return window_sub_technique;
 }
 
 s32 TWindowSubTechnique__sub_8028753C(s32 arg0) {

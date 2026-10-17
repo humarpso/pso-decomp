@@ -16,17 +16,17 @@ extern RecoveredGlobal_801224D4_lbl_804A0FA0 lbl_804A0FA0;
 extern const f32 lbl_805DACE0;
 
 typedef char RecoveredGlobal_801224D4_lbl_804A0FA0_size[sizeof(RecoveredGlobal_801224D4_lbl_804A0FA0) == 0xF8 ? 1 : -1];
-u8 *construct_dagger_weapon(u8 *arg0, u8 *arg1, u8 *arg2) {
+u8 *construct_dagger_weapon(u8 *player, u8 *arg1, u8 *arg2) {
     u8 temp_r0;
-    TItemWeapon__ct(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A0FA0.value;
-    ((TObjPlayer *)arg0)->set_status_flags(0x600);
-    *(f32 *)((s8 *)arg0 + 0x1F8) = (f32) lbl_805DACE0;
+    TItemWeapon__ct(player, arg1);
+    *(s32 **)((s8 *)player + 0x18) = &lbl_804A0FA0.value;
+    ((TObjPlayer *)player)->set_status_flags(0x600);
+    *(f32 *)((s8 *)player + 0x1F8) = (f32) lbl_805DACE0;
     temp_r0 = *(u8 *)((s8 *)arg2 + 2);
     if ((temp_r0 >= 5U) && (temp_r0 != 7)) {
-        ((TObjPlayer *)arg0)->set_atp(-1);
+        ((TObjPlayer *)player)->set_atp(-1);
     }
-    return arg0;
+    return player;
 }
 
 u8 *create_dagger_weapon(u8 *arg0) {

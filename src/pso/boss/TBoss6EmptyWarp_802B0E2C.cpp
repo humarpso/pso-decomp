@@ -55,13 +55,13 @@ void __ct__7TObjectFP7TObject(void *);
 
 extern void *lbl_805D3E90;
 
-void *TBoss6EmptyWarp__ct(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TBoss6EmptyWarp;
-    *(void * *)&((TBoss6EmptyWarp *)arg0)->m_name = lbl_805D3E90;
+void *TBoss6EmptyWarp__ct(void *boss6_empty_warp) {
+    __ct__7TObjectFP7TObject(boss6_empty_warp);
+    *(s32 **)((s8 *)boss6_empty_warp + 0x18) = __vt__15TBoss6EmptyWarp;
+    *(void * *)&((TBoss6EmptyWarp *)boss6_empty_warp)->m_name = lbl_805D3E90;
     TBoss6PlotFalz::freeze_all_players();
-    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
-    return arg0;
+    *(u32 *)((s8 *)boss6_empty_warp + 0x1C) = 0;
+    return boss6_empty_warp;
 }
 
 s32 play_sound_effect(s32, s32, s32, s32);

@@ -154,34 +154,34 @@ typedef char RecoveredGlobal_802FE378_lbl_80474B68_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_802FE378_lbl_80474B74_size[sizeof(RecoveredGlobal_802FE378_lbl_80474B74) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_802FE378_lbl_80474B80_size[sizeof(RecoveredGlobal_802FE378_lbl_80474B80) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_802FE378___vt__21TBoss8DragonEffBullet_size[sizeof(RecoveredGlobal_802FE378___vt__21TBoss8DragonEffBullet) == 0x18 ? 1 : -1];
-u8 *TBoss8DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5) {
-    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802FE378___vt__21TBoss8DragonEffBullet *)&__vt__21TBoss8DragonEffBullet).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss8DragonEffBullet__name;
-    VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)(arg2));
-    VecCopy((Vec *)(arg0 + 0x28), (const Vec *)(arg3));
-    subtract_vector(arg0 + 0x28, arg0 + 0x1C);
-    ((TBoss8DragonEffBullet *)arg0)->m_40 = ((TObjBoss2Tunnel *)(arg0 + 0x28))->update_scale();
-    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805DEF04;
-    ((TBoss8DragonEffBullet *)arg0)->m_34 = 0;
-    ((TBoss8DragonEffBullet *)arg0)->m_38 = 0;
-    ((TBoss8DragonEffBullet *)arg0)->m_44 = arg4;
-    ((TBoss8DragonEffBullet *)arg0)->m_48 = arg5;
-    ((TBoss8DragonEffBullet *)arg0)->m_4c = 0;
-    ((TBoss8DragonEffBullet *)arg0)->m_50 = 0;
-    play_sound_effect(0x4003B20B, arg0 + 0x1C, 0, 0);
-    switch (((TBoss8DragonEffBullet *)arg0)->m_44) {
+u8 *TBoss8DragonEffBullet__ct(u8 *boss8_dragon_eff_bullet, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5) {
+    __ct__7TObjectFP7TObject((void *)boss8_dragon_eff_bullet, (void *)arg1);
+    *(s32 **)((s8 *)boss8_dragon_eff_bullet + 0x18) = &(*(RecoveredGlobal_802FE378___vt__21TBoss8DragonEffBullet *)&__vt__21TBoss8DragonEffBullet).value;
+    *(s32 *)((s8 *)boss8_dragon_eff_bullet + 0) = (s32) TBoss8DragonEffBullet__name;
+    VecCopy((Vec *)(boss8_dragon_eff_bullet + 0x1C), (const Vec *)(arg2));
+    VecCopy((Vec *)(boss8_dragon_eff_bullet + 0x28), (const Vec *)(arg3));
+    subtract_vector(boss8_dragon_eff_bullet + 0x28, boss8_dragon_eff_bullet + 0x1C);
+    ((TBoss8DragonEffBullet *)boss8_dragon_eff_bullet)->m_40 = ((TObjBoss2Tunnel *)(boss8_dragon_eff_bullet + 0x28))->update_scale();
+    *(f32 *)((s8 *)boss8_dragon_eff_bullet + 0x3C) = (f32) lbl_805DEF04;
+    ((TBoss8DragonEffBullet *)boss8_dragon_eff_bullet)->m_34 = 0;
+    ((TBoss8DragonEffBullet *)boss8_dragon_eff_bullet)->m_38 = 0;
+    ((TBoss8DragonEffBullet *)boss8_dragon_eff_bullet)->m_44 = arg4;
+    ((TBoss8DragonEffBullet *)boss8_dragon_eff_bullet)->m_48 = arg5;
+    ((TBoss8DragonEffBullet *)boss8_dragon_eff_bullet)->m_4c = 0;
+    ((TBoss8DragonEffBullet *)boss8_dragon_eff_bullet)->m_50 = 0;
+    play_sound_effect(0x4003B20B, boss8_dragon_eff_bullet + 0x1C, 0, 0);
+    switch (((TBoss8DragonEffBullet *)boss8_dragon_eff_bullet)->m_44) {
     case 1:
-        *(s32 **)((s8 *)arg0 + 0x54) = &lbl_80474B68.value;
+        *(s32 **)((s8 *)boss8_dragon_eff_bullet + 0x54) = &lbl_80474B68.value;
         break;
     case 2:
-        *(s32 **)((s8 *)arg0 + 0x54) = &lbl_80474B74.value;
+        *(s32 **)((s8 *)boss8_dragon_eff_bullet + 0x54) = &lbl_80474B74.value;
         break;
     case 3:
-        *(s32 **)((s8 *)arg0 + 0x54) = &lbl_80474B80.value;
+        *(s32 **)((s8 *)boss8_dragon_eff_bullet + 0x54) = &lbl_80474B80.value;
         break;
     }
-    return arg0;
+    return boss8_dragon_eff_bullet;
 }
 
 }

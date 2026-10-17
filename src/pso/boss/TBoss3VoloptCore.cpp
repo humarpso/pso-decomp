@@ -1104,79 +1104,79 @@ void TObjPlayer::update_grabbed_state() {
     }
 }
 
-void TObjPlayer__sub_800401CC(u8 *arg0) {
+void TObjPlayer__sub_800401CC(u8 *player) {
     S_800401CC sp8;
     f32 temp_f31;
     u32 temp_r4;
     void *obj;
-    *(u32 *)((s8 *)arg0 + 0x2A8) = (u32)get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x338));
-    switch (((TObjPlayer *)arg0)->m_37c) {
+    *(u32 *)((s8 *)player + 0x2A8) = (u32)get_player_by_client_id(*(u16 *)((s8 *)player + 0x338));
+    switch (((TObjPlayer *)player)->m_37c) {
     case 0:
-        *(s32 *)((s8 *)arg0 + 0x388) &= ~0x10000;
-        ((TObjPlayer *)arg0)->m_b8 = 0;
-        *(s32 *)((s8 *)arg0 + 0x5C) = 0;
-        if (*(s32 *)((s8 *)arg0 + 0x380) == 4) {
-            ((TObjPlayer *)arg0)->m_37c = ((TObjPlayer *)arg0)->m_3b4;
+        *(s32 *)((s8 *)player + 0x388) &= ~0x10000;
+        ((TObjPlayer *)player)->m_b8 = 0;
+        *(s32 *)((s8 *)player + 0x5C) = 0;
+        if (*(s32 *)((s8 *)player + 0x380) == 4) {
+            ((TObjPlayer *)player)->m_37c = ((TObjPlayer *)player)->m_3b4;
         } else {
-            VecCopy((Vec *)(arg0 + 0x39C), (const Vec *)(arg0 + 0x38));
-            ((TObjPlayer *)arg0)->m_3b4 = 1;
-            ((TObjPlayer *)arg0)->m_37c = 1;
-            *(s32 *)((s8 *)arg0 + 0x3B8) = 0x1E;
+            VecCopy((Vec *)(player + 0x39C), (const Vec *)(player + 0x38));
+            ((TObjPlayer *)player)->m_3b4 = 1;
+            ((TObjPlayer *)player)->m_37c = 1;
+            *(s32 *)((s8 *)player + 0x3B8) = 0x1E;
         }
         break;
     case 1:
-        VecCopy((Vec *)(arg0 + 0x308), (const Vec *)(*(u32 *)((s8 *)arg0 + 0x2A8) + 0x38));
-        subtract_vector(arg0 + 0x308, arg0 + 0x38);
-        ((TObjPlayer *)arg0)->update_angle(0x800, arg0 + 0x308);
-        if (--*(s32 *)((s8 *)arg0 + 0x3B8) <= 0) {
-            *(s32 *)((s8 *)arg0 + 0x3B8) = 0x96;
-            ((TObjPlayer *)arg0)->m_3b4 = 2;
-            ((TObjPlayer *)arg0)->m_37c = 2;
-            sp8.b = *(s32 *)((s8 *)arg0 + 0x398);
+        VecCopy((Vec *)(player + 0x308), (const Vec *)(*(u32 *)((s8 *)player + 0x2A8) + 0x38));
+        subtract_vector(player + 0x308, player + 0x38);
+        ((TObjPlayer *)player)->update_angle(0x800, player + 0x308);
+        if (--*(s32 *)((s8 *)player + 0x3B8) <= 0) {
+            *(s32 *)((s8 *)player + 0x3B8) = 0x96;
+            ((TObjPlayer *)player)->m_3b4 = 2;
+            ((TObjPlayer *)player)->m_37c = 2;
+            sp8.b = *(s32 *)((s8 *)player + 0x398);
             sp8.a = 0;
             sp8.c = 0x4000;
             obj = __nw__7TObjectFUl(0x48);
             if (obj != 0) {
-                TBoss3Volopt__sub_8004885C((u8 *)obj, (u8 *)((u8 *)volopt_slot_positions + ((TObjPlayer *)arg0)->m_3a8 * 0xC), 0x11B, 8, (u8 *)&sp8, (f32)lbl_805D86DC, (f32)lbl_805D86D0);
+                TBoss3Volopt__sub_8004885C((u8 *)obj, (u8 *)((u8 *)volopt_slot_positions + ((TObjPlayer *)player)->m_3a8 * 0xC), 0x11B, 8, (u8 *)&sp8, (f32)lbl_805D86DC, (f32)lbl_805D86D0);
             }
         }
         break;
     case 2:
-        temp_r4 = *(u32 *)((s8 *)arg0 + 0x2A8);
+        temp_r4 = *(u32 *)((s8 *)player + 0x2A8);
         if (temp_r4 == 0U) {
-            ((TObjPlayer *)arg0)->m_3b4 = 4;
-            ((TObjPlayer *)arg0)->m_37c = 4;
+            ((TObjPlayer *)player)->m_3b4 = 4;
+            ((TObjPlayer *)player)->m_37c = 4;
             return;
         }
-        VecCopy((Vec *)(arg0 + 0x308), (const Vec *)(temp_r4 + 0x2FC));
-        subtract_vector(arg0 + 0x308, arg0 + 0x38);
-        ((TObjGyaranzoMissile *)(arg0 + 0x308))->scale_velocity(lbl_805D86E0);
-        ((TObjPlayer *)arg0)->update_angle(0x800, arg0 + 0x308);
-        vec3_add_to(arg0 + 0x38, arg0 + 0x308);
-        if (((TObjPlayer *)arg0)->check_target_collision() != 0) {
-            ((TObjPlayer *)arg0)->m_3b4 = 4;
-            ((TObjPlayer *)arg0)->m_37c = 4;
+        VecCopy((Vec *)(player + 0x308), (const Vec *)(temp_r4 + 0x2FC));
+        subtract_vector(player + 0x308, player + 0x38);
+        ((TObjGyaranzoMissile *)(player + 0x308))->scale_velocity(lbl_805D86E0);
+        ((TObjPlayer *)player)->update_angle(0x800, player + 0x308);
+        vec3_add_to(player + 0x38, player + 0x308);
+        if (((TObjPlayer *)player)->check_target_collision() != 0) {
+            ((TObjPlayer *)player)->m_3b4 = 4;
+            ((TObjPlayer *)player)->m_37c = 4;
         }
-        if (--*(s32 *)((s8 *)arg0 + 0x3B8) <= 0) {
-            ((TObjPlayer *)arg0)->m_3b4 = 4;
-            ((TObjPlayer *)arg0)->m_37c = 4;
+        if (--*(s32 *)((s8 *)player + 0x3B8) <= 0) {
+            ((TObjPlayer *)player)->m_3b4 = 4;
+            ((TObjPlayer *)player)->m_37c = 4;
         }
         break;
     case 4:
-        VecCopy((Vec *)(arg0 + 0x308), (const Vec *)(arg0 + 0x39C));
-        subtract_vector(arg0 + 0x308, arg0 + 0x38);
-        temp_f31 = ((TObjGyaranzoMissile *)(arg0 + 0x308))->scale_velocity(lbl_805D86E0);
-        ((TObjPlayer *)arg0)->update_angle(0x800, arg0 + 0x308);
-        vec3_add_to(arg0 + 0x38, arg0 + 0x308);
-        ((TObjPlayer *)arg0)->check_target_collision();
+        VecCopy((Vec *)(player + 0x308), (const Vec *)(player + 0x39C));
+        subtract_vector(player + 0x308, player + 0x38);
+        temp_f31 = ((TObjGyaranzoMissile *)(player + 0x308))->scale_velocity(lbl_805D86E0);
+        ((TObjPlayer *)player)->update_angle(0x800, player + 0x308);
+        vec3_add_to(player + 0x38, player + 0x308);
+        ((TObjPlayer *)player)->check_target_collision();
         if (temp_f31 < lbl_805D86E4) {
-            *(u16 *)((s8 *)arg0 + 0x338) = 0xFFFF;
-            ((TObjPlayer *)arg0)->vfunc_59();
+            *(u16 *)((s8 *)player + 0x338) = 0xFFFF;
+            ((TObjPlayer *)player)->vfunc_59();
         }
         break;
     }
-    advance_animation_playback(arg0);
-    minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
+    advance_animation_playback(player);
+    minimap_render_dot(player + 0x38, -0x5DB4, 1, 0);
 }
 
 void TUnk_80483A10::render() {

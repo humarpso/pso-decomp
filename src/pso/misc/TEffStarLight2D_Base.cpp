@@ -127,7 +127,7 @@ u8 *TEffStarLight2D_Base__ct(u8 *arg0, s32 arg1, s32 arg2) {
     typedef char sp14_offset[(offsetof(Stack_80084DD4, sp14) == 0xC) ? 1 : -1];
     Stack_80084DD4 stack;
     s32 temp_r4;
-    u8 *temp_r3;
+    u8 *eff_star_light2_d;
     u8 *var_r0;
     construct_world_actor_base(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80084DD4_lbl_8048E640 *)&lbl_8048E640).value;
@@ -140,10 +140,10 @@ u8 *TEffStarLight2D_Base__ct(u8 *arg0, s32 arg1, s32 arg2) {
     temp_r4 = ((TUnk_8048E640 *)arg0)->m_8c;
     stack.sp13 = (s8) temp_r4;
     stack.sp14 = 0;
-    temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x4C, temp_r4)));
-    var_r0 = temp_r3;
+    eff_star_light2_d = (u8 *)(((u8 *)__nw__7TObjectFUl(0x4C, temp_r4)));
+    var_r0 = eff_star_light2_d;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(__ct__15TEffStarLight2DFPvPvP7TObject(temp_r3, (s32)(arg0 + 0x38), (s32) &stack.sp8, (*(s32 *)&tl_particle)));
+        var_r0 = (u8 *)(__ct__15TEffStarLight2DFPvPvP7TObject(eff_star_light2_d, (s32)(arg0 + 0x38), (s32) &stack.sp8, (*(s32 *)&tl_particle)));
     }
     *(u8 **)((s8 *)arg0 + 0x90) = var_r0;
     return arg0;

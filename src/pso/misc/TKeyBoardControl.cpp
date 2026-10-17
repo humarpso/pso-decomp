@@ -304,11 +304,11 @@ void TKeyBoardControl::release_input() {
     }
 }
 
-void TKeyBoardControl__sub_802613A4(TKeyBoardControl *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x60) = (s32) (*(s32 *)((s8 *)arg0 + 0x60) | 0x20);
-    if (*(void **)((s8 *)arg0 + 0x6C) != NULL) {
-        TKeyBoardControl__sub_8025CC04((u8 *)(*(void **)((s8 *)arg0 + 0x6C)));
-        arg0->release();
+void TKeyBoardControl__sub_802613A4(TKeyBoardControl *key_board_control) {
+    *(s32 *)((s8 *)key_board_control + 0x60) = (s32) (*(s32 *)((s8 *)key_board_control + 0x60) | 0x20);
+    if (*(void **)((s8 *)key_board_control + 0x6C) != NULL) {
+        TKeyBoardControl__sub_8025CC04((u8 *)(*(void **)((s8 *)key_board_control + 0x6C)));
+        key_board_control->release();
     }
 }
 
@@ -331,11 +331,11 @@ s32 TWindowKeyBoardSoft::hit_test_relative(u8 *arg1, u8 *arg2) {
     return TWindowKeyBoardSoft__sub_802614DC(arg0, arg1, temp_f5 - *(f32 *)((s8 *)arg1 + 0), temp_f3 - *(f32 *)((s8 *)arg1 + 4), *(f32 *)((s8 *)arg2 + 8) - temp_f5, *(f32 *)((s8 *)arg2 + 0xC) - temp_f3) >= TWindowKeyBoardSoft__data_805DD078;
 }
 
-f32 TWindowKeyBoardSoft__sub_802614DC(u8 *arg0, u8 *arg1, f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
+f32 TWindowKeyBoardSoft__sub_802614DC(u8 *window_sub_com_card, u8 *arg1, f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
     f32 t;
     f32 v;
 
-    t = ((TWindowSubComCard *)arg0)->get_normalized_progress();
+    t = ((TWindowSubComCard *)window_sub_com_card)->get_normalized_progress();
     if (t >= 1.0f) {
         return 1.0f;
     }

@@ -121,43 +121,43 @@ s32 TShopDeleteItemWindow::destroy() {
 
 extern s32 __vt__21TShopDeleteItemWindow[];
 
-void handle_confirm_dialog__21TShopDeleteItemWindowFPv(u8 *arg0) {
+void handle_confirm_dialog__21TShopDeleteItemWindowFPv(u8 *shop_window_base) {
     Stack_803379E0 stack;
     s32 slot;
     s32 selected_menu_value;
     s32 idx;
     u32 temp_r3;
     u32 temp_r3_4;
-    temp_r3 = *(u32 *)((s8 *)arg0 + 0x34);
+    temp_r3 = *(u32 *)((s8 *)shop_window_base + 0x34);
     if ((temp_r3 != 0U) && (((TWindowMenu *)temp_r3)->is_visible() != 0)) {
-        slot = sub_8022397C__15TShopWindowBaseFv(arg0);
-        selected_menu_value = get_selected_menu_value((int) (*(u32 *)((s8 *)arg0 + 0x34)));
+        slot = sub_8022397C__15TShopWindowBaseFv(shop_window_base);
+        selected_menu_value = get_selected_menu_value((int) (*(u32 *)((s8 *)shop_window_base + 0x34)));
         if (selected_menu_value == 0) {
-            idx = select_cursor_entry__22TWindowSubShortCutListFv((int) (*(s32 *)((s8 *)arg0 + 0x30)));
+            idx = select_cursor_entry__22TWindowSubShortCutListFv((int) (*(s32 *)((s8 *)shop_window_base + 0x30)));
             if (copy_item_record__18TCheckRoomSequenceFiPvi(idx, &stack.sp8, slot) != 0) {
-                remove_bank_item_amount__18TCheckRoomSequenceFiii(idx, (int) (*(s32 *)((s8 *)arg0 + 0x5C)), slot);
+                remove_bank_item_amount__18TCheckRoomSequenceFiii(idx, (int) (*(s32 *)((s8 *)shop_window_base + 0x5C)), slot);
                 compact_items__18TCheckRoomSequenceFi(slot);
                 copy_bank_to_card_window(slot);
-                ((TShopWindowBase *)arg0)->set_field_20(0);
+                ((TShopWindowBase *)shop_window_base)->set_field_20(0);
             }
-            TWindow__close((void *)((int) (*(u32 *)((s8 *)arg0 + 0x34))));
-            *(u32 *)((s8 *)arg0 + 0x34) = 0U;
+            TWindow__close((void *)((int) (*(u32 *)((s8 *)shop_window_base + 0x34))));
+            *(u32 *)((s8 *)shop_window_base + 0x34) = 0U;
             return;
         }
         if (selected_menu_value == 1) {
-            TWindow__close((void *)((int) (*(u32 *)((s8 *)arg0 + 0x34))));
-            *(u32 *)((s8 *)arg0 + 0x34) = 0U;
-            ((TShopWindowBase *)arg0)->set_field_20(4);
+            TWindow__close((void *)((int) (*(u32 *)((s8 *)shop_window_base + 0x34))));
+            *(u32 *)((s8 *)shop_window_base + 0x34) = 0U;
+            ((TShopWindowBase *)shop_window_base)->set_field_20(4);
             return;
         }
         goto block_8;
     }
 block_8:
-    temp_r3_4 = *(u32 *)((s8 *)arg0 + 0x34);
+    temp_r3_4 = *(u32 *)((s8 *)shop_window_base + 0x34);
     if ((temp_r3_4 != 0U) && (((TWindowSubComCard *)temp_r3_4)->get_status_flag() != 0)) {
-        TWindow__close((void *)((int) (*(u32 *)((s8 *)arg0 + 0x34))));
-        *(u32 *)((s8 *)arg0 + 0x34) = 0U;
-        ((TShopWindowBase *)arg0)->set_field_20(4);
+        TWindow__close((void *)((int) (*(u32 *)((s8 *)shop_window_base + 0x34))));
+        *(u32 *)((s8 *)shop_window_base + 0x34) = 0U;
+        ((TShopWindowBase *)shop_window_base)->set_field_20(4);
     }
 }
 
@@ -289,24 +289,24 @@ void *__dt__21TShopDeleteItemWindowFv(void *arg0, s16 arg1) {
 
 extern void *TShopDeleteItemWindow__name;
 
-void *TShopDeleteItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
-    __ct__15TShopWindowBaseFv(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TShopDeleteItemWindow;
-    *(void * *)&((TShopDeleteItemWindow *)arg0)->m_name = TShopDeleteItemWindow__name;
-    ((TShopDeleteItemWindow *)arg0)->m_20 = 0;
-    *(void **)((s8 *)arg0 + 0x24) = arg3;
-    ((TShopDeleteItemWindow *)arg0)->m_5c = 1;
-    ((TShopDeleteItemWindow *)arg0)->m_54 = 0;
-    ((TShopDeleteItemWindow *)arg0)->m_60 = 0;
-    ((TShopDeleteItemWindow *)arg0)->m_28 = 0;
-    ((TShopDeleteItemWindow *)arg0)->m_2c = 0;
-    ((TShopDeleteItemWindow *)arg0)->m_30 = 0;
-    ((TShopDeleteItemWindow *)arg0)->m_34 = 0;
-    ((TShopDeleteItemWindow *)arg0)->m_38 = 0;
-    ((TShopDeleteItemWindow *)arg0)->m_3c = 0;
-    *(void **)((s8 *)arg0 + 0x64) = arg2;
-    init__9TItemDataFv((void *)((char *)arg0 + 64));
-    return arg0;
+void *TShopDeleteItemWindow__ct(void *shop_delete_item_window, void *arg1, void *arg2, void *arg3) {
+    __ct__15TShopWindowBaseFv(shop_delete_item_window);
+    *(s32 **)((s8 *)shop_delete_item_window + 0x18) = __vt__21TShopDeleteItemWindow;
+    *(void * *)&((TShopDeleteItemWindow *)shop_delete_item_window)->m_name = TShopDeleteItemWindow__name;
+    ((TShopDeleteItemWindow *)shop_delete_item_window)->m_20 = 0;
+    *(void **)((s8 *)shop_delete_item_window + 0x24) = arg3;
+    ((TShopDeleteItemWindow *)shop_delete_item_window)->m_5c = 1;
+    ((TShopDeleteItemWindow *)shop_delete_item_window)->m_54 = 0;
+    ((TShopDeleteItemWindow *)shop_delete_item_window)->m_60 = 0;
+    ((TShopDeleteItemWindow *)shop_delete_item_window)->m_28 = 0;
+    ((TShopDeleteItemWindow *)shop_delete_item_window)->m_2c = 0;
+    ((TShopDeleteItemWindow *)shop_delete_item_window)->m_30 = 0;
+    ((TShopDeleteItemWindow *)shop_delete_item_window)->m_34 = 0;
+    ((TShopDeleteItemWindow *)shop_delete_item_window)->m_38 = 0;
+    ((TShopDeleteItemWindow *)shop_delete_item_window)->m_3c = 0;
+    *(void **)((s8 *)shop_delete_item_window + 0x64) = arg2;
+    init__9TItemDataFv((void *)((char *)shop_delete_item_window + 64));
+    return shop_delete_item_window;
 }
 
 }

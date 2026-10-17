@@ -206,15 +206,15 @@ void *__dt__17TObjParticleLobbyFv(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_80369ADC___vt__17TObjParticleLobby_size[sizeof(RecoveredGlobal_80369ADC___vt__17TObjParticleLobby) == 0x38 ? 1 : -1];
-u8 *TObjParticleLobby__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    init_map_object_base((void *)arg0, (void *)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80369ADC___vt__17TObjParticleLobby *)&__vt__17TObjParticleLobby).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D44B8;
-    ((TObjParticleLobby *)(arg0))->apply_object_set_data((void *)arg2);
-    ((TObjParticleLobby *)arg0)->m_d4 = (s32)create_particle_emitter((arg0 + 0x38), 1);
-    ((TObjParticleLobby *)arg0)->setup_emitter();
-    *(f32 *)((s8 *)arg0 + 0xCC) = (f32) (1.0f);
-    return arg0;
+u8 *TObjParticleLobby__ct(u8 *particle_lobby, s32 arg1, s32 arg2) {
+    init_map_object_base((void *)particle_lobby, (void *)arg1);
+    *(s32 **)((s8 *)particle_lobby + 0x18) = &(*(RecoveredGlobal_80369ADC___vt__17TObjParticleLobby *)&__vt__17TObjParticleLobby).value;
+    *(s32 *)((s8 *)particle_lobby + 0) = (s32) lbl_805D44B8;
+    ((TObjParticleLobby *)(particle_lobby))->apply_object_set_data((void *)arg2);
+    ((TObjParticleLobby *)particle_lobby)->m_d4 = (s32)create_particle_emitter((particle_lobby + 0x38), 1);
+    ((TObjParticleLobby *)particle_lobby)->setup_emitter();
+    *(f32 *)((s8 *)particle_lobby + 0xCC) = (f32) (1.0f);
+    return particle_lobby;
 }
 
 }

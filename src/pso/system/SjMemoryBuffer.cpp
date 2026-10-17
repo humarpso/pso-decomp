@@ -8,17 +8,17 @@ extern SjMemoryBufferInterface sj_memory_buffer_interface;
 __declspec(section ".rodata") extern const u8 sj_memory_buffer_uuid[16];
 void sj_memory_buffer_set_error_callback(SjMemoryBuffer* arg0, SjErrorCallback arg1, void* arg2);
 
-s32 sj_memory_buffer_is_chunk_available(SjMemoryBuffer* arg0, s32 arg1, s32 arg2, s32* arg3) {
+s32 sj_memory_buffer_is_chunk_available(SjMemoryBuffer* sj_memory_buffer, s32 arg1, s32 arg2, s32* arg3) {
     s32 n;
     middleware_interrupt_lock_enter();
     if (arg1 == 0) {
         n = 0;
     } else if (arg1 == 1) {
-        n = arg0->readable_bytes < arg2 ? arg0->readable_bytes : arg2;
+        n = sj_memory_buffer->readable_bytes < arg2 ? sj_memory_buffer->readable_bytes : arg2;
     } else {
         n = 0;
-        if (arg0->error_callback != 0) {
-            arg0->error_callback(arg0->error_context, -3);
+        if (sj_memory_buffer->error_callback != 0) {
+            sj_memory_buffer->error_callback(sj_memory_buffer->error_context, -3);
         }
     }
     *arg3 = n;
@@ -26,93 +26,93 @@ s32 sj_memory_buffer_is_chunk_available(SjMemoryBuffer* arg0, s32 arg1, s32 arg2
     { u32 r = (u32)__cntlzw(arg2 - n) >> 5; return r; }
 }
 
-void sj_memory_buffer_unget_chunk(SjMemoryBuffer* arg0, s32 arg1, SjChunk* arg2) {
+void sj_memory_buffer_unget_chunk(SjMemoryBuffer* sj_memory_buffer, s32 arg1, SjChunk* sj_chunk) {
   s32 d;
   s32 len;
   s32 n;
   s32 lim;
   s32 p;
-  if ((arg2->size <= 0) || (arg2->data == 0))
+  if ((sj_chunk->size <= 0) || (sj_chunk->data == 0))
   {
     return;
   }
   middleware_interrupt_lock_enter();
   if (arg1 == 0)
   {
-    if (arg0->error_callback != 0)
+    if (sj_memory_buffer->error_callback != 0)
     {
-      arg0->error_callback(arg0->error_context, -3);
+      sj_memory_buffer->error_callback(sj_memory_buffer->error_context, -3);
     }
   }
   else
     if (arg1 == 1)
   {
  dummy_label_788039: ;
-    len = arg2->size;
-    d = arg0->read_position;
-    if (((!arg2) && (!arg2)) && (!arg2))
+    len = sj_chunk->size;
+    d = sj_memory_buffer->read_position;
+    if (((!sj_chunk) && (!sj_chunk)) && (!sj_chunk))
     {
     }
     d -= len;
     n = d & (((s32) ((-d) & (~d))) >> 31);
-    arg0->read_position = n;
-    p = arg0->readable_bytes + arg2->size;
-    lim = arg0->buffer_size;
+    sj_memory_buffer->read_position = n;
+    p = sj_memory_buffer->readable_bytes + sj_chunk->size;
+    lim = sj_memory_buffer->buffer_size;
     if (lim < p)
     {
       p = lim;
     }
-    arg0->readable_bytes = p;
-    if (n != ((s32) (arg2->data - arg0->buffer)))
+    sj_memory_buffer->readable_bytes = p;
+    if (n != ((s32) (sj_chunk->data - sj_memory_buffer->buffer)))
     {
-      if (arg0->error_callback != 0)
+      if (sj_memory_buffer->error_callback != 0)
       {
-        arg0->error_callback(arg0->error_context, -3);
+        sj_memory_buffer->error_callback(sj_memory_buffer->error_context, -3);
       }
     }
   }
   else
   {
-    arg2->size = 0;
-    arg2->data = 0;
-    if (arg0->error_callback != 0)
+    sj_chunk->size = 0;
+    sj_chunk->data = 0;
+    if (sj_memory_buffer->error_callback != 0)
     {
-      arg0->error_callback(arg0->error_context, -3);
+      sj_memory_buffer->error_callback(sj_memory_buffer->error_context, -3);
     }
   }
   middleware_interrupt_lock_leave();
 }
 
-void sj_memory_buffer_put_chunk(SjMemoryBuffer* arg0, u32 arg1, SjChunk* arg2) {
-    if (arg2->size <= 0 || arg2->data == 0) {
+void sj_memory_buffer_put_chunk(SjMemoryBuffer* sj_memory_buffer, u32 arg1, SjChunk* sj_chunk) {
+    if (sj_chunk->size <= 0 || sj_chunk->data == 0) {
         return;
     }
     middleware_interrupt_lock_enter();
     if (arg1 > 1) {
-        arg2->size = 0;
-        arg2->data = 0;
-        if (arg0->error_callback != 0) {
-            arg0->error_callback(arg0->error_context, -3);
+        sj_chunk->size = 0;
+        sj_chunk->data = 0;
+        if (sj_memory_buffer->error_callback != 0) {
+            sj_memory_buffer->error_callback(sj_memory_buffer->error_context, -3);
         }
     }
     middleware_interrupt_lock_leave();
 }
 
-void sj_memory_buffer_get_chunk(SjMemoryBuffer* arg0, s32 arg1, s32 arg2, SjChunk* arg3) {
+void sj_memory_buffer_get_chunk(SjMemoryBuffer* sj_memory_buffer, s32 arg1, s32 arg2, SjChunk* sj_chunk) {
     middleware_interrupt_lock_enter();
     if (arg1 == 0) {
-        arg3->size = 0;
-        arg3->data = 0;
+        sj_chunk->size = 0;
+        sj_chunk->data = 0;
     } else if (arg1 == 1) {
-        arg3->size = arg0->readable_bytes < arg2 ? arg0->readable_bytes : arg2;
-        arg3->data = arg0->buffer + arg0->read_position;
-        arg0->read_position += arg3->size;
-        arg0->readable_bytes -= arg3->size;
+        sj_chunk->size = sj_memory_buffer->readable_bytes < arg2 ? sj_memory_buffer->readable_bytes : arg2;
+        sj_chunk->data = sj_memory_buffer->buffer + sj_memory_buffer->read_position;
+        sj_memory_buffer->read_position += sj_chunk->size;
+        sj_memory_buffer->readable_bytes -= sj_chunk->size;
     } else {
-        arg3->size = 0;
-        arg3->data = 0;
-        if (arg0->error_callback != 0) {
-            arg0->error_callback(arg0->error_context, -3);
+        sj_chunk->size = 0;
+        sj_chunk->data = 0;
+        if (sj_memory_buffer->error_callback != 0) {
+            sj_memory_buffer->error_callback(sj_memory_buffer->error_context, -3);
         }
     }
     middleware_interrupt_lock_leave();
@@ -120,40 +120,40 @@ void sj_memory_buffer_get_chunk(SjMemoryBuffer* arg0, s32 arg1, s32 arg2, SjChun
 
 #pragma optimize_for_size on
 
-s32 sj_memory_buffer_get_available(SjMemoryBuffer* arg0, s32 arg1) {
+s32 sj_memory_buffer_get_available(SjMemoryBuffer* sj_memory_buffer, s32 arg1) {
     SjErrorCallback temp_r12;
 
     if (arg1 == 1) {
-        return arg0->readable_bytes;
+        return sj_memory_buffer->readable_bytes;
     }
     if (arg1 == 0) {
         return 0;
     }
-    temp_r12 = arg0->error_callback;
+    temp_r12 = sj_memory_buffer->error_callback;
     if (temp_r12 != NULL) {
-        temp_r12(arg0->error_context, -3);
+        temp_r12(sj_memory_buffer->error_context, -3);
     }
     return 0;
 }
 
-void sj_memory_buffer_reset(SjMemoryBuffer* arg0) {
-    arg0->readable_bytes = (s32) arg0->buffer_size;
-    arg0->read_position = 0;
+void sj_memory_buffer_reset(SjMemoryBuffer* sj_memory_buffer) {
+    sj_memory_buffer->readable_bytes = (s32) sj_memory_buffer->buffer_size;
+    sj_memory_buffer->read_position = 0;
 }
 
-void sj_memory_buffer_set_error_callback(SjMemoryBuffer* arg0, SjErrorCallback arg1, void* arg2) {
-    arg0->error_callback = arg1;
-    arg0->error_context = arg2;
+void sj_memory_buffer_set_error_callback(SjMemoryBuffer* sj_memory_buffer, SjErrorCallback arg1, void* arg2) {
+    sj_memory_buffer->error_callback = arg1;
+    sj_memory_buffer->error_context = arg2;
 }
 
-const u8* sj_memory_buffer_get_uuid(SjMemoryBuffer* arg0) {
-    return arg0->type_uuid;
+const u8* sj_memory_buffer_get_uuid(SjMemoryBuffer* sj_memory_buffer) {
+    return sj_memory_buffer->type_uuid;
 }
 
-void sj_memory_buffer_destroy(SjMemoryBuffer* arg0) {
-    if (arg0 != NULL) {
-        memset(arg0, 0, 0x24);
-        arg0->in_use = 0;
+void sj_memory_buffer_destroy(SjMemoryBuffer* sj_memory_buffer) {
+    if (sj_memory_buffer != NULL) {
+        memset(sj_memory_buffer, 0, 0x24);
+        sj_memory_buffer->in_use = 0;
     }
 }
 

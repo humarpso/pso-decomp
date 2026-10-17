@@ -169,7 +169,7 @@ s32 *TObjPlayer::gather_player_contacts(u32 actor, s32 _w2, s32 _w3) {
     s32 arg0 = (s32)this;
     Stack_80236290 stack;
     s32 temp_r0;
-    s32 temp_r3;
+    s32 player;
     s32 var_r29;
     u32 temp_r3_2;
     VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x20));
@@ -180,8 +180,8 @@ s32 *TObjPlayer::gather_player_contacts(u32 actor, s32 _w2, s32 _w3) {
     VecCopy((Vec *)(actor + 0x38), (const Vec *)(&stack.sp8));
     var_r29 = 0;
 loop_3:
-    temp_r3 = (s32)get_player_by_client_id((var_r29));
-    if ((temp_r3 != 0) && (temp_r3_2 = (u32)((TUnk_804AF8A0 *)actor)->find_actor_body_contact((u8 *)temp_r3, (f32)lbl_805DC89C), ((temp_r3_2 == 0U) == 0)) && (*(u32 *)((s8 *)((u8 *)&technique_contact_query_results.value + (*(s32 *)((s8 *)&technique_contact_query_results.value + 0x80) * 4)) + 0x40) = temp_r3_2, *(s32 *)((s8 *)&technique_contact_query_results.value + (*(s32 *)((s8 *)&technique_contact_query_results.value + 0x80) * 4)) = temp_r3, temp_r0 = *(s32 *)((s8 *)&technique_contact_query_results.value + 0x80) + 1, *(s32 *)((s8 *)&technique_contact_query_results.value + 0x80) = temp_r0, ((temp_r0 < 0x10) == 0))) {
+    player = (s32)get_player_by_client_id((var_r29));
+    if ((player != 0) && (temp_r3_2 = (u32)((TUnk_804AF8A0 *)actor)->find_actor_body_contact((u8 *)player, (f32)lbl_805DC89C), ((temp_r3_2 == 0U) == 0)) && (*(u32 *)((s8 *)((u8 *)&technique_contact_query_results.value + (*(s32 *)((s8 *)&technique_contact_query_results.value + 0x80) * 4)) + 0x40) = temp_r3_2, *(s32 *)((s8 *)&technique_contact_query_results.value + (*(s32 *)((s8 *)&technique_contact_query_results.value + 0x80) * 4)) = player, temp_r0 = *(s32 *)((s8 *)&technique_contact_query_results.value + 0x80) + 1, *(s32 *)((s8 *)&technique_contact_query_results.value + 0x80) = temp_r0, ((temp_r0 < 0x10) == 0))) {
         *(s32 *)((s8 *)&technique_contact_query_results.value + 0x80) = 0xF;
     } else {
         var_r29 += 1;
@@ -228,7 +228,7 @@ s32 find_area_technique_contact(void *self, int target, void *_w2, void *arg3) {
 }
 extern "C" {
 
-s32 TObjPlayer::collect_body_contacts(int target, void *_w2, void *arg3) {
+s32 TObjPlayer::collect_body_contacts(int target, void *_w2, void *player) {
     Vec_802364D8 pos;
     PD_802364D8 *e;
     PD_802364D8 *pd;
@@ -243,14 +243,14 @@ s32 TObjPlayer::collect_body_contacts(int target, void *_w2, void *arg3) {
         return (s32)&technique_contact_query_results;
     }
     VecCopy((Vec *)((u8 *)target + 0x38), (const Vec *)&pos);
-    if (obj_getField1c(arg3) < 4) {
+    if (obj_getField1c(player) < 4) {
         n = TLobby::get_lobby_flag();
         for (i = 0; i < n; i++) {
             pd = (PD_802364D8 *)get_player_data__10TObjPlayerFi(i);
-            if (pd != 0 && obj_getField1c(pd) != obj_getField1c(arg3)) {
+            if (pd != 0 && obj_getField1c(pd) != obj_getField1c(player)) {
                 ok = 1;
                 if (obj_getField1c(pd) < 4) {
-                    if (((TObjPlayer *)arg3)->get_field_3e4() == ((TObjPlayer *)pd)->get_field_3e4()) {
+                    if (((TObjPlayer *)player)->get_field_3e4() == ((TObjPlayer *)pd)->get_field_3e4()) {
                         ok = 1;
                     } else {
                         ok = 0;
@@ -272,7 +272,7 @@ s32 TObjPlayer::collect_body_contacts(int target, void *_w2, void *arg3) {
     } else {
         for (j = 0; j < 4; j++) {
             e = (PD_802364D8 *)find_entity_by_id(j);
-            if (e != 0 && obj_getField1c(e) != obj_getField1c(arg3) && (e->flags & 0x10000000)) {
+            if (e != 0 && obj_getField1c(e) != obj_getField1c(player) && (e->flags & 0x10000000)) {
                 c = (Contact_802364D8 *)((TUnk_804AF8A0 *)target)->find_actor_body_contact((u8 *)e, lbl_805DC89C);
                 if (c != 0) {
                     ((List_802364D8 *)&technique_contact_query_results)->bodies[((List_802364D8 *)&technique_contact_query_results)->count] = c;

@@ -275,29 +275,29 @@ u8 *TParticleCtrl::construct_particle_obj(s32 arg1, s32 arg2) {
 }
 
 u8 *TParticleCtrl::create_particle_obj_90(s32 arg0) {
-    u8 *temp_r3;
+    u8 *particle_ctrl;
     u8 *var_r0;
     if (is_split_screen() != 0) {
         return NULL;
     }
-    temp_r3 = (u8 *)(__nw__7TObjectFUl(0x90));
-    var_r0 = temp_r3;
+    particle_ctrl = (u8 *)(__nw__7TObjectFUl(0x90));
+    var_r0 = particle_ctrl;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(((TParticleCtrl *)temp_r3)->construct_particle_obj(arg0, tl_particle));
+        var_r0 = (u8 *)(((TParticleCtrl *)particle_ctrl)->construct_particle_obj(arg0, tl_particle));
     }
     return var_r0;
 }
 
 u8 *TParticleCtrl::create_particle_obj_ac(s32 arg0) {
-    u8 *temp_r3;
+    u8 *particle_ctrl;
     u8 *var_r0;
     if (is_split_screen() != 0) {
         return NULL;
     }
-    temp_r3 = (u8 *)(__nw__7TObjectFUl(0xAC));
-    var_r0 = temp_r3;
+    particle_ctrl = (u8 *)(__nw__7TObjectFUl(0xAC));
+    var_r0 = particle_ctrl;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(((TParticleCtrl *)temp_r3)->init_particle_obj(arg0, tl_particle));
+        var_r0 = (u8 *)(((TParticleCtrl *)particle_ctrl)->init_particle_obj(arg0, tl_particle));
     }
     return var_r0;
 }
@@ -543,10 +543,10 @@ u8 *__dt__13TUnk_8048E728Fv(u8 *arg0, s16 arg1) {
     return arg0;
 }
 }
-void *init_particle_base(void *arg0, void *arg1, s32 arg2) {
-    Particle_800865BC *p = (Particle_800865BC *)arg0;
+void *init_particle_base(void *object, void *arg1, s32 arg2) {
+    Particle_800865BC *p = (Particle_800865BC *)object;
     f32 v;
-    __ct__7TObjectFP7TObject(arg0, (void *)arg2);
+    __ct__7TObjectFP7TObject(object, (void *)arg2);
     p->vt = &lbl_8048E728.value;
     p->fB0 = 0;
     p->fB4 = 0;
@@ -595,5 +595,5 @@ void *init_particle_base(void *arg0, void *arg1, s32 arg2) {
     p->f6C = 0;
     p->f24 = 0;
     p->f26 = 0xFFFF;
-    return arg0;
+    return object;
 }

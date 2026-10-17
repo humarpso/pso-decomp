@@ -93,10 +93,10 @@ void *TObjPlayer::reset_lobby_settings() {
     return this;
 }
 
-u8 is_item_equipped(TObjPlayer *arg0) {
+u8 is_item_equipped(TObjPlayer *player) {
   unsigned int var_r31;
   var_r31 = 0;
-  if ((arg0->test_item_flags(4) != 0U) && (arg0->test_item_flags(8) != 0U))
+  if ((player->test_item_flags(4) != 0U) && (player->test_item_flags(8) != 0U))
   {
     var_r31 = 1;
   }

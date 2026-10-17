@@ -297,8 +297,8 @@ extern void *__vt__20TWindowShortListCtrl[];
 
 #define PAD(i) ((void *) ((((u8 *) (&controller_input_state.value)) + ((i) * 0x50)) + 0x20))
 #define BACK_PRESSED(i) (TWindowShortListCtrl__check_controller_button(PAD(i), 2) != 0 || test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) (((u8 *) (&controller_input_state.value)) + 0x160), 2) != 0)
-void run_task__20TWindowShortListCtrlFv(TWindowShortListCtrl *arg0) {
-    Ctrl_8026ECBC *self = (Ctrl_8026ECBC *) arg0;
+void run_task__20TWindowShortListCtrlFv(TWindowShortListCtrl *window_short_list_ctrl) {
+    Ctrl_8026ECBC *self = (Ctrl_8026ECBC *) window_short_list_ctrl;
     s32 idx;
     u8 *player;
     s32 sel;
@@ -308,7 +308,7 @@ void run_task__20TWindowShortListCtrlFv(TWindowShortListCtrl *arg0) {
         queue_destruction__7TObjectFv(self);
         return;
     }
-    arg0->cycle_list_page();
+    window_short_list_ctrl->cycle_list_page();
     switch (self->state) {
     case 0:
         if (self->list_win == NULL) {
@@ -448,7 +448,7 @@ void run_task__20TWindowShortListCtrlFv(TWindowShortListCtrl *arg0) {
             if (((TWindowSubComCardList *)(self->tech_win))->get_selected_index() == -1) {
                 ((TWindowShortListCtrl *)((u8 *) self->tech_win))->update_cursor_pos();
             } else {
-                arg0->swap_card_entries(((TWindowSubComCardList *)(self->tech_win))->get_selected_index(), ((TWindowShortListCtrl *)(self->tech_win))->get_cursor_pos());
+                window_short_list_ctrl->swap_card_entries(((TWindowSubComCardList *)(self->tech_win))->get_selected_index(), ((TWindowShortListCtrl *)(self->tech_win))->get_cursor_pos());
                 ((TWindowMenu *)(self->tech_win))->reset_selection();
                 ((TWindowShortListCtrl *)self)->refresh_technique_rows((s32) self->tech_win, (Sc_8026EBB0 *) lbl_8044F5A0);
             }

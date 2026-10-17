@@ -88,23 +88,23 @@ extern void * TItemReverseTechPart1__instance;
 extern void *tl_00;
 extern s32 destroy_and_flag__21TItemReverseTechPart2Fv[];
 
-void *TItemReverseTechPart1__ct(void *arg0) {
+void *TItemReverseTechPart1__ct(void *item_reverse_tech_part1) {
     void *o;
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TItemReverseTechPart1;
-    *(void * *)&((TItemReverseTechPart1 *)arg0)->m_name = lbl_805D2C4C;
-    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
-    *(u32 *)((s8 *)arg0 + 0x20) = 0;
-    *(u32 *)((s8 *)arg0 + 0x24) = 150;
-    *(u32 *)((s8 *)arg0 + 0x28) = 3900;
-    *(u32 *)((s8 *)arg0 + 0x2C) = 150;
-    *(u32 *)((s8 *)arg0 + 0x30) = 0;
-    TItemReverseTechPart1__instance = arg0;
+    __ct__7TObjectFP7TObject(item_reverse_tech_part1);
+    *(s32 **)((s8 *)item_reverse_tech_part1 + 0x18) = __vt__21TItemReverseTechPart1;
+    *(void * *)&((TItemReverseTechPart1 *)item_reverse_tech_part1)->m_name = lbl_805D2C4C;
+    *(u32 *)((s8 *)item_reverse_tech_part1 + 0x1C) = 0;
+    *(u32 *)((s8 *)item_reverse_tech_part1 + 0x20) = 0;
+    *(u32 *)((s8 *)item_reverse_tech_part1 + 0x24) = 150;
+    *(u32 *)((s8 *)item_reverse_tech_part1 + 0x28) = 3900;
+    *(u32 *)((s8 *)item_reverse_tech_part1 + 0x2C) = 150;
+    *(u32 *)((s8 *)item_reverse_tech_part1 + 0x30) = 0;
+    TItemReverseTechPart1__instance = item_reverse_tech_part1;
     o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
         ((TLobby *)o)->init_fade(tl_00, destroy_and_flag__21TItemReverseTechPart2Fv);
     }
-    return arg0;
+    return item_reverse_tech_part1;
 }
 
 }

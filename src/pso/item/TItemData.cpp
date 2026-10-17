@@ -1378,7 +1378,7 @@ f32 TItemData::get_armor_set_multiplier(u8 *arg1) {
     return v;
 }
 
-f32 TItemData::get_weapon_set_multiplier(u8 *arg1) {
+f32 TItemData::get_weapon_set_multiplier(u8 *item_data) {
     u8 *arg0 = (u8 *)this;
   f32 var_f31;
   s32 temp_r31;
@@ -1396,8 +1396,8 @@ f32 TItemData::get_weapon_set_multiplier(u8 *arg1) {
     case 1:
       if (((u8) (*((u8 *) (((s8 *) arg0) + 2)))) == 5)
     {
-      temp_r31 = ((TItemData *)arg1)->test_flag3();
-      temp_r30 = ((TItemData *)arg1)->get_item_field_2();
+      temp_r31 = ((TItemData *)item_data)->test_flag3();
+      temp_r30 = ((TItemData *)item_data)->get_item_field_2();
       if ((((((u32) temp_r31) != 0U) && (((u32) temp_r30) != 0U)) && (((TItem *)temp_r31)->get_slot_count() == 0x26)) && (((TItem *)temp_r30)->get_slot_count() == 0x28))
       {
         var_f31 = TItemData__data_805DAB78;
@@ -1407,8 +1407,8 @@ f32 TItemData::get_weapon_set_multiplier(u8 *arg1) {
     case 2:
       if (((u8) (*((u8 *) (((s8 *) arg0) + 2)))) == 5)
     {
-      temp_r30_2 = ((TItemData *)arg1)->test_flag3();
-      temp_r31_2 = ((TItemData *)arg1)->get_item_field_2();
+      temp_r30_2 = ((TItemData *)item_data)->test_flag3();
+      temp_r31_2 = ((TItemData *)item_data)->get_item_field_2();
       if ((((((u32) temp_r30_2) != 0U) && (((u32) temp_r31_2) != 0U)) && (((TItem *)temp_r30_2)->get_slot_count() == 0x24)) && (((TItem *)temp_r31_2)->get_slot_count() == 0x26))
       {
         var_f31 = TItemData__data_805DAB78;
@@ -1418,8 +1418,8 @@ f32 TItemData::get_weapon_set_multiplier(u8 *arg1) {
     case 6:
       if (((u8) (*((u8 *) (((s8 *) arg0) + 2)))) == 6)
     {
-      temp_r30_3 = ((TItemData *)arg1)->test_flag3();
-      temp_r31_3 = ((TItemData *)arg1)->get_item_field_2();
+      temp_r30_3 = ((TItemData *)item_data)->test_flag3();
+      temp_r31_3 = ((TItemData *)item_data)->get_item_field_2();
       if ((((((u32) temp_r30_3) != 0U) && (((u32) temp_r31_3) != 0U)) && (((TItem *)temp_r30_3)->get_slot_count() == 0x25)) && (((TItem *)temp_r31_3)->get_slot_count() == 0x27))
       {
         var_f31 = TItemData__data_805DAB78;
@@ -1427,7 +1427,7 @@ f32 TItemData::get_weapon_set_multiplier(u8 *arg1) {
     }
       break;
     case 26:
-      temp_r3 = (u8 *) ((TItemData *)arg1)->test_flag3();
+      temp_r3 = (u8 *) ((TItemData *)item_data)->test_flag3();
       if ((temp_r3 != 0) && (((TItem *)temp_r3)->get_slot_count() == 0x1A))
     {
       var_f31 = lbl_805DAB74;

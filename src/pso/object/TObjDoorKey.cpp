@@ -267,31 +267,31 @@ void *__dt__11TObjDoorKeyFv(void *arg0, s16 arg1) {
 
 extern void *tl_05;
 
-void *TObjDoorKey__ct(TObjDoorKey *arg0, void *arg1, void *arg2) {
-    TOKey__ct(arg0);
-    *(u8 **)((s8 *)arg0 + 0x18) = ((u8 *)&__vt__11TObjDoorKey);
-    *(s32 *)((s8 *)arg0 + 0) = TObjDoorKey__class_name;
-    init_key__5TOKeyFv(arg0, arg2);
-    arg0->m_e8 = 0;
-    arg0->m_f0 = 0;
-    *(s32 *)((s8 *)arg0 + 0xEC) = 0x14;
-    *(s32 *)((s8 *)arg0 + 0xF4) = 0;
-    *(s32 *)&arg0->m_f8 = 0;
-    arg0->m_id = (*(u16 *)&door_key_id_counter)++;
-    if (*(s32 *)&arg0->m_8c < 0) {
-        *(s32 *)&arg0->m_8c = 0;
+void *TObjDoorKey__ct(TObjDoorKey *door_key, void *arg1, void *arg2) {
+    TOKey__ct(door_key);
+    *(u8 **)((s8 *)door_key + 0x18) = ((u8 *)&__vt__11TObjDoorKey);
+    *(s32 *)((s8 *)door_key + 0) = TObjDoorKey__class_name;
+    init_key__5TOKeyFv(door_key, arg2);
+    door_key->m_e8 = 0;
+    door_key->m_f0 = 0;
+    *(s32 *)((s8 *)door_key + 0xEC) = 0x14;
+    *(s32 *)((s8 *)door_key + 0xF4) = 0;
+    *(s32 *)&door_key->m_f8 = 0;
+    door_key->m_id = (*(u16 *)&door_key_id_counter)++;
+    if (*(s32 *)&door_key->m_8c < 0) {
+        *(s32 *)&door_key->m_8c = 0;
     }
-    if (*(s32 *)&arg0->m_8c > 9) {
-        *(s32 *)&arg0->m_8c = 9;
+    if (*(s32 *)&door_key->m_8c > 9) {
+        *(s32 *)&door_key->m_8c = 9;
     }
-    init_collision_body_parts(arg0, TObjDoorKey__collision_body_parts, 1);
-    *(s32 *)&arg0->actorFlags |= 0x40000000;
-    ((TObjPlayer *)arg0)->reset_photon_effect();
-    Vec_80190020 pos = *(Vec_80190020 *)((s8 *)arg0 + 0x38);
+    init_collision_body_parts(door_key, TObjDoorKey__collision_body_parts, 1);
+    *(s32 *)&door_key->actorFlags |= 0x40000000;
+    ((TObjPlayer *)door_key)->reset_photon_effect();
+    Vec_80190020 pos = *(Vec_80190020 *)((s8 *)door_key + 0x38);
     pos.y += lbl_805DBE0C;
-    *(s32 *)&arg0->m_f8 = (s32)spawn_continuous_particle_effect_with_flags(&pos, 0x60, 0x40);
-    ((TOKeyAncient01 *)((u8 *)arg0 + 0x98))->set_type();
-    return arg0;
+    *(s32 *)&door_key->m_f8 = (s32)spawn_continuous_particle_effect_with_flags(&pos, 0x60, 0x40);
+    ((TOKeyAncient01 *)((u8 *)door_key + 0x98))->set_type();
+    return door_key;
 }
 
 void *TObjDoorKey__create(void *arg0) {
@@ -327,14 +327,14 @@ void TObjDoorKey::load_resources() {
     TObjDoorKey__data_805D5C04 = 0;
 }
 
-void * TObjEnvSoundGlobal__create(void *arg0) {
+void * TObjEnvSoundGlobal__create(void *rader_map_core) {
     void *o;
-    if (is_not_split_screen__13TRaderMapCoreFv(arg0) == 1) {
+    if (is_not_split_screen__13TRaderMapCoreFv(rader_map_core) == 1) {
         return NULL;
     }
     o = __nw__7TObjectFUl(0x9C);
     if (o != NULL) {
-        o = TObjEnvSoundGlobal__ct((u8 *)o, (s32)tl_05, (s32)arg0);
+        o = TObjEnvSoundGlobal__ct((u8 *)o, (s32)tl_05, (s32)rader_map_core);
     }
     return o;
 }

@@ -499,27 +499,27 @@ void TObjEneDD::state_chase_target(s32 arg1) {
     }
 }
 
-void handle_flower_state_change(TObjEneDD *arg0, s32 arg1) {
+void handle_flower_state_change(TObjEneDD *ene_dd, s32 arg1) {
     switch (arg1) {
     case 4:
-        arg0->m_b8 = 1;
-        arg0->vfunc_96();
-        ((TObjEneRe2Flower *)arg0)->clear_child_flags();
-        *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) & 0xFFFFFFF7);
-        arg0->set_field_378(2);
-        enemy_clear_target__12TObjEneDD_STFUs(arg0);
+        ene_dd->m_b8 = 1;
+        ene_dd->vfunc_96();
+        ((TObjEneRe2Flower *)ene_dd)->clear_child_flags();
+        *(s32 *)((s8 *)ene_dd + 0x3C4) = (s32) (*(s32 *)((s8 *)ene_dd + 0x3C4) & 0xFFFFFFF7);
+        ene_dd->set_field_378(2);
+        enemy_clear_target__12TObjEneDD_STFUs(ene_dd);
         return;
     case 3:
-        if ((((s32 (*)())check_hit_flag__16TObjEneRe2FlowerFv)() == 0) && (((TObjEneDD_ST *)arg0)->update_linked_position(lbl_805D9FF0) != 0)) {
-            transition_enemy_state(arg0, 3);
+        if ((((s32 (*)())check_hit_flag__16TObjEneRe2FlowerFv)() == 0) && (((TObjEneDD_ST *)ene_dd)->update_linked_position(lbl_805D9FF0) != 0)) {
+            transition_enemy_state(ene_dd, 3);
         }
     case 5:
     case 1:
         return;
     case 0:
         ((s32 (*)())advance_animation_playback)();
-        arg0->vfunc_102();
-        arg0->vfunc_88();
+        ene_dd->vfunc_102();
+        ene_dd->vfunc_88();
         break;
     }
 }

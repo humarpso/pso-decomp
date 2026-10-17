@@ -950,14 +950,14 @@ void queue_destruction__7TObjectFv(void *arg0);
 void strncpy(void *, void *, int);
 s32 update_battle_controller__10TObjPlayerFv();
 
-void release_ref__6TLobbyFPv(u8 *arg0) {
+void release_ref__6TLobbyFPv(u8 *object) {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C) - 1;
-    *(s32 *)((s8 *)arg0 + 0x1C) = temp_r0;
+    temp_r0 = *(s32 *)((s8 *)object + 0x1C) - 1;
+    *(s32 *)((s8 *)object + 0x1C) = temp_r0;
     if (temp_r0 <= 0) {
-        play_area_music((char *)(arg0 + 0x20));
-        queue_destruction__7TObjectFv(arg0);
+        play_area_music((char *)(object + 0x20));
+        queue_destruction__7TObjectFv(object);
     }
 }
 
@@ -976,12 +976,12 @@ void *__dt__13TUnk_804C3E88Fv(void *arg0, s16 arg1) {
 
 extern s32 lbl_804C3E88[];
 
-void *init_with_name__6TLobbyFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804C3E88;
-    *(void **)((s8 *)arg0 + 0x1C) = arg3;
-    strncpy((void *)((char *)arg0 + 32), arg2, 32);
-    return arg0;
+void *init_with_name__6TLobbyFPvPvPvPv(void *object, void *arg1, void *arg2, void *arg3) {
+    __ct__7TObjectFP7TObject(object);
+    *(s32 **)((s8 *)object + 0x18) = lbl_804C3E88;
+    *(void **)((s8 *)object + 0x1C) = arg3;
+    strncpy((void *)((char *)object + 32), arg2, 32);
+    return object;
 }
 
 s32 assign_player_id__6TLobbyFv(void) {
@@ -1430,8 +1430,8 @@ struct Lobby_801C484C;
 struct Flags_801C3AF4;
 #define G28 (((u32 *)controller_input_state)[10])
 
-void end_battle_mode_cleanup__6TLobbyFPv(void *arg0) {
-    switch (*(s32 *)((u8 *)arg0 + 0x20)) {
+void end_battle_mode_cleanup__6TLobbyFPv(void *object) {
+    switch (*(s32 *)((u8 *)object + 0x20)) {
     case 0:
         if (TLobby__idle_timeout_object != NULL) {
             delete (V_801C418C *)TLobby__idle_timeout_object;
@@ -1441,7 +1441,7 @@ void end_battle_mode_cleanup__6TLobbyFPv(void *arg0) {
         evt2_random_enemies_mode = 0;
         TKeyBoardControl__sub_8000F950();
         TLobby__data_805D5CE8 = 1;
-        queue_destruction__7TObjectFv(arg0);
+        queue_destruction__7TObjectFv(object);
         break;
     case -1:
         break;
@@ -1799,13 +1799,13 @@ void update_player_battle_ctrl_state(void *arg0);
 s32 init_battle_round__17TPlayerBattleCtrlFv();
 s32 fn_801C4CE0(TPlayerBattleCtrl *arg0);
 
-s32 fn_801C4CE0(TPlayerBattleCtrl *arg0) {
-    switch (arg0->state_20) {
+s32 fn_801C4CE0(TPlayerBattleCtrl *player_battle_ctrl) {
+    switch (player_battle_ctrl->state_20) {
     case -1:
         break;
     case 0:
         init_battle_round__17TPlayerBattleCtrlFv();
-        arg0->state_24 = 1;
+        player_battle_ctrl->state_24 = 1;
         break;
     }
 }
@@ -1872,24 +1872,24 @@ TPlayerBattleCtrl::~TPlayerBattleCtrl() {
     if (window_54 != NULL) TWindow__close(window_54);
     TLobby__battle_mode_data_ptr = 0;
 }
-void *TPlayerBattleCtrl__ct(void *arg0, s32 _w1) {
+void *TPlayerBattleCtrl__ct(void *player_battle_ctrl, s32 _w1) {
     s32 temp_r3;
-    __ct__7TObjectFP7TObject(arg0);
-    *(u8 **)((s8 *)arg0 + 0x18) = __vt__17TPlayerBattleCtrl;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TPlayerBattleCtrl__name;
-    *(s32 *)((s8 *)arg0 + 0x28) = 0;
-    ((TPlayerBattleCtrl *)arg0)->state_24 = 0;
-    ((TPlayerBattleCtrl *)arg0)->state_20 = 0;
-    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x4C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x50) = 0;
-    *(s32 *)((s8 *)arg0 + 0x54) = 0;
-    *(u8 **)((s8 *)arg0 + 0x40) = (current_language == 0) ? player_battle_ctrl_text_japanese : player_battle_ctrl_text_english;
+    __ct__7TObjectFP7TObject(player_battle_ctrl);
+    *(u8 **)((s8 *)player_battle_ctrl + 0x18) = __vt__17TPlayerBattleCtrl;
+    *(s32 *)((s8 *)player_battle_ctrl + 0) = (s32) TPlayerBattleCtrl__name;
+    *(s32 *)((s8 *)player_battle_ctrl + 0x28) = 0;
+    ((TPlayerBattleCtrl *)player_battle_ctrl)->state_24 = 0;
+    ((TPlayerBattleCtrl *)player_battle_ctrl)->state_20 = 0;
+    *(s32 *)((s8 *)player_battle_ctrl + 0x1C) = 0;
+    *(s32 *)((s8 *)player_battle_ctrl + 0x4C) = 0;
+    *(s32 *)((s8 *)player_battle_ctrl + 0x50) = 0;
+    *(s32 *)((s8 *)player_battle_ctrl + 0x54) = 0;
+    *(u8 **)((s8 *)player_battle_ctrl + 0x40) = (current_language == 0) ? player_battle_ctrl_text_japanese : player_battle_ctrl_text_english;
     temp_r3 = update_battle_controller__10TObjPlayerFv();
     if (temp_r3 != 0) {
         export_character_data__10TObjPlayerFPvPv(temp_r3, get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF));
     }
     TLobby::stop_audio_streams();
-    *(s32 *)((s8 *)arg0 + 0x64) = 0;
-    return arg0;
+    *(s32 *)((s8 *)player_battle_ctrl + 0x64) = 0;
+    return player_battle_ctrl;
 }

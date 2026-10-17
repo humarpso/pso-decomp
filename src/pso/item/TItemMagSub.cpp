@@ -318,10 +318,10 @@ extern s32 chunk_polygon_flags_and_mask;
 extern const f32 mag_sub_render_distance_limit, mag_sub_screen_cull_margin;
 extern const f32 mag_sub_height_intercept;
 extern const f32 mag_sub_height_slope;
-void TItemMagSub::clear_optional_oscillation_flag(void* arg0) {
+void TItemMagSub::clear_optional_oscillation_flag(void* item_mag_sub) {
 
-    if ((u32) arg0 != 0U) {
-        ((TItemMagSub *)arg0)->clear_flags(2);
+    if ((u32) item_mag_sub != 0U) {
+        ((TItemMagSub *)item_mag_sub)->clear_flags(2);
     }
 }
 void TItemMagSub::reset_oscillation() {

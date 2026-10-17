@@ -53,22 +53,22 @@ extern void *TDuelEffectString__class_name;
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
-void render__17TDuelEffectStringFv(u8 *arg0) {
+void render__17TDuelEffectStringFv(u8 *duel_effect_number) {
     f32 spC;
     f32 sp8;
     s32 temp_r31;
-    TDuelEffectNumber::calc_digit_transform((s32)((s32) arg0), &spC, &sp8, (s32)(*(s32 *)((s8 *)arg0 + 0x28)));
+    TDuelEffectNumber::calc_digit_transform((s32)((s32) duel_effect_number), &spC, &sp8, (s32)(*(s32 *)((s8 *)duel_effect_number + 0x28)));
     temp_r31 = __cvt_fp2unsigned(lbl_805D932C * sp8) | 0xFF0000 | 0xFFFF;
     TObjPlayer::init_xyz_limits();
     begin_screen_draw(1);
     TObjFish::set_global_param(lbl_805D63F0);
     set_draw_texture_and_color(6, temp_r31);
-    switch (*(s32 *)((s8 *)arg0 + 0x24)) {
+    switch (*(s32 *)((s8 *)duel_effect_number + 0x24)) {
     case 0:
-        ((TDuelEffectNumber *)arg0)->render_number_default(spC);
+        ((TDuelEffectNumber *)duel_effect_number)->render_number_default(spC);
         break;
     case 1:
-        ((TDuelEffectNumber *)arg0)->render_pair(spC);
+        ((TDuelEffectNumber *)duel_effect_number)->render_pair(spC);
         break;
     }
     TWindowSubStatusDisp::get_player();
@@ -86,7 +86,7 @@ void TDuelEffectString::run_task() {
 
 TDuelEffectString::~TDuelEffectString() {}
 }
-TDuelEffectString::TDuelEffectString(TObject *arg1, void *arg2, void *arg3) : TObject(arg1) {
+TDuelEffectString::TDuelEffectString(TObject *object, void *arg2, void *arg3) : TObject(object) {
     *(void * *)&this->m_name = TDuelEffectString__class_name;
     *(f32 *)((s8 *)this + 0x1C) = *(f32 *)((s8 *)arg2 + 0x0);
     *(f32 *)((s8 *)this + 0x20) = *(f32 *)((s8 *)arg2 + 0x4);

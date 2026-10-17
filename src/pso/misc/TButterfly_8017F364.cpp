@@ -13,15 +13,15 @@ void *__nw__7TObjectFUl(int);
 extern s32 __vt__10TButterfly[];
 extern void *TButterfly__name;
 
-void *TButterfly__ct(void *arg0, void *arg1, void *arg2) {
-    construct_world_actor_base(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TButterfly;
-    *(void * *)&((TButterfly *)arg0)->m_name = TButterfly__name;
-    VecCopy((Vec *)((char *)arg0 + 56), (const Vec *)((char *)arg2 + 12));
-    ((TObjPlayer *)((char *)arg0 + 92))->copy_xyz((void *)((char *)arg2 + 24));
-    VecCopy((Vec *)((char *)arg0 + 104), (const Vec *)((char *)arg2 + 36));
-    ((TButterfly *)arg0)->init_motion();
-    return arg0;
+void *TButterfly__ct(void *butterfly, void *arg1, void *arg2) {
+    construct_world_actor_base(butterfly);
+    *(s32 **)((s8 *)butterfly + 0x18) = __vt__10TButterfly;
+    *(void * *)&((TButterfly *)butterfly)->m_name = TButterfly__name;
+    VecCopy((Vec *)((char *)butterfly + 56), (const Vec *)((char *)arg2 + 12));
+    ((TObjPlayer *)((char *)butterfly + 92))->copy_xyz((void *)((char *)arg2 + 24));
+    VecCopy((Vec *)((char *)butterfly + 104), (const Vec *)((char *)arg2 + 36));
+    ((TButterfly *)butterfly)->init_motion();
+    return butterfly;
 }
 
 extern void *tl_05;

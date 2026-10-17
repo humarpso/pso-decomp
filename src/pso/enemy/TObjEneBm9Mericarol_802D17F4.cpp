@@ -221,71 +221,71 @@ extern s32 lbl_804E1908[];
 #pragma push
 #pragma fp_contract on
 
-u8 *TObjEneBm9Mericarol__sub_802D1880(u8 *arg0, u8 *arg1, Vec_802D1880 *arg2, Vec_802D1880 *arg3, s32 arg4, f32 farg0, f32 farg1) {
+u8 *TObjEneBm9Mericarol__sub_802D1880(u8 *ene_bm9_mericarol_bomb, u8 *ene_bm9_mericarol, Vec_802D1880 *arg2, Vec_802D1880 *arg3, s32 arg4, f32 farg0, f32 farg1) {
     Vec_802D1880 d;
     f32 k;
-    construct_collision_body((u8 *)arg0, (s32)arg1, (u32)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E18A8;
-    *(s32 *)((s8 *)arg0 + 0) = lbl_805D3F30;
+    construct_collision_body((u8 *)ene_bm9_mericarol_bomb, (s32)ene_bm9_mericarol, (u32)ene_bm9_mericarol);
+    *(s32 **)((s8 *)ene_bm9_mericarol_bomb + 0x18) = lbl_804E18A8;
+    *(s32 *)((s8 *)ene_bm9_mericarol_bomb + 0) = lbl_805D3F30;
     if (TObjEneDD::check_v2_mode() != 0) {
-        *(s32 *)((s8 *)arg0 + 0xF0) = 5;
+        *(s32 *)((s8 *)ene_bm9_mericarol_bomb + 0xF0) = 5;
     } else {
-        switch (((TObjEneBm9Mericarol *)arg1)->get_phase()) {
+        switch (((TObjEneBm9Mericarol *)ene_bm9_mericarol)->get_phase()) {
         case 1:
-            *(s32 *)((s8 *)arg0 + 0xF0) = 2;
+            *(s32 *)((s8 *)ene_bm9_mericarol_bomb + 0xF0) = 2;
             break;
         case 2:
-            *(s32 *)((s8 *)arg0 + 0xF0) = 3;
+            *(s32 *)((s8 *)ene_bm9_mericarol_bomb + 0xF0) = 3;
             break;
         case 0:
         default:
-            ((TObjEneBm9Mericarol_Bomb *)arg0)->m_108 = arg4;
-            *(s32 *)((s8 *)arg0 + 0xF0) = 0;
+            ((TObjEneBm9Mericarol_Bomb *)ene_bm9_mericarol_bomb)->m_108 = arg4;
+            *(s32 *)((s8 *)ene_bm9_mericarol_bomb + 0xF0) = 0;
             break;
         }
     }
-    ((TObjEneBm9Mericarol_Bomb *)arg0)->m_f4 = farg0;
-    switch (((TObjEneBm9Mericarol *)arg1)->get_phase()) {
+    ((TObjEneBm9Mericarol_Bomb *)ene_bm9_mericarol_bomb)->m_f4 = farg0;
+    switch (((TObjEneBm9Mericarol *)ene_bm9_mericarol)->get_phase()) {
     case 1:
-        *(s32 *)((s8 *)arg0 + 0x104) = 0x20A;
+        *(s32 *)((s8 *)ene_bm9_mericarol_bomb + 0x104) = 0x20A;
         break;
     case 2:
-        *(s32 *)((s8 *)arg0 + 0x104) = 0x209;
+        *(s32 *)((s8 *)ene_bm9_mericarol_bomb + 0x104) = 0x209;
         break;
     case 0:
     default:
-        *(s32 *)((s8 *)arg0 + 0x104) = 0x208;
+        *(s32 *)((s8 *)ene_bm9_mericarol_bomb + 0x104) = 0x208;
         break;
     }
-    *(f32 *)((s8 *)(((TObjEneBm9Mericarol_Bomb *)arg0)->m_a4) + 0xC) = lbl_805DE76C;
-    *(s16 *)((s8 *)arg0 + 0xB0) = obj_getField1c(arg1);
-    VecCopy((Vec *)(arg0 + 0xB4), (const Vec *)arg2);
-    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0xB4));
-    *(f32 *)((s8 *)arg0 + 0xD8) = lbl_805DE770;
-    ((TObjEneBm9Mericarol_Bomb *)arg0)->m_dc = lbl_805DE770;
-    *(f32 *)((s8 *)arg0 + 0xE0) = lbl_805DE770;
+    *(f32 *)((s8 *)(((TObjEneBm9Mericarol_Bomb *)ene_bm9_mericarol_bomb)->m_a4) + 0xC) = lbl_805DE76C;
+    *(s16 *)((s8 *)ene_bm9_mericarol_bomb + 0xB0) = obj_getField1c(ene_bm9_mericarol);
+    VecCopy((Vec *)(ene_bm9_mericarol_bomb + 0xB4), (const Vec *)arg2);
+    VecCopy((Vec *)(ene_bm9_mericarol_bomb + 0x38), (const Vec *)(ene_bm9_mericarol_bomb + 0xB4));
+    *(f32 *)((s8 *)ene_bm9_mericarol_bomb + 0xD8) = lbl_805DE770;
+    ((TObjEneBm9Mericarol_Bomb *)ene_bm9_mericarol_bomb)->m_dc = lbl_805DE770;
+    *(f32 *)((s8 *)ene_bm9_mericarol_bomb + 0xE0) = lbl_805DE770;
     d.x = arg3->x - arg2->x;
     d.y = lbl_805DE774 + (arg3->y - arg2->y);
     d.z = arg3->z - arg2->z;
     if (lbl_805DE770 != vector_length(&d)) {
         normalize_vector(&d);
     }
-    *(f32 *)((s8 *)arg0 + 0xC0) = d.x * farg1;
+    *(f32 *)((s8 *)ene_bm9_mericarol_bomb + 0xC0) = d.x * farg1;
     k = lbl_805DE764 + farg1;
-    ((TObjEneBm9Mericarol_Bomb *)arg0)->m_c4 = d.y * farg1;
-    *(f32 *)((s8 *)arg0 + 0xC8) = d.z * farg1;
-    ((TObjEneBm9Mericarol_Bomb *)arg0)->m_cc = d.x * k;
-    *(f32 *)((s8 *)arg0 + 0xD0) = d.y * k;
-    ((TObjEneBm9Mericarol_Bomb *)arg0)->m_d4 = d.z * k;
-    ((TObjEneBm9Mericarol_Bomb *)arg0)->m_e4 = lbl_805DE770;
-    *(s32 *)((s8 *)arg0 + 0xE8) = 1;
-    ((TObjEneBm9Mericarol_Bomb *)arg0)->m_f8 = lbl_805DE770;
-    *(s32 *)((s8 *)arg0 + 0xFC) = 0;
-    ((TObjEneBm9Mericarol_Bomb *)arg0)->m_100 = 0;
-    *(s32 *)((s8 *)arg0 + 0x110) = 0;
-    *(s32 *)((s8 *)arg0 + 0x114) = 0;
-    *(s32 *)((s8 *)arg0 + 0x10C) = 1;
-    return arg0;
+    ((TObjEneBm9Mericarol_Bomb *)ene_bm9_mericarol_bomb)->m_c4 = d.y * farg1;
+    *(f32 *)((s8 *)ene_bm9_mericarol_bomb + 0xC8) = d.z * farg1;
+    ((TObjEneBm9Mericarol_Bomb *)ene_bm9_mericarol_bomb)->m_cc = d.x * k;
+    *(f32 *)((s8 *)ene_bm9_mericarol_bomb + 0xD0) = d.y * k;
+    ((TObjEneBm9Mericarol_Bomb *)ene_bm9_mericarol_bomb)->m_d4 = d.z * k;
+    ((TObjEneBm9Mericarol_Bomb *)ene_bm9_mericarol_bomb)->m_e4 = lbl_805DE770;
+    *(s32 *)((s8 *)ene_bm9_mericarol_bomb + 0xE8) = 1;
+    ((TObjEneBm9Mericarol_Bomb *)ene_bm9_mericarol_bomb)->m_f8 = lbl_805DE770;
+    *(s32 *)((s8 *)ene_bm9_mericarol_bomb + 0xFC) = 0;
+    ((TObjEneBm9Mericarol_Bomb *)ene_bm9_mericarol_bomb)->m_100 = 0;
+    *(s32 *)((s8 *)ene_bm9_mericarol_bomb + 0x110) = 0;
+    *(s32 *)((s8 *)ene_bm9_mericarol_bomb + 0x114) = 0;
+    *(s32 *)((s8 *)ene_bm9_mericarol_bomb + 0x10C) = 1;
+    return ene_bm9_mericarol_bomb;
 }
 
 void TObjEneBm9Mericarol_EffCurse3::run_task() {

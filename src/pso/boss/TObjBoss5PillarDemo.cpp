@@ -56,16 +56,16 @@ void *__dt__19TObjBoss5PillarDemoFv(void *arg0, s16 arg1) {
 }
 
 typedef char RecoveredGlobal_8028AC00___vt__19TObjBoss5PillarDemo_size[sizeof(RecoveredGlobal_8028AC00___vt__19TObjBoss5PillarDemo) == 0x18 ? 1 : -1];
-u8 *TObjBoss5PillarDemo__ct(TObjBoss5PillarDemo *arg0, s32 arg1, s32 arg2) {
-    TObjBoss5Pillar__ct((arg0), (u8 *)arg1, (u8 *)arg2);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8028AC00___vt__19TObjBoss5PillarDemo *)&__vt__19TObjBoss5PillarDemo).value;
-    *(s32 *)((s8 *)arg0 + 0) = lbl_805D3B28;
-    arg0->m_24 = lbl_805DD908;
-    arg0->m_38 = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&lbl_805D4DD8) + 0x42C)) + 0x38);
-    arg0->m_3c = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&lbl_805D4DD8) + 0x42C)) + 0x48);
-    arg0->m_40 = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&lbl_805D4DD8) + 0x430)) + 4);
-    arg0->m_44 = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&lbl_805D4DD8) + 0x430)) + 0xC);
-    return (u8 *)arg0;
+u8 *TObjBoss5PillarDemo__ct(TObjBoss5PillarDemo *boss5_pillar_demo, s32 arg1, s32 arg2) {
+    TObjBoss5Pillar__ct((boss5_pillar_demo), (u8 *)arg1, (u8 *)arg2);
+    *(s32 **)((s8 *)boss5_pillar_demo + 0x18) = &(*(RecoveredGlobal_8028AC00___vt__19TObjBoss5PillarDemo *)&__vt__19TObjBoss5PillarDemo).value;
+    *(s32 *)((s8 *)boss5_pillar_demo + 0) = lbl_805D3B28;
+    boss5_pillar_demo->m_24 = lbl_805DD908;
+    boss5_pillar_demo->m_38 = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&lbl_805D4DD8) + 0x42C)) + 0x38);
+    boss5_pillar_demo->m_3c = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&lbl_805D4DD8) + 0x42C)) + 0x48);
+    boss5_pillar_demo->m_40 = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&lbl_805D4DD8) + 0x430)) + 4);
+    boss5_pillar_demo->m_44 = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&lbl_805D4DD8) + 0x430)) + 0xC);
+    return (u8 *)boss5_pillar_demo;
 }
 
 s32 TObjBoss5PillarDemo::create() {

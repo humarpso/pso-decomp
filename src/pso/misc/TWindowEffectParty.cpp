@@ -71,7 +71,7 @@ void *__dt__18TWindowEffectPartyFv(void *arg0, s16 arg1) {
 }
 
 }
-TWindowEffectParty::TWindowEffectParty(TObject *arg1, s8 arg2, s8 arg3, void *arg4) : TObject(arg1) {
+TWindowEffectParty::TWindowEffectParty(TObject *object, s8 arg2, s8 arg3, void *arg4) : TObject(object) {
     Pos_8024FAD8 p;
     *(s32 *)this = TWindowEffectParty__name;
     *(s8 *)&this->m_1d = arg2;

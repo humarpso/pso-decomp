@@ -83,20 +83,20 @@ void render__25TBoss6Demo10_TYPE1_APPEARFv(void* p) { ((TBoss6Demo10_TYPE1_APPEA
 
 #pragma push
 #pragma opt_common_subs off
-void run_task__25TBoss6Demo10_TYPE1_APPEARFv(TBoss6Demo10_TYPE1_APPEAR *arg0) {
+void run_task__25TBoss6Demo10_TYPE1_APPEARFv(TBoss6Demo10_TYPE1_APPEAR *boss6_demo10_type1_appear) {
     f32 temp_f1;
     s32 temp_r0_3;
     u8 *temp_r30;
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0x34) + lbl_805DFA48;
-    *(f32 *)((s8 *)arg0 + 0x34) = temp_f1;
+    temp_f1 = *(f32 *)((s8 *)boss6_demo10_type1_appear + 0x34) + lbl_805DFA48;
+    *(f32 *)((s8 *)boss6_demo10_type1_appear + 0x34) = temp_f1;
     if (temp_f1 > lbl_805DFA4C) {
-        *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805DFA4C;
+        *(f32 *)((s8 *)boss6_demo10_type1_appear + 0x34) = (f32) lbl_805DFA4C;
     }
-    ((TBoss6PlotFalz *)((u8 *)arg0 + 0x40))->scroll_strips_uv(8, 0);
-    if ((s32) arg0->m_38 == 0x78) {
+    ((TBoss6PlotFalz *)((u8 *)boss6_demo10_type1_appear + 0x40))->scroll_strips_uv(8, 0);
+    if ((s32) boss6_demo10_type1_appear->m_38 == 0x78) {
         play_sound_effect(0x4003A105, 0, 0, 0);
     }
-    switch (arg0->m_38) {
+    switch (boss6_demo10_type1_appear->m_38) {
     case 0x1B8:
     case 0xFA:
         play_sound_effect(0x4003A811, 0, 0, 0);
@@ -105,7 +105,7 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(TBoss6Demo10_TYPE1_APPEAR *arg0) {
         play_sound_effect(0x40031222, 0, 0, 0);
         break;
     }
-    switch (arg0->m_38) {
+    switch (boss6_demo10_type1_appear->m_38) {
     case 0x14:
     case 0xC6:
     case 0xFA:
@@ -114,43 +114,43 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(TBoss6Demo10_TYPE1_APPEAR *arg0) {
         TBoss3Volopt::queue_event_1D(0xC0, 0xF);
         break;
     }
-    temp_r0_3 = arg0->m_38;
-    temp_r30 = (u8 *)arg0 + 0x54;
+    temp_r0_3 = boss6_demo10_type1_appear->m_38;
+    temp_r30 = (u8 *)boss6_demo10_type1_appear + 0x54;
     switch (temp_r0_3) {
     case 0x1:
-        *(u32 *)((s8 *)arg0 + 0x64) = (u32)create_particle_emitter((temp_r30), 0x210);
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
-            ((TBoss4Type2 *)(*(u32 *)((s8 *)arg0 + 0x64)))->set_flags(0x40);
+        *(u32 *)((s8 *)boss6_demo10_type1_appear + 0x64) = (u32)create_particle_emitter((temp_r30), 0x210);
+        if ((u32) *(u32 *)((s8 *)boss6_demo10_type1_appear + 0x64) != 0U) {
+            ((TBoss4Type2 *)(*(u32 *)((s8 *)boss6_demo10_type1_appear + 0x64)))->set_flags(0x40);
         }
         break;
     case 0x1AC:
     case 0x8E:
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
-            TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x64)));
-            *(u32 *)((s8 *)arg0 + 0x64) = 0U;
+        if ((u32) *(u32 *)((s8 *)boss6_demo10_type1_appear + 0x64) != 0U) {
+            TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)boss6_demo10_type1_appear + 0x64)));
+            *(u32 *)((s8 *)boss6_demo10_type1_appear + 0x64) = 0U;
         }
-        *(u32 *)((s8 *)arg0 + 0x64) = (u32)create_particle_emitter((temp_r30), 0x211);
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
-            ((TBoss4Type2 *)(*(u32 *)((s8 *)arg0 + 0x64)))->set_flags(0x40);
+        *(u32 *)((s8 *)boss6_demo10_type1_appear + 0x64) = (u32)create_particle_emitter((temp_r30), 0x211);
+        if ((u32) *(u32 *)((s8 *)boss6_demo10_type1_appear + 0x64) != 0U) {
+            ((TBoss4Type2 *)(*(u32 *)((s8 *)boss6_demo10_type1_appear + 0x64)))->set_flags(0x40);
         }
         break;
     case 0x11D:
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
-            TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x64)));
-            *(u32 *)((s8 *)arg0 + 0x64) = 0U;
+        if ((u32) *(u32 *)((s8 *)boss6_demo10_type1_appear + 0x64) != 0U) {
+            TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)boss6_demo10_type1_appear + 0x64)));
+            *(u32 *)((s8 *)boss6_demo10_type1_appear + 0x64) = 0U;
         }
-        *(u32 *)((s8 *)arg0 + 0x64) = (u32)create_particle_emitter((temp_r30), 0x210);
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
-            ((TBoss4Type2 *)(*(u32 *)((s8 *)arg0 + 0x64)))->set_flags(0x40);
+        *(u32 *)((s8 *)boss6_demo10_type1_appear + 0x64) = (u32)create_particle_emitter((temp_r30), 0x210);
+        if ((u32) *(u32 *)((s8 *)boss6_demo10_type1_appear + 0x64) != 0U) {
+            ((TBoss4Type2 *)(*(u32 *)((s8 *)boss6_demo10_type1_appear + 0x64)))->set_flags(0x40);
         }
         break;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
-        ((TNowLoading *)(*(u32 *)((s8 *)arg0 + 0x64)))->copy_pos((void*)temp_r30);
+    if ((u32) *(u32 *)((s8 *)boss6_demo10_type1_appear + 0x64) != 0U) {
+        ((TNowLoading *)(*(u32 *)((s8 *)boss6_demo10_type1_appear + 0x64)))->copy_pos((void*)temp_r30);
     }
-    arg0->m_38 = (arg0->m_38 + 1);
-    if (((s32) arg0->m_38 >= 0x1F4) || (((TObjFish *)(*(s32 *)((s8 *)arg0 + 0x3C)))->get_phase() != 1)) {
-        queue_destruction__7TObjectFv((arg0));
+    boss6_demo10_type1_appear->m_38 = (boss6_demo10_type1_appear->m_38 + 1);
+    if (((s32) boss6_demo10_type1_appear->m_38 >= 0x1F4) || (((TObjFish *)(*(s32 *)((s8 *)boss6_demo10_type1_appear + 0x3C)))->get_phase() != 1)) {
+        queue_destruction__7TObjectFv((boss6_demo10_type1_appear));
     }
 }
 #pragma pop

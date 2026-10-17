@@ -21,10 +21,10 @@ extern RecoveredGlobal_8014B8A4_lbl_804A9F50 lbl_804A9F50;
 extern s32 *npc_town_motion_data;
 typedef char RecoveredGlobal_8014B8A4_lbl_8043FB50_size[sizeof(RecoveredGlobal_8014B8A4_lbl_8043FB50) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_8014B8A4_lbl_804A9F50_size[sizeof(RecoveredGlobal_8014B8A4_lbl_804A9F50) == 0x178 ? 1 : -1];
-u8 *construct_male_npc_base(u8 *arg0) {
-    TObjNpcBase__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A9F50.value;
-    ((TObjPlayer *)arg0)->init_npc_animation(&male_npc_idle_animation_parameters.value, (void *) (*npc_town_motion_data), 0);
-    ((TObjMotion *)arg0)->set_motion_interpolation_flag();
-    return arg0;
+u8 *construct_male_npc_base(u8 *player) {
+    TObjNpcBase__ct(player);
+    *(s32 **)((s8 *)player + 0x18) = &lbl_804A9F50.value;
+    ((TObjPlayer *)player)->init_npc_animation(&male_npc_idle_animation_parameters.value, (void *) (*npc_town_motion_data), 0);
+    ((TObjMotion *)player)->set_motion_interpolation_flag();
+    return player;
 }

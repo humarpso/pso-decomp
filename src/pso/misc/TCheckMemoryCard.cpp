@@ -90,7 +90,7 @@ void *__dt__16TCheckMemoryCardFv(void *arg0, s16 arg1) {
 extern void *TCheckMemoryCard__name;
 
 }
-TCheckMemoryCard::TCheckMemoryCard(TObject *arg1, void *arg2, void *arg3, void *arg4) : TObject(arg1) {
+TCheckMemoryCard::TCheckMemoryCard(TObject *object, void *arg2, void *arg3, void *arg4) : TObject(object) {
     *(void * *)&this->m_name = TCheckMemoryCard__name;
     *(void **)((s8 *)this + 0x48) = arg2;
     *(void **)((s8 *)this + 0x1C) = arg4;

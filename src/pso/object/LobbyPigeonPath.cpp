@@ -1468,7 +1468,7 @@ u8 *TObjPlayer__sub_802C2F04(u8 *arg0, s32 arg1, const void* _w2) {
   return arg0;
 }
 
-void draw_line_strip__10TObjPlayerFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
+void draw_line_strip__10TObjPlayerFPviif(u8 *path_obj, s32 arg1, s32 arg2, f32 farg0) {
     s32 sp14[3];
     s32 sp8[3];
     f32 var_f31;
@@ -1477,14 +1477,14 @@ void draw_line_strip__10TObjPlayerFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0
     var_f31 = (0.0f);
     do {
       ((s32 (*)(void *, s32, s32, s32 *, f32))sample_clamped_path_position)(
-          arg0, arg1, arg2, sp14, var_f31);
+          path_obj, arg1, arg2, sp14, var_f31);
       var_f31 += farg0;
       temp_r30 = ((s32 (*)(void *, s32, s32, s32 *,
-                           f32))sample_clamped_path_position)(arg0, arg1, arg2,
+                           f32))sample_clamped_path_position)(path_obj, arg1, arg2,
                                                               sp8, var_f31);
       push_matrix();
-      post_translate_matrix(arg0 + 0x38);
-      rotate_matrix_y(0, ((TObjPathObj *)arg0)->rotation_y);
+      post_translate_matrix(path_obj + 0x38);
+      rotate_matrix_y(0, ((TObjPathObj *)path_obj)->rotation_y);
       TObjMapWarp__sub_80141CB0(sp14, sp8, 0xF0F0F0FF, 0xF0F0F0FF);
       pop_matrix();
     } while (temp_r30 != 0);

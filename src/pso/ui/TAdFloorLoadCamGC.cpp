@@ -113,7 +113,7 @@ void *__dt__17TAdFloorLoadCamGCFv(void *arg0, s16 arg1) {
     return arg0;
 }
 }
-TAdFloorLoadCamGC::TAdFloorLoadCamGC(TObject *arg1, void *arg2) : TObject(arg1) {
+TAdFloorLoadCamGC::TAdFloorLoadCamGC(TObject *object, void *arg2) : TObject(object) {
     void *new_var;
     new_var = lbl_805D4340;
     *(void * *)&this->m_name = new_var;

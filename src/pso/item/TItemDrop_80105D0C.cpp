@@ -741,9 +741,9 @@ void calc_drop_rarity__9TItemDropFiiPv(s32 rng, s32 arg1, void *item_) {
     }
 }
 
-void init_rare_item_data__9TItemDropFPvPv(void *arg0, void *arg1) {
-    if (((u8) *(u8 *)((s8 *)arg1 + 1) == 2) && (((u8) *(u8 *)((s8 *)arg1 + 4) >= 0x13U) || ((u8) *(u8 *)((s8 *)arg1 + 2) >= 0x1EU))) {
-        init__9TItemDataFv(arg1);
+void init_rare_item_data__9TItemDropFPvPv(void *arg0, void *item_data) {
+    if (((u8) *(u8 *)((s8 *)item_data + 1) == 2) && (((u8) *(u8 *)((s8 *)item_data + 4) >= 0x13U) || ((u8) *(u8 *)((s8 *)item_data + 2) >= 0x1EU))) {
+        init__9TItemDataFv(item_data);
     }
 }
 

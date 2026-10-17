@@ -118,27 +118,27 @@ TEneEffHamon::~TEneEffHamon() {}
 extern "C" {
 
 typedef char RecoveredGlobal_800A38A4___vt__12TEneEffHamon_size[sizeof(RecoveredGlobal_800A38A4___vt__12TEneEffHamon) == 0x18 ? 1 : -1];
-u8 *__ct__12TEneEffHamonFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
-    __ct__7TObjectFP7TObject((void *)arg0, (void *)tl_06);
-    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__12TEneEffHamon.value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TEneEffHamon__name;
-    *(s32 *)((s8 *)arg0 + 0x30) = 0;
-    *(s32 *)((s8 *)arg0 + 0x2C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x28) = 0;
-    *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805D99E4;
-    VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)(arg1));
-    *(f32 *)((s8 *)arg0 + 0x40) = farg0;
-    *(f32 *)((s8 *)arg0 + 0x50) = (f32) lbl_805D99E8;
-    *(f32 *)((s8 *)arg0 + 0x54) = (f32) lbl_805D99E4;
-    *(f32 *)((s8 *)arg0 + 0x58) = (f32) lbl_805D99E4;
-    *(f32 *)((s8 *)arg0 + 0x5C) = (f32) lbl_805D99E4;
-    *(s32 *)((s8 *)arg0 + 0x4C) = arg3;
+u8 *__ct__12TEneEffHamonFv(u8 *object, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
+    __ct__7TObjectFP7TObject((void *)object, (void *)tl_06);
+    *(s32 **)((s8 *)object + 0x18) = &__vt__12TEneEffHamon.value;
+    *(s32 *)((s8 *)object + 0) = (s32) TEneEffHamon__name;
+    *(s32 *)((s8 *)object + 0x30) = 0;
+    *(s32 *)((s8 *)object + 0x2C) = 0;
+    *(s32 *)((s8 *)object + 0x28) = 0;
+    *(f32 *)((s8 *)object + 0x34) = (f32) lbl_805D99E4;
+    VecCopy((Vec *)(object + 0x1C), (const Vec *)(arg1));
+    *(f32 *)((s8 *)object + 0x40) = farg0;
+    *(f32 *)((s8 *)object + 0x50) = (f32) lbl_805D99E8;
+    *(f32 *)((s8 *)object + 0x54) = (f32) lbl_805D99E4;
+    *(f32 *)((s8 *)object + 0x58) = (f32) lbl_805D99E4;
+    *(f32 *)((s8 *)object + 0x5C) = (f32) lbl_805D99E4;
+    *(s32 *)((s8 *)object + 0x4C) = arg3;
     if (arg2 <= 0) {
         arg2 = 1;
     }
-    *(f32 *)((s8 *)arg0 + 0x44) = (f32) (lbl_805D99E4 / (f32) arg2);
-    *(f32 *)((s8 *)arg0 + 0x48) = (f32) (lbl_805D99EC / (f32) arg2);
-    return arg0;
+    *(f32 *)((s8 *)object + 0x44) = (f32) (lbl_805D99E4 / (f32) arg2);
+    *(f32 *)((s8 *)object + 0x48) = (f32) (lbl_805D99EC / (f32) arg2);
+    return object;
 }
 
 }

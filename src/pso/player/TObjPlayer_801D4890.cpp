@@ -91,15 +91,15 @@ s32 TObjPlayer::update_inventory_item(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s3
     queue_destruction__7TObjectFv(temp_r3, temp_r4);
     return 1;
 }
-s32 TObjPlayer__sub_801D49F4(void *arg0, void *arg1, s32 *arg2, s32 arg3) {
+s32 TObjPlayer__sub_801D49F4(void *player, void *arg1, s32 *arg2, s32 arg3) {
     s32 i;
     s32 r;
     for (i = 0; i < arg3; arg2++, i++) {
-        r = start_inventory_update__10TObjPlayerFi(arg0, *arg2);
+        r = start_inventory_update__10TObjPlayerFi(player, *arg2);
         if (r == 0) {
             return 0;
         }
-        ((void (*)(void *, void *, int)) remove_equipped_item__10TObjPlayerFPvii)(arg0, arg1, r);
+        ((void (*)(void *, void *, int)) remove_equipped_item__10TObjPlayerFPvii)(player, arg1, r);
     }
     return 1;
 }

@@ -107,26 +107,26 @@ void render__28TWindowSubSymbolChatFaceTypeFv(u8 *arg0) {
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r31);
 }
 typedef char RecoveredGlobal_80284074_lbl_8050E208_size[sizeof(RecoveredGlobal_80284074_lbl_8050E208) == 0x1B0 ? 1 : -1];
-void run_task__28TWindowSubSymbolChatFaceTypeFv(TWindowSubSymbolChatFaceType *arg0) {
+void run_task__28TWindowSubSymbolChatFaceTypeFv(TWindowSubSymbolChatFaceType *window_sub_symbol_chat_face_type) {
     u8 *temp_r31;
-    if (!(*(s32 *)&arg0->m_2c & 2)) {
-        *(s32 *)&arg0->m_5c = 0x01000000;
+    if (!(*(s32 *)&window_sub_symbol_chat_face_type->m_2c & 2)) {
+        *(s32 *)&window_sub_symbol_chat_face_type->m_5c = 0x01000000;
     }
-    if (arg0->is_open() == 0) {
-        arg0->handle_input();
+    if (window_sub_symbol_chat_face_type->is_open() == 0) {
+        window_sub_symbol_chat_face_type->handle_input();
         temp_r31 = (u8 *)&(*(RecoveredGlobal_80284074_lbl_8050E208 *)&controller_input_state).value + 0x20;
         if ((TWindowShortListCtrl__check_controller_button((int)temp_r31, 4) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&(*(RecoveredGlobal_80284074_lbl_8050E208 *)&controller_input_state).value + 0x160), 4) != 0)) {
-            arg0->confirm_selection();
+            window_sub_symbol_chat_face_type->confirm_selection();
         }
         if ((TWindowShortListCtrl__check_controller_button((int)temp_r31, 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&(*(RecoveredGlobal_80284074_lbl_8050E208 *)&controller_input_state).value + 0x160), 2) != 0)) {
-            arg0->close_when_chat_closed();
+            window_sub_symbol_chat_face_type->close_when_chat_closed();
         }
     }
-    if ((f32) *(s32 *)&arg0->m_5c >= lbl_805DD784) {
-        ((TWindowSubStatusDisp *)(*(s32 *)&arg0->m_68))->update_subwindow();
+    if ((f32) *(s32 *)&window_sub_symbol_chat_face_type->m_5c >= lbl_805DD784) {
+        ((TWindowSubStatusDisp *)(*(s32 *)&window_sub_symbol_chat_face_type->m_68))->update_subwindow();
     }
-    ((TWindowDD *)arg0)->initialize_subwindow();
-    ((TUnk_804CE018 *)arg0)->update_window_entry_list((u8 *)arg0 + 0x24);
+    ((TWindowDD *)window_sub_symbol_chat_face_type)->initialize_subwindow();
+    ((TUnk_804CE018 *)window_sub_symbol_chat_face_type)->update_window_entry_list((u8 *)window_sub_symbol_chat_face_type + 0x24);
 }
 
 }

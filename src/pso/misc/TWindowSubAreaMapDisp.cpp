@@ -225,14 +225,14 @@ u8 *__dt__21TWindowSubAreaMapDispFv(TWindowSubAreaMapDisp *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_80271D00_lbl_804D0FC0_size[sizeof(RecoveredGlobal_80271D00_lbl_804D0FC0) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80271D00___vt__21TWindowSubAreaMapDisp_size[sizeof(RecoveredGlobal_80271D00___vt__21TWindowSubAreaMapDisp) == 0x1C ? 1 : -1];
-u8 *TWindowSubAreaMapDisp__ct(TWindowSubAreaMapDisp *arg0) {
+u8 *TWindowSubAreaMapDisp__ct(TWindowSubAreaMapDisp *window_sub_area_map_disp) {
     s32 temp_r3;
     s32 temp_r3_2;
     s32 var_r0;
     u8 *var_r30;
-    ((TWindowDD *)arg0)->construct_base((u8 *)&TWindowSubAreaMapDisp__window_parameters.value, (s16)((void *) ((s16) local_client_id)), (u8 *)(get_window_layout_position(0x59)));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80271D00___vt__21TWindowSubAreaMapDisp *)&__vt__21TWindowSubAreaMapDisp).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubAreaMapDisp__name;
+    ((TWindowDD *)window_sub_area_map_disp)->construct_base((u8 *)&TWindowSubAreaMapDisp__window_parameters.value, (s16)((void *) ((s16) local_client_id)), (u8 *)(get_window_layout_position(0x59)));
+    *(s32 **)((s8 *)window_sub_area_map_disp + 0x18) = &(*(RecoveredGlobal_80271D00___vt__21TWindowSubAreaMapDisp *)&__vt__21TWindowSubAreaMapDisp).value;
+    *(s32 *)((s8 *)window_sub_area_map_disp + 0) = (s32) TWindowSubAreaMapDisp__name;
     if (get_game_play_mode() == 1) {
         text_builder_reset();
         text_builder_append((u8 *)(TQuestVmDownLoadServer__sub_8006EF6C(0x67)));
@@ -243,15 +243,15 @@ u8 *TWindowSubAreaMapDisp__ct(TWindowSubAreaMapDisp *arg0) {
         var_r30 = (u8 *)(get_floor_destination_name(TOKeyMachine01::get_global_state()));
     }
     temp_r3 = measure_string_len__20TWindowSubStatusDispFv((int)var_r30);
-    arg0->m_74 = (s32)mem_alloc((temp_r3 + 1));
-    strncpy((int)arg0->m_74, (int)var_r30, (void *)(temp_r3 + 1));
+    window_sub_area_map_disp->m_74 = (s32)mem_alloc((temp_r3 + 1));
+    strncpy((int)window_sub_area_map_disp->m_74, (int)var_r30, (void *)(temp_r3 + 1));
     temp_r3_2 = ((TAdSinglePlyChrSelectGC *)((void *)0x24))->alloc();
     var_r0 = temp_r3_2;
     if (var_r0 != 0) {
-        var_r0 = construct_type1_heading__20TWindowSubStatusDispFll(temp_r3_2, arg0->m_74, (int) ((s32) arg0->m_20));
+        var_r0 = construct_type1_heading__20TWindowSubStatusDispFll(temp_r3_2, window_sub_area_map_disp->m_74, (int) ((s32) window_sub_area_map_disp->m_20));
     }
-    arg0->m_70 = var_r0;
-    arg0->m_6c = 0;
-    return (u8 *)arg0;
+    window_sub_area_map_disp->m_70 = var_r0;
+    window_sub_area_map_disp->m_6c = 0;
+    return (u8 *)window_sub_area_map_disp;
 }
 }

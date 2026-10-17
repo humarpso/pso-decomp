@@ -336,13 +336,13 @@ s32 TOAttackableCol__sub_80157C28(void* p) { return *(s32*)((char*)p + 0x33c); }
 void TOAttackableCol::bswap_state() { bswap_header__6TLobbyFv(this); bswap_16((u16 *)((char*)this + 0xc)); bswap_16((u16 *)((char*)this + 0xe)); bswap_16((u16 *)((char*)this + 0x10)); }
 void TOAttackableCol::broadcast_state() { bswap_state(); TLobby__send_and_handle_60((u8 *)this); }
 
-void *fn_80157CA8(void *arg0) {
-    ((TOBarrierEnergy01 *)arg0)->init();
-    *(u16 *)((s8 *)arg0 + 0xC) = 0;
-    *(u16 *)((s8 *)arg0 + 0xE) = 0;
-    *(u8 *)((s8 *)arg0 + 0x0) = 145;
-    *(u8 *)((s8 *)arg0 + 0x1) = 5;
-    return arg0;
+void *fn_80157CA8(void *barrier_energy01) {
+    ((TOBarrierEnergy01 *)barrier_energy01)->init();
+    *(u16 *)((s8 *)barrier_energy01 + 0xC) = 0;
+    *(u16 *)((s8 *)barrier_energy01 + 0xE) = 0;
+    *(u8 *)((s8 *)barrier_energy01 + 0x0) = 145;
+    *(u8 *)((s8 *)barrier_energy01 + 0x1) = 5;
+    return barrier_energy01;
 }
 
 }

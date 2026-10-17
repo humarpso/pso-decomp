@@ -328,25 +328,25 @@ extern u32 TBoss6PlotFalz__instance;
 
 #pragma push
 #pragma fp_contract on
-u8 *TOMekaFish00__ct(TOMekaFish00 *arg0, s32 arg1) {
-    TODragonfly__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802AA9DC___vt__12TOMekaFish00 *)&__vt__12TOMekaFish00).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TOMekaFish00__name;
-    ((TOMekaFish00 *)(arg0))->apply_object_set_data((void *)arg1);
-    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((*(u8 * *)&TOMekaFish00__model_resource), 0);
-    arg0->texture_id = TObjFish__sub_8001EDB0((*(u8 * *)&TOMekaFish00__model_resource), 0);
-    arg0->m_bc = get_bml_motion((*(u8 * *)&TOMekaFish00__model_resource), 0);
-    *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)(arg0->m_bc + 4) - lbl_805DE068);
-    arg0->m_b8 = (f32) lbl_805DE06C;
-    arg0->m_c0 = (f32) lbl_805DE070;
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(*(s32 *)((s8 *)arg0 + 0x34)) + 4)) + 0x14);
-    arg0->m_ac = 0;
-    arg0->m_f4 = (f32) ((lbl_805DE074 * (f32) arg0->m_84) + lbl_805DE068);
-    arg0->m_f8 = (s32) (lbl_805DE078 * (lbl_805DE07C / (lbl_805DE080 / arg0->m_f4)));
-    arg0->m_fc = (s32) (lbl_805DE078 * (lbl_805DE07C * (lbl_805DE084 * (f32) rand())));
-    arg0->m_ec = (f32) ((lbl_805DE074 * (f32) *(s32 *)((s8 *)arg0 + 0x88)) + lbl_805DE068);
-    *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (arg0->m_ec * sin_table_lookup(arg0->m_fc));
-    return (u8 *)arg0;
+u8 *TOMekaFish00__ct(TOMekaFish00 *meka_fish00, s32 arg1) {
+    TODragonfly__ct(meka_fish00);
+    *(s32 **)((s8 *)meka_fish00 + 0x18) = &(*(RecoveredGlobal_802AA9DC___vt__12TOMekaFish00 *)&__vt__12TOMekaFish00).value;
+    *(s32 *)((s8 *)meka_fish00 + 0) = (s32) TOMekaFish00__name;
+    ((TOMekaFish00 *)(meka_fish00))->apply_object_set_data((void *)arg1);
+    *(s32 *)((s8 *)meka_fish00 + 0x34) = get_bml_model((*(u8 * *)&TOMekaFish00__model_resource), 0);
+    meka_fish00->texture_id = TObjFish__sub_8001EDB0((*(u8 * *)&TOMekaFish00__model_resource), 0);
+    meka_fish00->m_bc = get_bml_motion((*(u8 * *)&TOMekaFish00__model_resource), 0);
+    *(f32 *)((s8 *)meka_fish00 + 0xB4) = (f32) ((f32) *(u32 *)(meka_fish00->m_bc + 4) - lbl_805DE068);
+    meka_fish00->m_b8 = (f32) lbl_805DE06C;
+    meka_fish00->m_c0 = (f32) lbl_805DE070;
+    *(f32 *)((s8 *)meka_fish00 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(*(s32 *)((s8 *)meka_fish00 + 0x34)) + 4)) + 0x14);
+    meka_fish00->m_ac = 0;
+    meka_fish00->m_f4 = (f32) ((lbl_805DE074 * (f32) meka_fish00->m_84) + lbl_805DE068);
+    meka_fish00->m_f8 = (s32) (lbl_805DE078 * (lbl_805DE07C / (lbl_805DE080 / meka_fish00->m_f4)));
+    meka_fish00->m_fc = (s32) (lbl_805DE078 * (lbl_805DE07C * (lbl_805DE084 * (f32) rand())));
+    meka_fish00->m_ec = (f32) ((lbl_805DE074 * (f32) *(s32 *)((s8 *)meka_fish00 + 0x88)) + lbl_805DE068);
+    *(f32 *)((s8 *)meka_fish00 + 0xF0) = (f32) (meka_fish00->m_ec * sin_table_lookup(meka_fish00->m_fc));
+    return (u8 *)meka_fish00;
 }
 #pragma pop
 
