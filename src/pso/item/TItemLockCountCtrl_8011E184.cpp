@@ -21,9 +21,9 @@ void TItemLockCountCtrl::create_instance() {
     item_timer_event_instance = o;
 }
 
-void fn_8011E1D4(u8 *arg0) {
+void fn_8011E1D4(TObjPlayer *arg0) {
     if (!(*(s32 *)((s8 *)arg0 + 0x890) & 0x10)) {
-        TObjPlayer__sub_8011E204((TObjPlayer *)arg0, 0x10000);
+        TObjPlayer__sub_8011E204(arg0, 0x10000);
     }
 }
 void TObjPlayer__sub_8011E204(TObjPlayer *arg0, s32 arg1) {

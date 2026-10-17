@@ -20,7 +20,7 @@ u8 * construct_world_actor_base(void *);
 extern s32 __vt__13TObjPlayerSet[];
 extern s32 TObjPlayer__player_set_class_name;
 extern const f32 lbl_805DBEF0;
-u8 *TObjPlayerSet__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TObjPlayerSet__ct(TObjPlayerSet *arg0, s32 arg1, s32 arg2);
 void *TObjQuestCol2__create(void *arg0);
 void *__dt__13TObjPlayerSetFv(void *arg0, s16 arg1);
 void *TObjQuestCol2__ct(void *, void *, void *);
@@ -34,7 +34,7 @@ extern void *tl_06;
 void *TObjPlayerSet::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x90);
     if (o != NULL) {
-        o = TObjPlayerSet__ct((u8 *)o, (s32)tl_06, (s32)arg0);
+        o = TObjPlayerSet__ct((TObjPlayerSet *)((u8 *)o), (s32)tl_06, (s32)arg0);
     }
     return o;
 }
@@ -55,19 +55,19 @@ extern void *quest_collision_task_root;
 #pragma push
 #pragma opt_common_subs off
 typedef char RecoveredGlobal_80195720___vt__13TObjPlayerSet_size[sizeof(RecoveredGlobal_80195720___vt__13TObjPlayerSet) == 0x38 ? 1 : -1];
-u8 *TObjPlayerSet__ct(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *TObjPlayerSet__ct(TObjPlayerSet *arg0, s32 arg1, s32 arg2) {
     construct_world_actor_base(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80195720___vt__13TObjPlayerSet *)&__vt__13TObjPlayerSet).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjPlayer__player_set_class_name;
     ((TObjPlayerSet *)(arg0))->apply_object_set_data((void *)arg2);
-    if (((TObjPlayerSet *)arg0)->scale < lbl_805DBEF0) {
-        ((TObjPlayerSet *)arg0)->scale = (f32) lbl_805DBEF0;
+    if (arg0->scale < lbl_805DBEF0) {
+        arg0->scale = (f32) lbl_805DBEF0;
     }
-    if ((s32) ((TObjPlayerSet *)arg0)->m_84 < 0) {
-        ((TObjPlayerSet *)arg0)->m_84 = 0;
+    if ((s32) arg0->m_84 < 0) {
+        arg0->m_84 = 0;
     }
     disallow_rendering__7TObjectFv((TObject *)arg0);
-    return arg0;
+    return (u8 *)arg0;
 }
 #pragma pop
 
