@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *__ct__10TBoss4FadeFv(void *arg0);
+void *__ct__10TBoss4FadeFv(void *boss4_fade);
 }
 
 #endif

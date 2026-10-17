@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *TWindowChoiceSetting__ct(void *arg0);
+void *TWindowChoiceSetting__ct(void *window_choice_setting);
 void *__dt__20TWindowChoiceSettingFv(void *arg0, s16 arg1);
 void render__20TWindowChoiceSettingFv(u8 *arg0);
 }

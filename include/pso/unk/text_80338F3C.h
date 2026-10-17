@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-u8 *fn_80338F3C(u8 *arg0, s32 arg1);
+u8 *fn_80338F3C(u8 *window_sub_status_disp, s32 arg1);
 }
 
 #endif

@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-u8 *TObjPlayer__sub_801250F8(u8 *arg0, u8 *arg1, s32 _w2);
+u8 *TObjPlayer__sub_801250F8(u8 *player, u8 *arg1, s32 _w2);
 }
 
 #endif

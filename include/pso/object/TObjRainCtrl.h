@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *TObjRainCtrl__ct(void *arg0);
+void *TObjRainCtrl__ct(void *rain_ctrl);
 }
 
 #endif

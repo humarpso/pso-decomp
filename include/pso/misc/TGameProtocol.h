@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *TGameProtocol__ct(void *arg0);
+void *TGameProtocol__ct(void *game_protocol);
 }
 
 #endif

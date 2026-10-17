@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *TPlyItem__ct(void *arg0);
+void *TPlyItem__ct(void *ply_item);
 }
 
 #endif

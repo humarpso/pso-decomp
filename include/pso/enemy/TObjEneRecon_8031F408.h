@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void TObjEneRecon__sub_8031F408(void *arg0, s32 arg1);
+void TObjEneRecon__sub_8031F408(void *ene_dd, s32 arg1);
 }
 
 #endif

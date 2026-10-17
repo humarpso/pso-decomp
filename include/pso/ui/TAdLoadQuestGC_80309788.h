@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *TAdLoadQuestGC__ct(void *arg0);
+void *TAdLoadQuestGC__ct(void *ad_load_quest_gc);
 void TAdLoadQuestGC__sub_8030984C(void);
 void TAdLoadQuestGC__sub_80309850(void);
 }

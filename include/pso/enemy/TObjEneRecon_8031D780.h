@@ -5,7 +5,7 @@
 
 extern "C" {
 u16 TObjEneRecon__sub_8031D878(void *arg0);
-void TObjEneRecon__vt102(void *arg0, f32 farg0);
+void TObjEneRecon__vt102(void *ene_epsilon, f32 farg0);
 }
 
 #endif

@@ -9,6 +9,5 @@ void TQuestListOnline__sub_8013ACF4(s32 arg0);
 void __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *arg0, void *arg1);
 void fn_8013ACE4(int a0);
 }
-void set_area_random_seed(int a0);
 
 #endif

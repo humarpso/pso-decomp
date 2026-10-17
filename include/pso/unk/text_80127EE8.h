@@ -6,6 +6,5 @@
 extern "C" {
 u8 *confusion_curse_timer_ct(u8 *arg0, s16 arg1, s32 arg2, f32 farg0);
 }
-u8 *yamigarasu_create(u8 *arg0);
 
 #endif

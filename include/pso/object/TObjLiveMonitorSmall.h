@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *__ct__20TObjLiveMonitorSmallFv(void *arg0, void *arg1, void *arg2);
+void *__ct__20TObjLiveMonitorSmallFv(void *live_monitor_small, void *arg1, void *arg2);
 }
 
 #endif

@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *__ct__13TAdTitleTexGCFv(void *arg0);
+void *__ct__13TAdTitleTexGCFv(void *ad_title_tex_gc);
 }
 
 #endif

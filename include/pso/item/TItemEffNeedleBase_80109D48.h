@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-u8 *__ct__18TItemEffNeedleBaseFv(u8 *arg0, void *arg1, u8 *arg2);
+u8 *__ct__18TItemEffNeedleBaseFv(u8 *arg0, void *arg1, u8 *item);
 }
 
 #endif

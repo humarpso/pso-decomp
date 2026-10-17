@@ -5,7 +5,7 @@
 
 extern "C" {
 void render__15TAdDrawLineTaskFv(void *p);
-void run_task__15TAdDrawLineTaskFv(void *arg0);
+void run_task__15TAdDrawLineTaskFv(void *object);
 }
 
 #endif

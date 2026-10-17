@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *TAttackTrace__ct(void *arg0);
+void *TAttackTrace__ct(void *attack_trace);
 }
 
 #endif

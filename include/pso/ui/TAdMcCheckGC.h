@@ -26,6 +26,5 @@ extern "C" {
 void TLobby__sub_8033EE38(void *p);
 u8 *__dt__12TAdMcCheckGCFv(TAdMcCheckGC *arg0, s16 arg1);
 }
-void set_tex_coord_gen2(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 
 #endif

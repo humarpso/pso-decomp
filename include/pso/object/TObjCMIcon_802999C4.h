@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *__ct__10TObjCMIconFv(void *arg0);
+void *__ct__10TObjCMIconFv(void *object);
 }
 
 #endif

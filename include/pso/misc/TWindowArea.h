@@ -13,7 +13,7 @@ struct TWindowArea
 };
 
 extern "C" {
-u8 *TWindowArea__ct(u8 *arg0);
+u8 *TWindowArea__ct(u8 *window_room);
 void *__dt__11TWindowAreaFv(void *arg0, s16 arg1);
 }
 

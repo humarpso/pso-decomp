@@ -6,6 +6,5 @@
 extern "C" {
 void TLobby__sub_800C80D0(void);
 }
-void handle_6x09_legacy_kill_enemy(s32 arg0);
 
 #endif

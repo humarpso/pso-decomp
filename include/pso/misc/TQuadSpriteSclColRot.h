@@ -12,7 +12,7 @@ struct TQuadSpriteSclColRot : public TUnk_804C57F0 {
 typedef char TQuadSpriteSclColRot_size[sizeof(TQuadSpriteSclColRot) == 0x2C ? 1 : -1];
 
 extern "C" {
-void *TQuadSpriteSclColRot__ct(void *arg0);
+void *TQuadSpriteSclColRot__ct(void *quad_sprite_scl_col_rot);
 }
 
 #endif

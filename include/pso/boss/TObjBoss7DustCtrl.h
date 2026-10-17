@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *TObjBoss7DustCtrl__ct(void *arg0);
+void *TObjBoss7DustCtrl__ct(void *boss7_dust_ctrl);
 void TObjBoss7DustCtrl__sub_802F125C(void);
 void TObjBoss7DustCtrl__sub_802F1450(void);
 void boss7_dust_draw_at(s32 *arg0, s32 arg1);

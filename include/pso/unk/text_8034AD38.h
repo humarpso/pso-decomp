@@ -3,7 +3,6 @@
 
 #include "types.h"
 
-void clear_window_dd_nodes(void);
 extern "C" {
 void push_recent_id(s16 arg0);
 }

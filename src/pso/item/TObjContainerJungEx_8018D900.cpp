@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TObjContainerJungEx_8018D900.h"
 #include "pso/unk/text_80158360.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjDoaEx01.h"
@@ -35,7 +36,6 @@ struct Obj_8018DBCC {
 extern "C" {
 u8 * TObjFish__sub_8001EDB0(void *, int);
 extern u32 TObjContainerJungEx__resource_bundle;
-u8 *TObjContainerJungEx__sub_8018D900(s32 arg0);
 u8 * get_bml_model(void *, int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8018D9B0_lbl_804B7158 fe_obj_hako02_resource_descriptor;

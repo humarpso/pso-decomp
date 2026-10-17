@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-u8 *create_opening_movie_sequence(u8 *arg0);
+u8 *create_opening_movie_sequence(u8 *object);
 }
 
 #endif

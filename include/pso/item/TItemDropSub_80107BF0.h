@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *TItemDropSub__ct(void *arg0);
+void *TItemDropSub__ct(void *item_drop_sub);
 }
 
 #endif

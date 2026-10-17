@@ -4,8 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *TObjTagChallenge__ct(void *arg0);
+void *TObjTagChallenge__ct(void *tag_challenge);
 }
-void *create_obj_tag_challenge(void *arg0);
 
 #endif

@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-u8 *__ct__9TEndingABFv(u8 *arg0, u8 *arg1);
+u8 *__ct__9TEndingABFv(u8 *ending_ab, u8 *arg1);
 }
 
 #endif

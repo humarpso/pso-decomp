@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *belra_cannon_ct(void *arg0);
+void *belra_cannon_ct(void *player);
 }
 
 #endif

@@ -28,7 +28,7 @@ struct TBoss5GryphonTornado : public TObject {
 typedef char TBoss5GryphonTornado_size[sizeof(TBoss5GryphonTornado) == 0x5C ? 1 : -1];
 
 extern "C" {
-u8 *TBoss5GryphonTornado__ct(TBoss5GryphonTornado *arg0, u8 *arg1, s32 arg2, u8 *arg3, s16 arg4);
+u8 *TBoss5GryphonTornado__ct(TBoss5GryphonTornado *boss5_gryphon_tornado, u8 *arg1, s32 arg2, u8 *arg3, s16 arg4);
 void *__dt__20TBoss5GryphonTornadoFv(TBoss5GryphonTornado *arg0, s16 arg1);
 }
 

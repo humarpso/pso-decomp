@@ -14,10 +14,6 @@ u8 *TObjPlayer__sub_801C1664(u8 *arg0, u8 *arg1);
 void apply_status_effect__10TObjPlayerFPv(void *p);
 void bswap_fields__10TObjPlayerFi(s32 arg0);
 void bswap_pkt_u16x2_u32__10TObjPlayerFPv(void *p);
-}
-void init_6x1F_floor_packet(u8 *arg0);
-void init_6x27_use_item_cmd(u8 *arg0);
-extern "C" {
 void swap_endian__10TObjPlayerFi(s32 arg0);
 }
 

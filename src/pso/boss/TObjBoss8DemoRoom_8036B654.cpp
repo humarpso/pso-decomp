@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss8DemoRoom_8036B654.h"
 #include "pso/protocol/subcommand_validation.h"
 #include "pso/TObjBoss8DemoRoom.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -10,7 +11,6 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8036B6D0_lbl_804F3660 TObjBoss8DemoRoom__resource_desc;
 extern u32 TObjBoss8DemoRoom__shared_resource_object;
-void *__ct__17TObjBoss8DemoRoomFv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 void __ct__7TObjectFP7TObject(void *);
 

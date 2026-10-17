@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *TItemObject__sub_80352B18(void *arg0);
+void *TItemObject__sub_80352B18(void *item);
 void *__dt__13TUnk_804F0FF0Fv(void *arg0, s16 arg1);
 }
 

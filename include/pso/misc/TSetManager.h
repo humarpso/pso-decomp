@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *TSetManager__ct(void *arg0);
+void *TSetManager__ct(void *set_manager);
 }
 
 #endif

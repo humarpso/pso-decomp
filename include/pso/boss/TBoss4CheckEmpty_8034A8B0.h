@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *__ct__16TBoss4CheckEmptyFv(void *arg0);
+void *__ct__16TBoss4CheckEmptyFv(void *boss4_check_empty);
 }
 
 #endif

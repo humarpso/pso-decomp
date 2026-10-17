@@ -6,7 +6,5 @@
 extern "C" {
 void __OSCallResetFunctions(void);
 }
-void dispatch_callback(void);
-void dispatch_lobby_callback(void);
 
 #endif

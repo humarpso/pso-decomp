@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *twin_psychogun_ct(void *arg0);
+void *twin_psychogun_ct(void *player);
 }
 
 #endif

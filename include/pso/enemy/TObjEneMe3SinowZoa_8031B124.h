@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *TObjEneMe3SinowZoa__ct(void *arg0);
+void *TObjEneMe3SinowZoa__ct(void *ene_me3_sinow_zoa);
 }
 
 #endif

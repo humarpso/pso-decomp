@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_80257784.h"
 #include "pso/misc/TShopArmorListWindow.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 
@@ -6,7 +7,6 @@ struct Win_80266CF8 { u8 p0[0x72]; s16 f72; s16 f74; u8 p76[2]; s16 f78; };
 
 extern "C" {
 void *get_array_entry__13TUnk_804CE018Fi(void *, s32);
-void reset__20TWindowSubStatusDispFPv(void *);
 s32 select_cursor_entry__22TWindowSubShortCutListFv();
 
 void TShopArmorListWindow::clamp_selection_to_valid_entry() {

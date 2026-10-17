@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *heaven_punisher_ct(void *arg0);
+void *heaven_punisher_ct(void *player);
 }
 
 #endif

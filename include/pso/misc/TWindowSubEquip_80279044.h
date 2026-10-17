@@ -6,6 +6,5 @@
 extern "C" {
 void TWindowSubEquip__sub_80279044(void *p);
 }
-s32 get_class_weapon_icon_index(void *self, u8 *p);
 
 #endif

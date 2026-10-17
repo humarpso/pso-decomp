@@ -4,10 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *__ct__13TObjCHTimeWinFv(void *arg0);
-}
-void *create_ch_time_win(void *arg0);
-extern "C" {
+void *__ct__13TObjCHTimeWinFv(void *obj_ch_time_win);
 void init_timer__13TObjCHTimeWinFv(void);
 }
 

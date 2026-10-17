@@ -12,7 +12,7 @@ struct TWindowCtrlClipOut : public TObject {
 typedef char TWindowCtrlClipOut_size[sizeof(TWindowCtrlClipOut) == 0x1C ? 1 : -1];
 
 extern "C" {
-void *TWindowCtrlClipOut__ct(void *arg0);
+void *TWindowCtrlClipOut__ct(void *window_ctrl_clip_out);
 u8 *__dt__18TWindowCtrlClipOutFv(u8 *arg0, s16 arg1);
 }
 

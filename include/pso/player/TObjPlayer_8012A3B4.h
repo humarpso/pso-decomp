@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *TObjPlayer__sub_8012A3B4(void *arg0);
+void *TObjPlayer__sub_8012A3B4(void *player);
 }
 
 #endif

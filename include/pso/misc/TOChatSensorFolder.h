@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *TOChatSensorFolder__ct(void *arg0);
+void *TOChatSensorFolder__ct(void *chat_sensor_folder);
 }
 
 #endif

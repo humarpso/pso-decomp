@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *__ct__15TChCrCharSelectFv(void *arg0);
+void *__ct__15TChCrCharSelectFv(void *object);
 }
 
 #endif

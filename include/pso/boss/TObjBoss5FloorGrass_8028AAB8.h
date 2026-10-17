@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *__ct__19TObjBoss5FloorGrassFv(void *arg0);
+void *__ct__19TObjBoss5FloorGrassFv(void *boss5_floor_grass);
 }
 
 #endif

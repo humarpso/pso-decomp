@@ -6,6 +6,5 @@
 extern "C" {
 void *fn_8022F258(void *self);
 }
-void updateDarkTechniqueCharge(TechniqueChargeEmitter *state);
 
 #endif

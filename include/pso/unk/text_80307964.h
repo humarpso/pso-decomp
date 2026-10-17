@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-u8 *init_ending_movie(u8 *arg0);
+u8 *init_ending_movie(u8 *object);
 }
 
 #endif

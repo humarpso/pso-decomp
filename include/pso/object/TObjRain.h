@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-u8 *__ct__8TObjRainFv(u8 *arg0, s32 arg1, u32 arg2);
+u8 *__ct__8TObjRainFv(u8 *rain, s32 arg1, u32 arg2);
 }
 
 #endif

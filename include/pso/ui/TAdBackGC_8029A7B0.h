@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *__ct__9TAdBackGCFv(void *arg0);
+void *__ct__9TAdBackGCFv(void *ad_back_gc);
 }
 
 #endif

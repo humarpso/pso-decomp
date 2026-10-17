@@ -1,4 +1,5 @@
 #include "pso/audio/SoundBankTables.h"
+#include "pso/misc/TLobby_8023F734.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -47,33 +48,18 @@ typedef struct Src_8024220C
 
 extern RecoveredGlobal_8023F880_lbl_805162EC lbl_805162EC;
 extern "C" {
-s32 TLobby__sub_8023F880(s32 arg0);
-void clamp_field9c__6TLobbyFPvf(void *voice, f32 scale);
-void set_sound_slot_special_scale(s32 slot, f32 scale);
 s32 start_voice_fade(struct Voice_80241FD8 *v, s32 step);
-void fade_out_sound_slot(s32 slot, s32 step);
-void set_sound_slot_pitch(s32 slot, s32 pitch, s32 duration);
 
 s32 resolve_sound_effect_bank(Owner_8023FBBC *owner, s32 kind, s32 bank, s32 index);
 s32 __as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(void *, void *);
-void TLobby__sub_802422EC(void *arg0, void *arg1);
-char *parse_csv_token__6TLobbyFPvPv(char *src, char *dst);
-char *build_text_from_comma_list__6TLobbyFPv(char *list);
 s32 strncpy(void *, void *, int);
 s32 memset(void *, int, int);
 extern u8 selected_guild_card_record[];
 void load_selected_guild_card_record(Src_8024220C *arg0);
-u16 update_crc16_ccitt__6TLobbyFUsUc(u16 crc, u8 c);
 }
 s32 set_voice_pitch_slide(u8 *arg0, s32 arg1, s32 arg2);
 u16 calculate_crc16_ccitt(const u8* bytes, s32 count);
 extern "C" {
-s32 advance_rng__6TLobbyFPv(void *arg0);
-s32 get_field_0x280__6TLobbyFPv(void* p);
-f32 get_field_2a4__6TLobbyFPv(void* p);
-void set_clamped_field27c__6TLobbyFPvf(void *arg0, f32 farg0);
-void set_menu_index__6TLobbyFPvi(void* p, s32 v);
-void set_mode__6TLobbyFPvi(void *arg0, s32 arg1);
 s32 sndOutputMode(s32);
 
 s32 advance_rng__6TLobbyFPv(void *arg0) {
@@ -81,7 +67,6 @@ s32 advance_rng__6TLobbyFPv(void *arg0) {
     return *(s32 *)((s8 *)arg0 + 0x2AC);
 }
 
-void TLobby__sub_8023F754(s32 arg0, s32 arg1);
 void TLobby__sub_8023F754(s32 arg0, s32 arg1) {
     if (arg0 < 0 || arg0 >= 0x20) {
         return;
@@ -219,13 +204,10 @@ struct Obj_8023FCC0 {
 
 extern "C" {
 #define lbl_805162EC ((E_8023FF38 *)&lbl_805162EC)
-void reset_sound_group_fade__6TLobbyFv(void);
 #define lbl_805162EC ((E_8023FF38 *)&lbl_805162EC)
-void fade_voice_channels__6TLobbyFi(s32 arg0);
 void *adxf_open_afs__6TLobbyFii(int, int);
 
 s32 TLobby__sub_8023FFB8(Obj_8023FCC0 *self, int id);
-u8 is_ready__6TLobbyFPv(void *arg0);
 
 u8 is_ready__6TLobbyFPv(void *arg0) {
     return (u8) (*(s32 *)((s8 *)arg0 + 0x298) == 1);
@@ -334,9 +316,7 @@ struct Lobby_802401D0 {
 };
 
 extern "C" {
-s32 reset_sound_state__6TLobbyFPv(u8 *arg0);
 s32 sndPopGroup();
-s32 pop_sound_groups__6TLobbyFPvi(void *p, s32 arg1);
 s32 OSGetTick();
 s32 TLobby__sub_8023FCC0(void *);
 }
@@ -344,7 +324,6 @@ s32 tick_sound_voice(SoundRequestVoice *v);
 #define lbl_805162EC ((Voice_802401D0 *)&lbl_805162EC)
 extern "C" {
 s32 update_sound_frame(Lobby_802401D0 *self);
-int TLobby__sub_802401C8(void);
 
 int TLobby__sub_802401C8(void) { return 0; }
 
@@ -450,7 +429,6 @@ s32 pop_sound_groups__6TLobbyFPvi(void *p, s32 arg1) {
 #pragma push
 
 #pragma fp_contract on
-s32 validate_and_set_selection__6TLobbyFPvi(void *arg0, s32 arg1);
 s32 sndVolume(s32, s32, s32);
 
 s32 validate_and_set_selection__6TLobbyFPvi(void *arg0, s32 arg1) {
@@ -476,23 +454,12 @@ s32 validate_and_set_selection__6TLobbyFPvi(void *arg0, s32 arg1) {
 #pragma pop
 
 extern const f32 lbl_805DC9D8;
-void reset_sound_owner_state(u8 *arg0);
 void __destroy_arr(void *arr, void *dtor, u32 size, u32 n);
-void *TLobby__sub_80242148(void *arg0, s16 arg1);
 #define lbl_805162EC ((char *)&lbl_805162EC)
-void TLobby__sub_80240974(void);
 void *__construct_array(void *, void *, void *, u32, u32);
 s32 __register_global_object(s32, void *, void *);
-void TLobby__sub_8024218C(void* p);
 extern char lbl_805162E0[];
 #define lbl_805162EC ((char *)&lbl_805162EC)
-void construct_global_array_a0__6TLobbyFv(void);
-void *TLobby__sub_80240808(void *arg0, s16 arg1);
-void TLobby__sub_802409E4(void* p);
-int TLobby__sub_802409F0(void);
-void set_field0__6TLobbyFPvi(void* p, s32 v);
-void update__6TLobbyFPv(void *arg0);
-s32 get_field_308__6TLobbyFPv(void* p);
 
 void *TLobby__sub_80240808(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -648,21 +615,16 @@ struct Sound_80241798 {
 
 extern "C" {
 s32 sndFXCtrl(int, int, int);
-s32 init_sound_voice__6TLobbyFPviiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 sndFXKeyOff(int);
 s32 OSDisableInterrupts(void);
 s32 OSRestoreInterrupts(s32);
-void TLobby__sub_80240F38(void);
 void TLobby__sub_80240F3C(SoundRequestVoice *);
-void TLobby__sub_80241A0C(void);
-void clamp_params__6TLobbyFPv(void *arg0);
 void calc_sound_spatial_params(SoundRequestVoice *);
 u32 sndFXStartParaInfo(u16, u8, u8, u8, Params_80240B64 *);
 u32 sndFXCheck(u32);
 extern s8 TLobby__data_805434A8[];
 extern s32 TLobby__lobby_state_flags;
 void TLobby__sub_80241798(Sound_80241798 *arg0);
-void update_random_flip_flag__6TLobbyFPv(u8 *arg0);
 }
 void send_voice_controller_updates(u8 *arg0);
 
@@ -1085,23 +1047,15 @@ extern "C" {
 s32 seq_jump__9TProtocolFPUcR21TPlyMeetUserExtension(int, void *, void *);
 extern RecoveredGlobal_8024259C_TLobby__data_8050AAAC TLobby__data_8050AAAC;
 extern u32 TLobby__protocol_instance;
-void TLobby__sub_8024259C(s32 arg0);
-char *skip_to_comma_field__6TLobbyFPvii(char *s, s32 a, s32 b);
 char *get_shared_text_buffer();
 void text_builder_append(char *);
 }
 void text_builder_reset();
 extern "C" {
 s32 send_find_user__9TProtocolFR16TPlyGuildCardTagUl(void *, Tag_802421C4 *, s32);
-void send_find_user_self_tag__6TLobbyFi(s32 arg0);
-void* get_com_card_entry__6TLobbyFi(int a0);
-s32 TLobby__sub_802428F8(void* p);
-int get_com_card_data__6TLobbyFv(void);
 extern unsigned char lbl_80517F9C[];
-void find_and_load_com_card__6TLobbyFUi(u32 arg0);
 void __copy(void *, void *, int);
 Entry_80242380 *copy_com_card_entry__6TLobbyFPvPv(Entry_80242380 *dst, Entry_80242380 *src);
-int forward_8024273C__6TLobbyFPv(void* p);
 int TLobby__sub_8024273C(void*);
 
 void *TLobby__sub_80242148(void *arg0, s16 arg1) {
@@ -1263,16 +1217,8 @@ struct RecoveredGlobal_8024287C_lbl_80517F9C {
 extern "C" {
 #define lbl_80517F9C (*(RecoveredGlobal_802426E8_lbl_80517F9C *)lbl_80517F9C)
 extern int com_card_entry_count;
-void remove_com_card_entry__6TLobbyFi(s32 arg0);
-void* TLobby__sub_802428C4(void* p);
 #define selected_guild_card_record (*(RecoveredGlobal_8024287C_lbl_80517EE0 *)selected_guild_card_record)
 #define lbl_80517F9C (*(RecoveredGlobal_802426E8_lbl_80517F9C *)lbl_80517F9C)
-void construct_entry_arrays__6TLobbyFv(void);
-s32 remove_com_card_by_id__6TLobbyFUi(u32 arg0);
-void TLobby__sub_8024285C(void* p);
-void init_player_entry__6TLobbyFPvPv(u8 *arg0, u8 *arg1);
-void reset_state_805D63DC__6TLobbyFv(void*);
-void reset_state__6TLobbyFPv(void* p);
 u32 find_card_by_id__17TWindowSubComCardFUl();
 int fn_80077AA4(void*);
 s32 get_com_card_list__6TLobbyFPv();

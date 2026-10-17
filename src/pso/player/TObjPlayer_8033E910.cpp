@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8033E910.h"
+#include "pso/ui/TAdMcCheckGC.h"
 #include "pso/misc/TUnk_804EFA88.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/misc/TLobby.h"
@@ -34,11 +36,7 @@ s32 GXSetTevOp(int, int);
 s32 GXSetTevOrder(int, int, int, int);
 s32 push_matrix();
 s32 pop_matrix();
-void setup_projection_tex_matrix__10TObjPlayerFv(void);
 void queue_destruction__7TObjectFv(void *);
-void TLobby__sub_8033EE38(void *);
-void init_particle_effect__10TObjPlayerFv(void);
-void reset_effects__10TObjPlayerFv(void);
 s32 rotate_matrix_by_node_angles(void *, int);
 s32 post_translate_matrix(void *);
 int set_global_param__8TObjFishFl(void);

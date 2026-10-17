@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *__ct__14TObjBagWarnWinFv(void *arg0);
+void *__ct__14TObjBagWarnWinFv(void *bag_warn_win);
 }
 
 #endif

@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *guld_milla_ct(void *arg0);
+void *guld_milla_ct(void *player);
 }
 
 #endif

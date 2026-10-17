@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-s32 begin_action_state__10TObjPlayerFPv(u8 *arg0);
+s32 begin_action_state__10TObjPlayerFPv(u8 *player);
 }
 
 #endif

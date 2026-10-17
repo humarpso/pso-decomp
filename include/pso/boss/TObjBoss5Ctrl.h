@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *TObjBoss5Ctrl__ct(void *arg0);
+void *TObjBoss5Ctrl__ct(void *boss5_pillar_ctrl);
 }
 
 #endif

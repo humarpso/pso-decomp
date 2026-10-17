@@ -12,7 +12,7 @@ typedef char TOExplosiveMachine01_size[sizeof(TOExplosiveMachine01) == 0xAC ? 1 
 
 extern "C" {
 void *TOExplosiveMachine01__create(void *arg0);
-void *TOExplosiveMachine01__ct(TOExplosiveMachine01 *arg0, s32 arg1);
+void *TOExplosiveMachine01__ct(TOExplosiveMachine01 *explosive_machine01, s32 arg1);
 void *__dt__20TOExplosiveMachine01Fv(void *arg0, s16 arg1);
 }
 

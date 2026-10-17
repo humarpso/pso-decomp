@@ -3,7 +3,6 @@
 
 #include "types.h"
 
-void assign_default_photon_blast_palette_slots(u8 *arg0);
 extern "C" {
 int ret_801D78E4(void);
 int ret_801D78EC(void);

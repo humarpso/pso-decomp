@@ -6,6 +6,5 @@
 extern "C" {
 void TObjEneMe3Stelth__sub_800F0C90(u8 *arg0);
 }
-void load_ha_u032_kage(void);
 
 #endif

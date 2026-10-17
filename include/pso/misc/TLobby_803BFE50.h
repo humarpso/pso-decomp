@@ -12,7 +12,7 @@ void TLobby__sub_803BFFFC(u8 *arg0, s32 arg1, s32 arg2);
 s32 TLobby__sub_803C0010(u8 *arg0);
 void TLobby__sub_803C0628(void *arg0_, s32 *arg1, s32 *arg2, s32 *arg3);
 void TLobby__sub_803C0758(u8 *arg0);
-void TLobby__sub_803C0B3C(u8 *arg0);
+void TLobby__sub_803C0B3C(u8 *lobby);
 }
 
 #endif

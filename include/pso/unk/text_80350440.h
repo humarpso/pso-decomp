@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-u8 *fn_80350440(u8 *arg0, u8 *arg1, s32 arg2);
+u8 *fn_80350440(u8 *object, u8 *arg1, s32 arg2);
 }
 
 #endif

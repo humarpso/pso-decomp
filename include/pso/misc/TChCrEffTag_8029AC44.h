@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *__ct__11TChCrEffTagFv(void *arg0);
+void *__ct__11TChCrEffTagFv(void *ch_cr_eff_tag);
 }
 
 #endif

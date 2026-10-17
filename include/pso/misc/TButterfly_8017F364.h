@@ -5,7 +5,7 @@
 
 extern "C" {
 void *TButterfly__create(void *arg0);
-void *TButterfly__ct(void *arg0, void *arg1, void *arg2);
+void *TButterfly__ct(void *butterfly, void *arg1, void *arg2);
 }
 
 #endif

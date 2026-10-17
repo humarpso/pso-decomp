@@ -22,7 +22,7 @@ void generate_tool_drop__9TItemDropFiiPv(s32 arg0, s32 off, void *arg2);
 s8 get_bool_from_1d6ddc__9TItemDropFPv(void *p);
 s32 get_drop_table_mode_flags(void);
 void handle_type3__9TItemDropFPvPv(void *p, void *a1);
-void init_rare_item_data__9TItemDropFPvPv(void *arg0, void *arg1);
+void init_rare_item_data__9TItemDropFPvPv(void *arg0, void *item_data);
 u8 is_enabled__9TItemDropFv(void);
 u8 is_not_special__9TItemDropFv(void);
 s32 item_drop_rng_below(s32 arg0, u32 arg1);
@@ -40,6 +40,5 @@ u8 select_weighted_column_u16__9TItemDropFiiiii(s32 rng, s32 base, s32 off, s32 
 void set_flag__9TItemDropFPvPv(void *arg0, void *item);
 s32 try_generate_rare_item__9TItemDropFiPvPv(s32 arg0, u8 *arg1, u8 *arg2);
 }
-void unload_item_drop_globals(void);
 
 #endif

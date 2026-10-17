@@ -6,6 +6,5 @@
 extern "C" {
 void *create_lobby_object_05(void *arg0);
 }
-void update_hunter_guild_phase(void);
 
 #endif

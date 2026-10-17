@@ -5,7 +5,7 @@
 
 extern "C" {
 void *__dt__13TUnk_804F0C48Fv(void *arg0, s16 arg1);
-void *create_item_object_lbl_804F0C48(void *arg0);
+void *create_item_object_lbl_804F0C48(void *item);
 }
 
 #endif

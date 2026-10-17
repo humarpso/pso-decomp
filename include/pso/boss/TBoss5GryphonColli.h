@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-u8 *TBoss5GryphonColli__ct(u8 *arg0, s32 arg1);
+u8 *TBoss5GryphonColli__ct(u8 *object, s32 arg1);
 }
 
 #endif

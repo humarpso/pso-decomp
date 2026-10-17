@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *TObjEnvSound__create(void *arg0);
+void *TObjEnvSound__create(void *rader_map_core);
 }
 
 #endif

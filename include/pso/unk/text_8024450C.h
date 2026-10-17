@@ -5,9 +5,6 @@
 
 extern "C" {
 s32 create_area_window(s32 arg0);
-}
-s32 create_window_area(void);
-extern "C" {
 void fn_8024450C(s32 arg0);
 }
 

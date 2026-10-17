@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *TItemMenuCtrl__ct(void *arg0);
+void *TItemMenuCtrl__ct(void *item_menu_ctrl);
 }
 
 #endif

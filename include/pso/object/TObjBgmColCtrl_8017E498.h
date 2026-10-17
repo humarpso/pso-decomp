@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *TObjBgmColCtrl__ct(void *arg0);
+void *TObjBgmColCtrl__ct(void *bgm_col_ctrl);
 }
 
 #endif

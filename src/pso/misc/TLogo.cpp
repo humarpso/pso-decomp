@@ -1,4 +1,7 @@
 #include "pso/TObject.h"
+#include "pso/misc/TLogo.h"
+#include "pso/misc/TLogo_8001C134.h"
+#include "pso/unk/text_80145A94.h"
 #include "pso/system/main_loop.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TLobby.h"
@@ -35,21 +38,15 @@ extern V3_8013F6C4 lbl_8043F144;
 extern u8 default_scene_light_config[];
 s32 call_funcs_reverse__6TLobbyFPvUi(void *, int);
 s32 delete_all_task_children__9TMainTaskFv(void *);
-void TLogo__sub_8013F5AC();
 s32 TKeyBoardControl__sub_8000F9CC(int);
 u32 __ct__10TAdADXlogoFv(void *, void *);
 void queue_destruction__7TObjectFv(void *arg0);
 u32 __ct__11TAdSEGAlogoFv(void *, void *);
 u32 __ct__12TAdSoniclogoFv(void *, void *);
-int TLogo__sub_8013F7E8(int);
-s32 TLogo__sub_8013F800(void* p);
-int TLogo__sub_8013F808(void);
-s32 TLobby__sub_80145DB4(s32 arg0);
 u32 __nw__7TObjectFUl(int);
 u32 TAdVIConfigGC__ct(void *, void *);
 s32 check_progressive_ready__5TLogoFv();
 u32 TAdTrialModemChkGC__ct(void *, void *);
-void run_task__5TLogoFv(u8 *arg0);
 s32 TKeyBoardControl__sub_8000F92C();
 s32 set_active_camera_pose(void *, void *);
 s32 activate_camera_mode(int);
@@ -63,11 +60,6 @@ extern "C" {
 s32 func_803DCDFC__Fv();
 extern V3_8013F5E8 lbl_8043F150;
 extern V3_8013F5E8 lbl_8043F15C;
-void run_frame__5TLogoFv(void);
-void *__ct__5TLogoFv(void *arg0);
-s32 fn_8013F264(void* p);
-s32 fn_8013F288(void* p);
-void render__5TLogoFv(void);
 void __ct__7TObjectFP7TObject(void *);
 
 s32 fn_8013F264(void* p) { return fn_8013F288((void*)((char*)p + 0x98)); }
@@ -81,7 +73,7 @@ extern "C" {
 void reset_view_state__11TCameraCtrlFv(); void reset__11TCameraCtrlFv(); void TCameraCtrl::init_default_view(); void TCameraCtrl::reset_default_view();
 void register_texture_f256_ad_pic_2(); void TAdSinglePlyChrSelectGC::free_global();
 void register_texture_f256_backtext(); void TAdSinglePlyChrSelectGC::free_singleton_805D65C0();
-void register_texture_logo_e(); void free_held_object__5TLogoFv(); void TLogo__sub_8001C364(); void TLogo__sub_8001C360();
+void free_held_object__5TLogoFv(); void TLogo__sub_8001C364(); void TLogo__sub_8001C360();
 void TWindowCtrlMain__sub_8024D838(); void TWindowCtrlMain::free_all_windows(); void TLogo__sub_80019A2C(); void TLogo__sub_80019A28();
 void __dt__5TLogoFv(); void render_shadows__7TObjectFv();
 void *logo_load_callback_table[18] = {

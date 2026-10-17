@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *construct_twin_chakram(void *arg0);
+void *construct_twin_chakram(void *player);
 }
 
 #endif

@@ -6,6 +6,5 @@
 extern "C" {
 void TBoss8Dragon__sub_802FDF10(void);
 }
-void build_6xA8_gol_dragon_boss_actions(void *p);
 
 #endif

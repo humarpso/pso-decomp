@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *TMapCsnCtrl__ct(void *arg0);
+void *TMapCsnCtrl__ct(void *map_csn_ctrl);
 }
 
 #endif

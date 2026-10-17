@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-u8 *fn_8014AAC4(u8 *arg0);
+u8 *fn_8014AAC4(u8 *player);
 }
 
 #endif

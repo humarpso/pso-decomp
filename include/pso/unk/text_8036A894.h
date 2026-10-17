@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-u8 *TBoss6EffFlowSoul__ct(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3, s32 arg4);
+u8 *TBoss6EffFlowSoul__ct(u8 *boss6_eff_flow_soul, u8 *arg1, u8 *arg2, s16 arg3, s32 arg4);
 }
 
 #endif

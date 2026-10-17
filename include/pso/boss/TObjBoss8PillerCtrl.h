@@ -20,7 +20,7 @@ struct TObjBoss8PillerCtrl : public TObject {
 typedef char TObjBoss8PillerCtrl_size[sizeof(TObjBoss8PillerCtrl) == 0x38 ? 1 : -1];
 
 extern "C" {
-u8 *TObjBoss8PillerCtrl__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3);
+u8 *TObjBoss8PillerCtrl__ct(u8 *boss8_piller_ctrl, s32 arg1, s32 arg2, s16 arg3);
 void TObjBoss8PillerCtrl__sub_8035C034(void *_w0, void *_w1);
 void *__dt__19TObjBoss8PillerCtrlFv(void *arg0, s16 arg1);
 }

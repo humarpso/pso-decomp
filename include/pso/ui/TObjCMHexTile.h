@@ -5,7 +5,7 @@
 
 extern "C" {
 void fn_802947A8(void);
-void run_task__13TObjCMHexTileFv(u8 *arg0);
+void run_task__13TObjCMHexTileFv(u8 *object);
 }
 
 #endif

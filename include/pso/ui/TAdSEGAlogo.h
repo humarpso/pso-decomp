@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *__ct__11TAdSEGAlogoFv(void *arg0);
+void *__ct__11TAdSEGAlogoFv(void *ad_seg_alogo);
 }
 
 #endif

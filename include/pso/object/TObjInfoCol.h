@@ -22,7 +22,7 @@ typedef char TObjInfoColRadiusOffset[
 typedef char TObjInfoCol_size[sizeof(TObjInfoCol) == 0xB0 ? 1 : -1];
 
 extern "C" {
-u8 *TObjInfoCol__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TObjInfoCol__ct(u8 *info_col, s32 arg1, s32 arg2);
 void *__dt__11TObjInfoColFv(void *arg0, s16 arg1);
 }
 

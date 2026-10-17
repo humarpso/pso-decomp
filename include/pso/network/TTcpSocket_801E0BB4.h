@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *__ct__10TTcpSocketFP7TObject(void *arg0);
+void *__ct__10TTcpSocketFP7TObject(void *tcp_socket);
 }
 
 #endif

@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-u8 *TAdExNetConfirmGC__ct(u8 *arg0);
+u8 *TAdExNetConfirmGC__ct(u8 *object);
 void *__dt__17TAdExNetConfirmGCFv(void *arg0, s16 arg1);
 }
 

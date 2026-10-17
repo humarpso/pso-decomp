@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *TOContainerAncientItemNone__ct(void *arg0);
+void *TOContainerAncientItemNone__ct(void *container_ancient_item_none);
 }
 
 #endif

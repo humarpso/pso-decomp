@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemyCustom_800C76F4.h"
 #include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
@@ -15,7 +16,6 @@ s32 update_collisions__10TObjPlayerFv(void *);
 extern const f32 lbl_805DA070;
 extern volatile f32 lbl_805DA07C;
 extern const f32 lbl_805DA08C;
-void TObjEnemyCustom__sub_800C77A4(u8 *arg0);
 struct Base_800c76f4 { char pad[0x18]; };
 struct VObj_800c76f4 : Base_800c76f4 {
     virtual void m0();

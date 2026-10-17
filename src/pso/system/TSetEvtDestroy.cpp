@@ -1,4 +1,6 @@
 #include "pso/enemy/TEnemyTaskList.h"
+#include "pso/item/TItemDrop_80105D0C.h"
+#include "pso/player/TObjPlayer_80011014.h"
 #include "pso/misc/TLobby.h"
 #include "pso/system/EventShuffleTable.h"
 
@@ -88,10 +90,8 @@ extern RecoveredGlobal_802093EC_lbl_805139F8 lobby_slot_ptr_table;
 s32 get_area_event_data(s32 arg0);
 extern "C" {
 s32 next_event_shuffle_entry(EventShuffleTable *s);
-s32 get_current_floor();
 void queue_destruction__7TObjectFv(void *);
 
-s32 item_drop_rng_below(s32, u32);
 }
 void init_event_shuffle_table(EventShuffleTable *arg0, s32 arg1);
 void shuffle_event_entries(EventShuffleTable *arg0);

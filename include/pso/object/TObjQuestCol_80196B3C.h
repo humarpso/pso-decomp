@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void *TObjQuestCol__ct(void *arg0);
+void *TObjQuestCol__ct(void *quest_col);
 }
 
 #endif
