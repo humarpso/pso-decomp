@@ -862,7 +862,7 @@ extern s32 TObjEneDf2Bringer__render_node_index;
 extern s32 TObjEneDf2Bringer__render_rotation_x;
 extern s32 TObjEneDf2Bringer__render_point_cursor;
 void clear_attack_receipts__9TObjEneDDFv(void *);
-s32 transition_enemy_state(void *, s32);
+s32 transition_enemy_state__9TObjEneDDFs(void *, s32);
 extern const f32 lbl_805D97E4;
 s32 update_linked_position__12TObjEneDD_STFf(void *, f32);
 s32 set_field_378__9TObjEneDDFl(void *, s32);
@@ -1083,7 +1083,7 @@ void TObjEneDf2Bringer__sub_80097714(Bringer_80097714 *obj, s32 mode) {
     case 3:
         if (((TObjEneDD *)self)->get_flag_b4() != 0 &&
             ((TObjEneDf2Bringer *)self)->check_stage_advance() == 0) {
-            transition_enemy_state(self, self->field378);
+            transition_enemy_state__9TObjEneDDFs(self, self->field378);
         }
         break;
     case 0:
@@ -1121,7 +1121,7 @@ void TObjEneDf2Bringer__sub_80097820(u8 *arg0, s32 arg1) {
         break;
     case 3:
         if (F_8009(0x4AC, s32) == 4) {
-            transition_enemy_state(arg0, 4);
+            transition_enemy_state__9TObjEneDDFs(arg0, 4);
         }
         break;
     case 0:
@@ -1259,7 +1259,7 @@ void action__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1) {
         return;
     case 3:
         if ((s32) *(s32 *)((s8 *)arg0 + 0x484) <= 0) {
-            transition_enemy_state(arg0, 4);
+            transition_enemy_state__9TObjEneDDFs(arg0, 4);
         }
         return;
     case 0:
@@ -1314,7 +1314,7 @@ void TObjEneDf2Bringer__sub_80097E9C(u8 *arg0, s32 arg1) {
                 *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C0) & 0xFFFFFFF7);
             }
             if (((TObjEneDf2Bringer *)arg0)->check_stage_advance() == 0) {
-                transition_enemy_state(arg0, 4);
+                transition_enemy_state__9TObjEneDDFs(arg0, 4);
             }
         }
         break;
@@ -1389,7 +1389,7 @@ void TObjEneDf2Bringer__sub_8009813C(u8 *arg0, s32 arg1) {
             F(s32, 0x490)++;
             F(s32, 0x3C0) &= ~8;
             if (((TObjEneDf2Bringer *)arg0)->check_stage_advance() == 0) {
-                transition_enemy_state(arg0, 7);
+                transition_enemy_state__9TObjEneDDFs(arg0, 7);
             }
         }
         break;
@@ -1495,11 +1495,11 @@ void TObjEneDf2Bringer__sub_8009859C(u8 *ene_df2_bringer, s32 arg1) {
         break;
     case 3:
         if (*(u32 *)((s8 *)ene_df2_bringer + 0x390) == 0U) {
-            transition_enemy_state(ene_df2_bringer, 3);
+            transition_enemy_state__9TObjEneDDFs(ene_df2_bringer, 3);
         } else if ((*(f32 *)((s8 *)ene_df2_bringer + 0x3AC) >= (f32) *(s32 *)((s8 *)(*(u8 * *)&TObjEneDf2Bringer__data_805D4FB4) + 0x2C)) && (*(s32 *)((s8 *)ene_df2_bringer + 0x490) < 2)) {
-            transition_enemy_state(ene_df2_bringer, 5);
+            transition_enemy_state__9TObjEneDDFs(ene_df2_bringer, 5);
         } else if (*(s32 *)((s8 *)ene_df2_bringer + 0x4AC) == 1) {
-            transition_enemy_state(ene_df2_bringer, 6);
+            transition_enemy_state__9TObjEneDDFs(ene_df2_bringer, 6);
         }
         break;
     case 5:
@@ -1546,9 +1546,9 @@ void TObjEneDf2Bringer__sub_800987E8(u8 *ene_dd_st, s32 arg1) {
         return;
     case 3:
         if (*(s32 *)((s8 *)ene_dd_st + 0x4AC) == 2) {
-            transition_enemy_state(ene_dd_st, 4);
+            transition_enemy_state__9TObjEneDDFs(ene_dd_st, 4);
         } else if (*(s32 *)((s8 *)ene_dd_st + 0x4AC) == 3) {
-            transition_enemy_state(ene_dd_st, 1);
+            transition_enemy_state__9TObjEneDDFs(ene_dd_st, 1);
         }
         break;
     case 5:
@@ -1641,7 +1641,7 @@ void TObjEneDf2Bringer::exec(s32 arg1) {
         return;
     case 3:
         if ((s32) *(s32 *)((s8 *)arg0 + 0x4B0) == 2) {
-            transition_enemy_state(arg0, 4);
+            transition_enemy_state__9TObjEneDDFs(arg0, 4);
         }
         return;
     case 0:
@@ -1692,7 +1692,7 @@ void TObjEneDf2Bringer__sub_80098BAC(u8 *ene_dd_st, s32 arg1) {
             ((TObjEneDD_ST *)ene_dd_st)->enemy_copy_target_destination();
             ((TObjEneDD *)ene_dd_st)->update_velocity();
             *(s32 *)((s8 *)ene_dd_st + 0x60) = (s32) (TObjEneDf2Bringer__data_8043A0F8 * atan2_float((f64) *(f32 *)((s8 *)ene_dd_st + 0x3A0), (f64) *(f32 *)((s8 *)ene_dd_st + 0x3A8)));
-            transition_enemy_state(ene_dd_st, 2);
+            transition_enemy_state__9TObjEneDDFs(ene_dd_st, 2);
         }
     case 5:
     case 0:
@@ -1707,7 +1707,7 @@ void TObjEneDf2Bringer::handle_state(s32 arg1) {
         *(s32 *)((s8 *)this + 0x4AC) = 0;
         return;
     case 3:
-        transition_enemy_state(this, 1);
+        transition_enemy_state__9TObjEneDDFs(this, 1);
         return;
     case 0:
         *(s32 *)((s8 *)this + 0x4AC) = (s32) (*(s32 *)((s8 *)this + 0x4AC) + 1);
@@ -2075,7 +2075,7 @@ s32 spawn_part__14TObjEneEpsilonFi(void *, f32);
 
 s32 TObjEneDf2Bringer::check_stage_advance() {
     if ((s32) *(s32 *)((s8 *)this + 0x494) >= 5) {
-        transition_enemy_state(this, 8);
+        transition_enemy_state__9TObjEneDDFs(this, 8);
         return 1;
     }
     return 0;
@@ -2228,7 +2228,7 @@ void update_attack_child__17TObjEneDf2BringerFPv(Bringer_800993E8 *obj) {
 #undef TObjEneDf2Bringer__trail_buffer
 #define sub_80098DEC__17TObjEneDf2BringerFv ((s32 (*)())sub_80098DEC__17TObjEneDf2BringerFv)
 #define clear_attack_receipts__9TObjEneDDFv ((s32 (*)(void *))clear_attack_receipts__9TObjEneDDFv)
-#define transition_enemy_state ((int (*)(void*, void*))transition_enemy_state)
+#define transition_enemy_state__9TObjEneDDFs ((int (*)(void*, void*))transition_enemy_state__9TObjEneDDFs)
 extern const f32 lbl_805D9840;
 
 void TObjEneDf2Bringer__sub_800994F8(void) {  }
@@ -2255,12 +2255,12 @@ void TObjEneDf2Bringer::vfunc_62() {
         return;
     }
     if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 9) {
-        transition_enemy_state(arg0, (void*)(9));
+        transition_enemy_state__9TObjEneDDFs(arg0, (void*)(9));
     }
 }
 
 }
-#undef transition_enemy_state
+#undef transition_enemy_state__9TObjEneDDFs
 #undef clear_attack_receipts__9TObjEneDDFv
 #undef sub_80098DEC__17TObjEneDf2BringerFv
 
@@ -2475,7 +2475,7 @@ extern "C" {
 void *TObjEneDf2Bringer__ct(void *arg0, void *arg1, void *arg2);
 void TLobby__sub_8001FE7C(void*, int);
 }
-#define transition_enemy_state ((int (*)(void*, void*))transition_enemy_state)
+#define transition_enemy_state__9TObjEneDDFs ((int (*)(void*, void*))transition_enemy_state__9TObjEneDDFs)
 #define TObjEneDf2Bringer__sub_800994F8 ((void (*)(void *))TObjEneDf2Bringer__sub_800994F8)
 void bringer_effect_cleanup_noop(void);
 extern "C" {
@@ -2487,7 +2487,7 @@ void *destroy_buffer_pair(void *arg0, s16 arg1);
 extern "C" {
 void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 
-void TObjEneDf2Bringer::vfunc_63() { if (*(short*)((char*)this + 0x326) != 10) { transition_enemy_state(this, (void*)10); } }
+void TObjEneDf2Bringer::vfunc_63() { if (*(short*)((char*)this + 0x326) != 10) { transition_enemy_state__9TObjEneDDFs(this, (void*)10); } }
 void TObjEneDf2Bringer::vfunc_28() {  }
 
 extern s32 init_and_activate__10TObjPlayerFv[];
@@ -2843,4 +2843,4 @@ void TObjEneDf2Bringer::load_resources() {
 #undef TObjEneDf2Bringer__sub_800994F8
 #undef set_effect_pos_above_self__17TObjEneDf2BringerFv
 #undef __nw__7TObjectFUl
-#undef transition_enemy_state
+#undef transition_enemy_state__9TObjEneDDFs

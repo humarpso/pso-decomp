@@ -97,7 +97,7 @@ f32 TObjEneRecon__sub_8031C2D4(void) {
 
 void *find_entity_by_id(u16 id);
 s32 queue_destruction__7TObjectFv(void *);
-void transition_enemy_state(void *, s32);
+void transition_enemy_state__9TObjEneDDFs(void *, s32);
 void select_next_target__12TObjEneReconFv(void *, s32);
 void TObjEneRecon::handle_message(s32 arg1) {
     u32 temp;
@@ -272,7 +272,7 @@ void TObjEneRecon__sub_8031C364(u8 *arg0, s32 arg1) {
         break;
     case 3:
         if (F(s32, 0x3C0) == 3) {
-            transition_enemy_state(arg0, 8);
+            transition_enemy_state__9TObjEneDDFs(arg0, 8);
         }
         break;
     case 5:
@@ -348,7 +348,7 @@ void TObjEneRecon__sub_8031C624(u8 *arg0, s32 arg1) {
             if (n == 2) {
                 select_next_target__12TObjEneReconFv(arg0, n);
             } else {
-                transition_enemy_state(arg0, n);
+                transition_enemy_state__9TObjEneDDFs(arg0, n);
             }
         }
         break;
@@ -420,7 +420,7 @@ void run_task__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
             return;
         }
         if (is_anim_6__12TObjEneReconFv() == 1) {
-            transition_enemy_state(arg0, 7);
+            transition_enemy_state__9TObjEneDDFs(arg0, 7);
             return;
         }
         if (((WObj_8031c7bc *) (arg0 + 0x480))->w4() != 0) {
@@ -712,7 +712,7 @@ void TObjEneRecon__sub_8031C920(u8 *arg0, s32 arg1) {
         break;
     case 3:
         if (F(u8 *, 0x390) == NULL) {
-            ((void (*)(void *, s16)) transition_enemy_state)(arg0, 5);
+            ((void (*)(void *, s16)) transition_enemy_state__9TObjEneDDFs)(arg0, 5);
         } else if (F(s32, 0x46C) > 0x8000 || F(s32, 0x46C) < -0x8000) {
             ((void (*)(void *)) select_next_target__12TObjEneReconFv)(arg0);
         } else if (F(s32, 0x470) > 0x5000 || F(s32, 0x470) < -0x5000) {
@@ -792,19 +792,19 @@ void TObjEneRecon__sub_8031CCFC(u8 *arg0, s32 arg1) {
         break;
     case 3:
         if (*(f32 *)((s8 *)arg0 + 0x3AC) > lbl_805DF3FC) {
-            ((void (*)(void *, s16)) transition_enemy_state)(arg0, 1);
+            ((void (*)(void *, s16)) transition_enemy_state__9TObjEneDDFs)(arg0, 1);
             break;
         }
         switch (*(s32 *)((s8 *)arg0 + 0x3C0)) {
         case 0:
             if (((TObjEneEpsilon *)arg0)->m_390 == 0) {
-                ((void (*)(void *, s16)) transition_enemy_state)(arg0, 1);
+                ((void (*)(void *, s16)) transition_enemy_state__9TObjEneDDFs)(arg0, 1);
             }
             break;
         case 1:
             break;
         case 2:
-            ((void (*)(void *, s16)) transition_enemy_state)(arg0, 4);
+            ((void (*)(void *, s16)) transition_enemy_state__9TObjEneDDFs)(arg0, 4);
             break;
         }
         break;
@@ -861,20 +861,20 @@ void TObjEneRecon__sub_8031CF30(u8 *arg0, s32 arg1) {
         break;
     case 3:
         if (F(f32, 0x3AC) > lbl_805DF3FC) {
-            ((void (*)(void *, s16)) transition_enemy_state)(arg0, 1);
+            ((void (*)(void *, s16)) transition_enemy_state__9TObjEneDDFs)(arg0, 1);
             break;
         }
         switch (F(s32, 0x3C0)) {
         case 0:
         case 1:
             if (F(u32, 0x390) == 0) {
-                ((void (*)(void *, s16)) transition_enemy_state)(arg0, 1);
+                ((void (*)(void *, s16)) transition_enemy_state__9TObjEneDDFs)(arg0, 1);
             }
             break;
         case 2:
             break;
         case 3:
-            ((void (*)(void *, s16)) transition_enemy_state)(arg0, 4);
+            ((void (*)(void *, s16)) transition_enemy_state__9TObjEneDDFs)(arg0, 4);
             break;
         }
         break;
@@ -966,7 +966,7 @@ void TObjEneRecon__sub_8031D380(u8 *arg0, s32 arg1) {
     case 3:
       if (((s32) (*((s32 *) (((s8 *) arg0) + 0x3B0)))) >= 0x96)
     {
-      ((void (*)(void *, s16)) transition_enemy_state)(arg0, 5);
+      ((void (*)(void *, s16)) transition_enemy_state__9TObjEneDDFs)(arg0, 5);
     }
     case 5:
       return;
@@ -974,7 +974,7 @@ void TObjEneRecon__sub_8031D380(u8 *arg0, s32 arg1) {
       advance_animation_playback(arg0);
       if ((((TObjEneEpsilon *)arg0)->update_death_check() != 0) || ((((VObj_18_83f71d *)(arg0))->m102((TObjEneRecon__data_805DF3E4))) != 0))
     {
-      ((void (*)(void *, s16)) transition_enemy_state)(arg0, 4);
+      ((void (*)(void *, s16)) transition_enemy_state__9TObjEneDDFs)(arg0, 4);
     }
     else
     {
@@ -1014,7 +1014,7 @@ void TObjEneRecon::sub_8031D4B0(s32 arg1) {
         break;
     case 3:
         if ((s32) *(s32 *)((s8 *)arg0 + 0x3C0) == 2) {
-            ((void (*)(void *, s16)) transition_enemy_state)(arg0, 1);
+            ((void (*)(void *, s16)) transition_enemy_state__9TObjEneDDFs)(arg0, 1);
         }
         break;
     case 5:

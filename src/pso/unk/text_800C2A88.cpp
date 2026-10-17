@@ -157,7 +157,7 @@ struct RecoveredFields_800C2AC4_arg0
 
 extern "C" {
 s32 TBoss8Dragon__sub_800BB7D4(void *, int);
-s32 transition_enemy_state(void *, int);
+s32 transition_enemy_state__9TObjEneDDFs(void *, int);
 s32 advance_animation_playback(void *);
 s32 play_sound_effect(void *, void *, int, int);
 f32 sin_table_lookup(int);
@@ -205,7 +205,7 @@ void fn_800C2AC4(u8 *arg0, int arg1) {
     case 3:
       if (((int) ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_410) == 2)
     {
-      transition_enemy_state((void *) arg0, 0xB);
+      transition_enemy_state__9TObjEneDDFs((void *) arg0, 0xB);
     }
     case 5:
       return;

@@ -1343,7 +1343,7 @@ void handle_6xA3_olga_flow_boss_actions(Msg_802AC7E4 *m);
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
-s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
+s32 bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 s32 initialize__9TObjEnemyFPv();
 u16 register_entity_by_id(void *ov);
 }
@@ -1498,7 +1498,7 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     temp_r30 = register_boss__6TLobbyFl(0x2C);
     temp_r29 = dispatch_shared_handler_b__6TLobbyFl(0x2C);
     temp_r6 = register_object__6TLobbyFl(0x2C);
-    bind_enemy_combat_stats((arg0), (u8 *)temp_r30, (u8 *)temp_r29, (u8 *)temp_r6);
+    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc((arg0), (u8 *)temp_r30, (u8 *)temp_r29, (u8 *)temp_r6);
     register_entity_by_id((arg0));
     ((TBoss6PlotFalz *)arg0)->actorFlags = (s32) (((TBoss6PlotFalz *)arg0)->actorFlags | 0x02000000);
     set_visible_flag__14TBoss6PlotFalzFv(arg0);

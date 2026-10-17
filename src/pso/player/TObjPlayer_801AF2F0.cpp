@@ -2069,7 +2069,7 @@ void set_flags_a00__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_801AF904(s32 arg0);
 void clamp_stats__10TObjPlayerFiPv(s32 arg0, void *arg1);
 f32 TObjPlayer__vt20(s32 arg0, s32 arg1, f32 farg0);
-void set_action_provider_variant__10TObjPlayerFPvs(Player_801AFCF4 *arg0, s16 arg1);
+void set_action_provider_variant__10TObjPlayerFs(Player_801AFCF4 *arg0, s16 arg1);
 s32 TObjPlayer__sub_801AFD8C(u8 *arg0);
 s8 get_class_index__10TObjPlayerFv(u8 *arg0);
 s8 TObjPlayer__sub_801AFDBC(s8 arg0);
@@ -2931,10 +2931,10 @@ f32 TObjPlayer__vt20(s32 arg0, s32 att, f32 scale) {
 
 s16 TObjPlayer::get_handle_value() { return (s16)(((TObjPlayer *)(*(void**)((char*)this + 0x380)))->sub_802a7290_fwd()); }
 
-void set_action_provider_variant__10TObjPlayerFPvs(Player_801AFCF4 *arg0, s16 arg1) {
-    if (arg1 != ((TObjPlayer *)(arg0->obj))->sub_802a7290_fwd() && fn_8000F740(main_phase_state) != 0) {
-        arg0->obj->m4(((u16 (*)(void *))obj_getField1c)(arg0), ((TObjPlayer *)arg0)->has_valid_handle(), arg1);
-        ((TObjPlayer *)arg0)->apply_motion_entry();
+void TObjPlayer::set_action_provider_variant(s16 arg1) {
+    if (arg1 != ((TObjPlayer *)(((Player_801AFCF4 *)this)->obj))->sub_802a7290_fwd() && fn_8000F740(main_phase_state) != 0) {
+        ((Player_801AFCF4 *)this)->obj->m4(((u16 (*)(void *))obj_getField1c)(((Player_801AFCF4 *)this)), ((TObjPlayer *)((Player_801AFCF4 *)this))->has_valid_handle(), arg1);
+        ((TObjPlayer *)((Player_801AFCF4 *)this))->apply_motion_entry();
     }
 }
 
@@ -6256,13 +6256,13 @@ void equip_saved_item_if_slot_empty__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
 void bind_saved_inventory_equipment__10TObjPlayerFPvPvi(u8 *p, u8 *records, s32 count) {
     s32 i;
     if (records != NULL) {
-        ((void (*)(u8 *, s32))set_action_provider_variant__10TObjPlayerFPvs)(p, TObjPlayer__sub_801C2114());
+        ((void (*)(u8 *, s32))set_action_provider_variant__10TObjPlayerFs)(p, TObjPlayer__sub_801C2114());
         for (i = 0; i < count; i++) {
             equip_saved_item_if_slot_empty__10TObjPlayerFPvPv(p, records);
             records += 0x1C;
         }
         if (reset_key_machine_state__10TObjPlayerFv() == 0) {
-            ((void (*)(u8 *, s32))set_action_provider_variant__10TObjPlayerFPvs)(p, TObjPlayer__sub_801C2114());
+            ((void (*)(u8 *, s32))set_action_provider_variant__10TObjPlayerFs)(p, TObjPlayer__sub_801C2114());
         }
     }
 }
@@ -7753,7 +7753,7 @@ void TObjPlayer::sub_801BB950() {
     temp_r3 = (u8 *) ((u8 * (*)(void *))get_item_field_6__10TObjPlayerFPv)(arg0);
     if (temp_r3 != 0)
     {
-      ((s32 (*)(void *, void *))set_action_provider_variant__10TObjPlayerFPvs)((void *) arg0, (void *) ((s16) (((VObj_18_9c7036 *)(temp_r3))->m41())));
+      ((s32 (*)(void *, void *))set_action_provider_variant__10TObjPlayerFs)((void *) arg0, (void *) ((s16) (((VObj_18_9c7036 *)(temp_r3))->m41())));
     }
   }
   if ((is_locally_controlled__10TObjPlayerFPv((void *) arg0) != 0) && (((s32 (*)(void))is_lobby_floor_15__15TFontSmallLobbyFv)() == 0))

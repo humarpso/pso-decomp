@@ -963,7 +963,7 @@ struct VObj_18_b31a3c : VBase_18_b31a3c {
     virtual s32 m80();
 };
 extern "C" {
-s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
+s32 bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 s32 init_collision_body_parts(void *, void *, int);
 extern s32 lbl_805D2978;
 extern s32 lbl_805D4F28;
@@ -1382,7 +1382,7 @@ s32 TObjEneBalClawClaw__ct(void *arg0) {
     init_collision_body_parts(self, TObjEneBalClawClaw__collision_body_template, 1);
     *(s32 *)((s8 *)self + 0x368) = 0;
     *(u8 **)((s8 *)self + 0x350) = (u8 *)lbl_8048F100;
-    bind_enemy_combat_stats(self, (u8 *)lbl_805D4F28, (u8 *)lbl_805D4F2C, (u8 *)lbl_805D4F30);
+    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(self, (u8 *)lbl_805D4F28, (u8 *)lbl_805D4F2C, (u8 *)lbl_805D4F30);
     TObjEneBalClawClaw__sub_80090824(self);
     *(s16 *)((s8 *)self + 0xB8) = 0;
     ((TObjMotion *)self)->set_animation(*(s16 *)((s8 *)self + 0xB8));

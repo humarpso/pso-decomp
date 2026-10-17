@@ -1166,7 +1166,7 @@ s32 enemy_clear_target__12TObjEneDD_STFUs(void *);
 s32 enemy_set_target_id(void * a0 = 0, u16 a1 = 0);
 void project_sound_origin_from_camera(s32 arg0, u8 *arg1, f32 farg0);
 s32 is_alive__9TObjEneDDFv();
-s32 transition_enemy_state(void * a0 = 0, s16 a1 = 0);
+s32 transition_enemy_state__9TObjEneDDFs(void * a0 = 0, s16 a1 = 0);
 u8 *get_enemy_entity(u16 arg0);
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 #define TObjFish__sub_802E7B40 ((s32 (*)(void *))TObjFish__sub_802E7B40)
@@ -3296,12 +3296,12 @@ void TBoss7DeRolLeC__sub_802EC994(void* p) { *(s32*)((char*)p + 0x6b0) = 0; *(s3
 void fn_802EC9A4(void *arg0, void *arg1) {
     enemy_set_target_id(arg0, (u16) *(s32 *)((s8 *)arg1 + 8));
     *(s32 *)((s8 *)arg0 + 0x6B4) = (s32) *(s16 *)((s8 *)arg1 + 6);
-    transition_enemy_state(arg0, *(s16 *)((s8 *)arg1 + 4));
+    transition_enemy_state__9TObjEneDDFs(arg0, *(s16 *)((s8 *)arg1 + 4));
 }
 
 void fn_802EC9F0(void *arg0, void *arg1) {
     *(s32 *)((s8 *)arg0 + 0x6B4) = (s32) *(s16 *)((s8 *)arg1 + 6);
-    transition_enemy_state(arg0, *(s16 *)((s8 *)arg1 + 4));
+    transition_enemy_state__9TObjEneDDFs(arg0, *(s16 *)((s8 *)arg1 + 4));
 }
 }
 

@@ -1315,7 +1315,7 @@ s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
 f32 *dispatch_shared_handler_a__6TLobbyFl(int);
-void bind_enemy_combat_stats(void *, s32, s32, s32);
+void bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(void *, s32, s32, s32);
 s32 TObjFish__sub_800E3124(void *, void *);
 void TBoss6Mag__sub_803309C4(void *, void *);
 
@@ -1348,7 +1348,7 @@ u8 *TBoss6Mag__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(f32 *)((s8 *)arg0 + 0x30C) = 0.0f;
     *(f32 *)((s8 *)arg0 + 0x308) = 0.0f;
     *(s32 *)((s8 *)arg0 + 0x2A8) = 0;
-    bind_enemy_combat_stats(arg0, register_boss__6TLobbyFl(0x2E), dispatch_shared_handler_b__6TLobbyFl(0x2E),
+    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(arg0, register_boss__6TLobbyFl(0x2E), dispatch_shared_handler_b__6TLobbyFl(0x2E),
         register_object__6TLobbyFl(0x2E));
     *(s16 *)((s8 *)arg0 + 0x33E) = *(s16 *)((s8 *)arg0 + 0x32C);
     *(s32 *)((s8 *)arg0 + 0x38C) = *(s16 *)((s8 *)arg0 + 0x32C);

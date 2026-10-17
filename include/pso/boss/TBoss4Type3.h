@@ -12,6 +12,12 @@ struct TBoss4Type3CollisionState {
 
 struct TBoss4Type3 : public TObjEnemy {
     virtual ~TBoss4Type3();
+    void sub_8005A438();
+    void update_scale_sound();
+    void update_radar_markers();
+    void handle_damage_taken();
+    void update_target_effect_timer();
+    void request_follow_camera_default_offsets();
     virtual void clear_harmful_statuses();
     virtual void apply_shock_status();
     virtual void apply_movement_ailment(s32);

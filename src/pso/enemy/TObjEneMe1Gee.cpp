@@ -329,7 +329,7 @@ void TUnk_8049387C::vfunc_112(s32 arg1) {
 struct Vec_800C82A4 { f32 x, y, z; };
 struct Data_800C82A4 { f32 a; Vec_800C82A4 v; };
 struct Gee_800C82A4 { u8 pad[0x494]; s32 count; void *arr[8]; };
-s32 transition_enemy_state(void *, s32);
+s32 transition_enemy_state__9TObjEneDDFs(void *, s32);
 extern const f32 TObjEneMe1Gee__data_805DA0A8;
 extern const f32 lbl_805DA0AC;
 struct Gee_800C84C8 { u8 pad[0x494]; s32 count; void *arr[8]; };
@@ -384,7 +384,7 @@ void TUnk_8049387C::vfunc_110(s32 arg1) {
         if (*(s32 *)((s8 *)arg0 + 0x3C8) & 2) {
             *(s32 *)((s8 *)arg0 + 0x3C8) &= ~2;
             *(s32 *)((s8 *)arg0 + 0x4B8) = 1;
-            transition_enemy_state(arg0, 5);
+            transition_enemy_state__9TObjEneDDFs(arg0, 5);
         }
         break;
     case 0:
@@ -1950,7 +1950,7 @@ s32 TUnk_8049387C::vfunc_108() {
     s32 i;
     if (self->f3c8 & 0x40) {
         self->f3c8 &= ~0x40;
-        ((void (*)(void *, s16))transition_enemy_state)(self, 12);
+        ((void (*)(void *, s16))transition_enemy_state__9TObjEneDDFs)(self, 12);
         for (i = 0; i < self->count; i++) {
             ((TObjEneMe1Gee *)(self->children[i]))->set_flag3c8_bit40();
         }
@@ -2002,11 +2002,11 @@ void TUnk_8049387C::vfunc_105() {
     case 0:
     case 1:
         self->f430++;
-        ((void (*)(void *, s16))transition_enemy_state)(self, 7);
+        ((void (*)(void *, s16))transition_enemy_state__9TObjEneDDFs)(self, 7);
         break;
     case 2:
         self->f430 = 0;
-        ((void (*)(void *, s16))transition_enemy_state)(self, 8);
+        ((void (*)(void *, s16))transition_enemy_state__9TObjEneDDFs)(self, 8);
         break;
     }
 }
@@ -2346,7 +2346,7 @@ void TObjEneMe1Gee__sub_800C96B4(Gee_800C96B4 *o, s32 mode) {
         break;
     case 3:
         if (o->f438 == 3) {
-            transition_enemy_state(o, o->f378);
+            transition_enemy_state__9TObjEneDDFs(o, o->f378);
         }
         break;
     case 0:
@@ -2414,7 +2414,7 @@ void run_task__13TObjEneMe1GeeFPvi(TObjEneMe1Gee *arg0, s32 arg1) {
         return;
     case 3:
         if ((arg0->vfunc_108() == 0) && (*(f32 *)((s8 *)arg0 + 0x3AC) < TObjEneMe1Gee__data_805DA0EC)) {
-            ((s32 (*)(void *, int))transition_enemy_state)(arg0, 6);
+            ((s32 (*)(void *, int))transition_enemy_state__9TObjEneDDFs)(arg0, 6);
         }
     case 5:
         return;
@@ -2642,7 +2642,7 @@ void TObjEneMe1Gee__sub_800C9DF8(void *o_, s32 arg1) {
         break;
     case 3:
         if (o->m106() == 0 && ((TObjEneMe1Gee *)o)->check_death_trigger() == 0 && o->mode == 5) {
-            transition_enemy_state(o, 9);
+            transition_enemy_state__9TObjEneDDFs(o, 9);
         }
         break;
     case 0:
@@ -2816,9 +2816,9 @@ void TObjEneMe1Gee__sub_800CA454(void *arg0, s32 arg1) {
     case 3:
         if (((VObj_800CA454 *)o)->m106() == 0 && ((TObjEneMe1Gee *)o)->check_death_trigger() == 0 && o->mode == 6) {
             if (o->flags & 0x100000) {
-                transition_enemy_state(o, 9);
+                transition_enemy_state__9TObjEneDDFs(o, 9);
             } else {
-                transition_enemy_state(o, 10);
+                transition_enemy_state__9TObjEneDDFs(o, 10);
             }
         }
         break;
@@ -3056,9 +3056,9 @@ void TObjEneMe1Gee::vfunc_110(s32 arg1) {
             if (temp_r3 & 2) {
                 *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (temp_r3 & 0xFFFFFFFD);
                 if ((s32) *(s32 *)((s8 *)arg0 + 0x3C4) == 1) {
-                    transition_enemy_state(arg0, 6);
+                    transition_enemy_state__9TObjEneDDFs(arg0, 6);
                 } else {
-                    transition_enemy_state(arg0, 5);
+                    transition_enemy_state__9TObjEneDDFs(arg0, 5);
                 }
             }
         }
@@ -3121,9 +3121,9 @@ void TObjEneMe1Gee::state_hover(s32 arg1) {
             temp_r3 = *(s32 *)((s8 *)this + 0x3C8);
             if (temp_r3 & 1) {
                 *(s32 *)((s8 *)this + 0x3C8) = (s32) (temp_r3 & 0xFFFFFFFE);
-                transition_enemy_state(this, 4);
+                transition_enemy_state__9TObjEneDDFs(this, 4);
             } else if (this->enemy_has_live_target() != 0) {
-                transition_enemy_state(this, 4);
+                transition_enemy_state__9TObjEneDDFs(this, 4);
             }
         }
         break;
@@ -3170,7 +3170,7 @@ void TObjEneMe1Gee__sub_800CAFD8(u8 *ene_me1_gee, s32 arg1) {
         return;
     case 3:
         if (((RecoveredFields_800CAFD8_arg0 *)ene_me1_gee)->field_3C8 & 0x80000) {
-            ((void (*)(void *, s16))transition_enemy_state)(ene_me1_gee, 3);
+            ((void (*)(void *, s16))transition_enemy_state__9TObjEneDDFs)(ene_me1_gee, 3);
             ((TObjEneMe1Gee *)(ene_me1_gee))->vfunc_92();
         }
         return;
@@ -3213,7 +3213,7 @@ void TObjEneMe1Gee::state_move(s32 arg1) {
         return;
     case 3:
         if (((V_Sub *) (((u8 *)this) + 0x3CC))->m5() != 0) {
-            transition_enemy_state(this, 3);
+            transition_enemy_state__9TObjEneDDFs(this, 3);
         }
     case 5:
         return;
@@ -3245,9 +3245,9 @@ void TObjEneMe1Gee::state_attack_loop(s32 arg1) {
                 *(s32 *)((s8 *)this + 0x3C8) = (s32) (*(s32 *)((s8 *)this + 0x3C8) | 0x100000);
             }
             if (*(s32 *)((s8 *)this + 0x3C8) & 0x02000000) {
-                transition_enemy_state(this, 1);
+                transition_enemy_state__9TObjEneDDFs(this, 1);
             } else {
-                transition_enemy_state(this, 2);
+                transition_enemy_state__9TObjEneDDFs(this, 2);
             }
         }
     case 5:
@@ -3491,7 +3491,7 @@ s32 TObjEneMe1Gee::handle_message(s32 arg0, s32 arg1) {
 
 s32 TObjEneMe1Gee::check_death_trigger() {
     if ((u32) this->m_390 == 0U) {
-        transition_enemy_state(this, 0xF);
+        transition_enemy_state__9TObjEneDDFs(this, 0xF);
         return 1;
     }
     return 0;
@@ -3503,7 +3503,7 @@ s32 TObjEneMe1Gee::vfunc_108() {
     temp_r4 = *(s32 *)((s8 *)arg0 + 0x3C8);
     if (temp_r4 & 0x40) {
         *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (temp_r4 & 0xFFFFFFBF);
-        transition_enemy_state(arg0, 0xC);
+        transition_enemy_state__9TObjEneDDFs(arg0, 0xC);
         return 1;
     }
     return 0;
@@ -3571,20 +3571,20 @@ void TObjEneMe1Gee::vfunc_89() { vfunc_89__9TObjEneDDFv(this); }
 void TObjEneMe1Gee::vfunc_105() {
     u8 *arg0 = (u8 *)this;
     if (*(s32 *)((s8 *)arg0 + 0x3C8) & 0x100) {
-        ((s32 (*)(void *, int))transition_enemy_state)(arg0, 8);
+        ((s32 (*)(void *, int))transition_enemy_state__9TObjEneDDFs)(arg0, 8);
         return;
     }
     if ((s32) this->m_3e0 == 0) {
         if ((s32) *(s32 *)((s8 *)arg0 + 0x430) < 2) {
-            ((s32 (*)(void *, int))transition_enemy_state)(arg0, 7);
+            ((s32 (*)(void *, int))transition_enemy_state__9TObjEneDDFs)(arg0, 7);
             *(s32 *)((s8 *)arg0 + 0x430) = (s32) (*(s32 *)((s8 *)arg0 + 0x430) + 1);
             return;
         }
-        ((s32 (*)(void *, int))transition_enemy_state)(arg0, 8);
+        ((s32 (*)(void *, int))transition_enemy_state__9TObjEneDDFs)(arg0, 8);
         *(s32 *)((s8 *)arg0 + 0x430) = 0;
         return;
     }
-    ((s32 (*)(void *, int))transition_enemy_state)(arg0, 7);
+    ((s32 (*)(void *, int))transition_enemy_state__9TObjEneDDFs)(arg0, 7);
 }
 
 void TObjEneMe1Gee::update() { if (this->enemy_has_live_target() != 0) { this->enemy_copy_target_destination(); this->update_velocity(); this->update_angle(); } }
@@ -3734,14 +3734,14 @@ void TObjEneMe1Gee::copy_pos() {
 
 void TObjEneMe1Gee::vfunc_61() {  }
 
-void TObjEneMe1Gee::vfunc_62() { if (this->mode != 13) { ((int (*)(void*, void*))transition_enemy_state)(this, (void*)13); } }
+void TObjEneMe1Gee::vfunc_62() { if (this->mode != 13) { ((int (*)(void*, void*))transition_enemy_state__9TObjEneDDFs)(this, (void*)13); } }
 
 void TObjEneMe1Gee::vfunc_63() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
     temp_r0 = this->mode;
     if ((temp_r0 != 0xE) && (temp_r0 != 0xC)) {
-        ((int (*)(void*, void*))transition_enemy_state)(arg0, (void*)(0xE));
+        ((int (*)(void*, void*))transition_enemy_state__9TObjEneDDFs)(arg0, (void*)(0xE));
     }
 }
 

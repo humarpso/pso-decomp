@@ -416,7 +416,7 @@ struct VObj_800927DC : VBase_800927DC {
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 void obj_setFlags30(void *, u32);
 void init_enemy_base__13TUnk_80493450Fv(void *, void *);
-void bind_enemy_combat_stats(void *, u32, u32, u32);
+void bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(void *, u32, u32, u32);
 void init_collision_body_parts(void *, void *, s32);
 void __construct_array(void *, void *, void *, int, int);
 extern u8 init_and_activate__10TObjPlayerFv[];
@@ -449,7 +449,7 @@ void *TObjEneBeast__ct(void *arg0v, void *arg1, void *arg2) {
     ((TObjMotion *)arg0)->set_animation(F(arg0, s16, 0xB8));
     ((TObjMotion *)arg0)->set_field_b8(F(arg0, s16, 0xB8));
     init_collision_body_parts(arg0, &((Rec2C_800927DC *)beast_collision_body_table)[F(arg0, s32, 0x334)], 1);
-    bind_enemy_combat_stats(arg0, ((u32 *)ene_beast_boss_id_buffer)[F(arg0, s32, 0x334)],
+    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(arg0, ((u32 *)ene_beast_boss_id_buffer)[F(arg0, s32, 0x334)],
                             ((u32 *)TObjEneBeast__boss4_rock_handler_ids)[F(arg0, s32, 0x334)],
                             ((u32 *)boss4_rock_pool)[F(arg0, s32, 0x334)]);
     F(arg0, void *, 0x350) = &((Rec1C_800927DC *)beast_movement_params)[F(arg0, s32, 0x334)];

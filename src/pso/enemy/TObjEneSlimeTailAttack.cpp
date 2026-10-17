@@ -98,7 +98,7 @@ s32 get_bml_model(s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 u8 *get_instance__15TObjEneSlimeOneFv();
 s32 fn_800ECA28(void *, void *);
-s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
+s32 bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 s32 init_collision_body_parts(void *, void *, int);
 extern const f32 lbl_805DA754;
 extern void *lbl_80496574[90];
@@ -2017,11 +2017,11 @@ void TObjEneSlimeOne::initialize_slime_instance_state() {
   *((s32 *) (((s8 *) actor) + 0x2A8)) = 0;
   if ((*new_var2) == 0)
   {
-    bind_enemy_combat_stats(actor, (u8 *)(TLobby::register_boss(0x30)), (u8 *)(TLobby::dispatch_shared_handler_b(0x30)), (u8 *)(TLobby::register_object(0x30)));
+    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(actor, (u8 *)(TLobby::register_boss(0x30)), (u8 *)(TLobby::dispatch_shared_handler_b(0x30)), (u8 *)(TLobby::register_object(0x30)));
   }
   else
   {
-    bind_enemy_combat_stats(actor, (u8 *)(TLobby::register_boss(0x34)), (u8 *)(TLobby::dispatch_shared_handler_b(0x34)), (u8 *)(TLobby::register_object(0x34)));
+    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(actor, (u8 *)(TLobby::register_boss(0x34)), (u8 *)(TLobby::dispatch_shared_handler_b(0x34)), (u8 *)(TLobby::register_object(0x34)));
   }
   ((TObjEneSlimeOne *)actor)->referenceHp = ((TObjEneSlimeOne *)actor)->hp;
   ((TBoss3Volopt *)actor)->reset_photon_effect();

@@ -1295,9 +1295,10 @@ force_active:
   - close_window__14TAdPlyStatusGCFv
   - close_window__16TObjOnlineEndingFv
   - close_window__18TChallenge4PResultFv
+  - close_window__20TObjChallenge4PRetryFv
   - close_window__22TQuestVmDownLoadServerFv
   - close_window_and_destroy__18TAdEnterPasswordGCFPv
-  - close_window_field30__6TLobbyFv
+  - close_window_field30__20TObjChallenge4PRetryFv
   - close_windows__12TObjWarpBossFv
   - close_windows__12TQuestListVMFv
   - close_windows__14TWindowSubItemFl
@@ -1407,7 +1408,7 @@ force_active:
   - count_sync_record_bytes__6TLobbyFv
   - count_unlocked_difficulties__12TLevelSelectFv
   - count_used_slots__20TWindowSubSymbolChatFv
-  - countdown_and_destroy__6TLobbyFv
+  - countdown_and_destroy__20TObjChallenge4PRetryFv
   - create__12TAdMcCheckGCFl
   - create__12TBGLightningFiif
   - create__12T_OWEHMS_ExpFP10TObjPlayer
@@ -2021,7 +2022,7 @@ force_active:
   - handle_pay_confirm__23TShopJudgmentItemWindowFv
   - handle_player_buttons__12TAdMultiOkGCFi
   - handle_result_code__18TChallenge4PResultFv
-  - handle_retry_menu_select__6TLobbyFv
+  - handle_retry_menu_select__20TObjChallenge4PRetryFv
   - handle_select__20TShopArmorListWindowFv
   - handle_select__20TShopItemTecSequenceFv
   - handle_select__22THunterGuildSeqOfflineFv
@@ -2736,7 +2737,7 @@ force_active:
   - open_destination_windows__9TObjLukerFv
   - open_edit_menu__20TWindowSubSymbolChatFv
   - open_equip_kind_list__15TWindowSubEquipFUl
-  - open_giveup_window__6TLobbyFv
+  - open_giveup_window__20TObjChallenge4PRetryFv
   - open_greeting__20TShopItemTecSequenceFv
   - open_greeting__22THunterGuildSeqOfflineFv
   - open_greeting__22TShopEquipmentSequenceFv
@@ -2758,8 +2759,8 @@ force_active:
   - open_menu_window__24TShopEquipmentListWindowFv
   - open_message_choice__23TAdSinglePlyChrSelectGCFPvlPvPv
   - open_message_window__14TObjBagWarnWinFv
+  - open_message_window__20TObjChallenge4PRetryFv
   - open_message_window__22TAdEnterSerialAccessGCFPvPv
-  - open_message_window__6TLobbyFv
   - open_message_window__9TSaveChCrFUl
   - open_player_names_window__13TAdVIConfigGCFv
   - open_purpose_window__14TWindowSubItemFl
@@ -8346,7 +8347,7 @@ force_active:
   - update_card_select__16TAdChrSelBSlotGCFPv
   - update_center_position__19TObjEneEpsilonGuardFv
   - update_chair__11TMainCursorFv
-  - update_challenge_4p_retry__6TLobbyFv
+  - update_challenge_4p_retry__20TObjChallenge4PRetryFv
   - update_challenge_retry__18TObjChallengeRetryFv
   - update_chara_making__10TObjPlayerFv
   - update_chase__18TObjEneBalClawClawFPv
@@ -8400,7 +8401,7 @@ force_active:
   - update_floor_switch_state__12TObjWarpBossFv
   - update_follow__11TItemMagSubFv
   - update_follow_parent__18TObjEneBalClawClawFPv
-  - update_giveup__6TLobbyFv
+  - update_giveup__20TObjChallenge4PRetryFv
   - update_goal_checks__13TUnk_804B8E18FUs
   - update_ground_effect__10TObjPlayerFv
   - update_ground_fall__13TUnk_8049442CFPlf

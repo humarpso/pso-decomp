@@ -166,7 +166,7 @@ extern const f32 TBoss4Type3__data_805D8C40;
 extern const f32 lbl_805D8C68;
 extern const f32 lbl_805D8C70;
 extern const f32 lbl_805D8C74;
-void update_radar_markers__11TBoss4Type3FPv(u8 *arg0);
+void update_radar_markers__11TBoss4Type3Fv(u8 *arg0);
 void *spawn_particle_effect(void *pos, s32 id);
 void *create_particle_emitter(void *pos, s32 id);
 s32 play_sound_effect(int, void *, int, int);
@@ -452,16 +452,16 @@ void TObjPlayer__sub_80052390(f32 x);
 u32 drain_player_hp(s32 id, u32 arg1);
 extern "C" {
 f32 TBoss4Type3__sub_800524E8(f32);
-void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0);
-void update_target_effect_timer__11TBoss4Type3FPv(void *arg0);
-void handle_damage_taken__11TBoss4Type3FPv(O_80059618 *o);
+void request_follow_camera_default_offsets__11TBoss4Type3Fv(u8 *arg0);
+void update_target_effect_timer__11TBoss4Type3Fv(void *arg0);
+void handle_damage_taken__11TBoss4Type3Fv(O_80059618 *o);
 void TBoss4Type3__sub_800599F4(void*, int, int);
 void TBoss4Type3__sub_80059EA8(Obj_80059EA8 *self, s32 arg1, s32 arg2);
 void TBoss4Type3__sub_80059F64(Obj_80059F64 *self, s32 arg1);
-void update_scale_sound__11TBoss4Type3FPv(u8 *arg0);
+void update_scale_sound__11TBoss4Type3Fv(u8 *arg0);
 
 void TBoss4Type3__sub_8005A150(void);
-void TBoss4Type3__sub_8005A438(Obj_8005A438 *self);
+void sub_8005A438__11TBoss4Type3Fv(Obj_8005A438 *self);
 void update_phase_timer__11TBoss4Type3FPv(u8 *arg0);
 void advance_afterimage__11TBoss4Type3FPv(u8 *arg0);
 void TBoss4Type3__sub_8005A86C(void* p);
@@ -510,7 +510,7 @@ extern s32 local_client_id;
 
 void init_model_node_tables(void *, void *, int);
 s32 TObjFish__sub_800E3124(u8 *list, s32 vecs);
-s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
+s32 bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 s32 init_collision_body_parts(void *, void *, int);
 extern const f32 lbl_805D8C38;
 extern const f32 lbl_805D8C3C;
@@ -1450,7 +1450,7 @@ extern "C" {
 
 #pragma push
 #pragma opt_common_subs off
-void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0) {
+void TBoss4Type3::request_follow_camera_default_offsets() {
     typedef char sp8_offset[(offsetof(Stack_80059450, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80059450, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80059450, sp10) == 0x8) ? 1 : -1];
@@ -1464,7 +1464,7 @@ void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0) {
     typedef char sp30_offset[(offsetof(Stack_80059450, sp30) == 0x28) ? 1 : -1];
     typedef char sp34_offset[(offsetof(Stack_80059450, sp34) == 0x2C) ? 1 : -1];
     Stack_80059450 stack;
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x52C) == 1) {
+    if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x52C) == 1) {
         stack.sp2C = *(s32 *)((s8 *)&lbl_80437854.value + 0);
         stack.sp30 = *(s32 *)((s8 *)&lbl_80437854.value + 4);
         stack.sp34 = *(s32 *)((s8 *)&lbl_80437854.value + 8);
@@ -1484,53 +1484,53 @@ void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0) {
 }
 #pragma pop
 
-void update_target_effect_timer__11TBoss4Type3FPv(void *arg0) {
+void TBoss4Type3::update_target_effect_timer() {
     s32 temp_r30;
     s32 var_r30;
 
     var_r30 = 1;
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x374) == 0x10) {
+    if ((s32) *(s32 *)((s8 *)this + 0x374) == 0x10) {
         var_r30 = 0;
     }
     if (is_split_screen() != 0) {
-        if (*(u16 *)((s8 *)arg0 + 0x3BA) == 0xFFFF) {
+        if (*(u16 *)((s8 *)this + 0x3BA) == 0xFFFF) {
             var_r30 = 0;
         }
-    } else if ((s32) *(u16 *)((s8 *)arg0 + 0x3BA) != (s32) local_client_id) {
+    } else if ((s32) *(u16 *)((s8 *)this + 0x3BA) != (s32) local_client_id) {
         var_r30 = 0;
     }
     if (var_r30 == 0) {
-        *(s32 *)((s8 *)arg0 + 0x3D8) = 0;
+        *(s32 *)((s8 *)this + 0x3D8) = 0;
         return;
     }
     if ((s8) lbl_805D4D84 == 0) {
         lbl_805D4D80 = 8;
         lbl_805D4D84 = 1;
     }
-    temp_r30 = *(s32 *)((s8 *)arg0 + 0x3D8) % 39;
+    temp_r30 = *(s32 *)((s8 *)this + 0x3D8) % 39;
     if (temp_r30 == 0) {
-        TBoss4Type3::spawn_effect(0x60, 0xF, (s16) *(u16 *)((s8 *)arg0 + 0x3BA));
+        TBoss4Type3::spawn_effect(0x60, 0xF, (s16) *(u16 *)((s8 *)this + 0x3BA));
     }
     if (temp_r30 == (s32) lbl_805D4D80) {
         ((s32 (*)(s32, s32, s32, s32))play_sound_effect)(0x4003C133, 0, 0, 0);
     }
-    *(s32 *)((s8 *)arg0 + 0x3D8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3D8) + 1);
+    *(s32 *)((s8 *)this + 0x3D8) = (s32) (*(s32 *)((s8 *)this + 0x3D8) + 1);
 }
 
-void handle_damage_taken__11TBoss4Type3FPv(O_80059618 *o) {
+void TBoss4Type3::handle_damage_taken() {
     u8 *p;
     s32 i;
     u32 e;
-    if (o->f3ba == 0xFFFF || o->f374 == 2 || o->f374 == 3 || o->f32c >= o->f3e4 ||
-        (p = (u8 *)get_player_by_client_id(o->f3ba)) == NULL) {
-        o->f3e4 = o->f32c;
+    if (((O_80059618 *)this)->f3ba == 0xFFFF || ((O_80059618 *)this)->f374 == 2 || ((O_80059618 *)this)->f374 == 3 || ((O_80059618 *)this)->f32c >= ((O_80059618 *)this)->f3e4 ||
+        (p = (u8 *)get_player_by_client_id(((O_80059618 *)this)->f3ba)) == NULL) {
+        ((O_80059618 *)this)->f3e4 = ((O_80059618 *)this)->f32c;
         return;
     }
-    drain_player_hp(o->f3ba, o->f3e4 - o->f32c);
-    o->f3e4 = o->f32c;
-    TBoss4Type3::create_yutai((void *)o, (void *)2, (void *)o->f3ba);
+    drain_player_hp(((O_80059618 *)this)->f3ba, ((O_80059618 *)this)->f3e4 - ((O_80059618 *)this)->f32c);
+    ((O_80059618 *)this)->f3e4 = ((O_80059618 *)this)->f32c;
+    TBoss4Type3::create_yutai((void *)((O_80059618 *)this), (void *)2, (void *)((O_80059618 *)this)->f3ba);
     Vec_80059618 pos = *(Vec_80059618 *)(p + 0x2FC);
-    Vec_80059618 tgt = o->f480;
+    Vec_80059618 tgt = ((O_80059618 *)this)->f480;
     Vec_80059618 dir;
     VecCopy__FP3VecPC3Vec(&dir, &tgt);
     subtract_vector(&dir, &pos);
@@ -1553,7 +1553,7 @@ void handle_damage_taken__11TBoss4Type3FPv(O_80059618 *o) {
     }
 }
 
-void update_radar_markers__11TBoss4Type3FPv(u8 *arg0) {
+void TBoss4Type3::update_radar_markers() {
     s32 c[3];
     Vec_800597A8 v;
     u32 col;
@@ -1566,6 +1566,7 @@ void update_radar_markers__11TBoss4Type3FPv(u8 *arg0) {
     f32 f;
     s32 n;
     s32 j;
+    u8 *arg0 = (u8 *)this;
     col = 0xFFFFA24C;
     id = *(u16 *)((s8 *)arg0 + 0x3BA);
     if (id != 0xFFFF) {
@@ -1723,7 +1724,7 @@ void TBoss4Type3__sub_80059F64(Obj_80059F64 *self, s32 arg1) {
 
 #pragma push
 #pragma opt_common_subs off
-void update_scale_sound__11TBoss4Type3FPv(u8 *arg0) {
+void TBoss4Type3::update_scale_sound() {
     f32 temp_f1;
     f32 temp_f1_2;
     f32 temp_f1_3;
@@ -1735,9 +1736,9 @@ void update_scale_sound__11TBoss4Type3FPv(u8 *arg0) {
     s32 var_r6;
     u8 *var_r31;
     u8 *var_r4;
-    var_r31 = arg0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x374);
-    temp_f31 = *(f32 *)((s8 *)arg0 + 0x3B0);
+    var_r31 = ((u8 *)this);
+    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x374);
+    temp_f31 = *(f32 *)((s8 *)((u8 *)this) + 0x3B0);
     if ((temp_r0 == 2) || (temp_r0 == 3)) {
         temp_f1 = *(f32 *)((s8 *)var_r31 + 0x3B0) + lbl_805D8C90;
         *(f32 *)((s8 *)var_r31 + 0x3B0) = temp_f1;
@@ -1843,13 +1844,13 @@ void TBoss4Type3::set_action_from_table(s32 arg1) {
     }
 }
 
-void TBoss4Type3__sub_8005A438(Obj_8005A438 *self) {
+void TBoss4Type3::sub_8005A438() {
     Pair_8005A438 b;
     Pair_8005A438 a;
     Words_8005A438 tmp;
     Pair_8005A438 *pb = &b;
     a.p = lbl_80486FB0;
-    a.f = self->f3b0;
+    a.f = ((Obj_8005A438 *)this)->f3b0;
     b.p = boss4_type3_index_table;
     b.f = TBoss4Type3__data_805D8C34 - a.f;
     if (a.f < lbl_805D8C3C) {
@@ -1858,8 +1859,8 @@ void TBoss4Type3__sub_8005A438(Obj_8005A438 *self) {
         ((TBoss4Type3 *)(&a))->copy_pair(pb);
         ((TBoss4Type3 *)pb)->copy_pair(&tmp);
     }
-    ((TBoss4Type3 *)self)->draw_model_set((const s32 *)a.p, a.f);
-    ((TBoss4Type3 *)self)->draw_model_set((const s32 *)b.p, b.f);
+    ((TBoss4Type3 *)((Obj_8005A438 *)this))->draw_model_set((const s32 *)a.p, a.f);
+    ((TBoss4Type3 *)((Obj_8005A438 *)this))->draw_model_set((const s32 *)b.p, b.f);
 }
 
 void TBoss4Type3::copy_pair(void* q) { *(u32 *)&this->m_name = *(u32*)((char*)q + 0x0); (*(f32 *)&this->m_flags) = *(f32*)((char*)q + 0x4); }
@@ -1964,7 +1965,7 @@ void TBoss4Type3::draw() {
     ((void (*)(void))push_matrix)();
     ((void (*)(void *))post_translate_matrix)((void *)((char *)this + 56));
     ((void (*)(int, void *))rotate_matrix_y)(0, *(void * *)&this->rotation_y);
-    ((void (*)(void *))TBoss4Type3__sub_8005A438)(this);
+    ((void (*)(void *))sub_8005A438__11TBoss4Type3Fv)(this);
     ((void (*)(void))pop_matrix)();
     ((void (*)(void))push_matrix)();
     ((void (*)(void *))post_translate_matrix)((void *)((char *)this + 1152));
@@ -2032,10 +2033,10 @@ void TBoss4Type3::run_task() {
     } else {
         this->m_394->flags &= ~1;
     }
-    update_radar_markers__11TBoss4Type3FPv((u8 *)this);
-    update_scale_sound__11TBoss4Type3FPv((u8 *)this);
+    update_radar_markers__11TBoss4Type3Fv((u8 *)this);
+    update_scale_sound__11TBoss4Type3Fv((u8 *)this);
     this->m_394->radius = this->m_3b0 * (f32)(this->m_3cc - this->m_3d0) + (f32)this->m_3d0;
-    handle_damage_taken__11TBoss4Type3FPv((O_80059618 *)this);
+    handle_damage_taken__11TBoss4Type3Fv((O_80059618 *)this);
     if (this->m_374 != 2) {
         copy_positions_to_parts__11TBoss4Type3FPv((Obj_8005A1AC *)this);
         ((TBoss4Type2 *)(&this->m_378))->scroll_strips();
@@ -2052,9 +2053,9 @@ void TBoss4Type3::run_task() {
             this->m_3c8 = 0.0f;
         }
     }
-    update_target_effect_timer__11TBoss4Type3FPv(this);
+    update_target_effect_timer__11TBoss4Type3Fv(this);
     this->m_3d4 = this->hp;
-    request_follow_camera_default_offsets__11TBoss4Type3FPv((u8 *)this);
+    request_follow_camera_default_offsets__11TBoss4Type3Fv((u8 *)this);
     if ((this->m_3dc += 0.022222223f) >= 1.0f) {
         this->m_3dc -= 1.0f;
     }
@@ -2172,7 +2173,7 @@ Self_8005AE60 *TBoss4Type3__ct(Self_8005AE60 *self, s32 parent, s32 *arg2) {
     VecCopy__FP3VecPC3Vec(self->v2FC, self->v38);
     self->f308 = self->f30C = self->f310 = TBoss4Type3__data_805D8C40;
     self->f2A8 = 0;
-    bind_enemy_combat_stats((u8 *)self, (u8 *)((int)register_boss__6TLobbyFl(0x38)), (u8 *)(TLobby::dispatch_shared_handler_b(0x38)), (u8 *)(TLobby::register_object(0x38)));
+    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc((u8 *)self, (u8 *)((int)register_boss__6TLobbyFl(0x38)), (u8 *)(TLobby::dispatch_shared_handler_b(0x38)), (u8 *)(TLobby::register_object(0x38)));
     self->f33E = self->f3E4 = self->f32C;
     ((TBoss3Volopt *)self)->reset_photon_effect();
     ((TObjEnemy *)self)->set_param(0x2F);

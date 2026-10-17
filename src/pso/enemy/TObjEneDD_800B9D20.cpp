@@ -27,7 +27,7 @@ s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 extern const f32 TObjEneDD__data_805D9E8C;
 extern const f32 lbl_805D9E90;
-int bind_enemy_combat_stats(void*);
+int bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(void*);
 int transform_to_view__11TCameraCtrlFii(void*);
 int apply_split_screen_view_matrix__11TCameraCtrlFv(void*);
 int restore_scene_lighting(void*);
@@ -74,14 +74,14 @@ void TObjEneDD::reload_stats_keep_hp_tp() {
     s16 c = this->hp;
     s16 b = this->m_2ba;
     s16 d = *(s16 *)&this->m_32e;
-    bind_enemy_combat_stats(self);
+    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(self);
     this->hpmax = a;
     this->hp = c;
     this->m_2ba = b;
     *(s16 *)&this->m_32e = d;
 }
 
-void TObjEneDD::reset_hp() { bind_enemy_combat_stats(this); this->referenceHp = this->hp; }
+void TObjEneDD::reset_hp() { bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(this); this->referenceHp = this->hp; }
 int TObjEneDD::get_camera_ctrl() { return transform_to_view__11TCameraCtrlFii(this); }
 int TObjEneDD::update_camera_sequence() { return apply_split_screen_view_matrix__11TCameraCtrlFv(this); }
 int TObjEneDD::initialize_enemy_state() { return set_param__9TObjEnemyFl(this); }

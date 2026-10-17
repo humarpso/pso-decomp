@@ -1546,7 +1546,7 @@ void project_sound_origin_from_camera(s32 arg0, u8 *arg1, f32 farg0);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 s32 vfunc_93__9TObjEneDDFv();
 s32 is_alive__9TObjEneDDFv();
-s32 transition_enemy_state(void * a0 = 0, s16 a1 = 0);
+s32 transition_enemy_state__9TObjEneDDFs(void * a0 = 0, s16 a1 = 0);
 u8 *get_enemy_entity(u16 arg0);
 s32 objInBand__FP7GameObjf(void *, f32);
 void advance_animation_playback(void *);
@@ -4043,12 +4043,12 @@ void reset_fields_3d0__13TBoss2DeRolLeFPv(void* p) { *(s32*)((char*)p + 0x3d0) =
 void set_params__13TBoss2DeRolLeFPvPv(void *arg0, void *arg1) {
     enemy_set_target_id(arg0, (u16) *(s32 *)((s8 *)arg1 + 8));
     *(s32 *)((s8 *)arg0 + 0x3D4) = (s32) *(s16 *)((s8 *)arg1 + 6);
-    transition_enemy_state(arg0, *(s16 *)((s8 *)arg1 + 4));
+    transition_enemy_state__9TObjEneDDFs(arg0, *(s16 *)((s8 *)arg1 + 4));
 }
 
 void init_from_param__13TBoss2DeRolLeFPvPv(void *arg0, void *arg1) {
     *(s32 *)((s8 *)arg0 + 0x3D4) = (s32) *(s16 *)((s8 *)arg1 + 6);
-    transition_enemy_state(arg0, *(s16 *)((s8 *)arg1 + 4));
+    transition_enemy_state__9TObjEneDDFs(arg0, *(s16 *)((s8 *)arg1 + 4));
 }
 
 void handle_6x14_de_rol_le_boss_actions_with_target(void *arg0) {

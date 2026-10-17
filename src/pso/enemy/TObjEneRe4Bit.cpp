@@ -286,7 +286,7 @@ struct Bit_800ECA40 : VBase_800ECA40 {
 };
 
 extern "C" {
-s32 transition_enemy_state(void *, s32);
+s32 transition_enemy_state__9TObjEneDDFs(void *, s32);
 void set_state_flags__18TObjEneRe4SorcererFPv(u8 *arg0);
 void set_hold_flags__18TObjEneRe4SorcererFPv(u8 *arg0);
 void TObjEneRe4Sorcerer__sub_800ED47C(void* p);
@@ -533,7 +533,7 @@ void TObjEneRe4Bit__sub_800ECC14(u8 *ene_panarms, s32 arg1) {
     case 3:
         if (((TObjEnePanarms *)ene_panarms)->m_3cc & 8) {
             play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(ene_panarms, 0x4003AD16), ene_panarms + 0x38, 0, 0);
-            transition_enemy_state(ene_panarms, 1);
+            transition_enemy_state__9TObjEneDDFs(ene_panarms, 1);
         }
         break;
     case 0:
@@ -568,7 +568,7 @@ void TObjEneRe4Bit__sub_800ECD28(u8 *ene_dd, s32 arg1) {
     case 3:
       if (((s32) (*((s32 *) (((s8 *) ene_dd) + 0x408)))) > 0xF)
     {
-      transition_enemy_state((void *)((void *) ene_dd), 1);
+      transition_enemy_state__9TObjEneDDFs((void *)((void *) ene_dd), 1);
     }
       return;
     case 0:
@@ -597,7 +597,7 @@ void TObjEneRe4Bit__sub_800ECE04(TObjEneRe4Bit *ene_re4_bit, s32 arg1) {
         break;
     case 3:
         if (*(f32 *)((s8 *)ene_re4_bit + 0x3D8) <= TObjEneRe4Bit__data_805DA770) {
-            transition_enemy_state(ene_re4_bit, 1);
+            transition_enemy_state__9TObjEneDDFs(ene_re4_bit, 1);
             break;
         }
     case 5:
@@ -632,7 +632,7 @@ void TObjEneRe4Bit__sub_800ECED0(TObjEneRe4Bit *ene_re4_bit, s32 arg1) {
         temp_r4 = *(s32 *)((s8 *)ene_re4_bit + 0x3CC);
         if (temp_r4 & 2) {
             *(s32 *)((s8 *)ene_re4_bit + 0x3CC) = (s32) (temp_r4 & 0xFFFFFFFD);
-            transition_enemy_state(ene_re4_bit, 3);
+            transition_enemy_state__9TObjEneDDFs(ene_re4_bit, 3);
         }
         return;
     case 0:
@@ -671,12 +671,12 @@ s32 TObjEneRe4Bit::handle_event(s32 arg1) {
         temp_r4 = *(s32 *)((s8 *)this + 0x3CC);
         if (temp_r4 & 1) {
             *(s32 *)((s8 *)this + 0x3CC) = (s32) (temp_r4 & 0xFFFFFFFE);
-            transition_enemy_state(this, 2);
+            transition_enemy_state__9TObjEneDDFs(this, 2);
             break;
         }
         if (temp_r4 & 2) {
             *(s32 *)((s8 *)this + 0x3CC) = (s32) (temp_r4 & 0xFFFFFFFD);
-            transition_enemy_state(this, 3);
+            transition_enemy_state__9TObjEneDDFs(this, 3);
         }
         break;
     case 5:
@@ -693,7 +693,7 @@ void TObjEneRe4Bit::handle_state_message(s32 msg) {
     case 0:
         return;
     case 3:
-        transition_enemy_state(this, 1);
+        transition_enemy_state__9TObjEneDDFs(this, 1);
         return;
     }
 }
@@ -1025,7 +1025,7 @@ void TObjEneRe4Bit::vfunc_62() {
             ((s32 (*)())clear_attack_receipts__9TObjEneDDFv)();
             return;
         }
-        ((s32 (*)(void *, int))transition_enemy_state)(arg0, 5);
+        ((s32 (*)(void *, int))transition_enemy_state__9TObjEneDDFs)(arg0, 5);
     }
 }
 
@@ -1035,11 +1035,11 @@ void TObjEneRe4Bit::vfunc_63() {
     temp_r0 = this->mode;
     if (temp_r0 != 6) {
         if (temp_r0 == 2) {
-            ((s32 (*)(void *, int))transition_enemy_state)(arg0, 6);
+            ((s32 (*)(void *, int))transition_enemy_state__9TObjEneDDFs)(arg0, 6);
             *(s32 *)((s8 *)arg0 + 0x404) = 3;
             return;
         }
-        ((s32 (*)(void *, int))transition_enemy_state)(arg0, 6);
+        ((s32 (*)(void *, int))transition_enemy_state__9TObjEneDDFs)(arg0, 6);
     }
 }
 

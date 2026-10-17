@@ -348,7 +348,7 @@ struct Obj_800BB88C {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-void transition_enemy_state(V_800BBA18 *self, s16 state);
+void transition_enemy_state__9TObjEneDDFs(V_800BBA18 *self, s16 state);
 s32 TObjEneDD__vt82(V_800BBB18 *self);
 extern const f32 TObjEneDD__data_805D9E8C;
 s32 subtractive_rng_seed(void *, int);
@@ -432,10 +432,10 @@ void TObjEneDD::sub_800BBA0C() {
     *(s32 *)((s8 *)((u8 *)this) + 0x374) = (s32) this->mode;
 }
 
-void transition_enemy_state(V_800BBA18 *self, s16 state) {
-    self->m85(self->state, 5);
-    self->m85(state, 4);
-    self->state = state;
+void TObjEneDD::transition_enemy_state(s16 state) {
+    ((V_800BBA18 *)this)->m85(((V_800BBA18 *)this)->state, 5);
+    ((V_800BBA18 *)this)->m85(state, 4);
+    ((V_800BBA18 *)this)->state = state;
 }
 
 u8 TObjEneDD::vfunc_86() {

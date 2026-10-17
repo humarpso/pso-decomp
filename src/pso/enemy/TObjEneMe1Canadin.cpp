@@ -522,7 +522,7 @@ void advance_state_5_to_4__17TObjEneMe1CanadinFPv(void *arg0);
 void TObjEneMe1Canadin_EffDischarge__ct(void *, void *, void *, void *);
 u8 *TObjEneMe1Canadin_EffLine__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void TObjEneEpsilon__sub_800B92F8(u8 *arg0, s32 arg1, f32 farg0);
-s32 transition_enemy_state(void *, s32);
+s32 transition_enemy_state__9TObjEneDDFs(void *, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 void * __nw__7TObjectFUl(int);
 extern const s32 canadin_formation_reset_vec4[];
@@ -2289,7 +2289,7 @@ void TObjEneMe1CanadinLeader__vt108(u8 *arg0, s32 arg1) {
         if (self->flags3C8 & 2) {
             self->flags3C8 &= ~2;
             self->f4F4 = 1;
-            transition_enemy_state(arg0, 4);
+            transition_enemy_state__9TObjEneDDFs(arg0, 4);
         }
         break;
     case 0:
@@ -2457,7 +2457,7 @@ s32 TObjEneMe1CanadinLeader__vt106(Obj_8009B3C0 *self) {
     s32 i;
     if (self->flags & 0x40) {
         self->flags &= ~0x40;
-        ((s32 (*)(void *, s16))transition_enemy_state)(self, 0xb);
+        ((s32 (*)(void *, s16))transition_enemy_state__9TObjEneDDFs)(self, 0xb);
         for (i = 0; i < self->count; i++) {
             ((TObjEneMe1CanadinLeader *)(self->members[i]))->set_flag3c8_bit40();
         }
@@ -2508,11 +2508,11 @@ void TObjEneMe1CanadinLeader__vt103(Obj_8009B638 *self) {
     case 0:
     case 1:
         self->step++;
-        ((s32 (*)(void *, s16))transition_enemy_state)(self, 6);
+        ((s32 (*)(void *, s16))transition_enemy_state__9TObjEneDDFs)(self, 6);
         break;
     case 2:
         self->step = 0;
-        ((s32 (*)(void *, s16))transition_enemy_state)(self, 7);
+        ((s32 (*)(void *, s16))transition_enemy_state__9TObjEneDDFs)(self, 7);
         break;
     }
 }
@@ -2993,7 +2993,7 @@ void TObjEneMe1Canadin__sub_8009C2EC(u8 *arg0, s32 arg1) {
         break;
     case 3:
         if (*(s32 *)((s8 *)arg0 + 0x470) >= 0x96) {
-            ((void (*)(void *, s16))transition_enemy_state)(arg0, 0xD);
+            ((void (*)(void *, s16))transition_enemy_state__9TObjEneDDFs)(arg0, 0xD);
             *(s16 *)((s8 *)arg0 + 0x32C) = 0;
             *(s32 *)((s8 *)arg0 + 0x30) |= 0x800;
             ((s32 (*)(int, void *, int, int))play_sound_effect)(0x4003AD1F, arg0 + 0x2FC, 0, 0);
@@ -3055,7 +3055,7 @@ void TObjEneMe1Canadin__sub_8009C510(u8 *arg0, s32 arg1) {
         break;
     case 3:
         if (I_8009C510(0x474) == 3) {
-            ((void (*)(void *, s32))transition_enemy_state)(arg0, I_8009C510(0x378));
+            ((void (*)(void *, s32))transition_enemy_state__9TObjEneDDFs)(arg0, I_8009C510(0x378));
         }
         break;
     case 0:
@@ -3129,7 +3129,7 @@ void TObjEneMe1Canadin::run_task(s32 arg1) {
         return;
     case 3:
         if ((((VObj_8009c7d8 *) arg0)->m106() == 0) && (*(f32 *)((s8 *)arg0 + 0x3AC) < lbl_805D98D4)) {
-            ((s32 (*)(void *, int))transition_enemy_state)(arg0, 5);
+            ((s32 (*)(void *, int))transition_enemy_state__9TObjEneDDFs)(arg0, 5);
         }
     case 5:
         return;
@@ -3264,9 +3264,9 @@ void TObjEneMe1Canadin__sub_8009D320(void *arg0, s32 arg1) {
     case 3:
         if (((VObj_18_2d9fb9 *)o)->m106() == 0 && ((TObjEneMe1Canadin *)o)->try_trigger_action() == 0 && o->mode == 6) {
             if (o->flags & 0x100000) {
-                transition_enemy_state(o, 8);
+                transition_enemy_state__9TObjEneDDFs(o, 8);
             } else {
-                transition_enemy_state(o, 9);
+                transition_enemy_state__9TObjEneDDFs(o, 9);
             }
         }
         break;
@@ -3512,9 +3512,9 @@ void TObjEneMe1Canadin::vfunc_110(s32 arg1) {
             if (temp_r3 & 2) {
                 *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (temp_r3 & 0xFFFFFFFD);
                 if ((s32) *(s32 *)((s8 *)arg0 + 0x3C4) == 1) {
-                    transition_enemy_state(arg0, 5);
+                    transition_enemy_state__9TObjEneDDFs(arg0, 5);
                 } else {
-                    transition_enemy_state(arg0, 4);
+                    transition_enemy_state__9TObjEneDDFs(arg0, 4);
                 }
             }
         }
@@ -3578,9 +3578,9 @@ void TObjEneMe1Canadin::action(s32 arg1) {
             temp_r3 = *(s32 *)((s8 *)this + 0x3C8);
             if (temp_r3 & 1) {
                 *(s32 *)((s8 *)this + 0x3C8) = (s32) (temp_r3 & 0xFFFFFFFE);
-                transition_enemy_state(this, 3);
+                transition_enemy_state__9TObjEneDDFs(this, 3);
             } else if (enemy_has_live_target() != 0) {
-                transition_enemy_state(this, 3);
+                transition_enemy_state__9TObjEneDDFs(this, 3);
             }
         }
         break;
@@ -3618,7 +3618,7 @@ void TObjEneMe1Canadin__sub_8009DE90(void *argv0, s32 arg1) {
         return;
     case 3:
         if (((V_Sub_8009DE90 *) (arg0 + 0x3CC))->m5() != 0) {
-            transition_enemy_state(arg0, 2);
+            transition_enemy_state__9TObjEneDDFs(arg0, 2);
         }
     case 5:
         return;
@@ -3651,7 +3651,7 @@ void TObjEneMe1Canadin::handle_state(s32 arg1) {
             if ((s32) *(s32 *)((s8 *)this + 0x3C4) == 0) {
                 *(s32 *)((s8 *)this + 0x3C8) = (s32) (*(s32 *)((s8 *)this + 0x3C8) | 0x100000);
             }
-            transition_enemy_state(this, 1);
+            transition_enemy_state__9TObjEneDDFs(this, 1);
         }
     case 5:
         return;
@@ -3871,7 +3871,7 @@ void noop__17TObjEneMe1CanadinFv(void) {  }
 
 s32 TObjEneMe1Canadin::try_trigger_action() {
     if ((u32) *(u32 *)((s8 *)this + 0x390) == 0U) {
-        transition_enemy_state(this, 0xE);
+        transition_enemy_state__9TObjEneDDFs(this, 0xE);
         return 1;
     }
     return 0;
@@ -3883,13 +3883,13 @@ s32 TObjEneMe1Canadin::vfunc_108() {
     temp_r4 = *(s32 *)((s8 *)arg0 + 0x3C8);
     if (temp_r4 & 0x20) {
         *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (temp_r4 & 0xFFFFFFDF);
-        transition_enemy_state(arg0, 0xA);
+        transition_enemy_state__9TObjEneDDFs(arg0, 0xA);
         *(s32 *)((s8 *)arg0 + 0x40C) = 0;
         return 1;
     }
     if (temp_r4 & 0x40) {
         *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (temp_r4 & 0xFFFFFFBF);
-        transition_enemy_state(arg0, 0xB);
+        transition_enemy_state__9TObjEneDDFs(arg0, 0xB);
         return 1;
     }
     return 0;
@@ -3971,20 +3971,20 @@ void TObjEneMe1Canadin::vfunc_89() { vfunc_89__9TObjEneDDFv(this); }
 void TObjEneMe1Canadin::vfunc_105() {
     u8 *arg0 = (u8 *)this;
     if (*(s32 *)((s8 *)arg0 + 0x3C8) & 0x100) {
-        transition_enemy_state(arg0, 7);
+        transition_enemy_state__9TObjEneDDFs(arg0, 7);
         return;
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x3C4) == 0) {
         if ((s32) *(s32 *)((s8 *)arg0 + 0x46C) < 2) {
-            transition_enemy_state(arg0, 6);
+            transition_enemy_state__9TObjEneDDFs(arg0, 6);
             *(s32 *)((s8 *)arg0 + 0x46C) = (s32) (*(s32 *)((s8 *)arg0 + 0x46C) + 1);
             return;
         }
-        transition_enemy_state(arg0, 7);
+        transition_enemy_state__9TObjEneDDFs(arg0, 7);
         *(s32 *)((s8 *)arg0 + 0x46C) = 0;
         return;
     }
-    transition_enemy_state(arg0, 6);
+    transition_enemy_state__9TObjEneDDFs(arg0, 6);
 }
 
 void TObjEneMe1Canadin::update_move(void* p) { if (((TObjEneDD_ST *)p)->enemy_has_live_target() != 0) { ((TObjEneDD_ST *)p)->enemy_copy_target_destination(); ((TObjEneDD *)p)->update_velocity(); ((TObjEneMe1Canadin *)p)->update_angle(); } }
@@ -4091,14 +4091,14 @@ void TObjEneMe1Canadin::copy_pos() {
 
 void TObjEneMe1Canadin::vfunc_61() {  }
 
-void TObjEneMe1Canadin::vfunc_62() { if (*(short*)((char*)this + 0x326) != 12) { ((int (*)(void*, void*))transition_enemy_state)(this, (void*)12); } }
+void TObjEneMe1Canadin::vfunc_62() { if (*(short*)((char*)this + 0x326) != 12) { ((int (*)(void*, void*))transition_enemy_state__9TObjEneDDFs)(this, (void*)12); } }
 
 void TObjEneMe1Canadin::vfunc_63() {
     s16 temp_r0;
 
     temp_r0 = *(s16 *)((s8 *)this + 0x326);
     if ((temp_r0 != 0xD) && (temp_r0 != 0xB)) {
-        ((int (*)(void*, void*))transition_enemy_state)(this, (void*)(0xD));
+        ((int (*)(void*, void*))transition_enemy_state__9TObjEneDDFs)(this, (void*)(0xD));
     }
 }
 

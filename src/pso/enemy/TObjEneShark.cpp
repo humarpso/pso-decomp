@@ -1003,7 +1003,7 @@ void init_enemy_base__13TUnk_80493450Fv(void *);
 }
 int initialize_enemy_photon_effect(void *p);
 extern "C" {
-void bind_enemy_combat_stats(void *, s32, s32, s32);
+void bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(void *, s32, s32, s32);
 void init_collision_body_parts(void *, void *, s32);
 void *__construct_array(void *, void *, void *, s32, s32);
 void init_and_activate__10TObjPlayerFv(void *);
@@ -1034,7 +1034,7 @@ void *TObjEneShark__ct(void *arg0, void *arg1, void *arg2) {
     ((TObjMotion *)self)->set_animation(self->fB8);
     ((TObjMotion *)self)->set_field_b8(self->fB8);
     init_collision_body_parts(self, lbl_80491608 + self->f334 * 0x2C, 1);
-    bind_enemy_combat_stats(self, ((s32 *)TObjEneShark__resource_node)[self->f334], ((s32 *)TObjEneShark__resource_buf)[self->f334],
+    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(self, ((s32 *)TObjEneShark__resource_node)[self->f334], ((s32 *)TObjEneShark__resource_buf)[self->f334],
                             ((s32 *)shark_resource_data)[self->f334]);
     self->f350 = lbl_804915B4 + self->f334 * 0x1C;
     self->f33E = self->f32C;

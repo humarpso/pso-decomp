@@ -5,7 +5,7 @@
 extern "C" {
 
 s32 advance_animation_playback();
-s32 transition_enemy_state(void *, s32);
+s32 transition_enemy_state__9TObjEneDDFs(void *, s32);
 s32 get_flag_b4__9TObjEneDDFv();
 
 void TObjEneRecon__sub_8031F408(void *ene_dd, s32 arg1) {
@@ -19,7 +19,7 @@ void TObjEneRecon__sub_8031F408(void *ene_dd, s32 arg1) {
         break;
     case 3:
         if (get_flag_b4__9TObjEneDDFv() != 0) {
-            transition_enemy_state(ene_dd, 2);
+            transition_enemy_state__9TObjEneDDFs(ene_dd, 2);
         }
         break;
     case 5:

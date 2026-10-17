@@ -204,7 +204,7 @@ extern const f32 lbl_805DE824;
 void move_with_wall_slide(u8 *arg0);
 int initialize_enemy_photon_effect(void *p);
 extern "C" {
-s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
+s32 bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 void init_collision_body_parts(void *, void *, int);
 void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
 void * __nw__7TObjectFUl(int);
@@ -1629,7 +1629,7 @@ void TObjEneGibbles::vfunc_60() {
         this->m_374 = (s32) (this->m_374 & 0xFFFFFF7F);
         break;
     }
-    bind_enemy_combat_stats(arg0, (u8 *)(0), (u8 *)(((s32 *) gibbles_combat_stat_entries)[this->m_37c]), (u8 *)(0));
+    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(arg0, (u8 *)(0), (u8 *)(((s32 *) gibbles_combat_stat_entries)[this->m_37c]), (u8 *)(0));
     *(s32 *)((s8 *)(this->m_a4) + 0x18) |= 1;
     this->actorFlags = (s32) (this->actorFlags & 0xF9FBFFFF);
     this->actorFlags = (s32) (this->actorFlags | 0x200000);
@@ -2536,7 +2536,7 @@ u8 *TObjEneGibbles__ct(u8 *arg0, void *parent, s32 arg2) {
     ((TObjEneGibbles *)arg0)->m_37c = 0;
     *(s16 *)((s8 *)arg0 + 0x37E) = 0;
     ((TObjEneGibbles *)arg0)->movementParameters = (void *)lbl_804E2950;
-    bind_enemy_combat_stats(arg0, (u8 *)gibbles_boss_stat_handle, (u8 *)(((s32 *)gibbles_combat_stat_entries)[((TObjEneGibbles *)arg0)->m_37c]), (u8 *)gibbles_combat_stats_handle);
+    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(arg0, (u8 *)gibbles_boss_stat_handle, (u8 *)(((s32 *)gibbles_combat_stat_entries)[((TObjEneGibbles *)arg0)->m_37c]), (u8 *)gibbles_combat_stats_handle);
     ((TObjEneGibbles *)arg0)->referenceHp = ((TObjEneGibbles *)arg0)->hp;
     ((TObjEneGibbles *)arg0)->update_position();
     ((TObjEneGibbles *)arg0)->update_shadow_height();

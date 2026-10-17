@@ -14,6 +14,7 @@ struct TechniqueContactList;
 
 struct TObjPlayer : public TUnk_804806E8 {
     virtual ~TObjPlayer();
+    void set_action_provider_variant(s16);
     void update_position_from_target();
     s32 get_idle_animation();
     void sub_801BB950();

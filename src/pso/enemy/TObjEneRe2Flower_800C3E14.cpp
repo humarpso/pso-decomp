@@ -82,7 +82,7 @@ extern s32 lbl_805D5180;
 extern const f32 lbl_805D9FAC;
 extern const f32 lbl_805D9FBC;
 void TObjPlayer__sub_800C44C4(void);
-s32 transition_enemy_state(void * a0, s32 a1);
+s32 transition_enemy_state__9TObjEneDDFs(void * a0, s32 a1);
 void run_task__16TObjEneRe2FlowerFv(u8 *arg0);
 void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1);
 void fn_800C2A88(void *self, s32 msg);
@@ -103,7 +103,7 @@ void *destroy__16TObjEneRe2FlowerFPvs(void *arg0, s16 arg1);
 void vfunc_63__16TObjEneRe2FlowerFv(void *arg0);
 void vfunc_62__16TObjEneRe2FlowerFv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-s32 transition_enemy_state(void * a0 = 0, s32 a1 = 0);
+s32 transition_enemy_state__9TObjEneDDFs(void * a0 = 0, s32 a1 = 0);
 void free_collision_body_parts(void *);
 void *TObjEneRe2Flower__ct(void *, void *, void *);
 void TObjPlayer__sub_800C4D44(void);
@@ -300,7 +300,7 @@ void TObjEneRe2Flower::vfunc_62() {
             clear_attack_receipts();
             return;
         }
-        transition_enemy_state(this, 9);
+        transition_enemy_state__9TObjEneDDFs(this, 9);
     }
 }
 void TObjEneRe2Flower::vfunc_63() {
@@ -308,7 +308,7 @@ void TObjEneRe2Flower::vfunc_63() {
 
     temp_r0 = this->mode;
     if ((temp_r0 != 0xA) && (temp_r0 != 0xB)) {
-        transition_enemy_state(this, 0xA);
+        transition_enemy_state__9TObjEneDDFs(this, 0xA);
     }
 }
 void TObjEneRe2Flower::vfunc_28() {  }
@@ -367,7 +367,7 @@ void TObjEneRe2Flower::run_task() {
         temp_r3 = this->mode;
         if ((temp_r3 == 0) || (temp_r3 == 1)) {
             ((VObj_14_2f517b *)(((u8 *)this) + (1012)))->m2();
-            transition_enemy_state(this, 2);
+            transition_enemy_state__9TObjEneDDFs(this, 2);
         }
     }
     this->sub_800C3DC4();

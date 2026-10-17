@@ -7,7 +7,7 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-s32 transition_enemy_state(void *, int);
+s32 transition_enemy_state__9TObjEneDDFs(void *, int);
 void TObjEneEpsilonBody::run_task() {
     if (TObjPlayer::check_demo_mode() != 0) {
         this->vfunc_105();
@@ -17,7 +17,7 @@ void TObjEneEpsilonBody::run_task() {
         this->update_guard_flag();
         this->vfunc_85();
     } else if ((s16) this->mode == 1) {
-        transition_enemy_state(this, 0);
+        transition_enemy_state__9TObjEneDDFs(this, 0);
     }
     if ((s16) this->mode != 9) {
         play_persistent_sound(0x4003AD43, (s32)this, (u32)(((u8 *)this) + 0x38), 0, 0);

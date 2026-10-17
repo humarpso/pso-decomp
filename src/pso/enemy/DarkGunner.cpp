@@ -334,7 +334,7 @@ void TObjEnemyCustom__ct(void *, s32, void *);
 void move_with_wall_slide(u8 *arg0);
 int initialize_enemy_photon_effect(void *p);
 extern "C" {
-s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
+s32 bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 extern Atk_800A2F94 dark_gunner_attack_binding_desc;
 extern s32 dark_gunner_class_name_ptr;
 extern s32 lbl_805D4FF8[1];
@@ -1407,7 +1407,7 @@ u8 *TObjPlayer__sub_800A2F94(u8 *self, s32 arg1, u8 *arg2) {
     ((TObjMotion *)self)->set_field_b8(F(s16, 0xB8));
     init_collision_body_parts(self, lbl_80490780, 1);
     F(void *, 0x350) = lbl_80490748;
-    bind_enemy_combat_stats(self, (u8 *)lbl_805D4FF8[F(s32, 0x368)], (u8 *)lbl_805D4FFC[F(s32, 0x368)], (u8 *)lbl_805D5000[F(s32, 0x368)]);
+    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(self, (u8 *)lbl_805D4FF8[F(s32, 0x368)], (u8 *)lbl_805D4FFC[F(s32, 0x368)], (u8 *)lbl_805D5000[F(s32, 0x368)]);
     ((void (*)(void *))init_scale_global__10TObjPlayerFv)(self);
     F(s16, 0x32C) = F(s16, 0x2B8);
     F(s16, 0x32E) = F(s16, 0x2BA);

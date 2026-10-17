@@ -1085,13 +1085,6 @@ struct TLobby : public TObject {
     static void update_floor_state_deferred();
     static void update_scene_alt();
     static s32 is_multi_ready();
-    void close_window_field30();
-    void open_message_window();
-    void open_giveup_window();
-    void countdown_and_destroy();
-    void handle_retry_menu_select();
-    void update_challenge_4p_retry();
-    void update_giveup();
     s32 add_trade_item(u32 arg1, s32 arg2);
     static void update_game_modes();
     void byteswap_trade_packet();

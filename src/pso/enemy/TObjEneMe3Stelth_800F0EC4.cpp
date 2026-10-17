@@ -240,7 +240,7 @@ struct Ent_800F0F84 { u8 pad0[0x18]; u32 f18; };
 
 extern "C" {
 s32 is_split_screen();
-s32 transition_enemy_state(void *, int);
+s32 transition_enemy_state__9TObjEneDDFs(void *, int);
 s32 advance_animation_playback(void *);
 s32 play_sound_effect(int, void *, int, int);
 extern const Quad_800F1440 me3_stelth_offset_vec;
@@ -284,9 +284,9 @@ s32 TObjEneMe3Stelth__sub_800F0F84(u8 *arg0, Vec_800F0F84 *arg1);
 
 void handle_direct_attack__16TObjEneMe3StelthFPvPviPv(Obj_800F0EC4 *actor, void *arg1, Pair_800F0EC4 arg2, void *arg3) {
     if (actor->f3C0 == 1 && obj_getField1c(arg1) < 0x1000 && calc_boss4_scale__10TObjPlayerFi((s32)actor) <= actor->f3E0) {
-        transition_enemy_state(actor, 0x12);
+        transition_enemy_state__9TObjEneDDFs(actor, 0x12);
     } else if (actor->f326 == 2) {
-        transition_enemy_state(actor, 6);
+        transition_enemy_state__9TObjEneDDFs(actor, 6);
     }
     ((s32 (*)(void *, void *, Pair_800F0EC4, void *, s32, s32))receive_direct_attack__10TObjPlayerFv)(actor, arg1, arg2, arg3, -1, -1);
 }
@@ -339,7 +339,7 @@ void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1) {
         break;
     case 3:
         if (F(s32, 0x424) == 3) {
-            transition_enemy_state(arg0, 6);
+            transition_enemy_state__9TObjEneDDFs(arg0, 6);
         }
         break;
     case 0:
@@ -348,7 +348,7 @@ void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1) {
         case 0:
         default:
             if (F(u32, 0x390) == 0) {
-                transition_enemy_state(arg0, 6);
+                transition_enemy_state__9TObjEneDDFs(arg0, 6);
                 break;
             }
             {
@@ -441,7 +441,7 @@ void TObjEneMe3Stelth__sub_800F1440(u8 *arg0, s32 arg1) {
         break;
     case 3:
         if (F(s32, 0x424) == 3) {
-            transition_enemy_state(arg0, 6);
+            transition_enemy_state__9TObjEneDDFs(arg0, 6);
             F(s32, 0x3CC) &= ~1;
         }
         break;

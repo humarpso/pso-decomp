@@ -57,7 +57,7 @@ struct RecoveredFields_8023A510_temp_r6 {
 };
 
 extern "C" {
-s32 check_technique_projectile_wall_hit(void *, f32, f32);
+s32 check_technique_projectile_wall_hit__13TUnk_804CCC68Fv(void *, f32, f32);
 f32 fabs_float(f32);
 s32 queue_destruction__7TObjectFv(void *);
 u8 *csnVecterUnder(s32 *, s32);
@@ -169,7 +169,7 @@ void TUnk_804CCC68::move_technique_projectile() {
     temp_f2 = *(f32 *)((s8 *)arg0 + 0x50);
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x64);
     *(f32 *)((s8 *)arg0 + 0x28) = (f32) ((temp_f2 * temp_f1) + *(f32 *)((s8 *)arg0 + 0x28));
-    check_technique_projectile_wall_hit(arg0, temp_f1, temp_f2);
+    check_technique_projectile_wall_hit__13TUnk_804CCC68Fv(arg0, temp_f1, temp_f2);
 }
 #pragma pop
 

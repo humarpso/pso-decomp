@@ -1205,7 +1205,7 @@ void TObjPlayer__sub_800DC444(void);
 int initialize_enemy_photon_effect(void *p);
 extern "C" {
 void * TObjControl__ct(void *, void *);
-s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
+s32 bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 s32 free_collision_body_parts(void *);
 void init_collision_body_parts(void *, void *, s32);
 s32 submit_cursor_candidate(void *, int);
@@ -1803,7 +1803,7 @@ u8 *TObjEneNanoDrago__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     init_collision_body_parts(arg0, lbl_80494C38, 2);
     *(u32 *)((s8 *)(((TObjEneNanoDrago *)arg0)->m_a4) + 0x44) &= ~1;
     ((TObjEneNanoDrago *)arg0)->movementParameters = lbl_80494C1C;
-    bind_enemy_combat_stats(arg0, (u8 *)lbl_805D5248, (u8 *)lbl_805D524C, (u8 *)lbl_805D5250);
+    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(arg0, (u8 *)lbl_805D5248, (u8 *)lbl_805D524C, (u8 *)lbl_805D5250);
     ((void (*)(void *))TObjPlayer__sub_800D9E08)(arg0);
     ((TObjEneNanoDrago *)arg0)->m_b8 = 0;
     ((TObjMotion *)arg0)->set_animation(((TObjEneNanoDrago *)arg0)->m_b8);

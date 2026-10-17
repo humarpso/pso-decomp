@@ -15,7 +15,7 @@
 
 struct Mine_80038760; struct O_80038908;
 extern "C" {
-s32 transition_enemy_state(void *, int);
+s32 transition_enemy_state__9TObjEneDDFs(void *, int);
 s32 play_sound_effect(int, void *, int, int);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 void init_params__10TBoss2MineFlf(u8 *arg0, s32 arg1, f32 farg0);
@@ -59,10 +59,10 @@ void TUnk_80482D04::vfunc_106(s32 arg1) {
     case 3:
         if (*(s32 *)((s8 *)arg0 + 0x38C) & 0x100) {
             *(s32 *)((s8 *)arg0 + 0x38C) &= ~0x100;
-            transition_enemy_state(arg0, 1);
+            transition_enemy_state__9TObjEneDDFs(arg0, 1);
         }
         if (*(s32 *)((s8 *)arg0 + 0x3C8) == 1) {
-            transition_enemy_state(arg0, 3);
+            transition_enemy_state__9TObjEneDDFs(arg0, 3);
         }
         break;
     case 0:
@@ -121,7 +121,7 @@ void TUnk_80482D04::vfunc_105(s32 arg1) {
         break;
     case 3:
         if (*(s32 *)((s8 *)arg0 + 0x3C8) == 3) {
-            transition_enemy_state(arg0, 2);
+            transition_enemy_state__9TObjEneDDFs(arg0, 2);
         }
         break;
     case 0:
@@ -303,10 +303,10 @@ void TUnk_80482EC0::vfunc_106(s32 arg1) {
         temp_r4 = *(s32 *)((s8 *)((u8 *)this) + 0x38C);
         if (temp_r4 & 0x100) {
             *(s32 *)((s8 *)((u8 *)this) + 0x38C) = (s32) (temp_r4 & 0xFFFFFEFF);
-            transition_enemy_state(this, 1);
+            transition_enemy_state__9TObjEneDDFs(this, 1);
         }
         if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x3C8) == 2) {
-            transition_enemy_state(this, 3);
+            transition_enemy_state__9TObjEneDDFs(this, 3);
         }
         break;
     case 5:
@@ -363,7 +363,7 @@ void TUnk_80482EC0::vfunc_105(s32 arg1) {
     case 3:
         if (*(f32 *)((s8 *)arg0 + 0x300) < *(f32 *)((s8 *)arg0 + 0x394)) {
             *(f32 *)((s8 *)arg0 + 0x300) = *(f32 *)((s8 *)arg0 + 0x394);
-            transition_enemy_state(arg0, 2);
+            transition_enemy_state__9TObjEneDDFs(arg0, 2);
         }
         break;
     case 5:
@@ -699,7 +699,7 @@ void TBoss2Mine::vfunc_108(s32 arg1) {
         *(s32 *)((s8 *)this + 0x38C) = (s32) (*(s32 *)((s8 *)this + 0x38C) & 0xFFFFFFF8);
         return;
     case 3:
-        transition_enemy_state(this, 0);
+        transition_enemy_state__9TObjEneDDFs(this, 0);
         return;
     case 5:
         *(s32 *)((s8 *)this + 0x30) = (s32) (*(s32 *)((s8 *)this + 0x30) & 0xFFFFF7FF);
@@ -739,7 +739,7 @@ void TBoss2Mine::vfunc_107(s32 arg1) {
     case 3:
       if (((s32) (*((s32 *) (((s8 *) arg0) + 0x3CC)))) == 2)
     {
-      transition_enemy_state(arg0, 0);
+      transition_enemy_state__9TObjEneDDFs(arg0, 0);
     }
     case 5:
       return;
@@ -767,7 +767,7 @@ void TBoss2Mine::vfunc_105(s32) {  }
 #undef play_sound_effect
 #undef TBoss2Mine__ct
 #undef set_node_offsets__10TBoss2MineFv
-#define transition_enemy_state ((int (*)(void *, void *))transition_enemy_state)
+#define transition_enemy_state__9TObjEneDDFs ((int (*)(void *, void *))transition_enemy_state__9TObjEneDDFs)
 
 #define VM(n) virtual void m##n();
 struct Base_800386A4_80038610 { char pad[0x18]; };
@@ -933,7 +933,7 @@ void TBoss2Mine__vt102(void *boss2_mine, s32 arg1) {
         temp_r4 = *(s32 *)((s8 *)boss2_mine + 0x38C);
         if (temp_r4 & 0x100) {
             *(s32 *)((s8 *)boss2_mine + 0x38C) = (s32) (temp_r4 & 0xFFFFFEFF);
-            transition_enemy_state((void*)((s32)boss2_mine), (void*)(1));
+            transition_enemy_state__9TObjEneDDFs((void*)((s32)boss2_mine), (void*)(1));
         }
     case 5:
     case 0:
@@ -1057,8 +1057,8 @@ void TBoss2Mine::vfunc_61() {  }
 
 }
 
-#undef transition_enemy_state
-#define transition_enemy_state ((int (*)(void *, void *))transition_enemy_state)
+#undef transition_enemy_state__9TObjEneDDFs
+#define transition_enemy_state__9TObjEneDDFs ((int (*)(void *, void *))transition_enemy_state__9TObjEneDDFs)
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -1175,7 +1175,7 @@ extern "C" {
 
 void TBoss2Mine::vfunc_62() { clear_attack_receipts(); }
 
-void TBoss2Mine::vfunc_63() { if (*(short*)((char*)this + 0x326) != 4) { transition_enemy_state(this, (void*)4); } }
+void TBoss2Mine::vfunc_63() { if (*(short*)((char*)this + 0x326) != 4) { transition_enemy_state__9TObjEneDDFs(this, (void*)4); } }
 void TBoss2Mine::vfunc_28() {  }
 void TBoss2Mine::run_task() {
     u8 *arg0 = (u8 *)this;
@@ -1200,7 +1200,7 @@ void TBoss2Mine::run_task() {
 
 }
 
-#undef transition_enemy_state
+#undef transition_enemy_state__9TObjEneDDFs
 
 struct VBase_18_72b3e0 { char pad[0x18]; };
 

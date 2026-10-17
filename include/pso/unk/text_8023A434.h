@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void check_technique_projectile_wall_hit(u8 *arg0);
+void check_technique_projectile_wall_hit__13TUnk_804CCC68Fv(u8 *arg0);
 }
 
 #endif

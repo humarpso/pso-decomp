@@ -162,7 +162,7 @@ f32 atan2_float(f32 y, f32 x);
 s32 check_death_trigger__16TObjEneRe7BeruraFv();
 s32 is_over_limit__16TObjEneRe7BeruraFv(void *);
 s32 TObjEneRe7Berura__sub_8009518C(void *);
-s32 transition_enemy_state(void *, s32);
+s32 transition_enemy_state__9TObjEneDDFs(void *, s32);
 s32 advance_animation_playback();
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
@@ -342,7 +342,7 @@ extern "C" void state_patrol__16TObjEneRe7BeruraFPvi(void *arg0, s32 arg1) {
         break;
     case 3:
         if ((s32) *(s32 *)((s8 *)arg0 + 0x60) >= (s32) *(s32 *)((s8 *)arg0 + 0x4C8)) {
-            transition_enemy_state(arg0, 5);
+            transition_enemy_state__9TObjEneDDFs(arg0, 5);
         }
         break;
     case 0:
@@ -383,7 +383,7 @@ void TObjEneRe7Berura::run_flash_warning_state(s32 arg1) {
         break;
     case 3:
         if (*(s32 *)((s8 *)arg0 + 0x4C0) >= this->m_4c4) {
-            transition_enemy_state(arg0, 4);
+            transition_enemy_state__9TObjEneDDFs(arg0, 4);
         }
         break;
     case 0:
@@ -447,11 +447,11 @@ void TObjEneRe7Berura__sub_80093888(u8 *actor, s32 arg1) {
         }
         if (((s32 (*)(void *))check_death_trigger__16TObjEneRe7BeruraFv)(actor) == 0) {
             if ((void *) *(u8 **)((s8 *)actor + 0x390) == NULL) {
-                transition_enemy_state(actor, 8);
+                transition_enemy_state__9TObjEneDDFs(actor, 8);
             } else if (*(f32 *)((s8 *)actor + 0x3AC) >= TObjEneRe7Berura__data_805D9740) {
-                transition_enemy_state(actor, 4);
+                transition_enemy_state__9TObjEneDDFs(actor, 4);
             } else if (is_over_limit__16TObjEneRe7BeruraFv(actor) != 0) {
-                transition_enemy_state(actor, 7);
+                transition_enemy_state__9TObjEneDDFs(actor, 7);
             }
         }
         break;
@@ -558,7 +558,7 @@ void TObjEneRe7Berura__sub_80093C80(u8 *arg0, s32 arg1) {
         break;
     case 3:
         if (F(s32, 0x4C0) == 3 && check_death_trigger__16TObjEneRe7BeruraFv() == 0) {
-            transition_enemy_state(arg0, 4);
+            transition_enemy_state__9TObjEneDDFs(arg0, 4);
         }
         break;
     case 0:
@@ -652,13 +652,13 @@ void TObjEneRe7Berura__sub_800940E8(u8 *arg0, s32 arg1) {
     case 3:
         if (check_death_trigger__16TObjEneRe7BeruraFv() == 0) {
             if ((u32) ((TObjEneRe7Berura *)arg0)->m_390 == 0U) {
-                transition_enemy_state((void *)(arg0), 8);
+                transition_enemy_state__9TObjEneDDFs((void *)(arg0), 8);
             } else if (*(f32 *)((s8 *)arg0 + 0x3AC) <= TObjEneRe7Berura__data_805D9740) {
-                transition_enemy_state((void *)(arg0), 6);
+                transition_enemy_state__9TObjEneDDFs((void *)(arg0), 6);
             } else if ((s32) ((TObjEneRe7Berura *)arg0)->m_4c4 == 3) {
-                transition_enemy_state((void *)(arg0), 5);
+                transition_enemy_state__9TObjEneDDFs((void *)(arg0), 5);
             } else if (is_over_limit__16TObjEneRe7BeruraFv(arg0) != 0) {
-                transition_enemy_state((void *)(arg0), 7);
+                transition_enemy_state__9TObjEneDDFs((void *)(arg0), 7);
             }
         }
         break;
@@ -740,9 +740,9 @@ void TObjEneRe7Berura::handle_state(s32 arg1) {
     case 3:
         if (check_death_trigger__16TObjEneRe7BeruraFv() == 0) {
             if (*(s32 *)((s8 *)arg0 + 0x4C0) == 2) {
-                transition_enemy_state(arg0, 4);
+                transition_enemy_state__9TObjEneDDFs(arg0, 4);
             } else if (*(s32 *)((s8 *)arg0 + 0x4C0) == 3) {
-                transition_enemy_state(arg0, 2);
+                transition_enemy_state__9TObjEneDDFs(arg0, 2);
             }
         }
         break;
@@ -798,7 +798,7 @@ void TObjEneRe7Berura__sub_80094624(u8 *ene_re7_berura, s32 arg1) {
         return;
     case 3:
         if (((TObjEneDD_ST *)ene_re7_berura)->update_linked_position(TObjEneRe7Berura__data_805D9724) != 0) {
-            transition_enemy_state(ene_re7_berura, 1);
+            transition_enemy_state__9TObjEneDDFs(ene_re7_berura, 1);
         }
     case 5:
     case 0:
@@ -827,7 +827,7 @@ void TObjEneRe7Berura__sub_8009472C(u8 *arg0, s32 arg1) {
         break;
     case 3:
         if (((s32) (*(s32 *)((s8 *)arg0 + 0x4C4) & 7) == 7) && (check_death_trigger__16TObjEneRe7BeruraFv() == 0)) {
-            transition_enemy_state(arg0, 4);
+            transition_enemy_state__9TObjEneDDFs(arg0, 4);
         }
         break;
     case 0:

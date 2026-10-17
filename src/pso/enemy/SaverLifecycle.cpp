@@ -97,7 +97,7 @@ Obj_800A73F8 *__dt__12TObjEneSaverFv(Obj_800A73F8 *arg0, s16 arg1);
 void* vfunc_9__12TObjEneSaverFv(void* p);
 void copy_position__20TBoss3VoloptHiraisinFv(s32 arg0);
 s32 create__12TObjEneSaverFPvPv(u32, u32);
-s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
+s32 bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 void initialize__9TObjEnemyFPv(void *, void *, void *);
 void init_collision_body_parts(void *, void *, s32);
 void *__nw__7TObjectFUl(int);
@@ -1207,7 +1207,7 @@ void TObjEneSaver::vfunc_60() {
         self->fB8 = 4;
         break;
     }
-    bind_enemy_combat_stats((u8 *)self, (u8 *)(0), (u8 *)player_object_ptr_array[self->mode], (u8 *)(0));
+    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc((u8 *)self, (u8 *)(0), (u8 *)player_object_ptr_array[self->mode], (u8 *)(0));
     self->sub->flags |= 1;
     self->f30 &= 0xF9FBFFFF;
     self->f30 |= 0x200000;
@@ -2159,7 +2159,7 @@ u8 *TObjEneSaver__ct(TObjEneSaver *arg0, void *arg1, void *arg2) {
     init_collision_body_parts(arg0, (u8 *)saver_collision_body_part_table, 1);
     *(s16 *)((s8 *)arg0 + 0x37C) = 0;
     *(s16 *)((s8 *)arg0 + 0x37E) = 0;
-    bind_enemy_combat_stats(((u8 *)arg0), (u8 *)saver_boss_stat_handle, (u8 *)(player_object_ptr_array[*(s16 *)((s8 *)arg0 + 0x37C)]), (u8 *)saver_object_stat_handle);
+    bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(((u8 *)arg0), (u8 *)saver_boss_stat_handle, (u8 *)(player_object_ptr_array[*(s16 *)((s8 *)arg0 + 0x37C)]), (u8 *)saver_object_stat_handle);
     arg0->movementParameters = (u8*)lbl_80490B28;
     arg0->referenceHp = arg0->hp;
     ((TObjEnemy *)arg0)->update_prev_position();

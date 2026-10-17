@@ -1314,7 +1314,7 @@ s32 update_velocity__9TObjEneDDFv();
 void *__dt__12TObjEneDD_STFv(void *arg0, s16 arg1);
 s32 reload_stats_keep_hp_tp__9TObjEneDDFv(void *, int, int, int);
 void get_camera_ctrl__9TObjEneDDFv(s32, s32);
-s32 transition_enemy_state(void *, s16);
+s32 transition_enemy_state__9TObjEneDDFs(void *, s16);
 s32 delete_buffer__12TBoss8DragonFis(s32 arg0, s16 arg1);
 s32 isFading__15RenderFadeStateCFv(int);
 void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
@@ -2858,7 +2858,7 @@ void TBoss5Gryphon::advance_motion_entry() {
     *(s32 *)((s8 *)this + 0x4BC) = (s32) ptr;
     ptr = (s16 *) *(s32 *)((s8 *)this + 0x4BC);
     if ((s16) this->mode != *ptr) {
-        transition_enemy_state(this, *ptr);
+        transition_enemy_state__9TObjEneDDFs(this, *ptr);
     }
 }
 
@@ -3332,7 +3332,7 @@ void update_active_player_count__19TPlayerBattleCtrl4PFPvi(void *arg0, s32 arg1)
         return;
     case 3:
         if ((s32) *(s32 *)((s8 *)arg0 + 0x6DC) > 0x96) {
-            ((s32 (*)(void *, s32))transition_enemy_state)(arg0, 0xB);
+            ((s32 (*)(void *, s32))transition_enemy_state__9TObjEneDDFs)(arg0, 0xB);
         }
     case 5:
     case 1:
@@ -4568,7 +4568,7 @@ void apply_remote_action__13TBoss5GryphonFPvPv(u8 *arg0, u8 *arg1) {
     *(s16 **)((s8 *)arg0 + 0x4BC) = (s16 *) (arg0 + 0x494);
     temp_r4 = **(s16 **)((s8 *)arg0 + 0x4BC);
     if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != temp_r4) {
-        ((s32 (*)(void *, int))transition_enemy_state)(arg0, temp_r4);
+        ((s32 (*)(void *, int))transition_enemy_state__9TObjEneDDFs)(arg0, temp_r4);
     }
     *(s32 *)((s8 *)arg0 + 0x4C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x4C0) | 2);
 }

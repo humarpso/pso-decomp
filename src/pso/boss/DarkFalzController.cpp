@@ -44,7 +44,7 @@ extern s32 __vt__14TBoss4DarkFalz[];
 extern s32 dark_falz_controller_instance;
 u8 *__dt__14TBoss4DarkFalzFv(u8 *arg0, s16 arg1);
 void TBoss4DarkFalz__sub_8004B4F0(void *arg0p, void *arg1p);
-s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
+s32 bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 s32 initialize__9TObjEnemyFPv();
 u16 register_entity_by_id(void *ov);
 s32 init_music_sequencer(int);
@@ -155,9 +155,9 @@ s32 TBoss4DarkFalz__ct(s32 a0, s32 arg1, s32 a2) {
     *(f32 *)((s8 *)boss4_dark_falz + 0x308) = (f32) lbl_805D8908;
     *(s32 *)((s8 *)boss4_dark_falz + 0x2A8) = 0;
     if ((s32) game_difficulty_selection == 0) {
-        bind_enemy_combat_stats(boss4_dark_falz, (u8 *)(TLobby::register_boss(0x37)), (u8 *)(TLobby::dispatch_shared_handler_b(0x37)), (u8 *)(TLobby::register_object(0x37)));
+        bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(boss4_dark_falz, (u8 *)(TLobby::register_boss(0x37)), (u8 *)(TLobby::dispatch_shared_handler_b(0x37)), (u8 *)(TLobby::register_object(0x37)));
     } else {
-        bind_enemy_combat_stats(boss4_dark_falz, (u8 *)(TLobby::register_boss(0x38)), (u8 *)(TLobby::dispatch_shared_handler_b(0x38)), (u8 *)(TLobby::register_object(0x38)));
+        bind_enemy_combat_stats__9TObjEnemyFPUcPUcPUc(boss4_dark_falz, (u8 *)(TLobby::register_boss(0x38)), (u8 *)(TLobby::dispatch_shared_handler_b(0x38)), (u8 *)(TLobby::register_object(0x38)));
     }
     register_entity_by_id((boss4_dark_falz));
     *(s32 *)((s8 *)boss4_dark_falz + 0x30) = (s32) (*(s32 *)((s8 *)boss4_dark_falz + 0x30) | 0x02000000);

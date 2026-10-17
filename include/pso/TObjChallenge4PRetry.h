@@ -13,6 +13,14 @@ public:
 public:
     TObjChallenge4PRetry(TObject *parent);
     virtual ~TObjChallenge4PRetry();
+    void update_giveup();
+    void update_challenge_4p_retry();
+    void handle_retry_menu_select();
+    void countdown_and_destroy();
+    void open_giveup_window();
+    void close_window();
+    void open_message_window();
+    void close_window_field30();
     virtual void run_task();
 public:
     static void *create(void *arg0);

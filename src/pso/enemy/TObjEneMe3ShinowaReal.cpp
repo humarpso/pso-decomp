@@ -106,7 +106,7 @@ struct Obj_800E46D4 : Base_800E46D4 {
 
 extern "C" {
 s32 sub_800E7250__21TObjEneMe3ShinowaRealFv();
-void transition_enemy_state(void *, s16);
+void transition_enemy_state__9TObjEneDDFs(void *, s16);
 s32 create__23TObjEneMe3ShinowaMirageFPvPv(void *, s32, s32, s32);
 void *find_entity_by_id(u16 id);
 u16 obj_getField1c();
@@ -133,10 +133,10 @@ void TObjEneMe3ShinowaReal::vfunc_107() {
     *(s32 *)((s8 *)arg0 + 0x3D8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3D8) + 1);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x3D8) >= 2) {
         ((TObjEneMe3ShinowaReal *)arg0)->try_spawn_mirages();
-        transition_enemy_state(arg0, 7);
+        transition_enemy_state__9TObjEneDDFs(arg0, 7);
         return;
     }
-    transition_enemy_state(arg0, 4);
+    transition_enemy_state__9TObjEneDDFs(arg0, 4);
 }
 
 s32 TObjEneMe3ShinowaReal::get_or_create_mirage(s32 arg1) {

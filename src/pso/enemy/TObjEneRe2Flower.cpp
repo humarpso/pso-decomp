@@ -5,7 +5,7 @@
 extern "C" {
 extern const f32 lbl_805D9FF8;
 s32 set_part_local_pos__9TObjEneDDFPvPvi(void *, void *, int);
-s32 transition_enemy_state(void *, s32);
+s32 transition_enemy_state__9TObjEneDDFs(void *, s32);
 s32 get_flag_11__16TObjEneRe2FlowerFv();
 int TBoss8Dragon__sub_800BB7D4(void*, void*);
 
@@ -13,7 +13,7 @@ void TObjEneRe2Flower::begin_state_242() { if (*(int*)((char*)this + 0x3d4) == 0
 
 s32 TObjEneRe2Flower::check_hit_flag() {
     if (*(s32 *)((s8 *)this + 0x3C4) & 2) {
-        transition_enemy_state(this, 7);
+        transition_enemy_state__9TObjEneDDFs(this, 7);
         return 1;
     }
     return 0;

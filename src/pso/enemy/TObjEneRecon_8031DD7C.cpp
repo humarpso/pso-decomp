@@ -56,7 +56,7 @@ void TObjEneRecon::update_flag_0x444() {
 void enemy_copy_target_destination__12TObjEneDD_STFv(void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-int transition_enemy_state(void*, void*);
+int transition_enemy_state__9TObjEneDDFs(void*, void*);
 
 #pragma push
 #pragma fp_contract on
@@ -77,14 +77,14 @@ void TObjEneRecon::sync_height() {
     *(f32 *)((s8 *)this + 0x398) = (f32) *(f32 *)((s8 *)this + 0x460);
 }
 void TObjEneRecon::vfunc_61() {  }
-void TObjEneRecon::vfunc_62() { if (this->mode != 6) { transition_enemy_state(this, (void*)6); } }
+void TObjEneRecon::vfunc_62() { if (this->mode != 6) { transition_enemy_state__9TObjEneDDFs(this, (void*)6); } }
 
 void TObjEneRecon::vfunc_63() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
     temp_r0 = this->mode;
     if ((temp_r0 != 7) && (temp_r0 != 8)) {
-        transition_enemy_state(arg0, (void*)(7));
+        transition_enemy_state__9TObjEneDDFs(arg0, (void*)(7));
     }
 }
 

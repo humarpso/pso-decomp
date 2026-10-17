@@ -406,7 +406,7 @@ extern const f32 TObjEneEpsilonGuard__data_805E01D8;
 extern const f32 lbl_805E01E0;
 extern const f32 lbl_805E01E4;
 void render__19TObjEneEpsilonGuardFv(u8 *);
-s32 transition_enemy_state(void *, s32);
+s32 transition_enemy_state__9TObjEneDDFs(void *, s32);
 s32 advance_animation_playback(void *);
 void TObjEneEpsilonGuard__sub_8035E578(u8 *, s32);
 void play_sound_effect(int, void *, int, int);
@@ -712,7 +712,7 @@ void TObjEneEpsilonGuard::handle_break_state(s32 arg1) {
         break;
     case 3:
         if (((G_8035E430 *)this)->x430 == 1) {
-            transition_enemy_state(((G_8035E430 *)this), 5);
+            transition_enemy_state__9TObjEneDDFs(((G_8035E430 *)this), 5);
         }
         break;
     case 5:
@@ -746,7 +746,7 @@ void TObjEneEpsilonGuard__sub_8035E578(u8 *ene_dd, s32 arg1) {
         break;
     case 3:
         if (((VObj_14_87d649 *)(ene_dd + (1212)))->m4() != 0) {
-            transition_enemy_state(ene_dd, 0);
+            transition_enemy_state__9TObjEneDDFs(ene_dd, 0);
             ((RecoveredFields_8035E578_arg0 *)ene_dd)->field_46C = (s32) (((RecoveredFields_8035E578_arg0 *)ene_dd)->field_46C | 0x10);
             ((TObjEneDD *)(ene_dd))->vfunc_95();
             break;
@@ -777,7 +777,7 @@ void TObjEneEpsilonGuard::state_orbit(s32 arg1) {
         return;
     case 3:
         if (*(s32 *)((s8 *)this + 0x46C) & 8) {
-            transition_enemy_state(this, 3);
+            transition_enemy_state__9TObjEneDDFs(this, 3);
         }
     case 5:
         return;
@@ -834,7 +834,7 @@ void TObjEneEpsilonGuard__sub_8035E8C0(void *ene_epsilon_guard, s32 arg1) {
         return;
     case 3:
         if (*(s32 *)((s8 *)ene_epsilon_guard + 0x46C) & 2) {
-            transition_enemy_state(ene_epsilon_guard, 2);
+            transition_enemy_state__9TObjEneDDFs(ene_epsilon_guard, 2);
         }
     case 5:
         return;
@@ -867,7 +867,7 @@ void TObjEneEpsilonGuard::handle_event(s32 arg1) {
         return;
     case 3:
         if (*(s32 *)((s8 *)this + 0x46C) & 1) {
-            transition_enemy_state(this, 1);
+            transition_enemy_state__9TObjEneDDFs(this, 1);
         }
     case 5:
         return;
@@ -984,9 +984,9 @@ void TObjEneEpsilonGuard::update_guard_state() {
         entity = (s32)find_entity_by_id((*(u16 *)((s8 *)((u8 *)this) + 0x470)));
         if ((entity == 0) || (TObjEneEpsilonGuard__sub_8035F950() == 1)) {
             if (*(s32 *)((s8 *)((u8 *)this) + 0x46C) & 0x10) {
-                ((s32 (*)(void *, int))transition_enemy_state)(this, 5);
+                ((s32 (*)(void *, int))transition_enemy_state__9TObjEneDDFs)(this, 5);
             } else {
-                ((s32 (*)(void *, int))transition_enemy_state)(this, 4);
+                ((s32 (*)(void *, int))transition_enemy_state__9TObjEneDDFs)(this, 4);
             }
         } else {
             *(s32 *)((s8 *)((u8 *)this) + 0x390) = entity;
@@ -1299,7 +1299,7 @@ void run_task__19TObjEneEpsilonGuardFv(u8 *arg0) {
             ((TObjEneEpsilonGuard *)arg0)->update_center_position();
         }
     } else if (*(s16 *)((s8 *)arg0 + 0x326) == 0) {
-        ((s32 (*)(void *, int))transition_enemy_state)(arg0, 0);
+        ((s32 (*)(void *, int))transition_enemy_state__9TObjEneDDFs)(arg0, 0);
     }
 }
 #pragma pop

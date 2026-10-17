@@ -251,7 +251,7 @@ struct Berura_80092CCC {
 };
 
 extern "C" {
-s32 transition_enemy_state(void *, s32);
+s32 transition_enemy_state__9TObjEneDDFs(void *, s32);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 advance_animation_playback(void *);
@@ -534,7 +534,7 @@ void TObjEneRe7Berura__sub_80093470(Berura_80093470 *obj, s32 mode) {
         break;
     case 3:
         if (((TObjEneDD *)self)->get_flag_b4() != 0) {
-            transition_enemy_state(self, self->field378);
+            transition_enemy_state__9TObjEneDDFs(self, self->field378);
         }
         break;
     case 0:

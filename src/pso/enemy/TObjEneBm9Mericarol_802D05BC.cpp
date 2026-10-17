@@ -36,7 +36,7 @@ struct VObj_802D06E0_802D05BC : Base_802D06E0_802D05BC {
 
 s32 advance_animation_playback();
 s32 TObjEneBm9Mericarol__sub_802D093C(void *);
-s32 transition_enemy_state(void *, s32);
+s32 transition_enemy_state__9TObjEneDDFs(void *, s32);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 s32 enemy_clear_target__12TObjEneDD_STFUs(void *);
 
@@ -55,7 +55,7 @@ void TObjEneBm9Mericarol__sub_802D05BC(u8 *ene_dd_st, s32 arg1) {
         return;
     case 3:
         if (((SubObj_802d05bc *)(ene_dd_st + 0x46C))->v5() != 0) {
-            transition_enemy_state(ene_dd_st, 2);
+            transition_enemy_state__9TObjEneDDFs(ene_dd_st, 2);
         }
     case 1:
         return;
@@ -76,7 +76,7 @@ void TObjEneBm9Mericarol::handle_action(s32 arg1) {
         ((VObj_802D06E0_802D05BC *)this)->m93();
         return;
     case 3:
-        transition_enemy_state(this, 1);
+        transition_enemy_state__9TObjEneDDFs(this, 1);
     case 5:
     case 0:
         return;

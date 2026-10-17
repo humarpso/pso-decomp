@@ -38,7 +38,7 @@ s32 TObjEneRecon__sub_8031DA90(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 void enemy_set_target_id(void *, u16);
 s32 collect_enemy_target_candidates(void *, void *, f32);
-void transition_enemy_state(void *, s32);
+void transition_enemy_state__9TObjEneDDFs(void *, s32);
 void *find_entity_by_id(u16);
 extern const f32 lbl_805DF420;
 
@@ -55,7 +55,7 @@ void TObjEneRecon::retarget() {
     }
     if (((TObjEneRecon *)p)->is_below_child_limit(((Recon_8031D898 *)this)->target) != 0) {
         ((Recon_8031D898 *)this)->f470 = 0;
-        transition_enemy_state(this, 3);
+        transition_enemy_state__9TObjEneDDFs(this, 3);
         return;
     }
     n = collect_enemy_target_candidates(this, hits, lbl_805DF420);
@@ -64,11 +64,11 @@ void TObjEneRecon::retarget() {
         if (id != ((Recon_8031D898 *)this)->target && ((TObjEneRecon *)p)->is_below_child_limit(id) != 0) {
             ((Recon_8031D898 *)this)->f470 = 0;
             enemy_set_target_id(this, id);
-            transition_enemy_state(this, 3);
+            transition_enemy_state__9TObjEneDDFs(this, 3);
             return;
         }
     }
-    transition_enemy_state(this, 4);
+    transition_enemy_state__9TObjEneDDFs(this, 4);
     ((Recon_8031D898 *)this)->f474 = 0;
 }
 
@@ -85,7 +85,7 @@ void TObjEneRecon::select_next_target() {
     }
     if (((TObjEneRecon *)p)->is_below_child_limit(((Recon_8031D994 *)this)->target) != 0) {
         ((Recon_8031D994 *)this)->f46C = 0;
-        transition_enemy_state(this, 2);
+        transition_enemy_state__9TObjEneDDFs(this, 2);
         return;
     }
     n = collect_enemy_target_candidates(this, hits, lbl_805DF420);
@@ -94,11 +94,11 @@ void TObjEneRecon::select_next_target() {
         if (id != ((Recon_8031D994 *)this)->target && ((TObjEneRecon *)p)->is_below_child_limit(id) != 0) {
             ((Recon_8031D994 *)this)->f46C = 0;
             enemy_set_target_id(this, id);
-            transition_enemy_state(this, 2);
+            transition_enemy_state__9TObjEneDDFs(this, 2);
             return;
         }
     }
-    transition_enemy_state(this, 4);
+    transition_enemy_state__9TObjEneDDFs(this, 4);
     ((Recon_8031D994 *)this)->f474 = 0;
 }
 
