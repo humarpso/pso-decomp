@@ -286,7 +286,6 @@ void *__vt__13TBoss2DeRolLe[107] = {
 
 #include <stddef.h>
 #pragma push
-namespace body_animation_view {
 
 struct Rec_8002ECC4 { u8 pad[0x10]; u8 f10[0xC]; };
 
@@ -519,11 +518,9 @@ int TBoss2DeRolLe::vfunc_105() { return ((TObjEneDD *)this)->get_target_info(); 
 
 }
 
-}
 #pragma pop
 
 #pragma push
-namespace body_render_view {
 
 struct VBase_18_3a6650 { char pad[0x18]; };
 struct VObj_18_3a6650 : VBase_18_3a6650 {
@@ -784,7 +781,6 @@ void render__13TBoss2DeRolLeFPv(u8 *arg0) {
 
 }
 
-}
 #pragma pop
 
 #pragma push

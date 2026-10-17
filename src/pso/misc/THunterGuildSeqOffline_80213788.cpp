@@ -581,8 +581,6 @@ void handle_random_enemies_choice__6TLobbyFPv(Seq_80214104 *self) {
 
 }
 
-namespace part7 {
-
 struct VBase_18_97738d { char pad[0x18]; };
 
 struct VObj_18_97738d : VBase_18_97738d {
@@ -641,8 +639,6 @@ void fn_80214254(u8 *arg0) {
         *(s32 *)((s8 *)arg0 + 0x34) = 0;
         ((TShopWindowBase *)arg0)->set_field_20((s32)0xC);
     }
-}
-
 }
 
 }
