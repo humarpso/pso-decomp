@@ -2,7 +2,6 @@
 #include "pso/TChCrTagOccupation.h"
 extern "C" void render__18TChCrTagOccupationFv();
 #include "pso/TChCrCharSelect.h"
-#include "pso/TChCrTagOccupation.h"
 #include "pso/TChCrTagOccHeader.h"
 
 extern "C" {

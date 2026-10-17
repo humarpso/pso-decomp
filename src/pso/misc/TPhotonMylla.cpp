@@ -9,7 +9,6 @@ struct TPhotonYoulla;
 
 #include <stddef.h>
 #include <stddef.h>
-#include "pso/misc/TPhotonMylla.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/enemy/TObjEneRe7Berura.h"

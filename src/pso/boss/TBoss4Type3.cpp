@@ -12,7 +12,6 @@ extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/player/TUnk_804806E8.h"
-#include "pso/boss/TBoss4Type3.h"
 
 extern "C" {
 extern const char TObjBs4CutAtk_type_name[] = "TObjBs4CutAtk";
@@ -47,8 +46,6 @@ struct Type3MotionView { s32 kind, flags, motions[3]; };
 #include "pso/TObjBs4CutAtk.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
-#include "pso/boss/TBoss4DarkFalz.h"
-#include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss4Uro.h"
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/boss/TObjDFRecover.h"
@@ -60,7 +57,6 @@ struct Type3MotionView { s32 kind, flags, motions[3]; };
 #include "pso/misc/TTecRaFoie.h"
 #include "pso/misc/TTecResta.h"
 #include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
 
 struct Vec_8005A1AC { f32 x, y, z; };
 

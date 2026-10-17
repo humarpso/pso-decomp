@@ -3,7 +3,6 @@
 #include "types.h"
 #include "pso/misc/TWindowSubComCard.h"
 class TChCrTagPlBack;
-#include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowComCard.h"
 #include "pso/TProtocol.h"
 #include "pso/misc/TLobby.h"

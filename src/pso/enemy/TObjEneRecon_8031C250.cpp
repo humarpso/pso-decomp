@@ -443,7 +443,6 @@ void run_task__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
 
 }
 
-#include "pso/enemy/TObjEneEpsilon.h"
 #include "pso/enemy/TObjEneMe3ShinowaReal.h"
 
 struct VBase_18_83f71d

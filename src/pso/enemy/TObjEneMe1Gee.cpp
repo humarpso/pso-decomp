@@ -4,7 +4,6 @@
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneMe1Gee.h"
 class TObjEneMe1Gee_NEEDLE;
-#include "pso/enemy/TUnk_8049387C.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
