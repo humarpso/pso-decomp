@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
 #include "pso/misc/TWindowCtrlMain.h"
 
 struct Desc_8036D774 { f32 *pos; u32 *col; s32 a; s32 n; };
@@ -16,7 +17,6 @@ s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(int, int);
 extern s32 TBGMulti__textures;
 s32 TCameraCtrl__sub_80068EF0();
-s32 set_depth_buffer_settings_2__Fv();
 s32 restore_saved_depth_alpha_state();
 extern s32 split_screen_hud_animation_frame;
 void TWindowSubStatusDisp__sub_8036D994(void);
@@ -145,7 +145,7 @@ void TWindowSubStatusDisp::draw_bottom_bar() {
 void TWindowSubStatusDisp::draw_split_screen_hud() {
     s32 var_r3;
     if ((u32) (*(u32 *)&TBGMulti__textures) != 0U) {
-        set_depth_buffer_settings_2__Fv();
+        set_depth_buffer_settings_2();
         TObjPlayer::reset_transform_state();
         TParticleCtrl::begin_effect_render();
         TCameraCtrl::restore_full_screen_view();

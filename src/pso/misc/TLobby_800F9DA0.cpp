@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
+#include "pso/system/main_loop.h"
 #include "pso/misc/TLobby.h"
 #include "pso/TObject.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
@@ -19,8 +21,6 @@ s32 restore_saved_depth_alpha_state();
 s32 fn_801E2C50();
 s8 func_801A5E54__Fv();
 s32 func_803DCDFC__Fv();
-s32 render_tick__Fv();
-s32 set_depth_buffer_settings_1__Fv();
 s32 system_reset();
 
 s32 TLobby::get_file_size() {
@@ -56,7 +56,7 @@ void TLobby::run_frame() {
     if ((TLoadCtrl__sub_800F9F00() != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0)) {
         ((TObject *)tl_fade)->run_tasks();
     }
-    set_depth_buffer_settings_1__Fv();
+    set_depth_buffer_settings_1();
     ((TObject *)tl_su)->render_nodes();
     ((TObject *)tl_07)->render_nodes();
     ((TObject *)tl_particle)->render_nodes();
@@ -74,7 +74,7 @@ void TLobby::run_frame() {
         TLobby__sub_800F8AD0();
     }
     TLobby__sub_803382E4();
-    render_tick__Fv();
+    render_tick();
 }
 
 }

@@ -1,4 +1,5 @@
 #include "pso/TBoss6EffFlowSoul.h"
+#include "pso/system/vector.h"
 
 #include "types.h"
 #include "pso/boss/TBoss4Type2.h"
@@ -21,7 +22,6 @@ struct Soul_8036A6B0 {
     s32 age;
 };
 
-void VecCopy__FP3VecPC3Vec(Vec_8036A6B0 *, Vec_8036A6B0 *);
 void queue_destruction__7TObjectFv(void *);
 u8 *get_player_by_client_id(s32);
 s32 is_state_1f__14TBoss6PlotFalzFUi(void *);
@@ -47,7 +47,7 @@ void TBoss6EffFlowSoul::run_task() {
     } else {
         p = get_player_by_client_id(self->player);
         if (p != NULL && is_state_1f__14TBoss6PlotFalzFUi(p) != 0) {
-            VecCopy__FP3VecPC3Vec(&target, (Vec_8036A6B0 *)(p + 0x38));
+            VecCopy((Vec *)&target, (const Vec *)((Vec_8036A6B0 *)(p + 0x38)));
             target.y += lbl_805E0370;
         } else {
             queue_destruction__7TObjectFv(self);
@@ -56,9 +56,9 @@ void TBoss6EffFlowSoul::run_task() {
     }
     remain = (f32)(self->duration - self->age);
     if (remain <= lbl_805E0374) {
-        VecCopy__FP3VecPC3Vec(&self->pos, &target);
+        VecCopy((Vec *)&self->pos, (const Vec *)&target);
     } else {
-        VecCopy__FP3VecPC3Vec(&d, &target);
+        VecCopy((Vec *)&d, (const Vec *)&target);
         subtract_vector(&d, &self->pos);
         k = lbl_805E0378 / remain;
         d.x *= k;

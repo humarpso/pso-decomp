@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/system/ChunkMaterialState.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -161,7 +162,6 @@ struct ChunkBuffer_803E44D4 { void *vertices; s32 bytes; };
 struct ChunkRecording_803E44D4 { ChunkBuffer_803E44D4 buffers[32]; s32 index; };
 void OSReport(const char*, ...);
 void* memmove(void*, const void*, unsigned long);
-void* xmalloc__FUl(unsigned long);
 s32 dispatch_chunk_vertex_list(u32*, s32);
 void dispatch_chunk_polygon_list(u16*, s32);
 extern const char lbl_804FC810[];
@@ -695,7 +695,7 @@ s32 draw_chunk_vertices_cached__10TObjPlayerFPv(void* arg) {
         if (lbl_805D77E8) {
             if (lbl_805D77E8->buffers[lbl_805D77E8->index].vertices == 0) {
                 if (count) {
-                    lbl_805D77E8->buffers[lbl_805D77E8->index].vertices = xmalloc__FUl(count << 5);
+                    lbl_805D77E8->buffers[lbl_805D77E8->index].vertices = xmalloc(count << 5);
                     lbl_805D77E8->buffers[lbl_805D77E8->index].bytes = count << 5;
                 }
             } else {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TORainbowCave01.h"
 #include "pso/TParticleCtrl.h"
@@ -49,7 +50,6 @@ struct Cave_8017310C : VBase_8017310C {
 struct Cave_801731F8 { u8 pad[0xC8]; f32 speed; f32 alpha; f32 range; };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_80173330_lbl_804B3A18 abeniji_fe_obj001_niji_resource_descriptor;
 extern u32 TORainbowCave01__static_model_resource;
@@ -96,7 +96,7 @@ void TORainbowCave01::init_light_params(int _w1, f32 _w2, f32 _w3) {
     f32 k = 0.0009765625f;
     *(f32 *)((s8 *)arg0 + 0xC8) = 1.0f / ((f32) this->m_84 * k + 29.999998f);
     this->m_d0 = 4e+04f + (f32) *(s32 *)&this->m_8c;
-    VecCopy__FP3VecPC3Vec((u8 *)&this->m_d4, (u8 *)&this->scale);
+    VecCopy((Vec *)&this->m_d4, (const Vec *)&this->scale);
 }
 #pragma pop
 

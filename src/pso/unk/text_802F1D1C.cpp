@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
 #include "pso/unk/TUnk_804E4B24.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TObjBoss7TunnelCol.h"
@@ -15,7 +16,6 @@ s32 copy_position__16TBoss8DragonDemoFv(int, void *);
 f32 TBoss8DragonDemo__sub_802F2CB4(int);
 f32 TBoss8DragonDemo__sub_802F2CBC(int);
 s32 func_80141618__Fv();
-s32 set_depth_buffer_settings_id__FUl(int);
 s32 draw_ginja_object(int);
 s32 is_in_camera_range__18TObjBoss7TunnelColFv(void *);
 s32 push_matrix();
@@ -37,7 +37,7 @@ void draw_tunnel_segment(u8 *arg0) {
         var_r4 = (u8 *)(*(u8 **)((s8 *)var_r30 + 0x3C));
         var_r4 += *(s32 *)((s8 *)var_r30 + 0x38) * 4;
         var_r31 = *(s32 *)((s8 *)var_r4 + (-4));
-        set_depth_buffer_settings_id__FUl((int) (2));
+        set_depth_buffer_settings_id((2));
         var_r3 = (u8 *)(lbl_805D6954);
         TObjFish::set_global_param((int) (var_r3));
         TParticleCtrl::begin_effect_render();
@@ -58,7 +58,7 @@ void draw_tunnel_segment(u8 *arg0) {
 
 void fn_802F1DAC(u8 *arg0) {
     if (((s32 (*)(void))is_in_camera_range__18TObjBoss7TunnelColFv)() != 0) {
-        set_depth_buffer_settings_id__FUl((int) (2));
+        set_depth_buffer_settings_id((2));
         TObjFish::set_global_param((int) (lbl_805D6954));
         push_matrix();
         TObjPlayer::concat_matrix((int) (0), (int) (arg0 + 0x48));
@@ -73,7 +73,7 @@ void fn_802F1DAC(u8 *arg0) {
 
 void fn_802F1E54(u8 *arg0) {
     if (((s32 (*)(void))is_in_camera_range__18TObjBoss7TunnelColFv)() != 0) {
-        set_depth_buffer_settings_id__FUl((int) (1));
+        set_depth_buffer_settings_id((1));
         TObjFish::set_global_param((int) (lbl_805D6954));
         push_matrix();
         TObjPlayer::concat_matrix((int) (0), (int) (arg0 + 0x48));

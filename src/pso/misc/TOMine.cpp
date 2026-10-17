@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/misc/TOMine.h"
 #include "pso/TParticleCtrl.h"
@@ -64,7 +65,6 @@ s32 TOMineTrap__sub_80170CD4(void *);
 int draw_ginja_object(void*);
 s32 submit_cursor_candidate(void *, int);
 int submit_target_to_player_cursor(void*);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 
 int TOMine::get_player_state() { return submit_target_to_player_cursor(this); }
@@ -99,8 +99,8 @@ void TOMine::run_task() {
         case 2:
         case 0:
             find_target_player();
-            VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x334));
-            VecCopy__FP3VecPC3Vec((void *) (*(s32 *)&this->m_a4 + 0x1C), (void *) (arg0 + 0x334));
+            VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x334));
+            VecCopy((Vec *)(*(s32 *)&this->m_a4 + 0x1C), (const Vec *)(arg0 + 0x334));
             return;
         case 3:
             temp_r3 = *(s32 *)&this->m_8c;

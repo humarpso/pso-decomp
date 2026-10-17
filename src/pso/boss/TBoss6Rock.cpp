@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TUnk_804F1280.h"
 #include "pso/boss/TBoss6Rock.h"
 #include "pso/boss/TBoss6PlotFalz.h"
@@ -109,7 +110,6 @@ extern const f32 lbl_805DFF94;
 extern const f32 lbl_805DFF9C;
 extern const f32 lbl_805DFFA0;
 extern RecoveredGlobal_80354148_TBoss6Rock__data_80479258 TBoss6Rock__data_80479258;
-void VecCopy__FP3VecPC3Vec(void *, const void *);
 extern u8 TBoss6Rock__rock_point_table[];
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
@@ -147,7 +147,7 @@ void TBoss6Rock::set_target(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f3
     u8 *arg0 = (u8 *)this;
     *(s32 *)&this->m_1c = arg1;
     if ((s32) *(s32 *)&this->m_1c != 0) {
-        VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x20)), (const void *)((void *) (arg2)));
+        VecCopy((Vec *)((void *) (arg0 + 0x20)), (const Vec *)((const void *)((void *) (arg2))));
         ((TObjPlayer *)(arg0 + 0x30))->copy_xyz((void *) (arg3));
         *(f32 *)&this->m_2c = farg0;
         *(s32 *)((s8 *)arg0 + 0x3C) = arg4;
@@ -232,10 +232,10 @@ s32 TBoss6Rock__sub_80353A14(s32 arg0, Vec_80353A14 *out, f32 *outR) {
         return 0;
     }
     r = *(f32 *)(rec + 4);
-    VecCopy__FP3VecPC3Vec(&a, TBoss6Rock__data_805D6EF8 + 0x38);
+    VecCopy((Vec *)&a, (const Vec *)(TBoss6Rock__data_805D6EF8 + 0x38));
     a.y = TBoss6Rock__data_805DFF50;
-    VecCopy__FP3VecPC3Vec(&b, &((Vec_80353A14 *)TBoss6Rock__rock_point_table)[arg0]);
-    VecCopy__FP3VecPC3Vec(&c, &b);
+    VecCopy((Vec *)&b, (const Vec *)(&((Vec_80353A14 *)TBoss6Rock__rock_point_table)[arg0]));
+    VecCopy((Vec *)&c, (const Vec *)&b);
     subtract_vector(&c, &a);
     d = vector_length(&c);
     if (d <= lbl_805DFF54) {
@@ -249,7 +249,7 @@ s32 TBoss6Rock__sub_80353A14(s32 arg0, Vec_80353A14 *out, f32 *outR) {
     c.x *= s;
     c.z *= s;
     vec3_add_to(&c, &b);
-    VecCopy__FP3VecPC3Vec(out, &c);
+    VecCopy((Vec *)out, (const Vec *)&c);
     *outR = r;
     return 1;
 }
@@ -263,7 +263,7 @@ void TBoss6Rock::break_rocks_in_radius(f32 r) {
         p = (R_80353B7C *)TBoss6Rock::get_rock_entry(i);
         if (p != NULL && ((s32 (*)(s32))is_rock_state_2__10TBoss6RockFi)(i) != 0 && !(((Vec_80353B7C *)this)->y > r + p->f8)) {
             f32 lim = r + p->f4;
-            VecCopy__FP3VecPC3Vec(&v, &((Vec_80353B7C *)TBoss6Rock__rock_point_table)[i]);
+            VecCopy((Vec *)&v, (const Vec *)(&((Vec_80353B7C *)TBoss6Rock__rock_point_table)[i]));
             subtract_vector(&v, ((Vec_80353B7C *)this));
             v.y = TBoss6Rock__data_805DFF50;
             if (vector_length(&v) <= lim) {
@@ -282,7 +282,7 @@ s32 TBoss6Rock::push_out_of_rocks(f32 r) {
     hit = 0;
     for (i = 0; i < 0x20; i++) {
         f32 d;
-        VecCopy__FP3VecPC3Vec(&v, ((Vec_80353C60 *)this));
+        VecCopy((Vec *)&v, (const Vec *)((Vec_80353C60 *)this));
         subtract_vector(&v, &((Vec_80353C60 *)TBoss6Rock__rock_point_table)[i]);
         v.y = y;
         d = vector_length(&v);
@@ -306,7 +306,7 @@ s32 TBoss6Rock::get_point(s32 arg0, s32 arg1, f32 *arg2) {
         return 0;
     }
     temp_r5 = arg0 * 0xC;
-    VecCopy__FP3VecPC3Vec((void *)((void *) (arg1)), (const void *)((void *) ((u8 *)(&TBoss6Rock__rock_point_table) + temp_r5)));
+    VecCopy((Vec *)((void *) (arg1)), (const Vec *)((const void *)((void *) ((u8 *)(&TBoss6Rock__rock_point_table) + temp_r5))));
     *(f32 *)((s8 *)arg2 + 0) = *(f32 *)((s8 *)(TBoss6Rock::get_rock_entry(arg0)) + 4);
     return 1;
 }
@@ -386,7 +386,7 @@ void TBoss6Rock::sub_80353F5C() {
  do { } while (0);
   if (o->h == 0)
   {
-    VecCopy__FP3VecPC3Vec(&blk.v1, ((u8 *) o) + 0xD4);
+    VecCopy((Vec *)&blk.v1, (const Vec *)(((u8 *) o) + 0xD4));
     ((TObjPlayer *)(&blk.v2))->copy_xyz(lbl_80479280);
     new_var2 = (u8 *) ((Elem_80353F5C *)&TBoss6Rock__data_80479258);
     new_var2 = (o->idx * 0x14) + new_var2;
@@ -409,7 +409,7 @@ void TBoss6Rock::randomize_motion() {
     this->rotation_y = (s32) (lbl_805DFF70 * (lbl_805DFF6C * (f32) rand()));
     this->rotation_z = (s32) (lbl_805DFF68 * ((lbl_805DFF6C * (f32) rand()) - TBoss6Rock__data_805DFF4C));
     this->m_d0 = (s32) (lbl_805DFF74 * ((lbl_805DFF6C * (f32) rand()) - TBoss6Rock__data_805DFF4C));
-    VecCopy__FP3VecPC3Vec((void *)((void *) ((u8 *)(arg0) + 0x38)), (const void *)((void *) ((u8 *)(arg0) + 0xD4)));
+    VecCopy((Vec *)((void *) ((u8 *)(arg0) + 0x38)), (const Vec *)((const void *)((void *) ((u8 *)(arg0) + 0xD4))));
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805DFF78;
 }
 #pragma pop

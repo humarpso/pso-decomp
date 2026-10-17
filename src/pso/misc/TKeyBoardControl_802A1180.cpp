@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/main_loop.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/misc/TUnk_804DCB64.h"
@@ -16,8 +17,6 @@ s32 request_queued_main_phase();
 s32 TKeyBoardControl__sub_8000F9CC(int);
 s32 process_async_file_reads();
 s8 func_801A5E54__Fv();
-s32 controller_stuff__Fv();
-s32 render_tick__Fv();
 s32 update_sound_request_slots();
 s32 render_screen_overlay__9TMainTaskFv(void *);
 s32 some_empty_func__9TMainTaskFv(void *);
@@ -43,7 +42,7 @@ extern u8 opening_movie_purpose;
 typedef char RecoveredGlobal_802A1180_main_task_size[sizeof(RecoveredGlobal_802A1180_main_task) == 0x34 ? 1 : -1];
 void update_movie_phase(void) {
     s32 *var_r3;
-    controller_stuff__Fv();
+    controller_stuff();
     TKeyBoardControl::update_input_frame();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_802A1180_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_802A1180_main_task *)&main_task).value);
@@ -70,7 +69,7 @@ void update_movie_phase(void) {
         var_r3 = (s32 *)((u8 *)(NULL));
         TKeyBoardControl__sub_8000F9CC((int) (0));
     }
-    render_tick__Fv();
+    render_tick();
 }
 
 void TKeyBoardControl::update_menu_scene() {
@@ -93,7 +92,7 @@ void TKeyBoardControl::update_menu_scene() {
     if (__nw__7TObjectFUl(0x24) != 0U) {
         create_opening_movie_sequence();
     }
-    render_tick__Fv();
+    render_tick();
 }
 
 void TUnk_804DCB64::render() {  }

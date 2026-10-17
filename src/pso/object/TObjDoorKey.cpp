@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjDoorJung.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/system/BmlResourceDescriptor.h"
@@ -65,7 +66,6 @@ struct Key_8018FCD8 { u8 pad0[0x38]; u8 f38[0x28]; s32 f60; u8 pad64[0x28]; s32 
 struct Vec_80190020 { f32 x, y, z; };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void debug_draw_key_id__5TOKeyFv();
 void debug_printf_at(int, void *, ...);
 extern u8 lbl_804456C8[];
@@ -204,7 +204,7 @@ s32 TObjDoorKey::draw_inactive_badge() {
 void TObjDoorKey::debug_draw_key_id() {
     Key_8018FD9C *arg0 = (Key_8018FD9C *)this;
     debug_draw_key_id__5TOKeyFv();
-    VecCopy__FP3VecPC3Vec(&arg0->f74, arg0->f38);
+    VecCopy((Vec *)&arg0->f74, (const Vec *)arg0->f38);
     arg0->f78 = arg0->f78 + lbl_805DBE08;
     TObjNpcEnemy::set_global_count(0xFF00FF);
     debug_printf_at(0x130022, lbl_804456C8, arg0->f8C);

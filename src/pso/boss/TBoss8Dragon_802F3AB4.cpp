@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TUnk_804E4BF0.h"
 
 extern "C" {
@@ -15,7 +16,6 @@ extern void *boss8_dragon_leader_part;
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 s32 setup_attack_slot__12TBoss8DragonFiUiiiPv(s32 arg0, u32 arg1, s32 arg2, s32 arg3, u8 *arg4);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 
 #include "pso/boss/TBoss8Dragon.h"
 
@@ -29,7 +29,7 @@ s32 setup_attack_slot__12TBoss8DragonFiUiiiPv(s32 arg0, u32 arg1, s32 arg2, s32 
     *(s16 *)((s8 *)arg4 + 2) = 0;
     *(s16 *)((s8 *)arg4 + 6) = ((TBoss8Dragon *)arg0)->get_part_count_plus((s32)((void *) (arg3)));
     if (arg1 != 0U) {
-        VecCopy__FP3VecPC3Vec((void *) (arg4 + 0x10), (void *) (arg1));
+        VecCopy((Vec *)(arg4 + 0x10), (const Vec *)(arg1));
     }
     *(s32 *)((s8 *)arg4 + 0x20) = arg2;
     return 1;

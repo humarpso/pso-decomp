@@ -1,5 +1,6 @@
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "pso/item/TItemMagSub.h"
+#include "pso/system/byteswap.h"
 #include "pso/TItemAttacker.h"
 #include "pso/TItemLoad.h"
 #include "pso/TObject.h"
@@ -1521,7 +1522,6 @@ void TObjPlayer__sub_8036414C();
 void TItemMag__vt24(Self_801135E0 *self);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 int fn_800F955C(void *p);
-int bswap_32__FPUl(void *);
 extern u8 lbl_8043E568[];
 extern u8 lbl_8043E57C[];
 extern int item_mag_type_id;
@@ -1801,23 +1801,23 @@ void TItemMag::load_data_files() {
     item_mag_param_table = fn_800F955C(lbl_8043E568);
     rec = (Rec_80113B6C *)item_mag_param_table;
     for (i = 0; i < 0x5A; i++, rec++) {
-        bswap_32__FPUl(&rec->f0);
-        bswap_32__FPUl(&rec->f8);
-        bswap_32__FPUl(&rec->f10);
-        bswap_32__FPUl(&rec->f14);
-        bswap_32__FPUl(&rec->f18);
-        bswap_32__FPUl(&rec->f1C);
-        bswap_32__FPUl(&rec->f20);
-        bswap_32__FPUl(&rec->f24);
-        bswap_32__FPUl(&rec->f28);
-        bswap_32__FPUl(&rec->f2C);
-        bswap_32__FPUl(&rec->f30);
+        bswap_32(&rec->f0);
+        bswap_32(&rec->f8);
+        bswap_32(&rec->f10);
+        bswap_32(&rec->f14);
+        bswap_32(&rec->f18);
+        bswap_32(&rec->f1C);
+        bswap_32(&rec->f20);
+        bswap_32(&rec->f24);
+        bswap_32(&rec->f28);
+        bswap_32(&rec->f2C);
+        bswap_32(&rec->f30);
         g = rec->g;
         for (j = 0; j < 3; j++, g++) {
-            bswap_32__FPUl(&g->a);
-            bswap_32__FPUl(&g->b);
-            bswap_32__FPUl(&g->c);
-            bswap_32__FPUl(&g->d);
+            bswap_32(&g->a);
+            bswap_32(&g->b);
+            bswap_32(&g->c);
+            bswap_32(&g->d);
         }
     }
     type = NULL;

@@ -1,4 +1,5 @@
 #include "pso/ui/TAdChrSelSlotGC.h"
+#include "pso/render/depth_buffer.h"
 #include "pso/ui/TUnk_804E0B28.h"
 
 #include "types.h"
@@ -131,7 +132,6 @@ s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 s32 set_cached_blend_factor(s32, s32);
 s32 restore_saved_depth_alpha_state();
-s32 set_depth_buffer_settings_2__Fv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 void TUnk_804E0B28::render() {  }
@@ -234,7 +234,7 @@ void TAdChrSelSlotGC::render() {
         goto block_5;
     }
     if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) {
-        set_depth_buffer_settings_2__Fv();
+        set_depth_buffer_settings_2();
 block_5:
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 0xA);

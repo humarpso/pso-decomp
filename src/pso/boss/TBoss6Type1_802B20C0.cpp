@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss6Type1.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss6PlotFalz.h"
@@ -81,7 +82,6 @@ struct Params_802B49A4 {
 
 typedef char RecoveredGlobal_802B3BEC_lbl_80470CE0_size[sizeof(RecoveredGlobal_802B3BEC_lbl_80470CE0) == 0xC ? 1 : -1];
 
-void VecCopy__FP3VecPC3Vec(void *, void *);
 int queue_destruction__7TObjectFv(void*);
 s32 play_persistent_sound(int, void *, void *, int, int);
 s32 play_sound_effect(s32, void *, s32, s32);
@@ -243,7 +243,7 @@ void TBoss6Type1::update_state() {
 void TBoss6Type1::reset_effects() {
     *(s32 *)((s8 *)((u8 *)this) + 0x40C) = 0x1E;
     *(s32 *)((s8 *)((u8 *)this) + 0x410) = 0x1E;
-    VecCopy__FP3VecPC3Vec(((u8 *)this) + 0x420, &(*(RecoveredGlobal_802B2400_lbl_80470CA4 *)&lbl_80470CA4).value);
+    VecCopy((Vec *)(((u8 *)this) + 0x420), (const Vec *)(&(*(RecoveredGlobal_802B2400_lbl_80470CA4 *)&lbl_80470CA4).value));
     ((TBoss6Type1 *)((u8 *)this))->release_effect_slot((s32)((void*)(0)));
     ((TBoss6Type1 *)((u8 *)this))->release_effect_slot((s32)((void*)(1)));
 }
@@ -262,7 +262,7 @@ void TBoss6Type1__sub_802B245C(void *arg0) {
 void TBoss6Type1__sub_802B24B4(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x40C) = 0x1E;
     *(s32 *)((s8 *)arg0 + 0x410) = 0x1E;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x420, &lbl_80470CB0.value);
+    VecCopy((Vec *)(arg0 + 0x420), (const Vec *)&lbl_80470CB0.value);
     ((TBoss6Type1 *)arg0)->release_effect_slot((s32)((void*)(0)));
     ((TBoss6Type1 *)arg0)->release_effect_slot((s32)((void*)(1)));
 }
@@ -293,7 +293,7 @@ void TBoss6Type1::update_attack_timer() {
 void init_work__11TBoss6Type1FPv(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x40C) = 0x3C;
     *(s32 *)((s8 *)arg0 + 0x410) = 0x3C;
-    VecCopy__FP3VecPC3Vec((void *)(arg0 + 0x420), (void *)(lbl_80470CA4));
+    VecCopy((Vec *)(arg0 + 0x420), (const Vec *)(lbl_80470CA4));
     ((int (*)(void*, void*, void*, void*))play_sound_effect)((void*)((int)(0x39403)), (void*)((void *)(arg0 + 0x584)), (void*)((int)(0)), (void*)((int)(1)));
     ((int (*)(void*, void*, void*, void*))play_sound_effect)((void*)((int)(0x4003A811)), (void*)((void *)(arg0 + 0x38)), (void*)((int)(0)), (void*)((int)(1)));
     ((TBoss6Type1 *)arg0)->release_effect_slot((s32)((void*)((int)(0))));
@@ -334,9 +334,9 @@ void TBoss6Type1__sub_802B2724(u8 *arg0) {
     s32 temp_r4;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x410);
     if (temp_r0 == 0x4A) {
-        VecCopy__FP3VecPC3Vec(arg0 + 0x420, &lbl_804DF4C4.value);
+        VecCopy((Vec *)(arg0 + 0x420), (const Vec *)&lbl_804DF4C4.value);
     } else if (temp_r0 == 0x3B) {
-        VecCopy__FP3VecPC3Vec(arg0 + 0x420, &lbl_804DF4D0.value);
+        VecCopy((Vec *)(arg0 + 0x420), (const Vec *)&lbl_804DF4D0.value);
     }
     temp_r4 = *(s32 *)((s8 *)arg0 + 0x410);
     if (temp_r4 <= 0x4A) {
@@ -442,7 +442,7 @@ void TBoss6Type1__sub_802B2A94(u8 *arg0) {
         if (temp_r0 == 0x46) {
             ((TBoss6Type1 *)arg0)->set_motion_set((s32)(7));
         } else if (temp_r0 == 0xF) {
-            VecCopy__FP3VecPC3Vec(arg0 + 0x420, &lbl_80470C98.value);
+            VecCopy((Vec *)(arg0 + 0x420), (const Vec *)&lbl_80470C98.value);
         }
     }
     play_persistent_sound((int)(0x4003B012), (void *)((s32) arg0), (void *)((u32) (arg0 + 0x38)), (int)(0), (int)(0));
@@ -457,7 +457,7 @@ void TBoss6Type1::init_params() {
     spawn_grav_ball();
     *(u32 *)((s8 *)this + 0x40C) = 300;
     *(u32 *)((s8 *)this + 0x410) = 300;
-    VecCopy__FP3VecPC3Vec((void *)((void *)((char *)this + 1056)), (void *)(lbl_80470C8C));
+    VecCopy((Vec *)((void *)((char *)this + 1056)), (const Vec *)(lbl_80470C8C));
     spawn_effect_slot((s32)((void*)(0)));
     release_effect_slot((s32)((void*)(1)));
 }
@@ -482,7 +482,7 @@ void TBoss6Type1::trigger_falz_phase() {
 void TBoss6Type1__sub_802B2CB4(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x40C) = 0x1E;
     *(s32 *)((s8 *)arg0 + 0x410) = 0x1E;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x420, &(*(RecoveredGlobal_802B2CB4_lbl_80470C74 *)&lbl_80470C74).value);
+    VecCopy((Vec *)(arg0 + 0x420), (const Vec *)(&(*(RecoveredGlobal_802B2CB4_lbl_80470C74 *)&lbl_80470C74).value));
     ((TBoss6Type1 *)arg0)->spawn_effect_slot((s32)((void*)(0)));
     ((TBoss6Type1 *)arg0)->release_effect_slot((s32)((void*)(1)));
 }
@@ -501,7 +501,7 @@ void TBoss6Type1::tick_flee_countdown() {
 void TBoss6Type1__sub_802B2D68(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x40C) = 0x1E;
     *(s32 *)((s8 *)arg0 + 0x410) = 0x1E;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x420, &lbl_80470C80.value);
+    VecCopy((Vec *)(arg0 + 0x420), (const Vec *)&lbl_80470C80.value);
     ((TBoss6Type1 *)arg0)->spawn_effect_slot((s32)((void*)(0)));
     ((TBoss6Type1 *)arg0)->release_effect_slot((s32)((void*)(1)));
 }
@@ -520,7 +520,7 @@ void TBoss6Type1::update_timer_transition() {
 void TBoss6Type1::init_state() {
     *(s32 *)((s8 *)((u8 *)this) + 0x40C) = 0x3C;
     *(s32 *)((s8 *)((u8 *)this) + 0x410) = 0x3C;
-    VecCopy__FP3VecPC3Vec((void *)(((u8 *)this) + 0x420), (void *)(lbl_80470C74));
+    VecCopy((Vec *)(((u8 *)this) + 0x420), (const Vec *)(lbl_80470C74));
     ((int (*)(void*, void*, void*, void*))play_sound_effect)((void*)(0x39403), (void*)(((u8 *)this) + 0x584), (void*)(0), (void*)(1));
     ((int (*)(void*, void*, void*, void*))play_sound_effect)((void*)(0x4003A811), (void*)(((u8 *)this) + 0x38), (void*)(0), (void*)(1));
     ((TBoss6Type1 *)((u8 *)this))->release_effect_slot((s32)((void*)(0)));
@@ -898,7 +898,7 @@ void TBoss6Type1__sub_802B3B94(void *arg0) {
 
 void TBoss6Type1::init_effect_slot_1() {
     u8 *arg0 = (u8 *)this;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x420, &lbl_80470CE0.value);
+    VecCopy((Vec *)(arg0 + 0x420), (const Vec *)&lbl_80470CE0.value);
     *(s32 *)((s8 *)arg0 + 0x40C) = 0x5A;
     *(s32 *)((s8 *)arg0 + 0x410) = 0x5A;
     ((TBoss6Type1 *)arg0)->spawn_effect_slot((s32)((void*)(1)));
@@ -928,7 +928,7 @@ void TBoss6Type1::spawn_map_csn() {
     u8 *arg0 = (u8 *)this;
     Params_802B49A4 prm;
     Vec_802B49A4 tmp;
-    VecCopy__FP3VecPC3Vec(&prm.pos, arg0 + 0x38);
+    VecCopy((Vec *)&prm.pos, (const Vec *)(arg0 + 0x38));
     push_matrix();
     set_matrix_identity(0);
     rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
@@ -940,7 +940,7 @@ void TBoss6Type1::spawn_map_csn() {
     prm.a = 0;
     prm.b = *(s32 *)((s8 *)arg0 + 0x60);
     prm.c = 0;
-    VecCopy__FP3VecPC3Vec(&prm.rot, lbl_8047102C);
+    VecCopy((Vec *)&prm.rot, (const Vec *)lbl_8047102C);
     prm.d = 2;
     prm.e = 0;
     *(s32 *)((s8 *)arg0 + 0x680) = TObjMapCsn::create((s32)(&prm));

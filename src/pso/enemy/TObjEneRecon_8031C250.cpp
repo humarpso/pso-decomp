@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneGibbles.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -705,7 +706,6 @@ s32 approach_angle_limited(s32, s32, s32);
 extern const f32 lbl_805DF3F8;
 void TObjEneRecon__sub_8031CCFC(u8 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805DF3E8;
 extern const f32 lbl_805DF3EC;
 extern const f32 lbl_805DF3F0;
@@ -790,7 +790,7 @@ void TObjEneRecon__sub_8031C920(u8 *arg0, s32 arg1) {
                 F(s32, 0x3D8) += 0x380;
                 break;
             }
-            VecCopy__FP3VecPC3Vec(arg0 + 0x44C, arg0 + 0x3A0);
+            VecCopy((Vec *)(arg0 + 0x44C), (const Vec *)(arg0 + 0x3A0));
             set_flag2__12TObjEneReconFv(arg0, F(f32, 0x44C), F(f32, 0x454), r);
             F(f32, 0x448) = approach_value__12TObjEneReconFff(arg0, F(f32, 0x448), F(f32, 0x398) + h);
             ((TObjEneRecon *)arg0)->clamp_min_height();

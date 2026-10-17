@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss5GryphonShockWave.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -26,7 +27,6 @@ void TBoss8Dragon__sub_80066A4C(void);
 void *__dt__22TBoss5GryphonShockWaveFv(void *arg0, s16 arg1);
 s32 vec3_add_to(void *, s32);
 s32 subtract_vector(void *, void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -103,16 +103,16 @@ u8 *TBoss5GryphonShockWave__ct(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8
     __ct__7TObjectFP7TObject(arg0, arg1_parent);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TBoss5GryphonShockWave;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2818;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x40, arg3);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x50, arg3);
+    VecCopy((Vec *)(arg0 + 0x40), (const Vec *)arg3);
+    VecCopy((Vec *)(arg0 + 0x50), (const Vec *)arg3);
     vec3_add_to(arg0 + 0x50, arg5);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x60, arg4);
+    VecCopy((Vec *)(arg0 + 0x60), (const Vec *)arg4);
     *(f32 *)((s8 *)arg0 + 0x64) = (f32) lbl_805D8EEC;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x2C, arg0 + 0x40);
+    VecCopy((Vec *)(arg0 + 0x2C), (const Vec *)(arg0 + 0x40));
     *(s16 *)((s8 *)arg0 + 0x28) = arg6;
     *(s32 *)((s8 *)arg0 + 0x38) = arg2;
     *(s32 *)((s8 *)arg0 + 0x3C) = 0;
-    VecCopy__FP3VecPC3Vec(sp8, arg0 + 0x2C);
+    VecCopy((Vec *)sp8, (const Vec *)(arg0 + 0x2C));
     subtract_vector(sp8, arg4);
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) (lbl_805D8EF0 * ((TObjBoss2Tunnel *)sp8)->update_scale());
     if ((s32) *(s32 *)((s8 *)arg0 + 0x24) < 0x1E) {

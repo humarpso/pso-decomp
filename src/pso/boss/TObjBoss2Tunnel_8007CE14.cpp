@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/TAdPlayerLoadGC.h"
 
 extern "C" {
-void xfree__FPv(void *);
 s32 TObjPlayer__sub_80084694();
 extern u8 *boss2_tunnel_snapshot_buffer;
 extern u8 *TObjBoss2Tunnel__snapshot_buffer;
@@ -43,12 +43,12 @@ block_9:
 void TObjBoss2Tunnel::free_buffers() {
     TObjBoss2Tunnel__snapshot_saved_flag = 0;
     if ((void *) boss2_tunnel_snapshot_buffer != NULL) {
-        xfree__FPv(boss2_tunnel_snapshot_buffer);
+        xfree(boss2_tunnel_snapshot_buffer);
         boss2_tunnel_snapshot_buffer = NULL;
     }
     TObjPlayer__sub_80084694();
     if ((void *) TObjBoss2Tunnel__snapshot_buffer != NULL) {
-        xfree__FPv(TObjBoss2Tunnel__snapshot_buffer);
+        xfree(TObjBoss2Tunnel__snapshot_buffer);
         TObjBoss2Tunnel__snapshot_buffer = NULL;
     }
 }

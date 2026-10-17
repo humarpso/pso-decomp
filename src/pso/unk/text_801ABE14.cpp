@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_804C3248.h"
 #include "pso/misc/TPhotonGolla.h"
 #include "pso/object/TObjMotion.h"
@@ -10,7 +11,6 @@ struct Stack_801ABE14 { f32 x, y, z; };
 
 extern "C" {
 u8 *photon_base_ct(void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
 s32 init_collision_body_parts(void *, void *, int);
@@ -69,7 +69,7 @@ u8 *TPhotonGolla__ct(u8 *arg0, u8 *arg1) {
     *(u8 **)((s8 *)arg0 + 0x18) = (u8 *)lbl_804C35F4;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D34E8;
     *(s32 *)((s8 *)arg0 + 0x138) = 2;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg1);
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)arg1);
     *(u16 *)((s8 *)arg0 + 0x158) = *(u16 *)((s8 *)arg1 + 0xC);
     init_collision_body_parts(arg0, (u8 *)lbl_804C35C8, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
@@ -126,7 +126,7 @@ u8 *TPhotonGolla__ct(u8 *arg0, u8 *arg1) {
         *(s32 *)((s8 *)arg0 + 0x1C4) = 1;
         e = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x158));
         if (e != NULL) {
-            VecCopy__FP3VecPC3Vec(&pos, e + 0x38);
+            VecCopy((Vec *)&pos, (const Vec *)(e + 0x38));
         }
         pos.y += lbl_805DC1A0;
         p = __nw__7TObjectFUl(0xD0);

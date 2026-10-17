@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjDFDemo3.h"
 #include "pso/object/TObjDFDemo2.h"
 #include "pso/boss/TBoss4DarkFalz.h"
@@ -63,7 +64,6 @@ struct Obj_8004EB78 {
     f32 c0;
 };
 struct Pose_8004EB78 { s32 a; s32 b; s32 c; };
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
@@ -184,7 +184,7 @@ void *TObjDFDemo2__ct(void *arg0, void *parent, void *arg2, void *arg3, void *ar
     construct_world_actor_base(self, parent);
     self->vt18 = (u8 *)__vt__11TObjDFDemo2;
     self->vt0 = (s32) TObjDFDemo2__name;
-    VecCopy__FP3VecPC3Vec(self->pos, arg2);
+    VecCopy((Vec *)self->pos, (const Vec *)arg2);
     self->b8 = arg3;
     self->a8 = arg4;
     cnt = TBoss4Uro::get_instance_count();

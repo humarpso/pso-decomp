@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneGibbles.h"
 #include "pso/misc/TTecZonde.h"
 #include "pso/enemy/TObjEneLappy.h"
@@ -492,7 +493,6 @@ extern const f32 lbl_805D9C34;
 extern const f32 lbl_805D9C38;
 u16 find_nearest_visible_player(void *, int, f32);
 s32 check_path_obstructed(void *, void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
 s32 obj_testFlags30(void *, int);
 s32 obj_getField1c(void *);
@@ -691,7 +691,7 @@ void update_attack_jump__11TObjEneMojaFv(Obj_800ACFE8 *arg0) {
                 if (select_enemy_destination(arg0, (Vec_800AE18C *)&dest, 1) != 0) {
                     Vec_800ACFE8 pos = arg0->f2FC;
                     copy_position_if_valid__10TObjPlayerFii(arg0, (Vec_800AE18C *)&pos);
-                    VecCopy__FP3VecPC3Vec(&delta, &arg0->f29C);
+                    VecCopy((Vec *)&delta, (const Vec *)&arg0->f29C);
                     subtract_vector(&delta, &arg0->f2FC);
                     arg0->f378 = lbl_805D9BF8 + newton_sqrtf(delta.x * delta.x + delta.z * delta.z);
                     arg0->f378 = arg0->f378 / (lbl_805D9C04 / arg0->fC8);
@@ -795,7 +795,7 @@ s32 TObjEneMoja::update_technique_state(void *self_800AD3D8) {
                 enemy_set_heading_velocity(self, self->rot_y, self->info->speed);
                 move_with_wall_slide(self);
             } else {
-                VecCopy__FP3VecPC3Vec(&dir, &self->target->pos);
+                VecCopy((Vec *)&dir, (const Vec *)&self->target->pos);
                 subtract_vector(&dir, &self->pos);
                 a = update_angle__10TObjPlayerFlPv(self, self->info->turn, &dir);
             }
@@ -818,7 +818,7 @@ s32 TObjEneMoja::update_technique_state(void *self_800AD3D8) {
             pop_matrices(1);
             ((void (*)(void *, void *))vec3_add_to)(&pos, &self->pos);
             if (self->target != NULL) {
-                VecCopy__FP3VecPC3Vec(&dir, &self->target->pos);
+                VecCopy((Vec *)&dir, (const Vec *)&self->target->pos);
                 subtract_vector(&dir, &self->pos);
                 ang2 = update_angle__10TObjPlayerFlPv(self, self->info->turn, &dir);
             } else {
@@ -1208,7 +1208,7 @@ void update_appearance_drop__11TObjEneMojaFv(Moja_800AE450 *self) {
     switch (self->phase) {
     case 0:
     default:
-        VecCopy__FP3VecPC3Vec(&lbl_8050BEE0, &self->home);
+        VecCopy((Vec *)&lbl_8050BEE0, (const Vec *)&self->home);
         subtract_vector(&lbl_8050BEE0, &self->pos);
         self->angle = approach_angle_limited(self->angle,
             (s32)(lbl_8043B0C8[0] * atan2_float(lbl_8050BEE0.x, lbl_8050BEE0.z)),
@@ -1220,8 +1220,8 @@ void update_appearance_drop__11TObjEneMojaFv(Moja_800AE450 *self) {
         if (objInBand__FP7GameObjf(self, lbl_805D9C00) == 0) {
             return;
         }
-        VecCopy__FP3VecPC3Vec(&self->dest, &self->home);
-        VecCopy__FP3VecPC3Vec(&self->from, &self->pos);
+        VecCopy((Vec *)&self->dest, (const Vec *)&self->home);
+        VecCopy((Vec *)&self->from, (const Vec *)&self->pos);
         self->speed = newton_sqrtf(lbl_8050BEE0.x * lbl_8050BEE0.x + lbl_8050BEE0.z * lbl_8050BEE0.z);
         ticks = lbl_805D9C04 / self->fC8;
         self->speed = self->speed / ticks;
@@ -1296,15 +1296,15 @@ void update_appearance_jump__11TObjEneMojaFv(Moja_800AE7F4 *self) {
         rotate_matrix_y(0, self->angle);
         ((s32 (*)(int, void *, void *))rotate_vector_by_matrix)(0, &off, &off);
         pop_matrices(1);
-        VecCopy__FP3VecPC3Vec(&tmp, &self->home);
+        VecCopy((Vec *)&tmp, (const Vec *)&self->home);
         subtract_vector(&tmp, &off);
-        VecCopy__FP3VecPC3Vec(&self->pos, &tmp);
+        VecCopy((Vec *)&self->pos, (const Vec *)&tmp);
         if (objInBand__FP7GameObjf(self, lbl_805D9C00) == 0) {
             return;
         }
-        VecCopy__FP3VecPC3Vec(&self->dest, &self->home);
-        VecCopy__FP3VecPC3Vec(&self->from, &self->pos);
-        VecCopy__FP3VecPC3Vec(&delta, &self->dest);
+        VecCopy((Vec *)&self->dest, (const Vec *)&self->home);
+        VecCopy((Vec *)&self->from, (const Vec *)&self->pos);
+        VecCopy((Vec *)&delta, (const Vec *)&self->dest);
         subtract_vector(&delta, &self->pos);
         self->angle = (s32)(lbl_8043B0C8[0] * atan2_float(delta.x, delta.z));
         self->speed = newton_sqrtf(delta.x * delta.x + delta.z * delta.z);
@@ -1484,7 +1484,7 @@ void acquire_target__11TObjEneMojaFPv(u8 *arg0) {
                 if ((u16)id < 0x4000 && (u16)id != *(u16 *)((s8 *)arg0 + 0x1C) && !(*(s32 *)((s8 *)p + 0x30) & 0x02000800)) {
                     f32 xx;
                     f32 zz;
-                    VecCopy__FP3VecPC3Vec(&v, p + 0x2FC);
+                    VecCopy((Vec *)&v, (const Vec *)(p + 0x2FC));
                     subtract_vector(&v, arg0 + 0x2FC);
                     xx = v.x * v.x;
                     zz = v.z * v.z;

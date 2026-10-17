@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 #include "pso/misc/TUnk_804DDD28.h"
 #include "pso/misc/TFontSmallLobby.h"
 #include "pso/misc/TLobby.h"
@@ -25,10 +26,8 @@ void __copy(void *, void *, int);
 void *TFontSmallLobby__sub_801C01DC(void *arg0, void *arg1);
 void TFontSmallLobby__sub_801C029C(void* p);
 int TLobby__send_and_handle_60(void*);
-int bswap_16__FPUs(void*);
 void* TFontSmallLobby__sub_801C030C(void* p, void* a1);
 void TFontSmallLobby__sub_801C0378(void* p);
-int bswap_32__FPUl(void*);
 void TFontSmallLobby__sub_801C0438(void* p);
 void TFontSmallLobby__sub_801C044C(void* p);
 void TFontSmallLobby__sub_801C0480(void* p);
@@ -84,7 +83,7 @@ void TFontSmallLobby::init_packet_6x9b_level_up() {
 
 void TFontSmallLobby__sub_801C029C(void* p) { TFontSmallLobby__sub_801C01BC((void*)(p)); TLobby__send_and_handle_60(p); }
 
-void TFontSmallLobby::bswap_battle_damage_packet() { read_be16_field2__10TObjPlayerFv(this); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); }
+void TFontSmallLobby::bswap_battle_damage_packet() { read_be16_field2__10TObjPlayerFv(this); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); }
 
 void* TFontSmallLobby__sub_801C030C(void* p, void* a1) { TFontSmallLobby__sub_801C0228(p, a1); *(short*)((char*)p + 0x4) = *(unsigned short*)((char*)a1 + 0x4); *(short*)((char*)p + 0x6) = *(short*)((char*)a1 + 0x6); return p; }
 
@@ -98,7 +97,7 @@ void TFontSmallLobby::init_packet_6x8f_battle_damage() {
 
 void TFontSmallLobby__sub_801C0378(void* p) { ((TFontSmallLobby *)p)->bswap_battle_damage_packet(); ((TLobby *)p)->send_60_sized(); }
 
-void TFontSmallLobby::bswap_6x90_set_player_battle_team() { read_be16_field2__10TObjPlayerFv((void*)(this)); bswap_32__FPUl((char*)this + 0x4); }
+void TFontSmallLobby::bswap_6x90_set_player_battle_team() { read_be16_field2__10TObjPlayerFv((void*)(this)); bswap_32((u32 *)((char*)this + 0x4)); }
 
 void *TFontSmallLobby__sub_801C03E0(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228(arg0, arg1);
@@ -146,9 +145,9 @@ void fn_801C0644(void* p) { TFontSmallLobby__sub_801C01BC((void*)(p)); TLobby__s
 
 void TObjPlayer::bswap_change_hp_packet() {
     read_be16_field2__10TObjPlayerFv((void*)(this));
-    bswap_32__FPUl((void*)((void *)((char *)this + 4)));
-    bswap_16__FPUs((void*)((void *)((char *)this + 8)));
-    bswap_16__FPUs((void*)((void *)((char *)this + 10)));
+    bswap_32((u32 *)((void *)((char *)this + 4)));
+    bswap_16((u16 *)((void *)((char *)this + 8)));
+    bswap_16((u16 *)((void *)((char *)this + 10)));
 }
 
 void *TObjPlayer__sub_801C06BC(void *arg0, void *arg1) {
@@ -172,10 +171,10 @@ void TObjPlayer__sub_801C0734(void* p) { ((TObjPlayer *)p)->bswap_change_hp_pack
 
 void TObjPlayer::byteswap_packet_body() {
     read_be16_field2__10TObjPlayerFv((void*)(this));
-    bswap_32__FPUl((void*)((void *)((char *)this + 4)));
-    bswap_32__FPUl((void*)((void *)((char *)this + 8)));
-    bswap_32__FPUl((void*)((void *)((char *)this + 12)));
-    bswap_32__FPUl((void*)((void *)((char *)this + 16)));
+    bswap_32((u32 *)((void *)((char *)this + 4)));
+    bswap_32((u32 *)((void *)((char *)this + 8)));
+    bswap_32((u32 *)((void *)((char *)this + 12)));
+    bswap_32((u32 *)((void *)((char *)this + 16)));
 }
 u8 *TObjPlayer__sub_801C07B4(u8 *arg0, u8 *arg1) {
     TFontSmallLobby__sub_801C0228(arg0, arg1);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss4DarkFalz.h"
 #include "pso/object/TObjOnlineEnding.h"
 #include "pso/TParticleCtrl.h"
@@ -215,7 +216,6 @@ extern "C" {
 u32 get_player_by_client_id(u16);
 s32 activate_camera_mode(s32);
 s32 set_active_camera_pose_from_params(Cam_802E4E44 *);
-void VecCopy__FP3VecPC3Vec(Vec_802E4E44 *, const Vec_802E4E44 *);
 s32 queue_destruction__7TObjectFv(void *);
 extern Vec_802E4E44 lbl_80472B9C;
 extern Vec_802E4E44 lbl_80472BA8;
@@ -332,8 +332,8 @@ void TObjOnlineEnding::run_task() {
         Vec_802E4E44 t1 = lbl_80472B9C;
         Vec_802E4E44 t2 = lbl_80472BA8;
         Cam_802E4E44 cam;
-        VecCopy__FP3VecPC3Vec(&cam.a, &t1);
-        VecCopy__FP3VecPC3Vec(&cam.b, &t2);
+        VecCopy((Vec *)&cam.a, (const Vec *)&t1);
+        VecCopy((Vec *)&cam.b, (const Vec *)&t2);
         cam.f14 = 0x1999;
         set_active_camera_pose_from_params(&cam);
         arg0->state = 2;

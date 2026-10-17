@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TPhotonMagicSquare.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
@@ -145,7 +146,6 @@ struct RecoveredGlobal_801AD330_TPhotonMagicSquare__data_804C3940 { s32 value; u
 struct RecoveredGlobal_801AD330___vt__18TPhotonMagicSquare { s32 value; u8 remaining[0x34]; };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 construct_world_actor_base(void *);
 extern RecoveredGlobal_801AD0F0_TPhotonMagicSquare__data_804C3940 TPhotonMagicSquare__color_palette;
 extern RecoveredGlobal_801AD0F0___vt__18TPhotonMagicSquare __vt__18TPhotonMagicSquare;
@@ -183,7 +183,7 @@ u8 *TPhotonMagicSquare__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32
     *(f32 *)((s8 *)arg0 + 0x6C) = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0x70) = (f32) (0.0f);
     copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xA0), (void *) ((u8 *)&TPhotonMagicSquare__color_palette.value + (arg2 * 0x10)));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xB8), (void *) (arg3));
+    VecCopy((Vec *)(arg0 + 0xB8), (const Vec *)(arg3));
     *(s32 *)((s8 *)arg0 + 0xB0) = 0;
     *(s32 *)((s8 *)arg0 + 0xB4) = 0;
     *(s32 *)((s8 *)arg0 + 0xC4) = arg4;
@@ -205,7 +205,7 @@ u8 *construct_photon_magic_square_normal(u8 *arg0, s32 arg1, s32 arg2, s32 arg3,
     *(f32 *)((s8 *)arg0 + 0x6C) = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0x70) = (f32) (0.0f);
     copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xA0), (void *) ((u8 *)&(*(RecoveredGlobal_801AD218_TPhotonMagicSquare__data_804C3940 *)&TPhotonMagicSquare__color_palette).value + (arg2 * 0x10)));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xB8), (void *) (arg3));
+    VecCopy((Vec *)(arg0 + 0xB8), (const Vec *)(arg3));
     *(s32 *)((s8 *)arg0 + 0xB0) = 0;
     *(s32 *)((s8 *)arg0 + 0xB4) = 0;
     *(s32 *)((s8 *)arg0 + 0xC4) = arg4;
@@ -230,7 +230,7 @@ u8 *TPhotonMagicSquare::construct_at_owner(s32 arg1, s32 arg2, s32 arg3) {
     copy_vec4__13TRaderMapCoreFPvPv((void *) (((u8 *)this) + 0xA0), (void *) ((u8 *)&(*(RecoveredGlobal_801AD330_TPhotonMagicSquare__data_804C3940 *)&TPhotonMagicSquare__color_palette).value + (arg2 * 0x10)));
     entity = find_entity_by_id((void *) (arg3));
     if (entity != 0) {
-        VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0xB8), (void *) (entity + 0x38));
+        VecCopy((Vec *)(((u8 *)this) + 0xB8), (const Vec *)(entity + 0x38));
     }
     *(f32 *)((s8 *)((u8 *)this) + 0xBC) += (2.0f);
     *(s32 *)&this->m_b0 = 0;

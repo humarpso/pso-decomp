@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneRe2Flower.h"
@@ -141,7 +142,6 @@ struct RecoveredFields_800C3088_arg0
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(int);
 u32 create_particle_emitter(void *, int);
 s32 transition_enemy_state(void *, int);
@@ -282,7 +282,7 @@ void fn_800C32DC(u8 *owner, s32 arg1) {
             }
         }
         if (objInBand__FP7GameObjf((void *) (owner), (f32) (lbl_805D9FDC)) != 0) {
-            VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (owner + 0x3DC));
+            VecCopy((Vec *)(&stack.sp8), (const Vec *)(owner + 0x3DC));
             stack.spC = lbl_805D9FDC + *(f32 *)((s8 *)owner + 0x3C);
             if ((((TObjEneRe2Flower *)owner)->get_flag_11() != 0) || (TObjEneDD::check_v2_mode() != 0)) {
                 TTecMegid::create_ex((s32)((void *) (owner)), (s32)((void *) (&stack.sp8)), (s32)((int) (*(s32 *)((s8 *)owner + 0x60))), (s32)((int) (TObjEneDD::clamp_frame_index((int) (*(s32 *)((s8 *)lbl_805D5170 + 0x18))))));

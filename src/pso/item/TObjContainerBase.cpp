@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804B6C24.h"
 #include "pso/item/TObjContainerBase.h"
@@ -42,7 +43,6 @@ struct Obj_8018990C { u8 pad[0x38]; f32 x, y, z; u8 pad44[0x326 - 0x44]; s16 f32
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805DBCF4;
-void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_container_base(void *, s32);
 extern RecoveredGlobal_80188DC0_lbl_804B63BC forest_box_collision_body_parts;
@@ -108,8 +108,8 @@ u8 *TObjContainerBase__ct(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x60000000);
     init_collision_body_parts(arg0, (s32) &forest_box_collision_body_parts.value, 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x78) = (f32) (*(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)(&forest_box_collision_body_parts.value) + 4));
     return arg0;
 }
@@ -140,11 +140,11 @@ void TObjContainerNoItem::vfunc_79() {
     if (self->f326 != 1) {
         Spawn_8018990C a = *lbl_805D5B80;
         Spawn_8018990C b = *lbl_805D5B84;
-        VecCopy__FP3VecPC3Vec(a.pos, &self->x);
+        VecCopy((Vec *)a.pos, (const Vec *)&self->x);
         a.f38 = self->y;
         a.f40 = get_container_param(2);
         a.f44 = lbl_805D5B7C;
-        VecCopy__FP3VecPC3Vec(b.pos, &self->x);
+        VecCopy((Vec *)b.pos, (const Vec *)&self->x);
         b.f38 = self->y;
         b.f40 = get_container_param(0);
         b.f44 = lbl_805D5B7C;

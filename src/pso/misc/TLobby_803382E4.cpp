@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
 #include "pso/misc/TLobby.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/TParticleCtrl.h"
@@ -43,7 +44,6 @@ extern const f32 lbl_805DF9A4;
 extern const f32 lbl_805DF9A8;
 extern const f32 lbl_805DF9B4;
 extern const f32 lbl_805DF9B8;
-void set_depth_buffer_settings_2__Fv(void);
 void restore_saved_depth_alpha_state(void);
 u32 __cvt_fp2unsigned(f32);
 void set_perspective_projection_from_fov(s32, f32, f32, f32, f32, f32);
@@ -137,7 +137,7 @@ void TLobby__sub_803382E4(void) {
         v = lbl_805DF9A4 + cos_table_lookup(fx->angle);
         alpha = v * lbl_805DF9A8 + lbl_805DF9A0;
         set_perspective_projection_from_fov(0x3555, lbl_805DF9AC, lbl_805DF9A4, lbl_805DF9B0, lbl_805DF9A8, v);
-        set_depth_buffer_settings_2__Fv();
+        set_depth_buffer_settings_2();
         TParticleCtrl::begin_effect_render();
         TCameraCtrl::restore_full_screen_view();
         TObjPlayer::reset_transform_state();

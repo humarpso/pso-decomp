@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneSaver.h"
@@ -90,7 +91,6 @@ s32 __dl__7TObjectFPv(void *);
 extern void *TObjEneSaver__vtable[83];
 Obj_800A73F8 *__dt__12TObjEneSaverFv(Obj_800A73F8 *arg0, s16 arg1);
 void* vfunc_9__12TObjEneSaverFv(void* p);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
 s32 create__12TObjEneSaverFPvPv(u32, u32);
 void initialize_enemy_photon_effect(void *);
@@ -568,7 +568,7 @@ void TObjEneSaver::vfunc_62() {
     if (o->state >= 10 || o->state < 8) {
         e = get_player_by_client_id(o->target);
         if (e != NULL) {
-            VecCopy__FP3VecPC3Vec(&v, e + 0x2FC);
+            VecCopy((Vec *)&v, (const Vec *)(e + 0x2FC));
             subtract_vector(&v, &o->pos);
             d = angle_difference_abs(o->f60, (s32)(lbl_8043A8D0[0] * atan2_float(v.x, v.z)));
         } else {
@@ -785,7 +785,7 @@ int TObjEneSaver::test_flag_256() {
             if (test_action_mask__10TObjPlayerFl(p, 0xE0) == 0) {
                 continue;
             }
-            VecCopy__FP3VecPC3Vec(&v, &self->pos);
+            VecCopy((Vec *)&v, (const Vec *)&self->pos);
             subtract_vector(&v, &p->pos);
             if (angle_difference_abs(p->f60, (s32)(lbl_8043A8D0[0] * atan2_float(v.x, v.z))) < 0x2AAA) {
                 self->f38C = p;
@@ -848,7 +848,7 @@ void TObjPlayer__sub_800A4D9C(u8 *arg0) {
                 Vec_800A5DC4 pos = F(Vec_800A5DC4, 0x2FC);
                 copy_position_if_valid__10TObjPlayerFii(arg0, &pos);
             }
-            VecCopy__FP3VecPC3Vec(&d, arg0 + 0x29C);
+            VecCopy((Vec *)&d, (const Vec *)(arg0 + 0x29C));
             subtract_vector(&d, arg0 + 0x2FC);
             {
                 f32 dist = newton_sqrtf(d.x * d.x + d.z * d.z);
@@ -1064,7 +1064,7 @@ void TObjPlayer__sub_800A54B4(u8 *arg0) {
         } else {
             Vec_800A5DC4 d;
             s32 a;
-            VecCopy__FP3VecPC3Vec(&d, F(u8 *, 0x2A8) + 0x2FC);
+            VecCopy((Vec *)&d, (const Vec *)(F(u8 *, 0x2A8) + 0x2FC));
             subtract_vector(&d, arg0 + 0x2FC);
             a = update_angle__10TObjPlayerFlPv(arg0, *(s32 *)((s8 *)(F(u8 *, 0x350)) + 8), &d);
             if (!(F(s32, 0x30) & 0x800000)) {
@@ -1191,7 +1191,7 @@ void TObjEneSaver::vfunc_60() {
     switch (self->mode) {
     case 0:
     default:
-        VecCopy__FP3VecPC3Vec(&v, &self->target->pos);
+        VecCopy((Vec *)&v, (const Vec *)&self->target->pos);
         subtract_vector(&v, &self->pos);
         f32 a = atan2_float(v.x, v.z);
         self->f326 = 4;
@@ -1456,7 +1456,6 @@ struct Obj_800A677C : VObj_800A677C {
 extern "C" {
 s32 rotate_matrix_x(int, void *);
 extern RecoveredGlobal_800A6BE0_lbl_804FF5E8 lbl_804FF5E8;
-#define VecCopy__FP3VecPC3Vec ((void (*)(Vec_800A6B14*, const Vec_800A6B14*))(VecCopy__FP3VecPC3Vec))
 #define subtract_vector ((f32 (*)(void*, void*))(subtract_vector))
 s32 angle_diff_s16(s32, s32);
 void step_angle_clamped__10TObjPlayerFPvi(void *arg0, s32 arg1);
@@ -1759,7 +1758,7 @@ void find_nearest_target__10TObjPlayerFPv(Obj_800A677C *self) {
             if (p != NULL && p != (u8 *)self) {
                 id = obj_getField1c(p);
                 if ((u16)id < 0x4000 && (u16)id != self->f1C && !(P_800A677C(p)->f30 & 0x02000800)) {
-                    VecCopy__FP3VecPC3Vec(&v, (Vec_800A6B14 *)(p + 0x2FC));
+                    VecCopy((Vec *)&v, (const Vec *)((Vec_800A6B14 *)(p + 0x2FC)));
                     subtract_vector(&v, &self->pos);
                     d = v.x * v.x + v.z * v.z;
                     if (d < best && check_path_obstructed(self, p + 0x2FC) != 1) {
@@ -1811,7 +1810,7 @@ void find_nearest_target__10TObjPlayerFPv(Obj_800A677C *self) {
             if ((u16)obj_getField1c(p) >= 0x1000) continue;
             if (get_field_3e4__10TObjPlayerFv((int)p) != get_current_floor()) continue;
             if (P_800A677C(p)->f30 & 0x02000800) continue;
-            VecCopy__FP3VecPC3Vec(&v, (Vec_800A6B14 *)(p + 0x2FC));
+            VecCopy((Vec *)&v, (const Vec *)((Vec_800A6B14 *)(p + 0x2FC)));
             subtract_vector(&v, &self->pos);
             d = v.x * v.x + v.z * v.z;
             if ((*(u32 *)(p + 0x890) & self->f378) && d < best &&
@@ -1848,7 +1847,7 @@ void find_nearest_target__10TObjPlayerFPv(Obj_800A677C *self) {
 
 void turn_toward_target__10TObjPlayerFPv(Obj_800A6B14 *self) {
     Vec_800A6B14 d;
-    VecCopy__FP3VecPC3Vec(&d, &self->target->pos);
+    VecCopy((Vec *)&d, (const Vec *)&self->target->pos);
     subtract_vector(&d, &self->pos);
     step_angle_clamped__10TObjPlayerFPvi(self,
         angle_diff_s16(self->angle, (s32)(lbl_8043A8D0 * atan2_float(d.x, d.z))));
@@ -1935,7 +1934,7 @@ void TObjPlayer__sub_800A6C54(u8 *arg0) {
         }
         TParticleCtrl::end_effect_render();
         TObjEneRe7Berura::set_global_state((s32)NULL);
-        VecCopy__FP3VecPC3Vec((Vec_800A6B14 *)(arg0 + 0x390), (Vec_800A6B14 *)&lbl_80500978);
+        VecCopy((Vec *)((Vec_800A6B14 *)(arg0 + 0x390)), (const Vec *)((Vec_800A6B14 *)&lbl_80500978));
         pop_matrix();
         restore_scene_lighting();
         if (!(*(s32 *)((s8 *)arg0 + 0x374) & 1)) {
@@ -2156,7 +2155,6 @@ Obj_800A73F8 *__dt__12TObjEneSaverFv(Obj_800A73F8 *arg0, s16 arg1) {
     return arg0;
 }
 
-#undef VecCopy__FP3VecPC3Vec
 u8 *TObjEneSaver__ct(u8 *arg0, void *arg1, void *arg2) {
     s16 t;
     void *p;
@@ -2202,7 +2200,7 @@ u8 *TObjEneSaver__ct(u8 *arg0, void *arg1, void *arg2) {
     initialize_enemy_photon_effect(arg0);
     *(s32 *)((s8 *)arg0 + 0x374) = 1;
     *(s32 *)((s8 *)arg0 + 0x38C) = 0;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x390, arg0 + 0x2FC);
+    VecCopy((Vec *)(arg0 + 0x390), (const Vec *)(arg0 + 0x2FC));
     *(s32 *)((s8 *)arg0 + 0x39C) = 0;
     ((TUnk_804806E8 *)arg0)->add_flags_2e4(8);
     *(u32 *)((s8 *)arg0 + 0x30) |= 0x06040000;
@@ -2232,7 +2230,6 @@ void TObjEneSaver::sub_800A7734(s32 i) {
 #define lbl_805D506C (*(u32 *)&lbl_805D506C)
 
 }
-#undef VecCopy__FP3VecPC3Vec
 #undef subtract_vector
 #undef lbl_8043A8D0
 #undef TObjPlayer__sub_800A42C0

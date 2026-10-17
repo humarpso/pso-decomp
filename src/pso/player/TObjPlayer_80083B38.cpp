@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/main_loop.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/object/TObjFish.h"
@@ -120,7 +121,6 @@ extern const f32 lbl_805D9420;
 extern const f32 lbl_805D9424;
 extern const f32 lbl_805D9438;
 extern const f32 lbl_805D943C;
-void camera_stuff__Fv(void);
 extern GXColor_80083B8C lbl_805E1208;
 void capture_viewport_texture(void);
 s32 TObjPlayer__sub_800847FC();
@@ -187,7 +187,8 @@ s32 is_in_shadow_range(u8 *arg0, f32 farg0) {
 #pragma fp_contract on
 #define VIEW ((View_80083D54 *)camera_ctrl_instance)
 #define LIGHT (*(Vec_80083D54 *)&shadow_light_position)
-void camera_stuff__Fv(void) {
+}
+void camera_stuff(void) {
     Mtx44_80083D54 proj;
     Vec_80083D54 d;
     f32 t;
@@ -232,6 +233,7 @@ void camera_stuff__Fv(void) {
     translate_current_matrix_ps(-LIGHT.x, -LIGHT.y, -LIGHT.z);
     set_ginja_draw_flags(2);
 }
+extern "C" {
 #pragma pop
 
 void **TObjPlayer__sub_80083F04(void) {

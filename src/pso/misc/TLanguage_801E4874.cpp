@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 #include "pso/misc/TLanguage.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TGStream.h"
@@ -34,8 +35,6 @@ struct VObj_801E4B68_801E4874 : Base_801E4B68_801E4874 {
 };
 
 void update_texture_wave_image(void *arg0);
-s32 bswap_16__FPUs(void *);
-s32 bswap_32__FPUl(void *);
 s32 distort_texture_wave_image(void *);
 s32 is_split_screen();
 
@@ -110,9 +109,9 @@ u16 read_file_header__9TLanguageFiPv(s32 arg0, u8 *arg1) {
     *(s32 *)((s8 *)arg1 + 4) = TLanguage::read_u32_le();
     *(u16 *)((s8 *)arg1 + 8) = TLanguage::read_u16_le();
     *(u16 *)((s8 *)arg1 + 0xA) = TLanguage::read_u16_le();
-    bswap_32__FPUl(arg1 + 4);
-    bswap_16__FPUs(arg1 + 8);
-    bswap_16__FPUs(arg1 + 0xA);
+    bswap_32((u32 *)(arg1 + 4));
+    bswap_16((u16 *)(arg1 + 8));
+    bswap_16((u16 *)(arg1 + 0xA));
     return *(u16 *)((s8 *)arg1 + 0xA);
 }
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
 #include "pso/boss/TBoss6Tube.h"
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -19,7 +20,6 @@ extern f32 TBoss6Tube__scroll_delta;
 void get_bml_model(s32, s32);
 s32 query_teammate_state__9TObjEneDDFv(void);
 void func_80141618__Fv(void);
-void set_depth_buffer_settings_id__FUl(u32);
 void translate_matrix(s32, f32, f32, f32);
 void push_matrix(void);
 void pop_matrix(void);
@@ -75,7 +75,7 @@ void TBoss6Tube::render() {
     }
     start = lo - TBoss6Tube::scale_by_const(TBoss6Tube::calc_tube_progress(o->f28));
     TObjFish::set_global_param(boss6_tube_texture_list);
-    set_depth_buffer_settings_id__FUl(3);
+    set_depth_buffer_settings_id(3);
     for (i = 0; i < 3; i++) {
         for (y = start; y < hi; y += (8e+02f)) {
             push_matrix();

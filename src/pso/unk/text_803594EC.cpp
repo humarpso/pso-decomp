@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
 #include "pso/misc/TWindowCtrlMain.h"
 #include "pso/TBoss4Fade.h"
 struct E_8035959C { s32 a; s32 b; f32 c; };
@@ -29,7 +30,6 @@ typedef struct Quad_803594EC
 } Quad_803594EC;
 
 extern "C" {
-s32 set_depth_buffer_settings_1__Fv(void);
 s32 restore_saved_depth_alpha_state();
 extern u8 TBoss4Fade__fullscreen_vertices[];
 extern const f32 lbl_805E0098;
@@ -56,7 +56,7 @@ void TBoss4Fade::render() {
     q.a = new_var;
     q.b = 4;
     q.tex = TBoss4Fade__fullscreen_vertices;
-    set_depth_buffer_settings_1__Fv();
+    set_depth_buffer_settings_1();
     ((TWindowCtrlMain *)(&q))->draw_strip_swap_color(4, 6, lbl_805E009C);
     restore_saved_depth_alpha_state();
   }

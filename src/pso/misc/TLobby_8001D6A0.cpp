@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TRaderMapCore.h"
 
@@ -55,7 +57,6 @@ s32 aram_read_sync__6TLobbyFllll(s32, s32);
 s32 aram_transfer_sync__6TLobbyFlUlll(s32, void *, s32);
 s32 __dl__FPv(u32 *);
 u8 *fn_803DE864(s32, s32);
-s32 xfree__FPv(u32);
 
 void TLobby::send_or_handle_packet(void *arg0, void *arg1, void *arg2, void *arg3, u32 arg4) {
     if (arg4 == 0U) {
@@ -149,7 +150,7 @@ Node_8001D808 *archive_pool_alloc(Pool_8001D808 *pool, u32 size) {
 u32 *free_and_delete__6TLobbyFPvs(u32 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         if ((u32) *arg0 != 0U) {
-            xfree__FPv(*arg0);
+            xfree((void *)(*arg0));
             *arg0 = 0U;
         }
         if (arg1 > 0) {
@@ -311,7 +312,6 @@ s32 is_main_phase_15__9TObjEneDDFv(void);
 void read_disc_file(const char *, void *);
 void mem_free(void *);
 u8 *mem_alloc(u32);
-int bswap_32__FPUl(void *);
 extern const char lbl_80434A20[];
 extern const char lbl_80434A38[];
 extern const char lbl_80434A50[];
@@ -395,8 +395,8 @@ void load_battle_param_entry(void) {
         s32 j;
         for (j = 0; j < 6; j++)
         {
-          bswap_32__FPUl(&p->a[j]);
-          bswap_32__FPUl(&p->b[j]);
+          bswap_32(&p->a[j]);
+          bswap_32(&p->b[j]);
         }
 
         p++;
@@ -582,8 +582,6 @@ extern u32 TLobby__battle_parameter_buffer;
 extern s32 game_difficulty_selection;
 void alloc_battle_param_tables(void);
 void bswap__12player_statsFv(void *arg0);
-int bswap_16__FPUs(void*);
-int bswap_32__FPUl(void*);
 void mem_free(void*);
 
 extern s32 enable_v2_features;
@@ -647,24 +645,24 @@ void alloc_battle_param_tables(void) {
     TLobby__lobby_instance = 0;
 }
 
-void TLobby::swap_endian() { bswap_16__FPUs((void*)(this)); bswap_16__FPUs((void*)((char*)this + 0x2)); bswap_16__FPUs((void*)((char*)this + 0x4)); bswap_16__FPUs((void*)((char*)this + 0x6)); bswap_16__FPUs((void*)((char*)this + 0x8)); bswap_16__FPUs((void*)((char*)this + 0xa)); bswap_32__FPUl((void*)((char*)this + 0xc)); bswap_32__FPUl((void*)((char*)this + 0x10)); bswap_32__FPUl((void*)((char*)this + 0x14)); bswap_32__FPUl((void*)((char*)this + 0x18)); bswap_32__FPUl((void*)((char*)this + 0x1c)); }
+void TLobby::swap_endian() { bswap_16((u16 *)(this)); bswap_16((u16 *)((char*)this + 0x2)); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); bswap_16((u16 *)((char*)this + 0x8)); bswap_16((u16 *)((char*)this + 0xa)); bswap_32((u32 *)((char*)this + 0xc)); bswap_32((u32 *)((char*)this + 0x10)); bswap_32((u32 *)((char*)this + 0x14)); bswap_32((u32 *)((char*)this + 0x18)); bswap_32((u32 *)((char*)this + 0x1c)); }
 
-void TLobby::byteswap_packet() { bswap_16__FPUs((void*)(this)); bswap_16__FPUs((void*)((char*)this + 0x2)); bswap_16__FPUs((void*)((char*)this + 0x4)); bswap_16__FPUs((void*)((char*)this + 0x6)); bswap_32__FPUl((void*)((char*)this + 0x8)); bswap_32__FPUl((void*)((char*)this + 0xc)); bswap_32__FPUl((void*)((char*)this + 0x10)); bswap_16__FPUs((void*)((char*)this + 0x14)); bswap_16__FPUs((void*)((char*)this + 0x16)); bswap_16__FPUs((void*)((char*)this + 0x18)); bswap_16__FPUs((void*)((char*)this + 0x1a)); bswap_32__FPUl((void*)((char*)this + 0x1c)); bswap_32__FPUl((void*)((char*)this + 0x20)); bswap_32__FPUl((void*)((char*)this + 0x24)); bswap_32__FPUl((void*)((char*)this + 0x28)); bswap_32__FPUl((void*)((char*)this + 0x2c)); }
+void TLobby::byteswap_packet() { bswap_16((u16 *)(this)); bswap_16((u16 *)((char*)this + 0x2)); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); bswap_32((u32 *)((char*)this + 0x8)); bswap_32((u32 *)((char*)this + 0xc)); bswap_32((u32 *)((char*)this + 0x10)); bswap_16((u16 *)((char*)this + 0x14)); bswap_16((u16 *)((char*)this + 0x16)); bswap_16((u16 *)((char*)this + 0x18)); bswap_16((u16 *)((char*)this + 0x1a)); bswap_32((u32 *)((char*)this + 0x1c)); bswap_32((u32 *)((char*)this + 0x20)); bswap_32((u32 *)((char*)this + 0x24)); bswap_32((u32 *)((char*)this + 0x28)); bswap_32((u32 *)((char*)this + 0x2c)); }
 
 void bswap__12player_statsFv(void *arg0) {
-    bswap_16__FPUs((void*)(arg0));
-    bswap_16__FPUs((void*)((void *)((char *)arg0 + 2)));
-    bswap_16__FPUs((void*)((void *)((char *)arg0 + 4)));
-    bswap_16__FPUs((void*)((void *)((char *)arg0 + 6)));
-    bswap_16__FPUs((void*)((void *)((char *)arg0 + 8)));
-    bswap_16__FPUs((void*)((void *)((char *)arg0 + 10)));
-    bswap_16__FPUs((void*)((void *)((char *)arg0 + 12)));
-    bswap_16__FPUs((void*)((void *)((char *)arg0 + 14)));
-    bswap_32__FPUl((void*)((void *)((char *)arg0 + 16)));
-    bswap_32__FPUl((void*)((void *)((char *)arg0 + 20)));
-    bswap_32__FPUl((void*)((void *)((char *)arg0 + 24)));
-    bswap_32__FPUl((void*)((void *)((char *)arg0 + 28)));
-    bswap_32__FPUl((void*)((void *)((char *)arg0 + 32)));
+    bswap_16((u16 *)(arg0));
+    bswap_16((u16 *)((void *)((char *)arg0 + 2)));
+    bswap_16((u16 *)((void *)((char *)arg0 + 4)));
+    bswap_16((u16 *)((void *)((char *)arg0 + 6)));
+    bswap_16((u16 *)((void *)((char *)arg0 + 8)));
+    bswap_16((u16 *)((void *)((char *)arg0 + 10)));
+    bswap_16((u16 *)((void *)((char *)arg0 + 12)));
+    bswap_16((u16 *)((void *)((char *)arg0 + 14)));
+    bswap_32((u32 *)((void *)((char *)arg0 + 16)));
+    bswap_32((u32 *)((void *)((char *)arg0 + 20)));
+    bswap_32((u32 *)((void *)((char *)arg0 + 24)));
+    bswap_32((u32 *)((void *)((char *)arg0 + 28)));
+    bswap_32((u32 *)((void *)((char *)arg0 + 32)));
 }
 
 extern f32 TLobby__data_805D7EC8;

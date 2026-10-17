@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TObjBoss1MokoHill_Solo.h"
 #include "pso/boss/TObjBoss1MokoHill_SoloM.h"
 #include <stddef.h>
@@ -122,7 +123,6 @@ typedef struct Obj_8002CD8C {
 } Obj_8002CD8C;
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_state__12TBoss8DragonFv(void);
 f32 lerp__9TDeadSpotFff(f32 farg0, f32 farg1);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -210,7 +210,7 @@ void TObjBoss1MokoHill_Solo::run_task() {
             self->f34 = self->f38;
             self->state = 1;
         }
-        VecCopy__FP3VecPC3Vec(self->pos, ((void *(*)(void *))get_state__12TBoss8DragonFv)(self));
+        VecCopy((Vec *)self->pos, (const Vec *)(((void *(*)(void *))get_state__12TBoss8DragonFv)(self)));
         break;
     case 1:
         self->f40++;
@@ -245,7 +245,7 @@ void *TObjBoss1MokoHill_Solo__ct(void *arg0_, void *arg1, int arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     arg0->vtbl = __vt__22TObjBoss1MokoHill_Solo;
     arg0->unk0 = TObjBoss1MokoHill_Solo__name;
-    VecCopy__FP3VecPC3Vec(arg0->pos, ((void *(*)(void *))get_state__12TBoss8DragonFv)(arg0));
+    VecCopy((Vec *)arg0->pos, (const Vec *)(((void *(*)(void *))get_state__12TBoss8DragonFv)(arg0)));
     arg0->unk34 = lbl_805D8180;
     r = (f32)rand();
     t = lbl_805D818C * r;
@@ -327,7 +327,7 @@ void TObjBoss1MokoHill_SoloM::run_task() {
         }
         if (self->f34 >= 0.0f) {
             self->f2C += newton_sqrtf(horizontal_distance_squared((void *)dragon_trail_position_source, &self->pos));
-            VecCopy__FP3VecPC3Vec(&self->pos, (void *)dragon_trail_position_source);
+            VecCopy((Vec *)&self->pos, (const Vec *)dragon_trail_position_source);
             if (self->f2C >= 10.0f) {
                 self->f2C = 0.0f;
                 if (self->f3C != 0) {
@@ -423,7 +423,7 @@ u8 *TObjBoss1MokoHill_SoloM__ct(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3) {
     *(s32 *)((s8 *)arg0 + 0x1C) = 0;
     (*(u8 * *)&dragon_trail_position_source) = arg2;
     dragon_trail_heading_source = arg3;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x20, arg2);
+    VecCopy((Vec *)(arg0 + 0x20), (const Vec *)arg2);
     *(f32 *)((s8 *)arg0 + 0x2C) = (f32) lbl_805D8198;
     *(f32 *)((s8 *)arg0 + 0x30) = (f32) lbl_805D81A0;
     *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805D81A0;

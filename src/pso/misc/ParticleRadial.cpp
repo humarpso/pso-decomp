@@ -1,4 +1,6 @@
 #include "pso/TParticleCtrl.h"
+#include "pso/render/depth_buffer.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_8048E778.h"
 #include "pso/misc/TUnk_8048E790.h"
 #include "pso/misc/TUnk_8048E728.h"
@@ -106,7 +108,6 @@ s32 is_split_screen();
 s32 setup_particle_tev(s32);
 s32 load_projected_texture_matrix(f32);
 s32 is_particle_sprite_additive__13TUnk_8048E728Fv(void *, s32);
-s32 set_depth_buffer_settings_id__FUl(s32);
 s32 append_node_to_tail__13TParticleCtrlFPvPv(s32, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 scale_matrix(s32, f32, f32, f32);
@@ -121,7 +122,6 @@ s32 draw_ginja_model_with_motion(u32, u32, f32);
 extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-void VecCopy__FP3VecPC3Vec(void *, const void *);
 f32 atan2_float(f32, f32);
 void direction_to_rotation_xz(void *, s32 *, s32 *);
 f32 vector_length(void *);
@@ -169,7 +169,7 @@ extern const f32 TParticleCtrl__data_805D94E4;
     particle->field20 = 0;                                                     \
     particle->field24 = TParticleCtrl__data_805D94E4;                          \
     particle->particle_index = particle_index;                                 \
-    VecCopy__FP3VecPC3Vec(&particle->position, position);                      \
+    VecCopy(&particle->position, position);                      \
     particle->flags = particle_flags;                                          \
     particle->field2E = 0xFFFF;                                                \
     direction_action(particle, direction_source);                              \
@@ -245,7 +245,7 @@ void TUnk_8048E7A8::render() {
             pos.y = *(f32 *)&this->unk_74 + this->m_80;
             pos.z = this->m_78 + *(f32 *)&this->unk_84;
         } else {
-            VecCopy__FP3VecPC3Vec(&pos, (u8 *)&this->m_70);
+            VecCopy((Vec *)&pos, (const Vec *)&this->m_70);
         }
         end.x = pos.x + this->m_3c;
         end.y = pos.y + *(f32 *)&this->unk_40;
@@ -278,7 +278,7 @@ void TUnk_8048E7A8::render() {
                 pos2.y = *(f32 *)&this->unk_74 + this->m_80;
                 pos2.z = this->m_78 + *(f32 *)&this->unk_84;
             } else {
-                VecCopy__FP3VecPC3Vec(&pos2, (u8 *)&this->m_70);
+                VecCopy((Vec *)&pos2, (const Vec *)&this->m_70);
             }
             ((void (*)(void))push_matrix)();
             post_translate_matrix(&pos2);
@@ -309,7 +309,7 @@ void TUnk_8048E7A8::render() {
                 }
             }
             TObjFish::set_global_param(*(u32 *)&this->unk_B4);
-            set_depth_buffer_settings_id__FUl(3);
+            set_depth_buffer_settings_id(3);
             if (this->m_b8 != 0U) {
                 draw_ginja_model_with_motion(this->m_b0, this->m_b8, *(f32 *)&this->unk_BC);
             } else {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TNeedleShoot.h"
 
 struct Base_802A4668 { char pad[0x18]; };
@@ -12,7 +13,6 @@ struct VObj_802A4668 : Base_802A4668 {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_wall_hit__12TNeedleShootFv(void *, f32, f32);
 void TNeedleShoot__sub_802A4668(void *arg0);
 
@@ -26,7 +26,7 @@ void TNeedleShoot::update_position() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     f32 temp_f2;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (arg0 + 0x6C));
+    VecCopy((Vec *)(arg0 + 0x28), (const Vec *)(arg0 + 0x6C));
     *(f32 *)&this->m_6c = (f32) ((*(f32 *)&this->m_94 * *(f32 *)&this->_padAC) + *(f32 *)&this->m_6c);
     *(f32 *)&this->unk_70 = (f32) ((*(f32 *)&this->unk_98 * *(f32 *)&this->_padAC) + *(f32 *)&this->unk_70);
     temp_f2 = this->m_9c;

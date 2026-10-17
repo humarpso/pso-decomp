@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -74,7 +75,6 @@ struct Obj_800E9DC8 { u8 pad0[0x60]; s32 f60; u8 pad1[0x384 - 0x64]; s32 f390; u
 
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f64 atan2_float(f32, f32);
 u32 csnLookAt(void *, void *);
 s32 angle_difference_abs(s32, s32);
@@ -581,7 +581,7 @@ void run_task__19TObjEneDelDepthBombFv(Bomb_803133BC *o) {
     }
     if (done != 0) {
         Vec_803133BC w;
-        VecCopy__FP3VecPC3Vec(&w, &o->pos);
+        VecCopy((Vec *)&w, (const Vec *)&o->pos);
         w.y += TObjEneDelDepth__data_805DF268;
         create__11TTecRaBartaFPvPvPvPv(o->f348, &o->pos, &w, o->f350);
         queue_destruction__7TObjectFv(o);
@@ -616,7 +616,7 @@ u8 *TObjEneDelDepthBomb__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneDelDepthBomb__name;
     *(s32 *)((s8 *)arg0 + 0x348) = arg2;
     *(s32 *)((s8 *)arg0 + 0x60) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x10)) + 0x60);
-    VecCopy__FP3VecPC3Vec((void *) ((u8 *)(arg0) + 0x38), (void *) (arg3));
+    VecCopy((Vec *)((u8 *)(arg0) + 0x38), (const Vec *)(arg3));
     temp_f30 = ((f32 (*)(int))sin_table_lookup)((int) (*(s32 *)((s8 *)arg0 + 0x60)));
     temp_f31 = ((f32 (*)(int))cos_table_lookup)((int) (*(s32 *)((s8 *)arg0 + 0x60)));
     *(f32 *)((s8 *)arg0 + 0x354) = ((TObjEneDelDepthBomb *)(*(u8 **)((s8 *)arg0 + 0x10)))->get_depth_radius();
@@ -634,14 +634,14 @@ void TObjEneDelDepth::update_ground_check() {
     Stack_80313694 stack;
     u8 *temp_r3;
     if ((actor_frame_tick % 5) == 0) {
-        ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&stack.sp8, arg0 + 0x38);
+        VecCopy((Vec *)&stack.sp8, (const Vec *)(arg0 + 0x38));
         stack.spC += TObjEneDelDepth__data_805DF270;
         temp_r3 = (u8 *)(csnVectorUnder((s32) &stack.sp8, arg0 + 0x120, 0x4000));
         if (temp_r3 != NULL) {
             *(s32 *)((s8 *)arg0 + 0x3E0) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 4)) + 0x18);
-            ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x3E4, *(u8 **)((s8 *)temp_r3 + 4));
+            VecCopy((Vec *)(arg0 + 0x3E4), (const Vec *)(*(u8 **)((s8 *)temp_r3 + 4)));
         } else {
-            ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x3E4, arg0 + 0x38);
+            VecCopy((Vec *)(arg0 + 0x3E4), (const Vec *)(arg0 + 0x38));
         }
     }
     if (*(s32 *)((s8 *)arg0 + 0x3E0) & 0x4000) {
@@ -666,12 +666,12 @@ void TObjEneDelDepth__sub_80313740(Ene_80313740 *o) {
     tries = 4;
     o->f3D8 += lbl_805DF274;
     do {
-        VecCopy__FP3VecPC3Vec(&a, &o->pos);
+        VecCopy((Vec *)&a, (const Vec *)&o->pos);
         vec3_add_to(&a, &o->f3D4);
-        VecCopy__FP3VecPC3Vec(&b, &a);
+        VecCopy((Vec *)&b, (const Vec *)&a);
         b.y += k + fabs_float(o->f3D8);
         if (project_actor_to_ground(o, &b, 0) != 0) {
-            VecCopy__FP3VecPC3Vec(&o->pos, &a);
+            VecCopy((Vec *)&o->pos, (const Vec *)&a);
             if (!(o->pos.y > b.y)) {
                 o->pos.y = b.y;
                 done = 1;
@@ -686,7 +686,7 @@ void TObjEneDelDepth__sub_80313740(Ene_80313740 *o) {
     } while (tries > 0);
     if (tries == 0) {
         o->f3D4 = o->f3DC = TObjEneDelDepth__data_805DF258;
-        VecCopy__FP3VecPC3Vec(&c, &o->pos);
+        VecCopy((Vec *)&c, (const Vec *)&o->pos);
         c.y += TObjEneDelDepth__data_805DF268 + fabs_float(o->f3D8);
         if (project_actor_to_ground(o, &c, 0) != 0) {
             if (!(o->pos.y > c.y)) {
@@ -904,7 +904,7 @@ void move_toward_target__15TObjEneDelDepthFPv(u8 *arg0) {
     if (angle_difference_abs(*(s32 *)((s8 *)arg0 + 0x60), ang) < 0x200) {
         *(s32 *)((s8 *)arg0 + 0x384) = 0;
     }
-    VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
     if (vector_length(&v) <= lbl_805DF288) {
         v.x = 1.0f;
         v.y = 0.0f;
@@ -917,7 +917,7 @@ void move_toward_target__15TObjEneDelDepthFPv(u8 *arg0) {
     v.z *= lbl_805DF28C;
     vec3_add_to(arg0 + 0x38, &v);
     if (project_actor_to_ground(arg0, arg0 + 0x38, (void *)0) == 0 || csnLookAt(arg0 + 0x44, arg0 + 0x38) != 0) {
-        VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0x44);
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x44));
     }
     if (--*(s32 *)((s8 *)arg0 + 0x384) <= 0) {
         if (vector_length(&v) > TObjEneDelDepth__data_805DF280 || calc_boss4_scale__10TObjPlayerFi(arg0) < lbl_805DF290) {
@@ -1094,15 +1094,15 @@ void TObjEneDelDepth::update_movement() {
         }
     }
     arg0->f38c -= fabs_float(arg0->speed);
-    VecCopy__FP3VecPC3Vec(&arg0->prev, &arg0->pos);
+    VecCopy((Vec *)&arg0->prev, (const Vec *)&arg0->pos);
     for (k = 1; k < 15; k++) {
         f32 s;
         f32 c;
         f32 d;
         arg0->pos.x += arg0->speed * arg0->dir.x;
         arg0->pos.z += arg0->speed * arg0->dir.z;
-        VecCopy__FP3VecPC3Vec(&p, &arg0->pos);
-        VecCopy__FP3VecPC3Vec(&n, &arg0->dir);
+        VecCopy((Vec *)&p, (const Vec *)&arg0->pos);
+        VecCopy((Vec *)&n, (const Vec *)&arg0->dir);
         normalize_vector(&n);
         d = lbl_805DF2A4 * ((f32 *)TObjEneDelDepth_collision_body_parts)[3];
         p.x += d * n.x;
@@ -1113,7 +1113,7 @@ void TObjEneDelDepth::update_movement() {
             hit = csnVector(&arg0->prev, &p, 0x88E0);
             if (hit != 0) {
                 Vec_80314758 w;
-                VecCopy__FP3VecPC3Vec(&p, &arg0->pos);
+                VecCopy((Vec *)&p, (const Vec *)&arg0->pos);
                 w.x = hit->obj->f14;
                 w.z = -hit->obj->fc;
                 ((TObjBoss2Tunnel *)(&w))->clamp_velocity();
@@ -1154,7 +1154,7 @@ void TObjEneDelDepth::update_movement() {
         arg0->dir.z = s * arg0->dir.x + c * arg0->dir.z;
         normalize_vector(&arg0->dir);
         arg0->rotY = (s32)(TObjEneDelDepth__data_80475DD0 * atan2_float(arg0->dir.x, arg0->dir.z));
-        VecCopy__FP3VecPC3Vec(&arg0->pos, &arg0->prev);
+        VecCopy((Vec *)&arg0->pos, (const Vec *)&arg0->prev);
     }
     if (arg0->f38c <= (*(const f32 *)&TObjEneDelDepth__data_805DF258) && (*(const f32 *)&TObjEneDelDepth__data_805DF258) == arg0->speed) {
         Vec_80314758 q;
@@ -1514,13 +1514,13 @@ void TObjEneDelDepth::init() {
     s32 var_r0;
     *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0(TObjEneDelDepth__shared_resource = get_data__15TObjEneDelDepthFv(), 0);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) (TObjEneDelDepth__shared_resource), (int) (0));
-    ((u8 * (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x44, ((u8 * (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x50, ((u8 * (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x74, arg0 + 0x38)));
+    VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(VecCopy((Vec *)(arg0 + 0x50), (const Vec *)(VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38))))));
     *(s32 *)((s8 *)arg0 + 0x380) = init_collision_body_parts((void *) (arg0), (void *) (TObjEneDelDepth_collision_body_parts), (int) (1));
     ((TObjPlayer *)arg0)->set_field_d8((s32)((void *) (lbl_804E8194)));
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)TObjEneDelDepth__shared_resource + 0x430)));
     set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (0));
     ((TObjMotion *)arg0)->set_field_b8((int) (0));
-    ((u8 * (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x2FC, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x310) = (f32) TObjEneDelDepth__data_805DF258;
     *(f32 *)((s8 *)arg0 + 0x30C) = (f32) TObjEneDelDepth__data_805DF258;
     *(f32 *)((s8 *)arg0 + 0x308) = (f32) TObjEneDelDepth__data_805DF258;
@@ -1537,7 +1537,7 @@ void TObjEneDelDepth::init() {
     *(s32 *)((s8 *)arg0 + 0x37C) = var_r0;
     *(s32 *)((s8 *)arg0 + 0x3C4) = 0xFFFF;
     *(s32 *)((s8 *)arg0 + 0x3E0) = 0;
-    ((u8 * (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x3E4, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x3E4), (const Vec *)(arg0 + 0x38));
     this->clear_lobby_object_state();
 }
 

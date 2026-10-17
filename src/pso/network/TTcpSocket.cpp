@@ -1,5 +1,7 @@
 #pragma readonly_strings on
 #include "types.h"
+#include "pso/system/byteswap.h"
+#include "pso/system/main_loop.h"
 #include "pso/TProtocol.h"
 #include <stdio.h>
 #include <string.h>
@@ -44,7 +46,6 @@ extern "C" {
 struct Rec_8007841C *copy_udp_socket_event_record(struct Rec_8007841C *dst, struct Rec_8007841C *src);
 extern RecoveredGlobal_80078378_lbl_8048D3B8 udp_socket_slots;
 void TLobby__sub_8014672C(void *);
-void bswap_16__FPUs(void *);
 void TUdpSocket__sub_80421BAC(int, void *, void *, int, void *, int, void *);
 void TUdpSocket__sub_80078110(Sock_80078110 *arg0, s32 arg1, s16 arg2);
 void TUdpSocket__sub_800781B8(Sock_800781B8 *arg0, s32 arg1);
@@ -122,7 +123,7 @@ void TUdpSocket__sub_80078110(Sock_80078110 *arg0, s32 arg1, s16 arg2) {
     r.b = arg1;
     r.a = arg2;
     port = arg0->port;
-    bswap_16__FPUs(&port);
+    bswap_16(&port);
     TUdpSocket__sub_80421BAC(arg0->fd, &q2, &q1, port, &c, 1, &r);
 }
 
@@ -144,7 +145,7 @@ void TUdpSocket__sub_800781B8(Sock_800781B8 *arg0, s32 arg1) {
     r.b = arg1;
     r.a = strlen((const char *)arg1);
     port = arg0->port;
-    bswap_16__FPUs(&port);
+    bswap_16(&port);
     TUdpSocket__sub_80421BAC(arg0->fd, &q2, &q1, port, &c, 1, &r);
 }
 
@@ -169,8 +170,8 @@ s16 open_socket__10TUdpSocketFPv(Sock_800782B8 *arg0) {
     }
     pa = arg0->port_b;
     pb = arg0->port_a;
-    bswap_16__FPUs(&pa);
-    bswap_16__FPUs(&pb);
+    bswap_16(&pa);
+    bswap_16(&pb);
     arg0->fd = TUdpSocket__sub_80421DEC(&q1, pa, &q2, pb, 0, TUdpSocket::handle_socket_event);
     if (arg0->fd < 0) {
         return -1;
@@ -521,9 +522,6 @@ extern "C" {
 void func_80019A68__Fv();
 s32 get_csn_group_flags(s32);
 s8 func_801A5E54__Fv();
-void controller_stuff__Fv();
-void render_tick__Fv();
-void bswap_32__FPUl(u32 *);
 void render_screen_overlay__9TMainTaskFv(void *);
 void some_empty_func__9TMainTaskFv(void *);
 void render__9TMainTaskFv(void *);
@@ -594,7 +592,7 @@ int TSocket::resolve_domain(char *domain) {
                     break;
                 }
                 func_803DCDFC__Fv();
-                controller_stuff__Fv();
+                controller_stuff();
                 if (func_801A5E54__Fv() != 0) {
                     break;
                 }
@@ -603,11 +601,11 @@ int TSocket::resolve_domain(char *domain) {
                 render__9TMainTaskFv(&main_task);
                 render_screen_overlay__9TMainTaskFv(&main_task);
                 func_80019A68__Fv();
-                render_tick__Fv();
+                render_tick();
             } while (result == -1);
             switch (result) {
             case 0:
-                bswap_32__FPUl(sp10);
+                bswap_32(sp10);
                 set_ip_address(sp10[0]);
                 ret = 0;
                 break;

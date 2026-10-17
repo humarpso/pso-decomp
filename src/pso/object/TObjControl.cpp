@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TUnk_80493450.h"
 #include "pso/TObjControl.h"
@@ -413,7 +414,6 @@ struct Plr_800F6BF0 : VBase_800F6BF0 {
     virtual void m12(s32);
 };
 
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 TObjPlayer__sub_800192C4(s32, s32);
 u16 obj_getArrU16_FC(void *, int);
 s32 obj_testFlag_2E4__13TUnk_804806E8FUl(void *, u32);
@@ -724,8 +724,8 @@ void TObjEnemy::apply_set_data(void *arg1_arg) {
     B_800F698C *arg1 = (B_800F698C *)arg1_arg;
     s32 i;
     arg0->f1C = arg1->f6;
-    VecCopy__FP3VecPC3Vec(&arg0->v50, &arg1->v10);
-    VecCopy__FP3VecPC3Vec(&arg0->v38, &arg0->v50);
+    VecCopy((Vec *)&arg0->v50, (const Vec *)&arg1->v10);
+    VecCopy((Vec *)&arg0->v38, (const Vec *)&arg0->v50);
     ((TObjPlayer *)(&arg0->v5C))->copy_xyz(&arg1->v1C);
     for (i = 0; i < 5; i++) {
         arg0->f354[i] = arg1->f28[i];
@@ -818,7 +818,7 @@ void TObjEnemy::award_enemy_experience(s32 arg1) {
 void TObjEnemy::update_prev_position() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     temp_r3 = (unsigned char *) (*(void * *)&this->m_2b0);
     if (temp_r3 != NULL) {
         this->m_300 = (f32) ((lbl_805DA8DC * *(f32 *)((s8 *)temp_r3 + 0x10)) + this->m_300);

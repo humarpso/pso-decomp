@@ -1,6 +1,7 @@
 #pragma push
 
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TTecReverser.h"
 #include "pso/unk/TUnk_804CC148.h"
 
@@ -129,7 +130,6 @@ void *TUnk_804CC148::destroy_technique_base(s16 arg1) {
 #define lbl_804CC148 ((void * *)lbl_804CC148)
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, s32);
 u16 obj_getField1c(s32);
 s32 get_type__10TObjPlayerFPv(s32);
 void *__ct__7TEffectFv(void *);
@@ -150,7 +150,7 @@ u8 *init_technique_effect_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg4) {
     __ct__7TEffectFv(arg0);
     *(void ***)((s8 *)arg0 + 0x18) = lbl_804CC148;
     *(u16 *)((s8 *)arg0 + 0xB4) = 0xFFFF;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x20, arg2);
+    VecCopy((Vec *)(arg0 + 0x20), (const Vec *)arg2);
     *(f32 *)((s8 *)arg0 + 0x7C) = lbl_805DC7B4;
     *(f32 *)((s8 *)arg0 + 0x80) = lbl_805DC7B4;
     *(f32 *)((s8 *)arg0 + 0x84) = lbl_805DC7B4;
@@ -205,8 +205,8 @@ u8 *construct_area_technique_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 ar
     __ct__7TEffectFv(arg0);
     *(void ***)((s8 *)arg0 + 0x18) = lbl_804CC148;
     *(u16 *)((s8 *)arg0 + 0xB4) = 0xFFFF;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x20, arg2);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x7C, arg3);
+    VecCopy((Vec *)(arg0 + 0x20), (const Vec *)arg2);
+    VecCopy((Vec *)(arg0 + 0x7C), (const Vec *)arg3);
     *(f32 *)((s8 *)arg0 + 0x3C) = lbl_805DC7B8;
     *(f32 *)((s8 *)arg0 + 0x40) = lbl_805DC7B8;
     *(f32 *)((s8 *)arg0 + 0x44) = lbl_805DC7B8;

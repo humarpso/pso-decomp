@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 
 struct RecoveredGlobal_8019886C_lbl_804B8DD0 {
     s32 value;
@@ -11,7 +12,6 @@ struct RecoveredGlobal_801988E8_lbl_804B8DD0 {
 };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804B8DD0[];
 u8 *TWindowTimer__sub_8019886C(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4, u8 *arg5);
@@ -34,7 +34,7 @@ typedef char RecoveredGlobal_8019886C_lbl_804B8DD0_size[sizeof(RecoveredGlobal_8
 u8 *TWindowTimer__sub_8019886C(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4, u8 *arg5) {
     __ct__7TObjectFP7TObject(arg0, arg5);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8019886C_lbl_804B8DD0 *)&lbl_804B8DD0).value;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg1);
+    VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)arg1);
     *(s32 *)((s8 *)arg0 + 0x28) = arg2;
     *(s32 *)((s8 *)arg0 + 0x2C) = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = arg4;
@@ -48,7 +48,7 @@ typedef char RecoveredGlobal_801988E8_lbl_804B8DD0_size[sizeof(RecoveredGlobal_8
 u8 *TWindowTimer__sub_801988E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4) {
     __ct__7TObjectFP7TObject(arg0, arg4);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801988E8_lbl_804B8DD0 *)&lbl_804B8DD0).value;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg1);
+    VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)arg1);
     *(s32 *)((s8 *)arg0 + 0x28) = arg2;
     *(s32 *)((s8 *)arg0 + 0x2C) = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = arg3;

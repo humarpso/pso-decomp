@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 typedef struct Vec4_8034D500 {
     f32 x, y, z, w;
 } Vec4_8034D500;
@@ -115,7 +116,6 @@ const char *get_partner_custom_text(s32 kind, u16 player);
 void set_partner_dialogue_override(const char *text, s32 kind, u16 player);
 struct V3_8034D790 { f32 x, y, z; };
 struct Ent_8034D790 { V3_8034D790 p; f32 weight; };
-void VecCopy__FP3VecPC3Vec(void *, const void *);
 void normalize_vector(void *);
 
 #pragma push
@@ -152,7 +152,7 @@ s32 fn_8034D790(Ent_8034D790 *e, s32 n, s32 arg2, s32 closed, V3_8034D790 *out, 
     seg = (s32)pos / total;
     pos -= seg * sum;
     if (closed == 0 && seg != 0) {
-        VecCopy__FP3VecPC3Vec(out, &e[n - 1]);
+        VecCopy((Vec *)out, (const Vec *)&e[n - 1]);
         return 1;
     }
     acc = 0.0f;
@@ -167,11 +167,11 @@ s32 fn_8034D790(Ent_8034D790 *e, s32 n, s32 arg2, s32 closed, V3_8034D790 *out, 
         prev = acc;
     }
     if (idx == n - 1) {
-        VecCopy__FP3VecPC3Vec(&a, &e[idx]);
-        VecCopy__FP3VecPC3Vec(&b, &e[0]);
+        VecCopy((Vec *)&a, (const Vec *)&e[idx]);
+        VecCopy((Vec *)&b, (const Vec *)&e[0]);
     } else {
-        VecCopy__FP3VecPC3Vec(&a, &e[idx]);
-        VecCopy__FP3VecPC3Vec(&b, &e[idx + 1]);
+        VecCopy((Vec *)&a, (const Vec *)&e[idx]);
+        VecCopy((Vec *)&b, (const Vec *)&e[idx + 1]);
     }
     d.x = b.x - a.x;
     d.y = b.y - a.y;

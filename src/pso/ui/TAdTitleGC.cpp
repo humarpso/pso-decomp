@@ -1,4 +1,5 @@
 #include "pso/TAdTitleGC.h"
+#include "pso/render/depth_buffer.h"
 
 #include "types.h"
 #include "pso/TMainTask.h"
@@ -54,7 +55,6 @@ s32 get_localized_text_entry(s32, s32);
 s32 set_cached_blend_factor(s32, s32);
 s32 restore_saved_depth_alpha_state();
 s32 fn_802A0A30(void *, void *, s32, s32, s32);
-s32 set_depth_buffer_settings_2__Fv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 s32 TAdTitleGC::draw_title_layer(s32 arg1, s32 arg2) {
@@ -77,7 +77,7 @@ void TAdTitleGC::render() {
         goto block_5;
     }
     if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) {
-        set_depth_buffer_settings_2__Fv();
+        set_depth_buffer_settings_2();
 block_5:
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 0xA);

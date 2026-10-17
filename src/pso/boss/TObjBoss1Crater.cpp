@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TObjBoss1Crater.h"
 #include "pso/player/TUnk_804928CC.h"
 #include "pso/TObject.h"
@@ -91,7 +92,6 @@ struct Crater_8002C288 : VBase_8002C288 {
 
 extern "C" {
 s32 TBoss1Dragon__sub_8002AB6C(void *);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 isV2Mode__12TBoss1DragonFv();
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 create_particle_emitter(void *, int, f32);
@@ -217,7 +217,7 @@ Crater_8002C544 *TObjBoss1Crater__ct(Crater_8002C544 *self, void *arg1, void *ar
     r = lbl_80435560.z;
     self->f0 = TObjBoss1Crater__name;
     self->fA4->fC = r;
-    VecCopy__FP3VecPC3Vec(self->pos, arg3);
+    VecCopy((Vec *)self->pos, (const Vec *)arg3);
     r = lbl_805D8164 * (f32)rand();
     self->f60 = (s32)(lbl_805D8160 * r);
     self->fB0 = create_particle_emitter(self->pos, 0x40, r);

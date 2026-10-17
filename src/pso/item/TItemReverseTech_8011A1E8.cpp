@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/main_loop.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/TItemReverseTech.h"
 #include "pso/TParticleCtrl.h"
@@ -38,8 +39,6 @@ s32 TKeyBoardControl__sub_8000F92C();
 s32 TKeyBoardControl__sub_8000F9CC(int);
 s32 process_async_file_reads();
 s8 func_801A5E54__Fv();
-s32 controller_stuff__Fv();
-s32 render_tick__Fv();
 s32 update_sound_request_slots();
 s32 render_screen_overlay__9TMainTaskFv(void *);
 s32 some_empty_func__9TMainTaskFv(void *);
@@ -132,7 +131,7 @@ void TItemReverseTech::load_textures() {
 
 void TItemReverseTech::run_frame() {
     s32 *var_r3;
-    controller_stuff__Fv();
+    controller_stuff();
     TKeyBoardControl::update_input_frame();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8011A350_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8011A350_main_task *)&main_task).value);
@@ -156,7 +155,7 @@ void TItemReverseTech::run_frame() {
         var_r3 = (s32 *)((u8 *)(NULL));
         TKeyBoardControl__sub_8000F9CC((int) (0));
     }
-    render_tick__Fv();
+    render_tick();
 }
 
 typedef struct RecoveredGlobal_8011A3D8_lbl_804A03A8 RecoveredGlobal_8011A3D8_lbl_804A03A8;
@@ -181,7 +180,7 @@ void TItemReverseTech::run_cleanup_callbacks() {
     var_r30 -= 1;
   }
   while (var_r30 >= 0);
-  render_tick__Fv();
+  render_tick();
 }
 
 void TItemReverseTech::init_scene() {
@@ -214,7 +213,7 @@ void TItemReverseTech::init_scene() {
     TKeyBoardControl__sub_8000F91C(2);
     TParticleCtrl::create_quad_sprites();
     TItemReverseTech::create();
-    render_tick__Fv();
+    render_tick();
 }
 
 void TItemReverseTech__sub_8011A54C(void* a0) { *(float*)((char*)a0 + 0x20) = lbl_805DAC4C; *(float*)((char*)a0 + 0x24) = lbl_805DAC4C; }

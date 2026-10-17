@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TUnk_804E3BD8.h"
 #include "pso/player/TUnk_804E3BC0.h"
 #include "pso/player/TUnk_804E3BA8.h"
@@ -131,7 +132,6 @@ s32 scale_current_matrix(Vec_802E708C *);
 extern Col_802E708C lbl_80472C80;
 extern Vec_802E708C lbl_80472C90;
 extern const f32 lbl_805DE9F8;
-void VecCopy__FP3VecPC3Vec(void *, void *);
 int queue_destruction__7TObjectFv(void*);
 void TObjPlayer__sub_802E7640(void *);
 extern s32 lbl_80472C68[];
@@ -304,10 +304,10 @@ Obj_802E72DC *TObjPlayer__sub_802E72DC(Obj_802E72DC *arg0, s32 arg1, Vec_802E72D
         TObjPlayer__sub_802E7640(arg0);
         p = arg0->pieces;
         for (i = 0; i < arg0->count; i++, p++) {
-            VecCopy__FP3VecPC3Vec(&p->pos, arg2);
+            VecCopy((Vec *)&p->pos, (const Vec *)arg2);
             vec3_add_to(&p->pos, &arg0->tbl->items[i].a);
             q = &p->rot;
-            VecCopy__FP3VecPC3Vec(q, &arg0->tbl->items[i].b);
+            VecCopy((Vec *)q, (const Vec *)&arg0->tbl->items[i].b);
             q->y = lerp__9TDeadSpotFff(lbl_805DE9D4, lbl_805DE9D8);
             q->z -= lerp__9TDeadSpotFff(lbl_805DE9C8, lbl_805DE9DC);
             p->x18 = TObjPlayer::calc_random_scaled();

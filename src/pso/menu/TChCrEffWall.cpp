@@ -1,4 +1,5 @@
 #include "pso/TChCrEffWall.h"
+#include "pso/render/depth_buffer.h"
 #include "pso/misc/TWindowCtrlMain.h"
 
 #include "types.h"
@@ -14,7 +15,6 @@ void * __ct__12TChCrEffWallFP7TObject(void *, void * = 0);
 void *__nw__7TObjectFUl(int);
 void * fn_8029AE88(void *arg0);
 void TCameraCtrl__sub_80068EF0(void);
-void set_depth_buffer_settings_1__Fv(void);
 void restore_saved_depth_alpha_state(void);
 void draw_default_sprite__12TChCrEffWallFv(s32, Ent_8029ACF8 *, f32);
 extern Ent_8029ACF8 creation_effwall_sprite_position_table[6];
@@ -40,7 +40,7 @@ void *lbl_804DBFA8[4] = {
 void TChCrEffWall::render() {
     Args_8029ACF8 args;
     s32 i;
-    set_depth_buffer_settings_1__Fv();
+    set_depth_buffer_settings_1();
     for (i = 0; i < 6; i++) {
         draw_default_sprite__12TChCrEffWallFv(i + 10, &creation_effwall_sprite_position_table[i], lbl_805DDCB0);
     }

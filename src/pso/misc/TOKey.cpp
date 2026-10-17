@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TOKey.h"
 #include "pso/misc/TLobby.h"
@@ -56,9 +58,7 @@ struct VObj0_8016ab58_8016A8D0 : Base0_8016ab58_8016A8D0 { virtual void m0(); vi
 void *TOKey__ct(void *arg0);
 void *__dt__5TOKeyFv(void *arg0, s16 arg1);
 u8 is_current_floor_switch_set(u16);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
-int bswap_16__FPUs(void*);
 void init_map_object_base(void *);
 int read_be16_field2__10TObjPlayerFv(void*);
 
@@ -145,7 +145,7 @@ void TOKey::init_key() {
     u8 *arg0 = (u8 *)this;
     ((VObj0_8016ab58_8016A8D0*)arg0)->m5();
     init_switch_id();
-    VecCopy__FP3VecPC3Vec((u8 *)&this->m_74, (u8 *)&this->position);
+    VecCopy((Vec *)&this->m_74, (const Vec *)&this->position);
     *(s32 *)((s8 *)arg0 + 0x20) = 2;
 }
 
@@ -185,6 +185,6 @@ void TOKey::vfunc_16() {  }
 void TOKey::vfunc_17() {  }
 void TOKey::vfunc_25() {  }
 
-void TOKey::bswap_6x05_switch_flag() { read_be16_field2__10TObjPlayerFv(this); bswap_16__FPUs((char*)this + 0x8); }
+void TOKey::bswap_6x05_switch_flag() { read_be16_field2__10TObjPlayerFv(this); bswap_16((u16 *)((char*)this + 0x8)); }
 
 }

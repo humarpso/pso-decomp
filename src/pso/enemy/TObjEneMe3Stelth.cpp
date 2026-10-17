@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
 #include "pso/misc/TBreakUpMdl.h"
@@ -848,7 +849,6 @@ struct Vec_800F2270 { f32 x, y, z; };
 
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 clear_attack_receipts__9TObjEneDDFv(void *);
 #define advance_animation_playback ((s32 (*)(void *, s32))advance_animation_playback)
 #define play_sound_effect ((s32 (*)(s32, void *, s32, s32))play_sound_effect)
@@ -934,7 +934,7 @@ void TObjEneMe3Stelth__sub_800F2270(u8 *arg0, s32 arg1) {
             if (get_flag_b4__9TObjEneDDFv(arg0) != 0) {
                 I(0x3CC) |= 4;
                 S->s2();
-                VecCopy__FP3VecPC3Vec(&v, arg0 + 0x38);
+                VecCopy((Vec *)&v, (const Vec *)(arg0 + 0x38));
                 v.y = R(0x3D0) - TObjEneMe3Stelth__data_805DA844;
                 I(0x424) = 1;
                 play_sound_effect(0x3B23B, arg0 + 0x38, 0, 0);
@@ -956,19 +956,19 @@ void TObjEneMe3Stelth__sub_800F2270(u8 *arg0, s32 arg1) {
                     }
                     arr[2] = -(arr[0] + arr[1]);
                     for (i = 0; i < 3; i++) {
-                        VecCopy__FP3VecPC3Vec(&p, P(0x390) + 0x38);
+                        VecCopy((Vec *)&p, (const Vec *)(P(0x390) + 0x38));
                         ang = *(s32 *)((s8 *)(P(0x390)) + 0x60) + ((arr[i] + 1) << 14);
                         p.x = TObjEneMe3Stelth__data_805DA844 * cos_table_lookup(ang) + p.x;
                         p.z = p.z - TObjEneMe3Stelth__data_805DA844 * sin_table_lookup(ang);
                         p.y = p.y + TObjEneMe3Stelth__data_805DA820;
-                        VecCopy__FP3VecPC3Vec(&q, &p);
+                        VecCopy((Vec *)&q, (const Vec *)&p);
                         q.x += p.x - *(f32 *)((s8 *)(P(0x390)) + 0x38);
                         q.z += p.z - *(f32 *)((s8 *)(P(0x390)) + 0x40);
                         if (TObjEneMe3Stelth__sub_800F0F84(arg0, &q) == 0 &&
                             csnVector(P(0x390) + 0x38, &q, 0x88E0) == 0 &&
                             csnVectorUnder(&p, arg0 + 0x120, 0x15) != 0 &&
                             ((TScene *)(&p))->find_section_at_position() == *(s16 *)((s8 *)arg0 + 0x28)) {
-                            VecCopy__FP3VecPC3Vec(arg0 + 0x38, &p);
+                            VecCopy((Vec *)(arg0 + 0x38), (const Vec *)&p);
                             I(0x60) = ang + 0xC000;
                             break;
                         }
@@ -1027,7 +1027,7 @@ void handle_breakup_state__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
                 F(s32, 0x424) = 2;
                 F(s32, 0x3CC) |= 2;
                 TBoss3Volopt::create_breakup_mdl((s32)TObjEneMe3Stelth__breakup_model, (s32)me3_stelth_breakup_params, (s32)(F(s32, 0x24)), (s32)(arg0 + 0x38), (s32)(F(s32, 0x60)));
-                VecCopy__FP3VecPC3Vec(&v, arg0 + 0x38);
+                VecCopy((Vec *)&v, (const Vec *)(arg0 + 0x38));
                 v.x += TObjEneMe3Stelth__data_805DA844 * sin_table_lookup(F(s32, 0x60));
                 v.z += TObjEneMe3Stelth__data_805DA844 * cos_table_lookup(F(s32, 0x60));
                 ((TObjPlayer *)(&v))->trigger_dell_biter_events();
@@ -1068,7 +1068,7 @@ void TObjEneMe3Stelth__sub_800F290C(u8 *arg0, s32 arg1) {
         break;
     case 0:
         advance_animation_playback(arg0, arg1);
-        VecCopy__FP3VecPC3Vec(&v, arg0 + 0x308);
+        VecCopy((Vec *)&v, (const Vec *)(arg0 + 0x308));
         c = ((TObjBoss2Tunnel *)(&v))->clamp_velocity();
         ((TObjEneDD *)arg0)->move_clamped_on_ground(v.x, v.z, c);
         *(f32 *)((s8 *)arg0 + 0x308) *= lbl_805DA858;
@@ -2193,7 +2193,7 @@ void TObjEneMe3Stelth__sub_800F348C(u8 *arg0, s32 arg1) {
                     F(s32, 0x424) = 5;
                 } else {
                     t = F(f32, 0x3AC) - TObjEneMe3Stelth__data_805DA844;
-                    VecCopy__FP3VecPC3Vec(&v, arg0 + 0x38);
+                    VecCopy((Vec *)&v, (const Vec *)(arg0 + 0x38));
                     v.x += F(f32, 0x3A0) * t;
                     v.y += TObjEneMe3Stelth__data_805DA844;
                     v.z += F(f32, 0x3A8) * t;
@@ -2456,7 +2456,7 @@ void TObjEneMe3Stelth__sub_800F3FE4(u8 *arg0, s32 arg1) {
         ((TObjEneDD *)(arg0))->vfunc_95();
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 7);
         TObjEneMe3SinowZoa__sub_800D758C((void *) ((u8 *)(arg0) + 0x404));
-        VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) ((u8 *)(arg0) + 0x38));
+        VecCopy((Vec *)(&stack.sp8), (const Vec *)((u8 *)(arg0) + 0x38));
         temp_f1 = *(f32 *)((s8 *)arg0 + 0x3D0);
         stack.spC = temp_f1 - TObjEneMe3Stelth__data_805DA824;
         TBoss3Volopt__sub_800D8D88((void *) (&stack.sp8), (f32) (temp_f1));
@@ -2544,7 +2544,7 @@ void TObjEneMe3Stelth::sub_800F42B8(s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x3CC) &= ~2;
         *(s32 *)((s8 *)arg0 + 0x3CC) |= 5;
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x404);
-        VecCopy__FP3VecPC3Vec(&v, arg0 + 0x38);
+        VecCopy((Vec *)&v, (const Vec *)(arg0 + 0x38));
         t = *(f32 *)((s8 *)arg0 + 0x3D0);
         v.y = t - TObjEneMe3Stelth__data_805DA844;
         if (*(s32 *)((s8 *)arg0 + 0x3C0) == 0) {
@@ -2605,9 +2605,9 @@ void TObjEneMe3Stelth::vfunc_113(s32 arg1) {
             *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFFEFFFF);
         }
         *(s32 *)((s8 *)arg0 + 0x424) = 0;
-        VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0x50);
-        VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x50);
-        VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x50);
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x50));
+        VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x50));
+        VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x50));
         *(f32 *)((s8 *)arg0 + 0x3D0) = (f32) *(f32 *)((s8 *)arg0 + 0x3C);
         *(s32 *)((s8 *)arg0 + 0x3E8) = 0;
         *(s32 *)((s8 *)arg0 + 0x3EC) = 0;
@@ -3085,7 +3085,6 @@ struct VObj_14_2ab9de : VBase_14_2ab9de {
 
 typedef struct Tbl_800F5124 { u8 pad[0xC]; s32 t[3][2]; } Tbl_800F5124;
 
-#define VecCopy__FP3VecPC3Vec ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 u32 get_item_field_6__10TObjPlayerFPv(void *);
 f32 fabs_float(f32);
@@ -3629,9 +3628,9 @@ void TObjEneMe3Stelth::vfunc_88() {
 
 void TObjEneMe3Stelth::copy_pos_with_height_offset() {
     u8 *arg0 = (u8 *)this;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x300) = (f32) (*(f32 *)((s8 *)arg0 + 0x300) + (lbl_805DA814 + *(f32 *)((s8 *)arg0 + 0x3D4)));
-    VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
+    VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x2FC));
 }
 
 void TObjEneMe3Stelth::vfunc_61() {  }
@@ -3740,7 +3739,6 @@ void TObjEneMe3StelthReal::init_common() {
 
 #undef VBase_18
 #undef VObj_18
-#undef VecCopy__FP3VecPC3Vec
 #undef queue_destruction__7TObjectFv
 #undef clear_attack_receipts__9TObjEneDDFv
 #undef transition_enemy_state

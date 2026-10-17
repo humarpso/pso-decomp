@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TContainerAncient01.h"
@@ -208,7 +209,6 @@ unsigned int __cvt_fp2unsigned(f32);
 extern const f32 TContainerAncient01__data_805DBD34;
 extern f32 TContainerAncient01__data_805DBD14;
 f32 receive_physical_attack__20TContainerAncient01RFPvf(u8 *arg0);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 TContainerAncient01__data_805DBD3C;
 extern const f32 lbl_805DBD40;
 extern const f32 lbl_805DBD48;
@@ -505,9 +505,9 @@ void TContainerAncient01::init_positions() {
     *(f32 *)&this->unk_340 = (f32) (lbl_805DBD40 + (this->target_scale - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
     this->m_344 = (f32) (TContainerAncient01__data_805DBD44 + (*(f32 *)&this->m_70 - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
     *(s32 *)((s8 *)arg0 + 0x370) = (s32) (*(s32 *)&this->m_8c + 4);
-    VecCopy__FP3VecPC3Vec((u8 *)&this->unk_348, (u8 *)&this->position);
+    VecCopy((Vec *)&this->unk_348, (const Vec *)&this->position);
     this->m_34c = (f32) (this->m_34c + *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4));
-    VecCopy__FP3VecPC3Vec((u8 *)&this->m_354, (u8 *)&this->unk_348);
+    VecCopy((Vec *)&this->m_354, (const Vec *)&this->unk_348);
     *(f32 *)&this->unk_358 = (f32) ((lbl_805DBD48 * *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4)) + *(f32 *)&this->unk_358);
     *(s32 *)&this->m_360 = 0;
     *(f32 *)&this->unk_364 = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD10);
@@ -702,10 +702,10 @@ void *TContainerAncient01R__ct(Obj_8018B030 *self, void *arg1, void *parent) {
     self->flags |= 0x60000000;
     init_collision_body_parts(self, (void *)&TContainerAncient01__collision_body_parts, 1);
     ((TObjPlayer *)self)->reset_photon_effect();
-    VecCopy__FP3VecPC3Vec(&self->pos74, &self->pos);
+    VecCopy((Vec *)&self->pos74, (const Vec *)&self->pos);
     c = (Coll_8018B030 *)&TContainerAncient01__collision_body_parts;
     self->pos74.y = c->y * lbl_805DBD5C + self->pos74.y;
-    VecCopy__FP3VecPC3Vec(&self->pos2fc, &self->pos74);
+    VecCopy((Vec *)&self->pos2fc, (const Vec *)&self->pos74);
     self->state = 0;
     ((TContainerAncient01 *)self)->init_positions();
     return self;
@@ -831,9 +831,9 @@ void TContainerAncient01::init_state_vectors() {
     this->m_33c = (f32) (lbl_805DBD40 + (this->target_scale - TContainerAncient01__data_805DBD10));
     *(f32 *)&this->unk_340 = (f32) (TContainerAncient01__data_805DBD44 + (*(f32 *)&this->m_70 - TContainerAncient01__data_805DBD10));
     *(s32 *)&this->unk_36C = (s32) (*(s32 *)&this->m_8c + 4);
-    VecCopy__FP3VecPC3Vec((u8 *)&this->m_344, (u8 *)&this->position);
+    VecCopy((Vec *)&this->m_344, (const Vec *)&this->position);
     *(f32 *)&this->unk_348 = (f32) (*(f32 *)&this->unk_348 + *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4));
-    VecCopy__FP3VecPC3Vec((u8 *)&this->unk_350, (u8 *)&this->m_344);
+    VecCopy((Vec *)&this->unk_350, (const Vec *)&this->m_344);
     this->m_354 = (f32) ((lbl_805DBD48 * *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4)) + this->m_354);
     *(s32 *)&this->m_35c = 0;
     *(f32 *)&this->m_360 = (f32) TContainerAncient01__data_805DBD10;

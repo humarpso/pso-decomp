@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjTombstone.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -73,7 +74,6 @@ void subtract_vector(void *, void *);
 extern V_80075070 tombstone_position_table[];
 extern s32 local_client_id;
 extern const f32 lbl_805D9170;
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen();
 s32 get_screen_width__11TCameraCtrlFv();
 s32 get_screen_height__11TCameraCtrlFv();
@@ -174,7 +174,7 @@ s32 TObjTombstone::project_to_screen(void *arg0, f32 *arg1, void *arg2) {
     rotate_matrix_z(0, camera_ctrl_instance->f198);
     rotate_vector_by_matrix(0, &v, &v);
     pop_matrix();
-    VecCopy__FP3VecPC3Vec(&d, arg2);
+    VecCopy((Vec *)&d, (const Vec *)arg2);
     subtract_vector(&d, &camera_ctrl_instance->pos);
     if (vec3_dot(&v, &d) <= TObjTombstone__data_805D9174) {
         return 0;
@@ -222,7 +222,7 @@ s32 TObjTombstone::draw_name_labels(void *arg0_) {
     f32 b;
     u32 alpha;
     if (TObjTombstone__data_805D9174 == self->scale) return;
-    VecCopy__FP3VecPC3Vec(&pos, &self->pos);
+    VecCopy((Vec *)&pos, (const Vec *)&self->pos);
     pos.y += lbl_805D9188;
     if (TObjTombstone::project_to_screen(self, (f32 *)&screen, &pos) == 0) return;
     m = TObjTombstone__data_805D9174;

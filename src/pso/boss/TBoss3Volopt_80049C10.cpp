@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/boss/TUnk_80484AFC.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -50,7 +51,6 @@ struct Self_80049C10 {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 TBoss3Volopt__sub_8004812C(int);
 s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 s32 init_collision_body_parts(void *, void *, int);
@@ -95,7 +95,7 @@ void TUnk_80484AFC::run_task() {
         vec3_add_to(&self->vel, &d);
         ((TObjGyaranzoMissile *)(&self->vel))->scale_velocity(TBoss3Volopt__sub_8004812C(0));
     }
-    VecCopy__FP3VecPC3Vec(&self->prev, &self->pos);
+    VecCopy((Vec *)&self->prev, (const Vec *)&self->pos);
     vec3_add_to(&self->pos, &self->vel);
     direction_to_rotation_xy(&self->vel, &self->f5c, &self->f60);
     if (self->fe0 != NULL) {
@@ -157,7 +157,7 @@ u8 *TBoss3Volopt__sub_80049E9C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4)
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80049E9C_lbl_80484AFC *)&lbl_80484AFC).value;
     init_collision_body_parts((void *) (arg0), (void *) (&volopt_collision_body_desc.value), (int) (1));
     *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0xC) = (f32) lbl_805D88AC;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2));
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2));
     *(s32 *)((s8 *)arg0 + 0xCC) = arg4;
     *(s32 *)((s8 *)arg0 + 0x5C) = 0;
     *(s32 *)((s8 *)arg0 + 0x60) = arg3;

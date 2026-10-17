@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_8048E728.h"
 #include "pso/misc/TUnk_8048E778.h"
 #include "pso/misc/TUnk_8048E6DC.h"
@@ -195,7 +196,6 @@ s32 TParticleCtrl__sub_803E2A1C(void *, int);
 extern Tex_80086248 lbl_804C5820[];
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805D94D8;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 fn_80141EB4();
 s32 setSpriteInverseColorBlend();
 f32 sin_table_lookup(int);
@@ -415,7 +415,7 @@ void TUnk_8048E778::draw_sprite_quad(s32 kind) {
         matrix_mult_vec(0, &world, &view);
         view.y = -view.y;
     } else {
-        VecCopy__FP3VecPC3Vec(&view, &world);
+        VecCopy((Vec *)&view, (const Vec *)&world);
     }
     if (view.z <= lbl_805D94C8 || p->f95 == 1) {
         set_constant_material_color(p->f90);

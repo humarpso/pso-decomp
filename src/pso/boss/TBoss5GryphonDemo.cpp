@@ -1,4 +1,5 @@
 #include "pso/TBoss5GryphonDemo.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/boss/TBoss5GryphonColli_C.h"
 
@@ -46,7 +47,6 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 set_camera_capture_overlay_alpha(int);
 s32 restore_player_cameras();
 u8 *get_scripted_camera_playback();
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void fn_8002B630(void *, void *);
 u8 *mem_alloc(s32);
 void register_entity_by_id(void *);
@@ -117,7 +117,7 @@ Obj_800663DC *TBoss5GryphonDemo__sub_800663DC(Obj_800663DC *arg0, s32 arg1, s32 
     arg0->vt = lbl_804886AC;
     arg0->f0 = lbl_805D2808;
     arg0->f1c = TLobby::alloc_actor_ids(0);
-    VecCopy__FP3VecPC3Vec(arg0->posbuf, arg3);
+    VecCopy((Vec *)arg0->posbuf, (const Vec *)arg3);
     arg0->count = arg2;
     arg0->segs = (Seg_800663DC *)mem_alloc(arg0->count * 0x2C);
     step = lbl_805D8EDC * len;

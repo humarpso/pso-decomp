@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_80488A28.h"
 
@@ -324,7 +325,6 @@ struct View_800698C8 {
 
 extern "C" {
 void TCameraCtrl__sub_800689E8(void);
-s32 VecCopy__FP3VecPC3Vec(void *, int);
 s32 is_split_screen();
 s32 approach_camera_vector(void *, void *, f32);
 extern int TCameraCtrl__pose_snap_flags;
@@ -409,7 +409,7 @@ void TCameraCtrl__sub_800687C8(void) {
 }
 
 void TCameraCtrl::copy_vec_to_default(u8 *arg0) {
-    VecCopy__FP3VecPC3Vec((void *)(&TCameraCtrl__up_vector.value), (int)(arg0));
+    VecCopy((Vec *)(&TCameraCtrl__up_vector.value), (const Vec *)(arg0));
 }
 
 struct Cam_80068958;
@@ -421,13 +421,13 @@ void TCameraCtrl::sync_split_view_slots(s32 arg0, s32 arg1) {
         id = (u16)TCameraCtrl::get_nth_view_player_id(arg0);
         if (id != 0xFFFF) {
             (*(Cam_80068810 * *)&camera_ctrl_instance)->slots[id] = (*(Cam_80068810 * *)&camera_ctrl_instance)->f194;
-            VecCopy__FP3VecPC3Vec((void *)(&(*(Cam_80068810 * *)&camera_ctrl_instance)->vecs[id]), (int)(&(*(Cam_80068810 * *)&camera_ctrl_instance)->v178));
+            VecCopy((Vec *)(&(*(Cam_80068810 * *)&camera_ctrl_instance)->vecs[id]), (const Vec *)(&(*(Cam_80068810 * *)&camera_ctrl_instance)->v178));
         }
     }
     if (arg1 != 0) {
         for (i = 0; i < 4; i++) {
             (*(Cam_80068810 * *)&camera_ctrl_instance)->slots[i] = (*(Cam_80068810 * *)&camera_ctrl_instance)->f194;
-            VecCopy__FP3VecPC3Vec((void *)(&(*(Cam_80068810 * *)&camera_ctrl_instance)->vecs[i]), (int)(&(*(Cam_80068810 * *)&camera_ctrl_instance)->v178));
+            VecCopy((Vec *)(&(*(Cam_80068810 * *)&camera_ctrl_instance)->vecs[i]), (const Vec *)(&(*(Cam_80068810 * *)&camera_ctrl_instance)->v178));
         }
     }
 }
@@ -890,9 +890,9 @@ void TCameraCtrl::resolve_anchor_obstruction() {
     } else {
         if (is_split_screen() != 0) {
             n = TCameraCtrl::get_camera_no();
-            VecCopy__FP3VecPC3Vec(&self->split_look[n], (int)&self->split_pos[n]);
+            VecCopy((Vec *)&self->split_look[n], (const Vec *)&self->split_pos[n]);
         } else {
-            VecCopy__FP3VecPC3Vec(&self->look, (int)&self->pos);
+            VecCopy((Vec *)&self->look, (const Vec *)&self->pos);
         }
         *flag = 0;
     }
@@ -924,7 +924,7 @@ void TCameraCtrl::clamp_to_target_obstruction() {
         self->split_pos[n].x = hit->point->x;
         self->split_pos[n].y = hit->point->y;
         self->split_pos[n].z = hit->point->z;
-        VecCopy__FP3VecPC3Vec(&self->pos, (int)&self->split_pos[n]);
+        VecCopy((Vec *)&self->pos, (const Vec *)&self->split_pos[n]);
     } else {
         self->pos.x = hit->point->x;
         self->pos.y = hit->point->y;
@@ -1002,10 +1002,10 @@ void TCameraCtrl::update_pose_smoothing() {
     new_var = (u8 *) (temp_r30 + 0xD4);
     temp_r31 = new_var;
     approach_camera_vector((void *) temp_r31, (void *) (arg0 + 0x1A0), (f32) (*((f32 *) (((s8 *) arg0) + 0x1B8))));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x178), (int) temp_r31);
+    VecCopy((Vec *)(arg0 + 0x178), (const Vec *)temp_r31);
     current = (u8 *) (temp_r30 + 0x104);
     approach_camera_vector((void *) current, (void *) (arg0 + 0x1AC), (f32) (this->m_1bc));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x184), (int) current);
+    VecCopy((Vec *)(arg0 + 0x184), (const Vec *)current);
     return;
   }
   approach_camera_vector((void *) (arg0 + 0x178), (void *) (arg0 + 0x1A0), (f32) (*((f32 *) (((s8 *) arg0) + 0x1B8))));

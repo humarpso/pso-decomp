@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/main_loop.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TWindowMessage.h"
 #include "pso/TMainTask.h"
@@ -110,7 +111,6 @@ extern s32 item_appraisal_score;
 void adjust_appraisal_special(Obj_8021599C *obj);
 void adjust_appraisal_percentages(Obj_80215720 *arg0);
 void *mem_alloc(s32);
-void render_tick__Fv();
 s32 get_guild_text(s32);
 void render_screen_overlay__9TMainTaskFv(void *);
 void some_empty_func__9TMainTaskFv(void *);
@@ -152,17 +152,17 @@ void TQuestListOnline::begin_file_download() {
         ((TMainTask *)((u8 *)&main_task))->run_tl_camera_tasks();
         render__9TMainTaskFv(((u8 *)&main_task));
         render_screen_overlay__9TMainTaskFv(((u8 *)&main_task));
-        render_tick__Fv();
+        render_tick();
         some_empty_func__9TMainTaskFv(((u8 *)&main_task));
         ((TMainTask *)((u8 *)&main_task))->run_tl_camera_tasks();
         render__9TMainTaskFv(((u8 *)&main_task));
         render_screen_overlay__9TMainTaskFv(((u8 *)&main_task));
-        render_tick__Fv();
+        render_tick();
         some_empty_func__9TMainTaskFv(((u8 *)&main_task));
         ((TMainTask *)((u8 *)&main_task))->run_tl_camera_tasks();
         render__9TMainTaskFv(((u8 *)&main_task));
         render_screen_overlay__9TMainTaskFv(((u8 *)&main_task));
-        render_tick__Fv();
+        render_tick();
         ((TWindowCtrl *)local_client_id)->suppress_slot();
         run_all_lists__9TMainTaskFv(((u8 *)&main_task));
         quest_download_active = 1;

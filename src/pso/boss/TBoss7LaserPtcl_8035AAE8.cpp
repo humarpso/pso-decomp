@@ -1,4 +1,5 @@
 #include "pso/boss/TBoss7LaserPtcl.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss7PhotonBullet.h"
 #include "pso/boss/TUnk_804F1C88.h"
 #include <stddef.h>
@@ -18,7 +19,6 @@ extern "C" {
 typedef TBoss7LaserPtclVector Vec_8035AAEC;
 struct Ang_8035AAEC { s32 x, y, z; };
 
-void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 atan2_float(f32 y, f32 x);
 void create_oneshot_particle_emitter(void *, void *, int, int);
 void direction_to_rotation_xz(void *, void *, void *);
@@ -95,8 +95,8 @@ void TBoss7LaserPtcl::run_task() {
     if (o->state == 1) {
         o->travel_distance += lbl_805E0100;
         ((TBoss7LaserPtcl *)o)->update_position();
-        VecCopy__FP3VecPC3Vec(&v, &o->displacement);
-        VecCopy__FP3VecPC3Vec(&w, &o->position);
+        VecCopy((Vec *)&v, (const Vec *)&o->displacement);
+        VecCopy((Vec *)&w, (const Vec *)&o->position);
         normalize_vector(&v);
         v.x *= lbl_805E0104;
         v.y *= lbl_805E0104;
@@ -137,8 +137,8 @@ u8 *TBoss7LaserPtcl__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
     *(f32 *)((s8 *)arg0 + 0x4C) = (f32) lbl_805E010C;
     *(s32 *)((s8 *)arg0 + 0x54) = 0;
     *(s32 *)((s8 *)arg0 + 0x1C) = 0;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x20, arg2);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x2C, arg3);
+    VecCopy((Vec *)(arg0 + 0x20), (const Vec *)arg2);
+    VecCopy((Vec *)(arg0 + 0x2C), (const Vec *)arg3);
     ((TBoss7LaserPtcl *)arg0)->update_position();
     *(s32 *)((s8 *)arg0 + 0x44) = spawn_continuous_particle_effect_with_flags((s32) arg2, 0x204, 0x40);
     *(s32 *)((s8 *)arg0 + 0x48) = spawn_continuous_particle_effect_with_flags((s32) arg2, 0x205, 0x40);
@@ -192,7 +192,7 @@ u8 *TBoss7LaserPtcl__sub_8035AE54(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0x5C) = (f32) lbl_805E0118;
     *(u8 **)((s8 *)arg0 + 0x1C) = (unsigned char *) ((void *) (arg0 + 0x34));
     *(s32 *)((s8 *)arg0 + 0x20) = 1;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x24), (void *) (arg2));
+    VecCopy((Vec *)(arg0 + 0x24), (const Vec *)(arg2));
     spawn_particle_effect((void *) (arg0 + 0x24), (int) (0x211));
     create_timed_particle_emitter((void *) (arg0 + 0x24), (int) (0x213), (int) (0), (int) (0x1E));
     return arg0;

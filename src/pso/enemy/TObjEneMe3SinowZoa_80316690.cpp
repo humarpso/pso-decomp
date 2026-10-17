@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
 #include "pso/TParticleCtrl.h"
 
@@ -11,7 +12,6 @@ s32 objInBand__FP7GameObjf(void *, f32);
 extern const f32 TObjEneMe3SinowZoa__data_805DF2FC;
 extern const f32 lbl_805DF300;
 void TObjEneMe3SinowZoa__sub_80316840(u8 *arg0);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void attach_particle_model(void *, s32, s32, s32, s32, f32);
 Hit_80316690 *csnVectorUnder(void *, void *, s32);
 void spawn_particle_effect(void *, int);
@@ -27,15 +27,15 @@ s32 TObjEneMe3SinowZoa::check_floor_contact(void *arg1) {
     u8 pad[16];
     Hit_80316690 *hit;
     void *p;
-    VecCopy__FP3VecPC3Vec(&v, arg1);
+    VecCopy((Vec *)&v, (const Vec *)arg1);
     v.y += TObjEneMe3SinowZoa__data_805DF2F0;
     hit = csnVectorUnder(&v, (u8 *)&this->m_120, 0x4007);
     if (hit != NULL) {
         *(s32 *)(arg0 + 0x3D0) = *(s32 *)(hit->obj + 0x18);
         if (*(s32 *)(arg0 + 0x3D0) & 0x4000) {
-            VecCopy__FP3VecPC3Vec(arg0 + 0x3D4, hit->obj);
+            VecCopy((Vec *)(arg0 + 0x3D4), (const Vec *)hit->obj);
         } else {
-            VecCopy__FP3VecPC3Vec(arg0 + 0x3D4, (u8 *)&this->position);
+            VecCopy((Vec *)(arg0 + 0x3D4), (const Vec *)&this->position);
         }
         if (hit->flags & 4) {
             TObjEneGibbles__sub_800D8988((u8 *)&this->position);

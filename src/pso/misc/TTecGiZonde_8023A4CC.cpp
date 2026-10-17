@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TUnk_804CCC68.h"
 
 #include <stddef.h>
@@ -56,7 +57,6 @@ struct RecoveredFields_8023A510_temp_r6 {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_technique_projectile_wall_hit(void *, f32, f32);
 void move_technique_projectile(u8 *arg0);
 f32 fabs_float(f32);
@@ -120,10 +120,10 @@ void step_ground_technique_projectile(RecoveredFields_8023A510_arg0 *arg0) {
     u8 *temp_r3;
     u8 *temp_r3_2;
     u8 *temp_r6;
-    VecCopy__FP3VecPC3Vec((void *) (((u8 *)arg0) + 0x78), (void *) (((u8 *)arg0) + 0x20));
+    VecCopy((Vec *)(((u8 *)arg0) + 0x78), (const Vec *)(((u8 *)arg0) + 0x20));
     arg0->field_20 = (f32) ((arg0->field_48 * arg0->field_64) + arg0->field_20);
     arg0->field_28 = (f32) ((arg0->field_50 * arg0->field_64) + arg0->field_28);
-    VecCopy__FP3VecPC3Vec((void *) (&stack.sp1C), (void *) (((u8 *)arg0) + 0x20));
+    VecCopy((Vec *)(&stack.sp1C), (const Vec *)(((u8 *)arg0) + 0x20));
     stack.sp20 += lbl_805DC918;
     temp_r3 = (u8 *)(csnVecterUnder(&stack.sp1C, 0x16EF));
     if (temp_r3 != NULL) {
@@ -162,7 +162,7 @@ void move_ground_technique_projectile(void* p) { step_ground_technique_projectil
 void move_technique_projectile(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f2;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x78), (void *) (arg0 + 0x20));
+    VecCopy((Vec *)(arg0 + 0x78), (const Vec *)(arg0 + 0x20));
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) ((*(f32 *)((s8 *)arg0 + 0x48) * *(f32 *)((s8 *)arg0 + 0x64)) + *(f32 *)((s8 *)arg0 + 0x20));
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) ((*(f32 *)((s8 *)arg0 + 0x4C) * *(f32 *)((s8 *)arg0 + 0x64)) + *(f32 *)((s8 *)arg0 + 0x24));
     temp_f2 = *(f32 *)((s8 *)arg0 + 0x50);

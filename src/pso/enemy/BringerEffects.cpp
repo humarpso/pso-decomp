@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneDf2Bringer.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/player/TObjPlayer.h"
@@ -44,7 +45,6 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 extern s32 bringer_projectile_actor_ops_table[];
 void *__dt__13TUnk_8048FE64Fv(void *arg0, s16 arg1);
-s32 VecCopy__FP3VecPC3Vec(void *, const void *);
 void queue_destruction__7TObjectFv(void *);
 void *csnVector(void *, void *, s32);
 void create_timed_particle_emitter(void *, s32, s32, s32);
@@ -70,14 +70,14 @@ void update_shot__17TObjEneDf2BringerFPv(Bringer_80099F0C *self) {
         return;
     }
     hit = 0;
-    VecCopy__FP3VecPC3Vec(&v, &self->pos);
+    VecCopy((Vec *)&v, (const Vec *)&self->pos);
     v.x = 10.0f * self->dirx + v.x;
     v.z = 10.0f * self->dirz + v.z;
     step = 10.0f;
     void *res = csnVector(&self->pos, &v, 0x16EF);
     if (res != 0) {
-        VecCopy__FP3VecPC3Vec(&v, *(void **)((u8 *)res + 4));
-        VecCopy__FP3VecPC3Vec(&d, &self->pos);
+        VecCopy((Vec *)&v, (const Vec *)(*(void **)((u8 *)res + 4)));
+        VecCopy((Vec *)&d, (const Vec *)&self->pos);
         subtract_vector(&d, &v);
         step = ((TObjBoss2Tunnel *)(&d))->update_scale();
         hit = 1;
@@ -85,7 +85,7 @@ void update_shot__17TObjEneDf2BringerFPv(Bringer_80099F0C *self) {
     f32 inc = 16.0f;
     self->dist += step;
     while (self->dist > self->next) {
-        VecCopy__FP3VecPC3Vec(&e, &self->pos);
+        VecCopy((Vec *)&e, (const Vec *)&self->pos);
         e.x = self->next * self->dirx + e.x;
         e.z = self->next * self->dirz + e.z;
         create_timed_particle_emitter(&e, 0xEE, 0, 1);
@@ -93,7 +93,7 @@ void update_shot__17TObjEneDf2BringerFPv(Bringer_80099F0C *self) {
     }
     self->next -= step;
     self->dist -= step;
-    VecCopy__FP3VecPC3Vec(&self->pos, &v);
+    VecCopy((Vec *)&self->pos, (const Vec *)&v);
     self->col->f10 = 2.5f;
     self->col->fC = 0.5f * step;
     ((TObjPlayer *)self)->update_enemy_collision_flags();
@@ -113,7 +113,7 @@ void update_shot__17TObjEneDf2BringerFPv(Bringer_80099F0C *self) {
 
 void TUnk_8048FE08::sub_8009A11C() { *(s32*)((char*)this + 0xb0) = 0; }
 void TObjEneDf2Bringer::setup_dir_shot(const void *arg1, s32 arg2, f32 farg0) {
-    VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x38), arg1);
+    VecCopy((Vec *)(((u8 *)this) + 0x38), (const Vec *)arg1);
     this->rotation_y = arg2;
     *(f32 *)&this->m_b8 = sin_table_lookup((int) (this->rotation_y));
     *(f32 *)&this->m_bc = (f32) 0.0f;
@@ -146,7 +146,7 @@ void TObjEneDf2Bringer::update_projectile_motion() {
     *(f32 *)&this->m_50 += 1.0f;
     temp_f2 = 6.0f * *(f32 *)&this->m_50;
     if (temp_f2 >= *(f32 *)&this->m_4c) {
-        VecCopy__FP3VecPC3Vec((void *)(((u8 *)this) + 0x1C), (const void *)(((u8 *)this) + 0x34));
+        VecCopy((Vec *)(((u8 *)this) + 0x1C), (const Vec *)((const void *)(((u8 *)this) + 0x34)));
         queue_destruction__7TObjectFv(((u8 *)this));
         return;
     }
@@ -182,10 +182,10 @@ u8 *fn_8009A398(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3) {
     ((s32 (*)())__ct__7TObjectFP7TObject)();
     *(s32 **)((s8 *)arg0 + 0x18) = bringer_projectile_actor_ops_table;
     *(s32 *)((s8 *)arg0 + 0) = (s32) bringer_tp_absorb_effect_name;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (arg2));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x34), (void *) (arg3));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1C), (void *) (arg0 + 0x28));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x40), (void *) (arg0 + 0x34));
+    VecCopy((Vec *)(arg0 + 0x28), (const Vec *)(arg2));
+    VecCopy((Vec *)(arg0 + 0x34), (const Vec *)(arg3));
+    VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)(arg0 + 0x28));
+    VecCopy((Vec *)(arg0 + 0x40), (const Vec *)(arg0 + 0x34));
     subtract_vector((void *) (arg0 + 0x40), (void *) (arg0 + 0x28));
     *(f32 *)((s8 *)arg0 + 0x4C) = ((TObjBoss2Tunnel *)(arg0 + 0x40))->update_scale();
     *(f32 *)((s8 *)arg0 + 0x50) = (f32) 0.0f;
@@ -331,7 +331,7 @@ u8 *construct_bringer_tp_absorb_ring(u8 *arg0, u8 *arg1, u8 *arg2, f32 farg0) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = bringer_tp_absorb_ring_vtable;
     *(s32 *)((s8 *)arg0 + 0) = (s32) bringer_tp_absorb_effect_name;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x20, arg2);
+    VecCopy((Vec *)(arg0 + 0x20), (const Vec *)arg2);
     *(s32 *)((s8 *)arg0 + 0x1C) = 0;
     *(f32 *)((s8 *)arg0 + 0x38) = (f32) 10.0f;
     *(f32 *)((s8 *)arg0 + 0x3C) = farg0;
@@ -451,7 +451,7 @@ u8 *construct_bringer_rush_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 fa
     *(s32 *)((s8 *)arg0 + 0x1C) = arg3;
     *(f32 *)((s8 *)arg0 + 0x2C) = farg0;
     *(s32 *)((s8 *)arg0 + 0x30) = 0;
-    VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg3 + 0x38));
+    VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg3 + 0x38));
     subtract_vector((void *) (&stack.sp8), (void *) (arg2 + 0x38));
     stack.spC = 0.0f;
     *(f32 *)((s8 *)arg0 + 0x20) = sin_table_lookup((int) (*(s32 *)((s8 *)arg2 + 0x60)));

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TORockJungleS01.h"
 #include "pso/object/TObjMapCsn.h"
@@ -23,7 +24,6 @@ struct Inner_8029C214 { u8 pad[0x58]; s32 v; };
 struct Copy_8029C214 { u32 w[15]; };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 TORockCave__ct(void *);
 s32 get_jungle_rock_texture_resource(s32 a);
@@ -96,7 +96,7 @@ u8 *TORockJungleL01__ct(u8 *arg0, s32 arg1) {
     ((TObjPlayer *)arg0)->reset_photon_effect();
     {
         Copy_8029C214 c = *(Copy_8029C214 *)arg1;
-        VecCopy__FP3VecPC3Vec((u8 *)&c + 0x24, rock_jungle_vec3_table);
+        VecCopy((Vec *)((u8 *)&c + 0x24), (const Vec *)rock_jungle_vec3_table);
         *(s32 *)((s8 *)arg0 + 0xD4) = TObjMapCsn::create((s32)(&c));
     }
     ((TObjPlayer *)(arg0 + 0xB4))->activate_and_dispatch();

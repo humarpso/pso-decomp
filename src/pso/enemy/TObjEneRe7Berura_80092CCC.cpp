@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
@@ -348,7 +349,6 @@ struct Berura_80092CCC {
 };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, const void *);
 s32 transition_enemy_state(void *, s32);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 s32 play_sound_effect(s32, void *, s32, s32);
@@ -524,7 +524,7 @@ void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
     }
     if (o->f326 == 5) {
         for (l4 = 0; l4 < 2; l4++) {
-            VecCopy__FP3VecPC3Vec(&o->f420[l4], &o->pos);
+            VecCopy((Vec *)&o->f420[l4], (const Vec *)&o->pos);
         }
     }
 }
@@ -639,7 +639,7 @@ void TObjEneRe7Berura__sub_80093470(Berura_80093470 *obj, s32 mode) {
         break;
     case 0:
         advance_animation_playback(self);
-        VecCopy__FP3VecPC3Vec(&v, &self->vel);
+        VecCopy((Vec *)&v, (const Vec *)&self->vel);
         speed = ((TObjBoss2Tunnel *)(&v))->clamp_velocity();
         ((TObjEneDD *)self)->move_clamped_on_ground(v.x, v.z, speed);
         self->vel.x *= TObjEneRe7Berura__data_805D9738;

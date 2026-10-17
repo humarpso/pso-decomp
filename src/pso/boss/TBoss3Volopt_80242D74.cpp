@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type3.h"
 
 extern "C" {
 u32 find_active_pad_rumble_effect_by_id(s32);
 void *find_free_pad_rumble_effect_slot();
-s32 VecCopy__FP3VecPC3Vec(void *, u32);
 int reset_state__23TAdSinglePlyChrSelectGCFv();
 
 void TBoss3Volopt::update_if_active(s32 _w0) {
@@ -29,7 +29,7 @@ void TBoss3Volopt::alloc_effect_node(u32 arg0, s16 arg1, s32 arg2) {
         *(u8 *)((s8 *)active_pad_rumble_effect + 0) = 0xF9U;
         if (arg0 != 0U) {
             *(u8 *)((s8 *)active_pad_rumble_effect + 0) = (u8) (*(u8 *)((s8 *)active_pad_rumble_effect + 0) | 2);
-            VecCopy__FP3VecPC3Vec(active_pad_rumble_effect + 4, arg0);
+            VecCopy((Vec *)(active_pad_rumble_effect + 4), (const Vec *)arg0);
         }
         *(s16 *)((s8 *)active_pad_rumble_effect + 0x10) = arg1;
         *(s32 *)((s8 *)active_pad_rumble_effect + 0x14) = arg2;

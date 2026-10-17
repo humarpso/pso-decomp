@@ -1,4 +1,5 @@
 #include "pso/TChCrEffTagStr.h"
+#include "pso/render/depth_buffer.h"
 
 #include "types.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
@@ -9,7 +10,6 @@ struct Stack_8029AEDC {
 };
 
 extern "C" {
-s32 set_depth_buffer_settings_1__Fv();
 s32 restore_saved_depth_alpha_state();
 s32 draw_creation_sprite_offset(s32, void *, f32 *, f32, f32, f32, f32, f32);
 extern const f32 lbl_805DDCB8;
@@ -32,7 +32,7 @@ void TChCrEffTagStr::render() {
     Stack_8029AEDC stack;
     f32 temp_f2;
     f32 temp_f3;
-    set_depth_buffer_settings_1__Fv();
+    set_depth_buffer_settings_1();
     temp_f2 = *(f32 *)((s8 *)arg0 + 0x24);
     temp_f3 = lbl_805DDCB8 - temp_f2;
     stack.spC = temp_f2 * temp_f2;

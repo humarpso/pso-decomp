@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
 #include "pso/object/TObjDoorJung.h"
 #include "pso/misc/TUnk_804AF8D8.h"
 #include "pso/object/TObjMotion.h"
@@ -109,7 +110,6 @@ extern "C" {
 void TLazerFenceSw__vt14(u8 *arg0);
 s32 get_state_flag__9TMainTaskFv();
 s32 func_80141618__Fv();
-s32 set_depth_buffer_settings_id__FUl(int);
 s32 fn_80156BBC(void *, void *);
 s32 fn_80156C38(void *);
 s32 set_material_alpha_compare_reference(int);
@@ -293,7 +293,7 @@ void TLazerFenceSw::render() {
     u8 *arg0 = (u8 *)this;
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBE7C, lbl_805DBE80) != 0) {
         if (get_state_flag__9TMainTaskFv() != 1) {
-            set_depth_buffer_settings_id__FUl((int) (3));
+            set_depth_buffer_settings_id((3));
             set_material_alpha_compare_reference((int) (0x80));
             if (fn_80156BBC((void *) (arg0 + 0xF0), (void *) (arg0 + 0x38)) != 0) {
                 if (fn_80156C38((void *) (arg0 + 0xF0)) != 0) {

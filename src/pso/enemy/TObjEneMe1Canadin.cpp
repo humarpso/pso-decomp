@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneDD_ST.h"
@@ -503,7 +504,6 @@ struct VObj_18_26a62c : VBase_18_26a62c {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 update_player_state__9TObjEneDDFv(void *, int, int);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
@@ -2991,8 +2991,8 @@ void TObjEneMe1Canadin::render() {
             if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 0xA) {
                 lbl_805D4FD4 = 0;
                 TObjEneMe1Canadin__render_point_cursor = (s32)(arg0 + 0x414);
-                VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x438), (void *) (lbl_8043A268));
-                VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x420), (void *) (lbl_8043A274));
+                VecCopy((Vec *)(arg0 + 0x438), (const Vec *)(lbl_8043A268));
+                VecCopy((Vec *)(arg0 + 0x420), (const Vec *)(lbl_8043A274));
                 TObjEneRe7Berura::set_global_state((s32)((void *) (&fn_8009BD00)));
                 if (var_r30 == 1) {
                     ((TObjEneRe7Berura *)arg0)->draw();
@@ -3004,8 +3004,8 @@ void TObjEneMe1Canadin::render() {
                 rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x64)));
                 lbl_805D4FD4 = -1;
                 TObjEneMe1Canadin__render_point_cursor = (s32)(arg0 + 0x414);
-                VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x438), (void *) (lbl_8043A268));
-                VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x420), (void *) (lbl_8043A274));
+                VecCopy((Vec *)(arg0 + 0x438), (const Vec *)(lbl_8043A268));
+                VecCopy((Vec *)(arg0 + 0x420), (const Vec *)(lbl_8043A274));
                 TObjEneRe7Berura::set_global_state((s32)((void *) (&fn_8009BD00)));
                 ((TObjEneDD_ST *)arg0)->draw_with_alt_model((int) (*(s32 *)((s8 *)arg0 + 0x410)));
                 TObjEneRe7Berura::set_global_state((s32)((void *) (NULL)));
@@ -3021,13 +3021,13 @@ void TObjEneMe1Canadin::render() {
         ((TObjEneDD *)arg0)->update_primary_light();
         return;
     }
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x438), (void *) (lbl_8043A268));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x420), (void *) (lbl_8043A274));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x42C), (void *) (arg0 + 0x2FC));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x414), (void *) (arg0 + 0x2FC));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x444), (void *) (arg0 + 0x2FC));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x450), (void *) (arg0 + 0x2FC));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x45C), (void *) (arg0 + 0x2FC));
+    VecCopy((Vec *)(arg0 + 0x438), (const Vec *)(lbl_8043A268));
+    VecCopy((Vec *)(arg0 + 0x420), (const Vec *)(lbl_8043A274));
+    VecCopy((Vec *)(arg0 + 0x42C), (const Vec *)(arg0 + 0x2FC));
+    VecCopy((Vec *)(arg0 + 0x414), (const Vec *)(arg0 + 0x2FC));
+    VecCopy((Vec *)(arg0 + 0x444), (const Vec *)(arg0 + 0x2FC));
+    VecCopy((Vec *)(arg0 + 0x450), (const Vec *)(arg0 + 0x2FC));
+    VecCopy((Vec *)(arg0 + 0x45C), (const Vec *)(arg0 + 0x2FC));
 }
 
 void fn_8009BD00(void) {
@@ -3120,7 +3120,7 @@ void TObjEneMe1Canadin::vfunc_112(s32 arg1) {
         }
         TBoss3Volopt::create_breakup_mdl((s32)((void *) (lbl_805D4FE0)), (s32)((int) (0)), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x24))), (s32)((void *) (arg0 + 0x2FC)), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x60))));
         *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C8) | 0x400000);
-        VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x2FC));
+        VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x2FC));
         temp_f1 = stack.spC;
         stack.spC = temp_f1 - TObjEneMe1Canadin__data_805D98AC;
         trigger_dell_biter_events__10TObjPlayerFv((void *) (&stack.sp8), (f32) (temp_f1));
@@ -3294,7 +3294,7 @@ void TObjEneMe1Canadin__sub_8009C510(u8 *arg0, s32 arg1) {
         break;
     case 0:
         advance_animation_playback();
-        ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&v, arg0 + 0x308);
+        VecCopy((Vec *)&v, (const Vec *)(arg0 + 0x308));
         f = ((TObjBoss2Tunnel *)(&v))->clamp_velocity();
         ((TObjEneDD *)arg0)->move_with_wall_slide_on_ground(v.x, v.z, f);
         f *= TObjEneMe1Canadin__data_805D98BC;
@@ -3533,7 +3533,7 @@ void TObjEneMe1Canadin__sub_8009D320(void *arg0, s32 arg1) {
                 void *p;
                 o->mode = 3;
                 ((TObjEneMe1Canadin *)o)->reset_map_core(TObjEneMe1Canadin__map_core_default_vec4);
-                VecCopy__FP3VecPC3Vec(pos, &o->base);
+                VecCopy((Vec *)pos, (const Vec *)&o->base);
                 p = __nw__7TObjectFUl(0x48);
                 if (p != 0) {
                     p = TObjEneMe1Canadin_EffLine__ct(p, o, o->f414, pos);
@@ -3547,10 +3547,10 @@ void TObjEneMe1Canadin__sub_8009D320(void *arg0, s32 arg1) {
             Vec_8009D320 v;
             ((TObjEneDD *)o)->update_velocity();
             ((TObjEneMe1Canadin *)o)->update_angle();
-            VecCopy__FP3VecPC3Vec(&v, &o->base);
+            VecCopy((Vec *)&v, (const Vec *)&o->base);
             subtract_vector(&v, pos);
             if (((TObjBoss2Tunnel *)(&v))->clamp_velocity() < lbl_805D9910) {
-                VecCopy__FP3VecPC3Vec(pos, &o->base);
+                VecCopy((Vec *)pos, (const Vec *)&o->base);
             } else {
                 pos->x = lbl_805D9910 * v.x + pos->x;
                 pos->y = lbl_805D9910 * v.y + pos->y;
@@ -4249,7 +4249,7 @@ void TObjEneMe1Canadin::set_target_speed_z() {
 void TObjEneMe1Canadin__sub_8009EB14(u8 *arg0, f32 height) {
     Stack_800CBDBC stack;
     ((s32 (*)(u8*, f32))TObjEneMe1Canadin__sub_8009EB98)(arg0, height);
-    VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+    VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x38));
     stack.spC = *(f32 *)((s8 *)arg0 + 0x3F8);
     ((VObj_18_p10 *)(arg0))->m99(&stack.sp8);
 }
@@ -4330,7 +4330,7 @@ void TObjEneMe1Canadin::copy_pos() {
     *(f32 *)((s8 *)arg0 + 0x2FC) = (f32) *(f32 *)((s8 *)arg0 + 0x38);
     *(f32 *)((s8 *)arg0 + 0x300) = (f32) *(f32 *)((s8 *)arg0 + 0x3F8);
     *(f32 *)((s8 *)arg0 + 0x304) = (f32) *(f32 *)((s8 *)arg0 + 0x40);
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x2FC));
+    VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x2FC));
 }
 
 void TObjEneMe1Canadin::vfunc_61() {  }
@@ -4426,7 +4426,7 @@ void TObjEneMe1Canadin::setup_enemy() {
     *(s32 *)((s8 *)arg0 + 0x40C) = 0;
     *(s32 *)((s8 *)arg0 + 0x410) = 0;
     for (i = 0; i < 7; i++) {
-        VecCopy__FP3VecPC3Vec(&((Obj_8009F004 *)arg0)->v[i], arg0 + 0x38);
+        VecCopy((Vec *)(&((Obj_8009F004 *)arg0)->v[i]), (const Vec *)(arg0 + 0x38));
     }
     *(s32 *)((s8 *)arg0 + 0x46C) = 0;
     *(s32 *)((s8 *)arg0 + 0x470) = 0;
@@ -4472,7 +4472,7 @@ u8 *TObjEneMe1Canadin__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4, s16 
     *(s16 *)((s8 *)arg0 + 0x1C) = arg4;
     *(s16 *)((s8 *)arg0 + 0x2C) = arg5;
     ((s32 (*)(void *, void *))calc_move_vector__17TObjEneMe1CanadinFiPv)((void *) (*(u8 **)((s8 *)arg0 + 0x3C0)), (void *) (arg0 + 0x38));
-    VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x38)), (void *)((void *) (arg3)));
+    VecCopy((Vec *)((void *) (arg0 + 0x38)), (const Vec *)((void *) (arg3)));
     *(s32 *)((s8 *)arg0 + 0x60) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x3C0)) + 0x60);
     *(s32 *)((s8 *)arg0 + 0x3C8) = 0;
     *(s32 *)((s8 *)arg0 + 0x3C4) = 1;

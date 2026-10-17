@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TUnk_80488D70.h"
 #include "pso/misc/TUnk_80488B68.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -21,9 +22,7 @@ struct Bank_8006C6CC {
 
 extern "C" {
 extern G_8006C668 TCameraCtrl__camera_banks;
-void xfree__FPv(void *);
 s32 load_relocatable_file(s32, void *);
-void *xmalloc__FUl(s32);
 extern Bank_8006C6CC camera_path_bank_table[];
 void *TCameraCtrl__vt10(void);
 void *__dt__13TUnk_80488D70Fv(void *arg0, s16 arg1);
@@ -43,7 +42,7 @@ void TCameraCtrl::free_entries() {
     s32 i;
     for (i = 0; i < 8; i++) {
         if (TCameraCtrl__camera_banks.e[i].p != 0) {
-            xfree__FPv(TCameraCtrl__camera_banks.e[i].p);
+            xfree(TCameraCtrl__camera_banks.e[i].p);
             TCameraCtrl__camera_banks.e[i].p = 0;
         }
     }
@@ -72,7 +71,7 @@ void TCameraCtrl::load_camera_banks() {
         if (sz <= -1) {
             return;
         }
-        TCameraCtrl__camera_banks.e[j].p = xmalloc__FUl(sz);
+        TCameraCtrl__camera_banks.e[j].p = xmalloc(sz);
     }
     for (k = 0; k < n; k++) {
         TCameraCtrl__camera_banks.e[k].a = load_relocatable_file(b->entries[k].id, TCameraCtrl__camera_banks.e[k].p);

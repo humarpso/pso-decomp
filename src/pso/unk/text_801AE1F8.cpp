@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_804C3248.h"
 #include "pso/misc/TPhotonPilla.h"
 #include "pso/object/TObjMotion.h"
@@ -9,7 +10,6 @@
 struct Vec_801AE1F8 { f32 x, y, z; };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
 s32 init_collision_body_parts(void *, void *, int);
@@ -73,7 +73,7 @@ u8 *TPhotonPilla__ct(u8 *arg0, u8 *arg1) {
     *(u8 **)((s8 *)arg0 + 0x18) = (u8 *)lbl_804C3ACC;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3518;
     *(s32 *)((s8 *)arg0 + 0x138) = 3;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg1);
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)arg1);
     *(u16 *)((s8 *)arg0 + 0x17C) = *(u16 *)((s8 *)arg1 + 0xC);
     init_collision_body_parts(arg0, (void *)lbl_804C3A58, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();

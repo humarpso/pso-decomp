@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneSlimeOne.h"
 struct E_800EB8DC { s32 f0; s32 f4; };
 
@@ -38,7 +39,6 @@ struct Obj_800EB7BC {
 extern "C" {
 s32 has_no_active_slot(O_800EB8DC *self);
 void fn_800EB778(Obj_800EB778 *self, s32 id);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 create__15TObjEneSlimeOneFlll(void *, void *, u32);
 s32 spawn_slime_in_slot(Obj_800EB7BC *arg0, s32 arg1, Vec_800EB7BC *arg2, u32 arg3);
 
@@ -64,9 +64,9 @@ s32 spawn_slime_in_slot(Obj_800EB7BC *arg0, s32 arg1, Vec_800EB7BC *arg2, u32 ar
     t.b = 0;
     t.d = arg0->tmpl.d + n;
     if (arg2 == NULL) {
-        VecCopy__FP3VecPC3Vec(&t.pos, &arg0->pos);
+        VecCopy((Vec *)&t.pos, (const Vec *)&arg0->pos);
     } else {
-        VecCopy__FP3VecPC3Vec(&t.pos, arg2);
+        VecCopy((Vec *)&t.pos, (const Vec *)arg2);
     }
     slot = &arg0->slots[arg1];
     if (arg3 == 0) {

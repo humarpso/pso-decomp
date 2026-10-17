@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjParticle.h"
 #include "pso/TObject.h"
@@ -40,7 +41,6 @@ s32 is_split_screen(void);
 u8 *__nw__7TObjectFUl(s32);
 extern s32 tl_05;
 u8 *TObjParticle__create(u8 *arg0);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 disallow_rendering__7TObjectFv(void *);
 s32 spawn_particle_effect_with_rotation(void *, void *, s32, u16);
 s32 spawn_continuous_particle_with_direction(void *, void *, s32);
@@ -113,9 +113,9 @@ Part_80195400 *TObjParticle__ct(Part_80195400 *arg0, s32 parent, Src_80195400 *a
     arg0->vt = __vt__12TObjParticle;
     other = 0;
     arg0->f0 = obj_particle_class_name;
-    VecCopy__FP3VecPC3Vec(&arg0->pos, &arg2->pos);
+    VecCopy((Vec *)&arg0->pos, (const Vec *)&arg2->pos);
     ((TObjPlayer *)(&arg0->ang))->copy_xyz(&arg2->ang);
-    VecCopy__FP3VecPC3Vec(arg0->params, arg2->params);
+    VecCopy((Vec *)arg0->params, (const Vec *)arg2->params);
     for (i = 0; i < 3; i++) {
         arg0->ints[i] = arg2->ints[i];
     }

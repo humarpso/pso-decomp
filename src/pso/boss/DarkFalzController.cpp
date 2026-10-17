@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/boss/TBoss4DarkFalz.h"
 #include "pso/boss/TBoss4Type2.h"
@@ -42,7 +43,6 @@ s32 restore_player_cameras();
 extern s32 __vt__14TBoss4DarkFalz[];
 extern s32 dark_falz_controller_instance;
 u8 *__dt__14TBoss4DarkFalzFv(u8 *arg0, s16 arg1);
-u8 *VecCopy__FP3VecPC3Vec(void *, void *);
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
@@ -149,8 +149,8 @@ s32 TBoss4DarkFalz__ct(s32 a0, s32 arg1, s32 a2) {
     TBoss4DarkFalz__sub_8004B4F0(&TBoss4DarkFalz__data_804FF1E8, arg2);
     TBoss4DarkFalz__data_804FF1E8.f2 = 0;
     ((TBoss4DarkFalz *)(arg0))->clear_lobby_object_state();
-    VecCopy__FP3VecPC3Vec(arg0 + 0x44, VecCopy__FP3VecPC3Vec(arg0 + 0x50, VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38)));
-    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(VecCopy((Vec *)(arg0 + 0x50), (const Vec *)(VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38))))));
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x310) = (f32) lbl_805D8908;
     *(f32 *)((s8 *)arg0 + 0x30C) = (f32) lbl_805D8908;
     *(f32 *)((s8 *)arg0 + 0x308) = (f32) lbl_805D8908;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 
 struct Vec_801097F0 { f32 x, y, z; };
 
@@ -15,7 +16,6 @@ struct TItemEffNeedlePos_801097F0 {
 };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
 void __ct__18TItemEffNeedleBaseFv(void *, void *, void *);
@@ -32,7 +32,7 @@ TItemEffNeedlePos_801097F0 *__ct__17TItemEffNeedlePosFv(TItemEffNeedlePos_801097
     __ct__18TItemEffNeedleBaseFv(self, a1, a2);
     self->vt = __vt__17TItemEffNeedlePos;
     self->name = TItemEffNeedlePos__class_name;
-    VecCopy__FP3VecPC3Vec(&self->pos, pos);
+    VecCopy((Vec *)&self->pos, (const Vec *)pos);
     self->pos.x += lbl_805DAB48 * (f32)rand();
     self->pos.y += lbl_805DAB48 * (f32)rand();
     self->pos.z += lbl_805DAB48 * (f32)rand();

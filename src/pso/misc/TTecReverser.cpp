@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/unk/TUnk_804CC148.h"
 #include "pso/player/TUnk_804CCC68.h"
 #include "pso/misc/TUnk_804CCC28.h"
@@ -71,7 +72,6 @@ extern s32 __vt__12TTecReverser[];
 extern s32 lbl_805D3818;
 u8 *TTecReverser__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void __ct__7TObjectFP7TObject(void *self, void *parent);
-void VecCopy__FP3VecPC3Vec(Vec_80239E44 *, Vec_80239E44 *);
 void *create_timed_particle_emitter(void *owner, s32 idx, s32 b, s32 c);
 extern s32 lbl_804CCC28[];
 extern Entry_80239E44 revival_particle_table[];
@@ -119,11 +119,11 @@ Obj_80239E44 *construct_revival_particle_effect(Obj_80239E44 *self, Player_80239
     __ct__7TObjectFP7TObject(self, parent);
     self->vtable = lbl_804CCC28;
     self->f28 = 0;
-    VecCopy__FP3VecPC3Vec(&self->pos, &player->pos);
+    VecCopy((Vec *)&self->pos, (const Vec *)&player->pos);
     for (i = 0; i < 3; i++) {
         if (i == 0) {
             Vec_80239E44 v;
-            VecCopy__FP3VecPC3Vec(&v, &self->pos);
+            VecCopy((Vec *)&v, (const Vec *)&self->pos);
             v.y += lbl_805DC910;
             self->parts[i] = create_timed_particle_emitter(&v, revival_particle_table[i].c, revival_particle_table[i].a, revival_particle_table[i].b);
         } else {

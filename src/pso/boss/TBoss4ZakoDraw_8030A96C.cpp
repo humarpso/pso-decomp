@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss4DarkFalz.h"
 #include "pso/boss/TBoss4Zako.h"
 #include "pso/player/TObjPlayer.h"
@@ -49,7 +50,6 @@ extern RecoveredGlobal_8030ABF4_lbl_80541E58 boss4_zako_draw_buffers;
 extern s32 falz_zako_texture_list;
 extern s32 TBoss4ZakoDraw__draw_buffer_index;
 extern const f32 lbl_805DF148;
-void VecCopy__FP3VecPC3Vec(void *, void *);
 extern RecoveredGlobal_8030ABF4_lbl_80541E58 boss4_zako_draw_buffers;
 extern s32 TBoss4ZakoDraw__draw_buffer_index;
 struct Raw_8030A9B0 { u8 b[12]; };
@@ -123,7 +123,7 @@ void TObjPlayer__sub_8030A9B0() {
     tbl = (Tbl_8030A9B0 *)((u8 *)&boss4_zako_draw_buffers + TBoss4ZakoDraw__draw_buffer_index * 0x784);
     e = tbl->ents;
     rot = (TBoss4ZakoDraw__rotation_phase << 16) / 16;
-    VecCopy__FP3VecPC3Vec(&pos, camera_ctrl_instance + 0x178);
+    VecCopy((Vec *)&pos, (const Vec *)(camera_ctrl_instance + 0x178));
     i = 0;
     *(f32 *)((s8 *)(&pos) + 4) = lbl_805DF13C;
     for (; i < tbl->count; i++, e++) {
@@ -205,7 +205,7 @@ s32 TBoss4Zako::queue_entry(void *v, s32 a, s32 b) {
     if (n >= 0x60) {
         return 0;
     }
-    VecCopy__FP3VecPC3Vec(e, v);
+    VecCopy((Vec *)e, (const Vec *)v);
     e->f0c = a;
     e->f10 = b;
     t->count += 1;

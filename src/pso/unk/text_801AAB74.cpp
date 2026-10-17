@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_804C3248.h"
 #include "pso/misc/TPhotonEstlla.h"
 #include "pso/object/TObjMotion.h"
@@ -10,7 +11,6 @@ struct Stack_801AAB74 { f32 x, y, z; };
 
 extern "C" {
 u8 *photon_base_ct(void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
 s32 spawn_photon_blast_opening_effects(int, int);
@@ -36,7 +36,7 @@ u8 *TPhotonEstlla__ct(u8 *arg0, u8 *arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TPhotonEstlla;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D34D8;
     *(s32 *)((s8 *)arg0 + 0x138) = 1;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg1);
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)arg1);
     *(u16 *)((s8 *)arg0 + 0x17C) = *(u16 *)((s8 *)arg1 + 0xC);
     e = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x17C));
     if (e != NULL) {

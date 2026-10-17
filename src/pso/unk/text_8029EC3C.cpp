@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/player/TObjPlayer.h"
@@ -16,7 +17,6 @@ struct Hit_8029EC3C {
 
 extern "C" {
 void *get_player_by_client_id(s32);
-void VecCopy__FP3VecPC3Vec(void *, const void *);
 f32 vec_squared_length(void *);
 void reflect_matrix_in_plane(s32, void *);
 Hit_8029EC3C *csnVecterUnder(void *, s32);
@@ -49,7 +49,7 @@ s32 fn_8029EC3C(Vec_8029EC3C *pos, s32 arg1) {
             scale = lbl_805DDD98;
         }
     }
-    VecCopy__FP3VecPC3Vec(&a, pos);
+    VecCopy((Vec *)&a, (const Vec *)pos);
     b.x = scale * sora_reflection_ray_direction.x + a.x;
     b.y = a.y - lbl_805DDD88 * sora_reflection_ray_direction.y;
     b.z = scale * sora_reflection_ray_direction.z + a.z;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_804C3248.h"
 #include "pso/object/TObjMotion.h"
 
@@ -39,7 +40,6 @@ u16 obj_getField1c(void *);
 u8 * find_entity_by_id(u16);
 u8 * construct_photon_magic_square_normal(void *, s32, s32, s32, s32);
 s32 play_persistent_sound(s32, s32, u32, s16, s32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 advance_animation_playback(void *);
 s32 queue_photon_blast_hit(int, int, int, f32);
 s32 spawn_photon_blast_attachment_effects(void *, int);
@@ -115,7 +115,7 @@ void TPhotonLeilla::run_task() {
         *(s32 *)&this->m_1ac = 0;
         entity = (u8 *)(find_entity_by_id(this->m_17c));
         if (entity != NULL) {
-            VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (entity + 0x38));
+            VecCopy((Vec *)(&stack.sp8), (const Vec *)(entity + 0x38));
         }
         temp_f1 = stack.spC;
         stack.spC = temp_f1 + lbl_805DC1C4;

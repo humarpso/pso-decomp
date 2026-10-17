@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/item/TItemEffArmor.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/player/TObjPlayer.h"
@@ -21,7 +22,6 @@ struct RecoveredGlobal_80107DF0_lbl_8058D4C0 {
 extern "C" {
 u16 obj_getField1c(void *);
 void queue_destruction__7TObjectFv(void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 publish_actor_light_scalars(int, f32, f32);
 extern const f32 TItemEffArmor__data_805DAAEC;
 extern const f32 lbl_805DAAF0;
@@ -80,7 +80,7 @@ void TItemEffArmor::run_task() {
     *(s32 *)&this->m_68 = (s32) (*(s32 *)&this->m_68 + 0x139D);
     temp_r4 = (u8 *)(*(u8 * *)&this->m_6c);
     if (temp_r4 != NULL) {
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2C), (void *) (temp_r4 + 0x38));
+        VecCopy((Vec *)(arg0 + 0x2C), (const Vec *)(temp_r4 + 0x38));
     }
     *(f32 *)((s8 *)arg0 + 0x30) = (f32) (*(f32 *)((s8 *)arg0 + 0x30) + ((this->m_24 * this->m_58) / lbl_805DAAF0));
     temp_r3 = (u8 *)(*(u8 * *)&this->m_1c);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss4Type3.h"
 #include "pso/misc/TLobby.h"
@@ -65,7 +66,6 @@ struct Ang_80050808 { s32 x, y, z; };
 
 extern "C" {
 u16 find_nearest_visible_player(void *, int, f32);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 s32 is_boss_active__13TObjDFHormingFv();
 s32 TBoss4DarkFalz__sub_8004C1AC();
@@ -243,9 +243,9 @@ void run_task__13TObjDFHormingFv(u8 *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    VecCopy__FP3VecPC3Vec(arg0 + 0x36C, p + 0x2FC);
+    VecCopy((Vec *)(arg0 + 0x36C), (const Vec *)(p + 0x2FC));
     *(f32 *)((s8 *)arg0 + 0x37C) = xyz_distance((Vec_80050D74 *)(arg0 + 0x2FC), (Vec_80050D74 *)(arg0 + 0x36C));
-    VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x2FC);
+    VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x2FC));
     switch (*(s32 *)((s8 *)arg0 + 0x368)) {
     case 0:
         ((TObjDFHorming *)arg0)->sub_8005076C();
@@ -280,7 +280,7 @@ void run_task__13TObjDFHormingFv(u8 *arg0) {
     for (i = 0; i < 2; i++) {
         if (*(u32 *)((s8 *)(arg0 + i * 4) + 0x358) != 0) {
             if (i == 1) {
-                VecCopy__FP3VecPC3Vec(&d, arg0 + 0x2FC);
+                VecCopy((Vec *)&d, (const Vec *)(arg0 + 0x2FC));
                 subtract_vector(&d, arg0 + 0x44);
                 direction_to_rotation_xz(&d, &rot.x, &rot.z);
                 rot.y = 0;
@@ -329,7 +329,7 @@ u8 *TObjDFHorming__ct(u8 *arg0, s32 parent, s32 arg2, u16 arg3) {
     if (game_difficulty_selection == 3) {
         *(s32 *)((s8 *)arg0 + 0x338) = 0x12C;
     }
-    ((void * (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x2FC, ((void * (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x44, ((void * (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x33C, (void *)arg2)));
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(VecCopy((Vec *)(arg0 + 0x33C), (const Vec *)((const Vec *)arg2))))));
     scale = newton_sqrtf(lbl_805D8A64);
     ang = (s32)(lbl_805D8A68 * (lbl_805D8A6C * (f32)rand() - lbl_805D8A70));
     p = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x334));
@@ -391,7 +391,7 @@ void damage_players_near_point(s32 arg0, Vec_80050D74 *arg1) {
 void fn_spawn_particle_f3_with_flags(s32 arg0, s32 arg1) {
     Vec position;
     u32 particle_effect;
-    ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (&position.x), (void *) (arg1));
+    VecCopy((Vec *)(&position.x), (const Vec *)(arg1));
     position.y += lbl_805D8A90;
     particle_effect = spawn_particle_effect((void *) (&position.x), (int) (0xF3));
     if (particle_effect != 0U) {
@@ -469,7 +469,7 @@ void *TObjDFBeamCursor__ct(void *arg0, void *arg1, void *arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__16TObjDFBeamCursor;
     *(void **)((s8 *)arg0 + 0x0) = TObjDFBeamCursor__name;
     *(u32 *)((s8 *)arg0 + 0x1C) = 32;
-    VecCopy__FP3VecPC3Vec((void *)((char *)arg0 + 32), arg2);
+    VecCopy((Vec *)((char *)arg0 + 32), (const Vec *)arg2);
     return arg0;
 }
 
@@ -497,7 +497,7 @@ void TObjDFRecBall::run_task() {
     if (sp > 9.0f) {
         o->speed = 9.0f;
     }
-    VecCopy__FP3VecPC3Vec(&d, &o->target);
+    VecCopy((Vec *)&d, (const Vec *)&o->target);
     subtract_vector(&d, &o->pos);
     if (((f32 (*)(void *))vector_length)(&d) > lbl_805D8A48) {
         normalize_vector(&d);
@@ -535,8 +535,8 @@ u8 *TObjDFRecBall__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__13TObjDFRecBall;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjDFRecBall__name;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg2);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x28, arg3);
+    VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)arg2);
+    VecCopy((Vec *)(arg0 + 0x28), (const Vec *)arg3);
     temp_r31 = (s32) (lbl_805D8ABC * (lbl_805D8A6C * (f32) rand()));
     *(f32 *)((s8 *)arg0 + 0x34) = sin_table_lookup(temp_r31);
     *(f32 *)((s8 *)arg0 + 0x38) = (f32) lbl_805D8A30;
@@ -776,7 +776,7 @@ void TObjDFRecover::run_task() {
         ((s32 (*)(void *))queue_destruction__7TObjectFv)(this);
         return;
     }
-    ((s32 (*)(void *, const void *))VecCopy__FP3VecPC3Vec)(position, (void *) (target_address + 0x2FC));
+    VecCopy((Vec *)position, (const Vec *)(target_address + 0x2FC));
     countdown = countdown - 1;
     current_phase = phase;
     switch (current_phase) {
@@ -836,7 +836,7 @@ TObjDFRecover::TObjDFRecover(TObject *parent, u16 id, const f32 *position) : TOb
     m_name = TObjDFRecover__name;
     target_id = id;
     effect = NULL;
-    ((s32 (*)(void *, const void *))VecCopy__FP3VecPC3Vec)(cached_position, position);
+    VecCopy((Vec *)cached_position, (const Vec *)position);
     phase = 0;
     countdown = 5;
 }
@@ -927,7 +927,7 @@ u8 *TObjDFTenchuFuru__ct(u8 *arg0, u8 *arg1, u8 *arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__16TObjDFTenchuFuru.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjDFTenchuFuru__name;
     *(s32 *)((s8 *)arg0 + 0x28) = 5;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg2);
+    VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)arg2);
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) (*(f32 *)((s8 *)arg0 + 0x20) + lbl_805D8AA0);
     particle_emitter = (u8 *)(create_particle_emitter((s32) (arg0 + 0x1C), 0x134));
     *(u8 **)((s8 *)arg0 + 0x2C) = particle_emitter;

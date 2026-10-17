@@ -1,4 +1,5 @@
 #include "pso/TObject.h"
+#include "pso/system/vector.h"
 class TObjChip : public TObject {
 public:
     virtual void render_shadows();
@@ -192,7 +193,6 @@ void matrix_mult_vec(int, Vec_8018085C *, Vec_8018085C *);
 void project_world_to_screen(int, Vec_8018085C *, Out_8018085C *, Vec_8018085C *);
 extern Vec_8018085C lbl_804FF610;
 s32 TObjChip__vt8(s32 arg0, Vec_8018085C *arg1, f32 farg0, f32 farg1);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 int rand(void);
 s32 spawn_chips__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
 s32 init_chips__8TObjChipFPv(u8 *arg0);
@@ -362,7 +362,7 @@ s32 spawn_chips__8TObjChipFPvPv(u8 *arg0, u8 *arg1) {
     }
     c = t->chips;
     for (i = 0; i < t->count; i++, c++) {
-        VecCopy__FP3VecPC3Vec(&c->pos, &t->origin);
+        VecCopy((Vec *)&c->pos, (const Vec *)&t->origin);
         v = t->vel.x;
         c->vel.x = v * ((3.0517578e-05f) * (f32)rand()) - (0.5f) * v;
         c->vel.y = t->vel.y * ((3.0517578e-05f) * (f32)rand());
@@ -393,7 +393,7 @@ s32 init_chips__8TObjChipFPv(u8 *arg0) {
     }
     c = t->chips;
     for (i = 0; i < t->count; i++, c++) {
-        VecCopy__FP3VecPC3Vec(&c->pos, &t->origin);
+        VecCopy((Vec *)&c->pos, (const Vec *)&t->origin);
         v = t->vel.x;
         c->vel.x = v * ((3.0517578e-05f) * (f32)rand()) - (0.5f) * v;
         c->vel.y = t->vel.y * ((3.0517578e-05f) * (f32)rand());
@@ -515,8 +515,8 @@ u8 *copy_transform__8TObjChipFPvPv(u8 *arg0, u8 *arg1) {
     *(f32 *)((s8 *)arg0 + 0) = (f32) *(f32 *)((s8 *)arg1 + 0);
     *(f32 *)((s8 *)arg0 + 4) = (f32) *(f32 *)((s8 *)arg1 + 4);
     *(f32 *)((s8 *)arg0 + 8) = (f32) *(f32 *)((s8 *)arg1 + 8);
-    VecCopy__FP3VecPC3Vec(arg0 + 0xC, arg1 + 0xC);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x18, arg1 + 0x18);
+    VecCopy((Vec *)(arg0 + 0xC), (const Vec *)(arg1 + 0xC));
+    VecCopy((Vec *)(arg0 + 0x18), (const Vec *)(arg1 + 0x18));
     ((TObjPlayer *)(arg0 + 0x24))->copy_xyz(arg1 + 0x24);
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) *(s32 *)((s8 *)arg1 + 0x30);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)arg1 + 0x34);

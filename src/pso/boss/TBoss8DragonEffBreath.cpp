@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss8DragonEffBreath.h"
 #include "pso/boss/TBoss8Dragon.h"
 
@@ -15,7 +16,6 @@ struct Obj_802FE024 {
 };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 void *TBoss8Dragon__sub_800BC5EC(void *, int);
 void *__ct__7TObjectFP7TObject(void *, void *);
@@ -69,8 +69,8 @@ Obj_802FE024 *TBoss8DragonEffBreath__ct(Obj_802FE024 *self, void *parent, void *
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = ((u8 *)&__vt__21TBoss8DragonEffBreath);
     *(s32 *)self = TBoss8DragonEffBreath__name;
-    VecCopy__FP3VecPC3Vec(&self->pos, p);
-    VecCopy__FP3VecPC3Vec(&self->vel, v);
+    VecCopy((Vec *)&self->pos, (const Vec *)p);
+    VecCopy((Vec *)&self->vel, (const Vec *)v);
     self->vel.x = self->vel.x * lbl_805DEEF8;
     self->vel.y = self->vel.y * lbl_805DEEF8;
     self->vel.z = self->vel.z * lbl_805DEEF8;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjSeabedSuisoBrakable.h"
 #include "pso/misc/TUnk_804AFBF8.h"
@@ -9,7 +10,6 @@ extern "C" {
 u8 *__ct__13TObjSuisoChipFv(u8 *arg0, u8 *arg1);
 u8 *init__13TObjSuisoChipFPvPv(u8 *arg0, u8 *arg1);
 s32 construct_debris__8TObjChipFPvPvPv(void *, void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 __ct__8TObjChipFv(void *, void *);
 void __dt__8TObjChipFv(void *, s16);
 void __dl__7TObjectFPv(void *);
@@ -36,7 +36,7 @@ u8 *__ct__13TObjSuisoChipFv(u8 *arg0, u8 *arg1) {
     *(void ***)((s8 *)arg0 + 0x18) = __vt__13TObjSuisoChip;
     *(s32 *)((s8 *)arg0 + 0) = (s32) suiso_chip_class_name_ptr;
     if (arg1 != NULL) {
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x234), (void *) (arg1 + 0x38));
+        VecCopy((Vec *)(arg0 + 0x234), (const Vec *)(arg1 + 0x38));
         *(s32 *)((s8 *)arg0 + 0x240) = (s32) *(s32 *)((s8 *)arg1 + 0x60);
     } else {
         *(f32 *)((s8 *)arg0 + 0x238) = (f32) lbl_805DDFF8;
@@ -54,7 +54,7 @@ u8 *init__13TObjSuisoChipFPvPv(u8 *arg0, u8 *arg1) {
     *(void ***)((s8 *)arg0 + 0x18) = __vt__13TObjSuisoChip;
     *(s32 *)((s8 *)arg0 + 0) = (s32) suiso_chip_class_name_ptr;
     if (arg1 != NULL) {
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x234), (void *) (arg1 + 0x38));
+        VecCopy((Vec *)(arg0 + 0x234), (const Vec *)(arg1 + 0x38));
         *(s32 *)((s8 *)arg0 + 0x240) = (s32) *(s32 *)((s8 *)arg1 + 0x60);
     } else {
         *(f32 *)((s8 *)arg0 + 0x238) = (f32) lbl_805DDFF8;
@@ -247,7 +247,7 @@ void TObjSeabedSuisoBrakable__vt14(Obj_802A6490 *self) {
     p.a.x = lbl_805DE000;
     p.a.y = lbl_805DE004;
     p.a.z = lbl_805DE008;
-    VecCopy__FP3VecPC3Vec(&p.pos, &self->pos);
+    VecCopy((Vec *)&p.pos, (const Vec *)&self->pos);
     p.f20 = lbl_805DE00C;
     p.f24 = lbl_805DE010;
     p.f28 = lbl_805DE00C;

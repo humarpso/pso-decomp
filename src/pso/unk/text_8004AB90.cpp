@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/boss/TBoss4DarkFalz.h"
 
@@ -7,7 +8,6 @@ struct Vec_8004AB90 { f32 x, y, z; };
 struct E_8004AB90 { Vec_8004AB90 pos; f32 r; Vec_8004AB90 v; f32 s; };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
 s32 vec3_add_to(void *, void *);
 f32 vector_length(void *);
@@ -48,7 +48,7 @@ void TBoss4DarkFalz::push_players_out_of_zone(s32 arg0, s32 arg1) {
             o = &dark_falz_push_zone_table[j];
             orad = dark_falz_push_zone_table[j].r;
             if (j != arg1 && !(xyz_distance(p + 0x38, o) > orad)) {
-                VecCopy__FP3VecPC3Vec(&v, p + 0x38);
+                VecCopy((Vec *)&v, (const Vec *)(p + 0x38));
                 subtract_vector(&v, o);
                 v.y = lbl_805D8908;
                 if (vector_length(&v) <= lbl_805D890C) {
@@ -65,7 +65,7 @@ void TBoss4DarkFalz::push_players_out_of_zone(s32 arg0, s32 arg1) {
             v.z = v.z * sc;
             v.y = lbl_805D8914;
             vec3_add_to(&v, ev);
-            VecCopy__FP3VecPC3Vec(p + 0x38, &v);
+            VecCopy((Vec *)(p + 0x38), (const Vec *)&v);
             ((TUnk_804AF8A0 *)p)->refresh_collision_body_centers();
         }
     }

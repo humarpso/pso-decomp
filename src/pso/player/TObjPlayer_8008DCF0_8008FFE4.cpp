@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneBalClawBody.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEneBalClaw.h"
@@ -11,7 +12,6 @@ s32 TObjEneBalClaw__sub_8008D68C();
 s32 TObjEneMe1GiGue__sub_8008FC0C(void *);
 s32 TObjEneMe1GiGue__sub_8008FC10(void *);
 s32 submit_cursor_candidate(void *, int, int, f32, f32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 minimap_render_dot(void *, int, int, int);
 
 void TObjPlayer::update_control_state() {
@@ -42,7 +42,7 @@ void TObjPlayer::update_control_state() {
     ((TObjEneBalClawBody *)arg0)->sub_8008FF50();
     ((TObjEneBalClaw *)arg0)->update_wobble();
     ((TObjEneBalClaw *)arg0)->update_claw_angle();
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     temp_f2 = *(f32 *)&this->m_300;
     *(f32 *)&this->m_300 = (f32) (temp_f2 + (*(f32 *)&this->m_3b4 + *(f32 *)&this->m_3bc));
     temp_f1 = *(f32 *)&this->m_3b4;

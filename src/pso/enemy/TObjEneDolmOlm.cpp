@@ -1,6 +1,7 @@
 #pragma defer_codegen on
 
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneRecon.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TObject.h"
@@ -501,7 +502,6 @@ extern u32 TObjEneDolmOlm__data_805D6A14;
 extern u32 TObjEneDolmOlm__data_805D6A18;
 extern const f32 lbl_805DEF60;
 void vfunc_93__14TObjEneDolmOlmFv(Obj_800A7A14 *o);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void attach_particle_model(s32, s32, s32, s32, s32, f32);
 Hit_80300D00 *csnVectorUnder(void *, void *, s32, f32);
 s32 spawn_particle_effect(void *, int);
@@ -1050,7 +1050,7 @@ u8 *TObjEneDolmOlm__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s16 *)((s8 *)arg0 + 0x374) = 0;
     *(s16 *)((s8 *)arg0 + 0x376) = 0;
     *(s32 *)((s8 *)arg0 + 0x3E4) = 0;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x3D8, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x3D8), (const Vec *)(arg0 + 0x38));
     *(s32 *)((s8 *)arg0 + 0x378) = 0;
     *(s32 *)((s8 *)arg0 + 0x37C) = 0;
     ((TUnk_804806E8 *)arg0)->add_flags_2e4(2);
@@ -1428,13 +1428,13 @@ s32 TObjEneDolmOlm__sub_80301C3C(void *arg0_) {
         if (*(u8 **)((s8 *)arg0 + 0x2A8) != NULL) {
             if (test_elt_flag__13TUnk_80493450Fll(arg0, 0, 0x300000) != 0) {
                 if ((f32) (*(u32 *)((s8 *)arg0 + 0x38C))++ < lbl_805DEF74) {
-                    VecCopy__FP3VecPC3Vec(&v, arg0 + 0x50);
+                    VecCopy((Vec *)&v, (const Vec *)(arg0 + 0x50));
                 } else {
-                    VecCopy__FP3VecPC3Vec(&v, *(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC);
+                    VecCopy((Vec *)&v, (const Vec *)(*(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC));
                 }
             } else {
                 *(u32 *)((s8 *)arg0 + 0x38C) = 0;
-                VecCopy__FP3VecPC3Vec(&v, *(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC);
+                VecCopy((Vec *)&v, (const Vec *)(*(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC));
             }
             ADV(arg0);
             play_sound_effect((void *)copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003B205), arg0 + 0x38, 0, 0);
@@ -1537,7 +1537,7 @@ s32 TObjEneDolmOlm__sub_8030177C(void *arg0_) {
     case 1:
         if (arg0->target != 0) {
             Vec_8030177C v;
-            VecCopy__FP3VecPC3Vec(&v, &arg0->target->f2fc);
+            VecCopy((Vec *)&v, (const Vec *)&arg0->target->f2fc);
             subtract_vector(&v, &arg0->f2fc);
             if (update_angle__10TObjPlayerFlPv(arg0, arg0->move->turn, &v) < (*(Param_8030177C ** *)&TObjEneDolmOlm__behavior_params_by_variant)[arg0->kind]->angle) {
                 arg0->f328 = 3;
@@ -1557,7 +1557,7 @@ s32 TObjEneDolmOlm__sub_8030177C(void *arg0_) {
             s32 a;
             f32 d;
             Param_8030177C *t;
-            VecCopy__FP3VecPC3Vec(&v, &arg0->target->f2fc);
+            VecCopy((Vec *)&v, (const Vec *)&arg0->target->f2fc);
             subtract_vector(&v, &arg0->f2fc);
             a = angle_difference_abs(arg0->rotY, (s32)(lbl_804750C8[0] * atan2_float(v.x, v.z)));
             d = horizontal_distance_squared(&arg0->target->pos, &arg0->pos);
@@ -1734,7 +1734,7 @@ void TObjEneDolmOlm::vfunc_60() {
     }
 }
 void TObjEneDolmOlm::advance_position() {
-    VecCopy__FP3VecPC3Vec((u8 *)&this->m_2fc, (u8 *)&this->position);
+    VecCopy((Vec *)&this->m_2fc, (const Vec *)&this->position);
     *(f32 *)&this->m_300 = (f32) (*(f32 *)&this->m_300 + TObjEneDolmOlm__data_805DEF6C);
 }
 void TObjEneDolmOlm::request_stand_action() { this->m_b8 = 1; }
@@ -1856,7 +1856,7 @@ void spawn_ground_effects__14TObjEneDolmOlmFPvPv(u8 *arg0, Vec_80300D00 *arg1) {
     Hit_80300D00 *hit;
     f32 y;
     s32 e;
-    VecCopy__FP3VecPC3Vec(&v, arg1);
+    VecCopy((Vec *)&v, (const Vec *)arg1);
     y = v.y;
     v.y = y + lbl_805DEF4C;
     hit = csnVectorUnder(&v, arg0 + 0x120, 0x4007, y);
@@ -1882,9 +1882,9 @@ void spawn_ground_effects__14TObjEneDolmOlmFPvPv(u8 *arg0, Vec_80300D00 *arg1) {
         }
         *(s32 *)(arg0 + 0x3E4) = *(s32 *)(hit->obj + 0x18);
         if (*(s32 *)(arg0 + 0x3E4) & 0x4000) {
-            VecCopy__FP3VecPC3Vec(arg0 + 0x3D8, hit->obj);
+            VecCopy((Vec *)(arg0 + 0x3D8), (const Vec *)hit->obj);
         } else {
-            VecCopy__FP3VecPC3Vec(arg0 + 0x3D8, arg0 + 0x38);
+            VecCopy((Vec *)(arg0 + 0x3D8), (const Vec *)(arg0 + 0x38));
         }
     }
 }

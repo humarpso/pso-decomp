@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TEneParticleCtrl.h"
 #include "pso/TParticleCtrl.h"
@@ -19,7 +20,6 @@ struct RecoveredGlobal_80338C88___vt__16TEneParticleCtrl {
 struct O_80338D58 { u8 pad[0x72]; s16 idx; u8 pad2[2]; s16 count; };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 u32 spawn_continuous_particle_effect_with_flags(void *, int, int);
 s32 init_collision_body_parts(void *, void *, int);
@@ -67,7 +67,7 @@ u8 *TEneParticleCtrl__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)temp_r4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x18) & 0xFFFFFFFE);
     *(u16 *)((s8 *)arg0 + 0xAC) = obj_getField1c((void *) (arg1));
     ((TBoss4DarkFalz *)arg0)->set_position_from((void *) (arg1 + 0x74));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xB4), (void *) (arg1 + 0x2FC));
+    VecCopy((Vec *)(arg0 + 0xB4), (const Vec *)(arg1 + 0x2FC));
     *(s32 *)((s8 *)arg0 + 0xB0) = arg2;
     *(u32 *)((s8 *)arg0 + 0xC0) = spawn_continuous_particle_effect_with_flags((void *) (arg0 + 0xB4), (int) (*(s32 *)((s8 *)arg0 + 0xB0)), (int) (0x10));
     temp_r3 = *(u32 *)((s8 *)arg0 + 0xC0);

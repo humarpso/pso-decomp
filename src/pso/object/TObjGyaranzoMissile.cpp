@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TUnk_8049442C.h"
 #include "pso/object/TObjGyaranzoMissile.h"
@@ -93,7 +94,6 @@ struct Gyr_800D4990 {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
@@ -181,8 +181,8 @@ u8 *TObjGyaranzoMissile__sub_800D4668(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, s3
     u8 *temp_r4;
     construct_collider_proxy__13TUnk_804AF8A0Fv((void *) (arg0), (int) (tl_04));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800D4668_lbl_8049442C *)&lbl_8049442C).value;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xE0), (void *) (arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2));
+    VecCopy((Vec *)(arg0 + 0xE0), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0xE4) = (f32) (*(f32 *)((s8 *)arg0 + 0xE4) + lbl_805DA2A8);
     *(s32 *)((s8 *)arg0 + 0xDC) = arg4;
     *(s32 *)((s8 *)arg0 + 0xC4) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&gyaranzo_bml_resource) + 0x42C)) + 0x58);
@@ -268,7 +268,7 @@ void TObjGyaranzoMissile::run_task() {
             ((TObjGyaranzoMissile *)(&self->vel))->scale_velocity(TObjGyaranzoMissile__speed_scale);
         }
     }
-    VecCopy__FP3VecPC3Vec(&self->prev, &self->pos);
+    VecCopy((Vec *)&self->prev, (const Vec *)&self->pos);
     vec3_add_to(&self->pos, &self->vel);
     direction_to_rotation_xy(&self->vel, self->x5C, self->x60);
     self->xCC += self->xD0;
@@ -323,7 +323,7 @@ u8 *TObjGyaranzoMissile__ct(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2A80;
     init_collision_body_parts((void *) (arg0), (void *) (&gyaranzo_missile_collision_body_b.value), (int) (1));
     *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0xC) = (f32) lbl_805DA2CC;
-    VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x38)), (void *)((int) (*(s32 *)((s8 *)arg2 + 0))));
+    VecCopy((Vec *)((void *) (arg0 + 0x38)), (const Vec *)((int) (*(s32 *)((s8 *)arg2 + 0))));
     *(s16 *)((s8 *)arg0 + 0xC4) = arg3;
     *(s32 *)((s8 *)arg0 + 0x5C) = (s32) *(s32 *)((s8 *)arg2 + 4);
     *(s32 *)((s8 *)arg0 + 0x60) = (s32) *(s32 *)((s8 *)arg2 + 8);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss4Type3.h"
 #include "pso/object/TObjDFHorming.h"
@@ -205,7 +206,6 @@ extern const f32 lbl_805D8910;
 void TBoss4DarkFalz__sub_8004B730(u8 *arg0, s32 arg1, f32 farg0);
 extern RecoveredGlobal_8004B084_TBoss4DarkFalz__data_80485108 TBoss4DarkFalz__data_80485108;
 s32 release_all_players_control_lock();
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void spawn_particle_effect(void *, s32);
 s32 TBoss4Thanks__sub_8035C96C();
 extern const f32 lbl_805D8928;
@@ -408,7 +408,7 @@ void TBoss4DarkFalz::spawn_zako_rings() {
             if (TBoss4DarkFalz__sub_8004AF5C(((u8 *)this), p.a, &p.b) == 0) {
                 return;
             }
-            VecCopy__FP3VecPC3Vec(&p.pos, dark_falz_zako_ring_origin_vec);
+            VecCopy((Vec *)&p.pos, (const Vec *)dark_falz_zako_ring_origin_vec);
             p.pos.x += r * sin_table_lookup(ang);
             p.pos.z += r * cos_table_lookup(ang);
             create__10TBoss4ZakoFl(&p);
@@ -478,7 +478,7 @@ void TBoss4DarkFalz__sub_8004B5A0(void) {
         for (i = 0; i < lbl_805D586C; i++) {
             p = (P_8004B5A0 *)get_player_data__10TObjPlayerFi(i);
             if (p != 0 && ((TBoss3Volopt *)p)->get_field_3e0() == 0xE) {
-                VecCopy__FP3VecPC3Vec(&v, &p->pos);
+                VecCopy((Vec *)&v, (const Vec *)&p->pos);
                 v.y += k;
                 spawn_particle_effect(&v, 0x28);
             }
@@ -503,9 +503,9 @@ void TBoss4DarkFalz::handle_defeat() {
         p = get_player_by_client_id((void *) ((u16) local_client_id));
         if (p != 0) {
             save = *(struct V3_8004B654 *)(arg0 + 0x2FC);
-            VecCopy__FP3VecPC3Vec((u8 *)&this->m_2fc, (void *)(p + 0x2FC));
+            VecCopy((Vec *)&this->m_2fc, (const Vec *)(p + 0x2FC));
             ((TObjEnemy *)arg0)->distribute_experience();
-            VecCopy__FP3VecPC3Vec((u8 *)&this->m_2fc, &save);
+            VecCopy((Vec *)&this->m_2fc, (const Vec *)&save);
         }
     }
     flags[0] = 0x800;

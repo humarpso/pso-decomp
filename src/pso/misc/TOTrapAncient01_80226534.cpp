@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TOTrapAncient01.h"
 
 struct Vec_8022675C { f32 x, y, z; };
@@ -15,7 +16,6 @@ struct SndEnt_8022675C {
 };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(Vec_8022675C *, Vec_8022675C *);
 s32 fn_802264B8(int, int);
 int TLobby__sub_80227AF8(void *p);
 s32 play_packed_sound_once(u32 arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -118,7 +118,7 @@ s32 play_sound_effect(s32 id, Vec_8022675C *src, s32 a2, s32 flags) {
     if (idx >= 0) {
         if (src != NULL) {
             pos = &lbl_805145F0[idx].pos;
-            VecCopy__FP3VecPC3Vec(pos, src);
+            VecCopy((Vec *)pos, (const Vec *)src);
             ((void (*)(s32, Vec_8022675C *))TLobby__sub_80227AF8)(idx, pos);
         }
         lbl_805145F0[idx].flags &= lbl_805DC748;

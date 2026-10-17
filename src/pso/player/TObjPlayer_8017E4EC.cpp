@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -18,7 +19,6 @@ struct Set_8017E550 {
 };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(Vec_8017E550 *, const Vec_8017E550 *);
 void *TObjBgmCol__ct(void *, s32, Set_8017E550 *);
 void TLobby__sub_80207F30(Set_8017E550 *);
 void *__nw__7TObjectFUl(u32);
@@ -47,7 +47,7 @@ void create_bgm_col_zones(void) {
     switch (TOKeyMachine01::get_global_state()) {
     case 0:
         for (i = 0; i < 12; i++) {
-            VecCopy__FP3VecPC3Vec(&set.pos, &lbl_80443690[i].pos);
+            VecCopy((Vec *)&set.pos, (const Vec *)&lbl_80443690[i].pos);
             set.radius = lbl_80443690[i].radius;
             set.category = lbl_80443690[i].category;
             p = __nw__7TObjectFUl(0xA0);
@@ -58,7 +58,7 @@ void create_bgm_col_zones(void) {
         break;
     case 18:
         for (i = 0; i < 12; i++) {
-            VecCopy__FP3VecPC3Vec(&set.pos, &lbl_80443780[i].pos);
+            VecCopy((Vec *)&set.pos, (const Vec *)&lbl_80443780[i].pos);
             set.radius = lbl_80443780[i].radius;
             set.category = lbl_80443780[i].category;
             p = __nw__7TObjectFUl(0xA0);

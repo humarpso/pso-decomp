@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneMe1GiGueBarrier.h"
@@ -32,7 +33,6 @@ struct VObj_18_ca64a0 : VBase_18_ca64a0 {
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
-s32 VecCopy__FP3VecPC3Vec(void *, int);
 s32 advance_animation_playback(void *);
 s32 play_sound_effect(int, void *, int, int);
 s32 is_active_state__22TObjEneMe1GiGueBarrierFv(int);
@@ -99,7 +99,7 @@ void TObjEneMe1GiGueBarrier::run_task() {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (int) (((TObjEneMe1GiGueBarrier *)temp_r0)->update_and_get_pos()));
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(((TObjEneMe1GiGueBarrier *)temp_r0)->update_and_get_pos()));
     this->rotation_y = ((TObjEneMe1GiGueBarrier *)(this->m_fc))->get_timer();
     advance_animation_playback((void *) (arg0));
     *(s32 *)&this->m_108 = (s32) (*(s32 *)&this->m_108 - 1);
@@ -150,7 +150,7 @@ u8 *TObjEneMe1GiGueBarrier__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4198;
     *(u8 **)((s8 *)arg0 + 0xFC) = arg2;
     *(u16 *)((s8 *)arg0 + 0x100) = obj_getField1c(*(u8 **)((s8 *)arg0 + 0xFC));
-    VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x38)), (int)((void *) (((TObjEneMe1GiGueBarrier *)((s32) *(u8 **)((s8 *)arg0 + 0xFC)))->update_and_get_pos())));
+    VecCopy((Vec *)((void *) (arg0 + 0x38)), (const Vec *)((void *) (((TObjEneMe1GiGueBarrier *)((s32) *(u8 **)((s8 *)arg0 + 0xFC)))->update_and_get_pos())));
     *(s32 *)((s8 *)arg0 + 0x60) = ((TObjEneMe1GiGueBarrier *)(*(u8 **)((s8 *)arg0 + 0xFC)))->get_timer();
     *(s32 *)((s8 *)arg0 + 0x108) = ((TObjEneMe1GiGueBarrier *)(*(u8 **)((s8 *)arg0 + 0xFC)))->get_field_44c();
     TObjEneMe1GiGueBarrier__sub_802CABF4((void *) (*(u8 **)((s8 *)arg0 + 0xFC)));

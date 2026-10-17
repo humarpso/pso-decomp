@@ -1,4 +1,5 @@
 #include "pso/TBoss6CrushRock.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss6Rock.h"
 
 TBoss6CrushRock::~TBoss6CrushRock() {}
@@ -15,7 +16,6 @@ struct RecoveredGlobal_8035A1A4___vt__15TBoss6CrushRock {
 struct Vec_8035A460 { f32 x, y, z; };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_bml_model(int, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 s32 TBoss6Rock__sub_80353A04();
@@ -47,7 +47,7 @@ u8 *__ct__15TBoss6CrushRockFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss6CrushRock__name;
     *(s32 *)((s8 *)arg0 + 0x1C) = get_bml_model((int) (TBoss6Rock__sub_80353A0C()), (void *) (arg3));
     *(s32 *)((s8 *)arg0 + 0x20) = TBoss6Rock__sub_80353A04();
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x24), (void *) (arg2));
+    VecCopy((Vec *)(arg0 + 0x24), (const Vec *)(arg2));
     *(f32 *)((s8 *)arg0 + 0x30) = (f32) (lbl_805E00C8 * ((lbl_805E00CC * (f32) rand()) - lbl_805E00C8));
     *(f32 *)((s8 *)arg0 + 0x34) = (f32) (lbl_805E00C8 * ((lbl_805E00CC * (f32) rand()) - lbl_805E00C8));
     *(f32 *)((s8 *)arg0 + 0x38) = (f32) (lbl_805E00C8 * ((lbl_805E00CC * (f32) rand()) - lbl_805E00C8));

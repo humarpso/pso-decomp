@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/system/vector.h"
 
 struct RecoveredGlobal_802E4A4C_lbl_804E355C { s32 value; u8 remaining[0x18]; };
 typedef char RecoveredGlobal_802E4A4C_lbl_804E355C_size[sizeof(RecoveredGlobal_802E4A4C_lbl_804E355C) == 0x1C ? 1 : -1];
 
 extern "C" {
 s32 memset(void *, int, int);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_type__10TObjPlayerFPv(void *);
 u32 get_player_by_client_id(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -29,7 +29,7 @@ u8 *construct_attack_collision(u8 *arg0, s32 arg1, u8 *arg2) {
     *(f32 *)((s8 *)arg0 + 0x5C) = (f32) lbl_805DE914;
     *(u8 **)((s8 *)arg0 + 0x1C) = (unsigned char *) ((void *) (arg0 + 0x34));
     *(s32 *)((s8 *)arg0 + 0x20) = 1;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x24), (void *) (arg2));
+    VecCopy((Vec *)(arg0 + 0x24), (const Vec *)(arg2));
     memset((void *) (arg0 + 0x60), (int) (0), (int) (0x40));
     *(s32 *)((s8 *)arg0 + 0xA0) = 0;
     *(s32 *)((s8 *)arg0 + 0xA4) = (s32) *(s32 *)((s8 *)arg2 + 0x10);

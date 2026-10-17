@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/item/TUnk_804C4480.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/item/TUnk_804C4498.h"
@@ -83,7 +84,6 @@ struct Search_801D3C38 {
 };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 placement_search_base_vtable[];
@@ -294,7 +294,7 @@ s32 TUnk_804C4498::step_placement_search() {
     placement_search_collision_body.radius = lbl_805DC3CC;
     placement_search_collision_body.f14 = 0;
     placement_search_collision_body.mask = 0x31F03;
-    VecCopy__FP3VecPC3Vec(&placement_search_collision_probe.position, &s->candidate);
+    VecCopy((Vec *)&placement_search_collision_probe.position, (const Vec *)&s->candidate);
     if (find_placement_obstruction(s, &placement_search_collision_probe) != NULL) {
         s->angle += s->step;
         s->sample++;
@@ -319,7 +319,7 @@ void *find_placement_obstruction(void *self, Body_801D3E20 *s) {
                 void *r;
                 b.colliders = a->colliders;
                 b.count = a->count;
-                VecCopy__FP3VecPC3Vec(&b.position, &a->pos);
+                VecCopy((Vec *)&b.position, (const Vec *)&a->pos);
                 b.facing = a->facing;
                 r = refresh_actor_body_spheres(*s, b);
                 if (r != 0) {
@@ -366,7 +366,7 @@ u8 *construct_placement_search_base(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 a
         *(s32 *)((s8 *)arg0 + 0x24) = (s32) ((TUnk_804B9870 *)arg2)->get_stat_by_key_state();
         *(s32 *)((s8 *)arg0 + 0x28) = (s32) *(s32 *)((s8 *)arg2 + 0x60);
     }
-    VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg3);
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)arg3);
     *(s8 *)((s8 *)arg0 + 0x1C) = arg4;
     *(f32 *)((s8 *)arg0 + 0x4C) = (f32) lbl_805DC3D4;
     *(f32 *)((s8 *)arg0 + 0x48) = (f32) lbl_805DC3D4;

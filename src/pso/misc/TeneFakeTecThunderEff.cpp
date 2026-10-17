@@ -1,4 +1,5 @@
 #include "pso/TEneEffHamon.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TeneFakeTecThunderEff.h"
 
 #include "types.h"
@@ -66,7 +67,6 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_80490A18[];
 extern s32 lbl_805D29E0;
 u8 *TObjPlayer__sub_800A4204(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
@@ -127,8 +127,8 @@ void build_beam_points__12TTecZondeEffFPv(Obj_800A39A8 *o) {
     f32 fz;
     Vec_800A39A8 *p;
 
-    VecCopy__FP3VecPC3Vec(&o->a, o->from);
-    VecCopy__FP3VecPC3Vec(&o->d, o->to);
+    VecCopy((Vec *)&o->a, (const Vec *)o->from);
+    VecCopy((Vec *)&o->d, (const Vec *)o->to);
     subtract_vector(&o->d, o->from);
     len = vector_length(&o->d);
     o->step = len / o->n;

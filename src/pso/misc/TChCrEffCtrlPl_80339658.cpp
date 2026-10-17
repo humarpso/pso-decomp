@@ -1,4 +1,5 @@
 #include "pso/TChCrEffCtrlPl.h"
+#include "pso/render/depth_buffer.h"
 
 #include "types.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
@@ -9,7 +10,6 @@ struct O_80339808 { s32 f0; u8 pad[0x14]; void *vt; s32 f1c; s32 f20; u8 v[8]; f
 struct O_803396C8 { u8 pad[0x24]; f32 x; f32 y; f32 f2c; f32 f30; s32 f34; };
 
 extern "C" {
-s32 set_depth_buffer_settings_1__Fv();
 s32 restore_saved_depth_alpha_state();
 s32 draw_ui_sprite(int, void *, f32, f32);
 extern u8 lbl_80477C70[];
@@ -24,7 +24,7 @@ void *__nw__7TObjectFUl(int);
 void TChCrEffCtrlPl::render() {
     u8 *arg0 = (u8 *)this;
     f32 var_f2;
-    set_depth_buffer_settings_1__Fv();
+    set_depth_buffer_settings_1();
     var_f2 = (2.5f) * *(f32 *)((s8 *)arg0 + 0x2C);
     if (var_f2 > (1.0f)) {
         var_f2 = (1.0f);

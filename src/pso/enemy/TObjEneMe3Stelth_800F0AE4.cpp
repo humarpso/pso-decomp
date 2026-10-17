@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneMe3Stelth.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -15,7 +16,6 @@ int load_gvm_texture_file(void*);
     extern unsigned char lbl_8043D438[];
 extern u32 blob_shadow_texture_list;
 void load_ha_u032_kage(void);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 attach_particle_model(int, int, int, int, int, f32);
 u8 *csnVectorUnder(s32 *, s32, s32);
 s32 spawn_particle_effect(s32, s32);
@@ -43,7 +43,7 @@ s32 TObjEneMe3Stelth::try_spawn_ground_effect(s32 arg1) {
   s32 temp_r31;
   s32 particle_effect;
   u8 *temp_r3;
-  VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) arg1);
+  VecCopy((Vec *)(&stack.sp8), (const Vec *)arg1);
   stack.spC += TObjEneMe3Stelth__data_805DA808;
   temp_r3 = (u8 *) csnVectorUnder(&stack.sp8, arg0 + 0x120, 0x15);
   if ((temp_r3 != 0) && ((*((s32 *) (((s8 *) temp_r3) + 0))) & 4))

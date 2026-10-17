@@ -1,16 +1,18 @@
 #include "pso/AllocatorCallbacks.h"
+#include "pso/system/memory.h"
 #include <stddef.h>
 typedef char AllocatorAllocateOffset[(offsetof(AllocatorCallbacks, allocate) == 0) ? 1 : -1];
 typedef char AllocatorReleaseOffset[(offsetof(AllocatorCallbacks, release) == 4) ? 1 : -1];
 
 extern "C" {
 extern AllocatorCallbacks *global_allocator;
-void *xmalloc__FUl(u32 bytes);
 #pragma push
 #pragma scheduling off
-void *xmalloc__FUl(u32 bytes) {
+}
+void * xmalloc(u32 bytes) {
     return global_allocator->allocate(bytes, global_allocator);
 }
+extern "C" {
 #pragma pop
 
 }

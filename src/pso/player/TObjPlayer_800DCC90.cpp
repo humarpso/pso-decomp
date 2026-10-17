@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TUnk_80494E48.h"
 #include "pso/player/TObjPlayer.h"
@@ -46,7 +47,6 @@ struct Me_800DC9EC {
 extern "C" { u8 *find_entity_by_id(s16);
 Obj_800DC4B4 *find_active_entity_by_id(u16);
 void queue_destruction__7TObjectFv(void *);
-s32 VecCopy__FP3VecPC3Vec(void *, int);
 s32 play_sound_effect(int, void *, int, int);
 s32 subtract_vector(void *, void *);
 s32 vec3_add_to(void *, void *);
@@ -74,7 +74,7 @@ void update_homing_shot__10TObjPlayerFPv(Me_800DC9EC *arg0) {
         arg0->timer--;
         if (arg0->timer <= 0) {
             arg0->timer = 0;
-            VecCopy__FP3VecPC3Vec(&arg0->pos, (int)arg0->target);
+            VecCopy((Vec *)&arg0->pos, (const Vec *)arg0->target);
             arg0->state = 1;
             play_sound_effect(0x4003A328, &arg0->pos, 0, 0);
             return;
@@ -90,14 +90,14 @@ void update_homing_shot__10TObjPlayerFPv(Me_800DC9EC *arg0) {
             return;
         }
         if (obj != NULL) {
-            VecCopy__FP3VecPC3Vec(&dir, (int)obj->pos);
+            VecCopy((Vec *)&dir, (const Vec *)obj->pos);
             subtract_vector(&dir, &arg0->pos);
             ((TObjGyaranzoMissile *)(&dir))->scale_velocity(arg0->speed);
             arg0->speed += lbl_805D5268;
             vec3_add_to(&arg0->vel, &dir);
             ((TObjGyaranzoMissile *)(&arg0->vel))->scale_velocity(lbl_805D5260);
         }
-        VecCopy__FP3VecPC3Vec(&arg0->prev, (int)&arg0->pos);
+        VecCopy((Vec *)&arg0->prev, (const Vec *)&arg0->pos);
         vec3_add_to(&arg0->pos, &arg0->vel);
         if (arg0->effect != NULL) {
             ((TNowLoading *)(arg0->effect))->copy_pos(&arg0->pos);

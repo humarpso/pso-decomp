@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjButterflyLobby.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TLobby.h"
@@ -36,7 +37,6 @@ struct Butterfly_80350BC4 {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 csnVector(void *, void *, int);
 s32 rand();
 f32 sin_table_lookup(int);
@@ -73,7 +73,7 @@ void render__18TObjButterflyLobbyFPv(u8 *arg0) {
 
 void TObjButterflyLobby::init_params() {
     u8 *arg0 = (u8 *)this;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x98, (u8 *)&this->position);
+    VecCopy((Vec *)(arg0 + 0x98), (const Vec *)&this->position);
     this->m_a4 = 0.0f;
     *(f32 *)&this->unk_A8 = 0.0f;
     this->m_ac = 0.0f;
@@ -213,10 +213,10 @@ void TObjButterflyLobby::run_task() {
     }
     {
     Vec_80350BC4 p;
-    VecCopy__FP3VecPC3Vec(&p, &o->pos);
+    VecCopy((Vec *)&p, (const Vec *)&o->pos);
     p.y += o->vy;
     if (csnVector(&o->pos, &p, -1) == 0) {
-        VecCopy__FP3VecPC3Vec(&o->pos, &p);
+        VecCopy((Vec *)&o->pos, (const Vec *)&p);
     } else {
         o->baseY = o->pos.y;
         if (o->vy < 0.0f) {
@@ -227,11 +227,11 @@ void TObjButterflyLobby::run_task() {
     }
     p.x += o->vx;
     if (csnVector(&o->pos, &p, -1) == 0) {
-        VecCopy__FP3VecPC3Vec(&o->pos, &p);
+        VecCopy((Vec *)&o->pos, (const Vec *)&p);
     }
     p.z += o->vz;
     if (csnVector(&o->pos, &p, -1) == 0) {
-        VecCopy__FP3VecPC3Vec(&o->pos, &p);
+        VecCopy((Vec *)&o->pos, (const Vec *)&p);
     }
     }
     if (o->pos.y > 12.0f + base) {
@@ -311,9 +311,9 @@ u8 *TObjButterflyLobby__ct(u8 *arg0, int arg1, u8 *arg2) {
     construct_world_actor_base();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjButterflyLobby;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4360;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2 + 0xC));
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2 + 0xC));
     ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz((void *) (arg2 + 0x18));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x68), (void *) (arg2 + 0x24));
+    VecCopy((Vec *)(arg0 + 0x68), (const Vec *)(arg2 + 0x24));
     if (is_lobby_event_active() != 0) {
         *(s32 *)((s8 *)arg0 + 0x90) = 0;
     } else {

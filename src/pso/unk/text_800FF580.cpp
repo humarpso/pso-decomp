@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TObjEZRopeBase.h"
 struct Vec_800FF8CC {
     f32 x, y, z;
@@ -41,7 +42,6 @@ struct Obj_800FF788 {
 };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(Vec_800FF8CC *, const Vec_800FF8CC *);
 Vec_800FF8CC *alloc__22TQuestVmDownLoadServerFv(s32);
 void vec3_add_to(Vec_800FF8CC *, Vec_800FF8CC *);
 void fn_800FF580(void *, void *, f32);
@@ -64,7 +64,7 @@ void TObjEZRopeBase::sub_800FF788(void *mtx) {
     p = ((Obj_800FF788 *)this)->out;
     while (seg->n >= 2) {
         len = vector_length(&seg->dir);
-        VecCopy__FP3VecPC3Vec((Vec_800FF8CC *)p, (Vec_800FF8CC *)&src->v);
+        VecCopy((Vec *)((Vec_800FF8CC *)p), (const Vec *)((Vec_800FF8CC *)&src->v));
         p++;
         n = seg->n - 1;
         while (n > 0) {
@@ -116,7 +116,7 @@ void TObjEZRopeBase::sub_800FF8CC(void *src_arg, void *pos_arg, s32 arg) {
     for (; s->count >= 2; s++, p++) {
         Vec_800FF8CC v = p->v;
         for (n = s->count; n > 0; n--, out++) {
-            VecCopy__FP3VecPC3Vec(out, &v);
+            VecCopy((Vec *)out, (const Vec *)&v);
             vec3_add_to(&v, &s->rot);
         }
     }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TUnk_804928CC.h"
 #include "pso/enemy/TObjEneBm9Mericarol_Bomb.h"
 #include "pso/enemy/TObjEneBm9Mericarol_EffCurse3.h"
@@ -180,7 +181,6 @@ typedef struct Obj_800C55E0 {
 struct Vec_802D1880 { f32 x, y, z; };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 subtract_vector(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 s32 is_alive__9TObjEneDDFv(s32);
@@ -259,8 +259,8 @@ u8 *TObjEneBm9Mericarol__sub_802D1880(u8 *arg0, u8 *arg1, Vec_802D1880 *arg2, Ve
     }
     *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0xC) = lbl_805DE76C;
     *(s16 *)((s8 *)arg0 + 0xB0) = obj_getField1c(arg1);
-    VecCopy__FP3VecPC3Vec(arg0 + 0xB4, arg2);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0xB4);
+    VecCopy((Vec *)(arg0 + 0xB4), (const Vec *)arg2);
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0xB4));
     *(f32 *)((s8 *)arg0 + 0xD8) = lbl_805DE770;
     *(f32 *)((s8 *)arg0 + 0xDC) = lbl_805DE770;
     *(f32 *)((s8 *)arg0 + 0xE0) = lbl_805DE770;
@@ -298,9 +298,9 @@ void TObjEneBm9Mericarol_EffCurse3::run_task() {
         return;
     }
     if (is_alive__9TObjEneDDFv((s32)o->target) != 0) {
-        VecCopy__FP3VecPC3Vec(&a, &o->target->pos);
+        VecCopy((Vec *)&a, (const Vec *)&o->target->pos);
         a.y += lbl_805DE778;
-        VecCopy__FP3VecPC3Vec(&b, camera_ctrl_instance + 0x178);
+        VecCopy((Vec *)&b, (const Vec *)(camera_ctrl_instance + 0x178));
         subtract_vector(&b, &a);
         ((TObjBoss2Tunnel *)(&b))->update_scale();
         a.x = lbl_805DE77C * b.x + a.x;

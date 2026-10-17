@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEneBalClawBody.h"
 #include "pso/enemy/TObjEnemyCustom.h"
@@ -56,7 +57,6 @@ f32 xz_distance_squared(void *, void *);
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(void *, void *, Vec_800C6EF8 *);
-void VecCopy__FP3VecPC3Vec(Vec_800C6EF8 *, Vec_800C6EF8 *);
 u16 obj_getField1c(void *);
 u16 find_nearest_enemy__10TObjPlayerFPvPvf(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out, f32 radius);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
@@ -186,7 +186,7 @@ u16 find_nearest_enemy__10TObjPlayerFPvPvf(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out
             best = obj_getField1c(p);
             bestDist = d;
             if (out != NULL) {
-                VecCopy__FP3VecPC3Vec(out, &v);
+                VecCopy((Vec *)out, (const Vec *)&v);
             }
         }
     }
@@ -239,8 +239,8 @@ void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec
     s32 ang;
     s32 i;
     calc_velocity_toward_destination(self, self->pos, arg1);
-    VecCopy__FP3VecPC3Vec((Vec_800C6EF8 *)&self->prev, (Vec_800C6EF8 *)&self->pos);
-    VecCopy__FP3VecPC3Vec((Vec_800C6EF8 *)&a, (Vec_800C6EF8 *)&self->base);
+    VecCopy((Vec *)((Vec_800C6EF8 *)&self->prev), (const Vec *)((Vec_800C6EF8 *)&self->pos));
+    VecCopy((Vec *)((Vec_800C6EF8 *)&a), (const Vec *)((Vec_800C6EF8 *)&self->base));
     Vec_800C7168 v = self->vel;
     Vec_800C7168 up;
     Vec_800C7168 out;
@@ -270,18 +270,18 @@ void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec
     }
     for (i = 0; i < 0xF; i++) {
         if (i == 0) {
-            VecCopy__FP3VecPC3Vec((Vec_800C6EF8 *)&dir, (Vec_800C6EF8 *)&self->vel);
+            VecCopy((Vec *)((Vec_800C6EF8 *)&dir), (const Vec *)((Vec_800C6EF8 *)&self->vel));
         } else {
             push_matrix_from(identity_matrix);
             rotate_matrix_y(0, ang * (i * 0x1000));
             rotate_vector_by_matrix(0, &self->vel, &dir);
             pop_matrices(1);
         }
-        VecCopy__FP3VecPC3Vec((Vec_800C6EF8 *)&tmp, (Vec_800C6EF8 *)&self->pos);
+        VecCopy((Vec *)((Vec_800C6EF8 *)&tmp), (const Vec *)((Vec_800C6EF8 *)&self->pos));
         vec3_add_to(&tmp, &dir);
         if (project_actor_to_ground(self, &tmp, 0) == 1) {
-            VecCopy__FP3VecPC3Vec((Vec_800C6EF8 *)&self->pos, (Vec_800C6EF8 *)&tmp);
-            VecCopy__FP3VecPC3Vec((Vec_800C6EF8 *)&self->vel, (Vec_800C6EF8 *)&self->pos);
+            VecCopy((Vec *)((Vec_800C6EF8 *)&self->pos), (const Vec *)((Vec_800C6EF8 *)&tmp));
+            VecCopy((Vec *)((Vec_800C6EF8 *)&self->vel), (const Vec *)((Vec_800C6EF8 *)&self->pos));
             subtract_vector(&self->vel, &self->prev);
             return;
         }

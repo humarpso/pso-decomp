@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneMerillLia.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -503,7 +504,6 @@ extern const f32 lbl_805DA30C;
 extern const f32 lbl_805DA310;
 s32 apply_actor_gravity(void *, int, f32);
 s32 enemy_move_toward(void *, s32, void *, int, f32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 horizontal_distance_squared(void *, void *);
 s32 test_elt_flag__13TUnk_80493450Fll(void *, int, int);
 extern const f32 lbl_805DA31C;
@@ -746,7 +746,7 @@ void spawn_ground_effect__16TObjEneMerillLiaFPv(u8 *arg0) {
     s32 temp_r29;
     s32 temp_r3_2;
     u8 *temp_r3;
-    VecCopy__FP3VecPC3Vec(&stack.sp8, arg0 + 0x38);
+    VecCopy((Vec *)&stack.sp8, (const Vec *)(arg0 + 0x38));
     stack.spC += lbl_805DA2EC;
     temp_r3 = (u8 *)(csnVectorUnder((s32) &stack.sp8, arg0 + 0x120, 5));
     if ((temp_r3 != NULL) && (*(s32 *)((s8 *)temp_r3 + 0) & 4)) {
@@ -1172,10 +1172,10 @@ void TObjEneMerillLia__sub_800D5BCC(u8 *arg0) {
         Vec_800D5BCC *d;
         Vec_800D5BCC *v;
         s32 ang;
-        VecCopy__FP3VecPC3Vec(&o->f29C, &o->home);
-        VecCopy__FP3VecPC3Vec(&o->f290, &o->f2FC);
-        VecCopy__FP3VecPC3Vec(&o->prev, &o->pos);
-        VecCopy__FP3VecPC3Vec(&lbl_8050BEE0, &o->home);
+        VecCopy((Vec *)&o->f29C, (const Vec *)&o->home);
+        VecCopy((Vec *)&o->f290, (const Vec *)&o->f2FC);
+        VecCopy((Vec *)&o->prev, (const Vec *)&o->pos);
+        VecCopy((Vec *)&lbl_8050BEE0, (const Vec *)&o->home);
         subtract_vector(&lbl_8050BEE0, &o->pos);
         d = &lbl_8050BEE0;
         ang = (s32)(lbl_8043C6E8[0] * atan2_float(d->x, d->z));
@@ -1189,7 +1189,7 @@ void TObjEneMerillLia__sub_800D5BCC(u8 *arg0) {
         vec3_add_to(&lbl_8050BF00, &o->pos);
         if (project_actor_to_ground(o, &lbl_8050BF00, 0) == 1) {
             o->fB8 = 2;
-            VecCopy__FP3VecPC3Vec(&o->pos, &lbl_8050BF00);
+            VecCopy((Vec *)&o->pos, (const Vec *)&lbl_8050BF00);
             o->angle = approach_angle_limited(o->angle, ang, o->param->turn);
         } else {
             f32 rr = fabs_float(d->z);
@@ -1208,7 +1208,7 @@ void TObjEneMerillLia__sub_800D5BCC(u8 *arg0) {
             vec3_add_to(&lbl_8050BF00, &o->pos);
             if (project_actor_to_ground(o, &lbl_8050BF00, 0) == 1) {
                 o->fB8 = 2;
-                VecCopy__FP3VecPC3Vec(&o->pos, &lbl_8050BF00);
+                VecCopy((Vec *)&o->pos, (const Vec *)&lbl_8050BF00);
                 o->angle = approach_angle_limited(o->angle, ang, o->param->turn);
             } else {
                 s32 ang2;
@@ -1228,7 +1228,7 @@ void TObjEneMerillLia__sub_800D5BCC(u8 *arg0) {
                 vec3_add_to(&lbl_8050BF00, &o->pos);
                 if (project_actor_to_ground(o, &lbl_8050BF00, 0) == 1) {
                     o->fB8 = 2;
-                    VecCopy__FP3VecPC3Vec(&o->pos, &lbl_8050BF00);
+                    VecCopy((Vec *)&o->pos, (const Vec *)&lbl_8050BF00);
                     o->angle = approach_angle_limited(o->angle, ang2, o->param->turn);
                 } else {
                     o->fB8 = 2;
@@ -1406,13 +1406,13 @@ void TObjEneMerillLia::beast_update_approach() {
         if (*(u32 *)&this->target != 0U) {
             if (test_elt_flag__13TUnk_80493450Fll(arg0, 0, 0x300000) != 0) {
                 if ((f32) (this->m_38c)++ < lbl_805DA31C) {
-                    VecCopy__FP3VecPC3Vec(&sp14, (u8 *)&this->m_50);
+                    VecCopy((Vec *)&sp14, (const Vec *)&this->m_50);
                 } else {
-                    VecCopy__FP3VecPC3Vec(&sp14, (void *) (*(u32 *)&this->target + 0x2FC));
+                    VecCopy((Vec *)&sp14, (const Vec *)(*(u32 *)&this->target + 0x2FC));
                 }
             } else {
                 this->m_38c = 0U;
-                VecCopy__FP3VecPC3Vec(&sp14, (void *) (*(u32 *)&this->target + 0x2FC));
+                VecCopy((Vec *)&sp14, (const Vec *)(*(u32 *)&this->target + 0x2FC));
             }
             ((TUnk_80493450 *)arg0)->update_target_near_flag();
             ((TUnk_80493450 *)arg0)->sub_800C4E08();

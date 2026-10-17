@@ -1,4 +1,5 @@
 #include "pso/audio/SoundBankTables.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 struct SoundRequestVoice;
@@ -221,8 +222,6 @@ void reset_sound_group_fade__6TLobbyFv(void);
 #define lbl_805162EC ((E_8023FF38 *)&lbl_805162EC)
 void fade_voice_channels__6TLobbyFi(s32 arg0);
 void *adxf_open_afs__6TLobbyFii(int, int);
-void *xmalloc__FUl(u32 bytes);
-void xfree__FPv(void *allocation);
 
 s32 TLobby__sub_8023FFB8(Obj_8023FCC0 *self, int id);
 u8 is_ready__6TLobbyFPv(void *arg0);
@@ -246,25 +245,25 @@ s32 TLobby__sub_8023FFB8(Obj_8023FCC0 *self, int id) {
     s32 i;
     s32 ret;
     if (self->ents[id].h[3] != 0) {
-        xfree__FPv((void *)self->ents[id].h[3]);
+        xfree((void *)self->ents[id].h[3]);
         self->ents[id].h[3] = 0;
     }
     if (self->ents[id].h[2] != 0) {
-        xfree__FPv((void *)self->ents[id].h[2]);
+        xfree((void *)self->ents[id].h[2]);
         self->ents[id].h[2] = 0;
     }
     if (self->ents[id].h[1] != 0) {
-        xfree__FPv((void *)self->ents[id].h[1]);
+        xfree((void *)self->ents[id].h[1]);
         self->ents[id].h[1] = 0;
     }
     if (self->ents[id].h[0] != 0) {
-        xfree__FPv((void *)self->ents[id].h[0]);
+        xfree((void *)self->ents[id].h[0]);
         self->ents[id].h[0] = 0;
     }
     for (i = 0; i < 4; i++) {
         self->fC24[i] = sound_bank_file_sizes[sound_bank_file_indices[id][i]];
         self->fC24[i] = (self->fC24[i] + 0x7FF) & ~0x7FF;
-        self->ents[id].h[i] = (u32)xmalloc__FUl(self->fC24[i]);
+        self->ents[id].h[i] = (u32)xmalloc(self->fC24[i]);
         if (self->ents[id].h[i] == 0) {
             ret = 3;
             goto fail;
@@ -283,19 +282,19 @@ s32 TLobby__sub_8023FFB8(Obj_8023FCC0 *self, int id) {
     return 0;
 fail:
     if (self->ents[id].h[3] != 0) {
-        xfree__FPv((void *)self->ents[id].h[3]);
+        xfree((void *)self->ents[id].h[3]);
         self->ents[id].h[3] = 0;
     }
     if (self->ents[id].h[2] != 0) {
-        xfree__FPv((void *)self->ents[id].h[2]);
+        xfree((void *)self->ents[id].h[2]);
         self->ents[id].h[2] = 0;
     }
     if (self->ents[id].h[1] != 0) {
-        xfree__FPv((void *)self->ents[id].h[1]);
+        xfree((void *)self->ents[id].h[1]);
         self->ents[id].h[1] = 0;
     }
     if (self->ents[id].h[0] != 0) {
-        xfree__FPv((void *)self->ents[id].h[0]);
+        xfree((void *)self->ents[id].h[0]);
         self->ents[id].h[0] = 0;
     }
     return ret;
@@ -398,19 +397,19 @@ s32 pop_sound_groups__6TLobbyFPvi(void *p, s32 arg1) {
             }
             sndPopGroup();
             if (M->slots[idx].buf[3] != NULL) {
-                xfree__FPv(M->slots[idx].buf[3]);
+                xfree(M->slots[idx].buf[3]);
                 M->slots[idx].buf[3] = NULL;
             }
             if (M->slots[idx].buf[2] != NULL) {
-                xfree__FPv(M->slots[idx].buf[2]);
+                xfree(M->slots[idx].buf[2]);
                 M->slots[idx].buf[2] = NULL;
             }
             if (M->slots[idx].buf[1] != NULL) {
-                xfree__FPv(M->slots[idx].buf[1]);
+                xfree(M->slots[idx].buf[1]);
                 M->slots[idx].buf[1] = NULL;
             }
             if (M->slots[idx].buf[0] != NULL) {
-                xfree__FPv(M->slots[idx].buf[0]);
+                xfree(M->slots[idx].buf[0]);
                 M->slots[idx].buf[0] = NULL;
             }
             M->depth--;
@@ -421,19 +420,19 @@ s32 pop_sound_groups__6TLobbyFPvi(void *p, s32 arg1) {
             idx = M->stack[n];
             sndPopGroup();
             if (M->slots[idx].buf[3] != NULL) {
-                xfree__FPv(M->slots[idx].buf[3]);
+                xfree(M->slots[idx].buf[3]);
                 M->slots[idx].buf[3] = NULL;
             }
             if (M->slots[idx].buf[2] != NULL) {
-                xfree__FPv(M->slots[idx].buf[2]);
+                xfree(M->slots[idx].buf[2]);
                 M->slots[idx].buf[2] = NULL;
             }
             if (M->slots[idx].buf[1] != NULL) {
-                xfree__FPv(M->slots[idx].buf[1]);
+                xfree(M->slots[idx].buf[1]);
                 M->slots[idx].buf[1] = NULL;
             }
             if (M->slots[idx].buf[0] != NULL) {
-                xfree__FPv(M->slots[idx].buf[0]);
+                xfree(M->slots[idx].buf[0]);
                 M->slots[idx].buf[0] = NULL;
             }
             M->depth--;

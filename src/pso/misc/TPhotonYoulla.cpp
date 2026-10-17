@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_804C3248.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TPhotonYoulla.h"
@@ -47,7 +48,6 @@ void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 * find_entity_by_id(u16);
 u8 * photon_base_ct(void *);
 void sub_801AE72C__13TPhotonYoullaFv(void *, u8);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_photon_blast_opening_effects(int, int);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
 extern u8 lbl_804C3B48[];
@@ -148,7 +148,7 @@ u8 *TPhotonYoulla__ct(u8 *arg0, u8 *arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TPhotonYoulla;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3528;
     *(s32 *)((s8 *)arg0 + 0x138) = 5;
-    VecCopy__FP3VecPC3Vec((void *) ((u8 *)(arg0) + 0x38), (void *) (arg1));
+    VecCopy((Vec *)((u8 *)(arg0) + 0x38), (const Vec *)(arg1));
     *(u16 *)((s8 *)arg0 + 0x17C) = (u16) *(u16 *)((s8 *)arg1 + 0xC);
     *(u8 **)((s8 *)arg0 + 0x180) = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x17C));
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x180));

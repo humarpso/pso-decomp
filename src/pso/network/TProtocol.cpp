@@ -1,4 +1,5 @@
 #include <global_types.h>
+#include "pso/system/byteswap.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include <string.h>
@@ -1334,11 +1335,9 @@ extern "C" void bswap_cmd_AB__9TProtocolFPv(void *p) {
 
 extern "C" {
 
-int bswap_16__FPUs(void*);
-int bswap_32__FPUl(void*);
 int bswap__13packet_headerFv(void*);
 
-void TProtocol::bswap_packet() { bswap__13packet_headerFv(this); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); bswap_16__FPUs((char*)this + 0x8); bswap_16__FPUs((char*)this + 0xa); { int i; for (i = 0; i < 8; i++) { bswap_32__FPUl((char*)this + 0xc + i * 4); } } }
+void TProtocol::bswap_packet() { bswap__13packet_headerFv(this); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); bswap_16((u16 *)((char*)this + 0x8)); bswap_16((u16 *)((char*)this + 0xa)); { int i; for (i = 0; i < 8; i++) { bswap_32((u32 *)((char*)this + 0xc + i * 4)); } } }
 int TProtocol::bswap_packet_header() { return bswap__13packet_headerFv(this); }
 
 }

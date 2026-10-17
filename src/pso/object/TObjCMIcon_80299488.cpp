@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
 #include "pso/TObjCMIcon.h"
 #include "pso/object/TObjCMMainMenu.h"
 
@@ -47,8 +48,6 @@ void TObjCMIcon__sub_8029957C(void* p, void* q);
 extern RecoveredGlobal_8029951C_lbl_8046518C lbl_8046518C;
 extern f32 TObjCMIcon__horizontal_scroll_offset;
 void TObjCMIcon__sub_802994C8(s32 arg0, s32 *arg1);
-void set_depth_buffer_settings_1__Fv(void);
-void set_depth_buffer_settings_id__FUl(u32);
 s32 get_creation_sprite_id__14TObjCMMainMenuFl(s32);
 void draw_ui_sprite(s32, void *, f32, f32);
 void restore_saved_depth_alpha_state(void);
@@ -139,8 +138,8 @@ void render__10TObjCMIconFv(s32 self) {
         idx[j] = id;
         keys[j] = k;
     }
-    set_depth_buffer_settings_1__Fv();
-    set_depth_buffer_settings_id__FUl(2);
+    set_depth_buffer_settings_1();
+    set_depth_buffer_settings_id(2);
     x0 = cm_icon_screen_position[0] - TObjCMIcon__horizontal_scroll_offset;
     for (i = 0; i < 7; i++) {
         id = idx[i];

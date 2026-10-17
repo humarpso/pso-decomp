@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/unk/TUnk_804CC888.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
@@ -20,7 +21,6 @@ struct Task_80232EC0 {
 };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 u32 spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 u32 *mem_alloc(s32);
@@ -30,7 +30,7 @@ extern Profile_80232EC0 grants_effect_emitter_table[];
 }
 TUnk_804CC888::TUnk_804CC888(u8 *src, s32 level, TObject *parent) : TObject(parent) {
     u32 i;
-    VecCopy__FP3VecPC3Vec(((Task_80232EC0 *)this)->pos, src + 0x38);
+    VecCopy((Vec *)(((Task_80232EC0 *)this)->pos), (const Vec *)(src + 0x38));
     ((Task_80232EC0 *)this)->x2c = 0;
     ((Task_80232EC0 *)this)->owner = obj_getField1c(src);
     ((Task_80232EC0 *)this)->level = level;

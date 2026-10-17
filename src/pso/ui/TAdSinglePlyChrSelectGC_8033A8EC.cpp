@@ -1,6 +1,7 @@
 #pragma push
 
 #include "types.h"
+#include "pso/system/main_loop.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/misc/THunterGuildSeqOffline.h"
@@ -56,7 +57,6 @@ s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 int request_queued_main_phase(void*);
 int TAdSinglePlyChrSelectGC__sub_8033B244(void* p);
 s32 call_funcs_reverse__6TLobbyFPvUi(void *, int);
-s32 render_tick__Fv();
 s32 delete_all_task_children__9TMainTaskFv(void *);
 extern void *character_select_scene_resource_callbacks[];
 #define character_select_scene_resource_callbacks (*(RecoveredGlobal_8033B264_lbl_804EF728 *)&character_select_scene_resource_callbacks)
@@ -89,7 +89,6 @@ s32 set_active_camera_pose(void *, void *);
 s32 activate_camera_mode(int);
 s32 process_async_file_reads();
 s8 func_801A5E54__Fv();
-s32 controller_stuff__Fv();
 s32 run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
 s32 update_sound_request_slots();
 s32 render_screen_overlay__9TMainTaskFv(void *);
@@ -383,12 +382,12 @@ void TAdSinglePlyChrSelectGC__sub_8033B264(void) {
     TLobby::stop_audio_streams();
     TLobby::set_and_notify((int) (0));
     call_funcs_reverse__6TLobbyFPvUi((void *) (&character_select_scene_resource_callbacks.value), (int) (0x30));
-    render_tick__Fv();
+    render_tick();
 }
 
 void TAdSinglePlyChrSelectGC::run_frame() {
     func_803DCDFC__Fv();
-    controller_stuff__Fv();
+    controller_stuff();
     TKeyBoardControl::update_input_frame();
     V3_8033B2AC a = lbl_80477D78[0];
     V3_8033B2AC b = lbl_80477D84[0];
@@ -410,7 +409,7 @@ void TAdSinglePlyChrSelectGC::run_frame() {
             TKeyBoardControl__sub_8000F9CC(0);
         }
     }
-    render_tick__Fv();
+    render_tick();
 }
 
 struct RecoveredGlobal_8033B264_lbl_804EF728;
@@ -441,7 +440,7 @@ void init_single_player_char_select_scene(void) {
     play_area_music(lbl_80477D90);
     TLobby::set_and_notify(-900);
     ((TLobby *)lobby_rule_settings)->reset_settings_to_default();
-    render_tick__Fv();
+    render_tick();
 }
 
 void close_window__23TAdSinglePlyChrSelectGCFPv(void *arg0) {

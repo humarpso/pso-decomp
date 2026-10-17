@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEnemyCustom.h"
@@ -336,7 +337,6 @@ s32 update_action_hold_status__13TUnk_804806E8Fv();
 s32 move_with_wall_slide(void *);
 void calc_velocity_toward_destination(void *, Vec_800A12C0, Vec_800A12C0, f32);
 s32 check_path_obstructed(void *, Vec_800A1D70 *);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_is_hit_receivable();
 s32 obj_testFlags30(s32, s32);
 s16 obj_getField1c(void *, f32);
@@ -785,7 +785,7 @@ u8 *TObjEneDarkGunCenter__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
     o = (Obj_800A0EDC *)arg0;
-    VecCopy__FP3VecPC3Vec(o->home, o->pos);
+    VecCopy((Vec *)o->home, (const Vec *)o->pos);
     o->flags = o->flags | 0x06000000 | 0x800;
     o->f374 = 0;
     ((TObjEneLappy *)arg0)->set_param(0x22);
@@ -845,8 +845,8 @@ void TObjPlayer::step_along_ground() {
     u8 *hit;
     u8 *q;
 
-    VecCopy__FP3VecPC3Vec((u8 *)&this->m_44, (u8 *)&this->position);
-    VecCopy__FP3VecPC3Vec(&pos, (u8 *)&this->m_2fc);
+    VecCopy((Vec *)&this->m_44, (const Vec *)&this->position);
+    VecCopy((Vec *)&pos, (const Vec *)&this->m_2fc);
     vel = *(Raw_800A10A0 *)(arg0 + 0x308);
     ((TObjGyaranzoMissile *)(&vel))->scale_velocity(lbl_805D9978 + ((f32 (*)(int))TObjPlayer__sub_800A3200)(0));
     ((void (*)(void *, void *))vec3_add_to)(&pos, &vel);
@@ -864,18 +864,18 @@ void TObjPlayer::step_along_ground() {
     }
     for (i = 0, ang = 0; i < 15; i++, ang += 0x1000) {
         if (i == 0) {
-            VecCopy__FP3VecPC3Vec(&dir, (u8 *)&this->unk_308);
+            VecCopy((Vec *)&dir, (const Vec *)&this->unk_308);
         } else {
             ((void (*)(void *))push_matrix_from)(identity_matrix);
             ((void (*)(int, s32))rotate_matrix_y)(0, sign * ang);
             rotate_vector_by_matrix(0, (u8 *)&this->unk_308, &dir);
             ((void (*)(void))pop_matrix)();
         }
-        VecCopy__FP3VecPC3Vec(&v, (u8 *)&this->position);
+        VecCopy((Vec *)&v, (const Vec *)&this->position);
         ((void (*)(void *, void *))vec3_add_to)(&v, &dir);
         if (project_actor_to_ground(arg0, &v, 0) == 1) {
-            VecCopy__FP3VecPC3Vec((u8 *)&this->position, &v);
-            VecCopy__FP3VecPC3Vec((u8 *)&this->unk_308, (u8 *)&this->position);
+            VecCopy((Vec *)&this->position, (const Vec *)&v);
+            VecCopy((Vec *)&this->unk_308, (const Vec *)&this->position);
             ((void (*)(void *, void *))subtract_vector)(arg0 + 0x308, (u8 *)&this->m_44);
             return;
         }
@@ -1481,10 +1481,10 @@ u8 *TObjPlayer__sub_800A2F94(u8 *self, s32 arg1, u8 *arg2) {
     F(s32, 0x36C) = *(s16 *)(arg2 + 0x3E);
     F(s16, 0x33A) = 0xF;
     F(s16, 0x33C) = F(s16, 0x33A);
-    VecCopy__FP3VecPC3Vec(self + 0x44, self + 0x38);
-    VecCopy__FP3VecPC3Vec(self + 0x50, self + 0x38);
-    VecCopy__FP3VecPC3Vec(self + 0x290, self + 0x38);
-    VecCopy__FP3VecPC3Vec(self + 0x29C, self + 0x38);
+    VecCopy((Vec *)(self + 0x44), (const Vec *)(self + 0x38));
+    VecCopy((Vec *)(self + 0x50), (const Vec *)(self + 0x38));
+    VecCopy((Vec *)(self + 0x290), (const Vec *)(self + 0x38));
+    VecCopy((Vec *)(self + 0x29C), (const Vec *)(self + 0x38));
     ((TObjPlayer *)self)->set_fields_24_34_from_global((void *)1);
     F(s32, 0xDC) = *(s32 *)(G500C + 0x430);
     F(void *, 0xD8) = lbl_80490668;
@@ -1583,7 +1583,7 @@ s32 TObjPlayer__sub_800A3290(Obj_800A3290 *self, s32 id) {
 void TUnk_804909C4::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
-    ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
     vec3_add_to((void *) (arg0 + 0x38), (void *) (arg0 + 0xAC));
     {
         void *p = (void *) this->m_d0;
@@ -1632,8 +1632,8 @@ u8 *TObjPlayer__sub_800A34E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     }
     *(s32 *)((s8 *)arg0 + 0xCC) = var_r0;
     *(s16 *)((s8 *)arg0 + 0x28) = *(s16 *)((s8 *)arg1 + 0x28);
-    ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (arg0 + 0x38), (void *) (arg2));
-    ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (arg0 + 0xAC), (void *) (arg3));
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2));
+    VecCopy((Vec *)(arg0 + 0xAC), (const Vec *)(arg3));
     subtract_vector((void *) (arg0 + 0xAC), (void *) (arg2));
     *(f32 *)((s8 *)arg0 + 0xB0) = lbl_805D99D8;
     ((TObjGyaranzoMissile *)(arg0 + 0xAC))->scale_velocity(player_scale_factor);

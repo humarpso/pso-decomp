@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss6Demo15_TYPE2_WAIT.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/object/TObjFish.h"
@@ -7,7 +8,6 @@
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 play_persistent_sound(int, void *, void *, int, int);
 void *TObjFish__sub_8034029C(void *, void *);
 int TObjPlayer__sub_8033FDB0(void*);
@@ -25,7 +25,7 @@ void TBoss6Demo15_TYPE2_WAIT::run_task() {
     u8 *temp_r3;
     if (((TObjEneDD *)arg0)->query_teammate_state() == 0) {
         ((TBoss6Demo15_TYPE2_WAIT *)arg0)->advance_offset();
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x4C), (void *) (arg0 + 0x40));
+        VecCopy((Vec *)(arg0 + 0x4C), (const Vec *)(arg0 + 0x40));
         ((TBoss6Demo15_TYPE2_WAIT *)arg0)->sub_8033FE30();
         temp_r3 = (u8 *)(this->m_20);
         if (temp_r3 != NULL) {

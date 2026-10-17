@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/boss/TUnk_80486924.h"
 #include "pso/TBoss4Zanzo.h"
@@ -62,7 +63,6 @@ struct Obj_80055BC0 { u8 pad[0x450]; Vec_80055BC0 f450; Vec_80055BC0 f45c; };
 extern "C" {
 extern u8 lbl_80487150[];
 void copy_positions_to_parts__11TBoss4Type3FPv(Obj_8005A1AC *arg0);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 add_radar_scaled_marker(void *, u32, int, int, f32);
 s32 vec3_add_to(void *, void *);
 f32 vector_length(void *);
@@ -886,7 +886,7 @@ void TBoss4Type2__vt36(u8 *arg0) {
       temp_r3_5 = ((u32 (*)(int))get_player_by_client_id)((int) temp_r3_4);
       if (temp_r3_5 != 0)
       {
-        ((s32 (*)(void *, int))VecCopy__FP3VecPC3Vec)((void *) (&stack.sp8), (int) ((TObjPlayer *)temp_r3_5)->get_position_ptr());
+        VecCopy((Vec *)(&stack.sp8), (const Vec *)((int) ((TObjPlayer *)temp_r3_5)->get_position_ptr()));
         stack.spC += lbl_805D8BA8;
         temp_r3_6 = spawn_particle_effect((void *) (&stack.sp8), (int) 0x38);
         if (temp_r3_6 != 0)
@@ -1153,7 +1153,7 @@ void TBoss4Type2__vt15(u8 *arg0) {
         TBoss3Volopt::queue_event_1D(0xC0, 0xF);
     }
     if (*(s32 *)((s8 *)arg0 + 0x398) <= 0x26 && *(s32 *)((s8 *)arg0 + 0x398) >= 4 && !(*(s32 *)((s8 *)arg0 + 0x398) & 1)) {
-        VecCopy__FP3VecPC3Vec(&p, arg0 + 0x410);
+        VecCopy((Vec *)&p, (const Vec *)(arg0 + 0x410));
         p.x += lbl_805D8BC4 * *(f32 *)((s8 *)arg0 + 0x404);
         p.z += lbl_805D8BC4 * *(f32 *)((s8 *)arg0 + 0x40C);
         if (idx == 0) {
@@ -1201,7 +1201,7 @@ void TBoss4Type2__vt14(void) {  }
 void TBoss4Type2__vt13(u8 *arg0) {
   s32 temp_r31;
   s32 var_r31;
-  VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x3F8), (void *) (arg0 + 0x3B4));
+  VecCopy((Vec *)(arg0 + 0x3F8), (const Vec *)(arg0 + 0x3B4));
   subtract_vector((void *) (arg0 + 0x3F8), (void *) (arg0 + 0x38));
   *((f32 *) (((s8 *) arg0) + 0x3FC)) = (f32) TBoss4Type2__data_805D8BAC;
   if (vector_length((void *) (arg0 + 0x3F8)) <= lbl_805D8BA0)
@@ -1228,7 +1228,7 @@ void TBoss4Type2__vt13(u8 *arg0) {
   *((f32 *) (((s8 *) arg0) + 0x404)) = ((f32 (*)(int))sin_table_lookup)((int) var_r31);
   *((f32 *) (((s8 *) arg0) + 0x40C)) = ((f32 (*)(int))cos_table_lookup)((int) var_r31);
   *((f32 *) (((s8 *) arg0) + 0x408)) = (f32) TBoss4Type2__data_805D8BAC;
-  VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x410), (void *) (arg0 + 0x38));
+  VecCopy((Vec *)(arg0 + 0x410), (const Vec *)(arg0 + 0x38));
   *((f32 *) (((s8 *) arg0) + 0x414)) = (f32) TBoss4Type2__data_805D8BAC;
   normalize_vector((void *) (arg0 + 0x410));
   *((f32 *) (((s8 *) arg0) + 0x410)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x410))) * lbl_805D8BD0);
@@ -1340,7 +1340,7 @@ void TBoss4Type2__vt0(void *arg0) {
 void TBoss4Type2::spawn_afterimages() {
     Zanzo_8005676C z;
     s32 i;
-    VecCopy__FP3VecPC3Vec(&z.pos, &((Obj_8005676C *)this)->pos);
+    VecCopy((Vec *)&z.pos, (const Vec *)(&((Obj_8005676C *)this)->pos));
     z.f0c = ((Obj_8005676C *)this)->f60;
     z.f1c = ((Obj_8005676C *)this)->f3d0;
     z.f20 = lbl_805D8BB0;
@@ -1368,7 +1368,7 @@ void TBoss4Type2::spawn_bishi_around_players() {
         if (pl != 0 && TBoss4Type3__sub_8005254C(obj_getField1c(pl)) != 0) {
             for (j = 0; j < 3; j++) {
                 if (TBoss4DarkFalz__sub_8004AF5C(arg0->f38c, &b.id, &b.id2) != 0) {
-                    VecCopy__FP3VecPC3Vec(&b.pos, pl + 0x38);
+                    VecCopy((Vec *)&b.pos, (const Vec *)(pl + 0x38));
                     b.pos.x += bishi_spawn_offset_table[j].x;
                     b.pos.z += bishi_spawn_offset_table[j].z;
                     create__11TBoss4BishiFi(&b);
@@ -1499,12 +1499,12 @@ void find_target_pos__11TBoss4Type2FPvPv(O_80056C30 *self, Vec_80056C30 *out) {
             if (d <= lbl_805D8BE8 && d > best) {
                 best = d;
                 found = p;
-                VecCopy__FP3VecPC3Vec(&res, &v);
+                VecCopy((Vec *)&res, (const Vec *)&v);
             }
         }
     }
     if (found != NULL) {
-        VecCopy__FP3VecPC3Vec(out, &res);
+        VecCopy((Vec *)out, (const Vec *)&res);
         return;
     }
     s = lbl_805D8BEC * calc_boss4_scale__10TObjPlayerFi(self);
@@ -1646,7 +1646,7 @@ void TBoss4Type2::init_hanger() { toggle_particle_effect__10TObjPlayerFv(this); 
 
 void TBoss4Type2::advance_afterimage() {
     u8 *arg0 = (u8 *)this;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x300) = (f32) (*(f32 *)((s8 *)arg0 + 0x300) + lbl_805D8C18);
 }
 
@@ -1774,11 +1774,11 @@ u8 *TBoss4Type2__ct(u8 *arg0, s32 parent, s32 *arg2) {
     *(s32 *)((s8 *)arg0 + 0x390) = TBoss4Uro::get_instance_count();
     *(s32 *)((s8 *)arg0 + 0x24) = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x38, lbl_804868A8);
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)lbl_804868A8);
     *(s32 *)((s8 *)arg0 + 0x60) = 0;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x44, (void *) VecCopy__FP3VecPC3Vec(arg0 + 0x50, (void *) VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38)));
+    VecCopy((Vec *)(arg0 + 0x44), (const Vec *)((void *) VecCopy((Vec *)(arg0 + 0x50), (const Vec *)((void *) VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38))))));
     *(s32 *)((s8 *)arg0 + 0x394) = init_collision_body_parts(arg0, lbl_80486794, 1);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x310) = TBoss4Type2__data_805D8BAC;
     *(f32 *)((s8 *)arg0 + 0x30C) = TBoss4Type2__data_805D8BAC;
     *(f32 *)((s8 *)arg0 + 0x308) = TBoss4Type2__data_805D8BAC;

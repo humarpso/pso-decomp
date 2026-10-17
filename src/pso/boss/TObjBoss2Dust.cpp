@@ -1,4 +1,5 @@
 #include "pso/TObjBoss2Dust.h"
+#include "pso/system/vector.h"
 
 #include "types.h"
 
@@ -8,7 +9,6 @@ struct RecoveredGlobal_8003AA9C___vt__13TObjBoss2Dust {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjBoss2DustCtrl__sub_8003AB5C();
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8003AA9C___vt__13TObjBoss2Dust __vt__13TObjBoss2Dust;
@@ -31,7 +31,7 @@ u8 *__ct__13TObjBoss2DustFv(u8 *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__13TObjBoss2Dust.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D26FC;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x24), (void *) (arg2));
+    VecCopy((Vec *)(arg0 + 0x24), (const Vec *)(arg2));
     *(s32 *)((s8 *)arg0 + 0x1C) = 0;
     *(s32 *)((s8 *)arg0 + 0x20) = TObjBoss2DustCtrl__sub_8003AB5C();
     return arg0;

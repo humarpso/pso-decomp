@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss8Dragon.h"
 
 typedef struct Vec_80325D58 { f32 x; f32 y; f32 z; } Vec_80325D58;
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 newton_sqrtf(f32);
 f32 vec3_dot(void *, void *);
 void normalize_vector(void *);
@@ -38,11 +38,11 @@ s32 TObjPlayer__sub_80325D58(void *arg0, Vec_80325D58 *from, Vec_80325D58 *dir, 
     d.z = to->z - from->z;
     t = vec3_dot(dir, &d);
     if (lbl_805DF630 > t) {
-        VecCopy__FP3VecPC3Vec(to, from);
+        VecCopy((Vec *)to, (const Vec *)from);
         return 1;
     }
     if (lbl_805DF634 != t) {
-        VecCopy__FP3VecPC3Vec(&n, &d);
+        VecCopy((Vec *)&n, (const Vec *)&d);
         normalize_vector(&n);
         if (lbl_805DF634 != vec3_dot(dir, &n)) {
             STEP_80325D58()

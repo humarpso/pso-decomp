@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8034F754_lbl_804F0A00 {
@@ -21,7 +22,6 @@ struct Info_8034F4FC {
 
 extern "C" {
 extern s32 tl_05;
-s32 VecCopy__FP3VecPC3Vec(void *, s32);
 s32 construct_explosion_collider__13TUnk_804A2548Fv(void *, s32, void *);
 void *__nw__7TObjectFUl(u32);
 s32 create_fire_explosion_effect(void *, void *, s32, s32, f32);
@@ -34,7 +34,7 @@ s32 spawn_fire_explosion_at(u32 a0, s32 a1) {
     void *o;
     TObjPlayer__sub_802E449C(&info);
     ((TObjPlayer *)a0)->fill_status_info(&info);
-    VecCopy__FP3VecPC3Vec(&info, a1);
+    VecCopy((Vec *)&info, (const Vec *)a1);
     info.f10 = 0xA;
     o = __nw__7TObjectFUl(0xC8);
     if (o != NULL) {

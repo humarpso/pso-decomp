@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/enemy/TUnk_80493450.h"
 #include "pso/player/TObjPlayer.h"
@@ -10,7 +11,6 @@ struct O_800C6A18 { u8 pad[0x2a8]; P_800C6A18 *p; u8 pad2[0x8c]; u16 f338; };
 struct Vec_800C6A48 { f32 x, y, z; };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f64 atan2_float(f32, f32);
 void *csnVector(void *, void *, s32);
 f32 horizontal_distance__10TObjPlayerFPUc(void *, s32);
@@ -63,7 +63,7 @@ void TObjPlayer::pick_open_direction(f32 *dir, f32 a, f32 b) {
         ang = (s32) (lbl_8043BCC8[0] * r);
     }
     bestAng = ang;
-    VecCopy__FP3VecPC3Vec(&sp20, (u8 *)&this->position);
+    VecCopy((Vec *)&sp20, (const Vec *)&this->position);
     sp20.y += lbl_805DA06C;
     push_matrix_from(identity_matrix);
     {

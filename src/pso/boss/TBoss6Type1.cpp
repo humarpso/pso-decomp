@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/misc/TLobby.h"
@@ -323,7 +324,6 @@ struct Boss_802B5AD4 {
     s32 f438;
 };
 
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 vector_length(void *, f32);
 f32 subtract_vector(void *, void *);
 Player_802B6B34 *get_player_data__10TObjPlayerFi(s32);
@@ -528,7 +528,7 @@ void TBoss6Type1::sub_802B4C28() {
         if (o->parts[i] != 0) {
             s32 k = e->b;
             if (k >= 0) {
-                VecCopy__FP3VecPC3Vec(&v, &o->pts[k]);
+                VecCopy((Vec *)&v, (const Vec *)&o->pts[k]);
             }
             ((TNowLoading *)(o->parts[i]))->copy_pos(&v);
             switch (i) {
@@ -567,7 +567,7 @@ void TBoss6Type1::rotate_around_center(s32 num, s32 den) {
     }
     {
     {
-        VecCopy__FP3VecPC3Vec(&v, (u8 *)&this->position);
+        VecCopy((Vec *)&v, (const Vec *)&this->position);
         v.y = TBoss6Type1__data_805DE2D0;
         dist = ((f32 (*)(void *))vector_length)(&v);
         angle = (s32)(TBoss6Type1__data_80471038 * atan2_float(v.x, v.z));
@@ -597,14 +597,14 @@ void TBoss6Type1::interpolate_pos_to_target(s32 step, s32 total) {
     s32 a;
     if (total <= 0) return;
     if (step <= 0) {
-        VecCopy__FP3VecPC3Vec(&self->pos, &self->target);
+        VecCopy((Vec *)&self->pos, (const Vec *)&self->target);
         return;
     }
-    VecCopy__FP3VecPC3Vec(&v, &self->pos);
+    VecCopy((Vec *)&v, (const Vec *)&self->pos);
     v.y = TBoss6Type1__data_805DE2D0;
     r0 = ((f32 (*)(void *))vector_length)(&v);
     a0 = ((const f64 *)&TBoss6Type1__data_80471038)[0] * atan2_float(v.x, v.z);
-    VecCopy__FP3VecPC3Vec(&v, &self->target);
+    VecCopy((Vec *)&v, (const Vec *)&self->target);
     v.y = TBoss6Type1__data_805DE2D0;
     r1 = ((f32 (*)(void *))vector_length)(&v);
     a1 = ((const f64 *)&TBoss6Type1__data_80471038)[0] * atan2_float(v.x, v.z);
@@ -653,13 +653,13 @@ void TBoss6Type1__sub_802B5140(s32 arg0, s32 arg1, s32 arg2) {
     if (temp_r31 > 0x4000) {
         var_f31 += (TBoss6Type1__data_805DE2E4 - var_f31) * TBoss6PlotFalz::cosine_ease((var_f30 - lbl_805DE2F8) / lbl_805DE2FC);
     }
-    VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (&lbl_80470CE0.value));
+    VecCopy((Vec *)(&stack.sp8), (const Vec *)(&lbl_80470CE0.value));
     subtract_vector((void *) (&stack.sp8), (void *) (&lbl_80470CD4.value));
     stack.sp8 *= var_f31;
     stack.spC *= var_f31;
     stack.sp10 *= var_f31;
     vec3_add_to((void *) (&stack.sp8), (void *) (&lbl_80470CD4.value));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (&stack.sp8));
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(&stack.sp8));
 }
 #pragma pop
 
@@ -726,7 +726,7 @@ void clamp_to_arena_radius__11TBoss6Type1FPvPvf(Boss_802B54F0 *o, Vec_802B54F0 *
     v.y = TBoss6Type1__data_805DE2D0;
     len = vector_length((void *)(&v), _w2);
     if (len <= TBoss6Type1__data_805DE310) {
-        VecCopy__FP3VecPC3Vec((void *)(out), (void *)(&o->pos));
+        VecCopy((Vec *)(out), (const Vec *)(&o->pos));
         return;
     }
     s = lbl_805DE314 / len;
@@ -867,7 +867,7 @@ void fire_at_all_players__11TBoss6Type1FPvf(Boss_802B5AD4 *self, f32 dy) {
     f32 c;
 
     n = TLobby::get_game_mode();
-    VecCopy__FP3VecPC3Vec(&me, &self->pos);
+    VecCopy((Vec *)&me, (const Vec *)&self->pos);
     if (self->f438 != 0) {
         me.y -= dy;
     } else {
@@ -875,11 +875,11 @@ void fire_at_all_players__11TBoss6Type1FPvf(Boss_802B5AD4 *self, f32 dy) {
     }
     for (i = 0; i < n; i++) {
         p = get_player_data__10TObjPlayerFi(i);
-        VecCopy__FP3VecPC3Vec(&ofs, &TBoss6Type1__data_80470FB4);
+        VecCopy((Vec *)&ofs, (const Vec *)&TBoss6Type1__data_80470FB4);
         if (p == 0) continue;
-        VecCopy__FP3VecPC3Vec(&pp, (u8 *)p + 0x38);
+        VecCopy((Vec *)&pp, (const Vec *)((u8 *)p + 0x38));
         pp.y += ofs.y;
-        VecCopy__FP3VecPC3Vec(&d, &me);
+        VecCopy((Vec *)&d, (const Vec *)&me);
         subtract_vector(&d, &pp);
         h = d.y;
         d.y = 0.0f;
@@ -1051,8 +1051,8 @@ void TBoss6Type1::set_part_default_value(int a0, void* a1) { *(float*)((char*)a1
 
 void TBoss6Type1::update_effect_points() {
     Boss6EffectPoint points[2];
-    VecCopy__FP3VecPC3Vec(&points[0], &effect_points[0]);
-    VecCopy__FP3VecPC3Vec(&points[1], &effect_points[1]);
+    VecCopy((Vec *)&points[0], (const Vec *)&effect_points[0]);
+    VecCopy((Vec *)&points[1], (const Vec *)&effect_points[1]);
     TBoss6Type1::set_part_default_value((int)this, &points[1]);
     ((TBoss6Type1 *)effect_point_receiver)->set_effect_points((f32 *)points, (u32 *)lbl_80470FAC);
 }
@@ -1062,23 +1062,23 @@ void TBoss6Type1::update_effect_points() {
 void TBoss6Type1::update_trail_points() {
     Boss6EffectPoint points[7];
     Boss6EffectPoint delta;
-    VecCopy__FP3VecPC3Vec(&points[0],&trail_points[0]);
-    VecCopy__FP3VecPC3Vec(&points[3],&trail_points[1]);
-    VecCopy__FP3VecPC3Vec(&delta,&trail_points[2]);
+    VecCopy((Vec *)&points[0], (const Vec *)&trail_points[0]);
+    VecCopy((Vec *)&points[3], (const Vec *)&trail_points[1]);
+    VecCopy((Vec *)&delta, (const Vec *)&trail_points[2]);
     subtract_vector(&delta,&points[3]);
     f32 length=((f32 (*)(const Boss6EffectPoint*))vector_length)(&delta);
     if(length <= TBoss6Type1__data_805DE310) length=TBoss6Type1__data_805DE2E4;
     f32 scale=TBoss6Type1__data_805DE360/length;
     delta.x*=scale;delta.y*=scale;delta.z*=scale;
-    VecCopy__FP3VecPC3Vec(&points[1],&points[0]);
-    VecCopy__FP3VecPC3Vec(&points[5],&points[0]);
+    VecCopy((Vec *)&points[1], (const Vec *)&points[0]);
+    VecCopy((Vec *)&points[5], (const Vec *)&points[0]);
     subtract_vector(&points[1],&delta);
     vec3_add_to(&points[5],&delta);
-    VecCopy__FP3VecPC3Vec(&points[2],&points[1]);
-    VecCopy__FP3VecPC3Vec(&points[4],&points[1]);
+    VecCopy((Vec *)&points[2], (const Vec *)&points[1]);
+    VecCopy((Vec *)&points[4], (const Vec *)&points[1]);
     subtract_vector(&points[2],&delta);
     vec3_add_to(&points[4],&delta);
-    VecCopy__FP3VecPC3Vec(&points[6],&points[0]);
+    VecCopy((Vec *)&points[6], (const Vec *)&points[0]);
     ((TBoss6Type1 *)trail_point_receiver)->set_effect_points((f32 *)points, (u32 *)boss6_type1_trail_point_offsets);
 }
 
@@ -1161,7 +1161,7 @@ void TBoss6Type1::spawn_grav_ball() {
     flag = 1;
     pl = get_player_by_client_id(((Boss_802B683C *)this)->f41C & 3);
     if (is_active__14TBoss6PlotFalzFv() != 0) {
-        VecCopy__FP3VecPC3Vec(&v, pl + 0x38);
+        VecCopy((Vec *)&v, (const Vec *)(pl + 0x38));
         flag = 0;
         v.y = ((Boss_802B683C *)this)->pos.y;
     }
@@ -1172,7 +1172,7 @@ void TBoss6Type1::spawn_grav_ball() {
     if (flag != 0) {
         ang = (b & 0xF) << 12;
         r = TBoss6Type1__data_805DE32C * ((f32)((b >> 3) & 0xF) / TBoss6Type1__data_805DE360) + (*(const f32 *)&TBoss6Type1__data_805DE344);
-        VecCopy__FP3VecPC3Vec(&v, &((Boss_802B683C *)this)->pos);
+        VecCopy((Vec *)&v, (const Vec *)(&((Boss_802B683C *)this)->pos));
         v.x += r * sin_table_lookup(ang);
         v.z += r * cos_table_lookup(ang);
     }
@@ -1248,7 +1248,7 @@ void TBoss6Type1__sub_802B6C30(Boss_802B6C30 *self) {
     if (xyz_distance(a, b) < TBoss6Type1__data_805DE344) {
         return;
     }
-    VecCopy__FP3VecPC3Vec(&mid, a);
+    VecCopy((Vec *)&mid, (const Vec *)a);
     vec3_add_to(&mid, b);
     mid.x *= 0.5f;
     mid.y *= 0.5f;
@@ -1271,18 +1271,18 @@ void TBoss6Type1__sub_802B6C30(Boss_802B6C30 *self) {
             continue;
         }
         inside = 1;
-        VecCopy__FP3VecPC3Vec(&pts[0], (void *)VecCopy__FP3VecPC3Vec(p3, (void *)VecCopy__FP3VecPC3Vec(p4, pA)));
-        VecCopy__FP3VecPC3Vec(p1, (void *)VecCopy__FP3VecPC3Vec(p2, pB));
+        VecCopy((Vec *)&pts[0], (const Vec *)((void *)VecCopy((Vec *)((Vec *)p3), (const Vec *)((void *)VecCopy((Vec *)((Vec *)p4), (const Vec *)((const Vec *)pA))))));
+        VecCopy((Vec *)p1, (const Vec *)((void *)VecCopy((Vec *)((Vec *)p2), (const Vec *)((const Vec *)pB))));
         off.x = lbl_805DE388 * sin_table_lookup(self->angle);
         off.y = 0.0f;
         off.z = lbl_805DE388 * cos_table_lookup(self->angle);
         vec3_add_to(p2, &off);
         vec3_add_to(p3, &off);
         for (j = 0; j < 4; j++) {
-            VecCopy__FP3VecPC3Vec(&e, &pts[j + 1]);
+            VecCopy((Vec *)&e, (const Vec *)&pts[j + 1]);
             subtract_vector(&e, &pts[j]);
             e.y = 0.0f;
-            VecCopy__FP3VecPC3Vec(&f, &pl->pos);
+            VecCopy((Vec *)&f, (const Vec *)&pl->pos);
             subtract_vector(&f, &pts[j]);
             e.y = 0.0f;
             vec3_cross(&e, &f, &c);
@@ -1297,10 +1297,10 @@ void TBoss6Type1__sub_802B6C30(Boss_802B6C30 *self) {
             continue;
         }
         pl->m21(self, ArgPair_802B6C30(TBoss6PlotFalz::rand_vary_count(self->f484, TBoss6Type1__data_805DE2E0)).a, 0, -1, -1);
-        VecCopy__FP3VecPC3Vec(&d0, pA);
+        VecCopy((Vec *)&d0, (const Vec *)pA);
         subtract_vector(&d0, pB);
         d0.y = 0.0f;
-        VecCopy__FP3VecPC3Vec(&d3, &pl->pos);
+        VecCopy((Vec *)&d3, (const Vec *)&pl->pos);
         d3.y = 0.0f;
         line.p.x = 0.5f * (A.x + B.x);
         line.p.y = 0.0f;
@@ -1313,7 +1313,7 @@ void TBoss6Type1__sub_802B6C30(Boss_802B6C30 *self) {
         if (t <= 0.0f) {
             continue;
         }
-        VecCopy__FP3VecPC3Vec(&m, pA);
+        VecCopy((Vec *)&m, (const Vec *)pA);
         subtract_vector(&m, pB);
         m.y = 0.0f;
         if (VLEN(&m) <= TBoss6Type1__data_805DE310) {
@@ -1322,10 +1322,10 @@ void TBoss6Type1__sub_802B6C30(Boss_802B6C30 *self) {
         normalize_vector(&m);
         m.x *= t;
         m.z *= t;
-        VecCopy__FP3VecPC3Vec(&q2, pA);
+        VecCopy((Vec *)&q2, (const Vec *)pA);
         subtract_vector(&q2, &pl->pos);
         q2.y = 0.0f;
-        VecCopy__FP3VecPC3Vec(&q1, pB);
+        VecCopy((Vec *)&q1, (const Vec *)pB);
         subtract_vector(&q1, &pl->pos);
         q1.y = 0.0f;
         t = VLEN(&q1);
@@ -1371,7 +1371,7 @@ void TBoss6Type1__sub_802B73AC(Boss_802B73AC *self) {
         ok = 0;
     }
     if (ok != 0) {
-        VecCopy__FP3VecPC3Vec(&d, b);
+        VecCopy((Vec *)&d, (const Vec *)b);
         subtract_vector(&d, a);
         if (d.y <= TBoss6Type1__data_805DE310) {
             t = TBoss6Type1__data_805DE2E4;
@@ -1466,9 +1466,9 @@ void TBoss6Type1::update_beam_attack() {
         Player_802B6B34 *p = get_player_data__10TObjPlayerFi(i);
         if (is_active__14TBoss6PlotFalzFv() != 0) {
             Vec_802B7530 *a = &self->a;
-            VecCopy__FP3VecPC3Vec(&v, &p->pos);
+            VecCopy((Vec *)&v, (const Vec *)&p->pos);
             v.y = TBoss6Type1__data_805DE2D0;
-            VecCopy__FP3VecPC3Vec(&w, &self->b);
+            VecCopy((Vec *)&w, (const Vec *)&self->b);
             subtract_vector(&w, a);
             line.p.x = a->x;
             line.p.y = TBoss6Type1__data_805DE2D0;
@@ -1509,7 +1509,7 @@ void TBoss6Type1::update_beam_attack() {
         cnt = (s32)(1.0f + r);
         if (cnt > 4) cnt = 4;
         s = 1.0f / (f32)cnt;
-        VecCopy__FP3VecPC3Vec(&dlt, &self->f56C);
+        VecCopy((Vec *)&dlt, (const Vec *)&self->f56C);
         subtract_vector(&dlt, &c);
         dlt.x *= s;
         dlt.y *= s;
@@ -1519,7 +1519,7 @@ void TBoss6Type1::update_beam_attack() {
             spawn_particle_effect_with_flags(&e, 0x213, 0x40);
             vec3_add_to(&e, &dlt);
         }
-        VecCopy__FP3VecPC3Vec(&self->f56C, &c);
+        VecCopy((Vec *)&self->f56C, (const Vec *)&c);
     }
     {
         ((s32 (*)(int, void *, int, int))play_sound_effect)(0x4003B00A, &c, 0, 0);
@@ -1607,21 +1607,21 @@ void TBoss6Type1::update_part_positions() {
             if (base == NULL) {
                 return;
             }
-            VecCopy__FP3VecPC3Vec(&v, &base[t->idx]);
+            VecCopy((Vec *)&v, (const Vec *)&base[t->idx]);
             subtract_vector(&v, &arg0->pos);
             push_matrix();
             set_matrix_identity(0);
             rotate_matrix_y(0, -arg0->f60);
             matrix_mult_vec(0, &v, e);
             pop_matrix();
-            VecCopy__FP3VecPC3Vec(&e->n, e);
+            VecCopy((Vec *)&e->n, (const Vec *)e);
             vec3_add_to(&e->n, &arg0->pos);
         }
     }
 }
 
 void TBoss6Type1::update_position() {
-    VecCopy__FP3VecPC3Vec((u8 *)&this->m_2fc, (u8 *)&this->position);
+    VecCopy((Vec *)&this->m_2fc, (const Vec *)&this->position);
     if ((s32) this->m_438 != 0) {
         this->m_300 = (f32) (this->m_300 - lbl_805DE3A4);
         return;
@@ -2250,9 +2250,9 @@ s32 TBoss6Type1__ct(s32 arg0_, s32 parent, s32 arg2_) {
     *(s32 *)((s8 *)arg0 + 0x3FC) = TObjFish::get_fish_count();
     *(s32 *)((s8 *)arg0 + 0x24) = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x38, &lbl_80470CD4);
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)&lbl_80470CD4);
     ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz(lbl_80470D1C);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x44, (void *)VecCopy__FP3VecPC3Vec(arg0 + 0x50, (void *)VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38)));
+    VecCopy((Vec *)(arg0 + 0x44), (const Vec *)((void *)VecCopy((Vec *)(arg0 + 0x50), (const Vec *)((void *)VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38))))));
     init_collision_body_parts(arg0, lbl_804DF4E0, 7);
     ((TBoss6Type1 *)arg0)->update_position();
     *(f32 *)((s8 *)arg0 + 0x310) = TBoss6Type1__data_805DE2D0;
@@ -2273,7 +2273,7 @@ s32 TBoss6Type1__ct(s32 arg0_, s32 parent, s32 arg2_) {
     *(s32 *)((s8 *)arg0 + 0x414) = 0;
     *(s8 *)((s8 *)arg0 + 0x41C) = 0;
     TBoss6Type1__sub_802B96C0((s32)(arg0 + 0x420), (s32)lbl_80470EAC);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x420, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x420), (const Vec *)(arg0 + 0x38));
     TBoss6Type1__sub_802B96C0((s32)(arg0 + 0x42C), (s32)lbl_80470EAC);
     *(s32 *)((s8 *)arg0 + 0x438) = 1;
     *(s32 *)((s8 *)arg0 + 0x418) = 0;
@@ -2297,7 +2297,7 @@ s32 TBoss6Type1__ct(s32 arg0_, s32 parent, s32 arg2_) {
     TBoss6Type1__sub_802B4D38((Obj_802B4D38 *)arg0);
     ((TBoss6Type1 *)arg0)->clear_slot_array();
     TBoss6Type1__sub_802B4A90(arg0);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x56C, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x56C), (const Vec *)(arg0 + 0x38));
     ((TBoss6Type1 *)arg0)->set_action_state(0);
     return arg0_;
 }

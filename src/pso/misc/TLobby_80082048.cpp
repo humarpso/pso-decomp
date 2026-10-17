@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -65,7 +66,6 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern u32 freeze_shell_bml_resource;
 s32 construct_actor_base__10TObjPlayerFPvPv(void *, void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 get_bml_model(void *, int);
@@ -140,16 +140,16 @@ u8 *TObjPlayer::construct_freeze_shell(u8 *arg1, u8 *arg2) {
     ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_34 = get_bml_model((void *) ((*(s32 *)&freeze_shell_bml_resource)), (int) (1));
     if (arg1 != NULL) {
         ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_358 = obj_getField1c((void *) (arg1));
-        VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x35C), (void *) (arg1 + 0x38));
+        VecCopy((Vec *)(((u8 *)this) + 0x35C), (const Vec *)(arg1 + 0x38));
         if (arg2 != NULL) {
-            VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x38), (void *) (arg2 + 0x1C));
+            VecCopy((Vec *)(((u8 *)this) + 0x38), (const Vec *)(arg2 + 0x1C));
             ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_338 = (f32) (lbl_805D9398 * ((RecoveredFields_8008213C_arg2 *)arg2)->field_C);
         } else if ((void *) ((RecoveredFields_8008213C_arg1 *)arg1)->field_A4 != NULL) {
             ((TUnk_804AF8A0 *)arg1)->refresh_collision_body_centers();
-            VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x38), (void *) (((RecoveredFields_8008213C_arg1 *)arg1)->field_A4 + 0x1C));
+            VecCopy((Vec *)(((u8 *)this) + 0x38), (const Vec *)(((RecoveredFields_8008213C_arg1 *)arg1)->field_A4 + 0x1C));
             ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_338 = (f32) (lbl_805D9398 * *(f32 *)((s8 *)(((RecoveredFields_8008213C_arg1 *)arg1)->field_A4) + 0xC));
         } else {
-            VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x38), (void *) (arg1 + 0x2FC));
+            VecCopy((Vec *)(((u8 *)this) + 0x38), (const Vec *)(arg1 + 0x2FC));
             temp_r3 = get_quest_id__12TQuestListVMFv(arg1);
             if (temp_r3 != NULL) {
                 ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_338 = (f32) (lbl_805D939C * ((RecoveredFields_8008213C_temp_r3 *)temp_r3)->field_10);

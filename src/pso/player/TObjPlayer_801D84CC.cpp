@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TLobby.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
@@ -324,7 +325,6 @@ s32 get_max_level__10TObjPlayerFv(s32);
 s32 TObjPlayer__sub_801D91B8(s32 arg0);
 extern Vec_801D8CCC *lbl_804C49E8[];
 Vec_801D8CCC *get_guild_return_position__10TObjPlayerFPv(void *player);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void TObjPlayer__ct(void *, void *);
 extern s32 ending_sequence_player_vtable[];
 extern u8 *TObjPlayer__shared_model_buffer;
@@ -353,7 +353,7 @@ Player_801D88C8 *create_ending_sequence_player(Player_801D88C8 *self, void *pare
     self->vt = ((s32 *)&ending_sequence_player_vtable);
     ((TObjPlayer *)self)->set_floor_index(1);
     ((TObjPlayer *)self)->set_floor_index(1);
-    VecCopy__FP3VecPC3Vec(self->pos, ((TObjPlayer *)(src->sub))->get_sub_object());
+    VecCopy((Vec *)self->pos, (const Vec *)(((TObjPlayer *)(src->sub))->get_sub_object()));
     self->ang = ((TObjPlayer *)(src->sub))->get_lock_timer();
     ((TObjPlayer *)self)->select_class_action_provider();
     self->model = TObjPlayer__shared_model_buffer + obj_getField1c(self) * 0xC00;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
@@ -175,7 +176,6 @@ s32 copy_position_if_valid__10TObjPlayerFii(void *, Vec_80316C3C);
 s32 enemy_turn_toward_dest(void *, s32);
 void enemy_set_heading_velocity(void *, s32, f32);
 s32 move_with_wall_slide(void *);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void subtract_vector(void *, void *);
 s32 update_angle__10TObjPlayerFlPv(void *, s32, void *);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -216,7 +216,7 @@ inline s32 seek_80316C3C(Obj_80316C3C *arg0, Vec_80316C3C *diff) {
         enemy_set_heading_velocity(arg0, arg0->rotY, arg0->move->speed);
         move_with_wall_slide(arg0);
     } else {
-        VecCopy__FP3VecPC3Vec(diff, &arg0->dest);
+        VecCopy((Vec *)diff, (const Vec *)&arg0->dest);
         subtract_vector(diff, &arg0->cur);
         angle = update_angle__10TObjPlayerFlPv(arg0, arg0->move->turn, diff);
     }
@@ -243,25 +243,25 @@ u32 check_move_collision__18TObjEneMe3SinowZoaFPvPv(u8 *arg0, void *arg1) {
     o = *(u8 **)((s8 *)arg0 + 0xA4);
     saved = *(u32 *)((s8 *)o + 0x18);
     *(u32 *)((s8 *)o + 0x18) = 0x9D01U;
-    VecCopy__FP3VecPC3Vec(&sp8, arg0 + 0x38);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg1);
+    VecCopy((Vec *)&sp8, (const Vec *)(arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)arg1);
     TObjPlayer::init_all_slots();
     ((TObjEneMe3SinowZoa *)arg0)->vfunc_89();
     ((TObjPlayer *)arg0)->update_enemy_collision_flags();
     if (*(u32 *)((s8 *)o + 0x18) & 0x80000) {
         if (get_valid_target_player__10TNpcPlayerFv(obj_getField1c(*(s32 *)((s8 *)arg0 + 0x390))) == 0) {
-            VecCopy__FP3VecPC3Vec(arg0 + 0x38, &sp8);
+            VecCopy((Vec *)(arg0 + 0x38), (const Vec *)&sp8);
             TObjPlayer::init_all_slots();
             return 1;
         }
     }
     if ((*(u32 *)((s8 *)o + 0x18) & 0x100000) && get_valid_target_player__10TNpcPlayerFv(*(u16 *)((s8 *)arg0 + 0x1C)) == 0) {
-        VecCopy__FP3VecPC3Vec(arg0 + 0x38, &sp8);
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)&sp8);
         TObjPlayer::init_all_slots();
         return 1;
     }
     r = (*(u32 *)((s8 *)o + 0x18) & 0x200000) != 0;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x38, &sp8);
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)&sp8);
     TObjPlayer::init_all_slots();
     fn_8002B630((int)o, sinow_zoa_collision_parts);
     *(u32 *)((s8 *)o + 0x18) = saved;
@@ -338,7 +338,7 @@ void TObjEneMe3SinowZoa__sub_80316C3C(Obj_80316C3C *arg0, s32 arg1) {
                 matrix_mult_vec(0, lbl_80475FC8[0], &out);
                 pop_matrix();
                 if (arg0->hasDest != 0) {
-                    VecCopy__FP3VecPC3Vec(&diff, &arg0->dest);
+                    VecCopy((Vec *)&diff, (const Vec *)&arg0->dest);
                     subtract_vector(&diff, &arg0->cur);
                     angle = update_angle__10TObjPlayerFlPv(arg0, arg0->move->turn, &diff);
                 } else {

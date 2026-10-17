@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_804CCD78.h"
 #include "pso/misc/TTecGiZonde.h"
 
@@ -8,7 +9,6 @@ struct RecoveredGlobal_8023CE54_lbl_804CCD78 {
 };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804CCD78[];
@@ -39,8 +39,8 @@ typedef char RecoveredGlobal_8023CE54_lbl_804CCD78_size[sizeof(RecoveredGlobal_8
 u8 *construct_helper_effect__11TTecGiZondeFPvPvPvPvi(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4) {
     __ct__7TObjectFP7TObject(arg0, arg3);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8023CE54_lbl_804CCD78 *)&lbl_804CCD78).value;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg1);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x28, arg2);
+    VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)arg1);
+    VecCopy((Vec *)(arg0 + 0x28), (const Vec *)arg2);
     *(s32 *)((s8 *)arg0 + 0x3C) = arg4;
     *(s32 *)((s8 *)arg0 + 0x38) = 0;
     spawn_particle_effect_with_flags((s32) (arg0 + 0x1C), *(s32 *)((s8 *)arg0 + 0x3C), 0x40);

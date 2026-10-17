@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 #include "pso/misc/TWindowDD.h"
 
 struct S_80348DAC { s16 count; s16 unk2; s16 items[8]; };
@@ -14,20 +15,18 @@ struct S_80348D0C { u16 a; u16 b; u16 c[8]; u32 d; u32 e; };
 extern "C" {
 void TWindowDD__sub_80348D90(S_80348D90 *self, s16 v);
 void TWindowDD__sub_80348DD8(S_80348DD8 *self, s16 v);
-void bswap_16__FPUs(void *);
-void bswap_32__FPUl(void *);
 s32 TWindowDD__sub_80348D88(void* p);
 
 void TWindowDD::bswap_word_select() {
     S_80348D0C *arg0 = (S_80348D0C *)this;
     s32 i;
-    bswap_16__FPUs(&arg0->a);
-    bswap_16__FPUs(&arg0->b);
+    bswap_16(&arg0->a);
+    bswap_16(&arg0->b);
     for (i = 0; i < 8; i++) {
-        bswap_16__FPUs(&arg0->c[i]);
+        bswap_16(&arg0->c[i]);
     }
-    bswap_32__FPUl(&arg0->d);
-    bswap_32__FPUl(&arg0->e);
+    bswap_32(&arg0->d);
+    bswap_32(&arg0->e);
 }
 
 void TWindowDD::reset_index() { *(s32*)((char*)this + 0x14) = 0; }

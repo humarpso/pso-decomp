@@ -1,17 +1,17 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 s32 read_be16_field2__10TObjPlayerFv();
-s32 bswap_32__FPUl(s32);
 s32 TLobby__send_and_handle_60(s32);
 void TLobby__sub_80156BA8(void* p);
 void TLobby::bswap_60_header(void* p) { ((TLobby *)p)->bswap_header(); }
 void TLobby::bswap_header() {
     s32 arg0 = (s32)this;
     read_be16_field2__10TObjPlayerFv();
-    bswap_32__FPUl(arg0 + 4);
-    bswap_32__FPUl(arg0 + 8);
+    bswap_32((u32 *)(arg0 + 4));
+    bswap_32((u32 *)(arg0 + 8));
 }
 void TLobby::update_and_send_60() {
     s32 arg0 = (s32)this;

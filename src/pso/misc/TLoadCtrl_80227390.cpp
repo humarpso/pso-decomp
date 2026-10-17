@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TLoadCtrl.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -73,7 +74,6 @@ extern s16 lbl_805D371C;
 void play_area_music(char *name);
 void TWindowOptionCtrl__sub_802273B4(s32 arg0);
 void TLobby__sub_803CA194(s32);
-void xfree__FPv(u32);
 extern u32 lbl_805D62DC;
 extern u32 lbl_805D62EC;
 int stop_cue_stream(void);
@@ -176,7 +176,7 @@ void TLobby::shutdown_buffers() {
         TLobby__sub_803CA194(lbl_804CB850[i]);
     }
     if (lbl_805D62DC != 0U) {
-        xfree__FPv(lbl_805D62DC);
+        xfree((void *)lbl_805D62DC);
         lbl_805D62DC = 0U;
     }
     TLobby::dec_ref_and_shutdown();

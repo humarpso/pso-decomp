@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_804887F8.h"
 #include "pso/misc/TUnk_80488E00.h"
 
@@ -20,7 +21,6 @@ struct Stack_8006786C {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 vector_length(void *);
 extern RecoveredGlobal_80067AB0_lbl_80438150 camera_ctrl_default_offset_vecs;
 extern u8 *camera_ctrl_instance;
@@ -138,7 +138,7 @@ void TUnk_804887F8::update_follow_flags() {
     this->m_e8 = (f32) lbl_805D8F38;
     *(f32 *)((s8 *)arg0 + 0xEC) = (f32) lbl_805D8F58;
     this->m_f0 = (f32) lbl_805D8F5C;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xDC), (void *) (&camera_ctrl_default_offset_vecs.value));
+    VecCopy((Vec *)(arg0 + 0xDC), (const Vec *)(&camera_ctrl_default_offset_vecs.value));
 }
 
 void *TCameraCtrl__vt12(void) {

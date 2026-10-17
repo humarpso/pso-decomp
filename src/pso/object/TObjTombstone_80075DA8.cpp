@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjTombstone.h"
 #include "pso/player/TObjPlayer.h"
@@ -23,7 +24,6 @@ extern const f32 TObjTombstone__data_805D9178;
 extern const f32 TObjTombstone__data_805D917C;
 extern const f32 lbl_805D91B4;
 extern const f32 lbl_805D91B8;
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void subtract_vector(void *, void *);
 f32 vector_length(void *);
 s32 check_all_players_active__13TObjTombstoneFv(void *);
@@ -62,7 +62,7 @@ s32 TObjTombstone::is_player_nearby() {
     for (i = 0; i < 4; i++) {
         player = get_player_by_client_id(i);
         if (player != NULL) {
-            VecCopy__FP3VecPC3Vec(&d, player + 0x38);
+            VecCopy((Vec *)&d, (const Vec *)(player + 0x38));
             subtract_vector(&d, &self->pos);
             d.y = TObjTombstone__data_805D9174;
             len = vector_length(&d);

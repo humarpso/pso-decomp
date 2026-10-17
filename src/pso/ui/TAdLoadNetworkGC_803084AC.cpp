@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/ui/TAdLoadNetworkGC.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
@@ -17,7 +18,6 @@ void queue_destruction__7TObjectFv(void *);
 void __dl__7TObjectFPv(void *);
 extern u8 __vt__16TAdLoadNetworkGC[];
 Net_80308518 *__dt__16TAdLoadNetworkGCFv(Net_80308518 *self, s16 flag);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void *fn_80086FE0(void *, void *, s32, s32);
 void *__ct__7TObjectFP7TObject(void *, void *);
 extern const s32 load_network_object_id_table[];
@@ -56,7 +56,7 @@ Net_803084AC *TAdLoadNetworkGC__ct(Net_803084AC *self, void *parent, V_803084AC 
     __ct__7TObjectFP7TObject(self, parent);
     *(void **)((u8 *)self + 0x18) = __vt__16TAdLoadNetworkGC;
     *(s32 *)self = TAdLoadNetworkGC__class_name;
-    VecCopy__FP3VecPC3Vec(&self->pos, pos);
+    VecCopy((Vec *)&self->pos, (const Vec *)pos);
     self->pos.x = lbl_805DF0C0 * lbl_804FF5E8.b.x + lbl_804FF5E8.a.x;
     self->pos.y = lbl_805DF0C0 * lbl_804FF5E8.b.y + lbl_804FF5E8.a.y;
     self->pos.z = lbl_805DF0C0 * lbl_804FF5E8.b.z + lbl_804FF5E8.a.z;

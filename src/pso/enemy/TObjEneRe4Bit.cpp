@@ -1,6 +1,7 @@
 struct Obj_800ED4BC;
 
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneRe4Sorcerer.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss8Dragon.h"
@@ -288,7 +289,6 @@ s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 s32 play_sound_effect(s32, void *, int, int);
 extern const f32 TObjEneRe4Bit__data_805DA770;
 void TObjEneRe4Bit__sub_800ECC14(u8 *arg0, s32 arg1);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 s32 clear_attack_receipts__9TObjEneDDFv(void *);
 void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1);
@@ -568,7 +568,7 @@ void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1) {
       return;
     case 0:
       *((s32 *) (((s8 *) arg0) + 0x408)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x408))) + 1);
-      VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x2FC)), (void *)((int) (*((s32 *) (((s8 *) arg0) + 0x3C0)))));
+      VecCopy((Vec *)((void *) (arg0 + 0x2FC)), (const Vec *)((int) (*((s32 *) (((s8 *) arg0) + 0x3C0)))));
       *((f32 *) (((s8 *) arg0) + 0x300)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x300))) + (*((f32 *) (((s8 *) arg0) + 0x3D8))));
       *((f32 *) (((s8 *) arg0) + 0x2FC)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x2FC))) + calc_elapsed_scaled__9TObjEneDDFv((void *) arg0));
       *((f32 *) (((s8 *) arg0) + 0x304)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x304))) + calc_elapsed_scaled__9TObjEneDDFv((void *) arg0));
@@ -736,7 +736,7 @@ void TObjEneRe4Bit::clear_state_flags_when_done() {
 }
 
 void TObjEneRe4Bit::reset_transform() {
-    VecCopy__FP3VecPC3Vec((void *)((char *)this + 764), *(void **)((s8 *)this + 0x3C0));
+    VecCopy((Vec *)((char *)this + 764), (const Vec *)(*(void **)((s8 *)this + 0x3C0)));
     *(f32 *)((s8 *)this + 0x3F8) = TObjEneRe4Bit__data_805DA770;
     *(f32 *)((s8 *)this + 0x3FC) = TObjEneRe4Bit__data_805DA770;
     *(f32 *)((s8 *)this + 0x400) = TObjEneRe4Bit__data_805DA770;
@@ -1090,7 +1090,7 @@ void TObjEneRe4Bit::update_homing_velocity() {
     Obj_800ED4BC *arg0 = (Obj_800ED4BC *)this;
     Vec_800ED4BC sp;
     f32 s;
-    ((int (*)(void*, void*))VecCopy__FP3VecPC3Vec)((void*)(&sp), (void*)(arg0->f3C0));
+    VecCopy((Vec *)(&sp), (const Vec *)(arg0->f3C0));
     sp.y = sp.y + arg0->f3D8;
     subtract_vector(&sp, &arg0->v2FC);
     s = lbl_805DA77C * ((TObjBoss2Tunnel *)(&sp))->update_scale();
@@ -1106,7 +1106,7 @@ void TObjEneRe4Bit::update_homing_velocity() {
 void TObjEneRe4Bit::update_position_flag() {
     s32 sp8;
 
-    ((int (*)(void*, void*))VecCopy__FP3VecPC3Vec)((void*)(&sp8), (void*)(((u8 *)this) + 0x2FC));
+    VecCopy((Vec *)(&sp8), (const Vec *)(((u8 *)this) + 0x2FC));
     if (((VObjV_800ed578 *)((u8 *)this))->m99(&sp8) == 0U) {
         *(s32 *)((s8 *)((u8 *)this) + 0x3CC) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3CC) & 0xFFFFF7FF);
         return;
@@ -1117,7 +1117,7 @@ void TObjEneRe4Bit::update_position_flag() {
 void TObjEneRe4Bit::vfunc_88() {
     *(f32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 4) = (f32) (*(f32 *)((s8 *)this + 0x300) - *(f32 *)((s8 *)this + 0x3C));
 }
-void TObjEneRe4Bit::copy_pos() { ((int (*)(void*, void*))VecCopy__FP3VecPC3Vec)((void*)((char*)this + 0x74), (void*)((char*)this + 0x2fc)); }
+void TObjEneRe4Bit::copy_pos() { VecCopy((Vec *)((char*)this + 0x74), (const Vec *)((char*)this + 0x2fc)); }
 void TObjEneRe4Bit::vfunc_61() {  }
 
 void TObjEneRe4Bit::vfunc_62() {
@@ -1231,7 +1231,7 @@ u8 *TObjEneRe4Bit__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5
     *(s16 *)((s8 *)arg0 + 0x2C) = arg6;
     *(s32 *)((s8 *)arg0 + 0x3C0) = arg3;
     *(s32 *)((s8 *)arg0 + 0x3C8) = arg4;
-    ((int (*)(void*, void*))VecCopy__FP3VecPC3Vec)((void*)((void *) (arg0 + 0x38)), (void*)((void *) (arg3)));
+    VecCopy((Vec *)((void *) (arg0 + 0x38)), (const Vec *)((void *) (arg3)));
     init__13TObjEneRe4BitFPv((Bit_800ED7FC *) (arg0));
     return arg0;
 }

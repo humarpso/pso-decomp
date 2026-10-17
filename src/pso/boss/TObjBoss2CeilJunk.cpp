@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TObjBoss2CeilJunk.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -103,7 +104,6 @@ struct Junk_8003A314 {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 rand_signed_unit();
 s32 spawn_effect__15TObjBoss2TunnelFlPvPv(void *, void *, void *, f32, f32);
 s32 construct_world_actor_base();
@@ -204,7 +204,7 @@ void run_task__17TObjBoss2CeilJunkFv(Junk_8003A314 *o) {
         o->pos.y += o->vel.y;
         if (o->pos.y <= lbl_805D4BE0) {
             o->fA8 = 1;
-            VecCopy__FP3VecPC3Vec(&p, &o->pos);
+            VecCopy((Vec *)&p, (const Vec *)&o->pos);
             switch (o->fAC) {
             case 0:
             case 1:
@@ -244,7 +244,7 @@ void run_task__17TObjBoss2CeilJunkFv(Junk_8003A314 *o) {
                 if (is_valid_target__9TObjEneDDFv(pl) != 0) {
                     h = *(f32 *)((s8 *)pl + 0xD48) + *(f32 *)((s8 *)pl + 0x3C);
                     if (top > h && bottom < h) {
-                        VecCopy__FP3VecPC3Vec(&d, pl + 0x38);
+                        VecCopy((Vec *)&d, (const Vec *)(pl + 0x38));
                         subtract_vector(&d, &o->pos);
                         if (((TObjBoss2Tunnel *)(&d))->clamp_velocity() < rad) {
                             hit = 1;
@@ -308,7 +308,7 @@ u8 *TObjBoss2CeilJunk__ct(struct RecoveredFields_8003A6F4_arg0 *arg0, s32 arg1, 
     construct_world_actor_base();
     arg0->unk18 = &(*(RecoveredGlobal_8003A6F4___vt__17TObjBoss2CeilJunk *)&__vt__17TObjBoss2CeilJunk).value;
     arg0->field_0 = TObjBoss2CeilJunk__name;
-    VecCopy__FP3VecPC3Vec(&arg0->unknown_1C[0x1C], (void *) arg2);
+    VecCopy((Vec *)&arg0->unknown_1C[0x1C], (const Vec *)arg2);
     temp_f2 = (f32) rand();
     temp_f1 = (3.0517578e-05f) * temp_f2;
     arg0->field_AC = (s32) (*(const volatile f32 *)&lbl_805D85A0 * temp_f1);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjDFDemo4.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -51,7 +52,6 @@ void post_translate_matrix(void *);
 void draw_model_motion(s32, s32, f32);
 extern const f32 lbl_805D89F4;
 extern const f32 lbl_805D89F8;
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 void set_scripted_camera_pose(void *, void *, void *);
 u32 spawn_particle_effect(void *, s32);
@@ -156,7 +156,7 @@ void TObjDFDemo4::run_task() {
   {
     Vec_8004F3D4 a = lbl_804373F4[0];
     Vec_8004F3D4 b = boss4_type2_effect_offset_vec[0];
-    VecCopy__FP3VecPC3Vec(&self->pos, &a);
+    VecCopy((Vec *)&self->pos, (const Vec *)&a);
     self->fF4 = 0;
     set_scripted_camera_pose(&self->pos, &self->pos, &b);
   }

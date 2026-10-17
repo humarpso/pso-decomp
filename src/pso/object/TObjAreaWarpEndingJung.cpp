@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/object/TObjDoorJung.h"
@@ -323,7 +324,6 @@ struct VObj_8019D250;
 s32 get_main_phase();
 void mark_area_change_pending();
 s32 TKeyBoardControl__sub_8000F9CC(s32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_isState3_324__13TUnk_804806E8Fv(void *);
 u16 obj_getField1c(void *);
 s32 is_split_screen();
@@ -1363,7 +1363,7 @@ void TObjMapWarp::draw_debug_destinations() {
         rotate_matrix_y((s32)(0), (s32)(self->yaw2));
         matrix_mult_vec(0, &a, &a);
         pop_matrix();
-        VecCopy__FP3VecPC3Vec(&b, end);
+        VecCopy((Vec *)&b, (const Vec *)end);
         b.y += lbl_805DBFF8;
         a.y += lbl_805DBFF8;
         TObjMapWarp__sub_80141CB0(&b, &a, 0xFFFF0000, 0xFFFF0000);

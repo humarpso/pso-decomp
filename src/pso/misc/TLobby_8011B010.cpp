@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
@@ -9,7 +10,6 @@ extern s32 item_sync_counter_table;
 extern s32 item_id_counter_table;
 int TLobby__send_and_handle_60(void*);
 int read_be16_field2__10TObjPlayerFv(void*);
-int bswap_32__FPUl(void*);
 extern s32 TLobby__data_805D6140;
 s32 __dl__FPv(s32);
 s32 mem_free(s32);
@@ -45,7 +45,7 @@ void *TLobby::init_header() {
     *(u8 *)((s8 *)this + 0x1) = 10;
     return this;
 }
-void TLobby::bswap_packet() { read_be16_field2__10TObjPlayerFv(this); bswap_32__FPUl((char*)this + 0x8); bswap_32__FPUl((char*)this + 0x4); }
+void TLobby::bswap_packet() { read_be16_field2__10TObjPlayerFv(this); bswap_32((u32 *)((char*)this + 0x8)); bswap_32((u32 *)((char*)this + 0x4)); }
 s32 TLobby::apply_table_entry(s16 arg0, void * _w1) {
     if (arg0 > 0xB9F) {
         return 0;

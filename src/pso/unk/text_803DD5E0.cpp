@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
@@ -78,7 +79,6 @@ void replace_gvm_texture_directory(GvmTextureList_803DDDC8* list, s32 stride, co
 void TLobby__sub_803DDD20(s32 arg0);
 s32 load_gvm_texture_archive(u32 *arg0, GvmTextureList_803DDDC8 *list);
 void DCFlushRange(void *, u32);
-void *xmalloc__FUl(u32 bytes);
 void *load_nj_chunk_model_resource(u8 *base, u32 *off, u32 *out);
 s32 DVDOpen(const char *, FileInfo_803DD784 *);
 s32 DVDClose(FileInfo_803DD784 *);
@@ -587,7 +587,7 @@ void *load_nj_chunk_model_resource(u8 *base, u32 *off, u32 *out) {
     default:
         goto unknown;
     }
-    buf = (u8 *) xmalloc__FUl(size);
+    buf = (u8 *) xmalloc(size);
     if (buf == NULL) {
         return NULL;
     }

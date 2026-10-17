@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjVoloptPillar.h"
 #include "pso/TParticleCtrl.h"
@@ -83,7 +84,6 @@ struct Self_8004A1CC {
 };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 horizontal_distance__10TObjPlayerFPUc(void *, void *);
 void init_collision_body_parts(void *, void *, s32);
 void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, s32);
@@ -286,7 +286,7 @@ S_8004A574 *TObjVoloptPillar__ct(S_8004A574 *o, void *pos, s32 arg2) {
     o->vt = ((u8 *)&__vt__16TObjVoloptPillar);
     o->f0 = lbl_805D2760;
     init_collision_body_parts(o, volopt_pillar_collision_body, 1);
-    VecCopy__FP3VecPC3Vec(o->v38, pos);
+    VecCopy((Vec *)o->v38, (const Vec *)pos);
     d = horizontal_distance__10TObjPlayerFPUc(o->v38, boss3_volopt_spawn_pos);
     if (d < lbl_805D88E4) {
         o->f3c = TObjVoloptPillar__data_805D88C8;

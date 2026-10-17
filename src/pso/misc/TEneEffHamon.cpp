@@ -1,4 +1,5 @@
 #include "pso/TObject.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TeneFakeTecThunderEff.h"
 class TEneEffHamon : public TObject {
 public:
@@ -35,7 +36,6 @@ s32 queue_destruction__7TObjectFv();
 extern const f32 lbl_805D99E0;
 void run_task__12TEneEffHamonFv(u8 *arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 extern RecoveredGlobal_800A38A4___vt__12TEneEffHamon __vt__12TEneEffHamon;
 extern s32 TEneEffHamon__name;
 extern const f32 lbl_805D99E4;
@@ -128,7 +128,7 @@ u8 *__ct__12TEneEffHamonFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
     *(s32 *)((s8 *)arg0 + 0x2C) = 0;
     *(s32 *)((s8 *)arg0 + 0x28) = 0;
     *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805D99E4;
-    VecCopy__FP3VecPC3Vec((void *) ((u8 *)(arg0) + 0x1C), (void *) (arg1));
+    VecCopy((Vec *)((u8 *)(arg0) + 0x1C), (const Vec *)(arg1));
     *(f32 *)((s8 *)arg0 + 0x40) = farg0;
     *(f32 *)((s8 *)arg0 + 0x50) = (f32) lbl_805D99E8;
     *(f32 *)((s8 *)arg0 + 0x54) = (f32) lbl_805D99E4;

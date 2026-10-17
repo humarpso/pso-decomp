@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneMorfos.h"
 #include "pso/misc/TNowLoading.h"
@@ -39,7 +40,6 @@ struct O_80337644 {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, int);
 u8 *csnVecterUnder(s32, s32);
 f32 xz_distance_squared(void *, void *);
 void subtract_vector(void *, void *);
@@ -89,7 +89,7 @@ s32 TObjEneMorfos::snap_to_ground(s32 arg0, s32 arg1) {
     if (temp_r3 == NULL) {
         return 0;
     }
-    VecCopy__FP3VecPC3Vec((void *) (arg1), (int) (*(s32 *)((s8 *)temp_r3 + 4)));
+    VecCopy((Vec *)(arg1), (const Vec *)(*(s32 *)((s8 *)temp_r3 + 4)));
     return 1;
 }
 
@@ -106,7 +106,7 @@ void update_projectile__13TObjEneMorfosFPv(O_80337644 *arg0) {
     }
     arg0->fDC += morfos_projectile_speed;
     if (arg0->fF0 != 0) {
-        VecCopy__FP3VecPC3Vec(&arg0->pos2, (int)&arg0->pos);
+        VecCopy((Vec *)&arg0->pos2, (const Vec *)&arg0->pos);
         arg0->fF4++;
         if (arg0->fF4 > 4) {
             arg0->fF4 = 0;
@@ -147,7 +147,7 @@ O_80337824 *TObjEneMorfos__sub_80337824(O_80337824 *arg0, Vec_80337824 *arg1, s3
     Ang_80337824 a;
     construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_06);
     arg0->vt = ((u8 *)&lbl_804EF130);
-    VecCopy__FP3VecPC3Vec((void *)(&arg0->pos), (int)(arg1));
+    VecCopy((Vec *)(&arg0->pos), (const Vec *)(arg1));
     arg0->fDC = lbl_805DF994;
     arg0->fF8 = obj_getField1c(arg3);
     a.x = 0;
@@ -157,7 +157,7 @@ O_80337824 *TObjEneMorfos__sub_80337824(O_80337824 *arg0, Vec_80337824 *arg1, s3
     arg0->vel.y = lbl_805DF994;
     arg0->vel.z = morfos_projectile_speed * cos_table_lookup(arg2);
     arg0->fE0 = spawn_particle_effect_with_rotation(arg1, &a, 0x213, 2);
-    VecCopy__FP3VecPC3Vec((void *)(&arg0->pos2), (int)(&arg0->pos));
+    VecCopy((Vec *)(&arg0->pos2), (const Vec *)(&arg0->pos));
     TObjEneMorfos::snap_to_ground((s32)(arg0), (s32)(&arg0->pos2));
     arg0->fF4 = 0;
     return arg0;

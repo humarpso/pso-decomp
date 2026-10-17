@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_804C3248.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnePanarms.h"
@@ -30,7 +31,6 @@ struct Res_801AC808 { u8 pad[0x18]; s32 f18; s32 f1C; };
 struct Game_801AC808 { u8 pad[0x42C]; Res_801AC808 *res; s32 f430; };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
 void spawn_photon_blast_opening_effects(s32, u16);
@@ -57,7 +57,7 @@ void *TPhotonLeilla__ct(Leilla_801AC808 *self, Pkt_801AC808 *pkt) {
     *(void **)((u8 *)self + 0x18) = __vt__13TPhotonLeilla;
     F_801AC808(self, s32, 0) = lbl_805D34F8;
     F_801AC808(self, s32, 0x138) = 4;
-    VecCopy__FP3VecPC3Vec(&self->pos, pkt);
+    VecCopy((Vec *)&self->pos, (const Vec *)pkt);
     F_801AC808(self, u16, 0x17C) = pkt->owner;
     owner = find_entity_by_id(F_801AC808(self, u16, 0x17C));
     if (owner != NULL) {
@@ -107,7 +107,7 @@ void *TPhotonLeilla__ct(Leilla_801AC808 *self, Pkt_801AC808 *pkt) {
         F_801AC808(self, s32, 0x19C) = 1;
         owner = find_entity_by_id(F_801AC808(self, u16, 0x17C));
         if (owner != NULL) {
-            VecCopy__FP3VecPC3Vec(&v, owner + 0x38);
+            VecCopy((Vec *)&v, (const Vec *)(owner + 0x38));
         }
         v.y = v.y + lbl_805DC1C4;
         o = NEW_801AC808(0xD0);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/object/TObjDFUsoTower.h"
 #include "pso/TParticleCtrl.h"
@@ -14,7 +15,6 @@ struct RecoveredGlobal_80052200___vt__14TObjDFUsoTower {
 };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 u8 * construct_world_actor_base(void *);
@@ -49,7 +49,7 @@ u8 *TObjDFUsoTower__ct(u8 *arg0, s32 _w1) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjDFUsoTower__name;
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model(lbl_805D58A8, 5);
     *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0(lbl_805D58A8, 5);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x38, &lbl_804858A8.value);
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)&lbl_804858A8.value);
     *(f32 *)((s8 *)arg0 + 0x94) = (f32) lbl_805D8A30;
     *(s32 *)((s8 *)arg0 + 0x90) = 0;
     return arg0;

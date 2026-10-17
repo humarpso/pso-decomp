@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TObjDFYutai.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -31,7 +32,6 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 TBoss4Type3__sub_8005254C(int);
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
-void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *get_player_by_client_id(u16);
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
@@ -75,7 +75,7 @@ void TObjDFYutai::render() {
     }
     s = lbl_804858D0.lerp(arg0->t);
     w = lbl_804858D8.lerp(arg0->t);
-    VecCopy__FP3VecPC3Vec(&v, p + 0x38);
+    VecCopy((Vec *)&v, (const Vec *)(p + 0x38));
     v.y += lbl_804858C8.min + arg0->t * (lbl_804858C8.max - lbl_804858C8.min);
     push_matrix();
     post_translate_matrix(&v);

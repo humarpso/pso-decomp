@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -18,7 +19,6 @@ extern "C" {
 u8 * fn_801E051C(void *, void *);
 u8 *__ct__12TPlyJoinGameFRC12TPlyJoinGame(u8 *arg0, u8 *arg1);
 void bswap__13packet_headerFv();
-void bswap_32__FPUl(void *);
 void bswap__12TPlyJoinGameFv(Join_801E03B8 *self);
 
 void bswap__12TPlyJoinGameFv(Join_801E03B8 *self) {
@@ -27,10 +27,10 @@ void bswap__12TPlyJoinGameFv(Join_801E03B8 *self) {
     bswap__13packet_headerFv();
     for (i = 0; i < 16; i++) {
         for (j = 0; j < 2; j++) {
-            bswap_32__FPUl(&self->e[i].a[j]);
+            bswap_32(&self->e[i].a[j]);
         }
     }
-    bswap_32__FPUl(&self->tail);
+    bswap_32(&self->tail);
 }
 
 u8 *__ct__12TPlyJoinGameFRC12TPlyJoinGame(u8 *arg0, u8 *arg1) {

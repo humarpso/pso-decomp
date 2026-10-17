@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 
 struct Ent_80232E0C { u32 a; u32 count; };
 
@@ -49,7 +50,6 @@ void __dl__7TObjectFPv(void *);
 extern Ent_80232E0C grants_effect_emitter_table[];
 extern u8 __vt__13TUnk_804CC888[];
 Obj_80232E0C *__dt__13TUnk_804CC888Fv(Obj_80232E0C *arg0, s16 arg1);
-void VecCopy__FP3VecPC3Vec(Vec_80232B7C *, Vec_80232B7C *);
 void __ct__7TObjectFP7TObject(void *self, void *parent);
 extern u8 lbl_804CC870[];
 extern const f32 lbl_805DC844;
@@ -81,7 +81,7 @@ Obj_80232B7C *construct_grants_flash(Obj_80232B7C *self, s32 id, void *parent, V
     self->scale.z = lbl_805DC84C;
     self->f4c = lbl_805DC84C;
     if ((u16)id == 0xffff && pos != 0) {
-        VecCopy__FP3VecPC3Vec(&self->pos, pos);
+        VecCopy((Vec *)&self->pos, (const Vec *)pos);
         self->scale.x = scale;
         self->scale.y = scale;
         self->scale.z = scale;

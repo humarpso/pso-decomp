@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_80488B68.h"
 #include "pso/misc/TUnk_80488B38.h"
@@ -211,7 +212,6 @@ void approach_vector_fixed_distance(const Vec*, const Vec*, Vec*, f32);
 extern const f64 lbl_804383D8;
 extern const f32 lbl_805D9020;
 
-void VecCopy__FP3VecPC3Vec(Vec*, const Vec*);
 u16 TCameraCtrl__sub_8006A5DC();
 f32 fabs_float(f32);
 extern const f32 lbl_805D901C;
@@ -298,8 +298,8 @@ s32 TCameraCtrl::clamp_distance(s32 arg0, s32 arg1, s32 arg2) {
 void set_scripted_camera_pose(const Vec* position, const Vec* target, const CameraAngles* angles) {
     ScriptedCameraState* camera = (ScriptedCameraState*)camera_controller_registry[5];
     if (camera != NULL) {
-        VecCopy__FP3VecPC3Vec(&camera->position_origin, position);
-        VecCopy__FP3VecPC3Vec(&camera->target_origin, target);
+        VecCopy(&camera->position_origin, position);
+        VecCopy(&camera->target_origin, target);
         camera->angles.yaw = angles->yaw;
     }
 }

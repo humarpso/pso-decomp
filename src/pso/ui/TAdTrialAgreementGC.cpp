@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/main_loop.h"
 #include "pso/ui/TAdTrialAgreementGC.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/ui/TAdScrollWinGC.h"
@@ -22,7 +23,6 @@ extern "C" {
 
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 int TKeyBoardControl__sub_8000F9CC(void*);
-s32 render_tick__Fv();
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 
 void TAdTrialAgreementGC::render() {
@@ -36,7 +36,7 @@ void TAdTrialAgreementGC::vfunc_6() { if (*(unsigned int *)&this->m_38 != 0) { (
 void TAdTrialAgreementGC::wait_for_load() {
 loop_1:
     if ((((TAdPlayerLoadGC *)0)->probe_card_slot() != 0) && (TAdPlayerLoadGC__sub_801E1B50(0) != 0)) {
-        render_tick__Fv();
+        render_tick();
         goto loop_1;
     }
 }

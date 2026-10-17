@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 #include "pso/packet_classes.h"
 
 struct ByteBlock_20 { u8 bytes[0x20]; };
@@ -15,7 +16,6 @@ s32 __ct__9TRegisterFv(s32 arg0);
 void bswap__9TRegisterFv(s32 arg0);
 int fn_801E0018(void* p);
 s32 __ct__8TPlySmthFv(s32);
-s32 bswap_32__FPUl(s32);
 s32 bswap__13packet_headerFv();
 int bswap__16TPlyGuildCardTagFv(void*);
 s32 fn_801E0900(s32);
@@ -23,7 +23,7 @@ s32 fn_801E0900(s32);
 void bswap__9TRegisterFv(s32 arg0) {
     bswap__13packet_headerFv();
     fn_801E0900(arg0 + 4);
-    bswap_32__FPUl(arg0 + 0xC);
+    bswap_32((u32 *)(arg0 + 0xC));
 }
 
 s32 __ct__9TRegisterFv(s32 arg0) {

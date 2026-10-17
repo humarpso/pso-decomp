@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneBm9Mericarol_Bomb.h"
 #include "pso/misc/TNowLoading.h"
@@ -30,7 +31,6 @@ struct Rot_802D14F4 { s32 x, y, z; };
 struct Hit_802D14F4 { u8 pad[4]; u8 *tri; };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 Hit_802D14F4 *csnVecterUnder(void *, int);
 u32 csnVector(void *, void *, int);
@@ -59,7 +59,7 @@ void TObjEneBm9Mericarol_Bomb::run_task() {
             return;
         }
         this->m_f8 -= lbl_805DE760;
-        VecCopy__FP3VecPC3Vec(&v, (u8 *)&this->m_b4);
+        VecCopy((Vec *)&v, (const Vec *)&this->m_b4);
         vec3_add_to(&v, arg0 + 0xCC);
         v.y += this->m_f8 - lbl_805DE764;
         if (csnVector((u8 *)&this->m_b4, &v, 0x1EFF) != 0) {
@@ -72,7 +72,7 @@ void TObjEneBm9Mericarol_Bomb::run_task() {
         hit = csnVecterUnder((u8 *)&this->m_b4, 0x16EF);
         if (hit != NULL) {
             *(f32 *)((s8 *)arg0 + 0x3C) = *(f32 *)((s8 *)hit->tri + 4);
-            VecCopy__FP3VecPC3Vec(arg0 + 0xD8, hit->tri + 0xC);
+            VecCopy((Vec *)(arg0 + 0xD8), (const Vec *)(hit->tri + 0xC));
             *(s32 *)&this->unk_10C = 1;
         } else {
             *(s32 *)&this->unk_10C = 0;

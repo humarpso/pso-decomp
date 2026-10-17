@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneBalClaw.h"
 #include "pso/enemy/TObjEneBeast.h"
@@ -126,7 +127,6 @@ void update_drop__18TObjEneBalClawClawFPv(Claw_800906C8 *self);
 s32 move_with_wall_slide(void *);
 void calc_velocity_toward_destination(void *self, Vec_80090850 pos, Vec_80090850 dest, f32 speed);
 void update_angle__10TObjPlayerFlPv(void *arg0, s32 arg1, void *arg2);
-void VecCopy__FP3VecPC3Vec(void *, const void *);
 void update_move_to_target__18TObjEneBalClawClawFPv(Claw_80090850 *self);
 int update_if_active__15TObjEneMe1GiGueFl(void*, int);
 void move_along_ground_avoiding_walls__10TObjPlayerFPviff(void *, Vec_80090504, void *, f32, f32);
@@ -230,11 +230,11 @@ void update_move_to_target__18TObjEneBalClawClawFPv(Claw_80090850 *self) {
     case 0:
         self->flags30 &= ~0x100;
         self->fieldB8 = 1;
-        VecCopy__FP3VecPC3Vec(&self->home, &self->pos);
+        VecCopy((Vec *)&self->home, (const Vec *)&self->pos);
         self->state = 1;
     case 1:
         self->field30C = (0.0f);
-        VecCopy__FP3VecPC3Vec(&self->target, &self->field2FC);
+        VecCopy((Vec *)&self->target, (const Vec *)&self->field2FC);
         calc_velocity_toward_destination(self, self->target, self->home, self->params->speed);
         update_angle__10TObjPlayerFlPv(self, self->params->angle, &self->field308);
         move_with_wall_slide(self);
@@ -246,7 +246,6 @@ void update_move_to_target__18TObjEneBalClawClawFPv(Claw_80090850 *self) {
 
 }
 
-#define VecCopy__FP3VecPC3Vec (*(void (*)(void *, void *))&VecCopy__FP3VecPC3Vec)
 #define sub_80090798__18TObjEneBalClawClawFv (*(void (*)(void *))&sub_80090798__18TObjEneBalClawClawFv)
 #define update_if_active__15TObjEneMe1GiGueFl (*(s32 (*)(void *, int))&update_if_active__15TObjEneMe1GiGueFl)
 #define apply_actor_gravity (*(void (*)(void *, s32, f32))&apply_actor_gravity)
@@ -384,7 +383,7 @@ s32 TObjEneBalClawClaw::check_active() {
 extern s32 model_render_flags;
 
 void TObjEneBalClawClaw__sub_80090A10(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3) {
-    VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg1);
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)arg1);
     *(s32 *)((s8 *)arg0 + 0x60) = arg2;
     *(s16 *)((s8 *)arg0 + 0x33E) = arg3;
     *(s16 *)((s8 *)arg0 + 0x32C) = arg3;
@@ -475,7 +474,6 @@ void render__18TObjEneBalClawClawFPv(u8 *arg0) {
     }
 }
 
-#undef VecCopy__FP3VecPC3Vec
 #undef sub_80090798__18TObjEneBalClawClawFv
 #undef update_if_active__15TObjEneMe1GiGueFl
 #undef apply_actor_gravity
@@ -517,7 +515,6 @@ void TObjEneBalClawClaw::sub_80090D3C() {
 #define update_collisions__10TObjPlayerFv (*(s32 (*)(void *))&update_collisions__10TObjPlayerFv)
 #define update_enemy_wander_move (*(s32 (*)(void *, void *, int, void *, f32))&update_enemy_wander_move)
 #define update_angle__10TObjPlayerFlPv (*(s32 (*)(void *, s32, void *))&update_angle__10TObjPlayerFlPv)
-#define VecCopy__FP3VecPC3Vec (*(s32 (*)(void *, void *))&VecCopy__FP3VecPC3Vec)
 #define update_if_active__15TObjEneMe1GiGueFl (*(s32 (*)(void *, int))&update_if_active__15TObjEneMe1GiGueFl)
 #define clear_attack_flag__14TObjEneBalClawFv (*(s32 (*)(void *))&clear_attack_flag__14TObjEneBalClawFv)
 
@@ -824,7 +821,7 @@ void update_chase__18TObjEneBalClawClawFPv(Claw_80091354 *self) {
         }
         self->target = find_active_entity_by_id(self->targetId);
         if (self->target != NULL) {
-            VecCopy__FP3VecPC3Vec(&self->f29C, &self->target->pos);
+            VecCopy((Vec *)&self->f29C, (const Vec *)&self->target->pos);
         }
         break;
     case 1: {
@@ -857,7 +854,6 @@ void TObjEneBalClawClaw__sub_800914A4(void) {  }
 #undef update_collisions__10TObjPlayerFv
 #undef update_enemy_wander_move
 #undef update_angle__10TObjPlayerFlPv
-#undef VecCopy__FP3VecPC3Vec
 #undef update_if_active__15TObjEneMe1GiGueFl
 #undef clear_attack_flag__14TObjEneBalClawFv
 
@@ -1080,7 +1076,6 @@ void TObjEneBalClawClaw__sub_8009173C(u8 *arg0);
 #define TObjEneBalClawClaw__sub_80090824 (*(s32 (*)(void *))&TObjEneBalClawClaw__sub_80090824)
 #define rotate_matrix_y (*(s32 (*)(int, int))&rotate_matrix_y)
 #define pop_matrix (*(s32 (*)())&pop_matrix)
-#define VecCopy__FP3VecPC3Vec (*(s32 (*)(void *, void *))&VecCopy__FP3VecPC3Vec)
 #define sub_80090798__18TObjEneBalClawClawFv (*(s32 (*)(void *))&sub_80090798__18TObjEneBalClawClawFv)
 #define update_chase_state__18TObjEneBalClawClawFPv (*(s32 (*)(void *))&update_chase_state__18TObjEneBalClawClawFPv)
 #define run_active_state__18TObjEneBalClawClawFPv (*(s32 (*)(void *))&run_active_state__18TObjEneBalClawClawFPv)
@@ -1396,7 +1391,7 @@ void TObjEneBalClawClaw__sub_8009173C(u8 *arg0) {
             ((TObjEneBalClaw *)arg0)->update_wobble();
         }
         ((TObjEneBalClaw *)arg0)->update_claw_angle();
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
+        VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
         temp_f2 = *(f32 *)((s8 *)arg0 + 0x300);
         *(f32 *)((s8 *)arg0 + 0x300) = (f32) (temp_f2 + (*(f32 *)((s8 *)arg0 + 0x3B4) + *(f32 *)((s8 *)arg0 + 0x3BC)));
         temp_f1 = *(f32 *)((s8 *)arg0 + 0x3B4);
@@ -1408,7 +1403,7 @@ void TObjEneBalClawClaw__sub_8009173C(u8 *arg0) {
     }
     entity = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0x3C6)));
     if (entity != 0) {
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (entity + 0x38));
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(entity + 0x38));
     }
 }
 
@@ -1472,7 +1467,7 @@ s32 TObjEneBalClawClaw__ct(void *arg0) {
     *(s16 *)((s8 *)self + 0x32E) = *(s16 *)((s8 *)self + 0x2BA);
     *(s16 *)((s8 *)self + 0x33E) = *(s16 *)((s8 *)self + 0x32C);
     ((TObjEneLappy *)self)->set_param(0x26);
-    VecCopy__FP3VecPC3Vec(self + 0x2FC, self + 0x38);
+    VecCopy((Vec *)(self + 0x2FC), (const Vec *)(self + 0x38));
     *(f32 *)((s8 *)self + 0x300) += (5.0f);
     ((TBoss3Volopt *)self)->reset_photon_effect();
     ((TObjEneBalClawClaw *)self)->sub_80090418(2);
@@ -1482,7 +1477,7 @@ s32 TObjEneBalClawClaw__ct(void *arg0) {
     *(f32 *)((s8 *)self + 0x3B0) = (4e+01f);
     *(f32 *)((s8 *)self + 0x3B4) = *(f32 *)((s8 *)self + 0x3AC);
     clear_attack_flag__14TObjEneBalClawFv(self);
-    VecCopy__FP3VecPC3Vec(self + 0x290, (void *)VecCopy__FP3VecPC3Vec(self + 0x29C, self + 0x38));
+    VecCopy((Vec *)(self + 0x290), (const Vec *)((void *)VecCopy((Vec *)(self + 0x29C), (const Vec *)(self + 0x38))));
     return ((VObj_18_b31a3c *)self)->m80();
 }
 #undef self
@@ -1494,8 +1489,8 @@ u8 *TObjEneBalClawClaw__sub_80091B98(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32
     *(s16 *)((s8 *)arg0 + 0x2C) = arg4;
     *(s16 *)((s8 *)arg0 + 0x28) = (s16) *(s16 *)((s8 *)arg2 + 0x28);
     *(s16 *)((s8 *)arg0 + 0x2A) = (s16) *(s16 *)((s8 *)arg2 + 0x2A);
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg5));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x50), (void *) (arg2 + 0x50));
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg5));
+    VecCopy((Vec *)(arg0 + 0x50), (const Vec *)(arg2 + 0x50));
     *(s32 *)((s8 *)arg0 + 0x64) = 0;
     *(s32 *)((s8 *)arg0 + 0x5C) = 0;
     *(s32 *)((s8 *)arg0 + 0x60) = arg6;
@@ -1725,7 +1720,6 @@ void render__12TObjEneBeastFPv(Obj_8009211C *o) {
 #undef TObjEneBalClawClaw__sub_80090824
 #undef rotate_matrix_y
 #undef pop_matrix
-#undef VecCopy__FP3VecPC3Vec
 #undef sub_80090798__18TObjEneBalClawClawFv
 #undef update_chase_state__18TObjEneBalClawClawFPv
 #undef run_active_state__18TObjEneBalClawClawFPv

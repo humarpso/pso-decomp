@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/item/TItem.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -17,7 +18,6 @@ struct Pl_80124C90 { u8 pad0[0x38]; Vec_80124C90 pos38; u8 pad44[0x60 - 0x44]; s
 struct Me_80124C90 { u8 pad0[0xF0]; Pl_80124C90 *pl; u8 padf4[0x1E4 - 0xF4]; f32 scale; };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
 Hit_80124C90 *csnVector(void *, void *, int);
 void spawn_item_attacker(s32, void *, s32, void *);
@@ -59,7 +59,7 @@ void TObjPlayer__sub_80124C90(u8 *owner) {
         t = resolve_hittable_target(((TObjPlayer *)e)->get_uid(), get_captured_target_collider_index(e));
         if (t != NULL) {
             Part_80124C90 *pp = &t->parts[get_captured_target_collider_index(e)];
-            VecCopy__FP3VecPC3Vec(&dst, &pp->v);
+            VecCopy((Vec *)&dst, (const Vec *)&pp->v);
             found = 1;
         }
     }
@@ -111,7 +111,7 @@ void TObjPlayer__sub_80124C90(u8 *owner) {
             pop_matrix();
             hit = csnVector(pos, &o, 0x8100);
             if (hit != NULL) {
-                VecCopy__FP3VecPC3Vec(&o, hit->pos);
+                VecCopy((Vec *)&o, (const Vec *)hit->pos);
             }
             create_lavis_shot(owner, pos, &o, xyz_distance(pos, &o) / me->scale);
         }

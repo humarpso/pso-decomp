@@ -1,4 +1,5 @@
 #include "pso/TObject.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/boss/TBoss1DragonColli_C.h"
 class TBoss1DragonColli : public TObject {
@@ -56,7 +57,6 @@ extern const f32 lbl_805D8118;
 extern const f32 lbl_805D811C;
 u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1);
 void set_elem_flags__17TBoss1DragonColliFPv(O_8002B42C *self);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void fn_8002B630(u8 *arg0, u8 *arg1);
 E_8002B4CC *mem_alloc(s32);
 s32 register_entity_by_id(void *);
@@ -188,7 +188,7 @@ s32 TBoss1DragonColli_C__ct(int arg0, void *arg1, int arg2, void *arg3, f32 scal
     construct_collider_proxy__13TUnk_804AF8A0Fv(self, arg1);
     self->vt = ((u8 *)&__vt__19TBoss1DragonColli_C);
     self->f0 = TBoss1DragonColli_C__name;
-    VecCopy__FP3VecPC3Vec(self->pos, arg3);
+    VecCopy((Vec *)self->pos, (const Vec *)arg3);
     self->f1c = TLobby::alloc_actor_ids(0);
     self->count = arg2;
     self->elems = mem_alloc(self->count * 0x2C);

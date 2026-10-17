@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 
 struct RecoveredGlobal_80235BDC_lbl_804CCA90 {
     s32 value;
@@ -6,7 +7,6 @@ struct RecoveredGlobal_80235BDC_lbl_804CCA90 {
 };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_80235BDC_lbl_804CCA90 lbl_804CCA90;
 u8 *construct_delayed_point_sound(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3, u8 *arg4);
@@ -17,7 +17,7 @@ u8 *construct_delayed_point_sound(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3, u8 *ar
     *(s16 *)((s8 *)arg0 + 0x1C) = arg2;
     *(s16 *)((s8 *)arg0 + 0x1E) = 0;
     *(s32 *)((s8 *)arg0 + 0x20) = arg3;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x24, arg1);
+    VecCopy((Vec *)(arg0 + 0x24), (const Vec *)arg1);
     return arg0;
 }
 

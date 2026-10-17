@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TUnk_80482C58.h"
 #include "pso/boss/TBoss2Joint.h"
@@ -215,7 +216,6 @@ typedef struct Param_80036EA8 {
 } Param_80036EA8;
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(s32, s32);
 s32 TBoss2Joint__sub_80036940(void *);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
 extern const f32 lbl_805D848C;
@@ -360,8 +360,8 @@ void TBoss2Joint::vfunc_88() {
 
 void TBoss2Joint::update_position_history() {
     s32 arg0 = (s32)this;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x2FC));
 }
 void TBoss2Joint::vfunc_61() {  }
 
@@ -394,7 +394,7 @@ void TBoss2Joint::vfunc_28() {  }
 void TBoss2Joint::run_task() {
     u8 *arg0 = (u8 *)this;
     if (TObjPlayer::check_demo_mode() == 0) {
-        VecCopy__FP3VecPC3Vec((s32)((void *) (arg0 + 0x38)), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x390))));
+        VecCopy((Vec *)((void *) (arg0 + 0x38)), (const Vec *)((int) (*(s32 *)((s8 *)arg0 + 0x390))));
         this->vfunc_83();
         if (((VObj_18 *)(arg0))->m84() == 0) {
             ((VObj_18 *)(arg0))->m85(this->mode, 3);
@@ -511,7 +511,7 @@ void TUnk_80482C58::run_task() {
 }
 
 void push_trail_position__13TBoss2DeRolLeFPvPv(Obj_80037178 *self, V3_80037178 *src) {
-    VecCopy__FP3VecPC3Vec((s32)&self->ring[self->idx], (s32)src);
+    VecCopy((Vec *)&self->ring[self->idx], (const Vec *)src);
     self->ring[self->idx].y += lbl_805D8498;
     self->idx++;
     if (self->idx >= 20) {

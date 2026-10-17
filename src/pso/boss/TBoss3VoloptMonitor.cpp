@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -157,7 +159,6 @@ extern const f32 lbl_805D8748;
 extern const f32 lbl_805D874C;
 extern const f32 lbl_805D8750;
 s32 func_80141618__Fv();
-s32 set_depth_buffer_settings_id__FUl(s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -290,7 +291,6 @@ extern "C" u8 lbl_804365A4[];
 extern "C" u8 lbl_804365BC[];
 extern "C" u8 lbl_804365D4[];
 extern "C" u8 lbl_804365EC[];
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 matrix_mult_vec(int, void *, void *);
 s32 set_matrix_identity(int);
 struct G44_800426EC { u8 pad[0x2C]; };
@@ -349,7 +349,7 @@ void render__19TBoss3VoloptMonitorFv(void *arg0) {
         }
         volopt_monitor_texture_param[0] = *(s32 *)volopt_monitor_texture_list + v * 0xC;
         TObjFish::set_global_param((s32)volopt_monitor_texture_param);
-        set_depth_buffer_settings_id__FUl(3);
+        set_depth_buffer_settings_id(3);
         push_matrix();
         model_render_flags &= 0xFFFFFBFF;
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
@@ -589,7 +589,7 @@ u8 *init_with_slot__19TBoss3VoloptMonitorFPvPviiii(u8 *arg0, u8 *arg1, s32 arg2,
     rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
     matrix_mult_vec(0, (u8 *)lbl_80483E84 + *(s32 *)((s8 *)arg0 + 0x368) * 0xC, arg0 + 0x38);
     pop_matrix();
-    VecCopy__FP3VecPC3Vec(&volopt_slot_positions[*(s16 *)((s8 *)arg0 + 0x38C)], arg0 + 0x38);
+    VecCopy((Vec *)&volopt_slot_positions[*(s16 *)((s8 *)arg0 + 0x38C)], (const Vec *)(arg0 + 0x38));
     {
         s16 k = *(s16 *)((s8 *)arg0 + 0x38C);
         m = (Mon_800426EC *) arg0;

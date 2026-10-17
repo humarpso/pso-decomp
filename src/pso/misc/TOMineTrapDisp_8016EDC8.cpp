@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TOMineTrap.h"
 
 extern "C" {
 
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_locally_controlled__10TObjPlayerFPv(void);
 s32 obj_getField1c(void *);
 f32 horizontal_distance_squared(void *, void *);
@@ -68,7 +68,7 @@ void TOMineTrapDisp::run_task() {
         break;
     case 2:
         get_player_state__6TOMineFv(d, fA8);
-        VecCopy__FP3VecPC3Vec(pos, ((TOMineTrap *)d)->get_mine_data_ptr());
+        VecCopy((Vec *)pos, (const Vec *)(((TOMineTrap *)d)->get_mine_data_ptr()));
         break;
     case 3:
         break;

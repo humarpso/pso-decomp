@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneRe2Flower.h"
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D9FF8;
 s32 set_part_local_pos__9TObjEneDDFPvPvi(void *, void *, int);
 s32 transition_enemy_state(void *, s32);
@@ -52,9 +52,9 @@ void TObjEneRe2Flower::vfunc_88() {
 }
 
 void TObjEneRe2Flower::sub_800C3DC4() {
-    VecCopy__FP3VecPC3Vec((u8 *)&this->m_2fc, (u8 *)&this->position);
+    VecCopy((Vec *)&this->m_2fc, (const Vec *)&this->position);
     this->m_300 = (f32) (this->m_300 + lbl_805D9FF8);
-    VecCopy__FP3VecPC3Vec((u8 *)&this->m_74, (u8 *)&this->m_2fc);
+    VecCopy((Vec *)&this->m_74, (const Vec *)&this->m_2fc);
 }
 
 }

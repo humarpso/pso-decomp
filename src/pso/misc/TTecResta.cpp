@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TTecReverser.h"
 #include "pso/misc/TUnk_804CCBC0.h"
 #include "pso/misc/TTecResta.h"
@@ -127,7 +128,6 @@ extern RecoveredGlobal_802394B0_lbl_804CC55C lbl_804CC55C;
 extern s32 lbl_804CCBC0[];
 extern Row_8023967C TTecResta__self_recovery_effect_table[];
 void __ct__7TObjectFP7TObject(void *, void *);
-Vec_8023967C *VecCopy__FP3VecPC3Vec(Vec_8023967C *, const Vec_8023967C *);
 void *create_timed_particle_emitter_with_flags(void *pos, s32 id, s32 a, s32 b, s32 c);
 void set_owner_id__13TParticleCtrlFUs(void *, s32);
 Resta_8023967C *construct_self_recovery__9TTecRestaFPvPviPv(Resta_8023967C *self, Vec_8023967C *pos, s32 owner, void *parent);
@@ -215,7 +215,7 @@ Resta_8023967C *construct_self_recovery__9TTecRestaFPvPviPv(Resta_8023967C *self
     }
     self->owner = owner;
     for (i = 0; i < 3; i++) {
-        VecCopy__FP3VecPC3Vec(&v, pos);
+        VecCopy((Vec *)&v, (const Vec *)pos);
         row = &TTecResta__self_recovery_effect_table[i];
         if (row->flags & 1) {
             v.y -= TTecResta__data_805DC908;

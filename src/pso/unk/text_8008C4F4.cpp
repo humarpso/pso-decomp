@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/main_loop.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/misc/TKeyBoardControl.h"
@@ -24,8 +25,6 @@ s32 TKeyBoardControl__sub_8000F92C();
 s32 TKeyBoardControl__sub_8000F9CC(int);
 s32 process_async_file_reads();
 s8 func_801A5E54__Fv();
-s32 controller_stuff__Fv();
-s32 render_tick__Fv();
 s32 update_sound_request_slots();
 s32 render_screen_overlay__9TMainTaskFv(void *);
 s32 some_empty_func__9TMainTaskFv(void *);
@@ -52,13 +51,13 @@ void fn_8008C4F4(void) {
     var_r4 = 0x68;
     var_r3 = (s32 *)(&ending_scene_callbacks.value);
     call_funcs_reverse__6TLobbyFPvUi((void *) (&ending_scene_callbacks.value), (int) (0x68));
-    render_tick__Fv();
+    render_tick();
 }
 
 void run_game_frame(void) {
     s32 *var_r3;
     func_803DCDFC__Fv();
-    controller_stuff__Fv();
+    controller_stuff();
     TKeyBoardControl::update_input_frame();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8008C534_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8008C534_main_task *)&main_task).value);
@@ -82,7 +81,7 @@ void run_game_frame(void) {
         var_r3 = (s32 *)((u8 *)(NULL));
         TKeyBoardControl__sub_8000F9CC((int) (0));
     }
-    render_tick__Fv();
+    render_tick();
 }
 
 }

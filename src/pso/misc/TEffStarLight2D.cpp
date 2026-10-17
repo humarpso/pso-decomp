@@ -1,4 +1,5 @@
 #include "pso/TEffStarLight2D.h"
+#include "pso/system/vector.h"
 #include "pso/TEffStarLightChild.h"
 #include "types.h"
 
@@ -50,7 +51,6 @@ struct Star_800855F8 {
 extern "C" {
 void *__nw__7TObjectFUl(u32);
 void matrix_mult_vec(int, void *, void *);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 void project_world_to_screen(int, void *, void *);
 extern u32 lbl_805D292C;
@@ -107,7 +107,7 @@ TEffStarLight2D::TEffStarLight2D(void *arg1, void *arg2, TObject *arg3) : TObjec
     P2_80085388 p;
     ((O_80085388 *)this)->f0 = lbl_805D292C;
     ((TEffStarLight2D *)((u8 *)((O_80085388 *)this) + 0x38))->copy_from((void*)(arg2));
-    VecCopy__FP3VecPC3Vec((u8 *)((O_80085388 *)this) + 0x2C, arg1);
+    VecCopy((Vec *)((u8 *)((O_80085388 *)this) + 0x2C), (const Vec *)arg1);
     project_world_to_screen(0, (u8 *)((O_80085388 *)this) + 0x2C, &p);
     ((O_80085388 *)this)->f24 = p.x;
     ((O_80085388 *)this)->f28 = p.z;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -61,12 +62,10 @@ s32 CARDCheckAsync(void *, int);
 extern RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0 TAdPlayerLoadGC__banner_buffers;
 extern s32 TAdPlayerLoadGC__banner_file_buf;
 void TAdPlayerLoadGC__sub_801E14E8(u8 *arg0, s32 arg1);
-void xfree__FPv(void *);
 void TAdPlayerLoadGC__sub_801E1350(void);
 s32 CARDGetResultCode(void *);
 s32 CARDUnmount();
 s32 read_disc_file(const char*, void*);
-void* xmalloc__FUl(u32);
 extern Names_801E13C4 memory_card_banner_filenames;
 extern char lbl_804496A8[];
 void __dl__FPv(void *);
@@ -233,12 +232,12 @@ void TAdPlayerLoadGC::unmount_card_and_clear_flags(s32 n) {
 void TAdPlayerLoadGC__sub_801E1350(void) {
     s32 i;
     if ((*(void * *)&TAdPlayerLoadGC__banner_file_buf) != NULL) {
-        xfree__FPv((*(void * *)&TAdPlayerLoadGC__banner_file_buf));
+        xfree((*(void * *)&TAdPlayerLoadGC__banner_file_buf));
         (*(void * *)&TAdPlayerLoadGC__banner_file_buf) = NULL;
     }
     for (i = 0; i < 6; i++) {
         if (((void * *)&TAdPlayerLoadGC__banner_buffers)[i] != NULL) {
-            xfree__FPv(((void * *)&TAdPlayerLoadGC__banner_buffers)[i]);
+            xfree(((void * *)&TAdPlayerLoadGC__banner_buffers)[i]);
             ((void * *)&TAdPlayerLoadGC__banner_buffers)[i] = NULL;
         }
     }
@@ -252,12 +251,12 @@ void TAdPlayerLoadGC::load_banner_files() {
         ((void**)&TAdPlayerLoadGC__banner_buffers)[i] = NULL;
     }
     *(void**)&TAdPlayerLoadGC__banner_file_buf = NULL;
-    *(void**)&TAdPlayerLoadGC__banner_file_buf = xmalloc__FUl(0x1800);
+    *(void**)&TAdPlayerLoadGC__banner_file_buf = xmalloc(0x1800);
     if (*(void**)&TAdPlayerLoadGC__banner_file_buf == NULL) {
         return;
     }
     for (i = 0; i < 6; i++) {
-        ((void**)&TAdPlayerLoadGC__banner_buffers)[i] = xmalloc__FUl(0x800);
+        ((void**)&TAdPlayerLoadGC__banner_buffers)[i] = xmalloc(0x800);
         if (((void**)&TAdPlayerLoadGC__banner_buffers)[i] == NULL) {
             return;
         }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/object/TObjMotion.h"
 #include <stddef.h>
@@ -50,7 +51,6 @@ struct VObj_18_26a62c : VBase_18_26a62c {
 struct Vec_800EAEE8 { f32 x, y, z; };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f64 atan2_float(f32, f32);
 u32 csnLookAt(void *, void *);
 s32 angle_difference_abs(s32, s32);
@@ -1020,7 +1020,7 @@ void draw_stretched_segment__10TObjPlayerFPvPvPvf(u8 *arg0, Vec_800E82B8 *arg1, 
     f32 k;
     f32 saved;
     Vec_800E82B8 d;
-    VecCopy__FP3VecPC3Vec(&d, arg2);
+    VecCopy((Vec *)&d, (const Vec *)arg2);
     ((s32 (*)(void *, void *))subtract_vector)(&d, arg1);
     len = vector_length(&d);
     push_matrix();
@@ -1063,7 +1063,7 @@ void TObjPlayer__sub_800E841C(u8 *arg0) {
         ((TObjEneRe7Berura *)arg0)->draw();
         TObjEneRe7Berura::set_global_state((s32)((void *) (NULL)));
         TObjPlayer__sub_800E80C0(arg0 + 0x390);
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x390));
+        VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x390));
     } else {
         TObjPlayer__sub_800EBE48((f32) (*(f32 *)((s8 *)arg0 + 0x38C)));
         scale_matrix_vec3((int) (0), (void *) (arg0 + 0x380));
@@ -1072,7 +1072,7 @@ void TObjPlayer__sub_800E841C(u8 *arg0) {
         ((TObjEneRe7Berura *)arg0)->draw();
         TObjEneRe7Berura::set_global_state((s32)((void *) (NULL)));
         TObjPlayer__sub_800E80C0(arg0 + 0x390);
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x390));
+        VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x390));
         TObjPlayer::init_render_globals();
     }
     pop_matrix();
@@ -1186,7 +1186,7 @@ void *TObjEneSlimeTailAttack__ct(void *arg0, void *arg1, s32 arg2, s32 arg3, s32
   set_animation__10TObjPlayerFPvs((void *)(arg0), (s16)(*((s16 *) (((s8 *) arg0) + 0xB8))));
   ((TObjMotion *)arg0)->set_field_b8(*((s16 *) (((s8 *) arg0) + 0xB8)));
   *((s32 *) (((s8 *) arg0) + 0x60)) = arg3;
-  VecCopy__FP3VecPC3Vec(((u8 *) arg0) + 0x38, (void *) arg2);
+  VecCopy((Vec *)(((u8 *) arg0) + 0x38), (const Vec *)arg2);
   *((s32 *) (((s8 *) arg0) + 0x378)) = 1;
   *((s32 *) (((s8 *) arg0) + 0x37C)) = 0xFFFF;
   *((f32 *) (((s8 *) arg0) + 0x388)) = lbl_805DA67C;
@@ -1205,7 +1205,7 @@ s32 water_bomb_hit_nearby(u8 *target) {
     s32 id2;
     hit = 0;
     h.dmg = *(f32 *)((s8 *)target + 0x390);
-    VecCopy__FP3VecPC3Vec(target + 0x2FC, target + 0x38);
+    VecCopy((Vec *)(target + 0x2FC), (const Vec *)(target + 0x38));
     id = ((u16 (*)(void *, s32, f32))find_nearest_visible_player)(target, 0, lbl_805DA6A8);
     if (id != 0xFFFF) {
         e = ((Ent_800E8AD0 *(*)(s32))get_player_by_client_id)(id);
@@ -1328,7 +1328,7 @@ void *TObjEneSlimeWaterBomb__ct(void *arg0, void *arg1, void *arg2) {
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D2AE0;
     *(void **)((s8 *)arg0 + 0x38C) = arg2;
     *(s32 *)((s8 *)arg0 + 0x60) = *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x10)) + 0x60);
-    VecCopy__FP3VecPC3Vec((u8 *) arg0 + 0x38, *(u8 **)((s8 *)arg0 + 0x10) + 0x38);
+    VecCopy((Vec *)((u8 *) arg0 + 0x38), (const Vec *)(*(u8 **)((s8 *)arg0 + 0x10) + 0x38));
     s = sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
     c = cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
     *(f32 *)((s8 *)arg0 + 0x38) += lbl_805DA6E0 * s;
@@ -1363,7 +1363,7 @@ void TObjEneSlimeOne::sub_800E9090() {
     a.x *= lbl_805DA678;
     a.y *= lbl_805DA678;
     a.z *= lbl_805DA678;
-    VecCopy__FP3VecPC3Vec(&c, &self->vel);
+    VecCopy((Vec *)&c, (const Vec *)&self->vel);
     vec3_add_to(&c, &a);
     c.y += lbl_805DA6E8;
     ang = (*(const f64 *)&lbl_8043D280) * ((f32 (*)(f32, f32))atan2_float)(a.x, a.z);
@@ -1393,7 +1393,7 @@ void fn_800E9238(s32 arg0) {
     typedef char spC_offset[(offsetof(Stack_800E9238, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_800E9238, sp10) == 0x8) ? 1 : -1];
     Stack_800E9238 stack;
-    VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+    VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x38));
     ((f32 (*)(void *, void *))subtract_vector)((void *) (&stack.sp8), (void *) (arg0 + 0x374));
     stack.sp8 *= lbl_805DA6FC;
     stack.spC *= lbl_805DA6FC;
@@ -1403,7 +1403,7 @@ void fn_800E9238(s32 arg0) {
 
 void TObjEneSlimeOne::copy_position() {
     s32 arg0 = (s32)this;
-    ((s32 (*)(s32, s32))VecCopy__FP3VecPC3Vec)(arg0 + 0x374, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x374), (const Vec *)(arg0 + 0x38));
 }
 
 void fn_800E9538(u8 *arg0) {
@@ -1511,7 +1511,7 @@ void start_tail_attack__15TObjEneSlimeOneFPv(Self_800E984C *self) {
         ((TObjEneSlimeOne *)self)->set_state(5);
         return;
     }
-    ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&self->dest, &t->pos);
+    VecCopy((Vec *)&self->dest, (const Vec *)&t->pos);
     r = lbl_805DA6AC * calc_boss4_scale__10TObjPlayerFi(self) + lbl_805DA710;
     ang = lbl_805DA714 * calc_boss4_scale__10TObjPlayerFi(self);
     self->dest.x = r * sin_table_lookup(ang) + self->dest.x;
@@ -1592,7 +1592,7 @@ void TObjPlayer__sub_800E9BCC(Obj_800E9BCC *o) {
     if (angle_difference_abs(o->f60, t) < 0x200) {
         o->f390 = 0;
     }
-    VecCopy__FP3VecPC3Vec(o->prev, o->pos);
+    VecCopy((Vec *)o->prev, (const Vec *)o->pos);
     if (vector_length((void *)(v)) <= lbl_805DA718) {
         v[0] = 1.0f;
         v[1] = 0.0f;
@@ -1605,7 +1605,7 @@ void TObjPlayer__sub_800E9BCC(Obj_800E9BCC *o) {
     v[2] *= lbl_805DA71C;
     vec3_add_to((void *)(o->pos), (void *)(v));
     if (project_actor_to_ground((void *)(o), (void *)(o->pos), (int)(0)) == 0 || csnLookAt(o->prev, o->pos) != 0) {
-        VecCopy__FP3VecPC3Vec(o->pos, o->prev);
+        VecCopy((Vec *)o->pos, (const Vec *)o->prev);
     }
     if (--o->f390 <= 0) {
         if (vector_length((void *)(v)) > lbl_805DA720 || calc_boss4_scale__10TObjPlayerFi(o) < lbl_805DA724) {
@@ -1780,7 +1780,7 @@ void TObjPlayer__sub_800EA364(u8 *arg0) {
         }
     }
     *(f32 *)((s8 *)arg0 + 0x398) -= *(f32 *)((s8 *)arg0 + 0x3B4);
-    ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x44, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
     for (i = 1; i < 15; i++) {
         *(f32 *)((s8 *)arg0 + 0x38) += *(f32 *)((s8 *)arg0 + 0x3B4) * *(f32 *)((s8 *)arg0 + 0x3B8);
         *(f32 *)((s8 *)arg0 + 0x3C) += *(f32 *)((s8 *)arg0 + 0x3B4) * *(f32 *)((s8 *)arg0 + 0x3BC);
@@ -1796,7 +1796,7 @@ void TObjPlayer__sub_800EA364(u8 *arg0) {
         c = cos_table_lookup(ang);
         *(f32 *)((s8 *)arg0 + 0x3B8) = c * *(f32 *)((s8 *)arg0 + 0x3B8) - s * *(f32 *)((s8 *)arg0 + 0x3C0);
         *(f32 *)((s8 *)arg0 + 0x3C0) = s * *(f32 *)((s8 *)arg0 + 0x3B8) + c * *(f32 *)((s8 *)arg0 + 0x3C0);
-        ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x38, arg0 + 0x44);
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x44));
     }
     if (*(f32 *)((s8 *)arg0 + 0x398) <= lbl_805DA6B4 && lbl_805DA6B4 == *(f32 *)((s8 *)arg0 + 0x3B4)) {
         if (find_nearest_visible_player(arg0, &sp8, lbl_805DA720) != 0xFFFF && vector_length(&sp8) > lbl_805DA6E0) {
@@ -2085,13 +2085,13 @@ void initialize_slime_instance_state(u8 *actor) {
   id = ((s32 *) lbl_804966DC)[*new_var2];
   *((s32 *) (((s8 *) actor) + 0x24)) = TObjFish__sub_8001EDB0((s32)(*((u8 **) (((s8 *) actor) + 0x380))), (s32)(id));
   *((s32 *) (((s8 *) actor) + 0x34)) = get_bml_model((s32)(*((u8 **) (((s8 *) actor) + 0x380))), (s32)(id));
-  VecCopy__FP3VecPC3Vec(actor + 0x44, ((u8 *)VecCopy__FP3VecPC3Vec(actor + 0x50, (void *)VecCopy__FP3VecPC3Vec(actor + 0x74, actor + 0x38))));
+  VecCopy((Vec *)(actor + 0x44), (const Vec *)((u8 *)VecCopy((Vec *)(actor + 0x50), (const Vec *)((void *)VecCopy((Vec *)(actor + 0x74), (const Vec *)(actor + 0x38))))));
   *((s32 *) (((s8 *) actor) + 0x38C)) = init_collision_body_parts(actor, lbl_80496370, 1);
   ((TObjPlayer *)actor)->set_field_d8((s32)(lbl_8049639C));
   ((TObjPlayer *)actor)->set_field_dc(*((s32 *) (((s8 *) (*((u8 **) (((s8 *) actor) + 0x380)))) + 0x430)));
   set_animation__10TObjPlayerFPvs(actor, 0);
   ((TObjMotion *)actor)->set_field_b8(0);
-  VecCopy__FP3VecPC3Vec(new_var = actor + 0x2FC, actor + 0x38);
+  VecCopy((Vec *)(new_var = actor + 0x2FC), (const Vec *)(actor + 0x38));
   *((f32 *) (((s8 *) actor) + 0x310)) = lbl_805DA6B4;
   *((f32 *) (((s8 *) actor) + 0x30C)) = lbl_805DA6B4;
   *((f32 *) (((s8 *) actor) + 0x308)) = lbl_805DA6B4;
@@ -2141,7 +2141,7 @@ u8 *TObjEneSlimeOne__ct(u8 *actor, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
         exchange_object_state__9TObjEnemyFls((void *) (actor), (void *) (&stack.sp8), (int) (0));
     }
     *(s32 *)((s8 *)actor + 0x3F0) = arg2;
-    VecCopy__FP3VecPC3Vec((void *) (actor + 0x3DC), (void *) (arg4));
+    VecCopy((Vec *)(actor + 0x3DC), (const Vec *)(arg4));
     initialize_slime_instance_state((u8 *)((void *) (actor)));
     ((TObjEneSlimeOne *)actor)->set_state((s32)((void*)((int) (0xE))));
     return actor;
@@ -2209,7 +2209,7 @@ s32 try_spawn_child__15TObjEneSlimeOneFiPv(int arg0, void *arg1) {
     if (i == n) {
         return 0;
     }
-    VecCopy__FP3VecPC3Vec(&pos, arg1);
+    VecCopy((Vec *)&pos, (const Vec *)arg1);
     pos.y += lbl_805DA66C;
     ang = (s16) (lbl_805DA758 * ((f32 (*)(int)) calc_boss4_scale__10TObjPlayerFi)(arg0));
     dir.x = sin_table_lookup(ang);

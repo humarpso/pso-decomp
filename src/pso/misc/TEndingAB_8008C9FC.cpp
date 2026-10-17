@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
 #include "pso/TEndingAB.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-s32 set_depth_buffer_settings_2__Fv();
 s32 restore_saved_depth_alpha_state();
 s32 begin_screen_draw(s32);
 s32 draw_textured_quad_at_depth(void *, f32);
@@ -86,7 +86,7 @@ void TEndingAB::draw_overlay() {
         begin_screen_draw(1);
         set_draw_texture_and_color((*(s32 *)((s8 *)arg0 + 0x28) * 2) + 2, -1);
         TWindowSubStatusDisp::get_player();
-        set_depth_buffer_settings_2__Fv();
+        set_depth_buffer_settings_2();
         begin_screen_draw(1);
         set_draw_texture_and_color(0, -1);
         draw_textured_quad_at_depth(arg0 + 0x2C, lbl_805D9580);
@@ -99,7 +99,7 @@ void TEndingAB::draw_overlay() {
         begin_screen_draw(1);
         set_draw_texture_and_color((*(s32 *)((s8 *)arg0 + 0x28) * 2) + 3, -1);
         TWindowSubStatusDisp::get_player();
-        set_depth_buffer_settings_2__Fv();
+        set_depth_buffer_settings_2();
         begin_screen_draw(1);
         set_draw_texture_and_color(1, -1);
         draw_textured_quad_at_depth(arg0 + 0x6C, lbl_805D9580);

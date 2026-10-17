@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneRe2Flower_EffCurse3.h"
 #include "pso/enemy/TUnk_80493450.h"
@@ -75,7 +76,6 @@ typedef struct Obj_800C55E0 {
 } Obj_800C55E0;
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 vec3_add_to(void *, void *);
 
 void __dl__7TObjectFPv(void *);
@@ -212,7 +212,7 @@ void TObjEneRe2Flower_Bomb::run_task() {
         if (o->fF4 >= 0x12) {
             o->fF0 -= (0.1f);
         }
-        VecCopy__FP3VecPC3Vec(&tmp, &o->start);
+        VecCopy((Vec *)&tmp, (const Vec *)&o->start);
         vec3_add_to(&tmp, &o->velB);
         tmp.y += o->fF0 - (3.0f);
         if (csnVector(&o->start, &tmp, 0x1EFF) != 0) {
@@ -225,7 +225,7 @@ void TObjEneRe2Flower_Bomb::run_task() {
         hit = csnVecterUnder(&o->start, 0x16EF);
         if (hit != NULL) {
             o->pos.y = *(f32 *)(hit->tri + 4);
-            VecCopy__FP3VecPC3Vec(&o->accel, hit->tri + 0xC);
+            VecCopy((Vec *)&o->accel, (const Vec *)(hit->tri + 0xC));
             o->f100 = 1;
         } else {
             o->f100 = 0;
@@ -286,8 +286,8 @@ Obj_800C4A5C *TObjPlayer__sub_800C4A5C(Obj_800C4A5C *o, void *owner, Vec_800C4A5
     o->coll->radius = lbl_8043BC10[0].z;
     o->angle = angle;
     o->ownerId = obj_getField1c(owner);
-    VecCopy__FP3VecPC3Vec(&o->start, start);
-    VecCopy__FP3VecPC3Vec(&o->pos, &o->start);
+    VecCopy((Vec *)&o->start, (const Vec *)start);
+    VecCopy((Vec *)&o->pos, (const Vec *)&o->start);
     o->accel.x = (0.0f);
     o->accel.y = (0.0f);
     o->accel.z = (0.0f);

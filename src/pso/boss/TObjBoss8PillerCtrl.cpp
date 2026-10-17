@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TObjBoss8PillerCtrl.h"
 
 struct RecoveredGlobal_8035C22C_lbl_804799DC {
@@ -25,7 +26,6 @@ struct Self_8035C03C {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 __ct__7TObjectFP7TObject();
 void TObjBoss8PillerCtrl__sub_8035C034(void *, void *);
 extern RecoveredGlobal_8035C22C_lbl_804799DC boss8_piller_ctrl_params;
@@ -61,7 +61,7 @@ void run_task__19TObjBoss8PillerCtrlFv(Self_8035C03C *self) {
     case 10:
     case 15:
         while (self->list->y != 0xFFFF) {
-            VecCopy__FP3VecPC3Vec(&v, &self->pos);
+            VecCopy((Vec *)&v, (const Vec *)&self->pos);
             v.x = lbl_805E016C * self->list->y + v.x;
             v.z = lbl_805E0170 * self->list->x + v.z;
             if (self->list->y & 1) {
@@ -100,7 +100,7 @@ u8 *TObjBoss8PillerCtrl__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3) {
     __ct__7TObjectFP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8035C22C___vt__19TObjBoss8PillerCtrl *)&__vt__19TObjBoss8PillerCtrl).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjBoss8PillerCtrl__class_name;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1C), (void *) (arg2));
+    VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)(arg2));
     TObjBoss8PillerCtrl__sub_8035C034((void *)((void *) (arg0)), (void *)((void *) (arg0 + 0x1C)));
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) lbl_805E017C;
     *(s32 *)((s8 *)arg0 + 0x28) = 0;

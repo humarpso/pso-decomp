@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Crypt_8007C438 { s32 pos; u32 k[0x38]; };
@@ -7,7 +8,6 @@ struct R_8007C48C { s32 f0; s32 tbl[55]; s32 fe0; s32 fe4; };
 
 extern "C" {
 s32 subtractive_rng_next(s32 *arg0);
-int bswap_32__FPUl(void *);
 void subtractive_rng_xor_buffer(s32 *self, u32 *data, s32 len);
 void subtractive_rng_refill(Crypt_8007C438 *c);
 void subtractive_rng_seed(R_8007C48C *arg0, s32 arg1);
@@ -60,9 +60,9 @@ void TAdSinglePlyChrSelectGC::crypt_data_be(u32 *data, s32 len) {
     s32 n = (len + 3) / 4;
     for (i = 0; i < n; i++) {
         p = &data[i];
-        bswap_32__FPUl(p);
+        bswap_32(p);
         *p ^= subtractive_rng_next(((s32 *)this));
-        bswap_32__FPUl(p);
+        bswap_32(p);
     }
 }
 

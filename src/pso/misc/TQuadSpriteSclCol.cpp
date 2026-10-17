@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/unk/TUnk_804C57F0.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -46,7 +47,6 @@ typedef struct Self_801E5C24 {
 typedef struct Cam_801E5C24 { u8 pad0[8]; f32 cx; f32 cy; u8 pad10[8]; f32 sw; f32 aspect; } Cam_801E5C24;
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void fn_80141EB4(void);
 void setSpriteInverseColorBlend(void);
 void transform_point_by_current_matrix(void *, void *);
@@ -123,7 +123,7 @@ void render__17TQuadSpriteSclColFv(Self_801E5C24 *self) {
                 transform_point_by_current_matrix(&pos, &out);
                 out.y = -out.y;
             } else {
-                VecCopy__FP3VecPC3Vec(&out, &pos);
+                VecCopy((Vec *)&out, (const Vec *)&pos);
             }
             if (out.z <= one || (s32)n->type == 1) {
                 set_constant_material_color(n->tex);

@@ -1,6 +1,7 @@
 #ifndef PSO_TDEADSPOT_H
 #define PSO_TDEADSPOT_H
 #include "pso/TObject.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_804949D8.h"
 #include "pso/misc/TUnk_804949F4.h"
 #include "types.h"
@@ -78,7 +79,6 @@ f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 f32 vec3_add_to(void *, void *);
 extern const f32 lbl_805DA380;
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804949F4[];
 u8 *construct_fire_base__9TDeadSpotFPvPvPvif(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, f32 farg0);
@@ -215,7 +215,7 @@ typedef char RecoveredGlobal_800D7F60_lbl_804949F4_size[sizeof(RecoveredGlobal_8
 u8 *construct_fire_base__9TDeadSpotFPvPvPvif(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, f32 farg0) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800D7F60_lbl_804949F4 *)&lbl_804949F4).value;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg2);
+    VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)arg2);
     *(f32 *)((s8 *)arg0 + 0x28) = farg0;
     *(s32 *)((s8 *)arg0 + 0x2C) = 0;
     *(s32 *)((s8 *)arg0 + 0x30) = 2;
@@ -360,14 +360,14 @@ Mark_800D8314 *__ct__9TDeadSpotFv(Mark_800D8314 *self, void *parent, Vec_800D831
     self->vtx[3].u = lbl_805DA390;
     self->vtx[3].v = lbl_805DA390;
     self->vtx[3].color = -1;
-    VecCopy__FP3VecPC3Vec(&probe, point);
+    VecCopy((Vec *)&probe, (const Vec *)point);
     probe.y += lbl_805DA3A0;
     ground = csnVecterUnder(&probe, 0x16EF);
     if (ground == NULL) {
         queue_destruction__7TObjectFv(self);
         return self;
     }
-    VecCopy__FP3VecPC3Vec(&self->center, &ground->plane->point);
+    VecCopy((Vec *)&self->center, (const Vec *)&ground->plane->point);
     self->center.y += lbl_805DA3A8 * (lbl_805DA3AC * (f32)rand()) + lbl_805DA3A4;
     basis[0].x = TDeadSpot__data_805DA38C;
     basis[0].y = TDeadSpot__data_805DA38C;
@@ -419,7 +419,7 @@ Mark_800D8314 *__ct__9TDeadSpotFv(Mark_800D8314 *self, void *parent, Vec_800D831
     scale = self->maxScale;
     if (scale > lbl_805DA3A0) {
         for (i = 0; i < 4; i++) {
-            VecCopy__FP3VecPC3Vec(&tmp, &self->center);
+            VecCopy((Vec *)&tmp, (const Vec *)&self->center);
             Mark_800D8314 *c = (Mark_800D8314 *)((u8 *)self + i * 12);
             tmp.x += c->corners[0].x * scale;
             tmp.y += c->corners[0].y * scale;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss6GravBall.h"
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/misc/TLobby.h"
@@ -24,7 +25,6 @@ struct PL_80323544 { u8 pad[0x30]; u32 flags; u8 pad34[4]; Vec_80323544 pos; };
 extern "C" {
 P_80323348 *get_player_data__10TObjPlayerFi(s32);
 s32 is_state_1f__14TBoss6PlotFalzFUi();
-void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
 void normalize_vector(void *);
@@ -80,7 +80,7 @@ void TBoss6GravBall__sub_803233AC(u8 *self) {
             continue;
         }
         flag = 0;
-        VecCopy__FP3VecPC3Vec(&v, self + 0xC8);
+        VecCopy((Vec *)&v, (const Vec *)(self + 0xC8));
         subtract_vector(&v, &pl->pos);
         v.y = TBoss6GravBall__data_805DF550;
         d = vector_length(&v);
@@ -130,7 +130,7 @@ void TBoss6GravBall__sub_80323544(u8 *self) {
             continue;
         }
         flag = 1;
-        VecCopy__FP3VecPC3Vec(&v, self + 0xC8);
+        VecCopy((Vec *)&v, (const Vec *)(self + 0xC8));
         {
             s32 a = obj_getField1c(pl) << 14;
             v.x = lbl_805DF55C * sin_table_lookup(a) + v.x;
@@ -174,7 +174,7 @@ void TBoss6GravBall__sub_803236F8(Obj_803236F8 *arg0) {
         v.z = v.z * lbl_805DF570;
         subtract_vector(&arg0->pos, &v);
     } else {
-        VecCopy__FP3VecPC3Vec(&arg0->pos, lbl_80476684);
+        VecCopy((Vec *)&arg0->pos, (const Vec *)lbl_80476684);
     }
     ((TBoss6GravBall *)arg0)->clamp_to_ground();
 }

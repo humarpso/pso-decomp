@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjInfoCol.h"
 #include "pso/player/TObjPlayer.h"
@@ -38,12 +39,10 @@ extern s32 TObjInfoCol__class_name;
 u8 *TObjInfoCol__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__dt__11TObjInfoColFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-int bswap_16__FPUs(void*);
-int bswap_32__FPUl(void*);
 f32 xyz_distance_squared(const Vec *, const Vec *);
 int read_be16_field2__10TObjPlayerFv(void*);
 
-void TObjInfoCol::bswap_6x78() { read_be16_field2__10TObjPlayerFv(this); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); bswap_32__FPUl((char*)this + 0x8); }
+void TObjInfoCol::bswap_6x78() { read_be16_field2__10TObjPlayerFv(this); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); bswap_32((u32 *)((char*)this + 0x8)); }
 
 }
 

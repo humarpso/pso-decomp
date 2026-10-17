@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -620,7 +621,6 @@ void TBoss3Volopt__sub_8004824C(void *);
 void TBoss3Volopt__sub_80044680(void *);
 void TBoss3Volopt__sub_80046260(void *);
 void TBoss3Volopt__sub_800465B0(void *);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
 f64 atan2_float(f32, f32);
@@ -838,7 +838,7 @@ void TBoss3Volopt::collect_targets_in_arc() {
             }
         }
         self->ids[self->count] = obj_getField1c(pl);
-        VecCopy__FP3VecPC3Vec(&self->targets[self->count], &pl->pos);
+        VecCopy((Vec *)&self->targets[self->count], (const Vec *)&pl->pos);
         self->count++;
         if (self->count >= 4) {
             break;

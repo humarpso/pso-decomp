@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TUnk_804928CC.h"
 #include "pso/player/TUnk_80490470.h"
@@ -30,7 +31,6 @@ struct Vec_8009640C { f32 x, y, z; };
 struct Ang_8009640C { s32 x, y, z; };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *csnVecterUnder(s32 *, s32);
 extern const f32 TObjEneRe7BeruraPunch__data_805D97A0;
 extern const f32 lbl_805D97B8;
@@ -81,13 +81,13 @@ void TObjEneRe7BeruraPunch::snap_to_ground() {
   Stack_80096300 stack;
   f32 new_var;
   u8 *temp_r3;
-  VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0xDC));
+  VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0xDC));
   stack.spC = lbl_805D97B8;
   temp_r3 = csnVecterUnder(&stack.sp8, 0x16EF);
   if (temp_r3 != 0)
   {
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (*((s32 *) (((s8 *) temp_r3) + 4))));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xE8), (void *) ((*((s32 *) (((s8 *) temp_r3) + 4))) + 0xC));
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(*((s32 *) (((s8 *) temp_r3) + 4))));
+    VecCopy((Vec *)(arg0 + 0xE8), (const Vec *)((*((s32 *) (((s8 *) temp_r3) + 4))) + 0xC));
   }
   else
   {

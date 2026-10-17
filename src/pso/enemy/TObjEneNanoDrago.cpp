@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/player/TObjPlayer.h"
@@ -325,7 +326,6 @@ s32 apply_actor_gravity(void *, int, f32);
 s32 enemy_wander_home(void *, int, f32, f32, f32);
 void move_with_wall_slide(void *);
 void enemy_set_heading_velocity(void *, f32, s32);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 atan2_float(f32 y, f32 x);
 s32 update_if_active__15TObjEneMe1GiGueFl(void *, s32, s32);
 s32 sub_8004292C__15TObjEnemyCustomFv();
@@ -389,7 +389,7 @@ void TObjEneNanoDrago::sub_800DA1F4() {
     rotate_vector_by_matrix(0, &v, &v);
     pop_matrix();
     vec3_add_to(&arg0->pos, &v);
-    VecCopy__FP3VecPC3Vec(&arg0->pos2, &arg0->pos);
+    VecCopy((Vec *)&arg0->pos2, (const Vec *)&arg0->pos);
     arg0->flags |= 0x01000000;
     ((void (*)(void *, int))update_if_active__15TObjEneMe1GiGueFl)(arg0, 0xB);
     arg0->f378 = 1;
@@ -568,7 +568,7 @@ void update_circle_move__10TObjPlayerFPvPvf(Ene_800DA508 *actor, Vec_800DA508 *c
         actor->dest.x = r * cos_table_lookup(ang) + center->x;
         actor->dest.z = r * sin_table_lookup(ang) + center->z;
     }
-    ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&actor->v29C, &actor->dest);
+    VecCopy((Vec *)&actor->v29C, (const Vec *)&actor->dest);
     enemy_turn_toward_dest(actor, actor->param->turn);
     enemy_set_heading_velocity(actor, actor->speed, actor->angle);
     move_with_wall_slide(actor);
@@ -777,7 +777,7 @@ void TObjPlayer__sub_800DAB98(u8 *arg0) {
         F(s32, 0x37C) = 1;
         if (F(s32, 0x30) & 0x01000000) {
             if (F(s32, 0x388) & 0x40000) {
-                ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x390, arg0 + 0x50);
+                VecCopy((Vec *)(arg0 + 0x390), (const Vec *)(arg0 + 0x50));
                 calc_velocity_toward_destination(arg0, POS, DEST, F(f32, 0x3D8));
                 F(s32, 0x388) &= ~0x40000;
                 ((s32 (*)(void *))sub_8004292C__15TObjEnemyCustomFv)(arg0);
@@ -793,12 +793,12 @@ void TObjPlayer__sub_800DAB98(u8 *arg0) {
             F(f32, 0x404) = 0.0f;
             ((TObjEnemyCustom *)arg0)->find_target_in_range(*F(f32 *, 0x350));
             if (F(u32, 0x2A8) != 0) {
-                ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&v, arg0 + 0x38);
+                VecCopy((Vec *)&v, (const Vec *)(arg0 + 0x38));
                 subtract_vector(&v, F(u8 *, 0x2A8) + 0x38);
                 ((void (*)(void *, void *))find_open_direction__10TObjPlayerFPvPv)(arg0, &v);
                 calc_velocity_toward_destination(arg0, POS, DEST, F(f32, 0x3D8));
             } else {
-                ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x390, arg0 + 0x50);
+                VecCopy((Vec *)(arg0 + 0x390), (const Vec *)(arg0 + 0x50));
                 calc_velocity_toward_destination(arg0, POS, DEST, F(f32, 0x3D8));
             }
         }
@@ -821,7 +821,7 @@ void TObjPlayer__sub_800DAB98(u8 *arg0) {
             }
         } else {
             F(f32, 0x30C) = 0.0f;
-            ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x44, arg0 + 0x38);
+            VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
             vec3_add_to(arg0 + 0x38, arg0 + 0x308);
             if (xz_distance_squared(arg0 + 0x38, arg0 + 0x390) <= (10.0f + F(f32, 0x3D8)) * (10.0f + F(f32, 0x3D8))) {
                 F(s32, 0x37C) = 2;
@@ -1001,7 +1001,7 @@ void TObjPlayer__sub_800DB390(u8 *arg0) {
             }
             break;
         }
-        ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (arg0 + 0x29C), (void *) (*(u32 *)((s8 *)arg0 + 0x2A8) + 0x2FC));
+        VecCopy((Vec *)(arg0 + 0x29C), (const Vec *)(*(u32 *)((s8 *)arg0 + 0x2A8) + 0x2FC));
         enemy_turn_half_toward_dest((void *) (arg0));
         advance_animation_playback((void *) (arg0));
         if (!(*(s32 *)((s8 *)arg0 + 0x30) & 0x01000000)) {
@@ -1044,7 +1044,7 @@ void TObjEneNanoDrago::update_circling_state() {
         e->m_b8 = 1;
         e->accum = 0;
         if (e->target != NULL) {
-            VecCopy__FP3VecPC3Vec((NanoDragoVector *)&e->m_29c, e->target + 0x2FC);
+            VecCopy((Vec *)((NanoDragoVector *)&e->m_29c), (const Vec *)(e->target + 0x2FC));
         }
         e->state = 1;
     case 1:
@@ -1851,7 +1851,7 @@ void update__10TObjPlayerFPv(u8 *arg0) {
         *(s16 *)((s8 *)arg0 + 0x326) = (s16) *(s32 *)((s8 *)arg0 + 0x374);
         *(s32 *)((s8 *)arg0 + 0x37C) = 0;
     }
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x300) = (f32) (*(f32 *)((s8 *)arg0 + 0x300) + (15.0f + *(f32 *)((s8 *)arg0 + 0x404)));
     *(f32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xA4)) + 4) = (f32) (15.0f + *(f32 *)((s8 *)arg0 + 0x404));
     if (!(*(s32 *)((s8 *)arg0 + 0x388) & 0x40000)) {
@@ -1872,9 +1872,9 @@ void update__10TObjPlayerFPv(u8 *arg0) {
         *(s32 *)((s8 *)temp_r3_4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3_4 + 0x18) | 2);
     }
     if (xz_distance_squared((void *) (arg0 + 0x38), (void *) (arg0 + 0x44)) > 2500.0f) {
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg0 + 0x44));
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x44));
     }
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
 }
 
 void *TObjEneNanoDrago::create(void *arg0) {
@@ -1946,7 +1946,7 @@ u8 *TObjEneNanoDrago__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     __construct_array(arg0 + 0x40C, (void *)&init_and_activate__10TObjPlayerFv, (void *)&__dt__13TUnk_804949A8Fv, 0x1C, 4);
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D2AA8;
     ((VObj_18_fe72f9 *)arg0)->m79(arg2);
-    ((void * (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x290, ((void * (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x29C, arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x290), (const Vec *)(VecCopy((Vec *)(arg0 + 0x29C), (const Vec *)(arg0 + 0x38))));
     *(s32 *)((s8 *)arg0 + 0xDC) = *(s32 *)((s8 *)(*(u8 * *)&nano_drago_entry_params_resource) + 0x430);
     *(s32 *)((s8 *)arg0 + 0x368) = 0;
     ((TUnk_804806E8 *)arg0)->add_flags_2e4(2);
@@ -1970,8 +1970,8 @@ u8 *TObjEneNanoDrago__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s16 *)((s8 *)arg0 + 0x38C) = 0;
     *(f32 *)((s8 *)arg0 + 0x68) = 0.6f;
     *(f32 *)((s8 *)arg0 + 0x3D8) = *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 4) * *(f32 *)((s8 *)arg0 + 0x68);
-    ((void * (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x50, arg0 + 0x38);
-    ((void * (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x390, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x50), (const Vec *)(arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x390), (const Vec *)(arg0 + 0x38));
     if ((s32)*(f32 *)((s8 *)arg0 + 0x354) == 1) {
         *(u32 *)((s8 *)arg0 + 0x388) |= 0x40000;
         if (*(f32 *)((s8 *)arg0 + 0x358) < 1.0f) {
@@ -1991,7 +1991,7 @@ u8 *TObjEneNanoDrago__ct(u8 *arg0, s32 arg1, u8 *arg2) {
         ((TObjPlayer *)(&((Self_800DC180 *)arg0)->subs[i]))->activate_and_dispatch();
     }
     obj_setFlags30(arg0, 0x1000000);
-    ((void * (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x44, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
     ((VObj_18_fe72f9 *)arg0)->m80();
     return arg0;
 }

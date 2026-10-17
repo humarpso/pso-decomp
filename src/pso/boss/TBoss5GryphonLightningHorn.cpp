@@ -1,4 +1,5 @@
 #include <dolphin/mtx.h>
+#include "pso/system/vector.h"
 #include "pso/item/TItem.h"
 #include "pso/TBoss5GryphonLightning.h"
 #include "pso/TBoss5GryphonLightningHorn.h"
@@ -33,7 +34,6 @@ extern const f32 lbl_805DF634;
 extern const f32 lbl_805DF644;
 extern const f32 lbl_805DF650;
 u8 *__ct__26TBoss5GryphonLightningHornFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *csnVecterUnder(s32 *, s32);
 s32 __nw__7TObjectFUl(int);
 extern const f32 lbl_805D8D48;
@@ -73,7 +73,7 @@ s32 TBoss8Dragon::spawn_ground_lightning(s32 arg0, s32 arg1, s32 arg2) {
     s32 allocation;
     s32 effect;
     u8* collision;
-    VecCopy__FP3VecPC3Vec(&position, (void*)arg1);
+    VecCopy(&position, (const Vec *)arg1);
     collision = csnVecterUnder((s32*)&position, 0x16EF);
     if (collision == NULL) {
         position.y = lbl_805D8D48;

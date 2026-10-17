@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
@@ -7,7 +8,6 @@ s32 TLobby__sub_801C4FC4(void* p);
 void build_6x7D_set_battle_mode_data(void* p);
 int TLobby__send_and_handle_60(void*);
 int read_be16_field2__10TObjPlayerFv(void* a0 = 0);
-int bswap_32__FPUl(void* a0 = 0);
 int dispatch_packet__6TLobbyFPv(void*);
 s32 TObjPlayer__sub_801C19C8(f32);
 
@@ -24,7 +24,7 @@ s32 TLobby__sub_801C4FC4(void* p) { return *(s32*)((char*)p + 0x14); }
 void TLobby::set_pos_z(f32 v) { *(f32 *)&this->m_prev = v; }
 void TLobby::set_scale(f32 v) { *(f32 *)&this->m_next = v; }
 void TLobby::send_set_battle_mode_data() { bswap_set_battle_mode_data(); TLobby__send_and_handle_60(this); }
-void TLobby::bswap_set_battle_mode_data() { read_be16_field2__10TObjPlayerFv(this); { int i; for (i = 0; i < 4; i++) { bswap_32__FPUl((char*)this + 0x8 + i * 4); } } }
+void TLobby::bswap_set_battle_mode_data() { read_be16_field2__10TObjPlayerFv(this); { int i; for (i = 0; i < 4; i++) { bswap_32((u32 *)((char*)this + 0x8 + i * 4)); } } }
 void build_6x7D_set_battle_mode_data(void* p) { *(u8*)((char*)p + 0x0) = 125; *(u8*)((char*)p + 0x1) = 6; }
 void TLobby::send_6x7D_set_battle_mode_data() { bswap_set_battle_mode_data(); dispatch_packet__6TLobbyFPv(this); }
 

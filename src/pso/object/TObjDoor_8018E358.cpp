@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjDoorJung.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjDoor.h"
@@ -110,7 +111,6 @@ s32 load_gvm_texture_file(void *);
 s32 get_bml_model(s32, s32);
 s32 get_bml_motion(s32, s32);
 s32 draw_locked__8TObjDoorFPv(Door_8018E74C *arg0);
-void VecCopy__FP3VecPC3Vec(f32*,const f32*);
 void set_active_camera_pose(f32*,f32*);
 void restore_player_cameras();
 s32 activate_camera_mode(s32);
@@ -459,8 +459,8 @@ void TObjDoor::update_state() {
         set_indexed_flags(this,0,1);return;
     case 1:
         if(this->cameraMode==1 && activate_camera_mode(9)!=0) {
-            VecCopy__FP3VecPC3Vec(target,this->position);
-            VecCopy__FP3VecPC3Vec(position,(f32 *)&this->scale);
+            VecCopy((Vec *)target, (const Vec *)this->position);
+            VecCopy((Vec *)position, (const Vec *)((f32 *)&this->scale));
             set_active_camera_pose(position,target);this->cameraMode=2;
         }
         if(this->cameraMode==2) {

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TNpcPlayer.h"
 #include "pso/misc/TWindowCtrl.h"
@@ -121,7 +123,6 @@ void TNpcPlayer__sub_8034EDB8(void);
 s32 end_camera_pan__10TObjPlayerFv();
 s32 init_photon_blast__10TObjPlayerFl(u32, s16);
 void set_npc_control_flag__10TNpcPlayerFPvs(void* p, s16 v);
-int bswap_16__FPUs(void*);
 int read_be16_field2__10TObjPlayerFv(void*);
 int TLobby__send_and_handle_60(void*);
 void build_6x69_npc_control(void* p);
@@ -131,7 +132,6 @@ void show_partner_chatter_for_key(s16 key);
 extern struct Slot_8034EDC4 partner_dialogue_table[];
 extern s32 TNpcPlayer__data_805D5864;
 void init_partner_dialogue(void);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_testFlags30(void *, int);
 int sprintf(char *, const char *, ...);
 char *strcpy(char *, const char *);
@@ -217,7 +217,7 @@ void quest_player_face_actor(u16 src, u16 dst) {
     obj_testFlags30(a, 0x100000);
     heading = (s32) (lbl_80478CB0[0] * atan2_float(c->x - a->x, c->z - a->z));
     pkt.id = src;
-    VecCopy__FP3VecPC3Vec(&pkt.x, &a->x);
+    VecCopy((Vec *)&pkt.x, (const Vec *)&a->x);
     pkt.arg = heading;
     ((TNpcPlayer *)(&pkt))->send_6x3E();
 }
@@ -262,7 +262,7 @@ void quest_player_look_at_partner(u16 src) {
     }
     heading = (s32) (lbl_80478CB0[0] * atan2_float(c->x - a->x, c->z - a->z));
     pkt.id = src;
-    VecCopy__FP3VecPC3Vec(&pkt.x, &a->x);
+    VecCopy((Vec *)&pkt.x, (const Vec *)&a->x);
     pkt.arg = heading;
     pkt.flag = flag;
     if (flag == 1) {
@@ -284,7 +284,7 @@ void TNpcPlayer::send_stop_at_position(u16 id, void *pos, s16 arg) {
             flag = 1;
         }
         pkt.id = id;
-        VecCopy__FP3VecPC3Vec(&pkt.x, pos);
+        VecCopy((Vec *)&pkt.x, (const Vec *)pos);
         pkt.arg = arg;
         pkt.flag = flag;
         ((TNpcPlayer *)(&pkt))->send_6x3E();
@@ -356,7 +356,7 @@ void TNpcPlayer::send_6x3e_to_all_players(void *pos, s16 arg) {
             }
             ((TNpcPlayer *)(&pkt))->init_6x3E_packet();
             pkt.id = obj_getField1c(p);
-            VecCopy__FP3VecPC3Vec(&pkt.x, pos);
+            VecCopy((Vec *)&pkt.x, (const Vec *)pos);
             pkt.arg = arg;
             pkt.flag = flag;
             ((TNpcPlayer *)(&pkt))->send_6x3E();
@@ -611,7 +611,7 @@ void TNpcPlayer::apply_to_battle_player_slot(u16 arg0, s16 arg1) {
 s32 TNpcPlayer::get_field_67c() { return *(s32*)((char*)this + 0x67c); }
 void TNpcPlayer::set_npc_ctrl_state(s32 v) { *(s32*)((char*)this + 0x67c) = v; }
 void set_npc_control_flag__10TNpcPlayerFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x678) = v; }
-void TNpcPlayer::byteswap_header() { read_be16_field2__10TObjPlayerFv(this); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); bswap_16__FPUs((char*)this + 0x8); bswap_16__FPUs((char*)this + 0xa); }
+void TNpcPlayer::byteswap_header() { read_be16_field2__10TObjPlayerFv(this); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); bswap_16((u16 *)((char*)this + 0x8)); bswap_16((u16 *)((char*)this + 0xa)); }
 void TNpcPlayer::send_state_60() { byteswap_header(); TLobby__send_and_handle_60(this); }
 void build_6x69_npc_control(void* p) { *(u8*)((char*)p + 0x0) = 105; *(u8*)((char*)p + 0x1) = 3; }
 

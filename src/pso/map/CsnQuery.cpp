@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/map/CsnQuery.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/object/TObjMapCsn.h"
@@ -163,7 +164,6 @@ void TObjPlayer__sub_80079124(void * _w0, void * _w1);
 extern s32 *csn_query_hit_buffer;
 s32 query_segment_wall_meshes(void *arg0, void *arg1, u32 arg2, Node_8007970C **list);
 s32 check_line_hits_walls__10TObjPlayerFPvPviPv(void *arg0, void *arg1, int arg2, Node_800797DC **list);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 vec3_dot(void *, void *);
 void vec3_cross(void *, void *, void *);
 extern Vec_800798A0 lbl_8050BEE0;
@@ -403,15 +403,15 @@ s32 intersect_wall_triangle_one_sided(void *arg0, void *arg1, void *arg2, E_8007
         if (t < csn_query_nearest_hit_t) {
             csn_query_nearest_hit_t = t;
             *csn_query_hit_buffer = 1;
-            VecCopy__FP3VecPC3Vec((void *)wall_query_hit_result, &lbl_8050BF60);
-            VecCopy__FP3VecPC3Vec((void *)(wall_query_hit_result + 0xC), &n);
+            VecCopy((Vec *)wall_query_hit_result, (const Vec *)&lbl_8050BF60);
+            VecCopy((Vec *)(wall_query_hit_result + 0xC), (const Vec *)&n);
             *(u32 *)((s8 *)wall_query_hit_result + 0x18) = FACE->flags;
         }
         break;
     case 1:
         *csn_query_hit_buffer = 1;
-        VecCopy__FP3VecPC3Vec((void *)wall_query_hit_result, &lbl_8050BF60);
-        VecCopy__FP3VecPC3Vec((void *)(wall_query_hit_result + 0xC), &n);
+        VecCopy((Vec *)wall_query_hit_result, (const Vec *)&lbl_8050BF60);
+        VecCopy((Vec *)(wall_query_hit_result + 0xC), (const Vec *)&n);
         *(u32 *)((s8 *)wall_query_hit_result + 0x18) = FACE->flags;
         break;
     case 2:
@@ -419,8 +419,8 @@ s32 intersect_wall_triangle_one_sided(void *arg0, void *arg1, void *arg2, E_8007
             return 0;
         }
         *csn_query_hit_buffer = 1;
-        VecCopy__FP3VecPC3Vec((void *)wall_query_hit_result, &lbl_8050BF60);
-        VecCopy__FP3VecPC3Vec((void *)(wall_query_hit_result + 0xC), &n);
+        VecCopy((Vec *)wall_query_hit_result, (const Vec *)&lbl_8050BF60);
+        VecCopy((Vec *)(wall_query_hit_result + 0xC), (const Vec *)&n);
         *(u32 *)((s8 *)wall_query_hit_result + 0x18) = FACE->flags;
         wall_query_hit_result += 0x1C;
         csn_query_hit_count++;
@@ -428,8 +428,8 @@ s32 intersect_wall_triangle_one_sided(void *arg0, void *arg1, void *arg2, E_8007
     case 3:
         if (t < csn_query_nearest_hit_t) {
             csn_query_nearest_hit_t = t;
-            VecCopy__FP3VecPC3Vec((void *)wall_query_hit_result, &lbl_8050BF60);
-            VecCopy__FP3VecPC3Vec((void *)(wall_query_hit_result + 0xC), &n);
+            VecCopy((Vec *)wall_query_hit_result, (const Vec *)&lbl_8050BF60);
+            VecCopy((Vec *)(wall_query_hit_result + 0xC), (const Vec *)&n);
             *(u32 *)((s8 *)wall_query_hit_result + 0x18) = FACE->flags;
         }
         break;

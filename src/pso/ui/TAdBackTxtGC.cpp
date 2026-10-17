@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
 #include "pso/TObject.h"
 #include "pso/TAdBackTxtGC.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -12,13 +13,12 @@ void run_task__12TAdBackTxtGCFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 s32 set_cached_blend_factor(s32, s32);
 s32 restore_saved_depth_alpha_state();
-s32 set_depth_buffer_settings_2__Fv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 void render__12TAdBackTxtGCFv(void *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x24) == 0) {
         if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) {
-            set_depth_buffer_settings_2__Fv();
+            set_depth_buffer_settings_2();
             goto block_4;
         }
     } else if (TMainTask::get_state_flag() != 1) {

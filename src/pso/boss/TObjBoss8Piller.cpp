@@ -1,4 +1,5 @@
 #include "pso/TObjBoss8Piller.h"
+#include "pso/system/vector.h"
 
 TObjBoss8Piller::~TObjBoss8Piller() {}
 
@@ -15,7 +16,6 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern BmlResourceDescriptor bm_obj_boss8_piller_resource_descriptor;
 extern u32 TObjBoss8Piller__shared_resource;
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
 extern RecoveredGlobal_8030AF60___vt__15TObjBoss8Piller __vt__15TObjBoss8Piller;
@@ -31,7 +31,7 @@ u8 *__ct__15TObjBoss8PillerFv(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__15TObjBoss8Piller.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjBoss8Piller__class_name;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg2);
+    VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)arg2);
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) lbl_805DF158;
     *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805DF158;
     *(s16 *)((s8 *)arg0 + 0x30) = arg3;

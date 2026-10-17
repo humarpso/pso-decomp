@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/misc/TOKeyMachine01.h"
 
@@ -12,7 +13,6 @@ typedef struct Vec_800D8C48 {
 } Vec_800D8C48;
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 create_timed_particle_emitter(void *, int, int, int);
 s32 spawn_particle_effect(void *, int, f32);
 extern const f32 lbl_805DA3C0;
@@ -102,7 +102,7 @@ void TBoss3Volopt::play_area_se_with_particle() {
         play_sound_effect(::remap_area_sound_id(0x4003AD06, 0x1E), (void *)arg0, 0, 0);
         break;
     }
-    VecCopy__FP3VecPC3Vec(&v, (void *)arg0);
+    VecCopy((Vec *)&v, (const Vec *)arg0);
     y = v.y;
     v.y = y + lbl_805DA3C0;
     spawn_particle_effect(&v, 0xE6, y);
@@ -164,7 +164,7 @@ void TBoss3Volopt::play_area_sound_effect() {
 void spawn_particles_at__12TBoss3VoloptFi(s32 arg0) {
     Stack_800D8F78 stack;
     f32 temp_f1;
-    VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0));
+    VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0));
     create_timed_particle_emitter((void *) (arg0), (int) (0xEA), (int) (0xA), (int) (0x1E));
     temp_f1 = stack.spC;
     stack.spC = temp_f1 + lbl_805DA3C0;

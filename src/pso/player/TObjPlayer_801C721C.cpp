@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -8,7 +9,6 @@ int TFontSmallLobby__sub_801C01BC(void*);
 int TFontSmallLobby__sub_801C0228(void*);
 int TLobby__send_and_handle_60(void*);
 int TObjPlayer__sub_8011E204(void*, void*);
-int bswap_32__FPUl(void*);
 
 void TObjPlayer::set_flag_2000000_alt() { set_state_flags((u32)((void*)2097152)); }
 void TObjPlayer::check_flag_04000000() { check_flag((s32)((void*)4194304)); }
@@ -18,7 +18,7 @@ void*TObjPlayer::restore_shrunken_font() { TFontSmallLobby__sub_801C0228(this); 
 void TObjPlayer::init_6x88_packet() { *(u8*)((char*)this + 0x0) = 136; *(u8*)((char*)this + 0x1) = 1; }
 void TObjPlayer::send_font_update_60() { TFontSmallLobby__sub_801C01BC(this); TLobby__send_and_handle_60(this); }
 
-void TObjPlayer::bswap_shrink() { read_be16_field2(); bswap_32__FPUl((char*)this + 0x4); }
+void TObjPlayer::bswap_shrink() { read_be16_field2(); bswap_32((u32 *)((char*)this + 0x4)); }
 
 void *TObjPlayer__sub_801C7360(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228((void*)(arg0));

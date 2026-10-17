@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/main_loop.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TLobby.h"
 
 struct Ids_80145A94 { s32 v[2]; };
@@ -7,9 +9,6 @@ struct Buf_80145A94 { s32 hdr; s8 name[0xA0]; s8 x[0x270 - 0xA4]; };
 
 extern "C" {
 s32 TLobby__sub_8014618C();
-s32 render_tick__Fv();
-void *xmalloc__FUl(u32);
-s32 xfree__FPv(void *);
 s32 TAdPlayerLoadGC__sub_803F2F1C();
 s32 TAdPlayerLoadGC__sub_803F31BC();
 s32 TAdPlayerLoadGC__sub_803F31D8();
@@ -123,14 +122,14 @@ s32 TLobby__sub_80145A94(void) {
             case 2:
                 switch (sub) {
                 case 1:
-                    mem = xmalloc__FUl(get_network_info_file_size());
+                    mem = xmalloc(get_network_info_file_size());
                     if (mem == NULL) {
                         state = 0;
                         sub = 0;
                         break;
                     }
                     if (request_network_info_load(id, mem) < 0) {
-                        xfree__FPv(mem);
+                        xfree(mem);
                         state = 0;
                         sub = 0;
                         break;
@@ -141,14 +140,14 @@ s32 TLobby__sub_80145A94(void) {
                     case 200:
                         break;
                     case 0:
-                        xfree__FPv(mem);
+                        xfree(mem);
                         state = 0;
                         sub = 0;
                         found = 1;
                         lbl_805D56CC |= 1;
                         break;
                     default:
-                        xfree__FPv(mem);
+                        xfree(mem);
                         state = 0;
                         sub = 0;
                         break;
@@ -157,7 +156,7 @@ s32 TLobby__sub_80145A94(void) {
                 }
                 break;
             }
-            render_tick__Fv();
+            render_tick();
         }
         if (found != 0) {
             break;

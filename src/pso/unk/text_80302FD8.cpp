@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 
 #include <stddef.h>
 #include "pso/TParticleCtrl.h"
@@ -19,7 +20,6 @@ struct RecoveredGlobal_80302FD8_lbl_804E6AF8 {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 create_particle_controller_with_angles(void *, void *, int, int, int);
 s32 construct_collision_body(void *, void *, void *);
 f32 sin_table_lookup(void *);
@@ -42,7 +42,7 @@ u8 *fn_80302FD8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 
     *(f32 *)((s8 *)arg0 + 0xC8) = farg0;
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DEFAC;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DEFAC;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg3));
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg3));
     *(f32 *)((s8 *)arg0 + 0xB0) = sin_table_lookup((void *) (arg4));
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) lbl_805DEFAC;
     *(f32 *)((s8 *)arg0 + 0xB8) = cos_table_lookup((void *) (arg4));

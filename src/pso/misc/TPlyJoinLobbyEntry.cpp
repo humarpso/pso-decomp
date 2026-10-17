@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
+#include "pso/system/main_loop.h"
 #include "pso/misc/TWindowMessage.h"
 #include "pso/TMainTask.h"
 #include "pso/misc/TWindowMessagePage.h"
@@ -66,7 +68,6 @@ void some_empty_func__9TMainTaskFv(void *);
 void render__9TMainTaskFv(void *);
 void render_screen_overlay__9TMainTaskFv(void *);
 void run_all_lists__9TMainTaskFv(void *);
-void render_tick__Fv(void);
 void copy_member_record__6TLobbyFPvPv(void *, void *);
 void init_6x72_resume_packet(void *);
 void send_packet_60__6TLobbyFi(void *);
@@ -373,7 +374,6 @@ Plr_801354AC * create_remote_player_object(void *);
 void send_player_data_98__9TProtocolFPvPvPvPvPvPvPv(void *, void *, void *, void *, void *, void *, void *);
 s32 DateToSeconds__FP9DateStampPi(void *, void *);
 s32 getDateStamp__FP9DateStamp(void *);
-void bswap_32__FPUl(u32 *);
 void init__23TAdSinglePlyChrSelectGCFv(void);
 u8 * get_character_save_record(u32);
 void * get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
@@ -1097,17 +1097,17 @@ void on_game_player_add__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     ((TMainTask *)(&(*(RecoveredGlobal_8013630C_main_task *)&main_task)))->run_tl_camera_tasks();
     render__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
     render_screen_overlay__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
-    render_tick__Fv();
+    render_tick();
     some_empty_func__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
     ((TMainTask *)(&(*(RecoveredGlobal_8013630C_main_task *)&main_task)))->run_tl_camera_tasks();
     render__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
     render_screen_overlay__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
-    render_tick__Fv();
+    render_tick();
     some_empty_func__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
     ((TMainTask *)(&(*(RecoveredGlobal_8013630C_main_task *)&main_task)))->run_tl_camera_tasks();
     render__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
     render_screen_overlay__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
-    render_tick__Fv();
+    render_tick();
     run_all_lists__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
     TLobby__designated_client_id = arg1;
     p = ((Obj_801361E8 *(*)(void *))get_player_by_client_id)((void *)e.client_id);
@@ -1238,10 +1238,10 @@ void handle_game_join__6TLobbyFPv(Pkt_80136C94 *pkt) {
     s32 j;
     ((TObjPlayer *)(&hdr))->clear_header_struct();
     ((void * (*)(void *, const void *, u32))memcpy)(((Row_80136C94 *)&game_join_player_records), pkt->rows, 0x80);
-    bswap_32__FPUl(&((Row_80136C94 *)&game_join_player_records)[0].ip);
-    bswap_32__FPUl(&((Row_80136C94 *)&game_join_player_records)[1].ip);
-    bswap_32__FPUl(&((Row_80136C94 *)&game_join_player_records)[2].ip);
-    bswap_32__FPUl(&((Row_80136C94 *)&game_join_player_records)[3].ip);
+    bswap_32(&((Row_80136C94 *)&game_join_player_records)[0].ip);
+    bswap_32(&((Row_80136C94 *)&game_join_player_records)[1].ip);
+    bswap_32(&((Row_80136C94 *)&game_join_player_records)[2].ip);
+    bswap_32(&((Row_80136C94 *)&game_join_player_records)[3].ip);
     destroy_all_objects__6TLobbyFv();
     lobby_debug_printf_stub(lbl_8043EFD4, pkt->client_id);
     local_client_id = pkt->client_id;
@@ -3671,8 +3671,6 @@ void bswap_inventory__6TLobbyFPv(void* p);
 void bswap__15disp_data_part2Fv(void *);
 void bswap_telepipe_record(void *);
 void TLobby__sub_8013A9C0(void *);
-int bswap_16__FPUs(void*);
-int bswap_32__FPUl(void*);
 void bswap_player_data__6TLobbyFi(s32 arg0);
 void TLobby__sub_8013A2DC(void);
 void bswap_6x6E_sync_game_state__6TLobbyFPv(void* p);
@@ -3682,47 +3680,45 @@ void open_hard_keyboard__6TLobbyFPv(void* p);
 void set_player_count__6TLobbyFi(int a0);
 int __ct__12TPlyCharDataFv(void*);
 int __ct__16TPlyGuildCardTagFv(void*);
-int bswap_16__FPUs(void*);
-int bswap_32__FPUl(void*);
 int bswap__17TPlyInventoryItemFv(void*);
 
 void* init_char_data__6TLobbyFPv(void* p) { __ct__16TPlyGuildCardTagFv(p); __ct__12TPlyCharDataFv((char*)p + 0x20); return p; }
 void TLobby__sub_8013A2DC(void) {  }
-void bswap_6x6E_sync_game_state__6TLobbyFPv(void* p) { bswap_16__FPUs(p); bswap_16__FPUs((char*)p + 0x2); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
+void bswap_6x6E_sync_game_state__6TLobbyFPv(void* p) { bswap_16((u16 *)p); bswap_16((u16 *)((char*)p + 0x2)); bswap_16((u16 *)((char*)p + 0x4)); bswap_16((u16 *)((char*)p + 0x6)); }
 void open_hard_keyboard__6TLobbyFPv(void* p) { TWindowKeyBoardHard::test_card_flag((s32)p, (s32)((void*)262144)); }
 
 void bswap_player_data__6TLobbyFi(s32 arg0) {
     s32 i;
-    bswap_16__FPUs((void*)((void *) (arg0)));
-    bswap_16__FPUs((void*)((void *) (arg0 + 2)));
-    bswap_32__FPUl((void*)((void *) (arg0 + 4)));
-    bswap_32__FPUl((void*)((void *) (arg0 + 8)));
-    bswap_32__FPUl((void*)((void *) (arg0 + 0xC)));
-    bswap_32__FPUl((void*)((void *) (arg0 + 0x10)));
-    bswap_32__FPUl((void*)((void *) (arg0 + 0x14)));
-    bswap_32__FPUl((void*)((void *) (arg0 + 0x18)));
-    bswap_32__FPUl((void*)((void *) (arg0 + 0x1C)));
-    bswap_16__FPUs((void*)((void *) (arg0 + 0x20)));
-    bswap_16__FPUs((void*)((void *) (arg0 + 0x22)));
-    bswap_16__FPUs((void*)((void *) (arg0 + 0x24)));
-    bswap_16__FPUs((void*)((void *) (arg0 + 0x26)));
+    bswap_16((u16 *)((void *) (arg0)));
+    bswap_16((u16 *)((void *) (arg0 + 2)));
+    bswap_32((u32 *)((void *) (arg0 + 4)));
+    bswap_32((u32 *)((void *) (arg0 + 8)));
+    bswap_32((u32 *)((void *) (arg0 + 0xC)));
+    bswap_32((u32 *)((void *) (arg0 + 0x10)));
+    bswap_32((u32 *)((void *) (arg0 + 0x14)));
+    bswap_32((u32 *)((void *) (arg0 + 0x18)));
+    bswap_32((u32 *)((void *) (arg0 + 0x1C)));
+    bswap_16((u16 *)((void *) (arg0 + 0x20)));
+    bswap_16((u16 *)((void *) (arg0 + 0x22)));
+    bswap_16((u16 *)((void *) (arg0 + 0x24)));
+    bswap_16((u16 *)((void *) (arg0 + 0x26)));
     for (i = 0; i < 5; i++) {
         ((TLobby *)(&((struct S_8013A348 *)arg0)->h[i]))->bswap_header_3words();
     }
-    bswap_32__FPUl((void*)((void *) (arg0 + 0x64)));
+    bswap_32((u32 *)((void *) (arg0 + 0x64)));
     ((TLobby *)(arg0 + 0x68))->bswap_fields();
     TLobby__sub_8013A9C0((void *) (arg0 + 0x70));
     bswap_telepipe_record((void *) (arg0 + 0x78));
-    bswap_32__FPUl((void*)((void *) (arg0 + 0x94)));
-    bswap_32__FPUl((void*)((void *) (arg0 + 0xAC)));
-    bswap_32__FPUl((void*)((void *) (arg0 + 0x488)));
-    bswap_32__FPUl((void*)((void *) (arg0 + 0xB0)));
+    bswap_32((u32 *)((void *) (arg0 + 0x94)));
+    bswap_32((u32 *)((void *) (arg0 + 0xAC)));
+    bswap_32((u32 *)((void *) (arg0 + 0x488)));
+    bswap_32((u32 *)((void *) (arg0 + 0xB0)));
     bswap__15disp_data_part2Fv((void *) (arg0 + 0xC8));
     bswap__12player_statsFv((void *) (arg0 + 0x118));
     bswap_inventory__6TLobbyFPv((void*)((void *) (arg0 + 0x13C)));
 }
 
-void bswap_inventory__6TLobbyFPv(void* p) { bswap_32__FPUl(p); { int i; for (i = 0; i < 30; i++) { bswap__17TPlyInventoryItemFv((char*)p + 0x4 + i * 28); } } }
+void bswap_inventory__6TLobbyFPv(void* p) { bswap_32((u32 *)p); { int i; for (i = 0; i < 30; i++) { bswap__17TPlyInventoryItemFv((char*)p + 0x4 + i * 28); } } }
 
     extern int lobby_player_count;
 void set_player_count__6TLobbyFi(int a0) { lobby_player_count = a0; }
@@ -3776,8 +3772,6 @@ void bswap_and_handle_packet__6TLobbyFii(s32 arg0, s32 arg1);
 void bswap_header_fields__6TLobbyFi(s32 arg0);
 void send_packet_60__6TLobbyFi(s32 arg0);
 s32 TLobby__send_and_handle_60(s32);
-s32 bswap_16__FPUs(s32);
-s32 bswap_32__FPUl(s32);
 s32 bswap_packet_header__6TLobbyFv();
 
 void bswap_and_send_extended_subcommand(void* p, void* a1) { bswap_extended_subcommand_header((void*)(p)); ((TLobby *)p)->send_command((u32)a1); }
@@ -3785,8 +3779,8 @@ void bswap_and_send_extended_subcommand(void* p, void* a1) { bswap_extended_subc
 void bswap_extended_subcommand_header(void* p) { bswap_header_fields__6TLobbyFi((s32)(p)); }
 
 void bswap_header_fields__6TLobbyFi(s32 arg0) {
-    bswap_16__FPUs(arg0 + 2);
-    bswap_32__FPUl(arg0 + 4);
+    bswap_16((u16 *)(arg0 + 2));
+    bswap_32((u32 *)(arg0 + 4));
 }
 void bswap_and_handle_packet__6TLobbyFii(s32 arg0, s32 arg1) {
     bswap_packet_header__6TLobbyFv();

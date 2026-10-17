@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/item/TItem.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804F0A00.h"
@@ -129,7 +130,6 @@ extern const f32 lbl_805DFDF8;
 void launch_rappys_fan_slicer__10TObjPlayerFPv(u8 *weapon);
 s32 spawn_particle_effect(void *, s32);
 void *find_entity_by_id(s32);
-s32 VecCopy__FP3VecPC3Vec(void *, s32);
 s32 construct_explosion_collider__13TUnk_804A2548Fv(void *, s32, void *);
 void *__nw__7TObjectFUl(u32);
 s32 create_fire_explosion_effect(void *, void *, s32, s32, f32);
@@ -295,7 +295,7 @@ s32 TObjPlayer::spawn_fire_explosion(u32 a0, s32 a1) {
     void *o;
     TObjPlayer__sub_802E449C(&info);
     ((TObjPlayer *)a0)->fill_status_info(&info);
-    VecCopy__FP3VecPC3Vec(&info, a1);
+    VecCopy((Vec *)&info, (const Vec *)a1);
     info.f10 = 0xA;
     o = __nw__7TObjectFUl(0xC8);
     if (o != NULL) {

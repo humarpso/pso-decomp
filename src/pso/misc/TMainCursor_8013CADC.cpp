@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TLockOnCursor.h"
 #include "pso/misc/TMainCursor.h"
 #include "pso/TParticleCtrl.h"
@@ -81,7 +82,6 @@ Ent_8013D4A0 *find_entity_by_id(u16);
 void *__nw__7TObjectFUl(u32);
 extern s32 tl_loc_end;
 void publish_target_list__11TMainCursorFPvi(Self_8013D4A0 *arg0, s32 arg1);
-void VecCopy__FP3VecPC3Vec(void *, const void *);
 s32 obj_isState3_324__13TUnk_804806E8Fv(void *);
 s32 obj_getField1c(void *);
 void *get_item_field_6__10TObjPlayerFPv(void *);
@@ -211,7 +211,7 @@ void setup_action_channel__11TMainCursorFiPviii(s32 self, u8 *player, s32 slot, 
             ((TMainCursor *)C_8013CDE4)->set_color_mode(0xC0000000);
             ((TMainCursor *)C_8013CDE4)->set_flags(0x30040800);
             ((TMainCursor *)cur)->set_type(1);
-            VecCopy__FP3VecPC3Vec(cur->pos, player + 0x2FC);
+            VecCopy((Vec *)cur->pos, (const Vec *)(player + 0x2FC));
             cur->f3c = TMainCursor__data_805DB0C0;
             cur->f28 = interaction_cursor_radius;
             cur->f34 = 0x8000;
@@ -227,7 +227,7 @@ void setup_action_channel__11TMainCursorFiPviii(s32 self, u8 *player, s32 slot, 
             TMainCursor__sub_8013E9A0(cur);
             TECH_8013CDE4(tech)
             ((TMainCursor *)cur)->set_type(tech->f22);
-            VecCopy__FP3VecPC3Vec(cur->pos, player + 0x2FC);
+            VecCopy((Vec *)cur->pos, (const Vec *)(player + 0x2FC));
             TMainCursor::set_display_flags(self, (s32)player, C_8013CDE4);
             break;
         case 9:
@@ -235,7 +235,7 @@ void setup_action_channel__11TMainCursorFiPviii(s32 self, u8 *player, s32 slot, 
             TMainCursor__sub_8013E9A0(cur);
             TECH_8013CDE4(tech)
             ((TMainCursor *)cur)->set_type(tech->f22);
-            VecCopy__FP3VecPC3Vec(cur->pos, player + 0x2FC);
+            VecCopy((Vec *)cur->pos, (const Vec *)(player + 0x2FC));
             TMainCursor::setup_flags(self, (s32)player, C_8013CDE4);
             break;
         }
@@ -246,7 +246,7 @@ void setup_action_channel__11TMainCursorFiPviii(s32 self, u8 *player, s32 slot, 
         TMainCursor::set_cursor_color(self, (s32)player, C_8013CDE4);
         ((TMainCursor *)C_8013CDE4)->set_field_0c(0);
         ((TMainCursor *)C_8013CDE4)->set_flags(0x40800);
-        VecCopy__FP3VecPC3Vec(cur->pos, player + 0x2FC);
+        VecCopy((Vec *)cur->pos, (const Vec *)(player + 0x2FC));
         cur->f3c = wpn->f4;
         cur->f28 = wpn->f0 + cur->f3c;
         cur->f34 = wpn->f8;
@@ -278,7 +278,7 @@ void setup_action_channel__11TMainCursorFiPviii(s32 self, u8 *player, s32 slot, 
             TMainCursor::set_cursor_color(self, (s32)player, C_8013CDE4);
             ((TMainCursor *)C_8013CDE4)->set_field_0c(0);
             ((TMainCursor *)C_8013CDE4)->set_flags(0x40800);
-            VecCopy__FP3VecPC3Vec(cur->pos, player + 0x2FC);
+            VecCopy((Vec *)cur->pos, (const Vec *)(player + 0x2FC));
             break;
         case 14:
             ((TMainCursor *)C_8013CDE4)->set_color(0x8000);
@@ -288,13 +288,13 @@ void setup_action_channel__11TMainCursorFiPviii(s32 self, u8 *player, s32 slot, 
             lbl_8050BF60[0] = ryuker_cursor_forward_offset * sin_table_lookup(*(s32 *)(player + 0x60)) + *(f32 *)(player + 0x2FC);
             lbl_8050BF60[1] = *(f32 *)(player + 0x300);
             lbl_8050BF60[2] = ryuker_cursor_forward_offset * cos_table_lookup(*(s32 *)(player + 0x60)) + *(f32 *)(player + 0x304);
-            VecCopy__FP3VecPC3Vec(cur->pos, lbl_8050BF60);
+            VecCopy((Vec *)cur->pos, (const Vec *)lbl_8050BF60);
             break;
         case 10:
         case 13:
         case 15:
         case 16:
-            VecCopy__FP3VecPC3Vec(cur->pos, player + 0x2FC);
+            VecCopy((Vec *)cur->pos, (const Vec *)(player + 0x2FC));
             TMainCursor::set_display_flags(self, (s32)player, C_8013CDE4);
             break;
         case 11:
@@ -308,10 +308,10 @@ void setup_action_channel__11TMainCursorFiPviii(s32 self, u8 *player, s32 slot, 
             }
             ((TMainCursor *)C_8013CDE4)->set_field_0c(0x30000);
             ((TMainCursor *)C_8013CDE4)->set_flags(0xC0040800);
-            VecCopy__FP3VecPC3Vec(cur->pos, player + 0x2FC);
+            VecCopy((Vec *)cur->pos, (const Vec *)(player + 0x2FC));
             break;
         case 17:
-            VecCopy__FP3VecPC3Vec(cur->pos, player + 0x2FC);
+            VecCopy((Vec *)cur->pos, (const Vec *)(player + 0x2FC));
             TMainCursor::setup_flags(self, (s32)player, C_8013CDE4);
             break;
         }
@@ -338,7 +338,7 @@ void setup_action_channel__11TMainCursorFiPviii(s32 self, u8 *player, s32 slot, 
         case 3:
         case 4:
         case 5:
-            VecCopy__FP3VecPC3Vec(cur->pos, player + 0x2FC);
+            VecCopy((Vec *)cur->pos, (const Vec *)(player + 0x2FC));
             ((TMainCursor *)cur)->set_type(0xA);
             break;
         }

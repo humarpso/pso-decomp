@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 #include "pso/misc/TWindowActionPalette.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TItemList.h"
@@ -18,8 +19,6 @@ struct S_801C1BA8 { u8 a; u8 b; u8 c; u8 d; s32 e; C_801C1BA8 f; };
 extern "C" {
 s32 TLobby__send_and_handle_60(s32);
 s32 read_be16_field2__10TObjPlayerFv();
-s32 bswap_16__FPUs(s32);
-s32 bswap_32__FPUl(s32);
 void TObjPlayer__sub_801C19C8(void* p, f32 v);
 s32 TLobby__sub_801C19D0(void* p);
 void* TObjPlayer__sub_801C1A00(void* p);
@@ -80,13 +79,13 @@ void TObjPlayer__sub_801C18E0(void* p) { ((TObjPlayer *)p)->byteswap_set_positio
 void TObjPlayer::byteswap_set_position_cmd() {
     s32 arg0 = (s32)this;
     read_be16_field2__10TObjPlayerFv();
-    bswap_16__FPUs(arg0 + 4);
-    bswap_16__FPUs(arg0 + 6);
-    bswap_16__FPUs(arg0 + 8);
-    bswap_16__FPUs(arg0 + 0xA);
-    bswap_32__FPUl(arg0 + 0xC);
-    bswap_32__FPUl(arg0 + 0x10);
-    bswap_32__FPUl(arg0 + 0x14);
+    bswap_16((u16 *)(arg0 + 4));
+    bswap_16((u16 *)(arg0 + 6));
+    bswap_16((u16 *)(arg0 + 8));
+    bswap_16((u16 *)(arg0 + 0xA));
+    bswap_32((u32 *)(arg0 + 0xC));
+    bswap_32((u32 *)(arg0 + 0x10));
+    bswap_32((u32 *)(arg0 + 0x14));
 }
 
 void TObjPlayer::init_set_position_packet() {

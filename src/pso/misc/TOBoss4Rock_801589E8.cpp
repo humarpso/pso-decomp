@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 
 struct Vec_8015959C;
 extern "C" {
@@ -9,7 +10,6 @@ s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_object(int);
 void* mem_alloc(s32);
 void TOBoss4__ct(void*,void*);
-void VecCopy__FP3VecPC3Vec(Vec_8015959C*,Vec_8015959C*);
 u8* TOBoss4Bird__ct(u8*,s32);
 extern s32 __vt__11TOBoss4Bird[];
 }
@@ -388,7 +388,6 @@ struct Bird_8015959C {
     s32 fe4;
 };
 
-void VecCopy__FP3VecPC3Vec(Vec_8015959C *, Vec_8015959C *);
 f32 atan2_float(f32, f32);
 f32 horizontal_distance_squared(Vec_8015959C *, Vec_8015959C *);
 s32 approach_angle_limited(s32, s32, s32);
@@ -421,11 +420,11 @@ void TOBoss4Bird::run_task() {
         rotate_matrix_y(0, (s32)((182.04445f) * ((3.6e+02f) * ((3.0517578e-05f) * (f32)rand()))));
         rotate_vector_by_matrix(0, &lbl_8050BEE0, &lbl_8050BEE0);
         pop_matrices(1);
-        VecCopy__FP3VecPC3Vec(&self->fc4, &self->f50);
+        VecCopy((Vec *)&self->fc4, (const Vec *)&self->f50);
         vec3_add_to(&self->fc4, &lbl_8050BEE0);
         break;
     case 1:
-        VecCopy__FP3VecPC3Vec(&lbl_8050BEE0, &self->fc4);
+        VecCopy((Vec *)&lbl_8050BEE0, (const Vec *)&self->fc4);
         subtract_vector(&lbl_8050BEE0, &self->f38);
         self->f60 = approach_angle_limited(self->f60, (s32)((10430.38043493439) * atan2_float(lbl_8050BEE0.x, lbl_8050BEE0.z)), 0x100);
         lbl_8050BF00.x = lbl_8050BF00.y = (0.0f);
@@ -536,7 +535,6 @@ void *__dt__11TOBoss4BirdFv(void *arg0, s16 arg1) {
 #define get_bml_model ((u8* (*)(s32,s32))get_bml_model)
 #define mem_alloc ((s32 (*)(s32))mem_alloc)
 #define TOBoss4__ct ((void (*)(void*))TOBoss4__ct)
-#define VecCopy__FP3VecPC3Vec ((void (*)(void*,void*))VecCopy__FP3VecPC3Vec)
 #define __vt__11TOBoss4Bird (*(u8 (*)[1])&__vt__11TOBoss4Bird)
 
 #pragma inline_depth(1)
@@ -613,7 +611,7 @@ u8 *TOBoss4Bird__ct(u8 *arg0, s32 arg1) {
     {
         VecTbl_80159A10 tbl = boss4_bird_vec_table[0];
         for (i = 0; i < o->count; i++) {
-            VecCopy__FP3VecPC3Vec(&o->vecs[i], &tbl.v[i]);
+            VecCopy((Vec *)&o->vecs[i], (const Vec *)&tbl.v[i]);
             o->angs[i] = 0x8000;
         }
     }
@@ -633,5 +631,4 @@ u8 *TOBoss4Bird__ct(u8 *arg0, s32 arg1) {
 #undef get_bml_model
 #undef mem_alloc
 #undef TOBoss4__ct
-#undef VecCopy__FP3VecPC3Vec
 #undef __vt__11TOBoss4Bird

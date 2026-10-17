@@ -1,4 +1,5 @@
 #include "pso/items/TItemWeapon.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/item/TUnk_804A69DC.h"
 
@@ -69,7 +70,6 @@ struct Params_8011EAB8 {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 * get_weapon_range_record(void *, s16);
 void remap_extra_attack_type(u8 *arg0);
 void TObjPlayer__sub_8011E56C(u8 *arg0, u8 *arg1);
@@ -429,7 +429,7 @@ void remap_extra_attack_type(u8 *arg0) {
 
 void TObjPlayer__sub_8011E56C(u8 *arg0, u8 *arg1) {
     Stack_8011E56C stack;
-    ((s32 (*)(void *, int))VecCopy__FP3VecPC3Vec)((void *) (&stack.sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x2FC));
+    VecCopy((Vec *)(&stack.sp8), (const Vec *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x2FC));
     stack.spC = *(f32 *)((s8 *)arg1 + 4);
     ((s32 (*)(void *, void *, int))csnVector)((void *) (&stack.sp8), (void *) (arg1), (int) (0x8100));
 }
@@ -578,7 +578,7 @@ void spawn_pg_effect__10TObjPlayerFPvPvif(u8 *arg0, Vec_8011EAB8 *arg1, s32 item
     remap_extra_attack_type(arg0);
     ((TItemEffPG *)(&prm))->init_params();
     ((TObjPlayer *)arg0)->fill_status_info(&prm);
-    VecCopy__FP3VecPC3Vec(&prm.pos, arg1);
+    VecCopy((Vec *)&prm.pos, (const Vec *)arg1);
     prm.f28 = farg0;
     prm.f34 = *(s32 *)(arg0 + 0x188);
     prm.f38 = *(s32 *)(arg0 + 0x24);
@@ -603,7 +603,7 @@ void fire_shot_at_target__11TItemWeaponFv(u8 *arg0, Vec_8011EB84 *origin, void *
         scale = ((f32 *(*)(void *, s32))get_weapon_range_record)(arg0, ((s32 (*)(void *))is_status_subsystem_ready__10TObjPlayerFv)(*(void **)((s8 *)arg0 + 0xF0)));
         TObjPlayer__sub_802E449C(&atk);
         ((TObjPlayer *)arg0)->fill_status_info(&atk);
-        VecCopy__FP3VecPC3Vec(&atk, origin);
+        VecCopy((Vec *)&atk, (const Vec *)origin);
         atk.angle = *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xF0)) + 0x60) + angle;
         atk.f3C = *scale;
         atk.f38 = *(f32 *)((s8 *)arg0 + 0x1E4);
@@ -613,12 +613,12 @@ void fire_shot_at_target__11TItemWeaponFv(u8 *arg0, Vec_8011EB84 *origin, void *
         remap_extra_attack_type(arg0);
         hit = ((u8 *(*)(void *, void *))TObjPlayer__sub_8011E56C)(arg0, origin);
         if (hit != NULL) {
-            VecCopy__FP3VecPC3Vec(&atk, *(void **)((s8 *)hit + 4));
+            VecCopy((Vec *)&atk, (const Vec *)(*(void **)((s8 *)hit + 4)));
             atk.flags |= 0x800;
         } else if ((state = (s32)((TObjPlayer *)(*(void **)((s8 *)arg0 + 0xF0)))->get_extended_state()) != 0 && get_captured_target_count((void *)state) > 0) {
             if ((item = (s32)get_captured_target_entry((void *)state, 0)) != 0) {
                 if ((ph = ((u8 *(*)(s32))find_entity_by_id)(((s32 (*)(s32))get_uid__10TObjPlayerFv)(item))) != NULL && *(u8 **)((s8 *)ph + 0xA4) != NULL) {
-                    VecCopy__FP3VecPC3Vec(&v, &(*(Skel_8011EB84 **)((s8 *)ph + 0xA4))->n[get_captured_target_collider_index((void *)item)]);
+                    VecCopy((Vec *)&v, (const Vec *)(&(*(Skel_8011EB84 **)((s8 *)ph + 0xA4))->n[get_captured_target_collider_index((void *)item)]));
                     subtract_vector(&v, origin);
                     push_matrix_from(((s32 *)&identity_matrix));
                     ((void (*)(s32, s32))rotate_matrix_y)(0, angle);
@@ -669,7 +669,7 @@ void TObjPlayer::launch_rare_weapon_special(void *origin, s32 enable, f32 scale)
         Obj_8011EDFC *t = ((Obj_8011EDFC *(*)(u16, s16))resolve_hittable_target)(get_uid__10TObjPlayerFv(e), get_captured_target_collider_index(e));
         if (t != NULL) {
             Part_8011EDFC *part = &t->parts[get_captured_target_collider_index(e)];
-            VecCopy__FP3VecPC3Vec(&pos, &part->pos);
+            VecCopy((Vec *)&pos, (const Vec *)&part->pos);
             found = 1;
         }
     }
@@ -753,7 +753,7 @@ s32 TItemWeapon::launch_shot(u8 *arg1, s32 i, s32 arg3, s32 arg4) {
                 var_r29 = (u8 *)(((Obj_8011F474 *(*)(s32, s16))resolve_hittable_target)(((s32 (*)(void *))get_uid__10TObjPlayerFv)(temp_r22),get_captured_target_collider_index(temp_r22)));
                 if (var_r29 != NULL) {
                     temp_r22_2 = (u8 *)&(*(Rec_8011F108 **)((s8 *)var_r29 + 0xA4))[get_captured_target_collider_index(temp_r22)];
-                    VecCopy__FP3VecPC3Vec((void *) (&endpoint.x), (void *) &((Rec_8011F108 *)temp_r22_2)->pos);
+                    VecCopy((Vec *)(&endpoint.x), (const Vec *)((void *) &((Rec_8011F108 *)temp_r22_2)->pos));
                     subtract_vector((void *) (&endpoint.x), (void *) (arg1));
                     temp_f3 = normalize_vector((void *) (&endpoint.x)) - *(f32 *)((s8 *)temp_r22_2 + 0xC);
                     endpoint.x *= temp_f3;
@@ -801,7 +801,7 @@ s32 TItemWeapon::launch_shot(u8 *arg1, s32 i, s32 arg3, s32 arg4) {
                     var_f31 = xyz_distance((void *) (arg1), (void *) (&endpoint.x)) / *(f32 *)((s8 *)((u8 *)this) + 0x1E4);
                 }
             } else {
-                VecCopy__FP3VecPC3Vec((void *) (&endpoint.x), (void *) (*(u8 **)((s8 *)temp_r3_3 + 4)));
+                VecCopy((Vec *)(&endpoint.x), (const Vec *)(*(u8 **)((s8 *)temp_r3_3 + 4)));
                 var_f31 = xyz_distance((void *) (arg1), (void *) (&endpoint.x)) / *(f32 *)((s8 *)((u8 *)this) + 0x1E4);
                 if ((*(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r3_3 + 4)) + 0x18) & 0x100) && ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x1EC) != 0U)) {
                     spawn_land_hit_effect((int) (tl_05), (void *) (((u8 *)this)), (void *) (arg1), (void *) (&endpoint.x), (int) ((s32) var_f31));

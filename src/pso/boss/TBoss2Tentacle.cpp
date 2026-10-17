@@ -1,4 +1,5 @@
 #include "pso/TBoss2Tentacle.h"
+#include "pso/system/vector.h"
 
 TBoss2Tentacle::~TBoss2Tentacle() {}
 
@@ -67,7 +68,6 @@ struct Obj_80039994 {
 
 extern "C" {
 u8 TBoss2Tentacle__sub_80039CA0(u8 *arg0);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void TBoss2Tentacle__sub_80039DB0(void* p);
 extern V3_80039DE0 TBoss2Tentacle__segment_points[];
 extern s32 TBoss2Tentacle__segment_point_defaults[];
@@ -239,11 +239,11 @@ void run_task__14TBoss2TentacleFv(u8 *arg0) {
         TObjPlayer::concat_matrix(0, F(s32, 0x110));
         matrix_mult_vec(0, &v, arg0 + 0x140);
         pop_matrix();
-        VecCopy__FP3VecPC3Vec(&v, arg0 + 0x12C);
+        VecCopy((Vec *)&v, (const Vec *)(arg0 + 0x12C));
         subtract_vector(&v, arg0 + 0x140);
         len = ((TObjBoss2Tunnel *)(&v))->clamp_velocity();
         F(s32, 0x11C) = (s32)(lbl_80435BA8[0] * atan2_float(v.x, v.z)) + 0x8000;
-        VecCopy__FP3VecPC3Vec(&pos, arg0 + 0x12C);
+        VecCopy((Vec *)&pos, (const Vec *)(arg0 + 0x12C));
         switch (F(s32, 0x24)) {
         case 0: {
             s32 i;
@@ -419,7 +419,7 @@ void TBoss2Tentacle::reset_segment_points() {
     Obj_80039DE0 *self = (Obj_80039DE0 *)this;
     s32 i;
     for (i = 0; i < 14; i++) {
-        VecCopy__FP3VecPC3Vec(&self->pts[i], &TBoss2Tentacle__segment_points[i]);
+        VecCopy((Vec *)&self->pts[i], (const Vec *)&TBoss2Tentacle__segment_points[i]);
         self->vals[i] = TBoss2Tentacle__segment_point_defaults[i];
     }
 }
@@ -436,7 +436,7 @@ void TBoss2Tentacle::start_attack_at_target(u8 *arg1, s32 arg2) {
         var_r5 = 0x78;
     }
     *(s32 *)((s8 *)arg0 + 0x154) = var_r5;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x12C, arg1);
+    VecCopy((Vec *)(arg0 + 0x12C), (const Vec *)arg1);
     TBoss2Tentacle__sub_80039DB0((void*)(arg0));
 }
 
@@ -453,7 +453,7 @@ Obj_80039F50 *__ct__14TBoss2TentacleFP7TObjectii(Obj_80039F50 *self, void *paren
     self->f20 = 0;
     self->f24 = 0;
     for (i = 0; i < 14; i++) {
-        VecCopy__FP3VecPC3Vec(&self->pts[i], &TBoss2Tentacle__segment_points[i]);
+        VecCopy((Vec *)&self->pts[i], (const Vec *)&TBoss2Tentacle__segment_points[i]);
         self->vals[i] = TBoss2Tentacle__segment_point_defaults[i];
     }
     self->f114 = (f32)(TBoss2Tentacle__motion_data->count - 1) * (lbl_805D855C * (f32)rand());

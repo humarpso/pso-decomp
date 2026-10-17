@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/misc/TPhotonLeilla.h"
@@ -53,7 +54,6 @@ struct Laser_801AC17C {
 
 extern "C" {
 void construct_actor_base__10TObjPlayerFPvPv(void *, void *);
-Vec_801AC36C *VecCopy__FP3VecPC3Vec(Vec_801AC36C *, const Vec_801AC36C *);
 s32 create_particle_emitter(Vec_801AC36C *, s32);
 extern s32 __vt__12TPhotonLaser[];
 extern s32 lbl_805D34F0;
@@ -140,9 +140,9 @@ Laser_801AC36C *TPhotonLaser__ct(Laser_801AC36C *self, Params_801AC36C *p, void 
     construct_actor_base__10TObjPlayerFPvPv(self, parent);
     self->vt18 = ((s32 *)&__vt__12TPhotonLaser);
     self->f0 = lbl_805D34F0;
-    VecCopy__FP3VecPC3Vec(&self->f334, VecCopy__FP3VecPC3Vec(&self->f340, &p->pos));
+    VecCopy((Vec *)&self->f334, (const Vec *)(VecCopy((Vec *)((Vec *)&self->f340), (const Vec *)((const Vec *)&p->pos))));
     self->f370 = arg3;
-    VecCopy__FP3VecPC3Vec(&self->f34C, &p->dir);
+    VecCopy((Vec *)&self->f34C, (const Vec *)&p->dir);
     self->f34C.x *= p->scale;
     self->f34C.y *= p->scale;
     self->f34C.z *= p->scale;

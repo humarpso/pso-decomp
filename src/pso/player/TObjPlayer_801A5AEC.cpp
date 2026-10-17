@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/main_loop.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -91,7 +92,6 @@ extern const f32 lbl_805DC0BC;
 extern const f32 lbl_805DC0C0;
 extern const f32 lbl_805DC0C4;
 extern const f32 lbl_805DC0C8;
-void controller_stuff__Fv(void);
 }
 
 struct Kb_801A6910 {
@@ -250,7 +250,8 @@ void TKeyBoardControl::update_input_frame() {
 }
 #pragma push
 #pragma fp_contract on
-void controller_stuff__Fv(void) {
+}
+void controller_stuff(void) {
     s32 i;
     Src_801A5F1C **pp;
     Set_801A5F1C *set;
@@ -398,6 +399,7 @@ void controller_stuff__Fv(void) {
         update_pad_recalibration();
     }
 }
+extern "C" {
 #pragma pop
 
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnePanBARA.h"
@@ -23,7 +24,6 @@ struct Stack_800E0D1C {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 int set_field_b8__10TObjMotionFs(void*, int);
 s32 TObjEnePanarms__sub_800DFB44(s32);
 s32 TObjEnePanarms__sub_800E1C98(void *, s32);
@@ -538,7 +538,7 @@ void TObjEnePanarms__sub_800E0048(u8 *arg0) {
         TObjEnePanarms__sub_800E1C98(arg0, 2);
         return;
     }
-    VecCopy__FP3VecPC3Vec(&v, arg0 + 0x3C8);
+    VecCopy((Vec *)&v, (const Vec *)(arg0 + 0x3C8));
     if (vector_length(&v) <= TObjEnePanarms__data_805DA52C) {
         v.x = TObjEnePanarms__data_805DA530;
         v.z = TObjEnePanarms__data_805DA524;
@@ -714,7 +714,7 @@ void TObjEnePanarms::update_chase_target() {
         return;
     }
     (this->action_timer)--;
-    VecCopy__FP3VecPC3Vec(&sp8, p + 0x38);
+    VecCopy((Vec *)&sp8, (const Vec *)(p + 0x38));
     subtract_vector(&sp8, (u8 *)&this->position);
     sp8.y = TObjEnePanarms__data_805DA524;
     if (vector_length(&sp8) <= TObjEnePanarms__data_805DA52C) {
@@ -791,7 +791,7 @@ void TObjEnePanarms__sub_800E0950(u8 *arg0) {
     }
     temp_f2 = *(f32 *)((s8 *)arg0 + 0xC0);
     if ((temp_f2 >= lbl_805DA558) && (temp_f2 < (lbl_805DA558 + panarms_particle_frame_window))) {
-        VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x3A4));
+        VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x3A4));
         temp_f1 = stack.spC;
         stack.spC = temp_f1 + TObjEnePanarms__data_805DA544;
         spawn_particle_effect((void *) (&stack.sp8), (int) (0xF3), (f32) (temp_f1));
@@ -871,7 +871,7 @@ void TObjEnePanarms::restore_from_linked_object() {
     u8 *temp_r5;
     temp_r4 = (u8 *)(*(u8 * *)&this->unk_37C);
     *(s32 *)((s8 *)temp_r4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x18) & 0xFFFFFFFE);
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (*(u8 * *)&this->m_39c + 0x38));
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(*(u8 * *)&this->m_39c + 0x38));
     temp_r5 = (u8 *)(*(u8 * *)&this->m_39c);
     this->rotation_y = (s32) *(s32 *)((s8 *)temp_r5 + 0x60);
     *(s32 *)&this->animationFlags = (s32) (*(s32 *)&this->animationFlags | 1);
@@ -900,7 +900,7 @@ void TObjEnePanarms__sub_800E0D1C(u8 *arg0) {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x3B4) - 5;
     if (temp_r0 > 0) {
         temp_f31 = TObjEnePanarms__data_805DA530 / (f32) temp_r0;
-        VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x38C));
+        VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x38C));
         subtract_vector((void *) (&stack.sp8), (void *) (arg0 + 0x38));
         stack.sp8 *= temp_f31;
         stack.spC *= temp_f31;
@@ -937,7 +937,7 @@ void TObjEnePanarms::update_move_to_target() {
         TObjEnePanarms__sub_800E1C98(arg0, 2);
         return;
     }
-    VecCopy__FP3VecPC3Vec(&sp8, (u8 *)&this->m_38c);
+    VecCopy((Vec *)&sp8, (const Vec *)&this->m_38c);
     subtract_vector(&sp8, (u8 *)&this->position);
     sp8.y = (*(const f32 *)&TObjEnePanarms__data_805DA524);
     dist = vector_length(&sp8);
@@ -1029,7 +1029,7 @@ void TObjEnePanarms__sub_800E10D0(u8 *arg0) {
             if (*(s32 *)((s8 *)arg0 + 0x380) == 1) {
                 scale *= lbl_805DA54C;
             }
-            VecCopy__FP3VecPC3Vec(&a, p + 0x38);
+            VecCopy((Vec *)&a, (const Vec *)(p + 0x38));
             a.x += scale * cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
             a.z -= scale * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
             subtract_vector(&a, arg0 + 0x38);
@@ -1121,10 +1121,10 @@ void TObjEnePanarms::init_split() {
 #pragma opt_propagation off
 void TObjEnePanarms::snap_to_parent_position() {
     u8 *arg0 = (u8 *)this;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (*(s32 *)&this->m_39c + 0x38));
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(*(s32 *)&this->m_39c + 0x38));
     *(f32 *)&this->position[0] = (f32) (*(f32 *)&this->position[0] + lbl_805DA580);
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) + lbl_805DA580);
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
 }
 #pragma pop
 
@@ -1143,7 +1143,7 @@ void TObjEnePanarms::spawn_periodic_particle() {
     u8 *arg0 = (u8 *)this;
     Vec position;
     if (!(this->m_45c & 7)) {
-        VecCopy__FP3VecPC3Vec((void *) (&position.x), (void *) (arg0 + 0x3A4));
+        VecCopy((Vec *)(&position.x), (const Vec *)(arg0 + 0x3A4));
         position.y += TObjEnePanarms__data_805DA544;
         ((s32 (*)(void *, int))spawn_particle_effect)((void *) (&position.x), (int) (0xF3));
     }
@@ -1213,18 +1213,18 @@ s32 try_move_with_detour__14TObjEnePanarmsFPvPv(u8 *arg0, Vec_800E18B0 *arg1) {
     if ((*(const f32 *)&TObjEnePanarms__data_805DA524) == vector_length(&dir)) {
         return 0;
     }
-    VecCopy__FP3VecPC3Vec(&t, arg0 + 0x38);
+    VecCopy((Vec *)&t, (const Vec *)(arg0 + 0x38));
     vec3_add_to(&t, arg1);
     if (horizontal_distance_squared(&t, arg0 + 0x50) > lbl_805DA584) {
         return 0;
     }
     for (i = 1; i < 16; i++) {
-        VecCopy__FP3VecPC3Vec(&p, arg0 + 0x38);
+        VecCopy((Vec *)&p, (const Vec *)(arg0 + 0x38));
         vec3_add_to(&p, &dir);
         p.y += lbl_805DA588;
         if (project_actor_to_ground(arg0, &p, 0) != 0 && csnLookAt(arg0 + 0x38, &p) == 0) {
-            VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
-            VecCopy__FP3VecPC3Vec(arg0 + 0x38, &p);
+            VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
+            VecCopy((Vec *)(arg0 + 0x38), (const Vec *)&p);
             ((TObjPlayer *)arg0)->update_collisions();
             return 1;
         }
@@ -1256,7 +1256,7 @@ void TObjEnePanarms::update_offset_from_parent() {
     z = panarms_parent_offset_table[this->m_380].z;
     s = sin_table_lookup(*(s32 *)((s8 *)(*(u8 * *)&this->m_39c) + 0x60));
     c = cos_table_lookup(*(s32 *)((s8 *)(*(u8 * *)&this->m_39c) + 0x60));
-    VecCopy__FP3VecPC3Vec((u8 *)&this->m_38c, *(u8 * *)&this->m_39c + 0x38);
+    VecCopy((Vec *)&this->m_38c, (const Vec *)(*(u8 * *)&this->m_39c + 0x38));
     *(f32 *)&this->m_38c += x * c + z * s;
     *(f32 *)&this->unk_394 += -x * s + z * c;
     this->m_398 = *(s32 *)((s8 *)(*(u8 * *)&this->m_39c) + 0x60);
@@ -1288,7 +1288,7 @@ void TObjEnePanBARA::calc_part_position(u8 *arg1, s32 *arg2) {
     z = panarms_part_offset_table[this->m_380].z;
     s = sin_table_lookup(*(s32 *)((s8 *)(this->m_39c) + 0x60));
     c = cos_table_lookup(*(s32 *)((s8 *)(this->m_39c) + 0x60));
-    VecCopy__FP3VecPC3Vec(arg1, this->m_39c + 0x38);
+    VecCopy((Vec *)arg1, (const Vec *)(this->m_39c + 0x38));
     *(f32 *)((s8 *)arg1 + 0) += x * c + z * s;
     *(f32 *)((s8 *)arg1 + 8) += -x * s + z * c;
     if (arg2 != NULL) {
@@ -1355,7 +1355,7 @@ void TObjEnePanarms::init_state() {
 
 void TObjEnePanarms__sub_800E1E14(u8 *arg0) {
     u8 *temp_r5;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (*(u8 **)((s8 *)arg0 + 0x39C) + 0x38));
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(*(u8 **)((s8 *)arg0 + 0x39C) + 0x38));
     temp_r5 = *(u8 **)((s8 *)arg0 + 0x39C);
     *(s32 *)((s8 *)arg0 + 0x60) = (s32) *(s32 *)((s8 *)temp_r5 + 0x60);
     ((s32 (*)(void *, int, int))TObjEnePanarms__sub_800E1C98)((void *) (arg0), (int) (1), (int) (temp_r5));
@@ -1390,10 +1390,10 @@ void TObjEnePanBARA::vfunc_63() {
     default:
         if (st == 0) {
             this->rotation_y = *(s32 *)((s8 *)(this->m_39c) + 0x60) + panarms_turn_delta_table[this->m_380];
-            VecCopy__FP3VecPC3Vec((u8 *)&this->position, this->m_39c + 0x38);
+            VecCopy((Vec *)&this->position, (const Vec *)(this->m_39c + 0x38));
             *(f32 *)((s8 *)arg0 + 0x38) += lbl_805DA588 * sin_table_lookup(this->rotation_y);
             *(f32 *)((s8 *)arg0 + 0x40) += lbl_805DA588 * cos_table_lookup(this->rotation_y);
-            VecCopy__FP3VecPC3Vec((u8 *)&this->m_2fc, (u8 *)&this->position);
+            VecCopy((Vec *)&this->m_2fc, (const Vec *)&this->position);
         }
         ((int (*)(void*, int))TObjEnePanarms__sub_800E1C98)(arg0, 7);
         break;
@@ -1409,7 +1409,7 @@ void TObjEnePanarms::update_linked_effect() {
     f32 temp_f1;
     s32 temp_r0;
 
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x3A4), (void *) (arg0 + 0x3E0));
+    VecCopy((Vec *)(arg0 + 0x3A4), (const Vec *)(arg0 + 0x3E0));
     if (((s32 (*)(void *, void *, void *))project_actor_to_ground)((void *) (arg0), (void *) (arg0 + 0x3A4), (void *) (&sp10)) != 0) {
         push_matrix();
         temp_f1 = this->m_3a8;

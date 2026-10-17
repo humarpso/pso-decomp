@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjDFDemo3.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss4Type2.h"
@@ -25,7 +26,6 @@ s32 func_803e11e8__FUl(u32);
 s32 func_803e11f0__Fv();
 s32 draw_model_motion(s32, s32, f32);
 void render__11TObjDFDemo3Fv(u8 *arg0);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
@@ -194,7 +194,7 @@ u8 *TObjDFDemo3__ct(u8 *arg0, s32 parent, s32 arg2, s32 arg3) {
     construct_world_actor_base(arg0, (void *)parent);
     *(void **)((s8 *)arg0 + 0x18) = (void *)__vt__11TObjDFDemo3;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjDFDemo3__name;
-    VecCopy__FP3VecPC3Vec(arg0 + 0xA0, (void *)arg2);
+    VecCopy((Vec *)(arg0 + 0xA0), (const Vec *)arg2);
     *(f32 *)((s8 *)arg0 + 0xA4) = 0.0f;
     {
         Vec_8004F030 v = *(Vec_8004F030 *)(arg0 + 0xA0);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/unk/TObjCityAirCar_Car.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TNowLoading.h"
@@ -73,7 +74,6 @@ struct Car_80181074 {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 u32 spawn_continuous_particle_effect_with_flags(void *, int, int);
 s32 update_technique_slot__10TTecRaFoieFl(s32, int, int);
@@ -168,7 +168,7 @@ void run_task__18TObjCityAirCar_CarFv(Car_80180E70 *self) {
             } else {
                 scale = lbl_805DBBBC;
             }
-            VecCopy__FP3VecPC3Vec(&v, &self->pos);
+            VecCopy((Vec *)&v, (const Vec *)&self->pos);
             v.x -= scale * sin_table_lookup(self->yaw);
             v.z -= scale * cos_table_lookup(self->yaw);
             ((TNowLoading *)(self->light))->copy_pos(&v);
@@ -186,7 +186,7 @@ s32 TObjCityAirCar_Car::update_path_motion() {
     s32 r;
     sample_aircar_path_position(self->path, &a, self->frame);
     ok = sample_aircar_path_position(self->path, &b, lbl_805DBBC0 + self->frame);
-    VecCopy__FP3VecPC3Vec(&self->pos, &b);
+    VecCopy((Vec *)&self->pos, (const Vec *)&b);
     vec3_add_to(&self->pos, &a);
     self->pos.x *= lbl_805DBBC4;
     self->pos.y *= lbl_805DBBC4;

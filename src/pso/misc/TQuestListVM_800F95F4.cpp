@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/misc/TQuestListVM.h"
 
@@ -6,7 +7,6 @@ extern "C" {
 
 s32 subtractive_rng_seed(s32 *, u32);
 s32 prs_decompress_buffer(void *, s32);
-s32 bswap_32__FPUl(u32 *);
 s32 __ct__14SubtractiveRngFv(s32 *);
 
 u32 TQuestListVM::decrypt_quest_data(s32 arg1, s32 arg2, u32 arg3) {
@@ -17,8 +17,8 @@ u32 TQuestListVM::decrypt_quest_data(s32 arg1, s32 arg2, u32 arg3) {
 
     spC = *(u32 *)&this->m_name;
     sp8 = *(u32 *)&this->m_flags;
-    bswap_32__FPUl(&spC);
-    bswap_32__FPUl(&sp8);
+    bswap_32(&spC);
+    bswap_32(&sp8);
     if (spC > arg3) {
         return 0U;
     }

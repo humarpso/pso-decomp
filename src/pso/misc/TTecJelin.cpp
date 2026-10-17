@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/unk/TUnk_804CC148.h"
 
 #include <stddef.h>
@@ -142,7 +143,6 @@ void run_task__9TTecJelinFv(struct Self_802336F0 *self);
 void construct_area_technique_base(void *);
 extern s32 tec_jelin_class_name_ptr;
 extern s32 __vt__9TTecJelin[];
-void VecCopy__FP3VecPC3Vec(Vec_80233958 *, Vec_80233958 *);
 s32 play_sound_effect(int, void *, int, int);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 obj_getField1c(void *);
@@ -229,7 +229,7 @@ Jelin_80233808 *TTecJelin__ct(Jelin_80233808 *self, void *_w1, void *_w2, void *
     self->fec = 1;
     copy_technique_target_list(self->sub, _w3);
     ((TTecJelin *)self)->init_tech_params();
-    VecCopy__FP3VecPC3Vec((Vec_80233958 *)&self->pos, (Vec_80233958 *)_w2);
+    VecCopy((Vec *)((Vec_80233958 *)&self->pos), (const Vec *)((Vec_80233958 *)_w2));
     if (self->holder != 0) {
         self->holder->eff->scale = self->range;
     }
@@ -267,7 +267,7 @@ Jelin_80233958 *construct__9TTecJelinFPviiii(Jelin_80233958 *self, s32 _w1, s32 
     self->f0 = tec_jelin_class_name_ptr;
     self->fec = 0;
     ((TTecJelin *)self)->init_tech_params();
-    VecCopy__FP3VecPC3Vec(&self->pos, &self->src_pos);
+    VecCopy((Vec *)&self->pos, (const Vec *)&self->src_pos);
     if (self->holder != 0) {
         self->holder->eff->scale = self->range;
     }

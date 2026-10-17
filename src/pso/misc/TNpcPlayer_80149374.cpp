@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 #include "pso/npc/TObjNpcBringer.h"
 #include "pso/npc/TObjNpcBase.h"
 
 extern "C" {
 s32 read_be16_field2__10TObjPlayerFv();
-s32 bswap_16__FPUs(s32);
-s32 bswap_32__FPUl(s32);
     extern const float lbl_805DB1C4;
 s32 TLobby__send_and_handle_60(void *);
 
@@ -21,13 +20,13 @@ void TNpcPlayer::send_6x3E() {
 void TNpcPlayer::bswap_6x3E() {
     s32 arg0 = (s32)this;
     read_be16_field2__10TObjPlayerFv();
-    bswap_16__FPUs(arg0 + 4);
-    bswap_16__FPUs(arg0 + 6);
-    bswap_16__FPUs(arg0 + 8);
-    bswap_16__FPUs(arg0 + 0xA);
-    bswap_32__FPUl(arg0 + 0xC);
-    bswap_32__FPUl(arg0 + 0x10);
-    bswap_32__FPUl(arg0 + 0x14);
+    bswap_16((u16 *)(arg0 + 4));
+    bswap_16((u16 *)(arg0 + 6));
+    bswap_16((u16 *)(arg0 + 8));
+    bswap_16((u16 *)(arg0 + 0xA));
+    bswap_32((u32 *)(arg0 + 0xC));
+    bswap_32((u32 *)(arg0 + 0x10));
+    bswap_32((u32 *)(arg0 + 0x14));
 }
 void TNpcPlayer::init_6x3E_packet() { *(short *)&this->m_flags = 0; *(short *)&this->m_id = 0; *(short *)&this->m_prev = -1; *(short*)((char*)this + 0xa) = -1; *(float *)&this->m_down = lbl_805DB1C4; *(float *)&this->m_up = lbl_805DB1C4; *(float *)&this->m_next = lbl_805DB1C4; *(unsigned char *)&this->m_name = 62; *(unsigned char*)((char*)this + 0x1) = 6; }
 void TObjNpcBringer::vfunc_88() {

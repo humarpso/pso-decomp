@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TFontSmallTask.h"
 #include "pso/enemy/TObjEneEpsilonGuard.h"
 #include "pso/misc/TLobby.h"
@@ -351,7 +352,6 @@ void *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c();
 s32 get_actor_section_id__15TPlyPhotonChairFv(void *);
 void find_leader_section_id(struct Out_800FD614 *out, s32 arg1);
-void VecCopy__FP3VecPC3Vec(void *, const void *);
 u32 calc_small_font_text_width(char *);
 void *get_instance__15TWindowCtrlMainFv(void);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -366,7 +366,7 @@ TFontSmallTask_800FD4D4 *__ct__14TFontSmallTaskFv(TFontSmallTask_800FD4D4 *self,
     __ct__7TObjectFP7TObject(self, get_instance__15TWindowCtrlMainFv());
     self->vt = __vt__14TFontSmallTask;
     self->f0 = TFontSmallTask__name;
-    VecCopy__FP3VecPC3Vec(&self->pos, pos);
+    VecCopy((Vec *)&self->pos, (const Vec *)pos);
     self->ofs_x = lbl_805DAA0C;
     self->ofs_y = lbl_805DAA0C;
     self->rgb = color & 0xFFFFFF;

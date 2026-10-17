@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/object/TObjIllGillKage.h"
 #include "pso/TObject.h"
@@ -9,7 +10,6 @@ typedef char RecoveredGlobal_803655F8___vt__15TObjIllGillKage_size[sizeof(Recove
 
 extern "C" {
 s32 play_persistent_sound(int, void *, void *, int, int);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 int queue_destruction__7TObjectFv(void*);
 s32 construct_world_actor_base(void *);
@@ -77,7 +77,7 @@ u8 *TObjIllGillKage__ct(u8 *arg0, s32 arg1, u32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_803655F8___vt__15TObjIllGillKage *)&__vt__15TObjIllGillKage).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D44AC;
     if (arg2 != 0U) {
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2 + 0x38));
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2 + 0x38));
         *(u16 *)((s8 *)arg0 + 0x98) = obj_getField1c((void *) (arg2));
         *(s32 *)((s8 *)arg0 + 0x94) = 0xB4;
         *(s32 *)((s8 *)arg0 + 0x90) = 0;

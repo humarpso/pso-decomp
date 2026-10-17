@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 #include "pso/packet_classes.h"
 #include "pso/TPlyGuildCardTag.h"
 #pragma inline_depth(1)
@@ -17,9 +18,8 @@ public:
 extern "C" {
 
 s32 __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag();
-int bswap_32__FPUl(void*);
 
-void TPlyGuildCardTag::bswap_lobby_entry(void *entry) { ((TPlyGuildCardTag *)entry)->bswap(); bswap_32__FPUl((char*)entry + 0x8); }
+void TPlyGuildCardTag::bswap_lobby_entry(void *entry) { ((TPlyGuildCardTag *)entry)->bswap(); bswap_32((u32 *)((char*)entry + 0x8)); }
 
 }
 

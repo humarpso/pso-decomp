@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 #include "pso/protocol/subcmd_6x.h"
 #include <stddef.h>
 #include "pso/misc/TLobby.h"
@@ -30,12 +31,10 @@ s32 __construct_new_array(s32, s32 *, s32, s32, s32);
 s32 mem_alloc(s32);
 extern s32 drop_stacked_item_passthrough__6TLobbyFv[];
     extern int lbl_805D5868;
-int bswap_32__FPUl(void*);
 int read_be16_field2__10TObjPlayerFv(void*);
 int TLobby__send_and_handle_60(void*);
 void TLobby__sub_801041BC(void *arg0);
 void TLobby__sub_801041D8(void);
-int bswap_16__FPUs(void*);
 int bswap__9TItemDataFv(void*);
 void TLobby__sub_80104350(void);
     extern int* item_sync_counter_table;
@@ -120,7 +119,7 @@ void TLobby::alloc_objects() {
     TLobby::reset_floor_items();
 }
 int TLobby::get_lobby_flag() {  return lbl_805D5868; }
-void TLobby::bswap_player_packet() { read_be16_field2__10TObjPlayerFv(this); bswap_32__FPUl((char*)this + 0x4); bswap_32__FPUl((char*)this + 0x8); }
+void TLobby::bswap_player_packet() { read_be16_field2__10TObjPlayerFv(this); bswap_32((u32 *)((char*)this + 0x4)); bswap_32((u32 *)((char*)this + 0x8)); }
 void TLobby::update_and_send() { bswap_player_packet(); TLobby__send_and_handle_60(this); }
 void TLobby__sub_801041BC(void *arg0) {
     *(s32 *)((s8 *)arg0 + 4) = -1;
@@ -130,20 +129,20 @@ void TLobby__sub_801041BC(void *arg0) {
 void TLobby__sub_801041D8(void) {
     ((TObjPlayer *)(&lbl_805D5430))->set_flags(1);
 }
-void TLobby::bswap_item() { bswap_16__FPUs((char*)this + 0x2); bswap_32__FPUl((char*)this + 0x4); bswap_32__FPUl((char*)this + 0x8); bswap_16__FPUs((char*)this + 0xc); bswap_16__FPUs((char*)this + 0xe); bswap__9TItemDataFv((char*)this + 0x10); }
+void TLobby::bswap_item() { bswap_16((u16 *)((char*)this + 0x2)); bswap_32((u32 *)((char*)this + 0x4)); bswap_32((u32 *)((char*)this + 0x8)); bswap_16((u16 *)((char*)this + 0xc)); bswap_16((u16 *)((char*)this + 0xe)); bswap__9TItemDataFv((char*)this + 0x10); }
 
 typedef char SyncItemHeaderPlayerIds[offsetof(G_SyncItemState_6x6D_Decompressed, next_item_id_per_player) == 0x20 ? 1 : -1];
 typedef char SyncItemHeaderFloorCounts[offsetof(G_SyncItemState_6x6D_Decompressed, floor_item_count_per_floor) == 0x50 ? 1 : -1];
 typedef char SyncItemHeaderSize[sizeof(G_SyncItemState_6x6D_Decompressed) == 0x8C ? 1 : -1];
 void bswap_sync_item_state_header(G_SyncItemState_6x6D_Decompressed *header) {
     for (s32 i = 0; i < 16; ++i) {
-        bswap_16__FPUs((void*)(&header->next_drop_number_per_floor[i]));
+        bswap_16((&header->next_drop_number_per_floor[i]));
     }
     for (s32 i = 0; i < 12; ++i) {
-        bswap_32__FPUl((void*)(&header->next_item_id_per_player[i]));
+        bswap_32((&header->next_item_id_per_player[i]));
     }
     for (s32 i = 0; i < 15; ++i) {
-        bswap_32__FPUl((void*)(&header->floor_item_count_per_floor[i]));
+        bswap_32((&header->floor_item_count_per_floor[i]));
     }
 }
 

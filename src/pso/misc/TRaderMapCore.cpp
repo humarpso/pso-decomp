@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TObject.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -344,7 +345,6 @@ extern const f32 TRaderMapCore__data_805DC528;
 extern const f32 lbl_805DC57C;
 extern const f32 lbl_805DC580;
 extern const f32 lbl_805DC584;
-void VecCopy__FP3VecPC3Vec(void *, void *);
 int obj_getField1c(void*);
 s32 get_current_floor(void);
 s32 get_field_3e4__10TObjPlayerFv(void);
@@ -741,7 +741,7 @@ void TRaderMapCore::gather_player_markers() {
     if (p != NULL) {
         team = TLobby__sub_801C19D0(p->sub828);
         if (test_flag_2000000__10TObjPlayerFPv((u32)p) == 0) {
-            VecCopy__FP3VecPC3Vec(me, p->pos);
+            VecCopy((Vec *)me, (const Vec *)p->pos);
             me->y = lbl_805DC570;
             me->unkC = p->unk60;
             me->id = local_client_id;
@@ -772,7 +772,7 @@ void TRaderMapCore::gather_player_markers() {
             p = (Player_801F9E9C *)get_player_by_client_id(i);
             if (p != NULL && floor == get_field_3e4__10TObjPlayerFv() &&
                 test_flag_2000000__10TObjPlayerFPv((u32)p) == 0) {
-                VecCopy__FP3VecPC3Vec(e, p->pos);
+                VecCopy((Vec *)e, (const Vec *)p->pos);
                 e->y = lbl_805DC570;
                 e->unkC = p->unk60;
                 e->id = i;
@@ -785,7 +785,7 @@ void TRaderMapCore::gather_player_markers() {
             if (p != NULL && floor == get_field_3e4__10TObjPlayerFv() &&
                 team == TLobby__sub_801C19D0(p->sub828) &&
                 test_flag_2000000__10TObjPlayerFPv((u32)p) == 0) {
-                VecCopy__FP3VecPC3Vec(e, p->pos);
+                VecCopy((Vec *)e, (const Vec *)p->pos);
                 e->y = lbl_805DC570;
                 e->unkC = p->unk60;
                 e->id = i;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/object/TObjMotion.h"
@@ -829,7 +830,6 @@ struct Vec_800B4688 { f32 x, y, z; };
 
 struct Vec_800B4388 { f32 x, y, z; };
 
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen();
 f64 atan2_float(f32, f32);
 void queue_destruction__7TObjectFv(void *);
@@ -1278,7 +1278,7 @@ void render__17TObjEneBm3FlyNestFPv(u8 *arg0) {
             chunk_polygon_flags_or_mask = lbl_805D5668;
         }
     }
-    VecCopy__FP3VecPC3Vec(&self->f2FC, &self->f3C8);
+    VecCopy((Vec *)&self->f2FC, (const Vec *)&self->f3C8);
 }
 
 void handle_attachment_sample__17TObjEneBm3FlyNestFi(s32 arg0) {
@@ -1396,7 +1396,7 @@ void state_dying__17TObjEneBm3FlyNestFPvi(u8 *actor, s32 arg1) {
                 if (*(s32 *)((s8 *)actor + 0x4C8) >= 4) {
                     r = rand_range__9TObjEneDDFff(actor, lbl_805D9D1C, lbl_805D9D10);
                     a = get_random_scaled__9TObjEneDDFv(actor);
-                    VecCopy__FP3VecPC3Vec(&p, actor + 0x2FC);
+                    VecCopy((Vec *)&p, (const Vec *)(actor + 0x2FC));
                     p.x = r * sin_table_lookup(a) + p.x;
                     p.y += lbl_805D9D1C;
                     p.z = r * cos_table_lookup(a) + p.z;
@@ -1547,7 +1547,7 @@ void TObjEneBm3FlyNest__sub_800B318C(u8 *arg0, s32 arg1) {
             spawn_particle_effect((void *) (arg0 + 0x38), (int) (0xF0));
         } else if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D9D3C)) != 0) {
             temp_r31 = *(s32 *)((s8 *)arg0 + 0x60) - 0x4000;
-            VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+            VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x38));
             stack.sp8 += lbl_805D9D40 * sin_table_lookup((int) (temp_r31));
             stack.sp10 += lbl_805D9D40 * cos_table_lookup((int) (temp_r31));
             spawn_particle_effect((void *) (&stack.sp8), (int) (0xF0));
@@ -1785,7 +1785,7 @@ void TObjEneBm3FlyNest::spawn_child() {
     s32 n;
     if (s->count <= 6) {
         n = (s->f2C + 1) + s->spawned;
-        ((int (*)(void*, void*))VecCopy__FP3VecPC3Vec)((void*)(&position), (void*)(((Vec_800B39CC * (*)(void *))TObjEneBm3FlyNest__sub_800B2A54)(s)));
+        VecCopy((Vec *)(&position), (const Vec *)(((Vec_800B39CC * (*)(void *))TObjEneBm3FlyNest__sub_800B2A54)(s)));
         if (((TObjEneBm3Fly *)s)->create((void *)(s->nextId), (void *)n, (void *)(&position), (void *)(&velocity)) != 0) {
             s->ids[s->count++] = s->nextId;
             s->nextId++;
@@ -1839,7 +1839,7 @@ void TObjEneBm3FlyNest::update_replenish() {
 
 void TObjEneBm3FlyNest::vfunc_88() { set_part_local_pos__9TObjEneDDFPvPvi(this, (char*)this + 0x2fc, (void*)0); }
 
-void TObjEneBm3FlyNest::copy_pos() { ((int (*)(void*, void*))VecCopy__FP3VecPC3Vec)((char*)this + 0x74, (char*)this + 0x2fc); }
+void TObjEneBm3FlyNest::copy_pos() { VecCopy((Vec *)((char*)this + 0x74), (const Vec *)((char*)this + 0x2fc)); }
 
 void TObjEneBm3FlyNest::vfunc_61() {  }
 
@@ -2038,11 +2038,11 @@ void *TObjEneBm3FlyNest__ct(void *arg0, void *arg1, void *arg2) {
         self->f3B8[i] = 0xFFFF;
     }
     for (i = 0; i < 2; i++) {
-        VecCopy__FP3VecPC3Vec(&self->f3C8[i], &self->pos);
+        VecCopy((Vec *)&self->f3C8[i], (const Vec *)&self->pos);
     }
     self->f3C8[1].y += lbl_805D9D08;
     for (i = 0; i < 8; i++) {
-        VecCopy__FP3VecPC3Vec(&self->f3E0[i], &self->pos);
+        VecCopy((Vec *)&self->f3E0[i], (const Vec *)&self->pos);
     }
     for (i = 0; i < 4; i++) {
         ((TObjPlayer *)(&self->f440[i]))->activate_and_dispatch();
@@ -2146,12 +2146,12 @@ void update_monest_carrier(u8 *self) {
         if (**(s32 **)((s8 *)self + 0x38) == *(s32 *)((s8 *)self + 0x28)) {
             Vec_800B4388 tmp;
             *(s32 *)((s8 *)self + 0x2C) = 1;
-            VecCopy__FP3VecPC3Vec(&tmp, self + 0x1C);
+            VecCopy((Vec *)&tmp, (const Vec *)(self + 0x1C));
             ((s32 (*)(void *, s32))vec3_add_to)(&tmp, *(s32 *)((s8 *)self + 0x30));
-            VecCopy__FP3VecPC3Vec(self + 0x50, &tmp);
+            VecCopy((Vec *)(self + 0x50), (const Vec *)&tmp);
             ((s32 (*)(void *, s32))subtract_vector)(self + 0x50, *(s32 *)((s8 *)self + 0x34));
             *(f32 *)((s8 *)self + 0x54) -= lbl_805D9D1C;
-            VecCopy__FP3VecPC3Vec(self + 0x1C, self + 0x50);
+            VecCopy((Vec *)(self + 0x1C), (const Vec *)(self + 0x50));
             *(f32 *)((s8 *)self + 0x5C) = ((TObjBoss2Tunnel *)(self + 0x50))->clamp_velocity();
             if (*(f32 *)((s8 *)self + 0x5C) <= lbl_805D9D58) {
                 ((s32 (*)(void *))queue_destruction__7TObjectFv)(self);
@@ -2215,7 +2215,7 @@ u8 *TObjEneBm3FlyNest_CarryFly__ct(u8 *self, void *parent, s32 a, s32 b, s32 unu
     *(s32 *)((s8 *)self + 0x34) = b;
     *(s32 *)((s8 *)self + 0x38) = c;
     *(s32 *)((s8 *)self + 0x28) = d;
-    VecCopy__FP3VecPC3Vec(&v, *(void **)((s8 *)self + 0x30));
+    VecCopy((Vec *)&v, (const Vec *)(*(void **)((s8 *)self + 0x30)));
     subtract_vector(&v, *(void **)((s8 *)self + 0x34));
     ((TObjBoss2Tunnel *)(&v))->update_scale();
     *(s32 *)((s8 *)self + 0x40) = (s32) (lbl_8043B398[0] * atan2_float(v.x, v.z));

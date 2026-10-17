@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -12,7 +13,6 @@ void render__18TPhotonConcentrateFv(void);
 s32 create_particle_emitter(void *, s32);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv(s32, s32);
 s32 find_entity_by_id(s32, f32);
-u8 *VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 void queue_destruction__7TObjectFv(void *);
 extern s32 __vt__18TPhotonConcentrate[];
@@ -80,7 +80,7 @@ void run_task__18TPhotonConcentrateFv(PC_801A7E7C *self) {
   float new_var;
   Owner_801A7E7C *owner;
   u32 a;
-  VecCopy__FP3VecPC3Vec(&delta, &self->pos);
+  VecCopy((Vec *)&delta, (const Vec *)&self->pos);
   subtract_vector(&delta, &self->target);
   self->dist = vector_length(&delta);
   if (self->dist < lbl_805DC0F8)
@@ -118,7 +118,7 @@ void run_task__18TPhotonConcentrateFv(PC_801A7E7C *self) {
       rotate_matrix_z(0, lbl_805DC108 * ((f32) self->angle));
       rotate_vector_by_matrix(0, &off, &xf);
       pop_matrices(1);
-      VecCopy__FP3VecPC3Vec(&off, &xf);
+      VecCopy((Vec *)&off, (const Vec *)&xf);
       push_matrix_from(identity_matrix);
       owner = self->owner;
       if (owner != 0)
@@ -159,9 +159,9 @@ u8 *TPhotonConcentrate__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     construct_collider_proxy__13TUnk_804AF8A0Fv((s32)arg0, arg2);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TPhotonConcentrate;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D34D0;
-    VecCopy__FP3VecPC3Vec(arg0 + 0xAC, VecCopy__FP3VecPC3Vec(arg0 + 0xB8, arg1));
-    VecCopy__FP3VecPC3Vec(arg0 + 0xD0, arg1 + 0xC);
-    VecCopy__FP3VecPC3Vec(arg0 + 0xC4, arg1 + 0x18);
+    VecCopy((Vec *)(arg0 + 0xAC), (const Vec *)(VecCopy((Vec *)(arg0 + 0xB8), (const Vec *)((const Vec *)arg1))));
+    VecCopy((Vec *)(arg0 + 0xD0), (const Vec *)(arg1 + 0xC));
+    VecCopy((Vec *)(arg0 + 0xC4), (const Vec *)(arg1 + 0x18));
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (*(f32 *)((s8 *)arg0 + 0xC4) * *(f32 *)((s8 *)arg1 + 0x28));
     *(f32 *)((s8 *)arg0 + 0xC8) = (f32) (*(f32 *)((s8 *)arg0 + 0xC8) * *(f32 *)((s8 *)arg1 + 0x28));
     temp_f1 = *(f32 *)((s8 *)arg0 + 0xCC);

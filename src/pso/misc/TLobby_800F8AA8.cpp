@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
+#include "pso/system/main_loop.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -960,7 +962,6 @@ void TLobby::reset_state_byte() {
 extern "C" {
 
 s32 TLobby__sub_801384E4();
-s32 render_tick__Fv();
 
 #define lobby_wait_ready_flag (*(s8 *)&lobby_wait_ready_flag)
 
@@ -973,7 +974,7 @@ loop_1:
         }
         TAdPlayerLoadGC::set_state(1);
         lobby_wait_ready_flag = 1;
-        render_tick__Fv();
+        render_tick();
         goto loop_1;
     }
 }
@@ -994,11 +995,9 @@ typedef struct {
 s32 DVDGetDriveStatus(void);
 void TCameraCtrl__sub_80068EF0(void);
 
-void set_depth_buffer_settings_1__Fv(void);
 void restore_saved_depth_alpha_state(void);
 void draw_string__14TObjWarpStringFlff(u8 *arg0, s32 arg1, f32 farg0, f32 farg1);
 s8 func_801A5E54__Fv(void);
-void controller_stuff__Fv(void);
 void reset_system(void);
 void system_reset(void);
 s32 DVDCheckDisk(void);
@@ -1036,7 +1035,7 @@ s32 TLobby::run_disk_error_check() {
     pd->pos[6] = (0.0f);
     pd->pos[7] = (4.8e+02f);
     pd->ids[3] = -1;
-    set_depth_buffer_settings_1__Fv();
+    set_depth_buffer_settings_1();
     ((TObjCMHairMenu *)(&d))->draw_tri_fan_2d(4, 0x12, (-0.9f));
     status = DVDGetDriveStatus();
     TCameraCtrl::restore_full_screen_view();
@@ -1054,7 +1053,7 @@ s32 TLobby::run_disk_error_check() {
         }
         break;
     case 1:
-        controller_stuff__Fv();
+        controller_stuff();
         if (pending_file_read_flush_requested != 0 && (TKeyBoardControl::check_reset_button() != 0 || func_801A5E54__Fv() != 0)) {
             system_reset();
         }
@@ -1062,7 +1061,7 @@ s32 TLobby::run_disk_error_check() {
     case 4:
         func_803DCDFC__Fv();
         set_perspective_projection_from_fov(0x3555, (1.1333334f), (1.0f), (2.1e+04f));
-        controller_stuff__Fv();
+        controller_stuff();
         if (lobby_font_texture_loaded != 0) {
             ((TLobby *)1)->draw_fullscreen_texture_quad();
         } else {
@@ -1075,7 +1074,7 @@ s32 TLobby::run_disk_error_check() {
     case 5:
         func_803DCDFC__Fv();
         set_perspective_projection_from_fov(0x3555, (1.1333334f), (1.0f), (2.1e+04f));
-        controller_stuff__Fv();
+        controller_stuff();
         if (lobby_font_texture_loaded != 0) {
             ((TLobby *)2)->draw_fullscreen_texture_quad();
         } else if (get_main_phase() == 0xF) {
@@ -1090,7 +1089,7 @@ s32 TLobby::run_disk_error_check() {
     case 6:
         func_803DCDFC__Fv();
         set_perspective_projection_from_fov(0x3555, (1.1333334f), (1.0f), (2.1e+04f));
-        controller_stuff__Fv();
+        controller_stuff();
         if (lobby_font_texture_loaded != 0) {
             ((TLobby *)3)->draw_fullscreen_texture_quad();
         } else {

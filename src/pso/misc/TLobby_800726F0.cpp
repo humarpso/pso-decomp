@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -30,9 +31,7 @@ extern "C" {
 void TLobby__sub_80072880(u8 *arg0);
 void TLobby__send_and_handle_60(void *);
 void TLobby__sub_800728FC(u8 *arg0);
-s32 bswap_16__FPUs(s32);
 void TLobby__sub_80072AB8(void *arg0);
-void bswap_32__FPUl(void *);
 s32 TLobby__sub_8006FBE4();
 int TWindow__close(void*);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
@@ -68,7 +67,7 @@ void TLobby__sub_800727EC(u8 *arg0);
 
 void TLobby::bswap_challenge_dead_flag() {
     ((TObjPlayer *)this)->read_be16_field2();
-    bswap_32__FPUl((void *)((char *)this + 4));
+    bswap_32((u32 *)((char *)this + 4));
 }
 
 void TLobby__sub_80072724(void *arg0) {
@@ -88,10 +87,10 @@ void TLobby::send_and_handle_60_wrapper() {
 
 void TLobby__sub_800727A0(void *arg0) {
     ((TObjPlayer *)arg0)->read_be16_field2();
-    bswap_32__FPUl((void *)((char *)arg0 + 4));
-    bswap_32__FPUl((void *)((char *)arg0 + 8));
-    bswap_32__FPUl((void *)((char *)arg0 + 12));
-    bswap_32__FPUl((void *)((char *)arg0 + 16));
+    bswap_32((u32 *)((char *)arg0 + 4));
+    bswap_32((u32 *)((char *)arg0 + 8));
+    bswap_32((u32 *)((char *)arg0 + 12));
+    bswap_32((u32 *)((char *)arg0 + 16));
 }
 
 void TLobby__sub_800727EC(u8 *arg0) {
@@ -101,10 +100,10 @@ void TLobby__sub_800727EC(u8 *arg0) {
 
 void TLobby::byteswap_challenge_time_packet() {
     ((TObjPlayer *)this)->read_be16_field2();
-    bswap_32__FPUl((void *)((char *)this + 4));
-    bswap_32__FPUl((void *)((char *)this + 8));
-    bswap_32__FPUl((void *)((char *)this + 12));
-    bswap_32__FPUl((void *)((char *)this + 16));
+    bswap_32((u32 *)((char *)this + 4));
+    bswap_32((u32 *)((char *)this + 8));
+    bswap_32((u32 *)((char *)this + 12));
+    bswap_32((u32 *)((char *)this + 16));
 }
 
 void TLobby::send_state() {
@@ -117,7 +116,7 @@ void TLobby__sub_80072880(u8 *arg0) {
 }
 void TLobby::byteswap_challenge_packet() {
     ((TObjPlayer *)this)->read_be16_field2();
-    bswap_32__FPUl((void *)((char *)this + 4));
+    bswap_32((u32 *)((char *)this + 4));
 }
 void TLobby::send_challenge_packet() {
     byteswap_challenge_packet();
@@ -130,7 +129,7 @@ void TLobby__sub_800728FC(u8 *arg0) {
 void TLobby::bswap_6x7C_packet() {
     s32 arg0 = (s32)this;
     ((TObjPlayer *)arg0)->read_be16_field2();
-    bswap_16__FPUs(arg0 + 4);
+    bswap_16((u16 *)(arg0 + 4));
     ((TLobby *)(arg0 + 8))->bswap_challenge_battle_records();
 }
 void TLobby::send_6x7C_packet() {
@@ -147,7 +146,7 @@ s32 TLobby::bswap_challenge_battle_records() {
     s32 arg0 = (s32)this;
     S_80072994 *s = (S_80072994 *)arg0;
     s32 i;
-    bswap_16__FPUs(arg0);
+    bswap_16((u16 *)arg0);
     for (i = 0; i < 0x17; i++) {
         ((TLobby *)(&s->a[i]))->bswap_packet_field();
     }
@@ -163,24 +162,24 @@ s32 TLobby::bswap_challenge_battle_records() {
 }
 
 void TLobby::bswap_fields_0_4() {
-    bswap_32__FPUl(this);
-    bswap_32__FPUl((void *)((char *)this + 4));
+    bswap_32((u32 *)this);
+    bswap_32((u32 *)((char *)this + 4));
 }
 void TLobby::bswap_fields_4_8_12() {
-    bswap_32__FPUl((void *)((char *)this + 4));
-    bswap_32__FPUl((void *)((char *)this + 8));
-    bswap_32__FPUl((void *)((char *)this + 12));
+    bswap_32((u32 *)((char *)this + 4));
+    bswap_32((u32 *)((char *)this + 8));
+    bswap_32((u32 *)((char *)this + 12));
 }
 void TLobby__sub_80072AB8(void *arg0) {
-    bswap_16__FPUs((s32)((void *)((char *)arg0 + 4)));
-    bswap_32__FPUl((void *)((char *)arg0 + 8));
-    bswap_32__FPUl((void *)((char *)arg0 + 12));
-    bswap_32__FPUl((void *)((char *)arg0 + 16));
-    bswap_32__FPUl((void *)((char *)arg0 + 20));
-    bswap_32__FPUl((void *)((char *)arg0 + 24));
+    bswap_16((u16 *)((void *)((char *)arg0 + 4)));
+    bswap_32((u32 *)((char *)arg0 + 8));
+    bswap_32((u32 *)((char *)arg0 + 12));
+    bswap_32((u32 *)((char *)arg0 + 16));
+    bswap_32((u32 *)((char *)arg0 + 20));
+    bswap_32((u32 *)((char *)arg0 + 24));
 }
 void TLobby::bswap_packet_field() {
-    bswap_32__FPUl((void *)(this));
+    bswap_32((u32 *)(this));
 }
 s32 TLobby::is_ready_to_draw() {
     if ((TLobby::get_flag_value_if_set() != 0) || (TLobby__sub_8006FBE4() <= 1)) {

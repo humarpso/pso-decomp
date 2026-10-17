@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TTecZonde.h"
 #include "pso/misc/TUnk_804CCB28.h"
 #include "pso/unk/TUnk_804CC148.h"
@@ -87,7 +88,6 @@ s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 extern RecoveredGlobal_80230D9C_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_80230D9C_lbl_804CC55C lbl_804CC55C;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 void update_technique_slot__10TTecRaFoieFl(s32 handle, s32 pitch, s32 c);
 s32 play_sound_effect(s32 id, void *pos, s32 a, s32 b);
@@ -374,8 +374,8 @@ void *TTecRaZonde__ct(void *self_, void *source, void *origin, void *level) {
         self->pts[i].z = r * sin_table_lookup(ang) + self->pos.z;
     }
     for (j = 0; j < 7; j++) {
-        VecCopy__FP3VecPC3Vec(&a, &self->pts[j]);
-        VecCopy__FP3VecPC3Vec(&b, &self->pts[j + 1]);
+        VecCopy((Vec *)&a, (const Vec *)&self->pts[j]);
+        VecCopy((Vec *)&b, (const Vec *)&self->pts[j + 1]);
         b.x = b.x - a.x;
         b.y = b.y - a.y;
         b.z = b.z - a.z;

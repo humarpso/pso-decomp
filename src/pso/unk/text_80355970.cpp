@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 
 #include <stddef.h>
 struct Stack_80355970 {
@@ -8,7 +9,6 @@ struct Stack_80355970 {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *csnVecterUnder(s32 *, s32);
 s32 __nw__7TObjectFUl(int);
 s32 TBoss5GryphonTornado__ct(int, void *, void *, void *, void *);
@@ -22,7 +22,7 @@ s32 spawn_gryphon_tornado(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r3_2;
     s32 var_r0;
     u8 *temp_r3;
-    VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg2));
+    VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg2));
     stack.spC = lbl_805D8D48;
     temp_r3 = (u8 *)(csnVecterUnder(&stack.sp8, 0x16EF));
     if (temp_r3 == NULL) {

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
+#include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/object/TObjDoorJung.h"
 #include "pso/TParticleCtrl.h"
@@ -171,7 +173,6 @@ u32 get_player_by_client_id(u32);
 extern s32 local_client_id;
 void check_hold_player__14TOTrapSeabed01FPv(u8 *arg0);
 void vfunc_81__14TOTrapSeabed01Fv(u8 *arg0);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_bml_model(int, int);
 s32 set_position_xy__10TObjPlayerFff(f32, f32);
 u32 spawn_particle_effect(void *, int);
@@ -215,7 +216,7 @@ void TOTrapSeabed01__vt83(Trap_802C9E3C *self) {
     p.f44 = TOTrapSeabed01__texture_file;
     for (i = 0; i < 6; i++) {
         e = &seabed_trap_fragment_spawns[i];
-        VecCopy__FP3VecPC3Vec(&p.pos, &e->pos);
+        VecCopy((Vec *)&p.pos, (const Vec *)&e->pos);
         p.model = get_bml_model(TOTrapSeabed01__bml_resource, e->id);
         p.arg = e->arg;
         o = __nw__7TObjectFUl(0x24C);
@@ -359,9 +360,6 @@ s32 draw_ginja_model_with_motion(int, int, f32);
 
 s32 restore_saved_depth_alpha_state();
 s32 func_80141618__Fv();
-s32 set_depth_buffer_settings_1__Fv();
-s32 set_depth_buffer_settings_3__Fv();
-s32 set_depth_buffer_settings_id__FUl(int);
 s32 set_model_node_callback(void *);
 
 #define trigger_by_id__14TOTrapSeabed01FUi (*(s32 (*)[1])&trigger_by_id__14TOTrapSeabed01FUi)
@@ -383,14 +381,14 @@ void TOTrapSeabed01::render_effect_layers() {
     push_matrix();
     post_translate_matrix((void *) (((u8 *)this) + 0x38));
     ((s32 (*)(int, int))rotate_matrix_y)((int)((int) (0)), (int)((int) (*(s32 *)((s8 *)((u8 *)this) + 0x60))));
-    set_depth_buffer_settings_3__Fv();
-    set_depth_buffer_settings_id__FUl((int)((int) (1)));
+    set_depth_buffer_settings_3();
+    set_depth_buffer_settings_id(((int) (1)));
     draw_ginja_model_with_motion((int) (*(s32 *)((s8 *)((u8 *)this) + 0x34)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0xF8)), (f32) (*(f32 *)((s8 *)((u8 *)this) + 0xC0)));
     func_80141618__Fv();
     restore_saved_depth_alpha_state();
     TParticleCtrl::begin_effect_render();
-    set_depth_buffer_settings_1__Fv();
-    set_depth_buffer_settings_id__FUl((int)((int) (2)));
+    set_depth_buffer_settings_1();
+    set_depth_buffer_settings_id(((int) (2)));
     draw_ginja_model_with_motion((int) (*(s32 *)((s8 *)((u8 *)this) + 0x34)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0xF8)), (f32) (*(f32 *)((s8 *)((u8 *)this) + 0xC0)));
     func_80141618__Fv();
     restore_saved_depth_alpha_state();
@@ -440,8 +438,8 @@ void TOTrapSeabed01::draw_object_tree(u8 *arg1) {
 
 void TOTrapSeabed01::draw() {
     if ((TRaderMapCore::is_not_split_screen() != 1) || ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x34C) == 0)) {
-        set_depth_buffer_settings_3__Fv();
-        set_depth_buffer_settings_id__FUl((int)(1));
+        set_depth_buffer_settings_3();
+        set_depth_buffer_settings_id((1));
         TParticleCtrl::begin_effect_render();
         TObjFish::set_global_param((s32)((void *)(TOTrapSeabed01__texture_file)));
         push_matrix();

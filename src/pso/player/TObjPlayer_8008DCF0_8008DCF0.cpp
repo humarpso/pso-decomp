@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneBalClawClaw.h"
 #include "pso/object/TObjMotion.h"
@@ -190,7 +191,6 @@ s32 apply_actor_gravity(void *, s32, f32);
 s32 move_with_wall_slide(void *);
 s32 calc_velocity_toward_destination(void *, Vec_8008DD14, Vec_8008DD14, Info_8008DD14 *, f32);
 s32 check_path_obstructed(void *, void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 xz_distance_squared(void *, void *);
 s32 advance_animation_playback(void *);
 extern const f32 lbl_805D961C;
@@ -253,11 +253,11 @@ void TObjPlayer__sub_8008DD14(Obj_8008DD14 *self) {
         }
         self->fB8 = mode;
         self->state = 1;
-        VecCopy__FP3VecPC3Vec(&self->f29C, &self->home);
+        VecCopy((Vec *)&self->f29C, (const Vec *)&self->home);
         break;
     case 1: {
         self->vel.y = lbl_805D9620;
-        VecCopy__FP3VecPC3Vec(&self->f290, &self->pos);
+        VecCopy((Vec *)&self->f290, (const Vec *)&self->pos);
         calc_velocity_toward_destination(self, self->f290, self->f29C, self->info, self->info->f4);
         ((TObjPlayer *)self)->update_angle(self->info->f8, &self->vel);
         Vec_8008DD14 v = self->pos;
@@ -302,7 +302,7 @@ void TObjPlayer::update_move_to_target() {
             subtract_vector(&d2, &self->target->pos);
             ((TObjPlayer *)self)->pick_open_direction((f32 *)(&d2), (f32)lbl_805D9624, (f32)lbl_805D9628);
         }
-        VecCopy__FP3VecPC3Vec(&self->f290, &self->pos);
+        VecCopy((Vec *)&self->f290, (const Vec *)&self->pos);
         calc_velocity_toward_destination(self, self->f290, self->f29C, self->info, self->info->f4);
         ((TObjPlayer *)self)->update_angle(self->info->f8, &self->vel);
         Vec_8008DD14 v = self->pos;

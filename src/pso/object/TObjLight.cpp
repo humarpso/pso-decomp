@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjLight.h"
 #include "pso/TParticleCtrl.h"
@@ -59,7 +60,6 @@ s32 is_split_screen(void);
 u8 *__nw__7TObjectFUl(s32);
 extern s32 tl_05;
 u8 *TObjLight__create(u8 *arg0);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 disallow_rendering__7TObjectFv(void *);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 construct_world_actor_base(void *);
@@ -101,7 +101,7 @@ void TObjLight::run_task() {
     }
     {
     Vec_80193FE8 fwd = lbl_80445D44;
-    VecCopy__FP3VecPC3Vec(&self->base_dir, ((u8 *)&TObjLight__scene_light_state) + 0xC);
+    VecCopy((Vec *)&self->base_dir, (const Vec *)(((u8 *)&TObjLight__scene_light_state) + 0xC));
     self->flags = 0;
     if (self->param[0] >= 10000.0f) {
         self->color.x = self->param[0] - 10000.0f;
@@ -223,7 +223,7 @@ u8 *TObjLight__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(f32 *)((s8 *)arg0 + 0xEC) = (f32) (0.0f);
     *(s32 *)((s8 *)arg0 + 0x9C) = 0;
     copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xBC), (void *) ((u8 *)&TObjLight__scene_light_state.value + 0x24));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xD8), (void *) ((u8 *)&TObjLight__scene_light_state.value + 0xC));
+    VecCopy((Vec *)(arg0 + 0xD8), (const Vec *)((u8 *)&TObjLight__scene_light_state.value + 0xC));
     *(f32 *)((s8 *)arg0 + 0xF0) = (f32) 0.5f;
     *(f32 *)((s8 *)arg0 + 0xF4) = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0xF8) = (f32) (0.0f);

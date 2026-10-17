@@ -1,4 +1,6 @@
 #include "pso/TParticleCtrl.h"
+#include "pso/render/depth_buffer.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_8048E790.h"
 #include "pso/misc/TUnk_8048E7A8.h"
 #include "pso/misc/TUnk_8048E728.h"
@@ -147,7 +149,6 @@ s32 is_split_screen();
 s32 setup_particle_tev(s32);
 s32 load_projected_texture_matrix(f32);
 s32 is_particle_sprite_additive__13TUnk_8048E728Fv(void *, s32);
-s32 set_depth_buffer_settings_id__FUl(s32);
 s32 append_node_to_tail__13TParticleCtrlFPvPv(s32, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 scale_matrix(s32, f32, f32, f32);
@@ -162,7 +163,6 @@ s32 draw_ginja_model_with_motion(u32, u32, f32);
 extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-void VecCopy__FP3VecPC3Vec(void *, const void *);
 f64 atan2_float(f32, f32);
 f32 vector_length(void *);
 void rotate_vec_xz(void *, void *, s32);
@@ -172,7 +172,6 @@ extern const f32 TParticleCtrl__data_805D950C;
 extern const f32 lbl_805D9520;
 u8 *construct_ballistic_particle(void *a0, void *a1, void *a2, void *a3, s32 arg4, u16 arg5, s16 arg6);
 void func_80141618__Fv();
-void set_depth_buffer_settings_2__Fv();
 void restore_saved_depth_alpha_state();
 void direction_to_rotation_xz(void *, void *, void *);
 f32 vec3_dot(void *, void *);
@@ -226,7 +225,7 @@ extern const f32 TParticleCtrl__data_805D94E4;
     particle->field20 = 0;                                                     \
     particle->field24 = TParticleCtrl__data_805D94E4;                          \
     particle->particle_index = particle_index;                                 \
-    VecCopy__FP3VecPC3Vec(&particle->position, position);                      \
+    VecCopy(&particle->position, position);                      \
     particle->flags = particle_flags;                                          \
     particle->field2E = 0xFFFF;                                                \
     direction_action(particle, direction_source);                              \
@@ -314,7 +313,7 @@ void TUnk_8048E778::render() {
             a.y = p->pos.y + p->ofs.y;
             a.z = p->pos.z + p->ofs.z;
         } else {
-            VecCopy__FP3VecPC3Vec(&a, &p->pos);
+            VecCopy((Vec *)&a, (const Vec *)&p->pos);
         }
         b.x = a.x + p->vel.x;
         b.y = a.y + p->vel.y;
@@ -417,7 +416,7 @@ void TUnk_8048E778::render() {
             }
         }
         TObjFish::set_global_param(p->texlist);
-        set_depth_buffer_settings_id__FUl(3);
+        set_depth_buffer_settings_id(3);
         if (p->motion != 0) {
             draw_ginja_model_with_motion(p->model, p->motion, p->frame);
         } else {
@@ -439,7 +438,7 @@ void TUnk_8048E778::render() {
         } else {
             id = p->tex;
         }
-        set_depth_buffer_settings_2__Fv();
+        set_depth_buffer_settings_2();
         ((TUnk_8048E778 *)p)->draw_sprite_quad(id);
         restore_saved_depth_alpha_state();
     } else if (p->def->flags & 0x20) {

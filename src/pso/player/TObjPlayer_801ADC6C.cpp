@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_804C3248.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TPhotonPilla.h"
@@ -66,7 +67,6 @@ s32 queue_photon_blast_hit(u16, s32, s32, f32);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
 s32 TPhotonMagicSquare__ct(s32, void *, s32, Vec3 *, s32, f32);
 s32 find_entity_by_id(u16);
-s32 VecCopy__FP3VecPC3Vec(Vec3 *, s32);
 u32 obj_getField1c();
 
     extern int lbl_805D5D50;
@@ -163,7 +163,7 @@ void TPhotonPilla::run_task() {
         *(s32 *)((s8 *)this + 0x1A8) = 0;
         entity = find_entity_by_id(*(u16 *)((s8 *)this + 0x17C));
         if (entity != 0) {
-            VecCopy__FP3VecPC3Vec(&sp8, entity + 0x38);
+            VecCopy((Vec *)&sp8, (const Vec *)(entity + 0x38));
         }
         sp8.y = sp8.y + lbl_805DC230;
         entity = __nw__7TObjectFUl(0xD0);

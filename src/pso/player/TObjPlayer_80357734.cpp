@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TTecZonde.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/items/TItemWeapon.h"
@@ -217,7 +218,6 @@ u8 get_field_ec__5TItemFv();
 s32 reset_key_machine_state__10TObjPlayerFv();
 extern RecoveredGlobal_803589F8_lbl_804F15C8 weapon_special_effect_callbacks;
 void dispatch_weapon_special_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_continuous_particle_with_direction(void *, void *, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 f32 sin_table_lookup(void *);
@@ -549,7 +549,7 @@ u8 *create_inward_orbit_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3) {
     Stack_80358048 stack;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80358048_lbl_804F166C *)&inward_orbit_effect_vtable).value;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (arg2));
+    VecCopy((Vec *)(arg0 + 0x28), (const Vec *)(arg2));
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) ((lbl_805E0068 * sin_table_lookup((void *) (arg3))) + *(f32 *)((s8 *)arg2 + 0));
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) *(f32 *)((s8 *)arg2 + 4);
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) ((lbl_805E0068 * cos_table_lookup((void *) (arg3))) + *(f32 *)((s8 *)arg2 + 8));
@@ -738,7 +738,7 @@ void weapon_special_lightning_bolt_effect(void *arg0, s32 arg1, s32 arg2, s32 ar
         spawn_particle_effect((s32 *)&sp20, 0xBE);
     }
     if (arg3 == 1) {
-        VecCopy__FP3VecPC3Vec(&v, (void *)arg2);
+        VecCopy((Vec *)&v, (const Vec *)arg2);
         v.y += lbl_805E0048;
         {
             Trip_8035862C t = lbl_804793D8;

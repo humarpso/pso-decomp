@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TODragonfly.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TUnk_804AFBF8.h"
@@ -131,7 +132,6 @@ extern const f32 lbl_805DB588;
 extern const f32 lbl_805DB58C;
 extern const f32 lbl_805DB590;
 f32 atan2_float(f64, f64);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(s32, s32);
@@ -208,7 +208,7 @@ s32 TODragonfly::pick_random_destination(f32 farg0) {
     rotate_vector_by_matrix((int) (0), (void *) (&lbl_8050BEE0.value), (void *) (&lbl_8050BEE0.value));
     pop_matrix();
     vec3_add_to((void *) (&lbl_8050BEE0.value), (void *) (arg0 + 0x50));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xD4), (void *) (&lbl_8050BEE0.value));
+    VecCopy((Vec *)(arg0 + 0xD4), (const Vec *)(&lbl_8050BEE0.value));
     subtract_vector((void *) (&lbl_8050BEE0.value), (void *) (arg0 + 0x38));
     if (((TObjPlayer *)(&lbl_8050BEE0.value))->check_camera_distance() == 1) {
         *(s32 *)&this->m_ac = 1;
@@ -352,7 +352,7 @@ u8 *TODragonfly__ct(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TODragonfly__class_name;
     *(s32 *)((s8 *)arg0 + 0xCC) = 0;
     *(f32 *)((s8 *)arg0 + 0xD0) = (f32) (lbl_805DB594 + *(f32 *)((s8 *)arg0 + 0x68));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xD4), (void *) (arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0xD4), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0xE8) = (f32) lbl_805DB580;
     *(f32 *)((s8 *)arg0 + 0xE4) = (f32) lbl_805DB580;
     *(f32 *)((s8 *)arg0 + 0xE0) = (f32) lbl_805DB580;

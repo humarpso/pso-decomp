@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TUnk_80494938.h"
 #include "pso/object/TObjMotion.h"
@@ -388,7 +389,6 @@ struct VObj_18_22e4b0 : VBase_18_22e4b0 {
 s32 get_main_phase();
 f32 enemy_wander_home(void *, s32, f32, f32, f32);
 f32 calc_distance_to_client__10TObjPlayerFlUsUl(void *, u16, Vec_802D8828 *);
-void VecCopy__FP3VecPC3Vec(Vec_800A6B14 *dst, const Vec_800A6B14 *src);
 s32 obj_setFlags30(void *, int);
 s32 queue_destruction__7TObjectFv();
 void TLobby__sub_8001FE7C(void*, int);
@@ -846,7 +846,7 @@ s32 TObjEneGibbles::spawn_ground_impact_effects(void *pos, f32 farg0) {
     if (farg0 <= TObjEneGibbles__data_805DE7E4) {
         return 0;
     }
-    VecCopy__FP3VecPC3Vec((Vec_800A6B14 *)&v, (const Vec_800A6B14 *)pos);
+    VecCopy((Vec *)((Vec_800A6B14 *)&v), (const Vec *)((const Vec_800A6B14 *)pos));
     y = v.y;
     v.y = y + TObjEneGibbles__data_805DE7E8;
     hit = (s32 *)csnVectorUnder((s32 *)&v, (s32)this + 0x120, 5, y);
@@ -869,7 +869,7 @@ s32 TObjEneGibbles__sub_802D7BE0(s32 arg0) {
     Stack_802D7BE0 stack;
     f32 temp_f1;
     s32 *temp_r3;
-    ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+    VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x38));
     temp_f1 = stack.spC;
     stack.spC = temp_f1 + TObjEneGibbles__data_805DE7E8;
     temp_r3 = (s32 *)(csnVectorUnder(&stack.sp8, arg0 + 0x120, 0x15, temp_f1));
@@ -931,7 +931,7 @@ void TObjEneGibbles::update_position() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
 
-    ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x2FC, (u8 *)&this->position);
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)&this->position);
     this->m_300 = (f32) (this->m_300 + TObjEneGibbles__data_805DE7E8);
     temp_r0 = this->mode;
     switch (temp_r0) {
@@ -1179,7 +1179,7 @@ int TObjEneGibbles::test_flag_256() {
                 && calc_distance_to_client__10TObjPlayerFlUsUl(arg0, i, &v) < lbl_805DE824
                 && angle_difference_abs(this->rotation_y, (s32) (TObjEneGibbles__data_80472798 * atan2_float(v.x, v.z))) < 0x2AAA
                 && test_action_mask__10TObjPlayerFl(pl, 0xE0) != 0) {
-                VecCopy__FP3VecPC3Vec((Vec_800A6B14 *) &v, (Vec_800A6B14 *) (arg0 + 0x2FC));
+                VecCopy((Vec *)((Vec_800A6B14 *) &v), (const Vec *)((Vec_800A6B14 *) (arg0 + 0x2FC)));
                 subtract_vector(&v, pl + 0x2FC);
                 if (angle_difference_abs(*(s32 *)((s8 *)pl + 0x60), (s32) (TObjEneGibbles__data_80472798 * atan2_float(v.x, v.z))) < 0x2AAA) {
                     this->m_3b0 = pl;
@@ -1260,7 +1260,7 @@ void TObjEneGibbles::sub_802D8984() {
                         Vec_802DA0BC q = o->f2FC;
                         copy_position_if_valid__10TObjPlayerFii(o, &q);
                     }
-                    VecCopy__FP3VecPC3Vec(&v, (Vec_800A6B14 *)&o->f29C);
+                    VecCopy((Vec *)&v, (const Vec *)((Vec_800A6B14 *)&o->f29C));
                     subtract_vector(&v, &o->f2FC);
                     dist = newton_sqrtf(v.x * v.x + v.z * v.z);
                     dist -= TObjEneGibbles__data_805DE7E8;
@@ -1463,7 +1463,7 @@ void TObjEneGibbles__sub_802D9110(Gib_802D9110 *self) {
         } else {
             Vec_802D9110 d;
             s32 diff;
-            VecCopy__FP3VecPC3Vec((Vec_800A6B14 *)&d, (const Vec_800A6B14 *)&self->target->pos);
+            VecCopy((Vec *)((Vec_800A6B14 *)&d), (const Vec *)((const Vec_800A6B14 *)&self->target->pos));
             subtract_vector(&d, &self->pos);
             diff = update_angle__10TObjPlayerFlPv(self, self->param->turn, &d);
             if (!(self->flags30 & 0x800000)) {
@@ -1635,7 +1635,7 @@ void TObjEneGibbles::vfunc_60() {
     switch (this->m_37c) {
     case 0:
     default: {
-        VecCopy__FP3VecPC3Vec((Vec_800A6B14 *) &v, (Vec_800A6B14 *) (this->target + 0x2FC));
+        VecCopy((Vec *)((Vec_800A6B14 *) &v), (const Vec *)((Vec_800A6B14 *) (this->target + 0x2FC)));
         subtract_vector(&v, (u8 *)&this->m_2fc);
         f64 t = atan2_float(v.x, v.z);
         this->mode = 4;
@@ -2162,7 +2162,7 @@ void update_target__14TObjEneGibblesFPv(Obj_802DAD50 *self) {
             if (((s32 (*)(u8 *))is_valid_and_active__10TObjPlayerFUl)(p) != 0 && p != (u8 *)self) {
                 id = ((s32 (*)(void *))obj_getField1c)(p);
                 if ((u16)id < 0x4000 && (u16)id != self->f1C && !(P_802DAD50(p)->f30 & 0x02000800)) {
-                    VecCopy__FP3VecPC3Vec(&v, (Vec_800A6B14 *)(p + 0x2FC));
+                    VecCopy((Vec *)&v, (const Vec *)((Vec_800A6B14 *)(p + 0x2FC)));
                     subtract_vector(&v, &self->pos);
                     d = v.x * v.x + v.z * v.z;
                     if (d < best && check_path_obstructed(self, p + 0x2FC) != 1) {
@@ -2214,7 +2214,7 @@ void update_target__14TObjEneGibblesFPv(Obj_802DAD50 *self) {
             if ((u16)((s32 (*)(void *))obj_getField1c)(p) >= 0x1000) continue;
             if (((TObjPlayer *)p)->get_field_3e4() != get_current_floor()) continue;
             if (P_802DAD50(p)->f30 & 0x02000800) continue;
-            VecCopy__FP3VecPC3Vec(&v, (Vec_800A6B14 *)(p + 0x2FC));
+            VecCopy((Vec *)&v, (const Vec *)((Vec_800A6B14 *)(p + 0x2FC)));
             subtract_vector(&v, &self->pos);
             d = v.x * v.x + v.z * v.z;
             if ((*(u32 *)(p + 0x890) & self->f378) && d < best &&
@@ -2251,7 +2251,7 @@ void update_target__14TObjEneGibblesFPv(Obj_802DAD50 *self) {
 
 void TObjEneGibbles::turn_toward_target() {
     Vec_800A6B14 d;
-    VecCopy__FP3VecPC3Vec(&d, &((Obj_800A6B14 *)this)->target->pos);
+    VecCopy((Vec *)&d, (const Vec *)(&((Obj_800A6B14 *)this)->target->pos));
     subtract_vector(&d, &((Obj_800A6B14 *)this)->pos);
     ((TObjEneGibbles *)((Obj_800A6B14 *)this))->clamp_angle(angle_diff_s16(((Obj_800A6B14 *)this)->angle, (s32)(TObjEneGibbles__data_80472798 * atan2_float(d.x, d.z))));
 }
@@ -2296,7 +2296,7 @@ void draw_model__14TObjEneGibblesFPv(u8 *arg0) {
         select_actor_lighting(arg0);
         TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
         push_matrix_from(0);
-        VecCopy__FP3VecPC3Vec(&v, (Vec_800A6B14 *)(arg0 + 0x38));
+        VecCopy((Vec *)&v, (const Vec *)((Vec_800A6B14 *)(arg0 + 0x38)));
         switch (*(s16 *)((s8 *)arg0 + 0x326)) {
         case 2:
         case 6:

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
+#include "pso/system/vector.h"
 
 struct RecoveredGlobal_801336E0_TObjLight__data_80506320 {
     s32 value;
@@ -150,7 +152,6 @@ extern u8 *lbl_805D5558;
 void TObjBoss2Tunnel__sub_801339EC(f32 farg0, f32 farg1, f32 farg2);
 s32 load_gx_light_slot(s32);
 void restore_scene_lighting(void);
-s32 VecCopy__FP3VecPC3Vec(int, void *);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 extern s32 TObjLight__actor_light_count;
 void register_actor_light(s32 arg0, s32 arg1);
@@ -206,7 +207,6 @@ int create_quest_thread(void*);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-int bswap_32__FPUl(void*);
 
     extern int light_type_id_table[];
     extern const float lbl_805DB08C;
@@ -642,13 +642,13 @@ void TObjLight::find_light_params(f32 *dir, f32 *color, u32 id) {
     for (i = 0; i < TObjLight__actor_light_count; i++) {
         LightEntry_801344A4 *e = &((LightEntry_801344A4 *)&TObjLight__data_8050637C)[i];
         if (id == e->id) {
-            VecCopy__FP3VecPC3Vec((int)dir, e->dir);
+            VecCopy((Vec *)dir, (const Vec *)e->dir);
             copy_vec4__13TRaderMapCoreFPvPv(color, e->color);
             return;
         }
     }
     copy_vec4__13TRaderMapCoreFPvPv(color, (*(LightDefault_801344A4 *)&TObjLight__scene_light_state).color);
-    VecCopy__FP3VecPC3Vec((int)dir, (*(LightDefault_801344A4 *)&TObjLight__scene_light_state).dir);
+    VecCopy((Vec *)dir, (const Vec *)((*(LightDefault_801344A4 *)&TObjLight__scene_light_state).dir));
 }
 
 void publish_actor_light_scalars(u32 arg0, f32 farg0, f32 farg1) {
@@ -692,7 +692,7 @@ void publish_light_direction_color(u32 id, void *dir, void *color) {
             e = &TObjLight__data_805068FC[i];
             if (id == e->id) {
                 TObjLight__data_805068FC[i].id = id;
-                VecCopy__FP3VecPC3Vec((int)e, dir);
+                VecCopy((Vec *)e, (const Vec *)dir);
                 copy_vec4__13TRaderMapCoreFPvPv(e->color, color);
                 add = 0;
                 TObjLight__data_805068FC[i].f24 |= 2;
@@ -704,7 +704,7 @@ void publish_light_direction_color(u32 id, void *dir, void *color) {
         }
         if (add) {
             TObjLight__data_805068FC[TObjLight__light_count].id = id;
-            VecCopy__FP3VecPC3Vec((int)&TObjLight__data_805068FC[TObjLight__light_count], dir);
+            VecCopy((Vec *)&TObjLight__data_805068FC[TObjLight__light_count], (const Vec *)dir);
             copy_vec4__13TRaderMapCoreFPvPv(TObjLight__data_805068FC[TObjLight__light_count].color, color);
             TObjLight__data_805068FC[TObjLight__light_count].f24 |= 2;
             TObjLight__light_count++;
@@ -717,7 +717,7 @@ void register_actor_light(s32 arg0, s32 arg1) {
     if ((s32) TObjLight__actor_light_count < 0x20) {
         temp_r5 = (u8 *)TObjLight__data_8050637C + (TObjLight__actor_light_count * 0x2C);
         *(s32 *)((s8 *)temp_r5 + 0x28) = arg0;
-        VecCopy__FP3VecPC3Vec((int) (temp_r5), (void *) (arg1 + 0xE4));
+        VecCopy((Vec *)(temp_r5), (const Vec *)(arg1 + 0xE4));
         copy_vec4__13TRaderMapCoreFPvPv((void *) ((u8 *)TObjLight__data_8050637C + (TObjLight__actor_light_count * 0x2C) + 0xC), (void *) (arg1 + 0xF0));
         TObjLight__actor_light_count += 1;
     }
@@ -778,7 +778,7 @@ void *__dt__13TUnk_804A6F90Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void TObjLight::bswap_data() { bswap_32__FPUl(this); bswap_32__FPUl((char*)this + 0x4); bswap_32__FPUl((char*)this + 0x8); bswap_32__FPUl((char*)this + 0xc); bswap_32__FPUl((char*)this + 0x10); bswap_32__FPUl((char*)this + 0x14); bswap_32__FPUl((char*)this + 0x18); bswap_32__FPUl((char*)this + 0x1c); bswap_32__FPUl((char*)this + 0x20); bswap_32__FPUl((char*)this + 0x24); bswap_32__FPUl((char*)this + 0x28); bswap_32__FPUl((char*)this + 0x2c); bswap_32__FPUl((char*)this + 0x30); bswap_32__FPUl((char*)this + 0x34); bswap_32__FPUl((char*)this + 0x38); bswap_32__FPUl((char*)this + 0x3c); bswap_32__FPUl((char*)this + 0x40); }
+void TObjLight::bswap_data() { bswap_32((u32 *)this); bswap_32((u32 *)((char*)this + 0x4)); bswap_32((u32 *)((char*)this + 0x8)); bswap_32((u32 *)((char*)this + 0xc)); bswap_32((u32 *)((char*)this + 0x10)); bswap_32((u32 *)((char*)this + 0x14)); bswap_32((u32 *)((char*)this + 0x18)); bswap_32((u32 *)((char*)this + 0x1c)); bswap_32((u32 *)((char*)this + 0x20)); bswap_32((u32 *)((char*)this + 0x24)); bswap_32((u32 *)((char*)this + 0x28)); bswap_32((u32 *)((char*)this + 0x2c)); bswap_32((u32 *)((char*)this + 0x30)); bswap_32((u32 *)((char*)this + 0x34)); bswap_32((u32 *)((char*)this + 0x38)); bswap_32((u32 *)((char*)this + 0x3c)); bswap_32((u32 *)((char*)this + 0x40)); }
 
 extern s32 lbl_804A7008[];
 

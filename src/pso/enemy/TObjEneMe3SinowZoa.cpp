@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneMe3SinowZoaReal.h"
@@ -26,7 +27,6 @@ struct Vec_803181A8 { f32 x, y, z; };
 
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 transition_enemy_state(void *, int);
 void advance_animation_playback(void *);
 void play_sound_effect(s32, void *, s32, s32);
@@ -1467,7 +1467,7 @@ void TObjEneMe3SinowZoa__sub_80317B50(void *arg0_, s32 arg1) {
                 *(s32 *)((s8 *)arg0 + 0x3CC) |= 4;
                 play_sound_effect(0x4003AD2F, arg0 + 0x38, 0, 0);
                 ((VObj_14_c5778e *)(arg0 + 0x414))->m1(0x1E);
-                VecCopy__FP3VecPC3Vec(&v, arg0 + 0x38);
+                VecCopy((Vec *)&v, (const Vec *)(arg0 + 0x38));
                 v.y = *(f32 *)((s8 *)arg0 + 0x3E0) - TObjEneMe3SinowZoa__data_805DF320;
                 *(s32 *)((s8 *)arg0 + 0x434) = 1;
             }
@@ -1489,19 +1489,19 @@ void TObjEneMe3SinowZoa__sub_80317B50(void *arg0_, s32 arg1) {
                     d[2] = -(d[0] + d[1]);
                     for (i = 0; i < 3; i++) {
                         s32 ang;
-                        VecCopy__FP3VecPC3Vec(&pos, *(u8 **)((s8 *)arg0 + 0x390) + 0x38);
+                        VecCopy((Vec *)&pos, (const Vec *)(*(u8 **)((s8 *)arg0 + 0x390) + 0x38));
                         ang = *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x390)) + 0x60) + ((d[i] + 1) << 14);
                         pos.x += TObjEneMe3SinowZoa__data_805DF320 * cos_table_lookup(ang);
                         pos.z -= TObjEneMe3SinowZoa__data_805DF320 * sin_table_lookup(ang);
                         pos.y += TObjEneMe3SinowZoa__data_805DF308;
-                        VecCopy__FP3VecPC3Vec(&tmp, &pos);
+                        VecCopy((Vec *)&tmp, (const Vec *)&pos);
                         tmp.x += pos.x - *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x390)) + 0x38);
                         tmp.z += pos.z - *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x390)) + 0x40);
                         if (check_move_collision__18TObjEneMe3SinowZoaFPvPv(arg0, &tmp) == 0 &&
                             csnVector(*(u8 **)((s8 *)arg0 + 0x390) + 0x38, &tmp, 0x88E0) == 0 &&
                             csnVectorUnder(&pos, arg0 + 0x120, 0x15) != 0 &&
                             *(s16 *)((s8 *)arg0 + 0x28) == ((TScene *)(&pos))->find_section_at_position()) {
-                            VecCopy__FP3VecPC3Vec(arg0 + 0x38, &pos);
+                            VecCopy((Vec *)(arg0 + 0x38), (const Vec *)&pos);
                             *(s32 *)((s8 *)arg0 + 0x60) = ang + 0xC000;
                             break;
                         }
@@ -1557,7 +1557,7 @@ void TObjEneMe3SinowZoa__sub_80317F90(u8 *arg0, s32 arg1) {
                 *(s32 *)((s8 *)arg0 + 0x434) = 2;
                 *(s32 *)((s8 *)arg0 + 0x3CC) |= 2;
                 TBoss3Volopt::create_breakup_mdl((s32)TObjEneMe3SinowZoa__data_805D6AE0, (s32)sinow_zoa_breakup_params, (s32)(*(s32 *)((s8 *)arg0 + 0x24)), (s32)(arg0 + 0x38), (s32)(*(s32 *)((s8 *)arg0 + 0x60)));
-                VecCopy__FP3VecPC3Vec(&p, arg0 + 0x38);
+                VecCopy((Vec *)&p, (const Vec *)(arg0 + 0x38));
                 p.x += TObjEneMe3SinowZoa__data_805DF320 * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
                 p.z += TObjEneMe3SinowZoa__data_805DF320 * cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
                 ((TObjPlayer *)(&p))->trigger_dell_biter_events();
@@ -1608,7 +1608,7 @@ void TObjEneMe3SinowZoa::state_knockback(s32 arg1) {
         break;
     case 0:
         advance_animation_playback(arg0);
-        VecCopy__FP3VecPC3Vec(&v, arg0 + 0x308);
+        VecCopy((Vec *)&v, (const Vec *)(arg0 + 0x308));
         len = ((TObjBoss2Tunnel *)(&v))->clamp_velocity();
         ((TObjEneDD *)arg0)->move_clamped_on_ground(v.x, v.z, len);
         *(f32 *)((s8 *)arg0 + 0x308) *= lbl_805DF334;
@@ -2485,7 +2485,7 @@ void TObjEneMe3SinowZoa__sub_80318F7C(Ene_80318F7C *self, s32 arg1) {
                 } else {
                     Vec_80318F7C v;
                     f32 d = self->f3AC - TObjEneMe3SinowZoa__data_805DF320;
-                    VecCopy__FP3VecPC3Vec(&v, &self->pos);
+                    VecCopy((Vec *)&v, (const Vec *)&self->pos);
                     v.x = self->f3A0 * d + v.x;
                     v.y = v.y + TObjEneMe3SinowZoa__data_805DF320;
                     v.z = self->f3A8 * d + v.z;
@@ -2878,7 +2878,7 @@ void TObjEneMe3SinowZoa__sub_80319B8C(u8 *arg0, s32 arg1) {
         ((TObjEneDD *)(arg0))->vfunc_95();
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 7);
         TObjEneMe3SinowZoa__sub_800D758C((void *) ((u8 *)(arg0) + 0x414));
-        VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) ((u8 *)(arg0) + 0x38));
+        VecCopy((Vec *)(&stack.sp8), (const Vec *)((u8 *)(arg0) + 0x38));
         temp_f1 = *(f32 *)((s8 *)arg0 + 0x3E0);
         stack.spC = temp_f1 - TObjEneMe3SinowZoa__data_805DF314;
         TBoss3Volopt__sub_800D8D88((void *) (&stack.sp8), (f32) (temp_f1));
@@ -2966,7 +2966,7 @@ void TObjEneMe3SinowZoa__sub_80319E74(u8 *arg0, s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x3CC) &= 0xFFEFFFFD;
         *(s32 *)((s8 *)arg0 + 0x3CC) |= 5;
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x414);
-        VecCopy__FP3VecPC3Vec(&v, arg0 + 0x38);
+        VecCopy((Vec *)&v, (const Vec *)(arg0 + 0x38));
         t = *(f32 *)((s8 *)arg0 + 0x3E0);
         v.y = t - TObjEneMe3SinowZoa__data_805DF320;
         if (*(s32 *)((s8 *)arg0 + 0x3C0) == 0) {
@@ -3019,9 +3019,9 @@ void action__18TObjEneMe3SinowZoaFPvi(u8 *arg0, s32 arg1) {
             *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFFEFFFF);
         }
         *(s32 *)((s8 *)arg0 + 0x434) = 0;
-        VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0x50);
-        VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x50);
-        VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x50);
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x50));
+        VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x50));
+        VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x50));
         *(f32 *)((s8 *)arg0 + 0x3E0) = (f32) *(f32 *)((s8 *)arg0 + 0x3C);
         *(s32 *)((s8 *)arg0 + 0x3F8) = 0;
         *(s32 *)((s8 *)arg0 + 0x3FC) = 0;
@@ -3345,9 +3345,9 @@ void TObjEneMe3SinowZoa::vfunc_88() {
 
 void TObjEneMe3SinowZoa::copy_pos_with_height_offset() {
     u8 *arg0 = (u8 *)this;
-    ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x2FC, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x300) = (f32) (*(f32 *)((s8 *)arg0 + 0x300) + (TObjEneMe3SinowZoa__data_805DF2FC + *(f32 *)((s8 *)arg0 + 0x3E4)));
-    ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x74, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38));
 }
 
 void TObjEneMe3SinowZoa::vfunc_61() {  }
@@ -3472,7 +3472,7 @@ void TObjEneMe3SinowZoaReal::init_enemy() {
     enemy_init_validate_period((int) (0x1E));
     *(s32 *)((s8 *)((u8 *)this) + 0x3CC) = 0;
     *(s32 *)((s8 *)((u8 *)this) + 0x3D0) = 0;
-    VecCopy__FP3VecPC3Vec((void *) ((u8 *)(((u8 *)this)) + 0x3D4), (void *) ((u8 *)(((u8 *)this)) + 0x38));
+    VecCopy((Vec *)((u8 *)(((u8 *)this)) + 0x3D4), (const Vec *)((u8 *)(((u8 *)this)) + 0x38));
     temp_f1 = *(f32 *)((s8 *)((u8 *)this) + 0x3C);
     *(f32 *)((s8 *)((u8 *)this) + 0x3E0) = temp_f1;
     *(f32 *)((s8 *)((u8 *)this) + 0x3E4) = (f32) TObjEneMe3SinowZoa__data_805DF31C;

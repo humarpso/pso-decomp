@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss5Gryphon.h"
@@ -296,7 +297,6 @@ struct Wolf_800B5D4C {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_vec_xz_cross_negative(void *, void *);
 void play_footsteps__14TObjEneBm5WolfFPv(u8 *arg0);
 f32 calc_circle_offset__14TObjEneBm5WolfFPvPvPv(Obj_800B79E0 *self, Vec_800B79E0 *target, Vec_800B79E0 *out);
@@ -1231,7 +1231,7 @@ void render_debug__14TObjEneBm5WolfFPv(u8 *arg0) {
     }
     {
     Vec_800B4824 v;
-    VecCopy__FP3VecPC3Vec(&v, (void *) (arg0 + 0x2FC));
+    VecCopy((Vec *)&v, (const Vec *)(arg0 + 0x2FC));
     v.y += TObjEneBm5Wolf__data_805D9D80;
     TObjMapWarp__sub_80141CB0((void *) (arg0 + 0x2FC), &v, 0xFFC0C0C0, 0xFF6060FF);
     }
@@ -1401,7 +1401,7 @@ void TObjEneBm5Wolf::update_dying_state(s32 arg1) {
             if (F(f32, 0x37C) < lbl_805D9D9C) {
                 F(f32, 0x37C) = F(f32, 0x37C) + F(f32, 0x434);
             }
-            VecCopy__FP3VecPC3Vec(&vel, arg0 + 0x308);
+            VecCopy((Vec *)&vel, (const Vec *)(arg0 + 0x308));
             c = clamp_velocity__15TObjBoss2TunnelFv(&vel);
             ((TObjEneDD *)arg0)->move_clamped_on_ground(vel.x, vel.z, c);
             if (objInBand__FP7GameObjf(arg0, lbl_805D9DA0) != 0) {
@@ -1461,7 +1461,7 @@ void TObjEneBm5Wolf::hurt_state(s32 arg1) {
     case 0: {
         Vec_800B50CC v;
         advance_animation_playback((void *) arg0);
-        VecCopy__FP3VecPC3Vec(&v, (void *) (arg0 + 0x308));
+        VecCopy((Vec *)&v, (const Vec *)(arg0 + 0x308));
         {
         f32 c = clamp_velocity__15TObjBoss2TunnelFv(&v);
         ((TObjEneDD *)arg0)->move_with_wall_slide_on_ground(v.x, v.z, c);
@@ -1573,7 +1573,7 @@ void TObjEneBm5Wolf::repositioning_state(s32 arg1) {
                 dz *= TObjEneBm5Wolf__data_805D9DBC;
                 if (((TBoss5Gryphon *)arg0)->enemy_probe_wall_ahead(dx, dz, TObjEneBm5Wolf__data_805D9D8C) == 0U) {
                     Vec_800B53F0 v;
-                    VecCopy__FP3VecPC3Vec(&v, arg0 + 0x2FC);
+                    VecCopy((Vec *)&v, (const Vec *)(arg0 + 0x2FC));
                     v.x += dx;
                     v.z += dz;
                     if (csnVectorUnder(&v, arg0 + 0x120, 0x15) != 0U) {
@@ -1615,7 +1615,7 @@ void returning_state__14TObjEneBm5WolfFPvi(u8 *actor, s32 arg1) {
         ((VObj_18_4225ac *)(actor))->m94();
         *(f32 *)((s8 *)actor + 0x400) = lbl_805D9DC4;
         *(s32 *)((s8 *)actor + 0x41C) = 0;
-        VecCopy__FP3VecPC3Vec(home, (void *) (actor + 0x38));
+        VecCopy((Vec *)home, (const Vec *)(actor + 0x38));
         TObjBoss2Tunnel::calc_scaled_value((s32)(0x200), lbl_805D9DC4);
         *(s32 *)((s8 *)actor + 0x430) = *(s32 *)((s8 *)actor + 0x60);
         if (((TObjEneDD_ST *)actor)->enemy_has_live_target() != 0) {
@@ -1907,7 +1907,7 @@ void TObjEneBm5Wolf::circling_state(s32 arg1) {
                 Vec_800B5D4C fwd;
                 Vec_800B5D4C to;
                 self->f424 = 1;
-                VecCopy__FP3VecPC3Vec(a, &self->target->pos);
+                VecCopy((Vec *)a, (const Vec *)&self->target->pos);
                 self->f434 = calc_circle_offset__14TObjEneBm5WolfFPvPvPv((Obj_800B79E0 *)self, (Vec_800B79E0 *)a, (Vec_800B79E0 *)b);
                 self->f438 = rand_range__9TObjEneDDFff(self, TObjEneBm5Wolf__data_805D9D80, lbl_805D9E04);
                 fwd.x = sin_table_lookup(self->angle);
@@ -2026,7 +2026,7 @@ void TObjEneBm5Wolf::flanking_state(s32 arg1) {
         this->roamingSubstate = 0;
         this->roamingTimer = 0;
         calc_rotated_vector__14TObjEneBm5WolfFPviPvPv(((u8 *)this), 0x1C71, src, ang);
-        VecCopy__FP3VecPC3Vec(dst, src);
+        VecCopy((Vec *)dst, (const Vec *)src);
         *(s32 *)&this->m_430 = *ang;
         break;
     case 3:
@@ -2058,7 +2058,7 @@ void TObjEneBm5Wolf::flanking_state(s32 arg1) {
                 }
             }
             if (objInBand__FP7GameObjf(((u8 *)this), *(f32 *)&this->unk_C4 - TObjEneBm5Wolf__data_805D9D8C) != 0) {
-                VecCopy__FP3VecPC3Vec(dst, src);
+                VecCopy((Vec *)dst, (const Vec *)src);
                 *(s32 *)&this->m_430 = *ang;
             }
             this->rotation_y = approach_angle_limited(this->rotation_y, *(s32 *)&this->m_430, 0x800);
@@ -2433,7 +2433,7 @@ void appearing_state__14TObjEneBm5WolfFPvi(Obj_800B7018 *o, s32 arg1) {
         o->f408 |= 4;
         enemy_clear_target__12TObjEneDD_STFUs(o);
         o->f3E4 = 0;
-        VecCopy__FP3VecPC3Vec(home, &o->pos);
+        VecCopy((Vec *)home, (const Vec *)&o->pos);
         o->pos.x -= lbl_805D9E3C * sin_table_lookup(o->angle);
         o->pos.z -= lbl_805D9E3C * cos_table_lookup(o->angle);
         o->f434 = lbl_805D9E40;
@@ -2504,9 +2504,9 @@ void anchor_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
             *(s16 *)((s8 *)arg0 + 0x3E0) = obj_getField1c();
         }
         if (((s32) *(s32 *)((s8 *)arg0 + 0x3D8) != 0) || (temp_r3 == 0U)) {
-            VecCopy__FP3VecPC3Vec(arg0 + 0x3F4, arg0 + 0x3E8);
+            VecCopy((Vec *)(arg0 + 0x3F4), (const Vec *)(arg0 + 0x3E8));
         } else {
-            VecCopy__FP3VecPC3Vec(arg0 + 0x3F4, fn_800B8B00(temp_r3));
+            VecCopy((Vec *)(arg0 + 0x3F4), (const Vec *)(fn_800B8B00(temp_r3)));
         }
         *(s32 *)((s8 *)arg0 + 0x420) = (s32) (*(s32 *)((s8 *)arg0 + 0x420) + 1);
         break;
@@ -2888,7 +2888,7 @@ s32 calc_lunge_aim__14TObjEneBm5WolfFPv(u8 *arg0) {
     *(f32 *)((s8 *)arg0 + 0x3A0) = sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60)));
     *(f32 *)((s8 *)arg0 + 0x3A4) = (f32) TObjEneBm5Wolf__data_805D9D78;
     *(f32 *)((s8 *)arg0 + 0x3A8) = cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60)));
-    VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x394)), (void *)((void *) (arg0 + 0x38)));
+    VecCopy((Vec *)((void *) (arg0 + 0x394)), (const Vec *)((void *) (arg0 + 0x38)));
     *(f32 *)((s8 *)arg0 + 0x394) = (f32) ((TObjEneBm5Wolf__data_805D9DF0 * *(f32 *)((s8 *)arg0 + 0x3A0)) + *(f32 *)((s8 *)arg0 + 0x394));
     *(f32 *)((s8 *)arg0 + 0x39C) = (f32) ((TObjEneBm5Wolf__data_805D9DF0 * *(f32 *)((s8 *)arg0 + 0x3A8)) + *(f32 *)((s8 *)arg0 + 0x39C));
     *(f32 *)((s8 *)arg0 + 0x3AC) = (f32) TObjEneBm5Wolf__data_805D9DF0;
@@ -2928,7 +2928,7 @@ void spawn_recoil_dust__14TObjEneBm5WolfFiPv(s32 arg0, u8 *arg1) {
     typedef char sp8_offset[(offsetof(Stack_800B7808, sp8) == 0x0) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_800B7808, sp10) == 0x8) ? 1 : -1];
     Stack_800B7808 stack;
-    VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+    VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x38));
     stack.sp8 += TObjEneBm5Wolf__data_805D9DE0 * *(f32 *)((s8 *)arg1 + 0);
     stack.sp10 += TObjEneBm5Wolf__data_805D9DE0 * *(f32 *)((s8 *)arg1 + 8);
     spawn_particle_effect((s32) &stack.sp8, 0xF3);
@@ -2957,7 +2957,7 @@ s32 select_death_direction__14TObjEneBm5WolfFPvPv(Wolf_800B78F8 *s, s32 *heading
     Vec_800B78F8 v;
     Vec_800B78F8 side;
     s32 ret;
-    VecCopy__FP3VecPC3Vec(&v, &s->knockback);
+    VecCopy((Vec *)&v, (const Vec *)&s->knockback);
     v.y = TObjEneBm5Wolf__data_805D9D78;
     if (TObjEneBm5Wolf__data_805D9D78 != clamp_velocity__15TObjBoss2TunnelFv(&v)) {
         *heading = (s32)(TObjEneBm5Wolf__data_8043B5B0 * atan2_float(v.x, v.z));
@@ -3556,7 +3556,7 @@ void TObjEneBm5Wolf::update_collision_center() {
     temp_f2 = *(f32 *)&this->_pad40C;
     *(f32 *)((s8 *)((u8 *)this) + 0x300) = (f32) (temp_f2 + (TObjEneBm5Wolf__data_805D9DB4 + *(f32 *)((s8 *)((u8 *)this) + 0x3C)));
     this->m_304 = (f32) *(f32 *)((s8 *)((u8 *)this) + 0x40);
-    VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x74), (void *) (((u8 *)this) + 0x2FC));
+    VecCopy((Vec *)(((u8 *)this) + 0x74), (const Vec *)(((u8 *)this) + 0x2FC));
 }
 
 void TObjEneBm5Wolf::vfunc_61() {  }
@@ -3599,7 +3599,7 @@ void run_task__14TObjEneBm5WolfFPv(u8 *arg0) {
         if (temp_r3_2 == 0) {
             ((VObj_18 *)(arg0))->m83();
         } else if (temp_r3_2 == 1) {
-            VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x38)), (void *)((void *) (arg0 + 0x50)));
+            VecCopy((Vec *)((void *) (arg0 + 0x38)), (const Vec *)((void *) (arg0 + 0x50)));
             transition_enemy_state((void*)((void *) (arg0)), (void*)((int) (7)));
             ((VObj_18 *)(arg0))->m83();
         }
@@ -3673,8 +3673,8 @@ u8 *TObjEneBm5Wolf__ct(u8 *arg0, void *arg1, void *arg2) {
     }
     *(u16 *)((s8 *)arg0 + 0x3E0) = 0xFFFF;
     *(s32 *)((s8 *)arg0 + 0x3E4) = 0;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x3E8, arg0 + 0x38);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x3F4, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x3E8), (const Vec *)(arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x3F4), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x400) = TObjEneBm5Wolf__data_805D9D78;
     *(f32 *)((s8 *)arg0 + 0x404) = TObjEneBm5Wolf__data_805D9D78;
     *(s32 *)((s8 *)arg0 + 0x408) = 0;

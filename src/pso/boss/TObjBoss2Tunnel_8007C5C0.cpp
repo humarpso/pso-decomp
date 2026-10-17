@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/main_loop.h"
 #include "pso/misc/TWindowMessage.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -89,9 +90,7 @@ s32 get_localized_text_entry(s32, s32);
 void process_deferred_player_setup__6TLobbyFv(void);
 void reset_state_flags__6TLobbyFv(void);
 s8 func_801A5E54__Fv(void);
-void controller_stuff__Fv(void);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
-void render_tick__Fv(void);
 void render__9TMainTaskFv(void *);
 void func_803DCDFC__Fv(void);
 extern f32 lbl_80438A78[];
@@ -148,7 +147,7 @@ s32 TObjBoss2Tunnel::run_confirm_message_loop() {
     for (;;) {
         frames++;
         func_803DCDFC__Fv();
-        controller_stuff__Fv();
+        controller_stuff();
         if (camera_ctrl_instance != 0U) {
             ((TCameraCtrl *)camera_ctrl_instance)->setup_default_view(0);
         }
@@ -176,7 +175,7 @@ s32 TObjBoss2Tunnel::run_confirm_message_loop() {
                 break;
             }
         }
-        render_tick__Fv();
+        render_tick();
     }
     if (graph != NULL) {
         delete graph;
@@ -230,7 +229,7 @@ void TObjBoss2Tunnel::show_message_and_wait(s32 arg0) {
     for (;;) {
         frames++;
         func_803DCDFC__Fv();
-        controller_stuff__Fv();
+        controller_stuff();
         if (camera_ctrl_instance != 0U) {
             ((TCameraCtrl *)camera_ctrl_instance)->setup_default_view(0);
         }
@@ -242,7 +241,7 @@ void TObjBoss2Tunnel::show_message_and_wait(s32 arg0) {
         if (func_801A5E54__Fv() != 0) {
             break;
         }
-        render_tick__Fv();
+        render_tick();
     }
     if (get_main_phase() == 0xF) {
         process_deferred_player_setup__6TLobbyFv();

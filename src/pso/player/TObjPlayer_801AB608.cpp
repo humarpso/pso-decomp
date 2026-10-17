@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_804C3248.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TPhotonGolla.h"
@@ -108,7 +109,6 @@ extern "C" {
 extern u8 *photon_blast_shared_resource;
 extern u32 farlla_photon_blast_model_buffers;
 void create_farlla_photon_blast_model(void);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_particle_effect(void *, int);
 s32 advance_animation_playback(void *);
 s32 find_entity_by_id(int);
@@ -208,10 +208,10 @@ s32 spawn_concentrate__12TPhotonGollaFPv(void *arg0) {
         }
         rotate_vector_by_matrix(0, &local, &rotated);
         pop_matrices(1);
-        VecCopy__FP3VecPC3Vec(&target, &self->pos);
+        VecCopy((Vec *)&target, (const Vec *)&self->pos);
         vec3_add_to(&target, &rotated);
     } else {
-        VecCopy__FP3VecPC3Vec(&target, self->f1a8 + 0x2FC);
+        VecCopy((Vec *)&target, (const Vec *)(self->f1a8 + 0x2FC));
     }
     Vec_801AB6A0 direction = target;
     subtract_vector(&direction, &self->f1ac);
@@ -349,7 +349,7 @@ void TPhotonGolla::run_task() {
         *(s32 *)&this->unk_1C8 = 0;
         entity = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0x158)));
         if (entity != 0) {
-            VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (entity + 0x38));
+            VecCopy((Vec *)(&stack.sp8), (const Vec *)(entity + 0x38));
         }
         stack.spC += lbl_805DC1A0;
         temp_r3_2 = __nw__7TObjectFUl((int) (0xD0));
@@ -370,7 +370,7 @@ void TPhotonGolla::run_task() {
     *(s16 *)((s8 *)arg0 + 0x14C) = (s16) (*(s16 *)((s8 *)arg0 + 0x14C) + 0xF);
     *(s16 *)((s8 *)arg0 + 0x14C) = (s16) (u8) *(s16 *)((s8 *)arg0 + 0x14C);
     if ((s32) *(s32 *)&this->unk_1C8 == 0x50) {
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1AC), (void *) (this->m_148 + 0x44));
+        VecCopy((Vec *)(arg0 + 0x1AC), (const Vec *)(this->m_148 + 0x44));
         spawn_particle_effect((void *) (arg0 + 0x1AC), (int) (0x133));
         spawn_concentrate__12TPhotonGollaFPv((void *)((void *) (arg0)));
     }

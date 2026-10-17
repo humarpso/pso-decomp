@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestListOnline.h"
 #include "pso/misc/TQuestListVM.h"
@@ -114,7 +115,6 @@ struct RecoveredGlobal_801F3DEC_TLobby__data_805127D0;
 extern "C" {
 s32 memset(void *, int, int);
 void clear_quest_floor_designations(void);
-s32 bswap_32__FPUl(void *);
 extern u8 lbl_80449D08[];
 extern u8 lbl_80449D1C[];
 extern u8 lbl_80449D30[];
@@ -229,10 +229,10 @@ loop_1:
         sp10 = *(s32 *)((s8 *)var_r31 + 4);
         spC = *(s32 *)((s8 *)var_r31 + 8);
         sp8 = *(s32 *)((s8 *)var_r31 + 0xC);
-        bswap_32__FPUl((void *) (&sp14));
-        bswap_32__FPUl((void *) (&sp10));
-        bswap_32__FPUl((void *) (&spC));
-        bswap_32__FPUl((void *) (&sp8));
+        bswap_32((u32 *)(&sp14));
+        bswap_32((u32 *)(&sp10));
+        bswap_32((u32 *)(&spC));
+        bswap_32((u32 *)(&sp8));
         if ((sp14 == 3) && (spC == arg0)) {
             return TLobby::add_player(spC, (s32) (var_r31 + 0x10), sp8) != 0;
         }
@@ -262,10 +262,10 @@ loop_1:
         sp10 = *(s32 *)((s8 *)var_r31 + 4);
         spC = *(s32 *)((s8 *)var_r31 + 8);
         sp8 = *(s32 *)((s8 *)var_r31 + 0xC);
-        bswap_32__FPUl(&sp14);
-        bswap_32__FPUl(&sp10);
-        bswap_32__FPUl(&spC);
-        bswap_32__FPUl(&sp8);
+        bswap_32((u32 *)&sp14);
+        bswap_32((u32 *)&sp10);
+        bswap_32((u32 *)&spC);
+        bswap_32((u32 *)&sp8);
         if ((sp14 == 2) && (spC == arg0)) {
             temp_r31 = var_r31 + 0x10;
             ((TLobby *)temp_r31)->bswap_enemy_set_rows(sp8);
@@ -304,10 +304,10 @@ loop_1:
         sp10 = *(s32 *)((s8 *)var_r31 + 4);
         spC = *(s32 *)((s8 *)var_r31 + 8);
         byte_size = *(s32 *)((s8 *)var_r31 + 0xC);
-        bswap_32__FPUl(&sp14);
-        bswap_32__FPUl(&sp10);
-        bswap_32__FPUl(&spC);
-        bswap_32__FPUl(&byte_size);
+        bswap_32((u32 *)&sp14);
+        bswap_32((u32 *)&sp10);
+        bswap_32((u32 *)&spC);
+        bswap_32((u32 *)&byte_size);
         if ((sp14 == 1) && (spC == arg0)) {
             rows = var_r31 + 0x10;
             convert_quest_object_rows((struct QuestObjRow_801F3AD8 *)rows, byte_size);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss6GravBall.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
@@ -24,7 +25,6 @@ s32 create_particle_emitter(s32, s32);
 extern RecoveredGlobal_80323214_lbl_80476658 TBoss6GravBall__emitter_id_table;
 void TBoss6GravBall__sub_80323214(s32 arg0, s32 arg1);
 void TBoss6GravBall__sub_80323320(T_80323320 *self);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 Ctl_80323134 *get_player_by_client_id(int);
 void fn_80323134(Obj_80323134 *arg0);
 
@@ -38,7 +38,7 @@ void fn_80323134(Obj_80323134 *arg0) {
             case 5: case 6: case 7: case 8:
                 c = get_player_by_client_id((u16)(i - 5));
                 if (c != 0) {
-                    VecCopy__FP3VecPC3Vec(&v, &c->pos);
+                    VecCopy((Vec *)&v, (const Vec *)&c->pos);
                     ((TNowLoading *)(arg0->items[i]))->copy_pos(&v);
                 }
                 break;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_804C3248.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TPhotonFarlla.h"
@@ -19,7 +20,6 @@ struct Stack_801AB018 {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_particle_effect(void *, int);
 s32 advance_animation_playback(void *);
 s32 find_entity_by_id(int);
@@ -59,7 +59,7 @@ void TPhotonFarlla::run_task() {
         this->m_1a0 = 1;
         entity = find_entity_by_id((int) ((s32) this->m_17c));
         if (entity != 0) {
-            VecCopy__FP3VecPC3Vec((void *) (&stack.sp20), (void *) (entity + 0x38));
+            VecCopy((Vec *)(&stack.sp20), (const Vec *)(entity + 0x38));
             stack.sp24 += lbl_805DC15C;
         }
         temp_r3_2 = __nw__7TObjectFUl((int) (0xD0));
@@ -85,7 +85,7 @@ void TPhotonFarlla::run_task() {
     if (lbl_805DC164 == (f32) *(s32 *)&this->unk_1A4) {
         temp_r3_3 = find_entity_by_id((int) ((s32) this->m_17c));
         if (temp_r3_3 != 0) {
-            VecCopy__FP3VecPC3Vec((void *) (&stack.sp14), (void *) (temp_r3_3 + 0x38));
+            VecCopy((Vec *)(&stack.sp14), (const Vec *)(temp_r3_3 + 0x38));
         }
         stack.sp18 += lbl_805DC168;
         spawn_particle_effect((void *) (&stack.sp14), (int) (0x151));
@@ -96,7 +96,7 @@ void TPhotonFarlla::run_task() {
     if ((lbl_805DC170 == (f32) temp_r3_4) || (lbl_805DC174 == (f32) temp_r3_4)) {
         temp_r3_5 = find_entity_by_id((int) ((s32) this->m_17c));
         if (temp_r3_5 != 0) {
-            VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (temp_r3_5 + 0x38));
+            VecCopy((Vec *)(&stack.sp8), (const Vec *)(temp_r3_5 + 0x38));
             stack.spC += lbl_805DC168;
         }
         spawn_particle_effect((void *) (&stack.sp8), (int) (0x151));

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TTecRaBarta.h"
 
 #include <stddef.h>
@@ -93,7 +94,6 @@ s32 approach_vector_in_place(void *, void *, f32);
 s32 TObjRoomId__sub_80141CF4(void *, void *, f32);
 extern RecoveredGlobal_80237194_lbl_8044D8EC lbl_8044D8EC;
 u16 obj_getField1c(void *);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TEffectFv(void *);
 void init_collision_body_parts(void *, f32 *, s32);
 void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
@@ -155,7 +155,7 @@ Obj_80237310 *TTecPlayerInfluence__ct(Obj_80237310 *self, Owner_80237310 *owner,
   self->vt = __vt__19TTecPlayerInfluence;
   self->f0 = lbl_805D37F0;
   self->fa8 = 0xFFFF;
-  VecCopy__FP3VecPC3Vec(self->pos, pos);
+  VecCopy((Vec *)self->pos, (const Vec *)pos);
   if (level < 0)
   {
     self->level = 0;

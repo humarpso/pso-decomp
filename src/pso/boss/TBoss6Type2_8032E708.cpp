@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss6Rock.h"
 #include "pso/boss/TBoss6Type2.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -296,7 +297,6 @@ void *lbl_804EDDEC[83] = {
     (void *)apply_hit_message_flags__9TObjEnemyFPv, (void *)apply_set_data__9TObjEnemyFPv, (void *)clear_lobby_object_state__9TObjEnemyFv,
 };
 
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 vec3_add_to(void *, int);
 f32 vector_length(void *);
 f32 subtract_vector(void *, int);
@@ -397,7 +397,7 @@ void TBoss6Mag::update_effect_positions() {
         E_8032E834 *ep = &e[i];
         if (arg0->h[i] != 0) {
             if (ep->b >= 0) {
-                VecCopy__FP3VecPC3Vec(&p, &arg0->v[ep->b]);
+                VecCopy((Vec *)&p, (const Vec *)&arg0->v[ep->b]);
             }
             ((TNowLoading *)(arg0->h[i]))->copy_pos(&p);
         }
@@ -484,7 +484,7 @@ void TBoss6Type2::enforce_min_distance() {
   f32 temp_f1;
   if (((u32) (*((u32 *) (((s8 *) arg0) + 0x37C)))) != 0U)
   {
-    VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+    VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x38));
     subtract_vector((void *) (&stack.sp8), (int) ((*((u32 *) (((s8 *) arg0) + 0x37C))) + 0x38));
     temp_f1 = vector_length((void *) (&stack.sp8));
     if (!(temp_f1 >= (4e+01f)))
@@ -498,7 +498,7 @@ void TBoss6Type2::enforce_min_distance() {
       stack.spC = (0.0f);
       stack.sp10 *= (4e+01f);
       vec3_add_to((void *) (&stack.sp8), (int) ((*((u32 *) (((s8 *) arg0) + 0x37C))) + 0x38));
-      VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (&stack.sp8));
+      VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(&stack.sp8));
     }
   }
 }
@@ -513,7 +513,7 @@ void TBoss6Type2::push_out_from_points() {
     if (arg0->p378 != 0) {
         ((TBoss6Type2 *)(arg0->p378))->get_push_points((s32)(&pts[0]), (s32)(&pts[1]));
         for (i = 0; i < 2; i++) {
-            VecCopy__FP3VecPC3Vec(&v, &pts[i]);
+            VecCopy((Vec *)&v, (const Vec *)&pts[i]);
             ((f32 (*)(void *, void *))subtract_vector)(&v, &arg0->pos);
             if (v.y < 0.0f || v.y > 50.0f) {
                 continue;
@@ -550,7 +550,7 @@ void TBoss6Type2::push_out_from_target() {
         return;
     }
     ((TBoss6Type2 *)(*(void **)((s8 *)arg0 + 0x378)))->copy_pos_59c((s32)(&a));
-    VecCopy__FP3VecPC3Vec(&b, arg0 + 0x38);
+    VecCopy((Vec *)&b, (const Vec *)(arg0 + 0x38));
     ((f32 (*)(void *, void *))subtract_vector)(&b, &a);
     len = vector_length(&b);
     if (len >= (5e+01f)) {
@@ -564,21 +564,21 @@ void TBoss6Type2::push_out_from_target() {
     b.y *= (5e+01f);
     b.z *= (5e+01f);
     ((f32 (*)(void *, void *))vec3_add_to)(&b, &a);
-    VecCopy__FP3VecPC3Vec(&c, arg0 + 0x38);
+    VecCopy((Vec *)&c, (const Vec *)(arg0 + 0x38));
     ((f32 (*)(void *, void *))subtract_vector)(&c, arg0 + 0x44);
     dist = vector_length(&c);
-    VecCopy__FP3VecPC3Vec(&d, &b);
+    VecCopy((Vec *)&d, (const Vec *)&b);
     ((f32 (*)(void *, void *))subtract_vector)(&d, arg0 + 0x44);
     len = vector_length(&d);
     if (dist <= (1e-05f) || len <= (1e-05f)) {
-        VecCopy__FP3VecPC3Vec(arg0 + 0x38, &b);
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)&b);
         return;
     }
     normalize_vector(&c);
     normalize_vector(&d);
     ((f32 (*)(void *, void *))vec3_add_to)(&d, &c);
     if (vector_length(&d) <= (1e-05f)) {
-        VecCopy__FP3VecPC3Vec(arg0 + 0x38, &b);
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)&b);
         return;
     }
     normalize_vector(&d);
@@ -586,7 +586,7 @@ void TBoss6Type2::push_out_from_target() {
     d.y *= dist;
     d.z *= dist;
     ((f32 (*)(void *, void *))vec3_add_to)(&d, arg0 + 0x44);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x38, &d);
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)&d);
 }
 
 void TBoss6Type2::compute_random_dir_vec(s32 arg0, u8 *arg1, s32 arg2, s32 arg3) {
@@ -604,7 +604,7 @@ typedef struct RecoveredFields_8032F174_arg0 RecoveredFields_8032F174_arg0;
 
 s32 calc_dir_angles__11TBoss6Type2FPvPvPvPv(void *arg0, s32 *arg1, s32 *arg2, Vec_8032EF34 *arg3) {
     Vec_8032EF34 v;
-    VecCopy__FP3VecPC3Vec(&v, arg3);
+    VecCopy((Vec *)&v, (const Vec *)arg3);
     if (vector_length(&v) <= (1e-05f)) {
         return 0;
     }
@@ -636,7 +636,7 @@ s32 TBoss6Mag::is_target_in_front_range() {
         return 0;
     }
     V3_8032F034 a;
-    VecCopy__FP3VecPC3Vec(&a, p + 0x38);
+    VecCopy((Vec *)&a, (const Vec *)(p + 0x38));
     a.y = 0.0f;
     V3_8032F034 b = arg0->home;
     if (0.0f == arg0->f3b8) {
@@ -645,7 +645,7 @@ s32 TBoss6Mag::is_target_in_front_range() {
         }
     }
     V3_8032F034 c;
-    VecCopy__FP3VecPC3Vec(&c, &b);
+    VecCopy((Vec *)&c, (const Vec *)&b);
     c.x += 90.0f * sin_table_lookup((void *)arg0->f60);
     c.y = 0.0f;
     c.z += 90.0f * cos_table_lookup((void *)arg0->f60);
@@ -722,7 +722,7 @@ void set_path_points__11TBoss6Type2FPvPvi(O_8032F360 *arg0, V3_8032F360 *arg1, s
         n = 3;
     }
     for (i = 0; i < n; i++) {
-        VecCopy__FP3VecPC3Vec(&arg0->v[i], &arg1[i]);
+        VecCopy((Vec *)&arg0->v[i], (const Vec *)&arg1[i]);
     }
     arg0->n = n;
     ((TBoss6Mag *)arg0)->set_action(3);
@@ -749,7 +749,7 @@ void TBoss6Mag::spawn_falling_rocks() {
         ang = *(s32 *)((s8 *)arg0 + 0x60) + lbl_80477444[i] + (s32)((4096.0f) * ((0.5f) - (3.0517578e-05f) * (f32)rand()));
         r = (4e+01f) * ((3.0517578e-05f) * (f32)rand()) + (8e+01f);
         p = &pts[i];
-        VecCopy__FP3VecPC3Vec(p, arg0 + 0x44C);
+        VecCopy((Vec *)p, (const Vec *)(arg0 + 0x44C));
         p->x = r * ((f32 (*)(s32))sin_table_lookup)(ang) + p->x;
         p->y = (0.0f);
         p->z = r * ((f32 (*)(s32))cos_table_lookup)(ang) + p->z;
@@ -799,19 +799,19 @@ void TBoss6Type2::turn_toward_target() {
     }
     if (p == NULL) {
         if (*(u8 **)((s8 *)((u8 *)this) + 0x378) == NULL) {
-            VecCopy__FP3VecPC3Vec(&v, ((u8 *)this) + 0x50);
+            VecCopy((Vec *)&v, (const Vec *)(((u8 *)this) + 0x50));
         } else {
             s32 ang;
             u8 *t;
             ang = (s32)((12288.0f) * ((TBoss6Type2 *)((u8 *)this))->apply_direction_sign((1.0f)) + (f32)*(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x378)) + 0x60));
             t = *(u8 **)((s8 *)((u8 *)this) + 0x378);
-            VecCopy__FP3VecPC3Vec(&v, t + 0x38);
+            VecCopy((Vec *)&v, (const Vec *)(t + 0x38));
             v.x += (5e+01f) * ((f32 (*)(s32))sin_table_lookup)(ang);
             v.z += (5e+01f) * ((f32 (*)(s32))cos_table_lookup)(ang);
         }
         v.y = (3e+01f);
     } else {
-        VecCopy__FP3VecPC3Vec(&v, p + 0x38);
+        VecCopy((Vec *)&v, (const Vec *)(p + 0x38));
         v.y = (3e+01f);
     }
     if (project_actor_to_ground(((u8 *)this), &v, 0) != 0) {
@@ -846,7 +846,7 @@ s32 TBoss6Type2::fly_toward_target() {
     }
     TBoss6Type2__sub_802BD378(o->p378, o->f384, &tgt, &t);
     tgt.y += (35.0f);
-    VecCopy__FP3VecPC3Vec(&d, &tgt);
+    VecCopy((Vec *)&d, (const Vec *)&tgt);
     subtract_vector(&d, (int)&o->pos);
     if (!(vector_length(&d) > (3e+01f))) {
         d.x *= (0.25f);
@@ -863,14 +863,14 @@ s32 TBoss6Type2::fly_toward_target() {
         o->f5c = approach_angle_limited(o->f5c, 0, 0x5B0);
         return 1;
     }
-    VecCopy__FP3VecPC3Vec(&h, &d);
+    VecCopy((Vec *)&h, (const Vec *)&d);
     h.y = (0.0f);
     len = vector_length(&h);
     if (!(len < (1e+02f))) {
         f32 dy;
         o->f60 = step_angle_toward(o->f60, (s32)((10430.38043493439) * atan2_float(d.x, d.z)), 0x5B0);
         o->f5c = approach_angle_limited(o->f5c, 0, 0x5B0);
-        VecCopy__FP3VecPC3Vec(&a, &o->pos);
+        VecCopy((Vec *)&a, (const Vec *)&o->pos);
         a.x += (4.4444447f) * sin_table_lookup((void *)o->f60);
         a.z += (4.4444447f) * cos_table_lookup((void *)o->f60);
         if (project_actor_to_ground(o, &a, 0) == 0) {
@@ -920,7 +920,7 @@ s32 TBoss6Type2__sub_8032FB84(O_8032FB84 *arg0) {
     }
     TBoss6Type2__sub_802BD378(arg0->p378, arg0->f384, &v, &t);
     v.y += (35.0f);
-    VecCopy__FP3VecPC3Vec(&arg0->pos, &v);
+    VecCopy((Vec *)&arg0->pos, (const Vec *)&v);
     arg0->f60 = t;
     return 1;
 }
@@ -1195,7 +1195,7 @@ s32 play_persistent_sound(int, void *, void *, int, int);
 
 void TObjPlayer::save_position() {
     s32 arg0 = (s32)this;
-    VecCopy__FP3VecPC3Vec((void *)(arg0 + 0x2FC), (void *)(arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
 }
 
 void TBoss6Mag::sub_8033040C() {
@@ -1252,7 +1252,7 @@ void TBoss6Mag::run_task() {
             queue_destruction__7TObjectFv((void *) (arg0));
             return;
         }
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));
+        VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
         {
             Fn_8033053C fn = boss6_type2_action_table[*(s32 *)((s8 *)arg0 + 0x380)].fn;
             if (fn) {
@@ -1324,7 +1324,7 @@ u8 *TBoss6Mag__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(u8 **)((s8 *)arg0 + 0x18) = (u8 *)lbl_804EDDEC;
     *(s32 *)((s8 *)arg0 + 0) = (s32)lbl_805D4220;
     *(s32 *)((s8 *)arg0 + 0x378) = *(s32 *)((s8 *)arg2 + 0x40);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg2 + 0x44);
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2 + 0x44));
     *(s32 *)((s8 *)arg0 + 0x60) = *(s32 *)((s8 *)arg2 + 0x50);
     *(s32 *)((s8 *)arg0 + 0x384) = *(s32 *)((s8 *)arg2 + 0x54);
     TBoss6Type2__instance_slots[*(s32 *)((s8 *)arg0 + 0x384)] = arg0;
@@ -1338,9 +1338,9 @@ u8 *TBoss6Mag__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s32 *)((s8 *)arg0 + 0x37C) = 0;
     *(s32 *)((s8 *)arg0 + 0x24) = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x44, (void *)VecCopy__FP3VecPC3Vec(arg0 + 0x50, (void *)VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38)));
+    VecCopy((Vec *)(arg0 + 0x44), (const Vec *)((void *)VecCopy((Vec *)(arg0 + 0x50), (const Vec *)((void *)VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38))))));
     init_collision_body_parts(arg0, TBoss6Mag__collision_body_parts, 1);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x310) = 0.0f;
     *(f32 *)((s8 *)arg0 + 0x30C) = 0.0f;
     *(f32 *)((s8 *)arg0 + 0x308) = 0.0f;

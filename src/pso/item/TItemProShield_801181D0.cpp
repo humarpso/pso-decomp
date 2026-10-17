@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/item/TItem.h"
 #include "pso/item/TItemProShield.h"
@@ -49,7 +50,6 @@ s32 get_id__13TItemProArmorFv(void *);
 s32 init_item_timer_event__13TUnk_804A0648Fv(int, int, void *, int);
 int fn_800F953C(void*);
     extern int TItemProShield__shield_table;
-s32 bswap_32__FPUl(s32);
 s32 fn_800F955C(s32);
 extern s32 lbl_805D2C3C;
 void __dt__14TItemEquipBaseFv(void *, int);
@@ -247,15 +247,15 @@ void TItemProShield::load_data() {
         var_r29 = var_r28;
         var_r30 = 0;
 loop_2:
-        bswap_32__FPUl(var_r29);
+        bswap_32((u32 *)var_r29);
         var_r30 += 1;
         var_r29 += 4;
         if (var_r30 < 8) {
             goto loop_2;
         }
-        bswap_32__FPUl(var_r28 + 0x20);
-        bswap_32__FPUl(var_r28 + 0x24);
-        bswap_32__FPUl(var_r28 + 0x28);
+        bswap_32((u32 *)(var_r28 + 0x20));
+        bswap_32((u32 *)(var_r28 + 0x24));
+        bswap_32((u32 *)(var_r28 + 0x28));
         var_r31 += 1;
         var_r28 += 0x2C;
     } while (var_r31 != 0x32);

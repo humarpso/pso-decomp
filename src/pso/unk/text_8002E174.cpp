@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TObjBoss1Rock.h"
 #include "pso/player/TUnk_804820C0.h"
 #include "pso/unk/TUnk_80482090.h"
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 rand(void);
 extern s32 lbl_805D26A0;
 extern const f32 lbl_805D8200;
@@ -28,8 +28,8 @@ void *__dt__13TObjBoss1RockFv(void *arg0, s16 arg1) {
 }
 void TObjBoss1Rock::sub_8002E1CC(u8 *arg1, u8 *arg2, s32 arg3) {
     *(s32 *)&this->m_name = (s32) lbl_805D26A0;
-    VecCopy__FP3VecPC3Vec(((u8 *)this) + 0x1C, arg1);
-    VecCopy__FP3VecPC3Vec(((u8 *)this) + 0x28, arg2);
+    VecCopy((Vec *)(((u8 *)this) + 0x1C), (const Vec *)arg1);
+    VecCopy((Vec *)(((u8 *)this) + 0x28), (const Vec *)arg2);
     *(s32 *)&this->m_34 = (s32) (lbl_805D821C * (lbl_805D8220 * (f32) rand()));
     *(s32 *)&this->m_38 = (s32) (lbl_805D821C * (lbl_805D8220 * (f32) rand()));
     *(s32 *)&this->m_3c = 0;

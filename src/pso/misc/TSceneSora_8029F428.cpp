@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TSceneSora.h"
 #include "pso/misc/TUnk_804DC7C4.h"
 
@@ -123,7 +124,6 @@ struct RecoveredGlobal_80069A6C_TCameraCtrl__data_804FF628 {
 
 extern "C" {
 extern s32 lbl_805D65F0;
-s32 VecCopy__FP3VecPC3Vec(void *, int);
 extern RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4 sora_reflection_ray_direction;
 void *create_instance__10TSceneSoraFPv(void *arg0);
 s32 __ct__7TObjectFP7TObject();
@@ -192,7 +192,7 @@ void *create_instance__10TSceneSoraFPv(void *arg0) {
 s32 TSceneSora::get_state() { return *(s32*)((char*)this + 0x20); }
 void TSceneSora::set_scene_flag(int a0) { (*(int *)&lbl_805D65F0) = a0; }
 void TSceneSora::copy_reflection_vec(u8 *arg0) {
-    VecCopy__FP3VecPC3Vec((void *)(&sora_reflection_ray_direction.value), (int)(arg0));
+    VecCopy((Vec *)(&sora_reflection_ray_direction.value), (const Vec *)(arg0));
 }
 
 typedef char RecoveredGlobal_80069094_camera_controller_registry_size[sizeof(RecoveredGlobal_80069094_camera_controller_registry) == 0x68 ? 1 : -1];

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjDFHorming.h"
 
 typedef struct Vec_8005063C {
@@ -23,7 +24,6 @@ f32 fabs_float(f32);
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A58;
 extern const f32 lbl_805D8A5C;
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 f32 vector_length(Vec_8005063C *);
 void subtract_vector(Vec_8005063C *, Vec_8005063C *);
@@ -41,7 +41,7 @@ void steer_homing_direction(Obj_8005063C *arg0) {
     Vec_8005063C d;
     f32 k;
     f32 inv;
-    VecCopy__FP3VecPC3Vec(&d, &arg0->f36c);
+    VecCopy((Vec *)&d, (const Vec *)&arg0->f36c);
     subtract_vector(&d, &arg0->f2fc);
     if (vector_length(&d) <= lbl_805D8A48 ||
         vector_length(&arg0->dir) <= lbl_805D8A48) {

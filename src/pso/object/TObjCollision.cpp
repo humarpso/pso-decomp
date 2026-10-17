@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjCollision.h"
 #include "pso/player/TObjPlayer.h"
@@ -9,7 +10,6 @@ typedef char RecoveredGlobal_8006754C___vt__13TObjCollision_size[sizeof(Recovere
 extern "C" {
 f32 fabs_float(f32);
 u32 init_collision_body_parts(void *, s32, s32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 extern s32 __vt__13TObjCollision[];
 extern s32 lbl_805D2830;
 extern const f32 lbl_805D8F20;
@@ -50,9 +50,9 @@ u8 *TObjCollision__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8006754C___vt__13TObjCollision *)&__vt__13TObjCollision).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2830;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2 + 0xC));
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2 + 0xC));
     ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz((void *) (arg2 + 0x18));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x68), (void *) (arg2 + 0x24));
+    VecCopy((Vec *)(arg0 + 0x68), (const Vec *)(arg2 + 0x24));
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x02000000);
     *(f32 *)((s8 *)arg0 + 0xAC) = (f32) lbl_805D8F20;
     *(f32 *)((s8 *)arg0 + 0xB0) = (f32) lbl_805D8F20;

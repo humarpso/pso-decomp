@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TUnk_804B27D8.h"
 #include "pso/misc/TUnk_804AFBF8.h"
@@ -75,7 +76,6 @@ void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 extern void *__vt__13TOHealGeneral[];
 TOHealGeneral_801697C0 *__dt__13TOHealGeneralFv(TOHealGeneral_801697C0 *self, s16 flag);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 u32 create_particle_emitter(void *, s32);
 void init_collision_body_parts(void *, void *, s32, void *);
@@ -254,7 +254,7 @@ void *TOHealGeneral__ct(void *arg0, void *arg1) {
     self->fCC = 0;
     self->fD0 = lbl_805DB6C0;
     for (i = 0; i < 2; i++) {
-        VecCopy__FP3VecPC3Vec(&self->pts[i], &self->pos);
+        VecCopy((Vec *)&self->pts[i], (const Vec *)&self->pos);
     }
     self->pts[0].y += lbl_805DB6D0;
     self->pts[1].y += lbl_805DB6BC;

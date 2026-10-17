@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
@@ -443,7 +444,6 @@ struct VObj_18_6fcf4f : VBase_18_6fcf4f {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 submit_cursor_candidate(void *, int);
 s32 minimap_render_dot(void *, int, int, int);
 extern u8 *volopt_hiraisin_model_data;
@@ -501,7 +501,7 @@ void run_task__20TBoss3VoloptHiraisinFv(u8 *arg0) {
       *((s32 *) (((s8 *) arg0) + 0x37C)) = 0;
     }
     ((TBoss3VoloptHiraisin *)arg0)->dispatch_state();
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     if (((s16) (*((s16 *) (((s8 *) arg0) + (0x326 & 0xFFFFFFFFu))))) != 5)
     {
       *((f32 *) (((s8 *) arg0) + 0x300)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x300))) - (3e+01f));
@@ -532,7 +532,6 @@ void destroy__20TBoss3VoloptHiraisinFv(void) {
 #undef fn_80040FDC
 #undef TBoss3VoloptHiraisin__breakup_model
 #define __vt__20TBoss3VoloptHiraisin ((s32 *)__vt__20TBoss3VoloptHiraisin)
-#define VecCopy__FP3VecPC3Vec ((int (*)(s32, s32))VecCopy__FP3VecPC3Vec)
 #define sub_800C7860__15TObjEnemyCustomFv ((void (*)(void *))sub_800C7860__15TObjEnemyCustomFv)
 #define TBoss3VoloptHiraisin__init_param_table (*(Param_800418C8 *)TBoss3VoloptHiraisin__init_param_table)
 #define play_sound_effect ((int (*)(int, void *, int, int))play_sound_effect)
@@ -795,7 +794,7 @@ struct O_80041B34;
 void TBoss3VoloptHiraisin::init_params() {
     Param_800418C8 *prm;
     prm = &TBoss3VoloptHiraisin__init_param_table;
-    VecCopy__FP3VecPC3Vec((s32)((Hira_800418C8 *)this)->home, (s32)((Hira_800418C8 *)this)->pos);
+    VecCopy((Vec *)((s32)((Hira_800418C8 *)this)->home), (const Vec *)((s32)((Hira_800418C8 *)this)->pos));
     ((Hira_800418C8 *)this)->home[1] -= (3e+01f);
     copy_position__20TBoss3VoloptHiraisinFi((s32)((Hira_800418C8 *)this));
     ((Hira_800418C8 *)this)->unkDC = *(s32 *)(TBoss3VoloptHiraisin__resource_bundle + 0x430);
@@ -849,7 +848,7 @@ u8 *TBoss3VoloptHiraisin__sub_80041AA0(u8 *arg0, s32 arg1, s32 arg2) {
 }
 
 void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0) {
-    VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
+    VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x2FC));
 }
 
 extern s32 vol_opt_active_hit_zone;
@@ -966,7 +965,6 @@ void TBoss3VoloptHiraisin__sub_80041D3C(Hira_80041D3C *self) {
 
 }
 #undef __vt__20TBoss3VoloptHiraisin
-#undef VecCopy__FP3VecPC3Vec
 #undef sub_800C7860__15TObjEnemyCustomFv
 #undef TBoss3VoloptHiraisin__init_param_table
 #undef play_sound_effect

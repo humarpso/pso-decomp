@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneGyaranzo.h"
 #include "pso/object/TUnk_8049442C.h"
 
@@ -66,7 +67,6 @@ struct Missile_800D43B4 {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 project_actor_to_ground(void *, void *, int);
 extern const f32 lbl_805DA2A0;
 extern const f32 lbl_805DA2A4;
@@ -116,10 +116,10 @@ void TUnk_8049442C::update_ground_fall(s32 *arg1, f32 farg0) {
     Vec position;
     f32 temp_f1;
     s32 temp_r31;
-    VecCopy__FP3VecPC3Vec((void *) (&position.x), (void *) (((u8 *)this) + 0x38));
+    VecCopy((Vec *)(&position.x), (const Vec *)(((u8 *)this) + 0x38));
     temp_r31 = project_actor_to_ground((void *) (((u8 *)this)), (void *) (&position.x), (int) (0));
     if (arg1 != NULL) {
-        VecCopy__FP3VecPC3Vec((void *) (arg1), (void *) (&position.x));
+        VecCopy((Vec *)(arg1), (const Vec *)(&position.x));
     }
     if (temp_r31 == 1) {
         this->m_b0 = (f32) (this->m_b0 + lbl_805DA2A0);
@@ -235,7 +235,7 @@ void TUnk_8049442C::run_task() {
         ((TUnk_8049442C *)self)->update_ground_fall(NULL, lbl_805DA2A4);
         break;
     }
-    VecCopy__FP3VecPC3Vec(&self->fE0, &self->pos);
+    VecCopy(&self->fE0, &self->pos);
     self->fE0.y += lbl_805DA2A8;
     if (self->timer >= 0x96) {
         TObjGyaranzoMissile__sub_800D4200((u8 *)self);

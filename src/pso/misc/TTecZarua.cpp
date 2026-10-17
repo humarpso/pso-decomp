@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/unk/TUnk_804CC148.h"
 
 #include <stddef.h>
@@ -142,7 +143,6 @@ void run_task__9TTecZaruaFv(struct Self_8023C1B8 *self);
 void construct_area_technique_base(void *);
 extern s32 lbl_805D3830;
 extern s32 __vt__9TTecZarua[];
-void VecCopy__FP3VecPC3Vec(Vec_8023C420 *, Vec_8023C420 *);
 s32 play_sound_effect(int, void *, int, int);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 obj_getField1c(void *);
@@ -232,7 +232,7 @@ Zarua_8023C2D0 *TTecZarua__ct(Zarua_8023C2D0 *self, void *_w1, void *_w2, void *
     self->fec = 1;
     copy_technique_target_list(self->sub, _w3);
     ((TTecZarua *)self)->calc_range();
-    VecCopy__FP3VecPC3Vec((Vec_8023C420 *)&self->pos, (Vec_8023C420 *)_w2);
+    VecCopy((Vec *)((Vec_8023C420 *)&self->pos), (const Vec *)((Vec_8023C420 *)_w2));
     if (self->holder != 0) {
         self->holder->eff->scale = self->range;
     }
@@ -270,7 +270,7 @@ Zarua_8023C420 *init_instance__9TTecZaruaFPviiii(Zarua_8023C420 *self, s32 _w1, 
     self->f0 = lbl_805D3830;
     self->fec = 0;
     ((TTecZarua *)self)->calc_range();
-    VecCopy__FP3VecPC3Vec(&self->pos, &self->src_pos);
+    VecCopy((Vec *)&self->pos, (const Vec *)&self->src_pos);
     if (self->holder != 0) {
         self->holder->eff->scale = self->range;
     }

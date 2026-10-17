@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 #include "pso/object/TObjWarpBossMulti.h"
 #include "pso/item/TItemData.h"
 #include "pso/misc/TLobby.h"
@@ -120,7 +121,6 @@ void serialize_mag__9TItemDataFPvPv(Item_8010D510 *item, const Mag_8010D510 *mag
 void init__9TItemDataFv(TItemData_8010E344 *self);
 s32 memset(s8 *, s32, s32);
 void decode_packed_name_chars__9TItemDataFPvPv(u8 *self, s8 *out);
-s32 bswap_16__FPUs(s16 *);
 }
 #define get_set_bonus_multiplier__9TItemDataFPvi ((f32 (*)(void *, s32))get_set_bonus_multiplier__9TItemDataFPvi)
 #define lookup_item_pmt_record ((Parm_8010C1E0 * (*)(void *))lookup_item_pmt_record)
@@ -546,7 +546,6 @@ s32 get_item_icon_index(const u8 *q);
 int TItemData__sub_8010C738(void);
 void TItemData__sub_8010C740(void);
 void bswap__9TItemDataFv(s32 arg0);
-s32 bswap_32__FPUl(s32);
 
 s32 is_usable__9TItemDataFPv(void *arg0) {
     u8 temp_r0;
@@ -561,8 +560,8 @@ s32 is_usable__9TItemDataFPv(void *arg0) {
 }
 
 void bswap__9TItemDataFv(s32 arg0) {
-    bswap_32__FPUl(arg0 + 0x10);
-    bswap_32__FPUl(arg0 + 0xC);
+    bswap_32((u32 *)(arg0 + 0x10));
+    bswap_32((u32 *)(arg0 + 0xC));
 }
 
 int TItemData__sub_8010C738(void) { return 0; }
@@ -806,7 +805,6 @@ s32 TItemData::get_item_use_result() {
 #define is_custom_name_srank__9TItemDataFPv ((s32 (*)(void *))is_custom_name_srank__9TItemDataFPv)
 #define memset ((void * (*)(void *, int, int))memset)
 #define decode_packed_name_chars__9TItemDataFPvPv ((void (*)(void *, s8 *))decode_packed_name_chars__9TItemDataFPvPv)
-#define bswap_16__FPUs ((int (*)(void*))bswap_16__FPUs)
 
 struct Raw_8010D614 { u8 b[4]; u16 s[4]; u32 id; u8 c[4]; };
 
@@ -879,42 +877,42 @@ s16 get_field6_bswap__9TItemDataFPv(void *arg0) {
     s16 sp8;
 
     sp8 = *(s16 *)((s8 *)arg0 + 6);
-    bswap_16__FPUs((void*)(&sp8));
+    bswap_16((u16 *)(&sp8));
     return sp8;
 }
 
 void TItemData::set_unit_modifier(s16 arg1) {
     u8 *arg0 = (u8 *)this;
     *(s16 *)((s8 *)arg0 + 6) = arg1;
-    bswap_16__FPUs((void*)((void *) (arg0 + 6)));
+    bswap_16((u16 *)((void *) (arg0 + 6)));
 }
 
 s16 get_bswap16_field8__9TItemDataFPv(void *arg0) {
     s16 sp8;
 
     sp8 = *(s16 *)((s8 *)arg0 + 8);
-    bswap_16__FPUs((void*)(&sp8));
+    bswap_16((u16 *)(&sp8));
     return sp8;
 }
 
 void TItemData::set_bswapped_field_8(s16 arg1) {
     u8 *arg0 = (u8 *)this;
     *(s16 *)((s8 *)arg0 + 8) = arg1;
-    bswap_16__FPUs((void*)((void *) (arg0 + 8)));
+    bswap_16((u16 *)((void *) (arg0 + 8)));
 }
 
 s16 getS16_06__9TItemDataFPv(void *arg0) {
     s16 sp8;
 
     sp8 = *(s16 *)((s8 *)arg0 + 6);
-    bswap_16__FPUs((void*)(&sp8));
+    bswap_16((u16 *)(&sp8));
     return sp8;
 }
 
 void TItemData::set_dfp_bonus(s16 arg1) {
     u8 *arg0 = (u8 *)this;
     *(s16 *)((s8 *)arg0 + 6) = arg1;
-    bswap_16__FPUs((void*)((void *) (arg0 + 6)));
+    bswap_16((u16 *)((void *) (arg0 + 6)));
 }
 
 s16 TItemData::get_technique_level() {
@@ -1222,7 +1220,7 @@ void serialize_mag__9TItemDataFPvPv(Item_8010D510 *item, const Mag_8010D510 *mag
     ((TLobby *)item)->copy_item_data(&copy);
 }
 
-void TItemData::bswap_fields() { bswap_16__FPUs((void*)((char*)this + 0x4)); bswap_16__FPUs((void*)((char*)this + 0x6)); bswap_16__FPUs((void*)((char*)this + 0x8)); bswap_16__FPUs((void*)((char*)this + 0xa)); }
+void TItemData::bswap_fields() { bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); bswap_16((u16 *)((char*)this + 0x8)); bswap_16((u16 *)((char*)this + 0xa)); }
 
 void deserialize_mag__9TItemDataFPvPv(Raw_8010D614 *src, Mag_8010D614 *dst) {
     if (dst != 0) {
@@ -1964,4 +1962,3 @@ s32 TItemData::check_item_flags() {
 #undef is_custom_name_srank__9TItemDataFPv
 #undef memset
 #undef decode_packed_name_chars__9TItemDataFPvPv
-#undef bswap_16__FPUs

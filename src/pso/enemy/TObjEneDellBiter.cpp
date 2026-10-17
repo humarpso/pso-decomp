@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TUnk_804E6FA8.h"
@@ -312,7 +313,6 @@ void TObjEneDellBiter__sub_8030492C(u8 *arg0, s32 arg1);
 s32 update_linked_position__12TObjEneDD_STFf(f32);
 extern const f32 TObjEneDellBiter__data_805DF00C;
 void TObjEneDellBiter__sub_80304B88(u8 *arg0, s32 arg1);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void TObjEneDellBiter__sub_803058DC(s32 arg0);
 void TObjEneDellBiter__sub_8030591C(s32 arg0);
 s32 TObjEneDellBiter__sub_80305C40(u8 *arg0);
@@ -1199,7 +1199,7 @@ u8 *TObjEneDellBiter_Eff_Rush__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 fa
     *(s32 *)((s8 *)arg0 + 0x1C) = arg3;
     *(f32 *)((s8 *)arg0 + 0x2C) = farg0;
     *(s32 *)((s8 *)arg0 + 0x30) = 0;
-    VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg3 + 0x38));
+    VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg3 + 0x38));
     subtract_vector((void *) (&stack.sp8), (void *) (arg2 + 0x38));
     stack.spC = lbl_805DEFAC;
     *(f32 *)((s8 *)arg0 + 0x20) = sin_table_lookup((int) (*(s32 *)((s8 *)arg2 + 0x60)));
@@ -1349,7 +1349,7 @@ void render__16TObjEneDellBiterFv(u8 *arg0) {
         ((TObjEneDD *)arg0)->update_primary_light();
     } else if (is_split_screen() == 0) {
         for (i = 0; i < 3; i++) {
-            VecCopy__FP3VecPC3Vec(arg0 + i * 0xC + 0x460, arg0 + 0x2FC);
+            VecCopy((Vec *)(arg0 + i * 0xC + 0x460), (const Vec *)(arg0 + 0x2FC));
         }
     }
 }
@@ -1464,7 +1464,7 @@ void TObjEneDellBiter__sub_80303AA0(u8 *arg0, s32 arg1) {
         break;
     case 0:
         advance_animation_playback(arg0);
-        VecCopy__FP3VecPC3Vec(&v, arg0 + 0x308);
+        VecCopy((Vec *)&v, (const Vec *)(arg0 + 0x308));
         len = ((TObjBoss2Tunnel *)(&v))->clamp_velocity();
         ((TObjEneDD *)arg0)->move_clamped_on_ground(v.x, v.z, len);
         *(f32 *)((s8 *)arg0 + 0x308) *= lbl_805DEFC8;
@@ -1591,7 +1591,7 @@ void TObjEneDellBiter__sub_80303F04(u8 *arg0, s32 arg1) {
     case 0:
         advance_animation_playback(arg0);
         if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805DEFDC)) != 0) {
-            VecCopy__FP3VecPC3Vec((void *) (&sp8), (void *) ((u8 *)(arg0) + 0x38));
+            VecCopy((Vec *)(&sp8), (const Vec *)((u8 *)(arg0) + 0x38));
             sp8.y += TObjEneDellBiter__data_805DEFE0;
             if ((s32) game_difficulty_selection == 3) {
                 spawn_particle_effect((void *) (&sp8), (int) (0x21D));
@@ -1646,7 +1646,7 @@ void TObjEneDellBiter__sub_803040D0(u8 *arg0, s32 arg1) {
                 } else {
                     temp_f1 = *(f32 *)((s8 *)arg0 + 0xC0);
                     if ((temp_f1 >= TObjEneDellBiter__data_805DEFD8) && (temp_f1 <= lbl_805DEFEC)) {
-                        VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+                        VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x38));
                         stack.spC += TObjEneDellBiter__data_805DEFE0;
                         ((TNowLoading *)(*(u32 *)((s8 *)arg0 + 0x4C0)))->copy_pos((void *) (&stack.sp8));
                     }
@@ -1813,7 +1813,7 @@ void TObjEneDellBiter__sub_803044AC(u8 *arg0, s32 arg1) {
             }
             if (((s32 (*)(void *))enemy_validate_retained_target)(arg0) != 0) {
                 Vec_803044AC v;
-                VecCopy__FP3VecPC3Vec(&v, F(u8 *, 0x390) + 0x38);
+                VecCopy((Vec *)&v, (const Vec *)(F(u8 *, 0x390) + 0x38));
                 subtract_vector(&v, arg0 + 0x38);
                 if (((TObjBoss2Tunnel *)(&v))->clamp_velocity() >= TObjEneDellBiter__data_805DEFE8) {
                     if (v.x * sin_table_lookup(F(s32, 0x60)) + v.z * cos_table_lookup(F(s32, 0x60)) < TObjEneDellBiter__data_805DEFF4) {
@@ -1970,9 +1970,9 @@ void TObjEneDellBiter__sub_80304D10(u8 *arg0, s32 arg1) {
         F(f32, 0x4DC) = *(f32 *)TObjEneDellBiter__movement_params;
         F(s32, 0x4D0) = 0;
         play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, (void *)0x40039E12), arg0 + 0x38, 0, 0);
-        VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0x50);
-        VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
-        VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x50));
+        VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
+        VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
         F(f32, 0x38) -= lbl_805DF010 * sin_table_lookup(F(s32, 0x60));
         F(f32, 0x40) -= lbl_805DF010 * cos_table_lookup(F(s32, 0x60));
         F(s32, 0x4CC) = (s32)(lbl_805DF010 / *(f32 *)TObjEneDellBiter__movement_params);
@@ -2044,9 +2044,9 @@ void run_task__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
         ((WObj_80305034 *) (arg0 + 0x3D4))->w3();
         *(s32 *)((s8 *)arg0 + 0x4CC) = 0;
         *(s32 *)((s8 *)arg0 + 0x4D0) = 0;
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg0 + 0x50));
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x50));
+        VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
+        VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
         *(s32 *)((s8 *)arg0 + 0x488) = 0;
         *(s32 *)((s8 *)arg0 + 0x48C) = 0;
         ((s32 (*)(void *, void *, int, int))play_sound_effect)(((void * (*)(void *, int))copy_target_state__14TObjEnePanarmsFPv)((void *) (arg0), (int) (0x40039E12)), (void *) (arg0 + 0x38), (int) (0), (int) (0));
@@ -2098,7 +2098,7 @@ void handle_movement_event__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
         ((TObjEneDD *)arg0)->set_field_378((int) (1));
         *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C0) | 1);
         ((TObjEneDD *)arg0)->vfunc_95();
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg0 + 0x50));
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x50));
         return;
     case 3:
         if (update_linked_position__12TObjEneDD_STFf((f32) (TObjEneDellBiter__data_805DF00C)) != 0) {
@@ -2288,15 +2288,15 @@ s32 TObjEneDellBiter__sub_803059BC(void *arg0, void *arg1) {
     Vec_803059BC pos;
     Hit_803059BC *hit;
     void *e;
-    ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&pos, arg1);
+    VecCopy((Vec *)&pos, (const Vec *)arg1);
     pos.y += TObjEneDellBiter__data_805DEFC0;
     hit = csnVectorUnder(&pos, (u8 *)arg0 + 0x120, 0x4007);
     if (hit != NULL) {
         *(u32 *)((s8 *)arg0 + 0x3C4) = *(u32 *)((s8 *)hit->obj + 0x18);
         if (*(u32 *)((s8 *)arg0 + 0x3C4) & 0x4000) {
-            ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)((u8 *)arg0 + 0x3C8, hit->obj);
+            VecCopy((Vec *)((u8 *)arg0 + 0x3C8), (const Vec *)hit->obj);
         } else {
-            ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)((u8 *)arg0 + 0x3C8, (u8 *)arg0 + 0x38);
+            VecCopy((Vec *)((u8 *)arg0 + 0x3C8), (const Vec *)((u8 *)arg0 + 0x38));
         }
         if (hit->flags & 4) {
             e = (void *)spawn_particle_effect(hit->obj + 0x38, 0x49);
@@ -2355,7 +2355,7 @@ s32 TObjEneDellBiter__sub_80305C40(u8 *arg0) {
     Atk_80305C40 atk;
     void *n;
     hit = 0;
-    ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(*(u8 **)((s8 *)arg0 + 0x49C) + 0x38, arg0 + 0x38);
+    VecCopy((Vec *)(*(u8 **)((s8 *)arg0 + 0x49C) + 0x38), (const Vec *)(arg0 + 0x38));
     TObjPlayer::init_all_slots();
     ((TObjPlayer *)(*(u8 **)((s8 *)arg0 + 0x49C)))->check_object_collisions();
     if (*(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x49C)) + 0xA4)) + 0x18) & 0x180000) {
@@ -2397,10 +2397,10 @@ void TObjEneDellBiter__sub_80305E1C(u8 *arg0) {
     f32 f = *(f32 *)((s8 *)arg0 + 0xC0);
     if (f >= lbl_805DEFF0 && f <= lbl_805DF02C) {
         *(s32 *)((s8 *)o->a + 0x60) = *(s32 *)((s8 *)arg0 + 0x60);
-        ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)((u8 *)o->a + 0x38, o->pos);
+        VecCopy((Vec *)((u8 *)o->a + 0x38), (const Vec *)o->pos);
         ((TUnk_804AF8A0 *)(o->a))->refresh_collision_body_centers();
         *(s32 *)((s8 *)o->b + 0x60) = *(s32 *)((s8 *)arg0 + 0x60);
-        ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)((u8 *)o->b + 0x38, o->pos);
+        VecCopy((Vec *)((u8 *)o->b + 0x38), (const Vec *)o->pos);
         ((TUnk_804AF8A0 *)(o->b))->refresh_collision_body_centers();
         S_80305E1C sp = lbl_8047528C[0];
         sp.f = get_attack_params_atp_min(TObjEneDellBiter__shared_handler_param);
@@ -2446,7 +2446,7 @@ void TObjEneDellBiter::update_particle_emitters() {
         if ((s32) *(s32 *)((s8 *)arg0 + 0x490) <= 0) {
             *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (temp_r3 & 0xFFFFFFEF);
         } else {
-            ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+            VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x38));
             stack.spC += TObjEneDellBiter__data_805DEFE0;
             if ((s32) game_difficulty_selection == 3) {
                 temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x4C4));
@@ -2489,9 +2489,9 @@ void TObjEneDellBiter::vfunc_88() {  }
 
 void TObjEneDellBiter::set_effect_pos_above_self() {
     u8 *arg0 = (u8 *)this;
-    ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x2FC, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x300) = (f32) (*(f32 *)((s8 *)arg0 + 0x300) + lbl_805DF028);
-    ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x74, arg0 + 0x2FC);
+    VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x2FC));
 }
 
 void TObjEneDellBiter::vfunc_61() {  }
@@ -2607,14 +2607,14 @@ void TObjEneDellBiter::init_params() {
     ((TObjEneDD_ST *)self)->enemy_init_validate_period(30);
     self->f3C0 = 0;
     self->f3C4 = 0;
-    VecCopy__FP3VecPC3Vec(&self->v3C8, &self->pos);
+    VecCopy((Vec *)&self->v3C8, (const Vec *)&self->pos);
     self->f3C0 |= 1;
     ((V3D4_80306468 *)self->sub3D4)->m3();
     for (i = 0; i < 4; i++) {
         ((TObjPlayer *)(&self->arr3F0[i]))->activate_and_dispatch();
     }
     for (i = 0; i < 3; i++) {
-        VecCopy__FP3VecPC3Vec(&self->v460[i], &self->pos);
+        VecCopy((Vec *)&self->v460[i], (const Vec *)&self->pos);
     }
     self->f484 = 0;
     self->f488 = 0;

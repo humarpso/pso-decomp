@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/main_loop.h"
 #include "pso/TObject.h"
 
 struct RecoveredGlobal_802A1154_main_task {
@@ -7,13 +8,12 @@ struct RecoveredGlobal_802A1154_main_task {
 };
 
 extern "C" {
-s32 render_tick__Fv();
 s32 delete_all_task_children__9TMainTaskFv(void *);
 void fn_802A1154(void);
 typedef char RecoveredGlobal_802A1154_main_task_size[sizeof(RecoveredGlobal_802A1154_main_task) == 0x34 ? 1 : -1];
 void fn_802A1154(void) {
     delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_802A1154_main_task *)&main_task).value));
-    render_tick__Fv();
+    render_tick();
 }
 
 }

@@ -1,4 +1,5 @@
 #include "pso/TItemAttacker.h"
+#include "pso/system/vector.h"
 
 #include "types.h"
 #include "pso/misc/TLobby.h"
@@ -16,7 +17,6 @@ extern s32 lbl_8043E038[];
 extern s32 item_buffer_temp_mode;
 extern s32 item_buff_buffer;
 void TItemBuff__ct(void);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *find_entity_by_id(u16);
 s32 __ct__7TObjectFP7TObject(void*,s32);
 extern s32 __vt__13TItemAttacker[];
@@ -40,10 +40,10 @@ u8 *__ct__13TItemAttackerFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TItemAttacker__name;
     ((TItemAttacker *)(arg0 + 0x1C))->copy_from((void *) (arg4));
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg2));
+    VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg2));
     entity = (u8 *)(find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x2A)));
     if (entity != NULL) {
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), ((M_80103368 *)entity)->recs[*(s16 *)((s8 *)arg0 + 0x2C)].v);
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(((M_80103368 *)entity)->recs[*(s16 *)((s8 *)arg0 + 0x2C)].v));
     } else {
         *(s32 *)((s8 *)arg0 + 0x34) = 1;
     }

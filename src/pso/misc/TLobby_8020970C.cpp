@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
-
-s32 bswap_32__FPUl(s32 *);
 
 extern u32 lbl_805D60C4;
 extern s32 lbl_805D60C8;
@@ -13,7 +12,7 @@ void TLobby::append_swapped_u32(s32 *arg0) {
 
     if ((u32) lbl_805D60C4 != 0U) {
         sp8 = *arg0;
-        bswap_32__FPUl(&sp8);
+        bswap_32((u32 *)&sp8);
         ((TLobby *)(lbl_805D60C4 + lbl_805D60C8))->move_data((s32 *)(&sp8), (s32)(4));
         lbl_805D60C8 += 4;
     }

@@ -1,4 +1,5 @@
 #include "pso/boss/TBoss2Fin.h"
+#include "pso/system/vector.h"
 #include "pso/TObjEZRopeBase.h"
 #include "pso/object/TObjFish.h"
 #include "types.h"
@@ -18,7 +19,6 @@ struct Vec_800363B4 { f32 x, y, z; };
 struct Seg_800363B4 { s8 n; u8 pad1[0xF]; void *model1; void *model2; };
 struct Ang_800363B4 { s32 yaw; u8 pad4[0xC]; };
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D8458;
 extern RecoveredGlobal_800365C8_lbl_80435A44 lbl_80435A44;
 f32 fabs_float(f32);
@@ -60,7 +60,7 @@ void TBoss2Fin::render() {
         for (j = seg->n - 1; j > 0; j--, pt++) {
             push_matrix();
             translate_matrix_vec3(0, pt);
-            VecCopy__FP3VecPC3Vec(&v, pt + 1);
+            VecCopy((Vec *)&v, (const Vec *)(pt + 1));
             subtract_vector(&v, pt);
             if (TBoss2Fin__data_805D8450 == vector_length(&v)) {
                 v.x = TBoss2Fin__data_805D8450;
@@ -110,13 +110,13 @@ extern "C" {
 void TBoss2Fin::init_link_points() {
     u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x30) = 0;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x34, *(u8 **)((s8 *)arg0 + 0x80));
-    VecCopy__FP3VecPC3Vec(arg0 + 0x54, *(u8 **)((s8 *)arg0 + 0x80));
+    VecCopy((Vec *)(arg0 + 0x34), (const Vec *)(*(u8 **)((s8 *)arg0 + 0x80)));
+    VecCopy((Vec *)(arg0 + 0x54), (const Vec *)(*(u8 **)((s8 *)arg0 + 0x80)));
     *(f32 *)((s8 *)arg0 + 0x58) = (f32) (*(f32 *)((s8 *)arg0 + 0x58) - lbl_805D8458);
     *(f32 *)((s8 *)arg0 + 0x5C) = (f32) (*(f32 *)((s8 *)arg0 + 0x5C) + lbl_805D8458);
     *(s32 *)((s8 *)arg0 + 0x40) = 0;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x44, *(u8 **)((s8 *)arg0 + 0x84));
-    VecCopy__FP3VecPC3Vec(arg0 + 0x64, *(u8 **)((s8 *)arg0 + 0x84));
+    VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(*(u8 **)((s8 *)arg0 + 0x84)));
+    VecCopy((Vec *)(arg0 + 0x64), (const Vec *)(*(u8 **)((s8 *)arg0 + 0x84)));
     *(f32 *)((s8 *)arg0 + 0x68) = (f32) (*(f32 *)((s8 *)arg0 + 0x68) - lbl_805D8458);
     *(f32 *)((s8 *)arg0 + 0x6C) = (f32) (*(f32 *)((s8 *)arg0 + 0x6C) + lbl_805D8458);
 }

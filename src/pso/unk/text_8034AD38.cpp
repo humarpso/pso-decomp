@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
 struct Slot_8034AD38 { void *ctrl; u8 pad[0x18]; };
 
@@ -33,7 +34,6 @@ extern void *__vt__17TAdFloorLoadPrtGC[];
 TAdFloorLoadPrtGC_8034AD38 *__dt__17TAdFloorLoadPrtGCFv(TAdFloorLoadPrtGC_8034AD38 *self, s16 deleting);
 extern s16 lbl_804F0070[];
 void push_recent_id(s16 arg0);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void *create_particle_controller_with_angles(void *, void *, int, int, int);
 s32 __ct__7TObjectFP7TObject(void *);
 void *memset(void *, int, u32);
@@ -76,7 +76,7 @@ Prt_8034ADE0 *TAdFloorLoadPrtGC__ct(Prt_8034ADE0 *arg0) {
     memset(arg0->slots, 0, sizeof(arg0->slots));
     arg0->bg = 0;
     for (i = 0; i < 12; i++) {
-        VecCopy__FP3VecPC3Vec(&arg0->slots[i].pos, p = &floor_load_particle_positions[i]);
+        VecCopy((Vec *)&arg0->slots[i].pos, (const Vec *)(p = &floor_load_particle_positions[i]));
         ((TObjPlayer *)(&arg0->slots[i].ang))->copy_xyz(a = &TAdFloorLoadPrtGC__emitter_angles[i]);
         arg0->slots[i].ctrl = create_particle_controller_with_angles(p, a, 0x65, 1, 0x40);
     }

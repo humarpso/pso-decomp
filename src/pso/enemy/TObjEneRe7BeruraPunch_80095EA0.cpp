@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneRe7BeruraPunch.h"
 
 struct VBase_14_c1c33b { char pad[0x14]; };
@@ -67,7 +68,6 @@ s32 rotate_matrix_y(s32, s32);
 s32 translate_matrix(s32, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
-s32 VecCopy__FP3VecPC3Vec(void *, s32);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 
 extern s32 lbl_805D5660;
@@ -194,7 +194,7 @@ void TObjEneRe7BeruraPunch::launch(s32 arg1, s32 arg2) {
     u8 *entity;
 
     *(s32 *)&this->m_b8 = arg1;
-    VecCopy__FP3VecPC3Vec((u8 *)&this->m_dc, arg2);
+    VecCopy((Vec *)&this->m_dc, (const Vec *)arg2);
     ((TObjEneRe7BeruraPunch *)arg0)->snap_to_ground();
     entity = find_entity_by_id(this->m_b0);
     if (entity != NULL) {

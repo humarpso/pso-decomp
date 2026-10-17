@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/main_loop.h"
+#include "pso/system/vector.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/TAdSelectGameModeGC.h"
 #include "pso/TAdStorySelectGC.h"
@@ -110,7 +112,6 @@ s32 is_split_screen(void);
 s32 clear_resource_load_tasks();
 s32 call_funcs_reverse__6TLobbyFPvUi(void *, int);
 s32 TLobby__sub_801A3B98();
-s32 render_tick__Fv();
 s32 run_area_scene_cleanup(void *);
 s32 clear_flag3_all_tasks__9TMainTaskFv(void *);
 s32 delete_all_task_children__9TMainTaskFv(void *);
@@ -166,7 +167,6 @@ s32 TObjBoss2Tunnel__sub_8007D1D0();
 void TLobby__sub_8007EB20(const char *, ...);
 s32 process_async_file_reads();
 s8 func_801A5E54__Fv();
-s32 controller_stuff__Fv();
 s32 run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
 s32 update_sound_request_slots();
 s32 func_803DCDFC__Fv();
@@ -178,7 +178,6 @@ void run_offline_game_frame(void);
 s32 TLobby__sub_8006EF90();
 void run_offline_transfer_frame(void);
 s32 get_fog_ctrl__16TKeyBoardControlFv();
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 TCameraCtrl__sub_8006A5DC();
 s8 TLobby__sub_801A3C40();
 s32 TWindowCtrlMain__sub_8024CB7C();
@@ -217,8 +216,8 @@ void TLobby::reload_offline_area() {
     __ct__7TObjectFP7TObject(&holder, NULL);
     process_pending_resources();
     reset_controller_input_state();
-    render_tick__Fv();
-    render_tick__Fv();
+    render_tick();
+    render_tick();
     TLobby__sub_801A2E00();
     for (i = 0; i < TLobby::get_game_mode(); i++) {
         void *q = get_player_data__10TObjPlayerFi(i);
@@ -286,8 +285,8 @@ void TLobby::rebuild_area_keep_players() {
     __ct__7TObjectFP7TObject(&holder, NULL);
     process_pending_resources();
     reset_controller_input_state();
-    render_tick__Fv();
-    render_tick__Fv();
+    render_tick();
+    render_tick();
     TObjPlayer::refresh_player_lobby_headers();
     TObjPlayer::create_active_players();
     for (i = 0; i < TLobby::get_game_mode(); i++) {
@@ -363,8 +362,8 @@ void run_offline_area_transfer(void) {
     __ct__7TObjectFP7TObject(&holder, NULL);
     process_pending_resources();
     reset_controller_input_state();
-    render_tick__Fv();
-    render_tick__Fv();
+    render_tick();
+    render_tick();
     for (i = 0; i < TLobby::get_game_mode(); i++) {
         void *q = get_player_data__10TObjPlayerFi(i);
         if (q != NULL) {
@@ -417,14 +416,14 @@ void TLobby::teardown_scene() {
     call_funcs_reverse__6TLobbyFPvUi((void *) (&offline_game_scene_callbacks.value), (int) (0x180));
     clear_resource_load_tasks();
     TKeyBoardControl::update();
-    render_tick__Fv();
+    render_tick();
 }
 
 typedef char RecoveredGlobal_801A3770_main_task_size[sizeof(RecoveredGlobal_801A3770_main_task) == 0x34 ? 1 : -1];
 
 void run_offline_game_frame(void) {
     func_803DCDFC__Fv();
-    controller_stuff__Fv();
+    controller_stuff();
     TKeyBoardControl::update_input_frame();
     TLobby__sub_8007EB20(lbl_804468F8, TLobby__data_805D614C * 0xC);
     TLobby__sub_8007EB20(lbl_80446908, TLobby__data_805D6148 * 4);
@@ -451,12 +450,12 @@ void run_offline_game_frame(void) {
         TLobby::reload_offline_area();
         TKeyBoardControl__sub_8000F95C();
     }
-    render_tick__Fv();
+    render_tick();
 }
 
 void run_offline_transfer_frame(void) {
     func_803DCDFC__Fv();
-    controller_stuff__Fv();
+    controller_stuff();
     TKeyBoardControl::update_input_frame();
     TLobby__sub_8007EB20(lbl_804468F8, TLobby__data_805D614C * 0xC);
     TLobby__sub_8007EB20(lbl_80446908, TLobby__data_805D6148 * 4);
@@ -485,7 +484,7 @@ void run_offline_transfer_frame(void) {
         run_offline_area_transfer();
         clear_keyboard_key_state();
     }
-    render_tick__Fv();
+    render_tick();
 }
 
 void run_single_view_frame(void) {
@@ -510,7 +509,7 @@ void run_split_screen_frame(void) {
         render__9TMainTaskFv(&(*(RecoveredGlobal_801A3540_main_task *)&main_task));
         if (camera_ctrl_instance != NULL) {
             camera_ctrl_instance->yaws[id] = camera_ctrl_instance->yaw;
-            VecCopy__FP3VecPC3Vec(&camera_ctrl_instance->poss[id], &camera_ctrl_instance->pos);
+            VecCopy((Vec *)&camera_ctrl_instance->poss[id], (const Vec *)&camera_ctrl_instance->pos);
         }
     } else {
         for (i = 0; i < TCameraCtrl::get_camera_id(); i++) {
@@ -620,7 +619,7 @@ void init_offline_game_scene(void) {
     }
     TKeyBoardControl__sub_8000F90C(2);
     TKeyBoardControl__sub_8000F91C(0xE);
-    render_tick__Fv();
+    render_tick();
 }
 
 }

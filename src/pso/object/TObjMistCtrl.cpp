@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
 #include "pso/TPlayerFootStamp.h"
 #include "pso/object/TObjMistCtrl.h"
 #include "pso/TParticleCtrl.h"
@@ -48,7 +49,6 @@ s32 set_texture_num(int);
 void __dl__7TObjectFPv(void *);
 s32 restore_saved_depth_alpha_state();
 s32 draw_particle_strip(void *, int, int);
-s32 set_depth_buffer_settings_1__Fv();
 
 void TObjMistCtrl::run_task() { { (void)(sub_802AF64C()); return; } }
 
@@ -89,7 +89,7 @@ void TPlayerFootStamp::render() {
         TObjPlayer::reset_transform_state();
         TObjFish::set_global_param((s32)((void *) (player_footstamp_texture_gvm_handle)));
         set_texture_num((int) (*(s16 *)((s8 *)arg0 + 0xBE)));
-        set_depth_buffer_settings_1__Fv();
+        set_depth_buffer_settings_1();
         draw_particle_strip((void *) (arg0 + 0x1C), (int) (4), (int) (1));
         restore_saved_depth_alpha_state();
         model_render_flags = lbl_805D5660;

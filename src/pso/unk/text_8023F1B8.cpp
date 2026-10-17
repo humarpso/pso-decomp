@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/main_loop.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TLobby.h"
@@ -25,7 +26,6 @@ extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 clear_resource_load_tasks();
 s32 call_funcs_reverse__6TLobbyFPvUi(void *, int);
-s32 render_tick__Fv();
 s32 delete_all_task_children__9TMainTaskFv(void *);
 extern RecoveredGlobal_8023F1B8_lbl_804CCDA8 lbl_804CCDA8;
 extern RecoveredGlobal_8023F1B8_lbl_804CCE60 lobby_scene_release_callback_table;
@@ -67,7 +67,7 @@ void TLobby::release_scene_resources() {
     call_funcs_reverse__6TLobbyFPvUi((void *) (&lbl_804CCDA8.value), (int) (0xB8));
     TParticleCtrl::free_heap();
     clear_resource_load_tasks();
-    render_tick__Fv();
+    render_tick();
 }
 void init_game_mode_select_scene(void) {
     s32 i;

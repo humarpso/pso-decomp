@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/player/TObjPlayer.h"
@@ -14,7 +15,6 @@ int vfunc_59__15TObjEnemyCustomFv(void* p);
 s32 advance_animation_playback(void *);
 s32 apply_actor_gravity(void *, s32, f32);
 s32 TObjVoloptCage__sub_800C76F0(void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 int update_if_active__15TObjEneMe1GiGueFl(void*, int);
 
 void __dt__15TObjEnemyCustomFv();
@@ -237,7 +237,7 @@ void TObjEnemyCustom::run_task() {
         *(s32 *)&this->state = 0;
     }
     ((TObjEnemy *)arg0)->update_prev_position();
-    VecCopy__FP3VecPC3Vec((u8 *)&this->m_74, (u8 *)&this->m_2fc);
+    VecCopy((Vec *)&this->m_74, (const Vec *)&this->m_2fc);
 }
 
 }

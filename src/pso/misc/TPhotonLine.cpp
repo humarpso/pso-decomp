@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/misc/TPhotonLine.h"
@@ -55,7 +56,6 @@ struct Line_801ACB14 {
 
 extern "C" {
 void construct_actor_base__10TObjPlayerFPvPv(void *, void *);
-Vec_801ACD14 *VecCopy__FP3VecPC3Vec(Vec_801ACD14 *, const Vec_801ACD14 *);
 void *find_entity_by_id(u16);
 void init_collision_body_parts(void *, void *, s32);
 extern u8 lbl_804C37D8[];
@@ -83,7 +83,7 @@ void run_task__11TPhotonLineFv(Line_801ACB14 *self) {
     u8 *p;
     s32 j;
     vec3_add_to(&v, &self->vel);
-    VecCopy__FP3VecPC3Vec(&self->f2FC, &self->pos);
+    VecCopy((Vec *)&self->f2FC, (const Vec *)&self->pos);
     self->f2FC.y += lbl_805DC1D8;
     v.y += lbl_805DC1D8;
     if (check_path_obstructed(self, &v) == 1) {
@@ -135,8 +135,8 @@ Line_801ACD14 *TPhotonLine__ct(Line_801ACD14 *self, Params_801ACD14 *p, void *pa
     construct_actor_base__10TObjPlayerFPvPv(self, parent);
     self->vt18 = ((s32 *)&__vt__11TPhotonLine);
     self->f0 = lbl_805D3500;
-    VecCopy__FP3VecPC3Vec(&self->f50, VecCopy__FP3VecPC3Vec(&self->f38, &p->pos));
-    VecCopy__FP3VecPC3Vec(&self->f334, &p->dir);
+    VecCopy((Vec *)&self->f50, (const Vec *)(VecCopy((Vec *)((Vec *)&self->f38), (const Vec *)((const Vec *)&p->pos))));
+    VecCopy((Vec *)&self->f334, (const Vec *)&p->dir);
     self->f334.x *= p->scale;
     self->f334.y *= p->scale;
     self->f334.z *= p->scale;

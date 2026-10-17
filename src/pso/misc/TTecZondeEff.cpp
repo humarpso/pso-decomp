@@ -1,4 +1,6 @@
 #include "pso/TTecZondeEff.h"
+#include "pso/render/depth_buffer.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TTecZonde.h"
 
 TTecZondeEff::~TTecZondeEff() {}
@@ -144,7 +146,6 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8023D988___vt__12TTecZondeEff __vt__12TTecZondeEff;
 extern s32 TTecZondeEff_class_name;
 u8 *__ct__12TTecZondeEffFv(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, f32 farg0);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 TTecZondeEff__data_805DC994;
 extern P_8023DBB4 tec_zonde_effect_task_list;
 extern char lbl_804CC8C8[];
@@ -158,7 +159,6 @@ void randomize_bolt_jitter__12TTecZondeEffFPv(Obj_8023D4A8 *arg0);
 s32 is_split_screen(void);
 void spawn_particle_effect(Rec_8023D568 *, s32);
 void queue_destruction__7TObjectFv(void *);
-void set_depth_buffer_settings_1__Fv();
 void restore_saved_depth_alpha_state();
 void set_chunk_material_color(f32 *argb);
 extern f32 chunk_material_color_half_alpha_f32[];
@@ -435,7 +435,7 @@ void TTecZondeEff::render() {
     lbl_805D5660 = id;
     model_render_flags = id | 0x10;
     TParticleCtrl::begin_effect_render();
-    set_depth_buffer_settings_1__Fv();
+    set_depth_buffer_settings_1();
     if (project_lightning_points((Obj_8023D128 *)(self), (Vec_8023D128 *)(m70), (f32 *)(m3c), (f32 *)(m8)) != 0 && ((TTecZondeEff *)self)->build_lightning_strip((Vtx_8023CED4 *)(verts), (Vec_8023CED4 *)(m70), (f32 *)(m3c), (f32 *)(m8)) != 0) {
         TObjPlayer::init_xyz_limits();
         ((TWindowDD *)verts)->draw_transformed_primitive((void*)(self->count * 2), (void*)TTecZondeEff__beam_vertex_data, (void*)1);
@@ -515,8 +515,8 @@ u8 *TTecZonde::construct_bolt_effect(u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32
     *(f32 *)((s8 *)((u8 *)this) + 0x244) = farg1;
     *(s32 *)((s8 *)((u8 *)this) + 0x254) = arg4;
     *(s32 *)((s8 *)((u8 *)this) + 0x258) = arg5;
-    VecCopy__FP3VecPC3Vec(((u8 *)this) + 0x1C, arg2);
-    VecCopy__FP3VecPC3Vec(((u8 *)this) + 0x28, arg3);
+    VecCopy((Vec *)(((u8 *)this) + 0x1C), (const Vec *)arg2);
+    VecCopy((Vec *)(((u8 *)this) + 0x28), (const Vec *)arg3);
     *(f32 *)((s8 *)((u8 *)this) + 0x34) = farg0;
     *(s32 *)((s8 *)((u8 *)this) + 0x250) = 0;
     *(s16 *)((s8 *)((u8 *)this) + 0x25C) = 0;
@@ -536,8 +536,8 @@ u8 *TTecZondeEff::construct(u8 *arg1, u8 *arg2, u8 *arg3, f32 farg0) {
     *(f32 *)((s8 *)((u8 *)this) + 0x244) = (f32) TTecZondeEff__data_805DC994;
     *(s32 *)((s8 *)((u8 *)this) + 0x254) = 0x08000000;
     *(s32 *)((s8 *)((u8 *)this) + 0x258) = 0x14;
-    VecCopy__FP3VecPC3Vec(((u8 *)this) + 0x1C, arg2);
-    VecCopy__FP3VecPC3Vec(((u8 *)this) + 0x28, arg3);
+    VecCopy((Vec *)(((u8 *)this) + 0x1C), (const Vec *)arg2);
+    VecCopy((Vec *)(((u8 *)this) + 0x28), (const Vec *)arg3);
     *(f32 *)((s8 *)((u8 *)this) + 0x34) = farg0;
     *(s32 *)((s8 *)((u8 *)this) + 0x250) = 0;
     *(s16 *)((s8 *)((u8 *)this) + 0x25C) = 0;

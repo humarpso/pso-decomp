@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEnemyCustom.h"
@@ -163,7 +164,6 @@ extern const f32 lbl_805D964C;
 extern const f32 lbl_805D9664;
 extern const f32 lbl_805D9668;
 s32 update_enemy_wander_move(void *, Vec_8008FAD0 *, int, f32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 reset_enemy_state__10TObjPlayerFv();
 s32 play_persistent_sound(int, void *, void *, int, int);
 void TObjPlayer__sub_8008FAD0(u8 *arg0);
@@ -587,7 +587,7 @@ void TObjPlayer__sub_8008FAD0(u8 *arg0) {
         *(s16 *)((s8 *)arg0 + 0xB8) = v;
         *(s32 *)((s8 *)arg0 + 0x37C) = 1;
         if (*(u8 **)((s8 *)arg0 + 0x2A8) != NULL) {
-            VecCopy__FP3VecPC3Vec(arg0 + 0x29C, *(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC);
+            VecCopy((Vec *)(arg0 + 0x29C), (const Vec *)(*(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC));
         }
         break;
     case 1:

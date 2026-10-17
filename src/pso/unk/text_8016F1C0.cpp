@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/misc/TOMineTrap.h"
 
@@ -31,7 +32,6 @@ extern const char lbl_804421F0[];
 extern const char lbl_805DB860[4];
 void TOMineTrap__vt81(s32 arg0);
 u32 TOMineTrapDisp__ct(u32, s32, u16, s32);
-s32 VecCopy__FP3VecPC3Vec(s32, s32);
 u32 __nw__7TObjectFUl(s32);
 s32 is_split_screen();
 
@@ -62,8 +62,8 @@ void TOMineTrap__vt81(s32 arg0) {
             var_r31 = TOMineTrapDisp__ct(var_r31, arg0, (u16) local_client_id, get_trap_type__10TOMineTrapFv(arg0));
         }
         if (var_r31 != 0U) {
-            VecCopy__FP3VecPC3Vec(var_r31 + 0x50, arg0 + 0x50);
-            VecCopy__FP3VecPC3Vec(var_r31 + 0x38, arg0 + 0x38);
+            VecCopy((Vec *)(var_r31 + 0x50), (const Vec *)(arg0 + 0x50));
+            VecCopy((Vec *)(var_r31 + 0x38), (const Vec *)(arg0 + 0x38));
         }
     } else {
         for (i = 0; i != 4; i++) {
@@ -72,8 +72,8 @@ void TOMineTrap__vt81(s32 arg0) {
                 var_r31 = TOMineTrapDisp__ct(var_r31, arg0, i, get_trap_type__10TOMineTrapFv(arg0));
             }
             if (var_r31 != 0U) {
-                VecCopy__FP3VecPC3Vec(var_r31 + 0x50, arg0 + 0x50);
-                VecCopy__FP3VecPC3Vec(var_r31 + 0x38, arg0 + 0x38);
+                VecCopy((Vec *)(var_r31 + 0x50), (const Vec *)(arg0 + 0x50));
+                VecCopy((Vec *)(var_r31 + 0x38), (const Vec *)(arg0 + 0x38));
             }
         }
     }

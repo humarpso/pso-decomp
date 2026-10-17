@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/main_loop.h"
 #include "pso/misc/TKeyBoardControl.h"
 
 extern "C" {
@@ -10,7 +11,6 @@ s32 TKeyBoardControl__sub_8000F92C();
 s32 reset_controller_input_state();
 s32 set_copy_clear_color_argb(s32, s32, s32);
 s32 init_creation_menu_scene();
-s32 render_tick__Fv();
 
 void TKeyBoardControl::update_main_menu_scene() {
     set_copy_clear_color_argb(0, 0, 0xFF);
@@ -23,7 +23,7 @@ void TKeyBoardControl::update_main_menu_scene() {
         return;
     }
     init_creation_menu_scene();
-    render_tick__Fv();
+    render_tick();
 }
 void TKeyBoardControl__sub_80290D10(void) { (*(unsigned char *)&main_menu_scene_active_flag) = 0; }
 

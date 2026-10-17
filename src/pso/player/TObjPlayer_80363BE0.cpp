@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
 #include "pso/player/TUnk_804F2A10.h"
 #include "pso/player/TUnk_804F29F8.h"
 #include "pso/player/TObjPlayer.h"
@@ -110,7 +111,6 @@ struct VObj_18_1419ea : VBase_18_1419ea {
 extern "C" {
 VObj_18_1419ea *query_game_join_id__10TObjPlayerFv(s32);
 void func_80141618__Fv(void);
-void set_depth_buffer_settings_id__FUl(u32);
 extern u8 saved_model_draw_color[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -144,14 +144,14 @@ void TUnk_804F2A10::render() {
     while (n != 0) {
         obj = query_game_join_id__10TObjPlayerFv(*p++);
         if (obj != NULL) {
-            set_depth_buffer_settings_id__FUl(1);
+            set_depth_buffer_settings_id(1);
             obj->m26();
             TObjPlayer::reset_transform_state();
             copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
             chunk_polygon_flags_and_mask = lbl_805D5664;
             chunk_polygon_flags_or_mask = lbl_805D5668;
             model_render_flags = lbl_805D5660;
-            set_depth_buffer_settings_id__FUl(2);
+            set_depth_buffer_settings_id(2);
             obj->m26();
             TObjPlayer::reset_transform_state();
             copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);

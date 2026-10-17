@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/object/TObjMotion.h"
@@ -7,7 +8,6 @@ extern "C" {
 
 void init_6x5E_buy_item_header(void* p);
 s32 TLobby__send_and_handle_60(void *);
-s32 bswap_16__FPUs(s32);
 int bswap__9TItemDataFv(void*);
 s32 read_be16_field2__10TObjPlayerFv();
 
@@ -28,20 +28,18 @@ void TLobby::bswap_shop_item() { ((int (*)(void*))read_be16_field2__10TObjPlayer
 void TLobby::send_item_and_handle_60() { bswap_shop_item(); TLobby__send_and_handle_60(this); }
 void TLobby::copy_item_data(void* q) { *(u8 *)&this->m_name = *(u8*)((char*)q + 0x0); *(u8*)((char*)this + 0x1) = *(u8*)((char*)q + 0x1); *(u8*)((char*)this + 0x2) = *(u8*)((char*)q + 0x2); *(u8*)((char*)this + 0x3) = *(u8*)((char*)q + 0x3); *(u8 *)&this->m_flags = *(u8*)((char*)q + 0x4); *(u8*)((char*)this + 0x5) = *(u8*)((char*)q + 0x5); *(u32 *)&this->m_id = *(u32*)((char*)q + 0x6); *(u16*)((char*)this + 0xa) = *(u16*)((char*)q + 0xa); *(u32 *)&this->m_next = *(u32*)((char*)q + 0xc); *(u32 *)&this->m_up = *(u32*)((char*)q + 0x10); }
 void init_6x5E_buy_item_header(void* p) { *(u8*)((char*)p + 0x0) = 94; *(u8*)((char*)p + 0x1) = 6; }
-void TLobby::bswap_6x5D() { ((int (*)(void*))read_be16_field2__10TObjPlayerFv)(this); bswap_16__FPUs((s32)((char*)this + 0x4)); bswap_16__FPUs((s32)((char*)this + 0x6)); ((TObjPlayer *)((char*)this + 0x8))->bswap_pkt_u32x2(); bswap__9TItemDataFv((char*)this + 0x10); }
+void TLobby::bswap_6x5D() { ((int (*)(void*))read_be16_field2__10TObjPlayerFv)(this); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); ((TObjPlayer *)((char*)this + 0x8))->bswap_pkt_u32x2(); bswap__9TItemDataFv((char*)this + 0x10); }
 void TLobby::send_6x5D() { bswap_6x5D(); TLobby__send_and_handle_60(this); }
 void*TLobby::init_fields() { init_default_fields(); *(unsigned char*)((char*)this + 0x24) = 2; *(unsigned char*)((char*)this + 0x25) = 0; *(unsigned char*)((char*)this + 0x26) = 0; *(unsigned char*)((char*)this + 0x27) = 0; *(unsigned char*)((char*)this + 0x1) = 10; return this; }
 
     extern const float lbl_805DAA88;
 void TLobby::init_default_fields() { *(short *)&this->m_flags = 0; *(short *)&this->m_id = 0; *(float *)&this->m_next = lbl_805DAA88; *(float *)&this->m_prev = lbl_805DAA88; *(unsigned char *)&this->m_name = 93; *(unsigned char*)((char*)this + 0x1) = 9; }
 
-s32 bswap_32__FPUl(s32);
-
 void bswap_pick_up_item_packet__6TLobbyFi(s32 arg0) {
     read_be16_field2__10TObjPlayerFv();
-    bswap_16__FPUs(arg0 + 4);
-    bswap_16__FPUs(arg0 + 6);
-    bswap_32__FPUl(arg0 + 8);
+    bswap_16((u16 *)(arg0 + 4));
+    bswap_16((u16 *)(arg0 + 6));
+    bswap_32((u32 *)(arg0 + 8));
 }
 
 }
@@ -180,9 +178,9 @@ void TLobby__sub_801030EC(u8 *arg0);
 
 void bswap_pick_up_item_request__6TLobbyFi(s32 arg0) {
     read_be16_field2__10TObjPlayerFv();
-    bswap_32__FPUl(arg0 + 4);
-    bswap_16__FPUs(arg0 + 8);
-    bswap_16__FPUs(arg0 + 0xA);
+    bswap_32((u32 *)(arg0 + 4));
+    bswap_16((u16 *)(arg0 + 8));
+    bswap_16((u16 *)(arg0 + 0xA));
 }
 
 void TLobby__sub_801030EC(u8 *arg0) {

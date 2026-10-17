@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/npc/TObjNpcBase.h"
 #include "pso/npc/TObjNpcFemaleBase.h"
 #include "pso/TObject.h"
@@ -315,7 +316,6 @@ extern const f32 lbl_805DB1D0;
 extern const f32 lbl_805DB1D4;
 extern const f32 lbl_805DB1D8;
 extern const f32 lbl_805DB1DC;
-void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 f64 atan2_float(f32, f32);
 s32 queue_destruction__7TObjectFv(void *);
@@ -416,7 +416,7 @@ void TObjNpcBase::update_conversation() {
     }
     switch (F(s16, 0x328)) {
     case 0:
-        VecCopy__FP3VecPC3Vec(&d, F(u8 *, 0x2A8) + 0x38);
+        VecCopy((Vec *)&d, (const Vec *)(F(u8 *, 0x2A8) + 0x38));
         subtract_vector(&d, arg0 + 0x38);
         ang = lbl_8043F550[0] * atan2_float(d.x, d.z);
         switch (F(s32, 0x3AC)) {
@@ -430,7 +430,7 @@ void TObjNpcBase::update_conversation() {
             ((VObj_18_f3aa6a *)arg0)->m86(0);
             ((TNpcPlayer *)(&pkt1))->init_6x3E_packet();
             pkt1.id = obj_getField1c(F(void *, 0x2A8));
-            VecCopy__FP3VecPC3Vec(&pkt1.pos, F(u8 *, 0x2A8) + 0x38);
+            VecCopy((Vec *)&pkt1.pos, (const Vec *)(F(u8 *, 0x2A8) + 0x38));
             pkt1.ang = ang + 0x8000;
             ((TNpcPlayer *)(&pkt1))->send_6x3E();
             break;
@@ -441,7 +441,7 @@ void TObjNpcBase::update_conversation() {
                 ((VObj_18_f3aa6a *)arg0)->m86(0);
                 ((TNpcPlayer *)(&pkt2))->init_6x3E_packet();
                 pkt2.id = obj_getField1c(F(void *, 0x2A8));
-                VecCopy__FP3VecPC3Vec(&pkt2.pos, F(u8 *, 0x2A8) + 0x38);
+                VecCopy((Vec *)&pkt2.pos, (const Vec *)(F(u8 *, 0x2A8) + 0x38));
                 pkt2.ang = F(s32, 0x60) + 0x8000;
                 ((TNpcPlayer *)(&pkt2))->send_6x3E();
             } else {

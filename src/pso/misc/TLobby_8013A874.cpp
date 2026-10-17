@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 #include "pso/misc/TLobby.h"
 
 #pragma inline_depth(1)
@@ -14,34 +15,32 @@ void bswap_telepipe_record(void* p);
 void TLobby__sub_8013A9C0(void* p);
 void bswap_object_source_record(void* p);
 void bswap__15disp_data_part2Fv(s32 arg0);
-int bswap_16__FPUs(void*);
-int bswap_32__FPUl(void*);
 
-void TLobby::bswap_fields() { bswap_16__FPUs((void*)((char*)this + 0x2)); bswap_32__FPUl((void*)((char*)this + 0x4)); }
+void TLobby::bswap_fields() { bswap_16((u16 *)((char*)this + 0x2)); bswap_32((u32 *)((char*)this + 0x4)); }
 
-void TLobby::bswap_header_3words() { bswap_32__FPUl((void*)(this)); bswap_32__FPUl((void*)((char*)this + 0x4)); bswap_32__FPUl((void*)((char*)this + 0x8)); }
+void TLobby::bswap_header_3words() { bswap_32((u32 *)(this)); bswap_32((u32 *)((char*)this + 0x4)); bswap_32((u32 *)((char*)this + 0x8)); }
 
 void bswap__15disp_data_part2Fv(s32 arg0) {
     s32 off;
     s32 i;
 
-    bswap_32__FPUl((void*)(arg0 + 0x18));
-    bswap_32__FPUl((void*)(arg0 + 0x2C));
-    bswap_32__FPUl((void*)(arg0 + 0x34));
+    bswap_32((u32 *)(arg0 + 0x18));
+    bswap_32((u32 *)(arg0 + 0x2C));
+    bswap_32((u32 *)(arg0 + 0x34));
     for (i = 0, off = 0; i < 8; i++, off += 2) {
-        bswap_16__FPUs((void*)((s32)((char *)arg0 + off + 0x38)));
+        bswap_16((u16 *)((s32)((char *)arg0 + off + 0x38)));
     }
-    bswap_32__FPUl((void*)(arg0 + 0x48));
-    bswap_32__FPUl((void*)(arg0 + 0x4C));
+    bswap_32((u32 *)(arg0 + 0x48));
+    bswap_32((u32 *)(arg0 + 0x4C));
 }
 
-void bswap_telepipe_record(void* p) { bswap_16__FPUs((void*)(p)); bswap_16__FPUs((void*)((char*)p + 0x2)); bswap_32__FPUl((void*)((char*)p + 0x4)); bswap_32__FPUl((void*)((char*)p + 0x8)); bswap_32__FPUl((void*)((char*)p + 0xc)); bswap_32__FPUl((void*)((char*)p + 0x10)); bswap_32__FPUl((void*)((char*)p + 0x14)); bswap_32__FPUl((void*)((char*)p + 0x18)); }
+void bswap_telepipe_record(void* p) { bswap_16((u16 *)(p)); bswap_16((u16 *)((char*)p + 0x2)); bswap_32((u32 *)((char*)p + 0x4)); bswap_32((u32 *)((char*)p + 0x8)); bswap_32((u32 *)((char*)p + 0xc)); bswap_32((u32 *)((char*)p + 0x10)); bswap_32((u32 *)((char*)p + 0x14)); bswap_32((u32 *)((char*)p + 0x18)); }
 
-void TLobby__sub_8013A9C0(void* p) { bswap_32__FPUl((void*)(p)); bswap_32__FPUl((void*)((char*)p + 0x4)); }
+void TLobby__sub_8013A9C0(void* p) { bswap_32((u32 *)(p)); bswap_32((u32 *)((char*)p + 0x4)); }
 
-void bswap_object_source_record(void* p) { bswap_16__FPUs((void*)(p)); bswap_16__FPUs((void*)((char*)p + 0x2)); }
+void bswap_object_source_record(void* p) { bswap_16((u16 *)(p)); bswap_16((u16 *)((char*)p + 0x2)); }
 
-void TLobby::bswap_6x6B() { bswap_32__FPUl((void*)(this)); bswap_16__FPUs((void*)((char*)this + 0x4)); bswap_16__FPUs((void*)((char*)this + 0x6)); }
+void TLobby::bswap_6x6B() { bswap_32((u32 *)(this)); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); }
 u8 *TLobby__sub_8013AA64(u8 *arg0, u8 *arg1) {
     __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag();
     *(s32 *)((s8 *)arg0 + 8) = (s32) *(s32 *)((s8 *)arg1 + 8);

@@ -1,11 +1,11 @@
 #include "pso/TAdBackGC.h"
+#include "pso/render/depth_buffer.h"
 
 #include "types.h"
 #include "pso/TMainTask.h"
 
 extern "C" {
 s32 draw_title_background_layer(void *, int, int, f32);
-s32 set_depth_buffer_settings_2__Fv();
 s32 restore_saved_depth_alpha_state();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 s32 fn_8029A6EC(void *);
@@ -18,7 +18,7 @@ void TAdBackGC::render() {
     u8 *arg0 = (u8 *)this;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x20) == 0) {
         if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) {
-            set_depth_buffer_settings_2__Fv();
+            set_depth_buffer_settings_2();
             goto block_4;
         }
     } else if (TMainTask::get_state_flag() != 1) {

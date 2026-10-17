@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TBoss7Tentacle.h"
 #include "pso/boss/TBoss7PhotonBullet.h"
 #include "pso/boss/TBoss7TentacleNeedle.h"
@@ -8,7 +9,6 @@
 
 struct Ten_802F08A8;
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 f64 atan2_float(f32, f32);
 s32 approach_angle_limited(s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
@@ -471,11 +471,11 @@ void run_task__14TBoss7TentacleFv(u8 *arg0) {
         TObjPlayer::concat_matrix(0, *(s32 *)((s8 *)arg0 + 0x130));
         transform_point_by_current_matrix(&v, arg0 + 0x40);
         pop_matrix();
-        VecCopy__FP3VecPC3Vec(&v, arg0 + 0x14C);
+        VecCopy((Vec *)&v, (const Vec *)(arg0 + 0x14C));
         subtract_vector(&v, arg0 + 0x40);
         len = ((TObjBoss2Tunnel *)(&v))->clamp_velocity();
         *(s32 *)((s8 *)arg0 + 0x13C) = (s32)(lbl_804740D8[0] * atan2_float(v.x, v.z)) + 0x8000;
-        VecCopy__FP3VecPC3Vec(&p, arg0 + 0x14C);
+        VecCopy((Vec *)&p, (const Vec *)(arg0 + 0x14C));
         switch (*(s32 *)((s8 *)arg0 + 0x38)) {
         case 0:
             *(f32 *)((s8 *)arg0 + 0x160) -= lbl_805DEC34;
@@ -601,7 +601,7 @@ void TBoss7Tentacle::init_segments() {
     Ten_802F0A5C *o = (Ten_802F0A5C *)this;
     s32 i;
     for (i = 0; i < 14; i++) {
-        VecCopy__FP3VecPC3Vec(&o->v[i], &TBoss7Tentacle__segment_offsets[i]);
+        VecCopy((Vec *)&o->v[i], (const Vec *)&TBoss7Tentacle__segment_offsets[i]);
         o->w[i] = TBoss7Tentacle__needle_offsets[i];
     }
 }
@@ -621,7 +621,7 @@ void TBoss7Tentacle::start_attack_at_position(u8 *arg1, s32 arg2) {
         var_r5 = 0x78;
     }
     *(s32 *)((s8 *)arg0 + 0x168) = var_r5;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x14C, arg1);
+    VecCopy((Vec *)(arg0 + 0x14C), (const Vec *)arg1);
     TBoss7Tentacle__sub_802F0A14((u8 *)(arg0));
 }
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TUnk_804928CC.h"
 #include "pso/boss/TBoss1DragonEffTail.h"
 #include "pso/boss/TBoss1Dragon.h"
@@ -84,7 +85,6 @@ extern s32 __vt__19TBoss1DragonEffTail[];
 extern s32 TBoss1DragonEffTail__name;
 extern const f32 lbl_805D8154;
 EffTail_8002C06C *TBoss1DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 arg2);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 update_collider_contact_by_height(void *, f32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -113,7 +113,7 @@ void run_task__19TBoss1DragonEffTailFv(u8 *arg0) {
     Vec_8002BD38 *src;
     s32 i;
     f32 f;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x38, *(u8 **)((s8 *)arg0 + 0xB4) + 0x24);
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(*(u8 **)((s8 *)arg0 + 0xB4) + 0x24));
     ((s32 (*)(void *, void *)) vec3_add_to)(arg0 + 0x38, *(u8 **)((s8 *)arg0 + 0xB4) + 0x78);
     *(f32 *)((s8 *)arg0 + 0x38) *= lbl_805D8148;
     *(f32 *)((s8 *)arg0 + 0x40) *= lbl_805D8148;
@@ -126,7 +126,7 @@ void run_task__19TBoss1DragonEffTailFv(u8 *arg0) {
     translate_matrix(0, -*(f32 *)((s8 *)arg0 + 0x38), -*(f32 *)((s8 *)arg0 + 0x3C), -*(f32 *)((s8 *)arg0 + 0x40));
     for (i = 0; i < 0x11; i++) {
         p = *(u8 **)((s8 *)arg0 + 0xA4) + i * 0x2C;
-        VecCopy__FP3VecPC3Vec(p + 0x1C, src);
+        VecCopy((Vec *)(p + 0x1C), (const Vec *)src);
         matrix_mult_vec(0, src++, p);
         update_collider_contact_by_height(p, lbl_805D814C);
     }

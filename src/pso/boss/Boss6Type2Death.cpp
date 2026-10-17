@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss6Demo21_TYPE2_DEAD.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2.h"
@@ -61,7 +62,6 @@ void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
 void draw_model_motion(int, int, f32);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_bml_motion(void *, int);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
@@ -310,11 +310,11 @@ void run_task__23TBoss6Demo21_TYPE2_DEADFv(Fish_8033E0F0 *arg0) {
     if (arg0->timer >= 0x1AE) {
         s32 pb;
         s32 pm;
-        VecCopy__FP3VecPC3Vec(&a, &arg0->f84);
+        VecCopy((Vec *)&a, (const Vec *)&arg0->f84);
         pb = (s32)&b;
-        VecCopy__FP3VecPC3Vec((void *)pb, &arg0->f90);
+        VecCopy((Vec *)pb, (const Vec *)&arg0->f90);
         pm = (s32)&mid;
-        VecCopy__FP3VecPC3Vec((void *)pm, &a);
+        VecCopy((Vec *)pm, (const Vec *)&a);
         vec3_add_to((void *)pm, (void *)pb);
         mid.x *= (0.5f);
         mid.y *= (0.5f);
@@ -325,13 +325,13 @@ void run_task__23TBoss6Demo21_TYPE2_DEADFv(Fish_8033E0F0 *arg0) {
         s32 n = TLobby::get_game_mode();
         Vec_8033E0F0 c;
         s32 i;
-        VecCopy__FP3VecPC3Vec(&c, &arg0->pos);
+        VecCopy((Vec *)&c, (const Vec *)&arg0->pos);
         vec3_add_to(&c, lbl_804780B8);
         for (i = 0; i < n; i++) {
             Pl_8033E0F0 *p = get_player_data__10TObjPlayerFi(i);
             if (is_locally_controlled__10TObjPlayerFPv(p) != 0 && is_state_1f__14TBoss6PlotFalzFUi(p) != 0) {
                 Vec_8033E0F0 d;
-                VecCopy__FP3VecPC3Vec(&d, &p->pos);
+                VecCopy((Vec *)&d, (const Vec *)&p->pos);
                 subtract_vector(&d, &c);
                 d.y = (0.0f);
                 if (!(vector_length(&d) > (0.25f))) {
@@ -399,8 +399,8 @@ void *TBoss6Demo21_TYPE2_DEAD__ct(void *arg0p, void *arg1, void *arg2) {
     *(u8 **)((s8 *)arg0 + 0x18) = __vt__23TBoss6Demo21_TYPE2_DEAD;
     *(s32 *)((s8 *)arg0 + 0) = TBoss6Demo21_TYPE2_DEAD__name;
     *(void **)((s8 *)arg0 + 0x54) = arg1;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x58, lbl_804780A0);
-    VecCopy__FP3VecPC3Vec(&v, arg2);
+    VecCopy((Vec *)(arg0 + 0x58), (const Vec *)lbl_804780A0);
+    VecCopy((Vec *)&v, (const Vec *)arg2);
     subtract_vector(&v, lbl_804780A0);
     v.y = (0.0f);
     if (vector_length(&v) > 60.0f) {

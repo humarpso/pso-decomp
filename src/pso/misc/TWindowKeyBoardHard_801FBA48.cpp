@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/main_loop.h"
 #include "pso/misc/TWindowKeyBoardHard.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/TAdPlayerLoadGC.h"
@@ -14,7 +15,6 @@ f32 post_translate_matrix(void *);
 s32 draw_ginja_model(int);
 void draw_ginja_box_tree(u8 *arg0);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-void render_tick__Fv();
 void render_frame__23TAdSinglePlyChrSelectGCFv();
 void subtractive_rng_unshuffle(void *, void *, void *, s32);
 void subtractive_rng_make_shuffle(void *);
@@ -177,7 +177,7 @@ s32 TAdSinglePlyChrSelectGC::wait_for_card_load(s32 arg0) {
             return 0;
         }
         render_frame__23TAdSinglePlyChrSelectGCFv();
-        render_tick__Fv();
+        render_tick();
     }
     return 1;
 }

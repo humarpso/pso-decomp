@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/boss/TBoss6Mag.h"
 #include "pso/boss/TBoss6Type2.h"
@@ -203,7 +204,6 @@ s32 clear_render_callback__8TObjFishFv(u32);
 s32 draw_model_blend_motion(s32, Prm_802BCAB8 *, f32);
 s32 draw_model_motion(s32, s32, f32);
 extern const f32 TBoss6Type2__data_805DE410;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * get_player_data__10TObjPlayerFi(s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 void spawn__15TBoss6RockChaseFii(void *, void *);
@@ -724,7 +724,7 @@ s32 TBoss6Type2::is_player_in_rock_area(s32 id) {
     k = TBoss6Type2__data_805DE410;
     do {
         if (TBoss6Rock__sub_80353A14(i, &a, &r) != 0) {
-            ((void (*)(Vec_802B9A68 *, Vec_802B9A68 *))VecCopy__FP3VecPC3Vec)(&b, &p->pos);
+            VecCopy((Vec *)&b, (const Vec *)&p->pos);
             subtract_vector(&b, &a);
             b.y = k;
             if (vector_length(&b) <= r) {
@@ -792,7 +792,7 @@ void TBoss6Type2::update_part_positions() {
         if (o->arr[i] != 0) {
             s32 idx = e->b;
             if (idx >= 0) {
-                ((void (*)(Vec_802B9A68 *, Vec_802B9A68 *))VecCopy__FP3VecPC3Vec)((Vec_802B9A68 *)(&v), (Vec_802B9A68 *)((Vec_802B9C80 *)((u8 *)o + idx * 0xC + 0x59C)));
+                VecCopy((Vec *)((Vec_802B9A68 *)(&v)), (const Vec *)((Vec_802B9A68 *)((Vec_802B9C80 *)((u8 *)o + idx * 0xC + 0x59C))));
             }
             ((TNowLoading *)((s32)o->arr[i]))->copy_pos(&v);
         }
@@ -935,7 +935,7 @@ void TBoss6Type2::aim_toward_point(void *arg1_arg) {
     if (arg1 == NULL) {
         ang = 0;
     } else {
-        ((void (*)(Vec_802B9A68 *, Vec_802B9A68 *))VecCopy__FP3VecPC3Vec)(&v, arg1);
+        VecCopy((Vec *)&v, (const Vec *)arg1);
         subtract_vector(&v, &arg0->pos);
         ang = (s16)((s32)(TBoss6Type2__data_804713C0 * atan2_float(v.x, v.z)) - arg0->f60);
     }
@@ -1090,7 +1090,7 @@ void TBoss6Type2::update_possess_target() {
         if (pl == NULL) {
             done = 1;
         } else if (is_active__14TBoss6PlotFalzFv() == 0) {
-            VecCopy__FP3VecPC3Vec(&v, pl + 0x38);
+            VecCopy((Vec *)&v, (const Vec *)(pl + 0x38));
             v.y += TBoss6Type2__data_805DE434;
             spawn_flow_soul__11TBoss6Type2Fiii(((u8 *)this), &v, 0x1E);
             ((TBoss6EffHyoui *)(*(u16 *)((s8 *)((u8 *)this) + 0x55C)))->create((void *)1, (void *)0x1E);
@@ -1145,23 +1145,23 @@ void TBoss6Type2::update_lower_contact_delta() {
     lower_contact_delta.z = (f32) TBoss6Type2__data_805DE410;
     lower_contact_delta.y = (f32) TBoss6Type2__data_805DE410;
     lower_contact_delta.x = (f32) TBoss6Type2__data_805DE410;
-    VecCopy__FP3VecPC3Vec((void *) (&sp14), (void *) (&contact_point_5fc));
+    VecCopy((Vec *)(&sp14), (const Vec *)(&contact_point_5fc));
     subtract_vector((Vec_802B9A68 *)((void *) (&sp14)), (Vec_802B9A68 *)((void *) (&position)));
-    VecCopy__FP3VecPC3Vec((void *) (&sp8), (void *) (&contact_point_5c0));
+    VecCopy((Vec *)(&sp8), (const Vec *)(&contact_point_5c0));
     subtract_vector((Vec_802B9A68 *)((void *) (&sp8)), (Vec_802B9A68 *)((void *) (&position)));
     var_r31 = 0;
-    VecCopy__FP3VecPC3Vec((void *) (&sp20), (void *) (&sp14));
+    VecCopy((Vec *)(&sp20), (const Vec *)(&sp14));
     if (sp14.f.y > sp8.f.y) {
         var_r31 = 1;
-        VecCopy__FP3VecPC3Vec((void *) (&sp20), (void *) (&sp8));
+        VecCopy((Vec *)(&sp20), (const Vec *)(&sp8));
     }
     if ((s32) lower_contact_index == var_r31) {
-        VecCopy__FP3VecPC3Vec((void *) (&lower_contact_delta), (void *) (&previous_lower_contact));
+        VecCopy((Vec *)(&lower_contact_delta), (const Vec *)(&previous_lower_contact));
         subtract_vector((Vec_802B9A68 *)((void *) (&lower_contact_delta)), (Vec_802B9A68 *)((void *) (&sp20)));
         lower_contact_delta.y = (f32) TBoss6Type2__data_805DE410;
     }
     lower_contact_index = var_r31;
-    VecCopy__FP3VecPC3Vec((void *) (&previous_lower_contact), (void *) (&sp20));
+    VecCopy((Vec *)(&previous_lower_contact), (const Vec *)(&sp20));
 }
 
 void TBoss6Type2__sub_802BA7B0(void* p) { *(s32*)((char*)p + 0x520) = -1; }
@@ -1242,7 +1242,7 @@ s32 TBoss6Type2::turn_toward_target_position() {
     f32 temp_f1;
     s32 temp_r30;
     TypedVector_802BAA74 sp8;
-    VecCopy__FP3VecPC3Vec((void *) (&sp8), (void *) (&target_position));
+    VecCopy((Vec *)(&sp8), (const Vec *)(&target_position));
     subtract_vector((Vec_802B9A68 *)((void *) (&sp8)), (Vec_802B9A68 *)((void *) (&position)));
     sp8.f.y = TBoss6Type2__data_805DE410;
     temp_f1 = vector_length((Vec_802B9A68 *)((void *) (&sp8)));
@@ -1273,14 +1273,14 @@ s32 TBoss6Type2::turn_toward_target_position() {
 s32 snap_to_ground__11TBoss6Type2FPv(Obj_802BAB80 *self) {
     Vec_802BAB80 p;
     f32 t;
-    VecCopy__FP3VecPC3Vec(&p, &self->pos);
+    VecCopy((Vec *)&p, (const Vec *)&self->pos);
     p.y += TBoss6Type2__data_805DE434;
     if (project_actor_to_ground(self, &p, 0) != 0) {
-        VecCopy__FP3VecPC3Vec(&self->pos, &p);
+        VecCopy((Vec *)&self->pos, (const Vec *)&p);
         self->pos.y = TBoss6Type2__data_805DE410;
         return 0;
     }
-    VecCopy__FP3VecPC3Vec(&p, &self->pos);
+    VecCopy((Vec *)&p, (const Vec *)&self->pos);
     p.x -= lbl_805DE450;
     p.y = TBoss6Type2__data_805DE410;
     t = lbl_805DE454;
@@ -1296,7 +1296,7 @@ s32 snap_to_ground__11TBoss6Type2FPv(Obj_802BAB80 *self) {
             }
         }
     }
-    VecCopy__FP3VecPC3Vec(&self->pos, &p);
+    VecCopy((Vec *)&self->pos, (const Vec *)&p);
     self->pos.y = TBoss6Type2__data_805DE410;
     return 1;
 }
@@ -1332,7 +1332,7 @@ void TBoss6Type2::spawn_rocks_around_players() {
         if (is_active__14TBoss6PlotFalzFv() != 0) {
             f32 r = lbl_805DE464 * (TBoss6Type2__data_805DE468 * (f32)rand()) + TBoss6Type2__data_805DE434;
             s32 ang = (s32)(lbl_805DE46C * (TBoss6Type2__data_805DE468 * (f32)rand()));
-            VecCopy__FP3VecPC3Vec(&p, pl + 0x38);
+            VecCopy((Vec *)&p, (const Vec *)(pl + 0x38));
             p.x += r * sin_table_lookup(ang);
             p.y = TBoss6Type2__data_805DE410;
             p.z += r * cos_table_lookup(ang);
@@ -1343,7 +1343,7 @@ void TBoss6Type2::spawn_rocks_around_players() {
     while (n < 10) {
         f32 dx = lbl_805DE470 * (lbl_805DE474 * (TBoss6Type2__data_805DE468 * (f32)rand()) - TBoss6Type2__data_805DE40C);
         f32 dz = lbl_805DE470 * (lbl_805DE474 * (TBoss6Type2__data_805DE468 * (f32)rand()) - TBoss6Type2__data_805DE40C);
-        VecCopy__FP3VecPC3Vec(&q, &TBoss6Type2__data_8047105C);
+        VecCopy((Vec *)&q, (const Vec *)&TBoss6Type2__data_8047105C);
         q.x += dx;
         q.z += dz;
         spawn__15TBoss6RockChaseFii(this, &q);
@@ -1453,12 +1453,12 @@ s32 request_player_camera_offsets__11TBoss6Type2FPvff(Obj_802BB1E0 *self, f32 a,
         t = TBoss6Type2__data_805DE410;
         while (fabs_float(t) <= lim) {
             flag = 0;
-            VecCopy__FP3VecPC3Vec(&off, lbl_80471344);
-            VecCopy__FP3VecPC3Vec(&pp, p + 0x38);
+            VecCopy((Vec *)&off, (const Vec *)lbl_80471344);
+            VecCopy((Vec *)&pp, (const Vec *)(p + 0x38));
             pp.y += off.y;
-            VecCopy__FP3VecPC3Vec(&me, &self->pos);
+            VecCopy((Vec *)&me, (const Vec *)&self->pos);
             me.y += a + t;
-            VecCopy__FP3VecPC3Vec(&d, &me);
+            VecCopy((Vec *)&d, (const Vec *)&me);
             subtract_vector(&d, &pp);
             dy = d.y;
             d.y = TBoss6Type2__data_805DE410;
@@ -1574,7 +1574,7 @@ s32 TBoss6Type2::push_players_away(void *target, f32 range) {
         if (is_state_1f__14TBoss6PlotFalzFUi(pl) == 0) {
             continue;
         }
-        VecCopy__FP3VecPC3Vec(&dir, pl + 0x38);
+        VecCopy((Vec *)&dir, (const Vec *)(pl + 0x38));
         ((f32 (*)(void *, void *))subtract_vector)(&dir, target);
         dir.y = TBoss6Type2__data_805DE410;
         dist = ((f32 (*)(void *))vector_length)(&dir);
@@ -1589,7 +1589,7 @@ s32 TBoss6Type2::push_players_away(void *target, f32 range) {
             off.x = dir.x * t;
             off.y = TBoss6Type2__data_805DE434;
             off.z = dir.z * t;
-            VecCopy__FP3VecPC3Vec(&pos, target);
+            VecCopy((Vec *)&pos, (const Vec *)target);
             vec3_add_to(&pos, &off);
             if (project_actor_to_ground(this, &pos, 0) != 0) {
                 TBoss6PlotFalz__sub_802AC724(pl, &pos);
@@ -1688,7 +1688,7 @@ void TBoss6Type2::update_parts_flags() {
 
 void TBoss6Type2::advance_position() {
     u8 *arg0 = (u8 *)this;
-    VecCopy__FP3VecPC3Vec((u8 *)&this->unk_2FC, arg0 + 0x38);
+    VecCopy((Vec *)&this->unk_2FC, (const Vec *)(arg0 + 0x38));
     this->m_300 = (f32) (this->m_300 + lbl_805DE4A4);
 }
 
@@ -1701,7 +1701,7 @@ void TBoss6Type2::copy_vec_array() {
     dst = (V_802BBF54 *)(arg0 + 0x680);
     end = (V_802BBF54 *)((u8 *)src + 0xE4);
     for (; src < end; src++, dst++) {
-        VecCopy__FP3VecPC3Vec(dst, src);
+        VecCopy((Vec *)dst, (const Vec *)src);
     }
 }
 
@@ -2323,7 +2323,7 @@ void TBoss6Type2::run_task() {
 
 void TBoss6Type2::copy_pos_620(s32 arg1) {
     s32 arg0 = (s32)this;
-    ((s32 (*)(s32, s32))VecCopy__FP3VecPC3Vec)(arg1, arg0 + 0x620);
+    VecCopy((Vec *)arg1, (const Vec *)(arg0 + 0x620));
 }
 #pragma pop
 
@@ -2336,8 +2336,8 @@ void TBoss6Type2::copy_pos_620(s32 arg1) {
 #pragma dont_inline off
 void TBoss6Type2::get_push_points(s32 arg1, s32 arg2) {
     s32 arg0 = (s32)this;
-    ((s32 (*)(s32, s32))VecCopy__FP3VecPC3Vec)((s32)((void *) (arg1)), (s32)((void *) (arg0 + 0x5FC)));
-    ((s32 (*)(s32, s32))VecCopy__FP3VecPC3Vec)((s32)((void *) (arg2)), (s32)((void *) (arg0 + 0x5C0)));
+    VecCopy((Vec *)((void *) (arg1)), (const Vec *)((void *) (arg0 + 0x5FC)));
+    VecCopy((Vec *)((void *) (arg2)), (const Vec *)((void *) (arg0 + 0x5C0)));
 }
 #pragma pop
 
@@ -2350,7 +2350,7 @@ void TBoss6Type2::get_push_points(s32 arg1, s32 arg2) {
 #pragma dont_inline off
 void TBoss6Type2::copy_pos_59c(s32 arg1) {
     s32 arg0 = (s32)this;
-    ((s32 (*)(s32, s32))VecCopy__FP3VecPC3Vec)(arg1, arg0 + 0x59C);
+    VecCopy((Vec *)arg1, (const Vec *)(arg0 + 0x59C));
 }
 #pragma pop
 
@@ -2386,7 +2386,7 @@ void TBoss6Type2::apply_damage(s32 arg1) {
 #pragma auto_inline off
 #pragma dont_inline off
 void TBoss6Type2__sub_802BD378(T2_802BD378 *arg0, s32 arg1, void *arg2, s32 *arg3) {
-    ((s32 (*)(s32, s32))VecCopy__FP3VecPC3Vec)((s32)(arg2), (s32)(&arg0->v[arg1 + 0xE - 0]));
+    VecCopy((Vec *)(arg2), (const Vec *)(&arg0->v[arg1 + 0xE - 0]));
     *arg3 = arg0->f60;
 }
 #pragma pop
@@ -2631,22 +2631,22 @@ void TBoss6Type2__sub_802BD938(u8 *arg0, u8 *arg1) {
     s32 temp_r3;
     temp_r3 = ((s32)((s32 (*)(int))get_player_by_client_id)((int) ((s32) *(u16 *)((s8 *)arg0 + 0x466))));
     if (temp_r3 != 0) {
-        ((s32 (*)(s32, s32))VecCopy__FP3VecPC3Vec)((s32)((void *) (&stack.sp18)), (s32)((void *) (temp_r3 + 0x38)));
+        VecCopy((Vec *)((void *) (&stack.sp18)), (const Vec *)((void *) (temp_r3 + 0x38)));
     } else {
         *(u16 *)((s8 *)arg0 + 0x466) = 0xFFFFU;
         temp_r29 = (s32) ((lbl_805DE4C8 * -((TBoss6Type2__data_805DE468 * (f32) rand()) - lbl_805DE414)) + (f32) *(s32 *)((s8 *)arg0 + 0x60));
-        ((s32 (*)(s32, s32))VecCopy__FP3VecPC3Vec)((s32)((void *) (&stack.sp18)), (s32)((void *) (arg0 + 0x38)));
+        VecCopy((Vec *)((void *) (&stack.sp18)), (const Vec *)((void *) (arg0 + 0x38)));
         stack.sp18 += TBoss6Type2__data_805DE45C * sin_table_lookup((int) (temp_r29));
         stack.sp20 += TBoss6Type2__data_805DE45C * cos_table_lookup((int) (temp_r29));
         if (xyz_distance((void *) (arg0 + 0x38), (void *) (&TBoss6Type2__data_8047105C.value)) > lbl_805DE4CC) {
             temp_r29_2 = (s32) (lbl_805DE46C * (TBoss6Type2__data_805DE468 * (f32) rand()));
-            ((s32 (*)(s32, s32))VecCopy__FP3VecPC3Vec)((s32)((void *) (&stack.sp18)), (s32)((void *) (&TBoss6Type2__data_8047105C.value)));
+            VecCopy((Vec *)((void *) (&stack.sp18)), (const Vec *)((void *) (&TBoss6Type2__data_8047105C.value)));
             stack.sp18 += TBoss6Type2__data_805DE45C * sin_table_lookup((int) (temp_r29_2));
             stack.sp20 += TBoss6Type2__data_805DE45C * cos_table_lookup((int) (temp_r29_2));
         }
     }
     stack.sp1C = TBoss6Type2__data_805DE410;
-    ((s32 (*)(s32, s32))VecCopy__FP3VecPC3Vec)((s32)((void *) (&stack.spC)), (s32)((void *) (&stack.sp18)));
+    VecCopy((Vec *)((void *) (&stack.spC)), (const Vec *)((void *) (&stack.sp18)));
     ((f32 (*)(void *, void *))subtract_vector)((void *) (&stack.spC), (void *) (arg0 + 0x38));
     stack.sp10 = TBoss6Type2__data_805DE410;
     temp_f1 = ((f32 (*)(void *))vector_length)((void *) (&stack.spC));
@@ -2658,7 +2658,7 @@ void TBoss6Type2__sub_802BD938(u8 *arg0, u8 *arg1) {
         }
         stack.spC *= TBoss6Type2__data_805DE41C;
         stack.sp14 *= TBoss6Type2__data_805DE41C;
-        ((s32 (*)(s32, s32))VecCopy__FP3VecPC3Vec)((s32)((void *) (&stack.sp18)), (s32)((void *) (&stack.spC)));
+        VecCopy((Vec *)((void *) (&stack.sp18)), (const Vec *)((void *) (&stack.spC)));
         vec3_add_to((void *) (&stack.sp18), (void *) (arg0 + 0x38));
     }
     ((s32 (*)(void *, void *, void *))world_to_grid_pos__11TBoss6Type2FPvPvPv)((void *) (&stack.sp18), (void *) (&stack.sp9), (void *) (&stack.sp8));
@@ -2895,9 +2895,9 @@ s32 TBoss6Type2__ct(s32 arg0_, s32 parent, s32 arg2_) {
     *(s32 *)((s8 *)arg0 + 0x3FC) = TObjFish::get_fish_count();
     *(s32 *)((s8 *)arg0 + 0x24) = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x38, lbl_80471068);
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)lbl_80471068);
     ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz(lbl_80471074);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x44, (void *)VecCopy__FP3VecPC3Vec(arg0 + 0x50, (void *)VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38)));
+    VecCopy((Vec *)(arg0 + 0x44), (const Vec *)((void *)VecCopy((Vec *)(arg0 + 0x50), (const Vec *)((void *)VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38))))));
     init_collision_body_parts(arg0, boss6_type2_collision_parts, 3);
     ((TBoss6Type2 *)arg0)->advance_position();
     *(f32 *)((s8 *)arg0 + 0x310) = TBoss6Type2__data_805DE410;
@@ -2930,7 +2930,7 @@ s32 TBoss6Type2__ct(s32 arg0_, s32 parent, s32 arg2_) {
     *(s32 *)((s8 *)arg0 + 0x47C) = 0x11;
     TBoss6Type2__sub_802BE4E0((s32 *)(arg0 + 0x480), boss6_type2_zero_vec);
     *(s32 *)((s8 *)arg0 + 0x480) = *(s32 *)((s8 *)arg0 + 0x60);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x484, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x484), (const Vec *)(arg0 + 0x38));
     *(s32 *)((s8 *)arg0 + 0x474) = 0;
     for (i = 0; i < 32; i++) {
         ((Arr_802BE0D4 *)arg0)->arr[i] = 0;

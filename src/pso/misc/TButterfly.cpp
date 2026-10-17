@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TButterfly.h"
 #include "pso/TParticleCtrl.h"
 
@@ -37,13 +38,12 @@ s32 pop_matrices(s32);
 extern u8 identity_matrix[];
 void *__dt__10TButterflyFv(void *arg0, s16 arg1);
 s32 TObjFish__sub_8001EDB0(s32, s32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 s32 set_global_param__8TObjFishFl();
 
 void TButterfly::init_motion() {
     u8 *arg0 = (u8 *)this;
-    VecCopy__FP3VecPC3Vec((u8 *)&this->unk_90, (u8 *)&this->position);
+    VecCopy((Vec *)&this->unk_90, (const Vec *)&this->position);
     *(f32 *)&this->m_9c = (f32) (0.0f);
     *(f32 *)&this->unk_A0 = (f32) (0.0f);
     this->m_a4 = (f32) (0.0f);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_804CC0E8.h"
 #include "pso/misc/TTecAnti.h"
 #include "pso/misc/TWindowCtrl.h"
@@ -145,7 +146,6 @@ extern s32 lbl_805D3790;
 extern const f32 lbl_805DC798;
 u8 *TTecAnti__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 S_8022B3E8 *copy_technique_target_list(S_8022B3E8 *d, S_8022B3E8 *s);
-void VecCopy__FP3VecPC3Vec(Vec_8022AE10 *, const Vec_8022AE10 *);
 void *create_timed_particle_emitter_with_flags(Vec_8022AE10 *, s32, s32, s32, s32);
 void set_owner_id__13TParticleCtrlFUs(void *, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -189,8 +189,8 @@ Obj_8022AE10 *construct_self_effect__8TTecAntiFPvPvPviPv(Obj_8022AE10 *self, con
     s32 i;
     __ct__7TObjectFP7TObject(self, parent);
     self->vtbl = lbl_804CC0E8;
-    VecCopy__FP3VecPC3Vec(&self->body, body);
-    VecCopy__FP3VecPC3Vec(&self->ground, ground);
+    VecCopy((Vec *)&self->body, (const Vec *)body);
+    VecCopy((Vec *)&self->ground, (const Vec *)ground);
     for (i = 0; i < 4; i++) {
         AntiRow_8022AE10 *row = &TTecAnti__self_effect_rows[i];
         void *p;

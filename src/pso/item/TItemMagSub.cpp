@@ -1,5 +1,6 @@
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "pso/item/TItemMagSub.h"
+#include "pso/system/vector.h"
 
 #include "types.h"
 
@@ -38,7 +39,6 @@ struct VObj_80114950 : Base_80114950 {
 
 extern "C" {
 
-s32 VecCopy__FP3VecPC3Vec(void *, s32);
 void reset__11TItemMagSubFv(u8*);
 void reset_oscillation__11TItemMagSubFv(u8*);
 
@@ -56,7 +56,7 @@ void TItemMagSub::set_motion_type(s32 arg1) {
     if (temp_r5 != NULL) {
         s32 elem = **(s32 * *)&this->motion;
         if (elem == -1) {
-            VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xA0), (s32)(temp_r5 + 0x2FC));
+            VecCopy((Vec *)(arg0 + 0xA0), (const Vec *)(temp_r5 + 0x2FC));
             return;
         }
         ((VObj_80114950 *)temp_r5)->m63(elem, (void *)(arg0 + 0xA0));
@@ -556,7 +556,7 @@ void TItemMagSub::update_special_pose() {
     MagSub_801151E0* self=(MagSub_801151E0*)this;
     if (self->joint != NULL) {
         if (self->joint->id == -1) {
-            VecCopy__FP3VecPC3Vec(&self->posA0, (s32)self->player + 0x2FC);
+            VecCopy((Vec *)&self->posA0, (const Vec *)((s32)self->player + 0x2FC));
         } else {
             self->player->get_joint_pos(self->joint->id, &self->posA0);
         }
@@ -594,12 +594,12 @@ void TItemMagSub::update_follow() {
 
     if (self->rec != NULL) {
         if (*(s32 *)self->rec == -1) {
-            VecCopy__FP3VecPC3Vec(&v, (s32)((u8 *)self->owner + 0x2FC));
+            VecCopy((Vec *)&v, (const Vec *)((u8 *)self->owner + 0x2FC));
         } else {
             self->owner->m63(*(s32 *)self->rec, &v);
         }
         if (((u32 (*)(void *, s32))test_flags__11TItemMagSubFUl)(self, 2) != 0U) {
-            VecCopy__FP3VecPC3Vec((u8 *)self + 0xA0, (s32)&v);
+            VecCopy((Vec *)((u8 *)self + 0xA0), (const Vec *)&v);
         } else if (((u32 (*)(void *, s32))test_flags__11TItemMagSubFUl)(self, 0x10) != 0U) {
             lerp_follow_anchor((Vec_80114CD8 *)&v, (Vec_80114CD8 *)((u8 *)self + 0xA0), &item_mag_follow_scale);
         } else {
@@ -660,7 +660,7 @@ TItemMagSub::~TItemMagSub() {}
 TItemHeapObject::~TItemHeapObject() {}
 void TItemMagSub::reset() {
     u8* arg0=(u8*)this;
-    VecCopy__FP3VecPC3Vec((u8 *)&this->translation_offset, *(s32 *)&this->owner + 0x2FC);
+    VecCopy((Vec *)&this->translation_offset, (const Vec *)(*(s32 *)&this->owner + 0x2FC));
     *(s32 *)((s8 *)arg0 + 0x48) = 0;
     *(s32 *)((s8 *)arg0 + 0x44) = 0;
     *(s32 *)((s8 *)arg0 + 0x40) = 0;

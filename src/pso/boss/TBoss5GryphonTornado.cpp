@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss5GryphonTornado.h"
 #include "pso/boss/TBoss8Dragon.h"
@@ -32,7 +33,6 @@ struct Tornado_80355570 {
 };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__20TBoss5GryphonTornado[];
 extern s32 lbl_805D4398;
@@ -164,7 +164,7 @@ u8 *TBoss5GryphonTornado__ct(u8 *arg0, u8 *arg1, s32 arg2, u8 *arg3, s16 arg4) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_803558E4___vt__20TBoss5GryphonTornado *)&__vt__20TBoss5GryphonTornado).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4398;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x28, arg3);
+    VecCopy((Vec *)(arg0 + 0x28), (const Vec *)arg3);
     *(s16 *)((s8 *)arg0 + 0x24) = arg4;
     *(s32 *)((s8 *)arg0 + 0x4C) = arg2;
     *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805DFFA8;

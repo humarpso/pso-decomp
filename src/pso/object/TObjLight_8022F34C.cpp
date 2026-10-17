@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TTecDeband.h"
 #include "pso/object/TObjLight.h"
 
@@ -9,7 +10,6 @@ s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
 u8 *init_from_source__9TObjLightFPvii(u8 *arg0, s32 arg1, s32 arg2);
 void stop_sound_request(void *);
-s32 VecCopy__FP3VecPC3Vec(void *, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -32,7 +32,7 @@ u8 *init_from_source__9TObjLightFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg2));
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CC74C;
     *(s32 *)((s8 *)arg0 + 0x1C) = arg1;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x20), (int) (*(s32 *)((s8 *)arg0 + 0x1C) + 0x2FC));
+    VecCopy((Vec *)(arg0 + 0x20), (const Vec *)(*(s32 *)((s8 *)arg0 + 0x1C) + 0x2FC));
     *(s32 *)((s8 *)arg0 + 0x2C) = 0;
     *(s32 *)((s8 *)arg0 + 0x30) = play_sound_effect((int) (0x4002BB1F), (void *) (arg0 + 0x20), (int) (0), (int) (0));
     return arg0;

@@ -1,4 +1,5 @@
 #include "pso/TBoss6SwordShot.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
@@ -54,7 +55,6 @@ extern "C" {
 u8 *__nw__7TObjectFUl(s32);
 u8 test_rock_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1);
 void set_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 *dispatch_shared_handler_a__6TLobbyFl(s32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 void fn_80356E30(void *);
@@ -133,7 +133,7 @@ void damage_players_in_radius(u8 *arg0) {
     for (i = 0; i < n; i++) {
         pl = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (((s32 (*)(void *))is_active__14TBoss6PlotFalzFv)(pl) != 0) {
-            VecCopy__FP3VecPC3Vec(&v, pl + 0x38);
+            VecCopy((Vec *)&v, (const Vec *)(pl + 0x38));
             subtract_vector(&v, arg0 + 0x20);
             v.y = lbl_805DFFE8;
             if (!(vector_length(&v) > *(f32 *)((s8 *)arg0 + 0x2C))) {
@@ -197,7 +197,7 @@ u8 *TBoss6SwordShot__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
     self->vt18 = (s32 *)__vt__15TBoss6SwordShot;
     self->f0 = lbl_805D43AC;
     self->owner = arg1;
-    VecCopy__FP3VecPC3Vec(&self->pos, (void *)arg2);
+    VecCopy((Vec *)&self->pos, (const Vec *)arg2);
     self->speed = farg0;
     self->f30 = 0;
     v = *dispatch_shared_handler_a__6TLobbyFl(0x2B);
@@ -294,7 +294,7 @@ s32 TBoss6SwordWave::check_player_hits() {
     for (i = 0; i < n; i++) {
         pl = get_player_data__10TObjPlayerFi(i);
         if (is_active__14TBoss6PlotFalzFv() != 0) {
-            VecCopy__FP3VecPC3Vec(&dir, (u8 *)pl + 0x38);
+            VecCopy((Vec *)&dir, (const Vec *)((u8 *)pl + 0x38));
             subtract_vector(&dir, arg0 + 0x20);
             dir.y = lbl_805DFFE8;
             d = vector_length(&dir);
@@ -338,7 +338,7 @@ s32 TBoss6SwordWave::break_rocks_in_wave() {
         if (get_point__10TBoss6RockFllPf(i, &pt, &scale) == 0) {
             continue;
         }
-        VecCopy__FP3VecPC3Vec(&d, &pt);
+        VecCopy((Vec *)&d, (const Vec *)&pt);
         subtract_vector(&d, arg0 + 0x20);
         d.y = lbl_805DFFE8;
         dist = vector_length(&d);
@@ -361,9 +361,9 @@ s32 TBoss6SwordWave::break_rocks_in_wave() {
         normalize_vector(&n);
         n.x *= scale;
         n.z *= scale;
-        VecCopy__FP3VecPC3Vec(&va, &pt);
+        VecCopy((Vec *)&va, (const Vec *)&pt);
         vec3_add_to(&va, &n);
-        VecCopy__FP3VecPC3Vec(&vb, &pt);
+        VecCopy((Vec *)&vb, (const Vec *)&pt);
         subtract_vector(&vb, &n);
         a1 = (s32)(lbl_804793B0 * atan2_float(va.x - *(f32 *)((s8 *)arg0 + 0x20), va.z - *(f32 *)((s8 *)arg0 + 0x28)));
         a2 = (s32)(lbl_804793B0 * atan2_float(vb.x - *(f32 *)((s8 *)arg0 + 0x20), vb.z - *(f32 *)((s8 *)arg0 + 0x28)));
@@ -413,7 +413,7 @@ u8 *__ct__15TBoss6SwordWaveFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, 
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__15TBoss6SwordWave.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D43A8;
     *(s32 *)((s8 *)arg0 + 0x1C) = arg1;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x20), (void *) (arg2));
+    VecCopy((Vec *)(arg0 + 0x20), (const Vec *)(arg2));
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805DFFE8;
     *(f32 *)((s8 *)arg0 + 0x2C) = farg0;
     ((TBoss6SwordWave *)(arg0 + 0x30))->fill_range((void *) (arg3), (void *) (arg4));

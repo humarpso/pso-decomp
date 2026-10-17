@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TMainCursor.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -35,7 +36,6 @@ extern const f32 lbl_805DB0D8;
 extern const f32 lbl_805DB0DC;
 void *__dt__11TMainCursorFv(void *arg0, s16 arg1);
 void *find_entity_by_id();
-s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void destroy__11TMainCursorFis(void *, int);
@@ -48,7 +48,7 @@ void TMainCursor::update_position() {
     entity = find_entity_by_id();
     if (entity != NULL) {
         s32 base = *(s32 *)((s8 *)entity + 0xA4) + ((TMainCursor *)arg0)->is_position_moved() * 0x2C;
-        VecCopy__FP3VecPC3Vec(arg0 + 0x40, base + 0x1C);
+        VecCopy((Vec *)(arg0 + 0x40), (const Vec *)(base + 0x1C));
     }
 }
 

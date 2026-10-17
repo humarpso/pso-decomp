@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneDf2Bringer.h"
 #include "pso/misc/TBreakUpMdl.h"
 #include "pso/TParticleCtrl.h"
@@ -99,7 +100,6 @@ struct BreakUp_80096AD8 {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 compose_motion_node_matrix(int);
 s32 matrix_mult_vec(int, int, int);
 s32 push_matrix();
@@ -281,7 +281,7 @@ s32 TBreakUpMdl::collect_node_positions(u8 *arg1, s32 arg2) {
             temp_r31 = (u8 *)(*(s32 *)&this->m_flags + (var_r29 * 0x1C));
             temp_r4 = (long) (temp_r31 + 4);
             matrix_mult_vec((int) (0), (int) (temp_r4), (int) (temp_r4));
-            VecCopy__FP3VecPC3Vec((void *) (temp_r31 + 0x10), (void *) (temp_r31 + 4));
+            VecCopy((Vec *)(temp_r31 + 0x10), (const Vec *)(temp_r31 + 4));
             ((TObjBoss2Tunnel *)(temp_r31 + 0x10))->clamp_velocity();
             var_r29 += 1;
             *(s32 *)temp_r31 = *(s32 *)((s8 *)var_r28 + 4);
@@ -316,7 +316,7 @@ s32 TBreakUpMdl::build_node_records(u8 *arg1, s32 arg2) {
             temp_r31 = (u8 *)(*(s32 *)&this->m_flags + (var_r29 * 0x1C));
             temp_r4 = (long) (temp_r31 + 4);
             matrix_mult_vec((int) (0), (int) (temp_r4), (int) (temp_r4));
-            VecCopy__FP3VecPC3Vec((void *) (temp_r31 + 0x10), (void *) (temp_r31 + 4));
+            VecCopy((Vec *)(temp_r31 + 0x10), (const Vec *)(temp_r31 + 4));
             ((TObjBoss2Tunnel *)(temp_r31 + 0x10))->clamp_velocity();
             var_r29 += 1;
             *(s32 *)temp_r31 = *(s32 *)((s8 *)var_r28 + 4);

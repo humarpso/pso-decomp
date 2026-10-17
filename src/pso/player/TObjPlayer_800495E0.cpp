@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TUnk_80484AFC.h"
 #include "pso/player/TUnk_80484A94.h"
@@ -53,7 +54,6 @@ struct VObj_80049A1C : VBase_80049A1C {
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 csnVector(void *, void *, int);
 s32 direction_to_rotation_yx(void *, void *, void *);
 u8 *get_player_by_client_id(s32);
@@ -153,7 +153,7 @@ void TUnk_80484A94::run_task() {
     vec3_add_to((void *) (arg0 + 0xB4), (void *) (&stack.sp8));
     ((TObjGyaranzoMissile *)(arg0 + 0xB4))->scale_velocity(TObjPlayer__sub_800499FC((s32)((int) 0)));
   }
-  VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));
+  VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
   vec3_add_to((void *) (arg0 + 0x38), (void *) (arg0 + 0xB4));
   direction_to_rotation_yx((void *) (arg0 + 0xB4), (void *) (arg0 + 0x60), (void *) (arg0 + 0x64));
   this->rotation_z = (s32) ((this->rotation_z) - 0x4000);
@@ -208,7 +208,7 @@ Obj_800498E8 *TObjPlayer__sub_800498E8(Obj_800498E8 *arg0, Obj_800498E8 *arg1, v
     arg0->vt = lbl_80484A94;
     init_collision_body_parts(arg0, player_collision_body_desc, 1);
     arg0->fdc = obj_getField1c(arg1);
-    VecCopy__FP3VecPC3Vec(&arg0->pos, arg2);
+    VecCopy((Vec *)&arg0->pos, (const Vec *)arg2);
     arg0->fcc = arg3;
     arg0->f5c = 0;
     arg0->fd4 = spawn_particle_effect_with_rotation(&arg0->pos, &arg0->f5c, 0x11C, 2);

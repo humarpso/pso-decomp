@@ -1,6 +1,7 @@
 #pragma push
 
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TLobby.h"
 #include "pso/object/TObjFish.h"
 #include "pso/object/TObjPathObj.h"
@@ -45,7 +46,6 @@ struct Obj_802C0A74 {
 };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(Vec_802C0CAC *, Vec_802C0CAC *);
 f64 atan2_float(f32, f32);
 void direction_to_rotation_xz(Vec_802C0CAC *, s32 *, s32 *);
 s32 sample_clamped_path_position(void *arg0, s32 arg1, void *arg2, s32 arg3, f32 farg0);
@@ -68,9 +68,9 @@ s32 advance_lobby_pigeon_path(Obj_802C0A74 *self) {
     s32 old;
     s32 diff;
     ((s32 (*)(void *, s32, s32, Vec_802C0CAC *, f32))sample_clamped_path_position)(self, self->f98, self->fA0, &a, self->fA4);
-    VecCopy__FP3VecPC3Vec(&self->vAC, &a);
+    VecCopy((Vec *)&self->vAC, (const Vec *)&a);
     r = ((s32 (*)(void *, s32, s32, Vec_802C0CAC *, f32))sample_clamped_path_position)(self, self->f98, self->fA0, &b, self->fA4 + lobby_pigeon_path_profiles[self->fC8].d);
-    VecCopy__FP3VecPC3Vec(&d, &b);
+    VecCopy((Vec *)&d, (const Vec *)&b);
     subtract_vector(&d, &a);
     direction_to_rotation_xz(&d, &tmp, &tmp2);
     self->fBC = approach_angle_limited(self->fBC, tmp, lobby_pigeon_path_profiles[self->fC8].e);
@@ -126,9 +126,9 @@ s32 initialize_lobby_pigeon_path(Obj_802C0CAC *self) {
     self->fC0 = 0;
     self->fC4 = 0;
     ((s32 (*)(void *, s32, s32, Vec_802C0CAC *, f32))sample_clamped_path_position)(self, self->f98, self->fA0, &a, (0.0f));
-    VecCopy__FP3VecPC3Vec(&self->vAC, &a);
+    VecCopy((Vec *)&self->vAC, (const Vec *)&a);
     r = ((s32 (*)(void *, s32, s32, Vec_802C0CAC *, f32))sample_clamped_path_position)(self, self->f98, self->fA0, &b, lobby_pigeon_path_profiles[self->fC8].d);
-    VecCopy__FP3VecPC3Vec(&d, &b);
+    VecCopy((Vec *)&d, (const Vec *)&b);
     subtract_vector(&d, &a);
     direction_to_rotation_xz(&d, &self->fBC, &tmp);
     self->fB8 = (s32)(lbl_80471960[0] * atan2_float(b.x - a.x, b.z - a.z));
@@ -723,11 +723,11 @@ s32 TObjPlayer::update_path_steering() {
     ((s32 (*)(void *, s32, s32, Vec_802C1660 *,
               f32))sample_clamped_path_position)(((Obj_802C1428 *)this), ((Obj_802C1428 *)this)->f98, ((Obj_802C1428 *)this)->fA0, &a,
                                                  ((Obj_802C1428 *)this)->fA4);
-    ((void (*)(Vec_802C1660 *, Vec_802C1660 *))VecCopy__FP3VecPC3Vec)(&((Obj_802C1428 *)this)->vAC, &a);
+    VecCopy((Vec *)(&((Obj_802C1428 *)this)->vAC), (const Vec *)&a);
     r = ((s32 (*)(void *, s32, s32, Vec_802C1660 *,
                   f32))sample_clamped_path_position)(
         ((Obj_802C1428 *)this), ((Obj_802C1428 *)this)->f98, ((Obj_802C1428 *)this)->fA0, &b, ((Obj_802C1428 *)this)->fA4 + jungle_seagull_path_profiles[((Obj_802C1428 *)this)->fC8].d);
-    ((void (*)(Vec_802C1660 *, Vec_802C1660 *))VecCopy__FP3VecPC3Vec)(&d, &b);
+    VecCopy((Vec *)&d, (const Vec *)&b);
     ((f32 (*)(Vec_802C1660 *, Vec_802C1660 *))subtract_vector)(&d, &a);
     ((void (*)(Vec_802C1660 *, s32 *, s32 *))direction_to_rotation_xz)(&d, &tmp, &tmp2);
     ((Obj_802C1428 *)this)->fBC = approach_angle_limited(((Obj_802C1428 *)this)->fBC, tmp, jungle_seagull_path_profiles[((Obj_802C1428 *)this)->fC8].e);
@@ -785,11 +785,11 @@ s32 TObjPlayer__sub_802C1660(Obj_802C1660 *self) {
     ((s32 (*)(void *, s32, s32, Vec_802C1660 *,
               f32))sample_clamped_path_position)(self, self->f98, self->fA0, &a,
                                                  (0.0f));
-    ((void (*)(Vec_802C1660 *, Vec_802C1660 *))VecCopy__FP3VecPC3Vec)(&self->vAC, &a);
+    VecCopy((Vec *)&self->vAC, (const Vec *)&a);
     r = ((s32 (*)(void *, s32, s32, Vec_802C1660 *,
                   f32))sample_clamped_path_position)(
         self, self->f98, self->fA0, &b, jungle_seagull_path_profiles[self->fC8].d);
-    ((void (*)(Vec_802C1660 *, Vec_802C1660 *))VecCopy__FP3VecPC3Vec)(&d, &b);
+    VecCopy((Vec *)&d, (const Vec *)&b);
     ((f32 (*)(Vec_802C1660 *, Vec_802C1660 *))subtract_vector)(&d, &a);
     ((void (*)(Vec_802C1660 *, s32 *, s32 *))direction_to_rotation_xz)(&d, &self->fBC, &tmp);
     self->fB8 = (s32)(lbl_80471960[0] * atan2_float(b.x - a.x, b.z - a.z));
@@ -920,11 +920,11 @@ s32 TObjPlayer__sub_802C1BFC(Obj_802C1BFC *self) {
     ((s32 (*)(void *, s32, s32, Vec_802C1E34 *,
               f32))sample_clamped_path_position)(self, self->f98, self->fA0, &a,
                                                  self->fA4);
-    ((void (*)(Vec_802C1E34 *, Vec_802C1E34 *))VecCopy__FP3VecPC3Vec)(&self->vAC, &a);
+    VecCopy((Vec *)&self->vAC, (const Vec *)&a);
     r = ((s32 (*)(void *, s32, s32, Vec_802C1E34 *,
                   f32))sample_clamped_path_position)(
         self, self->f98, self->fA0, &b, self->fA4 + lobby_pigeon_path_parameters[self->fC8].d);
-    ((void (*)(Vec_802C1E34 *, Vec_802C1E34 *))VecCopy__FP3VecPC3Vec)(&d, &b);
+    VecCopy((Vec *)&d, (const Vec *)&b);
     ((f32 (*)(Vec_802C1E34 *, Vec_802C1E34 *))subtract_vector)(&d, &a);
     ((void (*)(Vec_802C1E34 *, s32 *, s32 *))direction_to_rotation_xz)(&d, &tmp, &tmp2);
     self->fBC = approach_angle_limited(self->fBC, tmp, lobby_pigeon_path_parameters[self->fC8].e);
@@ -982,11 +982,11 @@ s32 TObjPlayer__sub_802C1E34(Obj_802C1E34 *self) {
     ((s32 (*)(void *, s32, s32, Vec_802C1E34 *,
               f32))sample_clamped_path_position)(self, self->f98, self->fA0, &a,
                                                  (0.0f));
-    ((void (*)(Vec_802C1E34 *, Vec_802C1E34 *))VecCopy__FP3VecPC3Vec)(&self->vAC, &a);
+    VecCopy((Vec *)&self->vAC, (const Vec *)&a);
     r = ((s32 (*)(void *, s32, s32, Vec_802C1E34 *,
                   f32))sample_clamped_path_position)(
         self, self->f98, self->fA0, &b, lobby_pigeon_path_parameters[self->fC8].d);
-    ((void (*)(Vec_802C1E34 *, Vec_802C1E34 *))VecCopy__FP3VecPC3Vec)(&d, &b);
+    VecCopy((Vec *)&d, (const Vec *)&b);
     ((f32 (*)(Vec_802C1E34 *, Vec_802C1E34 *))subtract_vector)(&d, &a);
     ((void (*)(Vec_802C1E34 *, s32 *, s32 *))direction_to_rotation_xz)(&d, &self->fBC, &tmp);
     self->fB8 = (s32)(lbl_80471960[0] * atan2_float(b.x - a.x, b.z - a.z));
@@ -1116,7 +1116,7 @@ s32 TUnk_804E094C::update_path_follow_rotation(void *, f32) {
     ((s32 (*)(void *, s32, s32, Vec_802C22A4 *,
               f32))sample_clamped_path_position)(self, self->f98, self->fA0, &a,
                                                  self->fA4);
-    ((void (*)(Vec_802C1660 *, Vec_802C1660 *))VecCopy__FP3VecPC3Vec)((Vec_802C1660 *)&self->vAC, (Vec_802C1660 *)&a);
+    VecCopy((Vec *)((Vec_802C1660 *)&self->vAC), (const Vec *)((Vec_802C1660 *)&a));
     r = ((s32 (*)(void *, s32, s32, Vec_802C22A4 *,
                   f32))sample_clamped_path_position)(self, self->f98, self->fA0,
                                                      &b, self->fA4 + e->d);
@@ -1132,7 +1132,7 @@ s32 TUnk_804E094C::update_path_follow_rotation(void *, f32) {
     }
     {
     Vec_802C22A4 d;
-    ((void (*)(Vec_802C1660 *, Vec_802C1660 *))VecCopy__FP3VecPC3Vec)((Vec_802C1660 *)&d, (Vec_802C1660 *)&b);
+    VecCopy((Vec *)((Vec_802C1660 *)&d), (const Vec *)((Vec_802C1660 *)&b));
     ((f32 (*)(Vec_802C1660 *, Vec_802C1660 *))subtract_vector)((Vec_802C1660 *)&d, (Vec_802C1660 *)&a);
     ((void (*)(Vec_802C1660 *, s32 *, s32 *))direction_to_rotation_xz)((Vec_802C1660 *)&d, &tmp, &tmp2);
     }
@@ -1195,11 +1195,11 @@ s32 TObjPlayer__sub_802C2548(Obj_802C2548 *self) {
     ((s32 (*)(void *, s32, s32, Vec_802C2548 *,
               f32))sample_clamped_path_position)(self, self->f98, self->fA0, &a,
                                                  (0.0f));
-    ((void (*)(Vec_802C2548 *, Vec_802C2548 *))VecCopy__FP3VecPC3Vec)(&self->vAC, &a);
+    VecCopy((Vec *)&self->vAC, (const Vec *)&a);
     r = ((s32 (*)(void *, s32, s32, Vec_802C2548 *,
                   f32))sample_clamped_path_position)(
         self, self->f98, self->fA0, &b, jungle_ebi_path_profiles[self->fC8].d);
-    ((void (*)(Vec_802C2548 *, Vec_802C2548 *))VecCopy__FP3VecPC3Vec)(&d, &b);
+    VecCopy((Vec *)&d, (const Vec *)&b);
     ((f32 (*)(Vec_802C2548 *, Vec_802C2548 *))subtract_vector)(&d, &a);
     ((void (*)(Vec_802C2548 *, s32 *, s32 *))direction_to_rotation_xz)(&d, &self->fBC, &tmp);
     self->fB8 = (s32)(lbl_80471960[0] * atan2_float(b.x - a.x, b.z - a.z));
@@ -1320,11 +1320,11 @@ s32 TObjPlayer__sub_802C2A10(Obj_802C2A10 *self) {
     ((s32 (*)(void *, s32, s32, Vec_802C2C48 *,
               f32))sample_clamped_path_position)(self, self->f98, self->fA0, &a,
                                                  self->fA4);
-    ((void (*)(Vec_802C2C48 *, Vec_802C2C48 *))VecCopy__FP3VecPC3Vec)(&self->vAC, &a);
+    VecCopy((Vec *)&self->vAC, (const Vec *)&a);
     r = ((s32 (*)(void *, s32, s32, Vec_802C2C48 *,
                   f32))sample_clamped_path_position)(
         self, self->f98, self->fA0, &b, self->fA4 + seabed_dolphin_path_profiles[self->fC8].d);
-    ((void (*)(Vec_802C2C48 *, Vec_802C2C48 *))VecCopy__FP3VecPC3Vec)(&d, &b);
+    VecCopy((Vec *)&d, (const Vec *)&b);
     ((f32 (*)(Vec_802C2C48 *, Vec_802C2C48 *))subtract_vector)(&d, &a);
     ((void (*)(Vec_802C2C48 *, s32 *, s32 *))direction_to_rotation_xz)(&d, &tmp, &tmp2);
     self->fBC = approach_angle_limited(self->fBC, tmp, seabed_dolphin_path_profiles[self->fC8].e);
@@ -1382,11 +1382,11 @@ s32 TObjPlayer__sub_802C2C48(Obj_802C2C48 *self) {
     ((s32 (*)(void *, s32, s32, Vec_802C2C48 *,
               f32))sample_clamped_path_position)(self, self->f98, self->fA0, &a,
                                                  (0.0f));
-    ((void (*)(Vec_802C2C48 *, Vec_802C2C48 *))VecCopy__FP3VecPC3Vec)(&self->vAC, &a);
+    VecCopy((Vec *)&self->vAC, (const Vec *)&a);
     r = ((s32 (*)(void *, s32, s32, Vec_802C2C48 *,
                   f32))sample_clamped_path_position)(
         self, self->f98, self->fA0, &b, seabed_dolphin_path_profiles[self->fC8].d);
-    ((void (*)(Vec_802C2C48 *, Vec_802C2C48 *))VecCopy__FP3VecPC3Vec)(&d, &b);
+    VecCopy((Vec *)&d, (const Vec *)&b);
     ((f32 (*)(Vec_802C2C48 *, Vec_802C2C48 *))subtract_vector)(&d, &a);
     ((void (*)(Vec_802C2C48 *, s32 *, s32 *))direction_to_rotation_xz)(&d, &self->fBC, &tmp);
     self->fB8 = (s32)(lbl_80471960[0] * atan2_float(b.x - a.x, b.z - a.z));

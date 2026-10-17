@@ -1,4 +1,5 @@
 #include "pso/TBoss6DPB.h"
+#include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEneEpsilonGuard.h"
 
@@ -69,7 +70,6 @@ extern s32 tl_02;
 extern const f32 lbl_805E01C8;
 u8 *__nw__7TObjectFUl(s32);
 extern const f32 TObjEneEpsilonGuard__data_805E01D8;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 play_sound_effect(s32, u32, int, s32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8035DB70___vt__9TBoss6DPB __vt__9TBoss6DPB;
@@ -106,7 +106,7 @@ void TBoss6DPB::apply_shower_damage_to_players() {
     for (i = 0; i < n; i++) {
         pl = get_player_data__10TObjPlayerFi(i);
         if (((TBoss6PlotFalz *)pl)->is_active() != 0) {
-            VecCopy__FP3VecPC3Vec(&v, (u8 *)pl + 0x38);
+            VecCopy((Vec *)&v, (const Vec *)((u8 *)pl + 0x38));
             subtract_vector(&v, &arg0->pos);
             v.y = lbl_805E01CC;
             if (!(vector_length(&v) > arg0->radius)) {
@@ -153,7 +153,7 @@ u8 *__ct__9TBoss6DPBFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__9TBoss6DPB.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss6DPB__class_name;
     *(s32 *)((s8 *)arg0 + 0x1C) = arg1;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x20), (void *) (arg2));
+    VecCopy((Vec *)(arg0 + 0x20), (const Vec *)(arg2));
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805E01CC;
     *(f32 *)((s8 *)arg0 + 0x2C) = farg0;
     temp_f2 = *(f32 *)((s8 *)(TLobby::dispatch_shared_handler_a(0x2C)) + 8);

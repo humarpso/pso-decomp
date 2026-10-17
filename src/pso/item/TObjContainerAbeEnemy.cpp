@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/item/TObjContainerAbeEnemy.h"
 #include "pso/player/TUnk_804B6C24.h"
@@ -34,7 +35,6 @@ struct Obj_80188B3C { u8 pad[0x38]; f32 x, y, z; };
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_container_base(void *, s32);
 extern RecoveredGlobal_801889B8_lbl_804B63BC forest_box_collision_body_parts;
@@ -101,8 +101,8 @@ u8 *TObjContainerAbeEnemy__ct(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x60000000);
     init_collision_body_parts(arg0, (s32) &forest_box_collision_body_parts.value, 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x78) = (f32) (*(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)(&forest_box_collision_body_parts.value) + 4));
     return arg0;
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TLobby.h"
@@ -13,7 +14,6 @@ struct Src_801A1F48 { u8 pad[4]; u16 id; u8 pad6[2]; s16 kind; u8 padA[2]; Vec_8
 struct Dst_801A1F48 { u8 pad[0x1C]; u16 id; u8 pad1e[0xA]; s16 kind; u8 pad2a[0xE]; Vec_801A1F48 pos; Vec_801A1F48 v44; Vec_801A1F48 pos2; Vec_801A1F48 rot; Vec_801A1F48 v68; u8 pad74[0x10]; s32 vals[3]; };
 
 extern "C" {
-Vec_801A1F48 *VecCopy__FP3VecPC3Vec(Vec_801A1F48 *, const Vec_801A1F48 *);
 void apply_object_set_data__13TUnk_804B9870FPv(Dst_801A1F48 *self, Src_801A1F48 *src);
 extern u16 lbl_805D5CD4;
 extern u16 lbl_805D5CD6;
@@ -42,9 +42,9 @@ void TUnk_804B9870::apply_object_set_data(void *src_arg) {
     Src_801A1F48 *src = (Src_801A1F48 *)src_arg;
     s32 i;
     self->id = src->id;
-    VecCopy__FP3VecPC3Vec(&self->pos2, VecCopy__FP3VecPC3Vec(&self->pos, &src->pos));
+    VecCopy((Vec *)&self->pos2, (const Vec *)(VecCopy((Vec *)((Vec *)&self->pos), (const Vec *)((const Vec *)&src->pos))));
     ((TObjPlayer *)(&self->rot))->copy_xyz(&src->rot);
-    VecCopy__FP3VecPC3Vec(&self->v68, &src->v24);
+    VecCopy((Vec *)&self->v68, (const Vec *)&src->v24);
     self->kind = src->kind;
     for (i = 0; i < 3; i++) {
         self->vals[i] = src->vals[i];

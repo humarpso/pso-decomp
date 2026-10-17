@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -50,7 +51,6 @@ s32 get_player_by_client_id(int);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8004938C___vt__14TObjVoloptCage __vt__14TObjVoloptCage;
 u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 void TObjEnemyCustom__ct();
 void init_collision_body_parts(void *, void *, int);
@@ -148,7 +148,7 @@ Obj_80049430 *TObjVoloptCage__ct(Obj_80049430 *arg0, Obj_80049430 *arg1, u16 arg
     arg0->f338 = arg2;
     p = (u8 *)get_player_by_client_id(arg0->f338);
     if (p != NULL) {
-        VecCopy__FP3VecPC3Vec(arg0->pos, p + 0x38);
+        VecCopy((Vec *)arg0->pos, (const Vec *)(p + 0x38));
     } else {
         queue_destruction__7TObjectFv(arg0);
         return arg0;

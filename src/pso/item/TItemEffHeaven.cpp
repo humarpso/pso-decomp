@@ -1,4 +1,5 @@
 #include "pso/TItemEffHeaven.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
 
@@ -46,7 +47,6 @@ struct Self_8010900C {
 };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 int queue_destruction__7TObjectFv(void*);
 void *spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 VObj_8010900C *resolve_hittable_target(u16, s16);
@@ -73,7 +73,7 @@ void TItemEffHeaven::run_task() {
     if (self->f20 == NULL) {
         self->f20 = resolve_hittable_target(self->f1C, self->f24);
         if (self->f20 != NULL) {
-            VecCopy__FP3VecPC3Vec(&self->pos, &((Src_8010900C *)self->f20)->recs[self->f24].pos);
+            VecCopy((Vec *)&self->pos, (const Vec *)(&((Src_8010900C *)self->f20)->recs[self->f24].pos));
         }
     }
     if (self->f28 == 0) {

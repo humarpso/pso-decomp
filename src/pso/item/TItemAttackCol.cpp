@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/item/TItem.h"
 #include "pso/item/TUnk_804E355C.h"
 
@@ -163,7 +164,6 @@ extern const float lbl_805DE918;
 extern const f32 lbl_805DE924;
 void TObjPlayer__sub_802E451C(S_802E451C *arg0);
 Hit_802E3D8C *csnVector(void *, void *, s32);
-s32 VecCopy__FP3VecPC3Vec(s32 *, s32);
 extern const f32 lbl_805DE910;
 u32 query_game_join_id__10TObjPlayerFv(int);
 s32 run_with_transform_context__10TObjPlayerFii(int, void *);
@@ -219,7 +219,7 @@ void TItemAttackCol::vfunc_6(s32 *a) {
 void TItemAttackCol__vt5(s32 arg0) {
     s32 sp8;
 
-    VecCopy__FP3VecPC3Vec(&sp8, arg0 + 0xD0);
+    VecCopy((Vec *)&sp8, (const Vec *)(arg0 + 0xD0));
     vec3_add_to(&sp8, arg0 + 0x24);
     ((TItemAttackCol *)arg0)->move_with_collision((void *)(&sp8));
 }
@@ -234,13 +234,13 @@ void TItemAttackCol::move_with_collision(void *arg1) {
     hit = csnVector((u8 *)&this->m_24, arg1, 0x8100);
     if (hit != NULL) {
         ((TObjPlayer *)(arg0 + 0xE0))->set_flags(1);
-        VecCopy__FP3VecPC3Vec((s32 *)(arg0 + 0x24), (s32)(hit->pos));
+        VecCopy((Vec *)((s32 *)(arg0 + 0x24)), (const Vec *)(hit->pos));
         cb = *(Cb_802E3D8C *)((s8 *)arg0 + 0x138);
         if (cb != NULL) {
             cb(this->m_ac, (u8 *)&this->m_24, (u8 *)&this->m_d0);
         }
     } else {
-        VecCopy__FP3VecPC3Vec((s32 *)(arg0 + 0x24), (s32)(arg1));
+        VecCopy((Vec *)((s32 *)(arg0 + 0x24)), (const Vec *)(arg1));
     }
 }
 

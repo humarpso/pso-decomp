@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneMe3ShinowaMirage.h"
@@ -271,7 +272,6 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 TObjEneMe3Shinowa__sub_800E7724(void *);
 s32 find_entity_by_id(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 create_particle_emitter(s32, s32);
 s32 advance_animation_playback(void *, int);
 f32 sin_table_lookup(s32);
@@ -353,9 +353,9 @@ void TObjEneMe3ShinowaMirage::activate_mirage(s32 arg1) {
 
     temp_r3 = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0x42C)));
     if (temp_r3 != 0) {
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (temp_r3 + 0x38));
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));
-        VecCopy__FP3VecPC3Vec((void *) (*(s32 *)&this->m_a4 + 0x1C), (void *) (arg0 + 0x38));
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(temp_r3 + 0x38));
+        VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
+        VecCopy((Vec *)(*(s32 *)&this->m_a4 + 0x1C), (const Vec *)(arg0 + 0x38));
         ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz((void *) (temp_r3 + 0x5C));
         temp_r4 = *(s32 *)&this->actorFlags & 0xFFFFF7FF;
         *(s32 *)&this->actorFlags = temp_r4;
@@ -515,7 +515,7 @@ void TObjEneMe3ShinowaReal__vt114(u8 *arg0, s32 arg1) {
                         ((TParticleCtrl *)temp_r3_2)->enable();
                     }
                 } else {
-                    VecCopy__FP3VecPC3Vec(&stack.sp8, (u8 *)(arg0) + 0x38);
+                    VecCopy((Vec *)&stack.sp8, (const Vec *)((u8 *)(arg0) + 0x38));
                     stack.sp8 += TObjEneMe3ShinowaReal__data_805DA5CC * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
                     stack.spC += lbl_805DA5D0;
                     stack.sp10 += TObjEneMe3ShinowaReal__data_805DA5CC * cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
@@ -605,7 +605,7 @@ void TObjEneMe3ShinowaReal__vt112(u8 *arg0, s32 arg1) {
                     ((TParticleCtrl *)(P(0x424)))->enable();
                 }
             } else {
-                VecCopy__FP3VecPC3Vec(&v, arg0 + 0x38);
+                VecCopy((Vec *)&v, (const Vec *)(arg0 + 0x38));
                 v.x = TObjEneMe3ShinowaReal__data_805DA5CC * sin_table_lookup(I(0x60)) + v.x;
                 v.y += lbl_805DA5D0;
                 v.z = TObjEneMe3ShinowaReal__data_805DA5CC * cos_table_lookup(I(0x60)) + v.z;

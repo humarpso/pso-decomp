@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjFish.h"
 #include "pso/misc/TTecRaBarta.h"
 #include "pso/misc/TTecRaZonde.h"
@@ -67,8 +69,6 @@ s32 queue_destruction__7TObjectFv(void *);
 u32 find_entity_by_id(int);
 void apply_technique_to_area_targets__13TUnk_804CC148Fv(void *);
 #define apply_technique_to_area_targets__13TUnk_804CC148Fv ((s32 (*)(void *, int))apply_technique_to_area_targets__13TUnk_804CC148Fv)
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-#define VecCopy__FP3VecPC3Vec ((void (*)(Vec_80237DAC *, const Vec_80237DAC *))VecCopy__FP3VecPC3Vec)
 void *spawn_particle_effect_with_flags(Vec_80237DAC *, s32, s32);
 void spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv(Obj_80237DAC *self);
 
@@ -128,7 +128,7 @@ void TUnk_804CCB28::spawn_rafoie_explosion_bursts() {
     Obj_80237DAC *self = (Obj_80237DAC *)this;
     Vec_80237DAC higher;
     u32 i;
-    VecCopy__FP3VecPC3Vec(&higher, &self->position);
+    VecCopy((Vec *)&higher, (const Vec *)&self->position);
     higher.y = (8.0f) + self->position.y;
     for (i = 0; i < rafoie_burst_table[self->band].count; i++) {
         RafoieBurst_80237DAC *row = &rafoie_burst_table[self->band].entries[i];
@@ -218,7 +218,6 @@ void TTecRaFoie::vfunc_8(void *) {
 }
 
 #undef get_bml_model
-#undef VecCopy__FP3VecPC3Vec
 #undef update_technique_slot__10TTecRaFoieFl
 #undef play_sound_effect
 #undef construct_area_technique_base
@@ -315,7 +314,6 @@ s32 is_technique_ready__8TTecCtrlFv();
 extern RecoveredGlobal_80230D9C_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_80230D9C_lbl_804CC55C lbl_804CC55C;
 void func_80141618__Fv(void);
-void set_depth_buffer_settings_id__FUl(s32);
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
 void push_matrix(void);
@@ -384,7 +382,7 @@ void TUnk_804CCB28::render() {
     rotate_matrix_y(0, *(s32 *)(camera_ctrl_instance + 0x194));
     TObjFish::set_global_param((s32)lbl_805D63B0);
     TObjFish::set_cull_back();
-    set_depth_buffer_settings_id__FUl(3);
+    set_depth_buffer_settings_id(3);
     get_bml_model(technique_effect_bml, 0xB);
     draw_ginja_object();
     func_80141618__Fv();
@@ -587,7 +585,7 @@ u8 *create_rafoie_explosion(u8 *arg0, s32 *arg1, s16 arg2, s16 arg3, s32 arg4, f
     *(s16 *)((s8 *)arg0 + 0x20) = arg2;
     *(s16 *)((s8 *)arg0 + 0x22) = arg3;
     *(s32 *)((s8 *)arg0 + 0x60) = 1;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (arg1));
+    VecCopy((Vec *)(arg0 + 0x28), (const Vec *)(arg1));
     *(f32 *)((s8 *)arg0 + 0x44) = farg0;
     *(s32 *)((s8 *)arg0 + 0x58) = 0;
     *(s32 *)((s8 *)arg0 + 0x5C) = 0;
@@ -598,9 +596,9 @@ u8 *create_rafoie_explosion(u8 *arg0, s32 *arg1, s16 arg2, s16 arg3, s32 arg4, f
     *(f32 *)((s8 *)arg0 + 0x4C) = (f32) (1.0f);
     *(f32 *)((s8 *)arg0 + 0x50) = (f32) (1.0f);
     *(f32 *)((s8 *)arg0 + 0x54) = (f32) (1.0f);
-    VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x28));
+    VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x28));
     stack.spC += (5.0f);
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (&stack.sp8));
+    VecCopy((Vec *)(arg0 + 0x28), (const Vec *)(&stack.sp8));
     spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv((void *) (arg0));
     temp_r3 = ((s32)__nw__7TObjectFUl((int) (0x20)));
     var_r0 = temp_r3;
@@ -623,7 +621,7 @@ u8 *create_fire_explosion_effect(u8 *arg0, s32 *arg1, s16 arg2, s32 arg3, f32 fa
     *(s16 *)((s8 *)arg0 + 0x20) = arg2;
     *(s16 *)((s8 *)arg0 + 0x22) = 0;
     *(s32 *)((s8 *)arg0 + 0x60) = 1;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (arg1));
+    VecCopy((Vec *)(arg0 + 0x28), (const Vec *)(arg1));
     *(f32 *)((s8 *)arg0 + 0x44) = farg0;
     *(s32 *)((s8 *)arg0 + 0x58) = 0;
     *(s32 *)((s8 *)arg0 + 0x5C) = 0;
@@ -634,9 +632,9 @@ u8 *create_fire_explosion_effect(u8 *arg0, s32 *arg1, s16 arg2, s32 arg3, f32 fa
     *(f32 *)((s8 *)arg0 + 0x4C) = (f32) (1.0f);
     *(f32 *)((s8 *)arg0 + 0x50) = (f32) (1.0f);
     *(f32 *)((s8 *)arg0 + 0x54) = (f32) (1.0f);
-    VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x28));
+    VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x28));
     stack.spC += (5.0f);
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (&stack.sp8));
+    VecCopy((Vec *)(arg0 + 0x28), (const Vec *)(&stack.sp8));
     spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv((void *) (arg0));
     temp_r3 = ((s32)__nw__7TObjectFUl((int) (0x20)));
     var_r0 = temp_r3;
@@ -689,7 +687,7 @@ void TTecRaFoie::update_detonation(void *arg1) {
     void *p;
     s32 h;
 
-    VecCopy__FP3VecPC3Vec(self->origin, ((void *(*)(void *, void *))VecCopy__FP3VecPC3Vec)(self->target, arg1));
+    VecCopy((Vec *)self->origin, (const Vec *)(VecCopy((Vec *)((Vec *)self->target), (const Vec *)((const Vec *)arg1))));
     self->age++;
     if (self->age != 10) {
         return;

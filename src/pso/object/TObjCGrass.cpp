@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjCGrass.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/misc/TLobby.h"
@@ -69,7 +70,6 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(int);
 s32 pop_matrices(int);
 s32 draw_model_motion(int, int, f32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 u8 *csnVectorUnder(void *, void *, int);
 s32 vec3_add_to(void *, void *);
@@ -157,14 +157,14 @@ void TObjCGrass::run_task() {
         self->fC0 -= self->f100;
     }
     for (i = 0; i < self->count; i++) {
-        VecCopy__FP3VecPC3Vec(&a, &self->recs[i].pos);
-        VecCopy__FP3VecPC3Vec(&b, &self->recs[i].v2);
-        VecCopy__FP3VecPC3Vec(&self->f44, &a);
+        VecCopy((Vec *)&a, (const Vec *)&self->recs[i].pos);
+        VecCopy((Vec *)&b, (const Vec *)&self->recs[i].v2);
+        VecCopy((Vec *)&self->f44, (const Vec *)&a);
         vec3_add_to(&a, &b);
         if (i == actor_frame_tick % self->count) {
             hit = (Hit_800B8BB4 *)csnVectorUnder(&a, self->f10C, 1);
             if (hit != NULL) {
-                VecCopy__FP3VecPC3Vec(&a, hit->pos);
+                VecCopy((Vec *)&a, (const Vec *)hit->pos);
                 b.y += lbl_805D9E60;
                 self->f44.y += b.y;
                 if (a.y < self->f44.y) {
@@ -172,8 +172,8 @@ void TObjCGrass::run_task() {
                 } else {
                     b.y = TObjCGrass__data_805D9E64;
                 }
-                VecCopy__FP3VecPC3Vec(&self->recs[i].pos, &a);
-                VecCopy__FP3VecPC3Vec(&self->recs[i].v2, &b);
+                VecCopy((Vec *)&self->recs[i].pos, (const Vec *)&a);
+                VecCopy((Vec *)&self->recs[i].v2, (const Vec *)&b);
             } else {
                 self->recs[i].flags |= 1;
             }
@@ -182,8 +182,8 @@ void TObjCGrass::run_task() {
         } else {
             b.y += lbl_805D9E60;
         }
-        VecCopy__FP3VecPC3Vec(&self->recs[i].pos, &a);
-        VecCopy__FP3VecPC3Vec(&self->recs[i].v2, &b);
+        VecCopy((Vec *)&self->recs[i].pos, (const Vec *)&a);
+        VecCopy((Vec *)&self->recs[i].v2, (const Vec *)&b);
     }
     if (self->f108-- < 0) {
         queue_destruction__7TObjectFv(self);
@@ -244,9 +244,9 @@ u8 *TObjCGrass__ct(Grass_800B8EFC *self, u8 *arg1, s32 arg2, s32 arg3) {
     self->f0 = lbl_805D2A28;
     hit = csnVectorUnder(arg1, self->f10C, 1);
     if (hit != NULL) {
-        VecCopy__FP3VecPC3Vec(&self->f38, *(void **)(hit + 4));
+        VecCopy((Vec *)&self->f38, (const Vec *)(*(void **)(hit + 4)));
     } else {
-        VecCopy__FP3VecPC3Vec(&self->f38, arg1);
+        VecCopy((Vec *)&self->f38, (const Vec *)arg1);
     }
     self->f34 = (*(Mgr_800B8EFC * *)&TObjCGrass_bml_resource)->src->f8;
     self->f24 = (*(Mgr_800B8EFC * *)&TObjCGrass_bml_resource)->src->fC;
@@ -266,7 +266,7 @@ u8 *TObjCGrass__ct(Grass_800B8EFC *self, u8 *arg1, s32 arg2, s32 arg3) {
     for (i = 0; i < self->count; i++) {
         s32 a;
         Vec_800B8EFC v;
-        VecCopy__FP3VecPC3Vec(&self->recs[i].pos, &self->f38);
+        VecCopy((Vec *)&self->recs[i].pos, (const Vec *)&self->f38);
         v.x = TObjCGrass__data_805D9E64;
         v.y = lbl_805D9E70 * (f32)rand();
         v.z = lbl_805D9E70 * (f32)rand() + lbl_805D9E6C;

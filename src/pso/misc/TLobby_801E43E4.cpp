@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 #include "pso/TProtocol.h"
 #include "pso/misc/TGStream.h"
 #include "pso/misc/TLobby.h"
@@ -26,8 +27,6 @@ s32 load_texture_list(s32 **);
 extern char pso_texture_load_error_format[];
 void dispatch_packet__6TLobbyFPv(void *arg0);
 void update_players__6TLobbyFi(s32 arg0);
-int bswap_16__FPUs(void*);
-s32 bswap_32__FPUl(s32 *);
 s32 append_command_to_batch_buffer(void *, s32);
 s32 get_main_phase();
 s32 send_pso_data_long2__9TProtocolFcR17long_game_commandUl(void*, u32, void *, s32);
@@ -36,7 +35,7 @@ void TLobby::send_command(u32 arg1) {
     s32 sp8;
 
     sp8 = *(s32 *)&this->m_flags;
-    bswap_32__FPUl(&sp8);
+    bswap_32((u32 *)&sp8);
     if ((u32) local_client_id == arg1) {
         lbl_805D5E50 = 1;
         dispatch_6x_subcommand((void *)(this));
@@ -127,7 +126,7 @@ void update_players__6TLobbyFi(s32 arg0) {
     lbl_805D5E50 = 0;
 }
 
-void TLobby::bswap_switch_activate_token() { ((TObjPlayer *)this)->read_be16_field2(); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); }
+void TLobby::bswap_switch_activate_token() { ((TObjPlayer *)this)->read_be16_field2(); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); }
 s32 TLobby::load_texture_pvm_file(const char *name, s32 arg1) {
     char path[0x40];
     void *buf;

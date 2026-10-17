@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TUnk_804B7C1C.h"
 #include "pso/misc/TUnk_804B7C04.h"
@@ -46,7 +47,6 @@ s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_8019118C_lbl_804B7BD8 lbl_804B7BD8;
 extern RecoveredGlobal_8019118C_lbl_804B7C1C lbl_804B7C1C;
 u8 *TLobby__sub_8019118C(u8 *arg0, s32 arg1, s32 arg2);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 lbl_80445910[];
 extern s32 lbl_804B7C04[];
@@ -98,7 +98,7 @@ u8 *TNpcPlayer::destroy_and_materialize_player(s16 arg1) {
 Npc_80190F3C *TNpcPlayer__sub_80190F3C(Npc_80190F3C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, void *arg6) {
     __ct__7TObjectFP7TObject(arg0, arg6);
     arg0->f18 = ((u8 *)&lbl_804B7C04);
-    VecCopy__FP3VecPC3Vec(arg0->f1C, arg1);
+    VecCopy((Vec *)arg0->f1C, (const Vec *)arg1);
     arg0->f28 = arg2;
     arg0->f30 = arg3;
     arg0->f34 = arg4;

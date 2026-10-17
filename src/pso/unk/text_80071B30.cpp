@@ -1,4 +1,5 @@
 #include "pso/item/ChallengeStageLoadouts.h"
+#include "pso/system/vector.h"
 
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
@@ -47,7 +48,6 @@ s32 get_layout_id__20TWindowSubStatusDispFv(s32);
 s32 *TWindowSubStatusDisp__sub_8006F0D8(void *);
 extern u8 challenge_mode_state[];
 s32 TLobby__sub_80071B30(s32 arg0, s32 arg1);
-void VecCopy__FP3VecPC3Vec(Vec_80071BC0 *, void *);
 void copy_player_visual_record(Chr_80071BC0 *, void *);
 Plr_80071BC0 *get_player_by_client_id(s32);
 Plr_80071BC0 *create_player_object(s32, s32, TPlyCharData *);
@@ -90,7 +90,7 @@ void TObjPlayer::rebuild_players_for_stage(s32 arg0) {
             if (p == NULL) {
                 continue;
             }
-            VecCopy__FP3VecPC3Vec(&pos, (u8 *)p + 0x38);
+            VecCopy((Vec *)&pos, (const Vec *)((u8 *)p + 0x38));
             copy_player_visual_record(&chr, (u8 *)p + 0x85c);
             ((TLobby *)(&hdr))->copy_header_struct((u8 *)p + 0xdac);
             if (p != NULL) {

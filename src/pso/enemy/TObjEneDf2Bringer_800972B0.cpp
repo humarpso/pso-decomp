@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss4Type3.h"
@@ -855,7 +856,6 @@ extern RecoveredGlobal_800975A8_lbl_805008A8 bringer_camera_ctrl_target_vec;
 extern s32 TObjEneDf2Bringer__render_node_index;
 extern s32 TObjEneDf2Bringer__render_rotation_x;
 extern s32 TObjEneDf2Bringer__render_point_cursor;
-void VecCopy__FP3VecPC3Vec(void *, const void *);
 void clear_attack_receipts__9TObjEneDDFv(void *);
 s32 transition_enemy_state(void *, s32);
 extern const f32 lbl_805D97E4;
@@ -1017,7 +1017,7 @@ void render__17TObjEneDf2BringerFv(u8 *arg0) {
         return;
     }
     for (i = 0; i < 4; i++) {
-        VecCopy__FP3VecPC3Vec(&S->pts[i], &S->pos);
+        VecCopy((Vec *)&S->pts[i], (const Vec *)&S->pos);
     }
 }
 #pragma pop
@@ -1084,7 +1084,7 @@ void TObjEneDf2Bringer__sub_80097714(Bringer_80097714 *obj, s32 mode) {
     case 0:
         ((s32)advance_animation_playback(self));
         self->timer--;
-        VecCopy__FP3VecPC3Vec(&v, &self->vel);
+        VecCopy((Vec *)&v, (const Vec *)&self->vel);
         speed = ((TObjBoss2Tunnel *)(&v))->clamp_velocity();
         ((TObjEneDD *)self)->move_clamped_on_ground(v.x, v.z, speed);
         self->vel.x *= lbl_805D97E4;
@@ -1434,7 +1434,7 @@ void TObjEneDf2Bringer__sub_8009813C(u8 *arg0, s32 arg1) {
                 hit = 1;
             }
             if (enemy_validate_retained_target(arg0) != 0) {
-                VecCopy__FP3VecPC3Vec(&d, F(u8 *, 0x390) + 0x38);
+                VecCopy((Vec *)&d, (const Vec *)(F(u8 *, 0x390) + 0x38));
                 subtract_vector(&d, arg0 + 0x38);
                 if (((TObjBoss2Tunnel *)(&d))->clamp_velocity() >= lbl_805D9814) {
                     if (d.x * sin_table_lookup(F(s32, 0x60)) + d.z * cos_table_lookup(F(s32, 0x60)) < TObjEneDf2Bringer__data_805D97E0) {
@@ -1724,7 +1724,6 @@ struct SubObj_80098970 : SubBase_80098970 {
 #define TObjEneDf2Bringer__sub_80098EB4 ((s32 (*)(void *))TObjEneDf2Bringer__sub_80098EB4)
 #define update_if_in_band__17TObjEneDf2BringerFi ((s32 (*)(void *))update_if_in_band__17TObjEneDf2BringerFi)
 #define spawn_particle_if_in_band__17TObjEneDf2BringerFPv ((s32 (*)(void *))spawn_particle_if_in_band__17TObjEneDf2BringerFPv)
-#define VecCopy__FP3VecPC3Vec ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)
 #define play_effect_if_v2__10TObjPlayerFl ((s32 (*)(s32))play_effect_if_v2__10TObjPlayerFl)
 
 #define TObjEneDf2Bringer__data_805D9820 (*(const f32 *)&TObjEneDf2Bringer__data_805D9820)
@@ -1745,9 +1744,9 @@ void TObjEneDf2Bringer::exec(s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x4AC) = 0;
         *(s32 *)((s8 *)arg0 + 0x4B0) = 0;
         play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x3640D), arg0 + 0x38, 0, 0);
-        VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0x50);
-        VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
-        VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x50));
+        VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
+        VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
         *(s32 *)((s8 *)arg0 + 0x494) = 0;
         *(s32 *)((s8 *)arg0 + 0x48C) = 0;
         return;
@@ -1870,7 +1869,6 @@ void TObjEneDf2Bringer__vt85(s32 arg0, u32 arg1, s32 mode) {
 }
 #undef TObjEneDf2Bringer__data_805D9820
 #undef play_effect_if_v2__10TObjPlayerFl
-#undef VecCopy__FP3VecPC3Vec
 #undef spawn_particle_if_in_band__17TObjEneDf2BringerFPv
 #undef update_if_in_band__17TObjEneDf2BringerFi
 #undef play_sound_effect
@@ -2325,10 +2323,10 @@ void update_attack_child__17TObjEneDf2BringerFPv(Bringer_800993E8 *obj) {
     }
     if (self->frame >= start && self->frame <= lbl_805D983C) {
         entry = lookup_entry_by_value__10TObjPlayerFPvf(TObjEneDf2Bringer__trail_buffer, self->frame);
-        VecCopy__FP3VecPC3Vec(&((ChildFields_800993E8 *)self->child)->pos, &self->pos);
+        VecCopy((Vec *)(&((ChildFields_800993E8 *)self->child)->pos), (const Vec *)&self->pos);
         ((ChildFields_800993E8 *)self->child)->angle = self->angle;
-        VecCopy__FP3VecPC3Vec(((ChildFields_800993E8 *)self->child)->model, &entry->a);
-        VecCopy__FP3VecPC3Vec(&((ChildFields_800993E8 *)self->child)->model->b, &entry->b);
+        VecCopy((Vec *)(((ChildFields_800993E8 *)self->child)->model), (const Vec *)&entry->a);
+        VecCopy((Vec *)(&((ChildFields_800993E8 *)self->child)->model->b), (const Vec *)&entry->b);
         ((TUnk_804AF8A0 *)(self->child))->refresh_collision_body_centers();
         Pair_800993E8 pair = lbl_8043A0CC[0];
         if (obj->m97() != 0) {
@@ -2348,7 +2346,6 @@ void update_attack_child__17TObjEneDf2BringerFPv(Bringer_800993E8 *obj) {
 #define sub_80098DEC__17TObjEneDf2BringerFv ((s32 (*)())sub_80098DEC__17TObjEneDf2BringerFv)
 #define clear_attack_receipts__9TObjEneDDFv ((s32 (*)(void *))clear_attack_receipts__9TObjEneDDFv)
 #define transition_enemy_state ((int (*)(void*, void*))transition_enemy_state)
-#define VecCopy__FP3VecPC3Vec ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)
 extern const f32 lbl_805D9840;
 
 void TObjEneDf2Bringer__sub_800994F8(void) {  }
@@ -2356,9 +2353,9 @@ void TObjEneDf2Bringer::vfunc_88() {  }
 
 void TObjEneDf2Bringer::set_effect_pos_above_self() {
     u8 *arg0 = (u8 *)this;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x300) = (f32) (*(f32 *)((s8 *)arg0 + 0x300) + lbl_805D9840);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
+    VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x2FC));
 }
 
 void TObjEneDf2Bringer::vfunc_61() {  }
@@ -2380,7 +2377,6 @@ void TObjEneDf2Bringer::vfunc_62() {
 }
 
 }
-#undef VecCopy__FP3VecPC3Vec
 #undef transition_enemy_state
 #undef clear_attack_receipts__9TObjEneDDFv
 #undef sub_80098DEC__17TObjEneDf2BringerFv
@@ -2637,7 +2633,6 @@ void run_task__17TObjEneDf2BringerFv(u8 *arg0) {
 struct Vec_80099800 { f32 x, y, z; };
 struct Slot_80099800 { u8 pad[0x1C]; };
 
-#define VecCopy__FP3VecPC3Vec ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
@@ -2712,7 +2707,7 @@ void TObjEneDf2Bringer::init_enemy() {
         ((TObjPlayer *)(&((Arr_80099800 *)arg0)->slot[i]))->activate_and_dispatch();
     }
     for (i = 0; i < 4; i++) {
-        VecCopy__FP3VecPC3Vec(&((Arr_80099800 *)arg0)->v[i], arg0 + 0x38);
+        VecCopy((Vec *)(&((Arr_80099800 *)arg0)->v[i]), (const Vec *)(arg0 + 0x38));
     }
     *(s32 *)((s8 *)arg0 + 0x480) = 0;
     *(s32 *)((s8 *)arg0 + 0x484) = 0;
@@ -2919,19 +2914,19 @@ void TObjEneDf2Bringer::load_resources() {
   k2 = lbl_805D984C;
   for (j = 0; j < n; seg++, j++)
   {
-    VecCopy__FP3VecPC3Vec(&a, &seg->p0);
-    VecCopy__FP3VecPC3Vec(&d, &seg->p2);
+    VecCopy((Vec *)&a, (const Vec *)&seg->p0);
+    VecCopy((Vec *)&d, (const Vec *)&seg->p2);
     subtract_vector(&d, &a);
     len = ((TObjBoss2Tunnel *)(&d))->update_scale();
     p1 = &seg->p1;
     s1 = k1 * len;
-    VecCopy__FP3VecPC3Vec(p1, &a);
+    VecCopy((Vec *)p1, (const Vec *)&a);
     p3 = &seg->p3;
     s2 = k2 * len;
     p1->x = (d.x * s1) + p1->x;
     p1->y = (d.y * s1) + p1->y;
     p1->z = (d.z * s1) + p1->z;
-    VecCopy__FP3VecPC3Vec(p3, &a);
+    VecCopy((Vec *)p3, (const Vec *)&a);
     p3->x = (d.x * s2) + p3->x;
     p3->y = (d.y * s2) + p3->y;
     p3->z = (d.z * s2) + p3->z;
@@ -2960,6 +2955,5 @@ void TObjEneDf2Bringer::load_resources() {
 #undef TObjEneDf2Bringer__trail_buffer
 #undef TObjEneDf2Bringer__sub_800994F8
 #undef set_effect_pos_above_self__17TObjEneDf2BringerFv
-#undef VecCopy__FP3VecPC3Vec
 #undef __nw__7TObjectFUl
 #undef transition_enemy_state

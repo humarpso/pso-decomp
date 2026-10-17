@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/misc/TCameraCtrl.h"
 
@@ -18,7 +19,6 @@ s32 approach_angle_limited(s32, s32, s32);
 s32 count_active_segments__15TObjBoss2TunnelFPv(void *arg0);
 int vec3_add_to(void*, void*);
 void *csnVecterUnder(void *, s32, f32);
-s32 VecCopy__FP3VecPC3Vec(void *, s32);
 
 s32 TObjBoss2Tunnel::decrement_packed_timer(u32 *arg0, s32 arg1) {
     u32 temp_r5;
@@ -38,16 +38,16 @@ s32 TObjBoss2Tunnel::spawn_effect(s32 arg0, void *arg1, void *arg2) {
     f32 temp_f1;
     void *temp_r3;
 
-    VecCopy__FP3VecPC3Vec(arg1, arg0);
+    VecCopy((Vec *)arg1, (const Vec *)arg0);
     temp_f1 = *(f32 *)((s8 *)arg1 + 4);
     *(f32 *)((s8 *)arg1 + 4) = (f32) (temp_f1 + TObjBoss2Tunnel__data_805D9210);
     temp_r3 = csnVecterUnder(arg1, 0x16EF, temp_f1);
     if (temp_r3 != NULL) {
-        VecCopy__FP3VecPC3Vec(arg1, *(s32 *)((s8 *)temp_r3 + 4));
-        VecCopy__FP3VecPC3Vec(arg2, *(s32 *)((s8 *)temp_r3 + 4) + 0xC);
+        VecCopy((Vec *)arg1, (const Vec *)(*(s32 *)((s8 *)temp_r3 + 4)));
+        VecCopy((Vec *)arg2, (const Vec *)(*(s32 *)((s8 *)temp_r3 + 4) + 0xC));
         return 1;
     }
-    VecCopy__FP3VecPC3Vec(arg1, arg0);
+    VecCopy((Vec *)arg1, (const Vec *)arg0);
     return 0;
 }
 
@@ -55,15 +55,15 @@ s32 TObjBoss2Tunnel::adjust_to_ground(s32 arg0, void *arg1) {
     f32 temp_f1;
     void *temp_r3;
 
-    VecCopy__FP3VecPC3Vec(arg1, arg0);
+    VecCopy((Vec *)arg1, (const Vec *)arg0);
     temp_f1 = *(f32 *)((s8 *)arg1 + 4);
     *(f32 *)((s8 *)arg1 + 4) = (f32) (temp_f1 + TObjBoss2Tunnel__data_805D9210);
     temp_r3 = csnVecterUnder(arg1, 0x16EF, temp_f1);
     if (temp_r3 != NULL) {
-        VecCopy__FP3VecPC3Vec(arg1, *(s32 *)((s8 *)temp_r3 + 4));
+        VecCopy((Vec *)arg1, (const Vec *)(*(s32 *)((s8 *)temp_r3 + 4)));
         return 1;
     }
-    VecCopy__FP3VecPC3Vec(arg1, arg0);
+    VecCopy((Vec *)arg1, (const Vec *)arg0);
     return 0;
 }
 

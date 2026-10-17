@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss1DragonEffBreath.h"
 #include "pso/boss/TBoss1Dragon.h"
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 void *TBoss8Dragon__sub_800BC5EC(void *, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -55,8 +55,8 @@ u8 *TBoss1DragonEffBreath__ct(u8 *arg0, void *arg1, void *arg2, void *arg3) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TBoss1DragonEffBreath;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss1DragonEffBreath__name;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1C), arg2);
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), arg3);
+    VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)arg2);
+    VecCopy((Vec *)(arg0 + 0x28), (const Vec *)arg3);
     *(f32 *)((s8 *)arg0 + 0x28) = (f32) (*(f32 *)((s8 *)arg0 + 0x28) * lbl_805D8138);
     *(f32 *)((s8 *)arg0 + 0x2C) = (f32) (*(f32 *)((s8 *)arg0 + 0x2C) * lbl_805D8138);
     *(f32 *)((s8 *)arg0 + 0x30) = (f32) (*(f32 *)((s8 *)arg0 + 0x30) * lbl_805D8138);

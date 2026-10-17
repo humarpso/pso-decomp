@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
+#include "pso/system/vector.h"
 #include "pso/TLevelSelect.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TOKey.h"
@@ -400,7 +402,6 @@ extern "C" {
 
 s32 get_state_flag__9TMainTaskFv();
 s32 func_80141618__Fv();
-s32 set_depth_buffer_settings_id__FUl(int);
 s32 translate_matrix_vec3(int, void *);
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DDD40;
@@ -468,7 +469,7 @@ void render__8TObjFishFv(u8 *arg0) {
             push_matrix();
             post_translate_matrix(f);
             rotate_matrix_y(0, f->rot + (s32)r);
-            set_depth_buffer_settings_id__FUl(3);
+            set_depth_buffer_settings_id(3);
             if (get_global_state__14TOKeyMachine01Fv() == 0x1C) {
                 switch (f->kind) {
                 case 1:
@@ -613,7 +614,6 @@ s32 TObjFish::init_fish_school(void *arg1_arg, s32 arg2, s32 arg3) {
 extern "C" {
 s32 is_split_screen(void);
 u8 *TObjFish__create(u8 *arg0);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 construct_world_actor_base();
 extern s32 lbl_805D3D58;
@@ -640,9 +640,9 @@ u8 *TObjFish__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__8TObjFish;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3D58;
     *(s32 *)((s8 *)arg0 + 0xA0) = 0;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2 + 0xC));
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2 + 0xC));
     ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz((void *) (arg2 + 0x18));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x68), (void *) (arg2 + 0x24));
+    VecCopy((Vec *)(arg0 + 0x68), (const Vec *)(arg2 + 0x24));
     var_f1 = *(f32 *)((s8 *)arg0 + 0x68);
     temp_f0 = *(f32 *)((s8 *)arg0 + 0x6C);
     if (var_f1 < temp_f0) {

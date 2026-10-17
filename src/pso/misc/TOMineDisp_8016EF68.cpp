@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TOMineDisp.h"
 #include "pso/TParticleCtrl.h"
@@ -31,7 +32,6 @@ s32 TOMineDisp__ct(void *, void *, void *);
 extern RecoveredGlobal_8016EF68___vt__14TOMineTrapDisp __vt__14TOMineTrapDisp;
 extern s32 TOMineTrapDisp__name;
 u8 *TOMineTrapDisp__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_locally_controlled__10TObjPlayerFPv(void);
 f32 horizontal_distance_squared(void *, void *);
 void get_player_state__6TOMineFv(void *, u16);
@@ -105,7 +105,7 @@ void TOMineDisp::run_task() {
         break;
     case 2:
         get_player_state__6TOMineFv(mine, this->m_a8);
-        VecCopy__FP3VecPC3Vec(((u8 *)this) + 0x38, ((TOMineTrap *)mine)->get_mine_data_ptr());
+        VecCopy((Vec *)(((u8 *)this) + 0x38), (const Vec *)(((TOMineTrap *)mine)->get_mine_data_ptr()));
         break;
     }
 }

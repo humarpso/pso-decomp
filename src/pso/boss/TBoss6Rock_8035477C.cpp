@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/boss/TBoss6Rock.h"
 #include "pso/player/TObjPlayer.h"
@@ -24,7 +25,6 @@ struct RecoveredGlobal_803548B4_TBoss6Rock__data_80543778 {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, int);
 s32 create__10TBoss6RockFv();
 extern RecoveredGlobal_80354948___vt__10TBoss6Rock __vt__10TBoss6Rock;
 extern RecoveredGlobal_80354948_TBoss6Rock__data_805437F8 TBoss6Rock__rock_point_table;
@@ -66,7 +66,7 @@ u8 *TBoss6Rock__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__10TBoss6Rock.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D438C;
     *(s32 *)((s8 *)arg0 + 0xAC) = arg2;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xD4), (int) ((u8 *)&TBoss6Rock__rock_point_table.value + (*(s32 *)((s8 *)arg0 + 0xAC) * 0xC)));
+    VecCopy((Vec *)(arg0 + 0xD4), (const Vec *)((u8 *)&TBoss6Rock__rock_point_table.value + (*(s32 *)((s8 *)arg0 + 0xAC) * 0xC)));
     *(s32 *)((s8 *)arg0 + 0xB8) = 0;
     *(s32 *)((s8 *)arg0 + 0xB4) = 0;
     *(s32 *)((s8 *)arg0 + 0xC0) = 0;

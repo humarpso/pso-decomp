@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TObjBoss5Pillar.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
@@ -25,7 +26,6 @@ struct Pillar_8028B488 {
 };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__15TObjBoss5Pillar[];
 extern s32 lbl_805D3B40;
@@ -113,7 +113,7 @@ u8 *TObjBoss5Pillar__ct(u8 *arg0, u8 *arg1, u8 *arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8028B60C___vt__15TObjBoss5Pillar *)&__vt__15TObjBoss5Pillar).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3B40;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x2C, arg2);
+    VecCopy((Vec *)(arg0 + 0x2C), (const Vec *)arg2);
     *(s32 *)((s8 *)arg0 + 0x1C) = 0;
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) lbl_805DD918;
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805DD91C;

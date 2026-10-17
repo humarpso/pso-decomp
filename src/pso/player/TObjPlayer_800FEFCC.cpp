@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TObjEZRopeBase.h"
 #include "pso/object/TObjHMS_EZRope_Player.h"
 #include "pso/player/TObjPlayer.h"
@@ -63,7 +64,6 @@ void *TObjEZRopeBase__ct(void *);
 extern u8 ezrope_chunk_material_color_table[];
 extern s32 TObjHMS_EZRope_Player__name;
 void *TObjHMS_EZRope_Player__ct(void *arg0, void *arg1, void *arg2, void *arg3);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 fabs_float(f32);
 f32 atan2_float(f32, f32);
 f32 get_scale_factor__10TObjPlayerFv(f32);
@@ -210,7 +210,7 @@ void TObjHMS_EZRope_Player::sub_800FF2D0() {
         for (n = rec->n - 1; n > 0; n--, pt++) {
             push_matrix();
             translate_matrix_vec3(0, pt);
-            VecCopy__FP3VecPC3Vec(&d, &pt[1]);
+            VecCopy((Vec *)&d, (const Vec *)&pt[1]);
             subtract_vector(&d, pt);
             if (lbl_805DAA58 == vector_length(&d)) {
                 d.x = lbl_805DAA58;

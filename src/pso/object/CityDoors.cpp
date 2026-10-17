@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TLobby.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -238,7 +239,6 @@ typedef struct {
     Vec_80181BAC verts[10];
 } Obj_80181BAC;
 
-void VecCopy__FP3VecPC3Vec(void *, const void *);
 f32 newton_sqrtf(f32);
 void calc_triangle_normal__10TObjPlayerFPvPv(Vec_80181BAC *, Vec_80181BAC *);
 void vec3_add_to(Vec_80181BAC *, Vec_80181BAC *);
@@ -265,7 +265,7 @@ s32 TObjCityDoor_Lobby::build_door_collision_triangles() {
     f32 three;
     f32 zero;
 
-    VecCopy__FP3VecPC3Vec(&self->f94, (void *)(arg0 + 0x38));
+    VecCopy((Vec *)&self->f94, (const Vec *)(arg0 + 0x38));
     push_matrix();
     set_matrix_identity(0);
     post_translate_matrix(self->f38);
@@ -276,16 +276,16 @@ s32 TObjCityDoor_Lobby::build_door_collision_triangles() {
         t1[0].idx[0] = j + city_door_lobby_quad_triangle_indices[0];
         t1[0].idx[1] = j + city_door_lobby_quad_triangle_indices[1];
         t1[0].idx[2] = j + city_door_lobby_quad_triangle_indices[2];
-        VecCopy__FP3VecPC3Vec(&v[0], &city_door_lobby_collision_vertices[t1[0].idx[0]]);
-        VecCopy__FP3VecPC3Vec(&v[1], &city_door_lobby_collision_vertices[t1[0].idx[1]]);
-        VecCopy__FP3VecPC3Vec(&v[2], &city_door_lobby_collision_vertices[t1[0].idx[2]]);
+        VecCopy((Vec *)&v[0], (const Vec *)(&city_door_lobby_collision_vertices[t1[0].idx[0]]));
+        VecCopy((Vec *)&v[1], (const Vec *)(&city_door_lobby_collision_vertices[t1[0].idx[1]]));
+        VecCopy((Vec *)&v[2], (const Vec *)(&city_door_lobby_collision_vertices[t1[0].idx[2]]));
         calc_triangle_normal__10TObjPlayerFPvPv(v, &t1[0].normal);
         t1[1].idx[0] = j + city_door_lobby_quad_triangle_indices[3];
         t1[1].idx[1] = j + city_door_lobby_quad_triangle_indices[4];
         t1[1].idx[2] = j + city_door_lobby_quad_triangle_indices[5];
-        VecCopy__FP3VecPC3Vec(&v[0], &city_door_lobby_collision_vertices[t1[1].idx[0]]);
-        VecCopy__FP3VecPC3Vec(&v[1], &city_door_lobby_collision_vertices[t1[1].idx[1]]);
-        VecCopy__FP3VecPC3Vec(&v[2], &city_door_lobby_collision_vertices[t1[1].idx[2]]);
+        VecCopy((Vec *)&v[0], (const Vec *)(&city_door_lobby_collision_vertices[t1[1].idx[0]]));
+        VecCopy((Vec *)&v[1], (const Vec *)(&city_door_lobby_collision_vertices[t1[1].idx[1]]));
+        VecCopy((Vec *)&v[2], (const Vec *)(&city_door_lobby_collision_vertices[t1[1].idx[2]]));
         calc_triangle_normal__10TObjPlayerFPvPv(v, &t1[1].normal);
         t1 += 2;
         j += 2;
@@ -306,7 +306,7 @@ s32 TObjCityDoor_Lobby::build_door_collision_triangles() {
         sum.x /= three;
         sum.y /= three;
         sum.z /= three;
-        VecCopy__FP3VecPC3Vec(&t->center, &sum);
+        VecCopy((Vec *)&t->center, (const Vec *)&sum);
         dx = self->verts[t->idx[0]].x - sum.x;
         dz = self->verts[t->idx[0]].z - sum.z;
         t->dist = newton_sqrtf(dx * dx + dz * dz);
@@ -403,7 +403,7 @@ Obj_80181F10 *TObjCityDoor_Lobby__ct(Obj_80181F10 *self, void *parent, s32 arg2)
     *(s32 *)self = (s32)TObjCityDoor_Lobby__name.value;
     self->m5(arg2);
     self->x90 = &self->xa8;
-    VecCopy__FP3VecPC3Vec(&self->pos94, &self->pos);
+    VecCopy((Vec *)&self->pos94, (const Vec *)&self->pos);
     self->xa0 = lbl_805DBBF0;
     self->xa4 = 0xDE0;
     self->xb0 = 8;

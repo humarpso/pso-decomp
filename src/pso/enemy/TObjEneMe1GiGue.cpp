@@ -1,4 +1,5 @@
 #include <dolphin/mtx.h>
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/enemy/TObjEneMe1GiGueBarrier.h"
@@ -592,7 +593,6 @@ struct Gi_802CB170
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 update_if_active__15TObjEneMe1GiGueFl(void *, s32);
 s32 project_actor_to_ground(void *, void *, s32);
 s32 get_gigue_int_parameter(s32, s32);
@@ -646,7 +646,7 @@ void TObjEneMe1GiGue__sub_802CACD8(u8 *arg0) {
     temp_r4 = *(s32 *)((s8 *)arg0 + 0x388);
     if (temp_r4 & 0x40000) {
         *(s32 *)((s8 *)arg0 + 0x388) = (s32) (temp_r4 & 0xFFFBFFFF);
-        VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0x50);
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x50));
         project_actor_to_ground(arg0, arg0 + 0x38, 0);
         return;
     }
@@ -835,7 +835,7 @@ void TObjEneMe1GiGue__sub_802CB378(u8 *arg0) {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
     switch (temp_r0) {
     case 0:
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x390), (void *) (arg0 + 0x50));
+        VecCopy((Vec *)(arg0 + 0x390), (const Vec *)(arg0 + 0x50));
         ((void (*)(void *, Vec_802CB378, Vec_802CB378, f32))calc_velocity_toward_destination)(arg0, *(Vec_802CB378 *)((s8 *)arg0 + 0x38), *(Vec_802CB378 *)((s8 *)arg0 + 0x390), *(f32 *)((s8 *)arg0 + 0x3E4));
         *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) & 0xFFFBFFFF);
         sub_8004292C__15TObjEnemyCustomFv((void *) (arg0));
@@ -973,7 +973,7 @@ void TObjEneMe1GiGue::apply_hit_shake(u32 arg1) {
 }
 
 void TObjEneMe1GiGue::init_move() {
-    VecCopy__FP3VecPC3Vec(((u8 *)this) + 0x44, ((u8 *)this) + 0x38);
+    VecCopy((Vec *)(((u8 *)this) + 0x44), (const Vec *)(((u8 *)this) + 0x38));
     *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x01000000);
     update_if_active__15TObjEneMe1GiGueFl((void *)(((u8 *)this)), (int)(0xE));
     *(s32 *)&this->m_378 = 1;
@@ -1039,7 +1039,7 @@ void move_around_center__15TObjEneMe1GiGueFPvPvf(Obj_802CB8F0 *o, Vec_802CB8F0 *
         o->v390.x = d * cos_table_lookup(k) + c->x;
         o->v390.z = d * sin_table_lookup(k) + c->z;
     }
-    VecCopy__FP3VecPC3Vec(&o->v29C, &o->v390);
+    VecCopy((Vec *)&o->v29C, (const Vec *)&o->v390);
     enemy_turn_toward_dest(o, o->f350->f8);
     enemy_set_heading_velocity(o, o->f3E4, o->f60);
     move_with_wall_slide(o);
@@ -1047,7 +1047,7 @@ void move_around_center__15TObjEneMe1GiGueFPvPvf(Obj_802CB8F0 *o, Vec_802CB8F0 *
 
 void break_apart__15TObjEneMe1GiGueFPv(u8 *arg0) {
     Vec position;
-    VecCopy__FP3VecPC3Vec((void *) (&position.x), (void *) (arg0 + 0x38));
+    VecCopy((Vec *)(&position.x), (const Vec *)(arg0 + 0x38));
     position.y += 40.0f + *(f32 *)((s8 *)arg0 + 0x3EC);
     TBoss3Volopt::create_breakup_mdl((s32)((int) (TObjEneMe1GiGue__barrier_obj)), (s32)((int) (0)), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x24))), (s32)((void *) (&position.x)), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x60))));
     ((TObjPlayer *)arg0)->refresh_lobby_state();
@@ -1225,12 +1225,12 @@ void update_rush_attack__15TObjEneMe1GiGueFPv(Obj_802CBCC0 *o) {
             ((s32 (*)(void *, Sub_802CBCC0 *, f32))find_target_in_range__15TObjEnemyCustomFf)(o, o->f350, o->f350->f0);
             if (o->f2A8 != NULL) {
                 Vec_802CBCC0 d;
-                VecCopy__FP3VecPC3Vec(&d, &o->pos);
+                VecCopy((Vec *)&d, (const Vec *)&o->pos);
                 subtract_vector(&d, o->f2A8 + 0x38);
                 find_open_direction__15TObjEneMe1GiGueFPvPv(o, &d);
                 calc_velocity_toward_destination(o, o->f3E4, o->pos, o->dest);
             } else {
-                VecCopy__FP3VecPC3Vec(&o->dest, &o->v50);
+                VecCopy((Vec *)&o->dest, (const Vec *)&o->v50);
                 calc_velocity_toward_destination(o, o->f3E4, o->pos, o->dest);
             }
         }
@@ -1264,10 +1264,10 @@ void update_rush_attack__15TObjEneMe1GiGueFPv(Obj_802CBCC0 *o) {
         advance_animation_playback(o);
         calc_velocity_toward_destination(o, get_gigue_float_parameter((s32)o, 0), o->pos, o->dest);
         o->v308.y = 0.0f;
-        VecCopy__FP3VecPC3Vec(&o->prev, &o->pos);
+        VecCopy((Vec *)&o->prev, (const Vec *)&o->pos);
         vec3_add_to(&o->pos, &o->v308);
         if (csnVector(&o->prev, &o->pos, 0x88E0) != 0) {
-            VecCopy__FP3VecPC3Vec(&o->pos, &o->prev);
+            VecCopy((Vec *)&o->pos, (const Vec *)&o->prev);
             o->state = 4;
             o->v308.x = o->v308.z = 0.0f;
         } else {
@@ -1651,7 +1651,7 @@ void TObjEneMe1GiGue__sub_802CC900(u8 *arg0) {
             }
             break;
         }
-        VecCopy__FP3VecPC3Vec(&o->v29C, o->f2A8 + 0x2FC);
+        VecCopy((Vec *)&o->v29C, (const Vec *)(o->f2A8 + 0x2FC));
         enemy_turn_half_toward_dest(o);
         advance_animation_playback(o);
         if (!(o->f30 & 0x01000000)) {
@@ -1702,7 +1702,7 @@ void TObjEneMe1GiGue__sub_802CCBAC(Obj_802CCBAC *o) {
         o->fB8 = 1;
         o->f3DC = 0;
         if (o->f2A8 != NULL) {
-            VecCopy__FP3VecPC3Vec(&o->v29C, &o->f2A8->v2FC);
+            VecCopy((Vec *)&o->v29C, (const Vec *)&o->f2A8->v2FC);
         }
         o->f37C = 1;
     case 1:
@@ -2145,7 +2145,7 @@ void update_movement__15TObjEneMe1GiGueFPv(u8 *arg0) {
         *(s16 *)((s8 *)arg0 + 0x326) = (s16) *(s32 *)((s8 *)arg0 + 0x374);
         *(s32 *)((s8 *)arg0 + 0x37C) = 0;
     }
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x300) = (f32) (*(f32 *)((s8 *)arg0 + 0x300) + (15.0f + *(f32 *)((s8 *)arg0 + 0x3EC)));
     *(f32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xA4)) + 4) = (f32) (25.0f + *(f32 *)((s8 *)arg0 + 0x3EC));
     if (!(*(s32 *)((s8 *)arg0 + 0x388) & 0x40000)) {
@@ -2167,9 +2167,9 @@ void update_movement__15TObjEneMe1GiGueFPv(u8 *arg0) {
     }
     update_obstruction_fade((void *) (arg0 + 0x418));
     if (xz_distance_squared((void *) (arg0 + 0x38), (void *) (arg0 + 0x44)) > 2500.0f) {
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg0 + 0x44));
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x44));
     }
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
 }
 
 void *TObjEneMe1GiGue::create(void *arg0) {
@@ -2305,7 +2305,7 @@ u8 *TObjEneMe1GiGue__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     ((TObjPlayer *)(arg0 + 0x418))->init_and_activate();
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3F18;
     ((TObjEneMe1GiGue *)arg0)->apply_set_data(arg2);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x290, (void *) VecCopy__FP3VecPC3Vec(arg0 + 0x29C, arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x290), (const Vec *)((void *) VecCopy((Vec *)(arg0 + 0x29C), (const Vec *)(arg0 + 0x38))));
     *(s32 *)((s8 *)arg0 + 0xDC) = *(s32 *)((s8 *)GIGUE_DATA_6838 + 0x430);
     *(s32 *)((s8 *)arg0 + 0x368) = 0;
     ((TUnk_804806E8 *)arg0)->add_flags_2e4(0x11);
@@ -2330,8 +2330,8 @@ u8 *TObjEneMe1GiGue__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s16 *)((s8 *)arg0 + 0x38C) = 0;
     *(f32 *)((s8 *)arg0 + 0x68) = 1.0f;
     *(f32 *)((s8 *)arg0 + 0x3E4) = *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 4) * *(f32 *)((s8 *)arg0 + 0x68);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x50, arg0 + 0x38);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x390, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x50), (const Vec *)(arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x390), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x440) = 0.5f + *(f32 *)((s8 *)arg0 + 0x360);
     *(f32 *)((s8 *)arg0 + 0x444) = 0.5f + *(f32 *)((s8 *)arg0 + 0x364);
     *(f32 *)((s8 *)arg0 + 0x43C) = 150.0f + *(f32 *)((s8 *)arg0 + 0x35C);
@@ -2359,7 +2359,7 @@ u8 *TObjEneMe1GiGue__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(f32 *)((s8 *)arg0 + 0x3EC) = 0.0f;
     ((TObjPlayer *)(arg0 + 0x418))->activate_and_dispatch();
     obj_setFlags30(arg0, 0x01000000);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
     ((TObjEneMe1GiGue *)arg0)->clear_lobby_object_state();
     return arg0;
 }

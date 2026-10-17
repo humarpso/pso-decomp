@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
 #include "pso/TAdMcSelectMcGC.h"
 #include "pso/TMainTask.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -29,7 +30,6 @@ s32 draw_textured_quad_at_depth(void *, f32);
 s32 begin_screen_draw(int);
 s32 set_draw_texture_and_color(int, int);
 s32 restore_saved_depth_alpha_state();
-s32 set_depth_buffer_settings_2__Fv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 extern s32 TAdMcSelectMcGC__texture_list_ptr;
@@ -52,7 +52,7 @@ void TAdMcSelectMcGC::render() {
         goto block_5;
     }
     if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) {
-        set_depth_buffer_settings_2__Fv();
+        set_depth_buffer_settings_2();
 block_5:
         TObjPlayer::init_xyz_limits();
         draw_status_window();

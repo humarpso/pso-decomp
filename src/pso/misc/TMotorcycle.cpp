@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TMotorcycle.h"
@@ -39,7 +40,6 @@ extern "C" {
 s32 get_state_flag__9TMainTaskFv(void);
 s32 get_bml_model(void *, int);
 s32 func_80141618__Fv();
-s32 set_depth_buffer_settings_id__FUl(int);
 s32 rotate_matrix_yxz(int, int, int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -73,7 +73,7 @@ void *__nw__7TObjectFUl(int);
 void TMotorcycle::render() {
     u8 *arg0 = (u8 *)this;
     if ((get_state_flag__9TMainTaskFv() != 1) && (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBED0, lbl_805DBED4) != 0)) {
-        set_depth_buffer_settings_id__FUl((int) (3));
+        set_depth_buffer_settings_id((3));
         if ((u32) TMotorcycle__texture_list != 0U) {
             TObjFish::set_global_param((s32) TMotorcycle__texture_list);
             push_matrix();

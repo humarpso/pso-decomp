@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TLoadingCur.h"
 
 #include <stddef.h>
@@ -31,7 +32,6 @@ struct Tbl_8001CBC4 { Vec_8001CBC4 base; Vec_8001CBC4 dir; };
 struct Obj_8001CBC4 { u8 pad[0x44]; Vec_8001CBC4 pos; };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 direction_to_rotation_xy(void *, void *, void *);
 f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
@@ -55,7 +55,7 @@ void TLoadingCur::update_camera_facing_offset() {
     typedef char sp10_offset[(offsetof(Stack_8001CAD4, sp10) == 0x8) ? 1 : -1];
     Stack_8001CAD4 stack;
     if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) != 0U) {
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2C), (void *) (arg0 + 0x20));
+        VecCopy((Vec *)(arg0 + 0x2C), (const Vec *)(arg0 + 0x20));
         stack.sp8 = *(s32 *)((s8 *)(&lbl_804349FC.value) + 0);
         stack.spC = *(s32 *)((s8 *)(&lbl_804349FC.value) + 4);
         stack.sp10 = *(s32 *)((s8 *)(&lbl_804349FC.value) + 8);

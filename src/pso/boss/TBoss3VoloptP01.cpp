@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TTecZondeEff.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -149,7 +150,6 @@ struct VObj_18_b27ba1 : VBase_18_b27ba1 {
 
 extern "C" {
 
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TBoss3Volopt__sub_80040FCC(void *);
 s32 fn_800443DC(void *, int);
 u8 *find_entity_by_id(u16);
@@ -193,14 +193,14 @@ s32 fire_zonde_at_players__10TObjPlayerFPv(u8 *arg0) {
         for (j = 0; j < n; j++) {
             q = list[j];
             src = (Vec_80042B34 *)(q + 0x2FC);
-            VecCopy__FP3VecPC3Vec(&d, src);
+            VecCopy((Vec *)&d, (const Vec *)src);
             subtract_vector(&d, &pos);
             len = normalize_vector(&d);
             obj = __nw__7TObjectFUl(0x260);
             if (obj != NULL) {
                 ((TTecZondeEff *)obj)->construct((u8 *)tl_07, (u8 *)(&pos), (u8 *)(&d), (f32)len);
             }
-            VecCopy__FP3VecPC3Vec(&pos, src);
+            VecCopy((Vec *)&pos, (const Vec *)src);
             {
                 S_80042B34 t = s;
                 ((VObj_18_b27ba1 *)q)->m21(arg0, &t, 0, -1, -1);
@@ -1422,7 +1422,7 @@ void run_task__15TBoss3VoloptP01Fv(u8 *arg0) {
             *(s32 *)((s8 *)arg0 + 0x37C) = 0;
         }
         ((TBoss3VoloptP01 *)arg0)->dispatch_state();
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
+        VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
         temp_f2 = *(f32 *)((s8 *)arg0 + 0x300);
         *(f32 *)((s8 *)arg0 + 0x300) = (f32) (temp_f2 + ((18.0f) + *(f32 *)((s8 *)arg0 + 0x38C)));
         temp_r4 = (unsigned char *) (*(void **)((s8 *)arg0 + 0xA4));

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss5Gryphon.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneBm9Mericarol_EffCurse3.h"
@@ -630,7 +631,6 @@ extern const f32 lbl_805DE720;
 extern const f32 lbl_805DE724;
 extern const f32 lbl_805DE728;
 void TObjEneDD__sub_802CF7B4(u8 *arg0, s32 arg1);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_is_hit_receivable();
 u8 *get_battle_param__10TObjPlayerFi(s32);
 s32 objInBand__FP7GameObjf(f32);
@@ -756,7 +756,7 @@ void TObjEneBm9Mericarol__sub_802CEDA0(u8 *arg0, s32 arg1) {
             break;
         case 1:
             if (OBJINBAND(arg0, lbl_805DE710) != 0) {
-                VecCopy__FP3VecPC3Vec(&sp8, arg0 + 0x38);
+                VecCopy((Vec *)&sp8, (const Vec *)(arg0 + 0x38));
                 sp8.y += lbl_805DE704;
                 ((void (*)(void *, void *, s32, s32, s32, f32, s32, f32))create__9TTecKafunFllllllff)(arg0, &sp8, 5, 0x20B, 0x20C,
                     *(f32 *)((s8 *)mericarol_phase_param_table[PHASE(arg0)] + 0x4), ((TObjEneBm9Mericarol *)arg0)->get_clamped_level(),
@@ -1174,7 +1174,7 @@ void TObjPlayer__sub_802CFB64(u8 *arg0, s32 arg1) {
                 *(f32 *)((s8 *)arg0 + 0xC8) = lbl_805DE70C;
             } else {
                 if (OBJINBAND(arg0, lbl_805DE72C) != 0) {
-                    VecCopy__FP3VecPC3Vec(*(u8 **)((s8 *)arg0 + 0x48C) + 0x38, arg0 + 0x38);
+                    VecCopy((Vec *)(*(u8 **)((s8 *)arg0 + 0x48C) + 0x38), (const Vec *)(arg0 + 0x38));
                     TObjPlayer::init_all_slots();
                     ((TObjPlayer *)(*(u8 **)((s8 *)arg0 + 0x48C)))->check_object_collisions();
                     if (*(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x48C)) + 0xA4)) + 0x18) & 0x80000) {

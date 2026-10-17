@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
 #include "pso/misc/TWindowCtrlMain.h"
 #include "pso/TObjCMName.h"
 #include "pso/TObjCMHairMenu.h"
@@ -1719,7 +1720,7 @@ void TObjCMMainMenu::draw_footer_divider() {
     }
 }
 
-void set_depth_buffer_settings_1__Fv(); void restore_saved_depth_alpha_state(); void TObjCMMainMenu__sub_802979BC(void*); void render_nodes__7TObjectFv(void*);
+void restore_saved_depth_alpha_state(); void TObjCMMainMenu__sub_802979BC(void*); void render_nodes__7TObjectFv(void*);
 void update_menu_reveal__14TObjCMMainMenuFv(M_80298450 *self);
 }
 #pragma defer_codegen on
@@ -1987,7 +1988,7 @@ void TObjCMMainMenu__sub_80298310(void) {  }
 }
 
 void TObjCMMainMenu::render() {
-    set_depth_buffer_settings_1__Fv();
+    set_depth_buffer_settings_1();
     draw_footer_divider();
     sub_80297B18();
     TObjCMMainMenu__sub_802979BC(this);

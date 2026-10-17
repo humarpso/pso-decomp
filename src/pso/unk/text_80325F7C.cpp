@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TBoss5GryphonLightningWing.h"
 #include "pso/TBoss5GryphonLightningHorn.h"
 #include "pso/boss/TBoss8Dragon.h"
@@ -34,7 +35,6 @@ void project_point_onto_line(void *, void *, void *);
 extern const f32 lbl_805DF630;
 extern const f32 lbl_805DF638;
 void fn_80325F7C(void *arg0);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 Hit_80326074 *csnVecterUnder(void *, s32);
 s32 rand(void);
 void vec3_add_to(void *, void *);
@@ -107,15 +107,15 @@ void TBoss5GryphonLightningHorn::rebuild_lightning_segments() {
         p.y = h;
     }
     copy_position__12TBoss8DragonFl(self, &q);
-    VecCopy__FP3VecPC3Vec(&d, &p);
+    VecCopy((Vec *)&d, (const Vec *)&p);
     subtract_vector(&d, &q);
     len = ((TObjBoss2Tunnel *)(&d))->update_scale() / (f32)(self->n - 1);
     d.x *= len;
     d.y *= len;
     d.z *= len;
-    VecCopy__FP3VecPC3Vec(&p, &q);
+    VecCopy((Vec *)&p, (const Vec *)&q);
     for (i = 0; i < self->n; i++) {
-        VecCopy__FP3VecPC3Vec(&self->segs[i].pos, &p);
+        VecCopy((Vec *)&self->segs[i].pos, (const Vec *)&p);
         vec3_add_to(&p, &d);
     }
     r = lbl_805DF648 * (lbl_805DF64C * (f32)rand()) + lbl_805DF644;

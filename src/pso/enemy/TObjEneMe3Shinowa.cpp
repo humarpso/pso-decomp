@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneSaver.h"
 #include "pso/enemy/TObjEneDD_ST.h"
@@ -498,7 +499,6 @@ extern "C" const u32 lbl_805DA624[1];
 #define lbl_805DA624 (*(const f32 *)lbl_805DA624)
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f64 atan2_float(f32, f32);
 u32 csnVecterUnder(void *, int);
 s32 spawn_particle_effect(void *, int);
@@ -2018,9 +2018,9 @@ void TObjEneMe3ShinowaMirage::draw_model() {
         this->dispatch_if_active();
         model_render_flags = lbl_805D5660;
         ((TObjEneDD *)((u8 *)this))->update_primary_light();
-        VecCopy__FP3VecPC3Vec((void *) ((u8 *)(((u8 *)this)) + 0x2FC), (void *) (&lbl_80500FF4));
+        VecCopy((Vec *)((u8 *)(((u8 *)this)) + 0x2FC), (const Vec *)(&lbl_80500FF4));
     } else if ((get_main_phase() == 0xF) || (is_split_screen() == 0)) {
-        VecCopy__FP3VecPC3Vec((void *) ((u8 *)(((u8 *)this)) + 0x2FC), (void *) ((u8 *)(((u8 *)this)) + 0x38));
+        VecCopy((Vec *)((u8 *)(((u8 *)this)) + 0x2FC), (const Vec *)((u8 *)(((u8 *)this)) + 0x38));
     }
     TParticleCtrl::end_effect_render();
 }
@@ -2078,7 +2078,7 @@ void TObjEneMe3ShinowaMirage::state_break_apart(s32 arg1) {
                 *(s32 *)((s8 *)arg0 + 0x404) = 2;
                 *(s32 *)((s8 *)arg0 + 0x3C4) |= 2;
                 TBoss3Volopt::create_breakup_mdl((s32)TObjEneMe3ShinowaMirage__data_805D52A0, (s32)shinowa_mirage_breakup_params, (s32)(*(s32 *)((s8 *)arg0 + 0x24)), (s32)(arg0 + 0x38), (s32)(*(s32 *)((s8 *)arg0 + 0x60)));
-                VecCopy__FP3VecPC3Vec(&sp8, arg0 + 0x38);
+                VecCopy((Vec *)&sp8, (const Vec *)(arg0 + 0x38));
                 sp8.x += TObjEneMe3ShinowaMirage__data_805DA5EC * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
                 sp8.z += TObjEneMe3ShinowaMirage__data_805DA5EC * cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
                 ((TObjPlayer *)(&sp8))->trigger_dell_biter_events();
@@ -2111,7 +2111,7 @@ void TObjEneMe3ShinowaMirage__sub_800E4FE8(u8 *arg0, s32 arg1) {
         break;
     case 0:
         advance_animation_playback(arg0, arg1);
-        VecCopy__FP3VecPC3Vec(&v, arg0 + 0x308);
+        VecCopy((Vec *)&v, (const Vec *)(arg0 + 0x308));
         c = ((TObjBoss2Tunnel *)(&v))->clamp_velocity();
         ((TObjEneDD *)arg0)->move_clamped_on_ground(v.x, v.z, c);
         *(f32 *)((s8 *)arg0 + 0x308) *= lbl_805DA5F0;
@@ -2282,7 +2282,7 @@ void TObjEneMe3ShinowaMirage__sub_800E54E8(void *arg0_, s32 arg1) {
         F(f32, 0x410) = TObjEneMe3ShinowaMirage__data_805DA5DC;
         F(f32, 0x37C) = lbl_805DA5F8;
         F(s32, 0x40C) = ((F(s32, 0x3D4) - (s32)get_random_float__21TObjEneMe3ShinowaRealFv(lbl_805DA5FC, TObjEneMe3ShinowaMirage__data_805DA5DC)) * 0x3333) / 40;
-        VecCopy__FP3VecPC3Vec(home, arg0 + 0x38);
+        VecCopy((Vec *)home, (const Vec *)(arg0 + 0x38));
         F(void *, 0x424) = 0;
         F(void *, 0x428) = 0;
         ((TObjEneDD_ST *)arg0)->set_active();
@@ -2323,21 +2323,21 @@ void TObjEneMe3ShinowaMirage__sub_800E54E8(void *arg0_, s32 arg1) {
                 v = lbl_805DA604;
             }
         }
-        VecCopy__FP3VecPC3Vec(&savePos, arg0 + 0x38);
-        VecCopy__FP3VecPC3Vec(&save2FC, arg0 + 0x2FC);
-        VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0x394);
-        VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+        VecCopy((Vec *)&savePos, (const Vec *)(arg0 + 0x38));
+        VecCopy((Vec *)&save2FC, (const Vec *)(arg0 + 0x2FC));
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x394));
+        VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
         F(f32, 0x300) += TObjEneMe3ShinowaMirage__data_805DA5EC;
         v *= F(f32, 0x410);
         calc_wall_clamped_destination(arg0, &dest, -F(f32, 0x3A0), -F(f32, 0x3A8), v);
         if (VO->m16(&dest) == 0) {
             F(f32, 0x410) *= lbl_805DA5F0;
-            VecCopy__FP3VecPC3Vec(arg0 + 0x38, &savePos);
-            VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, &save2FC);
+            VecCopy((Vec *)(arg0 + 0x38), (const Vec *)&savePos);
+            VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)&save2FC);
         } else {
             F(f32, 0x410) = TObjEneMe3ShinowaMirage__data_805DA5DC;
-            VecCopy__FP3VecPC3Vec(arg0 + 0x38, &savePos);
-            VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, &save2FC);
+            VecCopy((Vec *)(arg0 + 0x38), (const Vec *)&savePos);
+            VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)&save2FC);
             subtract_vector(&dest, arg0 + 0x38);
             f32 len = ((TObjBoss2Tunnel *)(&dest))->clamp_velocity();
             ((TObjEneDD *)arg0)->move_clamped_on_ground(dest.x, dest.z, len);
@@ -2656,7 +2656,7 @@ void TObjEneMe3ShinowaMirage__sub_800E5F64(u8 *arg0, s32 arg1) {
                     *(s32 *)((s8 *)arg0 + 0x404) = 5;
                 } else {
                     d = *(f32 *)((s8 *)arg0 + 0x3AC) - TObjEneMe3ShinowaMirage__data_805DA5EC;
-                    VecCopy__FP3VecPC3Vec(&v, arg0 + 0x38);
+                    VecCopy((Vec *)&v, (const Vec *)(arg0 + 0x38));
                     v.x += *(f32 *)((s8 *)arg0 + 0x3A0) * d;
                     v.y += TObjEneMe3ShinowaMirage__data_805DA5EC;
                     v.z += *(f32 *)((s8 *)arg0 + 0x3A8) * d;
@@ -2926,7 +2926,7 @@ void TObjEneMe3Shinowa::sub_800E6BB8(s32 arg1) {
         this->vfunc_95();
         *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) & 0xFFFFFFFC);
         TObjEneMe3SinowZoa__sub_800D758C((void *) (arg0 + 0x3E8));
-        VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+        VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x38));
         temp_f1 = *(f32 *)((s8 *)arg0 + 0x3C8);
         stack.spC = temp_f1 - TObjEneMe3ShinowaMirage__data_805DA5EC;
         TBoss3Volopt__sub_800D8D88((void *) (&stack.sp8), (f32) (temp_f1));
@@ -2954,9 +2954,9 @@ void TObjEneMe3Shinowa::action(s32 arg1) {
             *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) & 0xFFFCFFFF);
         }
         *(s32 *)((s8 *)arg0 + 0x404) = 0;
-        VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0x50);
-        VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x50);
-        VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x50);
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x50));
+        VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x50));
+        VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x50));
         *(f32 *)((s8 *)arg0 + 0x3C8) = (f32) *(f32 *)((s8 *)arg0 + 0x3C);
         if (!(*(s32 *)((s8 *)arg0 + 0x3C4) & 0x1000)) {
             *(s32 *)((s8 *)arg0 + 0x3D0) = 0;
@@ -3281,7 +3281,7 @@ void TObjEneMe3Shinowa::vfunc_88() {
     *(f32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xA4)) + 4) = (f32) (*(f32 *)((s8 *)arg0 + 0x3CC) + (*(f32 *)((s8 *)arg0 + 0x300) - *(f32 *)((s8 *)arg0 + 0x3C)));
 }
 
-void TObjEneMe3Shinowa::copy_position_vector() { ((int (*)(void*, void*))VecCopy__FP3VecPC3Vec)((char*)this + 0x74, (char*)this + 0x2fc); }
+void TObjEneMe3Shinowa::copy_position_vector() { VecCopy((Vec *)((char*)this + 0x74), (const Vec *)((char*)this + 0x2fc)); }
 
 void TObjEneMe3Shinowa::vfunc_61() {  }
 

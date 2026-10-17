@@ -1,4 +1,6 @@
 #include "pso/TBoss5GryphonLightningEff.h"
+#include "pso/render/depth_buffer.h"
+#include "pso/system/vector.h"
 #include "pso/TTecZondeEff.h"
 
 #include "types.h"
@@ -43,7 +45,6 @@ extern "C" {
 void spawn_particle_effect_with_flags(void *, s32, s32);
 void run_task__12TTecZondeEffFv(void *);
 s32 rand(void);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void randomize_bolt_jitter__12TTecZondeEffFPv(void *);
 void __ct__12TTecZondeEffFv(void *, void *, s32, s32, f32);
 void eval_bezier_curve__12TBoss8DragonFPviiPvf(void *, void *, s32, void *, f32);
@@ -56,7 +57,6 @@ void TBoss5GryphonLightningEff__sub_80325064(void* p);
 s32 set_chunk_material_color(void *);
 s32 project_lightning_points(void *, void *, void *, void *);
 s32 restore_saved_depth_alpha_state();
-s32 set_depth_buffer_settings_1__Fv();
 
 void TBoss5GryphonLightningEff__sub_80325064(void* p) { *(u8*)((char*)p + 0x260) = 1; }
 
@@ -105,7 +105,7 @@ void TBoss5GryphonLightningEff::render() {
     lbl_805D5660 = temp_r4;
     model_render_flags = temp_r4 | 0x10;
     TParticleCtrl::begin_effect_render();
-    set_depth_buffer_settings_1__Fv();
+    set_depth_buffer_settings_1();
     TObjPlayer::init_xyz_limits();
     project_lightning_points(this, pts_arg, sp3C, sp8);
     build_lightning_strip((void *)sp10C, (void *)pts_arg, (f32 *)sp3C, (f32 *)sp8);
@@ -161,13 +161,13 @@ Self_8032537C *__ct__25TBoss5GryphonLightningEffFv(Self_8032537C *self, void *pa
     }
     self->f34 = (0.0f);
     for (i = 0; (f32)i < denom; i++) {
-        VecCopy__FP3VecPC3Vec(&v, &self->pts[i]);
+        VecCopy((Vec *)&v, (const Vec *)&self->pts[i]);
         subtract_vector(&v, &self->pts[i + 1]);
         self->f34 += ((TObjBoss2Tunnel *)(&v))->update_scale();
     }
     randomize_bolt_jitter__12TTecZondeEffFPv(self);
     for (i = 0; i < self->n; i++) {
-        VecCopy__FP3VecPC3Vec(&self->pts2[i], &self->pts[i]);
+        VecCopy((Vec *)&self->pts2[i], (const Vec *)&self->pts[i]);
     }
     return self;
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -8,7 +9,6 @@ struct Tbl_80177608 { s32 v[18]; };
 struct Parm_80177608 { s32 a; s32 b; s32 c; };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void disallow_rendering__7TObjectFv(void *);
 void *spawn_particle_effect_with_rotation(void *, Parm_80177608 *, s32, int);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -29,7 +29,7 @@ u8 *TOSwitchAttackSub__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, u32 arg4, f32 
     *(s16 *)(arg0 + 0x1C) = arg2;
     *(s16 *)(arg0 + 0x1E) = arg3;
     *(void **)(arg0 + 0x20) = 0;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x24, arg1 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x24), (const Vec *)(arg1 + 0x38));
     a = switch_attack_sub_id_table;
     b = switch_attack_sub_init_table;
     if (arg4 < 18) {

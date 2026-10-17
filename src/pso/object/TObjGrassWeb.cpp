@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/object/TObjGrassWeb.h"
 #include "pso/TObject.h"
@@ -14,7 +15,6 @@ typedef struct Web_800BC798 {
 } Web_800BC798;
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, s32);
 s16 obj_getField1c(u32);
 int queue_destruction__7TObjectFv(void*);
 s32 construct_world_actor_base();
@@ -103,7 +103,7 @@ u8 *TObjGrassWeb__ct(u8 *arg0, s32 arg1, u32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjGrassWeb;
     if (arg2 != 0U) {
         *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2A3C;
-        VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg2 + 0x38);
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2 + 0x38));
         *(s32 *)((s8 *)arg0 + 0x90) = 0;
         *(s16 *)((s8 *)arg0 + 0xA4) = obj_getField1c(arg2);
         *(s32 *)((s8 *)arg0 + 0x84) = 0xB4;

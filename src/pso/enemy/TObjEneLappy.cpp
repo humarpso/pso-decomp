@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneLappy.h"
@@ -312,7 +313,6 @@ extern s32 *rappy_visibility_node;
 extern s32 model_render_flags;
 void render__12TObjEneLappyFPv(u8 *arg0);
 u16 find_nearest_visible_player(void *, int, f32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void TObjPlayer__sub_800BFF54(void * _w0);
 void sub_800C20C0__12TObjEneLappyFv(void *arg0);
 #define sub_800C20C0__12TObjEneLappyFv (*(s32 (*)())&sub_800C20C0__12TObjEneLappyFv)
@@ -419,8 +419,8 @@ s32 TObjEneLappy::advance_flee_step() {
     s32 var_r31;
     s32 var_r30;
     s32 var_r29;
-    VecCopy__FP3VecPC3Vec((LappyVec *)&arg0->m_44, &arg0->position);
-    VecCopy__FP3VecPC3Vec(&sp20, (LappyVec *)&arg0->m_2fc);
+    VecCopy((Vec *)((LappyVec *)&arg0->m_44), (const Vec *)&arg0->position);
+    VecCopy((Vec *)&sp20, (const Vec *)((LappyVec *)&arg0->m_2fc));
     vec3_add_to(&sp20, (LappyVec *)&arg0->unk_308);
     if (arg0->is_actor_cadence_frame(0x1E) != 0) {
         if (csnVector((LappyVec *)&arg0->m_2fc, &sp20, -1) != 0U) {
@@ -435,18 +435,18 @@ s32 TObjEneLappy::advance_flee_step() {
         var_r31 = 0;
 loop_7:
         if (var_r29 == 0) {
-            VecCopy__FP3VecPC3Vec(&sp14, (LappyVec *)&arg0->unk_308);
+            VecCopy((Vec *)&sp14, (const Vec *)((LappyVec *)&arg0->unk_308));
         } else {
             push_matrix_from(&identity_matrix);
             rotate_matrix_y((int)(0), (int)(var_r30 * var_r31));
             rotate_vector_by_matrix(0, (LappyVec *)&arg0->unk_308, &sp14);
             pop_matrices(1);
         }
-        VecCopy__FP3VecPC3Vec(&sp8, &arg0->position);
+        VecCopy((Vec *)&sp8, (const Vec *)&arg0->position);
         vec3_add_to(&sp8, &sp14);
         if (((s32)project_actor_to_ground((void *)(arg0), (void *)(&sp8), (s32)(0))) == 1) {
-            VecCopy__FP3VecPC3Vec(&arg0->position, &sp8);
-            VecCopy__FP3VecPC3Vec((LappyVec *)&arg0->unk_308, &arg0->position);
+            VecCopy((Vec *)&arg0->position, (const Vec *)&sp8);
+            VecCopy((Vec *)((LappyVec *)&arg0->unk_308), (const Vec *)&arg0->position);
             subtract_vector((LappyVec *)&arg0->unk_308, (LappyVec *)&arg0->m_44);
             return 1;
         }
@@ -458,8 +458,8 @@ loop_7:
         goto loop_7;
     }
     if (((s32)project_actor_to_ground((void *)(arg0), (void *)(&sp20), (s32)(0))) == 1) {
-        VecCopy__FP3VecPC3Vec((LappyVec *)&arg0->position, &sp20);
-        VecCopy__FP3VecPC3Vec((LappyVec *)&arg0->unk_308, (LappyVec *)&arg0->position);
+        VecCopy((Vec *)((LappyVec *)&arg0->position), (const Vec *)&sp20);
+        VecCopy((Vec *)((LappyVec *)&arg0->unk_308), (const Vec *)((LappyVec *)&arg0->position));
         subtract_vector((LappyVec *)&arg0->unk_308, (LappyVec *)&arg0->m_44);
         return 1;
     }
@@ -659,7 +659,7 @@ void TObjEneLappy::update_attacking() {
         }
         break;
     case 1:
-        VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
+        VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
         *(f32 *)((s8 *)arg0 + 0x38) += *(f32 *)((s8 *)arg0 + 0x308);
         *(f32 *)((s8 *)arg0 + 0x308) *= lbl_805D9F58;
         *(f32 *)((s8 *)arg0 + 0x40) += *(f32 *)((s8 *)arg0 + 0x310);
@@ -684,7 +684,7 @@ void TObjEneLappy::update_attacking() {
         }
         break;
     case 3:
-        VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
+        VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
         *(f32 *)((s8 *)arg0 + 0x38) += *(f32 *)((s8 *)arg0 + 0x308);
         *(f32 *)((s8 *)arg0 + 0x40) += *(f32 *)((s8 *)arg0 + 0x310);
         apply_actor_gravity(arg0, 0, lbl_805D9F4C);
@@ -1026,7 +1026,7 @@ void select_target__12TObjEneLappyFPv(u8 *arg0) {
                 if ((u16)id < 0x4000 && (u16)id != *(u16 *)((s8 *)arg0 + 0x1C) && !(*(s32 *)((s8 *)p + 0x30) & 0x800)) {
                     f32 xx;
                     f32 zz;
-                    VecCopy__FP3VecPC3Vec(&v, p + 0x2FC);
+                    VecCopy((Vec *)&v, (const Vec *)(p + 0x2FC));
                     subtract_vector(&v, arg0 + 0x2FC);
                     xx = v.x * v.x;
                     zz = v.z * v.z;
@@ -1097,7 +1097,7 @@ void run_task__12TObjEneLappyFPv(u8 *arg0) {
         break;
     }
     ((TObjEnemy *)arg0)->update_prev_position();
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x2FC));
+    VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x2FC));
     if ((obj_testFlags30((void *)((void *) (arg0)), (s32)((int) (0x06000000))) == 0) && !(((RecoveredFields_800C1478_arg0 *)arg0)->field_374 & 4)) {
         submit_cursor_candidate((void *) (arg0), (int) (-1));
     }
@@ -1969,7 +1969,7 @@ u8 *TObjEneLappy__ct(u8 *self, s32 arg1, Set_800C1C4C *set) {
     *(s32 *)(self + 0) = lbl_805D2A40;
     ((VObj_18_fe72f9 *)self)->m79(set);
     *(s32 *)(self + 0xDC) = *(s32 *)((u8 *)rappy_bml_resource + 0x430);
-    VecCopy__FP3VecPC3Vec(self + 0x38, set->pos);
+    VecCopy((Vec *)(self + 0x38), (const Vec *)set->pos);
     ((TObjPlayer *)(self + 0x5C))->copy_xyz(set->rot);
     for (i = 0; i < 5; i++) {
         ((Lappy_800C1C4C *)self)->params[i] = set->params[i];
@@ -2004,10 +2004,10 @@ u8 *TObjEneLappy__ct(u8 *self, s32 arg1, Set_800C1C4C *set) {
     *(s32 *)(self + 0x36C) = set->f3e;
     *(s16 *)(self + 0x33A) = 0xF;
     *(s16 *)(self + 0x33C) = *(s16 *)(self + 0x33A);
-    VecCopy__FP3VecPC3Vec(self + 0x44, self + 0x38);
-    VecCopy__FP3VecPC3Vec(self + 0x50, self + 0x38);
-    VecCopy__FP3VecPC3Vec(self + 0x290, self + 0x38);
-    VecCopy__FP3VecPC3Vec(self + 0x29C, self + 0x38);
+    VecCopy((Vec *)(self + 0x44), (const Vec *)(self + 0x38));
+    VecCopy((Vec *)(self + 0x50), (const Vec *)(self + 0x38));
+    VecCopy((Vec *)(self + 0x290), (const Vec *)(self + 0x38));
+    VecCopy((Vec *)(self + 0x29C), (const Vec *)(self + 0x38));
     *(s16 *)(self + 0x374) = 0;
     *(s16 *)(self + 0x396) = 0;
     *(s16 *)(self + 0x382) = -1;

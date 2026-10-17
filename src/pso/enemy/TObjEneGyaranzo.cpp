@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjGyaranzoMissile.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEnemyCustom.h"
@@ -156,7 +157,6 @@ extern Params_800D2900 lbl_8043C35C;
 extern u8 *gyaranzo_resource_ptrs[];
 extern u32 gyaranzo_bml_resource;
 extern u8 *tl_05;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 update_angle__10TObjPlayerFlPv(void *, void *, void *);
 void update_collisions__10TObjPlayerFv(void *);
 #define update_angle__10TObjPlayerFlPv ((void (*)(void *, s32, void *))update_angle__10TObjPlayerFlPv)
@@ -179,12 +179,12 @@ void update_walk_to_target__10TObjPlayerFPv(Ene_800D1E4C *arg0) {
         arg0->col->flags &= ~0x380000;
         arg0->flags30 &= ~0x100;
         arg0->fB8 = 1;
-        VecCopy__FP3VecPC3Vec(&arg0->v29C, &arg0->target);
+        VecCopy((Vec *)&arg0->v29C, (const Vec *)&arg0->target);
         arg0->state = 1;
     case 1:
         advance_animation_playback(arg0);
         apply_actor_gravity(arg0, 0, lbl_805DA258);
-        VecCopy__FP3VecPC3Vec(&arg0->v290, &arg0->v2FC);
+        VecCopy((Vec *)&arg0->v290, (const Vec *)&arg0->v2FC);
         calc_velocity_toward_destination(arg0, arg0->v290, arg0->v29C, arg0->param->speed);
         update_angle__10TObjPlayerFlPv(arg0, arg0->param->turn, arg0->v308);
         move_with_wall_slide(arg0);
@@ -377,7 +377,7 @@ void select_targets__19TObjGyaranzoMissileFPv(u8 *arg0) {
         if (TObjPlayer::is_valid_and_active((u32)p) == 0) continue;
         if (p == arg0) continue;
         if (*(u32 *)((s8 *)p + 0x30) & 0x2000800) continue;
-        VecCopy__FP3VecPC3Vec(&d, p + 0x2FC);
+        VecCopy((Vec *)&d, (const Vec *)(p + 0x2FC));
         subtract_vector(&d, arg0 + 0x2FC);
         dist = d.x * d.x + d.z * d.z;
         if (!(dist < lbl_805DA260)) continue;
@@ -600,7 +600,6 @@ u16 find_nearest_visible_player(void *, int, int, f32);
 #define select_targets__19TObjGyaranzoMissileFPv ((s32 (*)(void *))select_targets__19TObjGyaranzoMissileFPv)
 extern const f32 lbl_805DA290;
 void enemy_turn_toward_dest(void *, s32);
-#define VecCopy__FP3VecPC3Vec ((u8 * (*)(void *, void *))VecCopy__FP3VecPC3Vec)
 void move_along_ground_avoiding_walls__10TObjPlayerFPviff(void *, Vec_800D3314, void *, f32, f32);
 #define render_anim_model_at_pos__15TObjEneGyaranzoFv ((void (*)(void *))render_anim_model_at_pos__15TObjEneGyaranzoFv)
 #define get_gyaranzo_missile_float_parameter ((f32 (*)(int))get_gyaranzo_missile_float_parameter)
@@ -1370,14 +1369,14 @@ void TObjPlayer__sub_800D3314(u8 *arg0) {
         }
         play_sound_effect((void *)copy_target_state__14TObjEnePanarmsFPv(arg0, copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003B209)), arg0 + 0x38, 0, 0);
         if (*(u8 **)((s8 *)arg0 + 0x2A8) != NULL) {
-            VecCopy__FP3VecPC3Vec(arg0 + 0x29C, *(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC);
+            VecCopy((Vec *)(arg0 + 0x29C), (const Vec *)(*(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC));
         }
         *(s32 *)((s8 *)arg0 + 0x37C) = 1;
         break;
     case 1:
         if (*(u8 **)((s8 *)arg0 + 0x2A8) != NULL) {
-            VecCopy__FP3VecPC3Vec(arg0 + 0x390, *(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC);
-            VecCopy__FP3VecPC3Vec(arg0 + 0x29C, *(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC);
+            VecCopy((Vec *)(arg0 + 0x390), (const Vec *)(*(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC));
+            VecCopy((Vec *)(arg0 + 0x29C), (const Vec *)(*(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC));
         } else {
             ((TObjEnemyCustom *)arg0)->vfunc_58();
             return;
@@ -1696,7 +1695,7 @@ u8 *TObjEneGyaranzo__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     __construct_array((void *) ((u8 *)(arg0) + 0x3EC), (void *) (&init_and_activate__10TObjPlayerFv), (void *) (&__dt__13TUnk_804949A8Fv), (int) (0x1C), (int) (4));
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2A78;
     ((TObjEneGyaranzo *)(arg0))->apply_set_data(arg2);
-    VecCopy__FP3VecPC3Vec((u8 *)(arg0) + 0x290, VecCopy__FP3VecPC3Vec((u8 *)(arg0) + 0x29C, (u8 *)(arg0) + 0x38));
+    VecCopy((Vec *)((u8 *)(arg0) + 0x290), (const Vec *)(VecCopy((Vec *)((u8 *)(arg0) + 0x29C), (const Vec *)((u8 *)(arg0) + 0x38))));
     *(s32 *)((s8 *)arg0 + 0xDC) = (s32) *(s32 *)((s8 *)(*(u8 * *)&gyaranzo_bml_resource) + 0x430);
     *(u8 **)((s8 *)arg0 + 0xD8) = (u8 *) gyaranzo_action_table;
     ((TObjPlayer *)arg0)->set_field_d8((s32)((void *) (*(u8 **)((s8 *)arg0 + 0xD8))));

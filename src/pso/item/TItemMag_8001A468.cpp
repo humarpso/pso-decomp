@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemMag.h"
 #include "pso/item/TUnk_80480938.h"
@@ -100,7 +101,6 @@ extern RecoveredGlobal_8001A8F0_lbl_8043455C lbl_8043455C;
 extern s32 lbl_80480938[];
 extern s8 player_light_index;
 u8 *TObjPlayer__sub_8001A8F0(u8 *arg0, s32 arg1);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void set_active_camera_pose_from_params(void *);
 void activate_camera_mode(int);
 extern Vec_8001A77C lbl_80434568;
@@ -148,8 +148,8 @@ int TObjPlayer__sub_8001A77C(void *p) {
     Vec_8001A77C sp14 = lbl_80434568;
     Vec_8001A77C sp8 = lbl_80434574;
     activate_camera_mode(9);
-    VecCopy__FP3VecPC3Vec(&sp20.v1c, &sp14);
-    VecCopy__FP3VecPC3Vec(&sp20.v28, &sp8);
+    VecCopy((Vec *)&sp20.v1c, (const Vec *)&sp14);
+    VecCopy((Vec *)&sp20.v28, (const Vec *)&sp8);
     sp20.f14 = 0x1693;
     set_active_camera_pose_from_params(&sp20);
 }

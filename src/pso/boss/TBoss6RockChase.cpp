@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss6Rock.h"
 #include "pso/object/TObjMotion.h"
 
@@ -75,7 +76,6 @@ struct Chase_8036D1B4 {
 struct Param_8036D1B4 { u8 pad[0xC]; f32 v; };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 __nw__7TObjectFUl(int);
 s32 rand();
 extern const f32 lbl_805E03D0;
@@ -142,7 +142,7 @@ s32 TBoss6RockChase::damage_players_in_range() {
     for (i = 0; i < n; i++) {
         pl = get_player_data__10TObjPlayerFi(i);
         if (((TBoss6PlotFalz *)pl)->is_active() != 0) {
-            VecCopy__FP3VecPC3Vec(&d, &pl->pos);
+            VecCopy((Vec *)&d, (const Vec *)&pl->pos);
             subtract_vector(&d, &self->pos);
             d.y = TBoss6RockChase__data_805E03B8;
             if (!(vector_length(&d) > range)) {
@@ -221,7 +221,7 @@ u8 *TBoss6RockChase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)((s8 *)arg0 + 0x64) = (s32) (lbl_805E03D4 * ((lbl_805E03D0 * (f32) rand()) - lbl_805E03D8));
     *(s32 *)((s8 *)arg0 + 0xBC) = (s32) (lbl_805E03E0 * ((lbl_805E03D0 * (f32) rand()) - lbl_805E03D8));
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) TBoss6RockChase__data_805E03B8;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2));
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2));
     *(s32 *)((s8 *)arg0 + 0xC0) = get_bml_model((int) (TBoss6Rock__sub_80353A0C()), (int) (*(s32 *)((s8 *)(&boss6_rock_chase_model_radius_table.value) + (arg3 * 8))));
     *(s32 *)((s8 *)arg0 + 0xC4) = TBoss6Rock__sub_80353A04();
     return arg0;
@@ -235,7 +235,7 @@ s32 spawn__15TBoss6RockChaseFii(s32 arg0, s32 arg1) {
     s32 temp_r3;
     s32 var_r0;
     s32 var_r31;
-    VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg1));
+    VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg1));
     var_r31 = 0;
     stack.spC = lbl_805E03E4;
     if ((lbl_805E03D0 * (f32) rand()) < lbl_805E03D8) {

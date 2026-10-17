@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TORockCaveBrakable.h"
 #include "pso/player/TObjPlayer.h"
@@ -13,7 +14,6 @@ struct Init_80174CFC { u8 b[0x4C]; };
 struct Offs_80174CFC { Vec_80174CFC v[6]; };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
 void construct_debris__8TObjChipFPvPvPv(void *, s32, void *);
@@ -55,12 +55,12 @@ void TORockCaveBrakable::vfunc_16() {
     *(f32 *)((s8 *)(&init) + 0x14) = *(f32 *)(arg0 + 0x40);
     *(f32 *)((s8 *)(&init) + 0x38) = *(f32 *)((s8 *)(&init) + 0x10);
     for (i = 0; i < 6; i++) {
-        VecCopy__FP3VecPC3Vec(&v, &offs.v[i]);
+        VecCopy((Vec *)&v, (const Vec *)&offs.v[i]);
         push_matrix_from(identity_matrix);
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         rotate_vector_by_matrix(0, &v, &v);
         pop_matrix();
-        VecCopy__FP3VecPC3Vec(&init.b[0xC], (u8 *)&this->position);
+        VecCopy((Vec *)&init.b[0xC], (const Vec *)&this->position);
         vec3_add_to(&init.b[0xC], &v);
         *(s32 *)((s8 *)(&init) + 0x40) = get_bml_model(rock_cave_model_resource, i);
         *(s32 *)((s8 *)(&init) + 0x44) = TObjFish__sub_8001EDB0(rock_cave_model_resource, i);

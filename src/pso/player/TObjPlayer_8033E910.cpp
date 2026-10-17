@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
@@ -48,8 +49,6 @@ extern const f32 lbl_805DFAD0;
 void setup_projection_tex_matrix__10TObjPlayerFv(void);
 void queue_destruction__7TObjectFv(void *);
 void TLobby__sub_8033EE38(void *);
-s32 set_depth_buffer_settings_id__FUl(int);
-s32 set_depth_buffer_settings_1__Fv();
 s32 play_indirect_effect_recipe(int, int, int);
 void init_particle_effect__10TObjPlayerFv(void);
 void reset_effects__10TObjPlayerFv(void);
@@ -118,8 +117,8 @@ void TObjPlayer::draw_ginja_item_list() {
     for (i = 0; i < ((O_8033EB4C *)this)->n; i++) {
         ((TParticleCtrl *)(((O_8033EB4C *)this)->items[i].obj))->get_object();
         set_material_alpha_compare_reference(((O_8033EB4C *)this)->items[i].scene);
-        set_depth_buffer_settings_1__Fv();
-        set_depth_buffer_settings_id__FUl(3);
+        set_depth_buffer_settings_1();
+        set_depth_buffer_settings_id(3);
         push_matrix();
         post_translate_matrix(((O_8033EB4C *)this)->items[i].a);
         rotate_matrix_by_node_angles(((O_8033EB4C *)this)->items[i].b, 1);

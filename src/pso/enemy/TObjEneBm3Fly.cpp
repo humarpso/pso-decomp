@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneGibbles.h"
@@ -1085,7 +1086,6 @@ s32 clear_attack_receipts__9TObjEneDDFv();
 s32 noop__12TBoss8DragonFv(void *);
 s32 set_field_378__9TObjEneDDFl(void *, s16);
 void update_recoil_state__13TObjEneBm3FlyFv(u8 *arg0, s32 arg1);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 atan2_float(f32, f32);
 f32 update_scale__15TObjBoss2TunnelFv(void *);
 void update_collide_flag__13TObjEneBm3FlyFv(void *arg0);
@@ -1318,7 +1318,7 @@ void state_circle_target__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
             I(0x3D8) += 0x380;
             break;
         }
-        VecCopy__FP3VecPC3Vec(arg0 + 0x430, arg0 + 0x3A0);
+        VecCopy((Vec *)(arg0 + 0x430), (const Vec *)(arg0 + 0x3A0));
         update_dd_flag__13TObjEneBm3FlyFPv(arg0, R(0x430), R(0x438), speed);
         R(0x42C) = approach_value__13TObjEneBm3FlyFff(arg0, R(0x42C), R(0x398) + vertical);
         clamp_flight_height__13TObjEneBm3FlyFv(arg0);
@@ -1502,7 +1502,7 @@ void TObjEneBm3Fly__sub_800B0B20(u8 *arg0, s32 arg1) {
         }
         update__13TObjEneBm3FlyFPv(arg0);
         ((TObjEneDD *)arg0)->update_velocity();
-        VecCopy__FP3VecPC3Vec(pos, arg0 + 0x2FC);
+        VecCopy((Vec *)pos, (const Vec *)(arg0 + 0x2FC));
         subtract_vector(pos, off);
         if (I(0x3C4) == 0) {
             if ((0.0f) == R(0x430) && (0.0f) == R(0x438)) {
@@ -1520,14 +1520,14 @@ void TObjEneBm3Fly__sub_800B0B20(u8 *arg0, s32 arg1) {
                 vel->x = (0.18f) * x + vel->x;
                 vel->y = (0.0f);
                 vel->z = (0.18f) * z + vel->z;
-                VecCopy__FP3VecPC3Vec(arg0 + 0x430, vel);
+                VecCopy((Vec *)(arg0 + 0x430), (const Vec *)vel);
                 update_scale__15TObjBoss2TunnelFv(arg0 + 0x430);
             } else {
                 I(0x3C4) = 1;
-                VecCopy__FP3VecPC3Vec(arg0 + 0x430, arg0 + 0x3A0);
+                VecCopy((Vec *)(arg0 + 0x430), (const Vec *)(arg0 + 0x3A0));
             }
         } else {
-            VecCopy__FP3VecPC3Vec(arg0 + 0x430, arg0 + 0x3A0);
+            VecCopy((Vec *)(arg0 + 0x430), (const Vec *)(arg0 + 0x3A0));
             s = (5.0f) * sin_table_lookup(I(0x3CC));
             I(0x3CC) += 0x600;
             off->x = R(0x3A8) * s;
@@ -1544,9 +1544,9 @@ void TObjEneBm3Fly__sub_800B0B20(u8 *arg0, s32 arg1) {
         vel->z = R(0x438) * R(0x43C);
         pos->x += vel->x;
         pos->z += vel->z;
-        VecCopy__FP3VecPC3Vec(&p, pos);
+        VecCopy((Vec *)&p, (const Vec *)pos);
         vec3_add_to(&p, off);
-        VecCopy__FP3VecPC3Vec(&d, &p);
+        VecCopy((Vec *)&d, (const Vec *)&p);
         subtract_vector(&d, arg0 + 0x38);
         d.y = (0.0f);
         len = ((f32 (*)(void *))clamp_velocity__15TObjBoss2TunnelFv)(&d);
@@ -1685,7 +1685,7 @@ void TObjEneBm3Fly__sub_800B1214(u8 *arg0, s32 arg1) {
             }
             break;
         case 1:
-            VecCopy__FP3VecPC3Vec(arg0 + 0x430, p);
+            VecCopy((Vec *)(arg0 + 0x430), (const Vec *)p);
             F_800B(0x430, f32) -= F_800B(0x38, f32);
             F_800B(0x434, f32) -= F_800B(0x42C, f32);
             F_800B(0x438, f32) -= F_800B(0x40, f32);
@@ -1694,7 +1694,7 @@ void TObjEneBm3Fly__sub_800B1214(u8 *arg0, s32 arg1) {
                 F_800B(0x43C, f32) += (0.1f);
             }
             if (F_800B(0x3E0, f32) < (2.0f)) {
-                VecCopy__FP3VecPC3Vec(arg0 + 0x38, p);
+                VecCopy((Vec *)(arg0 + 0x38), (const Vec *)p);
                 F_800B(0x3C4, s32) = 2;
             } else {
                 F_800B(0x38, f32) = F_800B(0x430, f32) * F_800B(0x43C, f32) + F_800B(0x38, f32);
@@ -2523,7 +2523,7 @@ void TObjEneBm3Fly::store_position() {
     u8 *arg0 = (u8 *)this;
     *(f32 *)((s8 *)arg0 + 0x2FC) = (f32) *(f32 *)((s8 *)arg0 + 0x38);
     *(f32 *)((s8 *)arg0 + 0x304) = (f32) *(f32 *)((s8 *)arg0 + 0x40);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
+    VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x2FC));
 }
 
 void update_state_flag__13TObjEneBm3FlyFPv(void *arg0) {
@@ -2813,9 +2813,9 @@ u8 *TObjEneBm3Fly__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *arg5
     ((TObjEneDD *)arg0)->init_common_from((u8 *)arg2);
     *(s16 *)((s8 *)arg0 + 0x1C) = arg3;
     *(s16 *)((s8 *)arg0 + 0x2C) = arg4;
-    VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x38)), (void *)((void *) (arg5)));
-    VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x41C)), (void *)((void *) (arg2 + 0x38)));
-    VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x40C)), (void *)((void *) (arg6)));
+    VecCopy((Vec *)((void *) (arg0 + 0x38)), (const Vec *)((void *) (arg5)));
+    VecCopy((Vec *)((void *) (arg0 + 0x41C)), (const Vec *)((void *) (arg2 + 0x38)));
+    VecCopy((Vec *)((void *) (arg0 + 0x40C)), (const Vec *)((void *) (arg6)));
     ((TObjEneBm3Fly *)arg0)->init_child_params();
     *(s32 *)((s8 *)arg0 + 0x80) = 0;
     return arg0;

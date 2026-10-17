@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TORockJungleS01.h"
 #include "pso/misc/TMotorcycle.h"
@@ -67,7 +68,6 @@ struct Rock_8029C7DC {
 extern "C" {
 u8 * get_bml_model(void *, int);
 extern u32 TORockJungleS01__bml_resource;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 TORockCaveBrakable__ct(void *);
 extern RecoveredGlobal_8029C9C8_lbl_804DC3A0 rock_jungle_collision_body_parts;
@@ -124,12 +124,12 @@ void TORockJungleS01::vfunc_16() {
     p.pos.z = self->pos.z;
     p.f38 = p.pos.y;
     for (i = 0; i < 1; i++) {
-        VecCopy__FP3VecPC3Vec(&v, &off.v[i]);
+        VecCopy((Vec *)&v, (const Vec *)&off.v[i]);
         push_matrix_from(identity_matrix);
         rotate_matrix_y(0, self->rotY);
         rotate_vector_by_matrix(0, &v, &v);
         pop_matrix();
-        VecCopy__FP3VecPC3Vec(&p.pos, &self->pos);
+        VecCopy((Vec *)&p.pos, (const Vec *)&self->pos);
         vec3_add_to(&p.pos, &v);
         p.f40 = (s32)TORockJungleS01::get_model(1);
         p.f44 = get_jungle_rock_texture_resource(1);
@@ -187,7 +187,7 @@ u8 *TORockJungleS01__ct(u8 *arg0, s32 arg1) {
     }
     temp_r4 = arg1 - 4;
     *(ByteBlock_3C *)(copy_storage_8029C9C8.bytes) = *(const ByteBlock_3C *)(temp_r4 + 4);
-    VecCopy__FP3VecPC3Vec((void *) ((copy_storage_8029C9C8.bytes + 0x24)), (void *) (&rock_jungle_vec3_table.value));
+    VecCopy((Vec *)((copy_storage_8029C9C8.bytes + 0x24)), (const Vec *)(&rock_jungle_vec3_table.value));
     *(s32 *)((s8 *)arg0 + 0xBC) = TObjMapCsn::create((s32)((void *) ((copy_storage_8029C9C8.bytes))));
     return arg0;
 }

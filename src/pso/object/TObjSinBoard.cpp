@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_804B8DD0.h"
 #include "pso/misc/TWindowTimer.h"
 #include "pso/object/TObjSinBoard.h"
@@ -62,7 +63,6 @@ extern u8 signboard_texture_list[];
 extern u32 TObjSinBoard__texture_buffer;
 s32 queue_destruction__7TObjectFv(void *);
 extern u8 gogo_ball_sync_state[];
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_particle_effect_with_flags(void *, int, int);
 s32 TWindowTimer__sub_80198CF8(void *, void *, s16, s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
@@ -224,7 +224,7 @@ void TUnk_804B8DD0::update_effects() {
     } else if (*(u16 *)((s8 *)gogo_ball_configuration + 0x48) == 6) {
         (this->m_30)++;
         if (this->m_30 % 5 == 0 && this->m_30 <= 0x1E) {
-            VecCopy__FP3VecPC3Vec(&v6, (u8 *)&this->unk_1C);
+            VecCopy((Vec *)&v6, (const Vec *)&this->unk_1C);
             v6.y += lbl_805DBF40;
             spawn_particle_effect_with_flags(&v6, 0x20D, 0x40);
             play_sound_effect(0x4001A82E, (u8 *)&this->unk_1C, 0, 0);
@@ -234,7 +234,7 @@ void TUnk_804B8DD0::update_effects() {
         if (this->m_28 != 0) {
             if (this->m_30 == 1) {
                 TCameraCtrl::set_shake_preset(2);
-                VecCopy__FP3VecPC3Vec(&v2a, (u8 *)&this->unk_1C);
+                VecCopy((Vec *)&v2a, (const Vec *)&this->unk_1C);
                 v2a.y += lbl_805DBF40;
                 spawn_particle_effect_with_flags(&v2a, 0x45, 0x40);
                 spawn_particle_effect_with_flags(&v2a, 0x189, 0x40);
@@ -243,7 +243,7 @@ void TUnk_804B8DD0::update_effects() {
         } else {
             if (this->m_30 == 1) {
                 TCameraCtrl::set_shake_preset(2);
-                VecCopy__FP3VecPC3Vec(&v2b, (u8 *)&this->unk_1C);
+                VecCopy((Vec *)&v2b, (const Vec *)&this->unk_1C);
                 v2b.y += lbl_805DBF40;
                 spawn_particle_effect_with_flags(&v2b, 0x45, 0x40);
                 spawn_particle_effect_with_flags(&v2b, 0x189, 0x40);
@@ -254,7 +254,7 @@ void TUnk_804B8DD0::update_effects() {
         (this->m_30)++;
         if (this->m_28 != 0) {
             if (this->m_30 % 5 == 0 && this->m_30 <= 0x32) {
-                VecCopy__FP3VecPC3Vec(&vda, (u8 *)&this->unk_1C);
+                VecCopy((Vec *)&vda, (const Vec *)&this->unk_1C);
                 vda.y += lbl_805DBF40;
                 spawn_particle_effect_with_flags(&vda, 0x20E, 0x40);
                 o = (void *)__nw__7TObjectFUl(0x28);
@@ -264,7 +264,7 @@ void TUnk_804B8DD0::update_effects() {
             }
         } else {
             if (this->m_30 % 5 == 0 && this->m_30 <= 0x32) {
-                VecCopy__FP3VecPC3Vec(&vdb, (u8 *)&this->unk_1C);
+                VecCopy((Vec *)&vdb, (const Vec *)&this->unk_1C);
                 vdb.y += lbl_805DBF40;
                 spawn_particle_effect_with_flags(&vdb, 0x20F, 0x40);
                 o = (void *)__nw__7TObjectFUl(0x28);

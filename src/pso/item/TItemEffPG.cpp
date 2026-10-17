@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
+#include "pso/system/vector.h"
 #include "pso/player/TUnk_804F0AF8.h"
 #include "pso/item/TUnk_804F0C08.h"
 #include "pso/item/TUnk_804F0BF0.h"
@@ -19,7 +21,6 @@ extern const f32 lbl_805DFE08;
 extern const f32 lbl_805DFE0C;
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 create_particle_emitter(s32, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804F0BF0[];
@@ -28,7 +29,6 @@ u8 *TItemEffPG__visual_ct(u8 *arg0, u8 *arg1, u8 *arg2);
 s32 get_state_flag__9TMainTaskFv();
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 u32 query_game_join_id__10TObjPlayerFv(int);
-s32 set_depth_buffer_settings_id__FUl(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
@@ -88,7 +88,7 @@ void TUnk_804F0BF0::render() {
     }
     {
         if (((void *) *(u8 **)((s8 *)arg0 + 0x20) != NULL) && (get_state_flag__9TMainTaskFv() == 1)) {
-            set_depth_buffer_settings_id__FUl((int) (3));
+            set_depth_buffer_settings_id((3));
             lbl_805D5660 = model_render_flags;
             lbl_805D5664 = chunk_polygon_flags_and_mask;
             lbl_805D5668 = chunk_polygon_flags_or_mask;
@@ -173,7 +173,7 @@ u8 *TItemEffPG__visual_ct(u8 *arg0, u8 *arg1, u8 *arg2) {
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)arg2 + 0x38);
     *(f32 *)((s8 *)arg0 + 0x54) = (f32) *(f32 *)((s8 *)arg2 + 0x30);
     *(f32 *)((s8 *)arg0 + 0x44) = (f32) *(f32 *)((s8 *)arg2 + 0x28);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x5C, arg2);
+    VecCopy((Vec *)(arg0 + 0x5C), (const Vec *)arg2);
     temp_f1 = *(f32 *)((s8 *)arg2 + 0xC);
     *(f32 *)((s8 *)arg0 + 0x50) = temp_f1;
     *(f32 *)((s8 *)arg0 + 0x4C) = temp_f1;

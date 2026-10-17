@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_804887C8.h"
 #include "pso/misc/TCameraCtrl.h"
 
@@ -15,7 +16,6 @@ struct RecoveredGlobal_800677D4_lbl_804887C8 {
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
-s32 VecCopy__FP3VecPC3Vec(void *, int);
 u8 *TCameraCtrl__sub_8003CFF4();
 f32 vector_length(void *, int, f32, f32);
 s32 normalize_vector(void *);
@@ -64,7 +64,7 @@ void TUnk_804887C8::run_task() {
     if ((void *) *(u8 **)((s8 *)arg0 + 0x1C) != NULL) {
         temp_r3 = (u8 *)(TCameraCtrl__sub_8003CFF4());
         if (temp_r3 != NULL) {
-            VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x48), (int) (temp_r3));
+            VecCopy((Vec *)(arg0 + 0x48), (const Vec *)(temp_r3));
             temp_r4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x1C));
             stack.sp8 = *(f32 *)((s8 *)temp_r4 + 0x38) - *(f32 *)((s8 *)temp_r3 + 0);
             temp_f2 = *(f32 *)((s8 *)temp_r4 + 0x40);

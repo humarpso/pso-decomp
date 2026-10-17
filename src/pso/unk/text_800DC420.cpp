@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneNanoDrago.h"
 #include "pso/unk/TUnk_80494E10.h"
@@ -59,7 +60,6 @@ struct Ang_800DC83C { s32 x, y, z; };
 
 extern "C" {
 s32 TObjPlayer__sub_800DC478(u8 *arg0, s32 arg1, f32 farg0);
-s32 VecCopy__FP3VecPC3Vec(void *, int);
 u8 *csnVecterUnder(s32, s32);
 extern s32 lbl_805D5254;
 f32 TObjPlayer__sub_800DC434(s32 arg0, s32 arg1);
@@ -158,7 +158,7 @@ s32 TObjPlayer::snap_to_ground(s32 arg0, s32 arg1) {
     if (temp_r3 == NULL) {
         return 0;
     }
-    VecCopy__FP3VecPC3Vec((void *) (arg1), (int) (*(s32 *)((s8 *)temp_r3 + 4)));
+    VecCopy((Vec *)(arg1), (const Vec *)(*(s32 *)((s8 *)temp_r3 + 4)));
     return 1;
 }
 
@@ -174,7 +174,7 @@ void TUnk_80494E10::run_task() {
     }
     arg0->timer += lbl_805D525C;
     if (arg0->trail != 0) {
-        VecCopy__FP3VecPC3Vec(&arg0->prev, (int)&arg0->pos);
+        VecCopy((Vec *)&arg0->prev, (const Vec *)&arg0->pos);
         arg0->cnt++;
         if (arg0->cnt > 4) {
             arg0->cnt = 0;
@@ -221,9 +221,9 @@ u8 *construct_beam_effect__10TObjPlayerFPvPvPviPv(u8 *arg0, Vec_800DC83C *arg1, 
     construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_06);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_80494E10;
     *(s32 *)((s8 *)arg0 + 0xF4) = arg3;
-    VecCopy__FP3VecPC3Vec(arg0 + 0xAC, (int)arg1);
+    VecCopy((Vec *)(arg0 + 0xAC), (const Vec *)arg1);
     *(f32 *)((s8 *)arg0 + 0xDC) = lbl_805DA47C;
-    VecCopy__FP3VecPC3Vec(arg0 + 0xB8, (int)arg2);
+    VecCopy((Vec *)(arg0 + 0xB8), (const Vec *)arg2);
     subtract_vector(arg0 + 0xB8, arg1);
     s = lbl_805D525C / vector_length(arg0 + 0xB8);
     *(f32 *)((s8 *)arg0 + 0xB8) *= s;
@@ -235,7 +235,7 @@ u8 *construct_beam_effect__10TObjPlayerFPvPvPviPv(u8 *arg0, Vec_800DC83C *arg1, 
     ang.z = 0x4000 - (s32)(10430.38043493439 * atan2_float(arg2->y - arg1->y, horizontal_distance__10TObjPlayerFPUc(arg2, arg1)));
     *(s32 *)((s8 *)arg0 + 0xE0) = spawn_particle_effect_with_rotation(arg1, &ang, 0xF5, 2);
     if (*(s32 *)((s8 *)arg0 + 0xF4) != 0) {
-        VecCopy__FP3VecPC3Vec(arg0 + 0xE8, (int)(arg0 + 0xAC));
+        VecCopy((Vec *)(arg0 + 0xE8), (const Vec *)(arg0 + 0xAC));
         TObjPlayer::snap_to_ground((s32)arg0, (s32)(arg0 + 0xE8));
         *(s32 *)((s8 *)arg0 + 0xE4) = spawn_continuous_particle_effect_with_flags(arg0 + 0xE8, 0xF9, 2);
         *(s32 *)((s8 *)arg0 + 0xF8) = 0;

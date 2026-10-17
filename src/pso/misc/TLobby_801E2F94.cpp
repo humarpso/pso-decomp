@@ -1,4 +1,6 @@
 #include "pso/render/DebugFont.h"
+#include "pso/system/byteswap.h"
+#include "pso/system/main_loop.h"
 #include "pso/misc/TWindowCtrlMain.h"
 #include "types.h"
 #include "pso/TObjCMHairMenu.h"
@@ -514,9 +516,6 @@ s32 disable_disconnected_ports__16TKeyBoardControlFv(void *);
 s32 update_global_sound_frame();
 extern RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
 s32 TKeyBoardControl__sub_801E3E24(s32 arg0, s32 arg1, s32 arg2);
-void bswap_16__FPUs(u16 *p);
-void bswap_32__FPUl(u32 *p);
-void render_tick__Fv(void);
 s32 GXSetViewport(f32, f32, f32, f32, f32, f32);
 s32 GXSetZMode(s32, s32, s32);
 extern s32 (*chunk_model_node_callback)(void *);
@@ -548,7 +547,8 @@ void TObjPlayer::render_tree(void *arg0) {
 
 extern s32 lbl_805D3584;
 
-void render_tick__Fv(void) {
+}
+void render_tick(void) {
     TKeyBoardControl::run_tasks();
     TParticleCtrl::begin_effect_render();
     GXSetZMode(1, 7, 0);
@@ -563,6 +563,7 @@ void render_tick__Fv(void) {
     fn_803DCF0C();
     TKeyBoardControl__sub_8000F7FC();
 }
+extern "C" {
 
 s32 TKeyBoardControl__sub_801E3E24(s32 id, s32 name, s32 arg2) {
     s32 temp_r3;
@@ -596,13 +597,17 @@ loop_1:
     }
     return temp_r3;
 }
-void bswap_16__FPUs(u16 *p) {
+}
+void bswap_16(u16 *p) {
     u32 v = *p;
     *p = (u16) (((v >> 8) & 0xFF) | ((v << 8) & 0xFF00));
 }
-void bswap_32__FPUl(u32 *p) {
+extern "C" {
+}
+void bswap_32(u32 *p) {
     u32 v = *p;
     *p = (v >> 24) | ((v >> 8) & 0xFF00) | ((v << 8) & 0xFF0000) | (v << 24);
 }
+extern "C" {
 
 }

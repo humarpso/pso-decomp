@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TTecSlicer.h"
 #include "pso/TItemAttacker.h"
 #include "pso/TParticleCtrl.h"
@@ -157,7 +158,6 @@ extern "C" {
 s32 subtract_vector(s32, s32);
 s32 normalize_vector(s32);
 f32 horizontal_distance_squared(s32, s32);
-s32 VecCopy__FP3VecPC3Vec(s32, s32);
 s32 get_next_captured_target(s32, s32, s32, s32, s32);
 extern f32 lbl_805DC958;
 s32 test_flags_any(void *, s32);
@@ -248,7 +248,7 @@ void destroy_on_collision__10TTecSlicerFi(s32 arg0, s32 _w1) {
 #pragma fp_contract on
 void TTecSlicer::advance_position() {
     u8 *arg0 = (u8 *)this;
-    VecCopy__FP3VecPC3Vec((s32)(arg0 + 0x44), (s32)(arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x38) = (f32) ((*(f32 *)((s8 *)arg0 + 0x90) * *(f32 *)((s8 *)arg0 + 0xB4)) + *(f32 *)((s8 *)arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) ((*(f32 *)((s8 *)arg0 + 0x94) * *(f32 *)((s8 *)arg0 + 0xB4)) + *(f32 *)((s8 *)arg0 + 0x3C));
     *(f32 *)((s8 *)arg0 + 0x40) = (f32) ((*(f32 *)((s8 *)arg0 + 0x98) * *(f32 *)((s8 *)arg0 + 0xB4)) + *(f32 *)((s8 *)arg0 + 0x40));
@@ -304,7 +304,7 @@ void TTecSlicer::update() {
         if (get_next_captured_target(arg0 + 0xC8, arg0 + 0xA8, arg0 + 0xC4, arg0 + 0xC6, arg0 + 0xBC) == 0) {
             ((TObjPlayer *)(arg0 + 0xC0))->set_flags(1);
         } else {
-            VecCopy__FP3VecPC3Vec(arg0 + 0x90, arg0 + 0xA8);
+            VecCopy((Vec *)(arg0 + 0x90), (const Vec *)(arg0 + 0xA8));
             subtract_vector(arg0 + 0x90, arg0 + 0x38);
         }
         normalize_vector(arg0 + 0x90);
@@ -453,8 +453,8 @@ s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4) {
     ((TTecSlicer *)self)->set_launch_midpoint((void *)self->f10c, &init->a, &init->b);
     self->fb8 = *get_weapon_range_record(self->f108, 0);
     self->fb4 = lbl_805DC964;
-    VecCopy__FP3VecPC3Vec((s32)self + 0x9C, (s32)self + 0x38);
-    VecCopy__FP3VecPC3Vec((s32)self + 0xA8, (s32)self + 0x38);
+    VecCopy((Vec *)((s32)self + 0x9C), (const Vec *)((s32)self + 0x38));
+    VecCopy((Vec *)((s32)self + 0xA8), (const Vec *)((s32)self + 0x38));
     self->fbc = lbl_805DC950;
     ext = get_extended_state__10TObjPlayerFv(self->f10c);
     if (ext != 0) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TUnk_804999E8.h"
 #include "pso/boss/TUnk_804848B8.h"
 #include "pso/boss/TUnk_804848A0.h"
@@ -22,7 +23,6 @@ void queue_destruction__7TObjectFv(void *);
 extern s32 lbl_805D4D14;
 extern const f32 lbl_805D8850;
 extern const f32 lbl_805D8854;
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_80484888[];
 extern u8 *tl_07;
@@ -104,7 +104,7 @@ typedef char RecoveredGlobal_8004885C_lbl_80484888_size[sizeof(RecoveredGlobal_8
 u8 *TBoss3Volopt__sub_8004885C(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4, f32 farg0, f32 farg1) {
     __ct__7TObjectFP7TObject(arg0, tl_07);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8004885C_lbl_80484888 *)&lbl_80484888).value;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x2C, arg1);
+    VecCopy((Vec *)(arg0 + 0x2C), (const Vec *)arg1);
     *(s32 *)((s8 *)arg0 + 0x1C) = arg2;
     *(s32 *)((s8 *)arg0 + 0x20) = arg3;
     *(f32 *)((s8 *)arg0 + 0x24) = farg0;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TBreakUpMdl.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -112,7 +113,6 @@ extern const f32 lbl_805D9B08;
 extern const f32 lbl_805D9B0C;
 s32 apply_actor_gravity(void *, s32, f32);
 s32 enemy_turn_toward_dest(void *, s32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 u32 create_particle_emitter(void *, int);
 s32 TObjPlayer__sub_800AB31C(void *, void *, s32, void *, s32);
@@ -494,7 +494,7 @@ void TObjPlayer__sub_800A8C4C(u8 *arg0) {
         } else {
             *(s16 *)((s8 *)arg0 + 0xB8) = 0;
         }
-        VecCopy__FP3VecPC3Vec((void *) ((u8 *)(arg0) + 0x29C), (void *) ((u8 *)(arg0) + 0x50));
+        VecCopy((Vec *)((u8 *)(arg0) + 0x29C), (const Vec *)((u8 *)(arg0) + 0x50));
         *(s32 *)((s8 *)arg0 + 0x37C) = 1;
         return;
     case 1:
@@ -507,7 +507,7 @@ void TObjPlayer__sub_800A8C4C(u8 *arg0) {
         } else {
             var_f31 = *(f32 *)((s8 *)((u8 *)(lbl_804910E4) + (*(s32 *)((s8 *)arg0 + 0x368) * 4)) + 0);
         }
-        VecCopy__FP3VecPC3Vec((void *) ((u8 *)(arg0) + 0x290), (void *) ((u8 *)(arg0) + 0x2FC));
+        VecCopy((Vec *)((u8 *)(arg0) + 0x290), (const Vec *)((u8 *)(arg0) + 0x2FC));
         calc_velocity_toward_destination((void *) (arg0), *(Vec_800A8C4C *)(arg0 + 0x290), *(Vec_800A8C4C *)(arg0 + 0x29C), var_f31);
         ((TObjPlayer *)arg0)->update_angle((s32)((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 8))), (void *)((u8 *)(arg0) + 0x308));
         move_with_wall_slide((void *) (arg0));
@@ -673,7 +673,7 @@ void TObjPlayer__sub_800A8FB4(void *arg0_) {
         *(s32 *)((s8 *)arg0 + 0x37C) = 2;
     case 2:
         if (*(u8 **)((s8 *)arg0 + 0x2A8) != NULL) {
-            VecCopy__FP3VecPC3Vec(arg0 + 0x29C, *(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC);
+            VecCopy((Vec *)(arg0 + 0x29C), (const Vec *)(*(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC));
             enemy_turn_toward_dest(arg0, *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 8));
         }
         advance_animation_playback(arg0);
@@ -698,7 +698,7 @@ void TObjPlayer__sub_800A8FB4(void *arg0_) {
         break;
     case 3:
         if (*(u8 **)((s8 *)arg0 + 0x2A8) != NULL) {
-            VecCopy__FP3VecPC3Vec(arg0 + 0x29C, *(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC);
+            VecCopy((Vec *)(arg0 + 0x29C), (const Vec *)(*(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC));
             enemy_turn_toward_dest(arg0, *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 8));
         }
         apply_actor_gravity(arg0, 0, lbl_805D9AE0);
@@ -800,7 +800,7 @@ void TObjPlayer__sub_800A93E4(void *arg0_) {
     }
     case 1:
         if (e->target != NULL) {
-            VecCopy__FP3VecPC3Vec(&e->dest, (u8 *)e->target + 0x2FC);
+            VecCopy((Vec *)&e->dest, (const Vec *)((u8 *)e->target + 0x2FC));
             enemy_turn_toward_dest(arg0, e->params->turn);
         }
         advance_animation_playback(arg0);
@@ -949,7 +949,7 @@ void TObjPlayer__sub_800A9E9C(void *arg0_) {
             *(s32 *)((s8 *)arg0 + 0x37C) = 1;
         }
         if (*(u8 **)((s8 *)arg0 + 0x2A8) != NULL) {
-            VecCopy__FP3VecPC3Vec(arg0 + 0x29C, *(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC);
+            VecCopy((Vec *)(arg0 + 0x29C), (const Vec *)(*(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC));
         }
         break;
     case 1:
@@ -1148,7 +1148,7 @@ void TObjPlayer::update_synced_state() {
     run_synced_state_handler();
     ((TObjEneDubchik *)arg0)->sub_800AB068();
     ((TObjEnemy *)arg0)->update_prev_position();
-    VecCopy__FP3VecPC3Vec((u8 *)&this->m_74, (u8 *)&this->m_2fc);
+    VecCopy((Vec *)&this->m_74, (const Vec *)&this->m_2fc);
     if (obj_testFlags30(arg0, 0x04000000) == 0) {
         submit_cursor_candidate(arg0, -1);
     }

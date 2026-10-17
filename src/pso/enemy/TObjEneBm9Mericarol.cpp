@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/player/TUnk_804928CC.h"
@@ -150,7 +151,6 @@ struct VObj18_802D0D3C : VBase18_802D0D3C {
 };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805DE704;
 s32 transition_enemy_state(void * a0, s32 a1);
 void TObjEneBm9Mericarol__sub_802D0B04(u8 *arg0);
@@ -535,9 +535,9 @@ void TObjEneBm9Mericarol::vfunc_88() {
 
 void TObjEneBm9Mericarol::sync_center_position() {
     u8 *arg0 = (u8 *)this;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x300) = (f32) (*(f32 *)((s8 *)arg0 + 0x300) + lbl_805DE704);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
+    VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x2FC));
 }
 
 void TObjEneBm9Mericarol::vfunc_61() {  }

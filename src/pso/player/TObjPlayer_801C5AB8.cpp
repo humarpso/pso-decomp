@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemProShield.h"
 #include "pso/misc/TQuestListVM.h"
@@ -68,7 +69,6 @@ struct Obj_801C5FCC { s32 n; Pair_801C5FCC e[16]; };
 extern "C" {
 extern Arrival_801C5F84 TObjPlayer__arrival_override_table[12];
 void set_arrival_override_coords(u16 arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void set_arrival_override_pos(u16 idx, s32 yaw, void *pos);
 extern const f32 lbl_805DC32C;
 void clear_movement_history(Obj_801C5FCC *p);
@@ -112,7 +112,7 @@ void set_arrival_override_coords(u16 arg0, s32 arg1, f32 farg0, f32 farg1, f32 f
 void set_arrival_override_pos(u16 idx, s32 yaw, void *pos) {
     TObjPlayer__arrival_override_table[idx].active = 1;
     TObjPlayer__arrival_override_table[idx].yaw = yaw;
-    VecCopy__FP3VecPC3Vec(&TObjPlayer__arrival_override_table[idx].pos, pos);
+    VecCopy((Vec *)&TObjPlayer__arrival_override_table[idx].pos, (const Vec *)pos);
 }
 void clear_movement_history(Obj_801C5FCC *p) {
     s32 i;

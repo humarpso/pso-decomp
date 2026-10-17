@@ -1,4 +1,5 @@
 #include "pso/TFontSmallHelp.h"
+#include "pso/system/vector.h"
 
 struct HelpTextPlayerState {
     u8 unresolved_00[0x84C];
@@ -14,7 +15,6 @@ void queue_destruction__7TObjectFv(TObject *);
 void disallow_rendering__7TObjectFv(TObject *);
 TObject *get_instance__15TWindowCtrlMainFv();
 HelpTextPlayerState *get_player_by_client_id(u32);
-void VecCopy__FP3VecPC3Vec(Vec *, const Vec *);
 extern const char *lbl_805D2B20;
 }
 
@@ -28,7 +28,7 @@ void TFontSmallHelp::run_task() {
         queue_destruction__7TObjectFv(this);
         return;
     }
-    VecCopy__FP3VecPC3Vec(&position, &player->position);
+    VecCopy(&position, &player->position);
     age_ticks += 1;
     s32 lifetime = lifetime_ticks;
     if (lifetime > 0 && age_ticks >= lifetime) {
@@ -49,7 +49,7 @@ TFontSmallHelp::TFontSmallHelp(u32 player, u32 text_color, s32 lifetime, u32 tex
         return;
     }
     player_id = player;
-    VecCopy__FP3VecPC3Vec(&position, &owner->position);
+    VecCopy(&position, &owner->position);
     owner_identity = owner->identity;
     set_color(text_color);
     age_ticks = 0;

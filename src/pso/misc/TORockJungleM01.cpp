@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjFish.h"
 #include "pso/misc/TORockCaveBrakable.h"
 #include "pso/object/TObjMotion.h"
@@ -100,7 +101,6 @@ struct Rock_8029C390 {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 TORockCaveBrakable__ct(void *);
 s32 get_jungle_rock_texture_resource(int);
@@ -152,12 +152,12 @@ void TORockJungleM01::vfunc_16() {
     chip.pos.z = self->pos.z;
     chip.y2 = chip.pos.y;
     for (i = 0; i < 1; i++) {
-        VecCopy__FP3VecPC3Vec(&v, &a.v[i]);
+        VecCopy((Vec *)&v, (const Vec *)&a.v[i]);
         push_matrix_from(identity_matrix);
         rotate_matrix_y(0, self->x60);
         rotate_vector_by_matrix(0, &v, &v);
         pop_matrix();
-        VecCopy__FP3VecPC3Vec(&chip.pos, &self->pos);
+        VecCopy((Vec *)&chip.pos, (const Vec *)&self->pos);
         vec3_add_to(&chip.pos, &v);
         chip.res = (s32)TORockJungleS01::get_model(3);
         chip.res2 = get_jungle_rock_texture_resource(3);
@@ -217,7 +217,7 @@ u8 *TORockJungleM01__ct(u8 *arg0, s32 arg1) {
     }
     temp_r4 = arg1 - 4;
     *(ByteBlock_3C *)(copy_storage_8029C588.bytes) = *(const ByteBlock_3C *)(temp_r4 + 4);
-    VecCopy__FP3VecPC3Vec((void *) ((copy_storage_8029C588.bytes + 0x24)), (void *) (&rock_jungle_vec3_table.value));
+    VecCopy((Vec *)((copy_storage_8029C588.bytes + 0x24)), (const Vec *)(&rock_jungle_vec3_table.value));
     *(s32 *)((s8 *)arg0 + 0xDC) = TObjMapCsn::create((s32)((void *) ((copy_storage_8029C588.bytes))));
     ((TObjPlayer *)(arg0 + 0xBC))->activate_and_dispatch();
     return arg0;

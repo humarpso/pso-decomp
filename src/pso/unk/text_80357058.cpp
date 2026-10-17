@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
 #include "pso/item/TUnk_804E355C.h"
 #include "pso/item/TItemEffOrgaFlowShot.h"
 #include "pso/TParticleCtrl.h"
@@ -76,7 +77,6 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 s32 restore_saved_depth_alpha_state();
 s32 reset_player_transform();
-s32 set_depth_buffer_settings_1__Fv();
 
 void send_6xAD_olga_flow_subordinate_boss_actions(u8 *arg0) {
     B_80357058 b;
@@ -211,7 +211,7 @@ void TItemEffOrgaFlowShot::render() {
     s32 arg0 = (s32)this;
     TParticleCtrl::begin_effect_render();
     lbl_805D5660 = model_render_flags;
-    set_depth_buffer_settings_1__Fv();
+    set_depth_buffer_settings_1();
     TObjPlayer::init_xyz_limits();
     TObjPlayer__sub_803DF768(1);
     draw_untextured_trail_strip(arg0 + 0xC4, 0xA);

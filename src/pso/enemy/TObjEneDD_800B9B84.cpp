@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 vec3_add_to(void *, void *, f32);
 s32 subtract_vector(void *, void *);
 extern s32 camera_ctrl_instance;
@@ -29,7 +29,7 @@ int TObjEneDD::get_target_state_b() { return freeze_all_players__10TObjPlayerFv(
 
 void project_sound_origin_from_camera(s32 arg0, u8 *arg1, f32 farg0) {
     f32 temp_f1;
-    VecCopy__FP3VecPC3Vec((void *) (arg1), (void *) (arg0));
+    VecCopy((Vec *)(arg1), (const Vec *)(arg0));
     subtract_vector((void *) (arg1), (void *) (camera_ctrl_instance + 0x178));
     { f32 s = ((TObjBoss2Tunnel *)arg1)->update_scale(); temp_f1 = s * farg0; }
     *(f32 *)((s8 *)arg1 + 0) = (f32) (*(f32 *)((s8 *)arg1 + 0) * temp_f1);

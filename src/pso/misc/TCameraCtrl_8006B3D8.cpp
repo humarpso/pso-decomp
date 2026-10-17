@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_80488B08.h"
 #include "pso/misc/TUnk_80488AF0.h"
 #include "pso/misc/TUnk_80488AD8.h"
@@ -77,7 +78,6 @@ void set_active_camera_pose(void *, void *);
 s32 approach_camera_vector(void *, void *, f32);
 extern RecoveredGlobal_8006B4A0_lbl_804381E0 fixed_npc_camera_destination_table;
 extern const f32 lbl_805D8FF8;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 activate_camera_mode(int);
 s32 TCameraCtrl__sub_8006BAB4(void *, void *);
 s32 TCameraCtrl__sub_8006BAC8(void *, void *);
@@ -163,13 +163,13 @@ u8 *TCameraCtrl::init_conversation_camera(s32 i, s32 arg2, s32 arg3) {
   if (is_split_screen() != 0)
   {
     new_var = (void *) TCameraCtrl__sub_8006BAC8((void *) (*(s32 *)&camera_ctrl_instance), (void *) i);
-    VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x1C), new_var);
-    VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x28), (void *) TCameraCtrl__sub_8006BAB4((void *) (*(s32 *)&camera_ctrl_instance), (void *) i));
+    VecCopy((Vec *)(((u8 *)this) + 0x1C), (const Vec *)new_var);
+    VecCopy((Vec *)(((u8 *)this) + 0x28), (const Vec *)((void *) TCameraCtrl__sub_8006BAB4((void *) (*(s32 *)&camera_ctrl_instance), (void *) i)));
   }
   else
   {
-    VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x1C), (void *) ((*(s32 *)&camera_ctrl_instance) + 0x178));
-    VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x28), (void *) ((*(s32 *)&camera_ctrl_instance) + 0x184));
+    VecCopy((Vec *)(((u8 *)this) + 0x1C), (const Vec *)((*(s32 *)&camera_ctrl_instance) + 0x178));
+    VecCopy((Vec *)(((u8 *)this) + 0x28), (const Vec *)((*(s32 *)&camera_ctrl_instance) + 0x184));
   }
   set_active_camera_pose((void *) (((u8 *)this) + 0x1C), (void *) (((u8 *)this) + 0x28));
   TCameraCtrl__fixed_npc_camera_active = 0;
@@ -217,8 +217,8 @@ s32 TCameraCtrl__sub_8006B798(void *p, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     __ct__7TObjectFP7TObject(arg0, (void *)arg4);
     arg0->vt = lbl_80488AF0;
     dist = xyz_distance(&VIEW_8006B798->pos, &VIEW_8006B798->tgt);
-    VecCopy__FP3VecPC3Vec(&arg0->pos, (void *)arg1);
-    VecCopy__FP3VecPC3Vec(&arg0->tgt, &VIEW_8006B798->tgt);
+    VecCopy((Vec *)&arg0->pos, (const Vec *)arg1);
+    VecCopy((Vec *)&arg0->tgt, (const Vec *)&VIEW_8006B798->tgt);
     if (arg2 == 0) {
         arg0->f22 = 1;
     } else {

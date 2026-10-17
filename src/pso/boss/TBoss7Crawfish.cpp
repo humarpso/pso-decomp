@@ -1,4 +1,5 @@
 #include <dolphin/mtx.h>
+#include "pso/system/vector.h"
 #include "types.h"
 
 #include <stddef.h>
@@ -90,7 +91,6 @@ extern RecoveredGlobal_80308840_lbl_8047559C lbl_8047559C;
 extern const f32 lbl_805DF0CC;
 extern const f32 lbl_805DF0D0;
 extern const f32 lbl_805DF0D4;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_is_hit_receivable(u32);
 s32 reset_global_table();
 Slot_803086A8 *get_attack_entry__16TObjOnlineEndingFi(s32);
@@ -123,7 +123,7 @@ void TBoss7Crawfish::register_attack_hits() {
     reset_global_table();
     msg.p = (u8 *)((Obj_803086A8 *)this) + 0x374;
     msg.one = 1;
-    VecCopy__FP3VecPC3Vec(&msg.pos, (u8 *)((Obj_803086A8 *)this) + 0x38);
+    VecCopy((Vec *)&msg.pos, (const Vec *)((u8 *)((Obj_803086A8 *)this) + 0x38));
     msg.id = this->rotation_y;
     TObjPlayer::apply_status_effect((s32)(&msg));
     for (i = 0; i != TObjOnlineEnding::get_instance(); i++) {

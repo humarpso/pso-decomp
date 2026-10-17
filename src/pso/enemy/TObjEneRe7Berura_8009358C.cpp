@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
@@ -308,7 +309,6 @@ f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
 extern const f32 lbl_805D976C;
 void TObjEneRe7Berura__sub_8009472C(u8 *arg0, s32 arg1);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 rotate_xz_pair_by_angle(void *, void *, s32);
 void *create_particle_emitter(void *, s32);
 s32 launch__21TObjEneRe7BeruraPunchFll(s32, s32, void *, void *);
@@ -713,7 +713,7 @@ void TObjEneRe7Berura__sub_80093C80(u8 *arg0, s32 arg1) {
             if (objInBand__FP7GameObjf(arg0, F(f32, 0x4D0)) != 0) {
                 ARMF[F(s32, 0x3F4)] |= 3;
                 SUB->m3();
-                VecCopy__FP3VecPC3Vec(&v, &TObjEneRe7Berura__detached_part_states[F(s32, 0x3F4)].ofs);
+                VecCopy((Vec *)&v, (const Vec *)&TObjEneRe7Berura__detached_part_states[F(s32, 0x3F4)].ofs);
                 rotate_xz_pair_by_angle(&v.x, &v.z, F(s32, 0x60));
                 vec3_add_to(&v, arg0 + 0x38);
                 launch__21TObjEneRe7BeruraPunchFll(F(s32, 0x3F8), F(s32, 0x3F4), &v, arg0 + 0x394);
@@ -909,9 +909,9 @@ void TObjEneRe7Berura__sub_80094624(u8 *arg0, s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C0) & 0xFFFFFFF9);
         *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C0) | 1);
         ((TObjEneDD *)arg0)->set_field_378(2);
-        VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0x50);
-        VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
-        VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x50));
+        VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
+        VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
         *(s32 *)((s8 *)arg0 + 0x3C4) = -1;
         s32 c = *(s32 *)((s8 *)arg0 + 0x3C8) = 0xFF000000;
         *(s32 *)((s8 *)arg0 + 0x3D4) = 1;

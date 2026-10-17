@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 
 #include <stddef.h>
 #include "pso/misc/TLobby.h"
@@ -38,7 +39,6 @@ void DCInvalidateRange(void *, u32);
 void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void *);
 void TLobby__sub_8001D9DC(void);
 extern s32 aram_dma_pending;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TLoadingCur__ct(void *, void *, void *);
 s32 direction_to_rotation_xz(void *, void *, void *);
 void *__nw__7TObjectFUl(u32);
@@ -143,7 +143,7 @@ TNowLoading_8001D3A8 *TNowLoading__ct(TNowLoading_8001D3A8 *parent, void *arg1, 
     __ct__7TObjectFP7TObject(parent, arg1);
     parent->vtable = __vt__11TNowLoading;
     parent->unk0 = TNowLoading__class_name;
-    VecCopy__FP3VecPC3Vec(&parent->pos, arg2);
+    VecCopy((Vec *)&parent->pos, (const Vec *)arg2);
     cam = (Cam_8001D3A8 *) &lbl_804FF5E8;
     out[0] = 0;
     out[1] = 0;

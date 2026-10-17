@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
 #include "pso/misc/TWindowChoiceSetting.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 #include "pso/ui/TAdMcSelectCursorGC.h"
@@ -50,7 +51,6 @@ s32 set_draw_texture_and_color(int, int);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 s32 restore_saved_depth_alpha_state();
-s32 set_depth_buffer_settings_2__Fv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 extern s32 TAdMcSelectCursorGC__texture_entry;
@@ -73,7 +73,7 @@ void TAdMcSelectCursorGC::render() {
         goto block_5;
     }
     if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) {
-        set_depth_buffer_settings_2__Fv();
+        set_depth_buffer_settings_2();
 block_5:
         TObjPlayer::init_xyz_limits();
         render_cursor();

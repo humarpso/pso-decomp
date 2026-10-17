@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TOKurage.h"
 #include "pso/misc/TOBarrierEnergy01.h"
@@ -71,7 +72,6 @@ void TObjEneSlimeOne__sub_803E4B54(s32, s32, s32, f32);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 rand(void);
 f32 sin_table_lookup(s32);
 s32 vec3_add_to(void *, void *);
@@ -133,8 +133,8 @@ void TOKurage::debug_print_ranges() {
 }
 
 void TOKurage::init() {
-    VecCopy__FP3VecPC3Vec((u8 *)&this->_padCC, (u8 *)&this->position);
-    VecCopy__FP3VecPC3Vec((u8 *)&this->m_e4, (u8 *)&this->position);
+    VecCopy((Vec *)&this->_padCC, (const Vec *)&this->position);
+    VecCopy((Vec *)&this->m_e4, (const Vec *)&this->position);
     *(f32 *)&this->m_d8 = (f32) (0.0f);
     *(f32 *)&this->unk_DC = (f32) (0.0f);
     this->m_e0 = (f32) (0.0f);
@@ -154,7 +154,7 @@ void TOKurage::init() {
 void TOKurage::run_task() {
     TOKurage_8016DB24 *o = (TOKurage_8016DB24 *)this;
     f32 y;
-    VecCopy__FP3VecPC3Vec(&o->prev, &o->pos);
+    VecCopy((Vec *)&o->prev, (const Vec *)&o->pos);
     if (TObjPlayer::check_demo_mode() == 1) {
         debug_print_ranges();
         return;
@@ -241,13 +241,13 @@ void TOKurage::run_task() {
         break;
     case 3: {
         Vec_8016DB24 d;
-        VecCopy__FP3VecPC3Vec(&d, &o->home);
+        VecCopy((Vec *)&d, (const Vec *)&o->home);
         subtract_vector(&d, &o->pos);
         normalize_vector(&d);
         d.x /= 5.0f;
         d.y /= 5.0f;
         d.z /= 5.0f;
-        VecCopy__FP3VecPC3Vec(&o->vel, &d);
+        VecCopy((Vec *)&o->vel, (const Vec *)&d);
         if (xyz_distance(&o->home, &o->pos) < o->radius / 5.0f) {
             o->state = 1;
         }
@@ -255,13 +255,13 @@ void TOKurage::run_task() {
     }
     case 4: {
         Vec_8016DB24 d;
-        VecCopy__FP3VecPC3Vec(&d, &o->pos);
+        VecCopy((Vec *)&d, (const Vec *)&o->pos);
         subtract_vector(&d, &o->home);
         normalize_vector(&d);
         d.x /= 5.0f;
         d.y /= 5.0f;
         d.z /= 5.0f;
-        VecCopy__FP3VecPC3Vec(&o->vel, &d);
+        VecCopy((Vec *)&o->vel, (const Vec *)&d);
         break;
     }
     }
@@ -324,13 +324,13 @@ void TOKurage::run_task() {
             break;
         case 4: {
             Vec_8016DB24 d;
-            VecCopy__FP3VecPC3Vec(&d, &o->pos);
+            VecCopy((Vec *)&d, (const Vec *)&o->pos);
             subtract_vector(&d, &o->home);
             normalize_vector(&d);
             d.x /= 5.0f;
             d.y /= 5.0f;
             d.z /= 5.0f;
-            VecCopy__FP3VecPC3Vec(&o->vel, &d);
+            VecCopy((Vec *)&o->vel, (const Vec *)&d);
             break;
         }
         }

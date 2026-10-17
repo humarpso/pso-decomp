@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TOMine.h"
@@ -23,7 +24,6 @@ s32 reset_key_machine_state__10TObjPlayerFv();
 void *__nw__7TObjectFUl(u32);
 extern s32 enable_v2_features;
 s32 create_placed_trap__10TOMineTrapFUiss(u32 arg0, s16 arg1, s16 arg2);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen();
 void *TOMineDisp__ct(void *, void *, u16);
 extern s32 local_client_id;
@@ -308,8 +308,8 @@ void spawn_disp_objects__10TOMineTrapFPv(u8 *arg0) {
             obj = (u8 *)TOMineDisp__ct(obj, arg0, (u16)local_client_id);
         }
         if (obj != NULL) {
-            VecCopy__FP3VecPC3Vec(obj + 0x50, arg0 + 0x50);
-            VecCopy__FP3VecPC3Vec(obj + 0x38, arg0 + 0x38);
+            VecCopy((Vec *)(obj + 0x50), (const Vec *)(arg0 + 0x50));
+            VecCopy((Vec *)(obj + 0x38), (const Vec *)(arg0 + 0x38));
         }
     } else {
         for (i = 0; i != 4; i++) {
@@ -318,8 +318,8 @@ void spawn_disp_objects__10TOMineTrapFPv(u8 *arg0) {
                 obj = (u8 *)TOMineDisp__ct(obj, arg0, i);
             }
             if (obj != NULL) {
-                VecCopy__FP3VecPC3Vec(obj + 0x50, arg0 + 0x50);
-                VecCopy__FP3VecPC3Vec(obj + 0x38, arg0 + 0x38);
+                VecCopy((Vec *)(obj + 0x50), (const Vec *)(arg0 + 0x50));
+                VecCopy((Vec *)(obj + 0x38), (const Vec *)(arg0 + 0x38));
             }
         }
     }
@@ -329,7 +329,7 @@ void TOMine::apply_object_set_data(void *set_data) {
     u8 *arg0 = (u8 *)this;
     TUnk_804B9870::apply_object_set_data(set_data);
     this->spawn_disp_objects();
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x334), (void *) (arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x334), (const Vec *)(arg0 + 0x38));
 }
 void TOMine::vfunc_85() {  }
 int TOMine::vfunc_12() { get_localized_text_entry((void*)16, (void*)16); }
@@ -501,8 +501,8 @@ void TOMine::follow_target() {
     this->mode = 2;
     return;
   }
-  VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));
-  VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) ((this->target) + 0x38));
+  VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
+  VecCopy((Vec *)(&stack.sp8), (const Vec *)((this->target) + 0x38));
   stack.spC = *((f32 *) (((s8 *) arg0) + 0x3C));
   subtract_vector((void *) (&stack.sp8), (void *) (arg0 + 0x38));
   if (lbl_805DB870 < vec_squared_length((void *) (&stack.sp8)))
@@ -565,7 +565,7 @@ void TOMine::update_float_height() {
 }
 #pragma pop
 
-void TOMineTrap::sync_position() { VecCopy__FP3VecPC3Vec((void *)((char*)this + 0x38), (void *)((char*)this + 0x334)); refresh_collision_body_centers(); }
+void TOMineTrap::sync_position() { VecCopy((Vec *)((char*)this + 0x38), (const Vec *)((char*)this + 0x334)); refresh_collision_body_centers(); }
 void TOMine::detonate() {
     s32 i;
     u8 *obj;

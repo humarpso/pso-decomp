@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjQuestColApcINW.h"
 #include "pso/object/TObjQuestColBase.h"
 #include "pso/object/TObjQuestCol.h"
@@ -8,7 +9,6 @@ struct Pl_801960F8 { u8 pad0[0x38]; f32 pos[3]; };
 struct Col_801960F8 { u8 pad0[0xAC]; f32 fAC; u8 padB0[0xC]; f32 fBC; f32 fC0[3]; };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 xz_distance_squared(void *, void *);
 Pl_801960F8 *get_player_by_client_id(s32);
 extern u8 quest_col_apc_warp_target_pos[];
@@ -39,7 +39,7 @@ int TObjQuestColApcINW::vfunc_15() {
                 if (q != 0) {
                     if (xz_distance_squared(q->pos, p->pos) > arg0->fBC * arg0->fBC) {
                         quest_collision_warp_pending = 1;
-                        VecCopy__FP3VecPC3Vec(quest_col_apc_warp_target_pos, arg0->fC0);
+                        VecCopy((Vec *)quest_col_apc_warp_target_pos, (const Vec *)arg0->fC0);
                     }
                 }
             }

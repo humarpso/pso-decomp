@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -16,7 +17,6 @@ struct RecoveredFields_802CE510_temp_r3
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 attach_particle_model(int, int, int, int, int, f32);
 u8 *csnVectorUnder(s32 *, s32, s32);
 u32 spawn_particle_effect(void *, int);
@@ -42,7 +42,7 @@ void fn_802CE510(int arg0) {
   unsigned int temp_r3_3;
   unsigned int temp_r3_4;
   u8 *temp_r3;
-  VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+  VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x38));
   stack.spC += lbl_805DE6E8;
   temp_r3 = (u8 *) csnVectorUnder(&stack.sp8, arg0 + 0x120, 0x15);
   if (temp_r3 != 0)

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TOCtrlDubchik.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -208,7 +209,6 @@ extern const f32 TOCtrlDubchik__data_805DB3B4;
 extern const f32 TOCtrlDubchik__data_805DB3B8;
 s32 try_start_action__13TUnk_804806E8Fll(void *, void *, void *);
 s32 roll_physical_accuracy__13TUnk_804806E8FPvlf(void *, void *, void *, f32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 initialize__9TObjEnemyFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_8015D3CC_lbl_804B0A20 TOCtrlDubchik__collision_body;
@@ -408,7 +408,7 @@ void TOCtrlDubchik::run_task() {
         complete_and_destroy();
         break;
     }
-    VecCopy__FP3VecPC3Vec((u8 *)&this->m_2fc, (u8 *)&this->position);
+    VecCopy((Vec *)&this->m_2fc, (const Vec *)&this->position);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     submit_cursor_candidate(arg0, -1);
 }
@@ -476,7 +476,7 @@ u8 *TOCtrlDubchik__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0x384) = (f32) TOCtrlDubchik__data_805DB3A8;
     *(f32 *)((s8 *)arg0 + 0x388) = (f32) TOCtrlDubchik__data_805DB3A8;
     *(s32 *)((s8 *)arg0 + 0x38C) = 0;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x390), (void *) (arg0 + 0x50));
+    VecCopy((Vec *)(arg0 + 0x390), (const Vec *)(arg0 + 0x50));
     *(s32 *)((s8 *)arg0 + 0x39C) = 1;
     return arg0;
 }

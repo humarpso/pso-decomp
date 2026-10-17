@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneHoldEffect.h"
 #include "pso/TObject.h"
 #include "pso/misc/TNowLoading.h"
@@ -24,7 +25,6 @@ struct Hold_8036CE20 {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_testFlags30(void *, int);
 void *get_player_by_client_id(int);
 void subtract_vector(Vec_8036CF30 *, void *);
@@ -57,7 +57,7 @@ void run_task__17TObjEneHoldEffectFv(Hold_8036CE20 *o) {
         if (o->x98 == 0x20F && is_split_screen() == 0) {
             Vec_8036CF30 d;
             Vec_8036CF30 out;
-            VecCopy__FP3VecPC3Vec(&d, &o->pos);
+            VecCopy((Vec *)&d, (const Vec *)&o->pos);
             subtract_vector(&d, camera_ctrl_instance + 0x178);
             normalize_vector(&d);
             out.x = o->pos.x - lbl_805E03B0 * d.x;
@@ -84,7 +84,7 @@ void TObjEneHoldEffect::render() {
         ((TObject *)(o->x90))->all_parents_unqueued_for_destruction() != 0) {
         Vec_8036CF30 d;
         Vec_8036CF30 out;
-        VecCopy__FP3VecPC3Vec(&d, &o->pos);
+        VecCopy((Vec *)&d, (const Vec *)&o->pos);
         subtract_vector(&d, camera_ctrl_instance + 0x178);
         normalize_vector(&d);
         out.x = o->pos.x - lbl_805E03B0 * d.x;

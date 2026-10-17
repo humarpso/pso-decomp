@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -251,7 +252,6 @@ s32 select_enemy_destination(void *, Vec_800F1098 *, int);
 s32 copy_position_if_valid__10TObjPlayerFii(void *, Vec_800F1098 *);
 s32 update_angle__10TObjPlayerFlPv(void *, s32, void *);
 s32 enemy_turn_toward_dest(void *, s32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 matrix_mult_vec(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 void subtract_vector(void *, void *);
@@ -297,22 +297,22 @@ s32 TObjEneMe3Stelth__sub_800F0F84(u8 *arg0, Vec_800F0F84 *arg1) {
     ent = *(Ent_800F0F84 **)(arg0 + 0xA4);
     saved = ent->f18;
     ent->f18 = 0x9D01;
-    VecCopy__FP3VecPC3Vec(&sp, arg0 + 0x38);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg1);
+    VecCopy((Vec *)&sp, (const Vec *)(arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)arg1);
     TObjPlayer::init_all_slots();
     ((VObj_18_800F0F84 *)arg0)->m87();
     if ((ent->f18 & 0x80000) && get_valid_target_player__10TNpcPlayerFv(obj_getField1c((void *)(*(s32 *)((s8 *)arg0 + 0x390)))) == 0) {
-        VecCopy__FP3VecPC3Vec(arg0 + 0x38, &sp);
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)&sp);
         TObjPlayer::init_all_slots();
         return 1;
     }
     if ((ent->f18 & 0x100000) && get_valid_target_player__10TNpcPlayerFv(*(u16 *)((s8 *)arg0 + 0x1C)) == 0) {
-        VecCopy__FP3VecPC3Vec(arg0 + 0x38, &sp);
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)&sp);
         TObjPlayer::init_all_slots();
         return 1;
     }
     result = (ent->f18 & 0x200000) != 0;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x38, &sp);
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)&sp);
     TObjPlayer::init_all_slots();
     fn_8002B630(ent, TObjEneMe3Stelth__collision_body_template);
     ent->f18 = saved;
@@ -358,7 +358,7 @@ void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1) {
                     enemy_set_heading_velocity(arg0, F(s32, 0x60), F(Spd_800F1098 *, 0x350)->speed);
                     move_with_wall_slide(arg0);
                 } else {
-                    VecCopy__FP3VecPC3Vec(&d, arg0 + 0x394);
+                    VecCopy((Vec *)&d, (const Vec *)(arg0 + 0x394));
                     subtract_vector(&d, arg0 + 0x2FC);
                     r = update_angle__10TObjPlayerFlPv(arg0, F(Spd_800F1098 *, 0x350)->turn, &d);
                 }
@@ -392,7 +392,7 @@ void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1) {
                 matrix_mult_vec(0, &c, &out);
                 pop_matrix();
                 if (F(u32, 0x390) != 0) {
-                    VecCopy__FP3VecPC3Vec(&d, arg0 + 0x394);
+                    VecCopy((Vec *)&d, (const Vec *)(arg0 + 0x394));
                     subtract_vector(&d, arg0 + 0x2FC);
                     r = update_angle__10TObjPlayerFlPv(arg0, F(Spd_800F1098 *, 0x350)->turn, &d);
                 } else {

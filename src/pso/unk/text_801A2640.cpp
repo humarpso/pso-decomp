@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 
 struct Vec_801A2640 { f32 x, y, z; };
 
@@ -28,7 +29,6 @@ struct Obj_801A2640 {
 
 extern "C" {
 void __ct__7TObjectFP7TObject(void *self, void *parent);
-void VecCopy__FP3VecPC3Vec(Vec_801A2640 *, Vec_801A2640 *);
 extern u8 lbl_804B9870[];
 extern const f32 lbl_805DC098;
 extern const f32 lbl_805DC0A0;
@@ -78,8 +78,8 @@ Obj_801A2640 *construct_world_actor_base(Obj_801A2640 *self, void *parent) {
     self->v38.x = lbl_805DC098;
     self->v38.y = lbl_805DC098;
     self->v38.z = lbl_805DC098;
-    VecCopy__FP3VecPC3Vec(&self->v44, &self->v38);
-    VecCopy__FP3VecPC3Vec(&self->v50, &self->v38);
+    VecCopy((Vec *)&self->v44, (const Vec *)&self->v38);
+    VecCopy((Vec *)&self->v50, (const Vec *)&self->v38);
     self->f5c = 0;
     self->f60 = 0;
     self->f64 = 0;

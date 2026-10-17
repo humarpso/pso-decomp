@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneRecobox.h"
 #include "pso/enemy/TObjEneRecon.h"
@@ -158,7 +159,6 @@ extern char lbl_80476440[];
 extern s32 debug_chunk_object;
 extern const f32 TObjEneRecon__data_805DF438;
 extern const f32 lbl_805DF43C;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 is_main_phase_15__9TObjEneDDFv();
@@ -323,7 +323,7 @@ block_23:
         }
     } else {
 block_37:
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
+        VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     }
 }
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TBreakUpMdl.h"
 #include "pso/player/TUnk_804820C0.h"
 #include "pso/player/TObjPlayer.h"
@@ -83,7 +84,6 @@ extern const f32 lbl_805D824C;
 void TObjPlayer__sub_8002ECC4(Obj_8002ECC4 *self, s32 n);
 extern const f32 lbl_805D8260;
 void TObjPlayer__sub_8002ED48(Obj_8002ED48 *self, s32 n);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 lerp__9TDeadSpotFff(f32, f32);
 f32 rand_signed_unit(void);
 extern s32 lbl_804820A8[];
@@ -168,10 +168,10 @@ Obj_8002EA64 *TObjPlayer__sub_8002EA64(Obj_8002EA64 *arg0, void *arg1, Vec_8002E
     zero = lbl_805D8228;
     arg0->vtbl = lbl_804820A8;
     for (i = 0, p = arg0->parts; i < 19; i++, p++) {
-        VecCopy__FP3VecPC3Vec(&p->pos, arg2);
+        VecCopy((Vec *)&p->pos, (const Vec *)arg2);
         vec3_add_to(&p->pos, &(*(Src_8002EA64 **)((u8 *)shared_breakup_model + 4))[i].a);
         v = &p->vel;
-        VecCopy__FP3VecPC3Vec(v, &(*(Src_8002EA64 **)((u8 *)shared_breakup_model + 4))[i].b);
+        VecCopy((Vec *)v, (const Vec *)(&(*(Src_8002EA64 **)((u8 *)shared_breakup_model + 4))[i].b));
         v->y = lerp__9TDeadSpotFff(lbl_805D8234, lbl_805D8238);
         v->z -= lerp__9TDeadSpotFff(lbl_805D8228, lbl_805D823C);
         p->unk18 = TObjPlayer::calc_random_scaled();

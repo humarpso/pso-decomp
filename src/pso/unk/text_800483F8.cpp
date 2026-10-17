@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80048560_lbl_80484860 {
@@ -28,7 +29,6 @@ struct Obj_800483F8 {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, int);
 s32 draw_line_list(void *, int, int);
 extern RecoveredGlobal_80048560_lbl_80484860 lbl_80484860;
 extern RecoveredGlobal_80048560_lbl_804FF1D0 lbl_804FF1D0;
@@ -67,8 +67,8 @@ Obj_800483F8 *fn_800483F8(Obj_800483F8 *self, Vec_800483F8 *from, Vec_800483F8 *
 }
 
 void fn_80048560(u8 *arg0) {
-    VecCopy__FP3VecPC3Vec((void *) (&lbl_804FF1D0.value), (int) (*(s32 *)((s8 *)arg0 + 0x1C)));
-    VecCopy__FP3VecPC3Vec((void *) ((u8 *)&lbl_804FF1D0.value + 0xC), (int) (*(s32 *)((s8 *)arg0 + 0x20)));
+    VecCopy((Vec *)(&lbl_804FF1D0.value), (const Vec *)(*(s32 *)((s8 *)arg0 + 0x1C)));
+    VecCopy((Vec *)((u8 *)&lbl_804FF1D0.value + 0xC), (const Vec *)(*(s32 *)((s8 *)arg0 + 0x20)));
     TObjPlayer::init_xyz_limits();
     draw_line_list((void *) (&lbl_80484860.value), (int) (1), (int) (5));
     TObjPlayer::reset_transform_state();

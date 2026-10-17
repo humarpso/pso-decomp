@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneDD_ST.h"
@@ -110,7 +111,6 @@ struct VObj_18_be4a70 : VBase_18_be4a70 {
     virtual s32 m85(s16, s32);
 };
 
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void obj_setFlags30(void *, u32);
 void queue_destruction__7TObjectFv(void *);
 u8 * create_particle_emitter(void *, s32);
@@ -458,11 +458,11 @@ void TObjEneRecon::init_state() {
     *(s32 *)((s8 *)arg0 + 0x478) = 0;
     *(s32 *)((s8 *)arg0 + 0x47C) = 0;
     *(s32 *)((s8 *)arg0 + 0x418) = 0;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x41C), (void *) (arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x41C), (const Vec *)(arg0 + 0x38));
     ((VObj_14_2f517b *)((u8 *)(arg0) + (1152)))->m2();
     *(s32 *)((s8 *)arg0 + 0x46C) = 0;
     *(s32 *)((s8 *)arg0 + 0x470) = 0;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x40C), (void *) (arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x40C), (const Vec *)(arg0 + 0x38));
     *(s32 *)((s8 *)arg0 + 0x3C0) = 0;
     *(s32 *)((s8 *)arg0 + 0x3C4) = 0;
     *(s32 *)((s8 *)arg0 + 0x3C8) = 0;

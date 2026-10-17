@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneRe2Flower_EffCurse3.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjEneRe2Flower_Bomb.h"
@@ -953,7 +954,6 @@ s32 check_path_obstructed(void *, void *);
 f32 get_collision_body_radius(void *, s32);
 s32 pop_matrix();
 s32 enemy_wander_home(void *, int, f32, f32, f32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 fabs_float(f32);
 f64 atan2_float(f32, f32);
 s32 link_chain_nodes__10TObjPlayerFPvPvPv(void *, void *, void *);
@@ -1097,7 +1097,7 @@ void TUnk_80493450::beast_update_hurt() {
     Vec_800C5164 v;
 
     advance_animation_playback();
-    VecCopy__FP3VecPC3Vec(&v, &o->f2FC);
+    VecCopy((Vec *)&v, (const Vec *)&o->f2FC);
     lbl_8050BEE0.x = lbl_8050BEE0.y = lbl_805DA034;
     lbl_8050BEE0.z = get_collision_body_radius(o, 0);
     ((void (*)(void *, void *))push_matrix_from)(identity_matrix, &lbl_8050BEE0);
@@ -1330,13 +1330,13 @@ void TUnk_80493450::beast_update_approach() {
         if (*(u32 *)&this->target != 0U) {
             if (test_elt_flag__13TUnk_80493450Fll(arg0, 0, 0x300000) != 0) {
                 if ((f32) (this->m_38c)++ < lbl_805DA054) {
-                    VecCopy__FP3VecPC3Vec(&sp14, (u8 *)&this->m_50);
+                    VecCopy((Vec *)&sp14, (const Vec *)&this->m_50);
                 } else {
-                    VecCopy__FP3VecPC3Vec(&sp14, (void *) (*(u32 *)&this->target + 0x2FC));
+                    VecCopy((Vec *)&sp14, (const Vec *)(*(u32 *)&this->target + 0x2FC));
                 }
             } else {
                 this->m_38c = 0U;
-                VecCopy__FP3VecPC3Vec(&sp14, (void *) (*(u32 *)&this->target + 0x2FC));
+                VecCopy((Vec *)&sp14, (const Vec *)(*(u32 *)&this->target + 0x2FC));
             }
             ((TUnk_80493450 *)arg0)->update_target_near_flag();
             ((TUnk_80493450 *)arg0)->sub_800C4E08();
@@ -1377,7 +1377,7 @@ void TUnk_80493450::update_turn_toward_target() {
     case 1:
         if (arg0->target != NULL && arg0->m17(0x1E) != 0) {
             Vec_800C5B10 d;
-            VecCopy__FP3VecPC3Vec(&d, &arg0->target->pos2);
+            VecCopy((Vec *)&d, (const Vec *)&arg0->target->pos2);
             subtract_vector(&d, &arg0->pos2);
             ang = update_angle__10TObjPlayerFlPv(arg0, arg0->field_350->field_8, &d);
             if (d.x * d.x + d.z * d.z < lbl_805DA030 || arg0->field_34C == 0) {
@@ -1393,7 +1393,7 @@ void TUnk_80493450::update_turn_toward_target() {
     case 2:
         if (arg0->target != NULL && arg0->m17(0x1E) != 0) {
             Vec_800C5B10 d;
-            VecCopy__FP3VecPC3Vec(&d, &arg0->target->pos2);
+            VecCopy((Vec *)&d, (const Vec *)&arg0->target->pos2);
             subtract_vector(&d, &arg0->pos2);
             ang = angle_difference_abs(arg0->field_60, (s32)(lbl_8043BC88 * atan2_float(d.x, d.z)));
             if (d.x * d.x + d.z * d.z < lbl_805DA030 || arg0->field_34C == 0) {
@@ -1483,10 +1483,10 @@ void TUnk_80493450::beast_idle_update() {
     dist = horizontal_distance_squared((u8 *)&this->position, (u8 *)&this->m_50);
     range = *(f32 *)((s8 *)arg0 + 0x358) + (*(f32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 4) + *(f32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0xC));
     if (range * range < dist) {
-        VecCopy__FP3VecPC3Vec((u8 *)&this->m_29c, (u8 *)&this->m_50);
-        VecCopy__FP3VecPC3Vec((u8 *)&this->m_290, (u8 *)&this->m_2fc);
-        VecCopy__FP3VecPC3Vec((u8 *)&this->m_44, (u8 *)&this->position);
-        VecCopy__FP3VecPC3Vec(&lbl_8050BEE0, (u8 *)&this->m_50);
+        VecCopy((Vec *)&this->m_29c, (const Vec *)&this->m_50);
+        VecCopy((Vec *)&this->m_290, (const Vec *)&this->m_2fc);
+        VecCopy((Vec *)&this->m_44, (const Vec *)&this->position);
+        VecCopy((Vec *)&lbl_8050BEE0, (const Vec *)&this->m_50);
         subtract_vector(&lbl_8050BEE0, (u8 *)&this->position);
         angle = lbl_8043BC88 * atan2_float(lbl_8050BEE0.x, lbl_8050BEE0.z);
         lbl_8050BF00.x = lbl_8050BF00.y = lbl_805DA034;
@@ -1498,7 +1498,7 @@ void TUnk_80493450::beast_idle_update() {
         vec3_add_to(&lbl_8050BF00, (u8 *)&this->position);
         if (project_actor_to_ground(arg0, &lbl_8050BF00, 0) == 1) {
             this->m_b8 = 2;
-            VecCopy__FP3VecPC3Vec((u8 *)&this->position, &lbl_8050BF00);
+            VecCopy((Vec *)&this->position, (const Vec *)&lbl_8050BF00);
             this->rotation_y = approach_angle_limited(this->rotation_y, angle, *(s32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 8));
             goto end;
         }
@@ -1517,7 +1517,7 @@ void TUnk_80493450::beast_idle_update() {
         vec3_add_to(&lbl_8050BF00, (u8 *)&this->position);
         if (project_actor_to_ground(arg0, &lbl_8050BF00, 0) == 1) {
             this->m_b8 = 2;
-            VecCopy__FP3VecPC3Vec((u8 *)&this->position, &lbl_8050BF00);
+            VecCopy((Vec *)&this->position, (const Vec *)&lbl_8050BF00);
             this->rotation_y = approach_angle_limited(this->rotation_y, angle, *(s32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 8));
             goto end;
         }
@@ -1536,7 +1536,7 @@ void TUnk_80493450::beast_idle_update() {
         vec3_add_to(&lbl_8050BF00, (u8 *)&this->position);
         if (project_actor_to_ground(arg0, &lbl_8050BF00, 0) == 1) {
             this->m_b8 = 2;
-            VecCopy__FP3VecPC3Vec((u8 *)&this->position, &lbl_8050BF00);
+            VecCopy((Vec *)&this->position, (const Vec *)&lbl_8050BF00);
             this->rotation_y = approach_angle_limited(this->rotation_y, angle2, *(s32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 8));
         } else {
             this->m_b8 = 2;

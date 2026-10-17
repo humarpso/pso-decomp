@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
 #include "pso/boss/TObjBoss1Floor.h"
 #include "pso/misc/TLobby.h"
 #include "pso/TMainTask.h"
@@ -55,7 +56,6 @@ int create_instance__14TObjBoss1FloorFv(void*);
 s32 end_effect_render__13TParticleCtrlFv(int);
 int load_dragon_ground_assets(void);
 s32 func_80141618__Fv();
-s32 set_depth_buffer_settings_id__FUl(int);
 
 void TLobby::update_boss1_objects() { TBoss8Dragon::free_resources(); TObjBoss1Rock__sub_8002E3CC(); TObjBoss1Crater__sub_8002C7B4(); TObjBoss1Floor__sub_8002CB40(); TLobby::free_char_select(); }
 int TLobby::forward_floor_2CB44() { return create_instance__14TObjBoss1FloorFv(this); }
@@ -77,7 +77,7 @@ void render__14TObjBoss1FloorFv(void) {
         end_effect_render__13TParticleCtrlFv((int) (temp_r3));
         push_matrix();
         model_render_flags = 1;
-        set_depth_buffer_settings_id__FUl((int) (3));
+        set_depth_buffer_settings_id((3));
         TObjPlayer::draw_if_all_ready();
         TObjFish::set_global_param((s32)((void *) (dragon_common_texture_list)));
         temp_r31 = (unsigned char *) (*(void **)((s8 *)(*(void **)((s8 *)lbl_805D4B50 + 0x42C)) + 0x58));

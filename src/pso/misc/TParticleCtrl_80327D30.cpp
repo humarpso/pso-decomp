@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_804ED598.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
@@ -25,7 +27,6 @@ int set_ginja_post_texgen_count(int);
 extern s32 lbl_804ED5B0[];
 int register_indirect_effect_ctrl(void*);
 void *__dt__13TUnk_804ED5B0Fv(void *arg0, s16 arg1);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 s32 construct_indirect_effect_task(int, int, int, int);
@@ -34,7 +35,6 @@ u8 *create_telepipe_marker(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 a
 void play_indirect_effect_recipe(u8 arg0, u16 arg1, s32 arg2);
 s32 setup_particle_tev(int);
 s32 load_projected_texture_matrix(f32);
-s32 set_depth_buffer_settings_2__Fv();
 s32 restore_saved_depth_alpha_state();
 s32 GXSetNumTexGens(int);
 s32 GXSetNumTevStages(int);
@@ -89,7 +89,7 @@ void TUnk_804ED598::render() {
         ((TParticleCtrl *)(o->f40))->play_particle((s32)(0), (s16)(-1));
         setup_particle_tev(0);
         if (o->f34 != 0) {
-            set_depth_buffer_settings_2__Fv();
+            set_depth_buffer_settings_2();
         }
         TParticleCtrl__sub_803E2A1C(v, 4);
         if (o->f34 != 0) {
@@ -141,7 +141,7 @@ u8 *create_telepipe_marker(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 a
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80327F88_lbl_804ED598 *)&lbl_804ED598).value;
     *(f32 *)((s8 *)arg0 + 0x1C) = farg0;
     *(f32 *)((s8 *)arg0 + 0x20) = farg1;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x24), (void *) (arg1));
+    VecCopy((Vec *)(arg0 + 0x24), (const Vec *)(arg1));
     *(s8 *)((s8 *)arg0 + 0x30) = arg2;
     *(s8 *)((s8 *)arg0 + 0x31) = arg3;
     *(s32 *)((s8 *)arg0 + 0x34) = arg5;

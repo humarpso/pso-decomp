@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TCameraCtrl.h"
 
 struct RecoveredGlobal_8006ABAC_lbl_804FF610 {
@@ -171,7 +172,6 @@ s32 apply_camera_controller_pose(int);
 s32 resolve_anchor_obstruction__11TCameraCtrlFv(void *, int);
 s32 clamp_to_target_obstruction__11TCameraCtrlFv(void *, int);
 extern u8 *camera_ctrl_instance;
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_getField1c(void *);
 s32 *get_character_select_request_buffer(void);
 s32 is_boss_area(void);
@@ -293,8 +293,8 @@ void reset_cameras_to_actor(void *actor, s32 arg1) {
   }
   if (camera_ctrl_instance != 0)
   {
-    VecCopy__FP3VecPC3Vec(&((Master_8006A410 *) camera_ctrl_instance)->pos[view], &c->pos);
-    VecCopy__FP3VecPC3Vec(&((Master_8006A410 *) camera_ctrl_instance)->tgt[view], &c->tgt);
+    VecCopy((Vec *)(&((Master_8006A410 *) camera_ctrl_instance)->pos[view]), (const Vec *)&c->pos);
+    VecCopy((Vec *)(&((Master_8006A410 *) camera_ctrl_instance)->tgt[view]), (const Vec *)&c->tgt);
   }
 }
 

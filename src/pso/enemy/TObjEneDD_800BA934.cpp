@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/player/TObjPlayer.h"
@@ -32,7 +33,6 @@ f32 post_translate_matrix(void *);
 int rotate_matrix_y(void *, void *);
 int matrix_mult_vec(void *, void *, void *);
 int pop_matrix(void);
-void VecCopy__FP3VecPC3Vec(Vec_800BAAE4 *dst, const Vec_800BAAE4 *src);
 void rotate_xz_pair_by_angle(f32 *x, f32 *z, s32 angle);
 void subtract_vector(Vec_800BAAE4 *a, Vec_800BAAE4 *b);
 void set_part_local_pos__9TObjEneDDFPvPvi(Obj_800BAAE4 *self, Vec_800BAAE4 *v, s32 i);
@@ -59,9 +59,9 @@ void TObjEneDD::transform_part_positions() {
 
 void set_part_position__9TObjEneDDFPvPvi(Obj_800BA9BC *self, Vec_800BA9BC *v, s32 i) {
     Vec_800BA9BC *p;
-    VecCopy__FP3VecPC3Vec((Vec_800BAAE4 *)(&self->parts[i].a), (const Vec_800BAAE4 *)(v));
+    VecCopy((Vec *)((Vec_800BAAE4 *)(&self->parts[i].a)), (const Vec *)((const Vec_800BAAE4 *)(v)));
     p = &self->parts[i].b;
-    VecCopy__FP3VecPC3Vec((Vec_800BAAE4 *)(p), (const Vec_800BAAE4 *)(v));
+    VecCopy((Vec *)((Vec_800BAAE4 *)(p)), (const Vec *)((const Vec_800BAAE4 *)(v)));
     rotate_xz_pair_by_angle(&p->x, &p->z, self->angle);
     vec3_add_to(p, &self->pos);
 }
@@ -73,7 +73,7 @@ void update_local_colliders_from_world(Obj_800BAA2C *arg0, V3_800BAA2C *arg1) {
     rotate_matrix_y((void *)(0), (void *)(-arg0->rot));
     translate_matrix(0, -arg0->x, -arg0->y, -arg0->z);
     for (i = 0; i < arg0->count; i++) {
-        VecCopy__FP3VecPC3Vec((Vec_800BAAE4 *)(&arg0->cols[i].pos), (const Vec_800BAAE4 *)(arg1));
+        VecCopy((Vec *)((Vec_800BAAE4 *)(&arg0->cols[i].pos)), (const Vec *)((const Vec_800BAAE4 *)(arg1)));
         matrix_mult_vec(0, arg1, &arg0->cols[i]);
         arg1++;
     }
@@ -82,9 +82,9 @@ void update_local_colliders_from_world(Obj_800BAA2C *arg0, V3_800BAA2C *arg1) {
 
 void set_part_local_pos__9TObjEneDDFPvPvi(Obj_800BAAE4 *self, Vec_800BAAE4 *v, s32 i) {
     Vec_800BAAE4 *p;
-    VecCopy__FP3VecPC3Vec(&self->parts[i].b, v);
+    VecCopy((Vec *)&self->parts[i].b, (const Vec *)v);
     p = &self->parts[i].a;
-    VecCopy__FP3VecPC3Vec(p, v);
+    VecCopy((Vec *)p, (const Vec *)v);
     subtract_vector(p, &self->pos);
     rotate_xz_pair_by_angle(&p->x, &p->z, -self->angle);
 }

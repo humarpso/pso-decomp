@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -66,7 +67,6 @@ void *TOSensor__ct(void *arg0);
 void *__dt__8TOSensorFv(void *arg0, s16 arg1);
 void render__8TOSensorFv(void);
 void TOKey__ct(void *);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
 
@@ -209,7 +209,7 @@ extern void *lbl_805D3140;
 void *TOSensor__ct(void *arg0) {
     TOKey__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TOSensor;
-    VecCopy__FP3VecPC3Vec((void *)((char *)arg0 + 80), (void *)((char *)arg0 + 56));
+    VecCopy((Vec *)((char *)arg0 + 80), (const Vec *)((char *)arg0 + 56));
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D3140;
     return arg0;
 }

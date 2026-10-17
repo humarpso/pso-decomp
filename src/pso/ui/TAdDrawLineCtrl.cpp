@@ -1,4 +1,5 @@
 #include "pso/ui/TAdDrawLineCtrl.h"
+#include "pso/render/depth_buffer.h"
 
 #include "types.h"
 #include "pso/TMainTask.h"
@@ -15,13 +16,12 @@ void __ct__7TObjectFP7TObject(void *);
 void fn_80019B08(void *, int);
 s32 restore_saved_depth_alpha_state();
 s32 get_main_phase();
-s32 set_depth_buffer_settings_2__Fv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 void TAdDrawLineCtrl::render() {
     if ((s32) this->render_mode == 0) {
         if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) {
-            set_depth_buffer_settings_2__Fv();
+            set_depth_buffer_settings_2();
             goto block_5;
         }
     } else if ((get_main_phase() != 2) || (TMainTask::get_state_flag() != 1)) {

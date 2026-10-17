@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/main_loop.h"
 #include "pso/misc/TMovie.h"
 #include "pso/misc/TKeyBoardControl.h"
 
@@ -33,8 +34,6 @@ extern s32 TMovie__name;
 s32 queue_destruction__7TObjectFv(void *);
 u8 *__ct__10TAdEndTextFv(void *, void *);
 s32 TAdEndText__sub_8001B41C();
-s32 controller_stuff__Fv();
-s32 render_tick__Fv();
 u8 *__nw__7TObjectFUl(s32);
 s32 set_camera_look_at(void *, void *, void *);
 s32 set_perspective_projection_from_fov(int, f32, f32, f32);
@@ -56,8 +55,8 @@ void run_task__6TMovieFv(u8 *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    render_tick__Fv();
-    render_tick__Fv();
+    render_tick();
+    render_tick();
     TMovie::calc_frame_buffer_size((s32)((void *)video_initial_display_framebuffer), (s32)((void *)video_initial_draw_framebuffer));
     txt = NULL;
     if (TAdEndText__sub_8001B41C() != 0) {
@@ -72,7 +71,7 @@ void run_task__6TMovieFv(u8 *arg0) {
             break;
         }
         func_803DCDFC__Fv();
-        controller_stuff__Fv();
+        controller_stuff();
         TKeyBoardControl::update_input_frame();
         ((TMovie *)(*(u32 *)((s8 *)arg0 + 0x20)))->decode_frame();
         if (*(s32 *)((s8 *)arg0 + 0x48) != 0) {
@@ -89,7 +88,7 @@ void run_task__6TMovieFv(u8 *arg0) {
                 txt->m1();
                 txt->m2();
             }
-            render_tick__Fv();
+            render_tick();
         }
     }
     queue_destruction__7TObjectFv(arg0);

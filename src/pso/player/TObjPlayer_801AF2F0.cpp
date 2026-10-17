@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneRecon.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/misc/TShopJudgmentItemWindow.h"
@@ -1980,7 +1982,6 @@ s32 update_action_timer__10TObjPlayerFPv(s32);
 s32 update_action_hold_status__13TUnk_804806E8Fv(s32);
 s32 update_poison_status__13TUnk_804806E8Fv(s32);
 s32 reset_motion_fields__13TUnk_804806E8Fv(void *);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_locally_controlled__10TObjPlayerFPv(void * a0);
 s32 obj_getArrWord_254(void *, s32);
 s32 obj_getS16_32E(void *);
@@ -2050,7 +2051,6 @@ u32 TLockOnCursor__ct(u32, void *, s32);
 u16 get_id__11TMainCursorFv(void* p);
 s32 fn_8013F264(s32);
 s32 set_shadow_material_state();
-void set_depth_buffer_settings_id__FUl(u32);
 void direction_to_rotation_xz(void *, void *, void *);
 s32 draw_model_with_callback__10TObjPlayerFllf(void *, s32, s32, f32);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -3966,7 +3966,7 @@ void send_6x24_teleport_player(u16 slot, void *pos, s32 heading) {
     if (((u32 (*)(s32))get_player_by_client_id)(slot) != 0U && obj_isState2_324__13TUnk_804806E8Fv() == 0) {
         pkt.slot = slot;
         pkt.heading = heading;
-        ((s32 (*)(s32, s32))VecCopy__FP3VecPC3Vec)((s32) &pkt.pos, (s32) pos);
+        VecCopy((Vec *)&pkt.pos, (const Vec *)pos);
         ((TObjPlayer *)(&pkt))->send_lobby_update();
     }
 }
@@ -5134,7 +5134,7 @@ void fill_player_record__10TObjPlayerFPvPv(Src_801B4CE4 *src, Dst_801B4CE4 *dst)
     dst->f0 = ((s16 (*)(s32))obj_getField1c)((s32)src);
     dst->f2 = src->f2E;
     dst->f4 = src->f30 & ~0x02000000;
-    VecCopy__FP3VecPC3Vec(dst->f8, src->pos38);
+    VecCopy((Vec *)dst->f8, (const Vec *)src->pos38);
     ((TObjPlayer *)(dst->f14))->copy_xyz(src->f5C);
     dst->f20 = src->f326;
     dst->f22 = src->f32C;
@@ -5988,7 +5988,7 @@ void TObjPlayer::update_position_history() {
         }
         ((TObjPlayer *)arg0)->set_position_history_entry(*(s32 *)((s8 *)arg0 + 0x6AC), *(f32 *)((s8 *)arg0 + 0x38), *(f32 *)((s8 *)arg0 + 0x40));
     }
-    ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x44, (u8 *)&this->position);
+    VecCopy((Vec *)(arg0 + 0x44), (const Vec *)&this->position);
     ((TObjPlayer *)(arg0 + 0x360))->update_field8();
 }
 
@@ -6071,7 +6071,7 @@ u8 *TObjPlayer__vt16(u8 *arg0, u8 *arg1) {
         return NULL;
     }
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 4)) + 4);
-    ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (arg0 + 0x410), (void *) (*(u8 **)((s8 *)temp_r3 + 4) + 0xC));
+    VecCopy((Vec *)(arg0 + 0x410), (const Vec *)(*(u8 **)((s8 *)temp_r3 + 4) + 0xC));
     return temp_r3;
 }
 
@@ -6456,7 +6456,7 @@ void TObjPlayer::send_6x2A_drop_item(void *arg0, s32 arg1, void *arg2, s32 arg3)
         cmd.a = arg1;
         cmd.b = arg3;
         cmd.floor = ((s16 (*)(void))get_current_floor)();
-        VecCopy__FP3VecPC3Vec(&cmd.pos, arg2);
+        VecCopy((Vec *)&cmd.pos, (const Vec *)arg2);
         ((TObjPlayer *)(&cmd))->bswap_fields_and_send();
         ((void (*)(void *))send_unequip_held_item__10TObjPlayerFUi)(arg0);
     }
@@ -7305,7 +7305,7 @@ void handle_6x1F_set_player_floor(void *arg0) {
             ((TObjPlayer *)(&m3))->init_cmd_6x20();
             m3.id = obj_getField1c(pl);
             m3.f4 = ((TObjPlayer *)pl)->get_field_3e4();
-            VecCopy__FP3VecPC3Vec(m3.vec, pl->pos);
+            VecCopy((Vec *)m3.vec, (const Vec *)pl->pos);
             m3.ang = pl->ang;
             ((TObjPlayer *)(&m3))->send_player_floor_packet_u32x5();
             if (((s32 (*)(void))is_lobby_floor_15__15TFontSmallLobbyFv)() != 0) {
@@ -7433,7 +7433,7 @@ void draw_body__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     Stack_801BAD60 stack;
     u8 *temp_r3;
     push_matrix();
-    ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+    VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x38));
     stack.spC += *(f32 *)((s8 *)arg0 + 0x5FC);
     ((s32 (*)(int, void *))translate_matrix_vec3)((int) (0), (void *) (&stack.sp8));
     ((s32 (*)(int, int))rotate_matrix_y)((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
@@ -7500,7 +7500,7 @@ void render__10TObjPlayerFv(u8 *arg0) {
                 }
                 save_render_material_state(arg0 + 0x608);
                 ((TObjPlayer *)arg0)->apply_material_color_override();
-                ((s32 (*)(s32))set_depth_buffer_settings_id__FUl)(1);
+                set_depth_buffer_settings_id(1);
                 ((s32 (*)(void *))TObjPlayer__sub_801BAC48)(arg0);
                 ((TObjPlayer *)(arg0 + 0x608))->write_ids();
                 ((s32 (*)(void))restore_scene_lighting)();
@@ -7542,7 +7542,7 @@ void TObjPlayer::render_body_pass(f32 f) {
     }
     save_render_material_state((u8 *)&this->m_608);
     apply_material_color_override();
-    set_depth_buffer_settings_id__FUl(1);
+    set_depth_buffer_settings_id(1);
     ((void (*)(void *))TObjPlayer__sub_801BAC48)(self);
     ((TObjPlayer *)(self + 0x608))->write_ids();
     restore_scene_lighting();
@@ -7946,15 +7946,15 @@ s32 TObjPlayer::send_respawn_position() {
     pick = list[(s32)((f32)count * (lbl_805DC2D8 * (lbl_805DC288 * (f32)rand())))].obj;
     if (pick == NULL || count == 0) {
         area = this->rotation_y;
-        VecCopy__FP3VecPC3Vec(pos, (u8 *)this + 0x38);
+        VecCopy((Vec *)pos, (const Vec *)((u8 *)this + 0x38));
     } else {
         area = pick->ang;
-        VecCopy__FP3VecPC3Vec(pos, pick->pos);
+        VecCopy((Vec *)pos, (const Vec *)pick->pos);
     }
     if (this == NULL || ((s32 (*)(void *))obj_isState2_324__13TUnk_804806E8Fv)(this) == 0) {
         cmd.client = obj_getField1c(this);
         cmd.area = area;
-        VecCopy__FP3VecPC3Vec(cmd.pos, pos);
+        VecCopy((Vec *)cmd.pos, (const Vec *)pos);
         ((TObjPlayer *)(&cmd))->send_lobby_update();
     }
 }
@@ -7980,7 +7980,7 @@ void TObjPlayer__send_selected_spawn_position(void *self, u16 id) {
         ((TObjPlayer *)(&m))->init_set_position_packet();
         m.id = obj_getField1c(self);
         m.ang = o->ang;
-        VecCopy__FP3VecPC3Vec(m.vec, o->pos);
+        VecCopy((Vec *)m.vec, (const Vec *)o->pos);
         TObjPlayer__sub_801C18E0(&m);
     }
 }

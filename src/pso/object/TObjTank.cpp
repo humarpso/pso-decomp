@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjTank.h"
 #include "pso/object/TObjFish.h"
@@ -40,7 +41,6 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80446184;
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 fs_obj_tank_resource_descriptor;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_8019A880_lbl_804B8F70 tobjtank_collision_body_parts;
 extern s32 __vt__8TObjTank[];
@@ -103,9 +103,9 @@ u8 *TObjTank__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8019A880___vt__8TObjTank *)&__vt__8TObjTank).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjTank__class_name;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2 + 0xC));
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2 + 0xC));
     ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz((void *) (arg2 + 0x18));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x68), (void *) (arg2 + 0x24));
+    VecCopy((Vec *)(arg0 + 0x68), (const Vec *)(arg2 + 0x24));
     init_collision_body_parts((void *) (arg0), (void *) (&tobjtank_collision_body_parts.value), (int) (1));
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
     ((TObjPlayer *)arg0)->reset_photon_effect();

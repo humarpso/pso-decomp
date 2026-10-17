@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneMorfosArm.h"
 #include "pso/TParticleCtrl.h"
@@ -17,7 +18,6 @@ extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 u8 * TObjEneMorfosArm__sub_803326B4(void *);
 s32 TObjEneMorfosArm__sub_803326BC(void *);
-s32 VecCopy__FP3VecPC3Vec(void *, int);
 s32 advance_animation_playback();
 u16 obj_getField1c(void *);
 u8 * TObjMotion__ct(void *);
@@ -61,7 +61,7 @@ void TObjEneMorfosArm::run_task() {
         queue_destruction__7TObjectFv((void *)(arg0));
         return;
     }
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (int) (TObjEneMorfosArm__sub_803326B4(temp_r3)));
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(TObjEneMorfosArm__sub_803326B4(temp_r3)));
     this->rotation_y = TObjEneMorfosArm__sub_803326BC(*(u8 * *)&this->m_fc);
     if (*(s32 *)&this->animationFlags & 0x10) {
         queue_destruction__7TObjectFv((void *)(arg0));
@@ -85,7 +85,7 @@ u8 *TObjEneMorfosArm__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneMorfosArm__name;
     *(u8 **)((s8 *)arg0 + 0xFC) = arg2;
     *(u16 *)((s8 *)arg0 + 0x100) = obj_getField1c(*(u8 **)((s8 *)arg0 + 0xFC));
-    VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x38)), (int)((void *) (((s32)TObjEneMorfosArm__sub_803326B4((void *)((s32) *(u8 **)((s8 *)arg0 + 0xFC)))))));
+    VecCopy((Vec *)((void *) (arg0 + 0x38)), (const Vec *)((void *) (((s32)TObjEneMorfosArm__sub_803326B4((void *)((s32) *(u8 **)((s8 *)arg0 + 0xFC)))))));
     *(s32 *)((s8 *)arg0 + 0x60) = TObjEneMorfosArm__sub_803326BC(*(u8 **)((s8 *)arg0 + 0xFC));
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjEneMorfosArm__parent_morfos_instance) + 0x42C)) + 8);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjEneMorfosArm__parent_morfos_instance) + 0x42C));

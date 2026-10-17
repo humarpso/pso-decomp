@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
 #include "pso/item/TItem.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TItemLoad.h"
@@ -29,7 +30,6 @@ extern "C" {
 void TObjPlayer__sub_8010047C(u8 *arg0, s16 arg1);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 func_80141618__Fv();
-s32 set_depth_buffer_settings_id__FUl(s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -87,7 +87,7 @@ void TObjPlayer__sub_80100070(u8 *arg0) {
         lbl_805D5668 = chunk_polygon_flags_or_mask;
         copy_vec4__13TRaderMapCoreFPvPv((void *) (&saved_model_draw_color.value), (void *) (&model_material_color.value));
         model_render_flags |= 0x10;
-        set_depth_buffer_settings_id__FUl((s32)((int) (3)));
+        set_depth_buffer_settings_id(((int) (3)));
         TParticleCtrl::begin_effect_render();
         TObjPlayer::notify_fish_if_valid((s32)((int) (sp8)));
         push_matrix();
@@ -115,7 +115,7 @@ void TObjPlayer::draw_item_model() {
 
     TItemLoad::get_model_ids((u8)(*(u8 *)((s8 *)arg0 + 0xEF)), (s32 *)(&spC), (s32 *)(&sp8));
     if (spC != 0U) {
-        set_depth_buffer_settings_id__FUl(3);
+        set_depth_buffer_settings_id(3);
         TParticleCtrl::begin_effect_render();
         TObjPlayer::notify_fish_if_valid(sp8);
         push_matrix();

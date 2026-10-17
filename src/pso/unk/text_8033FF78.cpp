@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss6Demo15_TYPE2_WAIT.h"
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/misc/TLobby.h"
@@ -30,7 +31,6 @@ struct O_8034009C { u8 pad[0x60]; void *o[10]; };
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void fn_80340040(O_80340040 *arg0);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 P_8033FF78 *get_player_data__10TObjPlayerFi(int);
 f32 vector_length(void *);
 s32 subtract_vector(void *, void *);
@@ -55,7 +55,7 @@ void TBoss6Demo15_TYPE2_WAIT::check_any_player_near() {
     for (i = 0; i < n; i++) {
         p = get_player_data__10TObjPlayerFi(i);
         if (((TBoss6PlotFalz *)p)->is_active() != 0) {
-            VecCopy__FP3VecPC3Vec(&v, &arg0->pos);
+            VecCopy((Vec *)&v, (const Vec *)&arg0->pos);
             subtract_vector(&v, &p->pos);
             v.y = y;
             if (vector_length(&v) <= lim) {
@@ -86,11 +86,11 @@ void fn_8034009C(O_8034009C *arg0) {
     prm.f34 = 0;
     for (i = 0; i < 10; i++) {
         E_8034009C *e = &lbl_8047843C[i];
-        VecCopy__FP3VecPC3Vec(&prm.a, &e->a);
+        VecCopy((Vec *)&prm.a, (const Vec *)&e->a);
         prm.f18 = 0;
         prm.f1c = e->f18;
         prm.f20 = 0;
-        VecCopy__FP3VecPC3Vec(&prm.b, &e->b);
+        VecCopy((Vec *)&prm.b, (const Vec *)&e->b);
         arg0->o[i] = (void *)create__10TObjMapCsnFl(&prm);
     }
 }

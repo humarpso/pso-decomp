@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 struct Vec_8036D0C0 { f32 x, y, z; };
 
 struct Hold_8036D0C0 {
@@ -16,7 +17,6 @@ struct Hold_8036D0C0 {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
 void queue_destruction__7TObjectFv(void *);
 void *create_particle_emitter(void *, int);
@@ -31,7 +31,7 @@ Hold_8036D0C0 *TObjEneHoldEffect__ct(Hold_8036D0C0 *o, u8 *parent, s32 type, s32
     o->x90 = NULL;
     if (parent != NULL) {
         o->x0 = lbl_805D44E8;
-        VecCopy__FP3VecPC3Vec(&o->pos, parent + 0x38);
+        VecCopy((Vec *)&o->pos, (const Vec *)(parent + 0x38));
         o->x94 = obj_getField1c(parent);
         o->x9c = arg3;
         switch (type) {

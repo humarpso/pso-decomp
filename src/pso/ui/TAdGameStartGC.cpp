@@ -1,4 +1,5 @@
 #include "pso/TObject.h"
+#include "pso/system/byteswap.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 class TAdGameStartGC : public TObject {
 public:
@@ -63,9 +64,8 @@ void bswap_6x92__14TAdGameStartGCFPv(void* p);
 void render__14TAdGameStartGCFv(void);
 void send_6x92__14TAdGameStartGCFPv(void* p);
 int TLobby__send_and_handle_60(void*);
-int bswap_32__FPUl(void*);
 
-void bswap_6x92__14TAdGameStartGCFPv(void* p) { ((TObjPlayer *)p)->read_be16_field2(); bswap_32__FPUl((char*)p + 0x4); bswap_32__FPUl((char*)p + 0x8); }
+void bswap_6x92__14TAdGameStartGCFPv(void* p) { ((TObjPlayer *)p)->read_be16_field2(); bswap_32((u32 *)((char*)p + 0x4)); bswap_32((u32 *)((char*)p + 0x8)); }
 void send_6x92__14TAdGameStartGCFPv(void* p) { bswap_6x92__14TAdGameStartGCFPv((void*)(p)); TLobby__send_and_handle_60(p); }
 void TAdGameStartGC__sub_802E6368(void* p) { *(u8*)((char*)p + 0x0) = 146; *(u8*)((char*)p + 0x1) = 3; }
 

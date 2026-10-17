@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TUnk_804928CC.h"
 extern "C" void render__15TBoss2PhotonPadFv();
 
@@ -55,7 +56,6 @@ void run_task__18TBoss2PhotonBulletFv(u8 *arg0);
 void *__dt__18TBoss2PhotonBulletFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 extern void *__vt__18TBoss2PhotonBullet[];
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 construct_collision_body(void *, void *, void *);
 extern s32 TBoss2PhotonBullet__name;
 u8 *TBoss2PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, u8 *arg4, f32 farg0);
@@ -132,9 +132,9 @@ u8 *TBoss2PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, u8 *arg4, f32
     construct_collision_body((void *) (arg0), (void *) (arg1), (void *) (arg2));
     *(void ***)((s8 *)arg0 + 0x18) = __vt__18TBoss2PhotonBullet;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss2PhotonBullet__name;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xC0), (void *) (arg3));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg0 + 0xC0));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xB4), (void *) (arg4));
+    VecCopy((Vec *)(arg0 + 0xC0), (const Vec *)(arg3));
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0xC0));
+    VecCopy((Vec *)(arg0 + 0xB4), (const Vec *)(arg4));
     *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0xC) = 3.0f;
     *(f32 *)((s8 *)arg0 + 0xCC) = (0.0f);
     *(f32 *)((s8 *)arg0 + 0xD0) = (0.0f);
@@ -227,7 +227,7 @@ S_80039288 *__ct__15TBoss2PhotonPadFv(S_80039288 *o, void *parent, s32 arg2, voi
     o->f0 = TBoss2PhotonPad__name;
     o->f1c = arg2;
     o->f2c = arg4;
-    VecCopy__FP3VecPC3Vec(o->v20, arg3);
+    VecCopy((Vec *)o->v20, (const Vec *)arg3);
     rotate_xz_pair_by_angle(o->v20, o->v28, -(TBoss2PhotonPad__bullet_level_param_table[o->f2c].c / 2));
     o->f30 = TBoss2PhotonPad__bullet_level_param_table[o->f2c].a;
     o->f34 = 0;

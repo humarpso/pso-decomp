@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/unk/TUnk_804CC148.h"
 #include "pso/misc/TTecGiFoie.h"
 #include "pso/misc/TTecAnti.h"
@@ -153,7 +154,6 @@ struct Task_802312E4;
 
 struct Vec_802312E4;
 
-void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 f32 newton_sqrtf(f32);
 s32 queue_destruction__7TObjectFv(int);
@@ -239,7 +239,7 @@ Task_802312E4 *construct_orbit__10TTecGiFoieFPvPviUciPvUc(Task_802312E4 *self, V
     self->pos.z = pos->z;
     self->band = band;
     self->x45 = arg4;
-    VecCopy__FP3VecPC3Vec(&self->pos2, &self->pos);
+    VecCopy((Vec *)&self->pos2, (const Vec *)&self->pos);
     self->x3c = arg2;
     self->x38 = lbl_805DC810;
     self->x40 = 0;

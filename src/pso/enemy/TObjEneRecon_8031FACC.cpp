@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneRecobox.h"
 #include "pso/misc/TWindowSubComCard.h"
 
@@ -10,7 +11,6 @@ struct Stack_8031FB6C {
 struct Obj_8031FACC { u8 pad[0x3F4]; s32 f3F4; s32 f3F8; u8 pad2[0x410 - 0x3FC]; s32 f410; s32 f414; };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *csnVectorUnder(s32 *, void *, s32);
 s32 set_part_local_pos__9TObjEneDDFPvPvi(void *, void *, int);
 extern const f32 lbl_805DF450;
@@ -37,7 +37,7 @@ u8 TObjEneRecon__sub_8031FACC(Obj_8031FACC *arg0) {
 void TObjEneRecon__sub_8031FB6C(u8 *arg0) {
     Stack_8031FB6C stack;
     u8 *temp_r3;
-    VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x2FC));
+    VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x2FC));
     if ((s32) *(s32 *)((s8 *)arg0 + 0x3DC) == 1) {
         stack.spC -= lbl_805DF450;
     } else {

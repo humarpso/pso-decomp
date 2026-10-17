@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/misc/TScene.h"
@@ -22,7 +23,6 @@ struct Stack_801F3778 {
 
 extern "C" {
 void read_be16_field2__10TObjPlayerFv(void *);
-s32 bswap_16__FPUs(s32);
 s32 TLobby__send_and_handle_60(s32);
 void build_6x75_update_quest_flag_dc(void* p);
 extern s32 game_difficulty_selection;
@@ -91,10 +91,10 @@ void send_and_handle_6x75(void *arg0) {
 
 void TLobby::byteswap_6x75_packet() {
     read_be16_field2__10TObjPlayerFv(this);
-    bswap_16__FPUs((s32)((void *)((char *)this + 4)));
-    bswap_16__FPUs((s32)((void *)((char *)this + 6)));
-    bswap_16__FPUs((s32)((void *)((char *)this + 8)));
-    bswap_16__FPUs((s32)((void *)((char *)this + 10)));
+    bswap_16((u16 *)((void *)((char *)this + 4)));
+    bswap_16((u16 *)((void *)((char *)this + 6)));
+    bswap_16((u16 *)((void *)((char *)this + 8)));
+    bswap_16((u16 *)((void *)((char *)this + 10)));
 }
 
 void build_6x75_update_quest_flag_dc(void* p) { *(u8*)((char*)p + 0x0) = 117; *(u8*)((char*)p + 0x1) = 3; }

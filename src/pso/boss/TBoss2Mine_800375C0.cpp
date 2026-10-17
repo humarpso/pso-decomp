@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/boss/TUnk_80482EC0.h"
@@ -13,7 +14,6 @@
 
 struct Mine_80038760; struct O_80038908;
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 transition_enemy_state(void *, int);
 s32 play_sound_effect(int, void *, int, int);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
@@ -25,7 +25,6 @@ void* TBoss2Mine__ct(void* a0, int a1, int a2, int a3, int a4);
 extern s32 lbl_80482D04[];
 }
 
-#define VecCopy__FP3VecPC3Vec ((s32 (*)(void *, s32))VecCopy__FP3VecPC3Vec)
 #define update_pulse_state__10TBoss2MineFv ((s32 (*)(void *))update_pulse_state__10TBoss2MineFv)
 
 struct Vec_800375C0 { f32 x, y, z; };
@@ -72,12 +71,12 @@ void TBoss2Mine__sub_800375C0(u8 *arg0, s32 arg1) {
         }
         *(s32 *)((s8 *)arg0 + 0x64) += 2.56e+03f;
         ((TUnk_80482D04 *)arg0)->move_mine();
-        VecCopy__FP3VecPC3Vec(&v, (s32)(arg0 + 0x390));
+        VecCopy((Vec *)&v, (const Vec *)(arg0 + 0x390));
         subtract_vector(&v, arg0 + 0x2FC);
         s = ((TObjBoss2Tunnel *)(&v))->clamp_velocity();
         s *= (0.75f);
         if (s < (0.2f)) {
-            VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, (s32)&*(Vec_800375C0 *)((s8 *)arg0 + 0x390));
+            VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)((s32)&*(Vec_800375C0 *)((s8 *)arg0 + 0x390)));
         } else {
             if (s > (4.0f)) {
                 s = (4.0f);
@@ -154,7 +153,7 @@ void TBoss2Mine__sub_800377E8(u8 *arg0, s32 arg1) {
                 *(f32 *)((s8 *)arg0 + 0x3DC) = (3.0f);
             }
             ((TUnk_80482D04 *)arg0)->move_mine();
-            VecCopy__FP3VecPC3Vec(&v, (s32)(arg0 + 0x390));
+            VecCopy((Vec *)&v, (const Vec *)(arg0 + 0x390));
             subtract_vector(&v, arg0 + 0x2FC);
             if (((TObjBoss2Tunnel *)(&v))->update_scale() <= (4.5f)) {
                 *(s32 *)((s8 *)arg0 + 0x3C8) = 3;
@@ -185,7 +184,7 @@ void init_launch__10TBoss2MineFPvPvii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     s32 temp_r31;
     s32 var_r31;
     *(s32 *)((s8 *)arg0 + 0x38C) = (s32) (*(s32 *)((s8 *)arg0 + 0x38C) | 0x100);
-    VecCopy__FP3VecPC3Vec((void *)(arg0 + 0x2FC), (s32)(arg1));
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg1));
     *(s32 *)((s8 *)arg0 + 0x3F0) = arg2;
     temp_r31 = arg3 * 0x5555;
     *(s32 *)((s8 *)arg0 + 0x3F4) = arg3;
@@ -208,7 +207,7 @@ void init_launch__10TBoss2MineFPvPvii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     *(f32 *)((s8 *)arg0 + 0x398) = (f32) (0.0f);
     ((TUnk_80482D04 *)arg0)->move_mine();
     *(s32 *)((s8 *)arg0 + 0x5C) = 0x4000;
-    VecCopy__FP3VecPC3Vec((void *)(arg0 + 0x38), (s32)(arg0 + 0x2FC));
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x2FC));
     *(s32 *)((s8 *)arg0 + 0x3A8) = 0;
     *(s16 *)((s8 *)arg0 + 0x32C) = (s16) *(s16 *)((s8 *)arg0 + 0x2B8);
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & ~0xA00);
@@ -217,7 +216,7 @@ void init_launch__10TBoss2MineFPvPvii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
 void TUnk_80482D04::move_mine() {
     u8 *arg0 = (u8 *)this;
     if (is_alive__9TObjEneDDFv(*(s32 *)((s8 *)arg0 + 0x3F0)) != 0) {
-        VecCopy__FP3VecPC3Vec(arg0 + 0x390, *(s32 *)((s8 *)arg0 + 0x3F0) + 0x38);
+        VecCopy((Vec *)(arg0 + 0x390), (const Vec *)(*(s32 *)((s8 *)arg0 + 0x3F0) + 0x38));
         vec3_add_to(arg0 + 0x390, arg0 + 0x3F8);
         *(f32 *)((s8 *)arg0 + 0x394) += 17.0f;
     }
@@ -227,7 +226,6 @@ void TUnk_80482D04::vfunc_88() {
     *(f32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 4) = (f32) ((1.0f) + (*(f32 *)((s8 *)this + 0x300) - *(f32 *)((s8 *)this + 0x3C)));
 }
 
-#undef VecCopy__FP3VecPC3Vec
 #undef update_pulse_state__10TBoss2MineFv
 
 void *__dt__13TUnk_80482D04Fv(void *arg0, s16 arg1);
@@ -349,7 +347,7 @@ void TBoss2Mine__sub_80037EE0(u8 *arg0, s32 arg1) {
     case 4:
         ((VObj_80037EE0 *)arg0)->m93();
         *(s32 *)((s8 *)arg0 + 0x38C) = (s32) (*(s32 *)((s8 *)arg0 + 0x38C) & 0xFFFFFFF8);
-        VecCopy__FP3VecPC3Vec(arg0 + 0x39C, arg0 + 0x390);
+        VecCopy((Vec *)(arg0 + 0x39C), (const Vec *)(arg0 + 0x390));
         subtract_vector(arg0 + 0x39C, arg0 + 0x2FC);
         *(f32 *)((s8 *)arg0 + 0x3DC) = ((TObjBoss2Tunnel *)(arg0 + 0x39C))->clamp_velocity();
         temp_r3 = (s32) ((10430.38043493439) * atan2_float(*(f32 *)((s8 *)arg0 + 0x39C), *(f32 *)((s8 *)arg0 + 0x3A4)));
@@ -396,10 +394,10 @@ void TBoss2Mine__sub_80037EE0(u8 *arg0, s32 arg1) {
 void TBoss2Mine::set_launch_position_velocity(u8 *arg1, u8 *arg2) {
     u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x38C) = (s32) (*(s32 *)((s8 *)arg0 + 0x38C) | 0x100);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg1);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x390, arg2);
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)arg1);
+    VecCopy((Vec *)(arg0 + 0x390), (const Vec *)arg2);
     *(f32 *)((s8 *)arg0 + 0x394) += 1.0f;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0x2FC);
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x2FC));
     *(s32 *)((s8 *)arg0 + 0x3A8) = 0;
     *(s16 *)((s8 *)arg0 + 0x32C) = (s16) *(s16 *)((s8 *)arg0 + 0x2B8);
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & ~0xA00);
@@ -1058,7 +1056,7 @@ void TBoss2Mine::update_move_flag() {
     *(s32 *)((s8 *)this + 0x38C) = (s32) (*(s32 *)((s8 *)this + 0x38C) | 2);
 }
 
-void TBoss2Mine::save_position() { VecCopy__FP3VecPC3Vec((char*)this + 0x74, (char*)this + 0x2fc); }
+void TBoss2Mine::save_position() { VecCopy((Vec *)((char*)this + 0x74), (const Vec *)((char*)this + 0x2fc)); }
 void TBoss2Mine::vfunc_61() {  }
 
 }

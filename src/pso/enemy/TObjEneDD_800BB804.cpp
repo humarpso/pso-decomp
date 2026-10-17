@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -352,7 +353,6 @@ s32 TObjEneDD__vt82(V_800BBB18 *self);
 extern const f32 TObjEneDD__data_805D9E8C;
 s32 pack_debug_text_position(s32 arg0, s32 arg1);
 s32 subtractive_rng_seed(void *, int);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 vfunc_79__9TObjEnemyFv();
 int fn_800FD8A0(void*);
 
@@ -479,11 +479,11 @@ s32 TObjEneDD::vfunc_83() {
 
 void TObjEneDD::init_position_vectors() {
     u8 *arg0 = (u8 *)this;
-    VecCopy__FP3VecPC3Vec((u8 *)&this->m_44, (u8 *)&this->position);
-    VecCopy__FP3VecPC3Vec((u8 *)&this->m_50, (u8 *)&this->position);
-    VecCopy__FP3VecPC3Vec((u8 *)&this->m_74, (u8 *)&this->position);
+    VecCopy((Vec *)&this->m_44, (const Vec *)&this->position);
+    VecCopy((Vec *)&this->m_50, (const Vec *)&this->position);
+    VecCopy((Vec *)&this->m_74, (const Vec *)&this->position);
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
-    VecCopy__FP3VecPC3Vec((u8 *)&this->m_2fc, (u8 *)&this->position);
+    VecCopy((Vec *)&this->m_2fc, (const Vec *)&this->position);
     *(f32 *)((s8 *)arg0 + 0x308) = (f32) TObjEneDD__data_805D9E8C;
     *(f32 *)((s8 *)arg0 + 0x30C) = (f32) TObjEneDD__data_805D9E8C;
     this->m_310 = (f32) TObjEneDD__data_805D9E8C;

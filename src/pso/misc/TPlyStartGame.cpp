@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 
 typedef struct TPlyStartGame_801E0580 {
     u32 header;
@@ -14,7 +15,6 @@ void bswap__13TPlyStartGameFv(TPlyStartGame_801E0580 *self);
 u8 *__ct__13TPlyStartGameFRC13TPlyStartGame(u8 *arg0, u8 *arg1);
 int bswap_game_list_entry(void* p);
 void copy_game_list_entry(void *, const void *);
-int bswap_32__FPUl(void*);
 int bswap__16TPlyGuildCardTagFv(void*);
 s32 fn_801DF61C(void *, void *);
 s32 fn_801E051C(void *, void *);
@@ -28,7 +28,7 @@ void bswap__13TPlyStartGameFv(TPlyStartGame_801E0580 *self) {
     bswap__21TPlyMeetUserExtensionFv(self->extension);
 }
 
-void bswap__13TPlyStartGameFPv(void* p) { bswap__16TPlyGuildCardTagFv(p); bswap_32__FPUl((char*)p + 0x8); bswap_32__FPUl((char*)p + 0xc); }
+void bswap__13TPlyStartGameFPv(void* p) { bswap__16TPlyGuildCardTagFv(p); bswap_32((u32 *)((char*)p + 0x8)); bswap_32((u32 *)((char*)p + 0xc)); }
 
 u8 *__ct__13TPlyStartGameFRC13TPlyStartGame(u8 *arg0, u8 *arg1) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) *(s32 *)((s8 *)arg1 + 0);

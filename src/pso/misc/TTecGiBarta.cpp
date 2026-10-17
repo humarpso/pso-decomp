@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TUnk_804CCC68.h"
 #include "pso/misc/TTecGiBarta.h"
 #include "pso/misc/TTecAnti.h"
@@ -120,7 +121,6 @@ struct Obj_80230CFC {
 };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, const void *);
 void *get_bml_motion(void *, u32);
 void *get_bml_model(void *, u32);
 void attach_particle_model(void *, void *, void *, void *, s32, f32);
@@ -256,7 +256,7 @@ void TTecGiBarta::create_particles() {
         shot->emitters[i] = emitter;
     }
     if (shot->band == 5) {
-        VecCopy__FP3VecPC3Vec(&v, &shot->pos);
+        VecCopy((Vec *)&v, (const Vec *)&shot->pos);
         v.y -= lbl_805DC808;
         spawn_particle_effect(&v, 0x1E0);
         spawn_particle_effect(&v, 0x1E1);

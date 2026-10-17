@@ -1,4 +1,5 @@
 #include "pso/object/TObjWarnChime.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjSoloPlayWin.h"
@@ -620,7 +621,6 @@ struct Entry_80292730 { s32 val; s32 id; };
 struct Tbl_80292730 { s32 f0; s32 f4; s32 f8; Entry_80292730 *entries; };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 Tbl_80292730 *get_stage_table_entry__6TLobbyFll(s32, s32);
 void __dt__12TPlyCharDataFv(void *, int);
 void copy_player_visual_record(void *, void *);
@@ -673,7 +673,7 @@ void TLobby::rebuild_players_for_stage(s32 arg0) {
         p = get_player_by_client_id(i);
         ((TObjPlayer *)(&hdr))->clear_header_struct();
         if (p != NULL) {
-            VecCopy__FP3VecPC3Vec(&pos, (u8 *)p + 0x38);
+            VecCopy((Vec *)&pos, (const Vec *)((u8 *)p + 0x38));
             copy_player_visual_record(&info, (u8 *)p + 0x85C);
             ((TLobby *)(&hdr))->copy_header_struct((u8 *)p + 0xDAC);
             map = ((TRaderMapCore *)p)->get_map_id();
@@ -1273,7 +1273,7 @@ void TLobby__sub_80293218(s32 arg0) {
             o[0] = TWindowSubStatusDisp::resolve_player_slot(-1);
             o[1] = (*(G_80293218 *)&lbl_804DB1F0).f0;
             o[2] = (*(G_80293218 *)&lbl_804DB1F0).f8;
-            VecCopy__FP3VecPC3Vec(o + 4, p + 0x38);
+            VecCopy((Vec *)(o + 4), (const Vec *)(p + 0x38));
             u8 *w = get_character_save_record(arg0) + 0x2274;
             ((TLobby *)w)->copy_struct(o);
         }

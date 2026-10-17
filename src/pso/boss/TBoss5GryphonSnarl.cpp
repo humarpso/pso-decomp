@@ -1,4 +1,5 @@
 #include "pso/boss/TBoss5GryphonSnarl.h"
+#include "pso/system/vector.h"
 
 #include "types.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -14,7 +15,6 @@ s32 TBoss8Dragon__sub_8005D700(void *self);
 extern u8 boss5_gryphon_snarl_effect_id_table[];
 extern void *TBoss5GryphonSnarl__effect_table;
 void TBoss5GryphonSnarl__sub_80066E88(void *self);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void spawn_particle_effect_with_flags(void *, s32, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 __vt__18TBoss5GryphonSnarl[];
@@ -54,7 +54,7 @@ Obj_80066DC8 *TBoss5GryphonSnarl__ct(Obj_80066DC8 *self, void *parent, void *arg
     __ct__7TObjectFP7TObject(self, parent);
     self->f18 = __vt__18TBoss5GryphonSnarl;
     self->f0 = lbl_805D2820;
-    VecCopy__FP3VecPC3Vec(&self->pos, arg2);
+    VecCopy((Vec *)&self->pos, (const Vec *)arg2);
     self->pos.y = lbl_805D8F0C;
     self->f12c = 0;
     self->f1c = 0;

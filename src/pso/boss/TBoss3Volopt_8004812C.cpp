@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TUnk_80484610.h"
 #include "pso/player/TUnk_80484840.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -37,7 +39,6 @@ f32 TBoss3Volopt__sub_8004812C(s32 arg0);
 extern G_8004813C *lbl_805D4CE4;
 extern G_8004816C *lbl_805D4D1C;
 s32 TBoss3Volopt__sub_8004816C(s32 i);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void draw_line_list(void *, s32, s32);
 void vec3_add_to(void *, void *);
 void matrix_mult_vec(s32, void *, void *);
@@ -54,7 +55,6 @@ void TBoss3Volopt__sub_800481B4(void* p);
 void TBoss3Volopt__sub_8004824C(void* p);
 int TLobby__send_and_handle_60(void*);
 int read_be16_field2__10TObjPlayerFv(void*);
-int bswap_16__FPUs(void*);
 
 f32 TBoss3Volopt__sub_8004812C(s32 arg0) {
     return *(f32 *)((s8 *)(lbl_805D4CDC + (arg0 * 4)) + 0);
@@ -72,7 +72,7 @@ s32 TBoss3Volopt__sub_8004816C(s32 i) {
 
 void TBoss3Volopt::update_and_send_60() { swap_6x85_fields(); TLobby__send_and_handle_60(this); }
 void TBoss3Volopt__sub_800481B4(void* p) { *(u8*)((char*)p + 0x0) = 133; *(u8*)((char*)p + 0x1) = 5; }
-void TBoss3Volopt::swap_6x18_fields() { read_be16_field2__10TObjPlayerFv(this); { int i; for (i = 0; i < 4; i++) { bswap_16__FPUs((char*)this + 0x4 + i * 2); } } }
+void TBoss3Volopt::swap_6x18_fields() { read_be16_field2__10TObjPlayerFv(this); { int i; for (i = 0; i < 4; i++) { bswap_16((u16 *)((char*)this + 0x4 + i * 2)); } } }
 void TBoss3Volopt::broadcast_state() { swap_6x18_fields(); TLobby__send_and_handle_60(this); }
 void TBoss3Volopt__sub_8004824C(void* p) { *(u8*)((char*)p + 0x0) = 24; *(u8*)((char*)p + 0x1) = 3; }
 void TUnk_80484840::render() {
@@ -84,9 +84,9 @@ void TUnk_80484840::render() {
         direction_line_color_pair[0].a = a;
         direction_line_color_pair[0].a = a;
     }
-    VecCopy__FP3VecPC3Vec(&boss3_volopt_direction_line_points[0], self->pos);
+    VecCopy((Vec *)&boss3_volopt_direction_line_points[0], (const Vec *)self->pos);
     dst = &boss3_volopt_direction_line_points[1];
-    VecCopy__FP3VecPC3Vec(dst, self->dir);
+    VecCopy((Vec *)dst, (const Vec *)self->dir);
     push_matrix();
     set_matrix_identity(0);
     {

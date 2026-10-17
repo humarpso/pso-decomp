@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneMorfos.h"
 #include "pso/TParticleCtrl.h"
@@ -43,7 +44,6 @@ struct O_803323D8 {
 };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * csnVectorUnder(s32, void *, s32);
 extern s32 actor_frame_tick;
 extern const f32 TObjEneMorfos__data_805DF870;
@@ -110,14 +110,14 @@ void TObjEneMorfos::update_ground_probe() {
     Stack_80332594 stack;
     u8 *temp_r3;
     if ((actor_frame_tick % 5) == 0) {
-        VecCopy__FP3VecPC3Vec(&stack.sp8, (u8 *)&this->position);
+        VecCopy((Vec *)&stack.sp8, (const Vec *)&this->position);
         stack.spC += TObjEneMorfos__data_805DF870;
         temp_r3 = (u8 *)(csnVectorUnder((s32) &stack.sp8, (u8 *)&this->m_120, 0x4000));
         if (temp_r3 != NULL) {
             *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) *(s32 *)((s8 *)temp_r3 + 0);
-            VecCopy__FP3VecPC3Vec(arg0 + 0x3C8, *(u8 **)((s8 *)temp_r3 + 4));
+            VecCopy((Vec *)(arg0 + 0x3C8), (const Vec *)(*(u8 **)((s8 *)temp_r3 + 4)));
         } else {
-            VecCopy__FP3VecPC3Vec(arg0 + 0x3C8, (u8 *)&this->position);
+            VecCopy((Vec *)(arg0 + 0x3C8), (const Vec *)&this->position);
         }
     }
     if (*(s32 *)((s8 *)arg0 + 0x3C4) & 0x4000) {

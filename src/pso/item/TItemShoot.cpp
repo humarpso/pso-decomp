@@ -1,4 +1,5 @@
 #include "pso/TItemShoot.h"
+#include "pso/system/vector.h"
 
 extern "C" void  disallow_rendering__7TObjectFv(TObject*);
 extern "C" void  allow_rendering__7TObjectFv(TObject*);
@@ -7,7 +8,6 @@ extern "C" u32   query_game_join_id__10TObjPlayerFv(void*);
 extern "C" void  vec3_add_to(Vec*, Vec*);
 extern "C" void  copy_position__15TEffStarLight2DFPv(void*, Vec*);
 
-extern "C" Vec*  VecCopy__FP3VecPC3Vec(Vec*, const Vec*);
 extern "C" void  subtract_vector(Vec*, const Vec*);
 extern "C" f32   vector_length(Vec*);
 extern "C" void  normalize_vector(Vec*);
@@ -86,8 +86,8 @@ TItemShoot::~TItemShoot() {
 TItemShoot::TItemShoot(void* owner, const Vec* pos, const Vec* dir, f32 life)
     : TObject(tl_05) {
     this->m_name = TItemShoot__class_name;
-    VecCopy__FP3VecPC3Vec(&this->m_pos, pos);
-    VecCopy__FP3VecPC3Vec(&this->m_dir, VecCopy__FP3VecPC3Vec(&this->m_44, dir));
+    VecCopy(&this->m_pos, pos);
+    VecCopy(&this->m_dir, VecCopy(&this->m_44, dir));
     this->m_life = life;
     subtract_vector(&this->m_dir, pos);
     f32 len = vector_length(&this->m_dir);

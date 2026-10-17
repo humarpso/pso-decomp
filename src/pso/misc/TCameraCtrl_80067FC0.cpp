@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_80488838.h"
 #include "pso/misc/TUnk_80488A28.h"
 #include "pso/misc/TUnk_80488DA0.h"
@@ -87,7 +88,6 @@ extern const f32 TCameraCtrl__data_805D8F84;
 extern const f32 lbl_805D8F94;
 extern const f32 lbl_805D8F98;
 extern const f32 lbl_805D8F9C;
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void apply_camera_controller_pose(Cam_80068530 *arg0);
 s32 is_split_screen();
 f32 fabs_float();
@@ -204,7 +204,7 @@ s32 TUnk_80488E00::predict_obstruction() {
     }
     hit = csnVector(a, &probe, 0x100);
     if (hit != NULL) {
-        VecCopy__FP3VecPC3Vec(&self->out, hit->pos);
+        VecCopy((Vec *)&self->out, (const Vec *)hit->pos);
         self->out.x -= lbl_805D8F90 * dir.x;
         self->out.y -= lbl_805D8F90 * dir.y;
         self->out.z -= lbl_805D8F90 * dir.z;
@@ -267,8 +267,8 @@ void apply_camera_controller_pose(Cam_80068530 *arg0) {
         V->target.y = V->curTarget.y;
         V->target.z = V->curTarget.z;
         no = TCameraCtrl::get_camera_no();
-        VecCopy__FP3VecPC3Vec(&V->eye[no], &arg0->pos);
-        VecCopy__FP3VecPC3Vec(&V->look[no], &arg0->target);
+        VecCopy((Vec *)&V->eye[no], (const Vec *)&arg0->pos);
+        VecCopy((Vec *)&V->look[no], (const Vec *)&arg0->target);
     } else {
         V->curPos.x = arg0->pos.x;
         V->curPos.y = arg0->pos.y;

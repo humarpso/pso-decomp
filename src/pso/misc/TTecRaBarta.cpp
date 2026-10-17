@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TTecRaFoie.h"
 #include "pso/misc/TUnk_804CCB28.h"
 #include "pso/unk/TUnk_804CC148.h"
@@ -145,7 +146,6 @@ s32 queue_destruction__7TObjectFv(void *);
 #define queue_destruction__7TObjectFv ((void (*)(void *))queue_destruction__7TObjectFv)
 u16 obj_getField1c(void *);
 void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 
 void *__nw__7TObjectFUl(u32);
 void *get_bml_motion(void *, int);
@@ -200,10 +200,10 @@ void TTecRaBarta::vfunc_8(void *pos) {
   self->emitters = mem_alloc(rabarta_band_emitter_table[self->band].count * 4);
   for (i = 0; i < rabarta_band_emitter_table[self->band].count; i++)
   {
-    VecCopy__FP3VecPC3Vec(&point, self->source + 0x38);
+    VecCopy((Vec *)&point, (const Vec *)(self->source + 0x38));
     if (pos != 0)
     {
-      VecCopy__FP3VecPC3Vec(&point, pos);
+      VecCopy((Vec *)&point, (const Vec *)pos);
     }
     self->emitters[i] = create_particle_emitter(&point, rabarta_band_emitter_table[self->band].emitters[i].entry);
     binding = &rabarta_band_emitter_table[self->band].emitters[i];
@@ -229,11 +229,11 @@ void TTecRaBarta::vfunc_8(void *pos) {
     void *emitter;
     if (pos != 0)
     {
-      VecCopy__FP3VecPC3Vec(&point2, pos);
+      VecCopy((Vec *)&point2, (const Vec *)pos);
     }
     else
     {
-      VecCopy__FP3VecPC3Vec(&point2, self->source + 0x38);
+      VecCopy((Vec *)&point2, (const Vec *)(self->source + 0x38));
     }
     point2.y += dy;
     emitter = spawn_particle_effect(&point2, b2->entry);
@@ -338,7 +338,6 @@ void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target) {
 #define calc_parameters__11TTecRaBartaFv ((void (*)(void *))calc_parameters__11TTecRaBartaFv)
 
 struct Vec_80237DAC { f32 x, y, z; };
-#define VecCopy__FP3VecPC3Vec ((void (*)(Vec_80237DAC *, const Vec_80237DAC *))VecCopy__FP3VecPC3Vec)
 
 typedef struct Ids_80237CCC { u8 pad[0xF8]; u16 ids[32]; } Ids_80237CCC;
 
@@ -495,7 +494,7 @@ void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *
     self->f0 = TTecRaBarta_class_name;
     calc_parameters__11TTecRaBartaFv(self);
     self->ff0 = 1;
-    ((VecCopyFn_80237BD8)VecCopy__FP3VecPC3Vec)(self->pos, ((VecCopyFn_80237BD8)VecCopy__FP3VecPC3Vec)(self->src_pos, pos));
+    ((VecCopyFn_80237BD8)VecCopy)(self->pos, ((VecCopyFn_80237BD8)VecCopy)(self->src_pos, pos));
     if (self->holder != 0) {
         self->holder->eff->scale = self->range;
     }
@@ -536,7 +535,6 @@ void *TTecRaBarta::construct_area(void *source, void *origin, void *level) {
 }
 
 }
-#undef VecCopy__FP3VecPC3Vec
 
 #undef calc_parameters__11TTecRaBartaFv
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TOWreckAncientBrakable.h"
 
 #pragma inline_depth(1)
@@ -22,7 +23,6 @@ struct Param_8017D448 {
 };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(Vec_8017D448 *, Vec_8017D448 *);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
 void construct_debris__8TObjChipFPvPvPv(void *, s32, Param_8017D448 *);
@@ -52,12 +52,12 @@ void TOWreckAncientBrakable::spawn_debris() {
     p.pos.z = *(f32 *)(arg0 + 0x40);
     p.f38 = p.pos.y;
     for (i = 0; i < 9; i++) {
-        VecCopy__FP3VecPC3Vec(&tmp, &arr.v[i]);
+        VecCopy((Vec *)&tmp, (const Vec *)&arr.v[i]);
         push_matrix_from(identity_matrix);
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         rotate_vector_by_matrix(0, &tmp, &tmp);
         pop_matrix();
-        VecCopy__FP3VecPC3Vec(&p.pos, (Vec_8017D448 *)(arg0 + 0x38));
+        VecCopy((Vec *)&p.pos, (const Vec *)((Vec_8017D448 *)(arg0 + 0x38)));
         vec3_add_to(&p.pos, &tmp);
         p.f40 = get_bml_model(wreck_ancient_brakable_bml_resource, i);
         p.f44 = TObjFish__sub_8001EDB0(wreck_ancient_brakable_bml_resource, i);

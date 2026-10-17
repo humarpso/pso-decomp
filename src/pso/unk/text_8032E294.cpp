@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/item/TUnk_804EDD44.h"
 
 struct Eff_8032E34C {
@@ -24,7 +25,6 @@ s32 anchor_card_effect(int);
 s32 normalize_vector(int, int);
 extern s32 lbl_805D4218;
 extern const f32 lbl_805DF7E0;
-void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 atan2_float(f32, f32);
 extern const f64 lbl_804773A8[];
 #pragma fp_contract on
@@ -79,8 +79,8 @@ TUnk_804EDD44::TUnk_804EDD44(TObject *parent, f32 *arg2, f32 *arg3, s32 arg4, s3
     ((Eff_8032E34C *)this)->f2C = 0;
     ((Eff_8032E34C *)this)->f34 = 0xFFFF;
     ((Eff_8032E34C *)this)->f60 = arg5;
-    VecCopy__FP3VecPC3Vec(((Eff_8032E34C *)this)->f38, arg3);
-    VecCopy__FP3VecPC3Vec(((Eff_8032E34C *)this)->f64, arg2);
+    VecCopy((Vec *)(((Eff_8032E34C *)this)->f38), (const Vec *)arg3);
+    VecCopy((Vec *)(((Eff_8032E34C *)this)->f64), (const Vec *)arg2);
     ((Eff_8032E34C *)this)->f58 = (s32)(lbl_804773A8[0] * atan2_float(arg3[0], arg3[2]));
     ((Eff_8032E34C *)this)->f50 = arg4;
     ((TUnk_804EDD44 *)((Eff_8032E34C *)this))->sub_8032E294();

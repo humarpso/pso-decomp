@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 
 #include <stddef.h>
 #include "pso/misc/TNeedleShoot.h"
@@ -27,7 +28,6 @@ extern "C" {
 s32 TObjRoomId__sub_80141CF4(void *, void *, int, int, int, void *, f32);
 extern RecoveredGlobal_802A45D4_lbl_80466678 needle_shoot_color_white;
 extern const f32 lbl_805DDF68;
-s32 VecCopy__FP3VecPC3Vec(void *, int);
 u8 *csnVector(f32 *, f32 *, s32);
 void TNeedleShoot::vfunc_8() {  }
 typedef char RecoveredGlobal_802A45D4_lbl_80466678_size[sizeof(RecoveredGlobal_802A45D4_lbl_80466678) == 0x10 ? 1 : -1];
@@ -51,7 +51,7 @@ void TNeedleShoot::check_wall_hit() {
     stack.sp1C = this->m_74;
     temp_r3 = (u8 *)(csnVector(&stack.sp8, &stack.sp14, 0x100));
     if (temp_r3 != NULL) {
-        VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x6C), (int) (*(s32 *)((s8 *)temp_r3 + 4)));
+        VecCopy((Vec *)(((u8 *)this) + 0x6C), (const Vec *)(*(s32 *)((s8 *)temp_r3 + 4)));
         ((TNeedleShoot *)(((u8 *)this)))->vfunc_6();
     }
 }

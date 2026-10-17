@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/object/TObjMotion.h"
@@ -108,7 +109,6 @@ s32 is_state_1f__14TBoss6PlotFalzFUi(u32 arg0);
 s16 obj_getField1c(void *);
 u8 *get_player_by_client_id(s32);
 s32 get_field_3e0__12TBoss3VoloptFv(void *p);
-u8 *VecCopy__FP3VecPC3Vec(void *, void *);
 extern u8 lbl_8047059C[];
 extern u32 TBoss6PlotFalz__type1_instance;
 extern u32 TBoss6PlotFalz__type2_instance;
@@ -514,7 +514,7 @@ void TBoss6PlotFalz::spawn_player_hit_effects() {
         for (i = 0; i < lbl_805D586C; i++) {
             p = get_player_data__10TObjPlayerFi(i);
             if (is_state_1f__14TBoss6PlotFalzFUi(p) != 0) {
-                VecCopy__FP3VecPC3Vec((void *)(&v), (void *)(&p->pos));
+                VecCopy((Vec *)(&v), (const Vec *)(&p->pos));
                 v.y += k;
                 spawn_particle_effect(&v, 0x29);
             }
@@ -620,9 +620,9 @@ void TBoss6PlotFalz::award_exp_and_destroy() {
         u8 *pl = ((u8 *(*)(s32))get_player_by_client_id)(local_client_id);
         if (pl != NULL) {
             V3_802AB490 saved = *(V3_802AB490 *)(arg0 + 0x2FC);
-            VecCopy__FP3VecPC3Vec((u8 *)&this->m_2fc, pl + 0x2FC);
+            VecCopy((Vec *)&this->m_2fc, (const Vec *)(pl + 0x2FC));
             ((TObjEnemy *)arg0)->distribute_experience();
-            VecCopy__FP3VecPC3Vec((u8 *)&this->m_2fc, &saved);
+            VecCopy((Vec *)&this->m_2fc, (const Vec *)&saved);
         }
     }
     Msg_802AB490 m;
@@ -661,7 +661,7 @@ void TBoss6PlotFalz__sub_802AB684(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_802AB684, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802AB684, spC) == 0x4) ? 1 : -1];
     Stack_802AB684 stack;
-    VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0));
+    VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0));
     subtract_vector((void *) (&stack.sp8), (void *) (&lbl_8047059C.value));
     stack.spC = 0.0f;
     vector_length((void *) (&stack.sp8));
@@ -695,15 +695,15 @@ s32 TBoss6PlotFalz__sub_802AB6CC(void *arg0, f32 r) {
     if (player == NULL) {
         return 0;
     }
-    VecCopy__FP3VecPC3Vec(&pl, player + 0x38);
-    VecCopy__FP3VecPC3Vec(&c, camera_ctrl_instance + 0x178);
-    VecCopy__FP3VecPC3Vec(&d1, &p);
+    VecCopy((Vec *)&pl, (const Vec *)(player + 0x38));
+    VecCopy((Vec *)&c, (const Vec *)(camera_ctrl_instance + 0x178));
+    VecCopy((Vec *)&d1, (const Vec *)&p);
     subtract_vector(&d1, &pl);
     d1.y = 0.0f;
     if (VLEN(&d1) < r) {
         return 1;
     }
-    VecCopy__FP3VecPC3Vec(&d2, &p);
+    VecCopy((Vec *)&d2, (const Vec *)&p);
     subtract_vector(&d2, &c);
     d2.y = 0.0f;
     l2 = VLEN(&d2);
@@ -713,7 +713,7 @@ s32 TBoss6PlotFalz__sub_802AB6CC(void *arg0, f32 r) {
     if (l2 > 250.0f) {
         return 0;
     }
-    VecCopy__FP3VecPC3Vec(&d3, &pl);
+    VecCopy((Vec *)&d3, (const Vec *)&pl);
     subtract_vector(&d3, &c);
     d3.y = 0.0f;
     l3 = VLEN(&d3);
@@ -732,9 +732,9 @@ s32 TBoss6PlotFalz__sub_802AB6CC(void *arg0, f32 r) {
     normalize_vector(&dir);
     dir.x *= r;
     dir.z *= r;
-    VecCopy__FP3VecPC3Vec(&a, &p);
+    VecCopy((Vec *)&a, (const Vec *)&p);
     vec3_add_to(&a, &dir);
-    VecCopy__FP3VecPC3Vec(&b, &p);
+    VecCopy((Vec *)&b, (const Vec *)&p);
     subtract_vector(&b, &dir);
     ang1 = (s32)(lbl_804705E0[0] * atan2_float(a.x - c.x, a.z - c.z));
     ang2 = (s32)(lbl_804705E0[0] * atan2_float(b.x - c.x, b.z - c.z));
@@ -852,19 +852,19 @@ void TBoss6PlotFalz::release_object() { if (*(unsigned int*)((char*)this + 0x384
 
 s32 TBoss6PlotFalz::get_target_pos_a(s32 arg0, s32 arg1) {
     if ((u32) TBoss6PlotFalz__type2_instance == 0U) {
-        VecCopy__FP3VecPC3Vec((void *) (arg1), (void *) (&lbl_804705CC.value));
+        VecCopy((Vec *)(arg1), (const Vec *)(&lbl_804705CC.value));
         return 0;
     }
-    VecCopy__FP3VecPC3Vec((void *) (arg1), (void *) (TBoss6PlotFalz__type2_instance + 0x38));
+    VecCopy((Vec *)(arg1), (const Vec *)(TBoss6PlotFalz__type2_instance + 0x38));
     return 1;
 }
 
 s32 TBoss6PlotFalz::get_target_pos_b(s32 arg0, s32 arg1) {
     if ((u32) TBoss6PlotFalz__type1_instance == 0U) {
-        VecCopy__FP3VecPC3Vec((void *) (arg1), (void *) (&lbl_804705C0.value));
+        VecCopy((Vec *)(arg1), (const Vec *)(&lbl_804705C0.value));
         return 0;
     }
-    VecCopy__FP3VecPC3Vec((void *) (arg1), (void *) (TBoss6PlotFalz__type1_instance + 0x38));
+    VecCopy((Vec *)(arg1), (const Vec *)(TBoss6PlotFalz__type1_instance + 0x38));
     return 1;
 }
 
@@ -1180,11 +1180,11 @@ void warp_nearby_players__14TBoss6PlotFalzFv(void) {
         if (p != NULL && p->sub != NULL && (p->sub->flags & 0x20000)
             && !(xyz_distance(lbl_804705B4, &p->pos) > 150.0f)
             && !(xyz_distance(lbl_8047059C, &p->pos) <= 300.0f)) {
-            VecCopy__FP3VecPC3Vec(&v, &p->pos);
+            VecCopy((Vec *)&v, (const Vec *)&p->pos);
             subtract_vector(&v, lbl_804705B4);
             vec3_add_to(&v, lbl_8047059C);
             v.y = 7.5f;
-            VecCopy__FP3VecPC3Vec(&p->pos, &v);
+            VecCopy((Vec *)&p->pos, (const Vec *)&v);
             ((TUnk_804AF8A0 *)p)->refresh_collision_body_centers();
         }
     }
@@ -1586,8 +1586,8 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
         sp8.c = 0;
         ((TObjEnemy *)arg0)->exchange_object_state((s32)((void *) (&sp8)), (s16)((int) (0)));
     }
-    VecCopy__FP3VecPC3Vec(arg0 + 0x44, VecCopy__FP3VecPC3Vec(arg0 + 0x50, VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38)));
-    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(VecCopy((Vec *)(arg0 + 0x50), (const Vec *)(VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38))))));
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x310) = (f32) 0.0f;
     *(f32 *)((s8 *)arg0 + 0x30C) = (f32) 0.0f;
     *(f32 *)((s8 *)arg0 + 0x308) = (f32) 0.0f;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TObjRain.h"
 #include "pso/player/TObjPlayer.h"
 struct Vec_80197904 { f32 x, y, z; };
@@ -34,7 +35,6 @@ struct Rain_801977D4 {
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void vec3_add_to(void *, void *);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 xz_distance_squared(void *, void *);
 void draw_line_list(void *, int, int);
 void reset_line_width(void);
@@ -55,7 +55,7 @@ void TObjRain::draw_streaks() {
     for (i = 0; i < self->count; drop++, i++) {
         if (drop->active != 0) {
             set_line_width(5);
-            VecCopy__FP3VecPC3Vec(TObjRain__streak_line_list[0], &drop->position);
+            VecCopy((Vec *)TObjRain__streak_line_list[0], (const Vec *)&drop->position);
             struct Vec_801977D4 pos = drop->position;
             if (xz_distance_squared(camera_ctrl_instance + 0x178, &pos) < lbl_805DBF10) {
                 struct Vec_801977D4 dir = drop->velocity;
@@ -64,7 +64,7 @@ void TObjRain::draw_streaks() {
                 dir.y *= lbl_805DBF14;
                 dir.z *= lbl_805DBF14;
                 subtract_vector(&pos, &drop->velocity);
-                VecCopy__FP3VecPC3Vec(TObjRain__streak_line_list[0] + 0xC, &pos);
+                VecCopy((Vec *)(TObjRain__streak_line_list[0] + 0xC), (const Vec *)&pos);
                 draw_line_list(TObjRain__streak_line_list, 1, 5);
             }
         }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -43,7 +44,6 @@ void queue_destruction__7TObjectFv(void *);
 List_802370D8 *find_support_technique_contact_for_target__10TObjPlayerFl(void *, u32);
 List_802370D8 *gather_contacts_for_self__10TObjPlayerFl(void *, u32);
 void deliver_technique_to_party_targets(Obj_802370D8 *arg0);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 spawn_particle_effect(void *, int);
 u8 *get_player_by_client_id(u16);
 u32 classify_distance_band__8TTecCtrlFlll(s16, s16, u16);
@@ -70,7 +70,7 @@ void spawn_support_tec_range_effect(Tec_80236EE8 *self) {
         return;
     }
     {
-        VecCopy__FP3VecPC3Vec(&pos, pl + 0x38);
+        VecCopy((Vec *)&pos, (const Vec *)(pl + 0x38));
         switch (self->type) {
         case 8:
             break;

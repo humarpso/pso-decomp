@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneRe2Flower.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/player/TObjPlayer.h"
@@ -11,7 +12,6 @@ struct Vec_800C2628 { f32 x, y, z; };
 struct Prm_800C2628 { f32 a, b, c, d, e; };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(Vec_800C2628 *, void *);
 void spawn_particle_effect_with_flags(Vec_800C2628 *, s32, s32);
 void TObjEneDD__sub_800BA5A4(void *, Prm_800C2628 *);
 s32 transition_enemy_state(void *, s32);
@@ -59,7 +59,7 @@ void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1) {
         if (F(s32, 0x410) > 0x1C2) {
             F(u32, 0x30) |= 0x800;
             transition_enemy_state(arg0, 0xA);
-            VecCopy__FP3VecPC3Vec(&v, arg0 + 0x38);
+            VecCopy((Vec *)&v, (const Vec *)(arg0 + 0x38));
             v.y += lbl_805D9FBC;
             spawn_particle_effect_with_flags(&v, 0xD3, 0x40);
             {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -38,7 +39,6 @@ struct Fade_802F4114 { u8 pad[0x1C]; };
 struct Obj_802F4114 { u8 pad[0x6DC]; Fade_802F4114 fades[4]; };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_mode__11TCameraCtrlFPv(void *);
 s32 TBoss8Dragon__sub_802FCCBC(void *);
 extern const f32 lbl_805DED68;
@@ -102,14 +102,14 @@ s32 TBoss8Dragon__sub_802F3F20(u8 *arg0) {
     if (entity == 0) {
         return 0;
     }
-    VecCopy__FP3VecPC3Vec(&sp14, camera_ctrl_instance + 0x178);
+    VecCopy((Vec *)&sp14, (const Vec *)(camera_ctrl_instance + 0x178));
     sp14.y = TBoss8Dragon__data_805DED50;
-    VecCopy__FP3VecPC3Vec(&sp8, entity + 0x38);
+    VecCopy((Vec *)&sp8, (const Vec *)(entity + 0x38));
     subtract_vector(&sp8, &sp14);
     sp8.y = TBoss8Dragon__data_805DED50;
     temp_f31 = ((TObjBoss2Tunnel *)(&sp8))->clamp_velocity();
-    VecCopy__FP3VecPC3Vec(boss8_dragon_reference_pos_vec, &sp14);
-    VecCopy__FP3VecPC3Vec(dragon_forward_reference_vec, &sp8);
+    VecCopy((Vec *)boss8_dragon_reference_pos_vec, (const Vec *)&sp14);
+    VecCopy((Vec *)dragon_forward_reference_vec, (const Vec *)&sp8);
     boss8_dragon_visibility_distance = temp_f31;
     for (i = 0; i < 4; i++) {
         if (TBoss8Dragon__sub_802F4760(arg0, &((Obj_802F3F20 *)arg0)->pts[boss8_dragon_point_index_table[i]], TBoss8Dragon__data_805DED64) != 0) {
@@ -120,7 +120,7 @@ s32 TBoss8Dragon__sub_802F3F20(u8 *arg0) {
 }
 
 void TBoss8Dragon::sub_802F4098(u8 *arg1) {
-    VecCopy__FP3VecPC3Vec(arg1, ((u8 *)this) + 0x38);
+    VecCopy((Vec *)arg1, (const Vec *)(((u8 *)this) + 0x38));
     if ((get_mode__11TCameraCtrlFPv(&(*(RecoveredGlobal_802F4098_main_task *)&main_task).value) & 0x10) && (TBoss8Dragon__sub_802FCCBC(((u8 *)this)) == 0) && !(this->m_c0 > lbl_805DED68)) {
         *(f32 *)((s8 *)arg1 + 8) = (f32) (*(f32 *)((s8 *)arg1 + 8) + lbl_805DED6C);
     }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneRecobox.h"
 #include "pso/enemy/TObjEneRecon.h"
 
@@ -20,7 +21,6 @@ struct Rec_8031EDF8
 };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * csnVectorUnder(s32, void *, s32);
 extern s32 actor_frame_tick;
 extern const f32 lbl_805DF448;
@@ -63,14 +63,14 @@ void TObjEneRecobox::update_floor_probe() {
     Stack_8031EE54 stack;
     u8 *temp_r3;
     if ((actor_frame_tick % 5) == 0) {
-        VecCopy__FP3VecPC3Vec(&stack.sp8, (u8 *)&this->position);
+        VecCopy((Vec *)&stack.sp8, (const Vec *)&this->position);
         stack.spC += lbl_805DF448;
         temp_r3 = (u8 *)(csnVectorUnder((s32) &stack.sp8, (u8 *)&this->m_120, 0x4000));
         if (temp_r3 != NULL) {
             *(s32 *)((s8 *)arg0 + 0x3E0) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 4)) + 0x18);
-            VecCopy__FP3VecPC3Vec(arg0 + 0x3E4, *(u8 **)((s8 *)temp_r3 + 4));
+            VecCopy((Vec *)(arg0 + 0x3E4), (const Vec *)(*(u8 **)((s8 *)temp_r3 + 4)));
         } else {
-            VecCopy__FP3VecPC3Vec(arg0 + 0x3E4, (u8 *)&this->position);
+            VecCopy((Vec *)(arg0 + 0x3E4), (const Vec *)&this->position);
         }
     }
     if (*(s32 *)((s8 *)arg0 + 0x3E0) & 0x4000) {

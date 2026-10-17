@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjMapCsn.h"
 #include "pso/player/TObjPlayer.h"
@@ -48,7 +49,6 @@ s32 fn_80140DFC(int, void *);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_80194988___vt__10TObjMapCsn __vt__10TObjMapCsn;
 u8 *__dt__10TObjMapCsnFv(u8 *arg0, s16 arg1);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 fn_80140EA8(int, void *);
 extern s32 TObjMapCsn__class_name;
 u8 *TObjMapCsn__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -139,9 +139,9 @@ s32 TObjMapCsn::build_box_triangles() {
         idx += 3;
         rotate_vector_by_matrix(0, nrm, &t->n);
         nrm++;
-        VecCopy__FP3VecPC3Vec(&v0, &arg0->verts[t->a]);
-        VecCopy__FP3VecPC3Vec(p1, &arg0->verts[t->b]);
-        VecCopy__FP3VecPC3Vec(p2, &arg0->verts[t->c]);
+        VecCopy((Vec *)&v0, (const Vec *)&arg0->verts[t->a]);
+        VecCopy((Vec *)p1, (const Vec *)&arg0->verts[t->b]);
+        VecCopy((Vec *)p2, (const Vec *)&arg0->verts[t->c]);
         t->center.x = (v2.x + (v0.x + v1.x)) / 3.0f;
         t->center.y = (v2.y + (v0.y + v1.y)) / 3.0f;
         t->center.z = (v2.z + (v0.z + v1.z)) / 3.0f;
@@ -195,7 +195,7 @@ u8 *TObjMapCsn__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0xCC) = 8;
     *(u8 **)((s8 *)arg0 + 0xD0) = (unsigned char *) ((void *) (arg0 + 0xD4));
     *(u8 **)((s8 *)arg0 + 0xAC) = (unsigned char *) ((void *) (arg0 + 0xC4));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xB0), (void *) (arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0xB0), (const Vec *)(arg0 + 0x38));
     temp_f1 = (0.5f) * *(f32 *)((s8 *)arg0 + 0x68);
     temp_f0 = (0.5f) * *(f32 *)((s8 *)arg0 + 0x70);
     *(f32 *)((s8 *)arg0 + 0xBC) = (f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0));

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneMe3ShinowaMirage.h"
 #include "pso/enemy/TObjEnePanarmsAtkColli.h"
 #include "pso/enemy/TObjEneLappy.h"
@@ -90,7 +91,6 @@ struct Vec_800E322C { f32 x, y, z; };
 struct Obj_800E322C { u8 pad0[0x10]; u32 f10; u8 pad1[0x38 - 0x14]; Vec_800E322C pos; u8 pad2[0x378 - 0x44]; f32 f378; };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 extern Vec_800E31C4 panarms_atk_zero_vec;
 Obj_800E31C4 *fn_800E31C4(Obj_800E31C4 *self, Entry_800E31C4 *list, Vec_800E31C4 *vecs);
 extern Pair_800E32C0 lbl_8043CDF8[];
@@ -116,7 +116,7 @@ Obj_800E31C4 *fn_800E31C4(Obj_800E31C4 *self, Entry_800E31C4 *list, Vec_800E31C4
     p = self->list;
     q = self->vecs;
     while (p->id != -1) {
-        VecCopy__FP3VecPC3Vec(q, &panarms_atk_zero_vec);
+        VecCopy((Vec *)q, (const Vec *)&panarms_atk_zero_vec);
         p++;
         q++;
     }
@@ -128,13 +128,13 @@ void fn_800E322C(void *p, void *t) {
     Vec_800E322C sp = target->pos;
     s32 r;
     u32 ent;
-    VecCopy__FP3VecPC3Vec(&target->pos, t);
+    VecCopy((Vec *)&target->pos, (const Vec *)t);
     if ((r = find_nearest_hittable_enemy__10TObjPlayerFiPvf(target, 0, target->f378)) != 0xFFFF) {
         if ((ent = get_enemy_entity(r)) != 0 && ent != target->f10) {
             fn_800E32C0((Obj_800E32C0 *)target, (V_800E32C0 *)ent);
         }
     }
-    VecCopy__FP3VecPC3Vec(&target->pos, &sp);
+    VecCopy((Vec *)&target->pos, (const Vec *)&sp);
 }
 
 void fn_800E32C0(Obj_800E32C0 *target, V_800E32C0 *arg1) {
@@ -172,7 +172,7 @@ void fn_800E3428(Obj_800E3428 *self) {
     Player_800E35C8 *p;
 
     lim = self->f378 * self->f378;
-    VecCopy__FP3VecPC3Vec(&d, &self->dir);
+    VecCopy((Vec *)&d, (const Vec *)&self->dir);
     subtract_vector(&d, &self->pos);
     len = vector_length(&d);
     if (0.0f == len) {
@@ -496,7 +496,7 @@ void TObjEnePanarmsAtkColli::run_task() {
         queue_destruction__7TObjectFv((void *)(arg0));
         return;
     }
-    VecCopy__FP3VecPC3Vec((u8 *)&this->m_44, (u8 *)&this->position);
+    VecCopy((Vec *)&this->m_44, (const Vec *)&this->position);
     vec3_add_to((u8 *)&this->position, (u8 *)&this->unk_308);
     *(f32 *)&this->unk_378 = (f32) (*(f32 *)&this->unk_378 + this->m_37c);
     temp_r0_2 = *(s32 *)&this->m_374;
@@ -544,8 +544,8 @@ void *TObjEnePanarmsAtkColli__ct(Obj_800E37E4 *arg0, void *parent, void *arg2, v
     ((TObjEnemy *)self)->initialize(parent);
     self->vt = __vt__22TObjEnePanarmsAtkColli;
     self->f0 = lbl_805D2AC0;
-    VecCopy__FP3VecPC3Vec(&self->pos, arg2);
-    VecCopy__FP3VecPC3Vec(&self->scale, arg3);
+    VecCopy((Vec *)&self->pos, (const Vec *)arg2);
+    VecCopy((Vec *)&self->scale, (const Vec *)arg3);
     self->type = (s32)arg4;
     self->f384 = 0;
     self->f388 = 0;

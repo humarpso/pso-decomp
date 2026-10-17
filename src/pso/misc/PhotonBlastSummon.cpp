@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TSceneSora.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TObject.h"
@@ -208,7 +209,6 @@ struct Obj_801A7428 {
 
 extern "C" {
 void copy_effect_params(u8 *arg0, u8 *arg1);
-void VecCopy__FP3VecPC3Vec(Vec_801A73B0 *, const Vec_801A73B0 *);
 void set_active_camera_pose_from_params(struct PbCameraParams_801A73B0 *);
 void approach_vector_fixed_distance(Vec_801A73B0 *, Vec_801A73B0 *, Vec_801A73B0 *, f32);
 void update_photon_blast_camera_pose(struct PbCamera_801A73B0 *self);
@@ -230,8 +230,8 @@ void update_photon_blast_camera_pose(struct PbCamera_801A73B0 *self) {
     struct PbCameraParams_801A73B0 parameters;
     approach_vector_fixed_distance(&self->position, &self->destination_position, &self->position, 0.48f);
     approach_vector_fixed_distance(&self->target, &self->destination_target, &self->target, 0.55f);
-    VecCopy__FP3VecPC3Vec(&parameters.position, &self->position);
-    VecCopy__FP3VecPC3Vec(&parameters.target, &self->target);
+    VecCopy((Vec *)&parameters.position, (const Vec *)&self->position);
+    VecCopy((Vec *)&parameters.target, (const Vec *)&self->target);
     parameters.projection = 0x4222;
     set_active_camera_pose_from_params(&parameters);
 }
@@ -495,10 +495,10 @@ void TUnk_804C3248::setup_photon_blast_camera() {
     d.x += *((f32 *) (p - -0x38));
     d.y += *((f32 *) (p + 0x3C));
     d.z += *((f32 *) (p + 0x40));
-    ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x110, &a);
-    ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x128, &b);
-    ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x104, &c);
-    ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x11C, &d);
+    VecCopy((Vec *)(arg0 + 0x110), (const Vec *)&a);
+    VecCopy((Vec *)(arg0 + 0x128), (const Vec *)&b);
+    VecCopy((Vec *)(arg0 + 0x104), (const Vec *)&c);
+    VecCopy((Vec *)(arg0 + 0x11C), (const Vec *)&d);
     activate_camera_mode(9);
   }
 }

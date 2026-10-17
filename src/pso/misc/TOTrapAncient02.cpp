@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
+#include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/misc/TTecZonde.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -81,7 +83,6 @@ struct Obj_8017A3C0 {
 
 extern "C" {
 u16 find_nearest_visible_player(void *, int, f32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_current_floor(void);
 f64 atan2_float(f32, f32);
 s32 spawn_particle_effect(void *, int);
@@ -326,7 +327,6 @@ s32 check_player_flag1__6TLobbyFv();
 void * alloc__23TAdSinglePlyChrSelectGCFv(u32);
 s32 setup_particle_tev(int);
 s32 func_80141618__Fv();
-s32 set_depth_buffer_settings_id__FUl(s32);
 s32 free_collision_body_parts(void *);
 void init_collision_body_parts(void *, void *, s32);
 s32 __dt__6TOTrapFv(void *, s32);
@@ -675,9 +675,9 @@ void TOTrapAncient02R__vt79(Obj_8017A3C0 *o) {
                 if (d < o->f338 * o->f338) {
                     o->mode = 3;
                     o->sub = 2;
-                    VecCopy__FP3VecPC3Vec(lbl_8050BEE0, &o->pos);
+                    VecCopy((Vec *)lbl_8050BEE0, (const Vec *)&o->pos);
                     lbl_8050BEE0->y += o->f344 + o->f348;
-                    VecCopy__FP3VecPC3Vec(lbl_8050BF00, &o->target->f2FC);
+                    VecCopy((Vec *)lbl_8050BF00, (const Vec *)&o->target->f2FC);
                     subtract_vector(lbl_8050BF00, lbl_8050BEE0);
                     if (((TObjBoss2Tunnel *)lbl_8050BF00)->update_scale() < lbl_805DBA8C) {
                         lbl_8050BF00->x = lbl_8050BF00->y = lbl_805DBA80;
@@ -1147,7 +1147,7 @@ void TOTrapAncient02::render() {
     if (get_state_flag__9TMainTaskFv() != 1) {
         *(s32 *)&this->m_340 = ((V_B_8017AC98 *) this)->m8(lbl_805DBAA4, lbl_805DBA94);
         if (((s32) *(s32 *)&this->m_340 == 1) && (((s32) *(s32 *)&this->m_358 == 0) || (is_split_screen() != 0) || (dispatch_input_to_instance__18TAdEnterPasswordGCFi(this) == 0))) {
-            set_depth_buffer_settings_id__FUl(3);
+            set_depth_buffer_settings_id(3);
             if ((s32) *(s32 *)&this->m_358 != 0) {
                 ((TOTrapAncient02 *)this)->render_particle_chain();
             } else {

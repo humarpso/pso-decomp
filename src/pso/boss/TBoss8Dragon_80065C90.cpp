@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss5Gryphon.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/player/TObjPlayer.h"
@@ -23,15 +25,12 @@ struct RecoveredGlobal_80065F08_lbl_80437938_80065C90 {
 struct O_80065FD4 { u16 a; u16 b; u32 c[4]; };
 
 extern "C" {
-void bswap_16__FPUs(u16 *);
-s32 bswap_32__FPUl(s32);
 s32 *TBoss8Dragon__sub_80065F08(void);
 void TBoss8Dragon__sub_800660A4(void* p);
 void TBoss8Dragon__sub_80066108(void);
 void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 void fn_800660B8(u8 *arg0);
 int TLobby__send_and_handle_60(void*);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 read_be16_field2__10TObjPlayerFv(void *);
 
 extern RecoveredGlobal_80065EA0_lbl_80487CCC_80065C90 boss8_dragon_follow_camera_offsets;
@@ -76,8 +75,8 @@ void TBoss8Dragon::fill_follow_camera_params(u8 *arg1, u8 *arg2) {
 
 void TBoss8Dragon::get_follow_camera_offsets(u8 *arg1) {
     if ((void *) (*(u8 * *)&boss5_gryphon_instance) == NULL) {
-        VecCopy__FP3VecPC3Vec(((u8 *)this), &boss8_dragon_follow_camera_offsets.value);
-        VecCopy__FP3VecPC3Vec(arg1, &lbl_80487CD8.value);
+        VecCopy((Vec *)((u8 *)this), (const Vec *)&boss8_dragon_follow_camera_offsets.value);
+        VecCopy((Vec *)arg1, (const Vec *)&lbl_80487CD8.value);
         return;
     }
     ((TBoss8Dragon *)(*(u8 * *)&boss5_gryphon_instance))->fill_follow_camera_params((u8 *)((u8 *)(((u8 *)this))), (u8 *)((u8 *)(arg1)));
@@ -104,19 +103,19 @@ void TBoss8Dragon::send_spawn_params_packet() { byteswap_action_packet(); TLobby
 void TBoss8Dragon::byteswap_action_packet() {
     read_be16_field2__10TObjPlayerFv((void *)(this));
     ((TBoss8Dragon *)((char *)this + 20))->byteswap_record();
-    bswap_32__FPUl((s32)((void *)((char *)this + 4)));
-    bswap_32__FPUl((s32)((void *)((char *)this + 8)));
-    bswap_32__FPUl((s32)((void *)((char *)this + 12)));
-    bswap_32__FPUl((s32)((void *)((char *)this + 16)));
+    bswap_32((u32 *)((void *)((char *)this + 4)));
+    bswap_32((u32 *)((void *)((char *)this + 8)));
+    bswap_32((u32 *)((void *)((char *)this + 12)));
+    bswap_32((u32 *)((void *)((char *)this + 16)));
 }
 
 void TBoss8Dragon::byteswap_record() {
     O_80065FD4 *p = (O_80065FD4 *)this;
     s32 i;
-    bswap_16__FPUs(&p->a);
-    bswap_16__FPUs(&p->b);
+    bswap_16(&p->a);
+    bswap_16(&p->b);
     for (i = 0; i < 4; i++) {
-        bswap_32__FPUl((s32)&p->c[i]);
+        bswap_32(&p->c[i]);
     }
 }
 
@@ -125,9 +124,9 @@ void TBoss8Dragon::send_boss_actions() { bswap_boss_actions(); TLobby__send_and_
 void TBoss8Dragon::bswap_boss_actions() {
     s32 arg0 = (s32)this;
     read_be16_field2__10TObjPlayerFv((void *)(arg0));
-    bswap_32__FPUl(arg0 + 4);
-    bswap_32__FPUl(arg0 + 8);
-    bswap_32__FPUl(arg0 + 0xC);
+    bswap_32((u32 *)(arg0 + 4));
+    bswap_32((u32 *)(arg0 + 8));
+    bswap_32((u32 *)(arg0 + 0xC));
 }
 void TBoss8Dragon__sub_800660A4(void* p) { *(u8*)((char*)p + 0x0) = 159; *(u8*)((char*)p + 0x1) = 4; }
 

@@ -1,8 +1,8 @@
 #include "pso/effect/TEffHit.h"
+#include "pso/system/vector.h"
 extern "C" {
 void queue_destruction__7TObjectFv(void*);
 s32 spawn_particle_effect(const Vec*, s32);
-void VecCopy__FP3VecPC3Vec(Vec*, const Vec*);
 extern const f32 lbl_805D9448;
 extern const char* TEffHit__class_name;
 }
@@ -41,6 +41,6 @@ TEffHit::~TEffHit() {}
 
 TEffHit::TEffHit(const Vec* initial_position) : TEffect() {
     m_name = TEffHit__class_name;
-    VecCopy__FP3VecPC3Vec(&position, initial_position);
+    VecCopy(&position, initial_position);
     state = 0;
 }

@@ -1,4 +1,5 @@
 #include "pso/effect/TDPBShower.h"
+#include "pso/system/vector.h"
 
 #include "types.h"
 #include "pso/boss/TBoss4Type2.h"
@@ -10,7 +11,6 @@ struct RecoveredGlobal_8035D7D0___vt__10TDPBShower {
 };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 create_particle_emitter(s32, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8035D7D0___vt__10TDPBShower __vt__10TDPBShower;
@@ -46,7 +46,7 @@ u8 *TDPBShower__ct(u8 *arg0, u8 *arg1, u8 *arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__10TDPBShower.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TDPBShower__class_name;
     *(s32 *)((s8 *)arg0 + 0x28) = 5;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg2);
+    VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)arg2);
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) (*(f32 *)((s8 *)arg0 + 0x20) + lbl_805E01C4);
     particle_emitter = (u8 *)(create_particle_emitter((s32) (arg0 + 0x1C), 0x134));
     *(u8 **)((s8 *)arg0 + 0x2C) = particle_emitter;

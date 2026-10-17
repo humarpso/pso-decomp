@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss1Dragon.h"
 #include "pso/boss/TBoss1DragonEffBullet.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -40,7 +41,6 @@ s32 isV2Mode__12TBoss1DragonFv(void);
 extern RecoveredGlobal_8002BCE0_lbl_80435410 lbl_80435410;
 extern RecoveredGlobal_8002BCE0_lbl_8043541C lbl_8043541C;
 extern s32 *dragon_fireball_particle_ids;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 play_sound_effect(int, void *, int, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 f32 subtract_vector(void *, void *);
@@ -150,8 +150,8 @@ u8 *TBoss1DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8002BC30___vt__21TBoss1DragonEffBullet *)&__vt__21TBoss1DragonEffBullet).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss1DragonEffBullet__name;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1C), (void *) (arg2));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (arg3));
+    VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)(arg2));
+    VecCopy((Vec *)(arg0 + 0x28), (const Vec *)(arg3));
     subtract_vector((void *) (arg0 + 0x28), (void *) (arg0 + 0x1C));
     *(f32 *)((s8 *)arg0 + 0x40) = ((TObjBoss2Tunnel *)(arg0 + 0x28))->update_scale();
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805D8144;

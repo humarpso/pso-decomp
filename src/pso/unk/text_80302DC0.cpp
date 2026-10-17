@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -25,7 +26,6 @@ typedef struct Vec_80302DC0 { f32 x; f32 y; f32 z; } Vec_80302DC0;
 typedef struct Arg_80302DC0 { s32 id; f32 val; } Arg_80302DC0;
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 u32 csnVector(void *, void *, int);
 extern u8 lbl_8047511C[];
@@ -42,13 +42,13 @@ void fn_80302DC0(u8 *arg0) {
     Arg_80302DC0 arg;
     f32 step;
     if (*(void **)((s8 *)arg0 + 0xCC) != NULL) {
-        VecCopy__FP3VecPC3Vec(&a, arg0 + 0x38);
+        VecCopy((Vec *)&a, (const Vec *)(arg0 + 0x38));
         a.x += lbl_805DEFA0 * *(f32 *)((s8 *)arg0 + 0xB0);
         step = lbl_805DEFA4;
         a.z += lbl_805DEFA0 * *(f32 *)((s8 *)arg0 + 0xB8);
         *(f32 *)((s8 *)arg0 + 0xC0) += lbl_805DEFA0;
         while (*(f32 *)((s8 *)arg0 + 0xC0) > *(f32 *)((s8 *)arg0 + 0xC4)) {
-            VecCopy__FP3VecPC3Vec(&b, arg0 + 0x38);
+            VecCopy((Vec *)&b, (const Vec *)(arg0 + 0x38));
             b.x += *(f32 *)((s8 *)arg0 + 0xC4) * *(f32 *)((s8 *)arg0 + 0xB0);
             b.z += *(f32 *)((s8 *)arg0 + 0xC4) * *(f32 *)((s8 *)arg0 + 0xB8);
             if (*(void **)((s8 *)arg0 + 0xCC) != NULL) {
@@ -62,7 +62,7 @@ void fn_80302DC0(u8 *arg0) {
             queue_destruction__7TObjectFv(arg0);
             return;
         }
-        VecCopy__FP3VecPC3Vec(arg0 + 0x38, &a);
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)&a);
         *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0x10) = lbl_805DEFA8;
         *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0xC) = lbl_805DEFA8;
         ((TObjPlayer *)arg0)->update_enemy_collision_flags();

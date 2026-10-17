@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/main_loop.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/misc/TKeyBoardControl.h"
@@ -15,14 +16,12 @@ struct RecoveredGlobal_80290C20_main_task {
 };
 
 extern "C" {
-s32 render_tick__Fv();
 s32 delete_all_task_children__9TMainTaskFv(void *);
 void fn_80290BEC(void);
 s32 TKeyBoardControl__sub_8000F92C();
 s32 TKeyBoardControl__sub_8000F9CC(int);
 s32 process_async_file_reads();
 s8 func_801A5E54__Fv();
-s32 controller_stuff__Fv();
 s32 run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
 s32 update_sound_request_slots();
 s32 render_screen_overlay__9TMainTaskFv(void *);
@@ -39,13 +38,13 @@ void fn_80290BEC(void) {
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80290BEC_main_task *)&main_task).value);
     delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80290BEC_main_task *)&main_task).value));
     TLobby::free_all_resources();
-    render_tick__Fv();
+    render_tick();
 }
 typedef char RecoveredGlobal_80290C20_main_task_size[sizeof(RecoveredGlobal_80290C20_main_task) == 0x34 ? 1 : -1];
 void run_main_frame(void) {
     s32 *var_r3;
     func_803DCDFC__Fv();
-    controller_stuff__Fv();
+    controller_stuff();
     TKeyBoardControl::update_input_frame();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value);
@@ -70,7 +69,7 @@ void run_main_frame(void) {
         var_r3 = (s32 *)((u8 *)(NULL));
         TKeyBoardControl__sub_8000F9CC((int) (0));
     }
-    render_tick__Fv();
+    render_tick();
 }
 
 }

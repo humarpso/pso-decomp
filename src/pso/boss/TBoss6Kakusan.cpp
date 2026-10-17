@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss6Kakusan.h"
 #include "pso/boss/TBoss6Type1.h"
 #include "pso/boss/TBoss4Type2.h"
@@ -63,7 +64,6 @@ struct VObj_80322438 : Base_80322438 {
 
 extern "C" {
 u8 *__nw__7TObjectFUl(s32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 create_particle_emitter(void *, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 f32 vector_length(void *);
@@ -128,8 +128,8 @@ void TBoss6Kakusan::check_beam_player_hits() {
     }
     step = this->m_24;
     found = 0;
-    VecCopy__FP3VecPC3Vec(&p, (u8 *)&this->m_30);
-    VecCopy__FP3VecPC3Vec(&dir, (u8 *)&this->m_48);
+    VecCopy((Vec *)&p, (const Vec *)&this->m_30);
+    VecCopy((Vec *)&dir, (const Vec *)&this->m_48);
     subtract_vector(&dir, &p);
     len = vector_length(&dir);
     t = TBoss6Kakusan__data_805DF518;
@@ -149,7 +149,7 @@ void TBoss6Kakusan::check_beam_player_hits() {
       f32 lo = y - ar;
       if ((!(py < (y - ar))) && (!(py > hi)))
       {
-        VecCopy__FP3VecPC3Vec(&q, &p);
+        VecCopy((Vec *)&q, (const Vec *)&p);
         subtract_vector(&q, pl + 0x38);
         q.y = TBoss6Kakusan__data_805DF518;
         if (vector_length(&q) <= lbl_805DF524)
@@ -198,7 +198,7 @@ void TBoss6Kakusan::run_task() {
     u8 *pl;
     if (TObjPlayer::check_demo_mode() != 0) return;
     if (query_teammate_state__9TObjEneDDFv() != 0) return;
-    VecCopy__FP3VecPC3Vec((u8 *)&this->m_48, (u8 *)&this->m_30);
+    VecCopy((Vec *)&this->m_48, (const Vec *)&this->m_30);
     if ((s8)boss6_kakusan_homing_start_initialized == 0) {
         TBoss6Kakusan__homing_start_frame = 7;
         boss6_kakusan_homing_start_initialized = 1;
@@ -212,7 +212,7 @@ void TBoss6Kakusan::run_task() {
         if (!(speed <= TBoss6Kakusan__data_805DF51C)) {
             pl = (u8 *)get_player_by_client_id(this->m_20);
             if (is_active__14TBoss6PlotFalzFv() != 0) {
-                VecCopy__FP3VecPC3Vec(&v, pl + 0x38);
+                VecCopy((Vec *)&v, (const Vec *)(pl + 0x38));
                 v.y += lbl_805DF538;
                 subtract_vector(&v, (u8 *)&this->m_30);
                 if (!(vector_length(&v) <= TBoss6Kakusan__data_805DF51C)) {
@@ -220,7 +220,7 @@ void TBoss6Kakusan::run_task() {
                     v.x *= this->m_28;
                     v.y *= this->m_28;
                     v.z *= this->m_28;
-                    VecCopy__FP3VecPC3Vec(&w, (u8 *)&this->m_3c);
+                    VecCopy((Vec *)&w, (const Vec *)&this->m_3c);
                     normalize_vector(&w);
                     vec3_add_to(&v, &w);
                     if (!(vector_length(&v) <= TBoss6Kakusan__data_805DF51C)) {
@@ -228,7 +228,7 @@ void TBoss6Kakusan::run_task() {
                         v.x *= speed;
                         v.y *= speed;
                         v.z *= speed;
-                        VecCopy__FP3VecPC3Vec((u8 *)&this->m_3c, &v);
+                        VecCopy((Vec *)&this->m_3c, (const Vec *)&v);
                     }
                 }
             }
@@ -237,7 +237,7 @@ void TBoss6Kakusan::run_task() {
     vec3_add_to((u8 *)&this->m_30, (u8 *)&this->m_3c);
     if (*(void * *)&this->m_54 != NULL) {
         ((TNowLoading *)(*(void * *)&this->m_54))->copy_pos((u8 *)&this->m_30);
-        VecCopy__FP3VecPC3Vec(&a, (u8 *)&this->m_30);
+        VecCopy((Vec *)&a, (const Vec *)&this->m_30);
         subtract_vector(&a, (u8 *)&this->m_48);
         direction_to_rotation_xz(&a, &b.x, &b.z);
         *(s32 *)&b.y = 0;
@@ -276,12 +276,12 @@ u8 *TBoss6Kakusan__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4, f32 farg
     if (*(f32 *)((s8 *)arg0 + 0x24) <= TBoss6Kakusan__data_805DF518) {
         *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805DF53C;
     }
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x3C), (void *) (arg3));
+    VecCopy((Vec *)(arg0 + 0x3C), (const Vec *)(arg3));
     if (vector_length((void *) (arg0 + 0x3C)) <= TBoss6Kakusan__data_805DF51C) {
         *(f32 *)((s8 *)arg0 + 0x40) = (f32) lbl_805DF53C;
     }
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x30), (void *) (arg2));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x48), (void *) (arg0 + 0x30));
+    VecCopy((Vec *)(arg0 + 0x30), (const Vec *)(arg2));
+    VecCopy((Vec *)(arg0 + 0x48), (const Vec *)(arg0 + 0x30));
     temp_f2 = *(f32 *)((s8 *)(TLobby::dispatch_shared_handler_a(0x2B)) + 4);
     *(s32 *)((s8 *)arg0 + 0x1C) = (s32) temp_f2;
     if (TBoss6Kakusan__data_805DF518 == temp_f2) {

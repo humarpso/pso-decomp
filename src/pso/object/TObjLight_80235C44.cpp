@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TUnk_804CCAA8.h"
 #include "pso/object/TObjLight.h"
 
@@ -40,7 +41,6 @@ struct Light_80235C44 {
 struct Base_80235C44 { u8 pad[0x1C]; f32 f1c; f32 f20; };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_getField1c(int);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -119,7 +119,7 @@ u8 *TObjLight::construct_actor_light(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32
     __ct__7TObjectFP7TObject((void *) (((u8 *)this)), (void *) (arg5));
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80235E9C_lbl_804CCAA8 *)&lbl_804CCAA8).value;
     copy_vec4__13TRaderMapCoreFPvPv((void *) (((u8 *)this) + 0x24), (void *) (arg1));
-    VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x34), (void *) (arg2));
+    VecCopy((Vec *)(((u8 *)this) + 0x34), (const Vec *)(arg2));
     *(s32 *)&this->m_1c = arg3;
     *(s32 *)&this->m_4c = 0;
     *(f32 *)&this->m_50 = farg0;
@@ -137,7 +137,7 @@ u8 *construct_actor_light_task(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u8 *arg4,
     __ct__7TObjectFP7TObject(arg0, arg5);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80235F60_lbl_804CCAA8 *)&lbl_804CCAA8).value;
     copy_vec4__13TRaderMapCoreFPvPv(arg0 + 0x24, arg1);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x34, arg2);
+    VecCopy((Vec *)(arg0 + 0x34), (const Vec *)arg2);
     *(s32 *)((s8 *)arg0 + 0x1C) = arg3;
     *(s32 *)((s8 *)arg0 + 0x4C) = 0;
     *(f32 *)((s8 *)arg0 + 0x50) = farg0;

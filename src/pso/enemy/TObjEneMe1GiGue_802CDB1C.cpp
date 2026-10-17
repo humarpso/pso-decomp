@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
@@ -69,7 +70,6 @@ extern const f32 lbl_805DE6C0;
 extern const f32 lbl_805DE6C4;
 extern const f32 lbl_805DE6C8;
 u8 *TObjPlayer__sub_802CDEB4(u8 *arg0, Vec_802CDEB4 *arg1, s16 arg2, Rot_802CDEB4 *arg3, s32 arg4, s32 arg5, s16 arg6);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 u32 csnVector(void *, void *, s32);
 s32 spawn_particle_effect(void *, s32);
@@ -104,7 +104,7 @@ void TObjPlayer__sub_802CDB1C(u8 *arg0) {
         self->timer--;
         if (self->timer <= 0) {
             self->timer = 0;
-            VecCopy__FP3VecPC3Vec(&self->pos, self->start);
+            VecCopy((Vec *)&self->pos, (const Vec *)self->start);
             self->state = 1;
             if (TOKeyMachine01::get_global_state() == 0x23) {
                 play_sound_effect(0x4003A313, &self->pos, 0, 0);
@@ -127,14 +127,14 @@ void TObjPlayer__sub_802CDB1C(u8 *arg0) {
             return;
         }
         if (tgt != NULL) {
-            VecCopy__FP3VecPC3Vec(&v, (u8 *)tgt + 0x2FC);
+            VecCopy((Vec *)&v, (const Vec *)((u8 *)tgt + 0x2FC));
             subtract_vector(&v, &self->pos);
             ((TObjGyaranzoMissile *)(&v))->scale_velocity(self->speed);
             self->speed += lbl_805D684C;
             vec3_add_to(&self->vel, &v);
             ((TObjGyaranzoMissile *)(&self->vel))->scale_velocity(lbl_805D6844);
         }
-        VecCopy__FP3VecPC3Vec(&self->prev, &self->pos);
+        VecCopy((Vec *)&self->prev, (const Vec *)&self->pos);
         vec3_add_to(&self->pos, &self->vel);
         if (self->ptcl0 != NULL) {
             ((TNowLoading *)(self->ptcl0))->copy_pos(&self->pos);

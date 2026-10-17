@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/item/TItemData.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -352,7 +353,6 @@ s32 TItemEquipBase__sub_8022C680(void *, void *, void *);
 void TItemEquipBase__sub_8010A82C(s32 arg0);
 s32 test_flags_any(void *, void *);
 s32 TItemEquipBase__sub_8010AC60(s32 arg0, s32 arg1, s32 arg2);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_particle_effect(void *, int);
 u8 *resolve_hittable_target(s32, s32);
 void play_target_impact_effect(s32 arg0, s32 arg1, s32 arg2, s16 arg3);
@@ -411,7 +411,7 @@ void play_target_impact_effect(s32 arg0, s32 arg1, s32 arg2, s16 arg3) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(resolve_hittable_target(arg2, (s32) arg3));
     if (temp_r3 != NULL) {
-        VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (temp_r3 + 0x38));
+        VecCopy((Vec *)(&stack.sp8), (const Vec *)(temp_r3 + 0x38));
         stack.spC = *(f32 *)((s8 *)temp_r3 + 0x300);
     }
     spawn_particle_effect((void *) (&stack.sp8), (int) (0x45));

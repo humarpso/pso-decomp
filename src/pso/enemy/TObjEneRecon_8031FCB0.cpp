@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TUnk_80494938.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneRecobox.h"
@@ -111,7 +112,6 @@ struct Sub_8031FE98 { u8 b[0x1C]; };
 
 struct Self_8031FE98 { u8 pad[0x3FC]; s32 f3fc[4]; u8 pad40c[0x418 - 0x40C]; u16 f418[6]; u16 f424[30]; Sub_8031FE98 subs[4]; };
 
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void __dt__12TObjEneDD_STFv(void *, int);
 void init_object__12TObjEneDD_STFv(void *, s32, void *);
 void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
@@ -451,7 +451,7 @@ u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s32 *)((s8 *)arg0 + 0x4D8) = 0;
     *(s32 *)((s8 *)arg0 + 0x4DC) = 0;
     *(s32 *)((s8 *)arg0 + 0x3E0) = 0;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x3E4, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0x3E4), (const Vec *)(arg0 + 0x38));
     *(s32 *)((s8 *)arg0 + 0x4E0) = 0;
     *(s32 *)((s8 *)arg0 + 0x4E4) = 0;
     *(s32 *)((s8 *)arg0 + 0x4E8) = 0;

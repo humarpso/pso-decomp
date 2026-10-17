@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
 #include "pso/unk/TUnk_804CC870.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -26,7 +27,6 @@ void approach_alpha_clamped(void *, Quad_80232934 *, f32);
 void copy_slot_to_anim_frame(Ctx_80232934 *);
 void fn_800829E0(Ctx_80232934 *);
 void func_80141618__Fv(void);
-void set_depth_buffer_settings_id__FUl(u32);
 void scale_matrix(s32, f32, f32, f32);
 void translate_matrix(s32, f32, f32, f32);
 void push_matrix(void);
@@ -62,7 +62,7 @@ void TUnk_804CC870::render() {
     lbl_805D5660 = id;
     model_render_flags = id | 0x10;
     set_chunk_material_color(arg0->f38, id);
-    set_depth_buffer_settings_id__FUl(3);
+    set_depth_buffer_settings_id(3);
     TParticleCtrl::begin_effect_render();
     push_matrix();
     post_translate_matrix(arg0->f20);

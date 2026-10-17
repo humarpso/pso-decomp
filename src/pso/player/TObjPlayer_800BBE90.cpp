@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804928CC.h"
 #include "pso/player/TObjPlayer.h"
@@ -119,7 +120,6 @@ struct P_800BC250 : VB_800BC250 {
 
 extern "C" {
 extern const f32 lbl_805D9EB4;
-void VecCopy__FP3VecPC3Vec(Vec_800BBFD0 *dst, const Vec_800BBFD0 *src);
 void subtract_vector(Vec_800BBFD0 *a, Vec_800BBFD0 *b);
 s32 obj_isState2_324__13TUnk_804806E8Fv(void *);
 void area_attack_receive_direct(Actor_800BBF08 *src, Actor_800BBF08 *dst, f32 *recoil, Desc_800BBF08 *desc);
@@ -184,7 +184,7 @@ void TUnk_804928CC::area_attack_apply_recoil(void *b_arg, f32 s) {
     Obj_800BBFD0 *a = (Obj_800BBFD0 *)this;
     Obj_800BBFD0 *b = (Obj_800BBFD0 *)b_arg;
     Vec_800BBFD0 v;
-    VecCopy__FP3VecPC3Vec(&v, &b->pos);
+    VecCopy((Vec *)&v, (const Vec *)&b->pos);
     subtract_vector(&v, &a->pos);
     ((TObjBoss2Tunnel *)(&v))->clamp_velocity();
     b->f308 = v.x * s + b->f308;

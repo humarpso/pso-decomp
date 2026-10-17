@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss7DeRolLeC.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/object/TObjMotion.h"
@@ -14,7 +15,6 @@ struct RecoveredGlobal_802EEC60___vt__11TBoss7Joint {
 struct J_802EEB88 { u8 pad[0x38C]; u8 sub; };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
 extern const f32 lbl_805DEBB8;
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
@@ -43,8 +43,8 @@ u32 is_part_active__11TBoss7JointFv(void *, int);
 
 void TBoss7Joint::store_position() {
     struct VOff_802EE9A4_arg0_802EE9A4 *self = (struct VOff_802EE9A4_arg0_802EE9A4 *)this;
-    VecCopy__FP3VecPC3Vec(self->f_2FC, (void *)((char *)this + 56));
-    VecCopy__FP3VecPC3Vec((void *)((char *)this + 116), self->f_2FC);
+    VecCopy((Vec *)self->f_2FC, (const Vec *)((char *)this + 56));
+    VecCopy((Vec *)((char *)this + 116), (const Vec *)self->f_2FC);
 }
 
 extern const f32 lbl_805DEBB0;
@@ -74,7 +74,7 @@ void TBoss7Joint::vfunc_62() {
 void TBoss7Joint::run_task() {
     u8 *arg0 = (u8 *)this;
     if (TObjPlayer::check_demo_mode() == 0) {
-        VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x38)), (void *)((int) (*(s32 *)((s8 *)arg0 + 0x3C0))));
+        VecCopy((Vec *)((void *) (arg0 + 0x38)), (const Vec *)((int) (*(s32 *)((s8 *)arg0 + 0x3C0))));
         this->vfunc_83();
         store_position();
         this->vfunc_88();

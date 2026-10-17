@@ -1,4 +1,6 @@
 #include "pso/TParticleCtrl.h"
+#include "pso/render/depth_buffer.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_8048E778.h"
 #include "pso/misc/TUnk_8048E7A8.h"
 #include "pso/misc/TUnk_8048E728.h"
@@ -159,7 +161,6 @@ s32 is_split_screen();
 s32 setup_particle_tev(s32);
 s32 load_projected_texture_matrix(f32);
 s32 is_particle_sprite_additive__13TUnk_8048E728Fv(void *, s32);
-s32 set_depth_buffer_settings_id__FUl(s32);
 s32 append_node_to_tail__13TParticleCtrlFPvPv(s32, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 f32 cos_table_lookup(s32);
@@ -176,7 +177,6 @@ extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 lbl_805D9540;
-void VecCopy__FP3VecPC3Vec(void *, const void *);
 extern const f32 TParticleCtrl__data_805D952C;
 extern const f32 TParticleCtrl__data_805D9530;
 extern const f32 lbl_805D9544;
@@ -224,7 +224,7 @@ extern const f32 TParticleCtrl__data_805D94E4;
     particle->field20 = 0;                                                     \
     particle->field24 = TParticleCtrl__data_805D94E4;                          \
     particle->particle_index = particle_index;                                 \
-    VecCopy__FP3VecPC3Vec(&particle->position, position);                      \
+    VecCopy(&particle->position, position);                      \
     particle->flags = particle_flags;                                          \
     particle->field2E = 0xFFFF;                                                \
     direction_action(particle, direction_source);                              \
@@ -333,7 +333,7 @@ void TUnk_8048E790::render() {
                     }
                 }
                 TObjFish::set_global_param(*(u32 *)&this->unk_B4);
-                set_depth_buffer_settings_id__FUl(3);
+                set_depth_buffer_settings_id(3);
                 if ((u32) this->m_b8 != 0U) {
                     draw_ginja_model_with_motion(this->m_b0, this->m_b8, *(f32 *)&this->unk_BC);
                 } else {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TUnk_804CCC68.h"
 
 #include <stddef.h>
@@ -12,7 +13,6 @@ struct Stack_8023A434 {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
 u8 *csnVector(f32 *, f32 *, s32);
 void check_technique_projectile_wall_hit(u8 *arg0);
@@ -35,7 +35,7 @@ void check_technique_projectile_wall_hit(u8 *arg0) {
     stack.sp1C = *(f32 *)((s8 *)arg0 + 0x28);
     temp_r3 = (u8 *)(csnVector(&stack.sp8, &stack.sp14, 0x100));
     if (temp_r3 != NULL) {
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x20), (int) (*(s32 *)((s8 *)temp_r3 + 4)));
+        VecCopy((Vec *)(arg0 + 0x20), (const Vec *)(*(s32 *)((s8 *)temp_r3 + 4)));
         ((TUnk_804CCC68 *)(arg0))->vfunc_6();
         queue_destruction__7TObjectFv((void *) (arg0));
     }

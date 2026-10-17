@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/object/TObjMistCtrl.h"
 #include "pso/misc/TNowLoading.h"
 
@@ -9,7 +10,6 @@ struct Obj_802AF64C { u8 pad[0x38]; Vec_802AF64C pos; u8 pad2[0x90 - 0x44]; void
 struct Cam_802AF64C { u8 pad[0x178]; Vec_802AF64C v178; u8 pad2[0x190 - 0x184]; s32 a, b, c; };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 vec3_add_to(void *, void *);
 s32 rotate_matrix_zyx(s32, s32, s32, s32);
 s32 rotate_vector_by_matrix(s32, void *, void *);
@@ -32,7 +32,7 @@ void TObjMistCtrl::sub_802AF64C() {
     v.y *= lbl_805DE1F0;
     v.z *= lbl_805DE1F0;
     vec3_add_to(&v, &camera_ctrl_instance->v178);
-    VecCopy__FP3VecPC3Vec(&arg0->pos, &v);
+    VecCopy((Vec *)&arg0->pos, (const Vec *)&v);
     if (arg0->x90 != NULL) {
         ((TNowLoading *)(arg0->x90))->copy_pos(&arg0->pos);
     }

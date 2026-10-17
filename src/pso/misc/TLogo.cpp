@@ -1,4 +1,5 @@
 #include "pso/TObject.h"
+#include "pso/system/main_loop.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TLobby.h"
 class TLogo : public TObject {
@@ -33,7 +34,6 @@ extern V3_8013F6C4 lbl_8043F138;
 extern V3_8013F6C4 lbl_8043F144;
 extern u8 default_scene_light_config[];
 s32 call_funcs_reverse__6TLobbyFPvUi(void *, int);
-s32 render_tick__Fv();
 s32 delete_all_task_children__9TMainTaskFv(void *);
 void TLogo__sub_8013F5AC();
 s32 TKeyBoardControl__sub_8000F9CC(int);
@@ -57,7 +57,6 @@ s32 set_active_camera_pose(void *, void *);
 s32 activate_camera_mode(int);
 s32 process_async_file_reads();
 s8 func_801A5E54__Fv();
-s32 controller_stuff__Fv();
 s32 update_sound_request_slots();
 s32 func_803DCDFC__Fv();
 extern V3_8013F5E8 lbl_8043F150;
@@ -227,7 +226,7 @@ void *__ct__5TLogoFv(void *arg0) {
 void TLogo__sub_8013F5AC() {
     delete_all_task_children__9TMainTaskFv(&main_task);
     call_funcs_reverse__6TLobbyFPvUi(logo_load_callback_table, sizeof(logo_load_callback_table));
-    render_tick__Fv();
+    render_tick();
 }
 
 void run_frame__5TLogoFv(void) {
@@ -236,7 +235,7 @@ void run_frame__5TLogoFv(void) {
     V3_8013F5E8 b = lbl_8043F15C;
     activate_camera_mode(9);
     set_active_camera_pose(&a, &b);
-    controller_stuff__Fv();
+    controller_stuff();
     TKeyBoardControl::update_input_frame();
     main_task.some_empty_func();
     main_task.run_task();
@@ -250,7 +249,7 @@ void run_frame__5TLogoFv(void) {
     if (TQuestVmDownLoadServer::is_ready() != 0) {
         TKeyBoardControl__sub_8000F9CC(0);
     }
-    render_tick__Fv();
+    render_tick();
 }
 
 void init_logo_scene__5TLogoFv(void) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/TObject.h"
 #include "pso/enemy/TObjEneRe2Flower_EffCurse3.h"
 #include "pso/enemy/TUnk_80493450.h"
@@ -73,7 +74,6 @@ typedef struct Obj_800C55E0 {
 } Obj_800C55E0;
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 subtract_vector(void *, void *);
 
 extern void *player_render_texture_buffer;
@@ -102,9 +102,9 @@ void TObjEneRe2Flower_EffCurse3::run_task() {
         return;
     }
     if (is_alive__9TObjEneDDFv((s32)o->target) != 0) {
-        VecCopy__FP3VecPC3Vec(&a, &o->target->pos);
+        VecCopy((Vec *)&a, (const Vec *)&o->target->pos);
         a.y += (14.0f);
-        VecCopy__FP3VecPC3Vec(&b, camera_ctrl_instance + 0x178);
+        VecCopy((Vec *)&b, (const Vec *)(camera_ctrl_instance + 0x178));
         subtract_vector(&b, &a);
         ((TObjBoss2Tunnel *)(&b))->update_scale();
         a.x = (2e+01f) * b.x + a.x;

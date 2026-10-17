@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
@@ -55,7 +56,6 @@ extern "C" {
 void *get_player_by_client_id(s32);
 extern Table_8006FE7C challenge_mode_state;
 extern void *tl_07;
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_current_floor();
 char *get_unit_list__6TLobbyFv(void);
 char *TLobby__sub_80070ACC(u8, u8, s32);
@@ -108,7 +108,7 @@ void TLobby::update_card_save_info() {
     if (++card->f2228 > 0x270F) {
         card->f2228 = 0x270F;
     }
-    VecCopy__FP3VecPC3Vec(&card->pos, &ply->pos);
+    VecCopy((Vec *)&card->pos, (const Vec *)&ply->pos);
     getDateStamp__FP9DateStamp(&date);
     if (date.year / 100 != 20) {
         v = 0xF;

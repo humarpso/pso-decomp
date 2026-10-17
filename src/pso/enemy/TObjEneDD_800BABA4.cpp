@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss5Gryphon.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -240,7 +241,6 @@ struct Ene_800BB000 {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, int);
 f32 newton_sqrtf(f32);
 void calc_wall_clamped_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist);
 extern const f32 TObjEneDD__data_805D9E8C;
@@ -305,7 +305,7 @@ u8 *TObjEneDD::vfunc_102() {
     temp_f31 = *(f32 *)((s8 *)arg0 + 0x3C);
     temp_r3 = (unsigned char *) (((TObjEneDD *)(arg0))->update_actor_ground_y());
     if (temp_r3 != NULL) {
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x248), (int) (*(s32 *)((s8 *)temp_r3 + 4) + 0xC));
+        VecCopy((Vec *)(arg0 + 0x248), (const Vec *)(*(s32 *)((s8 *)temp_r3 + 4) + 0xC));
     }
     *(f32 *)&this->m_44 = (f32) *(f32 *)((s8 *)arg0 + 0x38);
     *(f32 *)&this->m_48 = temp_f31;
@@ -320,7 +320,7 @@ u8 *TObjEneDD::vfunc_101(u8 *arg1) {
     temp_f31 = *(f32 *)((s8 *)arg0 + 0x3C);
     temp_r3 = (unsigned char *) (((VObj_18_3f4583 *)(arg0))->m101());
     if (temp_r3 != NULL) {
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x248), (int) (*(s32 *)((s8 *)temp_r3 + 4) + 0xC));
+        VecCopy((Vec *)(arg0 + 0x248), (const Vec *)(*(s32 *)((s8 *)temp_r3 + 4) + 0xC));
     }
     *(f32 *)&this->m_44 = (f32) *(f32 *)((s8 *)arg0 + 0x38);
     *(f32 *)&this->m_48 = temp_f31;
@@ -341,7 +341,7 @@ u8 *TBoss5Gryphon::try_move_actor_xz_on_ground(u8 *arg1) {
         *(f32 *)&this->m_4c = (f32) *(f32 *)((s8 *)((u8 *)this) + 0x40);
         *(f32 *)((s8 *)((u8 *)this) + 0x38) = (f32) *(f32 *)((s8 *)arg1 + 0);
         *(f32 *)((s8 *)((u8 *)this) + 0x40) = (f32) *(f32 *)((s8 *)arg1 + 8);
-        VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x248), (int) (*(s32 *)((s8 *)temp_r3 + 4) + 0xC));
+        VecCopy((Vec *)(((u8 *)this) + 0x248), (const Vec *)(*(s32 *)((s8 *)temp_r3 + 4) + 0xC));
         this->m_384 = 0;
     } else {
         this->m_384 = (s32) (this->m_384 + 1);
@@ -406,7 +406,7 @@ void calc_wall_slide_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dis
         out->z = dz * dist + e->pos.z;
         return;
     }
-    VecCopy__FP3VecPC3Vec(out, (int)&e->pos);
+    VecCopy((Vec *)out, (const Vec *)&e->pos);
 }
 #undef e
 #undef out

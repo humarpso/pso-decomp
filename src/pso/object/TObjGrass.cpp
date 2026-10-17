@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
@@ -351,7 +352,6 @@ struct E2C_800BF924 { u8 pad[0x2C]; };
 extern "C" {
 s32 spawn_particle_effect(s32, s32);
 s32 apply_actor_gravity(void *, s32, f32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
@@ -749,8 +749,8 @@ s32 TObjGrass::sub_800BCE44() {
       *((s32 *) (((s8 *) arg0) + 0x30)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x30))) | 0x2000);
       *((s32 *) (((s8 *) arg0) + 0x2A8)) = 0;
       *((s16 *) (((s8 *) arg0) + 0x338)) = (float) 0xFFFF;
-      VecCopy__FP3VecPC3Vec((void *) (0x290 + arg0), (void *) (arg0 + 0x2FC));
-      VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x29C), (void *) (arg0 + 0x2FC));
+      VecCopy((Vec *)(0x290 + arg0), (const Vec *)(arg0 + 0x2FC));
+      VecCopy((Vec *)(arg0 + 0x29C), (const Vec *)(arg0 + 0x2FC));
       *((f32 *) (((s8 *) arg0) + 0x398)) = (f32) (0.0f);
     }
     *((s16 *) (((s8 *) arg0) + 0x33E)) = (s16) (*((s16 *) (((s8 *) arg0) + 0x32C)));
@@ -824,7 +824,7 @@ s32 TObjGrass::update_web_attack() {
             arg0->timer = 0;
         } else {
             s32 d;
-            VecCopy__FP3VecPC3Vec(&v, &arg0->target->p2fc);
+            VecCopy((Vec *)&v, (const Vec *)&arg0->target->p2fc);
             subtract_vector(&v, &arg0->p2fc);
             d = update_angle__10TObjPlayerFlPv(arg0, (void *)arg0->f350[2], &v);
             apply_actor_gravity(arg0, 0, (0.0f));
@@ -840,11 +840,11 @@ s32 TObjGrass::update_web_attack() {
         apply_actor_gravity(arg0, 0, (0.0f));
         if (arg0->target != NULL) {
             s32 d;
-            VecCopy__FP3VecPC3Vec(&v2, &arg0->target->p2fc);
+            VecCopy((Vec *)&v2, (const Vec *)&arg0->target->p2fc);
             subtract_vector(&v2, &arg0->p2fc);
             d = angle_difference_abs(arg0->rotY, (s32)((10430.38043493439) * atan2_float(v2.x, v2.z)));
             if (d < ((TObjPlayer *)(((u32 *)TObjGrass__bml_resource)[1]))->get_field_0c()) {
-                VecCopy__FP3VecPC3Vec(&v2, &arg0->target->pos);
+                VecCopy((Vec *)&v2, (const Vec *)&arg0->target->pos);
                 subtract_vector(&v2, &arg0->p380);
                 ang[0] = (s32)((10430.38043493439) * atan2_float(v2.z, newton_sqrtf(v2.x * v2.x + v2.y * v2.y)));
                 ang[1] = 0;
@@ -923,7 +923,7 @@ void TObjGrass::sub_800BD4D8() {
         if (o->target != NULL) {
             Vec_800BD4D8 v;
             s32 d;
-            VecCopy__FP3VecPC3Vec(&v, &o->target->p2fc);
+            VecCopy((Vec *)&v, (const Vec *)&o->target->p2fc);
             subtract_vector(&v, &o->p2fc);
             d = update_angle__10TObjPlayerFlPv(o, (void *)(s32)((2.0f) * (f32)o->param->turn), &v);
             if (d < ((TObjPlayer *)(o->f318))->get_field_0c()) {
@@ -1087,7 +1087,7 @@ void TObjGrass::sub_800BDD70() {
             *(s32 *)((s8 *)arg0 + 0x30) &= ~0x200000;
             *(s16 *)((s8 *)arg0 + 0x33C) = 0;
         } else {
-            VecCopy__FP3VecPC3Vec(&sp8, *(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC);
+            VecCopy((Vec *)&sp8, (const Vec *)(*(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC));
             subtract_vector(&sp8, arg0 + 0x2FC);
             ang = update_angle__10TObjPlayerFlPv(arg0, (void *)*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 8), &sp8);
             apply_actor_gravity(arg0, 0, (0.0f));
@@ -1290,7 +1290,7 @@ void TObjGrass::update_chase_target(void *arg0_) {
             Vec_800BE4C0 v;
             Vec_800BE4C0 t = *(Vec_800BE4C0 *)(*(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC);
             dist = enemy_move_toward(arg0, turn, &t, 0, (0.125f) * speed);
-            VecCopy__FP3VecPC3Vec(&v, *(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC);
+            VecCopy((Vec *)&v, (const Vec *)(*(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC));
             subtract_vector(&v, arg0 + 0x2FC);
             turn = angle_difference_abs(*(s32 *)((s8 *)arg0 + 0x60), (s32)((10430.38043493439) * atan2_float(v.x, v.z)));
             if (turn < ((TObjPlayer *)(*(s32 *)((s8 *)arg0 + 0x318)))->get_field_0c()) {
@@ -1399,10 +1399,10 @@ void TObjGrass::update_ai(void *arg0) {
                 Vec_800BE8FC *d;
                 Vec_800BE8FC *v;
                 s32 ang;
-                VecCopy__FP3VecPC3Vec(&o->f29C, &o->home);
-                VecCopy__FP3VecPC3Vec(&o->f290, &o->f2FC);
-                VecCopy__FP3VecPC3Vec(&o->prev, &o->pos);
-                VecCopy__FP3VecPC3Vec(&lbl_8050BEE0, &o->home);
+                VecCopy((Vec *)&o->f29C, (const Vec *)&o->home);
+                VecCopy((Vec *)&o->f290, (const Vec *)&o->f2FC);
+                VecCopy((Vec *)&o->prev, (const Vec *)&o->pos);
+                VecCopy((Vec *)&lbl_8050BEE0, (const Vec *)&o->home);
                 subtract_vector(&lbl_8050BEE0, &o->pos);
                 d = &lbl_8050BEE0;
                 ang = (s32)((10430.38043493439) * atan2_float(d->x, d->z));
@@ -1416,7 +1416,7 @@ void TObjGrass::update_ai(void *arg0) {
                 vec3_add_to(&lbl_8050BF00, &o->pos);
                 if (project_actor_to_ground(o, &lbl_8050BF00, 0) == 1) {
                     o->fB8 = 1;
-                    VecCopy__FP3VecPC3Vec(&o->pos, &lbl_8050BF00);
+                    VecCopy((Vec *)&o->pos, (const Vec *)&lbl_8050BF00);
                     o->angle = approach_angle_limited(o->angle, ang, o->param->turn);
                 } else {
                     f32 r = fabs_float(d->z);
@@ -1435,7 +1435,7 @@ void TObjGrass::update_ai(void *arg0) {
                     vec3_add_to(&lbl_8050BF00, &o->pos);
                     if (project_actor_to_ground(o, &lbl_8050BF00, 0) == 1) {
                         o->fB8 = 1;
-                        VecCopy__FP3VecPC3Vec(&o->pos, &lbl_8050BF00);
+                        VecCopy((Vec *)&o->pos, (const Vec *)&lbl_8050BF00);
                         o->angle = approach_angle_limited(o->angle, ang, o->param->turn);
                     } else {
                         s32 ang2;
@@ -1455,7 +1455,7 @@ void TObjGrass::update_ai(void *arg0) {
                         vec3_add_to(&lbl_8050BF00, &o->pos);
                         if (project_actor_to_ground(o, &lbl_8050BF00, 0) == 1) {
                             o->fB8 = 1;
-                            VecCopy__FP3VecPC3Vec(&o->pos, &lbl_8050BF00);
+                            VecCopy((Vec *)&o->pos, (const Vec *)&lbl_8050BF00);
                             o->angle = approach_angle_limited(o->angle, ang2, o->param->turn);
                         } else {
                             o->fB8 = 1;
@@ -1573,7 +1573,7 @@ void TObjGrass__vt26(u8 *arg0) {
                 if ((u16)id < 0x4000 && (u16)id != *(u16 *)((s8 *)arg0 + 0x1C) && !(*(s32 *)((s8 *)p + 0x30) & 0x02000800)) {
                     f32 xx;
                     f32 zz;
-                    VecCopy__FP3VecPC3Vec(&v, p + 0x2FC);
+                    VecCopy((Vec *)&v, (const Vec *)(p + 0x2FC));
                     subtract_vector(&v, arg0 + 0x2FC);
                     xx = v.x * v.x;
                     zz = v.z * v.z;
@@ -1703,9 +1703,9 @@ void TObjGrass::render() {
     TObjEneRe7Berura::set_global_state((s32)NULL);
     pop_matrix();
     restore_scene_lighting();
-    VecCopy__FP3VecPC3Vec(arg0 + 0x374, &grass_camera_vec);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x380, &lbl_80500BC4);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x38C, &grass_origin_vec);
+    VecCopy((Vec *)(arg0 + 0x374), (const Vec *)&grass_camera_vec);
+    VecCopy((Vec *)(arg0 + 0x380), (const Vec *)&lbl_80500BC4);
+    VecCopy((Vec *)(arg0 + 0x38C), (const Vec *)&grass_origin_vec);
     switch (*(s16 *)((s8 *)arg0 + 0x326)) {
     case 0:
     case 1:

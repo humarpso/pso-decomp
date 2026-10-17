@@ -1,4 +1,5 @@
 #include "pso/misc/RenderFadeState.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/object/TObjFish.h"
 #include "pso/object/TObjMotion.h"
@@ -64,7 +65,6 @@ struct Vec_8018BEE4 { f32 x, y, z; };
 
 extern "C" {
 s32 construct_actor_base__10TObjPlayerFPvPv(void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
@@ -124,9 +124,9 @@ u8 *TContainerAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x60000000);
     init_collision_body_parts((void *) (arg0), (void *) (&TContainerAncient01__collision_body_parts.value), (int) (1));
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x78) = (f32) ((*(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4) * lbl_805DBD5C) + *(f32 *)((s8 *)arg0 + 0x78));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x74));
+    VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x74));
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     ((TContainerAncient01 *)arg0)->init_state_vectors();
     return arg0;
@@ -535,8 +535,8 @@ u8 *TObjContainerIdo__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjPlayer *)(arg0 + 0xF0))->init_and_activate();
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D330C;
     ((VObj_8018C7BC *)(arg0))->m5(arg2);
-    VecCopy__FP3VecPC3Vec(arg0 + 0xC0, arg0 + 0x38);
-    VecCopy__FP3VecPC3Vec(arg0 + 0xB4, arg0 + 0x38);
+    VecCopy((Vec *)(arg0 + 0xC0), (const Vec *)(arg0 + 0x38));
+    VecCopy((Vec *)(arg0 + 0xB4), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0xB0) = lbl_805DBD7C;
     *(s32 *)((s8 *)arg0 + 0xDC) = *(s32 *)((s8 *)arg0 + 0x88);
     if (*(s32 *)((s8 *)arg0 + 0xDC) < 1) {

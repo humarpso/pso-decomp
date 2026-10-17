@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneRecobox.h"
 #include "pso/enemy/TObjEneRecon.h"
 
@@ -28,7 +29,6 @@ struct Recon_8031F8C4 {
 
 extern "C" {
 extern const f32 lbl_805DF44C;
-void VecCopy__FP3VecPC3Vec(Vec_8031F8C4 *, Vec_8031F8C4 *);
 void play_sound_effect(s32, void *, s32, s32);
 u32 create__12TObjEneReconFPvPvPvPvPv(void *, u16, s32, Vec_8031F8C4 *, Vec_8031F8C4 *);
 s32 alloc_child_id__12TObjEneReconFv(void *);
@@ -100,7 +100,7 @@ void TObjEneRecon::update_child_spawn() {
     }
     id = alloc_child_id__12TObjEneReconFv(o);
     arg = o->f2C + (id - o->f1C);
-    VecCopy__FP3VecPC3Vec(&pos, get_field_38_ptr__12TObjEneReconFv(o, o->f2C));
+    VecCopy((Vec *)&pos, (const Vec *)(get_field_38_ptr__12TObjEneReconFv(o, o->f2C)));
     if (id == 0xFFFF) {
         o->f414 = o->f3F4;
         return;

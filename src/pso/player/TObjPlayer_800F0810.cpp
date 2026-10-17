@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/render/depth_buffer.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 
 struct RecoveredGlobal_800F08AC_lbl_80501080 {
@@ -40,7 +41,6 @@ void TObjPlayer__sub_800F083C(void);
 s32 draw__16TObjEneRe7BeruraFv(void *);
 s32 is_split_screen();
 s32 is_split_screen__10TObjPlayerFv(void);
-s32 set_depth_buffer_settings_1__Fv();
 s32 restore_saved_depth_alpha_state();
 s32 set_cached_blend_factor(int, int);
 extern RecoveredGlobal_800F09E8_lbl_804976B0 blob_shadow_rect_desc;
@@ -108,7 +108,7 @@ block_2:
         stack.sp1C = 0;
         stack.sp20 = blob_shadow_texture_list;
         stack.sp24 = (s32 *)(&blob_shadow_rect_desc.value);
-        set_depth_buffer_settings_1__Fv();
+        set_depth_buffer_settings_1();
         set_cached_blend_factor((int) (0), (int) (8));
         set_cached_blend_factor((int) (1), (int) (6));
         TParticleCtrl::begin_effect_render();

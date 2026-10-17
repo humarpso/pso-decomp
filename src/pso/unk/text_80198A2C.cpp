@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TLanguage.h"
 #include "pso/misc/TWindowTimer.h"
 #include "pso/TParticleCtrl.h"
@@ -21,7 +23,6 @@ struct Vec_80198E84;
 struct Vec_80199674;
 struct Vec_8019978C;
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void*,void*);
 s32 queue_destruction__7TObjectFv(void*);
 s32 spawn_particle_effect_with_flags(void*,int,int);
 extern Sys_80198A2C gogo_ball_configuration;
@@ -75,7 +76,6 @@ struct Pad_80198A2C { u8 pad0[0x10]; s16 buttons; };
 struct Sys_80198A2C { u8 pad0[0x48]; u16 mode; };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 void *spawn_particle_effect_with_rotation(void *, void *, int, int);
 s32 spawn_particle_effect_with_flags(void *, int, int);
@@ -126,7 +126,7 @@ void TBoss3Volopt__sub_80198A2C(u8 *arg0) {
         self->rot += 0x16C;
         if (self->timer <= 0x14) {
             Vec_80198A2C v;
-            VecCopy__FP3VecPC3Vec(&v, &self->pos);
+            VecCopy((Vec *)&v, (const Vec *)&self->pos);
             v.y += (18.0f);
             spawn_particle_effect(&v, 0x1DB);
         }
@@ -141,7 +141,6 @@ void TBoss3Volopt__sub_80198A2C(u8 *arg0) {
 }
 
 #undef gogo_ball_sync_state
-#define VecCopy__FP3VecPC3Vec ((void (*)(void*,void*))VecCopy__FP3VecPC3Vec)
 #define queue_destruction__7TObjectFv ((void (*)(void*))queue_destruction__7TObjectFv)
 #define send_gogo_ball__12TWindowTimerFi ((s32 (*)(void*))send_gogo_ball__12TWindowTimerFi)
 #define TWindowTimer__sub_8019A6F8 ((s32 (*)(void*))TWindowTimer__sub_8019A6F8)
@@ -194,8 +193,8 @@ typedef char RecoveredGlobal_80198CF8_lbl_804B8DE8_size[sizeof(RecoveredGlobal_8
 u8 *TWindowTimer__sub_80198CF8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4, u8 *arg5) {
     __ct__7TObjectFP7TObject(arg0, arg5);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80198CF8_lbl_804B8DE8 *)&lbl_804B8DE8).value;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg1);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x28, arg0 + 0x1C);
+    VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)arg1);
+    VecCopy((Vec *)(arg0 + 0x28), (const Vec *)(arg0 + 0x1C));
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) (*(f32 *)((s8 *)arg0 + 0x20) - (16.0f));
     *(s32 *)((s8 *)arg0 + 0x3C) = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
@@ -240,7 +239,6 @@ void throw_gogo_ball__12TWindowTimerFPvii(u8 *arg0, s32 arg1, s32 arg2) {
 
 }
 
-#undef VecCopy__FP3VecPC3Vec
 #undef queue_destruction__7TObjectFv
 #undef send_gogo_ball__12TWindowTimerFi
 #undef TWindowTimer__sub_8019A6F8
@@ -682,7 +680,6 @@ void draw_shadow_on_ground(u8 *arg0) {
 }
 
 #undef TObjPlayer__sub_801994DC
-#define VecCopy__FP3VecPC3Vec ((void (*)(Vec_8019978C*,Vec_8019978C*))VecCopy__FP3VecPC3Vec)
 
 struct Vec_8019978C { f32 x, y, z; };
 
@@ -726,11 +723,11 @@ s32 reflect_velocity_off_collision(Obj_8019978C *o, Vec_8019978C *p, Vec_8019978
     end.x = p->x + v->x;
     end.y = p->y + v->y;
     end.z = p->z + v->z;
-    VecCopy__FP3VecPC3Vec(&dir, v);
+    VecCopy((Vec *)&dir, (const Vec *)v);
     len = vector_length(&dir);
     if ((0.0f) != len) {
         normalize_vector(&dir);
-        VecCopy__FP3VecPC3Vec(&a, p);
+        VecCopy((Vec *)&a, (const Vec *)p);
         a.x -= (3.0f) * (dir.x * len);
         a.y -= (3.0f) * (dir.y * len);
         a.z -= (3.0f) * (dir.z * len);
@@ -779,8 +776,6 @@ s32 reflect_velocity_off_collision(Obj_8019978C *o, Vec_8019978C *p, Vec_8019978
 }
 #pragma pop
 
-#undef VecCopy__FP3VecPC3Vec
-#define VecCopy__FP3VecPC3Vec ((void (*)(void*,void*))VecCopy__FP3VecPC3Vec)
 #define gogo_ball_configuration (*(Glob_80199A44 *)&gogo_ball_configuration)
 #define gogo_ball_bml_resource (*(void* *)&gogo_ball_bml_resource)
 #define rotate_matrix_y ((s32 (*)(int,int))rotate_matrix_y)
@@ -822,10 +817,10 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
     f32 rate;
     s32 step;
 
-    VecCopy__FP3VecPC3Vec(&pos, arg0 + 0x38);
+    VecCopy((Vec *)&pos, (const Vec *)(arg0 + 0x38));
     pos.y += gogo_ball_configuration.scale - (2.0f * gogo_ball_configuration.scale) / 10.0f;
     color.a = (F(s32, 0x358) != 0) ? 0.0f : -0.75f;
-    VecCopy__FP3VecPC3Vec(&dir, arg0 + 0x344);
+    VecCopy((Vec *)&dir, (const Vec *)(arg0 + 0x344));
     dir.y = 0.0f;
     len = vector_length(&dir);
     direction_to_rotation_yx(&dir, arg0 + 0x60, arg0 + 0x64);
@@ -833,9 +828,9 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
     F(s32, 0x60) = (u16)F(s32, 0x60);
     if (0.0f != len) {
         normalize_vector(&dir);
-        VecCopy__FP3VecPC3Vec(arg0 + 0x44, &dir);
+        VecCopy((Vec *)(arg0 + 0x44), (const Vec *)&dir);
     } else {
-        VecCopy__FP3VecPC3Vec(&dir, arg0 + 0x44);
+        VecCopy((Vec *)&dir, (const Vec *)(arg0 + 0x44));
     }
     push_matrix_from(identity_matrix);
     rotate_matrix_y(0, 0x4000);
@@ -918,14 +913,12 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
 
 }
 
-#undef VecCopy__FP3VecPC3Vec
 #undef gogo_ball_configuration
 #undef gogo_ball_bml_resource
 #undef rotate_matrix_y
 #undef vector_length
 #undef normalize_vector
 #undef draw_shadow_on_ground
-#define VecCopy__FP3VecPC3Vec ((void (*)(void*,void*))VecCopy__FP3VecPC3Vec)
 #define queue_destruction__7TObjectFv ((void (*)(void*))queue_destruction__7TObjectFv)
 #define spawn_particle_effect_with_flags ((void (*)(void*,int,int))spawn_particle_effect_with_flags)
 #define gogo_ball_configuration (*(RecoveredGlobal_8019A574_lbl_8050DD58 *)&gogo_ball_configuration)
@@ -997,7 +990,6 @@ struct Timer_8019A104 {
 };
 
 extern "C" {
-s32 bswap_32__FPUl(s32);
 s32 read_be16_field2__10TObjPlayerFv();
 void bswap_6x79_gogo_ball__12TWindowTimerFi(s32 arg0);
 void TWindowTimer__sub_8019A6F8(void* p);
@@ -1042,7 +1034,7 @@ void update_motion__12TWindowTimerFPv(Timer_80199F14 *self) {
     i = 0;
     self->time = TLobby::get_clock_frames() % 2592;
     if (self->time >= ((Tbl_80199F14 *)&gogo_ball_configuration)->limit) {
-        VecCopy__FP3VecPC3Vec(&p, &self->pos);
+        VecCopy((Vec *)&p, (const Vec *)&self->pos);
         p.y += ((Tbl_80199F14 *)&gogo_ball_configuration)->yofs;
         spawn_particle_effect_with_flags(&p, 0x45, 0x40);
         spawn_particle_effect_with_flags(&p, 0x46, 0x40);
@@ -1055,14 +1047,14 @@ void update_motion__12TWindowTimerFPv(Timer_80199F14 *self) {
     if (self->pos.y <= (-5e+02f)) {
         queue_destruction__7TObjectFv(self);
     }
-    VecCopy__FP3VecPC3Vec(&q, &self->pos);
+    VecCopy((Vec *)&q, (const Vec *)&self->pos);
     self->vel.y += self->f33c;
     vec3_add_to(&self->pos, &self->vel);
     for (;;) {
         if (i++ >= 3 || reflect_velocity_off_collision(self, &q, &self->vel) == 0) {
             break;
         }
-        VecCopy__FP3VecPC3Vec(&self->pos, &q);
+        VecCopy((Vec *)&self->pos, (const Vec *)&q);
         q.x += self->vel.x;
         q.y += self->vel.y;
         q.z += self->vel.z;
@@ -1172,7 +1164,7 @@ void TUnk_804B8E18::sub_8019A44C(s32 arg1) {
     arg0->f3A0 = vector_length(&arg0->f344, (0.1f));
     rotate_vec_xz(&arg0->f344, &arg0->f344, arg1);
     arg0->f334 = arg1;
-    VecCopy__FP3VecPC3Vec(arg0->f50, &arg0->f344);
+    VecCopy((Vec *)arg0->f50, (const Vec *)&arg0->f344);
     arg0->f50[1] = (0.0f);
 }
 
@@ -1236,10 +1228,10 @@ void send_gogo_ball__12TWindowTimerFi(s32 arg0) {
 }
 void bswap_6x79_gogo_ball__12TWindowTimerFi(s32 arg0) {
     read_be16_field2__10TObjPlayerFv();
-    bswap_32__FPUl(arg0 + 4);
-    bswap_32__FPUl(arg0 + 8);
-    bswap_32__FPUl(arg0 + 0xC);
-    bswap_32__FPUl(arg0 + 0x10);
+    bswap_32((u32 *)(arg0 + 4));
+    bswap_32((u32 *)(arg0 + 8));
+    bswap_32((u32 *)(arg0 + 0xC));
+    bswap_32((u32 *)(arg0 + 0x10));
 }
 void TWindowTimer__sub_8019A6F8(void* p) { *(u8*)((char*)p + 0x0) = 121; *(u8*)((char*)p + 0x1) = 6; }
 
@@ -1263,7 +1255,6 @@ int TWindowTimer__sub_8019A770(void* p) { return close_timer_window__11TWindowCt
 
 }
 
-#undef VecCopy__FP3VecPC3Vec
 #undef queue_destruction__7TObjectFv
 #undef spawn_particle_effect_with_flags
 #undef gogo_ball_configuration

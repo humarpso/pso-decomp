@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TUnk_804C3248.h"
 #include "pso/object/TObjMotion.h"
 
@@ -105,7 +106,6 @@ s32 spawn_particle_effect(s32, s32);
 u8 * find_entity_by_id(u16);
 u8 * TPhotonMagicSquare__ct(void *, s32, s32, s32, s32, f32);
 s32 play_persistent_sound(s32, s32, u32, s16, s32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 advance_animation_playback(void *);
 s32 queue_photon_blast_hit(int, int, int, f32);
 s32 spawn_photon_blast_attachment_effects(void *, int);
@@ -231,7 +231,7 @@ void TPhotonMylla::run_task() {
         ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A0 = 1;
         entity = (u8 *)(find_entity_by_id(((RecoveredFields_801AD5D8_arg0 *)arg0)->field_17C));
         if (entity != NULL) {
-            VecCopy__FP3VecPC3Vec((void *) (&stack.sp2C), (void *) (entity + 0x38));
+            VecCopy((Vec *)(&stack.sp2C), (const Vec *)(entity + 0x38));
         }
         temp_f1 = stack.sp30;
         stack.sp30 = temp_f1 + lbl_805DC1FC;
@@ -256,7 +256,7 @@ void TPhotonMylla::run_task() {
     if (lbl_805DC208 == (f32) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A4) {
         temp_r3_3 = (u8 *)(find_entity_by_id(((RecoveredFields_801AD5D8_arg0 *)arg0)->field_17C));
         if (temp_r3_3 != NULL) {
-            VecCopy__FP3VecPC3Vec((void *) (&stack.sp20), (void *) (temp_r3_3 + 0x38));
+            VecCopy((Vec *)(&stack.sp20), (const Vec *)(temp_r3_3 + 0x38));
         }
         stack.sp24 += lbl_805DC20C;
         spawn_particle_effect((s32) &stack.sp20, 0x174);
@@ -265,7 +265,7 @@ void TPhotonMylla::run_task() {
     if (lbl_805DC210 == (f32) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A4) {
         temp_r3_4 = (u8 *)(find_entity_by_id(((RecoveredFields_801AD5D8_arg0 *)arg0)->field_17C));
         if (temp_r3_4 != NULL) {
-            VecCopy__FP3VecPC3Vec((void *) (&stack.sp14), (void *) (temp_r3_4 + 0x38));
+            VecCopy((Vec *)(&stack.sp14), (const Vec *)(temp_r3_4 + 0x38));
         }
         stack.sp18 += lbl_805DC20C;
         spawn_particle_effect((s32) &stack.sp14, 0x169);
@@ -273,7 +273,7 @@ void TPhotonMylla::run_task() {
     if (lbl_805DC214 == (f32) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A4) {
         temp_r3_5 = (u8 *)(find_entity_by_id(((RecoveredFields_801AD5D8_arg0 *)arg0)->field_17C));
         if (temp_r3_5 != NULL) {
-            VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (temp_r3_5 + 0x38));
+            VecCopy((Vec *)(&stack.sp8), (const Vec *)(temp_r3_5 + 0x38));
         }
         stack.spC += lbl_805DC20C;
         spawn_particle_effect((s32) &stack.sp8, 0x169);
@@ -314,7 +314,7 @@ void *TPhotonMylla__ct(Mylla_801AD970 *self, Pkt_801AD970 *pkt) {
     *(void **)((u8 *)self + 0x18) = __vt__12TPhotonMylla;
     F_801AD970(self, s32, 0) = lbl_805D3510;
     F_801AD970(self, s32, 0x138) = 5;
-    VecCopy__FP3VecPC3Vec(&self->pos, pkt);
+    VecCopy((Vec *)&self->pos, (const Vec *)pkt);
     F_801AD970(self, u16, 0x17C) = pkt->owner;
     F_801AD970(self, u8 *, 0x180) = find_entity_by_id(F_801AD970(self, u16, 0x17C));
     if (F_801AD970(self, u8 *, 0x180) != NULL) {
@@ -381,7 +381,7 @@ void *TPhotonMylla__ct(Mylla_801AD970 *self, Pkt_801AD970 *pkt) {
         F_801AD970(self, s32, 0x1A0) = 1;
         owner = find_entity_by_id(F_801AD970(self, u16, 0x17C));
         if (owner != NULL) {
-            VecCopy__FP3VecPC3Vec(&v, owner + 0x38);
+            VecCopy((Vec *)&v, (const Vec *)(owner + 0x38));
         }
         v.y = v.y + lbl_805DC1FC;
         o = NEW_801AD970(0xD0);

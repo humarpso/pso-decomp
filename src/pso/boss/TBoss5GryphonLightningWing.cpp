@@ -1,4 +1,5 @@
 #include <dolphin/mtx.h>
+#include "pso/system/vector.h"
 #include "pso/TBoss5GryphonLightning.h"
 #include "pso/TBoss5GryphonLightningWing.h"
 
@@ -39,7 +40,6 @@ struct Wing_80351C18 {
 
 extern "C" {
 void fn_80351DA8(s32 arg0, u8 *arg1, u8 *arg2, s32 arg3, s32 arg4);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *csnVecterUnder(s32 *, s32);
 s32 __nw__7TObjectFUl(int);
 extern const f32 lbl_805D8D48;
@@ -108,8 +108,8 @@ s32 __ct__26TBoss5GryphonLightningWingFv(int arg0, void *arg1, void *a, void *mi
     ((Wing_80351C18 *)arg0)->n = 3;
     ((Wing_80351C18 *)arg0)->x98 = (s32)arg5;
     ((Wing_80351C18 *)arg0)->x9C = (s32)arg5 + (s32)arg6;
-    VecCopy__FP3VecPC3Vec(&((Wing_80351C18 *)arg0)->pts[0], a);
-    VecCopy__FP3VecPC3Vec(&((Wing_80351C18 *)arg0)->pts[((Wing_80351C18 *)arg0)->n - 1], b);
+    VecCopy((Vec *)(&((Wing_80351C18 *)arg0)->pts[0]), (const Vec *)a);
+    VecCopy((Vec *)(&((Wing_80351C18 *)arg0)->pts[((Wing_80351C18 *)arg0)->n - 1]), (const Vec *)b);
     for (i = 1; i < ((Wing_80351C18 *)arg0)->n - 1; i++) {
         ((Wing_80351C18 *)arg0)->pts[i].v.x = ((Vec_80351C18 *)mid)->x;
         ((Wing_80351C18 *)arg0)->pts[i].v.y = ((Vec_80351C18 *)mid)->y;
@@ -124,7 +124,7 @@ s32 spawn_lightning_wing__12TBoss8DragonFiiiiii(s32 arg0, s32 arg1, s32 mid, s32
     s32 allocation;
     s32 effect;
     u8* collision;
-    VecCopy__FP3VecPC3Vec(&position, (void*)arg3);
+    VecCopy(&position, (const Vec *)arg3);
     collision = csnVecterUnder((s32*)&position, 0x16EF);
     if (collision == NULL) {
         position.y = lbl_805D8D48;

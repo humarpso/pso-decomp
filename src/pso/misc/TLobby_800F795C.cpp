@@ -1,4 +1,5 @@
 #include "pso/map/FloorResourceCallbacks.h"
+#include "pso/system/byteswap.h"
 #include "pso/boss/TBoss5Gryphon.h"
 #include "pso/enemy/TObjEneGyaranzo.h"
 #include "pso/enemy/TObjEneMe3Stelth.h"
@@ -118,12 +119,10 @@ int TLobby__send_and_handle_60(void*);
 void unload_floor_resources(s32 arg0);
 s32 load_floor_resources(s32 arg0);
 s32 is_area_transfer_pending();
-int bswap_16__FPUs(void*);
-int bswap_32__FPUl(void*);
 s32 load_current_floor_resources(void);
 int read_be16_field2__10TObjPlayerFv(void*);
 
-void TLobby::bswap_field() { read_be16_field2__10TObjPlayerFv(this); bswap_32__FPUl((char*)this + 0x4); }
+void TLobby::bswap_field() { read_be16_field2__10TObjPlayerFv(this); bswap_32((u32 *)((char*)this + 0x4)); }
 void TLobby::broadcast_state() { bswap_field(); TLobby__send_and_handle_60(this); }
 
 void init_6x9C_enemy_low_game_flags_packet(u8 *arg0) {
@@ -132,7 +131,7 @@ void init_6x9C_enemy_low_game_flags_packet(u8 *arg0) {
     *(s8 *)((s8 *)arg0 + 1) = 2;
 }
 
-void TLobby::bswap_enemy_state() { read_be16_field2__10TObjPlayerFv(this); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); }
+void TLobby::bswap_enemy_state() { read_be16_field2__10TObjPlayerFv(this); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); }
 void send_6x0A_enemy_state_packet(void* p) { ((TLobby *)p)->bswap_enemy_state(); TLobby__send_and_handle_60(p); }
 void init_6x0A_enemy_state_packet(void* p) { *(u8*)((char*)p + 0x0) = 10; *(u8*)((char*)p + 0x1) = 3; }
 int get_attack_credit_slot_count(void) { return 4; }

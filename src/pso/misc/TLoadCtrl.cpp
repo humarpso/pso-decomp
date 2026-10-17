@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/main_loop.h"
 #include "pso/misc/TLoadCtrl.h"
 #include "pso/TObject.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -49,7 +50,6 @@ extern s32 tl_camera;
 s32 TNowLoading__ct(s32, void *, void *);
 s32 set_active_camera_pose(void *, void *);
 s32 activate_camera_mode(int);
-s32 controller_stuff__Fv();
 s32 update_sound_request_slots();
 s32 TAdLoadQuestGC__ct(s32, void *);
 s32 __ct__14TAdFloorLoadGCFP7TObjectPv(s32, void *, int);
@@ -109,7 +109,7 @@ void TLoadCtrl::run_task() {
             }
         }
         if (self->f1c != 0) {
-            controller_stuff__Fv();
+            controller_stuff();
             TKeyBoardControl::update_input_frame();
         }
         update_sound_request_slots();

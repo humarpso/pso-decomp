@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/byteswap.h"
 #include "pso/misc/TOChatSensor.h"
 
 extern "C" {
@@ -6,7 +7,6 @@ extern "C" {
 s32 TOComputerMachine01__vt8(s32 arg0, f32 farg0, f32 farg1);
 void load_chat_sensor(void);
 int TLobby__send_and_handle_60(void*);
-int bswap_16__FPUs(void* a0 = 0);
 int load_encrypted_archive_data(void*);
 f32 xz_distance_squared(s32, s32);
 s32 update_object_view_visibility__13TUnk_804B9870Fff(s32, f32, f32);
@@ -18,7 +18,7 @@ void load_chat_sensor(void) { chat_sensor_table = load_encrypted_archive_data(lb
 
 void TOChatSensor::send_state() { swap_state_endian(); TLobby__send_and_handle_60(this); }
 
-void TOChatSensor::swap_state_endian() { read_be16_field2__10TObjPlayerFv(this); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); }
+void TOChatSensor::swap_state_endian() { read_be16_field2__10TObjPlayerFv(this); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); }
 
 void TOChatSensor::init_packet_type() { *(u8 *)&this->m_name = 147; *(u8*)((char*)this + 0x1) = 3; }
 

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/main_loop.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TWindowMessage.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/TAdPlayerLoadGC.h"
@@ -111,7 +113,6 @@ extern s32 lbl_8044A7E0[];
 s32 __dl__FPv(s32);
 s32 alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 TAdPlayerLoadGC__sub_801E1B50(void *);
-s32 render_tick__Fv();
 s32 render_frame__23TAdSinglePlyChrSelectGCFv();
 int memcpy(void*, void*, void*);
 extern s32 system_save_payload;
@@ -130,7 +131,6 @@ s32 TAdPlayerLoadGC__sub_801E1944(s32, char *, void *, s32);
 s32 register_callback__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);
 void decrypt_char_data__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 get_field_118__22TAdEnterSerialAccessGCFv(void);
-void xfree__FPv(void *);
 void *memset(void *, int, u32);
 extern s32 chr_select_serial_seeds[];
 extern int card_character_save_buffer;
@@ -432,7 +432,7 @@ s32 TAdSinglePlyChrSelectGC::verify_system_file(void* _w0) {
 loop_4:
         if (TAdPlayerLoadGC__sub_801E1B50((void *) (system_save_card_channel)) != 0) {
             render_frame__23TAdSinglePlyChrSelectGCFv();
-            render_tick__Fv();
+            render_tick();
             goto loop_4;
         }
         lbl_805D49B4 = 0;
@@ -457,7 +457,7 @@ s32 TAdSinglePlyChrSelectGC::load_save_from_card() {
     memset(buf, 0, size);
     while (TAdPlayerLoadGC__sub_801E1944(character_save_card_slot, lbl_804C88C0.filename, buf, character_save_file_block_count) != 0) {
         if (((TAdPlayerLoadGC *)character_save_card_slot)->probe_card_slot() != 1) {
-            xfree__FPv(buf);
+            xfree(buf);
             return 0;
         }
     }
@@ -547,7 +547,7 @@ s32 TAdSinglePlyChrSelectGC::verify_card_player_data() {
         for (;;) {
             if (TAdPlayerLoadGC__sub_801E1B50((void *)system_save_card_channel) == 0) break;
             render_frame__23TAdSinglePlyChrSelectGCFv();
-            render_tick__Fv();
+            render_tick();
         }
         lbl_805D49B4 = 0;
         memcpy((void*)(buf), (void*)((void *)(system_save_file_buffer + 0x2048)), (void*)((void *)0x11C));
@@ -660,7 +660,6 @@ s32 memset(int, int, int);
 void alloc_char_records__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 s32 get_fog_ctrl__16TKeyBoardControlFv();
 s32 is_split_screen();
-s32 controller_stuff__Fv();
 s32 render_screen_overlay__9TMainTaskFv(void *);
 s32 some_empty_func__9TMainTaskFv(void *);
 s32 render__9TMainTaskFv(void *);
@@ -720,7 +719,6 @@ s32 is_technique_ready__8TTecCtrlFv();
 s32 TAdPlayerLoadGC__sub_801E1944(s32, void *, u32, s32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32 *);
-void render_tick__Fv();
 void register_callback__23TAdSinglePlyChrSelectGCFis(s32, s32);
 s32 init_char_slots__23TAdSinglePlyChrSelectGCFi(s32);
 Ent_801FCD04 *TAdSinglePlyChrSelectGC__sub_801FCD04(Obj_801FCD04 *self);
@@ -757,7 +755,6 @@ s32 fn_80203284();
 s32 TAdPlayerLoadGC__sub_801E1944(s32, void *, u32, s32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32 *);
-void render_tick__Fv();
 void register_callback__23TAdSinglePlyChrSelectGCFis(s32, s32);
 s32 init_char_slots__23TAdSinglePlyChrSelectGCFi(s32);
 Ent_801FCD04 *TAdSinglePlyChrSelectGC__sub_801FCD04(Obj_801FCD04 *self);
@@ -893,7 +890,7 @@ void render_frame__23TAdSinglePlyChrSelectGCFv(void) {
             TCameraCtrl::set_mode((int) (0x64));
             TCameraCtrl::set_fullscreen_viewport();
         } else {
-            controller_stuff__Fv();
+            controller_stuff();
             ((TMainTask *)(&(*(RecoveredGlobal_801FCD74_main_task *)&main_task).value))->run_tl_camera_tasks();
             render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801FCD74_main_task *)&main_task).value));
         }
@@ -931,7 +928,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FCE6C(void) {
                 return 0xFFFF0000;
             }
             render_frame__23TAdSinglePlyChrSelectGCFv();
-            render_tick__Fv();
+            render_tick();
         }
         if ((obj = find_card_file__15TAdPlayerLoadGCFiPv(character_save_card_slot, (s32 *)&lbl_804C88C0)) != 0) {
             TLobby::disconnect_protocol();
@@ -949,7 +946,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FCE6C(void) {
                 return 0xFFFF0000;
             }
             render_frame__23TAdSinglePlyChrSelectGCFv();
-            render_tick__Fv();
+            render_tick();
         }
         while (TAdPlayerLoadGC__sub_801E1B50(character_save_card_slot) != 0) {
             if (((TAdPlayerLoadGC *)character_save_card_slot)->probe_card_slot() != 1) {
@@ -960,7 +957,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FCE6C(void) {
                 return 0xFFFF0000;
             }
             render_frame__23TAdSinglePlyChrSelectGCFv();
-            render_tick__Fv();
+            render_tick();
         }
         chr_select_serial_seeds[0] = chr_select_serial_seeds[1] = get_field_118__22TAdEnterSerialAccessGCFv();
         obj = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x1156C);
@@ -1007,7 +1004,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FCE6C(void) {
                     return 0xFFFF0000;
                 }
                 render_frame__23TAdSinglePlyChrSelectGCFv();
-                render_tick__Fv();
+                render_tick();
             }
             card_load_sequence_state = 6;
             while (TAdPlayerLoadGC::get_instance() != 0) {
@@ -1017,7 +1014,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FCE6C(void) {
                     return 0xFFFF0000;
                 }
                 render_frame__23TAdSinglePlyChrSelectGCFv();
-                render_tick__Fv();
+                render_tick();
             }
             return 7;
         }
@@ -1052,7 +1049,7 @@ s32 load_character_from_card__23TAdSinglePlyChrSelectGCFv(void) {
                 return 0xFFFF0000;
             }
             render_frame__23TAdSinglePlyChrSelectGCFv();
-            render_tick__Fv();
+            render_tick();
         }
         if ((obj = find_card_file__15TAdPlayerLoadGCFiPv(character_save_card_slot, (s32 *)&lbl_804C88C0)) != 0) {
             if (TAdSinglePlyChrSelectGC::get_game_mode() == 1) {
@@ -1074,7 +1071,7 @@ s32 load_character_from_card__23TAdSinglePlyChrSelectGCFv(void) {
                 return 0xFFFF0000;
             }
             render_frame__23TAdSinglePlyChrSelectGCFv();
-            render_tick__Fv();
+            render_tick();
         }
         while (TAdPlayerLoadGC__sub_801E1B50(character_save_card_slot) != 0) {
             if (((TAdPlayerLoadGC *)character_save_card_slot)->probe_card_slot() != 1) {
@@ -1087,7 +1084,7 @@ s32 load_character_from_card__23TAdSinglePlyChrSelectGCFv(void) {
                 return 0xFFFF0000;
             }
             render_frame__23TAdSinglePlyChrSelectGCFv();
-            render_tick__Fv();
+            render_tick();
         }
         chr_select_serial_seeds[0] = chr_select_serial_seeds[1] = get_field_118__22TAdEnterSerialAccessGCFv();
         obj = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x1156C);
@@ -1159,7 +1156,7 @@ s32 load_character_from_card__23TAdSinglePlyChrSelectGCFv(void) {
                     break;
                 }
                 render_frame__23TAdSinglePlyChrSelectGCFv();
-                render_tick__Fv();
+                render_tick();
             }
         }
     }
@@ -2122,9 +2119,7 @@ extern s32 card_load_sequence_state;
 s32 encrypt_save_and_write__23TAdSinglePlyChrSelectGCFv(void);
 s32 get_localized_text_entry(s32, s32);
 s8 func_801A5E54__Fv(void);
-void controller_stuff__Fv(void);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
-void render_tick__Fv(void);
 void render_frame__23TAdSinglePlyChrSelectGCFv(void);
 s32 TAdSinglePlyChrSelectGC__sub_801FDA4C();
 void increment_counter__23TAdSinglePlyChrSelectGCFv(void);
@@ -2253,7 +2248,7 @@ s32 save_character_to_card__23TAdSinglePlyChrSelectGCFv(void) {
             if (TAdSinglePlyChrSelectGC__sub_8033B9F8(w) != 0) {
                 break;
             }
-            controller_stuff__Fv();
+            controller_stuff();
             TLobby::wait_ready_loop();
             render_frame__23TAdSinglePlyChrSelectGCFv();
             if (func_801A5E54__Fv() != 0 || TWindowShortListCtrl__check_controller_button(&controller_input_state[0x20], 8) != 0) {
@@ -2262,7 +2257,7 @@ s32 save_character_to_card__23TAdSinglePlyChrSelectGCFv(void) {
         }
                 return 0;
             }
-            render_tick__Fv();
+            render_tick();
         }
         if (w != NULL) {
             delete w;
@@ -2286,13 +2281,13 @@ s32 save_character_to_card__23TAdSinglePlyChrSelectGCFv(void) {
         ((TWindowMessage *)w)->complete_reveal();
         while (1) {
             func_803DCDFC__Fv();
-            controller_stuff__Fv();
+            controller_stuff();
             TLobby::wait_ready_loop();
             render_frame__23TAdSinglePlyChrSelectGCFv();
             if (func_801A5E54__Fv() != 0) {
                 break;
             }
-            render_tick__Fv();
+            render_tick();
         }
         if (w != NULL) {
             delete w;
@@ -2309,7 +2304,7 @@ s32 save_character_to_card__23TAdSinglePlyChrSelectGCFv(void) {
     card_load_sequence_state = 6;
     while (1) {
         func_803DCDFC__Fv();
-        controller_stuff__Fv();
+        controller_stuff();
         run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
         render_frame__23TAdSinglePlyChrSelectGCFv();
         if (((TAdPlayerLoadGC *)character_save_card_slot)->probe_card_slot() != 1) {
@@ -2323,7 +2318,7 @@ s32 save_character_to_card__23TAdSinglePlyChrSelectGCFv(void) {
             }
             break;
         }
-        render_tick__Fv();
+        render_tick();
     }
     TLobby__sub_80269CA4(0x23);
     w = create_message_window__6TLobbyFllUls(lbl_8044A7D0, lbl_8044A7D8, 1, 4);
@@ -2340,13 +2335,13 @@ s32 save_character_to_card__23TAdSinglePlyChrSelectGCFv(void) {
     if (result == 0) {
         while (1) {
             func_803DCDFC__Fv();
-            controller_stuff__Fv();
+            controller_stuff();
             TLobby::wait_ready_loop();
             render_frame__23TAdSinglePlyChrSelectGCFv();
             if (func_801A5E54__Fv() != 0 || TWindowShortListCtrl__check_controller_button(&controller_input_state[0x20], 0x60E) != 0) {
                 break;
             }
-            render_tick__Fv();
+            render_tick();
         }
     }
     if (w != NULL) {
@@ -2511,7 +2506,6 @@ s32 get_ptr_4__10TObjPlayerFv(void *);
 s32 TAdPlayerLoadGC__sub_801E1944(s32, void *, u32, s32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, void *);
-s32 render_tick__Fv();
 s32 copy_card_window_data();
 s32 register_callback__23TAdSinglePlyChrSelectGCFis(u8 *, s16);
 u8 *init_char_slots__23TAdSinglePlyChrSelectGCFi();
@@ -2652,7 +2646,7 @@ s32 load_character_from_card__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
                 return 0xFFFF0000;
             }
             render_frame__23TAdSinglePlyChrSelectGCFv();
-            render_tick__Fv();
+            render_tick();
         }
         if (arg0 != 1) {
             arg0 = find_card_file__15TAdPlayerLoadGCFiPv(character_save_card_slot, lbl_804C88C0);
@@ -2676,7 +2670,7 @@ s32 load_character_from_card__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
                     return 0xFFFF0000;
                 }
                 render_frame__23TAdSinglePlyChrSelectGCFv();
-                render_tick__Fv();
+                render_tick();
             }
             while (TAdPlayerLoadGC__sub_801E1B50(character_save_card_slot) != 0) {
                 if (((TAdPlayerLoadGC *)character_save_card_slot)->probe_card_slot() != 1) {
@@ -2689,7 +2683,7 @@ s32 load_character_from_card__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
                     return 0xFFFF0000;
                 }
                 render_frame__23TAdSinglePlyChrSelectGCFv();
-                render_tick__Fv();
+                render_tick();
             }
             t = get_field_118__22TAdEnterSerialAccessGCFv();
             chr_select_serial_seeds[1] = t;
@@ -2776,7 +2770,7 @@ s32 load_character_from_card__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
                     return 0xFFFF0000;
                 }
                 render_frame__23TAdSinglePlyChrSelectGCFv();
-                render_tick__Fv();
+                render_tick();
             }
             card_load_sequence_state = 6;
             while (TAdPlayerLoadGC::get_instance() != 0) {
@@ -2788,7 +2782,7 @@ s32 load_character_from_card__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
                     return 0xFFFF0000;
                 }
                 render_frame__23TAdSinglePlyChrSelectGCFv();
-                render_tick__Fv();
+                render_tick();
             }
             if (TAdPlayerLoadGC::get_load_result(0) == 0xFFFFFF81 || TAdPlayerLoadGC::get_load_result(0) == 0xFFFFFF83) {
                 ret = 1;
@@ -3048,7 +3042,6 @@ s32 get_ptr_4__10TObjPlayerFv();
 s32 TAdPlayerLoadGC__sub_801E1944(s32, void *, u32, s32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, void *);
-void render_tick__Fv();
 s32 register_callback__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);
 s32 init_char_slots__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 s32 TAdSinglePlyChrSelectGC__sub_801FCD04(s32);
@@ -3550,7 +3543,7 @@ s32 save_online_character__23TAdSinglePlyChrSelectGCFv(void) {
                 return 0;
             }
             render_frame__23TAdSinglePlyChrSelectGCFv();
-            render_tick__Fv();
+            render_tick();
         }
         if (find_card_file__15TAdPlayerLoadGCFiPv(character_save_card_slot, lbl_804C88C0) != 0) {
             if (TAdSinglePlyChrSelectGC::get_game_mode() == 1) {
@@ -3572,7 +3565,7 @@ s32 save_online_character__23TAdSinglePlyChrSelectGCFv(void) {
                 return 0;
             }
             render_frame__23TAdSinglePlyChrSelectGCFv();
-            render_tick__Fv();
+            render_tick();
         }
         while (TAdPlayerLoadGC__sub_801E1B50(character_save_card_slot) != 0) {
             if (((TAdPlayerLoadGC *)character_save_card_slot)->probe_card_slot() != 1) {
@@ -3585,7 +3578,7 @@ s32 save_online_character__23TAdSinglePlyChrSelectGCFv(void) {
                 return 0;
             }
             render_frame__23TAdSinglePlyChrSelectGCFv();
-            render_tick__Fv();
+            render_tick();
         }
         ((s32 *)&chr_select_serial_seeds)[0] = ((s32 *)&chr_select_serial_seeds)[1] = get_field_118__22TAdEnterSerialAccessGCFv();
         obj = alloc__23TAdSinglePlyChrSelectGCFv(0x1156C);

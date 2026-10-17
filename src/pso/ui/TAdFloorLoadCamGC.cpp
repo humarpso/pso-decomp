@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/ui/TAdFloorLoadCamGC.h"
 #include "pso/misc/TCameraCtrl.h"
 
@@ -20,7 +21,6 @@ extern "C" {
 extern s32 __vt__17TAdFloorLoadCamGC[];
 extern void *lbl_805D4340;
 void set_default_camera__21TAdMultiChgGameModeGCFv(void *);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void set_active_camera_pose(void *, void *);
 void activate_camera_mode(int);
 f32 sin_table_lookup(s32);
@@ -101,7 +101,7 @@ void TAdFloorLoadCamGC::run_task() {
     s->up.x += dx;
     s->up.y += dy;
     s->up.z += dz;
-    VecCopy__FP3VecPC3Vec(&up, &s->up);
+    VecCopy((Vec *)&up, (const Vec *)&s->up);
     if (vec_squared_length(&s->up) == lbl_805DFDB8) {
         up.y = 1.0f;
     } else {

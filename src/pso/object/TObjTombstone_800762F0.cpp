@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 
 #include <stddef.h>
 #include "pso/object/TObjTombstone.h"
@@ -35,7 +36,6 @@ struct T_80076390 {
 };
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv();
 extern RecoveredGlobal_8007643C___vt__13TObjTombstone __vt__13TObjTombstone;
 extern const char* TObjTombstone__class_name;
@@ -53,7 +53,7 @@ void TObjTombstone::setup(s32 arg1, s32 arg2) {
     *(s32 *)&this->model = get_bml_model(TObjTombstone__shared_resource_object, 0);
     *(s32 *)&this->unk_AC = arg1;
     TObjTombstone::copy_record((void *)(arg0 + 0xC0), (s32)(arg2));
-    VecCopy__FP3VecPC3Vec((u8 *)&this->position, arg0 + 0xD0);
+    VecCopy((Vec *)&this->position, (const Vec *)(arg0 + 0xD0));
     this->rotation_y = (s32) (*(s32 *)&this->unk_AC << 0xD);
     this->m_b0 = (f32) TObjTombstone__data_805D9174;
     *(f32 *)&this->unk_B4 = (f32) TObjTombstone__data_805D9174;
@@ -97,7 +97,7 @@ u8 *TObjTombstone__ct(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3) {
     stack.sp8 = *(u8 *)((s8 *)arg3 + 0);
     stack.sp9 = *(u8 *)((s8 *)arg3 + 1);
     stack.spA = *(u8 *)((s8 *)arg3 + 2);
-    VecCopy__FP3VecPC3Vec((void *) (&stack.sp18), (void *) (arg3 + 4));
+    VecCopy((Vec *)(&stack.sp18), (const Vec *)(arg3 + 4));
     ((TObjTombstone *)arg0)->setup((s32)((void *) (arg2)), (s32)((void *) (&stack.sp8)));
     ((TObjTombstone *)arg0)->reset_entries_and_format_name();
     *(s32 *)((s8 *)arg0 + 0x234) = 0;

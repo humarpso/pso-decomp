@@ -1,4 +1,5 @@
 #include "pso/TItemEffBringer.h"
+#include "pso/system/vector.h"
 #include "pso/boss/TBoss4Type2.h"
 
 #include "types.h"
@@ -21,7 +22,6 @@ struct Bringer_8010834C {
 };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, const void *);
 f64 atan2_float(f32, f32);
 void disallow_rendering__7TObjectFv(void *);
 void *__ct__10TItemShootFPvPC3VecPC3Vecf(void *, u32, s32, s32, f32);
@@ -76,7 +76,7 @@ void *__ct__15TItemEffBringerFv(Bringer_8010834C *self, u32 arg1, Vec_8010834C *
     z.x = z.y = z.z = lbl_805DAB10;
     TObjPlayer::invert_matrix_in_place(0);
     transform_point_by_current_matrix(&z, &out);
-    VecCopy__FP3VecPC3Vec(&w, src);
+    VecCopy((Vec *)&w, (const Vec *)src);
     subtract_vector((Vec*)((Vec *)&w), (Vec*)((Vec *)&out));
     pop_matrix();
     r = sin_table_lookup(self->f2C - (s32)(lbl_8043E188[0] * atan2_float(w.x, w.z)));
@@ -84,7 +84,7 @@ void *__ct__15TItemEffBringerFv(Bringer_8010834C *self, u32 arg1, Vec_8010834C *
         r *= lbl_805DAB14;
     }
     n = lbl_805DAB1C * r + lbl_805DAB18;
-    VecCopy__FP3VecPC3Vec(&self->m_84, &self->f38);
+    VecCopy((Vec *)&self->m_84, (const Vec *)&self->f38);
     self->m_84.x /= n;
     self->m_84.y /= n;
     self->m_84.z /= n;

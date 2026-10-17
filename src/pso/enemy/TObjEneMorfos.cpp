@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneRecon.h"
 #include "pso/TObject.h"
@@ -941,7 +942,6 @@ struct VObj_14_c1c33b : VBase_14_c1c33b {
 };
 
 f32 receive_physical_attack__10TObjPlayerFv(void *, void *, f32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 void TLobby__sub_8001FE7C(void*, int);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
@@ -2147,9 +2147,9 @@ void TObjEneMorfos__sub_80334030(u8 *arg0, s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C0) & 0xFFFFFFF9);
         *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C0) | 1);
         ((TObjEneDD *)arg0)->set_field_378((s32)((int) (2)));
-        VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x38)), (void *)((void *) (arg0 + 0x50)));
-        VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x44)), (void *)((void *) (arg0 + 0x38)));
-        VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x2FC)), (void *)((void *) (arg0 + 0x38)));
+        VecCopy((Vec *)((void *) (arg0 + 0x38)), (const Vec *)((void *) (arg0 + 0x50)));
+        VecCopy((Vec *)((void *) (arg0 + 0x44)), (const Vec *)((void *) (arg0 + 0x38)));
+        VecCopy((Vec *)((void *) (arg0 + 0x2FC)), (const Vec *)((void *) (arg0 + 0x38)));
         ((VObj_14_2f517b *)((u8 *)(arg0) + (1004)))->m2();
         ((VObj_14_2f517b *)((u8 *)(arg0) + (1032)))->m2();
         return;
@@ -2304,7 +2304,7 @@ s32 select_target_in_view__13TObjEneMorfosFPv(O_80334588 *arg0) {
         if (is_alive__9TObjEneDDFv(p) == 0) {
             continue;
         }
-        VecCopy__FP3VecPC3Vec(&v, p + 0x38);
+        VecCopy((Vec *)&v, (const Vec *)(p + 0x38));
         subtract_vector(&v, &arg0->pos);
         v.y = TObjEneMorfos__data_805DF874;
         d = ((TObjBoss2Tunnel *)(&v))->clamp_velocity();
@@ -2356,7 +2356,7 @@ void TObjEneMorfos::set_hover_target_position() {
     *(f32 *)((s8 *)arg0 + 0x2FC) = (f32) *(f32 *)((s8 *)arg0 + 0x38);
     *(f32 *)((s8 *)arg0 + 0x300) = (f32) (TObjEneMorfos__data_805DF89C + *(f32 *)((s8 *)arg0 + 0x3C));
     *(f32 *)((s8 *)arg0 + 0x304) = (f32) *(f32 *)((s8 *)arg0 + 0x40);
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x2FC));
+    VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x2FC));
 }
 
 s32 TObjEneMorfos::approach_value(s32 arg1, s32 arg2) {
@@ -2406,7 +2406,7 @@ void TObjEneMorfos::vfunc_62() {
     }
     pl = get_player_by_client_id(arg0->f2D4);
     if (pl != 0) {
-        ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&v, &pl->pos);
+        VecCopy((Vec *)&v, (const Vec *)&pl->pos);
         subtract_vector(&v, &arg0->pos);
         d = angle_difference_abs(arg0->f60, (s32)(TObjEneMorfos__data_80477610 * atan2_float(v.x, v.z)));
     } else {
@@ -2429,7 +2429,7 @@ f32 TObjEneMorfos__vt20(Obj_80334A4C *arg0, Obj_80334A4C *att, f32 scale) {
     f32 ret = TObjEneMorfos__data_805DF874;
     s32 d;
     if (att != 0) {
-        ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&v, &att->pos);
+        VecCopy((Vec *)&v, (const Vec *)&att->pos);
         subtract_vector(&v, &arg0->pos);
         d = angle_difference_abs(arg0->f60, (s32)(TObjEneMorfos__data_80477610 * atan2_float(v.x, v.z)));
     } else {
@@ -2638,7 +2638,7 @@ void TObjEneMorfos::init_instance() {
     enemy_init_validate_period(0x3C);
     *(s32 *)((s8 *)this + 0x3C0) = 0;
     *(s32 *)((s8 *)this + 0x3C4) = 0;
-    VecCopy__FP3VecPC3Vec((u8 *)this + 0x3C8, (u8 *)this + 0x38);
+    VecCopy((Vec *)((u8 *)this + 0x3C8), (const Vec *)((u8 *)this + 0x38));
     *(s32 *)((s8 *)this + 0x3D4) = 0;
     ((VSub_80334D74 *)((u8 *)this + 0x3EC))->m2();
     ((VSub_80334D74 *)((u8 *)this + 0x408))->m2();

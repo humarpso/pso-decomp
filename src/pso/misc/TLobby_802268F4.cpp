@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/vector.h"
 #include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_8022727C_lbl_804CB850 {
@@ -76,7 +77,6 @@ extern RecoveredGlobal_80226C3C_lbl_80514D00 lbl_80514D00;
 extern u8 *lbl_805D3720;
 void set_music_streams_volume(s32 arg0);
 void TLobby__sub_8022733C(void);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 get_player_by_client_id(void *);
 s32 stop_sound_request(int);
 s32 fn_802264B8(int, int);
@@ -117,9 +117,9 @@ void update_sound_request_slots(void) {
     if (lbl_805D62B0 != 0) {
         p = get_player_by_client_id((void *) (local_client_id));
         if (p != 0U) {
-            VecCopy__FP3VecPC3Vec(lbl_80514C50, (void *) (p + 0x38));
+            VecCopy((Vec *)lbl_80514C50, (const Vec *)(p + 0x38));
         } else if (camera_ctrl_instance != 0U) {
-            VecCopy__FP3VecPC3Vec(lbl_80514C50, (void *) (camera_ctrl_instance + 0x178));
+            VecCopy((Vec *)lbl_80514C50, (const Vec *)(camera_ctrl_instance + 0x178));
         } else {
             lbl_80514C50[2] = lbl_805DC74C;
             lbl_80514C50[1] = lbl_805DC74C;
