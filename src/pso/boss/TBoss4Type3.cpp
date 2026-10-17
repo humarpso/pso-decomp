@@ -1640,8 +1640,8 @@ void update_radar_markers__11TBoss4Type3FPv(u8 *arg0) {
 }
 
 void TBoss4Type3::calc_grid_index() {
-    *(s32 *)&this->m_3ac = (s32) (((u32) -(this->m_60 + 0x800) >> 0xCU) & 0xF);
-    *(s32 *)&this->m_3a8 = (s32) (((u32) -(this->m_60 + 0x800) >> 0xCU) & 0xF);
+    *(s32 *)&this->m_3ac = (s32) (((u32) -(this->rotation_y + 0x800) >> 0xCU) & 0xF);
+    *(s32 *)&this->m_3a8 = (s32) (((u32) -(this->rotation_y + 0x800) >> 0xCU) & 0xF);
 }
 
 void TBoss4Type3::turn_toward_player(s32 arg1) {
@@ -1688,7 +1688,7 @@ void TBoss4Type3::interp_position_between_nodes() {
     s32 i;
 
     a = *(s32 *)&this->m_3ac << 12;
-    this->m_60 = approach_angle_limited(this->m_60, -(a + (s32)(this->m_39c * (f32)((s32 (*)(s32, s32))angle_diff_s16)(a, *(s32 *)&this->m_3a8 << 12))), 0x888);
+    this->rotation_y = approach_angle_limited(this->rotation_y, -(a + (s32)(this->m_39c * (f32)((s32 (*)(s32, s32))angle_diff_s16)(a, *(s32 *)&this->m_3a8 << 12))), 0x888);
     ids[0] = *(s32 *)&this->m_3a4;
     ids[1] = this->m_3a0;
     for (i = 0; i < 2; i++) {
@@ -1711,9 +1711,9 @@ void TBoss4Type3::interp_position_between_nodes() {
     }
     ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x38, &pts[1]);
     subtract_vector(arg0 + 0x38, &pts[0]);
-    *(f32 *)&this->m_38 *= this->m_39c;
-    *(f32 *)&this->m_3c *= this->m_39c;
-    *(f32 *)&this->m_40 *= this->m_39c;
+    *(f32 *)&this->position[0] *= this->m_39c;
+    *(f32 *)&this->position[1] *= this->m_39c;
+    *(f32 *)&this->position[2] *= this->m_39c;
     vec3_add_to(arg0 + 0x38, &pts[0]);
 }
 #pragma pop
@@ -1886,7 +1886,7 @@ void TBoss4Type3__sub_8005A438(Obj_8005A438 *self) {
     ((TBoss4Type3 *)self)->draw_model_set((const s32 *)b.p, b.f);
 }
 
-void TBoss4Type3::copy_pair(void* q) { *(u32 *)&this->unk_0 = *(u32*)((char*)q + 0x0); this->m_4 = *(f32*)((char*)q + 0x4); }
+void TBoss4Type3::copy_pair(void* q) { *(u32 *)&this->m_name = *(u32*)((char*)q + 0x0); (*(f32 *)&this->m_flags) = *(f32*)((char*)q + 0x4); }
 
 }
 
@@ -1990,12 +1990,12 @@ void TBoss4Type3::draw() {
     ((void (*)(void *))toggle_particle_effect__10TObjPlayerFv)(this);
     ((void (*)(void))push_matrix)();
     ((void (*)(void *))post_translate_matrix)((void *)((char *)this + 56));
-    ((void (*)(int, void *))rotate_matrix_y)(0, *(void * *)&this->m_60);
+    ((void (*)(int, void *))rotate_matrix_y)(0, *(void * *)&this->rotation_y);
     ((void (*)(void *))TBoss4Type3__sub_8005A438)(this);
     ((void (*)(void))pop_matrix)();
     ((void (*)(void))push_matrix)();
     ((void (*)(void *))post_translate_matrix)((void *)((char *)this + 1152));
-    ((void (*)(int, void *))rotate_matrix_y)(0, *(void * *)&this->m_60);
+    ((void (*)(int, void *))rotate_matrix_y)(0, *(void * *)&this->rotation_y);
     TObjPlayer::draw_player_model_by_id(this->m_3ba, this->m_3c8);
     ((void (*)(void))pop_matrix)();
     TParticleCtrl::end_effect_render();
@@ -2106,7 +2106,7 @@ void TBoss4Type3::run_task() {
         }
     }
     Type3Tick::update_target_effect_timer__11TBoss4Type3FPv(this);
-    this->m_3d4 = this->m_32c;
+    this->m_3d4 = this->hp;
     Type3Tick::request_follow_camera_default_offsets__11TBoss4Type3FPv((u8 *)this);
     if ((this->m_3dc += 0.022222223f) >= 1.0f) {
         this->m_3dc -= 1.0f;
@@ -2127,8 +2127,8 @@ void TBoss4Type3::run_task() {
     e = ((u8 *(*)(void *, f32))Type3Tick::lookup_entry_by_value__10TObjPlayerFPvf)(p, lim);
     Type3Tick::push_matrix();
     Type3Tick::set_matrix_identity(0);
-    Type3Tick::post_translate_matrix(&this->m_38);
-    Type3Tick::rotate_matrix_y(0, this->m_60);
+    Type3Tick::post_translate_matrix(&this->position[0]);
+    Type3Tick::rotate_matrix_y(0, this->rotation_y);
     Type3Tick::matrix_mult_vec(0, e, v[0]);
     Type3Tick::matrix_mult_vec(0, e + 0xC, v[1]);
     Type3Tick::pop_matrix();
@@ -2145,7 +2145,7 @@ void TBoss4Type3::run_task() {
     if (this->m_3e8 < 0.0f) {
         this->m_3e8 = 0.0f;
     }
-    this->m_3ec = (f32)this->m_32c / (f32)this->m_33e;
+    this->m_3ec = (f32)this->hp / (f32)this->referenceHp;
 }
 
 #pragma pop

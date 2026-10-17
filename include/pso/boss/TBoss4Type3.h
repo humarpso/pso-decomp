@@ -3,45 +3,15 @@
 
 #include "types.h"
 #include <stddef.h>
+#include "pso/enemy/TObjEnemy.h"
 
 struct TBoss4Type3CollisionState {
     u8 unknown00[0x18]; u32 flags;
     u8 unknown1c[0xC]; f32 radius;
 };
 
-struct TBoss4Type3
-{
-    u8 unk_0[0x4];
-    f32 m_4;
-    u8 unk_8[0x14];
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0x8];
-    u32 m_30;
-    u32 m_34;
-    u32 m_38;
-    u32 m_3c;
-    u32 m_40;
-    void* m_44;
-    u8 _pad48[0x8];
-    void* m_50;
-    u8 _pad54[0xC];
-    s32 m_60;
-    u8 _pad64[0x10];
-    void* m_74;
-    u8 _pad78[0x230];
-    u32 m_2a8;
-    u8 _pad2AC[0x50];
-    void* m_2fc;
-    u8 _pad300[0x2C];
-    s16 m_32c;
-    u8 unk_32E[0xA];
-    s32 m_338;
-    u8 unk_33C[0x2];
-    s16 m_33e;
-    u8 unk_340[0x28];
-    s32 m_368;
-    u8 unk_36C[0x8];
+struct TBoss4Type3 : public TObjEnemy {
+    virtual ~TBoss4Type3();
     s32 m_374;
     void* m_378;
     u8 _pad37C[0x10];
@@ -150,8 +120,7 @@ struct TBoss4Type3
     void reset_timer();
     void draw_motion_trail(s32 arg1, s32 arg2, s32 arg3, s32 arg4);
     static u16 pick_random_target_player();
-    static void *create_horming(void *arg0, void *arg1, void *arg2);
-};
+    static void *create_horming(void *arg0, void *arg1, void *arg2);};
 
 typedef void (TBoss4Type3::*TBoss4Type3Handler)();
 struct TBoss4Type3State {
@@ -168,10 +137,6 @@ typedef char Type3StateUpdate[(offsetof(TBoss4Type3State,update)==0x20)?1:-1];
 typedef char Type3TimerOffset[(offsetof(TBoss4Type3,m_398)==0x398)?1:-1];
 typedef char Type3FractionOffset[(offsetof(TBoss4Type3,m_39c)==0x39C)?1:-1];
 
-typedef char Type3Offset_38[(offsetof(TBoss4Type3,m_38) == 0x38)?1:-1];
-typedef char Type3Offset_60[(offsetof(TBoss4Type3,m_60) == 0x60)?1:-1];
-typedef char Type3Offset_32c[(offsetof(TBoss4Type3,m_32c) == 0x32c)?1:-1];
-typedef char Type3Offset_33e[(offsetof(TBoss4Type3,m_33e) == 0x33e)?1:-1];
 typedef char Type3Offset_374[(offsetof(TBoss4Type3,m_374) == 0x374)?1:-1];
 typedef char Type3Offset_378[(offsetof(TBoss4Type3,m_378) == 0x378)?1:-1];
 typedef char Type3Offset_38c[(offsetof(TBoss4Type3,m_38c) == 0x38c)?1:-1];

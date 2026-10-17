@@ -219,7 +219,7 @@ f32 TObjEneGibbles::get_pos_x() { return *(f32 *)&this->m_up; }
 
 void TObjEneMoja::bindModel(int index) {
     model=lbl_805D50D8->models[index].model;
-    textures=lbl_805D50D8->models[index].textures;
+    (*(void * *)&this->texture_id)=lbl_805D50D8->models[index].textures;
 }
 
 void TObjEneBm3Fly__vt104(u8 *arg0) {

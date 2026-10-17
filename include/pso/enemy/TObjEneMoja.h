@@ -1,6 +1,7 @@
 #ifndef PSO_ENEMY_TOBJENEMOJA_H
 #define PSO_ENEMY_TOBJENEMOJA_H
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 
 struct MojaBattleStat {
     u8 unknown_00[0x18];
@@ -10,58 +11,14 @@ struct MojaCollisionState {
     u8 unknown_00[0x18];
     s32 flags;
 };
-struct TObjEneMoja {
+struct TObjEneMoja : public TObjEnemy {
+    virtual ~TObjEneMoja();
     void render();
     void bindModel(int index);
     void enter_idle_state();
     void enter_approach_state();
     void enter_down_state();
     void enter_hurt_state();
-    u8 unknown_00[0x24];
-    void* textures;
-    u8 unknown_28[8];
-    s32 actorFlags;
-    void* model;
-    u8 unk_38[0x28];
-    s32 m_60;
-    u8 unk_64[0x40];
-    MojaCollisionState* collisionState;
-    u8 unk_A8[0xC];
-    u32 m_b4;
-    s16 action;
-    u8 unk_BA[0x6];
-    f32 m_c0;
-    u8 unk_C4[0x4];
-    f32 m_c8;
-    u8 unk_CC[0x1DC];
-    u8 * m_2a8;
-    u8 unk_2AC[0x4];
-    MojaBattleStat* battleStat;
-    u8 unk_2B4[0x54];
-    f32 m_308;
-    u8 unk_30C[0x4];
-    f32 m_310;
-    u8 unk_314[0x4];
-    u32 m_318;
-    u8 unk_31C[0xA];
-    s16 mode;
-    s16 phase;
-    u8 unknown_32A[2];
-    s16 hp;
-    u8 unknown_32E[6];
-    s32 localControl;
-    u16 targetId;
-    s16 resetTimer;
-    s16 timer;
-    s16 referenceHp;
-    u8 unk_340[0x10];
-    u8 * m_350;
-    f32 authoredAppearance;
-    f32 authoredTechniqueChance;
-    f32 authoredJumpChance;
-    u8 unknown_360[8];
-    s32 rare;
-    u8 unknown_36C[8];
     s32 appearance;
     f32 jumpSpeed;
     s32 unused_37C;
@@ -86,19 +43,10 @@ struct TObjEneMoja {
     s32 update_freeze_timer();
     s32 update_action_hold();
     void run_task();
-    s32 select_attack();
-};
+    s32 select_attack();};
 typedef char MojaSize[(sizeof(TObjEneMoja)==0x40C)?1:-1];
 #include <stddef.h>
 #define MOJA_OFFSET(field, offset) typedef char MojaOffset_##field[(offsetof(TObjEneMoja, field)==offset)?1:-1]
-MOJA_OFFSET(actorFlags,0x30);
-MOJA_OFFSET(collisionState,0xA4);
-MOJA_OFFSET(action,0xB8);
-MOJA_OFFSET(mode,0x326);
-MOJA_OFFSET(phase,0x328);
-MOJA_OFFSET(hp,0x32C);
-MOJA_OFFSET(timer,0x33C);
-MOJA_OFFSET(referenceHp,0x33E);
 MOJA_OFFSET(appearance,0x374);
 MOJA_OFFSET(attackSequence,0x384);
 MOJA_OFFSET(roar,0x388);

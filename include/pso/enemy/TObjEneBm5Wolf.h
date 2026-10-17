@@ -3,9 +3,10 @@
 
 #include "types.h"
 #include <stddef.h>
+#include "pso/enemy/TObjEneDD_ST.h"
 
-struct TObjEneBm5Wolf
-{
+struct TObjEneBm5Wolf : public TObjEneDD_ST {
+    virtual ~TObjEneBm5Wolf();
     void update_collision_center();
     void select_subtype();
     void vfunc_63();
@@ -14,47 +15,7 @@ struct TObjEneBm5Wolf
     void vfunc_28();
     void roaming_state(int event);
     void choose_roaming_destination();
-
-    u8 unk_0[0x4];
-
-    void ** m_4;
-
-    u8 unk_8[0x1C];
-
-    s32 m_24;
-
-    u8 unk_28[0xC];
-
-    s32 m_34;
-    f32 position[3];
-    u8 _pad44[0x1C];
-    s32 facing;
-    u8 unk_64[0x4C];
-    s32 m_b0;
-    u8 unk_B4[0x4];
-    s16 requestedAction;
-    u8 unk_BA[0x6];
-    f32 m_c0;
-    u8 unk_C4[0x4];
-    f32 playbackSpeed;
-    u8 unk_CC[0x230];
-    f32 m_2fc;
-    u8 unk_300[0x4];
-    f32 m_304;
-    f32 m_308;
-    u8 unk_30C[0x4];
-    f32 m_310;
-    u8 unk_314[0x12];
-    s16 m_326;
-    u8 unk_328[0x4];
-    s16 m_32c;
-    u8 unk_32E[0x10];
-    s16 m_33e;
-    u8 unk_340[0x10];
-    u32 m_350;
-    u8 unk_354[0x4];
-    f32 m_358;
-    u8 unk_35C[0x1C];
+    u8 unk_374[0x4];
     s32 m_378;
     u8 unk_37C[0x14];
     void* target;
@@ -123,15 +84,8 @@ struct TObjEneBm5Wolf
     void unlink_list_node(void ***arg1, void **arg2);
     static void register_global_objects();
     void flanking_state(s32 arg1);
-    void howling_state(s32 arg1);
-};
+    void howling_state(s32 arg1);};
 
-typedef char WolfOffset_position[offsetof(TObjEneBm5Wolf, position) == 0x38 ? 1 : -1];
-typedef char WolfOffset_facing[offsetof(TObjEneBm5Wolf, facing) == 0x60 ? 1 : -1];
-typedef char WolfOffset_requestedAction[offsetof(TObjEneBm5Wolf, requestedAction) == 0xB8 ? 1 : -1];
-typedef char WolfOffset_playbackSpeed[offsetof(TObjEneBm5Wolf, playbackSpeed) == 0xC8 ? 1 : -1];
-typedef char WolfOffset_m_326[offsetof(TObjEneBm5Wolf, m_326) == 0x326 ? 1 : -1];
-typedef char WolfOffset_m_350[offsetof(TObjEneBm5Wolf, m_350) == 0x350 ? 1 : -1];
 typedef char WolfOffset_target[offsetof(TObjEneBm5Wolf, target) == 0x390 ? 1 : -1];
 typedef char WolfOffset_destination[offsetof(TObjEneBm5Wolf, destination) == 0x394 ? 1 : -1];
 typedef char WolfOffset_destinationDirection[offsetof(TObjEneBm5Wolf, destinationDirection) == 0x3A0 ? 1 : -1];
@@ -148,4 +102,5 @@ typedef char WolfOffset_randomPhase[offsetof(TObjEneBm5Wolf, randomPhase) == 0x4
 typedef char WolfOffset_stoppingDistance[offsetof(TObjEneBm5Wolf, stoppingDistance) == 0x434 ? 1 : -1];
 typedef char WolfOffset_nearTarget[offsetof(TObjEneBm5Wolf, nearTarget) == 0x468 ? 1 : -1];
 
+typedef char TObjEneBm5Wolf_size[sizeof(TObjEneBm5Wolf) == 0x46C ? 1 : -1];
 #endif

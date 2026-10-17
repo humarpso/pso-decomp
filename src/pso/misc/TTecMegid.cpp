@@ -463,7 +463,7 @@ u8 *TTecMegid::construct_facing(s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
     s32 i;
     construct_facing_technique__10TObjPlayerFPviPvii();
     *(void **)((s8 *)arg0 + 0x18) = __vt__9TTecMegid;
-    *(s32 *)&this->m_1c = lbl_805D37E8;
+    *(s32 *)&this->m_name = lbl_805D37E8;
     init_parameters();
     *(f32 *)((s8 *)arg0 + 0x178) = lbl_805DC884;
     for (i = 0; i < 0x20; i++) {
