@@ -1952,7 +1952,7 @@ void TBoss6Type1__sub_802B8BB4(u8 *arg0) {
     s32 r4;
     s32 n;
     s32 id;
-    switch (*(s32 *)((s8 *)arg0 + 0x414)) {
+    switch (((TBoss6Type1 *)arg0)->m_414) {
     case 0:
         if (((s32 (*)(void *))TBoss6Type1__sub_802B600C)(arg0) != 0) {
             ((void (*)(u8 *, s32))send_flow_action_if_idle__11TBoss6Type1FPvc)(arg0, TBoss6Type1::rand_range_inclusive((s32)arg0, 5, 6));

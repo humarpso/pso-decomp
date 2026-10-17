@@ -38,7 +38,7 @@ void TBoss6Type2::update_recover_timer() {
 }
 #pragma pop
 
-void TBoss6Type2__sub_80336F00(void* p) { *(int*)((char*)p + 0x3cc) = 0; play_sound_effect((void*)438292, (char*)p + 0x38, (void*)0, (void*)0); ((TBoss6Type2 *)p)->destroy_part_object((s32)((void*)((void*)0))); }
+void TBoss6Type2__sub_80336F00(void* p) { *(int *)&((TBoss6Type2 *)p)->m_3cc = 0; play_sound_effect((void*)438292, (char*)p + 0x38, (void*)0, (void*)0); ((TBoss6Type2 *)p)->destroy_part_object((s32)((void*)((void*)0))); }
 
 #pragma push
 #pragma opt_common_subs off
@@ -56,7 +56,7 @@ void TBoss6Type2::update_ramp_timer() {
 }
 #pragma pop
 
-void TBoss6Type2__sub_80336FB8(void* p) { *(int*)((char*)p + 0x3cc) = 0; ((TBoss6Type2 *)p)->ensure_particle_emitter((s32)((void*)0)); }
+void TBoss6Type2__sub_80336FB8(void* p) { *(int *)&((TBoss6Type2 *)p)->m_3cc = 0; ((TBoss6Type2 *)p)->ensure_particle_emitter((s32)((void*)0)); }
 void TBoss6Type2::tick_attack_timer() {
     this->m_3cc = (this->m_3cc - 1);
     if ((s32) this->m_3cc < 0) {

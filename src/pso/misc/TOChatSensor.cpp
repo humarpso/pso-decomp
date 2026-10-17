@@ -35,10 +35,10 @@ u32 TOChatSensor__ct(int arg0, void *parent, void *arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TOChatSensor;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D2ED8;
     ((TOChatSensor *)arg0)->apply_object_set_data(arg2);
-    *(s32 *)((s8 *)arg0 + 0xC4) = 0;
-    *(s32 *)((s8 *)arg0 + 0xA0) = 0;
+    *(s32 *)&((TOChatSensor *)arg0)->m_c4 = 0;
+    *(s32 *)&((TOChatSensor *)arg0)->m_a0 = 0;
     ((TOChatSensor *)arg0)->init_params();
-    n = *(s32 *)((s8 *)arg0 + 0xCC);
+    n = *(s32 *)&((TOChatSensor *)arg0)->m_cc;
     if (n > 0) {
         t = (s32 *) *(s32 *)((s8 *)chat_sensor_table + 4);
         t += n;

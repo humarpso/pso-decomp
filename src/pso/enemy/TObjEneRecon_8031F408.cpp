@@ -13,7 +13,7 @@ void TObjEneRecon__sub_8031F408(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         *(s32 *)((s8 *)arg0 + 0x40C) = (*(s32 *)((s8 *)arg0 + 0x40C) & 0xFFFFFFFE);
-        *(s16 *)((s8 *)arg0 + 0xB8) = 3;
+        ((TObjEneDD *)arg0)->m_b8 = 3;
         ((TObjEneDD *)arg0)->vfunc_96();
         ((TObjEneDD *)arg0)->set_field_378(5);
         break;

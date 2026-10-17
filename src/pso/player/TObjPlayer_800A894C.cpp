@@ -453,23 +453,23 @@ void TObjPlayer__sub_800A8C4C(u8 *arg0) {
 }
 
 void TObjPlayer__sub_800A8E04(u8 *arg0) {
-    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
+    switch (*(s32 *)&((TObjEneMe1GiGue *)arg0)->state) {
     case 0:
-        *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 4);
-        *(s32 *)((s8 *)arg0 + 0x30) = (*(s32 *)((s8 *)arg0 + 0x30) | 0x04000000);
-        *(s16 *)((s8 *)arg0 + 0xB8) = 5;
+        *(s32 *)&((TObjEneMe1GiGue *)arg0)->m_388 = (s32) (*(s32 *)&((TObjEneMe1GiGue *)arg0)->m_388 | 4);
+        *(s32 *)&((TObjEneMe1GiGue *)arg0)->actorFlags = (*(s32 *)&((TObjEneMe1GiGue *)arg0)->actorFlags | 0x04000000);
+        ((TObjEneMe1GiGue *)arg0)->m_b8 = 5;
         advance_animation_playback(arg0);
         TBoss3Volopt__sub_800D8D88((s32)(arg0 + 0x2FC));
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x3B0);
-        *(s32 *)((s8 *)arg0 + 0x37C) = 1;
+        *(s32 *)&((TObjEneMe1GiGue *)arg0)->state = 1;
     case 1:
         if (((V_Sub *) (arg0 + 0x3B0))->m5() == 1) {
-            *(s32 *)((s8 *)arg0 + 0x37C) = -1;
+            *(s32 *)&((TObjEneMe1GiGue *)arg0)->state = -1;
         }
         return;
     case -1:
-        *(s32 *)((s8 *)arg0 + 0x388) = (s32) ((*(s32 *)((s8 *)arg0 + 0x388)) & ~5);
-        *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFBFFFFFF);
+        *(s32 *)&((TObjEneMe1GiGue *)arg0)->m_388 = (s32) ((*(s32 *)&((TObjEneMe1GiGue *)arg0)->m_388) & ~5);
+        *(s32 *)&((TObjEneMe1GiGue *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjEneMe1GiGue *)arg0)->actorFlags & 0xFBFFFFFF);
         ((TObjEneMe1GiGue *)arg0)->update_if_active(0);
         break;
     }

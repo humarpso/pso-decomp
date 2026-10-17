@@ -30,7 +30,7 @@ s32 TQuestListOnline::get_list_state() {
     if ((void *) TQuestListOnline__instance == NULL) {
         return 0;
     }
-    if ((u32) *(u32 *)((s8 *)TQuestListOnline__instance + 0x38) == 0U) {
+    if ((u32) ((TQuestListOnline *)TQuestListOnline__instance)->list_window == 0U) {
         return 0;
     }
     switch (((TQuestListOnline*)TQuestListOnline__instance)->get_selection_stage()) {

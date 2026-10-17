@@ -387,7 +387,7 @@ void handle_6x17_set_entity_position_and_angle(u8 *arg0) {
     temp_r3 = ((u8 * (*)(u16))find_entity_by_id)(*(u16 *)((s8 *)arg0 + 2));
     if (temp_r3 != NULL) {
         VecCopy((Vec *)(temp_r3 + 0x38), (const Vec *)(arg0 + 4));
-        *(s32 *)((s8 *)temp_r3 + 0x60) = (s32) *(s32 *)((s8 *)arg0 + 0x10);
+        ((TUnk_804AF8A0 *)temp_r3)->rotation_y = (s32) *(s32 *)((s8 *)arg0 + 0x10);
         ((TUnk_804AF8A0 *)temp_r3)->refresh_collision_body_centers();
         if ((s32) *(u16 *)((s8 *)arg0 + 2) == (s32) local_client_id) {
             reset_cameras_to_actor(temp_r3, 0);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneBm3FlyNest.h"
 #include "pso/enemy/TObjEneBm3FlyNest_CarryFly.h"
@@ -1362,13 +1363,13 @@ void handle_motion_event__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1) {
 void state_spawn__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xB8) = 5;
+        ((TObjEneBm3FlyNest *)arg0)->m_b8 = 5;
         ((TObjEneDD *)arg0)->vfunc_96();
         ((TObjEneDD *)arg0)->set_field_378(5);
         *(f32 *)((s8 *)arg0 + 0x4B0) = (f32) 0.0f;
         return;
     case 3:
-        if (*(s32 *)((s8 *)arg0 + 0xB0) & 0x10) {
+        if (*(s32 *)&((TObjEneBm3FlyNest *)arg0)->animationFlags & 0x10) {
             transition_enemy_state(arg0, 5);
         }
         break;
@@ -1378,7 +1379,7 @@ void state_spawn__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
     case 0:
         if (((s32 (*)(f32))objInBand__FP7GameObjf)(lbl_805D9D30) != 0) {
             ((TObjEneBm3FlyNest *)arg0)->spawn_child();
-            *(s32 *)((s8 *)arg0 + 0x4B8) = (s32) (*(s32 *)((s8 *)arg0 + 0x4B8) - 1);
+            *(s32 *)&((TObjEneBm3FlyNest *)arg0)->m_4d4 = (s32) (*(s32 *)&((TObjEneBm3FlyNest *)arg0)->m_4d4 - 1);
         }
         advance_animation_playback(arg0);
         ((TObjEneDD *)arg0)->vfunc_102();
@@ -1389,7 +1390,7 @@ void state_spawn__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
 void update_state__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xB8) = 4;
+        ((TObjEneBm3FlyNest *)arg0)->m_b8 = 4;
         ((TObjEneDD *)arg0)->vfunc_96();
         ((TObjEneDD *)arg0)->set_field_378(5);
         *(f32 *)((s8 *)arg0 + 0x4B0) = (f32) 0.0f;
@@ -1426,13 +1427,13 @@ void TObjEneBm3FlyNest__sub_800B318C(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         ((TObjEneDD *)(arg0))->vfunc_91();
-        *(s16 *)((s8 *)arg0 + 0xB8) = 3;
+        ((TObjEneDD *)arg0)->m_b8 = 3;
         ((TObjEneDD *)(arg0))->vfunc_96();
         ((TObjEneDD *)arg0)->set_field_378(5);
         *(f32 *)((s8 *)arg0 + 0x4B0) = (f32) -5.0f;
         break;
     case 3:
-        if (*(s32 *)((s8 *)arg0 + 0xB0) & 0x10) {
+        if (*(s32 *)&((TObjEneDD *)arg0)->animationFlags & 0x10) {
             transition_enemy_state(arg0, 5);
             break;
         }
@@ -1445,7 +1446,7 @@ void TObjEneBm3FlyNest__sub_800B318C(u8 *arg0, s32 arg1) {
         if (objInBand__FP7GameObjf(arg0, lbl_805D9D38) != 0) {
             spawn_particle_effect((arg0 + 0x38), 0xF0);
         } else if (objInBand__FP7GameObjf(arg0, lbl_805D9D3C) != 0) {
-            temp_r31 = *(s32 *)((s8 *)arg0 + 0x60) - 0x4000;
+            temp_r31 = ((TObjEneDD *)arg0)->rotation_y - 0x4000;
             VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x38));
             stack.sp8 += lbl_805D9D40 * sin_table_lookup(temp_r31);
             stack.sp10 += lbl_805D9D40 * cos_table_lookup(temp_r31);
@@ -1467,13 +1468,13 @@ void TObjEneBm3FlyNest__sub_800B318C(u8 *arg0, s32 arg1) {
 void handle_event__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xB8) = 1;
+        ((TObjEneBm3FlyNest *)arg0)->m_b8 = 1;
         ((TObjEneDD *)arg0)->vfunc_96();
         ((TObjEneDD *)arg0)->set_field_378(2);
         *(f32 *)((s8 *)arg0 + 0x4B0) = (f32) -5.0f;
         return;
     case 3:
-        if (*(s32 *)((s8 *)arg0 + 0xB0) & 0x10) {
+        if (*(s32 *)&((TObjEneBm3FlyNest *)arg0)->animationFlags & 0x10) {
             transition_enemy_state(arg0, 2);
         }
         break;
@@ -1483,7 +1484,7 @@ void handle_event__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
         advance_animation_playback(arg0);
         if (objInBand__FP7GameObjf(arg0, lbl_805D9D30) != 0) {
             ((TObjEneBm3FlyNest *)arg0)->spawn_child();
-            *(s32 *)((s8 *)arg0 + 0x4B8) = (s32) (*(s32 *)((s8 *)arg0 + 0x4B8) - 1);
+            *(s32 *)&((TObjEneBm3FlyNest *)arg0)->m_4d4 = (s32) (*(s32 *)&((TObjEneBm3FlyNest *)arg0)->m_4d4 - 1);
         }
         ((TObjEneDD *)arg0)->vfunc_102();
         break;
@@ -1493,7 +1494,7 @@ void handle_event__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
 void state_wait__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xB8) = 0;
+        ((TObjEneBm3FlyNest *)arg0)->m_b8 = 0;
         ((struct VObj_800B3428_800B30B0 *)arg0)->m94();
         ((TObjEneDD *)arg0)->set_field_378(2);
         *(f32 *)((s8 *)arg0 + 0x4B0) = (f32) -5.0f;
@@ -1594,7 +1595,7 @@ void handle_appear__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1) {
 
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xB8) = 8;
+        ((TObjEneDD *)arg0)->m_b8 = 8;
         ((TObjEneDD *)(arg0))->vfunc_95();
         ((TObjEneDD *)arg0)->set_field_378(2);
         *(f32 *)((s8 *)arg0 + 0x4B0) = lbl_805D9D44;
@@ -1623,8 +1624,8 @@ void handle_appear__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1) {
             }
             *(f32 *)((s8 *)arg0 + 0x4B0) = *(f32 *)((s8 *)arg0 + 0x4B0) - ((lbl_805D9D4C * (lbl_805D9D18 + sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x4D4)))) + lbl_805D9D48);
             *(s32 *)((s8 *)arg0 + 0x4D4) += 0x700;
-            if (*(f32 *)((s8 *)arg0 + 0x4B0) < lbl_805D9D50 && *(s16 *)((s8 *)arg0 + 0xB8) != 9) {
-                *(s16 *)((s8 *)arg0 + 0xB8) = 9;
+            if (*(f32 *)((s8 *)arg0 + 0x4B0) < lbl_805D9D50 && ((TObjEneDD *)arg0)->m_b8 != 9) {
+                ((TObjEneDD *)arg0)->m_b8 = 9;
             }
             if (*(f32 *)((s8 *)arg0 + 0x4B0) < -5.0f) {
                 *(f32 *)((s8 *)arg0 + 0x4B0) = -5.0f;

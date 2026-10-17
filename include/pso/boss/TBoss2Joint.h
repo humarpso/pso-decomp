@@ -30,7 +30,9 @@ struct TBoss2Joint : public TObjEneDD {
     void run_task();
     s32 init_params();
     void render();
-    u8 unk_384[0x24];
+    u8 unk_384[0x8];
+    s32 m_38c;
+    u8 unk_390[0x18];
     f32 m_3a8;
     u8 unk_3AC[0x10];
 };

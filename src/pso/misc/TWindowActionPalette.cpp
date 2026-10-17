@@ -1,4 +1,5 @@
 #include "pso/misc/TWindowActionPalette.h"
+#include "pso/misc/TWindowHelpItem.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TWindowDD.h"
 #include "pso/player/TObjPlayer.h"
@@ -269,9 +270,9 @@ void run_task__20TWindowActionPaletteFv(u8 *arg0) {
     cnt = ((TWindowActionPalette *)arg0)->state;
     if ((s8)cnt > 0) {
         ((TWindowActionPalette *)arg0)->state = cnt - 1;
-        *(s32 *)((s8 *)help + 0x2C) = -1;
+        ((TWindowHelpItem *)help)->m_2c = -1;
     } else {
-        *(s32 *)((s8 *)help + 0x2C) = 0xFF666666;
+        ((TWindowHelpItem *)help)->m_2c = 0xFF666666;
     }
     v = select_action_palette_and_apply__10TObjPlayerFlll(player, 0, 0, 0);
     if (v == 0) {

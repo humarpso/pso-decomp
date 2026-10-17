@@ -358,7 +358,7 @@ void calc_slot_offset_position__10TObjPlayerFPviPvPv(Obj_8008E18C *self, s32 slo
 }
 
 void TObjPlayer__sub_8008E254(void *arg0_) {
-    switch (*(s32 *)((s8 *)arg0_ + 0x37C)) {
+    switch (((TObjPlayer *)arg0_)->m_37c) {
     case -1:
         break;
     case 0:
@@ -369,7 +369,7 @@ void TObjPlayer__sub_8008E254(void *arg0_) {
         *(s32 *)((s8 *)arg0_ + 0x3D4) = 0;
         TObjPlayer__sub_8008E934(arg0_, 0);
         *(s16 *)((s8 *)arg0_ + 0x33C) = 0x1E;
-        *(s32 *)((s8 *)arg0_ + 0x37C) = 1;
+        ((TObjPlayer *)arg0_)->m_37c = 1;
         return;
     case 1:
         advance_animation_playback(arg0_);

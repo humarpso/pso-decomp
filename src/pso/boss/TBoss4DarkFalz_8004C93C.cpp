@@ -191,7 +191,7 @@ void TBoss4DarkFalz__sub_8004C5E8(u8 *arg0) {
         TBoss4DarkFalz__sub_8004B4F0((&stack.spC), (&TBoss4DarkFalz__data_804FF1E8.value));
         stack.sp14 = 2;
         stack.spC = *(s16 *)((s8 *)arg0 + 0x2C) + 0x1FE;
-        stack.sp12 = *(u16 *)((s8 *)arg0 + 0x1C) + 0x1FE;
+        stack.sp12 = ((TBoss4DarkFalz *)arg0)->m_1c + 0x1FE;
         (*(s32 *)&TBoss4DarkFalz__type3_instance) = TBoss4Type3::create((s32)&stack.sp8);
         ((TBoss4DarkFalz *)arg0)->change_state(0xD);
     }

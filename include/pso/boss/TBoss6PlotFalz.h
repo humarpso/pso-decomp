@@ -16,7 +16,9 @@ struct TBoss6PlotFalz : public TObjEnemy {
     u8 m_37c;
     u8 unk_37D[0x3];
     u8 * m_380;
-    u8 unk_384[0x30];
+    u8 unk_384[0x6];
+    s16 m_38a;
+    u8 unk_38C[0x28];
     u32 m_3cc;
     u32 m_3d0;
     u32 m_3d4;

@@ -1570,7 +1570,7 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     TBoss6PlotFalz__instance = self;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     TBoss4DarkFalz__sub_8004B4F0((arg0 + 0x388), (void *)arg2);
-    *(s16 *)((s8 *)arg0 + 0x38A) = 0;
+    ((TBoss6PlotFalz *)arg0)->m_38a = 0;
     if (((TObjEnemy *)arg0)->exchange_object_state((s32)&sp8, (s16)(1)) != 0) {
         sp8.a = 0;
         sp8.c = 0;
@@ -1578,7 +1578,7 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     }
     VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(VecCopy((Vec *)(arg0 + 0x50), (const Vec *)(VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38))))));
     VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
-    *(f32 *)((s8 *)arg0 + 0x310) = (f32) 0.0f;
+    ((TBoss6PlotFalz *)arg0)->m_310 = (f32) 0.0f;
     *(f32 *)((s8 *)arg0 + 0x30C) = (f32) 0.0f;
     *(f32 *)((s8 *)arg0 + 0x308) = (f32) 0.0f;
     *(s32 *)((s8 *)arg0 + 0x2A8) = 0;
@@ -1587,7 +1587,7 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     temp_r6 = register_object__6TLobbyFl(0x2C);
     bind_enemy_combat_stats((arg0), (u8 *)temp_r30, (u8 *)temp_r29, (u8 *)temp_r6);
     register_entity_by_id((arg0));
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x02000000);
+    *(s32 *)&((TBoss6PlotFalz *)arg0)->actorFlags = (s32) (*(s32 *)&((TBoss6PlotFalz *)arg0)->actorFlags | 0x02000000);
     set_visible_flag__14TBoss6PlotFalzFv(arg0);
     update_active_flag__14TBoss6PlotFalzFv();
     *(s32 *)((s8 *)arg0 + 0x3CC) = 0;
@@ -1601,8 +1601,8 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     (*(s32 *)&TBoss6PlotFalz__type2_instance) = 0;
     *(s32 *)((s8 *)arg0 + 0x3DC) = 0;
     TBoss6PlotFalz__fade_amount = (-1.0f);
-    *(s8 *)((s8 *)arg0 + 0x37C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x378) = -1;
+    *(s8 *)&((TBoss6PlotFalz *)arg0)->m_37c = 0;
+    ((TBoss6PlotFalz *)arg0)->m_378 = -1;
     ((TBoss6PlotFalz *)arg0)->set_state(0);
     return self;
 }

@@ -9,7 +9,13 @@ struct TBoss3Volopt : public TObjEnemyCustom {
     void sub_8003D340();
     u16 get_param_offset(s32);
     s32 get_adjusted_angle(s32);
-    u8 unk_38C[0x1C];
+    u8 unk_38C[0x4];
+    s32 m_390;
+    u8 unk_394[0x4];
+    s32 m_398;
+    u8 unk_39C[0x4];
+    s32 m_3a0;
+    u8 unk_3A4[0x4];
     s32 m_3a8;
     u8 unk_3AC[0x10];
     u32 m_3bc;
@@ -53,7 +59,9 @@ struct TBoss3Volopt : public TObjEnemyCustom {
     static void alloc_effect_node(u32 arg0, s16 arg1, s32 arg2);
     static void queue_event_1D(s16 arg0, s16 arg1);
     static s32 remap_area_sound_id(s32 arg0);
-    u8 unk_3C0[0x20];
+    u8 unk_3C0[0x8];
+    f32 m_3c8;
+    u8 unk_3CC[0x14];
     s32 m_3e0;
     u8 unk_3E4[0xC];
     s16 m_3f0;

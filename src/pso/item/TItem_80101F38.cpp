@@ -37,12 +37,12 @@ void send_drop_item_6x5D__5TItemFPviPv(void *item, s32 id, Pos_80101FEC *pos);
 void handle_6x5D_drop_stacked_item(u8 *arg0) {
     FloorItem drop;
     ((TLobby *)arg0)->bswap_6x5D();
-    if (TLobby::get_player_floor((int) ((s32) *(s16 *)((s8 *)arg0 + 4))) != 0xF) {
+    if (TLobby::get_player_floor((int) ((s32) *(s16 *)&((TLobby *)arg0)->m_flags)) != 0xF) {
         ((TLobby *)(&drop.floor))->drop_stacked_item_passthrough();
-        drop.floor = (s8) *(s16 *)((s8 *)arg0 + 4);
+        drop.floor = (s8) *(s16 *)&((TLobby *)arg0)->m_flags;
         drop.pos.x = *(f32 *)((s8 *)arg0 + 8);
         drop.pos.z = *(f32 *)((s8 *)arg0 + 0xC);
-        drop.room_id = *(s16 *)((s8 *)arg0 + 6);
+        drop.room_id = *(s16 *)&((TLobby *)arg0)->m_id;
         ((TLobby *)(&drop.item))->copy_item_data(arg0 + 0x10);
         if ((u32) (*(u8 *)((s8 *)arg0 + 1) * 4) == 0x24) {
             TItemData__sub_8010C740(arg0 + 0x10, 0);

@@ -377,7 +377,7 @@ s32 TRaderMapCore::is_render_admitted_default() {
 
 s32 TRaderMapCore::is_active() {
     if ((void *) TRaderMapCore__instance != NULL) {
-        if (*(u16 *)((s8 *)TRaderMapCore__instance + 4) & 0x10) {
+        if (((TRaderMapCore *)TRaderMapCore__instance)->m_flags & 0x10) {
             return 0;
         }
         return ((TRaderMapCore *)TRaderMapCore__instance)->is_render_admitted_default();

@@ -407,17 +407,17 @@ void *TBoss6Demo21_TYPE2_DEAD__ct(void *arg0p, void *arg1, void *arg2) {
     void *count = get_fish_count__8TObjFishFv();
     *(s32 *)((s8 *)arg0 + 0x1C) = get_bml_model(count, 4);
     *(s32 *)((s8 *)arg0 + 0x20) = TObjFish__sub_8001EDB0(count, 4);
-    *(s32 *)((s8 *)arg0 + 0x24) = get_bml_motion(count, 7);
+    ((TBoss6Type1 *)arg0)->texture_id = get_bml_motion(count, 7);
     *(s32 *)((s8 *)arg0 + 0x28) = get_bml_model(count, 5);
     *(s32 *)((s8 *)arg0 + 0x2C) = TObjFish__sub_8001EDB0(count, 5);
-    *(s32 *)((s8 *)arg0 + 0x30) = get_bml_motion(count, 7);
+    *(s32 *)&((TBoss6Type1 *)arg0)->actorFlags = get_bml_motion(count, 7);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model(count, 8);
     *(s32 *)((s8 *)arg0 + 0x38) = TObjFish__sub_8001EDB0(count, 8);
     *(s32 *)((s8 *)arg0 + 0x3C) = get_bml_motion(count, 8);
     *(s32 *)((s8 *)arg0 + 0x40) = get_bml_model(count, 0xD);
-    *(s32 *)((s8 *)arg0 + 0x44) = TObjFish__sub_8001EDB0(count, 0xD);
-    *(s32 *)((s8 *)arg0 + 0x48) = get_bml_motion(count, 0x3D);
-    *(s32 *)((s8 *)arg0 + 0x70) = TObjFish__sub_800E3124(boss6_type2_death_effect_desc_a, (s32)(arg0 + 0x64));
+    *(s32 *)&((TBoss6Type1 *)arg0)->m_44 = TObjFish__sub_8001EDB0(count, 0xD);
+    *(s32 *)&((TBoss6Type1 *)arg0)->m_48 = get_bml_motion(count, 0x3D);
+    *(s32 *)&((TBoss6Type1 *)arg0)->m_70 = TObjFish__sub_800E3124(boss6_type2_death_effect_desc_a, (s32)(arg0 + 0x64));
     *(s32 *)((s8 *)arg0 + 0x80) = TObjFish__sub_800E3124(boss6_type2_death_effect_desc_b, (s32)(arg0 + 0x74));
     *(s32 *)((s8 *)arg0 + 0x9C) = TObjFish__sub_800E3124(boss6_type2_death_effect_desc_c, (s32)(arg0 + 0x84));
     activate_camera_mode(5);
@@ -426,7 +426,7 @@ void *TBoss6Demo21_TYPE2_DEAD__ct(void *arg0p, void *arg1, void *arg2) {
     for (i = 0; i < 4; i++) {
         ((Fish_8033E688 *)arg0)->arr[i] = 0;
     }
-    *(s32 *)((s8 *)arg0 + 0xB0) = create_zanzo__11TBoss6Type1FPvPvPv(arg0, 3, 0xF);
+    *(s32 *)&((TBoss6Type1 *)arg0)->animationFlags = create_zanzo__11TBoss6Type1FPvPvPv(arg0, 3, 0xF);
     *(f32 *)((s8 *)arg0 + 0x4C) = (0.0f);
     *(s32 *)((s8 *)arg0 + 0x50) = 0;
     return arg0;

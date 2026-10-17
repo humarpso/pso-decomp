@@ -203,8 +203,8 @@ void TWindowChat::open_input() {
     if (((TWindowChat *)arg0)->is_open() != 0) {
         TWindowChat__sub_80247E50((u8 *)arg0);
         TWindowChat__sub_80247DFC((u8 *)arg0);
-        *(u16 *)((s8 *)arg0 + 0x1E) = (u16) (*(u16 *)((s8 *)arg0 + 0x1E) & 0xFFFE);
-        *(u16 *)((s8 *)arg0 + 0x1E) = (u16) (*(u16 *)((s8 *)arg0 + 0x1E) | 2);
+        ((TWindowChat *)arg0)->flags = (u16) (((TWindowChat *)arg0)->flags & 0xFFFE);
+        ((TWindowChat *)arg0)->flags = (u16) (((TWindowChat *)arg0)->flags | 2);
         ((TKeyBoardControl *)(*(s32 *)((s8 *)arg0 + 0x28)))->clear_flag60_bit200();
         ((TWindowChat*)(arg0))->open_next_input_window();
     }
@@ -536,7 +536,7 @@ int TWindowChat::is_mode_bit6() { return (this->flags >> 6) & 0x1; }
 
 void TWindowChat__sub_80247DFC(u8 *arg0) {
     if (((TWindowChat *)arg0)->is_visible() != 0) {
-        *(u16 *)((s8 *)arg0 + 0x1E) = (u16) (*(u16 *)((s8 *)arg0 + 0x1E) & 0xFFFFFFDF);
+        ((TWindowChat *)arg0)->flags = (u16) (((TWindowChat *)arg0)->flags & 0xFFFFFFDF);
         ((TWindowChat*)(arg0))->open_next_input_window();
     }
 }
@@ -545,9 +545,9 @@ int TWindowChat::is_visible() { return (this->flags >> 5) & 0x1; }
 
 void TWindowChat__sub_80247E50(u8 *arg0) {
     if (((TWindowChat *)arg0)->is_mode_bit4() != 0) {
-        *(u16 *)((s8 *)arg0 + 0x1E) = (u16) (*(u16 *)((s8 *)arg0 + 0x1E) & 0xFFFFFFEF);
+        ((TWindowChat *)arg0)->flags = (u16) (((TWindowChat *)arg0)->flags & 0xFFFFFFEF);
         if ((u32) *(u32 *)((s8 *)arg0 + 0x20) != 0U) {
-            ((TWindowChat *)(*(void **)((s8 *)arg0 + 0x20)))->flush_if_flagged();
+            ((TWindowChat *)(*(void * *)&((TWindowChat *)arg0)->composer))->flush_if_flagged();
         }
         ((TWindowChat*)(arg0))->open_next_input_window();
     }

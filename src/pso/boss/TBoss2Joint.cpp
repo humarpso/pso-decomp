@@ -365,8 +365,8 @@ void TBoss2Joint::vfunc_62() {
     s32 temp_r31;
     struct TBJ_8003688C *self = (struct TBJ_8003688C *)this;
 
-    temp_r31 = *(s16 *)((s8 *)self + 0x2B8) - *(s16 *)((s8 *)self + 0x32C);
-    if (!(*(s32 *)((s8 *)self + 0x38C) & 1)) {
+    temp_r31 = ((TBoss2Joint *)self)->hpmax - ((TBoss2Joint *)self)->hp;
+    if (!(((TBoss2Joint *)self)->m_38c & 1)) {
         ((TBoss2Joint *)self)->init_joint_offset(0);
         *(s32 *)((s8 *)self + 0x394) = (s32) (*(s32 *)((s8 *)self + 0x394) - temp_r31);
         if ((s32) *(s32 *)((s8 *)self + 0x394) <= 0) {
@@ -375,9 +375,9 @@ void TBoss2Joint::vfunc_62() {
         }
     } else {
         spawn_offset_particle__13TBoss2DeRolLeFiff((s32)(((u8 *)this) + 0x38), (f32)lbl_805D8484, (f32)lbl_805D8488);
-        apply_hp_damage_with_sound__13TBoss2DeRolLeFPvi(*(s32 *)((s8 *)self + 0x10), temp_r31, *(u16 *)((s8 *)self + 0x2D4));
+        apply_hp_damage_with_sound__13TBoss2DeRolLeFPvi(*(s32 *)((s8 *)self + 0x10), temp_r31, ((TBoss2Joint *)self)->m_2d4);
     }
-    *(s16 *)((s8 *)self + 0x32C) = (s16) *(s16 *)((s8 *)self + 0x2B8);
+    ((TBoss2Joint *)self)->hp = (s16) ((TBoss2Joint *)self)->hpmax;
     clear_attack_receipts();
 }
 

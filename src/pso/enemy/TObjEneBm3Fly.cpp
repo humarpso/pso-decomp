@@ -965,23 +965,23 @@ void TObjEneBm3Fly__sub_800B02C8(u8 *arg0, s32 arg1) {
     u8 *temp_r4;
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xB8) = 1;
+        ((TObjEneBm3Fly *)arg0)->m_b8 = 1;
         ((TObjEneBm3Fly *)(arg0))->vfunc_96();
         *(s32 *)((s8 *)arg0 + 0x428) = (s32) (*(s32 *)((s8 *)arg0 + 0x428) & 0xFFFFFFFE);
         *(s32 *)((s8 *)arg0 + 0x428) = (s32) (*(s32 *)((s8 *)arg0 + 0x428) | 2);
-        *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x01000000);
+        *(s32 *)&((TObjEneBm3Fly *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjEneBm3Fly *)arg0)->actorFlags | 0x01000000);
         sub_800B1634__13TObjEneBm3FlyFv(arg0);
         *(f32 *)((s8 *)arg0 + 0x394) = (f32) (((3e+01f) * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x448)))) + *(f32 *)((s8 *)arg0 + 0x41C));
-        *(f32 *)((s8 *)arg0 + 0x398) = (f32) *(f32 *)((s8 *)arg0 + 0x444);
+        ((TObjEneBm3Fly *)arg0)->m_398 = (f32) *(f32 *)((s8 *)arg0 + 0x444);
         *(f32 *)((s8 *)arg0 + 0x39C) = (f32) (((3e+01f) * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x448)))) + *(f32 *)((s8 *)arg0 + 0x424));
-        temp_r4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x350));
-        *(f32 *)((s8 *)arg0 + 0x3E0) = (f32) ((2.0f) + calc_scaled_value__15TObjBoss2TunnelFlf((int) (*(s32 *)((s8 *)temp_r4 + 8)), (int)temp_r4, (f32) (*(f32 *)((s8 *)temp_r4 + 4)), (f32) ((3e+01f))));
+        temp_r4 = (u8 *)(*(u8 * *)&((TObjEneBm3Fly *)arg0)->movementParameters);
+        ((TObjEneBm3Fly *)arg0)->m_3e0 = (f32) ((2.0f) + calc_scaled_value__15TObjBoss2TunnelFlf((int) (*(s32 *)((s8 *)temp_r4 + 8)), (int)temp_r4, (f32) (*(f32 *)((s8 *)temp_r4 + 4)), (f32) ((3e+01f))));
         ((TObjEneDD *)arg0)->update_velocity();
         break;
     case 3:
         if (update_linked_position__12TObjEneDD_STFf((f32) ((2e+02f))) != 0) {
             transition_enemy_state(arg0, 2);
-        } else if (*(f32 *)((s8 *)arg0 + 0x3AC) < *(f32 *)((s8 *)arg0 + 0x3E0)) {
+        } else if (((TObjEneBm3Fly *)arg0)->m_3ac < ((TObjEneBm3Fly *)arg0)->m_3e0) {
             transition_enemy_state(arg0, 1);
         }
         break;
@@ -990,7 +990,7 @@ void TObjEneBm3Fly__sub_800B02C8(u8 *arg0, s32 arg1) {
     case 0:
         advance_animation_playback();
         ((TObjEneDD *)arg0)->update_velocity();
-        *(f32 *)((s8 *)arg0 + 0x42C) = approach_value__13TObjEneBm3FlyFff(arg0, (f32) (*(f32 *)((s8 *)arg0 + 0x42C)), (f32) (*(f32 *)((s8 *)arg0 + 0x398)));
+        *(f32 *)((s8 *)arg0 + 0x42C) = approach_value__13TObjEneBm3FlyFff(arg0, (f32) (*(f32 *)((s8 *)arg0 + 0x42C)), (f32) (((TObjEneBm3Fly *)arg0)->m_398));
         ((TObjEneBm3Fly *)arg0)->update_state_flag();
         ((TObjEneBm3Fly *)(arg0))->vfunc_88();
         clamp_flight_height__13TObjEneBm3FlyFv(arg0);
@@ -1337,7 +1337,7 @@ void TObjEneBm3Fly__sub_800B0F70(u8 *arg0, s32 arg1) {
     s32 a;
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xB8) = 1;
+        ((TObjEneBm3Fly *)arg0)->m_b8 = 1;
         ((TObjEneBm3Fly *)(arg0))->vfunc_95();
         I(0x428) &= ~1;
         I(0x428) |= 2;

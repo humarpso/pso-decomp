@@ -142,7 +142,7 @@ void run_task__13TForceOperateFv(s32 arg0) {
     if (TObjPlayer__sub_801C6DAC((u8 *)(arg0 + 0x1C)) != 0) {
         temp_r31 = get_state__11TMainCursorFv(arg0 + 0x1C);
         if ((is_target_valid__10TObjPlayerFv() != 0) && (((TObjPlayer *)temp_r31)->has_action_palette_entry() != 0)) {
-            ((TMainCursor *)(*(s32 *)((s8 *)temp_r31 + 0x424) + 0x4F8))->get_id();
+            ((TMainCursor *)(((TObjPlayer *)temp_r31)->m_424 + 0x4F8))->get_id();
             entity = find_entity_by_id();
             if (entity != NULL) {
                 ((VObj_801C57D0 *)entity)->m11(obj_getField1c(temp_r31));
@@ -200,7 +200,7 @@ void update_player_appear_fade(u8 *arg0) {
             if ((is_inactive__10TObjPlayerFv() != 0) && (check_flag_40000__10TObjPlayerFv((int)temp_r3) == 0) && (check_flag_04000000__10TObjPlayerFv((int)temp_r3) != 0) && (is_on_current_floor__10TObjPlayerFi((int)temp_r3) != 0)) {
                 if (--*(s16 *)((s8 *)arg0 + 2) < 0) {
                     if (TCameraCtrl::get_mode() != 0) {
-                        *(f32 *)((s8 *)temp_r3 + 0x624) = (f32) lbl_805DC320[0];
+                        ((TObjPlayer *)temp_r3)->m_624 = (f32) lbl_805DC320[0];
                         *(s32 *)((s8 *)arg0 + 4) = 2;
                         return;
                     }
@@ -209,14 +209,14 @@ void update_player_appear_fade(u8 *arg0) {
                     if (obj_testFlags30__13TUnk_804AF8A0FUl((int)temp_r3, 0x800) == 0) {
                         TObjPlayer::spawn_appearance_effect((int) (*(u16 *)((s8 *)arg0 + 0)));
                     }
-                    *(f32 *)((s8 *)temp_r3 + 0x624) = (f32) lbl_805DC32C[0];
+                    ((TObjPlayer *)temp_r3)->m_624 = (f32) lbl_805DC32C[0];
                     ((TObjPlayer *)temp_r3)->refresh_equipment_slot();
                     return;
                 }
             }
             break;
         case 1:
-            var_f31 = *(f32 *)((s8 *)temp_r3 + 0x624);
+            var_f31 = ((TObjPlayer *)temp_r3)->m_624;
             var_f31 += lbl_805DC330[0];
             if (var_f31 >= lbl_805DC320[0]) {
                 var_f31 = lbl_805DC320[0];
@@ -224,7 +224,7 @@ void update_player_appear_fade(u8 *arg0) {
                 set_flag_2000000_alt__10TObjPlayerFv();
                 ((TObjPlayer *)temp_r3)->activate_body_collision();
             }
-            *(f32 *)((s8 *)temp_r3 + 0x624) = var_f31;
+            ((TObjPlayer *)temp_r3)->m_624 = var_f31;
             break;
         }
     }

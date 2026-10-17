@@ -2714,8 +2714,8 @@ void TObjPlayer__sub_801AF554(void *arg0, s8 arg1) {
 }
 
 void play_voice_pair__10TObjPlayerFPv(void *arg0) {
-    set_hp_clamped__10TObjPlayerFs(arg0, *(s16 *)((s8 *)arg0 + 0x2B8));
-    set_facing__10TObjPlayerFs(arg0, *(s16 *)((s8 *)arg0 + 0x2BA));
+    set_hp_clamped__10TObjPlayerFs(arg0, ((TObjPlayer *)arg0)->hpmax);
+    set_facing__10TObjPlayerFs(arg0, ((TObjPlayer *)arg0)->m_2ba);
 }
 
 void TObjPlayer::reset_pose() { this->obj_clearFlags30((u32)((void*)2048)); ((int (*)(void*))update_rotation__10TObjPlayerFv)(this); }
@@ -4170,12 +4170,12 @@ void TObjPlayer::cancel_status_effects() {
     f32 temp_f31_4;
     f32 temp_f31_5;
     f32 v;
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFFFFFC);
+    *(s32 *)&((TUnk_804806E8 *)arg0)->actorFlags = (s32) (*(s32 *)&((TUnk_804806E8 *)arg0)->actorFlags & 0xFFFFFFFC);
     temp_f31 = -TObjPlayer__sub_800192C4(arg0, 0);
     v = ((TUnk_804806E8 *)arg0)->get_s16_2c4();
     ((TUnk_804806E8 *)arg0)->sub_800192B4((s32) (v * temp_f31));
     reset_status_effect_row(arg0 + 0x254);
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFFFFC3);
+    *(s32 *)&((TUnk_804806E8 *)arg0)->actorFlags = (s32) (*(s32 *)&((TUnk_804806E8 *)arg0)->actorFlags & 0xFFFFFFC3);
     temp_f31_2 = -TObjPlayer__sub_800192C4(arg0, 1);
     v = ((TUnk_804806E8 *)arg0)->get_s16_2c4();
     ((TUnk_804806E8 *)arg0)->sub_800192B4((s32) (v * temp_f31_2));
@@ -4208,7 +4208,7 @@ void remove_status_effect__10TObjPlayerFUiPv(u32 arg0_, Pair_801B2C04 *arg1_) {
     temp_r0 = *arg1;
     switch (temp_r0) {
     case 0:
-        *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFFFFFC);
+        *(s32 *)&((TUnk_804806E8 *)arg0)->actorFlags = (s32) (*(s32 *)&((TUnk_804806E8 *)arg0)->actorFlags & 0xFFFFFFFC);
         temp_f31 = -TObjPlayer__sub_800192C4((void *) arg0, 0);
         v = ((TUnk_804806E8 *)arg0)->get_s16_2c4();
         v *= temp_f31;
@@ -4216,7 +4216,7 @@ void remove_status_effect__10TObjPlayerFUiPv(u32 arg0_, Pair_801B2C04 *arg1_) {
         reset_status_effect_row(arg0 + 0x254);
         return;
     case 1:
-        *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFFFFC3);
+        *(s32 *)&((TUnk_804806E8 *)arg0)->actorFlags = (s32) (*(s32 *)&((TUnk_804806E8 *)arg0)->actorFlags & 0xFFFFFFC3);
         temp_f31_2 = -TObjPlayer__sub_800192C4((void *) arg0, 1);
         v = ((TUnk_804806E8 *)arg0)->get_s16_2c4();
         v *= temp_f31_2;
@@ -6680,18 +6680,18 @@ void *pickup_item__10TObjPlayerFv(u8 *arg0, u8 *arg1) {
     case 2:
         o = ((void * (*)(u32))__nw__7TObjectFUl)(0x20);
         if (o != NULL) {
-            o = ((void * (*)(void *, s32))__ct__9TItemListFv)(o, *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xD00)) + 0x1C4));
+            o = ((void * (*)(void *, s32))__ct__9TItemListFv)(o, *(s32 *)((s8 *)(*(u8 * *)&((TObjPlayer *)arg0)->inventory_objects) + 0x1C4));
         }
         list = o;
         break;
     case 3:
         if (TObjPlayer__sub_801C1AC8(arg1) != 0) {
             ((TItem *)arg1)->copy_to_item_data(&sp8);
-            id = ((s32 (*)(void *, void *))set_mode_and_refresh_object__10TObjPlayerFPvi)(*(u8 **)((s8 *)arg0 + 0xD00), &sp8);
+            id = ((s32 (*)(void *, void *))set_mode_and_refresh_object__10TObjPlayerFPvi)(*(u8 * *)&((TObjPlayer *)arg0)->inventory_objects, &sp8);
             if (id == 0) {
                 o = ((void * (*)(u32))__nw__7TObjectFUl)(0x20);
                 if (o != NULL) {
-                    o = ((void * (*)(void *, s32))__ct__9TItemListFv)(o, *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xD00)) + 0x1C4));
+                    o = ((void * (*)(void *, s32))__ct__9TItemListFv)(o, *(s32 *)((s8 *)(*(u8 * *)&((TObjPlayer *)arg0)->inventory_objects) + 0x1C4));
                 }
                 list = o;
                 break;
@@ -6709,17 +6709,17 @@ void *pickup_item__10TObjPlayerFv(u8 *arg0, u8 *arg1) {
         }
         o = ((void * (*)(u32))__nw__7TObjectFUl)(0x20);
         if (o != NULL) {
-            o = ((void * (*)(void *, s32))__ct__9TItemListFv)(o, *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xD00)) + 0x1C4));
+            o = ((void * (*)(void *, s32))__ct__9TItemListFv)(o, *(s32 *)((s8 *)(*(u8 * *)&((TObjPlayer *)arg0)->inventory_objects) + 0x1C4));
         }
         list = o;
         break;
     }
     if (list != NULL) {
         set_field_1c__10TObjPlayerFl(list, arg1);
-        inv = *(u8 **)((s8 *)arg0 + 0xD00);
+        inv = *(u8 * *)&((TObjPlayer *)arg0)->inventory_objects;
         TObjPlayer__sub_801C1B0C(arg1, (*(s16 *)((s8 *)inv + 0x1C))++);
         ((TItem *)arg1)->set_mode(1);
-        ((TObject *)arg1)->set_parent((TObject *)(*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0xD00)) + 0x1C8)));
+        ((TObject *)arg1)->set_parent((TObject *)(*(void **)((s8 *)(*(u8 * *)&((TObjPlayer *)arg0)->inventory_objects) + 0x1C8)));
         set_owner_client__5TItemFUs(arg1, ((s16 (*)(void *))obj_getField1c)(arg0));
         return list;
     }

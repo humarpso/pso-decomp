@@ -16,7 +16,8 @@ public:
     void distribute_part_damage();
     virtual void vfunc_79();
     virtual void run_task();
-    u8 unk_38C[0xE4];
+    u8 unk_38C[0xE0];
+    s32 m_46c;
     s32 m_470;
     u8 unk_474[0x4];
     void * m_478;

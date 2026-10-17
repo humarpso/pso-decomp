@@ -25,7 +25,9 @@ struct TObjEneMe1GiGue : public TObjEnemyCustom {
     u16 m_38c;
     u8 _pad38E[0x2];
     void* m_390;
-    u8 unk_394[0x50];
+    u8 unk_394[0x30];
+    s32 m_3c4;
+    u8 unk_3C8[0x1C];
     f32 m_3e4;
     u8 unk_3E8[0x4];
     f32 m_3ec;

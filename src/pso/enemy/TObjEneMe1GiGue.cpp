@@ -732,9 +732,9 @@ typedef char RecoveredGlobal_802CB03C_lbl_8058D490_size[sizeof(RecoveredGlobal_8
 void TObjEneMe1GiGue__sub_802CB03C(u8 *arg0) {
     push_matrix_from(&identity_matrix.value);
     translate_matrix(0, (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) (*(f32 *)((s8 *)arg0 + 0x3EC) + (*(f32 *)((s8 *)arg0 + 0x3C) + *(f32 *)((s8 *)arg0 + 0x3E8))), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));
-    rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+    rotate_matrix_y(0, (int) (((TObjEnemy *)arg0)->rotation_y));
     set_global_flag__10TObjPlayerFv();
-    ((TObjEnemy *)arg0)->render_anim_model(*(f32 *)((s8 *)arg0 + 0xC0));
+    ((TObjEnemy *)arg0)->render_anim_model(((TObjEnemy *)arg0)->m_c0);
     clear_global_state__10TObjPlayerFv();
     pop_matrix();
     ((VObj_18_fe09eb *)(arg0))->m63(0, arg0 + 0x3B4);

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDarkGunCenter.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
@@ -943,26 +945,26 @@ void TObjEneDarkGunner::sub_800A159C() {
 
 void TObjPlayer__sub_800A16C4(u8 *arg0) {
     s16 temp_r4;
-    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
+    switch (((TObjPlayer *)arg0)->m_37c) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 1);
         ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x100);
         *(s16 *)((s8 *)arg0 + 0x33C) = (s16) *(s16 *)((s8 *)arg0 + 0x33A);
-        *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-        *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFF9FFFFF);
-        *(s32 *)((s8 *)arg0 + 0x37C) = 1;
+        ((TObjPlayer *)arg0)->m_b8 = 0;
+        *(s32 *)&((TObjPlayer *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjPlayer *)arg0)->actorFlags & 0xFF9FFFFF);
+        ((TObjPlayer *)arg0)->m_37c = 1;
         goto case1;
     case 1:
     case1:
         advance_animation_playback(arg0);
-        if (!(*(s32 *)((s8 *)arg0 + 0x30) & 0x800000)) {
+        if (!(*(s32 *)&((TObjPlayer *)arg0)->actorFlags & 0x800000)) {
             apply_actor_gravity(arg0, 0, lbl_805D9984);
         }
         ((TObjPlayer *)arg0)->update_collisions();
         temp_r4 = *(s16 *)((s8 *)arg0 + 0x33C);
         *(s16 *)((s8 *)arg0 + 0x33C) = (temp_r4 - 1);
         if (temp_r4 < 0) {
-            *(s16 *)((s8 *)arg0 + 0x33E) = (s16) *(s16 *)((s8 *)arg0 + 0x32C);
+            ((TObjPlayer *)arg0)->m_33e = (s16) ((TObjPlayer *)arg0)->hp;
             *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) & 0xFFFFFFFE);
             ((TObjPlayer *)arg0)->set_hidden_flag();
         }
@@ -1023,46 +1025,46 @@ void TObjPlayer__sub_800A1974(void) {  }
 void TObjPlayer__sub_800A1D70(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f31;
-    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
+    switch (((TObjPlayer *)arg0)->m_37c) {
     case 0:
-        *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFDFFFFF);
+        *(s32 *)&((TObjPlayer *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjPlayer *)arg0)->actorFlags & 0xFFDFFFFF);
         if (*(s32 *)((s8 *)arg0 + 0x388) & 0x800000) {
-            *(s16 *)((s8 *)arg0 + 0xB8) = 9;
+            ((TObjPlayer *)arg0)->m_b8 = 9;
         } else {
-            *(s16 *)((s8 *)arg0 + 0xB8) = 5;
+            ((TObjPlayer *)arg0)->m_b8 = 5;
         }
         temp_f31 = vector_length(arg0 + 0x308);
         temp_f1 = TObjPlayer__sub_800A3200(2);
         if (temp_f31 > temp_f1) {
             *(f32 *)((s8 *)arg0 + 0x308) = (f32) ((*(f32 *)((s8 *)arg0 + 0x308) * temp_f1) / temp_f31);
-            *(f32 *)((s8 *)arg0 + 0x310) = (f32) ((*(f32 *)((s8 *)arg0 + 0x310) * temp_f1) / temp_f31);
+            ((TObjPlayer *)arg0)->m_310 = (f32) ((((TObjPlayer *)arg0)->m_310 * temp_f1) / temp_f31);
         }
         if (*(s32 *)((s8 *)arg0 + 0x388) & 0x400000) {
             spawn_particle_effect((arg0 + 0x2FC), 0xD7);
         }
         *(s16 *)((s8 *)arg0 + 0x39E) = 0;
-        *(s32 *)((s8 *)arg0 + 0x37C) = 1;
+        ((TObjPlayer *)arg0)->m_37c = 1;
     case 1:
         *(f32 *)((s8 *)arg0 + 0x308) = (f32) ((f64) *(f32 *)((s8 *)arg0 + 0x308) * lbl_8043A6C0[0]);
-        *(f32 *)((s8 *)arg0 + 0x310) = (f32) ((f64) *(f32 *)((s8 *)arg0 + 0x310) * lbl_8043A6C0[0]);
+        ((TObjPlayer *)arg0)->m_310 = (f32) ((f64) ((TObjPlayer *)arg0)->m_310 * lbl_8043A6C0[0]);
         advance_animation_playback(arg0);
         {
         Vec_800A1D70 v = *(Vec_800A1D70 *)(arg0 + 0x2FC);
         v.x = v.x + *(f32 *)((s8 *)arg0 + 0x308);
-        v.z = v.z + *(f32 *)((s8 *)arg0 + 0x310);
+        v.z = v.z + ((TObjPlayer *)arg0)->m_310;
         if (check_path_obstructed(arg0, &v) == 0) {
             move_with_wall_slide((arg0));
         } else {
-            *(f32 *)((s8 *)arg0 + 0x310) = (f32) lbl_805D9984;
+            ((TObjPlayer *)arg0)->m_310 = (f32) lbl_805D9984;
             *(f32 *)((s8 *)arg0 + 0x308) = (f32) lbl_805D9984;
         }
         }
         apply_actor_gravity(arg0, 0, lbl_805D9984);
         ((TObjPlayer *)arg0)->update_collisions();
-        if ((u32) *(u32 *)((s8 *)arg0 + 0xB4) != 8U) {
+        if ((u32) ((TObjPlayer *)arg0)->m_b4 != 8U) {
             ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x40300);
             *(s32 *)((s8 *)arg0 + 0x388) = (s32) ((*(s32 *)((s8 *)arg0 + 0x388)) & 0xFF7FFFFE);
-            *(s16 *)((s8 *)arg0 + 0x33E) = (s16) *(s16 *)((s8 *)arg0 + 0x32C);
+            ((TObjPlayer *)arg0)->m_33e = (s16) ((TObjPlayer *)arg0)->hp;
             ((TObjPlayer *)arg0)->set_hidden_flag();
         }
         break;

@@ -160,7 +160,9 @@ struct TObjPlayer : public TUnk_804806E8 {
     void* m_5fc;
     u8 _pad600[0x8];
     void* m_608;
-    u8 _pad60C[0x28];
+    u8 unk_60C[0x18];
+    f32 m_624;
+    u8 unk_628[0xC];
     void* m_634;
     u8 _pad638[0x4];
     void* m_63c;

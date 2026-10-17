@@ -287,7 +287,7 @@ void *TWindowShortListCtrl::create_window(s32 arg1, s32 arg2_arg) {
 
     window_menu = (void *)create_window_menu(arg1, 0x13, this->m_24);
     set_flag70_bit10__21TWindowSubComCardListFv();
-    *(s32 *)((s8 *)window_menu + 0x5C) = 0x01000000;
+    *(s32 *)&((TWindowSubComCardList *)window_menu)->m_5c = 0x01000000;
     ((TWindowSubComCardList *)window_menu)->set_flag70_bit100();
     refresh_technique_rows((s32)((void*)(window_menu)), (Sc_8026EBB0 *)((void*)(arg2_arg)));
     return window_menu;

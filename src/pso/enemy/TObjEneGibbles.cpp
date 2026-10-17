@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneGibbles.h"
@@ -935,10 +936,10 @@ void render_and_get_joint_pos__14TObjEneGibblesFPvii(u8 *arg0, s32 arg1, s32 arg
     TObjPlayer::set_global_flag();
     push_matrix_from((void *) (&identity_matrix.value));
     post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+    rotate_matrix_y(0, (int) (((TObjEnemy *)arg0)->rotation_y));
     scale_matrix_vec3(0, (arg0 + 0x68));
     TObjPlayer::set_global_flag();
-    ((TObjEnemy *)arg0)->render_anim_model((f32) (*(f32 *)((s8 *)arg0 + 0xC0)));
+    ((TObjEnemy *)arg0)->render_anim_model((f32) (((TObjEnemy *)arg0)->m_c0));
     TObjPlayer::clear_global_state();
     pop_matrix();
     push_matrix_from((void *) (anim_model_matrix_array + (arg2 * 0x30)));
@@ -1152,13 +1153,13 @@ int TObjEneGibbles::test_flag_256() {
     if ((flags & 4) && this->mode != 6 && this->m_388 > 0) {
         for (i = 0; i < lbl_805D586C; i++) {
             pl = get_player_data__10TObjPlayerFi(i);
-            if (pl != NULL && !(*(s32 *)((s8 *)pl + 0x30) & 0x800)
+            if (pl != NULL && !(*(s32 *)&((TObjPlayer *)pl)->actorFlags & 0x800)
                 && calc_distance_to_client__10TObjPlayerFlUsUl(arg0, i, &v) < lbl_805DE824
                 && angle_difference_abs(this->rotation_y, (s32) (TObjEneGibbles__data_80472798 * atan2_float(v.x, v.z))) < 0x2AAA
                 && test_action_mask__10TObjPlayerFl(pl, 0xE0) != 0) {
                 VecCopy((Vec *)((Vec_800A6B14 *) &v), (const Vec *)((Vec_800A6B14 *) (arg0 + 0x2FC)));
                 subtract_vector(&v, pl + 0x2FC);
-                if (angle_difference_abs(*(s32 *)((s8 *)pl + 0x60), (s32) (TObjEneGibbles__data_80472798 * atan2_float(v.x, v.z))) < 0x2AAA) {
+                if (angle_difference_abs(((TObjPlayer *)pl)->rotation_y, (s32) (TObjEneGibbles__data_80472798 * atan2_float(v.x, v.z))) < 0x2AAA) {
                     this->m_3b0 = pl;
                     this->m_374 |= 0x20;
                     return 1;

@@ -19,7 +19,8 @@ struct TObjEneDelDepth : public TObjEnemy {
     s32 m_384;
     u8 unk_388[0x4];
     f32 m_38c;
-    u8 unk_390[0x8];
+    u8 unk_390[0x4];
+    s32 m_394;
     f32 m_398;
     u8 unk_39C[0x4];
     void* m_3a0;

@@ -552,7 +552,7 @@ void TAdSinglePlyChrSelectGC__sub_802E1FAC(u8 *arg0) {
     }
     switch (get_selected_menu_value((int) (*(u32 *)((s8 *)arg0 + 0x54)))) {
     case 0:
-        *(s32 *)((s8 *)arg0 + 0x5C) = 1;
+        *(s32 *)&((TAdTimeSetGC *)arg0)->unknown_5c = 1;
         change_state__12TAdTimeSetGCFl(arg0, 0x18);
         break;
     case 1:
@@ -567,7 +567,7 @@ void show_confirm_dialog__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     s32 t2;
     s32 flags;
     str = get_localized_text_entry(0x1C, 0x18);
-    flags = *(s32 *)((s8 *)arg0 + 0x44);
+    flags = ((TAdSinglePlyChrSelectGC *)arg0)->m_44;
     if (!(flags & 0x400)) {
         switch (flags & 0x1800) {
         case 0x1800:
@@ -645,13 +645,13 @@ void TAdSinglePlyChrSelectGC__sub_802E22A4(u8 *arg0) {
     selected_menu_value = get_selected_menu_value((int) (*(u32 *)((s8 *)arg0 + 0x54)));
         switch (selected_menu_value) {
         case 0:
-            if (*(s32 *)((s8 *)arg0 + 0x44) & 0x80) {
+            if (((TAdTimeSetGC *)arg0)->load_status & 0x80) {
                 TAdSinglePlyChrSelectGC::try_load_system_file();
             }
-            if (*(s32 *)((s8 *)arg0 + 0x44) & 0x100) {
+            if (((TAdTimeSetGC *)arg0)->load_status & 0x100) {
                 TAdSinglePlyChrSelectGC__sub_801FBB1C();
             }
-            if (*(s32 *)((s8 *)arg0 + 0x44) & 0x200) {
+            if (((TAdTimeSetGC *)arg0)->load_status & 0x200) {
                 TAdSinglePlyChrSelectGC__sub_801FBB7C();
             }
             TAdPlayerLoadGC::poll_card_load(0);
@@ -818,14 +818,14 @@ void TAdSinglePlyChrSelectGC__sub_802E289C(void *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x64) < 0) {
         *(s32 *)((s8 *)arg0 + 0x64) = 0;
     }
-    if (!(*(s32 *)((s8 *)arg0 + 0x44) & 2) && (TAdPlayerLoadGC::get_instance() == 0)) {
+    if (!(((TAdSinglePlyChrSelectGC *)arg0)->m_44 & 2) && (TAdPlayerLoadGC::get_instance() == 0)) {
         if (((s32) *(s32 *)((s8 *)arg0 + 0x64) < 0xF) && (TAdSinglePlyChrSelectGC__sub_802E1868(arg0) != 0)) {
             *(s32 *)((s8 *)arg0 + 0x64) = 0;
         }
         if ((s32) *(s32 *)((s8 *)arg0 + 0x64) == 0) {
             close_windows__23TAdSinglePlyChrSelectGCFPv(arg0);
             if ((s32) *(s32 *)((s8 *)arg0 + 0x60) == 0) {
-                *(s32 *)((s8 *)arg0 + 0x34) = 1;
+                *(s32 *)&((TAdSinglePlyChrSelectGC *)arg0)->m_34 = 1;
                 ((s32 (*)(void *, s32))change_state__12TAdTimeSetGCFl)(arg0, 0);
             }
         }

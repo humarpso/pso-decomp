@@ -9,7 +9,10 @@ struct TWindowSubStatusDisp : public TUnk_804CE018 {
     virtual ~TWindowSubStatusDisp();
     virtual void run_task();
     virtual void render();
-    u8 _pad1C[0x4];
+    u8 unk_1C[0x1];
+    s8 m_1d;
+    u8 unk_1E[0x1];
+    signed char m_1f;
     s16 m_20;
     u8 _pad22[0x2];
     void* m_24;

@@ -141,9 +141,9 @@ void TObjPlayer__sub_802CE68C(u8 *arg0, s32 arg1, s32 arg2) {
     TObjPlayer::set_global_flag();
     push_matrix_from((void *)&identity_matrix.value);
     post_translate_matrix(arg0 + 0x38);
-    rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+    rotate_matrix_y(0, (int) (((TObjEnemy *)arg0)->rotation_y));
     TObjPlayer::set_global_flag();
-    ((TObjEnemy *)arg0)->render_anim_model((f32) (*(f32 *)((s8 *)arg0 + 0xC0)));
+    ((TObjEnemy *)arg0)->render_anim_model((f32) (((TObjEnemy *)arg0)->m_c0));
     TObjPlayer::clear_global_state();
     pop_matrix();
     push_matrix_from((void *) (anim_model_matrix_array + (arg2 * 0x30)));

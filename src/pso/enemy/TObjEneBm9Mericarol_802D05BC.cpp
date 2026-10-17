@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneBm9Mericarol_802D05BC.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneBm9Mericarol.h"
@@ -42,7 +43,7 @@ s32 enemy_clear_target__12TObjEneDD_STFUs(void *);
 void TObjEneBm9Mericarol__sub_802D05BC(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xB8) = 2;
+        ((TObjEneDD_ST *)arg0)->m_b8 = 2;
         ((TObjEneDD *)arg0)->vfunc_95();
         TObjEneBm9Mericarol__sub_802D093C(arg0);
         *(s32 *)((s8 *)arg0 + 0x438) = (s32) (*(s32 *)((s8 *)arg0 + 0x438) | 0x28);

@@ -520,7 +520,7 @@ void TItemWeapon::copy_item_to_data(s32 arg0) {
 void TItemWeapon::vfunc_34() {
     struct VObj_8011E828 *o = (struct VObj_8011E828 *)this;
     if (o->m33() == 0) {
-        *(u8 *)((s8 *)o + 0x1D2) = *(u8 *)((s8 *)o + 0x1D2) & 0x7F;
+        ((TItemWeapon *)o)->special_selector = ((TItemWeapon *)o)->special_selector & 0x7F;
     }
     ((TItemWeapon *)o)->apply_model_params();
 }

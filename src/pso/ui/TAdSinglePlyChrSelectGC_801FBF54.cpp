@@ -3495,7 +3495,7 @@ void reset_character_data__23TAdSinglePlyChrSelectGCFv(void) {
         init_class_starting_inventory(selected_character_data);
         init_character_stats_for_level(*(u8 *)((s8 *)selected_character_data + 0x3A1), selected_character_data, *(s32 *)((s8 *)selected_character_data + 0x364));
         ((TObjPlayer *)selected_character_data)->reset_action_palette();
-        *(s32 *)((s8 *)selected_character_data + 0x36C) = 0;
+        ((TObjPlayer *)selected_character_data)->m_36c = 0;
     }
     if ((void *) active_character_save_record != NULL) {
         memset((u8 *)active_character_save_record + 0x250, 0, 0x12C0);

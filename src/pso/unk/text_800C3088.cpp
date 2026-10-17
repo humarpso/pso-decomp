@@ -241,7 +241,7 @@ void fn_800C32DC(u8 *owner, s32 arg1) {
     u32 temp_r3_4;
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)owner + 0xB8) = 0;
+        ((TObjEneRe2Flower *)owner)->m_b8 = 0;
         ((TObjEneDD *)(owner))->vfunc_96();
         ((TObjEneRe2Flower *)owner)->set_child_flags();
         *(s32 *)((s8 *)owner + 0x3C4) = (s32) (*(s32 *)((s8 *)owner + 0x3C4) & 0xFFFFFFF7);
@@ -266,7 +266,7 @@ void fn_800C32DC(u8 *owner, s32 arg1) {
         }
         temp_r3_2 = *(u32 *)((s8 *)owner + 0x428);
         if (temp_r3_2 != 0U) {
-            if (*(f32 *)((s8 *)owner + 0xC0) < lbl_805D9FD8) {
+            if (((TObjEneRe2Flower *)owner)->m_c0 < lbl_805D9FD8) {
                 ((TNowLoading *)temp_r3_2)->copy_pos(owner + 0x3E8);
             } else {
                 ((TParticleCtrl *)temp_r3_2)->enable();
@@ -276,11 +276,11 @@ void fn_800C32DC(u8 *owner, s32 arg1) {
             VecCopy((Vec *)(&stack.sp8), (const Vec *)(owner + 0x3DC));
             stack.spC = lbl_805D9FDC + *(f32 *)((s8 *)owner + 0x3C);
             if ((((TObjEneRe2Flower *)owner)->get_flag_11() != 0) || (TObjEneDD::check_v2_mode() != 0)) {
-                TTecMegid::create_ex((s32)owner, (s32)((void *)&stack.sp8), (s32)((int) (*(s32 *)((s8 *)owner + 0x60))), (s32)((int) (TObjEneDD::clamp_frame_index((int) (*(s32 *)((s8 *)lbl_805D5170 + 0x18))))));
+                TTecMegid::create_ex((s32)owner, (s32)((void *)&stack.sp8), (s32)((int) (((TObjEneRe2Flower *)owner)->rotation_y)), (s32)((int) (TObjEneDD::clamp_frame_index((int) (*(s32 *)((s8 *)lbl_805D5170 + 0x18))))));
             } else {
                 temp_r3_3 = __nw__7TObjectFUl(0x104);
                 if (temp_r3_3 != 0U) {
-                    TObjPlayer__sub_800C4A5C(temp_r3_3, owner, &stack.sp8, (int) (*(s32 *)((s8 *)owner + 0x60)));
+                    TObjPlayer__sub_800C4A5C(temp_r3_3, owner, &stack.sp8, (int) (((TObjEneRe2Flower *)owner)->rotation_y));
                 }
             }
             play_sound_effect((void *) (fn_800C3A60((s32)owner, 0x4003A10E)), owner + 0x3DC, 0, 0);

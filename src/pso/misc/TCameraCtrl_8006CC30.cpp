@@ -628,8 +628,8 @@ void begin_conversation_camera(void) {
     u8 *temp_r3;
     if (((u8) (*(RecoveredGlobal_8006D610_TCameraCtrl__data_804FF628 *)&TCameraCtrl__view_state).value == 0) && (temp_r29 = *(u8 **)((s8 *)((u8 *)(&(*(RecoveredGlobal_8006D610_camera_controller_registry *)&camera_controller_registry).value) + (((*(RecoveredGlobal_8006D610_TCameraCtrl__data_804FF628 *)&TCameraCtrl__view_state).value * 4) & 0x3FC)) + 0), ((TCameraCtrl *)temp_r29)->set_field_100(1), temp_r3 = *(u8 **)((s8 *)temp_r29 + 0x1C), ((temp_r3 == NULL) == 0))) {
         temp_r30 = *(s32 *)((s8 *)temp_r3 + 0x60);
-        temp_r31 = angle_difference_abs((int) (*(s32 *)((s8 *)temp_r29 + 0x30)), (void *)(temp_r30 + 0x6000));
-        if (temp_r31 > angle_difference_abs((int) (*(s32 *)((s8 *)temp_r29 + 0x30)), (void *)(temp_r30 - 0x6000))) {
+        temp_r31 = angle_difference_abs((int) (((TCameraCtrl *)temp_r29)->m_30), (void *)(temp_r30 + 0x6000));
+        if (temp_r31 > angle_difference_abs((int) (((TCameraCtrl *)temp_r29)->m_30), (void *)(temp_r30 - 0x6000))) {
             var_r31 = temp_r30 - 0x6000;
             heading = temp_r30 + 0x6000;
         } else {
@@ -638,10 +638,10 @@ void begin_conversation_camera(void) {
         }
         if (conversation_camera_obstructed((FollowController *)(temp_r29), var_r31) != 0) {
             if (conversation_camera_obstructed((FollowController *)(temp_r29), heading) == 0) {
-                *(s32 *)((s8 *)temp_r29 + 0x30) = heading;
+                ((TCameraCtrl *)temp_r29)->m_30 = heading;
             }
         } else {
-            *(s32 *)((s8 *)temp_r29 + 0x30) = var_r31;
+            ((TCameraCtrl *)temp_r29)->m_30 = var_r31;
         }
     }
 }

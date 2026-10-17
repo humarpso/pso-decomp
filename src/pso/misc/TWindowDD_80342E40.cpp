@@ -80,7 +80,7 @@ u8 update_numeric_parameter_input__9TWindowDDFPv(u8 *arg0) {
     s32 var_r31;
     u8 *var_r3;
     var_r31 = 0;
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x84) == 0U) {
+    if ((u32) ((TWindowDD *)arg0)->m_a0 == 0U) {
         get_current_child_index__9TWindowDDFv();
         temp_r3 = classify_id__9TWindowDDFs();
         if (temp_r3 != 7) {
@@ -90,15 +90,15 @@ u8 update_numeric_parameter_input__9TWindowDDFPv(u8 *arg0) {
         return 1U;
     }
     TWindowDD__sub_80347CC8(arg0, arg0 + 0xC4);
-    if (((u32) *(u32 *)((s8 *)arg0 + 0x84) != 0U) || (((TObject *)(*(void **)((s8 *)arg0 + 0x84)))->all_parents_unqueued_for_destruction() != 0)) {
-        ((TWindowDD *)(arg0 + 0xC4))->set_field14((int) (((TShopEquipmentSellWindow *)(*(u32 *)((s8 *)arg0 + 0x84)))->get_result()));
-        if (((TShopEquipmentSellWindow *)(*(u32 *)((s8 *)arg0 + 0x84)))->is_confirmed() != 0) {
+    if (((u32) ((TWindowDD *)arg0)->m_a0 != 0U) || (((TObject *)(*(void **)((s8 *)arg0 + 0x84)))->all_parents_unqueued_for_destruction() != 0)) {
+        ((TWindowDD *)(arg0 + 0xC4))->set_field14((int) (((TShopEquipmentSellWindow *)(((TWindowDD *)arg0)->m_a0))->get_result()));
+        if (((TShopEquipmentSellWindow *)(((TWindowDD *)arg0)->m_a0))->is_confirmed() != 0) {
             var_r31 = 2;
             ((TWindowDD *)(arg0 + 0xC4))->reset_index();
-            TWindow__close((u8 *)(*(u32 *)((s8 *)arg0 + 0x84)));
-        } else if (((TWindowInputNumber *)(*(u32 *)((s8 *)arg0 + 0x84)))->is_confirmed() != 0) {
+            TWindow__close((u8 *)(((TWindowDD *)arg0)->m_a0));
+        } else if (((TWindowInputNumber *)(((TWindowDD *)arg0)->m_a0))->is_confirmed() != 0) {
             var_r31 = 1;
-            TWindow__close((u8 *)(*(u32 *)((s8 *)arg0 + 0x84)));
+            TWindow__close((u8 *)(((TWindowDD *)arg0)->m_a0));
         }
     } else {
         var_r31 = 2;
@@ -107,7 +107,7 @@ u8 update_numeric_parameter_input__9TWindowDDFPv(u8 *arg0) {
         var_r3 = (u8 *)(arg0 + (*(s32 *)((s8 *)arg0 + 0x20) * 4));
         var_r3 = (u8 *)(*(u8 **)((s8 *)var_r3 + 0x24));
         TWindowDD__sub_80341AF8((var_r3));
-        *(u32 *)((s8 *)arg0 + 0x84) = 0U;
+        ((TWindowDD *)arg0)->m_a0 = 0U;
         *(s32 *)((s8 *)arg0 + 0xB8) = 0;
     }
     return (u8) (var_r31 == 1);

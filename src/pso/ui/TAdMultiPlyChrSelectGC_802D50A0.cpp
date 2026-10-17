@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/items/TItemWeapon.h"
 #include "pso/unk/TUnk_804E1BB0.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC_802D50A0.h"
 #include "pso/unk/text_80120908.h"
@@ -23,7 +24,7 @@ void TUnk_804E1BB0::reserved_53() {
     s32 arg0 = (s32)this;
     draw_weapon_at_joint(arg0, 0x30);
     update_trail_slot__11TItemWeaponFPvi((void *) arg0, 0);
-    temp_r0 = *(u32 *)((s8 *)arg0 + 0x188);
+    temp_r0 = *(u32 *)&((TItemWeapon *)arg0)->projectile;
     temp_r31 = *(u32 *)((s8 *)arg0 + 0xF4);
     if (temp_r0 != 0U) {
         *(u32 *)((s8 *)arg0 + 0xF4) = temp_r0;

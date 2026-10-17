@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TLobby_801E43E4.h"
 #include "pso/misc/TOChatSensor_8015B214.h"
 #include "pso/system/byteswap.h"
@@ -27,8 +28,8 @@ extern s32 camera_ctrl_instance;
 
 s32 TOComputerMachine01__vt8(s32 arg0, f32 farg0, f32 farg1) {
     if (xz_distance_squared(arg0 + 0x38, camera_ctrl_instance + 0x178) < (farg1 * farg1)) {
-        *(s16 *)((s8 *)arg0 + 0x1e) = 1;
-        return *(s16 *)((s8 *)arg0 + 0x1e);
+        ((TUnk_804B9870 *)arg0)->m_1e = 1;
+        return ((TUnk_804B9870 *)arg0)->m_1e;
     }
     return update_object_view_visibility__13TUnk_804B9870Fff(arg0, farg0, farg1);
 }

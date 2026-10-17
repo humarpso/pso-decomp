@@ -141,13 +141,13 @@ void TBoss6Type2::init_attack_params() {
 
 void TBoss6Type2__sub_802BF834(u8 *arg0) {
     s32 temp_r0;
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x460) == (s32) (*(s32 *)((s8 *)arg0 + 0x45C) - 0x1E)) && ((u16) *(u16 *)((s8 *)arg0 + 0x466) != 0xFFFF)) {
+    if (((s32) ((TBoss6Type2 *)arg0)->m_460 == (s32) (*(s32 *)((s8 *)arg0 + 0x45C) - 0x1E)) && ((u16) ((TBoss6Type2 *)arg0)->m_466 != 0xFFFF)) {
         play_sound_effect(0x4006A10A, arg0 + 0x38, 0, 1);
         play_sound_effect(0x69E27, arg0 + 0x38, 0, 1);
         spawn_particle_effect_with_flags((arg0 + 0x62C), 0x223, 0x40);
     }
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x460) - 1;
-    *(s32 *)((s8 *)arg0 + 0x460) = temp_r0;
+    temp_r0 = ((TBoss6Type2 *)arg0)->m_460 - 1;
+    ((TBoss6Type2 *)arg0)->m_460 = temp_r0;
     if (temp_r0 < 0) {
         ((TBoss6Type2 *)arg0)->set_action_state((void *)0x22);
     }
@@ -192,8 +192,8 @@ void TBoss6Type2__sub_802BFA1C(u8 *arg0) {
     s32 temp_r0;
 
     play_persistent_sound(0x4006A612, (s32)arg0, (u32)(arg0 + 0x38), 0, 1);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x460) - 1;
-    *(s32 *)((s8 *)arg0 + 0x460) = temp_r0;
+    temp_r0 = ((TBoss6Type2 *)arg0)->m_460 - 1;
+    ((TBoss6Type2 *)arg0)->m_460 = temp_r0;
     if (temp_r0 < 0) {
         play_sound_effect(0x40069E13, arg0 + 0x38, 0, 1);
         ((TBoss6Type2 *)arg0)->set_action_state((void *)2);

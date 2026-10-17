@@ -16,7 +16,7 @@ void TObjPlayer::add_status_line(u8 arg1, u32 arg2, s32 arg3) {
     if (arg2 == 0U) {
         init_status_entry__20TWindowSubStatusDispFPvcUii(temp_r31, arg1, 0, arg3);
         *(f32 *)((s8 *)temp_r31 + 8) = (f32) (*(f32 *)((s8 *)temp_r31 + 8) + lbl_805DD620);
-        *(s32 *)((s8 *)temp_r31 + 0x2C) = 0xFFAAAAAA;
+        ((TWindowSubStatusDisp *)temp_r31)->m_2c = 0xFFAAAAAA;
     } else {
         ((TWindowSubStatusDisp *)temp_r31)->init_item_row((void *)arg2, (s32)arg3);
     }

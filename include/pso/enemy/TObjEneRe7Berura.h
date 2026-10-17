@@ -16,7 +16,9 @@ struct TObjEneRe7Berura : public TObjEneDD_ST {
     void vfunc_28();
     void render();
     void run_task();
-    u8 unk_374[0x30];
+    u8 unk_374[0x28];
+    void* m_39c;
+    u8 unk_3A0[0x4];
     u32 m_3c0;
     u32 m_3c4;
     u32 m_3c8;

@@ -16,7 +16,7 @@ void *TParticleCtrl::destroy_particle(void *arg0, s16 arg1) {
     if (obj != NULL) {
         *(s32 **)((s8 *)obj + 0x18) = lbl_804B9870;
         if ((u32) *(u32 *)((s8 *)obj + 0x80) != 0U) {
-            temp_r0 = *(u16 *)((s8 *)obj + 0x1C);
+            temp_r0 = ((TUnk_804B9870 *)obj)->m_1c;
             if ((temp_r0 >= 0x4000U) && (temp_r0 < 0xFFFFU)) {
                 ((TUnk_804B9870 *)obj)->mask_object_set_row_flags(-3);
                 *(u32 *)((s8 *)obj + 0x80) = 0U;

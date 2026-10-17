@@ -1,4 +1,6 @@
 #include "pso/item/TItemObject.h"
+#include "pso/TItemList.h"
+#include "pso/misc/TShopEquipmentListWindow.h"
 
 #include "types.h"
 #include "pso/item/TItem.h"
@@ -154,7 +156,7 @@ void handle_6x66_use_star_atomizer(u8 *arg0) {
     s32 var_r28;
     u8 *temp_r3_2;
     ((TObjPlayer *)arg0)->bswap_fields_x4();
-    player = (u8 *)get_player_by_client_id(*(s16 *)((s8 *)arg0 + 4));
+    player = (u8 *)get_player_by_client_id(*(s16 *)&((TObjPlayer *)arg0)->m_flags);
     if (player != NULL) {
         var_r28 = 0;
         do {

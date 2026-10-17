@@ -880,35 +880,35 @@ void TObjEneDelDepth__sub_803142DC(u8 *arg0) {
     f32 f;
     s32 lim;
     u16 id;
-    f = sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x394));
+    f = sin_table_lookup(((TObjEneDelDepth *)arg0)->m_394);
     if (f < TObjEneDelDepth__data_805DF258) {
         f = TObjEneDelDepth__data_805DF258;
     }
-    *(s32 *)((s8 *)arg0 + 0x60) = (s32)(f * (f32)*(s32 *)((s8 *)arg0 + 0x3BC) + (f32)*(s32 *)((s8 *)arg0 + 0x60));
-    if (*(s32 *)((s8 *)arg0 + 0x3C4) == 0xFFFF) {
+    ((TObjEneDelDepth *)arg0)->rotation_y = (s32)(f * (f32)((TObjEneDelDepth *)arg0)->m_3bc + (f32)((TObjEneDelDepth *)arg0)->rotation_y);
+    if (((TObjEneDelDepth *)arg0)->m_3c4 == 0xFFFF) {
         id = find_nearest_visible_player(arg0, (int)&v, lbl_805DF29C);
-        if (id != 0xFFFF && angle_difference_abs(*(s32 *)((s8 *)arg0 + 0x60), (s32)(TObjEneDelDepth__data_80475DD0 * atan2_float(v.x, v.z))) < 0x1C71) {
-            *(s32 *)((s8 *)arg0 + 0x394) = 0;
-            *(s32 *)((s8 *)arg0 + 0x3C4) = id;
+        if (id != 0xFFFF && angle_difference_abs(((TObjEneDelDepth *)arg0)->rotation_y, (s32)(TObjEneDelDepth__data_80475DD0 * atan2_float(v.x, v.z))) < 0x1C71) {
+            ((TObjEneDelDepth *)arg0)->m_394 = 0;
+            ((TObjEneDelDepth *)arg0)->m_3c4 = id;
         }
     }
-    *(s32 *)((s8 *)arg0 + 0x394) -= 0x600;
-    if (*(s32 *)((s8 *)arg0 + 0x394) <= 0) {
+    ((TObjEneDelDepth *)arg0)->m_394 -= 0x600;
+    if (((TObjEneDelDepth *)arg0)->m_394 <= 0) {
         u32 n = *(u32 *)(get_bml_motion((*(s32 *)&TObjEneDelDepth__shared_resource), 0xB) + 4);
         lim = (s32)((f32)n / TObjEneDelDepth__data_805DF298);
-        *(s32 *)((s8 *)arg0 + 0x394) = 0;
-        if (*(s32 *)((s8 *)arg0 + 0x3C4) != 0xFFFF) {
+        ((TObjEneDelDepth *)arg0)->m_394 = 0;
+        if (((TObjEneDelDepth *)arg0)->m_3c4 != 0xFFFF) {
             w.x = 1.0f;
             w.y = 0.0f;
             w.z = 0.0f;
-            TObjPlayer::calc_distance_to_client((s32)arg0, (u16)((u16)*(s32 *)((s8 *)arg0 + 0x3C4)), (u32)&w);
-            *(s32 *)((s8 *)arg0 + 0x60) = approach_angle_limited(*(s32 *)((s8 *)arg0 + 0x60), (s32)(TObjEneDelDepth__data_80475DD0 * atan2_float(w.x, w.z)), 0x280);
+            TObjPlayer::calc_distance_to_client((s32)arg0, (u16)((u16)((TObjEneDelDepth *)arg0)->m_3c4), (u32)&w);
+            ((TObjEneDelDepth *)arg0)->rotation_y = approach_angle_limited(((TObjEneDelDepth *)arg0)->rotation_y, (s32)(TObjEneDelDepth__data_80475DD0 * atan2_float(w.x, w.z)), 0x280);
         }
-        if (*(s32 *)((s8 *)arg0 + 0x384) > lim) {
-            set_motion__15TObjEneDelDepthFl((void *)*(s32 *)((s8 *)arg0 + 0x37C), (void *)0);
-            *(s32 *)((s8 *)arg0 + 0x384) = lim;
-        } else if (--*(s32 *)((s8 *)arg0 + 0x384) <= 0) {
-            if (*(s32 *)((s8 *)arg0 + 0x3C4) == 0xFFFF) {
+        if (((TObjEneDelDepth *)arg0)->m_384 > lim) {
+            set_motion__15TObjEneDelDepthFl((void *)*(s32 *)&((TObjEneDelDepth *)arg0)->m_37c, (void *)0);
+            ((TObjEneDelDepth *)arg0)->m_384 = lim;
+        } else if (--((TObjEneDelDepth *)arg0)->m_384 <= 0) {
+            if (((TObjEneDelDepth *)arg0)->m_3c4 == 0xFFFF) {
                 ((TObjEneDelDepth *)arg0)->set_action_state(5);
             } else {
                 ((TObjEneDelDepth *)arg0)->set_action_state(8);
@@ -1156,26 +1156,26 @@ void TObjEneDelDepth__sub_80314EC4(u8 *arg0) {
     f32 temp_f1_4;
     f32 var_f31;
     var_f31 = (*(const f32 *)&TObjEneDelDepth__data_805DF260);
-    *(f32 *)((s8 *)arg0 + 0x39C) = (f32) (TObjEneDelDepth__data_805DF278 * ((*(const f32 *)&TObjEneDelDepth__data_805DF260) - *(f32 *)((s8 *)arg0 + 0x38C)));
-    *(f32 *)((s8 *)arg0 + 0x3A0) = (f32) ((*(f32 *)((s8 *)arg0 + 0x38C) * (*(f32 *)((s8 *)(&(*(const struct RecoveredGlobal_80314D1C_lbl_80475D78 *)&lbl_80475D78).value) + 0) - *(f32 *)((s8 *)(&(*(const struct RecoveredGlobal_80314D1C_lbl_80475D6C *)&lbl_80475D6C).value) + 0))) + *(f32 *)((s8 *)(&(*(const struct RecoveredGlobal_80314D1C_lbl_80475D6C *)&lbl_80475D6C).value) + 0));
-    *(f32 *)((s8 *)arg0 + 0x3A4) = (f32) ((*(f32 *)((s8 *)arg0 + 0x38C) * (*(f32 *)((s8 *)(&(*(const struct RecoveredGlobal_80314D1C_lbl_80475D78 *)&lbl_80475D78).value) + 4) - *(f32 *)((s8 *)(&(*(const struct RecoveredGlobal_80314D1C_lbl_80475D6C *)&lbl_80475D6C).value) + 4))) + *(f32 *)((s8 *)(&(*(const struct RecoveredGlobal_80314D1C_lbl_80475D6C *)&lbl_80475D6C).value) + 4));
-    *(f32 *)((s8 *)arg0 + 0x3A8) = (f32) ((*(f32 *)((s8 *)arg0 + 0x38C) * (*(f32 *)((s8 *)(&(*(const struct RecoveredGlobal_80314D1C_lbl_80475D78 *)&lbl_80475D78).value) + 8) - *(f32 *)((s8 *)(&(*(const struct RecoveredGlobal_80314D1C_lbl_80475D6C *)&lbl_80475D6C).value) + 8))) + *(f32 *)((s8 *)(&(*(const struct RecoveredGlobal_80314D1C_lbl_80475D6C *)&lbl_80475D6C).value) + 8));
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0x38C);
+    *(f32 *)((s8 *)arg0 + 0x39C) = (f32) (TObjEneDelDepth__data_805DF278 * ((*(const f32 *)&TObjEneDelDepth__data_805DF260) - ((TObjEneDelDepth *)arg0)->m_38c));
+    *(f32 *)((s8 *)arg0 + 0x3A0) = (f32) ((((TObjEneDelDepth *)arg0)->m_38c * (*(f32 *)((s8 *)(&(*(const struct RecoveredGlobal_80314D1C_lbl_80475D78 *)&lbl_80475D78).value) + 0) - *(f32 *)((s8 *)(&(*(const struct RecoveredGlobal_80314D1C_lbl_80475D6C *)&lbl_80475D6C).value) + 0))) + *(f32 *)((s8 *)(&(*(const struct RecoveredGlobal_80314D1C_lbl_80475D6C *)&lbl_80475D6C).value) + 0));
+    *(f32 *)((s8 *)arg0 + 0x3A4) = (f32) ((((TObjEneDelDepth *)arg0)->m_38c * (*(f32 *)((s8 *)(&(*(const struct RecoveredGlobal_80314D1C_lbl_80475D78 *)&lbl_80475D78).value) + 4) - *(f32 *)((s8 *)(&(*(const struct RecoveredGlobal_80314D1C_lbl_80475D6C *)&lbl_80475D6C).value) + 4))) + *(f32 *)((s8 *)(&(*(const struct RecoveredGlobal_80314D1C_lbl_80475D6C *)&lbl_80475D6C).value) + 4));
+    ((TObjEneDelDepth *)arg0)->m_3a8 = (f32) ((((TObjEneDelDepth *)arg0)->m_38c * (*(f32 *)((s8 *)(&(*(const struct RecoveredGlobal_80314D1C_lbl_80475D78 *)&lbl_80475D78).value) + 8) - *(f32 *)((s8 *)(&(*(const struct RecoveredGlobal_80314D1C_lbl_80475D6C *)&lbl_80475D6C).value) + 8))) + *(f32 *)((s8 *)(&(*(const struct RecoveredGlobal_80314D1C_lbl_80475D6C *)&lbl_80475D6C).value) + 8));
+    temp_f1 = ((TObjEneDelDepth *)arg0)->m_38c;
     if (temp_f1 > lbl_805DF2C0) {
         var_f31 = ((*(const f32 *)&TObjEneDelDepth__data_805DF260) - temp_f1) / lbl_805DF2BC;
     }
-    temp_f1_2 = var_f31 * (lbl_805DF250 * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x384) << 0xC));
+    temp_f1_2 = var_f31 * (lbl_805DF250 * sin_table_lookup(((TObjEneDelDepth *)arg0)->m_384 << 0xC));
     *(f32 *)((s8 *)arg0 + 0x3A0) = (f32) (*(f32 *)((s8 *)arg0 + 0x3A0) * ((*(const f32 *)&TObjEneDelDepth__data_805DF260) + temp_f1_2));
-    *(f32 *)((s8 *)arg0 + 0x3A8) = (f32) (*(f32 *)((s8 *)arg0 + 0x3A8) * ((*(const f32 *)&TObjEneDelDepth__data_805DF260) - temp_f1_2));
-    *(s32 *)((s8 *)arg0 + 0x384) = (s32) (*(s32 *)((s8 *)arg0 + 0x384) + 1);
-    temp_f1_3 = *(f32 *)((s8 *)arg0 + 0x38C);
+    ((TObjEneDelDepth *)arg0)->m_3a8 = (f32) (((TObjEneDelDepth *)arg0)->m_3a8 * ((*(const f32 *)&TObjEneDelDepth__data_805DF260) - temp_f1_2));
+    ((TObjEneDelDepth *)arg0)->m_384 = (s32) (((TObjEneDelDepth *)arg0)->m_384 + 1);
+    temp_f1_3 = ((TObjEneDelDepth *)arg0)->m_38c;
     if (temp_f1_3 >= TObjEneDelDepth__data_805DF298) {
-        *(f32 *)((s8 *)arg0 + 0x398) = (f32) (*(const f32 *)&TObjEneDelDepth__data_805DF260);
+        ((TObjEneDelDepth *)arg0)->m_398 = (f32) (*(const f32 *)&TObjEneDelDepth__data_805DF260);
     } else {
-        *(f32 *)((s8 *)arg0 + 0x398) = (f32) (lbl_805DF2C8 * temp_f1_3);
+        ((TObjEneDelDepth *)arg0)->m_398 = (f32) (lbl_805DF2C8 * temp_f1_3);
     }
-    temp_f1_4 = *(f32 *)((s8 *)arg0 + 0x38C) + lbl_805DF2D0;
-    *(f32 *)((s8 *)arg0 + 0x38C) = temp_f1_4;
+    temp_f1_4 = ((TObjEneDelDepth *)arg0)->m_38c + lbl_805DF2D0;
+    ((TObjEneDelDepth *)arg0)->m_38c = temp_f1_4;
     if (temp_f1_4 > (*(const f32 *)&TObjEneDelDepth__data_805DF260)) {
         if (find_nearest_visible_player(arg0, 0, TObjEneDelDepth__data_805DF26C) != 0xFFFF) {
             ((TObjEneDelDepth *)arg0)->set_action_state(3);

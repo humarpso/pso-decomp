@@ -129,7 +129,7 @@ void TWindowDD__sub_80342428(u8 *arg0) {
       if (TWindowDD__sub_80342158((int) (*((s32 *) (((s8 *) new_var) + 0x24)))) == 0x685)
       {
         *((s32 *) (((s8 *) arg0) + 0xB4)) = 0x14;
-        *((s32 *) (((s8 *) arg0) + 0x8C)) = -0x3C;
+        *(s32 *)&((TWindowDD *)arg0)->m_a8 = -0x3C;
         TWindowDD__sub_803435A0((void *) arg0);
         return;
       }

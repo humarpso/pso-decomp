@@ -365,7 +365,7 @@ u8 *construct_placement_search_base(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 a
     } else {
         ((TUnk_804C4498 *)arg0)->m_20 = obj_getField1c(arg2);
         ((TUnk_804C4498 *)arg0)->m_24 = (s32) ((TUnk_804B9870 *)arg2)->get_stat_by_key_state();
-        *(s32 *)((s8 *)arg0 + 0x28) = (s32) *(s32 *)((s8 *)arg2 + 0x60);
+        *(s32 *)((s8 *)arg0 + 0x28) = (s32) ((TUnk_804B9870 *)arg2)->rotation_y;
     }
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)arg3);
     *(s8 *)&((TUnk_804C4498 *)arg0)->unk_1C = arg4;

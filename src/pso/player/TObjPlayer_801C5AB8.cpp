@@ -22,9 +22,9 @@ void TObjPlayer::copy_offset_position(void *arg1) {
     f32 temp_f2;
 
     temp_f2 = *(f32 *)((s8 *)(((TQuestListVM *)arg1)->get_quest_id()) + 0x10);
-    *(f32 *)((s8 *)this + 0) = (f32) *(f32 *)((s8 *)arg1 + 0x38);
+    *(f32 *)((s8 *)this + 0) = (f32) ((TQuestListVM *)arg1)->m_38;
     *(f32 *)((s8 *)this + 4) = (f32) ((lbl_805DC334 * temp_f2) + *(f32 *)((s8 *)arg1 + 0x3C));
-    *(f32 *)((s8 *)this + 8) = (f32) *(f32 *)((s8 *)arg1 + 0x40);
+    *(f32 *)((s8 *)this + 8) = (f32) ((TQuestListVM *)arg1)->m_40;
 }
 
 void TObjPlayer::calc_pos_delta(void *arg1, void *arg2) {

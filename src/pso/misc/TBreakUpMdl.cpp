@@ -364,7 +364,7 @@ u8 *TBreakUpMdl::setup_pieces(s32 arg1, s32 arg2, f32 farg0) {
 }
 
 u8 *init__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
-    *(s32 **)((s8 *)arg0 + 0xC) = &(*(RecoveredGlobal_80096FD8_TBreakUpMdl__data_8048FA00 *)&TBreakUpMdl__vtable).value;
+    *(s32 * *)&((TBreakUpMdl *)arg0)->m_next = &(*(RecoveredGlobal_80096FD8_TBreakUpMdl__data_8048FA00 *)&TBreakUpMdl__vtable).value;
     *(s32 *)((s8 *)arg0 + 8) = 0;
     alloc_breakup_piece_records((Brk_80096EBC *)(arg0), (void *)arg1);
     bind_motion_context(arg2, farg0);

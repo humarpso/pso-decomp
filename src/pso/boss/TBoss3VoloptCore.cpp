@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe1GiGue.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/boss/TUnk_80483A10.h"
@@ -770,9 +772,9 @@ void TObjPlayer::set_grabbed_state(s32 arg0) {
     void *entity;
 
     entity = find_entity_by_id(lbl_805D271C);
-    if ((entity != NULL) && ((s16) *(s16 *)((s8 *)entity + 0x326) != 0xA)) {
+    if ((entity != NULL) && ((s16) ((TObjEneMe1GiGue *)entity)->mode != 0xA)) {
         update_if_active__15TObjEneMe1GiGueFl(entity, 0xA);
-        *(s32 *)((s8 *)entity + 0x3C4) = arg0;
+        ((TObjEneMe1GiGue *)entity)->m_3c4 = arg0;
     }
 }
 
@@ -1173,17 +1175,17 @@ void TObjPlayer__sub_800401CC(u8 *arg0) {
     u32 temp_r4;
     void *obj;
     *(u32 *)((s8 *)arg0 + 0x2A8) = (u32)get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x338));
-    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
+    switch (((TObjPlayer *)arg0)->m_37c) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0x388) &= ~0x10000;
-        *(s16 *)((s8 *)arg0 + 0xB8) = 0;
+        ((TObjPlayer *)arg0)->m_b8 = 0;
         *(s32 *)((s8 *)arg0 + 0x5C) = 0;
         if (*(s32 *)((s8 *)arg0 + 0x380) == 4) {
-            *(s32 *)((s8 *)arg0 + 0x37C) = *(s32 *)((s8 *)arg0 + 0x3B4);
+            ((TObjPlayer *)arg0)->m_37c = ((TObjPlayer *)arg0)->m_3b4;
         } else {
             VecCopy((Vec *)(arg0 + 0x39C), (const Vec *)(arg0 + 0x38));
-            *(s32 *)((s8 *)arg0 + 0x3B4) = 1;
-            *(s32 *)((s8 *)arg0 + 0x37C) = 1;
+            ((TObjPlayer *)arg0)->m_3b4 = 1;
+            ((TObjPlayer *)arg0)->m_37c = 1;
             *(s32 *)((s8 *)arg0 + 0x3B8) = 0x1E;
         }
         break;
@@ -1193,22 +1195,22 @@ void TObjPlayer__sub_800401CC(u8 *arg0) {
         ((TObjPlayer *)arg0)->update_angle(0x800, arg0 + 0x308);
         if (--*(s32 *)((s8 *)arg0 + 0x3B8) <= 0) {
             *(s32 *)((s8 *)arg0 + 0x3B8) = 0x96;
-            *(s32 *)((s8 *)arg0 + 0x3B4) = 2;
-            *(s32 *)((s8 *)arg0 + 0x37C) = 2;
+            ((TObjPlayer *)arg0)->m_3b4 = 2;
+            ((TObjPlayer *)arg0)->m_37c = 2;
             sp8.b = *(s32 *)((s8 *)arg0 + 0x398);
             sp8.a = 0;
             sp8.c = 0x4000;
             obj = __nw__7TObjectFUl(0x48);
             if (obj != 0) {
-                TBoss3Volopt__sub_8004885C((u8 *)obj, (u8 *)((u8 *)volopt_slot_positions + *(s32 *)((s8 *)arg0 + 0x3A8) * 0xC), 0x11B, 8, (u8 *)&sp8, (f32)lbl_805D86DC, (f32)lbl_805D86D0);
+                TBoss3Volopt__sub_8004885C((u8 *)obj, (u8 *)((u8 *)volopt_slot_positions + ((TObjPlayer *)arg0)->m_3a8 * 0xC), 0x11B, 8, (u8 *)&sp8, (f32)lbl_805D86DC, (f32)lbl_805D86D0);
             }
         }
         break;
     case 2:
         temp_r4 = *(u32 *)((s8 *)arg0 + 0x2A8);
         if (temp_r4 == 0U) {
-            *(s32 *)((s8 *)arg0 + 0x3B4) = 4;
-            *(s32 *)((s8 *)arg0 + 0x37C) = 4;
+            ((TObjPlayer *)arg0)->m_3b4 = 4;
+            ((TObjPlayer *)arg0)->m_37c = 4;
             return;
         }
         VecCopy((Vec *)(arg0 + 0x308), (const Vec *)(temp_r4 + 0x2FC));
@@ -1217,12 +1219,12 @@ void TObjPlayer__sub_800401CC(u8 *arg0) {
         ((TObjPlayer *)arg0)->update_angle(0x800, arg0 + 0x308);
         vec3_add_to(arg0 + 0x38, arg0 + 0x308);
         if (((TObjPlayer *)arg0)->check_target_collision() != 0) {
-            *(s32 *)((s8 *)arg0 + 0x3B4) = 4;
-            *(s32 *)((s8 *)arg0 + 0x37C) = 4;
+            ((TObjPlayer *)arg0)->m_3b4 = 4;
+            ((TObjPlayer *)arg0)->m_37c = 4;
         }
         if (--*(s32 *)((s8 *)arg0 + 0x3B8) <= 0) {
-            *(s32 *)((s8 *)arg0 + 0x3B4) = 4;
-            *(s32 *)((s8 *)arg0 + 0x37C) = 4;
+            ((TObjPlayer *)arg0)->m_3b4 = 4;
+            ((TObjPlayer *)arg0)->m_37c = 4;
         }
         break;
     case 4:

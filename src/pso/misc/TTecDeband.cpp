@@ -176,18 +176,18 @@ s32 TTecDeband__ct(u32 a0, s32 owner, s32 pos, s32 arg3, s32 level) {
     ((TObjPlayer *)(arg0 + 0xE0))->construct_target_cursor_records();
     s32 g = tec_deband_class_name_ptr;
     *(s32 *)((s8 *)arg0 + 0) = g;
-    *(s32 *)((s8 *)arg0 + 0x13C) = 1;
+    *(s32 *)&((TTecDeband *)arg0)->m_13c = 1;
     copy_technique_target_list(arg0 + 0xE0, (void *) arg3, g);
     ((TTecDeband *)arg0)->update_effect_params();
     temp_r3 = *(u8 **)((s8 *)arg0 + 0xDC);
     if (temp_r3 != NULL) {
-        *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0xA4)) + 0xC) = (f32) (lbl_805DC7F0 + *(f32 *)((s8 *)arg0 + 0x7C));
+        *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0xA4)) + 0xC) = (f32) (lbl_805DC7F0 + ((TTecDeband *)arg0)->m_7c);
     }
-    temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x1C);
+    temp_r3_2 = ((TTecDeband *)arg0)->source;
     if (temp_r3_2 != 0U) {
-        *(s16 *)((s8 *)arg0 + 0xA8) = obj_getField1c(temp_r3_2);
+        *(s16 *)&((TTecDeband *)arg0)->m_a8 = obj_getField1c(temp_r3_2);
     }
-    if (*(s32 *)((s8 *)arg0 + 0xAC) != 0) {
+    if (*(s32 *)&((TTecDeband *)arg0)->m_ac != 0) {
         ((TTecDeband *)arg0)->init_params();
         ((TTecDeband *)arg0)->play_state_sound();
     }

@@ -471,11 +471,11 @@ s32 TBoss6Mine__ct(s32 arg0, s32 parent, s32 arg2) {
     ((TObjEnemy *)arg0)->initialize((void*)parent);
     *(s32 **)((s8 *)THIS + 0x18) = __vt__10TBoss6Mine;
     *(s32 *)((s8 *)THIS + 0) = lbl_805D4178;
-    *(s32 *)((s8 *)THIS + 0x378) = *(s32 *)((s8 *)arg2 + 0x40);
+    *(s32 *)&((TBoss3Volopt *)THIS)->m_378 = *(s32 *)((s8 *)arg2 + 0x40);
     VecCopyP(THIS + 0x38, (u8 *)arg2 + 0x44);
     VecCopyP(THIS + 0x3BC, (u8 *)arg2 + 0x50);
-    *(s32 *)((s8 *)THIS + 0x37C) = *(s32 *)((s8 *)arg2 + 0x5C);
-    *(s32 *)((s8 *)THIS + 0x388) = *(s32 *)((s8 *)arg2 + 0x60);
+    *(s32 *)&((TBoss3Volopt *)THIS)->state = *(s32 *)((s8 *)arg2 + 0x5C);
+    *(s32 *)&((TBoss3Volopt *)THIS)->m_388 = *(s32 *)((s8 *)arg2 + 0x60);
     ((TUnk_804806E8 *)THIS)->add_flags_2e4(8);
     ((VObj_18_f05d67 *)THIS)->m79((void *)arg2);
     if (exchange_object_state__9TObjEnemyFls(THIS, &tmp, 1) != 0) {
@@ -483,37 +483,37 @@ s32 TBoss6Mine__ct(s32 arg0, s32 parent, s32 arg2) {
         tmp.b = 0;
         exchange_object_state__9TObjEnemyFls(THIS, &tmp, 0);
     }
-    *(s32 *)((s8 *)THIS + 0x374) = TObjFish::get_fish_count();
-    *(s32 *)((s8 *)THIS + 0x24) = 0;
+    *(s32 *)&((TBoss3Volopt *)THIS)->next_action = TObjFish::get_fish_count();
+    ((TBoss3Volopt *)THIS)->texture_id = 0;
     *(s32 *)((s8 *)THIS + 0x34) = 0;
     VecCopyP(THIS + 0x44, VecCopyP(THIS + 0x50, VecCopyP(THIS + 0x74, THIS + 0x38)));
     init_collision_body_parts(THIS, TBoss6Mine__collision_body_template, 1);
     VecCopyP(THIS + 0x2FC, THIS + 0x38);
-    *(f32 *)((s8 *)THIS + 0x310) = TBoss6Mine__data_805DF580;
+    ((TBoss3Volopt *)THIS)->m_310 = TBoss6Mine__data_805DF580;
     *(f32 *)((s8 *)THIS + 0x30C) = TBoss6Mine__data_805DF580;
     *(f32 *)((s8 *)THIS + 0x308) = TBoss6Mine__data_805DF580;
     *(s32 *)((s8 *)THIS + 0x2A8) = 0;
     bind_enemy_combat_stats(THIS, (u8 *)(TLobby::register_boss(0x2D)), (u8 *)(TLobby::dispatch_shared_handler_b(0x2D)), (u8 *)(TLobby::register_object(0x2D)));
-    *(s16 *)((s8 *)THIS + 0x33E) = *(s16 *)((s8 *)THIS + 0x32C);
+    ((TBoss3Volopt *)THIS)->referenceHp = ((TBoss3Volopt *)THIS)->hp;
     ((TBoss3Volopt *)THIS)->reset_photon_effect();
     ((TObjEnemy *)THIS)->set_param(0);
-    *(s32 *)((s8 *)THIS + 0x3A0) = lbl_805DF5D0 * TBoss6Mine::next_random_float((s32 *)(THIS + 0x388)) + lbl_805DF5CC;
-    *(s32 *)((s8 *)THIS + 0x3A4) = 0x96 - *(s32 *)((s8 *)THIS + 0x3A0);
-    *(s32 *)((s8 *)THIS + 0x3A8) = lbl_805DF5D8 * TBoss6Mine::next_random_float((s32 *)(THIS + 0x388)) + lbl_805DF5D4;
+    ((TBoss3Volopt *)THIS)->m_3a0 = lbl_805DF5D0 * TBoss6Mine::next_random_float((s32 *)(THIS + 0x388)) + lbl_805DF5CC;
+    *(s32 *)((s8 *)THIS + 0x3A4) = 0x96 - ((TBoss3Volopt *)THIS)->m_3a0;
+    ((TBoss3Volopt *)THIS)->m_3a8 = lbl_805DF5D8 * TBoss6Mine::next_random_float((s32 *)(THIS + 0x388)) + lbl_805DF5D4;
     *(f32 *)((s8 *)THIS + 0x3AC) = lbl_805DF5DC * TBoss6Mine::next_random_float((s32 *)(THIS + 0x388)) + lbl_805DF5A4;
     f = *dispatch_shared_handler_a__6TLobbyFl(0x2D);
-    *(s32 *)((s8 *)THIS + 0x384) = f;
+    ((TBoss3Volopt *)THIS)->m_384 = f;
     if (TBoss6Mine__data_805DF580 == f) {
-        *(s32 *)((s8 *)THIS + 0x384) = 0x14;
+        ((TBoss3Volopt *)THIS)->m_384 = 0x14;
     }
-    *(f32 *)((s8 *)THIS + 0x3C8) = TBoss6Mine__data_805DF580;
+    ((TBoss3Volopt *)THIS)->m_3c8 = TBoss6Mine__data_805DF580;
     VecCopyP(THIS + 0x3B0, THIS + 0x38);
     *(f32 *)((s8 *)THIS + 0x39C) = (*(const f32 *)&TBoss6Mine__data_805DF584);
-    *(s32 *)((s8 *)THIS + 0x390) = 0;
+    ((TBoss3Volopt *)THIS)->m_390 = 0;
     *(s32 *)((s8 *)THIS + 0x394) = 0;
-    *(s32 *)((s8 *)THIS + 0x398) = 0;
+    ((TBoss3Volopt *)THIS)->m_398 = 0;
     *(s32 *)((s8 *)THIS + 0x38C) = 0;
-    *(s32 *)((s8 *)THIS + 0x380) = 0;
+    *(s32 *)&((TBoss3Volopt *)THIS)->m_380 = 0;
     *(u32 *)((s8 *)THIS + 0x3CC) = (u32)create_particle_emitter(THIS + 0x38, 0x146);
     if (*(u32 *)((s8 *)THIS + 0x3CC) != 0) {
         ((TBoss4Type2 *)(*(u32 *)((s8 *)THIS + 0x3CC)))->set_flags(0x40);
