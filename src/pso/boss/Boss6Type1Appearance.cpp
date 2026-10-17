@@ -148,7 +148,7 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(TBoss6Demo10_TYPE1_APPEAR *arg0) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
         ((TNowLoading *)(*(u32 *)((s8 *)arg0 + 0x64)))->copy_pos((void*)temp_r30);
     }
-    arg0->m_38 = (s32) (arg0->m_38 + 1);
+    arg0->m_38 = (arg0->m_38 + 1);
     if (((s32) arg0->m_38 >= 0x1F4) || (((TObjFish *)(*(s32 *)((s8 *)arg0 + 0x3C)))->get_phase() != 1)) {
         queue_destruction__7TObjectFv((arg0));
     }

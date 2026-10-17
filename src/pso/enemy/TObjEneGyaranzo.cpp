@@ -1696,15 +1696,15 @@ u8 *TObjEneGyaranzo__ct(TObjEneGyaranzo *arg0, s32 arg1, u8 *arg2) {
     VecCopy((Vec *)((u8 *)arg0 + 0x290), (const Vec *)(VecCopy((Vec *)((u8 *)arg0 + 0x29C), (const Vec *)((u8 *)arg0 + 0x38))));
     *(s32 *)((s8 *)arg0 + 0xDC) = (s32) *(s32 *)((s8 *)(*(u8 * *)&gyaranzo_bml_resource) + 0x430);
     arg0->action_table = (u8 *) gyaranzo_action_table;
-    ((TObjPlayer *)arg0)->set_field_d8((s32)((void *) (arg0->action_table)));
+    ((TObjPlayer *)arg0)->set_field_d8((s32)(arg0->action_table));
     init_collision_body_parts(arg0, (void *) lbl_804941F8, 1);
     arg0->variant = 0;
     arg0->movementParameters = (u8 *) lbl_804941DC;
     bind_enemy_combat_stats((void *)arg0, (void *)gyaranzo_boss_stats_handle, (void *)gyaranzo_boss_stats_ptr_b, (void *)gyaranzo_object_handle);
     init_params_from_table__15TObjEneGyaranzoFv(arg0);
     arg0->m_b8 = 0;
-    set_animation__10TObjPlayerFPvs(arg0, (int) (arg0->m_b8));
-    ((TObjMotion *)arg0)->set_field_b8((int) (arg0->m_b8));
+    set_animation__10TObjPlayerFPvs(arg0, arg0->m_b8);
+    ((TObjMotion *)arg0)->set_field_b8(arg0->m_b8);
     arg0->hp = (s16) arg0->hpmax;
     arg0->m_32e = (s16) arg0->m_2ba;
     arg0->referenceHp = (s16) arg0->hp;

@@ -5703,7 +5703,7 @@ void release_grabbed_player__12TBoss8DragonFPv(TBoss8Dragon *arg0) {
                 arg0->m_674 = 0;
                 break;
             }
-            arg0->m_674 = (s32) (arg0->m_674 + 0x32);
+            arg0->m_674 = (arg0->m_674 + 0x32);
         }
         if (var_r31 != 0) {
             arg0->pick_next_action();

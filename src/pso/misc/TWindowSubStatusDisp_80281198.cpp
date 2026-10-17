@@ -353,9 +353,9 @@ void TWindowSubStatusDisp__sub_80281644(TWindowSubStatusDisp *arg0) {
   {
     *(s32 *)&arg0->m_5c = 0x01000000;
   }
-  if ((handle_list_page_flip_input((int) (*(s32 *)&arg0->m_68)) != 0) || (((s16) (arg0->m_60)) != ((s16) (*(s16 *)&arg0->m_62))))
+  if ((handle_list_page_flip_input((int) (*(s32 *)&arg0->m_68)) != 0) || ((arg0->m_60) != ((s16) (*(s16 *)&arg0->m_62))))
   {
-    if (((s16) (arg0->m_60)) != (*(s16 *)&arg0->m_62))
+    if ((arg0->m_60) != (*(s16 *)&arg0->m_62))
     {
       arg0->m_60 = *(s16 *)&arg0->m_62;
       fn_8026C7AC((void *)(*(s32 *)&arg0->m_68), ((s8) (*((u8 *) (((s8 *) (((u8 *)&lbl_805DD6F4) + (arg0->m_60))) + 0)))));

@@ -82,7 +82,7 @@ u8 *TODoorAncient09__ct(TODoorAncient09 *arg0, s32 arg1, s32 arg2) {
         arg0->m_84 = 0xFE;
     }
     ((TODoorAncient09 *)(arg0))->init_door_switch_binding();
-    arg0->m_d4 = (s16) (arg0->m_84 + 1);
+    arg0->m_d4 = (arg0->m_84 + 1);
     arg0->m_d8 = 0;
     arg0->m_dc = 0;
     arg0->m_e0 = 0;

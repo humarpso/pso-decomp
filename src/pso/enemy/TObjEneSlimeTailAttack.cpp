@@ -1101,7 +1101,7 @@ void *TObjEneSlimeTailAttack__ct(TObjEneSlimeTailAttack *arg0, void *arg1, s32 a
   *((s32 *) (((s8 *) arg0) + 0xDC)) = *((s32 *) (((s8 *) inst) + 0x430));
   ((TObjPlayer *)arg0)->set_field_dc(*((s32 *) (((s8 *) inst) + 0x430)));
   arg0->m_b8 = 6;
-  set_animation__10TObjPlayerFPvs((arg0), (s16)(arg0->m_b8));
+  set_animation__10TObjPlayerFPvs((arg0), arg0->m_b8);
   ((TObjMotion *)arg0)->set_field_b8(arg0->m_b8);
   arg0->rotation_y = arg3;
   VecCopy((Vec *)(((u8 *) arg0) + 0x38), (const Vec *)arg2);
@@ -1955,7 +1955,7 @@ void render__15TObjEneSlimeOneFv(TObjEneSlimeOne *arg0) {
             v.y += *(f32 *)((s8 *)arg0 + 0x3A4);
             post_translate_matrix(&v);
         }
-        rotate_matrix_y(0, (int) (arg0->rotation_y));
+        rotate_matrix_y(0, arg0->rotation_y);
         scale_matrix_vec3(0, ((u8 *)arg0 + 0x3A8));
         ((TObjEneSlimeOne *)(arg0->m_388))->draw_part(temp_r31);
         pop_matrix();

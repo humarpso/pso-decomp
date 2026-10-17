@@ -41,7 +41,7 @@ void *TOExplosiveMachine02__ct(TOExplosiveMachine02 *arg0, s32 arg1) {
     arg0->apply_object_set_data((void *)arg1);
     arg0->model = get_bml_model(explosive_machine_model_archive, 3);
     arg0->texture_id = TObjFish__sub_8001EDB0(explosive_machine_model_archive, 3);
-    arg0->m_94 = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(arg0->model) + 4)) + 0x14);
+    arg0->m_94 = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)arg0->model + 4)) + 0x14);
     *(void **)((s8 *)arg0 + 0x9C) = get_bml_model(explosive_machine_model_archive, 4);
     arg0->m_a4 = TObjFish__sub_8001EDB0(explosive_machine_model_archive, 4);
     *(void **)((s8 *)arg0 + 0xA0) = get_bml_model(explosive_machine_model_archive, 5);

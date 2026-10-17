@@ -59,13 +59,13 @@ void render__18TObjButterflyLobbyFPv(TObjButterflyLobby *arg0) {
 
     push_matrix();
     post_translate_matrix((u8 *)arg0 + 0x38);
-    rotate_matrix_y(0, (int) (arg0->rotation_y));
+    rotate_matrix_y(0, arg0->rotation_y);
     rotate_matrix_x(0, -0x2000);
     if ((s32) arg0->m_90 != 3) {
         temp_f1 = *(f32 *)((s8 *)arg0 + 0x94);
         scale_matrix(0, temp_f1, temp_f1, temp_f1);
     }
-    draw_ginja_model_with_motion((int) (arg0->m_c4), (void *) (get_bml_motion((void *)lobby_butterfly_bml_resource, 0)), (f32) (*(f32 *)((s8 *)arg0 + 0xB0)));
+    draw_ginja_model_with_motion(arg0->m_c4, (void *) (get_bml_motion((void *)lobby_butterfly_bml_resource, 0)), (f32) (*(f32 *)((s8 *)arg0 + 0xB0)));
     pop_matrix();
 }
 

@@ -167,7 +167,7 @@ u8 *TObjQuestColALock2__ct(TObjQuestColALock2 *arg0, s32 arg1, s32 _w2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3408;
     init_collision_body_parts(arg0, (s32) &TObjQuestColALock__collision_desc.value, 1);
     set_indexed_flags(arg0, 0, 0xF0);
-    temp_r4 = (u8 *)(arg0->m_a4);
+    temp_r4 = (u8 *)arg0->m_a4;
     *(f32 *)((s8 *)temp_r4 + 4) = (f32) (*(f32 *)((s8 *)temp_r4 + 4) + arg0->target_scale);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     arg0->actorFlags = (s32) (arg0->actorFlags | 0x40000000);

@@ -3467,7 +3467,7 @@ s32 TObjPlayer__vt12(TObjPlayer *arg0, s32 arg1) {
     if (temp_r31 < 0) {
         temp_r31 = 0;
     }
-    *(s32 *)((s8 *)(arg0->m_2b0) + 0x1C) = temp_r31;
+    *(s32 *)(arg0->m_2b0 + 0x1C) = temp_r31;
     return 1;
 }
 

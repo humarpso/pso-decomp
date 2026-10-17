@@ -160,7 +160,7 @@ u8 *TObjEneMe1GiGueBarrier__ct(TObjEneMe1GiGueBarrier *arg0, s32 arg1, u8 *arg2)
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)(*(u8 * *)&TObjEneMe1GiGueBarrier__barrier_resource_object) + 0x430)));
     arg0->m_b8 = 0;
     set_animation__10TObjPlayerFPvs((arg0), (arg0->m_b8));
-    ((TObjMotion *)arg0)->set_field_b8((int) (arg0->m_b8));
+    ((TObjMotion *)arg0)->set_field_b8(arg0->m_b8);
     return (u8 *)arg0;
 }
 

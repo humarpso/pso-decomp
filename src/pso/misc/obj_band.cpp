@@ -313,7 +313,7 @@ void draw_motion_model_saving_joints(TObjPlayer *arg0) {
     if ((temp_r3 & 4) && !(temp_r3 & 0x400)) {
         draw_model_blend_motion((void *)(*(s32 *)((s8 *)arg0 + 0x34)), (u8 *)arg0 + 0xE4, arg0->m_c0);
     } else {
-        draw_model_motion((void *)(*(s32 *)((s8 *)arg0 + 0x34)), (void *)(arg0->unknownF8), arg0->m_c0);
+        draw_model_motion((void *)(*(s32 *)((s8 *)arg0 + 0x34)), (void *)arg0->unknownF8, arg0->m_c0);
     }
     TObjEneRe7Berura::set_global_state((s32)NULL);
     TObjPlayer::reset_transform_state();

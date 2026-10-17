@@ -336,7 +336,7 @@ u8 *TOMekaFish00__ct(TOMekaFish00 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((*(u8 * *)&TOMekaFish00__model_resource), 0);
     arg0->texture_id = TObjFish__sub_8001EDB0((*(u8 * *)&TOMekaFish00__model_resource), 0);
     arg0->m_bc = get_bml_motion((*(u8 * *)&TOMekaFish00__model_resource), 0);
-    *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(arg0->m_bc) + 4) - lbl_805DE068);
+    *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)(arg0->m_bc + 4) - lbl_805DE068);
     arg0->m_b8 = (f32) lbl_805DE06C;
     arg0->m_c0 = (f32) lbl_805DE070;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(*(s32 *)((s8 *)arg0 + 0x34)) + 4)) + 0x14);

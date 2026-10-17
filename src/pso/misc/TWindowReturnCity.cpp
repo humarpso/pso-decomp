@@ -155,14 +155,14 @@ u8 *TWindowReturnCity__ct(TWindowReturnCity *arg0, s32 arg1, s32 arg2) {
   *((s32 **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_8026D40C___vt__17TWindowReturnCity *)&__vt__17TWindowReturnCity).value;
   *((s32 *) (((s8 *) arg0) + 0)) = (s32) TWindowReturnCity__class_name;
   arg0->m_24 = arg2;
-  temp_r31 = create__19TWindowMessageYesNoFPvPvPvPv((void *) arg0, (int) (arg0->m_24), 0, 0);
+  temp_r31 = create__19TWindowMessageYesNoFPvPvPvPv((void *) arg0, arg0->m_24, 0, 0);
   arg0->m_1c = temp_r31;
   if (arg0)
   {
   }
   temp_r31 = get_window_layout_position(0x23);
-  forward_slot_selection__16TAdChrSelASlotGCFPvPv((int) (arg0->m_1c), (int) TWindowSubStatusDisp::get_message_10(0x43), (int) temp_r31, (f32) lbl_805DD2E8);
-  free_member__17TWindowSubComCardFv((int) (arg0->m_1c), 1);
+  forward_slot_selection__16TAdChrSelASlotGCFPvPv(arg0->m_1c, (int) TWindowSubStatusDisp::get_message_10(0x43), (int) temp_r31, (f32) lbl_805DD2E8);
+  free_member__17TWindowSubComCardFv(arg0->m_1c, 1);
   fn_8024AC64((arg0->m_24));
   TWindowCtrl::set_close_flag();
   TWindowCtrl__sub_8026D4E8();

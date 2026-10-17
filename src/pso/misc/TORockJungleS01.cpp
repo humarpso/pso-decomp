@@ -160,7 +160,7 @@ u8 *TORockJungleS01__ct(TORockJungleS01 *arg0, s32 arg1) {
     ((TORockJungleS01 *)(arg0))->apply_object_set_data((void *)arg1);
     arg0->model = TORockJungleS01::get_model(0);
     arg0->texture_id = get_jungle_rock_texture_resource(0);
-    arg0->m_b0 = (f32) (lbl_805DDD1C + *(f32 *)((s8 *)(*(void **)((s8 *)(arg0->model) + 4)) + 0x14));
+    arg0->m_b0 = (f32) (lbl_805DDD1C + *(f32 *)((s8 *)(*(void **)((s8 *)arg0->model + 4)) + 0x14));
     init_collision_body_parts(arg0, &rock_jungle_collision_body_parts.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();

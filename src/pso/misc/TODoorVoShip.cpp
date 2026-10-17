@@ -190,7 +190,7 @@ u8 *TODoorVoShip__ct(TODoorVoShip *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((*(u8 * *)&TODoorVoShip__shared_bml_archive), 1);
     arg0->texture_id = TObjFish__sub_8001EDB0((*(u8 * *)&TODoorVoShip__shared_bml_archive), 1);
     arg0->m_bc = get_bml_motion((*(u8 * *)&TODoorVoShip__shared_bml_archive), 0);
-    *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(arg0->m_bc) + 4) - lbl_805DB53C);
+    *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)(arg0->m_bc + 4) - lbl_805DB53C);
     arg0->m_b8 = (f32) lbl_805DB53C;
     arg0->m_d0 = get_bml_motion((*(u8 * *)&TODoorVoShip__shared_bml_archive), 1);
     arg0->m_d4 = get_bml_model((*(u8 * *)&TODoorVoShip__shared_bml_archive), 0);

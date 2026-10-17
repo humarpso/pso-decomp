@@ -2148,9 +2148,9 @@ u8 *TObjEneSaver__ct(TObjEneSaver *arg0, void *arg1, void *arg2) {
     arg0->variant = 0;
     ((TObjEneLappy *)arg0)->set_param(0x1E);
     arg0->subtype = 0;
-    arg0->sub_800A7734((s32)(arg0->variant));
+    arg0->sub_800A7734(arg0->variant);
     arg0->action_table = (u8 *)TObjEneSaver__trail_record_table;
-    ((TObjPlayer *)arg0)->set_field_d8((s32)(arg0->action_table));
+    ((TObjPlayer *)arg0)->set_field_d8((s32)arg0->action_table);
     *(s32 *)((s8 *)arg0 + 0xDC) = *(s32 *)((s8 *)(*(u8 * *)&saver_bml_resource) + 0x430);
     arg0->m_b8 = 0;
     set_animation__10TObjPlayerFPvs(arg0, arg0->m_b8);

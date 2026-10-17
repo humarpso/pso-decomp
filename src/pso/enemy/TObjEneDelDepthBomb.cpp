@@ -530,10 +530,10 @@ u8 *TObjEneDelDepthBomb__ct(TObjEneDelDepthBomb *arg0, s32 arg1, s32 arg2, s32 a
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_803135B4___vt__19TObjEneDelDepthBomb *)&__vt__19TObjEneDelDepthBomb).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneDelDepthBomb__name;
     arg0->m_348 = arg2;
-    arg0->rotation_y = (s32) *(s32 *)((s8 *)(arg0->m_up) + 0x60);
+    arg0->rotation_y = (s32) *(s32 *)((s8 *)arg0->m_up + 0x60);
     VecCopy((Vec *)((u8 *)arg0 + 0x38), (const Vec *)(arg3));
-    temp_f30 = ((f32 (*)(int))sin_table_lookup)((int) (arg0->rotation_y));
-    temp_f31 = ((f32 (*)(int))cos_table_lookup)((int) (arg0->rotation_y));
+    temp_f30 = ((f32 (*)(int))sin_table_lookup)((int)arg0->rotation_y);
+    temp_f31 = ((f32 (*)(int))cos_table_lookup)((int)arg0->rotation_y);
     *(f32 *)((s8 *)arg0 + 0x354) = ((TObjEneDelDepthBomb *)(arg0->m_up))->get_depth_radius();
     *(f32 *)((s8 *)arg0 + 0x334) = (f32) (*(f32 *)((s8 *)arg0 + 0x354) * temp_f30);
     *(f32 *)((s8 *)arg0 + 0x338) = 0.0f;

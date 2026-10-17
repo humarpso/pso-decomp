@@ -228,8 +228,8 @@ void render__22TWindowSubCustomSelectFv(TWindowSubCustomSelect *arg0) {
     draw_window_frame(arg0, temp_r3);
     arg0->draw_palette_cells(temp_r3);
     arg0->draw_cursor((u8 *)temp_r3);
-    forward_render__20TWindowSubStatusDispFv((int) (arg0->m_7c), temp_r3);
-    draw_window_scrollbar((int) (arg0->m_80), temp_r3, (u8 *)arg0 + 0x68);
+    forward_render__20TWindowSubStatusDispFv(arg0->m_7c, temp_r3);
+    draw_window_scrollbar(arg0->m_80, temp_r3, (u8 *)arg0 + 0x68);
 }
 
 typedef char RecoveredGlobal_80277928_lbl_8050E208_size[sizeof(RecoveredGlobal_80277928_lbl_8050E208) == 0x1B0 ? 1 : -1];

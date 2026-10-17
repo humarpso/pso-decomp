@@ -115,7 +115,7 @@ void *TAdScrollWinGC__ct(TAdScrollWinGC *arg0, void *arg1, s32 arg2, s32 arg3) {
     }
     ((TWindowMessage *)(arg0->m_40))->complete_reveal();
     ((TWindowMessageLog *)(arg0->m_40))->update_scroll_position();
-    TAdScrollWinGC__sub_8026A5F8((void *)(arg0->m_40));
+    TAdScrollWinGC__sub_8026A5F8((void *)arg0->m_40);
     *(f32 *)((s8 *)arg0 + 0x2C) = lbl_805DF6B4;
     arg0->m_30 = lbl_805DF6B8;
     *(f32 *)((s8 *)arg0 + 0x34) = lbl_805DF6BC;

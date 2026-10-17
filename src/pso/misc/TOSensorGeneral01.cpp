@@ -206,7 +206,7 @@ void *TOSensorGeneral01__ct(TOSensorGeneral01 *arg0, void *arg1, void *arg2) {
     arg0->texture_id = (s32) *TOSensorGeneral01__texture_lists;
     arg0->model = (void *) *(void **)((s8 *)(*(void **)((s8 *)(*(void * *)&sensor_general_shared_bml_archive) + 0x42C)) + 8);
     arg0->m_c0 = 400.0f;
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(arg0->model) + 4)) + 0x14);
+    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)arg0->model + 4)) + 0x14);
     *(f32 *)((s8 *)arg0 + 0xCC) = 50.0f + arg0->scale;
     if (*(f32 *)((s8 *)arg0 + 0xCC) < 0.0f) {
         *(f32 *)((s8 *)arg0 + 0xCC) = 0.0f;

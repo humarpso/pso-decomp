@@ -171,7 +171,7 @@ u8 *TWindowSubEquip__ct(TWindowSubEquip *arg0, s32 arg1, s32 arg2) {
     arg0->m_2c = arg1;
     arg0->m_28 = arg2;
     arg0->m_34 = create_equip_list_window(get_window_layout_position(0), lbl_8044F918, arg0->m_28);
-    TWindowSubEquip__sub_80263AF8((u8 *)(arg0->m_2c), 0);
+    TWindowSubEquip__sub_80263AF8((u8 *)arg0->m_2c, 0);
     set_field_1c__6TLobbyFf(arg0->m_34);
     ((TWindowSubShortCutList *)(arg0->m_34))->set_flag70_bit10();
     p = __nw__7TObjectFUl(0xBC);
@@ -179,7 +179,7 @@ u8 *TWindowSubEquip__ct(TWindowSubEquip *arg0, s32 arg1, s32 arg2) {
         p = (void *)__ct__15TWindowHelpItemFPvUs(p, get_window_layout_position(2), arg0->m_28);
     }
     *(void **)((s8 *)arg0 + 0x30) = p;
-    TWindowSubEquip__sub_80263AF8((u8 *)(arg0->m_2c), 2);
+    TWindowSubEquip__sub_80263AF8((u8 *)arg0->m_2c, 2);
     set_field_1c__6TLobbyFf(arg0->m_30);
     arg0->m_38 = 0;
     arg0->m_20 = -1;

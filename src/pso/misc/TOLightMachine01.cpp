@@ -125,13 +125,13 @@ u8 *TOLightMachine01__ct(TOLightMachine01 *arg0, s32 arg1) {
     arg0->model = ((u8 *)get_bml_model((void *)((*(s32 *)&TOLightMachine01__shared_bml_archive)), 1));
     arg0->texture_id = TObjFish__sub_8001EDB0((void *)((int) ((*(s32 *)&TOLightMachine01__shared_bml_archive))), 1);
     *(f32 *)((s8 *)arg0 + 0x90) = (f32) lbl_805DB82C;
-    arg0->m_94 = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(arg0->model) + 4)) + 0x14);
+    arg0->m_94 = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)arg0->model + 4)) + 0x14);
     arg0->actorFlags = (s32) (arg0->actorFlags | 0x40000000);
     *(f32 *)((s8 *)arg0 + 0xA0) = (f32) ((lbl_805DB834 * (f32) arg0->m_84) + lbl_805DB830);
     arg0->m_a4 = (s32) (lbl_805DB838 * (lbl_805DB83C / (lbl_805DB840 / *(f32 *)((s8 *)arg0 + 0xA0))));
     arg0->m_a8 = (s32) (lbl_805DB838 * (lbl_805DB83C * (lbl_805DB844 * (f32) rand())));
     *(f32 *)((s8 *)arg0 + 0x98) = (f32) ((lbl_805DB834 * (f32) *(s32 *)((s8 *)arg0 + 0x88)) + lbl_805DB848);
-    arg0->m_9c = (f32) (*(f32 *)((s8 *)arg0 + 0x98) * sin_table_lookup((s32)((int) (arg0->m_a8))));
+    arg0->m_9c = (f32) (*(f32 *)((s8 *)arg0 + 0x98) * sin_table_lookup((s32)(arg0->m_a8)));
     arg0->m_ac = 0;
     return (u8 *)arg0;
 }

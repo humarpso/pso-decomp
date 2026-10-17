@@ -37,11 +37,11 @@ u8 *TItemWeapon__ct(TItemWeapon *arg0, void *parent, u8 *item) {
     *(void ***)((s8 *)arg0 + 0x18) = __vt__11TItemWeapon;
     ((V_80120D50 *)arg0)->v17(6);
     arg0->parameters = lookup_item_pmt_record(item);
-    *(s32 *)((s8 *)arg0 + 0x1E0) = TObjPlayer::get_shield_pmt_entry(*(u8 *)((s8 *)(arg0->parameters) + 0x26));
+    *(s32 *)((s8 *)arg0 + 0x1E0) = TObjPlayer::get_shield_pmt_entry(*(u8 *)((s8 *)arg0->parameters + 0x26));
     *(s16 *)((s8 *)arg0 + 0x1E8) = (s16) (s8) *(u8 *)((s8 *)((unsigned char *) (arg0->parameters)) + 0x17);
     *(u8 *)((s8 *)arg0 + 0x1D1) = (u8) *(u8 *)((s8 *)item + 3);
     temp_r3 = ((TItemData *)item)->check_item_flags();
-    temp_r0 = *(u8 *)((s8 *)(arg0->parameters) + 0x18);
+    temp_r0 = *(u8 *)((s8 *)arg0->parameters + 0x18);
     if (temp_r0 == 0) {
         arg0->special_selector = (u8) (*(u8 *)((s8 *)item + 4) & 0xFFFFFFBF);
     } else {
@@ -54,7 +54,7 @@ u8 *TItemWeapon__ct(TItemWeapon *arg0, void *parent, u8 *item) {
     *(s32 *)((s8 *)arg0 + 0x1EC) = 0;
     *(s32 *)((s8 *)arg0 + 0x1F4) = 0;
     *(void **)((s8 *)arg0 + 0x1F0) = (void *)create_gun_shot;
-    *(s16 *)((s8 *)arg0 + 0x1CE) = (s16) *(u8 *)((s8 *)(arg0->parameters) + 0x1B);
+    *(s16 *)((s8 *)arg0 + 0x1CE) = (s16) *(u8 *)((s8 *)arg0->parameters + 0x1B);
     temp_r6 = (unsigned char *) (arg0->parameters);
     set_weapon_trail_joints(arg0, 0, (int) (*(u8 *)((s8 *)temp_r6 + 0x1C)), (int) (*(u8 *)((s8 *)temp_r6 + 0x1D)));
     temp_r6_2 = (unsigned char *) (arg0->parameters);
@@ -71,7 +71,7 @@ u8 *TItemWeapon__ct(TItemWeapon *arg0, void *parent, u8 *item) {
     if (ed < 0xAA) {
         *(s8 *)&arg0->special_to_stage = get_weapon_class_motion_type(ed);
         if ((s16) *(s16 *)((s8 *)arg0 + 0x1E8) != -1) {
-            *(s16 *)((s8 *)arg0 + 0x1CC) = (s16) *(u8 *)((s8 *)(arg0->parameters) + 0x20);
+            *(s16 *)((s8 *)arg0 + 0x1CC) = (s16) *(u8 *)((s8 *)arg0->parameters + 0x20);
         } else {
             *(s16 *)((s8 *)arg0 + 0x1CC) = -1;
         }
@@ -88,13 +88,13 @@ u8 *TItemWeapon__ct(TItemWeapon *arg0, void *parent, u8 *item) {
         *(f32 *)((s8 *)arg0 + 0x1C8) = (f32) lbl_805DAC98;
     }
     arg0->set_weapon_category_flags();
-    if (*(u8 *)((s8 *)(arg0->parameters) + 0x27) & 1) {
+    if (*(u8 *)((s8 *)arg0->parameters + 0x27) & 1) {
         ((TObjPlayer *)((u8 *)arg0 + 0x178))->set_flags(0x20);
     }
-    if (*(u8 *)((s8 *)(arg0->parameters) + 0x27) & 2) {
+    if (*(u8 *)((s8 *)arg0->parameters + 0x27) & 2) {
         ((TObjPlayer *)arg0)->set_status_flags(0x40000);
     }
-    if (*(u8 *)((s8 *)(arg0->parameters) + 0x27) & 4) {
+    if (*(u8 *)((s8 *)arg0->parameters + 0x27) & 4) {
         ((TObjPlayer *)arg0)->set_status_flags(0x80000);
     }
     return (u8 *)arg0;

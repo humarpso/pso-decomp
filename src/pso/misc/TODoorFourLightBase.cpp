@@ -300,7 +300,7 @@ void render__19TODoorFourLightBaseFv(TODoorFourLightBase *arg0) {
         TObjFish::set_global_param((s32)((void *)self->m20()));
         post_translate_matrix((u8 *)arg0 + 0x38);
         rotate_matrix_y(0, arg0->rotation_y);
-        draw_ginja_object((void *)(arg0->m_d4));
+        draw_ginja_object((void *)arg0->m_d4);
         pop_matrix();
         break;
     }

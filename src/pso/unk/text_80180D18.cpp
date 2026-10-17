@@ -101,9 +101,9 @@ void render__18TObjCityAirCar_CarFPv(TObjCityAirCar_Car *arg0) {
         TParticleCtrl::end_effect_render();
         push_matrix();
         post_translate_matrix((void *) ((u8 *)arg0 + 0x38));
-        rotate_matrix_y(0, (int) (arg0->rotation_y));
+        rotate_matrix_y(0, arg0->rotation_y);
         if ((s32) arg0->m_9c != 0) {
-            rotate_matrix_z(0, (int) (arg0->rotation_z));
+            rotate_matrix_z(0, arg0->rotation_z);
         }
         TObjFish::set_global_param((int)city_common_texture_list);
         get_city_common_model((*(s32 *)((s8 *)((u8 *)city_aircar_model_indices + (arg0->m_9c * 4)) + 0)));

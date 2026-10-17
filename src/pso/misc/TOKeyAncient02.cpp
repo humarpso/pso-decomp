@@ -230,7 +230,7 @@ u8 *TOKeyAncient02__ct(TOKeyAncient02 *arg0, s32 arg1, s32 arg2) {
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     arg0->m_c0 = (f32) lbl_805DB710;
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (lbl_805DB714 + *(f32 *)((s8 *)(*(void **)((s8 *)(arg0->model) + 4)) + 0x14));
+    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (lbl_805DB714 + *(f32 *)((s8 *)(*(void **)((s8 *)arg0->model + 4)) + 0x14));
     arg0->m_e8 = 0;
     arg0->m_ec = 0;
     if (((s32) arg0->m_d0 != 2) && ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0)) {

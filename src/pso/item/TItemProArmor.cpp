@@ -432,8 +432,8 @@ u8 *TItemProArmor__ct(TItemProArmor *arg0, s32 arg1, u8 *item) {
     arg0->m_193 = getS16_06__9TItemDataFPv(item);
     arg0->m_194 = get_bswap16_field8__9TItemDataFPv(item);
     arg0->m_18c = (s32)lookup_item_pmt_record(item);
-    arg0->m_195 = (u8) *(u8 *)((s8 *)(arg0->m_18c) + 0x16);
-    arg0->m_196 = (u8) *(u8 *)((s8 *)(arg0->m_18c) + 0x17);
+    arg0->m_195 = (u8) *(u8 *)(arg0->m_18c + 0x16);
+    arg0->m_196 = (u8) *(u8 *)(arg0->m_18c + 0x17);
     if ((u8) arg0->m_192 > 4U) {
         arg0->m_192 = 4U;
     }

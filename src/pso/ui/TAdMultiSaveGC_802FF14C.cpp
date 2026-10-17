@@ -121,7 +121,7 @@ void run_task__14TAdMultiSaveGCFv(TAdMultiSaveGC *arg0) {
         return;
     case 3:
         if (((TWindowMenu *)(arg0->m_30))->is_visible() != 0) {
-            selected_menu_value = get_selected_menu_value((int) (arg0->m_30));
+            selected_menu_value = get_selected_menu_value(arg0->m_30);
             switch (selected_menu_value) {
             case 1:
                 arg0->m_1c = 8U;

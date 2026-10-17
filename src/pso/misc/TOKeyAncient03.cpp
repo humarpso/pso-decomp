@@ -257,7 +257,7 @@ u8 *TOKeyAncient03__ct(TOKeyAncient03 *arg0, s32 arg1, s32 arg2) {
     arg0->texture_id = (s32) *(*(s32 * *)&TOKeyAncient03__texture_variants);
     arg0->model = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOKeyAncient03__model_archive) + 0x42C)) + 8));
     arg0->m_c0 = (f32) lbl_805DB72C;
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(arg0->model) + 4)) + 0x14);
+    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)arg0->model + 4)) + 0x14);
     *(f32 *)((s8 *)arg0 + 0xCC) = (f32) lbl_805DB730;
     if (get_main_phase() != 0xF) {
         if (is_split_screen() == 1) {

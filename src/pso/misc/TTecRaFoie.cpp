@@ -658,7 +658,7 @@ void run_task__10TTecRaFoieFv(TTecRaFoie *arg0) {
         queue_destruction__7TObjectFv((arg0));
         return;
     }
-    arg0->source = find_entity_by_id((int) (arg0->m_b4));
+    arg0->source = find_entity_by_id(arg0->m_b4);
     if ((u32) arg0->source == 0U) {
         queue_destruction__7TObjectFv((arg0));
         return;
@@ -671,7 +671,7 @@ void run_task__10TTecRaFoieFv(TTecRaFoie *arg0) {
         queue_destruction__7TObjectFv((arg0));
         return;
     }
-    temp_r31 = find_entity_by_id((int) (arg0->m_f0));
+    temp_r31 = find_entity_by_id(arg0->m_f0);
     if ((is_parents_unqueued__9TTecLukerFUl() != 0) && (is_valid_and_active__10TObjPlayerFUl(temp_r31) != 0)) {
         arg0->update_detonation((void *)(temp_r31 + 0x2FC));
     }

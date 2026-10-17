@@ -708,9 +708,9 @@ u8 *__dt__20TWindowSubSymbolChatFv(TWindowSubSymbolChat *arg0, s16 arg1) {
         }
         if ((u32) arg0->m_44 != 0U) {
             if ((TWindowCtrlMain__sub_8024CE58() != 0) && ((u8) arg0->m_1c == 0x27)) {
-                ((TWindowSubSymbolChat *)(arg0->m_28))->set_flag_bit9((int) (update_selected_item__17TWindowOptionCtrlFv((int) (arg0->m_44))));
+                ((TWindowSubSymbolChat *)(arg0->m_28))->set_flag_bit9((int) (update_selected_item__17TWindowOptionCtrlFv(arg0->m_44)));
             }
-            TWindow__close((int) (arg0->m_44));
+            TWindow__close(arg0->m_44);
             arg0->m_44 = 0U;
         }
         temp_r3_2 = arg0->m_40;

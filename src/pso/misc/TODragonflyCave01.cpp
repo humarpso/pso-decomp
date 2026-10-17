@@ -181,7 +181,7 @@ u8 *TODragonflyCave01__ct(TODragonflyCave01 *arg0, void *arg1) {
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32)*(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB560;
     arg0->m_b8 = lbl_805DB564;
     arg0->m_c0 = lbl_805DB568;
-    *(f32 *)((s8 *)arg0 + 0xC4) = *(f32 *)((s8 *)(*(u8 **)((s8 *)(arg0->model) + 4)) + 0x14);
+    *(f32 *)((s8 *)arg0 + 0xC4) = *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0->model + 4)) + 0x14);
     arg0->m_ac = 0;
     arg0->m_f4 = lbl_805DB56C * (f32)arg0->m_84 + lbl_805DB560;
     arg0->m_f8 = (s32)(lbl_805DB570 * (lbl_805DB574 / (lbl_805DB578 / arg0->m_f4)));
@@ -358,7 +358,7 @@ u8 *TODragonfly__ct(TODragonfly *arg0) {
     arg0->m_f8 = (s32) (lbl_805DB570 * (lbl_805DB574 / (lbl_805DB578 / arg0->m_f4)));
     arg0->m_fc = (s32) (lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32) rand())));
     arg0->m_ec = (f32) ((lbl_805DB56C * (f32) *(s32 *)((s8 *)arg0 + 0x88)) + lbl_805DB560);
-    *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (arg0->m_ec * sin_table_lookup((s32)((int) (arg0->m_fc))));
+    *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (arg0->m_ec * sin_table_lookup((s32)(arg0->m_fc)));
     return (u8 *)arg0;
 }
 #pragma pop
