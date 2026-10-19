@@ -52,6 +52,7 @@ public:
 class TUnk_804AF8A0 : public TUnk_804B9870 {
 public:
     virtual ~TUnk_804AF8A0();
+    virtual void reset_motion_fields();
     void*find_actor_body_contact(u8*, f32);
     void set_indexed_flags(s32, s32);
     void clear_player_status_flag(s32, u32);

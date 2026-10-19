@@ -1161,7 +1161,7 @@ s32 project_actor_to_ground(Obj_80156844 *self, Vec_80156844 *pos, Vec_80156844 
     return 1;
 }
 
-void TObjPlayer::release_member_90() { void* m = *(void**)((char*)this + 0x90); if (m) ((TObjPlayer *)m)->clear_ground_candidates(); }
+void TUnk_804AF8A0::reset_motion_fields() { void* m = *(void**)((char*)this + 0x90); if (m) ((TObjPlayer *)m)->clear_ground_candidates(); }
 void TObjPlayer__sub_80156934(void) { TObjPlayer::clear_item_table(); TObjPlayer::init_all_slots(); }
 void TObjPlayer::reset() { (*(int *)&lbl_805D5868) = 0; (*(int *)&lbl_805D586C) = 0; (*(int *)&lbl_805D5870) = 0; (*(int *)&registered_entity_count) = 0; TObjPlayer::clear_item_table(); TObjPlayer::init_all_slots(); }
 void *TUnk_804AF8A0::destroy_particle_controller(s16 arg1) {

@@ -7647,7 +7647,7 @@ void TObjPlayer::reset_motion_fields() {
     s32 temp_r3;
     s32 arg0 = (s32)this;
     reset_motion_fields__13TUnk_804B9870Fv();
-    ((TObjPlayer *)arg0)->release_member_90();
+    ((TObjPlayer *)arg0)->TUnk_804AF8A0::reset_motion_fields();
     ((TObjPlayer *)arg0)->TObjMotion::reset_motion_fields();
     reset_motion_fields__13TUnk_804806E8Fv((void *)arg0);
     ((TObjPlayer *)arg0)->reset_state();

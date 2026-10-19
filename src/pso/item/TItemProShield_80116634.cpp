@@ -424,7 +424,7 @@ void destroy__5TItemFv();
 void dispatch_state__5TItemFv();
 void vfunc_36__11TItemObjectFv();
 void register_attack__5TItemFv();
-void release_member_90__10TObjPlayerFv();
+void reset_motion_fields__13TUnk_804AF8A0Fv();
 void render_shadows__5TItemFv();
 int ret_8010064C(void);
 void vfunc_35__5TItemFv();
@@ -440,7 +440,7 @@ void *item_hp_recovery_vtable[46] = {
     (void *)&render_shadows__5TItemFv,
     (void *)&vfunc_6__13TUnk_804B9870FPsl,
     (void *)&apply_object_set_data__13TUnk_804B9870FPv,
-    (void *)&release_member_90__10TObjPlayerFv,
+    (void *)&reset_motion_fields__13TUnk_804AF8A0Fv,
     (void *)&vfunc_9__11TItemObjectFv,
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
@@ -488,7 +488,7 @@ void *item_mag_transform_vtable[46] = {
     (void *)&render_shadows__5TItemFv,
     (void *)&vfunc_6__13TUnk_804B9870FPsl,
     (void *)&apply_object_set_data__13TUnk_804B9870FPv,
-    (void *)&release_member_90__10TObjPlayerFv,
+    (void *)&reset_motion_fields__13TUnk_804AF8A0Fv,
     (void *)&vfunc_9__11TItemObjectFv,
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
@@ -536,7 +536,7 @@ void *item_moon_atomizer_vtable[46] = {
     (void *)&render_shadows__5TItemFv,
     (void *)&vfunc_6__13TUnk_804B9870FPsl,
     (void *)&apply_object_set_data__13TUnk_804B9870FPv,
-    (void *)&release_member_90__10TObjPlayerFv,
+    (void *)&reset_motion_fields__13TUnk_804AF8A0Fv,
     (void *)&vfunc_9__11TItemObjectFv,
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
@@ -584,7 +584,7 @@ void *item_status_cure_vtable[46] = {
     (void *)&render_shadows__5TItemFv,
     (void *)&vfunc_6__13TUnk_804B9870FPsl,
     (void *)&apply_object_set_data__13TUnk_804B9870FPv,
-    (void *)&release_member_90__10TObjPlayerFv,
+    (void *)&reset_motion_fields__13TUnk_804AF8A0Fv,
     (void *)&vfunc_9__11TItemObjectFv,
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
@@ -632,7 +632,7 @@ void *item_sol_atomizer_vtable[46] = {
     (void *)&render_shadows__5TItemFv,
     (void *)&vfunc_6__13TUnk_804B9870FPsl,
     (void *)&apply_object_set_data__13TUnk_804B9870FPv,
-    (void *)&release_member_90__10TObjPlayerFv,
+    (void *)&reset_motion_fields__13TUnk_804AF8A0Fv,
     (void *)&vfunc_9__11TItemObjectFv,
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
@@ -680,7 +680,7 @@ void *item_star_atomizer_vtable[46] = {
     (void *)&render_shadows__5TItemFv,
     (void *)&vfunc_6__13TUnk_804B9870FPsl,
     (void *)&apply_object_set_data__13TUnk_804B9870FPv,
-    (void *)&release_member_90__10TObjPlayerFv,
+    (void *)&reset_motion_fields__13TUnk_804AF8A0Fv,
     (void *)&vfunc_9__11TItemObjectFv,
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,

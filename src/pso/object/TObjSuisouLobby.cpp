@@ -47,7 +47,7 @@ s32 scale_matrix(int, f32, f32, f32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
-void render_shadows__7TObjectFv(); void vfunc_6__13TUnk_804B9870FPsl(); void apply_object_set_data__13TUnk_804B9870FPv(); void release_member_90__10TObjPlayerFv();
+void render_shadows__7TObjectFv(); void vfunc_6__13TUnk_804B9870FPsl(); void apply_object_set_data__13TUnk_804B9870FPv(); void reset_motion_fields__13TUnk_804AF8A0Fv();
 void vfunc_9__13TUnk_804B9870Fv(); void update_object_view_visibility__13TUnk_804B9870Fff(); void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void vfunc_12__13TUnk_804B9870Fv(); void vfunc_13__13TUnk_804AF8A0Fl();
 #pragma readonly_strings on
@@ -60,7 +60,7 @@ char *lbl_805D44C4 = "TObjSuisouLobby";
 void *__vt__15TObjSuisouLobby[14] = {
     0, 0, (void *)__dt__15TObjSuisouLobbyFv, (void *)run_task__15TObjSuisouLobbyFv, (void *)render__15TObjSuisouLobbyFv,
     (void *)render_shadows__7TObjectFv, (void *)vfunc_6__13TUnk_804B9870FPsl, (void *)apply_object_set_data__13TUnk_804B9870FPv,
-    (void *)release_member_90__10TObjPlayerFv, (void *)vfunc_9__13TUnk_804B9870Fv, (void *)update_object_view_visibility__13TUnk_804B9870Fff,
+    (void *)reset_motion_fields__13TUnk_804AF8A0Fv, (void *)vfunc_9__13TUnk_804B9870Fv, (void *)update_object_view_visibility__13TUnk_804B9870Fff,
     (void *)classify_actor_view_detail__13TUnk_804B9870Ffff, (void *)vfunc_12__13TUnk_804B9870Fv, (void *)vfunc_13__13TUnk_804AF8A0Fl,
 };
 const f32 lbl_8047A3D0[1][3] = { { 0.0f, 0.0f, 60.0f } };

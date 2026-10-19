@@ -100,7 +100,7 @@ void dispatch_state__5TItemFv();
 void render_shadows__5TItemFv();
 void vfunc_6__13TUnk_804B9870FPsl();
 void apply_object_set_data__13TUnk_804B9870FPv();
-void release_member_90__10TObjPlayerFv();
+void reset_motion_fields__13TUnk_804AF8A0Fv();
 void vfunc_9__11TItemObjectFv();
 void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void register_attack__5TItemFv();
@@ -128,7 +128,7 @@ void vfunc_35__5TItemFv();
 void vfunc_36__11TItemObjectFv();
 void vfunc_43__5TItemFv();
 void *lbl_8049FBC0[45] = {
-    0, 0, (void *)__dt__13TUnk_8049FBC0Fv, (void *)run_task__5TItemFv, (void *)dispatch_state__5TItemFv, (void *)render_shadows__5TItemFv, (void *)vfunc_6__13TUnk_804B9870FPsl, (void *)apply_object_set_data__13TUnk_804B9870FPv, (void *)release_member_90__10TObjPlayerFv, (void *)vfunc_9__11TItemObjectFv, (void *)TItem__sub_80100B8C, (void *)classify_actor_view_detail__13TUnk_804B9870Ffff, (void *)register_attack__5TItemFv, (void *)try_pick_up_item__5TItemFl, (void *)vfunc_14__11TItemObjectFv, (void *)TItem__sub_801005E0, (void *)vfunc_16__5TItemFv, (void *)vfunc_17__5TItemFv, (void *)TItemObject__vt16, (void *)vfunc_19__5TItemFSc, (void *)vfunc_20__5TItemFv, (void *)vfunc_21__5TItemFPUclll, (void *)vfunc_22__5TItemFl, (void *)vfunc_23__5TItemFl, (void *)vfunc_24__5TItemFllPs, (void *)vfunc_25__5TItemFv, (void *)vfunc_26__5TItemFv, (void *)vfunc_27__5TItemFv, (void *)vfunc_28__5TItemFv, (void *)destroy__5TItemFv, (void *)vfunc_30__5TItemFv, (void *)vfunc_31__11TItemObjectFv, (void *)vfunc_32__5TItemFv, (void *)vfunc_33__5TItemFv, (void *)vfunc_34__5TItemFv, (void *)vfunc_35__5TItemFv, (void *)vfunc_36__11TItemObjectFv, (void *)vfunc_37__11TItemObjectFl, (void *)vfunc_38__11TItemObjectFl, (void *)ret_8010064C, (void *)TItem__sub_80100648, (void *)TItem__sub_801005E4, (void *)TItem__sub_801005D8, (void *)vfunc_43__5TItemFv, (void *)vfunc_44__13TUnk_8049FBC0Fv
+    0, 0, (void *)__dt__13TUnk_8049FBC0Fv, (void *)run_task__5TItemFv, (void *)dispatch_state__5TItemFv, (void *)render_shadows__5TItemFv, (void *)vfunc_6__13TUnk_804B9870FPsl, (void *)apply_object_set_data__13TUnk_804B9870FPv, (void *)reset_motion_fields__13TUnk_804AF8A0Fv, (void *)vfunc_9__11TItemObjectFv, (void *)TItem__sub_80100B8C, (void *)classify_actor_view_detail__13TUnk_804B9870Ffff, (void *)register_attack__5TItemFv, (void *)try_pick_up_item__5TItemFl, (void *)vfunc_14__11TItemObjectFv, (void *)TItem__sub_801005E0, (void *)vfunc_16__5TItemFv, (void *)vfunc_17__5TItemFv, (void *)TItemObject__vt16, (void *)vfunc_19__5TItemFSc, (void *)vfunc_20__5TItemFv, (void *)vfunc_21__5TItemFPUclll, (void *)vfunc_22__5TItemFl, (void *)vfunc_23__5TItemFl, (void *)vfunc_24__5TItemFllPs, (void *)vfunc_25__5TItemFv, (void *)vfunc_26__5TItemFv, (void *)vfunc_27__5TItemFv, (void *)vfunc_28__5TItemFv, (void *)destroy__5TItemFv, (void *)vfunc_30__5TItemFv, (void *)vfunc_31__11TItemObjectFv, (void *)vfunc_32__5TItemFv, (void *)vfunc_33__5TItemFv, (void *)vfunc_34__5TItemFv, (void *)vfunc_35__5TItemFv, (void *)vfunc_36__11TItemObjectFv, (void *)vfunc_37__11TItemObjectFl, (void *)vfunc_38__11TItemObjectFl, (void *)ret_8010064C, (void *)TItem__sub_80100648, (void *)TItem__sub_801005E4, (void *)TItem__sub_801005D8, (void *)vfunc_43__5TItemFv, (void *)vfunc_44__13TUnk_8049FBC0Fv
 };
 
 void TUnk_8049FBC0::vfunc_44() {

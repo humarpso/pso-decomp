@@ -37,7 +37,7 @@ extern "C" u8 lbl_804657C8[];
 extern "C" u8 lbl_804657E0[];
 extern "C" u8 lbl_804657F4[];
 extern "C" u8 bm_o_rock_jungle_motion_names[];
-extern "C" void release_member_90__10TObjPlayerFv();
+extern "C" void reset_motion_fields__13TUnk_804AF8A0Fv();
 extern "C" void render_shadows__7TObjectFv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 extern void *bm_o_rock_jungle_model_names[6];
@@ -69,7 +69,7 @@ void *rock_jungle_vec3_table[9] = {
 void *lbl_804DC448[16] = {
     (void *)0x0, (void *)0x0, (void *)&destroy__15TORockJungleL01Fs, (void *)&run_task__15TORockJungleL01Fv,
     (void *)&draw_model__10TORockCaveFv, (void *)&render_shadows__7TObjectFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
-    (void *)&release_member_90__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
+    (void *)&reset_motion_fields__13TUnk_804AF8A0Fv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__13TUnk_804B9870Fv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&vfunc_14__15TORockJungleL01Fv, (void *)&vfunc_15__15TORockJungleL01Fv,
 };
 #define rock_jungle_collision_body_parts (*(Inner_8029C214 *)rock_jungle_collision_body_parts)

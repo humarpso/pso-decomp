@@ -215,7 +215,7 @@ void dispatch_state__5TItemFv();
 void render_shadows__5TItemFv();
 void vfunc_6__13TUnk_804B9870FPsl();
 void apply_object_set_data__13TUnk_804B9870FPv();
-void release_member_90__10TObjPlayerFv();
+void reset_motion_fields__13TUnk_804AF8A0Fv();
 void vfunc_9__13TUnk_804B9870Fv();
 void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void register_attack__5TItemFv();
@@ -252,7 +252,7 @@ void *__vt__12TItemProUnit[51] = {
     (void *)render_shadows__5TItemFv,
     (void *)vfunc_6__13TUnk_804B9870FPsl,
     (void *)apply_object_set_data__13TUnk_804B9870FPv,
-    (void *)release_member_90__10TObjPlayerFv,
+    (void *)reset_motion_fields__13TUnk_804AF8A0Fv,
     (void *)vfunc_9__13TUnk_804B9870Fv,
     (void *)TItem__sub_80100B8C,
     (void *)classify_actor_view_detail__13TUnk_804B9870Ffff,

@@ -646,7 +646,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void update_enemy_collision_flags();
     void check_object_collisions();
     void update_collisions();
-    void release_member_90();
     static void reset();
     void on_zone_exit();
     u8 is_state_ec1_ed3();

@@ -308,7 +308,7 @@ void render__7TObjectFv(void);
 void render_shadows__7TObjectFv(void);
 void vfunc_6__13TUnk_804B9870FPsl(void);
 void apply_object_set_data__13TUnk_804B9870FPv(void);
-void release_member_90__10TObjPlayerFv(void *);
+void reset_motion_fields__13TUnk_804AF8A0Fv(void *);
 void update_object_view_visibility__13TUnk_804B9870Fff(void);
 void classify_actor_view_detail__13TUnk_804B9870Ffff(void);
 void vfunc_12__13TUnk_804B9870Fv(void);
@@ -322,7 +322,7 @@ void *lbl_8049F038[14] = {
     0, 0, (void *)destroy__13TUnk_8049F038Fs, (void *)run_task__13TUnk_8049F038Fv,
     (void *)render__7TObjectFv, (void *)render_shadows__7TObjectFv,
     (void *)vfunc_6__13TUnk_804B9870FPsl, (void *)apply_object_set_data__13TUnk_804B9870FPv,
-    (void *)release_member_90__10TObjPlayerFv, (void *)vfunc_9__13TUnk_8049F038Fv,
+    (void *)reset_motion_fields__13TUnk_804AF8A0Fv, (void *)vfunc_9__13TUnk_8049F038Fv,
     (void *)update_object_view_visibility__13TUnk_804B9870Fff, (void *)classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)vfunc_12__13TUnk_804B9870Fv, (void *)vfunc_13__13TUnk_804AF8A0Fl,
 };

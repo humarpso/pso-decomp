@@ -111,8 +111,8 @@ void area_attack_receive_direct(Actor_800BBF08 *src, Actor_800BBF08 *dst, f32 *r
 s32 obj_is_hit_receivable();
 Tgt_800BC080 *get_battle_param__10TObjPlayerFi(s32);
 s32 is_area_attack_target_eligible(void *, int);
-s32 area_attack_deliver_physical(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg2, f32 farg0);
-s32 area_attack_deliver_direct(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, void *arg3, f32 farg0);
+s32 area_attack_deliver_physical__13TUnk_804928CCFPvPvf(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg2, f32 farg0);
+s32 area_attack_deliver_direct__13TUnk_804928CCFPvlPvf(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, void *arg3, f32 farg0);
 struct Base_800bbe90 { char pad[0x18]; };
 struct VObj_800bbe90 : Base_800bbe90 {
     virtual void m0();
@@ -180,7 +180,7 @@ void TUnk_804928CC::vfunc_19(void *arg1) {
     this->call_vt16_with_default(arg1, 0);
 }
 
-s32 area_attack_deliver_physical(P_800BC080 *arg0, Arg_800BC080 *arg1, void *object, f32 range) {
+s32 TUnk_804928CC::area_attack_deliver_physical(void *arg1, void *object, f32 range) {
     s32 hit = 0;
     s32 mask = 0;
     Tgt_800BC080 *t;
@@ -188,31 +188,31 @@ s32 area_attack_deliver_physical(P_800BC080 *arg0, Arg_800BC080 *arg1, void *obj
     s32 ok;
     s32 j;
     s32 n;
-    if (arg0->self_tgt == NULL) {
+    if (((P_800BC080 *)this)->self_tgt == NULL) {
         return 0;
     }
     TObjPlayer::init_all_slots();
-    if (arg1->flags & 1) {
-        ((TUnk_804928CC *)arg0)->update_body_contact_flag(range);
+    if (((Arg_800BC080 *)arg1)->flags & 1) {
+        ((TUnk_804928CC *)((P_800BC080 *)this))->update_body_contact_flag(range);
         mask |= 0x80000;
     }
-    if (arg1->flags & 2) {
-        ((TUnk_804AF8A0 *)arg0)->mark_enemy_body_contacts();
+    if (((Arg_800BC080 *)arg1)->flags & 2) {
+        ((TUnk_804AF8A0 *)((P_800BC080 *)this))->mark_enemy_body_contacts();
         mask |= 0x100000;
     }
-    if (arg0->info->mask & mask) {
+    if (((P_800BC080 *)this)->info->mask & mask) {
         for (i = 0; i < 0x10; i++) {
             t = get_battle_param__10TObjPlayerFi(i);
             if (t == NULL) {
                 break;
             }
-            if (obj_is_hit_receivable() != 0 && t != arg0->self_tgt && is_area_attack_target_eligible(arg0, t->x30) != 0) {
+            if (obj_is_hit_receivable() != 0 && t != ((P_800BC080 *)this)->self_tgt && is_area_attack_target_eligible(((P_800BC080 *)this), t->x30) != 0) {
                 ok = 1;
                 if (object != NULL && attack_target_history_add((s32)object, (s32)t) == 0) {
                     ok = 0;
                 }
                 if (ok != 0) {
-                    arg0->m20(t, arg1);
+                    ((P_800BC080 *)this)->m20(t, ((Arg_800BC080 *)arg1));
                     hit = 1;
                 } else {
                     n = t->nrecs;
@@ -238,37 +238,37 @@ void TUnk_804928CC::vfunc_16(void *arg1, void *arg2) {
     this->call_vt13_with_default(arg1, arg2, 0);
 }
 
-s32 area_attack_deliver_direct(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, void *object, f32 range) {
+s32 TUnk_804928CC::area_attack_deliver_direct(void *arg1, s32 arg2, void *object, f32 range) {
     s32 hit = 0;
     s32 mask = 0;
     Tgt_800BC250 *t;
     s32 i;
     s32 ok;
-    if (arg0->self_tgt == NULL) {
+    if (((P_800BC250 *)this)->self_tgt == NULL) {
         return 0;
     }
     TObjPlayer::init_all_slots();
-    if (arg1->flags & 1) {
-        ((TUnk_804928CC *)arg0)->update_body_contact_flag(range);
+    if (((Arg_800BC250 *)arg1)->flags & 1) {
+        ((TUnk_804928CC *)((P_800BC250 *)this))->update_body_contact_flag(range);
         mask |= 0x80000;
     }
-    if (arg1->flags & 2) {
-        ((TUnk_804AF8A0 *)arg0)->mark_enemy_body_contacts();
+    if (((Arg_800BC250 *)arg1)->flags & 2) {
+        ((TUnk_804AF8A0 *)((P_800BC250 *)this))->mark_enemy_body_contacts();
         mask |= 0x100000;
     }
-    if (arg0->info->mask & mask) {
+    if (((P_800BC250 *)this)->info->mask & mask) {
         for (i = 0; i < 0x10; i++) {
             t = ((Tgt_800BC250 *)get_battle_param__10TObjPlayerFi(i));
             if (t == NULL) {
                 break;
             }
-            if (obj_is_hit_receivable() != 0 && t != arg0->self_tgt && is_area_attack_target_eligible(arg0, t->x30) != 0) {
+            if (obj_is_hit_receivable() != 0 && t != ((P_800BC250 *)this)->self_tgt && is_area_attack_target_eligible(((P_800BC250 *)this), t->x30) != 0) {
                 ok = 1;
                 if (object != NULL && attack_target_history_add((s32)object, (s32)t) == 0) {
                     ok = 0;
                 }
                 if (ok != 0) {
-                    arg0->m19(t, arg1, arg2);
+                    ((P_800BC250 *)this)->m19(t, ((Arg_800BC250 *)arg1), arg2);
                     hit = 1;
                 }
             }

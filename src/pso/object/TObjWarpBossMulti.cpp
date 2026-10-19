@@ -404,7 +404,7 @@ void update_warp_boss_visibility__12TObjWarpBossFv(void *arg0);
 void render_shadows__7TObjectFv();
 void vfunc_6__13TUnk_804B9870FPsl();
 void apply_object_set_data__13TUnk_804B9870FPv();
-void release_member_90__10TObjPlayerFv();
+void reset_motion_fields__13TUnk_804AF8A0Fv();
 void vfunc_9__13TUnk_804B9870Fv();
 void update_object_view_visibility__13TUnk_804B9870Fff();
 void classify_actor_view_detail__13TUnk_804B9870Ffff();
@@ -460,7 +460,7 @@ s32 __vt__17TObjWarpBossMulti[21] = {
     (s32)&render_shadows__7TObjectFv,
     (s32)&vfunc_6__13TUnk_804B9870FPsl,
     (s32)&apply_object_set_data__13TUnk_804B9870FPv,
-    (s32)&release_member_90__10TObjPlayerFv,
+    (s32)&reset_motion_fields__13TUnk_804AF8A0Fv,
     (s32)&vfunc_9__13TUnk_804B9870Fv,
     (s32)&update_object_view_visibility__13TUnk_804B9870Fff,
     (s32)&classify_actor_view_detail__13TUnk_804B9870Ffff,

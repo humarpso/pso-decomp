@@ -296,7 +296,7 @@ extern "C" void get_motion_ptr__11TItemWeaponFv();
 extern "C" void launch_shot__11TItemWeaponFPUclll();
 extern "C" void vfunc_46__11TItemWeaponFv();
 extern "C" void register_attack__5TItemFv();
-extern "C" void release_member_90__10TObjPlayerFv();
+extern "C" void reset_motion_fields__13TUnk_804AF8A0Fv();
 extern "C" void remove_equip_stats__14TItemEquipBaseFl();
 extern "C" void render_shadows__5TItemFv();
 extern "C" void vfunc_49__11TItemWeaponFv();
@@ -319,7 +319,7 @@ extern "C" {
 void *s_rank_j_cutter_weapon_vtable[64] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__13TUnk_804A4238Fv, (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
-    (void *)&release_member_90__10TObjPlayerFv, (void *)&get_motion_ptr__11TItemWeaponFv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
+    (void *)&reset_motion_fields__13TUnk_804AF8A0Fv, (void *)&get_motion_ptr__11TItemWeaponFv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&register_attack__5TItemFv, (void *)&try_pick_up_item__5TItemFl, (void *)&vfunc_14__11TItemWeaponFv, (void *)&TItem__sub_801005E0,
     (void *)&vfunc_16__11TItemWeaponFv, (void *)&vfunc_17__11TItemWeaponFl, (void *)&TItemWeapon__write_item_data, (void *)&set_attach_slot__14TItemEquipBaseFSc,
     (void *)&equip__14TItemEquipBaseFv, (void *)&unequip__14TItemEquipBaseFv, (void *)&add_equip_stats__14TItemEquipBaseFl, (void *)&remove_equip_stats__14TItemEquipBaseFl,
@@ -337,7 +337,7 @@ void *s_rank_j_cutter_weapon_vtable[64] = {
 void *s_rank_slicer_weapon_vtable[64] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__13TUnk_804A4338Fv, (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
-    (void *)&release_member_90__10TObjPlayerFv, (void *)&get_motion_ptr__11TItemWeaponFv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
+    (void *)&reset_motion_fields__13TUnk_804AF8A0Fv, (void *)&get_motion_ptr__11TItemWeaponFv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&register_attack__5TItemFv, (void *)&try_pick_up_item__5TItemFl, (void *)&vfunc_14__11TItemWeaponFv, (void *)&TItem__sub_801005E0,
     (void *)&vfunc_16__11TItemWeaponFv, (void *)&vfunc_17__11TItemWeaponFl, (void *)&TItemWeapon__write_item_data, (void *)&set_attach_slot__14TItemEquipBaseFSc,
     (void *)&equip__14TItemEquipBaseFv, (void *)&unequip__14TItemEquipBaseFv, (void *)&add_equip_stats__14TItemEquipBaseFl, (void *)&remove_equip_stats__14TItemEquipBaseFl,
