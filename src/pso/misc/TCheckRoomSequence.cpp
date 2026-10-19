@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TShopWindowBase.h"
 struct TShopKeepItemWindow;
 #include "pso/TShopWindowBase.h"
 #include "pso/misc/TShopSequence.h"
@@ -260,7 +261,7 @@ void TCheckRoomSequence__sub_8020F1DC(void);
 void TCheckRoomSequence__sub_802100F8(void);
 void TCheckRoomSequence__sub_802100FC(void);
 void TCheckRoomSequence__vt10(void* p);
-void TShopWindowBase__sub_802115F0(void);
+void vfunc_6__15TShopWindowBaseFv(void);
 int set_quest_list_mode_19__18TCheckRoomSequenceFPv(void* p);
 }
 u8 bank_has_free_row(s32 i);
@@ -1163,5 +1164,5 @@ void TAdSinglePlyChrSelectGC::init_item_entry() {
 
 void* TAdSinglePlyChrSelectGC__sub_802115C0(void* p) { ((TAdSinglePlyChrSelectGC *)p)->init_item_entry(); return p; }
 
-void TShopWindowBase__sub_802115F0(void) {  }
+void TShopWindowBase::vfunc_6() {  }
 }

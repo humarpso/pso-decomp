@@ -14,6 +14,7 @@ struct TechniqueContactList;
 
 struct TObjPlayer : public TUnk_804806E8 {
     virtual ~TObjPlayer();
+    virtual void reset_motion_fields();
     void update_swim_flag(void *);
     void setup_radar_marker(void *, void *);
     void fire_spread_shot(void *);
@@ -633,7 +634,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     static s32 clamp_s32(s32 arg0, s32 arg1, s32 arg2);
     static u16 lerp_angle_half(u16 arg0, u16 arg1);
     static s32 is_in_range(f32 farg0);
-    void reset_movement();
     void draw_model();
     void draw_if_visible();
     static void apply_status_effect(s32 a);
@@ -1735,7 +1735,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void check_idle_movement_request();
     void push_to_list(s32 arg1);
     static s32 run_and_return_arg(s32 arg0);
-    void update_casing_eject();
 };
 
 #include <stddef.h>

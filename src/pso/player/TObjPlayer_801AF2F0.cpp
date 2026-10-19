@@ -2224,7 +2224,7 @@ void draw_projected_shadow__10TObjPlayerFPvPvi(VObj_801BAB78 *self, f32 *pos, s3
 void TObjPlayer__sub_801BAC48(void);
 void draw_body__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 void run_task__10TObjPlayerFv(TObjPlayer *arg0);
-void TObjPlayer__vt6(s32 arg0);
+void reset_motion_fields__10TObjPlayerFv(s32 arg0);
 void TObjPlayer__sub_801BB8A8(void);
 void TObjPlayer__sub_801BB8AC(void);
 void TObjPlayer__sub_801BBB70(void);
@@ -7641,13 +7641,14 @@ s32 TObjPlayer::setup_control_role(s32 role) {
     return register_player_slot() != 1 ? 1 : 0;
 }
 
-void TObjPlayer__vt6(s32 arg0) {
+void TObjPlayer::reset_motion_fields() {
     s32 temp_r30;
     s32 temp_r31;
     s32 temp_r3;
+    s32 arg0 = (s32)this;
     reset_motion_fields__13TUnk_804B9870Fv();
     ((TObjPlayer *)arg0)->release_member_90();
-    ((TObjPlayer *)arg0)->reset_movement();
+    ((TObjPlayer *)arg0)->TObjMotion::reset_motion_fields();
     reset_motion_fields__13TUnk_804806E8Fv((void *)arg0);
     ((TObjPlayer *)arg0)->reset_state();
     TObjPlayer__sub_801BD3A4((void *)arg0);

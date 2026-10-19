@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void TObjPlayer__sub_800A0338(void);
+void set_flags_and_apply_damage_color__13TUnk_80490470Fv(void);
 }
 
 #endif

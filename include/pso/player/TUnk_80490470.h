@@ -6,6 +6,7 @@
 class TUnk_80490470 : public TUnk_80494AE0 {
 public:
     virtual ~TUnk_80490470();
+    virtual void set_flags_and_apply_damage_color();
     virtual s32 decay_value_toward_floor();
     virtual void set_rate_from_divisor(s32);
     virtual void vfunc_4();

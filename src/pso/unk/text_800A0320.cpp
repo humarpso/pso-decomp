@@ -13,7 +13,7 @@ s32 TUnk_80490470::vfunc_10() {
     return *(f32 *)&this->unk_18 > lbl_805D9958;
 }
 
-void TObjPlayer__sub_800A0338(void) { TObjPlayer::set_flags_and_apply_damage_color(); set_chunk_blend(7424); }
+void TUnk_80490470::set_flags_and_apply_damage_color() { TObjPlayer::set_flags_and_apply_damage_color(); set_chunk_blend(7424); }
 s32 TUnk_80490470::advance_toward_max() {
     f32 temp_f1;
     temp_f1 = *(f32 *)&this->unk_18;

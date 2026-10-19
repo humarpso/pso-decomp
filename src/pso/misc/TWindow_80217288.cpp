@@ -50,7 +50,7 @@ void TWindow__close(u8 *arg0);
 
 extern s32 TQuestListOffline__class_name;
 
-extern "C" void TShopWindowBase__sub_802115F0();
+extern "C" void vfunc_6__15TShopWindowBaseFv();
 extern "C" void vfunc_8__15TShopWindowBaseFv();
 extern "C" void vfunc_7__15TShopWindowBaseFv();
 extern "C" void vfunc_9__15TShopWindowBaseFv();
@@ -152,7 +152,7 @@ void *lbl_804C9C10[35] = {
 };
 void *lbl_804C9C9C[12] = {
     (void *)0x0, (void *)0x0, (void *)&close_shop_subwindows__17TQuestListOfflineFs, (void *)&run_task__15TShopWindowBaseFv,
-    (void *)&render__7TObjectFv, (void *)&render_shadows__7TObjectFv, (void *)&TShopWindowBase__sub_802115F0, (void *)&vfunc_7__15TShopWindowBaseFv,
+    (void *)&render__7TObjectFv, (void *)&render_shadows__7TObjectFv, (void *)&vfunc_6__15TShopWindowBaseFv, (void *)&vfunc_7__15TShopWindowBaseFv,
     (void *)&vfunc_8__15TShopWindowBaseFv, (void *)&vfunc_9__15TShopWindowBaseFv, (void *)&vfunc_10__15TShopWindowBaseFv, (void *)&vfunc_11__17TQuestListOfflineFv,
 };
 #define lbl_804C9C9C ((s32 *)lbl_804C9C9C)

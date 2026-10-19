@@ -353,14 +353,14 @@ void TQuestListChallenge__vt9(TQuestListChallenge *quest_list_challenge) {
 extern "C" void run_task__15TShopWindowBaseFv();
 extern "C" void render__7TObjectFv();
 extern "C" void render_shadows__7TObjectFv();
-extern "C" void TShopWindowBase__sub_802115F0();
+extern "C" void vfunc_6__15TShopWindowBaseFv();
 extern "C" void vfunc_7__15TShopWindowBaseFv();
 extern "C" void vfunc_8__15TShopWindowBaseFv();
 extern "C" void vfunc_9__15TShopWindowBaseFv();
 extern "C" void vfunc_10__15TShopWindowBaseFv();
 void *__vt__19TQuestListChallenge[12] = {
     0, 0, (void *)&__dt__19TQuestListChallengeFv, (void *)&run_task__15TShopWindowBaseFv,
-    (void *)&render__7TObjectFv, (void *)&render_shadows__7TObjectFv, (void *)&TShopWindowBase__sub_802115F0,
+    (void *)&render__7TObjectFv, (void *)&render_shadows__7TObjectFv, (void *)&vfunc_6__15TShopWindowBaseFv,
     (void *)&vfunc_7__15TShopWindowBaseFv, (void *)&vfunc_8__15TShopWindowBaseFv,
     (void *)&vfunc_9__15TShopWindowBaseFv, (void *)&vfunc_10__15TShopWindowBaseFv,
     (void *)&TQuestListChallenge__vt9,

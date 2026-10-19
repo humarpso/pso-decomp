@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804A5D28.h"
 #include "pso/item/TItemEffOrgaFlowShot.h"
 #include "pso/player/TObjPlayer.h"
 struct Owner_8012E5A0 { u8 pad[0x60]; s32 f60; };
@@ -23,7 +24,7 @@ extern const f32 lbl_805DAF7C;
 extern const f32 lbl_805DAF84;
 extern const f32 lbl_805DAF88;
 extern const f32 lbl_805DAF8C;
-void TObjPlayer::update_casing_eject() {
+void TUnk_804A5D28::update_weapon() {
     s32 ang;
     Vec_8012E5A0 v;
     Ang_8012E5A0 a;

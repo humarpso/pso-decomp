@@ -109,7 +109,7 @@ void *__ct__15TShopWindowBaseFv(void *shop_window_base) {
 
 void render__7TObjectFv();
 void render_shadows__7TObjectFv();
-void TShopWindowBase__sub_802115F0();
+void vfunc_6__15TShopWindowBaseFv();
 void vfunc_7__15TShopWindowBaseFv();
 void vfunc_8__15TShopWindowBaseFv();
 void vfunc_9__15TShopWindowBaseFv();
@@ -121,7 +121,7 @@ s32 __vt__15TShopWindowBase[12] = {
     (s32)run_task__15TShopWindowBaseFv,
     (s32)render__7TObjectFv,
     (s32)render_shadows__7TObjectFv,
-    (s32)TShopWindowBase__sub_802115F0,
+    (s32)vfunc_6__15TShopWindowBaseFv,
     (s32)vfunc_7__15TShopWindowBaseFv,
     (s32)vfunc_8__15TShopWindowBaseFv,
     (s32)vfunc_9__15TShopWindowBaseFv,
