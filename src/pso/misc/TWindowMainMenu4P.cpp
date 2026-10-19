@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowMainMenu4P.h"
+#include "pso/misc/TWindowMainMenu4P.h"
 #include "pso/misc/TWindowMainMenu.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -49,16 +50,11 @@ void TWindowMainMenu4P::run_task() { handle_menu_selection(); sub_80263FE0(); }
 
 extern s32 __vt__17TWindowMainMenu4P[];
 
-void *__dt__17TWindowMainMenu4PFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TWindowMainMenu4P;
-        __dt__15TWindowMainMenuFv((u8 *)arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TWindowMainMenu4P::~TWindowMainMenu4P() {
+
+}
+extern "C" {
 
 extern void *TWindowMainMenu4P__name;
 

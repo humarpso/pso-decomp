@@ -6,7 +6,6 @@
 class TUnk_804F3640 : public TObject {
 public:
     virtual ~TUnk_804F3640();
-    void *destroy_boss4_rock(s16);
     virtual void run_task();
     u8 unk_1C[0x14];
 };

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/misc/TWindowMenu.h"
@@ -27,18 +28,12 @@ void *TWindowMessageYesNo::create(void *arg0, void *arg1, void *arg2, void *arg3
     return o;
 }
 
-void *__dt__19TWindowMessageYesNoFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowMessageYesNo;
-        if (*(void **)((s8 *)arg0 + 0x2C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x2C))); ((TWindowMessageYesNo *)arg0)->m_2c = 0; }
-        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x28))); ((TWindowMessageYesNo *)arg0)->m_28 = 0; }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TWindowMessageYesNo::~TWindowMessageYesNo() {
+    if (*(void **)((s8 *)this + 0x2C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)this + 0x2C))); this->m_2c = 0; }
+    if (*(void **)((s8 *)this + 0x28) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)this + 0x28))); this->m_28 = 0; }
+}
+extern "C" {
 
 extern void *TWindowMessageYesNo__name;
 

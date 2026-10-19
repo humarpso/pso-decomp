@@ -1,21 +1,17 @@
 #include "types.h"
+#include "pso/unk/TUnk_804CC870.h"
 #include "pso/unk/text_80232B24.h"
 
 extern "C" {
 
 void __dt__7TObjectFv(void *, int);
 void __dl__7TObjectFPv(void *);
-extern s32 lbl_804CC870[];
+extern s32 __vt__13TUnk_804CC870[];
 
-void *__dt__13TUnk_804CC870Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CC870;
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TUnk_804CC870::~TUnk_804CC870() {
+
+}
+extern "C" {
 
 }

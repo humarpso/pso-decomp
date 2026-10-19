@@ -32,7 +32,7 @@ extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 void *construct_texture_wave(void *, void *);
-extern u8 lbl_8048E168[];
+extern u8 __vt__11TEF_PvrWave[];
 extern void *TEF_PvrWave__class_name;
 Wave_80081A30 *construct_pvr_wave__6TSceneFPvPvPvii(Wave_80081A30 *self, void *parent, void *image, s32 size, s32 index);
 extern s32 TScene__data_805D5FCC;
@@ -41,7 +41,7 @@ Wave_80081A30 *construct_pvr_wave__6TSceneFPvPvPvii(Wave_80081A30 *self, void *p
     void *p;
     TexList_80081A30 *list;
     __ct__7TObjectFP7TObject(self, parent);
-    self->vtable = lbl_8048E168;
+    self->vtable = __vt__11TEF_PvrWave;
     self->name = TEF_PvrWave__class_name;
     self->index = index;
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x54);

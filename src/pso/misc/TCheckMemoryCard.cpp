@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCheckMemoryCard.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/misc/TCheckMemoryCard.h"
 
@@ -63,29 +64,22 @@ void TCheckMemoryCard::run_task() {
     }
 }
 
-void *__dt__16TCheckMemoryCardFv(void *arg0, s16 arg1) {
-    void *temp_r3;
-
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TCheckMemoryCard;
-        temp_r3 = ((TCheckMemoryCard *)arg0)->m_30;
-        if (temp_r3 != NULL) {
-            if (temp_r3 != NULL) {
-                ((VObj_8033C4E0_8033C420 *)temp_r3)->m0(1);
-            }
-            ((TCheckMemoryCard *)arg0)->m_30 = NULL;
-        }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x34) != 0U) {
-            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x34)));
-            *(u32 *)((s8 *)arg0 + 0x34) = 0U;
-        }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TCheckMemoryCard::~TCheckMemoryCard() {
+    void *temp_r3;
+    temp_r3 = this->m_30;
+    if (temp_r3 != NULL) {
+        if (temp_r3 != NULL) {
+            ((VObj_8033C4E0_8033C420 *)temp_r3)->m0(1);
+        }
+        this->m_30 = NULL;
+    }
+    if ((u32) *(u32 *)((s8 *)this + 0x34) != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)this + 0x34)));
+        *(u32 *)((s8 *)this + 0x34) = 0U;
+    }
+}
+extern "C" {
 
 extern void *TCheckMemoryCard__name;
 

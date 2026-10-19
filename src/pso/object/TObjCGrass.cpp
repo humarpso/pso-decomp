@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjCGrass.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/obj_band.h"
 #include "pso/system/vector.h"
@@ -222,17 +223,11 @@ void TObjCGrass::load_resources() {
     TLobby::spawn_npc_enemy((s16)(0x36), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 8))), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0xC))), (s32)((void *)&stack.sp8), (f32)lbl_805D9E68, (f32)TObjCGrass__data_805D9E64);
 }
 
-void *__dt__10TObjCGrassFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjCGrass;
-        if (*(void **)((s8 *)arg0 + 0xFC) != NULL) { mem_free(*(void **)((s8 *)arg0 + 0xFC)); }
-        __dt__10TObjMotionFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TObjCGrass::~TObjCGrass() {
+    if (*(void **)((s8 *)this + 0xFC) != NULL) { mem_free(*(void **)((s8 *)this + 0xFC)); }
+}
+extern "C" {
 #pragma push
 #pragma fp_contract on
 u8 *TObjCGrass__ct(Grass_800B8EFC *self, u8 *arg1, s32 arg2, s32 arg3) {

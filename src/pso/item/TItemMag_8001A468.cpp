@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_80480938.h"
 #include "pso/item/TItemMag_8001A468.h"
 #include "pso/menu/TAdEndText.h"
 #include "pso/system/vector.h"
@@ -99,7 +100,7 @@ s32 init__9TItemDataFv(void *);
 s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8001A8F0_lbl_8043455C lbl_8043455C;
-extern s32 lbl_80480938[];
+extern s32 __vt__13TUnk_80480938[];
 extern s8 player_light_index;
 void set_active_camera_pose_from_params(u8 *arg0);
 s32 activate_camera_mode(s32 arg0);
@@ -165,16 +166,11 @@ void TObjPlayer::update_flag890_state(s32 arg0) {
 void TUnk_80480938::render() {  }
 void TUnk_80480938::run_task() { TObjPlayer__sub_8001A77C(this); TObjPlayer::publish_light_color(this); }
 
-void *TUnk_80480938::destroy_base(s16 arg1) {
-    if (this != NULL) {
-        *(s32 **)((s8 *)this + 0x18) = lbl_80480938;
-        __dt__7TObjectFv(this, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(this);
-        }
-    }
-    return this;
 }
+TUnk_80480938::~TUnk_80480938() {
+
+}
+extern "C" {
 typedef char RecoveredGlobal_8001A8F0_lbl_8043455C_size[sizeof(RecoveredGlobal_8001A8F0_lbl_8043455C) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_8001A8F0_lbl_80480938_size[sizeof(RecoveredGlobal_8001A8F0_lbl_80480938) == 0x18 ? 1 : -1];
 u8 *TObjPlayer__sub_8001A8F0(u8 *object, s32 arg1) {
@@ -186,7 +182,7 @@ u8 *TObjPlayer__sub_8001A8F0(u8 *object, s32 arg1) {
     Stack_8001A8F0 stack;
     s32 temp_r3;
     __ct__7TObjectFP7TObject((void *)object, (void *)arg1);
-    *(s32 **)((s8 *)object + 0x18) = &(*(RecoveredGlobal_8001A8F0_lbl_80480938 *)&lbl_80480938).value;
+    *(s32 **)((s8 *)object + 0x18) = &(*(RecoveredGlobal_8001A8F0_lbl_80480938 *)&__vt__13TUnk_80480938).value;
     player_light_index = 0;
     stack.sp8 = *(s32 *)((s8 *)&lbl_8043455C.value + 0);
     stack.spC = *(s32 *)((s8 *)&lbl_8043455C.value + 4);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOKeyAncient03.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/misc/TOKeyAncient03.h"
 #include "pso/misc/TOKeyCave01.h"
@@ -232,16 +233,11 @@ void TOKeyAncient03::load_resources() {
     *(s32 *)((s8 *)(*(s32 * *)&TOKeyAncient03__texture_variants) + 4) = (s32)load_gvm_texture_file((s32)&lbl_80441ACC.value);
 }
 
-void *__dt__14TOKeyAncient03Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TOKeyAncient03;
-        __dt__5TOKeyFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TOKeyAncient03::~TOKeyAncient03() {
+
+}
+extern "C" {
 
 u8 *TOKeyAncient03__ct(TOKeyAncient03 *key_ancient03, s32 arg1, s32 arg2) {
     TOKey__ct(key_ancient03);

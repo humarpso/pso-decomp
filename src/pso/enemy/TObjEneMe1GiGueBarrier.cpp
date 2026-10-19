@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe1GiGueBarrier.h"
 #include "pso/misc/obj_band.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_80143818.h"
@@ -129,17 +130,11 @@ void TObjEneMe1GiGueBarrier::run_task() {
     }
 }
 
-void *__dt__22TObjEneMe1GiGueBarrierFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TObjEneMe1GiGueBarrier;
-        if (*(void **)((s8 *)arg0 + 0xFC) != NULL) { ((TObjEneMe1GiGueBarrier *)(*(void **)((s8 *)arg0 + 0xFC)))->clear_flag388_bit80000(); }
-        __dt__10TObjMotionFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TObjEneMe1GiGueBarrier::~TObjEneMe1GiGueBarrier() {
+    if (*(void **)((s8 *)this + 0xFC) != NULL) { ((TObjEneMe1GiGueBarrier *)(*(void **)((s8 *)this + 0xFC)))->clear_flag388_bit80000(); }
+}
+extern "C" {
 
 u8 *TObjEneMe1GiGueBarrier__ct(TObjEneMe1GiGueBarrier *ene_me1_gi_gue_barrier, s32 arg1, u8 *arg2) {
     u8 *temp_r5;

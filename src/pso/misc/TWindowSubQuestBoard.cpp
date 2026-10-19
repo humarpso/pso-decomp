@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubQuestBoard.h"
 #include "pso/misc/TQuestThread.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/misc/TWindowSubQuestBoard_8027D148.h"
@@ -162,17 +163,11 @@ void TWindowSubQuestBoard::run_task() {
     }
 }
 
-void *__dt__20TWindowSubQuestBoardFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TWindowSubQuestBoard;
-        TWindowCtrl__sub_8027D1F8();
-        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x28))); ((TWindowSubQuestBoard *)arg0)->m_28 = 0; }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TWindowSubQuestBoard::~TWindowSubQuestBoard() {
+    TWindowCtrl__sub_8027D1F8();
+    if (*(void **)((s8 *)this + 0x28) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)this + 0x28))); this->m_28 = 0; }
+}
+extern "C" {
 
 }

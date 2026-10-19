@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_8048DF58.h"
 #include "pso/misc/TQuestVmDownLoadServer_8007EBDC.h"
 #include "pso/misc/TUnk_8048DF58.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
@@ -23,16 +24,11 @@ void TQuestVmDownLoadServer::register_global_instance_dtor() {
     __register_global_object(__ct__13TUnk_8048DF58Fv(lbl_805005A4), (void *)__dt__13TUnk_8048DF58Fv, lbl_80500598);
 }
 
-void *__dt__13TUnk_8048DF58Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TUnk_8048DF58;
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TUnk_8048DF58::~TUnk_8048DF58() {
+
+}
+extern "C" {
 
 }
 TUnk_8048DF58::TUnk_8048DF58() : TObject(0) {

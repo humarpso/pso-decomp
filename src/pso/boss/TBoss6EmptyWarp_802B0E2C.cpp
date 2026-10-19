@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6EmptyWarp.h"
 #include "pso/boss/TBoss6EmptyWarp_802B0E2C.h"
 #include "pso/misc/TLoadCtrl_80227390.h"
 #include "pso/object/TObject_80019A50.h"
@@ -39,17 +40,11 @@ void TBoss6EmptyWarp::run_task() {
     }
 }
 
-void *__dt__15TBoss6EmptyWarpFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TBoss6EmptyWarp;
-        end_cutscene_camera__14TBoss6PlotFalzFPv();
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TBoss6EmptyWarp::~TBoss6EmptyWarp() {
+    end_cutscene_camera__14TBoss6PlotFalzFPv();
+}
+extern "C" {
 
 void __ct__7TObjectFP7TObject(void *);
 

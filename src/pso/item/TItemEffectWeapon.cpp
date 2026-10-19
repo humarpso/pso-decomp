@@ -112,16 +112,8 @@ void TItemEffectWeapon::render_trail() {
 
 extern void *__vt__17TItemEffectWeapon[];
 
-void *__dt__17TItemEffectWeaponFv(void *self, s32 flag) {
-    if (self) {
-        *(void **)((s8 *)self + 0x18) = __vt__17TItemEffectWeapon;
-        TItemEffectWeapon::release_trail_buffer((void*)*(s32 *)((s8 *)self + 0x1C));
-        __dt__15TItemHeapObjectFv(self, 0);
-        if ((s16)flag > 0) {
-            __dl__15TItemHeapObjectFPv(self);
-        }
-    }
-    return self;
+TItemEffectWeapon::~TItemEffectWeapon() {
+    TItemEffectWeapon::release_trail_buffer((void*)*(s32 *)((s8 *)this + 0x1C));
 }
 
 extern s32 TItemEffectWeapon__class_name;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss8DragonEffBreath.h"
 #include "pso/boss/TBoss8Dragon_800BC53C.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss8DragonEffBreath.h"
@@ -50,18 +51,12 @@ void TBoss8DragonEffBreath::run_task() {
     }
 }
 
-void *__dt__21TBoss8DragonEffBreathFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TBoss8DragonEffBreath;
-        delete_buffer__12TBoss8DragonFis((s32)(*(void **)((s8 *)arg0 + 0x3C)), 1);
-        ((TBoss8DragonEffBreath *)arg0)->m_3c = 0;
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TBoss8DragonEffBreath::~TBoss8DragonEffBreath() {
+    delete_buffer__12TBoss8DragonFis((s32)(*(void **)((s8 *)this + 0x3C)), 1);
+    this->m_3c = 0;
+}
+extern "C" {
 Obj_802FE024 *TBoss8DragonEffBreath__ct(Obj_802FE024 *self, void *parent, void *p, void *v, s32 a, s16 b) {
     void *h;
     __ct__7TObjectFP7TObject(self, parent);

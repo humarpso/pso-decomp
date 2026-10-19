@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TEF_PvrWave.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 struct Ent_8008197C { s32 a; s32 b; s32 c; };
 
@@ -12,23 +13,17 @@ extern "C" {
 void __dt__7TObjectFv(void *, int);
 void __dl__7TObjectFPv(void *);
 R_8008197C *TScene__sub_80081B24(void);
-extern u8 lbl_8048E168[];
+extern u8 __vt__11TEF_PvrWave[];
 O_8008197C *__dt__11TEF_PvrWaveFv(O_8008197C *arg0, s16 arg1);
-O_8008197C *__dt__11TEF_PvrWaveFv(O_8008197C *arg0, s16 arg1) {
-    Q_8008197C *q;
-    if (arg0 != NULL) {
-        arg0->f18 = lbl_8048E168;
-        q = TScene__sub_80081B24()->q;
-        q->arr[arg0->f20].c = arg0->f34;
-        q->arr[arg0->f20].b = arg0->f30;
-        q->arr[arg0->f20].a = arg0->f2c;
-        ((TAdSinglePlyChrSelectGC *)(arg0->f1c))->destroy_and_free(1);
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TEF_PvrWave::~TEF_PvrWave() {
+    Q_8008197C *q;
+    q = TScene__sub_80081B24()->q;
+    q->arr[((O_8008197C *)this)->f20].c = ((O_8008197C *)this)->f34;
+    q->arr[((O_8008197C *)this)->f20].b = ((O_8008197C *)this)->f30;
+    q->arr[((O_8008197C *)this)->f20].a = ((O_8008197C *)this)->f2c;
+    ((TAdSinglePlyChrSelectGC *)(((O_8008197C *)this)->f1c))->destroy_and_free(1);
+}
+extern "C" {
 
 }

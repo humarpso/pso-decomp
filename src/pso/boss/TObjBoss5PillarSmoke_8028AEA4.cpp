@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss5PillarSmoke.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_80087278.h"
 struct Smoke_8028AEA4 {
@@ -31,29 +32,23 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 lbl_80450CD0[];
 extern s32 lbl_805D3B30;
 Smoke_8028AF6C *TObjBoss5PillarSmoke__ct(Smoke_8028AF6C *arg0, void *arg1, Node_8028AF6C *arg2);
-Smoke_8028AEA4 *__dt__20TObjBoss5PillarSmokeFv(Smoke_8028AEA4 *arg0, s16 arg1) {
+}
+TObjBoss5PillarSmoke::~TObjBoss5PillarSmoke() {
     s32 i;
-    if (arg0 != NULL) {
-        arg0->vt = __vt__20TObjBoss5PillarSmoke;
-        for (i = arg0->count - 1; i >= 0; i--) {
-            if (arg0->b[i] != NULL) {
-                queue_destruction__7TObjectFv(arg0->b[i]);
-                arg0->b[i] = NULL;
-            }
-            if (arg0->a[i] != NULL) {
-                queue_destruction__7TObjectFv(arg0->a[i]);
-                arg0->a[i] = NULL;
-            }
+    for (i = ((Smoke_8028AEA4 *)this)->count - 1; i >= 0; i--) {
+        if (((Smoke_8028AEA4 *)this)->b[i] != NULL) {
+            queue_destruction__7TObjectFv(((Smoke_8028AEA4 *)this)->b[i]);
+            ((Smoke_8028AEA4 *)this)->b[i] = NULL;
         }
-        mem_free(arg0->b);
-        mem_free(arg0->a);
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+        if (((Smoke_8028AEA4 *)this)->a[i] != NULL) {
+            queue_destruction__7TObjectFv(((Smoke_8028AEA4 *)this)->a[i]);
+            ((Smoke_8028AEA4 *)this)->a[i] = NULL;
         }
     }
-    return arg0;
+    mem_free(((Smoke_8028AEA4 *)this)->b);
+    mem_free(((Smoke_8028AEA4 *)this)->a);
 }
+extern "C" {
 Smoke_8028AF6C *TObjBoss5PillarSmoke__ct(Smoke_8028AF6C *arg0, void *arg1, Node_8028AF6C *arg2) {
     s32 i;
     __ct__7TObjectFP7TObject(arg0, arg1);

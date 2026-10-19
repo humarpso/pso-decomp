@@ -34,7 +34,7 @@ extern const f32 TItemEffArmor__data_805DAAEC;
 extern const f32 lbl_805DAAF0;
 extern const f32 lbl_805DAAF4;
 void __ct__7TObjectFP7TObject(void *, void *);
-extern RecoveredGlobal_80107DA4_lbl_8049EFB8 lbl_8049EFB8;
+extern RecoveredGlobal_80107DA4_lbl_8049EFB8 __vt__13TUnk_8049EFB8;
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
@@ -48,7 +48,7 @@ extern s32 model_render_flags;
 typedef char RecoveredGlobal_80107DA4_lbl_8049EFB8_size[sizeof(RecoveredGlobal_80107DA4_lbl_8049EFB8) == 0x18 ? 1 : -1];
 u8 *fn_80107DA4(u8 *arg0, u8 *arg1, s16 arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &lbl_8049EFB8.value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__13TUnk_8049EFB8.value;
     *(s32 *)((s8 *)arg0 + 0x1C) = 0;
     *(s16 *)&((TUnk_8049EFB8 *)arg0)->m_20 = arg2;
     return arg0;

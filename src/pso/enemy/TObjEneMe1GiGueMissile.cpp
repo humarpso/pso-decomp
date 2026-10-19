@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe1GiGueMissile.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
 #include "pso/enemy/TObjEneMe1GiGueMissile.h"
 #include "pso/TParticleCtrl.h"
@@ -104,16 +105,11 @@ void TObjEneMe1GiGueMissile::create(s32 arg0, s32 from, s32 arg2, f32 farg0, f32
     }
 }
 
-void *__dt__22TObjEneMe1GiGueMissileFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TObjEneMe1GiGueMissile;
-        __dt__12TNeedleShootFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TObjEneMe1GiGueMissile::~TObjEneMe1GiGueMissile() {
+
+}
+extern "C" {
 
 void TObjEneMe1GiGueMissile::render() {
     u8 *arg0 = (u8 *)this;

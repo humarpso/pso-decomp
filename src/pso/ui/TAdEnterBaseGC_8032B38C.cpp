@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdEnterBaseGC.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/ui/TAdEnterBaseGC_8032B38C.h"
 #include "pso/ui/TAdEnterBaseGC.h"
@@ -68,19 +69,13 @@ void TAdEnterBaseGC::sub_8032B460(int a1) { *(int *)&this->m_24 = 0; this->m_20 
 
 extern s32 __vt__14TAdEnterBaseGC[];
 
-void *__dt__14TAdEnterBaseGCFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TAdEnterBaseGC;
-        if (*(void **)((s8 *)arg0 + 0x2C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x2C)); *(s32 *)((s8 *)arg0 + 0x2C) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x30)); ((TAdEnterBaseGC *)arg0)->m_30 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x34) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x34)); *(s32 *)((s8 *)arg0 + 0x34) = 0; }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TAdEnterBaseGC::~TAdEnterBaseGC() {
+    if (*(void **)((s8 *)this + 0x2C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x2C)); *(s32 *)((s8 *)this + 0x2C) = 0; }
+    if (*(void **)((s8 *)this + 0x30) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x30)); this->m_30 = 0; }
+    if (*(void **)((s8 *)this + 0x34) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x34)); *(s32 *)((s8 *)this + 0x34) = 0; }
+}
+extern "C" {
 
 extern void *lbl_805D41E0;
 

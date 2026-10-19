@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TBreakUpMdl.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/boss/TBoss8Dragon_8002CC48.h"
 #include "pso/boss/TObjBoss2Tunnel_8007E418.h"
@@ -205,18 +206,12 @@ void TBreakUpMdl::init_alpha(s32 arg1, f32 farg0) {
 }
 #pragma pop
 
-void *__dt__11TBreakUpMdlFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TBreakUpMdl;
-        mem_free((void *)(*(void **)((s8 *)arg0 + 0x34)));
-        ((TBreakUpMdl *)arg0)->m_34 = 0;
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TBreakUpMdl::~TBreakUpMdl() {
+    mem_free((void *)(*(void **)((s8 *)this + 0x34)));
+    this->m_34 = 0;
+}
+extern "C" {
 
 #pragma push
 #pragma fp_contract on

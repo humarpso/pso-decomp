@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMorfosArm.h"
 #include "pso/enemy/TObjEneMorfosArm_80335218.h"
 #include "pso/misc/obj_band.h"
 #include "pso/object/TObject_80019A50.h"
@@ -67,16 +68,11 @@ void TObjEneMorfosArm::run_task() {
     }
 }
 
-void *__dt__16TObjEneMorfosArmFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjEneMorfosArm;
-        __dt__10TObjMotionFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TObjEneMorfosArm::~TObjEneMorfosArm() {
+
+}
+extern "C" {
 u8 *TObjEneMorfosArm__ct(TObjEneMorfosArm *ene_morfos_arm, s32 arg1, u8 *arg2) {
     u8 *temp_r5;
     TObjMotion__ct((u8 *)ene_morfos_arm);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjFogCollisionPoison.h"
 #include "pso/unk/text_80153674.h"
 #include "pso/object/TObjFogCollisionPoison.h"
 #include "pso/object/TObjFogCollisionSwitch.h"
@@ -72,16 +73,11 @@ void TObjFogCollisionPoison::vfunc_13(s32) {
     *(s32 *)&this->m_98 = (s32) ((f32) *(s32 *)&this->m_98 * var_f2);
 }
 
-void *__dt__22TObjFogCollisionPoisonFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TObjFogCollisionPoison;
-        __dt__22TObjFogCollisionSwitchFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TObjFogCollisionPoison::~TObjFogCollisionPoison() {
+
+}
+extern "C" {
 
 extern void *tl_05;
 

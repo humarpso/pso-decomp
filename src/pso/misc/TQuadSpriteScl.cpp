@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TQuadSpriteScl.h"
+#include "pso/misc/TQuadSpriteScl.h"
 #include "pso/system/vector.h"
 #include "pso/unk/TUnk_804C57F0.h"
 #include "pso/TParticleCtrl.h"
@@ -162,16 +163,11 @@ void render__14TQuadSpriteSclFv(Self_801E58D8 *self) {
 }
 #pragma pop
 
-void *__dt__14TQuadSpriteSclFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TQuadSpriteScl;
-        __dt__13TUnk_804C57F0Fv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TQuadSpriteScl::~TQuadSpriteScl() {
+
+}
+extern "C" {
 
 extern void *TQuadSpriteScl__class_name;
 

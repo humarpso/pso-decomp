@@ -6,7 +6,7 @@ void *__ct__6TMovieFP7TObjectPSclll(void *, void *, void *, void *, s32, s32, s3
 void *__nw__7TObjectFUl(u32);
 void *__ct__7TObjectFP7TObject(void *, void *);
 extern u8 lbl_80475450[];
-extern u8 lbl_804E71A0[];
+extern u8 __vt__13TUnk_804E71A0[];
 extern s32 game_difficulty_selection;
 extern void *tl_00;
 extern void *tl_04;
@@ -14,7 +14,7 @@ extern s32 ending_movie_active_flag;
 u8 *init_ending_movie(u8 *object) {
     void *p;
     __ct__7TObjectFP7TObject(object, tl_04);
-    *(void **)(object + 0x18) = lbl_804E71A0;
+    *(void **)(object + 0x18) = __vt__13TUnk_804E71A0;
     ending_movie_active_flag = 0;
     switch (game_difficulty_selection) {
     case 0:

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_8049F148.h"
 #include "pso/boss/TBoss4Type2_80086C44.h"
 #include "pso/item/TItemDispatch.h"
 #include "pso/item/TItemEffShield_8010A390.h"
@@ -101,7 +102,7 @@ struct Shield_8010A4C0 {
 
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
-extern s32 lbl_8049F148[];
+extern s32 __vt__13TUnk_8049F148[];
 extern RecoveredGlobal_8010A5E0___vt__14TItemEffShield __vt__14TItemEffShield;
 extern s32 TItemEffShield__class_name;
 void *get_player_by_client_id(s32 i);
@@ -110,22 +111,16 @@ void run_task__14TItemEffShieldFv(Shield_8010A4C0 *self);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
-void *__dt__13TUnk_8049F148Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049F148;
-        if (*(void **)((s8 *)arg0 + 0x1C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x1C)); *(s32 *)((s8 *)arg0 + 0x1C) = 0; }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TUnk_8049F148::~TUnk_8049F148() {
+    if (*(void **)((s8 *)this + 0x1C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x1C)); *(s32 *)((s8 *)this + 0x1C) = 0; }
+}
+extern "C" {
 
 typedef char RecoveredGlobal_8010A404_lbl_8049F148_size[sizeof(RecoveredGlobal_8010A404_lbl_8049F148) == 0x18 ? 1 : -1];
 u8 *TItemEffShield::ct_init(u8 *arg1, s16 arg2) {
     __ct__7TObjectFP7TObject(this, arg1);
-    *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_8010A404_lbl_8049F148 *)&lbl_8049F148).value;
+    *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_8010A404_lbl_8049F148 *)&__vt__13TUnk_8049F148).value;
     *(s16 *)((s8 *)((u8 *)this) + 0x24) = arg2;
     *(s32 *)((s8 *)((u8 *)this) + 0x20) = -1;
     *(s32 *)((s8 *)((u8 *)this) + 0x1C) = 0;

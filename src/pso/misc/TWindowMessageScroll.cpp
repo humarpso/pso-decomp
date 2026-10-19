@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMessageScroll.h"
 #include "pso/misc/TWindowMessageQuest.h"
 #include "pso/unk/text_8026B260.h"
 #include "pso/misc/TUnk_804CE018.h"
@@ -33,16 +34,11 @@ void TWindowMessageScroll::run_task() {
     }
 }
 
-void *__dt__20TWindowMessageScrollFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TWindowMessageScroll;
-        __dt__19TWindowMessageQuestFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TWindowMessageScroll::~TWindowMessageScroll() {
+
+}
+extern "C" {
 typedef char RecoveredGlobal_8035D694___vt__20TWindowMessageScroll_size[sizeof(RecoveredGlobal_8035D694___vt__20TWindowMessageScroll) == 0x18 ? 1 : -1];
 u8 *TWindowMessageScroll__ct(u8 *window_message_scroll, s32 arg1, s32 *arg2) {
     TWindowMessageQuest__ct((window_message_scroll), (arg1));

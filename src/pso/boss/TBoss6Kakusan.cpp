@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6Kakusan.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss6Kakusan.h"
 #include "pso/boss/TBoss6Type1.h"
@@ -253,17 +254,11 @@ void TBoss6Kakusan::run_task() {
     *(s32 *)&this->m_2c += 1;
 }
 
-void *__dt__13TBoss6KakusanFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TBoss6Kakusan;
-        if (*(void **)((s8 *)arg0 + 0x54) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x54))); ((TBoss6Kakusan *)arg0)->m_54 = 0; }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TBoss6Kakusan::~TBoss6Kakusan() {
+    if (*(void **)((s8 *)this + 0x54) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)this + 0x54))); this->m_54 = 0; }
+}
+extern "C" {
 
 #pragma push
 #pragma opt_common_subs off

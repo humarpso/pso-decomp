@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804F0EA8.h"
 #include "pso/misc/TLobby_80351E64.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TUnk_804F0EA8.h"
@@ -13,7 +14,7 @@ struct L_80351EAC { u8 pad[0x1C]; u32 flags; s32 mode; };
 extern "C" {
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
-extern const s32 lbl_804F0EA8[];
+extern const s32 __vt__13TUnk_804F0EA8[];
 extern void *lobby_event_theme_controller;
 s32 TLobby__sub_803DA16C(void*);
 extern int lobby_main_texture_gvm;
@@ -64,22 +65,16 @@ void TLobby__sub_80351F3C(void) {
     }
     lobby_event_theme_controller = o;
 }
-void *TUnk_804F0EA8::destroy_and_clear_instance(s16 arg1) {
-    if (this != NULL) {
-        *(const s32 **)((s8 *)this + 0x18) = lbl_804F0EA8;
-        queue_destruction__7TObjectFv(this);
-        (*(s32 *)&lobby_event_theme_controller) = 0;
-        __dt__7TObjectFv(this, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(this);
-        }
-    }
-    return this;
 }
+TUnk_804F0EA8::~TUnk_804F0EA8() {
+    queue_destruction__7TObjectFv(this);
+    (*(s32 *)&lobby_event_theme_controller) = 0;
+}
+extern "C" {
 
 u8 *TLobby__sub_80351FDC(u8 *arg0) {
     __ct__7TObjectFP7TObject(arg0, tl_00);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80351FDC_lbl_804F0EA8 *)&lbl_804F0EA8).value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80351FDC_lbl_804F0EA8 *)&__vt__13TUnk_804F0EA8).value;
     ((TUnk_804F0EA8 *)arg0)->m_20 = TLobby::get_filtered_event_theme();
     *(s32 *)((s8 *)arg0 + 0x1C) = 0;
     return arg0;

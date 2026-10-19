@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdAgreementBaseGC.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/misc/TWindowSubStatusDisp_80144B14.h"
 #include "pso/object/TObject_80019A50.h"
@@ -148,18 +149,12 @@ void TAdAgreementBaseGC::update_state() {
     }
 }
 
-void *__dt__18TAdAgreementBaseGCFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TAdAgreementBaseGC;
-        if (*(void **)((s8 *)arg0 + 0x2C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x2C)); ((TAdAgreementBaseGC *)arg0)->m_2c = 0; }
-        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x30)); ((TAdAgreementBaseGC *)arg0)->m_30 = 0; }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TAdAgreementBaseGC::~TAdAgreementBaseGC() {
+    if (*(void **)((s8 *)this + 0x2C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x2C)); this->m_2c = 0; }
+    if (*(void **)((s8 *)this + 0x30) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x30)); this->m_30 = 0; }
+}
+extern "C" {
 
 Obj_80329AA8 *TAdAgreementBaseGC__ct(Obj_80329AA8 *arg0, void *arg1) {
     void *p;

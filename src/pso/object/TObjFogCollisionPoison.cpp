@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/object/TUnk_804AF7B0.h"
+#include "pso/object/TUnk_804AF7B0.h"
 #include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/object/TObjFogCollision_Manager.h"
 #include "pso/object/TObjFogCollisionPoison.h"
@@ -39,7 +40,7 @@ struct RecoveredGlobal_80153258_TObjFogCollisionPoison__data_8050D430 {
 
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
-extern s32 lbl_804AF7B0[];
+extern s32 __vt__13TUnk_804AF7B0[];
 extern RecoveredGlobal_801532C8_lbl_804AF7C8 lbl_804AF7C8;
 extern RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430 TObjFogCollisionPoison__instances;
 extern s32 lbl_805D2E84;
@@ -59,21 +60,16 @@ s32 sub_80153A0C__22TObjFogCollisionSwitchFv();
 void *__nw__7TObjectFUl(s32);
 s32 is_split_screen();
 
-void *__dt__13TUnk_804AF7B0Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804AF7B0;
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TUnk_804AF7B0::~TUnk_804AF7B0() {
+
+}
+extern "C" {
 
 typedef char RecoveredGlobal_80153084_lbl_804AF7B0_size[sizeof(RecoveredGlobal_80153084_lbl_804AF7B0) == 0x18 ? 1 : -1];
 u8 *TObjFogCollisionPoison::init_base(u8 *arg1, s16 arg2) {
     __ct__7TObjectFP7TObject(this, arg1);
-    *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80153084_lbl_804AF7B0 *)&lbl_804AF7B0).value;
+    *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80153084_lbl_804AF7B0 *)&__vt__13TUnk_804AF7B0).value;
     *(s16 *)&this->m_28 = arg2;
     *(s32 *)&this->m_1c = 0x96;
     *(s32 *)((s8 *)((u8 *)this) + 0x20) = 0;

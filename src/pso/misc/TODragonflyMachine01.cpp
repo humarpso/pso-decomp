@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TODragonflyMachine01.h"
 #include "pso/misc/TODragonflyCave01.h"
 #include "pso/misc/TODragonfly.h"
 #include "pso/misc/TUnk_804AFBF8.h"
@@ -115,16 +116,11 @@ void TODragonflyMachine01::create_attack_effect() {
     TObjEneMe3Stelth::spawn_attack((s16)0x38, o->sub->a, o->sub->b, (s32)&sp8, (f32)lbl_805DB5B0, (f32)lbl_805DB5B4);
 }
 
-void *__dt__20TODragonflyMachine01Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TODragonflyMachine01;
-        __dt__11TODragonflyFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TODragonflyMachine01::~TODragonflyMachine01() {
+
+}
+extern "C" {
 
 #pragma push
 #pragma fp_contract on

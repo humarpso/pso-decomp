@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss1Floor.h"
 #include "pso/boss/TBoss4Type2_800874F4.h"
 #include "pso/boss/TObjBoss1Crater_8002C6B4.h"
 #include "pso/misc/TLobby_8002C838.h"
@@ -109,23 +110,17 @@ void run_task__14TObjBoss1FloorFv(Floor_8002C968 *self) {
     }
 }
 
-u8 *__dt__14TObjBoss1FloorFv(u8 *self, s16 flag) {
+}
+TObjBoss1Floor::~TObjBoss1Floor() {
     s32 i;
-    if (self != NULL) {
-        *(void **)(self + 0x18) = __vt__14TObjBoss1Floor;
-        for (i = 0; i * 0x10 != 0; i++) {
-            if (((Obj_8002CA38 *)self)->slot[i] != 0) {
-                queue_destruction__7TObjectFv((void *)((Obj_8002CA38 *)self)->slot[i]);
-                ((Obj_8002CA38 *)self)->slot[i] = 0;
-            }
-        }
-        __dt__7TObjectFv(self, 0);
-        if (flag > 0) {
-            __dl__7TObjectFPv(self);
+    for (i = 0; i * 0x10 != 0; i++) {
+        if (((Obj_8002CA38 *)this)->slot[i] != 0) {
+            queue_destruction__7TObjectFv((void *)((Obj_8002CA38 *)this)->slot[i]);
+            ((Obj_8002CA38 *)this)->slot[i] = 0;
         }
     }
-    return self;
 }
+extern "C" {
 
 }
 TObjBoss1Floor::TObjBoss1Floor(TObject *parent) : TObject(parent) {

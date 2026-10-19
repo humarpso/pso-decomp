@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TTecRaZonde.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TTecZonde.h"
 #include "pso/misc/TUnk_804CCB28.h"
@@ -278,24 +279,18 @@ struct Self_80238EC8 {
 extern "C" {
 void mem_free(void *);
 
-Self_80238EC8 *__dt__11TTecRaZondeFv(Self_80238EC8 *self, s16 arg1) {
+}
+TTecRaZonde::~TTecRaZonde() {
     u32 i;
-    if (self != NULL) {
-        self->vtable = __vt__11TTecRaZonde;
-        for (i = 0; i < ((RProfile_80238F84 *)TTecRaZonde__band_profile_table)[self->band].count; i++) {
-            if (self->objs[i] != 0) {
-                queue_destruction__7TObjectFv(self->objs[i]);
-                self->objs[i] = 0;
-            }
-        }
-        mem_free(self->objs);
-        ((TUnk_804CC148 *)self)->destroy_technique_base(0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(self);
+    for (i = 0; i < ((RProfile_80238F84 *)TTecRaZonde__band_profile_table)[((Self_80238EC8 *)this)->band].count; i++) {
+        if (((Self_80238EC8 *)this)->objs[i] != 0) {
+            queue_destruction__7TObjectFv(((Self_80238EC8 *)this)->objs[i]);
+            ((Self_80238EC8 *)this)->objs[i] = 0;
         }
     }
-    return self;
+    mem_free(((Self_80238EC8 *)this)->objs);
 }
+extern "C" {
 
 void TTecRaZonde::render() {  }
 

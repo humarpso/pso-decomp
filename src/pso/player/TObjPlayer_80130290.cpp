@@ -30,11 +30,11 @@ void TUnk_804A69C0::hook() {
     this->m_28 = (this->m_28 + 0xCCC);
 }
 
-extern s32 lbl_804A69C0[];
+extern s32 __vt__13TUnk_804A69C0[];
 
 void *TUnk_804A69C0::init_shoot_model() {
     __ct__15TItemShootModelFPvPC3VecPC3Vecf(this);
-    *(s32 **)((s8 *)this + 0x18) = lbl_804A69C0;
+    *(s32 **)((s8 *)this + 0x18) = __vt__13TUnk_804A69C0;
     this->m_28 = 0;
     return this;
 }

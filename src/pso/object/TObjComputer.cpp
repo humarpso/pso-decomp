@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjComputer.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/item/TObjContainerAbeEnemy.h"
 #include "pso/object/TObjComputer.h"
@@ -253,17 +254,9 @@ void load_computer_resources(void) {
     }
 }
 
-void *__dt__12TObjComputerFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjComputer;
-        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
-        free_collision_body_parts(arg0);
-        __dt__11TObjMesBaseFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
+TObjComputer::~TObjComputer() {
+    ((TUnk_804AF8A0 *)this)->unregister_object_by_id();
+    free_collision_body_parts(this);
 }
 
 void *TObjComputer__ct(void *arg0, void *parent, void *row) {

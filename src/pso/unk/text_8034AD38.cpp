@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdFloorLoadPrtGC.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_80086E28.h"
 #include "pso/unk/text_8034AD38.h"
@@ -43,25 +44,21 @@ extern Vec_8034ADE0 lbl_80478B48[];
 extern Ang_8034ADE0 lbl_80478B54[];
 extern s32 lbl_805D4330;
 Prt_8034ADE0 *TAdFloorLoadPrtGC__ct(Prt_8034ADE0 *arg0);
-TAdFloorLoadPrtGC_8034AD38 *__dt__17TAdFloorLoadPrtGCFv(TAdFloorLoadPrtGC_8034AD38 *self, s16 deleting) {
-    s32 i;
-    if (self) {
-        self->vtable = __vt__17TAdFloorLoadPrtGC;
-        if (*(void **)((u8 *)self + 0x39C)) {
-            queue_destruction__7TObjectFv(*(void **)((u8 *)self + 0x39C));
-            *(void **)((u8 *)self + 0x39C) = NULL;
-        }
-        for (i = 0; i < 32; i++) {
-            if (self->slots[i].ctrl) {
-                queue_destruction__7TObjectFv(self->slots[i].ctrl);
-                self->slots[i].ctrl = NULL;
-            }
-        }
-        __dt__7TObjectFv(self, 0);
-        if (deleting > 0) __dl__7TObjectFPv(self);
-    }
-    return self;
 }
+TAdFloorLoadPrtGC::~TAdFloorLoadPrtGC() {
+    s32 i;
+    if (*(void **)((u8 *)this + 0x39C)) {
+        queue_destruction__7TObjectFv(*(void **)((u8 *)this + 0x39C));
+        *(void **)((u8 *)this + 0x39C) = NULL;
+    }
+    for (i = 0; i < 32; i++) {
+        if (((TAdFloorLoadPrtGC_8034AD38 *)this)->slots[i].ctrl) {
+            queue_destruction__7TObjectFv(((TAdFloorLoadPrtGC_8034AD38 *)this)->slots[i].ctrl);
+            ((TAdFloorLoadPrtGC_8034AD38 *)this)->slots[i].ctrl = NULL;
+        }
+    }
+}
+extern "C" {
 
 #pragma push
 #pragma opt_common_subs off

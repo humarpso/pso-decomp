@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TUnk_804F3428.h"
 #include "pso/ui/TAdDialingMessageWindow_8036A064.h"
 #include "pso/ui/TUnk_804F3428.h"
 #include "pso/ui/TAdDialingMessageWindow.h"
@@ -28,22 +29,17 @@ void TUnk_804F3428::run_task() {
     }
 }
 
-extern s32 lbl_804F3428[];
+extern s32 __vt__13TUnk_804F3428[];
 
-void *__dt__13TUnk_804F3428Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F3428;
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TUnk_804F3428::~TUnk_804F3428() {
+
+}
+extern "C" {
 
 void *TUnk_804F3428::init(void *arg1, void *arg2, void *arg3) {
     __ct__7TObjectFP7TObject(this);
-    *(s32 **)((s8 *)this + 0x18) = lbl_804F3428;
+    *(s32 **)((s8 *)this + 0x18) = __vt__13TUnk_804F3428;
     *(void * *)&this->m_20 = arg2;
     *(void * *)&(this->unk_1C) = arg3;
     return this;

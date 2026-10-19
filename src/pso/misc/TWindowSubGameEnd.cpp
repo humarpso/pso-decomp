@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubGameEnd.h"
 #include "pso/unk/text_8024AB54.h"
 #include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/misc/TKeyBoardControl.h"
@@ -90,17 +91,11 @@ void TWindowSubGameEnd::run_task() {
     }
 }
 
-void *__dt__17TWindowSubGameEndFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TWindowSubGameEnd;
-        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x28)))->close(); ((TWindowSubGameEnd *)arg0)->m_28 = 0; }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TWindowSubGameEnd::~TWindowSubGameEnd() {
+    if (*(void **)((s8 *)this + 0x28) != NULL) { ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x28)))->close(); this->m_28 = 0; }
+}
+extern "C" {
 
 void *TWindowSubGameEnd__ct(TWindowSubGameEnd *window_sub_game_end, s32 arg1, s32 arg2) {
     f32 var_f31;

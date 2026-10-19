@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss8DragonEffBullet.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss8DragonEffBullet.h"
@@ -138,18 +139,12 @@ void TBoss8DragonEffBullet::run_task() {
 }
 #pragma pop
 
-void *__dt__21TBoss8DragonEffBulletFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TBoss8DragonEffBullet;
-        if (*(void **)((s8 *)arg0 + 0x50) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x50)); ((TBoss8DragonEffBullet *)arg0)->m_50 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x4C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x4C)); ((TBoss8DragonEffBullet *)arg0)->m_4c = 0; }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TBoss8DragonEffBullet::~TBoss8DragonEffBullet() {
+    if (*(void **)((s8 *)this + 0x50) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x50)); this->m_50 = 0; }
+    if (*(void **)((s8 *)this + 0x4C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x4C)); this->m_4c = 0; }
+}
+extern "C" {
 typedef char RecoveredGlobal_802FE378_lbl_80474B68_size[sizeof(RecoveredGlobal_802FE378_lbl_80474B68) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_802FE378_lbl_80474B74_size[sizeof(RecoveredGlobal_802FE378_lbl_80474B74) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_802FE378_lbl_80474B80_size[sizeof(RecoveredGlobal_802FE378_lbl_80474B80) == 0xC ? 1 : -1];

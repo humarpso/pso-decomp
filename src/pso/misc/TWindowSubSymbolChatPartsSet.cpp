@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 #include "pso/misc/TWindowChatSymbol_802486A8.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
@@ -311,17 +312,11 @@ void TWindowSubSymbolChatPartsSet::run_task() {
     ((TUnk_804CE018 *)arg0)->update_window_entry_list((u8 *)&this->m_24);
 }
 
-void *__dt__28TWindowSubSymbolChatPartsSetFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__28TWindowSubSymbolChatPartsSet;
-        TWindowSubStatusDisp::destroy_status_display((s32)(*(void **)((s8 *)arg0 + 0x88)), (s16)1);
-        __dt__17TWindowChatSymbolFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TWindowSubSymbolChatPartsSet::~TWindowSubSymbolChatPartsSet() {
+    TWindowSubStatusDisp::destroy_status_display((s32)(*(void **)((s8 *)this + 0x88)), (s16)1);
+}
+extern "C" {
 T_802869BC *TWindowSubSymbolChatPartsSet__ct(T_802869BC *self, void *parent, s16 arg2, s32 arg3, s32 arg4) {
     void *h;
     TWindowChatSymbol__ct((TWindowChatSymbol *)((u8 *)self), (s32)parent, (s32)lbl_8044FC30);

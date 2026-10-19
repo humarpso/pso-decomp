@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TObjEneMe1Gee_NEEDLE.h"
 #include "pso/misc/TNeedleShoot_802A4754.h"
 #include "pso/misc/TNeedleShoot_802A4A44.h"
 #include "pso/object/TObject_80019A50.h"
@@ -82,15 +83,10 @@ void TObjEneMe1Gee_NEEDLE::vfunc_9(void *arg1_arg) {
     queue_destruction__7TObjectFv((arg0));
 }
 
-void *__dt__20TObjEneMe1Gee_NEEDLEFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TObjEneMe1Gee_NEEDLE;
-        __dt__12TNeedleShootFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TObjEneMe1Gee_NEEDLE::~TObjEneMe1Gee_NEEDLE() {
+
+}
+extern "C" {
 
 }

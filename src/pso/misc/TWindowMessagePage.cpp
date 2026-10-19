@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMessagePage.h"
 #include "pso/misc/TWindowCtrl_8024A054.h"
 #include "pso/misc/TWindowSubStatusDisp_80228F5C.h"
 #include "pso/misc/TWindowMessage.h"
@@ -91,16 +92,11 @@ void TWindowMessagePage::run_task() {
     }
 }
 
-void *__dt__18TWindowMessagePageFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TWindowMessagePage;
-        __dt__14TWindowMessageFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TWindowMessagePage::~TWindowMessagePage() {
+
+}
+extern "C" {
 u8 *TWindowMessagePage__ct(u8 *window_message_page, s32 arg1, s32 arg2, s32 arg3) {
     TWindowMessage__ct((window_message_page), (arg1), (arg2), (arg3));
     *(s32 **)((s8 *)window_message_page + 0x18) = &(*(RecoveredGlobal_8026B014___vt__18TWindowMessagePage *)&__vt__18TWindowMessagePage).value;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdTrialAgreementGC.h"
 #include "pso/ui/TAdPlayerLoadGC_801E0C30.h"
 #include "pso/ui/TAdScrollWinGC_80327504.h"
 #include "pso/object/TObject_80019A50.h"
@@ -64,16 +65,11 @@ void TAdTrialAgreementGC::run_task() {
     o->m9();
 }
 
-void *__dt__19TAdTrialAgreementGCFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TAdTrialAgreementGC;
-        __dt__18TAdAgreementBaseGCFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TAdTrialAgreementGC::~TAdTrialAgreementGC() {
+
+}
+extern "C" {
 
 typedef char RecoveredGlobal_80335870___vt__19TAdTrialAgreementGC_size[sizeof(RecoveredGlobal_80335870___vt__19TAdTrialAgreementGC) == 0x38 ? 1 : -1];
 u8 *TAdTrialAgreementGC__ct(u8 *ad_trial_agreement_gc) {

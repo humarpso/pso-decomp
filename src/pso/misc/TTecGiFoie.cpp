@@ -1,4 +1,5 @@
 #include "types.h"
+extern "C" void *__dt__13TUnk_804CC148Fv(void *, s16);
 #include "pso/system/vector.h"
 #include "pso/unk/TUnk_804CC148.h"
 #include "pso/misc/TTecGiFoie.h"
@@ -339,7 +340,7 @@ u8 *__dt__10TTecGiFoieFv(u8 *arg0, s16 arg1) {
       var_r31 += 4;
     }
     while (var_r29 < 3);
-    ((TUnk_804CC148 *)arg0)->destroy_technique_base(0);
+    __dt__13TUnk_804CC148Fv((void *)((TUnk_804CC148 *)arg0), 0);
     if (arg1 > 0)
     {
       ((s32 (*)(void *))__dl__7TObjectFPv)((void *) arg0);

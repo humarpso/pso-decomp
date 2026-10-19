@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubLog.h"
 #include "pso/unk/text_8026A93C.h"
 #include "pso/misc/TWindowCtrl_8024ADAC.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
@@ -85,20 +86,14 @@ void TWindowSubLog::run_task() {
     }
 }
 
-void *__dt__13TWindowSubLogFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TWindowSubLog;
-        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x28)); ((TWindowSubLog *)arg0)->m_28 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x24) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x24))); ((TWindowSubLog *)arg0)->m_24 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x20) != NULL) { ((TWindowSubLog *)(*(void **)((s8 *)arg0 + 0x20)))->clear_flag4c_bit8(); ((TWindowSubLog *)(*(void **)((s8 *)arg0 + 0x20)))->cleanup(); }
-        TWindowCtrl__sub_8024ADF0((s32)(*(void **)((s8 *)arg0 + 0x1C)));
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TWindowSubLog::~TWindowSubLog() {
+    if (*(void **)((s8 *)this + 0x28) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x28)); this->m_28 = 0; }
+    if (*(void **)((s8 *)this + 0x24) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)this + 0x24))); this->m_24 = 0; }
+    if (*(void **)((s8 *)this + 0x20) != NULL) { ((TWindowSubLog *)(*(void **)((s8 *)this + 0x20)))->clear_flag4c_bit8(); ((TWindowSubLog *)(*(void **)((s8 *)this + 0x20)))->cleanup(); }
+    TWindowCtrl__sub_8024ADF0((s32)(*(void **)((s8 *)this + 0x1C)));
+}
+extern "C" {
 
 }
 TWindowSubLog::TWindowSubLog(TObject *arg1, void *arg2) : TObject(arg1) {

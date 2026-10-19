@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TUnk_804CCAA8.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/system/vector.h"
 #include "pso/object/TUnk_804CCAA8.h"
@@ -44,7 +45,7 @@ struct Base_80235C44 { u8 pad[0x1C]; f32 f1c; f32 f20; };
 extern "C" {
 s32 obj_getField1c(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-extern s32 lbl_804CCAA8[];
+extern s32 __vt__13TUnk_804CCAA8[];
 extern const f32 lbl_805DC888;
 u8 *construct_actor_light_task(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u8 *arg4, u8 *arg5, f32 farg0);
 void queue_destruction__7TObjectFv(void *arg0);
@@ -103,21 +104,16 @@ void TUnk_804CCAA8::run_task() {
 }
 #pragma pop
 
-void *__dt__13TUnk_804CCAA8Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CCAA8;
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TUnk_804CCAA8::~TUnk_804CCAA8() {
+
+}
+extern "C" {
 typedef char RecoveredGlobal_80235E9C_lbl_804CCAA8_size[sizeof(RecoveredGlobal_80235E9C_lbl_804CCAA8) == 0x18 ? 1 : -1];
 u8 *TObjLight::construct_actor_light(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1, f32 farg2, s32 arg_sp0) {
     Stack_80235E9C stack;
     __ct__7TObjectFP7TObject(this, (void *)arg5);
-    *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80235E9C_lbl_804CCAA8 *)&lbl_804CCAA8).value;
+    *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80235E9C_lbl_804CCAA8 *)&__vt__13TUnk_804CCAA8).value;
     ((TRaderMapCore *)(((u8 *)this) + 0x24))->copy_vec4((void *)arg1);
     VecCopy((Vec *)(((u8 *)this) + 0x34), (const Vec *)(arg2));
     *(s32 *)&this->m_1c = arg3;
@@ -135,7 +131,7 @@ typedef char RecoveredGlobal_80235F60_lbl_804CCAA8_size[sizeof(RecoveredGlobal_8
 u8 *construct_actor_light_task(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u8 *arg4, u8 *arg5, f32 farg0) {
     s32 sp8;
     __ct__7TObjectFP7TObject(arg0, arg5);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80235F60_lbl_804CCAA8 *)&lbl_804CCAA8).value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80235F60_lbl_804CCAA8 *)&__vt__13TUnk_804CCAA8).value;
     ((TRaderMapCore *)(arg0 + 0x24))->copy_vec4(arg1);
     VecCopy((Vec *)(arg0 + 0x34), (const Vec *)arg2);
     *(s32 *)((s8 *)arg0 + 0x1C) = arg3;

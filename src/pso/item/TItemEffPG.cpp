@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804F0BF0.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/misc/TOTrapAncient01_80226534.h"
@@ -30,7 +31,7 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 void *create_particle_emitter(void *pos, s32 id);
 void __ct__7TObjectFP7TObject(void *, void *);
-extern s32 lbl_804F0BF0[];
+extern s32 __vt__13TUnk_804F0BF0[];
 extern const f32 lbl_805DFE10;
 s32 get_state_flag__9TMainTaskFv();
 u32 query_game_join_id__10TObjPlayerFv(int);
@@ -150,23 +151,17 @@ void TUnk_804F0BF0::run_task() {
     play_persistent_sound(0x4001A343, (s32)arg0, (u32)(arg0 + 0x5C), 0, 0);
 }
 
-void *__dt__13TUnk_804F0BF0Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F0BF0;
-        if (((TUnk_804F0BF0 *)arg0)->m_38 != NULL) { queue_destruction__7TObjectFv(((TUnk_804F0BF0 *)arg0)->m_38); *(s32 *)((s8 *)arg0 + 0x38) = 0; }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TUnk_804F0BF0::~TUnk_804F0BF0() {
+    if (this->m_38 != NULL) { queue_destruction__7TObjectFv(this->m_38); *(s32 *)((s8 *)this + 0x38) = 0; }
+}
+extern "C" {
 
 typedef char RecoveredGlobal_8034FCF0_lbl_804F0BF0_size[sizeof(RecoveredGlobal_8034FCF0_lbl_804F0BF0) == 0x18 ? 1 : -1];
 u8 *TItemEffPG__visual_ct(u8 *arg0, u8 *arg1, u8 *arg2) {
     f32 temp_f1;
     __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8034FCF0_lbl_804F0BF0 *)&lbl_804F0BF0).value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8034FCF0_lbl_804F0BF0 *)&__vt__13TUnk_804F0BF0).value;
     *(s32 *)((s8 *)arg0 + 0x1C) = (s32) *(s32 *)((s8 *)arg2 + 0x18);
     *(s32 *)((s8 *)arg0 + 0x20) = (s32) *(s32 *)((s8 *)arg2 + 0x34);
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)arg2 + 0x38);

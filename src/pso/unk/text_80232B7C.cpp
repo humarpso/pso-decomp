@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/unk/TUnk_804CC888.h"
+#include "pso/unk/TUnk_804CC888.h"
 #include "pso/misc/TLobby_80226070.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
@@ -52,7 +53,7 @@ extern Ent_80232E0C grants_effect_emitter_table[];
 extern u8 __vt__13TUnk_804CC888[];
 Obj_80232E0C *__dt__13TUnk_804CC888Fv(Obj_80232E0C *arg0, s16 arg1);
 void __ct__7TObjectFP7TObject(void *self, void *parent);
-extern u8 lbl_804CC870[];
+extern u8 __vt__13TUnk_804CC870[];
 extern const f32 lbl_805DC844;
 extern const f32 lbl_805DC84C;
 extern const f32 lbl_805DC850;
@@ -72,7 +73,7 @@ extern s32 lbl_805D63B0;
 
 Obj_80232B7C *construct_grants_flash(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C *pos, f32 scale) {
     __ct__7TObjectFP7TObject(self, parent);
-    self->vt = lbl_804CC870;
+    self->vt = __vt__13TUnk_804CC870;
     self->id = id;
     self->pos.x = lbl_805DC844;
     self->pos.y = lbl_805DC844;
@@ -146,21 +147,13 @@ void TUnk_804CC888::run_task() {
     }
 }
 
-Obj_80232E0C *__dt__13TUnk_804CC888Fv(Obj_80232E0C *arg0, s16 arg1) {
+TUnk_804CC888::~TUnk_804CC888() {
     u32 i;
-    if (arg0 != NULL) {
-        arg0->vt = __vt__13TUnk_804CC888;
-        for (i = 0; i < grants_effect_emitter_table[arg0->kind].count; i++) {
-            if (arg0->items[i] != NULL) {
-                queue_destruction__7TObjectFv(arg0->items[i]);
-            }
-        }
-        stop_sound_request(arg0->f20);
-        mem_free(arg0->items);
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+    for (i = 0; i < grants_effect_emitter_table[((Obj_80232E0C *)this)->kind].count; i++) {
+        if (((Obj_80232E0C *)this)->items[i] != NULL) {
+            queue_destruction__7TObjectFv(((Obj_80232E0C *)this)->items[i]);
         }
     }
-    return arg0;
+    stop_sound_request(((Obj_80232E0C *)this)->f20);
+    mem_free(((Obj_80232E0C *)this)->items);
 }

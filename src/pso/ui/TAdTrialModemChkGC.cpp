@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdTrialModemChkGC.h"
 #include "pso/misc/TLobby_80132ED0.h"
 #include "pso/ui/TAdWarningBaseGC.h"
 #include "pso/unk/text_8007FA24.h"
@@ -60,16 +61,11 @@ void TAdTrialModemChkGC::run_task() {
 
 extern s32 __vt__18TAdTrialModemChkGC[];
 
-void *__dt__18TAdTrialModemChkGCFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TAdTrialModemChkGC;
-        __dt__16TAdWarningBaseGCFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TAdTrialModemChkGC::~TAdTrialModemChkGC() {
+
+}
+extern "C" {
 
 extern void *TAdTrialModemChkGC__name;
 

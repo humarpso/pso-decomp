@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804A5340.h"
 #include "pso/item/TItemShootModel_dtor.h"
 #include "pso/player/TObjPlayer_8012C950.h"
 #include "pso/player/TObjPlayer.h"
@@ -9,18 +10,13 @@ extern "C" {
 s32 test_flags_any(void *, int);
 void __dl__7TObjectFPv(void *);
 
-extern s32 lbl_804A5340[];
+extern s32 __vt__13TUnk_804A5340[];
 
-void *__dt__13TUnk_804A5340Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A5340;
-        __dt__15TItemShootModelFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TUnk_804A5340::~TUnk_804A5340() {
+
+}
+extern "C" {
 }
 
 void rocket_punch_return_timer(u32 arg0) {

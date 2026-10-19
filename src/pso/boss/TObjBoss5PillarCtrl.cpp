@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss5PillarCtrl.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/boss/TObjBoss5PillarCtrl.h"
 #include "pso/boss/TObjBoss5Pillar.h"
@@ -40,24 +41,18 @@ int TObjBoss5Pillar__sub_8028B710(void*);
 void TObjBoss5PillarCtrl::render() {  }
 void TObjBoss5PillarCtrl::run_task() {  }
 
-Pc_8028B198 *__dt__19TObjBoss5PillarCtrlFv(Pc_8028B198 *arg0, s16 arg1) {
+}
+TObjBoss5PillarCtrl::~TObjBoss5PillarCtrl() {
     s32 i;
-    if (arg0 != NULL) {
-        arg0->vt = __vt__19TObjBoss5PillarCtrl;
-        for (i = arg0->count - 1; i >= 0; i--) {
-            if (arg0->a[i] != NULL) {
-                queue_destruction__7TObjectFv(arg0->a[i]);
-                arg0->a[i] = NULL;
-            }
-        }
-        mem_free(arg0->a);
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+    for (i = ((Pc_8028B198 *)this)->count - 1; i >= 0; i--) {
+        if (((Pc_8028B198 *)this)->a[i] != NULL) {
+            queue_destruction__7TObjectFv(((Pc_8028B198 *)this)->a[i]);
+            ((Pc_8028B198 *)this)->a[i] = NULL;
         }
     }
-    return arg0;
+    mem_free(((Pc_8028B198 *)this)->a);
 }
+extern "C" {
 
 Ctrl_8028B23C *TObjBoss5PillarCtrl__ct(Ctrl_8028B23C *arg0, void *arg1) {
     Node_8028B23C *n;

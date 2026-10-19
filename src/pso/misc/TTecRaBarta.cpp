@@ -1,4 +1,5 @@
 #include "types.h"
+extern "C" void *__dt__13TUnk_804CC148Fv(void *, s16);
 #include "pso/boss/TBoss4Type2_800874F4.h"
 #include "pso/misc/TLobby_80226070.h"
 #include "pso/object/TObject_80019A50.h"
@@ -429,7 +430,7 @@ struct Self_80237A94 *__dt__11TTecRaBartaFv(struct Self_80237A94 *self, s16 arg1
         }
         stop_sound_request((s32)self->emitters);
         mem_free(self->objs);
-        ((TUnk_804CC148 *)self)->destroy_technique_base(0);
+        __dt__13TUnk_804CC148Fv((void *)((TUnk_804CC148 *)self), 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(self);
         }

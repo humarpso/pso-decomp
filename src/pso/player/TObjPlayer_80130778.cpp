@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804A69C0.h"
 #include "pso/items/TItemWeapon.h"
 #include "pso/item/TItemShootModel_dtor.h"
 #include "pso/player/TObjPlayer_80130778.h"
@@ -10,18 +11,13 @@ extern "C" {
 void draw_weapon_at_joint(s32 arg0, s8 arg1);
 void __dl__7TObjectFPv(void *);
 
-extern s32 lbl_804A69C0[];
+extern s32 __vt__13TUnk_804A69C0[];
 
-void *__dt__13TUnk_804A69C0Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A69C0;
-        __dt__15TItemShootModelFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TUnk_804A69C0::~TUnk_804A69C0() {
+
+}
+extern "C" {
 
 void TObjPlayer__sub_801307D0(void *arg0) {
     if (arg0 != NULL) {

@@ -2,6 +2,7 @@
 
 #include "types.h"
 #include "pso/unk/TUnk_804CC148.h"
+#include "pso/unk/TUnk_804CC148.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TTecReverser.h"
 
@@ -105,17 +106,11 @@ void TUnk_804CC148::run_task() {
     }
 }
 
-void *TUnk_804CC148::destroy_technique_base(s16 arg1) {
-    if (this != NULL) {
-        *(s32 **)((s8 *)this + 0x18) = __vt__13TUnk_804CC148;
-        if (*(void * *)&this->m_e8 != NULL) { free_collision_body_parts(*(void * *)&this->m_e8); }
-        __dt__7TEffectFv(this, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(this);
-        }
-    }
-    return this;
 }
+TUnk_804CC148::~TUnk_804CC148() {
+    if (*(void * *)&this->m_e8 != NULL) { free_collision_body_parts(*(void * *)&this->m_e8); }
+}
+extern "C" {
 
 }
 

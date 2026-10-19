@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLockOnCursor.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TLockOnCursor.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -191,35 +192,29 @@ void load_target_cursor_models(void) {
     }
 }
 
-u8 *__dt__13TLockOnCursorFv(u8 *arg0, s16 arg1) {
-    Obj_8013DCCC *p;
-    if (arg0 != NULL) {
-        *(s32 **)(arg0 + 0x18) = __vt__13TLockOnCursor;
-        p = cleanup_field_3c__13TLockOnCursorFv(arg0);
-        if (p != NULL) {
-            delete p;
-        }
-        p = cleanup_field__13TLockOnCursorFv(arg0);
-        if (p != NULL) {
-            delete p;
-        }
-        p = release_target__13TLockOnCursorFv(arg0);
-        if (p != NULL) {
-            delete p;
-        }
-        ((TLockOnCursor *)(arg0 + 0x520))->destroy(-1);
-        destroy__13TLockOnCursorFis((s32)(arg0 + 0x4EC), -1);
-        __destroy_arr(arg0 + 0x5C, __dt_deleting__13TLockOnCursorFis, 0x124, 4);
-        ((TMainCursor *)(arg0 + 0x48))->destroy(-1);
-        __dt__13TLockOnCursorFis((s32)(arg0 + 0x3C), -1);
-        TLockOnCursor::dt((s32)(arg0 + 0x24), -1);
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TLockOnCursor::~TLockOnCursor() {
+    Obj_8013DCCC *p;
+    p = cleanup_field_3c__13TLockOnCursorFv(((u8 *)this));
+    if (p != NULL) {
+        delete p;
+    }
+    p = cleanup_field__13TLockOnCursorFv(((u8 *)this));
+    if (p != NULL) {
+        delete p;
+    }
+    p = release_target__13TLockOnCursorFv(((u8 *)this));
+    if (p != NULL) {
+        delete p;
+    }
+    ((TLockOnCursor *)(((u8 *)this) + 0x520))->destroy(-1);
+    destroy__13TLockOnCursorFis((s32)(((u8 *)this) + 0x4EC), -1);
+    __destroy_arr(((u8 *)this) + 0x5C, __dt_deleting__13TLockOnCursorFis, 0x124, 4);
+    ((TMainCursor *)(((u8 *)this) + 0x48))->destroy(-1);
+    __dt__13TLockOnCursorFis((s32)(((u8 *)this) + 0x3C), -1);
+    TLockOnCursor::dt((s32)(((u8 *)this) + 0x24), -1);
+}
+extern "C" {
 
 s32 TLockOnCursor::dt(s32 arg0, s16 arg1) {
     if (arg0 != 0) {

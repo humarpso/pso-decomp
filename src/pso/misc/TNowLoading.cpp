@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TNowLoading.h"
 #include "pso/player/TObjPlayer_80141D1C.h"
 #include "pso/misc/TLobby_8001D6A0.h"
 #include "pso/object/TObject_80019A50.h"
@@ -117,20 +118,14 @@ void TNowLoading::run_task() {
 }
 #pragma pop
 
-void *__dt__11TNowLoadingFv(TNowLoading *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TNowLoading;
-        if (*(void **)((s8 *)arg0 + 0x1C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x1C)); arg0->m_1c = 0; }
-        if (*(void **)((s8 *)arg0 + 0x20) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x20)); arg0->m_20 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x24) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x24)); arg0->m_24 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x28)); arg0->m_28 = 0; }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TNowLoading::~TNowLoading() {
+    if (*(void **)((s8 *)this + 0x1C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x1C)); this->m_1c = 0; }
+    if (*(void **)((s8 *)this + 0x20) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x20)); this->m_20 = 0; }
+    if (*(void **)((s8 *)this + 0x24) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x24)); this->m_24 = 0; }
+    if (*(void **)((s8 *)this + 0x28) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x28)); this->m_28 = 0; }
+}
+extern "C" {
 
 #pragma push
 #pragma fp_contract on

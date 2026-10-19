@@ -86,16 +86,11 @@ extern void *TShopWindowBase__class_name;
 
 void *__dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(void *);
-void *__dt__15TShopWindowBaseFv(void *self, s16 m) {
-    if (self != NULL) {
-        *(s32 **)((s8 *)self + 0x18) = __vt__15TShopWindowBase;
-        __dt__7TObjectFv(self, 0);
-        if (m > 0) {
-            __dl__7TObjectFPv(self);
-        }
-    }
-    return self;
 }
+TShopWindowBase::~TShopWindowBase() {
+
+}
+extern "C" {
 
 void *__ct__15TShopWindowBaseFv(void *shop_window_base) {
     __ct__7TObjectFP7TObject(shop_window_base);
@@ -114,18 +109,5 @@ void vfunc_7__15TShopWindowBaseFv();
 void vfunc_8__15TShopWindowBaseFv();
 void vfunc_9__15TShopWindowBaseFv();
 void vfunc_10__15TShopWindowBaseFv();
-s32 __vt__15TShopWindowBase[12] = {
-    0,
-    0,
-    (s32)__dt__15TShopWindowBaseFv,
-    (s32)run_task__15TShopWindowBaseFv,
-    (s32)render__7TObjectFv,
-    (s32)render_shadows__7TObjectFv,
-    (s32)vfunc_6__15TShopWindowBaseFv,
-    (s32)vfunc_7__15TShopWindowBaseFv,
-    (s32)vfunc_8__15TShopWindowBaseFv,
-    (s32)vfunc_9__15TShopWindowBaseFv,
-    (s32)vfunc_10__15TShopWindowBaseFv,
-    (s32)vfunc_11__15TShopWindowBaseFv,
-};
+extern s32 __vt__15TShopWindowBase[];
 }

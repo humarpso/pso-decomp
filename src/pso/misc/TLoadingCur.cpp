@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLoadingCur.h"
 #include "pso/unk/text_80086FE0.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/player/TObjPlayer_80141D1C.h"
@@ -191,17 +192,11 @@ void TLoadingCur::run_task() {
 }
 #pragma pop
 
-void *__dt__11TLoadingCurFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TLoadingCur;
-        if (*(void **)((s8 *)arg0 + 0x1C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x1C)); *(s32 *)((s8 *)arg0 + 0x1C) = 0; }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TLoadingCur::~TLoadingCur() {
+    if (*(void **)((s8 *)this + 0x1C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x1C)); *(s32 *)((s8 *)this + 0x1C) = 0; }
+}
+extern "C" {
 #pragma push
 #pragma fp_contract on
 typedef char RecoveredGlobal_8001D0A0___vt__11TLoadingCur_size[sizeof(RecoveredGlobal_8001D0A0___vt__11TLoadingCur) == 0x18 ? 1 : -1];

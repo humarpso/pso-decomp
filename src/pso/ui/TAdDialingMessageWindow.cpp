@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdDialingMessageWindow.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/ui/TAdDrawLineCtrl.h"
 #include "pso/ui/TUnk_804F3428.h"
@@ -39,25 +40,18 @@ void TAdDialingMessageWindow::render() {
     }
 }
 
-void *__dt__23TAdDialingMessageWindowFv(void *arg0, s16 arg1) {
-    void *temp_r3;
-
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__23TAdDialingMessageWindow;
-        if (*(void **)((s8 *)arg0 + 0x24) != NULL) {
-            queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x24));
-        }
-        temp_r3 = *(void **)((s8 *)arg0 + 0x28);
-        if ((temp_r3 != NULL) && (temp_r3 != NULL)) {
-            ((VObj_8036A248_8036A174 *)temp_r3)->m0(1);
-        }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TAdDialingMessageWindow::~TAdDialingMessageWindow() {
+    void *temp_r3;
+    if (*(void **)((s8 *)this + 0x24) != NULL) {
+        queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x24));
+    }
+    temp_r3 = *(void **)((s8 *)this + 0x28);
+    if ((temp_r3 != NULL) && (temp_r3 != NULL)) {
+        ((VObj_8036A248_8036A174 *)temp_r3)->m0(1);
+    }
+}
+extern "C" {
 
 extern void *tl_fadeafter;
 extern void *lbl_805D44C8;

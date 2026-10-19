@@ -6,7 +6,6 @@
 class TUnk_804F0EA8 : public TObject {
 public:
     virtual ~TUnk_804F0EA8();
-    void *destroy_and_clear_instance(s16);
     virtual void run_task();
     u8 unk_1C[0x4];
     s32 m_20;

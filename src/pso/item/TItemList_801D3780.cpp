@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804C4498.h"
 #include "pso/item/TUnk_804C4468.h"
 #include "pso/system/vector.h"
 #include "pso/item/TUnk_804C4480.h"
@@ -121,7 +122,7 @@ void * TItemList__sub_801D3B00(void *arg0, void *arg1, void *arg2, s8 arg3);
 void *__dt__13TUnk_804C4480Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804C4498Fv(void *arg0, s16 arg1);
 }
-extern s32 placement_search_base_vtable[];
+extern s32 __vt__13TUnk_804C4498[];
 extern const f32 lbl_805DC3D4;
 u8 *construct_placement_search_base(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 arg4);
 void decrement_placement_search_pending(void *p, void *a1);
@@ -344,20 +345,15 @@ s32 TUnk_804C4498::reset_placement_search_ring() {
     s->radius = lbl_805DC3C8 * s->ring;
 }
 
-void *__dt__13TUnk_804C4498Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = placement_search_base_vtable;
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TUnk_804C4498::~TUnk_804C4498() {
+
+}
+extern "C" {
 }
 u8 *construct_placement_search_base(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 arg4) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801D401C_lbl_804C4498 *)&placement_search_base_vtable).value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801D401C_lbl_804C4498 *)&__vt__13TUnk_804C4498).value;
     if (arg2 == NULL) {
         ((TUnk_804C4498 *)arg0)->m_20 = 0xFFFFU;
         ((TUnk_804C4498 *)arg0)->m_24 = 0;

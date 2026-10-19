@@ -91,8 +91,8 @@ extern void *lbl_805D63B0;
 
 void __dl__7TObjectFPv(void *);
 #define __dl__7TObjectFPv ((s32 (*)(void *))__dl__7TObjectFPv)
-void destroy_technique_base__13TUnk_804CC148Fs(void *, int);
-#define destroy_technique_base__13TUnk_804CC148Fs ((s32 (*)(void *, int))destroy_technique_base__13TUnk_804CC148Fs)
+void __dt__13TUnk_804CC148Fv(void *, int);
+#define __dt__13TUnk_804CC148Fv ((s32 (*)(void *, int))__dt__13TUnk_804CC148Fv)
 s32 play_sound_effect(s32 id, void *pos, s32 a, s32 b);
 #define play_sound_effect ((s32 (*)(s32, s32, s32, s32))play_sound_effect)
 void *__nw__7TObjectFUl(int);
@@ -223,7 +223,7 @@ void TTecRaFoie::vfunc_8(void *) {
 #undef is_valid_and_active__10TObjPlayerFUl
 #undef apply_technique_to_area_targets__13TUnk_804CC148Fv
 
-#undef destroy_technique_base__13TUnk_804CC148Fs
+#undef __dt__13TUnk_804CC148Fv
 #undef spawn_particle_effect
 #define spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv ((s32 (*)(void *))spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv)
 
@@ -741,7 +741,7 @@ void TTecRaFoie::create_ex(void *origin, void *targets, void *level) {
 void *__dt__10TTecRaFoieFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TTecRaFoie;
-        destroy_technique_base__13TUnk_804CC148Fs(arg0, 0);
+        __dt__13TUnk_804CC148Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowReturnCity.h"
 #include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/misc/TWindowReturnCity.h"
 #include "pso/misc/THunterGuildSeqOffline.h"
@@ -135,16 +136,8 @@ void TWindowReturnCity::run_task() {
     }
 }
 
-void *__dt__17TWindowReturnCityFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TWindowReturnCity;
-        if (*(void **)((s8 *)arg0 + 0x1C) != NULL) { ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x1C)))->close(); ((TWindowReturnCity *)arg0)->m_1c = 0; }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
+TWindowReturnCity::~TWindowReturnCity() {
+    if (*(void **)((s8 *)this + 0x1C) != NULL) { ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x1C)))->close(); this->m_1c = 0; }
 }
 
 typedef struct RecoveredGlobal_8026D40C___vt__17TWindowReturnCity RecoveredGlobal_8026D40C___vt__17TWindowReturnCity;

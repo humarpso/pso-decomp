@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/TBoss2PhotonPad.h"
+#include "pso/TBoss2PhotonPad.h"
 #include "pso/TObject.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/boss/TObjBoss2Tunnel_8007E418.h"
@@ -210,16 +211,11 @@ void TBoss2PhotonPad::run_task() {
         }
     }
 }
-void *__dt__15TBoss2PhotonPadFv(void *self, s16 arg1) {
-    if (self != NULL) {
-        *(void ***)((s8 *)self + 0x18) = __vt__15TBoss2PhotonPad;
-        __dt__7TObjectFv(self, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(self);
-        }
-    }
-    return self;
 }
+TBoss2PhotonPad::~TBoss2PhotonPad() {
+
+}
+extern "C" {
 S_80039288 *__ct__15TBoss2PhotonPadFv(S_80039288 *o, void *parent, s32 arg2, void *arg3, s32 arg4) {
     __ct__7TObjectFP7TObject(o, parent);
     o->vt = (void *)__vt__15TBoss2PhotonPad;
@@ -242,9 +238,7 @@ void area_attack_receive_direct(); void apply_hit_if_active__13TUnk_804928CCFPvP
 void *__vt__18TBoss2PhotonBullet[23] = {
     0, 0, (void *)__dt__18TBoss2PhotonBulletFv, (void *)run_task__18TBoss2PhotonBulletFv, (void *)render__18TBoss2PhotonBulletFv, (void *)render_shadows__7TObjectFv, (void *)vfunc_6__13TUnk_804B9870FPsl, (void *)apply_object_set_data__13TUnk_804B9870FPv, (void *)reset_motion_fields__13TUnk_804AF8A0Fv, (void *)vfunc_9__13TUnk_804B9870Fv, (void *)update_object_view_visibility__13TUnk_804B9870Fff, (void *)classify_actor_view_detail__13TUnk_804B9870Ffff, (void *)vfunc_12__13TUnk_804B9870Fv, (void *)vfunc_13__13TUnk_804AF8A0Fl, (void *)call_vt13_with_default__13TUnk_804928CCFPvPvl, (void *)area_attack_deliver_direct__13TUnk_804928CCFPvlPvf, (void *)vfunc_16__13TUnk_804928CCFPvPv, (void *)call_vt16_with_default__13TUnk_804928CCFPvPv, (void *)area_attack_deliver_physical__13TUnk_804928CCFPvPvf, (void *)vfunc_19__13TUnk_804928CCFPv, (void *)area_attack_apply_recoil__13TUnk_804928CCFPvf, (void *)area_attack_receive_direct, (void *)apply_hit_if_active__13TUnk_804928CCFPvPf
 };
-void *__vt__15TBoss2PhotonPad[6] = {
-    0, 0, (void *)__dt__15TBoss2PhotonPadFv, (void *)run_task__15TBoss2PhotonPadFv, (void *)&render__15TBoss2PhotonPadFv, (void *)render_shadows__7TObjectFv
-};
+extern void *__vt__15TBoss2PhotonPad[];
 extern char lbl_80435B48[];
 extern char lbl_80435B58[];
 s32 TBoss2PhotonPad__name = (s32)lbl_80435B48;

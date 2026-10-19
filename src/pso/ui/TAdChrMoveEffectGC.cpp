@@ -1,6 +1,7 @@
 #pragma push
 
 #include "types.h"
+#include "pso/ui/TAdChrMoveEffectGC.h"
 #include "pso/system/ModelDrawContext.h"
 #include "pso/TObjCMHairMenu.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
@@ -226,19 +227,13 @@ void TAdChrMoveEffectGC::run_task() {
 }
 #pragma pop
 
-void *__dt__18TAdChrMoveEffectGCFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TAdChrMoveEffectGC;
-        if ((u32) lbl_805D6E78 != 0U) {
-            lbl_805D6E78 = 0U;
-        }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TAdChrMoveEffectGC::~TAdChrMoveEffectGC() {
+    if ((u32) lbl_805D6E78 != 0U) {
+        lbl_805D6E78 = 0U;
+    }
+}
+extern "C" {
 
 extern void *lbl_805D42F0;
 

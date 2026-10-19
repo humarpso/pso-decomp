@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss5GryphonShockWave.h"
 #include "pso/boss/Boss5GryphonBehavior.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/boss/TBoss5GryphonShockWave.h"
@@ -75,17 +76,11 @@ void TBoss5GryphonShockWave::run_task() {
     }
 }
 
-void *__dt__22TBoss5GryphonShockWaveFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TBoss5GryphonShockWave;
-        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x3C)); ((TBoss5GryphonShockWave *)arg0)->m_3c = 0; }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TBoss5GryphonShockWave::~TBoss5GryphonShockWave() {
+    if (*(void **)((s8 *)this + 0x3C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x3C)); this->m_3c = 0; }
+}
+extern "C" {
 
 extern s32 lbl_805D2818;
 extern const f32 lbl_805D8EEC;

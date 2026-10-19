@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6Tube.h"
 #include "pso/boss/TBoss6Tube_802B15F4.h"
 #include "pso/boss/TBoss6Tube.h"
 
@@ -12,17 +13,11 @@ extern s32 lbl_805D3E9C;
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
-void *__dt__10TBoss6TubeFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TBoss6Tube;
-        TBoss6Tube::reset_state();
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TBoss6Tube::~TBoss6Tube() {
+    TBoss6Tube::reset_state();
+}
+extern "C" {
 u8 *TBoss6Tube__ct(TBoss6Tube *boss6_tube, u8 *arg1) {
     __ct__7TObjectFP7TObject(boss6_tube, arg1);
     *(s32 **)((s8 *)boss6_tube + 0x18) = &(*(RecoveredGlobal_802B1654___vt__10TBoss6Tube *)&__vt__10TBoss6Tube).value;

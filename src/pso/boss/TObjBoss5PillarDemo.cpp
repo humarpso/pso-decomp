@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss5PillarDemo.h"
 #include "pso/boss/TObjBoss5Pillar.h"
 #include "pso/system/ModelDrawContext.h"
 #include "pso/boss/TObjBoss5PillarDemo.h"
@@ -44,16 +45,11 @@ void TObjBoss5PillarDemo::update_active_pillar() {
     }
 }
 
-void *__dt__19TObjBoss5PillarDemoFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TObjBoss5PillarDemo;
-        __dt__15TObjBoss5PillarFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TObjBoss5PillarDemo::~TObjBoss5PillarDemo() {
+
+}
+extern "C" {
 
 typedef char RecoveredGlobal_8028AC00___vt__19TObjBoss5PillarDemo_size[sizeof(RecoveredGlobal_8028AC00___vt__19TObjBoss5PillarDemo) == 0x18 ? 1 : -1];
 u8 *TObjBoss5PillarDemo__ct(TObjBoss5PillarDemo *boss5_pillar_demo, s32 arg1, s32 arg2) {

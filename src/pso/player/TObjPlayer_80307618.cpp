@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804E71A0.h"
 #include "pso/item/TItemEquipVariant_80120CF8.h"
 #include "pso/player/TObjPlayer_80307618.h"
 #include "pso/player/TObjPlayer.h"
@@ -122,15 +123,8 @@ void TObjPlayer::disable_keyboard_control() {
 
 void TUnk_804E71A0::run_task() {  }
 
-extern s32 lbl_804E71A0[];
+extern s32 __vt__13TUnk_804E71A0[];
 
-void *__dt__13TUnk_804E71A0Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E71A0;
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
+TUnk_804E71A0::~TUnk_804E71A0() {
+
 }

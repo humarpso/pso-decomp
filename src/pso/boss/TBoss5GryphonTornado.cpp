@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss5GryphonTornado.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_80087278.h"
 #include "pso/system/vector.h"
@@ -144,19 +145,13 @@ void TBoss5GryphonTornado::run_task() {
 }
 #pragma pop
 
-void *__dt__20TBoss5GryphonTornadoFv(TBoss5GryphonTornado *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TBoss5GryphonTornado;
-        if (*(void **)((s8 *)arg0 + 0x58) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x58)); arg0->m_58 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x54) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x54)); arg0->m_54 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x50) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x50)); arg0->m_50 = 0; }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TBoss5GryphonTornado::~TBoss5GryphonTornado() {
+    if (*(void **)((s8 *)this + 0x58) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x58)); this->m_58 = 0; }
+    if (*(void **)((s8 *)this + 0x54) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x54)); this->m_54 = 0; }
+    if (*(void **)((s8 *)this + 0x50) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x50)); this->m_50 = 0; }
+}
+extern "C" {
 typedef char RecoveredGlobal_803558E4___vt__20TBoss5GryphonTornado_size[sizeof(RecoveredGlobal_803558E4___vt__20TBoss5GryphonTornado) == 0x18 ? 1 : -1];
 u8 *TBoss5GryphonTornado__ct(TBoss5GryphonTornado *boss5_gryphon_tornado, u8 *arg1, s32 arg2, u8 *arg3, s16 arg4) {
     __ct__7TObjectFP7TObject(boss5_gryphon_tornado, arg1);

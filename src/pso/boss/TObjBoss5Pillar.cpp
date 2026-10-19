@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss5Pillar.h"
 #include "pso/boss/TObjBoss5PillarDemo.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_8028ADDC.h"
@@ -95,17 +96,11 @@ void TObjBoss5Pillar::run_task() {
     }
 }
 
-void *__dt__15TObjBoss5PillarFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjBoss5Pillar;
-        if (*(void **)((s8 *)arg0 + 0x48) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x48)); ((TObjBoss5Pillar *)arg0)->m_48 = 0; }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TObjBoss5Pillar::~TObjBoss5Pillar() {
+    if (*(void **)((s8 *)this + 0x48) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x48)); this->m_48 = 0; }
+}
+extern "C" {
 typedef char RecoveredGlobal_8028B60C___vt__15TObjBoss5Pillar_size[sizeof(RecoveredGlobal_8028B60C___vt__15TObjBoss5Pillar) == 0x18 ? 1 : -1];
 u8 *TObjBoss5Pillar__ct(TObjBoss5Pillar *boss5_pillar, u8 *arg1, u8 *arg2) {
     __ct__7TObjectFP7TObject(boss5_pillar, arg1);

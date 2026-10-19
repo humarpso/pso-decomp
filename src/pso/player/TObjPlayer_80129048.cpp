@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804A4020.h"
 #include "pso/player/TUnk_804A4138.h"
 #include "pso/item/TItemShootModel_dtor.h"
 #include "pso/player/TObjPlayer_80129048.h"
@@ -13,18 +14,13 @@ s32 test_flags_any(void *, int);
 void __dl__7TObjectFPv(void *);
 int get_player_list__10TObjPlayerFv(void*);
 
-extern s32 lbl_804A4020[];
+extern s32 __vt__13TUnk_804A4020[];
 
-void *__dt__13TUnk_804A4020Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A4020;
-        __dt__15TItemShootModelFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TUnk_804A4020::~TUnk_804A4020() {
+
+}
+extern "C" {
 
 void TObjPlayer::clear_rico_ring_flag() {
     u32 arg0 = (u32)this;

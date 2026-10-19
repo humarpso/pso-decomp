@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowCost.h"
+#include "pso/misc/TWindowCost.h"
 
 extern "C" {
 
@@ -12,16 +13,11 @@ void get_item_count__24TShopEquipmentSellWindowFv(void *, int);
 
 extern s32 __vt__11TWindowCost[];
 
-void *__dt__11TWindowCostFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TWindowCost;
-        __dt__13TWindowMesetaFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TWindowCost::~TWindowCost() {
+
+}
+extern "C" {
 
 extern void *TWindowCost__class_name;
 

@@ -1,4 +1,5 @@
 #include "types.h"
+extern "C" void *__dt__13TUnk_804CC148Fv(void *, s16);
 #include "pso/misc/TUnk_804CCA0C.h"
 #include "pso/misc/TUnk_804CC990.h"
 #include "pso/system/byteswap.h"
@@ -901,7 +902,7 @@ void *__dt__9TTecLukerFv(TTecLuker *arg0, s16 arg1) {
             arg0->m_f0 = 0U;
         }
         arg0->m_f0 = 0U;
-        ((TUnk_804CC148 *)arg0)->destroy_technique_base(0);
+        __dt__13TUnk_804CC148Fv((void *)((TUnk_804CC148 *)arg0), 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowGetComCard.h"
 #include "pso/misc/TWindowMessage.h"
 #include "pso/misc/TWindowMessagePage.h"
 #include "pso/misc/TWindowMenu.h"
@@ -149,29 +150,23 @@ void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self) {
     }
 }
 
-void *__dt__17TWindowGetComCardFv(TWindowGetComCard *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(void **)((s8 *)arg0 + 0x18) = __vt__17TWindowGetComCard;
-        if ((u32) arg0->m_20 != 0U) {
-            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x20)));
-            arg0->m_20 = 0U;
-        }
-        if ((u32) arg0->m_1c != 0U) {
-            TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x1C)));
-            arg0->m_1c = 0U;
-        }
-        TWindowReturnCity__sub_8024ACA8(local_client_id);
-        TLobby__sub_8024AC20(local_client_id);
-        if ((TWindowCtrl__sub_8024A314() == 0) && (get_player_by_client_id(local_client_id) != 0U)) {
-            init_parts__10TObjPlayerFv();
-        }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TWindowGetComCard::~TWindowGetComCard() {
+    if ((u32) this->m_20 != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)this + 0x20)));
+        this->m_20 = 0U;
+    }
+    if ((u32) this->m_1c != 0U) {
+        TWindow__close((u8 *)(*(void **)((s8 *)this + 0x1C)));
+        this->m_1c = 0U;
+    }
+    TWindowReturnCity__sub_8024ACA8(local_client_id);
+    TLobby__sub_8024AC20(local_client_id);
+    if ((TWindowCtrl__sub_8024A314() == 0) && (get_player_by_client_id(local_client_id) != 0U)) {
+        init_parts__10TObjPlayerFv();
+    }
+}
+extern "C" {
 typedef char RecoveredGlobal_80252FCC___vt__17TWindowGetComCard_size[sizeof(RecoveredGlobal_80252FCC___vt__17TWindowGetComCard) == 0x18 ? 1 : -1];
 u8 *TWindowGetComCard__ct(TWindowGetComCard *window_get_com_card) {
     s32 temp_r31;

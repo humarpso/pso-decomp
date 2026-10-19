@@ -29,7 +29,7 @@ typedef struct Obj_802EF1AC {
 
 extern "C" {
 s32 __ct__7TObjectFP7TObject(void *, s32);
-extern s32 lbl_804E4788[];
+extern s32 __vt__13TUnk_804E4788[];
 extern const f32 TBoss7LaserLight__data_805DEBC4;
 extern const f32 lbl_805DEBD4;
 extern const f32 lbl_805DEBD8;
@@ -43,7 +43,7 @@ void TAdSinglePlyChrSelectGC__sub_80133508(s32);
 u8 *TBoss7LaserLight::construct_with_params(s32 arg1, s32 arg2, s32 arg3) {
     s32 i;
     __ct__7TObjectFP7TObject(this, arg1);
-    *(s32 **)((s8 *)((u8 *)this) + 0x18) = lbl_804E4788;
+    *(s32 **)((s8 *)((u8 *)this) + 0x18) = __vt__13TUnk_804E4788;
     for (i = 0; i < 20; i++) {
         ((Obj_802EEF10 *)((u8 *)this))->v[i].x = TBoss7LaserLight__data_805DEBC4;
         ((Obj_802EEF10 *)((u8 *)this))->v[i].y = TBoss7LaserLight__data_805DEBC4;

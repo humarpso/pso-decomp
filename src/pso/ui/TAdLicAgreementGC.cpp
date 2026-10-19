@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdLicAgreementGC.h"
 #include "pso/ui/TAdAgreementBaseGC.h"
 #include "pso/ui/TAdScrollWinGC_80327504.h"
 #include "pso/ui/TAdLicAgreementGC.h"
@@ -58,16 +59,11 @@ void TAdLicAgreementGC::run_task() {
 
 extern s32 __vt__17TAdLicAgreementGC[];
 
-void *__dt__17TAdLicAgreementGCFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TAdLicAgreementGC;
-        __dt__18TAdAgreementBaseGCFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TAdLicAgreementGC::~TAdLicAgreementGC() {
+
+}
+extern "C" {
 
 extern void *lbl_805D41C0;
 

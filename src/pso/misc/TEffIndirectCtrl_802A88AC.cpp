@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TEffIndirectCtrl.h"
 #include "pso/misc/TEffIndirectCtrl_802A88AC.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/memory.h"
@@ -70,18 +71,12 @@ void TEffIndirectCtrl::copy_and_flush_texture(s32 arg1) {
     DCFlushRange(this->m_1c, 0x1000);
 }
 
-void *__dt__16TEffIndirectCtrlFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TEffIndirectCtrl;
-        if (*(void **)((s8 *)arg0 + 0x2C) != NULL) { TLobby__sub_803DA16C(*(void **)((s8 *)arg0 + 0x2C)); ::operator delete(*(void **)((s8 *)arg0 + 0x2C)); }
-        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { ::operator delete(*(void **)((s8 *)arg0 + 0x28)); }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TEffIndirectCtrl::~TEffIndirectCtrl() {
+    if (*(void **)((s8 *)this + 0x2C) != NULL) { TLobby__sub_803DA16C(*(void **)((s8 *)this + 0x2C)); ::operator delete(*(void **)((s8 *)this + 0x2C)); }
+    if (*(void **)((s8 *)this + 0x28) != NULL) { ::operator delete(*(void **)((s8 *)this + 0x28)); }
+}
+extern "C" {
 typedef char RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0_size[sizeof(RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0) == 0x20 ? 1 : -1];
 
 Ctrl_802A8B58 *TEffIndirectCtrl__ct(Ctrl_802A8B58 *self, s32 kind, void *parent) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdMcSelectGC.h"
 #include "pso/ui/TAdMcSelectCursorGC.h"
 #include "pso/ui/TAdMcSelectGC.h"
 #include "pso/TMainTask.h"
@@ -81,19 +82,13 @@ void TAdMcSelectGC::run_task() {
 
 extern u32 TAdMcSelectGC__instance;
 
-void *__dt__13TAdMcSelectGCFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TAdMcSelectGC;
-        if ((u32) TAdMcSelectGC__instance != 0U) {
-            TAdMcSelectGC__instance = 0U;
-        }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TAdMcSelectGC::~TAdMcSelectGC() {
+    if ((u32) TAdMcSelectGC__instance != 0U) {
+        TAdMcSelectGC__instance = 0U;
+    }
+}
+extern "C" {
 Self_80329EC8 *TAdMcSelectGC__ct(Self_80329EC8 *self, void *parent) {
     void *back;
     void *txt;

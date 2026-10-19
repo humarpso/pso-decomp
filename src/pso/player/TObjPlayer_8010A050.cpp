@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/player/TUnk_8049F130.h"
+#include "pso/player/TUnk_8049F130.h"
 #include "pso/item/TUnk_8049F148.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
@@ -147,16 +148,11 @@ void TUnk_8049F130::run_task() {
     *(s32 *)&this->unk_1C = (s32) (*(s32 *)&this->unk_1C + 1);
 }
 
-void *__dt__13TUnk_8049F130Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TUnk_8049F130;
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TUnk_8049F130::~TUnk_8049F130() {
+
+}
+extern "C" {
 }
 
 TUnk_8049F130::TUnk_8049F130(TObject *parent, s16 a, u8 b) : TObject(parent) {

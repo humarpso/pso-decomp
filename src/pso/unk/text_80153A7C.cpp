@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjFogCollisionSwitch.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/boss/TBoss2DeRolLe.h"
@@ -17,16 +18,11 @@ void *__dt__16TObjFogCollisionFv(void *arg0, s16 arg1);
 
 extern s32 __vt__22TObjFogCollisionSwitch[];
 
-void *__dt__22TObjFogCollisionSwitchFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TObjFogCollisionSwitch;
-        __dt__16TObjFogCollisionFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TObjFogCollisionSwitch::~TObjFogCollisionSwitch() {
+
+}
+extern "C" {
 
 void TObjFogCollision__ct(void *);
 

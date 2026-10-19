@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdEp3Exist.h"
 #include "pso/misc/TQuestListVM_8007EAF8.h"
 #include "pso/ui/TAdAgreementBaseGC.h"
 #include "pso/ui/TAdScrollWinGC_80327504.h"
@@ -167,18 +168,12 @@ void TAdEp3Exist::run_task() {
     }
 }
 
-void *__dt__11TAdEp3ExistFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TAdEp3Exist;
-        if (*(void **)((s8 *)arg0 + 0x24) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x24)); ((TAdEp3Exist *)arg0)->m_24 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x20) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x20)); ((TAdEp3Exist *)arg0)->m_20 = 0; }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TAdEp3Exist::~TAdEp3Exist() {
+    if (*(void **)((s8 *)this + 0x24) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x24)); this->m_24 = 0; }
+    if (*(void **)((s8 *)this + 0x20) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x20)); this->m_20 = 0; }
+}
+extern "C" {
 
 void *TAdEp3Exist__ct(Ep3_8036F354 *o) {
     s8 flag[16];

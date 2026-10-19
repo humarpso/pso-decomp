@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TTecSifta.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/player/TUnk_804CCC68.h"
 #include "pso/misc/TTecSifta.h"
@@ -150,16 +151,11 @@ void TTecSifta::vfunc_7(void *arg1_arg) {
     }
 }
 
-void *__dt__9TTecSiftaFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TTecSifta;
-        __dt__19TTecPlayerInfluenceFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TTecSifta::~TTecSifta() {
+
+}
+extern "C" {
 
 typedef char RecoveredGlobal_8023B17C___vt__9TTecSifta_size[sizeof(RecoveredGlobal_8023B17C___vt__9TTecSifta) == 0x20 ? 1 : -1];
 

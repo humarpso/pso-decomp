@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_80488AD8.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_80488B08.h"
 #include "pso/misc/TUnk_80488AF0.h"
@@ -84,7 +85,7 @@ s32 activate_camera_mode(int);
 s32 TCameraCtrl__sub_8006BAB4(void *, void *);
 s32 TCameraCtrl__sub_8006BAC8(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-extern const s32 lbl_80488AD8[];
+extern const s32 __vt__13TUnk_80488AD8[];
 extern u32 camera_ctrl_instance;
 f32 vector_length(void *);
 void normalize_vector(void *);
@@ -143,17 +144,9 @@ void TUnk_80488AD8::run_task() {
     set_active_camera_pose((u8 *)&this->unk_1C, arg0 + 0x28);
 }
 
-void *__dt__13TUnk_80488AD8Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(const s32 **)((s8 *)arg0 + 0x18) = lbl_80488AD8;
-        restore_player_cameras();
-        TCameraCtrl__fixed_npc_camera_active = 0;
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
+TUnk_80488AD8::~TUnk_80488AD8() {
+    restore_player_cameras();
+    TCameraCtrl__fixed_npc_camera_active = 0;
 }
 
 typedef struct RecoveredFields_8006B588_arg0 RecoveredFields_8006B588_arg0;
@@ -161,7 +154,7 @@ typedef struct RecoveredGlobal_8006B588_lbl_80488AD8 RecoveredGlobal_8006B588_lb
 u8 *TCameraCtrl::init_conversation_camera(s32 i, s32 arg2, s32 arg3) {
   void *new_var;
   __ct__7TObjectFP7TObject((void *) this, (void *) arg3);
-  ((RecoveredFields_8006B588_arg0 *) ((u8 *)this))->field_18 = &(*(RecoveredGlobal_8006B588_lbl_80488AD8 *)&lbl_80488AD8).value;
+  ((RecoveredFields_8006B588_arg0 *) ((u8 *)this))->field_18 = &(*(RecoveredGlobal_8006B588_lbl_80488AD8 *)&__vt__13TUnk_80488AD8).value;
   ((RecoveredFields_8006B588_arg0 *) ((u8 *)this))->field_34 = arg2;
   activate_camera_mode(9);
   if (is_split_screen() != 0)

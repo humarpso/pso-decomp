@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TQuestColCtrl.h"
 #include "pso/object/TObjQuestCol2_80196E68.h"
 #include "pso/misc/TQuestColCtrl.h"
 #include "pso/TObject.h"
@@ -32,20 +33,14 @@ void TQuestColCtrl::run_task() {
     }
 }
 
-void *__dt__13TQuestColCtrlFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(void **)((u8 *)arg0 + 0x18) = ((s32 *)&__vt__13TQuestColCtrl);
-        if (quest_collision_task_root != 0U) {
-            delete (Obj_80195F50 *)quest_collision_task_root;
-            quest_collision_task_root = 0;
-        }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TQuestColCtrl::~TQuestColCtrl() {
+    if (quest_collision_task_root != 0U) {
+        delete (Obj_80195F50 *)quest_collision_task_root;
+        quest_collision_task_root = 0;
+    }
+}
+extern "C" {
 
 void *TQuestColCtrl__ct(void *quest_col_ctrl) {
     __ct__7TObjectFP7TObject(quest_col_ctrl);

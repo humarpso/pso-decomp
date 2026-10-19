@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrlMain.h"
 #include "pso/misc/TWindowCtrlMain_8024EEF8.h"
 #include "pso/misc/TWindowCtrlMain.h"
 #include "pso/TParticleCtrl.h"
@@ -62,42 +63,36 @@ int update_com_card__9TWindowDDFv(void*);
 void TWindowCtrlMain::render() { reset_transform_state__10TObjPlayerFv(this); TParticleCtrl::begin_effect_render(); TCameraCtrl::restore_full_screen_view(); TWindowCtrlMain__sub_8024CE24(); render_nodes__7TObjectFv(); TCameraCtrl__sub_80068EF0(); TParticleCtrl::end_effect_render(); }
 void TWindowCtrlMain::run_task() { { (void)(update_com_card__9TWindowDDFv(this)); return; } }
 
-void *__dt__15TWindowCtrlMainFv(void *arg0, s16 arg1) {
+}
+TWindowCtrlMain::~TWindowCtrlMain() {
     W_8024D3C0 *root;
     s32 i;
-    if (arg0 != NULL) {
-        *(u8 **)((s8 *)arg0 + 0x18) = __vt__15TWindowCtrlMain;
-        root = (W_8024D3C0 *)TWindowCtrlMain__window_task_root;
-        TWindowCtrlMain__window_task_root = NULL;
-        if (window_clip_out_instance != NULL) {
-            delete (W_8024D3C0 *)window_clip_out_instance;
-            window_clip_out_instance = NULL;
-        }
-        if (TWindowCtrlMain__sub_controller != NULL) {
-            delete (W_8024D3C0 *)TWindowCtrlMain__sub_controller;
-            TWindowCtrlMain__sub_controller = NULL;
-        }
-        if (TWindowCtrlMain__screen_controller != NULL) {
-            delete (W_8024D3C0 *)TWindowCtrlMain__screen_controller;
-            TWindowCtrlMain__screen_controller = NULL;
-        }
-        for (i = 5; i >= 0; i--) {
-            TWindowCtrlMain::release_ptr((void **)(&TWindowCtrlMain__viewport_states[i]));
-        }
-        if (TWindowCtrlMain__instance != NULL) {
-            delete (W_8024D3C0 *)TWindowCtrlMain__instance;
-            TWindowCtrlMain__instance = NULL;
-        }
-        if (root != NULL) {
-            delete root;
-        }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
+    root = (W_8024D3C0 *)TWindowCtrlMain__window_task_root;
+    TWindowCtrlMain__window_task_root = NULL;
+    if (window_clip_out_instance != NULL) {
+        delete (W_8024D3C0 *)window_clip_out_instance;
+        window_clip_out_instance = NULL;
     }
-    return arg0;
+    if (TWindowCtrlMain__sub_controller != NULL) {
+        delete (W_8024D3C0 *)TWindowCtrlMain__sub_controller;
+        TWindowCtrlMain__sub_controller = NULL;
+    }
+    if (TWindowCtrlMain__screen_controller != NULL) {
+        delete (W_8024D3C0 *)TWindowCtrlMain__screen_controller;
+        TWindowCtrlMain__screen_controller = NULL;
+    }
+    for (i = 5; i >= 0; i--) {
+        TWindowCtrlMain::release_ptr((void **)(&TWindowCtrlMain__viewport_states[i]));
+    }
+    if (TWindowCtrlMain__instance != NULL) {
+        delete (W_8024D3C0 *)TWindowCtrlMain__instance;
+        TWindowCtrlMain__instance = NULL;
+    }
+    if (root != NULL) {
+        delete root;
+    }
 }
+extern "C" {
 
 Obj_8024D520 *TWindowCtrlMain__ct(Obj_8024D520 *arg0) {
     Ent_8024D520 *e;

@@ -1,4 +1,5 @@
 #include "types.h"
+extern "C" void *__dt__13TUnk_804CC148Fv(void *, s16);
 #include "pso/system/vector.h"
 #include "pso/unk/TUnk_804CC148.h"
 #include "pso/player/TUnk_804CCC68.h"
@@ -147,7 +148,7 @@ void TTecReverser::create(void *arg0, void *arg1, void *arg2, void *arg3) {
 void *__dt__12TTecReverserFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TTecReverser;
-        ((TUnk_804CC148 *)arg0)->destroy_technique_base(0);
+        __dt__13TUnk_804CC148Fv((void *)((TUnk_804CC148 *)arg0), 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOKeyCave01.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/misc/TOKeyCave01.h"
 #include "pso/misc/TOKeyCol.h"
@@ -220,16 +221,11 @@ void TOKeyCave01::load_resources() {
     key_cave_render_state = 0;
 }
 
-void *__dt__11TOKeyCave01Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TOKeyCave01;
-        __dt__5TOKeyFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TOKeyCave01::~TOKeyCave01() {
+
+}
+extern "C" {
 
 u8 *TOKeyCave01__ct(TOKeyCave01 *key_cave01, s32 arg1, s32 arg2) {
     TOKey__ct(key_cave01);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrlPlayer.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TWindowCtrlPlayer.h"
@@ -40,22 +41,16 @@ void TWindowCtrlPlayer::run_task() { sub_8024E0F0(); run_all_updates__11TWindowC
 
 extern s32 __vt__17TWindowCtrlPlayer[];
 
-void *__dt__17TWindowCtrlPlayerFv(TWindowCtrlPlayer *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TWindowCtrlPlayer;
-        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x3C)); arg0->m_3c = 0; }
-        if (*(void **)((s8 *)arg0 + 0x38) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x38))); arg0->m_38 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x34) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x34))); arg0->m_34 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x30))); arg0->m_30 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x2C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x2C))); arg0->m_2c = 0; }
-        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x28)); arg0->m_28 = 0; }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TWindowCtrlPlayer::~TWindowCtrlPlayer() {
+    if (*(void **)((s8 *)this + 0x3C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x3C)); this->m_3c = 0; }
+    if (*(void **)((s8 *)this + 0x38) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)this + 0x38))); this->m_38 = 0; }
+    if (*(void **)((s8 *)this + 0x34) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)this + 0x34))); this->m_34 = 0; }
+    if (*(void **)((s8 *)this + 0x30) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)this + 0x30))); this->m_30 = 0; }
+    if (*(void **)((s8 *)this + 0x2C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)this + 0x2C))); this->m_2c = 0; }
+    if (*(void **)((s8 *)this + 0x28) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x28)); this->m_28 = 0; }
+}
+extern "C" {
 }
 s32 create_message_information_window(s32 arg0, s32 arg1, s32 arg2);
 s32 create_status_window(s32 arg0);

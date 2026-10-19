@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TScene.h"
 #include "pso/item/TItemDrop_800F93F0.h"
 #include "pso/misc/TLobby_80131794.h"
 #include "pso/misc/TLobby_80207644.h"
@@ -85,21 +86,15 @@ s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 void *__nw__7TObjectFUl(int);
 
-void *__dt__6TSceneFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__6TScene;
-        TScene__sub_80205AE8((s32 *)arg0);
-        TScene__sub_80205FD4(arg0);
-        TScene__map_section_render_callback = 0;
-        TScene__active_scene_callback = 0;
-        TScene__render_callback = 0;
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TScene::~TScene() {
+    TScene__sub_80205AE8((s32 *)this);
+    TScene__sub_80205FD4(this);
+    TScene__map_section_render_callback = 0;
+    TScene__active_scene_callback = 0;
+    TScene__render_callback = 0;
+}
+extern "C" {
 
 extern void *tl_02;
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TTecJelin.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 #include "pso/unk/TUnk_804CC148.h"
@@ -199,16 +200,11 @@ void run_task__9TTecJelinFv(struct Self_802336F0 *self) {
     queue_destruction__7TObjectFv((self));
 }
 
-void *__dt__9TTecJelinFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TTecJelin;
-        ((TUnk_804CC148 *)arg0)->destroy_technique_base(0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TTecJelin::~TTecJelin() {
+
+}
+extern "C" {
 
 Jelin_80233808 *TTecJelin__ct(Jelin_80233808 *self, void *_w1, void *_w2, void *_w3, void *_w4) {
     s32 r;

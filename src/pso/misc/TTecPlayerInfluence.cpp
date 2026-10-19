@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TTecPlayerInfluence.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TTecRaBarta.h"
@@ -135,17 +136,11 @@ void TTecPlayerInfluence::run_task() {
     this->tick_lifetime();
 }
 
-void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TTecPlayerInfluence;
-        if (*(void **)((s8 *)arg0 + 0xDC) != NULL) { free_collision_body_parts(*(void **)((s8 *)arg0 + 0xDC)); }
-        __dt__7TEffectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TTecPlayerInfluence::~TTecPlayerInfluence() {
+    if (*(void **)((s8 *)this + 0xDC) != NULL) { free_collision_body_parts(*(void **)((s8 *)this + 0xDC)); }
+}
+extern "C" {
 
 typedef struct Obj_80237310 Obj_80237310;
 typedef struct Owner_80237310 Owner_80237310;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdExNetConfirmGC.h"
 #include "pso/misc/TKeyBoardControl_8000F764.h"
 #include "pso/misc/TLobby_80132ED0.h"
 #include "pso/object/TObject_80019A50.h"
@@ -60,16 +61,11 @@ void TAdExNetConfirmGC::run_task() {
     o->m6();
 }
 
-void *__dt__17TAdExNetConfirmGCFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TAdExNetConfirmGC;
-        __dt__16TAdWarningBaseGCFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TAdExNetConfirmGC::~TAdExNetConfirmGC() {
+
+}
+extern "C" {
 u8 *TAdExNetConfirmGC__ct(u8 *object) {
     TAdWarningBaseGC__ct((TAdWarningBaseGC *)object);
     *(s32 **)((s8 *)object + 0x18) = &(*(RecoveredGlobal_8032C618___vt__17TAdExNetConfirmGC *)&__vt__17TAdExNetConfirmGC).value;

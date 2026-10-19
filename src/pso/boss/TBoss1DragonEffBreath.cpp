@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss1DragonEffBreath.h"
 #include "pso/boss/TBoss8Dragon_800BC53C.h"
 #include "pso/boss/TBoss1DragonEffBreath.h"
 #include "pso/system/vector.h"
@@ -34,18 +35,12 @@ void TBoss1DragonEffBreath::run_task() {
     }
 }
 
-void *__dt__21TBoss1DragonEffBreathFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TBoss1DragonEffBreath;
-        delete_buffer__12TBoss8DragonFis((s32)(*(void **)((s8 *)arg0 + 0x34)), 1);
-        ((TBoss1DragonEffBreath *)arg0)->m_34 = 0;
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TBoss1DragonEffBreath::~TBoss1DragonEffBreath() {
+    delete_buffer__12TBoss8DragonFis((s32)(*(void **)((s8 *)this + 0x34)), 1);
+    this->m_34 = 0;
+}
+extern "C" {
 }
 TBoss1DragonEffBreath::TBoss1DragonEffBreath(TObject *object, void *arg2, void *arg3) : TObject(object) {
     void *p;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TTecDeband.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TTecDeband.h"
 #include "pso/misc/TTecAnti.h"
@@ -120,16 +121,11 @@ void TTecDeband::create(s32 arg0, s32 pos, s32 level) {
 }
 void TTecDeband::render() {  }
 
-void *__dt__10TTecDebandFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TTecDeband;
-        __dt__19TTecPlayerInfluenceFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TTecDeband::~TTecDeband() {
+
+}
+extern "C" {
 typedef char RecoveredGlobal_8022F948___vt__10TTecDeband_size[sizeof(RecoveredGlobal_8022F948___vt__10TTecDeband) == 0x20 ? 1 : -1];
 
 void run_task__10TTecDebandFv(Deband_8022F73C *self) {

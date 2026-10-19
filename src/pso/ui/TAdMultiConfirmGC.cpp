@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/ui/TAdMultiConfirmGC.h"
+#include "pso/ui/TAdMultiConfirmGC.h"
 #include "pso/TAdMultiChgGameModeGC.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 
@@ -101,17 +102,11 @@ void TAdMultiConfirmGC::run_task() {
     }
 }
 
-void *__dt__17TAdMultiConfirmGCFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TAdMultiConfirmGC;
-        fn_802FF760(arg0);
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TAdMultiConfirmGC::~TAdMultiConfirmGC() {
+    fn_802FF760(this);
+}
+extern "C" {
 }
 #pragma push
 #pragma opt_common_subs off

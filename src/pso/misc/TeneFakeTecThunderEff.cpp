@@ -1,4 +1,5 @@
 #include "pso/TEneEffHamon.h"
+#include "pso/misc/TeneFakeTecThunderEff.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TeneFakeTecThunderEff.h"
@@ -65,7 +66,7 @@ struct Obj_800A3D1C {
 extern "C" {
 void build_beam_points__12TTecZondeEffFPv(struct Obj_800A39A8 *);
 void __ct__7TObjectFP7TObject(void *, void *);
-extern s32 lbl_80490A18[];
+extern s32 __vt__21TeneFakeTecThunderEff[];
 extern s32 lbl_805D29E0;
 u8 *TObjPlayer__sub_800A4204(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4);
 extern u8 chunk_material_color_half_alpha_f32[];
@@ -379,20 +380,15 @@ void TeneFakeTecThunderEff::run_task() {
 }
 #pragma pop
 
-void *__dt__21TeneFakeTecThunderEffFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_80490A18;
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TeneFakeTecThunderEff::~TeneFakeTecThunderEff() {
+
+}
+extern "C" {
 typedef char RecoveredGlobal_800A4204_lbl_80490A18_size[sizeof(RecoveredGlobal_800A4204_lbl_80490A18) == 0x18 ? 1 : -1];
 u8 *TObjPlayer__sub_800A4204(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800A4204_lbl_80490A18 *)&lbl_80490A18).value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800A4204_lbl_80490A18 *)&__vt__21TeneFakeTecThunderEff).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D29E0;
     ((TeneFakeTecThunderEff *)arg0)->m_338 = arg2;
     *(s32 *)((s8 *)arg0 + 0x33C) = arg3;

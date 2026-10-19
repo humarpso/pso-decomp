@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOKeyMachine01.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/misc/TKeyBoardControl_8000F764.h"
 #include "pso/misc/TLanguage_801E4874.h"
@@ -152,16 +153,11 @@ void TOKeyMachine01::load_assets() {
     *(s32 *)((s8 *)(*(s32 *)&TOKeyMachine01__texture_lists) + 4) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&key_machine_model_archive) + 0x42C)) + 0xC);
 }
 
-void *__dt__14TOKeyMachine01Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TOKeyMachine01;
-        __dt__5TOKeyFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TOKeyMachine01::~TOKeyMachine01() {
+
+}
+extern "C" {
 u8 *TOKeyMachine01__ct(TOKeyMachine01 *key_machine01, s32 arg1, s32 arg2) {
     TOKey__ct(key_machine01);
     *(s32 **)((s8 *)key_machine01 + 0x18) = &(*(RecoveredGlobal_8016D7F0___vt__14TOKeyMachine01 *)&__vt__14TOKeyMachine01).value;

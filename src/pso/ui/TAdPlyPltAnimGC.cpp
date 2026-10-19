@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdPlyPltAnimGC.h"
 #include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 #include "pso/ui/TAdPlyPltAnimGC.h"
 #include "pso/ui/TAdPlyPltAnimCtrlGC.h"
@@ -129,23 +130,16 @@ void TAdPlyPltAnimGC::run_task() {
 }
 #pragma pop
 
-void *__dt__15TAdPlyPltAnimGCFv(void *arg0, s16 arg1) {
+}
+TAdPlyPltAnimGC::~TAdPlyPltAnimGC() {
     s32 i;
-
-    if (arg0 != NULL) {
-        *(void ***)((s8 *)arg0 + 0x18) = __vt__15TAdPlyPltAnimGC;
-        for (i = 0; i < 5; i++) {
-            if ((u32)(&TAdPlyPltAnimGC__instances.value)[i] != 0U) {
-                (&TAdPlyPltAnimGC__instances.value)[i] = 0;
-            }
-        }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+    for (i = 0; i < 5; i++) {
+        if ((u32)(&TAdPlyPltAnimGC__instances.value)[i] != 0U) {
+            (&TAdPlyPltAnimGC__instances.value)[i] = 0;
         }
     }
-    return arg0;
 }
+extern "C" {
 
 #pragma push
 #pragma fp_contract on
