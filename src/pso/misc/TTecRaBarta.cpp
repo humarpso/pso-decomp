@@ -310,14 +310,14 @@ void TTecRaBarta::vfunc_6(void *target) {
         }
     }
     if (found == 0) {
-        self->ids[self->cursor] = obj_getField1c(((VObj_80237900 *)target));
-        self->cursor += 1;
-        if (self->cursor >= 32) {
-            self->cursor = 31;
+        self->ids[*(s32 *)&this->m_138] = obj_getField1c(((VObj_80237900 *)target));
+        *(s32 *)&this->m_138 += 1;
+        if (*(s32 *)&this->m_138 >= 32) {
+            *(s32 *)&this->m_138 = 31;
         }
         HitInfo_80237900 tmp;
         tmp.type = 2;
-        tmp.power = self->power;
+        tmp.power = this->m_88;
         HitInfo_80237900 info = tmp;
         ((VObj_80237900 *)target)->m21(self->source, &info, self->contact, 5, -1);
     }

@@ -302,14 +302,14 @@ void TTecGiFoie::vfunc_6(void *target) {
         }
     }
     if (found == 0) {
-        self->ids[self->cursor] = obj_getField1c(((VObj_8023154C *)target));
-        self->cursor += 1;
-        if (self->cursor >= 32) {
-            self->cursor = 31;
+        self->ids[*(s32 *)&this->m_138] = obj_getField1c(((VObj_8023154C *)target));
+        *(s32 *)&this->m_138 += 1;
+        if (*(s32 *)&this->m_138 >= 32) {
+            *(s32 *)&this->m_138 = 31;
         }
         HitInfo_8023154C tmp;
         tmp.type = 1;
-        tmp.power = self->power;
+        tmp.power = this->m_88;
         HitInfo_8023154C info = tmp;
         ((VObj_8023154C *)target)->m21(self->source, &info, self->contact, 1, -1);
     }

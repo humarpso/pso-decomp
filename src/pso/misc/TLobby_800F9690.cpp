@@ -18,7 +18,6 @@ s32 subtractive_rng_seed(s32 *, s32);
 
 struct Sp8_800f9690 { s8 data[240]; };
 u32 TLobby::write_packet_header(s32 arg1, s32 arg2, u32 arg3) {
-    u8 *arg0 = (u8 *)this;
     struct Sp8_800f9690 sp8;
     u32 v0 = (u32)*(s32 *)&this->m_name;
     s32 v4 = *(s32 *)&this->m_flags;
@@ -35,7 +34,6 @@ u32 TLobby::write_packet_header(s32 arg1, s32 arg2, u32 arg3) {
 
 struct Sp8_800f970c { s8 data[240]; };
 s32 TLobby::alloc_download_quest(s32 arg1, s32 *arg2) {
-    u8 *arg0 = (u8 *)this;
     struct Sp8_800f970c sp8;
     s32 v0 = *(s32 *)&this->m_name;
     s32 v4 = *(s32 *)&this->m_flags;

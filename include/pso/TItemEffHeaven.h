@@ -6,7 +6,10 @@
 
 class TItemEffHeaven : public TObject {
 public:
- u8 _pad1c[0x10];
+ u8 unk_1C[0x4];
+ void * m_20; // 0x20
+ u8 unk_24[0x4];
+ s32 m_28; // 0x28
  void* m_arr[3];
 
 public:

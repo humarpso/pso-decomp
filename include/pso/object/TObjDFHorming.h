@@ -15,7 +15,9 @@ struct TObjDFHorming : public TUnk_804806E8 {
     void* m_33c;
     u8 _pad340[0x8];
     void* m_348;
-    u8 _pad34C[0x14];
+    u8 unk_34C[0x4];
+    f32 m_350; // 0x350
+    u8 unk_354[0xC];
     u32 m_360;
     u8 _pad364[0x4];
     u32 m_368;

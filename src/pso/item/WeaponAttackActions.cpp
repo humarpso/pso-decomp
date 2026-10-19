@@ -571,7 +571,7 @@ void TUnk_804F1320::spawn_pg_effect(void *arg1, s32 item, f32 farg0) {
     ((TObjPlayer *)((u8 *)this))->fill_status_info(&prm);
     VecCopy((Vec *)&prm.pos, (const Vec *)((Vec_8011EAB8 *)arg1));
     prm.f28 = farg0;
-    prm.f34 = *(s32 *)(((u8 *)this) + 0x188);
+    prm.f34 = this->projectile;
     prm.f38 = *(s32 *)(((u8 *)this) + 0x24);
     if (is_locally_controlled__10TObjPlayerFPv(*(s32 *)(((u8 *)this) + 0xF0)) != 0) {
         create__10TItemEffPGFPvPv(tl_05, &prm);

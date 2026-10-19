@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemProArmor.h"
 #include "pso/player/TObjPlayer_80126278.h"
 
 extern "C" {
@@ -13,10 +14,10 @@ extern f32 lbl_805DAD74;
 void frozen_shooter_start_curse(void *item_pro_armor) {
     s32 temp_r3;
 
-    if ((u32) *(u32 *)((s8 *)item_pro_armor + 0x174) != 0U) {
+    if ((u32) ((TItemProArmor *)item_pro_armor)->m_174 != 0U) {
         temp_r3 = __nw__15TItemHeapObjectFUl(0x30);
         if (temp_r3 != 0) {
-            freeze_curse_timer_ct(temp_r3, *(u32 *)((s8 *)item_pro_armor + 0x174), get_id__13TItemProArmorFv(item_pro_armor), 0xE10, lbl_805DAD74);
+            freeze_curse_timer_ct(temp_r3, ((TItemProArmor *)item_pro_armor)->m_174, get_id__13TItemProArmorFv(item_pro_armor), 0xE10, lbl_805DAD74);
         }
     }
 }

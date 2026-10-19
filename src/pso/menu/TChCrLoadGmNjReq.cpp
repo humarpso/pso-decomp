@@ -49,11 +49,11 @@ void *TChCrLoadGmNjReq__ct(void *ch_cr_load_gm_nj_req, void *arg1, void *arg2) {
     *(s32 **)((s8 *)ch_cr_load_gm_nj_req + 0x18) = __vt__16TChCrLoadGmNjReq;
     *(void * *)&((TChCrLoadGmNjReq *)ch_cr_load_gm_nj_req)->m_name = lbl_805D3B58;
     *(void **)((s8 *)ch_cr_load_gm_nj_req + 0x24) = *(void **)((s8 *)arg2 + 0x8);
-    *(void **)((s8 *)ch_cr_load_gm_nj_req + 0x28) = *(void **)((s8 *)arg2 + 0x10);
+    ((TChCrLoadGmNjReq *)ch_cr_load_gm_nj_req)->m_28 = *(void **)((s8 *)arg2 + 0x10);
     *(void **)((s8 *)ch_cr_load_gm_nj_req + 0x1C) = *(void **)((s8 *)arg2 + 0x4);
-    *(void **)((s8 *)ch_cr_load_gm_nj_req + 0x20) = *(void **)((s8 *)arg2 + 0xC);
+    ((TChCrLoadGmNjReq *)ch_cr_load_gm_nj_req)->m_20 = *(void **)((s8 *)arg2 + 0xC);
     strncpy(self->f_30, *(void **)((s8 *)arg2 + 0x0), 48);
-    *(void **)((s8 *)ch_cr_load_gm_nj_req + 0x60) = self->f_30;
+    ((TChCrLoadGmNjReq *)ch_cr_load_gm_nj_req)->m_60 = self->f_30;
     *(u32 *)((s8 *)ch_cr_load_gm_nj_req + 0x64) = 0;
     *(u32 *)((s8 *)ch_cr_load_gm_nj_req + 0x68) = 0;
     *(u32 *)((s8 *)ch_cr_load_gm_nj_req + 0x6C) = 0;

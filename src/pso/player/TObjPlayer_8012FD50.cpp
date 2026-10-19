@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemProArmor.h"
 #include "pso/player/TObjPlayer_8012FD50.h"
 
 extern "C" {
@@ -15,10 +16,10 @@ void madam_umbrella_scale_canopy(void* p) { if (get_player_list__10TObjPlayerFv(
 void madam_umbrella_start_regen(void *item_pro_armor) {
     s32 temp_r3;
 
-    if ((u32) *(u32 *)((s8 *)item_pro_armor + 0x174) != 0U) {
+    if ((u32) ((TItemProArmor *)item_pro_armor)->m_174 != 0U) {
         temp_r3 = __nw__15TItemHeapObjectFUl(0x2C);
         if (temp_r3 != 0) {
-            construct_timer_event__13TUnk_804A0628Fv(temp_r3, *(u32 *)((s8 *)item_pro_armor + 0x174), get_id__13TItemProArmorFv(item_pro_armor), 0x5A);
+            construct_timer_event__13TUnk_804A0628Fv(temp_r3, ((TItemProArmor *)item_pro_armor)->m_174, get_id__13TItemProArmorFv(item_pro_armor), 0x5A);
         }
     }
 }

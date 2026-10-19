@@ -10,7 +10,9 @@ public:
     void *destroy_and_free(s16);
     virtual void render();
     virtual void run_task();
-    u8 unk_B0[0x4C];
+    u8 unk_B0[0x8];
+    s16 m_b8; // 0xB8
+    u8 unk_BA[0x42];
     void * m_fc;
     s32 m_100;
 };

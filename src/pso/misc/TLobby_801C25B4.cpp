@@ -1,4 +1,5 @@
 #include "pso/system/TSetEvtDestroy.h"
+#include "pso/TObject.h"
 #include "pso/misc/TUnk_804C3E88.h"
 #include "pso/TPlayerBattleCtrl.h"
 #include "pso/misc/TCheckRoomSequence.h"
@@ -1811,7 +1812,7 @@ s32 fn_801C4CE0(TPlayerBattleCtrl *player_battle_ctrl) {
 }
 
 void update_player_battle_ctrl_state(void *arg0) {
-    switch (*(u32 *)((s8 *)arg0 + 0x1C)) {
+    switch (*(u32 *)&((TPlayerBattleCtrl *)arg0)->state_1c) {
     case 0:
         fn_801C4CE0((TPlayerBattleCtrl *)arg0);
         return;
@@ -1880,7 +1881,7 @@ void *TPlayerBattleCtrl__ct(void *player_battle_ctrl, s32 _w1) {
     *(s32 *)((s8 *)player_battle_ctrl + 0x28) = 0;
     ((TPlayerBattleCtrl *)player_battle_ctrl)->state_24 = 0;
     ((TPlayerBattleCtrl *)player_battle_ctrl)->state_20 = 0;
-    *(s32 *)((s8 *)player_battle_ctrl + 0x1C) = 0;
+    ((TPlayerBattleCtrl *)player_battle_ctrl)->state_1c = 0;
     *(s32 *)((s8 *)player_battle_ctrl + 0x4C) = 0;
     *(s32 *)((s8 *)player_battle_ctrl + 0x50) = 0;
     *(s32 *)((s8 *)player_battle_ctrl + 0x54) = 0;

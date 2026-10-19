@@ -270,16 +270,16 @@ void TTecBarta::vfunc_8(void *target) {
         }
     }
     if (found == 0) {
-        self->ids[self->cursor] = obj_getField1c(((VObj_8022B8F4 *)target));
-        self->cursor += 1;
-        if (self->cursor >= 32) {
-            self->cursor = 31;
+        self->ids[this->hitCursor] = obj_getField1c(((VObj_8022B8F4 *)target));
+        this->hitCursor += 1;
+        if (this->hitCursor >= 32) {
+            this->hitCursor = 31;
         }
         HitInfo_8022B8F4 tmp;
         tmp.type = 19;
-        tmp.power = self->power;
+        tmp.power = this->power;
         HitInfo_8022B8F4 info = tmp;
-        ((VObj_8022B8F4 *)target)->m21(self->source, &info, self->contact, 3, -1);
+        ((VObj_8022B8F4 *)target)->m21(self->source, &info, *(void * *)&this->contact, 3, -1);
     }
 }
 

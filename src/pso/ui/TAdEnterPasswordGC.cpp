@@ -232,7 +232,7 @@ void update_password_input__18TAdEnterPasswordGCFPv(Pw_8032B6A0 *self) {
 }
 
 void open_keyboard_window__18TAdEnterPasswordGCFPv(s32 arg0) {
-    *(s32 *)((s8 *)arg0 + 0x30) = TAdEnterSerialAccessGC::show_message_window((void *)arg0, (void *)2);
+    *(s32 *)&((TAdEnterSerialAccessGC *)arg0)->m_30 = TAdEnterSerialAccessGC::show_message_window((void *)arg0, (void *)2);
     *(s32 *)((s8 *)arg0 + 0x34) = create_default_callback__22TAdEnterSerialAccessGCFv((void *)arg0);
     if ((u32) *(u32 *)((s8 *)arg0 + 0x2C) != 0U) {
         ((TAdEnterSerialAccessGC *)(*(void **)((s8 *)arg0 + 0x2C)))->reset_input_state();

@@ -6,7 +6,13 @@
 
 class TChCrLoadGmNjReq : public TObject {
 public:
- u8 _pad1c[0x4c];
+ u8 unk_1C[0x4];
+ void * m_20; // 0x20
+ u8 unk_24[0x4];
+ void * m_28; // 0x28
+ u8 unk_2C[0x34];
+ void * m_60; // 0x60
+ u8 unk_64[0x4];
  void* m_68;
 
 public:

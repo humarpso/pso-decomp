@@ -170,32 +170,32 @@ extern "C" {
 void TChallenge4PResult::init_timer() {
     this->show_message((s32)((s32)(get_localized_text_entry(0x2B, 5))));
     this->wait_frames = 0x5A;
-    *(s32 *)((s8 *)this + 0x1C) = 5;
+    this->state_1c = 5;
 }
 void TChallenge4PResult::init_result_state() {
     this->show_message((s32)((s32)(get_localized_text_entry(0x2B, 4))));
     this->wait_frames = 0x5A;
-    *(s32 *)((s8 *)this + 0x1C) = 5;
+    this->state_1c = 5;
 }
 void TChallenge4PResult::init() {
     this->show_message((s32)((s32)(get_localized_text_entry(0x2B, 3))));
     this->wait_frames = 0x5A;
-    *(s32 *)((s8 *)this + 0x1C) = 5;
+    this->state_1c = 5;
 }
-void TChallenge4PResult::sub_8034B8B0() { *(s32*)((char*)this + 0x1c) = 3; }
+void TChallenge4PResult::sub_8034B8B0() { this->state_1c = 3; }
 
 void TChallenge4PResult::sub_8034B8BC() {
     this->show_message((s32)((s32)((int) (get_localized_text_entry(0x2B, 1)))));
     TLobby__sub_802924B4((s32)(((u8 *)this) + 0x34), (this->slot_index));
     this->wait_frames = 0x5A;
-    *(s32 *)((s8 *)((u8 *)this) + 0x1C) = 5;
+    this->state_1c = 5;
 }
 
 void TChallenge4PResult::sub_8034B918() {
     this->show_message((s32)((s32)((int) (get_localized_text_entry(0x2B, 2)))));
     TLobby__sub_802924B4((s32)(((u8 *)this) + 0x48), (this->slot_index));
     this->wait_frames = 0x5A;
-    *(s32 *)((s8 *)((u8 *)this) + 0x1C) = 5;
+    this->state_1c = 5;
 }
 
 }
@@ -220,7 +220,7 @@ void TChallenge4PResult::sub_8034BA2C() {
     temp_r0 = this->wait_frames - 1;
     this->wait_frames = temp_r0;
     if (temp_r0 < 0) {
-        *(s32 *)((s8 *)((u8 *)this) + 0x1C) = 2;
+        this->state_1c = 2;
     }
 }
 
@@ -265,7 +265,7 @@ void TChallenge4PResult::handle_result_code() {
         return;
     case -10:
     default:
-        *(s32 *)((s8 *)arg0 + 0x1C) = 2;
+        this->state_1c = 2;
         return;
     }
 }
@@ -288,10 +288,10 @@ void TChallenge4PResult::update_input() {
         if (get_player_by_client_id(this->slot_index) != 0U) {
             temp_r5 = get_map_id__13TRaderMapCoreFv() * 0x50;
             if (TWindowShortListCtrl__check_controller_button(controller_input_state + temp_r5 + 0x20, 4, temp_r5) != 0) {
-                *(s32 *)((s8 *)this + 0x1C) = 1;
+                this->state_1c = 1;
             }
         } else {
-            *(s32 *)((s8 *)this + 0x1C) = 3;
+            this->state_1c = 3;
         }
     }
 }

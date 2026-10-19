@@ -1447,7 +1447,7 @@ void acquire_target__11TObjEneMojaFPv(u8 *arg0) {
     f32 d;
     u8 *q;
     u16 tid;
-    if (*(s32 *)((s8 *)arg0 + 0x374) != 1 && ((((TObjEneMoja *)arg0)->mode != 0 && ((TObjEneMoja *)arg0)->target == NULL) || ((TObjEneMoja *)(arg0))->is_actor_cadence_frame(0x1E) != 0)) {
+    if (((TObjEneMoja *)arg0)->appearance != 1 && ((((TObjEneMoja *)arg0)->mode != 0 && ((TObjEneMoja *)arg0)->target == NULL) || ((TObjEneMoja *)(arg0))->is_actor_cadence_frame(0x1E) != 0)) {
         if (obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x10) != 0) {
             i = 0;
             best_id = 0xFFFF;

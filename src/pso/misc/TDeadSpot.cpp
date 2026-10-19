@@ -130,7 +130,6 @@ extern s32 lbl_804949D8[];
 #pragma push
 #pragma opt_common_subs off
 void TUnk_804949D8::vfunc_6() {
-    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_800D7CF4, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800D7CF4, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_800D7CF4, sp10) == 0x8) ? 1 : -1];
@@ -142,7 +141,7 @@ void TUnk_804949D8::vfunc_6() {
     stack.spC = lbl_805DA380;
     stack.sp8 = temp_f1;
     stack.sp10 = this->m_28 * cos_table_lookup(temp_r3);
-    vec3_add_to(&stack.sp8, arg0 + 0x1C);
+    vec3_add_to(&stack.sp8, (u8 *)&this->unk_1C);
     TObjBoss2Tunnel::adjust_to_ground((s32)&stack.sp8, &stack.sp8);
     ((TNowLoading *)(this->m_34))->copy_pos(&stack.sp8);
 }
@@ -181,7 +180,6 @@ void update_lifetime__9TDeadSpotFPv(void *arg0) {
 
 typedef struct Stack_800D7E94 Stack_800D7E94;
 void TUnk_804949F4::vfunc_6() {
-    u8 *arg0 = (u8 *)this;
   Stack_800D7E94 stack;
   f32 temp_f1;
   s32 temp_r3;
@@ -190,7 +188,7 @@ void TUnk_804949F4::vfunc_6() {
   stack.spC = lbl_805DA380;
   stack.sp8 = temp_f1;
   stack.sp10 = (this->m_28) * cos_table_lookup((int) temp_r3);
-  vec3_add_to(&stack.sp8, arg0 + 0x1C);
+  vec3_add_to(&stack.sp8, (u8 *)&this->unk_1C);
   ((TNowLoading *)(this->m_34))->copy_pos(&stack.sp8);
 }
 

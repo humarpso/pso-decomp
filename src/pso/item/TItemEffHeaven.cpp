@@ -68,32 +68,32 @@ void TItemEffHeaven::run_task() {
     s32 i;
     s32 j;
 
-    if (self->f20 == NULL) {
-        self->f20 = (VObj_8010900C *)resolve_hittable_target(self->f1C, self->f24);
-        if (self->f20 != NULL) {
-            VecCopy((Vec *)&self->pos, (const Vec *)(&((Src_8010900C *)self->f20)->recs[self->f24].pos));
+    if (*(VObj_8010900C * *)&this->m_20 == NULL) {
+        *(VObj_8010900C * *)&this->m_20 = (VObj_8010900C *)resolve_hittable_target(self->f1C, self->f24);
+        if (*(VObj_8010900C * *)&this->m_20 != NULL) {
+            VecCopy((Vec *)&self->pos, (const Vec *)(&((Src_8010900C *)*(VObj_8010900C * *)&this->m_20)->recs[self->f24].pos));
         }
     }
-    if (self->f28 == 0) {
+    if (this->m_28 == 0) {
         self->arr[0] = spawn_continuous_particle_effect_with_flags(&self->pos, 0x13B, 0x40);
     }
-    if (self->f28 == 0xF) {
+    if (this->m_28 == 0xF) {
         play_sound_effect(0x4002A408, &self->pos, 0, 0);
         self->arr[1] = spawn_continuous_particle_effect_with_flags(&self->pos, 0x134, 0x40);
         self->f38 = lbl_805DAB28;
     }
-    if (self->f28 >= 0xF && self->f28 < 0x19) {
+    if (this->m_28 >= 0xF && this->m_28 < 0x19) {
         self->f38 -= lbl_805DAB2C;
         self->pos.y += self->f38;
     }
-    if (self->f28 == 0x19) {
+    if (this->m_28 == 0x19) {
         for (i = 0; i != 2; i++) {
             TBoss4Type2::request_destroy((u32)self->arr[i]);
             self->arr[i] = 0;
         }
         u32 id = self->f3C;
         if (id != 0) {
-            VObj_8010900C *o = self->f20;
+            VObj_8010900C *o = *(VObj_8010900C * *)&this->m_20;
             if (o != NULL) {
                 Parm_8010900C b;
                 b.t = 4;
@@ -103,10 +103,10 @@ void TItemEffHeaven::run_task() {
             }
         }
     }
-    if (self->f28 == 0x14) {
+    if (this->m_28 == 0x14) {
         self->arr[2] = spawn_continuous_particle_effect_with_flags(&self->pos, 0x139, 0x40);
     }
-    if (self->f28 == 0x28) {
+    if (this->m_28 == 0x28) {
         TBoss4Type2::request_destroy((u32)self->arr[2]);
         self->arr[2] = 0;
         queue_destruction__7TObjectFv(self);
@@ -117,8 +117,8 @@ void TItemEffHeaven::run_task() {
             ((TNowLoading *)(self->arr[j]))->copy_pos(&self->pos);
         }
     }
-    self->f20 = NULL;
-    self->f28++;
+    *(VObj_8010900C * *)&this->m_20 = NULL;
+    this->m_28++;
 }
 
 TItemEffHeaven::~TItemEffHeaven() {

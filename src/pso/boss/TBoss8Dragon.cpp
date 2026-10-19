@@ -2701,16 +2701,16 @@ void TBoss8Dragon__sub_802F5434(TBoss8Dragon *arg0, u32 arg1) {
     u8 *temp_r3;
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xB8) = 1;
+        arg0->m_b8 = 1;
         ((VObj_18_444bc5 *)(arg0))->m94();
         arg0->reset_timer();
         arg0->set_active_flag();
-        *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C0) & ~0x36);
+        *(s32 *)&arg0->m_3c0 = (s32) (*(s32 *)&arg0->m_3c0 & ~0x36);
         for (i = 0; i < 4; i++) {
             ((TBoss8Dragon *)(&((Self_802F5434 *)arg0)->arr[i]))->set_speed(lbl_805DEDC4);
         }
-        *(s32 *)((s8 *)arg0 + 0x3C0) = (*(s32 *)((s8 *)arg0 + 0x3C0) | 0x100);
-        *(s32 *)((s8 *)arg0 + 0x84C) = 0;
+        *(s32 *)&arg0->m_3c0 = (*(s32 *)&arg0->m_3c0 | 0x100);
+        *(s32 *)&arg0->m_84c = 0;
         temp_f1 = *(f32 *)((s8 *)TBoss8Dragon__data_80541DDC[0] + 0x10);
         *(f32 *)((s8 *)arg0 + 0x864) = (f32) (TBoss8Dragon__data_805DEDC8 + TObjBoss2Tunnel::calc_scaled_value((s32) (TBoss8Dragon__data_805DED7C * temp_f1), temp_f1));
         return;
@@ -2726,8 +2726,8 @@ void TBoss8Dragon__sub_802F5434(TBoss8Dragon *arg0, u32 arg1) {
         return;
     case 8:
         ((s32 (*)(void))update_linked_position__12TBoss8DragonFv)();
-        *(s32 *)((s8 *)arg0 + 0x84C) = (s32) (*(s32 *)((s8 *)arg0 + 0x84C) + 1);
-        if ((s32) (*(s32 *)((s8 *)arg0 + 0x84C) % 20) == 0x13) {
+        *(s32 *)&arg0->m_84c = (s32) (*(s32 *)&arg0->m_84c + 1);
+        if ((s32) (*(s32 *)&arg0->m_84c % 20) == 0x13) {
             if (enemy_validate_retained_target(arg0) != 0) {
                 ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
             } else {
@@ -2742,7 +2742,7 @@ void TBoss8Dragon__sub_802F5434(TBoss8Dragon *arg0, u32 arg1) {
         ((s32 (*)(void))sync_target_pos__12TBoss8DragonFPv)();
         return;
     case 6:
-        *(s32 *)((s8 *)arg0 + 0x3B0) = (s32) *(s32 *)((s8 *)arg0 + 0x3B4);
+        arg0->m_3b0 = (s32) *(s32 *)((s8 *)arg0 + 0x3B4);
         if (((s32 (*)(void))update_linked_position__12TBoss8DragonFv)() != 0) {
             ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
         } else {
@@ -2757,7 +2757,7 @@ void TBoss8Dragon__sub_802F5434(TBoss8Dragon *arg0, u32 arg1) {
         }
         return;
     case 5:
-        *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C0) & 0xFFFFFEFF);
+        *(s32 *)&arg0->m_3c0 = (s32) (*(s32 *)&arg0->m_3c0 & 0xFFFFFEFF);
         break;
     }
 }
@@ -6801,7 +6801,7 @@ u8 *TBoss8Dragon__ct(u8 *arg0, void *arg1, void *arg2) {
     TObjBoss2Tunnel::reset_coords_pass((s32)(arg0 + 0x610));
     __construct_array(arg0 + 0x6DC, (void *) init_and_activate__10TObjPlayerFv, (void *) __dt__13TUnk_804949A8Fv, 0x1C, 4);
     __ct__14SubtractiveRngFv(arg0 + 0x764);
-    *(s32 *)((s8 *)arg0 + 0) = boss8_dragon_class_name;
+    ((TBoss8Dragon *)arg0)->m_0 = boss8_dragon_class_name;
     if (TBoss8Dragon__data_805D69AC == NULL) {
         TBoss8Dragon__data_805D69AC = arg0;
     }

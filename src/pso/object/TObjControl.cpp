@@ -554,7 +554,7 @@ void *TObjControl__ct(void *control) {
     __ct__7TObjectFP7TObject(control);
     *(s32 **)((s8 *)control + 0x18) = __vt__11TObjControl;
     *(void * *)&((TObjControl *)control)->m_name = lbl_805D2B04;
-    *(u16 *)((s8 *)control + 0x1C) = 2;
+    *(u16 *)&((TObjControl *)control)->m_decision_mode = 2;
     ((TObjControl *)control)->m_reserved = 0;
     return control;
 }

@@ -14,7 +14,17 @@ public:
     virtual void vfunc_13(s32);
     u8 unk_98[0x8];
     s32 m_a0;
-    u8 unk_A4[0x3C];
+    u8 unk_A4[0x4];
+    s32 m_a8; // 0xA8
+    u8 unk_AC[0x4];
+    s32 m_b0; // 0xB0
+    u8 unk_B4[0x14];
+    s32 m_c8; // 0xC8
+    u8 unk_CC[0x4];
+    s32 m_d0; // 0xD0
+    u8 unk_D4[0x4];
+    s32 m_d8; // 0xD8
+    u8 unk_DC[0x4];
 };
 typedef char TUnk_804E0898_size[sizeof(TUnk_804E0898) == 0xE0 ? 1 : -1];
 

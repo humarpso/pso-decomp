@@ -492,7 +492,7 @@ void init__23TAdSinglePlyChrSelectGCFPv(void *ad_time_set_gc) {
     ((TAdTimeSetGC *)ad_time_set_gc)->timer = 0;
     *(s32 *)((s8 *)ad_time_set_gc + 0x40) = 0;
     ((TAdTimeSetGC *)ad_time_set_gc)->load_status = ((TAdTimeSetGC *)ad_time_set_gc)->poll_load_status();
-    *(s32 *)((s8 *)ad_time_set_gc + 0x1C) = -1;
+    ((TAdTimeSetGC *)ad_time_set_gc)->state_index = -1;
     if ((s32) ((TAdTimeSetGC *)ad_time_set_gc)->load_status == 0) {
         ((s32 (*)(void *, s32))change_state__12TAdTimeSetGCFl)(ad_time_set_gc, 1);
         return;
