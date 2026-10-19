@@ -50,31 +50,6 @@ struct RecoveredGlobal_800C44C4_lbl_8043BBF4 {
 };
 typedef char RecoveredGlobal_800C44C4_lbl_8043BBF4_size[sizeof(RecoveredGlobal_800C44C4_lbl_8043BBF4) == 0x18 ? 1 : -1];
 
-struct VBase_18_0ab400 { char pad[0x18]; };
-
-struct VObj_18_0ab400 : VBase_18_0ab400 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual s32 m19(s32, void *, s32);
-};
-
 extern "C" {
 u8 *load_enemy_bml_resource_named(s32 *, s32 *);
 s32 load_enemy_bml_resource(u8 *arg0);
@@ -472,7 +447,7 @@ s32 TObjEneRe2Flower_Bomb::area_attack_deliver_direct(void *arg1, s32 arg2, void
                     ok = 0;
                 }
                 if (ok != 0) {
-                    ((VObj_18_0ab400 *)(this))->m19(p, ((u8 *)arg1), arg2);
+                    this->area_attack_receive_direct((void *)p, (f32 *)((u8 *)arg1), (void *)arg2);
                     result = 1;
                 }
             }

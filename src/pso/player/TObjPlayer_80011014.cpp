@@ -2582,7 +2582,7 @@ f32 TUnk_804806E8::receive_direct_attack(void *att, void *arg, void *coll, s32 t
                     f = 0.0f;
                 }
                 if (((s32 (*)(Actor_8001311C *, Actor_8001311C *, Actor_8001311C *, f32))calc_freeze_chance)(((Actor_8001311C *)this), ((Actor_8001311C *)att), ((Actor_8001311C *)this), (0.025f) * ((0.025f) * f + (5.0f))) != 0) {
-                    ((Actor_8001311C *)this)->m46(((Coll_8001311C *)coll));
+                    this->apply_movement_ailment((s32)((Coll_8001311C *)coll));
                 }
             }
             if (TEST30(((Actor_8001311C *)this), 0x02000000) == 0) {
@@ -2606,7 +2606,7 @@ f32 TUnk_804806E8::receive_direct_attack(void *att, void *arg, void *coll, s32 t
             ((Actor_8001311C *)this)->f2dc |= 4;
             if ((LOCAL(((Actor_8001311C *)this)) != 0 || ((TObjPlayer *)((Actor_8001311C *)att))->is_local_player() != 0) &&
                 ((s32 (*)(Actor_8001311C *, Actor_8001311C *, Actor_8001311C *, f32))calc_shock_chance)(((Actor_8001311C *)this), ((Actor_8001311C *)att), ((Actor_8001311C *)this), info.power) != 0) {
-                ((Actor_8001311C *)this)->m47();
+                this->apply_shock_status();
             }
             ((void (*)(Actor_8001311C *, Vec_8001311C *))activate_switch_attacks__10TObjPlayerFii)(((Actor_8001311C *)this), &pos);
             if (TEST30(((Actor_8001311C *)this), 0x02000000) == 0) {
@@ -2662,73 +2662,73 @@ f32 TUnk_804806E8::receive_direct_attack(void *att, void *arg, void *coll, s32 t
     case 7:
         dmg = (0.0f);
         if (STATE3(((Actor_8001311C *)this)) != 0) {
-            ((Actor_8001311C *)this)->m48();
+            this->clear_harmful_statuses();
         } else {
-            ((Actor_8001311C *)this)->m55(arg5);
+            this->apply_anti_technique(arg5);
         }
         break;
     case 9:
         dmg = (0.0f);
         if (TEST30(((Actor_8001311C *)this), 0x02000000) == 0) {
-            ((Actor_8001311C *)this)->m67();
+            this->apply_switch_attack();
         }
         ((Actor_8001311C *)this)->m49(info);
         if (((Actor_8001311C *)this)->f1c <= 0x1000 && ((Actor_8001311C *)this)->f1c > 0x4000) {
-            ((Actor_8001311C *)this)->m72(info.type);
+            this->vfunc_74(info.type);
         }
         break;
     case 10:
         dmg = (0.0f);
         if (TEST30(((Actor_8001311C *)this), 0x02000000) == 0) {
-            ((Actor_8001311C *)this)->m69();
+            this->trigger_switch_attack();
         }
         ((Actor_8001311C *)this)->m50(info);
         if (((Actor_8001311C *)this)->f1c <= 0x1000 && ((Actor_8001311C *)this)->f1c > 0x4000) {
-            ((Actor_8001311C *)this)->m72(info.type);
+            this->vfunc_74(info.type);
         }
         break;
     case 11:
         dmg = (0.0f);
         if (TEST30(((Actor_8001311C *)this), 0x02000000) == 0) {
-            ((Actor_8001311C *)this)->m68();
+            this->enemy_spawn_jellen_effect();
         }
         ((Actor_8001311C *)this)->m49(info);
         if (((Actor_8001311C *)this)->f1c <= 0x1000 && ((Actor_8001311C *)this)->f1c > 0x4000) {
-            ((Actor_8001311C *)this)->m72(info.type);
+            this->vfunc_74(info.type);
         }
         break;
     case 12:
         dmg = (0.0f);
         if (TEST30(((Actor_8001311C *)this), 0x02000000) == 0) {
-            ((Actor_8001311C *)this)->m70();
+            this->enemy_spawn_zalure_effect();
         }
         ((Actor_8001311C *)this)->m50(info);
         if (((Actor_8001311C *)this)->f1c <= 0x1000 && ((Actor_8001311C *)this)->f1c > 0x4000) {
-            ((Actor_8001311C *)this)->m72(info.type);
+            this->vfunc_74(info.type);
         }
         break;
     case 15:
         dmg = (0.0f);
         if (immune == 0) {
-            ((Actor_8001311C *)this)->m42();
+            this->apply_poison_status();
         }
         break;
     case 16:
         dmg = (0.0f);
         if (immune == 0) {
-            ((Actor_8001311C *)this)->m43();
+            this->apply_paralysis();
         }
         break;
     case 17:
         dmg = (0.0f);
         if (immune == 0) {
-            ((Actor_8001311C *)this)->m44();
+            this->apply_slow_status();
         }
         break;
     case 18:
         dmg = (0.0f);
         if (immune == 0) {
-            ((Actor_8001311C *)this)->m45();
+            this->apply_confusion_status();
         }
         break;
     case 19:
@@ -2752,11 +2752,11 @@ f32 TUnk_804806E8::receive_direct_attack(void *att, void *arg, void *coll, s32 t
         break;
     case 20:
         dmg = (0.0f);
-        ((Actor_8001311C *)this)->m54(info.power);
+        this->apply_action_hold_status(info.power);
         break;
     case 8:
         dmg = (0.0f);
-        ((Actor_8001311C *)this)->m62();
+        this->reset_pose();
         break;
     case 21:
         if (TEST30(((Actor_8001311C *)this), 0x10000000) == 0 || STATE2(((Actor_8001311C *)this)) == 0) {
@@ -2782,7 +2782,7 @@ f32 TUnk_804806E8::receive_direct_attack(void *att, void *arg, void *coll, s32 t
         break;
     }
     if (immune == 0) {
-        ((Actor_8001311C *)this)->m72(0);
+        this->vfunc_74(0);
     }
     if (LOCAL(((Actor_8001311C *)this)) != 0) {
         TObjPlayer::calc_photon_blast_charge(((Actor_8001311C *)this), (s32)((2e+01f) * dmg));

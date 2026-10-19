@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubComCardList.h"
@@ -29,17 +30,6 @@ struct Obj_801A0CE8 { u8 pad[0x90]; void *wins[4]; s32 cur; u8 pad2[4]; u16 id; 
 struct Obj_801A0C38 { u8 pad[0x90]; void *parts[1]; };
 
 struct Luker_801A16D8 { u8 pad0[0x18]; void *f18; u8 pad1C[0x74]; void *wins[4]; };
-
-struct VBase_801A1768 { char pad[0x18]; };
-
-struct VObj_801A1768 : VBase_801A1768 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5(void *);
-};
 
 struct Luker_801A1768 {
     s32 f0;
@@ -508,7 +498,7 @@ void *TObjLuker__ct(void *arg0, void *parent, void *arg2) {
     __ct__13TUnk_804B9870FP7TObject(self, parent);
     self->f18 = __vt__9TObjLuker;
     self->f0 = lbl_805D34A8;
-    ((VObj_801A1768 *)self)->m5(arg2);
+    ((TUnk_804B9870 *)self)->apply_object_set_data(arg2);
     self->fB0 = 0;
     self->fAA = 0xFFFF;
     self->fA8 = self->f84;

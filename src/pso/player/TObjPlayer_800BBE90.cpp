@@ -209,7 +209,7 @@ s32 TUnk_804928CC::area_attack_deliver_physical(void *arg1, void *object, f32 ra
                     ok = 0;
                 }
                 if (ok != 0) {
-                    ((P_800BC080 *)this)->m20(t, ((Arg_800BC080 *)arg1));
+                    this->apply_hit_if_active(t, (f32 *)((Arg_800BC080 *)arg1));
                     hit = 1;
                 } else {
                     n = t->nrecs;
@@ -265,7 +265,7 @@ s32 TUnk_804928CC::area_attack_deliver_direct(void *arg1, s32 arg2, void *object
                     ok = 0;
                 }
                 if (ok != 0) {
-                    ((P_800BC250 *)this)->m19(t, ((Arg_800BC250 *)arg1), arg2);
+                    this->area_attack_receive_direct((void *)t, (f32 *)((Arg_800BC250 *)arg1), (void *)arg2);
                     hit = 1;
                 }
             }

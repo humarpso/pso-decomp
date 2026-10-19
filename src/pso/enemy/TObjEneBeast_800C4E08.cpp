@@ -737,9 +737,9 @@ void TUnk_80493450::beast_update_attack() {
                 ((Self_800C53DC *)this)->target->m20(((Self_800C53DC *)this), lbl_805DA048);
                 ((Self_800C53DC *)this)->target->m23(((Self_800C53DC *)this), lbl_805DA050);
             }
-            ((Self_800C53DC *)this)->m94();
+            this->vfunc_96();
         }
-        ((Self_800C53DC *)this)->m91();
+        this->vfunc_93();
         if (((Self_800C53DC *)this)->fB4 != 4) {
             ((Self_800C53DC *)this)->f328 = 2;
             ((Self_800C53DC *)this)->fB8 = 0;
@@ -751,7 +751,7 @@ void TUnk_80493450::beast_update_attack() {
         if (((Self_800C53DC *)this)->f33C < 0) {
             ((TUnk_804B9870 *)((Self_800C53DC *)this))->obj_clearFlags30(0x200000);
             ((Self_800C53DC *)this)->f33C = 0;
-            ((Self_800C53DC *)this)->m98();
+            this->vfunc_100();
         }
         break;
     }
