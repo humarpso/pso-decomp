@@ -1145,7 +1145,7 @@ void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 void try_start_action__13TUnk_804806E8Fll();
 void select_melee_contact_body__10TObjPlayerFv();
 s32 update_defense_stat_status(u8 *arg0);
-s32 vfunc_41__13TUnk_804806E8Fv(u8 *arg0);
+s32 update_attack_stat_status__13TUnk_804806E8Fv(u8 *arg0);
 void update_shock_clock__13TUnk_804806E8Fv();
 void update_movement_status__13TUnk_804806E8Fv();
 void update_flag30_timer__13TUnk_804806E8Fv();
@@ -1214,7 +1214,7 @@ s32 __vt__11TBoss4Bishi[83] = {
     (s32)update_flag30_timer__13TUnk_804806E8Fv,
     (s32)update_movement_status__13TUnk_804806E8Fv,
     (s32)update_shock_clock__13TUnk_804806E8Fv,
-    (s32)vfunc_41__13TUnk_804806E8Fv,
+    (s32)update_attack_stat_status__13TUnk_804806E8Fv,
     (s32)update_defense_stat_status,
     (s32)vfunc_43__13TUnk_804806E8Fv,
     (s32)apply_poison_status__13TUnk_804806E8Fv,
@@ -1299,7 +1299,7 @@ s32 __vt__9TBoss4Uro[83] = {
     (s32)update_flag30_timer__13TUnk_804806E8Fv,
     (s32)update_movement_status__13TUnk_804806E8Fv,
     (s32)update_shock_clock__13TUnk_804806E8Fv,
-    (s32)vfunc_41__13TUnk_804806E8Fv,
+    (s32)update_attack_stat_status__13TUnk_804806E8Fv,
     (s32)update_defense_stat_status,
     (s32)vfunc_43__13TUnk_804806E8Fv,
     (s32)apply_poison_status__13TUnk_804806E8Fv,
@@ -1384,7 +1384,7 @@ s32 __vt__10TBoss4Zako[83] = {
     (s32)update_flag30_timer__13TUnk_804806E8Fv,
     (s32)update_movement_status__13TUnk_804806E8Fv,
     (s32)update_shock_clock__13TUnk_804806E8Fv,
-    (s32)vfunc_41__13TUnk_804806E8Fv,
+    (s32)update_attack_stat_status__13TUnk_804806E8Fv,
     (s32)update_defense_stat_status,
     (s32)vfunc_43__13TUnk_804806E8Fv,
     (s32)apply_poison_status__13TUnk_804806E8Fv,

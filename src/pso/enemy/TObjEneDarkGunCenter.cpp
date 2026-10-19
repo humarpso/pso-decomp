@@ -143,7 +143,7 @@ void try_start_action__13TUnk_804806E8Fll();
 void update_action_hold_status__13TUnk_804806E8Fv();
 s32 vfunc_37__13TUnk_804806E8Fv(u8 *arg0);
 void update_actor_ground_y__13TUnk_804806E8Fv();
-s32 vfunc_41__13TUnk_804806E8Fv(u8 *arg0);
+s32 update_attack_stat_status__13TUnk_804806E8Fv(u8 *arg0);
 s32 update_defense_stat_status(u8 *arg0);
 void update_flag30_timer__13TUnk_804806E8Fv();
 void update_movement_status__13TUnk_804806E8Fv();
@@ -192,7 +192,7 @@ void *__vt__20TObjEneDarkGunCenter[83] = {
     (void *)update_flag30_timer__13TUnk_804806E8Fv,
     (void *)update_movement_status__13TUnk_804806E8Fv,
     (void *)update_shock_clock__13TUnk_804806E8Fv,
-    (void *)vfunc_41__13TUnk_804806E8Fv,
+    (void *)update_attack_stat_status__13TUnk_804806E8Fv,
     (void *)update_defense_stat_status,
     (void *)vfunc_43__13TUnk_804806E8Fv,
     (void *)apply_poison_status__13TUnk_804806E8Fv,

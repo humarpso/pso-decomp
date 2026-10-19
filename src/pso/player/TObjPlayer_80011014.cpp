@@ -1861,7 +1861,7 @@ s32 roll_physical_accuracy__13TUnk_804806E8FPvlf(Obj_800162E0 *arg0, void *arg1,
 s32 update_poison_status__13TUnk_804806E8Fv(u8 *arg0);
 s32 update_action_hold_status__13TUnk_804806E8Fv(u8 *arg0);
 s32 update_movement_status__13TUnk_804806E8Fv(u8 *arg0);
-s32 vfunc_41__13TUnk_804806E8Fv(u8 *arg0);
+s32 update_attack_stat_status__13TUnk_804806E8Fv(u8 *arg0);
 s32 update_defense_stat_status(u8 *arg0);
 void apply_poison_status__13TUnk_804806E8Fv(void *arg0);
 void apply_paralysis__13TUnk_804806E8Fv(u8 *arg0);
@@ -1915,7 +1915,7 @@ void *lbl_804806E8[] = {
     (void *)update_flag30_timer__13TUnk_804806E8Fv,
     (void *)update_movement_status__13TUnk_804806E8Fv,
     (void *)update_shock_clock__13TUnk_804806E8Fv,
-    (void *)vfunc_41__13TUnk_804806E8Fv,
+    (void *)update_attack_stat_status__13TUnk_804806E8Fv,
     (void *)update_defense_stat_status,
     (void *)vfunc_43__13TUnk_804806E8Fv,
     (void *)apply_poison_status__13TUnk_804806E8Fv,
@@ -3681,7 +3681,7 @@ s32 update_defense_stat_status(u8 *player) {
     return 0;
 }
 
-s32 TUnk_804806E8::vfunc_41() {
+s32 TUnk_804806E8::update_attack_stat_status() {
     s32 temp_ret;
     void *obj;
 

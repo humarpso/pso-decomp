@@ -196,7 +196,7 @@ void TBoss7DeRolLeC::run_task() {
         }
     }
     temp_r30 = query_teammate_state__9TObjEneDDFv();
-    this->vfunc_41();
+    this->update_attack_stat_status();
     this->vfunc_42();
     if (temp_r30 == 0) {
         if ((this->mode == 0x1C) || (this->mode == 0x1D) || (this->mode == 0x1B)) {

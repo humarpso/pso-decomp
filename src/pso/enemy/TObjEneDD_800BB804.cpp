@@ -462,7 +462,7 @@ s32 TObjEneDD::vfunc_83() {
         this->vfunc_63();
         return 1;
     }
-    this->vfunc_41();
+    this->update_attack_stat_status();
     this->vfunc_42();
     this->update_flag30_timer();
     if (((VObj_18_62ee2d *)(arg0))->m82() != 0) {

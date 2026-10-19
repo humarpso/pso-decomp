@@ -1856,7 +1856,7 @@ extern "C" {
 void update_actor_ground_y__13TUnk_804806E8Fv();
 }
 extern "C" {
-s32 vfunc_41__13TUnk_804806E8Fv(u8 *arg0);
+s32 update_attack_stat_status__13TUnk_804806E8Fv(u8 *arg0);
 }
 extern "C" {
 s32 update_defense_stat_status(u8 *arg0);
@@ -2093,7 +2093,7 @@ void *__vt__13TBoss5Gryphon[107] = {
     (void *)&vfunc_28__13TBoss5GryphonFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__13TUnk_804806E8Fv,
     (void *)&test_flag30_512__13TUnk_804806E8Fv, (void *)&has_flag_0x800__13TUnk_804806E8Fv, (void *)&test_flag_1000__13TUnk_804806E8Fv, (void *)&update_poison_status__13TUnk_804806E8Fv,
     (void *)&update_action_hold_status__13TUnk_804806E8Fv, (void *)&vfunc_37__13TUnk_804806E8Fv, (void *)&update_flag30_timer__13TUnk_804806E8Fv, (void *)&update_movement_status__13TUnk_804806E8Fv,
-    (void *)&update_shock_clock__13TUnk_804806E8Fv, (void *)&vfunc_41__13TUnk_804806E8Fv, (void *)&update_defense_stat_status, (void *)&vfunc_43__13TUnk_804806E8Fv,
+    (void *)&update_shock_clock__13TUnk_804806E8Fv, (void *)&update_attack_stat_status__13TUnk_804806E8Fv, (void *)&update_defense_stat_status, (void *)&vfunc_43__13TUnk_804806E8Fv,
     (void *)&apply_poison_status__13TBoss5GryphonFv, (void *)&apply_paralysis__13TBoss5GryphonFv, (void *)&apply_slow_status__13TBoss5GryphonFv, (void *)&apply_confusion_status__13TBoss5GryphonFv,
     (void *)&apply_movement_ailment__13TBoss5GryphonFl, (void *)&apply_shock_status__13TBoss5GryphonFv, (void *)&clear_harmful_statuses__13TBoss5GryphonFv, (void *)&apply_attack_stat_status__13TUnk_804806E8FPv,
     (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment__13TUnk_804806E8Fv, (void *)&cure_paralysis__13TUnk_804806E8Fv, (void *)&clear_all_status_effects__13TUnk_804806E8Fv,
@@ -5199,7 +5199,7 @@ void TBoss5Gryphon::run_task() {
         }
     }
     temp_r31_2 = query_teammate_state__9TObjEneDDFv();
-    ((TBoss5Gryphon *)(arg0))->vfunc_41();
+    ((TBoss5Gryphon *)(arg0))->update_attack_stat_status();
     ((TBoss5Gryphon *)(arg0))->vfunc_42();
     if (temp_r31_2 == 0) {
         if (((s32 (*)(void *))get_flag_bit6__12TBoss8DragonFv)(arg0) != 0) {

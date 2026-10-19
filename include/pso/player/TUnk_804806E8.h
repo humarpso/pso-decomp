@@ -63,7 +63,7 @@ public:
     virtual s32 update_flag30_timer();
     virtual s32 update_movement_status();
     virtual s32 update_shock_clock();
-    virtual s32 vfunc_41();
+    virtual s32 update_attack_stat_status();
     virtual s32 vfunc_42();
     virtual s32 vfunc_43();
     virtual void apply_poison_status();

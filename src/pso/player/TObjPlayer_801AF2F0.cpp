@@ -1971,7 +1971,7 @@ s32 set_hp_clamped__10TObjPlayerFs(void * a0 = 0, s16 a1 = 0);
 s32 add_actor_hp(u8 *arg0, s16 arg1);
 f32 receive_physical_attack__13TUnk_804806E8FPvf(s32, s32, f32);
 s32 update_defense_stat_status(s32);
-s32 vfunc_41__13TUnk_804806E8Fv(s32);
+s32 update_attack_stat_status__13TUnk_804806E8Fv(s32);
 s32 update_shock_clock__13TUnk_804806E8Fv(s32);
 s32 update_movement_status__13TUnk_804806E8Fv(s32);
 s32 update_flag30_timer__13TUnk_804806E8Fv(s32);
@@ -4037,10 +4037,10 @@ s32 TObjPlayer::vfunc_42() {
     return 0;
 }
 
-s32 TObjPlayer::vfunc_41() {
+s32 TObjPlayer::update_attack_stat_status() {
     s32 player = (s32)this;
     if (((s32 (*)(void))reset_volopt_state__10TObjPlayerFv)() != 0) {
-        return vfunc_41__13TUnk_804806E8Fv(player);
+        return update_attack_stat_status__13TUnk_804806E8Fv(player);
     }
     return 0;
 }
@@ -5939,7 +5939,7 @@ void TObjPlayer::update_status_effects() {
   (this->update_flag30_timer());
   (this->update_movement_status());
   (this->update_shock_clock());
-  (this->vfunc_41());
+  (this->update_attack_stat_status());
   (this->vfunc_42());
   if (((TItemMag *)(arg0 + 0x644))->get_mag_id() <= 0)
   {

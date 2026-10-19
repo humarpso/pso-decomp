@@ -36,7 +36,7 @@ struct TObjPlayer : public TUnk_804806E8 {
     virtual u8 *vfunc_18(u8 *);
     virtual void vfunc_73();
     virtual s32 vfunc_37();
-    virtual s32 vfunc_41();
+    virtual s32 update_attack_stat_status();
     virtual s32 vfunc_42();
     virtual s32 is_actor_cadence_frame(s32);
     virtual s32 add_actor_exp(s32);
