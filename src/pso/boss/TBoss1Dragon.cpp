@@ -1,5 +1,6 @@
 #include "pso/boss/TBoss1Dragon.h"
 #include "pso/boss/TObjBoss1Rock.h"
+#include "pso/system/vector.h"
 #include "pso/enemy/TObjEneEpsilon.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -1405,7 +1406,7 @@ s32 reload_stats_keep_hp_tp__9TObjEneDDFv(void *, int, int, int);
 extern s32 TBoss1Dragon__data_805D4B00;
 extern s32 TBoss1Dragon__data_805D4B04;
 extern s32 TBoss1Dragon__data_805D4B2C;
-void calc_follow_camera_offsets__12TBoss1DragonFv(u8 *arg0, u8 *arg1, u8 *arg2);
+void calc_follow_camera_offsets__12TBoss1DragonFv(TBoss1Dragon *self, Vec *eye, Vec *target);
 f32 TBoss1Dragon__sub_80027634(void);
 extern RecoveredGlobal_80027E78_lbl_80434E8C boss1_dragon_attack_sphere_params;
 void apply_landing_attack__12TBoss1DragonFi(s32 arg0);
@@ -1699,22 +1700,31 @@ void *lbl_80481010[108] = {
     (void *)0x30000, (void *)0x0, (void *)0x3f000000, (void *)0x80000000,
     (void *)0x20008, (void *)0x2, (void *)0x3f19999a, (void *)0x0,
 };
-void *boss1_dragon_follow_camera_offsets[3] = {
+static void *boss1_dragon_follow_camera_offsets[3] = {
     (void *)0x0, (void *)0x419e6666, (void *)0xc0a00000,
 };
-void *lbl_804811CC[45] = {
-    (void *)0x0, (void *)0x41cb70a4, (void *)0x4235ae14, (void *)0x0,
-    (void *)0x41b80000, (void *)0xc0400000, (void *)0x0, (void *)0x42000000,
-    (void *)0x0, (void *)0x0, (void *)0x41c80000, (void *)0xc0a00000,
+static void *lbl_804811CC[3] = {
+    (void *)0x0, (void *)0x41cb70a4, (void *)0x4235ae14,
+};
+static void *boss1_dragon_follow_camera_phase_positions[9] = {
+    (void *)0x0, (void *)0x41b80000, (void *)0xc0400000, (void *)0x0,
+    (void *)0x42000000, (void *)0x0, (void *)0x0, (void *)0x41c80000,
+    (void *)0xc0a00000,
+};
+static void *boss1_dragon_follow_camera_phase_targets[9] = {
     (void *)0x0, (void *)0x41300000, (void *)0x42200000, (void *)0x0,
     (void *)0x40a00000, (void *)0x420c0000, (void *)0x0, (void *)0x42480000,
-    (void *)0x42700000, (void *)0x0, (void *)0x41a00000, (void *)0xc2f00000,
-    (void *)0x0, (void *)0x42f00000, (void *)0xc2f00000, (void *)0x0,
-    (void *)0x41c80000, (void *)0xc1f00000, (void *)0x0, (void *)0x42480000,
-    (void *)0xc2a00000, (void *)0x0, (void *)0x42f00000, (void *)0x42480000,
-    (void *)0x0, (void *)0x43960000, (void *)0xc1f00000, (void *)0x0,
-    (void *)0x42200000, (void *)0x0, (void *)0x43960000, (void *)0x42f00000,
-    (void *)0x42480000,
+    (void *)0x42700000,
+};
+static void *boss1_dragon_held_camera_positions[12] = {
+    (void *)0x0, (void *)0x41a00000, (void *)0xc2f00000, (void *)0x0,
+    (void *)0x42f00000, (void *)0xc2f00000, (void *)0x0, (void *)0x41c80000,
+    (void *)0xc1f00000, (void *)0x0, (void *)0x42480000, (void *)0xc2a00000,
+};
+static void *boss1_dragon_held_camera_targets[12] = {
+    (void *)0x0, (void *)0x42f00000, (void *)0x42480000, (void *)0x0,
+    (void *)0x43960000, (void *)0xc1f00000, (void *)0x0, (void *)0x42200000,
+    (void *)0x0, (void *)0x43960000, (void *)0x42f00000, (void *)0x42480000,
 };
 void *lbl_80481280[107] = {
     (void *)0x0, (void *)0x0, (void *)&destroy__12TBoss1DragonFPvs, (void *)&run_task__12TBoss1DragonFv,
@@ -6662,6 +6672,58 @@ u8 *TBoss1Dragon::create(s32 arg0) {
 }
 }
 
+#pragma push
+#pragma fp_contract on
+void calc_follow_camera_offsets__12TBoss1DragonFv(TBoss1Dragon *self, Vec *eye, Vec *target) {
+    s32 phase;
+    Vec *limit;
+
+    if (((TBoss1Dragon *)TBoss1Dragon__data_805D4B2C)->mode == 0x16) {
+        VecCopy(eye, (Vec *)boss1_dragon_follow_camera_offsets);
+        VecCopy(target, (Vec *)lbl_804811CC);
+        return;
+    }
+    switch (self->phase) {
+    case 0:
+    default:
+        phase = 0;
+        break;
+    case 1:
+        phase = 1;
+        break;
+    case 2:
+        phase = 2;
+        break;
+    }
+    VecCopy(eye, (Vec *)boss1_dragon_follow_camera_phase_positions + phase);
+    VecCopy(target, (Vec *)boss1_dragon_follow_camera_phase_targets + phase);
+    if (*(u32 *)((s8 *)self + 0x654) == 1) {
+        target->y += TBoss1Dragon__data_805D8010;
+        target->z += TBoss1Dragon__data_805D8010;
+    }
+    if (*(s32 *)((s8 *)self + 0x760) != 0 && *(u16 *)((s8 *)self + 0x764) == local_client_id) {
+        if (self->mode == 0xF) {
+            VecCopy(eye, (Vec *)boss1_dragon_held_camera_positions + 3);
+            limit = (Vec *)boss1_dragon_held_camera_targets + 3;
+            eye->y += TBoss1Dragon__data_805D7F48 * self->height;
+            VecCopy(target, limit);
+            target->x = TBoss1Dragon__data_805D7F28;
+            target->y += self->height;
+            if (target->y > limit->x) {
+                target->y = limit->x;
+            } else if (target->y < TBoss1Dragon__data_805D8010) {
+                target->y = TBoss1Dragon__data_805D7F40;
+            }
+        } else {
+            VecCopy(eye, (Vec *)boss1_dragon_held_camera_positions + phase);
+            VecCopy(target, (Vec *)boss1_dragon_held_camera_targets + phase);
+        }
+        eye->y += lbl_805D8090;
+        target->y += lbl_805D8090;
+    }
+}
+#pragma pop
+
 typedef char RecoveredGlobal_80065EA0_lbl_80487CCC_size[sizeof(RecoveredGlobal_80065EA0_lbl_80487CCC) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_80065EA0_lbl_80487CD8_size[sizeof(RecoveredGlobal_80065EA0_lbl_80487CD8) == 0x354 ? 1 : -1];
 typedef char RecoveredGlobal_80065DB4_lbl_804FF5B4_size[sizeof(RecoveredGlobal_80065DB4_lbl_804FF5B4) == 0xC ? 1 : -1];
@@ -6671,7 +6733,7 @@ void get_dragon_follow_camera_offsets(u8 *arg0, u8 *arg1) {
         VecCopy__FP3VecPC3Vec((s32)arg1, (s32)(((s32 *)lbl_804811CC)));
         return;
     }
-    calc_follow_camera_offsets__12TBoss1DragonFv((u8 *)((*(u8 * *)&TBoss1Dragon__data_805D4B2C)), arg0, arg1);
+    calc_follow_camera_offsets__12TBoss1DragonFv((TBoss1Dragon *)TBoss1Dragon__data_805D4B2C, (Vec *)arg0, (Vec *)arg1);
 }
 typedef char RecoveredGlobal_80065F08_lbl_80437938_size[sizeof(RecoveredGlobal_80065F08_lbl_80437938) == 0xC ? 1 : -1];
 
