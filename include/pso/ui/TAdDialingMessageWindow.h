@@ -5,6 +5,7 @@
 #include "pso/TObject.h"
 
 struct TAdDialingMessageWindow : public TObject {
+    TAdDialingMessageWindow(void *arg1, void *arg2);
     virtual ~TAdDialingMessageWindow();
     u32 m_1c;
     u32 m_20;
@@ -18,7 +19,7 @@ struct TAdDialingMessageWindow : public TObject {
 typedef char TAdDialingMessageWindow_size[sizeof(TAdDialingMessageWindow) == 0x2C ? 1 : -1];
 
 extern "C" {
-void *TAdDialingMessageWindow__ct(void *arg0, void *arg1, void *arg2);
+void *__ct__23TAdDialingMessageWindowFPvPv(void *arg0, void *arg1, void *arg2);
 void *__dt__23TAdDialingMessageWindowFv(void *arg0, s16 arg1);
 }
 

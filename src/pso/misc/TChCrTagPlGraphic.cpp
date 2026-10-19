@@ -17,7 +17,7 @@ struct RecoveredGlobal_802A3454___vt__17TChCrTagPlGraphic {
 };
 
 extern "C" {
-u8 * __ct__8TChCrTagFv(void *, s32);
+u8 * __ct__8TChCrTagFP7TObjectPv(void *, s32);
 extern const TChCrTagPlGraphic__data_804664A4 TChCrTagPlGraphic__data_804664A4;
 extern RecoveredGlobal_802A3454___vt__17TChCrTagPlGraphic __vt__17TChCrTagPlGraphic;
 extern s32 ch_cr_tag_pl_graphic_class_name;
@@ -61,7 +61,7 @@ s32 TChCrTagPlGraphic__vt4(u8 *arg0) {
 
 u8 *__ct__17TChCrTagPlGraphicFv(u8 *ch_cr_tag, s32 arg1, s32 _w2) {
     u8 *temp_r5;
-    __ct__8TChCrTagFv(ch_cr_tag, arg1);
+    __ct__8TChCrTagFP7TObjectPv(ch_cr_tag, arg1);
     *(s32 **)((s8 *)ch_cr_tag + 0x18) = &__vt__17TChCrTagPlGraphic.value;
     *(s32 *)((s8 *)ch_cr_tag + 0) = (s32) ch_cr_tag_pl_graphic_class_name;
     *(f32 *)((s8 *)ch_cr_tag + 0x28) = (f32) lbl_805DDF2C;

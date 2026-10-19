@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss1Rock.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/boss/TBoss8Dragon_8002CC48.h"
 #include "pso/player/TObjPlayer_8002E784.h"
@@ -160,19 +161,17 @@ void *TObjBoss1Rock::construct(void *arg1, void *arg2, void *arg3, void *arg4) {
 
 extern const f32 lbl_805D8224;
 
-void *TObjBoss1Rock::construct_random(void *arg1, void *arg2, void *arg3) {
+}
+TObjBoss1Rock::TObjBoss1Rock(TObject *arg1, void *arg2, void *arg3) : TObject(arg1) {
     s32 flag;
-
-    __ct__7TObjectFP7TObject(this);
-    *(s32 **)((s8 *)this + 0x18) = __vt__13TObjBoss1Rock;
     if (lbl_805D8220 * (f32)rand() > lbl_805D8224) {
         flag = 0;
     } else {
         flag = 1;
     }
     sub_8002E1CC((u8 *)arg2, (u8 *)arg3, (s32)flag);
-    return this;
 }
+extern "C" {
 
 void TObjBoss1Rock__sub_8002E3CC(void) {  }
 void TObjBoss1Rock__sub_8002E3D0(void) {  }

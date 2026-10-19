@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TUnk_804E4BF0.h"
+#include "pso/boss/TUnk_804E4BF0.h"
 #include "pso/boss/TBoss8Dragon_802F3AB4.h"
 #include "pso/object/TObjDFHorming.h"
 #include "pso/system/vector.h"
@@ -8,7 +10,7 @@
 extern "C" {
 void *__nw__7TObjectFUl(int);
 void __ct__7TObjectFP7TObject(void *);
-extern s32 lbl_804E4BF0[];
+extern s32 __vt__13TUnk_804E4BF0[];
 extern void *boss8_dragon_leader_part;
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
@@ -38,7 +40,7 @@ void TUnk_804E4BF0::run_task() {  }
 
 void *TUnk_804E4BF0::dt(s16 arg1) {
     if (this != NULL) {
-        (*(s32 * *)((u8 *)this + 0x18)) = lbl_804E4BF0;
+        (*(s32 * *)((u8 *)this + 0x18)) = __vt__13TUnk_804E4BF0;
         if (boss8_dragon_leader_part == this) {
             boss8_dragon_leader_part = NULL;
         }
@@ -50,22 +52,18 @@ void *TUnk_804E4BF0::dt(s16 arg1) {
     return this;
 }
 
-void *TUnk_804E4BF0::ct(void *arg1, void *arg1p) {
-    __ct__7TObjectFP7TObject(this);
-    (*(s32 * *)((u8 *)this + 0x18)) = lbl_804E4BF0;
+}
+TUnk_804E4BF0::TUnk_804E4BF0(TObject *arg1, void *arg1p) : TObject(arg1) {
     if (boss8_dragon_leader_part == NULL) {
         boss8_dragon_leader_part = this;
     }
     TBoss4DarkFalz__sub_8004B4F0((void *)((char *)this + 28), arg1p);
-    return this;
 }
+extern "C" {
 
 void * TBoss8Dragon__sub_802F3C24(void *arg0, void *arg1) {
     void *o;
-    o = __nw__7TObjectFUl(0x5C);
-    if (o != NULL) {
-        o = ((TUnk_804E4BF0 *)o)->ct(arg0, arg1);
-    }
+    o = (void *)new TUnk_804E4BF0((TObject *)arg0, (void *)arg1);
     return o;
 }
 

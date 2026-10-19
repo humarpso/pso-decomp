@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/TBoss7PhotonPad.h"
+#include "pso/TBoss7PhotonPad.h"
 #include "pso/TObject.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/boss/TObjBoss2Tunnel_8007E418.h"
@@ -215,18 +216,17 @@ void *__dt__15TBoss7PhotonPadFv(void *self, s16 arg1) {
     }
     return self;
 }
-u8 *__ct__15TBoss7PhotonPadFv(u8 *object, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
-    __ct__7TObjectFP7TObject(object, arg1);
-    *(void ***)((s8 *)object + 0x18) = __vt__15TBoss7PhotonPad;
-    *(s32 *)((s8 *)object + 0) = lbl_805D3FD0;
-    *(s32 *)((s8 *)object + 0x1C) = arg2;
-    *(s32 *)((s8 *)object + 0x2C) = arg4;
-    VecCopy__FP3VecPC3Vec(object + 0x20, (void *)arg3);
-    rotate_xz_pair_by_angle((f32 *)(object + 0x20), (f32 *)(object + 0x28), (s32)(-(boss7_photon_bullet_level_table[*(s32 *)((s8 *)object + 0x2C)].c / 2)));
-    *(s32 *)((s8 *)object + 0x30) = boss7_photon_bullet_level_table[*(s32 *)((s8 *)object + 0x2C)].a;
-    *(s32 *)((s8 *)object + 0x34) = 0;
-    return object;
 }
+TBoss7PhotonPad::TBoss7PhotonPad(s32 arg1, s32 arg2, s32 arg3, s32 arg4) : TObject((TObject *)arg1) {
+    *(s32 *)((s8 *)this + 0) = lbl_805D3FD0;
+    *(s32 *)((s8 *)this + 0x1C) = arg2;
+    *(s32 *)((s8 *)this + 0x2C) = arg4;
+    VecCopy__FP3VecPC3Vec(((u8 *)this) + 0x20, (void *)arg3);
+    rotate_xz_pair_by_angle((f32 *)(((u8 *)this) + 0x20), (f32 *)(((u8 *)this) + 0x28), (s32)(-(boss7_photon_bullet_level_table[*(s32 *)((s8 *)this + 0x2C)].c / 2)));
+    *(s32 *)((s8 *)this + 0x30) = boss7_photon_bullet_level_table[*(s32 *)((s8 *)this + 0x2C)].a;
+    *(s32 *)((s8 *)this + 0x34) = 0;
+}
+extern "C" {
 
 void vfunc_6__13TUnk_804B9870FPsl(); void apply_object_set_data__13TUnk_804B9870FPv(); void reset_motion_fields__13TUnk_804AF8A0Fv();
 void vfunc_9__13TUnk_804B9870Fv(); void update_object_view_visibility__13TUnk_804B9870Fff(); void classify_actor_view_detail__13TUnk_804B9870Ffff();

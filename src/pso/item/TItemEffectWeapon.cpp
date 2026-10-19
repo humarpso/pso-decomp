@@ -17,7 +17,7 @@ extern u32 model_render_flags;
 void *__dt__13TUnk_804F28E0Fv(void *arg0, s16 arg1);
 void TItemEffectWeapon__sub_8036340C(void);
 void TItemEffectWeapon__sub_80363410(void);
-void *__ct__17TItemEffectWeaponFv(void *self, s32 arg1, s32 param);
+void *__ct__17TItemEffectWeaponFll(void *self, s32 arg1, s32 param);
 void *__dt__17TItemEffectWeaponFv(void *self, s32 flag);
 
 void decrement_timer__17TItemEffectWeaponFv(void *, s32);
@@ -118,15 +118,12 @@ TItemEffectWeapon::~TItemEffectWeapon() {
 
 extern s32 TItemEffectWeapon__class_name;
 
-void *__ct__17TItemEffectWeaponFv(void *self, s32 arg1, s32 param) {
-    __ct__15TItemHeapObjectFP7TObject(self);
-    *(void **)((s8 *)self + 0x18) = __vt__17TItemEffectWeapon;
-    *(s32 *)((s8 *)self + 0) = TItemEffectWeapon__class_name;
-    *(s32 *)((s8 *)self + 0x1C) = (s32)TItemEffectWeapon::allocate_trail_buffer();
-    ((TItemEffectWeapon *)self)->color = param;
-    ((TItemEffectWeapon *)self)->vertex_count = 0;
-    ((TItemEffectWeapon *)self)->field_28 = 0;
-    return self;
+TItemEffectWeapon::TItemEffectWeapon(s32 arg1, s32 param) : TItemHeapObject((TObject*)arg1) {
+    *(s32 *)((s8 *)this + 0) = TItemEffectWeapon__class_name;
+    *(s32 *)((s8 *)this + 0x1C) = (s32)TItemEffectWeapon::allocate_trail_buffer();
+    this->color = param;
+    this->vertex_count = 0;
+    this->field_28 = 0;
 }
 
     extern TItemEffectWeapon::TrailVertex* item_weapon_trail_vertex_buffer;

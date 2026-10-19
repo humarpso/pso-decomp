@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-u8 *init_from_source__9TObjLightFPvii(u8 *arg0, s32 arg1, s32 arg2);
+u8 *__ct__13TUnk_804CC74CFll(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 #endif

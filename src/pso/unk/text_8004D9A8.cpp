@@ -270,7 +270,7 @@ s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 void init_model_node_tables(void *, void *, s32);
 void set_scripted_camera_pose(void *, void *, void *);
-void construct_world_actor_base(void *, void *);
+void __ct__13TUnk_804B9870FP7TObject(void *, void *);
 extern u8 TObjDFDemo0__model_node_entries[];
 extern s32 lbl_80485EB0[];
 extern s32 TObjDFDemo0__name;
@@ -300,7 +300,7 @@ Obj_8004DEE0 *TObjDFDemo0__ct(void *arg0, void *parent) {
     s32 i;
     s32 j;
 
-    construct_world_actor_base(self, parent);
+    __ct__13TUnk_804B9870FP7TObject(self, parent);
     self->vt = (void *)__vt__11TObjDFDemo0;
     self->f0 = TObjDFDemo0__name;
     h = TBoss4Uro::get_instance_count();

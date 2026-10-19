@@ -32,7 +32,7 @@ s32 run_load_callback_table(void *, int);
 s32 init_menu_scene_lights(void *, int);
 s32 reset_controller_input_state();
 s32 set_copy_clear_color_argb(int, int, int);
-s32 TWindowCtrlMain__ct(u32);
+s32 __ct__15TWindowCtrlMainFv(u32);
 extern V3_8013F6C4 lbl_8043F138;
 extern V3_8013F6C4 lbl_8043F144;
 extern u8 default_scene_light_config[];
@@ -278,7 +278,7 @@ void init_logo_scene__5TLogoFv(void) {
     }
     p = __nw__7TObjectFUl(0x1C);
     if (p != 0) {
-        TWindowCtrlMain__ct(p);
+        __ct__15TWindowCtrlMainFv(p);
     }
 }
 

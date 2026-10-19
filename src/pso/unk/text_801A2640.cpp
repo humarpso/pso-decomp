@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/TObjInfoCol.h"
 #include "pso/unk/text_801A2640.h"
 #include "pso/system/vector.h"
@@ -31,10 +32,10 @@ struct Obj_801A2640 {
 
 extern "C" {
 void __ct__7TObjectFP7TObject(void *self, void *parent);
-extern u8 lbl_804B9870[];
+extern u8 __vt__13TUnk_804B9870[];
 extern const f32 lbl_805DC098;
 extern const f32 lbl_805DC0A0;
-Obj_801A2640 *construct_world_actor_base(Obj_801A2640 *self, void *parent);
+Obj_801A2640 *__ct__13TUnk_804B9870FP7TObject(Obj_801A2640 *self, void *parent);
 u8 *TODoorFourLightRuins__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *TODoorFourLightSeabedU__ct(void *, void *, void *);
 void *TODoorFourLightSeabed__ct(void *, void *, void *);
@@ -51,35 +52,34 @@ void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-Obj_801A2640 *construct_world_actor_base(Obj_801A2640 *self, void *parent) {
-    __ct__7TObjectFP7TObject(self, parent);
-    self->vtable = lbl_804B9870;
-    self->f30 = 0;
-    self->f1c = 0xFFFF;
-    self->f28 = -1;
-    self->f2a = 0;
-    self->f2c = -1;
-    self->f20 = 1;
-    self->f24 = 0;
-    self->f34 = 0;
-    self->f80 = 0;
-    self->v38.x = lbl_805DC098;
-    self->v38.y = lbl_805DC098;
-    self->v38.z = lbl_805DC098;
-    VecCopy((Vec *)&self->v44, (const Vec *)&self->v38);
-    VecCopy((Vec *)&self->v50, (const Vec *)&self->v38);
-    self->f5c = 0;
-    self->f60 = 0;
-    self->f64 = 0;
-    self->v68.x = lbl_805DC0A0;
-    self->v68.y = lbl_805DC0A0;
-    self->v68.z = lbl_805DC0A0;
-    self->v74.x = lbl_805DC098;
-    self->v74.y = lbl_805DC098;
-    self->v74.z = lbl_805DC098;
-    self->f1e = 0;
-    return self;
 }
+TUnk_804B9870::TUnk_804B9870(TObject *parent) : TObject(parent) {
+    ((Obj_801A2640 *)this)->f30 = 0;
+    ((Obj_801A2640 *)this)->f1c = 0xFFFF;
+    ((Obj_801A2640 *)this)->f28 = -1;
+    ((Obj_801A2640 *)this)->f2a = 0;
+    ((Obj_801A2640 *)this)->f2c = -1;
+    ((Obj_801A2640 *)this)->f20 = 1;
+    ((Obj_801A2640 *)this)->f24 = 0;
+    ((Obj_801A2640 *)this)->f34 = 0;
+    ((Obj_801A2640 *)this)->f80 = 0;
+    ((Obj_801A2640 *)this)->v38.x = lbl_805DC098;
+    ((Obj_801A2640 *)this)->v38.y = lbl_805DC098;
+    ((Obj_801A2640 *)this)->v38.z = lbl_805DC098;
+    VecCopy((Vec *)&((Obj_801A2640 *)this)->v44, (const Vec *)&((Obj_801A2640 *)this)->v38);
+    VecCopy((Vec *)&((Obj_801A2640 *)this)->v50, (const Vec *)&((Obj_801A2640 *)this)->v38);
+    ((Obj_801A2640 *)this)->f5c = 0;
+    ((Obj_801A2640 *)this)->f60 = 0;
+    ((Obj_801A2640 *)this)->f64 = 0;
+    ((Obj_801A2640 *)this)->v68.x = lbl_805DC0A0;
+    ((Obj_801A2640 *)this)->v68.y = lbl_805DC0A0;
+    ((Obj_801A2640 *)this)->v68.z = lbl_805DC0A0;
+    ((Obj_801A2640 *)this)->v74.x = lbl_805DC098;
+    ((Obj_801A2640 *)this)->v74.y = lbl_805DC098;
+    ((Obj_801A2640 *)this)->v74.z = lbl_805DC098;
+    ((Obj_801A2640 *)this)->f1e = 0;
+}
+extern "C" {
 
 void *TODoorFourLightSeabed__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xFC);

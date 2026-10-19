@@ -5,10 +5,10 @@
 
 class TUnk_80484870 : public TObject {
 public:
+    TUnk_80484870(void *arg1, void *arg2);
     virtual ~TUnk_80484870();
     virtual void run_task();
     virtual void render();
-    void *ct(void *, void *);
     void *dt(s16);
     u8 unk_1C[0x4];
     s32 m_20;

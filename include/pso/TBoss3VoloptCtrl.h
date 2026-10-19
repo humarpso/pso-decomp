@@ -6,6 +6,7 @@
 
 class TBoss3VoloptCtrl : public TObject {
 public:
+    TBoss3VoloptCtrl();
     virtual ~TBoss3VoloptCtrl();
     virtual void run_task();
     s32 countdown;

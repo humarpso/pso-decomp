@@ -1,4 +1,5 @@
 #include "pso/boss/TBoss1Dragon.h"
+#include "pso/boss/TObjBoss1Rock.h"
 #include "pso/enemy/TObjEneEpsilon.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -3935,10 +3936,7 @@ void update_dive_state__12TBoss1DragonFv(u8 *arg0, u32 arg1) {
             vel.x = sn * s;
             vel.y = rand_range__9TObjEneDDFff(arg0, TBoss1Dragon__data_805D8010, TBoss1Dragon__data_805D7F98);
             vel.z = cs * s;
-            mem = __nw__7TObjectFUl(0x54);
-            if (mem != 0) {
-                ((TObjBoss1Rock *)mem)->construct_random((void *)tl_05, (void *)&pos, (void *)&vel);
-            }
+            mem = (u8 *)new TObjBoss1Rock((TObject *)(void *)tl_05, (void *)(void *)&pos, (void *)(void *)&vel);
             F(f32, 0x5DC) = F(f32, 0x5DC) + F(f32, 0x888);
             ((TObjEneDD *)arg0)->move_with_wall_stop(F(f32, 0x3A0), F(f32, 0x3A8), F(f32, 0x884));
             F(f32, 0x5D8) = F(f32, 0x3C) + F(f32, 0x5DC);

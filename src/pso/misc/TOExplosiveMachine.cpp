@@ -67,7 +67,7 @@ extern u32 explosive_machine_model_archive;
 void __dl__7TObjectFPv(void *);
 extern char __vt__18TOExplosiveMachine[];
 O_80166664 *__dt__18TOExplosiveMachineFv(O_80166664 *arg0, s16 arg1);
-void construct_world_actor_base(void *, s32);
+void __ct__13TUnk_804B9870FP7TObject(void *, s32);
 extern s32 TOExplosiveMachine__class_name;
 extern s32 tl_05;
 extern const f32 lbl_805DB5F0;
@@ -134,7 +134,7 @@ O_80166664 *__dt__18TOExplosiveMachineFv(O_80166664 *arg0, s16 arg1) {
 
 O_801666E8 *TOExplosiveMachine__ct(O_801666E8 *arg0) {
     s32 i;
-    construct_world_actor_base(arg0, tl_05);
+    __ct__13TUnk_804B9870FP7TObject(arg0, tl_05);
     arg0->vt = __vt__18TOExplosiveMachine;
     arg0->id = TOExplosiveMachine__class_name;
     arg0->f90 = lbl_805DB5F0;

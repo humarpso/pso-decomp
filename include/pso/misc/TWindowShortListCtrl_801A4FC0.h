@@ -6,7 +6,7 @@
 extern "C" {
 s32 TWindowShortListCtrl__sub_801A513C(void *p);
 int TWindowShortListCtrl__sub_801A5144(void *p);
-void *construct_option_scene(void *parent);
+void *__ct__13TUnk_804C2298Fv(void *parent);
 s32 fn_801A51F0(void);
 }
 

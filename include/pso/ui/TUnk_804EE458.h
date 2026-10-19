@@ -5,9 +5,9 @@
 
 class TUnk_804EE458 : public TObject {
 public:
+    TUnk_804EE458(int a1);
     virtual ~TUnk_804EE458();
     s32 sub_8033596C();
-    void*init_camera_state(int);
     u8 unk_1C[0x4];
     int m_20;
     u8 unk_24[0x4];

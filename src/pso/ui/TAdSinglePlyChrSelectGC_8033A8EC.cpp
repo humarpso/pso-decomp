@@ -106,7 +106,7 @@ s32 init_menu_scene_lights(void *, int);
 s32 reset_controller_input_state();
 s32 set_copy_clear_color_argb(int, int, int);
 s32 play_area_music(void *);
-s32 TWindowCtrlMain__ct(u32);
+s32 __ct__15TWindowCtrlMainFv(u32);
 extern V3_8033B39C lbl_80477D60[];
 extern V3_8033B39C lbl_80477D6C[];
 extern u8 lbl_80477D90[];
@@ -458,7 +458,7 @@ void init_single_player_char_select_scene(void) {
     set_active_camera_pose(&a, &b);
     p = __nw__7TObjectFUl(0x1C);
     if (p != 0) {
-        TWindowCtrlMain__ct(p);
+        __ct__15TWindowCtrlMainFv(p);
     }
     p = __nw__7TObjectFUl(0x44);
     if (p != 0) {

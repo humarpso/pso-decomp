@@ -5,6 +5,7 @@
 
 class TChCrEffFade : public TObject {
 public:
+    TChCrEffFade(s32 arg1, s32 arg2, s32 arg3);
     virtual ~TChCrEffFade();
     virtual void run_task();
     virtual void render();

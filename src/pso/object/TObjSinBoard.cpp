@@ -43,7 +43,7 @@ s32 push_matrix();
 s32 post_translate_matrix(void *);
 extern RecoveredGlobal_801982D4_lbl_804B8DAC lobby_gvm_texture_handles;
 extern s32 gogo_ball_bml_resource;
-s32 construct_world_actor_base(void *, void *);
+s32 __ct__13TUnk_804B9870FP7TObject(void *, void *);
 extern s32 __vt__12TObjSinBoard[];
 extern s32 TObjSinBoard__class_name;
 s32 get_state_flag__9TMainTaskFv();
@@ -114,7 +114,7 @@ void *__dt__12TObjSinBoardFv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_80198228___vt__12TObjSinBoard_size[sizeof(RecoveredGlobal_80198228___vt__12TObjSinBoard) == 0x38 ? 1 : -1];
 u8 *TObjSinBoard__ct(u8 *arg0, s32 parent, s32 arg2) {
-    construct_world_actor_base((void *)arg0, (void *)parent);
+    __ct__13TUnk_804B9870FP7TObject((void *)arg0, (void *)parent);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80198228___vt__12TObjSinBoard *)&__vt__12TObjSinBoard).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjSinBoard__class_name;
     ((TObjSinBoard *)(arg0))->apply_object_set_data((void *)arg2);

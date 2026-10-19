@@ -374,7 +374,7 @@ void *spawn_particle_effect_with_rotation(void *, void *, s32, s32);
 s32 enemy_validate_retained_target(void *);
 void * __nw__7TObjectFUl(int);
 void TBoss8Dragon__sub_802FC9D8(u8 *arg0);
-s32 TBoss8DragonEffBreath__ct(void *, void *, void *, void *, s32, u16);
+s32 __ct__21TBoss8DragonEffBreathFP7TObjectPvPvls(void *, void *, void *, void *, s32, u16);
 extern const f32 lbl_805DEEAC;
 void state_breath_attack__12TBoss8DragonFPvUi(u8 *arg0, u32 arg1);
 extern const f32 TBoss8Dragon__data_805DEDC8;
@@ -5378,7 +5378,7 @@ void state_breath_attack__12TBoss8DragonFPvUi(u8 *arg0, u32 arg1) {
                 if (F(s32, 0x850) >= 2) {
                     mem = __nw__7TObjectFUl(0x40);
                     if (mem != 0) {
-                        TBoss8DragonEffBreath__ct(mem, arg0 + 0x3C4, arg0 + 0x410, arg0 + 0x41C, F(s32, 0x75C), obj_getField1c(arg0));
+                        __ct__21TBoss8DragonEffBreathFP7TObjectPvPvls(mem, arg0 + 0x3C4, arg0 + 0x410, arg0 + 0x41C, F(s32, 0x75C), obj_getField1c(arg0));
                     }
                     F(s32, 0x850) = 0;
                 }

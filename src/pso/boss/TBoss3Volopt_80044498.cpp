@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TUnk_80484870.h"
 #include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
@@ -731,10 +732,7 @@ void TBoss3Volopt::spawn_sub_objects() {
     s32 i;
     for (i = 0; i < 4; i++) {
         if (self->objs[i] == 0) {
-            void *o = __nw__7TObjectFUl(0x28);
-            if (o != 0) {
-                o = ((TUnk_80484870 *)o)->ct(self->target, &self->pos[i]);
-            }
+            void *o = (void *)new TUnk_80484870(self->target, &self->pos[i]);
             self->objs[i] = o;
         }
     }
@@ -855,10 +853,7 @@ void TBoss3Volopt::rebuild_parts() {
         if (o->ptr[i] != 0) {
             queue_destruction__7TObjectFv(o->ptr[i]);
         }
-        p = __nw__7TObjectFUl(0x28);
-        if (p != 0) {
-            p = ((TUnk_80484870 *)p)->ct(o->pad3d8, &o->recs[i]);
-        }
+        p = (void *)new TUnk_80484870(o->pad3d8, &o->recs[i]);
         o->ptr[i] = p;
     }
     for (; i < 4; i++) {

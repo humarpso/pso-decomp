@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBm3FlyNest_CarryFly.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -771,7 +772,7 @@ Obj_800B3E40 * TObjEneBm3FlyNest__sub_800B3E40(Obj_800B3E40 *self, s16 flag);
 void * TObjEneBm3FlyNest__ct(void *, void *, void *);
 int TObjEneBm3FlyNest__sub_800B4158(void);
 void * __dt__26TObjEneBm3FlyNest_CarryFlyFv(void *arg0, s16 arg1);
-u8 * TObjEneBm3FlyNest_CarryFly__ct(u8 *self, void *parent, s32 a, s32 b, s32 unused, s32 c, s32 d);
+u8 * __ct__26TObjEneBm3FlyNest_CarryFlyFP7TObjectlllll(u8 *self, void *parent, s32 a, s32 b, s32 unused, s32 c, s32 d);
 s32 is_main_phase_15__9TObjEneDDFv();
 void update_player_state__9TObjEneDDFv(void *, Vec_800B23A0 *, s32);
 void get_camera_ctrl__9TObjEneDDFv(s32, s32);
@@ -1619,7 +1620,7 @@ void handle_appear__17TObjEneBm3FlyNestFPvi(u8 *ene_dd, s32 arg1) {
                 for (i = 0; i < 6; i++) {
                     o = __nw__7TObjectFUl(0x68);
                     if (o != 0) {
-                        ((s32 (*)(void *, void *, void *, void *, void *, void *, s32))TObjEneBm3FlyNest_CarryFly__ct)(o, ene_dd, &((Self_800B36F8 *)ene_dd)->arr[i], ene_dd + 0x3D4, ene_dd + 0x38, cnt, i + 1);
+                        ((s32 (*)(void *, void *, void *, void *, void *, void *, s32))__ct__26TObjEneBm3FlyNest_CarryFlyFP7TObjectlllll)(o, ene_dd, &((Self_800B36F8 *)ene_dd)->arr[i], ene_dd + 0x3D4, ene_dd + 0x38, cnt, i + 1);
                     }
                 }
             }
@@ -2104,35 +2105,34 @@ void *__dt__26TObjEneBm3FlyNest_CarryFlyFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TObjEneBm3FlyNest_CarryFly__ct(u8 *self, void *parent, s32 a, s32 b, s32 unused, s32 c, s32 d) {
-    Vec_800B4688 v;
-    __ct__7TObjectFP7TObject(self, parent);
-    *(s32 **)((s8 *)self + 0x18) = __vt__26TObjEneBm3FlyNest_CarryFly;
-    *(s32 *)((s8 *)self + 0) = TObjEneBm3FlyNest_CarryFly__name;
-    ((TObjEneBm3FlyNest_CarryFly *)self)->m_30 = a;
-    *(s32 *)((s8 *)self + 0x34) = b;
-    *(s32 *)((s8 *)self + 0x38) = c;
-    ((TObjEneBm3FlyNest_CarryFly *)self)->m_28 = d;
-    VecCopy((Vec *)&v, (const Vec *)(*(void **)((s8 *)self + 0x30)));
-    subtract_vector(&v, *(void **)((s8 *)self + 0x34));
-    ((TObjBoss2Tunnel *)(&v))->update_scale();
-    ((TObjEneBm3FlyNest_CarryFly *)self)->m_40 = (s32) (lbl_8043B398[0] * atan2_float(v.x, v.z));
-    *(f32 *)((s8 *)self + 0x1C) = lbl_805D9D6C * v.x;
-    ((TObjEneBm3FlyNest_CarryFly *)self)->m_20 = lbl_805D9D6C;
-    *(f32 *)((s8 *)self + 0x24) = lbl_805D9D6C * v.z;
-    *(s32 *)((s8 *)self + 0x48) = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&lbl_805D5108) + 0x430)) + 0x54);
-    *(f32 *)((s8 *)self + 0x4C) = (f32) (((TObjEneBm3FlyNest_CarryFly *)self)->m_28 * 2);
-    *(f32 *)((s8 *)self + 0x3C) = lbl_805D9D18;
-    *(s32 *)((s8 *)self + 0x44) = 0;
-    ((TObjEneBm3FlyNest_CarryFly *)self)->m_50 = 0.0f;
-    *(f32 *)((s8 *)self + 0x54) = 0.0f;
-    ((TObjEneBm3FlyNest_CarryFly *)self)->m_58 = 0.0f;
-    *(f32 *)((s8 *)self + 0x5C) = 0.0f;
-    *(f32 *)((s8 *)self + 0x64) = 0.0f;
-    ((TObjEneBm3FlyNest_CarryFly *)self)->m_60 = 0.0f;
-    *(s32 *)((s8 *)self + 0x2C) = 0;
-    return self;
 }
+TObjEneBm3FlyNest_CarryFly::TObjEneBm3FlyNest_CarryFly(TObject *parent, s32 a, s32 b, s32 unused, s32 c, s32 d) : TObject(parent) {
+    Vec_800B4688 v;
+    *(s32 *)((s8 *)this + 0) = TObjEneBm3FlyNest_CarryFly__name;
+    this->m_30 = a;
+    *(s32 *)((s8 *)this + 0x34) = b;
+    *(s32 *)((s8 *)this + 0x38) = c;
+    this->m_28 = d;
+    VecCopy((Vec *)&v, (const Vec *)(*(void **)((s8 *)this + 0x30)));
+    subtract_vector(&v, *(void **)((s8 *)this + 0x34));
+    ((TObjBoss2Tunnel *)(&v))->update_scale();
+    this->m_40 = (s32) (lbl_8043B398[0] * atan2_float(v.x, v.z));
+    *(f32 *)((s8 *)this + 0x1C) = lbl_805D9D6C * v.x;
+    this->m_20 = lbl_805D9D6C;
+    *(f32 *)((s8 *)this + 0x24) = lbl_805D9D6C * v.z;
+    *(s32 *)((s8 *)this + 0x48) = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&lbl_805D5108) + 0x430)) + 0x54);
+    *(f32 *)((s8 *)this + 0x4C) = (f32) (this->m_28 * 2);
+    *(f32 *)((s8 *)this + 0x3C) = lbl_805D9D18;
+    *(s32 *)((s8 *)this + 0x44) = 0;
+    this->m_50 = 0.0f;
+    *(f32 *)((s8 *)this + 0x54) = 0.0f;
+    this->m_58 = 0.0f;
+    *(f32 *)((s8 *)this + 0x5C) = 0.0f;
+    *(f32 *)((s8 *)this + 0x64) = 0.0f;
+    this->m_60 = 0.0f;
+    *(s32 *)((s8 *)this + 0x2C) = 0;
+}
+extern "C" {
 void TObjEneBm3FlyNest::init_vertex_table() {
     f32 *v = fly_nest_vertex_table;
     v[3] = v[2] = v[1] = v[0] = 0.0f;

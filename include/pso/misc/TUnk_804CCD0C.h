@@ -5,6 +5,7 @@
 
 class TUnk_804CCD0C : public TObject {
 public:
+    TUnk_804CCD0C(s32 arg1, s32 arg2);
     virtual ~TUnk_804CCD0C();
     u8 unk_1C[0x10];
     s32 m_2c;

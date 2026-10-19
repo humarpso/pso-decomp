@@ -48,7 +48,7 @@ extern s32 TRaderMapCore__view_mode;
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_801FB430___vt__13TRaderMapCore __vt__13TRaderMapCore;
 extern s32 TRaderMapCore__instance;
-s32 construct_world_actor_base(void *, void *);
+s32 __ct__13TUnk_804B9870FP7TObject(void *, void *);
 s32 init_map_ptr__13TRaderMapCoreFv(void *, int);
 s32 fn_803D64F8(void *);
 extern GRec_801FB490 TRaderMapCore__map_view_state[];
@@ -136,7 +136,7 @@ Core_801FB490 *TRaderMapCore__ct(Core_801FB490 *arg0, void *parent) {
     u32 j;
     s32 off;
     s32 t8, t6, t5, t0;
-    construct_world_actor_base(arg0, parent);
+    __ct__13TUnk_804B9870FP7TObject(arg0, parent);
     arg0->vt = &__vt__13TRaderMapCore.value;
     arg0->f0 = rader_map_core_name_ptr;
     arg0->f178 = init_map_ptr__13TRaderMapCoreFv(&arg0->f90, 2);

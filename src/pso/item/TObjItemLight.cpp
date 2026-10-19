@@ -21,7 +21,7 @@ void run_task__13TObjItemLightFv(Light_80191F90 *arg0);
 u8 *TObjItemLight__ct(TObjItemLight *arg0, s32 arg1, s32 arg2);
 void *__dt__13TObjItemLightFv(void *arg0, s16 arg1);
 void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
-s32 construct_world_actor_base();
+s32 __ct__13TUnk_804B9870FP7TObject();
 void __dl__7TObjectFPv(void *);
 
 extern s32 __vt__13TObjItemLight[];
@@ -65,7 +65,7 @@ extern const f32 lbl_805DBE40;
 extern const f32 lbl_805DBE44;
 
 u8 *TObjItemLight__ct(TObjItemLight *item_light, s32 arg1, s32 arg2) {
-    construct_world_actor_base();
+    __ct__13TUnk_804B9870FP7TObject();
     *(s32 **)((s8 *)item_light + 0x18) = __vt__13TObjItemLight;
     *(s32 *)((s8 *)item_light + 0) = (s32) TObjItemLight__class_name;
     item_light->apply_object_set_data((void *)arg2);

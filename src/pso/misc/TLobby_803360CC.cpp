@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TUnk_804EE470.h"
+#include "pso/ui/TUnk_804EE458.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TUnk_804EEF64.h"
 struct TCameraCtrl;
@@ -231,15 +233,9 @@ u8 *TUnk_804EEF64::construct_title_scene() {
         p = ((TUnk_804EEF80 *)p)->construct(arg0);
     }
     *(void **)((s8 *)arg0 + 0x1C) = p;
-    p = __nw__7TObjectFUl(0x3C);
-    if (p != 0) {
-        p = ((TUnk_804EE458 *)p)->init_camera_state((int)arg0);
-    }
+    p = (void *)new TUnk_804EE458((int)arg0);
     *(void **)((s8 *)arg0 + 0x24) = p;
-    p = __nw__7TObjectFUl(0x20);
-    if (p != 0) {
-        p = ((TUnk_804EE470 *)p)->ct_with_parent((void *)tl_clipout);
-    }
+    p = (void *)new TUnk_804EE470((TObject *)(void *)tl_clipout);
     this->m_20 = p;
     this->m_28 = 0;
     if (*(void **)((s8 *)arg0 + 0x24) != 0) {

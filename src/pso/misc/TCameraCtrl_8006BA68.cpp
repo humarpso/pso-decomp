@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TUnk_80488B38.h"
+#include "pso/misc/TUnk_80488B68.h"
+#include "pso/misc/TUnk_80488B38.h"
 #include "pso/misc/TUnk_80488B08.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -66,14 +69,11 @@ E_8006BAC8 *TCameraCtrl__sub_8006BAC8(O_8006BAC8 *self, s32 i) {
 unsigned char TCameraCtrl__sub_8006BADC(void) {  return TCameraCtrl__override_flags; }
 
 void *TCameraCtrl__vt4(void) {
-    void *o = __nw__7TObjectFUl(0x70);
-    if (o != NULL) {
-        o = ((TUnk_80488B38 *)o)->init_defaults();
-    }
+    void *o = (void *)new TUnk_80488B38();
     return o;
 }
 
-extern s32 lbl_80488B38[];
+extern s32 __vt__13TUnk_80488B38[];
 
 #pragma push
 #pragma fp_contract on
@@ -106,7 +106,7 @@ void TUnk_80488B38::run_task() {
 
 void *__dt__13TUnk_80488B38Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_80488B38;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TUnk_80488B38;
         __dt__13TUnk_80488A28Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -222,7 +222,12 @@ void *TCameraCtrl__vt5(void);
 s32 angle_difference_abs(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
 
-void*TUnk_80488B38::init_defaults() { __ct__13TUnk_80488A28Fv(); *(int*)((char*)this + 0x18) = (int)lbl_80488B38; *(float *)&this->unk_6C = 10.0f; *(int *)&this->m_38 = 0; return this; }
+}
+TUnk_80488B38::TUnk_80488B38() : TUnk_80488A28() {
+    *(float *)&this->unk_6C = 10.0f;
+    *(int *)&this->m_38 = 0;
+}
+extern "C" {
 }
 extern const f32 lbl_805D901C;
 extern const f32 lbl_805D9018;
@@ -397,10 +402,7 @@ CameraPlayback* get_scripted_camera_playback() {
 }
 
 void *TCameraCtrl__vt5(void) {
-    void *o = __nw__7TObjectFUl(0xA4);
-    if (o != NULL) {
-        o = ((TUnk_80488B68 *)o)->sub_8006C5D8();
-    }
+    void *o = (void *)new TUnk_80488B68();
     return o;
 }
 

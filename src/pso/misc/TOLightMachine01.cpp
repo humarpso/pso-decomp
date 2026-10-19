@@ -27,7 +27,7 @@ extern RecoveredGlobal_8016EB3C_lbl_804B2EC4 light_machine01_resource_desc;
 extern u32 TOLightMachine01__shared_bml_archive;
 extern s32 light_machine_ginja_model_handle;
 extern s32 light_machine_ginja_param;
-s32 construct_world_actor_base(void *, int);
+s32 __ct__13TUnk_804B9870FP7TObject(void *, int);
 s32 rand();
 f32 sin_table_lookup(s32);
 extern s32 __vt__16TOLightMachine01[];
@@ -118,7 +118,7 @@ void *__dt__16TOLightMachine01Fv(void *arg0, s16 arg1) {
 #pragma push
 #pragma fp_contract on
 u8 *TOLightMachine01__ct(TOLightMachine01 *arg0, s32 arg1) {
-    construct_world_actor_base(arg0, tl_05);
+    __ct__13TUnk_804B9870FP7TObject(arg0, tl_05);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016EC04___vt__16TOLightMachine01 *)&__vt__16TOLightMachine01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOLightMachine01__name;
     ((TOLightMachine01 *)(arg0))->apply_object_set_data((void *)arg1);

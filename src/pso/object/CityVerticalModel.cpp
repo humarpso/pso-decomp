@@ -60,7 +60,7 @@ void *__nw__7TObjectFUl(int);
 extern void *tl_05;
 void __dl__7TObjectFPv(void *);
 extern s32 city_vertical_model_vtable[];
-s32 construct_world_actor_base(void *, void *);
+s32 __ct__13TUnk_804B9870FP7TObject(void *, void *);
 void TUnk_804B5C08::vfunc_13(s32) { this->m_9c = lbl_805DBC00; *(int*)((char*)this + 0x90) = 1; }
 typedef struct RecoveredFields_80182E90_arg0 RecoveredFields_80182E90_arg0;
 typedef struct VBase_18_26a62c VBase_18_26a62c;
@@ -150,7 +150,7 @@ void *destroy_city_vertical_model(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_801830BC_lbl_804B5C08_size[sizeof(RecoveredGlobal_801830BC_lbl_804B5C08) == 0x38 ? 1 : -1];
 u8 *construct_city_vertical_model(u8 *arg0, s32 parent, s32 arg2) {
-    construct_world_actor_base((void *)arg0, (void *)parent);
+    __ct__13TUnk_804B9870FP7TObject((void *)arg0, (void *)parent);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801830BC_lbl_804B5C08 *)&city_vertical_model_vtable).value;
     ((TUnk_804B5C08 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x90) = 1;

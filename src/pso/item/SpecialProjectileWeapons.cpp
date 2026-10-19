@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A2018.h"
 #include "pso/TItemShoot.h"
 #include "pso/TObject.h"
 #include "pso/item/TUnk_804A2018.h"
@@ -102,7 +103,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 const StarLightParameters weapon_star_light_parameters[] = {
     { { 0x40400000, 0x40E00000, 0xB4FF0019, 0, 0x41A00000 } }
 };
-StarLightFollowerView *TObjPlayer__sub_801241D4(StarLightFollowerView *self, void *parent, s32 a, s32 b);
+StarLightFollowerView *__ct__13TUnk_804A2018FP7TObjectll(StarLightFollowerView *self, void *parent, s32 a, s32 b);
 void __dt__7TObjectFv(void *, int);
 void *TObjPlayer__sub_8012417C(void *arg0, s16 arg1);
 s8 sub_80102C30__5TItemFv();
@@ -123,11 +124,11 @@ typedef s32 (*Fn_80124810_5)(s32, s32, s32, s32, f32);
 
 extern "C" void render__7TObjectFv();
 extern "C" void render_shadows__7TObjectFv();
-void *weapon_star_light_follower_vtable[6] = {
+void *__vt__13TUnk_804A2018[6] = {
     (void *)0x0, (void *)0x0, (void *)&TObjPlayer__sub_8012417C, (void *)&run_task__13TUnk_804A2018Fv,
     (void *)&render__7TObjectFv, (void *)&render_shadows__7TObjectFv,
 };
-#define weapon_star_light_follower_vtable ((u8 *)weapon_star_light_follower_vtable)
+#define __vt__13TUnk_804A2018 ((u8 *)__vt__13TUnk_804A2018)
 
 void TUnk_804A2018::run_task() {
     s32 sp8;
@@ -152,7 +153,7 @@ void TUnk_804A2018::run_task() {
 
 void *TObjPlayer__sub_8012417C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = ((s32 *)weapon_star_light_follower_vtable);
+        *(s32 **)((s8 *)arg0 + 0x18) = ((s32 *)__vt__13TUnk_804A2018);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -161,29 +162,28 @@ void *TObjPlayer__sub_8012417C(void *arg0, s16 arg1) {
     return arg0;
 }
 
-StarLightFollowerView *TObjPlayer__sub_801241D4(StarLightFollowerView *self, void *parent, s32 a, s32 b) {
+}
+TUnk_804A2018::TUnk_804A2018(TObject *parent, s32 a, s32 b) : TObject(parent) {
     StarLightPosition v;
     void *p;
-    __ct__7TObjectFP7TObject(self, parent);
-    self->vtbl = weapon_star_light_follower_vtable;
-    self->f1c = a;
-    self->f20 = b;
-    self->f24 = 0;
-    self->f28 = get_item_system_generation();
-    p = find_item_by_id(self->f1c);
-    if (p != NULL && ((TObjPlayer *)p)->draw_icon((s32)self->f20, (s32)((s32 *)&v)) != 0) {
+    ((StarLightFollowerView *)this)->f1c = a;
+    ((StarLightFollowerView *)this)->f20 = b;
+    ((StarLightFollowerView *)this)->f24 = 0;
+    ((StarLightFollowerView *)this)->f28 = get_item_system_generation();
+    p = find_item_by_id(((StarLightFollowerView *)this)->f1c);
+    if (p != NULL && ((TObjPlayer *)p)->draw_icon((s32)((StarLightFollowerView *)this)->f20, (s32)((s32 *)&v)) != 0) {
         StarLightParameters blk = weapon_star_light_parameters[0];
-        self->f24 = (s32)spawn_star_light_2d((s32)&v, (s32)&blk, (s32)self);
+        ((StarLightFollowerView *)this)->f24 = (s32)spawn_star_light_2d((s32)&v, (s32)&blk, (s32)((StarLightFollowerView *)this));
     }
-    return self;
 }
+extern "C" {
 
 void create_icon__10TObjPlayerFiii(s32 parent, s32 arg1, s32 arg2) {
     void *temp_r3;
     if (parent != 0) {
         temp_r3 = (void *)((u32)__nw__7TObjectFUl(0x2C));
         if (temp_r3 != (void *)0U) {
-            TObjPlayer__sub_801241D4((StarLightFollowerView *)(temp_r3), (void *)parent, (s32)arg1, (s32)arg2);
+            __ct__13TUnk_804A2018FP7TObjectll((StarLightFollowerView *)(temp_r3), (void *)parent, (s32)arg1, (s32)arg2);
         }
     }
 }

@@ -5,6 +5,7 @@
 #include "pso/TObject.h"
 
 struct TFogCtrl : public TObject {
+    TFogCtrl(TObject *parent, s32 index);
     virtual ~TFogCtrl();
     virtual void run_task();
     u32 m_1c;

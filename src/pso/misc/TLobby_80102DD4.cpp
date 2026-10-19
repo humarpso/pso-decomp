@@ -163,7 +163,7 @@ struct Tbl_801031CC { u8 pad[0x1c]; Rec_801031CC r[1]; };
 extern "C" {
 void init__9TItemDataFv(void *);
 extern const f32 lbl_805DAA88;
-u8 *__ct__13TItemAttackerFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+u8 *__ct__13TItemAttackerFllll(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 __nw__7TObjectFUl(int);
 void TItemAttacker__sub_8010349C(u32);
 u8 *find_item_by_id(s32);
@@ -244,7 +244,7 @@ void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3) {
     if ((arg0 != 0) && (arg3 != NULL) && (arg1 != 0U) && ((u16) *(u16 *)((s8 *)arg3 + 0xC) != 65535U) && ((u16) *(u16 *)((s8 *)arg3 + 0xE) != 65535U)) {
         object = __nw__7TObjectFUl(0x50);
         if (object != 0) {
-            object = (s32)__ct__13TItemAttackerFv((u8 *)object, (s32)arg0, (s32)arg1, (s32)arg2, (s32)arg3);
+            object = (s32)__ct__13TItemAttackerFllll((u8 *)object, (s32)arg0, (s32)arg1, (s32)arg2, (s32)arg3);
         }
         TItemAttacker::spawn_item_timer(object, (s32)&TItemAttacker__sub_8010349C, arg2);
     }

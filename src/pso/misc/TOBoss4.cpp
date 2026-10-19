@@ -13,7 +13,7 @@ extern u32 lbl_805D58A8;
 void *TOBoss4__ct(void *arg0);
 void *__dt__7TOBoss4Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
-void construct_world_actor_base(void *, void *);
+void __ct__13TUnk_804B9870FP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 
 void TOBoss4::free_instance() {
@@ -53,7 +53,7 @@ extern const f32 lbl_805DB31C;
 extern void *lbl_805D2EB0;
 
 void *TOBoss4__ct(void *arg0) {
-    construct_world_actor_base(arg0, tl_05);
+    __ct__13TUnk_804B9870FP7TObject(arg0, tl_05);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__7TOBoss4;
     *(void * *)&((TOBoss4 *)arg0)->m_name = lbl_805D2EB0;
     *(f32 *)((s8 *)arg0 + 0x90) = lbl_805DB310;

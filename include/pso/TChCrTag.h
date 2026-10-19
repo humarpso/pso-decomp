@@ -5,6 +5,7 @@
 
 class TChCrTag : public TObject {
 public:
+    TChCrTag(TObject *arg1, void *arg2);
     virtual ~TChCrTag();
     virtual void render();
 public:

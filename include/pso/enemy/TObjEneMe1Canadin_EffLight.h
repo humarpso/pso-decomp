@@ -5,6 +5,7 @@
 
 class TObjEneMe1Canadin_EffLight : public TObject {
 public:
+    TObjEneMe1Canadin_EffLight(TObject *parent, s32 count);
     virtual ~TObjEneMe1Canadin_EffLight();
     virtual void render();
     virtual void run_task();

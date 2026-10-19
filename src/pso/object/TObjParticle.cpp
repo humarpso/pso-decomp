@@ -45,7 +45,7 @@ u8 *__nw__7TObjectFUl(s32);
 extern s32 tl_05;
 s32 spawn_particle_effect_with_rotation(void *, void *, s32, u16);
 s32 spawn_continuous_particle_with_direction(void *, void *, s32);
-s32 construct_world_actor_base(void *, void *);
+s32 __ct__13TUnk_804B9870FP7TObject(void *, void *);
 extern s32 __vt__12TObjParticle[];
 extern s32 obj_particle_class_name;
 extern const f32 lbl_805DBEEC;
@@ -107,7 +107,7 @@ Part_80195400 *TObjParticle__ct(Part_80195400 *arg0, s32 parent, Src_80195400 *a
     u16 flags;
     u16 base;
     u16 other;
-    construct_world_actor_base(arg0, (void *) parent);
+    __ct__13TUnk_804B9870FP7TObject(arg0, (void *) parent);
     arg0->vt = __vt__12TObjParticle;
     other = 0;
     arg0->f0 = obj_particle_class_name;

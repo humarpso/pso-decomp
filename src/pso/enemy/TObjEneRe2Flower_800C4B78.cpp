@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRe2Flower_EffCurse3.h"
 #include "pso/enemy/TObjEneRe2Flower_800C4B78.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
@@ -121,17 +122,16 @@ TObjEneRe2Flower_EffCurse3::~TObjEneRe2Flower_EffCurse3() {
 }
 extern "C" {
 
-void *TObjEneRe2Flower_EffCurse3::init_target_ref(s32 arg1, s32 arg2) {
-    __ct__7TObjectFP7TObject();
-    *(s32 **)((s8 *)this + 0x18) = __vt__26TObjEneRe2Flower_EffCurse3;
+}
+TObjEneRe2Flower_EffCurse3::TObjEneRe2Flower_EffCurse3(s32 arg1, s32 arg2) : TObject((TObject *)arg1) {
     *(s32 *)&this->m_name = (s32) lbl_805D2A58;
     *(s32 *)((s8 *)this + 0x1C) = 0;
     (this->m_20) = arg2;
     if (is_alive__9TObjEneDDFv((this->m_20)) != 0) {
         *(s32 *)&this->unk_24 = (s32)spawn_continuous_particle_effect_with_flags((void *)((this->m_20) + 0x38), 0xDE, 0x40);
     }
-    return this;
 }
+extern "C" {
 
 struct Node_800C4D88 { void *p; s32 v; };
 struct A_800C4D88 { u8 x[0x24]; };

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TUnk_80484870.h"
 #include "pso/boss/TUnk_80484888.h"
 #include "pso/boss/TBoss3Volopt_800485C8.h"
 #include "pso/object/TObject_80019A50.h"
@@ -42,11 +43,11 @@ void __dt__7TObjectFv(void *, int);
 
 void TUnk_80484870::run_task() {  }
 
-extern s32 lbl_80484870[];
+extern s32 __vt__13TUnk_80484870[];
 
 void *TUnk_80484870::dt(s16 arg1) {
     if (this != NULL) {
-        *(s32 **)((s8 *)this + 0x18) = lbl_80484870;
+        *(s32 **)((s8 *)this + 0x18) = __vt__13TUnk_80484870;
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
@@ -57,13 +58,12 @@ void *TUnk_80484870::dt(s16 arg1) {
 
 extern void *tl_05;
 
-void *TUnk_80484870::ct(void *arg1, void *arg2) {
-    __ct__7TObjectFP7TObject(this, tl_05);
-    *(s32 **)((s8 *)this + 0x18) = lbl_80484870;
+}
+TUnk_80484870::TUnk_80484870(void *arg1, void *arg2) : TObject((TObject *)tl_05) {
     *(void * *)&(*(u16 *)((u8 *)this + 0x1C)) = arg1;
     *(void * *)&(*(u8 *)((u8 *)this + 0x20)) = arg2;
-    return this;
 }
+extern "C" {
 
 #pragma push
 #pragma fp_contract on

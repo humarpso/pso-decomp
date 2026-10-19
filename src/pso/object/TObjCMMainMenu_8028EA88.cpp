@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrlMain.h"
 #include "pso/misc/TKeyBoardControl_80131C58.h"
 #include "pso/misc/TLoadCtrl_80227390.h"
 #include "pso/misc/TLobby_80227A2C.h"
@@ -34,7 +35,7 @@ u8 *TCameraCtrl__ct(u8 *arg0, void *parent);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 init_menu_scene_lights(s32 *, s32);
 void *__nw__7TObjectFUl(s32);
-s32 TWindowCtrlMain__ct(void *);
+s32 __ct__15TWindowCtrlMainFv(void *);
 s32 init_and_create__15TChCrCharSelectFv(s32);
 }
 extern s32 lbl_80451290[];
@@ -64,10 +65,7 @@ void init_creation_menu_scene(void) {
     TLobby::set_ending_callback();
     TKeyBoardControl__sub_80131F60();
     TWindowCtrlMain::reset_all((void*)1);
-    p = __nw__7TObjectFUl(0x1C);
-    if (p != NULL) {
-        TWindowCtrlMain__ct(p);
-    }
+    p = (void *)new TWindowCtrlMain();
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
     if (p != NULL) {
         p = load_resource_from_descriptor(p, 1, creation_menu_resource_descriptor, 0, 0, 0);

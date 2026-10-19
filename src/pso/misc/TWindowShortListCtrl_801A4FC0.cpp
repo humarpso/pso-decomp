@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804C2298.h"
 #include "pso/misc/TKeyBoardControl_8000F764.h"
 #include "pso/misc/TWindowShortListCtrl_801A4FC0.h"
 #include "pso/object/TObject_80019A50.h"
@@ -23,11 +24,11 @@ void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
 void *get_character_save_record();
 
-extern s32 lbl_804C2298[];
+extern s32 __vt__13TUnk_804C2298[];
 
 void *TUnk_804C2298::destroy(s16 arg1) {
     if (this != NULL) {
-        *(s32 **)((s8 *)this + 0x18) = lbl_804C2298;
+        *(s32 **)((s8 *)this + 0x18) = __vt__13TUnk_804C2298;
         TLobby::stop_audio_streams();
         if (*(void * *)&(this->unk_2C) != NULL) { queue_destruction__7TObjectFv(*(void * *)&(this->unk_2C)); *(s32 *)&(this->unk_2C) = 0; }
         if (*(void * *)&(this->m_28) != NULL) { queue_destruction__7TObjectFv(*(void * *)&(this->m_28)); *(s32 *)&(this->m_28) = 0; }
@@ -42,38 +43,37 @@ void *TUnk_804C2298::destroy(s16 arg1) {
 
 extern void *tl_00;
 
-void *construct_option_scene(void *parent) {
+}
+TUnk_804C2298::TUnk_804C2298() : TObject((TObject *)tl_00) {
     void *o;
     void *o2;
     void *o3;
     void *o4;
-    __ct__7TObjectFP7TObject(parent, tl_00);
-    *(s32 **)((s8 *)parent + 0x18) = lbl_804C2298;
     o = __nw__7TObjectFUl(0x24);
     if (o != NULL) {
-        __ct__9TAdBackGCFv(o, parent);
+        __ct__9TAdBackGCFv(o, this);
     }
     o2 = __nw__7TObjectFUl(0x28);
     if (o2 != NULL) {
-        __ct__12TAdBackTxtGCFv(o2, parent);
+        __ct__12TAdBackTxtGCFv(o2, this);
     }
     o3 = __nw__7TObjectFUl(0x138);
     if (o3 != NULL) {
-        __ct__10TAdTitleGCFP7TObjectl(o3, parent, 3);
+        __ct__10TAdTitleGCFP7TObjectl(o3, this, 3);
     }
     TKeyBoardControl__sub_8000F90C(9);
-    ((TUnk_804C2298 *)parent)->m_20 = 4;
-    *(u8 *)((s8 *)parent + 0x1C) = 0;
-    ((TUnk_804C2298 *)parent)->m_1e = 0;
+    this->m_20 = 4;
+    *(u8 *)((s8 *)this + 0x1C) = 0;
+    this->m_1e = 0;
     o4 = __nw__7TObjectFUl(0x50);
     if (o4 != NULL) {
-        o4 = TWindowOptionCtrl__ct(o4, parent);
+        o4 = TWindowOptionCtrl__ct(o4, this);
     }
-    *(void **)((s8 *)parent + 0x24) = o4;
-    *(u32 *)((s8 *)parent + 0x28) = 0;
-    *(u32 *)((s8 *)parent + 0x2C) = 0;
-    return parent;
+    *(void **)((s8 *)this + 0x24) = o4;
+    *(u32 *)((s8 *)this + 0x28) = 0;
+    *(u32 *)((s8 *)this + 0x2C) = 0;
 }
+extern "C" {
 
 s32 TWindowShortListCtrl__sub_801A513C(void* p) { return *(s32*)((char*)p + 0x24); }
 int TWindowShortListCtrl__sub_801A5144(void* p) { return *(u8*)((char*)p + 0x1d) & 0x1; }

@@ -4,6 +4,7 @@
 #include <stddef.h>
 class TBoss5GryphonSnarl : public TObject {
 public:
+    TBoss5GryphonSnarl(TObject *parent, void *arg2);
     virtual ~TBoss5GryphonSnarl();
     virtual void run_task();
     virtual void render();

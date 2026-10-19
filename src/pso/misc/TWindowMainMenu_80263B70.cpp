@@ -326,7 +326,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         window_sub_equip = ((s32)__nw__7TObjectFUl(0x3C));
         var_r0_3 = window_sub_equip;
         if (var_r0_3 != 0) {
-            var_r0_3 = (s32)TWindowSubEquip__ct((TWindowSubEquip *)((u8 *)window_sub_equip), (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_3 = (s32)__ct__15TWindowSubEquipFll((TWindowSubEquip *)((u8 *)window_sub_equip), (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_3;
         return;

@@ -203,7 +203,7 @@ s8 get_captured_target_collider_index(s32);
 s32 get_uid__10TObjPlayerFv(s32);
 s32 get_captured_target_entry(s32, s32);
 s32 get_captured_target_count(s32);
-void construct_world_actor_base(void *, s32);
+void __ct__13TUnk_804B9870FP7TObject(void *, s32);
 void fn_8023B590(void *, s32, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -416,7 +416,7 @@ s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4) {
     s32 ext;
     s32 i;
     s32 e;
-    construct_world_actor_base(self, tl_05);
+    __ct__13TUnk_804B9870FP7TObject(self, tl_05);
     self->vt = __vt__10TTecSlicer;
     ((TObjPlayer *)(self->fwd))->init_forward();
     ((TTecSlicer *)(self->fc8))->reset_fields_1e();

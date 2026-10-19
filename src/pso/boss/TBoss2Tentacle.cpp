@@ -117,7 +117,7 @@ extern s32 __vt__14TBoss2Tentacle[];
 extern s32 TBoss2Tentacle__name;
 extern const f32 lbl_805D855C;
 extern const f32 lbl_805D8560;
-Obj_80039F50 *__ct__14TBoss2TentacleFP7TObjectii(Obj_80039F50 *self, void *parent, s32 arg2, s32 arg3);
+Obj_80039F50 *__ct__14TBoss2TentacleFP7TObjectll(Obj_80039F50 *self, void *parent, s32 arg2, s32 arg3);
 f32 newton_sqrtf(f32);
 void TBoss2Tentacle__sub_80039990(void);
 extern const f32 lbl_805D8548;
@@ -440,35 +440,34 @@ void TBoss2Tentacle::start_attack_at_target(u8 *arg1, s32 arg2) {
 
 void TBoss2Tentacle::forward_80039DC8() { TBoss2Tentacle__sub_80039DC8(this); }
 
-Obj_80039F50 *__ct__14TBoss2TentacleFP7TObjectii(Obj_80039F50 *self, void *parent, s32 arg2, s32 arg3) {
-    s32 i;
-    __ct__7TObjectFP7TObject(self, parent);
-    self->vt = __vt__14TBoss2Tentacle;
-    self->f0 = TBoss2Tentacle__name;
-    self->f110 = arg2;
-    self->f2C = arg3;
-    self->f1C = 0;
-    self->f20 = 0;
-    self->f24 = 0;
-    for (i = 0; i < 14; i++) {
-        VecCopy((Vec *)&self->pts[i], (const Vec *)&TBoss2Tentacle__segment_points[i]);
-        self->vals[i] = TBoss2Tentacle__segment_point_defaults[i];
-    }
-    self->f114 = (TBoss2Tentacle__motion_data->count - 1) * (lbl_805D855C * (f32)rand());
-    self->f118 = lbl_805D8560;
-    self->f11C = 0;
-    self->f120 = 0;
-    self->f124 = 0x5EF;
-    self->f128 = TObjPlayer::calc_random_scaled();
-    self->f138 = TBoss2Tentacle__data_805D8534;
-    self->f13C = TBoss2Tentacle__data_805D8534;
-    self->f14C = 0;
-    self->f154 = 0x78;
-    self->f12C = TBoss2Tentacle__data_805D8534;
-    self->f130 = TBoss2Tentacle__data_805D8534;
-    self->f134 = TBoss2Tentacle__data_805D8534;
-    return self;
 }
+TBoss2Tentacle::TBoss2Tentacle(TObject *parent, s32 arg2, s32 arg3) : TObject(parent) {
+    s32 i;
+    ((Obj_80039F50 *)this)->f0 = TBoss2Tentacle__name;
+    ((Obj_80039F50 *)this)->f110 = arg2;
+    ((Obj_80039F50 *)this)->f2C = arg3;
+    ((Obj_80039F50 *)this)->f1C = 0;
+    ((Obj_80039F50 *)this)->f20 = 0;
+    ((Obj_80039F50 *)this)->f24 = 0;
+    for (i = 0; i < 14; i++) {
+        VecCopy((Vec *)&((Obj_80039F50 *)this)->pts[i], (const Vec *)&TBoss2Tentacle__segment_points[i]);
+        ((Obj_80039F50 *)this)->vals[i] = TBoss2Tentacle__segment_point_defaults[i];
+    }
+    ((Obj_80039F50 *)this)->f114 = (TBoss2Tentacle__motion_data->count - 1) * (lbl_805D855C * (f32)rand());
+    ((Obj_80039F50 *)this)->f118 = lbl_805D8560;
+    ((Obj_80039F50 *)this)->f11C = 0;
+    ((Obj_80039F50 *)this)->f120 = 0;
+    ((Obj_80039F50 *)this)->f124 = 0x5EF;
+    ((Obj_80039F50 *)this)->f128 = TObjPlayer::calc_random_scaled();
+    ((Obj_80039F50 *)this)->f138 = TBoss2Tentacle__data_805D8534;
+    ((Obj_80039F50 *)this)->f13C = TBoss2Tentacle__data_805D8534;
+    ((Obj_80039F50 *)this)->f14C = 0;
+    ((Obj_80039F50 *)this)->f154 = 0x78;
+    ((Obj_80039F50 *)this)->f12C = TBoss2Tentacle__data_805D8534;
+    ((Obj_80039F50 *)this)->f130 = TBoss2Tentacle__data_805D8534;
+    ((Obj_80039F50 *)this)->f134 = TBoss2Tentacle__data_805D8534;
+}
+extern "C" {
 
 void TBoss2Tentacle__sub_8003A0A8(void) {  }
 

@@ -399,13 +399,13 @@ struct Obj_80181F10 : VBase_80181F10 {
 
 extern "C" {
 void register_slot(u32, void *);
-void construct_world_actor_base(void *, void *);
+void __ct__13TUnk_804B9870FP7TObject(void *, void *);
 struct CityDoorClassTag { const char *value; u32 padding; };
 __declspec(section ".sdata") extern CityDoorClassTag TObjCityDoor_Lobby__name;
 extern const f32 lbl_805DBBF0;
 Obj_80181F10 *TObjCityDoor_Lobby__ct(Obj_80181F10 *self, void *arg1, s32 arg2);
 Obj_80181F10 *TObjCityDoor_Lobby__ct(Obj_80181F10 *self, void *parent, s32 arg2) {
-    construct_world_actor_base(self, parent);
+    __ct__13TUnk_804B9870FP7TObject(self, parent);
     *(void **)((u8 *)self + 0x18) = __vt__18TObjCityDoor_Lobby;
     *(s32 *)self = (s32)TObjCityDoor_Lobby__name.value;
     self->m5(arg2);

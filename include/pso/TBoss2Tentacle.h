@@ -5,6 +5,7 @@
 
 class TBoss2Tentacle : public TObject {
 public:
+    TBoss2Tentacle(TObject *parent, s32 arg2, s32 arg3);
     virtual ~TBoss2Tentacle();
     void sub_80039DA4();
     void sub_80039D88();

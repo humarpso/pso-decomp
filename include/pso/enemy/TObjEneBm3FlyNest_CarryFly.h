@@ -5,6 +5,7 @@
 
 class TObjEneBm3FlyNest_CarryFly : public TObject {
 public:
+    TObjEneBm3FlyNest_CarryFly(TObject *parent, s32 a, s32 b, s32 unused, s32 c, s32 d);
     virtual ~TObjEneBm3FlyNest_CarryFly();
     u8 unk_1C[0x4];
     f32 m_20;

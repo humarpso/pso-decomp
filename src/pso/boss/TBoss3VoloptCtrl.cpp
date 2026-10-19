@@ -1,4 +1,6 @@
 #include "pso/TBoss3VoloptCtrl.h"
+#include "pso/boss/TUnk_80483B88.h"
+#include "pso/boss/TUnk_80483B88.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TUnk_80483B88.h"
 
@@ -25,14 +27,14 @@ void play_area_music(char *name);
 u8 *__nw__7TObjectFUl(s32);
 extern RecoveredGlobal_80040D70_lbl_8043636C lbl_8043636C;
 extern s32 volopt_resources_loaded;
-void *TBoss3VoloptCtrl__ct(void *arg0);
+void *__ct__16TBoss3VoloptCtrlFv(void *arg0);
 void TLobby__sub_8020C07C(s32 pl, s16 b, s16 a, s32 mask, s32 set);
 void __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void disallow_rendering__7TObjectFv(TObject *);
 
-extern s32 lbl_80483B88[];
+extern s32 __vt__13TUnk_80483B88[];
 
 extern void *tl_02;
 
@@ -49,7 +51,7 @@ void TBoss3VoloptCtrl__sub_80040B80(s32 arg0) {
 }
 void *TUnk_80483B88::deleting_destructor(s16 arg1) {
     if (this != NULL) {
-        *(s32 **)((s8 *)this + 0x18) = lbl_80483B88;
+        *(s32 **)((s8 *)this + 0x18) = __vt__13TUnk_80483B88;
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
@@ -57,12 +59,11 @@ void *TUnk_80483B88::deleting_destructor(s16 arg1) {
     }
     return this;
 }
-void *TUnk_80483B88::init_object() {
-    __ct__7TObjectFP7TObject(this, tl_02);
-    *(s32 **)((s8 *)this + 0x18) = lbl_80483B88;
-    disallow_rendering__7TObjectFv(this);
-    return this;
 }
+TUnk_80483B88::TUnk_80483B88() : TObject((TObject *)tl_02) {
+    disallow_rendering__7TObjectFv(this);
+}
+extern "C" {
 void TBoss3VoloptCtrl::dispatch_state(s32 arg0) {
     switch (arg0) {
     case 0:
@@ -114,10 +115,7 @@ void TBoss3VoloptCtrl::run_task() {
                     unhide_room_set_objects((s32)(((s32)get_current_floor())), 0, 1);
                 }
                 unhide_room_set_objects((s32)(((s32)get_current_floor())), 0, 3);
-                temp_r3 = (u8 *)(__nw__7TObjectFUl(0x1C));
-                if (temp_r3 != NULL) {
-                    ((TUnk_80483B88 *)temp_r3)->init_object();
-                }
+                temp_r3 = (u8 *)new TUnk_80483B88();
                 phase = 2;
                 break;
             }
@@ -138,11 +136,8 @@ void TBoss3VoloptCtrl::run_task() {
 
 TBoss3VoloptCtrl::~TBoss3VoloptCtrl() {}
 
-void *TBoss3VoloptCtrl__ct(void *boss3_volopt_ctrl) {
-    __ct__7TObjectFP7TObject(boss3_volopt_ctrl, tl_02);
-    *(s32 **)((s8 *)boss3_volopt_ctrl + 0x18) = __vt__16TBoss3VoloptCtrl;
-    *(void * *)&((TBoss3VoloptCtrl *)boss3_volopt_ctrl)->m_name = lbl_805D2730;
-    ((TBoss3VoloptCtrl *)boss3_volopt_ctrl)->phase = 0;
-    *(u32 *)((s8 *)boss3_volopt_ctrl + 0x1C) = 3;
-    return boss3_volopt_ctrl;
+TBoss3VoloptCtrl::TBoss3VoloptCtrl() : TObject((TObject *)tl_02) {
+    *(void * *)&this->m_name = lbl_805D2730;
+    this->phase = 0;
+    *(u32 *)((s8 *)this + 0x1C) = 3;
 }

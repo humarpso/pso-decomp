@@ -71,7 +71,7 @@ s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 void set_scripted_camera_pose(void *, void *, void *);
-s32 construct_world_actor_base(void *, void *);
+s32 __ct__13TUnk_804B9870FP7TObject(void *, void *);
 extern s32 boss4_zanzo_bml_index_table[];
 void *__dt__11TObjDFDemo2Fv(void *arg0, s16 arg1);
 void *TObjDFDemo2__ct(void *, void *, void *, void *, void *);
@@ -183,7 +183,7 @@ void *TObjDFDemo2__ct(void *arg0, void *parent, void *arg2, void *arg3, void *ar
     s32 cnt;
     s32 i;
 
-    construct_world_actor_base(self, parent);
+    __ct__13TUnk_804B9870FP7TObject(self, parent);
     self->vt18 = (u8 *)__vt__11TObjDFDemo2;
     self->vt0 = (s32) TObjDFDemo2__name;
     VecCopy((Vec *)self->pos, (const Vec *)arg2);

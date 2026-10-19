@@ -310,7 +310,7 @@ void TAdMultiChgGameModeGC::create_mode_scene() {
     case 3:
         p = __nw__7TObjectFUl(0x30);
         if (p != NULL) {
-            p = construct_option_scene(p);
+            p = __ct__13TUnk_804C2298Fv(p);
         }
         game_mode_scene_instance = (s32)p;
         break;

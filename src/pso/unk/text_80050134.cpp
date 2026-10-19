@@ -41,7 +41,7 @@ s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 void set_scripted_camera_pose(void *, void *, void *);
-void construct_world_actor_base(void *, void *);
+void __ct__13TUnk_804B9870FP7TObject(void *, void *);
 void play_sound_effect(s32, void *, s32, s32);
 extern s32 TObjDFDemoF__name;
 extern const f32 lbl_805D8A28;
@@ -84,7 +84,7 @@ Obj_80050194 *TObjDFDemoF__ct(Obj_80050194 *arg0, void *parent) {
   s32 h;
   Obj_80050194 *new_var;
   s32 i;
-  construct_world_actor_base(arg0, parent);
+  __ct__13TUnk_804B9870FP7TObject(arg0, parent);
   new_var = arg0;
   new_var->vt = (void *) __vt__11TObjDFDemoF;
   new_var->f0 = TObjDFDemoF__name;

@@ -388,7 +388,7 @@ struct Obj_802E4FFC {
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
-void construct_world_actor_base(void *, void *);
+void __ct__13TUnk_804B9870FP7TObject(void *, void *);
 void play_area_music(char *name);
 void *fn_802E6218(void *arg0);
 void fn_802E6260();
@@ -407,7 +407,7 @@ void *TObjOnlineEnding__ct(void *arg0, void *parent) {
     Ent_802E4FFC *e;
     TObject_802E4FFC *obj;
 
-    construct_world_actor_base(arg0, parent);
+    __ct__13TUnk_804B9870FP7TObject(arg0, parent);
     SELF->vt = (void *)__vt__16TObjOnlineEnding;
     SELF->f0 = TObjOnlineEnding__name;
     SELF->fA0 = TOKeyMachine01::get_global_state();

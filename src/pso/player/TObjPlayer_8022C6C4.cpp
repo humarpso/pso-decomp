@@ -92,12 +92,12 @@ s32 is_locally_controlled__10TObjPlayerFPv(void *);
 void *__nw__7TObjectFUl(u32);
 Params_8022C738 *get_technique_base_params(void);
 void *construct_actor_light__9TObjLightFlllllfffl(void *, Col_8022C738 *, Vec_8022C738 *, s32, void *, s32, f32, f32, f32);
-void *initialize__9TObjLightFPvii(void *, void *, s32);
-void *init__9TObjLightFPvii(void *, void *, s32);
-void *init_from_owner__10TTecSlicerFPvii(void *, void *, s32);
+void *__ct__13TUnk_804CC794Fll(void *, void *, s32);
+void *__ct__13TUnk_804CC948Fll(void *, void *, s32);
+void *__ct__13TUnk_804CCD0CFll(void *, void *, s32);
 void *construct_resta_charge_sound(void *, void *, s32);
-void *init_6e6c__9TObjLightFPvii(void *, void *, s32);
-void *init_from_source__9TObjLightFPvii(void *, void *, s32);
+void *__ct__13TUnk_804CCAC8Fll(void *, void *, s32);
+void *__ct__13TUnk_804CC74CFll(void *, void *, s32);
 extern Col_8022C738 technique_charge_light_color;
 extern Vec_8022C738 lbl_8044CF8C;
 extern Col_8022C738 technique_charge_light_params;
@@ -198,23 +198,23 @@ void create_technique_charge_light(u32 kind, void *owner) {
     s32 base = p->f12 + p->f20 + 50;
     switch (kind) {
     case 1:
-        CHARGE_LIGHT_8022C738(technique_charge_light_color, lbl_8044CF8C, initialize__9TObjLightFPvii)
+        CHARGE_LIGHT_8022C738(technique_charge_light_color, lbl_8044CF8C, __ct__13TUnk_804CC794Fll)
         break;
     case 0:
     case 2:
-        CHARGE_LIGHT_8022C738(technique_charge_light_params, lbl_8044CFA8, initialize__9TObjLightFPvii)
+        CHARGE_LIGHT_8022C738(technique_charge_light_params, lbl_8044CFA8, __ct__13TUnk_804CC794Fll)
         break;
     case 3:
     case 4:
-        CHARGE_LIGHT_8022C738(lbl_8044CFB4, lbl_8044CFC4, init__9TObjLightFPvii)
+        CHARGE_LIGHT_8022C738(lbl_8044CFB4, lbl_8044CFC4, __ct__13TUnk_804CC948Fll)
         break;
     case 5:
-        CHARGE_LIGHT_8022C738(rabarta_charge_light_color, lbl_8044CFE0, init__9TObjLightFPvii)
+        CHARGE_LIGHT_8022C738(rabarta_charge_light_color, lbl_8044CFE0, __ct__13TUnk_804CC948Fll)
         break;
     case 6:
     case 7:
     case 8:
-        CHARGE_LIGHT_8022C738(zonde_charge_light_color, lbl_8044CFFC, init_from_owner__10TTecSlicerFPvii)
+        CHARGE_LIGHT_8022C738(zonde_charge_light_color, lbl_8044CFFC, __ct__13TUnk_804CCD0CFll)
         break;
     case 9:
     case 15:
@@ -226,13 +226,13 @@ void create_technique_charge_light(u32 kind, void *owner) {
     case 11:
     case 12:
     case 14:
-        CHARGE_LIGHT_8022C738(ryuker_charge_light_color, lbl_8044D034, init_6e6c__9TObjLightFPvii)
+        CHARGE_LIGHT_8022C738(ryuker_charge_light_color, lbl_8044D034, __ct__13TUnk_804CCAC8Fll)
         break;
     case 13:
-        CHARGE_LIGHT_8022C738(shifta_charge_light_color, lbl_8044D050, init_6e6c__9TObjLightFPvii)
+        CHARGE_LIGHT_8022C738(shifta_charge_light_color, lbl_8044D050, __ct__13TUnk_804CCAC8Fll)
         break;
     case 18:
-        CHARGE_LIGHT_8022C738(megid_charge_light_color, lbl_8044D06C, init_from_source__9TObjLightFPvii)
+        CHARGE_LIGHT_8022C738(megid_charge_light_color, lbl_8044D06C, __ct__13TUnk_804CC74CFll)
         break;
     }
 }

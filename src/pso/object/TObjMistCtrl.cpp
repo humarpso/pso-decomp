@@ -31,7 +31,7 @@ struct TPlayerFootStamp_802AF8BC {
 
 extern "C" {
 void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
-s32 construct_world_actor_base(void *, void *);
+s32 __ct__13TUnk_804B9870FP7TObject(void *, void *);
 extern s32 __vt__12TObjMistCtrl[];
 extern s32 lbl_805D3E80;
 f32 horizontal_distance_squared(void *, void *);
@@ -59,7 +59,7 @@ extern const f32 lbl_805DE1F8;
 
 typedef char RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl_size[sizeof(RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl) == 0x38 ? 1 : -1];
 u8 *TObjMistCtrl__ct(u8 *arg0, s32 parent, u32 arg2) {
-    construct_world_actor_base((void *)arg0, (void *)parent);
+    __ct__13TUnk_804B9870FP7TObject((void *)arg0, (void *)parent);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl *)&__vt__12TObjMistCtrl).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3E80;
     if (arg2 != 0U) {

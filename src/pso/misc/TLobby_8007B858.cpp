@@ -44,13 +44,13 @@ extern RecoveredGlobal_8007BA98_lbl_8048D5A8 lbl_8048D5A8;
 void call_funcs_reverse__6TLobbyFPvUi(s32, u32);
 void fn_80198E84(void);
 void TLobby__sub_8035202C(void);
-s32 TCineCtrl__ct(u32, s32);
+s32 __ct__9TCineCtrlFv(u32, s32);
 s32 create_area_fog_ctrl();
 s32 THunterGuildSeqOnlineTask__ct(u32, s32);
 s32 activate_triggered_floor_events();
 s32 cleanup_game_objects__9TMainTaskFv();
 s32 restore_floor_telepipes();
-s32 TWindowCtrlMain__ct();
+s32 __ct__15TWindowCtrlMainFv();
 s32 TWindowCtrl__ct(u32, s32);
 s32 __ct__7TSwitchFv(u32, s32);
 s32 __ct__8TTecCtrlFv(u32, s32);
@@ -97,7 +97,7 @@ void TLobby::create_tasks() {
     activate_triggered_floor_events();
     tmp = __nw__7TObjectFUl(0x1C);
     if (tmp != 0U) {
-        TWindowCtrlMain__ct();
+        __ct__15TWindowCtrlMainFv();
     }
     tmp = __nw__7TObjectFUl(0xE8);
     if (tmp != 0U) {
@@ -110,7 +110,7 @@ void TLobby::create_tasks() {
     TLobby::set_fade_params(0);
     tmp = __nw__7TObjectFUl(0x30);
     if (tmp != 0U) {
-        TCineCtrl__ct(tmp, tl_00);
+        __ct__9TCineCtrlFv(tmp, tl_00);
     }
     TRaderMapCore::create();
     restore_floor_telepipes();

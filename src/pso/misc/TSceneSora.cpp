@@ -58,7 +58,7 @@ u8 *__dt__10TSceneSoraFv(u8 *arg0, s16 arg1);
 s32 get_bml_motion(int, int);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-s32 construct_world_actor_base(void *);
+s32 __ct__13TUnk_804B9870FP7TObject(void *);
 extern s32 lbl_805D3624;
 extern s32 TSceneSora__has_sky_motion;
 extern const f32 lbl_805DC608;
@@ -130,7 +130,7 @@ u8 *__dt__10TSceneSoraFv(u8 *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_80207340___vt__10TSceneSora_size[sizeof(RecoveredGlobal_80207340___vt__10TSceneSora) == 0x38 ? 1 : -1];
 u8 *TSceneSora__ct(TSceneSora *scene_sora, s32 _w1) {
-    construct_world_actor_base(scene_sora);
+    __ct__13TUnk_804B9870FP7TObject(scene_sora);
     *(s32 **)((s8 *)scene_sora + 0x18) = &(*(RecoveredGlobal_80207340___vt__10TSceneSora *)&__vt__10TSceneSora).value;
     *(s32 *)((s8 *)scene_sora + 0) = lbl_805D3624;
     scene_sora->m_90 = get_bml_model((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), 0);

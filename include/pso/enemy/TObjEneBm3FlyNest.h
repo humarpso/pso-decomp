@@ -56,7 +56,7 @@ struct TObjEneBm3FlyNest : public TObjEneDD {
 typedef char TObjEneBm3FlyNest_size[sizeof(TObjEneBm3FlyNest) == 0x4DC ? 1 : -1];
 
 extern "C" {
-u8 *TObjEneBm3FlyNest_CarryFly__ct(u8 *self, void *parent, s32 a, s32 b, s32 unused, s32 c, s32 d);
+u8 *__ct__26TObjEneBm3FlyNest_CarryFlyFP7TObjectlllll(u8 *self, void *parent, s32 a, s32 b, s32 unused, s32 c, s32 d);
 void *TObjEneBm3FlyNest__ct(void *arg0, void *arg1, void *arg2);
 void *TObjEneBm3FlyNest__sub_800B2A54(void *p);
 void TObjEneBm3FlyNest__sub_800B318C(u8 *arg0, s32 arg1);

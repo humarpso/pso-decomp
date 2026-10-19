@@ -79,7 +79,7 @@ struct TChCrTagName_802A208C : VBase_802A208C {
 };
 
 extern "C" {
-u8 * __ct__8TChCrTagFv(void *, s32);
+u8 * __ct__8TChCrTagFP7TObjectPv(void *, s32);
 extern void *__vt__12TChCrTagName[];
 __declspec(section ".rodata") extern const char lbl_804663F8[] = "TChCrTagName";
 const char *TChCrTagName__class_name = lbl_804663F8;
@@ -313,7 +313,7 @@ s32 TChCrTagName__vt4(u8 *arg0) {
 TChCrTagName::~TChCrTagName() {}
 
 u8 *__ct__12TChCrTagNameFv(u8 *ch_cr_tag_name, s32 arg1, s32 _w2) {
-    __ct__8TChCrTagFv(ch_cr_tag_name, arg1);
+    __ct__8TChCrTagFP7TObjectPv(ch_cr_tag_name, arg1);
     *(s32 **)((s8 *)ch_cr_tag_name + 0x18) = (s32 *)__vt__12TChCrTagName;
     *(s32 *)((s8 *)ch_cr_tag_name + 0) = (s32) TChCrTagName__class_name;
     *(f32 *)((s8 *)ch_cr_tag_name + 0x28) = (f32) (0.033333335f);

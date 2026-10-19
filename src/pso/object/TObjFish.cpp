@@ -602,7 +602,7 @@ s32 TObjFish::init_fish_school(void *arg1_arg, s32 arg2, s32 arg3) {
 extern "C" {
 s32 is_split_screen(void);
 u8 *TObjFish__create(u8 *arg0);
-s32 construct_world_actor_base();
+s32 __ct__13TUnk_804B9870FP7TObject();
 extern s32 lbl_805D3D58;
 u8 *TObjFish__ct(u8 *arg0, s32 arg1, u8 *arg2);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
@@ -623,7 +623,7 @@ void *__dt__8TObjFishFv(void *arg0, s16 arg1) {
 u8 *TObjFish__ct(u8 *fish, s32 arg1, u8 *arg2) {
     f32 temp_f0;
     f32 var_f1;
-    construct_world_actor_base();
+    __ct__13TUnk_804B9870FP7TObject();
     *(s32 **)((s8 *)fish + 0x18) = (s32 *)__vt__8TObjFish;
     *(s32 *)((s8 *)fish + 0) = (s32) lbl_805D3D58;
     ((TObjFish *)fish)->m_a0 = 0;

@@ -5,6 +5,7 @@
 
 class TUnk_804C2298 : public TObject {
 public:
+    TUnk_804C2298();
     virtual ~TUnk_804C2298();
     void *destroy(s16);
     void sub_801A4CA4();

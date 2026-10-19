@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubEquip.h"
 #include "pso/misc/TUnk_804D0618.h"
 #include "pso/misc/TWindowSubShortCutList.h"
 #include "pso/misc/TWindowSubEquip.h"
@@ -43,7 +44,7 @@ s32 create_equip_list_window(void *, void *, s32);
 extern s32 lbl_8044F918[];
 extern s32 __vt__15TWindowSubEquip[];
 extern s32 TWindowSubEquip__class_name;
-u8 *TWindowSubEquip__ct(TWindowSubEquip *arg0, s32 arg1, s32 arg2);
+u8 *__ct__15TWindowSubEquipFll(TWindowSubEquip *arg0, s32 arg1, s32 arg2);
 void *__dt__15TWindowSubEquipFv(TWindowSubEquip *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -163,29 +164,28 @@ void *__dt__15TWindowSubEquipFv(TWindowSubEquip *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TWindowSubEquip__ct(TWindowSubEquip *window_sub_equip, s32 arg1, s32 arg2) {
+}
+TWindowSubEquip::TWindowSubEquip(s32 arg1, s32 arg2) : TObject((TObject *)((void *)arg1)) {
     void *p;
-    __ct__7TObjectFP7TObject(window_sub_equip, (void *)arg1);
-    *(s32 **)((s8 *)window_sub_equip + 0x18) = __vt__15TWindowSubEquip;
-    *(s32 *)((s8 *)window_sub_equip + 0) = TWindowSubEquip__class_name;
-    window_sub_equip->m_2c = arg1;
-    window_sub_equip->m_28 = arg2;
-    window_sub_equip->m_34 = create_equip_list_window(get_window_layout_position(0), lbl_8044F918, window_sub_equip->m_28);
-    TWindowSubEquip__sub_80263AF8((u8 *)window_sub_equip->m_2c, 0);
-    set_field_1c__6TLobbyFf(window_sub_equip->m_34);
-    ((TWindowSubShortCutList *)(window_sub_equip->m_34))->set_flag70_bit10();
+    *(s32 *)((s8 *)this + 0) = TWindowSubEquip__class_name;
+    this->m_2c = arg1;
+    this->m_28 = arg2;
+    this->m_34 = create_equip_list_window(get_window_layout_position(0), lbl_8044F918, this->m_28);
+    TWindowSubEquip__sub_80263AF8((u8 *)this->m_2c, 0);
+    set_field_1c__6TLobbyFf(this->m_34);
+    ((TWindowSubShortCutList *)(this->m_34))->set_flag70_bit10();
     p = __nw__7TObjectFUl(0xBC);
     if (p != 0) {
-        p = (void *)__ct__15TWindowHelpItemFPvUs(p, get_window_layout_position(2), window_sub_equip->m_28);
+        p = (void *)__ct__15TWindowHelpItemFPvUs(p, get_window_layout_position(2), this->m_28);
     }
-    *(void **)((s8 *)window_sub_equip + 0x30) = p;
-    TWindowSubEquip__sub_80263AF8((u8 *)window_sub_equip->m_2c, 2);
-    set_field_1c__6TLobbyFf(window_sub_equip->m_30);
-    window_sub_equip->m_38 = 0;
-    window_sub_equip->m_20 = -1;
-    window_sub_equip->m_24 = -1;
-    window_sub_equip->m_1c = 0;
-    return (u8 *)window_sub_equip;
+    *(void **)((s8 *)this + 0x30) = p;
+    TWindowSubEquip__sub_80263AF8((u8 *)this->m_2c, 2);
+    set_field_1c__6TLobbyFf(this->m_30);
+    this->m_38 = 0;
+    this->m_20 = -1;
+    this->m_24 = -1;
+    this->m_1c = 0;
 }
+extern "C" {
 
 }

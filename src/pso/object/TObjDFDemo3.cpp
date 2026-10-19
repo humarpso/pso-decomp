@@ -33,7 +33,7 @@ s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 void set_scripted_camera_pose(void *, void *, void *);
-s32 construct_world_actor_base(void *, void *);
+s32 __ct__13TUnk_804B9870FP7TObject(void *, void *);
 }
 
 struct Vec_8004F030 { f32 x, y, z; };
@@ -191,7 +191,7 @@ S_EF94 *__dt__11TObjDFDemo3Fv(S_EF94 *o, s16 flag) {
 #define lbl_804856C0 ((u8 *)lbl_804856C0)
 u8 *TObjDFDemo3__ct(u8 *arg0, s32 parent, s32 arg2, s32 arg3) {
     s32 cnt;
-    construct_world_actor_base(arg0, (void *)parent);
+    __ct__13TUnk_804B9870FP7TObject(arg0, (void *)parent);
     *(void **)((s8 *)arg0 + 0x18) = (void *)__vt__11TObjDFDemo3;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjDFDemo3__name;
     VecCopy((Vec *)(arg0 + 0xA0), (const Vec *)arg2);

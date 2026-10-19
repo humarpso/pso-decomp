@@ -48,7 +48,7 @@ struct Obj_80165C84 {
 };
 
 extern "C" {
-u8 * construct_world_actor_base(void *);
+u8 * __ct__13TUnk_804B9870FP7TObject(void *);
 s32 sub_80165940__16TODummyKeyCave01Fv(void *, f32);
 extern s32 __vt__16TODummyKeyCave01[];
 extern s32 TODummyKeyCave01__class_name;
@@ -191,7 +191,7 @@ void *__dt__16TODummyKeyCave01Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 u8 *TODummyKeyCave01__ct(u8 *dummy_key_cave01, s32 arg1, s32 arg2) {
-    construct_world_actor_base(dummy_key_cave01);
+    __ct__13TUnk_804B9870FP7TObject(dummy_key_cave01);
     *(s32 **)((s8 *)dummy_key_cave01 + 0x18) = &(*(RecoveredGlobal_80165EE8___vt__16TODummyKeyCave01 *)&__vt__16TODummyKeyCave01).value;
     *(s32 *)((s8 *)dummy_key_cave01 + 0) = (s32) TODummyKeyCave01__class_name;
     ((TODummyKeyCave01 *)(dummy_key_cave01))->apply_object_set_data((void *)arg2);

@@ -5,6 +5,7 @@
 #include "pso/TObject.h"
 
 struct TObjBoss1Rock : public TObject {
+    TObjBoss1Rock(TObject *arg1, void *arg2, void *arg3);
     virtual ~TObjBoss1Rock();
     void sub_8002E1CC(u8 *, u8 *, s32);
     void* m_1c;
@@ -23,7 +24,6 @@ struct TObjBoss1Rock : public TObject {
     virtual void render();
     virtual void run_task();
     void *construct(void *arg1, void *arg2, void *arg3, void *arg4);
-    void *construct_random(void *arg1, void *arg2, void *arg3);
 };
 
 typedef char TObjBoss1Rock_size[sizeof(TObjBoss1Rock) == 0x54 ? 1 : -1];

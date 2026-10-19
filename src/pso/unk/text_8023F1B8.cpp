@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrlMain.h"
 #include "pso/unk/text_8023F1B8.h"
 #include "pso/system/main_loop.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -40,7 +41,7 @@ void reset_controller_input_state(void);
 void set_copy_clear_color_argb(s32, s32, s32);
 void load_floor_sound_bank(s32);
 void *__nw__7TObjectFUl(u32);
-void TWindowCtrlMain__ct(void *);
+void __ct__15TWindowCtrlMainFv(void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 }
@@ -115,10 +116,7 @@ void init_game_mode_select_scene(void) {
         set_active_camera_pose(&eye, &at);
     }
     TParticleCtrl::create_quad_sprites();
-    p = __nw__7TObjectFUl(0x1c);
-    if (p != NULL) {
-        TWindowCtrlMain__ct(p);
-    }
+    p = (void *)new TWindowCtrlMain();
     game_mode_scene_instance = 0;
     load_floor_sound_bank(0);
 }

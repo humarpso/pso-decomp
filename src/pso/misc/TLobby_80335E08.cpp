@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TUnk_804EE470.h"
+#include "pso/ui/TUnk_804EE458.h"
 #include "pso/misc/TLobby_80335E08.h"
 #include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 #include "pso/ui/TAdTrialAgreementGC_80335958.h"
@@ -65,7 +67,7 @@ struct RecoveredGlobal_8000F91C_lbl_804FE120 {
 extern "C" {
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-extern s32 lbl_804EE470[];
+extern s32 __vt__13TUnk_804EE470[];
 int __ct__7TObjectFP7TObject(void *);
     extern unsigned char lobby_record_table[];
 s32 TCameraCtrl__sub_80068EF0();
@@ -79,10 +81,21 @@ extern const f32 lbl_805DF8E0;
 extern const f32 lbl_805DF8E4;
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 title_texture_list;
 
-    extern unsigned char lbl_804EE458[];
+    extern unsigned char __vt__13TUnk_804EE458[];
     extern const float lbl_805DF8B4;
     extern const float lbl_805DF8C0;
-void*TUnk_804EE458::init_camera_state(int a1) { __ct__7TObjectFP7TObject(this); *(int*)((char*)this + 0x18) = (int)lbl_804EE458; *(int*)((char*)this + 0x1c) = a1; this->m_20 = 0; *(int*)((char*)this + 0x24) = 0; this->m_28 = lbl_805DF8C0; *(float*)((char*)this + 0x2c) = lbl_805DF8B4; this->m_30 = lbl_805DF8B4; *(float*)((char*)this + 0x34) = lbl_805DF8B4; this->m_38 = 0; return this; }
+}
+TUnk_804EE458::TUnk_804EE458(int a1) : TObject((TObject *)a1) {
+    *(int*)((char*)this + 0x1c) = a1;
+    this->m_20 = 0;
+    *(int*)((char*)this + 0x24) = 0;
+    this->m_28 = lbl_805DF8C0;
+    *(float*)((char*)this + 0x2c) = lbl_805DF8B4;
+    this->m_30 = lbl_805DF8B4;
+    *(float*)((char*)this + 0x34) = lbl_805DF8B4;
+    this->m_38 = 0;
+}
+extern "C" {
 
 void TLobby__sub_80335E74(void) {  }
 void TLobby__sub_80335E78(void) {  }
@@ -116,7 +129,7 @@ void TUnk_804EE470::render() {
 void TUnk_804EE470::run_task() {  }
 void *TUnk_804EE470::dt(s16 arg1) {
     if (this != NULL) {
-        *(s32 **)((s8 *)this + 0x18) = lbl_804EE470;
+        *(s32 **)((s8 *)this + 0x18) = __vt__13TUnk_804EE470;
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
@@ -124,12 +137,11 @@ void *TUnk_804EE470::dt(s16 arg1) {
     }
     return this;
 }
-void *TUnk_804EE470::ct_with_parent(void *arg1) {
-    __ct__7TObjectFP7TObject(this);
-    *(s32 **)((s8 *)this + 0x18) = lbl_804EE470;
-    *(void * *)&this->unk_1C = arg1;
-    return this;
 }
+TUnk_804EE470::TUnk_804EE470(TObject *arg1) : TObject(arg1) {
+    *(void * *)&this->unk_1C = arg1;
+}
+extern "C" {
 void TLobby__sub_80335FE0(void) {  }
 void TLobby__sub_80335FE4(void) {  }
 

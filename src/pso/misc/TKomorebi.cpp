@@ -42,7 +42,7 @@ struct Fish_80192434 { u8 pad0[0x8C]; s32 f8C; u8 pad90[0x2C]; Node_80192434 *fB
 extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
-s32 construct_world_actor_base(void *);
+s32 __ct__13TUnk_804B9870FP7TObject(void *);
 extern s32 __vt__9TKomorebi[];
 extern s32 komorebi_class_name;
 extern u32 TKomorebi__resource_bundle;
@@ -104,7 +104,7 @@ extern void *tl_05;
 
 typedef char RecoveredGlobal_801922C4___vt__9TKomorebi_size[sizeof(RecoveredGlobal_801922C4___vt__9TKomorebi) == 0x38 ? 1 : -1];
 u8 *TKomorebi__ct(u8 *komorebi, s32 arg1, s32 arg2) {
-    construct_world_actor_base(komorebi);
+    __ct__13TUnk_804B9870FP7TObject(komorebi);
     *(s32 **)((s8 *)komorebi + 0x18) = &(*(RecoveredGlobal_801922C4___vt__9TKomorebi *)&__vt__9TKomorebi).value;
     *(s32 *)((s8 *)komorebi + 0) = (s32) komorebi_class_name;
     VecCopy((Vec *)(komorebi + 0x38), (const Vec *)(arg2 + 0xC));

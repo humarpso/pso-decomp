@@ -195,7 +195,7 @@ Part_80156780 *init_collision_body_parts(Obj_80156780 *self, Part_80156780 *src,
 void *get_player_by_client_id(u32 id);
 void TLobby__sub_80156BA8(void *p);
 void check_enemy_body_collisions(void *arg0);
-void construct_world_actor_base(void);
+void __ct__13TUnk_804B9870FP7TObject(void);
 extern unsigned char lbl_8050DAD0[];
 extern int player_unique_pair_entry_count;
 void mem_free(void *p);
@@ -1180,7 +1180,7 @@ void *TUnk_804AF8A0::destroy_particle_controller(s16 arg1) {
 u8 *TUnk_804AF8A0::construct_collider_proxy() {
     u8 *arg0 = (u8 *)this;
     struct Actor_801569F4 *s = (struct Actor_801569F4 *) arg0;
-    construct_world_actor_base();
+    __ct__13TUnk_804B9870FP7TObject();
     s->vtable = ((void * *)&lbl_804AF8A0);
     TObjPlayer__sub_80156A74((void*)(arg0 + 0x98));
     ((TObjPlayer *)((u8 *)&this->m_a0))->init_forward();

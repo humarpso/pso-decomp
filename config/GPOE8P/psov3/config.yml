@@ -224,7 +224,6 @@ force_active:
   - TObjDoor__resource_param
   - TObjEZRopeBase__name
   - TObjEneBalClawClaw__collision_body_template
-  - TObjEneBm3FlyNest_CarryFly__ct
   - TObjEneBm3FlyNest__attachment_sample_origin
   - TObjEneBm3Fly__play_orbit_flight_sound
   - TObjEneBm5Wolf__collider_params
@@ -384,7 +383,10 @@ force_active:
   - __ct__13TItemEffLavisFPvPC3VecPC3Vecf
   - __ct__13TObjResultWinFP7TObjectPC21ChallengeResultRecord
   - __ct__13TObjWarnChimeFP7TObject
+  - __ct__13TUnk_80488B38Fv
   - __ct__13TUnk_8048DF58Fv
+  - __ct__13TUnk_804A2018FP7TObjectll
+  - __ct__13TUnk_804E4BF0FP7TObjectPv
   - __ct__14LobbyListEntryFv
   - __ct__14QuestListEntryFRC14QuestListEntry
   - __ct__14QuestListEntryFv
@@ -397,6 +399,7 @@ force_active:
   - __ct__15TRecvGenerateIDFRC15TRecvGenerateID
   - __ct__16TAdGuideButtonGCFP7TObject
   - __ct__16TGenGuildCardTagFRC16TGenGuildCardTag
+  - __ct__17TMCFormatSequenceFP7TObjectPv
   - __ct__18TAdLoadQuestCellGCFP7TObjectPv
   - __ct__18TAdLoadQuestLineGCFP7TObjectPv
   - __ct__18TChallenge4PResultFP7TObjectUsl
@@ -407,6 +410,8 @@ force_active:
   - __ct__20TPlayerLevelFeedbackFP7TObjectUs
   - __ct__24TObjCity_Season_FireWorkFP7TObjectPvf
   - __ct__25TBoss6Demo10_TYPE1_APPEARFP7TObject
+  - __ct__26TObjEneBm3FlyNest_CarryFlyFP7TObjectlllll
+  - __ct__8TFogCtrlFP7TObjectl
   - __ct__9TEffGuardFPC3Vec
   - __cvt_sll_dbl
   - __destroy_global_chain_reference
@@ -677,6 +682,7 @@ force_active:
   - __vt__13TUnk_8048DF58
   - __vt__13TUnk_8049F130
   - __vt__13TUnk_8049F148
+  - __vt__13TUnk_804A2018
   - __vt__13TUnk_804AF7B0
   - __vt__13TUnk_804C4498
   - __vt__13TUnk_804C57F0
@@ -1540,7 +1546,6 @@ force_active:
   - create_window__13TObjResultWinFv
   - create_window__16TObjBagWarnWin4PFv
   - creation_camera_height_bounds_table
-  - ct__13TUnk_804E4BF0FPvPv
   - ct_init_placement_ring__9TItemListFPUclPUcPUcSc
   - curvecmp
   - damage_players_in_radius__FPUc
@@ -2183,7 +2188,6 @@ force_active:
   - init_conversation_camera__11TCameraCtrlFlll
   - init_cursor_record__15TBoss3VoloptP01Fv
   - init_default_fields__6TLobbyFv
-  - init_defaults__13TUnk_80488B38Fv
   - init_effect_flags__13TItemProArmorFv
   - init_effect_object__13TUnk_804EDD20Fv
   - init_enemy__18TObjEneRe4SorcererFv
@@ -8918,7 +8922,6 @@ force_active:
   - warp_boss_handle_window__12TObjWarpBossFv
   - warp_nearby_players__14TBoss6PlotFalzFv
   - warp_player__12TObjWarpBossFl
-  - weapon_star_light_follower_vtable
   - wedding_lobby_resource_descriptor
   - window_label_value_part_vtable
   - window_uv_sprite_part_vtable

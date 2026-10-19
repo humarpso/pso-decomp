@@ -223,7 +223,7 @@ s32 check_value_equals__13TUnk_804B6C24Fl(void *, s32);
 s32 is_photon_blast_active__11TCameraCtrlFPv();
 s32 fn_8003F3F8();
 void TBoss3VoloptCore__sub_80040788(void);
-s32 init_object__13TUnk_80483B88Fv();
+s32 __ct__13TUnk_80483B88Fv();
 s32 set_player_flag_08000000__12TBoss3VoloptFv();
 s32 set_flag_08000000__12TBoss3VoloptFv();
 void start_attack__20TBoss3VoloptHiraisinFPv(u8 *arg0);
@@ -649,7 +649,7 @@ void TCameraCtrl::update_volopt_seq() {
             ((V_A_8003d558_8003CFEC *)this)->m72(0);
             *(s32 *)((s8 *)this + 0x374) = 5;
             if (__nw__7TObjectFUl(0x1C) != 0U) {
-                init_object__13TUnk_80483B88Fv();
+                __ct__13TUnk_80483B88Fv();
             }
         }
         play_persistent_sound(0x4003C601, this, 0, 0, 0);

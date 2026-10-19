@@ -5,8 +5,8 @@
 
 class TUnk_80488B38 : public TUnk_80488A28 {
 public:
+    TUnk_80488B38();
     virtual ~TUnk_80488B38();
-    void*init_defaults();
     virtual void run_task();
     u8 unk_6C[0x4];
 };

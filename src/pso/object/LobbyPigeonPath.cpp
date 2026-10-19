@@ -1554,7 +1554,7 @@ struct RecoveredGlobal_802C320C___vt__11TObjPathObj {
 };
 
 extern "C" {
-s32 construct_world_actor_base(void *, void *);
+s32 __ct__13TUnk_804B9870FP7TObject(void *, void *);
 extern s32 __vt__11TObjPathObj[];
 extern s32 lbl_805D3EC0;
 void TObjPathObj::render() {
@@ -1582,7 +1582,7 @@ void *__dt__11TObjPathObjFv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_802C320C___vt__11TObjPathObj_size[sizeof(RecoveredGlobal_802C320C___vt__11TObjPathObj) == 0x3C ? 1 : -1];
 u8 *TObjPathObj__ct(u8 *arg0, s32 parent, s32 arg2) {
-    construct_world_actor_base((void *) (arg0), (void *) (parent));
+    __ct__13TUnk_804B9870FP7TObject((void *) (arg0), (void *) (parent));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802C320C___vt__11TObjPathObj *)&__vt__11TObjPathObj).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3EC0;
     ((TObjPathObj *)(arg0))->apply_object_set_data((void *)arg2);

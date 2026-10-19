@@ -20,7 +20,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 __vt__18TBoss5GryphonSnarl[];
 extern s32 lbl_805D2820;
 extern const f32 lbl_805D8F0C;
-Obj_80066DC8 *TBoss5GryphonSnarl__ct(Obj_80066DC8 *self, void *parent, void *arg2);
+Obj_80066DC8 *__ct__18TBoss5GryphonSnarlFP7TObjectPv(Obj_80066DC8 *self, void *parent, void *arg2);
 
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 TLobby__sub_803DA16C(void*);
@@ -44,22 +44,19 @@ TBoss5GryphonSnarl::~TBoss5GryphonSnarl() {
 
 #pragma push
 #pragma opt_common_subs off
-Obj_80066DC8 *TBoss5GryphonSnarl__ct(Obj_80066DC8 *self, void *parent, void *arg2) {
+TBoss5GryphonSnarl::TBoss5GryphonSnarl(TObject *parent, void *arg2) : TObject(parent) {
     s32 i;
-    __ct__7TObjectFP7TObject(self, parent);
-    self->f18 = __vt__18TBoss5GryphonSnarl;
-    self->f0 = lbl_805D2820;
-    VecCopy((Vec *)&self->pos, (const Vec *)arg2);
-    self->pos.y = lbl_805D8F0C;
-    self->f12c = 0;
-    self->f1c = 0;
-    spawn_particle_effect_with_flags(&self->pos, ((D_80066DC8 *)TBoss5GryphonSnarl__effect_table)->fc, 0x40);
-    spawn_particle_effect_with_flags(&self->pos, ((D_80066DC8 *)TBoss5GryphonSnarl__effect_table)->f8, 0x40);
+    ((Obj_80066DC8 *)this)->f0 = lbl_805D2820;
+    VecCopy((Vec *)&((Obj_80066DC8 *)this)->pos, (const Vec *)arg2);
+    ((Obj_80066DC8 *)this)->pos.y = lbl_805D8F0C;
+    ((Obj_80066DC8 *)this)->f12c = 0;
+    ((Obj_80066DC8 *)this)->f1c = 0;
+    spawn_particle_effect_with_flags(&((Obj_80066DC8 *)this)->pos, ((D_80066DC8 *)TBoss5GryphonSnarl__effect_table)->fc, 0x40);
+    spawn_particle_effect_with_flags(&((Obj_80066DC8 *)this)->pos, ((D_80066DC8 *)TBoss5GryphonSnarl__effect_table)->f8, 0x40);
     for (i = 0; i < 32; i++) {
-        self->c20[i] = 0;
-        self->ca0[i] = 0;
+        ((Obj_80066DC8 *)this)->c20[i] = 0;
+        ((Obj_80066DC8 *)this)->ca0[i] = 0;
     }
-    return self;
 }
 #pragma pop
 

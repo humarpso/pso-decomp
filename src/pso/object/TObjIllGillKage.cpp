@@ -12,7 +12,7 @@ extern "C" {
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 u16 obj_getField1c(void *);
 int queue_destruction__7TObjectFv(void*);
-s32 construct_world_actor_base(void *);
+s32 __ct__13TUnk_804B9870FP7TObject(void *);
 extern s32 __vt__15TObjIllGillKage[];
 extern s32 lbl_805D44AC;
 u8 *TObjIllGillKage__ct(u8 *arg0, s32 arg1, u32 arg2);
@@ -71,7 +71,7 @@ void *__dt__15TObjIllGillKageFv(void *arg0, s16 arg1) {
     return arg0;
 }
 u8 *TObjIllGillKage__ct(u8 *ill_gill_kage, s32 arg1, u32 arg2) {
-    construct_world_actor_base(ill_gill_kage);
+    __ct__13TUnk_804B9870FP7TObject(ill_gill_kage);
     *(s32 **)((s8 *)ill_gill_kage + 0x18) = &(*(RecoveredGlobal_803655F8___vt__15TObjIllGillKage *)&__vt__15TObjIllGillKage).value;
     *(s32 *)((s8 *)ill_gill_kage + 0) = (s32) lbl_805D44AC;
     if (arg2 != 0U) {

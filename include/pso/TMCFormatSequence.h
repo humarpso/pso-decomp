@@ -15,6 +15,7 @@ public:
     unsigned int m_34;
  void* m_38;
 public:
+    TMCFormatSequence(TObject *arg1, void *arg2);
     virtual ~TMCFormatSequence();
     virtual void run_task();
 public:

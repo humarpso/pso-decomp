@@ -53,7 +53,7 @@ extern s32 lbl_8043F1A8[];
 s32 call_funcs_reverse__6TLobbyFPvUi(s32 *, s32);
 extern s32 dragon_area_scene_callbacks[];
 extern s32 lbl_804A7360[];
-s32 TBoss3VoloptCtrl__ct();
+s32 __ct__16TBoss3VoloptCtrlFv();
 u32 __nw__7TObjectFUl(s32);
 extern s32 gryphon_area_cleanup_callbacks[];
 s32 is_quest_active();
@@ -227,7 +227,7 @@ s32 TLobby::spawn_boss3_volopt_ctrl() {
     init_area_lights();
     TLobby::create_tasks();
     if (__nw__7TObjectFUl(0x24) != 0U) {
-        TBoss3VoloptCtrl__ct();
+        __ct__16TBoss3VoloptCtrlFv();
     }
     return 1;
 }

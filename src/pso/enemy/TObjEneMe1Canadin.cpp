@@ -1766,7 +1766,7 @@ void vfunc_63__17TObjEneMe1CanadinFv(void *arg0);
 void vfunc_28__17TObjEneMe1CanadinFv(void);
 void * __dt__17TObjEneMe1CanadinFv(void *arg0, s16 arg1);
 u8 * TObjEneMe1Canadin__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4, s16 arg5);
-void * TObjEneMe1Canadin_EffLight__ct(void *, void *, s32);
+void * __ct__26TObjEneMe1Canadin_EffLightFP7TObjectl(void *, void *, s32);
 void TObjEneEpsilon__sub_800B92AC(u8 *arg0, s32 arg1, f32 farg0);
 int select_and_apply_target__12TObjEneDD_STFf(void*);
 s32 set_target_player__12TObjEneDD_STFPv(void *);
@@ -4169,7 +4169,7 @@ void TObjEneMe1Canadin::setup_enemy() {
     *(s32 *)((s8 *)arg0 + 0x404) = 0;
     p = ((void * (*)(u32))__nw__7TObjectFUl)(0x38);
     if (p != NULL) {
-        p = TObjEneMe1Canadin_EffLight__ct(p, arg0, 5);
+        p = __ct__26TObjEneMe1Canadin_EffLightFP7TObjectl(p, arg0, 5);
     }
     *(void **)((s8 *)arg0 + 0x408) = p;
     *(s32 *)((s8 *)arg0 + 0x40C) = 0;

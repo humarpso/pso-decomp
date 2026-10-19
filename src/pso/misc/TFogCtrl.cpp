@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TFogCtrl.h"
 #include "pso/unk/text_803E1FC8.h"
 #include "pso/unk/text_803E2008.h"
 #include "pso/unk/text_803E2070.h"
@@ -183,7 +184,7 @@ s32 TFogCtrl__sub_800FAC84(void* p);
 s32 request_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
 void TFogCtrl__sub_800FB400(O_800FB400 *self, s32 i, s32 j);
 u8 * __dt__8TFogCtrlFv(u8 *arg0, s16 arg1);
-TFogCtrl_800FB92C * TFogCtrl__ct(TFogCtrl_800FB92C *self, void *parent, s32 index);
+TFogCtrl_800FB92C * __ct__8TFogCtrlFP7TObjectl(TFogCtrl_800FB92C *self, void *parent, s32 index);
 void TFogCtrl__sub_800FBA54(void);
 void TFogCtrl__sub_800FBA58(void);
 void TFogCtrl__sub_800FBAAC(void);
@@ -681,40 +682,39 @@ u8 *__dt__8TFogCtrlFv(u8 *arg0, s16 arg1) {
 
 #pragma push
 #pragma opt_common_subs off
-TFogCtrl_800FB92C *TFogCtrl__ct(TFogCtrl_800FB92C *self, void *parent, s32 index) {
+}
+TFogCtrl::TFogCtrl(TObject *parent, s32 index) : TObject(parent) {
     s32 i;
     f32 one;
-    __ct__7TObjectFP7TObject(self, parent);
-    self->vt = &__vt__8TFogCtrl;
-    self->f0 = lbl_805D2B18;
-    self->index = index;
-    if (self->index >= 0 && self->index < 4) {
-        ((TFogCtrl_800FB92C **)&TFogCtrl__fog_instance_table)[self->index] = self;
+    ((TFogCtrl_800FB92C *)this)->f0 = lbl_805D2B18;
+    ((TFogCtrl_800FB92C *)this)->index = index;
+    if (((TFogCtrl_800FB92C *)this)->index >= 0 && ((TFogCtrl_800FB92C *)this)->index < 4) {
+        ((TFogCtrl_800FB92C **)&TFogCtrl__fog_instance_table)[((TFogCtrl_800FB92C *)this)->index] = ((TFogCtrl_800FB92C *)this);
     }
-    self->f20 = 0;
+    ((TFogCtrl_800FB92C *)this)->f20 = 0;
     one = FOG_ZERO;
     for (i = 0; i < 4; i++) {
-        self->fogs[i].entry = 0;
-        copy_fog_entry((u8 *)&self->fogs[i], fog_default_entry);
-        self->fogs[i].f44 = one;
-        self->ptrs[i] = &self->fogs[i];
+        ((TFogCtrl_800FB92C *)this)->fogs[i].entry = 0;
+        copy_fog_entry((u8 *)&((TFogCtrl_800FB92C *)this)->fogs[i], fog_default_entry);
+        ((TFogCtrl_800FB92C *)this)->fogs[i].f44 = one;
+        ((TFogCtrl_800FB92C *)this)->ptrs[i] = &((TFogCtrl_800FB92C *)this)->fogs[i];
     }
-    self->f184 = 0;
+    ((TFogCtrl_800FB92C *)this)->f184 = 0;
     one = FOG_ZERO;
-    self->f19C = 0;
-    self->f1A0 = 0;
-    self->f1A4 = 0;
-    self->f1A8 = 0;
-    self->f1AC = 0;
-    self->f1B0 = 0;
-    self->f1B4 = 0;
-    self->f1B8 = one;
-    self->f1BC = one;
-    self->f1C0 = 0;
-    self->f1C = 0;
-    ((TFogCtrl *)self)->apply_slot_params(0);
-    return self;
+    ((TFogCtrl_800FB92C *)this)->f19C = 0;
+    ((TFogCtrl_800FB92C *)this)->f1A0 = 0;
+    ((TFogCtrl_800FB92C *)this)->f1A4 = 0;
+    ((TFogCtrl_800FB92C *)this)->f1A8 = 0;
+    ((TFogCtrl_800FB92C *)this)->f1AC = 0;
+    ((TFogCtrl_800FB92C *)this)->f1B0 = 0;
+    ((TFogCtrl_800FB92C *)this)->f1B4 = 0;
+    ((TFogCtrl_800FB92C *)this)->f1B8 = one;
+    ((TFogCtrl_800FB92C *)this)->f1BC = one;
+    ((TFogCtrl_800FB92C *)this)->f1C0 = 0;
+    ((TFogCtrl_800FB92C *)this)->f1C = 0;
+    this->apply_slot_params(0);
 }
+extern "C" {
 #pragma pop
 
 void TFogCtrl__sub_800FBA54(void) {  }
@@ -779,7 +779,7 @@ void create_area_fog_ctrl(void) {
             if (temp_r3 != 0U) {
                 var_r4 = (s32 *)tl_02;
                 var_r5 = var_r31;
-                ((s32 (*)(int, int, int))TFogCtrl__ct)((int)temp_r3, (int)var_r4, (int)var_r5);
+                ((s32 (*)(int, int, int))__ct__8TFogCtrlFP7TObjectl)((int)temp_r3, (int)var_r4, (int)var_r5);
             }
             var_r31 += 1;
         } while (var_r31 != 4);
@@ -789,7 +789,7 @@ void create_area_fog_ctrl(void) {
         if (temp_r3_2 != 0U) {
             var_r4 = (s32 *)tl_02;
             var_r5 = 0;
-            ((s32 (*)(int, int, int))TFogCtrl__ct)((int)temp_r3_2, (int)var_r4, 0);
+            ((s32 (*)(int, int, int))__ct__8TFogCtrlFP7TObjectl)((int)temp_r3_2, (int)var_r4, 0);
         }
     }
     TObjFogCollisionPoison::create();

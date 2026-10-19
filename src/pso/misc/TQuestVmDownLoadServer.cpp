@@ -16,7 +16,7 @@ s32 update_wait_confirm__17TMCFormatSequenceFPv();
 s32 check_memcard_load_result__17TMCFormatSequenceFv();
 s32 process_format_result__17TMCFormatSequenceFv();
 s32 open_windows__17TMCFormatSequenceFv();
-void *TMCFormatSequence__ct(TMCFormatSequence *arg0, void *arg1, void *arg2);
+void *__ct__17TMCFormatSequenceFP7TObjectPv(TMCFormatSequence *arg0, void *arg1, void *arg2);
 void __ct__7TObjectFP7TObject(void *);
 char TQuestVmDownLoadServer__data_804C8690[0xC] = "\xB8\xB4\xBD\xC4\xCC\xA7\xB2\xD9";
 s32 TWindowShortListCtrl__check_controller_button(void*, s32);
@@ -838,10 +838,7 @@ void TQuestVmDownLoadServer::check_memcard_slot() {
         cap = query_memcard_capacity__15TAdPlayerLoadGCFl(slot, 0);
         switch (cap) {
         case -0xFD:
-            seq = (u8 *)__nw__7TObjectFUl(0x3C);
-            if (seq != NULL) {
-                seq = (u8 *)TMCFormatSequence__ct((TMCFormatSequence *)seq, (void *)arg0, (void *)((void *)slot));
-            }
+            seq = (u8 *)new TMCFormatSequence((TObject *)(void *)arg0, (void *)(void *)((void *)slot));
             *(void **)((s8 *)seq + 0x1C) = (void *)TQuestVmDownLoadServer__sub_801F6B98;
             *(void **)((s8 *)seq + 0x20) = (void *)TQuestVmDownLoadServer::clear_field2A0;
             this->state = 0x16;
@@ -1304,19 +1301,16 @@ void TQuestVmDownLoadServer::sub_801F6B00() {
         }
     }
 }
-void *TMCFormatSequence__ct(TMCFormatSequence *mc_format_sequence, void *arg1, void *arg2) {
-    __ct__7TObjectFP7TObject(mc_format_sequence);
-    *(s32 **)((s8 *)mc_format_sequence + 0x18) = __vt__17TMCFormatSequence;
-    *(void * *)&mc_format_sequence->m_name = TMCFormatSequence__class_name;
-    mc_format_sequence->m_24 = 0;
-    *(void **)((s8 *)mc_format_sequence + 0x28) = arg2;
-    *(u32 *)((s8 *)mc_format_sequence + 0x1C) = 0;
-    mc_format_sequence->m_20 = 0;
-    mc_format_sequence->m_34 = 0;
-    *(u32 *)((s8 *)mc_format_sequence + 0x38) = 0;
-    mc_format_sequence->m_2c = 11;
-    *(u32 *)((s8 *)mc_format_sequence + 0x30) = 101;
-    return mc_format_sequence;
+TMCFormatSequence::TMCFormatSequence(TObject *arg1, void *arg2) : TObject(arg1) {
+    *(void * *)&this->m_name = TMCFormatSequence__class_name;
+    this->m_24 = 0;
+    *(void **)((s8 *)this + 0x28) = arg2;
+    *(u32 *)((s8 *)this + 0x1C) = 0;
+    this->m_20 = 0;
+    this->m_34 = 0;
+    *(u32 *)((s8 *)this + 0x38) = 0;
+    this->m_2c = 11;
+    *(u32 *)((s8 *)this + 0x30) = 101;
 }
 TMCFormatSequence::~TMCFormatSequence() {
     if (m_38 != nullptr) { TWindow__close((u8 *)m_38); m_38 = nullptr; }

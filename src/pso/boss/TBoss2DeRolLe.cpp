@@ -5556,7 +5556,7 @@ void *TBoss2Joint__ct(void *, void *, u16, int, void *, s32, s32);
 void *TBoss2LaserLight__ct(void *, void *, void *);
 void *create__13TUnk_80482D04Fiii(void *, void *, u16, int);
 void *TBoss2Mine__sub_800381B8(void *, void *, u16, int);
-void *__ct__14TBoss2TentacleFP7TObjectii(void *, void *, void *, s32);
+void *__ct__14TBoss2TentacleFP7TObjectll(void *, void *, void *, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 init_object__12TObjEneDD_STFv(void *, void *);
 s32 is_main_phase_15__9TObjEneDDFv();
@@ -5850,7 +5850,7 @@ void *TBoss2DeRolLe__ct(void *arg0, void *arg1, void *arg2) {
         set_matrix_identity(&self->f61C[i]);
         p = __nw__7TObjectFUl(0x158);
         if (p != NULL) {
-            p = __ct__14TBoss2TentacleFP7TObjectii(p, self->obj3D8, &self->f61C[i], i);
+            p = __ct__14TBoss2TentacleFP7TObjectll(p, self->obj3D8, &self->f61C[i], i);
         }
         self->f620[i] = p;
     }

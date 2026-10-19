@@ -5,6 +5,7 @@
 #include "pso/TObject.h"
 
 struct TCineCtrl : public TObject {
+    TCineCtrl();
     virtual ~TCineCtrl();
     void update_letterbox_show();
     void render();
@@ -22,7 +23,7 @@ struct TCineCtrl : public TObject {
 typedef char TCineCtrl_size[sizeof(TCineCtrl) == 0x30 ? 1 : -1];
 
 extern "C" {
-void *TCineCtrl__ct(void *cine_ctrl);
+void *__ct__9TCineCtrlFv(void *cine_ctrl);
 u8 *__dt__9TCineCtrlFv(u8 *arg0, s16 arg1);
 }
 

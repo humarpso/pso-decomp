@@ -5,7 +5,7 @@
 
 extern "C" {
 
-s32 construct_world_actor_base();
+s32 __ct__13TUnk_804B9870FP7TObject();
 void __dl__7TObjectFPv(void *);
 
 extern s32 __vt__10TObjBgmCol[];
@@ -24,7 +24,7 @@ void *__dt__10TObjBgmColFv(void *arg0, s16 arg1) {
 extern s32 TObjBgmCol__name;
 
 void *TObjBgmCol__ct(TObjBgmCol *bgm_col, s32 arg1, s32 arg2) {
-    construct_world_actor_base();
+    __ct__13TUnk_804B9870FP7TObject();
     *(s32 **)((s8 *)bgm_col + 0x18) = __vt__10TObjBgmCol;
     *(s32 *)((s8 *)bgm_col + 0) = (s32) TObjBgmCol__name;
     bgm_col->apply_object_set_data((void *)arg2);

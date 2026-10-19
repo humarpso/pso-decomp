@@ -5,6 +5,7 @@
 
 class TItemAttacker : public TObject {
 public:
+    TItemAttacker(s32 arg1, s32 arg2, s32 arg3, s32 arg4);
     virtual ~TItemAttacker();
     virtual void run_task();
 public:

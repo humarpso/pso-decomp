@@ -74,7 +74,7 @@ void *__vt__17TChCrTagOccHeader[] = {
 #define update_fade__8TChCrTagFPv (*(void (*)())&update_fade__8TChCrTagFPv)
 #define get_selected_char__15TChCrCharSelectFv (*(s32 (*)(void *))&get_selected_char__15TChCrCharSelectFv)
 
-u8 * __ct__8TChCrTagFv(void *, s32);
+u8 * __ct__8TChCrTagFP7TObjectPv(void *, s32);
 void *__ct__17TChCrTagOccHeaderFv(void *arg0);
 
 extern const f32 lbl_805DDECC;
@@ -82,7 +82,7 @@ extern const f32 lbl_805DDED0;
 extern void *chcr_tag_occ_header_class_name;
 
 void *__ct__17TChCrTagOccHeaderFv(void *ch_cr_tag_occ_header) {
-    ((void (*)(void *))__ct__8TChCrTagFv)(ch_cr_tag_occ_header);
+    ((void (*)(void *))__ct__8TChCrTagFP7TObjectPv)(ch_cr_tag_occ_header);
     *(void ***)((s8 *)ch_cr_tag_occ_header + 0x18) = __vt__17TChCrTagOccHeader;
     *(void * *)&((TChCrTagOccHeader *)ch_cr_tag_occ_header)->m_name = chcr_tag_occ_header_class_name;
     *(f32 *)((s8 *)ch_cr_tag_occ_header + 0x28) = lbl_805DDECC;
@@ -215,7 +215,7 @@ void *__dt__18TChCrTagOccupationFv(void *self, s16 m) {
 typedef char RecoveredGlobal_802A300C___vt__18TChCrTagOccupation_size[sizeof(RecoveredGlobal_802A300C___vt__18TChCrTagOccupation) == 0x20 ? 1 : -1];
 
 u8 *__ct__18TChCrTagOccupationFv(u8 *ch_cr_tag, s32 arg1, s32 _w2) {
-    __ct__8TChCrTagFv(ch_cr_tag, arg1);
+    __ct__8TChCrTagFP7TObjectPv(ch_cr_tag, arg1);
     *(s32 **)((s8 *)ch_cr_tag + 0x18) = (s32 *)__vt__18TChCrTagOccupation;
     *(s32 *)((s8 *)ch_cr_tag + 0) = (s32) chcr_tag_occupation_class_name;
     *(f32 *)((s8 *)ch_cr_tag + 0x28) = (f32) lbl_805DDF00;

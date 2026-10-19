@@ -5,6 +5,7 @@
 #include "pso/TObject.h"
 
 struct TWindowCtrlMain : public TObject {
+    TWindowCtrlMain();
     virtual ~TWindowCtrlMain();
     void render();
     void run_task();

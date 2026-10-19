@@ -116,7 +116,7 @@ void apply_actor_gravity(TObjEnemy *arg0, s32 *arg1, f32 farg0);
 s32 enemy_turn_toward_dest(void *, s32);
 void queue_destruction__7TObjectFv(void *arg0);
 void *create_particle_emitter(void *pos, s32 id);
-s32 TObjPlayer__sub_800AB31C(void *, void *, s32, void *, s32);
+s32 __ct__13TUnk_80491460FPvlll(void *, void *, s32, void *, s32);
 s32 render_anim_model_at_pos__15TObjEneGyaranzoFv();
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 advance_animation_playback(void *);
@@ -637,7 +637,7 @@ void TObjPlayer__sub_800A8FB4(void *arg0_) {
             (*(s16 *)((s8 *)arg0 + 0x38E))--;
             o = __nw__7TObjectFUl(0x6C);
             if (o != NULL) {
-                TObjPlayer__sub_800AB31C(o, arg0 + 0x410, *(s32 *)((s8 *)arg0 + 0x60), arg0, TObjPlayer__sub_800AAF98(arg0, 3));
+                __ct__13TUnk_80491460FPvlll(o, arg0 + 0x410, *(s32 *)((s8 *)arg0 + 0x60), arg0, TObjPlayer__sub_800AAF98(arg0, 3));
             }
             *(s32 *)((s8 *)arg0 + 0x37C) = 4;
             if (*(u32 *)((s8 *)arg0 + 0x3A8) != 0U) {

@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/ui/TAdDialingMessageWindow.h"
+#include "pso/ui/TAdDialingMessageWindow.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/ui/TAdDrawLineCtrl.h"
 #include "pso/ui/TUnk_804F3428.h"
@@ -57,25 +58,24 @@ extern void *tl_fadeafter;
 extern void *lbl_805D44C8;
 extern void *tl_camera;
 
-void *TAdDialingMessageWindow__ct(void *arg0, void *arg1, void *arg2) {
+}
+TAdDialingMessageWindow::TAdDialingMessageWindow(void *arg1, void *arg2) : TObject((TObject *)tl_fadeafter) {
     void *o;
     void *o2;
-    __ct__7TObjectFP7TObject(arg0, tl_fadeafter);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__23TAdDialingMessageWindow;
-    *(void * *)&((TAdDialingMessageWindow *)arg0)->m_name = lbl_805D44C8;
-    ((TAdDialingMessageWindow *)arg0)->m_1c = 0;
-    *(void **)((s8 *)arg0 + 0x20) = arg1;
+    *(void * *)&this->m_name = lbl_805D44C8;
+    this->m_1c = 0;
+    *(void **)((s8 *)this + 0x20) = arg1;
     o = __nw__7TObjectFUl(0x24);
     if (o != NULL) {
-        o = ((TUnk_804F3428 *)o)->init(tl_camera, arg0, arg2);
+        o = ((TUnk_804F3428 *)o)->init(tl_camera, this, arg2);
     }
-    *(void **)((s8 *)arg0 + 0x24) = o;
+    *(void **)((s8 *)this + 0x24) = o;
     o2 = __nw__7TObjectFUl(0x1C);
     if (o2 != NULL) {
         o2 = ((void * (*)(void *, int))__ct__7TObjectFP7TObject)(o2, 0);
     }
-    *(void **)((s8 *)arg0 + 0x28) = o2;
-    return arg0;
+    *(void **)((s8 *)this + 0x28) = o2;
 }
+extern "C" {
 
 }

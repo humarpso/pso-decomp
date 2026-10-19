@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe1Canadin_EffLight.h"
 #include "pso/TObject.h"
 #include "pso/unk/text_800A02AC.h"
 #include "pso/enemy/CanadinEffects.h"
@@ -154,7 +155,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__26TObjEneMe1Canadin_EffLight[];
 extern s32 TObjEneMe1Canadin_EffLight__name;
 extern const f32 canadin_light_width_decay;
-Obj_8009FC44 *TObjEneMe1Canadin_EffLight__ct(Obj_8009FC44 *self, void *parent, s32 count);
+Obj_8009FC44 *__ct__26TObjEneMe1Canadin_EffLightFP7TObjectl(Obj_8009FC44 *self, void *parent, s32 count);
 void run_task__26TObjEneMe1Canadin_EffLightFv(Obj_8009FA24 *arg0);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -221,27 +222,26 @@ void *__dt__26TObjEneMe1Canadin_EffLightFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-Obj_8009FC44 *TObjEneMe1Canadin_EffLight__ct(Obj_8009FC44 *self, void *parent, s32 count) {
-    s32 i;
-    __ct__7TObjectFP7TObject(self, parent);
-    self->vtbl = ((s32 *)&__vt__26TObjEneMe1Canadin_EffLight);
-    self->descriptor = TObjEneMe1Canadin_EffLight__name;
-    self->count = count;
-    self->field20 = 0;
-    self->field24 = 0;
-    self->buf28 = mem_alloc(self->count << 5);
-    self->recs = (Rec_8009FC44 *)mem_alloc(self->count * 0x14);
-    for (i = 0; i < self->count; i++) {
-        self->recs[i].a = canadin_effect_zero;
-        self->recs[i].b = 0;
-        self->recs[i].c = canadin_effect_zero;
-        self->recs[i].d = canadin_effect_zero;
-        self->recs[i].e = canadin_effect_zero;
-    }
-    self->field30 = 0x30;
-    self->field34 = canadin_light_width_decay;
-    return self;
 }
+TObjEneMe1Canadin_EffLight::TObjEneMe1Canadin_EffLight(TObject *parent, s32 count) : TObject(parent) {
+    s32 i;
+    ((Obj_8009FC44 *)this)->descriptor = TObjEneMe1Canadin_EffLight__name;
+    ((Obj_8009FC44 *)this)->count = count;
+    ((Obj_8009FC44 *)this)->field20 = 0;
+    ((Obj_8009FC44 *)this)->field24 = 0;
+    ((Obj_8009FC44 *)this)->buf28 = mem_alloc(((Obj_8009FC44 *)this)->count << 5);
+    ((Obj_8009FC44 *)this)->recs = (Rec_8009FC44 *)mem_alloc(((Obj_8009FC44 *)this)->count * 0x14);
+    for (i = 0; i < ((Obj_8009FC44 *)this)->count; i++) {
+        ((Obj_8009FC44 *)this)->recs[i].a = canadin_effect_zero;
+        ((Obj_8009FC44 *)this)->recs[i].b = 0;
+        ((Obj_8009FC44 *)this)->recs[i].c = canadin_effect_zero;
+        ((Obj_8009FC44 *)this)->recs[i].d = canadin_effect_zero;
+        ((Obj_8009FC44 *)this)->recs[i].e = canadin_effect_zero;
+    }
+    ((Obj_8009FC44 *)this)->field30 = 0x30;
+    ((Obj_8009FC44 *)this)->field34 = canadin_light_width_decay;
+}
+extern "C" {
 
 void render__30TObjEneMe1Canadin_EffDischargeFv(void) {  }
 

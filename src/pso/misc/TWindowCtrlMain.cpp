@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowCtrlMain.h"
+#include "pso/misc/TWindowCtrlMain.h"
 #include "pso/misc/TWindowCtrlMain_8024EEF8.h"
 #include "pso/misc/TWindowCtrlMain.h"
 #include "pso/TParticleCtrl.h"
@@ -37,7 +38,7 @@ extern void *TWindowCtrlMain__window_task_root;
 extern void *TWindowCtrlMain__screen_controller;
 extern void *TWindowCtrlMain__sub_controller;
 extern void *window_clip_out_instance;
-Obj_8024D520 *TWindowCtrlMain__ct(Obj_8024D520 *arg0);
+Obj_8024D520 *__ct__15TWindowCtrlMainFv(Obj_8024D520 *arg0);
 s32 __dt__7TObjectFv(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 void *__dt__15TWindowCtrlMainFv(void *arg0, s16 arg1);
@@ -94,13 +95,12 @@ TWindowCtrlMain::~TWindowCtrlMain() {
 }
 extern "C" {
 
-Obj_8024D520 *TWindowCtrlMain__ct(Obj_8024D520 *arg0) {
+}
+TWindowCtrlMain::TWindowCtrlMain() : TObject((TObject *)tl_fadeafter) {
     Ent_8024D520 *e;
     s32 i;
     void *p;
-    __ct__7TObjectFP7TObject(arg0, tl_fadeafter);
-    arg0->vt = __vt__15TWindowCtrlMain;
-    arg0->id = TWindowCtrlMain__name;
+    ((Obj_8024D520 *)this)->id = TWindowCtrlMain__name;
     if (TWindowCtrlMain__window_task_root == 0) {
         p = __nw__7TObjectFUl(0x1C);
         if (p != 0) {
@@ -145,8 +145,8 @@ Obj_8024D520 *TWindowCtrlMain__ct(Obj_8024D520 *arg0) {
         }
         window_clip_out_instance = p;
     }
-    return arg0;
 }
+extern "C" {
 
 void TWindowCtrlMain::free_all_windows() {
     W_8024D690 *root;

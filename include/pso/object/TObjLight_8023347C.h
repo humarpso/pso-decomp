@@ -5,7 +5,7 @@
 
 extern "C" {
 void *__dt__13TUnk_804CC948Fv(void *arg0, s16 arg1);
-u8 *init__9TObjLightFPvii(u8 *arg0, s32 arg1, s32 arg2);
+u8 *__ct__13TUnk_804CC948Fll(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 #endif

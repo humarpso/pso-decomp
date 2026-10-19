@@ -95,7 +95,7 @@ void __dl__7TObjectFPv(void *);
 void TWindow__close(u8 *arg0);
 extern u8 __vt__9TObjLuker[];
 Luker_801A16D8 *__dt__9TObjLukerFv(Luker_801A16D8 *arg0, s16 arg1);
-void construct_world_actor_base(void *, void *);
+void __ct__13TUnk_804B9870FP7TObject(void *, void *);
 extern s32 lbl_805D34A8;
 void *TObjLuker__ct(void *arg0, void *arg1, void *arg2);
 f32 horizontal_distance_squared(void *, void *);
@@ -505,7 +505,7 @@ Luker_801A16D8 *__dt__9TObjLukerFv(Luker_801A16D8 *arg0, s16 arg1) {
 #define self ((Luker_801A1768 *)arg0)
 void *TObjLuker__ct(void *arg0, void *parent, void *arg2) {
     s32 i;
-    construct_world_actor_base(self, parent);
+    __ct__13TUnk_804B9870FP7TObject(self, parent);
     self->f18 = __vt__9TObjLuker;
     self->f0 = lbl_805D34A8;
     ((VObj_801A1768 *)self)->m5(arg2);

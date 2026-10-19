@@ -4,6 +4,7 @@
 #include <stddef.h>
 class TUnk_804B9870 : public TObject {
 public:
+    TUnk_804B9870(TObject *parent);
     virtual ~TUnk_804B9870();
     virtual void vfunc_6(s16 *, s32);
     virtual void apply_object_set_data(void *);

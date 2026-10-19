@@ -5,6 +5,7 @@
 
 class TUnk_804A2018 : public TObject {
 public:
+    TUnk_804A2018(TObject *parent, s32 a, s32 b);
     virtual ~TUnk_804A2018();
     virtual void run_task();
     u8 unk_1C[0x4];

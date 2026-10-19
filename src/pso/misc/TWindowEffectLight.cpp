@@ -69,17 +69,16 @@ void TWindowEffectLight::draw_outline_quad(s32 color) {
     draw_textured_quad_at_depth((f32 *)&q, TWindowEffectLight__data_805DE0E4);
 }
 
-u8 *__ct__18TWindowEffectLightFv(u8 *self, void *arg1, s16 arg2, u32 id) {
-    __ct__7TObjectFP7TObject(self, tl_window);
-    *(void **)((s8 *)self + 0x18) = __vt__18TWindowEffectLight;
-    *(s32 *)((s8 *)self + 0) = lbl_805D3E60;
-    ((TWindowSubSymbolChatPartsSet *)(self + 0x1C))->copy_vec2(arg1);
-    ((TWindowKeyBoardSoft *)(self + 0x1C))->adjust_pos_for_split_screen(TCameraCtrl::get_split_screen_view_index(id));
-    *(s16 *)((s8 *)self + 0x24) = arg2;
-    *(s16 *)((s8 *)self + 0x26) = -1;
-    *(u32 *)((s8 *)self + 0x28) = id;
-    return self;
 }
+TWindowEffectLight::TWindowEffectLight(void *arg1, s16 arg2, u32 id) : TObject((TObject *)tl_window) {
+    *(s32 *)((s8 *)this + 0) = lbl_805D3E60;
+    ((TWindowSubSymbolChatPartsSet *)(((u8 *)this) + 0x1C))->copy_vec2(arg1);
+    ((TWindowKeyBoardSoft *)(((u8 *)this) + 0x1C))->adjust_pos_for_split_screen(TCameraCtrl::get_split_screen_view_index(id));
+    *(s16 *)((s8 *)this + 0x24) = arg2;
+    *(s16 *)((s8 *)this + 0x26) = -1;
+    *(u32 *)((s8 *)this + 0x28) = id;
+}
+extern "C" {
 
 void *__nw__7TObjectFUl(int);
 s32 queue_destruction__7TObjectFv();
@@ -160,7 +159,7 @@ void *TWindowEffectLight::create(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x2C);
     if (o != NULL) {
-        o = ((void *(*)(void *, void *, void *, void *))__ct__18TWindowEffectLightFv)(o, arg0, arg1, arg2);
+        o = ((void *(*)(void *, void *, void *, void *))__ct__18TWindowEffectLightFPvsUl)(o, arg0, arg1, arg2);
     }
     return o;
 }

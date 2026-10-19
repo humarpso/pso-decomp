@@ -35,7 +35,7 @@ void handle_6x67_trigger_set_event(Pkt_80190BA0 *pkt);
 void queue_destruction__7TObjectFv(void *);
 void disallow_rendering__7TObjectFv(TObject *);
 void copy_pair__18TObjEnvSoundGlobalFPvPv(void *p, void *q);
-void construct_world_actor_base(void *, void *);
+void __ct__13TUnk_804B9870FP7TObject(void *, void *);
 extern Row_80190AA0 *environment_sound_tables_by_area[];
 extern s32 __vt__12TObjEnvSound[];
 extern s32 TObjEnvSound__class_name;
@@ -78,7 +78,7 @@ void *__dt__12TObjEnvSoundFv(void *arg0, s16 arg1) {
 
 void *TObjEnvSound__ct(Obj_80190AA0 *self, void *parent, void *arg2) {
     Row_80190AA0 *table;
-    construct_world_actor_base(self, parent);
+    __ct__13TUnk_804B9870FP7TObject(self, parent);
     self->vtbl = __vt__12TObjEnvSound;
     self->unk0 = TObjEnvSound__class_name;
     ((TObjEnvSound *)self)->apply_object_set_data(arg2);

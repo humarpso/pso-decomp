@@ -21,7 +21,7 @@ void *find_entity_by_id(u16 id);
 s32 __ct__7TObjectFP7TObject(void*,s32);
 extern s32 __vt__13TItemAttacker[];
 extern s32 TItemAttacker__name;
-u8 *__ct__13TItemAttackerFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+u8 *__ct__13TItemAttackerFllll(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void TItemAttacker__sub_8010349C(u32 arg0);
 int get_item_chunk_buffer(int a0);
 u8 *TItemTimer__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -31,23 +31,22 @@ u32 __nw__7TObjectFUl(s32);
 void *mem_alloc(u32 size);
 void queue_destruction__7TObjectFv(void *arg0);
 
-u8 *__ct__13TItemAttackerFv(u8 *object, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+}
+TItemAttacker::TItemAttacker(s32 arg1, s32 arg2, s32 arg3, s32 arg4) : TObject((TObject *)arg1) {
     u8* temp_r5;
     u8 *entity;
-    __ct__7TObjectFP7TObject(object,arg1);
-    *(s32 **)((s8 *)object + 0x18) = __vt__13TItemAttacker;
-    *(s32 *)((s8 *)object + 0) = (s32) TItemAttacker__name;
-    ((TItemAttacker *)(object + 0x1C))->copy_from((void *)arg4);
-    *(s32 *)((s8 *)object + 0x34) = 0;
-    VecCopy((Vec *)(object + 0x44), (const Vec *)(arg2));
-    entity = (u8 *)(find_entity_by_id(*(u16 *)((s8 *)object + 0x2A)));
+    *(s32 *)((s8 *)this + 0) = (s32) TItemAttacker__name;
+    ((TItemAttacker *)(((u8 *)this) + 0x1C))->copy_from((void *)arg4);
+    *(s32 *)((s8 *)this + 0x34) = 0;
+    VecCopy((Vec *)(((u8 *)this) + 0x44), (const Vec *)(arg2));
+    entity = (u8 *)(find_entity_by_id(*(u16 *)((s8 *)this + 0x2A)));
     if (entity != NULL) {
-        VecCopy((Vec *)(object + 0x38), (const Vec *)(((M_80103368 *)entity)->recs[*(s16 *)((s8 *)object + 0x2C)].v));
+        VecCopy((Vec *)(((u8 *)this) + 0x38), (const Vec *)(((M_80103368 *)entity)->recs[*(s16 *)((s8 *)this + 0x2C)].v));
     } else {
-        *(s32 *)((s8 *)object + 0x34) = 1;
+        *(s32 *)((s8 *)this + 0x34) = 1;
     }
-    return object;
 }
+extern "C" {
 
 void TItemAttacker::copy_from(void *arg1) {
     *(s32 *)&this->m_name = (s32) *(s32 *)((s8 *)arg1 + 0);

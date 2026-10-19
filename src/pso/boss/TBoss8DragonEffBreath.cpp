@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/boss/TBoss8DragonEffBreath.h"
+#include "pso/boss/TBoss8DragonEffBreath.h"
 #include "pso/boss/TBoss8Dragon_800BC53C.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss8DragonEffBreath.h"
@@ -23,7 +24,7 @@ void *__ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__21TBoss8DragonEffBreath[];
 extern s32 TBoss8DragonEffBreath__name;
 extern const f32 lbl_805DEEF8;
-Obj_802FE024 *TBoss8DragonEffBreath__ct(Obj_802FE024 *self, void *parent, void *p, void *v, s32 a, s16 b);
+Obj_802FE024 *__ct__21TBoss8DragonEffBreathFP7TObjectPvPvls(Obj_802FE024 *self, void *parent, void *p, void *v, s32 a, s16 b);
 s32 vec3_add_to(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -57,24 +58,23 @@ TBoss8DragonEffBreath::~TBoss8DragonEffBreath() {
     this->m_3c = 0;
 }
 extern "C" {
-Obj_802FE024 *TBoss8DragonEffBreath__ct(Obj_802FE024 *self, void *parent, void *p, void *v, s32 a, s16 b) {
+}
+TBoss8DragonEffBreath::TBoss8DragonEffBreath(TObject *parent, void *p, void *v, s32 a, s16 b) : TObject(parent) {
     void *h;
-    __ct__7TObjectFP7TObject(self, parent);
-    self->vt = ((u8 *)&__vt__21TBoss8DragonEffBreath);
-    *(s32 *)self = TBoss8DragonEffBreath__name;
-    VecCopy((Vec *)&self->pos, (const Vec *)p);
-    VecCopy((Vec *)&self->vel, (const Vec *)v);
-    self->vel.x = self->vel.x * lbl_805DEEF8;
-    self->vel.y = self->vel.y * lbl_805DEEF8;
-    self->vel.z = self->vel.z * lbl_805DEEF8;
-    self->a = a;
-    self->b = b;
+    *(s32 *)this = TBoss8DragonEffBreath__name;
+    VecCopy((Vec *)&((Obj_802FE024 *)this)->pos, (const Vec *)p);
+    VecCopy((Vec *)&((Obj_802FE024 *)this)->vel, (const Vec *)v);
+    ((Obj_802FE024 *)this)->vel.x = ((Obj_802FE024 *)this)->vel.x * lbl_805DEEF8;
+    ((Obj_802FE024 *)this)->vel.y = ((Obj_802FE024 *)this)->vel.y * lbl_805DEEF8;
+    ((Obj_802FE024 *)this)->vel.z = ((Obj_802FE024 *)this)->vel.z * lbl_805DEEF8;
+    ((Obj_802FE024 *)this)->a = a;
+    ((Obj_802FE024 *)this)->b = b;
     h = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
     if (h != NULL) {
         h = TBoss8Dragon__sub_800BC5EC((u8 *)h, 4);
     }
-    self->h = h;
-    return self;
+    ((Obj_802FE024 *)this)->h = h;
 }
+extern "C" {
 
 }

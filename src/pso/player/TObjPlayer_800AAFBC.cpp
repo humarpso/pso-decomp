@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80491460.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_80491478.h"
 #include "pso/player/TUnk_80491460.h"
@@ -204,10 +205,10 @@ extern RecoveredGlobal_800ABA9C_lbl_8058D490 identity_matrix;
 void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern Vec_800AB31C lbl_8043ACE0[];
-extern s32 lbl_80491460[];
+extern s32 __vt__13TUnk_80491460[];
 extern void *tl_06;
 extern const f32 lbl_805D9B64;
-Obj_800AB31C *TObjPlayer__sub_800AB31C(Obj_800AB31C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4);
+Obj_800AB31C *__ct__13TUnk_80491460FPvlll(Obj_800AB31C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4);
 void *spawn_particle_effect(void *pos, s32 id);
 f32 xz_distance_squared(void *, void *);
 extern Pair_800AB0EC lbl_8043ACEC[];
@@ -331,7 +332,7 @@ void TUnk_80491460::run_task() {
 
 void *TObjPlayer::dt(s16 arg1) {
     if (this != NULL) {
-        *(s32 **)((s8 *)this + 0x18) = lbl_80491460;
+        *(s32 **)((s8 *)this + 0x18) = __vt__13TUnk_80491460;
         if (this->m_5c != NULL) { queue_destruction__7TObjectFv(this->m_5c); }
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
@@ -341,27 +342,26 @@ void *TObjPlayer::dt(s16 arg1) {
     return this;
 }
 
-Obj_800AB31C *TObjPlayer__sub_800AB31C(Obj_800AB31C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4) {
-    __ct__7TObjectFP7TObject(arg0, tl_06);
-    arg0->vptr = lbl_80491460;
-    VecCopy__FP3VecPC3Vec(&arg0->pos, arg1);
-    VecCopy__FP3VecPC3Vec(&arg0->pos2, arg1);
-    arg0->f58 = lbl_805D9B64;
+}
+TUnk_80491460::TUnk_80491460(void *arg1, s32 arg2, s32 arg3, s32 arg4) : TObject((TObject *)tl_06) {
+    VecCopy__FP3VecPC3Vec(&((Obj_800AB31C *)this)->pos, arg1);
+    VecCopy__FP3VecPC3Vec(&((Obj_800AB31C *)this)->pos2, arg1);
+    ((Obj_800AB31C *)this)->f58 = lbl_805D9B64;
     push_matrix_from(&identity_matrix);
     Vec_800AB31C v = lbl_8043ACE0[0];
     rotate_matrix_y(0, arg2);
-    rotate_vector_by_matrix(0, &v, arg0->mtx34);
+    rotate_vector_by_matrix(0, &v, ((Obj_800AB31C *)this)->mtx34);
     pop_matrix();
-    arg0->f64 = arg3;
+    ((Obj_800AB31C *)this)->f64 = arg3;
     Rot_800AB31C r;
     r.x = 0;
     r.y = arg2 + 0x4000;
     r.z = 0x4000;
-    arg0->f5C = (s32)spawn_particle_effect_with_rotation(arg1, &r, 0x6D, 2);
-    arg0->f60 = 0;
-    arg0->f68 = arg4;
-    return arg0;
+    ((Obj_800AB31C *)this)->f5C = (s32)spawn_particle_effect_with_rotation(arg1, &r, 0x6D, 2);
+    ((Obj_800AB31C *)this)->f60 = 0;
+    ((Obj_800AB31C *)this)->f68 = arg4;
 }
+extern "C" {
 
 void TObjPlayer::cancel_action() {
     if (get_action_priority() != 1) {

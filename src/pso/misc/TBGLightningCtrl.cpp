@@ -63,7 +63,7 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, s32, s8, f32, f32);
 s32 queue_destruction__7TObjectFv();
 s32 get_state_flag__9TMainTaskFv();
-s32 construct_world_actor_base(void *, void *);
+s32 __ct__13TUnk_804B9870FP7TObject(void *, void *);
 u8 *load_gvm_texture_file(s32 arg0);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
@@ -138,7 +138,7 @@ void *__dt__16TBGLightningCtrlFv(void *arg0, s16 arg1) {
 }
 
 u8 *TBGLightningCtrl__ct(u8 *arg0, s32 parent, s32 arg2) {
-    construct_world_actor_base((void *)arg0, (void *)parent);
+    __ct__13TUnk_804B9870FP7TObject((void *)arg0, (void *)parent);
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__16TBGLightningCtrl;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBGLightningCtrl__name;
     ((TBGLightningCtrl *)(arg0))->apply_object_set_data((void *)arg2);

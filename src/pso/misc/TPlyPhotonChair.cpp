@@ -147,7 +147,7 @@ s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
 s32 get_actor_section_id__15TPlyPhotonChairFv(int);
 s32 get_rader_map__11TMainCursorFv(void *, void *);
-s32 construct_world_actor_base(void *, void *);
+s32 __ct__13TUnk_804B9870FP7TObject(void *, void *);
 extern RecoveredGlobal_8035B3C0_lbl_8047975C TPlyPhotonChair__section_id_color_table;
 extern s32 __vt__15TPlyPhotonChair[];
 extern s32 lbl_805D4418;
@@ -269,7 +269,7 @@ void *__dt__15TPlyPhotonChairFv(void *arg0, s16 arg1) {
 
 u8 *TPlyPhotonChair__ct(u8 *arg0, s32 arg1, s32 parent) {
     u32 player;
-    construct_world_actor_base((void *)arg0, (void *)parent);
+    __ct__13TUnk_804B9870FP7TObject((void *)arg0, (void *)parent);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8035B3C0___vt__15TPlyPhotonChair *)&__vt__15TPlyPhotonChair).value;
     ((TUnk_804A7478 *)(arg0 + 0x98))->init();
     ((TUnk_804A7478 *)(arg0 + 0xB4))->init();
