@@ -8249,7 +8249,7 @@ force_active:
   - spawn_directional_particle_at_slot__10TObjPlayerFl
   - spawn_effect__19TContainerAncient01FPvPvPv
   - spawn_effects__20TBoss3VoloptHiraisinFv
-  - spawn_faust_explosion
+  - spawn_faust_explosion__FUlRC3Vec
   - spawn_faust_hit_explosion__Fll
   - spawn_faust_wall_explosion__10TObjPlayerFll
   - spawn_fire_explosion__10TObjPlayerFUll

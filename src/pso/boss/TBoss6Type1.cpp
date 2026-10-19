@@ -322,9 +322,8 @@ struct Boss_802B5AD4 {
     u8 pad44[0x438 - 0x44];
     s32 f438;
 };
-extern "C" {
-
 void handle_6xA4_olga_flow_boss_actions(void *arg);
+extern "C" {
 u8 *get_enemy_entity(u16 arg0);
 f32 vector_length(void *, f32);
 f32 subtract_vector(void *, void *);
@@ -1041,9 +1040,9 @@ s32 TBoss6Type1__sub_802B600C(T1_802B600C *arg0, f32 _w1) {
 s32 TBoss6Type1__sub_802B6060(u8 *arg0) {
     return *(f32 *)((s8 *)arg0 + 0x3C) > TBoss6Type1__data_805DE318;
 }
+}
 
 void TBoss6Type1::set_part_default_value(int a0, void* a1) { *(float*)((char*)a1 + 0x4) = TBoss6Type1__data_805DE344; }
-}
 void draw_model_blend_motion(void *arg0, void *arg1, f32 farg0);
 
 void TBoss6Type1::update_effect_points() {
@@ -1892,6 +1891,7 @@ Blk_802B8624 *copy_block__11TBoss6Type1FPvPv(Blk_802B8624 *d, Blk_802B8624 *s) {
     *d = *s;
     return d;
 }
+}
 
 void TBoss6Type1::set_action_state(s32 arg1) {
     Action_802B865C a;
@@ -1972,6 +1972,7 @@ void handle_6xA4_olga_flow_boss_actions(void *arg) {
 struct T1_802B529C;
 struct Boss_802B5434;
 struct Boss_802B8EE0;
+extern "C" {
 void TBoss6Type1__sub_802B8BB4(u8 *arg0) {
     Atk_802B8EE0 s;
     s32 r4;
@@ -2329,6 +2330,7 @@ u8 * TBoss6Type1__sub_802B96C0(s32 arg0, s32 arg1) {
     *(ByteBlock_C_boss6_1 *)(arg0) = *(const ByteBlock_C_boss6_1 *)(arg1);
     return (u8 *)arg0;
 }
+}
 
 s32 TBoss6Type1::create(s32 arg2_) {
     s32 arg0_;
@@ -2356,5 +2358,4 @@ void*TBoss6Type1::get_mag_mine_ptr() { return (char*)this + 0x388; }
 int TBoss6Type1::is_idle() { return this->m_374 == 0; }
 int TBoss6Type1::read_be16_field2() { return read_be16_field2__10TObjPlayerFv(this); }
 void TBoss6Type1::step_and_send_60() { read_be16_field2(); TLobby__send_and_handle_60((u8 *)this); }
-}
 void build_6xA4_olga_flow_boss_actions(void* p) { *(u8*)((char*)p + 0x0) = 164; *(u8*)((char*)p + 0x1) = 5; }

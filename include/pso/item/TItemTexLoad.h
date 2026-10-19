@@ -41,14 +41,10 @@ typedef char GinjaTextureEntryName[(offsetof(GinjaTextureEntry,name)==0)?1:-1];
 typedef char GinjaTextureEntryValue04[(offsetof(GinjaTextureEntry,value04)==4)?1:-1];
 typedef char GinjaTextureEntryTexture[(offsetof(GinjaTextureEntry,texture)==8)?1:-1];
 
-extern "C" {
 void load_item_kt_afs(void);
-}
 
 // --- C functions defined in TItemTexLoad.cpp ---
-extern "C" {
 void load_item_kt_afs(void);
-}
 // --- end of C functions
 
 #endif

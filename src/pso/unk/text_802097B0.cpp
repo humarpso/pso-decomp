@@ -35,10 +35,10 @@ struct Ent_802097B0 { s16 id; s16 count; s32 offset; };
 
 void init_event_shuffle_table(EventShuffleTable *table, s32 count);
 
-extern "C" {
 s32 next_event_shuffle_entry(EventShuffleTable *s);
 extern s32 lbl_805D60A4;
 extern Ent_802098AC *lbl_805D60B8;
+extern "C" {
 s16 clamp_min_drop__6TLobbyFUl(s32, s32);
 extern u8 *TLobby__item_data_table_buffer;
 void TLobby__sub_802099FC(Out_802099FC *arg0, s32 arg1);
@@ -135,6 +135,7 @@ void TLobby__sub_802099FC(Out_802099FC *arg0, s32 key) {
         arg0->f6 = clamp_min_drop__6TLobbyFUl(r.h[4], r.h[5] + 1);
     }
 }
+}
 void TLobby::pick_weighted_entry(s32 *arg0, s32 *arg1) {
     Hdr_80209AEC hdr = *(Hdr_80209AEC *)TLobby__item_data_table_buffer;
     Ent_80209AEC *tbl;
@@ -162,6 +163,4 @@ void TLobby::pick_weighted_entry(s32 *arg0, s32 *arg1) {
     }
     *arg1 = -1;
     *arg0 = -1;
-}
-
 }

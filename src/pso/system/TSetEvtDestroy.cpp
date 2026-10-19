@@ -88,10 +88,9 @@ struct RecoveredGlobal_802093EC_lbl_805139F8 {
 
 extern RecoveredGlobal_802093EC_lbl_805139F8 lobby_slot_ptr_table;
 s32 get_area_event_data(s32 arg0);
-extern "C" {
 s32 next_event_shuffle_entry(EventShuffleTable *s);
+extern "C" {
 void queue_destruction__7TObjectFv(void *);
-
 }
 void init_event_shuffle_table(EventShuffleTable *arg0, s32 arg1);
 void shuffle_event_entries(EventShuffleTable *arg0);

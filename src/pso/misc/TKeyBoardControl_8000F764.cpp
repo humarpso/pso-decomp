@@ -73,10 +73,12 @@ extern s32 lbl_805D49C0;
 extern "C" {
 void TKeyBoardControl__sub_8000F950(void);
 void TKeyBoardControl__sub_8000F95C(void);
+}
 extern s32 keyboard_active_flag;
 void activate_keyboard(void);
 void deactivate_keyboard(void);
 extern s32 keyboard_key_state;
+extern "C" {
 void mark_area_change_pending(void);
 void clear_keyboard_key_state(void);
 s32 disable_disconnected_ports__16TKeyBoardControlFv(void *);

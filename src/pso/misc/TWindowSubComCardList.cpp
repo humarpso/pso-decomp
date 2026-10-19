@@ -63,8 +63,10 @@ void text_builder_append();
 void text_builder_reset();
 extern "C" {
 u8 *calc_technique_parameters(u16, u8, s32);
+}
 s32 get_palette_consumable_count(u16, s32);
 extern s32 current_language;
+extern "C" {
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 u8 *TWindowMenu__ct(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
 void *init__21TWindowSubComCardListFiii(void *, s32, s8, s32);
@@ -183,6 +185,7 @@ u8 *TWindowSubComCardList__sub_802757AC(u8 *arg0, void *arg1, s32 arg2, s32 arg3
     ((TWindowSubComCardList *)arg0)->set_scroll_target(lbl_805DD544, lbl_805DD548);
     return arg0;
 }
+}
 
 void TUnk_804D1160::update_customize_help_text(void *ev_arg) {
     Win_802758C8 *self = (Win_802758C8 *)this;
@@ -294,5 +297,4 @@ void TUnk_804D1160::run_task() {
     case 5:
         break;
     }
-}
 }

@@ -182,7 +182,7 @@ void handle_6xA0_gal_gryphon_boss_actions(TBoss8Dragon *arg0);
 extern "C" void handle_6xA1_revive_player_v3(void *arg0);
 void handle_6xA2_specializable_item_drop_request(void *arg0);
 extern "C" void handle_6xA3_olga_flow_boss_actions();
-extern "C" void handle_6xA4_olga_flow_boss_actions(void *arg);
+void handle_6xA4_olga_flow_boss_actions(void *arg);
 extern "C" void handle_6xA5_olga_flow_boss_actions(void *arg);
 void handle_6xA6_modify_trade_proposal(u8 *arg0);
 void handle_6xA7();

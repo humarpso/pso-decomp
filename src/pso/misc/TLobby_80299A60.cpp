@@ -17,7 +17,9 @@ extern "C" {
 s32 get_main_phase();
 s32 is_split_screen();
 s32 is_quest_active();
+}
 void init_music_sequencer(s32);
+extern "C" {
 s32 play_area_music(s32 *);
 s32 load_floor_sound_bank();
 extern s32 lbl_804651C0[];

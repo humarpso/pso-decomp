@@ -8508,9 +8508,9 @@ u8 *construct_player_instance__10TObjPlayerFlslPUc(void *self, s32 parent, s32 s
 void set_arrival_override_coords(u16 slot, s32 heading, f32 x, f32 y, f32 z);
 void queue_player_injured_pose(s32 arg0);
 void set_player_quest_control_flag(TObjPlayer *player);
+}
 void quest_construct_selected_scripted_player(u8 first);
 void qst_op_npc_crptalk(u8 first);
-}
 
 void quest_construct_selected_scripted_player(u8 first) {
     f32 pos[3];

@@ -12,9 +12,11 @@ struct RecoveredGlobal_80040D70_lbl_8043636C { s32 value; u8 remaining[0x9]; };
 extern "C" {
 void queue_destruction__7TObjectFv(void *arg0);
 void *get_player_by_client_id(s32 i);
+}
 void init_music_sequencer(s32 program);
 extern s32 local_client_id;
 extern const f32 lbl_805D86F8;
+extern "C" {
 void TBoss3VoloptCtrl__sub_80040B80(s32 arg0);
 s32 get_main_phase(void);
 s32 get_current_floor();
@@ -49,6 +51,7 @@ void TBoss3VoloptCtrl__sub_80040B80(s32 arg0) {
         queue_destruction__7TObjectFv((void *)arg0);
     }
 }
+}
 void *TUnk_80483B88::deleting_destructor(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = __vt__13TUnk_80483B88;
@@ -58,7 +61,6 @@ void *TUnk_80483B88::deleting_destructor(s16 arg1) {
         }
     }
     return this;
-}
 }
 TUnk_80483B88::TUnk_80483B88() : TObject((TObject *)tl_02) {
     disallow_rendering__7TObjectFv(this);

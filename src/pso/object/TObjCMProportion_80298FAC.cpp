@@ -21,9 +21,9 @@ extern s32 cm_proportion_pad_button_masks[];
 extern u8 controller_input_state[];
 f32 atan2_float(f32 y, f32 x);
 f32 newton_sqrtf(f32);
+}
 extern s32 creation_direction_priority_masks[4];
 void update_creation_direction_repeat(void);
-}
 extern const f64 lbl_80465170;
 extern const f32 lbl_805DDC28;
 extern const f32 lbl_805DDC2C;

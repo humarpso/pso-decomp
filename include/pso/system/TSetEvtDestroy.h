@@ -31,7 +31,7 @@ public:
     virtual void run_task();
 };
 
-extern "C" void queue_destroy_event_descendants(TObject* root);
+void queue_destroy_event_descendants(TObject* root);
 
 #include <stddef.h>
 typedef char TSetEvtDestroySize[(sizeof(TSetEvtDestroy) == 0x34) ? 1 : -1];

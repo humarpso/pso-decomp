@@ -284,6 +284,7 @@ int TKeyBoardControl__sub_8000F828(void);
 s32 TKeyBoardControl__sub_801E3E24(s32 id, const char *name, void *buf, s32 size);
 void TLobby__sub_803C5D24(u8 *arg0);
 char *strncpy(char *dst, const char *src, u32 n);
+}
 extern s16 lbl_805D371C;
 extern Program_80226FA0 *lbl_804CBE74[];
 
@@ -320,7 +321,6 @@ void init_music_sequencer(s32 program) {
     TLobby::close_option_window();
     strncpy(lbl_80514D00[0], lbl_805D6304->archive, 32);
     strncpy(lbl_80514D00[1], lbl_805D6304->archive, 32);
-}
 }
 void update_music_sequencer(void) {
     Passage_80226FA0 *passage;

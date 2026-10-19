@@ -15,9 +15,13 @@ void TKeyBoardControl__sub_8000F950(void);
 void TKeyBoardControl__sub_8000F95C(void);
 void TKeyBoardControl__sub_8000F9CC(s32 arg0);
 void TKeyBoardControl__sub_8000F9E4(void);
+}
 void activate_keyboard(void);
+extern "C" {
 void clear_keyboard_key_state(void);
+}
 void deactivate_keyboard(void);
+extern "C" {
 s32 get_main_phase(void);
 }
 void init_game_systems(void);

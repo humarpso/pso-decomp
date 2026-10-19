@@ -43,8 +43,8 @@ struct Light_80140514 {
     f32 d[4];
 };
 
+void init_music_sequencer(s32 program);
 extern "C" {
-s32 init_music_sequencer(s32);
 s32 load_floor_sound_bank();
 s32 play_area_music(s32 *);
 s32 is_split_screen();
@@ -76,9 +76,9 @@ extern s32 lbl_8043F238[];
 extern s32 lbl_8043F248[];
 extern s32 lbl_8043F1C8[];
 s32 forward_floor_2CB44__6TLobbyFv();
+}
 void TLobby::set_range(int a1, int a2, int a3) { *(int*)((char*)this + 0x7220) = a1; *(int*)((char*)this + 0x7224) = a3; *(int*)((char*)this + 0x7228) = (a1 + a2); }
 void TLobby::update_floor() { TLobby::refresh_render_state(); TLobby::stop_audio_streams(); unload_current_floor_resources(); TLobby::update_current_floor(); TLobby::clear_session_buffers(); }
-}
 void init_area_lights(void);
 void init_map_lights(u8 *arg0);
 extern s32 lbl_8043F1B8[];

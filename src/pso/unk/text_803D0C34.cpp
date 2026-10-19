@@ -17,6 +17,7 @@ extern s32 lobby_log_callback_arg;
 void DCInvalidateRange(void *, u32);
 s32 DVDGetTransferredSize(void *);
 s32 DVDGetCommandBlockStatus(void *);
+}
 extern GcciStatus dvd_active_request;
 extern GcciRequest dvd_request_table[40];
 extern char dvd_default_path_buffer[0x100];
@@ -67,7 +68,6 @@ void **initialize_dvd_file_driver(void) {
     lbl_805D7608 = 0;
     memset(&dvd_active_request, 0, sizeof(dvd_active_request));
     return dvd_file_driver_interface;
-}
 }
 
 #pragma push

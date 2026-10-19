@@ -110,7 +110,9 @@ void TLobby__sub_801A4C6C(void* p);
     extern int challenge_task_created;
 int TKeyBoardControl__sub_8000F95C(void);
 s32 is_keyboard_active();
-s32 deactivate_keyboard();
+}
+void deactivate_keyboard(void);
+extern "C" {
 s32 clear_keyboard_key_state();
 int TKeyBoardControl__sub_8000F9CC(int);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();

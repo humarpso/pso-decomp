@@ -45,10 +45,12 @@ extern const f32 lbl_805DCA40;
 extern const f32 lbl_805DCA44;
 void draw_action_palette_icon(Icon_80243630 *icon, u16 group, u16 index);
 void *find_item_by_id();
-s32 get_palette_consumable_count(u16 slot, s32 client_id);
-s32 fn_801B7CEC(void *player, s32 kind, u8 group, u8 index);
-extern const PaletteItemKind lbl_8044E5E8[13];
 }
+s32 get_palette_consumable_count(u16 slot, s32 client_id);
+extern "C" {
+s32 fn_801B7CEC(void *player, s32 kind, u8 group, u8 index);
+}
+extern const PaletteItemKind lbl_8044E5E8[13];
 void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1);
 
 extern f32 lbl_805DCA1C;

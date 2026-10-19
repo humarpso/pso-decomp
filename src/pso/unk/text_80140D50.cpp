@@ -20,7 +20,9 @@ void collect_collision_groups(Obj_80140F18 *self, Ent_80140F18 *e);
 s32 is_split_screen();
 s32 is_quest_active();
 void TLobby__sub_801403B4(int);
-void init_music_sequencer(int);
+}
+void init_music_sequencer(s32 program);
+extern "C" {
 void play_area_music(void *);
 void load_floor_sound_bank();
 extern char lbl_8043F260[];

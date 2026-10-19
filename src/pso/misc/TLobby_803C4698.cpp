@@ -196,6 +196,7 @@ s32 ARStartDMA(u8 *arg0, s32 arg1, s16 *arg2, u8 *arg3, s8 *arg4, s8 *arg5, u8 *
     }
     return 0;
 }
+}
 
 s32 TLobby::find_terminator_index(s16 *arg0, s32 arg1, s16 *arg2) {
     s16 *p = arg0;
@@ -371,6 +372,7 @@ s32 decode_adx_stereo(s8 *src, s32 nblk, s16 *outl, s16 *dlyl, s16 *outr, s16 *d
     dlyr[1] = r2;
     return nblk;
 }
+extern "C" {
 
 s32 decode_adx_mono_blocks(s8 *src, s32 nblk, s16 *out, s16 *dly, s16 k0, s16 k1) {
     s32 i;
@@ -498,6 +500,7 @@ void ARAlloc(void) {
         TLobby::release_ref();
     }
 }
+}
 
 void TLobby::dec_ref_and_shutdown() {
     s32 temp_r0;
@@ -549,6 +552,4 @@ void TLobby::init_and_add_ref() {
         TLobby::release_ref();
     }
     TLobby_init_ref_count += 1;
-}
-
 }

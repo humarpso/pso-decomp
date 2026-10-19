@@ -1524,7 +1524,9 @@ SjMemoryBuffer *sj_memory_buffer_create(void *arg0, s32 arg1);
 extern char adxt_start_mem_idx_stream_create_error[];
 void TLobby__sub_803CE544(void *, int);
 void TLobby__sub_803CFAA8(const char *, void *, int);
-void* initialize_dvd_file_driver(void);
+}
+void * *initialize_dvd_file_driver(void);
+extern "C" {
 char *TLobby__sub_803D43B8(void);
 extern const char lbl_805E0D70[4];
 extern const char lbl_805E0D74[4];

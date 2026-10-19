@@ -246,8 +246,10 @@ void spawn_particle_at_entity__6TLobbyFUc();
 void TLobby__sub_801F07D8();
 void spawn_stored_particle_emitter__6TLobbyFUc();
 void qst_op_cam_pan();
-void quest_construct_selected_scripted_player();
-void qst_op_npc_crptalk();
+}
+void quest_construct_selected_scripted_player(u8 first);
+void qst_op_npc_crptalk(u8 first);
+extern "C" {
 void close_window__6TLobbyFv();
 void pop_stack_into_slots__6TLobbyFll();
 void push_op_args_from_table__6TLobbyFll();
@@ -567,7 +569,7 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { qst_getargs_801F2B54, qst_op_npc_talk_kill },
     { qst_getargs_801F2B54, qst_op_npc_crtpk },
     { qst_getargs_801F2B0C, (void (*)())qst_op_npc_crppk },
-    { qst_getargs_801F2B0C, qst_op_npc_crptalk },
+    { qst_getargs_801F2B0C, (void (*)())qst_op_npc_crptalk },
     { qst_getargs_801F2B54, qst_op_p_look_at },
     { qst_getargs_801F2B0C, (void (*)())qst_op_npc_crp_id },
     { qst_getargs_801F2B94, (void (*)())qst_op_cam_quake },
@@ -648,7 +650,7 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { qst_getargs_801F2B54, qst_op_set_quest_board_handler },
     { qst_getargs_801F2B54, qst_op_clear_quest_board_handler },
     { qst_getargs_801F2B0C, (void (*)())qst_op_particle_id },
-    { qst_getargs_801F2B0C, quest_construct_selected_scripted_player },
+    { qst_getargs_801F2B0C, (void (*)())quest_construct_selected_scripted_player },
     { qst_getargs_801F2B94, forward_npc_player__6TLobbyFv },
     { qst_getargs_801F2B94, TLobby__sub_801EF748 },
     { qst_getargs_801F2AB4, TLobby__sub_801EE77C },
