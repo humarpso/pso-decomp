@@ -1242,7 +1242,7 @@ void TBoss6Mag::spawn_trap_by_stat() {
             var_r3 = 0x6B518;
         }
     }
-    play_persistent_sound((s32)var_r3, (s32)this, (u32)(((u8 *)this) + 0x38), (s32)(0), (s32)(0));
+    play_persistent_sound((s32)var_r3, (s32)this, (u32)(((u8 *)this) + 0x38), 0, 0);
 }
 
 void TBoss6Mag::render() { sub_8033040C(); }

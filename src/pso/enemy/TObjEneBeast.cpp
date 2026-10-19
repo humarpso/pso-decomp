@@ -334,8 +334,8 @@ void TObjEneBeast::load_resources() {
         p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805D9704, lbl_805D96E4, lbl_805D96F8);
     }
     boss4_type3_instance = (u32)p;
-    draw_trail_with_colors((u8 *)beast_claw_trail_instance, (s32)(((Data_8009241C *)ene_beast_bml_resource)->f42c->f8), (s32)(((Data_8009241C *)ene_beast_bml_resource)->f430[((s32 *)beast_action_table)[13]].f4), (s32)(5), (s32)(8));
-    draw_trail_with_colors((u8 *)boss4_type3_instance, (s32)(((Data_8009241C *)ene_beast_bml_resource)->f42c->f8), (s32)(((Data_8009241C *)ene_beast_bml_resource)->f430[((s32 *)beast_action_table)[17]].f4), (s32)(10), (s32)(13));
+    draw_trail_with_colors((u8 *)beast_claw_trail_instance, (s32)(((Data_8009241C *)ene_beast_bml_resource)->f42c->f8), (s32)(((Data_8009241C *)ene_beast_bml_resource)->f430[((s32 *)beast_action_table)[13]].f4), 5, 8);
+    draw_trail_with_colors((u8 *)boss4_type3_instance, (s32)(((Data_8009241C *)ene_beast_bml_resource)->f42c->f8), (s32)(((Data_8009241C *)ene_beast_bml_resource)->f430[((s32 *)beast_action_table)[17]].f4), 10, 13);
     ene_beast_boss_id_buffer = (u32)mem_alloc(0xC);
     TObjEneBeast__boss4_rock_handler_ids = (u32)mem_alloc(0xC);
     boss4_rock_pool = (u32)mem_alloc(0xC);

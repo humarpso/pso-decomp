@@ -756,7 +756,7 @@ void spawn_ground_effect__16TObjEneMerillLiaFPv(u8 *arg0) {
         if (((s32) ((f32) actor_frame_tick * (lbl_805DA2F0 * (f32) rand())) % 5) == 0) {
             temp_r3_2 = (s32)spawn_particle_effect((void *)(*(s32 *)((s8 *)temp_r3 + 4) + 0x38), 0x49);
             if (temp_r3_2 != 0) {
-                attach_particle_model((u8 *)temp_r3_2, (s32)(TParticleCtrl::get_particle_model(2)), (s32)(TParticleCtrl::get_instance()), (s32)(0), (s32)(1), (f32)TObjEneMerillLia__data_805DA2F4);
+                attach_particle_model((u8 *)temp_r3_2, (s32)(TParticleCtrl::get_particle_model(2)), (s32)(TParticleCtrl::get_instance()), 0, 1, (f32)TObjEneMerillLia__data_805DA2F4);
             }
             spawn_particle_effect((void *)(*(s32 *)((s8 *)temp_r3 + 4) + 0x38), 0xA4);
         }
