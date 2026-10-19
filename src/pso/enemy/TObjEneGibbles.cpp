@@ -460,8 +460,9 @@ void update_target__14TObjEneGibblesFPv(Obj_802DAD50 *self);
 extern "C" {
 void vfunc_6__13TUnk_804B9870FPsl();
 }
+struct GibblesBody { u8 pad[0x18]; u32 flags; u8 pad1C[0x10]; };
 extern "C" {
-void TObjEneGibbles__sub_802D8464();
+void TObjEneGibbles__sub_802D8464(TObjEneGibbles *self);
 }
 extern "C" {
 struct Gib_802DB920;
@@ -1114,6 +1115,33 @@ void TObjEneGibbles::update_action_state() {
     minimap_render_dot((void *) (arg0 + 0x38), -0x5DB4, 1, 0);
     submit_cursor_candidate(arg0, -1);
     (this->actorFlags) = (s32) ((this->actorFlags) & 0xFFDFFFFF);
+}
+
+void TObjEneGibbles__sub_802D8464(TObjEneGibbles *self) {
+    if (self->mode != 8) {
+        if (self->m_374 & 0x100) {
+            s32 i;
+            self->referenceHp = self->hp;
+            self->actorFlags &= ~0x200;
+            self->m_2dc = 0;
+            for (i = 0; i < *(s32 *)self->unk_A8; i++) {
+                ((GibblesBody *)self->m_a4)[i].flags &= ~0x04000000;
+            }
+        } else {
+            Vec v;
+            u32 pl = get_player_by_client_id((void *)self->m_2d4);
+            if (pl != 0) {
+                VecCopy(&v, (const Vec *)(pl + 0x2FC));
+                subtract_vector(&v, (u8 *)self + 0x2FC);
+                angle_difference_abs(self->rotation_y, (s32) (TObjEneGibbles__data_80472798 * atan2_float(v.x, v.z)));
+            }
+            self->mode = 8;
+            self->m_b8 = 8;
+            self->phase = 0;
+            self->actorFlags &= 0xF9DBFFFF;
+        }
+    }
+    ((GibblesBody *)self->m_a4)->flags |= 1;
 }
 
 void TObjEneGibbles::vfunc_61() {

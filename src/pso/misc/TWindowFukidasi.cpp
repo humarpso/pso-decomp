@@ -783,6 +783,29 @@ void TUnk_804CF0B8::follow_anchor() {
 }
 #pragma pop
 
+struct Fuki_80251790 {
+    u8 pad0[0x20];
+    s16 card_slot;
+    u8 pad22[0x2C - 0x22];
+    u32 flags;
+    u8 pad30[0x5C - 0x30];
+    s32 frame;
+};
+
+void TWindowFukidasi__sub_80251790(void *arg0) {
+    Fuki_80251790 *b = (Fuki_80251790 *)arg0;
+    u32 flags;
+
+    if (((TUnk_804CF0B8 *)b)->is_active() != 0 && b->frame < 0x1000000) {
+        b->frame += TWindowSubStatusDisp::get_card_window_flags(b->card_slot) + 1;
+    }
+    flags = b->flags;
+    if ((flags & 2) && (!(flags & 1) || (flags & 4))) {
+        b->flags &= ~4;
+        ((TUnk_804CF0B8 *)b)->sub_802504A8();
+    }
+}
+
 #pragma push
 #pragma fp_contract on
 void TWindowFukidasi::get_boundary_offset(s32 angle, f32 *out) {

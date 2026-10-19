@@ -5,6 +5,7 @@
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TUdpSocket.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/misc/TLobby_80429598.h"
 
 struct RecoveredGlobal_80428374_lbl_805D0A40 {
     s32 value;
@@ -42,7 +43,7 @@ struct RecoveredGlobal_8042DD70_lbl_805D1D20 {
 
 struct Rec_80426110 { u16 a; u16 b; };
 
-struct Obj_80426110 { u8 pad[0x36]; s16 count; Rec_80426110 recs[5]; };
+struct Obj_80426110 { u8 pad[0x36]; s16 count; Rec_80426110 recs[5]; u16 out[5]; };
 
 struct Msg_804264F4 { u32 f0; u32 f4; s32 f8; };
 
@@ -135,7 +136,10 @@ extern u8 lbl_805CF240[];
 s32 TLobby__sub_8042558C(void *);
 extern u8 lbl_805E1190[6];
 s32 TLobby__sub_80426660(u8 *arg0);
-void TLobby__sub_804089A8(s32, s32, void *, void *);
+s32 TLobby__sub_804089A8(s32, s32, void *, void *);
+s32 TLobby__sub_80425640(s32 len);
+s32 TLobby__sub_80426AAC(u16 key, s32 len);
+void forward_to_channel__6TLobbyFPv(void *frame, void *b);
 s32 TLobby__sub_80426440(void);
 
 #pragma push
@@ -346,6 +350,26 @@ s16 TLobby__sub_80426110(Obj_80426110 *o, u16 arg1, u16 arg2) {
     return -1;
 }
 
+void TLobby__sub_80426190(Obj_80426110 *o) {
+    s32 i;
+    s32 n = 0;
+    u16 *slot = (u16 *)o;
+    for (i = 0; i < 5; i++) {
+        if (o->recs[i].a != 0) {
+            ((Obj_80426110 *)slot)->out[0] = o->recs[i].b;
+            slot++;
+            n++;
+        }
+    }
+    for (i = n; i < 5; i++) {
+        o->out[n] = 0;
+    }
+    if (n > 0) {
+        TLobby__sub_8042BA48((s32)o->out, n);
+        TLobby__sub_8042B58C((u32)TLobby__sub_80426AAC, (s32)forward_to_channel__6TLobbyFPv);
+    }
+}
+
 #define arg0 ((s32)argp)
 s16 TLobby__sub_804262CC(void *argp) {
     s16 *var_r30;
@@ -427,6 +451,46 @@ u16 TLobby::recv_pppoe_message(s32 *arg0, u16 *arg1) {
         *arg0 = msg->f8;
         *arg1 = msg->f4;
         return msg->f4;
+    }
+    return 0;
+}
+
+static inline s16 remove_rec_80426998(u16 key) {
+    s32 i;
+    Obj_80426998 *o = ((Obj_80426998 *)&lobby_net_channel_table);
+    Rec_80426998 *p = o->recs;
+    for (i = 5; i != 0; i--, p++) {
+        if (p->a != 0 && p->b == key) {
+            p->a = 0;
+            p->b = 0;
+            o->count--;
+            return 0;
+        }
+    }
+    return -1;
+}
+
+s32 TLobby__sub_80426574(void) {
+    Obj_80426998 *o = (Obj_80426998 *)lobby_net_channel_table;
+    Rec_80426998 *p;
+    s32 i;
+    Msg_804264F4 *msg;
+
+    remove_rec_80426998(0x8864);
+    p = o->recs;
+    for (i = 5; i != 0; i--, p++) {
+        if (p->a != 0 && p->b == 0x8863) {
+            p->a = 0;
+            p->b = 0;
+            o->count--;
+            break;
+        }
+    }
+    for (;;) {
+        if (OSReceiveMessage(TLobby__pppoe_message_queue, &msg, 0) == 0) {
+            break;
+        }
+        TLobby::clear_message_entry(msg->f8);
     }
     return 0;
 }
@@ -534,20 +598,6 @@ s32 TLobby::add_multicast_address(s16 arg0, void *arg1) {
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)
-static inline s16 remove_rec_80426998(u16 key) {
-    s32 i;
-    Obj_80426998 *o = ((Obj_80426998 *)&lobby_net_channel_table);
-    Rec_80426998 *p = o->recs;
-    for (i = 5; i != 0; i--, p++) {
-        if (p->a != 0 && p->b == key) {
-            p->a = 0;
-            p->b = 0;
-            o->count--;
-            return 0;
-        }
-    }
-    return -1;
-}
 s32 TLobby::remove_rec_by_handle(s16 arg0, u16 arg1) {
     if (arg0 != 0) {
         return -0x113;
@@ -575,6 +625,33 @@ void TLobby::forward_to_channel(void *b) {
         void *q = lobby_net_channel_table;
         dispatch_received_ethernet_frame(q, this, b);
     }
+}
+
+s32 TLobby__sub_80426AAC(u16 key, s32 len) {
+    Obj_80426110 *o = (Obj_80426110 *)lobby_net_channel_table;
+    s32 i;
+    s32 ret = 0;
+    EthernetFrameHeader hdr;
+    u8 pad[4];
+
+    if (len <= 0 || len > 0x5EE) {
+        return 0;
+    }
+    for (i = 0; i < o->count; i++) {
+        if (o->recs[i].a != 0 && o->recs[i].b == key) {
+            switch (o->recs[i].a) {
+            case 1:
+                hdr.ether_type = key;
+                ret = TLobby__sub_804089A8(0, 0, (void *)(len - 4), &hdr);
+                break;
+            case 2:
+                ret = TLobby__sub_80425640(len);
+                break;
+            }
+            break;
+        }
+    }
+    return ret;
 }
 
 s32 TLobby__sub_80426B88(s16 arg0) {

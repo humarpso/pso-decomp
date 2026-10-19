@@ -172,6 +172,37 @@ s32 find_uv_animation__6TSceneFPvPv(void *task, Uv_80205DE4 *uv) {
 
 void TScene::copy_header_and_vec(void* q) { *(u16 *)&this->m_name = *(u16*)((char*)q + 0x0); *(u16*)((char*)this + 0x2) = *(u16*)((char*)q + 0x2); *(f32 *)&this->m_flags = *(f32*)((char*)q + 0x4); *(f32 *)&this->m_prev = *(f32*)((char*)q + 0x8); *(f32 *)&this->m_next = *(f32*)((char*)q + 0xc); *(f32 *)&this->m_up = *(f32*)((char*)q + 0x10); }
 
+void TScene__sub_80205ECC(void) {
+    s32 i;
+    s32 j;
+    SceneMaterialUv *uv;
+    s32 k;
+    SceneMaterialUv *uv2;
+    if (TScene__data_805D5FCC != NULL) {
+        for (i = 0; i < TScene__data_805D5FCC->count; i++) {
+            SceneMaterialSection *sections = TScene__data_805D5FCC->sections;
+            for (j = 0; j < sections[i].count; j++) {
+                if (sections[i].objects[j].flags & 0x20) {
+                    uv = sections[i].objects[j].uv;
+                    if (uv->buffer != NULL) {
+                        ((TScene *)uv->buffer)->destroy_buffers(1);
+                        uv->buffer = NULL;
+                    }
+                }
+            }
+            for (k = 0; k < sections[i].animatedCount; k++) {
+                if (sections[i].animated[k].flags & 0x20) {
+                    uv2 = sections[i].animated[k].uv;
+                    if (uv2->buffer != NULL) {
+                        ((TScene *)uv2->buffer)->destroy_buffers(1);
+                        uv2->buffer = NULL;
+                    }
+                }
+            }
+        }
+    }
+}
+
 void TScene__sub_80205FD0(void) {  }
 
 }

@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/system/memory.h"
 
 struct RecoveredGlobal_80146CB8_lbl_8050CCE8 {
     s32 value;
@@ -76,7 +77,13 @@ s16 TLobby__sub_8042315C(s16, void *);
 extern s32 lbl_805D2D00;
 extern s32 TLobby__connect_pending_flags;
 extern s32 lobby_connect_active_flag;
+s32 TLobby__sub_803F861C(void *info);
+s32 TLobby__sub_803F8470(u8 *data, s32 size);
+s32 TLobby__sub_801478C4(s32 arg0);
+s32 TLobby__sub_8014734C(s32 idx, s16 arg1);
+extern s32 actor_frame_tick;
 }
+s32 NetSetDefaultThreadPriority(s32 priority);
 
 struct Sub_801465C0 {
     u8 pad0[0x1C];
@@ -295,6 +302,37 @@ int TLobby::get_link_status_value() { return TLobby__sub_80145DB4(4); }
 extern u32 lbl_805D5700;
 extern s32 TLobby__net_session_mode;
 
+struct LinkState_801467C4 { u8 pad0[4]; s16 state; u8 pad6[0x32]; };
+
+}
+int get_link_status() {
+    LinkState_801467C4 link;
+    if (TLobby__net_session_mode == 0) {
+        if ((s16)TLobby__sub_803FB184(&link) < 0) {
+            return 0;
+        }
+        switch (link.state) {
+        case 5:
+        case 6:
+        case 7:
+        case 8:
+            return 0;
+        }
+        if (actor_frame_tick % 900 == 0 && (s16)TLobby__sub_8014677C() == 0) {
+            return 0;
+        }
+    } else {
+        if (actor_frame_tick % 900 == 0 && (s16)TLobby::get_link_status_value() == 0) {
+            return 0;
+        }
+        if ((TLobby__connect_pending_flags & 1) && TLobby::query_link_status() == 0) {
+            return 0;
+        }
+    }
+    return 1;
+}
+extern "C" {
+
 void TLobby::cleanup() {
     if ((s32) TLobby__net_session_mode != 0) {
         TLobby__sub_801469B8(this);
@@ -309,6 +347,30 @@ void TLobby::cleanup() {
         xfree__FPv((void*)lbl_805D5700);
         lbl_805D5700 = 0U;
     }
+}
+struct NetParams_80146908 { s16 a; s16 b; u16 c; u16 d; s32 e; s32 f; s32 g; s32 h; s32 i; };
+
+s32 TLobby__sub_80146908() {
+    NetParams_80146908 params;
+    s32 size;
+    NetSetDefaultThreadPriority(0x10);
+    size = TLobby__sub_803F861C(&params);
+    params.d = 1;
+    params.e = 0x1000;
+    params.f = 0x3000;
+    ((TLobby *)&params)->validate_and_store_net_params();
+    lbl_805D5700 = (u32)xmalloc(size);
+    if (lbl_805D5700 != 0) {
+        TLobby__sub_803F8470((u8 *)lbl_805D5700, size);
+    }
+    TLobby::init_network_stack();
+    TLobby__connect_pending_flags |= 8;
+    lobby_connect_active_flag = 0;
+    lbl_805D570C = 0;
+    if (TLobby__net_session_mode != 0) {
+        return TLobby::run_connect_sequence();
+    }
+    return TLobby__sub_801478C4(TLobby::init_net_session());
 }
 void TLobby__sub_801469B8(void* p) { TLobby::flush_pending_flags(); }
 void TLobby::flush_pending_flags() {
@@ -613,6 +675,25 @@ void TLobby__sub_801472F8(s16 *arg0, s16 *arg1) {
     }
     *arg0 = s.a;
     *arg1 = s.b;
+}
+
+s32 TLobby__sub_801478C4(s32 arg0) {
+    s32 count;
+    s32 result;
+    char name[0x81];
+    result = 4;
+    count = TLobby__sub_80146724();
+    for (lbl_805D5708 = 0; lbl_805D5708 < count; lbl_805D5708++) {
+        ((void *(*)(void *, s32, u32))memset)(name, 0, sizeof(name));
+        ((char *(*)(char *, const char *, u32))strncpy)(name, (const char *)TLobby__sub_80146CA0(lbl_805D5708), sizeof(name));
+        if (name[0] != 0) {
+            result = TLobby__sub_8014734C(lbl_805D5708, arg0);
+            if (TLobby__sub_801466F4(result) == 0) {
+                return result;
+            }
+        }
+    }
+    return result;
 }
 
 void TLobby__sub_80147978(void) {  }

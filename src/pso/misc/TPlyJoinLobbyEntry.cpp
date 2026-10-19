@@ -224,6 +224,14 @@ typedef char Row_TLobby__data_8050AAE8[16];
 
 typedef struct { s32 a; s32 b; } Pair_80135E7C;
 
+struct Ent_80136E68 {
+    u8 pad0[8];
+    s8 b8;
+    u8 b9;
+    char name[0x11];
+    s8 flags;
+};
+
 typedef struct { u8 pad0[5]; u8 kind; u8 pad6[6]; u8 name[0x8C]; } Ent_80135E7C;
 
 typedef struct {
@@ -391,6 +399,7 @@ extern s32 TLobby__data_805D55AC;
 extern s32 TLobby__lobby_number;
 extern s32 TLobby__data_805D55B8;
 extern void *TLobby__download_list_window;
+extern void *TLobby__card_list_window;
 extern s32 TLobby__idle_timeout_object;
 extern u32 *TLobby__data_805D6140;
 extern S12_801358B4 *TLobby__data_805D6144;
@@ -399,6 +408,9 @@ extern u32 TLobby__data_805D614C;
 extern const char TLobby__data_805DB0B0[4];
 extern u8 TLobby__sub_801371B0[];
 extern Pair_80135E7C lbl_8043EE18[];
+extern Pair_80135E7C lbl_8043EE20[];
+extern u8 lbl_8043EFE4[];
+void fn_80338D58(void *list, s32 flag, const char *name, s32 arg3, s32 arg4, s32 arg5, s32 arg6, s32 arg7, s32 index);
 extern Pair_80134F9C lbl_8043EE28[];
 extern char lbl_8043EE30[];
 extern char lbl_8043EE48[];
@@ -424,6 +436,7 @@ extern s32 TLobby__event_theme_id;
 extern Mgr_801361E8 *game_protocol_instance;
 extern s32 quest_download_active;
 extern const f32 lbl_805DB0A8;
+extern const f32 lbl_805DB0AC;
 struct VBase_18_9029aa { char pad[0x18]; };
 struct VObj_18_9029aa : VBase_18_9029aa {
     virtual void m0();
@@ -946,6 +959,19 @@ void TLobby::send_cmd_6B() {
     }
 }
 
+void TLobby__sub_80135DE4(void *msg) {
+    if (TLobby__card_list_window != 0) {
+        TWindow__close((int)TLobby__card_list_window);
+        TLobby__card_list_window = 0;
+    }
+    if (TLobby__data_805D5594 == 0x11) {
+        Pair_80135E7C p = lbl_8043EE20[0];
+        TLobby__card_list_window = set_window_mode_4__6TLobbyFPvll(get_window_layout_position(0xC9), &p, 1);
+        send_and_handle__6TLobbyFii(TLobby__card_list_window, (char *)msg + 4, 3);
+        ((TLobby *)TLobby__card_list_window)->set_field_1c(lbl_805DB0AC);
+    }
+}
+
 void open_download_list_window__6TLobbyFiPv(s32 arg0, Ent_80135E7C *arg1) {
     static void *tbl = lbl_8043EEF8;
     s32 i;
@@ -1279,6 +1305,42 @@ void handle_game_join__6TLobbyFPv(Pkt_80136C94 *pkt) {
     set_area__6TLobbyFl(lbl_80515BA0, 0, 0);
     TLobby::set_flag_and_update();
     mark_area_change_pending();
+}
+
+void TLobby__sub_80136E68(s32 count, Ent_80136E68 *entries, Ent_80136E68 *selected) {
+    static void *tbl = lbl_8043EFE4;
+    void *w;
+    s32 i;
+
+    if (TLobby__list_window != 0) {
+        queue_destruction__7TObjectFv(TLobby__list_window);
+        TLobby__list_window = 0;
+    }
+    w = TLobby::create_object(tbl);
+    for (i = 0; i < count; i++) {
+        Ent_80136E68 *e = &entries[i];
+        s32 flags = e->flags;
+        s8 mark = 0;
+        s32 level;
+        if (flags & 0x10) {
+            mark = 2;
+        }
+        if (flags & 0x20) {
+            mark = 1;
+        }
+        level = 0;
+        if (flags & 0x40) {
+            level = 1;
+        }
+        if (flags & 0x80) {
+            level = 2;
+        }
+        fn_80338D58(w, flags & 2, e->name, (s8)e->b9, 4, (s8)(e->b8 - 0x22), mark, level, i);
+    }
+    calc_list_content_extent(w);
+    TLobby__list_window = w;
+    memset(lbl_8050AAD4, 0, 0x11);
+    strncpy((char *)lbl_8050AAD4, selected->name, 0x11);
 }
 
 void open_information_list__6TLobbyFiPv(s32 arg0, Ent_80136FA0 *arg1) {

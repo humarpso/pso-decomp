@@ -1,6 +1,7 @@
 #include "types.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TLoadCtrl.h"
 
 struct RecoveredGlobal_8022727C_lbl_804CB850 {
     s32 value;
@@ -160,6 +161,49 @@ void update_sound_request_slots(void) {
 
 int TLobby__sub_80226B64(void) { TLobby::update_lobby_subsystems(); TLobby::init_layout_positions(); TLobby__sub_80226308(); lbl_805D62B4 = 0; lbl_805D62B8 = 0; lbl_805D62B0 = 1; return 0; }
 
+extern "C" {
+extern s8 lbl_805D6278;
+extern s32 lbl_805D6280;
+extern s32 lbl_805D6294;
+extern s32 lbl_805D62A8;
+extern s32 lbl_805D62BC;
+extern s32 lbl_805D62C0;
+extern s32 lbl_805D62C4;
+extern s32 lbl_805D62C8;
+extern s16 lbl_805D62CC;
+extern s8 lbl_805D62CE;
+extern s8 lbl_805D62CF;
+extern s8 lbl_805D62D0;
+extern s8 lbl_805D62D1;
+extern u8 lbl_80514C30[0x20];
+
+s32 TLobby__sub_80226BA4(void) {
+    s32 i;
+    lbl_805D6278 = 0;
+    lbl_805D62C4 = 0;
+    lbl_805D62CC = 0;
+    lbl_805D62C8 = 0;
+    lbl_805D62C0 = 0;
+    lbl_805D62BC = 0;
+    lbl_805D62D0 = 0;
+    lbl_805D62CE = 0;
+    lbl_805D62CF = 0;
+    lbl_805D62D1 = 0;
+    lbl_805D62B0 = 1;
+    lbl_805D6279 = 0;
+    lbl_805D62B8 = 0;
+    lbl_80514C30[0] = 0;
+    lbl_805D6280 = 0;
+    lbl_805D62A8 = 0;
+    lbl_805D6294 = 0;
+    TLobby::init_layout_positions();
+    for (i = 0; i < 40; i++) {
+        lbl_805145F0[i].flags = 1;
+    }
+    return 1;
+}
+}
+
 extern "C" char lbl_80514D00[2][0x20];
 u8 *TLobby::get_current_slot_entry() {
     if ((s32) lbl_805D62E4 == 1) {
@@ -205,7 +249,27 @@ void TLobby::release_bgm_resource() {
     }
 }
 
-u8 lbl_80514C60[0x80];
+extern void *lbl_80514C60[];
+extern const char *lbl_804CB85C[];
+int get_music_base_gain(void);
+
+void TLoadCtrl__sub_80226DA0(s32 index) {
+    if (index < 0 || index >= 4) {
+        return;
+    }
+    if (lbl_805D6330 == 0) {
+        void *buf;
+        TLoadCtrl::step();
+        /* the original marks the stream busy while evaluating the call's arguments */
+        ((void (*)(const char *, void *))TLobby::set_stream_state)(lbl_804CB85C[index],
+                                                                    (lbl_805D6330 = 1, buf = lbl_80514C60[0]));
+        ((TLobby *)lbl_804CB850[1])->adxt_start_mem_idx((u8 *)buf, 0);
+        set_field_40_and_notify__6TLobbyFs(lbl_804CB850[1], get_music_base_gain());
+        TLobby__sub_803C94DC(lbl_804CB850[1], 0);
+    }
+}
+
+void *lbl_80514C60[0x20];
 __declspec(section ".data") s32 lbl_80514CE0[2];
 __declspec(section ".data") s32 lbl_80514CE8[2];
 __declspec(section ".data") s32 lbl_80514CF0[2];

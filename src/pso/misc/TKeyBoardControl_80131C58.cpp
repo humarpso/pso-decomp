@@ -73,6 +73,7 @@ extern RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270 TKeyBoardControl
 u8 TKeyBoardControl__sub_8013239C(K_8013239C *arg0, u8 arg1);
 s32 TKeyBoardControl__sub_801323C8(K_801323C8 *arg0, u8 arg1);
 void TKeyBoardControl__sub_80132598(Kb_80132650 *, u8, u32 *);
+extern u32 lbl_804A6ED0[4];
 void TKeyBoardControl__sub_80132650(Kb_80132650 *kb);
 
 void render__16TKeyBoardControlFv(void) {  }
@@ -285,6 +286,24 @@ void TKeyBoardControl::tick_key_repeat_timer(u8 arg1) {
         if (q->key == 0) {
             q->key = arg1;
             q->timer = 0x23;
+        }
+    }
+}
+
+void TKeyBoardControl__sub_80132598(Kb_80132650 *kb, u8 key, u32 *pressed) {
+    if (key != 0) {
+        s32 code = key & 0x7F;
+        s32 word = code / 32;
+        u32 bit = 1 << (code % 32);
+        s32 valid = bit & lbl_804A6ED0[word];
+        if (!(key & 0x80)) {
+            if (valid != 0) {
+                if (!(bit & (kb->tab[word] | pressed[(u32)word]))) {
+                    ((TKeyBoardControl *)kb)->push_key_to_buffer(key);
+                }
+                ((TKeyBoardControl *)kb)->tick_key_repeat_timer(key);
+            }
+            pressed[word] |= bit;
         }
     }
 }

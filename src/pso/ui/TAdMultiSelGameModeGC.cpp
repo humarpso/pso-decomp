@@ -14,6 +14,9 @@ TAdMultiSelGameModeGC::~TAdMultiSelGameModeGC() {}
 #include "pso/TLevelSelect.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubComCard.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801334D4.h"
 
 struct Self_80300770 {
     u8 pad0[0x1C];
@@ -88,6 +91,9 @@ extern Pos3_803001B4 multi_sel_game_mode_position;
 extern Arr3_803001B4 lbl_80474EEC;
 extern Arr3_803001B4 multi_sel_game_mode_arr3;
 extern const f32 lbl_805DEF40;
+extern u8 controller_input_state[];
+s32 TWindowShortListCtrl__check_controller_button(void *, s32);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 
 void TAdMultiSelGameModeGC::render() {  }
 
@@ -146,6 +152,34 @@ void TAdMultiSelGameModeGC::update_transition_state() {
         TAdMultiChgGameModeGC::begin_change_game_mode();
         return;
     }
+}
+
+void TAdMultiSelGameModeGC__sub_80300648(Obj_8030095C *self) {
+    self->f24 = TAdSinglePlyChrSelectGC__sub_801334DC(self->f3C);
+    if (self->f28 != self->f24) {
+        ((TAdMultiPlyChrSelectGC *)self->f40)->set_entry_value(0, get_localized_text_entry(0x18, self->f24));
+    }
+    if (self->f2C != NULL) {
+        ((TObject *)self->f2C)->queue_destruction();
+        self->f2C = NULL;
+    }
+    if (TWindowShortListCtrl__check_controller_button(&controller_input_state[0x20], 2) != 0 ||
+        test_flag_4c__23TAdSinglePlyChrSelectGCFv(&controller_input_state[0x160], 2) != 0) {
+        self->f1C = 3;
+    } else if (((TAdSinglePlyChrSelectGC *)self->f3C)->get_selected_slot() == 1) {
+        switch (TAdSinglePlyChrSelectGC__sub_801334DC(self->f3C)) {
+        case 0:
+        case 1:
+        case 2:
+            self->f2C = (void *)((TAdMultiSelGameModeGC *)self)->build_mode_menu(TAdSinglePlyChrSelectGC__sub_801334DC(self->f3C));
+            self->f1C = 2;
+            break;
+        case 3:
+            self->f1C = 4;
+            break;
+        }
+    }
+    self->f28 = self->f24;
 }
 
 void TAdMultiSelGameModeGC__sub_80300764(void* p) { *(s32*)((char*)p + 0x1c) = 1; }

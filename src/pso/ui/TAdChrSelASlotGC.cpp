@@ -15,6 +15,8 @@
 #include "pso/ui/TAdChrSelSlotGC.h"
 #include "pso/ui/TAdMcSelectGC.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
+#include "pso/misc/TWindowSubComCard_80265410.h"
+#include "pso/misc/TQuestThread.h"
 
 struct RecoveredGlobal_8030DE58_lbl_80475808 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8030DE58_lbl_80475808_size[sizeof(RecoveredGlobal_8030DE58_lbl_80475808) == 0x10 ? 1 : -1];
@@ -86,7 +88,11 @@ void TAdChrSelASlotGC__sub_8030CBD0(void);
 void TAdChrSelASlotGC__sub_8030CBD4(void);
 void TAdChrSelASlotGC__sub_8030CCE0(void);
 void TAdChrSelASlotGC__sub_8030D5DC(void *arg0);
-u32 TAdChrSelASlotGC__sub_8030CB08(void *, s32, s32);
+u32 TAdChrSelASlotGC__sub_8030CB08(void *arg0, s32 kind, s32 text);
+s32 TAdChrSelASlotGC__sub_8030C4F8(TAdChrSelASlotGC *self, s32 kind);
+s32 TAdChrSelASlotGC__sub_8030C5C0(TAdChrSelASlotGC *self, s32 kind);
+s32 TAdChrSelASlotGC__sub_8030C688(TAdChrSelASlotGC *self, s32 kind);
+s32 check_room_seq_4__16TAdChrSelASlotGCFl(void *pos, s32 arg1);
 s32 TAdChrSelSlotGC__sub_802C7498(s32, s32);
 s32 TAdSubPlyItemGC__sub_802D6D88(s32);
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -126,6 +132,63 @@ G_8030C45C *TAdChrSelASlotGC__sub_8030C45C(s32 arg0, s32 arg1, s32 i, void *arg3
     chr_select_a_slot_entry.c = e != NULL ? e->y + 1 : 0;
     ((TWindowSubSymbolChatPartsSet *)(chr_select_a_slot_entry.v))->copy_vec2(arg3);
     return &chr_select_a_slot_entry;
+}
+
+s32 TAdChrSelASlotGC__sub_8030C4F8(TAdChrSelASlotGC *self, s32 kind) {
+    V2_8030C750 pos;
+    s32 w;
+    switch (kind) {
+    case 0:
+        ((TWindowSubSymbolChatPartsSet *)(&pos))->copy_vec2(*(s32 *)self->_pad20 == 2 ? TAdChrSelASlotGC__data_804758B0 : TAdChrSelASlotGC__data_804758A8);
+        break;
+    case 1:
+        ((TWindowSubSymbolChatPartsSet *)(&pos))->copy_vec2(TAdChrSelASlotGC__data_804758B8);
+        break;
+    }
+    w = check_room_seq_4__16TAdChrSelASlotGCFl(&pos, 1);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)w, get_localized_text_entry(0x16, kind + 0x2B), 0x20, 0);
+    ((TAdChrSelASlotGC *)w)->set_flag_40();
+    set_status_flag_80__12TQuestThreadFPv((void *)w);
+    ((TWindowSubComCard *)w)->calc_layout_height(TAdChrSelASlotGC__data_805DF208);
+    return w;
+}
+
+s32 TAdChrSelASlotGC__sub_8030C5C0(TAdChrSelASlotGC *self, s32 kind) {
+    V2_8030C750 pos;
+    s32 w;
+    switch (kind) {
+    case 0:
+        ((TWindowSubSymbolChatPartsSet *)(&pos))->copy_vec2(*(s32 *)self->_pad20 == 2 ? TAdChrSelASlotGC__data_804758B0 : TAdChrSelASlotGC__data_804758A8);
+        break;
+    case 1:
+        ((TWindowSubSymbolChatPartsSet *)(&pos))->copy_vec2(TAdChrSelASlotGC__data_804758B8);
+        break;
+    }
+    w = check_room_seq_4__16TAdChrSelASlotGCFl(&pos, 1);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)w, get_localized_text_entry(0x16, kind + 0x29), 0x20, 0);
+    ((TAdChrSelASlotGC *)w)->set_flag_40();
+    set_status_flag_80__12TQuestThreadFPv((void *)w);
+    ((TWindowSubComCard *)w)->calc_layout_height(TAdChrSelASlotGC__data_805DF208);
+    return w;
+}
+
+s32 TAdChrSelASlotGC__sub_8030C688(TAdChrSelASlotGC *self, s32 kind) {
+    V2_8030C750 pos;
+    s32 w;
+    switch (kind) {
+    case 0:
+        ((TWindowSubSymbolChatPartsSet *)(&pos))->copy_vec2(*(s32 *)self->_pad20 == 2 ? TAdChrSelASlotGC__data_804758B0 : TAdChrSelASlotGC__data_804758A8);
+        break;
+    case 1:
+        ((TWindowSubSymbolChatPartsSet *)(&pos))->copy_vec2(TAdChrSelASlotGC__data_804758B8);
+        break;
+    }
+    w = check_room_seq_4__16TAdChrSelASlotGCFl(&pos, 1);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)w, get_localized_text_entry(0x16, kind + 0x27), 0x20, 0);
+    ((TAdChrSelASlotGC *)w)->set_flag_40();
+    set_status_flag_80__12TQuestThreadFPv((void *)w);
+    ((TWindowSubComCard *)w)->calc_layout_height(TAdChrSelASlotGC__data_805DF208);
+    return w;
 }
 
 s32 TAdChrSelASlotGC::open_confirm_message(s32 arg1, s32 arg2) {
@@ -203,6 +266,26 @@ s32 TAdChrSelASlotGC__sub_8030CA84(s32 arg0, s32 arg1) {
     free_member__17TWindowSubComCardFv(temp_r31, 1);
     ((TWindowSubComCard *)temp_r31)->free_windows();
     return temp_r31;
+}
+
+u32 TAdChrSelASlotGC__sub_8030CB08(void *arg0, s32 kind, s32 text) {
+    TAdChrSelASlotGC *self = (TAdChrSelASlotGC *)arg0;
+    V2_8030C750 pos;
+    s32 w;
+    switch (kind) {
+    case 0:
+        ((TWindowSubSymbolChatPartsSet *)(&pos))->copy_vec2(*(s32 *)self->_pad20 == 2 ? TAdChrSelASlotGC__data_804758B0 : TAdChrSelASlotGC__data_804758A8);
+        break;
+    case 1:
+        ((TWindowSubSymbolChatPartsSet *)(&pos))->copy_vec2(TAdChrSelASlotGC__data_804758B8);
+        break;
+    }
+    w = check_room_seq_4__16TAdChrSelASlotGCFl(&pos, 1);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)w, get_localized_text_entry(0x16, text), 0x21, 0);
+    ((TAdChrSelASlotGC *)w)->set_flag_40();
+    set_status_flag_80__12TQuestThreadFPv((void *)w);
+    ((TWindowSubComCard *)w)->calc_layout_height(TAdChrSelASlotGC__data_805DF208);
+    return (u32)w;
 }
 
 void TAdChrSelASlotGC__sub_8030CBD0(void) {  }

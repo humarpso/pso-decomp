@@ -139,7 +139,7 @@ extern s32 lbl_805D7B14;
 extern s16 lbl_805D7B18;
 void TLobby__sub_80424CA8(void);
 extern u8 lbl_805CF240[];
-s32 TLobby__sub_804251C0(s32, void *);
+s32 TLobby__sub_804251C0(s16, void *);
 extern s32 lbl_805D4820;
 extern volatile s32 lbl_805D7BA0;
 
@@ -151,12 +151,31 @@ extern u32 lbl_805D7B28;
 extern u8 lbl_805D7B4C[4];
 extern u8 lbl_805D7B50[4];
 s16 TLobby__sub_803F96AC(u32*);
+struct DhcpOption_804FD948 {
+    s16 id;
+    s16 present;
+    s16 kind;
+    s16 size;
+    void *data;
+};
+extern DhcpOption_804FD948 lbl_804FD948[12];
+void TLobby__sub_803F97E8(s32);
+s16 TUdpSocket__sub_80421DEC(void *, int, void *, int, int, s32 (*)(s16, Arg_804249F0 *));
+void NetMemset(void *, int, int);
+s32 TLobby__sub_80424DCC(s16, s32, s32, void *, void *, void *, void *, s32);
+s32 dhcp_handle_reply__6TLobbyFsPv(s16 arg0, Arg_804249F0 *arg1);
+extern void *lbl_805D7B40;
+extern void *lbl_805D7B44;
+extern void *lbl_805D7B48;
+extern s32 lbl_805D7B54;
+extern s32 lbl_805D7B58;
+extern s32 lbl_805D7B74;
 
 s32 TLobby::get_task_count() {
     return lbl_805D4820;
 }
 
-void TLobby__sub_80425288(s32, s32, void *);
+s32 TLobby__sub_80425288(s16, s16, void *);
 extern u32 lbl_805D7B64;
 extern u32 lbl_805D7B68;
 extern u32 lbl_805D7B6C;
@@ -198,6 +217,24 @@ void TLobby::parse_dhcp_lease_times() {
     }
 }
 
+s32 TLobby__sub_8042474C(void *lease, void *renew, void *rebind) {
+    lbl_805D7BA0 = 0;
+    if ((*(volatile s32 *)&lbl_805D4820) == 3 || (*(volatile s32 *)&lbl_805D4820) == 4 || (*(volatile s32 *)&lbl_805D4820) == 5) {
+        if (TLobby__sub_804251C0(7, lease) != 0) {
+            lbl_805D7BA0 = 0x11;
+        }
+        if (TLobby__sub_804251C0(8, renew) != 0 && lbl_805D7BA0 == 0) {
+            lbl_805D7BA0 = 0x12;
+        }
+        if (TLobby__sub_804251C0(9, rebind) != 0 && lbl_805D7BA0 == 0) {
+            lbl_805D7BA0 = 0x13;
+        }
+        return 0;
+    }
+    lbl_805D7BA0 = 2;
+    return -1;
+}
+
 u8 find_dhcp_option__6TLobbyFPvUcPv(u8 *p, u8 tag, u8 **out) {
     u8 *base = p;
     u8 t;
@@ -218,6 +255,18 @@ u8 find_dhcp_option__6TLobbyFPvUcPv(u8 *p, u8 tag, u8 **out) {
         }
         len = *p++;
         p += len;
+    }
+    return 0;
+}
+
+s32 TLobby__sub_8042489C(void *, void *out) {
+    lbl_805D7BA0 = 0;
+    if ((*(volatile s32 *)&lbl_805D4820) != 3 && (*(volatile s32 *)&lbl_805D4820) != 4 && (*(volatile s32 *)&lbl_805D4820) != 5) {
+        lbl_805D7BA0 = 2;
+        return -1;
+    }
+    if (TLobby__sub_804251C0(6, out) != 0) {
+        lbl_805D7BA0 = 0x10;
     }
     return 0;
 }
@@ -315,6 +364,144 @@ void TLobby__sub_80424CA8(void) {
     lbl_805D7B14 = TLobby__sub_804250A8(0);
 }
 
+s32 TLobby__sub_80424CF4(void *, void *, s32 timeout) {
+    s32 state;
+    *(volatile s32 *)&lbl_805D4820 = 6;
+    *(volatile s32 *)&lbl_805D7B0C = 0;
+    lbl_805D7B74 = timeout;
+    lbl_805D7BA0 = 0;
+    do {
+        state = *(volatile s32 *)&lbl_805D4820;
+        TLobby__sub_803F97E8(0x10);
+    } while (state == 6);
+    if (state != 0) {
+        return -1;
+    }
+    return 0;
+}
+
+s32 TLobby__sub_80424D58(s16 a0, s32 a1, s32 a2, void *a3, void *a4, void *a5, void *a6, s32 a7) {
+    s32 state;
+    if (TLobby__sub_80424DCC(a0, a1, a2, a3, a4, a5, a6, a7) != 0) {
+        return -1;
+    }
+    do {
+        state = lbl_805D4820;
+        TLobby__sub_803F97E8(0x10);
+    } while (state == 1 || state == 2);
+    if (state == -1) {
+        return 1;
+    }
+    if (state == -2) {
+        return -1;
+    }
+    return 0;
+}
+
+s32 TLobby__sub_80424DCC(s16, s32 a1, s32 a2, void *, void *a4, void *a5, void *a6, s32 a7) {
+    lbl_805D7BA0 = 0;
+    if (*(volatile s32 *)&lbl_805D4820 != 0) {
+        lbl_805D7BA0 = 2;
+        return -1;
+    }
+    if (a4 == NULL || a5 == NULL || a6 == NULL) {
+        lbl_805D7BA0 = 1;
+        return -1;
+    }
+    lbl_805D7B40 = a4;
+    lbl_805D7B44 = a5;
+    lbl_805D7B48 = a6;
+    lbl_805D7B54 = a1;
+    lbl_805D7B58 = a2;
+    lbl_805D7B74 = a7;
+    *(volatile s32 *)&lbl_805D4820 = 1;
+    *(volatile s32 *)&lbl_805D7B0C = 0;
+    return 0;
+}
+
+s32 TLobby__sub_80424FE0(void) {
+    s32 addr[7];
+    u8 unused[4];
+    if ((*(volatile s32 *)&lbl_805D4820) == 4 || (*(volatile s32 *)&lbl_805D4820) == 5 || (*(volatile s32 *)&lbl_805D4820) == 6) {
+        if (lbl_805D7B18 > -1) {
+            TLobby__sub_80421B3C(lbl_805D7B18);
+        }
+        addr[0] = 4;
+        addr[1] = 0;
+        if ((lbl_805D7B18 = TUdpSocket__sub_80421DEC(0, 0x44, addr, 0x43, 0, dhcp_handle_reply__6TLobbyFsPv)) < 0) {
+            if (*(volatile s32 *)&lbl_805D4820 == 6) {
+                lbl_805D7B14 = TLobby__sub_804250A8(0);
+            }
+            lbl_805D7BA0 = 4;
+            *(volatile s32 *)&lbl_805D7B0C = -1;
+            *(volatile s32 *)&lbl_805D4820 = -2;
+            return -1;
+        }
+    }
+    return 0;
+}
+
+s32 TLobby__sub_804251C0(s16 id, void *out) {
+    DhcpOption_804FD948 *tbl = lbl_804FD948;
+    s32 result = -1;
+    s32 i;
+    for (i = 0; i < 12; i++) {
+        if (id == tbl[i].id) {
+            if (tbl[i].present != 0) {
+                result = 0;
+            }
+            if (out != NULL) {
+                switch (tbl[i].kind) {
+                case 0:
+                    ((TLobby *)out)->copy_string(tbl[i].data);
+                    break;
+                case 1:
+                    NetMemcpy(out, tbl[i].data, tbl[i].size);
+                    break;
+                }
+            }
+            break;
+        }
+    }
+    return result;
+}
+
+s32 TLobby__sub_80425288(s16 id, s16 len, void *value) {
+    DhcpOption_804FD948 *tbl = lbl_804FD948;
+    s32 result = -1;
+    s32 i;
+    for (i = 0; i < 12; i++) {
+        if (id == tbl[i].id) {
+            result = 0;
+            switch (tbl[i].kind) {
+            case 0:
+            case 1:
+                if (value != NULL) {
+                    tbl[i].present = 1;
+                    NetMemcpy(tbl[i].data, value, tbl[i].size);
+                    if (tbl[i].kind == 0) {
+                        u8 *end = (u8 *)tbl[i].data;
+                        if (len < tbl[i].size) {
+                            end += len;
+                        } else {
+                            end += tbl[i].size - 1;
+                        }
+                        *end = 0;
+                    }
+                } else {
+                    tbl[i].present = 0;
+                    if (len > 0) {
+                        NetMemset(tbl[i].data, 0, tbl[i].size);
+                    }
+                }
+                break;
+            }
+            break;
+        }
+    }
+    return result;
+}
+
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)
@@ -350,6 +537,52 @@ void TLobby::release_entry_by_id(u32 arg0) {
         e->in_use = 0;
         e->queued_length = 0;
     }
+}
+
+static inline u8 *alloc_packet_buffer(u32 size) {
+    s16 i;
+    u8 *buf = NULL;
+    if (size > NETWORK_PACKET_BUFFER_BYTES) {
+        return NULL;
+    }
+    for (i = 0; i < NETWORK_PACKET_BUFFER_COUNT; i++) {
+        if (network_packet_buffer_descriptors[i].in_use == 0) {
+            network_packet_buffer_descriptors[i].in_use = 1;
+            buf = network_packet_buffer_descriptors[i].data;
+            break;
+        }
+    }
+    if (i >= NETWORK_PACKET_BUFFER_COUNT) {
+        return NULL;
+    }
+    return buf;
+}
+
+u8 *TLobby__sub_8042558C(u32 size) {
+    u8 *buf;
+    TLobby::lock_mutex((int)((void *)lbl_805D7BA8));
+    buf = alloc_packet_buffer(size);
+    TUdpSocket::unlock_mutex((int)((void *)lbl_805D7BA8));
+    return buf;
+}
+
+u8 *TLobby__sub_80425640(u32 size) {
+    s16 i;
+    u8 *buf = NULL;
+    if (size > NETWORK_PACKET_BUFFER_BYTES) {
+        return NULL;
+    }
+    for (i = 0; i < NETWORK_PACKET_BUFFER_COUNT; i++) {
+        if (network_packet_buffer_descriptors[i].in_use == 0) {
+            network_packet_buffer_descriptors[i].in_use = 1;
+            buf = network_packet_buffer_descriptors[i].data;
+            break;
+        }
+    }
+    if (i >= NETWORK_PACKET_BUFFER_COUNT) {
+        return NULL;
+    }
+    return buf;
 }
 #pragma pop
 

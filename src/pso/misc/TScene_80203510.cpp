@@ -464,6 +464,34 @@ void TScene::render() {
 #pragma pop
 
 extern "C" {
+s32 get_main_phase(void);
+
+s32 TScene__sub_80205874(void *) {
+    if (TScene__data_805D6020 != NULL) {
+        return 2;
+    }
+    if (TScene__data_805D5FE0 == 1) {
+        return 3;
+    }
+    s32 phase = get_main_phase();
+    if (phase == 14) {
+        if (is_split_screen() == 1 && TOKeyMachine01::get_global_state() == 1) {
+            return 1;
+        }
+        return 0;
+    } else if (phase == 15) {
+        switch (TOKeyMachine01::get_global_state()) {
+        case 1:
+        case 2:
+            return 1;
+        }
+        return 0;
+    }
+    return 0;
+}
+}
+
+extern "C" {
 void TScene::render_map_sections() {
     SceneMaterialSection *sec;
     s32 i;

@@ -273,6 +273,23 @@ void TWindowDD::set_item_pos(s32 i) {
     }
 }
 
+extern "C" {
+s16 TWindowDD__sub_8034214C(u8 *arg0);
+
+TWindowDD *TWindowDD__sub_80347980(TWindowDD *self) {
+    W_80347C50 *w = (W_80347C50 *)self;
+    TWindowDD *child;
+    if (w->depth > 0) {
+        child = w->child[w->depth - 1];
+        if (child != NULL) {
+            self->update((s32)child);
+            w->f88 = TWindowDD__sub_8034214C((u8 *)child);
+        }
+    }
+    return child;
+}
+}
+
 u8 *TWindowDD::init_last_child() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;

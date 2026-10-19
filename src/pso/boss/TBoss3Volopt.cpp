@@ -121,8 +121,6 @@ struct RecoveredGlobal_8003C7EC_lbl_80483578 {
     u8 remaining[0x14];
 };
 
-struct RecoveredGlobal_8003C8B4_lbl_804FEEAC { s32 value; u8 remaining[0x10]; };
-
 typedef char RecoveredGlobal_8003C7EC_lbl_80483578_size[sizeof(RecoveredGlobal_8003C7EC_lbl_80483578) == 0x18 ? 1 : -1];
 
 struct Obj_8003CA2C { u8 pad[4]; s16 mode; };
@@ -176,13 +174,7 @@ struct RecoveredGlobal_8003DC34_lbl_80436318 { char value[0xD]; };
 
 typedef char RecoveredGlobal_8003DC34_lbl_80436318_size[sizeof(RecoveredGlobal_8003DC34_lbl_80436318) == 0xD ? 1 : -1];
 
-struct RecoveredGlobal_8003DC34_lbl_804FEE68 { s32 value; u8 remaining[0x8]; };
-
-typedef char RecoveredGlobal_8003DC34_lbl_804FEE68_size[sizeof(RecoveredGlobal_8003DC34_lbl_804FEE68) == 0xC ? 1 : -1];
-
 struct RecoveredGlobal_8003EFF0___vt__12TBoss3Volopt { s32 value; u8 remaining[0x148]; };
-
-struct RecoveredGlobal_8003EFF0_lbl_804FEE68 { s32 value; u8 remaining[0x8]; };
 
 struct S_8003EF38 { u8 pad0[0x18]; void *vt; };
 
@@ -203,6 +195,9 @@ void TLobby__sub_8001FE7C(void*, int);
 void * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void fn_8003C7EC(void);
 s32 TObjPlayer__sub_8003C964();
+s16 obj_getS16_32C(u8 *p);
+s32 get_current_floor(void);
+extern const f32 lbl_805D86AC;
 void handle_6x85_vol_opt_phase2_boss_actions(Obj_8003CA2C *self);
 bool is_volopt_death_active(void);
 void send_position_message__12TBoss3VoloptFPvPvi(void *obj, V3_8003CC18 *pos, s32 arg);
@@ -210,7 +205,10 @@ void fn_8003CFEC(int a0);
 int TCameraCtrl__sub_8003CFF4(void);
 int TCameraCtrl__sub_8003D1E8(void * _w0);
 s32 TCameraCtrl__sub_8003D2C4(void);
-int TBoss3Volopt__sub_8003EA2C(void*);
+void TBoss3Volopt__sub_8003EA2C(s32 phase2);
+u16 TObjRoomId__sub_801A1DB8(u16 room);
+extern V3_8003CC18 lbl_804837AC[4];
+extern s32 lbl_804837DC[4];
 S_8003EF38 * __dt__12TBoss3VoloptFv(S_8003EF38 *o, s16 flag);
 u8 *TBoss3Volopt__ct(TBoss3Volopt *arg0, s32 arg1);
 void bswap_position__12TBoss3VoloptFPv(void* p);
@@ -260,7 +258,7 @@ extern RecoveredGlobal_8003C7EC_lbl_80483578 lbl_80483578;
 extern u8 bm_boss3_volopt_resource_descriptor[];
 extern u8 boss3_volopt_resource_desc[];
 extern RecoveredGlobal_8003D648_lbl_8048377C boss3_volopt_intro_camera_poses;
-extern RecoveredGlobal_8003C8B4_lbl_804FEEAC lbl_804FEEAC;
+extern TObjPlayer *lbl_804FEEAC[5];
 extern s32 lbl_805D2714;
 extern u16 lbl_805D271A;
 extern s32 lbl_805D2720;
@@ -288,29 +286,76 @@ extern const f32 lbl_805D865C;
 extern const f32 lbl_805D8678;
 extern s32 tl_04;
 
-u32 boss3_volopt_spawn_pos[3];
+Vec boss3_volopt_spawn_pos;
 __declspec(section ".data") s32 boss3_volopt_player_target_ids[2];
 f32 lbl_804FEE7C[3];
 f32 lbl_804FEE88[3];
 f32 lbl_804FEE94[3];
 f32 lbl_804FEEA0[3];
-#define boss3_volopt_spawn_pos (*(RecoveredGlobal_8003DC34_lbl_804FEE68 *)boss3_volopt_spawn_pos)
 
 void fn_8003C7EC(void) {
     *(f32 *)((s8 *)&lbl_80483578.value + 4) = (f32) lbl_805D825C;
     *(f32 *)((s8 *)&lbl_80483578.value + 0x10) = (f32) lbl_805D825C;
 }
 
+u16 fn_8003C804(void) {
+    s32 best_value;
+    TObjPlayer *best;
+    s32 i;
+    TObjPlayer *p;
+
+    if (TObjPlayer__sub_8003C964() == 0) {
+        return 0xFFFF;
+    }
+    best_value = 0;
+    best = NULL;
+    for (i = 0; i < lbl_805D4C48; i++) {
+        p = lbl_804FEEAC[i];
+        if (p != NULL) {
+            s16 value = obj_getS16_32C((u8 *)p);
+            if (value > best_value) {
+                best_value = value;
+                best = p;
+            }
+        }
+    }
+    if (best != NULL) {
+        return obj_getField1c(best);
+    }
+    return 0xFFFF;
+}
+
 u16 fn_8003C8B4(void) {
-    u8 *temp_r3;
+    TObjPlayer *p;
     if (TObjPlayer__sub_8003C964() == 0) {
         return 0xFFFFU;
     }
-    temp_r3 = (u8 *)(*(s32 *)((s8 *)&lbl_804FEEAC.value + ((s32) ((f32) lbl_805D4C48 * (lbl_805D8658 * (f32) rand())) * 4)));
-    if (temp_r3 != NULL) {
-        return obj_getField1c(temp_r3);
+    p = lbl_804FEEAC[(s32) ((f32) lbl_805D4C48 * (lbl_805D8658 * (f32) rand()))];
+    if (p != NULL) {
+        return obj_getField1c(p);
     }
     return 0xFFFFU;
+}
+
+s32 TObjPlayer__sub_8003C964() {
+    s32 i;
+    TObjPlayer *p;
+
+    lbl_805D4C48 = 0;
+    for (i = 0; i < lbl_805D586C; i++) {
+        p = (TObjPlayer *)get_player_data__10TObjPlayerFi(i);
+        if ((p->actorFlags & 0x02000800) == 0) {
+            s32 floor = get_current_floor();
+            s32 room = p->get_field_3e4();
+            if (room == floor) {
+                lbl_804FEEAC[lbl_805D4C48++] = p;
+            }
+        }
+    }
+    for (i = lbl_805D4C48; i < 4; i++) {
+        lbl_804FEEAC[i] = NULL;
+    }
+    return lbl_805D4C48;
 }
 
 void handle_6x85_vol_opt_phase2_boss_actions(Obj_8003CA2C *self) {
@@ -870,8 +915,8 @@ void TBoss3Volopt::start_phase2() {
     if (((u8 * (*)(u16))find_entity_by_id)(lbl_805D2718) != NULL) {
         sub_800C7860__15TObjEnemyCustomFv();
     }
-    TBoss3Volopt__sub_8003EA2C((void*)(1));
-    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)((const Vec *)&boss3_volopt_spawn_pos.value))));
+    TBoss3Volopt__sub_8003EA2C(1);
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)&boss3_volopt_spawn_pos)));
     this->m_3f0 = 0;
     *(s16 *)((s8 *)arg0 + 0x3F2) = 0;
     clear_volopt_cage_flag();
@@ -883,7 +928,7 @@ void TBoss3Volopt::start_phase2() {
 void reset_vol_opt_state(void* a0) {
     *(int*)((char*)a0 + 0x3a8) = 0;
     vol_opt_active_hit_zone = -1;
-    TBoss3Volopt__sub_8003EA2C((void*)0);
+    TBoss3Volopt__sub_8003EA2C(0);
     *(int*)((char*)a0 + 0x3a4) = 4;
     *(short*)((char*)a0 + 0x3f0) = 0;
     *(short*)((char*)a0 + 0x3f2) = 0;
@@ -1356,6 +1401,41 @@ void TBoss3Volopt__sub_8003E584(void *arg0_) {
 }
 #undef F
 
+void TBoss3Volopt__sub_8003EA2C(s32 phase2) {
+    s32 allowed;
+    s32 i;
+    TObjPlayer *p;
+    f32 z;
+
+    boss3_volopt_spawn_pos.x = lbl_805D8660;
+    boss3_volopt_spawn_pos.y = lbl_805D8660;
+    z = lbl_805D8660;
+    if (phase2 != 0) {
+        z = lbl_805D86AC;
+    }
+    boss3_volopt_spawn_pos.z = z;
+    allowed = 0;
+    if (get_main_phase() == 0xF) {
+        if (is_local_client_floor_leader() != 0) {
+            allowed = 1;
+        }
+    } else {
+        allowed = 1;
+    }
+    if (allowed != 0) {
+        if (phase2 != 0) {
+            for (i = 0; i < lbl_805D586C; i++) {
+                p = (TObjPlayer *)get_player_data__10TObjPlayerFi(i);
+                if (p != NULL && TObjRoomId__sub_801A1DB8(obj_getField1c(p)) == 0 &&
+                    ((TBoss3Volopt *)p)->get_field_3e0() == 0xD) {
+                    send_position_message__12TBoss3VoloptFPvPvi(p, &lbl_804837AC[i], lbl_804837DC[i]);
+                }
+            }
+        }
+        TBoss3Volopt__sub_8003CE38(phase2);
+    }
+}
+
 void TBoss3Volopt::load_resources() {
     s32 v2;
     void *p;
@@ -1421,8 +1501,8 @@ u8 *TBoss3Volopt__ct(TBoss3Volopt *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2720;
     ((TBoss3Volopt *)(arg0))->apply_set_data((void *)arg1);
     arg0->reset_photon_effect();
-    TBoss3Volopt__sub_8003EA2C((void*)(0));
-    VecCopy((Vec *)((u8 *)arg0 + 0x38), (const Vec *)(VecCopy((Vec *)((u8 *)arg0 + 0x2FC), (const Vec *)(&(*(RecoveredGlobal_8003EFF0_lbl_804FEE68 *)&boss3_volopt_spawn_pos).value))));
+    TBoss3Volopt__sub_8003EA2C(0);
+    VecCopy((Vec *)((u8 *)arg0 + 0x38), (const Vec *)(VecCopy((Vec *)((u8 *)arg0 + 0x2FC), (const Vec *)&boss3_volopt_spawn_pos)));
     arg0->actorFlags = (s32) (arg0->actorFlags | 0x06040000);
     TBoss3Volopt__cage_entity_id = arg0->get_param_offset(0x20);
     lbl_805D2714 = arg0->get_adjusted_angle(0x20);

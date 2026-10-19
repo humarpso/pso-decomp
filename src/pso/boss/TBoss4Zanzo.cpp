@@ -133,6 +133,8 @@ struct Obj_80056F90 { u8 pad[0x38C]; void *target; u8 pad390[0x10]; s32 f3a0; u8
 
 struct Obj_80056FEC { u8 pad[0x38C]; void *target; u8 pad390[0x10]; s32 f3a0; u8 pad3a4[8]; s32 f3ac; s32 f3b0; u8 pad3b4[0x10]; u16 f3c4; };
 
+struct Obj_80056EA8 { u8 pad[0x3A0]; s32 yaw; s32 turn_yaw; s32 goal_yaw; s32 grid_x; s32 grid_z; u8 pad3b4[0x10]; u16 target_player; };
+
 struct Obj_80057224 { u8 pad[0x3A0]; s32 f3a0; };
 
 struct S_800578E8 {
@@ -1482,6 +1484,27 @@ extern int fold_flush_3;
 
 f32 compute_wave_offset__11TBoss4Type2Ff(f32 farg0) {
     return lbl_805D8BFC * (TBoss4Type2__data_805D8BD8 - cos_table_lookup((s32) (lbl_805D8C00 * farg0)));
+}
+
+void TBoss4Type2__sub_80056EA8(Obj_80056EA8 *self, u32 code) {
+    s32 target_bits;
+    s32 pattern;
+
+    self->yaw = self->turn_yaw = (code << 8) & 0xF000;
+    self->goal_yaw = (code << 4) & 0xF000;
+    self->grid_x = (code >> 12) & 0xF;
+    self->grid_z = (code >> 16) & 0xF;
+    target_bits = code >> 20;
+    self->target_player = target_bits & 0xF;
+    if (((code >> 20) & 0xF) == 0xF) {
+        self->target_player = 0xFFFF;
+    }
+    ((TBoss4Type2 *)self)->calc_grid_target_position();
+    pattern = code & 0xF;
+    if (pattern < 0 || pattern >= 14) {
+        return;
+    }
+    TBoss4Type2__sub_80057048(self, pattern);
 }
 
 void TBoss4Type2::send_attack_code(s32 arg1, s32 arg2) {

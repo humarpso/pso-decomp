@@ -28,7 +28,7 @@ struct Stack_800E0D1C {
 extern "C" {
 int set_field_b8__10TObjMotionFs(void*, int);
 s32 TObjEnePanarms__sub_800DFB44(s32);
-s32 TObjEnePanarms__sub_800E1C98(void *, s32);
+void TObjEnePanarms__sub_800E1C98(void *, s32);
 u8 check_can_attack__14TObjEnePanarmsFPv(void *arg0);
 s32 angle_diff_s16(s32, s32);
 s32 vec3_add_to(void *, void *);
@@ -230,7 +230,8 @@ struct Panarms_800E2200 {
     f32 fC0;
     u8 padc4[0x2FC - 0xC4];
     Vec_800E2200 pos;
-    u8 pad308[0x378 - 0x308];
+    u8 pad308[0x374 - 0x308];
+    s32 prev_state;
     s32 state;
     u8 *f37C;
     u8 pad380[4];
@@ -250,7 +251,7 @@ struct Panarms_800E2200 {
 
 typedef void (Panarms_800E2200::*Fn_800E2200)();
 
-struct Ent_800E2200 { u8 pad[0xC]; Fn_800E2200 fn; };
+struct Ent_800E2200 { Fn_800E2200 enter; Fn_800E2200 fn; };
 
 struct VBase_18_26a62c { char pad[0x18]; };
 
@@ -1304,6 +1305,23 @@ void TObjEnePanarms__sub_800E1C8C(void *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x3A0) = arg2;
 }
 #pragma pop
+
+void TObjEnePanarms__sub_800E1C98(void *panarms, s32 state) {
+    Panarms_800E2200 *self = (Panarms_800E2200 *)panarms;
+    Fn_800E2200 enter;
+    s32 *current = &self->state;
+    if (self->prev_state != self->state) {
+        self->prev_state = *current;
+    }
+    self->state = state;
+    if (self->state < 0 || self->state >= 17) {
+        return;
+    }
+    enter = TObjEnePanarms__state_fn_table[self->state].enter;
+    if (enter) {
+        (self->*enter)();
+    }
+}
 
 #pragma push
 #pragma inline_depth(1)

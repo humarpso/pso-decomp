@@ -13,6 +13,8 @@ extern "C" {
 extern char lbl_8047DCF0[];
 extern char lbl_8047DD14[];
 extern char lbl_8047DD58[];
+extern char lbl_8047DD78[];
+char *strncpy(char *dest, const char *src, unsigned long num);
 void *memset(void *dst, int val, unsigned long n);
 extern LscStream lsc_slot_table[];
 extern s32 lobby_slot_refcount;
@@ -206,6 +208,43 @@ void lsc_start(LscStream *o) {
         o->state = 1;
     }
     ((void (*)(void *))notify_dvd_read__6TLobbyFv)(lk0);
+}
+
+s32 lsc_enqueue_range(LscStream *lsc_stream, const char *filename, s32 open_mode, s32 range_offset, s32 range_length) {
+    LscQueueEntry *entry;
+    s32 id;
+    s32 prev;
+    if (lsc_stream == 0) {
+        TLobby::log_printf(lbl_8047DCF0);
+        return -1;
+    }
+    if (lsc_stream->queued_count >= 16) {
+        return -1;
+    }
+    if (filename == 0) {
+        TLobby::log_printf(lbl_8047DD78, filename);
+        return -1;
+    }
+    prev = lsc_stream->entries[(lsc_stream->write_index + 15) % 16].stream_id;
+    if (prev == 0x7FFFFFFF) {
+        id = 0;
+    } else {
+        id = prev + 1;
+    }
+    entry = &lsc_stream->entries[lsc_stream->write_index];
+    entry->stream_id = id;
+    strncpy(entry->filename, filename, 0x28);
+    entry->range_offset = range_offset;
+    entry->range_length = range_length;
+    entry->open_mode = open_mode;
+    entry->status = 0;
+    entry->progress = 0;
+    lsc_stream->queued_count++;
+    lsc_stream->write_index = (lsc_stream->write_index + 1) % 16;
+    if (lsc_stream->state == 1) {
+        lsc_stream->state = 2;
+    }
+    return id;
 }
 
 #pragma push

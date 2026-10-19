@@ -153,10 +153,12 @@ force_active:
   - TLobby__data_80513D10
   - TLobby__disk_error_msg_last
   - TLobby__disk_error_msg_table
+  - TLobby__pppoe_message_queue
   - TLobby__sub_800F9F08
   - TLobby__sub_803CBE40
   - TLobby__sub_803D0F1C
   - TLobby__sub_803D346C
+  - TLobby__sub_80425D88
   - TLockOnCursor__sub_8013EBBC
   - TLockOnCursor__sub_8013EBE8
   - TLockOnCursor__sub_8013EC14
@@ -1624,6 +1626,7 @@ force_active:
   - dispatch_page_update__20TWindowSubStatusDispFv
   - dispatch_quest_opcode__Fv
   - dispatch_reaction_state__10TObjPlayerFv
+  - dispatch_received_ethernet_frame__FPvPvPv
   - dispatch_state__12TObjEneReconFiUii
   - dispatch_state__13TUnk_804B5BA8Fv
   - dispatch_state__14TObjEneBm5WolfFPvUii
@@ -1953,6 +1956,7 @@ force_active:
   - format_trade_out_of_range_message__Fl
   - forward_card_at_1c__11TWindowChatFv
   - forward_chg_game_mode__17TAdEnterPPPPassGCFPv
+  - forward_to_channel__6TLobbyFPv
   - free_buffers__22TQuestVmDownLoadServerFv
   - free_char_data_slots__23TAdSinglePlyChrSelectGCFPv
   - free_chara_making__10TObjPlayerFv
@@ -2629,6 +2633,7 @@ force_active:
   - lobby_checked_read_ptr_table
   - lobby_curtain_resource_descriptor
   - lobby_font_texture_prs_data
+  - lobby_net_channel_table
   - lobby_pulse_color_table
   - lobby_pumpkin_resource_descriptor
   - lobby_suisou_resource_descriptor
@@ -2680,6 +2685,7 @@ force_active:
   - megid_projectile_weapon_vtable
   - menu_font_render_rects
   - message_tag_error
+  - message_thread_loop__6TLobbyFv
   - message_window_position
   - middleware_interrupt_lock_depth
   - middleware_saved_interrupt_state
@@ -7302,6 +7308,7 @@ force_active:
   - populate_quest_floor_sets__Fv
   - populate_sub_item_list
   - post_aram_request__16TAdWarningBaseGCFii
+  - post_message__6TLobbyFlll
   - pppoe_discovery_name_storage
   - prepare_heavy_attack_particles__FPUc
   - present_frame_and_wait_vsync__Fv
@@ -8570,6 +8577,7 @@ force_active:
   - update_emitter_positions__13TObjLobbyMainFv
   - update_entry_animation__12TAdMultiOkGCFi
   - update_entry_color__20TWindowSubStatusDispFv
+  - update_exi_status__6TLobbyFv
   - update_extension__14TOTrapChainSawFv
   - update_extension__18TOTrapChainSawEdgeFv
   - update_fade__12TChCrEffFadeFv

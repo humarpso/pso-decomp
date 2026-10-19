@@ -1901,7 +1901,7 @@ extern "C" {
 void TObjEneMe1CanadinLeader__vt108(u8 *arg0, s32 arg1);
 }
 extern "C" {
-void TObjEneMe1CanadinLeader__vt109();
+void TObjEneMe1CanadinLeader__vt109(TObjEneMe1Canadin *self, s32 mode);
 }
 extern "C" {
 void vfunc_29__13TUnk_804806E8Fv();
@@ -2254,6 +2254,30 @@ void TObjEneMe1CanadinLeader__vt110(Leader_8009AB4C *obj, s32 mode) {
         return;
     case 3:
         return;
+    }
+}
+
+void TObjEneMe1CanadinLeader__vt109(TObjEneMe1Canadin *self, s32 mode) {
+    switch (mode) {
+    case 4:
+        advance_state_5_to_4__17TObjEneMe1CanadinFPv(self);
+        self->set_field_378(4);
+        self->vfunc_96();
+        break;
+    case 3:
+        if (((Obj_8009AD18 *)self)->flags3C8 & 4) {
+            self->vfunc_105();
+        }
+        break;
+    case 0:
+        advance_animation_playback();
+        self->update_linked_position(TObjEneMe1Canadin__data_805D988C);
+        TObjEneMe1Canadin::update_move(self);
+        self->update_hover_height();
+        self->vfunc_89();
+        break;
+    case 5:
+        break;
     }
 }
 

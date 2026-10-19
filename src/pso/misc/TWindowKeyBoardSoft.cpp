@@ -53,6 +53,16 @@ struct KbSoft_8025D47C {
     s32 remain;
 };
 
+struct KbSoft_8025D664 {
+    u8 pad0[0x60];
+    u16 flags;
+    u8 pad62[0xa0 - 0x62];
+    u8 *buf;
+    u8 *cursor;
+    s32 sel;
+    s32 count;
+};
+
 struct KbSoft_8025D7FC {
     u8 pad0[0x60];
     u16 flags;
@@ -97,7 +107,7 @@ struct Quad_8025E350 {
 u8 calc_gauge_scale__20TWindowSubStatusDispFPvPvi(s32, void *, s32);
 s32 end_render_forward__20TWindowSubStatusDispFPv();
 s32 fn_8025CE00(void *, u8 *);
-s32 TWindowKeyBoardSoft__sub_8025CF50(void *, int, int);
+void TWindowKeyBoardSoft__sub_8025CF50(void *, int, int);
 void TWindowKeyBoardSoft__sub_8025CFA8(void *, s32 *);
 int TWindowKeyBoardSoft__sub_8025D1C8(void*, void*);
 s32 TWindowKeyBoardSoft__sub_8025D378(void *, void *);
@@ -105,7 +115,7 @@ s32 TWindowKeyBoardSoft__sub_8025D544(void *, s32 *, s8 *);
 void TWindowKeyBoardSoft__sub_8025D7FC(KbSoft_8025D7FC *self);
 void TWindowKeyBoardSoft__sub_8025D8C8(KbSoft_8025D8C8 *self);
 s32 TWindowKeyBoardSoft__sub_8025DBDC(void *, s32);
-s32 fn_8025DE10(void *, void *);
+void fn_8025DE10(void *, void *);
 s32 TWindowSubStatusDisp__sub_8025E148(void *, void *, void *, int, int);
 s32 TWindowSubStatusDisp__sub_8025E530(void *, void *, void *, int, int, int);
 void draw_textured_quad_at_depth(void *, f32);
@@ -115,6 +125,11 @@ int strcmp(const char *, const char *);
 extern u16 soft_keyboard_conversion_exclusions[];
 s32 dispatch_request_0x25__19TWindowKeyBoardSoftFll(void *, s32 *);
 s32 dispatch_request_0x23__19TWindowKeyBoardSoftFll(void *, void *);
+s32 dispatch_request_0x24__19TWindowKeyBoardSoftFll(void *, void *);
+extern s32 actor_frame_tick;
+extern const f32 lbl_805DD04C;
+extern const f32 lbl_805DD050;
+extern const f32 lbl_805DD054;
 s32 dispatch_request_0x22__19TWindowKeyBoardSoftFll(void *, void *);
 s32 TWindowKeyBoardSoft__sub_803E67D4(void *, void *);
 s32 TWindowKeyBoardSoft__sub_803E6868(void *, void *);
@@ -142,6 +157,77 @@ void TWindowKeyBoardBase::init_keyboard_text_field(u32 arg1, u32 arg2) {
     init_keyboard_text_buffer((u8 *)&this->m_6c, arg1, arg2);
     *(u8 **)((s8 *)arg0 + 0x68) = (unsigned char *) (arg0 + 0x6C);
     this->m_60 = 0;
+}
+
+s32 fn_8025CE00(void *keyboard, u8 *text) {
+    char *p = (char *)text;
+    u16 ch;
+
+    while (*p != 0) {
+        ch = *p++;
+        if ((ch & 0xE0) == 0x80 || (ch & 0xE0) == 0xE0) {
+            ch <<= 8;
+            ch |= *p++ & 0xFF;
+        }
+        if (ch == 0x814A) {
+            return 1;
+        }
+        if (ch == 0x814B) {
+            return 1;
+        }
+        if (ch == 0x819B) {
+            return 1;
+        }
+        if (ch == 0x817E) {
+            return 1;
+        }
+        if (ch == 0x81A8) {
+            return 1;
+        }
+        if (ch == 0x81A9) {
+            return 1;
+        }
+        if (ch == 0x81AA) {
+            return 1;
+        }
+        if (ch == 0x81AB) {
+            return 1;
+        }
+        if (ch == 0x8163) {
+            return 1;
+        }
+        if (ch == 0x81A2) {
+            return 1;
+        }
+        if (ch == 0x81A4) {
+            return 1;
+        }
+        if (ch == 0x81F4) {
+            return 1;
+        }
+        if (ch == 0x8199) {
+            return 1;
+        }
+        if (ch >= 0xE000) {
+            return 1;
+        }
+        if (ch >= 0xE0 && ch <= 0xFF) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+void TWindowKeyBoardSoft__sub_8025CF50(void *keyboard, int count, int unused) {
+    char tmp[0x100];
+    char out[0x100];
+    u32 i;
+
+    if (count != 0xF1 && count != 0xF0) {
+        for (i = 1; i < count; i++) {
+            TWindowKeyBoardSoft__sub_803E6868(out, tmp);
+        }
+    }
 }
 
 #define self ((KbSoft_8025CFA8 *)arg0)
@@ -319,6 +405,50 @@ void TWindowKeyBoardSoft::set_kana_mode() {
     }
 }
 
+#define self ((KbSoft_8025D664 *)arg0)
+void TWindowKeyBoardSoft__sub_8025D664(void *arg0) {
+    char text[0x100];
+    char name[0x100];
+    s32 count;
+    u8 *rec;
+    s32 i;
+    u8 kind;
+
+    if (self->flags & 0x10) {
+        return;
+    }
+    count = dispatch_request_0x24__19TWindowKeyBoardSoftFll(name, text);
+    if (count == 0) {
+        return;
+    }
+    rec = self->buf;
+    self->buf += ((KbRec_8025D264 *)rec)->len + 3;
+    if (self->buf > self->cursor) {
+        i = 1;
+        TWindowKeyBoardSoft__sub_8025CFA8(self, (s32 *)name);
+        while (TWindowKeyBoardSoft__sub_8025D544(self, (s32 *)name, (s8 *)text) == 0) {
+            TWindowKeyBoardSoft__sub_803E6868(name, text);
+            i++;
+            if (i > count) {
+                self->buf = rec;
+                TWindowKeyBoardSoft::dispatch_request_0x23((s32)name, (s32)text);
+                ((void (*)(void *, int))TWindowKeyBoardSoft__sub_8025CF50)(self, self->sel);
+                return;
+            }
+        }
+        rec[2] = self->sel;
+        self->sel = i;
+        ((TWindowKeyBoardSoft *)self)->write_name_and_text(name, text);
+    } else {
+        kind = self->buf[2];
+        rec[2] = self->sel;
+        self->sel = kind;
+        ((void (*)(void *, int))TWindowKeyBoardSoft__sub_8025CF50)(self, kind);
+    }
+    self->count = count;
+}
+#undef self
+
 void TWindowKeyBoardSoft::process_input() {
     u8 *arg0 = (u8 *)this;
     u8 sp108[0x100];
@@ -470,6 +600,37 @@ void TWindowKeyBoardSoft::convert_input_text() {
         write_name_and_text((char *)((s32 *)sp8), (char *)(sp108));
         *(u16 *)((s8 *)this + 0x60) = (u16) (*(u16 *)((s8 *)this + 0x60) | 4);
     }
+}
+
+void fn_8025DE10(void *arg0, void *arg1) {
+    f32 pos[8];
+    Desc_8025DECC d;
+    u32 col[4];
+    f32 bottom;
+    f32 depth;
+
+    if (actor_frame_tick & 0x10) {
+        return;
+    }
+    depth = lbl_805DD04C + ((Box_8025E350 *)arg0)->z;
+    d.pos = pos;
+    d.col = col;
+    d.a = 0;
+    d.b = 4;
+    d.col[0] = 0xFF0080;
+    d.col[1] = 0xFF0080;
+    d.col[2] = 0xFF0080;
+    d.col[3] = 0xFF0080;
+    pos[0] = ((f32 *)arg1)[0];
+    pos[1] = ((f32 *)arg1)[1];
+    pos[2] = lbl_805DD050 + pos[0];
+    pos[3] = pos[1];
+    pos[4] = lbl_805DD050 + pos[0];
+    bottom = lbl_805DD054 + pos[1];
+    pos[5] = bottom;
+    pos[6] = pos[0];
+    pos[7] = bottom;
+    ((TObjCMHairMenu *)(&d))->draw_tri_fan_2d(4, 6, depth);
 }
 
 void TWindowKeyBoardBase::draw_text_glyphs(void *arg1, void *arg2) {

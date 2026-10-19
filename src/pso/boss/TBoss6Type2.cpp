@@ -16,6 +16,7 @@
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/enemy/TObjEneDD.h"
 
 struct TBoss6Type2_802BD014;
 typedef void (TBoss6Type2_802BD014::*Fn_802BD014)();
@@ -221,7 +222,18 @@ s32 init_collision_body_parts(void *, void *, int);
 void build_tables__14TBoss6PlotFalzFPvPvi(void *, void *, int);
 void TBoss6Type2__sub_802BA7B0(void* p);
 int TBoss6Type2__sub_802BB694(void);
-void TBoss6Type2__sub_802BB818(void *, f32);
+void TBoss6Type2__sub_802BB818(TBoss6Type2 *self, f32);
+u16 TBoss6PlotFalz__sub_802AAE48(s32 i);
+void TBoss4DarkFalz__sub_8004B4F0(void *dst, void *src);
+void TBoss6Rock__sub_80354A44(void);
+void *__dt__9TObjEnemyFv(TObjEnemy *self, s16 flag);
+void free_collision_body_parts(void *);
+void __dl__7TObjectFPv(void *);
+s32 __dt__11TBoss6Type2Fv(s32 self_, s16 flag);
+extern const s32 lbl_8047133C[];
+struct AttackMsg_802BD430 { s32 type; s32 value; };
+f32 receive_direct_attack__13TUnk_804806E8FPvPvPvll(void *self, void *attacker, AttackMsg_802BD430 msg, void *collision, s32 tech, s32 arg5);
+f32 vfunc_23__11TBoss6Type2FPvPvPvll(TBoss6Type2 *self, void *attacker, AttackMsg_802BD430 msg, void *collision, s32 tech, s32 arg5);
 void set_screen_pos__11TBoss6Type2FPv(void *arg0);
 void TBoss6Type2__sub_802BE4E0(s32 *arg0, s32 *arg1);
 s32 create_zanzo__11TBoss6Type1FPvPvPv(void *, int, int);
@@ -599,7 +611,7 @@ extern const f32 lbl_805DE494;
 extern const f32 lbl_805DE498;
 extern const f32 lbl_805DE49C;
 int TBoss6Type2__sub_802BB4DC(void* p);
-int TBoss6Type2__sub_802BB5B4(void);
+void TBoss6Type2__sub_802BB5B4(TBoss6Type2 *self, u16 *first, u16 *second);
 void TBoss6Type2__sub_802BB768(T2_802BB768 *arg0);
 void TBoss6Type2__sub_802BB7C0(T2_802BB7C0 *arg0);
 u8 is_active__11TBoss6Type2Fv(void *arg0);
@@ -1533,7 +1545,37 @@ void TBoss6Type2::sub_802BB554() {
     }
 }
 
-int TBoss6Type2__sub_802BB5B4(void) { return 0; }
+void TBoss6Type2__sub_802BB5B4(TBoss6Type2 *self, u16 *first, u16 *second) {
+    s32 count = TBoss6PlotFalz::sort_active_players();
+    *first = 0xFFFF;
+    *second = 0xFFFF;
+    if (count < 1) {
+        return;
+    }
+    if ((s32)self->m_418 == 0) {
+        u16 id0 = TBoss6PlotFalz__sub_802AAE48(0);
+        u16 id1 = TBoss6PlotFalz__sub_802AAE48(1);
+        if (self->m_478 & 1) {
+            *first = id0;
+            *second = id1;
+        } else {
+            *first = id1;
+            *second = id0;
+        }
+        if (TBoss6PlotFalz::get_phase() == 0) {
+            s8 flags = *(s8 *)&self->m_478;
+            if (flags & 2) {
+                if (flags & 4) {
+                    *first = 0xFFFF;
+                } else {
+                    *second = 0xFFFF;
+                }
+            }
+        }
+    } else {
+        *first = *second = TBoss6PlotFalz__sub_802AAE48(count - 1);
+    }
+}
 
 int TBoss6Type2__sub_802BB694(void) { return 0; }
 
@@ -1551,6 +1593,57 @@ void TBoss6Type2__sub_802BB7C0(T2_802BB7C0 *arg0) {
     }
     TBoss6Type2__sub_8032E708((void *)arg0->f410, 0);
     TBoss6Type2__sub_8032E708((void *)arg0->f414, 0);
+}
+
+struct MagParams_802BB818 {
+    s16 x;
+    u8 pad02[4];
+    u16 z;
+    s16 active;
+    u8 pad0A[6];
+    Vec pos;
+    u8 pad1C[0x24];
+    TBoss6Type2 *owner;
+    Vec origin;
+    s32 rotation_y;
+    s32 index;
+    s32 flags;
+    s32 variant;
+};
+
+struct Mags_802BB818 { u8 pad[0x410]; TBoss6Type2 *mags[2]; };
+
+extern "C" {
+s32 create_mag__11TBoss6Type2Fl(MagParams_802BB818 *params);
+}
+
+void TBoss6Type2__sub_802BB818(TBoss6Type2 *self, f32) {
+    MagParams_802BB818 params;
+    s16 x;
+    u16 z;
+    s32 i;
+    params.owner = self;
+    VecCopy(&params.origin, (const Vec *)&self->position);
+    params.origin.y += TBoss6Type2__data_805DE45C;
+    params.rotation_y = self->m_60;
+    TBoss4DarkFalz__sub_8004B4F0(&params, ((TBoss6Type1 *)self->m_3f8)->get_mag_mine_ptr());
+    params.active = 1;
+    VecCopy(&params.pos, &params.origin);
+    params.flags = self->m_2e4;
+    x = params.x;
+    z = params.z;
+    params.variant = self->m_42c;
+    for (i = 0; i < 2; i++) {
+        params.index = i;
+        params.x = x + lbl_8047133C[i];
+        params.z = z + lbl_8047133C[i];
+        ((Mags_802BB818 *)self)->mags[i] = (TBoss6Type2 *)create_mag__11TBoss6Type2Fl(&params);
+    }
+    if (((Mags_802BB818 *)self)->mags[0] == 0 || ((Mags_802BB818 *)self)->mags[1] == 0) {
+        return;
+    }
+    ((Mags_802BB818 *)self)->mags[0]->set_anim_frame((s32)((Mags_802BB818 *)self)->mags[1]);
+    ((Mags_802BB818 *)self)->mags[1]->set_anim_frame((s32)((Mags_802BB818 *)self)->mags[0]);
 }
 
 s32 TBoss6Type2::push_players_away(void *target, f32 range) {
@@ -2410,6 +2503,24 @@ void TBoss6Type2::get_phase_values(u16 *a, u16 *b, u16 *out) {
 }
 #pragma pop
 
+f32 vfunc_23__11TBoss6Type2FPvPvPvll(TBoss6Type2 *self, void *attacker, AttackMsg_802BD430 msg, void *collision, s32 tech, s32 arg5) {
+    while ((s32)self->m_418 != 0) {
+        if (msg.type == 0x14) {
+            break;
+        }
+        if (((TObjEneDD *)self)->query_teammate_state() != 0) {
+            break;
+        }
+        if (msg.type == (s32)self->m_42c) {
+            break;
+        }
+        self->sub_802BA078();
+        self->spawn_hit_effects();
+        return TBoss6Type2__data_805DE410;
+    }
+    return receive_direct_attack__13TUnk_804806E8FPvPvPvll(self, attacker, msg, collision, tech, arg5);
+}
+
 #pragma push
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -2876,6 +2987,38 @@ void TBoss6Type2::build_state_packet(u8 *arg1) {
 }
 #pragma pop
 
+struct Fish_802BE014 { u8 pad[0x764]; void *fish[1]; };
+
+#define self ((TBoss6Type2 *)self_)
+s32 __dt__11TBoss6Type2Fv(s32 self_, s16 flag) {
+    s32 i;
+    if (self != 0) {
+        *(u8 **)((u8 *)self + 0x18) = __vt__11TBoss6Type2;
+        init_parts__11TBoss6Type2FPv(self_);
+        self->reset_counters();
+        TBoss6Rock__sub_80354A44();
+        for (i = 0; i < 2; i++) {
+            Ent_802BE0D4 *e = &((Ents_802BE0D4 *)self)->ents[i];
+            e->a = 0;
+            e->b = 0;
+        }
+        ((TBoss6PlotFalz *)&self->m_768)->free_buffer_pairs();
+        for (i = 0; i < 1; i++) {
+            if (((Fish_802BE014 *)self)->fish[i] != 0) {
+                TObjFish::init_state_1(((Fish_802BE014 *)self)->fish[i]);
+                ((Fish_802BE014 *)self)->fish[i] = 0;
+            }
+        }
+        free_collision_body_parts(self);
+        __dt__9TObjEnemyFv((TObjEnemy *)self, 0);
+        if (flag > 0) {
+            __dl__7TObjectFPv(self);
+        }
+    }
+    return self_;
+}
+#undef self
+
 #pragma push
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -2963,7 +3106,7 @@ s32 TBoss6Type2__ct(s32 arg0_, s32 parent, s32 arg2_) {
     *(f32 *)((s8 *)arg0 + 0x4FC) = TBoss6Type2__data_805DE410;
     *(f32 *)((s8 *)arg0 + 0x500) = TBoss6Type2__data_805DE40C;
     *(s32 *)((s8 *)arg0 + 0x508) = 0;
-    TBoss6Type2__sub_802BB818(arg0, TBoss6Type2__data_805DE410);
+    TBoss6Type2__sub_802BB818((TBoss6Type2 *)arg0, TBoss6Type2__data_805DE410);
     TBoss6Type2__sub_802BB768((T2_802BB768 *)arg0);
     TBoss6Rock::create_rock_pool((s32)arg0);
     TBoss6Type2__sub_802BA7B0(arg0);

@@ -13,9 +13,13 @@ struct S_803D0014 { u8 pad[2]; s8 f; };
 struct G_803D0014 { s32 value; u8 remaining[0x14]; };
 
 struct File_803D0654 {
-    u8 pad[0x18];
+    u8 pad[0x10];
+    s32 unit;
+    s32 length;
     s32 size;
     s32 pos;
+    s32 f20;
+    s32 f24;
 };
 
 struct DVDFileInfo_803D0AE8 {
@@ -36,6 +40,8 @@ char *strcat(char *, const char *);
 char *strcpy(char *, const char *);
 u32 strlen(const char *);
 extern char lbl_8047DAB8[];
+extern char lbl_8047DAFC[];
+extern char lbl_8047DB14[];
 extern char dvd_default_path_buffer[];
 typedef char RecoveredGlobal_803CFEA0_lbl_8047DAE4_size[sizeof(RecoveredGlobal_803CFEA0_lbl_8047DAE4) == 0x18 ? 1 : -1];
 s32 TLobby::get_handle_field_20() {
@@ -48,6 +54,29 @@ s32 TLobby::get_handle_field_20() {
     }
     return *(s32 *)((s8 *)arg0 + 0x20);
 }
+void TLobby__sub_803CFEF4(File_803D0654 *file, s32 unit) {
+    s32 old;
+    s32 offset;
+    if (file == NULL) {
+        if (lbl_805D760C != NULL) {
+            lbl_805D760C(lbl_805D7608, (s32 *)lbl_8047DAFC, 0);
+        }
+        return;
+    }
+    old = file->unit;
+    if (old % 32 != 0) {
+        if (lbl_805D760C != NULL) {
+            lbl_805D760C(lbl_805D7608, (s32 *)lbl_8047DB14, 0);
+        }
+        return;
+    }
+    offset = file->pos * old;
+    file->unit = unit;
+    file->size = (file->length + (file->unit - 1)) / file->unit;
+    file->pos = offset / file->unit;
+    file->f20 = file->f24 * unit;
+}
+
 s32 TLobby::get_field10_or_report() {
     u8 *arg0 = (u8 *)this;
     if (arg0 == NULL) {

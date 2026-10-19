@@ -56,7 +56,7 @@ struct Obj_800DED30 {
     void m();
 };
 
-struct Ent_800DED30 { PMF_800DED30 fn; u32 rest[3]; };
+struct Ent_800DED30 { PMF_800DED30 fn; PMF_800DED30 update; };
 
 struct Obj_800DF634 { u8 pad0[0x42C]; u8 *f42C; s32 f430; };
 
@@ -1030,6 +1030,115 @@ void TObjEnePanarms::draw_shadow() {
 #pragma pop
 
 void TObjEnePanarms__sub_800DEEF8(void* p) { push_matrix(p); post_translate_matrix((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x60)); TObjFish::set_global_param((s32)(*(void**)((char*)p + 0x24))); ((TObjFish *)(((TObjEneRe7Berura *)p)->m_39c))->set_draw_callback_list(); ((TObjMotion *)p)->draw(); clear_render_callback__8TObjFishFv(((TObjEneRe7Berura *)p)->m_39c); pop_matrix(); }
+
+#include "pso/misc/RenderFadeState.h"
+#include "pso/TParticleCtrl.h"
+
+// The camera-obstruction fade (vtable lbl_804949A8) keeps its vtable pointer at +0x14.
+struct VFade_800DEF5C {
+    u8 pad[0x14];
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void begin_draw();
+    virtual void end_draw();
+};
+
+extern "C" {
+s32 is_split_screen();
+s32 get_camera_mode__11TCameraCtrlFv();
+void update_obstruction_fade(RenderFadeState *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
+extern s32 model_render_flags;
+extern s32 lbl_805D5660;
+s32 submit_cursor_candidate(void *, s32);
+s32 advance_animation_playback(void *);
+s32 minimap_render_dot(void *, s32, s32, s32);
+}
+
+struct VObj_18_800DEF5C {
+    u8 pad[0x18];
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
+struct Obj_800DEF5C { u8 pad[0x400]; RenderFadeState fades[4]; };
+
+void TObjEnePanarms::render() {
+    s32 cam;
+    RenderFadeState *fade;
+    s32 draw;
+    if (((VObj_18_800DEF5C *)this)->m8(lbl_805DA4F0, TObjEnePanarms__data_805DA490) == 0) {
+        return;
+    }
+    cam = 0;
+    if (is_split_screen() != 0) {
+        cam = get_camera_mode__11TCameraCtrlFv();
+    }
+    if (*(s32 *)&this->m_3dc == 0) {
+        return;
+    }
+    TObjPlayer::toggle_particle_effect();
+    lbl_805D5660 = model_render_flags;
+    fade = &((Obj_800DEF5C *)this)->fades[cam];
+    update_obstruction_fade(fade);
+    if (fade->updateFromCamera(&this->m_2fc) != 0) {
+        ((VFade_800DEF5C *)fade)->begin_draw();
+        draw = 1;
+        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(this) != 0) {
+            draw = 0;
+        }
+        if (draw != 0) {
+            TObjEnePanarms__sub_800DEEF8(this);
+        }
+        ((VFade_800DEF5C *)fade)->end_draw();
+    } else {
+        model_render_flags |= 0x01000000;
+        TObjEnePanarms__sub_800DEEF8(this);
+    }
+    model_render_flags = lbl_805D5660;
+    TParticleCtrl::end_effect_render();
+    if (*(s32 *)&this->unk_3E0 != 0) {
+        draw_shadow();
+    }
+}
+
+void TObjEnePanarms::run_task() {
+    PMF_800DED30 p;
+    if (*(s32 *)&this->unk_374 != 0 && TObjPlayer::check_demo_mode() != 0) {
+        set_state(0);
+    }
+    sub_800DE390();
+    p = lbl_8049515C[*(s32 *)&this->unk_374].update;
+    if (p) {
+        (((Obj_800DED30 *)this)->*p)();
+        if (*(s32 *)&this->m_3dc != 0) {
+            this->actorFlags &= ~0x02000000;
+        } else {
+            this->actorFlags |= 0x02000000;
+        }
+        update_prev_position();
+        if (*(s32 *)&this->unk_374 != 0) {
+            if (*(s32 *)&this->m_3dc != 0) {
+                submit_cursor_candidate(this, -1);
+                advance_animation_playback(this);
+            }
+            if ((*(s32 *)&this->m_3dc != 0 && *(s32 *)&this->unk_374 != 4) || *(s32 *)&this->unk_374 == 1) {
+                minimap_render_dot(&this->m_2fc, -0x5DB4, 1, 0);
+            }
+        }
+    }
+}
 
 void TObjEnePanarms::destroy_handles() {
     s32 i;

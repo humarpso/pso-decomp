@@ -23,6 +23,10 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjFish.h"
 #include "pso/object/TObjGyaranzoMissile.h"
+#include "pso/misc/TEneEffHamon.h"
+#include "pso/misc/TLanguage_801E4874.h"
+#include "pso/enemy/SaverLifecycle.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct VBase_18_800A2F94 { char pad[0x18]; };
 struct VObj_18_800A2F94 : VBase_18_800A2F94 {
@@ -279,10 +283,10 @@ void init_scale_global__10TObjPlayerFv(void);
 void vfunc_61__17TObjEneDarkGunnerFv(u8 *arg0);
 int TObjPlayer__sub_800A1808(void* p);
 void TObjPlayer__sub_800A1974(void);
-s32 TObjPlayer__sub_800A1C84(void *);
+void TObjPlayer__sub_800A1C84(void *arg0);
 void TObjPlayer__sub_800A1D70(u8 *arg0);
 void vfunc_62__17TObjEneDarkGunnerFv(void *arg0);
-s32 TObjPlayer__sub_800A27CC(void *);
+void TObjPlayer__sub_800A27CC(void *arg0);
 Obj_800A2EDC * TObjPlayer__sub_800A2EDC(Obj_800A2EDC *arg0, s16 arg1);
 u8 *TObjPlayer__sub_800A2F94(u8 *, s32, u8 *);
 void vfunc_28__17TObjEneDarkGunnerFv(void);
@@ -1014,6 +1018,46 @@ void TObjPlayer::render_shadow() {
 
 void TObjPlayer__sub_800A1974(void) {  }
 
+// The death-fade object at +0x408 keeps its vtable pointer at +0x14.
+struct VObj_14_800A1C84 {
+    u8 pad[0x14];
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual s32 m4();
+};
+
+extern "C" {
+void TObjPlayer__sub_800A04F0(void *);
+}
+
+void TObjPlayer__sub_800A1C84(void *arg0) {
+    *(s32 *)((s8 *)arg0 + 0x388) &= 0xFF07FFFF;
+    switch (((TObjPlayer *)arg0)->m_37c) {
+    case 0:
+        ((TObjPlayer *)arg0)->m_b8 = 7;
+        ((TObjPlayer *)arg0)->refresh_lobby_state();
+        ((TObjEnemy *)arg0)->send_entity_set_flags();
+        TObjPlayer__sub_800A04F0((u8 *)arg0 + 0x408);
+        ((TObjPlayer *)((u8 *)arg0 + 0x2FC))->request_two_effects();
+        *(s32 *)((s8 *)arg0 + 0x388) |= 4;
+        play_sound_effect(0x4003AD37, (u8 *)arg0 + 0x38, 0, 0);
+        ((TObjPlayer *)arg0)->m_37c = 1;
+        break;
+    case 1:
+        advance_animation_playback(arg0);
+        apply_actor_gravity(arg0, 0, lbl_805D9984);
+        if (((VObj_14_800A1C84 *)((u8 *)arg0 + 0x408))->m4() == 1) {
+            TObjPlayer::apply_effect_variant_a((s32)((u8 *)arg0 + 0x38), 0);
+            queue_destruction__7TObjectFv(arg0);
+        }
+        break;
+    case -1:
+        break;
+    }
+}
+
 void TObjPlayer__sub_800A1D70(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f31;
@@ -1320,6 +1364,27 @@ void TObjPlayer::set_hidden_flag() {
     }
 }
 
+void TObjPlayer__sub_800A27CC(void *arg0) {
+    switch (((TObjPlayer *)arg0)->m_37c) {
+    case 0:
+        if (*(s32 *)((s8 *)arg0 + 0x388) & 0x10000) {
+            ((TObjPlayer *)arg0)->actorFlags |= 0x04040000;
+            ((TObjPlayer *)arg0)->rotation_z = 0x8000;
+            ((TObjPlayer *)arg0)->m_37c = 1;
+        } else {
+            ((TObjPlayer *)arg0)->m_b8 = 0;
+            ((TObjPlayer *)arg0)->m_37c = 2;
+        }
+        *(s32 *)((s8 *)arg0 + 0x388) |= 0x400000;
+        advance_animation_playback(arg0);
+        break;
+    case 1:
+        break;
+    case -1:
+        break;
+    }
+}
+
 void TObjPlayer::apply_fall_damage_flag() {
     s32 arg0 = (s32)this;
     s32 var_r4;
@@ -1350,6 +1415,39 @@ void TObjPlayer::cleanup_effects() {
     }
     TObjPlayer::reset_effect_count();
     TEneEffHamon__sub_800A380C();
+}
+
+extern "C" {
+extern s32 lbl_805D5024;
+extern s32 lbl_805D5028;
+extern char lbl_8043A6C8[];
+void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
+void TObjPlayer__sub_800A2DCC();
+}
+
+struct Node_800A2DCC { u32 flags; s32 *model; u8 pad[0x24]; Node_800A2DCC *child; };
+
+void TObjPlayer__sub_800A2DCC() {
+    s32 i;
+    void *res = (void *)((TAdSinglePlyChrSelectGC *)0x440)->alloc();
+    if (res != NULL) {
+        res = load_resource_from_descriptor(res, 1, bm_ene_darkgunner_resource_descriptor, 0, 0, 0);
+    }
+    player_effect_bml_resource = (u32)res;
+    TObjPlayer__shadow_chunk_object = ((s32 (*)(void *, s32))get_bml_model)((void *)player_effect_bml_resource, 0);
+    lbl_805D5014 = ((s32 (*)(void *, s32))TObjFish__sub_8001EDB0)((void *)player_effect_bml_resource, 0);
+    lbl_805D5018 = ((s32 (*)(void *, s32))TObjFish__sub_8001EDB0)((void *)player_effect_bml_resource, 2);
+    lbl_805D5024 = ((Node_800A2DCC *(*)(void *, s32))get_bml_model)((void *)player_effect_bml_resource, 1)->child->model[1];
+    lbl_805D5028 = ((Node_800A2DCC *(*)(void *, s32))get_bml_model)((void *)player_effect_bml_resource, 0)->model[1];
+    TObjPlayer__sub_800A4294();
+    init_fish_effects__12TEneEffHamonFv();
+    TObjPlayer__effect_resource = (u32)load_gvm_texture_file((s32)lbl_8043A6C8);
+    for (i = 0; i < 1; i++) {
+        lbl_805D4FF8[i] = (s32)TLobby::register_boss(30 + i);
+        lbl_805D4FFC[i] = (s32)TLobby::dispatch_shared_handler_b(30 + i);
+        lbl_805D5000[i] = (s32)TLobby::register_object(30 + i);
+    }
+    lbl_805D5004 = (s32)TLobby::dispatch_shared_handler_a(30);
 }
 
 Obj_800A2EDC *TObjPlayer__sub_800A2EDC(Obj_800A2EDC *arg0, s16 arg1) {

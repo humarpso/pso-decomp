@@ -965,6 +965,21 @@ s32 bank_credit_meseta(s32 v, s32 i) {
 #pragma push
 #pragma optimization_level 1
 extern "C" {
+s32 TCheckRoomSequence__sub_80210D44(u8 *item, s32 slot) {
+    Rec_80211034 *rec = bank_item_records_by_slot[slot];
+    s32 i;
+    for (i = 0; i < 200; i++, rec++) {
+        if (((s32 (*)(u8 *))is_item_record_empty)(rec->b) == 0 &&
+            rec->b[0] == item[0] && rec->b[1] == item[1] && rec->b[2] == item[2] &&
+            rec->b[3] == item[3] && rec->b[4] == item[4] && rec->b[5] == item[5]) {
+            init_item_entry__18TCheckRoomSequenceFPv((Obj_80211408 *)rec);
+            copy_bank_to_card_window(slot);
+            return 1;
+        }
+    }
+    return 0;
+}
+
 void remove_bank_item_amount__18TCheckRoomSequenceFiii(s32 idx, s32 amount, s32 slot) {
     Item_80210E28 *recs = (Item_80210E28 *)bank_item_records_by_slot[slot];
     s32 n;
@@ -1094,6 +1109,27 @@ void copy_bank_from_card_window(s32 slot) {
 }
 #pragma pop
 extern "C" {
+
+void mem_free(void *p);
+
+#pragma push
+#pragma optimization_level 1
+void TCheckRoomSequence__sub_80211284(void) {
+    Rec_80211034 *recs;
+    s32 i;
+    for (i = 3; i >= 0; i--) {
+        if (bank_item_records_by_slot[i] != NULL) {
+            recs = bank_item_records_by_slot[i];
+            if (recs != NULL) {
+                mem_free((u8 *)recs - 0x10);
+            }
+            bank_item_records_by_slot[i] = NULL;
+        }
+        lbl_80513DA8[i] = 0;
+        lbl_80513D98[i] = 0;
+    }
+}
+#pragma pop
 
 s32 is_split_screen();
 void *mem_alloc(int);

@@ -9,6 +9,7 @@
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
+#include "pso/unk/text_80087278.h"
 
 struct VB_802E74E4 { u8 pad[0xC]; };
 
@@ -147,7 +148,9 @@ void *__dt__13TUnk_804E3BC0Fv(void *arg0, s16 arg1);
 void TObjPlayer__sub_802E746C(void);
 void TObjPlayer__sub_802E7470(void);
 s32 *init_from_model__11TBreakUpMdlFl(s32 *, s32);
-s32 TObjPlayer__sub_802E75B8(void *, s32 *);
+void TObjPlayer__sub_802E75B8(void *, s32 *);
+s32 scale_matrix(int, f32, f32, f32);
+extern const f32 lbl_805DE9E4;
 void __ct__7TObjectFP7TObject(void *);
 s32 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void *mem_alloc(u32 size);
@@ -195,6 +198,21 @@ void TUnk_804E3BA8::render() {
     }
     pop_matrix();
     TObjLight__sub_801337F8(current_scene_light);
+}
+
+void TUnk_804E3BA8::run_task() {
+    s32 off;
+    s32 i;
+    (*(s32 *)(unk_1C + 4))++;
+    if (*(s32 *)(unk_1C + 4) >= 0xA0) {
+        queue_destruction__7TObjectFv(this);
+        return;
+    }
+    for (i = 0, off = 0; i < m_24; i++, off += 0x2C) {
+        if (TObjPlayer__sub_802E76C8(*(u8 **)unk_28 + off) != 0 && i % 2 == 0) {
+            spawn_particle_effect(*(u8 **)unk_28 + off, 0x200);
+        }
+    }
 }
 
 void *__dt__13TUnk_804E3BA8Fv(void *arg0, s16 arg1) {
@@ -278,6 +296,21 @@ void TUnk_804E3BC0::render() {
     TObjLight__sub_801337F8(current_scene_light);
 }
 
+void TUnk_804E3BC0::run_task() {
+    s32 off;
+    s32 i;
+    (*(s32 *)(unk_1C + 4))++;
+    if (*(s32 *)(unk_1C + 4) >= 0xA0) {
+        queue_destruction__7TObjectFv(this);
+        return;
+    }
+    for (i = 0, off = 0; i < m_24; i++, off += 0x2C) {
+        if (TObjPlayer__sub_802E76C8(*(u8 **)unk_28 + off) != 0 && i % 2 == 0) {
+            spawn_particle_effect(*(u8 **)unk_28 + off, 0x200);
+        }
+    }
+}
+
 void *__dt__13TUnk_804E3BC0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E3BC0;
@@ -359,6 +392,30 @@ void *TObjPlayer::init_zeroed_object() {
     *(u32 *)&this->texture_id = 0;
     (*(u32 *)&this->m_28) = 0;
     return this;
+}
+
+void TObjPlayer__sub_802E75B8(void *arg0, s32 *) {
+    TUnk_804E3BD8 *self = (TUnk_804E3BD8 *)arg0;
+    s32 i;
+    push_matrix();
+    set_matrix_identity(0);
+    scale_matrix(0, lbl_805DE9E4, lbl_805DE9CC, lbl_805DE9E4);
+    for (i = 0; i < *(s32 *)*(Model_802E6F10 **)self->unk_1C; i++) {
+        rotate_vector_by_matrix(0, &(*(Model_802E6F10 **)self->unk_1C)->bones[i].rot, &(*(Model_802E6F10 **)self->unk_1C)->bones[i].rot);
+    }
+    pop_matrix();
+}
+
+void TObjPlayer__sub_802E7640(void *arg0) {
+    TUnk_804E3BD8 *self = (TUnk_804E3BD8 *)arg0;
+    s32 i;
+    push_matrix();
+    set_matrix_identity(0);
+    scale_matrix(0, lbl_805DE9F8, lbl_805DE9F8, lbl_805DE9F8);
+    for (i = 0; i < *(s32 *)*(Model_802E6F10 **)self->unk_1C; i++) {
+        rotate_vector_by_matrix(0, &(*(Model_802E6F10 **)self->unk_1C)->bones[i].pos, &(*(Model_802E6F10 **)self->unk_1C)->bones[i].pos);
+    }
+    pop_matrix();
 }
 
     extern float lbl_805D6910;

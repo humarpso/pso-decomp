@@ -279,7 +279,7 @@ struct TSlime_800EAE78;
 
 typedef void (TSlime_800EAE78::*Action_800EAE78)();
 
-struct Ent_800EAE78 { Action_800EAE78 fn; u8 pad[0xC]; };
+struct Ent_800EAE78 { Action_800EAE78 fn; Action_800EAE78 update; };
 
 struct TSlime_800EAE78 {
     u8 pad[0x384];
@@ -666,6 +666,9 @@ extern u8 lbl_805DA668[];
 }
 extern "C" {
 void receive_direct_attack__13TUnk_804806E8FPvPvPvll();
+s32 submit_cursor_candidate(void *, s32);
+s32 minimap_render_dot(void *, s32, s32, s32);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 }
 extern "C" {
 void receive_physical_attack__13TUnk_804806E8FPvf();
@@ -1965,6 +1968,33 @@ void render__15TObjEneSlimeOneFv(TObjEneSlimeOne *ene_slime_one) {
             TObjPlayer::init_render_globals();
         }
         ene_slime_one->sub_800E9090();
+    }
+}
+
+void TObjEneSlimeOne::run_task() {
+    if (TObjPlayer::check_demo_mode() == 0) {
+        if ((s32)this->m_384 != 13 && (this->m_3f0 == 0 || ((TObject *)this->m_3f0)->all_parents_unqueued_for_destruction() == 0)) {
+            set_state(13);
+        }
+        set_target_flag_bit0();
+        {
+            Ent_800EAE78 *tbl = lbl_80496574;
+            Action_800EAE78 a = tbl[((TSlime_800EAE78 *)this)->state].update;
+            if (a != 0) {}
+            (((TSlime_800EAE78 *)this)->*a)();
+        }
+        update_prev_position();
+        ((TObjPlayer *)this)->update_collisions();
+        if ((s32)this->m_3ec != 0) {
+            submit_cursor_candidate(this, -1);
+        }
+        ((TObjEneSlimeOne *)this->m_388)->advance_animation_state();
+        play_persistent_sound(0x4003B21C, (s32)this, (u32)&this->position, 0, 0);
+        fn_800E9238((s32)this);
+        clear_child_flag();
+        if ((s32)this->m_384 != 13) {
+            minimap_render_dot((u8 *)this + 0x2FC, -0x5DB4, 1, 0);
+        }
     }
 }
 

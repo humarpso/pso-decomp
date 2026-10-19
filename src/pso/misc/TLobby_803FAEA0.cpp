@@ -390,7 +390,11 @@ void NetMemcpy(void *, void *, int);
 void TLobby__sub_803F7678(void);
 void TLobby__sub_803FD0C0(void);
 s32 TLobby__sub_803FAFDC(void);
-s32 TLobby__sub_803FB358(void *);
+struct NetStatus_803FB358;
+s32 TLobby__sub_803FB358(NetStatus_803FB358 *status);
+s32 TLobby__sub_803FB1A4(s16 *wait);
+s32 TLobby__sub_803FB280(u8 *cfg);
+extern u32 lbl_805D7BDC;
 void TLobby__sub_803FB184(u8 *arg0);
 void TLobby__sub_803FD85C(void *);
 s32 TLobby__sub_804062A0(s16);
@@ -436,7 +440,7 @@ extern s16 lbl_805D7A84;
 extern s16 lbl_805D7A88;
 extern s16 lbl_805D7A8A;
 extern s32 lbl_805D7A8C;
-s32 NetApplyConnectionConfig(u8 *arg0);
+s16 NetApplyConnectionConfig(u8 *arg0);
 extern "C" {
 
 void TLobby__sub_803F87DC(void * _w0);
@@ -496,6 +500,51 @@ s32 TLobby__sub_803FAEA0(s32 cmd, s32 arg) {
     return -1;
 }
 
+struct LoginCfg_803FAEDC {
+    u8 pad[0x14];
+    char *user;
+    u8 pad18[0x70];
+    s16 state;
+    s16 mode;
+    u8 pad8C[8];
+    char *prefix;
+};
+struct H_803FB120 { u8 pad[0x28]; u8 *name; u8 pad2C[0x20]; void *v4C; };
+extern H_803FB120 lobby_net_session_state;
+
+s32 TLobby__sub_803FAEDC(LoginCfg_803FAEDC *cfg) {
+    u32 plen;
+    u8 *p;
+    u8 **pname = &lobby_net_session_state.name;
+    u32 len;
+    u8 *buf = lobby_net_session_state.name;
+
+    if (cfg->user == NULL) {
+        return 1;
+    }
+    len = TLobby::str_length((s32)cfg->user);
+    if (cfg->mode == 1 && cfg->prefix != NULL) {
+        plen = TLobby::str_length((s32)cfg->prefix);
+        if (plen + len > 59) {
+            return 1;
+        }
+        NetMemcpy(buf, cfg->prefix, plen);
+        p = buf + plen;
+        NetMemcpy(p, cfg->user, len);
+        p[len] = 0;
+    } else {
+        if (len > 59) {
+            return 1;
+        }
+        NetMemcpy(buf, cfg->user, len);
+        buf[len] = 0;
+    }
+    if (TLobby::map_state_to_code((s32)*pname, cfg->state) < 0) {
+        return 1;
+    }
+    return 0;
+}
+
 s32 TLobby__sub_803FAFDC(void) {
     TLobby::stop_network_thread();
     TLobby::init_net_state_a();
@@ -515,8 +564,6 @@ void TLobby__sub_804061FC(int);
 extern s16 lbl_805D7A7E;
 extern s16 lbl_805D7A86;
 struct Sess_803FB01C { u8 pad[0x1C]; u8 buf[0x60]; u8 rest[0x54]; };
-struct H_803FB120 { u8 pad[0x4C]; void *v4C; };
-extern H_803FB120 lobby_net_session_state;
 
 s16 TLobby::init_net_session() {
     s16 i;
@@ -570,11 +617,95 @@ u8 *TLobby::copy_name_buffer(void *src) {
 }
 
 void TLobby__sub_803FB184(u8 *arg0) {
-    TLobby__sub_803FB358(arg0);
+    TLobby__sub_803FB358((NetStatus_803FB358 *)arg0);
+}
+
+struct NetStatus_803FB358 {
+    s16 link_up;
+    s16 ppp_up;
+    s16 state;
+    s16 h6;
+    u32 w8;
+    s16 hC;
+    u8 padE[2];
+    u32 w10;
+    u32 w14;
+    u32 w18;
+    u32 w1C;
+    u32 w20;
+    u32 w24;
+    u8 addr[4][4];
+};
+struct NetCfg_803FB358 { u8 pad[8]; u32 w8; u32 wC; u8 pad10[8]; u32 w18; u32 w1C; u8 pad20[0x44]; u32 w64; u32 w68; };
+struct NetAddr_803FB358 { u8 pad[8]; u32 w8; u32 wC; u32 w10; u32 w14; };
+struct NetIf_803FB358 {
+    u8 pad[0x6C];
+    u8 link_state;
+    u8 pad6D[0x2F];
+    NetCfg_803FB358 *cfg;
+    u8 padA0[0x34];
+    u8 ppp_state;
+    u8 padD5[0x2F];
+    NetAddr_803FB358 *addr;
+};
+
+s32 TLobby__sub_803FB1A4(s16 *wait) {
+    NetStatus_803FB358 status;
+    s32 t;
+
+    TLobby::lock_mutex(lbl_805C18A0.value);
+    lbl_805D7A8C = 0;
+    if (lbl_805D7A84 != 0) {
+        lbl_805D7A86 = 1;
+        lbl_805D7A8A = 6;
+    } else {
+        lbl_805D7A88 = 0;
+        lbl_805D7A8A = 0;
+    }
+    TUdpSocket::unlock_mutex(((s32 *)&lbl_805C18A0)[0]);
+    if (wait == NULL || *wait == 0) {
+        return 0;
+    }
+    for (t = 0; t < 300000; t += 200) {
+        TLobby__sub_803F97E8(200);
+        TLobby__sub_803FB358(&status);
+        if (status.state == 0) {
+            return 0;
+        }
+    }
+    return -1;
+}
+
+s32 TLobby__sub_803FB280(u8 *cfg) {
+    NetStatus_803FB358 status;
+    s32 t;
+
+    if (cfg == NULL) {
+        return -1;
+    }
+    if (NetApplyConnectionConfig(cfg) < 0) {
+        return -1;
+    }
+    if (*(s16 *)(cfg + 4) == 0) {
+        return 0;
+    }
+    for (t = 0; t < 300000; t += 200) {
+        TLobby__sub_803F97E8(200);
+        TLobby__sub_803FB358(&status);
+        switch (status.state) {
+        case 4:
+            return 0;
+        case 8:
+            return -2;
+        case 5:
+            return -3;
+        }
+    }
+    return -1;
 }
 }
 
-s32 NetApplyConnectionConfig(u8 *arg0) {
+s16 NetApplyConnectionConfig(u8 *arg0) {
   u8 *g = (u8 *) &lbl_805BFF68;
   NetStoreTick((s32 *)(arg0 + 0x38));
   TLobby::lock_mutex((int)((void *) ((s32 *)&lbl_805C18A0)[0]));

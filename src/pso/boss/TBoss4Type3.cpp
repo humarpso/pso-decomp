@@ -451,6 +451,7 @@ void TBoss4Type3__sub_80059EA8(Obj_80059EA8 *self, s32 arg1, s32 arg2);
 void TBoss4Type3__sub_80059F64(Obj_80059F64 *self, s32 arg1);
 
 void TBoss4Type3__sub_8005A150(void);
+void TBoss4Type3__sub_80059DCC(TBoss4Type3 *self, u32 packed);
 void TBoss4Type3__sub_8005A86C(void* p);
 void reset_action_to_3__11TBoss4Type3FPv(Obj_8005ACBC *self);
 void init_effect__11TBoss4Type3FPv(u8 *arg0);
@@ -1656,6 +1657,30 @@ void TBoss4Type3::interp_position_between_nodes() {
     vec3_add_to((u8 *)&this->position, &pts[0]);
 }
 #pragma pop
+
+void TBoss4Type3__sub_80059DCC(TBoss4Type3 *self, u32 packed) {
+    u16 v;
+    s32 action;
+    self->m_3a4 = (packed >> 5) & 0x1F;
+    self->m_3a0 = (packed >> 10) & 0x1F;
+    self->m_3ac = (packed >> 15) & 0xF;
+    self->m_3a8 = (packed >> 19) & 0xF;
+    v = (packed >> 23) & 0xF;
+    self->m_3b8 = v;
+    if (v == 0xF) {
+        self->m_3b8 = 0xFFFF;
+    }
+    v = (packed >> 27) & 0xF;
+    self->m_3ba = v;
+    if (v == 0xF) {
+        self->m_3ba = 0xFFFF;
+    }
+    action = packed & 0x1F;
+    if (action < 0 || action >= 17) {
+        return;
+    }
+    self->set_action_from_table(action);
+}
 
 void TBoss4Type3::spawn_random_effect() {
     s32 arg0 = (s32)this;

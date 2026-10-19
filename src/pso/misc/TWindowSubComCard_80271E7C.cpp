@@ -19,6 +19,9 @@ class TChCrTagPlBack;
 #include "pso/misc/TWindowSubShortMail.h"
 #include "pso/ui/TAdChrSelASlotGC.h"
 #include "pso/misc/TWindowSubComCardList.h"
+#include "pso/misc/ShortMail.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/misc/TPlyGuildCardTag_8007B7EC.h"
 
 struct Ent_80272034 { u16 a; u16 b; u8 rest[0x1c]; };
 
@@ -368,6 +371,25 @@ s32 create__17TWindowSubComCardFv(void) {
     return temp_r31;
 }
 
+u32 TWindowSubComCard__sub_80272640(void *) {
+    s32 n;
+    s32 i;
+    void *e;
+    s32 w;
+    w = draw_card_icon__17TWindowSubComCardFll(get_window_layout_position(0x95), 8, TWindowSubStatusDisp::get_message_10(0x2E));
+    n = get_short_mail_ctrl__6TLobbyFv();
+    for (i = n - 1; i >= 0; i--) {
+        e = TLobby__sub_8022598C(i);
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)w, (int)fn_8007B83C(e), 7, get_lobby_id__6TLobbyFPv(e));
+    }
+    if (n <= 0) {
+        TWindowSubComCard::draw_text_gray(w, (s32)TWindowSubStatusDisp::get_message_10(0xD1), 7, 0);
+    }
+    ((TWindowSubComCardList *)w)->set_flag70_bit10();
+    ((TWindowSubComCardList *)w)->set_scroll_target(TWindowSubComCard__data_805DD500, lbl_805DD504);
+    return w;
+}
+
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_loop_invariants off
@@ -442,6 +464,31 @@ s32 create_menu_window__17TWindowSubComCardFv(void) {
 }
 void open_mode4_window__17TWindowSubComCardFv(void) {
     set_window_mode_4__6TLobbyFPvll((s32)(get_window_layout_position(0x8f)), (s32 *)lbl_8044F6C4, 1);
+}
+
+struct ComCardRec_80272A98 { u32 id; char name[0xD0]; };
+
+struct ComCardList_80272A98 { u8 pad0; u8 count; u8 pad2[2]; ComCardRec_80272A98 entries[1]; };
+
+u32 TWindowSubComCard__sub_80272A98(void *) {
+    s32 i;
+    s32 count;
+    s32 w;
+    ComCardRec_80272A98 *e;
+    ComCardList_80272A98 *l;
+    w = draw_card_icon__17TWindowSubComCardFll(get_window_layout_position(0x8E), 0x20, TWindowSubStatusDisp::get_message_10(0x54));
+    l = (ComCardList_80272A98 *)get_com_count__17TWindowSubComCardFv();
+    count = l->count;
+    e = l->entries;
+    for (i = 0; i < count; i++, e++) {
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)w, (int)e->name, 6, i);
+    }
+    if (((TWindowSubComCardList *)w)->get_field_72() <= 0) {
+        TWindowSubComCard::draw_text_gray(w, (s32)TWindowSubStatusDisp::get_message_10(0xD2), 7, 0);
+    }
+    ((TWindowSubComCardList *)w)->set_flag70_bit10();
+    ((TWindowSubComCardList *)w)->set_scroll_target(TWindowSubComCard__data_805DD500, TWindowSubComCard__data_805DD514);
+    return w;
 }
 
 typedef void *(*GetMsg_80272CB0)(void *, void *);
@@ -522,6 +569,36 @@ s32 TWindowSubComCard::create_entry_list_window() {
     ((TWindowSubComCard *)w)->set_flag_10();
     return w;
 }
+
+extern u8 lbl_8044F6B4[];
+s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
+
+#pragma push
+#pragma opt_loop_invariants off
+u32 TWindowSubComCard__sub_80272DE0(void *arg0) {
+    s32 i;
+    s32 count;
+    s32 idx;
+    s32 w;
+    Ent_80272CB0 *e;
+    List_80272CB0 *l;
+    w = create_choice_setting_window__17TWindowSubComCardFiii((s32)(get_window_layout_position(0x8C)), (s32)lbl_8044F6B4, 6);
+    create_sub_window__20TWindowChoiceSettingFPvi((void *)w, TQuestVmDownLoadServer__sub_8006EF6C(0x49));
+    l = (List_80272CB0 *)((TWindowSubComCard *)arg0)->m_58;
+    idx = 0;
+    count = l->count;
+    e = l->ents;
+    for (i = 0; i < count; i++, e++) {
+        if (e->type == 0) {
+            ((TWindowSubComCard *)w)->update_next_entry((s32)e->name, (s32)((TWindowSubComCard *)arg0)->find_entry_rest(&((TWindowSubComCard *)arg0)->m_30, idx), (s32)e->id);
+            idx++;
+        }
+    }
+    ((TWindowSubStatusDisp *)w)->add_text_entry(TQuestVmDownLoadServer__sub_8006EF6C(0x4A), 0);
+    ((TWindowSubComCard *)w)->set_flag_10();
+    return w;
+}
+#pragma pop
 
 void open_layout_window__17TWindowSubComCardFv(void) {
     set_window_mode_4__6TLobbyFPvll((s32)(get_window_layout_position(0x80)), (s32 *)lbl_8044F6AC, 1);
@@ -702,6 +779,29 @@ s32 create_single_entry_window__17TWindowSubComCardFv(void) {
     ((TAdChrSelASlotGC *)temp_r31)->set_flag_40();
     ((TWindowSubComCardList *)temp_r31)->set_scroll_target(TWindowSubComCard__data_805DD520, lbl_805DD528);
     return temp_r31;
+}
+
+u32 TWindowSubComCard__sub_8027337C() {
+    s32 i;
+    void *p;
+    s32 w;
+    u8 *name;
+    w = draw_card_icon__17TWindowSubComCardFll(get_window_layout_position(0x83), 0xC, TWindowSubStatusDisp::get_message_10(0x1F));
+    i = 0;
+    do {
+        if (i != local_client_id && (p = get_player_by_client_id(i)) != NULL &&
+            is_script_controlled__10TObjPlayerFv(p) == 0 && obj_isState3_324__13TUnk_804806E8Fv(p) == 0 &&
+            (name = (u8 *)p + 0x85C) != NULL) {
+            forward_trade_action_default__16TObjCityMainWarpFPviii((void *)w, (int)name, 7, (int)i);
+        }
+        i++;
+    } while (i < 0xC);
+    if (((TWindowSubComCardList *)w)->get_field_72() <= 0) {
+        TWindowSubComCard::draw_text_gray(w, (s32)TWindowSubStatusDisp::get_message_10(0xD2), 7, 0);
+    }
+    ((TWindowSubComCardList *)w)->set_flag70_bit10();
+    ((TWindowSubComCardList *)w)->set_scroll_target(TWindowSubComCard__data_805DD520, TWindowSubComCard__data_805DD514);
+    return w;
 }
 
 s32 TWindowSubComCard__sub_8027346C(void) {

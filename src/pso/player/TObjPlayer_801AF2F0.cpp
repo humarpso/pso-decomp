@@ -44,6 +44,7 @@
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TOMineTrap.h"
 #include "pso/misc/TTecLuker.h"
+#include "pso/misc/TMainCursor_8013BEB8.h"
 #include "pso/misc/TWindowActionPalette.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/object/TObjFish.h"
@@ -2170,7 +2171,8 @@ void send_6x2C_impose_hold(s32 arg0, struct Vec_801B5328 *pos, s16 arg2, s16 arg
 void play_effect_default__10TObjPlayerFii(s32 arg0, s32 arg1);
 void set_move_mode__10TObjPlayerFi(s32 arg0);
 int check_flag_100__10TObjPlayerFPv(void* p);
-int TObjPlayer__sub_801B57E8(void);
+void *TObjPlayer__sub_801B57E8(TObjPlayer *player);
+int TObjPlayer__sub_801BF6E4(void *p);
 s32 is_action_channel_available__10TObjPlayerFii(s32 arg0, s32 arg1);
 void TObjPlayer__sub_801B5A44(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void TObjPlayer__sub_801B5AF8(s32 arg0, s32 arg1);
@@ -2596,11 +2598,17 @@ void TObjPlayer__sub_801BE2C0(void *, s32);
 
 s32 TObjPlayer__sub_801AF290(void *p) {
     s32 v;
+    TObjPlayer *target;
     s32 r = 0;
+    TObjPlayer *player;
     s32 cur = TObjPlayer__sub_801BE2C8(p);
+    target = player = (TObjPlayer *)p;
     v = cur + 1;
-    if (v >= ((s32 (*)(void *, s32))calc_stat_threshold__10TObjPlayerFPv)(p, cur)) { v = 0; r = 1; }
-    TObjPlayer__sub_801BE2C0(p, v);
+    if (v >= ((s32 (*)(void *, s32))calc_stat_threshold__10TObjPlayerFPv)(target, cur)) {
+        v = 0;
+        r = 1;
+    }
+    TObjPlayer__sub_801BE2C0(player, v);
     return r;
 }
 }
@@ -3120,6 +3128,15 @@ void record_damage_stats__10TOMineTrapFUiUis(u32 arg0, u32 arg1, s16 arg2) {
 }
 
 int TOMineTrap::update_trap_sub() { return ((int (*)(void*))accumulate_damage_stats)((char*)this + 0x76c); }
+
+extern "C" void fn_801B0480(u8 *player, void *attacker, s32 amount) {
+    if (check_value_equals__13TUnk_804B6C24Fl(attacker, lbl_805D3530) == 0
+        || ((TLobby *)lobby_rule_settings)->get_rule_field_a() != 1
+        || TLobby__sub_801C19D0(player + 0x828) != TLobby__sub_801C19D0((u8 *)attacker + 0x828)) {
+        accumulate_damage_stats((s32)(player + 0x75C), (s32)attacker, amount);
+        play_sound_effect(0x4004B20A, 0, 0, 0);
+    }
+}
 
 void draw_player_status(s32 arg0, void *arg1, s32 arg2) {
     s32 temp_r3;
@@ -5399,7 +5416,21 @@ void TObjPlayer::release_attached_resource() { void* m = *(void**)((char*)this +
 
 void TObjPlayer::action_enable_if_present() { void* m = *(void**)((char*)this + 0x424); if (m) ((TObjPlayer *)m)->clear_flag_1_at_1c(); }
 
-int TObjPlayer__sub_801B57E8(void) { return 0; }
+void *TObjPlayer__sub_801B57E8(TObjPlayer *player) {
+    s32 i;
+    s32 cursor;
+    if ((u32)player->m_424 == 0) {
+        return NULL;
+    }
+    cursor = player->m_424 + 0x5C;
+    for (i = 0; i < 4; i++) {
+        if (try_move__11TMainCursorFiii(cursor, ((TObjPlayer *)&player->m_340)->update_main_cursor(), TObjPlayer__sub_801BF6E4(&player->m_340)) != 0) {
+            return (void *)cursor;
+        }
+        cursor += 0x124;
+    }
+    return NULL;
+}
 
 s32 TObjPlayer::is_quest_interaction_blocked() {
     if (this->m_424 == 0U) {
@@ -7710,7 +7741,12 @@ void TObjPlayer::reset_motion_fields() {
     }
 }
 
-int TObjPlayer__sub_801BB85C(void) { return 0; }
+extern "C" void TObjPlayer__sub_801BB85C(TObjPlayer *player, u8 *record) {
+    u32 state = record[0x143] | (record[0x15F] << 8);
+    state |= (record[0x17B] << 16) & 0xFF0000;
+    state |= record[0x197] << 24;
+    ((TTecLuker *)&player->m_41c)->set_state(state);
+}
 
 void TObjPlayer__sub_801BB8A8(void) {  }
 

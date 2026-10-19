@@ -1964,6 +1964,7 @@ pso/misc/pso_const_ids7.cpp
 pso/misc/pso_date.cpp
 pso/network/NetworkInfoCodec.cpp
 pso/network/NetworkInfoLoader.cpp
+pso/network/NetworkMessageTransport.cpp
 pso/network/NetworkTransport.cpp
 pso/network/TGameProtocol.cpp
 pso/network/TProtocol.cpp

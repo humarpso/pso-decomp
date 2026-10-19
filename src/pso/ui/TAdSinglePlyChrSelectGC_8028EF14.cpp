@@ -25,6 +25,7 @@ extern const f32 lbl_805DD94C;
 extern const f32 lbl_805DD950;
 extern const f32 lbl_805DD954;
 s32 find_shape_triangle_region(u8 *arg0);
+TChCrLoadAfsTextureReq *create_ch_cr_load_afs_texture_req(void *figure, void *list, void *slot, void *index);
 extern "C" {
 void calc_shape_region_coefficients(void *point);
 void blend_shape_chunk_vertices(void);
@@ -67,6 +68,9 @@ void *__dt__10TObjMotionFv(void *arg0, s16 arg1);
 void mem_free(void *p);
 s32 __dl__7TObjectFPv(void *);
 s32 TAdSinglePlyChrSelectGC__sub_802905D4(void *);
+void TAdSinglePlyChrSelectGC__sub_8028F084(CreationTextureCacheEntry *entry, TCharaMaking *appearance);
+void TCharaMaking__bind_appearance_texture_lists(s32 *hair, s32 *head, s32 *body, TCharaMaking *appearance);
+void copy_slot_data__23TAdSinglePlyChrSelectGCFPvPv(void *dst, void *src);
 extern s32 lbl_805D49B4;
 extern int char_creation_figure_draw_flag;
 extern s32 chara_select_preview_resource;
@@ -1655,6 +1659,24 @@ CreationTextureCacheEntry *TAdSinglePlyChrSelectGC::find_free_slot() {
         if (p->in_use == 0) return p;
     }
     return 0;
+}
+void TAdSinglePlyChrSelectGC__sub_8028F084(CreationTextureCacheEntry *entry, TCharaMaking *appearance) {
+    CreationTextureLoadSlot *slot;
+    s32 index;
+    TCharaMaking__bind_appearance_texture_lists(&entry->hair_textures.present, &entry->head_textures.present, &entry->body_textures.present, appearance);
+    index = appearance->get_display_index();
+    slot = &entry->hair_textures;
+    if (slot->present != 0) {
+        slot->request = create_ch_cr_load_afs_texture_req((void *)creation_figure_object, &slot->list, slot, (void *)index);
+    }
+    slot = &entry->head_textures;
+    if (slot->present != 0) {
+        slot->request = create_ch_cr_load_afs_texture_req((void *)creation_figure_object, &slot->list, slot, (void *)index);
+    }
+    slot = &entry->body_textures;
+    slot->request = create_ch_cr_load_afs_texture_req((void *)creation_figure_object, &slot->list, slot, (void *)index);
+    entry->in_use = 1;
+    copy_slot_data__23TAdSinglePlyChrSelectGCFPvPv(entry, appearance);
 }
 s32 TAdSinglePlyChrSelectGC::evict_char_entries(s32 arg0) {
     s32 n;

@@ -12,6 +12,9 @@
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/unk/text_801414B0.h"
+#include "pso/unk/text_803DA798.h"
+#include "pso/unk/text_803E2D70.h"
 
 struct UV_8024503C { f32 u, v; };
 
@@ -490,6 +493,32 @@ void draw_selection_bar(u8 *window_key_board_soft, u8 *arg1, s32 arg2) {
     }
     TWindowSubStatusDisp::get_player();
     TObjPlayer::reset_transform_state();
+}
+
+extern "C" {
+void TWindowSubComCard__sub_802452DC(s32 texture) {
+    switch (window_ui_theme_index) {
+    case 0:
+    case 1:
+        return;
+    }
+    TLobby::reset_player_state();
+    TObjPlayer::reset_transform_state();
+    TObjPlayer::setup_tev_swap();
+}
+
+void TWindowSubComCard__sub_802454E4(s32 texture) {
+    switch (window_ui_theme_index) {
+    case 0:
+    case 1:
+        return;
+    }
+    TObjPlayer::init_xyz_limits();
+    fn_801414B0(3, 3, 3, 3);
+    TObjFish::set_global_param(lbl_805D63F0);
+    set_texture_num(texture);
+    TLobby__sub_803E2EE4(1);
+}
 }
 
 #pragma push

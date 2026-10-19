@@ -82,6 +82,10 @@ void fn_801E283C(u32, Date_801E21A8 *);
 int strcmp(const char *s1, const char *s2);
 s32 get_card_file_info__15TAdPlayerLoadGCFiPvPv(s32 chan, const char *name, Info_801E21A8 *info);
 s32 CARDGetSerialNo();
+s32 CARDFormatAsync(s32 chan, void *callback);
+void CARDInit(void);
+extern s32 lbl_805D5E34;
+extern u8 *lbl_80511F68[];
 
 void TAdPlayerLoadGC::reset_load_state(void *arg0, void *arg1) {
     *(s32 *)((s8 *)arg1 + 4) = 0;
@@ -211,6 +215,24 @@ s32 TAdPlayerLoadGC::probe_and_check_card() {
 }
 #pragma pop
 
+s32 TAdPlayerLoadGC__sub_801E0FA4(s32 chan) {
+    s32 freeBytes;
+    s32 freeFiles;
+    if (chan >= 2) {
+        return -0xFB;
+    }
+    switch (CARDFreeBlocks(chan, &freeBytes, &freeFiles)) {
+    case -3:
+    case -1:
+    case -6:
+    case -128:
+        break;
+    case 0:
+        return freeFiles;
+    }
+    return 0;
+}
+
 void TAdPlayerLoadGC::unmount_card_and_clear_flags(s32 n) {
     s32 r = CARDUnmount();
     if (r == 0 || r == -3) {
@@ -283,6 +305,21 @@ s32 TAdPlayerLoadGC__sub_801E1518(void *arg0, s32 arg1, u32 arg2) {
 }
 s32 TAdPlayerLoadGC::get_load_result(void * _w0) {
     return TAdPlayerLoadGC__card_result_code;
+}
+
+s32 TAdPlayerLoadGC__sub_801E1538(Src_801E17F4 *dst, u8 *buf) {
+    Hdr_801E17F4 *h = (Hdr_801E17F4 *)buf;
+    u32 crc = h->crc;
+    u32 calc;
+    h->crc = 0;
+    calc = ((u32 (*)(void *, u32))TAdSinglePlyChrSelectGC__sub_80201204)(h, 0x2048);
+    h->crc = crc;
+    if (calc != crc) {
+        return -0xE0;
+    }
+    dst->size = h->size;
+    dst->data = buf + 0x2048;
+    return 0;
 }
 
 s32 build_save_file_image__15TAdPlayerLoadGCFPvPv(u8 *arg0, Src_801E17F4 *arg1) {
@@ -539,6 +576,26 @@ s32 TAdPlayerLoadGC::query_memcard_capacity(s32 arg0) {
         return -0xFD;
     }
 }
+s32 TAdPlayerLoadGC__sub_801E24F8(s32 chan) {
+    if (chan >= 2) {
+        TAdPlayerLoadGC__card_result_code = -1;
+        return -1;
+    }
+    switch (CARDFormatAsync(chan, NULL)) {
+    case 0:
+        TAdPlayerLoadGC__card_result_code = 0;
+        return 0;
+    case -1:
+    case -3:
+    case -5:
+    case -128:
+        break;
+    }
+    TAdPlayerLoadGC__card_slot_state_flags |= 0x400 << chan;
+    TAdPlayerLoadGC__card_result_code = -1;
+    return -1;
+}
+
 s32 TAdPlayerLoadGC::poll_load_status(s32 arg0) {
     if (arg0 >= 2) {
         TAdPlayerLoadGC__card_result_code = -1;
@@ -558,6 +615,24 @@ s32 TAdPlayerLoadGC::poll_load_status(s32 arg0) {
         TAdPlayerLoadGC__card_result_code = -1;
         return -1;
     }
+}
+
+s32 TAdPlayerLoadGC__sub_801E263C(s32 unused, s32 chan, u8 *workArea) {
+    s32 i;
+    TAdPlayerLoadGC__card_slot_state_flags = 0;
+    lbl_805D5E34 = 0;
+    CARDInit();
+    TAdPlayerLoadGC__card_result_code = 0;
+    if (chan >= 2) {
+        TAdPlayerLoadGC__card_result_code = -0x100;
+        return -0x100;
+    }
+    for (i = 0; i < 2; i++) {
+        lbl_80511F68[i] = workArea + i * 0xA000;
+        TAdPlayerLoadGC__sub_801E101C(i);
+    }
+    TAdPlayerLoadGC__card_result_code = 0;
+    return 0;
 }
 
 }

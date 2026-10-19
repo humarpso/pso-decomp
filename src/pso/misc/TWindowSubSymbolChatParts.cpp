@@ -230,6 +230,20 @@ void TWindowSubSymbolChatParts::handle_add() {
     ((TWindowSubStatusDisp *)(*(s32 *)&this->m_88))->set_entry_state(2);
 }
 
+#pragma push
+#pragma fp_contract on
+void fn_80284FB8(void *arg0) {
+    Win_80284D68 *w = (Win_80284D68 *)arg0;
+    Vec2_80284D68 v;
+    f32 target = lbl_805DD7D8 + (lbl_805DD7D4 * (f32)w->row + lbl_805DD7DC);
+    target -= lbl_805DD7E0;
+    w->pos.y += target - w->pos.y;
+    v.x = lbl_805DD7E4;
+    v.y = w->height - lbl_805DD7E8 - lbl_805DD7D8;
+    clamp_list_scroll_offset(w->card, &w->pos, &v);
+}
+#pragma pop
+
 void TWindowSubSymbolChatParts::sub_80285054() {
     u8 temp_r3;
     u8 temp_r3_2;
