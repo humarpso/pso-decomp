@@ -3,7 +3,7 @@
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_80488B08.h"
 #include "pso/misc/TUnk_80488AF0.h"
-#include "pso/misc/TUnk_80488AD8.h"
+
 #include "pso/misc/TCameraCtrl.h"
 
 struct RecoveredGlobal_8006BA08_lbl_80488B08 {

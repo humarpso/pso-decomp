@@ -6,7 +6,7 @@
 #include "pso/misc/TLobby_80207DA8.h"
 #include "pso/misc/TScene_80206494.h"
 #include "pso/unk/text_800F8A18.h"
-#include "pso/misc/TScene.h"
+
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -92,7 +92,7 @@ TScene::~TScene() {
     TScene__active_scene_callback = 0;
     TScene__render_callback = 0;
 }
-extern "C" {
+
 
 extern void *tl_02;
 
@@ -148,7 +148,6 @@ void TScene::load_tam_file(s32 name) {
             TScene__texture_animation_buffer = 0;
         }
     }
-}
 }
 
 void load_scene_map_file(s32 arg0) {

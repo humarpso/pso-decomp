@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/misc/TLockOnCursor.h"
 #include "pso/system/memory.h"
-#include "pso/misc/TLockOnCursor.h"
+
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TMainCursor.h"
 #include "pso/player/TObjPlayer.h"
@@ -211,7 +211,7 @@ TLockOnCursor::~TLockOnCursor() {
     __dt__13TLockOnCursorFis((s32)(((u8 *)this) + 0x3C), -1);
     TLockOnCursor::dt((s32)(((u8 *)this) + 0x24), -1);
 }
-extern "C" {
+
 
 s32 TLockOnCursor::dt(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
@@ -245,4 +245,3 @@ void *TLockOnCursor__ct(void *lock_on_cursor, void *arg1, void *arg2) {
     return lock_on_cursor;
 }
 
-}

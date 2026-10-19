@@ -1,10 +1,10 @@
 #include "types.h"
 #include "pso/ui/TAdDialingMessageWindow.h"
-#include "pso/ui/TAdDialingMessageWindow.h"
+
 #include "pso/object/TObject_80019A50.h"
 #include "pso/ui/TAdDrawLineCtrl.h"
 #include "pso/ui/TUnk_804F3428.h"
-#include "pso/ui/TAdDialingMessageWindow.h"
+
 #include "pso/TObject.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -49,13 +49,9 @@ TAdDialingMessageWindow::~TAdDialingMessageWindow() {
         ((VObj_8036A248_8036A174 *)temp_r3)->m0(1);
     }
 }
-extern "C" {
-
 extern void *tl_fadeafter;
 extern void *lbl_805D44C8;
 extern void *tl_camera;
-
-}
 TAdDialingMessageWindow::TAdDialingMessageWindow(void *arg1, void *arg2) : TObject((TObject *)tl_fadeafter) {
     void *o;
     void *o2;

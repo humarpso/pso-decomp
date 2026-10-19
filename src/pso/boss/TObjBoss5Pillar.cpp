@@ -5,7 +5,7 @@
 #include "pso/unk/text_8028ADDC.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
-#include "pso/boss/TObjBoss5Pillar.h"
+
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -98,7 +98,7 @@ void TObjBoss5Pillar::run_task() {
 TObjBoss5Pillar::~TObjBoss5Pillar() {
     if (*(void **)((s8 *)this + 0x48) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x48)); this->m_48 = 0; }
 }
-extern "C" {
+
 typedef char RecoveredGlobal_8028B60C___vt__15TObjBoss5Pillar_size[sizeof(RecoveredGlobal_8028B60C___vt__15TObjBoss5Pillar) == 0x18 ? 1 : -1];
 u8 *TObjBoss5Pillar__ct(TObjBoss5Pillar *boss5_pillar, u8 *arg1, u8 *arg2) {
     __ct__7TObjectFP7TObject(boss5_pillar, arg1);
@@ -117,4 +117,3 @@ u8 *TObjBoss5Pillar__ct(TObjBoss5Pillar *boss5_pillar, u8 *arg1, u8 *arg2) {
     return (u8 *)boss5_pillar;
 }
 
-}

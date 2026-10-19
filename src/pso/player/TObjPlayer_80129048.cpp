@@ -18,7 +18,7 @@ int get_player_list__10TObjPlayerFv(void*);
 TUnk_804A4020::~TUnk_804A4020() {
 
 }
-extern "C" {
+
 
 void TObjPlayer::clear_rico_ring_flag() {
     u32 arg0 = (u32)this;
@@ -46,4 +46,3 @@ void TItemShootModel::sub_80129118(s32 arg1, s32 arg2) {
 void TUnk_804A4138::update_idle() { *(s32*)((char*)this + 0x1fc) = 0; }
 void TObjPlayer::handle_tunnel_state_0() { if (get_player_list__10TObjPlayerFv(this) == 0) { rotate_matrix_z((void*)0, *(void* *)&this->m_1fc); } }
 
-}

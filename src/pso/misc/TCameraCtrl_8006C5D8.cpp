@@ -2,7 +2,7 @@
 #include "pso/misc/TUnk_80488B68.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TUnk_80488D70.h"
-#include "pso/misc/TUnk_80488B68.h"
+
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TScene.h"
@@ -57,7 +57,7 @@ TUnk_80488B68::TUnk_80488B68() : TUnk_80488A28() {
     this->m_90 = 0;
     *(int*)((char*)this + 0x94) = 0;
 }
-extern "C" {
+
 
 void TCameraCtrl::free_entries() {
     s32 i;
@@ -142,4 +142,3 @@ void *__dt__13TUnk_80488D70Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}

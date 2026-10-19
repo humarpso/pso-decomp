@@ -151,9 +151,6 @@ struct ChunkBuffer_803E44D4 { void *vertices; s32 bytes; };
 struct ChunkRecording_803E44D4 { ChunkBuffer_803E44D4 buffers[32]; s32 index; };
 void OSReport(const char*, ...);
 void* memmove(void*, const void*, unsigned long);
-}
-s32 dispatch_chunk_vertex_list(u32*, s32);
-extern "C" {
 void dispatch_chunk_polygon_list(u16*, s32);
 extern const char lbl_804FC810[];
 extern u32 lbl_805D77E4;
@@ -401,6 +398,7 @@ void draw_strip_list_pos_nrm__10TObjPlayerFPvPvUi(s16 *list, Vtx_803E36C4 *verts
     } while (--count != 0);
 }
 }
+s32 dispatch_chunk_vertex_list(u32*, s32);
 #pragma pop
 
 #pragma push

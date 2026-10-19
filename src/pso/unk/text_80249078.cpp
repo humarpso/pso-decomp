@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/misc/TWindowChoiceSetting.h"
 
-extern "C" {
+
 #pragma push
 #pragma fp_contract on
 void TWindowChoiceSetting::sub_80249078() {
@@ -23,4 +23,3 @@ void TWindowChoiceSetting::sub_80249078() {
     *(f32 *)&this->unk_60[0xC] += (target - *(f32 *)&this->unk_60[0xC]) / (f32)steps;
 }
 #pragma pop
-}

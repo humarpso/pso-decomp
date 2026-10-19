@@ -5,7 +5,7 @@
 #include "pso/misc/TTecRaBarta.h"
 
 #include <stddef.h>
-#include "pso/misc/TTecPlayerInfluence.h"
+
 #include "pso/misc/TTecAnti.h"
 #include "pso/misc/TTecRaFoie.h"
 #include "pso/player/TObjPlayer.h"
@@ -137,7 +137,7 @@ void TTecPlayerInfluence::run_task() {
 TTecPlayerInfluence::~TTecPlayerInfluence() {
     if (*(void **)((s8 *)this + 0xDC) != NULL) { free_collision_body_parts(*(void **)((s8 *)this + 0xDC)); }
 }
-extern "C" {
+
 
 typedef struct Obj_80237310 Obj_80237310;
 typedef struct Owner_80237310 Owner_80237310;
@@ -205,4 +205,3 @@ typedef struct Profile_80237494 Profile_80237494;
 typedef struct Rabarta_80237494 Rabarta_80237494;
 typedef struct Vec_80237494 Vec_80237494;
 
-}

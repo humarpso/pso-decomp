@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/ui/TAdPlyPltAnimGC.h"
 #include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
-#include "pso/ui/TAdPlyPltAnimGC.h"
+
 #include "pso/ui/TAdPlyPltAnimCtrlGC.h"
 #include "pso/TMainTask.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -137,7 +137,7 @@ TAdPlyPltAnimGC::~TAdPlyPltAnimGC() {
         }
     }
 }
-extern "C" {
+
 
 #pragma push
 #pragma fp_contract on
@@ -188,4 +188,3 @@ void TAdPlyPltAnimGC__sub_8035615C(void) {
     }
 }
 
-}

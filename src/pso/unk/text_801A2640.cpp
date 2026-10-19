@@ -76,7 +76,7 @@ TUnk_804B9870::TUnk_804B9870(TObject *parent) : TObject(parent) {
     ((Obj_801A2640 *)this)->v74.z = lbl_805DC098;
     ((Obj_801A2640 *)this)->f1e = 0;
 }
-extern "C" {
+
 
 void *TODoorFourLightSeabed__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xFC);
@@ -182,4 +182,3 @@ void *TObjMapForceWarp__create(void *arg0) {
     return o;
 }
 
-}

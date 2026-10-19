@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/misc/TCheckMemoryCard.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
-#include "pso/misc/TCheckMemoryCard.h"
+
 
 struct Base_8033C4E0_8033C420 { char pad[0x18]; };
 struct VObj_8033C4E0_8033C420 : Base_8033C4E0_8033C420 { virtual void m0(int); };
@@ -76,11 +76,7 @@ TCheckMemoryCard::~TCheckMemoryCard() {
         *(u32 *)((s8 *)this + 0x34) = 0U;
     }
 }
-extern "C" {
-
 extern void *TCheckMemoryCard__name;
-
-}
 TCheckMemoryCard::TCheckMemoryCard(TObject *object, void *arg2, void *arg3, void *arg4) : TObject(object) {
     *(void * *)&this->m_name = TCheckMemoryCard__name;
     *(void **)((s8 *)this + 0x48) = arg2;

@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/enemy/TObjEneRe2Flower_EffCurse3.h"
-#include "pso/enemy/TObjEneRe2Flower_EffCurse3.h"
+
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneRe2Flower.h"
 #include "pso/player/TObjPlayer.h"

@@ -5,7 +5,7 @@
 #include "pso/object/TObject_80019A50.h"
 #include "pso/ui/TAdAgreementBaseGC.h"
 #include "pso/ui/TAdTrialAgreementGC_8033573C.h"
-#include "pso/ui/TAdTrialAgreementGC.h"
+
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/misc/TLobby.h"
 
@@ -68,7 +68,7 @@ void TAdTrialAgreementGC::run_task() {
 TAdTrialAgreementGC::~TAdTrialAgreementGC() {
 
 }
-extern "C" {
+
 
 typedef char RecoveredGlobal_80335870___vt__19TAdTrialAgreementGC_size[sizeof(RecoveredGlobal_80335870___vt__19TAdTrialAgreementGC) == 0x38 ? 1 : -1];
 u8 *TAdTrialAgreementGC__ct(u8 *ad_trial_agreement_gc) {
@@ -96,4 +96,3 @@ void TAdTrialAgreementGC::draw_record_with_camera(s32 arg0, s32 arg1, s32 arg2) 
     TLobby::draw_with_camera((s32)((void *) (TLobby::get_record(arg1))), arg2, 0x20, lbl_805DF8B0);
 }
 
-}

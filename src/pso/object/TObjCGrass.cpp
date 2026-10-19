@@ -3,7 +3,7 @@
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/obj_band.h"
 #include "pso/system/vector.h"
-#include "pso/object/TObjCGrass.h"
+
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/misc/TLobby.h"
 #include "pso/object/TObjFish.h"
@@ -225,7 +225,7 @@ void TObjCGrass::load_resources() {
 TObjCGrass::~TObjCGrass() {
     if (*(void **)((s8 *)this + 0xFC) != NULL) { mem_free(*(void **)((s8 *)this + 0xFC)); }
 }
-extern "C" {
+
 #pragma push
 #pragma fp_contract on
 u8 *TObjCGrass__ct(Grass_800B8EFC *self, u8 *arg1, s32 arg2, s32 arg3) {
@@ -276,4 +276,3 @@ u8 *TObjCGrass__ct(Grass_800B8EFC *self, u8 *arg1, s32 arg2, s32 arg3) {
 }
 #pragma pop
 
-}

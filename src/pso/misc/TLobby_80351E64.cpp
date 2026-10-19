@@ -2,7 +2,7 @@
 #include "pso/misc/TUnk_804F0EA8.h"
 #include "pso/misc/TLobby_80351E64.h"
 #include "pso/object/TObject_80019A50.h"
-#include "pso/misc/TUnk_804F0EA8.h"
+
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -68,7 +68,7 @@ TUnk_804F0EA8::~TUnk_804F0EA8() {
     queue_destruction__7TObjectFv(this);
     (*(s32 *)&lobby_event_theme_controller) = 0;
 }
-extern "C" {
+
 
 u8 *TLobby__sub_80351FDC(u8 *arg0) {
     __ct__7TObjectFP7TObject(arg0, tl_00);
@@ -84,7 +84,6 @@ void TLobby__sub_8035202C(void) {
         TAdSinglePlyChrSelectGC::safe_free((*(u32 *)&lobby_main_texture_gvm));
         (*(u32 *)&lobby_main_texture_gvm) = 0U;
     }
-}
 }
 void load_obj_lobby_main(void) { lobby_main_texture_gvm = (int)load_gvm_texture_file((s32)lbl_80478E20); }
 s32 get_theme_lobby_type(void) {

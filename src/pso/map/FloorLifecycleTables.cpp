@@ -130,9 +130,6 @@ void TOSwitchItem__sub_80178084();
 void TOSwitchTimer__sub_80178584();
 void TOSwitchTimer__sub_80178588();
 void fn_8017F45C();
-}
-void load_forest_box_resources();
-extern "C" {
 void TContainerAncient01R__sub_8018AF74();
 void TObjDoorJung__sub_8018F4AC();
 void TLazerFenceSw__sub_80193C5C();
@@ -153,6 +150,7 @@ void fn_803653A4();
 void TObjParticleLobby__sub_80369A60();
 void TObjParticleLobby__sub_80369A64();
 }
+void load_forest_box_resources();
 void load_chat_sensor();
 void load_turiten_singo_resources();
 void load_city_common_resources();

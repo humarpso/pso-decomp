@@ -2,7 +2,7 @@
 #include "pso/misc/TWindowCtrlPlayer.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/object/TObject_80019A50.h"
-#include "pso/misc/TWindowCtrlPlayer.h"
+
 #include "pso/TObject.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/object/TObjLuker.h"

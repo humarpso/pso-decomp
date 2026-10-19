@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/misc/TFogCtrl_EOR.h"
 #include "pso/misc/TQuestVmDownLoadServer_800FA8A4.h"
-#include "pso/misc/TFogCtrl_EOR.h"
+
 #include "pso/misc/TFogCtrl.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 
@@ -37,7 +37,7 @@ void TFogCtrl_EOR::run_task() { update_all__8TFogCtrlFv(this); }
 TFogCtrl_EOR::~TFogCtrl_EOR() {
 
 }
-extern "C" {
+
 
 typedef char RecoveredGlobal_800FA95C_lbl_8049C700_size[sizeof(RecoveredGlobal_800FA95C_lbl_8049C700) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_800FA95C_lbl_80515F48_size[sizeof(RecoveredGlobal_800FA95C_lbl_80515F48) == 0x28 ? 1 : -1];
@@ -119,4 +119,3 @@ s32 TFogCtrl::update_all(s32 arg0) {
     return 1;
 }
 
-}

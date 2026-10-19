@@ -12,7 +12,7 @@
 #include "pso/system/memory.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneDf2Bringer.h"
-#include "pso/misc/TBreakUpMdl.h"
+
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -208,7 +208,7 @@ TBreakUpMdl::~TBreakUpMdl() {
     mem_free((void *)(*(void **)((s8 *)this + 0x34)));
     this->m_34 = 0;
 }
-extern "C" {
+
 
 #pragma push
 #pragma fp_contract on
@@ -381,4 +381,3 @@ u8 *TBreakUpMdl::init_from_model(s32 boss2_tunnel) {
 
 void TBreakUpMdl::copy(void* q) { *(u32 *)&this->m_name = *(u32*)((char*)q + 0x0); *(f32 *)&this->m_flags = *(f32*)((char*)q + 0x4); *(f32 *)&this->m_prev = *(f32*)((char*)q + 0x8); *(f32 *)&this->m_next = *(f32*)((char*)q + 0xc); *(f32 *)&this->m_up = *(f32*)((char*)q + 0x10); *(f32 *)&this->m_down = *(f32*)((char*)q + 0x14); *(f32*)((char*)this + 0x18) = *(f32*)((char*)q + 0x18); }
 
-}

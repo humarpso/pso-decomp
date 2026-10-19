@@ -2,7 +2,7 @@
 #include "pso/boss/TBoss1DragonEffBullet.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss1Dragon.h"
-#include "pso/boss/TBoss1DragonEffBullet.h"
+
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/misc/TNowLoading.h"
 
@@ -130,7 +130,7 @@ TBoss1DragonEffBullet::~TBoss1DragonEffBullet() {
     if (*(void **)((s8 *)this + 0x48) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x48)); this->m_48 = 0; }
     if (*(void **)((s8 *)this + 0x44) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x44)); this->m_44 = 0; }
 }
-extern "C" {
+
 typedef char RecoveredGlobal_8002BCE0_lbl_80435410_size[sizeof(RecoveredGlobal_8002BCE0_lbl_80435410) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_8002BCE0_lbl_8043541C_size[sizeof(RecoveredGlobal_8002BCE0_lbl_8043541C) == 0xC ? 1 : -1];
 
@@ -163,4 +163,3 @@ void TBoss1Dragon::select_fireball_particle_table() {
     }
 }
 
-}

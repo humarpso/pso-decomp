@@ -3,7 +3,7 @@
 #include "pso/misc/TKeyBoardControl_8000F764.h"
 #include "pso/misc/TWindowShortListCtrl_801A4FC0.h"
 #include "pso/object/TObject_80019A50.h"
-#include "pso/misc/TUnk_804C2298.h"
+
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowShortListCtrl.h"
 
@@ -72,7 +72,7 @@ TUnk_804C2298::TUnk_804C2298() : TObject((TObject *)tl_00) {
     *(u32 *)((s8 *)this + 0x28) = 0;
     *(u32 *)((s8 *)this + 0x2C) = 0;
 }
-extern "C" {
+
 
 s32 TWindowShortListCtrl__sub_801A513C(void* p) { return *(s32*)((char*)p + 0x24); }
 int TWindowShortListCtrl__sub_801A5144(void* p) { return *(u8*)((char*)p + 0x1d) & 0x1; }
@@ -110,4 +110,3 @@ s32 fn_801A51F0(void) {
     return ((u32) *(u32 *)((s8 *)character_save_record + 0x10) >> 0xAU) & 7;
 }
 
-}

@@ -7,7 +7,7 @@
 #include "pso/system/vector.h"
 
 #include <stddef.h>
-#include "pso/misc/TLoadingCur.h"
+
 struct Stack_8001D0A0 {
     s32 sp8;
     s32 spC;
@@ -194,7 +194,7 @@ void TLoadingCur::run_task() {
 TLoadingCur::~TLoadingCur() {
     if (*(void **)((s8 *)this + 0x1C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x1C)); *(s32 *)((s8 *)this + 0x1C) = 0; }
 }
-extern "C" {
+
 #pragma push
 #pragma fp_contract on
 typedef char RecoveredGlobal_8001D0A0___vt__11TLoadingCur_size[sizeof(RecoveredGlobal_8001D0A0___vt__11TLoadingCur) == 0x18 ? 1 : -1];
@@ -228,4 +228,3 @@ u8 *TLoadingCur__ct(u8 *object, s32 arg1) {
 }
 #pragma pop
 
-}

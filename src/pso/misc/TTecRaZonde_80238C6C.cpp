@@ -7,7 +7,7 @@
 #pragma readonly_strings on
 
 #include <stddef.h>
-#include "pso/misc/TTecRaZonde.h"
+
 #include "pso/misc/TTecResta.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -289,7 +289,7 @@ TTecRaZonde::~TTecRaZonde() {
     }
     mem_free(((Self_80238EC8 *)this)->objs);
 }
-extern "C" {
+
 
 void TTecRaZonde::render() {  }
 
@@ -443,4 +443,3 @@ void TTecResta::play_launch_sound() {
     }
 }
 
-}

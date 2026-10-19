@@ -2,7 +2,7 @@
 #include "pso/boss/TBoss5GryphonShockWave.h"
 #include "pso/boss/Boss5GryphonBehavior.h"
 #include "pso/object/TObject_80019A50.h"
-#include "pso/boss/TBoss5GryphonShockWave.h"
+
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -77,13 +77,9 @@ void TBoss5GryphonShockWave::run_task() {
 TBoss5GryphonShockWave::~TBoss5GryphonShockWave() {
     if (*(void **)((s8 *)this + 0x3C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x3C)); this->m_3c = 0; }
 }
-extern "C" {
-
 extern s32 lbl_805D2818;
 extern const f32 lbl_805D8EEC;
 extern const f32 lbl_805D8EF0;
-
-}
 TBoss5GryphonShockWave::TBoss5GryphonShockWave(TObject *arg1_parent, s32 arg2, u8 *arg3, u8 *arg4, s32 arg5, s16 arg6) : TObject(arg1_parent) {
     s32 sp8[4];
     *(s32 *)((s8 *)this + 0) = (s32) lbl_805D2818;

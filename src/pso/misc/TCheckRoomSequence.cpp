@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/TShopWindowBase.h"
 struct TShopKeepItemWindow;
-#include "pso/TShopWindowBase.h"
+
 #include "pso/misc/TShopSequence.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowMenu.h"

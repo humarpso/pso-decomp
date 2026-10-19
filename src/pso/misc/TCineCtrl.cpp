@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/misc/TCineCtrl.h"
 #include "pso/system/ModelDrawContext.h"
-#include "pso/misc/TCineCtrl.h"
+
 #include "pso/TObjCMHairMenu.h"
 #include "pso/misc/TCameraCtrl.h"
 

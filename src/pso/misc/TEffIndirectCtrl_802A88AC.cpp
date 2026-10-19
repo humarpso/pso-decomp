@@ -3,7 +3,7 @@
 #include "pso/misc/TEffIndirectCtrl_802A88AC.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/memory.h"
-#include "pso/misc/TEffIndirectCtrl.h"
+
 #include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0 {
@@ -74,7 +74,7 @@ TEffIndirectCtrl::~TEffIndirectCtrl() {
     if (*(void **)((s8 *)this + 0x2C) != NULL) { TLobby__sub_803DA16C(*(void **)((s8 *)this + 0x2C)); ::operator delete(*(void **)((s8 *)this + 0x2C)); }
     if (*(void **)((s8 *)this + 0x28) != NULL) { ::operator delete(*(void **)((s8 *)this + 0x28)); }
 }
-extern "C" {
+
 typedef char RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0_size[sizeof(RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0) == 0x20 ? 1 : -1];
 
 Ctrl_802A8B58 *TEffIndirectCtrl__ct(Ctrl_802A8B58 *self, s32 kind, void *parent) {
@@ -115,7 +115,6 @@ Ctrl_802A8B58 *TEffIndirectCtrl__ct(Ctrl_802A8B58 *self, s32 kind, void *parent)
     self->f1c = *(u32 *)(*(u8 **)(*(u8 **)((u8 *)self->f2c->a + 8) + 0xC) + 0x20);
     ((TEffIndirectCtrl *)self)->copy_and_flush_texture(get_indirect_source_pixels(self->f24));
     return self;
-}
 }
 
 #pragma push

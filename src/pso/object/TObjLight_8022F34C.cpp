@@ -2,7 +2,7 @@
 #include "pso/object/TUnk_804CC74C.h"
 #include "pso/misc/TLobby_80226070.h"
 #include "pso/object/TObjLight_8022F34C.h"
-#include "pso/object/TUnk_804CC74C.h"
+
 #include "pso/system/vector.h"
 #include "pso/misc/TTecDeband.h"
 #include "pso/object/TObjLight.h"
@@ -36,7 +36,7 @@ TUnk_804CC74C::TUnk_804CC74C(s32 arg1, s32 arg2) : TObject((TObject *)((void *)a
     this->m_2c = 0;
     *(s32 *)((s8 *)this + 0x30) = play_sound_effect(0x4002BB1F, ((u8 *)this) + 0x20, 0, 0);
 }
-extern "C" {
+
 void TTecDeband::play_state_sound() {
     Obj_8022F42C *arg0 = (Obj_8022F42C *)this;
     s32 r;
@@ -62,4 +62,3 @@ void TTecDeband::play_state_sound() {
     }
 }
 
-}

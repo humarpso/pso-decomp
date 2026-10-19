@@ -2,7 +2,7 @@
 #include "pso/item/TUnk_804A2018.h"
 #include "pso/TItemShoot.h"
 #include "pso/TObject.h"
-#include "pso/item/TUnk_804A2018.h"
+
 #include "pso/item/TUnk_804A204C.h"
 #include "pso/item/TUnk_804A2148.h"
 #include "pso/item/TUnk_804A2164.h"

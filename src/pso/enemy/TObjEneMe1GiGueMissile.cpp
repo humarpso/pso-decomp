@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/enemy/TObjEneMe1GiGueMissile.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
-#include "pso/enemy/TObjEneMe1GiGueMissile.h"
+
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TNeedleShoot.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -106,7 +106,7 @@ void TObjEneMe1GiGueMissile::create(s32 arg0, s32 from, s32 arg2, f32 farg0, f32
 TObjEneMe1GiGueMissile::~TObjEneMe1GiGueMissile() {
 
 }
-extern "C" {
+
 
 void TObjEneMe1GiGueMissile::render() {
     u8 *arg0 = (u8 *)this;
@@ -179,4 +179,3 @@ void TObjEneMe1GiGue__sub_802CE4E8(void) {  }
 
 void TObjEneMe1GiGue__sub_802CE4EC(void) { TObjEneMe1GiGue_barrier_count = TObjEneMe1GiGue::get_barrier_count(); }
 
-}

@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/player/TUnk_8049F130.h"
-#include "pso/player/TUnk_8049F130.h"
+
 #include "pso/item/TUnk_8049F148.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"

@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowMessageInfomation.h"
-#include "pso/misc/TWindowMessageInfomation.h"
+
 
 struct RecoveredGlobal_8026A100___vt__24TWindowMessageInfomation {
     s32 value;
@@ -25,7 +25,7 @@ void TWindowMessageInfomation::render() {
 TWindowMessageInfomation::~TWindowMessageInfomation() {
 
 }
-extern "C" {
+
 typedef char RecoveredGlobal_8026A100___vt__24TWindowMessageInfomation_size[sizeof(RecoveredGlobal_8026A100___vt__24TWindowMessageInfomation) == 0x18 ? 1 : -1];
 u8 *TWindowMessageInfomation__ct(u8 *arg0, s32 arg1, s16 arg2) {
     TWindowMessage__ct(arg0, arg1, 0x10U, arg2);
@@ -34,4 +34,3 @@ u8 *TWindowMessageInfomation__ct(u8 *arg0, s32 arg1, s16 arg2) {
     return arg0;
 }
 
-}

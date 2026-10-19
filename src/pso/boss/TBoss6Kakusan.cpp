@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/boss/TBoss6Kakusan.h"
 #include "pso/system/vector.h"
-#include "pso/boss/TBoss6Kakusan.h"
+
 #include "pso/boss/TBoss6Type1.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss6PlotFalz.h"
@@ -255,7 +255,7 @@ void TBoss6Kakusan::run_task() {
 TBoss6Kakusan::~TBoss6Kakusan() {
     if (*(void **)((s8 *)this + 0x54) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)this + 0x54))); this->m_54 = 0; }
 }
-extern "C" {
+
 
 #pragma push
 #pragma opt_common_subs off
@@ -304,5 +304,4 @@ u8 *TBoss6Type1::create_kakusan(s32 arg0, u8 *arg1, u8 *arg2, s16 arg3, f32 farg
         var_r0 = (u8 *)(TBoss6Kakusan__ct(boss6_kakusan, arg0, arg1, arg2, arg3, farg0));
     }
     return var_r0;
-}
 }

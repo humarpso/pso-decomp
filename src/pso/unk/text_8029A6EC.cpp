@@ -4,7 +4,7 @@
 
 struct Fan_8029A6EC { f32 *pos; u32 *col; s32 first; s32 count; };
 
-extern "C" {
+
 extern const f32 lbl_805DDC58;
 extern const f32 lbl_805DDC5C;
 extern const f32 lbl_805DDC60;
@@ -31,5 +31,4 @@ void TAdBackGC::sub_8029A6EC() {
     fan.pos[7] = lbl_805DDC58;
     fan.col[3] = 0xFF;
     ((TObjCMHairMenu *)&fan)->draw_tri_fan_2d(4, 3, *(f32 *)((u8 *)this + 0x1C) - lbl_805DDC64);
-}
 }

@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/misc/TQuadSpriteNormal.h"
-#include "pso/misc/TQuadSpriteNormal.h"
+
 #include "pso/system/vector.h"
 #include "pso/unk/TUnk_804C57F0.h"
 #include "pso/TParticleCtrl.h"
@@ -161,7 +161,7 @@ void render__17TQuadSpriteNormalFv(Self_801E5598 *self) {
 TQuadSpriteNormal::~TQuadSpriteNormal() {
 
 }
-extern "C" {
+
 
 extern void *TQuadSpriteNormal__class_name;
 
@@ -170,5 +170,4 @@ void *TQuadSpriteNormal__ct(void *quad_sprite_normal) {
     *(s32 **)((s8 *)quad_sprite_normal + 0x18) = __vt__17TQuadSpriteNormal;
     *(void * *)&((TQuadSpriteNormal *)quad_sprite_normal)->m_name = TQuadSpriteNormal__class_name;
     return quad_sprite_normal;
-}
 }

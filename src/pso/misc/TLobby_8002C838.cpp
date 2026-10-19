@@ -10,7 +10,7 @@
 #include "pso/unk/text_80141550.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/render/depth_buffer.h"
-#include "pso/boss/TObjBoss1Floor.h"
+
 #include "pso/misc/TLobby.h"
 #include "pso/TMainTask.h"
 #include "pso/boss/TBoss8Dragon.h"

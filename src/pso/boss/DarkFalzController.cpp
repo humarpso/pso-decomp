@@ -46,11 +46,9 @@ u8 *__dt__14TBoss4DarkFalzFv(u8 *arg0, s16 arg1);
 void TBoss4DarkFalz__sub_8004B4F0(void *arg0p, void *arg1p);
 s32 initialize__9TObjEnemyFPv();
 u16 register_entity_by_id(void *ov);
-}
-void init_music_sequencer(s32 program);
-extern "C" {
 void *fn_8030A83C(void *arg0);
 }
+void init_music_sequencer(s32 program);
 s32 create_boss4_fade();
 extern Desc_8004BD58 TBoss4DarkFalz__data_804FF1E8;
 extern s32 TBoss4DarkFalz__name;

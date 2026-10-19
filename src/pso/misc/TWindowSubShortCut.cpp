@@ -4,7 +4,7 @@
 class TChCrTagPlBack;
 struct TWindowShortCut;
 #include "pso/misc/TWindowChat.h"
-#include "pso/misc/TWindowSubShortCut.h"
+
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowMessageYesNo.h"

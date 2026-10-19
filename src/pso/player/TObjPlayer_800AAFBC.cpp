@@ -2,7 +2,7 @@
 #include "pso/player/TUnk_80491460.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_80491478.h"
-#include "pso/player/TUnk_80491460.h"
+
 #include "pso/enemy/TObjEneDubchik.h"
 #include "pso/enemy/TObjEneShark.h"
 
@@ -359,7 +359,7 @@ TUnk_80491460::TUnk_80491460(void *arg1, s32 arg2, s32 arg3, s32 arg4) : TObject
     ((Obj_800AB31C *)this)->f60 = 0;
     ((Obj_800AB31C *)this)->f68 = arg4;
 }
-extern "C" {
+
 
 void TObjPlayer::cancel_action() {
     if (get_action_priority() != 1) {
@@ -509,4 +509,3 @@ typedef struct VObj_18_800ABDD8 VObj_18_800ABDD8;
 typedef struct Vec_800ABDD8 Vec_800ABDD8;
 #define PSO_VCALL_VObj_18_800ABDD8_m9(_self, _arg0, _arg1, _arg2) (((VObj_18_800ABDD8 *)(_self))->m9((_arg0), (_arg1), (_arg2)))
 
-}

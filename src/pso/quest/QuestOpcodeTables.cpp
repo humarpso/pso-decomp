@@ -246,10 +246,6 @@ void spawn_particle_at_entity__6TLobbyFUc();
 void TLobby__sub_801F07D8();
 void spawn_stored_particle_emitter__6TLobbyFUc();
 void qst_op_cam_pan();
-}
-void quest_construct_selected_scripted_player(u8 first);
-void qst_op_npc_crptalk(u8 first);
-extern "C" {
 void close_window__6TLobbyFv();
 void pop_stack_into_slots__6TLobbyFll();
 void push_op_args_from_table__6TLobbyFll();
@@ -267,6 +263,8 @@ void qst_getargs_801F2700(s32 opcode);
 void qst_getargs_801F2828(s32 opcode);
 void qst_getargs_801F2B0C(s32 opcode);
 }
+void quest_construct_selected_scripted_player(u8 first);
+void qst_op_npc_crptalk(u8 first);
 void quest_check_chat_keyword();
 void qst_op_arg_pushs(int a0);
 void quest_vm_push_u16_argument(u16 a0);

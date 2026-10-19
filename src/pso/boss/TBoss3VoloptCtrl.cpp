@@ -1,8 +1,8 @@
 #include "pso/TBoss3VoloptCtrl.h"
 #include "pso/boss/TUnk_80483B88.h"
-#include "pso/boss/TUnk_80483B88.h"
+
 #include "pso/player/TObjPlayer.h"
-#include "pso/boss/TUnk_80483B88.h"
+
 
 #include "types.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -61,7 +61,7 @@ void *TUnk_80483B88::deleting_destructor(s16 arg1) {
 TUnk_80483B88::TUnk_80483B88() : TObject((TObject *)tl_02) {
     disallow_rendering__7TObjectFv(this);
 }
-extern "C" {
+
 void TBoss3VoloptCtrl::dispatch_state(s32 arg0) {
     switch (arg0) {
     case 0:
@@ -84,7 +84,6 @@ void TBoss3VoloptCtrl::dispatch_state(s32 arg0) {
         unhide_room_set_objects(get_current_floor(), 0, 3);
         return;
     }
-}
 }
 s32 get_story_flag(s32);
 void TBoss3VoloptCtrl::run_task() {

@@ -1,9 +1,9 @@
 #include "types.h"
 #include "pso/boss/TBoss8DragonEffBreath.h"
-#include "pso/boss/TBoss8DragonEffBreath.h"
+
 #include "pso/boss/TBoss8Dragon_800BC53C.h"
 #include "pso/system/vector.h"
-#include "pso/boss/TBoss8DragonEffBreath.h"
+
 #include "pso/boss/TBoss8Dragon.h"
 
 struct Vec_802FE024 { f32 x, y, z; };

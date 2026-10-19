@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/boss/TObjBoss5PillarCtrl.h"
 #include "pso/object/TObject_80019A50.h"
-#include "pso/boss/TObjBoss5PillarCtrl.h"
+
 #include "pso/boss/TObjBoss5Pillar.h"
 
 struct Pc_8028B198 { u8 pad0[0x18]; void *vt; s32 count; void **a; };
@@ -49,7 +49,7 @@ TObjBoss5PillarCtrl::~TObjBoss5PillarCtrl() {
     }
     mem_free(((Pc_8028B198 *)this)->a);
 }
-extern "C" {
+
 
 Ctrl_8028B23C *TObjBoss5PillarCtrl__ct(Ctrl_8028B23C *arg0, void *arg1) {
     Node_8028B23C *n;
@@ -94,4 +94,3 @@ void TObjBoss5PillarCtrl::play_sound_once() {
     }
 }
 
-}

@@ -331,9 +331,6 @@ loop_1:
     goto loop_1;
 }
 
-}
-
-extern "C" {
 TObjPlayer *get_player_by_client_id(u32 id);
 s32 check_flag_100__10TObjPlayerFPv(void *player);
 s32 reset_key_machine_state__10TObjPlayerFv();

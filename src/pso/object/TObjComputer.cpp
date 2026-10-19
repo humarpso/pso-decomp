@@ -2,7 +2,7 @@
 #include "pso/object/TObjComputer.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/item/TObjContainerAbeEnemy.h"
-#include "pso/object/TObjComputer.h"
+
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyAncient01.h"

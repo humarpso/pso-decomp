@@ -464,8 +464,7 @@ TBoss2Tentacle::TBoss2Tentacle(TObject *parent, s32 arg2, s32 arg3) : TObject(pa
     ((Obj_80039F50 *)this)->f130 = TBoss2Tentacle__data_805D8534;
     ((Obj_80039F50 *)this)->f134 = TBoss2Tentacle__data_805D8534;
 }
-extern "C" {
+
 
 void TBoss2Tentacle__sub_8003A0A8(void) {  }
 
-}

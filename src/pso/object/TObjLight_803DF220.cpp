@@ -1,8 +1,6 @@
 
 
 
-
-
 #include "types.h"
 #include "pso/object/TObjLight_803DF220.h"
 #include "pso/player/TObjPlayer_803E21B8.h"

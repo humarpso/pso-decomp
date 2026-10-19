@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/misc/TQuestColCtrl.h"
 #include "pso/object/TObjQuestCol2_80196E68.h"
-#include "pso/misc/TQuestColCtrl.h"
+
 #include "pso/TObject.h"
 
 struct Obj_8019601C { u8 pad[0x6]; u16 id; };
@@ -37,7 +37,7 @@ TQuestColCtrl::~TQuestColCtrl() {
         quest_collision_task_root = 0;
     }
 }
-extern "C" {
+
 
 void *TQuestColCtrl__ct(void *quest_col_ctrl) {
     __ct__7TObjectFP7TObject(quest_col_ctrl);
@@ -59,4 +59,3 @@ Obj_8019601C *create_quest_col_apc_inw__6TLobbyFPvPv(void *arg, s32 *out_id) {
     }
 }
 
-}

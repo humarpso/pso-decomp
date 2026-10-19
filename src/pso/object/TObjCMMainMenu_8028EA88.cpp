@@ -15,7 +15,7 @@
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TCharaMaking.h"
 #include "pso/misc/TLobby.h"
-#include "pso/misc/TWindowCtrlMain.h"
+
 
 struct RecoveredGlobal_8028EC24_lbl_8051C07C {
     s8 value;

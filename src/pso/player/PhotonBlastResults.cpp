@@ -342,7 +342,7 @@ void admit_photon_blast_sequence(u8 *players, void *self) {
 }
 #undef GET_STAT
 #undef SET_TYPE
-extern "C" {
+
 
 void step_photon_blast_sequence(PhotonBlastSequence_801A9870 *seq) {
     PhotonSummonParams_801A9870 params;
@@ -452,5 +452,4 @@ void step_photon_blast_sequence(PhotonBlastSequence_801A9870 *seq) {
         seq->queue_destruction();
         break;
     }
-}
 }

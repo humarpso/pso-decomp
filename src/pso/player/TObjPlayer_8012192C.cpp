@@ -19,7 +19,7 @@ int get_player_list__10TObjPlayerFv(void*);
 TUnk_804A0AA8::~TUnk_804A0AA8() {
 
 }
-extern "C" {
+
 
 void TObjPlayer::cast_foie_effect() {
     s32 sp8;
@@ -59,4 +59,3 @@ void TUnk_804A0BC0::update_attack() {
     }
 }
 
-}

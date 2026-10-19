@@ -7,7 +7,7 @@
 #include "pso/system/ChunkMaterialState.h"
 #include "pso/system/GinjaMaterial.h"
 #include "pso/unk/text_803D96A8.h"
-#include "pso/misc/TOKeyMachine01.h"
+
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TOKey.h"
 #include "pso/object/TObjFish.h"
@@ -155,7 +155,7 @@ void TOKeyMachine01::load_assets() {
 TOKeyMachine01::~TOKeyMachine01() {
 
 }
-extern "C" {
+
 u8 *TOKeyMachine01__ct(TOKeyMachine01 *key_machine01, s32 arg1, s32 arg2) {
     TOKey__ct(key_machine01);
     *(s32 **)((s8 *)key_machine01 + 0x18) = &(*(RecoveredGlobal_8016D7F0___vt__14TOKeyMachine01 *)&__vt__14TOKeyMachine01).value;
@@ -195,4 +195,3 @@ block_5:
     return (u8 *)key_machine01;
 }
 
-}

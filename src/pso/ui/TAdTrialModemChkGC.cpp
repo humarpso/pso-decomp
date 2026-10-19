@@ -4,7 +4,7 @@
 #include "pso/ui/TAdWarningBaseGC.h"
 #include "pso/unk/text_8007FA24.h"
 #include "pso/unk/text_80145A94.h"
-#include "pso/ui/TAdTrialModemChkGC.h"
+
 #include "pso/misc/TLobby.h"
 
 struct Base_80335508_803354A4 { char pad[0x18]; };
@@ -64,7 +64,7 @@ extern s32 __vt__18TAdTrialModemChkGC[];
 TAdTrialModemChkGC::~TAdTrialModemChkGC() {
 
 }
-extern "C" {
+
 
 extern void *TAdTrialModemChkGC__name;
 
@@ -75,4 +75,3 @@ void *TAdTrialModemChkGC__ct(void *ad_trial_modem_chk_gc) {
     return ad_trial_modem_chk_gc;
 }
 
-}

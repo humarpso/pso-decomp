@@ -1,8 +1,8 @@
 #include "types.h"
 #include "pso/misc/TWindowCtrlMain.h"
-#include "pso/misc/TWindowCtrlMain.h"
+
 #include "pso/misc/TWindowCtrlMain_8024EEF8.h"
-#include "pso/misc/TWindowCtrlMain.h"
+
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
@@ -37,12 +37,6 @@ extern void *TWindowCtrlMain__window_task_root;
 extern void *TWindowCtrlMain__screen_controller;
 extern void *TWindowCtrlMain__sub_controller;
 extern void *window_clip_out_instance;
-}
-void load_hud_palette_textures(void);
-extern void *TWindowCtrlMain__display_flags;
-extern f32 window_depth_order_cursor;
-extern const f32 lbl_805DCC58;
-extern "C" {
 void TWindowCtrlMain__sub_8024D838(void);
 void TWindowCtrlMain__sub_8024D85C(void* p);
 int TCameraCtrl__sub_80068EF0(void);
@@ -58,8 +52,11 @@ int update_com_card__9TWindowDDFv(void*);
 
 void TWindowCtrlMain::render() { reset_transform_state__10TObjPlayerFv(this); TParticleCtrl::begin_effect_render(); TCameraCtrl::restore_full_screen_view(); TWindowCtrlMain__sub_8024CE24(); render_nodes__7TObjectFv(); TCameraCtrl__sub_80068EF0(); TParticleCtrl::end_effect_render(); }
 void TWindowCtrlMain::run_task() { { (void)(update_com_card__9TWindowDDFv(this)); return; } }
-
 }
+void load_hud_palette_textures(void);
+extern void *TWindowCtrlMain__display_flags;
+extern f32 window_depth_order_cursor;
+extern const f32 lbl_805DCC58;
 TWindowCtrlMain::~TWindowCtrlMain() {
     W_8024D3C0 *root;
     s32 i;
@@ -138,7 +135,7 @@ TWindowCtrlMain::TWindowCtrlMain() : TObject((TObject *)tl_fadeafter) {
         window_clip_out_instance = p;
     }
 }
-extern "C" {
+
 
 void TWindowCtrlMain::free_all_windows() {
     W_8024D690 *root;
@@ -205,5 +202,4 @@ s32 TWindowCtrlMain::get_main_menu_message() {
         return 0;
     }
     return TWindowMainMenu__sub_8024E3D4(p);
-}
 }

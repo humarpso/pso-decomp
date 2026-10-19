@@ -2,7 +2,7 @@
 #include "pso/ui/TAdChrSelBSlotGC.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/ui/TAdChrSelBSlotGC_8030FE74.h"
-#include "pso/ui/TAdChrSelBSlotGC.h"
+
 
 TAdChrSelBSlotGC::~TAdChrSelBSlotGC() {
     if ((u32) *(u32 *)((s8 *)this + 0x40) != 0U) {

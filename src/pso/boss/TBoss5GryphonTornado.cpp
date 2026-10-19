@@ -4,7 +4,7 @@
 #include "pso/unk/text_80087278.h"
 #include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
-#include "pso/boss/TBoss5GryphonTornado.h"
+
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/misc/TNowLoading.h"
 
@@ -149,7 +149,7 @@ TBoss5GryphonTornado::~TBoss5GryphonTornado() {
     if (*(void **)((s8 *)this + 0x54) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x54)); this->m_54 = 0; }
     if (*(void **)((s8 *)this + 0x50) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x50)); this->m_50 = 0; }
 }
-extern "C" {
+
 typedef char RecoveredGlobal_803558E4___vt__20TBoss5GryphonTornado_size[sizeof(RecoveredGlobal_803558E4___vt__20TBoss5GryphonTornado) == 0x18 ? 1 : -1];
 u8 *TBoss5GryphonTornado__ct(TBoss5GryphonTornado *boss5_gryphon_tornado, u8 *arg1, s32 arg2, u8 *arg3, s16 arg4) {
     __ct__7TObjectFP7TObject(boss5_gryphon_tornado, arg1);
@@ -169,4 +169,3 @@ u8 *TBoss5GryphonTornado__ct(TBoss5GryphonTornado *boss5_gryphon_tornado, u8 *ar
     return (u8 *)boss5_gryphon_tornado;
 }
 
-}

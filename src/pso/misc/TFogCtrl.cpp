@@ -4,7 +4,7 @@
 #include "pso/unk/text_803E2008.h"
 #include "pso/unk/text_803E2070.h"
 #include <stddef.h>
-#include "pso/misc/TFogCtrl.h"
+
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TLobby.h"
@@ -713,7 +713,7 @@ TFogCtrl::TFogCtrl(TObject *parent, s32 index) : TObject(parent) {
     ((TFogCtrl_800FB92C *)this)->f1C = 0;
     this->apply_slot_params(0);
 }
-extern "C" {
+
 #pragma pop
 
 void TFogCtrl__sub_800FBA54(void) {  }
@@ -810,7 +810,6 @@ void TFogCtrl::reset() {
     set_scene_fog_distances((1e+03f), (1e+04f));
     reset_scene_fog();
     TParticleCtrl::begin_effect_render();
-}
 }
 
 void init_scene_fog_system(void) {

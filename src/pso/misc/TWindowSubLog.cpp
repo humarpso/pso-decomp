@@ -6,7 +6,7 @@
 #include "pso/object/TObject_80019A50.h"
 #include "pso/ui/TAdScrollWinGC_8026A5F8.h"
 #include "pso/unk/text_80076BC4.h"
-#include "pso/misc/TWindowSubLog.h"
+
 #include "pso/misc/TWindowChat.h"
 #include "pso/ui/TAdScrollWinGC.h"
 

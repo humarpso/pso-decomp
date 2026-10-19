@@ -3,7 +3,7 @@
 #include "pso/misc/TTecGiZonde_8023CDC4.h"
 #include "pso/unk/text_80087278.h"
 #include "pso/system/vector.h"
-#include "pso/misc/TUnk_804CCD78.h"
+
 #include "pso/misc/TTecGiZonde.h"
 
 struct RecoveredGlobal_8023CE54_lbl_804CCD78 {
@@ -27,7 +27,7 @@ void TUnk_804CCD78::run_task() {
 TUnk_804CCD78::~TUnk_804CCD78() {
 
 }
-extern "C" {
+
 typedef char RecoveredGlobal_8023CE54_lbl_804CCD78_size[sizeof(RecoveredGlobal_8023CE54_lbl_804CCD78) == 0x18 ? 1 : -1];
 u8 *construct_helper_effect__11TTecGiZondeFPvPvPvPvi(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4) {
     __ct__7TObjectFP7TObject(arg0, arg3);
@@ -40,4 +40,3 @@ u8 *construct_helper_effect__11TTecGiZondeFPvPvPvPvi(u8 *arg0, u8 *arg1, u8 *arg
     return arg0;
 }
 
-}

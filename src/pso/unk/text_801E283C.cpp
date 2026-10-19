@@ -17,7 +17,7 @@ u8 calc_day_in_cycle(s32 *date) {
     return (u8) (var_r4 / 86400U);
 }
 
-extern "C" u8 fn_801E2AC8(u16 year, u8 month, u8 day) {
+u8 fn_801E2AC8(u16 year, u8 month, u8 day) {
     if (month <= 2) {
         year--;
         month += 12;

@@ -2,7 +2,7 @@
 #include "pso/misc/TeneFakeTecThunderEff.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/system/vector.h"
-#include "pso/misc/TeneFakeTecThunderEff.h"
+
 
 #include "types.h"
 #include "pso/misc/TWindowDD.h"
@@ -381,7 +381,7 @@ void TeneFakeTecThunderEff::run_task() {
 TeneFakeTecThunderEff::~TeneFakeTecThunderEff() {
 
 }
-extern "C" {
+
 typedef char RecoveredGlobal_800A4204_lbl_80490A18_size[sizeof(RecoveredGlobal_800A4204_lbl_80490A18) == 0x18 ? 1 : -1];
 u8 *TObjPlayer__sub_800A4204(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4) {
     __ct__7TObjectFP7TObject(arg0, arg1);
@@ -399,4 +399,3 @@ u8 *TObjPlayer__sub_800A4204(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4) {
     return arg0;
 }
 
-}

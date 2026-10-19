@@ -4,7 +4,7 @@
 #include "pso/system/vector.h"
 #include "pso/item/TUnk_804C4480.h"
 #include "pso/object/TObjMotion.h"
-#include "pso/item/TUnk_804C4498.h"
+
 #include "pso/TItemList.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/enemy/TObjEneDD.h"

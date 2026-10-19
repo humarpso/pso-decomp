@@ -523,7 +523,6 @@ extern void* lbl_804EF8C0[];
 extern RecoveredGlobal_8033B9C4_lbl_80513910 chr_select_serial_seeds;
 s32 find_card_file__15TAdPlayerLoadGCFiPv(void *, void *);
 extern char pso_system_card_filename[];
-extern u8 lbl_804C88C0[];
 
 extern "C" void TWindowCtrlMain__sub_8024D838();
 extern "C" void register_texture_f256_ad_pic_2();

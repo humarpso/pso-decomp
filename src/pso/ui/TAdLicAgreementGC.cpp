@@ -2,7 +2,7 @@
 #include "pso/ui/TAdLicAgreementGC.h"
 #include "pso/ui/TAdAgreementBaseGC.h"
 #include "pso/ui/TAdScrollWinGC_80327504.h"
-#include "pso/ui/TAdLicAgreementGC.h"
+
 #include "pso/ui/TAdScrollWinGC.h"
 
 struct Base_80329BB8 { char pad[0x18]; };
@@ -62,7 +62,7 @@ extern s32 __vt__17TAdLicAgreementGC[];
 TAdLicAgreementGC::~TAdLicAgreementGC() {
 
 }
-extern "C" {
+
 
 extern void *lbl_805D41C0;
 
@@ -81,4 +81,3 @@ void *TAdLicAgreementGC__ct(void *ad_lic_agreement_gc) {
     return ad_lic_agreement_gc;
 }
 
-}

@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/object/TUnk_804CCAC8.h"
-#include "pso/object/TUnk_804CCAC8.h"
+
 #include "pso/system/vector.h"
 
 #include "pso/effect/TechniqueChargeEmitter.h"

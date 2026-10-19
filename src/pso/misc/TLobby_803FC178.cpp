@@ -490,10 +490,6 @@ extern u8 lcp_read_value_buffer[4];
 extern u8 lobby_read_byte_buffer[1];
 void TLobby__sub_8040098C(Self_8040098C *self);
 s16 TLobby__sub_80403F4C(void *, Strm_80405A74 **);
-}
-extern u8 lobby_ppp_read_buf;
-void MD5Transform(u32 *state, u8 *block);
-extern "C" {
 B_803FADA0 *init_net_buffer_entry__6TLobbyFUs(u16);
 s32 TLobby__sub_803F812C(u16 arg0, void *arg1, u16 *arg2);
 s32 TLobby__sub_80403730(u8 *dst, unsigned short n);
@@ -1794,6 +1790,8 @@ inline void Decode_80401FE8(u32 *output, u8 *input, u32 len) {
     }
 }
 }
+extern u8 lobby_ppp_read_buf;
+void MD5Transform(u32 *state, u8 *block);
 void MD5Transform(u32 *state, u8 *block) {
     u32 a = state[0], b = state[1], c = state[2], d = state[3], x[16];
     Decode_80401FE8(x, block, 64);
@@ -1893,7 +1891,7 @@ void MD5Transform(u32 *state, u8 *block) {
 #undef G_80401FE8
 #undef H_80401FE8
 #undef I_80401FE8
-extern "C" {
+
 
 u16 read_network_u16_be(u8 *p) {
     u16 v = *p++;
@@ -1917,7 +1915,6 @@ u8 *write_network_u16_be(u8 *p, u16 v) {
     *p++ = v >> 8;
     *p++ = v;
     return p;
-}
 }
 
 u8 *write_network_u32_be(u8 *p, u32 v) {

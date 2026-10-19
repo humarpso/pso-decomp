@@ -8,15 +8,10 @@
 #include "pso/unk/text_80153A7C.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/unk/text_803E2D70.h"
-#include "pso/object/TObjFogCollisionSwitch.h"
+
 #include "pso/object/TObjFogCollision.h"
 
-extern "C" {
-
-
 extern s32 __vt__22TObjFogCollisionSwitch[];
-
-}
 TObjFogCollisionSwitch::~TObjFogCollisionSwitch() {
 
 }

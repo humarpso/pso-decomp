@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/TBoss7PhotonPad.h"
-#include "pso/TBoss7PhotonPad.h"
+
 #include "pso/TObject.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/boss/TObjBoss2Tunnel_8007E418.h"

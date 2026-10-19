@@ -2,7 +2,7 @@
 #include "pso/boss/TBoss8DragonEffBullet.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
-#include "pso/boss/TBoss8DragonEffBullet.h"
+
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/misc/TNowLoading.h"
 
@@ -142,7 +142,7 @@ TBoss8DragonEffBullet::~TBoss8DragonEffBullet() {
     if (*(void **)((s8 *)this + 0x50) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x50)); this->m_50 = 0; }
     if (*(void **)((s8 *)this + 0x4C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x4C)); this->m_4c = 0; }
 }
-extern "C" {
+
 typedef char RecoveredGlobal_802FE378_lbl_80474B68_size[sizeof(RecoveredGlobal_802FE378_lbl_80474B68) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_802FE378_lbl_80474B74_size[sizeof(RecoveredGlobal_802FE378_lbl_80474B74) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_802FE378_lbl_80474B80_size[sizeof(RecoveredGlobal_802FE378_lbl_80474B80) == 0xC ? 1 : -1];
@@ -177,4 +177,3 @@ u8 *TBoss8DragonEffBullet__ct(u8 *boss8_dragon_eff_bullet, s32 arg1, s32 arg2, s
     return boss8_dragon_eff_bullet;
 }
 
-}

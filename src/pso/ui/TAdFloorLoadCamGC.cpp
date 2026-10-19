@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/ui/TAdFloorLoadCamGC.h"
 #include "pso/system/vector.h"
-#include "pso/ui/TAdFloorLoadCamGC.h"
+
 #include "pso/misc/TCameraCtrl.h"
 
 struct Vec_8034BE5C { f32 x, y, z; };

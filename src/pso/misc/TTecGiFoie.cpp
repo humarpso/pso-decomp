@@ -3,7 +3,7 @@
 extern "C" void *__dt__13TUnk_804CC148Fv(void *, s16);
 #include "pso/system/vector.h"
 #include "pso/unk/TUnk_804CC148.h"
-#include "pso/misc/TTecGiFoie.h"
+
 #include "pso/misc/TTecAnti.h"
 #include "pso/misc/TTecLuker.h"
 #include "pso/player/TObjPlayer.h"

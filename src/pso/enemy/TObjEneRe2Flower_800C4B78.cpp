@@ -4,7 +4,7 @@
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 #include "pso/TObject.h"
-#include "pso/enemy/TObjEneRe2Flower_EffCurse3.h"
+
 #include "pso/enemy/TUnk_80493450.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjEneRe2Flower_Bomb.h"

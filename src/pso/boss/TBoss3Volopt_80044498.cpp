@@ -8,7 +8,7 @@
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/enemy/TObjEneGyaranzo.h"
 #include "pso/enemy/TObjEnemy.h"
-#include "pso/boss/TUnk_80484870.h"
+
 #include "pso/boss/TUnk_80484610.h"
 
 struct VBase_18_b5cc36 { char pad[0x18]; };

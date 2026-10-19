@@ -4,7 +4,7 @@
 #include "pso/ui/TAdMcCheckGC.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
-#include "pso/misc/TUnk_804EFA88.h"
+
 
 struct RecoveredGlobal_8033ED24_lbl_804EFA88
 {
@@ -26,7 +26,7 @@ TUnk_804EFA88::~TUnk_804EFA88() {
     }
     lbl_805D6DA0 = 0;
 }
-extern "C" {
+
 
 typedef struct RecoveredGlobal_8033ED24_lbl_804EFA88 RecoveredGlobal_8033ED24_lbl_804EFA88;
 typedef char RecoveredGlobal_8033ED24_lbl_804EFA88_size[((sizeof(RecoveredGlobal_8033ED24_lbl_804EFA88)) == 0x18) ? (1) : (-1)];
@@ -64,4 +64,3 @@ void TLobby__sub_8033EDF8(void) { lbl_805D6DA0 = 0; }
 
 void TLobby__sub_8033EE04(void) { lbl_805D6DA0 = 0; }
 
-}

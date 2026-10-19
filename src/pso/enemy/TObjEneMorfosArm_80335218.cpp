@@ -7,7 +7,7 @@
 #include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
-#include "pso/enemy/TObjEneMorfosArm.h"
+
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
@@ -70,7 +70,7 @@ void TObjEneMorfosArm::run_task() {
 TObjEneMorfosArm::~TObjEneMorfosArm() {
 
 }
-extern "C" {
+
 u8 *TObjEneMorfosArm__ct(TObjEneMorfosArm *ene_morfos_arm, s32 arg1, u8 *arg2) {
     u8 *temp_r5;
     TObjMotion__ct((u8 *)ene_morfos_arm);
@@ -91,4 +91,3 @@ u8 *TObjEneMorfosArm__ct(TObjEneMorfosArm *ene_morfos_arm, s32 arg1, u8 *arg2) {
     return (u8 *)ene_morfos_arm;
 }
 
-}

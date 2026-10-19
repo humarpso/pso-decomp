@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/ui/TUnk_804F3428.h"
 #include "pso/ui/TAdDialingMessageWindow_8036A064.h"
-#include "pso/ui/TUnk_804F3428.h"
+
 #include "pso/ui/TAdDialingMessageWindow.h"
 
 extern "C" {
@@ -33,7 +33,7 @@ extern s32 __vt__13TUnk_804F3428[];
 TUnk_804F3428::~TUnk_804F3428() {
 
 }
-extern "C" {
+
 
 void *TUnk_804F3428::init(void *arg1, void *arg2, void *arg3) {
     __ct__7TObjectFP7TObject(this);
@@ -43,4 +43,3 @@ void *TUnk_804F3428::init(void *arg1, void *arg2, void *arg3) {
     return this;
 }
 
-}

@@ -4,7 +4,7 @@
 #include "pso/misc/TNeedleShoot_802A4A44.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TNeedleShoot.h"
-#include "pso/misc/TObjEneMe1Gee_NEEDLE.h"
+
 
 struct VBase_18_174c10 { char pad[0x18]; };
 

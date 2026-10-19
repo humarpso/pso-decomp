@@ -4,7 +4,7 @@
 #include "pso/boss/TBoss8Dragon_8002CC48.h"
 #include "pso/player/TObjPlayer_8002E784.h"
 #include "pso/system/vector.h"
-#include "pso/boss/TObjBoss1Rock.h"
+
 #include "pso/player/TUnk_804820C0.h"
 #include "pso/unk/TUnk_80482090.h"
 
@@ -126,15 +126,6 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 void set_chunk_material_override_pair(s32 arg0, s32 arg1);
-}
-void set_chunk_blend(u32 x);
-void draw_chunk_model(void *arg0);
-extern Color_8002E3D4 player_part_model_white_color;
-extern Holder_8002E3D4 *lbl_805D4BA4;
-extern s32 current_scene_light;
-extern s32 lbl_805D5660;
-extern s32 model_render_flags;
-extern "C" {
 s32 matrix_mult_vec(int, void *, void *);
 void set_matrix_identity(u8 *arg0);
 s32 rotate_vector_by_matrix(int, void *, void *);
@@ -160,8 +151,14 @@ void *TObjBoss1Rock::construct(void *arg1, void *arg2, void *arg3, void *arg4) {
 }
 
 extern const f32 lbl_805D8224;
-
 }
+void set_chunk_blend(u32 x);
+void draw_chunk_model(void *arg0);
+extern Color_8002E3D4 player_part_model_white_color;
+extern Holder_8002E3D4 *lbl_805D4BA4;
+extern s32 current_scene_light;
+extern s32 lbl_805D5660;
+extern s32 model_render_flags;
 TObjBoss1Rock::TObjBoss1Rock(TObject *arg1, void *arg2, void *arg3) : TObject(arg1) {
     s32 flag;
     if (lbl_805D8220 * (f32)rand() > lbl_805D8224) {
@@ -171,7 +168,7 @@ TObjBoss1Rock::TObjBoss1Rock(TObject *arg1, void *arg2, void *arg3) : TObject(ar
     }
     sub_8002E1CC((u8 *)arg2, (u8 *)arg3, (s32)flag);
 }
-extern "C" {
+
 
 void TObjBoss1Rock__sub_8002E3CC(void) {  }
 void TObjBoss1Rock__sub_8002E3D0(void) {  }
@@ -290,5 +287,4 @@ Obj_8002E62C *construct_piece_controller__10TObjPlayerFPvii(Obj_8002E62C *self, 
     }
     pop_matrix();
     return self;
-}
 }

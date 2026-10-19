@@ -6,7 +6,7 @@
 #include "pso/ui/TAdScrollWinGC_80327504.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC_801334D4.h"
 #include "pso/unk/text_8036F764.h"
-#include "pso/ui/TAdEp3Exist.h"
+
 #include "pso/TLevelSelect.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdScrollWinGC.h"
@@ -170,7 +170,7 @@ TAdEp3Exist::~TAdEp3Exist() {
     if (*(void **)((s8 *)this + 0x24) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x24)); this->m_24 = 0; }
     if (*(void **)((s8 *)this + 0x20) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x20)); this->m_20 = 0; }
 }
-extern "C" {
+
 
 void *TAdEp3Exist__ct(Ep3_8036F354 *o) {
     s8 flag[16];
@@ -329,4 +329,3 @@ s32 prs_decompress(Prs_8036F5B0 *c, u8 *src, s32 arg2, s32 arg3) {
 }
 #pragma pop
 
-}

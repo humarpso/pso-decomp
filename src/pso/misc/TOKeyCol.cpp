@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/misc/TOKeyCol.h"
-#include "pso/misc/TOKeyCol.h"
+
 #include "pso/misc/TOKey.h"
 
 extern "C" {
@@ -52,7 +52,7 @@ extern s32 __vt__8TOKeyCol[];
 TOKeyCol::~TOKeyCol() {
 
 }
-extern "C" {
+
 
 extern s32 TOKeyCol__name;
 extern const f32 lbl_805DB758;
@@ -76,4 +76,3 @@ void *TOKeyCol__ct(TOKeyCol *key_col, s32 arg1, s32 arg2) {
     return key_col;
 }
 
-}

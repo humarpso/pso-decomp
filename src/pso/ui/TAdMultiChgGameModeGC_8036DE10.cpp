@@ -3,7 +3,7 @@
 #include "pso/ui/TAdPlayerLoadGC_801E0C30.h"
 #include "pso/ui/TAdMultiChgGameModeGC_8036DE10.h"
 #include "pso/ui/TObjBagWarnWin_8006EF24.h"
-#include "pso/ui/TUnk_804F3A20.h"
+
 #include "pso/TAdMultiChgGameModeGC.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowMenu.h"

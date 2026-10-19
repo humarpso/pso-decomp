@@ -644,7 +644,6 @@ void update__6TLobbyFPv(void *arg0) {
 #undef lbl_805162EC
 #pragma push
 
-#include "pso/audio/SoundRequestVoice.h"
 
 struct Voice_80241FD8 {
     u32 pad0; s32 state; u32 pad1; s32 kind; u8 pad2[0x20 - 0x10]; s32 token;

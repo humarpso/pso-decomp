@@ -45,7 +45,7 @@ TObjBoss5PillarSmoke::~TObjBoss5PillarSmoke() {
     mem_free(((Smoke_8028AEA4 *)this)->b);
     mem_free(((Smoke_8028AEA4 *)this)->a);
 }
-extern "C" {
+
 Smoke_8028AF6C *TObjBoss5PillarSmoke__ct(Smoke_8028AF6C *arg0, void *arg1, Node_8028AF6C *arg2) {
     s32 i;
     __ct__7TObjectFP7TObject(arg0, arg1);
@@ -74,4 +74,3 @@ Smoke_8028AF6C *TObjBoss5PillarSmoke__ct(Smoke_8028AF6C *arg0, void *arg1, Node_
     return arg0;
 }
 
-}

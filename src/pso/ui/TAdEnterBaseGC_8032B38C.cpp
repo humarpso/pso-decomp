@@ -2,7 +2,7 @@
 #include "pso/ui/TAdEnterBaseGC.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/ui/TAdEnterBaseGC_8032B38C.h"
-#include "pso/ui/TAdEnterBaseGC.h"
+
 
 struct RecoveredGlobal_8032B390_lbl_80477198 {
     s32 value;
@@ -73,7 +73,7 @@ TAdEnterBaseGC::~TAdEnterBaseGC() {
     if (*(void **)((s8 *)this + 0x30) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x30)); this->m_30 = 0; }
     if (*(void **)((s8 *)this + 0x34) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x34)); *(s32 *)((s8 *)this + 0x34) = 0; }
 }
-extern "C" {
+
 
 extern void *lbl_805D41E0;
 
@@ -91,4 +91,3 @@ s32 TAdPsoPassSaveGC__sub_8032B584(void) {
     return TAdPsoPassSaveGC__data_805D6E80;
 }
 
-}

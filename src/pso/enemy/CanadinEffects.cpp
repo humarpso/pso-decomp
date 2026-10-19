@@ -6,7 +6,7 @@
 #include "pso/enemy/TObjEneMe1Canadin.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/enemy/TObjEneMe1Canadin_EffDischarge.h"
-#include "pso/enemy/TObjEneMe1Canadin_EffLight.h"
+
 #include "pso/enemy/TObjEneMe1Canadin_EffLine.h"
 #include "pso/TTecZondeEff.h"
 #include "pso/boss/TObjBoss2Tunnel.h"

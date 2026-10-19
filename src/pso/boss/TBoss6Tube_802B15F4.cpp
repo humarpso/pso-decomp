@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/boss/TBoss6Tube.h"
 #include "pso/boss/TBoss6Tube_802B15F4.h"
-#include "pso/boss/TBoss6Tube.h"
+
 
 struct RecoveredGlobal_802B1654___vt__10TBoss6Tube { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_802B1654___vt__10TBoss6Tube_size[sizeof(RecoveredGlobal_802B1654___vt__10TBoss6Tube) == 0x18 ? 1 : -1];
@@ -15,7 +15,7 @@ extern s32 lbl_805D3E9C;
 TBoss6Tube::~TBoss6Tube() {
     TBoss6Tube::reset_state();
 }
-extern "C" {
+
 u8 *TBoss6Tube__ct(TBoss6Tube *boss6_tube, u8 *arg1) {
     __ct__7TObjectFP7TObject(boss6_tube, arg1);
     *(s32 **)((s8 *)boss6_tube + 0x18) = &(*(RecoveredGlobal_802B1654___vt__10TBoss6Tube *)&__vt__10TBoss6Tube).value;
@@ -29,4 +29,3 @@ u8 *TBoss6Tube__ct(TBoss6Tube *boss6_tube, u8 *arg1) {
     return (u8 *)boss6_tube;
 }
 
-}

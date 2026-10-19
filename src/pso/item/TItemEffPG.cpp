@@ -14,7 +14,7 @@
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804F0AF8.h"
 #include "pso/item/TUnk_804F0C08.h"
-#include "pso/item/TUnk_804F0BF0.h"
+
 #include "pso/item/TItemEffPG.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
@@ -154,7 +154,7 @@ void TUnk_804F0BF0::run_task() {
 TUnk_804F0BF0::~TUnk_804F0BF0() {
     if (this->m_38 != NULL) { queue_destruction__7TObjectFv(this->m_38); *(s32 *)((s8 *)this + 0x38) = 0; }
 }
-extern "C" {
+
 
 typedef char RecoveredGlobal_8034FCF0_lbl_804F0BF0_size[sizeof(RecoveredGlobal_8034FCF0_lbl_804F0BF0) == 0x18 ? 1 : -1];
 u8 *TItemEffPG__visual_ct(u8 *arg0, u8 *arg1, u8 *arg2) {
@@ -206,4 +206,3 @@ void *TUnk_804F0C08::destroy(s16 arg1) {
     return this;
 }
 
-}

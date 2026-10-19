@@ -1,7 +1,6 @@
 
 
 
-
 #include "types.h"
 #include "pso/unk/text_803DA798.h"
 #include "pso/player/TObjPlayer_803DF7A8.h"

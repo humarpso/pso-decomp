@@ -113,7 +113,7 @@ void run_task__14TItemEffShieldFv(Shield_8010A4C0 *self);
 TUnk_8049F148::~TUnk_8049F148() {
     if (*(void **)((s8 *)this + 0x1C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x1C)); *(s32 *)((s8 *)this + 0x1C) = 0; }
 }
-extern "C" {
+
 
 typedef char RecoveredGlobal_8010A404_lbl_8049F148_size[sizeof(RecoveredGlobal_8010A404_lbl_8049F148) == 0x18 ? 1 : -1];
 u8 *TItemEffShield::ct_init(u8 *arg1, s16 arg2) {
@@ -197,4 +197,3 @@ u8 *__ct__14TItemEffShieldFv(u8 *object, u8 *arg1, s16 arg2, s32 arg3) {
     return object;
 }
 
-}

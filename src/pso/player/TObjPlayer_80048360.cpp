@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/player/TUnk_80484840.h"
 #include "pso/player/TObjPlayer_80048360.h"
-#include "pso/player/TUnk_80484840.h"
+
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {

@@ -371,7 +371,6 @@ s16 TObjFish__sub_802E7CC4(void *self);
 }
 
 
-
 struct Boss_802E7CC4 { u8 pad[0x7A4]; TObject *group; };
 
 s16 TObjFish__sub_802E7CC4(void *self) {
@@ -391,7 +390,6 @@ s16 TObjFish__sub_802E7CC4(void *self) {
     }
     return -1;
 }
-
 
 
 struct EffectNode_802E7EA0 { u8 pad[4]; s32 value; };

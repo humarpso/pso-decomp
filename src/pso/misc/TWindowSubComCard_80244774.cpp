@@ -516,11 +516,8 @@ void TWindowSubComCard__sub_802454E4(s32 texture) {
     set_texture_num(texture);
     TLobby__sub_803E2EE4(1);
 }
-}
-
 #pragma push
 #pragma fp_contract on
-extern "C" {
 bool TWindowSubComCard__sub_80245558(s32 arg0, f32 *arg1, f32 *arg2) {
     f32 temp_f1;
     f32 temp_f2;

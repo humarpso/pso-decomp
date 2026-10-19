@@ -6,12 +6,12 @@
 #include "pso/misc/TUnk_804EEF64.h"
 struct TCameraCtrl;
 #include "pso/player/TObjPlayer_8023E480.h"
-#include "pso/misc/TLobby_803360CC.h"
+
 #include "pso/unk/text_80203418.h"
 #include "pso/unk/text_802A1144.h"
-#include "pso/misc/TUnk_804EE470.h"
+
 #include "pso/unk/TUnk_804EEF80.h"
-#include "pso/ui/TUnk_804EE458.h"
+
 #include "pso/TObject.h"
 #include "pso/TAdMultiChgGameModeGC.h"
 #include "pso/TAdPlayerLoadGC.h"

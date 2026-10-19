@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/ui/TAdMcSelectGC.h"
 #include "pso/ui/TAdMcSelectCursorGC.h"
-#include "pso/ui/TAdMcSelectGC.h"
+
 #include "pso/TMainTask.h"
 
 struct Self_80329EC8 {
@@ -85,7 +85,7 @@ TAdMcSelectGC::~TAdMcSelectGC() {
         TAdMcSelectGC__instance = 0U;
     }
 }
-extern "C" {
+
 Self_80329EC8 *TAdMcSelectGC__ct(Self_80329EC8 *self, void *parent) {
     void *back;
     void *txt;
@@ -141,4 +141,3 @@ Self_80329EC8 *TAdMcSelectGC__ct(Self_80329EC8 *self, void *parent) {
     return self;
 }
 
-}

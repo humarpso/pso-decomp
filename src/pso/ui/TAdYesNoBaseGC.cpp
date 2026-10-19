@@ -4,7 +4,7 @@
 #include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowMenu.h"
-#include "pso/ui/TAdYesNoBaseGC.h"
+
 #include "pso/misc/TWindowSubComCard.h"
 
 struct VBase_18 { char pad[0x18]; };
@@ -144,7 +144,7 @@ TAdYesNoBaseGC::~TAdYesNoBaseGC() {
     if (*(void **)((s8 *)this + 0x40) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x40)); this->m_40 = 0; }
     if (*(void **)((s8 *)this + 0x44) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x44)); this->m_44 = 0; }
 }
-extern "C" {
+
 
 extern const f32 lbl_805DF790;
 extern const f32 lbl_805DF794;
@@ -179,4 +179,3 @@ void *TAdYesNoBaseGC__ct(TAdYesNoBaseGC *ad_yes_no_base_gc) {
     return ad_yes_no_base_gc;
 }
 
-}

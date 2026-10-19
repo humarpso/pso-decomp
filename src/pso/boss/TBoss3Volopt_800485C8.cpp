@@ -8,7 +8,7 @@
 #include "pso/boss/TUnk_804999E8.h"
 #include "pso/boss/TUnk_804848B8.h"
 #include "pso/boss/TUnk_804848A0.h"
-#include "pso/boss/TUnk_80484870.h"
+
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -63,7 +63,7 @@ TUnk_80484870::TUnk_80484870(void *arg1, void *arg2) : TObject((TObject *)tl_05)
     *(void * *)&(*(u16 *)((u8 *)this + 0x1C)) = arg1;
     *(void * *)&(*(u8 *)((u8 *)this + 0x20)) = arg2;
 }
-extern "C" {
+
 
 #pragma push
 #pragma fp_contract on
@@ -142,7 +142,6 @@ void TUnk_804848A0::run_task() {
   }
 }
 
-}
 
 #pragma pop
 

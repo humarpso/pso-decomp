@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/boss/TBoss1DragonEffBreath.h"
 #include "pso/boss/TBoss8Dragon_800BC53C.h"
-#include "pso/boss/TBoss1DragonEffBreath.h"
+
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss1Dragon.h"
 

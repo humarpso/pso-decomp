@@ -7,7 +7,7 @@
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneBm3FlyNest.h"
-#include "pso/enemy/TObjEneBm3FlyNest_CarryFly.h"
+
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -2130,7 +2130,7 @@ TObjEneBm3FlyNest_CarryFly::TObjEneBm3FlyNest_CarryFly(TObject *parent, s32 a, s
     this->m_60 = 0.0f;
     *(s32 *)((s8 *)this + 0x2C) = 0;
 }
-extern "C" {
+
 void TObjEneBm3FlyNest::init_vertex_table() {
     f32 *v = fly_nest_vertex_table;
     v[3] = v[2] = v[1] = v[0] = 0.0f;
@@ -2143,4 +2143,3 @@ void TObjEneBm3FlyNest::init_vertex_table() {
     lbl_80500B2C.e = 2;
 }
 
-}

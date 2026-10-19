@@ -372,7 +372,7 @@ s32 decode_adx_stereo(s8 *src, s32 nblk, s16 *outl, s16 *dlyl, s16 *outr, s16 *d
     dlyr[1] = r2;
     return nblk;
 }
-extern "C" {
+
 
 s32 decode_adx_mono_blocks(s8 *src, s32 nblk, s16 *out, s16 *dly, s16 k0, s16 k1) {
     s32 i;
@@ -499,7 +499,6 @@ void ARAlloc(void) {
         lbl_805D7530 = 0;
         TLobby::release_ref();
     }
-}
 }
 
 void TLobby::dec_ref_and_shutdown() {

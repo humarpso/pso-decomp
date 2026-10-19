@@ -1,10 +1,10 @@
 #include "types.h"
 #include "pso/boss/TUnk_804E4BF0.h"
-#include "pso/boss/TUnk_804E4BF0.h"
+
 #include "pso/boss/TBoss8Dragon_802F3AB4.h"
 #include "pso/object/TObjDFHorming.h"
 #include "pso/system/vector.h"
-#include "pso/boss/TUnk_804E4BF0.h"
+
 
     extern void* boss8_dragon_leader_part;
 extern "C" {
@@ -57,7 +57,7 @@ TUnk_804E4BF0::TUnk_804E4BF0(TObject *arg1, void *arg1p) : TObject(arg1) {
     }
     TBoss4DarkFalz__sub_8004B4F0((void *)((char *)this + 28), arg1p);
 }
-extern "C" {
+
 
 void * TBoss8Dragon__sub_802F3C24(void *arg0, void *arg1) {
     void *o;
@@ -66,7 +66,6 @@ void * TBoss8Dragon__sub_802F3C24(void *arg0, void *arg1) {
 }
 
 void TBoss8Dragon__sub_802F3C74(void) {  }
-}
 
 void clear_boss8_dragon_leader_part(void) { boss8_dragon_leader_part = 0; }
 

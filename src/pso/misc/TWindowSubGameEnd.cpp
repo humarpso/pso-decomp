@@ -3,7 +3,7 @@
 #include "pso/unk/text_8024AB54.h"
 #include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/misc/TKeyBoardControl.h"
-#include "pso/misc/TWindowSubGameEnd.h"
+
 #include "pso/misc/THunterGuildSeqOffline.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubShortMail.h"
@@ -93,7 +93,7 @@ void TWindowSubGameEnd::run_task() {
 TWindowSubGameEnd::~TWindowSubGameEnd() {
     if (*(void **)((s8 *)this + 0x28) != NULL) { ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x28)))->close(); this->m_28 = 0; }
 }
-extern "C" {
+
 
 void *TWindowSubGameEnd__ct(TWindowSubGameEnd *window_sub_game_end, s32 arg1, s32 arg2) {
     f32 var_f31;
@@ -125,4 +125,3 @@ void TLobby__sub_802796FC(void) { window_sub_game_end_active_flag = 0; }
 
 void TLobby__sub_80279708(void) { window_sub_game_end_active_flag = 0; }
 
-}

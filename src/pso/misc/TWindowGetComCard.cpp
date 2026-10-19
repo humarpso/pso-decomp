@@ -6,7 +6,7 @@
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TUnk_804CF0B8.h"
 #include "pso/misc/TWindowFukidasi.h"
-#include "pso/misc/TWindowGetComCard.h"
+
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -36,9 +36,6 @@ s32 reset_equip_slots__10TObjPlayerFv();
 void *get_player_by_client_id(s32 i);
 void *get_com_card_list__6TLobbyFPv(void *p);
 s32 text_builder_append();
-}
-void text_builder_reset(void);
-extern "C" {
 s32 __ct__7TObjectFP7TObject();
 void TObjPlayer__sub_8024ABDC(s32 arg0);
 void fn_8024AC64(s32 arg0);
@@ -146,8 +143,8 @@ void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self) {
         break;
     }
 }
-
 }
+void text_builder_reset(void);
 TWindowGetComCard::~TWindowGetComCard() {
     if ((u32) this->m_20 != 0U) {
         TWindow__close((u8 *)(*(void **)((s8 *)this + 0x20)));
@@ -163,7 +160,7 @@ TWindowGetComCard::~TWindowGetComCard() {
         init_parts__10TObjPlayerFv();
     }
 }
-extern "C" {
+
 typedef char RecoveredGlobal_80252FCC___vt__17TWindowGetComCard_size[sizeof(RecoveredGlobal_80252FCC___vt__17TWindowGetComCard) == 0x18 ? 1 : -1];
 u8 *TWindowGetComCard__ct(TWindowGetComCard *window_get_com_card) {
     s32 temp_r31;
@@ -192,5 +189,4 @@ u8 *TWindowGetComCard__ct(TWindowGetComCard *window_get_com_card) {
     fn_8024AC64((local_client_id));
     window_get_com_card->m_24 = 0;
     return (u8 *)window_get_com_card;
-}
 }

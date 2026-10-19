@@ -2,7 +2,7 @@
 #include "pso/misc/TTecSifta.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/player/TUnk_804CCC68.h"
-#include "pso/misc/TTecSifta.h"
+
 #include "pso/misc/TTecAnti.h"
 #include "pso/misc/TTecLuker.h"
 #include "pso/misc/TWindowCtrl.h"
@@ -152,7 +152,7 @@ void TTecSifta::vfunc_7(void *arg1_arg) {
 TTecSifta::~TTecSifta() {
 
 }
-extern "C" {
+
 
 typedef char RecoveredGlobal_8023B17C___vt__9TTecSifta_size[sizeof(RecoveredGlobal_8023B17C___vt__9TTecSifta) == 0x20 ? 1 : -1];
 
@@ -241,4 +241,3 @@ u8 *TTecSifta__sub_8023B17C(TTecSifta *arg0, s32 owner, s32 pos, s32 level) {
 
 void TTecSifta::render() {  }
 
-}

@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/unk/TUnk_804CC888.h"
-#include "pso/unk/TUnk_804CC888.h"
+
 #include "pso/misc/TLobby_80226070.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"

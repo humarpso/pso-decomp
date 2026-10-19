@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/misc/TTecDeband.h"
 #include "pso/object/TObject_80019A50.h"
-#include "pso/misc/TTecDeband.h"
+
 #include "pso/misc/TTecAnti.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/player/TObjPlayer.h"
@@ -123,7 +123,7 @@ void TTecDeband::render() {  }
 TTecDeband::~TTecDeband() {
 
 }
-extern "C" {
+
 typedef char RecoveredGlobal_8022F948___vt__10TTecDeband_size[sizeof(RecoveredGlobal_8022F948___vt__10TTecDeband) == 0x20 ? 1 : -1];
 
 void run_task__10TTecDebandFv(Deband_8022F73C *self) {
@@ -212,4 +212,3 @@ u8 *TTecDeband__sub_8022F948(TTecDeband *arg0, s32 owner, s32 pos, s32 level) {
     return (u8 *)arg0;
 }
 
-}

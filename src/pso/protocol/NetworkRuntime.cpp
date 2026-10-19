@@ -426,9 +426,6 @@ s32 NetMemcmp(void *, void *, int);
 void NetMemset(void *, int, int);
 void NetMemcpy(void *, void *, int);
 s32 NetIPv6CPSetInterfaceIdentifier(u8 *arg0, s32 arg1);
-}
-void NetIPv6CPCancelTimer(s32 arg0);
-extern "C" {
 void TLobby__sub_803FD85C(void *);
 s32 TLobby__sub_804062A0(s16);
 extern s32 lobby_timer_list_head;
@@ -453,9 +450,6 @@ void TLobby__sub_803F89D8(void *);
 void TLobby__sub_80401CAC(Outer_80401CAC *o, u16 v);
 u16 read_network_u16_be(u8 *p);
 u32 TLobby__sub_80402AFC(u8 *p);
-}
-u8 *write_network_u32_be(u8 *p, u32 v);
-extern "C" {
 u8 *write_network_u16_be(u8 *p, u16 v);
 extern Tbl_80408718 lbl_805C1AB0;
 s32 TLobby__sub_80405304(void *arg0);
@@ -582,7 +576,8 @@ void NetStoreCurrentThread(s32 *arg0) {
     *arg0 = OSGetCurrentThread();
 }
 }
-
+void NetIPv6CPCancelTimer(s32 arg0);
+u8 *write_network_u32_be(u8 *p, u32 v);
 void TLobby::signal_alarm_queue(void *alarm) {
     s32 i;
     Slot_803F8E08 *s;
@@ -693,7 +688,7 @@ u32 TLobby::str_length(s32 arg0) {
 void TLobby::memmove_wrapper() {
     memmove();
 }
-extern "C" {
+
 
 s32 NetMemcmp(void * _w0, void * _w1, int _w2) {
     memcmp();
@@ -772,7 +767,6 @@ void TLobby::init_net_state_entry() {
 
 void TLobby__sub_803FA280(void) {
 
-}
 }
 
 typedef char RecoveredGlobal_803FB110_lbl_805BFF68_size[sizeof(RecoveredGlobal_803FB110_lbl_805BFF68) == 0xD0 ? 1 : -1];

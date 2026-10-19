@@ -2,7 +2,7 @@
 #include "pso/object/TUnk_804CCAA8.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/system/vector.h"
-#include "pso/object/TUnk_804CCAA8.h"
+
 #include "pso/object/TObjLight.h"
 
 struct Stack_80235E9C {
@@ -105,7 +105,7 @@ void TUnk_804CCAA8::run_task() {
 TUnk_804CCAA8::~TUnk_804CCAA8() {
 
 }
-extern "C" {
+
 typedef char RecoveredGlobal_80235E9C_lbl_804CCAA8_size[sizeof(RecoveredGlobal_80235E9C_lbl_804CCAA8) == 0x18 ? 1 : -1];
 u8 *TObjLight::construct_actor_light(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1, f32 farg2, s32 arg_sp0) {
     Stack_80235E9C stack;
@@ -143,4 +143,3 @@ u8 *construct_actor_light_task(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u8 *arg4,
     return arg0;
 }
 
-}

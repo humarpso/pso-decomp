@@ -24,11 +24,9 @@ struct Out_8012573C { u8 pad[0x40]; u32 f40; u8 pad44[0x50 - 0x44]; s32 f50; u8 
 
 extern "C" {
 u32 find_item_by_id(void);
-}
-s32 spawn_faust_explosion(u32 a0, const Vec &pos);
-extern "C" {
 void config_faust_attack_collider__10TObjPlayerFPvPv(Self_8012573C *self, Out_8012573C *out);
 }
+s32 spawn_faust_explosion(u32 a0, const Vec &pos);
 void TObjPlayer::spawn_faust_wall_explosion(s32 arg0, s32 arg1) {
     u32 temp_r3 = find_item_by_id();
     if (temp_r3 != 0U) {

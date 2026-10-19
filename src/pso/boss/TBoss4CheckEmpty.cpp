@@ -7,11 +7,9 @@
 
 extern "C" {
 s32 is_active__11TBoss4Type2Fv();
-}
-void init_music_sequencer(s32 program);
-extern "C" {
 s32 is_door_open_and_ready__12TBoss4ThanksFv();
 }
+void init_music_sequencer(s32 program);
 extern s32 lbl_804789DC[];
 void TBoss4CheckEmpty::render() {  }
 void TBoss4CheckEmpty::run_task() {

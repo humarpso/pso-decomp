@@ -5,7 +5,7 @@
 #include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemMag.h"
-#include "pso/item/TUnk_80480938.h"
+
 
 #pragma push
 #pragma inline_depth(1)
@@ -168,7 +168,7 @@ void TUnk_80480938::run_task() { TObjPlayer__sub_8001A77C(this); TObjPlayer::pub
 TUnk_80480938::~TUnk_80480938() {
 
 }
-extern "C" {
+
 typedef char RecoveredGlobal_8001A8F0_lbl_8043455C_size[sizeof(RecoveredGlobal_8001A8F0_lbl_8043455C) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_8001A8F0_lbl_80480938_size[sizeof(RecoveredGlobal_8001A8F0_lbl_80480938) == 0x18 ? 1 : -1];
 u8 *TObjPlayer__sub_8001A8F0(u8 *object, s32 arg1) {
@@ -194,4 +194,3 @@ u8 *TObjPlayer__sub_8001A8F0(u8 *object, s32 arg1) {
     return object;
 }
 
-}

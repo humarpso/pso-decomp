@@ -4,7 +4,7 @@
 #include "pso/misc/TODragonfly.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/TODummyKeyCave01Sound.h"
-#include "pso/misc/TODragonflyMachine01.h"
+
 #include "pso/enemy/TObjEneMe3Stelth.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/player/TObjPlayer.h"
@@ -119,7 +119,7 @@ void TODragonflyMachine01::create_attack_effect() {
 TODragonflyMachine01::~TODragonflyMachine01() {
 
 }
-extern "C" {
+
 
 #pragma push
 #pragma fp_contract on
@@ -184,4 +184,3 @@ void TODummyKeyCave01Sound::play_cave01_key_sound() {
     }
 }
 
-}

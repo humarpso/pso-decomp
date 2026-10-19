@@ -73,12 +73,6 @@ extern s32 lbl_805D49C0;
 extern "C" {
 void TKeyBoardControl__sub_8000F950(void);
 void TKeyBoardControl__sub_8000F95C(void);
-}
-extern s32 keyboard_active_flag;
-void activate_keyboard(void);
-void deactivate_keyboard(void);
-extern s32 keyboard_key_state;
-extern "C" {
 void mark_area_change_pending(void);
 void clear_keyboard_key_state(void);
 s32 disable_disconnected_ports__16TKeyBoardControlFv(void *);
@@ -146,6 +140,10 @@ int clear_split_screen_fog__8TFogCtrlFv(void*);
 void TLobby__sub_80147978(void);
 void TLobby__sub_8020E3BC(void);
 }
+extern s32 keyboard_active_flag;
+void activate_keyboard(void);
+void deactivate_keyboard(void);
+extern s32 keyboard_key_state;
 void update_pad_rumble(void);
 extern RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
 extern u8 gx_default_light_obj[];

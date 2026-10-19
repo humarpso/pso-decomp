@@ -1,12 +1,11 @@
 #include "types.h"
 #include "pso/misc/TUnk_80488B38.h"
 #include "pso/misc/TUnk_80488B68.h"
-#include "pso/misc/TUnk_80488B38.h"
+
 #include "pso/misc/TUnk_80488B08.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TCameraCtrl.h"
-#include "pso/misc/TUnk_80488B68.h"
-#include "pso/misc/TUnk_80488B38.h"
+
 
 struct E_8006BAC8 { f32 x; f32 y; f32 z; };
 

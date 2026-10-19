@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowCost.h"
-#include "pso/misc/TWindowCost.h"
+
 
 extern "C" {
 
@@ -14,7 +14,7 @@ extern s32 __vt__11TWindowCost[];
 TWindowCost::~TWindowCost() {
 
 }
-extern "C" {
+
 
 extern void *TWindowCost__class_name;
 
@@ -26,4 +26,3 @@ void *TWindowCost__ct(void *arg0) {
     return arg0;
 }
 
-}

@@ -24,7 +24,7 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/boss/TBoss4DarkFalz.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss8Dragon.h"
-#include "pso/boss/TObjBoss1Rock.h"
+
 #include "pso/boss/TObjBoss2Tunnel.h"
 
 #include "pso/enemy/TObjEneRe7Berura.h"

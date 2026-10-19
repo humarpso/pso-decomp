@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/object/TObjFogCollisionPoison.h"
 #include "pso/unk/text_80153674.h"
-#include "pso/object/TObjFogCollisionPoison.h"
+
 #include "pso/object/TObjFogCollisionSwitch.h"
 #include "pso/object/TObjFogCollision.h"
 
@@ -75,7 +75,7 @@ void TObjFogCollisionPoison::vfunc_13(s32) {
 TObjFogCollisionPoison::~TObjFogCollisionPoison() {
 
 }
-extern "C" {
+
 
 extern void *tl_05;
 
@@ -140,4 +140,3 @@ s32 TObjFogCollisionSwitch::sub_80153A0C() {
     return *(f32 *)&this->m_70 >= lbl_805DB250;
 }
 
-}

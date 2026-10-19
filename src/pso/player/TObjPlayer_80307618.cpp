@@ -4,7 +4,7 @@
 #include "pso/player/TObjPlayer_80307618.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804E70A8.h"
-#include "pso/player/TUnk_804E71A0.h"
+
 
 struct RecoveredGlobal_80307784_lbl_804E70A8 {
     s32 value;

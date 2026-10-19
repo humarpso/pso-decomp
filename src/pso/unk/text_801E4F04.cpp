@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/unk/TUnk_804C57F0.h"
 #include "pso/unk/text_801E4F04.h"
-#include "pso/unk/TUnk_804C57F0.h"
+
 
 extern "C" {
 
@@ -18,7 +18,7 @@ TUnk_804C57F0::~TUnk_804C57F0() {
     mem_free(*(void **)((s8 *)this + 0x1C));
     *(s32 *)((s8 *)this + 0x1C) = 0;
 }
-extern "C" {
+
 
 void *quad_sprite_base_ct(void *arg0, void *arg_r4, void *arg2) {
     s32 temp_r31;
@@ -33,4 +33,3 @@ void *quad_sprite_base_ct(void *arg0, void *arg_r4, void *arg2) {
     return arg0;
 }
 
-}

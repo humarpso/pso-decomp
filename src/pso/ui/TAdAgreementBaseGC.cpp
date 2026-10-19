@@ -4,7 +4,7 @@
 #include "pso/misc/TWindowSubStatusDisp_80144B14.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC_801334D4.h"
-#include "pso/ui/TAdAgreementBaseGC.h"
+
 #include "pso/TLevelSelect.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdEnterSerialAccessGC.h"
@@ -152,7 +152,7 @@ TAdAgreementBaseGC::~TAdAgreementBaseGC() {
     if (*(void **)((s8 *)this + 0x2C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x2C)); this->m_2c = 0; }
     if (*(void **)((s8 *)this + 0x30) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x30)); this->m_30 = 0; }
 }
-extern "C" {
+
 
 Obj_80329AA8 *TAdAgreementBaseGC__ct(Obj_80329AA8 *arg0, void *arg1) {
     void *p;
@@ -190,4 +190,3 @@ void TAdAgreementBaseGC::vfunc_7() {  }
 void TAdAgreementBaseGC::vfunc_8() {  }
 void fn_80329BAC(void* p) { *(s32*)((char*)p + 0xb8) = 1; }
 
-}

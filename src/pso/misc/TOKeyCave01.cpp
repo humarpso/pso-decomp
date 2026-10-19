@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/misc/TOKeyCave01.h"
 #include "pso/player/TUnk_80494AE0.h"
-#include "pso/misc/TOKeyCave01.h"
+
 #include "pso/misc/TOKeyCol.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TContainerAncient01.h"
@@ -222,7 +222,7 @@ void TOKeyCave01::load_resources() {
 TOKeyCave01::~TOKeyCave01() {
 
 }
-extern "C" {
+
 
 u8 *TOKeyCave01__ct(TOKeyCave01 *key_cave01, s32 arg1, s32 arg2) {
     TOKey__ct(key_cave01);
@@ -300,4 +300,3 @@ void TOKeyCol::send_switch_changed(s32 flags) {
     ((TLobby *)(&pkt))->finalize_and_send_60();
 }
 
-}

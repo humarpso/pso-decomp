@@ -4,7 +4,7 @@
 #include "pso/misc/TLobby_8036B204.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/misc/TLobby.h"
-#include "pso/misc/TUnk_804F3640.h"
+
 
 struct Obj_8036B2E8 { u8 pad0[0x1C]; u32 base; s32 t[4]; };
 struct Obj_8036B340 { u8 pad0[0x1C]; u32 base; s32 t[4]; };
@@ -76,7 +76,7 @@ TUnk_804F3640::~TUnk_804F3640() {
     mem_free((void *)(*(s32 *)((s8 *)this + 0x1C)));
     (*(s32 *)&slot_entity_dispatcher_instance) = 0;
 }
-extern "C" {
+
 
 Mgr_8036B424 *TLobby__sub_8036B424(Mgr_8036B424 *arg0, void * _w1) {
     s32 i;
@@ -107,4 +107,3 @@ void create_singleton__6TLobbyFPv(void *arg0) {
 void TLobby__sub_8036B50C(void) {  }
 void TLobby__sub_8036B510(void) {  }
 
-}

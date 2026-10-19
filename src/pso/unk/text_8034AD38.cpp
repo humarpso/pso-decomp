@@ -55,7 +55,7 @@ TAdFloorLoadPrtGC::~TAdFloorLoadPrtGC() {
         }
     }
 }
-extern "C" {
+
 
 #pragma push
 #pragma opt_common_subs off
@@ -86,7 +86,6 @@ void push_recent_id(s16 arg0) {
         }
         lbl_804F0070[0] = arg0;
     }
-}
 }
 void clear_window_dd_nodes(void) {
     if (*(Node_8034AF18 **)((s8 *)lbl_804F0070 + 0x20) == NULL || *(Node_8034AF18 **)((s8 *)lbl_804F0070 + 0x24) == NULL) {

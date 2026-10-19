@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/misc/TNeedleShoot.h"
-#include "pso/misc/TNeedleShoot.h"
+
 
 struct Vec_802A47C8 {
     f32 x, y, z;
@@ -66,7 +66,7 @@ int queue_destruction__7TObjectFv(void*);
 TNeedleShoot::~TNeedleShoot() {
     if (*(void **)((s8 *)this + 0x68) != NULL) { free_collision_body_parts(*(void **)((s8 *)this + 0x68)); this->m_68 = 0; }
 }
-extern "C" {
+
 
 TNeedleShoot_802A47C8 *TNeedleShoot__ct(TNeedleShoot_802A47C8 *self, s32 arg1, Vec_802A47C8 *from, Vec_802A47C8 *to) {
     f32 dx;
@@ -124,4 +124,3 @@ int TNeedleShoot::vfunc_6() { return queue_destruction__7TObjectFv(this); }
 int TNeedleShoot::queue_destruction() { return queue_destruction__7TObjectFv(this); }
 void TNeedleShoot::vfunc_9(void *) {  }
 
-}

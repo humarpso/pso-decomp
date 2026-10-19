@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/misc/TTecGrants.h"
 #include "pso/object/TObject_80019A50.h"
-#include "pso/misc/TTecGrants.h"
+
 #include "pso/unk/TUnk_804CC148.h"
 
 struct RecoveredGlobal_80233350___vt__10TTecGrants {
@@ -139,7 +139,7 @@ void run_task__10TTecGrantsFv(TTecGrants *tec_grants) {
 TTecGrants::~TTecGrants() {
 
 }
-extern "C" {
+
 typedef char RecoveredGlobal_80233350___vt__10TTecGrants_size[sizeof(RecoveredGlobal_80233350___vt__10TTecGrants) == 0x28 ? 1 : -1];
 u8 *TTecGrants__ct(u8 *tec_grants, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u32 temp_r3;
@@ -157,4 +157,3 @@ u8 *TTecGrants__ct(u8 *tec_grants, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     return tec_grants;
 }
 
-}

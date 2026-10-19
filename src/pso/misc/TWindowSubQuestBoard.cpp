@@ -7,7 +7,7 @@
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowSubQuestBoardSelect.h"
 #include "pso/misc/TUnk_804D1818.h"
-#include "pso/misc/TWindowSubQuestBoard.h"
+
 #include "pso/TObject.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubComCard.h"

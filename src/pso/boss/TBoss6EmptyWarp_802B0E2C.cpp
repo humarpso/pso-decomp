@@ -3,7 +3,7 @@
 #include "pso/boss/TBoss6EmptyWarp_802B0E2C.h"
 #include "pso/misc/TLoadCtrl_80227390.h"
 #include "pso/object/TObject_80019A50.h"
-#include "pso/boss/TBoss6EmptyWarp.h"
+
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/boss/TBoss6Thanks.h"
 

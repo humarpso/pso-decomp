@@ -3,7 +3,7 @@
 #include "pso/TObject.h"
 #include "pso/misc/TChCrTag.h"
 #include "pso/object/TObject_80019A50.h"
-#include "pso/TChCrTag.h"
+
 extern "C" void render__8TChCrTagFv();
 #include "pso/TChCrCharSelect.h"
 
@@ -103,7 +103,7 @@ TChCrTag::TChCrTag(TObject *arg1, void *arg2) : TObject(arg1) {
     *(f32 *)((s8 *)this + 0x38) = lbl_805DDE0C;
     *(f32 *)((s8 *)this + 0x2C) = lbl_805DDE0C;
 }
-extern "C" {
+
 
 void *__vt__8TChCrTag[7] = {
     0, 0, (void *)__dt__8TChCrTagFv, (void *)update_fade__8TChCrTagFPv,
@@ -111,4 +111,3 @@ void *__vt__8TChCrTag[7] = {
     (void *)TChCrTag__vt4,
 };
 
-}

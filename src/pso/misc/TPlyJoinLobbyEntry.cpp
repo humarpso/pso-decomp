@@ -328,9 +328,6 @@ typedef struct { u8 pad0[0xA]; char name[0x12]; } Ent_8013703C;
 
 s32 memcpy(void *, void *, int);
 void * memset(void *, int, u32);
-}
-void activate_keyboard();
-extern "C" {
 void mark_area_change_pending();
 u16 obj_getField1c(void *);
 void * get_current_floor();
@@ -586,7 +583,7 @@ u8 *TLobby__sub_80135198(u8 *arg0, s32 arg1) {
     return arg0;
 }
 }
-
+void activate_keyboard();
 void TLobby::open_udp_socket_for_player() {
     s32 arg0 = (s32)this;
     VObj_18_80135208 *o = (VObj_18_80135208 *)__nw__7TObjectFUl(0xE70);

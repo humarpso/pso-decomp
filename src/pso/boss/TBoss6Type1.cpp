@@ -1109,9 +1109,6 @@ s32 render_shadows__9TObjEnemyFv();
 extern const f32 lbl_805DE3D0;
 s32 angle_difference_abs(int, int);
 s32 approach_angle_limited(int, int, int);
-}
-void build_6xA4_olga_flow_boss_actions(void* p);
-extern "C" {
 s32 TBoss6Type1__ct(s32, s32, s32);
 void TLobby__send_and_handle_60(u8 *arg0);
 s32 TObjControl__ct(s32, s32);
@@ -1892,7 +1889,7 @@ Blk_802B8624 *copy_block__11TBoss6Type1FPvPv(Blk_802B8624 *d, Blk_802B8624 *s) {
     return d;
 }
 }
-
+void build_6xA4_olga_flow_boss_actions(void* p);
 void TBoss6Type1::set_action_state(s32 arg1) {
     Action_802B865C a;
     Entry_802B865C *e;

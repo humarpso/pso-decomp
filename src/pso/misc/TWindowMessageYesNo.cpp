@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
-#include "pso/misc/TWindowMessageYesNo.h"
+
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubShortMail.h"
@@ -29,11 +29,7 @@ TWindowMessageYesNo::~TWindowMessageYesNo() {
     if (*(void **)((s8 *)this + 0x2C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)this + 0x2C))); this->m_2c = 0; }
     if (*(void **)((s8 *)this + 0x28) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)this + 0x28))); this->m_28 = 0; }
 }
-extern "C" {
-
 extern void *TWindowMessageYesNo__name;
-
-}
 TWindowMessageYesNo::TWindowMessageYesNo(TObject *object, void *arg2, void *arg3, void *arg4) : TObject(object) {
     *(void * *)&this->m_name = TWindowMessageYesNo__name;
     *(void **)((s8 *)this + 0x24) = arg2;

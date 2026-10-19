@@ -5,7 +5,7 @@
 #include "pso/unk/TUnk_804CC148.h"
 
 #include <stddef.h>
-#include "pso/misc/TTecJelin.h"
+
 #include "pso/misc/TTecAnti.h"
 #include "pso/misc/TTecLuker.h"
 #include "pso/player/TObjPlayer.h"
@@ -202,7 +202,7 @@ void run_task__9TTecJelinFv(struct Self_802336F0 *self) {
 TTecJelin::~TTecJelin() {
 
 }
-extern "C" {
+
 
 Jelin_80233808 *TTecJelin__ct(Jelin_80233808 *self, void *_w1, void *_w2, void *_w3, void *_w4) {
     s32 r;
@@ -281,4 +281,3 @@ Jelin_80233958 *construct__9TTecJelinFPviiii(Jelin_80233958 *self, s32 _w1, s32 
     return self;
 }
 
-}

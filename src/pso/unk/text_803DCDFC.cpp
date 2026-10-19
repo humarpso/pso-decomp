@@ -1,16 +1,8 @@
 
 
 
-
 typedef struct GXRenderModeObj_803DD430 { unsigned char data[0x3C]; } GXRenderModeObj_803DD430;
 extern "C" void get_render_mode_for_tv_format(GXRenderModeObj_803DD430 *rmode, GXRenderModeObj_803DD430 *out);
-
-
-
-
-
-
-
 
 
 #include "types.h"
@@ -231,18 +223,6 @@ void fn_803DD294(void) {
 #undef frame_update_callback
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 typedef struct { u8 pad[0x28]; } Elem_803DD300;
 
 typedef struct {
@@ -302,10 +282,6 @@ s32 TCameraCtrl::init_projection_state() {
 }
 
 
-
-
-
-
 typedef Tlut_803DD0D8 E_803DD3C8;
 
 
@@ -332,29 +308,11 @@ s32 fn_803DD3DC(Fmt_803DD3DC *rmode) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 void TKeyBoardControl::set_key_state(s32 arg0) {
     *(s32 *)&frame_update_callback = arg0;
 }
 
 }
-
-
-
-
-
 
 
 struct SinCos_803DD4EC { f32 c; f32 s; };

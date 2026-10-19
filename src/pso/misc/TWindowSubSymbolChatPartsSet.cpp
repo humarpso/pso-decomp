@@ -2,7 +2,7 @@
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 #include "pso/misc/TWindowChatSymbol_802486A8.h"
 #include "pso/misc/TUnk_804CE018.h"
-#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
+
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowDD.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -314,7 +314,7 @@ void TWindowSubSymbolChatPartsSet::run_task() {
 TWindowSubSymbolChatPartsSet::~TWindowSubSymbolChatPartsSet() {
     TWindowSubStatusDisp::destroy_status_display((s32)(*(void **)((s8 *)this + 0x88)), (s16)1);
 }
-extern "C" {
+
 T_802869BC *TWindowSubSymbolChatPartsSet__ct(T_802869BC *self, void *parent, s16 arg2, s32 arg3, s32 arg4) {
     void *h;
     TWindowChatSymbol__ct((TWindowChatSymbol *)((u8 *)self), (s32)parent, (s32)lbl_8044FC30);
@@ -341,4 +341,3 @@ T_802869BC *TWindowSubSymbolChatPartsSet__ct(T_802869BC *self, void *parent, s16
     return self;
 }
 
-}

@@ -1,9 +1,7 @@
 #include "types.h"
 #include "pso/ui/TAdDialingMessageWindow.h"
-#include "pso/ui/TAdDialingMessageWindow.h"
-#include "pso/misc/TLobby.h"
 
-extern "C" {
+#include "pso/misc/TLobby.h"
 
 
 void *TLobby::create_dialing_message_window(void *arg0, void *arg1) {
@@ -12,4 +10,3 @@ void *TLobby::create_dialing_message_window(void *arg0, void *arg1) {
     return o;
 }
 
-}

@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/object/TUnk_804AF7B0.h"
-#include "pso/object/TUnk_804AF7B0.h"
+
 #include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/object/TObjFogCollision_Manager.h"
 #include "pso/object/TObjFogCollisionPoison.h"
@@ -64,7 +64,7 @@ s32 is_split_screen();
 TUnk_804AF7B0::~TUnk_804AF7B0() {
 
 }
-extern "C" {
+
 
 typedef char RecoveredGlobal_80153084_lbl_804AF7B0_size[sizeof(RecoveredGlobal_80153084_lbl_804AF7B0) == 0x18 ? 1 : -1];
 u8 *TObjFogCollisionPoison::init_base(u8 *arg1, s16 arg2) {
@@ -259,4 +259,3 @@ void TObjFogCollisionPoison__sub_801535D0(s32 arg0) {
     }
 }
 
-}

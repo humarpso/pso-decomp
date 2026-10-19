@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/misc/TUnk_804CE018.h"
 struct TCameraCtrl;
-#include "pso/misc/TUnk_804CE018.h"
+
 #include "pso/misc/TWindowMainMenu.h"
 #include "pso/misc/TWindowUserSort.h"
 #include "pso/misc/TWindowDD.h"

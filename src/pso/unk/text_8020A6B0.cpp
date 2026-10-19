@@ -19,7 +19,7 @@ struct MapSetArea {
     s32 count;
 };
 
-extern "C" {
+
 extern MapSetArea *TLobby__data_805D6068;
 
 void TLobby__sub_8020A6B0(s32 player) {
@@ -37,5 +37,4 @@ void TLobby__sub_8020A6B0(s32 player) {
         return;
     }
     load_map_set_data(player, entries[0].data);
-}
 }

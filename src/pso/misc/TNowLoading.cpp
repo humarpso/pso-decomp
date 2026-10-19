@@ -7,7 +7,7 @@
 
 #include <stddef.h>
 #include "pso/misc/TLobby.h"
-#include "pso/misc/TNowLoading.h"
+
 struct Stack_8001D19C {
     f32 sp8;
     f32 spC;
@@ -122,7 +122,7 @@ TNowLoading::~TNowLoading() {
     if (*(void **)((s8 *)this + 0x24) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x24)); this->m_24 = 0; }
     if (*(void **)((s8 *)this + 0x28) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x28)); this->m_28 = 0; }
 }
-extern "C" {
+
 
 #pragma push
 #pragma fp_contract on
@@ -210,4 +210,3 @@ s32 TLobby::aram_transfer_sync(s32 arg0, u32 buf, s32 arg2, s32 arg3) {
     return 1;
 }
 
-}

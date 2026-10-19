@@ -6,7 +6,7 @@
 #include "pso/ui/TAdExNetConfirmGC_8032C504.h"
 #include "pso/ui/TAdWarningBaseGC.h"
 #include "pso/unk/text_80145A94.h"
-#include "pso/ui/TAdExNetConfirmGC.h"
+
 #include "pso/TAdMultiChgGameModeGC.h"
 #include "pso/misc/TLobby.h"
 
@@ -64,7 +64,7 @@ void TAdExNetConfirmGC::run_task() {
 TAdExNetConfirmGC::~TAdExNetConfirmGC() {
 
 }
-extern "C" {
+
 u8 *TAdExNetConfirmGC__ct(u8 *object) {
     TAdWarningBaseGC__ct((TAdWarningBaseGC *)object);
     *(s32 **)((s8 *)object + 0x18) = &(*(RecoveredGlobal_8032C618___vt__17TAdExNetConfirmGC *)&__vt__17TAdExNetConfirmGC).value;
@@ -82,4 +82,3 @@ u8 *TAdExNetConfirmGC__ct(u8 *object) {
     return object;
 }
 
-}

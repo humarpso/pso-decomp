@@ -1524,9 +1524,6 @@ SjMemoryBuffer *sj_memory_buffer_create(void *arg0, s32 arg1);
 extern char adxt_start_mem_idx_stream_create_error[];
 void TLobby__sub_803CE544(void *, int);
 void TLobby__sub_803CFAA8(const char *, void *, int);
-}
-void * *initialize_dvd_file_driver(void);
-extern "C" {
 char *TLobby__sub_803D43B8(void);
 extern const char lbl_805E0D70[4];
 extern const char lbl_805E0D74[4];
@@ -1745,6 +1742,7 @@ s8 TLobby__sub_803C9CB0(u8 *arg0) {
   return (s8) new_var2;
 }
 }
+void * *initialize_dvd_file_driver(void);
 void stop_audio_stream(u8 *arg0);
 void set_dvd_synchronous_read_mode(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 #pragma push

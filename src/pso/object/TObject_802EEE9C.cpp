@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/object/TUnk_804E4788.h"
 #include "pso/object/TObject_80019A50.h"
-#include "pso/object/TUnk_804E4788.h"
+
 #include "pso/TObject.h"
 
 TUnk_804E4788::~TUnk_804E4788() {

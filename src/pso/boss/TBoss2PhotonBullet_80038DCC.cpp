@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/TBoss2PhotonPad.h"
-#include "pso/TBoss2PhotonPad.h"
+
 #include "pso/TObject.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/boss/TObjBoss2Tunnel_8007E418.h"
@@ -235,7 +235,6 @@ void area_attack_receive_direct__13TUnk_804928CCFPvPfPv(); void apply_hit_if_act
 void *__vt__18TBoss2PhotonBullet[23] = {
     0, 0, (void *)__dt__18TBoss2PhotonBulletFv, (void *)run_task__18TBoss2PhotonBulletFv, (void *)render__18TBoss2PhotonBulletFv, (void *)render_shadows__7TObjectFv, (void *)vfunc_6__13TUnk_804B9870FPsl, (void *)apply_object_set_data__13TUnk_804B9870FPv, (void *)reset_motion_fields__13TUnk_804AF8A0Fv, (void *)vfunc_9__13TUnk_804B9870Fv, (void *)update_object_view_visibility__13TUnk_804B9870Fff, (void *)classify_actor_view_detail__13TUnk_804B9870Ffff, (void *)vfunc_12__13TUnk_804B9870Fv, (void *)vfunc_13__13TUnk_804AF8A0Fl, (void *)call_vt13_with_default__13TUnk_804928CCFPvPvl, (void *)area_attack_deliver_direct__13TUnk_804928CCFPvlPvf, (void *)vfunc_16__13TUnk_804928CCFPvPv, (void *)call_vt16_with_default__13TUnk_804928CCFPvPv, (void *)area_attack_deliver_physical__13TUnk_804928CCFPvPvf, (void *)vfunc_19__13TUnk_804928CCFPv, (void *)area_attack_apply_recoil__13TUnk_804928CCFPvf, (void *)area_attack_receive_direct__13TUnk_804928CCFPvPfPv, (void *)apply_hit_if_active__13TUnk_804928CCFPvPf
 };
-extern void *__vt__15TBoss2PhotonPad[];
 extern char lbl_80435B48[];
 extern char lbl_80435B58[];
 s32 TBoss2PhotonPad__name = (s32)lbl_80435B48;

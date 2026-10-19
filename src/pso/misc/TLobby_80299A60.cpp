@@ -17,9 +17,6 @@ extern "C" {
 s32 get_main_phase();
 s32 is_split_screen();
 s32 is_quest_active();
-}
-void init_music_sequencer(s32);
-extern "C" {
 s32 play_area_music(s32 *);
 s32 load_floor_sound_bank();
 extern s32 lbl_804651C0[];
@@ -33,6 +30,7 @@ s32 fn_802F1084();
 void fn_802FE9E0(void);
 void fn_802FEA0C(void);
 }
+void init_music_sequencer(s32);
 void init_area_lights(void);
 s32 init_scene_delo2(void);
 s32 load_dragon2_scene(void);

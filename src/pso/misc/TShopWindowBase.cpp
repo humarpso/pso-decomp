@@ -86,7 +86,7 @@ extern void *TShopWindowBase__class_name;
 TShopWindowBase::~TShopWindowBase() {
 
 }
-extern "C" {
+
 
 void *__ct__15TShopWindowBaseFv(void *shop_window_base) {
     __ct__7TObjectFP7TObject(shop_window_base);
@@ -98,5 +98,3 @@ void *__ct__15TShopWindowBaseFv(void *shop_window_base) {
     return shop_window_base;
 }
 
-extern s32 __vt__15TShopWindowBase[];
-}

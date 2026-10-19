@@ -3,7 +3,7 @@
 #include "pso/misc/TWindowMessageQuest.h"
 #include "pso/unk/text_8026B260.h"
 #include "pso/misc/TUnk_804CE018.h"
-#include "pso/misc/TWindowMessageScroll.h"
+
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowDD.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -37,7 +37,7 @@ void TWindowMessageScroll::run_task() {
 TWindowMessageScroll::~TWindowMessageScroll() {
 
 }
-extern "C" {
+
 typedef char RecoveredGlobal_8035D694___vt__20TWindowMessageScroll_size[sizeof(RecoveredGlobal_8035D694___vt__20TWindowMessageScroll) == 0x18 ? 1 : -1];
 u8 *TWindowMessageScroll__ct(u8 *window_message_scroll, s32 arg1, s32 *arg2) {
     TWindowMessageQuest__ct((window_message_scroll), (arg1));
@@ -49,4 +49,3 @@ u8 *TWindowMessageScroll__ct(u8 *window_message_scroll, s32 arg1, s32 *arg2) {
     return window_message_scroll;
 }
 
-}

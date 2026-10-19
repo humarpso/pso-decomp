@@ -489,9 +489,6 @@ s32 TScene__sub_80205874(void *) {
     }
     return 0;
 }
-}
-
-extern "C" {
 void TScene::render_map_sections() {
     SceneMaterialSection *sec;
     s32 i;

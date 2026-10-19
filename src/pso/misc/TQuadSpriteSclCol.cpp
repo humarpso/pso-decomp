@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/misc/TQuadSpriteSclCol.h"
-#include "pso/misc/TQuadSpriteSclCol.h"
+
 #include "pso/system/vector.h"
 #include "pso/unk/TUnk_804C57F0.h"
 #include "pso/TParticleCtrl.h"
@@ -166,7 +166,7 @@ void render__17TQuadSpriteSclColFv(Self_801E5C24 *self) {
 TQuadSpriteSclCol::~TQuadSpriteSclCol() {
 
 }
-extern "C" {
+
 
 extern void *TQuadSpriteSclCol__class_name;
 
@@ -175,5 +175,4 @@ void *TQuadSpriteSclCol__ct(void *quad_sprite_scl_col) {
     *(s32 **)((s8 *)quad_sprite_scl_col + 0x18) = __vt__17TQuadSpriteSclCol;
     *(void * *)&((TQuadSpriteSclCol *)quad_sprite_scl_col)->m_name = TQuadSpriteSclCol__class_name;
     return quad_sprite_scl_col;
-}
 }

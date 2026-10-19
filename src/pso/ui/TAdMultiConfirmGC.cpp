@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/ui/TAdMultiConfirmGC.h"
-#include "pso/ui/TAdMultiConfirmGC.h"
+
 #include "pso/TAdMultiChgGameModeGC.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 

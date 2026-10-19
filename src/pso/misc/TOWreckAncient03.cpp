@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/misc/TOWreckAncient03.h"
-#include "pso/misc/TOWreckAncient03.h"
+
 #include "pso/unk/text_8017E0D0.h"
 
 extern "C" {

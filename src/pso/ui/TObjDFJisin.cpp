@@ -15,12 +15,12 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/boss/TBoss4Type3.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TNowLoading.h"
-#include "pso/object/TObjDFHorming.h"
+
 
 #include "dolphin/mtx.h"
 #include <stddef.h>
 
-#include "pso/TObjDFTenchuFuru.h"
+
 class TObjDFJisin : public TObject {
 public:
     virtual void render();

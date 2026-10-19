@@ -4,8 +4,8 @@
 #include "pso/misc/TLobby_80335E08.h"
 #include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 #include "pso/ui/TAdTrialAgreementGC_80335958.h"
-#include "pso/ui/TUnk_804EE458.h"
-#include "pso/misc/TUnk_804EE470.h"
+
+
 #include "pso/misc/TLobby.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -93,7 +93,7 @@ TUnk_804EE458::TUnk_804EE458(int a1) : TObject((TObject *)a1) {
     *(float*)((char*)this + 0x34) = lbl_805DF8B4;
     this->m_38 = 0;
 }
-extern "C" {
+
 
 void TLobby__sub_80335E74(void) {  }
 void TLobby__sub_80335E78(void) {  }
@@ -135,11 +135,10 @@ void *TUnk_804EE470::dt(s16 arg1) {
     }
     return this;
 }
-}
 TUnk_804EE470::TUnk_804EE470(TObject *arg1) : TObject(arg1) {
     *(void * *)&this->unk_1C = arg1;
 }
-extern "C" {
+
 void TLobby__sub_80335FE0(void) {  }
 void TLobby__sub_80335FE4(void) {  }
 
@@ -148,7 +147,6 @@ void *get_title_texture_list(void) {
 }
 
 void*TLobby::get_record(int a0) {  return (char*)lobby_record_table + a0 * 32; }
-}
 
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];

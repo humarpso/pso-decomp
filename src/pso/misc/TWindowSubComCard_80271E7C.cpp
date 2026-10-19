@@ -715,7 +715,6 @@ s32 forward_slot_selection__16TAdChrSelASlotGCFPvPv(s32, s32, s32, f32);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, s32, s32);
 extern const f32 TWindowSubComCard__data_805DD520;
 void render__17TWindowSubComCardFv(void);
-s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 void open_yes_no_prompt(TChCrTagPlBack *arg0, u32 arg1, s32 arg2, s32 arg3, f32 farg0);
 s32 get_main_phase();
 

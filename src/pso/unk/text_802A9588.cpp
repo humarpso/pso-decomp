@@ -41,7 +41,7 @@ struct TTecKafun_802A9588 {
     s32 ff8;
 };
 
-extern "C" {
+
 void TTecKafun::vfunc_6(void *target) {
     Pair_802A9588 p;
     p.val = ((TTecKafun_802A9588 *)this)->fec;
@@ -62,4 +62,3 @@ void TTecKafun::vfunc_6(void *target) {
     }
 }
 
-}

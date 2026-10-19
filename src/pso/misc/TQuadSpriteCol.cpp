@@ -2,7 +2,7 @@
 #include "pso/misc/TQuadSpriteCol.h"
 #include "pso/system/vector.h"
 #include "pso/unk/TUnk_804C57F0.h"
-#include "pso/misc/TQuadSpriteCol.h"
+
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFish.h"
@@ -160,7 +160,7 @@ void TQuadSpriteCol::render() {
 TQuadSpriteCol::~TQuadSpriteCol() {
 
 }
-extern "C" {
+
 
 extern void *TQuadSpriteCol__class_name;
 
@@ -169,5 +169,4 @@ void *TQuadSpriteCol__ct(void *quad_sprite_col) {
     *(s32 **)((s8 *)quad_sprite_col + 0x18) = __vt__14TQuadSpriteCol;
     *(void * *)&((TQuadSpriteCol *)quad_sprite_col)->m_name = TQuadSpriteCol__class_name;
     return quad_sprite_col;
-}
 }

@@ -5,7 +5,7 @@
 #include "pso/system/ModelDrawContext.h"
 #include "pso/TObjCMHairMenu.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
-#include "pso/ui/TAdChrMoveEffectGC.h"
+
 
 struct S_803491F8 { u32 w[8]; };
 
@@ -231,7 +231,7 @@ TAdChrMoveEffectGC::~TAdChrMoveEffectGC() {
         lbl_805D6E78 = 0U;
     }
 }
-extern "C" {
+
 
 extern void *lbl_805D42F0;
 
@@ -243,6 +243,5 @@ void *TAdChrMoveEffectGC__ct(void *ad_chr_move_effect_gc) {
     return ad_chr_move_effect_gc;
 }
 
-}
 
 #pragma pop

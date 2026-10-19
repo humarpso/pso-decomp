@@ -7,7 +7,7 @@
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
 #include "pso/object/TObjMotion.h"
-#include "pso/enemy/TObjEneMe1GiGueBarrier.h"
+
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
@@ -131,7 +131,7 @@ void TObjEneMe1GiGueBarrier::run_task() {
 TObjEneMe1GiGueBarrier::~TObjEneMe1GiGueBarrier() {
     if (*(void **)((s8 *)this + 0xFC) != NULL) { ((TObjEneMe1GiGueBarrier *)(*(void **)((s8 *)this + 0xFC)))->clear_flag388_bit80000(); }
 }
-extern "C" {
+
 
 u8 *TObjEneMe1GiGueBarrier__ct(TObjEneMe1GiGueBarrier *ene_me1_gi_gue_barrier, s32 arg1, u8 *arg2) {
     u8 *temp_r5;
@@ -171,4 +171,3 @@ void TObjEneMe1GiGueBarrier::init_global() {
     TObjEneMe1GiGueBarrier__barrier_resource_object = TObjEneMe1GiGue::get_barrier_count();
 }
 
-}

@@ -2,7 +2,7 @@
 #include "pso/object/TUnk_804CC948.h"
 #include "pso/misc/TLobby_80226070.h"
 #include "pso/object/TObjLight_8023347C.h"
-#include "pso/object/TUnk_804CC948.h"
+
 #include "pso/system/vector.h"
 
 extern "C" {

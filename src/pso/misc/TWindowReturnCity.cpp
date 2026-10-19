@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/misc/TWindowReturnCity.h"
 #include "pso/misc/TWindowMessageYesNo.h"
-#include "pso/misc/TWindowReturnCity.h"
+
 #include "pso/misc/THunterGuildSeqOffline.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/misc/TWindowSubComCard.h"

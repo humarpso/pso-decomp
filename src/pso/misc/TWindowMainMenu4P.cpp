@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowMainMenu4P.h"
-#include "pso/misc/TWindowMainMenu4P.h"
+
 #include "pso/misc/TWindowMainMenu.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -51,7 +51,7 @@ extern s32 __vt__17TWindowMainMenu4P[];
 TWindowMainMenu4P::~TWindowMainMenu4P() {
 
 }
-extern "C" {
+
 
 extern void *TWindowMainMenu4P__name;
 
@@ -62,4 +62,3 @@ void *TWindowMainMenu4P__ct(void *window_main_menu4_p) {
     return window_main_menu4_p;
 }
 
-}

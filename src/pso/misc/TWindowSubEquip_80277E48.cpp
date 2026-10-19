@@ -2,7 +2,7 @@
 #include "pso/misc/TWindowSubEquip.h"
 #include "pso/misc/TUnk_804D0618.h"
 #include "pso/misc/TWindowSubShortCutList.h"
-#include "pso/misc/TWindowSubEquip.h"
+
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TShopArmorListWindow.h"
 #include "pso/misc/TWindowShortListCtrl.h"

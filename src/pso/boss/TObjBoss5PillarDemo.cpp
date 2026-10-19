@@ -2,7 +2,7 @@
 #include "pso/boss/TObjBoss5PillarDemo.h"
 #include "pso/boss/TObjBoss5Pillar.h"
 #include "pso/system/ModelDrawContext.h"
-#include "pso/boss/TObjBoss5PillarDemo.h"
+
 #include "pso/misc/TNowLoading.h"
 
 struct RecoveredGlobal_8028AC00___vt__19TObjBoss5PillarDemo {
@@ -48,7 +48,7 @@ void TObjBoss5PillarDemo::update_active_pillar() {
 TObjBoss5PillarDemo::~TObjBoss5PillarDemo() {
 
 }
-extern "C" {
+
 
 typedef char RecoveredGlobal_8028AC00___vt__19TObjBoss5PillarDemo_size[sizeof(RecoveredGlobal_8028AC00___vt__19TObjBoss5PillarDemo) == 0x18 ? 1 : -1];
 u8 *TObjBoss5PillarDemo__ct(TObjBoss5PillarDemo *boss5_pillar_demo, s32 arg1, s32 arg2) {
@@ -105,4 +105,3 @@ void TObjBoss5PillarDemo__sub_8028ADB0(u32 arg0) {
     }
 }
 
-}

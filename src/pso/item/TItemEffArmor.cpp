@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/item/TItemEffArmor.h"
-#include "pso/item/TItemEffArmor.h"
+
 #include "pso/boss/TBoss4Type2.h"
 
 TItemEffArmor::~TItemEffArmor() {

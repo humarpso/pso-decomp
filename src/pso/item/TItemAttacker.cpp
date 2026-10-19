@@ -43,7 +43,7 @@ TItemAttacker::TItemAttacker(s32 arg1, s32 arg2, s32 arg3, s32 arg4) : TObject((
         *(s32 *)((s8 *)this + 0x34) = 1;
     }
 }
-extern "C" {
+
 
 void TItemAttacker::copy_from(void *arg1) {
     *(s32 *)&this->m_name = (s32) *(s32 *)((s8 *)arg1 + 0);
@@ -86,7 +86,6 @@ void TItemBuff__ct(void) {
         }
         (*(u32 *)&item_buff_buffer) = 0;
     }
-}
 }
 s32 create_item_buff(s32 arg0);
 s32 create_item_buff(s32 arg0) {

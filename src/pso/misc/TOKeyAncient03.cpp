@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/misc/TOKeyAncient03.h"
 #include "pso/player/TUnk_80494AE0.h"
-#include "pso/misc/TOKeyAncient03.h"
+
 #include "pso/misc/TOKeyCave01.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TLobby.h"
@@ -234,7 +234,7 @@ void TOKeyAncient03::load_resources() {
 TOKeyAncient03::~TOKeyAncient03() {
 
 }
-extern "C" {
+
 
 u8 *TOKeyAncient03__ct(TOKeyAncient03 *key_ancient03, s32 arg1, s32 arg2) {
     TOKey__ct(key_ancient03);
@@ -373,4 +373,3 @@ void TOKeyCave01::vfunc_17() {
     }
 }
 
-}
