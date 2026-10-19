@@ -91,7 +91,7 @@ void TAdSinglePlyChrSelectGC__sub_8042DE20(void);
 extern RecoveredGlobal_8042E768_lbl_805D1D20 modem_connection_info;
 extern s32 lbl_805D7C98;
 s32 EXIUnlock(s32);
-void TAdSinglePlyChrSelectGC__sub_8042D6A4(void *);
+void TAdSinglePlyChrSelectGC__sub_8042D6A4(char *str);
 extern s32 lbl_805D4918;
 extern u8 lbl_805CF380[];
 extern u8 TLobby__pppoe_message_queue[];
@@ -108,7 +108,7 @@ typedef struct Tbl_804267F0 {
 extern u8 lbl_805CF240[];
 char *strcat(char *, const char *);
 char *strcpy(char *, const char *);
-void TAdSinglePlyChrSelectGC__sub_8042D49C(char *);
+s32 TAdSinglePlyChrSelectGC__sub_8042D49C(char *cmd);
 extern Names_8042E57C TAdSinglePlyChrSelectGC__modem_type_names;
 extern char lbl_805D48AC[2];
 extern char lbl_805D495C[7];
@@ -118,6 +118,26 @@ extern Names_8042E6C4 TAdSinglePlyChrSelectGC__modem_compression_names;
 extern char lbl_805D4980[5];
 extern Names_8042E7B8 lbl_80480234;
 extern char lbl_805D4988[4];
+void *memset(void *, int, unsigned long);
+s32 OSDisableInterrupts(void);
+s32 OSRestoreInterrupts(s32);
+s32 OSSleepThread(void *);
+s32 EXISelect(s32, u32, s32);
+s32 EXIImm(s32, void *, s32, u32, u32);
+s32 EXISync(s32);
+s32 EXIDeselect(s32);
+struct ModemRegs_805D7C90 { u8 f0; u8 f1; u16 f2; u8 f4; u8 f5; u8 f6; u8 f7; };
+extern ModemRegs_805D7C90 lbl_805D7C90;
+extern u8 modem_exi_state[0x70];
+extern s32 lbl_805D7C9C;
+s32 TAdSinglePlyChrSelectGC__sub_8042E184(void);
+unsigned long strlen(const char *);
+int memcmp(const void *, const void *, unsigned long);
+extern char lbl_805D4914[4];
+extern char *modem_exi_ptr_table[22];
+s32 TAdSinglePlyChrSelectGC__sub_8042CD64(void);
+void TAdSinglePlyChrSelectGC__sub_8042D604(void);
+void TAdSinglePlyChrSelectGC__sub_8042E488(u8 value);
 
 #pragma push
 #pragma opt_propagation off
@@ -145,6 +165,23 @@ typedef char RecoveredGlobal_8042839C_lbl_805D0A40_size[sizeof(RecoveredGlobal_8
 
 void TAdSinglePlyChrSelectGC::wake_load_thread() {
     OSWakeupThread(&lbl_805D7CA0);
+}
+
+void TAdSinglePlyChrSelectGC__sub_8042D604(void) {
+    s32 e;
+    memset(&modem_connection_info, 0, sizeof(modem_connection_info));
+    lbl_805D7C98 = 1;
+    e = OSDisableInterrupts();
+    for (;;) {
+        if (EXILock(0, 2, (u32)TAdSinglePlyChrSelectGC::wake_load_thread) == 1) {
+            OSRestoreInterrupts(e);
+            break;
+        }
+        OSSleepThread(&lbl_805D7CA0);
+        OSRestoreInterrupts(e);
+    }
+    TAdSinglePlyChrSelectGC__sub_8042D6A4((char *)&lbl_805D4918);
+    EXIUnlock(0);
 }
 
 #pragma push
@@ -245,7 +282,7 @@ s32 TAdSinglePlyChrSelectGC::send_modem_hangup(s32 arg0) {
         if (EXILock(0, 2U, 0U) == 0) {
             return 1;
         }
-        TAdSinglePlyChrSelectGC__sub_8042D6A4(&lbl_805D4918);
+        TAdSinglePlyChrSelectGC__sub_8042D6A4((char *)&lbl_805D4918);
         EXIUnlock(0);
         goto block_5;
     }

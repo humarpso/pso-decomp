@@ -1007,7 +1007,7 @@
     "sdata2": 8
   },
   "pso/network/ModemRuntime.cpp": {
-    "mw_version": "GC/1.2.5n",
+    "mw_version": "GC/1.2.5",
     "optimization": "-O4,p",
     "inline": "off",
     "use_lmw_stmw": "on"
