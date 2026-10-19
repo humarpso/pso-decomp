@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/system/GcciRequests.h"
 
 typedef s32 (*RecoveredCallback_4873a87e26d6)(s32, s32 *, s32);
 struct RecoveredGlobal_803CFEA0_lbl_8047DAE4 {
@@ -43,6 +44,13 @@ extern char lbl_8047DAB8[];
 extern char lbl_8047DAFC[];
 extern char lbl_8047DB14[];
 extern char dvd_default_path_buffer[];
+extern GcciStatus dvd_active_request;
+s32 DVDGetCommandBlockStatus(void *);
+s32 DVDGetDriveStatus(void);
+s32 DVDCancel(void *);
+u32 OSGetTick(void);
+void *memset(void *, int, u32);
+extern GcciRequest dvd_request_table[40];
 typedef char RecoveredGlobal_803CFEA0_lbl_8047DAE4_size[sizeof(RecoveredGlobal_803CFEA0_lbl_8047DAE4) == 0x18 ? 1 : -1];
 s32 TLobby::get_handle_field_20() {
     u8 *arg0 = (u8 *)this;
@@ -99,6 +107,70 @@ s32 TLobby::get_handle_value_checked() {
     return arg0->f;
 }
 
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(8)
+inline s32 dvd_request_idle(GcciRequest *r) {
+    s32 idle = 0;
+    if (r->status == 0 || r->status == 10) {
+        idle = 1;
+    }
+    return idle;
+}
+
+void TLobby__sub_803D006C(void *arg) {
+    GcciRequest *r = (GcciRequest *)arg;
+    char *msg = lbl_8047DAB8;
+    u32 start;
+    u32 now;
+    u32 elapsed;
+    s32 result;
+
+    if (r == NULL) {
+        if (lbl_805D760C != NULL) {
+            lbl_805D760C(lbl_805D7608, (s32 *)(msg + 0x2C), 0);
+        }
+        return;
+    }
+    if (*(s8 *)&r->state == 1 || *(s8 *)&r->state == 0) {
+        return;
+    }
+    DVDGetCommandBlockStatus(r->block);
+    DVDGetDriveStatus();
+    dvd_active_request.unknown08 = 1;
+    result = DVDCancel(r->block);
+    dvd_active_request.unknown08 = 0;
+    if (result < 0) {
+        if (lbl_805D760C != NULL) {
+            lbl_805D760C(lbl_805D7608, (s32 *)(msg + 0x90), (s32)r);
+        }
+        return;
+    }
+    start = OSGetTick() / (*(u32 *)0x800000F8 / 4 / 1000);
+    while (!dvd_request_idle(r)) {
+        r->status = DVDGetCommandBlockStatus(r->block);
+        dvd_active_request.status = r->status;
+        now = OSGetTick() / (*(u32 *)0x800000F8 / 4 / 1000);
+        if (now >= start) {
+            elapsed = now - start;
+        } else {
+            elapsed = -1 - start + now;
+        }
+        if (elapsed > 2000) {
+            if (lbl_805D760C != NULL) {
+                lbl_805D760C(lbl_805D7608, (s32 *)(msg + 0xAC), (s32)r);
+            }
+            break;
+        }
+    }
+    r->state = 0;
+    dvd_active_request.state = 0;
+    DVDGetCommandBlockStatus(r->block);
+    DVDGetDriveStatus();
+}
+
+#pragma pop
+
 s32 TLobby::get_handle_field_1c() {
     u8 *arg0 = (u8 *)this;
     if (arg0 == NULL) {
@@ -127,6 +199,82 @@ s32 TLobby__sub_803D0654(struct File_803D0654 *arg0, s32 arg1, s32 arg2) {
     arg0->pos = (arg0->pos > 0) ? arg0->pos : 0;
     return arg0->pos;
 }
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(8)
+inline GcciRequest *dvd_find_free_request(void) {
+    GcciRequest *found = NULL;
+    s32 i;
+    for (i = 0; i < 40; i++) {
+        if (*(s8 *)&dvd_request_table[i].active == 0) {
+            found = &dvd_request_table[i];
+            break;
+        }
+    }
+    return found;
+}
+
+GcciRequest *TLobby__sub_803D08E0(const char *name, s32 arg1, s32 mode) {
+    char *msg = lbl_8047DAB8;
+    GcciRequest *r;
+    s32 i;
+    s32 size;
+    u32 len;
+    u32 j;
+    char path[0x100];
+
+    if (name == NULL) {
+        if (lbl_805D760C != NULL) {
+            lbl_805D760C(lbl_805D7608, (s32 *)(msg + 0x110), 0);
+        }
+        return NULL;
+    }
+    if (mode != 0) {
+        if (lbl_805D760C != NULL) {
+            lbl_805D760C(lbl_805D7608, (s32 *)(msg + 0x134), 0);
+        }
+        return NULL;
+    }
+    r = dvd_find_free_request();
+    if (r == NULL) {
+        if (lbl_805D760C != NULL) {
+            lbl_805D760C(lbl_805D7608, (s32 *)(msg + 0x158), 0);
+        }
+        return NULL;
+    }
+    strcpy(path, dvd_default_path_buffer);
+    strcat(path, name);
+    len = strlen(path);
+    for (j = 0; j < len; j++) {
+        if (path[j] == '\\') {
+            path[j] = '/';
+        }
+    }
+    if (DVDOpen(path, (DVDFileInfo_803D0AE8 *)r->block) == 0) {
+        if (lbl_805D760C != NULL) {
+            lbl_805D760C(lbl_805D7608, (s32 *)(msg + 0x188), 0);
+        }
+        memset(r, 0, sizeof(GcciRequest));
+        return NULL;
+    }
+    r->unit = 0x800;
+    size = ((DVDFileInfo_803D0AE8 *)r->block)->length;
+    if (size & 0x80000000) {
+        size = 0x7FFFFFFF;
+    }
+    *(s32 *)&r->unknown14[0] = size;
+    *(s32 *)&r->unknown14[4] = (r->unit - 1 + *(s32 *)&r->unknown14[0]) / r->unit;
+    r->pos = 0;
+    r->buf = NULL;
+    r->count = 0;
+    r->done = 0;
+    r->state = 0;
+    r->active = 1;
+    return r;
+}
+
+#pragma pop
+
 typedef s32 (*RecoveredCallback_4873a87e26d6)(s32, s32 *, s32);
 s32 TLobby::get_dvd_file_size(const char *name) {
     char *msg = lbl_8047DAB8;

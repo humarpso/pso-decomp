@@ -71,12 +71,17 @@ s32 push_plate_position__19TAdPlyChrSelPlateGCFv(int, void *);
 extern RecoveredGlobal_8030CEEC_lbl_80475818 lbl_80475818;
 extern RecoveredGlobal_8030CEEC_lbl_80475858 lbl_80475858;
 extern RecoveredGlobal_8030CEEC_lbl_80475878 lbl_80475878;
+extern const CharacterSlotPosition lbl_80475838;
+extern const CharacterSlotPosition lbl_80475890;
+extern const CharacterSlotPosition lbl_80475898;
+void set_entry_text__15TAdSubPlyItemGCFPvPv(void *item, G_8030C45C *entry);
+void add_plate_rect__20TAdChrSelMovePlateGCFPvPv(void *plate, void *position);
 extern const f32 lbl_805DF218;
 void TAdChrSelASlotGC__sub_8030CEEC(u8 *arg0);
-bool TAdChrSelASlotGC__sub_8030C3C0(s32 arg0, u32 arg1);
+s32 TAdChrSelASlotGC__sub_8030C3C0(TAdChrSelASlotGC *self, u32 arg1);
 s32 is_slot_value_ready__19TAdPlyChrSelPlateGCFl(void *, int);
 extern G_8030C45C chr_select_a_slot_entry;
-G_8030C45C *TAdChrSelASlotGC__sub_8030C45C(s32 arg0, s32 arg1, s32 arg2, void *arg3);
+G_8030C45C *TAdChrSelASlotGC__sub_8030C45C(TAdChrSelASlotGC *self, s32 arg1, s32 arg2, void *arg3);
 int sprintf(char *, const char *, ...);
 void *memset(void *, int, unsigned long);
 extern char char_select_format_message_buffer[];
@@ -104,13 +109,13 @@ void TAdChrSelASlotGC::render() {
     }
 }
 
-bool TAdChrSelASlotGC__sub_8030C3C0(s32 arg0, u32 i) {
+s32 TAdChrSelASlotGC__sub_8030C3C0(TAdChrSelASlotGC *self, u32 i) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(TAdSinglePlyChrSelectGC__sub_801FE4BC(i));
     if (temp_r3 == 0) {
         return 0;
     }
-    return *(s32 *)((s8 *)temp_r3 + 8) == 1;
+    return *(s32 *)((s8 *)temp_r3 + 8) == 1 ? 1 : 0;
 }
 
 s32 TAdChrSelASlotGC::get_plate_value_for_slot(s32 k) {
@@ -125,7 +130,7 @@ s32 TAdChrSelASlotGC::get_plate_value_for_slot(s32 k) {
     return 0;
 }
 
-G_8030C45C *TAdChrSelASlotGC__sub_8030C45C(s32 arg0, s32 arg1, s32 i, void *arg3) {
+G_8030C45C *TAdChrSelASlotGC__sub_8030C45C(TAdChrSelASlotGC *self, s32 arg1, s32 i, void *arg3) {
     S_8030C45C *e = (S_8030C45C *)TAdSinglePlyChrSelectGC__sub_801FE4BC(i);
     chr_select_a_slot_entry.a = arg1;
     chr_select_a_slot_entry.b = e != NULL ? e->x : get_localized_text_entry(0x16, 0x1C);
@@ -315,6 +320,45 @@ void TAdChrSelASlotGC::init_selection() {
     this->m_24 = 0x10;
 }
 void TAdChrSelASlotGC__sub_8030CCE0(void) {  }
+
+void TAdChrSelASlotGC__sub_8030CCE4(TAdChrSelASlotGC *self) {
+    u32 i;
+    u32 j;
+
+    if (self->get_plate_value_for_slot(*(s32 *)((s8 *)self + 0x20)) != 0) {
+        switch (*(s32 *)((s8 *)self + 0x20)) {
+        case 0:
+            ((TAdChrSelSlotGC *)*(void **)((s8 *)self + 0x2C))->init_slot_entry(0, (void *)&lbl_80475838);
+            for (i = 0; i < 4; i++) {
+                set_entry_text__15TAdSubPlyItemGCFPvPv(*(void **)((s8 *)self + 0x3C), TAdChrSelASlotGC__sub_8030C45C(self, i, i, (u8 *)&lbl_80475818.value + i * 8));
+                if (TAdChrSelASlotGC__sub_8030C3C0(self, i)) {
+                    add_plate_rect__20TAdChrSelMovePlateGCFPvPv(*(void **)((s8 *)self + 0x44), (u8 *)&lbl_80475818.value + i * 8);
+                }
+            }
+            break;
+        case 1:
+            ((TAdChrSelSlotGC *)*(void **)((s8 *)self + 0x2C))->init_slot_entry(0, (void *)&lbl_80475890);
+            ((TAdChrSelSlotGC *)*(void **)((s8 *)self + 0x2C))->init_slot_entry(1, (void *)&lbl_80475898);
+            for (i = 0; i < 4; i++) {
+                set_entry_text__15TAdSubPlyItemGCFPvPv(*(void **)((s8 *)self + 0x3C), TAdChrSelASlotGC__sub_8030C45C(self, i, i, (u8 *)&lbl_80475858.value + i * 8));
+                if (TAdChrSelASlotGC__sub_8030C3C0(self, i)) {
+                    add_plate_rect__20TAdChrSelMovePlateGCFPvPv(*(void **)((s8 *)self + 0x44), (u8 *)&lbl_80475858.value + i * 8);
+                }
+            }
+            for (j = 0; j < 3; j++) {
+                set_entry_text__15TAdSubPlyItemGCFPvPv(*(void **)((s8 *)self + 0x40), TAdChrSelASlotGC__sub_8030C45C(self, j, j + 4, (u8 *)&lbl_80475878.value + j * 8));
+            }
+            break;
+        case 2:
+            ((TAdChrSelSlotGC *)*(void **)((s8 *)self + 0x2C))->init_slot_entry(1, (void *)&lbl_80475890);
+            for (j = 0; j < 3; j++) {
+                set_entry_text__15TAdSubPlyItemGCFPvPv(*(void **)((s8 *)self + 0x40), TAdChrSelASlotGC__sub_8030C45C(self, j, j + 4, (u8 *)&lbl_80475858.value + j * 8));
+            }
+            break;
+        }
+        self->m_24 = 0xE;
+    }
+}
 
 typedef char RecoveredGlobal_8030CEEC_lbl_80475818_size[sizeof(RecoveredGlobal_8030CEEC_lbl_80475818) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_8030CEEC_lbl_80475858_size[sizeof(RecoveredGlobal_8030CEEC_lbl_80475858) == 0x20 ? 1 : -1];

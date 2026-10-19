@@ -434,8 +434,8 @@ void TUnk_80488E00::sub_8006CF38() {
     f32 fy;
     f32 len;
     s32 r;
-    u16 x;
-    u16 y;
+    s16 x;
+    s16 y;
     s16 t;
 
     if (is_split_screen() != 0) {
@@ -458,18 +458,18 @@ void TUnk_80488E00::sub_8006CF38() {
         len = 1.0f;
     }
     r = (s16)pad->r18;
-    x = pad->x;
-    y = pad->y;
+    x = (s16)pad->x;
+    y = (s16)pad->y;
     if (len > 0.2f) {
         t = 2.5f * len;
-        if ((s16)x > 0) {
+        if (x > 0) {
             arg0->f30 += (s32)(182.04445f * t);
         } else {
             arg0->f30 -= (s32)(182.04445f * t);
         }
         arg0->f30 = (u16)arg0->f30;
     }
-    arg0->fe0 -= 0.1f * (s16)y;
+    arg0->fe0 -= 0.1f * y;
     arg0->fe4 -= 0.1f * r;
     if (pad->buttons & 0x10) {
         arg0->f54 += 0xB6;

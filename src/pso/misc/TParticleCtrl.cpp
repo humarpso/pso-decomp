@@ -7,6 +7,7 @@
 #include "pso/misc/TUnk_8048E6A8.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -153,11 +154,20 @@ struct Player_80085CB0 {
 struct Ctrl_80085CB0 {
     u8 pad0[0x38];
     Vec_80085CB0 pos;
-    u8 pad44[0x90 - 0x44];
+    u8 pad44[0x68 - 0x44];
+    f32 f68;
+    u8 pad6C[0x90 - 0x6C];
     f32 f90;
     f32 f94;
     s32 f98;
+    f32 screen_x;
+    f32 screen_y;
+    f32 alpha;
 };
+
+struct Color_800859EC { u8 a, r, g, b; };
+
+struct Quad_800859EC { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
 
 extern "C" {
 s32 is_split_screen(void);
@@ -224,6 +234,7 @@ extern const f32 lbl_805D9488;
 extern const f32 lbl_805D94AC;
 extern const f32 lbl_805D94B4;
 extern const f32 lbl_805D94B8;
+void project_world_to_screen(s32, void *, void *);
 void *TParticleCtrl__sub_80085878(void *arg0, s16 arg1);
 void *TParticleCtrl__sub_80085E20(void *arg0, s16 arg1);
 f32 horizontal_distance_squared(void *, void *);
@@ -300,6 +311,90 @@ u8 *TParticleCtrl::create_particle_obj_ac(s32 arg0) {
         var_r0 = (u8 *)(((TParticleCtrl *)particle_ctrl)->init_particle_obj(arg0, tl_particle));
     }
     return var_r0;
+}
+
+void TUnk_8048E6DC::render() {
+    Ctrl_80085CB0 *self = (Ctrl_80085CB0 *)this;
+    Color_800859EC color;
+    Quad_800859EC quad;
+    f32 limit;
+    f32 v;
+    f32 s;
+    f32 w;
+    f32 h;
+
+    limit = 225.0f;
+    if (lbl_805D2930 == 0) {
+        return;
+    }
+    if (self->f98 != 0) {
+        limit = 50.0f;
+    }
+    if (self->alpha < limit) {
+        v = 3.0f + self->alpha;
+        self->alpha = v < 0.0f ? 0.0f : (v < limit ? v : limit);
+    } else {
+        v = self->alpha - 3.0f;
+        self->alpha = v < limit ? limit : (v < 255.0f ? v : 255.0f);
+    }
+    TParticleCtrl::begin_effect_render();
+    if (self->f94 > 0.0f) {
+        project_world_to_screen(0, &self->pos, &self->screen_x);
+        if (self->screen_x > 650.0f) {
+            self->screen_x = 650.0f;
+        }
+        if (self->screen_x < -10.0f) {
+            self->screen_x = -10.0f;
+        }
+        if (self->screen_y > 490.0f) {
+            self->screen_y = 490.0f;
+        }
+        if (self->screen_y < -10.0f) {
+            self->screen_y = -10.0f;
+        }
+    }
+    TObjPlayer::init_xyz_limits();
+    begin_screen_draw(1);
+    TObjFish::set_global_param(lbl_804C5820[31].param);
+    set_draw_texture_and_color(lbl_804C5820[31].tex, -1);
+    if (self->f94 < 0.0f) {
+        color.a = 0;
+    } else if (self->f94 <= 0.5f) {
+        v = self->f94 * (2.5f * self->alpha);
+        color.a = v < 0.0f ? 0.0f : (v < 255.0f ? v : 255.0f);
+    } else {
+        color.a = self->alpha;
+    }
+    if (self->f68 < 0.0f) {
+        color.r = 0x80;
+        color.g = 0x80;
+        color.b = 0x80;
+    } else if (self->f68 >= 10.0f) {
+        color.r = 0x55;
+        color.g = 0x23;
+        color.b = 0;
+    } else {
+        color.r = 0xFF;
+        color.g = 0x80;
+        color.b = 0x40;
+    }
+    w = lbl_804C5820[31].sx;
+    h = lbl_804C5820[31].sy;
+    s = 0.5f * self->f90;
+    w *= s;
+    h *= s;
+    quad.x0 = self->screen_x - w;
+    quad.x1 = self->screen_x + w;
+    quad.y0 = self->screen_y - h;
+    quad.y1 = self->screen_y + h;
+    quad.u0 = 0.0f;
+    quad.v0 = 0.0f;
+    quad.u1 = 1.0f;
+    quad.v1 = 1.0f;
+    set_constant_material_color(*(u32 *)&color);
+    draw_textured_quad_at_depth((f32 *)&quad, 0.1f);
+    TWindowSubStatusDisp::get_player();
+    TParticleCtrl::end_effect_render();
 }
 
 #pragma fp_contract on

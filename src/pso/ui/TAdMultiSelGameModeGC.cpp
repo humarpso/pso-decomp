@@ -17,6 +17,8 @@ TAdMultiSelGameModeGC::~TAdMultiSelGameModeGC() {}
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC_801334D4.h"
+#include "pso/TAdSelectTxtGC.h"
+#include "pso/misc/TWindowMenu.h"
 
 struct Self_80300770 {
     u8 pad0[0x1C];
@@ -94,6 +96,7 @@ extern const f32 lbl_805DEF40;
 extern u8 controller_input_state[];
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
+s32 get_selected_menu_value(void *);
 
 void TAdMultiSelGameModeGC::render() {  }
 
@@ -151,6 +154,74 @@ void TAdMultiSelGameModeGC::update_transition_state() {
     case 1:
         TAdMultiChgGameModeGC::begin_change_game_mode();
         return;
+    }
+}
+
+void TAdMultiSelGameModeGC__sub_803003A4(Obj_8030095C *self) {
+    switch (TAdSinglePlyChrSelectGC__sub_801334DC(self->f3C)) {
+    case 0:
+        if (((TWindowSubComCard *)self->f2C)->get_status_flag() != 0) {
+            ((TAdMultiSelGameModeGC *)self->f3C)->set_selection_state(1);
+            self->f1C = 1;
+        } else if (((TWindowMenu *)self->f2C)->is_visible() != 0) {
+            game_difficulty_selection = get_selected_menu_value(self->f2C);
+            ((TAdSelectTxtGC *)self->f30)->reset_slots(&lbl_80474E40[12], (void *)game_difficulty_selection);
+            ((TAdMultiSelGameModeGC *)self->f3C)->set_selection_state(1);
+            self->f1C = 1;
+        }
+        break;
+    case 1:
+        if (((TWindowSubComCard *)self->f2C)->get_status_flag() != 0) {
+            ((TAdMultiSelGameModeGC *)self->f3C)->set_selection_state(1);
+            self->f1C = 1;
+        } else if (((TWindowMenu *)self->f2C)->is_visible() != 0) {
+            switch (get_selected_menu_value(self->f2C)) {
+            case 0:
+                TAdMultiSelGameModeGC__data_805D69F0 = 0;
+                break;
+            case 1:
+                TAdMultiSelGameModeGC__data_805D69F0 = 1;
+                break;
+            case 2:
+                TAdMultiSelGameModeGC__data_805D69F0 = 2;
+                break;
+            }
+            ((TAdSelectTxtGC *)self->f34)->reset_slots(&lbl_80474E40[15], (void *)(TAdMultiSelGameModeGC__data_805D69F0 + 9));
+            if (TAdMultiSelGameModeGC__data_805D69F0 == 1 && lbl_805D69F4 == 1) {
+                lbl_805D69F4 = 0;
+                TAdStorySelectGC::set_state(0);
+                ((TAdSelectTxtGC *)self->f38)->reset_slots(&lbl_80474E40[18], (void *)(lbl_805D69F4 + 4));
+            }
+            if (TAdMultiSelGameModeGC__data_805D69F0 == 2 && game_difficulty_selection != 0) {
+                game_difficulty_selection = 0;
+                ((TAdSelectTxtGC *)self->f30)->reset_slots(&lbl_80474E40[12], (void *)0);
+            }
+            ((TAdMultiSelGameModeGC *)self->f3C)->set_selection_state(1);
+            self->f1C = 1;
+        }
+        break;
+    case 2:
+        if (((TWindowSubComCard *)self->f2C)->get_status_flag() != 0) {
+            ((TAdMultiSelGameModeGC *)self->f3C)->set_selection_state(1);
+            self->f1C = 1;
+        } else if (((TWindowMenu *)self->f2C)->is_visible() != 0) {
+            switch (get_selected_menu_value(self->f2C)) {
+            case 0:
+                lbl_805D69F4 = 0;
+                TAdStorySelectGC::set_state(0);
+                break;
+            case 1:
+                lbl_805D69F4 = 1;
+                TAdStorySelectGC::set_state(1);
+                break;
+            }
+            ((TAdSelectTxtGC *)self->f38)->reset_slots(&lbl_80474E40[18], (void *)(lbl_805D69F4 + 4));
+            ((TAdMultiSelGameModeGC *)self->f3C)->set_selection_state(1);
+            self->f1C = 1;
+        }
+        break;
+    case 3:
+        break;
     }
 }
 

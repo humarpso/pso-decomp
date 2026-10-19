@@ -441,6 +441,8 @@ struct VObj_18_4c2345 : VBase_18_4c2345 {
     virtual s32 m80();
 };
 
+void move_with_wall_slide(u8 *arg0);
+
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
@@ -555,7 +557,7 @@ void *__nw__7TObjectFUl(int);
 void mem_free(void*);
 
 extern "C" void vfunc_6__13TUnk_804B9870FPsl();
-extern "C" void TObjEneMerillLia__sub_800D59E4();
+extern "C" void TObjEneMerillLia__sub_800D59E4(u8 *arg0);
 extern "C" void vfunc_29__13TUnk_804806E8Fv();
 extern "C" void vfunc_73__13TUnk_804806E8Fv();
 extern "C" void consume_timer_field__13TUnk_804806E8Fl();
@@ -1135,6 +1137,48 @@ s32 TObjEneMerillLia::update_kafun_attack(void *p) {
     minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
 }
 #undef arg0
+
+f32 get_collision_body_radius(void *, s32);
+s32 check_path_obstructed(void *, void *);
+
+void TObjEneMerillLia__sub_800D59E4(u8 *arg0) {
+    Vec_800D5BCC pos;
+
+    advance_animation_playback(arg0);
+    VecCopy((Vec *)&pos, (const Vec *)(arg0 + 0x2FC));
+    lbl_8050BEE0.y = TObjEneMerillLia__data_805DA300;
+    lbl_8050BEE0.x = TObjEneMerillLia__data_805DA300;
+    lbl_8050BEE0.z = get_collision_body_radius(arg0, 0);
+    push_matrix_from(&identity_matrix);
+    rotate_matrix_y(0, -*(s32 *)((s8 *)arg0 + 0x60));
+    rotate_vector_by_matrix(0, &lbl_8050BEE0, &lbl_8050BEE0);
+    pop_matrix();
+    vec3_add_to(&pos, &lbl_8050BEE0);
+    pos.x = pos.x + *(f32 *)((s8 *)arg0 + 0x308);
+    pos.z = pos.z + *(f32 *)((s8 *)arg0 + 0x310);
+    if (check_path_obstructed(arg0, &pos) == 0) {
+        move_with_wall_slide(arg0);
+        *(f32 *)((s8 *)arg0 + 0x308) = *(f32 *)((s8 *)arg0 + 0x308) * TObjEneMerillLia__data_805DA308;
+        *(f32 *)((s8 *)arg0 + 0x310) = *(f32 *)((s8 *)arg0 + 0x310) * TObjEneMerillLia__data_805DA308;
+    } else {
+        *(f32 *)((s8 *)arg0 + 0x310) = TObjEneMerillLia__data_805DA300;
+        *(f32 *)((s8 *)arg0 + 0x308) = TObjEneMerillLia__data_805DA300;
+    }
+    ((TObjPlayer *)arg0)->update_collisions();
+    ((TObjPlayer *)arg0)->update_enemy_collision_flags();
+    if (objInBand((GameObj *)arg0, TObjEneMerillLia__data_805DA300) != 0) {
+        ((TObjEneMerillLia *)arg0)->vfunc_97();
+    }
+    if (*(u32 *)((s8 *)arg0 + 0xB4) != 8) {
+        ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x600);
+        ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 0x04000000);
+        if ((f32)*(s16 *)((s8 *)arg0 + 0x32C) <= (f32)*(s16 *)((s8 *)arg0 + 0x2B8) * *(f32 *)((s8 *)arg0 + 0x3CC)) {
+            ((TObjEneMerillLia *)arg0)->select_action_by_distance();
+        }
+        *(s16 *)((s8 *)arg0 + 0x33E) = *(s16 *)((s8 *)arg0 + 0x32C);
+    }
+    minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
+}
 
 #pragma push
 #pragma opt_common_subs off

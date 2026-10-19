@@ -112,6 +112,12 @@ extern u8 lbl_805CF240[];
 s32 TLobby__sub_803F97E8(int);
 extern void *lbl_805C18A0[];
 extern s16 lbl_805D7A86;
+s32 TLobby__sub_80428EC0(u8 *src, u8 *dst, u8 **next);
+s16 TLobby__sub_804293B0(u8 *buf, s16 len);
+s16 TLobby__sub_804036FC(u16 *avail);
+s16 TLobby__sub_80403730(u8 *dst, u16 n);
+extern u32 lbl_805D7BD0;
+extern u32 lbl_805D7BD4;
 
 #pragma push
 #pragma opt_propagation off
@@ -186,6 +192,127 @@ s32 TLobby::wait_timeout_loop() {
         TLobby::lock_mutex((int)lbl_805C18A0[0]);
     }
     return ret;
+}
+
+
+
+s32 TLobby__sub_80428EC0(u8 *src, u8 *dst, u8 **next) {
+    s16 n;
+    u8 *p;
+    u8 c;
+    s32 escape;
+    s32 hex;
+    s32 value;
+
+    p = src;
+    n = 0;
+    while (*p++ == 32) {
+        n++;
+    }
+    src += n;
+    if (*src == 0) {
+        return 0;
+    }
+    if (*src == 34) {
+        escape = 0;
+        hex = 0;
+        value = 0;
+        src++;
+        while ((c = *src++) != 0 && c != 10) {
+            if (hex != 0) {
+                if (c >= 48 && c <= 57) {
+                    value = value * 16 + (c - '0');
+                    if (--hex == 0) {
+                        *dst++ = c;
+                    }
+                } else if (c >= 97 && c <= 102) {
+                    value = value * 16 + (c - '0' + 10);
+                    if (--hex == 0) {
+                        *dst++ = c;
+                    }
+                } else {
+                    hex = 0;
+                }
+            } else if (escape != 0) {
+                if (c == 114) {
+                    *dst++ = '\r';
+                } else if (c == 110) {
+                    *dst++ = '\n';
+                } else if (c == 92) {
+                    *dst++ = '\\';
+                } else if (c == 34) {
+                    *dst++ = '"';
+                } else if (c == 120) {
+                    hex = 2;
+                    value = 0;
+                }
+                escape = 0;
+            } else if (c == 92) {
+                escape = 1;
+            } else if (c == 34) {
+                src++;
+                break;
+            } else {
+                *dst++ = c;
+            }
+        }
+    } else {
+        while ((c = *src++) != 0 && c != 10) {
+            if (c == 32 || c == 44 || c == 34) {
+                break;
+            }
+            *dst++ = c;
+        }
+    }
+    n = 0;
+    *dst = 0;
+    src--;
+    p = src;
+    while (*p++ == 32) {
+        n++;
+    }
+    src += n;
+    if (*src == 44) {
+        src++;
+    }
+    *next = src;
+    return 1;
+}
+
+s16 TLobby__sub_804293B0(u8 *buf, s16 len) {
+    u16 avail;
+    s32 now;
+    s32 start;
+    s32 n;
+    s32 remaining;
+
+    remaining = len;
+    while (remaining > 0) {
+        TLobby__sub_804036FC(&avail);
+        if ((n = avail) != 0U) {
+            if (remaining < n) {
+                n = remaining;
+            }
+            if (TLobby__sub_80403730(buf, n) == 0) {
+                buf += n;
+                remaining -= n;
+                continue;
+            }
+        }
+        TLobby::get_time_ms(&now);
+        if (lbl_805D7A86 != 0 || lbl_805D7BD4 == 0) {
+            lbl_805D7BD4 = 0;
+            return -1;
+        }
+        if (lbl_805D7BD4 != 0xFFFFFFFF && (u32)(now - lbl_805D7BD0) > lbl_805D7BD4) {
+            lbl_805D7BD4 = 0;
+            return -1;
+        }
+        TUdpSocket::unlock_mutex((int)lbl_805C18A0[0]);
+        TLobby__sub_803F97E8(100);
+        TLobby::lock_mutex((int)lbl_805C18A0[0]);
+    }
+    return 0;
 }
 
 void TLobby::cancel_alarm_b() {
