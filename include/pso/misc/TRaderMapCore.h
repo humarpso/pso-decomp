@@ -92,6 +92,7 @@ struct TRaderMapCore : public TUnk_804B9870 {
     void draw_enemy_gate_markers();
     s32 get_map_id();
     void copy_vec4(void* q);
+    static void draw_backdrop(TRaderMapCore *self, s32 mode);
 };
 
 typedef char RadarViewportSize[(sizeof(RadarViewportParameters) == 0x30) ? 1 : -1];

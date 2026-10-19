@@ -1295,9 +1295,9 @@ typedef char RecoveredFields_801DD33C_arg1_1_offset[offsetof(RecoveredFields_801
 typedef char RecoveredFields_801DD33C_arg1_2_offset[offsetof(RecoveredFields_801DD33C_arg1, field_2) == 0x2 ? 1 : -1];
 typedef char RecoveredFields_801DD33C_arg1_4_offset[offsetof(RecoveredFields_801DD33C_arg1, field_4) == 0x4 ? 1 : -1];
 
-void bswap_cmd_AB__9TProtocolFPv(void *p) {
-	((packet_header *)p)->bswap();
-	bswap_16((u16 *)((char *)p + 4));
+void TProtocol::bswap_cmd_AB() {
+	((packet_header *)this)->bswap();
+	bswap_16((u16 *)((char *)this + 4));
 }
 
 extern "C" {

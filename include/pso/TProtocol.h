@@ -322,6 +322,8 @@ public:
     s32 init_char_data();
 public:
     void send_subcommand_to_client(s32 flag, s8 *src, s32 len);
+public:
+    void bswap_cmd_AB();
 };
 
 #endif

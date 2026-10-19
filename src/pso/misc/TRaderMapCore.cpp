@@ -293,7 +293,6 @@ struct RadarVec2_801FA880 { f32 x, y; };
 extern "C" {
 s32 TCameraCtrl__sub_80068EF0();
 void draw_compass__13TRaderMapCoreFv(TRaderMapCore *self, s32 mode);
-void draw_backdrop__13TRaderMapCoreFv(TRaderMapCore *self, s32 mode);
 void update_follow_projection__13TRaderMapCoreFl(TRaderMapCore *self, s32 mode);
 extern const f32 lbl_805DC588;
 extern RadarSpriteFrame_801FA6CC lbl_804C87E4[];
@@ -1040,7 +1039,7 @@ static RadarVec2_801FA880 radar_backdrop_origin[3] = { { 480.0f, 64.0f }, { 32.0
 static RadarVec2_801FA880 radar_backdrop_size[3] = { { 128.0f, 128.0f }, { 448.0f, 128.0f }, { 448.0f, 128.0f } };
 static f32 radar_backdrop_alpha[3] = { 64.0f, 64.0f, 128.0f };
 
-void draw_backdrop__13TRaderMapCoreFv(TRaderMapCore *self, s32 mode) {
+void TRaderMapCore::draw_backdrop(TRaderMapCore *self, s32 mode) {
     f32 pos[8];
     RadarFanDesc_801FA880 desc;
     u32 colors[4];
@@ -1178,7 +1177,7 @@ void TRaderMapCore::render() {
         }
         switch ((s32) TRaderMapCore__view_mode) {
         case 0:
-            draw_backdrop__13TRaderMapCoreFv((TRaderMapCore *)arg0, TRaderMapCore__view_mode);
+            TRaderMapCore::draw_backdrop((TRaderMapCore *)arg0, TRaderMapCore__view_mode);
             begin_map_view__13TRaderMapCoreFii((s32)arg0, (s32)TRaderMapCore__view_mode);
             render_region_records((void *)TRaderMapCore__view_mode);
             ((TRaderMapCore *)arg0)->draw_enemy_gate_markers();
@@ -1188,7 +1187,7 @@ void TRaderMapCore::render() {
             break;
         case 1:
             TCameraCtrl::restore_full_screen_view();
-            draw_backdrop__13TRaderMapCoreFv((TRaderMapCore *)arg0, TRaderMapCore__view_mode);
+            TRaderMapCore::draw_backdrop((TRaderMapCore *)arg0, TRaderMapCore__view_mode);
             TCameraCtrl__sub_80068EF0();
             begin_map_view__13TRaderMapCoreFii((s32)arg0, (s32)TRaderMapCore__view_mode);
             render_region_records((void *)TRaderMapCore__view_mode);
@@ -1201,7 +1200,7 @@ void TRaderMapCore::render() {
             TCameraCtrl__sub_80068EF0();
             break;
         case 2:
-            draw_backdrop__13TRaderMapCoreFv((TRaderMapCore *)arg0, TRaderMapCore__view_mode);
+            TRaderMapCore::draw_backdrop((TRaderMapCore *)arg0, TRaderMapCore__view_mode);
             begin_map_view__13TRaderMapCoreFii((s32)arg0, (s32)TRaderMapCore__view_mode);
             render_region_records((void *)TRaderMapCore__view_mode);
             ((TRaderMapCore *)arg0)->draw_enemy_gate_markers();
