@@ -417,7 +417,7 @@ extern Vec_803606A0 lbl_80479D10;
 extern const f64 lbl_80479E90[];
 extern u8 identity_matrix[];
 extern u8 *anim_model_matrix_array;
-f32 receive_physical_attack__10TObjPlayerFv(void *, void *, f32);
+f32 receive_physical_attack__13TUnk_804806E8FPvf(void *, void *, f32);
 extern const f32 lbl_805E0208;
 s32 get_bml_model(s32, s32);
 extern s32 lbl_805D6FA0;
@@ -584,7 +584,7 @@ f32 TObjEneEpsilonBody::receive_physical_attack(void *arg1_arg, f32 farg0) {
     s32 temp_r5;
     temp_r5 = *(s32 *)((s8 *)((u8 *)this) + 0x438);
     if (!(temp_r5 & 2) && !(temp_r5 & 0x40)) {
-        return receive_physical_attack__10TObjPlayerFv(this, att, farg0);
+        return receive_physical_attack__13TUnk_804806E8FPvf(this, att, farg0);
     }
     try_apply_damage((u32) (((u8 *)this) + 0x2FC), 0);
     return lbl_805E0208;

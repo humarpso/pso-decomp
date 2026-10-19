@@ -641,7 +641,7 @@ struct VObj_14_c1c33b : VBase_14_c1c33b {
     virtual s32 m4();
 };
 
-f32 receive_physical_attack__10TObjPlayerFv(void *, void *, f32);
+f32 receive_physical_attack__13TUnk_804806E8FPvf(void *, void *, f32);
 u16 obj_getField1c(void *);
 void TLobby__sub_8001FE7C(void*, int);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
@@ -770,9 +770,9 @@ void select_melee_contact_body__10TObjPlayerFv();
 void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 void try_start_action__13TUnk_804806E8Fll();
 void update_action_hold_status__13TUnk_804806E8Fv();
-s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
+s32 vfunc_37__13TUnk_804806E8Fv(u8 *arg0);
 void update_actor_ground_y__13TUnk_804806E8Fv();
-s32 update_attack_stat_status(u8 *arg0);
+s32 vfunc_41__13TUnk_804806E8Fv(u8 *arg0);
 s32 update_defense_stat_status(u8 *arg0);
 void update_flag30_timer__13TUnk_804806E8Fv();
 void update_movement_status__13TUnk_804806E8Fv();
@@ -868,8 +868,8 @@ void *__vt__13TObjEneMorfos[107] = {
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker__13TUnk_804806E8FPUc, (void *)&try_start_action__13TUnk_804806E8Fll, (void *)&roll_physical_accuracy__13TUnk_804806E8FPvlf,
     (void *)&vfunc_28__13TObjEneMorfosFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__13TUnk_804806E8Fv,
     (void *)&test_flag30_512__13TUnk_804806E8Fv, (void *)&has_flag_0x800__13TUnk_804806E8Fv, (void *)&test_flag_1000__13TUnk_804806E8Fv, (void *)&update_poison_status__13TUnk_804806E8Fv,
-    (void *)&update_action_hold_status__13TUnk_804806E8Fv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__13TUnk_804806E8Fv, (void *)&update_movement_status__13TUnk_804806E8Fv,
-    (void *)&update_shock_clock__13TUnk_804806E8Fv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&vfunc_43__13TUnk_804806E8Fv,
+    (void *)&update_action_hold_status__13TUnk_804806E8Fv, (void *)&vfunc_37__13TUnk_804806E8Fv, (void *)&update_flag30_timer__13TUnk_804806E8Fv, (void *)&update_movement_status__13TUnk_804806E8Fv,
+    (void *)&update_shock_clock__13TUnk_804806E8Fv, (void *)&vfunc_41__13TUnk_804806E8Fv, (void *)&update_defense_stat_status, (void *)&vfunc_43__13TUnk_804806E8Fv,
     (void *)&apply_poison_status__13TUnk_804806E8Fv, (void *)&apply_paralysis__13TUnk_804806E8Fv, (void *)&apply_slow_status__13TUnk_804806E8Fv, (void *)&apply_confusion_status__13TUnk_804806E8Fv,
     (void *)&apply_movement_ailment__13TUnk_804806E8Fl, (void *)&apply_shock_status__13TUnk_804806E8Fv, (void *)&clear_harmful_statuses__13TUnk_804806E8Fv, (void *)&apply_attack_stat_status__13TUnk_804806E8FPv,
     (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment__13TUnk_804806E8Fv, (void *)&cure_paralysis__13TUnk_804806E8Fv, (void *)&clear_all_status_effects__13TUnk_804806E8Fv,
@@ -1925,10 +1925,10 @@ f32 TObjEneMorfos__vt20(Obj_80334A4C *arg0, Obj_80334A4C *att, f32 scale) {
         } else {
             arg0->f3C0 &= ~0x10;
             arg0->f3C0 |= 0x20;
-            ret = receive_physical_attack__10TObjPlayerFv(arg0, att, scale);
+            ret = receive_physical_attack__13TUnk_804806E8FPvf(arg0, att, scale);
         }
     } else {
-        ret = receive_physical_attack__10TObjPlayerFv(arg0, att, scale);
+        ret = receive_physical_attack__13TUnk_804806E8FPvf(arg0, att, scale);
     }
     return ret;
 }

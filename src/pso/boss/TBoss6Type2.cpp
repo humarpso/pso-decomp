@@ -555,7 +555,7 @@ struct Boss_802BC23C {
     s32 f4d0;
 };
 
-f32 receive_physical_attack__10TObjPlayerFv(void *, u32, f32);
+f32 receive_physical_attack__13TUnk_804806E8FPvf(void *, u32, f32);
 u8 * get_attribute_entry__10TObjPlayerFl(u32, s32);
 u16 obj_getArrU16_FC(void *obj, s32 i);
 u16 obj_getField1c(void *);
@@ -2448,7 +2448,7 @@ f32 TBoss6Type2__vt20(TBoss6Type2 *arg0, u32 att, f32 scale) {
         }
     }
     if (var_r31 != 0) {
-        return receive_physical_attack__10TObjPlayerFv(arg0, att, scale);
+        return receive_physical_attack__13TUnk_804806E8FPvf(arg0, att, scale);
     }
     arg0->sub_802BA078();
     arg0->spawn_hit_effects();

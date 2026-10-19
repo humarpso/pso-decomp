@@ -609,7 +609,7 @@ extern "C" void get_pos__13TUnk_804806E8Fl();
 extern "C" void is_actor_cadence_frame__13TUnk_804806E8Fl();
 extern "C" void is_target_in_attack_range__10TObjPlayerFv();
 extern "C" void receive_direct_attack__10TObjPlayerFv();
-extern "C" void receive_physical_attack__10TObjPlayerFv();
+extern "C" void receive_physical_attack__13TUnk_804806E8FPvf();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
 extern "C" void render_shadows__9TObjEnemyFv(u8 *arg0);
 extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
@@ -619,9 +619,9 @@ extern "C" void select_melee_contact_body__10TObjPlayerFv();
 extern "C" void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 extern "C" void try_start_action__13TUnk_804806E8Fll();
 extern "C" void update_action_hold_status__13TUnk_804806E8Fv();
-extern "C" s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
+extern "C" s32 vfunc_37__13TUnk_804806E8Fv(u8 *arg0);
 extern "C" void update_actor_ground_y__13TUnk_804806E8Fv();
-extern "C" s32 update_attack_stat_status(u8 *arg0);
+extern "C" s32 vfunc_41__13TUnk_804806E8Fv(u8 *arg0);
 extern "C" s32 update_defense_stat_status(u8 *arg0);
 extern "C" void update_flag30_timer__13TUnk_804806E8Fv();
 extern "C" void update_movement_status__13TUnk_804806E8Fv();
@@ -638,12 +638,12 @@ void *__vt__11TBoss4Type1[83] = {
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
     (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
-    (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
+    (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__13TUnk_804806E8FPvf, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker__13TUnk_804806E8FPUc, (void *)&try_start_action__13TUnk_804806E8Fll, (void *)&roll_physical_accuracy__13TUnk_804806E8FPvlf,
     (void *)&vfunc_28__13TUnk_804806E8Fv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__13TUnk_804806E8Fv,
     (void *)&test_flag30_512__13TUnk_804806E8Fv, (void *)&has_flag_0x800__13TUnk_804806E8Fv, (void *)&test_flag_1000__13TUnk_804806E8Fv, (void *)&update_poison_status__13TUnk_804806E8Fv,
-    (void *)&update_action_hold_status__13TUnk_804806E8Fv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__13TUnk_804806E8Fv, (void *)&update_movement_status__13TUnk_804806E8Fv,
-    (void *)&update_shock_clock__13TUnk_804806E8Fv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&vfunc_43__13TUnk_804806E8Fv,
+    (void *)&update_action_hold_status__13TUnk_804806E8Fv, (void *)&vfunc_37__13TUnk_804806E8Fv, (void *)&update_flag30_timer__13TUnk_804806E8Fv, (void *)&update_movement_status__13TUnk_804806E8Fv,
+    (void *)&update_shock_clock__13TUnk_804806E8Fv, (void *)&vfunc_41__13TUnk_804806E8Fv, (void *)&update_defense_stat_status, (void *)&vfunc_43__13TUnk_804806E8Fv,
     (void *)&TObjPlayer__sub_80055678, (void *)&TObjPlayer__sub_8005567C, (void *)&TObjPlayer__sub_80055680, (void *)&TObjPlayer__sub_80055684,
     (void *)&TObjPlayer__sub_80055688, (void *)&TObjPlayer__sub_8005568C, (void *)&TObjPlayer__sub_80055690, (void *)&apply_attack_stat_status__13TUnk_804806E8FPv,
     (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment__13TUnk_804806E8Fv, (void *)&cure_paralysis__13TUnk_804806E8Fv, (void *)&clear_all_status_effects__13TUnk_804806E8Fv,

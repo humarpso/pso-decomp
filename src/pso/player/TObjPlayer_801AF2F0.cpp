@@ -1969,13 +1969,13 @@ void TObjPlayer__sub_8001053C(u8 *arg0);
 s32 try_spend_actor_meseta(u8 *arg0, s32 arg1);
 s32 set_hp_clamped__10TObjPlayerFs(void * a0 = 0, s16 a1 = 0);
 s32 add_actor_hp(u8 *arg0, s16 arg1);
-f32 receive_physical_attack__10TObjPlayerFv(s32, s32, f32);
+f32 receive_physical_attack__13TUnk_804806E8FPvf(s32, s32, f32);
 s32 update_defense_stat_status(s32);
-s32 update_attack_stat_status(s32);
+s32 vfunc_41__13TUnk_804806E8Fv(s32);
 s32 update_shock_clock__13TUnk_804806E8Fv(s32);
 s32 update_movement_status__13TUnk_804806E8Fv(s32);
 s32 update_flag30_timer__13TUnk_804806E8Fv(s32);
-s32 update_action_timer__10TObjPlayerFPv(s32);
+s32 vfunc_37__13TUnk_804806E8Fv(s32);
 s32 update_action_hold_status__13TUnk_804806E8Fv(s32);
 s32 update_poison_status__13TUnk_804806E8Fv(s32);
 s32 reset_motion_fields__13TUnk_804806E8Fv(void *);
@@ -2924,7 +2924,7 @@ f32 TObjPlayer__vt20(s32 arg0, s32 att, f32 scale) {
     if (obj_isState2_324__13TUnk_804806E8Fv() != 0) {
         return (*(f32 *)&TObjPlayer__data_805DC278);
     }
-    return receive_physical_attack__10TObjPlayerFv(arg0, att, scale);
+    return receive_physical_attack__13TUnk_804806E8FPvf(arg0, att, scale);
 }
 
 s16 TObjPlayer::get_handle_value() { return (s16)(((TObjPlayer *)(*(void**)((char*)this + 0x380)))->sub_802a7290_fwd()); }
@@ -4040,7 +4040,7 @@ s32 TObjPlayer::vfunc_42() {
 s32 TObjPlayer::vfunc_41() {
     s32 player = (s32)this;
     if (((s32 (*)(void))reset_volopt_state__10TObjPlayerFv)() != 0) {
-        return update_attack_stat_status(player);
+        return vfunc_41__13TUnk_804806E8Fv(player);
     }
     return 0;
 }
@@ -4071,7 +4071,7 @@ s32 TObjPlayer::vfunc_37() {
     if ((((s32 (*)(void))reset_volopt_state__10TObjPlayerFv)() == 0) || (((s32 (*)(s32))test_flag_2000000__10TObjPlayerFPv)(player) != 0)) {
         return 0;
     }
-    return update_action_timer__10TObjPlayerFPv(player);
+    return vfunc_37__13TUnk_804806E8Fv(player);
 }
 
 s32 TObjPlayer__vt34(s32 arg0) {

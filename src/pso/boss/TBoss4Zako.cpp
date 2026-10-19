@@ -1118,7 +1118,7 @@ void is_actor_cadence_frame__13TUnk_804806E8Fl();
 void receive_weapon_special_attack__10TObjPlayerFv();
 void receive_direct_attack__10TObjPlayerFv();
 void apply_knockback_from_attacker__13TUnk_804806E8FPUc();
-void receive_physical_attack__10TObjPlayerFv();
+void receive_physical_attack__13TUnk_804806E8FPvf();
 void vfunc_67__13TUnk_804806E8Fv();
 void vfunc_66__13TUnk_804806E8Fv();
 void vfunc_65__13TUnk_804806E8Fll();
@@ -1145,11 +1145,11 @@ void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 void try_start_action__13TUnk_804806E8Fll();
 void select_melee_contact_body__10TObjPlayerFv();
 s32 update_defense_stat_status(u8 *arg0);
-s32 update_attack_stat_status(u8 *arg0);
+s32 vfunc_41__13TUnk_804806E8Fv(u8 *arg0);
 void update_shock_clock__13TUnk_804806E8Fv();
 void update_movement_status__13TUnk_804806E8Fv();
 void update_flag30_timer__13TUnk_804806E8Fv();
-s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
+s32 vfunc_37__13TUnk_804806E8Fv(u8 *arg0);
 void update_action_hold_status__13TUnk_804806E8Fv();
 void update_poison_status__13TUnk_804806E8Fv();
 void vfunc_43__13TUnk_804806E8Fv();
@@ -1195,7 +1195,7 @@ s32 __vt__11TBoss4Bishi[83] = {
     (s32)is_actor_cadence_frame__13TUnk_804806E8Fl,
     (s32)select_melee_contact_body__10TObjPlayerFv,
     (s32)calc_distance_accuracy_penalty__10TObjPlayerFv,
-    (s32)receive_physical_attack__10TObjPlayerFv,
+    (s32)receive_physical_attack__13TUnk_804806E8FPvf,
     (s32)receive_direct_attack__10TObjPlayerFv,
     (s32)receive_weapon_special_attack__10TObjPlayerFv,
     (s32)apply_knockback_from_attacker__13TUnk_804806E8FPUc,
@@ -1210,11 +1210,11 @@ s32 __vt__11TBoss4Bishi[83] = {
     (s32)&test_flag_1000__13TUnk_804806E8Fv,
     (s32)update_poison_status__13TUnk_804806E8Fv,
     (s32)update_action_hold_status__13TUnk_804806E8Fv,
-    (s32)update_action_timer__10TObjPlayerFPv,
+    (s32)vfunc_37__13TUnk_804806E8Fv,
     (s32)update_flag30_timer__13TUnk_804806E8Fv,
     (s32)update_movement_status__13TUnk_804806E8Fv,
     (s32)update_shock_clock__13TUnk_804806E8Fv,
-    (s32)update_attack_stat_status,
+    (s32)vfunc_41__13TUnk_804806E8Fv,
     (s32)update_defense_stat_status,
     (s32)vfunc_43__13TUnk_804806E8Fv,
     (s32)apply_poison_status__13TUnk_804806E8Fv,
@@ -1280,7 +1280,7 @@ s32 __vt__9TBoss4Uro[83] = {
     (s32)is_actor_cadence_frame__13TUnk_804806E8Fl,
     (s32)select_melee_contact_body__10TObjPlayerFv,
     (s32)calc_distance_accuracy_penalty__10TObjPlayerFv,
-    (s32)receive_physical_attack__10TObjPlayerFv,
+    (s32)receive_physical_attack__13TUnk_804806E8FPvf,
     (s32)receive_direct_attack__10TObjPlayerFv,
     (s32)receive_weapon_special_attack__10TObjPlayerFv,
     (s32)apply_knockback_from_attacker__13TUnk_804806E8FPUc,
@@ -1295,11 +1295,11 @@ s32 __vt__9TBoss4Uro[83] = {
     (s32)&test_flag_1000__13TUnk_804806E8Fv,
     (s32)update_poison_status__13TUnk_804806E8Fv,
     (s32)update_action_hold_status__13TUnk_804806E8Fv,
-    (s32)update_action_timer__10TObjPlayerFPv,
+    (s32)vfunc_37__13TUnk_804806E8Fv,
     (s32)update_flag30_timer__13TUnk_804806E8Fv,
     (s32)update_movement_status__13TUnk_804806E8Fv,
     (s32)update_shock_clock__13TUnk_804806E8Fv,
-    (s32)update_attack_stat_status,
+    (s32)vfunc_41__13TUnk_804806E8Fv,
     (s32)update_defense_stat_status,
     (s32)vfunc_43__13TUnk_804806E8Fv,
     (s32)apply_poison_status__13TUnk_804806E8Fv,
@@ -1365,7 +1365,7 @@ s32 __vt__10TBoss4Zako[83] = {
     (s32)is_actor_cadence_frame__13TUnk_804806E8Fl,
     (s32)select_melee_contact_body__10TObjPlayerFv,
     (s32)calc_distance_accuracy_penalty__10TObjPlayerFv,
-    (s32)receive_physical_attack__10TObjPlayerFv,
+    (s32)receive_physical_attack__13TUnk_804806E8FPvf,
     (s32)receive_direct_attack__10TObjPlayerFv,
     (s32)receive_weapon_special_attack__10TObjPlayerFv,
     (s32)apply_knockback_from_attacker__13TUnk_804806E8FPUc,
@@ -1380,11 +1380,11 @@ s32 __vt__10TBoss4Zako[83] = {
     (s32)&test_flag_1000__13TUnk_804806E8Fv,
     (s32)update_poison_status__13TUnk_804806E8Fv,
     (s32)update_action_hold_status__13TUnk_804806E8Fv,
-    (s32)update_action_timer__10TObjPlayerFPv,
+    (s32)vfunc_37__13TUnk_804806E8Fv,
     (s32)update_flag30_timer__13TUnk_804806E8Fv,
     (s32)update_movement_status__13TUnk_804806E8Fv,
     (s32)update_shock_clock__13TUnk_804806E8Fv,
-    (s32)update_attack_stat_status,
+    (s32)vfunc_41__13TUnk_804806E8Fv,
     (s32)update_defense_stat_status,
     (s32)vfunc_43__13TUnk_804806E8Fv,
     (s32)apply_poison_status__13TUnk_804806E8Fv,
