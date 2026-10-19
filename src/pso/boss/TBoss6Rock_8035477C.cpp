@@ -37,6 +37,45 @@ int is_active__10TBoss6RockFv(void*);
 
 void TBoss6Rock::render() { if (is_active__10TBoss6RockFv(this) != 0) { draw_model(); } }
 
+/* Per-kind rock parameters: model id, then the target radius passed to set_target. */
+struct RockKindParams {
+    s32 model_id;
+    f32 target_radius;
+    f32 unk_08[3];
+};
+extern const RockKindParams TBoss6Rock__data_80479258[2];
+extern s32 TBoss6Rock__data_805D6EF0;
+extern s32 TBoss6Rock__data_805D6EF4;
+int query_teammate_state__9TObjEneDDFv();
+s32 get_bml_model(s32 bml, s32 index);
+
+void TBoss6Rock::run_task() {
+    if (is_active__10TBoss6RockFv(this) == 0) {
+        queue_destruction();
+        return;
+    }
+    if (query_teammate_state__9TObjEneDDFv() != 0) {
+        return;
+    }
+    switch (m_c4) {
+    case 0:
+        init_spin_params();
+        break;
+    case 1:
+        update_fall();
+        break;
+    case 2:
+        break_and_release();
+        break;
+    }
+    if (m_e4 != 0) {
+        s32 model = get_bml_model(TBoss6Rock__data_805D6EF0, TBoss6Rock__data_80479258[m_b4].model_id);
+        u64 pos = (s32)position;
+        ((TBoss6Rock *)m_e4)->set_target(m_c4 != 0, (s32)pos, (s32)&m_5c, TBoss6Rock__data_805D6EF4, model,
+                                          TBoss6Rock__data_80479258[m_b4].target_radius);
+    }
+}
+
 extern void *tl_02;
 
 typedef char RecoveredGlobal_80354948___vt__10TBoss6Rock_size[sizeof(RecoveredGlobal_80354948___vt__10TBoss6Rock) == 0x38 ? 1 : -1];

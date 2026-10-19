@@ -7,6 +7,7 @@
 #include "pso/misc/TScene.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_8018F9CC_lbl_804B788C {
     s32 value;
@@ -35,7 +36,16 @@ extern s32 __vt__12TObjDoorJung[];
 extern s32 TObjDoorJung__class_name;
 u8 *TObjDoorJung__ct(u8 *arg0, s32 arg1, s32 arg2);
 u8 is_current_floor_switch_set(int);
-struct Node_8018F4AC;
+/* Ninja object node of the door model: model pointer, transform, then child and sibling links. */
+struct Node_8018F4AC {
+    u32 eval_flags;
+    s32 model;
+    f32 position[3];
+    s32 angle[3];
+    f32 scale[3];
+    Node_8018F4AC *child;
+    Node_8018F4AC *sibling;
+};
 Node_8018F4AC *get_bml_model(void *, int);
 void free_children__12TObjDoorJungFPv(s32, u16);
 void PPCSync();
@@ -72,6 +82,50 @@ void TObjDoorJung::free_buffers() {
     if (TObjDoorJung__resource_handle != NULL) {
         TLobby__sub_8001FE7C(TObjDoorJung__resource_handle, 1);
         TObjDoorJung__resource_handle = NULL;
+    }
+}
+
+struct DoorJungPartNames {
+    const char *names[4];
+};
+extern const DoorJungPartNames lbl_80445640;
+extern u8 bm_obj_beamdoa_resource_descriptor[];
+s32 load_resource_from_descriptor(s32 buffer, s32 kind, void *descriptor, s32 a3, s32 a4, s32 a5);
+s32 TObjFish__sub_8001EDB0(void *bml, s32 index);
+
+void TObjDoorJung__sub_8018F4AC(void) {
+    s32 handle;
+    Node_8018F4AC *model;
+    Node_8018F4AC *node;
+    void *scene;
+
+    handle = ((TAdSinglePlyChrSelectGC *)0x440)->alloc();
+    if (handle != 0) {
+        handle = load_resource_from_descriptor(handle, 5, bm_obj_beamdoa_resource_descriptor, 0, 0, 0);
+    }
+    TObjDoorJung__resource_handle = (void *)handle;
+    lbl_805D5BD4 = TObjFish__sub_8001EDB0(TObjDoorJung__resource_handle, 0);
+    model = get_bml_model(TObjDoorJung__resource_handle, 1);
+    node = model->child;
+    TObjDoorJung__child_table[0] = node->model;
+    TObjDoorJung__child_table[1] = node->child->model;
+    TObjDoorJung__child_table[2] = node->child->child->model;
+    TObjDoorJung__child_table[3] = node->child->child->child->model;
+    door_jung_child_list = model->child->sibling->model;
+    lbl_805D5BDC = 0;
+    DoorJungPartNames parts = lbl_80445640;
+    lbl_805D5BE4 = ((TObjDoorJung *)lbl_805D5BD4)->find_entry_by_name(parts.names[0]);
+    lbl_805D5BE8 = ((TObjDoorJung *)lbl_805D5BD4)->find_entry_by_name(parts.names[1]);
+    lbl_805D5BEC = ((TObjDoorJung *)lbl_805D5BD4)->find_entry_by_name(parts.names[2]);
+    lbl_805D5BF0 = ((TObjDoorJung *)lbl_805D5BD4)->find_entry_by_name(parts.names[3]);
+    if (lbl_805D5BEC != -1) {
+        scene = (void *)((TAdSinglePlyChrSelectGC *)0x14)->alloc();
+        if (scene != NULL) {
+            scene = ((TScene *)scene)->init_buffers((s32)model->child->sibling, lbl_805D5BEC);
+        }
+        TObjDoorJung__door_scene_buffer = scene;
+    } else {
+        TObjDoorJung__door_scene_buffer = NULL;
     }
 }
 

@@ -8,9 +8,11 @@
 #include "pso/object/TObjFish.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/misc/TNowLoading.h"
+#include "pso/boss/TBoss4Type2_8033FEEC.h"
+#include "pso/boss/TBoss4Type2_800874F4.h"
 
 extern "C" {
-void *TObjFish__sub_8034029C(void *, void *);
+void *TObjFish__sub_8034029C(TBoss6Demo15_TYPE2_WAIT *, TObjFish *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -52,10 +54,71 @@ void *TBoss6Demo15_TYPE2_WAIT::destroy(s16 arg1) {
     return this;
 }
 
+/* One animated part of the wait demo: model, model helper and motion loaded from the fish BML. */
+struct WaitDemoPart {
+    s32 model;
+    s32 model_aux;
+    s32 motion;
+};
+
+struct WaitDemoLayout {
+    u8 pad0[0x1C];
+    TObjFish *fish;
+    TBoss4Type2 *emitter;
+    s32 m_24;
+    WaitDemoPart parts[2];
+    Vec position;
+    Vec prev_position;
+};
+
+void __ct__7TObjectFP7TObject(TObject *self, TObject *parent);
+extern const char *lbl_805D42C8;
+extern s32 lbl_804DF614[];
+extern s32 lbl_804EFB70[];
+s32 get_bml_model(s32 bml, s32 index);
+s32 TObjFish__sub_8001EDB0(s32 bml, s32 index);
+s32 get_bml_motion(s32 bml, s32 index);
+void fn_8034009C(TBoss6Demo15_TYPE2_WAIT *self);
+
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+void *TObjFish__sub_8034029C(TBoss6Demo15_TYPE2_WAIT *wait, TObjFish *fish) {
+    WaitDemoLayout *self = (WaitDemoLayout *)wait;
+    s32 v;
+    s32 bml;
+    s32 i;
+    __ct__7TObjectFP7TObject(wait, (TObject *)fish);
+    *(s32 **)((u8 *)wait + 0x18) = lbl_804EFB78;
+    wait->m_name = lbl_805D42C8;
+    self->fish = fish;
+    bml = TObjFish::get_fish_count();
+    for (i = 0; i < 2; i++) {
+        {
+            s32 t = lbl_804DF614[i];
+            v = t;
+            self->parts[i].model = get_bml_model(bml, t);
+        }
+        self->parts[i].model_aux = TObjFish__sub_8001EDB0(bml, v);
+        self->parts[i].motion = get_bml_motion(bml, lbl_804EFB70[i]);
+    }
+    fn_8034009C(wait);
+    TObjFish__sub_8033FF64(wait);
+    wait->sub_8033FE30();
+    VecCopy(&self->prev_position, &self->position);
+    self->emitter = (TBoss4Type2 *)create_particle_emitter(&self->position, 0x225);
+    if (self->emitter != NULL) {
+        self->emitter->set_flags(0x40);
+    }
+    self->m_24 = 0;
+    return wait;
+}
+#pragma pop
+
 void *TObjFish::alloc(void *arg0) {
     void *o = __nw__7TObjectFUl(0x88);
     if (o != NULL) {
-        o = TObjFish__sub_8034029C(o, arg0);
+        o = TObjFish__sub_8034029C((TBoss6Demo15_TYPE2_WAIT *)o, (TObjFish *)arg0);
     }
     return o;
 }

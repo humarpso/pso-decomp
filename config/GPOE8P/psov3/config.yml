@@ -1329,6 +1329,7 @@ force_active:
   - clamp_menu_choice_scroll__11TWindowMenuFv
   - clamp_min_player_distance__9TBoss4UroFPv
   - clamp_params_and_init__14TOTrapSeabed01Fv
+  - clamp_state__12TObjDoorJungFv
   - classify_level_bracket_narrow__6TLobbyFl
   - classify_level_bracket_wide__6TLobbyFl
   - clear_30_slots__10TObjPlayerFv
@@ -2624,6 +2625,7 @@ force_active:
   - lobby_pulse_color_table
   - lobby_pumpkin_resource_descriptor
   - lobby_suisou_resource_descriptor
+  - log_printf_buffer
   - logo_load_callback_table
   - lookup_attack_marker__Flssl
   - lookup_item_category__9TWindowDDFl

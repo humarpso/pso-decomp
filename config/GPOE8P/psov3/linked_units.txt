@@ -188,6 +188,7 @@ pso/boss/TBoss4Type2_8004A978.cpp
 pso/boss/TBoss4Type2_80086C44.cpp
 pso/boss/TBoss4Type2_800874F4.cpp
 pso/boss/TBoss4Type2_8033FEEC.cpp
+pso/boss/TBoss4Type2_80340160.cpp
 pso/boss/TBoss4Type3_800505A8.cpp
 pso/boss/TBoss4Type3_800524E8.cpp
 pso/boss/TBoss4Type3_800D7A20.cpp
@@ -224,6 +225,7 @@ pso/boss/TBoss6Mag.cpp
 pso/boss/TBoss6MagMine.cpp
 pso/boss/TBoss6PlotFalz.cpp
 pso/boss/TBoss6RockChase.cpp
+pso/boss/TBoss6Rock_8035477C.cpp
 pso/boss/TBoss6Rock_80354A30.cpp
 pso/boss/TBoss6Rock_80354A44.cpp
 pso/boss/TBoss6SwordShot.cpp
@@ -2088,6 +2090,7 @@ pso/object/TObjDoaEx01.cpp
 pso/object/TObjDoaEx01_8018DD0C.cpp
 pso/object/TObjDoaEx01_8018DFFC.cpp
 pso/object/TObjDoor.cpp
+pso/object/TObjDoorJung.cpp
 pso/object/TObjDoorJung_8023DBEC.cpp
 pso/object/TObjDoorKey.cpp
 pso/object/TObjDoor_8018E358.cpp
@@ -2632,6 +2635,7 @@ pso/protocol/subcommand_validation_technique.cpp
 pso/quest/AreaDialogueScripts.cpp
 pso/quest/QuestOpcodeTables.cpp
 pso/quest/StoryQuestProgress.cpp
+pso/slices/pso_carve_8020bf88.cpp
 pso/system/ChunkMaterialState.cpp
 pso/system/ChunkTextureStripCollector.cpp
 pso/system/CityTraffic.cpp
@@ -2959,6 +2963,7 @@ pso/unk/text_800D7824.cpp
 pso/unk/text_800D7950.cpp
 pso/unk/text_800D79A8.cpp
 pso/unk/text_800D8830.cpp
+pso/unk/text_800D8988.cpp
 pso/unk/text_800D97E8.cpp
 pso/unk/text_800D98D8.cpp
 pso/unk/text_800D9BBC.cpp
@@ -3388,6 +3393,7 @@ pso/unk/text_802097B0.cpp
 pso/unk/text_80209C58.cpp
 pso/unk/text_8020A2AC.cpp
 pso/unk/text_8020A508.cpp
+pso/unk/text_8020A6B0.cpp
 pso/unk/text_8020A768.cpp
 pso/unk/text_8020AB50.cpp
 pso/unk/text_8020AD40.cpp
@@ -3709,6 +3715,7 @@ pso/unk/text_803CC070.cpp
 pso/unk/text_803CC134.cpp
 pso/unk/text_803CE1D8.cpp
 pso/unk/text_803CE1F4.cpp
+pso/unk/text_803D0C34.cpp
 pso/unk/text_803D0F1C.cpp
 pso/unk/text_803D2F1C.cpp
 pso/unk/text_803D31A4.cpp

@@ -6,6 +6,7 @@ typedef void (*RecoveredCallback_c88e8900640a)(s32, u8 *);
 
 #include "pso/system/GcciRequests.h"
 #include "pso/misc/TLobby.h"
+#include "string.h"
 
 extern s32 dvd_synchronous_read_enabled;
 extern "C" {
@@ -18,6 +19,11 @@ s32 DVDGetTransferredSize(void *);
 s32 DVDGetCommandBlockStatus(void *);
 extern GcciStatus dvd_active_request;
 extern GcciRequest dvd_request_table[40];
+extern char dvd_default_path_buffer[0x100];
+extern volatile s32 lbl_805D7610;
+extern s32 lbl_805D760C;
+extern s32 lbl_805D7608;
+extern void *dvd_file_driver_interface[];
 
 void TLobby::poll_dvd_requests() {
     GcciRequest *r;
@@ -52,6 +58,15 @@ void TLobby::poll_dvd_requests() {
             }
         }
     }
+}
+
+void **initialize_dvd_file_driver(void) {
+    lbl_805D7610 = lbl_805D7610;
+    memset(dvd_default_path_buffer, 0, sizeof(dvd_default_path_buffer));
+    lbl_805D760C = 0;
+    lbl_805D7608 = 0;
+    memset(&dvd_active_request, 0, sizeof(dvd_active_request));
+    return dvd_file_driver_interface;
 }
 }
 

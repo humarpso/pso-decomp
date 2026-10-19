@@ -279,7 +279,7 @@ struct Self_802D6E7C {
 struct Item_802D6BEC {
     u8 pad0[0x20];
     char names[4][0xFF];
-    s32 ids[4];
+    u32 ids[4];
     u32 alpha[4];
     s32 flags[4];
     Vec2_802D6E7C base[4];
@@ -303,13 +303,15 @@ typedef struct S_802D6D88 { u8 pad0[0x43C]; s32 f[4]; } S_802D6D88;
 
 void render__15TAdSubPlyItemGCFv(Item_802D6BEC *self) {
     u32 i;
+    Vec2_802D6E7C *base;
     if (TMainTask::get_state_flag() != 1) {
         for (i = 0; i < 4; i++) {
             if (self->flags[i] != 0 && self->names[i][0] != 0) {
+                base = self->base;
                 render_status_line__15TAdSubPlyItemGCFi(self->names[i], (self->alpha[i] << 24) | 0x111111,
-                    lbl_805DE7C0 + self->base[i].x, self->base[i].y, lbl_805DE7C4);
+                    lbl_805DE7C0 + base[i].x, self->base[i].y, lbl_805DE7C4);
                 render_status_line__15TAdSubPlyItemGCFi(self->names[i], (self->alpha[i] << 24) | 0xFFFFFF,
-                    self->base[i].x, self->base[i].y, lbl_805DE7C8);
+                    base[i].x, base[i].y, lbl_805DE7C8);
                 if (self->ids[i] != 0) {
                     render_status_line__15TAdSubPlyItemGCFi((const char *)format_level_text__15TAdSubPlyItemGCFii((s32)self, self->ids[i]),
                         (self->alpha[i] << 24) | 0x111111, lbl_805DE7C0 + self->pos[i].x, self->pos[i].y, lbl_805DE7C4);
