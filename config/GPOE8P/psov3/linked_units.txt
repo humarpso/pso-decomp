@@ -931,6 +931,7 @@ pso/misc/TLobby_8003A95C.cpp
 pso/misc/TLobby_800495BC.cpp
 pso/misc/TLobby_8004A90C.cpp
 pso/misc/TLobby_80067410.cpp
+pso/misc/TLobby_8006F278.cpp
 pso/misc/TLobby_80070A00.cpp
 pso/misc/TLobby_80072048.cpp
 pso/misc/TLobby_800726F0.cpp
@@ -1540,6 +1541,7 @@ pso/misc/TShopArmorListWindow_80266CF8.cpp
 pso/misc/TShopArmorListWindow_802785FC.cpp
 pso/misc/TShopArmorListWindow_8027870C.cpp
 pso/misc/TShopArmorListWindow_802787AC.cpp
+pso/misc/TShopDeleteItemWindow.cpp
 pso/misc/TShopEquipmentGearSequence.cpp
 pso/misc/TShopEquipmentGearSequence_8021B438.cpp
 pso/misc/TShopEquipmentGearSequence_8021E3A4.cpp
@@ -2644,6 +2646,7 @@ pso/system/CityTraffic.cpp
 pso/system/GinjaModelQueue.cpp
 pso/system/ItemEffects.cpp
 pso/system/MaterialAlphaCompare.cpp
+pso/system/Mfci.cpp
 pso/system/MiddlewareInterruptLock.cpp
 pso/system/ModelDrawContext.cpp
 pso/system/PadRumble.cpp

@@ -137,6 +137,44 @@ static inline CollisionPoint collisionNormalize(CollisionPoint p) {
 }
 
 #pragma use_lmw_stmw off
+struct Point2_803E0CC8 { f32 u, v; };
+s32 TObjPlayer__sub_803DF9D0(Point2_803E0CC8 *a, Point2_803E0CC8 *b);
+
+s32 __SITransfer(Vec_803E1B1C *a, Vec_803E1B1C *b) {
+    Point2_803E0CC8 pa[4];
+    Point2_803E0CC8 pb[4];
+    s32 mask = 0;
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        pa[i].u = a[i].x;
+        pa[i].v = a[i].y;
+        pb[i].u = b[i].x;
+        pb[i].v = b[i].y;
+    }
+    if (TObjPlayer__sub_803DF9D0(pa, pb) != 0) {
+        mask |= 4;
+    }
+    for (i = 0; i < 4; i++) {
+        pa[i].u = a[i].x;
+        pa[i].v = a[i].z;
+        pb[i].u = b[i].x;
+        pb[i].v = b[i].z;
+    }
+    if (TObjPlayer__sub_803DF9D0(pa, pb) != 0) {
+        mask |= 2;
+    }
+    for (i = 0; i < 4; i++) {
+        pa[i].u = a[i].y;
+        pa[i].v = a[i].z;
+        pb[i].u = b[i].y;
+        pb[i].v = b[i].z;
+    }
+    if (TObjPlayer__sub_803DF9D0(pa, pb) != 0) {
+        mask |= 1;
+    }
+    return mask;
+}
+
 s32 test_box_overlap__10TObjPlayerFPvPv(Vec_803E1B1C *boxA, Vec_803E1B1C *boxB) {
     Vec_803E1B1C qa[4];
     Vec_803E1B1C qb[4];

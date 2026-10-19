@@ -371,7 +371,7 @@ extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 extern const f32 lbl_805DC590;
-void TRaderMapCore__sub_801F967C(void *, s32);
+void TRaderMapCore__sub_801F967C(TRaderMapCore *self, u32 color);
 void scale_matrix(s32, f32, f32, f32);
 void draw_ginja_object(void *child);
 extern const f32 TRaderMapCore__data_805DC528;
@@ -388,7 +388,8 @@ extern s32 local_client_id;
 extern const f32 lbl_805DC560;
 extern const f32 lbl_805DC570;
 extern const f32 lbl_805DC578;
-Pair_801F9770 TRaderMapCore__sub_801F9D38(void *);
+Pair_801F9770 TRaderMapCore__sub_801F9D38(TRaderMapCore *self);
+extern const Pair_801F9770 lbl_8044A78C;
 s32 has_flag__13TRaderMapCoreFv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
@@ -570,6 +571,15 @@ void TRaderMapCore::set_piece_flags(s32 arg0) {
     }
 }
 
+void TRaderMapCore__sub_801F967C(TRaderMapCore *self, u32 color) {
+    f32 rgba[4];
+    rgba[0] = (f32)(color >> 24) / 255.0f;
+    rgba[1] = (f32)(u8)(color >> 16) / 255.0f;
+    rgba[2] = (f32)(u8)(color >> 8) / 255.0f;
+    rgba[3] = (f32)(u8)color / 255.0f;
+    ((TUnk_80494AE0 *)rgba)->set_chunk_material_color();
+}
+
 void TRaderMapCore::add_zoom_distance(f32 farg0) {
     f32 temp_f0;
     if (((s32) TRaderMapCore__view_mode == 1) || ((s32) TRaderMapCore__view_mode == 2)) {
@@ -592,7 +602,7 @@ void TRaderMapCore::open_free_map_view() {
     s32 g = (s32)&TRaderMapCore__map_view_state;
     TRaderMapCore__view_mode = 1;
     {
-        Pair_801F9770 p = TRaderMapCore__sub_801F9D38(TRaderMapCore__instance);
+        Pair_801F9770 p = TRaderMapCore__sub_801F9D38((TRaderMapCore *)TRaderMapCore__instance);
         ((Glob_801F9770 *)g)->f28 = p.x;
         ((Glob_801F9770 *)g)->f30 = p.y;
     }
@@ -749,6 +759,15 @@ s32 TRaderMapCore::reveal_region_by_id(s16 id) {
 }
 
 #define MAP_801F9D84 ((Map_801F9D84 *) TRaderMapCore__floor_map_resource)
+Pair_801F9770 TRaderMapCore__sub_801F9D38(TRaderMapCore *self) {
+    Pair_801F9770 p = lbl_8044A78C;
+    if (self->m_134 >= 0) {
+        p.x = ((Core_801F9E9C *)self)->e[self->m_134].x;
+        p.y = ((Core_801F9E9C *)self)->e[self->m_134].z;
+    }
+    return p;
+}
+
 void update_radar_auto_discovery(s32 arg0, s32 arg1, void *pos) {
     Vec_801F9D84 v;
     Region_801F9D84 *r;

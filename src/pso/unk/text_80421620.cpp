@@ -82,7 +82,7 @@ struct T_80422E30 {
     u8 pad0[0x2A4]; u8 fl1; u8 p1; s16 st1; s32 th1; u8 pad2AC[8]; u8 fl2; u8 p2; s16 st2; s32 th2; u8 pad2BC[0x544 - 0x2BC];
 };
 
-struct P_8042315C { s32 type; s32 a; s32 b; s32 c; s32 pad10; s16 n; s16 m; s32 d; };
+struct P_8042315C { s32 type; s32 a; s32 b; s32 c; s32 pad10; s16 n; s16 m; s32 d; s32 pad1C; };
 
 struct T_80422368
 {
@@ -124,7 +124,7 @@ s32 TLobby__sub_804217E4(void);
 s32 TLobby__sub_80421814(void);
 s32 NetUnregisterTimer(void *);
 s32 TLobby__sub_80421844(s32 arg0);
-s32 TLobby__sub_80421FB8(void *, void *, void *);
+void TLobby__sub_80421FB8(void *, void *, void *);
 s32 TLobby__sub_80421AD8(u8 *arg0, s32 arg1, s32 arg2, u32 arg3, s32 arg4);
 s32 NetRegisterTimer(void *, int, void *);
 s32 TLobby__sub_804218AC(s32 arg0, s32 arg1);
@@ -134,14 +134,19 @@ s32 TRKValidMemory32(void *, void *, void *, int, int, int);
 s32 TLobby__sub_80421A50(s32 arg0, s32 arg1, s32 arg2);
 s32 TLobby__sub_8041E780();
 s32 tcp_create__Fv(void);
-s32 TUdpSocket__sub_80421178(s32);
+s32 TUdpSocket__sub_80421178(s16);
+s16 TUdpSocket__sub_80421438(void);
+s16 TUdpSocket__sub_804212E4(s16, void *, s32);
+s16 TUdpSocket__sub_80421200(s16, void *, s32, s32, void *);
 s32 TLobby__sub_80421B3C(s32 a);
 s32 mark_connection_closed__6TLobbyFs(s32);
 s32 tcp_delete__Fs(s32 a);
 u16 str_length__6TLobbyFl(void *);
 void TLobby__sub_80425288(s32, s32, void *);
-extern s32 lbl_805D7BA0;
+extern volatile s32 lbl_805D7BA0;
 s32 TLobby__sub_8042455C(void *a);
+s16 TLobby__sub_8041DE1C(s16, s16, u32 *);
+void TLobby__sub_8041E590(s16);
 s32 get_tcp_stat__6TLobbyFsPsPsPlPl(int, void *, void *, void *, void *);
 s16 validate_tcp_handle__6TLobbyFs(int);
 s32 tcp_stat__FsPsPsPUlPUl(s32 a, s16 *b, s16 *c, u32 *d, u32 *e);
@@ -190,9 +195,9 @@ s32 OSRestoreInterrupts(int);
 s16 TLobby__sub_8040F1A0(s16);
 s16 TLobby__sub_80412210(s16);
 s16 TLobby__sub_80423064(s16 arg0, s32 arg1);
-s32 TLobby__sub_8040F454(s32, s32, s32, s16);
-s32 TLobby__sub_80412CA4(void *, s16, s16, s16, s32);
-s32 TLobby__sub_8042315C(s16 arg0, P_8042315C *p);
+s16 TLobby__sub_8040F454(s32, s32, s32, s16);
+s16 TLobby__sub_80412CA4(void *, s16, s16, s16, s32);
+s16 TLobby__sub_8042315C(s16 arg0, P_8042315C *p);
 extern u8 dhcp_hostname[];
 extern u8 lbl_805D7B1C[6];
 extern u32 lbl_805D7B4C;
@@ -406,7 +411,7 @@ typedef char RecoveredGlobal_80422DE4_lbl_805C1C50_size[sizeof(RecoveredGlobal_8
 s32 TLobby__sub_80421B3C(s32 a) {
     s32 r;
     G_80421B3C *g;
-    s32 m;
+    s16 m;
     if ((a & 0xC00) != 0x400) { return -4; }
     g = ((G_80421B3C *)&network_dispatch_state);
     m = a & 0xFFFFF3FF;
@@ -414,6 +419,116 @@ s32 TLobby__sub_80421B3C(s32 a) {
     r = TUdpSocket__sub_80421178(m);
     TUdpSocket::unlock_mutex((int)((void *)g->f0));
     return r;
+}
+
+struct UdpItem_80421BAC { s16 len; u8 pad2[2]; u8 data[8]; };
+struct UdpPkt_80421BAC { u8 pad0[4]; s32 count; u32 len; UdpItem_80421BAC items[4]; };
+struct UdpBuf_80421BAC { s16 len; u8 pad2[2]; s32 data; };
+s16 udp_sendto__6TLobbyFsPvPvPvUsi(s32 id, void *pkt, void *src, void *dst, u16 port, s32 opt);
+
+s16 TUdpSocket__sub_80421BAC(s32 h, u32 *src, u32 *dst, u16 port, u32 *opt, s8 n, UdpBuf_80421BAC *bufs) {
+    u32 any_addr[5];
+    u32 any_opt[4];
+    u16 i;
+    UdpPkt_80421BAC *pkt;
+    s16 r;
+    if ((h & 0xC00) != 0x400) {
+        return -4;
+    }
+    h = h & 0xFFFFF3FF;
+    NetMemset(any_addr, 0, 0x14);
+    if (dst != NULL) {
+        if (*dst == 0) {
+            return -2;
+        }
+    } else {
+        dst = any_addr;
+    }
+    if (src == NULL) {
+        src = any_addr;
+    }
+    if (opt != NULL && *opt != 0) {
+        if (*opt != *dst) {
+            return -2;
+        }
+    } else {
+        NetMemset(any_opt, 0, 0x10);
+        opt = any_opt;
+    }
+    TLobby::lock_mutex(network_dispatch_state.value);
+    if (n > 3) {
+        TUdpSocket::unlock_mutex(network_dispatch_state.value);
+        return -2;
+    }
+    pkt = (UdpPkt_80421BAC *)TLobby::alloc_free_entry();
+    if (pkt == NULL) {
+        TUdpSocket::unlock_mutex(network_dispatch_state.value);
+        return -0x101;
+    }
+    pkt->count = 0;
+    pkt->len = 0;
+    for (i = n; i != 0; i--) {
+        if (bufs[i - 1].len < 0) {
+            ((TUdpSocket *)pkt)->release_entry();
+            TUdpSocket::unlock_mutex(network_dispatch_state.value);
+            return -2;
+        }
+        pkt->len += bufs[i - 1].len;
+        pkt->items[pkt->count].len = bufs[i - 1].len;
+        ((TLobby *)pkt->items[pkt->count].data)->init_packet_header(bufs[i - 1].data);
+        pkt->count++;
+    }
+    if (pkt->len > 0x7FE3) {
+        ((TUdpSocket *)pkt)->release_entry();
+        TUdpSocket::unlock_mutex(network_dispatch_state.value);
+        return -2;
+    }
+    if (pkt->len == 0) {
+        ((TUdpSocket *)pkt)->release_entry();
+        TUdpSocket::unlock_mutex(network_dispatch_state.value);
+        return 0;
+    }
+    r = udp_sendto__6TLobbyFsPvPvPvUsi(h, pkt, src, dst, port, (s32)opt);
+    ((TUdpSocket *)pkt)->release_entry();
+    TUdpSocket::unlock_mutex(network_dispatch_state.value);
+    return r;
+}
+
+s16 TUdpSocket__sub_80421DEC(void *src, s32 sport, void *dst, s32 dport, s32 arg4, void *cb) {
+    u8 any[0x14];
+    s16 h;
+    s16 r;
+    NetMemset(any, 0, 0x14);
+    if (cb == NULL) {
+        return -2;
+    }
+    if (src == NULL) {
+        src = any;
+    }
+    if (dst == NULL) {
+        dst = any;
+    }
+    TLobby::lock_mutex(network_dispatch_state.value);
+    h = TUdpSocket__sub_80421438();
+    if (h < 0) {
+        TUdpSocket::unlock_mutex(network_dispatch_state.value);
+        return h;
+    }
+    r = TUdpSocket__sub_804212E4(h, src, sport);
+    if (r < 0) {
+        TUdpSocket__sub_80421178(h);
+        TUdpSocket::unlock_mutex(network_dispatch_state.value);
+        return r;
+    }
+    r = TUdpSocket__sub_80421200(h, dst, dport, arg4, cb);
+    if (r < 0) {
+        TUdpSocket__sub_80421178(h);
+        TUdpSocket::unlock_mutex(network_dispatch_state.value);
+        return r;
+    }
+    h |= 0x400;
+    TUdpSocket::unlock_mutex(network_dispatch_state.value);
+    return h;
 }
 
 s32 TLobby__sub_80421F10(O_80421F10 *o, void *src, void *dst, s16 port, void *cb, s32 flags) {
@@ -428,6 +543,48 @@ s32 TLobby__sub_80421F10(O_80421F10 *o, void *src, void *dst, s16 port, void *cb
         TLobby__sub_80421FB8(cb, &s, o);
     }
     return 0;
+}
+
+struct PktSeg_80421FB8 { s16 len; u8 pad2[2]; u8 data[8]; };
+struct PktHdr_80421FB8 { s16 flags; s16 len; u8 *buf; };
+struct PktBuf_80421FB8 { u8 pad0[0xC]; PktSeg_80421FB8 seg[8]; };
+typedef s16 (*PktCb_80421FB8)(s32, PktHdr_80421FB8 *);
+void TLobby__sub_80406FD8(void *, void *, s32);
+void TLobby__sub_80406EB8(void *, u32);
+
+void TLobby__sub_80421FB8(void *cb, void *hdr_, void *o_) {
+    s32 i;
+    u8 *buf;
+    s16 len;
+    s32 pkt[2];
+    s16 chunk;
+    PktHdr_80421FB8 *hdr;
+    PktBuf_80421FB8 *o;
+    hdr = (PktHdr_80421FB8 *)hdr_;
+    o = (PktBuf_80421FB8 *)o_;
+    len = hdr->len;
+    if (((PktCb_80421FB8)cb)(0, hdr) == 0) {
+        if (hdr->len >= len) {
+            hdr->len = len;
+        }
+        len = hdr->len;
+        if (len == 0 || hdr->buf == NULL) {
+            return;
+        }
+        buf = hdr->buf;
+        ((TLobby *)pkt)->init_packet_header((s32)buf);
+        for (i = 1; len > 0; i++) {
+            if (len > o->seg[i].len) {
+                chunk = o->seg[i].len;
+            } else {
+                chunk = len;
+            }
+            TLobby__sub_80406FD8(pkt, o->seg[i].data, chunk);
+            TLobby__sub_80406EB8(pkt, chunk);
+            len -= chunk;
+        }
+        ((PktCb_80421FB8)cb)(1, hdr);
+    }
 }
 
 s32 complete_request_callback__6TLobbyFv(s32 idx_, void (*cb)(s16, s16, s32), s16 arg2, s32 *arg3) {
@@ -565,6 +722,24 @@ s32 set_thread_state_and_resume__6TLobbyFv(s32 idx, void (*cb)(s16, s16), s16 ar
   return 0;
 }
 
+}
+
+s16 tcp_get_opt(s16 nh, s16 type, u32 *opt) {
+    s16 r;
+    if (nh & 0xC00) {
+        return -2;
+    }
+    nh &= 0xFFFFF3FF;
+    if (opt == NULL) {
+        return -2;
+    }
+    TLobby::lock_mutex(network_dispatch_state.value);
+    r = TLobby__sub_8041DE1C(nh, type, opt);
+    TUdpSocket::unlock_mutex(network_dispatch_state.value);
+    return r;
+}
+
+extern "C" {
 s32 tcp_stat__FsPsPsPUlPUl(s32 a, s16 *b, s16 *c, u32 *d, u32 *e) {
     s32 r;
     G_804228E8 *g;
@@ -615,6 +790,36 @@ s32 tcp_abort__Fs(s32 a) {
     r = abort_tcp_connection__6TLobbyFs(m);
     TUdpSocket::unlock_mutex((int)((void *)g->f0));
     return r;
+}
+
+struct T_80422AB8 {
+    u8 pad0[0x2BC]; u8 fl; u8 pad2BD; s16 st; s32 th; u8 pad2C4[4]; s32 z; u8 pad2CC[0x544 - 0x2CC];
+};
+
+s32 TLobby__sub_80422AB8(s32 idx, void (*cb)(s16, s16, s32, s32), s16 code, s32 arg3, s32 arg4, s32 arg5) {
+    T_80422AB8 *s = (T_80422AB8 *)tcp_protocol_state[0];
+    s16 i2;
+    s16 v;
+    s += (s16)idx;
+    if (cb != NULL && !(s->fl & 8)) {
+        i2 = (s16)idx;
+        if (code >= 0) {
+            v = (s32)code;
+            TLobby__sub_8041E590(code);
+        } else {
+            v = code;
+        }
+        cb(v, i2, arg3, arg5);
+        s->z = 0;
+    } else {
+        s->st = code;
+        if (s->fl & 2) {
+            resume_thread__6TLobbyFv(s->th);
+        }
+    }
+    s->fl &= ~1;
+    s->fl |= 4;
+    return 0;
 }
 
 s32 tcp_connect__FsP10at_ip_addrUsP12at_ip_option(s32 a, IpAddr_80422B8C *addr, u16 port, IpAddr_80422B8C *opt) {
@@ -809,8 +1014,8 @@ s16 TLobby__sub_80423064(s16 idx, s32 arg1) {
     return var_r31;
 }
 
-s32 TLobby__sub_8042315C(s16 arg0, P_8042315C *p) {
-    s32 r;
+s16 TLobby__sub_8042315C(s16 arg0, P_8042315C *p) {
+    s16 r;
     s32 intr;
     if (arg0 < 0) {
         return -2;
@@ -836,6 +1041,106 @@ s32 TLobby__sub_8042315C(s16 arg0, P_8042315C *p) {
     OSRestoreInterrupts(intr);
     TUdpSocket::unlock_mutex(network_dispatch_state.value);
     return r;
+}
+
+s32 TLobby__sub_8042325C(s32 a, s32 b, s32 c, s32 (*fn)(s32, s32, s32)) {
+    s32 r = 0;
+    if (fn != NULL) {
+        r = fn(a, b, c);
+    }
+    return r;
+}
+
+extern volatile s32 lbl_805D7B0C;
+extern s16 lbl_805D7B18;
+extern u32 lbl_805D7B5C;
+extern u32 lbl_805D7B64;
+extern u32 lbl_805D7B68;
+extern u32 lbl_805D7B6C;
+extern u32 lbl_805D7B70;
+void TLobby__sub_8042422C(void);
+void TLobby__sub_80423E80(void);
+s32 TLobby__sub_80423C04(void);
+
+extern s32 lbl_805D7B2C;
+extern s32 lbl_805D7B30;
+extern s32 *lbl_805D7B40;
+extern s32 *lbl_805D7B44;
+extern s32 *lbl_805D7B48;
+extern s32 lbl_805D7B80;
+s32 find_dhcp_option__6TLobbyFPvUcPv(u8 *p, u8 tag, u8 **out);
+
+s32 TLobby__sub_80423440(u8 *pkt) {
+    u8 *opts = pkt + 0xEC;
+    u8 *p;
+    s32 net;
+    s32 w;
+    u32 mask;
+    u32 n;
+    TLobby__sub_80425288(0xF, 4, pkt + 0x10);
+    lbl_805D7B80 = 0;
+    if (find_dhcp_option__6TLobbyFPvUcPv(opts, 1, &p) == 4) {
+        lbl_805D7B80++;
+        TLobby__sub_80425288(1, 4, p);
+    } else {
+        if (!(lbl_805D7B28 & 0x80000000)) {
+            mask = 0xFF000000;
+        } else if ((lbl_805D7B28 & 0xC0000000) == 0x80000000) {
+            mask = 0xFFFF0000;
+        } else if ((lbl_805D7B28 & 0xE0000000) == 0xC0000000) {
+            mask = 0xFFFFFF00;
+        } else {
+            mask = 0;
+        }
+        TLobby__sub_80425288(1, 0, NULL);
+        lbl_805D7B2C = mask;
+    }
+    if (find_dhcp_option__6TLobbyFPvUcPv(opts, 0x1C, &p) == 4) {
+        lbl_805D7B80++;
+        TLobby__sub_80425288(2, 4, p);
+    } else {
+        TLobby__sub_80425288(2, 0, NULL);
+        net = lbl_805D7B28 & lbl_805D7B2C;
+        lbl_805D7B30 = net | (lbl_805D7B2C ^ 0xFFFFFFFF);
+    }
+    if (lbl_805D7B40 != NULL) {
+        *lbl_805D7B40 = lbl_805D7B28;
+        lbl_805D7B40 = NULL;
+    }
+    if (lbl_805D7B44 != NULL) {
+        *lbl_805D7B44 = lbl_805D7B2C;
+        lbl_805D7B44 = NULL;
+    }
+    if (lbl_805D7B48 != NULL) {
+        *lbl_805D7B48 = lbl_805D7B30;
+        lbl_805D7B48 = NULL;
+    }
+    ((TLobby *)opts)->parse_dhcp_lease_times();
+    n = find_dhcp_option__6TLobbyFPvUcPv(opts, 0xF, &p);
+    if (n != 0) {
+        TLobby__sub_80425288(3, (s16)n, p);
+    } else {
+        TLobby__sub_80425288(3, 1, NULL);
+    }
+    n = find_dhcp_option__6TLobbyFPvUcPv(opts, 6, &p);
+    if (n >= 4 && (n & 3) == 0) {
+        TLobby__sub_80425288(4, 4, p);
+        if (n > 4) {
+            TLobby__sub_80425288(5, 4, p + 4);
+        } else {
+            TLobby__sub_80425288(5, 4, NULL);
+        }
+    } else {
+        TLobby__sub_80425288(4, 4, NULL);
+        TLobby__sub_80425288(5, 4, NULL);
+    }
+    n = find_dhcp_option__6TLobbyFPvUcPv(opts, 3, &p);
+    if (n >= 4 && (n & 3) == 0) {
+        TLobby__sub_80425288(6, 4, p);
+    } else {
+        TLobby__sub_80425288(6, 4, NULL);
+    }
+    return 0;
 }
 
 s32 TLobby::build_dhcp_release() {
@@ -994,6 +1299,91 @@ s32 TLobby::build_dhcp_discover_packet() {
     }
     *p++ = 0xFF;
     return p - ((u8 *)this);
+}
+
+extern s16 lbl_805D7B08;
+extern s32 lbl_805D7B14;
+extern s32 lbl_805D7B74;
+extern u32 lbl_805D7B98;
+extern s32 lbl_805D7B9C;
+extern u8 lbl_805C1E00[];
+s32 TLobby__sub_804250A8(s32);
+s32 TLobby__sub_80424FE0(void);
+
+s32 TLobby__sub_80423C04(void) {
+    s32 now;
+    P_8042315C opt;
+    UdpBuf_80421BAC buf;
+    u32 dst[5];
+    u32 src[5];
+    s32 len;
+    u32 pad[3];
+    s16 sock;
+    TLobby::get_time_ms(&now);
+    switch (lbl_805D7B0C) {
+    case 0:
+        TLobby__sub_80421B3C(lbl_805D7B18);
+        lbl_805D7B18 = -1;
+        if (lbl_805D4820 == 1 || lbl_805D4820 == 2 || lbl_805D4820 == 6) {
+            lbl_805D7B14 = TLobby__sub_804250A8(0);
+        }
+        opt.type = 4;
+        opt.a = 0;
+        opt.b = -1;
+        opt.c = -1;
+        if (TLobby__sub_8042315C(lbl_805D7B08, &opt) != 0) {
+            lbl_805D7BA0 = 3;
+            lbl_805D7B0C = -1;
+            lbl_805D4820 = -2;
+            break;
+        }
+        lbl_805D7B14 = 1;
+        if (TLobby__sub_80424FE0() != 0) {
+            break;
+        }
+        lbl_805D7B9C = lbl_805D7B74;
+    case 1:
+        if (lbl_805D7B0C == 0) {
+            lbl_805D7B0C = 1;
+        } else if (now - lbl_805D7B98 < 300) {
+            break;
+        }
+        len = ((TLobby *)lbl_805C1E00)->build_dhcp_release();
+        src[0] = 4;
+        dst[0] = 4;
+        src[1] = 0;
+        dst[1] = -1;
+        sock = lbl_805D7B18;
+        len = len > 300 ? len : 300;
+        buf.len = len;
+        buf.data = (s32)lbl_805C1E00;
+        if (TUdpSocket__sub_80421BAC(sock, src, dst, 0x43, NULL, 1, &buf) < 0) {
+            TLobby__sub_80421B3C(lbl_805D7B18);
+            lbl_805D7B18 = -1;
+            if (lbl_805D4820 == 1 || lbl_805D4820 == 2 || lbl_805D4820 == 6) {
+                lbl_805D7B14 = TLobby__sub_804250A8(0);
+            }
+            lbl_805D7BA0 = 5;
+            lbl_805D7B0C = -1;
+            lbl_805D4820 = -2;
+        } else {
+            lbl_805D7B98 = now;
+            lbl_805D7B9C--;
+            if (lbl_805D7B9C <= 0) {
+                TLobby__sub_80421B3C(lbl_805D7B18);
+                lbl_805D7B18 = -1;
+                if (lbl_805D4820 == 1 || lbl_805D4820 == 2 || lbl_805D4820 == 6) {
+                    lbl_805D7B14 = TLobby__sub_804250A8(0);
+                }
+                lbl_805D4820 = 0;
+                lbl_805D7B0C = 0;
+                TLobby__sub_80425288(0xF, 0, NULL);
+                TLobby__sub_80425288(0xE, 0, NULL);
+            }
+        }
+        break;
+    }
+    return lbl_805D4820;
 }
 
 s32 TLobby__sub_8042455C(void *a) {

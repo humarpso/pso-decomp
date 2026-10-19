@@ -199,6 +199,20 @@ void TAdPlayerLoadGC::update_card_rename(s32 card_channel) {
     }
 }
 #pragma pop
+void TAdPlayerLoadGC__sub_803F2CD0(s32 card_channel, s32 result) {
+    TAdPlayerLoadGC__load_request_slots[card_channel].f5C = result;
+    switch (result) {
+    default:
+        TAdPlayerLoadGC__load_request_slots[card_channel].f58 = -201;
+        TAdPlayerLoadGC__load_request_slots[card_channel].f48 = 0x18;
+        break;
+    case 0:
+    case -6:
+        TAdPlayerLoadGC__load_request_slots[card_channel].f48 = 5;
+        break;
+    }
+}
+
 s32 TAdPlayerLoadGC__sub_803F31BC(void) {
     if (lbl_805D7940 == 0) {
         return -1;

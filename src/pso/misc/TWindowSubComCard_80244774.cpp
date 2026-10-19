@@ -504,6 +504,79 @@ void TWindowSubComCard__sub_802452DC(s32 texture) {
     TObjPlayer::setup_tev_swap();
 }
 
+}
+
+struct ProjectedStripVertex { f32 x, y, z, u, v; u32 color; };
+extern "C" void draw_projected_textured_strip(ProjectedStripVertex *v, s32 n);
+
+#pragma push
+#pragma fp_contract on
+extern "C" {
+void TWindowSubComCard__sub_80245320(Quad_802455CC *q, Rect_802455CC *r) {
+    ProjectedStripVertex v[6];
+    f32 z;
+    f32 t;
+    f32 mx;
+    f32 mu;
+    s32 alpha;
+    u32 color;
+    switch (window_ui_theme_index) {
+    case 0:
+    case 1:
+        return;
+    }
+    z = -1.0f / r->depth;
+    t = ((5.0f * lbl_805D63F6 - 100.0f) - r->x) / r->w;
+    mx = t * (q->x1 - q->x0) + q->x0;
+    mu = t * (q->u1 - q->u0) + q->u0;
+    if (t > 0.5f) {
+        alpha = 2.0f * (160.0f * (1.0f - t));
+    } else {
+        alpha = 160.0f * (2.0f * t);
+    }
+    color = ((u8)alpha << 24) | 0xFFFFFF;
+    v[0].x = q->x0;
+    v[0].y = q->y0;
+    v[0].z = z;
+    v[0].u = q->u0;
+    v[0].v = q->v0;
+    v[0].color = 0xFFFFFF;
+    v[1].x = q->x0;
+    v[1].y = q->y1;
+    v[1].z = z;
+    v[1].u = q->u0;
+    v[1].v = q->v1;
+    v[1].color = 0xFFFFFF;
+    v[2].x = mx;
+    v[2].y = q->y0;
+    v[2].z = z;
+    v[2].u = mu;
+    v[2].v = q->v0;
+    v[2].color = color;
+    v[3].x = mx;
+    v[3].y = q->y1;
+    v[3].z = z;
+    v[3].u = mu;
+    v[3].v = q->v1;
+    v[3].color = color;
+    v[4].x = q->x1;
+    v[4].y = q->y0;
+    v[4].z = z;
+    v[4].u = q->u1;
+    v[4].v = q->v0;
+    v[4].color = 0xFFFFFF;
+    v[5].x = q->x1;
+    v[5].y = q->y1;
+    v[5].z = z;
+    v[5].u = q->u1;
+    v[5].v = q->v1;
+    v[5].color = 0xFFFFFF;
+    draw_projected_textured_strip(v, 6);
+}
+}
+#pragma pop
+
+extern "C" {
 void TWindowSubComCard__sub_802454E4(s32 texture) {
     switch (window_ui_theme_index) {
     case 0:

@@ -305,6 +305,73 @@ void TBoss6Type2::spawn_death_soul() {
     }
 }
 
+extern s32 lbl_805D6768;
+extern u8 lbl_805D676C;
+extern s32 lbl_805D6770;
+extern u8 lbl_805D6774;
+extern f32 lbl_805DE3FC;
+void TBoss6Type2__sub_802BBC74(TBoss6Type2 *boss);
+
+void TBoss6Type2__sub_802BEE38(TBoss6Type2 *boss) {
+    s32 sound;
+    s32 n;
+    s32 idx;
+    s32 grp;
+    if ((s8) lbl_805D676C == 0) {
+        lbl_805D676C = 1;
+        lbl_805D6768 = (s32) (lbl_805DE4EC / lbl_805DE3FC - lbl_805DE4EC);
+    }
+    if (boss->m_460 == *(s32 *)((u8 *)boss + 0x45C) - lbl_805D6768) {
+        sound = 0x40069C05;
+        switch ((s32) boss->m_374) {
+        case 17:
+        case 20:
+        case 23:
+            sound = 0x40069C06;
+            break;
+        }
+        play_sound_effect(sound, &boss->position, 0, 0);
+    }
+    if ((s8) lbl_805D6774 == 0) {
+        lbl_805D6774 = 1;
+        lbl_805D6770 = (s32) (lbl_805DE4EC / lbl_805DE3FC);
+    }
+    if (boss->m_460 == *(s32 *)((u8 *)boss + 0x45C) - lbl_805D6770) {
+        switch ((s32) boss->m_374) {
+        case 17:
+        case 20:
+        case 23:
+            play_sound_effect(0x40069C07, &boss->position, 0, 0);
+            break;
+        }
+        TBoss6Type2__sub_802BBC74(boss);
+    }
+    if (boss->m_460 == 24) {
+        TCameraCtrl::set_shake_preset(1);
+    }
+    if (--boss->m_460 < 0) {
+        switch ((s32) boss->m_374) {
+        case 15:
+        case 16:
+        case 17:
+            if ((s32) boss->m_418 != 0) {
+                boss->set_action_state((void *)27);
+            } else {
+                boss->set_action_state((void *)0);
+            }
+            break;
+        default:
+            n = (s32) boss->m_374 - 15;
+            grp = n / 3;
+            idx = n % 3;
+            idx = ((boss->m_478 & 1) + idx);
+            idx = (idx + 1) % 3;
+            boss->set_action_state((void *)(idx + ((grp - 1) * 3) + 15));
+            break;
+        }
+    }
+}
+
 void TBoss6Type2::check_state_0x460_eq4() { if (*(int*)((char*)this + 0x460) == 4) { TBoss6Type2::drop_random_rocks((s32)this, (s32)((void*)0)); } }
 
 extern s32 lbl_805D6760;

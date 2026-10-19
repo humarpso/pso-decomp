@@ -224,6 +224,77 @@ void TLobby::cvFsSetDefDev() {
     }
 }
 
+struct CvFsDevIf {
+    u8 pad0[4];
+    void (*set_callback)(void (*)(), s32);
+};
+
+extern char lbl_8047CF30[];
+inline u32 cvfs_find_device_if(char *s, s32 len) {
+    Ent_803CF958 *p;
+    u32 i;
+    for (p = cvfs_entry_table, i = 0; i < 32; i++, p++) {
+        if (strncmp(s, p->name, len) == 0) {
+            return cvfs_entry_table[i].a;
+        }
+    }
+    return 0;
+}
+extern char *const volatile lbl_805E0DA0;
+
+inline CvFsDevIf *cvfs_add_device(char *name, CvFsDevIf *dev) {
+    s32 k;
+    if (cvfs_find_device_if(name, strlen(name)) != 0) {
+        return dev;
+    }
+    for (k = 0; k < 32; k++) {
+        if (cvfs_entry_table[k].name[0] == 0) {
+            break;
+        }
+    }
+    if (k == 32) {
+        return NULL;
+    }
+    cvfs_entry_table[k].a = (u32)dev;
+    memcpy(cvfs_entry_table[k].name, name, strlen(name) + 1);
+    return dev;
+}
+void TLobby__sub_803CFAA8(char *name, CvFsDevIf *(*getif)(void), s32 arg) {
+    CvFsDevIf *dev;
+    u32 n;
+    u32 i;
+    char *messages = lbl_8047CF30;
+    lbl_805E0DA0;
+    if (name == NULL) {
+        if (cvfs_completion_callback != NULL) {
+            cvfs_completion_callback(lbl_805D75FC, (s32 *)(messages + 0xB18), 0);
+        }
+        return;
+    }
+    if (getif == NULL) {
+        if (cvfs_completion_callback != NULL) {
+            cvfs_completion_callback(lbl_805D75FC, (s32 *)(messages + 0xB3C), 0);
+        }
+        return;
+    }
+    n = strlen(name) + 1;
+    for (i = 0; i < n; i++) {
+        if (name[i] >= 'a' && name[i] <= 'z') {
+            name[i] -= 0x20;
+        }
+    }
+    dev = cvfs_add_device(name, getif());
+    if (dev == NULL) {
+        if (cvfs_completion_callback != NULL) {
+            cvfs_completion_callback(lbl_805D75FC, (s32 *)(messages + 0xB60), 0);
+        }
+        return;
+    }
+    if (dev->set_callback != NULL) {
+        dev->set_callback(TLobby::call_callback, 0);
+    }
+}
+
 u32 lbl_80581A30[75];
 s8 fs_default_device_name[12];
 Ent_803CF958 cvfs_entry_table[32];

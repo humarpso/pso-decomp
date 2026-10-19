@@ -17,15 +17,104 @@ extern s32 lbl_8047E0C8[];
 extern s32 lbl_8047E18C[];
 unsigned long strlen(const char *);
 int sprintf(char *, const char *, ...);
+void *memcpy(void *, const void *, unsigned long);
 unsigned long strtoul(const char *, char **, int);
 extern char mfci_error_message_buffer[0x12C];
 extern char lbl_8047E04C[];
 extern char lbl_8047E08C[];
 char *strcpy(char *, const char *);
+s32 mfci_request_read(void *handle, s32 sectors, void *buffer);
 }
 extern char lbl_8047DF90[];
 extern MfciFilePool mfci_file_pool;
 typedef char RecoveredGlobal_803CFEA0_lbl_8047DAE4_size[sizeof(RecoveredGlobal_803CFEA0_lbl_8047DAE4) == 0x18 ? 1 : -1];
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+
+inline u32 parse_hex_pair(char *s, u32 *lo) {
+    char *end;
+    u32 v;
+    end = s;
+    v = strtoul(s, &end, 16);
+    if (*end != 0) {
+        end++;
+    }
+    if (lo != 0) {
+        *lo = strtoul(end, &end, 16);
+    }
+    return v;
+}
+
+s32 mfci_request_read(void *handle, s32 sectors, void *buffer) {
+    char *base = lbl_8047DF90;
+    MfciFileEntry *mfci_file_entry = (MfciFileEntry *)handle;
+    u32 data;
+    u32 size;
+    s32 copied;
+    s32 bytes;
+    s32 offset;
+    if (mfci_file_entry == NULL) {
+        if (mfci_error_callback != NULL) {
+            mfci_error_callback(mfci_error_callback_context, (s32 *)(base + 0x180), 0);
+        }
+        return 0;
+    }
+    if (sectors < 0) {
+        if (mfci_error_callback != NULL) {
+            mfci_error_callback(mfci_error_callback_context, (s32 *)(base + 0x19C), (s32)mfci_file_entry);
+        }
+        return 0;
+    }
+    if (buffer == NULL) {
+        if (mfci_error_callback != NULL) {
+            mfci_error_callback(mfci_error_callback_context, (s32 *)(base + 0x1BC), (s32)mfci_file_entry);
+        }
+        return 0;
+    }
+    if (sectors == 0) {
+        mfci_file_entry->state = 1;
+        return 0;
+    }
+    TLobby__sub_803D39C0();
+    mfci_file_entry->read_bytes = 0;
+    mfci_file_entry->read_sectors = sectors < mfci_file_entry->sector_count - mfci_file_entry->position_sector
+        ? sectors : mfci_file_entry->sector_count - mfci_file_entry->position_sector;
+    offset = mfci_file_entry->position_sector * mfci_file_entry->block_size;
+    bytes = mfci_file_entry->read_sectors * mfci_file_entry->block_size;
+    if (bytes == 0) {
+        mfci_file_entry->state = 1;
+        TLobby__sub_803D3988();
+        return 0;
+    }
+    mfci_file_entry->read_offset = offset;
+    mfci_file_entry->request_size = bytes;
+    mfci_file_entry->state = 2;
+    if (strlen(mfci_file_entry->name) != 17) {
+        sprintf(mfci_error_message_buffer, base + 0xBC, mfci_file_entry->name);
+        if (mfci_error_callback != NULL) {
+            mfci_error_callback(mfci_error_callback_context, (s32 *)mfci_error_message_buffer, 0);
+        }
+    }
+    if (mfci_file_entry->name[8] != '.') {
+        sprintf(mfci_error_message_buffer, base + 0xFC, mfci_file_entry->name);
+        if (mfci_error_callback != NULL) {
+            mfci_error_callback(mfci_error_callback_context, (s32 *)mfci_error_message_buffer, 0);
+        }
+    }
+    data = parse_hex_pair(mfci_file_entry->name, &size);
+    copied = mfci_file_entry->request_size > (s32)(size - mfci_file_entry->read_offset)
+        ? (s32)(size - mfci_file_entry->read_offset) : mfci_file_entry->request_size;
+    memcpy(buffer, (void *)(data + mfci_file_entry->read_offset), mfci_file_entry->request_size);
+    memset((u8 *)buffer + copied, 0, mfci_file_entry->request_size - copied);
+    mfci_file_entry->read_bytes = mfci_file_entry->read_sectors * mfci_file_entry->block_size;
+    mfci_file_entry->position_sector = mfci_file_entry->position_sector + mfci_file_entry->read_sectors;
+    mfci_file_entry->state = 1;
+    TLobby__sub_803D3988();
+    return mfci_file_entry->read_sectors;
+}
+#pragma pop
+
 s32 mfci_get_position(MfciFileEntry *mfci_file_entry) {
     if (mfci_file_entry == NULL) {
         if (((s32 (*)(s32, s32 *, s32)) mfci_error_callback) != NULL) {

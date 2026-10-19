@@ -4,6 +4,7 @@
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/audio/SoundRequestVoice.h"
+#include "pso/misc/TLobby_80242910.h"
 struct Voice_80241FD8;
 #pragma push
 
@@ -1316,6 +1317,16 @@ void remove_com_card_entry__6TLobbyFi(s32 arg0) {
         ((TLobby *)lobby)->move_words((u32 *)(lobby + 0xBC), (s32)((void *) ((u32) ((7 - arg0) * 0xBC) >> 2U)));
     }
     (*(s32 *)&com_card_entry_count) -= 1;
+}
+
+int TLobby__sub_8024273C(void *p) {
+    u8 *entry;
+    s32 slot = remove_com_card_by_id__6TLobbyFUi(*(u32 *)((u8 *)p + 0xC));
+    entry = (u8 *)&lbl_80517F9C.value;
+    entry += slot * 0xBC;
+    init_player_entry__6TLobbyFPvPv(entry, (u8 *)p);
+    com_card_entry_count++;
+    TLobby__sub_80242918();
 }
 
 s32 remove_com_card_by_id__6TLobbyFUi(u32 arg0) {

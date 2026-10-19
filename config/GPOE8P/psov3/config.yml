@@ -154,6 +154,7 @@ force_active:
   - TLobby__disk_error_msg_last
   - TLobby__disk_error_msg_table
   - TLobby__pppoe_message_queue
+  - TLobby__sub_8006F5B0
   - TLobby__sub_800F9F08
   - TLobby__sub_803CBE40
   - TLobby__sub_803D0F1C
@@ -1578,6 +1579,7 @@ force_active:
   - destroy__15TWindowHelpItemFPvs
   - destroy__19TPlayerBattleCtrl4PFs
   - destroy__19TQuestListChallengeFv
+  - destroy__21TShopDeleteItemWindowFv
   - destroy__22TQuestVmDownLoadServerFv
   - destroy_and_free__21TObjEneRe2Flower_BombFs
   - destroy_arrays__14TPlyDispConfigFii
@@ -2084,6 +2086,7 @@ force_active:
   - handle_confirm__22TMedicalCenterSequenceFv
   - handle_confirm__22TShopEquipmentSequenceFv
   - handle_confirm__24TShopEquipmentListWindowFv
+  - handle_confirm_dialog__21TShopDeleteItemWindowFv
   - handle_confirm_input__22TQuestVmDownLoadServerFv
   - handle_confirm_select__19TQuestListChallengeFv
   - handle_confirm_window__12TQuestListVMFv
@@ -2112,6 +2115,7 @@ force_active:
   - handle_msg_type1__6TLobbyFl
   - handle_msg_type1_for_idle_slots__6TLobbyFv
   - handle_msg_type2__6TLobbyFl
+  - handle_number_input__21TShopDeleteItemWindowFv
   - handle_open__13TUnk_804D0618Fv
   - handle_pad_transfer_done__16TKeyBoardControlFiUiPv
   - handle_page_input__24TWindowSubSymbolChatHelpFv
@@ -8613,6 +8617,7 @@ force_active:
   - update_invincibility__10TObjPlayerFv
   - update_invuln_timer__12TObjEneLappyFv
   - update_inward_orbit_point__13TUnk_804F166CFv
+  - update_item_select__21TShopDeleteItemWindowFPv
   - update_judge_confirm__23TShopJudgmentItemWindowFv
   - update_key_events__16TKeyBoardControlFl
   - update_letterbox_hide__9TCineCtrlFv

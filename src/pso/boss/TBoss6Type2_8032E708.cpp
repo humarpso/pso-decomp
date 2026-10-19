@@ -1321,6 +1321,7 @@ u8 *TBoss6Mag__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     Key_80330724 key;
     f32 *d;
     s32 prm;
+    TObjEnemy *enemy;
     initialize__9TObjEnemyFPv(arg0, arg1, arg2);
     *(u8 **)((s8 *)arg0 + 0x18) = (u8 *)lbl_804EDDEC;
     *(s32 *)((s8 *)arg0 + 0) = (s32)lbl_805D4220;
@@ -1350,7 +1351,12 @@ u8 *TBoss6Mag__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s16 *)((s8 *)arg0 + 0x33E) = *(s16 *)((s8 *)arg0 + 0x32C);
     *(s32 *)((s8 *)arg0 + 0x38C) = *(s16 *)((s8 *)arg0 + 0x32C);
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
-    ((TObjEnemy *)arg0)->set_param((*(s32 *)((s8 *)arg0 + 0x384) == 1) ? 0x56 : 0x55);
+    enemy = (TObjEnemy *)arg0;
+    prm = 0x55;
+    if (*(s32 *)((s8 *)arg0 + 0x384) == 1) {
+        prm = 0x56;
+    }
+    enemy->set_param(prm);
     ((TUnk_804806E8 *)arg0)->add_flags_2e4(*(u32 *)((s8 *)arg2 + 0x58));
     *(s32 *)((s8 *)arg0 + 0x390) = *(s32 *)((s8 *)arg2 + 0x5C);
     ((TBoss6Type2 *)arg0)->init_segment_angle_range();

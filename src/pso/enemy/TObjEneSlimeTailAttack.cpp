@@ -306,7 +306,7 @@ S_800E80E8 * TObjPlayer__sub_800E80E8(S_800E80E8 *dst, S_800E80E8 *src);
 void TObjPlayer__sub_800E8128(void);
 void TObjPlayer__sub_800E81A8(void);
 void render__22TObjEneSlimeTailAttackFv(u8 *arg0);
-s32 TObjPlayer__sub_800E85BC();
+s32 TObjPlayer__sub_800E85BC(TObjEneSlimeTailAttack *self);
 void run_task__22TObjEneSlimeTailAttackFv(u8 *arg0);
 void * create__22TObjEneSlimeTailAttackFiiii(s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void * dt__22TObjEneSlimeTailAttackFPvs(void *arg0, s16 arg1);
@@ -352,6 +352,7 @@ s32 __dt__15TObjEneSlimeOneFis(s32 arg0, s16 arg1);
 void draw_blob_shadow(s32 arg0);
 void * TObjControl__ct(void *, s32);
 u8 *get_enemy_entity(u16 arg0);
+int obj_getField1c(void *);
 void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 s32 initialize__9TObjEnemyFPv(void *);
 f32 horizontal_distance_squared(void *, void *);
@@ -394,7 +395,10 @@ extern const f32 lbl_805DA690;
 extern const f32 lbl_805DA694;
 extern const f32 lbl_805DA698;
 extern const f32 lbl_805DA69C;
+extern const f32 lbl_805DA6A0;
+extern const f32 lbl_805DA6A4;
 extern const f32 lbl_805DA6A8;
+extern const f32 lbl_805DA6B0;
 extern const f32 lbl_805DA6B8;
 extern const f32 lbl_805DA6BC;
 extern const f32 lbl_805DA6C0;
@@ -1029,6 +1033,53 @@ void TObjEneSlimeTailAttack::render() {
 }
 #pragma pop
 
+s32 TObjPlayer__sub_800E85BC(TObjEneSlimeTailAttack *self) {
+    Hit_800E8AD0 hit;
+    s32 result;
+    Ent_800E8AD0 *e;
+    Ent_800E8AD0 *e2;
+    u16 id;
+    s32 id2;
+    f32 t = self->m_c0;
+    if (t < lbl_805DA6A0 || t > lbl_805DA6A4) {
+        return 0;
+    }
+    hit.kind = 0;
+    result = 0;
+    hit.dmg = *(s16 *)TLobby::register_boss((s32)lbl_804966FC[((TObjEneSlimeOne *)(*(s32 *)((u8 *)self + 0x374)))->get_attack_target()]);
+    id = find_nearest_visible_player(self, 0, lbl_805DA6A8);
+    if (id != 0xFFFF && id != *(s32 *)((u8 *)self + 0x37C)) {
+        e = ((Ent_800E8AD0 *(*)(s32))get_player_by_client_id)(id);
+        if (e != NULL) {
+            TObjPlayer *pl = (TObjPlayer *)e;
+            f32 lo = pl->position[1] - lbl_805DA6AC;
+            f32 hi = lbl_805DA6AC + (pl->position[1] + pl->m_d48);
+            if (!(self->m_300 < lo) && !(self->m_300 > hi) &&
+                !(horizontal_distance_squared(&self->m_2fc, pl->position) > lbl_805DA6B0)) {
+                if (e->m21(*(s32 *)((u8 *)self + 0x374), hit, 0, -1, -1) != lbl_805DA6B4) {
+                    e->m23(self);
+                }
+                *(s32 *)((u8 *)self + 0x37C) = id;
+                result = 1;
+            }
+        }
+    }
+    id2 = self->find_nearest_enemy_with_flag(lbl_805DA6A8);
+    if (id2 != 0xFFFF) {
+        void *owner = *(void **)((u8 *)self + 0x374);
+        if (owner == NULL || id2 != (u16)obj_getField1c(owner)) {
+            e2 = (Ent_800E8AD0 *)get_enemy_entity(id2);
+            if (e2 != NULL && !(horizontal_distance_squared(&self->m_2fc, (u8 *)e2 + 0x2FC) > lbl_805DA6B0)) {
+                if (e2->m21(*(s32 *)((u8 *)self + 0x374), hit, 0, -1, -1) != lbl_805DA6B4) {
+                    e2->m23(self);
+                }
+                result = 1;
+            }
+        }
+    }
+    return result;
+}
+
 #pragma push
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -1036,7 +1087,7 @@ void TObjEneSlimeTailAttack::render() {
 #pragma fp_contract on
 void TObjEneSlimeTailAttack::run_task() {
     if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x378) != 0) {
-        TObjPlayer__sub_800E85BC();
+        TObjPlayer__sub_800E85BC(this);
         advance_animation_playback(this);
         if (this->animationFlags & 0x10) {
             queue_destruction__7TObjectFv(this);

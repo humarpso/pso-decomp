@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/system/date.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/TAdPlayerLoadGC.h"
@@ -2182,6 +2183,8 @@ void TLobby__sub_801EC954(void);
 void TLobby__sub_801EC984(void);
 void TLobby__sub_801EC9F8(void);
 void TLobby__sub_801ECA1C(void);
+void TLobby__sub_801ECA3C(s32 reg);
+extern const s32 lbl_80449AEC[];
 void TLobby__sub_801ECF2C(s32 arg0);
 int TLobby__sub_801ECFBC(void* p);
 void TLobby__sub_801ECFDC(u8 arg0);
@@ -2291,6 +2294,7 @@ int qst_op_npc_talk(void* p);
 int qst_op_npc_nont(void* p);
 void qst_op_npc_kill(void);
 int qst_op_cam_adj(void* p);
+extern "C" void qst_op_cam_pan(u8 reg);
 void qst_op_game_lev_reset_nop_86(void);
 void qst_op_game_lev_super_nop_85(void);
 int qst_op_cam_zmout(void* p);
@@ -6480,6 +6484,14 @@ void TLobby__sub_801ECA1C(void) {
 }
 #pragma pop
 
+void TLobby__sub_801ECA3C(s32 reg) {
+    s32 slot = TLobby__script_reg_array[(u8)reg++];
+    s32 value = TLobby__script_reg_array[(u8)reg];
+    if (slot >= 0 && slot <= 3) {
+        TLobby__data_80512360.remaining[lbl_80449AEC[slot] + 9] = value;
+    }
+}
+
 extern f32 lbl_805D5DC8;
 void TLobby__sub_801ECA88(s32 a) {
     s32 b = a + 1;
@@ -8447,6 +8459,19 @@ void qst_op_npc_kill(void) {
     quest_remove_npc_player(((u16) (*(RecoveredGlobal_801F0BE0_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value));
 }
 int qst_op_cam_adj(void* p) { return set_active_camera_flag__11TCameraCtrlFv(p); }
+
+void qst_op_cam_pan(u8 reg) {
+    s32 r = reg;
+    Vec pos;
+    pos.x = TLobby__script_reg_array[r++];
+    pos.y = TLobby__script_reg_array[r++];
+    pos.z = TLobby__script_reg_array[r++];
+    {
+        s32 arg1 = TLobby__script_reg_array[r++];
+        s32 arg2 = TLobby__script_reg_array[r];
+        TCameraCtrl::create((s32)&pos, arg1, arg2);
+    }
+}
 
 void qst_op_game_lev_reset_nop_86(void) {  }
 

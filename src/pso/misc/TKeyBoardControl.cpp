@@ -3,6 +3,9 @@
 #include "pso/misc/TWindowSubMag_802627D8.h"
 #include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
+#include "pso/misc/TWindowKeyBoardSoft_8025B85C.h"
+#include "pso/misc/TWindowChoiceSetting.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC.h"
 
 struct UV_80262038 {
     f32 u;
@@ -80,8 +83,10 @@ void calc_cursor_step__19TWindowKeyBoardSoftFiPvPv(s32 arg0, s32 *arg1, s32 *arg
 f32 calc_key_x__19TWindowKeyBoardSoftFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 calc_key_index__19TWindowKeyBoardSoftFiii(s32 arg1, s32 arg2, s32 arg3);
 f32 TWindowKeyBoardSoft__sub_802606E0(void);
-s32 TWindowKeyBoardSoft__sub_80260760(void *, int, void *, int);
-s32 TWindowKeyBoardSoft__sub_80261134(void *);
+void TWindowKeyBoardSoft__sub_80260760(void *self, s32 key, s32 *count, u32 *color);
+void TWindowKeyBoardSoft__sub_80260E30(void *self, s32 port);
+void TWindowKeyBoardSoft__sub_80261134(void *self);
+extern u8 lbl_8044F138[];
 void TKeyBoardControl__sub_802613A4(TKeyBoardControl *arg0);
 f32 TWindowKeyBoardSoft__sub_802614DC(u8 *, u8 *, f32, f32, f32, f32);
 s32 TWindowKeyBoardSoft__sub_802616BC(void *, int);
@@ -169,7 +174,7 @@ f32 calc_key_x__19TWindowKeyBoardSoftFiii(s32 arg0, s32 arg1, s32 arg2) {
   s32 temp_r3;
   temp_r3 = calc_key_index__19TWindowKeyBoardSoftFiii(arg0, arg1, arg2);
   temp_r31 = arg1 + ((s8) (*((u8 *) (((s8 *) (((u8 *)&TWindowKeyBoardSoft__data_8044F124.value) + (*((u8 *) (((s8 *) (((u8 *)&TWindowKeyBoardSoft__data_804CB7C8.value) + temp_r3)) + 0))))) + 0))));
-  TWindowKeyBoardSoft__sub_80260760((void *) arg0, (int) temp_r3, (void *)&sp8, 0);
+  TWindowKeyBoardSoft__sub_80260760((void *) arg0, (int) temp_r3, &sp8, NULL);
   new_var = TWindowKeyBoardSoft::calc_key_coord(arg0, sp8);
   return TWindowKeyBoardSoft__data_805DD078 + ((TWindowKeyBoardSoft__data_805DD07C * ((f32) temp_r31)) + (TWindowKeyBoardSoft__data_805DD080 * new_var));
 }
@@ -198,6 +203,52 @@ f32 TWindowKeyBoardSoft::calc_key_coord(s32 arg0, s32 arg1) {
 }
 #pragma pop
 
+void TWindowKeyBoardSoft__sub_80260760(void *self, s32 key, s32 *count, u32 *color) {
+    s32 n;
+    u32 c;
+    switch (((u8 *)&TWindowKeyBoardSoft__data_804CB7C8.value)[key]) {
+    case 0:
+        n = 1;
+        c = 0xFF173D84;
+        break;
+    case 1:
+        n = 1;
+        c = 0xFF621784;
+        break;
+    case 2:
+    case 3:
+        n = 2;
+        c = 0xFF6A6E13;
+        break;
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+        n = 4;
+        c = 0xFF4F700C;
+        break;
+    case 8:
+    case 9:
+    case 10:
+    case 11:
+    case 12:
+    case 13:
+    case 14:
+    case 15:
+    case 16:
+    case 17:
+        n = 10;
+        c = 0xFF842317;
+        break;
+    }
+    if (count != NULL) {
+        *count = n;
+    }
+    if (color != NULL) {
+        *color = c;
+    }
+}
+
 #pragma push
 #pragma fp_contract on
 void TWindowKeyBoardSoft::sub_80260808(s32 arg1) {
@@ -225,6 +276,109 @@ void TWindowKeyBoardSoft::update_keyboard_child_input_from_controller(s32 arg1) 
             }
         }
     }
+}
+
+struct KeyCursor_80260E30 {
+    u8 pad0[0x60];
+    u32 flags;
+    u8 layout;
+    u8 cursor_x;
+    u8 cursor_y;
+    u8 pad67[0x6C - 0x67];
+    void *child;
+};
+
+void TWindowKeyBoardSoft__sub_80260E30(void *self, s32 port) {
+    KeyCursor_80260E30 *kb = (KeyCursor_80260E30 *)self;
+    s8 dx = 0;
+    s8 dy = 0;
+    s32 input;
+    if (kb->flags & 2) {
+        input = (s32)((u8 *)&controller_input_state.value + port * 0x50 + 0x20);
+        if (TWindowChoiceSetting::apply_choice(input, 0xF0, 6, 2) == 0) {
+            return;
+        }
+        if (TWindowChoiceSetting::apply_choice(input, 0x10, 6, 2) != 0) {
+            dy = -1;
+        }
+        if (TWindowChoiceSetting::apply_choice(input, 0x20, 6, 2) != 0) {
+            dy++;
+        }
+        if (TWindowChoiceSetting::apply_choice(input, 0x40, 6, 2) != 0) {
+            dx = -1;
+        }
+        if (TWindowChoiceSetting::apply_choice(input, 0x80, 6, 2) != 0) {
+            dx++;
+        }
+    } else {
+        input = (s32)((u8 *)&controller_input_state.value + port * 0x50 + 0x20);
+        if (TAdMultiPlyChrSelectGC::dispatch_draw_command(input, 0xF0, 6, 2) == 0) {
+            return;
+        }
+        if (TAdMultiPlyChrSelectGC::dispatch_draw_command(input, 0x10, 6, 2) != 0) {
+            dy = -1;
+        }
+        if (TAdMultiPlyChrSelectGC::dispatch_draw_command(input, 0x20, 6, 2) != 0) {
+            dy++;
+        }
+        if (TAdMultiPlyChrSelectGC::dispatch_draw_command(input, 0x40, 6, 2) != 0) {
+            dx = -1;
+        }
+        if (TAdMultiPlyChrSelectGC::dispatch_draw_command(input, 0x80, 6, 2) != 0) {
+            dx++;
+        }
+    }
+    play_sound_effect(0x54100, 0, 0, 0);
+    if (kb->flags & 0x10) {
+        if (dx > 0) {
+            TWindowKeyBoardSoft__vt15((u8 *)kb->child);
+        } else if (dx < 0) {
+            TWindowKeyBoardSoft__vt16((TWindowKeyBoardSoft *)kb->child);
+        }
+        if (dy > 0) {
+            TWindowKeyBoardSoft__vt18((u8 *)kb->child);
+        } else if (dy < 0) {
+            TWindowKeyBoardSoft__vt17((TWindowKeyBoardSoft *)kb->child);
+        }
+        return;
+    }
+    if (dx > 0) {
+        kb->cursor_x += lbl_8044F138[((u8 *)&TWindowKeyBoardSoft__data_804CB7C8.value)[(s8)kb->cursor_x + (s8)kb->cursor_y * 16]] + 1;
+    }
+    if (dx < 0) {
+        kb->cursor_x += ((u8 *)&TWindowKeyBoardSoft__data_8044F124.value)[((u8 *)&TWindowKeyBoardSoft__data_804CB7C8.value)[(s8)kb->cursor_x + (s8)kb->cursor_y * 16]] - 1;
+    }
+    kb->cursor_y += dy;
+    if ((s8)kb->cursor_x < 0) {
+        kb->cursor_x += 16;
+    }
+    if ((s8)kb->cursor_x >= 16) {
+        kb->cursor_x -= 16;
+    }
+    if ((s8)kb->cursor_y < 0) {
+        kb->cursor_y += 7;
+    }
+    if ((s8)kb->cursor_y >= 7) {
+        kb->cursor_y -= 7;
+    }
+}
+
+void TWindowKeyBoardSoft__sub_80261134(void *self) {
+    KeyCursor_80260E30 *kb = (KeyCursor_80260E30 *)self;
+    switch (current_language) {
+    case 0:
+        kb->layout = 4;
+        break;
+    case 1:
+        kb->layout = 0;
+        break;
+    case 2:
+    case 3:
+    case 4:
+        kb->layout = 0;
+        break;
+    }
+    ((TWindowKeyBoardSoft *)self)->update_focus_flags();
 }
 
 #pragma push

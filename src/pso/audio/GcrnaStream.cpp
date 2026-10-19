@@ -1,5 +1,64 @@
 #include "pso/audio/GcrnaStream.h"
 #include "pso/audio/GcrnaError.h"
+#include "pso/misc/TLobby_803D43C8.h"
+
+struct GcrnaStreamState {
+    u8 in_use;
+    s8 callback_phase;
+    u8 unknown02[2];
+    u32 samples_ready;
+    u32 flags;
+    s32 allocated_channels;
+    s32 stream_count;
+    u8 unknown14[8];
+    u32 buffer_size;
+    u8 *buffers[2];
+    SjRingBuffer *ring_buffers[2];
+    u8 unknown30[0x10];
+    u32 stream_ids[2];
+    s32 stream_started[2];
+    u8 unknown50[4];
+    u32 silence_samples;
+    s32 pan[2];
+    s32 volume;
+    s32 output_volume;
+    s32 aux_a_send;
+    s32 aux_b_send;
+    s32 surround_pan;
+    u8 unknown74[0xC];
+};
+
+extern "C" {
+u32 gcrna_stream_callback(void *buffer1, u32 length1, void *buffer2, u32 length2, u32 user);
+}
+extern GcrnaStream gcrna_stream_pool[16];
+
+u32 gcrna_stream_callback(void *buffer1, u32 length1, void *buffer2, u32 length2, u32 user) {
+    s32 index;
+    GcrnaStreamState *stream;
+    s32 i;
+    gcrna_interrupt_lock_enter();
+    index = user & 0x7FFFFFFF;
+    stream = (GcrnaStreamState *)&gcrna_stream_pool[index / 2];
+    if (stream->callback_phase == 0) {
+        for (i = 0; i < stream->stream_count; i++) {
+            SjChunk chunk;
+            u32 bytes = length1 * 2;
+            bytes &= ~0x1F;
+            stream->ring_buffers[i]->interface->get_chunk(stream->ring_buffers[i], 1, bytes, &chunk);
+            stream->ring_buffers[i]->interface->put_chunk(stream->ring_buffers[i], 0, &chunk);
+            stream->samples_ready = (u32)chunk.size >> 1;
+        }
+        if (stream->stream_count == 2) {
+            stream->callback_phase = 1;
+        }
+    } else {
+        stream->callback_phase = 0;
+    }
+    gcrna_interrupt_lock_leave();
+    stream->stream_started[index % 2] = 1;
+    return stream->samples_ready;
+}
 
 extern const char lbl_8047E2E8[];
 

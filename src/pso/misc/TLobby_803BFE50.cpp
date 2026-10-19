@@ -107,7 +107,11 @@ struct AudioStreamSourceVtable {
 struct AudioStreamSource { AudioStreamSourceVtable *vt; };
 
 struct AudioStreamInputState {
-    u8 f0; s8 state; u8 f2; s8 f3; s32 f4; AudioStreamSource *f8; u8 pad_c[0x58 - 0xC];
+    s8 f0; s8 state; u8 f2; s8 f3; u32 f4; AudioStreamSource *f8;
+    SjRingBuffer *rings[4];
+    u8 pad_1c[0x2C - 0x1C];
+    s32 f2c; s32 f30; s32 f34; s32 f38; s32 f3c; s32 f40; s32 f44;
+    s32 f48; s32 f4c; s32 f50; s32 f54;
     u8 f58[0x40]; s32 f98;
 };
 
@@ -143,6 +147,9 @@ s32 TLobby__sub_803C3B68(s32 arg0, u16 *hdr, s32 size);
 void TLobby__sub_803D3130(s32 arg0, s32 arg1, u8 *arg2, u8 *arg3);
 void *memcpy(void *, const void *, u32);
 void process_audio_stream_input(AudioStreamInputState *arg0);
+u32 alloc_record__6TLobbyFiiii(s32 channels, u8 *buffer, s32 size, s32 total);
+void TLobby__sub_803C3B5C(u32 record, void (*callback)(void *, s32 *, s32 *, s32 *), void *context);
+AudioStreamInputState *TLobby__sub_803C0848(AudioStreamSource *source, s32 channels, SjRingBuffer **rings);
 s32 TLobby::get_offset_58() {
     s32 arg0 = (s32)this;
     return arg0 + 0x58;
@@ -337,6 +344,51 @@ void TLobby::reset_entry() {
         TLobby::release_ref();
     }
 }
+AudioStreamInputState *TLobby__sub_803C0848(AudioStreamSource *source, s32 channels, SjRingBuffer **rings) {
+    AudioStreamInputState *st;
+    s32 i;
+    u8 *buffer;
+    SjRingBuffer *ring = rings[0];
+    s32 size;
+    for (i = 0; i < 0x10; i++) {
+        if (((AudioStreamInputState *)&lbl_80570AC0)[i].f0 == 0) {
+            break;
+        }
+    }
+    if (i == 0x10) {
+        return NULL;
+    }
+    st = &((AudioStreamInputState *)&lbl_80570AC0)[i];
+    buffer = sj_ring_buffer_get_buffer(ring);
+    size = sj_ring_buffer_get_buffer_size(ring) / 2;
+    st->f4 = alloc_record__6TLobbyFiiii(channels, buffer, size, size + sj_ring_buffer_get_extra_buffer_size(ring) / 2);
+    if (st->f4 == 0) {
+        return NULL;
+    }
+    TLobby__sub_803C3B5C(st->f4, TLobby__sub_803C0628, st);
+    st->f8 = source;
+    st->f2 = channels;
+    for (i = 0; i < channels; i++) {
+        st->rings[i] = rings[i];
+    }
+    st->state = 0;
+    st->f98 = 0;
+    st->f2c = 0;
+    st->f30 = 0;
+    st->f34 = 0;
+    st->f38 = 0x7FFFFFFF;
+    st->f3c = -1;
+    st->f40 = 0;
+    st->f44 = 0;
+    st->f3 = 0;
+    st->f48 = 0;
+    st->f4c = 0;
+    st->f50 = 0;
+    st->f54 = 0;
+    st->f0 = 1;
+    return st;
+}
+
 void TLobby::clear_session_buffer() {
     memset((void *) (&(*(RecoveredGlobal_803C0AD8_lbl_80570AC0 *)&lbl_80570AC0).value), 0, 0x9C0);
 }

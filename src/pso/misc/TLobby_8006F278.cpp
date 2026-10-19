@@ -1,6 +1,8 @@
 #include "types.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSubStatusDisp_80071774.h"
+#include "pso/object/TObjResultWin.h"
 
 struct RecoveredGlobal_8006F5B0_lbl_8048C9D8 { s32 value; u8 remaining[0x744]; };
 typedef char RecoveredGlobal_8006F5B0_lbl_8048C9D8_size[sizeof(RecoveredGlobal_8006F5B0_lbl_8048C9D8) == 0x748 ? 1 : -1];
@@ -209,6 +211,56 @@ block_12:
     }
     *(s32 *)((s8 *)temp_r3_2 + temp_r30) = ((s32 (*)(void *))mix_seed_checked__6TLobbyFi)((void *)arg0);
     return 1;
+}
+extern s32 local_client_id;
+s32 mix_seed__6TLobbyFUs(u16);
+
+s32 TLobby__sub_8006F6B0(s32 clear_time) {
+    s32 next;
+    s32 result;
+    s32 total;
+    u8 *local_data;
+    u8 *client_data;
+    u8 *record_data;
+    u32 *flags;
+    s32 *best_time;
+    s32 ret;
+    ChallengeResultRecord rec;
+
+    result = -4;
+    TLobby__sub_8006F5B0(clear_time);
+    total = TWindowSubStatusDisp__sub_80071988(0xFFFF, -1);
+    if (total != 0) {
+        local_data = (u8 *)get_character_save_record(0xFFFF) + 0x21C4;
+        total -= TLobby::get_valid_slot(((s32 *)TWindowSubStatusDisp__sub_8006F0D8(local_data, -1))[challenge_mode_state.value]);
+        total += clear_time;
+        result = TLobby__sub_8006F38C(total);
+        next = result + 1;
+        flags = TWindowSubStatusDisp__sub_8006F134(local_data, -1);
+        if (((s32 (*)(u32))TLobby::get_slot_clamped)(flags[1]) < next) {
+            flags[1] = ((s32 (*)(s32))mix_seed__6TLobbyFUs)(next);
+        }
+    }
+    rec.summary.stage_index = challenge_mode_state.value;
+    rec.summary.reserved = 0;
+    rec.summary.total_time = total;
+    client_data = (u8 *)&challenge_mode_state + local_client_id * 0x104 + 0x274;
+    best_time = &((s32 *)TWindowSubStatusDisp__sub_8006F0D8(client_data, -1))[challenge_mode_state.value];
+    flags = TWindowSubStatusDisp__sub_8006F134(client_data, -1);
+    rec.previous.time = TLobby::get_valid_slot(*best_time);
+    ((TLobby *)rec.previous.award_name)->decode_obfuscated_string(client_data + 0xD8, 12);
+    rec.previous.rank = ((s32 (*)(u32))TLobby::get_slot_clamped)(flags[1]);
+    record_data = (u8 *)get_character_save_record(0xFFFF) + 0x21C4;
+    flags = TWindowSubStatusDisp__sub_8006F134(record_data, -1);
+    rec.current.time = clear_time;
+    ((TLobby *)rec.current.award_name)->decode_obfuscated_string(record_data + 0xD8, 12);
+    rec.current.rank = ((s32 (*)(u32))TLobby::get_slot_clamped)(flags[1]);
+    TObjResultWin::create(&rec);
+    ret = result;
+    if (total == 0) {
+        ret = -1;
+    }
+    return ret;
 }
 typedef char RecoveredGlobal_8006F848_lbl_804FF800_size[sizeof(RecoveredGlobal_8006F848_lbl_804FF800) == 0x20 ? 1 : -1];
 void TLobby::set_name_string() {

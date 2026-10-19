@@ -584,6 +584,14 @@ u8 *TLobby__sub_80425640(u32 size) {
     }
     return buf;
 }
+
+NetworkPacketBufferDescriptor *TLobby__sub_804256B8(u32 addr) {
+    NetworkPacketBufferDescriptor *e;
+    TLobby::lock_mutex((int)((void *)lbl_805D7BA8));
+    e = find_804253F8(addr);
+    TUdpSocket::unlock_mutex((int)((void *)lbl_805D7BA8));
+    return e;
+}
 #pragma pop
 
 u8 *TLobby::find_entry_by_address(s32 arg0) {

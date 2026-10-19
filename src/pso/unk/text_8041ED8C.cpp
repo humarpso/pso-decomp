@@ -102,6 +102,10 @@ struct Hdr_80420DE4 { u16 src; u16 dst; u16 len; u16 sum; };
 
 struct O_80420DE4 { u8 pad0[8]; s32 f8; u8 padC[0xC]; s16 f18; u8 pad1A[2]; u8 f1C[4]; };
 
+struct TcpSeqRange { u32 start; u32 end; };
+
+struct TcpSackView { u8 pad0[0xFA]; s16 last_reasm; TcpSeqRange reasm[32]; u8 pad1FC[0x2F8 - 0x1FC]; TcpSeqRange sack[5]; };
+
 struct E_80420C9C { u8 c0; u8 c1; u8 c2; u8 c3; s16 f4; u8 pad6[0x3E]; };
 struct G_80420C9C { s16 count; s16 f2; s16 f4; s16 f6; E_80420C9C *ents; };
 extern "C" {
@@ -109,6 +113,7 @@ void TLobby__sub_803F87C8(u8 *arg0);
 s32 TLobby__sub_803F87C4(void *);
 extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
 void TLobby__sub_8041FDA0(O_8041FDA0 *o, s16 idx, s32 a, s32 b);
+void TLobby__sub_8041FED4(TcpSackView *tcb);
 void NetMemcpy(void *_w0, void *_w1, int _w2);
 s32 TLobby__sub_80420BD0(void *arg0, S_80420BD0 *s, s32 arg2);
 void TLobby__sub_80422E30(s16, s32, s32, s16);
@@ -330,6 +335,39 @@ void TLobby::expire_timeout_entries() {
             o->items[4].b = 0;
         } else {
             i++;
+        }
+    }
+}
+
+void TLobby__sub_8041FED4(TcpSackView *tcb) {
+    u32 start;
+    u32 end;
+    s16 i;
+    s16 j;
+    s16 k;
+    if (tcb->last_reasm == -1) {
+        return;
+    }
+    start = tcb->reasm[tcb->last_reasm].start;
+    end = tcb->reasm[tcb->last_reasm].end;
+    for (i = 4; i > 0; i--) {
+        tcb->sack[i] = tcb->sack[i - 1];
+    }
+    tcb->sack[0].start = start;
+    tcb->sack[0].end = end;
+    for (i = 4; i > 0; i--) {
+        if (tcb->sack[i].start == tcb->sack[i].end) {
+            continue;
+        }
+        for (j = i - 1; j >= 0; j--) {
+            if ((s32)(tcb->sack[i].start - tcb->sack[j].start) >= 0 && (s32)(tcb->sack[i].end - tcb->sack[j].end) <= 0) {
+                for (k = i; k < 5; k++) {
+                    tcb->sack[k] = tcb->sack[k + 1];
+                }
+                tcb->sack[4].start = 0;
+                tcb->sack[4].end = 0;
+                break;
+            }
         }
     }
 }

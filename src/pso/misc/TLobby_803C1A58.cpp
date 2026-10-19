@@ -849,6 +849,44 @@ s32 TLobby::is_spsd_header() {
     }
     return 0;
 }
+void TLobby__sub_803C40D0(void *arg) {
+    Strm_803C1A8C *o = (Strm_803C1A8C *)arg;
+    u16 *src = (u16 *)o->src;
+    if (o->state == 1 && ((TLobby *)(o->id))->get_client_count() == 0) {
+        s16 *l;
+        s16 *r;
+        s32 i;
+        s32 n;
+        o->read(o->readArg, &o->pos, &o->avail, &o->x78);
+        n = o->bufLen - o->pos;
+        if (n > o->avail) {
+            n = o->avail;
+        }
+        if (n > o->maxLen) {
+            n = o->maxLen;
+        }
+        l = o->buf + o->pos;
+        if (o->channels == 2) {
+            r = o->buf + (o->rOff + o->pos);
+            for (i = 0; i < n; i++) {
+                l[i] = src[i * 2];
+                r[i] = src[i * 2 + 1];
+            }
+        } else {
+            for (i = 0; i < n; i++) {
+                l[i] = src[i];
+            }
+        }
+        o->n = n;
+        o->bytes = o->channels * (n * 2);
+        o->state = 2;
+    }
+    if (o->state == 2) {
+        o->done(o->doneArg, o->bytes, o->n);
+        o->state = 3;
+    }
+}
+
 struct Hdr_803C44C0;
 s32 TLobby__sub_803C43A8(void *arg0, void *hdr, void *arg2) {
     Hdl_803C43A8 *h = (Hdl_803C43A8 *)arg0;
