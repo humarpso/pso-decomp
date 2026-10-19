@@ -97,7 +97,7 @@ extern A16_8011E3E8 lbl_8043E844[];
 extern s32 tl_07;
 extern const f32 lbl_805DAC88;
 s32 is_locally_controlled__10TObjPlayerFPv(s32);
-void create__10TItemEffPGFPvPvPv(s32, Params_8011EAB8 *, s32);
+void create__10TItemEffPGFPvPvPv(void *arg0, void *parent, void *item);
 void create__10TItemEffPGFPvPv(s32, Params_8011EAB8 *);
 struct VBase_8011E2AC { char pad[0x18]; };
 
@@ -353,7 +353,7 @@ void set_status_flags__10TObjPlayerFUl(void *, u32);
 void query_extended_state__10TObjPlayerFv(void *);
 s32 set_action_type__10TObjPlayerFs(int, int);
 f32 get_attack_accuracy_scale(s16 *arg0);
-s32 TObjPlayer__sub_80121228(void *, s32);
+void TObjPlayer__sub_80121228(void *p, u32 v);
 f32 horizontal_distance_squared(void *, void *);
 Obj_8011F474 * resolve_hittable_target(s32, s32);
 s16 TObjPlayer__sub_801D2F4C(s16 *arg0);
@@ -576,7 +576,7 @@ void TUnk_804F1320::spawn_pg_effect(void *arg1, s32 item, f32 farg0) {
     if (is_locally_controlled__10TObjPlayerFPv(*(s32 *)(((u8 *)this) + 0xF0)) != 0) {
         create__10TItemEffPGFPvPv(tl_05, &prm);
     } else {
-        create__10TItemEffPGFPvPvPv(tl_05, &prm, item);
+        create__10TItemEffPGFPvPvPv((void *)tl_05, &prm, (void *)item);
     }
     ((TItemWeapon *)((u8 *)this))->restore_action_type();
 }

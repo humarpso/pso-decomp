@@ -25,7 +25,7 @@ struct Desc_8004BD58 { s16 f0; s16 f2; u8 pad4[0x3C]; };
 extern "C" {
 s32 query_teammate_state__9TObjEneDDFv();
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-s32 fn_802E52AC();
+void fn_802E52AC(void);
 extern RecoveredGlobal_8004C0D4_lbl_80484D74 darkfalz_dat_resource_descriptor;
 extern int darkfalz_dat_resource;
 void TBoss4Type2__sub_80056EA8(void *, s32);
@@ -46,7 +46,7 @@ u8 *__dt__14TBoss4DarkFalzFv(u8 *arg0, s16 arg1);
 void TBoss4DarkFalz__sub_8004B4F0(void *arg0p, void *arg1p);
 s32 initialize__9TObjEnemyFPv();
 u16 register_entity_by_id(void *ov);
-s32 init_music_sequencer(int);
+void init_music_sequencer(s32 program);
 void *fn_8030A83C(void *arg0);
 }
 s32 create_boss4_fade();

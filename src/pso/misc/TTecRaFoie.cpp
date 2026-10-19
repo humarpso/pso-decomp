@@ -304,7 +304,7 @@ struct Self_80239070 {
 };
 
 extern "C" {
-s32 approach_alpha_clamped(void *, void *, f32);
+s32 approach_alpha_clamped(f32 *cur, const f32 *target, f32 step);
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 extern RecoveredGlobal_80230D9C_lbl_804CC510 tech_high_level_linear_power_table;
@@ -426,7 +426,7 @@ void TUnk_804CCB28::run_task() {
     } else {
         approach_position_if_far(((u8 *)&this->m_34), (u8 *)&stack.sp18, (f32) ((0.15f)));
     }
-    approach_alpha_clamped(arg0 + 0x48, (void *)&stack.sp8, (f32) ((0.035f)));
+    approach_alpha_clamped((f32 *)(arg0 + 0x48), (const f32 *)&stack.sp8, (f32) ((0.035f)));
 }
 #pragma pop
 

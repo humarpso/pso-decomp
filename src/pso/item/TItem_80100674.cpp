@@ -177,7 +177,7 @@ struct TItemData
 extern "C" {
 u8 *lookup_inventory_item__10TObjPlayerFv(s32);
 void *pickup_item__10TObjPlayerFv(u8 *arg0, u8 *arg1);
-s32 get_player_by_client_id(void *);
+void *get_player_by_client_id(s32 i);
 s16 obj_getS16_32E(u8 *p);
 s16 obj_getS16_32C(u8 *p);
 int is_locally_controlled__10TObjPlayerFPv(void *);
@@ -242,7 +242,7 @@ void replace_item_with_new_code(void *arg0, u32 arg1);
 void give_item_to_client(s32 arg0, s32 arg1) {
     s32 player;
     u8 *temp_r3_2;
-    player = get_player_by_client_id((void *) (u16)arg0);
+    player = (s32)get_player_by_client_id((s32)((void *) (u16)arg0));
     if (player != 0) {
         temp_r3_2 = lookup_inventory_item__10TObjPlayerFv(arg1);
         if ((temp_r3_2 != NULL) && (pickup_item__10TObjPlayerFv((u8 *)player, (temp_r3_2)) == 0U)) {
@@ -264,7 +264,7 @@ s32 consume_item_by_id(s32 arg0) {
   {
     return 0;
   }
-  temp_r3_2 = get_player_by_client_id((void *)((u32) ((u16)get_id__13TItemProArmorFv(item))));
+  temp_r3_2 = (s32)get_player_by_client_id(((u32) ((u16)get_id__13TItemProArmorFv(item))));
   if (temp_r3_2 == 0)
   {
     return 0;

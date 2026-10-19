@@ -2435,7 +2435,7 @@ s32 clear_floor_event_flags();
 s32 is_room_enemy_set_cleared(int, int, void *);
 s32 unhide_enemies_at__6TLobbyFlll(s32, s32, s32, s32);
 void unhide_room_set_objects(s32 a, s16 b, s16 c, s32 d);
-s32 TCheckRoomSequence__sub_80210D44(Item_801EE0BC *, s32);
+s32 TCheckRoomSequence__sub_80210D44(u8 *item, s32 slot);
 s32 handle_main_phase__6TLobbyFl();
 void try_close__6TLobbyFPv(void *p);
 s32 play_sound_effect(int, int, int, int);
@@ -7478,7 +7478,7 @@ void TLobby::check_item_equippable_by_room(u8 arg0, u8 arg1) {
     item.data[3] = (*(s32 * *)&TLobby__script_reg_array)[(u8)arg0++];
     item.data[4] = (*(s32 * *)&TLobby__script_reg_array)[(u8)arg0++];
     item.data[5] = (*(s32 * *)&TLobby__script_reg_array)[(u8)arg0];
-    if (TCheckRoomSequence__sub_80210D44(&item, 0) != 0) {
+    if (TCheckRoomSequence__sub_80210D44((u8 *)&item, 0) != 0) {
         (*(s32 * *)&TLobby__script_reg_array)[arg1] = 1;
     } else {
         (*(s32 * *)&TLobby__script_reg_array)[arg1] = 0;
@@ -8506,7 +8506,7 @@ extern "C" {
 u8 *load_npc_player_template(s32 appearance);
 u8 *construct_player_instance__10TObjPlayerFlslPUc(void *self, s32 parent, s32 slot, s32 role, u8 *data);
 void set_arrival_override_coords(u16 slot, s32 heading, f32 x, f32 y, f32 z);
-void queue_player_injured_pose(TObjPlayer *player);
+void queue_player_injured_pose(s32 arg0);
 void set_player_quest_control_flag(TObjPlayer *player);
 void quest_construct_selected_scripted_player(u8 first);
 void qst_op_npc_crptalk(u8 first);
@@ -8539,7 +8539,7 @@ void quest_construct_selected_scripted_player(u8 first) {
         set_arrival_override_coords(slot, heading, pos[0], pos[1], pos[2]);
         player->reset_motion_fields();
         if (injured == 1) {
-            queue_player_injured_pose(player);
+            queue_player_injured_pose((s32)player);
             set_player_quest_control_flag(player);
         }
     }
@@ -8571,7 +8571,7 @@ void qst_op_npc_crptalk(u8 first) {
         set_arrival_override_coords(3, heading, pos[0], pos[1], pos[2]);
         player->reset_motion_fields();
         if (injured == 1) {
-            queue_player_injured_pose(player);
+            queue_player_injured_pose((s32)player);
             set_player_quest_control_flag(player);
         }
     }

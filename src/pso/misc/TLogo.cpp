@@ -38,7 +38,7 @@ extern V3_8013F6C4 lbl_8043F144;
 extern u8 default_scene_light_config[];
 s32 call_funcs_reverse__6TLobbyFPvUi(void *, int);
 s32 delete_all_task_children__9TMainTaskFv(void *);
-s32 TKeyBoardControl__sub_8000F9CC(int);
+void TKeyBoardControl__sub_8000F9CC(s32 arg0);
 u32 __ct__10TAdADXlogoFv(void *, void *);
 void queue_destruction__7TObjectFv(void *arg0);
 u32 __ct__11TAdSEGAlogoFv(void *, void *);
@@ -49,7 +49,7 @@ s32 check_progressive_ready__5TLogoFv();
 u32 TAdTrialModemChkGC__ct(void *, void *);
 s32 TKeyBoardControl__sub_8000F92C();
 s32 set_active_camera_pose(void *, void *);
-s32 activate_camera_mode(int);
+s32 activate_camera_mode(s32 arg0);
 s8 func_801A5E54__Fv();
 }
 int is_logo_exit_requested(int);
@@ -57,7 +57,7 @@ int is_sega_logo_done(int);
 void process_async_file_reads(void);
 void update_sound_request_slots(void);
 extern "C" {
-s32 func_803DCDFC__Fv();
+void func_803DCDFC__Fv(void);
 extern V3_8013F5E8 lbl_8043F150;
 extern V3_8013F5E8 lbl_8043F15C;
 void __ct__7TObjectFP7TObject(void *);

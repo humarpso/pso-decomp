@@ -156,7 +156,7 @@ extern const char lbl_8044A7F8[];
 void initialize_fmt1_materials__6TSceneFv(void *);
 void initialize_fmt2_materials__6TSceneFv();
 void TScene__sub_80205FD0(void);
-void TScene__sub_80205ECC(void *);
+void TScene__sub_80205ECC(void);
 
 extern s32 TScene__data_805D5FE8;
 SceneDispatchPrefix scene_format_dispatch_tables = {

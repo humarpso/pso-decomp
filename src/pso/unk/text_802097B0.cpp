@@ -35,7 +35,7 @@ struct Ent_802097B0 { s16 id; s16 count; s32 offset; };
 void init_event_shuffle_table(EventShuffleTable *table, s32 count);
 
 extern "C" {
-s32 next_event_shuffle_entry(s32);
+s32 next_event_shuffle_entry(EventShuffleTable *s);
 extern s32 lbl_805D60A4;
 extern Ent_802098AC *lbl_805D60B8;
 s16 clamp_min_drop__6TLobbyFUl(s32, s32);
@@ -78,7 +78,7 @@ void TLobby__sub_802097B0(s16 id) {
 
 void TLobby::pick_random_entry() {
     Out_802098AC *out = (Out_802098AC *)this;
-    s32 i = next_event_shuffle_entry(lbl_805D60A4);
+    s32 i = next_event_shuffle_entry((EventShuffleTable *)lbl_805D60A4);
     Ent_802098AC e = lbl_805D60B8[i];
     ((TLobby *)(&e))->swap_header_endian();
     out->a = e.a;

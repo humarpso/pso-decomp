@@ -12,7 +12,7 @@ struct RecoveredGlobal_80040D70_lbl_8043636C { s32 value; u8 remaining[0x9]; };
 extern "C" {
 void queue_destruction__7TObjectFv(void *arg0);
 void *get_player_by_client_id(s32 i);
-s32 init_music_sequencer(int);
+void init_music_sequencer(s32 program);
 extern s32 local_client_id;
 extern const f32 lbl_805D86F8;
 void TBoss3VoloptCtrl__sub_80040B80(s32 arg0);
@@ -21,7 +21,7 @@ s32 get_current_floor();
 s32 restore_player_cameras(void);
 s32 activate_camera_mode(s32);
 s32 unhide_room_set_objects(s32, s32, s32);
-s32 TBoss3Volopt__sub_8003EA2C(int);
+void TBoss3Volopt__sub_8003EA2C(s32 phase2);
 void TObjPlayer__sub_801BA42C(void);
 void play_area_music(char *name);
 u8 *__nw__7TObjectFUl(s32);

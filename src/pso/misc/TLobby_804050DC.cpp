@@ -1901,7 +1901,7 @@ struct Hdr_80408C24 { u8 dst[6]; u8 src[6]; u16 type; };
 
 s16 TLobby__sub_804098B4(void *);
 s32 TLobby__sub_80409908(void *, void *);
-u8 *TLobby__sub_8042558C(s32);
+u8 *TLobby__sub_8042558C(u32 size);
 struct Tbl_80408F2C;
 
 #pragma push

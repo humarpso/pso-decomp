@@ -29,7 +29,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(O_802DFFE8 *self);
 void TAdMultiPlyChrSelectGC__sub_802E0024(O_802E0024 *self, s32 v);
 extern s32 lbl_805D68C8;
 s32 TAdMultiPlyChrSelectGC__sub_802C658C();
-void * TAdMultiPlyChrSelectGC__sub_802C6920();
+int TAdMultiPlyChrSelectGC__sub_802C6920(void);
 s32 is_slot_active__23TAdSinglePlyChrSelectGCFUi();
 
 void TAdMultiPlyChrSelectGC::handle_event(s32 arg1) {
@@ -41,7 +41,7 @@ void TAdMultiPlyChrSelectGC::handle_event(s32 arg1) {
 
     switch (arg1) {
     case 10:
-        temp_r3 = TAdMultiPlyChrSelectGC__sub_802C6920();
+        temp_r3 = (void *)TAdMultiPlyChrSelectGC__sub_802C6920();
         TAdMultiPlyChrSelectGC::split_slot_index((s32)temp_r3, &sp14, &sp10);
         TAdMultiPlyChrSelectGC::init();
         ((TAdMultiPlyChrSelectGC *)(this->m_5c))->set_field_4ec(sp14);
@@ -52,7 +52,7 @@ void TAdMultiPlyChrSelectGC::handle_event(s32 arg1) {
         TAdMultiPlyChrSelectGC__sub_802C6920();
         TAdMultiPlyChrSelectGC__sub_802C658C();
         if (is_slot_active__23TAdSinglePlyChrSelectGCFUi() == 0) {
-            temp_r3 = TAdMultiPlyChrSelectGC__sub_802C6920();
+            temp_r3 = (void *)TAdMultiPlyChrSelectGC__sub_802C6920();
             TAdMultiPlyChrSelectGC::split_slot_index((s32)temp_r3, &spC, &sp8);
             TAdMultiPlyChrSelectGC::init();
             ((TAdMultiPlyChrSelectGC *)(this->m_5c))->set_field_4ec(spC);

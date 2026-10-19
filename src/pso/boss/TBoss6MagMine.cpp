@@ -101,7 +101,7 @@ void add_radar_scaled_marker(void *, int, int, int, f32);
 void vt2__13TBoss6MagMineFv(u8 *arg0);
 void vt1__13TBoss6MagMineFv(u8 *arg0);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
-void *get_player_data__10TObjPlayerFi(int);
+int get_player_data__10TObjPlayerFi(int a0);
 void play_sound_effect(int, Vec_80368C14 *, int, int);
 f32 vector_length(Vec_80368C14 *);
 void subtract_vector(Vec_80368C14 *, void *);
@@ -246,7 +246,7 @@ s32 is_player_in_range__13TBoss6MagMineFPv(void *arg0_) {
     void *p;
     n = TLobby::get_game_mode();
     for (i = 0; i < n; i++) {
-        p = get_player_data__10TObjPlayerFi(i);
+        p = (void *)get_player_data__10TObjPlayerFi(i);
         if (((TBoss6PlotFalz *)p)->is_active() != 0) {
             ((void (*)(Vec_80368C14 *, Vec_80368C14 *))VecCopy__FP3VecPC3Vec)(&d, &((P_80368CE4 *)p)->pos);
             subtract_vector(&d, &arg0->home);

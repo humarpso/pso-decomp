@@ -23,7 +23,7 @@ struct RecoveredFields_802CE510_temp_r3
 
 extern "C" {
 void *spawn_particle_effect(void *pos, s32 id);
-s32 fn_800D8830(void *, void *);
+void fn_800D8830(void *owner, void *pos);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 extern const f32 lbl_805DE6E8;
 extern const f32 lbl_805DE6EC;
@@ -50,7 +50,7 @@ void fn_802CE510(int arg0) {
     temp_r31 = ((RecoveredFields_802CE510_temp_r3 *) temp_r3)->field_0 & 4;
     if (temp_r31 != 0)
     {
-      fn_800D8830((void *) arg0, (void *)(arg0 + 0x38));
+      fn_800D8830((void *)arg0, (void *)(arg0 + 0x38));
     }
     else
     {

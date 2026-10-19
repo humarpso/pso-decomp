@@ -213,10 +213,10 @@ s32 is_ready__6TLobbyFPv(s32 *);
 void is_sound_enabled(void);
 s32 is_special_sound_id(u32 x);
 void set_sound_slot_special_scale(s32 slot, f32 scale);
-s32 alloc_looping_sound_slot(s32, s32, s32, s32, s32);
+s32 alloc_looping_sound_slot(u32 id, s32 actor, const void *position, s32 base, s32 flags);
 extern const f32 lbl_805DC768;
 s32 normalize_sound_request(u32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-s32 alloc_one_shot_sound_slot(s32, s32, s32, s32);
+s32 alloc_one_shot_sound_slot(u32 id, const void *position, s32 base, s32 flags);
 s32 play_packed_sound_once(u32 arg0, s32 arg1, s32 arg2, s32 arg3);
 int TLobby__sub_80227AF8(void* p);
 int release_sound_with_fade(void* p);
@@ -366,7 +366,7 @@ s32 normalize_sound_request(u32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     }
     m = arg0 & 0xBFFF00FF;
     if (((s32 (*)(void))is_sound_enabled)() == 1) {
-        h = alloc_looping_sound_slot(m, arg1, arg2, r, flags);
+        h = alloc_looping_sound_slot(m, arg1, (const void *)arg2, r, flags);
         if (is_special_sound_id(m) != 0) {
             set_sound_slot_special_scale(h, lbl_805DC768);
         }
@@ -410,7 +410,7 @@ s32 play_packed_sound_once(u32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     }
     m = arg0 & 0xBFFF00FF;
     if (((s32 (*)(void))is_sound_enabled)() == 1) {
-        h = alloc_one_shot_sound_slot(m, arg1, r, flags);
+        h = alloc_one_shot_sound_slot(m, (const void *)arg1, r, flags);
         if (is_special_sound_id(m) != 0) {
             set_sound_slot_special_scale(h, lbl_805DC768);
         }

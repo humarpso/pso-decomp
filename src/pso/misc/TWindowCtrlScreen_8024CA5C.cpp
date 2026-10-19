@@ -19,7 +19,7 @@ s32 is_window_display_enabled();
 }
 void draw_menu_backdrop_gradients(s32 viewport_index);
 extern "C" {
-s32 TWindowCtrlMain__sub_8024D2A4(int);
+void TWindowCtrlMain__sub_8024D2A4(s32 viewport_index);
 extern s32 TWindowCtrlMain__instance;
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
@@ -32,7 +32,7 @@ void TWindowCtrlScreen::render() {
         TObjPlayer::reset_transform_state();
         TParticleCtrl::begin_effect_render();
         ((TObject *)TWindowCtrlMain__instance)->render_nodes();
-        TWindowCtrlMain__sub_8024D2A4((int) ((s32) temp_r31));
+        TWindowCtrlMain__sub_8024D2A4(((s32) temp_r31));
         TCameraCtrl::restore_full_screen_view();
         draw_menu_backdrop_gradients(((s32) temp_r31));
         ((TObject *)(TWindowCtrlMain__sub_8024CDD0(((s32) temp_r31))))->render_nodes();

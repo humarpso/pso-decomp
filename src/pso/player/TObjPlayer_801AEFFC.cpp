@@ -14,7 +14,7 @@ s32 check_flag_800000__10TObjPlayerFPv(s32);
 void emit_idle_water_effect(s32 arg0);
 s32 has_water_ground_flag(s32);
 int test_flag_2000000__10TObjPlayerFPv(void*);
-int TObjPlayer__sub_801BEF60(void*, void*);
+void TObjPlayer__sub_801BEF60(void *p, s32 v);
 
 s32 TObjPlayer::get_card_window_field_244() {
     return *(s32 *)((s8 *)(get_character_save_record((u32) ((u16)obj_getField1c(this)))) + 0x244);
@@ -26,7 +26,7 @@ void TObjPlayer::init_local_pad_binding() {
     }
 }
 
-void TObjPlayer::stop_force_if_alive() { if (is_locally_controlled__10TObjPlayerFPv(this) != 0) { TObjPlayer__sub_801BEF60((char*)this + 0x550, (void*)0); } }
+void TObjPlayer::stop_force_if_alive() { if (is_locally_controlled__10TObjPlayerFPv(this) != 0) { TObjPlayer__sub_801BEF60((char*)this + 0x550, (s32)((void*)0)); } }
 void TObjPlayer::update_battle_control_if_unlocked() { if (test_flag_2000000__10TObjPlayerFPv(this) == 0) { ((TObjPlayer *)((char*)this + 0x384))->prepare_heavy_attack_particles_default(); } }
 
 void TObjPlayer::enemy_spawn_zalure_effect() {

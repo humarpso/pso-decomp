@@ -28,7 +28,7 @@ struct A_8028ECCC { u8 pad0[4]; s16 v[5]; s8 e; };
 struct B_8028ECCC { u8 pad0[0x30]; s8 e; u8 pad31[7]; s16 v[5]; };
 
 extern "C" {
-s32 TAdSinglePlyChrSelectGC__sub_8028F084(u32, void *);
+void TAdSinglePlyChrSelectGC__sub_8028F084(CreationTextureCacheEntry *entry, TCharaMaking *appearance);
 u32 find_free_slot__23TAdSinglePlyChrSelectGCFv();
 extern s32 creation_player_character;
 void copy_slot_data__23TAdSinglePlyChrSelectGCFPvPv(Dst_8028ED24 *d, Src_8028ED24 *s);
@@ -92,7 +92,7 @@ block_7:
                 }
                 h = find_free_slot__23TAdSinglePlyChrSelectGCFv();
             }
-            TAdSinglePlyChrSelectGC__sub_8028F084(h, &buf);
+            TAdSinglePlyChrSelectGC__sub_8028F084((CreationTextureCacheEntry *)h, (TCharaMaking *)&buf);
         }
     }
 }

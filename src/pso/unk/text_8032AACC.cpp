@@ -21,7 +21,7 @@ struct Arg_8032AC24 { f32 x, y; u8 pad[8]; };
 extern "C" {
 char *realloc_buffer__17TWindowSubComCardFv(void *);
 void mem_free(void *p);
-void fn_8025DE10(s32, Pos_8032AACC *);
+void fn_8025DE10(void *arg0, void *arg1);
 void TAdEnterSerialAccessGC__sub_802C4B64(void *, void *, void *, int);
 void __dt__19TAdPlyChrSelPlateGCFv(void *, int);
 void *__ct__19TAdPlyChrSelPlateGCFv(void *, s32, void *);
@@ -66,7 +66,7 @@ void draw_masked_password_field(s32 arg0) {
         Pos_8032AACC p2;
         p2.x = lbl_80477220[0] + (f32) (len * ((TAdEnterSerialAccessGC *)password_entry_keyboard_control)->get_field20_state());
         p2.y = lbl_80477220[1];
-        fn_8025DE10(arg0, &p2);
+        fn_8025DE10((void *)arg0, &p2);
         __dt__19TAdPlyChrSelPlateGCFv(&plate, -1);
     }
 }

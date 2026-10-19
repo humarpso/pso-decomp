@@ -104,7 +104,7 @@ extern s32 lbl_804D0618[];
 s32 clamp_list_scroll_offset(int, void *, void *);
 s32 get_cursor_pos__14TWindowSubItemFv();
 s32 init_entry__20TWindowSubStatusDispFScScUcUll(s32, u8, u8, int, s32, s32);
-s32 fn_80266BD0(s32, u8 *, u8 *, s16);
+void fn_80266BD0(s32 index, u8 *first, u8 *second, s32 player);
 void TWindowSubStatusDisp__sub_80258A28(u8 *arg0, s32 arg1, s32 arg2);
 void *get_player_by_client_id(s32 i);
 s8 clamp_char_at__10TObjPlayerFl(s32, s32);

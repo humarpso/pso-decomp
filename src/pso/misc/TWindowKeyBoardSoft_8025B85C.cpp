@@ -36,7 +36,7 @@ void TWindowKeyBoardSoft__sub_8025CFA8(void *, void *);
 s32 TWindowKeyBoardSoft__sub_803E67D4(void *, void *);
 s32 get_shared_text_buffer();
 s32 append_text__19TWindowKeyBoardSoftFPvPv(void *, s32);
-s32 *TWindowCtrl__sub_8024B7D4(s32);
+s32 TWindowCtrl__sub_8024B7D4(s32 n);
 s32 TWindowKeyBoardSoft__sub_8025DBDC(void *, s32);
 extern s32 lbl_805DD030;
 extern s32 lbl_805DD034;
@@ -501,7 +501,7 @@ void TWindowKeyBoardSoft__sub_8025C51C(u8 *window_key_board_soft, s32 arg1) {
         }
         ((TWindowKeyBoardSoft *)window_key_board_soft)->commit_composition_text();
     }
-    temp_r3 = TWindowCtrl__sub_8024B7D4(arg1);
+    temp_r3 = (s32 *)TWindowCtrl__sub_8024B7D4(arg1);
     if (temp_r3 != NULL) {
         text_builder_reset();
         temp_r3_2 = *(u32 *)((s8 *)window_key_board_soft + 0x70);

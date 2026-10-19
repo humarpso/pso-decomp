@@ -10,18 +10,18 @@
 extern "C" {
 
 int read_whole_file__8TGStreamFlPUc(void);
-u32 TLoadCtrl__sub_800F9F00();
-s32 TLobby__sub_800F8AD0();
-s32 TLobby__sub_800F8F34();
-s32 TLobby__sub_803382E4();
+s32 TLoadCtrl__sub_800F9F00(void);
+void TLobby__sub_800F8AD0(void);
+void TLobby__sub_800F8F34(void);
+void TLobby__sub_803382E4(void);
 s32 adxf_get_fsize_byte__6TLobbyFv();
 s32 adxf_open__6TLobbyFUii(s32, s32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-s32 restore_saved_depth_alpha_state();
-s32 fn_801E2C50();
+void restore_saved_depth_alpha_state(void);
+void fn_801E2C50(void);
 s8 func_801A5E54__Fv();
-s32 func_803DCDFC__Fv();
-s32 system_reset();
+void func_803DCDFC__Fv(void);
+void system_reset(void);
 
 s32 TLobby::get_file_size() {
     s32 temp_r31;

@@ -80,7 +80,7 @@ void *__dt__10TObjPlayerFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void TObjPlayer__sub_801BB85C(void *, void *);
+void TObjPlayer__sub_801BB85C(TObjPlayer *player, u8 *record);
 void sub_801BBC2C__10TObjPlayerFv(void *, void *);
 void init_battle__10TObjPlayerFv(void *, void *);
 void init_session_technique_caps__10TObjPlayerFPvPv(void *, void *);
@@ -198,7 +198,7 @@ void *__ct__10TObjPlayerFPvPvPv(TObjPlayer *arg0, void *arg1, void *arg2) {
     init_battle__10TObjPlayerFv(arg0, arg2);
     TObjPlayer__sub_801BBB70(arg0, arg2);
     arg0->init_class_flags((s32)arg2);
-    TObjPlayer__sub_801BB85C(arg0, arg2);
+    TObjPlayer__sub_801BB85C(arg0, (u8 *)arg2);
     arg0->hp = *(s16 *)((s8 *)arg2 + 0x22);
     return arg0;
 }

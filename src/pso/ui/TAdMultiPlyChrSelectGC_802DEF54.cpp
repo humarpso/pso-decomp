@@ -127,7 +127,7 @@ struct C_802DF114 {
 };
 typedef void (C_802DF114::*Pmf_802DF114)();
 void set_default_camera__21TAdMultiChgGameModeGCFv(void *);
-s32 TAdMultiPlyChrSelectGC__sub_802C6920();
+int TAdMultiPlyChrSelectGC__sub_802C6920(void);
 extern "C" void TAdMultiPlyChrSelectGC__sub_802DCCA4();
 extern "C" void update_idle_timer__22TAdMultiPlyChrSelectGCFv();
 extern "C" void reset_to_select__22TAdMultiPlyChrSelectGCFv();

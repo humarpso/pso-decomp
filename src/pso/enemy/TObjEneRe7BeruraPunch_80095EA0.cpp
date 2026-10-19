@@ -35,7 +35,7 @@ void *find_entity_by_id(u16 id);
 s32 TObjEneRe7Berura__sub_80094D98();
 extern const f32 lbl_805D97A4;
 extern const f32 lbl_805D97A8;
-s32 TObjEneRe7Berura__sub_80094C68(u8 *);
+void TObjEneRe7Berura__sub_80094C68(TObjEneRe7Berura *self);
 s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *, void *, f32, f32);
 extern Pair_80096150 lbl_80439F28[];
 extern const f32 lbl_805D97AC;
@@ -174,7 +174,7 @@ s32 TObjEneRe7BeruraPunch::sub_80096150() {
     }
     this->call_vt16_with_default((void *)&p, (void *)(*(s32 *)&this->_padD8));
     if (entity != 0) {
-        TObjEneRe7Berura__sub_80094C68(entity);
+        TObjEneRe7Berura__sub_80094C68((TObjEneRe7Berura *)entity);
     }
     return 0;
 }

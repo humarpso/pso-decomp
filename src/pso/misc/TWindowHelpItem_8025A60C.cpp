@@ -26,7 +26,7 @@ s32 sub_80256BDC__13TUnk_804CF930Fs(void *, void *);
 u8 *TWindowHelpItem__sub_8025A95C(u8 *arg0, s32 arg1, s32 arg2);
 s32 try_open__19TWindowKeyBoardSoftFii(void *, void *);
 void begin_screen_draw(s32 arg0);
-void draw_textured_quad_at_depth(void *, f32);
+void draw_textured_quad_at_depth(f32 *q, f32 depth);
 void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern s32 lbl_805D63F0;
 void render_item_rarity_stars(Item_8025A650 *item, Ctx_8025A650 *ctx);
@@ -89,7 +89,7 @@ void render_item_rarity_stars(Item_8025A650 *item, Ctx_8025A650 *ctx) {
         q.u1 = (16.0f + uv->u) / 256.0f;
         q.v1 = (16.0f + uv->v) / 256.0f;
         if (try_open__19TWindowKeyBoardSoftFii(ctx, &q) != 0) {
-            draw_textured_quad_at_depth(&q, depth);
+            draw_textured_quad_at_depth((f32 *)&q, depth);
         }
         x += 17.0f;
     }
@@ -111,7 +111,7 @@ void render_item_rarity_stars(Item_8025A650 *item, Ctx_8025A650 *ctx) {
         q.u1 = (16.0f + uv->u) / 256.0f;
         q.v1 = (16.0f + uv->v) / 256.0f;
         if (try_open__19TWindowKeyBoardSoftFii(ctx, &q) != 0) {
-            draw_textured_quad_at_depth(&q, depth2);
+            draw_textured_quad_at_depth((f32 *)&q, depth2);
         }
         x += 17.0f;
     }

@@ -37,9 +37,9 @@ struct Ent_8011A43C { void (*fn)(); s32 arg; };
 
 extern "C" {
 s32 TKeyBoardControl__sub_8000F92C();
-s32 TKeyBoardControl__sub_8000F9CC(int);
+void TKeyBoardControl__sub_8000F9CC(s32 arg0);
 s8 func_801A5E54__Fv();
-s32 render_screen_overlay__9TMainTaskFv(void *);
+void render_screen_overlay__9TMainTaskFv(void *object);
 s32 some_empty_func__9TMainTaskFv(void *);
 s32 render__9TMainTaskFv(void *);
 s32 run_task__9TMainTaskFv(void *);
@@ -146,7 +146,7 @@ void TItemReverseTech::run_frame() {
     render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8011A350_main_task *)&main_task).value));
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8011A350_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8011A350_main_task *)&main_task).value);
-    render_screen_overlay__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8011A350_main_task *)&main_task).value));
+    render_screen_overlay__9TMainTaskFv((&(*(RecoveredGlobal_8011A350_main_task *)&main_task).value));
     process_async_file_reads();
     update_sound_request_slots();
     TAdSinglePlyChrSelectGC::noop();

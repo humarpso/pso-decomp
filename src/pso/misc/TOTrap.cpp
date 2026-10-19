@@ -26,7 +26,7 @@ struct Obj_80178E10 { u8 pad0[0x2A8]; u8 *target; u8 pad1[0x7A]; s16 state; u8 p
 extern "C" {
 s32 is_locally_controlled__10TObjPlayerFPv(int);
 s32 obj_getField1c(u32);
-s32 get_player_by_client_id(u32);
+void *get_player_by_client_id(s32 i);
 extern const f32 TOTrap__data_805DBA3C;
 s32 submit_cursor_candidate(void *, s32);
 extern u32 trap_scale_factor_table[];
@@ -91,7 +91,7 @@ void TOTrap::vfunc_82() {
         if (p != 0U) {
             u32 v = (u16) obj_getField1c(p);
             if (v < 0x1000U) {
-                temp_r31 = get_player_by_client_id(v);
+                temp_r31 = (s32)get_player_by_client_id(v);
                 if ((is_locally_controlled__10TObjPlayerFPv(temp_r31) != 0) && (((TLobby *)temp_r31)->check_player_flag1() != 0)) {
                     TObjPlayer::send_code_45_1(temp_r31);
                 }
@@ -181,7 +181,7 @@ f32 TOTrap::receive_physical_attack(void *arg1, f32) {
       temp_r3 = obj_getField1c((u32)((void *) arg1));
       if (temp_r3 < 0x1000U)
       {
-        temp_r3_2 = get_player_by_client_id((u32)((int) ((s32) temp_r3)));
+        temp_r3_2 = (s32)get_player_by_client_id(((int) ((s32) temp_r3)));
         if (((temp_r3_2 != 0) && (is_locally_controlled__10TObjPlayerFPv((int)((int) temp_r3_2)) != 0)) && (((TLobby *)((long long) temp_r3_2))->check_player_flag1() != 0))
         {
           TObjPlayer::send_code_45_1((s32)((int) temp_r3_2));

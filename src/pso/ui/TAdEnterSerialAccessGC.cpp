@@ -201,7 +201,7 @@ extern const f32 lbl_805DF4FC;
 extern const f32 lbl_805DF500;
 extern const f32 lbl_805DF504;
 s32 render_status_line__15TAdSubPlyItemGCFi(void *, int, f32, f32, f32);
-void fn_8025DE10(s32, Pos_80321358 *);
+void fn_8025DE10(void *arg0, void *arg1);
 extern f32 serial_char_row_x_table[][13];
 extern const f32 TAdEnterSerialAccessGC__data_805DF4DC;
 extern char lbl_805DF4E0[4];
@@ -265,7 +265,7 @@ void TAdEnterSerialAccessGC::draw_serial_chars(s32 arg0) {
         }
         pos.x = row[((TAdEnterSerialAccessGC *)TAdEnterSerialAccessGC__keyboard_control)->get_field20_state()];
         pos.y = lbl_805DF4E4;
-        fn_8025DE10(arg0, &pos);
+        fn_8025DE10((void *)arg0, &pos);
     }
 }
 

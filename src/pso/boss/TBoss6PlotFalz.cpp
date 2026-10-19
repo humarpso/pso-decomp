@@ -1323,7 +1323,7 @@ struct Boss_802AC7E4 { u8 pad[0x37C]; u8 mode; };
 extern "C" {
 s32 query_teammate_state__9TObjEneDDFv();
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-s32 fn_802E52AC();
+void fn_802E52AC(void);
 void TItemEffOrgaFlowShot__sub_80357210(void);
 void TLobby__sub_8036DDE8(void);
 extern int obj_fish_count;

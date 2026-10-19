@@ -53,7 +53,7 @@ struct Pl_800C7168 {
 };
 
 extern "C" {
-u8 *get_player_data__10TObjPlayerFi(int);
+int get_player_data__10TObjPlayerFi(int a0);
 s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, int);
 u8 *find_active_entity_by_id(int);
 f32 xz_distance_squared(void *, void *);
@@ -109,7 +109,7 @@ u16 TObjPlayer::pick_random_nearby_player(f32 radius) {
         n = lbl_805D586C;
     }
     for (i = 0; i < n; i++) {
-        p = get_player_data__10TObjPlayerFi(i);
+        p = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (p == arg0) {
             continue;
         }

@@ -40,7 +40,7 @@ u8 *__dt__9TLoadCtrlFv(u8 *arg0, s16 arg1);
 bool TLoadCtrl__sub_8001C60C(void);
 void TNowLoading__sub_8001D4D4(void);
 u8 *TCameraCtrl__ct(u8 *arg0, void *parent);
-s32 TLoadCtrl__sub_80226DA0(int);
+void TLoadCtrl__sub_80226DA0(s32 index);
 s32 select_area_entrance(void *);
 void TAdLoadQuestGC__sub_80309850(void);
 void fn_8034AD2C(void);

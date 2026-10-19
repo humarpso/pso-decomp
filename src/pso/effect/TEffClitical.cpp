@@ -48,7 +48,7 @@ extern "C" {
 f32 approach_vector_fixed_distance(void *, void *, void *, f32);
 f32 vector_length(void *);
 s32 approach_vector_in_place(void *, void *, f32);
-s32 approach_alpha_clamped(void *, void *, f32);
+s32 approach_alpha_clamped(f32 *cur, const f32 *target, f32 step);
 extern RecoveredGlobal_800823E0_lbl_80438EB8 clitical_vec_a;
 extern RecoveredGlobal_800823E0_lbl_80438EC8 clitical_vec_b;
 extern const f32 TEffClitical__alpha_approach_step;
@@ -153,7 +153,7 @@ void TEffClitical::run_task() {
         *(s32 *)((s8 *)arg0 + 0x74) = 1;
         break;
     }
-    if (approach_alpha_clamped((u8 *)&this->field_2c, (void *)&stack.sp20, TEffClitical__alpha_approach_step) != 0) {
+    if (approach_alpha_clamped((f32 *)&this->field_2c, (const f32 *)&stack.sp20, TEffClitical__alpha_approach_step) != 0) {
         queue_destruction__7TObjectFv((arg0));
         return;
     }

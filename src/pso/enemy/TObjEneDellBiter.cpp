@@ -740,7 +740,7 @@ s32 is_player_entity_id();
 s32 pack_debug_text_position(s32, s32);
 void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 s32 attack_target_history_add(s32, void *);
-s32 fn_800D8830(void *, void *);
+void fn_800D8830(void *owner, void *pos);
 s32 TObjEneGibbles__sub_800D8988(s32);
 void TItemObject__ct(void *);
 void *__dt__11TItemObjectFv(void *arg0, s16 arg1);

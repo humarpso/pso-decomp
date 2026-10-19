@@ -34,7 +34,7 @@ struct Pkt_801D5FC0 { u16 hdr; u16 id; };
 
 extern "C" {
 s32 get_current_floor();
-s32 get_player_by_client_id(int);
+void *get_player_by_client_id(s32 i);
 int TFontSmallLobby__sub_801C01BC(void *p);
 s32 send_photon_blast_ready__15TFontSmallLobbyFv(void *);
 s32 handle_photon_blast_ready__15TFontSmallLobbyFv(void *, void *);
@@ -69,7 +69,7 @@ void handle_6x3B_clear_temporary_photon_blast_state_flags(s32 arg0) {
     TFontSmallLobby__sub_801D6804(&sp8, (void *)arg0);
     TFontSmallLobby__sub_801C01BC((&sp8));
     if (validate_6x3B_clear_temporary_photon_blast_state_flags(&sp8) != 0) {
-        temp_r3 = get_player_by_client_id(sp8.b);
+        temp_r3 = (s32)get_player_by_client_id(sp8.b);
         if (temp_r3 != 0) {
             ((TObjPlayer *)(temp_r3 + 0x4AC))->clear_photon_blast_state();
             if (is_locally_controlled__10TObjPlayerFPv(temp_r3) != 0) {
@@ -104,7 +104,7 @@ void handle_6x3A_clear_photon_blast_ready_flag(s32 arg0) {
 
 void send_6x3A_clear_photon_blast_ready_flag(u16 *arg0) {
     struct Pkt_801D5FC0 pkt;
-    if (((u8 *)get_player_by_client_id((int)(*arg0))) == NULL || obj_isState2_324__13TUnk_804806E8Fv() == 0) {
+    if (((u8 *)get_player_by_client_id((*arg0))) == NULL || obj_isState2_324__13TUnk_804806E8Fv() == 0) {
         ((TFontSmallLobby *)(&pkt))->init_6x3A_packet();
         pkt.id = *arg0;
         ((TFontSmallLobby *)(&pkt))->draw_and_send();
@@ -120,7 +120,7 @@ void handle_6x39_set_photon_blast_ready_flag(s32 arg0) {
     handle_photon_blast_ready__15TFontSmallLobbyFv(&sp8, (void *)arg0);
     TFontSmallLobby__sub_801C01BC((&sp8));
     if (validate_6x39_set_photon_blast_ready_flag(&sp8) != 0) {
-        player = get_player_by_client_id(sp8.b);
+        player = (s32)get_player_by_client_id(sp8.b);
         if ((player != 0) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
             temp_r31 = ((TObjPlayer *)player)->get_field_3e4();
             v = get_current_floor();
@@ -169,7 +169,7 @@ void handle_6x38_donate_to_photon_blast(s32 arg0) {
     ((TFontSmallLobby *)(&cmd))->copy_packet_header_6x38((void *)arg0);
     ((TFontSmallLobby *)(&cmd))->bswap_fields();
     if (validate_6x38_donate_to_photon_blast(&cmd) != 0) {
-        player = get_player_by_client_id(cmd.client);
+        player = (s32)get_player_by_client_id(cmd.client);
         if ((player != 0) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
             if (get_current_floor() == ((TObjPlayer *)player)->get_field_3e4()) {
                 TObjPlayer::create_photon_blast_party_effects(cmd.client);

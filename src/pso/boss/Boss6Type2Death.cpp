@@ -79,10 +79,10 @@ void subtract_vector(void *, void *);
 void normalize_vector(void *);
 #define __vt__23TBoss6Demo21_TYPE2_DEAD ((u8 *)__vt__23TBoss6Demo21_TYPE2_DEAD)
 s32 play_sound_effect(int, void *, int, int);
-s32 play_persistent_sound(int, void *, void *, int, int);
-Pl_8033E0F0 *get_player_data__10TObjPlayerFi(s32);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
+int get_player_data__10TObjPlayerFi(int a0);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
-s32 is_state_1f__14TBoss6PlotFalzFUi(void *);
+s32 is_state_1f__14TBoss6PlotFalzFUi(u32 arg0);
 void run_task__23TBoss6Demo21_TYPE2_DEADFv(Fish_8033E0F0 *arg0);
 
 }
@@ -252,10 +252,10 @@ void run_task__23TBoss6Demo21_TYPE2_DEADFv(Fish_8033E0F0 *arg0) {
         break;
     }
     if (arg0->timer >= 0x12C && arg0->timer <= 0x1AC) {
-        play_persistent_sound(0x4003352E, arg0, 0, 0, 0);
+        play_persistent_sound(0x4003352E, (s32)arg0, 0, 0, 0);
     }
     if (arg0->timer >= 0x1D7 && arg0->timer <= 0x23A) {
-        play_persistent_sound(0x32D2F, arg0, 0, 0, 0);
+        play_persistent_sound(0x32D2F, (s32)arg0, 0, 0, 0);
     }
     switch (arg0->timer) {
     case 0xAE:
@@ -324,8 +324,8 @@ void run_task__23TBoss6Demo21_TYPE2_DEADFv(Fish_8033E0F0 *arg0) {
         VecCopy((Vec *)&c, (const Vec *)&arg0->pos);
         vec3_add_to(&c, lbl_804780B8);
         for (i = 0; i < n; i++) {
-            Pl_8033E0F0 *p = get_player_data__10TObjPlayerFi(i);
-            if (is_locally_controlled__10TObjPlayerFPv(p) != 0 && is_state_1f__14TBoss6PlotFalzFUi(p) != 0) {
+            Pl_8033E0F0 *p = (Pl_8033E0F0 *)get_player_data__10TObjPlayerFi(i);
+            if (is_locally_controlled__10TObjPlayerFPv(p) != 0 && is_state_1f__14TBoss6PlotFalzFUi((u32)p) != 0) {
                 Vec_8033E0F0 d;
                 VecCopy((Vec *)&d, (const Vec *)&p->pos);
                 subtract_vector(&d, &c);

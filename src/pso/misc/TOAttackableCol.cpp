@@ -56,7 +56,7 @@ u8 is_current_floor_switch_set(int);
 volatile int is_locally_controlled__10TObjPlayerFPv(void *);
 u16 obj_getField1c(void *);
 void *spawn_particle_effect(void *pos, s32 id);
-u32 __ct__12TQuestThreadFv(int, void *, int);
+u8 *__ct__12TQuestThreadFv(u8 *arg0, s32 arg1, s32 arg2);
 extern u32 quest_mission_manager;
 extern u32 quest_area_manager;
 extern s32 tl_00;
@@ -260,7 +260,7 @@ f32 TOAttackableCol::apply_hit(s32 arg1) {
           var_r0 = temp_r3;
           if (var_r0 != 0U)
           {
-            var_r0 = __ct__12TQuestThreadFv((int) temp_r3, (void *) quest_mission_manager, this->m_344);
+            var_r0 = (u32)__ct__12TQuestThreadFv((u8 *)temp_r3, quest_mission_manager, this->m_344);
           }
           if (var_r0 != 0U)
           {
@@ -274,7 +274,7 @@ f32 TOAttackableCol::apply_hit(s32 arg1) {
           var_r0_2 = temp_r3_2;
           if (var_r0_2 != 0U)
           {
-            var_r0_2 = __ct__12TQuestThreadFv((int) temp_r3_2, (void *) quest_area_manager, this->m_344);
+            var_r0_2 = (u32)__ct__12TQuestThreadFv((u8 *)temp_r3_2, quest_area_manager, this->m_344);
           }
           if (var_r0_2 != 0U)
           {
