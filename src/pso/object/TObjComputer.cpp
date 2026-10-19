@@ -255,7 +255,7 @@ void load_computer_resources(void) {
 }
 
 TObjComputer::~TObjComputer() {
-    ((TUnk_804AF8A0 *)this)->unregister_object_by_id();
+    this->unregister_object_by_id();
     free_collision_body_parts(this);
 }
 

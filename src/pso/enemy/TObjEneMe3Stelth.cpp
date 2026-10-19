@@ -1925,7 +1925,7 @@ void TObjEneMe3Stelth::update_state_resta_cast(s32 arg1) {
     case 4:
         *(s16 *)((s8 *)((u8 *)this) + 0xB8) = 8;
         set_field_378__9TObjEneDDFl(this, 0xB);
-        ((TObjEneDD *)(this))->vfunc_96();
+        this->vfunc_96();
         *(s32 *)((s8 *)((u8 *)this) + 0x3CC) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3CC) & 0xFFFFFFF9);
         *(s32 *)((s8 *)((u8 *)this) + 0x3CC) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3CC) | 1);
         *(s32 *)((s8 *)((u8 *)this) + 0x424) = 0;
@@ -1965,7 +1965,7 @@ void TObjEneMe3Stelth::update_state_resta_cast(s32 arg1) {
             }
             break;
         }
-        ((TObjEneDD *)(this))->vfunc_102();
+        this->vfunc_102();
         break;
     }
 }
@@ -2257,7 +2257,7 @@ void TObjEneMe3Stelth::state_chase_target(s32 arg1) {
     case 4:
         *(s16 *)((s8 *)((u8 *)this) + 0xB8) = 0xA;
         set_field_378__9TObjEneDDFl(this, 6);
-        ((TObjEneDD *)(this))->vfunc_96();
+        this->vfunc_96();
         *(s32 *)((s8 *)((u8 *)this) + 0x3CC) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3CC) & 0xFFFFFFF8);
         *(f32 *)((s8 *)((u8 *)this) + 0x3AC) = (f32) lbl_805DA878;
         *(f32 *)((s8 *)((u8 *)this) + 0x430) = (f32) *TObjEneMe3Stelth__behavior_params_by_variant[*(s32 *)((s8 *)((u8 *)this) + 0x3C8)];
@@ -2265,7 +2265,7 @@ void TObjEneMe3Stelth::state_chase_target(s32 arg1) {
         return;
     case 3:
         if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x390) == 0U) {
-            ((TObjEneMe3Stelth *)(this))->vfunc_111();
+            this->vfunc_111();
             transition_enemy_state__9TObjEneDDFs(this, 0xD);
             return;
         }
@@ -2287,11 +2287,11 @@ void TObjEneMe3Stelth::state_chase_target(s32 arg1) {
             *(f32 *)((s8 *)((u8 *)this) + 0x434) = (f32) ((*(f32 *)((s8 *)((u8 *)this) + 0x3A0) * sin_table_lookup((int) (*(s32 *)((s8 *)((u8 *)this) + 0x60)))) + (*(f32 *)((s8 *)((u8 *)this) + 0x3A8) * cos_table_lookup((int) (*(s32 *)((s8 *)((u8 *)this) + 0x60)))));
             if (*(f32 *)((s8 *)((u8 *)this) + 0x434) < cos_table_lookup(0x1000)) {
                 ((TObjEneEpsilon *)((u8 *)this))->update_angle(0x500);
-                ((TObjEneDD *)(this))->vfunc_102();
+                this->vfunc_102();
             } else {
                 enemy_turn_and_move_on_ground((((u8 *)this)), 0x500, (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x430)));
             }
-            ((TObjEneDD *)(this))->vfunc_89();
+            this->vfunc_89();
         }
         break;
     }
@@ -2310,7 +2310,7 @@ void TObjEneMe3Stelth::update_state_drop(s32 arg1) {
     case 4:
         *(s16 *)((s8 *)((u8 *)this) + 0xB8) = 1;
         set_field_378__9TObjEneDDFl(this, 0xD);
-        ((TObjEneMe3Stelth *)(this))->vfunc_96();
+        this->vfunc_96();
         *(s32 *)((s8 *)((u8 *)this) + 0x3CC) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3CC) & 0xFFFFFFF9);
         *(s32 *)((s8 *)((u8 *)this) + 0x3CC) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3CC) | 1);
         *(s32 *)((s8 *)((u8 *)this) + 0x424) = 0;
@@ -2364,9 +2364,9 @@ void TObjEneMe3Stelth::update_state_drop(s32 arg1) {
             advance_animation_playback(this);
             break;
         }
-        ((TObjEneMe3Stelth *)(this))->vfunc_102();
+        this->vfunc_102();
         this->update_distance_state();
-        ((TObjEneMe3Stelth *)(this))->vfunc_89();
+        this->vfunc_89();
         *(f32 *)((s8 *)((u8 *)this) + 0x3D4) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x3D0) - *(f32 *)((s8 *)((u8 *)this) + 0x3C));
         break;
     case 5:
@@ -2384,7 +2384,7 @@ void TObjEneMe3Stelth::update_state_fade_in(s32 arg1) {
     case 4:
         *(s16 *)((s8 *)((u8 *)this) + 0xB8) = 0;
         set_field_378__9TObjEneDDFl(this, 5);
-        ((TObjEneDD *)(this))->vfunc_95();
+        this->vfunc_95();
         *(s32 *)((s8 *)((u8 *)this) + 0x3CC) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3CC) & 0xFFFFFFF8);
         *(s32 *)((s8 *)((u8 *)this) + 0x424) = 0;
         *(s32 *)((s8 *)((u8 *)this) + 0x428) = 0;
@@ -2416,9 +2416,9 @@ void TObjEneMe3Stelth::update_state_fade_in(s32 arg1) {
                 *(s32 *)((s8 *)((u8 *)this) + 0x3E8) = 0;
             }
         }
-        ((TObjEneDD *)(this))->vfunc_102();
+        this->vfunc_102();
         this->update_distance_state();
-        ((TObjEneDD *)(this))->vfunc_89();
+        this->vfunc_89();
         *(f32 *)((s8 *)((u8 *)this) + 0x3D4) = *(f32 *)((s8 *)((u8 *)this) + 0x3D0) - *(f32 *)((s8 *)((u8 *)this) + 0x3C);
         break;
     case 5:
@@ -2466,7 +2466,7 @@ void TObjEneMe3Stelth::state_chase(s32 arg1) {
     case 4:
         this->m_b8 = 9;
         set_field_378__9TObjEneDDFl(this, 0xD);
-        ((TObjEneDD *)(this))->vfunc_96();
+        this->vfunc_96();
         *(s32 *)((s8 *)((u8 *)this) + 0x3CC) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3CC) & 0xFFFFFFF8);
         *(s32 *)((s8 *)((u8 *)this) + 0x424) = 0;
         *(s32 *)((s8 *)((u8 *)this) + 0x428) = 0;

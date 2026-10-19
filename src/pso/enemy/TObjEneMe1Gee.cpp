@@ -3795,7 +3795,7 @@ void TObjEneMe1Gee::init_state() {
     s32 var_r30;
     u8 *temp_r4;
     this->init_position_vectors();
-    ((TObjEneMe1Gee *)(this))->vfunc_106();
+    this->vfunc_106();
     init_model__9TObjEneDDFv(this, (void *) lbl_8049379C, 1);
     this->set_field_d8((s32)((void *) TObjEneMe1Gee__motion_parameters));
     this->set_field_dc((int) (*(s32 *)((s8 *)(*(u8 * *)&(*(int *)&TObjEneMe1Gee__resource_bundle)) + 0x430)));

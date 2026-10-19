@@ -1153,7 +1153,7 @@ void TObjEneEpsilonGuard::handle_warp_state(s32 arg1) {
     switch (arg1) {
     case 4:
         set_field_378__9TObjEneDDFl(this, 4);
-        ((TObjEneDD *)(this))->vfunc_96();
+        this->vfunc_96();
         g->flags |= 0x242;
         g->flags &= ~1;
         ((void (*)(void *))set_guard_state__18TObjEneEpsilonBodyFl)(this);
@@ -1210,7 +1210,7 @@ void TObjEneEpsilonGuard::handle_warp_state(s32 arg1) {
             }
             break;
         }
-        ((TObjEneDD *)(this))->vfunc_89();
+        this->vfunc_89();
         break;
     case 5:
         if (g->emitter != 0) {

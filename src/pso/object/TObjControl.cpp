@@ -1149,21 +1149,21 @@ s32 TObjEnemy::bind_enemy_combat_stats(u8 *arg1, u8 *arg2, u8 *arg3) {
     u8 *temp_r6;
 
     if (arg1 != NULL) {
-        ((TObjEnemy *)((u8 *)this))->m_2b0 = arg1;
-        temp_r6 = (u8 *)(((TObjEnemy *)((u8 *)this))->m_2b0);
-        ((TObjEnemy *)((u8 *)this))->hpmax = (s16) (*(s16 *)((s8 *)temp_r6 + 6) + *(s32 *)((s8 *)temp_r6 + 0x18));
-        ((TObjEnemy *)((u8 *)this))->hp = (s16) ((TObjEnemy *)((u8 *)this))->hpmax;
-        if (obj_testFlag_2E4__13TUnk_804806E8FUl(((u8 *)this), 4U) != 0) {
-            ((TObjEnemy *)((u8 *)this))->m_2ba = 0;
-            ((TObjEnemy *)((u8 *)this))->m_32e = 0;
+        this->m_2b0 = arg1;
+        temp_r6 = (u8 *)(this->m_2b0);
+        this->hpmax = (s16) (*(s16 *)((s8 *)temp_r6 + 6) + *(s32 *)((s8 *)temp_r6 + 0x18));
+        this->hp = (s16) this->hpmax;
+        if (obj_testFlag_2E4__13TUnk_804806E8FUl(this, 4U) != 0) {
+            this->m_2ba = 0;
+            this->m_32e = 0;
         } else {
-            temp_r4 = (u8 *)(((TObjEnemy *)((u8 *)this))->m_2b0);
-            ((TObjEnemy *)((u8 *)this))->m_2ba = (s16) (*(s16 *)((s8 *)temp_r4 + 2) + *(s32 *)((s8 *)temp_r4 + 0x18));
-            ((TObjEnemy *)((u8 *)this))->m_32e = (s16) ((TObjEnemy *)((u8 *)this))->m_2ba;
+            temp_r4 = (u8 *)(this->m_2b0);
+            this->m_2ba = (s16) (*(s16 *)((s8 *)temp_r4 + 2) + *(s32 *)((s8 *)temp_r4 + 0x18));
+            this->m_32e = (s16) this->m_2ba;
         }
         goto block_6;
     }
-    if ((void *) ((TObjEnemy *)((u8 *)this))->m_2b0 == NULL) {
+    if ((void *) this->m_2b0 == NULL) {
         return 0;
     }
 block_6:
@@ -1183,28 +1183,28 @@ block_10:
         return 0;
     }
 block_14:
-    temp_r0 = *(s16 *)((s8 *)(((TObjEnemy *)((u8 *)this))->m_2b0) + 0);
-    ((TObjEnemy *)((u8 *)this))->m_2c8 = temp_r0;
-    ((TObjEnemy *)((u8 *)this))->m_2c0 = temp_r0;
+    temp_r0 = *(s16 *)((s8 *)(this->m_2b0) + 0);
+    this->m_2c8 = temp_r0;
+    this->m_2c0 = temp_r0;
     attack_params_atp_max = get_attack_params_atp_max(*(u8 **)((s8 *)((u8 *)this) + 0x318));
     temp_r0_2 = attack_params_atp_max - get_attack_params_atp_min(*(u8 **)((s8 *)((u8 *)this) + 0x318));
     *(s16 *)((s8 *)((u8 *)this) + 0x2CA) = temp_r0_2;
     *(s16 *)((s8 *)((u8 *)this) + 0x2C2) = temp_r0_2;
-    temp_r0_3 = *(s16 *)((s8 *)(((TObjEnemy *)((u8 *)this))->m_2b0) + 4) + *(s16 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x31C)) + 0);
-    ((TObjEnemy *)((u8 *)this))->m_2cc = temp_r0_3;
-    ((TObjEnemy *)((u8 *)this))->m_2c4 = temp_r0_3;
-    temp_r0_4 = *(s16 *)((s8 *)(((TObjEnemy *)((u8 *)this))->m_2b0) + 8) + *(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x31C)) + 0x1C);
+    temp_r0_3 = *(s16 *)((s8 *)(this->m_2b0) + 4) + *(s16 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x31C)) + 0);
+    this->m_2cc = temp_r0_3;
+    this->m_2c4 = temp_r0_3;
+    temp_r0_4 = *(s16 *)((s8 *)(this->m_2b0) + 8) + *(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x31C)) + 0x1C);
     *(s16 *)((s8 *)((u8 *)this) + 0x2CE) = temp_r0_4;
     *(s16 *)((s8 *)((u8 *)this) + 0x2C6) = temp_r0_4;
-    ((TObjEnemy *)((u8 *)this))->m_2d0 = (s16) (*(s16 *)((s8 *)(((TObjEnemy *)((u8 *)this))->m_2b0) + 0xA) + TObjPlayer__sub_800194E8(*(u8 **)((s8 *)((u8 *)this) + 0x318)));
-    *(s16 *)((s8 *)((u8 *)this) + 0x2D2) = (s16) *(s16 *)((s8 *)(((TObjEnemy *)((u8 *)this))->m_2b0) + 0xC);
-    ((TObjEnemy *)((u8 *)this))->m_2f2 = (s16) *(s16 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x31C)) + 2);
-    ((TObjEnemy *)((u8 *)this))->m_2f4 = (s16) *(s16 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x31C)) + 6);
+    this->m_2d0 = (s16) (*(s16 *)((s8 *)(this->m_2b0) + 0xA) + TObjPlayer__sub_800194E8(*(u8 **)((s8 *)((u8 *)this) + 0x318)));
+    *(s16 *)((s8 *)((u8 *)this) + 0x2D2) = (s16) *(s16 *)((s8 *)(this->m_2b0) + 0xC);
+    this->m_2f2 = (s16) *(s16 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x31C)) + 2);
+    this->m_2f4 = (s16) *(s16 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x31C)) + 6);
     *(s16 *)((s8 *)((u8 *)this) + 0x2F6) = (s16) *(s16 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x31C)) + 4);
-    ((TObjEnemy *)((u8 *)this))->m_2f8 = (s16) *(s16 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x31C)) + 0xA);
+    this->m_2f8 = (s16) *(s16 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x31C)) + 0xA);
     *(s16 *)((s8 *)((u8 *)this) + 0x2FA) = (s16) *(s16 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x31C)) + 8);
-    ((TUnk_804806E8 *)((u8 *)this))->add_to_field_2c8((s32)((f32)((TUnk_804806E8 *)((u8 *)this))->get_field_2c0() * TObjPlayer__sub_800192C4((s32)((u8 *)this), 2)));
-    ((TUnk_804806E8 *)((u8 *)this))->add_to_field_2ca((s32)((f32)((TUnk_804806E8 *)((u8 *)this))->get_field_2c2() * TObjPlayer__sub_800192C4((s32)((u8 *)this), 2)));
-    ((TUnk_804806E8 *)((u8 *)this))->add_to_field_2ce((s32)((f32)((TUnk_804806E8 *)((u8 *)this))->get_atp() * TObjPlayer__sub_800192C4((s32)((u8 *)this), 3)));
+    this->add_to_field_2c8((s32)((f32)this->get_field_2c0() * TObjPlayer__sub_800192C4((s32)this, 2)));
+    this->add_to_field_2ca((s32)((f32)this->get_field_2c2() * TObjPlayer__sub_800192C4((s32)this, 2)));
+    this->add_to_field_2ce((s32)((f32)this->get_atp() * TObjPlayer__sub_800192C4((s32)this, 3)));
     return 1;
 }

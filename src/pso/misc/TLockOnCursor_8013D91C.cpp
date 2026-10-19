@@ -195,15 +195,15 @@ void load_target_cursor_models(void) {
 }
 TLockOnCursor::~TLockOnCursor() {
     Obj_8013DCCC *p;
-    p = cleanup_field_3c__13TLockOnCursorFv(((u8 *)this));
+    p = cleanup_field_3c__13TLockOnCursorFv(this);
     if (p != NULL) {
         delete p;
     }
-    p = cleanup_field__13TLockOnCursorFv(((u8 *)this));
+    p = cleanup_field__13TLockOnCursorFv(this);
     if (p != NULL) {
         delete p;
     }
-    p = release_target__13TLockOnCursorFv(((u8 *)this));
+    p = release_target__13TLockOnCursorFv(this);
     if (p != NULL) {
         delete p;
     }

@@ -1446,7 +1446,7 @@ void TObjEneMerillLia::render() {
   if (temp_r3 != 0)
   {
     lbl_805D5660 = model_render_flags;
-    select_actor_lighting((s32)((u8 *)this));
+    select_actor_lighting((s32)this);
     TObjFish::set_global_param((int) ((RecoveredFields_800D6810_arg0 *) ((u8 *)this))->field_24);
     push_matrix();
     translate_matrix(0, (f32) TObjEneMerillLia__data_805DA300, (f32) ((RecoveredFields_800D6810_arg0 *) ((u8 *)this))->field_380, (f32) TObjEneMerillLia__data_805DA300);
