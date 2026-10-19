@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TTecGiFoie.h"
 extern "C" void *__dt__13TUnk_804CC148Fv(void *, s16);
 #include "pso/system/vector.h"
 #include "pso/unk/TUnk_804CC148.h"
@@ -175,7 +176,7 @@ void construct_area_technique_base(void *, void *, void *, void *, void *);
 s32 calc_technique_parameters(int, int, int);
 u8 * __dt__13TUnk_804CC800Fv(Task_80231224 *task, s16 flag);
 Task_802312E4 * construct_orbit__10TTecGiFoieFPvPviUciPvUc(Task_802312E4 *self, Vec_802312E4 *pos, s32 arg2, u8 band, s32 arg4, void *parent, u8 single);
-void TTecGiFoie__vt4(Obj_8023154C *self, VObj_8023154C *target);
+void vfunc_6__10TTecGiFoieFPv(Obj_8023154C *self, VObj_8023154C *target);
 u8 * __dt__10TTecGiFoieFv(u8 *arg0, s16 arg1);
 void run_task__10TTecGiFoieFv(u8 *self);
 void * TTecGiFoie__ct(void *self_, void *source, void *origin, void *level);
@@ -292,16 +293,17 @@ void TTecGiFoie::create(void *arg0, void *origin, void *level) {
 #pragma opt_common_subs off
 #pragma opt_propagation off
 #pragma opt_dead_assignments off
-void TTecGiFoie__vt4(Obj_8023154C *self, VObj_8023154C *target) {
+void TTecGiFoie::vfunc_6(void *target) {
+    Obj_8023154C *self = (Obj_8023154C *)this;
     s32 found = 0;
     s32 i;
     for (i = 0; i < 32; i++) {
-        if (self->ids[i] == obj_getField1c(target)) {
+        if (self->ids[i] == obj_getField1c(((VObj_8023154C *)target))) {
             found = 1;
         }
     }
     if (found == 0) {
-        self->ids[self->cursor] = obj_getField1c(target);
+        self->ids[self->cursor] = obj_getField1c(((VObj_8023154C *)target));
         self->cursor += 1;
         if (self->cursor >= 32) {
             self->cursor = 31;
@@ -310,7 +312,7 @@ void TTecGiFoie__vt4(Obj_8023154C *self, VObj_8023154C *target) {
         tmp.type = 1;
         tmp.power = self->power;
         HitInfo_8023154C info = tmp;
-        target->m21(self->source, &info, self->contact, 1, -1);
+        ((VObj_8023154C *)target)->m21(self->source, &info, self->contact, 1, -1);
     }
 }
 #pragma pop

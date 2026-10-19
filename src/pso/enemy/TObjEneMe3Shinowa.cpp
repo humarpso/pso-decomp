@@ -1509,7 +1509,7 @@ int select_and_apply_target__23TObjEneMe3ShinowaMirageFPv(void* p);
 void vfunc_89__17TObjEneMe3ShinowaFv(void *arg0);
 void vfunc_111__17TObjEneMe3ShinowaFv(void);
 void TObjEneMe3Shinowa__sub_800E7268(u8 *arg0);
-u8 can_hit_same_target__23TObjEneMe3ShinowaMirageFPv(E_800E728C *arg0);
+u8 can_hit_same_target__17TObjEneMe3ShinowaFv(E_800E728C *arg0);
 s32 check_in_range__23TObjEneMe3ShinowaMirageFPv(void *arg0);
 u8 check_body_collision_at__17TObjEneMe3ShinowaFlf(Obj_800E750C *arg0, s32 arg1, f32 farg0);
 void fn_800E762C(void);
@@ -1747,7 +1747,7 @@ extern "C" {
 void apply_switch_attack__13TUnk_804806E8Fv();
 }
 extern "C" {
-void calc_distance_accuracy_penalty__10TObjPlayerFv();
+void calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf();
 }
 extern "C" {
 void classify_actor_view_detail__13TUnk_804B9870Ffff();
@@ -1801,7 +1801,7 @@ extern "C" {
 void is_actor_cadence_frame__13TUnk_804806E8Fl();
 }
 extern "C" {
-void is_target_in_attack_range__10TObjPlayerFv();
+void is_target_in_attack_range__13TUnk_804806E8Fv();
 }
 extern "C" {
 extern u8 lbl_8043CE3C[];
@@ -1840,7 +1840,7 @@ extern "C" {
 extern u8 lbl_8043CF28[];
 }
 extern "C" {
-void receive_direct_attack__10TObjPlayerFv();
+void receive_direct_attack__13TUnk_804806E8FPvPvPvll();
 }
 extern "C" {
 void receive_physical_attack__13TUnk_804806E8FPvf();
@@ -1867,7 +1867,7 @@ extern "C" {
 void run_task__23TObjEneMe3ShinowaMirageFv();
 }
 extern "C" {
-void select_melee_contact_body__10TObjPlayerFv();
+void select_melee_contact_body__13TUnk_804806E8FPvf();
 }
 extern "C" {
 void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
@@ -1943,9 +1943,9 @@ void *__vt__23TObjEneMe3ShinowaMirage[119] = {
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
     (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
-    (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__13TUnk_804806E8FPvf, (void *)&receive_direct_attack__10TObjPlayerFv,
+    (void *)&select_melee_contact_body__13TUnk_804806E8FPvf, (void *)&calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf, (void *)&receive_physical_attack__13TUnk_804806E8FPvf, (void *)&receive_direct_attack__13TUnk_804806E8FPvPvPvll,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker__13TUnk_804806E8FPUc, (void *)&try_start_action__13TUnk_804806E8Fll, (void *)&roll_physical_accuracy__13TUnk_804806E8FPvlf,
-    (void *)&vfunc_28__17TObjEneMe3ShinowaFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__13TUnk_804806E8Fv,
+    (void *)&vfunc_28__17TObjEneMe3ShinowaFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__13TUnk_804806E8Fv, (void *)&test_flag_256__13TUnk_804806E8Fv,
     (void *)&test_flag30_512__13TUnk_804806E8Fv, (void *)&has_flag_0x800__13TUnk_804806E8Fv, (void *)&test_flag_1000__13TUnk_804806E8Fv, (void *)&update_poison_status__13TUnk_804806E8Fv,
     (void *)&update_action_hold_status__13TUnk_804806E8Fv, (void *)&vfunc_37__13TUnk_804806E8Fv, (void *)&update_flag30_timer__13TUnk_804806E8Fv, (void *)&update_movement_status__13TUnk_804806E8Fv,
     (void *)&update_shock_clock__13TUnk_804806E8Fv, (void *)&update_attack_stat_status__13TUnk_804806E8Fv, (void *)&update_defense_stat_status, (void *)&vfunc_43__13TUnk_804806E8Fv,
@@ -3147,16 +3147,16 @@ void TObjEneMe3Shinowa::vfunc_107() {  }
 
 #pragma push
 #pragma fp_contract on
-u8 can_hit_same_target__23TObjEneMe3ShinowaMirageFPv(E_800E728C *arg0) {
+u8 TObjEneMe3Shinowa::can_hit_same_target() {
     s16 mine;
     s32 ret;
     s16 theirs;
     ret = 0;
-    if (!(arg0->f3c4 & 0x10000)) {
-        if (arg0->f3ac > lbl_805DA638 && arg0->f3ac < lbl_805DA63C) {
-            mine = get_stat_by_key_state__13TUnk_804B9870Fv((int)arg0);
-            theirs = get_stat_by_key_state__13TUnk_804B9870Fv(arg0->f390);
-            if (theirs == mine && ((s32 (*)(void *, s32, f32))check_body_collision_at__17TObjEneMe3ShinowaFlf)(arg0, arg0->f60, arg0->f3ac - (*(f32 *)&TObjEneMe3ShinowaMirage__data_805DA5EC)) == 0) {
+    if (!(((E_800E728C *)this)->f3c4 & 0x10000)) {
+        if (((E_800E728C *)this)->f3ac > lbl_805DA638 && ((E_800E728C *)this)->f3ac < lbl_805DA63C) {
+            mine = get_stat_by_key_state__13TUnk_804B9870Fv((int)((E_800E728C *)this));
+            theirs = get_stat_by_key_state__13TUnk_804B9870Fv(((E_800E728C *)this)->f390);
+            if (theirs == mine && ((s32 (*)(void *, s32, f32))check_body_collision_at__17TObjEneMe3ShinowaFlf)(((E_800E728C *)this), ((E_800E728C *)this)->f60, ((E_800E728C *)this)->f3ac - (*(f32 *)&TObjEneMe3ShinowaMirage__data_805DA5EC)) == 0) {
                 ret = 1;
             }
         }

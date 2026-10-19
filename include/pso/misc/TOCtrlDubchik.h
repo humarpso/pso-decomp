@@ -6,6 +6,7 @@
 
 struct TOCtrlDubchik : public TObjEnemy {
     virtual ~TOCtrlDubchik();
+    virtual f32 receive_weapon_special_attack(void *, void *);
     void sub_8015CE80();
     void update_bobbing();
     void sub_8015CCF4();

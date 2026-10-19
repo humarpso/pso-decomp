@@ -6,6 +6,7 @@
 
 struct TTecGiBarta : public TUnk_804CCC68 {
     virtual ~TTecGiBarta();
+    virtual void vfunc_8(void *);
     u8 unk_130[0x44];
     u32 m_174;
     void update_technique_by_phase();

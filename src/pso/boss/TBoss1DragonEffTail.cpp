@@ -126,10 +126,10 @@ void TBoss1DragonEffTail__vt18(s32 arg0, s32 arg1) {
     vec3_add_to(arg1 + 0x308, arg0 + 0xC0, arg0);
 }
 
-void TBoss1DragonEffTail__vt20(TBoss1DragonEffTail *boss1_dragon_eff_tail, u8 *arg1) {
-    ((VObj_18 *)(arg1))->m20(boss1_dragon_eff_tail->m_ac, lbl_805D8158);
+void TBoss1DragonEffTail::apply_hit_if_active(void *arg1, f32 *) {
+    ((VObj_18 *)(((u8 *)arg1)))->m20(this->m_ac, lbl_805D8158);
     if (TObjEneDD::check_v2_mode() != 0) {
-        TBoss1Dragon__sub_8002AB6C((arg1));
+        TBoss1Dragon__sub_8002AB6C((((u8 *)arg1)));
     }
 }
 

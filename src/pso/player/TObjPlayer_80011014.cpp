@@ -331,7 +331,7 @@ u8 obj_isState3_324__13TUnk_804806E8Fv(u8* p);
 s32 get_type__10TObjPlayerFPv(void* p);
 void create_hit_effect__10TObjPlayerFPv(void *);
 s32 is_boss_area(void);
-f32 receive_direct_attack__10TObjPlayerFv(Actor_8001311C *self, Actor_8001311C *att, Info_8001311C *arg, Coll_8001311C *coll, s32 tech, s32 arg5);
+f32 receive_direct_attack__13TUnk_804806E8FPvPvPvll(Actor_8001311C *self, Actor_8001311C *att, Info_8001311C *arg, Coll_8001311C *coll, s32 tech, s32 arg5);
 u8 obj_is_hit_receivable(u8 *arg0);
 int get_player_data__10TObjPlayerFi(int a0);
 extern s32 lbl_805D586C;
@@ -839,10 +839,10 @@ void vfunc_58__13TUnk_804806E8Fv(void);
 void apply_action_hold_status__13TUnk_804806E8Ff(s32 arg0, f32 farg0);
 void cure_poison_ailment__13TUnk_804806E8Fv(Obj_80014C1C *self);
 s32 try_start_action__13TUnk_804806E8Fll(void *arg0, s32 arg1, s32 arg2);
-s32 select_melee_contact_body__10TObjPlayerFv(Actor_80016454 *target, Actor_80016454 *source, f32 factor);
+s32 select_melee_contact_body__13TUnk_804806E8FPvf(Actor_80016454 *target, Actor_80016454 *source, f32 factor);
 s32 update_flag30_timer__13TUnk_804806E8Fv(u8 *arg0);
 s32 vfunc_37__13TUnk_804806E8Fv(u8 *arg0);
-s32 is_target_in_attack_range__10TObjPlayerFv(Player_8001745C *p);
+s32 is_target_in_attack_range__13TUnk_804806E8Fv(Player_8001745C *p);
 f32 step_toward_destination__10TObjPlayerFPvPvf(Obj_80017804 *arg0, Vec_800180E8 *arg1, f32 farg0);
 f32 enemy_pursue_point(u8 *arg0, s32 arg1, Vec_800180E8 arg2, f32 farg0, f32 farg1);
 f32 enemy_backstep_from_point(Obj_80017ABC *arg0, Vec_800180E8 arg1, f32 farg0);
@@ -1855,7 +1855,7 @@ void apply_object_set_data__13TUnk_804B9870FPv(void);
 void update_object_view_visibility__13TUnk_804B9870Fff(void);
 void classify_actor_view_detail__13TUnk_804B9870Ffff(void);
 void vfunc_12__13TUnk_804B9870Fv(void);
-int calc_distance_accuracy_penalty__10TObjPlayerFv(RangedActor* target,RangedActor* attacker,RangedBody* body,const RangedVec* origin,float multiplier);
+int calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf(RangedActor* target,RangedActor* attacker,RangedBody* body,const RangedVec* origin,float multiplier);
 f32 receive_physical_attack__13TUnk_804806E8FPvf(Obj_80014108 *self, Obj_80014108 *att, f32 scale);
 s32 roll_physical_accuracy__13TUnk_804806E8FPvlf(Obj_800162E0 *arg0, void *arg1, s32 arg2, f32 farg0);
 s32 update_poison_status__13TUnk_804806E8Fv(u8 *arg0);
@@ -1894,17 +1894,17 @@ void *lbl_804806E8[] = {
     (void *)update_actor_ground_y__13TUnk_804806E8Fv,
     (void *)vfunc_18__13TUnk_804806E8FPUc,
     (void *)is_actor_cadence_frame__13TUnk_804806E8Fl,
-    (void *)select_melee_contact_body__10TObjPlayerFv,
-    (void *)calc_distance_accuracy_penalty__10TObjPlayerFv,
+    (void *)select_melee_contact_body__13TUnk_804806E8FPvf,
+    (void *)calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf,
     (void *)receive_physical_attack__13TUnk_804806E8FPvf,
-    (void *)receive_direct_attack__10TObjPlayerFv,
+    (void *)receive_direct_attack__13TUnk_804806E8FPvPvPvll,
     (void *)receive_weapon_special_attack__10TObjPlayerFv,
     (void *)apply_knockback_from_attacker__13TUnk_804806E8FPUc,
     (void *)try_start_action__13TUnk_804806E8Fll,
     (void *)roll_physical_accuracy__13TUnk_804806E8FPvlf,
     (void *)vfunc_28__13TUnk_804806E8Fv,
     (void *)vfunc_29__13TUnk_804806E8Fv,
-    (void *)is_target_in_attack_range__10TObjPlayerFv,
+    (void *)is_target_in_attack_range__13TUnk_804806E8Fv,
     (void *)&test_flag_256__13TUnk_804806E8Fv,
     (void *)&test_flag30_512__13TUnk_804806E8Fv,
     (void *)&has_flag_0x800__13TUnk_804806E8Fv,
@@ -2457,7 +2457,7 @@ f32 receive_weapon_special_attack__10TObjPlayerFv(Actor_80011824 *self, Actor_80
 #undef CLEARCOLL_W24
 #pragma pop
 
-f32 receive_direct_attack__10TObjPlayerFv(Actor_8001311C *self, Actor_8001311C *att, Info_8001311C *arg, Coll_8001311C *coll, s32 tech, s32 arg5) {
+f32 TUnk_804806E8::receive_direct_attack(void *att, void *arg, void *coll, s32 tech, s32 arg5) {
     Info_8001311C info;
     Vec_8001311C pos;
     s32 immune;
@@ -2466,36 +2466,36 @@ f32 receive_direct_attack__10TObjPlayerFv(Actor_8001311C *self, Actor_8001311C *
     f32 dmg;
     f32 f;
     f32 heal;
-    ((void (*)(Info_8001311C *, Info_8001311C *))obj_copyVec2_0)(&info, arg);
+    ((void (*)(Info_8001311C *, Info_8001311C *))obj_copyVec2_0)(&info, ((Info_8001311C *)arg));
     if (info.power < 0.0f) {
         info.power = 0.0f;
     }
-    if (coll != NULL) {
-        VECCOPY(&pos, &coll->pos);
+    if (((Coll_8001311C *)coll) != NULL) {
+        VECCOPY(&pos, &((Coll_8001311C *)coll)->pos);
     } else {
-        VECCOPY(&pos, &self->pos);
+        VECCOPY(&pos, &((Actor_8001311C *)this)->pos);
     }
-    if (att == NULL || FIELD1C(att) == 0xFFFF || (info.type != 8 && TEST30(self, 0x800) != 0)) {
+    if (((Actor_8001311C *)att) == NULL || FIELD1C(((Actor_8001311C *)att)) == 0xFFFF || (info.type != 8 && TEST30(((Actor_8001311C *)this), 0x800) != 0)) {
         return (0.0f);
     }
     if (info.type != 6 && info.type != 7 && info.type != 8 && info.type != 9 && info.type != 10 && info.type != 20 &&
-        (TEST30(self, 0x04000000) != 0 || (coll != NULL && (coll->flags & 0x02000080)))) {
-        if (STATE2(self) == 0) {
-            HIT(self, &pos);
+        (TEST30(((Actor_8001311C *)this), 0x04000000) != 0 || (((Coll_8001311C *)coll) != NULL && (((Coll_8001311C *)coll)->flags & 0x02000080)))) {
+        if (STATE2(((Actor_8001311C *)this)) == 0) {
+            HIT(((Actor_8001311C *)this), &pos);
         }
         return (0.0f);
     }
-    ((void (*)(Actor_8001311C *, Actor_8001311C *))attach_mine_trap__10TObjPlayerFiUi)(self, att);
-    if (STATE2(self) != 0) {
+    ((void (*)(Actor_8001311C *, Actor_8001311C *))attach_mine_trap__10TObjPlayerFiUi)(((Actor_8001311C *)this), ((Actor_8001311C *)att));
+    if (STATE2(((Actor_8001311C *)this)) != 0) {
         if ((u32)(info.type - 6) <= 3 || info.type == 10) {
             immune = 0;
         } else {
             immune = 1;
         }
-    } else if (self->id < 0x1000 && get_main_phase() == 15) {
-        if (STATE2(att) != 0) {
-            if (LOCAL(self) != 0 || STATE3(self) != 0) {
-                if ((u32)(info.type - 6) <= 4 || get_type__10TObjPlayerFPv(att->f828) != 0) {
+    } else if (((Actor_8001311C *)this)->id < 0x1000 && get_main_phase() == 15) {
+        if (STATE2(((Actor_8001311C *)att)) != 0) {
+            if (LOCAL(((Actor_8001311C *)this)) != 0 || STATE3(((Actor_8001311C *)this)) != 0) {
+                if ((u32)(info.type - 6) <= 4 || get_type__10TObjPlayerFPv(((Actor_8001311C *)att)->f828) != 0) {
                     immune = 0;
                 } else {
                     immune = 1;
@@ -2509,15 +2509,15 @@ f32 receive_direct_attack__10TObjPlayerFv(Actor_8001311C *self, Actor_8001311C *
     } else {
         immune = 0;
     }
-    if (self->id < 0x4000) {
-        mst = att->stats->mst;
+    if (((Actor_8001311C *)this)->id < 0x4000) {
+        mst = ((Actor_8001311C *)att)->stats->mst;
         if (mst < 0.0f) {
             mst = 0.0f;
         }
     } else {
         mst = (0.0f);
     }
-    aid = FIELD1C(att);
+    aid = FIELD1C(((Actor_8001311C *)att));
     if (aid < 12) {
         dmg = info.power + mst;
         if (tech != -1) {
@@ -2528,122 +2528,122 @@ f32 receive_direct_attack__10TObjPlayerFv(Actor_8001311C *self, Actor_8001311C *
     }
     switch (info.type) {
     case 0:
-        if (TEST30(self, 0x10000000) == 0 || STATE2(self) == 0) {
+        if (TEST30(((Actor_8001311C *)this), 0x10000000) == 0 || STATE2(((Actor_8001311C *)this)) == 0) {
             dmg *= (0.2f);
             if (immune == 0) {
-                SUB_HP(self, (s32)dmg);
-                if (((TUnk_804806E8 *)self)->clamp_value() <= 0) {
-                    SET30(self, 0x800);
+                SUB_HP(((Actor_8001311C *)this), (s32)dmg);
+                if (((TUnk_804806E8 *)((Actor_8001311C *)this))->clamp_value() <= 0) {
+                    SET30(((Actor_8001311C *)this), 0x800);
                 }
             }
-            SET30(self, 0x200);
-            check_heavy_damage_flag__13TUnk_804806E8Ff(self, dmg);
-            self->f2dc |= 4;
-            if (TEST30(self, 0x02000000) == 0) {
+            SET30(((Actor_8001311C *)this), 0x200);
+            check_heavy_damage_flag__13TUnk_804806E8Ff(((Actor_8001311C *)this), dmg);
+            ((Actor_8001311C *)this)->f2dc |= 4;
+            if (TEST30(((Actor_8001311C *)this), 0x02000000) == 0) {
                 create_hit_effect__10TObjPlayerFPv(&pos);
-                SWITCH_ATTACK(self, &pos);
-                DAMAGE(self, &pos, (s32)dmg);
+                SWITCH_ATTACK(((Actor_8001311C *)this), &pos);
+                DAMAGE(((Actor_8001311C *)this), &pos, (s32)dmg);
             }
         }
         break;
     case 1:
-        if (TEST30(self, 0x10000000) == 0 || STATE2(self) == 0) {
-            dmg *= (0.002f) * (f32)(100 - self->resist1);
+        if (TEST30(((Actor_8001311C *)this), 0x10000000) == 0 || STATE2(((Actor_8001311C *)this)) == 0) {
+            dmg *= (0.002f) * (f32)(100 - ((Actor_8001311C *)this)->resist1);
             if (immune == 0) {
-                SUB_HP(self, (s32)dmg);
-                if (((TUnk_804806E8 *)self)->clamp_value() <= 0) {
-                    SET30(self, 0x800);
+                SUB_HP(((Actor_8001311C *)this), (s32)dmg);
+                if (((TUnk_804806E8 *)((Actor_8001311C *)this))->clamp_value() <= 0) {
+                    SET30(((Actor_8001311C *)this), 0x800);
                 }
             }
-            SET30(self, 0x200);
-            check_heavy_damage_flag__13TUnk_804806E8Ff(self, dmg);
-            self->f2dc |= 4;
-            if (TEST30(self, 0x02000000) == 0) {
+            SET30(((Actor_8001311C *)this), 0x200);
+            check_heavy_damage_flag__13TUnk_804806E8Ff(((Actor_8001311C *)this), dmg);
+            ((Actor_8001311C *)this)->f2dc |= 4;
+            if (TEST30(((Actor_8001311C *)this), 0x02000000) == 0) {
                 create_hit_effect__10TObjPlayerFPv(&pos);
-                SWITCH_ATTACK(self, &pos);
-                DAMAGE(self, &pos, (s32)dmg);
+                SWITCH_ATTACK(((Actor_8001311C *)this), &pos);
+                DAMAGE(((Actor_8001311C *)this), &pos, (s32)dmg);
             }
         }
         break;
     case 2:
-        if (TEST30(self, 0x10000000) == 0 || STATE2(self) == 0) {
-            dmg *= (0.002f) * (f32)(100 - self->resist2);
+        if (TEST30(((Actor_8001311C *)this), 0x10000000) == 0 || STATE2(((Actor_8001311C *)this)) == 0) {
+            dmg *= (0.002f) * (f32)(100 - ((Actor_8001311C *)this)->resist2);
             if (immune == 0) {
-                SUB_HP(self, (s32)dmg);
-                if (((TUnk_804806E8 *)self)->clamp_value() <= 0) {
-                    SET30(self, 0x800);
+                SUB_HP(((Actor_8001311C *)this), (s32)dmg);
+                if (((TUnk_804806E8 *)((Actor_8001311C *)this))->clamp_value() <= 0) {
+                    SET30(((Actor_8001311C *)this), 0x800);
                 }
             }
-            SET30(self, 0x200);
-            self->f2dc |= 4;
-            if (LOCAL(self) != 0 || ((TObjPlayer *)att)->is_local_player() != 0) {
+            SET30(((Actor_8001311C *)this), 0x200);
+            ((Actor_8001311C *)this)->f2dc |= 4;
+            if (LOCAL(((Actor_8001311C *)this)) != 0 || ((TObjPlayer *)((Actor_8001311C *)att))->is_local_player() != 0) {
                 f = info.power - (2.5e+02f);
                 if (f < 0.0f) {
                     f = 0.0f;
                 }
-                if (((s32 (*)(Actor_8001311C *, Actor_8001311C *, Actor_8001311C *, f32))calc_freeze_chance)(self, att, self, (0.025f) * ((0.025f) * f + (5.0f))) != 0) {
-                    self->m46(coll);
+                if (((s32 (*)(Actor_8001311C *, Actor_8001311C *, Actor_8001311C *, f32))calc_freeze_chance)(((Actor_8001311C *)this), ((Actor_8001311C *)att), ((Actor_8001311C *)this), (0.025f) * ((0.025f) * f + (5.0f))) != 0) {
+                    ((Actor_8001311C *)this)->m46(((Coll_8001311C *)coll));
                 }
             }
-            if (TEST30(self, 0x02000000) == 0) {
+            if (TEST30(((Actor_8001311C *)this), 0x02000000) == 0) {
                 create_hit_effect__10TObjPlayerFPv(&pos);
-                SWITCH_ATTACK(self, &pos);
-                DAMAGE(self, &pos, (s32)dmg);
+                SWITCH_ATTACK(((Actor_8001311C *)this), &pos);
+                DAMAGE(((Actor_8001311C *)this), &pos, (s32)dmg);
             }
         }
         break;
     case 3:
-        if (TEST30(self, 0x10000000) == 0 || STATE2(self) == 0) {
-            dmg *= (0.002f) * (f32)(100 - self->resist3);
+        if (TEST30(((Actor_8001311C *)this), 0x10000000) == 0 || STATE2(((Actor_8001311C *)this)) == 0) {
+            dmg *= (0.002f) * (f32)(100 - ((Actor_8001311C *)this)->resist3);
             if (immune == 0) {
-                SUB_HP(self, (s32)dmg);
-                if (((TUnk_804806E8 *)self)->clamp_value() <= 0) {
-                    SET30(self, 0x800);
+                SUB_HP(((Actor_8001311C *)this), (s32)dmg);
+                if (((TUnk_804806E8 *)((Actor_8001311C *)this))->clamp_value() <= 0) {
+                    SET30(((Actor_8001311C *)this), 0x800);
                 }
             }
-            SET30(self, 0x200);
-            check_heavy_damage_flag__13TUnk_804806E8Ff(self, dmg);
-            self->f2dc |= 4;
-            if ((LOCAL(self) != 0 || ((TObjPlayer *)att)->is_local_player() != 0) &&
-                ((s32 (*)(Actor_8001311C *, Actor_8001311C *, Actor_8001311C *, f32))calc_shock_chance)(self, att, self, info.power) != 0) {
-                self->m47();
+            SET30(((Actor_8001311C *)this), 0x200);
+            check_heavy_damage_flag__13TUnk_804806E8Ff(((Actor_8001311C *)this), dmg);
+            ((Actor_8001311C *)this)->f2dc |= 4;
+            if ((LOCAL(((Actor_8001311C *)this)) != 0 || ((TObjPlayer *)((Actor_8001311C *)att))->is_local_player() != 0) &&
+                ((s32 (*)(Actor_8001311C *, Actor_8001311C *, Actor_8001311C *, f32))calc_shock_chance)(((Actor_8001311C *)this), ((Actor_8001311C *)att), ((Actor_8001311C *)this), info.power) != 0) {
+                ((Actor_8001311C *)this)->m47();
             }
-            ((void (*)(Actor_8001311C *, Vec_8001311C *))activate_switch_attacks__10TObjPlayerFii)(self, &pos);
-            if (TEST30(self, 0x02000000) == 0) {
-                DAMAGE(self, &pos, (s32)dmg);
+            ((void (*)(Actor_8001311C *, Vec_8001311C *))activate_switch_attacks__10TObjPlayerFii)(((Actor_8001311C *)this), &pos);
+            if (TEST30(((Actor_8001311C *)this), 0x02000000) == 0) {
+                DAMAGE(((Actor_8001311C *)this), &pos, (s32)dmg);
             }
         }
         break;
     case 4:
-        if (TEST30(self, 0x10000000) == 0 || STATE2(self) == 0) {
-            dmg *= (0.002f) * (f32)(100 - self->resist4);
+        if (TEST30(((Actor_8001311C *)this), 0x10000000) == 0 || STATE2(((Actor_8001311C *)this)) == 0) {
+            dmg *= (0.002f) * (f32)(100 - ((Actor_8001311C *)this)->resist4);
             if (immune == 0) {
-                SUB_HP(self, (s32)dmg);
-                if (((TUnk_804806E8 *)self)->clamp_value() <= 0) {
-                    SET30(self, 0x800);
+                SUB_HP(((Actor_8001311C *)this), (s32)dmg);
+                if (((TUnk_804806E8 *)((Actor_8001311C *)this))->clamp_value() <= 0) {
+                    SET30(((Actor_8001311C *)this), 0x800);
                 }
             }
-            SET30(self, 0x200);
-            check_heavy_damage_flag__13TUnk_804806E8Ff(self, dmg);
-            self->f2dc |= 4;
-            if (TEST30(self, 0x02000000) == 0) {
+            SET30(((Actor_8001311C *)this), 0x200);
+            check_heavy_damage_flag__13TUnk_804806E8Ff(((Actor_8001311C *)this), dmg);
+            ((Actor_8001311C *)this)->f2dc |= 4;
+            if (TEST30(((Actor_8001311C *)this), 0x02000000) == 0) {
                 create_hit_effect__10TObjPlayerFPv(&pos);
-                SWITCH_ATTACK(self, &pos);
-                DAMAGE(self, &pos, (s32)dmg);
+                SWITCH_ATTACK(((Actor_8001311C *)this), &pos);
+                DAMAGE(((Actor_8001311C *)this), &pos, (s32)dmg);
             }
         }
         break;
     case 5:
-        if (TEST30(self, 0x10000000) == 0 || STATE2(self) == 0) {
-            if (is_boss_area() == 0 || (game_difficulty_selection == 3 && self->id >= 0x1000)) {
-                if (TEST30(self, 0x02000000) == 0) {
+        if (TEST30(((Actor_8001311C *)this), 0x10000000) == 0 || STATE2(((Actor_8001311C *)this)) == 0) {
+            if (is_boss_area() == 0 || (game_difficulty_selection == 3 && ((Actor_8001311C *)this)->id >= 0x1000)) {
+                if (TEST30(((Actor_8001311C *)this), 0x02000000) == 0) {
                     create_hit_effect__10TObjPlayerFPv(&pos);
                 }
-                self->f2dc |= 4;
-                dmg = (0.01f) * (info.power - (f32)self->resist5);
-                if (immune == 0 && ((f32 (*)(Actor_8001311C *))calc_boss4_scale__10TObjPlayerFi)(self) < dmg) {
-                    ((TObjPlayer *)self)->set_hp_clamped(0);
-                    SET30(self, 0xA00);
+                ((Actor_8001311C *)this)->f2dc |= 4;
+                dmg = (0.01f) * (info.power - (f32)((Actor_8001311C *)this)->resist5);
+                if (immune == 0 && ((f32 (*)(Actor_8001311C *))calc_boss4_scale__10TObjPlayerFi)(((Actor_8001311C *)this)) < dmg) {
+                    ((TObjPlayer *)((Actor_8001311C *)this))->set_hp_clamped(0);
+                    SET30(((Actor_8001311C *)this), 0xA00);
                 }
             } else {
                 dmg = (0.0f);
@@ -2653,127 +2653,127 @@ f32 receive_direct_attack__10TObjPlayerFv(Actor_8001311C *self, Actor_8001311C *
     case 6:
         heal = (0.5f) * mst + info.power;
         if (immune == 0) {
-            ((s32 (*)(Actor_8001311C *, s32))add_actor_hp)(self, (s32)heal);
-            ((TUnk_804806E8 *)self)->clamp_value();
+            ((s32 (*)(Actor_8001311C *, s32))add_actor_hp)(((Actor_8001311C *)this), (s32)heal);
+            ((TUnk_804806E8 *)((Actor_8001311C *)this))->clamp_value();
         }
-        ((void (*)(Actor_8001311C *, Vec_8001311C *, s32, s32))draw_hp_label)(self, &pos, 0, (s32)heal);
+        ((void (*)(Actor_8001311C *, Vec_8001311C *, s32, s32))draw_hp_label)(((Actor_8001311C *)this), &pos, 0, (s32)heal);
         dmg = (0.0f);
         break;
     case 7:
         dmg = (0.0f);
-        if (STATE3(self) != 0) {
-            self->m48();
+        if (STATE3(((Actor_8001311C *)this)) != 0) {
+            ((Actor_8001311C *)this)->m48();
         } else {
-            self->m55(arg5);
+            ((Actor_8001311C *)this)->m55(arg5);
         }
         break;
     case 9:
         dmg = (0.0f);
-        if (TEST30(self, 0x02000000) == 0) {
-            self->m67();
+        if (TEST30(((Actor_8001311C *)this), 0x02000000) == 0) {
+            ((Actor_8001311C *)this)->m67();
         }
-        self->m49(info);
-        if (self->f1c <= 0x1000 && self->f1c > 0x4000) {
-            self->m72(info.type);
+        ((Actor_8001311C *)this)->m49(info);
+        if (((Actor_8001311C *)this)->f1c <= 0x1000 && ((Actor_8001311C *)this)->f1c > 0x4000) {
+            ((Actor_8001311C *)this)->m72(info.type);
         }
         break;
     case 10:
         dmg = (0.0f);
-        if (TEST30(self, 0x02000000) == 0) {
-            self->m69();
+        if (TEST30(((Actor_8001311C *)this), 0x02000000) == 0) {
+            ((Actor_8001311C *)this)->m69();
         }
-        self->m50(info);
-        if (self->f1c <= 0x1000 && self->f1c > 0x4000) {
-            self->m72(info.type);
+        ((Actor_8001311C *)this)->m50(info);
+        if (((Actor_8001311C *)this)->f1c <= 0x1000 && ((Actor_8001311C *)this)->f1c > 0x4000) {
+            ((Actor_8001311C *)this)->m72(info.type);
         }
         break;
     case 11:
         dmg = (0.0f);
-        if (TEST30(self, 0x02000000) == 0) {
-            self->m68();
+        if (TEST30(((Actor_8001311C *)this), 0x02000000) == 0) {
+            ((Actor_8001311C *)this)->m68();
         }
-        self->m49(info);
-        if (self->f1c <= 0x1000 && self->f1c > 0x4000) {
-            self->m72(info.type);
+        ((Actor_8001311C *)this)->m49(info);
+        if (((Actor_8001311C *)this)->f1c <= 0x1000 && ((Actor_8001311C *)this)->f1c > 0x4000) {
+            ((Actor_8001311C *)this)->m72(info.type);
         }
         break;
     case 12:
         dmg = (0.0f);
-        if (TEST30(self, 0x02000000) == 0) {
-            self->m70();
+        if (TEST30(((Actor_8001311C *)this), 0x02000000) == 0) {
+            ((Actor_8001311C *)this)->m70();
         }
-        self->m50(info);
-        if (self->f1c <= 0x1000 && self->f1c > 0x4000) {
-            self->m72(info.type);
+        ((Actor_8001311C *)this)->m50(info);
+        if (((Actor_8001311C *)this)->f1c <= 0x1000 && ((Actor_8001311C *)this)->f1c > 0x4000) {
+            ((Actor_8001311C *)this)->m72(info.type);
         }
         break;
     case 15:
         dmg = (0.0f);
         if (immune == 0) {
-            self->m42();
+            ((Actor_8001311C *)this)->m42();
         }
         break;
     case 16:
         dmg = (0.0f);
         if (immune == 0) {
-            self->m43();
+            ((Actor_8001311C *)this)->m43();
         }
         break;
     case 17:
         dmg = (0.0f);
         if (immune == 0) {
-            self->m44();
+            ((Actor_8001311C *)this)->m44();
         }
         break;
     case 18:
         dmg = (0.0f);
         if (immune == 0) {
-            self->m45();
+            ((Actor_8001311C *)this)->m45();
         }
         break;
     case 19:
-        if (TEST30(self, 0x10000000) == 0 || STATE2(self) == 0) {
-            dmg *= (0.002f) * (f32)(100 - self->resist2);
+        if (TEST30(((Actor_8001311C *)this), 0x10000000) == 0 || STATE2(((Actor_8001311C *)this)) == 0) {
+            dmg *= (0.002f) * (f32)(100 - ((Actor_8001311C *)this)->resist2);
             if (immune == 0) {
-                SUB_HP(self, (s32)dmg);
-                if (((TUnk_804806E8 *)self)->clamp_value() <= 0) {
-                    self->flags30 |= 0x800;
+                SUB_HP(((Actor_8001311C *)this), (s32)dmg);
+                if (((TUnk_804806E8 *)((Actor_8001311C *)this))->clamp_value() <= 0) {
+                    ((Actor_8001311C *)this)->flags30 |= 0x800;
                 }
             }
-            self->flags30 |= 0x200;
-            check_heavy_damage_flag__13TUnk_804806E8Ff(self, dmg);
-            self->f2dc |= 4;
-            if (TEST30(self, 0x02000000) == 0) {
+            ((Actor_8001311C *)this)->flags30 |= 0x200;
+            check_heavy_damage_flag__13TUnk_804806E8Ff(((Actor_8001311C *)this), dmg);
+            ((Actor_8001311C *)this)->f2dc |= 4;
+            if (TEST30(((Actor_8001311C *)this), 0x02000000) == 0) {
                 create_hit_effect__10TObjPlayerFPv(&pos);
-                SWITCH_ATTACK(self, &pos);
-                DAMAGE(self, &pos, (s32)dmg);
+                SWITCH_ATTACK(((Actor_8001311C *)this), &pos);
+                DAMAGE(((Actor_8001311C *)this), &pos, (s32)dmg);
             }
         }
         break;
     case 20:
         dmg = (0.0f);
-        self->m54(info.power);
+        ((Actor_8001311C *)this)->m54(info.power);
         break;
     case 8:
         dmg = (0.0f);
-        self->m62();
+        ((Actor_8001311C *)this)->m62();
         break;
     case 21:
-        if (TEST30(self, 0x10000000) == 0 || STATE2(self) == 0) {
+        if (TEST30(((Actor_8001311C *)this), 0x10000000) == 0 || STATE2(((Actor_8001311C *)this)) == 0) {
             dmg = info.power;
             if (immune == 0) {
-                SUB_HP(self, (s32)dmg);
-                if (((TUnk_804806E8 *)self)->clamp_value() <= 0) {
-                    SET30(self, 0x800);
+                SUB_HP(((Actor_8001311C *)this), (s32)dmg);
+                if (((TUnk_804806E8 *)((Actor_8001311C *)this))->clamp_value() <= 0) {
+                    SET30(((Actor_8001311C *)this), 0x800);
                 }
             }
-            SET30(self, 0x200);
-            check_heavy_damage_flag__13TUnk_804806E8Ff(self, dmg);
-            self->f2dc |= 4;
-            if (TEST30(self, 0x02000000) == 0) {
+            SET30(((Actor_8001311C *)this), 0x200);
+            check_heavy_damage_flag__13TUnk_804806E8Ff(((Actor_8001311C *)this), dmg);
+            ((Actor_8001311C *)this)->f2dc |= 4;
+            if (TEST30(((Actor_8001311C *)this), 0x02000000) == 0) {
                 create_hit_effect__10TObjPlayerFPv(&pos);
-                SWITCH_ATTACK(self, &pos);
-                DAMAGE(self, &pos, (s32)dmg);
+                SWITCH_ATTACK(((Actor_8001311C *)this), &pos);
+                DAMAGE(((Actor_8001311C *)this), &pos, (s32)dmg);
             }
         }
         break;
@@ -2782,14 +2782,14 @@ f32 receive_direct_attack__10TObjPlayerFv(Actor_8001311C *self, Actor_8001311C *
         break;
     }
     if (immune == 0) {
-        self->m72(0);
+        ((Actor_8001311C *)this)->m72(0);
     }
-    if (LOCAL(self) != 0) {
-        TObjPlayer::calc_photon_blast_charge(self, (s32)((2e+01f) * dmg));
-        self->m73();
+    if (LOCAL(((Actor_8001311C *)this)) != 0) {
+        TObjPlayer::calc_photon_blast_charge(((Actor_8001311C *)this), (s32)((2e+01f) * dmg));
+        ((Actor_8001311C *)this)->m73();
     }
-    record_local_damage_if_enabled(self, att, (s32)dmg);
-    empty_post_damage_hook(self, att);
+    record_local_damage_if_enabled(((Actor_8001311C *)this), ((Actor_8001311C *)att), (s32)dmg);
+    empty_post_damage_hook(((Actor_8001311C *)this), ((Actor_8001311C *)att));
     return dmg;
 }
 #undef TEST30
@@ -3476,24 +3476,25 @@ extern const double lbl_80434090;
 #define calc_boss4_scale__10TObjPlayerFi(a) ((float (*)(RangedActor *))calc_boss4_scale__10TObjPlayerFi)(a)
 #define attach_mine_trap__10TObjPlayerFiUi(a, b) ((void (*)(RangedActor *, RangedActor *))attach_mine_trap__10TObjPlayerFiUi)(a, b)
 #define show_miss_popup__13TUnk_804806E8FPCf(a, b) ((void (*)(RangedActor *, const RangedVec *))show_miss_popup__13TUnk_804806E8FPCf)(a, b)
-int calc_distance_accuracy_penalty__10TObjPlayerFv(RangedActor* target,RangedActor* attacker,RangedBody* body,const RangedVec* origin,float multiplier) {
+int TUnk_804806E8::calc_distance_accuracy_penalty(void *attacker, void *body_arg, void *origin, float multiplier) {
+    RangedBody*body = (RangedBody*)body_arg;
     RangedVec delta;
-    if(attacker&&body&&!(target->flags&0x04000000)) {
-        float chance=(0.01f)*((multiplier*(float)get_ata__10TObjPlayerFv(attacker))-((0.2f)*(float)target->evp));
+    if(((RangedActor*)attacker)&&body&&!(((RangedActor*)this)->flags&0x04000000)) {
+        float chance=(0.01f)*((multiplier*(float)get_ata__10TObjPlayerFv(((RangedActor*)attacker)))-((0.2f)*(float)((RangedActor*)this)->evp));
         VecCopy__FP3VecPC3Vec(&delta,&body->center);
-        if(!obj_testFlag_2E4__13TUnk_804806E8FUl(attacker,0x20)) {
-            if(origin)subtract_vector(&delta,origin);
-            else subtract_vector(&delta,&attacker->position);
+        if(!obj_testFlag_2E4__13TUnk_804806E8FUl(((RangedActor*)attacker),0x20)) {
+            if(((const RangedVec*)origin))subtract_vector(&delta,((const RangedVec*)origin));
+            else subtract_vector(&delta,&((RangedActor*)attacker)->position);
             const float squared=delta.x*delta.x+delta.z*delta.z;
             const float dist=newton_sqrtf(squared);
             float pen=(float)(dist*lbl_80434090);
             pen*=(0.33333334f);
             chance-=pen;
         }
-        if((0.0f)<chance&&calc_boss4_scale__10TObjPlayerFi(target)<=chance) {
-            body->flags|=0x04000000;attach_mine_trap__10TObjPlayerFiUi(target,attacker);target->hit_flags|=2;return 1;
+        if((0.0f)<chance&&calc_boss4_scale__10TObjPlayerFi(((RangedActor*)this))<=chance) {
+            body->flags|=0x04000000;attach_mine_trap__10TObjPlayerFiUi(((RangedActor*)this),((RangedActor*)attacker));((RangedActor*)this)->hit_flags|=2;return 1;
         }
-        target->flags|=0x100;VecCopy__FP3VecPC3Vec(&delta,&body->center);show_miss_popup__13TUnk_804806E8FPCf(target,&delta);
+        ((RangedActor*)this)->flags|=0x100;VecCopy__FP3VecPC3Vec(&delta,&body->center);show_miss_popup__13TUnk_804806E8FPCf(((RangedActor*)this),&delta);
     }
     return 0;
 }
@@ -3590,7 +3591,7 @@ s32 TUnk_804806E8::try_start_action(s32 arg1, s32 collider) {
     return 0;
 }
 
-s32 select_melee_contact_body__10TObjPlayerFv(Actor_80016454 *target, Actor_80016454 *source, f32 factor) {
+s32 TUnk_804806E8::select_melee_contact_body(void *source, f32 factor) {
     s32 selected = -1;
     Vec_80016454 point;
     s32 i;
@@ -3599,22 +3600,22 @@ s32 select_melee_contact_body__10TObjPlayerFv(Actor_80016454 *target, Actor_8001
     f32 r2;
     f32 dist;
     f32 r;
-    if (source != NULL) {
-    if (target->bodies != NULL) {
+    if (((Actor_80016454 *)source) != NULL) {
+    if (((Actor_80016454 *)this)->bodies != NULL) {
         ((void (*)(void))push_matrix)();
         set_matrix_identity(0);
-        ((void (*)(s32, f32, f32, f32))translate_matrix)(0, -source->pos.x, -source->pos.y, -source->pos.z);
-        post_translate_matrix(&target->pos);
-        rotate_matrix_y(0, (void *)target->yaw);
-        for (i = 0; i < target->bodyCount; i++) {
-            if (!(target->bodies[i].flags & 0x02000000)) {
-                ((VecCopyFn_80016454)VecCopy__FP3VecPC3Vec)(&point, &target->bodies[i]);
+        ((void (*)(s32, f32, f32, f32))translate_matrix)(0, -((Actor_80016454 *)source)->pos.x, -((Actor_80016454 *)source)->pos.y, -((Actor_80016454 *)source)->pos.z);
+        post_translate_matrix(&((Actor_80016454 *)this)->pos);
+        rotate_matrix_y(0, (void *)((Actor_80016454 *)this)->yaw);
+        for (i = 0; i < ((Actor_80016454 *)this)->bodyCount; i++) {
+            if (!(((Actor_80016454 *)this)->bodies[i].flags & 0x02000000)) {
+                ((VecCopyFn_80016454)VecCopy__FP3VecPC3Vec)(&point, &((Actor_80016454 *)this)->bodies[i]);
                 matrix_mult_vec(0, &point, &point);
             }
             dist = point.x * point.x + point.z * point.z;
-            r = (target->bodies[i].radius + ((TUnk_804806E8 *)source)->get_target_value()) * (target->bodies[i].radius + ((TUnk_804806E8 *)source)->get_target_value());
-            diff = angle_difference_abs(source->yaw, (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))atan2_float)(point.x, point.z)));
-            if (dist < r && diff < ((TUnk_804806E8 *)source)->update_field_318()) {
+            r = (((Actor_80016454 *)this)->bodies[i].radius + ((TUnk_804806E8 *)((Actor_80016454 *)source))->get_target_value()) * (((Actor_80016454 *)this)->bodies[i].radius + ((TUnk_804806E8 *)((Actor_80016454 *)source))->get_target_value());
+            diff = angle_difference_abs(((Actor_80016454 *)source)->yaw, (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))atan2_float)(point.x, point.z)));
+            if (dist < r && diff < ((TUnk_804806E8 *)((Actor_80016454 *)source))->update_field_318()) {
                 selected = i;
                 break;
             }
@@ -3624,17 +3625,17 @@ s32 select_melee_contact_body__10TObjPlayerFv(Actor_80016454 *target, Actor_8001
             return 0;
         }
     } else {
-        ((VecCopyFn_80016454)VecCopy__FP3VecPC3Vec)(&point, &target->pos);
-        subtract_vector(&point, &source->pos);
+        ((VecCopyFn_80016454)VecCopy__FP3VecPC3Vec)(&point, &((Actor_80016454 *)this)->pos);
+        subtract_vector(&point, &((Actor_80016454 *)source)->pos);
         dist2 = point.x * point.x + point.z * point.z;
-        r2 = ((TUnk_804806E8 *)source)->get_target_value() * ((TUnk_804806E8 *)source)->get_target_value();
+        r2 = ((TUnk_804806E8 *)((Actor_80016454 *)source))->get_target_value() * ((TUnk_804806E8 *)((Actor_80016454 *)source))->get_target_value();
         r2 = r2 * r2;
-        diff = angle_difference_abs(source->yaw, (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))atan2_float)(point.x, point.z)));
-        if (r2 < dist2 || ((TUnk_804806E8 *)source)->update_field_318() < diff) {
+        diff = angle_difference_abs(((Actor_80016454 *)source)->yaw, (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))atan2_float)(point.x, point.z)));
+        if (r2 < dist2 || ((TUnk_804806E8 *)((Actor_80016454 *)source))->update_field_318() < diff) {
             return 0;
         }
     }
-    if (target->m24(source, selected, factor) != 0) {
+    if (((Actor_80016454 *)this)->m24(((Actor_80016454 *)source), selected, factor) != 0) {
         return 1;
     }
     }
@@ -3916,7 +3917,7 @@ s32 TUnk_804806E8::vfunc_43() {
     return 0;
 }
 
-s32 is_target_in_attack_range__10TObjPlayerFv(Player_8001745C *p) {
+s32 TUnk_804806E8::is_target_in_attack_range() {
     Vec_8001745C v;
     Vec_8001745C base;
     Vec_8001745C out;
@@ -3926,6 +3927,7 @@ s32 is_target_in_attack_range__10TObjPlayerFv(Player_8001745C *p) {
     f32 range;
     f32 dist;
     f32 prod;
+    Player_8001745C *p = (Player_8001745C *)this;
     if (p->target != NULL && p->f318 != 0 &&
         ((TObject *)(p->target))->all_parents_unqueued_for_destruction() != 0 &&
         ((u8 * (*)(u16))find_entity_by_id)(((u16 (*)(void *))obj_getField1c)(p->target)) != NULL) {

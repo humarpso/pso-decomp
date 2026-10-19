@@ -102,12 +102,12 @@ void construct_srank_weapon(void *);
 void *__dt__13TUnk_804A4948Fv(void *arg0, s16 arg1);
 void set_status_flags__10TObjPlayerFUl(void *, int);
 
-void TObjPlayer::set_pause_flag_from_state() {
+void TUnk_804F27E0::update_weapon() {
     if (get_attack_stage__11TItemWeaponFv() == 2) {
-        this->m_1fc = (s32) (this->m_1fc | 1);
+        (*(s32 *)((u8 *)this + 0x1FC)) = (s32) ((*(s32 *)((u8 *)this + 0x1FC)) | 1);
         return;
     }
-    this->m_1fc = (s32) (this->m_1fc & 0xFFFFFFFE);
+    (*(s32 *)((u8 *)this + 0x1FC)) = (s32) ((*(s32 *)((u8 *)this + 0x1FC)) & 0xFFFFFFFE);
 }
 
 void TObjPlayer::create_cane_if_ready(s32 arg0, void *position) {

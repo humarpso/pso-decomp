@@ -22,6 +22,7 @@ struct TechniqueEmitterSourceTable { TechniqueEmitterSourceRow* rows; u32 count;
 
 struct TTecBarta : public TUnk_804CCC68 {
     virtual ~TTecBarta();
+    virtual void vfunc_8(void *);
     TechniqueParticleEmitter** emitters;
     u16 hitIds[32];
     s32 hitCursor;

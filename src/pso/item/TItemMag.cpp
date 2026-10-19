@@ -213,11 +213,11 @@ extern const f32 lbl_805DABB4;
 #pragma inline_depth(4)
 #pragma auto_inline off
 #pragma dont_inline off
-extern "C" s8 TItemEquipBase__sub_8010A77C(TItemEquipBase *arg0);
+extern "C" s8 vfunc_33__14TItemEquipBaseFv(TItemEquipBase *arg0);
 extern "C" void vfunc_49__14TItemEquipBaseFv();
 extern "C" void vfunc_48__14TItemEquipBaseFv();
 extern "C" void TItemMag__vt48();
-extern "C" void TItem__sub_80100648();
+extern "C" void vfunc_40__5TItemFv();
 extern "C" void vfunc_34__5TItemFv();
 extern "C" void vfunc_32__5TItemFv();
 extern "C" void vfunc_28__5TItemFv();
@@ -230,15 +230,15 @@ extern "C" void add_equip_stats__14TItemEquipBaseFl();
 extern "C" void apply_object_set_data__13TUnk_804B9870FPv();
 extern "C" void classify_actor_view_detail__13TUnk_804B9870Ffff();
 extern "C" void dispatch_state__5TItemFv();
-extern "C" void equip__14TItemEquipBaseFv();
-extern "C" void register_attack__5TItemFv();
+extern "C" void vfunc_20__14TItemEquipBaseFv();
+extern "C" void vfunc_12__5TItemFv();
 extern "C" void reset_motion_fields__13TUnk_804AF8A0Fv();
 extern "C" void remove_equip_stats__14TItemEquipBaseFl();
 extern "C" void render_shadows__5TItemFv();
-extern "C" int ret_8010064C(void);
+extern "C" int vfunc_39__5TItemFv(void);
 extern "C" int ret_80100654(void);
 extern "C" int ret_8010065C(void);
-extern "C" int ret_80100664(void);
+extern "C" int vfunc_36__5TItemFv(void);
 extern "C" void vfunc_35__5TItemFv();
 extern "C" void run_task__5TItemFv();
 extern "C" void set_attach_slot__14TItemEquipBaseFSc();
@@ -253,14 +253,14 @@ void *__vt__8TItemMag[51] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__8TItemMagFv, (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804AF8A0Fv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
-    (void *)&register_attack__5TItemFv, (void *)&try_pick_up_item__5TItemFl, (void *)&TItemMag__vt12, (void *)&TItemMag__vt13,
+    (void *)&vfunc_12__5TItemFv, (void *)&try_pick_up_item__5TItemFl, (void *)&TItemMag__vt12, (void *)&TItemMag__vt13,
     (void *)&TItemMag__vt14, (void *)&TItemMag__vt15, (void *)&serialize_to_item__8TItemMagFPv, (void *)&set_attach_slot__14TItemEquipBaseFSc,
-    (void *)&equip__14TItemEquipBaseFv, (void *)&unequip__14TItemEquipBaseFv, (void *)&add_equip_stats__14TItemEquipBaseFl, (void *)&remove_equip_stats__14TItemEquipBaseFl,
+    (void *)&vfunc_20__14TItemEquipBaseFv, (void *)&unequip__14TItemEquipBaseFv, (void *)&add_equip_stats__14TItemEquipBaseFl, (void *)&remove_equip_stats__14TItemEquipBaseFl,
     (void *)&subtract_item_stat_bonus__14TItemEquipBaseFllPs, (void *)&subtract_equip_stats__14TItemEquipBaseFlPUcPUc, (void *)&TItemMag__vt24, (void *)&TItemMag__vt25,
     (void *)&vfunc_28__5TItemFv, (void *)&update_equip__14TItemEquipBaseFv, (void *)&vfunc_30__5TItemFv, (void *)&TItem::update_pickup_flag,
-    (void *)&vfunc_32__5TItemFv, (void *)&TItemEquipBase__sub_8010A77C, (void *)&vfunc_34__5TItemFv, (void *)&vfunc_35__5TItemFv,
-    (void *)&ret_80100664, (void *)&ret_8010065C, (void *)&ret_80100654, (void *)&ret_8010064C,
-    (void *)&TItem__sub_80100648, (void *)&TItemMag__vt39, (void *)&TItemMag__vt40, (void *)&vfunc_43__5TItemFv,
+    (void *)&vfunc_32__5TItemFv, (void *)&vfunc_33__14TItemEquipBaseFv, (void *)&vfunc_34__5TItemFv, (void *)&vfunc_35__5TItemFv,
+    (void *)&vfunc_36__5TItemFv, (void *)&ret_8010065C, (void *)&ret_80100654, (void *)&vfunc_39__5TItemFv,
+    (void *)&vfunc_40__5TItemFv, (void *)&TItemMag__vt39, (void *)&TItemMag__vt40, (void *)&vfunc_43__5TItemFv,
     (void *)&TItemMag__vt42, (void *)&TItemMag__vt43, (void *)&TItemMag__vt44, (void *)&TItemMag__vt45,
     (void *)&vfunc_48__14TItemEquipBaseFv, (void *)&vfunc_49__14TItemEquipBaseFv, (void *)&TItemMag__vt48,
 };

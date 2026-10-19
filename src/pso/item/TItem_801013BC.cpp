@@ -112,7 +112,7 @@ void TItem::set_mode(s8 arg1) {
     this->render_mode = arg1;
 }
 
-s32 TItem::register_attack() {
+int TItem::vfunc_12() {
     s32 sp8[8];
     s32 temp_r3;
 

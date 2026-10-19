@@ -227,7 +227,7 @@ void apply_poison_status__13TUnk_804806E8Fv();
 void apply_set_data__9TObjEnemyFPv();
 void apply_shock_status__13TUnk_804806E8Fv();
 void apply_switch_attack__13TUnk_804806E8Fv();
-void calc_distance_accuracy_penalty__10TObjPlayerFv();
+void calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf();
 void vfunc_79__9TObjEnemyFv();
 void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void clear_all_status_effects__13TUnk_804806E8Fv();
@@ -246,13 +246,13 @@ void get_actor_level_index__13TUnk_804806E8Fv();
 void vfunc_12__9TObjEnemyFv();
 void get_pos__13TUnk_804806E8Fl();
 void is_actor_cadence_frame__13TUnk_804806E8Fl();
-void is_target_in_attack_range__10TObjPlayerFv();
+void is_target_in_attack_range__13TUnk_804806E8Fv();
 void receive_weapon_special_attack__10TObjPlayerFv();
 void render_shadows__9TObjEnemyFv();
 void reset_motion_fields__13TUnk_804806E8Fv();
 void reset_pose__13TUnk_804806E8Fv();
 void roll_physical_accuracy__13TUnk_804806E8FPvlf();
-void select_melee_contact_body__10TObjPlayerFv();
+void select_melee_contact_body__13TUnk_804806E8FPvf();
 void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 void try_start_action__13TUnk_804806E8Fll();
 void update_action_hold_status__13TUnk_804806E8Fv();
@@ -286,9 +286,9 @@ void *lbl_804EDDEC[83] = {
     (void *)reset_motion_fields__13TUnk_804806E8Fv, (void *)vfunc_9__13TUnk_804806E8Fv, (void *)update_object_view_visibility__13TUnk_804B9870Fff, (void *)classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)vfunc_12__9TObjEnemyFv, (void *)vfunc_13__13TUnk_804AF8A0Fl, (void *)add_actor_exp__13TUnk_804806E8Fl, (void *)consume_timer_field__13TUnk_804806E8Fl,
     (void *)get_actor_level_index__13TUnk_804806E8Fv, (void *)update_actor_ground_y__13TUnk_804806E8Fv, (void *)vfunc_18__13TUnk_804806E8FPUc, (void *)is_actor_cadence_frame__13TUnk_804806E8Fl,
-    (void *)select_melee_contact_body__10TObjPlayerFv, (void *)calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)receive_physical_attack__9TBoss6MagFPvf, (void *)fn_80330240,
+    (void *)select_melee_contact_body__13TUnk_804806E8FPvf, (void *)calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf, (void *)receive_physical_attack__9TBoss6MagFPvf, (void *)fn_80330240,
     (void *)receive_weapon_special_attack__10TObjPlayerFv, (void *)apply_knockback_from_attacker__13TUnk_804806E8FPUc, (void *)try_start_action__13TUnk_804806E8Fll, (void *)roll_physical_accuracy__13TUnk_804806E8FPvlf,
-    (void *)vfunc_28__13TUnk_804806E8Fv, (void *)vfunc_29__13TUnk_804806E8Fv, (void *)is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__13TUnk_804806E8Fv,
+    (void *)vfunc_28__13TUnk_804806E8Fv, (void *)vfunc_29__13TUnk_804806E8Fv, (void *)is_target_in_attack_range__13TUnk_804806E8Fv, (void *)&test_flag_256__13TUnk_804806E8Fv,
     (void *)&test_flag30_512__13TUnk_804806E8Fv, (void *)&has_flag_0x800__13TUnk_804806E8Fv, (void *)&test_flag_1000__13TUnk_804806E8Fv, (void *)update_poison_status__13TUnk_804806E8Fv,
     (void *)update_action_hold_status__13TUnk_804806E8Fv, (void *)vfunc_37__13TUnk_804806E8Fv, (void *)update_flag30_timer__13TUnk_804806E8Fv, (void *)update_movement_status__13TUnk_804806E8Fv,
     (void *)update_shock_clock__13TUnk_804806E8Fv, (void *)update_attack_stat_status__13TUnk_804806E8Fv, (void *)update_defense_stat_status, (void *)vfunc_43__13TUnk_804806E8Fv,
@@ -1143,7 +1143,7 @@ typedef char RecoveredGlobal_803300C8_lbl_80477404_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_803300C8_lbl_80477428_size[sizeof(RecoveredGlobal_803300C8_lbl_80477428) == 0x1C ? 1 : -1];
 typedef char RecoveredGlobal_803300C8_lbl_804EDD94_size[sizeof(RecoveredGlobal_803300C8_lbl_804EDD94) == 0x50 ? 1 : -1];
 
-f32 receive_direct_attack__10TObjPlayerFv(void *, void *, P_80330240, void *, void *, void *);
+f32 receive_direct_attack__13TUnk_804806E8FPvPvPvll(void *, void *, P_80330240, void *, void *, void *);
 s32 query_teammate_state__9TObjEneDDFv();
 
 f32 fn_80330240(O_80330240 *arg0, void *att, P_80330240 arg2, void *coll, void *tech, void *arg5) {
@@ -1153,7 +1153,7 @@ f32 fn_80330240(O_80330240 *arg0, void *att, P_80330240 arg2, void *coll, void *
         }
         break;
     }
-    return receive_direct_attack__10TObjPlayerFv(arg0, att, arg2, coll, tech, arg5);
+    return receive_direct_attack__13TUnk_804806E8FPvPvPvll(arg0, att, arg2, coll, tech, arg5);
 }
 s32 play_sound_effect(int, void *, int, int);
 s32 TBoss6Type2__sub_802BD340(int);

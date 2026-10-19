@@ -7,6 +7,7 @@
 
 struct TItem : public TUnk_804AF8A0 {
     virtual ~TItem();
+    virtual int vfunc_12();
     u8 get_slot_count();
     s8 sub_80102C30();
     void clear_item_flags(u32);
@@ -82,7 +83,6 @@ struct TItem : public TUnk_804AF8A0 {
     void copy_item_data_and_process();
     void unregister_from_world();
     void set_mode(s8 arg1);
-    s32 register_attack();
     void calc_display_grade();
     s32 unregister_item();
     s32 insert_sorted_by_id();

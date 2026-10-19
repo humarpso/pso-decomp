@@ -117,7 +117,7 @@ void mem_free(void *p);
 void __dl__7TObjectFPv(TTecBarta*);
 TTecBarta* __dt__9TTecBartaFv(TTecBarta* self,s16 deleting);
 u16 obj_getField1c(void *);
-void TTecBarta__vt6(Obj_8022B8F4 *self, VObj_8022B8F4 *target);
+void vfunc_8__9TTecBartaFPv(Obj_8022B8F4 *self, VObj_8022B8F4 *target);
 void __ct__13TUnk_804CCC68FlPUcPUcl();
 extern s32 tec_barta_class_name_ptr;
 TTecBarta_8022BC10 *TTecBarta__ct(TTecBarta_8022BC10 *self, void * _w1, void * _w2, void * _w3, void * _w4);
@@ -261,16 +261,17 @@ void TTecBarta::create_ex(void *arg1, void *arg2, void *arg3) {
     }
 }
 
-void TTecBarta__vt6(Obj_8022B8F4 *self, VObj_8022B8F4 *target) {
+void TTecBarta::vfunc_8(void *target) {
+    Obj_8022B8F4 *self = (Obj_8022B8F4 *)this;
     s32 found = 0;
     s32 i;
     for (i = 0; i < 32; i++) {
-        if (self->ids[i] == obj_getField1c(target)) {
+        if (self->ids[i] == obj_getField1c(((VObj_8022B8F4 *)target))) {
             found = 1;
         }
     }
     if (found == 0) {
-        self->ids[self->cursor] = obj_getField1c(target);
+        self->ids[self->cursor] = obj_getField1c(((VObj_8022B8F4 *)target));
         self->cursor += 1;
         if (self->cursor >= 32) {
             self->cursor = 31;
@@ -279,7 +280,7 @@ void TTecBarta__vt6(Obj_8022B8F4 *self, VObj_8022B8F4 *target) {
         tmp.type = 19;
         tmp.power = self->power;
         HitInfo_8022B8F4 info = tmp;
-        target->m21(self->source, &info, self->contact, 3, -1);
+        ((VObj_8022B8F4 *)target)->m21(self->source, &info, self->contact, 3, -1);
     }
 }
 

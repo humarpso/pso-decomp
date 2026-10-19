@@ -1116,7 +1116,7 @@ void consume_timer_field__13TUnk_804806E8Fl();
 void add_actor_exp__13TUnk_804806E8Fl();
 void is_actor_cadence_frame__13TUnk_804806E8Fl();
 void receive_weapon_special_attack__10TObjPlayerFv();
-void receive_direct_attack__10TObjPlayerFv();
+void receive_direct_attack__13TUnk_804806E8FPvPvPvll();
 void apply_knockback_from_attacker__13TUnk_804806E8FPUc();
 void receive_physical_attack__13TUnk_804806E8FPvf();
 void vfunc_67__13TUnk_804806E8Fv();
@@ -1140,10 +1140,10 @@ void apply_confusion_status__13TUnk_804806E8Fv();
 void apply_slow_status__13TUnk_804806E8Fv();
 void apply_paralysis__13TUnk_804806E8Fv();
 void apply_poison_status__13TUnk_804806E8Fv();
-void calc_distance_accuracy_penalty__10TObjPlayerFv();
+void calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf();
 void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 void try_start_action__13TUnk_804806E8Fll();
-void select_melee_contact_body__10TObjPlayerFv();
+void select_melee_contact_body__13TUnk_804806E8FPvf();
 s32 update_defense_stat_status(u8 *arg0);
 s32 update_attack_stat_status__13TUnk_804806E8Fv(u8 *arg0);
 void update_shock_clock__13TUnk_804806E8Fv();
@@ -1153,7 +1153,7 @@ s32 vfunc_37__13TUnk_804806E8Fv(u8 *arg0);
 void update_action_hold_status__13TUnk_804806E8Fv();
 void update_poison_status__13TUnk_804806E8Fv();
 void vfunc_43__13TUnk_804806E8Fv();
-void is_target_in_attack_range__10TObjPlayerFv();
+void is_target_in_attack_range__13TUnk_804806E8Fv();
 void vfunc_18__13TUnk_804806E8FPUc();
 void update_actor_ground_y__13TUnk_804806E8Fv();
 void vfunc_9__13TUnk_804806E8Fv();
@@ -1193,17 +1193,17 @@ s32 __vt__11TBoss4Bishi[83] = {
     (s32)update_actor_ground_y__13TUnk_804806E8Fv,
     (s32)vfunc_18__13TUnk_804806E8FPUc,
     (s32)is_actor_cadence_frame__13TUnk_804806E8Fl,
-    (s32)select_melee_contact_body__10TObjPlayerFv,
-    (s32)calc_distance_accuracy_penalty__10TObjPlayerFv,
+    (s32)select_melee_contact_body__13TUnk_804806E8FPvf,
+    (s32)calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf,
     (s32)receive_physical_attack__13TUnk_804806E8FPvf,
-    (s32)receive_direct_attack__10TObjPlayerFv,
+    (s32)receive_direct_attack__13TUnk_804806E8FPvPvPvll,
     (s32)receive_weapon_special_attack__10TObjPlayerFv,
     (s32)apply_knockback_from_attacker__13TUnk_804806E8FPUc,
     (s32)try_start_action__13TUnk_804806E8Fll,
     (s32)roll_physical_accuracy__13TUnk_804806E8FPvlf,
     (s32)vfunc_28__13TUnk_804806E8Fv,
     (s32)vfunc_29__13TUnk_804806E8Fv,
-    (s32)is_target_in_attack_range__10TObjPlayerFv,
+    (s32)is_target_in_attack_range__13TUnk_804806E8Fv,
     (s32)&test_flag_256__13TUnk_804806E8Fv,
     (s32)&test_flag30_512__13TUnk_804806E8Fv,
     (s32)&has_flag_0x800__13TUnk_804806E8Fv,
@@ -1278,17 +1278,17 @@ s32 __vt__9TBoss4Uro[83] = {
     (s32)update_actor_ground_y__13TUnk_804806E8Fv,
     (s32)vfunc_18__13TUnk_804806E8FPUc,
     (s32)is_actor_cadence_frame__13TUnk_804806E8Fl,
-    (s32)select_melee_contact_body__10TObjPlayerFv,
-    (s32)calc_distance_accuracy_penalty__10TObjPlayerFv,
+    (s32)select_melee_contact_body__13TUnk_804806E8FPvf,
+    (s32)calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf,
     (s32)receive_physical_attack__13TUnk_804806E8FPvf,
-    (s32)receive_direct_attack__10TObjPlayerFv,
+    (s32)receive_direct_attack__13TUnk_804806E8FPvPvPvll,
     (s32)receive_weapon_special_attack__10TObjPlayerFv,
     (s32)apply_knockback_from_attacker__13TUnk_804806E8FPUc,
     (s32)try_start_action__13TUnk_804806E8Fll,
     (s32)roll_physical_accuracy__13TUnk_804806E8FPvlf,
     (s32)vfunc_28__13TUnk_804806E8Fv,
     (s32)vfunc_29__13TUnk_804806E8Fv,
-    (s32)is_target_in_attack_range__10TObjPlayerFv,
+    (s32)is_target_in_attack_range__13TUnk_804806E8Fv,
     (s32)&test_flag_256__13TUnk_804806E8Fv,
     (s32)&test_flag30_512__13TUnk_804806E8Fv,
     (s32)&has_flag_0x800__13TUnk_804806E8Fv,
@@ -1363,17 +1363,17 @@ s32 __vt__10TBoss4Zako[83] = {
     (s32)update_actor_ground_y__13TUnk_804806E8Fv,
     (s32)vfunc_18__13TUnk_804806E8FPUc,
     (s32)is_actor_cadence_frame__13TUnk_804806E8Fl,
-    (s32)select_melee_contact_body__10TObjPlayerFv,
-    (s32)calc_distance_accuracy_penalty__10TObjPlayerFv,
+    (s32)select_melee_contact_body__13TUnk_804806E8FPvf,
+    (s32)calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf,
     (s32)receive_physical_attack__13TUnk_804806E8FPvf,
-    (s32)receive_direct_attack__10TObjPlayerFv,
+    (s32)receive_direct_attack__13TUnk_804806E8FPvPvPvll,
     (s32)receive_weapon_special_attack__10TObjPlayerFv,
     (s32)apply_knockback_from_attacker__13TUnk_804806E8FPUc,
     (s32)try_start_action__13TUnk_804806E8Fll,
     (s32)roll_physical_accuracy__13TUnk_804806E8FPvlf,
     (s32)vfunc_28__13TUnk_804806E8Fv,
     (s32)vfunc_29__13TUnk_804806E8Fv,
-    (s32)is_target_in_attack_range__10TObjPlayerFv,
+    (s32)is_target_in_attack_range__13TUnk_804806E8Fv,
     (s32)&test_flag_256__13TUnk_804806E8Fv,
     (s32)&test_flag30_512__13TUnk_804806E8Fv,
     (s32)&has_flag_0x800__13TUnk_804806E8Fv,

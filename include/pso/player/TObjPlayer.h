@@ -573,12 +573,9 @@ struct TObjPlayer : public TUnk_804806E8 {
     void *init_substate_a();
     void cast_foie();
     void update_effect_if_state1();
-    void update_from_owner();
-    void update_linked_object();
     void draw_mag();
     void update_1f8_if_ready();
     void*init_state();
-    void refresh_inventory_slot();
     void launch_double_cannon_extra();
     void play_side_step_particle();
     s16 get_stage_strike_count();
@@ -1176,7 +1173,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     int check_flag_at_4();
     void set_field_0(s16 v);
     static int get_max_children(void*);
-    void scroll_dark_flow_texture();
     void launch_guardianna_colliders();
     static void alloc_and_init(s32 arg0, s32 arg1, s32 arg2);
     static void create_and_init_effect(s32 arg0, u32 *arg1, s32 arg2);
@@ -1224,7 +1220,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void draw_node_tree_if_visible();
     void apply_with_callback(s32 arg1, f32 farg0);
     static s32 conditional_delete_ex(s32 arg0, s16 arg1);
-    void set_pause_flag_from_state();
     static void create_cane_if_ready(s32 arg0, void *position);
     static void create_cleanup_object(void *arg0);
     static void free_static_buffer();
@@ -1367,7 +1362,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void trigger_hit_camera_shake(u32 arg1);
     void set_flag_20000();
     void spawn_directional_particle_at_slot(s32 i);
-    s32 hit_area_targets(u8 *arg1, s32 arg2, u32 arg3, f32 farg0);
     static void update_particle_by_phase();
     void draw_blob_shadows();
     static void free_obj_heap(void* a0);

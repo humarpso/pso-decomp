@@ -53,7 +53,7 @@ void * init__13TObjEneMe1GeeFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *
 void vfunc_110__13TUnk_8049387CFl(u8 *arg0, s32 arg1);
 void sub_800C84C8__13TUnk_8049387CFv(u8 *arg0);
 void vfunc_117__13TUnk_8049387CFUl(Gee_800C8788 *arg0, u32 arg1);
-void TObjEneMe1Gee__sub_800C8950(Gee_800C8950 *self);
+void vfunc_107__13TUnk_8049387CFv(Gee_800C8950 *self);
 void vfunc_105__13TUnk_8049387CFv(Obj_800C8B4C *self);
 void vfunc_106__13TUnk_8049387CFv(void* a0);
 void TObjEneMe1Gee__sub_800C8BCC(u8 *arg0);
@@ -78,7 +78,7 @@ extern s32 gee_resource_bundle_ptr;
 #pragma push
 #define vfunc_117__13TUnk_8049387CFUl ((void (*)())vfunc_117__13TUnk_8049387CFUl)
 #define vfunc_108__13TUnk_8049387CFv ((void (*)())vfunc_108__13TUnk_8049387CFv)
-#define TObjEneMe1Gee__sub_800C8950 ((void (*)())TObjEneMe1Gee__sub_800C8950)
+#define vfunc_107__13TUnk_8049387CFv ((void (*)())vfunc_107__13TUnk_8049387CFv)
 #define vfunc_105__13TUnk_8049387CFv ((void (*)())vfunc_105__13TUnk_8049387CFv)
 #define vfunc_106__13TUnk_8049387CFv ((void (*)())vfunc_106__13TUnk_8049387CFv)
 #define vfunc_114__13TObjEneMe1GeeFv ((void (*)())vfunc_114__13TObjEneMe1GeeFv)
@@ -146,7 +146,7 @@ extern "C" void apply_poison_status__13TUnk_804806E8Fv();
 extern "C" void apply_set_data__9TObjEnemyFPv();
 extern "C" void apply_shock_status__13TUnk_804806E8Fv();
 extern "C" void apply_switch_attack__13TUnk_804806E8Fv();
-extern "C" void calc_distance_accuracy_penalty__10TObjPlayerFv();
+extern "C" void calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf();
 extern "C" void classify_actor_view_detail__13TUnk_804B9870Ffff();
 extern "C" void clear_all_status_effects__13TUnk_804806E8Fv();
 extern "C" void clear_harmful_statuses__13TUnk_804806E8Fv();
@@ -164,7 +164,7 @@ extern "C" void get_actor_level_index__13TUnk_804806E8Fv();
 extern "C" void vfunc_12__9TObjEnemyFv();
 extern "C" void get_pos__13TUnk_804806E8Fl();
 extern "C" void is_actor_cadence_frame__13TUnk_804806E8Fl();
-extern "C" void is_target_in_attack_range__10TObjPlayerFv();
+extern "C" void is_target_in_attack_range__13TUnk_804806E8Fv();
 extern "C" u8 lbl_8043BD08[];
 extern "C" u8 lbl_8043BD14[];
 extern "C" u8 lbl_8043BD24[];
@@ -179,14 +179,14 @@ extern "C" u8 lbl_8043BDFC[];
 extern "C" u8 lbl_8043BE08[];
 extern "C" u8 lbl_8043BE28[];
 extern "C" u8 lbl_8043BE38[];
-extern "C" void receive_direct_attack__10TObjPlayerFv();
+extern "C" void receive_direct_attack__13TUnk_804806E8FPvPvPvll();
 extern "C" void receive_physical_attack__13TUnk_804806E8FPvf();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
 extern "C" void render_shadows__9TObjEnemyFv(u8 *arg0);
 extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__13TUnk_804806E8Fv();
 extern "C" void roll_physical_accuracy__13TUnk_804806E8FPvlf();
-extern "C" void select_melee_contact_body__10TObjPlayerFv();
+extern "C" void select_melee_contact_body__13TUnk_804806E8FPvf();
 extern "C" void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 extern "C" void try_start_action__13TUnk_804806E8Fll();
 extern "C" void update_action_hold_status__13TUnk_804806E8Fv();
@@ -247,9 +247,9 @@ void *me1_gee_dispatch_table[118] = {
     (void *)reset_motion_fields__13TUnk_804806E8Fv, (void *)vfunc_9__13TUnk_804806E8Fv, (void *)update_object_view_visibility__13TUnk_804B9870Fff, (void *)classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)vfunc_12__9TObjEnemyFv, (void *)vfunc_13__13TUnk_804AF8A0Fl, (void *)add_actor_exp__13TUnk_804806E8Fl, (void *)consume_timer_field__13TUnk_804806E8Fl,
     (void *)get_actor_level_index__13TUnk_804806E8Fv, (void *)update_actor_ground_y__13TUnk_804806E8Fv, (void *)vfunc_18__13TUnk_804806E8FPUc, (void *)is_actor_cadence_frame__13TUnk_804806E8Fl,
-    (void *)select_melee_contact_body__10TObjPlayerFv, (void *)calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)receive_physical_attack__13TUnk_804806E8FPvf, (void *)receive_direct_attack__10TObjPlayerFv,
+    (void *)select_melee_contact_body__13TUnk_804806E8FPvf, (void *)calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf, (void *)receive_physical_attack__13TUnk_804806E8FPvf, (void *)receive_direct_attack__13TUnk_804806E8FPvPvPvll,
     (void *)receive_weapon_special_attack__10TObjPlayerFv, (void *)apply_knockback_from_attacker__13TUnk_804806E8FPUc, (void *)try_start_action__13TUnk_804806E8Fll, (void *)roll_physical_accuracy__13TUnk_804806E8FPvlf,
-    (void *)vfunc_28__13TObjEneMe1GeeFv, (void *)vfunc_29__13TUnk_804806E8Fv, (void *)is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__13TUnk_804806E8Fv,
+    (void *)vfunc_28__13TObjEneMe1GeeFv, (void *)vfunc_29__13TUnk_804806E8Fv, (void *)is_target_in_attack_range__13TUnk_804806E8Fv, (void *)&test_flag_256__13TUnk_804806E8Fv,
     (void *)&test_flag30_512__13TUnk_804806E8Fv, (void *)&has_flag_0x800__13TUnk_804806E8Fv, (void *)&test_flag_1000__13TUnk_804806E8Fv, (void *)update_poison_status__13TUnk_804806E8Fv,
     (void *)update_action_hold_status__13TUnk_804806E8Fv, (void *)vfunc_37__13TUnk_804806E8Fv, (void *)update_flag30_timer__13TUnk_804806E8Fv, (void *)update_movement_status__13TUnk_804806E8Fv,
     (void *)update_shock_clock__13TUnk_804806E8Fv, (void *)update_attack_stat_status__13TUnk_804806E8Fv, (void *)update_defense_stat_status, (void *)vfunc_43__13TUnk_804806E8Fv,
@@ -268,7 +268,7 @@ void *me1_gee_dispatch_table[118] = {
     (void *)vfunc_92__9TObjEneDDFv, (void *)vfunc_93__9TObjEneDDFv, (void *)vfunc_94__9TObjEneDDFv, (void *)vfunc_95__9TObjEneDDFv,
     (void *)vfunc_96__9TObjEneDDFv, (void *)vfunc_97__9TObjEneDDFv, (void *)vfunc_98__9TObjEneDDFv, (void *)vfunc_99__9TObjEneDDFv,
     (void *)vfunc_100__9TObjEneDDFv, (void *)vfunc_101__13TObjEneMe1GeeFPUc, (void *)vfunc_102__9TObjEneDDFv, (void *)vfunc_103__9TObjEneDDFPUc,
-    (void *)TObjEneMe1Gee__vt102, (void *)vfunc_105__13TUnk_8049387CFv, (void *)vfunc_106__13TUnk_8049387CFv, (void *)TObjEneMe1Gee__sub_800C8950,
+    (void *)TObjEneMe1Gee__vt102, (void *)vfunc_105__13TUnk_8049387CFv, (void *)vfunc_106__13TUnk_8049387CFv, (void *)vfunc_107__13TUnk_8049387CFv,
     (void *)vfunc_108__13TUnk_8049387CFv, (void *)vfunc_109__13TUnk_8049387CFv, (void *)vfunc_110__13TUnk_8049387CFl, (void *)vfunc_111__13TUnk_8049387CFl,
     (void *)vfunc_112__13TUnk_8049387CFl, (void *)vfunc_113__13TUnk_8049387CFv, (void *)vfunc_114__13TObjEneMe1GeeFv, (void *)vfunc_115__13TObjEneMe1GeeFv,
     (void *)vfunc_116__13TUnk_8049387CFv, (void *)vfunc_117__13TUnk_8049387CFUl,
@@ -280,7 +280,7 @@ s32 lbl_80500E5C[3];
 f32 gee_camera_ctrl_vec[4];
 #undef vfunc_117__13TUnk_8049387CFUl
 #undef vfunc_108__13TUnk_8049387CFv
-#undef TObjEneMe1Gee__sub_800C8950
+#undef vfunc_107__13TUnk_8049387CFv
 #undef vfunc_105__13TUnk_8049387CFv
 #undef vfunc_106__13TUnk_8049387CFv
 #undef vfunc_114__13TObjEneMe1GeeFv
@@ -1961,7 +1961,7 @@ s32 TUnk_8049387C::vfunc_108() {
     return 0;
 }
 
-void TObjEneMe1Gee__sub_800C8950(Gee_800C8950 *self) {
+void TUnk_8049387C::vfunc_107() {
     s32 n;
     s32 i;
     s32 j;
@@ -1969,6 +1969,7 @@ void TObjEneMe1Gee__sub_800C8950(Gee_800C8950 *self) {
     s32 b;
     s32 angle;
     Vec_800C8950 v;
+    Gee_800C8950 *self = (Gee_800C8950 *)this;
     n = (s32)get_status_value_f32__23TObjEneMe1CanadinLeaderFv((f32)self->maxCount / (f32)self->par->x2c);
     if (n < 1) {
         n = 1;

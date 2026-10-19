@@ -6,6 +6,7 @@
 
 struct TTecGiFoie : public TUnk_804CC148 {
     virtual ~TTecGiFoie();
+    virtual void vfunc_6(void *);
     virtual void run_task();
     u32 m_ec;
     u8 _padF0[0x48];

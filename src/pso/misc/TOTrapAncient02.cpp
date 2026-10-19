@@ -423,7 +423,7 @@ void vfunc_9__13TUnk_804806E8Fv();
 void get_actor_level_index__13TUnk_804806E8Fv();
 void get_pos__13TUnk_804806E8Fl();
 void is_actor_cadence_frame__13TUnk_804806E8Fl();
-void is_target_in_attack_range__10TObjPlayerFv();
+void is_target_in_attack_range__13TUnk_804806E8Fv();
 void play_sounds__6TOTrapFv();
 void render_shadows__7TObjectFv();
 void reset_motion_fields__13TUnk_804806E8Fv();
@@ -524,7 +524,7 @@ s32 __vt__16TOTrapAncient02R[90] = {
     (s32)&roll_physical_accuracy__16TOTrapAncient02RFPvlf,
     (s32)&vfunc_28__13TUnk_804806E8Fv,
     (s32)&vfunc_29__13TUnk_804806E8Fv,
-    (s32)&is_target_in_attack_range__10TObjPlayerFv,
+    (s32)&is_target_in_attack_range__13TUnk_804806E8Fv,
     (s32)&test_flag_256__13TUnk_804806E8Fv,
     (s32)&test_flag30_512__13TUnk_804806E8Fv,
     (s32)&has_flag_0x800__13TUnk_804806E8Fv,

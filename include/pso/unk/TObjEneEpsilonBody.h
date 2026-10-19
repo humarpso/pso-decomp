@@ -6,6 +6,7 @@
 class TObjEneEpsilonBody : public TObjEneEpsilon {
 public:
     virtual ~TObjEneEpsilonBody();
+    virtual f32 receive_weapon_special_attack(void *, void *);
     void init_params();
     void update_guard_flag();
     void sub_80361D4C(s32);

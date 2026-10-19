@@ -645,80 +645,80 @@ struct TAdEnterSerialAccessGC_80321F60 {
     s32 field_60;
 };
 void *__ct__10TAdTitleGCFP7TObjectl(void *, void *, s32);
-void run_task__22TAdEnterSerialAccessGCFv(TAdEnterSerialAccessGC_80321F60 *self) {
+void TAdEnterSerialAccessGC::run_task() {
     void *p;
     f32 w;
 
     w = 320.0f - (f32)(calc_text_width((char *)((void *)get_localized_text_entry(0x17, (s32)((void *)4)))) >> 1);
     serial_entry_status_line_position[0].b = 250.0f;
     serial_entry_status_line_position[0].a = w;
-    self->field_40 = TAdEnterSerialAccessGC__input_state;
+    ((TAdEnterSerialAccessGC_80321F60 *)this)->field_40 = TAdEnterSerialAccessGC__input_state;
     switch (TAdEnterSerialAccessGC__input_state) {
     case 0:
         TAdEnterSerialAccessGC__input_state = 1;
         break;
     case 1:
-        self->field_60 = 0;
+        ((TAdEnterSerialAccessGC_80321F60 *)this)->field_60 = 0;
         p = __nw__7TObjectFUl(0x138);
         if (p != NULL) {
-            p = __ct__10TAdTitleGCFP7TObjectl(p, self, 0xA);
+            p = __ct__10TAdTitleGCFP7TObjectl(p, ((TAdEnterSerialAccessGC_80321F60 *)this), 0xA);
         }
-        self->field_50 = p;
-        self->field_58 = TAdEnterSerialAccessGC::open_message_window(self, (void *)0);
-        self->field_5C = ((s32 (*)(void *))create_draw_callback__22TAdEnterSerialAccessGCFv)(self);
-        if (self->field_54 != NULL) {
-            ((TAdEnterSerialAccessGC *)((int)self->field_54))->reset_input_state();
-            ((TLevelSelect *)((int)self->field_54))->add_item_rect(&TAdEnterSerialAccessGC__selection_positions);
-            ((TAdEnterSerialAccessGC *)((int)self->field_54))->set_active();
+        ((TAdEnterSerialAccessGC_80321F60 *)this)->field_50 = p;
+        ((TAdEnterSerialAccessGC_80321F60 *)this)->field_58 = TAdEnterSerialAccessGC::open_message_window(((TAdEnterSerialAccessGC_80321F60 *)this), (void *)0);
+        ((TAdEnterSerialAccessGC_80321F60 *)this)->field_5C = ((s32 (*)(void *))create_draw_callback__22TAdEnterSerialAccessGCFv)(((TAdEnterSerialAccessGC_80321F60 *)this));
+        if (((TAdEnterSerialAccessGC_80321F60 *)this)->field_54 != NULL) {
+            ((TAdEnterSerialAccessGC *)((int)((TAdEnterSerialAccessGC_80321F60 *)this)->field_54))->reset_input_state();
+            ((TLevelSelect *)((int)((TAdEnterSerialAccessGC_80321F60 *)this)->field_54))->add_item_rect(&TAdEnterSerialAccessGC__selection_positions);
+            ((TAdEnterSerialAccessGC *)((int)((TAdEnterSerialAccessGC_80321F60 *)this)->field_54))->set_active();
         }
-        TAdEnterSerialAccessGC__keyboard_control = TAdEnterSerialAccessGC::create_keyboard_control((s32)self, 0);
+        TAdEnterSerialAccessGC__keyboard_control = TAdEnterSerialAccessGC::create_keyboard_control((s32)((TAdEnterSerialAccessGC_80321F60 *)this), 0);
         TAdEnterSerialAccessGC__input_state = 2;
         break;
     case 2:
-        TAdEnterSerialAccessGC__sub_80321F3C(self);
+        TAdEnterSerialAccessGC__sub_80321F3C(((TAdEnterSerialAccessGC_80321F60 *)this));
         break;
     case 3:
-        self->field_60 = 0;
-        if (self->field_54 != NULL) {
-            ((TAdEnterSerialAccessGC *)((int)self->field_54))->reset_input_state();
-            ((TLevelSelect *)((int)self->field_54))->add_item_rect(&TAdEnterSerialAccessGC__selection_positions);
-            ((TAdEnterSerialAccessGC *)((int)self->field_54))->set_active();
+        ((TAdEnterSerialAccessGC_80321F60 *)this)->field_60 = 0;
+        if (((TAdEnterSerialAccessGC_80321F60 *)this)->field_54 != NULL) {
+            ((TAdEnterSerialAccessGC *)((int)((TAdEnterSerialAccessGC_80321F60 *)this)->field_54))->reset_input_state();
+            ((TLevelSelect *)((int)((TAdEnterSerialAccessGC_80321F60 *)this)->field_54))->add_item_rect(&TAdEnterSerialAccessGC__selection_positions);
+            ((TAdEnterSerialAccessGC *)((int)((TAdEnterSerialAccessGC_80321F60 *)this)->field_54))->set_active();
         }
         p = __nw__7TObjectFUl(0x138);
         if (p != NULL) {
-            p = __ct__10TAdTitleGCFP7TObjectl(p, self, 0xB);
+            p = __ct__10TAdTitleGCFP7TObjectl(p, ((TAdEnterSerialAccessGC_80321F60 *)this), 0xB);
         }
-        self->field_50 = p;
-        self->field_58 = TAdEnterSerialAccessGC::open_message_window(self, (void *)1);
-        self->field_5C = ((s32 (*)(void *))create_draw_callback__22TAdEnterSerialAccessGCFv)(self);
-        TAdEnterSerialAccessGC__keyboard_control = TAdEnterSerialAccessGC::create_keyboard_control((s32)self, 1);
+        ((TAdEnterSerialAccessGC_80321F60 *)this)->field_50 = p;
+        ((TAdEnterSerialAccessGC_80321F60 *)this)->field_58 = TAdEnterSerialAccessGC::open_message_window(((TAdEnterSerialAccessGC_80321F60 *)this), (void *)1);
+        ((TAdEnterSerialAccessGC_80321F60 *)this)->field_5C = ((s32 (*)(void *))create_draw_callback__22TAdEnterSerialAccessGCFv)(((TAdEnterSerialAccessGC_80321F60 *)this));
+        TAdEnterSerialAccessGC__keyboard_control = TAdEnterSerialAccessGC::create_keyboard_control((s32)((TAdEnterSerialAccessGC_80321F60 *)this), 1);
         TAdEnterSerialAccessGC__input_state = 4;
         break;
     case 4:
-        TAdEnterSerialAccessGC__sub_80321F18(self);
+        TAdEnterSerialAccessGC__sub_80321F18(((TAdEnterSerialAccessGC_80321F60 *)this));
         break;
     case 5:
-        if ((f32)++self->field_48 > 4.5f) {
-            TAdEnterSerialAccessGC__input_state = self->field_44;
+        if ((f32)++((TAdEnterSerialAccessGC_80321F60 *)this)->field_48 > 4.5f) {
+            TAdEnterSerialAccessGC__input_state = ((TAdEnterSerialAccessGC_80321F60 *)this)->field_44;
         }
         break;
     case 6:
-        if (self->field_54 != NULL) {
-            queue_destruction__7TObjectFv(self->field_54);
-            self->field_54 = NULL;
+        if (((TAdEnterSerialAccessGC_80321F60 *)this)->field_54 != NULL) {
+            queue_destruction__7TObjectFv(((TAdEnterSerialAccessGC_80321F60 *)this)->field_54);
+            ((TAdEnterSerialAccessGC_80321F60 *)this)->field_54 = NULL;
         }
         TAdMultiChgGameModeGC::request_transition();
         break;
     case 7:
-        if (self->field_54 != NULL) {
-            queue_destruction__7TObjectFv(self->field_54);
-            self->field_54 = NULL;
+        if (((TAdEnterSerialAccessGC_80321F60 *)this)->field_54 != NULL) {
+            queue_destruction__7TObjectFv(((TAdEnterSerialAccessGC_80321F60 *)this)->field_54);
+            ((TAdEnterSerialAccessGC_80321F60 *)this)->field_54 = NULL;
         }
         TAdEnterSerialAccessGC::init_state();
         break;
     }
-    if (self->field_40 != TAdEnterSerialAccessGC__input_state) {
-        self->field_48 = 0;
+    if (((TAdEnterSerialAccessGC_80321F60 *)this)->field_40 != TAdEnterSerialAccessGC__input_state) {
+        ((TAdEnterSerialAccessGC_80321F60 *)this)->field_48 = 0;
     }
 }
 

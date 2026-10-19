@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TTecRaBarta.h"
 extern "C" void *__dt__13TUnk_804CC148Fv(void *, s16);
 #include "pso/boss/TBoss4Type2_800874F4.h"
 #include "pso/misc/TLobby_80226070.h"
@@ -148,7 +149,7 @@ struct RaBarta_802377FC {
 
 extern "C" {
 u16 obj_getField1c(void *);
-void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target);
+void vfunc_6__11TTecRaBartaFPv(Obj_80237900 *self, VObj_80237900 *target);
 
 void *__nw__7TObjectFUl(u32);
 void *get_bml_motion(void *, int);
@@ -300,16 +301,17 @@ void TTecRaBarta::calc_parameters() {
     }
 }
 
-void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target) {
+void TTecRaBarta::vfunc_6(void *target) {
+    Obj_80237900 *self = (Obj_80237900 *)this;
     s32 found = 0;
     s32 i;
     for (i = 0; i < 32; i++) {
-        if (self->ids[i] == obj_getField1c(target)) {
+        if (self->ids[i] == obj_getField1c(((VObj_80237900 *)target))) {
             found = 1;
         }
     }
     if (found == 0) {
-        self->ids[self->cursor] = obj_getField1c(target);
+        self->ids[self->cursor] = obj_getField1c(((VObj_80237900 *)target));
         self->cursor += 1;
         if (self->cursor >= 32) {
             self->cursor = 31;
@@ -318,7 +320,7 @@ void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target) {
         tmp.type = 2;
         tmp.power = self->power;
         HitInfo_80237900 info = tmp;
-        target->m21(self->source, &info, self->contact, 5, -1);
+        ((VObj_80237900 *)target)->m21(self->source, &info, self->contact, 5, -1);
     }
 }
 

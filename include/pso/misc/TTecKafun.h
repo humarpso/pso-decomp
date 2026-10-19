@@ -6,6 +6,7 @@
 
 struct TTecKafun : public TUnk_804CC148 {
     virtual ~TTecKafun();
+    virtual void vfunc_6(void *);
     u8 _padEC[0x4];
     u32 m_f0;
     u32 m_f4;

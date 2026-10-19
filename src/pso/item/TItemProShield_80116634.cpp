@@ -395,11 +395,11 @@ void vfunc_31__11TItemObjectFv();
 s32 vfunc_37__11TItemObjectFl(TItemObject *arg0, s32 arg1);
 s32 vfunc_38__11TItemObjectFl(void *arg0, s32 arg1);
 void vfunc_9__11TItemObjectFv();
-void TItem__sub_801005D8();
+void vfunc_42__5TItemFv();
 void vfunc_16__5TItemFv();
-void TItem__sub_801005E0();
-int TItem__sub_801005E4(void);
-void TItem__sub_80100648();
+void vfunc_15__5TItemFv();
+int vfunc_41__5TItemFv(void);
+void vfunc_40__5TItemFv();
 void vfunc_34__5TItemFv();
 void vfunc_17__5TItemFv();
 void vfunc_19__5TItemFSc();
@@ -423,10 +423,10 @@ void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void destroy__5TItemFv();
 void dispatch_state__5TItemFv();
 void vfunc_36__11TItemObjectFv();
-void register_attack__5TItemFv();
+void vfunc_12__5TItemFv();
 void reset_motion_fields__13TUnk_804AF8A0Fv();
 void render_shadows__5TItemFv();
-int ret_8010064C(void);
+int vfunc_39__5TItemFv(void);
 void vfunc_35__5TItemFv();
 void run_task__5TItemFv();
 void try_pick_up_item__5TItemFl();
@@ -444,10 +444,10 @@ void *item_hp_recovery_vtable[46] = {
     (void *)&vfunc_9__11TItemObjectFv,
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
-    (void *)&register_attack__5TItemFv,
+    (void *)&vfunc_12__5TItemFv,
     (void *)&try_pick_up_item__5TItemFl,
     (void *)&vfunc_14__11TItemObjectFv,
-    (void *)&TItem__sub_801005E0,
+    (void *)&vfunc_15__5TItemFv,
     (void *)&vfunc_16__5TItemFv,
     (void *)&vfunc_17__5TItemFv,
     (void *)&TItemObject__vt16,
@@ -471,10 +471,10 @@ void *item_hp_recovery_vtable[46] = {
     (void *)&vfunc_36__11TItemObjectFv,
     (void *)&vfunc_37__11TItemObjectFl,
     (void *)&vfunc_38__11TItemObjectFl,
-    (void *)&ret_8010064C,
-    (void *)&TItem__sub_80100648,
-    (void *)&TItem__sub_801005E4,
-    (void *)&TItem__sub_801005D8,
+    (void *)&vfunc_39__5TItemFv,
+    (void *)&vfunc_40__5TItemFv,
+    (void *)&vfunc_41__5TItemFv,
+    (void *)&vfunc_42__5TItemFv,
     (void *)&vfunc_43__5TItemFv,
     (void *)&vfunc_44__13TUnk_8049F770Fv,
     0
@@ -492,10 +492,10 @@ void *item_mag_transform_vtable[46] = {
     (void *)&vfunc_9__11TItemObjectFv,
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
-    (void *)&register_attack__5TItemFv,
+    (void *)&vfunc_12__5TItemFv,
     (void *)&try_pick_up_item__5TItemFl,
     (void *)&vfunc_14__11TItemObjectFv,
-    (void *)&TItem__sub_801005E0,
+    (void *)&vfunc_15__5TItemFv,
     (void *)&vfunc_16__5TItemFv,
     (void *)&vfunc_17__5TItemFv,
     (void *)&TItemObject__vt16,
@@ -519,10 +519,10 @@ void *item_mag_transform_vtable[46] = {
     (void *)&vfunc_36__11TItemObjectFv,
     (void *)&vfunc_37__11TItemObjectFl,
     (void *)&vfunc_38__11TItemObjectFl,
-    (void *)&ret_8010064C,
-    (void *)&TItem__sub_80100648,
-    (void *)&TItem__sub_801005E4,
-    (void *)&TItem__sub_801005D8,
+    (void *)&vfunc_39__5TItemFv,
+    (void *)&vfunc_40__5TItemFv,
+    (void *)&vfunc_41__5TItemFv,
+    (void *)&vfunc_42__5TItemFv,
     (void *)&vfunc_43__5TItemFv,
     (void *)&vfunc_44__13TUnk_8049F828Fv,
     0
@@ -540,10 +540,10 @@ void *item_moon_atomizer_vtable[46] = {
     (void *)&vfunc_9__11TItemObjectFv,
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
-    (void *)&register_attack__5TItemFv,
+    (void *)&vfunc_12__5TItemFv,
     (void *)&try_pick_up_item__5TItemFl,
     (void *)&vfunc_14__11TItemObjectFv,
-    (void *)&TItem__sub_801005E0,
+    (void *)&vfunc_15__5TItemFv,
     (void *)&vfunc_16__5TItemFv,
     (void *)&vfunc_17__5TItemFv,
     (void *)&TItemObject__vt16,
@@ -567,10 +567,10 @@ void *item_moon_atomizer_vtable[46] = {
     (void *)&vfunc_36__11TItemObjectFv,
     (void *)&vfunc_37__11TItemObjectFl,
     (void *)&vfunc_38__11TItemObjectFl,
-    (void *)&ret_8010064C,
-    (void *)&TItem__sub_80100648,
-    (void *)&TItem__sub_801005E4,
-    (void *)&TItem__sub_801005D8,
+    (void *)&vfunc_39__5TItemFv,
+    (void *)&vfunc_40__5TItemFv,
+    (void *)&vfunc_41__5TItemFv,
+    (void *)&vfunc_42__5TItemFv,
     (void *)&vfunc_43__5TItemFv,
     (void *)&vfunc_44__13TUnk_8049F8E0Fv,
     0
@@ -588,10 +588,10 @@ void *item_status_cure_vtable[46] = {
     (void *)&vfunc_9__11TItemObjectFv,
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
-    (void *)&register_attack__5TItemFv,
+    (void *)&vfunc_12__5TItemFv,
     (void *)&try_pick_up_item__5TItemFl,
     (void *)&vfunc_14__11TItemObjectFv,
-    (void *)&TItem__sub_801005E0,
+    (void *)&vfunc_15__5TItemFv,
     (void *)&vfunc_16__5TItemFv,
     (void *)&vfunc_17__5TItemFv,
     (void *)&TItemObject__vt16,
@@ -615,10 +615,10 @@ void *item_status_cure_vtable[46] = {
     (void *)&vfunc_36__11TItemObjectFv,
     (void *)&vfunc_37__11TItemObjectFl,
     (void *)&vfunc_38__11TItemObjectFl,
-    (void *)&ret_8010064C,
-    (void *)&TItem__sub_80100648,
-    (void *)&TItem__sub_801005E4,
-    (void *)&TItem__sub_801005D8,
+    (void *)&vfunc_39__5TItemFv,
+    (void *)&vfunc_40__5TItemFv,
+    (void *)&vfunc_41__5TItemFv,
+    (void *)&vfunc_42__5TItemFv,
     (void *)&vfunc_43__5TItemFv,
     (void *)&vfunc_44__13TUnk_8049F998Fv,
     0
@@ -636,10 +636,10 @@ void *item_sol_atomizer_vtable[46] = {
     (void *)&vfunc_9__11TItemObjectFv,
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
-    (void *)&register_attack__5TItemFv,
+    (void *)&vfunc_12__5TItemFv,
     (void *)&try_pick_up_item__5TItemFl,
     (void *)&vfunc_14__11TItemObjectFv,
-    (void *)&TItem__sub_801005E0,
+    (void *)&vfunc_15__5TItemFv,
     (void *)&vfunc_16__5TItemFv,
     (void *)&vfunc_17__5TItemFv,
     (void *)&TItemObject__vt16,
@@ -663,10 +663,10 @@ void *item_sol_atomizer_vtable[46] = {
     (void *)&vfunc_36__11TItemObjectFv,
     (void *)&vfunc_37__11TItemObjectFl,
     (void *)&vfunc_38__11TItemObjectFl,
-    (void *)&ret_8010064C,
-    (void *)&TItem__sub_80100648,
-    (void *)&TItem__sub_801005E4,
-    (void *)&TItem__sub_801005D8,
+    (void *)&vfunc_39__5TItemFv,
+    (void *)&vfunc_40__5TItemFv,
+    (void *)&vfunc_41__5TItemFv,
+    (void *)&vfunc_42__5TItemFv,
     (void *)&vfunc_43__5TItemFv,
     (void *)&vfunc_44__13TUnk_8049FA50Fv,
     0
@@ -684,10 +684,10 @@ void *item_star_atomizer_vtable[46] = {
     (void *)&vfunc_9__11TItemObjectFv,
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
-    (void *)&register_attack__5TItemFv,
+    (void *)&vfunc_12__5TItemFv,
     (void *)&try_pick_up_item__5TItemFl,
     (void *)&vfunc_14__11TItemObjectFv,
-    (void *)&TItem__sub_801005E0,
+    (void *)&vfunc_15__5TItemFv,
     (void *)&vfunc_16__5TItemFv,
     (void *)&vfunc_17__5TItemFv,
     (void *)&TItemObject__vt16,
@@ -711,10 +711,10 @@ void *item_star_atomizer_vtable[46] = {
     (void *)&vfunc_36__11TItemObjectFv,
     (void *)&vfunc_37__11TItemObjectFl,
     (void *)&vfunc_38__11TItemObjectFl,
-    (void *)&ret_8010064C,
-    (void *)&TItem__sub_80100648,
-    (void *)&TItem__sub_801005E4,
-    (void *)&TItem__sub_801005D8,
+    (void *)&vfunc_39__5TItemFv,
+    (void *)&vfunc_40__5TItemFv,
+    (void *)&vfunc_41__5TItemFv,
+    (void *)&vfunc_42__5TItemFv,
     (void *)&vfunc_43__5TItemFv,
     (void *)&vfunc_44__13TUnk_8049FB08Fv,
     0

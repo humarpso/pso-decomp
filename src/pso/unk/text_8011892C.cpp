@@ -218,11 +218,11 @@ void apply_object_set_data__13TUnk_804B9870FPv();
 void reset_motion_fields__13TUnk_804AF8A0Fv();
 void vfunc_9__13TUnk_804B9870Fv();
 void classify_actor_view_detail__13TUnk_804B9870Ffff();
-void register_attack__5TItemFv();
+void vfunc_12__5TItemFv();
 void try_pick_up_item__5TItemFl();
 void vfunc_17__5TItemFv();
 void set_attach_slot__14TItemEquipBaseFSc();
-void equip__14TItemEquipBaseFv();
+void vfunc_20__14TItemEquipBaseFv();
 void unequip__14TItemEquipBaseFv();
 void add_equip_stats__14TItemEquipBaseFl();
 void remove_equip_stats__14TItemEquipBaseFl();
@@ -234,7 +234,7 @@ void vfunc_28__5TItemFv();
 void update_equip__14TItemEquipBaseFv();
 void vfunc_30__5TItemFv();
 void vfunc_32__5TItemFv();
-s8 TItemEquipBase__sub_8010A77C(TItemEquipBase *arg0);
+s8 vfunc_33__14TItemEquipBaseFv(TItemEquipBase *arg0);
 void vfunc_34__5TItemFv();
 void vfunc_35__5TItemFv();
 void vfunc_43__5TItemFv();
@@ -256,15 +256,15 @@ void *__vt__12TItemProUnit[51] = {
     (void *)vfunc_9__13TUnk_804B9870Fv,
     (void *)TItem__sub_80100B8C,
     (void *)classify_actor_view_detail__13TUnk_804B9870Ffff,
-    (void *)register_attack__5TItemFv,
+    (void *)vfunc_12__5TItemFv,
     (void *)try_pick_up_item__5TItemFl,
     (void *)vfunc_14__12TItemProUnitFv,
-    (void *)TItem__sub_801005E0,
+    (void *)vfunc_15__5TItemFv,
     (void *)vfunc_16__12TItemProUnitFv,
     (void *)vfunc_17__5TItemFv,
     (void *)TItemProUnit__vt16,
     (void *)set_attach_slot__14TItemEquipBaseFSc,
-    (void *)equip__14TItemEquipBaseFv,
+    (void *)vfunc_20__14TItemEquipBaseFv,
     (void *)unequip__14TItemEquipBaseFv,
     (void *)add_equip_stats__14TItemEquipBaseFl,
     (void *)remove_equip_stats__14TItemEquipBaseFl,
@@ -277,16 +277,16 @@ void *__vt__12TItemProUnit[51] = {
     (void *)vfunc_30__5TItemFv,
     (void *)TItem::update_pickup_flag,
     (void *)vfunc_32__5TItemFv,
-    (void *)TItemEquipBase__sub_8010A77C,
+    (void *)vfunc_33__14TItemEquipBaseFv,
     (void *)vfunc_34__5TItemFv,
     (void *)vfunc_35__5TItemFv,
-    (void *)ret_80100664,
+    (void *)vfunc_36__5TItemFv,
     (void *)ret_8010065C,
     (void *)ret_80100654,
-    (void *)ret_8010064C,
-    (void *)TItem__sub_80100648,
-    (void *)TItem__sub_801005E4,
-    (void *)TItem__sub_801005D8,
+    (void *)vfunc_39__5TItemFv,
+    (void *)vfunc_40__5TItemFv,
+    (void *)vfunc_41__5TItemFv,
+    (void *)vfunc_42__5TItemFv,
     (void *)vfunc_43__5TItemFv,
     (void *)vfunc_44__12TItemProUnitFv,
     (void *)vfunc_45__12TItemProUnitFv,

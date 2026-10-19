@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRe2Flower.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss3VoloptHiraisin.h"
@@ -1393,7 +1394,7 @@ void restore_default_scene(void);
 void set_scene_override(u8 scene);
 extern Vec_800C20D0 lbl_8043BBC0[];
 extern "C" {
-void TObjPlayer__sub_800C20D0(Obj_800C20D0 *o);
+void vfunc_106__16TObjEneRe2FlowerFv(Obj_800C20D0 *o);
 s32 is_main_phase_15__9TObjEneDDFv(void);
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
@@ -1449,7 +1450,7 @@ extern "C" void apply_poison_status__13TUnk_804806E8Fv();
 extern "C" void apply_set_data__9TObjEnemyFPv();
 extern "C" void apply_shock_status__13TUnk_804806E8Fv();
 extern "C" void apply_switch_attack__13TUnk_804806E8Fv();
-extern "C" void calc_distance_accuracy_penalty__10TObjPlayerFv();
+extern "C" void calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf();
 extern "C" void vfunc_79__9TObjEnemyFv();
 extern "C" void classify_actor_view_detail__13TUnk_804B9870Ffff();
 extern "C" void clear_all_status_effects__13TUnk_804806E8Fv();
@@ -1468,7 +1469,7 @@ extern "C" void get_actor_level_index__13TUnk_804806E8Fv();
 extern "C" void vfunc_12__9TObjEnemyFv();
 extern "C" void get_pos__13TUnk_804806E8Fl();
 extern "C" void is_actor_cadence_frame__13TUnk_804806E8Fl();
-extern "C" void is_target_in_attack_range__10TObjPlayerFv();
+extern "C" void is_target_in_attack_range__13TUnk_804806E8Fv();
 extern "C" u8 lbl_8043B7D8[];
 extern "C" u8 lbl_8043B7EC[];
 extern "C" u8 lbl_8043B800[];
@@ -1495,14 +1496,14 @@ extern "C" u8 lbl_8043B9B8[];
 extern "C" u8 lbl_8043B9D0[];
 extern "C" u8 lbl_8043B9DC[];
 extern "C" const u8 rappy_variant_na_name[3] = "NA";
-extern "C" void receive_direct_attack__10TObjPlayerFv();
+extern "C" void receive_direct_attack__13TUnk_804806E8FPvPvPvll();
 extern "C" void receive_physical_attack__13TUnk_804806E8FPvf();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
 extern "C" void render_shadows__9TObjEnemyFv(u8 *arg0);
 extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__13TUnk_804806E8Fv();
 extern "C" void roll_physical_accuracy__13TUnk_804806E8FPvlf();
-extern "C" void select_melee_contact_body__10TObjPlayerFv();
+extern "C" void select_melee_contact_body__13TUnk_804806E8FPvf();
 extern "C" void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 extern "C" void try_start_action__13TUnk_804806E8Fll();
 extern "C" s32 vfunc_37__13TUnk_804806E8Fv(u8 *arg0);
@@ -1648,9 +1649,9 @@ void *lbl_80492F28[84] = {
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
     (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
-    (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__13TUnk_804806E8FPvf, (void *)&receive_direct_attack__10TObjPlayerFv,
+    (void *)&select_melee_contact_body__13TUnk_804806E8FPvf, (void *)&calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf, (void *)&receive_physical_attack__13TUnk_804806E8FPvf, (void *)&receive_direct_attack__13TUnk_804806E8FPvPvPvll,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker__13TUnk_804806E8FPUc, (void *)&try_start_action__13TUnk_804806E8Fll, (void *)&roll_physical_accuracy__13TUnk_804806E8FPvlf,
-    (void *)&vfunc_28__12TObjEneLappyFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__12TObjEneLappyFv,
+    (void *)&vfunc_28__12TObjEneLappyFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__13TUnk_804806E8Fv, (void *)&test_flag_256__12TObjEneLappyFv,
     (void *)&test_flag30_512__13TUnk_804806E8Fv, (void *)&has_flag_0x800__13TUnk_804806E8Fv, (void *)&test_flag_1000__13TUnk_804806E8Fv, (void *)&update_poison_status__13TUnk_804806E8Fv,
     (void *)&update_action_hold_status__12TObjEneLappyFv, (void *)&vfunc_37__13TUnk_804806E8Fv, (void *)&update_flag30_timer__13TUnk_804806E8Fv, (void *)&update_movement_status__12TObjEneLappyFv,
     (void *)&update_shock_clock__13TUnk_804806E8Fv, (void *)&update_attack_stat_status__13TUnk_804806E8Fv, (void *)&update_defense_stat_status, (void *)&vfunc_43__13TUnk_804806E8Fv,
@@ -2004,34 +2005,34 @@ __declspec(section ".sdata2") extern const f32 lbl_805D9F98 = 0.0333333350718021
 __declspec(section ".sdata2") extern const f32 lbl_805D9F9C = 0.0f;
 }
 
-void TObjPlayer__sub_800C20D0(Obj_800C20D0 *o) {
+void TObjEneRe2Flower::vfunc_106() {
     s32 save8;
     s32 save14;
-    if (o->m8(400.0f, 25.0f) == 0) {
+    if (((Obj_800C20D0 *)this)->m8(400.0f, 25.0f) == 0) {
         return;
     }
     Vec_800C20D0 v = lbl_8043BBC0[0];
-    update_player_state__9TObjEneDDFv(o, &v, 0);
-    if (((TObjEneRe2Flower *)o)->get_flag_11() == 0 && sub_800C3B8C__16TObjEneRe2FlowerFv(o) != 0) {
-        save8 = o->model->mat->f8;
-        save14 = o->model->mat->f14;
-        o->model->mat->f8 = o->model->mat->f20;
-        o->model->mat->f14 = o->model->mat->f2C;
+    update_player_state__9TObjEneDDFv(((Obj_800C20D0 *)this), &v, 0);
+    if (((TObjEneRe2Flower *)((Obj_800C20D0 *)this))->get_flag_11() == 0 && sub_800C3B8C__16TObjEneRe2FlowerFv(((Obj_800C20D0 *)this)) != 0) {
+        save8 = ((Obj_800C20D0 *)this)->model->mat->f8;
+        save14 = ((Obj_800C20D0 *)this)->model->mat->f14;
+        ((Obj_800C20D0 *)this)->model->mat->f8 = ((Obj_800C20D0 *)this)->model->mat->f20;
+        ((Obj_800C20D0 *)this)->model->mat->f14 = ((Obj_800C20D0 *)this)->model->mat->f2C;
     }
-    set_global_param__8TObjFishFl(o->model);
+    set_global_param__8TObjFishFl(((Obj_800C20D0 *)this)->model);
     push_matrix();
-    post_translate_matrix(&o->pos);
-    rotate_matrix_y(0, o->f60);
+    post_translate_matrix(&((Obj_800C20D0 *)this)->pos);
+    rotate_matrix_y(0, ((Obj_800C20D0 *)this)->f60);
     TObjEneDD::clear_global_flag_400();
     toggle_particle_effect__10TObjPlayerFv();
     set_scene_override(0);
-    draw_chunk_object(o->f34);
+    draw_chunk_object(((Obj_800C20D0 *)this)->f34);
     restore_default_scene();
     end_effect_render__13TParticleCtrlFv();
     pop_matrix();
-    if (((TObjEneRe2Flower *)o)->get_flag_11() == 0 && sub_800C3B8C__16TObjEneRe2FlowerFv(o) != 0) {
-        o->model->mat->f8 = save8;
-        o->model->mat->f14 = save14;
+    if (((TObjEneRe2Flower *)((Obj_800C20D0 *)this))->get_flag_11() == 0 && sub_800C3B8C__16TObjEneRe2FlowerFv(((Obj_800C20D0 *)this)) != 0) {
+        ((Obj_800C20D0 *)this)->model->mat->f8 = save8;
+        ((Obj_800C20D0 *)this)->model->mat->f14 = save14;
     }
 }
 void TObjPlayer__sub_800C220C(Obj_800C220C *o) {

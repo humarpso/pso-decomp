@@ -62,7 +62,7 @@ void apply_knockback_from_attacker__13TUnk_804B6C24FPUc();
 void try_start_action__13TUnk_804B6C24Fll();
 void vfunc_28__13TUnk_804806E8Fv();
 void vfunc_29__13TUnk_804806E8Fv();
-void is_target_in_attack_range__10TObjPlayerFv();
+void is_target_in_attack_range__13TUnk_804806E8Fv();
 void update_poison_status__13TUnk_804806E8Fv();
 void update_action_hold_status__13TUnk_804806E8Fv();
 s32 vfunc_37__13TUnk_804806E8Fv(u8 *arg0);
@@ -141,7 +141,7 @@ void *__vt__21TObjContainerAbeEnemy[83] = {
     (void *)&roll_physical_accuracy__13TUnk_804B6C24FPvlf,
     (void *)vfunc_28__13TUnk_804806E8Fv,
     (void *)vfunc_29__13TUnk_804806E8Fv,
-    (void *)is_target_in_attack_range__10TObjPlayerFv,
+    (void *)is_target_in_attack_range__13TUnk_804806E8Fv,
     (void *)&test_flag_256__13TUnk_804806E8Fv,
     (void *)&test_flag30_512__13TUnk_804806E8Fv,
     (void *)&has_flag_0x800__13TUnk_804806E8Fv,

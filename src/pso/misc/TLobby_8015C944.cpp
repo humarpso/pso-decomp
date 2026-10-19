@@ -15,11 +15,11 @@ struct A_8015C9D4 { u8 pad[0x1C]; V3_8015C9D4 pos; };
 
 extern "C" {
 f32 receive_physical_attack__13TUnk_804806E8FPvf(void *, void *, f32);
-s32 select_melee_contact_body__10TObjPlayerFv(f32);
+s32 select_melee_contact_body__13TUnk_804806E8FPvf(f32);
 extern char lbl_80440984[];
 extern const f32 TOCtrlDubchik__data_805DB3A8;
 extern const f32 TOCtrlDubchik__data_805DB3AC;
-f32 TOCtrlDubchik__vt22(O_8015C9D4 *arg0, void *arg1, A_8015C9D4 *arg2);
+f32 receive_weapon_special_attack__13TOCtrlDubchikFPvPv(O_8015C9D4 *arg0, void *arg1, A_8015C9D4 *arg2);
 
 s32 read_be16_field2__10TObjPlayerFv();
 
@@ -38,16 +38,16 @@ void byteswap_event_packet__6TLobbyFi(s32 arg0) {
 void TLobby::init_packet_67_04() { *(u8 *)&this->m_name = 103; *(u8*)((char*)this + 0x1) = 4; }
 
 void TOCtrlDubchik__sub_8015C9D0(void) {  }
-f32 TOCtrlDubchik__vt22(O_8015C9D4 *arg0, void *att, A_8015C9D4 *arg2) {
+f32 TOCtrlDubchik::receive_weapon_special_attack(void *att, void *arg2) {
     V3_8015C9D4 sp8;
-    if (arg0->f326 != 0) {
-        if (select_melee_contact_body__10TObjPlayerFv(TOCtrlDubchik__data_805DB3AC) != 0) {
-            return receive_physical_attack__13TUnk_804806E8FPvf(arg0, att, TOCtrlDubchik__data_805DB3AC);
+    if (((O_8015C9D4 *)this)->f326 != 0) {
+        if (select_melee_contact_body__13TUnk_804806E8FPvf(TOCtrlDubchik__data_805DB3AC) != 0) {
+            return receive_physical_attack__13TUnk_804806E8FPvf(((O_8015C9D4 *)this), att, TOCtrlDubchik__data_805DB3AC);
         }
-        if (arg2 != NULL) {
-            VecCopy((Vec *)&sp8, (const Vec *)&arg2->pos);
+        if (((A_8015C9D4 *)arg2) != NULL) {
+            VecCopy((Vec *)&sp8, (const Vec *)&((A_8015C9D4 *)arg2)->pos);
         } else {
-            VecCopy((Vec *)&sp8, (const Vec *)&arg0->pos);
+            VecCopy((Vec *)&sp8, (const Vec *)&((O_8015C9D4 *)this)->pos);
         }
         TOCtrlDubchik::create_font((s32)&sp8, (s32)0xFFFF0000, 0x14, (s32)lbl_80440984);
     }

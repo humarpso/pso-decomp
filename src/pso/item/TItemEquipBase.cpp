@@ -246,7 +246,7 @@ struct VObj_8010B224 : VBase_8010B224 {
 };
 
 extern "C" {
-s8 TItemEquipBase__sub_8010A77C(TItemEquipBase *arg0);
+s8 vfunc_33__14TItemEquipBaseFv(TItemEquipBase *arg0);
 s32 get_id__13TItemProArmorFv(void *);
 s32 apply_equip_slot_effect__14TItemEquipBaseFUsUl(s32, int);
 s32 start_event_by_index__15TItemTimerEventFUs();
@@ -324,8 +324,8 @@ s8 TItemWeapon::get_attach_joint() {
     return (s8) (*(u8 *)((u8 *)this + 0x171));
 }
 
-s8 TItemEquipBase__sub_8010A77C(TItemEquipBase *item_equip_base) {
-    return (s8) item_equip_base->m_170;
+int TItemEquipBase::vfunc_33() {
+    return (s8) this->m_170;
 }
 
 void TItemEquipBase::vfunc_50() {  }
@@ -639,7 +639,7 @@ void TItemEquipBase::add_equip_stats(s32 arg1) {
     }
 }
 
-void TItemEquipBase::equip() {
+void TItemEquipBase::vfunc_20() {
     u8 *arg0 = (u8 *)this;
     if ((u32) this->m_f0 != 0U) {
         ((TItem *)arg0)->update_owner_visibility();

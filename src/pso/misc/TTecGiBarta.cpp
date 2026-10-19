@@ -147,7 +147,7 @@ s32 is_technique_ready__8TTecCtrlFv();
 extern RecoveredGlobal_802308A0_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_802308A0_lbl_804CC55C lbl_804CC55C;
 u16 obj_getField1c(void *);
-void TTecGiBarta__vt6(Obj_802309AC *self, VObj_802309AC *target);
+void vfunc_8__11TTecGiBartaFPv(Obj_802309AC *self, VObj_802309AC *target);
 void mem_free(void *p);
 void __dl__7TObjectFPv(void *);
 extern void *__vt__11TTecGiBarta[];
@@ -305,16 +305,17 @@ void TTecGiBarta::calc_params() {
   ((RecoveredFields_802308A0_arg0 *) arg0)->field_70 = (f32) ((RecoveredFields_802308A0_arg0 *) arg0)->field_D4;
 }
 
-void TTecGiBarta__vt6(Obj_802309AC *self, VObj_802309AC *target) {
+void TTecGiBarta::vfunc_8(void *target) {
+    Obj_802309AC *self = (Obj_802309AC *)this;
     s32 found = 0;
     s32 i;
     for (i = 0; i < 32; i++) {
-        if (self->ids[i] == obj_getField1c(target)) {
+        if (self->ids[i] == obj_getField1c(((VObj_802309AC *)target))) {
             found = 1;
         }
     }
     if (found == 0) {
-        self->ids[self->cursor] = obj_getField1c(target);
+        self->ids[self->cursor] = obj_getField1c(((VObj_802309AC *)target));
         self->cursor += 1;
         if (self->cursor >= 32) {
             self->cursor = 31;
@@ -323,7 +324,7 @@ void TTecGiBarta__vt6(Obj_802309AC *self, VObj_802309AC *target) {
         tmp.type = 2;
         tmp.power = self->power;
         HitInfo_802309AC info = tmp;
-        target->m21(self->source, &info, self->contact, 4, -1);
+        ((VObj_802309AC *)target)->m21(self->source, &info, self->contact, 4, -1);
     }
 }
 

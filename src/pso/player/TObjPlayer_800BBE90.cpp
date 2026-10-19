@@ -107,7 +107,7 @@ extern "C" {
 extern const f32 lbl_805D9EB4;
 void subtract_vector(Vec_800BBFD0 *a, Vec_800BBFD0 *b);
 s32 obj_isState2_324__13TUnk_804806E8Fv(void *);
-void area_attack_receive_direct(Actor_800BBF08 *src, Actor_800BBF08 *dst, f32 *recoil, Desc_800BBF08 *desc);
+void area_attack_receive_direct__13TUnk_804928CCFPvPfPv(Actor_800BBF08 *src, Actor_800BBF08 *dst, f32 *recoil, Desc_800BBF08 *desc);
 s32 obj_is_hit_receivable();
 Tgt_800BC080 *get_battle_param__10TObjPlayerFi(s32);
 s32 is_area_attack_target_eligible(void *, int);
@@ -147,15 +147,15 @@ void TUnk_804928CC::apply_hit_if_active(void *arg1, f32 *arg2) {
     }
 }
 
-void area_attack_receive_direct(Actor_800BBF08 *src, Actor_800BBF08 *dst, f32 *recoil, Desc_800BBF08 *desc) {
+void TUnk_804928CC::area_attack_receive_direct(void *dst, f32 *recoil, void *desc) {
     s32 i;
     Rec_800BBF08 *rec;
-    for (i = 0; i < dst->nrecs; i++) {
-        rec = &dst->recs[i];
+    for (i = 0; i < ((Actor_800BBF08 *)dst)->nrecs; i++) {
+        rec = &((Actor_800BBF08 *)dst)->recs[i];
         if (rec->flags & 0x04000000) {
-            dst->m21(src->owner, *desc, rec, -1, -1);
-            if (obj_isState2_324__13TUnk_804806E8Fv(dst) == 0) {
-                src->m18(dst, *recoil);
+            ((Actor_800BBF08 *)dst)->m21(((Actor_800BBF08 *)this)->owner, *((Desc_800BBF08 *)desc), rec, -1, -1);
+            if (obj_isState2_324__13TUnk_804806E8Fv(((Actor_800BBF08 *)dst)) == 0) {
+                ((Actor_800BBF08 *)this)->m18(((Actor_800BBF08 *)dst), *recoil);
             }
             return;
         }

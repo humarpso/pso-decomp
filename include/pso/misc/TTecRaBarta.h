@@ -6,6 +6,7 @@
 
 struct TTecRaBarta : public TUnk_804CC148 {
     virtual ~TTecRaBarta();
+    virtual void vfunc_6(void *);
     virtual void vfunc_9();
     virtual void vfunc_8(void *);
     void calc_parameters();

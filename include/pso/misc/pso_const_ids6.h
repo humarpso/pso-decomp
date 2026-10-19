@@ -4,10 +4,10 @@
 #include "types.h"
 
 extern "C" {
-int ret_8010064C(void);
+int vfunc_39__5TItemFv(void);
 int ret_80100654(void);
 int ret_8010065C(void);
-int ret_80100664(void);
+int vfunc_36__5TItemFv(void);
 }
 
 #endif

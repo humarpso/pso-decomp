@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TTecKafun.h"
 struct Pair_802A9588 {
     s32 id;
     f32 val;
@@ -41,23 +42,23 @@ struct TTecKafun_802A9588 {
 };
 
 extern "C" {
-void TTecKafun__vt4(TTecKafun_802A9588 *self, Target_802A9588 *target);
-void TTecKafun__vt4(TTecKafun_802A9588 *self, Target_802A9588 *target) {
+void vfunc_6__9TTecKafunFPv(TTecKafun_802A9588 *self, Target_802A9588 *target);
+void TTecKafun::vfunc_6(void *target) {
     Pair_802A9588 p;
-    p.val = self->fec;
-    switch (self->ff8) {
+    p.val = ((TTecKafun_802A9588 *)this)->fec;
+    switch (((TTecKafun_802A9588 *)this)->ff8) {
     case 15:
     case 16:
     case 17:
     case 18:
         p.id = 0;
-        target->m21(self->f1c, p, 0, -1, -1);
-        p.id = self->ff8;
-        target->m21(self->f1c, p, 0, -1, -1);
+        ((Target_802A9588 *)target)->m21(((TTecKafun_802A9588 *)this)->f1c, p, 0, -1, -1);
+        p.id = ((TTecKafun_802A9588 *)this)->ff8;
+        ((Target_802A9588 *)target)->m21(((TTecKafun_802A9588 *)this)->f1c, p, 0, -1, -1);
         break;
     default:
-        p.id = self->ff8;
-        target->m21(self->f1c, p, 0, -1, -1);
+        p.id = ((TTecKafun_802A9588 *)this)->ff8;
+        ((Target_802A9588 *)target)->m21(((TTecKafun_802A9588 *)this)->f1c, p, 0, -1, -1);
         break;
     }
 }

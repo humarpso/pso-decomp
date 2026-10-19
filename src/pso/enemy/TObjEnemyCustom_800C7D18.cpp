@@ -40,16 +40,16 @@ void get_actor_level_index__13TUnk_804806E8Fv();
 void update_actor_ground_y__13TUnk_804806E8Fv();
 void vfunc_18__13TUnk_804806E8FPUc();
 void is_actor_cadence_frame__13TUnk_804806E8Fl();
-void select_melee_contact_body__10TObjPlayerFv();
-void calc_distance_accuracy_penalty__10TObjPlayerFv();
+void select_melee_contact_body__13TUnk_804806E8FPvf();
+void calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf();
 void receive_physical_attack__13TUnk_804806E8FPvf();
-void receive_direct_attack__10TObjPlayerFv();
+void receive_direct_attack__13TUnk_804806E8FPvPvPvll();
 void receive_weapon_special_attack__10TObjPlayerFv();
 void apply_knockback_from_attacker__13TUnk_804806E8FPUc();
 void try_start_action__13TUnk_804806E8Fll();
 void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 void vfunc_29__13TUnk_804806E8Fv();
-void is_target_in_attack_range__10TObjPlayerFv();
+void is_target_in_attack_range__13TUnk_804806E8Fv();
 void update_poison_status__13TUnk_804806E8Fv();
 void update_action_hold_status__13TUnk_804806E8Fv();
 s32 vfunc_37__13TUnk_804806E8Fv(u8 *arg0);
@@ -116,17 +116,17 @@ void *__vt__15TObjEnemyCustom[83] = {
     (void *)update_actor_ground_y__13TUnk_804806E8Fv,
     (void *)vfunc_18__13TUnk_804806E8FPUc,
     (void *)is_actor_cadence_frame__13TUnk_804806E8Fl,
-    (void *)select_melee_contact_body__10TObjPlayerFv,
-    (void *)calc_distance_accuracy_penalty__10TObjPlayerFv,
+    (void *)select_melee_contact_body__13TUnk_804806E8FPvf,
+    (void *)calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf,
     (void *)receive_physical_attack__13TUnk_804806E8FPvf,
-    (void *)receive_direct_attack__10TObjPlayerFv,
+    (void *)receive_direct_attack__13TUnk_804806E8FPvPvPvll,
     (void *)receive_weapon_special_attack__10TObjPlayerFv,
     (void *)apply_knockback_from_attacker__13TUnk_804806E8FPUc,
     (void *)try_start_action__13TUnk_804806E8Fll,
     (void *)roll_physical_accuracy__13TUnk_804806E8FPvlf,
     (void *)vfunc_28__15TObjEnemyCustomFv,
     (void *)vfunc_29__13TUnk_804806E8Fv,
-    (void *)is_target_in_attack_range__10TObjPlayerFv,
+    (void *)is_target_in_attack_range__13TUnk_804806E8Fv,
     (void *)&test_flag_256__13TUnk_804806E8Fv,
     (void *)&test_flag30_512__13TUnk_804806E8Fv,
     (void *)&has_flag_0x800__13TUnk_804806E8Fv,

@@ -6,6 +6,8 @@
 
 struct TItemEquipBase : public TItem {
     virtual ~TItemEquipBase();
+    virtual void vfunc_20();
+    virtual int vfunc_33();
     int get_flag_40();
     void refresh_owner_stats();
     void request_model_load(s32);
@@ -58,7 +60,6 @@ struct TItemEquipBase : public TItem {
     void reset();
     void update_equip();
     void unequip();
-    void equip();
     void update_with_player();
     void init_slot();
     int check_flag_32();

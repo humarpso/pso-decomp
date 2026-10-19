@@ -6,6 +6,7 @@
 class TObjCityAirCar_Car : public TUnk_804B9870 {
 public:
     virtual ~TObjCityAirCar_Car();
+    virtual void run_task();
     s32 update_path_motion();
     u8 unk_90[0x4];
     f32 m_94;

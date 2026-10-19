@@ -589,7 +589,7 @@ u8 *get_enemy_entity(u16 arg0);
 void *get_player_by_client_id(s32 i);
 extern const f32 lbl_805DA04C;
 extern const f32 lbl_805DA050;
-void beast_update_attack(Self_800C53DC *arg0);
+void beast_update_attack__13TUnk_80493450Fv(Self_800C53DC *arg0);
 f32 enemy_backstep_from_point(void *, void *, f32);
 s32 update_angle__10TObjPlayerFlPv(void *, void *, void *);
 s32 angle_difference_abs(s32, s32);
@@ -714,52 +714,52 @@ void TUnk_80493450::vfunc_62() {
 void TUnk_80493450::vfunc_89() {  }
 void TUnk_80493450::vfunc_61() { obj_clearFlags30(256); }
 
-void beast_update_attack(Self_800C53DC *arg0) {
+void TUnk_80493450::beast_update_attack() {
     Tgt_800C53DC *p;
-    if (arg0->f338 < 0x1000) {
-        p = (Tgt_800C53DC *)get_player_by_client_id(arg0->f338);
+    if (((Self_800C53DC *)this)->f338 < 0x1000) {
+        p = (Tgt_800C53DC *)get_player_by_client_id(((Self_800C53DC *)this)->f338);
         if (p != NULL && ((TObjPlayer *)p)->get_field_3e4() == get_current_floor()) {
-            arg0->target = p;
+            ((Self_800C53DC *)this)->target = p;
         } else {
-            arg0->target = NULL;
+            ((Self_800C53DC *)this)->target = NULL;
         }
-    } else if (arg0->f338 < 0x4000) {
-        arg0->target = (Tgt_800C53DC *)get_enemy_entity(arg0->f338);
+    } else if (((Self_800C53DC *)this)->f338 < 0x4000) {
+        ((Self_800C53DC *)this)->target = (Tgt_800C53DC *)get_enemy_entity(((Self_800C53DC *)this)->f338);
     } else {
-        arg0->target = NULL;
+        ((Self_800C53DC *)this)->target = NULL;
     }
-    ((s32 (*)(void *))advance_animation_playback)(arg0);
-    switch (arg0->f328) {
+    ((s32 (*)(void *))advance_animation_playback)(((Self_800C53DC *)this));
+    switch (((Self_800C53DC *)this)->f328) {
     case 0:
-        arg0->f328 = 1;
+        ((Self_800C53DC *)this)->f328 = 1;
     case 1:
-        if (objInBand((GameObj *)arg0, (f32)lbl_805DA04C) != 0) {
-            if (arg0->target != NULL && arg0->target->m18(arg0, lbl_805DA048) != 0) {
-                arg0->target->m20(arg0, lbl_805DA048);
-                arg0->target->m23(arg0, lbl_805DA050);
+        if (objInBand((GameObj *)((Self_800C53DC *)this), (f32)lbl_805DA04C) != 0) {
+            if (((Self_800C53DC *)this)->target != NULL && ((Self_800C53DC *)this)->target->m18(((Self_800C53DC *)this), lbl_805DA048) != 0) {
+                ((Self_800C53DC *)this)->target->m20(((Self_800C53DC *)this), lbl_805DA048);
+                ((Self_800C53DC *)this)->target->m23(((Self_800C53DC *)this), lbl_805DA050);
             }
-            arg0->m94();
+            ((Self_800C53DC *)this)->m94();
         }
-        arg0->m91();
-        if (arg0->fB4 != 4) {
-            arg0->f328 = 2;
-            arg0->fB8 = 0;
-            arg0->f33C = 0xF;
+        ((Self_800C53DC *)this)->m91();
+        if (((Self_800C53DC *)this)->fB4 != 4) {
+            ((Self_800C53DC *)this)->f328 = 2;
+            ((Self_800C53DC *)this)->fB8 = 0;
+            ((Self_800C53DC *)this)->f33C = 0xF;
         }
         break;
     case 2:
-        arg0->f33C--;
-        if (arg0->f33C < 0) {
-            ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x200000);
-            arg0->f33C = 0;
-            arg0->m98();
+        ((Self_800C53DC *)this)->f33C--;
+        if (((Self_800C53DC *)this)->f33C < 0) {
+            ((TUnk_804B9870 *)((Self_800C53DC *)this))->obj_clearFlags30(0x200000);
+            ((Self_800C53DC *)this)->f33C = 0;
+            ((Self_800C53DC *)this)->m98();
         }
         break;
     }
-    apply_actor_gravity(arg0, 0, lbl_805DA034);
-    enemy_turn_toward_dest(arg0, arg0->f350[2]);
-    ((TObjPlayer *)arg0)->update_collisions();
-    minimap_render_dot(arg0->pos, -0x5DB4, 1, 0);
+    apply_actor_gravity(((Self_800C53DC *)this), 0, lbl_805DA034);
+    enemy_turn_toward_dest(((Self_800C53DC *)this), ((Self_800C53DC *)this)->f350[2]);
+    ((TObjPlayer *)((Self_800C53DC *)this))->update_collisions();
+    minimap_render_dot(((Self_800C53DC *)this)->pos, -0x5DB4, 1, 0);
 }
 
 void TUnk_80493450::vfunc_60() {

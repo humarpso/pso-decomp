@@ -130,47 +130,47 @@ void render__18TObjCityAirCar_CarFPv(TObjCityAirCar_Car *city_air_car_car) {
 #pragma push
 #pragma fp_contract on
 struct Car_80181074;
-void run_task__18TObjCityAirCar_CarFv(Car_80180E70 *self) {
+void TObjCityAirCar_Car::run_task() {
     Vec_80180E70 v;
     f32 scale;
     f32 t;
-    t = self->frame;
-    self->frame = t + self->speed;
-    if (((TObjCityAirCar_Car *)self)->update_path_motion() == 0) {
-        queue_destruction__7TObjectFv(self);
+    t = ((Car_80180E70 *)this)->frame;
+    ((Car_80180E70 *)this)->frame = t + ((Car_80180E70 *)this)->speed;
+    if (((TObjCityAirCar_Car *)((Car_80180E70 *)this))->update_path_motion() == 0) {
+        queue_destruction__7TObjectFv(((Car_80180E70 *)this));
     }
-    if ((self->path == 1 && self->frame >= lbl_805DBBA8 && self->frame <= lbl_805DBBAC) ||
-        (self->path == 2 && self->frame >= lbl_805DBBB0 && self->frame <= lbl_805DBBB4)) {
-        if (self->model == 4) {
-            play_persistent_sound(0x4004CB02, (s32)self, (u32)&self->pos, 0, 0);
-        } else if (self->model == 0) {
-            update_technique_slot__10TTecRaFoieFl(play_persistent_sound(0x4004C101, (s32)self, (u32)&self->pos, 0, 0), -0x200, 0);
+    if ((((Car_80180E70 *)this)->path == 1 && ((Car_80180E70 *)this)->frame >= lbl_805DBBA8 && ((Car_80180E70 *)this)->frame <= lbl_805DBBAC) ||
+        (((Car_80180E70 *)this)->path == 2 && ((Car_80180E70 *)this)->frame >= lbl_805DBBB0 && ((Car_80180E70 *)this)->frame <= lbl_805DBBB4)) {
+        if (((Car_80180E70 *)this)->model == 4) {
+            play_persistent_sound(0x4004CB02, (s32)((Car_80180E70 *)this), (u32)&((Car_80180E70 *)this)->pos, 0, 0);
+        } else if (((Car_80180E70 *)this)->model == 0) {
+            update_technique_slot__10TTecRaFoieFl(play_persistent_sound(0x4004C101, (s32)((Car_80180E70 *)this), (u32)&((Car_80180E70 *)this)->pos, 0, 0), -0x200, 0);
         } else {
-            play_persistent_sound(0x4004C101, (s32)self, (u32)&self->pos, 0, 0);
+            play_persistent_sound(0x4004C101, (s32)((Car_80180E70 *)this), (u32)&((Car_80180E70 *)this)->pos, 0, 0);
         }
     }
     if (city_air_car_model_resource != 0) {
-        self->fa0 -= 0xA;
-        if (self->fa0 < 0) {
-            self->fa0 += 0x100;
+        ((Car_80180E70 *)this)->fa0 -= 0xA;
+        if (((Car_80180E70 *)this)->fa0 < 0) {
+            ((Car_80180E70 *)this)->fa0 += 0x100;
         }
-        self->fa4++;
-        if (self->fa4 >= 0x28) {
-            self->fa4 = 0;
+        ((Car_80180E70 *)this)->fa4++;
+        if (((Car_80180E70 *)this)->fa4 >= 0x28) {
+            ((Car_80180E70 *)this)->fa4 = 0;
         }
-        if (self->light == 0) {
-            self->light = (u32)spawn_continuous_particle_effect_with_flags(&self->pos, 0x8A, 0x40);
+        if (((Car_80180E70 *)this)->light == 0) {
+            ((Car_80180E70 *)this)->light = (u32)spawn_continuous_particle_effect_with_flags(&((Car_80180E70 *)this)->pos, 0x8A, 0x40);
         }
-        if (self->light != 0) {
-            if (self->model == 0) {
+        if (((Car_80180E70 *)this)->light != 0) {
+            if (((Car_80180E70 *)this)->model == 0) {
                 scale = lbl_805DBBB8;
             } else {
                 scale = lbl_805DBBBC;
             }
-            VecCopy((Vec *)&v, (const Vec *)&self->pos);
-            v.x -= scale * sin_table_lookup(self->yaw);
-            v.z -= scale * cos_table_lookup(self->yaw);
-            ((TNowLoading *)(self->light))->copy_pos(&v);
+            VecCopy((Vec *)&v, (const Vec *)&((Car_80180E70 *)this)->pos);
+            v.x -= scale * sin_table_lookup(((Car_80180E70 *)this)->yaw);
+            v.z -= scale * cos_table_lookup(((Car_80180E70 *)this)->yaw);
+            ((TNowLoading *)(((Car_80180E70 *)this)->light))->copy_pos(&v);
         }
     }
 }

@@ -70,11 +70,11 @@ void TItem::apply_switch_attack(s32 arg1) {
         }
     }
 }
-void TItem__sub_801005D8(void) {  }
+void TItem::vfunc_42() {  }
 
 void TItem::vfunc_16() {  }
-void TItem__sub_801005E0(void) {  }
-int TItem__sub_801005E4(void) { return 0; }
+void TItem::vfunc_15() {  }
+int TItem::vfunc_41() { return 0; }
 }
 
 s32 feed_item_to_mag(u8 *arg0, u32 arg1) {
@@ -86,4 +86,4 @@ s32 feed_item_to_mag(u8 *arg0, u32 arg1) {
     return 0;
 }
 
-void TItem__sub_80100648(void) {  }
+void TItem::vfunc_40() {  }

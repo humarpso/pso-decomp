@@ -6,6 +6,7 @@
 
 struct TAdEnterSerialAccessGC : public TAdEnterBaseGC {
     virtual ~TAdEnterSerialAccessGC();
+    virtual void run_task();
     u8 unk_38[0x8];
     u32 m_40;
     u32 m_44;

@@ -7,10 +7,10 @@ extern "C" {
 s32 submit_computer_command__10TObjPlayerFv(s32, s16, s32, s32);
 void TItemWeapon__ct(void *);
 
-void TObjPlayer::update_linked_object() {
+void TUnk_804A1858::update_weapon() {
     void *temp_r3;
 
-    temp_r3 = this->m_f4;
+    temp_r3 = (*(void * *)((u8 *)this + 0xF4));
     if (temp_r3 != NULL) {
         submit_computer_command__10TObjPlayerFv(*(s32 *)((s8 *)temp_r3 + 0x2C), *(s16 *)&this->unk_1F8, 0, 0);
     }

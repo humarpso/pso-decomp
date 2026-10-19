@@ -6,6 +6,7 @@
 class TUnk_8049387C : public TObjEneMe1Gee {
 public:
     virtual ~TUnk_8049387C();
+    virtual void vfunc_107();
     virtual void vfunc_117(u32);
     virtual void vfunc_106();
     virtual void vfunc_105();

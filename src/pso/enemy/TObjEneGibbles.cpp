@@ -546,7 +546,7 @@ extern "C" {
 void apply_switch_attack__13TUnk_804806E8Fv();
 }
 extern "C" {
-void calc_distance_accuracy_penalty__10TObjPlayerFv();
+void calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf();
 }
 extern "C" {
 void vfunc_79__9TObjEnemyFv();
@@ -642,7 +642,7 @@ extern "C" {
 extern u8 lbl_80472730[];
 }
 extern "C" {
-void receive_direct_attack__10TObjPlayerFv();
+void receive_direct_attack__13TUnk_804806E8FPvPvPvll();
 }
 extern "C" {
 void receive_physical_attack__13TUnk_804806E8FPvf();
@@ -663,7 +663,7 @@ extern "C" {
 void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 }
 extern "C" {
-void select_melee_contact_body__10TObjPlayerFv();
+void select_melee_contact_body__13TUnk_804806E8FPvf();
 }
 extern "C" {
 void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
@@ -752,7 +752,7 @@ void *lbl_804E29F0[83] = {
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__14TObjEneGibblesFv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
     (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
-    (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__13TUnk_804806E8FPvf, (void *)&receive_direct_attack__10TObjPlayerFv,
+    (void *)&select_melee_contact_body__13TUnk_804806E8FPvf, (void *)&calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf, (void *)&receive_physical_attack__13TUnk_804806E8FPvf, (void *)&receive_direct_attack__13TUnk_804806E8FPvPvPvll,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker__13TUnk_804806E8FPUc, (void *)&try_start_action__13TUnk_804806E8Fll, (void *)&roll_physical_accuracy__13TUnk_804806E8FPvlf,
     (void *)&update_target__14TObjEneGibblesFPv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__14TObjEneGibblesFv, (void *)&test_flag_256__14TObjEneGibblesFv,
     (void *)&test_flag30_512__13TUnk_804806E8Fv, (void *)&has_flag_0x800__13TUnk_804806E8Fv, (void *)&test_flag_1000__13TUnk_804806E8Fv, (void *)&update_poison_status__13TUnk_804806E8Fv,
