@@ -1161,7 +1161,7 @@ void TObjEneBm3FlyNest::render() {
                 TObjEneDD::clear_global_flag_400();
                 TObjPlayer::toggle_particle_effect();
                 if (res == 1) {
-                    ((TObjMotion *)((u8 *)this))->draw();
+                    this->draw();
                 } else {
                     this->render_world_model();
                 }

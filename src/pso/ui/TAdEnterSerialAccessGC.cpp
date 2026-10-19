@@ -661,7 +661,7 @@ void TAdEnterSerialAccessGC::run_task() {
         ((TAdEnterSerialAccessGC_80321F60 *)this)->field_60 = 0;
         p = __nw__7TObjectFUl(0x138);
         if (p != NULL) {
-            p = __ct__10TAdTitleGCFP7TObjectl(p, ((TAdEnterSerialAccessGC_80321F60 *)this), 0xA);
+            p = __ct__10TAdTitleGCFP7TObjectl(p, this, 0xA);
         }
         ((TAdEnterSerialAccessGC_80321F60 *)this)->field_50 = p;
         ((TAdEnterSerialAccessGC_80321F60 *)this)->field_58 = TAdEnterSerialAccessGC::open_message_window(((TAdEnterSerialAccessGC_80321F60 *)this), (void *)0);
@@ -671,11 +671,11 @@ void TAdEnterSerialAccessGC::run_task() {
             ((TLevelSelect *)((int)((TAdEnterSerialAccessGC_80321F60 *)this)->field_54))->add_item_rect(&TAdEnterSerialAccessGC__selection_positions);
             ((TAdEnterSerialAccessGC *)((int)((TAdEnterSerialAccessGC_80321F60 *)this)->field_54))->set_active();
         }
-        TAdEnterSerialAccessGC__keyboard_control = TAdEnterSerialAccessGC::create_keyboard_control((s32)((TAdEnterSerialAccessGC_80321F60 *)this), 0);
+        TAdEnterSerialAccessGC__keyboard_control = TAdEnterSerialAccessGC::create_keyboard_control((s32)this, 0);
         TAdEnterSerialAccessGC__input_state = 2;
         break;
     case 2:
-        TAdEnterSerialAccessGC__sub_80321F3C(((TAdEnterSerialAccessGC_80321F60 *)this));
+        TAdEnterSerialAccessGC__sub_80321F3C(this);
         break;
     case 3:
         ((TAdEnterSerialAccessGC_80321F60 *)this)->field_60 = 0;

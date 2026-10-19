@@ -3380,7 +3380,7 @@ void TBoss1Dragon::update_emergence_state(u32 arg1) {
     case 4:
         this->m_b8 = 0x18;
         PLAY_80023450(this);
-        ((TBoss1Dragon *)(this))->vfunc_96();
+        this->vfunc_96();
         this->setPhase2();
         TBoss1Dragon__sub_80028AFC(((u8 *)this));
         this->flags = (s32) (this->flags | 0xC00);
@@ -3442,8 +3442,8 @@ void TBoss1Dragon::update_emergence_state(u32 arg1) {
         case 1:
             if (this->height > TGT_80023450->y) {
                 this->stateStep = 2;
-                ((TBoss1Dragon *)(this))->vfunc_92();
-                ((TBoss1Dragon *)(this))->vfunc_93();
+                this->vfunc_92();
+                this->vfunc_93();
                 this->setActive();
                 this->spawn_impact_crater((s32)(((u8 *)this) + 0x38));
                 this->apply_ground_impact_attack();

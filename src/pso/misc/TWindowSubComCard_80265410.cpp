@@ -270,14 +270,14 @@ void TWindowSubComCard::set_entry_value_clear_flag(s32 idx, s32 val) {
 
 s32 TWindowMenu::get_selected_entry() {
     s16 temp_r4;
-    temp_r4 = *(s16 *)&((TWindowMenu *)((u8 *)this))->m_78;
+    temp_r4 = *(s16 *)&this->m_78;
     if (temp_r4 < 0) {
         return 0;
     }
-    if (temp_r4 >= (s16) *(s16 *)&((TWindowMenu *)((u8 *)this))->m_76) {
+    if (temp_r4 >= (s16) *(s16 *)&this->m_76) {
         return 0;
     }
-    return ((s32 (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(((u8 *)this), (s32)((s32) temp_r4));
+    return ((s32 (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(this, (s32)((s32) temp_r4));
 }
 
 void TWindowMenu::set_active_flag() {

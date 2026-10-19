@@ -2939,7 +2939,7 @@ s16 TObjPlayer::get_handle_value() { return (s16)(((TObjPlayer *)(*(void**)((cha
 void TObjPlayer::set_action_provider_variant(s16 arg1) {
     if (arg1 != ((TObjPlayer *)(((Player_801AFCF4 *)this)->obj))->sub_802a7290_fwd() && fn_8000F740(main_phase_state) != 0) {
         ((Player_801AFCF4 *)this)->obj->m4(((u16 (*)(void *))obj_getField1c)(((Player_801AFCF4 *)this)), ((TObjPlayer *)((Player_801AFCF4 *)this))->has_valid_handle(), arg1);
-        ((TObjPlayer *)this)->apply_motion_entry();
+        this->apply_motion_entry();
     }
 }
 

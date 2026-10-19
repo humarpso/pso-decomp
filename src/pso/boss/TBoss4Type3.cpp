@@ -1846,8 +1846,8 @@ void TBoss4Type3::sub_8005A438() {
         ((TBoss4Type3 *)(&a))->copy_pair(pb);
         ((TBoss4Type3 *)pb)->copy_pair(&tmp);
     }
-    ((TBoss4Type3 *)this)->draw_model_set((const s32 *)a.p, a.f);
-    ((TBoss4Type3 *)this)->draw_model_set((const s32 *)b.p, b.f);
+    this->draw_model_set((const s32 *)a.p, a.f);
+    this->draw_model_set((const s32 *)b.p, b.f);
 }
 
 void TBoss4Type3::copy_pair(void* q) { *(u32 *)&this->m_name = *(u32*)((char*)q + 0x0); (*(f32 *)&this->m_flags) = *(f32*)((char*)q + 0x4); }

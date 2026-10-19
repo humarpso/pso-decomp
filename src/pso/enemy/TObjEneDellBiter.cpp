@@ -1231,7 +1231,7 @@ s32 TObjEneDellBiter::render_model_if_visible() {
             post_translate_matrix((void *) (((u8 *)this) + 0x38));
             rotate_matrix_y(0, (int) (*(s32 *)((s8 *)((u8 *)this) + 0x60)));
             scale_matrix(0, TObjEneDellBiter__data_805DEFB8, TObjEneDellBiter__data_805DEFB8, TObjEneDellBiter__data_805DEFB8);
-            ((TObjMotion *)((u8 *)this))->draw();
+            this->draw();
             pop_matrix();
             restore_render_scissor(1);
         }

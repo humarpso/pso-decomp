@@ -1825,7 +1825,7 @@ void TObjEneSaver::turn_toward_target() {
     Vec_800A6B14 d;
     VecCopy((Vec *)&d, (const Vec *)&((Obj_800A6B14 *)this)->target->pos);
     subtract_vector(&d, &((Obj_800A6B14 *)this)->pos);
-    step_angle_clamped__10TObjPlayerFPvi(((Obj_800A6B14 *)this),
+    step_angle_clamped__10TObjPlayerFPvi(this,
         angle_diff_s16(((Obj_800A6B14 *)this)->angle, (s32)((*(const f64 *)&lbl_8043A8D0) * atan2_float(d.x, d.z))));
 }
 

@@ -1523,7 +1523,7 @@ void TObjEneMerillLia::render() {
         if (temp_r3 == 1)
         {
           TObjPlayer::set_global_flag();
-          ((TObjMotion *)((u8 *)this))->draw();
+          this->draw();
           TObjPlayer::clear_global_state();
         }
         else

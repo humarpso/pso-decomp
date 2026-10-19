@@ -960,12 +960,12 @@ void TObjEneSlimeTailAttack::draw_stretched_segment(void *arg1, void *arg2, f32 
         f32 r = lbl_805DA67C - t;
         scale_matrix(0, lbl_805DA67C, lbl_805DA678, r * len / lbl_805DA66C);
     }
-    TObjFish::set_global_param(((TObjEneSlimeTailAttack *)((u8 *)this))->texture_id);
+    TObjFish::set_global_param(this->texture_id);
     TObjPlayer__sub_800EBE48(lbl_805DA688 * t + lbl_805DA684);
-    saved = ((TObjEneSlimeTailAttack *)((u8 *)this))->m_c0;
-    ((TObjEneSlimeTailAttack *)((u8 *)this))->m_c0 = lbl_805DA68C;
-    ((TObjMotion *)((u8 *)this))->draw();
-    ((TObjEneSlimeTailAttack *)((u8 *)this))->m_c0 = saved;
+    saved = this->m_c0;
+    this->m_c0 = lbl_805DA68C;
+    this->draw();
+    this->m_c0 = saved;
     TObjPlayer::init_render_globals();
     pop_matrix();
 }

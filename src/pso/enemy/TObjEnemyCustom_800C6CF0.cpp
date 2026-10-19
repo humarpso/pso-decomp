@@ -182,7 +182,7 @@ u16 TObjEnemyCustom::find_nearest_enemy(void *out, f32 radius) {
         if (p->flags & 0x2000800) {
             continue;
         }
-        d = calc_xz_distance_sq__10TObjPlayerFiUiPv(((Obj_800C6EF8 *)this), p, &v);
+        d = calc_xz_distance_sq__10TObjPlayerFiUiPv(this, p, &v);
         if (d < bestDist) {
             best = obj_getField1c(p);
             bestDist = d;

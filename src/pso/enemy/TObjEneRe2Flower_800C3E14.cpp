@@ -426,7 +426,7 @@ s32 TObjEneRe2Flower_Bomb::area_attack_deliver_direct(void *recoil, s32 arg2, vo
     }
     TObjPlayer::init_all_slots();
     if (*(s32 *)((s8 *)((u8 *)recoil) + 4) & 1) {
-        ((TUnk_804928CC *)((u8 *)this))->update_body_contact_flag(range);
+        this->update_body_contact_flag(range);
         flags |= 0x80000;
     }
     if (*(s32 *)((s8 *)((u8 *)recoil) + 4) & 2) {

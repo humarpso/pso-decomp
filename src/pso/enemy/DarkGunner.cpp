@@ -887,7 +887,7 @@ void TObjEneDarkGunner::sub_800A1520() {
     switch (temp_r0)
     {
       case 0:
-        TObjPlayer__sub_800A27CC((TObjPlayer *)((void *) ((u8 *)this)));
+        TObjPlayer__sub_800A27CC((TObjPlayer *)this);
         return;
       case 1:
         TObjPlayer__sub_800A2390(this);
@@ -902,7 +902,7 @@ void TObjEneDarkGunner::sub_800A1520() {
         TObjPlayer__sub_800A16C4((u8 *)this);
         return;
       case 5:
-        TObjPlayer__sub_800A1C84((TObjPlayer *)((void *) ((u8 *)this)));
+        TObjPlayer__sub_800A1C84((TObjPlayer *)this);
         return;
       case 6:
         ((TObjPlayer *)((u8 *)this))->update_hide_sequence();

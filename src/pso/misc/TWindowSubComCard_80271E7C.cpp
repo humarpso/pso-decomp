@@ -84,7 +84,7 @@ void TWindowSubComCard::sub_80271F04(void *arr, s32 key, s32 arg3) {
         if (arg3 != open_hard_keyboard__6TLobbyFPv(*(void **)(((u8 *)this) + 0x20))) {
             ((u8 *)this)[0x1D] |= 1;
             ((TWindowSubComCard *)(*(void **)(((u8 *)this) + 0x20)))->set_com_param(arg3);
-            ((TWindowMakeTeam *)(*(void **)(((u8 *)this) + 0x7C)))->set_entry_string_by_id(((GetMsg_80271F04)get_message_10__17TWindowSubComCardFPvPv)(((u8 *)this), (void *)arg3), 0);
+            ((TWindowMakeTeam *)(*(void **)(((u8 *)this) + 0x7C)))->set_entry_string_by_id(((GetMsg_80271F04)get_message_10__17TWindowSubComCardFPvPv)(this, (void *)arg3), 0);
             if (arg3 != 0) {
                 for (i = 0; i < 5; i++) {
                     if (((Ent_80271F04 *)arr)[i].id != 0) {

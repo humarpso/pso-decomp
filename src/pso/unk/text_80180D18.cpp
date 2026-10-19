@@ -135,8 +135,8 @@ void TObjCityAirCar_Car::run_task() {
     f32 t;
     t = ((Car_80180E70 *)this)->frame;
     ((Car_80180E70 *)this)->frame = t + ((Car_80180E70 *)this)->speed;
-    if (((TObjCityAirCar_Car *)((Car_80180E70 *)this))->update_path_motion() == 0) {
-        queue_destruction__7TObjectFv(((Car_80180E70 *)this));
+    if (((TObjCityAirCar_Car *)this)->update_path_motion() == 0) {
+        queue_destruction__7TObjectFv(this);
     }
     if ((((Car_80180E70 *)this)->path == 1 && ((Car_80180E70 *)this)->frame >= lbl_805DBBA8 && ((Car_80180E70 *)this)->frame <= lbl_805DBBAC) ||
         (((Car_80180E70 *)this)->path == 2 && ((Car_80180E70 *)this)->frame >= lbl_805DBBB0 && ((Car_80180E70 *)this)->frame <= lbl_805DBBB4)) {

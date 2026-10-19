@@ -540,7 +540,7 @@ f32 TObjEneEpsilonBody::receive_weapon_special_attack(void *src, void *hit) {
             ((TUnk_804806E8 *)((Self_8035F5C8 *)this))->show_miss_popup((const float *)(((Self_8035F5C8 *)this)->x38));
             return lbl_805E0208;
         }
-        if (obj_testFlags30__13TUnk_804AF8A0FUl(((Self_8035F5C8 *)this), 0x04000000) != 0) {
+        if (obj_testFlags30__13TUnk_804AF8A0FUl(this, 0x04000000) != 0) {
             strong = 1;
         }
         if (((Hit_8035F5C8 *)hit) != NULL && (((Hit_8035F5C8 *)hit)->flags & 0x02000000)) {
@@ -570,8 +570,8 @@ f32 TObjEneEpsilonBody::receive_weapon_special_attack(void *src, void *hit) {
             }
             return lbl_805E0208;
         }
-        if (((TObjPlayer *)src)->obj_getS16_116() != ((TObjEneEpsilonBody *)((Self_8035F5C8 *)this))->sub_8035F8A8()) {
-            return receive_weapon_special_attack__10TObjPlayerFv(((Self_8035F5C8 *)this), src, ((Hit_8035F5C8 *)hit));
+        if (((TObjPlayer *)src)->obj_getS16_116() != ((TObjEneEpsilonBody *)this)->sub_8035F8A8()) {
+            return receive_weapon_special_attack__10TObjPlayerFv(this, src, ((Hit_8035F5C8 *)hit));
         }
     }
     ((TUnk_804806E8 *)((Self_8035F5C8 *)this))->try_apply_damage((u32)((Self_8035F5C8 *)this)->x2FC, 0);

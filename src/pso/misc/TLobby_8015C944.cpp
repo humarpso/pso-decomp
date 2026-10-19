@@ -41,7 +41,7 @@ f32 TOCtrlDubchik::receive_weapon_special_attack(void *att, void *arg2) {
     V3_8015C9D4 sp8;
     if (((O_8015C9D4 *)this)->f326 != 0) {
         if (select_melee_contact_body__13TUnk_804806E8FPvf(TOCtrlDubchik__data_805DB3AC) != 0) {
-            return receive_physical_attack__13TUnk_804806E8FPvf(((O_8015C9D4 *)this), att, TOCtrlDubchik__data_805DB3AC);
+            return receive_physical_attack__13TUnk_804806E8FPvf(this, att, TOCtrlDubchik__data_805DB3AC);
         }
         if (((A_8015C9D4 *)arg2) != NULL) {
             VecCopy((Vec *)&sp8, (const Vec *)&((A_8015C9D4 *)arg2)->pos);

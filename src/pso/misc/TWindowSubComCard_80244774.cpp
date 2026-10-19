@@ -854,7 +854,7 @@ void TUnk_804CE018::draw_window_frame(void *r) {
     q.y0 += dy;
   }
   TWindowSubStatusDisp::get_player();
-  draw_window_scanlines((u8 *)((Card_80245F98 *)this), (u8 *)((Rect_80245F98 *)r));
+  draw_window_scanlines((u8 *)this, (u8 *)((Rect_80245F98 *)r));
 }
 
 void TUnk_804CE018::update_fade() {

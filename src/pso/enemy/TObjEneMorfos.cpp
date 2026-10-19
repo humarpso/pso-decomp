@@ -922,7 +922,7 @@ s32 TObjEneMorfos::render_model_if_visible() {
             push_matrix();
             post_translate_matrix((void *) (((u8 *)this) + 0x38));
             rotate_matrix_y(0, this->rotation_y);
-            ((TObjMotion *)((u8 *)this))->draw();
+            this->draw();
             pop_matrix();
             if (*(s32 *)((s8 *)((u8 *)this) + 0x3C0) & 0x10) {
                 this->draw_body();

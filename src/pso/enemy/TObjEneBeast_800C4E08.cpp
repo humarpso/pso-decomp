@@ -720,7 +720,7 @@ void TUnk_80493450::beast_update_attack() {
         if (p != NULL && ((TObjPlayer *)p)->get_field_3e4() == get_current_floor()) {
             ((Self_800C53DC *)this)->target = p;
         } else {
-            ((Self_800C53DC *)this)->target = NULL;
+            this->target = NULL;
         }
     } else if (((Self_800C53DC *)this)->f338 < 0x4000) {
         ((Self_800C53DC *)this)->target = (Tgt_800C53DC *)get_enemy_entity(((Self_800C53DC *)this)->f338);

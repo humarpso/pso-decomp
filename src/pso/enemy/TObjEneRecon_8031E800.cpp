@@ -21,7 +21,7 @@ s32 TObjEneRecobox::render_trap_model_if_visible() {
             push_matrix();
             post_translate_matrix((void *) (((u8 *)this) + 0x38));
             rotate_matrix_y(0, this->rotation_y);
-            ((TObjMotion *)((u8 *)this))->draw();
+            this->draw();
             pop_matrix();
             restore_render_scissor(1);
         }

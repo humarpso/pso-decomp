@@ -144,7 +144,7 @@ void TObjEnePanarmsAtkColli::sub_800E32C0(void *arg1) {
     if (((Obj_800E32C0 *)this)->f388 != ((V_800E32C0 *)arg1)) {
         sp8.a = sp10.a; *(s32 *)&sp8.b = *(s32 *)&sp10.b;
         if (0.0f != ((V_800E32C0 *)arg1)->m21(((Obj_800E32C0 *)this)->f10, &sp8, 0, -1, -1)) {
-            ((V_800E32C0 *)arg1)->m23(((Obj_800E32C0 *)this));
+            ((V_800E32C0 *)arg1)->m23(this);
         }
         ((Obj_800E32C0 *)this)->f388 = ((V_800E32C0 *)arg1);
     }
