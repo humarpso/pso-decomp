@@ -79,12 +79,12 @@ void TObjEneEpsilon__sub_800B9384(u8 *arg0, s32 arg1, f32 farg0) {
     ((TBoss5Gryphon *)arg0)->try_move_actor_xz_on_ground((u8 *)&sp8);
 }
 
-void TObjEneEpsilon::fire_attack_a(s32 arg1, s32 arg2, f32 farg0) {
+void TObjEneEpsilon::fire_attack_a(s32 out, s32 arg2, f32 farg0) {
     f32 dist;
 
     dist = farg0;
     update_angle(arg2);
-    calc_wall_clamped_destination((void *)this, (void *)arg1, (f32)(sin_table_lookup(this->rotation_y)), (f32)((f32)cos_table_lookup(this->rotation_y)), (f32)((f32)dist));
+    calc_wall_clamped_destination((void *)this, (void *)out, (f32)(sin_table_lookup(this->rotation_y)), (f32)((f32)cos_table_lookup(this->rotation_y)), (f32)((f32)dist));
 }
 
 void TObjEneEpsilon::fire_attack_b(s32 arg1, s32 arg2, f32 farg0) {

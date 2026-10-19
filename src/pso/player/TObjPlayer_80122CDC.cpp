@@ -11,9 +11,9 @@ void TItemWeapon__ct(void *);
 extern s32 tl_05;
 
 void TUnk_804A1478::emit_marker_effects() {
-    s32 arg0 = (s32)this;
-    if ((get_slot_count__5TItemFv() < 4U) && (((TItemWeapon *)arg0)->get_attack_stage() == 0)) {
-        ((TObjPlayer *)tl_05)->spawn_cane_effects((TItem*)arg0, 1, 2);
+    s32 item = (s32)this;
+    if ((get_slot_count__5TItemFv() < 4U) && (((TItemWeapon *)item)->get_attack_stage() == 0)) {
+        ((TObjPlayer *)tl_05)->spawn_cane_effects((TItem*)item, 1, 2);
     }
 }
 

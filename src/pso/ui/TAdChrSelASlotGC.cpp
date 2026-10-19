@@ -268,8 +268,8 @@ s32 TAdChrSelASlotGC__sub_8030CA84(s32 arg0, s32 arg1) {
     return temp_r31;
 }
 
-u32 TAdChrSelASlotGC__sub_8030CB08(TAdChrSelASlotGC *arg0, s32 kind, s32 text) {
-    TAdChrSelASlotGC *self = arg0;
+u32 TAdChrSelASlotGC__sub_8030CB08(TAdChrSelASlotGC *ad_chr_sel_a_slot_gc, s32 kind, s32 text) {
+    TAdChrSelASlotGC *self = ad_chr_sel_a_slot_gc;
     V2_8030C750 pos;
     s32 w;
     switch (kind) {

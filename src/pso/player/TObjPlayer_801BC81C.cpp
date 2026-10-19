@@ -98,14 +98,14 @@ void TObjPlayer__sub_801BCA10(void) {  }
 s32 TObjPlayer__sub_801C21C4(void *, s32);
 s32 get_slot_value_checked__10TObjPlayerFl(void *, s32);
 
-void TObjPlayer__sub_801BCA14(u8 *arg0, void *arg1) {
+void TObjPlayer__sub_801BCA14(u8 *player, void *arg1) {
     s32 i;
-    TObjPlayer__sub_801C1F78(arg0 + 0x4AC, ((s32 (*)())obj_getField1c)());
-    TObjPlayer__sub_801D955C(arg0 + 0x428, get_class_index__10TObjPlayerFv(arg0));
-    ((TObjPlayer *)(arg0 + 0x428))->copy_all_technique_entries((void *)0x1D);
+    TObjPlayer__sub_801C1F78(player + 0x4AC, ((s32 (*)())obj_getField1c)());
+    TObjPlayer__sub_801D955C(player + 0x428, get_class_index__10TObjPlayerFv(player));
+    ((TObjPlayer *)(player + 0x428))->copy_all_technique_entries((void *)0x1D);
     i = 0;
     do {
-        clamp_and_set_unit_value__10TObjPlayerFiUci(arg0, get_slot_value_checked__10TObjPlayerFl(arg1, i) + TObjPlayer__sub_801C21C4(arg1, i), (s16)i);
+        clamp_and_set_unit_value__10TObjPlayerFiUci(player, get_slot_value_checked__10TObjPlayerFl(arg1, i) + TObjPlayer__sub_801C21C4(arg1, i), (s16)i);
         i += 1;
     } while (i < 0x13);
 }

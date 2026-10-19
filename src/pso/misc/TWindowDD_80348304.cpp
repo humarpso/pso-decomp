@@ -57,12 +57,12 @@ void TWindowDD::dispatch_state() {
 }
 
 s32 TWindowDD::get_word_select_context() {
-    s32 temp_r3;
-    temp_r3 = TOKeyMachine01::get_global_state();
-    if (temp_r3 == 0 || temp_r3 == 18) {
+    s32 global_state;
+    global_state = TOKeyMachine01::get_global_state();
+    if (global_state == 0 || global_state == 18) {
         return 1;
     }
-    if (temp_r3 == 15) {
+    if (global_state == 15) {
         return 0;
     }
     if (TObjPlayer::get_player_count() != 0) {
@@ -92,13 +92,13 @@ s32 TWindowDD::get_mode_code() {
 
 void TWindowDD::set_state() { *(int*)((char*)this + 0xa8) = 3; close_all_windows(); }
 
-void TWindowDD__sub_803484C4(u8 *arg0) {
-    *(s32 *)((s8 *)arg0 + 0xA8) = 2;
-    copy_chat_entry__9TWindowDDFPvPv((int) (*(s32 *)((s8 *)arg0 + 0xC0)), arg0 + 0xC4);
-    if ((s32) ((TWindowDD *)arg0)->m_c0 != 0) {
-        reset_selection__9TWindowDDFv(arg0, arg0 + 0xC4);
+void TWindowDD__sub_803484C4(u8 *window_dd) {
+    *(s32 *)((s8 *)window_dd + 0xA8) = 2;
+    copy_chat_entry__9TWindowDDFPvPv((int) (*(s32 *)((s8 *)window_dd + 0xC0)), window_dd + 0xC4);
+    if ((s32) ((TWindowDD *)window_dd)->m_c0 != 0) {
+        reset_selection__9TWindowDDFv(window_dd, window_dd + 0xC4);
     }
-    ((TWindowDD *)arg0)->close_all_windows();
+    ((TWindowDD *)window_dd)->close_all_windows();
 }
 
 void TWindowDD::close_all_windows() {

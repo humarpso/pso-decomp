@@ -31,14 +31,14 @@ u8 *TObjPlayer::create_player_instance(s32 arg0, s32 arg1) {
     return p;
 }
 
-u8 *create_player_object(s16 arg0, s32 arg1, u8 *arg2) {
+u8 *create_player_object(s16 slot, s32 role, u8 *arg2) {
     u8 *player;
     u8 *var_r0;
     TItem__sub_80101CEC(arg2);
     player = (u8 *)(__nw__7TObjectFUl(0xDB8));
     var_r0 = player;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(construct_player_instance__10TObjPlayerFlslPUc(player, tl_03, arg0, arg1, arg2));
+        var_r0 = (u8 *)(construct_player_instance__10TObjPlayerFlslPUc(player, tl_03, slot, role, arg2));
     }
     return var_r0;
 }

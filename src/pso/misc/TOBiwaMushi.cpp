@@ -35,10 +35,10 @@ void __dl__7TObjectFPv(void *);
 void *__dt__11TODragonflyFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 
-void *TOBiwaMushi__create(void *arg0) {
+void *TOBiwaMushi__create(void *dragonfly) {
     void *o = __nw__7TObjectFUl(0x100);
     if (o != NULL) {
-        o = TOBiwaMushi__ct(o, arg0);
+        o = TOBiwaMushi__ct(o, dragonfly);
     }
     return o;
 }
@@ -161,10 +161,10 @@ void *TOMekaFish01__create(void *arg0);
 void *__dt__12TOMekaFish01Fv(void *arg0, s16 arg1);
 void *TOMekaFish01__ct(void *, void *);
 
-void *TOMekaFish01__create(void *arg0) {
+void *TOMekaFish01__create(void *dragonfly) {
     void *o = __nw__7TObjectFUl(0x100);
     if (o != NULL) {
-        o = TOMekaFish01__ct(o, arg0);
+        o = TOMekaFish01__ct(o, dragonfly);
     }
     return o;
 }

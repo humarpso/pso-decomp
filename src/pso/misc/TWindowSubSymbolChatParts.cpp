@@ -347,25 +347,25 @@ void TWindowSubSymbolChat::open(s32 arg1) {
     *(s8 *)((s8 *)this + 0x71) = 1;
 }
 
-void render__25TWindowSubSymbolChatPartsFv(u8 *arg0) {
+void render__25TWindowSubSymbolChatPartsFv(u8 *window_sub_symbol_chat_parts) {
     s32 temp_r3;
 
     temp_r3 = get_draw_context__11TWindowBaseFPv();
-    ((TUnk_804CE018 *)arg0)->draw_window_frame((void *)temp_r3);
-    switch ((s8) (((TWindowSubSymbolChatParts *)arg0)->m_71)) {
+    ((TUnk_804CE018 *)window_sub_symbol_chat_parts)->draw_window_frame((void *)temp_r3);
+    switch ((s8) (((TWindowSubSymbolChatParts *)window_sub_symbol_chat_parts)->m_71)) {
     case 0:
-        fn_802857C4((Win_802857C4 *)(arg0), (Rect_802857C4 *)(temp_r3));
+        fn_802857C4((Win_802857C4 *)(window_sub_symbol_chat_parts), (Rect_802857C4 *)(temp_r3));
         break;
     case 1:
-        fn_802855C4(arg0, temp_r3);
+        fn_802855C4(window_sub_symbol_chat_parts, temp_r3);
         break;
     case 2:
-        fn_80285314(arg0, temp_r3);
+        fn_80285314(window_sub_symbol_chat_parts, temp_r3);
         break;
     }
-    draw_window_scrollbar(((TWindowSubSymbolChatParts *)arg0)->m_8c, temp_r3, arg0 + 0x68);
-    ((TWindowSubSymbolChatParts *)arg0)->sub_80285274((u8 *)temp_r3);
-    forward_render__20TWindowSubStatusDispFv(((TWindowSubSymbolChatParts *)arg0)->m_88, temp_r3);
+    draw_window_scrollbar(((TWindowSubSymbolChatParts *)window_sub_symbol_chat_parts)->m_8c, temp_r3, window_sub_symbol_chat_parts + 0x68);
+    ((TWindowSubSymbolChatParts *)window_sub_symbol_chat_parts)->sub_80285274((u8 *)temp_r3);
+    forward_render__20TWindowSubStatusDispFv(((TWindowSubSymbolChatParts *)window_sub_symbol_chat_parts)->m_88, temp_r3);
 }
 
 void run_task__25TWindowSubSymbolChatPartsFv(Parts_80285B84 *arg0) {

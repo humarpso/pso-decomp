@@ -247,35 +247,35 @@ void TLobby::forward_to_player(int arg0, void *item) {
     }
 }
 void TLobby::handle_player_event(s32 arg0, s32 arg1) {
-    s32 temp_r3;
+    s32 player;
     u32 var_r3;
-    temp_r3 = get_player_by_client_id((u16)arg0);
-    if ((temp_r3 != 0) && ((is_locally_controlled__10TObjPlayerFPv() == 1) || ((obj_isState3_324__13TUnk_804806E8Fv(temp_r3) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)) || ((is_script_controlled__10TObjPlayerFv(temp_r3) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)))) {
+    player = get_player_by_client_id((u16)arg0);
+    if ((player != 0) && ((is_locally_controlled__10TObjPlayerFPv() == 1) || ((obj_isState3_324__13TUnk_804806E8Fv(player) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)) || ((is_script_controlled__10TObjPlayerFv(player) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)))) {
         var_r3 = 0U;
         switch (arg1) {
         case 0:
-            var_r3 = get_item_field_6__10TObjPlayerFPv((void *)temp_r3);
+            var_r3 = get_item_field_6__10TObjPlayerFPv((void *)player);
             break;
         case 1:
-            var_r3 = ((TItemData *)temp_r3)->get_item_field_2();
+            var_r3 = ((TItemData *)player)->get_item_field_2();
             break;
         case 2:
-            var_r3 = ((TItemData *)temp_r3)->test_flag3();
+            var_r3 = ((TItemData *)player)->test_flag3();
             break;
         case 3:
-            var_r3 = ((TObjPlayer *)temp_r3)->activate_d04_slot();
+            var_r3 = ((TObjPlayer *)player)->activate_d04_slot();
             break;
         case 4:
         case 5:
         case 6:
         case 7:
-            var_r3 = get_equip_field_d04__10TObjPlayerFv(temp_r3, arg1 + 5);
+            var_r3 = get_equip_field_d04__10TObjPlayerFv(player, arg1 + 5);
             break;
         default:
             break;
         }
         if (var_r3 != 0U) {
-            send_6x26_unequip_item__10TObjPlayerFPvPv((void *)temp_r3, (void *)(get_field_d8__5TItemFv()));
+            send_6x26_unequip_item__10TObjPlayerFPvPv((void *)player, (void *)(get_field_d8__5TItemFv()));
         }
     }
 }

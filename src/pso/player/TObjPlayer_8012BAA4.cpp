@@ -32,15 +32,15 @@ void TUnk_804A4F60::update_weapon() {
 extern s32 tl_05;
 
 void TUnk_804A4F60::emit_marker_effects() {
-    s32 arg0 = (s32)this;
+    s32 item = (s32)this;
     if (get_attack_stage__11TItemWeaponFv() == 0) {
-        ((TObjPlayer *)tl_05)->spawn_cane_effect((TItem*)arg0, 4);
+        ((TObjPlayer *)tl_05)->spawn_cane_effect((TItem*)item, 4);
     }
-    if (((TObjPlayer *)arg0)->is_mode_two_and_ready() != 0) {
-        ((TUnk_804A4F60 *)arg0)->psycho_wand_roll_extra();
+    if (((TObjPlayer *)item)->is_mode_two_and_ready() != 0) {
+        ((TUnk_804A4F60 *)item)->psycho_wand_roll_extra();
         return;
     }
-    ((TObjPlayer *)arg0)->update_active_game_effect();
+    ((TObjPlayer *)item)->update_active_game_effect();
 }
 }
 

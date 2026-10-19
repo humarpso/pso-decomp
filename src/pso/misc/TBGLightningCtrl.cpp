@@ -137,13 +137,13 @@ void *__dt__16TBGLightningCtrlFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TBGLightningCtrl__ct(u8 *arg0, s32 parent, s32 arg2) {
-    __ct__13TUnk_804B9870FP7TObject((void *)arg0, (void *)parent);
-    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__16TBGLightningCtrl;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TBGLightningCtrl__name;
-    ((TBGLightningCtrl *)(arg0))->apply_object_set_data((void *)arg2);
-    ((TBGLightningCtrl *)arg0)->m_90 = 0;
-    return arg0;
+u8 *TBGLightningCtrl__ct(u8 *bg_lightning_ctrl, s32 parent, s32 arg2) {
+    __ct__13TUnk_804B9870FP7TObject((void *)bg_lightning_ctrl, (void *)parent);
+    *(s32 **)((s8 *)bg_lightning_ctrl + 0x18) = (s32 *)__vt__16TBGLightningCtrl;
+    *(s32 *)((s8 *)bg_lightning_ctrl + 0) = (s32) TBGLightningCtrl__name;
+    ((TBGLightningCtrl *)(bg_lightning_ctrl))->apply_object_set_data((void *)arg2);
+    ((TBGLightningCtrl *)bg_lightning_ctrl)->m_90 = 0;
+    return bg_lightning_ctrl;
 }
 
 void *TBGLightningCtrl__create(void *arg0) {

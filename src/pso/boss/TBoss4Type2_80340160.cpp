@@ -115,10 +115,10 @@ void *TObjFish__sub_8034029C(TBoss6Demo15_TYPE2_WAIT *wait, TObjFish *fish) {
 }
 #pragma pop
 
-void *TObjFish::alloc(void *arg0) {
+void *TObjFish::alloc(void *fish) {
     void *o = __nw__7TObjectFUl(0x88);
     if (o != NULL) {
-        o = TObjFish__sub_8034029C((TBoss6Demo15_TYPE2_WAIT *)o, (TObjFish *)arg0);
+        o = TObjFish__sub_8034029C((TBoss6Demo15_TYPE2_WAIT *)o, (TObjFish *)fish);
     }
     return o;
 }

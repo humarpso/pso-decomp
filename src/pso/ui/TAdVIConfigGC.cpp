@@ -98,22 +98,22 @@ void TAdVIConfigGC::open_player_names_window() {
 s32 TAdVIConfigGC::get_field_14() { return *(s32 *)&this->m_down; }
 
 void TAdVIConfigGC::update_visibility() {
-    s32 temp_r3;
-    u8 *temp_r3_2;
-    temp_r3 = TLobby::count_members();
-    if ((s32) *(s32 *)&this->m_flags != temp_r3) {
-        *(s32 *)&this->m_flags = temp_r3;
+    s32 flags;
+    u8 *quest_vm_down_load_server;
+    flags = TLobby::count_members();
+    if ((s32) *(s32 *)&this->m_flags != flags) {
+        *(s32 *)&this->m_flags = flags;
         open_player_names_window();
     }
     update_players_in_range((((u8 *)this)));
-    temp_r3_2 = (u8 *)(*(u8 * *)&this->m_24);
-    if (temp_r3_2 != NULL) {
+    quest_vm_down_load_server = (u8 *)(*(u8 * *)&this->m_24);
+    if (quest_vm_down_load_server != NULL) {
         if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x18) != 0) {
-            ((TQuestVmDownLoadServer *)temp_r3_2)->clear_flag4_bit4();
+            ((TQuestVmDownLoadServer *)quest_vm_down_load_server)->clear_flag4_bit4();
             allow_rendering__7TObjectFv((TObject *)(*(u8 * *)&this->m_24));
             return;
         }
-        ((TObject *)temp_r3_2)->set_flag_4();
+        ((TObject *)quest_vm_down_load_server)->set_flag_4();
         disallow_rendering__7TObjectFv((TObject *)(*(u8 * *)&this->m_24));
     }
 }

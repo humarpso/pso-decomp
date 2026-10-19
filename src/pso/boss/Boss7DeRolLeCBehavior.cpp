@@ -1253,16 +1253,16 @@ void *get_player_by_client_id(s32 i);
 void *TBoss7TentacleNeedle__ct(void *o, void *boss, void *pos);
 }
 
-void TObjFish__sub_802E83E8(u8 *arg0, u32 k) {
-    Boss_802E83E8 *self = (Boss_802E83E8 *)arg0;
+void TObjFish__sub_802E83E8(u8 *boss, u32 k) {
+    Boss_802E83E8 *self = (Boss_802E83E8 *)boss;
     u8 *player;
     void *o;
     u16 id;
     u16 n;
     switch (k) {
     case 4:
-        ((TObjMotion *)arg0)->set_field_b8(1);
-        TObjFish__sub_802ED4AC(arg0, 9);
+        ((TObjMotion *)boss)->set_field_b8(1);
+        TObjFish__sub_802ED4AC(boss, 9);
         self->timer = 20;
         self->count = 12;
         id = 0;
@@ -1275,11 +1275,11 @@ void TObjFish__sub_802E83E8(u8 *arg0, u32 k) {
         break;
     case 9:
         if (self->count == 0) {
-            ((TBoss7DeRolLeC *)arg0)->advance_action_sequence();
+            ((TBoss7DeRolLeC *)boss)->advance_action_sequence();
         }
         break;
     case 0:
-        advance_animation_playback(arg0);
+        advance_animation_playback(boss);
         if (self->count > 0) {
             if (self->timer == 0) {
                 self->timer = 20;
@@ -1288,7 +1288,7 @@ void TObjFish__sub_802E83E8(u8 *arg0, u32 k) {
                 if (player != NULL) {
                     o = TObject::operator new(0x7C);
                     if (o != NULL) {
-                        TBoss7TentacleNeedle__ct(o, arg0, player + 0x38);
+                        TBoss7TentacleNeedle__ct(o, boss, player + 0x38);
                     }
                 }
             } else {
@@ -1297,7 +1297,7 @@ void TObjFish__sub_802E83E8(u8 *arg0, u32 k) {
         }
         break;
     case 6:
-        ((TObjFish *)arg0)->pick_random_target();
+        ((TObjFish *)boss)->pick_random_target();
         break;
     }
 }

@@ -4613,10 +4613,10 @@ void TObjEneBm5GibonU::set_field8_from_obj(s32 arg1) {
 
 void TObjEneBm5GibonU::push_list_node(void **arg1, void **arg2) {
     u8 *arg0 = (u8 *)this;
-    u8 *temp_r0;
-    temp_r0 = (u8 *)(*arg2);
-    if (temp_r0 != NULL) {
-        *(void * *)&this->m_name = temp_r0;
+    u8 *name;
+    name = (u8 *)(*arg2);
+    if (name != NULL) {
+        *(void * *)&this->m_name = name;
         *(void **)((s8 *)(*arg2) + 4) = arg0;
     } else {
         this->m_name = NULL;

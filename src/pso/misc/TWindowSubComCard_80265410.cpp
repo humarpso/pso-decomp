@@ -751,20 +751,20 @@ void TWindowMenu::render_selected_entry(s32 window_key_board_soft) {
 }
 
 void render__11TWindowMenuFv(TWindowMenu *arg0) {
-    s32 temp_r3;
+    s32 window_key_board_soft;
 
-    temp_r3 = get_draw_context__11TWindowBaseFPv();
-    ((TUnk_804CE018 *)arg0)->draw_window_frame((void *)temp_r3);
-    draw_visible_window_entries(arg0, (u8 *)arg0 + 0x24, temp_r3);
+    window_key_board_soft = get_draw_context__11TWindowBaseFPv();
+    ((TUnk_804CE018 *)arg0)->draw_window_frame((void *)window_key_board_soft);
+    draw_visible_window_entries(arg0, (u8 *)arg0 + 0x24, window_key_board_soft);
     if (!(arg0->m_70 & 0x80)) {
-        arg0->render_selected_entry(temp_r3);
-        arg0->draw_selected_bar((u8 *)temp_r3);
+        arg0->render_selected_entry(window_key_board_soft);
+        arg0->draw_selected_bar((u8 *)window_key_board_soft);
     }
     if ((u32) arg0->m_88 != 0U) {
-        forward_render__20TWindowSubStatusDispFv(arg0->m_88, temp_r3);
+        forward_render__20TWindowSubStatusDispFv(arg0->m_88, window_key_board_soft);
     }
     if ((u32) arg0->m_84 != 0U) {
-        draw_window_scrollbar(arg0->m_84, temp_r3, (u8 *)arg0 + 0x68);
+        draw_window_scrollbar(arg0->m_84, window_key_board_soft, (u8 *)arg0 + 0x68);
     }
 }
 

@@ -70,27 +70,27 @@ typedef char RecoveredGlobal_8034DC24_lbl_804F07C8_size[((sizeof(RecoveredGlobal
 #define PSO_VCALL_VObj_18_dac7f3_m0(_self, _arg0) (((VObj_18_dac7f3 *)(_self))->m0((_arg0)))
 u8 *__dt__13TUnk_804F07C8Fv(u8 *arg0, s16 arg1) {
   s32 var_r31;
-  u8 *temp_r3;
+  u8 *player;
   if (arg0 != 0)
   {
     var_r31 = 0;
     *((s32 **) (((s8 *) arg0) + 0x18)) = &lbl_804F07C8.value;
     do
     {
-      temp_r3 = (u8 *) get_player_by_client_id(var_r31);
-      if (temp_r3 != 0)
+      player = (u8 *) get_player_by_client_id(var_r31);
+      if (player != 0)
       {
         if (is_script_controlled__10TObjPlayerFv() != 0)
         {
-          if (temp_r3 != 0)
+          if (player != 0)
           {
-            PSO_VCALL_VObj_18_dac7f3_m0(temp_r3, 1);
+            PSO_VCALL_VObj_18_dac7f3_m0(player, 1);
           }
         }
         else
-          if (((obj_isState3_324__13TUnk_804806E8Fv((int) temp_r3) != 0) && (((TNpcPlayer *)temp_r3)->get_action_flags() == ((-1U) & 0xFFFFu))) && (temp_r3 != 0))
+          if (((obj_isState3_324__13TUnk_804806E8Fv((int) player) != 0) && (((TNpcPlayer *)player)->get_action_flags() == ((-1U) & 0xFFFFu))) && (player != 0))
         {
-          PSO_VCALL_VObj_18_dac7f3_m0(temp_r3, 1);
+          PSO_VCALL_VObj_18_dac7f3_m0(player, 1);
         }
       }
       var_r31 += 1;

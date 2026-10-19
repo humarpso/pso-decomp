@@ -56,11 +56,11 @@ void TItemAttacker::copy_from(void *arg1) {
 }
 
 void TItemAttacker::spawn_item_timer(s32 arg0, s32 arg1, s32 arg2) {
-    void *temp_r3;
+    void *item_timer;
     if (arg0 != 0) {
-        temp_r3 = (void *)__nw__7TObjectFUl(0x28);
-        if (temp_r3 != (void *)0U) {
-            TItemTimer__ct((u8 *)temp_r3, arg0, arg1, arg2);
+        item_timer = (void *)__nw__7TObjectFUl(0x28);
+        if (item_timer != (void *)0U) {
+            TItemTimer__ct((u8 *)item_timer, arg0, arg1, arg2);
         }
     }
 }

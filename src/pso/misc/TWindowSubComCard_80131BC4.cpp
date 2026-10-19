@@ -10,12 +10,12 @@ s32 export_keyboard_text(s32, s32);
 s32 mem_alloc();
 
 s32 TWindowSubComCard::realloc_buffer() {
-    s32 temp_r3;
+    s32 out;
 
     ((TWindowKeyBoardSoft *)(this->m_20))->measure_text_overflow();
-    temp_r3 = mem_alloc();
-    export_keyboard_text(this->m_20, temp_r3);
-    return temp_r3;
+    out = mem_alloc();
+    export_keyboard_text(this->m_20, out);
+    return out;
 }
 
 int TWindowSubComCard::is_keyboard_active() { return ((TKeyBoardControl *)(this->m_20))->is_active(); }

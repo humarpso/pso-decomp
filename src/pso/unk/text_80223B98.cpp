@@ -223,7 +223,7 @@ void roll_shop_technique_level(Obj_80223EE0 *arg0, s32 arg1) {
     }
 }
 
-void generate_shop_technique_pool(s32 arg0) {
+void generate_shop_technique_pool(s32 shop) {
     Item_802242F8 it;
     Ctr_8022403C ctr;
     Ent_8022403C *e;
@@ -233,7 +233,7 @@ void generate_shop_technique_pool(s32 arg0) {
     s32 i;
     s32 c;
     u8 k;
-    arr = ((Item_802242F8 **)&shop_tool_stock_buffers)[arg0];
+    arr = ((Item_802242F8 **)&shop_tool_stock_buffers)[shop];
     n = fn_80223B98(shop_tool_stock_level);
     if (n > 0) {
         ((TLobby *)(&ctr))->reset_counter_64();
@@ -258,8 +258,8 @@ void generate_shop_technique_pool(s32 arg0) {
                 it.b[1] = 2;
                 it.b[4] = shop_technique_pool_table[b];
                 roll_shop_technique_level((Obj_80223EE0 *)&it, b);
-                if (TLobby__sub_80223DD8(&it, arg0) == 1) {
-                    ((TLobby *)(&arr[shop_tool_stock_counts[arg0]++]))->copy_item_data(&it);
+                if (TLobby__sub_80223DD8(&it, shop) == 1) {
+                    ((TLobby *)(&arr[shop_tool_stock_counts[shop]++]))->copy_item_data(&it);
                     i++;
                 }
             }
@@ -267,7 +267,7 @@ void generate_shop_technique_pool(s32 arg0) {
     }
 }
 
-void generate_shop_rare_tool_pool(s32 arg0) {
+void generate_shop_rare_tool_pool(s32 shop) {
     Item_802242F8 it;
     Ctr_80224190 ctr;
     Tbl_80224190 *t;
@@ -280,7 +280,7 @@ void generate_shop_rare_tool_pool(s32 arg0) {
     s32 b;
     s32 c;
     u8 k;
-    arr = ((Item_802242F8 **)&shop_tool_stock_buffers)[arg0];
+    arr = ((Item_802242F8 **)&shop_tool_stock_buffers)[shop];
     n = fn_80223C28(shop_tool_stock_level);
     if (n > 0) {
         ((TLobby *)(&ctr))->reset_counter_64();
@@ -310,8 +310,8 @@ void generate_shop_rare_tool_pool(s32 arg0) {
                     it.b[0] = 3;
                     it.b[1] = shop_tool_group_subtype_table[b].a;
                     it.b[2] = shop_tool_group_subtype_table[b].b;
-                    if (TLobby__sub_80223E64(&it, arg0) == 1) {
-                        ((TLobby *)(&arr[shop_tool_stock_counts[arg0]++]))->copy_item_data(&it);
+                    if (TLobby__sub_80223E64(&it, shop) == 1) {
+                        ((TLobby *)(&arr[shop_tool_stock_counts[shop]++]))->copy_item_data(&it);
                         j++;
                     }
                 }

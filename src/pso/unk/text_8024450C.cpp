@@ -26,17 +26,17 @@ void fn_8024450C(s32 arg0) {
 #pragma push
 #pragma fp_contract on
 s32 create_area_window(s32 arg0) {
-    s32 var_r30;
+    s32 object;
     u8 *temp_r31;
-    var_r30 = __nw__7TObjectFUl(0x64);
-    if (var_r30 != 0) {
-        var_r30 = TWindowArea__ct();
+    object = __nw__7TObjectFUl(0x64);
+    if (object != 0) {
+        object = TWindowArea__ct();
     }
-    ((TWindowSubStatusDisp *)var_r30)->set_entry_display_value(arg0);
-    fn_802449E0((u8 *)var_r30);
-    temp_r31 = (u8 *)(get_title_entry__11TWindowRoomFv(var_r30));
+    ((TWindowSubStatusDisp *)object)->set_entry_display_value(arg0);
+    fn_802449E0((u8 *)object);
+    temp_r31 = (u8 *)(get_title_entry__11TWindowRoomFv(object));
     *(f32 *)((s8 *)temp_r31 + 8) = (f32) -((lbl_805DCAC0 * (f32) calc_text_width((char *)(arg0))) - lbl_805DCABC);
-    return var_r30;
+    return object;
 }
 }
 #pragma pop
@@ -44,16 +44,16 @@ s32 create_area_window(s32 arg0) {
 #pragma push
 #pragma fp_contract on
 s32 create_window_area(void) {
-    s32 var_r30;
+    s32 object;
     u8 *temp_r31;
-    var_r30 = __nw__7TObjectFUl(0x64);
-    if (var_r30 != 0) {
-        var_r30 = TWindowArea__ct();
+    object = __nw__7TObjectFUl(0x64);
+    if (object != 0) {
+        object = TWindowArea__ct();
     }
-    fn_802449E0((u8 *)var_r30);
-    fn_8024450C(var_r30);
-    temp_r31 = get_title_entry__11TWindowRoomFv(var_r30);
+    fn_802449E0((u8 *)object);
+    fn_8024450C(object);
+    temp_r31 = get_title_entry__11TWindowRoomFv(object);
     *(f32 *)((s8 *)temp_r31 + 8) = (f32) -((lbl_805DCAC0 * (f32) calc_text_width((char *)(((TWindowSubComCard *)temp_r31)->get_field_20()))) - lbl_805DCABC);
-    return var_r30;
+    return object;
 }
 #pragma pop

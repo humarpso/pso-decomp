@@ -782,32 +782,32 @@ void TObjEnePanarms__sub_800E0930(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x388) = 0;
 }
 
-void TObjEnePanarms__sub_800E0950(u8 *arg0) {
+void TObjEnePanarms__sub_800E0950(u8 *panarms) {
     Stack_800E0950 stack;
     f32 temp_f1;
     f32 temp_f2;
     s32 temp_r0;
-    *(s32 *)((s8 *)arg0 + 0x3B4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3B4) - 1);
+    *(s32 *)((s8 *)panarms + 0x3B4) = (s32) (*(s32 *)((s8 *)panarms + 0x3B4) - 1);
     if ((s8) panarms_particle_frame_window_initialized == 0) {
         panarms_particle_frame_window_initialized = 1;
         panarms_particle_frame_window = *(f32 *)((s8 *)&lbl_80495484.value + 0x68);
     }
-    temp_f2 = *(f32 *)((s8 *)arg0 + 0xC0);
+    temp_f2 = *(f32 *)((s8 *)panarms + 0xC0);
     if ((temp_f2 >= lbl_805DA558) && (temp_f2 < (lbl_805DA558 + panarms_particle_frame_window))) {
-        VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x3A4));
+        VecCopy((Vec *)(&stack.sp8), (const Vec *)(panarms + 0x3A4));
         temp_f1 = stack.spC;
         stack.spC = temp_f1 + TObjEnePanarms__data_805DA544;
         spawn_particle_effect((void *)&stack.sp8, 0xF3, temp_f1);
     }
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x3B4);
+    temp_r0 = *(s32 *)((s8 *)panarms + 0x3B4);
     if (temp_r0 <= 0x78) {
         if (temp_r0 == 0x78) {
-            ((TObjPlayer *)(arg0 + 0x3A4))->spawn_ground_effect(0x78);
-            TObjPlayer::spawn_dead_spot_default((s32)(arg0 + 0x3A4), 6);
+            ((TObjPlayer *)(panarms + 0x3A4))->spawn_ground_effect(0x78);
+            TObjPlayer::spawn_dead_spot_default((s32)(panarms + 0x3A4), 6);
         }
-        *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) + lbl_805DA55C);
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x3B4) < 0) {
-            TObjEnePanarms__sub_800E1C98((void *)arg0, 8);
+        *(f32 *)((s8 *)panarms + 0x3C) = (f32) (*(f32 *)((s8 *)panarms + 0x3C) + lbl_805DA55C);
+        if ((s32) *(s32 *)((s8 *)panarms + 0x3B4) < 0) {
+            TObjEnePanarms__sub_800E1C98((void *)panarms, 8);
         }
     }
 }

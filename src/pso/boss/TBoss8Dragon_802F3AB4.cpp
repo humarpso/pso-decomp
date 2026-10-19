@@ -51,7 +51,7 @@ void *TUnk_804E4BF0::dt(s16 arg1) {
 }
 
 }
-TUnk_804E4BF0::TUnk_804E4BF0(TObject *arg1, void *arg1p) : TObject(arg1) {
+TUnk_804E4BF0::TUnk_804E4BF0(TObject *object, void *arg1p) : TObject(object) {
     if (boss8_dragon_leader_part == NULL) {
         boss8_dragon_leader_part = this;
     }

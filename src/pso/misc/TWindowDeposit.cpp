@@ -43,10 +43,10 @@ void TWindowDeposit::render_status(s32 arg1) {
 }
 
 void render__14TWindowDepositFv(s32 arg0) {
-    s32 temp_r3;
-    temp_r3 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context(arg0 + 0x64);
-    ((TWindowDeposit *)arg0)->render_status(temp_r3);
-    draw_visible_window_entries((void *)arg0, (void *)(arg0 + 0x24), (int)temp_r3);
+    s32 ctx;
+    ctx = ((TUnk_804CE018 *)arg0)->setup_window_draw_context(arg0 + 0x64);
+    ((TWindowDeposit *)arg0)->render_status(ctx);
+    draw_visible_window_entries((void *)arg0, (void *)(arg0 + 0x24), (int)ctx);
 }
 
 void TWindowDeposit::run_task() { initialize_subwindow__9TWindowDDFv(this); update_window_entry_list((char*)this + 0x24); }

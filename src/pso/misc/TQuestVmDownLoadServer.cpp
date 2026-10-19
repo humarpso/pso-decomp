@@ -1298,7 +1298,7 @@ void TQuestVmDownLoadServer::sub_801F6B00() {
         }
     }
 }
-TMCFormatSequence::TMCFormatSequence(TObject *arg1, void *arg2) : TObject(arg1) {
+TMCFormatSequence::TMCFormatSequence(TObject *object, void *arg2) : TObject(object) {
     *(void * *)&this->m_name = TMCFormatSequence__class_name;
     this->m_24 = 0;
     *(void **)((s8 *)this + 0x28) = arg2;

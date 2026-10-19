@@ -1032,25 +1032,25 @@ extern "C" {
 void TObjPlayer__sub_800A04F0(void *);
 }
 
-void TObjPlayer__sub_800A1C84(TObjPlayer *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x388) &= 0xFF07FFFF;
-    switch (arg0->m_37c) {
+void TObjPlayer__sub_800A1C84(TObjPlayer *enemy) {
+    *(s32 *)((s8 *)enemy + 0x388) &= 0xFF07FFFF;
+    switch (enemy->m_37c) {
     case 0:
-        arg0->m_b8 = 7;
-        arg0->refresh_lobby_state();
-        ((TObjEnemy *)arg0)->send_entity_set_flags();
-        TObjPlayer__sub_800A04F0((u8 *)arg0 + 0x408);
-        ((TObjPlayer *)((u8 *)arg0 + 0x2FC))->request_two_effects();
-        *(s32 *)((s8 *)arg0 + 0x388) |= 4;
-        play_sound_effect(0x4003AD37, (u8 *)arg0 + 0x38, 0, 0);
-        arg0->m_37c = 1;
+        enemy->m_b8 = 7;
+        enemy->refresh_lobby_state();
+        ((TObjEnemy *)enemy)->send_entity_set_flags();
+        TObjPlayer__sub_800A04F0((u8 *)enemy + 0x408);
+        ((TObjPlayer *)((u8 *)enemy + 0x2FC))->request_two_effects();
+        *(s32 *)((s8 *)enemy + 0x388) |= 4;
+        play_sound_effect(0x4003AD37, (u8 *)enemy + 0x38, 0, 0);
+        enemy->m_37c = 1;
         break;
     case 1:
-        advance_animation_playback(arg0);
-        apply_actor_gravity(arg0, 0, lbl_805D9984);
-        if (((VObj_14_800A1C84 *)((u8 *)arg0 + 0x408))->m4() == 1) {
-            TObjPlayer::apply_effect_variant_a((s32)((u8 *)arg0 + 0x38), 0);
-            queue_destruction__7TObjectFv(arg0);
+        advance_animation_playback(enemy);
+        apply_actor_gravity(enemy, 0, lbl_805D9984);
+        if (((VObj_14_800A1C84 *)((u8 *)enemy + 0x408))->m4() == 1) {
+            TObjPlayer::apply_effect_variant_a((s32)((u8 *)enemy + 0x38), 0);
+            queue_destruction__7TObjectFv(enemy);
         }
         break;
     case -1:
@@ -1364,19 +1364,19 @@ void TObjPlayer::set_hidden_flag() {
     }
 }
 
-void TObjPlayer__sub_800A27CC(TObjPlayer *arg0) {
-    switch (arg0->m_37c) {
+void TObjPlayer__sub_800A27CC(TObjPlayer *player) {
+    switch (player->m_37c) {
     case 0:
-        if (*(s32 *)&((TObjEneDarkGunner *)arg0)->m_388 & 0x10000) {
-            arg0->actorFlags |= 0x04040000;
-            arg0->rotation_z = 0x8000;
-            arg0->m_37c = 1;
+        if (*(s32 *)&((TObjEneDarkGunner *)player)->m_388 & 0x10000) {
+            player->actorFlags |= 0x04040000;
+            player->rotation_z = 0x8000;
+            player->m_37c = 1;
         } else {
-            arg0->m_b8 = 0;
-            arg0->m_37c = 2;
+            player->m_b8 = 0;
+            player->m_37c = 2;
         }
-        *(s32 *)&((TObjEneDarkGunner *)arg0)->m_388 |= 0x400000;
-        advance_animation_playback(arg0);
+        *(s32 *)&((TObjEneDarkGunner *)player)->m_388 |= 0x400000;
+        advance_animation_playback(player);
         break;
     case 1:
         break;

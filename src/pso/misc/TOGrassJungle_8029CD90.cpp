@@ -67,19 +67,19 @@ void *__dt__13TOGrassJungleFv(void *arg0, s16 arg1) {
 }
 
 typedef char RecoveredGlobal_8029CE64___vt__13TOGrassJungle_size[sizeof(RecoveredGlobal_8029CE64___vt__13TOGrassJungle) == 0x34 ? 1 : -1];
-u8 *TOGrassJungle__ct(TOGrassJungle *arg0, s32 parent, s32 arg2) {
-    __ct__13TUnk_804B9870FP7TObject((void *)arg0, (void *)parent);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8029CE64___vt__13TOGrassJungle *)&__vt__13TOGrassJungle).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) grass_jungle_class_name;
-    ((TOGrassJungle *)(arg0))->apply_object_set_data((void *)arg2);
-    arg0->m_90 = (s32) arg0->m_84;
-    if ((s32) arg0->m_90 < 0) {
-        arg0->m_90 = 0;
+u8 *TOGrassJungle__ct(TOGrassJungle *grass_jungle, s32 parent, s32 arg2) {
+    __ct__13TUnk_804B9870FP7TObject((void *)grass_jungle, (void *)parent);
+    *(s32 **)((s8 *)grass_jungle + 0x18) = &(*(RecoveredGlobal_8029CE64___vt__13TOGrassJungle *)&__vt__13TOGrassJungle).value;
+    *(s32 *)((s8 *)grass_jungle + 0) = (s32) grass_jungle_class_name;
+    ((TOGrassJungle *)(grass_jungle))->apply_object_set_data((void *)arg2);
+    grass_jungle->m_90 = (s32) grass_jungle->m_84;
+    if ((s32) grass_jungle->m_90 < 0) {
+        grass_jungle->m_90 = 0;
     }
-    if ((s32) arg0->m_90 > 1) {
-        arg0->m_90 = 1;
+    if ((s32) grass_jungle->m_90 > 1) {
+        grass_jungle->m_90 = 1;
     }
-    return (u8 *)arg0;
+    return (u8 *)grass_jungle;
 }
 
 void TOKeyJungleMain::play_activate_sound() {

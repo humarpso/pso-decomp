@@ -332,17 +332,17 @@ void TAdSinglePlyChrSelectGC::handle_load_result() {
     }
 }
 
-void TAdSinglePlyChrSelectGC__sub_8033AFC8(O_8033AFC8 *arg0) {
-    switch (get_card_file_info__15TAdPlayerLoadGCFiPvPv(arg0->f24, lbl_804C88C0, 0)) {
+void TAdSinglePlyChrSelectGC__sub_8033AFC8(O_8033AFC8 *ad_single_ply_chr_select_gc) {
+    switch (get_card_file_info__15TAdPlayerLoadGCFiPvPv(ad_single_ply_chr_select_gc->f24, lbl_804C88C0, 0)) {
     case 0:
-        if (arg0->f20 != 0) {
-            switch (TAdPlayerLoadGC__sub_801E1944(arg0->f24, lbl_804C88C0, arg0->f20, arg0->f28)) {
+        if (ad_single_ply_chr_select_gc->f20 != 0) {
+            switch (TAdPlayerLoadGC__sub_801E1944(ad_single_ply_chr_select_gc->f24, lbl_804C88C0, ad_single_ply_chr_select_gc->f20, ad_single_ply_chr_select_gc->f28)) {
             case 0:
-                arg0->f2C = 3;
+                ad_single_ply_chr_select_gc->f2C = 3;
                 break;
             default:
-                arg0->f2C = 0;
-                ((s32 (*)(void *))TAdSinglePlyChrSelectGC__sub_8033B5F0)(arg0);
+                ad_single_ply_chr_select_gc->f2C = 0;
+                ((s32 (*)(void *))TAdSinglePlyChrSelectGC__sub_8033B5F0)(ad_single_ply_chr_select_gc);
                 break;
             }
         }
@@ -351,13 +351,13 @@ void TAdSinglePlyChrSelectGC__sub_8033AFC8(O_8033AFC8 *arg0) {
         break;
     case -251:
     case -255:
-        TAdSinglePlyChrSelectGC__sub_8033A9F0((TAdSinglePlyChrSelectGC *)arg0);
+        TAdSinglePlyChrSelectGC__sub_8033A9F0((TAdSinglePlyChrSelectGC *)ad_single_ply_chr_select_gc);
         break;
     case -254:
     case -252:
     default:
-        arg0->f2C = 0;
-        ((s32 (*)(void *))TAdSinglePlyChrSelectGC__sub_8033B5F0)(arg0);
+        ad_single_ply_chr_select_gc->f2C = 0;
+        ((s32 (*)(void *))TAdSinglePlyChrSelectGC__sub_8033B5F0)(ad_single_ply_chr_select_gc);
         break;
     }
 }

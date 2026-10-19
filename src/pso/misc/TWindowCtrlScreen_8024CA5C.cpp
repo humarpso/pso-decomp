@@ -26,16 +26,16 @@ void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8024CAD0___vt__17TWindowCtrlScreen __vt__17TWindowCtrlScreen;
 extern s32 TWindowCtrlMain__screen_controller;
 void TWindowCtrlScreen::render() {
-    u16 temp_r31;
+    u16 viewport_index;
     if (is_window_display_enabled() != 0) {
-        temp_r31 = get_nth_view_player_id__11TCameraCtrlFl((int) (TCameraCtrl::get_camera_no()));
+        viewport_index = get_nth_view_player_id__11TCameraCtrlFl((int) (TCameraCtrl::get_camera_no()));
         TObjPlayer::reset_transform_state();
         TParticleCtrl::begin_effect_render();
         ((TObject *)TWindowCtrlMain__instance)->render_nodes();
-        TWindowCtrlMain__sub_8024D2A4(((s32) temp_r31));
+        TWindowCtrlMain__sub_8024D2A4(((s32) viewport_index));
         TCameraCtrl::restore_full_screen_view();
-        draw_menu_backdrop_gradients(((s32) temp_r31));
-        ((TObject *)(TWindowCtrlMain__sub_8024CDD0(((s32) temp_r31))))->render_nodes();
+        draw_menu_backdrop_gradients(((s32) viewport_index));
+        ((TObject *)(TWindowCtrlMain__sub_8024CDD0(((s32) viewport_index))))->render_nodes();
         TCameraCtrl__sub_80068EF0();
         TParticleCtrl::end_effect_render();
     }

@@ -42,16 +42,16 @@ extern s32 TObjCurtainLobby__class_name;
 #pragma push
 #pragma opt_propagation off
 s32 get_lobby_theme_clamped__16TObjCurtainLobbyFv(void) {
-    s32 var_r3;
-    var_r3 = TLobby::get_filtered_event_theme();
-    if (var_r3 < 0xE) {
-        if (var_r3 < 0xC) {
-            return var_r3;
+    s32 filtered_event_theme;
+    filtered_event_theme = TLobby::get_filtered_event_theme();
+    if (filtered_event_theme < 0xE) {
+        if (filtered_event_theme < 0xC) {
+            return filtered_event_theme;
         }
-        var_r3 = 0xC;
-        return var_r3;
+        filtered_event_theme = 0xC;
+        return filtered_event_theme;
     }
-    return var_r3;
+    return filtered_event_theme;
 }
 #pragma pop
 

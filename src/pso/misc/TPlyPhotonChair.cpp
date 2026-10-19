@@ -267,35 +267,35 @@ void *__dt__15TPlyPhotonChairFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TPlyPhotonChair__ct(u8 *arg0, s32 arg1, s32 parent) {
+u8 *TPlyPhotonChair__ct(u8 *ply_photon_chair, s32 arg1, s32 parent) {
     u32 player;
-    __ct__13TUnk_804B9870FP7TObject((void *)arg0, (void *)parent);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8035B3C0___vt__15TPlyPhotonChair *)&__vt__15TPlyPhotonChair).value;
-    ((TUnk_804A7478 *)(arg0 + 0x98))->init();
-    ((TUnk_804A7478 *)(arg0 + 0xB4))->init();
-    TMainCursor__sub_8013F1F0((arg0 + 0xD0));
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4418;
-    ((TPlyPhotonChair *)arg0)->set_field90(arg1);
-    ((TPlyPhotonChair *)arg0)->m_92 = 0;
-    ((TPlyPhotonChair *)arg0)->m_94 = 0;
+    __ct__13TUnk_804B9870FP7TObject((void *)ply_photon_chair, (void *)parent);
+    *(s32 **)((s8 *)ply_photon_chair + 0x18) = &(*(RecoveredGlobal_8035B3C0___vt__15TPlyPhotonChair *)&__vt__15TPlyPhotonChair).value;
+    ((TUnk_804A7478 *)(ply_photon_chair + 0x98))->init();
+    ((TUnk_804A7478 *)(ply_photon_chair + 0xB4))->init();
+    TMainCursor__sub_8013F1F0((ply_photon_chair + 0xD0));
+    *(s32 *)((s8 *)ply_photon_chair + 0) = (s32) lbl_805D4418;
+    ((TPlyPhotonChair *)ply_photon_chair)->set_field90(arg1);
+    ((TPlyPhotonChair *)ply_photon_chair)->m_92 = 0;
+    ((TPlyPhotonChair *)ply_photon_chair)->m_94 = 0;
     player = (u32)get_player_by_client_id((s32)((void *) ((s32) (u16) arg1)));
     if (player == 0U) {
-        queue_destruction__7TObjectFv((arg0));
-        return arg0;
+        queue_destruction__7TObjectFv((ply_photon_chair));
+        return ply_photon_chair;
     }
-    get_rader_map__11TMainCursorFv(arg0 + 0xD0, (void *) ((u8 *)&TPlyPhotonChair__section_id_color_table.value + (get_actor_section_id__15TPlyPhotonChairFv(player) * 0x10)));
-    ((TPlyPhotonChair *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), 1);
-    ((TPlyPhotonChair *)(arg0 + 0x98))->set_type((s32)((int) (get_bml_model((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), 1))));
-    ((TPlyPhotonChair *)(arg0 + 0x98))->set_field_8((s32)((int) (get_bml_motion((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), 1))));
-    ((TPlyPhotonChair *)(arg0 + 0x98))->sync_field10_from_child();
-    TPlyPhotonChair__sub_8035B56C(arg0 + 0x98, lbl_805E0130);
-    ((TPlyPhotonChair *)(arg0 + 0x98))->set_state_ready();
-    ((TPlyPhotonChair *)(arg0 + 0xB4))->set_type((s32)((int) (get_bml_model((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), 0))));
-    ((TPlyPhotonChair *)(arg0 + 0xB4))->set_field_8((s32)((int) (get_bml_motion((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), 0))));
-    ((TPlyPhotonChair *)(arg0 + 0xB4))->sync_field10_from_child();
-    TPlyPhotonChair__sub_8035B56C(arg0 + 0xB4, lbl_805E0130);
-    ((TPlyPhotonChair *)(arg0 + 0xB4))->set_state_ready();
-    return arg0;
+    get_rader_map__11TMainCursorFv(ply_photon_chair + 0xD0, (void *) ((u8 *)&TPlyPhotonChair__section_id_color_table.value + (get_actor_section_id__15TPlyPhotonChairFv(player) * 0x10)));
+    ((TPlyPhotonChair *)ply_photon_chair)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), 1);
+    ((TPlyPhotonChair *)(ply_photon_chair + 0x98))->set_type((s32)((int) (get_bml_model((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), 1))));
+    ((TPlyPhotonChair *)(ply_photon_chair + 0x98))->set_field_8((s32)((int) (get_bml_motion((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), 1))));
+    ((TPlyPhotonChair *)(ply_photon_chair + 0x98))->sync_field10_from_child();
+    TPlyPhotonChair__sub_8035B56C(ply_photon_chair + 0x98, lbl_805E0130);
+    ((TPlyPhotonChair *)(ply_photon_chair + 0x98))->set_state_ready();
+    ((TPlyPhotonChair *)(ply_photon_chair + 0xB4))->set_type((s32)((int) (get_bml_model((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), 0))));
+    ((TPlyPhotonChair *)(ply_photon_chair + 0xB4))->set_field_8((s32)((int) (get_bml_motion((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), 0))));
+    ((TPlyPhotonChair *)(ply_photon_chair + 0xB4))->sync_field10_from_child();
+    TPlyPhotonChair__sub_8035B56C(ply_photon_chair + 0xB4, lbl_805E0130);
+    ((TPlyPhotonChair *)(ply_photon_chair + 0xB4))->set_state_ready();
+    return ply_photon_chair;
 }
 
 int TPlyPhotonChair__sub_8035B520(void* p) { return *(u32*)((char*)p + 0x94) == 0; }

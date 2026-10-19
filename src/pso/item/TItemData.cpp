@@ -661,17 +661,17 @@ int TItemData::isValidGroundDrop() {
     } else return 0;
 }
 
-void TItemData__sub_8010CA08(TItemData *arg0, u32 arg1, u8 arg2) {
+void TItemData__sub_8010CA08(TItemData *item_data, u32 arg1, u8 arg2) {
     s8 sp8[10];
     init__9TItemDataFv();
     if ((arg1 != 0U) && (((arg2 >= 0x70U) && (arg2 <= 0x88U)) || ((arg2 >= 0xA5U) && (arg2 <= 0xA9U)))) {
-        *(s8 *)((s8 *)arg0 + 0) = 0;
-        *(u8 *)((s8 *)arg0 + 1) = arg2;
-        *(s8 *)((s8 *)arg0 + 2) = 0;
+        *(s8 *)((s8 *)item_data + 0) = 0;
+        *(u8 *)((s8 *)item_data + 1) = arg2;
+        *(s8 *)((s8 *)item_data + 2) = 0;
         memset(sp8, 0, 0xA);
         sp8[0] = 0x41;
         strncpy(&sp8[1], arg1, 8);
-        arg0->pack_three_colors((u8 *)sp8);
+        item_data->pack_three_colors((u8 *)sp8);
     }
 }
 
@@ -1381,7 +1381,7 @@ f32 TItemData::get_weapon_set_multiplier(u8 *item_data) {
   s32 temp_r31_2;
   s32 temp_r31_3;
   u8 temp_r0;
-  u8 *temp_r3;
+  u8 *item;
   temp_r0 = *((u8 *) (((s8 *) arg0) + 1));
   var_f31 = TItemData__data_805DAB70;
   switch ((s32) temp_r0)
@@ -1420,8 +1420,8 @@ f32 TItemData::get_weapon_set_multiplier(u8 *item_data) {
     }
       break;
     case 26:
-      temp_r3 = (u8 *) ((TItemData *)item_data)->test_flag3();
-      if ((temp_r3 != 0) && (((TItem *)temp_r3)->get_slot_count() == 0x1A))
+      item = (u8 *) ((TItemData *)item_data)->test_flag3();
+      if ((item != 0) && (((TItem *)item)->get_slot_count() == 0x1A))
     {
       var_f31 = lbl_805DAB74;
     }

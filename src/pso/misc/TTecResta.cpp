@@ -230,11 +230,11 @@ void create__9TTecRestaFPvPvPvPv(void *owner, void *pos, void *arg2, void *level
     }
 }
 
-void TTecResta::create(void *arg0, void *pos, void *level) {
+void TTecResta::create(void *owner, void *pos, void *level) {
     void *o;
     o = __nw__7TObjectFUl(0x140);
     if (o != NULL) {
-        TTecResta__sub_80239C48((TTecResta *)((u8 *)o), (s32)arg0, (s32)pos, (s32)level);
+        TTecResta__sub_80239C48((TTecResta *)((u8 *)o), (s32)owner, (s32)pos, (s32)level);
     }
 }
 
@@ -242,39 +242,39 @@ void TTecResta::create(void *arg0, void *pos, void *level) {
 #pragma opt_common_subs off
 void TTecResta::vfunc_7(void *arg1_arg) {
     TTecResta *arg0 = this;
-    VObj_8023985C *arg1 = (VObj_8023985C *)arg1_arg;
+    VObj_8023985C *player = (VObj_8023985C *)arg1_arg;
     HitInfo_8023985C h;
-    if (is_script_controlled__10TObjPlayerFv(arg1) != 0) {
+    if (is_script_controlled__10TObjPlayerFv(player) != 0) {
         return;
     }
     h.type = 6;
     h.power = arg0->m_74;
     if (is_split_screen() == 0) {
-        TWindowCtrl::show_party_effect((void*)(obj_getField1c(arg0->source)), (void*)(obj_getField1c((int)arg1)), (void*)6);
+        TWindowCtrl::show_party_effect((void*)(obj_getField1c(arg0->source)), (void*)(obj_getField1c((int)player)), (void*)6);
     }
     HitInfo_8023985C c = h;
-    arg1->m21((void *)arg0->source, &c, 0, 0xF, -1);
-    if ((u16)obj_getField1c(arg0->source) == (u16)obj_getField1c((int)arg1)) {
+    player->m21((void *)arg0->source, &c, 0, 0xF, -1);
+    if ((u16)obj_getField1c(arg0->source) == (u16)obj_getField1c((int)player)) {
         if (*(s32 *)&arg0->m_ac != 0) {
             void *o = __nw__7TObjectFUl(0x30);
             if (o != NULL) {
-                construct_self_recovery__9TTecRestaFPvPviPv((Resta_8023967C *)o, (Vec_8023967C *)((u8 *)arg1 + 0x2FC), arg0->source, (void *)tl_07);
+                construct_self_recovery__9TTecRestaFPvPviPv((Resta_8023967C *)o, (Vec_8023967C *)((u8 *)player + 0x2FC), arg0->source, (void *)tl_07);
             }
         }
     } else if (*(s32 *)&arg0->m_ac != 0) {
-        void *e = spawn_particle_effect_with_flags((u8 *)arg1 + 0x2FC, 0x1F6, 0x10);
+        void *e = spawn_particle_effect_with_flags((u8 *)player + 0x2FC, 0x1F6, 0x10);
         if (e != NULL) {
-            set_owner_id__13TParticleCtrlFUs(e, obj_getField1c((int)arg1));
+            set_owner_id__13TParticleCtrlFUs(e, obj_getField1c((int)player));
         }
-        e = spawn_particle_effect_with_flags((u8 *)arg1 + 0x2FC, 0x1F7, 0x10);
+        e = spawn_particle_effect_with_flags((u8 *)player + 0x2FC, 0x1F7, 0x10);
         if (e != NULL) {
-            set_owner_id__13TParticleCtrlFUs(e, obj_getField1c((int)arg1));
+            set_owner_id__13TParticleCtrlFUs(e, obj_getField1c((int)player));
         }
     }
     if (*(s32 *)&arg0->m_ac != 0) {
         void *o = __nw__7TObjectFUl(0x30);
         if (o != NULL) {
-            construct_delayed_point_sound((u8 *)o, (u8 *)((u8 *)arg1 + 0x2FC), (s16)(0x14), 0x4002A80F, (u8 *)tl_07);
+            construct_delayed_point_sound((u8 *)o, (u8 *)((u8 *)player + 0x2FC), (s16)(0x14), 0x4002A80F, (u8 *)tl_07);
         }
     }
 }

@@ -297,10 +297,10 @@ s32 tick_battle_music_timer(Obj_801C5C38 *p) {
     return --p->n < 0 ? 0 : 1;
 }
 
-void update_target_lock__10TObjPlayerFii(s32 arg0, s32 arg1) {
+void update_target_lock__10TObjPlayerFii(s32 arg0, s32 player) {
 
     if (TObjPlayer__sub_801C6F90() == 0) {
-        if (is_room_free_of_active_enemies(get_current_floor(), get_stat_by_key_state__13TUnk_804B9870Fv(arg1)) != 0) {
+        if (is_room_free_of_active_enemies(get_current_floor(), get_stat_by_key_state__13TUnk_804B9870Fv(player)) != 0) {
             if (set_lock_flag__10TObjPlayerFPv(arg0) != 0) {
                 clear_target_lock_flag__10TObjPlayerFPv(arg0);
                 set_lock_timer__10TObjPlayerFPvi((void*)arg0, (void*)(0x5A));

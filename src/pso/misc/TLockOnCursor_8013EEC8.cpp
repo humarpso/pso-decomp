@@ -27,12 +27,12 @@ void*TLockOnCursor::init_cursor() { reset_nearest_target_record(this); return th
 void*TLockOnCursor::init_forward() { TLockOnCursor__sub_8013EC1C(this); return this; }
 void*TLockOnCursor::cleanup() { init_gc_tag((s32)((char*)this + 0x8)); ((TMainCursor *)((char*)this + 0xc))->reset(); ((TMainCursor *)((char*)this + 0x14))->reset(); reset_state(); return this; }
 
-void *TLockOnCursor__sub_8013EFB8(void *arg0) {
-    init_gc_tag((s32)arg0);
-    ((TObjPlayer *)((char *)arg0 + 64))->construct_target_cursor_records();
-    TLockOnCursor__sub_8013F000((void *)((void *)((void *)((char *)arg0 + 156))));
-    ((TMainCursor *)arg0)->reset_state();
-    return arg0;
+void *TLockOnCursor__sub_8013EFB8(void *main_cursor) {
+    init_gc_tag((s32)main_cursor);
+    ((TObjPlayer *)((char *)main_cursor + 64))->construct_target_cursor_records();
+    TLockOnCursor__sub_8013F000((void *)((void *)((void *)((char *)main_cursor + 156))));
+    ((TMainCursor *)main_cursor)->reset_state();
+    return main_cursor;
 }
 
 int TLockOnCursor__sub_8013F000(void *self) {

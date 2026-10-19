@@ -58,15 +58,15 @@ extern s32 model_render_flags;
 extern const f32 lbl_805DE1F8;
 
 typedef char RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl_size[sizeof(RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl) == 0x38 ? 1 : -1];
-u8 *TObjMistCtrl__ct(u8 *arg0, s32 parent, u32 arg2) {
-    __ct__13TUnk_804B9870FP7TObject((void *)arg0, (void *)parent);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl *)&__vt__12TObjMistCtrl).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3E80;
+u8 *TObjMistCtrl__ct(u8 *mist_ctrl, s32 parent, u32 arg2) {
+    __ct__13TUnk_804B9870FP7TObject((void *)mist_ctrl, (void *)parent);
+    *(s32 **)((s8 *)mist_ctrl + 0x18) = &(*(RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl *)&__vt__12TObjMistCtrl).value;
+    *(s32 *)((s8 *)mist_ctrl + 0) = (s32) lbl_805D3E80;
     if (arg2 != 0U) {
-        ((TObjMistCtrl *)(arg0))->apply_object_set_data((void *)arg2);
+        ((TObjMistCtrl *)(mist_ctrl))->apply_object_set_data((void *)arg2);
     }
-    *(s32 *)((s8 *)arg0 + 0x90) = (s32)spawn_continuous_particle_effect_with_flags((arg0 + 0x38), 0x200, 0x800);
-    return arg0;
+    *(s32 *)((s8 *)mist_ctrl + 0x90) = (s32)spawn_continuous_particle_effect_with_flags((mist_ctrl + 0x38), 0x200, 0x800);
+    return mist_ctrl;
 }
 
 void TPlayerFootStamp::render() {

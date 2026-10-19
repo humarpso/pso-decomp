@@ -73,9 +73,9 @@ void TObjPlayer::draw_mag() {
 extern s32 tl_05;
 
 void TUnk_804A1A48::emit_marker_effects() {
-    s32 arg0 = (s32)this;
+    s32 item = (s32)this;
     if (get_attack_stage__11TItemWeaponFv() == 0) {
-        ((TObjPlayer *)tl_05)->spawn_cane_effect((TItem*)arg0, 4);
+        ((TObjPlayer *)tl_05)->spawn_cane_effect((TItem*)item, 4);
     }
 }
 

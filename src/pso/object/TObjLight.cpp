@@ -230,15 +230,15 @@ u8 *TObjLight__ct(TObjLight *light, s32 arg1, u8 *arg2) {
 }
 
 u8 *TObjLight__create(u8 *arg0) {
-    u8 *temp_r3;
+    u8 *light;
     u8 *var_r0;
     if (is_split_screen() != 0) {
         return NULL;
     }
-    temp_r3 = (u8 *)(__nw__7TObjectFUl(0x100));
-    var_r0 = temp_r3;
+    light = (u8 *)(__nw__7TObjectFUl(0x100));
+    var_r0 = light;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TObjLight__ct((TObjLight *)temp_r3, tl_05, arg0));
+        var_r0 = (u8 *)(TObjLight__ct((TObjLight *)light, tl_05, arg0));
     }
     return var_r0;
 }

@@ -215,12 +215,12 @@ void TWindowSubStatusDisp::add_list_entry(s32 arg1) {
     }
 }
 
-void TWindowSubShortCutList::draw_entry(s32 arg1, u8 arg2, s32 arg3, s32 arg4) {
+void TWindowSubShortCutList::draw_entry(s32 index, u8 arg2, s32 arg3, s32 arg4) {
     u8 sp9;
     u8 sp8;
 
     if ((s16) this->m_72 < (s16) this->m_76) {
-        fn_80266BD0(arg1, &sp9, &sp8, this->m_20);
+        fn_80266BD0(index, &sp9, &sp8, this->m_20);
         init_entry__20TWindowSubStatusDispFScScUcUll(get_array_entry__13TUnk_804CE018Fi(this, this->m_72), sp9, sp8, arg2, arg3, arg4);
         this->m_72 = (this->m_72 + 1);
     }

@@ -60,15 +60,15 @@ void TShopSequence::close_message_window() {
 }
 
 u32 TShopSequence::create_message_window(s32 arg1, s32 arg2) {
-    u8 *temp_r0;
+    u8 *message_window_controller;
     u8 *temp_r3;
-    temp_r0 = (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x28));
-    if (temp_r0 != NULL) {
+    message_window_controller = (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x28));
+    if (message_window_controller != NULL) {
         temp_r3 = (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x24));
         if (temp_r3 != NULL) {
             return create_message_window__24TMessageWindowControllerFlll(*(u8 **)((s8 *)((u8 *)this) + 0x28), arg1, arg2, (s32) ((u16)obj_getField1c((u32)temp_r3)));
         }
-        return create_window__24TMessageWindowControllerFll(temp_r0, arg1, arg2);
+        return create_window__24TMessageWindowControllerFll(message_window_controller, arg1, arg2);
     }
     return 0U;
 }

@@ -110,29 +110,29 @@ void TMainCursor::set_cursor_pos(u16 arg1, s32 arg2) {
     TMainCursor__sub_8013E970(arg0 + 0x508, arg1, arg2, eq + 1);
 }
 
-s32 TMainCursor::get_action_cursor_priority(void *arg0, s32 arg1, s32 arg2) {
+s32 TMainCursor::get_action_cursor_priority(void *arg0, s32 player, s32 index) {
     u16 kind;
     u16 sub;
-    kind = TObjPlayer__sub_801B5AF8(arg1, arg2);
-    sub = ((TObjPlayer *)arg1)->get_action_palette_entry(arg2);
+    kind = TObjPlayer__sub_801B5AF8(player, index);
+    sub = ((TObjPlayer *)player)->get_action_palette_entry(index);
     switch (kind) {
     case 1:
-        if (is_effect_channel_active__10TObjPlayerFll(arg1, 0) != 0) {
+        if (is_effect_channel_active__10TObjPlayerFll(player, 0) != 0) {
             return 1;
         }
         break;
     case 2:
-        if (((TObjPlayer *)arg1)->check_mode_action(sub) != 0) {
+        if (((TObjPlayer *)player)->check_mode_action(sub) != 0) {
             return 2;
         }
         break;
     case 3:
-        if (TObjPlayer::try_camera_action(arg1, sub) != 0) {
+        if (TObjPlayer::try_camera_action(player, sub) != 0) {
             return cursor_action_priority_table[sub];
         }
         break;
     case 4:
-        if (is_effect_channel_active__10TObjPlayerFll(arg1, arg2) != 0 && reset_key_machine_state__10TObjPlayerFv() != 0 && test_action_mask__10TObjPlayerFl(arg1, 0x43001E) != 0 && ((s32)sub == 0xA || (s32)sub == 9)) {
+        if (is_effect_channel_active__10TObjPlayerFll(player, index) != 0 && reset_key_machine_state__10TObjPlayerFv() != 0 && test_action_mask__10TObjPlayerFl(player, 0x43001E) != 0 && ((s32)sub == 0xA || (s32)sub == 9)) {
             return 0xF;
         }
         break;

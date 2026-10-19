@@ -913,15 +913,15 @@ TObjPlayer*TPlayerSoul::get_player() {
 extern "C" {
 void TObjPlayer::revive_or_spawn_marker() {
     s32 temp_r3;
-    s32 arg0 = (s32)this;
+    s32 player = (s32)this;
 
-    if ((check_flag_0x8000__10TObjPlayerFv() != 0) || (obj_isState3_324__13TUnk_804806E8Fv(arg0) != 0) || (is_script_controlled__10TObjPlayerFv(arg0) != 0)) {
-        ((TObjPlayer *)arg0)->set_flag_0x8000();
+    if ((check_flag_0x8000__10TObjPlayerFv() != 0) || (obj_isState3_324__13TUnk_804806E8Fv(player) != 0) || (is_script_controlled__10TObjPlayerFv(player) != 0)) {
+        ((TObjPlayer *)player)->set_flag_0x8000();
         return;
     }
     temp_r3 = ((s32 (*)(s32)) __nw__7TObjectFUl)(0x24);
     if (temp_r3 != 0) {
-        ((s32 (*)(s32, s32, s32)) __ct__11TPlayerSoulFP7TObjectUs)(temp_r3, tl_06, obj_getField1c(arg0));
+        ((s32 (*)(s32, s32, s32)) __ct__11TPlayerSoulFP7TObjectUs)(temp_r3, tl_06, obj_getField1c(player));
     }
 }
 

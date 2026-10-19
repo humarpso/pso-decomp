@@ -9,9 +9,9 @@ s32 destroy_submenu__15TWindowMainMenuFv();
 s32 fn_802449E0(u32);
 s32 is_split_screen();
 
-void call_if_split_screen(u32 arg0) {
-    if ((is_split_screen() != 0) && (arg0 != 0U)) {
-        fn_802449E0(arg0);
+void call_if_split_screen(u32 object) {
+    if ((is_split_screen() != 0) && (object != 0U)) {
+        fn_802449E0(object);
     }
 }
 void TWindowSubEquip__sub_80263AF4(void) {  }

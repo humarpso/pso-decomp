@@ -34,20 +34,20 @@ u8 TObjEneRecon__sub_8031FACC(Obj_8031FACC *arg0) {
     return (u8)r;
 }
 
-void TObjEneRecon__sub_8031FB6C(u8 *arg0) {
+void TObjEneRecon__sub_8031FB6C(u8 *ene_recobox) {
     Stack_8031FB6C stack;
     u8 *temp_r3;
-    VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x2FC));
-    if ((s32) ((TObjEneRecobox *)arg0)->m_3f8 == 1) {
+    VecCopy((Vec *)(&stack.sp8), (const Vec *)(ene_recobox + 0x2FC));
+    if ((s32) ((TObjEneRecobox *)ene_recobox)->m_3f8 == 1) {
         stack.spC -= lbl_805DF450;
     } else {
         stack.spC += lbl_805DF450;
     }
-    temp_r3 = (u8 *)(csnVectorUnder((s32)&stack.sp8, (u32 *)(arg0 + 0x120), 0x15));
-    if ((temp_r3 == NULL) || (((TObjEneRecobox *)arg0)->m_300 >= (lbl_805DF460 + *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 4)) + 4)))) {
-        ((TObjEneRecobox *)(arg0))->vfunc_97();
+    temp_r3 = (u8 *)(csnVectorUnder((s32)&stack.sp8, (u32 *)(ene_recobox + 0x120), 0x15));
+    if ((temp_r3 == NULL) || (((TObjEneRecobox *)ene_recobox)->m_300 >= (lbl_805DF460 + *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 4)) + 4)))) {
+        ((TObjEneRecobox *)(ene_recobox))->vfunc_97();
     }
-    ((TObjEneDD *)arg0)->set_part_local_pos(arg0 + 0x2FC, 0);
+    ((TObjEneDD *)ene_recobox)->set_part_local_pos(ene_recobox + 0x2FC, 0);
 }
 
 }

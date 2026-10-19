@@ -63,15 +63,15 @@ void TObjWarpBase::vfunc_14() {
 }
 
 u8 *find_warp_player_in_range(s32 arg0, short arg1, f32 farg0) {
-  u8 *temp_r3;
-  temp_r3 = (u8 *) ((u8 *)get_player_by_client_id(arg1));
-  if ((temp_r3 != 0) && (xz_distance_squared((void *)(arg0 + 0x38), (void *)(temp_r3 + 0x38)) < (farg0 * farg0)))
+  u8 *player;
+  player = (u8 *) ((u8 *)get_player_by_client_id(arg1));
+  if ((player != 0) && (xz_distance_squared((void *)(arg0 + 0x38), (void *)(player + 0x38)) < (farg0 * farg0)))
   {
-    if (check_flag_100__10TObjPlayerFPv(temp_r3) == 1)
+    if (check_flag_100__10TObjPlayerFPv(player) == 1)
     {
       return 0;
     }
-    return temp_r3;
+    return player;
   }
   return 0;
 }

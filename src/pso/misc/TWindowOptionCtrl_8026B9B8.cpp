@@ -21,26 +21,26 @@ extern const f32 lbl_805DD26C;
 
 s32 TWindowOptionCtrl::create_list_window() {
     s32 idx;
-    s32 temp_r30;
+    s32 list;
 
     fn_8036A514(2);
-    temp_r30 = check_room_seq_4__16TAdChrSelASlotGCFl(get_option_entry__17TWindowOptionCtrlFi(0xCF), 0x31);
+    list = check_room_seq_4__16TAdChrSelASlotGCFl(get_option_entry__17TWindowOptionCtrlFi(0xCF), 0x31);
     set_flag70_bit100__21TWindowSubComCardListFv();
     idx = 0;
     do {
         if (fn_8036A620(idx) != 0) {
             if (check_flag_index_set(idx) == 0) {
-                draw_text_gray__17TWindowSubComCardFllll(temp_r30, lbl_8044F4AC, 0x26, idx);
+                draw_text_gray__17TWindowSubComCardFllll(list, lbl_8044F4AC, 0x26, idx);
             } else {
-                forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r30, get_option_table_entry(idx), 0x26, idx);
+                forward_trade_action_default__16TObjCityMainWarpFPviii(list, get_option_table_entry(idx), 0x26, idx);
             }
         }
         idx += 1;
     } while (idx < 0x31);
-    ((TWindowOptionCtrl *)temp_r30)->set_flag70_bit400();
-    ((TWindowSubComCardList *)temp_r30)->set_scroll_target(lbl_805DD268, lbl_805DD26C);
-    align_menu_entry_positions(temp_r30);
-    return temp_r30;
+    ((TWindowOptionCtrl *)list)->set_flag70_bit400();
+    ((TWindowSubComCardList *)list)->set_scroll_target(lbl_805DD268, lbl_805DD26C);
+    align_menu_entry_positions(list);
+    return list;
 }
 
 }

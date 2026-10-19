@@ -11,10 +11,10 @@ void *__nw__7TObjectFUl(int);
     extern int lobby_online_ready_flag;
 int TLobby::get_online_ready_flag() {  return lobby_online_ready_flag; }
 
-void *fn_8030A83C(void *arg0) {
+void *fn_8030A83C(void *object) {
     void *o = __nw__7TObjectFUl(0x1C);
     if (o != NULL) {
-        o = __ct__14TBoss4ZakoDrawFv(o, arg0);
+        o = __ct__14TBoss4ZakoDrawFv(o, object);
     }
     return o;
 }

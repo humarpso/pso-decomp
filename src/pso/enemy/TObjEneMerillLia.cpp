@@ -747,16 +747,16 @@ void spawn_ground_effect__16TObjEneMerillLiaFPv(u8 *arg0) {
     typedef char spC_offset[(offsetof(Stack_800D4D74, spC) == 0x4) ? 1 : -1];
     Stack_800D4D74 stack;
     s32 temp_r29;
-    s32 temp_r3_2;
+    s32 particle_effect;
     u8 *temp_r3;
     VecCopy((Vec *)&stack.sp8, (const Vec *)(arg0 + 0x38));
     stack.spC += lbl_805DA2EC;
     temp_r3 = (u8 *)(csnVectorUnder((s32)&stack.sp8, (u32 *)(arg0 + 0x120), 5));
     if ((temp_r3 != NULL) && (*(s32 *)((s8 *)temp_r3 + 0) & 4)) {
         if (((s32) ((f32) actor_frame_tick * (lbl_805DA2F0 * (f32) rand())) % 5) == 0) {
-            temp_r3_2 = (s32)spawn_particle_effect((void *)(*(s32 *)((s8 *)temp_r3 + 4) + 0x38), 0x49);
-            if (temp_r3_2 != 0) {
-                attach_particle_model((u8 *)temp_r3_2, (s32)(TParticleCtrl::get_particle_model(2)), (s32)(TParticleCtrl::get_instance()), 0, 1, (f32)TObjEneMerillLia__data_805DA2F4);
+            particle_effect = (s32)spawn_particle_effect((void *)(*(s32 *)((s8 *)temp_r3 + 4) + 0x38), 0x49);
+            if (particle_effect != 0) {
+                attach_particle_model((u8 *)particle_effect, (s32)(TParticleCtrl::get_particle_model(2)), (s32)(TParticleCtrl::get_instance()), 0, 1, (f32)TObjEneMerillLia__data_805DA2F4);
             }
             spawn_particle_effect((void *)(*(s32 *)((s8 *)temp_r3 + 4) + 0x38), 0xA4);
         }

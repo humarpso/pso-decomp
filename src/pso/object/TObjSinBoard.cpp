@@ -113,12 +113,12 @@ void *__dt__12TObjSinBoardFv(void *arg0, s16 arg1) {
 }
 
 typedef char RecoveredGlobal_80198228___vt__12TObjSinBoard_size[sizeof(RecoveredGlobal_80198228___vt__12TObjSinBoard) == 0x38 ? 1 : -1];
-u8 *TObjSinBoard__ct(u8 *arg0, s32 parent, s32 arg2) {
-    __ct__13TUnk_804B9870FP7TObject((void *)arg0, (void *)parent);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80198228___vt__12TObjSinBoard *)&__vt__12TObjSinBoard).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjSinBoard__class_name;
-    ((TObjSinBoard *)(arg0))->apply_object_set_data((void *)arg2);
-    return arg0;
+u8 *TObjSinBoard__ct(u8 *sin_board, s32 parent, s32 arg2) {
+    __ct__13TUnk_804B9870FP7TObject((void *)sin_board, (void *)parent);
+    *(s32 **)((s8 *)sin_board + 0x18) = &(*(RecoveredGlobal_80198228___vt__12TObjSinBoard *)&__vt__12TObjSinBoard).value;
+    *(s32 *)((s8 *)sin_board + 0) = (s32) TObjSinBoard__class_name;
+    ((TObjSinBoard *)(sin_board))->apply_object_set_data((void *)arg2);
+    return sin_board;
 }
 
 void *TObjSinBoard__create(void *arg0) {

@@ -235,7 +235,7 @@ void TUnk_804928CC::vfunc_16(void *arg1, void *arg2) {
     this->call_vt13_with_default(arg1, arg2, 0);
 }
 
-s32 TUnk_804928CC::area_attack_deliver_direct(void *arg1, s32 arg2, void *object, f32 range) {
+s32 TUnk_804928CC::area_attack_deliver_direct(void *recoil, s32 arg2, void *object, f32 range) {
     s32 hit = 0;
     s32 mask = 0;
     Tgt_800BC250 *t;
@@ -245,11 +245,11 @@ s32 TUnk_804928CC::area_attack_deliver_direct(void *arg1, s32 arg2, void *object
         return 0;
     }
     TObjPlayer::init_all_slots();
-    if (((Arg_800BC250 *)arg1)->flags & 1) {
+    if (((Arg_800BC250 *)recoil)->flags & 1) {
         ((TUnk_804928CC *)((P_800BC250 *)this))->update_body_contact_flag(range);
         mask |= 0x80000;
     }
-    if (((Arg_800BC250 *)arg1)->flags & 2) {
+    if (((Arg_800BC250 *)recoil)->flags & 2) {
         ((TUnk_804AF8A0 *)((P_800BC250 *)this))->mark_enemy_body_contacts();
         mask |= 0x100000;
     }
@@ -265,7 +265,7 @@ s32 TUnk_804928CC::area_attack_deliver_direct(void *arg1, s32 arg2, void *object
                     ok = 0;
                 }
                 if (ok != 0) {
-                    this->area_attack_receive_direct((void *)t, (f32 *)((Arg_800BC250 *)arg1), (void *)arg2);
+                    this->area_attack_receive_direct((void *)t, (f32 *)((Arg_800BC250 *)recoil), (void *)arg2);
                     hit = 1;
                 }
             }

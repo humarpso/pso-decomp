@@ -62,16 +62,16 @@ s32 set_player_quest_control_flag(void *);
 void TUnk_804B7C04::run_task() { if (this->m_2c == 1) { queue_destruction__7TObjectFv(this); } }
 
 u8 *TNpcPlayer::destroy_and_materialize_player(s16 arg1) {
-    u8 *temp_r3;
+    u8 *player_object;
 
     if (this != NULL) {
         *(s32 **)((s8 *)((u8 *)this) + 0x18) = lbl_804B7C04;
-        temp_r3 = create_player_object(*(u16 *)((s8 *)((u8 *)this) + 0x30), 6, build_npc_player_record__10TNpcPlayerFl(*(s32 *)((s8 *)((u8 *)this) + 0x34)));
-        if (temp_r3 != NULL) {
-            *(s16 *)((s8 *)temp_r3 + 0x324) = 6;
+        player_object = create_player_object(*(u16 *)((s8 *)((u8 *)this) + 0x30), 6, build_npc_player_record__10TNpcPlayerFl(*(s32 *)((s8 *)((u8 *)this) + 0x34)));
+        if (player_object != NULL) {
+            *(s16 *)((s8 *)player_object + 0x324) = 6;
             if ((s32) this->m_38 == 1) {
                 queue_player_injured_pose();
-                set_player_quest_control_flag(temp_r3);
+                set_player_quest_control_flag(player_object);
             }
             send_6x24_teleport_player(*(u16 *)((s8 *)((u8 *)this) + 0x30), ((u8 *)this) + 0x1C, *(s32 *)&this->_pad28);
         }

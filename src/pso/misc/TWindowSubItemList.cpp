@@ -38,18 +38,18 @@ u8 *create_sub_item_list_window(s32 arg0, s32 arg1, s16 arg2) {
 #pragma fp_contract on
 void TWindowSubItemList::render() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r3;
-    temp_r3 = get_draw_context__11TWindowBaseFPv();
-    ((TUnk_804CE018 *)arg0)->draw_window_frame((void *)temp_r3);
-    draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
-    ((TUnk_804D0618 *)arg0)->draw_selected_list_entry(temp_r3);
-    ((TWindowSubItemList *)arg0)->sub_8027ACF8((u8 *)temp_r3);
-    draw_item_list_capacity(arg0, temp_r3, this->m_8c, 0x1E);
+    s32 window_key_board_soft;
+    window_key_board_soft = get_draw_context__11TWindowBaseFPv();
+    ((TUnk_804CE018 *)arg0)->draw_window_frame((void *)window_key_board_soft);
+    draw_visible_window_entries(arg0, arg0 + 0x24, window_key_board_soft);
+    ((TUnk_804D0618 *)arg0)->draw_selected_list_entry(window_key_board_soft);
+    ((TWindowSubItemList *)arg0)->sub_8027ACF8((u8 *)window_key_board_soft);
+    draw_item_list_capacity(arg0, window_key_board_soft, this->m_8c, 0x1E);
     if ((u32) *(u32 *)&this->m_80 != 0U) {
-        forward_render__20TWindowSubStatusDispFv(this->m_80, temp_r3);
+        forward_render__20TWindowSubStatusDispFv(this->m_80, window_key_board_soft);
     }
     if ((u32) *(u32 *)&this->unk_84 != 0U) {
-        draw_window_scrollbar(*(void * *)&this->unk_84, temp_r3, (u8 *)&this->m_68);
+        draw_window_scrollbar(*(void * *)&this->unk_84, window_key_board_soft, (u8 *)&this->m_68);
     }
 }
 #pragma pop

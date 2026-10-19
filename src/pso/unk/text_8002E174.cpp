@@ -159,7 +159,7 @@ extern Holder_8002E3D4 *lbl_805D4BA4;
 extern s32 current_scene_light;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-TObjBoss1Rock::TObjBoss1Rock(TObject *arg1, void *arg2, void *arg3) : TObject(arg1) {
+TObjBoss1Rock::TObjBoss1Rock(TObject *object, void *arg2, void *arg3) : TObject(object) {
     s32 flag;
     if (lbl_805D8220 * (f32)rand() > lbl_805D8224) {
         flag = 0;

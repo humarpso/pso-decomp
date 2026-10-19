@@ -79,10 +79,10 @@ void TObjPlayer::clear_foot_stamp(s32 arg0, s32 arg1) {
     TPlayerFootStamp::create((void *)arg1, (void *)0);
 }
 
-void TObjPlayer::update_child(void *arg1) {
+void TObjPlayer::update_child(void *ply_ptcl_object_right_hand) {
     struct VOff_80309DD0_arg0_80309dd0_80309D80 *self = (struct VOff_80309DD0_arg0_80309dd0_80309D80 *)this;
-    ((TObjPlayer *)(self->f_4))->create_left_hand_ptcl(arg1);
-    ((TObjPlayer *)(self->f_4))->create_right_hand_ptcl(arg1);
+    ((TObjPlayer *)(self->f_4))->create_left_hand_ptcl(ply_ptcl_object_right_hand);
+    ((TObjPlayer *)(self->f_4))->create_right_hand_ptcl(ply_ptcl_object_right_hand);
 }
 
 void TObjPlayer::update_follow_particle(s32 arg1) {

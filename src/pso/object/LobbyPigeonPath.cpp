@@ -1575,14 +1575,14 @@ void *__dt__11TObjPathObjFv(void *arg0, s16 arg1) {
 }
 
 typedef char RecoveredGlobal_802C320C___vt__11TObjPathObj_size[sizeof(RecoveredGlobal_802C320C___vt__11TObjPathObj) == 0x3C ? 1 : -1];
-u8 *TObjPathObj__ct(u8 *arg0, s32 parent, s32 arg2) {
-    __ct__13TUnk_804B9870FP7TObject((void *) (arg0), (void *) (parent));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802C320C___vt__11TObjPathObj *)&__vt__11TObjPathObj).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3EC0;
-    ((TObjPathObj *)(arg0))->apply_object_set_data((void *)arg2);
-    *(f32 *)((s8 *)arg0 + 0x90) = (f32) (5e+02f);
-    ((TObjPathObj *)arg0)->m_94 = (f32) (1.5e+02f);
-    return arg0;
+u8 *TObjPathObj__ct(u8 *path_obj, s32 parent, s32 arg2) {
+    __ct__13TUnk_804B9870FP7TObject((void *) (path_obj), (void *) (parent));
+    *(s32 **)((s8 *)path_obj + 0x18) = &(*(RecoveredGlobal_802C320C___vt__11TObjPathObj *)&__vt__11TObjPathObj).value;
+    *(s32 *)((s8 *)path_obj + 0) = (s32) lbl_805D3EC0;
+    ((TObjPathObj *)(path_obj))->apply_object_set_data((void *)arg2);
+    *(f32 *)((s8 *)path_obj + 0x90) = (f32) (5e+02f);
+    ((TObjPathObj *)path_obj)->m_94 = (f32) (1.5e+02f);
+    return path_obj;
 }
 
 void TObjPathObj::vfunc_14() {  }

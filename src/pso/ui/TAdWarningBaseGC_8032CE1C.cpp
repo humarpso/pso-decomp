@@ -39,14 +39,14 @@ void wait_aram_request__16TAdWarningBaseGCFv(void *arg0) {
 
 void request_aram_load_state__16TAdWarningBaseGCFPv(u8 *arg0) {
     s32 temp_r4;
-    u32 temp_r3_2;
+    u32 buf;
     u8 *temp_r3;
     temp_r3 = (u8 *)(get_quest_download_file_header());
     if (temp_r3 != NULL) {
         temp_r4 = *(s32 *)((s8 *)temp_r3 + 0x34);
         if (temp_r4 > 0) {
-            temp_r3_2 = *(u32 *)((s8 *)temp_r3 + 0x38);
-            if ((temp_r3_2 != 0U) && (post_aram_request__16TAdWarningBaseGCFii((s32)((s32) temp_r3_2), temp_r4) != 0)) {
+            buf = *(u32 *)((s8 *)temp_r3 + 0x38);
+            if ((buf != 0U) && (post_aram_request__16TAdWarningBaseGCFii((s32)((s32) buf), temp_r4) != 0)) {
                 *(s32 *)((s8 *)arg0 + 0x1C) = 2;
                 return;
             }

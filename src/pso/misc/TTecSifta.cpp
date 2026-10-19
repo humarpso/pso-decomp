@@ -125,26 +125,26 @@ void TTecSifta::create_instance(void *pos, void *arg2, void *level) {
     }
 }
 
-void TTecSifta::create(void *arg0, void *pos, void *level) {
+void TTecSifta::create(void *owner, void *pos, void *level) {
     void *o;
     o = __nw__7TObjectFUl(0x140);
     if (o != NULL) {
-        TTecSifta__sub_8023B17C((TTecSifta *)((u8 *)o), (s32)arg0, (s32)pos, (s32)level);
+        TTecSifta__sub_8023B17C((TTecSifta *)((u8 *)o), (s32)owner, (s32)pos, (s32)level);
     }
 }
 
 void TTecSifta::vfunc_7(void *arg1_arg) {
     Obj_8023AE8C *arg0 = (Obj_8023AE8C *)this;
-    VObj_18_b27ba1 *arg1 = (VObj_18_b27ba1 *)arg1_arg;
+    VObj_18_b27ba1 *player = (VObj_18_b27ba1 *)arg1_arg;
     HitInfo_8023AE8C h;
-    if (is_script_controlled__10TObjPlayerFv(arg1) == 0) {
+    if (is_script_controlled__10TObjPlayerFv(player) == 0) {
         h.type = 9;
         h.power = arg0->power;
         if (is_split_screen() == 0) {
-            TWindowCtrl::show_party_effect((void*)(obj_getField1c((int)arg0->source)), (void*)(obj_getField1c((int)arg1)), (void*)9);
+            TWindowCtrl::show_party_effect((void*)(obj_getField1c((int)arg0->source)), (void*)(obj_getField1c((int)player)), (void*)9);
         }
         HitInfo_8023AE8C c = h;
-        arg1->m21(arg0->source, &c, 0, 0xD, -1);
+        player->m21(arg0->source, &c, 0, 0xD, -1);
     }
 }
 

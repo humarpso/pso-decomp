@@ -631,15 +631,15 @@ Obj_8019E238 *TObjWarpBossMulti__ct(Obj_8019E238 *self, void * _w1, void * _w2) 
 }
 
 void TObjWarpBoss::update_warp_boss_visibility() {
-    void *temp_r3;
+    void *player;
     s32 var_r30;
 
-    temp_r3 = get_player_by_client_id(local_client_id);
+    player = get_player_by_client_id(local_client_id);
     var_r30 = 1;
-    if ((temp_r3 != NULL) && (((P_V_8019DD34 *) temp_r3)->m31() != 0)) {
+    if ((player != NULL) && (((P_V_8019DD34 *) player)->m31() != 0)) {
         var_r30 = 0;
     }
-    if ((temp_r3 != NULL) && (check_flag_100__10TObjPlayerFPv(temp_r3) != 0)) {
+    if ((player != NULL) && (check_flag_100__10TObjPlayerFPv(player) != 0)) {
         var_r30 = 0;
     }
     if (var_r30 == 0) {

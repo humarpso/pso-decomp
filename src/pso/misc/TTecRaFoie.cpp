@@ -649,28 +649,28 @@ void TTecRaFoie::vfunc_6(void *target_arg) {
 
 void TTecRaFoie::render() {  }
 
-void run_task__10TTecRaFoieFv(TTecRaFoie *arg0) {
-    u32 temp_r31;
-    if ((u32) arg0->m_e8 == 0U) {
-        queue_destruction__7TObjectFv((arg0));
+void run_task__10TTecRaFoieFv(TTecRaFoie *tec_ra_foie) {
+    u32 entity;
+    if ((u32) tec_ra_foie->m_e8 == 0U) {
+        queue_destruction__7TObjectFv((tec_ra_foie));
         return;
     }
-    arg0->source = find_entity_by_id(arg0->m_b4);
-    if ((u32) arg0->source == 0U) {
-        queue_destruction__7TObjectFv((arg0));
+    tec_ra_foie->source = find_entity_by_id(tec_ra_foie->m_b4);
+    if ((u32) tec_ra_foie->source == 0U) {
+        queue_destruction__7TObjectFv((tec_ra_foie));
         return;
     }
-    if ((s32) arg0->m_148 == 1) {
-        arg0->update_detonation((u8 *)arg0 + 0x7C);
+    if ((s32) tec_ra_foie->m_148 == 1) {
+        tec_ra_foie->update_detonation((u8 *)tec_ra_foie + 0x7C);
         return;
     }
-    if ((s32) arg0->m_ec == 0) {
-        queue_destruction__7TObjectFv((arg0));
+    if ((s32) tec_ra_foie->m_ec == 0) {
+        queue_destruction__7TObjectFv((tec_ra_foie));
         return;
     }
-    temp_r31 = find_entity_by_id(arg0->m_f0);
-    if ((is_parents_unqueued__9TTecLukerFUl() != 0) && (is_valid_and_active__10TObjPlayerFUl(temp_r31) != 0)) {
-        arg0->update_detonation((void *)(temp_r31 + 0x2FC));
+    entity = find_entity_by_id(tec_ra_foie->m_f0);
+    if ((is_parents_unqueued__9TTecLukerFUl() != 0) && (is_valid_and_active__10TObjPlayerFUl(entity) != 0)) {
+        tec_ra_foie->update_detonation((void *)(entity + 0x2FC));
     }
 }
 

@@ -44,10 +44,10 @@ void *lbl_804A0468[9] = {
     (void *)&TItemReverseTech__sub_8011A55C,
 };
 
-void *TItemReverseTechCtrl::create(void *arg0) {
+void *TItemReverseTechCtrl::create(void *item_reverse_tech_ctrl) {
     void *o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
-        o = __ct__20TItemReverseTechCtrlFv(o, arg0);
+        o = __ct__20TItemReverseTechCtrlFv(o, item_reverse_tech_ctrl);
     }
     return o;
 }

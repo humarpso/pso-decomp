@@ -221,14 +221,14 @@ void TWindowSubCustomSelect::draw_palette_cells(int ctx) {
 }
 #pragma pop
 
-void render__22TWindowSubCustomSelectFv(TWindowSubCustomSelect *arg0) {
+void render__22TWindowSubCustomSelectFv(TWindowSubCustomSelect *window_sub_custom_select) {
     s32 temp_r3;
     temp_r3 = get_draw_context__11TWindowBaseFPv();
-    ((TUnk_804CE018 *)arg0)->draw_window_frame((void *)temp_r3);
-    arg0->draw_palette_cells(temp_r3);
-    arg0->draw_cursor((u8 *)temp_r3);
-    forward_render__20TWindowSubStatusDispFv(arg0->m_7c, temp_r3);
-    draw_window_scrollbar(arg0->m_80, temp_r3, (u8 *)arg0 + 0x68);
+    ((TUnk_804CE018 *)window_sub_custom_select)->draw_window_frame((void *)temp_r3);
+    window_sub_custom_select->draw_palette_cells(temp_r3);
+    window_sub_custom_select->draw_cursor((u8 *)temp_r3);
+    forward_render__20TWindowSubStatusDispFv(window_sub_custom_select->m_7c, temp_r3);
+    draw_window_scrollbar(window_sub_custom_select->m_80, temp_r3, (u8 *)window_sub_custom_select + 0x68);
 }
 
 typedef char RecoveredGlobal_80277928_lbl_8050E208_size[sizeof(RecoveredGlobal_80277928_lbl_8050E208) == 0x1B0 ? 1 : -1];

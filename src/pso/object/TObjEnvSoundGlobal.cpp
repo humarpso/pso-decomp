@@ -100,13 +100,13 @@ void *__dt__18TObjEnvSoundGlobalFv(void *arg0, s16 arg1) {
 extern void *tl_05;
 
 typedef char RecoveredGlobal_80190484___vt__18TObjEnvSoundGlobal_size[sizeof(RecoveredGlobal_80190484___vt__18TObjEnvSoundGlobal) == 0x34 ? 1 : -1];
-u8 *TObjEnvSoundGlobal__ct(u8 *arg0, s32 parent, s32 arg2) {
-    __ct__13TUnk_804B9870FP7TObject((void *)arg0, (void *)parent);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80190484___vt__18TObjEnvSoundGlobal *)&__vt__18TObjEnvSoundGlobal).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEnvSoundGlobal__class_name;
-    ((TObjEnvSoundGlobal *)(arg0))->apply_object_set_data((void *)arg2);
-    ((TObjEnvSoundGlobal *)arg0)->setup_sound();
-    return arg0;
+u8 *TObjEnvSoundGlobal__ct(u8 *env_sound_global, s32 parent, s32 arg2) {
+    __ct__13TUnk_804B9870FP7TObject((void *)env_sound_global, (void *)parent);
+    *(s32 **)((s8 *)env_sound_global + 0x18) = &(*(RecoveredGlobal_80190484___vt__18TObjEnvSoundGlobal *)&__vt__18TObjEnvSoundGlobal).value;
+    *(s32 *)((s8 *)env_sound_global + 0) = (s32) TObjEnvSoundGlobal__class_name;
+    ((TObjEnvSoundGlobal *)(env_sound_global))->apply_object_set_data((void *)arg2);
+    ((TObjEnvSoundGlobal *)env_sound_global)->setup_sound();
+    return env_sound_global;
 }
 
 void * TObjEnvSoundEx__create(void *rader_map_core) {

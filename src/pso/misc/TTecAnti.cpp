@@ -239,11 +239,11 @@ void TTecAnti::vfunc_7(void *pl_arg) {
     }
 }
 
-void TTecAnti::create(void *arg0, void *pos, void *arg2, void *level) {
+void TTecAnti::create(void *owner, void *pos, void *arg2, void *level) {
     void *o;
     o = __nw__7TObjectFUl(0x140);
     if (o != NULL) {
-        TTecAnti__ct((u8 *)o, (s32)arg0, (s32)pos, (s32)arg2, (s32)level);
+        TTecAnti__ct((u8 *)o, (s32)owner, (s32)pos, (s32)arg2, (s32)level);
     }
 }
 

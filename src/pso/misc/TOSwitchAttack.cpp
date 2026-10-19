@@ -7,10 +7,10 @@ s32 TOSwitchAttackSub__ct(void *, s32, s32, s32, s32, f32);
 u32 __nw__7TObjectFUl(s32);
 
 void TOSwitchAttack::create_sub(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
-    void *temp_r3;
-    temp_r3 = (void *)__nw__7TObjectFUl(0x30);
-    if (temp_r3 != (void *)0U) {
-        TOSwitchAttackSub__ct(temp_r3, arg0, arg1, arg2, arg3, farg0);
+    void *object;
+    object = (void *)__nw__7TObjectFUl(0x30);
+    if (object != (void *)0U) {
+        TOSwitchAttackSub__ct(object, arg0, arg1, arg2, arg3, farg0);
     }
 }
 

@@ -22,7 +22,7 @@ s8 sub_80102C30__5TItemFv(u8 *arg0);
 void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
 s32 reset_key_machine_state__10TObjPlayerFv();
 
-void TUnk_804F1320::vfunc_17(s32 arg1) {
+void TUnk_804F1320::vfunc_17(s32 item) {
     s32 temp_r31;
 
     if (((u32) this->player != 0U) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
@@ -30,7 +30,7 @@ void TUnk_804F1320::vfunc_17(s32 arg1) {
         {
         s32 t = get_current_floor();
         if ((t == temp_r31) && (sub_80102C30__5TItemFv((u8 *)this) == 2)) {
-            spawn_pg_effect((void *)(*(u32 *)&this->player + 0x2FC), (s32)arg1, (f32)(*(f32 *)&this->unk_1F8));
+            spawn_pg_effect((void *)(*(u32 *)&this->player + 0x2FC), (s32)item, (f32)(*(f32 *)&this->unk_1F8));
         }
         }
     }

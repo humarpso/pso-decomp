@@ -90,31 +90,31 @@ void TTecDeband::update_effect_params() {
 
 void TTecDeband::vfunc_7(void *arg1_arg) {
     Obj_8022F588 *arg0 = (Obj_8022F588 *)this;
-    VObj_18_b27ba1 *arg1 = (VObj_18_b27ba1 *)arg1_arg;
+    VObj_18_b27ba1 *player = (VObj_18_b27ba1 *)arg1_arg;
     HitInfo_8022F588 h;
     h.type = 0xA;
     h.power = arg0->power;
-    if (is_script_controlled__10TObjPlayerFv(arg1) == 0) {
+    if (is_script_controlled__10TObjPlayerFv(player) == 0) {
         HitInfo_8022F588 c = h;
-        arg1->m21(arg0->source, &c, 0, 0xA, -1);
+        player->m21(arg0->source, &c, 0, 0xA, -1);
         if (is_split_screen() == 0) {
-            TWindowCtrl::show_party_effect((void*)(obj_getField1c((int)arg0->source)), (void*)(obj_getField1c((int)arg1)), (void*)0xA);
+            TWindowCtrl::show_party_effect((void*)(obj_getField1c((int)arg0->source)), (void*)(obj_getField1c((int)player)), (void*)0xA);
         }
     }
 }
 
-void TTecDeband::create(s32 arg0, s32 pos, s32 arg2, s32 level) {
+void TTecDeband::create(s32 owner, s32 pos, s32 arg2, s32 level) {
     u32 obj;
     obj = __nw__7TObjectFUl(0x140);
     if (obj != 0U) {
-        TTecDeband__ct(obj, arg0, pos, arg2, level);
+        TTecDeband__ct(obj, owner, pos, arg2, level);
     }
 }
-void TTecDeband::create(s32 arg0, s32 pos, s32 level) {
+void TTecDeband::create(s32 owner, s32 pos, s32 level) {
     u32 obj;
     obj = __nw__7TObjectFUl(0x140);
     if (obj != 0U) {
-        TTecDeband__sub_8022F948((TTecDeband *)((u8 *)obj), (s32)((s32)arg0), (s32)((s32)pos), (s32)((s32)level));
+        TTecDeband__sub_8022F948((TTecDeband *)((u8 *)obj), (s32)((s32)owner), (s32)((s32)pos), (s32)((s32)level));
     }
 }
 void TTecDeband::render() {  }

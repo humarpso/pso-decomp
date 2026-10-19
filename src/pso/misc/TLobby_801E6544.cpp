@@ -8211,18 +8211,18 @@ void qst_op_p_disablewarp(void) {
 
 void qst_op_p_dead(void) {
     s32 temp_r31;
-    u8 *temp_r3;
+    u8 *lobby;
     temp_r31 = *(s32 *)((s8 *)(&TLobby__quest_argument_stack.value) + 0);
-    temp_r3 = (u8 *)(((u8 *)((s32 (*)(s32))get_player_by_client_id)(*(s32 *)((s8 *)(&TLobby__quest_argument_stack.value) + 4))));
-    if ((temp_r3 != NULL) && (is_script_controlled__10TObjPlayerFv() == 0)) {
-        if (obj_isState3_324__13TUnk_804806E8Fv((int)temp_r3) != 0) {
-            if (*(s32 *)((s8 *)temp_r3 + 0x30) & 0x800) {
+    lobby = (u8 *)(((u8 *)((s32 (*)(s32))get_player_by_client_id)(*(s32 *)((s8 *)(&TLobby__quest_argument_stack.value) + 4))));
+    if ((lobby != NULL) && (is_script_controlled__10TObjPlayerFv() == 0)) {
+        if (obj_isState3_324__13TUnk_804806E8Fv((int)lobby) != 0) {
+            if (*(s32 *)((s8 *)lobby + 0x30) & 0x800) {
                 *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + (temp_r31 * 4)) = 1;
                 return;
             }
             goto block_7;
         }
-        if (((TLobby *)temp_r3)->check_player_state_flag_2() != 0) {
+        if (((TLobby *)lobby)->check_player_state_flag_2() != 0) {
             *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + (temp_r31 * 4)) = 1;
             return;
         }

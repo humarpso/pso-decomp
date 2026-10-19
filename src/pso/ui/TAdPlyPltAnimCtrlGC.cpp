@@ -150,14 +150,14 @@ u8 *TAdPlyPltAnimCtrlGC__ct(TAdPlyPltAnimCtrlGC *ad_ply_plt_anim_ctrl_gc, s32 ar
 }
 
 u32 TAdPlyPltAnimCtrlGC::get_instance(s32 arg0) {
-    u32 var_r0;
+    u32 ad_ply_plt_anim_ctrl_gc;
 
     if ((u32) plyplt_anim_ctrl_instance == 0U) {
-        var_r0 = __nw__7TObjectFUl(0x2C);
-        if (var_r0 != 0U) {
-            var_r0 = ((u32)TAdPlyPltAnimCtrlGC__ct((TAdPlyPltAnimCtrlGC *)((u8 *)var_r0), (s32)arg0));
+        ad_ply_plt_anim_ctrl_gc = __nw__7TObjectFUl(0x2C);
+        if (ad_ply_plt_anim_ctrl_gc != 0U) {
+            ad_ply_plt_anim_ctrl_gc = ((u32)TAdPlyPltAnimCtrlGC__ct((TAdPlyPltAnimCtrlGC *)((u8 *)ad_ply_plt_anim_ctrl_gc), (s32)arg0));
         }
-        plyplt_anim_ctrl_instance = var_r0;
+        plyplt_anim_ctrl_instance = ad_ply_plt_anim_ctrl_gc;
     }
     return plyplt_anim_ctrl_instance;
 }

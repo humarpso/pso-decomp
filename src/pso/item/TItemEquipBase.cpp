@@ -331,18 +331,18 @@ void TItemEquipBase::vfunc_50() {  }
 
 void TItemEquipBase::bind_loaded_resources() {
     s16 temp_r3;
-    u8 *temp_r3_2;
+    u8 *node;
     if ((u32) this->m_f4 == 0U) {
         temp_r3 = *(s16 *)&this->m_172;
         if ((temp_r3 != -1) && (TItemLoad::has_resource_id((s32) temp_r3) == 1)) {
-            temp_r3_2 = (u8 *)(TItemLoad::find_node_by_id((s32) *(s16 *)&this->m_172));
-            if (temp_r3_2 != NULL) {
-                this->m_f4 = (u32) *(u32 *)((s8 *)temp_r3_2 + 0);
-                *(s32 *)&this->m_188 = (s32) *(s32 *)((s8 *)temp_r3_2 + 4);
-                this->texture_id = (s32) *(s32 *)((s8 *)temp_r3_2 + 0x10);
-                *(s32 *)&this->m_17c = (s32) *(s32 *)((s8 *)temp_r3_2 + 0x14);
-                *(s32 *)&this->m_180 = (s32) *(s32 *)((s8 *)temp_r3_2 + 8);
-                *(s32 *)&this->m_184 = (s32) *(s32 *)((s8 *)temp_r3_2 + 0xC);
+            node = (u8 *)(TItemLoad::find_node_by_id((s32) *(s16 *)&this->m_172));
+            if (node != NULL) {
+                this->m_f4 = (u32) *(u32 *)((s8 *)node + 0);
+                *(s32 *)&this->m_188 = (s32) *(s32 *)((s8 *)node + 4);
+                this->texture_id = (s32) *(s32 *)((s8 *)node + 0x10);
+                *(s32 *)&this->m_17c = (s32) *(s32 *)((s8 *)node + 0x14);
+                *(s32 *)&this->m_180 = (s32) *(s32 *)((s8 *)node + 8);
+                *(s32 *)&this->m_184 = (s32) *(s32 *)((s8 *)node + 0xC);
                 this->vfunc_50();
             }
         }

@@ -297,10 +297,10 @@ void apply_settings__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
 void close_and_next__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void* p, void* a1, void* a2, void* a3, void* a4) { close_windows__23TAdSinglePlyChrSelectGCFPv(p); TAdSinglePlyChrSelectGC__sub_802E1A04((s32)p, (s32)a1, (s32)a2, (s32)a3, (s32)a4); }
 void close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void* p, void* a1, void* a2, void* a3, void* a4) { close_windows__23TAdSinglePlyChrSelectGCFPv((void *)p); ((TAdSinglePlyChrSelectGC *)p)->open_message_choice((void *)a1, (s32)a2, (void *)a3, (void *)a4); }
 
-void TAdSinglePlyChrSelectGC__sub_802E1A04(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
-    s32 temp_r31;
+void TAdSinglePlyChrSelectGC__sub_802E1A04(s32 arg0, s32 arg1, s32 sel, s32 arg3, s32 arg4) {
+    s32 localized_text_entry;
     s32 var_r6;
-    temp_r31 = get_localized_text_entry(0x1C, arg1);
+    localized_text_entry = get_localized_text_entry(0x1C, arg1);
     var_r6 = 0;
     if (arg3 >= 0) {
         var_r6 = get_localized_text_entry(0x1C, arg3);
@@ -308,7 +308,7 @@ void TAdSinglePlyChrSelectGC__sub_802E1A04(s32 arg0, s32 arg1, s32 arg2, s32 arg
     if (arg4 >= 0) {
         var_r6 = get_localized_text_entry(0x1C, arg4);
     }
-    ((TAdSinglePlyChrSelectGC *)arg0)->open_message_choice((void *)temp_r31, (s32)arg2, (void *)var_r6, (void *)((void*)(0)));
+    ((TAdSinglePlyChrSelectGC *)arg0)->open_message_choice((void *)localized_text_entry, (s32)sel, (void *)var_r6, (void *)((void*)(0)));
 }
 
 void TAdSinglePlyChrSelectGC::open_message_choice(void *arg1, s32 sel, void *arg3, void *arg4) {

@@ -52,13 +52,13 @@ extern const f32 lbl_805DB310;
 extern const f32 lbl_805DB31C;
 extern void *lbl_805D2EB0;
 
-void *TOBoss4__ct(void *arg0) {
-    __ct__13TUnk_804B9870FP7TObject(arg0, tl_05);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__7TOBoss4;
-    *(void * *)&((TOBoss4 *)arg0)->m_name = lbl_805D2EB0;
-    *(f32 *)((s8 *)arg0 + 0x90) = lbl_805DB310;
-    ((TOBoss4 *)arg0)->m_94 = lbl_805DB31C;
-    return arg0;
+void *TOBoss4__ct(void *boss4) {
+    __ct__13TUnk_804B9870FP7TObject(boss4, tl_05);
+    *(s32 **)((s8 *)boss4 + 0x18) = __vt__7TOBoss4;
+    *(void * *)&((TOBoss4 *)boss4)->m_name = lbl_805D2EB0;
+    *(f32 *)((s8 *)boss4 + 0x90) = lbl_805DB310;
+    ((TOBoss4 *)boss4)->m_94 = lbl_805DB31C;
+    return boss4;
 }
 
 }

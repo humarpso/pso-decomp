@@ -40,19 +40,19 @@ void clear_enabled_main_warps(void);
 void TObjCityMainWarp::update_unlock_flags() {
     s32 var_r31;
     s32 var_r30;
-    s32 var_r3;
+    s32 flag;
 
     TObjCityMainWarp__visible_destination_mask |= 1;
     if ((is_main_phase_15__9TObjEneDDFv() != 0) || (is_split_screen() != 0)) {
-        var_r3 = 0x4C;
+        flag = 0x4C;
         var_r31 = 0x4F;
         var_r30 = 0x52;
     } else {
-        var_r3 = 0x4D;
+        flag = 0x4D;
         var_r31 = 0x50;
         var_r30 = 0x53;
     }
-    if (get_story_flag(var_r3) != 0) {
+    if (get_story_flag(flag) != 0) {
         TObjCityMainWarp__visible_destination_mask |= 4;
     }
     if (get_story_flag(var_r31) != 0) {

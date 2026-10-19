@@ -413,7 +413,7 @@ void TObjPlayer__sub_800C44C4(void) {
     temp_r5 = (u8 *)(*(u8 **)((s8 *)lbl_805D5174 + 0x42C));
     TLobby::spawn_npc_enemy((s16)(0x37), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 8))), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0xC))), (s32)((void *)&stack.sp8), (f32)lbl_805D9FBC, (f32)lbl_805D9FAC);
 }
-s32 TObjEneRe2Flower_Bomb::area_attack_deliver_direct(void *arg1, s32 arg2, void *object, f32 range) {
+s32 TObjEneRe2Flower_Bomb::area_attack_deliver_direct(void *recoil, s32 arg2, void *object, f32 range) {
     s32 result;
     s32 flags;
     s32 p;
@@ -425,11 +425,11 @@ s32 TObjEneRe2Flower_Bomb::area_attack_deliver_direct(void *arg1, s32 arg2, void
         return 0;
     }
     TObjPlayer::init_all_slots();
-    if (*(s32 *)((s8 *)((u8 *)arg1) + 4) & 1) {
+    if (*(s32 *)((s8 *)((u8 *)recoil) + 4) & 1) {
         ((TUnk_804928CC *)((u8 *)this))->update_body_contact_flag(range);
         flags |= 0x80000;
     }
-    if (*(s32 *)((s8 *)((u8 *)arg1) + 4) & 2) {
+    if (*(s32 *)((s8 *)((u8 *)recoil) + 4) & 2) {
         this->mark_enemy_body_contacts();
         flags |= 0x100000;
     }
@@ -447,7 +447,7 @@ s32 TObjEneRe2Flower_Bomb::area_attack_deliver_direct(void *arg1, s32 arg2, void
                     ok = 0;
                 }
                 if (ok != 0) {
-                    this->area_attack_receive_direct((void *)p, (f32 *)((u8 *)arg1), (void *)arg2);
+                    this->area_attack_receive_direct((void *)p, (f32 *)((u8 *)recoil), (void *)arg2);
                     result = 1;
                 }
             }

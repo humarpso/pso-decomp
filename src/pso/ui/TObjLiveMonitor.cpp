@@ -44,18 +44,18 @@ s32 TObjLiveMonitor__sub_8030C050();
 s32 push_matrix();
 s32 draw_ginja_object(int);
 
-void render__15TObjLiveMonitorFv(TObjLiveMonitor *arg0) {
-    s32 temp_r3;
-    temp_r3 = TObjLiveCameraCtrl::get_table_entry(0);
-    if ((temp_r3 != 0) && (TObjLiveMonitor__sub_8030C050() != 0)) {
-        ((TObjLiveMonitor *)temp_r3)->update_camera();
+void render__15TObjLiveMonitorFv(TObjLiveMonitor *live_monitor) {
+    s32 table_entry;
+    table_entry = TObjLiveCameraCtrl::get_table_entry(0);
+    if ((table_entry != 0) && (TObjLiveMonitor__sub_8030C050() != 0)) {
+        ((TObjLiveMonitor *)table_entry)->update_camera();
     } else if (is_split_screen() == 0) {
         TObjPlayer__sub_80084500();
     } else {
-        arg0->render_live_monitor_screen();
+        live_monitor->render_live_monitor_screen();
     }
     push_matrix();
-    draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x1C)));
+    draw_ginja_object((int) (*(s32 *)((s8 *)live_monitor + 0x1C)));
     pop_matrix();
 }
 
@@ -145,12 +145,12 @@ void *__dt__14TObjLiveCameraFv(void *arg0, s16 arg1) {
 extern void *tl_05;
 
 typedef char RecoveredGlobal_8030B708___vt__14TObjLiveCamera_size[sizeof(RecoveredGlobal_8030B708___vt__14TObjLiveCamera) == 0x34 ? 1 : -1];
-u8 *TObjLiveCamera__ct(u8 *arg0, s32 parent, s32 arg2) {
-    __ct__13TUnk_804B9870FP7TObject((void *)arg0, (void *)parent);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8030B708___vt__14TObjLiveCamera *)&__vt__14TObjLiveCamera).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjLiveCamera__class_name;
-    ((TObjLiveCamera *)(arg0))->apply_object_set_data((void *)arg2);
-    return arg0;
+u8 *TObjLiveCamera__ct(u8 *live_camera, s32 parent, s32 arg2) {
+    __ct__13TUnk_804B9870FP7TObject((void *)live_camera, (void *)parent);
+    *(s32 **)((s8 *)live_camera + 0x18) = &(*(RecoveredGlobal_8030B708___vt__14TObjLiveCamera *)&__vt__14TObjLiveCamera).value;
+    *(s32 *)((s8 *)live_camera + 0) = (s32) TObjLiveCamera__class_name;
+    ((TObjLiveCamera *)(live_camera))->apply_object_set_data((void *)arg2);
+    return live_camera;
 }
 
 void *TObjLiveCamera__create(void *arg0) {

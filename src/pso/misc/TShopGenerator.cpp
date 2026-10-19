@@ -192,25 +192,25 @@ void *__dt__14TShopGeneratorFv(void *arg0, s16 arg1) {
 extern s32 TShopGenerator__class_name;
 extern s32 tl_05;
 
-void *TShopGenerator__ct(void *arg0, s32 arg1) {
+void *TShopGenerator__ct(void *shop_generator, s32 arg1) {
     s32 temp_r0;
 
-    __ct__13TUnk_804B9870FP7TObject(arg0, tl_05);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TShopGenerator;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TShopGenerator__class_name;
-    ((TShopGenerator *)arg0)->apply_object_set_data((void *)arg1);
-    ((TShopGenerator *)arg0)->m_90 = 0;
-    ((TShopGenerator *)arg0)->m_94 = 5;
-    temp_r0 = ((TShopGenerator *)arg0)->m_84;
+    __ct__13TUnk_804B9870FP7TObject(shop_generator, tl_05);
+    *(s32 **)((s8 *)shop_generator + 0x18) = __vt__14TShopGenerator;
+    *(s32 *)((s8 *)shop_generator + 0) = (s32) TShopGenerator__class_name;
+    ((TShopGenerator *)shop_generator)->apply_object_set_data((void *)arg1);
+    ((TShopGenerator *)shop_generator)->m_90 = 0;
+    ((TShopGenerator *)shop_generator)->m_94 = 5;
+    temp_r0 = ((TShopGenerator *)shop_generator)->m_84;
     if (temp_r0 < 0) {
-        queue_destruction__7TObjectFv(arg0);
-        return arg0;
+        queue_destruction__7TObjectFv(shop_generator);
+        return shop_generator;
     }
     if (temp_r0 > 6) {
-        queue_destruction__7TObjectFv(arg0);
-        return arg0;
+        queue_destruction__7TObjectFv(shop_generator);
+        return shop_generator;
     }
-    return arg0;
+    return shop_generator;
 }
 
 typedef char RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0_size[sizeof(RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0) == 0x10 ? 1 : -1];

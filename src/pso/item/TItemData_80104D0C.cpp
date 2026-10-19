@@ -40,17 +40,17 @@ Rec_80104DAC *find_item_combination_recipe(u8 *, void *);
 s32 is_wrapped__9TItemDataFPv(u8 *);
 void *lookup_item_pmt_record(u8 *);
 
-u8 TItemData::is_item_usable(s32 arg0, u8 *arg1) {
-    if (is_wrapped__9TItemDataFPv(arg1) != 0) {
+u8 TItemData::is_item_usable(s32 arg0, u8 *item) {
+    if (is_wrapped__9TItemDataFPv(item) != 0) {
         return 1U;
     }
-    if ((u8) *arg1 == 3) {
-        if (*(s32 *)((s8 *)(lookup_item_pmt_record(arg1)) + 0x10) & 1) {
+    if ((u8) *item == 3) {
+        if (*(s32 *)((s8 *)(lookup_item_pmt_record(item)) + 0x10) & 1) {
             return 1U;
         }
-        return (u8) (find_eligible_combination_recipe(arg0, arg1) != 0);
+        return (u8) (find_eligible_combination_recipe(arg0, item) != 0);
     }
-    return (u8) (find_eligible_combination_recipe(arg0, arg1) != 0);
+    return (u8) (find_eligible_combination_recipe(arg0, item) != 0);
 }
 }
 #define o ((Obj_80104DAC *)arg0)
