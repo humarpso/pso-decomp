@@ -748,11 +748,11 @@ void fire_spread_shot__10TObjPlayerFPv(u8 *arg0) {
     s32 sp8;
     ((VObj_18 *)(((TUnk_804E23F0 *)arg0)->player))->m63(0x30, &sp8);
     if (get_validated_attack_stage((*(u8 * *)&((TUnk_804E23F0 *)arg0)->player + 0x7CC)) == 2) {
-        ((TItemWeapon *)arg0)->fire_shot_at_target((void *)(&sp8), (void *)(*(s32 *)((s8 *)arg0 + 0xF4)), (s32)0);
-        ((TItemWeapon *)arg0)->fire_shot_at_target((void *)(&sp8), (void *)(*(s32 *)((s8 *)arg0 + 0xF4)), (s32)0x1555);
-        ((TItemWeapon *)arg0)->fire_shot_at_target((void *)(&sp8), (void *)(*(s32 *)((s8 *)arg0 + 0xF4)), (s32)(-0x1555));
+        ((TItemWeapon *)arg0)->fire_shot_at_target((void *)(&sp8), (void *)(*(s32 *)((s8 *)arg0 + 0xF4)), 0);
+        ((TItemWeapon *)arg0)->fire_shot_at_target((void *)(&sp8), (void *)(*(s32 *)((s8 *)arg0 + 0xF4)), 0x1555);
+        ((TItemWeapon *)arg0)->fire_shot_at_target((void *)(&sp8), (void *)(*(s32 *)((s8 *)arg0 + 0xF4)), -0x1555);
     } else {
-        ((TItemWeapon *)arg0)->fire_shot_at_target((void *)(&sp8), (void *)(*(s32 *)((s8 *)arg0 + 0xF4)), (s32)0);
+        ((TItemWeapon *)arg0)->fire_shot_at_target((void *)(&sp8), (void *)(*(s32 *)((s8 *)arg0 + 0xF4)), 0);
     }
     ((VObj_18 *)(arg0))->m60(&sp8);
 }

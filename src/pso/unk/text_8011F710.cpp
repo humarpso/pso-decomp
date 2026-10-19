@@ -223,7 +223,7 @@ void TItemWeapon::vfunc_30() {
         if(!test_flags_1b8__11TItemWeaponFUl(self,2)) {
             if(test_flags_1b8__11TItemWeaponFUl(self,0x8000)) {
                 ((TObjPlayer *)self)->draw_status_icon((s32)&gun_point);
-                ((TItemWeapon *)self)->fire_shot_at_target((void *)(&gun_point), (void *)(self->projectile), (s32)0);
+                ((TItemWeapon *)self)->fire_shot_at_target((void *)(&gun_point), (void *)(self->projectile), 0);
                 return;
             }
             if(test_flags_1b8__11TItemWeaponFUl(self,0x20000)) {

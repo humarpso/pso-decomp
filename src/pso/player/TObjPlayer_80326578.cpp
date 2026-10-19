@@ -465,11 +465,11 @@ void TUnk_804ED488::emit_marker_effects() {
 
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
         if ((s32) ((s16) obj_getS16_32C((u8 *)this->player) * 8) < ((s16) ((TItemProShield *)(this->player))->get_field_2b8())) {
-            fire_shot_at_target((void *)(*(s32 *)&this->player + 0x38), (void *)0, (s32)(-0x238E));
-            fire_shot_at_target((void *)(*(s32 *)&this->player + 0x38), (void *)0, (s32)(-0x11C7));
-            fire_shot_at_target((void *)(*(s32 *)&this->player + 0x38), (void *)0, (s32)0);
-            fire_shot_at_target((void *)(*(s32 *)&this->player + 0x38), (void *)0, (s32)0x11C7);
-            fire_shot_at_target((void *)(*(s32 *)&this->player + 0x38), (void *)0, (s32)0x238E);
+            fire_shot_at_target((void *)(*(s32 *)&this->player + 0x38), (void *)0, -0x238E);
+            fire_shot_at_target((void *)(*(s32 *)&this->player + 0x38), (void *)0, -0x11C7);
+            fire_shot_at_target((void *)(*(s32 *)&this->player + 0x38), (void *)0, 0);
+            fire_shot_at_target((void *)(*(s32 *)&this->player + 0x38), (void *)0, 0x11C7);
+            fire_shot_at_target((void *)(*(s32 *)&this->player + 0x38), (void *)0, 0x238E);
             play_sound_effect(0x4001A642, *(s32 *)&this->player + 0x38, 0, 0);
             return;
         }

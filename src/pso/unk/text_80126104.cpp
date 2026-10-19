@@ -180,10 +180,10 @@ void TUnk_804A2960::emit_marker_effects() {
     ((Pl_801261BC *)this)->f1fc = 0;
     p = buf;
     if (((TObjPlayer *)this)->is_mode_two_and_ready() != 0) {
-        fire_shot_at_target((void *)p, (void *)(((Pl_801261BC *)this)->f188), (s32)0);
+        fire_shot_at_target((void *)p, (void *)(((Pl_801261BC *)this)->f188), 0);
     } else if (((TItem *)this)->get_slot_count() == 1) {
         ((Pl_801261BC *)this)->f1fc = 1;
-        fire_shot_at_target((void *)p, (void *)(((Pl_801261BC *)this)->f188), (s32)0);
+        fire_shot_at_target((void *)p, (void *)(((Pl_801261BC *)this)->f188), 0);
     } else {
         ((Pl_801261BC *)this)->m49(p, 0, 0, 1);
     }
