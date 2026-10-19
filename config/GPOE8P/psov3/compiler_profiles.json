@@ -1129,5 +1129,11 @@
     "optimization": "-O4,s",
     "inline": "off",
     "use_lmw_stmw": "on"
+  },
+  "pso/misc/TUdpSocket_80421178.cpp": {
+    "mw_version": "GC/1.2.5n",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
   }
 }
