@@ -1443,7 +1443,7 @@ void update_movement__12TBoss8DragonFPv(u8 *arg0);
 void action__12TBoss8DragonFPvi(void *arg0, s32 arg1);
 void update_wander_state__12TBoss8DragonFPvi(void *arg0, s32 arg1);
 void TBoss8Dragon__sub_802F51DC(u8 *arg0, u32 arg1);
-void TBoss8Dragon__sub_802F5434(u8 *arg0, u32 arg1);
+void TBoss8Dragon__sub_802F5434(TBoss8Dragon *arg0, u32 arg1);
 void TBoss8Dragon__sub_802F5644(u8 *arg0, u32 arg1);
 void TBoss8Dragon__sub_802F57E4(u8 *arg0, u32 arg1);
 void TBoss8Dragon__sub_802F5F64(u8 *arg0, u32 arg1);
@@ -2691,7 +2691,7 @@ void TBoss8Dragon__sub_802F51DC(u8 *arg0, u32 arg1) {
 }
 #pragma pop
 
-void TBoss8Dragon__sub_802F5434(u8 *arg0, u32 arg1) {
+void TBoss8Dragon__sub_802F5434(TBoss8Dragon *arg0, u32 arg1) {
     extern u8 TBoss8Dragon__data_804744A8[];
     f32 temp_f1;
     s32 i;
@@ -2703,8 +2703,8 @@ void TBoss8Dragon__sub_802F5434(u8 *arg0, u32 arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 1;
         ((VObj_18_444bc5 *)(arg0))->m94();
-        ((TBoss8Dragon *)arg0)->reset_timer();
-        ((TBoss8Dragon *)arg0)->set_active_flag();
+        arg0->reset_timer();
+        arg0->set_active_flag();
         *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C0) & ~0x36);
         for (i = 0; i < 4; i++) {
             ((TBoss8Dragon *)(&((Self_802F5434 *)arg0)->arr[i]))->set_speed(lbl_805DEDC4);
@@ -2720,7 +2720,7 @@ void TBoss8Dragon__sub_802F5434(u8 *arg0, u32 arg1) {
         return;
     case 9:
         if (TBoss8Dragon__sub_802F46F4((s32)arg0) == 0) {
-            ((TBoss8Dragon *)arg0)->pick_next_action();
+            arg0->pick_next_action();
         }
     default:
         return;
@@ -2733,8 +2733,8 @@ void TBoss8Dragon__sub_802F5434(u8 *arg0, u32 arg1) {
             } else {
                 ((TObjEneEpsilon *)arg0)->copy_position((TBoss8Dragon__data_804744A8));
             }
-            ((TBoss8Dragon *)arg0)->save_position();
-            ((TBoss8Dragon *)arg0)->send_6xA8_action();
+            arg0->save_position();
+            arg0->send_6xA8_action();
             return;
         }
         break;
@@ -2748,7 +2748,7 @@ void TBoss8Dragon__sub_802F5434(u8 *arg0, u32 arg1) {
         } else {
             ((TObjEneEpsilon *)arg0)->copy_position((TBoss8Dragon__data_804744A8));
         }
-        ((TBoss8Dragon *)arg0)->save_position();
+        arg0->save_position();
         return;
     case 0:
         ((s32 (*)(void))update_movement__12TBoss8DragonFPv)();

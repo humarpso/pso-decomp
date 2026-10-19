@@ -12,7 +12,7 @@ struct Ply_80312D4C : B_80312D4C {
 extern "C" {
 void *get_element__10TObjPlayerFPvi(void *a0, int a1);
 int TObjPlayer__sub_80313218(void* p);
-u8 *TObjPlayer__sub_80312FB0(u8 *arg0);
+u8 *TObjPlayer__sub_80312FB0(TObjPlayer *arg0);
 void append_photon_blast_request(s32 arg0, s16 arg1, s16 arg2);
 void *get_player_by_client_id(s32);
 int TObjPlayer__sub_803131AC(void* a0);
@@ -108,7 +108,7 @@ void TObjPlayer::process_all_elements() { { int n = TObjPlayer__sub_803131AC(thi
 
 void append_photon_blast_request(s32 arg0, s16 arg1, s16 arg2) {
     s32 temp_r3;
-    temp_r3 = ((s32)TObjPlayer__sub_80312FB0((u8 *)arg0));
+    temp_r3 = ((s32)TObjPlayer__sub_80312FB0((TObjPlayer *)((u8 *)arg0)));
     if (temp_r3 != 0) {
         ((TObjPlayer *)temp_r3)->check_flag_at_4();
         ((TObjPlayer *)temp_r3)->set_type(arg1);
@@ -116,7 +116,7 @@ void append_photon_blast_request(s32 arg0, s16 arg1, s16 arg2) {
     }
 }
 
-u8 *TObjPlayer__sub_80312FB0(u8 *arg0) {
+u8 *TObjPlayer__sub_80312FB0(TObjPlayer *arg0) {
     s32 var_r31;
     u8 *temp_r3;
     var_r31 = 0;

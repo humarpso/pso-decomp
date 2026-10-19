@@ -88,7 +88,7 @@ void TAdChrSelASlotGC__sub_8030CBD0(void);
 void TAdChrSelASlotGC__sub_8030CBD4(void);
 void TAdChrSelASlotGC__sub_8030CCE0(void);
 void TAdChrSelASlotGC__sub_8030D5DC(void *arg0);
-u32 TAdChrSelASlotGC__sub_8030CB08(void *arg0, s32 kind, s32 text);
+u32 TAdChrSelASlotGC__sub_8030CB08(TAdChrSelASlotGC *arg0, s32 kind, s32 text);
 s32 TAdChrSelASlotGC__sub_8030C4F8(TAdChrSelASlotGC *self, s32 kind);
 s32 TAdChrSelASlotGC__sub_8030C5C0(TAdChrSelASlotGC *self, s32 kind);
 s32 TAdChrSelASlotGC__sub_8030C688(TAdChrSelASlotGC *self, s32 kind);
@@ -268,8 +268,8 @@ s32 TAdChrSelASlotGC__sub_8030CA84(s32 arg0, s32 arg1) {
     return temp_r31;
 }
 
-u32 TAdChrSelASlotGC__sub_8030CB08(void *arg0, s32 kind, s32 text) {
-    TAdChrSelASlotGC *self = (TAdChrSelASlotGC *)arg0;
+u32 TAdChrSelASlotGC__sub_8030CB08(TAdChrSelASlotGC *arg0, s32 kind, s32 text) {
+    TAdChrSelASlotGC *self = arg0;
     V2_8030C750 pos;
     s32 w;
     switch (kind) {
@@ -569,7 +569,7 @@ void TAdChrSelASlotGC__sub_8030D5DC(void *arg0) {
         return;
     }
     if (((s32) *(s32 *)((s8 *)arg0 + 0x1C) > 0xA) && ((u32) *(u32 *)((s8 *)arg0 + 0x54) == 0U)) {
-        *(u32 *)((s8 *)arg0 + 0x54) = TAdChrSelASlotGC__sub_8030CB08(arg0, 0, 0);
+        *(u32 *)((s8 *)arg0 + 0x54) = TAdChrSelASlotGC__sub_8030CB08((TAdChrSelASlotGC *)arg0, 0, 0);
     }
 }
 

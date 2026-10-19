@@ -41,21 +41,21 @@ void *TWindowLoadItemTexture::create(void *arg1) {
     return o;
 }
 
-void render__22TWindowLoadItemTextureFv(u8 *arg0) {
+void render__22TWindowLoadItemTextureFv(TWindowLoadItemTexture *arg0) {
     s32 temp_r31;
 
-    if ((s32) ((TWindowLoadItemTexture *)arg0)->m_60 == 1) {
-        ((TWindowLoadItemTexture *)arg0)->m_70 = (u32)(*(TItemTexLoad**)((s8 *)arg0 + 0x6C))->ready_texture_list();
-        if ((u32) ((TWindowLoadItemTexture *)arg0)->m_70 != 0U) {
-            fn_8026287C(arg0);
-            ((TWindowLoadItemTexture *)arg0)->m_60 = 1U;
+    if ((s32) arg0->m_60 == 1) {
+        arg0->m_70 = (u32)(*(TItemTexLoad**)((s8 *)arg0 + 0x6C))->ready_texture_list();
+        if ((u32) arg0->m_70 != 0U) {
+            fn_8026287C((u8 *)arg0);
+            arg0->m_60 = 1U;
         }
     }
-    temp_r31 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)(arg0 + 0x64));
-    if (((TWindowLoadItemTexture *)arg0)->m_61 & 1) {
+    temp_r31 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)((u8 *)arg0 + 0x64));
+    if (arg0->m_61 & 1) {
         ((TUnk_804CE018 *)arg0)->draw_window_frame((void *)temp_r31);
     }
-    draw_visible_window_entries(arg0, arg0 + 0x24, temp_r31);
+    draw_visible_window_entries(arg0, (u8 *)arg0 + 0x24, temp_r31);
 }
 
 void TWindowLoadItemTexture::run_task() { initialize_subwindow__9TWindowDDFv(this); update_fade(); update_window_entry_list((char*)this + 0x24); }

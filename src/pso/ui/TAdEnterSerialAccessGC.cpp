@@ -722,12 +722,12 @@ void TAdEnterSerialAccessGC::run_task() {
     }
 }
 
-void *__dt__22TAdEnterSerialAccessGCFv(void *arg0, s16 arg1) {
+void *__dt__22TAdEnterSerialAccessGCFv(TAdEnterSerialAccessGC *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TAdEnterSerialAccessGC;
-        if (*(void **)((s8 *)arg0 + 0x58) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x58)); ((TAdEnterSerialAccessGC *)arg0)->m_58 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x5C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x5C)); ((TAdEnterSerialAccessGC *)arg0)->m_5c = 0; }
-        if (*(void **)((s8 *)arg0 + 0x54) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x54)); ((TAdEnterSerialAccessGC *)arg0)->m_54 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x58) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x58)); arg0->m_58 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x5C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x5C)); arg0->m_5c = 0; }
+        if (*(void **)((s8 *)arg0 + 0x54) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x54)); arg0->m_54 = 0; }
         __dt__14TAdEnterBaseGCFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

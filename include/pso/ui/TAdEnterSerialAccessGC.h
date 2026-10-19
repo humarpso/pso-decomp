@@ -57,7 +57,7 @@ void TAdEnterSerialAccessGC__sub_80321B28(u8 *arg0, int arg1);
 void TAdEnterSerialAccessGC__sub_80321F18(void *p);
 void TAdEnterSerialAccessGC__sub_80321F3C(void *p);
 void TAdEnterSerialAccessGC__sub_80322418(s32 arg0, s32 arg1);
-void *__dt__22TAdEnterSerialAccessGCFv(void *arg0, s16 arg1);
+void *__dt__22TAdEnterSerialAccessGCFv(TAdEnterSerialAccessGC *arg0, s16 arg1);
 void create_draw_callback__22TAdEnterSerialAccessGCFv(void);
 void init__22TAdEnterSerialAccessGCFv(void);
 }

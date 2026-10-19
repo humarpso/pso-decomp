@@ -574,7 +574,7 @@ s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 
 #pragma push
 #pragma opt_loop_invariants off
-u32 TWindowSubComCard__sub_80272DE0(void *arg0) {
+u32 TWindowSubComCard__sub_80272DE0(TWindowSubComCard *arg0) {
     s32 i;
     s32 count;
     s32 idx;
@@ -583,13 +583,13 @@ u32 TWindowSubComCard__sub_80272DE0(void *arg0) {
     List_80272CB0 *l;
     w = create_choice_setting_window__17TWindowSubComCardFiii((s32)(get_window_layout_position(0x8C)), (s32)lbl_8044F6B4, 6);
     create_sub_window__20TWindowChoiceSettingFPvi((void *)w, TQuestVmDownLoadServer__sub_8006EF6C(0x49));
-    l = (List_80272CB0 *)((TWindowSubComCard *)arg0)->m_58;
+    l = (List_80272CB0 *)arg0->m_58;
     idx = 0;
     count = l->count;
     e = l->ents;
     for (i = 0; i < count; i++, e++) {
         if (e->type == 0) {
-            ((TWindowSubComCard *)w)->update_next_entry((s32)e->name, (s32)((TWindowSubComCard *)arg0)->find_entry_rest(&((TWindowSubComCard *)arg0)->m_30, idx), (s32)e->id);
+            ((TWindowSubComCard *)w)->update_next_entry((s32)e->name, (s32)arg0->find_entry_rest(&arg0->m_30, idx), (s32)e->id);
             idx++;
         }
     }
@@ -696,7 +696,7 @@ s32 update_selected_entry__17TWindowSubComCardFv(int);
 s32 send_packet__6TLobbyFll(void *, void *);
 u32 TWindowSubComCard__sub_80272640(void *);
 u32 TWindowSubComCard__sub_80272A98(void *);
-u32 TWindowSubComCard__sub_80272DE0(void *);
+u32 TWindowSubComCard__sub_80272DE0(TWindowSubComCard *);
 s32 open_menu__17TWindowSubComCardFv(void);
 u32 TWindowSubComCard__sub_8027337C();
 s32 create_menu__17TWindowSubComCardFv(void);
@@ -1381,7 +1381,7 @@ void run_task__17TWindowSubComCardFv(TWindowSubComCard *window_sub_com_card) {
             window_sub_com_card->m_64 = 0U;
         }
         if ((u32) window_sub_com_card->m_7c == 0U) {
-            window_sub_com_card->m_7c = TWindowSubComCard__sub_80272DE0((void *)window_sub_com_card);
+            window_sub_com_card->m_7c = TWindowSubComCard__sub_80272DE0((TWindowSubComCard *)((void *)window_sub_com_card));
         }
         ((TWindowSubComCard *)(window_sub_com_card->m_7c))->begin_scroll((f32)lbl_805DD53C);
         ((TWindowSubComCard *)(window_sub_com_card->m_7c))->clear_flag_and_release2();

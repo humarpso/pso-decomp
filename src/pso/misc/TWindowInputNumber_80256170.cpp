@@ -134,15 +134,15 @@ void TWindowInputNumber::calc_digit_count() {
     w->f62++;
 }
 
-void render__18TWindowInputNumberFv(u8 *arg0) {
+void render__18TWindowInputNumberFv(TWindowInputNumber *arg0) {
     s32 temp_r3;
 
-    temp_r3 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)(arg0 + 0x74));
+    temp_r3 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)((u8 *)arg0 + 0x74));
     ((TUnk_804CE018 *)arg0)->draw_window_frame((void *)temp_r3);
-    draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
-    draw_arrows__18TWindowInputNumberFv(arg0, temp_r3, (int) (((TUnk_804CE018 *)arg0)->get_array_entry((int) ((TWindowInputNumber *)arg0)->selectedDigit)), ((TWindowInputNumber *)arg0)->is_confirmed());
+    draw_visible_window_entries(arg0, (u8 *)arg0 + 0x24, temp_r3);
+    draw_arrows__18TWindowInputNumberFv(arg0, temp_r3, (int) (((TUnk_804CE018 *)arg0)->get_array_entry((int) arg0->selectedDigit)), arg0->is_confirmed());
     {
-        void *temp_ptr = (void *) ((TWindowInputNumber *)arg0)->unknown70;
+        void *temp_ptr = (void *) arg0->unknown70;
         if (temp_ptr != NULL) {
             forward_render__20TWindowSubStatusDispFv(temp_ptr, temp_r3);
         }
