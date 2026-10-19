@@ -1,3 +1,4 @@
+#define TOBJECT_OUT_OF_LINE_HELPERS
 #include "types.h"
 #include "pso/boss/TBoss7LaserLight.h"
 #include "pso/object/TObjLight.h"
@@ -18,10 +19,24 @@ typedef struct Obj_802EEF9C {
     s32 x40;
 } Obj_802EEF9C;
 
+typedef struct Obj_802EF1AC {
+    u8 pad0[0x28];
+    f32 color[4];
+    f32 x38;
+    f32 x3C;
+    u32 light;
+} Obj_802EF1AC;
+
 extern "C" {
 s32 __ct__7TObjectFP7TObject(void *, s32);
 extern s32 lbl_804E4788[];
 extern const f32 TBoss7LaserLight__data_805DEBC4;
+extern const f32 lbl_805DEBD4;
+extern const f32 lbl_805DEBD8;
+extern const f32 lbl_805DEBDC;
+extern s32 __vt__16TBoss7LaserLight[];
+extern const char *lbl_805D3FC8;
+TBoss7LaserLight *TBoss7LaserLight__ct(TBoss7LaserLight *self, TObject *parent, s32 target);
 void noop_laser__23TAdSinglePlyChrSelectGCFv(s32);
 void TAdSinglePlyChrSelectGC__sub_80133508(s32);
 
@@ -105,4 +120,29 @@ void TBoss7LaserLight__sub_802EF12C(void* p) { *(s32*)((char*)p + 0x24) = 1; }
 }
 TBoss7LaserLight::~TBoss7LaserLight() {
     if (*(void **)((s8 *)this + 0x40) != NULL) { ((TObjLight *)(*(void **)((s8 *)this + 0x40)))->unregister_and_free(); this->m_40 = 0; }
+}
+
+TBoss7LaserLight *TBoss7LaserLight__ct(TBoss7LaserLight *self, TObject *parent, s32 target) {
+    Obj_802EF1AC *o = (Obj_802EF1AC *)self;
+    __ct__7TObjectFP7TObject(self, (s32)parent);
+    *(s32 **)((u8 *)self + 0x18) = __vt__16TBoss7LaserLight;
+    self->m_name = lbl_805D3FC8;
+    self->m_1c = target;
+    self->m_20 = 0;
+    self->m_24 = 0;
+    o->color[0] = lbl_805DEBD4;
+    o->color[1] = lbl_805DEBD4;
+    o->color[2] = lbl_805DEBD8;
+    o->color[3] = lbl_805DEBDC;
+    o->x38 = TBoss7LaserLight__data_805DEBC4;
+    o->x3C = TBoss7LaserLight__data_805DEBC4;
+    o->light = TObjLight::alloc_light_slot();
+    if (o->light == 0) {
+        self->queue_destruction();
+        return self;
+    }
+    noop_laser__23TAdSinglePlyChrSelectGCFv(o->light);
+    ((TAdSinglePlyChrSelectGC *)o->light)->set_position(o->color);
+    ((TAdSinglePlyChrSelectGC *)o->light)->forward_to_field_0x14(&o->x38);
+    return self;
 }

@@ -10,6 +10,8 @@
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 #include "pso/ui/TAdChrSelASlotGC.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
+#include "pso/TAdPlyChrSelPlateGC.h"
+#include "pso/ui/TAdChrSelSlotGC.h"
 
 struct RecoveredGlobal_8030EBD0_lbl_8050E3B8
 {
@@ -41,6 +43,12 @@ s32 get_global_state__16TAdChrSelBSlotGCFv(void *);
 extern RecoveredGlobal_8030E6E0_lbl_804758E8 lbl_804758E8;
 extern G_8030E3BC chr_select_b_slot_entry;
 G_8030E3BC *TAdChrSelBSlotGC__sub_8030E3BC(s32 arg0, s32 arg1, s32 arg2, void *arg3);
+extern const CharacterSlotPosition lbl_80475908;
+void set_entry_text__15TAdSubPlyItemGCFPvPv(void *item, G_8030E3BC *entry);
+void add_plate_rect__20TAdChrSelMovePlateGCFPvPv(void *plate, void *position);
+void TAdChrSelBSlotGC__sub_8030E624(TAdChrSelBSlotGC *self);
+s32 is_slot_value_ready__19TAdPlyChrSelPlateGCFl(s32 plate, s32 i);
+s32 is_slot_state_one__16TAdChrSelBSlotGCFlUl(s32 arg0, u32 i);
 
 void TAdChrSelBSlotGC::render() {
     if (TMainTask::get_state_flag() == 1) { return;
@@ -108,6 +116,23 @@ void TAdChrSelBSlotGC::enter_state17() {
     this->m_1c = 0x17;
 }
 void TAdChrSelBSlotGC__sub_8030E620(void) {  }
+
+void TAdChrSelBSlotGC__sub_8030E624(TAdChrSelBSlotGC *self) {
+    u32 i;
+    s32 slot;
+
+    if (is_slot_value_ready__19TAdPlyChrSelPlateGCFl(self->m_2c, 2)) {
+        ((TAdChrSelSlotGC *)*(void **)((s8 *)self + 0x28))->init_slot_entry(2, (void *)&lbl_80475908);
+        slot = (s32)self;
+        for (i = 0; i < 4; i++) {
+            set_entry_text__15TAdSubPlyItemGCFPvPv(*(void **)((s8 *)self + 0x30), TAdChrSelBSlotGC__sub_8030E3BC(slot, i, i, (u8 *)&lbl_804758E8.value + i * 8));
+            if (is_slot_state_one__16TAdChrSelBSlotGCFlUl(slot, i)) {
+                add_plate_rect__20TAdChrSelMovePlateGCFPvPv(self->m_34, (u8 *)&lbl_804758E8.value + i * 8);
+            }
+        }
+        self->m_1c = 0x14;
+    }
+}
 
 typedef char RecoveredGlobal_8030E6E0_lbl_804758E8_size[sizeof(RecoveredGlobal_8030E6E0_lbl_804758E8) == 0x20 ? 1 : -1];
 void TAdChrSelBSlotGC::reset_plate_positions() {

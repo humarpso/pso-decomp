@@ -150,6 +150,28 @@ s32 TLobby__sub_80223D48(s32 arg0) {
     }
     return -1;
 }
+s32 TLobby__sub_80223DD8(Item_802242F8 *item, s32 shop) {
+    Item_802242F8 *stock = ((Item_802242F8 **)&shop_tool_stock_buffers)[shop];
+    s32 i = 0;
+    while (i++ < shop_tool_stock_counts[shop]) {
+        if (item->b[0] == stock[i].b[0] && item->b[1] == stock[i].b[1] && item->b[2] == stock[i].b[2] &&
+            item->b[4] == stock[i].b[4]) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+s32 TLobby__sub_80223E64(Item_802242F8 *item, s32 shop) {
+    Item_802242F8 *stock = ((Item_802242F8 **)&shop_tool_stock_buffers)[shop];
+    s32 i = 0;
+    while (i++ < shop_tool_stock_counts[shop]) {
+        if (item->b[0] == stock[i].b[0] && item->b[1] == stock[i].b[1] && item->b[2] == stock[i].b[2]) {
+            return 0;
+        }
+    }
+    return 1;
+}
 typedef char RecoveredGlobal_80224404_lbl_80513F20_size[sizeof(RecoveredGlobal_80224404_lbl_80513F20) == 0x10 ? 1 : -1];
 
 typedef char RecoveredGlobal_802243D4_lbl_80513F10_size[sizeof(RecoveredGlobal_802243D4_lbl_80513F10) == 0x10 ? 1 : -1];

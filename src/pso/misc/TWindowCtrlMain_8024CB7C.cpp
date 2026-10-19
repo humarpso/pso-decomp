@@ -5,6 +5,7 @@
 #include "pso/misc/TWindowCtrlMain.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFish.h"
+#include "pso/TObjCMHairMenu.h"
 
 struct Ent_8024CCDC { u8 p0[8]; f32 f8; f32 fC; u8 p10[0xC]; };
 struct RecoveredGlobal_8024CDD0_TWindowCtrlMain__data_80518730 {
@@ -260,3 +261,34 @@ void draw_menu_backdrop_gradients(s32 viewport_index) {
     draw_color_lines(&line, 2, 4, -10.0f);
 }
 #pragma pop
+
+extern "C" void TWindowCtrlMain__sub_8024D2A4(s32 viewport_index);
+
+void TWindowCtrlMain__sub_8024D2A4(s32 viewport_index) {
+    Vec2_8024CE68 verts[4];
+    Poly_8024CE68 poly;
+    u32 colors[4];
+    u32 color;
+
+    color = get_window_control_state(viewport_index)->field04;
+    if (color == 0) {
+        return;
+    }
+    poly.verts = verts;
+    poly.colors = colors;
+    poly.flags = 0;
+    poly.count = 4;
+    poly.verts[0].x = 0.0f;
+    poly.verts[0].y = 0.0f;
+    poly.colors[0] = color;
+    poly.verts[1].x = 640.0f;
+    poly.verts[1].y = 0.0f;
+    poly.colors[1] = color;
+    poly.verts[2].x = 640.0f;
+    poly.verts[2].y = 480.0f;
+    poly.colors[2] = color;
+    poly.verts[3].x = 0.0f;
+    poly.verts[3].y = 480.0f;
+    poly.colors[3] = color;
+    ((TObjCMHairMenu *)&poly)->draw_tri_fan_2d(4, 0x16, -10.0f);
+}

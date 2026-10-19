@@ -689,6 +689,7 @@ force_active:
   - apply_fog_entry__FPv
   - apply_global_to_position__14TObjEneBm5WolfFv
   - apply_heal_to_target__13TOHealGeneralFv
+  - apply_hit__15TOAttackableColFl
   - apply_hit_to_target__14TBoss7CrawfishFPvPv
   - apply_lightning_effect__26TBoss5GryphonLightningWingFv
   - apply_mourning_jellen__14TObjEneBm5WolfFv
@@ -1012,6 +1013,8 @@ force_active:
   - boss_warp_motion_names
   - break_apart__15TObjEneMe1GiGueFv
   - break_rocks_in_wave__15TBoss6SwordWaveFv
+  - broadcast_state__15TOAttackableColFv
+  - bsearch_record__6TLobbyFPvii
   - bswap_6xAD_subordinate_action__20TItemEffOrgaFlowShotFv
   - bswap_cmd_88_marker_record__FPv
   - bswap_data__9TObjLightFv
@@ -1025,6 +1028,7 @@ force_active:
   - bswap_head16__10TObjPlayerFv
   - bswap_object_row_fields__FPv
   - bswap_pair__14TPlyDispConfigFv
+  - bswap_state__15TOAttackableColFv
   - bswap_udp_test_header__6TLobbyFv
   - build_6x05_write_switch_flag__FPv
   - build_6x75_update_quest_flag_dc__FPv
@@ -1197,6 +1201,7 @@ force_active:
   - check_card_file__19TAdTrialAgreementGCFl
   - check_client_connections__22TQuestVmDownLoadServerFv
   - check_destruction_by_phase__6TLobbyFv
+  - check_door_trigger__15TOAttackableColFv
   - check_flag_or_state__15TObjBoss2TunnelFi
   - check_floor_contact__18TObjEneMe3SinowZoaFPv
   - check_ground_or_fall__13TUnk_804B5BA8Fv
@@ -1253,6 +1258,7 @@ force_active:
   - classify_level_bracket_wide__6TLobbyFl
   - clear_30_slots__10TObjPlayerFv
   - clear_active_flag__8TFogCtrlFv
+  - clear_all_entries__6TLobbyFPv
   - clear_battle_player_ready_flags
   - clear_bit__15TBoss6SwordWaveFPvUc
   - clear_card_status_flags__6TLobbyFv
@@ -1745,6 +1751,7 @@ force_active:
   - fe_obj_switch_laz_model_names
   - fe_obj_switch_laz_motion_names
   - fields_equal__23TAdSinglePlyChrSelectGCFPv
+  - fill_list_entry__6TLobbyFPvPv
   - fill_range__15TBoss6SwordWaveFPvPv
   - find_archive_entry__6TLobbyFPvPvPvPv
   - find_area_technique_contact__FPviPvPv
@@ -1753,6 +1760,7 @@ force_active:
   - find_farthest_balloon_slot__11TWindowCtrlFPvUs
   - find_free_chat_log_slot__6TLobbyFv
   - find_free_file_names__22TQuestVmDownLoadServerFv
+  - find_free_slot__6TLobbyFv
   - find_gsl_entry__FPv
   - find_nearest_enemy__10TObjPlayerFPvPvf
   - find_open_direction__15TObjEneMe1GiGueFPvPv
@@ -1971,6 +1979,7 @@ force_active:
   - guide_button_type_name
   - hair_bone_rotation_descriptor
   - hair_effect_selection_table
+  - handle_6x91_update_state__15TOAttackableColFv
   - handle_appear__17TObjEneBm3FlyNestFPvi
   - handle_attachment_sample__17TObjEneBm3FlyNestFi
   - handle_break_state__19TObjEneEpsilonGuardFl
@@ -2149,6 +2158,7 @@ force_active:
   - init_params__10TTecDebandFv
   - init_params__11TBoss7JointFv
   - init_params__15TBoss3VoloptP01Fv
+  - init_params__15TOAttackableColFv
   - init_params__17TObjEneBm3FlyNestFv
   - init_params__18TObjButterflyLobbyFv
   - init_params__20TBoss3VoloptHiraisinFv
@@ -2226,6 +2236,7 @@ force_active:
   - is_logo_exit_requested__Fi
   - is_mag_full__FPUc
   - is_mode_bit6__11TWindowChatFv
+  - is_name_too_long__6TLobbyFPv
   - is_no_service_active__14TShopGeneratorFPvl
   - is_open__11TWindowChatFv
   - is_open__15TODoorVS2Door01Fv
@@ -7292,6 +7303,7 @@ force_active:
   - register_global_instance_dtor__22TQuestVmDownLoadServerFv
   - register_global_objects__14TObjEneBm5WolfFv
   - release__11TOVS2Wall01Fv
+  - release__15TOAttackableColFv
   - release_load_slot__12TChCrLoadAfsFv
   - release_network_info_cipher_key__FPUl
   - release_subobjects__10TObjPlayerFv
@@ -7300,6 +7312,7 @@ force_active:
   - reload_offline_area__6TLobbyFv
   - remap_sound_id__15TObjEneMe1GiGueFPvl
   - remove_duplicate_bindings__21TWindowSubCustomEquipFPv
+  - remove_entry_at__6TLobbyFi
   - remove_equip_effects__14TItemEquipBaseFv
   - render__10TAdADXlogoFv
   - render__10TAdTitleGCFv
@@ -7689,6 +7702,7 @@ force_active:
   - send_srank_stat_extra_to_locks__13TUnk_804A4948Fv
   - send_state_60__10TNpcPlayerFv
   - send_state__12TODoorCave01FPv
+  - send_state_change__15TOAttackableColFUs
   - send_subordinate_actions__11TBoss6Type2Flllll
   - send_swapped_telepipe_packet__9TTecLukerFv
   - send_trade_busy_reply__Fl
@@ -8076,6 +8090,9 @@ force_active:
   - spawn_directional_particle_at_slot__10TObjPlayerFl
   - spawn_effect__19TContainerAncient01FPvPvPv
   - spawn_effects__20TBoss3VoloptHiraisinFv
+  - spawn_faust_explosion
+  - spawn_faust_hit_explosion__Fll
+  - spawn_faust_wall_explosion__10TObjPlayerFll
   - spawn_fire_explosion__10TObjPlayerFUll
   - spawn_fire_explosion_at_item__10TObjPlayerFll
   - spawn_fire_explosion_for_item__10TObjPlayerFll

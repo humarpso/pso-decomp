@@ -5,6 +5,7 @@
 #include "pso/misc/TWindowDD.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_80276D14_lbl_8050E208 {
     s32 value;
@@ -320,6 +321,33 @@ void *__dt__21TWindowSubCustomEquipFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+u8 *get_window_layout_position(s32 index);
+extern u8 lbl_804D1488[];
+extern const char *lbl_805D3A20;
+
+TWindowSubCustomEquip *TWindowSubCustomEquip__ct(TWindowSubCustomEquip *self, s32 slot) {
+    void *heading;
+    ((TWindowDD *)self)->construct_base(lbl_804D1488, slot, get_window_layout_position(0xF));
+    *(s32 **)((s8 *)self + 0x18) = __vt__21TWindowSubCustomEquip;
+    self->m_name = lbl_805D3A20;
+    self->m_20 = slot;
+    self->m_60 = 0;
+    self->m_61 = 1;
+    self->m_62 = 0;
+    self->m_63 = 0;
+    self->m_64 = 0;
+    self->m_65 = 1;
+    self->m_66 = 0;
+    self->m_68 = 0xB200;
+    heading = (void *)((TAdSinglePlyChrSelectGC *)0x24)->alloc();
+    if (heading != NULL) {
+        heading = ((TWindowSubStatusDisp *)heading)->construct_type1_heading((s32)TWindowSubStatusDisp::get_message_10(0x23), self->m_20);
+    }
+    self->m_6c = (u32)heading;
+    self->refresh_palette_slots();
+    return self;
 }
 
 s32 TWindowSubCustomEquip::calc_equip_index() {

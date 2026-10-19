@@ -1,6 +1,7 @@
 #include "types.h"
 #include "pso/unk/text_800F9B84.h"
 #include "pso/unk/text_80082910.h"
+#include "pso/misc/TLobby.h"
 struct C_80082AA8 { s32 v; };
 
 struct B_80082AA8 { u8 pad[0xc]; C_80082AA8 *c; };
@@ -29,11 +30,13 @@ extern E_80082AA8 *shared_effect_texture_list[];
 extern s32 particle_texture_id_table[];
 extern void *lbl_805D4ED8;
 extern char lbl_80438EF8[];
-extern void *lbl_80438EE8[];
+extern void *const lbl_80438EE8[];
 extern "C" {
 void bind_gvm_texture_list(const char *name, void *data);
 void copy_slot_to_anim_frame(struct Copy_80082954 *c);
 void fn_800829E0(struct Copy_800829E0 *c);
+void fn_80082A6C(void);
+void TLobby__sub_803DA16C(void *);
 }
 
 s32 find_particle_texture_index(s32 id) {
@@ -58,6 +61,12 @@ void fn_800829E0(struct Copy_800829E0 *c) {
     (*c->destination)[c->slot].z = (*c->animation)[c->frame].z;
     (*c->destination)[c->slot].y = (*c->animation)[c->frame].y;
     (*c->destination)[c->slot].x = (*c->animation)[c->frame].x;
+}
+
+void fn_80082A6C(void) {
+    TLobby__sub_803DA16C(lbl_80438EE8[0]);
+    TLobby::free_nodes_with_id((u32)lbl_805D4ED8);
+    lbl_805D4ED8 = 0;
 }
 
 void load_critical_effect_resources(void) {

@@ -2173,4 +2173,72 @@ void *TObjEneMorfos::create() {
     }
     return o;
 }
+
+struct ModelRes_803350AC {
+    u8 pad[0x18];
+    u8 *f18;
+    u8 *f1C;
+    u8 pad20[0x8];
+    u8 *f28;
+};
+
+struct ResMgr_803350AC {
+    u8 pad[0x42C];
+    ModelRes_803350AC *res;
+    s32 f430;
+};
+
+struct SpawnDesc_803350AC {
+    s32 w[4];
+};
+
+s32 load_enemy_bml_resource(u8 *desc);
+extern f32 lbl_805434D0[3];
+extern const s32 lbl_805DF860[1];
+extern const s32 lbl_805DF864[1];
+extern const s32 lbl_805DF868[1];
+extern const s32 lbl_804774A0[2];
+extern const SpawnDesc_803350AC lbl_804775C8;
+void TObjEneMorfos__sub_803350AC(void);
+
+void TObjEneMorfos__sub_803350AC(void) {
+    ResMgr_803350AC *mgr;
+    s32 i;
+
+    if (is_split_screen() != 0) {
+        mgr = (ResMgr_803350AC *)load_enemy_bml_resource((u8 *)bm_ene_morfos_low_resource_descriptor);
+    } else {
+        mgr = (ResMgr_803350AC *)load_enemy_bml_resource((u8 *)morfos_resource_descriptor);
+    }
+    TObjEneMorfos__instance = (int)mgr;
+    lbl_805434D0[0] = TObjEneMorfos__data_805DF874;
+    lbl_805434D0[1] = TObjEneMorfos__data_805DF874;
+    lbl_805434D0[2] = TObjEneMorfos__data_805DF874;
+    TObjEneMorfos__phase = 0;
+    TObjEneMorfos__camera_path_cursor = 0;
+    lbl_805D6D20 = *(u8 **)(*(u8 **)(*(u8 **)(mgr->res->f18 + 0x2C) + 4) + 4);
+    lbl_805D6D24 = *(u8 **)(*(u8 **)(mgr->res->f28 + 4) + 4);
+    lbl_805D6D28 = 0;
+    lbl_805D6D2C = 0;
+    for (i = 0; i < 1; i++) {
+        lbl_805D6D08[i] = (s32)TLobby::register_boss(lbl_805DF860[i]);
+    }
+    for (i = 0; i < 2; i++) {
+        lbl_805434DC[i] = (s32)TLobby::dispatch_shared_handler_b(lbl_804774A0[i]);
+    }
+    for (i = 0; i < 1; i++) {
+        lbl_805D6D0C[i] = (s32)TLobby::register_object(lbl_805DF864[i]);
+    }
+    for (i = 0; i < 1; i++) {
+        (&TObjEneMorfos__param_table)[i] = (int)TLobby::dispatch_shared_handler_a(lbl_805DF868[i]);
+    }
+    TObjEneMorfosArm::init_global();
+    {
+        SpawnDesc_803350AC desc = lbl_804775C8;
+        desc.w[0] = ((ResMgr_803350AC *)TObjEneMorfos__instance)->f430;
+        TLobby::spawn_npc_enemy(0x4D, (s32)((ResMgr_803350AC *)TObjEneMorfos__instance)->res->f18,
+                                (s32)((ResMgr_803350AC *)TObjEneMorfos__instance)->res->f1C, (s32)&desc,
+                                lbl_805DF880, TObjEneMorfos__data_805DF874);
+    }
+}
 }

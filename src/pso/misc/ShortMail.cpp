@@ -166,6 +166,18 @@ s32 find_free_slot__6TLobbyFv(void) {
 }
 }
 
+extern "C" s32 play_sound_effect(int, void *, int, int);
+
+void TLobby__sub_80225A08(void *p) {
+    s32 slot = find_free_slot__6TLobbyFv();
+    u8 *entry = lbl_80513F70;
+    entry += slot * 0xd0;
+    fill_list_entry__6TLobbyFPvPv(entry, (u8 *)p);
+    lobby_short_mail_entry_count++;
+    TLobby__sub_80225CB8();
+    play_sound_effect(0x52D17, 0, 0, 0);
+}
+
 void remove_short_mail_by_id(u32 id) {
     s32 count = get_short_mail_ctrl__6TLobbyFv();
     s32 i;

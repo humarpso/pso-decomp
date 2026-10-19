@@ -483,6 +483,31 @@ s32 init_machine_b_scene(void) {
 }
 
 void TLobby::refresh_floor_state() { TLobby::refresh_render_state(); TLobby::stop_audio_streams(); unload_current_floor_resources(); TLobby::update_current_floor(); TLobby::clear_session_buffers(); }
+extern s32 lbl_8043F258[];
+extern "C" s32 TLobby__sub_80140C7C(void);
+
+s32 TLobby__sub_80140C7C(void) {
+    TOKeyMachine01::get_global_state();
+    load_floor_sound_bank();
+    if (TLobby::check_disconnect_conditions() != 0) {
+        return 0;
+    }
+    init_area_lights();
+    TLobby::create_tasks();
+    if ((get_main_phase() != 0xE) || (is_quest_active() == 0)) {
+        switch (TOKeyMachine01::get_global_state()) {
+        case 0x16:
+            TBoss4DarkFalz::dispatch_by_main_phase(0x4E);
+            break;
+        }
+    }
+    if (is_split_screen() != 0) {
+        play_area_music(lbl_8043F258);
+    } else if (TLobby::get_instance() == 1) {
+        init_music_sequencer(8);
+    }
+    return 1;
+}
 void TLobby::run_floor_update_2() { TLobby::refresh_render_state(); TLobby::stop_audio_streams(); unload_current_floor_resources(); TLobby::update_current_floor(); TLobby::clear_session_buffers(); }
 
 typedef char RecoveredGlobal_80140A6C_lbl_804A73D0_size[sizeof(RecoveredGlobal_80140A6C_lbl_804A73D0) == 0x30 ? 1 : -1];

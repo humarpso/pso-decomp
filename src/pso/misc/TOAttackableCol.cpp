@@ -6,6 +6,9 @@
 #include "pso/TObject.h"
 #include "pso/misc/TOBarrierEnergy01.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TLobby.h"
+
+void set_floor_switch_flag(u32 id, s16 floor);
 
 struct RecoveredGlobal_80157AD8_lbl_804AF9A8 {
     s32 value;
@@ -23,11 +26,13 @@ struct Msg_801575AC {
     s32 id;
     s32 type;
     u16 state;
-    s16 f0E;
-    s16 f10;
-    s8 flag;
+    u16 f0E;
+    u16 f10;
+    u8 flag;
     s8 player;
 };
+
+struct SetEntry_80157454 { s16 id; s16 value; };
 
 struct Obj_801575AC {
     u8 pad0[0x1C];
@@ -77,6 +82,9 @@ s32 __dl__7TObjectFPv(void *);
 int bswap_header__6TLobbyFv(void*);
 int clear_player_status_flag__13TUnk_804AF8A0FlUl(void*, int, int);
 void queue_destruction__7TObjectFv(void *arg0);
+void *find_entity_by_id(u16 id);
+s32 check_value_equals__13TUnk_804B6C24Fl(void *, s32);
+extern SetEntry_80157454 *TLobby__data_805D6140;
 
 void TOAttackableCol__sub_80157310(void * _w0) {  }
 
@@ -118,6 +126,51 @@ void TOAttackableCol::init_params() {
         }
     } else {
         *(s32 *)&this->unk_348 = -1;
+    }
+}
+
+void handle_6x91_update_attackable_col_state(Msg_801575AC *msg) {
+    TOAttackableCol *col;
+    s32 mode;
+
+    if (msg != NULL) {
+        ((TOAttackableCol *)msg)->bswap_state();
+        if (msg->room != 0xFFFF && msg->room >= 0x4000) {
+            col = (TOAttackableCol *)find_entity_by_id(msg->room);
+            if (col != NULL) {
+                if (check_value_equals__13TUnk_804B6C24Fl(col, lbl_805D2E98) != 0) {
+                    SetEntry_80157454 saved;
+                    switch (msg->state) {
+                    case 0:
+                        mode = col->mode;
+                        if (mode != 1) {
+                            if ((mode >= 1) || (mode < 0)) {
+                                col->mode = 0;
+                            }
+                            if (msg->f0E < TOAttackableCol__sub_80157C28(col)) {
+                                TOAttackableCol__sub_80157C20(col, msg->f0E);
+                            }
+                        }
+                        break;
+                    case 1:
+                        if (col->mode != 1) {
+                            col->mode = 1;
+                            col->handle_6x91_update_state();
+                        }
+                        break;
+                    }
+                    saved.id = col->mode;
+                    col->vfunc_6(&saved.id, 0);
+                }
+            } else {
+                SetEntry_80157454 entry = TLobby__data_805D6140[msg->type];
+                entry.id = msg->id;
+                TLobby::apply_table_entry(msg->type, &entry);
+            }
+            if (msg->flag == 1 && msg->f10 < 0x100 && msg->player < 18) {
+                set_floor_switch_flag(msg->f10, msg->player);
+            }
+        }
     }
 }
 

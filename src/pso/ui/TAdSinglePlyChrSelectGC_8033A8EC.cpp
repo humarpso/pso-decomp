@@ -35,6 +35,8 @@ struct O_8033AB04 { u8 pad[0x24]; s32 f24; u8 pad2[4]; s32 f2C; };
 
 struct O_8033ACF4 { u8 pad[0x24]; s32 f24; s32 f28; s32 f2C; };
 
+struct O_8033AFC8 { u8 pad[0x20]; u32 f20; s32 f24; s32 f28; s32 f2C; };
+
 struct V3_8033B2AC { s32 x, y, z; };
 
 struct V3_8033B39C { f32 x, y, z; };
@@ -70,6 +72,9 @@ void TAdSinglePlyChrSelectGC__sub_8033AA64(O_8033AA64 *arg0);
 s32 get_card_file_info__15TAdPlayerLoadGCFiPvPv(int, void *, int);
 s32 query_memcard_capacity__15TAdPlayerLoadGCFl(int, int);
 extern u8 lbl_804C89BC[];
+extern u8 lbl_804C88C0[];
+s32 TAdPlayerLoadGC__sub_801E1944(s32, void *, u32, s32);
+void TAdSinglePlyChrSelectGC__sub_8033AFC8(O_8033AFC8 *arg0);
 void check_memcard_space__23TAdSinglePlyChrSelectGCFPv(O_8033AC44 *arg0);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 
@@ -323,6 +328,36 @@ void TAdSinglePlyChrSelectGC::handle_load_result() {
                 register_callback__23TAdSinglePlyChrSelectGCFis(obj, 1);
             }
         }
+        break;
+    }
+}
+
+void TAdSinglePlyChrSelectGC__sub_8033AFC8(O_8033AFC8 *arg0) {
+    switch (get_card_file_info__15TAdPlayerLoadGCFiPvPv(arg0->f24, lbl_804C88C0, 0)) {
+    case 0:
+        if (arg0->f20 != 0) {
+            switch (TAdPlayerLoadGC__sub_801E1944(arg0->f24, lbl_804C88C0, arg0->f20, arg0->f28)) {
+            case 0:
+                arg0->f2C = 3;
+                break;
+            default:
+                arg0->f2C = 0;
+                ((s32 (*)(void *))TAdSinglePlyChrSelectGC__sub_8033B5F0)(arg0);
+                break;
+            }
+        }
+        break;
+    case -1:
+        break;
+    case -251:
+    case -255:
+        TAdSinglePlyChrSelectGC__sub_8033A9F0((TAdSinglePlyChrSelectGC *)arg0);
+        break;
+    case -254:
+    case -252:
+    default:
+        arg0->f2C = 0;
+        ((s32 (*)(void *))TAdSinglePlyChrSelectGC__sub_8033B5F0)(arg0);
         break;
     }
 }

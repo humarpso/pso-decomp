@@ -1490,6 +1490,34 @@ void TObjEneIllGill::sub_80367DC8(s32 arg1) {
     project_actor_to_ground(this, (void *)&lbl_8050BF00.value, 0);
 }
 
+void TObjEneIllGill::vfunc_58() {
+    switch (mode) {
+    case 0:
+        switch (phase) {
+        case 0:
+        case 1:
+            break;
+        default:
+            phase = 2;
+            if ((s32)m_390 != 0) {
+                phase = 0;
+            }
+            break;
+        }
+        break;
+    default:
+        mode = 0;
+        if ((s32)m_390 != 0) {
+            phase = 0;
+        } else {
+            phase = 2;
+        }
+        m_b8 = 1;
+        free_resources();
+        break;
+    }
+}
+
 typedef struct RecoveredFields_80367EFC_arg0 RecoveredFields_80367EFC_arg0;
 s32 TObjEneIllGill::update_movement_status() {
     u8 *arg0 = (u8 *)this;

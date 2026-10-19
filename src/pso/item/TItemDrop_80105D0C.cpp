@@ -356,6 +356,8 @@ struct Tbl_80106FC8 {
 
 struct Pair_801075B4 { u16 lo; u16 hi; };
 
+struct Pair_80107640 { u8 lo; u8 hi; };
+
 struct Tbl_80107210
 {
   u8 *weights;
@@ -373,7 +375,7 @@ void set_flag__9TItemDropFPvPv(void *arg0, void *arg1);
 s32 try_generate_rare_item__9TItemDropFiPvPv(s32 arg0, u8 *arg1, u8 *arg2);
 void init_rare_item_data__9TItemDropFPvPv(void *arg0, void *arg1);
 void handle_type3__9TItemDropFPvPv(void* p, void* a1);
-s8 roll_technique_level__9TItemDropFv(s32, s32, u8, s32, s32);
+u8 roll_technique_level__9TItemDropFv(s32 self, s32 table, s32 row, s32 col, s32 stride);
 u8 select_weighted_column_u16__9TItemDropFiiiii(s32, s32, s32, s32, s32);
 s32 init__9TItemDataFv(void *);
 s32 find_tool_pmt_base_id(u8, void *);
@@ -1011,6 +1013,23 @@ u16 roll_meseta_range__9TItemDropFPviiii(void *self, s32 arg1, s32 a, s32 b, s32
     }
     {
         u16 r = roll_channel_below__9TItemDropFPviUi(((u8 *)self), (hi - lo + 1), 5);
+        return r + base;
+    }
+}
+
+u8 roll_technique_level__9TItemDropFv(s32 self, s32 table, s32 row, s32 col, s32 stride) {
+    Pair_80107640 *tbl = (Pair_80107640 *)table;
+    u32 lo = tbl[col + row * stride].lo;
+    u32 hi = tbl[col + row * stride].hi;
+    u8 base = lo;
+    if (lo == 0xFF || hi == 0xFF || hi < lo) {
+        return 0xFF;
+    }
+    if (lo == hi) {
+        return lo;
+    }
+    {
+        u8 r = roll_channel_below__9TItemDropFPviUi(((u8 *)self), (hi - lo + 1), 4);
         return r + base;
     }
 }

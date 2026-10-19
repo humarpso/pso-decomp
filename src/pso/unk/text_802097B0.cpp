@@ -3,6 +3,7 @@
 #include "pso/misc/TLobby_8020A350.h"
 #include "pso/misc/TLobby_8020A568.h"
 #include "pso/misc/TLobby.h"
+#include "pso/system/EventShuffleTable.h"
 struct Ent_802098AC { f32 a, b, c; u32 d, e, f, g; };
 
 struct Out_802098AC { u8 pad[0x14]; f32 a, b, c; u32 d, e, f; };
@@ -27,6 +28,12 @@ struct Ent_80209AEC { u8 b0; u8 b1; u8 weight; u8 pad; };
 struct Rec_802099FC;
 struct Tmp_8020994C { u8 pad[0x18]; s16 v; u8 pad2[2]; };
 
+struct Hdr_802097B0 { s32 table; s32 data; s32 count; };
+
+struct Ent_802097B0 { s16 id; s16 count; s32 offset; };
+
+void init_event_shuffle_table(EventShuffleTable *table, s32 count);
+
 extern "C" {
 s32 next_event_shuffle_entry(s32);
 extern s32 lbl_805D60A4;
@@ -36,6 +43,39 @@ extern u8 *TLobby__item_data_table_buffer;
 void TLobby__sub_802099FC(Out_802099FC *arg0, s32 arg1);
 extern s32 item_drop_rng;
 Rec_802099FC *bsearch_record__6TLobbyFPvii(void *arg0, s32 n, s32 key);
+extern u8 *lbl_805D60AC;
+void TLobby__sub_802097B0(s16 id);
+
+void TLobby__sub_802097B0(s16 id) {
+    Ent_802097B0 e;
+    Hdr_802097B0 hdr = *(Hdr_802097B0 *)lbl_805D60AC;
+    u8 *table;
+    s32 lo;
+    s32 hi;
+    s32 mid;
+
+    ((TLobby *)(&hdr))->bswap_vec3();
+    table = lbl_805D60AC + hdr.table;
+    lo = 0;
+    hi = hdr.count - 1;
+    while (lo < hi) {
+        mid = (lo + hi) / 2;
+        TLobby__sub_8020A3D0(&e, table + mid * 8);
+        TLobby__sub_8020A394(&e);
+        if (e.id < id) {
+            lo = mid + 1;
+        } else {
+            hi = mid;
+        }
+    }
+    TLobby__sub_8020A3D0(&e, table + lo * 8);
+    TLobby__sub_8020A394(&e);
+    if (e.id == id) {
+        lbl_805D60B8 = (Ent_802098AC *)((u32)lbl_805D60AC + hdr.data + e.offset);
+        init_event_shuffle_table((EventShuffleTable *)lbl_805D60A4, e.count);
+    }
+}
+
 void TLobby::pick_random_entry() {
     Out_802098AC *out = (Out_802098AC *)this;
     s32 i = next_event_shuffle_entry(lbl_805D60A4);

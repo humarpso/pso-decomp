@@ -20,6 +20,12 @@ s32 __nw__7TObjectFUl(int);
 s32 reset_fields__9TWindowDDFv(void *, void *);
 extern s32 lbl_805D42E0;
 extern const f32 TWindowDD__data_805DFCA8;
+extern s32 TWindowDD__data_805DFC14;
+extern const f32 TWindowDD__data_805DFB6C;
+extern const f32 lbl_805DFB70;
+extern const f32 TWindowDD__data_805DFB74;
+extern const f32 lbl_805DFB78;
+extern const f32 lbl_805DFC1C;
 void *destroy__17TWindowDD_WS_WordFs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void mem_free(void *);
@@ -111,6 +117,15 @@ s32 TWindowDD__sub_80342384(s32 arg0, s32 arg1) {
     return var_r0;
 }
 
+void TWindowDD__sub_803423E0(void) {
+    *(s32 *)((s8 *)&TWindowDD__data_804EFC50.value + 0x18) = TWindowDD__data_805DFC14;
+    ((f32 *)lbl_804EFC74)[0] = TWindowDD__data_805DFB6C;
+    ((f32 *)lbl_804EFC74)[1] = lbl_805DFB70;
+    ((f32 *)lbl_804EFC7C)[0] = TWindowDD__data_805DFB74;
+    ((f32 *)lbl_804EFC7C)[1] = lbl_805DFB78;
+    ((f32 *)lbl_804EFC7C)[2] = lbl_805DFC1C;
+}
+
 void TWindowDD__sub_80342428(u8 *window_dd) {
   u8 *new_var;
   TWindowDD__sub_80347C50();
@@ -143,3 +158,5 @@ void TWindowDD__sub_80342428(u8 *window_dd) {
 }
 
 }
+
+__declspec(section ".ctors") static void *const __sinit_TWindowDD_80342254_cpp_ref = (void *)TWindowDD__sub_803423E0;

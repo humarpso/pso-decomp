@@ -12,4 +12,19 @@ void approach_vector_in_place(Vec_8008271C *a, const Vec_8008271C *b, f32 t) {
     a->z = tmp.z;
 }
 
+s32 approach_alpha_clamped(f32 *cur, const f32 *target, f32 step) {
+    f32 v;
+    if (*cur == *target) {
+        return 1;
+    }
+    if (*cur < *target) {
+        v = *cur + step;
+        *cur = (v < 0.0f) ? 0.0f : ((v < *target) ? v : *target);
+    } else {
+        v = *cur - step;
+        *cur = (v < *target) ? *target : ((v < 1.0f) ? v : 1.0f);
+    }
+    return 0;
+}
+
 }

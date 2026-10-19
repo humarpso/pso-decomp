@@ -21,6 +21,8 @@ extern s32 cm_proportion_pad_button_masks[];
 extern u8 controller_input_state[];
 f32 atan2_float(f32 y, f32 x);
 f32 newton_sqrtf(f32);
+extern s32 creation_direction_priority_masks[4];
+void update_creation_direction_repeat(void);
 }
 extern const f64 lbl_80465170;
 extern const f32 lbl_805DDC28;
@@ -72,6 +74,35 @@ u8 TObjCMProportion__sub_8029916C(s32 arg0) {
     return (u8) ((*(s32 *)((s8 *)(&(*(RecoveredGlobal_8029916C_lbl_805409C8 *)&creation_input_state).value) + 0x10) & arg0) != 0);
 }
 #define G_80299238(off) (*(s32 *)((s8 *)(&creation_input_state) + (off)))
+void update_creation_direction_repeat(void) {
+    s32 held;
+    s32 rest;
+    s32 *p;
+    held = G_80299238(0xC) & 0xF0;
+    G_80299238(0x14) = 0;
+    if (held == 0) {
+        G_80299238(0x8) = 0;
+        G_80299238(0x4) = 0;
+        G_80299238(0x14) = 0;
+        return;
+    }
+    if (held & G_80299238(0x4)) {
+        G_80299238(0x8)++;
+        if (G_80299238(0x8) == 7 || G_80299238(0x8) >= 10) {
+            G_80299238(0x14) = G_80299238(0x4);
+            G_80299238(0x8) = 7;
+        }
+        return;
+    }
+    rest = held;
+    p = creation_direction_priority_masks;
+    while ((rest &= ~*p) != 0) {
+        p++;
+    }
+    G_80299238(0x4) = held & *p;
+    G_80299238(0x14) = G_80299238(0x4);
+    G_80299238(0x8) = 0;
+}
 void TObjCMProportion::poll_pad_buttons() {
     s32 old;
     s32 i;

@@ -7,6 +7,7 @@
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/ui/TAdEnterSerialAccessGC.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
+#include "pso/TPlyCharData.h"
 
 struct P_802D4F2C { f32 x, y; };
 
@@ -59,6 +60,7 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s32, s32, s32 *);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
+TPlyCharData *get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
 
 extern char controller_input_state[];
 extern s32 lbl_805DE784;
@@ -127,6 +129,14 @@ void TAdSinglePlyChrSelectGC::run_task() {
         self->flag1c = 0;
     }
     self->prev = self->state;
+}
+
+s32 TAdSinglePlyChrSelectGC__sub_802D4D9C() {
+    player_stats stats = get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF)->m_disp_data.m_stats;
+    if (stats.meseta >= 10000) {
+        return 1;
+    }
+    return 0;
 }
 
 void TAdSinglePlyChrSelectGC::sub_802D4E08() {

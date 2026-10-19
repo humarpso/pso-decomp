@@ -17,6 +17,8 @@ struct Dst_801A1F48 { u8 pad[0x1C]; u16 id; u8 pad1e[0xA]; s16 kind; u8 pad2a[0x
 extern "C" {
 extern u16 lbl_805D5CD4;
 extern u16 lbl_805D5CD6;
+extern u16 lbl_805D5CD2;
+extern u16 lbl_805D5CD8;
 u16 TLobby__sub_801A20C8(s32);
 
 s16 TUnk_804B9870::get_stat_by_key_state() {
@@ -77,6 +79,19 @@ u16 TLobby::alloc_actor_ids(s32 arg) {
         lbl_805D5CD4 = id + (n + 1);
     } else {
         lbl_805D5CD4 = id + (n + 1);
+    }
+    return id;
+}
+
+u16 TLobby__sub_801A20C8(s32 arg) {
+    u16 n = arg;
+    s32 id = lbl_805D5CD2;
+    if (id + n + 1 >= 0x4000) {
+        lbl_805D5CD2 = lbl_805D5CD8;
+        id = lbl_805D5CD2;
+        lbl_805D5CD2 = id + (n + 1);
+    } else {
+        lbl_805D5CD2 = id + (n + 1);
     }
     return id;
 }

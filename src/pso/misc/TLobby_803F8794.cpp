@@ -467,6 +467,7 @@ void TLobby__sub_803F89D8(void *);
 extern u16 lbl_805D7A60;
 extern Ent_803F8D84 *lbl_805D7A64;
 void TLobby__sub_803F8D84(u32 key);
+s32 TLobby__sub_803F8D24(H_803F8BA4 *h);
 void TLobby__sub_80401CAC(Outer_80401CAC *o, u16 v);
 u16 read_network_u16_be(u8 *p);
 u32 TLobby__sub_80402AFC(u8 *p);
@@ -819,6 +820,22 @@ u8 *TLobby::layout_buffers(u8 *p, u8 *end) {
         lbl_805D7C08 = h->g;
     }
     return p;
+}
+
+s32 TLobby__sub_803F8D24(H_803F8BA4 *h) {
+    s32 n = 2;
+    s32 size;
+    if (h->a != 0) {
+        n = 3;
+    }
+    if (h->b != 0) {
+        n += 2;
+    }
+    size = (h->d + 0x328) * n;
+    size += (h->c + 12) * h->n2 * 2;
+    size += h->f * 2;
+    size += h->g;
+    return size;
 }
 
 void TLobby__sub_803F8D84(u32 key) {

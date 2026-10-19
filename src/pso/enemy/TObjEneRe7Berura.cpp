@@ -454,6 +454,7 @@ void TObjEneRe7Berura__sub_800940E8(TObjEneRe7Berura *arg0, s32 arg1);
 void TObjEneRe7Berura__sub_80094624(u8 *arg0, s32 arg1);
 void TObjEneRe7Berura__sub_8009472C(u8 *arg0, s32 arg1);
 void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 arg2);
+void TObjEneRe7Berura__sub_80094C68(TObjEneRe7Berura *self);
 void TObjEneRe7Berura__sub_80094D98(u8 *arg0);
 s32 TObjEneRe7Berura__sub_80094DB4(void *arg0);
 s32 get_field_3D4_shifted__16TObjEneRe7BeruraFPv(void *arg0);
@@ -519,9 +520,9 @@ void *destroy_buffer_pair(void *arg0, s16 arg1);
 void get_current_matrix(void *);
 void draw_chunk_model(void *arg0);
 
-extern s32 TObjEneRe7Berura__data_80439DA8[];
-extern s32 TObjEneRe7Berura__data_80439DB0[];
-extern s32 TObjEneRe7Berura__data_80439DB8[];
+extern const s32 TObjEneRe7Berura__data_80439DA8[];
+extern const s32 TObjEneRe7Berura__data_80439DB0[];
+extern const s32 TObjEneRe7Berura__data_80439DB8[];
 extern s32 TObjEneRe7Berura__data_805007D4[];
 extern Elem_800959F8 TObjEneRe7Berura__detached_part_states[];
 extern s32 TObjEneRe7Berura__stat_handle_table[1];
@@ -842,6 +843,12 @@ void TObjEneRe7Berura::play_band_sound() {
     }
 }
 #pragma pop
+
+void TObjEneRe7Berura__sub_80094C68(TObjEneRe7Berura *self) {
+    reload_stats_keep_hp_tp__9TObjEneDDFv(self, ((void * *)TObjEneRe7Berura__stat_handle_table)[TObjEneRe7Berura__data_80439DA8[0]],
+                            ((void * *)TObjEneRe7Berura__data_805007D4)[TObjEneRe7Berura__data_80439DB0[0]],
+                            ((void * *)TObjEneRe7Berura__shared_object_handles)[TObjEneRe7Berura__data_80439DB8[0]]);
+}
 
 void TObjEneRe7Berura::reload_stats_from_tables() {
     reload_stats_keep_hp_tp__9TObjEneDDFv(this, ((void * *)TObjEneRe7Berura__stat_handle_table)[TObjEneRe7Berura__data_80439DA8[1]],

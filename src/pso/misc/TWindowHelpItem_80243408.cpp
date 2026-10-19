@@ -30,6 +30,8 @@ struct Icon_80243630 {
 
 struct UV_80243630 { f32 u; f32 v; };
 
+struct PaletteItemKind { u8 group; u8 index; };
+
 extern "C" {
 void *get_player_by_client_id(s32 i);
 s8 clamp_char_at__10TObjPlayerFl(u32, s32);
@@ -43,7 +45,9 @@ extern const f32 lbl_805DCA40;
 extern const f32 lbl_805DCA44;
 void draw_action_palette_icon(Icon_80243630 *icon, u16 group, u16 index);
 void *find_item_by_id();
-s32 get_palette_consumable_count();
+s32 get_palette_consumable_count(u16 slot, s32 client_id);
+s32 fn_801B7CEC(void *player, s32 kind, u8 group, u8 index);
+extern const PaletteItemKind lbl_8044E5E8[13];
 }
 void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1);
 
@@ -62,7 +66,7 @@ void TWindowHelpItem::set_help_text(s32 arg0, s32 arg1) {
 s32 get_help_value__15TWindowHelpItemFv(void) {
     struct VObj_80243464 *o;
 
-    if (get_palette_consumable_count() == -1) {
+    if (((s32 (*)(void))get_palette_consumable_count)() == -1) {
         return 0;
     }
     o = (struct VObj_80243464 *)find_item_by_id();
@@ -70,6 +74,21 @@ s32 get_help_value__15TWindowHelpItemFv(void) {
         return 0;
     }
     return o->m34();
+}
+
+s32 get_palette_consumable_count(u16 slot, s32 client_id) {
+    void *player = get_player_by_client_id(client_id);
+    if (player == NULL) {
+        return -1;
+    }
+    if (slot >= 13) {
+        if (clamp_char_at__10TObjPlayerFl((u32)player + 0x7C4, slot - 13) > 0) {
+            return slot;
+        }
+        return -1;
+    }
+    const PaletteItemKind *kind = &lbl_8044E5E8[slot];
+    return fn_801B7CEC(player, 3, kind->group, kind->index);
 }
 #pragma push
 #pragma fp_contract on
