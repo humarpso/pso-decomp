@@ -63,9 +63,6 @@ extern const f32 lbl_805DC474;
 extern const f32 lbl_805DC478;
 void render__14TQuadSpriteSclFv(Self_801E58D8 *self);
 void *TQuadSpriteScl__ct(void *arg0);
-void *__dt__14TQuadSpriteSclFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void *__dt__13TUnk_804C57F0Fv(void *arg0, s16 arg1);
 void quad_sprite_base_ct(void *);
 
 extern s32 __vt__14TQuadSpriteScl[];

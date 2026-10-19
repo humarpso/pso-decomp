@@ -50,7 +50,6 @@ extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 void TItemWeapon__ct(void *);
 void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 void set_status_flags__10TObjPlayerFUl(void *, int);
 
 extern s32 lbl_804F0AF8[];

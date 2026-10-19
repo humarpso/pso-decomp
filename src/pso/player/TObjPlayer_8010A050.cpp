@@ -89,17 +89,13 @@ struct VObj_8010A26C : Base_8010A26C {
 int get_item_system_generation(void);
 extern const s32 lbl_8043E280[];
 extern const s32 lbl_8043E2A0[];
-extern s32 __vt__13TUnk_8049F130[];
 extern "C" {
 s32 TObjPlayer__sub_8010A058(void* p);
-void *__dt__13TUnk_8049F130Fv(void *arg0, s16 arg1);
 s32 get_field_3e0__12TBoss3VoloptFv();
 void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
 void *spawn_particle_effect(void *pos, s32 id);
 s32 is_item_area_enabled();
 void *get_player_by_client_id(s32 i);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 s16 count_nearby_players_with_shield__10TObjPlayerFUsPUc(u16, s8 *);
 s32 init__9TItemDataFv(s8 *);
 void queue_destruction__7TObjectFv(void *arg0);
@@ -152,9 +148,6 @@ void TUnk_8049F130::run_task() {
 TUnk_8049F130::~TUnk_8049F130() {
 
 }
-extern "C" {
-}
-
 TUnk_8049F130::TUnk_8049F130(TObject *parent, s16 a, u8 b) : TObject(parent) {
     ((Obj_8010A1D0 *)this)->f_1C = 0;
     ((Obj_8010A1D0 *)this)->f_20 = lbl_8043E2A0[(b - 0x53) % 8];

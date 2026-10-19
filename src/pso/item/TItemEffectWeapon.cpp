@@ -17,14 +17,9 @@ extern u32 model_render_flags;
 void *__dt__13TUnk_804F28E0Fv(void *arg0, s16 arg1);
 void TItemEffectWeapon__sub_8036340C(void);
 void TItemEffectWeapon__sub_80363410(void);
-void *__ct__17TItemEffectWeaponFll(void *self, s32 arg1, s32 param);
-void *__dt__17TItemEffectWeaponFv(void *self, s32 flag);
 
 void decrement_timer__17TItemEffectWeaponFv(void *, s32);
-void *__dt__15TItemHeapObjectFv(void *, s32);
 void mem_free(void *p);
-void  __dl__15TItemHeapObjectFPv(void *);
-void  __ct__15TItemHeapObjectFP7TObject(void *);
 void* memcpy(void* destination, const void* source, size_t size);
 
 extern s32 lbl_804F28E0[];
@@ -110,7 +105,6 @@ void TItemEffectWeapon::render_trail() {
     }
 }
 
-extern void *__vt__17TItemEffectWeapon[];
 
 TItemEffectWeapon::~TItemEffectWeapon() {
     TItemEffectWeapon::release_trail_buffer((void*)*(s32 *)((s8 *)this + 0x1C));

@@ -19,7 +19,6 @@ struct Cam_8034BE5C {
 struct Pad_8034BE5C { u8 pad0[0x34]; s16 tilt; u8 pad36[4]; s16 speed; };
 
 extern "C" {
-extern s32 __vt__17TAdFloorLoadCamGC[];
 extern void *lbl_805D4340;
 void set_default_camera__21TAdMultiChgGameModeGCFv(void *);
 void set_active_camera_pose(u8 *arg0, u8 *arg1);
@@ -31,8 +30,6 @@ void normalize_vector(void *);
 extern Pad_8034BE5C controller_physical_port_bank;
 extern const f32 lbl_805DFDB8;
 void TCameraCtrl__sub_800687C8(void);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 
 u16 fn_8034BE30(void* p) { return *(u16*)((char*)p + 0x24); }
 void fn_8034BE38(void* p) { *(u32*)((char*)p + 0x334) &= 0xbfffffff; }

@@ -82,8 +82,6 @@ void TShopWindowBase::run_task() {
 extern s32 __vt__15TShopWindowBase[];
 extern void *TShopWindowBase__class_name;
 
-void *__dt__7TObjectFv(void *, s16);
-void __dl__7TObjectFPv(void *);
 }
 TShopWindowBase::~TShopWindowBase() {
 

@@ -58,9 +58,6 @@ extern const f32 lbl_805DF624;
 extern const f32 lbl_805DF628;
 extern const f32 lbl_805DF62C;
 void TObjEneMe1GiGueBarrier__sub_80325CC0(void);
-void *__dt__22TObjEneMe1GiGueBarrierFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void *__dt__10TObjMotionFv(void *arg0, s16 arg1);
 
 #pragma push
 #pragma opt_common_subs off

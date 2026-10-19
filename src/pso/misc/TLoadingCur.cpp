@@ -76,8 +76,6 @@ s32 project_world_to_screen(int, void *, void *);
 void push_matrix(void);
 extern const f32 lbl_805D7EA8;
 extern const f32 lbl_805D7EAC;
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 
 s32 TLoadingCur::calc_clamp_offset(s32 arg0, u8 *arg1, u8 *arg2) {
     f32 temp_f0;

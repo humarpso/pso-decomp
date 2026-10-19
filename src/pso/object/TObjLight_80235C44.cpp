@@ -57,9 +57,6 @@ void *get_player_by_client_id(s32 i);
 extern Base_80235C44 TObjLight__scene_light_state;
 extern const f32 lbl_805DC890;
 extern const f32 lbl_805DC894;
-void *__dt__13TUnk_804CCAA8Fv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 
 #pragma push
 #pragma fp_contract on

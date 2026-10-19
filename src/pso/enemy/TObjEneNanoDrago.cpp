@@ -1273,10 +1273,6 @@ extern "C" {
 void vfunc_13__13TUnk_804AF8A0Fl();
 }
 extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 void vfunc_74__9TObjEnemyFl();
 }
 extern "C" {
@@ -1320,8 +1316,6 @@ void apply_shock_status__13TUnk_804806E8Fv();
 }
 extern "C" {
 void apply_switch_attack__13TUnk_804806E8Fv();
-}
-extern "C" {
 }
 extern "C" {
 void calc_distance_accuracy_penalty__13TUnk_804806E8FPvPvPvf();

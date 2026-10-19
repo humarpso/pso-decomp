@@ -13,8 +13,6 @@
 
 extern "C" {
 
-void __dl__7TObjectFPv(void *);
-void *__dt__16TObjFogCollisionFv(void *arg0, s16 arg1);
 
 extern s32 __vt__22TObjFogCollisionSwitch[];
 

@@ -18,8 +18,6 @@ extern s32 lbl_8047A408[];
 extern const f32 lbl_805E0364;
 extern const f32 lbl_805E0368;
 void __ct__7TObjectFP7TObject(void *, void *);
-s32 __dl__7TObjectFPv(void *);
-s32 __dt__7TObjectFv(void *, s32);
 void *__nw__7TObjectFUl(int);
 
     extern const float lbl_805E0360;
@@ -27,7 +25,6 @@ void TAdDialingMessageWindow::set_flag_and_notify() { this->m_1c = (this->m_1c |
 
 void TAdDialingMessageWindow::run_child_tasks() { void* m = *(void* *)&this->m_28; if (m) ((TObject *)m)->run_tasks(); }
 
-extern s32 __vt__23TAdDialingMessageWindow[];
 
 void TAdDialingMessageWindow::render() {
     if (this->m_1c & 1) {
@@ -75,7 +72,4 @@ TAdDialingMessageWindow::TAdDialingMessageWindow(void *arg1, void *arg2) : TObje
         o2 = ((void * (*)(void *, int))__ct__7TObjectFP7TObject)(o2, 0);
     }
     *(void **)((s8 *)this + 0x28) = o2;
-}
-extern "C" {
-
 }

@@ -27,8 +27,6 @@ s32 run_task__14TWindowMessageFv();
 extern RecoveredGlobal_8026AF24_lbl_8050E208 controller_input_state;
 s32 get_shared_text_buffer();
 u32 copy_message_page_text__20TWindowSubStatusDispFv(u32);
-void __dl__7TObjectFPv(void *);
-void *__dt__14TWindowMessageFv(void *arg0, s16 arg1);
 void render__14TWindowMessageFv(s32 arg0);
 s32 send_and_handle__6TLobbyFii(void *, s32, s32);
 

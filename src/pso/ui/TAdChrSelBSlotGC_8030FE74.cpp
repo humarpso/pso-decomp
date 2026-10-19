@@ -4,14 +4,6 @@
 #include "pso/ui/TAdChrSelBSlotGC_8030FE74.h"
 #include "pso/ui/TAdChrSelBSlotGC.h"
 
-extern "C" {
-
-s32 __dl__7TObjectFPv(void *);
-s32 __dt__7TObjectFv(void *, s32);
-
-extern void *__vt__16TAdChrSelBSlotGC[];
-
-}
 TAdChrSelBSlotGC::~TAdChrSelBSlotGC() {
     if ((u32) *(u32 *)((s8 *)this + 0x40) != 0U) {
         queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x40));
@@ -77,7 +69,4 @@ TAdChrSelBSlotGC::~TAdChrSelBSlotGC() {
         queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x7C));
         this->m_7c = 0U;
     }
-}
-extern "C" {
-
 }

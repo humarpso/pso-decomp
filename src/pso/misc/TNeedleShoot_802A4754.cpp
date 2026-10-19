@@ -59,10 +59,7 @@ extern const f32 lbl_805DDF74;
 extern const f32 lbl_805DDF78;
 extern const f32 lbl_805DDF7C;
 TNeedleShoot_802A47C8 *TNeedleShoot__ct(TNeedleShoot_802A47C8 *self, s32 arg1, Vec_802A47C8 *from, Vec_802A47C8 *to);
-void *__dt__12TNeedleShootFv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 int queue_destruction__7TObjectFv(void*);
 
 }

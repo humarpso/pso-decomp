@@ -105,8 +105,6 @@ extern V2_803490D8 chr_move_effect_pos_table[];
 extern C4_803490D8 lbl_804786E8[];
 extern u8 lbl_804786F0[];
 void __ct__7TObjectFP7TObject(void *);
-s32 __dl__7TObjectFPv(void *);
-s32 __dt__7TObjectFv(void *, s32);
 
 int get_state_flag__9TMainTaskFv(void*);
 

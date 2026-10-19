@@ -141,9 +141,7 @@ Jelin_80233958 *construct__9TTecJelinFPviiii(Jelin_80233958 *self, s32 _w1, s32 
 void copy_technique_target_list(void *, void *);
 void __ct__13TUnk_804CC148Flll(void *, void *, void *, void *);
 Jelin_80233808 *TTecJelin__ct(Jelin_80233808 *self, void *_w1, void *_w2, void *_w3, void *_w4);
-void *__dt__9TTecJelinFv(void *arg0, s16 arg1);
 s32 calc_technique_parameters(s32, s16, s32);
-void __dl__7TObjectFPv(void *);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
 
 void TTecJelin::init_tech_params() {

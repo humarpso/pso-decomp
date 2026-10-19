@@ -39,7 +39,6 @@ struct Ent_8027CFC8 { u8 pad[0x20]; s32 f20; };
 extern "C" {
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-extern s32 __vt__20TWindowSubQuestBoard[];
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__19TWindowSubQuestBoard[];
 s32 get_selected_menu_value(s32);

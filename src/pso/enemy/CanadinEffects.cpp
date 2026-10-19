@@ -155,7 +155,6 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__26TObjEneMe1Canadin_EffLight[];
 extern s32 TObjEneMe1Canadin_EffLight__name;
 extern const f32 canadin_light_width_decay;
-Obj_8009FC44 *__ct__26TObjEneMe1Canadin_EffLightFP7TObjectl(Obj_8009FC44 *self, void *parent, s32 count);
 void run_task__26TObjEneMe1Canadin_EffLightFv(Obj_8009FA24 *arg0);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);

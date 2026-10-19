@@ -25,8 +25,6 @@ void TKeyBoardControl__sub_8000F91C(s32 arg0);
 void TKeyBoardControl__sub_8000F9CC(s32 arg0);
 s32 draw_weapon_model__11TItemWeaponFv();
 void draw_weapon_at_joint(s32 arg0, s8 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 s32 queue_destruction__7TObjectFv();
 
 void TUnk_804E70A8::reserved_53() {
@@ -123,7 +121,6 @@ void TObjPlayer::disable_keyboard_control() {
 
 void TUnk_804E71A0::run_task() {  }
 
-extern s32 __vt__13TUnk_804E71A0[];
 
 TUnk_804E71A0::~TUnk_804E71A0() {
 

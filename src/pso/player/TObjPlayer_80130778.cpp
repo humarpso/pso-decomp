@@ -9,9 +9,7 @@
 extern "C" {
 
 void draw_weapon_at_joint(s32 arg0, s8 arg1);
-void __dl__7TObjectFPv(void *);
 
-extern s32 __vt__13TUnk_804A69C0[];
 
 }
 TUnk_804A69C0::~TUnk_804A69C0() {

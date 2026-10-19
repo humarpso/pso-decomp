@@ -61,8 +61,6 @@ void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 fla
 u8 *get_enemy_entity(u16 arg0);
 void TBoss8Dragon__sub_802FB220(void *o, int x, u32 a);
 extern const f32 lbl_805DEF00;
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 
 void TBoss8DragonEffBullet::render() {  }
 

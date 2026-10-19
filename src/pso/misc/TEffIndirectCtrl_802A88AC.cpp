@@ -60,8 +60,6 @@ Ctrl_802A8B58 *TEffIndirectCtrl__ct(Ctrl_802A8B58 *self, s32 kind, void *parent)
 extern const f32 TEffIndirectCtrl__data_805DE02C;
 s32 DCFlushRange(s32, s32);
 void TLobby__sub_803DA16C(void *);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 s32 memcpy(s32, s32, s32);
 
 void TEffIndirectCtrl::render() {  }

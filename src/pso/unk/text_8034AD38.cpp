@@ -31,10 +31,7 @@ struct Prt_8034ADE0 {
 struct Node_8034AF18 { s32 f0; s32 f4; };
 
 extern "C" {
-void *__dt__7TObjectFv(void *, s16);
-void __dl__7TObjectFPv(void *);
 extern void *__vt__17TAdFloorLoadPrtGC[];
-TAdFloorLoadPrtGC_8034AD38 *__dt__17TAdFloorLoadPrtGCFv(TAdFloorLoadPrtGC_8034AD38 *self, s16 deleting);
 extern s16 lbl_804F0070[];
 s32 __ct__7TObjectFP7TObject(void *);
 void *memset(void *, int, u32);

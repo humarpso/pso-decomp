@@ -7,8 +7,6 @@
 extern "C" {
 
 void __ct__7TObjectFP7TObject(void *);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 
 void TUnk_804F3428::run_task() {
     u32 temp_r3;

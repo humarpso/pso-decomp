@@ -33,8 +33,6 @@ extern u32 TObjEneMorfosArm__parent_morfos_instance;
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-void __dl__7TObjectFPv(void *);
-void *__dt__10TObjMotionFv(void *arg0, s16 arg1);
 
 void TObjEneMorfosArm::render() {
     u8 *arg0 = (u8 *)this;

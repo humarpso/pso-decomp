@@ -52,8 +52,6 @@ void queue_destruction__7TObjectFv(void *);
 void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
 extern const f32 lbl_805D8140;
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 
 void TBoss1DragonEffBullet::render() {  }
 

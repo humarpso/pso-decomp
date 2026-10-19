@@ -24,11 +24,8 @@ struct Ctrl_8028B23C {
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
-void __dt__7TObjectFv(void *, int);
 void mem_free(void *);
-void __dl__7TObjectFPv(void *);
 extern u8 __vt__19TObjBoss5PillarCtrl[];
-Pc_8028B198 *__dt__19TObjBoss5PillarCtrlFv(Pc_8028B198 *arg0, s16 arg1);
 void *mem_alloc(u32 size);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_805D3B38;

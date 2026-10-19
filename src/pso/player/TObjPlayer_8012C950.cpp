@@ -8,17 +8,12 @@
 extern "C" {
 
 s32 test_flags_any(void *, int);
-void __dl__7TObjectFPv(void *);
 
-extern s32 __vt__13TUnk_804A5340[];
 
 }
 TUnk_804A5340::~TUnk_804A5340() {
 
 }
-extern "C" {
-}
-
 void rocket_punch_return_timer(u32 arg0) {
     if (arg0 != 0U) {
         ((TAdRicoRing *)(arg0 + 0x1F8))->clear_flags(2);

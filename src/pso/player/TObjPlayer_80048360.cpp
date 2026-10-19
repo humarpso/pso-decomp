@@ -6,8 +6,6 @@
 
 extern "C" {
 
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 s32 queue_destruction__7TObjectFv();
 
 void TUnk_80484840::run_task() {
@@ -21,12 +19,8 @@ void TUnk_80484840::run_task() {
     }
 }
 
-extern s32 __vt__13TUnk_80484840[];
 
 }
 TUnk_80484840::~TUnk_80484840() {
-
-}
-extern "C" {
 
 }

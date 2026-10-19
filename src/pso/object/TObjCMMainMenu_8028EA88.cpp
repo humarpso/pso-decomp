@@ -35,7 +35,6 @@ u8 *TCameraCtrl__ct(u8 *arg0, void *parent);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 init_menu_scene_lights(s32 *, s32);
 void *__nw__7TObjectFUl(s32);
-s32 __ct__15TWindowCtrlMainFv(void *);
 s32 init_and_create__15TChCrCharSelectFv(s32);
 }
 extern s32 lbl_80451290[];

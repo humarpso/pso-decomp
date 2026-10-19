@@ -37,13 +37,8 @@ struct Pair_802A4AEC { s32 a; f32 b; };
 
 extern "C" {
 s32 play_sound_effect(int, void *, int, int);
-void __dl__7TObjectFPv(void *);
 
 void*TNeedleShoot::get_shoot_data() { return (char*)this + 0x28; }
-
-extern "C" {
-
-}
 
 #include "pso/misc/TOKeyMachine01.h"
 
@@ -70,7 +65,6 @@ int TObjEneMe1Gee_NEEDLE::vfunc_6() {
 
 }
 
-extern s32 __vt__20TObjEneMe1Gee_NEEDLE[];
 
 void TObjEneMe1Gee_NEEDLE::vfunc_9(void *arg1_arg) {
     u8 *arg0 = (u8 *)this;
@@ -85,8 +79,5 @@ void TObjEneMe1Gee_NEEDLE::vfunc_9(void *arg1_arg) {
 
 }
 TObjEneMe1Gee_NEEDLE::~TObjEneMe1Gee_NEEDLE() {
-
-}
-extern "C" {
 
 }

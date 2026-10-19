@@ -6,8 +6,6 @@
 extern "C" {
 
 s32 __ct__7TObjectFP7TObject();
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 void *mem_alloc(u32 size);
 void mem_free(void *);
 

@@ -35,11 +35,8 @@ extern const f32 lbl_805DF718;
 extern const f32 lbl_805DF71C;
 extern const f32 lbl_805DF720;
 Self_80329EC8 *TAdMcSelectGC__ct(Self_80329EC8 *self, void *parent);
-void *__dt__13TAdMcSelectGCFv(void *arg0, s16 arg1);
 int TAdMcSelectGC__sub_8032A140();
 int TAdMcSelectGC__sub_8032A15C();
-s32 __dl__7TObjectFPv(void *);
-s32 __dt__7TObjectFv(void *, s32);
 
 void TAdMcSelectGC::render() {
     if (TMainTask::get_state_flag() == 1) { return;

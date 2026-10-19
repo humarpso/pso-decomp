@@ -394,7 +394,6 @@ struct NetStatus_803FB358;
 s32 TLobby__sub_803FB358(NetStatus_803FB358 *status);
 s32 TLobby__sub_803FB1A4(s16 *wait);
 s32 TLobby__sub_803FB280(u8 *cfg);
-extern u32 lbl_805D7BDC;
 void TLobby__sub_803FB184(u8 *arg0);
 void TLobby__sub_803FD85C(void *);
 s32 TLobby__sub_804062A0(s16);
@@ -635,18 +634,6 @@ struct NetStatus_803FB358 {
     u32 w20;
     u32 w24;
     u8 addr[4][4];
-};
-struct NetCfg_803FB358 { u8 pad[8]; u32 w8; u32 wC; u8 pad10[8]; u32 w18; u32 w1C; u8 pad20[0x44]; u32 w64; u32 w68; };
-struct NetAddr_803FB358 { u8 pad[8]; u32 w8; u32 wC; u32 w10; u32 w14; };
-struct NetIf_803FB358 {
-    u8 pad[0x6C];
-    u8 link_state;
-    u8 pad6D[0x2F];
-    NetCfg_803FB358 *cfg;
-    u8 padA0[0x34];
-    u8 ppp_state;
-    u8 padD5[0x2F];
-    NetAddr_803FB358 *addr;
 };
 
 s32 TLobby__sub_803FB1A4(s16 *wait) {

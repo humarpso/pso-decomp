@@ -13,8 +13,6 @@ s32 is_ship_door_ready__12TBoss6ThanksFv();
 extern s32 lbl_804709E0[];
 extern s32 lbl_804709E8[];
 void end_cutscene_camera__14TBoss6PlotFalzFPv(void);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 int draw_empty_warp_overlay(void*);
 
 void TBoss6EmptyWarp::render() { { (void)(draw_empty_warp_overlay(this)); return; } }

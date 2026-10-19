@@ -75,10 +75,6 @@ void TLobby::init_6x59_packet() {
 
 extern "C" {
 
-}
-
-extern "C" {
-
 void TLobby::send_pick_up_item_request() {
     s32 arg0 = (s32)this;
     ((s32 (*)())bswap_pick_up_item_request__6TLobbyFi)();

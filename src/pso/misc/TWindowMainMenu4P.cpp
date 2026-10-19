@@ -15,10 +15,7 @@ void *get_player_by_client_id(s32 i);
 extern RecoveredGlobal_802889A8_lbl_804D04F8 lbl_804D04F8;
 extern RecoveredGlobal_802889A8_lbl_804D0530 lbl_804D0530;
 void *TWindowMainMenu4P__ct(void *arg0);
-void *__dt__17TWindowMainMenu4PFv(void *arg0, s16 arg1);
 void TWindowMainMenu__ct(void *);
-void __dl__7TObjectFPv(void *);
-u8 *__dt__15TWindowMainMenuFv(u8 *arg0, s16 arg1);
 s32 close_and_clear_flags__15TWindowMainMenuFv();
 
 void TWindowMainMenu4P::vfunc_9() { if (close_active_submenu() != 0) { this->show_child_window(); } }

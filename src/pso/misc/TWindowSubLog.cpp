@@ -46,10 +46,7 @@ extern const f32 lbl_805DD640;
 extern const f32 lbl_805DD644;
 extern u8 lbl_8044F9C8[];
 extern u8 lbl_8044F9D0[];
-extern s32 __vt__13TWindowSubLog[];
 extern s32 TWindowSubLog__class_name;
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 int show_child_window__17TWindowMainMenu4PFv(void*);
 int update_trade_submenu__15TWindowMainMenuFv(void*);
 

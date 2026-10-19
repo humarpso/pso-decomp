@@ -95,8 +95,6 @@ extern const f32 lbl_805D9E74;
 extern const f32 lbl_805D9E78;
 u8 *TObjCGrass__ct(Grass_800B8EFC *self, u8 *arg1, s32 arg2, s32 arg3);
 void TLobby__sub_8001FE7C(void*, int);
-void __dl__7TObjectFPv(void *);
-void *__dt__10TObjMotionFv(void *arg0, s16 arg1);
 void mem_free(void *);
 
 struct Stack_800B8DC4 {

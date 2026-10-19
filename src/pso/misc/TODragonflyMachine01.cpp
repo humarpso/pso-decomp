@@ -45,7 +45,6 @@ s32 play_sound_effect(s32, s32, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TODragonflyMachine01__sub_80164F50(void *);
 s32 rotate_matrix_y(s32, s32);
-void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
 void TODragonflyMachine01::update_timer() {

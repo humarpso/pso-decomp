@@ -109,8 +109,6 @@ extern Vec_8001A77C lbl_80434574;
 s32 publish_light_direction_color(int, void *, void *);
 extern Color_8001A6A8 player_light_color_rgba_table[];
 extern Light_8001A6A8 player_light_direction_color_table[];
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 
 s32 TObjPlayer::get_flag890_state() {
     s32 temp_r4;

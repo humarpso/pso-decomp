@@ -28,13 +28,10 @@ extern RecoveredGlobal_8033C424_lbl_804EF940 lbl_804EF940;
 extern "C" {
 
 void *__ct__16TCheckMemoryCardFP7TObjectPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
-s32 __dl__7TObjectFPv(void *);
-s32 __dt__7TObjectFv(void *, s32);
 void *__nw__7TObjectFUl(int);
 
 void TCheckMemoryCard::render() {  }
 
-extern s32 __vt__16TCheckMemoryCard[];
 
 typedef char MemberActionStorage_8033C424_size[sizeof(MemberActionStorage_8033C424) == 12 ? 1 : -1];
 typedef char RecoveredGlobal_8033C424_lbl_804EF940_size[sizeof(RecoveredGlobal_8033C424_lbl_804EF940) == 0x60 ? 1 : -1];

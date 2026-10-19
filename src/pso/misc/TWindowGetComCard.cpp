@@ -62,14 +62,11 @@ extern u8 TWindowGetComCard__window_rect[];
 extern Pad_80252CCC controller_input_state[];
 void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self);
 void TWindowFukidasi__sub_80252C38(void* p);
-void *__dt__17TWindowGetComCardFv(TWindowGetComCard *arg0, s16 arg1);
 int fn_80252CBC(void* p);
 void TLobby__sub_8024AC20(s32 arg0);
 s32 TWindowCtrl__sub_8024A314();
 void TWindowReturnCity__sub_8024ACA8(s32 arg0);
 void TWindow__close(u8 *arg0);
-s32 __dl__7TObjectFPv(void *);
-s32 __dt__7TObjectFv(void *, s32);
 s32 init_parts__10TObjPlayerFv();
 
 void TWindowFukidasi__sub_80252C38(void* p) { *(u8*)((char*)p + 0x71) |= 0x4; }

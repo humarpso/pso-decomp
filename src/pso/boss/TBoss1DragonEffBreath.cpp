@@ -7,12 +7,9 @@
 
 extern "C" {
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
-extern s32 __vt__21TBoss1DragonEffBreath[];
 extern s32 TBoss1DragonEffBreath__name;
 extern const f32 lbl_805D8138;
 s32 vec3_add_to(void *, void *);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *arg0);
 
 void TBoss1DragonEffBreath::render() {  }
@@ -39,8 +36,6 @@ void TBoss1DragonEffBreath::run_task() {
 TBoss1DragonEffBreath::~TBoss1DragonEffBreath() {
     delete_buffer__12TBoss8DragonFis((s32)(*(void **)((s8 *)this + 0x34)), 1);
     this->m_34 = 0;
-}
-extern "C" {
 }
 TBoss1DragonEffBreath::TBoss1DragonEffBreath(TObject *object, void *arg2, void *arg3) : TObject(object) {
     void *p;

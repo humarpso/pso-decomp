@@ -99,7 +99,6 @@ void drill_launcher_return_timer(void *arg0);
 int get_item_system_generation(void);
 u8 *spawn_star_light_2d(s32 arg0, s32 arg1, s32 arg2);
 extern "C" {
-void __ct__7TObjectFP7TObject(void *, void *);
 const StarLightParameters weapon_star_light_parameters[] = {
     { { 0x40400000, 0x40E00000, 0xB4FF0019, 0, 0x41A00000 } }
 };

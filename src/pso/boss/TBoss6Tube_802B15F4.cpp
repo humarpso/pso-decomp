@@ -10,8 +10,6 @@ extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__10TBoss6Tube[];
 extern s32 lbl_805D3E9C;
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 
 }
 TBoss6Tube::~TBoss6Tube() {

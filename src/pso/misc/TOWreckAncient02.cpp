@@ -5,8 +5,6 @@
 
 extern "C" {
 
-void __dl__7TObjectFPv(void *);
-void *__dt__14TOWreckAncientFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 
 void *TOWreckAncient02__create(void *arg0) {
@@ -17,7 +15,6 @@ void *TOWreckAncient02__create(void *arg0) {
     return o;
 }
 
-extern s32 __vt__16TOWreckAncient02[];
 
 }
 TOWreckAncient02::~TOWreckAncient02() {

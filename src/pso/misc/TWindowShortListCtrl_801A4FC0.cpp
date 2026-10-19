@@ -17,7 +17,6 @@ extern RecoveredGlobal_801A51C0_lbl_80446980 short_list_ctrl_interval_table;
 void *TWindowOptionCtrl__ct(void *, void *);
 void *__ct__10TAdTitleGCFP7TObjectl(void *, void *, int);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
-void __ct__7TObjectFP7TObject(void *, void *);
 void *__ct__9TAdBackGCFv(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);

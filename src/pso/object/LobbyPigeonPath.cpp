@@ -550,10 +550,6 @@ extern void *tl_05;
 
 #pragma push
 #pragma fp_contract on
-extern "C" {
-
-}
-
 void TUnk_804E0898::vfunc_14() {
     LobbyPigeon *self = (LobbyPigeon *)this;
   if (TObjPlayer::check_demo_mode() == 1 &&

@@ -141,14 +141,11 @@ extern ChipParam_8018860C lbl_80444E5C;
 extern ChipParam_8018860C lbl_80444EA8;
 extern void *tl_05;
 void TObjContainerAbeEnemy__vt77(const Obj_8018860C *self);
-void *__dt__12TObjComputerFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 s32 free_collision_body_parts(void *);
 s32 vfunc_14__11TObjMesBaseFv();
 s32 submit_cursor_candidate(void *, s32);
-s32 __dl__7TObjectFPv(void *);
-void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1);
 s32 clear_ref_if_destroyed__11TObjMesBaseFv();
 
 extern const f32 lbl_805DBCDC;

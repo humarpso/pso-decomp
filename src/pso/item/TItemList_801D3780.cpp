@@ -129,7 +129,6 @@ void decrement_placement_search_pending(void *p, void *a1);
 void clear_placement_search_slot(TItemList *arg0, s32 arg1);
 extern "C" {
 void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_07;
@@ -348,8 +347,6 @@ s32 TUnk_804C4498::reset_placement_search_ring() {
 }
 TUnk_804C4498::~TUnk_804C4498() {
 
-}
-extern "C" {
 }
 u8 *construct_placement_search_base(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 arg4) {
     __ct__7TObjectFP7TObject(arg0, arg1);

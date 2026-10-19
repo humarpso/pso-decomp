@@ -36,9 +36,6 @@ s32 TObjPlayer__sub_802A445C(void *, int);
 extern const f32 lbl_805DE6E0;
 void TObjEneMe1GiGue__sub_802CE4E8(void);
 void TObjEneMe1GiGue__sub_802CE4EC(void);
-void *__dt__22TObjEneMe1GiGueMissileFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void *__dt__12TNeedleShootFv(void *arg0, s16 arg1);
 u32 __nw__7TObjectFUl(s32);
 
 struct Hit_802CE088 { s32 kind; f32 power; };

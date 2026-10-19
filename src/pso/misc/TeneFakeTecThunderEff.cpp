@@ -84,9 +84,6 @@ extern Cam_800A3D1C lbl_8058D4F8;
 extern const f32 lbl_805D99F0;
 extern const f32 lbl_805D99FC;
 extern const f32 lbl_805D9A00;
-void *__dt__21TeneFakeTecThunderEffFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 
 struct Vec_800A39A8 { f32 x, y, z; };
 struct Obj_800A39A8 {

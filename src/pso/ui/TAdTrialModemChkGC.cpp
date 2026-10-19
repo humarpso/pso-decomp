@@ -33,7 +33,6 @@ extern "C" {
 
 int TKeyBoardControl__sub_8000F9CC(void*);
 int stop_audio_streams__6TLobbyFv(void*);
-void __dl__7TObjectFPv(void *);
 
 void TAdTrialModemChkGC__sub_803354A4(void) {  }
 void TAdTrialModemChkGC::check_modem_result() {

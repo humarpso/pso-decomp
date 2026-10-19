@@ -10,7 +10,6 @@ extern "C" {
 
 s32 TCameraCtrl__sub_80068EF0();
 s32 draw_fade_strip__12TChCrEffFadeFf(void *, f32);
-s32 __ct__7TObjectFP7TObject(s32, s32);
 
 void TChCrEffFade::render() {
     f32 temp_f0;
@@ -54,7 +53,6 @@ void TChCrEffFade::run_task() {
     }
 }
 
-extern s32 __vt__12TChCrEffFade[];
 extern s32 lbl_805D3CC0;
 extern s32 tl_fade;
 
@@ -83,7 +81,4 @@ TChCrEffFade::TChCrEffFade(s32 arg1, s32 arg2, s32 arg3) : TObject((TObject *)tl
     }
     this->update_fade();
     *(s32 *)((s8 *)this + 0x2C) = arg3;
-}
-extern "C" {
-
 }

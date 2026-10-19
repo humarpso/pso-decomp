@@ -20,8 +20,6 @@ struct Mgr_8036B424 {
 
 extern "C" {
 s32 TLobby__sub_8036B1AC(s32);
-s32 __dl__7TObjectFPv(void *);
-s32 __dt__7TObjectFv(void *, s32);
 void mem_free(void *p);
 extern s32 __vt__13TUnk_804F3640[];
 extern u32 slot_entity_dispatcher_instance;

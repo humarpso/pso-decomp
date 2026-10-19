@@ -36,7 +36,6 @@ struct VObj_80329C84_80329BB8 : Base_80329C84_80329BB8 {
 extern "C" {
 
 void TAdAgreementBaseGC__ct(void *);
-void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 int set_game_mode__21TAdMultiChgGameModeGCFv(void*);

@@ -68,7 +68,6 @@ extern "C" {
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 extern s32 __vt__13TUnk_804EE470[];
-int __ct__7TObjectFP7TObject(void *);
     extern unsigned char lobby_record_table[];
 s32 TCameraCtrl__sub_80068EF0();
 extern const f32 lbl_805DF8C8;
@@ -81,7 +80,6 @@ extern const f32 lbl_805DF8E0;
 extern const f32 lbl_805DF8E4;
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 title_texture_list;
 
-    extern unsigned char __vt__13TUnk_804EE458[];
     extern const float lbl_805DF8B4;
     extern const float lbl_805DF8C0;
 }

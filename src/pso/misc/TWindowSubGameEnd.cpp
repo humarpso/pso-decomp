@@ -41,8 +41,6 @@ extern const f32 lbl_805DD62C;
 s32 setup_player_battle_ctrls__23TAdSinglePlyChrSelectGCFv();
 s32 TKeyBoardControl__sub_8000F91C(s32);
 s32 TKeyBoardControl__sub_8000F9CC(s32);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 s32 init__23TAdSinglePlyChrSelectGCFv();
 
 void TKeyBoardControl::init_char_select() {

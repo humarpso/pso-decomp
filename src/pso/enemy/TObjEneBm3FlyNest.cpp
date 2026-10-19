@@ -802,7 +802,6 @@ s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 void __dt__7TObjectFv(void *, int);
-s32 __ct__7TObjectFP7TObject(void *, void *);
 void __destroy_arr(void *, void *, u32, u32);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);

@@ -11,10 +11,8 @@ extern "C" {
 
 int rotate_matrix_z(void*, void*);
 s32 test_flags_any(void *, int);
-void __dl__7TObjectFPv(void *);
 int get_player_list__10TObjPlayerFv(void*);
 
-extern s32 __vt__13TUnk_804A4020[];
 
 }
 TUnk_804A4020::~TUnk_804A4020() {

@@ -101,7 +101,6 @@ typedef char RecoveredGlobal_80230D9C_lbl_804CC55C_size[((sizeof(RecoveredGlobal
 
 #pragma pop
 
-void __dl__7TObjectFPv(void *);
 
 }
 struct RecoveredGlobal_802384E0_lbl_804CCB28;

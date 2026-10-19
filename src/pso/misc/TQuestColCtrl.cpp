@@ -15,10 +15,7 @@ extern u32 quest_collision_task_root;
 void *__nw__7TObjectFUl(int);
 void *TObjQuestColApcINW__ct(void *self, void *parent, void *arg);
 Obj_8019601C *create_quest_col_apc_inw__6TLobbyFPvPv(void *arg, s32 *out_id);
-void __dt__7TObjectFv(void *, s32);
-void __dl__7TObjectFPv(void *);
 extern s32 __vt__13TQuestColCtrl[];
-void *__dt__13TQuestColCtrlFv(void *arg0, s16 arg1);
 void *TQuestColCtrl__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 

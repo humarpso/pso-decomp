@@ -23,7 +23,6 @@ void transform_to_view__11TCameraCtrlFii(s32 arg0, s32 arg1);
 extern u8 lbl_80450CDC[];
 extern s32 boss5_pillar_demo_index;
 void TObjBoss5PillarDemo__sub_8028ACE8(Pd_8028ACE8 *arg0, void* _w1);
-void __dl__7TObjectFPv(void *);
 s32 clear_child_target_refs(s32, s32);
 s32 clear_chain_flags(s32, s32);
 

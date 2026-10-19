@@ -6,10 +6,7 @@
 extern "C" {
 
 void *TOKeyCol__ct(TOKeyCol *arg0, s32 arg1, s32 arg2);
-void *__dt__8TOKeyColFv(void *arg0, s16 arg1);
 s32 TOKey__ct();
-void __dl__7TObjectFPv(void *);
-void *__dt__5TOKeyFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 
 void TOKeyCol::vfunc_19() {  }

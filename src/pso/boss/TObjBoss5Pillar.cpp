@@ -41,8 +41,6 @@ void fn_8028AE1C(void *);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model_with_motion(int, int, f32);
 s32 push_matrix();
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 
 extern s32 boss5_common_texture_list;
 

@@ -55,8 +55,6 @@ extern const f32 lbl_805DFFAC;
 extern const f32 lbl_805DFFB0;
 extern const f32 lbl_805DFFB4;
 extern const f32 lbl_805DFFB8;
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 
 void TBoss5GryphonTornado::render() {  }
 

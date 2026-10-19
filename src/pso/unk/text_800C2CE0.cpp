@@ -117,7 +117,6 @@ u16 obj_getField1c(void *);
 s32 is_alive__9TObjEneDDFv(void *);
 s32 is_player_entity_id(u16);
 void send_6x2F_change_player_hp(s32, u16, s32);
-void *__nw__7TObjectFUl(u32);
 extern Pair_800C2E64 lbl_8043BA60[];
 void TObjEneRe2Flower__sub_800C2E64(Obj_800C2E64 *self, s32 state);
 f32 calc_boss4_scale__10TObjPlayerFi(s32 arg0);

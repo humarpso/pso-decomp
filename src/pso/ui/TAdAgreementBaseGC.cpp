@@ -65,8 +65,6 @@ extern const f32 lbl_805DF700;
 extern const f32 lbl_805DF704;
 extern const f32 lbl_805DF708;
 extern const f32 lbl_805DF70C;
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 
 void TAdAgreementBaseGC::check_main_task_state() {
     if (get_state_flag__9TMainTaskFv() == 1) { return;

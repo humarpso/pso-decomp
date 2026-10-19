@@ -78,10 +78,7 @@ void deliver_technique_to_party_targets(void *);
 void run_task__9TTecSiftaFv(Sifta_8023AF94 *self);
 void copy_technique_target_list(void *, void *);
 void *TTecSifta__ct(void *arg0_, void *arg1, void *arg2, void *arg3, void *arg4);
-void *__dt__9TTecSiftaFv(void *arg0, s16 arg1);
 s32 calc_technique_parameters(s32, s16, s32);
-void __dl__7TObjectFPv(void *);
-void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 int spawn_support_tec_range_effect(void*);
 

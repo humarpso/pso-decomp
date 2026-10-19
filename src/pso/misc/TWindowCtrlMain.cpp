@@ -26,7 +26,6 @@ void *__ct__7TObjectFP7TObject(void *, void *);
 void *TWindowCtrlClipOut__ct(void *, void *);
 void *TWindowCtrlSub__ct(void *, void *);
 void *TWindowCtrlScreen__ct(void *, void *);
-extern u8 __vt__15TWindowCtrlMain[];
 extern Ent_8024D520 TWindowCtrlMain__viewport_states[6];
 extern s32 TWindowCtrlMain__name;
 extern void *tl_01;
@@ -38,10 +37,6 @@ extern void *TWindowCtrlMain__window_task_root;
 extern void *TWindowCtrlMain__screen_controller;
 extern void *TWindowCtrlMain__sub_controller;
 extern void *window_clip_out_instance;
-Obj_8024D520 *__ct__15TWindowCtrlMainFv(Obj_8024D520 *arg0);
-s32 __dt__7TObjectFv(void *, s32);
-s32 __dl__7TObjectFPv(void *);
-void *__dt__15TWindowCtrlMainFv(void *arg0, s16 arg1);
 }
 void load_hud_palette_textures(void);
 extern void *TWindowCtrlMain__display_flags;
@@ -92,9 +87,6 @@ TWindowCtrlMain::~TWindowCtrlMain() {
     if (root != NULL) {
         delete root;
     }
-}
-extern "C" {
-
 }
 TWindowCtrlMain::TWindowCtrlMain() : TObject((TObject *)tl_fadeafter) {
     Ent_8024D520 *e;

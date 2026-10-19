@@ -56,8 +56,6 @@ extern Pos_80355DE0 ply_plt_anim_target_position_table[];
 extern u32 ply_plt_anim_duration_table[];
 extern const f32 lbl_805DFFD4;
 extern const f32 lbl_805DFFD8;
-s32 __dt__7TObjectFv(void *, s32);
-s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_803560F0_lbl_804F142C TAdPlyPltAnimGC__instances;
 extern void *__vt__15TAdPlyPltAnimGC[];
 void __ct__7TObjectFP7TObject(void *, void *);

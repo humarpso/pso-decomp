@@ -11,10 +11,8 @@ void *spawn_particle_effect(void *pos, s32 id);
 void queue_destruction__7TObjectFv(void*);
 void TObjLight__updateSupportTechniqueCharge(TechniqueChargeEmitter* state);
 void *__dt__13TUnk_804CCAC8Fv(void *arg0, s16 arg1);
-u8 *__ct__13TUnk_804CCAC8Fll(u8 *arg0, s32 arg1, s32 arg2);
 s32 play_sound_effect(int, void *, int, int);
 void stop_sound_request(s32 idx);
-s32 __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -47,7 +45,4 @@ TUnk_804CCAC8::TUnk_804CCAC8(s32 arg1, s32 arg2) : TObject((TObject *)((void *)a
     VecCopy((Vec *)(((u8 *)this) + 0x20), (const Vec *)(*(s32 *)((s8 *)this + 0x1C) + 0x2FC));
     this->m_2c = 0;
     *(s32 *)((s8 *)this + 0x30) = play_sound_effect(0x4002B71B, ((u8 *)this) + 0x20, 0, 0);
-}
-extern "C" {
-
 }

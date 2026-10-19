@@ -33,8 +33,6 @@ extern char lbl_804400A4[];
 extern char lbl_804400B8[];
 void record_fog_collision_hit(s32 arg0, s32 arg1, s32 arg2);
 u8 is_current_floor_switch_set(u16);
-void __dl__7TObjectFPv(void *);
-void *__dt__22TObjFogCollisionSwitchFv(void *arg0, s16 arg1);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 
 extern s32 game_difficulty_selection;

@@ -18,7 +18,6 @@ s32 retire_scrolled_lines__14TWindowMessageFv(f32);
 extern s32 __vt__20TWindowMessageScroll[];
 extern s32 TWindowMessageScroll__class_name;
 extern const f32 lbl_805E01B8;
-void __dl__7TObjectFPv(void *);
 
 void TWindowMessageScroll::run_task() {
     u8 *arg0 = (u8 *)this;

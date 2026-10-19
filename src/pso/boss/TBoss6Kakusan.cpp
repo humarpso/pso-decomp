@@ -97,9 +97,6 @@ int get_player_data__10TObjPlayerFi(int a0);
 extern const f32 lbl_805DF520;
 extern const f32 lbl_805DF524;
 extern const f32 lbl_805DF528;
-void *__dt__13TBoss6KakusanFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 
 #pragma push
 #pragma opt_propagation off

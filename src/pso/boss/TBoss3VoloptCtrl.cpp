@@ -26,12 +26,9 @@ s32 unhide_room_set_objects(s32, s32, s32);
 void TBoss3Volopt__sub_8003EA2C(s32 phase2);
 void TObjPlayer__sub_801BA42C(void);
 void play_area_music(char *name);
-u8 *__nw__7TObjectFUl(s32);
 extern RecoveredGlobal_80040D70_lbl_8043636C lbl_8043636C;
 extern s32 volopt_resources_loaded;
-void *__ct__16TBoss3VoloptCtrlFv(void *arg0);
 void TLobby__sub_8020C07C(s32 pl, s16 b, s16 a, s32 mask, s32 set);
-void __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void disallow_rendering__7TObjectFv(TObject *);
@@ -40,7 +37,6 @@ extern s32 __vt__13TUnk_80483B88[];
 
 extern void *tl_02;
 
-extern s32 __vt__16TBoss3VoloptCtrl[];
 extern void *lbl_805D2730;
 
 void TBoss3VoloptCtrl__sub_80040B80(s32 arg0) {

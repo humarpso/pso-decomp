@@ -31,11 +31,8 @@ struct Obj_801A2640 {
 };
 
 extern "C" {
-void __ct__7TObjectFP7TObject(void *self, void *parent);
-extern u8 __vt__13TUnk_804B9870[];
 extern const f32 lbl_805DC098;
 extern const f32 lbl_805DC0A0;
-Obj_801A2640 *__ct__13TUnk_804B9870FP7TObject(Obj_801A2640 *self, void *parent);
 u8 *TODoorFourLightRuins__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *TODoorFourLightSeabedU__ct(void *, void *, void *);
 void *TODoorFourLightSeabed__ct(void *, void *, void *);

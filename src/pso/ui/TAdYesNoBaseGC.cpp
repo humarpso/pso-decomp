@@ -43,14 +43,11 @@ struct VtObj8032C1C8_8032C188 : VtBase8032C1C8_8032C188 {
 };
 
 void *TAdYesNoBaseGC__ct(TAdYesNoBaseGC *arg0);
-void *__dt__14TAdYesNoBaseGCFv(void *arg0, s16 arg1);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 get_selected_menu_value(u32);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 void *__ct__9TAdBackGCFv(void *, void *);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);

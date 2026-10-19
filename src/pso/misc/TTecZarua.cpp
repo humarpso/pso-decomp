@@ -141,9 +141,7 @@ Zarua_8023C420 *init_instance__9TTecZaruaFPviiii(Zarua_8023C420 *self, s32 _w1, 
 void copy_technique_target_list(void *, void *);
 void __ct__13TUnk_804CC148Flll(void *, void *, void *, void *);
 Zarua_8023C2D0 *TTecZarua__ct(Zarua_8023C2D0 *self, void *_w1, void *_w2, void *_w3, void *_w4);
-void *__dt__9TTecZaruaFv(void *arg0, s16 arg1);
 s32 calc_technique_parameters(s32, s16, s32);
-void __dl__7TObjectFPv(void *);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
 
 void TTecZarua::calc_range() {

@@ -28,12 +28,10 @@ extern Bank_8006C6CC camera_path_bank_table[];
 void *TCameraCtrl__vt10(void);
 void *__dt__13TUnk_80488D70Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_80488A28Fv(void *arg0, s16 arg1);
-int __ct__13TUnk_80488A28Fv(void);
 void *get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
-    extern unsigned char __vt__13TUnk_80488B68[];
     extern int TCameraCtrl__saved_projection_angle;
     extern int scripted_camera_projection_angle;
     extern const float lbl_805D9028;

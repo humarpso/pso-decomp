@@ -33,8 +33,6 @@ extern const f32 lbl_805DE0F4;
 extern const f32 lbl_805DE128;
 extern const f32 lbl_805DE12C;
 extern const f32 lbl_805DE130;
-s32 __ct__7TObjectFP7TObject(void *, int);
-extern void *__vt__18TWindowEffectLight[];
 extern s32 lbl_805D3E60;
 extern s32 tl_window;
 void draw_textured_quad_at_depth(f32 *q, f32 depth);

@@ -96,7 +96,6 @@ s32 TCameraCtrl__sub_8006B798(void *p, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void queue_destruction__7TObjectFv(void *);
 s32 TCameraCtrl__sub_8006BADC(void);
 void approach_vector_fixed_distance(Vec_8006B6A8 *, Vec_8006B6A8 *, Vec_8006B6A8 *, f32);
-void *__dt__13TUnk_80488AD8Fv(void *arg0, s16 arg1);
 void *TCameraCtrl__vt9(void);
 s32 restore_player_cameras();
 void *TCameraCtrl__sub_8006BA68(void *);

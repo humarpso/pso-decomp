@@ -105,11 +105,9 @@ extern const f32 lbl_805DD818;
 extern const f32 lbl_805DD81C;
 struct Vec2_80286708_802861AC { f32 x; f32 y; };
 
-void *__dt__28TWindowSubSymbolChatPartsSetFv(void *arg0, s16 arg1);
 void render__28TWindowSubSymbolChatPartsSetFv(TWindowSubSymbolChatPartsSet *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 draw_visible_window_entries(void *, void *, int, f32);
-void __dl__7TObjectFPv(void *);
 u8 *draw_default_entry__9TWindowDDFl();
 s32 forward_render__20TWindowSubStatusDispFv(int, int);
 

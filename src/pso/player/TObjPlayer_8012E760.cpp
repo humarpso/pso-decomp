@@ -4,17 +4,11 @@
 
 extern "C" {
 
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 int queue_destruction__7TObjectFv(void*);
 
-extern s32 __vt__13TUnk_804A5D10[];
 
 }
 TUnk_804A5D10::~TUnk_804A5D10() {
 
 }
-extern "C" {
-}
-
 int expire_weapon_casing(void* p) { return queue_destruction__7TObjectFv(p); }

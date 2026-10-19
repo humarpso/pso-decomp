@@ -17,8 +17,6 @@ extern s32 lbl_805D6DA0;
 void *mem_alloc(u32 size);
 s32 __ct__7TObjectFP7TObject();
 extern s32 __vt__13TUnk_804EFA88[];
-s32 __dl__7TObjectFPv(void *);
-s32 __dt__7TObjectFv(void *, s32);
 void mem_free(void *p);
 
 }

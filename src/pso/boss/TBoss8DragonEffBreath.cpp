@@ -20,14 +20,9 @@ struct Obj_802FE024 {
 
 extern "C" {
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
-void *__ct__7TObjectFP7TObject(void *, void *);
-extern s32 __vt__21TBoss8DragonEffBreath[];
 extern s32 TBoss8DragonEffBreath__name;
 extern const f32 lbl_805DEEF8;
-Obj_802FE024 *__ct__21TBoss8DragonEffBreathFP7TObjectPvPvls(Obj_802FE024 *self, void *parent, void *p, void *v, s32 a, s16 b);
 s32 vec3_add_to(void *, void *);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 u8 *get_enemy_entity(u16 arg0);
 void queue_destruction__7TObjectFv(void *arg0);
 
@@ -57,8 +52,6 @@ TBoss8DragonEffBreath::~TBoss8DragonEffBreath() {
     delete_buffer__12TBoss8DragonFis((s32)(*(void **)((s8 *)this + 0x3C)), 1);
     this->m_3c = 0;
 }
-extern "C" {
-}
 TBoss8DragonEffBreath::TBoss8DragonEffBreath(TObject *parent, void *p, void *v, s32 a, s16 b) : TObject(parent) {
     void *h;
     *(s32 *)this = TBoss8DragonEffBreath__name;
@@ -74,7 +67,4 @@ TBoss8DragonEffBreath::TBoss8DragonEffBreath(TObject *parent, void *p, void *v, 
         h = TBoss8Dragon__sub_800BC5EC((u8 *)h, 4);
     }
     ((Obj_802FE024 *)this)->h = h;
-}
-extern "C" {
-
 }

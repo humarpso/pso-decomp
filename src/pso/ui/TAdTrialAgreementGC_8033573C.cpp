@@ -34,7 +34,6 @@ s32 __nw__7TObjectFUl(int);
 s32 TAdAgreementBaseGC__ct(void *);
 extern s32 __vt__19TAdTrialAgreementGC[];
 extern s32 TAdTrialAgreementGC__name;
-void __dl__7TObjectFPv(void *);
 s32 wait_for_load__19TAdTrialAgreementGCFv(s32);
 
 extern s32 pso_system_card_filename[];

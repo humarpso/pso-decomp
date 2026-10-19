@@ -8,8 +8,6 @@
 
     extern void* boss8_dragon_leader_part;
 extern "C" {
-void *__nw__7TObjectFUl(int);
-void __ct__7TObjectFP7TObject(void *);
 extern s32 __vt__13TUnk_804E4BF0[];
 extern void *boss8_dragon_leader_part;
 s32 __dl__7TObjectFPv(void *);

@@ -14,8 +14,6 @@ struct RecoveredGlobal_8023CE54_lbl_804CCD78 {
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__13TUnk_804CCD78[];
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 s32 queue_destruction__7TObjectFv();
 
 void TUnk_804CCD78::run_task() {

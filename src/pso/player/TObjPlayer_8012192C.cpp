@@ -13,9 +13,7 @@ int rotate_matrix_x(void*, void*);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
 s32 roll_technique__11TItemWeaponFv(void *);
 int get_player_list__10TObjPlayerFv(void*);
-void __dl__7TObjectFPv(void *);
 
-extern s32 __vt__13TUnk_804A0AA8[];
 
 }
 TUnk_804A0AA8::~TUnk_804A0AA8() {

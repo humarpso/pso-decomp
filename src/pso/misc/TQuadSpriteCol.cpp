@@ -60,9 +60,6 @@ extern const f32 lbl_805DC450;
 extern const f32 lbl_805DC454;
 extern "C" {
 void *TQuadSpriteCol__ct(void *arg0);
-void *__dt__14TQuadSpriteColFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void *__dt__13TUnk_804C57F0Fv(void *arg0, s16 arg1);
 void quad_sprite_base_ct(void *);
 
 void TUnk_804C57F0::render() {  }

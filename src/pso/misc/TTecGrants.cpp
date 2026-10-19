@@ -80,8 +80,6 @@ s32 __ct__13TUnk_804CC148Flll(void *, void *, void *, void *);
 extern s32 __vt__10TTecGrants[];
 extern s32 tec_grants_class_name;
 u8 *TTecGrants__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-void *__dt__10TTecGrantsFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
 
 void TTecGrants::render() {  }
 

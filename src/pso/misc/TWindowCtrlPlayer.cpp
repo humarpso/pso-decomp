@@ -23,8 +23,6 @@ struct Ctl_8024E2A8 {
 
 extern "C" {
 
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 void run_all_updates__11TWindowCtrlFv(void* p);
 
 s32 is_split_screen(void);
@@ -39,7 +37,6 @@ extern s32 TWindowCtrlPlayer__name;
 void TWindowCtrlPlayer::render() {  }
 void TWindowCtrlPlayer::run_task() { sub_8024E0F0(); run_all_updates__11TWindowCtrlFv(this); }
 
-extern s32 __vt__17TWindowCtrlPlayer[];
 
 }
 TWindowCtrlPlayer::~TWindowCtrlPlayer() {
@@ -49,8 +46,6 @@ TWindowCtrlPlayer::~TWindowCtrlPlayer() {
     if (*(void **)((s8 *)this + 0x30) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)this + 0x30))); this->m_30 = 0; }
     if (*(void **)((s8 *)this + 0x2C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)this + 0x2C))); this->m_2c = 0; }
     if (*(void **)((s8 *)this + 0x28) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x28)); this->m_28 = 0; }
-}
-extern "C" {
 }
 s32 create_message_information_window(s32 arg0, s32 arg1, s32 arg2);
 s32 create_status_window(s32 arg0);

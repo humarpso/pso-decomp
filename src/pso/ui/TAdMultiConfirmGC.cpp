@@ -48,12 +48,8 @@ void *get_or_create_player__22TAdMultiPlyChrSelectGCFiiii(void *, u32, u32, s32)
 void fn_802FF7EC(void *);
 void *__ct__12TAdMultiOkGCFv(void *, void *, OkArg_802FFA3C *);
 void __ct__18TAdMultiPlayerNoGCFv(void *, void *, u32, u32, s32);
-extern s32 __vt__17TAdMultiConfirmGC[];
 extern s32 TAdMultiConfirmGC__name;
 extern u8 lbl_805DEF30;
-void *__dt__17TAdMultiConfirmGCFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 void fn_802FF760(void *);
 
 void TAdMultiConfirmGC::render() {  }
@@ -105,8 +101,6 @@ void TAdMultiConfirmGC::run_task() {
 }
 TAdMultiConfirmGC::~TAdMultiConfirmGC() {
     fn_802FF760(this);
-}
-extern "C" {
 }
 #pragma push
 #pragma opt_common_subs off

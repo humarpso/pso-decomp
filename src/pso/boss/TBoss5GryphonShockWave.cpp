@@ -25,12 +25,9 @@ extern s32 boss5_gryphon_texture_list;
 extern const f32 lbl_805D8EE8;
 s32 vec3_add_to(void *, s32);
 s32 subtract_vector(void *, void *);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 
 void TBoss5GryphonShockWave::render() {  }
 
-extern s32 __vt__22TBoss5GryphonShockWave[];
 
 void TBoss5GryphonShockWave::run_task() {
     u8 *arg0 = (u8 *)this;

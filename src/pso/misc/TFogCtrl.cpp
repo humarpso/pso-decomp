@@ -194,7 +194,6 @@ void *mem_alloc(u32 size);
 void __dl__7TObjectFPv(s32);
 u32 __nw__7TObjectFUl(int);
 u8 * __dt__7TObjectFv(void *, s16);
-void __ct__7TObjectFP7TObject(void *, void *);
 void GXInitFogAdjTable(GXFogAdjTable_800FAE1C *, s32, void *);
 void GXSetFogRangeAdj(s32, s32, GXFogAdjTable_800FAE1C *);
 f32 sin_table_lookup(s32);

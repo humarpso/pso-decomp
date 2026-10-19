@@ -37,13 +37,10 @@ s32 is_flag_set__11TLoadingCurFv(void *, int);
 s32 is_on_current_screen__11TCameraCtrlFv(int, int);
 extern const f32 lbl_805DD478;
 extern const f32 lbl_805DD47C;
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
 
 void TWindowSubAreaMap::render() {  }
 
-extern s32 __vt__17TWindowSubAreaMap[];
 
 typedef char RecoveredGlobal_80271480_lbl_8050E208_size[sizeof(RecoveredGlobal_80271480_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void TWindowSubAreaMap::run_task() {

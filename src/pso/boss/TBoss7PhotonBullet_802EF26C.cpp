@@ -172,7 +172,6 @@ typedef struct Pad_802EF604 {
 } Pad_802EF604;
 
 extern "C" {
-s32 __ct__7TObjectFP7TObject(void *, s32);
 extern Ent_802EF74C boss7_photon_bullet_level_table[];
 extern void *__vt__15TBoss7PhotonPad[];
 extern s32 lbl_805D3FD0;

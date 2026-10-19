@@ -50,7 +50,6 @@ void *__dt__13TUnk_80488B38Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_80488A28Fv(void *arg0, s16 arg1);
 int __ct__13TUnk_80488A28Fv(void);
 void __dl__7TObjectFPv(void *);
-void *__nw__7TObjectFUl(int);
 
     extern unsigned char lbl_80488B08[];
     extern int TCameraCtrl__fixed_npc_camera_active;
@@ -226,8 +225,6 @@ s32 approach_angle_limited(s32, s32, s32);
 TUnk_80488B38::TUnk_80488B38() : TUnk_80488A28() {
     *(float *)&this->unk_6C = 10.0f;
     this->m_38 = 0;
-}
-extern "C" {
 }
 extern const f32 lbl_805D901C;
 extern const f32 lbl_805D9018;

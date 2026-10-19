@@ -82,8 +82,6 @@ struct Sp8Buf20_80206494 {
 
 s32 TScene__sub_80205AE8(s32 *);
 s32 TScene__sub_80205FD4(void *);
-s32 __dl__7TObjectFPv(void *);
-s32 __dt__7TObjectFv(void *, s32);
 void *__nw__7TObjectFUl(int);
 
 }

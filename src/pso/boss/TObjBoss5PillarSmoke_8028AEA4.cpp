@@ -22,11 +22,8 @@ struct Smoke_8028AF6C {
 };
 
 extern "C" {
-void __dt__7TObjectFv(void *, s32);
 void mem_free(void *);
-void __dl__7TObjectFPv(void *);
 extern s32 __vt__20TObjBoss5PillarSmoke[];
-Smoke_8028AEA4 *__dt__20TObjBoss5PillarSmokeFv(Smoke_8028AEA4 *arg0, s16 arg1);
 void *mem_alloc(u32 size);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 lbl_80450CD0[];

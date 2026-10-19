@@ -12,7 +12,6 @@ struct Obj_8022F42C { u8 pad[0xA6]; s16 state; };
 extern "C" {
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
-s32 __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 

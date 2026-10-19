@@ -90,8 +90,6 @@ void TUnk_804CC148::sub_8022C008() {
 #define count_if_within_range__13TUnk_804CC148Fv ((s32 (*)(void *))count_if_within_range__13TUnk_804CC148Fv)
 #define __vt__13TUnk_804CC148 ((s32 *)__vt__13TUnk_804CC148)
 void free_collision_body_parts(void *);
-void __dl__7TObjectFPv(void *);
-void __dt__7TEffectFv(void *, int);
 
 void TUnk_804CC148::run_task() {
 
@@ -110,10 +108,6 @@ void TUnk_804CC148::run_task() {
 TUnk_804CC148::~TUnk_804CC148() {
     if (*(void * *)&this->m_e8 != NULL) { free_collision_body_parts(*(void * *)&this->m_e8); }
 }
-extern "C" {
-
-}
-
 #undef sub_8022C008__13TUnk_804CC148Fv
 #undef count_if_within_range__13TUnk_804CC148Fv
 #undef __vt__13TUnk_804CC148

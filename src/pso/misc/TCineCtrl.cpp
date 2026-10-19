@@ -33,7 +33,6 @@ void TCameraCtrl__sub_80068EF0(void);
 extern const f32 lbl_805D91D4;
 extern const f32 lbl_805D91D8;
 extern const f32 lbl_805D91DC;
-void __ct__7TObjectFP7TObject(void *, void *);
 
 extern void *TCineCtrl__instance;
 

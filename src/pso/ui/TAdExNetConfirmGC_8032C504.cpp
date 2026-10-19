@@ -38,7 +38,6 @@ typedef char RecoveredGlobal_8032C618___vt__17TAdExNetConfirmGC_size[sizeof(Reco
 extern "C" {
 extern s32 __vt__17TAdExNetConfirmGC[];
 extern s32 lbl_805D4200;
-void __dl__7TObjectFPv(void *);
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 
 void TAdExNetConfirmGC::render() {

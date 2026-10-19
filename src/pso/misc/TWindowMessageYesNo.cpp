@@ -12,15 +12,11 @@
 extern "C" {
 void *__ct__19TWindowMessageYesNoFP7TObjectPvPvPv(void *, void *, void *, void *, void *);
 void *__ct__19TWindowMessageYesNoFP7TObjectPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
-void *__dt__19TWindowMessageYesNoFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 
 void TWindowMessageYesNo::render() {  }
 
 void TWindowMessageYesNo::run_task() { if (is_child_visible() != 0) { ((TWindowMenu *)(this->m_28))->confirm_selection(); } }
 
-extern s32 __vt__19TWindowMessageYesNo[];
 
 void *TWindowMessageYesNo::create(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;

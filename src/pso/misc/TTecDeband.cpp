@@ -75,8 +75,6 @@ s32 is_split_screen();
 s32 is_script_controlled__10TObjPlayerFv(void *);
 void copy_technique_target_list(void *, void *, s32);
 s32 calc_technique_parameters(s32, s16, s32);
-void __dl__7TObjectFPv(void *);
-void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
 int spawn_support_tec_range_effect(void*);
 

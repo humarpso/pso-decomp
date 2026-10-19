@@ -8,8 +8,6 @@
 extern "C" {
 
 s32 play_sound_effect(s32, void *, s32, s32);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 
 void TUnk_804CCA90::run_task() {
     u8 *arg0 = (u8 *)this;
@@ -20,12 +18,8 @@ void TUnk_804CCA90::run_task() {
     }
 }
 
-extern s32 __vt__13TUnk_804CCA90[];
 
 }
 TUnk_804CCA90::~TUnk_804CCA90() {
-
-}
-extern "C" {
 
 }

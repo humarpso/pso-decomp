@@ -46,12 +46,8 @@ struct Ctl_80232C50 {
 };
 
 extern "C" {
-void __dt__7TObjectFv(void *, s32);
 void mem_free(void *);
-void __dl__7TObjectFPv(void *);
 extern Ent_80232E0C grants_effect_emitter_table[];
-extern u8 __vt__13TUnk_804CC888[];
-Obj_80232E0C *__dt__13TUnk_804CC888Fv(Obj_80232E0C *arg0, s16 arg1);
 void __ct__7TObjectFP7TObject(void *self, void *parent);
 extern u8 __vt__13TUnk_804CC870[];
 extern const f32 lbl_805DC844;

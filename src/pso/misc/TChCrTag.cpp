@@ -20,7 +20,6 @@ struct VObj_18_c1c33b : VBase_18_c1c33b {
 extern "C" {
 extern const f32 lbl_805DDE00;
 extern const f32 lbl_805DDE04;
-void __ct__7TObjectFP7TObject(void *);
 void __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(void *);
 void render_shadows__7TObjectFv(void);

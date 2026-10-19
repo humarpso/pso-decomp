@@ -16,11 +16,8 @@ extern "C" {
 s32 TBoss8Dragon__sub_8005D700(void *self);
 extern u8 boss5_gryphon_snarl_effect_id_table[];
 extern void *TBoss5GryphonSnarl__effect_table;
-void __ct__7TObjectFP7TObject(void *, void *);
-extern u8 __vt__18TBoss5GryphonSnarl[];
 extern s32 lbl_805D2820;
 extern const f32 lbl_805D8F0C;
-Obj_80066DC8 *__ct__18TBoss5GryphonSnarlFP7TObjectPv(Obj_80066DC8 *self, void *parent, void *arg2);
 
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 TLobby__sub_803DA16C(void*);

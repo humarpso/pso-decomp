@@ -10,11 +10,7 @@ struct R_8008197C { u8 pad[0x14]; Q_8008197C *q; };
 struct O_8008197C { u8 pad0[0x18]; void *f18; s32 f1c; s32 f20; u8 pad24[8]; s32 f2c; s32 f30; s32 f34; };
 
 extern "C" {
-void __dt__7TObjectFv(void *, int);
-void __dl__7TObjectFPv(void *);
 R_8008197C *TScene__sub_80081B24(void);
-extern u8 __vt__11TEF_PvrWave[];
-O_8008197C *__dt__11TEF_PvrWaveFv(O_8008197C *arg0, s16 arg1);
 }
 TEF_PvrWave::~TEF_PvrWave() {
     Q_8008197C *q;
@@ -23,7 +19,4 @@ TEF_PvrWave::~TEF_PvrWave() {
     q->arr[((O_8008197C *)this)->f20].b = ((O_8008197C *)this)->f30;
     q->arr[((O_8008197C *)this)->f20].a = ((O_8008197C *)this)->f2c;
     ((TAdSinglePlyChrSelectGC *)(((O_8008197C *)this)->f1c))->destroy_and_free(1);
-}
-extern "C" {
-
 }

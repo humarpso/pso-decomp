@@ -26,8 +26,6 @@ extern RecoveredGlobal_800FA95C_lbl_80515F48 lbl_80515F48;
 extern s32 lbl_805D2B1C;
 s32 TFogCtrl__sub_800FAC84(void *p);
 int parse_serial_value__22TAdEnterSerialAccessGCFv(void*);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *arg0);
 int update_all__8TFogCtrlFv(void*);
 

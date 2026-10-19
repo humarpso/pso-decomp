@@ -16,14 +16,11 @@ s32 update_wait_confirm__17TMCFormatSequenceFPv();
 s32 check_memcard_load_result__17TMCFormatSequenceFv();
 s32 process_format_result__17TMCFormatSequenceFv();
 s32 open_windows__17TMCFormatSequenceFv();
-void *__ct__17TMCFormatSequenceFP7TObjectPv(TMCFormatSequence *arg0, void *arg1, void *arg2);
-void __ct__7TObjectFP7TObject(void *);
 char TQuestVmDownLoadServer__data_804C8690[0xC] = "\xB8\xB4\xBD\xC4\xCC\xA7\xB2\xD9";
 s32 TWindowShortListCtrl__check_controller_button(void*, s32);
 struct RecoveredGlobal_801F6C74_lbl_8050E208;
 void TQuestVmDownLoadServer__sub_801F6B98(void);
 }
-extern s32 __vt__17TMCFormatSequence[];
 extern void *TMCFormatSequence__class_name;
 extern RecoveredGlobal_801F6C74_lbl_8050E208 controller_input_state;
 extern s32 TQuestVmDownLoadServer__instance;

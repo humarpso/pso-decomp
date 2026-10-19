@@ -8,7 +8,6 @@
 extern "C" {
 
 s32 play_sound_effect(int, void *, int, int);
-s32 __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 

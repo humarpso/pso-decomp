@@ -183,7 +183,6 @@ extern s32 TBoss2PhotonPad__name;
 s32 get_instance__13TBoss2DeRolLeFv(void);
 void *__nw__7TObjectFUl(u32);
 S_80039288 *__ct__15TBoss2PhotonPadFv(S_80039288 *o, void *parent, s32 arg2, void *arg3, s32 arg4);
-void __dt__7TObjectFv(void *, s16);
 void render_shadows__7TObjectFv(void);
 
 void TBoss2PhotonPad::render() {  }
